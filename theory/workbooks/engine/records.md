@@ -1,17 +1,17 @@
 # Records
 
 **Purpose:** The commit and pull request texts written for the engine, dated, as they were written. The reasons for each change travel with the workbook.
-**Scope:** 24 and 25 September: commits to dstroy0/cell_tracking main, each with its hash and its time (UTC−4), and the three pull requests carried into dstroy0/anchor_sift with their commits. A commit's subject is its heading and its message follows. A pull request's own headings sit one level under its record. The other commits of those days keep their messages in the repository's history. The cell program's texts are in the cell workbook's records.md. Each text sits between quote markers that hold it verbatim for the prose gate, and only its spelling is corrected.
+**Scope:** 24 and 25 September: commits to dstroy0/cell_tracking main, each with its hash and its time (UTC−4), and the three pull requests carried into dstroy0/orior with their commits. A commit's subject is its heading and its message follows. A pull request's own headings sit one level under its record. The other commits of those days keep their messages in the repository's history. The cell program's texts are in the cell workbook's records.md. Each text sits between quote markers that hold it verbatim for the prose gate, and only its spelling is corrected.
 
 ## 24 September
 
-### 15:50, anchor_sift #6 (4c42d0e): record machine: a quotient by a constant is narrower; theory: heap, ring, lens
+### 15:50, orior #6 (4c42d0e): record machine: a quotient by a constant is narrower; theory: heap, ring, lens
 
 <!-- docs-check: quoting -->
 
 The pull request's text:
 
-This PR follows #5. It brings the record machine's width fix and the heap/ring/lens theory from dstroy0/cell_tracking main (a5ec78f and 79c259f) into anchor_sift.
+This PR follows #5. It brings the record machine's width fix and the heap/ring/lens theory from dstroy0/cell_tracking main (a5ec78f and 79c259f) into orior.
 
 #### Engine
 
@@ -150,7 +150,7 @@ regenerated.
 
 <!-- docs-check: end quoting -->
 
-### 16:49, anchor_sift #7 (d45794d): test: the crystal as a boundary, the two crystals and the odd crystals
+### 16:49, orior #7 (d45794d): test: the crystal as a boundary, the two crystals and the odd crystals
 
 <!-- docs-check: quoting -->
 
@@ -316,7 +316,7 @@ and the vertical time compression Open item.
 
 <!-- docs-check: end quoting -->
 
-### 17:55, anchor_sift #8 (82db58c): sim: the knf's identity by spatial null permutation; test: the crystal's identity
+### 17:55, orior #8 (82db58c): sim: the knf's identity by spatial null permutation; test: the crystal's identity
 
 <!-- docs-check: quoting -->
 

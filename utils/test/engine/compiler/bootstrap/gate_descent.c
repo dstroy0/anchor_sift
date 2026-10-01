@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // gate_descent.c: the gate run as the engine's own sift descent, against every arrangement asked every case
 //
-// The gate decides which arrangements hold a relation. Here it is the descent anchor_sift already runs over any
+// The gate decides which arrangements hold a relation. Here it is the descent orior already runs over any
 // field it can ask equality of. Each arrangement chain_build keeps against a relation's ladder cases is an
 // alignment, the needle is those cases and then the words chain_build's own sweep puts, and the oracle answers
 // whether an arrangement gives a case the word the relation gives it.
@@ -20,7 +20,7 @@
 // the descent placed.
 #include "../../../../../src/engine/compiler/bootstrap/chain_build.h"
 #include "../../../../../src/engine/compiler/bootstrap/run_channel.h"
-#include "../../../../../src/engine/nbody/anchor_sift/anchor_sift.h"
+#include "../../../../../src/engine/nbody/orior/orior.h"
 
 #include <stdio.h>
 #include <string.h>

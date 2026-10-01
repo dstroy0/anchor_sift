@@ -1,0 +1,1764 @@
+where	who	kind	form	gloss
+front	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+front	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+front	Marianne Huijsmans	language	Nsyílxcən	Nsyílxcən, Okanagan
+front	Marianne Huijsmans	language	Hul’q’umi’num’	Hul’q’umi’num’
+front	Marianne Huijsmans	title	ʔayʔaǰuθəm Lexical Categories*	page 1
+front	Marianne Huijsmans	byline	Marianne Huijsmans, University of Alberta	page 1
+front	Marianne Huijsmans	note	Abstract: Salish languages have famously been claimed not to differentiate lexical categories of verbs, nouns, and adjectives (e.g., Kuipers 1967; Kinkade 1983; Jelinek and Demers 1982, 1994). However, these claims have been countered with evidence for distinct lexical categories in a number of languages, including St’át’imcets (e.g., Van Eijk and Hess 1986; Demirdache and Matthewson 1995; Davis and Matthewson 1999; Davis 2011), Straits (Montler 2003), Nsyílxcən (Lyon 2013), and Hul’q’umi’num’ (Gerdts and Schneider 2023). In this paper, I argue that distinct lexical categories of noun, verb, and adjective are also found in ʔayʔaǰuθəm (a.k.a. Comox-Sliammon). I present syntactic evidence for these categories drawing on tests developed for St’át’imcets (e.g. Davis 2011; Davis and Matthewson 1999; Demirdache and Matthewson 1995). I also present morphological evidence building on observations in Watanabe (2003). These findings reinforce the increasingly prevalent view that nouns, verbs, and adjectives exist throughout the Salish language family.	page 1
+front	Marianne Huijsmans	note	Keywords: ʔayʔaǰuθəm (Comox-Sliammon), lexical categories, syntax, morphology	page 1
+front	Marianne Huijsmans	name	Marianne Huijsmans	author, University of Alberta
+§1	Marianne Huijsmans	heading	1 Introduction	page 1
+§1	Marianne Huijsmans	note	Lexical categories such as noun, verb, and adjective play an important role in the organization of a language’s sentence structure, or syntax. Words of the same lexical category share a distribution. In English, for example, nouns appear immediately following determiners and adjectives: the big {dog, news, building}. Knowing a word’s lexical category is therefore useful for language learners figuring out where the word can appear in a sentence. Establishing lexical categories cross-linguistically is also of interest for our understanding of human language more broadly, since we ultimately want to know whether categories such as noun and verb exist universally across languages (as claimed in, e.g., Chomsky 1965).	page 1
+§1	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§1	Marianne Huijsmans	language	Nsyílxcən	Nsyílxcən, Okanagan
+§1	Marianne Huijsmans	language	Hul’q’umi’num’	Hul’q’umi’num’
+§1	Marianne Huijsmans	note	Salish languages have famously been claimed to lack lexical categories of verbs, nouns, and adjectives, having a single open class category (e.g., Jelinek and Demers 1982, 1994; Kinkade 1983; Kuipers 1967). However, a series of papers provide important evidence for distinct cate- gories of nouns, verbs, and adjectives in St’át’imcets (e.g., Van Eijk and Hess 1986; Demirdache and Matthewson 1995; Davis and Matthewson 1999; Davis 2011). These arguments have also been replicated for Nsyílxcən (Lyon 2013), and evidence for distinct lexical categories is also available for Lushootseed (Van Eijk and Hess 1986), Straits (Montler 2003), and Hul’q’umi’num’ (Gerdts and Schneider 2023).	page 1
+footnote *	Marianne Huijsmans	note	* I am deeply grateful to all the Elders who have shared their language with me, especially Elsie Paul, Betty Wilson, and Freddie Louie who contributed directly to this paper. Without their dedication to documenting their language, this paper would not be possible, and their generousity, good humour, and patience mean that working with them is always so enjoyable. I also want to thank the Salish Working Group for very helpful discussion at an earlier presentation of this work, as well as members of the ʔayʔaǰuθəm lab for ongoing discussion. I’m also grateful to the members of the ʔayʔaǰuθəm dictionary team, who got me thinking seriously about this topic with their questions. This research has been funded by the Jacobs Research Funds and start-up funds from the University of Alberta. Contact info: huijsman@ualberta.ca	page 1, footnote
+footnote *	Marianne Huijsmans	name	Elsie Paul	an Elder who contributed to the paper, EP in the tags
+footnote *	Marianne Huijsmans	name	Betty Wilson	an Elder who contributed to the paper, BW in the tags
+footnote *	Marianne Huijsmans	name	Freddie Louie	an Elder who contributed to the paper
+front	Marianne Huijsmans	note	Papers for the International Conference on Salish and Neighbouring Languages 58, D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1, the volume, set in the footnote
+§1	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§1	Marianne Huijsmans	note	In this paper, I extend these arguments to ʔayʔaǰuθəm (a.k.a. Comox-Sliammon; Central Salish). Watanabe (2003:72–76) provides initial evidence from morphology (word formation) for lexical categories in ʔayʔaǰuθəm. Building on this evidence, I show that there are distinct categories of nouns, verbs, and adjectives in ʔayʔaǰuθəm, providing both syntactic and morphological evidence for these categories. In the process, I also note where the results of applying the tests used in previous work are inconclusive or give different results for ʔayʔaǰuθəm.	page 2
+§1	Marianne Huijsmans	note	The organization of this paper is as follows. In Section 2, I provide language background for ʔayʔaǰuθəm and situate this paper relative to documentation projects underway. In Sections 3 and 4, I illustrate the difficulties for identifying lexical categories in ʔayʔaǰuθəm, due to the flexibility with which words of different categories are used in different syntactic roles and the prevalence of morphology that applies across categories. In Section 5, I argue for a category of nouns distinct from other open class elements. In Section 6, I argue that verbs and adjectives can also be distinguished for a three-way noun, verb, adjective contrast. In Section 7, I then apply these diagnostics to some challenging cases for categorization. Finally, in 8, I conclude with a discussion of the implications of these findings for the ongoing dictionary project as well as for our understanding of the status of lexical categories in the Salish language family.	page 2
+§2	Marianne Huijsmans	heading	2 Language background	page 2
+§2	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§2	Marianne Huijsmans	name	Tla’amin	the Tla’amin Nation, one of the four whose language ʔayʔaǰuθəm is
+§2	Marianne Huijsmans	name	K’ómoks	the K’ómoks Nation, one of the four whose language ʔayʔaǰuθəm is
+§2	Marianne Huijsmans	language	ʔayʔaǰuθəm-speaking	ʔayʔaǰuθəm, in ʔayʔaǰuθəm-speaking communities
+§2	Marianne Huijsmans	note	ʔayʔaǰuθəm is a Central Salish language, the ancestral language of the Tla’amin, Homalco, Kla- hoose, and K’ómoks Nations whose traditional territory lies along the northern Georgia Strait in BC. As of 2018, the First Peoples’ Cultural Council reported 47 first language speakers, all over 60, while in 2022, the First Peoples’ Cultural Council reported that only 3% of the population of the traditionally ʔayʔaǰuθəm-speaking peoples identify as fluent.	page 2
+§2	Marianne Huijsmans	note	At the same time, 9% of the population identify as language learners, and there is a dedicated group of language champions documenting, learning, and teaching the language. The language is taught in local schools, a language nest in Homalco, various mentor-apprentice pairings, and adult language classes in Tla’amin and Homalco. Tla’amin, Homalco, and Klahoose are all contributing documentation to FirstVoices1 webpages. In addition, the four nations are partnering with linguists on two major documentation projects: a dictionary and a teaching grammar. Both are targeted es- pecially for learners and teachers of the language.	page 2
+§2	Marianne Huijsmans	note	It is in the context of the dictionary project that the question of lexical categories in ʔayʔaǰuθəm is especially pertinent. Including lexical category information in a dictionary can be helpful to readers, especially language learners, aiding understanding of how the words may be used. However, in order for such categorization to accurately reflect the grammar of the language, it is necessary to determine whether/how these lexical categories are grammatically relevant in the language, and language- internal diagnostics for identifying lexical categories are needed. Relying on English translations can, of course, be misleading and risks imposing English grammar on the language.	page 2
+§3	Marianne Huijsmans	heading	3 Predicate-argument flexibility in ʔayʔaǰuθəm	page 2
+footnote 1	Marianne Huijsmans	note	1 www.firstvoices.com	page 2, footnote
+§3	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§3	Marianne Huijsmans	note	The claim that Salish languages lack lexical categories is rooted in the flexibility with which words of different lexical categories are used. In characterizing this flexibility, it is useful to refer to pred- icates and arguments. So, what are predicates and what are arguments? Typical arguments are subjects and objects. A subject is the entity the sentence is about, and every sentence has a subject: Rex is a dog, the dog barked. A predicate typically carries the main information of a sentence, telling you something about the subject, such as what the subject is, does, or feels: Rex is a dog, the dog barked, the dog is excited. An object is an additional argument found with certain predicates, naming the entity towards which the action or state described by the predicate is directed: the dog chased the squirrel, the dog loves the cat. In ʔayʔaǰuθəm and other Salish languages, the predicate comes first, followed by its arguments.	page 2
+§3	Marianne Huijsmans	note	In this section, I will show that nouns, verbs, and adjectives can all occur initially, functioning as the main predicate, or occur later in the sentence with a preceding determiner, functioning as an argument. In the literature on Salish languages, this is known as predicate-argument flexibility. Initial examples from Watanabe (2003) showing nouns, verbs, and adjectives behaving predicatively are given in (1).2	page 3
+(1a) line 1	ʔayʔaǰuθəm	transcription	ʔamotč.	page 3, pairs
+(1a) line 2	ʔayʔaǰuθəm	segmentation	ʔamut=č	page 3, pairs
+(1a) line 3	ʔayʔaǰuθəm	gloss	be.home=1sg.sbj	page 3, pairs
+(1a) line 4	Watanabe 2003:66–68	translation	‘I am at home.’	page 3, pairs, the tag or source closing the set
+(1a) line 4	Marianne Huijsmans	citation	[verb]	the tag or source at the right of the translation
+(1b) line 1	ʔayʔaǰuθəm	transcription	mančxʷʊm.	page 3, pairs
+(1b) line 2	ʔayʔaǰuθəm	segmentation	man=čxʷ=əm	page 3, pairs
+(1b) line 3	ʔayʔaǰuθəm	gloss	father=2sg.sbj=fut	page 3, pairs
+(1b) line 4	Watanabe 2003:66–68	translation	‘You’re going to be a father.’	page 3, pairs, the tag or source closing the set
+(1b) line 4	Marianne Huijsmans	citation	[noun]	the tag or source at the right of the translation
+(1c) line 1	ʔayʔaǰuθəm	transcription	Mary	page 3, pairs
+(1c) line 2	ʔayʔaǰuθəm	segmentation	Mary	page 3, pairs
+(1c) line 3	ʔayʔaǰuθəm	gloss	Mary	page 3, pairs
+(1c) line 4	ʔayʔaǰuθəm	transcription	kʷʊtᶿ nan.	page 3, pairs
+(1c) line 5	ʔayʔaǰuθəm	segmentation	kʷ=ətᶿ=nan	page 3, pairs
+(1c) line 6	ʔayʔaǰuθəm	gloss	det=1sg.poss=name	page 3, pairs
+(1c) line 7	Watanabe 2003:66–68	translation	‘My name is Mary.’	page 3, pairs, the tag or source closing the set
+(1c) line 7	Marianne Huijsmans	citation	[noun]	the tag or source at the right of the translation
+(1d) line 1	ʔayʔaǰuθəm	transcription	pəq	page 3, pairs
+(1d) line 2	ʔayʔaǰuθəm	segmentation	pəq	page 3, pairs
+(1d) line 3	ʔayʔaǰuθəm	gloss	white	page 3, pairs
+(1d) line 4	ʔayʔaǰuθəm	transcription	tətᶿ ʔayɛʔ.	page 3, pairs
+(1d) line 5	ʔayʔaǰuθəm	segmentation	tə=tᶿ=ʔayaʔ	page 3, pairs
+(1d) line 6	ʔayʔaǰuθəm	gloss	det=1sg.poss=house	page 3, pairs
+(1d) line 7	Watanabe 2003:66–68	translation	‘My house is white.’	page 3, pairs, cited Watanabe 2003:66–68
+(1d) line 7	Marianne Huijsmans	citation	[adjective] (Watanabe 2003:66–68)	the tag or source at the right of the translation
+footnote 2	Marianne Huijsmans	note	2 The abbreviations used in this paper are: 1 = first person, 2 = second person, 3 = third person, act.intr = active intransitive, caus = causative, char = characteristic reduplication, cld = clausal demonstra- tive, clf.prt = clefting particle, comp = complementizer, conj = conjunction, cop = copula, cos = change-of- state reduplication, ctr = control transitive, dem = demonstrative, det = determiner, dim = diminutive, dprt = discourse particle, epen = epenthetic, erg = ergative, excl = exclusive, exclam = exclamative, f = feminine, fut = future, indef = indefinite, infer = inferential, ins = instrumental, int = intensifier, md = middle, nctr = non-control transitive, neg = negative, nmlz = nominalizer, obj = object, obl = oblique, pass = passive, pl = plural, poss = possessive, prf = perfect, prog = progressive, pst = past, q = question particle, rpt = reportative, sbj = subject, sbjv = subjunctive, sg = singular, stat = stative, tr = transitive. The top line of each ʔayʔaǰuθəm example (following the context, if present) is an orthographic representation, while the second line is a roughly phonemic transcription using NAPA. ‘vf’ stands for ‘volunteered form’, a form offered by the speaker, while ‘sf’ stands for ‘suggested form’, a form supplied by the author for the speaker to judge for grammaticality and/or felicity in a given context.	page 3, footnote
+§3	Marianne Huijsmans	note	Below, I provided additional examples with the same word serving both as the main predicate and as an argument.	page 3
+§3	ʔayʔaǰuθəm	cited form	wuwuwʊm	page 4, ‘singing’
+§3	ʔayʔaǰuθəm	cited form	nɛʔ	page 4
+§3	ʔayʔaǰuθəm	cited form	ʔə	page 4
+§3	ʔayʔaǰuθəm	cited form	taʔa	page 4, ‘be over there’
+§3	ʔayʔaǰuθəm	cited form	tə	page 4
+§3	Marianne Huijsmans	note	The predicate-argument flexibility of verbs is shown in (2). Here, the verb wuwuwʊm ‘singing’ is first preceded by a determiner as the subject of the sentence in (2a) and then occurs as the main predicate in (2b), while the complex locative predicate nɛʔ ʔə taʔa ‘be over there’ occurs as the main predicate in (2a) and then as the subject argument following the determiner tə in (2b).3	page 4
+(2a) line 1	ʔayʔaǰuθəm	transcription	[nɛʔ	page 4, pairs
+(2a) line 2	ʔayʔaǰuθəm	segmentation	[niʔ	page 4, pairs
+(2a) line 3	ʔayʔaǰuθəm	gloss	be.there	page 4, pairs
+(2a) line 4	ʔayʔaǰuθəm	transcription	ʔə taʔa]	page 4, pairs
+(2a) line 5	ʔayʔaǰuθəm	segmentation	ʔə=taʔa]	page 4, pairs
+(2a) line 6	ʔayʔaǰuθəm	gloss	obl=dem	page 4, pairs
+(2a) line 7	ʔayʔaǰuθəm	transcription	[tə wuwuwʊm].	page 4, pairs
+(2a) line 8	ʔayʔaǰuθəm	segmentation	[tə=wu∼wuw-əm]	page 4, pairs
+(2a) line 9	ʔayʔaǰuθəm	gloss	det=prog∼sing-md	page 4, pairs
+(2a) line 10	Marianne Huijsmans	translation	‘The singing one is over there.’	page 4, pairs
+(2a) line 10	Marianne Huijsmans	citation	(vf | EP.2022/09/16)	the tag or source at the right of the translation
+(2b) line 1	ʔayʔaǰuθəm	transcription	[wuwuwʊm]	page 4, pairs
+(2b) line 2	ʔayʔaǰuθəm	segmentation	[wu∼wuw-əm]	page 4, pairs
+(2b) line 3	ʔayʔaǰuθəm	gloss	prog∼sing-md	page 4, pairs
+(2b) line 4	ʔayʔaǰuθəm	transcription	[tə nɛʔ	page 4, pairs
+(2b) line 5	ʔayʔaǰuθəm	segmentation	[tə=niʔ	page 4, pairs
+(2b) line 6	ʔayʔaǰuθəm	gloss	det=be.there	page 4, pairs
+(2b) line 7	ʔayʔaǰuθəm	transcription	ʔə taʔa].	page 4, pairs
+(2b) line 8	ʔayʔaǰuθəm	segmentation	ʔə=taʔa]	page 4, pairs
+(2b) line 9	ʔayʔaǰuθəm	gloss	obl=dem	page 4, pairs
+(2b) line 10	Marianne Huijsmans	translation	‘The one over there is singing.’	page 4, pairs
+(2b) line 10	Marianne Huijsmans	citation	(vf | EP.2022/09/16)	the tag or source at the right of the translation
+§3	ʔayʔaǰuθəm	cited form	č̓ɩč̓noʔ	page 4
+§3	ʔayʔaǰuθəm	cited form	kʷinatəs	page 4
+§3	Marianne Huijsmans	note	Predicates with noun-like and adjective-like meaning show similar flexibility. In (3a), č̓ɩč̓noʔ ‘little dog’ appears as the direct object, preceded by the determiner tə, while in (3b), č̓ɩč̓noʔ ‘little dog’ appears in initial position as the main (nominal) predicate. The predicate in (3a), kʷinatəs ‘s/he is carrying [it]’, appears as the argument in (3b), preceded by a determiner.	page 4
+(3a) line 1	Marianne Huijsmans	note	Context: We invited Betty for dinner, but she is a little later than we expected, so we’ve been looking out for her. Then I see her coming, and she’ s carrying her dog.	page 4, pairs
+(3a) line 2	ʔayʔaǰuθəm	transcription	qʷoqʷol ti	page 4, pairs
+(3a) line 3	ʔayʔaǰuθəm	segmentation	qʷə∼qʷol̓=ti	page 4, pairs
+(3a) line 4	ʔayʔaǰuθəm	gloss	prog∼come=cld	page 4, pairs
+(3a) line 5	ʔayʔaǰuθəm	transcription	Betty.	page 4, pairs
+(3a) line 6	ʔayʔaǰuθəm	segmentation	Betty	page 4, pairs
+(3a) line 7	ʔayʔaǰuθəm	gloss	Betty	page 4, pairs
+(3a) line 8	ʔayʔaǰuθəm	transcription	[kʷinatəs]	page 4, pairs
+(3a) line 9	ʔayʔaǰuθəm	segmentation	[kʷin-at-as]	page 4, pairs
+(3a) line 10	ʔayʔaǰuθəm	gloss	carry-ctr-3erg	page 4, pairs
+(3a) line 11	ʔayʔaǰuθəm	transcription	[tə č̓ɩč̓n̓oʔs].	page 4, pairs
+(3a) line 12	ʔayʔaǰuθəm	segmentation	[tə=č̓a<č̓>n̓u<ʔ>-s]	page 4, pairs
+(3a) line 13	ʔayʔaǰuθəm	gloss	det=dog<dim>-3poss	page 4, pairs
+(3a) line 14	Marianne Huijsmans	translation	‘Betty is coming. She’s carrying her little dog.’	page 4, pairs
+(3a) line 14	Marianne Huijsmans	citation	(sf | EP.2023/05/19)	the tag or source at the right of the translation
+(3b) line 1	Marianne Huijsmans	note	Context: I see Daniel carrying something down on the beach. I’m wondering what it is.	page 4, pairs
+(3b) line 2	ʔayʔaǰuθəm	transcription	tam č̓ɛ	page 4, pairs
+(3b) line 3	ʔayʔaǰuθəm	segmentation	tam=č̓a	page 4, pairs
+(3b) line 4	ʔayʔaǰuθəm	gloss	what=infer	page 4, pairs
+(3b) line 5	ʔayʔaǰuθəm	transcription	tə kʷinatəs...	page 4, pairs
+(3b) line 6	ʔayʔaǰuθəm	segmentation	tə=kʷin-at-as	page 4, pairs
+(3b) line 7	ʔayʔaǰuθəm	gloss	det=carry-ctr-3erg	page 4, pairs
+(3b) line 8	ʔayʔaǰuθəm	transcription	[č̓ɩč̓noʔ]aʔk̓ʷa	page 4, pairs
+(3b) line 9	ʔayʔaǰuθəm	segmentation	[č̓a<č̓>nuʔ]=ala+k̓ʷa	page 4, pairs
+(3b) line 10	ʔayʔaǰuθəm	gloss	dog<dim>=exclam+rpt	page 4, pairs
+(3b) line 11	ʔayʔaǰuθəm	transcription	[tə kʷinatəs].	page 4, pairs
+(3b) line 12	ʔayʔaǰuθəm	segmentation	[tə=kʷin-at-as]	page 4, pairs
+(3b) line 13	ʔayʔaǰuθəm	gloss	det=carry-ctr-3erg	page 4, pairs
+(3b) line 14	Marianne Huijsmans	translation	‘I wonder what he’s carrying... Oh, it’s a puppy he’s carrying.’	page 4, pairs
+(3b) line 14	Marianne Huijsmans	citation	(vf | EP.2022/10/29)	the tag or source at the right of the translation
+§3	ʔayʔaǰuθəm	cited form	kʷin-at-as	page 4
+§3	ʔayʔaǰuθəm	cited form	tə=č̓a<č̓>n̓u<ʔ>-s	page 4
+§3	ʔayʔaǰuθəm	cited form	t̓at̓θɛm	page 4, ‘red’
+§3	ʔayʔaǰuθəm	cited form	kʷʊsɛm	page 4, ‘blue’
+§3	Marianne Huijsmans	note	The same pattern is found with adjective-like words. The colour term t̓at̓θɛm ‘red’ appears following a determiner to act as the subject in (4a), while the colour term kʷʊsɛm ‘blue’ appears initially as the main predicate in (4b).	page 4
+(4a) line 1	Marianne Huijsmans	note	Context: A bunch of kids are looking for Easter eggs. I help one of the kids out.	page 4, pairs
+(4a) line 2	ʔayʔaǰuθəm	transcription	[nɛʔ	page 4, pairs
+(4a) line 3	ʔayʔaǰuθəm	segmentation	[niʔ	page 4, pairs
+(4a) line 4	ʔayʔaǰuθəm	gloss	be.there	page 4, pairs
+(4a) line 5	ʔayʔaǰuθəm	transcription	ʔə taʔa]	page 4, pairs
+(4a) line 6	ʔayʔaǰuθəm	segmentation	ʔə=taʔa]	page 4, pairs
+(4a) line 7	ʔayʔaǰuθəm	gloss	obl=dem	page 4, pairs
+(4a) line 8	ʔayʔaǰuθəm	transcription	[tə t̓at̓ᶿɛm].	page 4, pairs
+(4a) line 9	ʔayʔaǰuθəm	segmentation	[tə=t̓at̓ᶿ-im]	page 4, pairs
+(4a) line 10	ʔayʔaǰuθəm	gloss	det=red-md	page 4, pairs
+(4a) line 11	Marianne Huijsmans	translation	‘There’s a red one over there.’	page 4, pairs
+(4a) line 11	Marianne Huijsmans	citation	(vf | EP.2022/10/29)	the tag or source at the right of the translation
+(4b) line 1	Marianne Huijsmans	note	Context: Felipe and I are at a store to buy a replacement cushion for one of our out- door chairs. We need a blue one to match the others in our set. We ask a person at the store, who points us to some we just looked at, but those ones are red.	page 5, pairs
+(4b) line 2	ʔayʔaǰuθəm	transcription	[kʷʊsɛm]	page 5, pairs
+(4b) line 3	ʔayʔaǰuθəm	segmentation	[kʷəs-im]	page 5, pairs
+(4b) line 4	ʔayʔaǰuθəm	gloss	blue-md	page 5, pairs
+(4b) line 5	ʔayʔaǰuθəm	transcription	[kʷʊtᶿ χaƛ̓],	page 5, pairs
+(4b) line 6	ʔayʔaǰuθəm	segmentation	[kʷ=ətᶿ=x̌aƛ̓].	page 5, pairs
+(4b) line 7	ʔayʔaǰuθəm	gloss	det=1sg.poss=desire	page 5, pairs
+(4b) line 8	ʔayʔaǰuθəm	transcription	hoy ʔot	page 5, pairs
+(4b) line 9	ʔayʔaǰuθəm	segmentation	huy=ʔut	page 5, pairs
+(4b) line 10	ʔayʔaǰuθəm	gloss	finish=excl	page 5, pairs
+(4b) line 11	ʔayʔaǰuθəm	transcription	tə t̓at̓ᶿɛm	page 5, pairs
+(4b) line 12	ʔayʔaǰuθəm	segmentation	tə=t̓at̓ᶿ-im	page 5, pairs
+(4b) line 13	ʔayʔaǰuθəm	gloss	det=red-md	page 5, pairs
+(4b) line 14	ʔayʔaǰuθəm	transcription	tə nɛʔ	page 5, pairs
+(4b) line 15	ʔayʔaǰuθəm	segmentation	tə=niʔ	page 5, pairs
+(4b) line 16	ʔayʔaǰuθəm	gloss	det=be.there	page 5, pairs
+(4b) line 17	ʔayʔaǰuθəm	transcription	ʔə taʔa.	page 5, pairs
+(4b) line 18	ʔayʔaǰuθəm	segmentation	ʔə=taʔa	page 5, pairs
+(4b) line 19	ʔayʔaǰuθəm	gloss	obl=dem	page 5, pairs
+(4b) line 20	Marianne Huijsmans	translation	‘I want a blue one. There’s only red ones over there.’	page 5, pairs
+(4b) line 20	Marianne Huijsmans	citation	(vf | EP.2022/10/29)	the tag or source at the right of the translation
+footnote 3	Marianne Huijsmans	note	3 The oblique marker ʔə is often elided, especially in this construction with nɛʔ ‘be there’.	page 4, footnote
+§3	ʔayʔaǰuθəm	cited form	χaχaɬ	page 5, ‘tall’
+§3	Marianne Huijsmans	note	Similarly, the property χaχaɬ ‘tall’ appears as a prenominal modifier in the direct object in (5a) and as the main predicate in (5b).	page 5
+(5a) line 1	Marianne Huijsmans	note	Context: I need help moving something that’ s on a high shelf. There’ s a tall guy stand- ing nearby with a few others.	page 5, pairs
+(5a) line 2	ʔayʔaǰuθəm	transcription	[gayɛt]tᶿəm	page 5, pairs
+(5a) line 3	ʔayʔaǰuθəm	segmentation	[gay-at]=tᶿ=əm	page 5, pairs
+(5a) line 4	ʔayʔaǰuθəm	gloss	ask-ctr=1sg.sbj=fut	page 5, pairs
+(5a) line 5	ʔayʔaǰuθəm	transcription	[tə χaχaɬ	page 5, pairs
+(5a) line 6	ʔayʔaǰuθəm	segmentation	[tə=x̌ax̌aɬ	page 5, pairs
+(5a) line 7	ʔayʔaǰuθəm	gloss	det=tall	page 5, pairs
+(5a) line 8	ʔayʔaǰuθəm	transcription	tumɩš	page 5, pairs
+(5a) line 9	ʔayʔaǰuθəm	segmentation	tumiš	page 5, pairs
+(5a) line 10	ʔayʔaǰuθəm	gloss	man	page 5, pairs
+(5a) line 11	ʔayʔaǰuθəm	transcription	nɛʔ	page 5, pairs
+(5a) line 12	ʔayʔaǰuθəm	segmentation	niʔ	page 5, pairs
+(5a) line 13	ʔayʔaǰuθəm	gloss	be.there	page 5, pairs
+(5a) line 14	ʔayʔaǰuθəm	transcription	ʔə taʔa].	page 5, pairs
+(5a) line 15	ʔayʔaǰuθəm	segmentation	ʔə=taʔa]	page 5, pairs
+(5a) line 16	ʔayʔaǰuθəm	gloss	obl=dem	page 5, pairs
+(5a) line 17	Marianne Huijsmans	translation	‘I’m going to ask the tall man over there.’	page 5, pairs
+(5a) line 17	Marianne Huijsmans	citation	(sf | EP.2022/09/16)	the tag or source at the right of the translation
+(5b) line 1	Marianne Huijsmans	note	Context: My car had broken down and a nice stranger helped me out. I had described the guy to you, and later at a gathering you point out someone and ask if it is the guy: hiyɛ tita ʔə č̓ɛgaθɛhoɬ ‘Is that the one who helped you?’ I reply:	page 5, pairs
+(5b) line 2	ʔayʔaǰuθəm	transcription	xʷaʔ,	page 5, pairs
+(5b) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ	page 5, pairs
+(5b) line 4	ʔayʔaǰuθəm	gloss	neg	page 5, pairs
+(5b) line 5	ʔayʔaǰuθəm	transcription	[χaχaɬ]	page 5, pairs
+(5b) line 6	ʔayʔaǰuθəm	segmentation	[x̌ax̌aɬ]	page 5, pairs
+(5b) line 7	ʔayʔaǰuθəm	gloss	tall	page 5, pairs
+(5b) line 8	ʔayʔaǰuθəm	transcription	[šɛ č̓ɛgaθoɬ].	page 5, pairs
+(5b) line 9	ʔayʔaǰuθəm	segmentation	[šə=č̓ag-aθ-uɬ]	page 5, pairs
+(5b) line 10	ʔayʔaǰuθəm	gloss	det=help-ctr;1sg.obj-pst	page 5, pairs
+(5b) line 11	Marianne Huijsmans	translation	‘No, the one who helped me was tall.’	page 5, pairs
+(5b) line 11	Marianne Huijsmans	citation	(sf | EP.2022/10/29)	the tag or source at the right of the translation
+§3	Marianne Huijsmans	note	The preceding examples show that nouns and adjectives do not require a verbal element in order to function as the main predicate. This is unlike in English, where nouns and adjectives must be accompanied by a copula (a ‘to be’ verb) in order to be predicates, as in: Sparky [is a dogN ]P red. and That man [is tallAd j]P red. Unlike in English, then, the presence/absence of a copula does not distinguish between verbs and nouns/adjectives used predicatively.	page 5
+§3	Marianne Huijsmans	note	Note that there is no null (silent) copula that could be accompanying the noun and adjectives functioning as predicates above. If there were, we would expect noun phrases headed by a determiner (= determiner phrases) and prepositional phrases to also be able to function as the main predicate, as pointed out in Jelinek and Demers (1994): a null copula should create a predicate from a determiner phrase or prepositional phrase, as an overt copula would. This is not the case.	page 5
+§3	ʔayʔaǰuθəm	cited form	hɛɬ	page 5
+§3	ʔayʔaǰuθəm	cited form	ʔətᶿ	page 5
+§3	ʔayʔaǰuθəm	cited form	qɛχ	page 5
+footnote 4	Marianne Huijsmans	note	4 Lyon (2013), the most extensive work on copular constructions for a Salish language, examines copular constructions in Nsyílxcən. Interestingly, there is no overt copula in Nsyílxcən, and Lyon finds evidence for a null copula, but only in equative constructions. There is no null predicational copula, meaning that nouns and adjectives are used directly as predicates, even though null copula exists in the language.	page 5, footnote
+§3	Marianne Huijsmans	language	Nsyílxcən	Nsyílxcən, Okanagan
+§3	Marianne Huijsmans	note	In (6a–b), a determiner phrase appears initially and the sentences are ungrammatical. Instead, a cleft structure must be used where the initial determiner phrase is introduced by the overt copula hɛɬ (6c), which is used in clefts and equatives. Alternately, ʔətᶿ qɛχ may appear directly as an NP predicate without a preceding determiner (7), in which case the copula hɛɬ is not used.4	page 5
+(6a) line 1	Marianne Huijsmans	note	Context: I’m pointing out my younger brother in a crowd.	page 6, pairs
+(6a) line 2	ʔayʔaǰuθəm	transcription	* [tə tumɩš	page 6, pairs
+(6a) line 3	ʔayʔaǰuθəm	segmentation	[tə=tumiš	page 6, pairs
+(6a) line 4	ʔayʔaǰuθəm	gloss	det=man	page 6, pairs
+(6a) line 5	ʔayʔaǰuθəm	transcription	nɛʔ	page 6, pairs
+(6a) line 6	ʔayʔaǰuθəm	segmentation	niʔ	page 6, pairs
+(6a) line 7	ʔayʔaǰuθəm	gloss	be.there	page 6, pairs
+(6a) line 8	ʔayʔaǰuθəm	transcription	taʔa]	page 6, pairs
+(6a) line 9	ʔayʔaǰuθəm	segmentation	taʔa]	page 6, pairs
+(6a) line 10	ʔayʔaǰuθəm	gloss	dem	page 6, pairs
+(6a) line 11	ʔayʔaǰuθəm	transcription	tətᶿ qɛχ.	page 6, pairs
+(6a) line 12	ʔayʔaǰuθəm	segmentation	tə=tᶿ=qix̌	page 6, pairs
+(6a) line 13	ʔayʔaǰuθəm	gloss	det=1sg.poss=younger.sibling	page 6, pairs
+(6a) line 14	Marianne Huijsmans	translation	Intended: ‘My younger brother is the man over there.’	page 6, pairs
+(6b) line 1	ʔayʔaǰuθəm	transcription	* [tətᶿ qɛχ]	page 6, pairs
+(6b) line 2	ʔayʔaǰuθəm	segmentation	[tə=tᶿ=qix̌]	page 6, pairs
+(6b) line 3	ʔayʔaǰuθəm	gloss	det=1sg.poss=younger.sibling	page 6, pairs
+(6b) line 4	ʔayʔaǰuθəm	transcription	tə tumɩš	page 6, pairs
+(6b) line 5	ʔayʔaǰuθəm	segmentation	tə=tumiš	page 6, pairs
+(6b) line 6	ʔayʔaǰuθəm	gloss	det=man	page 6, pairs
+(6b) line 7	ʔayʔaǰuθəm	transcription	nɛʔ	page 6, pairs
+(6b) line 8	ʔayʔaǰuθəm	segmentation	niʔ	page 6, pairs
+(6b) line 9	ʔayʔaǰuθəm	gloss	be.there	page 6, pairs
+(6b) line 10	ʔayʔaǰuθəm	transcription	taʔa.	page 6, pairs
+(6b) line 11	ʔayʔaǰuθəm	segmentation	taʔa	page 6, pairs
+(6b) line 12	ʔayʔaǰuθəm	gloss	dem	page 6, pairs
+(6b) line 13	Marianne Huijsmans	translation	Intended: ‘The man over there is my younger brother.’	page 6, pairs
+(6c) line 1	ʔayʔaǰuθəm	transcription	hɛɬ	page 6, pairs
+(6c) line 2	ʔayʔaǰuθəm	segmentation	hiɬ	page 6, pairs
+(6c) line 3	ʔayʔaǰuθəm	gloss	cop	page 6, pairs
+(6c) line 4	ʔayʔaǰuθəm	transcription	[tə tumɩš	page 6, pairs
+(6c) line 5	ʔayʔaǰuθəm	segmentation	[tə=tumiš	page 6, pairs
+(6c) line 6	ʔayʔaǰuθəm	gloss	det=man	page 6, pairs
+(6c) line 7	ʔayʔaǰuθəm	transcription	nɛʔ	page 6, pairs
+(6c) line 8	ʔayʔaǰuθəm	segmentation	niʔ	page 6, pairs
+(6c) line 9	ʔayʔaǰuθəm	gloss	be.there	page 6, pairs
+(6c) line 10	ʔayʔaǰuθəm	transcription	taʔa]	page 6, pairs
+(6c) line 11	ʔayʔaǰuθəm	segmentation	taʔa]	page 6, pairs
+(6c) line 12	ʔayʔaǰuθəm	gloss	dem	page 6, pairs
+(6c) line 13	ʔayʔaǰuθəm	transcription	ʔətᶿ qɛχ.	page 6, pairs
+(6c) line 14	ʔayʔaǰuθəm	segmentation	ʔə=tᶿ=qix̌	page 6, pairs
+(6c) line 15	ʔayʔaǰuθəm	gloss	clf.prt=1sg.poss=younger.sibling	page 6, pairs
+(6c) line 16	Marianne Huijsmans	translation	‘It’s the man over there who is my younger brother.’	page 6, pairs
+(6c) line 16	Marianne Huijsmans	citation	(sf | EP.2023/06/16)	the tag or source at the right of the translation
+(7) line 1	Marianne Huijsmans	note	Context: Introducing my younger sister.	page 6, pairs
+(7) line 2	ʔayʔaǰuθəm	transcription	[ʔətᶿ qɛχ]	page 6, pairs
+(7) line 3	ʔayʔaǰuθəm	segmentation	[ʔətᶿ=qix̌]	page 6, pairs
+(7) line 4	ʔayʔaǰuθəm	gloss	1sg.poss=younger.sibling	page 6, pairs
+(7) line 5	ʔayʔaǰuθəm	transcription	θɛʔɛ.	page 6, pairs
+(7) line 6	ʔayʔaǰuθəm	segmentation	θiʔi	page 6, pairs
+(7) line 7	ʔayʔaǰuθəm	gloss	f.dem	page 6, pairs
+(7) line 8	Marianne Huijsmans	translation	‘This is my younger sister.’	page 6, pairs
+(7) line 8	Marianne Huijsmans	citation	(vf | EP.2021/01/08)	the tag or source at the right of the translation
+§3	Marianne Huijsmans	note	Similarly, a prepositional phrase cannot occur initially as the main predicate, as shown in (8a). It must be accompanied by an overt verbal locative element, such as nɛʔ ‘be there’.	page 6
+(8a) line 1	Marianne Huijsmans	note	Context: I notice Felipe’ s glasses in the living room and figure he might go looking for them later, so I tell him:	page 6, pairs
+(8a) line 2	ʔayʔaǰuθəm	transcription	* [ʔə tə kʷanačɩmawtxʷ]	page 6, pairs
+(8a) line 3	ʔayʔaǰuθəm	segmentation	[ʔə=tə=kʷanač-əm-awtxʷ]	page 6, pairs
+(8a) line 4	ʔayʔaǰuθəm	gloss	obl=det=sit-md-room/building	page 6, pairs
+(8a) line 5	ʔayʔaǰuθəm	transcription	θ talahawustən.	page 6, pairs
+(8a) line 6	ʔayʔaǰuθəm	segmentation	θ=tala-h-awus-tən	page 6, pairs
+(8a) line 7	ʔayʔaǰuθəm	gloss	2sg.poss=dollar-epen-eye-ins	page 6, pairs
+(8a) line 8	Marianne Huijsmans	translation	Intended: ‘Your glasses are in the living room.’	page 6, pairs
+(8b) line 1	ʔayʔaǰuθəm	transcription	nɛʔ	page 6, pairs
+(8b) line 2	ʔayʔaǰuθəm	segmentation	niʔ	page 6, pairs
+(8b) line 3	ʔayʔaǰuθəm	gloss	be.there	page 6, pairs
+(8b) line 4	ʔayʔaǰuθəm	transcription	[ʔə tə kʷanačɩmawtxʷ]	page 6, pairs
+(8b) line 5	ʔayʔaǰuθəm	segmentation	[ʔə=tə=kʷanač-əm-awtxʷ]	page 6, pairs
+(8b) line 6	ʔayʔaǰuθəm	gloss	obl=det=sit-md-room/building	page 6, pairs
+(8b) line 7	ʔayʔaǰuθəm	transcription	θ talahawustən.	page 6, pairs
+(8b) line 8	ʔayʔaǰuθəm	segmentation	θ=tala-h-awus-tən	page 6, pairs
+(8b) line 9	ʔayʔaǰuθəm	gloss	2sg.poss=dollar-epen-eye-ins	page 6, pairs
+(8b) line 10	Marianne Huijsmans	translation	‘Your glasses are in the living room.’	page 6, pairs
+(8b) line 11	Marianne Huijsmans	speaker comment	Consultant’s comment: “You would say nɛʔ.”	page 6, pairs
+(8b) line 11	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the comment
+§3	Marianne Huijsmans	note	Crucially, the overt copula hɛɬ is not found when nouns and adjectives are used predicatively, and there is no null copula, or (6a–b) and (8a) would be grammatical. Nouns and adjectives must therefore serve directly as the main predicate when they occur initially in examples like (1) to (5) and (7) above.	page 6
+§3	Marianne Huijsmans	note	Before leaving this section, it is worth mentioning what determines which word appears as the predicate or argument. The predicate position is associated with focus, or emphasis, in Salish lan- guages (Davis 2007; Koch 2008). This is illustrated in (9), for instance, repeated from (3) above. In (9a), the verb comes first, which is the default order. In (9b), focus is shifted to what is being carried, and the noun č̓ɩč̓noʔ is initial as the predicate.5	page 6
+(9a) line 1	Marianne Huijsmans	note	Context: We invited Betty for dinner, but she is a little later than we expected, so we’ve been looking out for her. Then I see her coming, and she’ s carrying her dog.	page 7, pairs
+(9a) line 2	ʔayʔaǰuθəm	transcription	qʷoqʷol ti	page 7, pairs
+(9a) line 3	ʔayʔaǰuθəm	segmentation	qʷə∼qʷol̓=ti	page 7, pairs
+(9a) line 4	ʔayʔaǰuθəm	gloss	prog∼come=cld	page 7, pairs
+(9a) line 5	ʔayʔaǰuθəm	transcription	Betty.	page 7, pairs
+(9a) line 6	ʔayʔaǰuθəm	segmentation	Betty	page 7, pairs
+(9a) line 7	ʔayʔaǰuθəm	gloss	Betty	page 7, pairs
+(9a) line 8	ʔayʔaǰuθəm	transcription	[kʷinatəs]	page 7, pairs
+(9a) line 9	ʔayʔaǰuθəm	segmentation	[kʷin-at-as]	page 7, pairs
+(9a) line 10	ʔayʔaǰuθəm	gloss	carry-ctr-3erg	page 7, pairs
+(9a) line 11	ʔayʔaǰuθəm	transcription	[tə č̓ɩč̓n̓oʔs].	page 7, pairs
+(9a) line 12	ʔayʔaǰuθəm	segmentation	[tə=č̓a<č̓>n̓u<ʔ>-s]	page 7, pairs
+(9a) line 13	ʔayʔaǰuθəm	gloss	det=dog<dim>-3poss	page 7, pairs
+(9a) line 14	Marianne Huijsmans	translation	‘Betty is coming. She’s carrying her little dog.’	page 7, pairs
+(9a) line 14	Marianne Huijsmans	citation	(sf | EP.2023/05/19)	the tag or source at the right of the translation
+(9b) line 1	Marianne Huijsmans	note	Context: I see Daniel carrying something down on the beach. I’m wondering what it is.	page 7, pairs
+(9b) line 2	ʔayʔaǰuθəm	transcription	tam č̓ɛ	page 7, pairs
+(9b) line 3	ʔayʔaǰuθəm	segmentation	tam=č̓a	page 7, pairs
+(9b) line 4	ʔayʔaǰuθəm	gloss	what=infer	page 7, pairs
+(9b) line 5	ʔayʔaǰuθəm	transcription	tə kʷinatəs...	page 7, pairs
+(9b) line 6	ʔayʔaǰuθəm	segmentation	tə=kʷin-at-as	page 7, pairs
+(9b) line 7	ʔayʔaǰuθəm	gloss	det=carry-ctr-3erg	page 7, pairs
+(9b) line 8	ʔayʔaǰuθəm	transcription	[č̓ɩč̓noʔ]aʔk̓ʷa	page 7, pairs
+(9b) line 9	ʔayʔaǰuθəm	segmentation	[č̓a<č̓>nuʔ]=ala+k̓ʷa	page 7, pairs
+(9b) line 10	ʔayʔaǰuθəm	gloss	dog<dim>=exclam+rpt	page 7, pairs
+(9b) line 11	ʔayʔaǰuθəm	transcription	[tə kʷinatəs].	page 7, pairs
+(9b) line 12	ʔayʔaǰuθəm	segmentation	[tə=kʷin-at-as]	page 7, pairs
+(9b) line 13	ʔayʔaǰuθəm	gloss	det=carry-ctr-3erg	page 7, pairs
+(9b) line 14	Marianne Huijsmans	translation	‘I wonder what he’s carrying... Oh, it’s a puppy he’s carrying.’	page 7, pairs
+(9b) line 14	Marianne Huijsmans	citation	(vf | EP.2022/10/29)	the tag or source at the right of the translation
+§4	Marianne Huijsmans	heading	4 Morphology and lexical categories in ʔayʔaǰuθəm	page 7
+§4	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§4	Marianne Huijsmans	note	The other main motivation for claims that Salish languages lack lexical categories is the prevalence of morphology that applies across lexical categories. In ʔayʔaǰuθəm, for instance, the same type of plural reduplication applies to nouns, adjectives, and verbs, as in (10).6 Applied to nouns, the interpretation is a plurality of entities described by the noun (10a), while applied to verbs, the in- terpretation is a plurality of the events described by the verb, distributed in time and space (10b) (see Huijsmans and Mellesmoen 2021). Adjectives with this plural reduplication are less frequent but also occur where the property holds multiple times of an entity, as in (10c), or holds of multiple entities.	page 7
+(10a) line 1	ʔayʔaǰuθəm	transcription	gigat ga	page 7, pairs
+(10a) line 2	ʔayʔaǰuθəm	segmentation	gi∼gat=ga	page 7, pairs
+(10a) line 3	ʔayʔaǰuθəm	gloss	pl∼who=dprt	page 7, pairs
+(10a) line 4	ʔayʔaǰuθəm	transcription	tɛʔɛ	page 7, pairs
+(10a) line 5	ʔayʔaǰuθəm	segmentation	tiʔi	page 7, pairs
+(10a) line 6	ʔayʔaǰuθəm	gloss	dem	page 7, pairs
+(10a) line 7	ʔayʔaǰuθəm	transcription	təmtumɩš?	page 7, pairs
+(10a) line 8	ʔayʔaǰuθəm	segmentation	təm∼tumiš	page 7, pairs
+(10a) line 9	ʔayʔaǰuθəm	gloss	pl∼man	page 7, pairs
+(10a) line 10	Marianne Huijsmans	translation	‘Who are those men?’	page 7, pairs
+(10a) line 10	Marianne Huijsmans	citation	[noun] (vf | EP.2021/06/19)	the tag or source at the right of the translation
+(10b) line 1	ʔayʔaǰuθəm	transcription	təqtəqtčʊxʷ	page 7, pairs
+(10b) line 2	ʔayʔaǰuθəm	segmentation	təq∼təq-t=čaxʷ	page 7, pairs
+(10b) line 3	ʔayʔaǰuθəm	gloss	pl∼close-ctr=2sg.sbj	page 7, pairs
+(10b) line 4	ʔayʔaǰuθəm	transcription	məmməmk̓eyustən.	page 7, pairs
+(10b) line 5	ʔayʔaǰuθəm	segmentation	məm∼məmk̓ayustən	page 7, pairs
+(10b) line 6	ʔayʔaǰuθəm	gloss	pl∼window	page 7, pairs
+(10b) line 7	Marianne Huijsmans	translation	‘Close all of the windows.’	page 7, pairs
+(10b) line 7	Marianne Huijsmans	citation	[verb] (vf | FL.2022/04/21)	the tag or source at the right of the translation
+(10c) line 1	ʔayʔaǰuθəm	transcription	pəqpəq	page 7, pairs
+(10c) line 2	ʔayʔaǰuθəm	segmentation	pəq∼white	page 7, pairs
+(10c) line 3	ʔayʔaǰuθəm	gloss	pl∼white	page 7, pairs
+(10c) line 4	ʔayʔaǰuθəm	transcription	tə č̓ɛʔ.	page 7, pairs
+(10c) line 5	ʔayʔaǰuθəm	segmentation	tə=č̓aʔ	page 7, pairs
+(10c) line 6	ʔayʔaǰuθəm	gloss	det=ocean	page 7, pairs
+(10c) line 7	Marianne Huijsmans	translation	‘The ocean is white.’	page 7, pairs
+(10c) line 7	Marianne Huijsmans	citation	(describing whitecaps) [adjective] (vf | EP.2023ʔ03ʔ11)	the tag or source at the right of the translation
+§4	Marianne Huijsmans	note	Diminutive reduplication is another type of reduplication that applies to words of multiple cat- egories (though it is less frequent on verbs).	page 7
+footnote 5	Marianne Huijsmans	note	5 There is another focus strategy for nouns as well: clefting. In clefts, the noun is preceded by the copula hɛɬ, as in (6c) above.	page 7, footnote
+§4	ʔayʔaǰuθəm	cited form	hɛɬ	page 7
+footnote 6	Marianne Huijsmans	note	6 Thank you to Gloria Mellesmoen for help with the reduplication facts discussed in this section.	page 7, footnote
+(11a) line 1	ʔayʔaǰuθəm	transcription	qʷagi	page 8, pairs
+(11a) line 2	ʔayʔaǰuθəm	segmentation	qʷa+gi	page 8, pairs
+(11a) line 3	ʔayʔaǰuθəm	gloss	come+dprt	page 8, pairs
+(11a) line 4	ʔayʔaǰuθəm	transcription	k̓ʷʊt	page 8, pairs
+(11a) line 5	ʔayʔaǰuθəm	segmentation	k̓ʷə[n]-t	page 8, pairs
+(11a) line 6	ʔayʔaǰuθəm	gloss	see-ctr	page 8, pairs
+(11a) line 7	ʔayʔaǰuθəm	transcription	tə titol̓	page 8, pairs
+(11a) line 8	ʔayʔaǰuθəm	segmentation	tə=titul̓	page 8, pairs
+(11a) line 9	ʔayʔaǰuθəm	gloss	det=small	page 8, pairs
+(11a) line 10	ʔayʔaǰuθəm	transcription	mɛmχaɬ	page 8, pairs
+(11a) line 11	ʔayʔaǰuθəm	segmentation	mi<m>x̌aɬ	page 8, pairs
+(11a) line 12	ʔayʔaǰuθəm	gloss	bear<dim>	page 8, pairs
+(11a) line 13	ʔayʔaǰuθəm	transcription	nɛʔ	page 8, pairs
+(11a) line 14	ʔayʔaǰuθəm	segmentation	niʔ	page 8, pairs
+(11a) line 15	ʔayʔaǰuθəm	gloss	be.there	page 8, pairs
+(11a) line 16	ʔayʔaǰuθəm	transcription	tə=ʔasq.	page 8, pairs
+(11a) line 17	ʔayʔaǰuθəm	segmentation	tə ʔasq	page 8, pairs
+(11a) line 18	ʔayʔaǰuθəm	gloss	det=outside	page 8, pairs
+(11a) line 19	Watanabe 2003:386	translation	‘Come, look at the little black bear outside.’	page 8, pairs, the tag or source closing the set
+(11a) line 19	Marianne Huijsmans	citation	[noun] (vf | EP.2020/09/25)	the tag or source at the right of the translation
+(11b) line 1	ʔayʔaǰuθəm	transcription	ʔɛʔaxʷ	page 8, pairs
+(11b) line 2	ʔayʔaǰuθəm	segmentation	ʔ<iʔ>axʷ	page 8, pairs
+(11b) line 3	ʔayʔaǰuθəm	gloss	snow<dim>	page 8, pairs
+(11b) line 4	Watanabe 2003:386	translation	‘snow a little bit’	page 8, pairs, cited Watanabe 2003:386
+(11b) line 4	Marianne Huijsmans	citation	[verb] (Watanabe 2003:386)	the tag or source at the right of the translation
+(11c) line 1	ʔayʔaǰuθəm	transcription	t̓ɩt̓at̓ᶿɛm	page 8, pairs
+(11c) line 2	ʔayʔaǰuθəm	segmentation	t̓<it̓>at̓ᶿ-im	page 8, pairs
+(11c) line 3	ʔayʔaǰuθəm	gloss	red<dim>-md	page 8, pairs
+(11c) line 4	ʔayʔaǰuθəm	transcription	θɩθǰɛpoqʷ.	page 8, pairs
+(11c) line 5	ʔayʔaǰuθəm	segmentation	θ<iθ>ǰapuqʷ	page 8, pairs
+(11c) line 6	ʔayʔaǰuθəm	gloss	hat<dim>	page 8, pairs
+(11c) line 7	Watanabe 2003:386	translation	‘It’s a little red hat.’	page 8, pairs, the tag or source closing the set
+(11c) line 7	Marianne Huijsmans	citation	[Adjective] (vf | EP.2022/12/17)	the tag or source at the right of the translation
+§4	Marianne Huijsmans	note	The past tense suffix also notably can appear on nouns and adjectives as well as verbs. On nouns, the interpretation is often that the described entity is deceased or destroyed (12a) (see Huijsmans 2022:103 for more on the possible interpretations),7 while on adjectives, the interpretation is that the property held formerly (12b). On verbs, the interpretation is that the event occurred in the past (12c) (or, for stative verbs, that the state held in the past).	page 8
+(12a) line 1	ʔayʔaǰuθəm	transcription	k̓ʷakʷa q̓ətxʷ	page 8, pairs
+(12a) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷa=kʷa=q̓ətxʷ	page 8, pairs
+(12a) line 3	ʔayʔaǰuθəm	gloss	rpt=cld=burn	page 8, pairs
+(12a) line 4	ʔayʔaǰuθəm	transcription	kʷ ʔayɛʔos.	page 8, pairs
+(12a) line 5	ʔayʔaǰuθəm	segmentation	kʷ=ʔayaʔ-uɬ-s.	page 8, pairs
+(12a) line 6	ʔayʔaǰuθəm	gloss	det=house-pst-3poss	page 8, pairs
+(12a) line 7	Marianne Huijsmans	translation	‘His house burnt down (I heard).’	page 8, pairs
+(12a) line 7	Marianne Huijsmans	citation	[noun] (vf | EP.2019/06/29)	the tag or source at the right of the translation
+(12b) line 1	ʔayʔaǰuθəm	transcription	hɛhɛw	page 8, pairs
+(12b) line 2	ʔayʔaǰuθəm	segmentation	hihiw	page 8, pairs
+(12b) line 3	ʔayʔaǰuθəm	gloss	really	page 8, pairs
+(12b) line 4	ʔayʔaǰuθəm	transcription	tihmotoɬ	page 8, pairs
+(12b) line 5	ʔayʔaǰuθəm	segmentation	tih-mut-uɬ	page 8, pairs
+(12b) line 6	ʔayʔaǰuθəm	gloss	big-int-pst	page 8, pairs
+(12b) line 7	ʔayʔaǰuθəm	transcription	tə q̓ʷətəm.	page 8, pairs
+(12b) line 8	ʔayʔaǰuθəm	segmentation	tə=q̓ʷətəm	page 8, pairs
+(12b) line 9	ʔayʔaǰuθəm	gloss	det=river	page 8, pairs
+(12b) line 10	Marianne Huijsmans	translation	‘The river was really big.’	page 8, pairs
+(12b) line 10	Marianne Huijsmans	citation	[adjective] (vf | EP.2023/06/10)	the tag or source at the right of the translation
+(12c) line 1	ʔayʔaǰuθəm	transcription	čɛ kʷa	page 8, pairs
+(12c) line 2	ʔayʔaǰuθəm	segmentation	ča=kʷa	page 8, pairs
+(12c) line 3	ʔayʔaǰuθəm	gloss	where=cld	page 8, pairs
+(12c) line 4	ʔayʔaǰuθəm	transcription	šɛ k̓ʷasta	page 8, pairs
+(12c) line 5	ʔayʔaǰuθəm	segmentation	šə=k̓ʷasta	page 8, pairs
+(12c) line 6	ʔayʔaǰuθəm	gloss	det=cup	page 8, pairs
+(12c) line 7	ʔayʔaǰuθəm	transcription	yɛp̓oɬ	page 8, pairs
+(12c) line 8	ʔayʔaǰuθəm	segmentation	yəp̓-uɬ	page 8, pairs
+(12c) line 9	ʔayʔaǰuθəm	gloss	get.broken-pst	page 8, pairs
+(12c) line 10	ʔayʔaǰuθəm	transcription	skʷiǰoɬ?	page 8, pairs
+(12c) line 11	ʔayʔaǰuθəm	segmentation	skʷiǰuɬ	page 8, pairs
+(12c) line 12	ʔayʔaǰuθəm	gloss	this.morning	page 8, pairs
+(12c) line 13	Marianne Huijsmans	translation	‘Where is the cup that broke this morning?	page 8, pairs
+(12c) line 13	Marianne Huijsmans	citation	[verb] (vf | EP.2023/01/28)	the tag or source at the right of the translation
+§4	Marianne Huijsmans	note	Nevertheless, in the following sections I will argue that nouns, verbs, and adjectives can be distinguished in ʔayʔaǰuθəm. I show that words from different lexical categories can be differen- tiated based on their syntactic distribution, despite the predicate-argument flexibility illustrated in the preceding section. I also present morphological evidence for nouns and adjectives (building on Watanabe 2003:72–76), despite the prevalence of morphology that applies across categories. I first argue for a lexical category of nouns (Section 5) and then differentiate adjectives from verbs (Section 6).	page 8
+footnote 7	Marianne Huijsmans	note	7 See also Burton (1997) for Halq’eméylem and Matthewson (2005) for St’át’imcets.	page 8, footnote
+§4	Marianne Huijsmans	language	Halq’eméylem	Halq’eméylem
+§4	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§5	Marianne Huijsmans	heading	5 Nouns	page 9
+§5	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§5	Marianne Huijsmans	note	In this section, I present syntactic evidence for the category of noun in ʔayʔaǰuθəm (Section 5.1) and then additional morphological evidence (Section 5.2). Finally, I discuss two tests for nounhood found in previous literature that are not conclusive in ʔayʔaǰuθəm: relative clauses (Section 5.3) and possessives (Section 5.4).	page 9
+§5.1	Marianne Huijsmans	heading	5.1 Syntactic evidence	page 9
+§5.1	Marianne Huijsmans	note	Demirdache and Matthewson (1995) and Davis and Matthewson (1999) show several environments where nouns are permitted but non-nouns are not. The first is heading complex nominal predicates. Complex nominal predicates are multi-word predicates consisting of a noun preceded by one or more modifiers. The modifiers may be adjectives, as in (13) to (15), or nouns, as in (16) to (17). This complex forms an intransitive predicate which is followed by its argument.8	page 9
+(13a) line 1	ʔayʔaǰuθəm	transcription	[ƛ̓aɬsəm	page 9, pairs
+(13a) line 2	ʔayʔaǰuθəm	segmentation	[ƛ̓aɬs-əm	page 9, pairs
+(13a) line 3	ʔayʔaǰuθəm	gloss	strong-md	page 9, pairs
+(13a) line 4	ʔayʔaǰuθəm	transcription	tumɩš]	page 9, pairs
+(13a) line 5	ʔayʔaǰuθəm	segmentation	tumiš]	page 9, pairs
+(13a) line 6	ʔayʔaǰuθəm	gloss	man	page 9, pairs
+(13a) line 7	ʔayʔaǰuθəm	transcription	Daniel.	page 9, pairs
+(13a) line 8	ʔayʔaǰuθəm	segmentation	Daniel	page 9, pairs
+(13a) line 9	ʔayʔaǰuθəm	gloss	Daniel	page 9, pairs
+(13a) line 10	Marianne Huijsmans	translation	‘Daniel is a strong man.’	page 9, pairs
+(13b) line 1	ʔayʔaǰuθəm	transcription	[χaχaɬ	page 9, pairs
+(13b) line 2	ʔayʔaǰuθəm	segmentation	[x̌ax̌aɬ	page 9, pairs
+(13b) line 3	ʔayʔaǰuθəm	gloss	tall	page 9, pairs
+(13b) line 4	ʔayʔaǰuθəm	transcription	tumɩš]	page 9, pairs
+(13b) line 5	ʔayʔaǰuθəm	segmentation	tumiš]	page 9, pairs
+(13b) line 6	ʔayʔaǰuθəm	gloss	man	page 9, pairs
+(13b) line 7	ʔayʔaǰuθəm	transcription	Daniel.	page 9, pairs
+(13b) line 8	ʔayʔaǰuθəm	segmentation	Daniel	page 9, pairs
+(13b) line 9	ʔayʔaǰuθəm	gloss	Daniel	page 9, pairs
+(13b) line 10	Marianne Huijsmans	translation	‘Daniel is a tall man.’	page 9, pairs
+(13b) line 10	Marianne Huijsmans	citation	(sf | BW.2022/09/09; EP.2022/09/22)	the tag or source at the right of the translation
+§5.1	ʔayʔaǰuθəm	cited form	χaχaɬ	page 9
+§5.1	ʔayʔaǰuθəm	cited form	x̌ax̌aɬ	page 9
+(14) line 1	Marianne Huijsmans	note	Context: Gloria is going to get one of a litter of kittens. There are some fluffy grey ones, some fluffy black ones, and some short-haired grey ones. She wants one of the fluffy grey ones, though she hasn’t picked one specific one yet.	page 9, pairs
+(14) line 2	ʔayʔaǰuθəm	transcription	[qʷəšɩm	page 9, pairs
+(14) line 3	ʔayʔaǰuθəm	segmentation	[qʷəš-im	page 9, pairs
+(14) line 4	ʔayʔaǰuθəm	gloss	fluffy-md	page 9, pairs
+(14) line 5	ʔayʔaǰuθəm	transcription	p̓oq̓	page 9, pairs
+(14) line 6	ʔayʔaǰuθəm	segmentation	p̓uq̓	page 9, pairs
+(14) line 7	ʔayʔaǰuθəm	gloss	grey	page 9, pairs
+(14) line 8	ʔayʔaǰuθəm	transcription	mɛmmaw̓]	page 9, pairs
+(14) line 9	ʔayʔaǰuθəm	segmentation	mi<m>maw̓]	page 9, pairs
+(14) line 10	ʔayʔaǰuθəm	gloss	cat<dim>	page 9, pairs
+(14) line 11	ʔayʔaǰuθəm	transcription	kʷ χaƛ̓s	page 9, pairs
+(14) line 12	ʔayʔaǰuθəm	segmentation	kʷ=x̌aƛ̓-s	page 9, pairs
+(14) line 13	ʔayʔaǰuθəm	gloss	det=desire-3poss	page 9, pairs
+(14) line 14	ʔayʔaǰuθəm	transcription	Gloria.	page 9, pairs
+(14) line 15	ʔayʔaǰuθəm	segmentation	Gloria	page 9, pairs
+(14) line 16	ʔayʔaǰuθəm	gloss	Gloria	page 9, pairs
+(14) line 17	Marianne Huijsmans	translation	‘Gloria wants a fluffy grey cat.’	page 9, pairs
+(14) line 17	Marianne Huijsmans	citation	(sf | EP.2022/10/29)	the tag or source at the right of the translation
+(15) line 1	Marianne Huijsmans	note	Context: I’m picking out a new mug and there are all different sizes and shapes at the store. I decide I want one of the big blue ones and tell the lady:	page 9, pairs
+(15) line 2	ʔayʔaǰuθəm	transcription	[tih	page 9, pairs
+(15) line 3	ʔayʔaǰuθəm	segmentation	[tih	page 9, pairs
+(15) line 4	ʔayʔaǰuθəm	gloss	big	page 9, pairs
+(15) line 5	ʔayʔaǰuθəm	transcription	kʷʊsɛm	page 9, pairs
+(15) line 6	ʔayʔaǰuθəm	segmentation	kʷəs-im	page 9, pairs
+(15) line 7	ʔayʔaǰuθəm	gloss	blue-md	page 9, pairs
+(15) line 8	ʔayʔaǰuθəm	transcription	k̓ʷasta]	page 9, pairs
+(15) line 9	ʔayʔaǰuθəm	segmentation	k̓ʷasta]	page 9, pairs
+(15) line 10	ʔayʔaǰuθəm	gloss	cup	page 9, pairs
+(15) line 11	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 9, pairs
+(15) line 12	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 9, pairs
+(15) line 13	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 9, pairs
+(15) line 14	Marianne Huijsmans	translation	‘I want a big blue mug.’	page 9, pairs
+(15) line 14	Marianne Huijsmans	citation	(sf | EP.2022/11/05)	the tag or source at the right of the translation
+footnote 8	Marianne Huijsmans	note	8 In examples (14) to (17), the argument of the complex nominal predicate is a headless relative clause. In in ʔayʔaǰuθəm (Reisinger, Huijsmans, and Matthewson 2021:752, fn. 2; Kroeber 1991:91–92; Watanabe 2003:379).	page 9, footnote
+§5.1	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§5.1	Marianne Huijsmans	note	(15) and (17), the determiner preceding the headless relative is elided. Determiner elision is quite common	page 9
+(16) line 1	Marianne Huijsmans	note	Context: I’m looking for a family doctor, and I’d like to have a female one.	page 10, pairs
+(16) line 2	ʔayʔaǰuθəm	transcription	[saɬtxʷ	page 10, pairs
+(16) line 3	ʔayʔaǰuθəm	segmentation	[saɬtxʷ	page 10, pairs
+(16) line 4	ʔayʔaǰuθəm	gloss	woman	page 10, pairs
+(16) line 5	ʔayʔaǰuθəm	transcription	daktə]	page 10, pairs
+(16) line 6	ʔayʔaǰuθəm	segmentation	dakta]	page 10, pairs
+(16) line 7	ʔayʔaǰuθəm	gloss	doctor	page 10, pairs
+(16) line 8	ʔayʔaǰuθəm	transcription	kʷʊtᶿ t̓ᶿɛt̓ᶿeyʔəm.	page 10, pairs
+(16) line 9	ʔayʔaǰuθəm	segmentation	kʷ=ətᶿ=t̓ᶿi∼t̓ᶿiy-ʔəm	page 10, pairs
+(16) line 10	ʔayʔaǰuθəm	gloss	det=1sg.poss=prog∼search-act.intr	page 10, pairs
+(16) line 11	Marianne Huijsmans	translation	‘I’m searching for a female doctor.’	page 10, pairs
+(16) line 11	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+(17) line 1	Marianne Huijsmans	note	Context: I’m looking into getting a dog, and I want to get a male one.	page 10, pairs
+(17) line 2	ʔayʔaǰuθəm	transcription	[tumɩš	page 10, pairs
+(17) line 3	ʔayʔaǰuθəm	segmentation	[tumiš	page 10, pairs
+(17) line 4	ʔayʔaǰuθəm	gloss	man	page 10, pairs
+(17) line 5	ʔayʔaǰuθəm	transcription	č̓ɩč̓noʔ]	page 10, pairs
+(17) line 6	ʔayʔaǰuθəm	segmentation	č̓a<č̓>nuʔ]	page 10, pairs
+(17) line 7	ʔayʔaǰuθəm	gloss	dog<dim>	page 10, pairs
+(17) line 8	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 10, pairs
+(17) line 9	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 10, pairs
+(17) line 10	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 10, pairs
+(17) line 11	Marianne Huijsmans	translation	‘I want a male puppy.’	page 10, pairs
+(17) line 11	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+§5.1	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§5.1	Marianne Huijsmans	note	While in St’át’imcets only individual-level adjectives are permissible as modifiers (Davis and Matthew- son 1999), in ʔayʔaǰuθəm the modifier can be a stage-level adjective, as in (18) to (19), or an individual-level adjective, as in (13) to (15) above.	page 10
+(18) line 1	Marianne Huijsmans	note	Context: I’m at a bakery choosing what to buy. There are some loaves of bread that just came out of the oven and are still warm. I really want one of the loaves that’ s fresh from the oven but I haven’t settled on which kind, so I say to the lady:	page 10, pairs
+(18) line 2	ʔayʔaǰuθəm	transcription	[k̓ʷas	page 10, pairs
+(18) line 3	ʔayʔaǰuθəm	segmentation	[k̓ʷas	page 10, pairs
+(18) line 4	ʔayʔaǰuθəm	gloss	hot	page 10, pairs
+(18) line 5	ʔayʔaǰuθəm	transcription	saplɛn]	page 10, pairs
+(18) line 6	ʔayʔaǰuθəm	segmentation	saplin]	page 10, pairs
+(18) line 7	ʔayʔaǰuθəm	gloss	bread	page 10, pairs
+(18) line 8	ʔayʔaǰuθəm	transcription	kʷʊtᶿ χaƛ̓.	page 10, pairs
+(18) line 9	ʔayʔaǰuθəm	segmentation	kʷ=ətᶿ=x̌aƛ̓	page 10, pairs
+(18) line 10	ʔayʔaǰuθəm	gloss	det=1sg.poss=desire	page 10, pairs
+(18) line 11	Marianne Huijsmans	translation	‘I want a hot loaf.’	page 10, pairs
+(18) line 11	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the translation
+(19) line 1	Marianne Huijsmans	note	Context: Someone asks me if I’d like something to drink: tea, coffee, or water. I just want some cold water to cool down since it is a hot day. I say:	page 10, pairs
+(19) line 2	ʔayʔaǰuθəm	transcription	[č̓ɩmč̓ɩm	page 10, pairs
+(19) line 3	ʔayʔaǰuθəm	segmentation	[č̓əm̓∼č̓əm	page 10, pairs
+(19) line 4	ʔayʔaǰuθəm	gloss	cold∼char	page 10, pairs
+(19) line 5	ʔayʔaǰuθəm	transcription	qay̓ɛ]	page 10, pairs
+(19) line 6	ʔayʔaǰuθəm	segmentation	qay̓a]	page 10, pairs
+(19) line 7	ʔayʔaǰuθəm	gloss	water	page 10, pairs
+(19) line 8	ʔayʔaǰuθəm	transcription	kʷʊtᶿ χaƛ̓.	page 10, pairs
+(19) line 9	ʔayʔaǰuθəm	segmentation	kʷ=ətᶿ=x̌aƛ̓	page 10, pairs
+(19) line 10	ʔayʔaǰuθəm	gloss	det=1sg.poss=desire	page 10, pairs
+(19) line 11	Marianne Huijsmans	translation	‘I want some cold water.’	page 10, pairs
+(19) line 11	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the translation
+§5.1	Marianne Huijsmans	note	The order of the adjectives seems to be flexible:	page 10
+(20) line 1	ʔayʔaǰuθəm	transcription	[p̓oq̓	page 10, pairs
+(20) line 2	ʔayʔaǰuθəm	segmentation	[p̓uq̓	page 10, pairs
+(20) line 3	ʔayʔaǰuθəm	gloss	grey	page 10, pairs
+(20) line 4	ʔayʔaǰuθəm	transcription	qʷəšɩm	page 10, pairs
+(20) line 5	ʔayʔaǰuθəm	segmentation	qʷəš-im	page 10, pairs
+(20) line 6	ʔayʔaǰuθəm	gloss	fluffy-md	page 10, pairs
+(20) line 7	ʔayʔaǰuθəm	transcription	mɛmmaw̓]	page 10, pairs
+(20) line 8	ʔayʔaǰuθəm	segmentation	mi<m>maw̓]	page 10, pairs
+(20) line 9	ʔayʔaǰuθəm	gloss	cat<dim>	page 10, pairs
+(20) line 10	ʔayʔaǰuθəm	transcription	kʷ χaƛ̓s	page 10, pairs
+(20) line 11	ʔayʔaǰuθəm	segmentation	kʷ=x̌aƛ̓-s	page 10, pairs
+(20) line 12	ʔayʔaǰuθəm	gloss	det=desire-3poss	page 10, pairs
+(20) line 13	ʔayʔaǰuθəm	transcription	Gloria.	page 10, pairs
+(20) line 14	ʔayʔaǰuθəm	segmentation	Gloria	page 10, pairs
+(20) line 15	ʔayʔaǰuθəm	gloss	Gloria	page 10, pairs
+(20) line 16	Marianne Huijsmans	translation	‘Gloria wants a fluffy grey cat.’	page 10, pairs
+(20) line 16	Marianne Huijsmans	citation	(cf. (14)) (sf | EP.2022/10/29)	the tag or source at the right of the translation
+(21) line 1	ʔayʔaǰuθəm	transcription	[kʷʊsɛm	page 10, pairs
+(21) line 2	ʔayʔaǰuθəm	segmentation	[kʷəs-im	page 10, pairs
+(21) line 3	ʔayʔaǰuθəm	gloss	blue-md	page 10, pairs
+(21) line 4	ʔayʔaǰuθəm	transcription	tih	page 10, pairs
+(21) line 5	ʔayʔaǰuθəm	segmentation	tih	page 10, pairs
+(21) line 6	ʔayʔaǰuθəm	gloss	big	page 10, pairs
+(21) line 7	ʔayʔaǰuθəm	transcription	k̓ʷasta]	page 10, pairs
+(21) line 8	ʔayʔaǰuθəm	segmentation	k̓ʷasta]	page 10, pairs
+(21) line 9	ʔayʔaǰuθəm	gloss	cup	page 10, pairs
+(21) line 10	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 10, pairs
+(21) line 11	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 10, pairs
+(21) line 12	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 10, pairs
+(21) line 13	Marianne Huijsmans	translation	‘I want a big blue cup.’	page 10, pairs
+(21) line 13	Marianne Huijsmans	citation	(cf. (15)) (vf | EP.2022/11/05)	the tag or source at the right of the translation
+§5.1	Marianne Huijsmans	note	Crucially, however, the final word of this type of complex, which acts as the head, must be a noun. Other individual-level predicates cannot head the complex, despite semantic plausibility.	page 10
+(22) line 1	ʔayʔaǰuθəm	transcription	* [χaχaɬ	page 11, pairs
+(22) line 2	ʔayʔaǰuθəm	segmentation	[x̌ax̌aɬ	page 11, pairs
+(22) line 3	ʔayʔaǰuθəm	gloss	tall	page 11, pairs
+(22) line 4	ʔayʔaǰuθəm	transcription	ƛ̓aɬsəm]	page 11, pairs
+(22) line 5	ʔayʔaǰuθəm	segmentation	ƛ̓aɬs-əm]	page 11, pairs
+(22) line 6	ʔayʔaǰuθəm	gloss	strong-md	page 11, pairs
+(22) line 7	ʔayʔaǰuθəm	transcription	Daniel.	page 11, pairs
+(22) line 8	ʔayʔaǰuθəm	segmentation	Daniel	page 11, pairs
+(22) line 9	ʔayʔaǰuθəm	gloss	Daniel	page 11, pairs
+(22) line 10	Marianne Huijsmans	translation	Intended: ‘Daniel is a tall strong one.’	page 11, pairs
+(22) line 10	Marianne Huijsmans	citation	(sf | BW.2022/09/09; EP.2022/09/22)	the tag or source at the right of the translation
+(23a) line 1	Marianne Huijsmans	note	Context: Same as (14).	page 11, pairs
+(23a) line 2	ʔayʔaǰuθəm	transcription	* [mɛmmaw̓	page 11, pairs
+(23a) line 3	ʔayʔaǰuθəm	segmentation	[mi<m>maw̓	page 11, pairs
+(23a) line 4	ʔayʔaǰuθəm	gloss	cat<dim>	page 11, pairs
+(23a) line 5	ʔayʔaǰuθəm	transcription	qʷəšɩm	page 11, pairs
+(23a) line 6	ʔayʔaǰuθəm	segmentation	qʷəš-im	page 11, pairs
+(23a) line 7	ʔayʔaǰuθəm	gloss	fluffy-md	page 11, pairs
+(23a) line 8	ʔayʔaǰuθəm	transcription	p̓oq̓]	page 11, pairs
+(23a) line 9	ʔayʔaǰuθəm	segmentation	p̓uq̓]	page 11, pairs
+(23a) line 10	ʔayʔaǰuθəm	gloss	grey	page 11, pairs
+(23a) line 11	ʔayʔaǰuθəm	transcription	kʷ χaƛ̓s	page 11, pairs
+(23a) line 12	ʔayʔaǰuθəm	segmentation	kʷ=x̌aƛ̓-s	page 11, pairs
+(23a) line 13	ʔayʔaǰuθəm	gloss	det=desire-3poss	page 11, pairs
+(23a) line 14	ʔayʔaǰuθəm	transcription	Gloria.	page 11, pairs
+(23a) line 15	ʔayʔaǰuθəm	segmentation	Gloria	page 11, pairs
+(23a) line 16	ʔayʔaǰuθəm	gloss	Gloria	page 11, pairs
+(23a) line 17	Marianne Huijsmans	translation	Intended: ‘Gloria wants a fluffy grey cat.’	page 11, pairs
+(23a) line 17	Marianne Huijsmans	citation	(sf | EP.2022/10/29)	the tag or source at the right of the translation
+(23b) line 1	ʔayʔaǰuθəm	transcription	* [p̓oq̓	page 11, pairs
+(23b) line 2	ʔayʔaǰuθəm	segmentation	[p̓uq̓	page 11, pairs
+(23b) line 3	ʔayʔaǰuθəm	gloss	grey	page 11, pairs
+(23b) line 4	ʔayʔaǰuθəm	transcription	mɛmmaw̓	page 11, pairs
+(23b) line 5	ʔayʔaǰuθəm	segmentation	mi<m>maw̓	page 11, pairs
+(23b) line 6	ʔayʔaǰuθəm	gloss	cat<dim>	page 11, pairs
+(23b) line 7	ʔayʔaǰuθəm	transcription	qʷəšɩm]	page 11, pairs
+(23b) line 8	ʔayʔaǰuθəm	segmentation	qʷəš-im]	page 11, pairs
+(23b) line 9	ʔayʔaǰuθəm	gloss	fluffy-md	page 11, pairs
+(23b) line 10	ʔayʔaǰuθəm	transcription	kʷ χaƛ̓s	page 11, pairs
+(23b) line 11	ʔayʔaǰuθəm	segmentation	kʷ=x̌aƛ̓-s	page 11, pairs
+(23b) line 12	ʔayʔaǰuθəm	gloss	det=desire-3poss	page 11, pairs
+(23b) line 13	ʔayʔaǰuθəm	transcription	Gloria.	page 11, pairs
+(23b) line 14	ʔayʔaǰuθəm	segmentation	Gloria	page 11, pairs
+(23b) line 15	ʔayʔaǰuθəm	gloss	Gloria	page 11, pairs
+(23b) line 16	Marianne Huijsmans	translation	Intended: ‘Gloria wants a fluffy grey cat.’	page 11, pairs
+(23b) line 16	Marianne Huijsmans	citation	(sf | EP.2022/10/29)	the tag or source at the right of the translation
+(23c) line 1	ʔayʔaǰuθəm	transcription	* [qʷəšɩm	page 11, pairs
+(23c) line 2	ʔayʔaǰuθəm	segmentation	[qʷəš-im	page 11, pairs
+(23c) line 3	ʔayʔaǰuθəm	gloss	fluffy-md	page 11, pairs
+(23c) line 4	ʔayʔaǰuθəm	transcription	mɛmmaw̓	page 11, pairs
+(23c) line 5	ʔayʔaǰuθəm	segmentation	mi<m>maw̓	page 11, pairs
+(23c) line 6	ʔayʔaǰuθəm	gloss	cat<dim>	page 11, pairs
+(23c) line 7	ʔayʔaǰuθəm	transcription	p̓oq̓]	page 11, pairs
+(23c) line 8	ʔayʔaǰuθəm	segmentation	p̓uq̓]	page 11, pairs
+(23c) line 9	ʔayʔaǰuθəm	gloss	grey	page 11, pairs
+(23c) line 10	ʔayʔaǰuθəm	transcription	kʷ χaƛ̓s	page 11, pairs
+(23c) line 11	ʔayʔaǰuθəm	segmentation	kʷ=x̌aƛ̓-s	page 11, pairs
+(23c) line 12	ʔayʔaǰuθəm	gloss	det=desire-3poss	page 11, pairs
+(23c) line 13	ʔayʔaǰuθəm	transcription	Gloria.	page 11, pairs
+(23c) line 14	ʔayʔaǰuθəm	segmentation	Gloria	page 11, pairs
+(23c) line 15	ʔayʔaǰuθəm	gloss	Gloria	page 11, pairs
+(23c) line 16	Marianne Huijsmans	translation	Intended: ‘Gloria wants a fluffy grey cat.’	page 11, pairs
+(23c) line 16	Marianne Huijsmans	citation	(sf | EP.2022/10/29)	the tag or source at the right of the translation
+(24a) line 1	Marianne Huijsmans	note	Context: Same as (15).	page 11, pairs
+(24a) line 2	ʔayʔaǰuθəm	transcription	* [tih	page 11, pairs
+(24a) line 3	ʔayʔaǰuθəm	segmentation	[tih	page 11, pairs
+(24a) line 4	ʔayʔaǰuθəm	gloss	big	page 11, pairs
+(24a) line 5	ʔayʔaǰuθəm	transcription	k̓ʷasta	page 11, pairs
+(24a) line 6	ʔayʔaǰuθəm	segmentation	k̓ʷasta	page 11, pairs
+(24a) line 7	ʔayʔaǰuθəm	gloss	cup	page 11, pairs
+(24a) line 8	ʔayʔaǰuθəm	transcription	kʷʊsɛm]	page 11, pairs
+(24a) line 9	ʔayʔaǰuθəm	segmentation	kʷəs-im]	page 11, pairs
+(24a) line 10	ʔayʔaǰuθəm	gloss	blue-md	page 11, pairs
+(24a) line 11	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 11, pairs
+(24a) line 12	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 11, pairs
+(24a) line 13	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 11, pairs
+(24a) line 14	Marianne Huijsmans	translation	Intended: ‘I want a big blue mug.’	page 11, pairs
+(24a) line 14	Marianne Huijsmans	citation	(sf | EP.2022/11/05)	the tag or source at the right of the translation
+(24b) line 1	ʔayʔaǰuθəm	transcription	* [k̓ʷasta	page 11, pairs
+(24b) line 2	ʔayʔaǰuθəm	segmentation	[k̓ʷasta	page 11, pairs
+(24b) line 3	ʔayʔaǰuθəm	gloss	cup	page 11, pairs
+(24b) line 4	ʔayʔaǰuθəm	transcription	tih	page 11, pairs
+(24b) line 5	ʔayʔaǰuθəm	segmentation	tih	page 11, pairs
+(24b) line 6	ʔayʔaǰuθəm	gloss	big	page 11, pairs
+(24b) line 7	ʔayʔaǰuθəm	transcription	kʷʊsɛm]	page 11, pairs
+(24b) line 8	ʔayʔaǰuθəm	segmentation	kʷəs-im]	page 11, pairs
+(24b) line 9	ʔayʔaǰuθəm	gloss	blue-md	page 11, pairs
+(24b) line 10	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 11, pairs
+(24b) line 11	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 11, pairs
+(24b) line 12	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 11, pairs
+(24b) line 13	Marianne Huijsmans	translation	Intended: ‘I want a big blue mug.’	page 11, pairs
+(24b) line 13	Marianne Huijsmans	citation	(sf | EP.2022/11/05)	the tag or source at the right of the translation
+(24c) line 1	ʔayʔaǰuθəm	transcription	* [kʷʊsɛm	page 11, pairs
+(24c) line 2	ʔayʔaǰuθəm	segmentation	[kʷəs-im	page 11, pairs
+(24c) line 3	ʔayʔaǰuθəm	gloss	blue-md	page 11, pairs
+(24c) line 4	ʔayʔaǰuθəm	transcription	k̓ʷasta	page 11, pairs
+(24c) line 5	ʔayʔaǰuθəm	segmentation	k̓ʷasta	page 11, pairs
+(24c) line 6	ʔayʔaǰuθəm	gloss	cup	page 11, pairs
+(24c) line 7	ʔayʔaǰuθəm	transcription	tih]	page 11, pairs
+(24c) line 8	ʔayʔaǰuθəm	segmentation	tih]	page 11, pairs
+(24c) line 9	ʔayʔaǰuθəm	gloss	big	page 11, pairs
+(24c) line 10	ʔayʔaǰuθəm	transcription	ʔətᶿ χaƛ̓.	page 11, pairs
+(24c) line 11	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 11, pairs
+(24c) line 12	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 11, pairs
+(24c) line 13	Marianne Huijsmans	translation	Intended: ‘I want a big blue mug.’	page 11, pairs
+(24c) line 13	Marianne Huijsmans	citation	(sf | EP.2022/11/05)	the tag or source at the right of the translation
+§5.1	Marianne Huijsmans	note	There are also no morphological or phonological differences that could account for the different distribution of nouns and adjectives above. Many of the lexical items in the examples, both nouns and adjectives, are monomorphemic. Adjectives with the middle suffix do not behave differently than those that are bare. Phonologically, the nouns and adjectives are of similar weight. Since the restriction on the head of complex nominal predicates cannot be explained in semantic, morphologi- cal, or phonological terms, I conclude that this restriction is a syntactic restriction: complex nominal predicates require something of the syntactic category noun as a head.	page 11
+§5.1	ʔayʔaǰuθəm	cited form	χʷoχʷ	page 11, ‘a long time’
+§5.1	ʔayʔaǰuθəm	cited form	tičɛ	page 11, ‘teacher’
+§5.1	ʔayʔaǰuθəm	cited form	hegus	page 11, ‘chief’
+§5.1	Marianne Huijsmans	note	There are two other cases that seem to distinguish between nouns and non-nouns. The first is following χʷoχʷ ‘a long time’. The predicate of the subjunctive clause modified by χʷoχʷ can be a verb (25), but not a stage-level noun like tičɛ ‘teacher’ (26a) or hegus ‘chief’ (27), despite semantic plausibility. Note that stative verbs are grammatical (26b) in this position, so the contrast cannot be characterized as in terms of stative vs. eventive predicates.	page 11
+(25a) line 1	ʔayʔaǰuθəm	transcription	χʷoχʷoɬ k̓ʷa	page 12, pairs
+(25a) line 2	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ-uɬ=k̓ʷa	page 12, pairs
+(25a) line 3	ʔayʔaǰuθəm	gloss	long.time-pst=rpt	page 12, pairs
+(25a) line 4	ʔayʔaǰuθəm	transcription	ʔəɬ kʷukʷtəmas.	page 12, pairs
+(25a) line 5	ʔayʔaǰuθəm	segmentation	ʔəɬ=kʷə∼kʷt-əm=as	page 12, pairs
+(25a) line 6	ʔayʔaǰuθəm	gloss	comp=prog=sick-md=3sbjv	page 12, pairs
+(25a) line 7	Marianne Huijsmans	translation	‘She’s been sick for a long time.’	page 12, pairs
+(25a) line 7	Marianne Huijsmans	citation	(vf | EP.2019/06/29)	the tag or source at the right of the translation
+(25b) line 1	ʔayʔaǰuθəm	transcription	χʷoχʷmotoɬ	page 12, pairs
+(25b) line 2	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ-mut-uɬ	page 12, pairs
+(25b) line 3	ʔayʔaǰuθəm	gloss	long.time-int-pst	page 12, pairs
+(25b) line 4	ʔayʔaǰuθəm	transcription	ʔəɬ p̓ap̓ɛməs	page 12, pairs
+(25b) line 5	ʔayʔaǰuθəm	segmentation	ʔəɬ=p̓ap̓i-m=as	page 12, pairs
+(25b) line 6	ʔayʔaǰuθəm	gloss	comp=work-md=3sbjv	page 12, pairs
+(25b) line 7	ʔayʔaǰuθəm	transcription	ʔi	page 12, pairs
+(25b) line 8	ʔayʔaǰuθəm	segmentation	ʔiy	page 12, pairs
+(25b) line 9	ʔayʔaǰuθəm	gloss	conj	page 12, pairs
+(25b) line 10	ʔayʔaǰuθəm	transcription	kʷa hoy.	page 12, pairs
+(25b) line 11	ʔayʔaǰuθəm	segmentation	kʷa=huy	page 12, pairs
+(25b) line 12	ʔayʔaǰuθəm	gloss	cld=finish	page 12, pairs
+(25b) line 13	Marianne Huijsmans	translation	‘He worked for a long time, and now he’s retired.’	page 12, pairs
+(25b) line 13	Marianne Huijsmans	citation	(vf | EP.2022/02/18)	the tag or source at the right of the translation
+(26a) line 1	Marianne Huijsmans	note	Context: We’re talking about a teacher who just recently retired.	page 12, pairs
+(26a) line 2	ʔayʔaǰuθəm	transcription	* χʷoχʷmotoɬ	page 12, pairs
+(26a) line 3	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ-mut-uɬ	page 12, pairs
+(26a) line 4	ʔayʔaǰuθəm	gloss	long.time-int-pst	page 12, pairs
+(26a) line 5	ʔayʔaǰuθəm	transcription	ʔəɬ tičɛhəs.	page 12, pairs
+(26a) line 6	ʔayʔaǰuθəm	segmentation	ʔəɬ=tiča=as	page 12, pairs
+(26a) line 7	ʔayʔaǰuθəm	gloss	comp=teacher=3sbjv	page 12, pairs
+(26a) line 8	Marianne Huijsmans	translation	Intended: ‘He was a teacher for a long time.’	page 12, pairs
+(26) line 1	ʔayʔaǰuθəm	transcription	č̓ɛʔnohoč.	page 13, pairs
+(26) line 2	ʔayʔaǰuθəm	segmentation	č̓an̓u-hu=č	page 13, pairs
+(26) line 3	ʔayʔaǰuθəm	gloss	dog-poss=1sg.sbj	page 13, pairs
+(26) line 4	Marianne Huijsmans	translation	‘I have a dog.’	page 13, pairs
+(26) line 4	Marianne Huijsmans	citation	[noun] (sf | EP.2023/02/11)	the tag or source at the right of the translation
+(26b) line 1	ʔayʔaǰuθəm	transcription	k̓ʷakʷa hoy	page 12, pairs
+(26b) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷa=kʷa=huy	page 12, pairs
+(26b) line 3	ʔayʔaǰuθəm	gloss	rpt=cld=finish	page 12, pairs
+(26b) line 4	ʔayʔaǰuθəm	transcription	šɩms tičɛhoɬ.	page 12, pairs
+(26b) line 5	ʔayʔaǰuθəm	segmentation	šə=ms=tiča-h-uɬ	page 12, pairs
+(26b) line 6	ʔayʔaǰuθəm	gloss	det=1sg.poss=teacher-epen-pst	page 12, pairs
+(26b) line 7	ʔayʔaǰuθəm	transcription	χʷoχʷmotoɬ	page 12, pairs
+(26b) line 8	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ-mut-uɬ	page 12, pairs
+(26b) line 9	ʔayʔaǰuθəm	gloss	long.time-int-pst	page 12, pairs
+(26b) line 10	ʔayʔaǰuθəm	transcription	ʔəɬ nišəs.	page 12, pairs
+(26b) line 11	ʔayʔaǰuθəm	segmentation	ʔəɬ=niš=as	page 12, pairs
+(26b) line 12	ʔayʔaǰuθəm	gloss	comp=be.here=3sbjv	page 12, pairs
+(26b) line 13	Marianne Huijsmans	translation	‘Our teacher is retiring. He was here a long time.’	page 12, pairs
+(27) line 1	Marianne Huijsmans	note	Context: We’re talking about someone who was chief in Tla’amin for a long time, but is not currently chief.	page 12, pairs
+(27) line 2	ʔayʔaǰuθəm	transcription	* χʷoχʷoɬ	page 12, pairs
+(27) line 3	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ-uɬ	page 12, pairs
+(27) line 4	ʔayʔaǰuθəm	gloss	long.time-pst	page 12, pairs
+(27) line 5	ʔayʔaǰuθəm	transcription	ʔəɬ ʔəms hegusəs.	page 12, pairs
+(27) line 6	ʔayʔaǰuθəm	segmentation	ʔəɬ=ʔəms=higus=as	page 12, pairs
+(27) line 7	ʔayʔaǰuθəm	gloss	comp=1pl.poss=chief=3sbjv	page 12, pairs
+(27) line 8	Marianne Huijsmans	translation	Intended: ‘He was our chief for a long time.’	page 12, pairs
+(27) line 1	Marianne Huijsmans	note	Context: I see Gloria with an umbrella on a rainy day.	page 13, pairs
+(27) line 2	ʔayʔaǰuθəm	transcription	t̓ᶿaytɛhɛn	page 13, pairs
+(27) line 3	ʔayʔaǰuθəm	segmentation	t̓ayti<hi>n	page 13, pairs
+(27) line 4	ʔayʔaǰuθəm	gloss	umbrella<poss>	page 13, pairs
+(27) line 5	ʔayʔaǰuθəm	transcription	Gloria.	page 13, pairs
+(27) line 6	ʔayʔaǰuθəm	segmentation	Gloria	page 13, pairs
+(27) line 7	ʔayʔaǰuθəm	gloss	Gloria	page 13, pairs
+(27) line 8	Marianne Huijsmans	translation	‘Gloria has an umbrella.’	page 13, pairs
+(27) line 8	Marianne Huijsmans	citation	[noun] (sf | EP.2023/02/11)	the tag or source at the right of the translation
+§5.1	Marianne Huijsmans	note	Note that nouns are compatible with the subjunctive in the right context, so this also is not a mor- phological restriction.	page 12
+(28) line 1	Marianne Huijsmans	note	Context: A response used in pictionary (a game where one player draws and other players guess what is being drawn) to a wrong guess.	page 12, pairs
+(28) line 2	ʔayʔaǰuθəm	transcription	xʷaʔ,	page 12, pairs
+(28) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ,	page 12, pairs
+(28) line 4	ʔayʔaǰuθəm	gloss	neg,	page 12, pairs
+(28) line 5	ʔayʔaǰuθəm	transcription	xʷaʔ	page 12, pairs
+(28) line 6	ʔayʔaǰuθəm	segmentation	xʷaʔ	page 12, pairs
+(28) line 7	ʔayʔaǰuθəm	gloss	neg	page 12, pairs
+(28) line 8	ʔayʔaǰuθəm	transcription	q̓ayk̓ʷəs.	page 12, pairs
+(28) line 9	ʔayʔaǰuθəm	segmentation	q̓ayk̓ʷ=as	page 12, pairs
+(28) line 10	ʔayʔaǰuθəm	gloss	eagle=3sbjv	page 12, pairs
+(28) line 11	Marianne Huijsmans	translation	‘No, it’s not a eagle.’	page 12, pairs
+§5.1	Marianne Huijsmans	note	This then appears to be a syntactic restriction. Though the test is only applicable to stage-level predicates, it also points to a difference between the lexical categories of noun and verb.	page 12
+§5.2	Marianne Huijsmans	heading	5.2 Additional morphological evidence for nouns	page 13
+§5.2	Marianne Huijsmans	note	The other means for distinguishing nouns is morphological and is pointed out in Watanabe (2003). Nouns, but not verbs, can take the possessive -hV- affix (where V stands for a copy vowel). This affix derives a stative verb.9	page 13
+(25a) line 1	ʔayʔaǰuθəm	transcription	ʔayɛhaʔ	page 13, the orthography
+(25a) line 1	ʔayʔaǰuθəm	phonemic	/ʔaya<ha>ʔ/	page 13, phonemic, in / /
+(25a) line 1	Watanabe 2003:73	translation	‘have a house’	page 13, cited Watanabe 2003:73
+(25a) line 1	Marianne Huijsmans	note	(ʔayɛʔ /ʔayaʔ/ ‘house’)	page 13, the word the -hV- form is made from
+(25b) line 1	ʔayʔaǰuθəm	transcription	qʷasaham	page 13, the orthography
+(25b) line 1	ʔayʔaǰuθəm	phonemic	/qʷasa<ha>m/	page 13, phonemic, in / /
+(25b) line 1	Watanabe 2003:73	translation	‘have a flower’	page 13, cited Watanabe 2003:73
+(25b) line 1	Marianne Huijsmans	note	(qʷasəm /qʷasam/ ‘flower’)	page 13, the word the -hV- form is made from
+(25c) line 1	ʔayʔaǰuθəm	transcription	nuxʷɛhɛɬ	page 13, the orthography
+(25c) line 1	ʔayʔaǰuθəm	phonemic	/nəxʷi<hi>ɬ/	page 13, phonemic, in / /
+(25c) line 1	Watanabe 2003:73	translation	‘have a canoe’	page 13, cited Watanabe 2003:73
+(25c) line 1	Marianne Huijsmans	note	(nuxʷɛɬ /nəxʷiɬ/ ‘canoe’)	page 13, the word the -hV- form is made from
+(25d) line 1	ʔayʔaǰuθəm	transcription	* ʔɛmahaš	page 13, the orthography
+(25d) line 1	ʔayʔaǰuθəm	phonemic	*/ʔima<ha>š/	page 13, phonemic, in / /
+(25d) line 1	Marianne Huijsmans	note	(ʔɛmaš /ʔimaš/ ‘walk’)	page 13, the verb no -hV- form is made from
+(25e) line 1	ʔayʔaǰuθəm	transcription	* hasahəm	page 13, the orthography
+(25e) line 1	ʔayʔaǰuθəm	phonemic	*/hasa<ha>m/	page 13, phonemic, in / /
+(25e) line 1	Marianne Huijsmans	note	(hasəm /hasam/ ‘sneeze’)	page 13, the verb no -hV- form is made from
+(25f) line 1	ʔayʔaǰuθəm	transcription	* ǰɛhɛƛ̓	page 13, the orthography
+(25f) line 1	ʔayʔaǰuθəm	phonemic	*/ǰi<hi>ƛ̓/	page 13, phonemic, in / /
+(25f) line 1	Marianne Huijsmans	note	(ǰɩƛ̓ /ǰəƛ̓/ ‘run’)	page 13, the verb no -hV- form is made from
+(25f) line 2	Marianne Huijsmans	citation	(Watanabe 2003:73)	page 13, the source of the list
+§5.2	Marianne Huijsmans	note	Preliminary investigation, as illustrated in (26) to (30), confirms Watanabe’s generalization and indicates that adjectives also are not compatible with the -hV- affix (28) to (29).	page 13
+(28) line 1	Marianne Huijsmans	note	Context: Gloria and I were each given a scarf. I got a red one and she got a blue one.	page 13, pairs
+(28) line 2	ʔayʔaǰuθəm	transcription	* kʷʊsɛhɛm	page 13, pairs
+(28) line 3	ʔayʔaǰuθəm	segmentation	kʷəs-i<hi>m	page 13, pairs
+(28) line 4	ʔayʔaǰuθəm	gloss	blue-md<poss>	page 13, pairs
+(28) line 5	ʔayʔaǰuθəm	transcription	Gloria.	page 13, pairs
+(28) line 6	ʔayʔaǰuθəm	segmentation	Gloria	page 13, pairs
+(28) line 7	ʔayʔaǰuθəm	gloss	Gloria	page 13, pairs
+(28) line 8	Marianne Huijsmans	translation	Intended: ‘Gloria has a blue one.’	page 13, pairs
+(28) line 8	Marianne Huijsmans	citation	[adjective] (sf | EP.2023/02/11)	the tag or source at the right of the translation
+(29) line 1	Marianne Huijsmans	note	Context: Answering the question č̓ɛʔnohohačxʷ? ‘Do you have a dog?’ * ʔɛʔ, ʔiʔ yes titohol̓č.	page 13, pairs
+(29) line 2	ʔayʔaǰuθəm	transcription	titu<hu>l̓=č	page 13, pairs
+(29) line 3	Marianne Huijsmans	translation	Intended: ‘Yes, a small one.’	page 13, pairs
+(29) line 3	Marianne Huijsmans	citation	[adjective] (sf | EP.2023/06/16)	the tag or source at the right of the translation
+footnote 9	Marianne Huijsmans	note	9 If lexical categories did not exist in Salish languages, the presence of such apparently category-shifting morphology would be quite puzzling, as pointed out in Gerdts and Schneider (2023).	page 13, footnote
+(30) line 1	Marianne Huijsmans	note	Context: We’re talking about the strange pets some people have, and we start discussing spiders.	page 14, pairs
+(30) line 2	ʔayʔaǰuθəm	transcription	I tell you that Daniel has a pet spider that jumps.	page 14, pairs
+(30) line 3	ʔayʔaǰuθəm	segmentation	* k̓ʷik̓ʷt̓ᶿɛhɛm	page 14, pairs
+(30) line 4	ʔayʔaǰuθəm	gloss	k̓ʷi<k̓ʷ>t̓ᶿ-i<hi>m	page 14, pairs
+(30) line 5	ʔayʔaǰuθəm	segmentation	jump<pl>-md<poss>	page 14, pairs
+(30) line 6	ʔayʔaǰuθəm	gloss	Daniel.	page 14, pairs
+(30) line 7	ʔayʔaǰuθəm	segmentation	Daniel	page 14, pairs
+(30) line 8	ʔayʔaǰuθəm	gloss	Daniel	page 14, pairs
+(30) line 9	Marianne Huijsmans	translation	Intended: ‘Daniel has a jumping one.’	page 14, pairs
+(30) line 9	Marianne Huijsmans	citation	[verb] (sf | EP.2023/02/11)	the tag or source at the right of the translation
+§5.3	Marianne Huijsmans	heading	5.3 Relative clauses as a non-test	page 14
+§5.3	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§5.3	Marianne Huijsmans	note	In St’át’imcets, evidence for a distinction between nouns and words of other lexical categories is also found in relative clauses (e.g., Davis and Matthewson 1999; Demirdache and Matthewson 1995). Relative clauses are embedded sentences that add additional descriptive content modifying a noun. In the sentence I recognize [the man [who is standing over there]], there is a relative clause who is standing there embedded in the determiner phrase. This relative clause modifies the noun man, providing additional information to help identify the individual being referred to. The modified noun man is the head of the relative clause.	page 14
+§5.3	Marianne Huijsmans	note	In St’át’imcets, relative clauses can be headed or headless (e.g., Davis 2010, 2011). If headed, the head must be a noun (e.g., Davis 2010, 2011; Demirdache and Matthewson 1995). This rules out examples like the following, where the relative clause is headed by a non-noun, namely a verb or adjective.	page 14
+(31a) line 1	St’át’imcets	segmentation	áts'x-en=lhkan	page 14, engine language
+(31a) line 2	St’át’imcets	gloss	see-tr=1sg.sbj	page 14, engine english
+(31a) line 3	St’át’imcets	segmentation	[na=sáq'w=a	page 14, engine language
+(31a) line 4	St’át’imcets	gloss	[det=ﬂy-exis	page 14, engine english
+(31a) line 5	St’át’imcets	segmentation	spzúza7]	page 14, engine language
+(31a) line 6	St’át’imcets	gloss	bird]	page 14, engine english
+(31a) line 7	Davis 2011:4	translation	‘I saw a flying bird.’	page 14, engine english, the tag or source closing the set
+(31b) line 1	St’át’imcets	segmentation	* áts'x-en=lhkan	page 14, engine language
+(31b) line 2	St’át’imcets	gloss	see-tr=1sg.sbj	page 14, engine english
+(31b) line 3	St’át’imcets	segmentation	[na=sáq'w=a	page 14, engine language
+(31b) line 4	St’át’imcets	gloss	[det=ﬂy-exis	page 14, engine english
+(31b) line 5	St’át’imcets	segmentation	kwikws]	page 14, engine language
+(31b) line 6	St’át’imcets	gloss	small]	page 14, engine english
+(31b) line 7	Davis 2011:4	translation	‘I saw a flying small (thing).’	page 14, engine english, the tag or source closing the set
+(31c) line 1	St’át’imcets	segmentation	* áts'x-en=lhkan	page 14, engine language
+(31c) line 2	St’át’imcets	gloss	see-tr=1sg.sbj	page 14, engine english
+(31c) line 3	St’át’imcets	segmentation	[na=kwikws=a	page 14, engine language
+(31c) line 4	St’át’imcets	gloss	[det=ﬂy-exis	page 14, engine english
+(31c) line 5	St’át’imcets	segmentation	sáq'w]	page 14, engine language
+(31c) line 6	St’át’imcets	gloss	small]	page 14, engine english
+(31c) line 7	Davis 2011:4	translation	‘I saw a flying small (thing).’	page 14, engine english, cited Davis 2011:4
+(31c) line 7	Marianne Huijsmans	citation	(Davis 2011:4)	the tag or source at the right of the translation
+§5.3	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§5.3	Marianne Huijsmans	note	In ʔayʔaǰuθəm, relative clauses can precede or follow the head noun (32). In both cases, the relative is introduced by a single determiner, and attempts to include a second determiner are judged ungrammatical.10	page 14
+(32a) line 1	Marianne Huijsmans	note	Context: I’ve been learning to sew in a sewing class. When we’re in town, I see the lady who has been teaching me and point her out.	page 14, pairs
+(32a) line 2	ʔayʔaǰuθəm	transcription	nɛʔ	page 14, pairs
+(32a) line 3	ʔayʔaǰuθəm	segmentation	niʔ	page 14, pairs
+(32a) line 4	ʔayʔaǰuθəm	gloss	be.there	page 14, pairs
+(32a) line 5	ʔayʔaǰuθəm	transcription	taʔa	page 14, pairs
+(32a) line 6	ʔayʔaǰuθəm	segmentation	taʔa	page 14, pairs
+(32a) line 7	ʔayʔaǰuθəm	gloss	dem	page 14, pairs
+(32a) line 8	ʔayʔaǰuθəm	transcription	ɬə saɬtxʷ	page 14, pairs
+(32a) line 9	ʔayʔaǰuθəm	segmentation	ɬə=saɬtxʷ	page 14, pairs
+(32a) line 10	ʔayʔaǰuθəm	gloss	det=woman	page 14, pairs
+(32a) line 11	ʔayʔaǰuθəm	transcription	[(*ɬə) titiwšɛmstomš].	page 14, pairs
+(32a) line 12	ʔayʔaǰuθəm	segmentation	(*ɬə)=ti∼tiwš-əm-st-umš	page 14, pairs
+(32a) line 13	ʔayʔaǰuθəm	gloss	(*det)=prog∼teach-md-caus-1sg.obj	page 14, pairs
+(32a) line 14	Marianne Huijsmans	translation	‘The lady that’s teaching me is over there.’	page 14, pairs
+(32a) line 14	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the translation
+(32b) line 1	ʔayʔaǰuθəm	transcription	nɛʔ	page 15, pairs
+(32b) line 2	ʔayʔaǰuθəm	segmentation	niʔ	page 15, pairs
+(32b) line 3	ʔayʔaǰuθəm	gloss	be.there	page 15, pairs
+(32b) line 4	ʔayʔaǰuθəm	transcription	taʔa	page 15, pairs
+(32b) line 5	ʔayʔaǰuθəm	segmentation	taʔa	page 15, pairs
+(32b) line 6	ʔayʔaǰuθəm	gloss	dem	page 15, pairs
+(32b) line 7	ʔayʔaǰuθəm	transcription	ɬə [titiwšɛmstomš]	page 15, pairs
+(32b) line 8	ʔayʔaǰuθəm	segmentation	ɬə=ti∼tiwš-əm-st-umš	page 15, pairs
+(32b) line 9	ʔayʔaǰuθəm	gloss	det=prog∼teach-md-caus-1sg.obj	page 15, pairs
+(32b) line 10	ʔayʔaǰuθəm	transcription	(*ɬə)=saɬtxʷ.	page 15, pairs
+(32b) line 11	ʔayʔaǰuθəm	segmentation	(*ɬə)=saɬtxʷ	page 15, pairs
+(32b) line 12	ʔayʔaǰuθəm	gloss	(*det=)woman	page 15, pairs
+(32b) line 13	Marianne Huijsmans	translation	‘The lady that’s teaching me is over there.’	page 15, pairs
+(32b) line 13	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the translation
+footnote 10	Marianne Huijsmans	note	10 The third person ergative suffix -as, which usually marks third person subject agreement in indicative tran- sitive clauses, is not found on the predicate of the subject-centered relative clause titiwšɛmstomš ‘who is teaching me’; this suffix is absent where there is subject extraction (Watanabe 2003:126–127).	page 14, footnote
+§5.3	Marianne Huijsmans	language	Hul’q’umi’num’	Hul’q’umi’num’
+§5.3	Marianne Huijsmans	note	It is possible to stack relative clauses without an overt nominal head, with one relative clause appearing to serve as the head for the other (33b) to (35). The cases I include here all involve a tense mismatch between the two relative clauses to rule out an alternate interpretation where these are serial verb constructions within a single relative clause (see Montler 2008 on serial verb constructions in Klallam and Schneider 2021, 2022 on serial verb constructions in Hul’q’umi’num’).	page 15
+(33a) line 1	Marianne Huijsmans	note	Context: At a gathering, you strike up a conversation with a few people and one is a lady from Klahoose that I don’t recognize. Later, I ask you:	page 15, pairs
+(33a) line 2	ʔayʔaǰuθəm	transcription	gɛt ga	page 15, pairs
+(33a) line 3	ʔayʔaǰuθəm	segmentation	gat=ga	page 15, pairs
+(33a) line 4	ʔayʔaǰuθəm	gloss	who=dprt	page 15, pairs
+(33a) line 5	ʔayʔaǰuθəm	transcription	ɬ saɬtxʷ	page 15, pairs
+(33a) line 6	ʔayʔaǰuθəm	segmentation	ɬ=saɬtxʷ	page 15, pairs
+(33a) line 7	ʔayʔaǰuθəm	gloss	det=woman	page 15, pairs
+(33a) line 8	ʔayʔaǰuθəm	transcription	tawa	page 15, pairs
+(33a) line 9	ʔayʔaǰuθəm	segmentation	tawa	page 15, pairs
+(33a) line 10	ʔayʔaǰuθəm	gloss	from	page 15, pairs
+(33a) line 11	ʔayʔaǰuθəm	transcription	ʔəkʷ toʔq	page 15, pairs
+(33a) line 12	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=toʔq	page 15, pairs
+(33a) line 13	ʔayʔaǰuθəm	gloss	obl=det=Squirrel.Cove	page 15, pairs
+(33a) line 14	ʔayʔaǰuθəm	transcription	qʷɛqʷaysxʷaxʷoɬ?	page 15, pairs
+(33a) line 15	ʔayʔaǰuθəm	segmentation	qʷi∼qʷay-sxʷ-axʷ-uɬ	page 15, pairs
+(33a) line 16	ʔayʔaǰuθəm	gloss	prog∼talk-caus-2sg.erg-pst	page 15, pairs
+(33a) line 17	Marianne Huijsmans	translation	‘Who is the woman from Squirrel Cove that you were talking to?’	page 15, pairs
+(33b) line 1	ʔayʔaǰuθəm	transcription	gɛt ga	page 15, pairs
+(33b) line 2	ʔayʔaǰuθəm	segmentation	gat=ga	page 15, pairs
+(33b) line 3	ʔayʔaǰuθəm	gloss	who=dprt	page 15, pairs
+(33b) line 4	ʔayʔaǰuθəm	transcription	ɬ tawa	page 15, pairs
+(33b) line 5	ʔayʔaǰuθəm	segmentation	ɬ=tawa	page 15, pairs
+(33b) line 6	ʔayʔaǰuθəm	gloss	det=from	page 15, pairs
+(33b) line 7	ʔayʔaǰuθəm	transcription	ʔəkʷ toʔq	page 15, pairs
+(33b) line 8	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=toʔq	page 15, pairs
+(33b) line 9	ʔayʔaǰuθəm	gloss	obl=det=Squirrel.Cove	page 15, pairs
+(33b) line 10	ʔayʔaǰuθəm	transcription	qʷɛqʷaysxʷaxʷoɬ?	page 15, pairs
+(33b) line 11	ʔayʔaǰuθəm	segmentation	qʷi∼qʷay-sxʷ-axʷ-uɬ	page 15, pairs
+(33b) line 12	ʔayʔaǰuθəm	gloss	prog∼talk-caus-2sg.erg-pst	page 15, pairs
+(33b) line 13	Marianne Huijsmans	translation	‘Who is the woman from Squirrel Cove that you were talking to?’	page 15, pairs
+(33b) line 13	Marianne Huijsmans	citation	(sf | EP.2023/06/10)	the tag or source at the right of the translation
+(34) line 1	Marianne Huijsmans	note	Context: A weaving workshop was offered in Tla’amin, and you and I attended. A few different ladies came from different places to teach different techniques. One was from Homalco but I didn’t know her. I think you did recognize her, so the next day, I ask:	page 15, pairs
+(34) line 2	ʔayʔaǰuθəm	transcription	gɛt ga	page 15, pairs
+(34) line 3	ʔayʔaǰuθəm	segmentation	gat=ga	page 15, pairs
+(34) line 4	ʔayʔaǰuθəm	gloss	who=dprt	page 15, pairs
+(34) line 5	ʔayʔaǰuθəm	transcription	ɬ tawa	page 15, pairs
+(34) line 6	ʔayʔaǰuθəm	segmentation	ɬ=tawa	page 15, pairs
+(34) line 7	ʔayʔaǰuθəm	gloss	f.det=from	page 15, pairs
+(34) line 8	ʔayʔaǰuθəm	transcription	ʔəkʷ ʔop	page 15, pairs
+(34) line 9	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=ʔup	page 15, pairs
+(34) line 10	ʔayʔaǰuθəm	gloss	obl=det=Church.House	page 15, pairs
+(34) line 11	ʔayʔaǰuθəm	transcription	titiwšɛmstumoɬ	page 15, pairs
+(34) line 12	ʔayʔaǰuθəm	segmentation	ti∼tiwš-əm-st-umuɬ	page 15, pairs
+(34) line 13	ʔayʔaǰuθəm	gloss	prog∼teach-md-caus-1pl.obj	page 15, pairs
+(34) line 14	ʔayʔaǰuθəm	transcription	sǰɛsoɬ?	page 15, pairs
+(34) line 15	ʔayʔaǰuθəm	segmentation	sǰasuɬ	page 15, pairs
+(34) line 16	ʔayʔaǰuθəm	gloss	yesterday	page 15, pairs
+(34) line 17	Marianne Huijsmans	translation	‘Who is the lady from Homalco who was teaching us yesterday?’	page 15, pairs
+(34) line 17	Marianne Huijsmans	citation	(sf | EP.2023/06/10)	the tag or source at the right of the translation
+(35) line 1	Marianne Huijsmans	note	Context: I was at a weaving workshop yesterday. Today I see one of the other workshop participants at a gathering, talking with some other ladies. I want to know who she is, so I ask Gail, who was also at the workshop and seemed to know her:	page 15, pairs
+(35) line 2	ʔayʔaǰuθəm	transcription	gɛt ga	page 15, pairs
+(35) line 3	ʔayʔaǰuθəm	segmentation	gat=ga	page 15, pairs
+(35) line 4	ʔayʔaǰuθəm	gloss	who=dprt	page 15, pairs
+(35) line 5	ʔayʔaǰuθəm	transcription	ɬ nɛʔ	page 15, pairs
+(35) line 6	ʔayʔaǰuθəm	segmentation	ɬ=niʔ	page 15, pairs
+(35) line 7	ʔayʔaǰuθəm	gloss	det=be.there	page 15, pairs
+(35) line 8	ʔayʔaǰuθəm	transcription	taʔa	page 15, pairs
+(35) line 9	ʔayʔaǰuθəm	segmentation	taʔa	page 15, pairs
+(35) line 10	ʔayʔaǰuθəm	gloss	dem	page 15, pairs
+(35) line 11	ʔayʔaǰuθəm	transcription	nɛʔoɬ	page 15, pairs
+(35) line 12	ʔayʔaǰuθəm	segmentation	niʔ-uɬ	page 15, pairs
+(35) line 13	ʔayʔaǰuθəm	gloss	be.there-pst	page 15, pairs
+(35) line 14	ʔayʔaǰuθəm	transcription	χʷoχʷopɛʔɛč	page 15, pairs
+(35) line 15	ʔayʔaǰuθəm	segmentation	x̌ʷu∼x̌ʷupiʔič	page 15, pairs
+(35) line 16	ʔayʔaǰuθəm	gloss	prog∼weave	page 15, pairs
+(35) line 17	ʔayʔaǰuθəm	transcription	snanatoɬ?	page 15, pairs
+(35) line 18	ʔayʔaǰuθəm	segmentation	snanat-uɬ	page 15, pairs
+(35) line 19	ʔayʔaǰuθəm	gloss	evening-pst	page 15, pairs
+(35) line 20	Marianne Huijsmans	translation	‘Who is the lady over there who was at weaving yesterday?’	page 15, pairs
+(35) line 20	Marianne Huijsmans	citation	(sf | EP.2023/06/10)	the tag or source at the right of the translation
+§5.3	Marianne Huijsmans	note	The following examples show that a relative clause can also directly follow an adjective in the absence of a head noun, as in (36b) and (37); here, the adjective appears to head the relative clause.	page 15
+(36a) line 1	Marianne Huijsmans	note	Context: I needed help getting something down from up high at a gathering. A young guy helps me but I don’t get a chance to get his name. After, I think to myself.	page 16, pairs
+(36a) line 2	ʔayʔaǰuθəm	transcription	gɛt č̓ɛ	page 16, pairs
+(36a) line 3	ʔayʔaǰuθəm	segmentation	gat=č̓a	page 16, pairs
+(36a) line 4	ʔayʔaǰuθəm	gloss	who=infer	page 16, pairs
+(36a) line 5	ʔayʔaǰuθəm	transcription	šɛ χaχaɬ	page 16, pairs
+(36a) line 6	ʔayʔaǰuθəm	segmentation	šə=x̌ax̌aɬ	page 16, pairs
+(36a) line 7	ʔayʔaǰuθəm	gloss	det=tall	page 16, pairs
+(36a) line 8	ʔayʔaǰuθəm	transcription	tumɩš	page 16, pairs
+(36a) line 9	ʔayʔaǰuθəm	segmentation	tumiš	page 16, pairs
+(36a) line 10	ʔayʔaǰuθəm	gloss	man	page 16, pairs
+(36a) line 11	ʔayʔaǰuθəm	transcription	č̓ɛgaθoɬ.	page 16, pairs
+(36a) line 12	ʔayʔaǰuθəm	segmentation	č̓ag-aθ-uɬ	page 16, pairs
+(36a) line 13	ʔayʔaǰuθəm	gloss	help-ctr;1sg.obj-pst	page 16, pairs
+(36a) line 14	Marianne Huijsmans	translation	‘I wonder who the tall man who helped me is.’	page 16, pairs
+(36b) line 1	ʔayʔaǰuθəm	transcription	gɛt č̓ɛ	page 16, pairs
+(36b) line 2	ʔayʔaǰuθəm	segmentation	gat=č̓a	page 16, pairs
+(36b) line 3	ʔayʔaǰuθəm	gloss	who=infer	page 16, pairs
+(36b) line 4	ʔayʔaǰuθəm	transcription	šɛ χaχaɬ	page 16, pairs
+(36b) line 5	ʔayʔaǰuθəm	segmentation	šə=x̌ax̌aɬ	page 16, pairs
+(36b) line 6	ʔayʔaǰuθəm	gloss	det=tall	page 16, pairs
+(36b) line 7	ʔayʔaǰuθəm	transcription	č̓ɛgaθoɬ.	page 16, pairs
+(36b) line 8	ʔayʔaǰuθəm	segmentation	č̓ag-aθ-uɬ	page 16, pairs
+(36b) line 9	ʔayʔaǰuθəm	gloss	help-ctr;1sg.obj-pst	page 16, pairs
+(36b) line 10	Marianne Huijsmans	translation	‘I wonder who the tall one who helped me is.’	page 16, pairs
+(37) line 1	Marianne Huijsmans	note	Context: I’m at a bakery choosing a cookie. There are chocolate chip cookies and oatmeal raisin cookies. A batch of each kind just came out of the oven, and they are still hot and some have already been out for a while and cooled. I really want one that’ s fresh from the oven, so I say to the lady:	page 16, pairs
+(37) line 2	ʔayʔaǰuθəm	transcription	hɛhɛw	page 16, pairs
+(37) line 3	ʔayʔaǰuθəm	segmentation	hihiw	page 16, pairs
+(37) line 4	ʔayʔaǰuθəm	gloss	really	page 16, pairs
+(37) line 5	ʔayʔaǰuθəm	transcription	ʔaǰɛqapmot	page 16, pairs
+(37) line 6	ʔayʔaǰuθəm	segmentation	ʔəǰ-aqap-mut	page 16, pairs
+(37) line 7	ʔayʔaǰuθəm	gloss	good-smell-int	page 16, pairs
+(37) line 8	ʔayʔaǰuθəm	transcription	tə cookies.	page 16, pairs
+(37) line 9	ʔayʔaǰuθəm	segmentation	tə=cookies	page 16, pairs
+(37) line 10	ʔayʔaǰuθəm	gloss	det=cookies	page 16, pairs
+(37) line 11	ʔayʔaǰuθəm	transcription	hɛɬ	page 16, pairs
+(37) line 12	ʔayʔaǰuθəm	segmentation	hiɬ	page 16, pairs
+(37) line 13	ʔayʔaǰuθəm	gloss	cop	page 16, pairs
+(37) line 14	ʔayʔaǰuθəm	transcription	tə k̓ʷas	page 16, pairs
+(37) line 15	ʔayʔaǰuθəm	segmentation	tə=k̓ʷas	page 16, pairs
+(37) line 16	ʔayʔaǰuθəm	gloss	det=hot	page 16, pairs
+(37) line 17	ʔayʔaǰuθəm	transcription	nɛʔ	page 16, pairs
+(37) line 18	ʔayʔaǰuθəm	segmentation	niʔ	page 16, pairs
+(37) line 19	ʔayʔaǰuθəm	gloss	be.there	page 16, pairs
+(37) line 20	ʔayʔaǰuθəm	transcription	taʔa	page 16, pairs
+(37) line 21	ʔayʔaǰuθəm	segmentation	taʔa	page 16, pairs
+(37) line 22	ʔayʔaǰuθəm	gloss	dem	page 16, pairs
+(37) line 23	ʔayʔaǰuθəm	transcription	ʔət χaƛ̓.	page 16, pairs
+(37) line 24	ʔayʔaǰuθəm	segmentation	ʔətᶿ=x̌aƛ̓	page 16, pairs
+(37) line 25	ʔayʔaǰuθəm	gloss	1sg.poss=desire	page 16, pairs
+(37) line 26	Marianne Huijsmans	translation	‘The cookies smell so good. I’d like one of the hot ones over there.’	page 16, pairs
+(37) line 26	Marianne Huijsmans	citation	(sf | EP.2022/11/05)	the tag or source at the right of the translation
+§5.3	Marianne Huijsmans	note	Unlike in St’át’imcets, then, an overt head of a relative clause does not have to be a noun, which means that relative clauses cannot be used to distinguish between nouns and non-nouns in ʔayʔaǰuθəm. It is beyond the scope of this paper to give an analysis of the syntax of these relative clause structures. It may be that despite appearances, these structures are headed by a noun, but this noun is unpronounced. The analysis of St’át’imcets relative clauses found in Davis (2003, 2010), for instance, posits a null pro NP in headless relative clauses. In addition, Hukari (1983) and Gerdts and Hinkson (2004) observe noun elision occurring in Hul’q’umi’num’ (Island Halkomelem), and Davis (2003, 2011) also observes this in St’át’imcets, given the right discourse context.11 Regardless of how these structures are ultimately analyzed, however, they cannot serve as a diagnostic for the syntactic category of noun as they do in St’át’imcets, so I leave them aside here.	page 16
+§5.4	Marianne Huijsmans	heading	5.4 Possessives as a non-test	page 16
+§5.4	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§5.4	Marianne Huijsmans	language	Hul’q’umi’num’	Hul’q’umi’num’
+§5.4	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§5.4	Marianne Huijsmans	note	Van Eijk and Hess (1986) for St’át’imcets and Gerdts and Schneider (2023) for Hul’q’umi’num’ discuss possessive inflection as another useful test for nounhood: nouns are inflected with possessive affixes, whereas predicates of other categories must be nominalized before being inflected with possessives. In ʔayʔaǰuθəm, unfortunately, this is not a clear test for nouns (as also pointed out in Watanabe 2003:75).	page 16
+§5.4	Marianne Huijsmans	note	ʔayʔaǰuθəm has lost all prefixes, including the nominalizer prefix s-. The absence of the prefixal nominalizer s- means that predicate nominalization is only visible via possessive morphology, as in (38).	page 16
+footnote 11	Marianne Huijsmans	note	11 The cases of noun elision discussed in the cited works all involve elision of a noun following an adjective, however, while in (33b) to (35), there is no adjective preceding the noun. Thanks to Henry Davis, p.c., 2023, for raising this point.	page 16, footnote
+(38) line 1	ʔayʔaǰuθəm	transcription	hɛɬ	page 17, pairs
+(38) line 2	ʔayʔaǰuθəm	segmentation	hiɬ	page 17, pairs
+(38) line 3	ʔayʔaǰuθəm	gloss	cop	page 17, pairs
+(38) line 4	ʔayʔaǰuθəm	transcription	tɛʔɛ	page 17, pairs
+(38) line 5	ʔayʔaǰuθəm	segmentation	tiʔi	page 17, pairs
+(38) line 6	ʔayʔaǰuθəm	gloss	dem	page 17, pairs
+(38) line 7	ʔayʔaǰuθəm	transcription	pɩču	page 17, pairs
+(38) line 8	ʔayʔaǰuθəm	segmentation	pəču	page 17, pairs
+(38) line 9	ʔayʔaǰuθəm	gloss	basket	page 17, pairs
+(38) line 10	ʔayʔaǰuθəm	transcription	ʔə χanaθʔos.	page 17, pairs
+(38) line 11	ʔayʔaǰuθəm	segmentation	ʔə=x̌an-aθ-ʔu-s	page 17, pairs
+(38) line 12	ʔayʔaǰuθəm	gloss	clf.prt-ctr;1sg.obj-pst-3poss	page 17, pairs
+(38) line 13	Marianne Huijsmans	translation	‘She gave me this basket.’	page 17, pairs
+(38) line 13	Marianne Huijsmans	citation	(vf | EP.2021/10/02)	the tag or source at the right of the translation
+§5.4	Marianne Huijsmans	note	Unlike in Hul’q’umi’num’, then, non-nouns cannot be identified by their need to be nominalized prior to combining with possessives.12 Davis (1999, 2000) points out that while possessive affixes on nouns and nominalized predicates may be indistinguishable, possessives marking subjects in nominalized clauses in a number of Salish languages can be distinguished because they are clitics, not affixes (likely reflecting the proto-Salish system). Clitics and affixes are distinguished by position: affixes are fixed to a particular head, while clitics attach to the initial word of the clause or phrase, which may be an auxiliary or modifier preceding the head.	page 17
+§5.4	ʔayʔaǰuθəm	cited form	qʷol̓	page 17
+§5.4	ʔayʔaǰuθəm	cited form	hɛwt	page 17, ‘get home’
+§5.4	ʔayʔaǰuθəm	cited form	ʔayɛʔ	page 17, ‘house’
+§5.4	ʔayʔaǰuθəm	cited form	χaws	page 17, ‘new’
+§5.4	Marianne Huijsmans	note	The following two examples illustrate this contrast for ʔayʔaǰuθəm. In (39), the third person possessive is a clitic marking the subject of a nominalized clause: it attaches to the auxiliary qʷol̓ ‘come’ rather than the main predicate hɛwt ‘get home’. In contrast, in (40), the third person posses- sive marks possession on a noun and is a suffix: it attaches to the head noun ʔayɛʔ ‘house’, rather than the preceding modifier χaws ‘new’.	page 17
+(39) line 1	ʔayʔaǰuθəm	transcription	yɛ:χátč	page 17, pairs
+(39) line 2	ʔayʔaǰuθəm	segmentation	yaχ-át=č	page 17, pairs
+(39) line 3	ʔayʔaǰuθəm	gloss	remember-ctr\stat=1sg.sbj	page 17, pairs
+(39) line 4	ʔayʔaǰuθəm	transcription	sqʷol̓s	page 17, pairs
+(39) line 5	ʔayʔaǰuθəm	segmentation	s=qʷəl̓=s	page 17, pairs
+(39) line 6	ʔayʔaǰuθəm	gloss	nmlz=come=3poss	page 17, pairs
+(39) line 7	ʔayʔaǰuθəm	transcription	hɛwtoɬ.	page 17, pairs
+(39) line 8	ʔayʔaǰuθəm	segmentation	hiwt-uɬ	page 17, pairs
+(39) line 9	ʔayʔaǰuθəm	gloss	get.home-pst	page 17, pairs
+(39) line 10	Marianne Huijsmans	translation	‘I remember when s/he got home.’	page 17, pairs
+(39) line 10	Marianne Huijsmans	citation	(vf | EP.2021/03/14)	the tag or source at the right of the translation
+(40) line 1	ʔayʔaǰuθəm	transcription	səmkʷi	page 17, pairs
+(40) line 2	ʔayʔaǰuθəm	segmentation	səm=kʷi	page 17, pairs
+(40) line 3	ʔayʔaǰuθəm	gloss	fut=cld	page 17, pairs
+(40) line 4	ʔayʔaǰuθəm	transcription	tayqʔeyt	page 17, pairs
+(40) line 5	ʔayʔaǰuθəm	segmentation	tayq-ʔiyt	page 17, pairs
+(40) line 6	ʔayʔaǰuθəm	gloss	move-prf	page 17, pairs
+(40) line 7	ʔayʔaǰuθəm	transcription	kʷ χaws	page 17, pairs
+(40) line 8	ʔayʔaǰuθəm	segmentation	kʷ=x̌aws	page 17, pairs
+(40) line 9	ʔayʔaǰuθəm	gloss	det=new	page 17, pairs
+(40) line 10	ʔayʔaǰuθəm	transcription	ʔayɛʔs	page 17, pairs
+(40) line 11	ʔayʔaǰuθəm	segmentation	ʔayaʔ-s	page 17, pairs
+(40) line 12	ʔayʔaǰuθəm	gloss	house-3poss	page 17, pairs
+(40) line 13	Marianne Huijsmans	translation	‘She will have moved into her new house by now.’	page 17, pairs
+(40) line 13	Marianne Huijsmans	citation	(vf | EP.2022/05/06)	the tag or source at the right of the translation
+§5.4	Marianne Huijsmans	note	However, in ʔayʔaǰuθəm, even this contrast is partially neutralized, found only with the third person possessive markers and the second person plural possessive marker. First person singular and first and second person plural possessive markers are proclitics in nominal as well as clausal environments.13 This is illustrated in (41), where the second-person singular possessive marker procliticizes along with the determiner to an adjective preceding the noun rather than affixing to the noun directly.	page 17
+footnote 12	Marianne Huijsmans	note	12 Similarly, nominalized clauses are marked with the proclitic nominalizer s=, but this is often elided leaving the possessive clitics as the only morphological means for identifying a nominalized clause as well. The proclitic nominalizer is actually obligatorily absent where the subject is expressed by a possessive proclitic (Watanabe 2003:109–110).	page 17, footnote
+footnote 13	Marianne Huijsmans	note	13 Except when marking subjects of nominalized predicates in headless oblique-object centered relative clauses. They are clitics in all other nominal and nominalized environments, including when marking the subject of nominalized predicates in headed oblique-object centered relative clauses (Watanabe 2003:138).	page 17, footnote
+(41) line 1	Marianne Huijsmans	note	Context: I don’t have enough cups for a gathering and I want my brother to bring some. He has several sets, and I think his blue ones would look nice and festive. I tell him:	page 18, pairs
+(41) line 2	ʔayʔaǰuθəm	transcription	qətɛxʷ	page 18, pairs
+(41) line 3	ʔayʔaǰuθəm	segmentation	qət<i>xʷ	page 18, pairs
+(41) line 4	ʔayʔaǰuθəm	gloss	run.out<stat>	page 18, pairs
+(41) line 5	ʔayʔaǰuθəm	transcription	šɛtᶿ k̓ʷɩsk̓ʷasta.	page 18, pairs
+(41) line 6	ʔayʔaǰuθəm	segmentation	šə=tᶿ=k̓ʷəs∼k̓ʷasta	page 18, pairs
+(41) line 7	ʔayʔaǰuθəm	gloss	det=1sg.poss=pl∼cup	page 18, pairs
+(41) line 8	ʔayʔaǰuθəm	transcription	qʷolstaʔamčxʷ ga	page 18, pairs
+(41) line 9	ʔayʔaǰuθəm	segmentation	qʷəl-st-aʔam=čxʷ=ga	page 18, pairs
+(41) line 10	ʔayʔaǰuθəm	gloss	come-caus-act.intr=2sg.sbj=dprt	page 18, pairs
+(41) line 11	ʔayʔaǰuθəm	transcription	ʔə šɛθ kʷʊsɛm	page 18, pairs
+(41) line 12	ʔayʔaǰuθəm	segmentation	ʔə=šə=θ=kʷəs-im	page 18, pairs
+(41) line 13	ʔayʔaǰuθəm	gloss	obl=det=2sg.poss=blue-md	page 18, pairs
+(41) line 14	ʔayʔaǰuθəm	transcription	k̓ʷɩsk̓ʷasta.	page 18, pairs
+(41) line 15	ʔayʔaǰuθəm	segmentation	k̓ʷəs∼k̓ʷasta	page 18, pairs
+(41) line 16	ʔayʔaǰuθəm	gloss	pl∼cup	page 18, pairs
+(41) line 17	Marianne Huijsmans	translation	‘I don’t have enough cups. Please bring your blue cups.’	page 18, pairs
+(41) line 17	Marianne Huijsmans	citation	(vf | EP.2023/02/11)	the tag or source at the right of the translation
+§5.4	Marianne Huijsmans	note	The possessive morphology found marking possession on nouns and subjects of nominalized clauses is therefore frequently indistinguishable.	page 18
+§5.4	Marianne Huijsmans	note	Out of all this complexity, one possible morphological diagnostic remains, but requires caution. Predicate nominalization is fairly restricted in ʔayʔaǰuθəm, documented only in oblique-object cen- tered relative clauses (Watanabe 2003:135–140). If a third person possessive or second person plural possessive is attaching as an affix rather than a clitic, it is therefore likely marking possession on a noun rather than marking the subject of a nominalized clause. However, care must be taken to rule out an alternate analysis in terms of predicate nominalization.	page 18
+§5.4	Marianne Huijsmans	note	Watanabe (2003:76) also points out that the interpretation of possessives differ semantically with nouns and verbs. With nouns, possessives are interpreted as possessors, whereas a possessive asso- ciated with a verb is interpreted as a participant in the eventuality described by the verb. Therefore, though possessives provide at best only subtle morphological evidence for distinguishing between nouns and verbs, the shift in semantic interpretation is another possible cue to lexical category.	page 18
+§5.5	Marianne Huijsmans	heading	5.5 Summary	page 18
+§5.5	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§5.5	Marianne Huijsmans	note	In this section, I argued that a lexical category of noun must be distinguished in ʔayʔaǰuθəm. I pre- sented syntactic evidence from complex nominal predicates and morphological evidence involving the possessive -hV- affix for this claim. I then discussed certain tests for nounhood used in other Salish languages that do not work well for ʔayʔaǰuθəm, in order to illustrate where there is variation between languages in the evidence available for this category.	page 18
+§6	Marianne Huijsmans	heading	6 Adjectives	page 18
+§6	Marianne Huijsmans	note	In this section, I turn to distinguishing adjectives from nouns and verbs. I first present syntactic evidence that adjectives are a distinct lexical category (Section 6.1) and then provide additional morphological evidence (Section 6.2). The result is a three-way distinction between nouns, verbs, and adjectives.	page 18
+§6.1	Marianne Huijsmans	heading	6.1 Syntactic evidence for adjectives	page 18
+§6.1	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§6.1	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§6.1	Marianne Huijsmans	note	Davis (2011) provides evidence for a distinction between verbs and adjectives in St’át’imcets based on word order. While verbal predicates can be nominal modifiers in pre- or post-nominal relative clauses, adjectives must precede the noun they modify. The same pattern holds in ʔayʔaǰuθəm. As noted in Section 5.3, relative clauses can be precede or follow a head noun in ʔayʔaǰuθəm, as in (42).	page 18
+(42a) line 1	Marianne Huijsmans	note	Context: I need help with something during a gathering. There’ s one guy just sitting and few others busy with various tasks.	page 19, pairs
+(42a) line 2	ʔayʔaǰuθəm	transcription	gayɛttᶿəm	page 19, pairs
+(42a) line 3	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ=əm	page 19, pairs
+(42a) line 4	ʔayʔaǰuθəm	gloss	ask-ctr=1sg.sbj=fut	page 19, pairs
+(42a) line 5	ʔayʔaǰuθəm	transcription	tə [nɛʔ	page 19, pairs
+(42a) line 6	ʔayʔaǰuθəm	segmentation	tə=niʔ	page 19, pairs
+(42a) line 7	ʔayʔaǰuθəm	gloss	det=be.there	page 19, pairs
+(42a) line 8	ʔayʔaǰuθəm	transcription	taʔa	page 19, pairs
+(42a) line 9	ʔayʔaǰuθəm	segmentation	taʔa	page 19, pairs
+(42a) line 10	ʔayʔaǰuθəm	gloss	dem	page 19, pairs
+(42a) line 11	ʔayʔaǰuθəm	transcription	kʷanáč]	page 19, pairs
+(42a) line 12	ʔayʔaǰuθəm	segmentation	kʷanáč	page 19, pairs
+(42a) line 13	ʔayʔaǰuθəm	gloss	sit<stat>	page 19, pairs
+(42a) line 14	ʔayʔaǰuθəm	transcription	tumɩš.	page 19, pairs
+(42a) line 15	ʔayʔaǰuθəm	segmentation	tumiš	page 19, pairs
+(42a) line 16	ʔayʔaǰuθəm	gloss	man	page 19, pairs
+(42a) line 17	ʔayʔaǰuθəm	transcription	b. gayɛttᶿəm	page 19, pairs
+(42a) line 18	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ=əm	page 19, pairs
+(42a) line 19	ʔayʔaǰuθəm	gloss	ask-ctr=1sg.sbj=fut	page 19, pairs
+(42a) line 20	ʔayʔaǰuθəm	transcription	tə tumɩš	page 19, pairs
+(42a) line 21	ʔayʔaǰuθəm	segmentation	tə=tumiš	page 19, pairs
+(42a) line 22	ʔayʔaǰuθəm	gloss	det=man	page 19, pairs
+(42a) line 23	ʔayʔaǰuθəm	transcription	[nɛʔ	page 19, pairs
+(42a) line 24	ʔayʔaǰuθəm	segmentation	niʔ	page 19, pairs
+(42a) line 25	ʔayʔaǰuθəm	gloss	be.there	page 19, pairs
+(42a) line 26	ʔayʔaǰuθəm	transcription	taʔa	page 19, pairs
+(42a) line 27	ʔayʔaǰuθəm	segmentation	taʔa	page 19, pairs
+(42a) line 28	ʔayʔaǰuθəm	gloss	dem	page 19, pairs
+(42a) line 29	ʔayʔaǰuθəm	transcription	kʷanáč].	page 19, pairs
+(42a) line 30	ʔayʔaǰuθəm	segmentation	kʷanáč	page 19, pairs
+(42a) line 31	ʔayʔaǰuθəm	gloss	sit<stat>	page 19, pairs
+(42a) line 32	Marianne Huijsmans	translation	‘I’ll ask the man who is sitting there.’	page 19, pairs
+(42a) line 32	Marianne Huijsmans	citation	(vf | EP.2022/09/16)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	In contrast to relative clause modifiers, adjectives must precede the noun they modify, as illustrated in (43) to (45).	page 19
+(43a) line 1	Marianne Huijsmans	note	Context: I need help moving something that’ s on a high shelf. There’ s a tall guy stand- ing nearby with a few others.	page 19, pairs
+(43a) line 2	ʔayʔaǰuθəm	transcription	gayɛttᶿəm	page 19, pairs
+(43a) line 3	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ=əm	page 19, pairs
+(43a) line 4	ʔayʔaǰuθəm	gloss	ask-ctr=1sg.sbj=fut	page 19, pairs
+(43a) line 5	ʔayʔaǰuθəm	transcription	tə χaχaɬ	page 19, pairs
+(43a) line 6	ʔayʔaǰuθəm	segmentation	tə=x̌ax̌aɬ	page 19, pairs
+(43a) line 7	ʔayʔaǰuθəm	gloss	det=tall	page 19, pairs
+(43a) line 8	ʔayʔaǰuθəm	transcription	tumɩš.	page 19, pairs
+(43a) line 9	ʔayʔaǰuθəm	segmentation	tumiš	page 19, pairs
+(43a) line 10	ʔayʔaǰuθəm	gloss	man	page 19, pairs
+(43a) line 11	Marianne Huijsmans	translation	‘I’m going to ask the tall man.’	page 19, pairs
+(43b) line 1	ʔayʔaǰuθəm	transcription	* gayɛttᶿəm	page 19, pairs
+(43b) line 2	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ=əm	page 19, pairs
+(43b) line 3	ʔayʔaǰuθəm	gloss	ask-ctr=1sg.sbj=fut	page 19, pairs
+(43b) line 4	ʔayʔaǰuθəm	transcription	tə tumɩš	page 19, pairs
+(43b) line 5	ʔayʔaǰuθəm	segmentation	tə=tumiš	page 19, pairs
+(43b) line 6	ʔayʔaǰuθəm	gloss	det=man	page 19, pairs
+(43b) line 7	ʔayʔaǰuθəm	transcription	χaχaɬ.	page 19, pairs
+(43b) line 8	ʔayʔaǰuθəm	segmentation	x̌ax̌aɬ	page 19, pairs
+(43b) line 9	ʔayʔaǰuθəm	gloss	tall	page 19, pairs
+(43b) line 10	Marianne Huijsmans	translation	Intended: ‘I’m going to ask the tall man.’	page 19, pairs
+(43b) line 10	Marianne Huijsmans	citation	(sf | EP.2022/09/16)	the tag or source at the right of the translation
+(44a) line 1	Marianne Huijsmans	note	Context: I bought a new table second hand, and I’m really happy with it. I tell you:	page 19, pairs
+(44a) line 2	ʔayʔaǰuθəm	transcription	čkʷi	page 19, pairs
+(44a) line 3	ʔayʔaǰuθəm	segmentation	č=kʷi	page 19, pairs
+(44a) line 4	ʔayʔaǰuθəm	gloss	1sg.sbj=cld	page 19, pairs
+(44a) line 5	ʔayʔaǰuθəm	transcription	yəqʔəmʔit	page 19, pairs
+(44a) line 6	ʔayʔaǰuθəm	segmentation	yəq-ʔəm-ʔəyt	page 19, pairs
+(44a) line 7	ʔayʔaǰuθəm	gloss	buy-act.intr-prf	page 19, pairs
+(44a) line 8	ʔayʔaǰuθəm	transcription	ʔə šɛ ʔimot	page 19, pairs
+(44a) line 9	ʔayʔaǰuθəm	segmentation	ʔə=šə=ʔəǰ-mut	page 19, pairs
+(44a) line 10	ʔayʔaǰuθəm	gloss	obl=det=good-int	page 19, pairs
+(44a) line 11	ʔayʔaǰuθəm	transcription	θɛwθɛtən	page 19, pairs
+(44a) line 12	ʔayʔaǰuθəm	segmentation	θiwθitən	page 19, pairs
+(44a) line 13	ʔayʔaǰuθəm	gloss	table	page 19, pairs
+(44a) line 14	ʔayʔaǰuθəm	transcription	ʔə šɛ mʊkʷʊmawtxʷ.	page 19, pairs
+(44a) line 15	ʔayʔaǰuθəm	segmentation	ʔə=šə=məkʷəmawtxʷ	page 19, pairs
+(44a) line 16	ʔayʔaǰuθəm	gloss	obl=det=second.hand.store	page 19, pairs
+(44a) line 17	Marianne Huijsmans	translation	‘I bought a really nice table at the secondhand store.’	page 19, pairs
+(44b) line 1	ʔayʔaǰuθəm	transcription	* čkʷi	page 19, pairs
+(44b) line 2	ʔayʔaǰuθəm	segmentation	č=kʷi	page 19, pairs
+(44b) line 3	ʔayʔaǰuθəm	gloss	1sg.sbj=cld	page 19, pairs
+(44b) line 4	ʔayʔaǰuθəm	transcription	yəqʔəmʔit	page 19, pairs
+(44b) line 5	ʔayʔaǰuθəm	segmentation	yəq-ʔəm-ʔəyt	page 19, pairs
+(44b) line 6	ʔayʔaǰuθəm	gloss	buy-act.intr-prf	page 19, pairs
+(44b) line 7	ʔayʔaǰuθəm	transcription	ʔə šɛ θɛwθɛtən	page 19, pairs
+(44b) line 8	ʔayʔaǰuθəm	segmentation	ʔə=šə=θiwθitən	page 19, pairs
+(44b) line 9	ʔayʔaǰuθəm	gloss	obl=det=table	page 19, pairs
+(44b) line 10	ʔayʔaǰuθəm	transcription	ʔimot	page 19, pairs
+(44b) line 11	ʔayʔaǰuθəm	segmentation	ʔəǰ-mut	page 19, pairs
+(44b) line 12	ʔayʔaǰuθəm	gloss	good-int	page 19, pairs
+(44b) line 13	ʔayʔaǰuθəm	transcription	ʔə šɛ mʊkʷʊmawtxʷ.	page 19, pairs
+(44b) line 14	ʔayʔaǰuθəm	segmentation	ʔə=šə=məkʷəmawtxʷ	page 19, pairs
+(44b) line 15	ʔayʔaǰuθəm	gloss	obl=det=second.hand.store	page 19, pairs
+(44b) line 16	Marianne Huijsmans	translation	Intended: ‘I bought a really nice table at the secondhand store.’	page 19, pairs
+(44b) line 16	Marianne Huijsmans	citation	(vf/sf | EP.2022/11/05)	the tag or source at the right of the translation
+(45a) line 1	Marianne Huijsmans	note	Context: We’re approaching my house, and I see someone has stuck a paper to one of my windows. I say to you:	page 19, pairs
+(45a) line 2	ʔayʔaǰuθəm	transcription	k̓ʷʊnɛtačxʷ	page 19, pairs
+(45a) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷən-í-t=a=čxʷ	page 19, pairs
+(45a) line 4	ʔayʔaǰuθəm	gloss	see-stat-ctr=q=2sg.sbj	page 19, pairs
+(45a) line 5	ʔayʔaǰuθəm	transcription	tə pipa?	page 19, pairs
+(45a) line 6	ʔayʔaǰuθəm	segmentation	tə=pipa	page 19, pairs
+(45a) line 7	ʔayʔaǰuθəm	gloss	det=paper	page 19, pairs
+(45a) line 8	ʔayʔaǰuθəm	transcription	nɛʔ	page 19, pairs
+(45a) line 9	ʔayʔaǰuθəm	segmentation	niʔ	page 19, pairs
+(45a) line 10	ʔayʔaǰuθəm	gloss	be.there	page 19, pairs
+(45a) line 11	ʔayʔaǰuθəm	transcription	pɛʔɛʔɛt	page 19, pairs
+(45a) line 12	ʔayʔaǰuθəm	segmentation	piʔi-ʔ-it	page 19, pairs
+(45a) line 13	ʔayʔaǰuθəm	gloss	stuck-epen-stat	page 19, pairs
+(45a) line 14	ʔayʔaǰuθəm	transcription	tə tihmot	page 19, pairs
+(45a) line 15	ʔayʔaǰuθəm	segmentation	tə=tih-mut	page 19, pairs
+(45a) line 16	ʔayʔaǰuθəm	gloss	det=big-int	page 19, pairs
+(45a) line 17	ʔayʔaǰuθəm	transcription	məmk̓eyustən.	page 19, pairs
+(45a) line 18	ʔayʔaǰuθəm	segmentation	məmk̓ayustən	page 19, pairs
+(45a) line 19	ʔayʔaǰuθəm	gloss	window	page 19, pairs
+(45a) line 20	Marianne Huijsmans	translation	‘Do you see the paper? It is stuck on the big window.’	page 19, pairs
+(45b) line 1	ʔayʔaǰuθəm	transcription	* k̓ʷʊnɛtačxʷ	page 20, pairs
+(45b) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷən-í-t=a=čxʷ	page 20, pairs
+(45b) line 3	ʔayʔaǰuθəm	gloss	see-stat-ctr=q=2sg.sbj	page 20, pairs
+(45b) line 4	ʔayʔaǰuθəm	transcription	tə pipa?	page 20, pairs
+(45b) line 5	ʔayʔaǰuθəm	segmentation	tə=pipa	page 20, pairs
+(45b) line 6	ʔayʔaǰuθəm	gloss	det=paper	page 20, pairs
+(45b) line 7	ʔayʔaǰuθəm	transcription	nɛʔ	page 20, pairs
+(45b) line 8	ʔayʔaǰuθəm	segmentation	niʔ	page 20, pairs
+(45b) line 9	ʔayʔaǰuθəm	gloss	be.there	page 20, pairs
+(45b) line 10	ʔayʔaǰuθəm	transcription	pɛʔɛʔɛt	page 20, pairs
+(45b) line 11	ʔayʔaǰuθəm	segmentation	piʔi-ʔ-it	page 20, pairs
+(45b) line 12	ʔayʔaǰuθəm	gloss	stuck-epen-stat	page 20, pairs
+(45b) line 13	ʔayʔaǰuθəm	transcription	tə məmk̓eyustən	page 20, pairs
+(45b) line 14	ʔayʔaǰuθəm	segmentation	tə=məmk̓ayustən	page 20, pairs
+(45b) line 15	ʔayʔaǰuθəm	gloss	det=window	page 20, pairs
+(45b) line 16	ʔayʔaǰuθəm	transcription	tihmot.	page 20, pairs
+(45b) line 17	ʔayʔaǰuθəm	segmentation	tih-mut	page 20, pairs
+(45b) line 18	ʔayʔaǰuθəm	gloss	big-int	page 20, pairs
+(45b) line 19	Marianne Huijsmans	translation	Intended: ‘Do you see the paper? It is stuck on the big window.’	page 20, pairs
+(45b) line 19	Marianne Huijsmans	citation	(sf | BW.2022/08/30)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	The distinction cannot be reduced to a difference between eventive and stative predicates, since the relative clause in (42) involves only stative predicates, yet is not restricted to occurring pre- nominally. The contrast also cannot be reduced to a difference between individual-level and stage- level predicates, since stage-level adjectives also cannot follow the noun they modify.	page 20
+(46a) line 1	Marianne Huijsmans	note	Context: We’re leaving some dough on the counter to rise and my husband goes to grab one of the hand towels hanging in the kitchen to cover it with. I tell him:	page 20, pairs
+(46a) line 2	ʔayʔaǰuθəm	transcription	hɛsxʷ	page 20, pairs
+(46a) line 3	ʔayʔaǰuθəm	segmentation	hi[ɬ]-sxʷ	page 20, pairs
+(46a) line 4	ʔayʔaǰuθəm	gloss	cop-caus	page 20, pairs
+(46a) line 5	ʔayʔaǰuθəm	transcription	ʔaʔyɩs	page 20, pairs
+(46a) line 6	ʔayʔaǰuθəm	segmentation	ʔaʔyəs	page 20, pairs
+(46a) line 7	ʔayʔaǰuθəm	gloss	clean	page 20, pairs
+(46a) line 8	ʔayʔaǰuθəm	transcription	t̓ᶿukʷamamɛn	page 20, pairs
+(46a) line 9	ʔayʔaǰuθəm	segmentation	t̓ᶿəkʷ-am-amin	page 20, pairs
+(46a) line 10	ʔayʔaǰuθəm	gloss	wipe-dish-ins	page 20, pairs
+(46a) line 11	ʔayʔaǰuθəm	transcription	ʔəθ pənʔost.	page 20, pairs
+(46a) line 12	ʔayʔaǰuθəm	segmentation	ʔəθ=pən-ʔus-t	page 20, pairs
+(46a) line 13	ʔayʔaǰuθəm	gloss	2sg.poss=cover-face-ctr	page 20, pairs
+(46a) line 14	ʔayʔaǰuθəm	transcription	b. *hɛsxʷ	page 20, pairs
+(46a) line 15	ʔayʔaǰuθəm	segmentation	hi[ɬ]-sxʷ	page 20, pairs
+(46a) line 16	ʔayʔaǰuθəm	gloss	cop-caus	page 20, pairs
+(46a) line 17	ʔayʔaǰuθəm	transcription	t̓ᶿukʷamamɛn	page 20, pairs
+(46a) line 18	ʔayʔaǰuθəm	segmentation	t̓ᶿəkʷ-am-amin	page 20, pairs
+(46a) line 19	ʔayʔaǰuθəm	gloss	wipe-dish-ins	page 20, pairs
+(46a) line 20	ʔayʔaǰuθəm	transcription	ʔaʔyɩs	page 20, pairs
+(46a) line 21	ʔayʔaǰuθəm	segmentation	ʔaʔyəs	page 20, pairs
+(46a) line 22	ʔayʔaǰuθəm	gloss	clean	page 20, pairs
+(46a) line 23	ʔayʔaǰuθəm	transcription	ʔəθ pənʔost.	page 20, pairs
+(46a) line 24	ʔayʔaǰuθəm	segmentation	ʔəθ=pən-ʔus-t	page 20, pairs
+(46a) line 25	ʔayʔaǰuθəm	gloss	2sg.poss=cover-face-ctr	page 20, pairs
+(46a) line 26	Marianne Huijsmans	translation	Intended: ‘Use a clean towel to cover it.’	page 20, pairs
+(46a) line 26	Marianne Huijsmans	citation	(sf | EP.2022/12/09)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	Davis (2011) is also careful to show that the pattern cannot be explained by a preference for lighter material to precede the head noun and heavier material to follow it. While relative clauses tend to be heavier than adjectives, the same pattern holds even with prosodically heavier adjectives and lighter relative clauses. For instance, in (47), a monosyllabic relative clause is permissible both preceding and following the head noun (and was volunteered following it).	page 20
+(47a) line 1	Marianne Huijsmans	note	Context: I notice one guy is sleeping during a meeting. I whisper to you:	page 20, pairs
+(47a) line 2	ʔayʔaǰuθəm	transcription	gɛt č̓ɛ ga	page 20, pairs
+(47a) line 3	ʔayʔaǰuθəm	segmentation	gat=č̓a=ga	page 20, pairs
+(47a) line 4	ʔayʔaǰuθəm	gloss	who=infer=dprt	page 20, pairs
+(47a) line 5	ʔayʔaǰuθəm	transcription	tita	page 20, pairs
+(47a) line 6	ʔayʔaǰuθəm	segmentation	təy̓ta	page 20, pairs
+(47a) line 7	ʔayʔaǰuθəm	gloss	dem	page 20, pairs
+(47a) line 8	ʔayʔaǰuθəm	transcription	ƛ̓ič̓t	page 20, pairs
+(47a) line 9	ʔayʔaǰuθəm	segmentation	ƛ̓<i>č̓t	page 20, pairs
+(47a) line 10	ʔayʔaǰuθəm	gloss	sleep<stat>	page 20, pairs
+(47a) line 11	ʔayʔaǰuθəm	transcription	tumɩš?	page 20, pairs
+(47a) line 12	ʔayʔaǰuθəm	segmentation	tumiš	page 20, pairs
+(47a) line 13	ʔayʔaǰuθəm	gloss	man	page 20, pairs
+(47a) line 14	Marianne Huijsmans	translation	‘Who is that man that’s sleeping?’	page 20, pairs
+(47b) line 1	ʔayʔaǰuθəm	transcription	gɛt č̓ɛ ga	page 20, pairs
+(47b) line 2	ʔayʔaǰuθəm	segmentation	gat=č̓a=ga	page 20, pairs
+(47b) line 3	ʔayʔaǰuθəm	gloss	who=infer=dprt	page 20, pairs
+(47b) line 4	ʔayʔaǰuθəm	transcription	tita	page 20, pairs
+(47b) line 5	ʔayʔaǰuθəm	segmentation	təy̓ta	page 20, pairs
+(47b) line 6	ʔayʔaǰuθəm	gloss	dem	page 20, pairs
+(47b) line 7	ʔayʔaǰuθəm	transcription	tumɩš	page 20, pairs
+(47b) line 8	ʔayʔaǰuθəm	segmentation	tumiš	page 20, pairs
+(47b) line 9	ʔayʔaǰuθəm	gloss	man	page 20, pairs
+(47b) line 10	ʔayʔaǰuθəm	transcription	ƛ̓ič̓t?	page 20, pairs
+(47b) line 11	ʔayʔaǰuθəm	segmentation	ƛ̓<i>č̓t	page 20, pairs
+(47b) line 12	ʔayʔaǰuθəm	gloss	sleep<stat>	page 20, pairs
+(47b) line 13	Marianne Huijsmans	translation	‘Who is that man that’s sleeping?’	page 20, pairs
+(47b) line 13	Marianne Huijsmans	citation	(vf/sf | EP.2022/11/05)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	In contrast, bisyllabic adjectives cannot follow the noun they modify, as shown in (43) to (46) above, and even phrasal adjectives are barred from appearing post-nominally, as in (48) and (49).	page 21
+(48a) line 1	Marianne Huijsmans	note	Context: The last few times I made soup, my pot wasn’t big enough, and I ended up dividing it into several pots. I tell Felipe:	page 21, pairs
+(48a) line 2	ʔayʔaǰuθəm	transcription	hotᶿəm	page 21, pairs
+(48a) line 3	ʔayʔaǰuθəm	segmentation	hu=tᶿ=əm	page 21, pairs
+(48a) line 4	ʔayʔaǰuθəm	gloss	go=1sg.sbj=fut	page 21, pairs
+(48a) line 5	ʔayʔaǰuθəm	transcription	yəqʔəm	page 21, pairs
+(48a) line 6	ʔayʔaǰuθəm	segmentation	yəq-ʔəm	page 21, pairs
+(48a) line 7	ʔayʔaǰuθəm	gloss	buy-act.intr	page 21, pairs
+(48a) line 8	ʔayʔaǰuθəm	transcription	[ʔə][kʷ k̓ʷɛhɛt	page 21, pairs
+(48a) line 9	ʔayʔaǰuθəm	segmentation	[ʔə=][kʷ=k̓ʷih-ít	page 21, pairs
+(48a) line 10	ʔayʔaǰuθəm	gloss	[obl=]det=increase-stat	page 21, pairs
+(48a) line 11	ʔayʔaǰuθəm	transcription	tih	page 21, pairs
+(48a) line 12	ʔayʔaǰuθəm	segmentation	tih	page 21, pairs
+(48a) line 13	ʔayʔaǰuθəm	gloss	big	page 21, pairs
+(48a) line 14	ʔayʔaǰuθəm	transcription	hənkƛala].	page 21, pairs
+(48a) line 15	ʔayʔaǰuθəm	segmentation	hənkƛala]	page 21, pairs
+(48a) line 16	ʔayʔaǰuθəm	gloss	pot	page 21, pairs
+(48a) line 17	Marianne Huijsmans	translation	‘I’m going to go buy a bigger pot.’	page 21, pairs
+(48b) line 1	ʔayʔaǰuθəm	transcription	*hotᶿəm	page 21, pairs
+(48b) line 2	ʔayʔaǰuθəm	segmentation	hu=tᶿ=əm	page 21, pairs
+(48b) line 3	ʔayʔaǰuθəm	gloss	go=1sg.sbj=fut	page 21, pairs
+(48b) line 4	ʔayʔaǰuθəm	transcription	yəqʔəm	page 21, pairs
+(48b) line 5	ʔayʔaǰuθəm	segmentation	yəq-ʔəm	page 21, pairs
+(48b) line 6	ʔayʔaǰuθəm	gloss	buy-act.intr	page 21, pairs
+(48b) line 7	ʔayʔaǰuθəm	transcription	[ʔə][kʷ hənkƛala	page 21, pairs
+(48b) line 8	ʔayʔaǰuθəm	segmentation	[ʔə=][kʷ=hənkƛala	page 21, pairs
+(48b) line 9	ʔayʔaǰuθəm	gloss	[obl=]det=pot	page 21, pairs
+(48b) line 10	ʔayʔaǰuθəm	transcription	k̓ʷɛhɛt	page 21, pairs
+(48b) line 11	ʔayʔaǰuθəm	segmentation	k̓ʷih-ít	page 21, pairs
+(48b) line 12	ʔayʔaǰuθəm	gloss	increase-stat	page 21, pairs
+(48b) line 13	ʔayʔaǰuθəm	transcription	tih].	page 21, pairs
+(48b) line 14	ʔayʔaǰuθəm	segmentation	tih]	page 21, pairs
+(48b) line 15	ʔayʔaǰuθəm	gloss	big	page 21, pairs
+(48b) line 16	Marianne Huijsmans	translation	Intended: ‘I’m going to go buy a bigger pot.’	page 21, pairs
+(48b) line 16	Marianne Huijsmans	citation	(vf/sf | EP.2023/01/28)	the tag or source at the right of the translation
+(49a) line 1	Marianne Huijsmans	note	Context: My friend Gloria is going to get one of a litter of kittens. There are some really fluffy grey ones, some medium haired grey ones, some fluffy black ones, and some short-haired grey ones. There is one grey one fluffier than all the rest that she wants.	page 21, pairs
+(49a) line 2	ʔayʔaǰuθəm	transcription	hɛɬ	page 21, pairs
+(49a) line 3	ʔayʔaǰuθəm	segmentation	hiɬ	page 21, pairs
+(49a) line 4	ʔayʔaǰuθəm	gloss	cop	page 21, pairs
+(49a) line 5	ʔayʔaǰuθəm	transcription	[šɛ hɛhɛw	page 21, pairs
+(49a) line 6	ʔayʔaǰuθəm	segmentation	[šə=hihiw	page 21, pairs
+(49a) line 7	ʔayʔaǰuθəm	gloss	det=really	page 21, pairs
+(49a) line 8	ʔayʔaǰuθəm	transcription	qʷʊšɩmmot	page 21, pairs
+(49a) line 9	ʔayʔaǰuθəm	segmentation	qʷəš-əm-mut	page 21, pairs
+(49a) line 10	ʔayʔaǰuθəm	gloss	fluffy-md-int	page 21, pairs
+(49a) line 11	ʔayʔaǰuθəm	transcription	mɛmmaw̓]	page 21, pairs
+(49a) line 12	ʔayʔaǰuθəm	segmentation	m<im>maw̓]	page 21, pairs
+(49a) line 13	ʔayʔaǰuθəm	gloss	cat<dim>	page 21, pairs
+(49a) line 14	ʔayʔaǰuθəm	transcription	šuʔotəm	page 21, pairs
+(49a) line 15	ʔayʔaǰuθəm	segmentation	šuʔ-ut-əm	page 21, pairs
+(49a) line 16	ʔayʔaǰuθəm	gloss	choose-ctr-pass	page 21, pairs
+(49a) line 17	ʔayʔaǰuθəm	transcription	[ʔə=]Gloria.	page 21, pairs
+(49a) line 18	ʔayʔaǰuθəm	segmentation	[ʔə=]Gloria	page 21, pairs
+(49a) line 19	ʔayʔaǰuθəm	gloss	[obl=]Gloria	page 21, pairs
+(49a) line 20	Marianne Huijsmans	translation	‘Gloria chose the really fluffy grey kitten.’	page 21, pairs
+(49b) line 1	ʔayʔaǰuθəm	transcription	*hɛɬ	page 21, pairs
+(49b) line 2	ʔayʔaǰuθəm	segmentation	hiɬ	page 21, pairs
+(49b) line 3	ʔayʔaǰuθəm	gloss	cop	page 21, pairs
+(49b) line 4	ʔayʔaǰuθəm	transcription	[šɛ mɛmmaw̓	page 21, pairs
+(49b) line 5	ʔayʔaǰuθəm	segmentation	šə=m<im>maw̓	page 21, pairs
+(49b) line 6	ʔayʔaǰuθəm	gloss	det=cat<dim>	page 21, pairs
+(49b) line 7	ʔayʔaǰuθəm	transcription	hɛhɛw	page 21, pairs
+(49b) line 8	ʔayʔaǰuθəm	segmentation	hihiw	page 21, pairs
+(49b) line 9	ʔayʔaǰuθəm	gloss	really	page 21, pairs
+(49b) line 10	ʔayʔaǰuθəm	transcription	qʷʊšɩmmot]	page 21, pairs
+(49b) line 11	ʔayʔaǰuθəm	segmentation	qʷəš-əm-mut]	page 21, pairs
+(49b) line 12	ʔayʔaǰuθəm	gloss	fluffy-md-int	page 21, pairs
+(49b) line 13	ʔayʔaǰuθəm	transcription	šuʔotəm	page 21, pairs
+(49b) line 14	ʔayʔaǰuθəm	segmentation	šuʔ-ut-əm	page 21, pairs
+(49b) line 15	ʔayʔaǰuθəm	gloss	choose-ctr-pass	page 21, pairs
+(49b) line 16	ʔayʔaǰuθəm	transcription	[ʔə=]Gloria.	page 21, pairs
+(49b) line 17	ʔayʔaǰuθəm	segmentation	[ʔə=]Gloria	page 21, pairs
+(49b) line 18	ʔayʔaǰuθəm	gloss	[obl=]Gloria	page 21, pairs
+(49b) line 19	Marianne Huijsmans	translation	Intended: ‘Gloria chose the really fluffy grey kitten.’	page 21, pairs
+(49b) line 19	Marianne Huijsmans	citation	(sf | EP.2023/01/28)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	Another type of evidence for distinguishing verbs and adjectives comes from complex nominal predicates. In the previous section, I showed that nouns and both stage-level and individual-level adjectives can precede the head noun. Verbs cannot precede the head noun as a modifier in a complex nominal predicate.	page 21
+(50) line 1	Marianne Huijsmans	note	Context: My cousin is taking part in a performance, as one of the singers. There are other performers dancing. As the performance starts, I am looking for him, but haven’t found him yet. I tell you:	page 21, pairs
+(50) line 2	ʔayʔaǰuθəm	transcription	* [wuwuwʊm	page 21, pairs
+(50) line 3	ʔayʔaǰuθəm	segmentation	[wu∼wuw-əm	page 21, pairs
+(50) line 4	ʔayʔaǰuθəm	gloss	prog∼sing-md	page 21, pairs
+(50) line 5	ʔayʔaǰuθəm	transcription	tumɩš]	page 21, pairs
+(50) line 6	ʔayʔaǰuθəm	segmentation	tumiš]	page 21, pairs
+(50) line 7	ʔayʔaǰuθəm	gloss	man	page 21, pairs
+(50) line 8	ʔayʔaǰuθəm	transcription	šɛtᶿ ʔayiš.	page 21, pairs
+(50) line 9	ʔayʔaǰuθəm	segmentation	šə=tᶿ=ʔayiš	page 21, pairs
+(50) line 10	ʔayʔaǰuθəm	gloss	det=1sg.poss=cousin	page 21, pairs
+(50) line 11	Marianne Huijsmans	translation	Intended: ‘My cousin is one of the men singing.’	page 21, pairs
+(50) line 11	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+(51) line 1	Marianne Huijsmans	note	Context: Remarking on someone’ s dog, which keeps barking nearby:	page 21, pairs
+(51) line 2	ʔayʔaǰuθəm	transcription	* [payɛʔ	page 21, pairs
+(51) line 3	ʔayʔaǰuθəm	segmentation	[payaʔ	page 21, pairs
+(51) line 4	ʔayʔaǰuθəm	gloss	always	page 21, pairs
+(51) line 5	ʔayʔaǰuθəm	transcription	guguhom	page 21, pairs
+(51) line 6	ʔayʔaǰuθəm	segmentation	gu∼guh-um	page 21, pairs
+(51) line 7	ʔayʔaǰuθəm	gloss	prog∼bark-md	page 21, pairs
+(51) line 8	ʔayʔaǰuθəm	transcription	č̓ɛʔno]	page 21, pairs
+(51) line 9	ʔayʔaǰuθəm	segmentation	č̓an̓u]	page 21, pairs
+(51) line 10	ʔayʔaǰuθəm	gloss	dog	page 21, pairs
+(51) line 11	ʔayʔaǰuθəm	transcription	tita.	page 21, pairs
+(51) line 12	ʔayʔaǰuθəm	segmentation	təy̓ta	page 21, pairs
+(51) line 13	ʔayʔaǰuθəm	gloss	dem	page 21, pairs
+(51) line 14	Marianne Huijsmans	translation	Intended: ‘That’s a really yappy dog.’	page 21, pairs
+(51) line 14	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+(52) line 1	Marianne Huijsmans	note	Context: I’m showing an old picture to Daniel and Gloria. There are a few men smoking in it, and I remember Freddie told me that one of them is a former chief (but I don’t remember which one).	page 22, pairs
+(52) line 2	ʔayʔaǰuθəm	transcription	* [q̓ač̓eyɩnʔɛm	page 22, pairs
+(52) line 3	ʔayʔaǰuθəm	segmentation	[q̓əč̓-ayin-ʔ<i>m	page 22, pairs
+(52) line 4	ʔayʔaǰuθəm	gloss	bite-end-act.intr<stat>	page 22, pairs
+(52) line 5	ʔayʔaǰuθəm	transcription	tumɩš]	page 22, pairs
+(52) line 6	ʔayʔaǰuθəm	segmentation	tumiš]	page 22, pairs
+(52) line 7	ʔayʔaǰuθəm	gloss	man	page 22, pairs
+(52) line 8	ʔayʔaǰuθəm	transcription	tə hegusoɬ.	page 22, pairs
+(52) line 9	ʔayʔaǰuθəm	segmentation	tə=higus-uɬ	page 22, pairs
+(52) line 10	ʔayʔaǰuθəm	gloss	det=chief-pst	page 22, pairs
+(52) line 11	Marianne Huijsmans	translation	Intended: ‘The former chief is a man that’s smoking.’	page 22, pairs
+(52) line 11	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+§6.1	Marianne Huijsmans	note	We’ve seen already in Section 5.1 that adjectives, even if they are individual-level adjectives, cannot head complex nominal predicates. The class of adjectives can therefore be distinguished from both nouns and verbs by their behaviour in complex nominal predicates. At this point, we therefore have syntactic evidence for a three-way distinction between nouns, verbs, and adjectives.	page 22
+§6.2	Marianne Huijsmans	heading	6.2 Additional morphological evidence for adjectives	page 22
+§6.2	Marianne Huijsmans	note	Having established that there are distributional differences between nouns, verbs, and adjectives, it is worth pointing out that these categories can also be distinguished on the basis of morphology. A set of adjectives can take ∼ VC reduplication (reported in Kroeber 1988 as a set of stative predicates). This reduplication derives a change-of-state eventive predicate, a verb.	page 22
+(53) line 1	ʔayʔaǰuθəm	transcription	pəs	page 22, the orthography
+(53) line 1	ʔayʔaǰuθəm	phonemic	/pəs/	page 22, phonemic, in / /
+(53) line 1	Kroeber 1988:143	translation	‘numb’	page 22
+(53) line 1	ʔayʔaǰuθəm	transcription	pəsəs	page 22, the orthography
+(53) line 1	ʔayʔaǰuθəm	phonemic	/pəsəs/	page 22, phonemic, in / /
+(53) line 1	Kroeber 1988:143	translation	‘get numb’	page 22
+(53) line 2	ʔayʔaǰuθəm	transcription	č̓ɩpχ	page 22, the orthography
+(53) line 2	ʔayʔaǰuθəm	phonemic	/č̓əpx̌/	page 22, phonemic, in / /
+(53) line 2	Kroeber 1988:143	translation	‘get dirty’	page 22
+(53) line 2	ʔayʔaǰuθəm	transcription	č̓ɩpəpχ	page 22, the orthography
+(53) line 2	ʔayʔaǰuθəm	phonemic	/č̓əpəpx̌/	page 22, phonemic, in / /
+(53) line 2	Kroeber 1988:143	translation	‘get dirty’	page 22
+(53) line 3	ʔayʔaǰuθəm	transcription	tih	page 22, the orthography
+(53) line 3	ʔayʔaǰuθəm	phonemic	/tih/	page 22, phonemic, in / /
+(53) line 3	Kroeber 1988:143	translation	‘big’	page 22
+(53) line 3	ʔayʔaǰuθəm	transcription	tihih	page 22, the orthography
+(53) line 3	ʔayʔaǰuθəm	phonemic	/tihih/	page 22, phonemic, in / /
+(53) line 3	Kroeber 1988:143	translation	‘get big’	page 22
+(53) line 3	Marianne Huijsmans	citation	(Kroeber 1988:143)	page 22, the source of the list
+§6.2	Marianne Huijsmans	note	Predicates of other categories do not appear to be able to take this reduplication. It is ungrammat- ical applied to the following nouns, for instance, even though the meaning is plausible (and available for the plain nouns which seem to instead be zero-derived eventive predicates in this case):	page 22
+(54a) line 1	ʔayʔaǰuθəm	transcription	kʷi qʷol̓	page 22, pairs
+(54a) line 2	ʔayʔaǰuθəm	segmentation	kʷi=qʷəl̓	page 22, pairs
+(54a) line 3	ʔayʔaǰuθəm	gloss	cld=come	page 22, pairs
+(54a) line 4	ʔayʔaǰuθəm	transcription	saɬtxʷ.	page 22, pairs
+(54a) line 5	ʔayʔaǰuθəm	segmentation	saɬtxʷ	page 22, pairs
+(54a) line 6	ʔayʔaǰuθəm	gloss	woman	page 22, pairs
+(54a) line 7	Marianne Huijsmans	translation	‘She is becoming a woman.’	page 22, pairs
+(54b) line 1	ʔayʔaǰuθəm	transcription	* kʷi qʷol̓	page 22, pairs
+(54b) line 2	ʔayʔaǰuθəm	segmentation	kʷi=qʷəl̓	page 22, pairs
+(54b) line 3	ʔayʔaǰuθəm	gloss	cld=come	page 22, pairs
+(54b) line 4	ʔayʔaǰuθəm	transcription	saɬ<aɬ>txʷ.	page 22, pairs
+(54b) line 5	ʔayʔaǰuθəm	segmentation	saɬ<aɬ>txʷ	page 22, pairs
+(54b) line 6	ʔayʔaǰuθəm	gloss	woman<cos>	page 22, pairs
+(54b) line 7	Marianne Huijsmans	translation	Intended: ‘She is becoming a woman.’	page 22, pairs
+(54b) line 7	Marianne Huijsmans	citation	(sf | EP.2023/01/28)	the tag or source at the right of the translation
+(55a) line 1	Marianne Huijsmans	note	Context: We are observing a young man who’ s just starting to be a teenager.	page 22, pairs
+(55a) line 2	ʔayʔaǰuθəm	transcription	ti qʷol̓	page 22, pairs
+(55a) line 3	ʔayʔaǰuθəm	segmentation	ti=qʷəl̓	page 22, pairs
+(55a) line 4	ʔayʔaǰuθəm	gloss	cld=come	page 22, pairs
+(55a) line 5	ʔayʔaǰuθəm	transcription	tumɩš.	page 22, pairs
+(55a) line 6	ʔayʔaǰuθəm	segmentation	tumiš	page 22, pairs
+(55a) line 7	ʔayʔaǰuθəm	gloss	man	page 22, pairs
+(55a) line 8	Marianne Huijsmans	translation	‘He is becoming a man.’	page 22, pairs
+(55a) line 8	Marianne Huijsmans	citation	(vf | EP.2023/01/28)	the tag or source at the right of the translation
+(55b) line 1	ʔayʔaǰuθəm	transcription	*ti	page 23, pairs
+(55b) line 2	ʔayʔaǰuθəm	segmentation	ti	page 23, pairs
+(55b) line 3	ʔayʔaǰuθəm	gloss	cld	page 23, pairs
+(55b) line 4	ʔayʔaǰuθəm	transcription	qʷol̓	page 23, pairs
+(55b) line 5	ʔayʔaǰuθəm	segmentation	qʷəl̓	page 23, pairs
+(55b) line 6	ʔayʔaǰuθəm	gloss	come	page 23, pairs
+(55b) line 7	ʔayʔaǰuθəm	transcription	tumomiš	page 23, pairs
+(55b) line 8	ʔayʔaǰuθəm	segmentation	tum<um>iš	page 23, pairs
+(55b) line 9	ʔayʔaǰuθəm	gloss	man<cos>	page 23, pairs
+(55b) line 10	Marianne Huijsmans	translation	Intended: ‘He is becoming a man.’	page 23, pairs
+(55b) line 10	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+§6.2	Marianne Huijsmans	note	It is also ungrammatical on verbs, though this is probably to be expected given that it is not clear what it would contribute semantically when applied to something already eventive.	page 23
+(56a) line 1	Marianne Huijsmans	note	Context: I see the berries are ripe on a bush.	page 23, pairs
+(56a) line 2	ʔayʔaǰuθəm	transcription	ti qʷəl̓	page 23, pairs
+(56a) line 3	ʔayʔaǰuθəm	segmentation	ti=qʷəl̓	page 23, pairs
+(56a) line 4	ʔayʔaǰuθəm	gloss	cld=come	page 23, pairs
+(56a) line 5	ʔayʔaǰuθəm	transcription	č̓ɛχ.	page 23, pairs
+(56a) line 6	ʔayʔaǰuθəm	segmentation	č̓əx̌	page 23, pairs
+(56a) line 7	ʔayʔaǰuθəm	gloss	get.ripe	page 23, pairs
+(56a) line 8	Marianne Huijsmans	translation	‘They’ve gotten ripe.’	page 23, pairs
+(56b) line 1	ʔayʔaǰuθəm	transcription	*ti qʷəl̓	page 23, pairs
+(56b) line 2	ʔayʔaǰuθəm	segmentation	ti=qʷəl̓	page 23, pairs
+(56b) line 3	ʔayʔaǰuθəm	gloss	cld=come	page 23, pairs
+(56b) line 4	ʔayʔaǰuθəm	transcription	č̓ɛχəχ.	page 23, pairs
+(56b) line 5	ʔayʔaǰuθəm	segmentation	č̓əx̌∼əx̌	page 23, pairs
+(56b) line 6	ʔayʔaǰuθəm	gloss	get.ripe∼cos	page 23, pairs
+(56b) line 7	Marianne Huijsmans	translation	Intended: ‘They’ve gotten ripe.’	page 23, pairs
+(56b) line 7	Marianne Huijsmans	citation	(sf | EP.2023/02/24)	the tag or source at the right of the translation
+(57a) line 1	Marianne Huijsmans	note	Context: A cup came out of the dishwater broken. When I see it, I say:	page 23, pairs
+(57a) line 2	ʔayʔaǰuθəm	transcription	yɩp̓	page 23, pairs
+(57a) line 3	ʔayʔaǰuθəm	segmentation	yəp̓	page 23, pairs
+(57a) line 4	ʔayʔaǰuθəm	gloss	get.broken	page 23, pairs
+(57a) line 5	ʔayʔaǰuθəm	transcription	tətᶿ k̓ʷasta.	page 23, pairs
+(57a) line 6	ʔayʔaǰuθəm	segmentation	tə=tᶿ=k̓ʷasta	page 23, pairs
+(57a) line 7	ʔayʔaǰuθəm	gloss	det=1sg.poss=cup	page 23, pairs
+(57a) line 8	Marianne Huijsmans	translation	‘My cup broke.’	page 23, pairs
+(57b) line 1	ʔayʔaǰuθəm	transcription	*yɩp̓əp	page 23, pairs
+(57b) line 2	ʔayʔaǰuθəm	segmentation	yəp̓∼əp	page 23, pairs
+(57b) line 3	ʔayʔaǰuθəm	gloss	get.broken∼cos	page 23, pairs
+(57b) line 4	ʔayʔaǰuθəm	transcription	tətᶿ k̓ʷasta.	page 23, pairs
+(57b) line 5	ʔayʔaǰuθəm	segmentation	tə=tᶿ=k̓ʷasta	page 23, pairs
+(57b) line 6	ʔayʔaǰuθəm	gloss	det=1sg.poss=cup	page 23, pairs
+(57b) line 7	Marianne Huijsmans	translation	Intended: ‘My cup broke.’	page 23, pairs
+(57b) line 7	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+§6.2	Marianne Huijsmans	note	As predicted given this change in category, a derived change-of-state verb can appear following a head noun in a post-nominal relative clause, as in (58).	page 23
+(58) line 1	Marianne Huijsmans	note	Context: The rabbits in Edmonton turn white in the winter. I see one that is white earlier than expected. I tell Felipe:	page 23, pairs
+(58) line 2	ʔayʔaǰuθəm	transcription	k̓ʷʊnʊxʷoɬč	page 23, pairs
+(58) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷən-əxʷ-uɬ=č	page 23, pairs
+(58) line 4	ʔayʔaǰuθəm	gloss	see-nctr-pst=1sg.sbj	page 23, pairs
+(58) line 5	ʔayʔaǰuθəm	transcription	šɛ tuklɛ	page 23, pairs
+(58) line 6	ʔayʔaǰuθəm	segmentation	šə=tukli	page 23, pairs
+(58) line 7	ʔayʔaǰuθəm	gloss	det=rabbit	page 23, pairs
+(58) line 8	ʔayʔaǰuθəm	transcription	[kʷi pəqəq].	page 23, pairs
+(58) line 9	ʔayʔaǰuθəm	segmentation	[kʷi=pəq∼əq]	page 23, pairs
+(58) line 10	ʔayʔaǰuθəm	gloss	cld=white∼cos	page 23, pairs
+(58) line 11	Marianne Huijsmans	translation	‘I saw a rabbit that had already turned white.’	page 23, pairs
+(58) line 11	Marianne Huijsmans	citation	(sf | EP.2023/06/10)	the tag or source at the right of the translation
+§6.3	Marianne Huijsmans	heading	6.3 Summary	page 23
+§6.3	Marianne Huijsmans	note	In this section, I have argued that adjectives can be distinguished from verbs based on word order: an adjective must precede a noun it modifies, whereas a verb can appear in a pre-nominal or post- nominal relative clause. In addition, adjectives, but not verbs, can precede a head noun in a complex nominal predicate. Adjectives can also be distinguished from nouns, since only nouns can head com- plex nominal predicates, as discussed in Section 5.1. At this point, then, there is syntactic evidence for a three-way contrast between nouns, verbs, and adjectives. Adjectives are also distinguished morphologically from nouns and verbs by their ability to take change-of-state reduplication.	page 23
+§7	Marianne Huijsmans	heading	7 Applying the tests to ‘borderline’ cases	page 24
+§7	ʔayʔaǰuθəm	cited affix	-ít	page 24
+§7	ʔayʔaǰuθəm	cited affix	-í-	the stressed infix of the stative
+§7	Marianne Huijsmans	note	Now that I have established tests for lexical category, it is possible to examine some of the words that are difficult to categorize. For instance, the resultative stative — variably realized as a suffix -ít, an infix -í-, or pitch accent ( ́) — derives a stative predicate from an eventive one. The question is whether this is accompanied by a syntactic change of category from a verb to an adjective. The results so far are mixed: sometimes statives are acceptable preceding and following the noun they modify and sometimes they are only accepted preceding it. It seems that statives derived from change-of-state roots behave as adjectives. They must precede a noun they modify:	page 24
+(59a) line 1	Marianne Huijsmans	note	Context: I’m looking for a little container for my seedling. I realize I can put a broken cup that I’m fond of to use.	page 24, pairs
+(59a) line 2	ʔayʔaǰuθəm	transcription	hɛɬ[ səm	page 24, pairs
+(59a) line 3	ʔayʔaǰuθəm	segmentation	hiɬ=səm	page 24, pairs
+(59a) line 4	ʔayʔaǰuθəm	gloss	cop=fut	page 24, pairs
+(59a) line 5	ʔayʔaǰuθəm	transcription	šɛ yɛp̓ɛt	page 24, pairs
+(59a) line 6	ʔayʔaǰuθəm	segmentation	šə=yəp̓-ít	page 24, pairs
+(59a) line 7	ʔayʔaǰuθəm	gloss	det=break-stat	page 24, pairs
+(59a) line 8	ʔayʔaǰuθəm	transcription	k̓ʷasta	page 24, pairs
+(59a) line 9	ʔayʔaǰuθəm	segmentation	k̓ʷasta	page 24, pairs
+(59a) line 10	ʔayʔaǰuθəm	gloss	cup	page 24, pairs
+(59a) line 11	ʔayʔaǰuθəm	transcription	ʔə yɛq̓ašɛn.	page 24, pairs
+(59a) line 12	ʔayʔaǰuθəm	segmentation	ʔə=yəq̓-aš-an	page 24, pairs
+(59a) line 13	ʔayʔaǰuθəm	gloss	clf.prt=use-tr-1sg.erg	page 24, pairs
+(59a) line 14	Marianne Huijsmans	translation	‘I’ll use the broken cup.’	page 24, pairs
+(59b) line 1	ʔayʔaǰuθəm	transcription	*hɛɬ[ səm	page 24, pairs
+(59b) line 2	ʔayʔaǰuθəm	segmentation	hiɬ=səm	page 24, pairs
+(59b) line 3	ʔayʔaǰuθəm	gloss	cop=fut	page 24, pairs
+(59b) line 4	ʔayʔaǰuθəm	transcription	šɛ k̓ʷasta	page 24, pairs
+(59b) line 5	ʔayʔaǰuθəm	segmentation	šə=k̓ʷasta	page 24, pairs
+(59b) line 6	ʔayʔaǰuθəm	gloss	det=cup	page 24, pairs
+(59b) line 7	ʔayʔaǰuθəm	transcription	yɛp̓ɛt	page 24, pairs
+(59b) line 8	ʔayʔaǰuθəm	segmentation	yəp̓-ít	page 24, pairs
+(59b) line 9	ʔayʔaǰuθəm	gloss	break-stat	page 24, pairs
+(59b) line 10	ʔayʔaǰuθəm	transcription	ʔə yɛq̓ašɛn.	page 24, pairs
+(59b) line 11	ʔayʔaǰuθəm	segmentation	ʔə=yəq̓-aš-an	page 24, pairs
+(59b) line 12	ʔayʔaǰuθəm	gloss	clf.prt=use-tr-1sg.erg	page 24, pairs
+(59b) line 13	Marianne Huijsmans	translation	Intended: ‘I’ll use the broken cup.’	page 24, pairs
+(59b) line 13	Marianne Huijsmans	citation	(vf/sf | EP.2023/01/28)	the tag or source at the right of the translation
+(60a) line 1	Marianne Huijsmans	note	Context: Instructions in a recipe.	page 24, pairs
+(60a) line 2	ʔayʔaǰuθəm	transcription	miyqʷatčxʷ	page 24, pairs
+(60a) line 3	ʔayʔaǰuθəm	segmentation	miyqʷ-at=čxʷ	page 24, pairs
+(60a) line 4	ʔayʔaǰuθəm	gloss	mix-ctr=2sg.sbj	page 24, pairs
+(60a) line 5	ʔayʔaǰuθəm	transcription	tə ǰɛχʷɛt	page 24, pairs
+(60a) line 6	ʔayʔaǰuθəm	segmentation	tə=ǰax̌ʷ-ít	page 24, pairs
+(60a) line 7	ʔayʔaǰuθəm	gloss	det=melt-stat	page 24, pairs
+(60a) line 8	ʔayʔaǰuθəm	transcription	pətə.	page 24, pairs
+(60a) line 9	ʔayʔaǰuθəm	segmentation	pətə	page 24, pairs
+(60a) line 10	ʔayʔaǰuθəm	gloss	butter	page 24, pairs
+(60a) line 11	Marianne Huijsmans	translation	‘Mix in the melted butter.’	page 24, pairs
+(60b) line 1	ʔayʔaǰuθəm	transcription	* miyqʷatčxʷ	page 24, pairs
+(60b) line 2	ʔayʔaǰuθəm	segmentation	miyqʷ-at=čxʷ	page 24, pairs
+(60b) line 3	ʔayʔaǰuθəm	gloss	mix-ctr=2sg.sbj	page 24, pairs
+(60b) line 4	ʔayʔaǰuθəm	transcription	tə pətə	page 24, pairs
+(60b) line 5	ʔayʔaǰuθəm	segmentation	tə=pətə	page 24, pairs
+(60b) line 6	ʔayʔaǰuθəm	gloss	det=butter	page 24, pairs
+(60b) line 7	ʔayʔaǰuθəm	transcription	ǰɛχʷɛt.	page 24, pairs
+(60b) line 8	ʔayʔaǰuθəm	segmentation	ǰax̌ʷ-ít	page 24, pairs
+(60b) line 9	ʔayʔaǰuθəm	gloss	melt-stat	page 24, pairs
+(60b) line 10	Marianne Huijsmans	translation	Intended: ‘Mix in the melted butter.’	page 24, pairs
+(60b) line 10	Marianne Huijsmans	citation	(sf | EP.2023/05/19)	the tag or source at the right of the translation
+(61a) line 1	Marianne Huijsmans	note	Context: Some kids are explaining the game they are playing.	page 24, pairs
+(61a) line 2	ʔayʔaǰuθəm	transcription	t̓ᶿɛt̓ᶿɛyʔəmšt	page 24, pairs
+(61a) line 3	ʔayʔaǰuθəm	segmentation	t̓ᶿi∼t̓ᶿiy-ʔəm=št	page 24, pairs
+(61a) line 4	ʔayʔaǰuθəm	gloss	prog∼search-act.intr=1pl.sbj	page 24, pairs
+(61a) line 5	ʔayʔaǰuθəm	transcription	ʔəkʷ pənɛ́t	page 24, pairs
+(61a) line 6	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=pən-ít	page 24, pairs
+(61a) line 7	ʔayʔaǰuθəm	gloss	obl=det=bury-stat	page 24, pairs
+(61a) line 8	ʔayʔaǰuθəm	transcription	tala.	page 24, pairs
+(61a) line 9	ʔayʔaǰuθəm	segmentation	tala	page 24, pairs
+(61a) line 10	ʔayʔaǰuθəm	gloss	money	page 24, pairs
+(61a) line 11	Marianne Huijsmans	translation	‘We’re searching for buried treasure.’	page 24, pairs
+(61b) line 1	ʔayʔaǰuθəm	transcription	*t̓ᶿɛt̓ᶿɛyʔəmšt	page 24, pairs
+(61b) line 2	ʔayʔaǰuθəm	segmentation	t̓ᶿi∼t̓ᶿiy-ʔəm=št	page 24, pairs
+(61b) line 3	ʔayʔaǰuθəm	gloss	prog∼search-act.intr=1pl.sbj	page 24, pairs
+(61b) line 4	ʔayʔaǰuθəm	transcription	ʔəkʷ tala	page 24, pairs
+(61b) line 5	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=tala	page 24, pairs
+(61b) line 6	ʔayʔaǰuθəm	gloss	obl=det=money	page 24, pairs
+(61b) line 7	ʔayʔaǰuθəm	transcription	pənɛ́t.	page 24, pairs
+(61b) line 8	ʔayʔaǰuθəm	segmentation	pən-ít	page 24, pairs
+(61b) line 9	ʔayʔaǰuθəm	gloss	bury-stat	page 24, pairs
+(61b) line 10	Marianne Huijsmans	translation	Intended: ‘We’re searching for buried treasure.’	page 24, pairs
+(61b) line 10	Marianne Huijsmans	citation	(sf | EP.2023/05/19)	the tag or source at the right of the translation
+§7	Marianne Huijsmans	note	Preliminary evidence also suggests that stative predicates built from change-of-state verbs can serve as modifiers in complex nominal predicates, as expected if they are adjectives. This is shown in (62F).14	page 24
+(62) line 1	Marianne Huijsmans	note	Context: Felipe and I are walking on the beach, and I see something odd-looking up ahead.	page 25, pairs
+(62) line 2	ʔayʔaǰuθəm	transcription	Me: tam č̓ɛ	page 25, pairs
+(62) line 3	ʔayʔaǰuθəm	segmentation	tam=č̓a	page 25, pairs
+(62) line 4	ʔayʔaǰuθəm	gloss	what=infer	page 25, pairs
+(62) line 5	ʔayʔaǰuθəm	transcription	tita?	page 25, pairs
+(62) line 6	ʔayʔaǰuθəm	segmentation	təy̓ta	page 25, pairs
+(62) line 7	ʔayʔaǰuθəm	gloss	dem	page 25, pairs
+(62) line 8	Marianne Huijsmans	translation	‘What is that?’	page 25, pairs
+(62F) line 1	ʔayʔaǰuθəm	transcription	F: t̓anɛ́t	page 25, pairs
+(62F) line 2	ʔayʔaǰuθəm	segmentation	t̓an-ít	page 25, pairs
+(62F) line 3	ʔayʔaǰuθəm	gloss	get.beached-stat	page 25, pairs
+(62F) line 4	ʔayʔaǰuθəm	transcription	p̓amayitən.	page 25, pairs
+(62F) line 5	ʔayʔaǰuθəm	segmentation	p̓amayitən	page 25, pairs
+(62F) line 6	ʔayʔaǰuθəm	gloss	buoy	page 25, pairs
+(62F) line 7	Marianne Huijsmans	translation	‘It’s a beached buoy.’	page 25, pairs
+(62F) line 7	Marianne Huijsmans	citation	(sf | EP.2023/05/25)	the tag or source at the right of the translation
+§7	Marianne Huijsmans	note	In contrast, a stative derived from an atelic eventive predicate behaves syntactically like a verb; these can both precede and follow a noun they modify.	page 25
+(63a) line 1	Marianne Huijsmans	note	Context: There is a picture with a lot of people, both men and women. One of the men is smoking. I ask you:	page 25, pairs
+(63a) line 2	ʔayʔaǰuθəm	transcription	gɛt ga	page 25, pairs
+(63a) line 3	ʔayʔaǰuθəm	segmentation	gat=ga	page 25, pairs
+(63a) line 4	ʔayʔaǰuθəm	gloss	who=dprt	page 25, pairs
+(63a) line 5	ʔayʔaǰuθəm	transcription	tə tumɩš	page 25, pairs
+(63a) line 6	ʔayʔaǰuθəm	segmentation	tə=tumiš	page 25, pairs
+(63a) line 7	ʔayʔaǰuθəm	gloss	det=man	page 25, pairs
+(63a) line 8	ʔayʔaǰuθəm	transcription	q̓ač̓eyɩnʔɛm?	page 25, pairs
+(63a) line 9	ʔayʔaǰuθəm	segmentation	q̓əč̓-ayin-ʔ<í>m	page 25, pairs
+(63a) line 10	ʔayʔaǰuθəm	gloss	bite-end.of-act.intr<stat>	page 25, pairs
+(63a) line 11	Marianne Huijsmans	translation	‘Who is the man with a cigarette hanging out of his mouth?’	page 25, pairs
+(63b) line 1	ʔayʔaǰuθəm	transcription	gɛt ga	page 25, pairs
+(63b) line 2	ʔayʔaǰuθəm	segmentation	gat=ga	page 25, pairs
+(63b) line 3	ʔayʔaǰuθəm	gloss	who=dprt	page 25, pairs
+(63b) line 4	ʔayʔaǰuθəm	transcription	tə q̓ač̓eyɩnʔɛm	page 25, pairs
+(63b) line 5	ʔayʔaǰuθəm	segmentation	tə=q̓əč̓-ayin-ʔ<í>m	page 25, pairs
+(63b) line 6	ʔayʔaǰuθəm	gloss	det=bite-end.of-act.intr<stat>	page 25, pairs
+(63b) line 7	ʔayʔaǰuθəm	transcription	tumɩš?	page 25, pairs
+(63b) line 8	ʔayʔaǰuθəm	segmentation	tumiš	page 25, pairs
+(63b) line 9	ʔayʔaǰuθəm	gloss	man	page 25, pairs
+(63b) line 10	Marianne Huijsmans	translation	‘Who is the man with a cigarette hanging out of his mouth?’	page 25, pairs
+(63b) line 10	Marianne Huijsmans	citation	(sf | EP.2023/01/14)	the tag or source at the right of the translation
+§7	Marianne Huijsmans	note	In addition, preliminary evidence indicates that statives built on atelic eventive predicates cannot be modifiers in complex nominal predicates, as shown in (64) (repeated from (52) above).	page 25
+(64) line 1	Marianne Huijsmans	note	Context: I’m showing an old picture to Daniel and Gloria. There are a few men smoking in it, and I remember Freddie told me that one of them is a former chief (but I don’t remember which one).	page 25, pairs
+(64) line 2	ʔayʔaǰuθəm	transcription	* [q̓ač̓eyɩnʔɛm	page 25, pairs
+(64) line 3	ʔayʔaǰuθəm	segmentation	[q̓əč̓-ayin-ʔ<i>m	page 25, pairs
+(64) line 4	ʔayʔaǰuθəm	gloss	bite-end-act.intr<stat>	page 25, pairs
+(64) line 5	ʔayʔaǰuθəm	transcription	tumɩš]	page 25, pairs
+(64) line 6	ʔayʔaǰuθəm	segmentation	tumiš]	page 25, pairs
+(64) line 7	ʔayʔaǰuθəm	gloss	man	page 25, pairs
+(64) line 8	ʔayʔaǰuθəm	transcription	tə hegusoɬ.	page 25, pairs
+(64) line 9	ʔayʔaǰuθəm	segmentation	tə=higus-uɬ	page 25, pairs
+(64) line 10	ʔayʔaǰuθəm	gloss	det=chief-pst	page 25, pairs
+(64) line 11	Marianne Huijsmans	translation	Intended: ‘The former chief is a man that’s smoking.’	page 25, pairs
+(64) line 11	Marianne Huijsmans	citation	(sf | EP.2023/02/04)	the tag or source at the right of the translation
+§7	Marianne Huijsmans	note	The stative morpheme therefore poses an interesting puzzle: in some cases it triggers a syntactic category change and in some cases it does not.	page 25
+footnote 14	Marianne Huijsmans	note	14 My consultant said that t̓anɛ́ t wasn’t needed in ( 62F) since it would be redundant in the context, but it would be possible to answer like this.	page 25, footnote
+§7	ʔayʔaǰuθəm	cited form	t̓anɛ́	page 25
+§7	Marianne Huijsmans	notation	CəC	the shape of characteristic reduplication
+§7	ʔayʔaǰuθəm	cited form	gət̓ᶿ	page 26
+§7	ʔayʔaǰuθəm	cited form	gət̓ᶿgət̓ᶿ	page 26
+§7	Marianne Huijsmans	note	Words with characteristic CəC reduplication are also difficult to categorize. Predicates like gət̓ᶿ ‘tease’ are reduplicated as gət̓ᶿgət̓ᶿ, and then variably translated as a noun: ‘a tease’, a verb: ‘always teasing’, or described as characterizing a person, which suggests a category of adjective. The tests developed here show that gət̓ᶿgət̓ᶿ patterns as a verb, since it is able to precede and follow a noun it modifies.	page 26
+(65a) line 1	Marianne Huijsmans	note	Context: There’ s a group of people visiting and there’ s one guy who’ s a real tease, always making everyone laugh. I ask you:	page 26, pairs
+(65a) line 2	ʔayʔaǰuθəm	transcription	gɛt ga	page 26, pairs
+(65a) line 3	ʔayʔaǰuθəm	segmentation	gat=ga	page 26, pairs
+(65a) line 4	ʔayʔaǰuθəm	gloss	who=dprt	page 26, pairs
+(65a) line 5	ʔayʔaǰuθəm	transcription	tiʔta	page 26, pairs
+(65a) line 6	ʔayʔaǰuθəm	segmentation	təy̓ta	page 26, pairs
+(65a) line 7	ʔayʔaǰuθəm	gloss	dem	page 26, pairs
+(65a) line 8	ʔayʔaǰuθəm	transcription	gət̓ᶿgət̓ᶿ	page 26, pairs
+(65a) line 9	ʔayʔaǰuθəm	segmentation	gət̓ᶿ∼gətᶿ	page 26, pairs
+(65a) line 10	ʔayʔaǰuθəm	gloss	tease	page 26, pairs
+(65a) line 11	ʔayʔaǰuθəm	transcription	tumɩš?	page 26, pairs
+(65a) line 12	ʔayʔaǰuθəm	segmentation	tumiš	page 26, pairs
+(65a) line 13	ʔayʔaǰuθəm	gloss	man	page 26, pairs
+(65a) line 14	Marianne Huijsmans	translation	‘Who is that man who is a tease?	page 26, pairs
+(65b) line 1	ʔayʔaǰuθəm	transcription	gɛt ga	page 26, pairs
+(65b) line 2	ʔayʔaǰuθəm	segmentation	gat=ga	page 26, pairs
+(65b) line 3	ʔayʔaǰuθəm	gloss	who=dprt	page 26, pairs
+(65b) line 4	ʔayʔaǰuθəm	transcription	tiʔta	page 26, pairs
+(65b) line 5	ʔayʔaǰuθəm	segmentation	təy̓ta	page 26, pairs
+(65b) line 6	ʔayʔaǰuθəm	gloss	dem	page 26, pairs
+(65b) line 7	ʔayʔaǰuθəm	transcription	tumɩš	page 26, pairs
+(65b) line 8	ʔayʔaǰuθəm	segmentation	tumiš	page 26, pairs
+(65b) line 9	ʔayʔaǰuθəm	gloss	man	page 26, pairs
+(65b) line 10	ʔayʔaǰuθəm	transcription	gət̓ᶿgət̓ᶿ?	page 26, pairs
+(65b) line 11	ʔayʔaǰuθəm	segmentation	gət̓ᶿ∼gətᶿ	page 26, pairs
+(65b) line 12	ʔayʔaǰuθəm	gloss	tease	page 26, pairs
+(65b) line 13	Marianne Huijsmans	translation	‘Who is that man who is a tease?	page 26, pairs
+(65b) line 13	Marianne Huijsmans	citation	(sf | EP.2022/09/16)	the tag or source at the right of the translation
+§7	Marianne Huijsmans	note	More testing of predicates with characteristic reduplication is required, including checking if predi- cates of this type can serve as the modifier in complex nominal predicates.	page 26
+§7	ʔayʔaǰuθəm	cited form	titiwšɛmstanaq	page 26
+§7	ʔayʔaǰuθəm	cited form	č̓ɛč̓ɛganaq	page 26
+§7	ʔayʔaǰuθəm	cited affix	č̓ag-	page 26, ‘to help’
+§7	ʔayʔaǰuθəm	cited form	č̓ɛwtən	page 26, ‘helper’
+§7	ʔayʔaǰuθəm	cited form	tičɛ	page 26, ‘teacher’
+§7	ʔayʔaǰuθəm	cited form	čɩgat	page 26
+§7	Marianne Huijsmans	note	Words with the indefinite object suffix -anaq are also often translated as if they were nouns: e.g., titiwšɛmstanaq as ‘one who teaches’ and č̓ɛč̓ɛganaq as ‘one who is always helping’, but pattern with eventive predicates in taking progressive reduplication. The tests developed here show them to be verbs. Neither titiwšɛmstanaq nor č̓ɛč̓ɛganaq can appear as the head of a complex nominal predicate, as shown in (66a) and (67a). The root č̓ag- ‘to help’ instead appears in a derived noun č̓ɛwtən ‘helper’ in order to appear in the complex nominal predicate in (66b) and the borrowed noun tičɛ ‘teacher’ is used in (67b). Alternately, titiwšɛmstanaq can be modified instead by čɩgat ‘skilled’ (67c), which appears to be restricted to modifying eventive predicates.	page 26
+(66a) line 1	ʔayʔaǰuθəm	transcription	* [hɛhɛw	page 26, pairs
+(66a) line 2	ʔayʔaǰuθəm	segmentation	[hihiw	page 26, pairs
+(66a) line 3	ʔayʔaǰuθəm	gloss	really	page 26, pairs
+(66a) line 4	ʔayʔaǰuθəm	transcription	ʔimot	page 26, pairs
+(66a) line 5	ʔayʔaǰuθəm	segmentation	ʔəy-mut	page 26, pairs
+(66a) line 6	ʔayʔaǰuθəm	gloss	good-int	page 26, pairs
+(66a) line 7	ʔayʔaǰuθəm	transcription	č̓ɛč̓ɛganaq]	page 26, pairs
+(66a) line 8	ʔayʔaǰuθəm	segmentation	č̓a∼č̓ag-anaq]	page 26, pairs
+(66a) line 9	ʔayʔaǰuθəm	gloss	prog∼help-indef.obj	page 26, pairs
+(66a) line 10	ʔayʔaǰuθəm	transcription	Gail.	page 26, pairs
+(66a) line 11	ʔayʔaǰuθəm	segmentation	Gail	page 26, pairs
+(66a) line 12	ʔayʔaǰuθəm	gloss	Gail	page 26, pairs
+(66a) line 13	Marianne Huijsmans	translation	Intended: ‘Gail is a really good helper.’	page 26, pairs
+(66b) line 1	ʔayʔaǰuθəm	transcription	[hɛhɛw	page 26, pairs
+(66b) line 2	ʔayʔaǰuθəm	segmentation	[hihiw	page 26, pairs
+(66b) line 3	ʔayʔaǰuθəm	gloss	really	page 26, pairs
+(66b) line 4	ʔayʔaǰuθəm	transcription	ʔimot	page 26, pairs
+(66b) line 5	ʔayʔaǰuθəm	segmentation	ʔəy-mut	page 26, pairs
+(66b) line 6	ʔayʔaǰuθəm	gloss	good-int	page 26, pairs
+(66b) line 7	ʔayʔaǰuθəm	transcription	č̓ɛwtən]	page 26, pairs
+(66b) line 8	ʔayʔaǰuθəm	segmentation	č̓aw-tən]	page 26, pairs
+(66b) line 9	ʔayʔaǰuθəm	gloss	help-ins	page 26, pairs
+(66b) line 10	ʔayʔaǰuθəm	transcription	Gail.	page 26, pairs
+(66b) line 11	ʔayʔaǰuθəm	segmentation	Gail	page 26, pairs
+(66b) line 12	ʔayʔaǰuθəm	gloss	Gail	page 26, pairs
+(66b) line 13	Marianne Huijsmans	translation	‘Gail is a really good helper.’	page 26, pairs
+(66b) line 13	Marianne Huijsmans	citation	(sf/vf | EP.2022/09/09)	the tag or source at the right of the translation
+§7	ʔayʔaǰuθəm	cited form	hɛhɛw	page 26
+(67a) line 1	ʔayʔaǰuθəm	transcription	* [hɛhɛw	page 26, pairs
+(67a) line 2	ʔayʔaǰuθəm	segmentation	[hihiw	page 26, pairs
+(67a) line 3	ʔayʔaǰuθəm	gloss	really	page 26, pairs
+(67a) line 4	ʔayʔaǰuθəm	transcription	ʔimot	page 26, pairs
+(67a) line 5	ʔayʔaǰuθəm	segmentation	ʔəy-mut	page 26, pairs
+(67a) line 6	ʔayʔaǰuθəm	gloss	good-int	page 26, pairs
+(67a) line 7	ʔayʔaǰuθəm	transcription	titiwšɛmstanaq]	page 26, pairs
+(67a) line 8	ʔayʔaǰuθəm	segmentation	ti∼tiwš-əm-st-anaq]	page 26, pairs
+(67a) line 9	ʔayʔaǰuθəm	gloss	prog∼learn-md-caus-indef.obj	page 26, pairs
+(67a) line 10	ʔayʔaǰuθəm	transcription	Daniel.	page 26, pairs
+(67a) line 11	ʔayʔaǰuθəm	segmentation	Daniel	page 26, pairs
+(67a) line 12	ʔayʔaǰuθəm	gloss	Daniel	page 26, pairs
+(67a) line 13	Marianne Huijsmans	translation	Intended: ‘Daniel is a really good teacher.’	page 26, pairs
+(67b) line 1	ʔayʔaǰuθəm	transcription	[hɛhɛw	page 26, pairs
+(67b) line 2	ʔayʔaǰuθəm	segmentation	[hihiw	page 26, pairs
+(67b) line 3	ʔayʔaǰuθəm	gloss	really	page 26, pairs
+(67b) line 4	ʔayʔaǰuθəm	transcription	ʔimot	page 26, pairs
+(67b) line 5	ʔayʔaǰuθəm	segmentation	ʔəy-mut	page 26, pairs
+(67b) line 6	ʔayʔaǰuθəm	gloss	good-int	page 26, pairs
+(67b) line 7	ʔayʔaǰuθəm	transcription	tičɛ]	page 26, pairs
+(67b) line 8	ʔayʔaǰuθəm	segmentation	tiča]	page 26, pairs
+(67b) line 9	ʔayʔaǰuθəm	gloss	teacher	page 26, pairs
+(67b) line 10	ʔayʔaǰuθəm	transcription	Daniel.	page 26, pairs
+(67b) line 11	ʔayʔaǰuθəm	segmentation	Daniel	page 26, pairs
+(67b) line 12	ʔayʔaǰuθəm	gloss	Daniel	page 26, pairs
+(67b) line 13	Marianne Huijsmans	translation	‘Daniel is a really good teacher.’	page 26, pairs
+(67b) line 13	Marianne Huijsmans	citation	(sf | EP.2023/06/16)	the tag or source at the right of the translation
+(67c) line 1	ʔayʔaǰuθəm	transcription	hɛhɛw	page 27, pairs
+(67c) line 2	ʔayʔaǰuθəm	segmentation	hihiw	page 27, pairs
+(67c) line 3	ʔayʔaǰuθəm	gloss	really	page 27, pairs
+(67c) line 4	ʔayʔaǰuθəm	transcription	čɩgat	page 27, pairs
+(67c) line 5	ʔayʔaǰuθəm	segmentation	čəgat	page 27, pairs
+(67c) line 6	ʔayʔaǰuθəm	gloss	skilled-int	page 27, pairs
+(67c) line 7	ʔayʔaǰuθəm	transcription	ʔəkʷ titiwšɛmstanaq	page 27, pairs
+(67c) line 8	ʔayʔaǰuθəm	segmentation	ʔə=kʷ=ti∼tiwš-əm-st-anaq	page 27, pairs
+(67c) line 9	ʔayʔaǰuθəm	gloss	obl=det=prog∼learn-md-caus-indef.obj	page 27, pairs
+(67c) line 10	ʔayʔaǰuθəm	transcription	Daniel.	page 27, pairs
+(67c) line 11	ʔayʔaǰuθəm	segmentation	Daniel	page 27, pairs
+(67c) line 12	ʔayʔaǰuθəm	gloss	Daniel	page 27, pairs
+(67c) line 13	Marianne Huijsmans	translation	‘Daniel is a really skilled teacher.’	page 27, pairs
+(67c) line 13	Marianne Huijsmans	citation	(vf | EP.2023/06/16)	the tag or source at the right of the translation
+§8	Marianne Huijsmans	heading	8 Conclusion	page 27
+§8	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+§8	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+§8	Marianne Huijsmans	note	In this paper, I have argued for distinct categories of nouns, verbs, and adjectives in ʔayʔaǰuθəm, drawing especially on previous work on St’át’imcets for syntactic tests (Demirdache and Matthew- son 1995; Davis and Matthewson 1999; Davis 2011) and Watanabe (2003) for morphological evi- dence. I showed that complex nominal predicates can only be headed by nouns, while only nouns or adjectives can appear as a modifier preceding the head noun. I showed that adjectives must precede a noun they modify, while verbal modifiers in relative clauses may precede or follow the noun they modify. In addition to this syntactic evidence, I presented morphological evidence for lexical cat- egories, drawing on observations in Watanabe (2003). I showed that the possessive -hV- affix only applies to nouns, deriving a stative verb, while change-of-state ∼VC reduplication applies only to adjectives, deriving an eventive verb.	page 27
+§8	Marianne Huijsmans	note	The existence of distinct lexical categories of noun, verb, and adjective has implications for the ʔayʔaǰuθəm dictionary in progress: category labels can be productively included. Going forward, the tests presented in this paper can be applied where the lexical category of an item is in question, as for the items discussed in the preceding section of this paper.	page 27
+§8	Marianne Huijsmans	note	Including lexical category information in the dictionary will help learners anticipate where the words may appear in a sentence. When providing these categories, however, it is important that learners do not assume that nouns, adjectives, and verbs pattern in ʔayʔaǰuθəm as they do in En- glish. In particular, it is important that predicate-argument flexibility is highlighted, perhaps in the introduction to the dictionary, so learners recognize that words of any lexical category may function as the main predicate or combine with a determiner to function as an argument (forming a relative clause in the case of a verb). Example sentences in the dictionary could also include cases where nouns and adjectives are used predicatively and where verbs appear in relative clauses to help illus- trate the range of uses that are possible for words of each category.	page 27
+§8	Marianne Huijsmans	language	Hul’q’umi’num’	Hul’q’umi’num’
+§8	Marianne Huijsmans	language	Nsyílxcən	Nsyílxcən, Okanagan
+§8	Marianne Huijsmans	note	More broadly, the findings of this investigation contribute to establishing that distinct lexical categories exist across the Salish language family. Evidence for lexical categories has now been amassed for St’át’imcets (e.g., Van Eijk and Hess 1986; Demirdache and Matthewson 1995; Davis and Matthewson 1999; Davis 2011), Lushootseed (Van Eijk and Hess 1986), Hul’q’umi’num’ (e.g, Gerdts and Schneider 2023), Klallam and Northern Straits (Montler 2003), and Nsyílxcən (Lyon 2013), as well as ʔayʔaǰuθəm, all of which exhibit the predicate-argument flexibility and non- selective morphology that originally prompted the claims that these categories do not exist in Salish languages. However, I have also shown that there is variation in the restrictions placed on words of these categories, which means that the same tests cannot always be applied. Hopefully, further cross-Salish investigation will establish which tests provide consistent results across languages, as well as uncovering a wider range of possible tests.	page 27
+references	Marianne Huijsmans	heading	References	page 28
+references	Marianne Huijsmans	reference	Burton, Strang. 1997. Past tense on nouns as death, destruction and loss. In Proceedings of NELS 27, ed. K Kusumoto, 65–77. University of Massachusetts, Amherst: GLSA.	
+references	Marianne Huijsmans	reference	Chomsky, Noam. 1965. Aspects of the theory of syntax. Cambridge: MIT Press.	
+references	Marianne Huijsmans	reference	Davis, Henry. 1999. Subject inflection in Salish. Ms., University of British Columbia.	
+references	Marianne Huijsmans	reference	Davis, Henry. 2000. Remarks on Proto-Salish subject inflection. International Journal of American Linguistics 66:499–520.	
+references	Marianne Huijsmans	language	St’át’imcets	St’át’imcets, Lillooet
+references	Marianne Huijsmans	reference	Davis, Henry. 2003. Mind the gap: on plural agreement and A’-extraction in St’át’imcets (Lillooet Salish). In Papers for the 38th International Conference on Salish and Neighbouring Languages (ICSNL), 23–46.	
+references	Marianne Huijsmans	reference	Davis, Henry. 2007. Prosody-focus dissociation and its consequences: The case of Salish. Paper presented November 10, 2007, Nagoya, Japan.	
+references	Marianne Huijsmans	reference	Davis, Henry. 2010. A unified analysis of relatives clauses in St’át’imcets. Northwest Journal of Linguistics 4:1–43.	
+references	Marianne Huijsmans	reference	Davis, Henry. 2011. Stalking the adjective in St’át’imcets. Northwest Journal of Linguistics 5:1–60.	
+references	Marianne Huijsmans	reference	Davis, Henry, and Lisa Matthewson. 1999. On the functional determination of lexical categories. Revue Quebecoise de Linguistique 27:29–69.	
+references	Marianne Huijsmans	reference	Demirdache, Hamida, and Lisa Matthewson. 1995. On the universality of syntactic categories. In Proceedings of the North East Linguistics Society 25, 79–93.	
+references	Marianne Huijsmans	reference	First Peoples’ Cultural Council. 2018. Report on the status of B.C. First Nations languages. URL: http://www.fpcc.ca/files/PDF/Language/FPCC-LanguageReport-141016-WEB.pdf.	
+references	Marianne Huijsmans	reference	First Peoples’ Cultural Council. 2022. Report on the status of B.C. First Nations languages. URL: https://fpcc.ca/wp-content/uploads/2023/02/FPCC-LanguageReport-23.02.14-FINAL.pdf.	
+references	Marianne Huijsmans	reference	Gerdts, Donna, and Mercedes Hinkson. 2004. Salish numeral classifiers: a lexical means to a gram- matical end. Sprachtypologie und Universalienforschung 57:247–279.	
+references	Marianne Huijsmans	reference	Gerdts, Donna, and Lauren Schneider. 2023. Word classes in Salish languages. In Handbook of word classes, ed. Eva van Lier. Oxford: Oxford University Press.	
+references	Marianne Huijsmans	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, Central Salish
+references	Marianne Huijsmans	reference	Huijsmans, Marianne. 2022. Second-position clitics, from morphosyntax to semantics: The ʔayʔaǰuθəm (Comox-Sliammon) perspective. Doctoral Dissertation, University of British Columbia.	
+references	Marianne Huijsmans	reference	Huijsmans, Marianne, and Gloria Mellesmoen. 2021. How to distribute events: ʔayʔaǰuθəm plurac- tionals. International Journal of American Linguistics 87:339–368.	
+references	Marianne Huijsmans	reference	Hukari, Thomas. 1983. Halkomelem and configuration. In Papers for the 18th International Con- ference on Salish and Neighbouring Languages (ICSNL), 214–238.	
+references	Marianne Huijsmans	reference	Jelinek, Eloise, and Richard Demers. 1982. Adjoined clauses in Lummi. In Papers for the 27th International Conference on Salish and Neighbouring Languages (ICSNL), 201–245.	
+references	Marianne Huijsmans	reference	Jelinek, Eloise, and Richard Demers. 1994. Predicates and pronominal arguments. Language 70:697–736.	
+references	Marianne Huijsmans	reference	Kinkade, M. Dale. 1983. Salish evidence agains the universality of ‘noun’ and ‘verb’. Lingua 60:25–40.	
+references	Marianne Huijsmans	language	Nɬeʔkepmxcin	Nɬeʔkepmxcín, in the title of a reference
+references	Marianne Huijsmans	reference	Koch, Karsten. 2008. Intonation and focus in Nɬeʔkepmxcin (Thompson River Salish). Doctoral Dissertation, UBC, BC.	
+references	Marianne Huijsmans	reference	Kroeber, Paul. 1988. Inceptive reduplication in Comox and Interior Salishan. International Journal of American Linguistics 54:141–167.	
+references	Marianne Huijsmans	reference	Kroeber, Paul. 1991. A comparative syntax of subordination in Salish. Doctoral Dissertation, Uni- versity of Chicago, Chicago, Illinois.	
+references	Marianne Huijsmans	reference	Kuipers, Aert. 1967. The Squamish language, vol. 1. The Hague: Mouton de Gruyter.	
+references	Marianne Huijsmans	reference	Lyon, John. 2013. Predication and equation in Okanagan Salish: The syntax and semantics of determiner phrases. Doctoral Dissertation, UBC, Vancouver.	
+references	Marianne Huijsmans	reference	Matthewson, Lisa. 2005. On the absence of tense on determiners. Lingua 115:1697–1735.	
+references	Marianne Huijsmans	reference	Montler, Timothy. 2003. Auxiliaries and other categories in Straits Salishan. International Journal of American Linguistics 69.2:103–134.	
+references	Marianne Huijsmans	reference	Montler, Timothy. 2008. Serial verbs and complex paths in Klallam. Northwest Journal of Linguis- tics 2:1–26.	
+references	Marianne Huijsmans	reference	Reisinger, Daniel, Marianne Huijsmans, and Lisa Matthewson. 2021. Evidentials in the nominal domain: A Speasian analysis of ʔayʔaǰuθəm determiners. In Proceedings of Sinn und Bedeutung (SUB) 25, ed. Patrick Grosz, Luisa Martí, Hazel Pearson, Yatusada Sudo, and Sarah Zobel, 751– 768. University of Konstanz.	
+references	Marianne Huijsmans	reference	Schneider, Lauren. 2021. Classifying multi-verb constructions in Hul’q’umi’num’ Salish. In Pa- pers for the 56th International Conference on Salish and Neighbouring Languages (ICSNL), ed. Daniel Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, , and Bailey Trotter.	
+references	Marianne Huijsmans	reference	Schneider, Lauren. 2022. Expressing associated motion using Hul’q’umi’num’ Salish SVCs. In Papers for the 57th International Conference on Salish and Neighbouring Languages (ICSNL), ed. Daniel Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter.	
+references	Marianne Huijsmans	reference	Van Eijk, Jan, and Thom Hess. 1986. Noun and verb in Salish. Lingua 69:319–331.	
+references	Marianne Huijsmans	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish, with a sketch of syntax. ELPR Publications Series AZ-040. Osaka: Osaka Gakuin University.	

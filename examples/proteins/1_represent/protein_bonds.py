@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRO-1-001
 #
 # Represent a protein by its bonds in the order the chain was assembled, for Section 4.2 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python examples/proteins/1_represent/protein_bonds.py
 #

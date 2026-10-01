@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-4-037
 #
 # Ask whether the reading follows the language or the writing, with one held fixed at a time, for
-# Section 4.13 of theory/workbooks/anchor_sift.
+# Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python examples/language/4_measure/script_or_language.py
 #

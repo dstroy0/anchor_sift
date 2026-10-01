@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Error recorded speech that the community it came from has not said we may hold.
@@ -103,7 +103,7 @@ ROOT = _repository_root()
 
 NAME = "SPEECH.tsv"
 SPEECH = "speech"
-BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
+BYPASS_ENV = "ORIOR_BYPASS"
 
 # What counts as holdable, and the two are not the same claim.
 #
@@ -121,7 +121,7 @@ HOLDABLE = (GRANTED, PUBLISHED)
 
 def private_root():
     """The closed corpus, resolved the way private_sync.py resolves it."""
-    named = os.environ.get("ANCHOR_SIFT_PRIVATE")
+    named = os.environ.get("ORIOR_PRIVATE")
     if named:
         return os.path.abspath(named)
     for candidate in (

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch published machine prose, for the positive pole of machine_distance.
@@ -146,7 +146,7 @@ WANT = 1000000
 def fetched(dataset, name):
     """One file of a dataset, as text."""
     url = BLOB % (dataset, urllib.parse.quote(name))
-    request = urllib.request.Request(url, headers={"User-Agent": "anchor-sift/1.0"})
+    request = urllib.request.Request(url, headers={"User-Agent": "orior/1.0"})
     with urllib.request.urlopen(request, timeout=300) as response:
         return response.read().decode("utf-8", "replace")
 

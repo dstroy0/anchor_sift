@@ -1,0 +1,1118 @@
+where	who	kind	form	gloss
+front	John Lyon, Ewa Czaykowska-Higgins	title	Orbital Clitics in Nxaʔamxčín	page 1, carries footnote *
+front	John Lyon, Ewa Czaykowska-Higgins	name	John Lyon	author
+front	John Lyon, Ewa Czaykowska-Higgins	note	California State University, Fresno	page 1, under John Lyon
+front	John Lyon, Ewa Czaykowska-Higgins	name	Ewa Czaykowska-Higgins	author
+front	John Lyon, Ewa Czaykowska-Higgins	note	University of Victoria	page 1, under Ewa Czaykowska-Higgins
+front	John Lyon, Ewa Czaykowska-Higgins	note	Abstract: This paper presents a description and theoretical account of linearization and orientation for a subset of Nxaʔamxčín (a.k.a. Moses-Columbian) clitics. Parallels are drawn with sister- language Nsyilxcn (a.k.a. Okanagan), building on previous descriptive accounts of clitics and particles in these two languages (Kinkade 1974, 1982; Czaykowska-Higgins 2019; Lyon 2019). Lyon (2019) proposes two main phonological domains at which Nsyilxcn clitics are parsed: core and pivotal inner clitics which are parsed with the main predicate as a prosodic word or phonological phrase, and outer clitics which need not be. We expand and extend this general analysis to Nxaʔamxčín, which unlike Nsyilxcn exhibits an interesting clitic ‘mirroring’ effect, whereby a given clitic may either precede or follow a prosodic host in a defined ‘orbit’. We propose two families of alignment constraints which linearize clitics based on the phonological level at which they are parsed: a family of STAY constraints (Agbayani & Golston 2010) tailored to specific phonological units (i.e. prosodic word (ω), phonological phrase (φ), or intonational phrase (ι)) assure linear correspondence is satisfied, unless outranked by a corresponding set of STRONG-START constraints (Selkirk 2011) which will derive the mirror image. Restricted partial constraint orderings (Antilla 2001) are formally expressed by implicational relations between individual members of the STAY and STRONG-START constraint families, deriving the attested linearizations, while also allowing for flexibility in clitic orientation and limited orbital independence.	page 1, the abstract
+front	John Lyon, Ewa Czaykowska-Higgins	note	Keywords: Nxaʔamxčín, Nsyilxcn, clitics, Southern Interior Salish, prosody	page 1, the keywords
+front	John Lyon, Ewa Czaykowska-Higgins	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	John Lyon, Ewa Czaykowska-Higgins	language	Nxaʔamxčín	Moses-Columbian, Southern Interior Salish
+front	John Lyon, Ewa Czaykowska-Higgins	language	Nsyilxcn	Okanagan, Southern Interior Salish
+footnote *	John Lyon, Ewa Czaykowska-Higgins	note	Deep gratitude for all the Nxaʔamxčín speakers, too numerous to name here, who shared their knowledge with Dale Kinkade, and with Marie Louise Willett, Nancy Mattina, and Ewa Czaykowska. Thanks to Upper Nicola Syilx elders Lottie Lindley (LL) and Sarah McLeod (SM) for sharing their stories and knowledge of their language with John Lyon, and to Sharon Lindley for helping to facilitate Nsyilxcn language work at UNIB. Thanks also to research assistants Kisa Bell and Ethan Dinnen; to Sarah Kell, Marion Caldecott, Kyra Fortier, Janet Leonard; and to the Nxaʔamxčín Language Program (K’saw’s Brooks, Sharon Covington, Pauline Stensgar). Thanks to Chris Golston for comments on earlier stages of this project. This research has been permitted by Colville Confederated Tribes and supported by SSHRC IDG (430- 2016-00852) awarded to Marion Caldecott, by the University of Victoria Humanities Computing and Media Centre, by SSHRC PDF (756-2016-0675) awarded to John Lyon, and by California State University, Fresno, Faculty of Arts & Humanities. Contact info: John Lyon johnlyon@csufresno.edu; Ewa Czaykowska-Higgins eczh@uvic.ca	page 1, footnote *, on the title
+§1	John Lyon, Ewa Czaykowska-Higgins	heading	1 Introduction	page 1
+§1	John Lyon, Ewa Czaykowska-Higgins	note	This paper examines a subset of clitics in Nxaʔamxčín and Nsyilxcn. Our primary goal for the paper is to provide a detailed description of the distribution of these clitics, and our secondary goal is to lay the foundations for a theoretical analysis of clitics within and across these two languages. The primary focus of our theoretical analysis is on clitic linearization in Nxaʔamxčín: in other words, predicting where clitics will occur within a string of words. Our approach also makes certain predictions regarding clitic orientation, for example whether a clitic will be attracted towards the right or the left, though orientation is addressed only secondarily.	page 1
+§1.1	John Lyon, Ewa Czaykowska-Higgins	heading	1.1 Language Information	page 2
+§1.1	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín (a.k.a. Moses-Columbian) and Nsyilxcn (a.k.a. Okanagan) are related sister languages of the Southern Interior sub-branch of the Salish language family. Both are extremely endangered: Nxaʔamxčín is spoken in west-central Washington, with only two first-language speakers working with the Language Program. Nsyilxcn is spoken in north-central Washington and south-central British Columbia, and has approximately 132 elder speakers remaining (FPCC 2018). There are successful language revitalization efforts occurring on both sides of the international border.	page 2
+§1.2	John Lyon, Ewa Czaykowska-Higgins	heading	1.2 Particles or Clitics?	page 2
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	Nespor and Vogel (1986) define clitics as elements with relative freedom of movement, which are able to attach to a variety of hosts, exhibit less phonological integration than affixes, and are not inherently stressed. Together, these properties should allow us to distinguish a class of clitics from predicates, adverbs, and other particles in Nxaʔamxčín and Nsyilxcn. In this paper, we use the word particle to refer to a stress-bearing, prosodic word which can host other clitics, yet which may not undergo inflection (Kinkade 1982).	page 2
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín and Nsyilxcn share a high number of lexical-class and functional-class cognates (Kinkade 1976, 1982), as well as regular vowel correspondences. Table 1 is a non-exhaustive list of functional-class elements from these two languages which are cognate and/or functionally equivalent. Many of the Nsyilxcn items have been analyzed as clitics (Mattina 1973, Lyon 2019), and at least some of the Nxaʔamxčín items have clitic-like properties (Czaykowska-Higgins 2019).	page 2
+Table 1	John Lyon, Ewa Czaykowska-Higgins	note	Table 1: A subset of cognate/functionally equivalent elements in Nxaʔamxčín and Nsyílxcn1	page 2, the table's caption
+footnote 1	John Lyon, Ewa Czaykowska-Higgins	note	3rd singular intransitive subjects are null in both languages. The hyphen in Table 1 indicates that there is no corresponding cognate or functionally equivalent morpheme.	page 2, footnote 1
+Table 1 line 1	John Lyon, Ewa Czaykowska-Higgins	note	Gloss Nxaʔamxčín Nsyílxcn	page 2, Table 1
+Table 1 line 2	John Lyon, Ewa Czaykowska-Higgins	note	1st SG. intransitive subject kn kn	page 2, Table 1
+Table 1 line 3	John Lyon, Ewa Czaykowska-Higgins	note	2nd SG. intransitive subject kʷ kʷ	page 2, Table 1
+Table 1 line 4	John Lyon, Ewa Czaykowska-Higgins	note	1st PL. intransitive subject kt kʷu	page 2, Table 1
+Table 1 line 5	John Lyon, Ewa Czaykowska-Higgins	note	2nd PL. intransitive subject kp p	page 2, Table 1
+Table 1 line 6	John Lyon, Ewa Czaykowska-Higgins	note	3rd PL. intransitive subject lx lx	page 2, Table 1
+Table 1 line 7	John Lyon, Ewa Czaykowska-Higgins	note	future naʔ / našúʔ mi	page 2, Table 1
+Table 1 line 8	John Lyon, Ewa Czaykowska-Higgins	note	past (ʔ)ay̓ / ƛ̓əm ƛ̓əm	page 2, Table 1
+Table 1 line 9	John Lyon, Ewa Czaykowska-Higgins	note	yes/no question marker šá / a ha / (h)a	page 2, Table 1
+Table 1 line 10	John Lyon, Ewa Czaykowska-Higgins	note	imperative taʔ -	page 2, Table 1
+Table 1 line 11	John Lyon, Ewa Czaykowska-Higgins	note	temporal complementizer ɬuʔ ɬ(aʔ)	page 2, Table 1
+Table 1 line 12	John Lyon, Ewa Czaykowska-Higgins	note	adjunct complementizer či kiʔ	page 2, Table 1
+Table 1 line 13	John Lyon, Ewa Czaykowska-Higgins	note	conjunction kʷaʔ uɬ	page 2, Table 1
+Table 1 line 14	John Lyon, Ewa Czaykowska-Higgins	note	absolutive case marker wa -	page 2, Table 1
+Table 1 line 15	John Lyon, Ewa Czaykowska-Higgins	note	oblique / prepositions t, tl, k̓ɬ, l t, tl, k̓l, l	page 2, Table 1
+Table 1 line 16	John Lyon, Ewa Czaykowska-Higgins	note	modal, epistemic šəm̓, čmaɬ cəm̓, cmay	page 2, Table 1
+Table 1 line 17	John Lyon, Ewa Czaykowska-Higgins	note	modal, epistemic mə́t, maxʷ mat	page 2, Table 1
+Table 1 line 18	John Lyon, Ewa Czaykowska-Higgins	note	modal, bouletic šak cakʷ	page 2, Table 1
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	In this paper, we will focus on intransitive subject pronouns, future and past tense markers, and yes/no question markers (all bolded in Table 1 above) since there is ample enough data for these elements in Nxaʔamxčín to inform our analysis. Additionally, this subset of elements presumably falls, inclusively, between the C and T projections in the clausal syntax, and an understanding of the distribution of these clitics may allow us to make interesting predictions regarding clitic syntax. Distributional facts, cross-linguistic evidence, and the limited phonetic evidence we currently have available suggest that all of the bolded items above are clitics, with the exception of Nxaʔamxčín sá which is always a particle, and (ʔ)ay̓ which may sometimes be a particle (Czaykowska-Higgins 2019) under circumstances to be discussed. Detailed phonetic studies will eventually need to be carried out in order to confirm the status of these elements as clitics.	page 2
+§1.2	Nxaʔamxčín	cited form	sá	page 3, in italics
+§1.2	Nxaʔamxčín	cited form	(ʔ)ay̓	page 3, in italics
+§1.2	Nxaʔamxčín	cited form	ay̓	page 3, in italics
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín and Nsyilxcn intransitive pronouns (Table 1) lack full vowels (with the exception of Nsyilxcn 1st plural kʷu), and so under the assumption that schwa does not carry primary stress, these pronouns will be inherently non-stressed, supporting a clitic analysis. These pronouns also exhibit a relatively high freedom of movement, though this is realized differently in the two languages. In Nsyilxcn for example, an intransitive subject pronoun can occur to the left (1a) or the right (1b) of complementizer ɬaʔ, which itself patterns as a clitic (Lyon 2019).	page 3
+§1.2	Nxaʔamxčín	cited form	kʷu	page 3, in italics
+§1.2	Nxaʔamxčín	cited form	ɬaʔ	page 3, in italics
+(1a) line 1	Nsyilxcn	transcription	cakʷ lut kʷ ɬaʔ ʔitx sk̕ək̕láxʷ, lut aksqiɬt ʕapnáʔ.	page 3
+(1a) line 2	Nsyilxcn	segmentation	cakʷ lut kʷ ɬaʔ ʔitx sk̕ək̕láxʷ lut a-ks-qíɬt ʕapnáʔ	page 3
+(1a) line 3	Nsyilxcn	gloss	BOUL NEG 2SG.INTR COMP sleep last.night NEG 2SG.POSS-PROS-wake now	page 3
+(1a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘If you didn’t sleep last night, you wouldn’t be awake this morning.’	page 3
+(1a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 3, under the translation
+(1a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 3, under the translation
+(1b) line 1	Nsyilxcn	transcription	kn t̕ək̕ʷncút ɬaʔ kn sʔayx̌ʷt.	page 3
+(1b) line 2	Nsyilxcn	segmentation	kn t̕ək̕ʷ-ncút ɬaʔ kn s-ʔáyx̌ʷt	page 3
+(1b) line 3	Nsyilxcn	gloss	1SG.INTR lay.down-REFL COMP 1SG.INTR NMLZ-tired	page 3
+(1b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I laid down when I was tired.’	page 3
+(1b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 3, at the right of the translation
+(1b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 3, at the right of the translation
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	A similar linear variation can be found for the determiner iʔ and the prepositions (cf. Table 1).2 Such linear variation is never allowed for clear cases of prefixes or suffixes.	page 3
+footnote 2	John Lyon, Ewa Czaykowska-Higgins	note	Though variation in the relative ordering of determiners and prepositions in Nsyilxcn may differ primarily along dialectal lines. More work is needed here. It is also worth noting that in neither Nxaʔamxčín nor Nsyilxcn do determiners exhibit the mirroring effect, at least in an obvious manner. In Nxaʔamxčín, however, the DP-internal genitive marker l does exhibit a considerable freedom of movement (N. Mattina 2002).	page 3, footnote 2
+§1.2	Nxaʔamxčín	cited form	iʔ	page 3, in italics
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	In Nxaʔamxčín (unlike Nsyilxcn), pronoun clitics can occur in many different places, including before negation (2a), before the main predicate (2b), and before another clitic such as ay̓ (2c).3	page 3
+footnote 3	John Lyon, Ewa Czaykowska-Higgins	note	We use the symbol ‘=’ in Nxaʔamxčín to indicate a morphological boundary involving a clitic that was transcribed as being attached to an adjacent morpheme. These transcriptions correspond to a prediction that the clitic will orientate towards the prosodic host as indicated.	page 3, footnote 3
+(2a) line 1	Nxaʔamxčín	transcription	šacʼkáməx kʷaʔ kʷ lút núx̌ʷt ay̓?	page 3
+(2a) line 2	Nxaʔamxčín	segmentation	šacʼkáməx kʷaʔ kʷ=lút √núx̌ʷt=ay̓	page 3
+(2a) line 3	Nxaʔamxčín	gloss	why CONJ 2SG.INTR=NEG go=PAST	page 3
+(2a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Why didn’t you go home?’	page 3
+(2a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.184)	page 3, at the right of the translation
+(2a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 3, at the right of the translation
+(2b) line 1	Nxaʔamxčín	transcription	naʔ čhúymnč ʔay̓kʷáast ɬuʔ kʷ núx̌ʷt k̕ɬ Spokane.	page 3
+(2b) line 2	Nxaʔamxčín	segmentation	naʔ č-√húy-mn-č ʔay̓kʷáast ɬuʔ kʷ √núx̌ʷt k̕ɬ Spokane	page 3
+(2b) line 3	Nxaʔamxčín	gloss	FUT CISL-go-RLT-1SG.OBJ+3ERG tomorrow COMP 2SG.INTR go to Spokane	page 3
+(2b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He will be visiting me tomorrow while you go to Spokane.’	page 3
+(2b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(EP4.44.7)	page 3, the tag or source at the right of the translation
+(2b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 3, the tag or source at the right of the translation
+(2c) line 1	Nxaʔamxčín	transcription	lút kʷ ay̓ náw̓əlx.	page 4
+(2c) line 2	Nxaʔamxčín	segmentation	lút kʷ=ay̓ √náw̓-əlx	page 4
+(2c) line 3	Nxaʔamxčín	gloss	NEG 2SG.INTR=PAST run-AUT	page 4
+(2c) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You didn’t run.’	page 4
+(2c) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W2.88)	page 4, at the right of the translation
+(2c) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 4, at the right of the translation
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	This freedom of movement supports the analysis of pronouns as clitics in both languages.	page 4
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	Intransitive subject pronouns also show a fair degree of phonological integration. In Nxaʔamxčín, for example, they syllabify with their hosts and other adjacent clitics.4 Syllabification for the bolded clitics and their hosts in (3a) is [šaikʷ], and for (3b) [naʔ.šúkʷ].5	page 4
+footnote 4	John Lyon, Ewa Czaykowska-Higgins	note	More work is required to determine to what extent constraints on syllabification and metrical structure may play a role in clitic placement.	page 4, footnote 4
+footnote 5	John Lyon, Ewa Czaykowska-Higgins	note	In Nsyilxcn, pronoun clitics also syllabify with their hosts, but the requirement that the pronoun linearize before the predicate outweighs any possible requirement on syllabification.	page 4, footnote 5
+§1.2	Nxaʔamxčín	cited form	naʔ	page 4, in italics
+(3a) line 1	Nxaʔamxčín	transcription	xʷús taʔ naq̓ʷiqc̓tn šaikʷ ʔáɫm wíxən txaʔ....	page 4
+(3a) line 2	Nxaʔamxčín	segmentation	xʷús taʔ na-q̓ʷiqc̓tn ša=i=kʷ ʔáɫm wíxən txaʔ	page 4
+(3a) line 3	Nxaʔamxčín	gloss	hurry IMP LOC-? Q=PAST=2SG.INTR very see here	page 4
+(3a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Hurry have you seen here....’	page 4
+(3a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.ED.90.CD)	page 4, at the right of the translation
+(3a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 4, at the right of the translation
+(3b) line 1	Nxaʔamxčín	transcription	naʔšukʷ lút nwənaxʷánaʔ ….	page 4
+(3b) line 2	Nxaʔamxčín	segmentation	naʔšu=kʷ lút √n-wənaxʷ-ánaʔ	page 4
+(3b) line 3	Nxaʔamxčín	gloss	FUT=2SG.INTR NEG LOC-true-ear	page 4
+(3b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘If you don’t listen to me....’	page 4
+(3b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.ED.90.CD.l21)	page 4, at the right of the translation
+(3b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 4, at the right of the translation
+§1.2	John Lyon, Ewa Czaykowska-Higgins	note	Regarding the remaining bolded clitics in Table 1, the phonological shape of Nxaʔamxčín ay̓ (PAST) and a (YES/NO QUESTION) marker (in final position) as lacking onsets strongly supports the idea of treating them as clitics, though naʔ (FUTURE) appears less clitic-like. 6 Given, however, that intransitive pronouns in both languages are clitics, all other bolded items in Table 1, including naʔ, will be shown to occur linearly to the outside of the pronoun and its prosodic host in regular distributional patterns which are distinctive to clitics, as opposed to particles.	page 4
+footnote 6	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín naʔ should be distinguished from naʔšúʔ which is also a future morpheme but has the distribution and shape of a particle or adverb, rather than a clitic.	page 4, footnote 6
+footnote 6	Nxaʔamxčín	cited form	naʔšúʔ	page 4, in italics
+§1.3	John Lyon, Ewa Czaykowska-Higgins	heading	1.3 Outline of Paper	page 4
+§1.3	John Lyon, Ewa Czaykowska-Higgins	note	In Section 2, we describe clitic linearization and orientation patterns in Nxaʔamxčín, and an interesting ‘mirroring effect’ whereby at least some clitics appear to be distributed in regular, defined ‘orbits’ around their prosodic host. We also discuss certain exceptions to this mirroring, e.g. (ʔ)ay̓ (PAST). At many points we compare and contrast the linearization and orientation of Nxaʔamxčín clitics with Nsyilxcn, which is almost entirely pro-cliticizing.	page 4
+§1.3	John Lyon, Ewa Czaykowska-Higgins	note	In Section 3, we extend the idea of inner and outer clitic domains from Nsyilxcn (Lyon 2019) to Nxaʔamxčín. Inner clitics must form a prosodic word or a phonological phrase with the main predicate in both languages and show phonetic evidence of being phonologically more integrated with their host. Outer clitics may linearize before a host that is not a main predicate, and do not show the same kind of phonological interaction with their host, indicating that they may be phonologically parsed at a higher level of the prosodic hierarchy.	page 4
+§1.3	John Lyon, Ewa Czaykowska-Higgins	note	In Section 4, we present a theoretical analysis of the patterns observed in the two languages. We follow Gerdts and Werle (2014) in assuming that clitics may be parsed at different levels of a prosodic hierarchy (Selkirk 1995). We then propose two families of alignment constraints which linearize clitics based on the phonological level at which they are parsed: a family of STAY constraints (Agbayani & Golston 2010) tailored to specific phonological units, i.e. prosodic word (ω), phonological phrase (φ), or intonational phrase (ι) (Selkirk 1995), assure linear correspondence is satisfied, unless outranked by a corresponding set of STRONG-START constraints (Selkirk 2011), which will derive the mirror image. Restricted partial constraint orderings (Antilla 2001) are formally expressed by implicational relations between individual members of the STAY and STRONG-START constraint families, deriving the correct linearizations while allowing for flexibility in clitic orientation and limited orbital independence. We then revisit the case of (ʔ)ay̓ (PAST), which on the surface appears to linearize outside of its expected orbit in certain cases. Such exceptional distributions can be explained if (ʔ)ay̓ undergoes limited promotion to prosodic word.	page 5
+§1.3	John Lyon, Ewa Czaykowska-Higgins	note	In Section 5, we discuss implications and limitations of our analysis, as well as future directions. In Section 6, we conclude.	page 5
+§2	John Lyon, Ewa Czaykowska-Higgins	heading	2 Clitic Orientation and Linearization in Nxaʔamxčín and Nsyilxcn	page 5
+§2	John Lyon, Ewa Czaykowska-Higgins	note	This section focuses on basic orientation and linearization patterns found in Nxaʔamxčín and Nsyilxcn clitics (Section 2.1), a notable exception to the linearization pattern in Nxaʔamxčín (ay̓ PAST) (Section 2.2), how clitic linearization patterns change in the context of more than one potential prosodic host (Section 2.3), and probable syntactic constraints on clitic placement (Section 2.4). The overall focus will be on Nxaʔamxčín. See Lyon (2019) for additional data on Nsyilxcn clitics.	page 5
+§2.1	John Lyon, Ewa Czaykowska-Higgins	heading	2.1 Basic Linearization Patterns	page 5
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	It has for some time been noted that pronominal clitics in Nxaʔamxčín may either precede or follow a main predicate (4–5) (Kinkade 1974, N. Mattina 2002, Bell 2003, Willett 2003, Czaykowska- Higgins 2019, Lyon & Czaykowska-Higgins 2019). For example, Kinkade (1974) describes Nxaʔamxčín clitics as “movable”, N. Mattina (2002) discusses mobile clitics in the nominal domain, and Willett (2003:287) states that “there is some variation as to the syntactic positioning of the 1st and 2nd person clitics, but they generally appear in 1st or 2nd position.”7	page 5
+footnote 7	John Lyon, Ewa Czaykowska-Higgins	note	The variation shown in (4–5) on the surface resembles the apparent free ordering of intransitive predicate and DP subjects in Nsyilxcn (Lyon 2018). Assuming however that the subject clitics in (4–5) are agreement (likely in Tense, cf. Baier 2020 for Montana Salish) and not syntactic arguments, the variation above could only be explained syntactically by assuming optional head-raising, which we assume is a non-starter, based partially on evidence that verbs in closely-related Nsyilxcn do not raise as high as or higher than T.	page 5, footnote 7
+(4a) line 1	Nxaʔamxčín	transcription	kn qʷətnáyaʔqn.	page 5
+(4a) line 2	Nxaʔamxčín	segmentation	kn √qʷətn-áyaʔ-qn	page 5
+(4a) line 3	Nxaʔamxčín	gloss	1SG.INTR big-top.of-head	page 5
+(4a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 5
+(4a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 5, at the right of the translation
+(4a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 5, at the right of the translation
+(4b) line 1	Nxaʔamxčín	transcription	qʷətnáyaʔqn kn.	page 5
+(4b) line 2	Nxaʔamxčín	segmentation	√qʷətn-áyaʔ-qn kn	page 5
+(4b) line 3	Nxaʔamxčín	gloss	big-top.of-head 1SG.INTR	page 5
+(4b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 5
+(4b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 5, at the right of the translation
+(4b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 5, at the right of the translation
+(5a) line 1	Nxaʔamxčín	transcription	kn c̓əlíx.	page 6
+(5a) line 2	Nxaʔamxčín	segmentation	kn c̓əlíx	page 6
+(5a) line 3	Nxaʔamxčín	gloss	1SG.INTR stand	page 6
+(5a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I stood up.’	page 6
+(5a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W4.168)	page 6, at the right of the translation
+(5a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+(5b) line 1	Nxaʔamxčín	transcription	c̓əlút kn.	page 6
+(5b) line 2	Nxaʔamxčín	segmentation	c̓əlút kn	page 6
+(5b) line 3	Nxaʔamxčín	gloss	stand 1SG.INTR	page 6
+(5b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I stood up.’	page 6
+(5b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W4.167)	page 6, at the right of the translation
+(5b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	This apparent optionality has not been hitherto described in detail, and is puzzling from the Salish viewpoint, given that most other Salish languages do not allow such variation for any given clitic, instead following a strictly procliticizing (e.g. Nsyilxcn) or encliticizing (e.g. St’át’imcets) strategy.	page 6
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	The variable placement of clitics shown in (4–5) extends beyond just pronominal clitics in Nxaʔamxčín, also involving tense clitics and the yes/no question marker. For example, a future morpheme naʔ in (6) precedes an intransitive pronoun clitic and the main predicate, while in (7) it follows both.	page 6
+(6a) line 1	Nxaʔamxčín	transcription	naʔ kn lčkíčx.	page 6
+(6a) line 2	Nxaʔamxčín	segmentation	naʔ kn l-č-√kíčx	page 6
+(6a) line 3	Nxaʔamxčín	gloss	FUT 1SG.INTR return-CISL-arrive	page 6
+(6a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will be back.’	page 6
+(6a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W7.261)	page 6, at the right of the translation
+(6a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+(6b) line 1	Nxaʔamxčín	transcription	lút naʔ kn ʔíɬn.	page 6
+(6b) line 2	Nxaʔamxčín	segmentation	lút naʔ=kn=√ʔíɬn	page 6
+(6b) line 3	Nxaʔamxčín	gloss	NEG FUT=1SG.INTR=eat	page 6
+(6b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I do not want to eat.’	page 6
+(6b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.115)	page 6, at the right of the translation
+(6b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+(7a) line 1	Nxaʔamxčín	transcription	kʼám̓ kn naʔ.	page 6
+(7a) line 2	Nxaʔamxčín	segmentation	√kʼám̓ kn naʔ	page 6
+(7a) line 3	Nxaʔamxčín	gloss	stay 1SG.INTR FUT	page 6
+(7a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will stay.’	page 6
+(7a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y23.3)	page 6, at the right of the translation
+(7a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+(7b) line 1	Nxaʔamxčín	transcription	šúlt kʷ naʔ.	page 6
+(7b) line 2	Nxaʔamxčín	segmentation	√šúl-t kʷ=naʔ	page 6
+(7b) line 3	Nxaʔamxčín	gloss	cold-STAT 2SG.INTR=FUT	page 6
+(7b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You will get cold.’	page 6
+(7b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y25.36)	page 6, at the right of the translation
+(7b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 6, at the right of the translation
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	There is no data to indicate that the future marker and pronoun can be reversed with respect to one another in examples like (6) and (7). Unfortunately, it is not currently possible to conduct fieldwork with fluent speakers of Nxaʔamxčín, so we cannot say for sure that a sentence like šúlt naʔ kʷ (cf 7b) is ungrammatical. While this is a major limitation to our study, given the large size of the corpus, we believe that the absence of such data is suggestive.	page 6
+§2.1	Nxaʔamxčín	cited form	šúlt naʔ kʷ	page 6, in italics
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	Since Nxaʔamxčín and Nsyilxcn are sister languages, we might assume their syntax and prosody to be similar also. However, the two languages seem to exhibit a major split with respect to clitic behaviour: As shown above in (4–7), the same clitic in Nxaʔamxčín can precede a prosodic host as a proclitic, or it can follow the same prosodic host as an enclitic.8 In contrast, for Nsyilxcn, intransitive pronoun and tense clitics must precede their host (8), never follow (9).9	page 6
+footnote 8	John Lyon, Ewa Czaykowska-Higgins	note	Or, the same clitic can precede a prosodic host as a proclitic or follow a different prosodic host as an enclitic.	page 7, footnote 8
+footnote 9	John Lyon, Ewa Czaykowska-Higgins	note	The Nsyilxcn yes/no question marker ha sometimes acts as a 2nd position enclitic.	page 7, footnote 9
+(8a) line 1	Nsyilxcn	transcription	kn nc̕aʔrqín.	page 7
+(8a) line 2	Nsyilxcn	segmentation	kn n-c̕a<ʔ>r=qín	page 7
+(8a) line 3	Nsyilxcn	gloss	1SG.INTR LOC-ache<INCH>=head	page 7
+(8a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I have a headache.’	page 7
+(8a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Mattina 1987)	page 7, at the right of the translation
+(8a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 7, at the right of the translation
+(8b) line 1	Nsyilxcn	transcription	mi kʷu xʷúy.	page 7
+(8b) line 2	Nsyilxcn	segmentation	mi kʷu √xʷúy̓	page 7
+(8b) line 3	Nsyilxcn	gloss	FUT 1PL.INTR go.PL	page 7
+(8b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Let’s go.’	page 7
+(8b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF; SM, VF)	page 7, at the right of the translation
+(8b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 7, at the right of the translation
+(9a) line 1	Nsyilxcn	transcription	* nc̕aʔrqín kn.	page 7
+(9a) line 2	Nsyilxcn	segmentation	* n-c̕a<ʔ>r=qín kn	page 7
+(9a) line 3	Nsyilxcn	gloss	LOC-ache<INCH>=head 1SG.INTR	page 7
+(9a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I have a headache.’	page 7
+(9a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM)	page 7, at the right of the translation
+(9a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 7, at the right of the translation
+(9b) line 1	Nsyilxcn	transcription	* xʷúy̓ kʷu mi.	page 7
+(9b) line 2	Nsyilxcn	segmentation	* √xʷúy̓ kʷu mi	page 7
+(9b) line 3	Nsyilxcn	gloss	go.PL 1PL.INTR FUT	page 7
+(9b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Let’s go.’	page 7
+(9b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM)	page 7, at the right of the translation
+(9b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 7, at the right of the translation
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	The Nxaʔamxčín clitic ‘mirroring’ pattern shown in (4–7) appears also to apply to the yes/no question marker, though this marker is realized as a stress-bearing particle šá in initial position, and as the clitic a in final position.10, 11 To be clear, we do not consider šá in (10a) to be a clitic, since it affects the linearization of other clitics similar to other non-clitic particles, to be discussed below. Nevertheless, the linearization of sá in (10a) mirrors that of the clitic form a in (10b).	page 7
+footnote 10	John Lyon, Ewa Czaykowska-Higgins	note	Nsyilxcn yes/no question marker ha optionally loses the [h], becoming a, when it occurs after its host.	page 7, footnote 10
+footnote 11	John Lyon, Ewa Czaykowska-Higgins	note	Bell (2003) states that Nxaʔamxčín a always carries stress. This appears to be a right-edge stress associated with an intonation phrase. In support of this, stressed particles which occur before á sometimes lose their stress (ibid). Bell summarizes the observation noting that “only the right-most particle will receive stress in some strings of particles and clitics.” (p. 15)	page 7, footnote 11
+§2.1	Nxaʔamxčín	cited form	šá	page 7, in italics
+(10a) line 1	Nxaʔamxčín	transcription	šá kʷp kpəqʷqʷánaʔ?	page 7
+(10a) line 2	Nxaʔamxčín	segmentation	šá=kʷp k-pəqʷᐧqʷ-ánaʔ	page 7
+(10a) line 3	Nxaʔamxčín	gloss	Q=2PL.INTR DRV-spillᐧFRED-ear	page 7
+(10a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did it spill on you folks?’	page 7
+(10a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W1.58)	page 7, at the right of the translation
+(10a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 7, at the right of the translation
+(10b) line 1	Nxaʔamxčín	transcription	ščḥaw̓iymíx kʷp á?	page 7
+(10b) line 2	Nxaʔamxčín	segmentation	š-č-ḥaw̓iy-míx kʷp=á	page 7
+(10b) line 3	Nxaʔamxčín	gloss	NMLZ-IPFV-work-CONT 2PL.INTR=Q	page 7
+(10b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Are you folks working?’	page 7
+(10b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.107.3)	page 7, at the right of the translation
+(10b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 7, at the right of the translation
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	Just as there is no data to indicate that future naʔ can intervene linearly between an intransitive pronoun and the prosodic host, under either ordering, there is also no data to indicate that a yes/no question marker can intervene linearly between an intransitive pronoun and the prosodic host. We predict linearizations like those in (11) to be ungrammatical.12	page 8
+footnote 12	John Lyon, Ewa Czaykowska-Higgins	note	We use the combined symbol ‘p*’ before examples which we predict to be ungrammatical and the symbol ‘p’ before examples we predict to be grammatical, but which have not been documented as having been judged ungrammatical or grammatical by a fluent speaker. Examples marked as ‘p’ are based on directly parallel, attested grammatical examples. We hope that examples like these can eventually be checked with fluent speakers.	page 8, footnote 12
+(11a) line 1	Nxaʔamxčín	transcription	p* kn naʔ lčkičx.	page 8
+(11a) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will be back.’	page 8
+(11a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 6a)	page 8, at the right of the form
+(11b) line 1	Nxaʔamxčín	transcription	p* kʼám̓ naʔ kn.	page 8
+(11b) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will stay.’	page 8
+(11b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 6a)	page 8, at the right of the form
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	c. p* kʷp (š)á k-pəqʷᐧqʷ-ánaʔ? ‘Did it spill on you folks?’ (cf. 10a) d. p* ščḥaw̓iymíx a kʷp? ‘Are you folks working?’ (cf. 10b) What emerges from Nxaʔamxčín examples like (4–7) and (10) above is a ‘mirroring effect’, whereby clitics are not restricted to linearizing on one specific side of their prosodic host: Instead, so long as they maintain a specific relative distance from their prosodic host, their position in absolute terms is variable. In other words, Nxaʔamxčín clitics appear to move in defined ‘orbits’. The Nxaʔamxčín clitics discussed in this paper appear to fall into three orbits (12a). This is in stark contrast to the (more-or-less) strict ordering observed in Nsyilxcn (12b).	page 8
+(12a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	[yes/no question [tense [pronoun [host] pronoun] tense] yes/no question]	page 8, set as an example
+(12b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	[yes/no question [tense [pronoun [host]]] (yes/no question)]	page 8, set as an example
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	In support of this general picture, existing data show that the yes/no question particle sá will always precede future naʔ in pre-predicate position (13a). We have no data showing the post-predicative order naʔ a (FUT Q), though based on the pattern shown above we do predict this to be a possible order (13b). Other possible orders we predict to be ungrammatical are shown in (13c,d).13	page 8
+footnote 13	John Lyon, Ewa Czaykowska-Higgins	note	There are other possible orderings to the clitics in (13) following the DP ʔači ḥananík ‘that jackrabbit’, but we abstract away from these for the purposes of this paper, partially because verbal domain clitics interact with nominal hosts somewhat differently.	page 8, footnote 13
+footnote 13	Nxaʔamxčín	cited form	ʔači ḥananík	page 8, in italics, ‘that jackrabbit’
+§2.1	Nxaʔamxčín	cited form	naʔ a	page 8, in italics
+(13a) line 1	Nxaʔamxčín	transcription	šá naʔ qʼʷə́ln ʔači ḥananík.	page 8
+(13a) line 2	Nxaʔamxčín	segmentation	šá naʔ √qʼʷə́l-n ʔači ḥananík	page 8
+(13a) line 3	Nxaʔamxčín	gloss	Q FUT roast+DIR-1SG.ERG that jack.rabbit	page 8
+(13a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Can I roast that jack rabbit?’	page 8
+(13a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.121.4)	page 8, at the right of the translation
+(13a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 8, at the right of the translation
+(13b) line 1	Nxaʔamxčín	transcription	p √qʼʷə́l-n naʔ a ʔači ḥananík.	page 8
+(13b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 13a)	page 8, at the right of the form
+(13c) line 1	Nxaʔamxčín	transcription	p* naʔ šá √qʼʷə́l-n ʔači ḥananík.	page 8
+(13c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 13a)	page 8, at the right of the form
+(13d) line 1	Nxaʔamxčín	transcription	p* √qʼʷə́l-n a naʔ ʔači ḥananík.	page 8
+(13d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 13a)	page 8, at the right of the form
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	Interestingly, clitic orbits seem to operate independently of one another. In (14a) below, the pronoun kʷ precedes its prosodic host, while future naʔ follows. In (14b), future naʔ (ambiguously) precedes lkʷáš and follows lút, while a clearly follows its host.	page 8
+§2.1	Nxaʔamxčín	cited form	kʷ	page 8, in italics
+§2.1	Nxaʔamxčín	cited form	lkʷáš	page 8, in italics
+§2.1	Nxaʔamxčín	cited form	lút	page 8, in italics
+(14a) line 1	Nxaʔamxčín	transcription	kʷ nhampátkʷ naʔ.	page 9
+(14a) line 2	Nxaʔamxčín	segmentation	kʷ nhamp-átkʷ naʔ	page 9
+(14a) line 3	Nxaʔamxčín	gloss	2SG.INTR fall.in-water FUT	page 9
+(14a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You will fall in the river.’	page 9
+(14a) line 5	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 6–7)	page 9, at the right of the translation
+(14a) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.139.2)	page 9, at the right of the translation
+(14a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 9, at the right of the translation
+(14b) line 1	Nxaʔamxčín	transcription	lút naʔ lkʷáš á.	page 9
+(14b) line 2	Nxaʔamxčín	segmentation	lút=naʔ l-kʷá-š á	page 9
+(14b) line 3	Nxaʔamxčín	gloss	NEG=FUT LOC-take+DIR-3ERG Q	page 9
+(14b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He won’t take it back, will he?’	page 9
+(14b) line 5	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 13a,b)	page 9, at the right of the translation
+(14b) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(MDK.Y29.154)	page 9, at the right of the translation
+(14b) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 9, at the right of the translation
+(14c) line 1	Nxaʔamxčín	transcription	p* naʔ nhampátkʷ kʷ.	page 9
+(14c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 14a)	page 9, at the right of the form
+(14d) line 1	Nxaʔamxčín	transcription	p* lút (š)á l-kʷá-š naʔ.	page 9
+(14d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 14b)	page 9, at the right of the form
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	Orbital independence may have limits, however: There is no data to indicate that in such cases, a tense clitic may precede the host, and the pronoun follow the host (14c),14 or that a yes/no question marker can precede the host while a tense clitic follows (14d). We tentatively predict these linearizations to be ungrammatical.	page 9
+footnote 14	John Lyon, Ewa Czaykowska-Higgins	note	Apparent counterexamples such as (i) below almost certainly involve two hosts, for reasons discussed below: ay̓ is encliticizing to šwát, and kʷ is either encliticizing to ʔaní or procliticizing to čút.	page 9, footnote 14
+footnote 14	Nxaʔamxčín	cited form	šwát	page 9, in italics
+footnote 14	Nxaʔamxčín	cited form	ʔaní	page 9, in italics
+footnote 14	Nxaʔamxčín	cited form	čút	page 9, in italics
+footnote 14 (i) line 1	Nxaʔamxčín	transcription	šwát ay̓ ʔaní kʷ čút t xʷay̓əm?	page 9
+footnote 14 (i) line 2	Nxaʔamxčín	segmentation	šwát ay̓ ʔaní kʷ čút t xʷay̓-əm	page 9
+footnote 14 (i) line 3	Nxaʔamxčín	gloss	who PST DET 2SG.INTR say OBL run.away-MID	page 9
+footnote 14 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Who did you say it was that ran away?’	page 9
+footnote 14 (i) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.47.1)	page 9, the tag or source at the right of the translation
+footnote 14 (i) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 9, at the right of the translation
+§2.1	John Lyon, Ewa Czaykowska-Higgins	note	As a preview of our analysis (Section 4), the independence of clitic orbits shown in examples like (14a,b) follows from our proposal that pronouns like kʷ, future naʔ, and yes/no question marker a are parsed at different levels of the prosodic hierarchy, and subject to different alignment constraints. Additionally, the absence in our corpus of certain ‘independent’ orderings (e.g. 14c,d) suggests an implicational relationship between alignment constraints operating at different orbital levels. While stress and syllabification may play a role in the placement of some clitics (Sections 2.2 and 2.3),15 the major point to remember is that minimal pair examples like (4) show that some level of prosodic optionality must be present in Nxaʔamxčín grammar.	page 9
+footnote 15	John Lyon, Ewa Czaykowska-Higgins	note	Bell (2003) discusses Nxaʔamxčín clitics as elements that “do not normally participate in the stress-bearing patterns of a phonological phrase and can surface as either proclitics or enclitics to the prosodic nucleus. Particles, on the other hand, participate in the stress patterns of the phonological phrase and always precede the prosodic nucleus.” The effect of stress on clitics remains unclear, however.	page 9, footnote 15
+§2.2	John Lyon, Ewa Czaykowska-Higgins	heading	2.2 The case of ay̓ PAST	page 9
+§2.2	John Lyon, Ewa Czaykowska-Higgins	note	The tense-related clitic ay̓ PAST exhibits a more flexible distributional pattern than naʔ FUTURE, as discussed above. When ay̓ cooccurs with a subject clitic in the context of one potential prosodic host,16 it always follows the pronoun, regardless of the orientation of other clitics towards the predicate (15–16). (Note additionally that when ay̓ occurs before a prosodic host, as in (15a), it is often transcribed as ʔay̓.) This ordering shows that the mirroring effect has limitations and that ay̓ represents a different class of clitic, and/or other phonological or syntactic considerations are also important.	page 9
+footnote 16	John Lyon, Ewa Czaykowska-Higgins	note	With a secondary potential stress-bearing host in initial position (e.g. 16a), ay̓ optionally behaves as a second-position enclitic, ‘jumping over’ a pronoun (see Section 2.3).	page 9, footnote 16
+§2.2	Nxaʔamxčín	cited form	ʔay̓	page 9, in italics
+(15a) line 1	Nxaʔamxčín	transcription	kn ʔay̓ nux̌ʷtútiyˀaʔ.	page 10
+(15a) line 2	Nxaʔamxčín	segmentation	kn ʔay̓ √nux̌ʷt-útiyˀaʔ	page 10
+(15a) line 3	Nxaʔamxčín	gloss	1SG.INTR PAST go-on.foot	page 10
+(15a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I went on foot.’	page 10
+(15a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.185.8)	page 10, at the right of the translation
+(15a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+(15b) line 1	Nxaʔamxčín	transcription	nax̌áɬ kn ay̓.	page 10
+(15b) line 2	Nxaʔamxčín	segmentation	na-√x̌áɬ kn=ay̓	page 10
+(15b) line 3	Nxaʔamxčín	gloss	LOC-afraid 1SG.INTR=PAST	page 10
+(15b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 10
+(15b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W3.10)	page 10, at the right of the translation
+(15b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+(16a) line 1	Nxaʔamxčín	transcription	šá kʷ ay̓ xə́ƛʼp?	page 10
+(16a) line 2	Nxaʔamxčín	segmentation	šá=kʷ=ay̓ √xə́ƛʼ-p	page 10
+(16a) line 3	Nxaʔamxčín	gloss	Q =2SG.INTR=PAST lose-INCH	page 10
+(16a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you lose?’	page 10
+(16a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W9.29.84)	page 10, at the right of the translation
+(16a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+(16b) line 1	Nxaʔamxčín	transcription	xə́ƛʼp kʷ ay̓ á?	page 10
+(16b) line 2	Nxaʔamxčín	segmentation	xə́ƛʼ-p=kʷ=ay̓=á	page 10
+(16b) line 3	Nxaʔamxčín	gloss	lose-INCH=2SG.INTR=PAST=Q	page 10
+(16b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you lose?’	page 10
+(16b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W.9.5.85)	page 10, at the right of the translation
+(16b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+§2.2	John Lyon, Ewa Czaykowska-Higgins	note	Given that ay̓ and naʔ are both semantically tense-related, we hypothesize that both occupy a syntactic position somewhere in the neighbourhood of T(ense).17 Assuming also that intransitive proclitics are agreement markers occupying T(ense) (cf. Davis 2018 for St’át’imcets, and Baier 2020 for Montana Salish), then pronoun clitics are close to ay̓ and naʔ not only prosodically, but also syntactically. It is therefore surprising that ay̓ linearizes differently than naʔ, and hints at a prosodic difference between the two markers. We return to the topic of ay̓ in the next section.	page 10
+footnote 17	John Lyon, Ewa Czaykowska-Higgins	note	Past ay̓ and future naʔ can co-occur in ‘future-in-the-past’ sentences. In (i) below, ay̓ and naʔ appear to be in separate clauses, though in (ii) they seem to be in the same clause, suggesting that although they are both tense-related, they may be in different syntactic positions. (Alternatively, na in (ii) may be an allomorph of the locative prefix n-.)	page 10, footnote 17
+footnote 17	Nxaʔamxčín	cited form	n-	page 10, in italics
+footnote 17 (i) line 1	Nxaʔamxčín	transcription	x̌mánkš ay̓ naʔ ščúw̓š.	page 10
+footnote 17 (i) line 2	Nxaʔamxčín	segmentation	x̌mánk-š=ay̓ naʔ š-√čúw̓-š	page 10
+footnote 17 (i) line 3	Nxaʔamxčín	gloss	want-(DIR)-3ERG=PAST FUT NMLZ-hit-3POSS	page 10
+footnote 17 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He wanted to hit him.’	page 10
+footnote 17 (i) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.169)	page 10, the tag or source at the right of the translation
+footnote 17 (i) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+footnote 17 (ii) line 1	Nxaʔamxčín	transcription	ɬu šak ay̓ na čúč kʷa šak ay̓ kíčnč.	page 10
+footnote 17 (ii) line 2	Nxaʔamxčín	segmentation	ɬu šak ay̓ na čúč kʷa šak ay̓ √kíč-n-č	page 10
+footnote 17 (ii) line 3	Nxaʔamxčín	gloss	COMP POT PAST FUT say[?] CONJ POT PAST arrive-DIR-2SG.OBJ+1SG.ERG	page 10
+footnote 17 (ii) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He could visit me if he really wanted to.’	page 10
+footnote 17 (ii) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(EP4.47.6)	page 10, the tag or source at the right of the translation
+footnote 17 (ii) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 10, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	heading	2.3 Linearization Patterns in the Context of Multiple Potential Hosts	page 10
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Clitic linearization patterns in the context of one potential prosodic host are fairly straightforward (Sections 2.1 and 2.2). There is good evidence, however, that in the presence of multiple potential prosodic hosts, some Nxaʔamxčín clitics will in many cases gravitate towards the first prosodic host in the clause as enclitics. In the case of (17a–c), the initial hosts are particles, and in (17d) the host is a quantifier. Note that the clitics in (17) follow the predicted orbits as given in (12), the only difference being that the prosodic host in these cases is not the main predicate.	page 10
+(17a) line 1	Nxaʔamxčín	transcription	t̓íl̓ kt šxəšxəštmíx.	page 11
+(17a) line 2	Nxaʔamxčín	segmentation	[t̓íl̓=kt] š-xəšxəšt-míx	page 11
+(17a) line 3	Nxaʔamxčín	gloss	EXCL=1PL.INTR NMLZ-getting.lost-CONT	page 11
+(17a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I think we are getting lost.’	page 11
+(17a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W9.81)	page 11, at the right of the translation
+(17a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+(17b) line 1	Nxaʔamxčín	transcription	t̓íl̓ ay̓ á čkìčx?	page 11
+(17b) line 2	Nxaʔamxčín	segmentation	[t̓íl̓=ay̓=á] č-√kìčx	page 11
+(17b) line 3	Nxaʔamxčín	gloss	EXCL=PAST=Q CISL-arrive	page 11
+(17b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did he get here?’	page 11
+(17b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.155)	page 11, at the right of the translation
+(17b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+(17c) line 1	Nxaʔamxčín	transcription	mət ay̓ á t̕i ʔačkʷənkšntwáxʷ.	page 11
+(17c) line 2	Nxaʔamxčín	segmentation	[mət=ay̓=á] t̕i ʔač-√kʷən-kš-nt-wáxʷ	page 11
+(17c) line 3	Nxaʔamxčín	gloss	EPIS=PAST=Q EXCL IPFV-take-hand-DIR-RECP	page 11
+(17c) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Maybe she was married.’	page 11
+(17c) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.113.5)	page 11, at the right of the translation
+(17c) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+(17d) line 1	Nxaʔamxčín	transcription	yaʕ̓yaʕ̓tú lx á xʷáy̓ʕštəxʷ?	page 11
+(17d) line 2	Nxaʔamxčín	segmentation	[yaʕ̓yaʕ̓tú lx á] xʷáy̓ʕ-št-əxʷ	page 11
+(17d) line 3	Nxaʔamxčín	gloss	all 3PL Q scold-CAUS-2SG.ERG	page 11
+(17d) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you scold every one of them?’	page 11
+(17d) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.26.5)	page 11, at the right of the translation
+(17d) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Distributionally speaking, there is no evidence to suggest that anything besides a stress-bearing particle or word can attract a clitic string in this manner. In other words, these environments provide a diagnostic for distinguishing particles from clitics. For similar cases involving a subject pronoun and ay̓, the pronoun usually precedes ay̓ following the pattern established in Section 2.2 above.18	page 11
+footnote 18	John Lyon, Ewa Czaykowska-Higgins	note	Contrasting (17d) and (18a) shows that ay̓ is optional in past tense contexts.	page 11, footnote 18
+(18a) line 1	Nxaʔamxčín	transcription	šá lx ay̓ yaʕ̓yaʕ̓tú xʷáy̓ʕštəxʷ?	page 11
+(18a) line 2	Nxaʔamxčín	segmentation	[šá lx ay̓] yaʕ̓yaʕ̓tú xʷáy̓ʕ-št-əxʷ	page 11
+(18a) line 3	Nxaʔamxčín	gloss	Q 3PL PAST all scold-CAUS-3SG.ERG	page 11
+(18a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you scold every one of them?’	page 11
+(18a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.26.6)	page 11, at the right of the translation
+(18a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+(18b) line 1	Nxaʔamxčín	transcription	ša kʷ ay̓ táwəm t štam̓?	page 11
+(18b) line 2	Nxaʔamxčín	segmentation	[ša kʷ ay̓] √táw-əm t štam̓	page 11
+(18b) line 3	Nxaʔamxčín	gloss	Q 2SG.INTR PAST buy-MID OBL what	page 11
+(18b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you buy anything?’	page 11
+(18b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.52.2)	page 11, at the right of the translation
+(18b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	However, the presence of an initial, secondary potential host affects the linearization possibilities of ay̓: ay̓ may optionally precede a pronoun (19) in such cases.19 In (19b, cf. 18b), ay̓ becomes contracted, syllabifying with the host sá as a diphthong vowel within the syllable nucleus [saikʷ].	page 11
+footnote 19	John Lyon, Ewa Czaykowska-Higgins	note	See Huijsmans (2015) for a discussion of reordering of tense and subject clitics in Northern Straits.	page 11, footnote 19
+(19a) line 1	Nxaʔamxčín	transcription	šáw̓nč ay̓ kn kašʔíɬnəxʷ.	page 11
+(19a) line 2	Nxaʔamxčín	segmentation	šáw̓nč=ay̓ kn=kaš-√ʔíɬn-əxʷ	page 11
+(19a) line 3	Nxaʔamxčín	gloss	ask-DIR-1SG.OBJ+3ERG=PAST 1SG.INTR=PROS-eat-CONT	page 11
+(19a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He asked me to eat.’	page 11
+(19a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.188)	page 11, at the right of the translation
+(19a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 11, at the right of the translation
+(19b) line 1	Nxaʔamxčín	transcription	xʷús taʔ naq̓ʷiqc̓tn šaikʷ ʔáɫm wíxən txaʔ....	page 12
+(19b) line 2	Nxaʔamxčín	segmentation	xʷús taʔ na-q̓ʷiqc̓tn ša=i=kʷ ʔáɫm wíxən txaʔ	page 12
+(19b) line 3	Nxaʔamxčín	gloss	hurry IMP LOC-? Q=PAST=2SG.INTR very see here	page 12
+(19b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Hurry have you seen here....’	page 12
+(19b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.ED.90.CD)	page 12, at the right of the translation
+(19b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 12, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Examples like (20–21) below reinforce an argument that the relative ordering of ay̓ and pronoun clitics is optional in the context of multiple possible prosodic hosts, especially the minimal pair shown below as (20a, 21a).	page 12
+(20a) line 1	Nxaʔamxčín	transcription	pláqəl ay̓ kn nk̓upəlwáš.	page 12
+(20a) line 2	Nxaʔamxčín	segmentation	pláqəl ay̓ kn nk̓upəlwáš	page 12
+(20a) line 3	Nxaʔamxčín	gloss	yesterday PAST 1SG.INTR lonely	page 12
+(20a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Yesterday I was lonely.’	page 12
+(20a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.AB.91.56)	page 12, at the right of the translation
+(20a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 12, at the right of the translation
+(20b) line 1	Nxaʔamxčín	transcription	lút ay̓ kʷ čxxákʼənaʔ.	page 12
+(20b) line 2	Nxaʔamxčín	segmentation	lút=ay̓ kʷ č-x+√xákʼ=ənaʔ	page 12
+(20b) line 3	Nxaʔamxčín	gloss	NEG=PAST 2SG.INTR IPFV-RED+listen=ear	page 12
+(20b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You weren't listening.’	page 12
+(20b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W8.231)	page 12, at the right of the translation
+(20b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 12, at the right of the translation
+(21a) line 1	Nxaʔamxčín	transcription	pláqəl kn ay̓ nk̓upəlwáš.	page 12
+(21a) line 2	Nxaʔamxčín	segmentation	pláqəl kn ay̓ nk̓upəlwáš	page 12
+(21a) line 3	Nxaʔamxčín	gloss	yesterday 1SG.INTR PAST lonely	page 12
+(21a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Yesterday I was lonely.’	page 12
+(21a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.AB.91.56)	page 12, at the right of the translation
+(21a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 12, at the right of the translation
+(21b) line 1	Nxaʔamxčín	transcription	lút kʷ ay̓ náw̓əlx.	page 12
+(21b) line 2	Nxaʔamxčín	segmentation	lút kʷ=ay̓ náw̓-əlx	page 12
+(21b) line 3	Nxaʔamxčín	gloss	NEG 2SG.INTR=PAST run-AUT	page 12
+(21b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You didn’t run.’	page 12
+(21b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W2.88)	page 12, at the right of the translation
+(21b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 12, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Comparing the distributions of tense morphemes naʔ and ay̓, it seems clear that naʔ operates orbitally like intransitive pronouns and the yes/no question marker, and yet while it is also clear that orbits are relevant to ay̓, which seems always to follow a pronoun to a post-host position, the linearization of ay̓ seems to be dependent on additional considerations.	page 12
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Multiple possible linearizations for ay̓ in the context of multiple potential hosts could be attributed to a tension between its preference for second-position (Czaykowska-Higgins 2019) (e.g. 20a),20 and its preference for remaining in orbit (e.g. 21a).21 Alternatively, and more simply, given that pronouns can either precede or follow their hosts, when ay̓ occurs in second position before a pronoun as in (20), it is because the pronoun must be procliticizing to the following host. In support of this alternative, recall that in the presence of a single possible prosodic host, the pronoun will always precede ay̓ (15). The post-host distribution of ay̓ in similar cases (22) is always that predicted by the tense orbit as established by the regular distribution of naʔ (23), rather than the alternative ordering shown above in (20). We predict that the orderings shown in (24) are not possible for naʔ or ay̓ in contexts with only one potential prosodic host.22	page 12
+footnote 20	John Lyon, Ewa Czaykowska-Higgins	note	Other post-host items discussed in Czaykowska-Higgins (2019) are imperative taʔ, 3rd plural marker lx, and yes/no question marker a. The apparent ordering of these four items are taʔ lx ay̓ a, though these do not all co-occur for semantic reasons.	page 12, footnote 20
+footnote 20	Nxaʔamxčín	cited form	taʔ	page 12, in italics
+footnote 20	Nxaʔamxčín	cited form	taʔ lx ay̓ a	page 12, in italics
+footnote 21	John Lyon, Ewa Czaykowska-Higgins	note	An additional consideration is that pronoun clitics nearly always consist only of consonants, and hence are ideal onset providers, which may feed into an explanation why the pronoun clitic optionally ‘attracts’ ay̓ away from second-position.	page 12, footnote 21
+footnote 22	John Lyon, Ewa Czaykowska-Higgins	note	Possible linearizations like (24) are revisited in detail in Section 4.4. They are predicted to be ungrammatical because a tense clitic, which must be parsed as a part of a phonological phrase, cannot linearly intervene between the prosodic word host and a subject clitic, which must be parsed as part of the host’s prosodic word. This is achieved by BINARITY(φ) (Elfner 2012).	page 13, footnote 22
+(22a) line 1	Nxaʔamxčín	transcription	šúlt kʷ ay̓ á?	page 13
+(22a) line 2	Nxaʔamxčín	segmentation	√šúl-t kʷ=ay̓=á	page 13
+(22a) line 3	Nxaʔamxčín	gloss	cold-STAT 2SG.INTR=PAST=Q	page 13
+(22a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Were you cold?’	page 13
+(22a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y25.36)	page 13, at the right of the translation
+(22a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 13, at the right of the translation
+(22b) line 1	Nxaʔamxčín	transcription	nax̌áɬ kn ay̓.	page 13
+(22b) line 2	Nxaʔamxčín	segmentation	na-√x̌áɬ kn=ay̓	page 13
+(22b) line 3	Nxaʔamxčín	gloss	LOC-afraid 1SG.INTR=PAST	page 13
+(22b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 13
+(22b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W3.10)	page 13, at the right of the translation
+(22b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 13, at the right of the translation
+(23) line 1	Nxaʔamxčín	transcription	šúlt kʷ naʔ.	page 13
+(23) line 2	Nxaʔamxčín	segmentation	√šúl-t kʷ=naʔ	page 13
+(23) line 3	Nxaʔamxčín	gloss	cold-STAT 2SG.INTR=FUT	page 13
+(23) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You will get cold.’	page 13
+(23) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y25.36)	page 13, at the right of the translation
+(23) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 13, at the right of the translation
+(24a) line 1	Nxaʔamxčín	transcription	p* na-√x̌áɬ ay̓ kn.	page 13
+(24a) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 13
+(24a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 24b)	page 13, the tag or source at the right of the translation
+(24b) line 1	Nxaʔamxčín	transcription	p* kʼám̓ naʔ kn.	page 13
+(24b) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will stay.’	page 13
+(24b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 11b, 6a,b)	page 13, at the right of the form
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	The preceding discussion describes the distribution of the vast majority of documented cases of pronoun clitics with respect to the tense clitics ay̓ and naʔ, and the yes-no question clitic a. In general, clitics have been shown to move in three basic orbits, though the distribution of ay̓ introduces complications, as shown by the fact that in environments involving multiple potential hosts, there is more than one possible linearization (20–21). Importantly, second-position is attested for neither naʔ nor ay̓ when they co-occur with a pronoun in a post-predicative single-host environment (24). We argue that cases such as (24) are unattested, and likely ungrammatical, because in lieu of an additional prosodic host for the pronoun clitic to procliticize to (20), the linearization is orbit-violating.	page 13
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	There are several additional distributions of ay̓ which require attention, and which must be accounted for under any analysis. First, ay̓ is not attracted by the initial stressed adverb in (25), which supports the idea that although ay̓ prefers to follow a prosodic host, this host need not be the first prosodic word in a clause.	page 13
+(25) line 1	Nxaʔamxčín	transcription	tʼunáxʷ nax̌áɬn ay̓.	page 13
+(25) line 2	Nxaʔamxčín	segmentation	tʼunáxʷ na-√x̌áɬ-n=ay̓	page 13
+(25) line 3	Nxaʔamxčín	gloss	a.little.bit LOC-afraid-(DIR)-1SG.ERG=PAST	page 13
+(25) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I scared him a little bit.’	page 13
+(25) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W3.14)	page 13, at the right of the translation
+(25) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 13, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	In support of this, consider (26a) where ay̓ assumes second-position after the initial stress-bearing exclusive particle t̕il̕, but in similar (26b), ay̓ instead attaches to the main predicate.23	page 14
+footnote 23	John Lyon, Ewa Czaykowska-Higgins	note	The failure of ay̓ to attach to the conjunction kʷaʔ in (26a) may be syntactic: kʷaʔ is too high in the clause. Modal particles also seem to block ay̓ from moving into second-position, as discussed in Section 2.4. Alternatively, Bell (2003) analyzes kʷaʔ as an “extrametrical unit” which does not carry stress, thus accounting for its exceptional behaviour, though Bell’s analysis does not explain the modal data in (32–33), where a clearly stressed šá or potentially stress-bearing t̕il̕ also does not attract a clitic.	page 14, footnote 23
+footnote 23	Nxaʔamxčín	cited form	kʷaʔ	page 14, in italics
+§2.3	Nxaʔamxčín	cited form	t̕il̕	page 14, in italics
+(26a) line 1	Nxaʔamxčín	transcription	čnəqínəm kʷaʔ t̓íl̓ ay̓ ɬət̕.	page 14
+(26a) line 2	Nxaʔamxčín	segmentation	č-nəqín-əm kʷaʔ [tíl̓=ay̓ ɬət̕]	page 14
+(26a) line 3	Nxaʔamxčín	gloss	CISL-come.into.house-MID CONJ EXCL=PAST wet	page 14
+(26a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He came into the house and he was already wet.’	page 14
+(26a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W10.10)	page 14, at the right of the translation
+(26a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 14, at the right of the translation
+(26b) line 1	Nxaʔamxčín	transcription	t̓il̓ ɬə́t̓ ay̓.	page 14
+(26b) line 2	Nxaʔamxčín	segmentation	t̓il̓ ɬə́t̓ ay̓	page 14
+(26b) line 3	Nxaʔamxčín	gloss	EXCL wet PAST	page 14
+(26b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘It’s already wet.’	page 14
+(26b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MDK notes; quoted in Bell 2003,7)	page 14, at the right of the translation
+(26b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 14, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Note that t̕íl̕ is transcribed as stressed in (26a), while ɬə́t̕ is transcribed as stressed in (26b), and so for this pair at least, the placement of ay̓ plausibly depends on the formation of a trochaic foot. However metrical considerations do not explain the free alternation shown above in (20a, 21a).	page 14
+§2.3	Nxaʔamxčín	cited form	t̕íl̕	page 14, in italics
+§2.3	Nxaʔamxčín	cited form	ɬə́t̕	page 14, in italics
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	Second, there are rare cases where (ʔ)ay̓ occurs initially in a clause (27). In these cases, it is transcribed as beginning with a glottal stop.	page 14
+(27) line 1	Nxaʔamxčín	transcription	ʔay ʔačkíčštmš yaʕˀtú sx̌ə́lx̌əlt ɬu ay̓ pán̓ká ʔaní.	page 14
+(27) line 2	Nxaʔamxčín	segmentation	ʔay ʔač-kíč-št-m-š yaʕˀtú sx̌ə́lx̌əlt ɬu ay̓ pán̓ká ʔaní	page 14
+(27) line 3	Nxaʔamxčín	gloss	PAST IPFV-arrive-CAUS-2SG.OBJ-3ERG all day COMP PAST when there	page 14
+(27) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He used to visit me every day.’	page 14
+(27) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(EP4.46.2)	page 14, at the right of the translation
+(27) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 14, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	In pre-predicative single host environments (28-29), (ʔ)ay̓ is also sometimes transcribed as beginning with a glottal stop (28), though it is never transcribed as such in post-host environments.	page 14
+(28) line 1	Nxaʔamxčín	transcription	kn ʔay̓ nux̌ʷtútiyˀaʔ.	page 14
+(28) line 2	Nxaʔamxčín	segmentation	kn ʔay̓ √nux̌ʷt-útiyˀaʔ	page 14
+(28) line 3	Nxaʔamxčín	gloss	1SG.INTR PAST go-on.foot	page 14
+(28) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I went on foot.’	page 14
+(28) line 5	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 15a)	page 14, at the right of the translation
+(28) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.185.8)	page 14, at the right of the translation
+(28) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 14, at the right of the translation
+(29) line 1	Nxaʔamxčín	transcription	kn ay̓ nk̓upəlwáš pláqəl.	page 14
+(29) line 2	Nxaʔamxčín	segmentation	kn ay̓ nk̓upəlwáš pláqəl	page 14
+(29) line 3	Nxaʔamxčín	gloss	1SG.INTR PAST lonely yesterday	page 14
+(29) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Yesterday I was lonely.’	page 14
+(29) line 5	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 20a, 21a)	page 14, at the right of the translation
+(29) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.AB.91.56)	page 14, at the right of the translation
+(29) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 14, at the right of the translation
+§2.3	John Lyon, Ewa Czaykowska-Higgins	note	In our analysis, the main restriction on clitic ay̓ is that it not be parsed initially in its phonological phrase (Section 4.4). This allows for considerable freedom of movement within a clause, accounting for examples like (25-26). If ay̓ is parsed initially in its phonological phrase, then it must also be promoted to a prosodic word. This accounts not only for the initial glottal stop in such positions (27, 28), but also the apparent orbit-violating linearization of the pronoun occurring before (ʔ)ay̓ (28, 29).	page 14
+§2.4	John Lyon, Ewa Czaykowska-Higgins	heading	2.4 Probable Syntactic Limitations on Clitic Placement	page 15
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	There seem to be syntactic factors which limit the placement of certain clitics in the context of multiple potential hosts, which suggests that clitic linearizations are determined, in part, syntactically.	page 15
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	Firstly, there is evidence that at least some clitics are clause-bound. Though data is limited, it seems that ay̓ must attach within the clause that it is interpreted. In (30a), for example, it is the making that occurred in the past, not the telling. This is less clear for (30b), but still apparent with the translation of ay̓ as ‘already’ in the second clause.	page 15
+(30a) line 1	Nxaʔamxčín	transcription	šak čúntxʷ šwát ay̓ ḥáw̓iyš.	page 15
+(30a) line 2	Nxaʔamxčín	segmentation	šak čún-t-xʷ šwát=ay̓ ḥáw̓iyš	page 15
+(30a) line 3	Nxaʔamxčín	gloss	POT say-DIR-2SG.ERG who=PAST make(TR)	page 15
+(30a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You can tell him who made it.’	page 15
+(30a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.120.7)	page 15, at the right of the translation
+(30a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 15, at the right of the translation
+(30b) line 1	Nxaʔamxčín	transcription	čnəqínəm kʷaʔ t̓íl̓ ay̓ ɬət̕.	page 15
+(30b) line 2	Nxaʔamxčín	segmentation	čnəqínəm kʷaʔ t̓íl̓=ay̓ ɬət̕	page 15
+(30b) line 3	Nxaʔamxčín	gloss	come.in.house CONJ EXCL=PAST wet	page 15
+(30b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He came into the house and he was already wet.’	page 15
+(30b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W.10.10)	page 15, at the right of the translation
+(30b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 15, at the right of the translation
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	Second, the syntactic status of a potential prosodic host may affect linearization. The proper name argument DP in (31a) is presumably stress-bearing, and therefore a potential host, but ay̓ does not attach to the DP.24 In (31b), the proper name DP is in the focus position of a cleft sentence, as indicated by clefting complementizers ɬuʔ and či, but in this case ay̓ does attach to the DP.	page 15
+footnote 24	John Lyon, Ewa Czaykowska-Higgins	note	Alternatively, ay̓ in (31a) could be in second-position, and the subject DP has raised post-linearization.	page 15, footnote 24
+§2.4	Nxaʔamxčín	cited form	ɬuʔ	page 15, in italics
+§2.4	Nxaʔamxčín	cited form	či	page 15, in italics
+(31a) line 1	Nxaʔamxčín	transcription	John ščq̓aq̓ítəxʷ ay̓ pláqəl.	page 15
+(31a) line 2	Nxaʔamxčín	segmentation	John š-č-q̓aq̓ít-əxʷ ay̓ pláqəl	page 15
+(31a) line 3	Nxaʔamxčín	gloss	John NMLZ-IPFV-fishing-CONT PAST yesterday	page 15
+(31a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘John went fishing yesterday.’	page 15
+(31a) line 5	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 15, at the right of the translation
+(31b) line 1	Nxaʔamxčín	transcription	Mary ay̓ łuʔ/či kxápnč plaqəl.	page 15
+(31b) line 2	Nxaʔamxčín	segmentation	Mary ay̓ łuʔ/či kxáp-n-č plaqəl	page 15
+(31b) line 3	Nxaʔamxčín	gloss	Mary PAST COMP chase-DIR-1SG.OBJ+3ERG yesterday	page 15
+(31b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘It was Mary who chased me yesterday.’	page 15
+(31b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.AB.92.244)	page 15, at the right of the translation
+(31b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 15, at the right of the translation
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	Third, despite the pattern shown above in examples (17–18), pronoun clitics will never precede a stress-bearing modal particle like máxʷ or sáʔk in favour of an initial prosodic host (32).	page 15
+§2.4	Nxaʔamxčín	cited form	máxʷ	page 15, in italics
+§2.4	Nxaʔamxčín	cited form	sáʔk	page 15, in italics
+(32a) line 1	Nxaʔamxčín	transcription	t̓íl̓ máxʷ kt sxəšxəštmíx.	page 15
+(32a) line 2	Nxaʔamxčín	segmentation	t̓íl̓ máxʷ=kt sxəšxəštmíx	page 15
+(32a) line 3	Nxaʔamxčín	gloss	EXCL EPIS=1PL.INTR getting.lost	page 15
+(32a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Maybe we’re lost.’	page 15
+(32a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W9.23)	page 15, at the right of the translation
+(32a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 15, at the right of the translation
+(32b) line 1	Nxaʔamxčín	transcription	t̓íl̓ šáʔk kt tə́x̌ʷp.	page 16
+(32b) line 2	Nxaʔamxčín	segmentation	t̓íl̓ šáʔk= kt tə́x̌ʷp	page 16
+(32b) line 3	Nxaʔamxčín	gloss	EXCL POT=1PL.INTR quit	page 16
+(32b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘We’d better quit now.’	page 16
+(32b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W.6.66)	page 16, at the right of the translation
+(32b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	The same pattern is apparent for ay̓ and naʔ (33–34).25 In (33a), yes/no particle šá hosts ay̓ as an enclitic, but in the context of a modal such as máxʷ or mət (33b,c), ay̓ always follows the modal.26	page 16
+footnote 25	John Lyon, Ewa Czaykowska-Higgins	note	Although a related, stress-bearing future marker naʔšúʔ can precede a modal (i) and the conjunction kʷaʔ (ii). naʔšúʔ has the phonological shape and distribution of an adverb, rather than a clitic.	page 16, footnote 25
+footnote 25 (i) line 1	Nxaʔamxčín	transcription	...kʷaʔ naʔšúʔ maxʷ ʔitx. (ii) naʔšuʔ kʷaʔ kʷ wiʔčín…	page 16
+footnote 25 (i) line 2	Nxaʔamxčín	segmentation	...kʷaʔ naʔšúʔ maxʷ ʔitx naʔšuʔ kʷaʔ kʷ √wiʔ-čín	page 16
+footnote 25 (i) line 3	Nxaʔamxčín	gloss	CONJ FUT EPIS sleep FUT CONJ 2SG.INTR finish-food	page 16
+footnote 25 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘...and then maybe he’ll sleep.’ (CD.64) ‘After you are finished eating…’	page 16
+footnote 25 (i) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(CD)	page 16, the tag or source at the right of the translation
+footnote 26	John Lyon, Ewa Czaykowska-Higgins	note	Modal particles never follow the main predicate, unlike tense-related particles.	page 16, footnote 26
+§2.4	Nxaʔamxčín	cited form	mət	page 16, in italics
+(33a) line 1	Nxaʔamxčín	transcription	ša ay̓ x̌əlq̓ax̌ƛ̓čín.	page 16
+(33a) line 2	Nxaʔamxčín	segmentation	ša ay̓ x̌əlq̓ax̌ƛ̓čín	page 16
+(33a) line 3	Nxaʔamxčín	gloss	Q PAST slaughter.animal	page 16
+(33a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did he kill/slaughter an animal?’	page 16
+(33a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Willett, 2003:320)	page 16, at the right of the translation
+(33a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+(33b) line 1	Nxaʔamxčín	transcription	šá máxʷ ay̓ kʷáš.	page 16
+(33b) line 2	Nxaʔamxčín	segmentation	šá máxʷ ay̓ kʷáš	page 16
+(33b) line 3	Nxaʔamxčín	gloss	Q EPIS PAST take+DIR+3ERG	page 16
+(33b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I wonder if he took it.’	page 16
+(33b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W4.79)	page 16, at the right of the translation
+(33b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+(33c) line 1	Nxaʔamxčín	transcription	t̓il̓ kʷən mət ay̓ káɬən.	page 16
+(33c) line 2	Nxaʔamxčín	segmentation	t̓il̓ kʷən mət ay̓ káɬən	page 16
+(33c) line 3	Nxaʔamxčín	gloss	EXCL EVID[?] EPIS PAST give+DIR+SG.ERG	page 16
+(33c) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I guess I did give it to him.’	page 16
+(33c) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W11.41)	page 16, at the right of the translation
+(33c) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+(34a) line 1	Nxaʔamxčín	transcription	máxʷ naʔ ʔə́mtən.	page 16
+(34a) line 2	Nxaʔamxčín	segmentation	máxʷ naʔ √ʔə́m-t-ən	page 16
+(34a) line 3	Nxaʔamxčín	gloss	EPIS FUT feed-DIR-1SG.ERG	page 16
+(34a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Maybe I will feed him.’	page 16
+(34a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W11.107)	page 16, at the right of the translation
+(34a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+(34b) line 1	Nxaʔamxčín	transcription	máxʷ naʔ kn núx̌ʷt.	page 16
+(34b) line 2	Nxaʔamxčín	segmentation	máxʷ=naʔ kn núx̌ʷt	page 16
+(34b) line 3	Nxaʔamxčín	gloss	EPIS=FUT 1SG.INTR go	page 16
+(34b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Maybe I will go.’	page 16
+(34b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W11.85)	page 16, at the right of the translation
+(34b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 16, at the right of the translation
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	There is no clear prosodic reason that a pronoun or tense clitic could not in principle precede a modal particle and attach to an initial host, but this is unattested. If modal particles block intransitive pronoun clitics and tense clitics from attaching to an initial prosodic host, it seems likely that this is due to a syntactic restriction, such that these clitics cannot occur higher than the modal. Assuming that modals act as syntactic barriers to clitic linearization, and that modals are lower in the syntax than yes/no question particles, we additionally predict that intransitive pronoun clitics and tense clitics will neither precede a yes/no question marker before a prosodic host (35a), nor follow a question particle after a prosodic host (35b), and indeed such data are not found in the corpus.	page 16
+(35a) line 1	Nxaʔamxčín	transcription	p* kʷ ay̓ šá √xə́ƛʼp.	page 17
+(35a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 16a)	page 17, at the right of the form
+(35b) line 1	Nxaʔamxčín	transcription	p* xə́ƛʼp a kʷ ay̓.	page 17
+(35b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(cf. 16b)	page 17, at the right of the form
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	The implication is that prosodic orbits correspond in some sense to syntactic position, and a clitic which is syntactically lower than a modal cannot escape to a position whose linearization implies a higher position.	page 17
+(36) line 1	John Lyon, Ewa Czaykowska-Higgins	note	[yes/no question [modal] [future [pronoun [host] pronoun] future] yes/no question]	page 17, set as an example
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	Last, consider that both ay̓ and naʔ are similar in maintaining a tight relationship with subject clitics, such that normally, nothing can intervene between ay̓ or naʔ and a subject clitic. In the few cases in which they orbit independently, the intervening element is always the main predicate (37a,b), negation (37c,d), or negation plus the main predicate (37e). This indicates that subject and tense clitics are syntactically close not only to one another, but also syntactically closer to their predicate host than other clitics.27 (Recall that in such cases the pronoun will always precede the host, and the tense clitic will always follow the/a host: the reverse order is unattested.)	page 17
+footnote 27	John Lyon, Ewa Czaykowska-Higgins	note	This pattern also implies that negation is lower than tense. See Huijsmans (2015) for Northern Straits.	page 17, footnote 27
+(37a) line 1	Nxaʔamxčín	transcription	kʷ nhampátkʷ naʔ.	page 17
+(37a) line 2	Nxaʔamxčín	segmentation	kʷ nhamp-átkʷ naʔ	page 17
+(37a) line 3	Nxaʔamxčín	gloss	2SG.INTR fall.in-water FUT	page 17
+(37a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You will fall in the river.’	page 17
+(37a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.139.2)	page 17, at the right of the translation
+(37a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 17, at the right of the translation
+(37b) line 1	Nxaʔamxčín	transcription	kn ʔíɬn ay̓ t̓íl̓.	page 17
+(37b) line 2	Nxaʔamxčín	segmentation	kn √ʔíɬn=ay̓ t̓íl̓	page 17
+(37b) line 3	Nxaʔamxčín	gloss	1SG.INTR eat=PAST EXCL	page 17
+(37b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I already ate.’	page 17
+(37b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W3.16)	page 17, at the right of the translation
+(37b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 17, at the right of the translation
+(37c) line 1	Nxaʔamxčín	transcription	šacʼkámx kʷaʔ kʷ lút ay̓ táw x̌əƛʼčín n l wənáči?	page 17
+(37c) line 2	Nxaʔamxčín	segmentation	šac√ʼkámx kʷaʔ kʷ=lút=ay̓ √táw x̌əƛʼčín n l wənáči	page 17
+(37c) line 3	Nxaʔamxčín	gloss	why CONJ 2SG.INTR=NEG=PAST buy horse [?] at Wenatchee	page 17
+(37c) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Why didn't you buy a horse when you were in Wenatchee?’	page 17
+(37c) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.185)	page 17, the tag or source at the right of the translation
+(37c) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 17, the tag or source at the right of the translation
+(37d) line 1	Nxaʔamxčín	transcription	kʷaʔ šacʼkámx kʷaʔ kʷ lút naʔ k̓lčiʔáɬ nùx̌ʷt?	page 17
+(37d) line 2	Nxaʔamxčín	segmentation	kʷaʔ šacʼkámx kʷaʔ kʷ lút naʔ k̓lčiʔáɬ √nùx̌ʷt	page 17
+(37d) line 3	Nxaʔamxčín	gloss	CONJ why CONJ 2SG.INTR NEG FUT to.there go	page 17
+(37d) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Why won't you go there?’	page 17
+(37d) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W11.92)	page 17, at the right of the translation
+(37d) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 17, at the right of the translation
+(37e) line 1	Nxaʔamxčín	transcription	šacʼkámx kʷaʔ kʷ lút núx̌ʷt ay̓?	page 17
+(37e) line 2	Nxaʔamxčín	segmentation	šacʼkámx kʷaʔ kʷ=lút √núx̌ʷt=ay̓	page 17
+(37e) line 3	Nxaʔamxčín	gloss	why CONJ 2SG.INTR=NEG go=PAST	page 17
+(37e) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Why didn't you go home?’	page 17
+(37e) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y29.184)	page 17, at the right of the translation
+(37e) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 17, at the right of the translation
+§2.4	John Lyon, Ewa Czaykowska-Higgins	note	In preparation for our analysis in Section 4, Section 3 reviews the idea of clitic domains as discussed in Lyon (2019), who presented evidence that Nsyilxcn clitics are parsed at different prosodic levels (see Gerdts & Werle 2014 for Halkomelem). Here, we extend this concept to Nxaʔamxčín.	page 18
+§3	John Lyon, Ewa Czaykowska-Higgins	heading	3 Clitic Domains	page 18
+§3	John Lyon, Ewa Czaykowska-Higgins	note	In Section 3.1, we re-establish three clitic domains for Nsyilxcn based on distributional, phonological, and syntactic criteria (Lyon 2019): core inner, pivotal inner, and outer clitics. In Section 3.2, we extend these domains, which are crucial components in our analysis of clitic linearizations, to Nxaʔamxčín.	page 18
+§3.1	John Lyon, Ewa Czaykowska-Higgins	heading	3.1 Nsyilxcn Clitic Domains	page 18
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Lyon (2019) demonstrates that some Nsyilxcn clitics must linearize closer to their predicate host (inner clitics) than other clitic types (outer clitics). Distributional and phonological differences support a further distinction between ‘core’ inner and ‘pivotal’ inner clitics on the one hand, and pivotal inner clitics and outer clitics on the other. In this section, I review the evidence.	page 18
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Example (38) shows an Nsyilxcn sentence consisting of two stresses, and therefore potentially two separate clitic domains, as shown by the bracketing. The yes/no question marker ha (i) is an outer clitic, yámx̌ʷaʔ ‘basket’ and kʷíntxʷ ‘you take it’ (ii) are inherently stressed prosodic word hosts of the nominal and verbal domains, respectively. The determiner iʔ and future marker mi (iii) are examples of inner pivotal clitics of the nominal and verbal domains, respectively.	page 18
+§3.1	Nxaʔamxčín	cited form	yámx̌ʷaʔ	page 18, in italics, ‘basket’
+§3.1	Nxaʔamxčín	cited form	kʷíntxʷ	page 18, in italics, ‘you take it’
+(38) line 1	Nsyilxcn	transcription	ha iʔ yámx̌ʷaʔ mi kʷíntxʷ?	page 18
+(38) line 2	Nsyilxcn	segmentation	[ha iʔ yámx̌ʷaʔ] [mi kʷí[n]-nt-xʷ]	page 18
+(38) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(i) (iii) (ii) (iii) (ii)	page 18, the numbers of the clitics' kinds under each bracket
+(38) line 4	Nsyilxcn	segmentation	ha iʔ yámx̌ʷaʔ mi kʷí[n]-nt-xʷ?	page 18
+(38) line 5	Nsyilxcn	gloss	Q DET basket FUT take-DIR-2SG.ERG	page 18
+(38) line 6	John Lyon, Ewa Czaykowska-Higgins	translation	‘Is it the basket you’re going to take?’	page 18
+(38) line 7	John Lyon, Ewa Czaykowska-Higgins	citation	(SM)	page 18, at the right of the translation
+(38) line 8	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 18, at the right of the translation
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Core inner clitics (not shown in 38) attach directly to the main predicate in Nsyilxcn. Core inner clitics of the verbal domain include intransitive subject pronouns (39a), the ɬ(aʔ) complementizer (39b), and the negative factual marker t̕(a) (39c).28 These clitics sometimes show differences in relative ordering with respect to one another (cf. 1), but occur closer to the predicate than other inner clitics.	page 18
+footnote 28	John Lyon, Ewa Czaykowska-Higgins	note	Core inner clitics of the nominal domain include the set of prepositions (see Table 1).	page 18, footnote 28
+§3.1	Nxaʔamxčín	cited form	ɬ(aʔ)	page 18, in italics
+§3.1	Nxaʔamxčín	cited form	t̕(a)	page 18, in italics
+(39a) line 1	Nsyilxcn	transcription	kn ʔayx̌ʷt.	page 18
+(39a) line 2	Nsyilxcn	segmentation	kn ʔayx̌ʷt	page 18
+(39a) line 3	Nsyilxcn	gloss	1SG.INTR tired	page 18
+(39a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I am tired.’	page 18
+(39a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 18, at the right of the translation
+(39a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 18, at the right of the translation
+(39b) line 1	Nsyilxcn	transcription	kʷu ɬ ʔalʔílxʷt…	page 18
+(39b) line 2	Nsyilxcn	segmentation	kʷu ɬ(aʔ) ʔalᐧʔílxʷt	page 18
+(39b) line 3	Nsyilxcn	gloss	1PL.INTR COMP TREDᐧhungry	page 18
+(39b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘When we are/were hungry...’	page 18
+(39b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM, VF)	page 18, at the right of the translation
+(39b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 18, at the right of the translation
+(39c) line 1	Nsyilxcn	transcription	lut kn t̕a kɬkəkəwáp.	page 19
+(39c) line 2	Nsyilxcn	segmentation	lut kn t̕a kɬ-kəˑkəˑwáp	page 19
+(39c) line 3	Nsyilxcn	gloss	NEG 1SG.INTR NEG.FAC have-horseˑDIM.REDˑ	page 19
+(39c) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I don’t own any dogs.’	page 19
+(39c) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM, VF)	page 19, at the right of the translation
+(39c) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 19, at the right of the translation
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Nsyilxcn inner clitics must parse as part of an extended prosodic word which includes the main predicate, and never parse with an adverb or other prosodic host (in contrast to Nxaʔamxčín). Example (40a) is ungrammatical because the subject pronoun kʷ is attaching to an adverbial host pútiʔ, rather than to the main predicate as in grammatical (40b). Outer clitics like the yes/no question marker ha are not subject to this restriction (40b).	page 19
+§3.1	Nxaʔamxčín	cited form	pútiʔ	page 19, in italics
+(40a) line 1	Nsyilxcn	transcription	* ha kʷ pútiʔ q̓ʷʕaylqs?	page 19
+(40a) line 2	Nsyilxcn	segmentation	* ha kʷ pútiʔ q̓ʷʕay-lqs	page 19
+(40a) line 3	Nsyilxcn	gloss	Q 2SG.INTR still black-robe	page 19
+(40a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Are you still a priest?’	page 19
+(40a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM)	page 19, at the right of the translation
+(40a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 19, at the right of the translation
+(40b) line 1	Nsyilxcn	transcription	ha pútiʔ kʷ q̓ʷʕáylqs?	page 19
+(40b) line 2	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 19, at the right of the form
+(40b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 19, at the right of the form
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Pivotal inner clitics are similar to core cases in that they must attach to a prosodic host which includes the main predicate, but they always occur to the outside of core inner clitics such as a pronoun or the ɬaʔ complementizer. Pivotal inner clitics include the complementizer kiʔ, and future marker mi, as shown in (41).	page 19
+§3.1	Nxaʔamxčín	cited form	kiʔ	page 19, in italics
+(41) line 1	Nsyilxcn	transcription	mi kʷu xʷuy̓.	page 19
+(41) line 2	Nsyilxcn	segmentation	mi kʷu xʷúy̓	page 19
+(41) line 3	Nsyilxcn	gloss	FUT 1PL.INTR go.PL	page 19
+(41) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Let’s go.’	page 19
+(41) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF; SM, VF)	page 19, at the right of the translation
+(41) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 19, at the right of the translation
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Most core and pivotal inner clitics participate in a phonological process known as ‘[a]- insertion/replacement’ (A. Mattina 2000). When a core inner clitic occurs before a [n, l, y, w], [a] is inserted between the clitic and that consonant (42). When an inner clitic with an [i] vowel occurs before [c] or [ɬ], the [i] vowel becomes [a] (43). This only occurs with inner clitics, never prefixes, adverbs, outer clitics, or other particles.	page 19
+(42) line 1	John Lyon, Ewa Czaykowska-Higgins	note	[a] insertion	page 19, heading the rules under it
+(42a) line 1	Nsyilxcn	transcription	k̓l‿nʔiƛ̓tk	page 19
+(42a) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘to the north’	page 19
+(42a) line 3	Nsyilxcn	transcription	k̓la‿nʔíƛ̓tk	page 19, the form after ⟹
+(42b) line 1	Nsyilxcn	transcription	tl‿nyxʷut	page 19
+(42b) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘from inside’	page 19
+(42b) line 3	Nsyilxcn	transcription	tla‿nyxʷút	page 19, the form after ⟹
+(42c) line 1	Nsyilxcn	transcription	lútiʔ ɬ‿nʔuɬxʷ	page 19
+(42c) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘before he went in’	page 19
+(42c) line 3	Nsyilxcn	transcription	lútiʔ ɬa‿nʔúɬxʷ	page 19, the form after ⟹
+(42d) line 1	Nsyilxcn	transcription	cúntəm iʔ‿t‿lʔiws	page 19
+(42d) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘his dad told him’	page 19
+(42d) line 3	Nsyilxcn	transcription	cúntəm iʔ‿ta‿lʔiws	page 19, the form after ⟹
+(42e) line 1	Nsyilxcn	transcription	iʔ‿t‿ylmíxʷəm	page 19
+(42e) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘by the boss’	page 19
+(42e) line 3	Nsyilxcn	transcription	iʔ‿ta‿ylmíxʷəm	page 19, the form after ⟹
+(42f) line 1	Nsyilxcn	transcription	iʔ‿ylmíxʷəm	page 19
+(42f) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘the boss’	page 19
+(42f) line 3	Nsyilxcn	transcription	ya‿ylmíxʷəm	page 19, the form after ⟹
+(43) line 1	John Lyon, Ewa Czaykowska-Higgins	note	[a] replacement	page 20, heading the rules under it
+(43a) line 1	Nsyilxcn	transcription	cniɬc iʔ cqʷəlqʷílsts	page 20
+(43a) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘He’s talking to him.’	page 20
+(43a) line 3	Nsyilxcn	transcription	cniɬc a‿cqʷəlqʷílsts	page 20, the form after ⟹
+(43b) line 1	Nsyilxcn	transcription	iʔ ɬcxʷústxʷ	page 20
+(43b) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘what you brought back’	page 20
+(43b) line 3	Nsyilxcn	transcription	a‿ɬcxʷústxʷ	page 20, the form after ⟹
+(43c) line 1	Nsyilxcn	transcription	...kiʔ ctərq̕áməlx	page 20
+(43c) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘when they winter dance’	page 20
+(43c) line 3	Nsyilxcn	transcription	...ka‿ctərq̕áməlx	page 20, the form after ⟹
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	An exception to this rule is future mi, which does not undergo [a]-replacement. Nevertheless, given its complementary distribution with kiʔ (which becomes ka in 43c), its ability to ‘double’ (see below), and its linearization to the left of pronouns, Lyon (2019) analyzes it as a pivotal inner clitic.	page 20
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	An additional distinction between inner and outer clitics comes from ‘clitic doubling’. Only inner clitics, core (44a) or pivotal (44b), have the ability to ‘double’ within a single clause. The optional ‘double’ can attach to a prosodic host other than the main predicate.29	page 20
+footnote 29	John Lyon, Ewa Czaykowska-Higgins	note	It is unclear at this point whether clitic doubling is primarily a phonological or syntactic phenomenon.	page 20, footnote 29
+(44a) line 1	Nsyilxcn	transcription	(kʷu) yaʕyáʕt kʷu ɬaʔɬʕát̕.	page 20
+(44a) line 2	Nsyilxcn	segmentation	(kʷu) yaʕyáʕt kʷu ɬaʔᐧɬ<ʔ>ʕát̕	page 20
+(44a) line 3	Nsyilxcn	gloss	(1PL.INTR) all 1PL.INTR TREDᐧwet<INCH>	page 20
+(44a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘We all got wet.’	page 20
+(44a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 20, at the right of the translation
+(44a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 20, at the right of the translation
+(44b) line 1	Nsyilxcn	transcription	mi anwí mi kʷ xʷúy.	page 20
+(44b) line 2	Nsyilxcn	segmentation	(mi) anwí mi kʷ xʷúy	page 20
+(44b) line 3	Nsyilxcn	gloss	(FUT) 2SG.INDEP FUT 1SG.INTR go	page 20
+(44b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Yeah, you go.’	page 20
+(44b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM, VF)	page 20, at the right of the translation
+(44b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 20, at the right of the translation
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	In terms of linear ordering, future mi and complementizer kiʔ are the leftmost inner clitics (45): any clitic occurring to the left of mi or kiʔ will never undergo [a] insertion/replacement or double, and need not attach to the main predicate, i.e. they are outer clitics.30	page 20
+footnote 30	John Lyon, Ewa Czaykowska-Higgins	note	Important Nsyilxcn outer clitics not discussed in this paper include some modals and evidentials.	page 20, footnote 30
+(45a) line 1	Nsyilxcn	transcription	pənʔkín mi kʷu xʷuy̓?	page 20
+(45a) line 2	Nsyilxcn	segmentation	pənʔkín mi kʷu xʷúy̓	page 20
+(45a) line 3	Nsyilxcn	gloss	when FUT 1PL.INTR go.PL	page 20
+(45a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘When will we go?’	page 20
+(45a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(LL, VF)	page 20, at the right of the translation
+(45a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 20, at the right of the translation
+(45b) line 1	Nsyilxcn	transcription	pənʔkín kiʔ kʷu xʷuy̓?	page 20
+(45b) line 2	Nsyilxcn	segmentation	pənʔkín kiʔ kʷu xʷúy̓	page 20
+(45b) line 3	Nsyilxcn	gloss	when COMP 1PL.INTR go.PL	page 20
+(45b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘When did we go?’	page 20
+(45b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(SM, VF)	page 20, at the right of the translation
+(45b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 20, at the right of the translation
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	Lyon (2019) claims that these outermost inner clitics are syntactically in the neighbourhood of T(ense). Modals and other syntactically high-scope-taking particles cannot occur linearly to the right of mi and kiʔ, suggesting that modals and outer clitics such as the yes/no question marker ha are in syntactic positions above T(ense).31 Because mi and kiʔ are syntactically and prosodically at the borderline, we refer to them as pivotal inner clitics.	page 20
+footnote 31	John Lyon, Ewa Czaykowska-Higgins	note	The complementizer ɬaʔ is an exception to this rule, as a core inner clitic, but there is some evidence to indicate a localized prosodic inversion of ɬaʔ and clitic pronouns, on par with the prosodic inversion of determiner iʔ and prepositions in nominal contexts.	page 20, footnote 31
+§3.1	John Lyon, Ewa Czaykowska-Higgins	note	In sum, Nsyilxcn inner clitics must attach to the main predicate as their prosodic host, they are phonologically integrated with their host as shown by the [a] insertion/replacement data, and they can optionally ‘double’. Outer clitics, in contrast, can attach to either a pre-predicative prosodic host or the main predicate, and do not double. Though pivotal clitics are still inner clitics, they may not be quite so phonologically integrated, as shown by the fact that future mi does not undergo [a]- replacement.	page 21
+§3.2	John Lyon, Ewa Czaykowska-Higgins	heading	3.2 Nxaʔamxčín Clitic Domains	page 21
+§3.2	John Lyon, Ewa Czaykowska-Higgins	note	Given the cognacy and/or functional equivalency between Nsyilxcn and Nxaʔamxčín functional morphemes (Table 1) and assuming that Nsyilxcn clitics are ordered and fall into domains (Section 3.1), then given the evidence shown in Section 2, it seems extremely likely that Nxaʔamxčín clitics also fall into similar domains.	page 21
+§3.2	John Lyon, Ewa Czaykowska-Higgins	note	Independent phonological evidence for clitic domains in Nxaʔamxčín, on par with [a]- insertion/replacement in Nsyilxcn, is difficult to find. More phonetic and phonological work needs to be done in this area.32 There is nevertheless some evidence to support a pivotal inner clitic status for future naʔ: Like Nsyilxcn mi, it doubles (46a). Example (46b) shows similar data for ay̓.33	page 21
+footnote 32	John Lyon, Ewa Czaykowska-Higgins	note	Though Bell (2003) makes many interesting and relevant observations regarding the interaction between different types of clitics and particles in Nxaʔamxčín, and stress.	page 21, footnote 32
+footnote 33	John Lyon, Ewa Czaykowska-Higgins	note	Example (i) below could be evidence for doubling in Nxaʔamxčín pronoun clitics: The first modal is transcribed as šakʷ and the second as šak, so the initial modal may be a contraction of šak and 2SG.INTR kʷ.	page 21, footnote 33
+footnote 33	Nxaʔamxčín	cited form	šakʷ	page 21, in italics
+footnote 33	Nxaʔamxčín	cited form	šak	page 21, in italics
+footnote 33 (i) line 1	Nxaʔamxčín	transcription	šakʷ lút kʷ ḥáw̓iym kʷaʔ tíʔ šak tə́x̌ʷpštumn.	page 21
+footnote 33 (i) line 2	Nxaʔamxčín	segmentation	šakʷ lút kʷ √ḥáw̓iy-m kʷaʔ tíʔ šak √tə́x̌ʷ-p-štu-m-n	page 21
+footnote 33 (i) line 3	Nxaʔamxčín	gloss	POT NEG 2SG.INTR work-MID CONJ EXCL POT stop-INCH-CAUS-2SG.OBJ-1SG.ERG	page 21
+footnote 33 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘If you’re not working, I might just as well stop you.’	page 21
+footnote 33 (i) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(J.1.29)	page 21, the tag or source at the right of the translation
+footnote 33 (i) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 21, at the right of the translation
+(46a) line 1	Nxaʔamxčín	transcription	náʔ nx̌əštmíš naʔ.	page 21
+(46a) line 2	Nxaʔamxčín	segmentation	náʔ n-x̌əšt-mí-š naʔ	page 21
+(46a) line 3	Nxaʔamxčín	gloss	FUT LOC-good-RLT-3ERG FUT	page 21
+(46a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘That will do him good.’	page 21
+(46a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y26.31)	page 21, at the right of the translation
+(46a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 21, at the right of the translation
+(46b) line 1	Nxaʔamxčín	transcription	lxaʔáɬ ay̓ čkíčštmš ay̓ plá̕qəl ɬu kƛ̕əm̓čáxʷ.	page 21
+(46b) line 2	Nxaʔamxčín	segmentation	lxaʔáɬ=ay̓ č-kíč-št-m-š=ay̓ pəlá̕qəl	page 21
+(46b) line 3	Nxaʔamxčín	gloss	here=PAST CISL-arrive-CAUS-RLT-3ERG=PAST yesterday	page 21
+(46b) line 4	Nxaʔamxčín	segmentation	ɬu k-√ƛ̕əm̓-čá-xʷ	page 21
+(46b) line 5	Nxaʔamxčín	gloss	COMP go.by-RLT+DIR+1SG.OBJ-2SG.ERG	page 21
+(46b) line 6	John Lyon, Ewa Czaykowska-Higgins	translation	‘He was visiting me yesterday when you went by.’	page 21
+(46b) line 7	John Lyon, Ewa Czaykowska-Higgins	citation	(EP4.45.1b)	page 21, at the right of the translation
+(46b) line 8	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 21, at the right of the translation
+§3.2	John Lyon, Ewa Czaykowska-Higgins	note	Evidence against analyzing naʔ and ay̓ as core inner clitics on par with subject pronoun clitics comes from the fact that in post-predicative environments they only attach directly to the main predicate in the absence of a subject clitic (cf. p*24), which is particularly surprising given the preference of ay̓ to attach directly to the host in other environments. Ordering parallels between Nsyilcxn mi and Nxaʔamxčín naʔ with pronoun clitics in pre-predicative single host environments further supports a distinction between pivotal and core inner clitics in Nxaʔamxčín (cf. 6, 8).	page 21
+§3.2	John Lyon, Ewa Czaykowska-Higgins	note	Evidence for a distinctive, outer clitic analysis of Nxaʔamxčín question marker a may come from the fact that a always carries what seems to be a phrase-final, right-most stress.34 This right- most stress may also be carried by other phrase-final clitics, however this stress always shifts to a when present, leading Bell (2003) to hypothesize a distinct class of stress-attracting clitics including a, as opposed to stress-shifting clitics which may receive or lose phrasal stress depending on other factors.35 Though the facts remain unclear, it is possible that a distinction between stress- attracting and stress-shifting clitics may be couched in terms of a difference in how these clitics are phonologically parsed within the prosodic hierarchy.	page 22
+footnote 34	John Lyon, Ewa Czaykowska-Higgins	note	Caldecott & Czaykowska-Higgins (2012) found that most phrases with stressed boundary vowels showed no rising or falling tone.	page 22, footnote 34
+footnote 35	John Lyon, Ewa Czaykowska-Higgins	note	Bell (2003) notes an intriguing parallel between their observation that a (potentially) larger prosodic unit containing a clitic string in Nxaʔamxčín bears right-most stress, and Czaykowska-Higgins’ (1993) observation that prosodic word-level stress is also right-most, except in the case of prosodic words containing only schwa vowels, in which case stress is assigned left-most.	page 22, footnote 35
+§3.2	John Lyon, Ewa Czaykowska-Higgins	note	In sum, the null hypothesis is that clitic domains across the two languages are as given in Table 2. With these arguments and assumptions in place, we now introduce our analysis. Table 2: Clitic domains for a subset of Nxaʔamxčín and Nsyílxcn clitics Gloss Nxaʔamxčín Nsyílxcn Domain 1st SG. intrans kn kn core inner 2nd SG. intrans kʷ kʷ core inner 1st PL. intrans kt kʷu core inner 2nd PL. intrans kp p core inner 3rd PL. intrans lx lx core inner future naʔ mi pivotal inner past ay̓ * pivotal inner yes/no question marker a (h)a outer	page 22
+§4	John Lyon, Ewa Czaykowska-Higgins	heading	4 An Orbital Analysis	page 22
+§4	John Lyon, Ewa Czaykowska-Higgins	note	In this section, we give our analysis. In Section 4.1, we discuss the prosodic hierarchy and how we parse clitics within the prosodic hierarchy, based on the evidence, arguments, and assumptions given in preceding sections. In Section 4.2, we present the basics of our constraints-based analysis, and how partially ordered constraints (Antilla 2001) inform the basic orbital patterns discussed above. In Section 4.3, we address the issue of orbital independence in Nxaʔamxčín by formalizing relations between specific alignment constraints as conditionals, and illustrate some predictions for clitic orientation which follow from our analysis. In Section 4.4, we address complications introduced by (ʔ)ay̓.	page 22
+§4	John Lyon, Ewa Czaykowska-Higgins	note	We include multiple sample derivations in Sections 4.3 and 4.4 in order to illustrate our approach, which may overgenerate possible parsings in some instances. With further study and additional language data, we hope to verify, and/or increase the accuracy of our analysis.	page 22
+§4.1	John Lyon, Ewa Czaykowska-Higgins	heading	4.1 The Prosodic Hierarchy and Parsing Clitics	page 22
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	Our analysis utilizes a prosodic hierachy (Selkirk 1995) which ranks phonological elements within a hierarchy whose largest unit is an utterance, and whose smallest unit is a mora.	page 22
+(47) line 1	John Lyon, Ewa Czaykowska-Higgins	note	utterance > intonational phrase > phonological phrase > prosodic word > foot > syllable > mora	page 23, set as an example
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	For the purposes of this paper, we will only be concerned with prosodic words (ω), phonological phrases (φ) consisting of one or more prosodic word(s), and intonational phrases (ι) consisting of one or more phonological phrases. These units and their internal constituency are illustrated schematically in (48a–c).	page 23
+(48a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(ω.......)(ω.......) prosodic words	page 23, set as an example
+(48b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(φ … ...(ω........)(ω.......)) phonological phrases	page 23, set as an example
+(48c) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(ι.......(φ.......(ω........)(ω.......))(φ....)) intonational phrases	page 23, set as an example
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	We follow Gerdts and Werle (2014) in assuming that prosodic words (ω) bear word-level prominence (i.e. stress) and are pronounceable in isolation, that phonological phrases (φ) contain one or more prosodic words, and that intonational phrases (ι) contain one or more phonological phrases. We also follow Gerdts and Werle (2014) in assuming that it is not necessarily the case that an element be parsed as part of a prosodic word in order to occur within a phonological phrase, just as it is not necessarily the case that an element be parsed as part of a phonological phrase in order to occur in an intonational phrase. We additionally assume for this paper that two clitics cannot, by themselves, parse together as a ω.36	page 23
+footnote 36	John Lyon, Ewa Czaykowska-Higgins	note	Allowing two clitics to parse as a prosodic word leads to a different theoretical account, which could, conceivably, end up being the correct approach. Bell (2003), for example, observes “that certain particles attach to other particles to form a first constituent,” though the pattern hinted at is not clear.	page 23, footnote 36
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	Clitics are phonologically parsed in different ways, depending on the degree of phonological integration with their prosodic host: Clitics parsed as part of ω are more integrated than those parsed at the φ or ι level. Gerdts and Werle (2014) apply the prosodic hierarchy to clitics in Halkomelem Salish, resulting in the following typology:	page 23
+(49a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(φ(ωpart) (ωlex)) particle (not a clitic) less phonologically integrated	page 23, set as an example
+(49b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(φcl (ωlex)) free clitic	page 23, set as an example
+(49c) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(φ(ωcl (ωlex))) adjoined clitic	page 23, set as an example
+(49d) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(φ(ωcl lex)) internal clitic more phonologically integrated	page 23, set as an example
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	Particles (49a) are parsed as their own independent ω, and can therefore bear lexical stress and host other clitics. Free clitics (49b) are parsed as part of φ containing the host ω, and hence are predicted to show greater variability in terms of position. Adjoined clitics (49c) are parsed as part of a recursive ω37 containing the host ω, and are therefore predicted to show less positional variability than free clitics. Lastly, internal clitics (49d) are parsed as part of the host ω, and as such are predicted to undergo phonological processes which less integrated clitics will not.	page 23
+footnote 37	John Lyon, Ewa Czaykowska-Higgins	note	Phonology does not have recursion in the sense of a structure which contains itself, or of a function which calls itself, so phonological ‘recursion’ is better termed embedding (Golston 2020). Furthermore, a ‘recursive’ prosodic word is theoretically problematic since the utility in positing ω as a phonological level holds only insofar as all instances of ω are treated equally by the theory (ibid). As such, we do not utilize recursive prosodic words.	page 23, footnote 37
+§4.1	John Lyon, Ewa Czaykowska-Higgins	note	The chief utility of the prosodic hierarchy (47–48) and a parsing typology similar to (49) for our analysis as given in this paper is that it provides a theoretical framework to predict possible clitic linearizations, in conjunction with the prosodic alignment constraints discussed in following sections (Sections 4.2 to 4.4). Furthermore, in the context of multiple potential prosodic hosts, more than one possible clitic orientation may emerge directly from parsing and alignment (Section 4.3). Based on evidence given above in Section 3, we assume the prosodic classification of Nxaʔamxčín and Nsyilxcn clitics given below in Table 3. Table 3: Prosodic classification of a subset of Nxaʔamxčín and Nsyílxcn clitics Parse Label Nxaʔamxčín Nsyílxcn (φ(ωcl lex)) core inner clitic (‘internal clitics’) subject clitics subject clitics (φcl (ωlex)) pivotal inner clitic (‘free clitics’) naʔ, ay̓ mi (ι cl (φ(ωlex))) outer clitics a (h)a (φ(ωcl) (ωlex)) particles šá, t̕il̕, lút, etc. … Further independent phonetic and phonological evidence for this classification is needed, as discussed in the previous section. For example, by parsing the Nxaʔamxčín yes/no question marker a at the ι-level, we can correctly predict that it will always linearize to the outside of tense clitics in its own orbit, but currently our only major piece of independent phonetic/phonological evidence to parse a at its own prosodic level is that it always attracts a right-most phrasal stress, while other clitics in a post-host environment may potentially lose their phrasal stress (Bell 2003, Section 3.2).38	page 23
+footnote 38	John Lyon, Ewa Czaykowska-Higgins	note	It is worth mentioning that analyzing yes-no question marker (s)á as an (in)direct daughter of an intonational phrase receives theory-internal support from Match Theory (Elfner 2012), wherein MATCHCLAUSE enforces a correspondence between ForceP (or CP) and ι.	page 24, footnote 38
+footnote 38	Nxaʔamxčín	cited form	(s)á	page 24, in italics
+§4.1	Nxaʔamxčín	cited form	naʔ, ay̓ mi	page 24, in italics
+§4.1	Nxaʔamxčín	cited form	šá, t̕il̕, lút, etc. …	page 24, in italics
+§4.2	John Lyon, Ewa Czaykowska-Higgins	heading	4.2 Linearizing Orbital Clitics	page 24
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	We propose that the linearization of clitics in Nsyilxcn and Nxaʔamxčín is derived by two families of constraints, each with three members tailored to the ω, φ, and ι levels of the prosodic hierarchy.	page 24
+(50a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	STAYω,φ,ι: No daughter of ω,φ,ι moves. (Agbayani & Golston 2010)	page 24, set as an example
+(50b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	STRONG-STARTω,φ,ι: Assign one violation mark for every leftmost daughter constituent lower in the Prosodic Hierarchy than its sister constituent immediately to its right. (Selkirk 2011)	page 24, set as an example
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	The basic idea is that if STAY-family constraints are dominant, all clitics will linearize before their hosts,39 while if STRONG-START-family constraints (henceforth abbreviated STR-ST) are dominant, all clitics will linearize after their hosts. The variability in clitic positioning seen for Nxaʔamxčín can be derived by allowing for multiple possible rankings for a defined subset of constraints (Antilla 2001). To illustrate using a simple attested case: For (51a), STAYω wins, while for the minimal pair (51b), STR-STω wins. We therefore predict free variation.	page 24
+footnote 39	John Lyon, Ewa Czaykowska-Higgins	note	We are assuming linear-correspondence and an underlying head-initial syntax for both languages, based on the Nsyilxcn pattern.	page 24, footnote 39
+(51a) line 1	Nxaʔamxčín	transcription	kn qʷətnáyaʔqn.	page 24
+(51a) line 2	Nxaʔamxčín	segmentation	(ωkn qʷətn-áyaʔ-qn)	page 24
+(51a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STAYω > * STR-STω	page 24, the ranking at the right of the parse
+(51a) line 4	Nxaʔamxčín	gloss	1SG.INTR big-top.of-head	page 24
+(51a) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 24
+(51a) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 24, at the right of the translation
+(51a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 24, at the right of the translation
+(51b) line 1	Nxaʔamxčín	transcription	qʷətnáyaʔqn kn.	page 25
+(51b) line 2	Nxaʔamxčín	segmentation	(ωqʷətn-áyaʔ-qn kn)	page 25
+(51b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STR-STω > * STAYω	page 25, the ranking at the right of the parse
+(51b) line 4	Nxaʔamxčín	gloss	big-top.of-head 1SG.INTR	page 25
+(51b) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 25
+(51b) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 25, at the right of the translation
+(51b) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 25, at the right of the translation
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	Allowing for multiple possible rankings between specific STAY and STR-ST-family constraints is crucial to explaining the ‘orbital’ effect seen with Nxaʔamxčín pronoun clitics, tense clitics, and the yes/no question marker.40 We refer to the notion of multiple possible rankings informally as ‘revolving doors’, symbolized by ‘⊕’. 41 The difference between the flexibility seen with Nxaʔamxčín clitic pronoun linearization in cases like (51), and the corresponding lack of flexibility in Nsyilxcn, can be captured generally by the following rankings:	page 25
+footnote 40	John Lyon, Ewa Czaykowska-Higgins	note	It is not the case that every STAY constraint has a revolving door with every STR-ST constraint, given that certain orderings are not apparent. See below.	page 25, footnote 40
+footnote 41	John Lyon, Ewa Czaykowska-Higgins	note	Arto Antilla’s (2001) work on partial orderings in Finnish phonology provides the foundation for the “revolving door” idea, though the term itself was coined by Chris Golston.	page 25, footnote 41
+(52a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín: STAYω ⊕ STR-STω	page 25, set as an example
+(52b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nsyilxcn: STAYω > STR-STω	page 25, set as an example
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	Recall that Nxaʔamxčín future naʔ always occurs on the outside of a pronoun clitic in pre-host position, and after a pronoun clitic in post-host position (53). Given that naʔ is the functional and syntactic equivalent of mi in Okanagan, and both show evidence of being a pivotal inner clitic, we propose that naʔ and mi are both parsed at the level of φ.	page 25
+(53a) line 1	Nxaʔamxčín	transcription	naʔ kn lčkíčx.	page 25
+(53a) line 2	Nxaʔamxčín	segmentation	(φ naʔ (ω kn l-č-√kíčx))	page 25
+(53a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STAYω,φ > * STR-STω,φ	page 25, the ranking at the right of the parse
+(53a) line 4	Nxaʔamxčín	gloss	FUT 1SG.INTR return-CISL-arrive	page 25
+(53a) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will be back.’	page 25
+(53a) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(W7.261)	page 25, at the right of the translation
+(53a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 25, at the right of the translation
+(53b) line 1	Nxaʔamxčín	transcription	kʼám̓ kn naʔ.	page 25
+(53b) line 2	Nxaʔamxčín	segmentation	(φ(ω√kʼám̓ kn) naʔ)	page 25
+(53b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STR-STω,φ > * STAYω,φ	page 25, the ranking at the right of the parse
+(53b) line 4	Nxaʔamxčín	gloss	stay 1SG.INTR FUT	page 25
+(53b) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘I will stay.’	page 25
+(53b) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(Y23.3)	page 25, at the right of the translation
+(53b) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 25, at the right of the translation
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	The variation within Nxaʔamxčín, as well as the variation between Nxaʔamxčín and Nsyilxcn can so far be expressed as follows:	page 25
+(54a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín: STAY ω,φ ⊕ STR-STω,φ	page 25, set as an example
+(54b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nsyilxcn: STAY ω,φ > STR-STω,φ	page 25, set as an example
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	To account for the linearization of the yes/no question clitic á, and given that it always attracts phrasal stress, we propose that it is parsed at the level of the intonational phrase (55a). For corresponding (55b), we assume that sá, as a stress-bearing particle, is parsed as its own ω, and that STAYι prevents it from moving.	page 25
+§4.2	Nxaʔamxčín	cited form	á	page 25, in italics
+(55a) line 1	Nxaʔamxčín	transcription	ʔinwí kʷ áʔ?	page 26
+(55a) line 2	Nxaʔamxčín	segmentation	(ι (ωʔinwí kʷ) áʔ)	page 26
+(55a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STR-STω,φ,ι > * STAYω,φ,ι	page 26, the ranking at the right of the parse
+(55a) line 4	Nxaʔamxčín	gloss	2SG.INDEP 2SG.INTR Q	page 26
+(55a) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘Is it you?’	page 26
+(55a) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(NM.2006.41b)	page 26, at the right of the translation
+(55a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 26, at the right of the translation
+(55b) line 1	Nxaʔamxčín	transcription	šá naʔ qʼʷə́ln ʔači ḥananík?	page 26
+(55b) line 2	Nxaʔamxčín	segmentation	(ι (ωšá) (φ naʔ (ω√qʼʷə́l-n)) ʔači ḥananík)	page 26
+(55b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STAYω,φ,ι > * STR-STω,φ,ι	page 26, the ranking at the right of the parse
+(55b) line 4	Nxaʔamxčín	gloss	Q FUT roast+DIR-1SG.ERG that jack.rabbit	page 26
+(55b) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘Can I roast that jack rabbit?’	page 26
+(55b) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.121.4)	page 26, at the right of the translation
+(55b) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 26, at the right of the translation
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	Parsing Nxaʔamxčín clitic a distinctly at the level of the intonational phrase receives indirect, cross-linguistic support from the equivalent Nsyilxcn particle ha, which is the only clitic in Nsyilxcn which moves in a Nxaʔamxčín-like orbit (56).42	page 26
+footnote 42	John Lyon, Ewa Czaykowska-Higgins	note	There are several examples of Nxaʔamxčín questions involving a yes/no particle há, phonologically equivalent to Nsyilxcn ha. In (i), há may come from Nsyilxcn, or may be a dialectal variant of sá.	page 26, footnote 42
+footnote 42	Nxaʔamxčín	cited form	há	page 26, in italics
+footnote 42 (i) line 1	Nxaʔamxčín	transcription	há kʷ štqnúxʷ?	page 26
+footnote 42 (i) line 2	Nxaʔamxčín	segmentation	há=kʷ=štqnúxʷ	page 26
+footnote 42 (i) line 3	Nxaʔamxčín	gloss	Q=2SG.INTR=hungry	page 26
+footnote 42 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Are you hungry?’	page 26
+footnote 42 (i) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(G7.63)	page 26, the tag or source at the right of the translation
+footnote 42 (i) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 26, at the right of the translation
+(56a) line 1	Nsyilxcn	transcription	ha cxʷúystxʷ iʔ sqəltmíxʷ?	page 26
+(56a) line 2	Nsyilxcn	segmentation	(ι ha (ωc-xʷúy-st-xʷ) (φiʔ (ωsqəltmíxʷ)))	page 26
+(56a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STAYι > * STR-STι	page 26, the ranking at the right of the parse
+(56a) line 4	Nsyilxcn	gloss	Q‿IPFV-go-CAUS-2SG.ERG DET‿man	page 26
+(56a) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘Did you bring the man?’	page 26
+(56a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nsyilxcn)	page 26, at the right of the translation
+(56b) line 1	Nsyilxcn	transcription	cxʷúystxʷ (h)a iʔ sqəltmíxʷ?	page 26
+(56b) line 2	Nsyilxcn	segmentation	(ι (ωc-xʷúy-st-xʷ) (h)a (φiʔ (ωsqəltmíxʷ)))	page 26
+(56b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	STR-STι > * STAYι	page 26, the ranking at the right of the parse
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	The basic variation between Nxaʔamxčín and Nsyilxcn in the linearization of verbal clitics is given as (57):	page 26
+(57a) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nxaʔamxčín: STAY ω,φ,ι ⊕ STR-STω,φ,ι	page 26, set as an example
+(57b) line 1	John Lyon, Ewa Czaykowska-Higgins	note	Nsyilxcn: STAY ω,φ > (STAYι ⊕ STR-STι) > STR-STω,φ	page 26, set as an example
+§4.2	John Lyon, Ewa Czaykowska-Higgins	note	There are two factors which complicate the Nxaʔamxčín picture given in (57a), however, which we seek to address in this paper: First, the issue of orbital independence and clitic orientation (Section 4.3). Second, addressing the linearization of ay̓ (Section 4.4).	page 26
+§4.3	John Lyon, Ewa Czaykowska-Higgins	heading	4.3 Addressing Orbital Independence and Variable Clitic Orientation	page 26
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Recall that orbits in Nxaʔamxčín show evidence of linearizing independently of one another in Nxaʔamxčín (58a). 43 But recall also that there may be limits on that independence, since linearizations like (58d) are never found. Such limits may be expressed by implicational relations between specific STAY and STRONG-START constraints, which will rule out unattested orderings.	page 26
+footnote 43	John Lyon, Ewa Czaykowska-Higgins	note	Other unattested orderings for examples (58), such as ᵖ*kʷ naʔ nhampátkʷ or ᵖ*nhampátkʷ naʔ kʷ, are predicted ungrammatical by a highly-ranked constraint BINARITY(φ) which disallows vacuous parsings of ω as φ. See section 4.4.	page 26, footnote 43
+footnote 43	Nxaʔamxčín	cited form	ᵖ*kʷ naʔ nhampátkʷ	page 26, in italics
+footnote 43	Nxaʔamxčín	cited form	ᵖ*nhampátkʷ naʔ kʷ	page 26, in italics
+(58a) line 1	Nxaʔamxčín	transcription	kʷ nhampátkʷ naʔ.	page 27
+(58a) line 2	Nxaʔamxčín	segmentation	(φ(ωkʷ nhamp-átkʷ) naʔ)	page 27
+(58a) line 3	Nxaʔamxčín	gloss	2SG.INTR fall.in-water FUT	page 27
+(58a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘You will fall in the river.’	page 27
+(58a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.139.2)	page 27, at the right of the translation
+(58a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 27, at the right of the translation
+(58b) line 1	Nxaʔamxčín	transcription	p (φ naʔ (ωkʷ nhampátkʷ))	page 27
+(58c) line 1	Nxaʔamxčín	transcription	p (φ (ωnhampátkʷ kʷ) naʔ)	page 27
+(58d) line 1	Nxaʔamxčín	transcription	p* (φ naʔ (ω nhampátkʷ kʷ))	page 27
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	For (58), the implication is that if STAYφ is satisfied (58b,d), then STAYω must also be satisfied (58b). Given the family-level revolving door so far proposed, this is equivalent to saying that if STR-STω is satisfied (58c,d), then STR-STφ must also be satisfied (58c). This is formalized as the implication in (59).	page 27
+(59) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(STAYφ → STAYω) ⊕ (STR-STω → STR-STφ) (cf. 58) Utilizing a standard logical equivalence for conditional statements, ¬(p → q) ↔ (p & ¬q),44 a	page 27, set as an example
+footnote 44	John Lyon, Ewa Czaykowska-Higgins	note	¬ is equivalent to a violation, marked as *. Fatal violations of conditionals are indicated by!.	page 27, footnote 44
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	violation of the antecedent of any conditional will not result in the entire conditional incurring a violation, while a violation of the consequent of any conditional will result in the entire conditional incurring a violation, if the antecedent is not itself also violated. Example (60) below shows (58) again, as applied to the conditional in (59). For orbitally independent (60a), even though the antecedents of both conditionals incur violations, both conditionals will as a result automatically be true.	page 27
+(60a) line 1	Nxaʔamxčín	transcription	(φ(ωkʷ nhampátkʷ) naʔ).	page 27
+(60a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYφ → STAYω) ⊕ (*STR-STω → STR-STφ) T ⊕ T	page 27, the constraints the parse satisfies or violates
+(60b) line 1	Nxaʔamxčín	transcription	p (φ naʔ (ωkʷ nhampátkʷ)).	page 27
+(60b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(STAYφ → STAYω) ⊕ (*STR-STω → *STR-STφ) T ⊕ T	page 27, the constraints the parse satisfies or violates
+(60c) line 1	Nxaʔamxčín	transcription	p (φ (ωnhampátkʷ kʷ) naʔ).	page 27
+(60c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYφ → *STAYω) ⊕ (STR-STω → STR-STφ) T ⊕ T	page 27, the constraints the parse satisfies or violates
+(60d) line 1	Nxaʔamxčín	transcription	p* (φ naʔ (ω nhampátkʷ kʷ)).	page 27
+(60d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! (STAYφ → *STAYω) ⊕! (STR-STω → *STR-STφ) F ⊕ F	page 27, the constraints the parse satisfies or violates
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Formalizations such as (59) are a shorthand for restricted partial constraint orderings accompanied by outranking, banned pairings: For example (STAYφ → STAYω) is equivalent to a more convoluted *(* STAYω, STAYφ) > (STAY ω ⊕ STAYφ). 45 In English: Any ranking of STAYω and STAYφ is possible with respect to a specific input, unless that input satisfies STAYφ while violating STAYω. Such candidates will never be optimal, since STR-STω → STR-STφ (which is shorthand for *(STR-STω,* STR-STφ) > (STR-STω ⊕ STR-STφ)) will also automatically be violated. If both STAY ω and STAYφ are violated however (e.g. 60c), then the candidate can still win just in case STR-STω → STR- STφ is ranked higher. In other words, when an entire conditional incurs a violation, the revolving door is ‘activated’ to save the candidate, but if the conditional on the other side of the revolving door is also violated, the candidate will be ruled out. For most derivations in this section, the STAY and STR-ST conditionals make the same predictions, and so it is tempting to propose a simpler system which uses only STAY constraints. However, several examples below show that both are needed.	page 27
+footnote 45	John Lyon, Ewa Czaykowska-Higgins	note	The formula in (59) is formally equivalent to: [*(* STAYω, STAYφ) > (STAY ω ⊕ STAYφ)] ⊕ [*(STR-STω,* STR-STφ) > (STR-STω ⊕ STR-STφ)]	page 27, footnote 45
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Next, consider (61) which shows orbital independence at the level of φ and ι:	page 28
+(61a) line 1	Nxaʔamxčín	transcription	lút naʔ lkʷáš á?	page 28
+(61a) line 2	Nxaʔamxčín	segmentation	(ι (ω lút) (φ naʔ (ω l-kʷá-š)) á)	page 28
+(61a) line 3	Nxaʔamxčín	gloss	NEG FUT LOC-take+DIR-3ERG Q	page 28
+(61a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He won’t take it back, will he?’	page 28
+(61a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MDK.Y29.154)	page 28, at the right of the translation
+(61a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 28, at the right of the translation
+(61b) line 1	Nxaʔamxčín	transcription	p (ι (ω lút) (ω šá) (φ naʔ (ω lkʷáš)))	page 28
+(61c) line 1	Nxaʔamxčín	transcription	p (ι (ω lút) (φ (ω lkʷáš) naʔ) á)	page 28
+(61d) line 1	Nxaʔamxčín	transcription	p* (ι (ω lút) (ω šá) (φ (ω lkʷáš) naʔ))	page 28
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	For (61), the implication is that if STAYι is satisfied (61b,d), then STAYφ must also be satisfied (61b).46 This is formalized as the implication in (62).47	page 28
+footnote 46	John Lyon, Ewa Czaykowska-Higgins	note	This generally corresponds to the implication that if STR-STφ is satisfied then STR-STι must also be satisfied, but in the context of an initial stressed particle, the STR-ST implication will be violated, as in (63c,d).	page 28, footnote 46
+footnote 47	John Lyon, Ewa Czaykowska-Higgins	note	The implication in (62) is formally equivalent to: [*(* STAYφ, STAYι) > (STAYι ⊕ STAYφ)] ⊕ [*(* STR-STι, STR-STφ) > (STR-STι ⊕ STR-STφ)]	page 28, footnote 47
+(62) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(STAYι → STAYφ) ⊕ (STR-STφ → STR-STι) (cf. 61)	page 28, set as an example
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Example (61) is repeated below as (63), but is explicitly applied to (62) for the sake of demonstration.	page 28
+(63a) line 1	Nxaʔamxčín	transcription	(ι (ω lút) (φ naʔ (ω lkʷáš)) á).	page 28
+(63a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYι → STAYφ) ⊕ (*STR-STφ → *STR-STι) T ⊕ T	page 28, the constraints the parse satisfies or violates
+(63b) line 1	Nxaʔamxčín	transcription	p (ι (ω lút) (ω šá) (φ naʔ (ω lkʷáš))).	page 28
+(63b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(STAYι → STAYφ) ⊕ (*STR-STφ → *STR-STι) T ⊕ T	page 28, the constraints the parse satisfies or violates
+(63c) line 1	Nxaʔamxčín	transcription	p (ι (ω lút) (φ (ω lkʷáš) naʔ) á).	page 28
+(63c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(*STAYι → *STAYφ) ⊕! (STR-STφ → *STR-STι) T ⊕ F	page 28, the constraints the parse satisfies or violates
+(63d) line 1	Nxaʔamxčín	transcription	p* (ι (ω lút) (ω šá) (φ (ω lkʷáš) naʔ)).	page 28
+(63d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! (STAYι → *STAYφ) ⊕! (STR-STφ → *STR-STι) F ⊕ F	page 28, the constraints the parse satisfies or violates
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	For (63), note that STR-STι is violated if lút, which is parsed as a prosodic word, remains initial in the intonational phrase.48 For (63c,d), this is fatal to the STR-ST conditional. For this reason, the STAY conditional will take precedence: Both (63c) and (63d) violate the consequent STAYφ, but this is fatal just in case STAYι is satisfied, as in the case of (63d). In other words, the only ordering of (63) which violates both conditionals in (62) will be (63d). Notice that in (63c), the two conditionals make different predictions, and so this is a good example of why the large revolving door, and both families, are still needed under this approach: The STAY conditional will allow one or more ω to precede a φ, even though the STR-ST conditional is fatally violated.	page 28
+footnote 48	John Lyon, Ewa Czaykowska-Higgins	note	One strategy to save (63d) would be to move (ω lút) and (ω šá) to the end of the intonational phrase, though it is unclear if this is possible in Nxaʔamxčín. Particles prefer to occur before rather than after the main predicate (Kinkade 1982).	page 28, footnote 48
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Implicational relations such as (59) and (62) allow for multiple possible parsings of the same string, thus accounting not only for variable clitic linearizations, but for variable orientations. Example (64) below consists of a clitic pronoun surrounded by two prosodic hosts. As an inner clitic, it can potentially parse in either direction.49	page 29
+footnote 49	John Lyon, Ewa Czaykowska-Higgins	note	We abstract away from intonational phrases here for the sake of brevity. For (64), we assume that both prosodic words are parsed as a φ, though a parsing of each ω as separate φ within an ι will also be generated. We also predict (φ (ω kt t̓íl̓) (ω šxəšxəštmíx)) as a possible parse. Though there is no evidence that a pronoun can procliticize to t̕il̕, possibly for syntactic reasons similar to those discussed in Section 2.4, there is evidence that a pronoun can precede other prosodic words, such as lút in (37e): šacʼkámx kʷaʔ [kʷ lút núx̌ʷt ay̓]?. As such, it makes sense not to prevent (φ (ω kt t̓íl̓) (ω šxəšxəštmíx)) as a possible parse, a priori.	page 29, footnote 49
+(64a) line 1	Nxaʔamxčín	transcription	t̓íl̓ kt šxəšxəštmíx.	page 29
+(64a) line 2	Nxaʔamxčín	segmentation	(φ (ω t̓íl̓ kt) (ω šxəšxəštmíx))	page 29
+(64a) line 3	Nxaʔamxčín	gloss	EXCL 1PL.INTR getting.lost	page 29
+(64a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I think we are getting lost.’	page 29
+(64a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W9.81)	page 29, at the right of the translation
+(64a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 29, at the right of the translation
+(64a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	! (STAYφ → * STAYω) ⊕ (STR-STω → STR-STφ) F ⊕ T	page 29, the constraints the parse satisfies or violates
+(64b) line 1	Nxaʔamxčín	transcription	(φ (ω t̓íl̓) (ω kt šxəšxəštmíx))	page 29
+(64b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(STAYφ → STAYω) ⊕! (*STR-STω → STR-STφ) T ⊕ F	page 29, the constraints the parse satisfies or violates
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	Consider (65) below, which is identical to (63a) above except that naʔ parses as a free enclitic with preceding lút, rather than as a free proclitic with the main predicate lkʷás. In this case, both implicational relations are true, predicting that in such an environment, naʔ can parse either as a proclitic, or as an enclitic, so long as it maintains the φ orbit of a free clitic. (In fact, naʔ in (60) was originally transcribed as part of the same word as lút, suggesting (65) is the correct parse.)	page 29
+§4.3	Nxaʔamxčín	cited form	lkʷás	page 29, in italics
+(65) line 1	Nxaʔamxčín	transcription	lút naʔ lkʷáš á?	page 29
+(65) line 2	Nxaʔamxčín	segmentation	(ι (φ (ω lút)=naʔ) (ω lkʷáš) á)	page 29
+(65) line 3	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYι → * STAYφ) ⊕ (STR-STφ → STR-STι) T ⊕ T	page 29, the constraints the parse satisfies or violates
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	More generally, this approach supports parsing initial stress-bearing particles, such as lút, t̕il̕, and sá as prosodic words, since assuming that these are parsed in turn directly by an intonational or phonological phrase and do not move, they will never in themselves violate the STAY conditional.50	page 29
+footnote 50	John Lyon, Ewa Czaykowska-Higgins	note	Given the difference in the way STAY and STR-ST constraints are defined, the prediction is that secondary, prosodic word hosts will adhere to their syntax and occur before the main predicate rather than after it.	page 29, footnote 50
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	The implications given as (59) and (62) are combined in (66), resulting in a concise view of the relation between STAY and STRONG-START family constraints in Nxaʔamxčín.51	page 29
+footnote 51	John Lyon, Ewa Czaykowska-Higgins	note	The implication in (66) is formally equivalent to: [*(* STAYω, STAYφ) > *(* STAYφ, STAYι) > (STAYω ⊕ STAYφ ⊕ STAYι)] ⊕ [*(* STR-STφ, STR-STω) > *(* STR-STι, STR-STφ) > (STR-STω ⊕ STR-STφ ⊕ STR-STι)]	page 29, footnote 51
+(66) line 1	John Lyon, Ewa Czaykowska-Higgins	note	(STAYι → (STAYφ → STAYω)) ⊕ ((STR-STω → STR-STφ) → STR-ST ι) (cf. 59, 62)	page 29, set as an example
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	For the sake of demonstration, (66) is applied to (67) below (cf. 24a). Though five out of the six linearizations below are predicted by the analysis as it currently stands, possibly suggesting overgeneration, (67d,f) will be removed from consideration in the next section.	page 30
+(67a) line 1	Nxaʔamxčín	transcription	šúlt kʷ ay̓ á?	page 30
+(67a) line 2	Nxaʔamxčín	segmentation	(ι (φ (ω√šúl-t kʷ)=ay̓)=á)	page 30
+(67a) line 3	Nxaʔamxčín	gloss	cold-STAT 2SG.INTR=PAST=Q	page 30
+(67a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Were you cold?’	page 30
+(67a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(Y25.36)	page 30, at the right of the translation
+(67a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 30, at the right of the translation
+(67a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYι → (* STAYφ → * STAYω)) ⊕ ((STR-STω → STR-STφ) → STR-ST ι) T ⊕ T	page 30, the constraints the parse satisfies or violates
+(67b) line 1	Nxaʔamxčín	transcription	p (ι (ω šá) (φ (ω šúlt kʷ) ay̓))	page 30
+(67b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(STAYι → (* STAYφ → * STAYω)) ⊕! ((STR-STω → STR-STφ) → * STR-STι) T ⊕ F	page 30, the constraints the parse satisfies or violates
+(67c) line 1	Nxaʔamxčín	transcription	p*(ι (ω šá) (φ ay̓ (ω šúlt kʷ)))	page 30
+(67c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! (STAYι → (STAYφ → * STAYω)) ⊕! ((STR-STω → STR-STφ) → * STR-STι) F ⊕ F	page 30, the constraints the parse satisfies or violates
+(67d) line 1	Nxaʔamxčín	transcription	p (ι (ω šá) (φ ay̓ (ω kʷ šúlt)))	page 30
+(67d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(STAYι → (STAYφ → STAYω)) ⊕! ((* STR-STω → * STR-STφ) → * STR-STι) T ⊕ F	page 30, the constraints the parse satisfies or violates
+(67e) line 1	Nxaʔamxčín	transcription	p (ι (φ (ω kʷ šúlt) ay̓) á)	page 30
+(67e) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYι → (* STAYφ → STAYω)) ⊕ ((* STR-STω → STR-STφ) → STR-STι) T ⊕ T	page 30, the constraints the parse satisfies or violates
+(67f) line 1	Nxaʔamxčín	transcription	p (ι (φ ay̓ (ω kʷ šúlt)) á)	page 30
+(67f) line 2	John Lyon, Ewa Czaykowska-Higgins	note	(* STAYι → (STAYφ → STAYω)) ⊕! ((STR-STω → STR-STφ) → * STR-STι) T ⊕ F	page 30, the constraints the parse satisfies or violates
+§4.3	John Lyon, Ewa Czaykowska-Higgins	note	In sum, for the simple Nxaʔamxčín linearizations addressed in Section 4.2, individual STAY and STRONG-START constraints seem to group together as ‘family units’ with respect to the revolving door. Orbital independence, however, complicates the picture Section 4.3, and the data suggest that while STAY and STRONG-START constraints do indeed group together as a family, the absence of certain possible linearizations in our corpus suggests that the grouping involves implicational relationships between individual constraints which limit orbital independence, yet still allow flexibility in clitic orientation. This approach correctly accounts for attested linearizations, and rules out unattested ones, though it may overgenerate in its current form.	page 30
+§4.4	John Lyon, Ewa Czaykowska-Higgins	heading	4.4 Addressing the Linearization of (ʔ)ay̓	page 30
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	Data involving (ʔ)ay̓ introduce complications to our analysis, given the patterns discussed above in Sections 2.2 and 2.3. The basic pattern which holds in the context of one potential prosodic host is given again in (68). The pronoun always occurs before (ʔ)ay̓, though in (68a) ay̓ remains in orbit, while in (68b) the orbit appears at first glance to be overruled. The other possible orderings, shown in (68c) and (68d), are unattested. We predict (68c) to be possible, though not (68d), for reasons discussed below.	page 30
+(68a) line 1	Nxaʔamxčín	transcription	nax̌áɬ kn ay̓.	page 30
+(68a) line 2	Nxaʔamxčín	segmentation	na-√x̌áɬ kn=ay̓	page 30
+(68a) line 3	John Lyon, Ewa Czaykowska-Higgins	note	tense orbit	page 30, at the right of the segmentation
+(68a) line 4	Nxaʔamxčín	gloss	LOC-afraid 1SG.INTR=PAST	page 30
+(68a) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 30
+(68a) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(W3.10)	page 30, at the right of the translation
+(68a) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 30, at the right of the translation
+(68b) line 1	Nxaʔamxčín	transcription	kn ʔay̓ nux̌ʷtútiy̓aʔ.	page 31
+(68b) line 2	Nxaʔamxčín	segmentation	kn ʔay̓ √nux̌ʷt-útiy̓aʔ	page 31
+(68b) line 3	John Lyon, Ewa Czaykowska-Higgins	note	second-position	page 31, at the right of the segmentation
+(68b) line 4	Nxaʔamxčín	gloss	1SG.INTR PAST go-on.foot	page 31
+(68b) line 5	John Lyon, Ewa Czaykowska-Higgins	translation	‘I went on foot.’	page 31
+(68b) line 6	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.185.8)	page 31, at the right of the translation
+(68b) line 7	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 31, at the right of the translation
+(68c) line 1	Nxaʔamxčín	transcription	p ʔay̓ kn na-√x̌áɬ	page 31
+(68c) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 31
+(68c) line 3	John Lyon, Ewa Czaykowska-Higgins	note	tense orbit	page 31, at the right of the form
+(68d) line 1	Nxaʔamxčín	transcription	p* na-√x̌áɬ ay̓ kn.	page 31
+(68d) line 2	John Lyon, Ewa Czaykowska-Higgins	translation	‘I was scared.’	page 31
+(68d) line 3	John Lyon, Ewa Czaykowska-Higgins	note	second-position	page 31, at the right of the form
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	We predict (68c) to be possible given data showing that rarely, (ʔ)ay̓ occurs initially: In such cases, (ʔ)ay̓ is transcribed with an initial glottal stop, which we take as evidence that it has been promoted to a prosodic word (69a). In cases such as (68b), (ʔ)ay̓ is also sometimes transcribed as containing a glottal stop. If ay̓ is promoted to a ω ʔay̓ in these cases as well, then the pronoun clitic can then parse with ʔay̓ as a ω (69b). Thus, there is no actual orbital violation.	page 31
+(69a) line 1	Nxaʔamxčín	transcription	ʔay ʔačkíčštmš yaʕˀtú šx̌ə́lx̌əlt ɬu ay̓ pán̓ká ʔaní.	page 31
+(69a) line 2	Nxaʔamxčín	segmentation	(φ (ω ʔay) (ω ʔač-√kíč-št-m-š)) yaʕˀtú šx̌ə́lx̌əlt ɬu ay̓ pán̓ká ʔaní	page 31
+(69a) line 3	Nxaʔamxčín	gloss	PAST IPFV-arrive-CAUS-1SG.OBJ-3ERG all day COMP PAST where DEM	page 31
+(69a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘He used to visit me every day.’	page 31
+(69a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(EP4.46.2)	page 31, at the right of the translation
+(69a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 31, at the right of the translation
+(69b) line 1	Nxaʔamxčín	transcription	kn ʔay̓ nux̌ʷtútiy̓aʔ.	page 31
+(69b) line 2	Nxaʔamxčín	segmentation	(φ (ω kn ʔay̓) (ω √nux̌ʷt-útiy̓aʔ))	page 31
+(69b) line 3	Nxaʔamxčín	gloss	1SG.INTR PAST go-on.foot	page 31
+(69b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I went on foot.’	page 31
+(69b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(JM3.185.8)	page 31, at the right of the translation
+(69b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 31, at the right of the translation
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	It is important to note that (ʔ)ay̓ is never transcribed as containing an initial glottal stop when it follows a host, which suggests that promotion to ω is position dependent, and that post-host ay̓ will always be an enclitic. In other words, the promotion of (ʔ)ay̓ to ω seems to be dependent on STAYφ being satisfied: Assuming that enclitic ay̓ can never occur initially in a φ, (70a) becomes (70b) in order to save the linearization. In (71a), STR-STφ takes precedence, so ay̓ will not be promoted to ω.	page 31
+(70a) line 1	Nxaʔamxčín	transcription	p*(φ ay̓ (ω kn √nux̌ʷt-útiy̓aʔ))	page 31
+(70b) line 1	Nxaʔamxčín	transcription	p(φ (ω ʔay̓) (ω kn √nux̌ʷt-útiy̓aʔ))	page 31
+(71a) line 1	Nxaʔamxčín	transcription	p(φ (ω √nux̌ʷt-útiy̓aʔ kn) ay̓)	page 31
+(71b) line 1	Nxaʔamxčín	transcription	p*(φ (ω √nux̌ʷt-útiy̓aʔ kn) (ω ʔay̓))	page 31
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	It is noteable that this proposed distribution of ʔay̓ and ay̓ and is parallel to that of the yes/no question marker, which is realized as a ω sá in pre-predicative or initial position, and an enclitic á when it occurs post-host. The problem of orbit-violating linearizations like (68d) remain, however. This is parsed below as (72).	page 31
+(72) line 1	Nxaʔamxčín	transcription	p*(φ (ω √nux̌ʷt-útiy̓aʔ ay̓ kn))	page 31
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	In (72), STAYφ is violated, since ay̓ moves to a linear position internal to ω. As such, word promotion is not a possibility, but STR-STω is nevertheless satisfied, as is STR-STφ albeit vacuously, and so the revolving door should save (72), all else being equal.	page 31
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	We suggest that the correct approach to ruling out (72), and other possible orbit-violating linearizations involving tense clitics and pronoun clitics, is to prevent vacuous parsings of ω as φ, as in (72). This is achieved by the following highly-ranked constraint BINARITY(φ) (see Elfner 2012 among others), which will essentially force (72) to parse as (71a).	page 31
+(73) line 1	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ): φs are binary-branching.	page 32, set as an example
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	The linearization of ay̓ in other cases is then based partially on the promotional constraint in (74).	page 32
+(74) line 1	John Lyon, Ewa Czaykowska-Higgins	note	PROMOTEay̓→ω: Parse ay̓ as a prosodic word.	page 32, set as an example
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	Since promotion of ay̓ occurs if and only if STAYφ is satisfied, these two constraints are paired together as in (75). (We assume for now that in binary φs without ay̓, (75) is satisfied vacuously.)	page 32
+(75) line 1	John Lyon, Ewa Czaykowska-Higgins	note	PROMOTEay̓→ω ↔ STAYφ	page 32, set as an example
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	The biconditional in (75) is ranked below the orbital conditional below in (76), though this may not be crucial. What is crucial, however, is that promotional-related constraint relations like (75) operate semi-independently from orbital conditionals, rather than being included within them. BINARITY(φ) is undominated, in any case. Derivations are given below in (77), abstracting away from intonational phrases. (77a-c) are predicted parses, and (77d-g) are predicted to be impossible.	page 32
+(76) line 1	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (STAYι → (STAYφ → STAYω)) > (PROMOTEay̓→ω ↔ STAYφ)	page 32, set as an example
+(77a) line 1	Nxaʔamxčín	transcription	p(φ (ω ʔay̓) (ω kn √nux̌ʷtútiy̓aʔ))	page 32
+(77a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (STAYφ → STAYω) > (PROMOTEay̓→ω ↔ STAYφ)	page 32, the constraints the parse satisfies or violates
+(77b) line 1	Nxaʔamxčín	transcription	p(φ (ω kn ʔay̓) (ω √nux̌ʷtútiy̓aʔ))	page 32
+(77b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (STAYφ → STAYω) > (PROMOTEay̓→ω ↔ STAYφ)	page 32, the constraints the parse satisfies or violates
+(77c) line 1	Nxaʔamxčín	transcription	p(φ (ω √nux̌ʷtútiy̓aʔ kn) ay̓)	page 32
+(77c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (* STAYφ → * STAYω) > (*PROMOTEay̓→ω ↔ * STAYφ)	page 32, the constraints the parse satisfies or violates
+(77d) line 1	Nxaʔamxčín	transcription	p*(φ ay̓ (ω kn √nux̌ʷtútiy̓aʔ))	page 32
+(77d) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (STAYφ → STAYω) >! (*PROMOTEay̓→ω ↔ STAYφ)	page 32, the constraints the parse satisfies or violates
+(77e) line 1	Nxaʔamxčín	transcription	p*(φ (ω ʔay̓ kn) (ω √nux̌ʷtútiy̓aʔ))	page 32
+(77e) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) >! (STAYφ → * STAYω) > (PROMOTEay̓→ω ↔ STAYφ)	page 32, the constraints the parse satisfies or violates
+(77f) line 1	Nxaʔamxčín	transcription	p*(φ (ω kn ay̓ √nux̌ʷtútiy̓aʔ))	page 32
+(77f) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! BINARITY(φ) > (STAYφ → STAYω) >! (*PROMOTEay̓→ω ↔ STAYφ)	page 32, the constraints the parse satisfies or violates
+(77g) line 1	Nxaʔamxčín	transcription	p*(φ (ω √nux̌ʷtútiy̓aʔ kn) (ω ʔay̓))	page 32
+(77g) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (* STAYφ → * STAYω) >! (PROMOTEay̓→ω ↔ * STAYφ)	page 32, the constraints the parse satisfies or violates
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	This general picture allows considerable freedom of movement for enclitic ay̓ within a clause, so long as it forms a binary φ with a ω.	page 32
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	I now apply the ranking in (76) to cases involving ay̓ and multiple potential prosodic hosts, as shown in (78) and (79) (cf 20-21). This analysis strongly predicts only one possible parse each for (78) and (79), though other parses are possible if ay̓ is promoted, as discussed above.	page 32
+(78a) line 1	Nxaʔamxčín	transcription	p(φ(ω pláqəl kn) ay̓) (ω nk̓upəlwáš)	page 33
+(78a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (* STAYφ → * STAYω) > (*PROMOTEay̓→ω ↔ * STAYφ)	page 33, the constraints the parse satisfies or violates
+(78b) line 1	Nxaʔamxčín	transcription	p*(ω pláqəl kn) (φ ay̓ (ω nk̓upəlwáš)	page 33
+(78b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) >! (STAYφ → * STAYω) >! (*PROMOTEay̓→ω ↔ STAYφ)	page 33, the constraints the parse satisfies or violates
+(78c) line 1	Nxaʔamxčín	transcription	p*(ω pláqəl) (φ (ω kn ay̓ nk̓upəlwáš))	page 33
+(78c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! BINARITY(φ) > (* STAYφ → STAYω) > (*PROMOTEay̓→ω ↔ * STAYφ)	page 33, the constraints the parse satisfies or violates
+(79a) line 1	Nxaʔamxčín	transcription	p(φ (ω pláqəl) ay̓) (ω kn nk̓upəlwáš)	page 33
+(79a) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (* STAYφ → STAYω) > (*PROMOTEay̓→ω ↔ * STAYφ)	page 33, the constraints the parse satisfies or violates
+(79b) line 1	Nxaʔamxčín	transcription	p*(φ (ω pláqəl ay̓ kn)) (ω nk̓upəlwáš)	page 33
+(79b) line 2	John Lyon, Ewa Czaykowska-Higgins	note	! BINARITY(φ) > (* STAYφ → * STAYω) > (*PROMOTEay̓→ω ↔ * STAYφ)	page 33, the constraints the parse satisfies or violates
+(79c) line 1	Nxaʔamxčín	transcription	p*(ω pláqəl) (φ ay̓ (ω kn nk̓upəlwáš))	page 33
+(79c) line 2	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > (STAYφ → STAYω) >! (*PROMOTEay̓→ω ↔ STAYφ)	page 33, the constraints the parse satisfies or violates
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	The strongly predicted parse in (79a) may actually be supported by phonetic evidence. Consider that the pronoun lx has a stronger tendency to occur before ay̓ than other pronoun clitics, thus almost always follows the pattern in (78) (Czaykowska-Higgins 2019).52 When the opposite order occurs (79), it appears to do so in the context of a significant pause (#), as shown in (80).	page 33
+footnote 52	John Lyon, Ewa Czaykowska-Higgins	note	However unlike other pronouns, lx never occurs initially, which makes lx very much like ay̓. A full treatment of lx is beyond the scope of this paper.	page 33, footnote 52
+(80) line 1	Nxaʔamxčín	transcription	ʔa lut ay̓ lx cilám.	page 33
+(80) line 2	Nxaʔamxčín	segmentation	ʔa lut ay̓ # lx cilám.	page 33
+(80) line 3	Nxaʔamxčín	gloss	ASR NEG PAST 3PL run(PL.)	page 33
+(80) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘They hadn’t started to run.’	page 33
+(80) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(ECH.ED.90.CD.l49)	page 33, at the right of the translation
+(80) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 33, at the right of the translation
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	Combining the complex orbital implication in (66) with (76) yields the current working comprehensive constraint ranking for Nxaʔamxčín (81).53	page 33
+footnote 53	John Lyon, Ewa Czaykowska-Higgins	note	(81) is formally equivalent to: [BINARITY(φ) > *(* STAYω, STAYφ) > *(* STAYφ, STAYι) > (STAYω ⊕ STAYφ ⊕ STAYι) > (PROMOTEay̓→ω ↔ STAYφ)] ⊕ [BINARITY(φ) > *(* STR-STφ, STR-STω) > *(* STR-STι, STR-STφ) > (STR-STω ⊕ STR-STφ ⊕ STR-STι) > (PROMOTEay̓→ω ↔ STAYφ)]	page 33, footnote 53
+(81) line 1	John Lyon, Ewa Czaykowska-Higgins	note	BINARITY(φ) > ((STAYι → (STAYφ → STAYω)) ⊕ ((STR-STω → STR-STφ) → STR-ST ι)) > (PROMOTEay̓→ω ↔ STAYφ)	page 33, set as an example
+§4.4	John Lyon, Ewa Czaykowska-Higgins	note	This represents our working understanding of how orbits interact with one another to yield specific linearizations, and how second-position clitics like ay̓ interact with these orbits. A full study will examine other second-position enclitics.	page 33
+§5	John Lyon, Ewa Czaykowska-Higgins	heading	5 Summary and Discussion	page 34
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Assuming that Nxaʔamxčín pronominal markers are clitics, that pronominal clitics are somewhere in Tense, and that verbs do not raise as high as Tense, examples (4-5) shown again below as (82- 83) provides strong evidence that there is some level of prosodic optionality in Nxaʔamxčín.	page 34
+(82a) line 1	Nxaʔamxčín	transcription	kn qʷətn-áyaʔqn.	page 34
+(82a) line 2	Nxaʔamxčín	segmentation	kn √qʷətn-áyaʔ-qn	page 34
+(82a) line 3	Nxaʔamxčín	gloss	1SG.INTR big-top.of-head	page 34
+(82a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 34
+(82a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 34, at the right of the translation
+(82a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 34, at the right of the translation
+(82b) line 1	Nxaʔamxčín	transcription	qʷətnáyaʔqn kn.	page 34
+(82b) line 2	Nxaʔamxčín	segmentation	√qʷətn-áyaʔ-qn kn	page 34
+(82b) line 3	Nxaʔamxčín	gloss	big-top.of-head 1SG.INTR	page 34
+(82b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘My head is big.’	page 34
+(82b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(MLW.AB.25.4)	page 34, at the right of the translation
+(82b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 34, at the right of the translation
+(83a) line 1	Nxaʔamxčín	transcription	kn c̓əlíx.	page 34
+(83a) line 2	Nxaʔamxčín	segmentation	kn c̓əlíx	page 34
+(83a) line 3	Nxaʔamxčín	gloss	1SG.INTR stand	page 34
+(83a) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I stood up.’	page 34
+(83a) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W4.168)	page 34, at the right of the translation
+(83a) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 34, at the right of the translation
+(83b) line 1	Nxaʔamxčín	transcription	c̓əlút kn.	page 34
+(83b) line 2	Nxaʔamxčín	segmentation	c̓əlút kn	page 34
+(83b) line 3	Nxaʔamxčín	gloss	stand 1SG.INTR	page 34
+(83b) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I stood up.’	page 34
+(83b) line 5	John Lyon, Ewa Czaykowska-Higgins	citation	(W4.167)	page 34, at the right of the translation
+(83b) line 6	John Lyon, Ewa Czaykowska-Higgins	note	(Nxaʔamxčín)	page 34, at the right of the translation
+§5	John Lyon, Ewa Czaykowska-Higgins	note	The general pattern in (82-83) was shown to extend to other tense-related clitics and one C-domain clitic, the yes/no question marker.	page 34
+§5	John Lyon, Ewa Czaykowska-Higgins	note	The macro-pattern of Nxaʔamxčín clitics may be described as orbital. Clitic orbits were defined in terms of the prosodic hierarchy, but clitic orbits also seem to correspond in some ways to hierarchy in the clausal syntax, since for example stress-bearing modal particles appear to block initial prosodic words from attracting a clitic string. Within these orbits, optionality in linearization and the blocking of unattested patterns was modeled using a set of conditionals as a shorthand for partially-ordered constraint rankings (Antilla 2001) accompanied by higher-ranked banned pairings. Certain micro-variations are apparent within the larger pattern with second-position enclitics, such as ay̓.	page 34
+§5	John Lyon, Ewa Czaykowska-Higgins	note	While our analysis successfully explains attested linearizations of orbital clitics in Nxaʔamxčín, and rules out unattested patterns, the major limitation of our study is that we cannot currently confirm that the majority of unattested patterns are, in fact, ungrammatical. Given the relatively large size of the Nxaʔamxčín corpus, the absence of unattested patterns to us is strongly suggestive of ungrammaticality, but this is of course no substitution for negative data.	page 34
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Another major limitation of our study is the scarcity of independent phonetic and phonological evidence for parsing Nxaʔamxčín clitics as we have chosen to do. Appealing to cognacy and distributional similarities between Nxaʔamxčín and Nsyilxcn clitics and particles will only go so far, however evidence such as clitic doubling with future naʔ, phrasal stress on question marker a, and parallels between Nxaʔamxčín and Nsyilxcn in the linearization of functionally-equivalent clitics is strongly suggestive that our analysis is at least on the right track.	page 34
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Other areas in need of further work include a better understanding of the role of clitic promotion, syllabification, and metrical considerations, and stress in Nxaʔamxčín clitic linearization and orientation. First, there is good evidence that clitics have been promoted in certain cases, for example the locative clitic preposition k̕l versus particle k̕al,54 and past-tense clitic ay̓ versus particle ʔay̓. It is unclear however whether all clitics can be promoted or only a subset, and under what conditions promotion occurs, and relying on orthographic transcription is certainly not sufficient to tell whether a clitic has or has not been promoted. Second, clitics in many cases clearly syllabify with their hosts, and while not removing the need for orbits, syllabification does plausibly affect linearization and orientation in certain cases. The same can be said for our understanding of the role of metrical structure in clitic prosody, which is not well understood. Third, Bell’s (2003) classification of Nxaʔamxčín particles and clitics rests in part on whether a given element is always stressed, never stressed, or whether it is stressed in certain contexts, but loses its stress when co- occurring with certain particles or clitics, in putative cases of ‘stress-shift’. Many of the patterns which Bell (2003) observes have numerous exceptions, which is why these observations were of limited use in the current study. It will nevertheless be a worthwhile pursuit to try and clarify the patterns noticed by Bell, and to determine how they inform our present project.	page 35
+footnote 54	John Lyon, Ewa Czaykowska-Higgins	note	Though Kinkade (1974) questions whether k̕al̕ is in fact the same as preposition k̕l, since rather than meaning ‘to, into’, it can be translated ‘together with, along with.’	page 35, footnote 54
+footnote 54	Nxaʔamxčín	cited form	k̕al̕	page 35, in italics
+§5	Nxaʔamxčín	cited form	k̕l	page 35, in italics
+§5	Nxaʔamxčín	cited form	k̕al	page 35, in italics
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Future studies should examine how clitics of the nominal domain, such as prepositions and determiners, differ from the verbal domain clitics discussed in this paper. For Nxaʔamxčín and Nsyilxcn, determines always linearize before head nominals, and as such prosodic alignment constraints seem to be sensitive to the syntax in ways not discussed in this paper.55 In any case, though it is fairly clear that syntax does play some role in the placement of clitics within the verbal domain, more work is needed to clearly separate the roles of phonology versus syntax in Southern Interior Salish language prosody.	page 35
+footnote 55	John Lyon, Ewa Czaykowska-Higgins	note	Example (i) below from Kinkade (1974) (cf. Bell 2003) presents an interesting challenge for this analysis. A prepositional phrase is functioning as a predicate, but the preposition (presumably an inner clitic of the nominal domain) precedes the predicate, while the subject clitic (an inner clitic of the verbal domain), follows the prepositional phrase. A separate but related challenge: N. Mattina (2002) shows that the genitive clitic l (homophonous with the preposition l) can occur in any position internal to a possessed DP (ii).	page 35, footnote 55
+footnote 55 (i) line 1	Nxaʔamxčín	transcription	l štxʷúl kn.	page 35
+footnote 55 (i) line 2	Nxaʔamxčín	segmentation	l štxʷúl kn	page 35
+footnote 55 (i) line 3	Nxaʔamxčín	gloss	in house 1SG.INTR	page 35
+footnote 55 (i) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘I’m in the house.’	page 35
+footnote 55 (iia) line 1	Nxaʔamxčín	transcription	ʔani Mary l štxʷulš.	page 35
+footnote 55 (iia) line 2	Nxaʔamxčín	segmentation	ʔani Mary l štxʷul-š	page 35
+footnote 55 (iia) line 3	Nxaʔamxčín	gloss	DET Mary GEN house-3POSS	page 35
+footnote 55 (iia) line 4	John Lyon, Ewa Czaykowska-Higgins	translation	‘Mary’s house’	page 35
+footnote 55 (iib) line 1	Nxaʔamxčín	transcription	ʔani l Mary štxʷulš.	page 35
+footnote 55 (iic) line 1	Nxaʔamxčín	transcription	ʔani štxʷulš l Mary.	page 35
+footnote 55 (iid) line 1	Nxaʔamxčín	transcription	ʔani štxʷulš Mary l.	page 35
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Next, in our theoretical analysis, we have assumed that unattested patterns of orbital independence in Nxaʔamxčín are in fact ungrammatical. If this assumption turns out to be true, then ι, φ, and ω orbits stand in an implicational relationship with one another. The utility of a conditional analysis is most obvious in the context of a single prosodic host (Section 4.3), but the analysis also makes predictions for clitic linearization and orientation in the context of multiple prosodic hosts (Sections 4.3 and 4.4), some of which seem to be supported. Further phonetic, phonological, and descriptive work will hopefully clarify whether the predictions in multiple prosodic host environments are actually borne out, or whether certain prosodic parsings are incorrectly predicted by the relatively weak conditional analysis given above.	page 35
+§5	John Lyon, Ewa Czaykowska-Higgins	note	Last, the cross-linguistic difference between Nxaʔamxčín and Nsyilxcn is interesting: The orbital clitics of Nxaʔamxčín correspond to an (almost) total absence of variation in Nsyilxcn, which is similar to other Interior Salish languages in allowing only one orientation per clitic. Theoretically, we account for this cross-linguistic variation by assuming a more-or-less strict constraint ranking for Nsyilxcn as opposed to Nxaʔamxčín, but the questions remain: Why are Nxaʔamxčín clitics orbital,56 and how did this system develop? Do other languages also have orbital clitics, and if so, are their distributions subject to similar constraints?	page 36
+footnote 56	John Lyon, Ewa Czaykowska-Higgins	note	Bell (2003) speculates that variation in clitic placement may be due to “pragmatic emphatic effect” though this remains to be seen.	page 36, footnote 56
+§6	John Lyon, Ewa Czaykowska-Higgins	heading	6 Conclusion	page 36
+§6	John Lyon, Ewa Czaykowska-Higgins	note	This paper examines the distribution of verbal clitics in Nxaʔamxčín, a Southern Interior Salish language. Clitics seem to move in defined, prosodic orbits around a prosodic host, resulting in a ‘mirroring’ effect. Linearization before a prosodic host as opposed to after a prosodic host appears to be optional, so long as orbits are adhered to.	page 36
+§6	John Lyon, Ewa Czaykowska-Higgins	note	For the macro-pattern, we propose that clitic orbits in Nxaʔamxčín correspond to different levels of the prosodic hierarchy (Selkirk 1995, 2011), based partially on evidence from closely related Nsyilxcn. We derive linear variation within an orbit by appealing to a tension between a set of STAY and STRONG-START constraints, whose individual members apply specifically to prosodic words, phonological phrases, or intonational phrases. We assume partial constraint orderings (a.k.a. ‘revolving doors’) (Antilla 2001) in order to account for apparently free linear variation, given an orbit. Attested orbital independence, and limits on unattested independence, are expressed through constraint implications, which utilize a standard logic for conditionals.	page 36
+§6	John Lyon, Ewa Czaykowska-Higgins	note	Micro-variation exists within these orbits, and is most apparently exhibited by second-position enclitics, such as the past tense marker ay̓. We propose higher-ranked word-promotion constraints for second-position clitics, which in some cases override linearization patterns found within the macro-pattern.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	heading	References	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Agbayani, Brian, and Golston, Chris. 2010. Phonological Movement in Classical Greek. Language 86.1: 133–167.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Antilla, Arto. 2001. Variation in Finnish phonology and morphology. Reviewed by Paul Boersma. Glot International 5:1, 31–40.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Baier, Nico. 2020. Oblique Arguments in Montana Salish: Separating Agreement and Licensing. Included in Festschrift Papers in Honor of Sally Thomason.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Bell, K. 2003. Observations of Particles and Clitics in Moses-Columbian (Nxaʔamxčín). University of Victoria ms.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Caldecott, Marion, and Ewa Czaykowska-Higgins. 2012. Prosodic Phrasing in Nxaʔamxčín (Salish) Declarative Clauses. Proceedings of the Annual Meeting of the Canadian Acoustics Association.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Czaykowska-Higgins, Ewa. 1993. Cyclicity and Stress in Moses-Columbian Salish (Nxaʔamxčín). Natural Language and Linguistic Theory 11:197–278.	page 36
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Czaykowska-Higgins, Ewa. 2019. A preliminary description of particle distributions in Nxaʔamxčín Salish. In: Lisa Matthewson, Erin Guntly, and Michael Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He Loves the People’s Languages. Essays in Honour of Henry Davis. Vancouver, BC: UBCOPL, 553–570.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Davis, Henry. 2018. From Here to Infinity in St’át’imcets. Presented at the annual Western Conference on Linguistics. Fresno, CA.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Elfner, Emily. 2012. Syntax-prosody interactions in Irish. PhD dissertation, University of Massachusetts, Amherst, MA.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	FPCC. 2018. Report on the Status of B.C. First Nations Languages, 2018. First Peoples’ Cultural Council, Brentwood Bay, BC.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Gerdts, Donna, and Adam Werle. 2014. Halkomelem Clitic Types. Morphology 24:245–281.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Golston, Chris. 2020. Towards a Non-recursive Prosodic Hierarchy. Presented at the 17th Old World Conference in Phonology (OCP), Warsaw, Poland.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Huijsmans, Marianne. 2015. Linearization and prosodic phrasing: The case of SENĆOŦEN second-position clitics. MA Thesis, University of Victoria.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Kinkade, M. Dale. 1974. Position Indicators in Columbian Salish. In: Papers for ICSNL 9.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Kinkade, M. Dale. 1976) Interior Salishan Particles. In: Papers for ICSNL 11, 120–147.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Kinkade, M. Dale. 1982. Interior Salishan Particles. Anthropological Linguistic. 23:327–343.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Lyon, John. 2018. Subject Raising and Null Copula Head Raising in Okanagan DP-DP Structures. Presented at the Annual Conference of the Canadian Linguistic Association. University of Regina. Regina, SK.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Lyon, John. 2019. Clitic Distributions and Domains in Okanagan Salish: A Preliminary Study. In: Lisa Matthewson, Erin Guntly, and Michael Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He Loves the People’s Languages. Essays in Honour of Henry Davis.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Vancouver, BC: UBCOPL, 139–154.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Lyon, John, and Ewa Czaykowska-Higgins. 2019. Linearizing Clitics in Two Interior Salish Languages: Nsyilxcn and Nxaʔamxčín. Presented at the annual Canadian Linguistic Association meeting, Vancouver, BC.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Mattina, Anthony. 1973. Colville Grammatical Structures. Ph.D. dissertation, University of Hawaii.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Mattina, Anthony. 1987. Colville-Okanagan Dictionary. Missoula, MT: University of Montana Occasional Papers in Linguistics.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Mattina, Anthony. 2000. Okanagan Sandhi and Morphophonemics. In: Papers for ICSNL 35. Vancouver: UBCWPL, 147–158.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Mattina, Nancy. 2002. Notes on Determiner Phrases in Moses-Columbia Salish. In: Papers for ICSNL 37. Vancouver: UBCWPL.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Nespor, Marina, and Irene Vogel. 1986. Prosodic phonology. Dordrecht: Foris.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Selkirk, Elisabeth. 1995. The prosodic structure of function words. In: Jill Beckman, Laura Walsh Dickey, and Suzanne Urbanczyk (eds.), Papers in Optimality Theory. Amherst: GLSA. 439– 469.	page 37
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Selkirk, Elisabeth. 2011. The Syntax-phonology interface. In: John Goldsmith, Jason Riggle and Alan Yu (eds.), The Handbook of Phonological Theory: Second edition. Malden, MA and Oxford, UK: Blackwell Publishing, 435–484.	page 38
+references	John Lyon, Ewa Czaykowska-Higgins	reference	Willett, Marie L. 2003. A Grammatical Sketch of Nxaʔamxcín. Ph.D. dissertation. University of Victoria. Appendix Abbreviations Abbreviation Translation Abbreviation Translation ASR assertive INTR intransitive AUT autonomous IPFV imperfective BOUL bouletic modal LOC locative CAUS causative transitivizer MID middle intransitivizer CISL cislocative NEG negative COMP complementizer NEG.FAC negative factual CONJ conjunction NMLZ nominalizer CONT continuative OBJ object DEM demonstrative OBL oblique DET determiner PAST past DIM diminutive PL plural DIR directive transitivizer POSS possessive DRV misc. derivational POT potential EPIS epistemic modal PROS prospective ERG ergative Q y/n question EVID evidential RECP reciprocal EXCL exclusive RED reduplication FRED final reduplication REFL reflexive FUT future RLT relational transitivizer GEN genitive SG singular IMP imperative STAT stative INCH inchoative TR transitive INDEP independent pronoun TRED total reduplication	page 38

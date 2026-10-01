@@ -1,0 +1,489 @@
+where	who	kind	form	gloss
+title	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	title	ʔe kʷénc us e tmíxʷ (when the land takes you) by c̓úʔsinek Marty Aspinall	the paper's title, carrying a footnote marked with a star
+title	nɬeʔkepmxcín	cited form	ʔe kʷénc us e tmíxʷ	when the land takes you, as the title gives it in parentheses. The same words close line 2 of the story and open line 3
+title	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	c̓úʔsinek (Marty Aspinall)	Coldwater Reserve. The teller of the story. Footnote * says she prefers to be referenced by her traditional name, and the paper asks to be cited as c̓úʔsinek et al 2025
+title	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	Reed Steiner, Ella Hannon, & Brent Hall	University of British Columbia. The transcribers and glossers, as §1.3 names them
+footer	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	citation	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL.	the proceedings line at the head of page 1, with Proceedings of ICSNL 61 in italics
+footnote *	Reed Steiner, Ella Hannon, and Brent Hall	note	This paper would not be possible without support and feedback from the nɬeʔkepmxcín lab (nɬab). c̓úʔsinek wishes to thank her céceʔ Stacey Michele, her sínciʔ Cyprian Bob, and Na'zinek Mandy Jimmie. Reed, Ella, and Brent thank c̓úʔsinek, kʷaɬtèzetkʷ (Bernice Garcia) and Bev Phillips for helping them learn about their language. ném kʷukʷstéyp! This project was funded by the UBC Indigenous Strategic Initiative (ISI) research grant. c̓úʔsinek prefers to be referenced in writing by her traditional name rather than her semeʔcín (English) surname, so this paper should be cited as (c̓úʔsinek et al 2025), not *(Aspinall et al 2025).	the footnote on the title. ném kʷukʷstéyp! is set in italics
+footnote *	nɬeʔkepmxcín	cited form	céceʔ	set before Stacey Michele's name as her relation to c̓úʔsinek. The page gives no English for it
+footnote *	nɬeʔkepmxcín	cited form	sínciʔ	set before Cyprian Bob's name as his relation to c̓úʔsinek. The page gives no English for it
+footnote *	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	Na'zinek Mandy Jimmie	thanked by c̓úʔsinek, and cited in §1.3 by personal communication on punctuation. The apostrophe is the straight ASCII one here and in §1.3
+footnote *	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	kʷaɬtèzetkʷ (Bernice Garcia)	thanked with Bev Phillips. The è is e and a combining grave, U+0300, in the text layer here, and a precomposed è, U+00E8, in the citation kʷaɬtèzetkʷ et al. 2024 on page 2
+footnote *	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	Bev Phillips	thanked with kʷaɬtèzetkʷ
+footnote *	nɬeʔkepmxcín	cited form	ném kʷukʷstéyp!	set in italics, with no English on the page
+footnote *	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	citation	(c̓úʔsinek et al 2025), not *(Aspinall et al 2025)	how the paper asks to be cited, with no period after al. The star marks the form not to use
+page 1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	notation	contact information	page 1 prints a contact line with three email addresses between footnote * and footnote 1. They are not transcribed here
+footnote 1	Reed Steiner, Ella Hannon, and Brent Hall	note	Thompson and Thompson reference at least nine dialects: Ashcroft, Boston Bar, Lytton, Merritt, Nicola Valley, Shulus, Spences Bridge, Spuzzum, and Thompson Siding. These labels do not necessarily reflect how speakers self-identify their own dialects, e.g. kʷałtèzetkʷ identifies her own speech as a c̓eɬétkʷu (Coldwater) dialect.	the footnote on the dialects of §1.1
+footnote 1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	name	kʷałtèzetkʷ	THE LATERAL IS ł, U+0142, HERE AND ɬ, U+026C, IN EVERY OTHER PLACE THE PAPER WRITES HER NAME. Transcribed as the text layer holds it
+abstract	Reed Steiner, Ella Hannon, and Brent Hall	note	Abstract: This paper presents a spílex̣m (narrative) as told by c̓úʔsinek (Marty Aspinall) in nɬeʔkepmxcín (“Thompson River Salish”, ISO 639-3: thp). The story recalls an encounter between her qéck (older brother) and a malicious spirit that took the form of their mother. c̓úʔsinek’s story is presented in the original nɬeʔkepmxcín, and accompanied by c̓úʔsinek’s semeʔcín (English) translation and a morpheme-by-morpheme gloss by Reed Steiner, Ella Hannon, and Brent Hall. We hope that publishing c̓úʔsinek’s story and accompanying materials will be useful for nɬeʔkepmxcín speakers and learners, as well as linguists.	the abstract
+abstract	nɬeʔkepmxcín	cited form	spílex̣m	narrative. The abstract has e in the second syllable and §1.2 has ə, spíləx̣m. Both recorded as printed
+abstract	nɬeʔkepmxcín	cited form	qéck	older brother
+abstract	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	semeʔcín	English, as the abstract, footnote * and the §3 heading gloss it
+abstract	Reed Steiner, Ella Hannon, and Brent Hall	note	Keywords: nɬeʔkepmxcín, narrative	the keyword line under the abstract
+§1	Reed Steiner, Ella Hannon, and Brent Hall	heading	1 Overview
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	heading	1.1 Language Background
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	note	nɬeʔkepmxcín (a.k.a. Nlaka’pamux, “Thompson River Salish”, ISO 639-3: thp) is a Northern Interior Salish language with about 100 fluent speakers (Gessner et al. 2023). It is primarily spoken along the Fraser and Thompson rivers: up the Fraser from the lower Fraser River Canyon toward Lillooet, up the Thompson from where it meets the Fraser toward Ashcroft, and along the Nicola River from where it meets the Thompson to just past Nicola Lake (Thompson and Thompson 1996: ix).	the first paragraph of §1.1
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	nɬeʔkepmxcín	the language of the story. Written with ɬ, U+026C, and an acute on the last i. The reference titles of Koch 2004 to 2007c and 2015 write Nɬeʔkepmxcin with no acute
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	Nlaka’pamux	another name for the language. The apostrophe is the curly U+2019
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	Thompson River Salish	the English name, in double quotes in the abstract and in §1.1, with the ISO 639-3 code thp
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Gessner et al. 2023)	for the count of about 100 fluent speakers
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Thompson and Thompson 1996: ix)	for where the language is spoken
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	note	Several regional dialects have been identified (see Thompson and Thompson 1996: xxv-xxvii). The Spuzzum dialect has the most documentation, as it is the primary object of study of Thompson and Thompson's grammar (1992) and dictionary (1996). There is also significant documentation on the ƛ̓q̓mcín (Lytton) dialect, which features heavily in work by Koch (2004, 2005, 2006a-c, 2007a-c, 2008, 2009, 2010, 2011a-c, 2012, 2013a-b, 2015), as well as more recent literature (Hall and Phillips 2024, Givens and Hall 2023, Hall 2023, Reid 2023). Documentation on the scwexmxcín (Nicola Valley) dialect and the closely related c̓eɬétkʷu (Coldwater) dialect has been increasing since 2023 (Hannon 2025, kʷaɬtèzetkʷ et al. 2024, Hannon 2024a-b, Hannon et al. 2023, Hannon & Smith 2023, Pirbaluti 2023).	the second paragraph of §1.1, running onto page 2. Footnote 1 follows xxvii). Thompson's is written with the straight ASCII apostrophe
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	(see Thompson and Thompson 1996: xxv-xxvii)	THE HYPHEN IN xxv-xxvii ENDS A LINE ON THE PAGE AND THE TEXT LAYER HOLDS IT AS U+FFFE. pypdfium2 reports a U+FFFE about 2.8 pt wide there. Read on the 300 dpi render enlarged three times, the page prints a hyphen after xxv at the line end, the same mark as the line-end hyphens of footnote 2
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	ƛ̓q̓mcín	the Lytton dialect
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	Koch (2004, 2005, 2006a-c, 2007a-c, 2008, 2009, 2010, 2011a-c, 2012, 2013a-b, 2015)	work on the Lytton dialect. The reference list has every year here but 2009
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Hall and Phillips 2024, Givens and Hall 2023, Hall 2023, Reid 2023)	more recent literature on the Lytton dialect
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	scwexmxcín	the Nicola Valley dialect, as §1.1 writes it with a plain w. §1.2 writes the same name scwew̓xmxcín. Both recorded as printed
+§1.1	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	c̓eɬétkʷu	the Coldwater dialect, closely related to the Nicola Valley dialect. Footnote 1 says kʷaɬtèzetkʷ identifies her speech as this dialect
+§1.1	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Hannon 2025, kʷaɬtèzetkʷ et al. 2024, Hannon 2024a-b, Hannon et al. 2023, Hannon & Smith 2023, Pirbaluti 2023)	documentation on the Nicola Valley and Coldwater dialects since 2023. Pirbaluti 2023 is listed in the references with no year
+§1.2	Reed Steiner, Ella Hannon, and Brent Hall	heading	1.2 Story Background
+§1.2	Reed Steiner, Ella Hannon, and Brent Hall	note	This spíləx̣m (‘narrative’) is told by c̓úʔsinek in the scwew̓xmxcín dialect of nɬeʔkepmxcín. In this story, c̓úʔsinek recalls an encounter between her qéck ‘older brother’ and a malicious spirit, which looked and sounded like their mother. Despite their mother’s instructions to stay put, c̓úʔsinek’s qéck followed the spirit's voice into the bush.	the first paragraph of §1.2. spirit's is written with the straight ASCII apostrophe and mother’s with the curly one
+§1.2	nɬeʔkepmxcín	cited form	spíləx̣m	narrative. The abstract writes spílex̣m
+§1.2	c̓úʔsinek, Reed Steiner, Ella Hannon, and Brent Hall	language	scwew̓xmxcín	THE DIALECT THE STORY IS TOLD IN, as §1.2 names it, with a glottalized w. §1.1 writes the Nicola Valley dialect scwexmxcín
+§1.2	nɬeʔkepmxcín	cited form	qéck	older brother
+§1.2	Reed Steiner, Ella Hannon, and Brent Hall	note	c̓úʔsinek shares this story now as a warning. She warns that if one does not listen to their elders, and if one does not take the proper precautions before going out on the land, then even today the land may take them. She hopes that the story will remind young people not to neglect their teachings when they go out on the land, and that their traditional practices and preparations exist for a good reason.	the second paragraph of §1.2, on why c̓úʔsinek tells the story
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	heading	1.3 Methodology
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	This story was recorded, told, and translated by c̓úʔsinek, and was transcribed and glossed by Steiner, Hannon, and Hall. The details of the transcription and glossing processes are explained here.	who did what. The story and its English are c̓úʔsinek's, and the transcription and the gloss are Steiner's, Hannon's and Hall's
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	In September of 2024, c̓úʔsinek recorded the story on her iPhone, and sent Steiner an .m4a file. The story was transcribed by Steiner and Hannon, using the North American Phonetic Alphabet (NAPA) as used by Thompson and Thompson (1992, 1996). Most words were spelled as in the dictionary (Thompson and Thomspon 1996), except where c̓úʔsinek's pronunciation differed significantly. False starts, fluency breaks, and repeated segments are not transcribed, per c̓úʔsinek's request. No punctuation or capitalization is used, following the preferences of both c̓úʔsinek and many members of the broader speech community (Na'zinek Mandy Jimmie, p.c.). A colon indicates rhetorical lengthening. For readability, each sentence is written on a separate line.	THE TRANSCRIPTION IS IN NAPA AS THOMPSON AND THOMPSON USE IT, WITH NO PUNCTUATION OR CAPITALS, AND A COLON MARKS RHETORICAL LENGTHENING. c̓úʔsinek's is written here with the straight ASCII apostrophe
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	damage	(Thompson and Thomspon 1996)	Thomspon, for Thompson. Transcribed as printed
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Na'zinek Mandy Jimmie, p.c.)	for the preference for no punctuation or capitalization
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	notation	a colon for rhetorical lengthening	the transcription lines write the colon in né:xʷm (4), ʔu: (15), (35) and (53), té:y (23), té:m (39) and (50), ʔó: (37) and zəlpí:yxe (51) and (52). The segmentation tiers drop it everywhere but (53), which writes ʔu:
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	All English translations are in c̓úʔsinek's own words. To collect translations, Steiner met with c̓úʔsinek over Zoom, played a segment of audio, and asked for its meaning in English. Audio was repeated as many times as necessary. These meetings occurred regularly from September to late October 2024, with occasional follow-up meetings through June 2025. c̓úʔsinek often made additional comments about the story during these meetings; those comments that pertain to the transcription and interpretation have been included in the footnotes. Occasionally, c̓úʔsinek chose to replace a word or phrase with one that differs from the recording, for the sake of clarity or precision.	THE TRANSLATIONS ARE c̓úʔsinek'S OWN WORDS. The footnotes that open with her name and a colon quote her comments
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	After the story was transcribed and translated, a four-line gloss was written by Steiner, Hannon, and Hall following the nɬeʔkepmxcín lab standards (see e.g. Stacey 2025), with a few minor points of difference indicated here.	the four tiers of §4 are the orthographic line, the segmentation, the gloss and the translation
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	citation	(see e.g. Stacey 2025)	for the nɬeʔkepmxcín lab standards. Stacey 2025 is not in the reference list
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	The orthographic line (line 1) records the language as spoken by c̓úʔsinek, following the conventions used in the grammar and dictionary, with a minor point of divergence. The point of divergence is that each proclitic string is written as an independent word, following previous examples of c̓úsinek’s own writing.	why the orthographic lines write proclitics as separate words, as ɬ skíxzeʔkt, where the segmentation joins them, ɬ=s-kíxzeʔ-kt
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	damage	c̓úsinek’s own writing	c̓úsinek, with no glottal stop after the u, where every other place in the paper writes c̓úʔsinek. Transcribed as printed
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	The segmentation line (line 2) divides the nɬeʔkepmxcín into its morphemes, i.e. the smallest possible units of meaning. Only synchronically separable morphemes are segmented.	the segmentation tier
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	The gloss line (line 3) labels each segment following the conventions of the nɬeʔkepmxcín lab). Differences in labeling are indicated in the footnotes.	the gloss tier
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	damage	the nɬeʔkepmxcín lab).	a closing parenthesis with no opening one. Transcribed as printed
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	The translation line (line 4) provides c̓úʔsinek’s English translation. We emphasize that the English translation does not precisely resemble the nɬeʔkepmxcín: much of the original meaning is lost in translation, and the English sometimes adds details that aren’t encoded in the original nɬeʔkepmxcín.	the translation tier, opening page 3
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	note	We encourage the reader to listen to the accompanying audio while reading the story in its original nɬeʔkepxmcín. The English translation and gloss are intended as learning tools, to help the reader better understand the nɬeʔkepmxcín. We believe the gloss is an especially useful tool for advanced learners, since it divides each nɬeʔkepmxcín word into the smallest units of meaning.	the audio is named here and is not part of this table
+§1.3	Reed Steiner, Ella Hannon, and Brent Hall	damage	nɬeʔkepxmcín	x before m, where every other place in the paper writes nɬeʔkepmxcín. Transcribed as printed
+§1.4	Reed Steiner, Ella Hannon, and Brent Hall	heading	1.4 Outline
+§1.4	Reed Steiner, Ella Hannon, and Brent Hall	note	The rest of the paper is structured as follows. Section 2 includes the written transcription of the original nɬeʔkepmxcín, with dialogue indented. Section 3 includes the full semeʔcín (English) translation, which we provide as a tool for learners, not as a replacement for the nɬeʔkepmxcín. Section 4 includes the four-line interlinear gloss.	THE STORY IS PRINTED THREE TIMES: running in §2, line by line over its English in §3, and as seventy-one numbered examples in §4
+§2	Reed Steiner, Ella Hannon, and Brent Hall	heading	2 nɬeʔkepmxcín
+§2 line 1	nɬeʔkepmxcín	transcription	ɬ xín̓ us	printed again as (1) and in §3
+§2 line 2	nɬeʔkepmxcín	transcription	ʔe tém us teʔks mnúnxʷ eʔsk̓ik̓íye ʔe cuném̓ec us ƛ̓uʔ xʷúy̓ kʷénc e tmíxʷ	printed again as (2) and in §3
+§2 line 3	nɬeʔkepmxcín	transcription	ƛ̓uʔ xʷúy̓ kʷénc e tmíxʷ pz̓éɬ ɬéʔe ʔe ʔéx uxʷ téʔe píx̣m̓ k̓ətním̓ ʔeɬ kʷném kʷ teʔ xʷiʔcín teʔ te sq̓ʷít	printed again as (3) and in §3. §2 and §3 end in sq̓ʷít and (3) ends in sq̓ʷíyt
+§2 line 4	nɬeʔkepmxcín	transcription	ʔe cuném̓ec us eʔsk̓ik̓íye keʔs ʔéx ne cúʔit us né:xʷm xeʔ xʷúy̓ es k̓éy̓nimnxʷ	printed again as (4) and in §3
+§2 line 5	nɬeʔkepmxcín	transcription	ʔéy ʔé wiʔ xeʔ témn̓ ɬ nqéck kícx kt u cíʔe wɬ koqəhála	printed again as (5) and in §3
+§2 line 6	nɬeʔkepmxcín	transcription	ʔé meɬ xeʔ sxʷíʔms ɬ nskíxzeʔ te c̓əlc̓ále	printed again in §3 as here, and as (6) with es xʷíʔms where §2 and §3 have xeʔ sxʷíʔms
+§2 line 7	nɬeʔkepmxcín	transcription	púnmxtis ʔé scúntit ɬ skíxzeʔkt	printed again in §3 as here, and as (7) with ʔés cúntit where §2 and §3 have ʔé scúntit
+§2 line 8	nɬeʔkepmxcín	transcription	ʔéxuze n ʔéye q̓ʷyáw̓m	printed again as (8) and in §3
+§2 line 9	nɬeʔkepmxcín	transcription	xʷúy̓ kn nés xʷúy̓ceʔ xʷíʔm tk y̓é tk c̓əlc̓ále	printed again as (9) and in §3
+§2 line 10	nɬeʔkepmxcín	transcription	ʔés qʷcíyxs ɬ nskíxzeʔ	printed again as (10) and in §3
+§2 line 11	nɬeʔkepmxcín	transcription	ʔéx meɬ tu xʷéʔe ʔesqeʔnímes ɬ nqéck wéwetm	printed again as (11) and in §3
+§2 line 12	nɬeʔkepmxcín	transcription	nés ʔeɬ txʷúsm ƛ̓əɬ ʔéx ʔeɬ tu xʷéʔe ɬ skíxzeʔkt wéwetm	printed again as (12) and in §3
+§2 line 13	nɬeʔkepmxcín	transcription	pe cúntis témn̓ e skíxzeʔ cwus keʔs ʔéx teʔ tʕʷíyx tk cwus teʔ keʔs xʷesít ʔéxweʔ ƛ̓uʔ nʔé	ONE LINE IN §2, TWO IN §3 AND TWO EXAMPLES IN §4, (13) and (14), split after skíxzeʔ. §2 and §3 write cwus twice where (14) writes cúws
+§2 line 14	nɬeʔkepmxcín	transcription	heʔéy ʔu: téy wiʔ	printed again as (15) and in §3. From this line on each §2 line N is example N+1
+§2 line 15	nɬeʔkepmxcín	transcription	ʔé meɬ xeʔs wéwetm ekʷu k c̓íy t hén̓ es k̓ʷen̓n̓s xéʔ tk smúɬec ekʷu	printed again in §3 as here, and as (16) with es where §2 and §3 have xeʔs
+§2 line 16	nɬeʔkepmxcín	transcription	c̓íy ekʷu teʔ e skíxzeʔkt es k̓ʷén̓n̕s ʔeswéwes ɬ nqéck	printed again as (17) and in §3
+§2 line 17	nɬeʔkepmxcín	transcription	nés txʷúsm ɬ nqéck ƛ̓uʔ ʔéx ʔeɬ u c̓íye ʔeɬ e mə̣̣́m	printed again as (18) and in §3. mə̣̣́m holds two U+0323, see the symbol note at (18)
+§2 line 18	nɬeʔkepmxcín	transcription	ʔéx ʔeɬ u cíʔe wéwecms	printed again as (19) and in §3
+§2 line 19	nɬeʔkepmxcín	transcription	xʷúy̓ kn nés kéyes e mə̣̣́m	printed again as (20) and in §3
+§2 line 20	nɬeʔkepmxcín	transcription	kícx ʔeɬ u cíʔe wɬə ʔéx us ɬə̣́n̓e ɬə skíxzeʔkt	printed again as (21) and in §3
+§2 line 21	nɬeʔkepmxcín	transcription	ƛ̓əɬ nwén̓ ekʷu ʔeɬ qʷcíyx x̣áƛ̓m we sqʷəmqʷóqʷm̓	printed again as (22) and in §3
+§2 line 22	nɬeʔkepmxcín	transcription	té:y wiʔ ƛ̓uʔ wéwetm xʷúy̓ceʔ nexíc e skʷésts nqéck	printed again as (23) and in §3
+§2 line 23	nɬeʔkepmxcín	transcription	ʔúyxʷeʔ	printed again as (24) and in §3, and again as §2 line 42, (44) and in §3
+§2 line 24	nɬeʔkepmxcín	transcription	téy wiʔ x̣ʷə̣́nt x̣ʷyékste meɬ	printed again as (25) and in §3. The last line of page 3
+§2 line 25	nɬeʔkepmxcín	transcription	ʔé meɬ neʔs tʕʷíyxs ɬ nqéck	printed again as (26) and in §3
+§2 line 26	nɬeʔkepmxcín	transcription	k̓ʷínexʷ us nke téʔe es x̣íyms teʔ témn̓	printed again as (27) and in §3
+§2 line 27	nɬeʔkepmxcín	transcription	ƛ̓əɬ nés ʔeɬ p̓én̓t ɬ nskíxzeʔ w ʔéx ut témn̓	printed again in §3 as here, and as (28) with we where §2 and §3 have w
+§2 line 28	nɬeʔkepmxcín	transcription	ʔés k̓ʷen̓ek̓ʷén̓etis	printed again as (29) and in §3
+§2 line 29	nɬeʔkepmxcín	transcription	u hén̓ ƛ̓əm̓ ɬ eʔqéck	printed again as (30) and in §3
+§2 line 30	nɬeʔkepmxcín	transcription	ʔés cúntm ɬ skíxzeʔkt	printed again as (31) and in §3
+§2 line 31	nɬeʔkepmxcín	transcription	yc̓óxʷ ƛ̓əɬ wéʔe qʷcíyx u ciʔ w ɬéʔe	printed again as (32) and in §3
+§2 line 32	nɬeʔkepmxcín	transcription	ʔés cúntis ɬ skíxzeʔkt	printed again as (33) and in §3
+§2 line 33	nɬeʔkepmxcín	transcription	míceʔquze tém us teʔks xʷesítep	printed again as (34) and in §3
+§2 line 34	nɬeʔkepmxcín	transcription	ʔés tʕʷíyxs ɬ nskíxzeʔ ʔu: tk tʕʷíyx	printed again as (35) and in §3
+§2 line 35	nɬeʔkepmxcín	transcription	xʷúy̓ nés xʷíʔes ɬ nqéck	printed again as (36) and in §3
+§2 line 36	nɬeʔkepmxcín	transcription	ʔó: tk q̕ax̣ném nke ɬ nskíxzeʔ	printed again as (37) and in §3
+§2 line 37	nɬeʔkepmxcín	transcription	netés he skʷésts ɬ nqéck	printed again as (38) and in §3
+§2 line 38	nɬeʔkepmxcín	transcription	té:m us teʔ keʔs nés u cíʔe	printed again as (39) and in §3
+§2 line 39	nɬeʔkepmxcín	transcription	səlkíyxe ks kʷén̓ecmxʷ	printed again as (40) and in §3
+§2 line 40	nɬeʔkepmxcín	transcription	tʕʷíyx ɬ nskíxzeʔ tʕʷíyx xʷúy̓ceʔ	printed again as (41) and in §3
+§2 line 41	nɬeʔkepmxcín	transcription	netés e skʷésts ɬ nqéck ƛ̓uʔ wíkc xʷúy̓ceʔ ɬ nqéck u cíʔe wɬe sxéʔxeʔts e sqʷóqʷm̓	printed again as (42) and in §3
+§2 line 42	nɬeʔkepmxcín	transcription	ƛ̓əɬ ʔéx xeʔ u cíʔe skíxzeʔkt wéwes ɬ nqéck	printed again as (43) and in §3
+§2 line 43	nɬeʔkepmxcín	transcription	ʔúyxʷeʔ	printed again as (44) and in §3
+§2 line 44	nɬeʔkepmxcín	transcription	x̣ʷyékste meɬ	printed again as (45) and in §3
+§2 line 45	nɬeʔkepmxcín	transcription	ném eʔs ʔesk̓ín	printed again as (46) and in §3
+§2 line 46	nɬeʔkepmxcín	transcription	ʔé meɬ neʔs x̣áƛ̓ms ɬ nqéck	printed again as (47) and in §3
+§2 line 47	nɬeʔkepmxcín	transcription	xʷúy̓ nke nés u cíʔe e ʔéx us ɬ skíxzeʔkt	printed again as (48) and in §3
+§2 line 48	nɬeʔkepmxcín	transcription	ʔé meɬ neʔ es nk̓ítem ɬ skíxzeʔ nmímɬ	printed again in §3 as here, and as (49) with nk̓ítetm where §2 and §3 have nk̓ítem
+§2 line 49	nɬeʔkepmxcín	transcription	té:m us teʔ keʔs x̣áƛ̓m	printed again as (50) and in §3
+§2 line 50	nɬeʔkepmxcín	transcription	zəlpí:yxe ks k̓ʷén̓ecmxʷ	printed again as (51) and in §3
+§2 line 51	nɬeʔkepmxcín	transcription	zəlpí:yxe ks k̓ʷén̓ecmxʷ	printed again as (52) and in §3, the same words as line 50
+§2 line 52	nɬeʔkepmxcín	transcription	ʔu: tk nəxʷcín nke ɬ nskíxzeʔ témn̓	printed again as (53) and in §3
+§2 line 53	nɬeʔkepmxcín	transcription	ʔé ƛ̓uʔ xeʔs nk̓ítes	printed again as (54) and in §3
+§2 line 54	nɬeʔkepmxcín	transcription	ʔeɬƛ̓uʔ zəlpíyx ʔéyɬ ɬ nqéck	printed again as (55) and in §3
+§2 line 55	nɬeʔkepmxcín	transcription	ʔés k̓ʷén̓es ɬ skíxzeʔkt	printed again as (56) and in §3
+§2 line 56	nɬeʔkepmxcín	transcription	cút	printed again as (57) and in §3. The last line of page 4
+§2 line 57	nɬeʔkepmxcín	transcription	ʔéx ʔeɬ kénm	printed again as (58) and in §3
+§2 line 58	nɬeʔkepmxcín	transcription	zəlpíyx xʷúy̓ceʔ txʷúsm u cíʔ wɬə sqʷóqʷm̓	printed again as (59) and in §3
+§2 line 59	nɬeʔkepmxcín	transcription	ƛ̓əɬ nwén̓ ƛ̓əm̓ ɬə̣́n̕e ɬ c̓íy teʔ skíxzeʔkt	printed again as (60) with teʔ, and in §3 with te
+§2 line 60	nɬeʔkepmxcín	transcription	tetéʔ ks wiknwén̓s xʷúy̓ceʔ	printed again as (61) and in §3
+§2 line 61	nɬeʔkepmxcín	transcription	kʷéns ɬ nqéck ɬ nskíxzeʔ ʔés cúts	printed again as (62) and in §3
+§2 line 62	nɬeʔkepmxcín	transcription	hécu nés kt sóx̣ʷest	printed again as (63) and in §3
+§2 line 63	nɬeʔkepmxcín	transcription	tém us teʔ keʔs páqʷuʔ ʔéx kn n ʔéye ʔéyɬ	printed again as (64) and in §3
+§2 line 64	nɬeʔkepmxcín	transcription	hécu	printed again as (65) and in §3
+§2 line 65	nɬeʔkepmxcín	transcription	ʔés qʷcíyxs	printed again as (66) and in §3
+§2 line 66	nɬeʔkepmxcín	transcription	ʔés soxʷestíyxs	printed again as (67) and in §3
+§2 line 67	nɬeʔkepmxcín	transcription	ʔés kícetis	printed again as (68) and in §3
+§2 line 68	nɬeʔkepmxcín	transcription	ʔés néskt u cíʔ xʷúy̓ceʔ wɬ xʷeʔpítkt ʔey	printed again as (69) and in §3
+§2 line 69	nɬeʔkepmxcín	transcription	ném xʷúy̓ es k̓éynimnxʷ e sʔíʔtm̓kt e cúntit ʔéx ut kénm néʔ ʔéx ut u cíʔe wɬe sqʷə̣́mqʷə̣́m	printed again in §3 with e cúntit and a final m̓, and as (70) with ʔe cúntit and a final m
+§2 line 70	nɬeʔkepmxcín	transcription	húm̓eɬ cukʷ	printed again as (71) and in §3
+§2	Reed Steiner, Ella Hannon, and Brent Hall	notation	seventy lines	§2 prints the story in seventy lines, pages 3 to 5, with dialogue indented. The indent is not recorded here
+§3	Reed Steiner, Ella Hannon, and Brent Hall	heading	3 semeʔcín (English)
+§3	Reed Steiner, Ella Hannon, and Brent Hall	notation	§3 against §2 and §4	§3 prints each nɬeʔkepmxcín line over its English, splitting §2 line 13 in two as §4 does. Its nɬeʔkepmxcín lines match §2 word for word in all but two places, (60) and (70), each with its own row below. Its English lines match the translation tier of §4 in all but five places, the quotation marks and apostrophes of (34), (63), (64), (65) and (70), each with its own row below
+§3 (60)	nɬeʔkepmxcín	transcription	ƛ̓əɬ nwén̓ ƛ̓əm̓ ɬə̣́n̕e ɬ c̓íy te skíxzeʔkt	te, where §2 line 59 and (60) have teʔ
+§3 (70)	nɬeʔkepmxcín	transcription	ném xʷúy̓ es k̓éynimnxʷ e sʔíʔtm̓kt e cúntit ʔéx ut kénm néʔ ʔéx ut u cíʔe wɬe sqʷə̣́mqʷə̣́m̓	ends in a glottalized m̓, where §2 line 69 and (70) end in a plain m
+§3 (34)	c̓úʔsinek	translation	“Sit down, don’t go walking around.”	in double quotes, where (34) sets it in single quotes
+§3 (63)	c̓úʔsinek	translation	“Let’s go down.”	with no space after the opening quote, where (63) has one
+§3 (64)	c̓úʔsinek	translation	“Don’t be afraid, I’m here now.”	Don’t with the curly apostrophe, where (64) has the straight one
+§3 (65)	c̓úʔsinek	translation	“Let's go.”	Let's with the straight ASCII apostrophe, where (65) has the curly one
+§3 (70)	c̓úʔsinek	translation	‘You really have to pay attention [to] our parents when they advise us and guide us when we’re out on the land.’	we’re with the curly apostrophe, where (70) has the straight one
+§4	Reed Steiner, Ella Hannon, and Brent Hall	heading	4 Interlinear Gloss	the heading carries footnote 2, written here without its digit
+footnote 2	Reed Steiner, Ella Hannon, and Brent Hall	note	The glossing abbreviations used in this paper are as follows: 1 = 1st person, 2 = 2nd person, 2CL= 2nd position clitic, 3 = 3rd person, ADD = additive, AUG = augmentative reduplication, CHR = characteristic reduplication, COMP = complementizer, COP = (equational) copula, COS = change-of-state (reduplication), CTR = control, DEM = demonstrative, DET = determiner, DIM = diminutive reduplication, D/C = determiner-complementizer, EMPH = emphatic (prefix), ERG = ergative (transitive) subject, EXCL = exclusive, EXCLM = exclamative, IMP = imperative, INCH = inchoative, INDEP = independent pronoun, INFER = inferential evidential, INTR = intransitivizer, IPFV = imperfective, LC = limited control, LOC = locative, MID = middle, NEG = negation, NMLZ = nominalizer, OBJ = object, OBL = oblique, PASS = passive, PDE = previous direct evidence, PL = plural, PROSP = prospective, POSS = possessive, RDR = redirective applicative, RLT = relational applicative, REM = remote, RPRT = reportative evidential, RES = resultative, SG = singular, STAT = stative, SBJ = (indicative) subject, SBJV = subjunctive, TR = transitivizer, WH = wh-element. Prefix and suffix boundaries are indicated with a hyphen (-). Reduplicating infixes are enclosed between less-than-or-approximately-equivalent-to signs (≲ ≳). Other infixes are enclosed between angle brackets (< >). Clitic boundaries are marked with equal signs (=). Reduplication is marked with a tilde (~).	the abbreviations are set in small capitals. 2CL= has no space before the equals sign. THE HYPHENS AFTER determiner AND approximately END LINES ON THE PAGE AND THE TEXT LAYER HOLDS EACH AS U+FFFE, about 2.5 pt wide. Read on the 300 dpi render, the page prints a hyphen at each
+footnote 2	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	≲ ≳	the brackets of a reduplicating infix, U+2272 LESS-THAN OR EQUIVALENT TO and U+2273 GREATER-THAN OR EQUIVALENT TO. Used in (22), (42) and (59)
+(1)	nɬeʔkepmxcín	transcription	ɬ xín̓ us	the unbroken line
+(1)	nɬeʔkepmxcín	segmentation	ɬ=xín=us	COMP=long.time=3SBJV
+(1)	c̓úʔsinek	translation	‘A long time ago,’	c̓úʔsinek's English, as §1.3 says of every translation
+(1)	Reed Steiner, Ella Hannon, and Brent Hall	notation	xín̓ against xín	the unbroken line has a glottalized n and the segmentation a plain one. Both recorded as printed
+(2)	nɬeʔkepmxcín	transcription	ʔe tém us teʔks mnúnxʷ eʔsk̓ik̓íye ʔe cuném̓ec us ƛ̓uʔ xʷúy̓ kʷénc e tmíxʷ	the unbroken line
+(2)	nɬeʔkepmxcín	segmentation	ʔe=tém=us=teʔ k=s=mnú-n-[t]-∅-[e]xʷ eʔ-s-k̓əy~k̓íye ʔe=cuném̓-n-t-s[i]-[e]s=us ƛ̓uʔ xʷúy̓=∅ kʷén-[n]-t-s[i]-[e]s e=tmíxʷ	COMP=NEG=3SBJV=NEG D/C=NMLZ=notice-CTR-TR-3OBJ-2SG.ERG 2SG.POSS-NMLZ-AUG~elder COMP=advise-CTR-TR-2SG.OBJ-3ERG=3SBJV then PROSP=3SBJ take-CTR-TR-2SG.OBJ-3ERG DET=land
+(2)	c̓úʔsinek	translation	‘If you don’t listen to your elders and pay attention to what they’re saying, then the land will take you.’	c̓úʔsinek's English
+(3)	nɬeʔkepmxcín	transcription	ƛ̓uʔ xʷúy̓ kʷénc e tmíxʷ pz̓éɬ ɬéʔe ʔe ʔéx uxʷ téʔe píx̣m̓ k̓ətním̓ ʔeɬ kʷném kʷ teʔ xʷiʔcín teʔ te sq̓ʷíyt	the unbroken line, running onto a second line at sq̓ʷíyt. ɬéʔe carries footnote 3, written here without its digit. §2 line 3 and §3 end in sq̓ʷít
+(3)	nɬeʔkepmxcín	segmentation	pz̓éɬ=∅ ɬéʔe ʔe=ʔéx=uxʷ téʔe píx̣-m̓ k̓ətní-m̓ ʔeɬ kʷné-m=kʷ téʔ xʷiy̓-cín teʔ t=e=s-q̓ʷə̣́y-t	worthless=3SBJ REM.DEM COMP=IPFV=2SG.SBJV DEM hunt-CTR.MID rod.fish-CTR.MID or take-CTR.MID=2SG.SBJ DEM search-mouth DEM OBL=DET=NMLZ-ripe-INTR. THE SEGMENTATION STARTS AT pz̓éɬ. The words before it close (2) and are segmented there. The example runs from page 10 onto page 11 after search-mouth
+(3)	c̓úʔsinek	translation	‘It doesn’t matter if you’re hunting or you’re fishing or you’re harvesting berries.’	c̓úʔsinek's English
+(3)	Reed Steiner, Ella Hannon, and Brent Hall	notation	téʔ against teʔ	the segmentation writes the first teʔ of the unbroken line as téʔ with an acute, and the second as teʔ. Both recorded as printed
+(3)	Reed Steiner, Ella Hannon, and Brent Hall	notation	xʷiʔcín against xʷiy̓-cín	the unbroken line has a glottal stop where the segmentation has y̓. Both recorded as printed
+footnote 3	Reed Steiner, Ella Hannon, and Brent Hall	note	The demonstrative ɬéʔe is rare: Thompson and Thompson (1992: 136) call it ‘established remote’, and so we tentatively treat it as a remote demonstrative. More research is needed.	why ɬéʔe is glossed REM.DEM in (3). ɬéʔe is set in italics
+footnote 3	nɬeʔkepmxcín	cited form	ɬéʔe	the demonstrative Thompson and Thompson call established remote
+footnote 3	Reed Steiner, Ella Hannon, and Brent Hall	citation	Thompson and Thompson (1992: 136)
+(4)	nɬeʔkepmxcín	transcription	ʔe cuném̓ec us eʔsk̓ik̓íye keʔs ʔéx ne cúʔit us né:xʷm xeʔ xʷúy̓ es k̓éy̓nimnxʷ	the unbroken line
+(4)	nɬeʔkepmxcín	segmentation	ʔe=cuném̓-n-t-s[i]-[e]s=us eʔ-s-k̓əy~k̓iye k=eʔ=s=ʔéx n=e=cú<ʔi>t=us néxʷm=∅ xeʔ xʷúy̓ e=s=k̓éy̓ni-m[i]n-[t]-∅-[e]xʷ	COMP=advise-CTR-TR-2SG.OBJ-3ERG=3SBJV 2SG.POSS-NMLZ-AUG~elder D/C=2SG.POSS=NMLZ=be at=DET=say<PL>=3SBJV intense=3SBJ DEM PROSP D/C=NMLZ=listen-RLT-TR-3OBJ-2SG.ERG. xeʔ carries footnote 4, written here without its digit. The gloss be at is two words, as printed
+(4)	c̓úʔsinek	translation	‘When the elders tell you to be somewhere, you really have to listen and hear what they’re saying.’	c̓úʔsinek's English. It carries footnote 5
+(4)	Reed Steiner, Ella Hannon, and Brent Hall	notation	k̓iye against k̓íye	the segmentation of (4) writes k̓əy~k̓iye with no acute, where (2) and the unbroken line of (4) have k̓íye. Both recorded as printed
+footnote 4	Reed Steiner, Ella Hannon, and Brent Hall	note	It is unclear whether the demonstrative xeʔ is itself a clitic, since demonstratives can independently surface in second position by syntactic means (see e.g. Koch 2006b). There is some phonetic evidence that at least xéʔ(e) ‘that’ can be a clitic (see Koch 2008b), but more research is needed. In this paper, we do not gloss any demonstrative as a clitic.	why xeʔ is glossed DEM and written as a word of its own
+footnote 4	nɬeʔkepmxcín	cited form	xeʔ	the demonstrative
+footnote 4	nɬeʔkepmxcín	cited form	xéʔ(e)	that. The parentheses are the paper's
+footnote 4	Reed Steiner, Ella Hannon, and Brent Hall	citation	(see e.g. Koch 2006b)	listed
+footnote 4	Reed Steiner, Ella Hannon, and Brent Hall	citation	(see Koch 2008b)	not listed. The reference list has a single Koch 2008 and no 2008a or 2008b
+footnote 5	c̓úʔsinek	note	c̓úʔsinek: “The tone of voice and volume talk about how important that piece of advice is.”	c̓úʔsinek's comment on (4)
+(5)	nɬeʔkepmxcín	transcription	ʔéy ʔé wiʔ xeʔ témn̓ ɬ nqéck kícx kt u cíʔe wɬ koqəhála	the unbroken line
+(5)	nɬeʔkepmxcín	segmentation	ʔéy ʔé=∅=wiʔ xeʔ témn̓ ɬ=n-qéck kícx=kt w=cíʔe w=ɬ=koqəhála	yes COP=3SBJ=EMPH DEM you.know DET.REM=1SG.POSS-older.brother come=1PL.SBJ to=there to=DET.REM=Coquihalla
+(5)	c̓úʔsinek	translation	‘This is about my older brother, and we got to Coquihalla.’	c̓úʔsinek's English
+(5)	nɬeʔkepmxcín	place	koqəhála	Coquihalla
+(5)	Reed Steiner, Ella Hannon, and Brent Hall	notation	DET.REM against REM.DET	the gloss of ɬ= is DET.REM here and in most examples, and REM.DET in (7) and (26). Both recorded as printed
+(6)	nɬeʔkepmxcín	transcription	ʔé meɬ es xʷíʔms ɬ nskíxzeʔ te c̓əlc̓ále	the unbroken line. §2 line 6 and §3 have xeʔ sxʷíʔms where this has es xʷíʔms
+(6)	nɬeʔkepmxcín	segmentation	ʔé=∅=meɬ e=s=xʷíy̓-m=s ɬ=n-s-kíxzeʔ t=e=c̓əlc̓ále	COP=3SBJ=2CL D/C=NMLZ=look.for-CTR.MID=3POSS DET.REM=1SG.POSS-NMLZ-mother OBL=DET=huckleberry
+(6)	c̓úʔsinek	translation	‘And while we were there, my mother looked for huckleberry patches.’	c̓úʔsinek's English
+(7)	nɬeʔkepmxcín	transcription	púnmxtis ʔés cúntit ɬ skíxzeʔkt	the unbroken line. §2 line 7 and §3 have ʔé scúntit where this has ʔés cúntit
+(7)	nɬeʔkepmxcín	segmentation	pún-m[in]-x[i]-t-[e]y-[e]s=∅ ʔé=∅ [e]=s=cún-t-[e]y-[e]t [t]=ɬ=s-kíxzeʔ-kt	find-RLT-RDR-TR-1PL.OBJ-3ERG=3SBJ COP=3SBJ D/C=NMLZ=say-TR-1PL.OBJ-PASS OBL=REM.DET=NMLZ-mother-1PL.POSS
+(7)	c̓úʔsinek	translation	‘She found some and our mother told us,’	c̓úʔsinek's English
+(8)	nɬeʔkepmxcín	transcription	ʔéxuze n ʔéye q̓ʷyáw̓m	the unbroken line
+(8)	nɬeʔkepmxcín	segmentation	ʔéx-uz-e=∅ n=ʔéye q̓ʷy-áw̓-m	be-PL-IMP=3SBJ at=here ripe-harvest-CTR.MID
+(8)	c̓úʔsinek	translation	“You stay here and pick.”	c̓úʔsinek's English, in double quotes as dialogue
+(9)	nɬeʔkepmxcín	transcription	xʷúy̓ kn nés xʷúy̓ceʔ xʷíʔm tk y̓é tk c̓əlc̓ále	the unbroken line
+(9)	nɬeʔkepmxcín	segmentation	xʷúy̓=kn nés xʷúy̓ceʔ xʷíy̓-m t=k=y̓é t=k=c̓əlc̓ále	PROSP=1SG.SBJ go more look.for-CTR.MID OBL=DET=good OBL=DET=huckleberry
+(9)	c̓úʔsinek	translation	“I am going to go again to find some more huckleberries.”	c̓úʔsinek's English
+(10)	nɬeʔkepmxcín	transcription	ʔés qʷcíyxs ɬ nskíxzeʔ	the unbroken line
+(10)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=qʷc-íyx=s ɬ=n-s-kíxzeʔ	COP=3SBJ D/C=NMLZ=move-body=3POSS DET.REM=1SG.POSS-NMLZ-mother
+(10)	c̓úʔsinek	translation	‘And then my mother left.’	c̓úʔsinek's English
+(11)	nɬeʔkepmxcín	transcription	ʔéx meɬ tu xʷéʔe ʔesqeʔnímes ɬ nqéck wéwetm	the unbroken line
+(11)	nɬeʔkepmxcín	segmentation	ʔéx=∅=meɬ tw=xéʔe ʔes-qeʔním-n-[t]-∅-[e]s ɬ=n-qéck wéw-n-t-∅-[e]m=∅	IPFV=3SBJ=2CL from=DEM STAT-hear-CTR-TR-3OBJ-3ERG DET.REM=1SG.POSS-brother call-CTR-TR-3OBJ-PASS=3SBJ
+(11)	c̓úʔsinek	translation	‘As he was going along, my brother heard someone call him.’	c̓úʔsinek's English
+(11)	Reed Steiner, Ella Hannon, and Brent Hall	notation	xʷéʔe against tw=xéʔe	the unbroken lines of (11) and (12) have tu xʷéʔe with a raised w and the segmentations tw=xéʔe with none on the x. Both recorded as printed
+(11)	Reed Steiner, Ella Hannon, and Brent Hall	notation	brother against older.brother	qéck is glossed brother in (11) and (62), elder.brother in (17) and (18), and older.brother everywhere else. Each recorded as printed
+(12)	nɬeʔkepmxcín	transcription	nés ʔeɬ txʷúsm ƛ̓əɬ ʔéx ʔeɬ tu xʷéʔe ɬ skíxzeʔkt wéwetm	the unbroken line
+(12)	nɬeʔkepmxcín	segmentation	nés=∅=ʔeɬ txʷ-ús-m ƛ̓əɬ ʔéx=ʔeɬ tw=xéʔe [t]=ɬ=s-kíxzeʔ-kt wéw-n-t-∅-[e]m	go=3SBJ=ADD look-face-CTR.MID now be=ADD from=DEM OBL=DET.REM=NMLZ-mother-1PL.POSS call-CTR-TR-3OBJ-PASS. The page breaks the segmentation line after txʷ and sets -ús-m at the head of the next line. Joined here
+(12)	c̓úʔsinek	translation	‘He turned around to look, and there was mother calling him.’	c̓úʔsinek's English. It carries footnote 6
+footnote 6	c̓úʔsinek	note	c̓úʔsinek: “Up the hill is the implication.”	c̓úʔsinek's comment on (12)
+(13)	nɬeʔkepmxcín	transcription	pe cúntis témn̓ e skíxzeʔ	the unbroken line, the first half of §2 line 13
+(13)	nɬeʔkepmxcín	segmentation	pe cún-t-[e]y-[e]s=∅ témn̓ e=s-kíxzeʔ-kt	but say-TR-1PL.OBJ-3ERG=3SBJ you.know DET=NMLZ-mother-1PL.POSS
+(13)	c̓úʔsinek	translation	‘Our mother told us’	c̓úʔsinek's English, with no final punctuation
+(13)	Reed Steiner, Ella Hannon, and Brent Hall	notation	skíxzeʔ against s-kíxzeʔ-kt	the segmentation adds -kt, 1PL.POSS, which the unbroken line does not have. Both recorded as printed
+(14)	nɬeʔkepmxcín	transcription	cúws keʔs ʔéx teʔ tʕʷíyx tk cúws teʔ keʔs xʷesít ʔéxweʔ ƛ̓uʔ nʔé	the unbroken line, the second half of §2 line 13. The first cúws carries footnote 7, set against it with no space, written here without its digit. §2 and §3 have cwus twice
+(14)	nɬeʔkepmxcín	segmentation	cú[kʷ]=us k=eʔ=s=ʔéx teʔ tʕʷ-íyx t=k=cú[kʷ]=us teʔ k=eʔ=s=xʷesít ʔéx-weʔ=∅ ƛ̓uʔ nʔé	finish=3SBJV D/C=2SG.POSS=NMLZ=IPFV DEM run-body OBL=D/C=finish=3SBJV DEM D/C=2SG.POSS=NMLZ=walk be-IMP=3SBJ EXCL DEM. The page breaks the segmentation line after tʕʷ. Joined here
+(14)	c̓úʔsinek	translation	‘not to pay attention, not to walk anywhere, but to stay here where she put us in the berry patch.’	c̓úʔsinek's English
+footnote 7	Reed Steiner, Ella Hannon, and Brent Hall	note	c̓úʔsinek confirms that cúws is a shortened form of cúkʷ us.	why the segmentation of (14) restores [kʷ]
+footnote 7	nɬeʔkepmxcín	cited form	cúws	the shortened form
+footnote 7	nɬeʔkepmxcín	cited form	cúkʷ us	the full form
+(15)	nɬeʔkepmxcín	transcription	heʔéy ʔu: téy wiʔ	the unbroken line
+(15)	nɬeʔkepmxcín	segmentation	heʔéy ʔu téy=wiʔ	yes oh EXCLM=EMPH
+(15)	c̓úʔsinek	translation	‘Ohhhhh my.’	c̓úʔsinek's English
+(16)	nɬeʔkepmxcín	transcription	ʔé meɬ es wéwetm ekʷu k c̓íy t hén̓ es k̓ʷen̓n̓s xéʔ tk smúɬec ekʷu	the unbroken line. es carries footnote 8 and c̓íy footnote 9, written here without their digits. §2 line 15 and §3 have xeʔs where this has es
+(16)	nɬeʔkepmxcín	segmentation	ʔé=∅=meɬ e=s=wéw-n-t-∅-[e]m=ekʷu k=c̓íy=∅ t=hén̓ e=s=k̓ʷén̓~n̓=s xéʔ t=k=s-múɬec ekʷu	COP=3SBJ=2CL D/C=NMLZ=call-CTR-TR-3OBJ-PASS=RPRT DET=like=3SBJ OBL=WH D/C=NMLZ=look~COS=3POSS DEM OBL=DET=NMLZ-woman RPRT
+(16)	c̓úʔsinek	translation	‘What looked like our mother called him by name, and he paid attention.’	c̓úʔsinek's English
+(16)	Reed Steiner, Ella Hannon, and Brent Hall	notation	k̓ʷen̓n̓s against k̓ʷén̓~n̓	the unbroken line has no acute, where the segmentation has one. Both recorded as printed
+footnote 8	Reed Steiner, Ella Hannon, and Brent Hall	note	The nominalization proclitic on swéwetm is pronounced with the preceding determiner/complementizer and followed by a long pause.	on es wéwetm in (16)
+footnote 8	nɬeʔkepmxcín	cited form	swéwetm	the word with its nominalizer, as the footnote writes it. The unbroken line of (16) sets the s with es
+footnote 9	Reed Steiner, Ella Hannon, and Brent Hall	note	The k= determiner in k c̓íy is pronounced as the coda of the preceding evidential enclitic.	on ekʷu k c̓íy in (16)
+footnote 9	nɬeʔkepmxcín	cited affix	k=	the determiner proclitic
+footnote 9	nɬeʔkepmxcín	cited form	k c̓íy	the determiner and like
+(17)	nɬeʔkepmxcín	transcription	c̓íy ekʷu teʔ e skíxzeʔkt es k̓ʷén̓n̕s ʔeswéwes ɬ nqéck	the unbroken line. c̓íy carries footnote 10, written here without its digit
+(17)	nɬeʔkepmxcín	segmentation	c̓íy=∅=ekʷu teʔ [t]=e=s-kíxzeʔ-kt e=s=k̓ʷén̓~n̕=s [e]=ʔes-wéw-n-[t]-∅-[e]s=∅ ɬ=n-qéck	like=3SBJ=RPRT DEM OBL=DET=NMLZ-mother-1PL.POSS D/C=NMLZ=look~COS=3POSS DET=STAT-call-CTR-TR-3OBJ-3ERG=3SBJ DET.REM=1SG.POSS-elder.brother
+(17)	c̓úʔsinek	translation	‘She looked just like our mother, the woman who called my older brother.’	c̓úʔsinek's English
+footnote 10	Reed Steiner, Ella Hannon, and Brent Hall	note	The onset of the predicate c̓íy ‘like’ is consistently pronounced without audible glottalization throughout the story.	the page writes c̓íy glottalized everywhere
+footnote 10	nɬeʔkepmxcín	cited form	c̓íy	like
+(18)	nɬeʔkepmxcín	transcription	nés txʷúsm ɬ nqéck ƛ̓uʔ ʔéx ʔeɬ u c̓íye ʔeɬ e mə̣̣́m	the unbroken line
+(18)	nɬeʔkepmxcín	segmentation	nés=∅ txʷ-ús-m ɬ=n-qéck ƛ̓uʔ ʔéx=ʔeɬ w=c̓íy-e=ʔeɬ e=mə̣̣́m	go=3SBJ look-face-CTR.MID DET.REM=1SG.POSS-elder.brother EXCL IPFV=ADD to=like-RES=ADD DET=mum. The page breaks the segmentation line after txʷ. Joined here
+(18)	c̓úʔsinek	translation	‘And then my elder brother looked at the woman who looked just like our mom.’	c̓úʔsinek's English
+(18)	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	mə̣̣́m	THE TEXT LAYER HOLDS TWO DOTS BELOW ON THE SCHWA, U+0323 TWICE, AND THE PAGE SHOWS ONE. The code points are U+006D U+0259 U+0323 U+0323 U+0301 U+006D. pypdfium2 places one dot just under the schwa and the other 8.1 to 8.3 pt above it, inside the acute. Read on the 300 dpi render enlarged six times at (18) on page 13 and at §2 line 17 on page 3, one dot shows under the schwa. The control is x̣ʷə̣́nt on page 3, whose one U+0323 pypdfium2 places 8.3 pt above the schwa, and no dot shows under it. ɬə̣́n̓e, sqʷə̣́m and q̓ʷə̣́y-t hold one U+0323 each and show none under the schwa either. The form is kept as encoded, in §2 lines 17 and 19, in §3 and in (18) and (20)
+(19)	nɬeʔkepmxcín	transcription	ʔéx ʔeɬ u cíʔe wéwecms	the unbroken line
+(19)	nɬeʔkepmxcín	segmentation	ʔéx=∅=ʔeɬ w=cíʔe wéw-n-t-s[e]m-[e]s	IPFV=3SBJ=ADD to=there call-CTR-TR-1SG.OBJ-3ERG
+(19)	c̓úʔsinek	translation	“And there she is over there calling me.”	c̓úʔsinek's English. It carries footnote 11
+footnote 11	c̓úʔsinek	note	c̓úʔsinek: “That’s him relating the goshdarn story.”	c̓úʔsinek's comment on (19)
+(20)	nɬeʔkepmxcín	transcription	xʷúy̓ kn nés kéyes e mə̣̣́m	the unbroken line
+(20)	nɬeʔkepmxcín	segmentation	xʷúy̓=kn nés kéy-n-[t]-∅-[e]s e=mə̣̣́m	PROSP=1SG.SBJ go follow-CTR-TR-3OBJ-3ERG DET=mum
+(20)	c̓úʔsinek	translation	“I am going to follow mom.”	c̓úʔsinek's English. It carries footnote 12
+footnote 12	Reed Steiner, Ella Hannon, and Brent Hall	note	Although the auxiliary has a first-person subject clitic, the predicate has a third-person ergative agreement suffix.	on (20), where xʷúy̓=kn is glossed 1SG.SBJ and kéy-n-[t]-∅-[e]s ends in 3ERG
+(21)	nɬeʔkepmxcín	transcription	kícx ʔeɬ u cíʔe wɬə ʔéx us ɬə̣́n̓e ɬə skíxzeʔkt	the unbroken line. ɬə̣́n̓e carries footnote 13 and skíxzeʔkt footnote 14, the second set against it with no space. Both written here without their digits
+(21)	nɬeʔkepmxcín	segmentation	kícx=∅=ʔeɬ w=cíʔe w=ɬ=ʔéx=us ɬə̣́n̓e ɬ=s-kíxzeʔ-kt	come =3SBJ=ADD to=there to=DET.REM=be=3SBJV REM.DEM DET.REM=NMLZ-mother-1PL.POSS. The gloss has a space after come, as printed
+(21)	c̓úʔsinek	translation	‘He got to where that woman who looked like mom was.’	c̓úʔsinek's English
+(21)	Reed Steiner, Ella Hannon, and Brent Hall	notation	REM.DEM against PDE.DEM	(21) glosses ɬə̣́n̓e REM.DEM, where footnote 13 on the same example says it is glossed PDE.DEM, and (60) glosses ɬə̣́n̕e PDE.DEM. Each recorded as printed
+(21)	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	ɬə̣́n̓e against ɬə̣́n̕e	the comma on the n is U+0313 COMBINING COMMA ABOVE in (21) and §2 line 20, and U+0315 COMBINING COMMA ABOVE RIGHT in footnote 13, (60), §2 line 59 and footnote 23. The table keeps each as encoded
+footnote 13	Reed Steiner, Ella Hannon, and Brent Hall	note	The demonstrative ɬə̣́n̕e refers to an individual for whom there is previous direct evidence, i.e. someone who was seen before, but is no longer present. Thompson and Thompson call it ‘established unseen’ EST.UNSEEN, but we have glossed it here as a previous direct evidence demonstrative PDE.DEM. In other instances, we have used the gloss DEM. We leave a more detailed semantics of demonstratives to future research.	EST.UNSEEN and PDE.DEM are set in small capitals
+footnote 13	nɬeʔkepmxcín	cited form	ɬə̣́n̕e	the previous direct evidence demonstrative
+footnote 14	Reed Steiner, Ella Hannon, and Brent Hall	note	Although the sentence literally translates to “He got to where his mom was,” c̓úʔsinek clarifies that it’s implied to be the apparition or spirit who looks like their mother.	on (21). looks is set in italics
+(22)	nɬeʔkepmxcín	transcription	ƛ̓əɬ nwén̓ ekʷu ʔeɬ qʷcíyx x̣áƛ̓m we sqʷəmqʷóqʷm̓	the unbroken line. ƛ̓əɬ carries footnote 15, set against it with no space, written here without its digit
+(22)	nɬeʔkepmxcín	segmentation	ƛ̓əɬ nwén̓=∅=ekʷu=ʔeɬ qʷc-íyx x̣áƛ̓-m w=e=s-qʷəm~qʷə̣́≲qʷ≳m̓	now already=3SBJ=RPRT=ADD move-body climb-CTR.MID to=DET=NMLZ-AUG~hill≲DIM≳
+(22)	c̓úʔsinek	translation	‘However, she had already left climbing the small hill.’	c̓úʔsinek's English
+(22)	Reed Steiner, Ella Hannon, and Brent Hall	notation	sqʷəmqʷóqʷm̓ against qʷəm~qʷə̣́≲qʷ≳m̓	the unbroken line has ó in the second syllable and the segmentation ə̣́. Footnote 19 writes sqʷomqʷóqʷm̓ with o in the first syllable. Each recorded as printed
+footnote 15	Reed Steiner, Ella Hannon, and Brent Hall	note	ƛ̓əɬ usually surfaces in second position, and so we typically gloss it as ‘second position clitic’ 2CL. In most cases, this label is accurate, but here (and elsewhere in the story), ƛ̓əɬ does not occur in second position. We tentatively translate it as ‘now’ (cf. the gloss RT relative tense for the cognate t’elh in St’at’imcets, Davis this volume), but more research is needed to determine a more appropriate label.	why ƛ̓əɬ is glossed now in (22) and 2CL in (32). 2CL and RT are set in small capitals
+footnote 15	nɬeʔkepmxcín	cited form	ƛ̓əɬ	now, where it is not in second position
+footnote 15	St’at’imcets	cited form	t’elh	the cognate of ƛ̓əɬ, glossed RT relative tense. The text layer breaks the line after t’ and the page prints t’elh as one word
+footnote 15	Reed Steiner, Ella Hannon, and Brent Hall	language	St’at’imcets	written with no acute and with the curly apostrophe
+footnote 15	Reed Steiner, Ella Hannon, and Brent Hall	citation	Davis this volume	not in the reference list
+(23)	nɬeʔkepmxcín	transcription	té:y wiʔ ƛ̓uʔ wéwetm xʷúy̓ceʔ nexíc e skʷésts nqéck	the unbroken line
+(23)	nɬeʔkepmxcín	segmentation	téy=wiʔ ƛ̓uʔ wéw-n-t-∅-[e]m=∅ xʷúy̓ceʔ ne-xí-t-∅-[e]s=∅ e=s-kʷést-s n-qéck	EXCLM=EMPH EXCL call-CTR-TR-3OBJ-1PL.ERG=3SBJ more pronounce-RDR-TR-3OBJ-3ERG=3SBJ DET=NMLZ-name-3POSS 1SG.POSS-older.brother
+(23)	c̓úʔsinek	translation	‘Jee whiz, she called him [my older brother] again by his name.’	c̓úʔsinek's English
+(23)	Reed Steiner, Ella Hannon, and Brent Hall	notation	1PL.ERG against PASS	(23) glosses the -[e]m of wéw-n-t-∅-[e]m 1PL.ERG, where (11), (12) and (16) gloss the same suffix on the same verb PASS. Both recorded as printed
+(24)	nɬeʔkepmxcín	transcription	ʔúyxʷeʔ	the unbroken line
+(24)	nɬeʔkepmxcín	segmentation	ʔúy-weʔ	gather-IMP. No =∅, where (44) writes ʔúy-weʔ=∅
+(24)	c̓úʔsinek	translation	“Come here!”	c̓úʔsinek's English
+(24)	Reed Steiner, Ella Hannon, and Brent Hall	notation	ʔúyxʷeʔ against ʔúy-weʔ	the unbroken line has xʷ where the segmentation has w, in (24) and (44). Both recorded as printed
+(25)	nɬeʔkepmxcín	transcription	téy wiʔ x̣ʷə̣́nt x̣ʷyékste meɬ	the unbroken line
+(25)	nɬeʔkepmxcín	segmentation	téy=wiʔ x̣ʷə̣́n-t x̣ʷy-ékst-e=∅=meɬ	EXCLM=EMPH fast-INTR quick-hand-IMP=3SBJ=2CL
+(25)	c̓úʔsinek	translation	“Hurry up, will you?”	c̓úʔsinek's English
+(25)	Reed Steiner, Ella Hannon, and Brent Hall	notation	quick-hand against fast-hand	(25) glosses x̣ʷy-ékst quick-hand and (45) fast-hand. Both recorded as printed
+(26)	nɬeʔkepmxcín	transcription	ʔé meɬ neʔs tʕʷíyxs ɬ nqéck	the unbroken line. neʔs carries footnote 16, written here without its digit
+(26)	nɬeʔkepmxcín	segmentation	ʔé=∅=meɬ neʔ [e]=s=tʕʷ-íyx=s ɬ=n-qéck	COP=3SBJ=2CL DEM D/C=NMLZ=run-body=3POSS REM.DET=1SG.POSS-older.brother. The page breaks the segmentation line after tʕʷ. Joined here
+(26)	c̓úʔsinek	translation	‘And then my older brother ran toward her.’	c̓úʔsinek's English
+footnote 16	Reed Steiner, Ella Hannon, and Brent Hall	note	The clausal nominalizer is pronounced as a coda on the preceding demonstrative. It is not uncommon for morphological proclitics to phonologically encliticize to the preceding word, but we do not yet have any way of predicting when this occurs. For simplicity, we gloss all clitics with respect to their morphology and syntax rather than their phonology, although further research is necessary.	on neʔs in (26), segmented neʔ [e]=s=
+(27)	nɬeʔkepmxcín	transcription	k̓ʷínexʷ us nke téʔe es x̣íyms teʔ témn̓	the unbroken line
+(27)	nɬeʔkepmxcín	segmentation	k̓ʷínexʷ=us=nke téʔe e=s=x̣íy-m=s teʔ témn̓	how.many=3SBJV=INFER DEM D/C=NMLZ=do.so-CTR.MID=3POSS DEM you.know
+(27)	c̓úʔsinek	translation	‘We don’t know how many times this happened again.’	c̓úʔsinek's English. It carries footnote 17
+footnote 17	Reed Steiner, Ella Hannon, and Brent Hall	note	An alternative translation provided at an earlier date is “This must’ve happened several times before my mother came back, you know.”	a second English for (27). The paper does not name who gave it, and §1.3 says every translation is c̓úʔsinek's
+(28)	nɬeʔkepmxcín	transcription	ƛ̓əɬ nés ʔeɬ p̓én̓t ɬ nskíxzeʔ we ʔéx ut témn̓	the unbroken line. §2 line 27 and §3 have w where this has we
+(28)	nɬeʔkepmxcín	segmentation	ƛ̓əɬ nés=∅=ʔeɬ p̓én̓t ɬ=n-s-kíxzeʔ w=[e]=ʔéx=ut témn̓	now go=3SBJ=ADD return DET.REM=1SG.POSS-NMLZ-mother to=DET=be=1PL.SBJV you.know
+(28)	c̓úʔsinek	translation	‘And my mother came back to where we were, you know.’	c̓úʔsinek's English
+(29)	nɬeʔkepmxcín	transcription	ʔés k̓ʷen̓ek̓ʷén̓etis	the unbroken line
+(29)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=k̓ʷen̓e~k̓ʷén̓-n-t-[e]y-[e]s	COP=3SBJ D/C=NMLZ=AUG~look.at-CTR-TR-1PL.OBJ-3ERG
+(29)	c̓úʔsinek	translation	‘And she looked at all of us:’	c̓úʔsinek's English, ending in a colon inside the quote
+(30)	nɬeʔkepmxcín	transcription	u hén̓ ƛ̓əm̓ ɬ eʔqéck	the unbroken line
+(30)	nɬeʔkepmxcín	segmentation	w=hén̓=∅=ƛ̓əm̓ ɬ=eʔ-qéck	to=where=3SBJ=2CL DET.REM=2SG.POSS-older.brother
+(30)	c̓úʔsinek	translation	“Where is your older brother?”	c̓úʔsinek's English
+(31)	nɬeʔkepmxcín	transcription	ʔés cúntm ɬ skíxzeʔkt	the unbroken line
+(31)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=cún-t-∅-[e]m ɬ=s-kíxzeʔ-kt	COP=3SBJ D/C=NMLZ=say-TR-3OBJ-1PL.ERG DET.REM=NMLZ-mother-1PL.POSS
+(31)	c̓úʔsinek	translation	‘And we told our mother:’	c̓úʔsinek's English
+(32)	nɬeʔkepmxcín	transcription	yc̓óxʷ ƛ̓əɬ wéʔe qʷcíyx u ciʔ w ɬéʔe	the unbroken line
+(32)	nɬeʔkepmxcín	segmentation	yc̓óxʷ=∅=ƛ̓əɬ wéʔe qʷc-íyx w=cíʔ w=ɬéʔe	just=3SBJ=2CL DEM move-body to=there to=REM.DEM
+(32)	c̓úʔsinek	translation	“He just left to go there from here.”	c̓úʔsinek's English
+(32)	Reed Steiner, Ella Hannon, and Brent Hall	notation	ciʔ against cíʔ	the unbroken line has no acute, where the segmentation has one. Both recorded as printed
+(33)	nɬeʔkepmxcín	transcription	ʔés cúntis ɬ skíxzeʔkt	the unbroken line
+(33)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=cún-t-[e]y-[e]s ɬ=s-kíxzeʔ-kt	COP=3SBJ D/C=NMLZ=say-TR-1PL.OBJ-3.ERG DET.REM=NMLZ-mother-1PL.POSS. The gloss writes 3.ERG with a period, where every other example writes 3ERG
+(33)	c̓úʔsinek	translation	‘And our mother told us:’	c̓úʔsinek's English
+(34)	nɬeʔkepmxcín	transcription	míceʔquze tém us teʔks xʷesítep	the unbroken line
+(34)	nɬeʔkepmxcín	segmentation	míceʔq-uz-e tém=us=teʔ k=s=xʷesít=mp	sit-PL-IMP NEG=3SBJV=NEG D/C=NMLZ=walk.around=2PL.POSS
+(34)	c̓úʔsinek	translation	‘Sit down, don’t go walking around.’	c̓úʔsinek's English. Dialogue, set here in single quotes, where §3 sets it in double quotes
+(34)	Reed Steiner, Ella Hannon, and Brent Hall	notation	xʷesítep against xʷesít=mp	the unbroken line ends in -ep and the segmentation in =mp. Both recorded as printed
+(35)	nɬeʔkepmxcín	transcription	ʔés tʕʷíyxs ɬ nskíxzeʔ ʔu: tk tʕʷíyx	the unbroken line
+(35)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=tʕʷ-íyx=s ɬ=n-s-kíxzeʔ ʔu t=k=tʕʷ-íyx=∅	COP=3SBJ D/C=NMLZ=run-body=3POSS DET.REM=1SG.POSS-NMLZ-mother oh OBL=DET=run-body=3SBJ. The page breaks the segmentation line after each tʕʷ. Joined here
+(35)	c̓úʔsinek	translation	‘and my mother began to run — ohhh she ran!’	c̓úʔsinek's English, with an em dash as printed. It carries footnote 18
+footnote 18	c̓úʔsinek	note	c̓úʔsinek: “Repeating puts emphasis on the fact that she needed to move very quickly.”	c̓úʔsinek's comment on (35)
+(36)	nɬeʔkepmxcín	transcription	xʷúy̓ nés xʷíʔes ɬ nqéck	the unbroken line
+(36)	nɬeʔkepmxcín	segmentation	xʷúy̓=∅ nés xʷíy̓-n-[t]-∅-[e]s ɬ=n-qéck	PROSP=3SBJ go look.for-TR-3OBJ-3ERG DET.REM=1SG.POSS-older.brother. The gloss has no CTR for the -n- of the segmentation
+(36)	c̓úʔsinek	translation	‘She went to find my older brother.’	c̓úʔsinek's English
+(37)	nɬeʔkepmxcín	transcription	ʔó: tk q̕ax̣ném nke ɬ nskíxzeʔ	the unbroken line. q̕ax̣ném carries U+0315 COMBINING COMMA ABOVE RIGHT on the q
+(37)	nɬeʔkepmxcín	segmentation	ʔo t=k=q̕ax̣ném=∅=nke ɬ=n-skíxzeʔ	oh OBL=DET=shout=3SBJ=INFER DET.REM=1SG.POSS-mother
+(37)	c̓úʔsinek	translation	‘Oh my mother hollered.’	c̓úʔsinek's English
+(37)	Reed Steiner, Ella Hannon, and Brent Hall	notation	ʔó: against ʔo	the segmentation drops the acute with the colon. It also writes n-skíxzeʔ with no boundary after s, where (6), (10) and the other examples write n-s-kíxzeʔ. Both recorded as printed
+(38)	nɬeʔkepmxcín	transcription	netés he skʷésts ɬ nqéck	the unbroken line
+(38)	nɬeʔkepmxcín	segmentation	ne-t-∅-és=∅ e=s-kʷést-s ɬ=n-qéck	pronounce-TR-3OBJ-3ERG=3SBJ DET=NMLZ-name-3POSS DET.REM=1SG.POSS-older.brother
+(38)	c̓úʔsinek	translation	‘She called my brother’s name.’	c̓úʔsinek's English
+(38)	Reed Steiner, Ella Hannon, and Brent Hall	notation	he against e=	the unbroken line has he where the segmentation has e=, and (42), the same words, has e. Both recorded as printed
+(39)	nɬeʔkepmxcín	transcription	té:m us teʔ keʔs nés u cíʔe	the unbroken line
+(39)	nɬeʔkepmxcín	segmentation	tém=us=teʔ k=eʔ=s=nés w=cíʔe	NEG=3SBJV=NEG D/C=2SG.POSS=NMLZ=go to=there
+(39)	c̓úʔsinek	translation	“Don’t go over there!”	c̓úʔsinek's English
+footnote 19	Reed Steiner, Ella Hannon, and Brent Hall	note	In the recording, c̓úʔsinek uses the word sqʷə̣́m ‘mountain’, but later clarifies that sqʷomqʷóqʷm̓ ‘little hill’ is more appropriate.	on sqʷóqʷm̓ in (42)
+footnote 19	nɬeʔkepmxcín	cited form	sqʷə̣́m	mountain, the word in the recording
+footnote 19	nɬeʔkepmxcín	cited form	sqʷomqʷóqʷm̓	little hill. A plain o in the first syllable, where (22) has sqʷəmqʷóqʷm̓
+(40)	nɬeʔkepmxcín	transcription	səlkíyxe ks kʷén̓ecmxʷ	the unbroken line
+(40)	nɬeʔkepmxcín	segmentation	səlk-íyx-e=∅ k=s=kʷén̓-n-t-s[e]m-[e]xʷ	whirl-body-IMP=3SBJ D/C=NMLZ=look.at-CTR-TR-1SG.OBJ-2SG.ERG
+(40)	c̓úʔsinek	translation	“Turn around and look at me!”	c̓úʔsinek's English
+(40)	Reed Steiner, Ella Hannon, and Brent Hall	notation	kʷén̓ against k̓ʷén̓	(40) writes look at with a plain k in both tiers, where (51) and (52) write k̓ʷén̓ with a glottalized one. Both recorded as printed
+(41)	nɬeʔkepmxcín	transcription	tʕʷíyx ɬ nskíxzeʔ tʕʷíyx xʷúy̓ceʔ	the unbroken line
+(41)	nɬeʔkepmxcín	segmentation	tʕʷ-íyx=∅ ɬ=n-s-kíxzeʔ tʕʷ-íyx=∅ xʷúy̓ceʔ	run-body=3SBJ DET.REM=1SG.POSS-NMLZ-mother run-body=3SBJ more. The page breaks the segmentation line after each tʕʷ. Joined here
+(41)	c̓úʔsinek	translation	‘My mother ran and she ran.’	c̓úʔsinek's English
+(42)	nɬeʔkepmxcín	transcription	netés e skʷésts ɬ nqéck ƛ̓uʔ wíkc xʷúy̓ceʔ ɬ nqéck u cíʔe wɬe sxéʔxeʔts e sqʷóqʷm̓	the unbroken line. sqʷóqʷm̓ carries footnote 19, set against it with no space, written here without its digit
+(42)	nɬeʔkepmxcín	segmentation	ne-t-∅-és=∅ e=s-kʷést-s ɬ=n-qéck ƛ̓uʔ wík-t-∅-[e]s=∅ xʷúy̓ceʔ ɬ=n-qéck w=cíʔe w=ɬe=s-xéʔ~xeʔ-t-s e=s-qʷə̣́≲qʷ≳m̓	pronounce-TR-3OBJ-3ERG=3SBJ DET =NMLZ-name-3POSS DET.REM=1SG.POSS-older.brother but see-TR-3OBJ-3ERG=3SBJ more DET.REM=1SG.POSS-older.brother to=there to=DET.REM=NMLZ-rise~CHR-INTR-3POSS DET=NMLZ-hill≲DIM≳. The gloss has a space before =NMLZ, as printed
+(42)	c̓úʔsinek	translation	‘She called my older brother’s name again, but he still saw her [that woman] on top of the little hill.’	c̓úʔsinek's English
+(42)	Reed Steiner, Ella Hannon, and Brent Hall	notation	ƛ̓uʔ against ƛ̓uʔ	ƛ̓uʔ is glossed but in (42), then in (2), and EXCL in (14), (18), (23) and (54). Each recorded as printed
+(43)	nɬeʔkepmxcín	transcription	ƛ̓əɬ ʔéx xeʔ u cíʔe skíxzeʔkt wéwes ɬ nqéck	the unbroken line. Footnote 20 is set between xeʔ and u, against the u with no space, and is written here without its digit
+(43)	nɬeʔkepmxcín	segmentation	ƛ̓əɬ ʔéx=∅ xeʔ w=cíʔe s-kíxzeʔ-kt wéw-n-t-∅-[e]s ɬ=n-qéck	now IPFV=3SBJ DEM to=there NMLZ-mother-1PL.POSS call-CTR-TR-3OBJ-3ERG DET.REM=1SG.POSS-older.brother
+(43)	c̓úʔsinek	translation	‘And there goes mom, calling for my older brother.’	c̓úʔsinek's English
+(44)	nɬeʔkepmxcín	transcription	ʔúyxʷeʔ	the unbroken line
+(44)	nɬeʔkepmxcín	segmentation	ʔúy-weʔ=∅	gather-IMP=3SBJ
+(44)	c̓úʔsinek	translation	“Come here!”	c̓úʔsinek's English
+(45)	nɬeʔkepmxcín	transcription	x̣ʷyékste meɬ	the unbroken line
+(45)	nɬeʔkepmxcín	segmentation	x̣ʷy-ékst-e=∅=meɬ	fast-hand-IMP=3SBJ=2CL
+(45)	c̓úʔsinek	translation	“Hurry up!”	c̓úʔsinek's English
+(46)	nɬeʔkepmxcín	transcription	ném eʔs ʔesk̓ín	the unbroken line
+(46)	nɬeʔkepmxcín	segmentation	ném=∅ [e]=eʔ=s=ʔes-k̓ín	intense=3SBJ D/C=2SG.POSS=NMLZ=STAT-slow
+(46)	c̓úʔsinek	translation	“Gee, you’re slow.”	c̓úʔsinek's English
+footnote 20	c̓úʔsinek	note	c̓úʔsinek: “ƛ̓əɬ ʔex xeʔ weʔe is the beginning of a disciplinary statement. “And theeere she goes!”	c̓úʔsinek's comment on (43). The page opens a second double quote before And and closes only that one. theeere is set in italics
+footnote 20	nɬeʔkepmxcín	cited form	ƛ̓əɬ ʔex xeʔ weʔe	the opening of (43) as c̓úʔsinek says it, with ʔex where (43) has ʔéx and weʔe where (43) has u
+(47)	nɬeʔkepmxcín	transcription	ʔé meɬ neʔs x̣áƛ̓ms ɬ nqéck	the unbroken line
+(47)	nɬeʔkepmxcín	segmentation	ʔé=∅=meɬ neʔ [e]=s=x̣áƛ̓-m=s ɬ=n-qéck	COP=3SBJ=2CL DEM D/C=NMLZ=climb-CTR.MID=3POSS DET.REM=1SG.POSS-older.brother
+(47)	c̓úʔsinek	translation	‘And my brother climbed up.’	c̓úʔsinek's English
+(48)	nɬeʔkepmxcín	transcription	xʷúy̓ nke nés u cíʔe e ʔéx us ɬ skíxzeʔkt	the unbroken line
+(48)	nɬeʔkepmxcín	segmentation	xʷúy̓=∅=nke nés w=cíʔe e=ʔéx=us ɬ=s-kíxzeʔ-kt	PROSP=3SBJ=INFER go to=there DET=be=SBJV DET.REM=NMLZ-mother-1PL.POSS. The gloss writes =SBJV with no person, where every other =us is 3SBJV
+(48)	c̓úʔsinek	translation	‘He was going to go where our mother [the spirit] is.’	c̓úʔsinek's English
+(49)	nɬeʔkepmxcín	transcription	ʔé meɬ neʔ es nk̓ítetm ɬ skíxzeʔ nmímɬ	the unbroken line. nmímɬ carries footnote 21, written here without its digit. §2 line 48 and §3 have nk̓ítem where this has nk̓ítetm
+(49)	nɬeʔkepmxcín	segmentation	ʔé=∅=meɬ=neʔ e=s=n-k̓ít-n-t-∅-[e]m [t]=ɬ=s-kíxzeʔ-[kt] nmímɬ	COP=3SBJ=2CL=DEM D/C=NMLZ=LOC-near-CTR-TR-3OBJ-PASS OBL=DET.REM=NMLZ-mother-1PL.POSS 1PL.INDEP. The bracketed [kt] is the possessive suffix footnote 21 says is absent
+(49)	c̓úʔsinek	translation	‘And then our mother caught up to him.’	c̓úʔsinek's English
+(50)	nɬeʔkepmxcín	transcription	té:m us teʔ keʔs x̣áƛ̓m	the unbroken line
+(50)	nɬeʔkepmxcín	segmentation	tém=us=teʔ k=eʔ=s=x̣áƛ̓-m	NEG=3SBJV=NEG D/C=2SG.POSS=NMLZ=climb-CTR.MID
+(50)	c̓úʔsinek	translation	“Don’t climb!”	c̓úʔsinek's English
+(51)	nɬeʔkepmxcín	transcription	zəlpí:yxe ks k̓ʷén̓ecmxʷ	the unbroken line
+(51)	nɬeʔkepmxcín	segmentation	zəl-p-íyx-e=∅ k=s=k̓ʷén̓-n-t-s[e]m-[e]xʷ	around-INCH-body-IMP=3SBJ D/C=NMLZ=look.at-CTR-TR-1SG.OBJ-2SG.ERG
+(51)	c̓úʔsinek	translation	“Turn around and look at me!”	c̓úʔsinek's English
+(52)	nɬeʔkepmxcín	transcription	zəlpí:yxe ks k̓ʷén̓ecmxʷ	the unbroken line, the same words as (51)
+(52)	nɬeʔkepmxcín	segmentation	zəl-p-íyx-e=∅ k=s=k̓ʷén̓-n-t-s[e]m-[e]xʷ	around-INCH-body-IMP=3SBJ D/C=NMLZ=look.at-CTR-TR-1SG.OBJ-2SG.ERG
+(52)	c̓úʔsinek	translation	“Turn around and look at me!”	c̓úʔsinek's English
+(53)	nɬeʔkepmxcín	transcription	ʔu: tk nəxʷcín nke ɬ nskíxzeʔ témn̓	the unbroken line
+(53)	nɬeʔkepmxcín	segmentation	ʔu: t=k=nəxʷ-cín=∅=nke ɬ=n-s-kíxzeʔ témn̓	oh OBL=DET=intense-mouth=3SBJ=INFER DET.REM=1SG.POSS-NMLZ-mother you.know. The only segmentation that keeps a lengthening colon. The page breaks the segmentation line after nəxʷ. Joined here
+(53)	c̓úʔsinek	translation	‘Oh my mother was loud!’	c̓úʔsinek's English
+footnote 21	Reed Steiner, Ella Hannon, and Brent Hall	note	The independent pronoun nmímɬ indicates the possessor of ɬ skíxzeʔ. The expected possessive suffix is absent, but indicated in the segmentation line for clarity.	on (49)
+footnote 21	nɬeʔkepmxcín	cited form	nmímɬ	the independent pronoun, glossed 1PL.INDEP in (49)
+footnote 21	nɬeʔkepmxcín	cited form	ɬ skíxzeʔ	the possessed noun
+(54)	nɬeʔkepmxcín	transcription	ʔé ƛ̓uʔ xeʔs nk̓ítes	the unbroken line
+(54)	nɬeʔkepmxcín	segmentation	ʔé=∅=ƛ̓uʔ xeʔ [e]=s=n-k̓ít-n-[t]-∅-[e]s	COP=3SBJ=EXCL DEM D/C=NMLZ=LOC-near-CTR-TR-3OBJ-3ERG
+(54)	c̓úʔsinek	translation	‘She almost caught up to him.’	c̓úʔsinek's English
+(55)	nɬeʔkepmxcín	transcription	ʔeɬƛ̓uʔ zəlpíyx ʔéyɬ ɬ nqéck	the unbroken line
+(55)	nɬeʔkepmxcín	segmentation	ʔeɬƛ̓uʔ zəl-p-íyx=∅ ʔeyɬ ɬ=n-qéck	ADD around-INCH-body=3SBJ now DET.REM=1SG.POSS-older.brother. ʔeyɬ has no acute, where the unbroken line has ʔéyɬ
+(55)	c̓úʔsinek	translation	‘And my brother finally turned around.’	c̓úʔsinek's English. It carries footnote 22
+footnote 22	c̓úʔsinek	note	c̓úʔsinek: “zəlpíyx is a full-body turn.”	c̓úʔsinek's comment on (55)
+footnote 22	nɬeʔkepmxcín	cited form	zəlpíyx	a full-body turn
+(56)	nɬeʔkepmxcín	transcription	ʔés k̓ʷén̓es ɬ skíxzeʔkt	the unbroken line
+(56)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=k̓ʷén̓-n-[t]-∅-[e]s ɬ=s-kíxzeʔ-kt	COP=3SBJ D/C=NMLZ=look-CTR-TR-3OBJ-3ERG DET.REM=NMLZ-mother-1PL.POSS. k̓ʷén̓ is glossed look here and look.at in (29), (51) and (52)
+(56)	c̓úʔsinek	translation	‘And he looked at our mother.’	c̓úʔsinek's English
+(57)	nɬeʔkepmxcín	transcription	cút	the unbroken line
+(57)	nɬeʔkepmxcín	segmentation	cút=∅	say=3SBJ
+(57)	c̓úʔsinek	translation	‘he said:’	c̓úʔsinek's English, lowercase as printed
+(58)	nɬeʔkepmxcín	transcription	ʔéx ʔeɬ kénm	the unbroken line
+(58)	nɬeʔkepmxcín	segmentation	ʔéx=∅=ʔeɬ kénm	IPFV=3SBJ=ADD do.what
+(58)	c̓úʔsinek	translation	“What is going on?”	c̓úʔsinek's English
+(59)	nɬeʔkepmxcín	transcription	zəlpíyx xʷúy̓ceʔ txʷúsm u cíʔ wɬə sqʷóqʷm̓	the unbroken line
+(59)	nɬeʔkepmxcín	segmentation	zəl-p-íyx=∅ xʷúy̓ceʔ txʷ-ús-m w=cíʔ w=ɬ=s-qʷə̣́≲qʷ≳m̓	around-INCH-body=3SBJ more look-face-CTR.MID to=there to=DET.REM=NMLZ-mountain≲DIM≳. The page breaks the segmentation line after txʷ. Joined here
+(59)	c̓úʔsinek	translation	‘He turned around and looked up the little hill,’	c̓úʔsinek's English
+(59)	Reed Steiner, Ella Hannon, and Brent Hall	notation	mountain≲DIM≳ against hill≲DIM≳	(59) glosses the root of sqʷóqʷm̓ mountain, where (22) and (42) gloss the same root hill. Both recorded as printed
+(60)	nɬeʔkepmxcín	transcription	ƛ̓əɬ nwén̓ ƛ̓əm̓ ɬə̣́n̕e ɬ c̓íy teʔ skíxzeʔkt	the unbroken line. §3 has te where this has teʔ
+(60)	nɬeʔkepmxcín	segmentation	ƛ̓əɬ nwén̓=∅=ƛ̓əm̓ ɬə̣́n̕e ɬ=c̓íy=∅ t=e=s-kíxzeʔ-kt	now already=3SBJ=2CL PDE.DEM DET.REM=like=3SBJ OBL=DET=NMLZ-mother-1PL.POSS
+(60)	c̓úʔsinek	translation	‘but what looked like our mother had disappeared.’	c̓úʔsinek's English. It carries footnote 23
+footnote 23	Reed Steiner, Ella Hannon, and Brent Hall	note	Although there is no verb meaning 'disappear' in this sentence, a meaning like 'already gone' can likely be derived from the compositional semantics of the auxiliary nwén̓ ‘already’, the second-position clitic =ƛ̓əm̓ (Hannon forthcoming) and the previous direct evidence demonstrative ɬə̣́n̕e.	on (60). 'disappear' and 'already gone' are in straight ASCII quotes and ‘already’ in curly ones
+footnote 23	nɬeʔkepmxcín	cited form	nwén̓	already, the auxiliary
+footnote 23	nɬeʔkepmxcín	cited affix	=ƛ̓əm̓	the second-position clitic, the subject of Hannon forthcoming
+footnote 23	nɬeʔkepmxcín	cited form	ɬə̣́n̕e	the previous direct evidence demonstrative
+footnote 23	Reed Steiner, Ella Hannon, and Brent Hall	citation	(Hannon forthcoming)	listed
+(61)	nɬeʔkepmxcín	transcription	tetéʔ ks wiknwén̓s xʷúy̓ceʔ	the unbroken line
+(61)	nɬeʔkepmxcín	segmentation	tetéʔ=∅ k=s=wik-nwén̓-[t]-∅-[e]s xʷúy̓ceʔ	NEG=3SBJ D/C=NMLZ=see-LC-TR-3OBJ-3ERG more
+(61)	c̓úʔsinek	translation	‘He didn’t see her again.’	c̓úʔsinek's English
+(62)	nɬeʔkepmxcín	transcription	kʷéns ɬ nqéck ɬ nskíxzeʔ ʔés cúts	the unbroken line
+(62)	nɬeʔkepmxcín	segmentation	kʷén-[t]-∅-[e]s ɬ=n-qéck ɬ=n-s-kíxzeʔ ʔé=∅ [e]=s=cút=s	grasp-TR-3OBJ-3ERG DET.REM=1SG.POSS-brother DET.REM=1SG.POSS-NMLZ-mother COP=3SBJ D/C=NMLZ=say=3POSS
+(62)	c̓úʔsinek	translation	‘Our mother took my brother and said to him:’	c̓úʔsinek's English
+(63)	nɬeʔkepmxcín	transcription	hécu nés kt sóx̣ʷest	the unbroken line
+(63)	nɬeʔkepmxcín	segmentation	hécu nés=kt sóx̣ʷest	lets.go go=1PL.SBJ descend
+(63)	c̓úʔsinek	translation	“ Let’s go down.”	c̓úʔsinek's English, with a space after the opening quote as printed. It carries footnote 24
+footnote 24	c̓úʔsinek	note	c̓úʔsinek: “Implying back to where she left the rest of us.”	c̓úʔsinek's comment on (63)
+(64)	nɬeʔkepmxcín	transcription	tém us teʔ keʔs páqʷuʔ ʔéx kn n ʔéye ʔéyɬ	the unbroken line
+(64)	nɬeʔkepmxcín	segmentation	tém=us=teʔ k=eʔ=s=páqʷuʔ ʔéx=kn n=ʔéye ʔéyɬ	NEG=3SBJV=NEG D/C=2SG.POSS=NMLZ=afraid be=1SG.SBJ at=here now
+(64)	c̓úʔsinek	translation	“Don't be afraid, I’m here now.”	c̓úʔsinek's English. Don't has the straight ASCII apostrophe and I’m the curly one
+(65)	nɬeʔkepmxcín	transcription	hécu	the unbroken line
+(65)	nɬeʔkepmxcín	segmentation	hécu	lets.go
+(65)	c̓úʔsinek	translation	“Let’s go.”	c̓úʔsinek's English
+(66)	nɬeʔkepmxcín	transcription	ʔés qʷcíyxs	the unbroken line
+(66)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=qʷc-íyx=s	COP=3SBJ D/C=NMLZ=move-body=3POSS
+(66)	c̓úʔsinek	translation	‘And they left.’	c̓úʔsinek's English
+(67)	nɬeʔkepmxcín	transcription	ʔés soxʷestíyxs	the unbroken line
+(67)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=soxʷest-íyx=s	COP=3SBJ D/C=NMLZ=descend-body=3POSS
+(67)	c̓úʔsinek	translation	‘And they went down the hill.’	c̓úʔsinek's English
+(68)	nɬeʔkepmxcín	transcription	ʔés kícetis	the unbroken line
+(68)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=kíc-n-t-[e]y-[e]s	COP=3SBJ D/C=NMLZ=reach-CTR-TR-1PL.OBJ-3ERG
+(68)	c̓úʔsinek	translation	‘And they got to us.’	c̓úʔsinek's English
+(69)	nɬeʔkepmxcín	transcription	ʔés néskt u cíʔ xʷúy̓ceʔ wɬ xʷeʔpítkt ʔey	the unbroken line
+(69)	nɬeʔkepmxcín	segmentation	ʔé=∅ [e]=s=nés=kt w=cíʔ xʷúy̓ceʔ w=ɬ=xʷeʔpít-kt ʔey	COP=3SBJ D/C=NMLZ=go=1PL.POSS to=there more to=DET.REM=clothes-1PL.POSS yes
+(69)	c̓úʔsinek	translation	‘We went back to our things, yes.’	c̓úʔsinek's English
+(70)	nɬeʔkepmxcín	transcription	ném xʷúy̓ es k̓éynimnxʷ e sʔíʔtm̓kt ʔe cúntit ʔéx ut kénm néʔ ʔéx ut u cíʔe wɬe sqʷə̣́mqʷə̣́m	the unbroken line. sqʷə̣́mqʷə̣́m carries footnote 25, written here without its digit. §2 line 69 and §3 have e cúntit where this has ʔe cúntit, and §3 ends in m̓
+(70)	nɬeʔkepmxcín	segmentation	ném=∅ xʷúy̓ e=s=k̓éyni-m[i]n-[t]-∅-[e]xʷ e=s-ʔi~ʔtm̓-kt ʔe=cún-t-[e]y-[e]t=∅ ʔéx=ut kénm néʔ ʔéx=wt w=cíʔe w=ɬe=s-qʷəm~qʷə̣́m	intense=3SBJ PROSP D/C=NMLZ=listen-RLT-TR-3OBJ-2SG.ERG DET=NMLZ-AUG~parent-1PL.POSS COMP=say-TR-1PL.OBJ-PASS=3SBJ IPFV=1PL.SBJV do.what DEM be=1PL.SBJV to=there to=DET.REM=NMLZ-AUG~mountain
+(70)	c̓úʔsinek	translation	‘You really have to pay attention [to] our parents when they advise us and guide us when we're out on the land.’	c̓úʔsinek's English. we're has the straight ASCII apostrophe here and the curly one in §3. The square brackets are the paper's
+(70)	Reed Steiner, Ella Hannon, and Brent Hall	notation	ʔéx ut against ʔéx=wt	the segmentation writes the second ʔéx ut as ʔéx=wt and the first as ʔéx=ut. Both recorded as printed
+(70)	Reed Steiner, Ella Hannon, and Brent Hall	notation	k̓éynimnxʷ against k̓éy̓nimnxʷ	(70) writes listen with a plain y in both tiers, where (4) writes k̓éy̓nimnxʷ and k̓éy̓ni with a glottalized one. Both recorded as printed
+(70)	Reed Steiner, Ella Hannon, and Brent Hall	notation	sʔíʔtm̓kt against ʔi~ʔtm̓	the unbroken line has an acute on the reduplicant and the segmentation none. Both recorded as printed
+footnote 25	Reed Steiner, Ella Hannon, and Brent Hall	note	The recording contains a néʔe, but c̓úʔsinek says it can be removed.	on the end of (70)
+footnote 25	nɬeʔkepmxcín	cited form	néʔe	the word in the recording that c̓úʔsinek says can be removed
+(71)	nɬeʔkepmxcín	transcription	húm̓eɬ cukʷ	the unbroken line
+(71)	nɬeʔkepmxcín	segmentation	húm̓eɬ cukʷ=∅	alright finish=3SBJ
+(71)	c̓úʔsinek	translation	‘Alright, finished.’	c̓úʔsinek's English, closing the story at the top of page 10 in §3 and on page 21 in §4
+references	Reed Steiner, Ella Hannon, and Brent Hall	heading	References	thirty-three entries on pages 22 and 23
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2023. Report on the Status of BC First Nations Languages. First Peoples’ Cultural Council.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Givens, Katherine & Brent Hall. 2023. The Moon and the Birchbark Canoe (ɬ máʕxetn pe ɬ q w ɬinéwɬ). Papers for ICSNL 58:78–84.
+references	Reed Steiner, Ella Hannon, and Brent Hall	damage	ɬ q w ɬinéwɬ	the text layer holds q, a space, a plain w and a space inside the title of Givens and Hall 2023. Transcribed as the text layer holds it
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hall Brent. 2023. A Brief Look at Infinitives in Nɬeʔkepmxcín. Papers for ICSNL 58:85–93.
+references	Reed Steiner, Ella Hannon, and Brent Hall	damage	Hall Brent.	no comma after Hall, where every other entry puts one after the surname. Transcribed as printed
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hall, Brent & Bev Phillips. 2024. xʷíʔ kʷ páq (You Will Be Sorry). Papers for ICSNL 59:128–156	no final period
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella & Cayla Smith. 2023. A Brief Comparison of Two Nɬeʔkepmxcín Evidentials. Papers for ICSNL 58:94–116.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella, Anna Stacey, & Reed Steiner. 2023. Glossed Conversational Data in Nɬeʔkepmxcín. Papers for ICSNL 58:117–158.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella. 2024a. Connected speech in Nɬeʔkepmxcín: Functions of ʔé meɬ nés in discourse and storytelling. Papers for ICSNL 59:157–168	no final period
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella. 2024b. A Modal Evidential in Nɬeʔkepmxcín. Ms. University of British Columbia, Vancouver, BC.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella. 2025. Prospective aspect in nɬeʔkepmxcín. Papers for ICSNL 60: 186–206.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Hannon, Ella. forthcoming. The semantics of ƛ̓əm̓. In Proceedings of SULA 12, to appear.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2004. On Predicate Modification in Nɬeʔkepmxcin (Thompson River Salish). Papers for ICSNL 39:269–282. 2005
+references	Reed Steiner, Ella Hannon, and Brent Hall	damage	Papers for ICSNL 39:269–282. 2005	the entry for Koch 2004 ends in a stray 2005 after its final period. Transcribed as printed
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2005. Double subject marking in Nɬeʔkepmxcin: Synchronic evidence for subject paradigm shifts. Papers for ICSNL 40:125–139.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2006a. Nominal Modification in Nɬeʔkepmxcin (Thompson River Salish). In S. T. Bischoff, L. Butler, P. Norquest, and D. Siddiqi (eds.), MIT Working Papers on Endangered and Less Familiar Languages: Salishan Volume. Cambridge, MA: Massachusetts Institute of Technology, 127–158.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2006b. Transitive word order in Nɬeʔkepmxcin (Thompson River Salish). In Papers for ICSNL 41: 192-220.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2006c. Against antisymmetry: Possession marking in Nɬeʔkepmxcin (Thompson River Salish). In Proceedings of the Workshop on the Structure and Constituency of Languages of the Americas XI:109-121.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2007a. Don’t get stressed! Non-stress focus strategies in Nɬeʔkepmxcin (Thompson River Salish). Proceedings of the 2007 Canadian Linguistic Association Annual Conference.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2007b. Focus and intonation theory meets Nɬeʔkepmxcin (Thompson River Salish). Proceedings of WSCLA 12: 86-99.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2007c. Questions and answers in Nɬeʔkepmxcin: Facilitating transfer from theoretical linguistics to education. Papers for ICSNL 42: 293-323.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten. 2008. Intonation and Focus in Nɬeʔkepmxcín (Thompson River Salish). Doctoral dissertation. University of British Columbia, Vancouver, BC.	Koch, Karsten with no initial A, and Nɬeʔkepmxcín with an acute, where the Koch titles before it have none
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2010. Some properties of prosodic phrases in Thompson Salish. In Stefanie Jannedy and Melanie Weirich, eds. Papers from the Linguistics Laboratory (ZAS Papers in Linguistics 52). Berlin: ZASPiL: 141-158.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2011a. Focus marking in a language lacking pragmatic presuppositions. Calgary Working Papers in Linguistics. Calgary: CWPL.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2011b. Focus and relativization: head-final relatives in Thompson Salish. Working Papers of the Linguistics Circle, University of Victoria 21(2). Victoria: WPLC.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2011c. Watering the garden and stepping on snakes: an animated story and association with focus in Nɬeʔkepmxcín. Papers for ICSNL 46:108–156.	Nɬeʔkepmxcín with an acute
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2012. Two levels of semantics and irregular morphology in Thompson Salish clefts. Irregularity in Morphology (and Beyond). Series: Studia Typologica 11. Berlin: Akademie Verlag / Mouton De Gruyter: 285-304.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2013a. Consequences of a syntactic, predicative focus-marking system. Proceedings of the 2013 Annual Conference of the Canadian Linguistic Association. Toronto: CLA Conference Proceedings.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2013b. Focus on Head-Final Relatives. Canadian Journal of Linguistics/Revue canadienne de linguistique 58(2):191-215.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Koch, Karsten A. 2015. Phrase boundary effects in /t/ duration and aspiration in Nɬeʔkepmxcin (Thompson River Salish). Papers for ICSNL 50: 47-70.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	kʷaɬtèzetkʷ Bernice Garcia, Ella Hannon, & Anna Stacey. 2024. Three Glossed nɬeʔkepmxcín Narratives by kʷaɬtèzetkʷuʔ. Papers for ICSNL 59: 68-94.	kʷaɬtèzetkʷuʔ in the title ends in uʔ, where her name at the head of the entry and in footnote * ends in kʷ
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Pirbaluti, Zara Khalaji. Vowel Variation in Nɬeʔkepmxcín: An Acoustic Study of Coarticulation. Papers for ICSNL 58:199-218.	no year, where §1.1 cites Pirbaluti 2023
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Reid, Danica. 2023. An Acoustic Analysis of Aspiration in Nɬeʔkepmxcín. Papers for ICSNL 58: 368-383.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Steiner, Reed. 2025. nɬeʔkepmxcín Somatic Suffixes. Papers for ICSNL 60: this volume.	not cited in the text
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Thompson, Laurence C. & M. Terry Thompson. 1996. Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics.
+references	Reed Steiner, Ella Hannon, and Brent Hall	reference	Thompson, Laurence C. & Terry Thompson. 1992. The Thompson Language. Missoula, MT: University of Montana Occasional Papers in Linguistics.	the last entry, out of date order after 1996
+references	Reed Steiner, Ella Hannon, and Brent Hall	notation	cited and not listed	Koch 2009 in §1.1, Koch 2008b in footnote 4, Stacey 2025 in §1.3 and Davis this volume in footnote 15 are not in the reference list
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	the lateral fricative	THIS PAPER WRITES THE LATERAL AS ɬ, U+026C, IN EVERY PLACE BUT ONE. Footnote 1 writes kʷałtèzetkʷ with ł, U+0142. The table keeps each as encoded
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	a dot below on a schwa	the text layer puts U+0323 on the schwa of x̣ʷə̣́nt, ɬə̣́n̓e, ɬə̣́n̕e, sqʷə̣́m, q̓ʷə̣́y-t and qʷə̣́, and pypdfium2 places each of these dots above the schwa, inside the acute, where the page shows none under it. mə̣̣́m holds a second U+0323 that shows under the schwa, as the symbol note at (18) records. The forms are kept as encoded
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	U+0313 against U+0315	the glottalizing comma is U+0313 COMBINING COMMA ABOVE throughout, and U+0315 COMBINING COMMA ABOVE RIGHT in q̕ax̣ném (37), in k̓ʷén̓n̕s and k̓ʷén̓~n̕ (17), and in ɬə̣́n̕e (60) and footnotes 13 and 23. The table keeps each as encoded
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	commas drawn high	on page 4 and in footnotes 14 and 15 the comma of k̓ and ƛ̓ is drawn higher above its letter than elsewhere in the paper. The text layer holds U+0313 at each, and the table follows it
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	precomposed and combining accents	the text layer writes an accented vowel sometimes as one precomposed code point and sometimes as a base letter and a combining acute or grave. Every form here is set in NFC, as every table in the corpus is, and the reader normalizes the text layer to NFC before it compares
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	line-end hyphens as U+FFFE	pypdfium2 reports the three hyphens that end a line, after xxv on page 1 and after determiner and approximately in footnote 2 on page 10, as U+FFFE, each about 2.5 to 2.8 pt wide. The page prints a hyphen at each. The forms here write U+002D HYPHEN-MINUS
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	line breaks after closing quotes	the text layer ends a line after every closing curly quote that closes a translation, a quotation in a footnote, and the “Thompson River Salish” of the abstract and §1.1. The page sets the quote against the text before it. The forms here join them
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	segmentation lines broken after ʷ	the segmentation tier of (12), (14), (18), (26), (35), (41), (53) and (59) breaks a line after txʷ, tʕʷ or nəxʷ and sets the rest of the word at the head of the next line. The forms here join each word with no space
+all	Reed Steiner, Ella Hannon, and Brent Hall	symbol note	segmentation lines interleaved with the gloss tier	where a segmentation runs to a second line, the page sets each segmentation line over its own gloss line, and the text layer holds them in that order: segmentation, gloss, segmentation, gloss. The form column joins the segmentation lines of an example and the gloss column joins its gloss lines
+all	Reed Steiner, Ella Hannon, and Brent Hall	notation	glosses in small capitals	the grammatical labels in the gloss column, such as DET.REM, 3SBJ and CTR.MID, are set in small capitals on the page and are transcribed here in ordinary capitals. A run of capitals in a gloss here is a grammatical label
+all	Reed Steiner, Ella Hannon, and Brent Hall	notation	quotation marks in the translations	the translations keep their printed marks. Narration is set in single curly quotes and dialogue in double curly quotes in §3 and §4, apart from (34), which §4 sets in single quotes. The straight apostrophes of Don't (64), Let's §3 (65) and we're (70) are recorded where they fall
+all	Reed Steiner, Ella Hannon, and Brent Hall	notation	whose words	THE STORY AND ITS ENGLISH ARE c̓úʔsinek'S. §1.3 says she recorded, told and translated it, and that every English translation is in her own words. Steiner and Hannon transcribed it, and the segmentation and gloss tiers are Steiner's, Hannon's and Hall's. The who column follows this: nɬeʔkepmxcín for the language, c̓úʔsinek for each translation and each footnote that quotes her, and the three authors for their prose and for the notes on the page
+all	Reed Steiner, Ella Hannon, and Brent Hall	notation	page numbers	pages 2 to 23 carry the proceedings page numbers 53 to 74. The text layer has no number on page 1

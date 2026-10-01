@@ -1,0 +1,421 @@
+where	who	kind	form	gloss
+front	Danica Reid	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Danica Reid	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+front	Danica Reid	title	An Acoustic Analysis of Aspiration in Nɬeʔkepmxcín*	page 1
+front	Danica Reid	byline	Danica Reid, Simon Fraser University	page 1
+front	Danica Reid	note	Abstract: Aspiration is a well-documented feature of sound systems cross-linguistically but is under-researched in Salish languages. Unlike many Salish languages, a system of aspiration for Nɬeʔkepmxcín was proposed where stops were unaspirated, somewhat aspirated, regularly aspirated, and strongly aspirated in four different environments. However, acoustic evidence for the proposed system was needed to confirm the four-category distinction. I present an acoustic analysis of aspiration for voiceless stops in these four environments from one speaker of the Lytton/Canyon dialect of Nɬeʔkepmxcín. My results highlight the need for an updated categorization system to account for the effect of word position rather than surrounding sounds as the main predictor of aspiration.	page 1
+front	Danica Reid	note	Keywords: Nɬeʔkepmxcín (a.k.a. Thompson River Salish), phonology, aspiration, VOT	page 1
+front	Danica Reid	name	Danica Reid	author, Simon Fraser University
+§1	Danica Reid	heading	1 Introduction	page 1
+§1	Danica Reid	note	Aspiration is a common feature of phonological systems cross-linguistically. It is a characteristic orthogonal to voicing and is typically measured as voice onset (VOT; Lisker & Abramson 1964). VOT is a measure used to categorize the voicing of stops by determining the time in milliseconds from the release burst of a stop consonant to the onset of the following vowel (as indicated by the first positive or negative movement of periodicity). Using VOT, stops are broken down into four main categories: plain voiced, voiced aspirated, voiceless unaspirated, and voiceless aspirated.1 The four main categories of stops have been used to identify three groupings of language according to the number of stop categories per language: one-category languages like Blackfoot, two-category languages like North American English and Cantonese; three-category languages like Korean and Thai; and four-category languages like Hindi and Marathi (Lisker & Abramson 1964; Genee & Li 2023).	page 1
+footnote *	Danica Reid	note	* Thank you to the Nɬeʔkepmxcín speakers who were so patient with our Field Methods class as we learned about their language while also learning how to conduct field work. In particular, I would like to thank c̓úʔsinek (Marty Aspinall), k̓ʷəʔtèzetkʷu (Bernice Garcia), and Bev Phillips without whom this project would not have been possible. Bernice Garcia wishes for it to be acknowledged that she is a Kamloops Indian Residential School speaker who is relearning her language and introduces herself as follows:	page 1, footnote
+footnote *	Danica Reid	name	Bev Phillips	the Nɬeʔkepmxcín speaker of the Lytton/Canyon dialect whose data the paper presents (BP)
+footnote *	Danica Reid	name	Bernice Garcia	a Nɬeʔkepmxcín speaker the author thanks, k̓ʷəʔtèzetkʷu, kʷəɬtèzetkʷuʔ, a Kamloops Indian Residential School speaker relearning her language
+footnote *	Danica Reid	name	Marty Aspinall	a Nɬeʔkepmxcín speaker the author thanks, c̓úʔsinek
+footnote *	Bernice Garcia	running speech	ʔes ʔúməcms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scweʷw̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔkepmx e tmixʷs.	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	“My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.”	page 1, footnote, her introduction in English
+footnote *	Danica Reid	note	I am also very grateful to members of the Nɬab and the Secwepemctsín Working Group for their feedback on this work, especially Lisa Matthewson who ran the field methods class, my elicitation partner Zara Khalaji Pirbaluti, and Julia Schillo. Funding for this work was provided by the University of British Columbia Department of Linguistics.	page 1, footnote
+footnote *	Danica Reid	name	Julia Schillo	thanked for feedback
+footnote *	Danica Reid	name	Zara Khalaji Pirbaluti	the author's elicitation partner
+footnote *	Danica Reid	name	Lisa Matthewson	ran the field methods class
+footnote *	Danica Reid	note	Contact info: danicar@sfu.ca	page 1, footnote
+§1	Danica Reid	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+footnote *	Nɬeʔkepmxcín	cited form	c̓úʔsinek	page 1, footnote, Marty Aspinall's name in the language
+footnote *	Nɬeʔkepmxcín	cited form	k̓ʷəʔtèzetkʷu	page 1, footnote, Bernice Garcia's name as the thanks write it
+footnote *	Danica Reid	language	Nlaka’pamux	Nlaka’pamux, the people and their lands, in Bernice Garcia's introduction
+footnote *	Danica Reid	language	Nɬab	the Nɬab, a group the author thanks for feedback
+footnote *	Danica Reid	language	Secwepemctsín	Secwepemctsín, Shuswap, in the name of the Secwepemctsín Working Group
+footnote 1	Danica Reid	note	1 There are additional categories of stops that can be distinguished on the basis of glottalization. These are relevant to Salish languages but will not be discussed in this analysis.	page 1, footnote
+§1	Danica Reid	note	Evidence from various studies has shown that VOT values are similar cross-linguistically, but that there is still variation across languages. For example, in a study of 19 languages, voiceless unaspirated stops, associated with short lag VOT, have a range from 1.4 to 21ms (Cho et al. 2019). In the same study, voiceless aspirated stops, associated with long lag VOT, range from 57 to 97ms (Cho et al. 2019). Interestingly, the overall distribution of VOT does not correspond to how many voicing-based phonological distinctions a language has. Across two, three, and four category languages, short lag VOT remains in a similar range compared to long lag VOT.	page 1
+§1	Danica Reid	language	SENĆOŦEN	SENĆOŦEN, Saanich, a North Straits Salish language
+§1	Danica Reid	language	St̕át̕imcets	St̕át̕imcets, Lillooet, a Northern Interior Salish language
+§1	Danica Reid	language	Séliš	Séliš, Montana Salish, a Southern Interior Salish language
+§1	Danica Reid	note	Aspiration is a topic that has been under researched in the study of Salish languages. Many language grammars offer only brief statements about aspiration, typically indicating only its presence or absence, with little or no data offered as evidence. For example, in SENĆOŦEN (Saanich), “obstruents are only rarely and weakly aspirated” (Montler 1986:8) and in St̕át̕imcets (Lillooet), “plain (non-glottalized) plosives are sometimes slightly aspirated” (van Eijk 1997:10). In the Southern Interior language of Séliš (Montana Salish), there have been at least two descriptions of the VOT of voiceless stops. In 1999, one project investigated variation and universals of VOT in 18 languages of the UCLA endangered languages project, including Séliš (Cho & Ladefoged 1999). Approximately ten years later, a small phonetic sketch of the full sound system of Séliš also outlined VOT values for the series of voiceless stops (Flemming et al. 2008). These values are provided in Table 1 and are consistent across the two publications.	page 2
+Table 1 line 1	Danica Reid	note	Table 1: Average VOT in ms for voiceless stops in Séliš from Cho and Ladefoged (1999) and Flemming et al. (2008). Standard deviations when available are provided in parentheses.	page 2
+Table 1 line 2	Danica Reid	note	Consonant Cho & Ladefoged (1999) Flemming et al. (2008) /p/ 22 24 (19) /t/ 24 22 (8) /k/ 48 37 (11) /q/ 55 54 (28)	page 2
+§1	Danica Reid	note	Unfortunately, while the analyses presented by Cho and Ladefoged (1999) indicate that voiceless stops were always recorded word-initially before non-high vowels, Flemming et al. (2008) did not specify the phonological environments in which the voiceless stops were elicited. The described elicitation methods, or lack thereof, mean that it is not possible to determine if the environment within a word could affect the aspiration of each of the voiceless stops. Additionally, neither analysis provided the number of tokens measured. Despite their limitations, these two analyses of VOT in Séliš provide a potential comparison point for the aspiration system of other Interior Salish languages, especially for voiceless stops in word-initial position.	page 2
+§1.1	Danica Reid	heading	1.1 Aspiration in Nɬeʔkepmxcín	page 2
+§1.1	Danica Reid	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1.1	Danica Reid	note	The present analysis investigates the aspiration system of Nɬeʔkepmxcín. Nɬeʔkepmxcín is a Northern Interior Salish language spoken in south-central British Columbia in communities like Boston Bar, Coldwater, Lytton, and Spences Bridge. Based on the 2022 Report of the Status of B.C. First Nations Languages, there are 105 fluent speakers, 312 semi-fluent speakers, and 517 active learners of the language (Gessner et al. 2022). The data presented throughout this analysis comes from Bev Phillips, a speaker of the Lytton/Canyon dialect.	page 2
+§1.1	Nɬeʔkepmxcín	phonemic	/ɣ/	page 2
+§1.1	Nɬeʔkepmxcín	phonemic	/z/	page 2, a sound categorized as a resonant
+§1.1	Nɬeʔkepmxcín	phonemic	/ʕ/	page 2
+§1.1	Danica Reid	note	Obstruents in Nɬeʔkepmxcín are generally lenis and voiceless (Thompson & Thompson 1992). The lenis nature of obstruents in the language means that in many voiced environments they can sound voiced to the English ear (Thompson & Thompson 1992). An unpublished spectrographic analysis of a speaker of the Nicola Valley dialect conducted by Sharon Mayes and reported in personal communication to Laurence and M. Terry Thompson found no instrumental evidence of voicing of the language’s obstruents (Thompson & Thompson 1992). Sounds like /z/, /ɣ/, and /ʕ/ that might be considered voiced obstruents in other languages are categorized as resonants (or sonorants) in Nɬeʔkepmxcín (Jimmie 1994).	page 2
+§1.1	Danica Reid	note	Within the inventory of voiceless stops in Nɬeʔkepmxcín, Thompson and Thompson (1992) outline a system of aspiration with four categories. This system is presented in Table 2. Within the proposed system, stops are categorized as “unaspirated before vowels and resonants, but often somewhat aspirated before a spirant and regularly before another stop. In syllable-final position they are strongly aspirated” (Thompson & Thompson 1992:4). No data are provided as evidence for these four categories, and clear definitions of the meanings of somewhat, regularly, and strongly are not provided. In order to avoid overlap between categories from stops in syllable-final position immediately preceding a spirant, stop, or resonant in a following syllable, I assume that the unaspirated, somewhat aspirated, and regularly aspirated environments are restricted to stops followed by segments in the same syllable.	page 3
+§1.1	Danica Reid	notation	_____σ	page 3
+Table 2 line 1	Danica Reid	note	Table 2: Nɬeʔkepmxcín aspiration system as outlined by Thompson and Thompson (1992) Position Description of Aspiration _____V; _____resonant Unaspirated _____spirant Somewhat aspirated _____stop Regularly aspirated _____σ Strongly aspirated	page 3
+§1.1	Danica Reid	note	Since this description of the Nɬeʔkepmxcín aspiration system as outlined in the grammar, no published works have presented evidence to contest or further clarify the categorizations. However, research has used the described system in other ways. Koch (2010, 2015) looked at lengthening as a prosodic phrase boundary cue. He was particularly focused on how lengthening manifested as aspiration on the first-person plural clitic kt in phrase-final position. Measurements of /t/ aspiration in phonological-phrase-final, intonation-phrase-final, and phrase-internal positions showed that /t/ had the longest release burst duration in intonation-phrase-final position (mean 218ms, SD 60ms), the shortest in phrase-internal position (mean 76ms, SD 42ms), and a release burst between those two in phonological-phrase-final position (mean 95ms, SD 42ms). Koch’s work offers initial support for syllable-final voiceless stops being aspirated, but the variation across each of the three phrasal positions leads to questions about the environment described for strongly aspirated stops in the language’s grammar (Thompson & Thompson 1992). Having a baseline of release burst durations in each of the four positional categories (before vowels, spirants, stops, or syllable boundaries) would help to determine how much the phrasal position affected release burst duration in Koch’s (2015) data.	page 3
+§1.1	Danica Reid	note	The goal of this research is to answer the following question: What is the pattern of aspiration for plain voiceless stops in Nɬeʔkepmxcín? In answering this question, I attempt to clarify the definitions of somewhat, regularly, and strongly aspirated stops outlined by Thompson and Thompson (1992) and connect the resulting aspiration system to the findings of Koch (2010, 2015).	page 3
+§2	Danica Reid	heading	2 Method	page 3
+§2	Nɬeʔkepmxcín	cited form	sq̓ʷoq̓ʷéps	page 4, ‘his strawberries’
+§2	Danica Reid	note	Data collection for this project took place over an eight-month period from September 2022 to April 2023. The wordlist consisted of both mono- and multi-syllabic words (four syllables maximum). The four environments of stops outlined by Thompson and Thompson (1992) were all targeted in this word list. For the unaspirated and strongly aspirated categories, I targeted word- initial stops before vowels and word-final stops following vowels to establish the extreme ends of the proposed scale. For the somewhat and regularly aspirated categories, I targeted stop-stop and stop-sibilant sequences in both word-initial and word-final position to see if there was an effect of word-position on release burst duration. In the majority of words, the relevant stop environment was not derived through morphological complexity. However, for stop-obstruent sequences, roughly 25% of the target sequences were created through the addition of a suffix. In particular, many word-final stop-spirant sequences were morphologically derived using the third-person possessive suffix -s (e.g., sq̓ʷoq̓ʷéps ‘his strawberries’). A portion of the word list is provided in Table 3. The full word list is provided in Appendix A.	page 3
+Table 3 line 1	Danica Reid	note	Sample of full word list. Targeted sound sequences are bolded and underlined.	page 4, the caption
+Table 3 line 2	Danica Reid	note	Target Environment Word-Initial Word-Final	page 4, heads the rows below
+Table 3 line 3	Danica Reid	notation	_____V	page 4, the target environment of the rows below
+Table 3 line 3	Nɬeʔkepmxcín	transcription	kéyx	page 4, the orthography
+Table 3 line 3	Danica Reid	translation	‘hand’	page 4
+Table 3 line 4	Nɬeʔkepmxcín	transcription	péwt	page 4, the orthography
+Table 3 line 4	Danica Reid	translation	‘swollen’	page 4
+Table 3 line 5	Danica Reid	notation	_____spirant	page 4, the orthography
+Table 3 line 5	Nɬeʔkepmxcín	transcription	txíʔeʔt	page 4, the orthography
+Table 3 line 5	Danica Reid	translation	‘narrow’	page 4
+Table 3 line 6	Nɬeʔkepmxcín	transcription	kɬíyxems	page 4, the orthography
+Table 3 line 6	Danica Reid	translation	‘stop doing something’	page 4
+Table 3 line 7	Nɬeʔkepmxcín	transcription	sxáyqs	page 4, the orthography
+Table 3 line 7	Danica Reid	translation	‘coho salmon’	page 4
+Table 3 line 8	Nɬeʔkepmxcín	transcription	sq̓ʷoq̓ʷy̓éps	page 4, the orthography
+Table 3 line 8	Danica Reid	translation	‘his strawberries’	page 4
+Table 3 line 9	Danica Reid	notation	_____stop	page 4, the target environment of the rows below
+Table 3 line 9	Nɬeʔkepmxcín	transcription	ptéyptn	page 4, the orthography
+Table 3 line 9	Danica Reid	translation	‘rug’	page 4
+Table 3 line 10	Nɬeʔkepmxcín	transcription	ptéx̣əs	page 4, the orthography
+Table 3 line 10	Danica Reid	translation	‘spit something out’	page 4
+Table 3 line 11	Nɬeʔkepmxcín	transcription	sƛ̓íqt	page 4, the orthography
+Table 3 line 11	Danica Reid	translation	‘sky’	page 4
+Table 3 line 12	Nɬeʔkepmxcín	transcription	qəqépt	page 4, the orthography
+Table 3 line 12	Danica Reid	translation	‘something got softer’	page 4
+Table 3 line 13	Danica Reid	notation	_____σ	page 4, the orthography
+Table 3 line 13	Nɬeʔkepmxcín	transcription	sɣép	page 4, the orthography
+Table 3 line 13	Danica Reid	translation	‘tree’	page 4
+Table 3 line 14	Nɬeʔkepmxcín	transcription	néw̓t	page 4, the orthography
+Table 3 line 14	Danica Reid	translation	‘wind’	page 4
+§2	Danica Reid	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§2	Danica Reid	note	All morphologically simple words were elicited in isolation by asking the speaker to translate English words into Nɬeʔkepmxcín. Morphologically complex words were elicited by asking the speaker to translate simple English sentences such as These must be his strawberries in (1).	page 4
+(1) line 1	Nɬeʔkepmxcín	transcription	c̓e nke xʔe ʔe sq̓ʷoq̓ʷy̓éps.	page 4, engine language
+(1) line 2	Nɬeʔkepmxcín	segmentation	c̓e nke xʔe ʔe=s-q̓ʷo~q̓ʷy̓=ép-s	page 4, engine language
+(1) line 3	Nɬeʔkepmxcín	gloss	EMPH INFER DEM DET=NMLZ-AUG~ripe=bottom-3POSS	page 4, engine english
+(1) line 4	Bev Phillips	translation	‘These must be his strawberries.’	page 4, engine english, cited BP, 2023-02-22
+(1) line 4	Bev Phillips	citation	(BP | 2023-02-22)	the tag or source at the right of the translation
+§2.1	Danica Reid	heading	2.1 Audio processing and analysis	page 4
+§2.1	Danica Reid	note	All elicitation sessions took place over Zoom. The Zoom audio recordings were converted from MP4 to WAV files to allow measurements of release burst duration in Praat (Boersma & Weenink 2022). Before any measurements were taken, all converted WAV files underwent noise reduction in Audacity which uses spectral noise gating to reduce static background noise in an audio file based on a few seconds of each recording where there was no speech. Target words were extracted from the long audio files and textgrids for each targeted sound were annotated to measure the total duration of release burst of the targeted voiceless stops. In words with multiple targeted stops, a separate textgrid was created for each stop for a total of 328 textgrids.	page 4
+§2.1	Danica Reid	note	For target sounds before vowels, the unaspirated category, VOT measurements were taken from the stop release burst to the onset of voicing of the vowel. For stops before spirants (the somewhat aspirated category) and stops before stops (the regularly aspirated category), I measured the time from the stop release burst to the onset of the spirant or stop. For target stops in word-final position, I measured from the stop release burst to the visual and auditory end of the release. Because these different environments of aspiration do not all fit into the definition of voice onset time (the duration from release burst to the onset of voicing), I will refer to the measured portion of each target sound as the release burst duration for the remainder of the paper. Examples of the annotated textgrids can be seen in Figure 1 for a stop before a vowel (unaspirated), Figure 2 for a stop before a spirant (somewhat aspirated), Figure 3 for a stop before a stop (regularly aspirated), and Figure 4 for a stop in word-final position (strongly aspirated).	page 4
+§2.1	Nɬeʔkepmxcín	cited form	kéyx	page 5, ‘hand’
+§2.1	Danica Reid	note	Figure 1: Annotated textgrid for a stop before a vowel in the word kéyx ‘hand’. The relevant stop environment is highlighted.	page 5
+§2.1	Nɬeʔkepmxcín	cited form	kɬíyxems	page 5, ‘stop doing something’
+§2.1	Danica Reid	note	Figure 2: Annotated textgrid for a stop before a spirant in the word kɬíyxems ‘stop doing something’. The relevant stop environment is highlighted.	page 5
+§2.1	Nɬeʔkepmxcín	cited form	sƛ̓íqt	page 6, ‘sky’
+§2.1	Danica Reid	note	Figure 3: Annotated textgrid for a stop before another stop in the word sƛ̓íqt ‘sky’. The relevant stop environment is highlighted.	page 6
+§2.1	Nɬeʔkepmxcín	cited form	néw̓t	page 6, ‘wind’
+§2.1	Danica Reid	note	Figure 4: Annotated textgrid for a word-final stop in the word néw̓t ‘wind’. The relevant stop environment is highlighted.	page 6
+§2.1	Danica Reid	note	In total, 100 tokens with voiceless stops in word-initial position before a vowel, 37 tokens with voiceless stops before spirants, 28 tokens with voiceless stops before other stops, and 70 tokens with voiceless stops in word-final position were annotated. A breakdown of the place of articulation of these stops based on their position within the target words is provided in Table 4.	page 6
+Table 4 line 1	Danica Reid	note	Table 4: Number of tokens for each environment, word position, and place of articulation. Greyed out sections indicate where the relevant environment would not be possible. Categories with 0s indicate environments where tokens could not be found in the creation of the wordlist.	page 6
+§2.1	Danica Reid	notation	_____σ	page 7
+Table 4 line 2	Danica Reid	note	Target Environment Word-Initial Word-final /p/ /t/ /k/ /q/ /p/ /t/ /k/ /q/ _____V 41 24 20 15 _____spirant 0 4 6 2 12 2 10 1 _____stop 10 2 0 0 4 0 1 8 _____σ 32 17 13 8	page 7
+§3	Danica Reid	heading	3 Results	page 7
+§3.1	Danica Reid	heading	3.1 Overall results	page 7
+§3.1	Danica Reid	note	Average release burst durations for each of the four targeted environments pattern closely to the categories outlined by Thompson and Thompson (1992). Word-initial voiceless stops and voiceless stops found before spirants, described by Thompson and Thompson (1992) as unaspirated and somewhat aspirated, respectively, had release burst durations in the range that is considered to be unaspirated in most languages (word-initial: 36ms, SD 3ms; before-spirant: 35ms, SD 5ms). Voiceless stops found before other stops, described by Thompson and Thompson (1992) as regularly aspirated, appear to be aspirated (66ms, SD 7ms), and word-final voiceless stops, described as strongly aspirated, are clearly aspirated (152ms, SD 7ms). Figure 5 provides the visual representation of release bursts for each environment.	page 7
+§3.1	Danica Reid	note	Figure 5: Average release burst duration by Thompson and Thompson’s (1992) environments	page 7
+§3.2	Danica Reid	heading	3.2 Effect of place of articulation	page 8
+§3.2	Danica Reid	note	A summary of release burst duration for each place of articulation is provided in Fehler! Ungültiger Eigenverweis auf Textmarke. for the environments of stops before vowels and stops word-finally. Place of articulation data for stops before spirants and stops before stops are not included in this analysis because there were insufficient tokens for each place of articulation to draw any conclusions. Variation in the two environments follows patterns seen in the literature that stops produced further back in the mouth like /k/ or /q/ will have a longer duration of release burst compared to stops produced further forward in the mouth like /p/ (Cho & Ladefoged 1999). This difference is related to the volume of the cavity behind the point of restriction. When the cavity behind the point of restriction is smaller, there is a greater amount of pressure which takes longer to fully release. When stops are in an environment before vowels and other voiced segments, this also causes a delay in the initiation of vocal fold vibration required for voicing (Hardcastle 1973; Maddieson 1996).	page 8
+Table 5 line 1	Danica Reid	note	Table 5: Average release burst duration in ms for each place of articulation. Standard deviations provided in parentheses.	page 8
+§3.2	Danica Reid	notation	_____σ	page 8
+Table 5 line 2	Danica Reid	note	Target Environment /p/ /t/ /k/ /q/ _____V 19 (7) 37 (13) 53 (25) 58 (45) _____σ 144 (57) 166 (52) 144 (60) 169 (64)	page 8
+§3.2	Danica Reid	note	In the word-final environment, the pattern is less clear, especially between the alveolar stop /t/ and the velar stop /k/. Due to the relatively small number of tokens for specific consonants, no outliers were removed from the analysis. As such, the pattern that is clearly illustrated in the word- initial stops might be masked in the word-final stops due to the use of careful speech or quieter speech not being picked up as well on a Zoom recording. However, between the labial /p/ and uvular /q/, it is clear even in the word-final environment that stops produced further forward in the mouth do seem to have shorter release bursts than those produced further back in the mouth.	page 8
+§3.3	Danica Reid	heading	3.3 Effect of word position	page 8
+§3.3	Danica Reid	note	For stop-spirant (somewhat aspirated) and stop-stop (regularly aspirated) environments, the sequences were targeted in both word-initial and word-final positions to see if there was any effect of word-position on release burst duration. Fehler! Verweisquelle konnte nicht gefunden w erden. and Fehler! Verweisquelle konnte nicht gefunden werden. show the average release burst duration for these sequences in word-initial and word-final positions.	page 8
+§3.3	Danica Reid	note	A univariate ANOVA was run on the release burst duration measures with environment (stop- spirant or stop-stop) and word position (word-initial or word-final) as the fixed effect. This ANOVA showed a significant interaction between environment and position (F(3, 58) = 10.5, p < .001). To determine which conditions differed from one another, a post hoc Tukey’s HSD Test was run to make pairwise comparisons of the different conditions. Tukey’s HSD Test for multiple comparisons found that the mean value of release burst duration was significantly different between stops before stops in word-final position and the three other environment positions (p < .01). There were no significant differences between stop-spirant sequences in either word-initial or word-final positions. This reflects the visual representations of the data in Figures Fehler! Verweisquelle k onnte nicht gefunden werden. and Fehler! Verweisquelle konnte nicht gefunden werden. and suggests that the position of stop-stop sequences in a word is driving the overall appearance that stops before other stops are regularly aspirated. An explanation for why the stop-stop sequences behave differently than the stop-spirant sequences is presented in the discussion. Figure 6: Average release burst duration for stop-spirant sequences in word-initial and word- final positions Figure 7: Average release burst duration for stop-stop sequences in word-initial and word- final positions	page 8
+§4	Danica Reid	heading	4 Discussion and conclusion	page 9
+§4	Danica Reid	language	Nɬeʔkepxmcín	Nɬeʔkepmxcín as page 9 prints it, the x and m swapped
+§4	Danica Reid	note	This study provides the first steps in determining the pattern of aspiration in Nɬeʔkepxmcín. The data presented above show that release burst duration of voiceless stops does pattern similarly to the categories of aspiration outlined by Thompson and Thompson (1992). However, these findings suggest that the pattern may be more straightforward than previously documented. Rather than requiring four distinct categories, there seem to be two key categorical distinctions that are based on position within the word. When voiceless stops are found in word-initial position, regardless of the following segment, they are produced as unaspirated, and when found in word-final position, they are produced as aspirated. Further work will be required to determine how word-internal stops fit into this two-category system.	page 9
+§4	Danica Reid	language	Séliš	Séliš, Montana Salish, a Southern Interior Salish language
+§4	Danica Reid	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4	Danica Reid	note	Interestingly, release burst durations for unaspirated and aspirated voiceless stops fall above the ranges found for unaspirated (1.4 to 21ms) and aspirated (57 to 97ms) stops cross-linguistically (Cho et al. 2019). When compared to the VOT measures for Séliš (Cho & Ladefoged 1999; Flemming et al. 2008), these data from Nɬeʔkepmxcín suggest that unaspirated voiceless stops in Interior Salish languages might have longer release bursts than are found in Indo-European languages which make up the majority of the “cross-linguistic” sample.	page 9
+§4	Danica Reid	note	While the two-category system of stops being unaspirated in word-initial position and aspirated in word-final position holds true for the majority of the data, it does not appear to be the case for stops found before spirants. However, there is a potentially simple explanation for this deviation. Throughout the data presented in this analysis, tokens were elicited as words in isolation. As such, the speaker may have been treating these isolated words as their own phrases. This would lend support to Koch’s (2015) proposal that lengthening, surfacing as aspiration for stop consonants, is a reliable cue of phrase boundaries in Nɬeʔkepmxcín. In the context of stop-spirant sequences, because the second segment of this cluster has the feature [+continuant], I suspect that it would take on the lengthening cue, leaving the release burst duration on the stop to surface as normal. In comparison, for stop-stop sequences, both segments have the feature [-continuant], making neither segment a more viable candidate for lengthening. I would then predict that the lengthening cue would apply to both stops in the cluster, leading to longer release burst durations. While measurements of duration of the second segment in stop-spirant and stop-stop sequences were not possible for the present analysis, they are planned for future investigations.	page 9
+§4	Danica Reid	note	There are a number of next steps for this work; some include further analyses of the presented data and others require the collection of additional data. With the current data, as mentioned, I plan to measure the duration of the second member of stop-spirant and stop-stop sequences to determine how phrase-final lengthening affects the production of these two types of clusters. I also want to look for word-internal, syllable-final stops in the data to confirm whether Thompson and Thompson (1992) were correct in proposing that syllable-final and not just word- or phrase-final stops are strongly aspirated. The presented analysis also looked at only one measure of aspiration: duration of release burst. While this is a common measure for classifying aspiration as part of sound systems cross-linguistically, additional measures of aspiration could provide more weight behind the reported results. These measures include determining the maximum intensity of the release burst, the time of maximum intensity, and the time of maximum intensity as a percentage of the overall aspiration duration. All three of these measures were reported in Koch’s (2015) analysis of phrase- internal and phrase-final /t/. It could also be informative to measure the consonant-induced fundamental frequency and voice quality of vowels following voiceless stops (see Cho et al. 2019 for a discussion of these measures), however, this would only be relevant to a subset of voiceless stops in the data.	page 10
+§4	Danica Reid	note	Additional data will need to be collected for two further investigations of the Nɬeʔkepmxcín aspiration system. With the current speaker, I hope to collect the target words in phrase-internal position to establish whether the proposed two-category system of aspiration holds up or is only appearing as a result of phrase-final lengthening. I also hope to determine whether this pattern of aspiration is replicable in other dialects of Nɬeʔkepmxcín by eliciting the word list with speakers of the Nicola Valley dialect.	page 10
+references	Danica Reid	heading	References	page 10
+references	Danica Reid	reference	Boersma, Paul & David Weenink. 2022. Praat: doing phonetics by computer. URL: http://www.praat.org/.	
+references	Danica Reid	reference	Cho, Taehong & Peter Ladefoged. 1999. Variation and universals in VOT: evidence from 18 languages. Journal of Phonetics 27(2):207–229.	
+references	Danica Reid	reference	Cho, Taehong, D. H. Whalen, & Gerard Docherty. 2019. Voice onset time and beyond: Exploring laryngeal contrast in 19 languages. Journal of Phonetics 72:52–65.	
+references	Danica Reid	reference	Eijk, Jan van. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver, BC: UBC Press.	
+references	Danica Reid	reference	Flemming, Edward, Peter Ladefoged, & Sarah Thomason. 2008. Phonetic structures of Montana Salish. Journal of Phonetics 36(3):465–491.	
+references	Danica Reid	reference	Genee, Inge & Fangfang Li. 2023. Voice Onset Time in a language without voicing contrast: An acoustic analysis of Blackfoot oral stops. Journal of the International Phonetic Association 1– 19.	
+references	Danica Reid	reference	Gessner, Suzanne, Tracey Herbert , & Aliana Parker. 2022. Report on the Status of B.C. First Nations Languages. https://fpcc.ca/wp-content/uploads/2020/07/FPCC-LanguageReport-180716-WEB.pdf Hardcastle, W. J. 1973. Some observations on the tense-lax distinction in initial stops in Korean. Journal of Phonetics 1(3):263–272.	
+references	Danica Reid	language	Nɬeʔkepmx	Nɬeʔkepmx, the people whose language is Nɬeʔkepmxcín, in a reference title
+references	Danica Reid	reference	Jimmie, Mandy. 1994. A Prosodic Analysis of Nɬeʔkepmx Reduplication. M.A. Thesis. University of British Columbia, Vancouver, BC.	
+references	Danica Reid	reference	Koch, Karsten. 2010. Some properties of prosodic phrasing in Thompson Salish. ZAS Papers in Linguistics 52:141–158.	
+references	Danica Reid	language	Nɬeʔkepmxcin	Nɬeʔkepmxcín, as a reference title writes it
+references	Danica Reid	reference	Koch, Karsten. 2015. Phrase boundary effects in /t/ duration and aspiration in Nɬeʔkepmxcin (Thompson River Salish). Papers for ICSNL 50:47–70.	
+references	Danica Reid	reference	Lisker, Leigh & Arthur S. Abramson. 1964. A Cross-Language Study of Voicing in Initial Stops: Acoustical Measurements. Word 20(3):384–422.	
+references	Danica Reid	reference	Maddieson, Ian. 1996. Phonetic Universals. UCLA Working Papers in Phonetics 92:160–178.	
+references	Danica Reid	reference	Montler, Timothy. 1986. An Outline of the Morphology and Phonology of Saanish, North Straits Salish (University of Montana Working Papers in Linguistics 4). Missoula, MT: University of Montana.	
+references	Danica Reid	reference	Thompson, Laurence C. & M. Terry Thompson. 1992. The Thompson Language (University of Montana Occasional Working Papers). Missoula, MT: University of Montana.	
+appendix	Danica Reid	heading	Appendix: full wordlist	page 12
+Table 6 line 1	Danica Reid	note	Target words with /p/ in word-initial position	page 12, the caption
+Table 6 line 2	Danica Reid	note	Target consonant Word Orthography Gloss	page 12, heads the rows below
+Table 6 line 3	Nɬeʔkepmxcín	phonemic	/p/	page 12, the target consonant
+Table 6 line 3	Nɬeʔkepmxcín	transcription	páqʷucs	page 12
+Table 6 line 3	Danica Reid	translation	‘scare’	page 12
+Table 6 line 4	Nɬeʔkepmxcín	transcription	páxem	page 12
+Table 6 line 4	Danica Reid	translation	‘peel’	page 12
+Table 6 line 5	Nɬeʔkepmxcín	transcription	pə́k	page 12
+Table 6 line 5	Danica Reid	translation	‘flatten’	page 12
+Table 6 line 6	Nɬeʔkepmxcín	transcription	péki	page 12
+Table 6 line 6	Danica Reid	translation	‘wagon’	page 12
+Table 6 line 7	Nɬeʔkepmxcín	transcription	pə́kʷt	page 12
+Table 6 line 7	Danica Reid	translation	‘spill something dry’	page 12
+Table 6 line 8	Nɬeʔkepmxcín	transcription	péɬusḱu	page 12
+Table 6 line 8	Danica Reid	translation	‘lake’	page 12
+Table 6 line 9	Nɬeʔkepmxcín	transcription	pépyeʔ	page 12
+Table 6 line 9	Danica Reid	translation	‘alone’	page 12
+Table 6 line 10	Nɬeʔkepmxcín	transcription	petə́ le	page 12
+Table 6 line 10	Danica Reid	translation	‘blood’	page 12
+Table 6 line 11	Nɬeʔkepmxcín	transcription	péwt	page 12
+Table 6 line 11	Danica Reid	translation	‘swollen’	page 12
+Table 6 line 12	Nɬeʔkepmxcín	transcription	píkcə	page 12
+Table 6 line 12	Danica Reid	translation	‘picture’	page 12
+Table 6 line 13	Nɬeʔkepmxcín	transcription	píləxəm	page 12
+Table 6 line 13	Danica Reid	translation	‘tell a story’	page 12
+Table 6 line 14	Nɬeʔkepmxcín	transcription	piyeʔscút	page 12
+Table 6 line 14	Danica Reid	translation	‘only child’	page 12
+Table 6 line 15	Nɬeʔkepmxcín	transcription	púnems	page 12
+Table 6 line 15	Danica Reid	translation	‘find’	page 12
+Table 6 line 16	Nɬeʔkepmxcín	transcription	púnəncim	page 12
+Table 6 line 16	Danica Reid	translation	‘you found me’	page 12
+Table 7 line 1	Danica Reid	note	Target words with /t/ in word-initial position	page 12, the caption
+Table 7 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 12, heads the rows below
+Table 7 line 3	Nɬeʔkepmxcín	phonemic	/t/	page 12, the target consonant
+Table 7 line 3	Nɬeʔkepmxcín	transcription	táxem	page 12
+Table 7 line 3	Danica Reid	translation	‘paddle’	page 12
+Table 7 line 4	Nɬeʔkepmxcín	transcription	tékɬ	page 12
+Table 7 line 4	Danica Reid	translation	‘raining’	page 12
+Table 7 line 5	Nɬeʔkepmxcín	transcription	təmɬík	page 12
+Table 7 line 5	Danica Reid	translation	‘summer’	page 12
+Table 7 line 6	Nɬeʔkepmxcín	transcription	téxʷt	page 12
+Table 7 line 6	Danica Reid	translation	‘bitter’	page 12
+Table 7 line 7	Nɬeʔkepmxcín	transcription	téyt	page 12
+Table 7 line 7	Danica Reid	translation	‘hungry’	page 12
+Table 7 line 8	Nɬeʔkepmxcín	transcription	təʔép	page 12
+Table 7 line 8	Danica Reid	translation	‘stain something black’	page 12
+Table 7 line 9	Nɬeʔkepmxcín	transcription	təʔepékst	page 12
+Table 7 line 9	Danica Reid	translation	‘stain hand black’	page 12
+Table 7 line 10	Nɬeʔkepmxcín	transcription	təʔepxín	page 12
+Table 7 line 10	Danica Reid	translation	‘stain foot black’	page 12
+Table 7 line 11	Nɬeʔkepmxcín	transcription	toqʷpsténə	page 12
+Table 7 line 11	Danica Reid	translation	‘dent’	page 12
+Table 7 line 12	Nɬeʔkepmxcín	transcription	tukʷtúkʷt	page 12
+Table 7 line 12	Danica Reid	translation	‘shelter’	page 12
+Table 7 line 13	Nɬeʔkepmxcín	transcription	túlkist	page 12
+Table 7 line 13	Danica Reid	translation	‘hammer’	page 12
+Table 8 line 1	Danica Reid	note	Target words with /k/ in word-initial position	page 13, the caption
+Table 8 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 13, heads the rows below
+Table 8 line 3	Nɬeʔkepmxcín	phonemic	/k/	page 13, the target consonant
+Table 8 line 3	Nɬeʔkepmxcín	transcription	kálec	page 13
+Table 8 line 3	Danica Reid	translation	‘carrot’	page 13
+Table 8 line 4	Nɬeʔkepmxcín	transcription	kázeʔ	page 13
+Table 8 line 4	Danica Reid	translation	‘lie’	page 13
+Table 8 line 5	Nɬeʔkepmxcín	transcription	kəkəmíxəms	page 13
+Table 8 line 5	Danica Reid	translation	‘sneak’	page 13
+Table 8 line 6	Nɬeʔkepmxcín	transcription	kəncít	page 13
+Table 8 line 6	Danica Reid	translation	‘we helped’	page 13
+Table 8 line 7	Nɬeʔkepmxcín	transcription	kénəms	page 13
+Table 8 line 7	Danica Reid	translation	‘help’	page 13
+Table 8 line 8	Nɬeʔkepmxcín	transcription	kénm	page 13
+Table 8 line 8	Danica Reid	translation	‘what is the matter’	page 13
+Table 8 line 9	Nɬeʔkepmxcín	transcription	kepú	page 13
+Table 8 line 9	Danica Reid	translation	‘coat’	page 13
+Table 8 line 10	Nɬeʔkepmxcín	transcription	kewómk	page 13
+Table 8 line 10	Danica Reid	translation	‘belly button’	page 13
+Table 8 line 11	Nɬeʔkepmxcín	transcription	kéyx	page 13
+Table 8 line 11	Danica Reid	translation	‘hand’	page 13
+Table 8 line 12	Nɬeʔkepmxcín	transcription	kinéyt	page 13
+Table 8 line 12	Danica Reid	translation	‘helper’	page 13
+Table 8 line 13	Nɬeʔkepmxcín	transcription	kíyeʔ	page 13
+Table 8 line 13	Danica Reid	translation	‘front’	page 13
+Table 9 line 1	Danica Reid	note	Target words with /q/ in word-initial position	page 13, the caption
+Table 9 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 13, heads the rows below
+Table 9 line 3	Nɬeʔkepmxcín	phonemic	/q/	page 13, the target consonant
+Table 9 line 3	Nɬeʔkepmxcín	transcription	qəqépt	page 13
+Table 9 line 3	Danica Reid	translation	‘got softer’	page 13
+Table 9 line 4	Nɬeʔkepmxcín	transcription	qemút	page 13
+Table 9 line 4	Danica Reid	translation	‘hat’	page 13
+Table 9 line 5	Nɬeʔkepmxcín	transcription	qeyméyt	page 13
+Table 9 line 5	Danica Reid	translation	‘nurse, suckle’	page 13
+Table 9 line 6	Nɬeʔkepmxcín	transcription	qəɬmíns	page 13
+Table 9 line 6	Danica Reid	translation	‘old woman’	page 13
+Table 9 line 7	Nɬeʔkepmxcín	transcription	qéck	page 13
+Table 9 line 7	Danica Reid	translation	‘older brother’	page 13
+Table 9 line 8	Nɬeʔkepmxcín	transcription	qáznə	page 13
+Table 9 line 8	Danica Reid	translation	‘wave’	page 13
+Table 9 line 9	Nɬeʔkepmxcín	transcription	qʷintwáxʷ	page 13
+Table 9 line 9	Danica Reid	translation	‘disagreement’	page 13
+Table 9 line 10	Nɬeʔkepmxcín	transcription	qʷincútm	page 13
+Table 9 line 10	Danica Reid	translation	‘talk about someone’	page 13
+Table 10 line 1	Danica Reid	note	Target words with /p/ before a spirant	page 13, the caption
+Table 10 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 13, heads the rows below
+Table 10 line 3	Nɬeʔkepmxcín	phonemic	/p/	page 13, the target consonant
+Table 10 line 3	Nɬeʔkepmxcín	transcription	ṣʕʷláps	page 13
+Table 10 line 3	Danica Reid	translation	‘bighorn sheep’	page 13
+Table 10 line 4	Nɬeʔkepmxcín	transcription	ɬképs	page 13
+Table 10 line 4	Danica Reid	translation	‘her pot’	page 13
+Table 10 line 5	Nɬeʔkepmxcín	transcription	sq̓ʷoq̓ʷy̓éps	page 13
+Table 10 line 5	Danica Reid	translation	‘his strawberries’	page 13
+Table 10 line 6	Nɬeʔkepmxcín	transcription	sɣéps	page 13
+Table 10 line 6	Danica Reid	translation	‘his tree’	page 13
+Table 10 line 7	Nɬeʔkepmxcín	transcription	spéps	page 13
+Table 10 line 7	Danica Reid	translation	‘pond’	page 13
+Table 10 line 8	Nɬeʔkepmxcín	transcription	k̓̓̀ʷmiʔxʷéps	page 13
+Table 10 line 8	Danica Reid	translation	‘tree roots’	page 13
+Table 10 line 9	Nɬeʔkepmxcín	transcription	spéps	page 13
+Table 10 line 9	Danica Reid	translation	‘pond’	page 13
+Table 11 line 1	Danica Reid	note	Target words with /t/ before a spirant	page 14, the caption
+Table 11 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 14, heads the rows below
+Table 11 line 3	Nɬeʔkepmxcín	phonemic	/t/	page 14, the target consonant
+Table 11 line 3	Nɬeʔkepmxcín	transcription	txíʔxeʔt	page 14
+Table 11 line 3	Danica Reid	translation	‘narrow, thin’	page 14
+Table 11 line 4	Nɬeʔkepmxcín	transcription	stx̣éɬp	page 14
+Table 11 line 4	Danica Reid	translation	‘diamond willow’	page 14
+Table 11 line 5	Nɬeʔkepmxcín	transcription	miʔxétxʷ	page 14
+Table 11 line 5	Danica Reid	translation	‘you kick him’	page 14
+Table 11 line 6	Nɬeʔkepmxcín	transcription	cítxʷ	page 14
+Table 11 line 6	Danica Reid	translation	‘house’	page 14
+Table 12 line 1	Danica Reid	note	Target words with /k/ before a spirant	page 14, the caption
+Table 12 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 14, heads the rows below
+Table 12 line 3	Nɬeʔkepmxcín	phonemic	/k/	page 14, the target consonant
+Table 12 line 3	Nɬeʔkepmxcín	transcription	stékɬ	page 14
+Table 12 line 3	Danica Reid	translation	‘rain’	page 14
+Table 12 line 4	Nɬeʔkepmxcín	transcription	tékɬ	page 14
+Table 12 line 4	Danica Reid	translation	‘raining’	page 14
+Table 12 line 5	Nɬeʔkepmxcín	transcription	kɬíyxems	page 14
+Table 12 line 5	Danica Reid	translation	‘quit’	page 14
+Table 12 line 6	Nɬeʔkepmxcín	transcription	sƛ̓ʔéks	page 14
+Table 12 line 6	Danica Reid	translation	‘her arrival’	page 14
+Table 12 line 7	Nɬeʔkepmxcín	transcription	ɬcécks	page 14
+Table 12 line 7	Danica Reid	translation	‘her mother-in-law’	page 14
+Table 12 line 8	Nɬeʔkepmxcín	transcription	qécks	page 14
+Table 12 line 8	Danica Reid	translation	‘her older brother’	page 14
+Table 12 line 9	Nɬeʔkepmxcín	transcription	ʔə̣́l̕ṣíkʷs	page 14
+Table 12 line 9	Danica Reid	translation	‘her turtle’	page 14
+Table 13 line 1	Danica Reid	note	Target words with /q/ before a spirant	page 14, the caption
+Table 13 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 14, heads the rows below
+Table 13 line 3	Nɬeʔkepmxcín	phonemic	/q/	page 14, the target consonant
+Table 13 line 3	Nɬeʔkepmxcín	transcription	sqɬéxʷ	page 14
+Table 13 line 3	Danica Reid	translation	‘blanket’	page 14
+Table 13 line 4	Nɬeʔkepmxcín	transcription	sx̣áyqs	page 14
+Table 13 line 4	Danica Reid	translation	‘coho salmon’	page 14
+Table 14 line 1	Danica Reid	note	Target words with /p/ before a stop	page 14, the caption
+Table 14 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 14, heads the rows below
+Table 14 line 3	Nɬeʔkepmxcín	phonemic	/p/	page 14, the target consonant
+Table 14 line 3	Nɬeʔkepmxcín	transcription	tpípq	page 14
+Table 14 line 3	Danica Reid	translation	‘weasel’	page 14
+Table 14 line 4	Nɬeʔkepmxcín	transcription	ptékʷɬmne	page 14
+Table 14 line 4	Danica Reid	translation	‘tell a story’	page 14
+Table 14 line 5	Nɬeʔkepmxcín	transcription	ptéx̣əs	page 14
+Table 14 line 5	Danica Reid	translation	‘spit something out’	page 14
+Table 14 line 6	Nɬeʔkepmxcín	transcription	ptéyptn	page 14
+Table 14 line 6	Danica Reid	translation	‘rug’	page 14
+Table 14 line 7	Nɬeʔkepmxcín	transcription	ptéyqʷtn	page 14
+Table 14 line 7	Danica Reid	translation	‘tablecloth’	page 14
+Table 14 line 8	Nɬeʔkepmxcín	transcription	ptéyxete	page 14
+Table 14 line 8	Danica Reid	translation	‘put something on a table’	page 14
+Table 14 line 9	Nɬeʔkepmxcín	transcription	qəqépt	page 14
+Table 14 line 9	Danica Reid	translation	‘got softer’	page 14
+Table 14 line 10	Nɬeʔkepmxcín	transcription	sptúkʷ	page 14
+Table 14 line 10	Danica Reid	translation	‘spring’	page 14
+Table 15 line 1	Danica Reid	note	Target words with /t/ before a stop	page 15, the caption
+Table 15 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 15, heads the rows below
+Table 15 line 3	Nɬeʔkepmxcín	phonemic	/t/	page 15, the target consonant
+Table 15 line 3	Nɬeʔkepmxcín	transcription	tpípq	page 15
+Table 15 line 3	Danica Reid	translation	‘weasel’	page 15
+Table 15 line 4	Nɬeʔkepmxcín	transcription	stpíq	page 15
+Table 15 line 4	Danica Reid	translation	‘white’	page 15
+Table 16 line 1	Danica Reid	note	Target words with /k/ before a stop	page 15, the caption
+Table 16 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 15, heads the rows below
+Table 16 line 3	Nɬeʔkepmxcín	phonemic	/k/	page 15, the target consonant
+Table 16 line 3	Nɬeʔkepmxcín	transcription	sə́ktmintem	page 15
+Table 16 line 3	Danica Reid	translation	‘get hit’	page 15
+Table 16 line 4	Nɬeʔkepmxcín	transcription	zíkt	page 15
+Table 16 line 4	Danica Reid	translation	‘knock over’	page 15
+Table 17 line 1	Danica Reid	note	Target words with /q/ before a stop	page 15, the caption
+Table 17 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 15, heads the rows below
+Table 17 line 3	Nɬeʔkepmxcín	phonemic	/q/	page 15, the target consonant
+Table 17 line 3	Nɬeʔkepmxcín	transcription	cáqcəqt	page 15
+Table 17 line 3	Danica Reid	translation	‘spuce grouse’	page 15
+Table 17 line 4	Nɬeʔkepmxcín	transcription	sƛ̓íqt	page 15
+Table 17 line 4	Danica Reid	translation	‘sky’	page 15
+Table 17 line 5	Nɬeʔkepmxcín	transcription	swəl̕wl̕íqt	page 15
+Table 17 line 5	Danica Reid	translation	‘stinging nettle’	page 15
+Table 17 line 6	Nɬeʔkepmxcín	transcription	tóqʷt	page 15
+Table 17 line 6	Danica Reid	translation	‘fluffy’	page 15
+Table 18 line 1	Danica Reid	note	Target words with /p/ in word-final position	page 15, the caption
+Table 18 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 15, heads the rows below
+Table 18 line 3	Nɬeʔkepmxcín	phonemic	/p/	page 15, the target consonant
+Table 18 line 3	Nɬeʔkepmxcín	transcription	cnə́p	page 15
+Table 18 line 3	Danica Reid	translation	‘echo’	page 15
+Table 18 line 4	Nɬeʔkepmxcín	transcription	ɬkép	page 15
+Table 18 line 4	Danica Reid	translation	‘pot/pan’	page 15
+Table 18 line 5	Nɬeʔkepmxcín	transcription	naʕʔíp	page 15
+Table 18 line 5	Danica Reid	translation	‘always’	page 15
+Table 18 line 6	Nɬeʔkepmxcín	transcription	pʔíp	page 15
+Table 18 line 6	Danica Reid	translation	‘lost’	page 15
+Table 18 line 7	Nɬeʔkepmxcín	transcription	sɣép	page 15
+Table 18 line 7	Danica Reid	translation	‘tree’	page 15
+Table 18 line 8	Nɬeʔkepmxcín	transcription	snk̓y̓ép	page 15
+Table 18 line 8	Danica Reid	translation	‘coyote’	page 15
+Table 18 line 9	Nɬeʔkepmxcín	transcription	teqpép	page 15
+Table 18 line 9	Danica Reid	translation	‘dammed’	page 15
+Table 18 line 10	Nɬeʔkepmxcín	transcription	təʔép	page 15
+Table 18 line 10	Danica Reid	translation	‘stain black’	page 15
+Table 18 line 11	Nɬeʔkepmxcín	transcription	wosíp	page 15
+Table 18 line 11	Danica Reid	translation	‘sunrise’	page 15
+Table 18 line 12	Nɬeʔkepmxcín	transcription	xʷmə́p	page 15
+Table 18 line 12	Danica Reid	translation	‘lonely’	page 15
+Table 18 line 13	Nɬeʔkepmxcín	transcription	ʕáp	page 15
+Table 18 line 13	Danica Reid	translation	‘evening’	page 15
+Table 18 line 14	Nɬeʔkepmxcín	transcription	ʕʷiʕʷyə́p	page 15
+Table 18 line 14	Danica Reid	translation	‘burning’	page 15
+Table 18 line 15	Nɬeʔkepmxcín	transcription	ʔax́ iyəp	page 15
+Table 18 line 15	Danica Reid	translation	‘sweep’	page 15
+Table 19 line 1	Danica Reid	note	Target words with /t/ in word-final position	page 16, the caption
+Table 19 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 16, heads the rows below
+Table 19 line 3	Nɬeʔkepmxcín	phonemic	/t/	page 16, the target consonant
+Table 19 line 3	Nɬeʔkepmxcín	transcription	kəncít	page 16
+Table 19 line 3	Danica Reid	translation	‘we helped’	page 16
+Table 19 line 4	Nɬeʔkepmxcín	transcription	kinéyt	page 16
+Table 19 line 4	Danica Reid	translation	‘helper’	page 16
+Table 19 line 5	Nɬeʔkepmxcín	transcription	néw̓t	page 16
+Table 19 line 5	Danica Reid	translation	‘wind’	page 16
+Table 19 line 6	Nɬeʔkepmxcín	transcription	p̓éwt	page 16
+Table 19 line 6	Danica Reid	translation	‘echo’	page 16
+Table 19 line 7	Nɬeʔkepmxcín	transcription	piyeʔscút	page 16
+Table 19 line 7	Danica Reid	translation	‘only child’	page 16
+Table 19 line 8	Nɬeʔkepmxcín	transcription	weʔwít	page 16
+Table 19 line 8	Danica Reid	translation	‘last’	page 16
+Table 19 line 9	Nɬeʔkepmxcín	transcription	xʷesít	page 16
+Table 19 line 9	Danica Reid	translation	‘walk’	page 16
+Table 19 line 10	Nɬeʔkepmxcín	transcription	xʷʔít	page 16
+Table 19 line 10	Danica Reid	translation	‘many’	page 16
+Table 20 line 1	Danica Reid	note	Target words with /k/ in word-final position	page 16, the caption
+Table 20 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 16, heads the rows below
+Table 20 line 3	Nɬeʔkepmxcín	phonemic	/k/	page 16, the target consonant
+Table 20 line 3	Nɬeʔkepmxcín	transcription	c̓ék	page 16
+Table 20 line 3	Danica Reid	translation	‘finished’	page 16
+Table 20 line 4	Nɬeʔkepmxcín	transcription	lisék	page 16
+Table 20 line 4	Danica Reid	translation	‘sack’	page 16
+Table 20 line 5	Nɬeʔkepmxcín	transcription	ƛ̓ʔék	page 16
+Table 20 line 5	Danica Reid	translation	‘arrive’	page 16
+Table 20 line 6	Nɬeʔkepmxcín	transcription	pək	page 16
+Table 20 line 6	Danica Reid	translation	‘flatten’	page 16
+Table 20 line 7	Nɬeʔkepmxcín	transcription	sceqpín̓ek	page 16
+Table 20 line 7	Danica Reid	translation	‘morning star’	page 16
+Table 20 line 8	Nɬeʔkepmxcín	transcription	sc̓olín̓ek	page 16
+Table 20 line 8	Danica Reid	translation	‘evening star’	page 16
+Table 20 line 9	Nɬeʔkepmxcín	transcription	təmɬík	page 16
+Table 20 line 9	Danica Reid	translation	‘summer’	page 16
+Table 21 line 1	Danica Reid	note	Target words with /q/ in word-final position	page 16, the caption
+Table 21 line 2	Danica Reid	note	Target Consonant Word Orthography Gloss	page 16, heads the rows below
+Table 21 line 3	Nɬeʔkepmxcín	phonemic	/q/	page 16, the target consonant
+Table 21 line 3	Nɬeʔkepmxcín	transcription	kʷl̕íqəq	page 16
+Table 21 line 3	Danica Reid	translation	‘robin’	page 16
+Table 21 line 4	Nɬeʔkepmxcín	transcription	séʔaq	page 16
+Table 21 line 4	Danica Reid	translation	‘fern’	page 16
+Table 21 line 5	Nɬeʔkepmxcín	transcription	stpíq	page 16
+Table 21 line 5	Danica Reid	translation	‘white’	page 16
+Table 21 line 6	Nɬeʔkepmxcín	transcription	sx̣íq	page 16
+Table 21 line 6	Danica Reid	translation	‘duck’	page 16
+Table 21 line 7	Nɬeʔkepmxcín	transcription	ʔesx̣táq	page 16
+Table 21 line 7	Danica Reid	translation	‘hole’	page 16
+Table 21 line 8	Nɬeʔkepmxcín	transcription	scíqʷ	page 16
+Table 21 line 8	Danica Reid	translation	‘red’	page 16
+Table 21 line 9	Nɬeʔkepmxcín	transcription	wlóqʷ	page 16
+Table 21 line 9	Danica Reid	translation	‘clearing’	page 16

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Tests for the register stages of docs_check: the two tiers, what stands behind each one, and
@@ -680,8 +680,8 @@ class ProseNeverFailsABuild(unittest.TestCase):
             status, 1, "--strict is the mode a cleanup pass wants and it did not fail"
         )
 
-    def test_anchor_sift_itself_is_held_to_the_same_contract(self):
-        # Named because the brief for this tool has been read the other way before. anchor_sift owns
+    def test_orior_itself_is_held_to_the_same_contract(self):
+        # Named because the brief for this tool has been read the other way before. orior owns
         # the checker and gets no stricter a setting than any repository it is pointed at.
         tier_a = [one for one in docs_check.BANNED if docs_check.tier_of(one) == "A"]
         self.assertTrue(tier_a)
@@ -733,8 +733,8 @@ class OneAuthor(unittest.TestCase):
             "Hand the theorist every claim this session produced.",
             "Found by the crystallography session pointing at the protein subject.",
             "The project architect set the scope.",
-            "anchor_sift's reading of the threads is not run here.",
-            "Written by the builder session Anchor_sift leaderboard disruptor.",
+            "orior's reading of the threads is not run here.",
+            "Written by the builder session Orior leaderboard disruptor.",
         ):
             hits = self.patterns_hit(sentence)
             self.assertTrue(hits, "no finding on %r" % sentence)
@@ -747,7 +747,7 @@ class OneAuthor(unittest.TestCase):
             "Take the machine's own prose out of a session transcript.",
             "Its variables are carried into this session before nvcc is called.",
             "The story, the session, the microphone and the speaker vary together.",
-            "These device runs shared the device with anchor_sift's 54-bit run.",
+            "These device runs shared the device with orior's 54-bit run.",
             "A worktree dies with the session that made it.",
         ):
             one_author = [

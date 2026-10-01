@@ -1,0 +1,809 @@
+where	who	kind	form	gloss
+front	Thomas J. Heins, Lisa Matthewson	title	Gitksan gi: A marker of past evidence	page 1, carries footnote *
+front	Thomas J. Heins, Lisa Matthewson	name	Thomas J. Heins	author
+front	Thomas J. Heins, Lisa Matthewson	name	Lisa Matthewson	author
+front	Thomas J. Heins, Lisa Matthewson	note	University of British Columbia	page 1, under Lisa Matthewson
+front	Thomas J. Heins, Lisa Matthewson	note	Abstract: This paper provides the first targeted investigation of the semantics of the particle gi in Gitksan (Tsimshianic). This particle has previously been characterized, both in Gitksan and in related Tsimshianic languages, as a distal deictic marker (Boas 1911, Jóhannsdóttir 2006, Rigsby 1986, Tarpent 1984, 1987, 1998). However, we provide evidence that gi does not enforce spatio- temporal distance. Instead, we suggest that gi in a declarative sentence conveys that at least one interlocutor had prior evidence for the asserted proposition. The use of gi extends to wh-questions, in which it conveys that at least one interlocutor had prior evidence for the answer to the question, or for the question itself. Whether gi signals the hearer’s knowledge or the speaker’s is determined pragmatically. According to this preliminary analysis, gi is a discourse particle with a cross-linguistically unusual property: it encodes information about the knowledge state not of one particular discourse participant (speaker / addressee), but of either participant.	page 1, the abstract
+front	Thomas J. Heins, Lisa Matthewson	note	Keywords: Gitksan, discourse particles	page 1, the keywords
+front	Thomas J. Heins, Lisa Matthewson	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Thomas J. Heins, Lisa Matthewson	language	Gitksan	Tsimshianic, Interior branch; upper Skeena River, northwestern British Columbia
+footnote *	Thomas J. Heins, Lisa Matthewson	note	Contact info: tjheins@alumni.ubc.ca, lisa.matthewson.ubc.ca. We are very grateful to our Gitksan consultants Vincent Gogag, Hector Hill, Ray Jones, Barbara Sennott and Louise Wilson, for their patience and skill. Ha'miiyaa! We would also like to thank the UBC Gitksan Research Lab: Katie Bicevskis, Kyra Borland-Walker, Colin Brown, Jason Brown, Henry Davis, Catherine Dworak, Clarissa Forbes, Aidan Pine, Alyssa Satterwhite, Michael Schwan and Yimeng Wang. Special thanks to Katie Bicevskis, Henry Davis and Michael Schwan for (proof)reading an earlier version of this paper. This research was supported in part by SSHRC grant #410-2011-0431 and the Jacobs Research Fund.	page 1, footnote *, on the title
+footnote *	Gitksan	cited form	Ha'miiyaa	page 1, in italics
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Vincent Gogag	Gitksan consultant, Git-anyaaw (Kitwancool); VG in the examples
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Hector Hill	Gitksan consultant, Gijigyukwhla (Gitsegukla); HH in the examples
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Barbara Sennott	Gitksan consultant, Ansbayaxw (Kispiox); BS in the examples
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Ray Jones	Gitksan consultant, Prince Rupert and Gijigyukwhla; RJ
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Louise Wilson	Gitksan consultant, Ansbayaxw and Prince Rupert; LW in the examples
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Katie Bicevskis	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Kyra Borland-Walker	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Colin Brown	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Jason Brown	UBC Gitksan Research Lab, thanked; Gitksan phonology (2008)
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Henry Davis	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Catherine Dworak	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Clarissa Forbes	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Aidan Pine	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Alyssa Satterwhite	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Michael Schwan	UBC Gitksan Research Lab, thanked
+footnote *	Thomas J. Heins, Lisa Matthewson	name	Yimeng Wang	UBC Gitksan Research Lab, thanked
+§1	Thomas J. Heins, Lisa Matthewson	heading	1 Introduction	page 1
+§1	Thomas J. Heins, Lisa Matthewson	note	This paper provides the first targeted investigation of the Gitksan particle gi, an element which has previously been characterized as a marker of spatio-temporal distance (e.g., Boas 1911, Jóhannsdóttir 2006, Rigsby 1986, Tarpent 1984, 1987, 1998). The use of gi is illustrated in (1). In anticipation of our findings, we gloss gi as PR.EVID for ‘prior evidence’.1	page 1
+footnote 1	Thomas J. Heins, Lisa Matthewson	note	Data are presented in the orthography developed by Hindle and Rigsby (1973). ' represents a glottal stop or glottalization; hl is a voiceless lateral fricative; x̲, k̲ and g̲ are uvulars; j is [dz]; vowel length is represented by double vowels. Abbreviations not covered by the Leipzig Glossing Rules: I/II/III = series I/II/III pronoun, BPG = best possible grounds, CAUS1 = prefixal causative, CAUS2 = suffixal causative, CL.CNJ = clausal conjunction, CN = connective, DM = determiner marker, EPIS = epistemic modal, INCEP = inceptive, LV = light verb, PN = proper name, PREP = preposition, PR.EVID = prior evidence, REP = reportative, QUDD = question under discussion downdate, SUBORD = subordinator, T = “T” suffix, YNQ = yes-no question, ¬PPS = ¬p in projected set.	page 1, footnote 1
+footnote 1	Thomas J. Heins, Lisa Matthewson	name	Hindle	Lonnie Hindle and Bruce Rigsby, the practical dictionary (1973)
+§1	Gitksan	cited form	gi	page 1, in italics
+§1	Thomas J. Heins, Lisa Matthewson	name	Boas	Franz Boas, Tsimshian (1911)
+§1	Thomas J. Heins, Lisa Matthewson	name	Jóhannsdóttir	Kristín M. Jóhannsdóttir, aspect in Gitxsan (2006)
+§1	Thomas J. Heins, Lisa Matthewson	name	Rigsby	Bruce Rigsby, Gitksan grammar (1986) and language shift (1987)
+§1	Thomas J. Heins, Lisa Matthewson	name	Tarpent	Marie-Lucie Tarpent, the Nisgha evidential postclitics (1984), grammar (1987), =ga'a (1998)
+(1) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Michael has asked George’s name and been told it, but he has forgotten it. So he has to ask:	page 2, the context
+(1) line 2	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 2, the speaker of the turn
+(1) line 3	Gitksan	segmentation	Oo naa=hl we-n=gi?	page 2
+(1) line 4	Gitksan	gloss	oh who=CN name-2SG.II=PR.EVID	page 2
+(1) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘Oh, what’s your name, again?’	page 2
+(1) line 6	Thomas J. Heins, Lisa Matthewson	note	George:	page 2, the speaker of the turn
+(1) line 7	Gitksan	segmentation	George=hl we-'y=gi	page 2
+(1) line 8	Gitksan	gloss	George=CN name-1SG.II=PR.EVID	page 2
+(1) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘My name is George.’	page 2
+(1) line 10	Thomas J. Heins, Lisa Matthewson	citation	(HH)	page 2, the source at the right of the translation
+§1	Thomas J. Heins, Lisa Matthewson	note	We will present novel data showing how gi is used in both declarative and interrogative clauses, and argue that it encodes discourse-related notions rather than deictic ones. Specifically, we propose that when gi attaches to a declarative clause denoting a proposition p, it signals that at least one of the interlocutors had evidence for a salient proposition – usually p itself – before the time of utterance. In the second sentence in (1), for example, gi is licensed because Michael had been told George’s name before. When gi appears in an interrogative clause, as in the first sentence in (1), it signals that at least one of the interlocutors should have known the answer to the question, or at least have heard the question itself, before the time of utterance. We will further argue that the effect of spatio-temporal distance – in particular the frequently cited connection between gi and ‘past tense’ (cf. Jóhannsdóttir 2006) – falls out from our analysis without having to be hardwired into the lexical meaning. We will also show that although prior knowledge by at least one interlocutor is required to license gi, not every context in which this condition is satisfied allows gi. We will derive the observed asymmetry between speaker knowledge and addressee knowledge from Gricean principles.	page 2
+§1	Thomas J. Heins, Lisa Matthewson	name	Grice	the Quality maxim
+§1	Thomas J. Heins, Lisa Matthewson	note	The paper is structured as follows. In the remainder of the introduction, we provide background on the language, our consultants, our methodology, and the syntactic distribution of gi. In Section 2 we summarize prior research on gi. Section 3 presents data on the use of gi in declaratives and interrogatives. Section 4 presents our preliminary analysis. Section 5 offers a preliminary test of our generalizations on some spontaneous narratives and conversation, and Section 6 concludes.	page 2
+§1.1	Thomas J. Heins, Lisa Matthewson	heading	1.1 Language and speaker background	page 2
+§1.1	Thomas J. Heins, Lisa Matthewson	note	‘Gitksan’ is the name traditionally given by linguists to a chain of dialects spoken along the drainage of the upper Skeena River in northwestern British Columbia, Canada. Gitksan is currently endangered, with fewer than 400 remaining first language speakers (FPCC 2014). Together with neighbouring Nisg̲a'a, spoken in the Nass River Valley, Gitksan comprises the Interior branch of the Tsimshianic language family; though Gitksan and Nisg̲a'a are very closely related and mutually intelligible, both speech communities consider them to be distinct languages (see Rigsby 1987, Rigsby and Kari 1987).	page 2
+§1.1	Thomas J. Heins, Lisa Matthewson	name	Kari	James Kari, Gitksan and Wet'suwet'en relations (1987)
+§1.1	Thomas J. Heins, Lisa Matthewson	language	Nisg̲a'a	Tsimshianic, Interior branch; Nass River Valley; (4)
+§1.1	Thomas J. Heins, Lisa Matthewson	language	Tsimshianic	the family
+§1.1	Thomas J. Heins, Lisa Matthewson	note	This paper presents data from speakers of three dialects of Gitksan. Our primary consultants for this research are Vincent Gogag from Git-anyaaw (Kitwancool), Hector Hill from Gijigyukwhla (Gitsegukla), and Barbara Sennott from Ansbayaxw (Kispiox). Some data were additionally checked with Ray Jones (Prince Rupert and Gijigyukwhla) and Louise Wilson (Ansbayaxw, and seasonally Prince Rupert). Each piece of data is annotated with the speaker’s initials. As we will outline below, there is some variation between speakers in their use of gi, though there are many commonalities.	page 2
+§1.2	Thomas J. Heins, Lisa Matthewson	heading	1.2 Methodology	page 3
+§1.2	Thomas J. Heins, Lisa Matthewson	note	Our primary methods of data collection include the standard semantic elicitation techniques of asking for translations in either direction, asking for acceptability judgments of sentences in specified discourse contexts, and asking for volunteered sentences in specified discourse contexts (Matthewson 2004). We have also examined spontaneous narratives for instances of gi, as well as one recorded conversation between two fluent speakers.	page 3
+§1.2	Thomas J. Heins, Lisa Matthewson	name	Matthewson	Lisa Matthewson, fieldwork (2004), evidentials (2011, 2012), particles (2015)
+§1.2	Thomas J. Heins, Lisa Matthewson	note	A word is in order regarding the challenge of forming robust empirical generalizations about discourse-dependent elements like gi (see also Grenoble 2007 for discussion). Like all discourse particles, gi is extremely context- dependent, with even very subtle tweaks to the context affecting its acceptability. Even when rigorous efforts are made to control discourse contexts (as we have endeavoured to do throughout), it is never possible to be sure that the speakers are not adding extra contextual information in their minds before judging the utterance. Like most discourse particles, gi is virtually impossible to translate into English, and although speakers offer many insightful comments about the effect of gi, these are only clues to its contribution and are not always consistent. Further adding to the complexity of the situation is that gi is not obligatory even when it is licensed. And finally, cultural issues arise due to the fact that gi indicates prior knowledge, and therefore may be taken to suggest that the addressee should have known something before (even if they don’t). Our consultants often allude to the importance of politeness in Gitksan culture; this may be a factor which sometimes influences the acceptability of gi.	page 3
+§1.2	Thomas J. Heins, Lisa Matthewson	name	Grenoble	Lenore Grenoble, documenting pragmatics (2007)
+§1.2	Thomas J. Heins, Lisa Matthewson	language	English	the translations
+§1.2	Thomas J. Heins, Lisa Matthewson	note	For all these reasons, we do not have results about gi’s usage which are 100% consistent from speaker to speaker and from context to context. However, we have extracted several fairly robust generalizations. Where there is significant or systematic inter-speaker variation, we note this below.	page 3
+§1.3	Thomas J. Heins, Lisa Matthewson	heading	1.3 Distribution of gi	page 3
+§1.3	Thomas J. Heins, Lisa Matthewson	note	The particle gi appears clause-finally both in declarative sentences and in wh-questions, as shown in (1) above.2 Tarpent (1984) classifies gi in Nisg̲a'a as a postclitic, and Rigsby (1987) marks it with an equals sign (=), the symbol for a clitic. Supporting this, gi is in complementary distribution with the clause-final yes-no question particle aa. This yes-no particle is obligatorily present in all (and only) yes-no questions, and gi may not co-occur with aa, as shown in (2).3	page 3
+footnote 2	Thomas J. Heins, Lisa Matthewson	note	There may be a separate gi which can attach to nominals, but we do not address it here.	page 3, footnote 2
+footnote 3	Thomas J. Heins, Lisa Matthewson	note	The alternation between wa and we for ‘name’ in (2) represents a dialect difference: wa for BS, we for VG. This is part of a systematic a/e alternation which will appear in other data in the paper.	page 4, footnote 3
+footnote 3	Gitksan	cited form	wa	page 4, in italics
+§1.3	Gitksan	cited form	aa	page 4, in italics
+(2) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I have been told Stacy’s name before, but forgot it. I think it might be ‘Stacy’, but I ask to check:	page 4, the context
+(2) line 2	Gitksan	segmentation	Stacy=hl wa/we-n=aa?	page 4
+(2) line 3	Gitksan	gloss	Stacy=CN name-2SG.II=YNQ	page 4
+(2) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Is your name Stacy?’	page 4
+(2) line 5	Gitksan	transcription	* Stacy=hl wa/we-n=aa=gi?	page 4, a form judged, no tiers
+(2) line 6	Gitksan	transcription	* Stacy=hl wa/we-n=gi=aa?	page 4, a form judged, no tiers
+(2) line 7	Thomas J. Heins, Lisa Matthewson	citation	(BS, VG)	page 4, the source at its right
+§1.3	Thomas J. Heins, Lisa Matthewson	note	For aa, there is clear phonological evidence that it encliticizes to the preceding word, since it induces voicing of a preceding voiceless obstruent. (See Hoard 1978, Rigsby 1986, Rigsby and Ingram 1990, and Brown 2008: sec. 4.3 on this voicing process.) Since gi appears to occupy the same slot as aa, we assume it is also an enclitic.	page 4
+§1.3	Gitksan	cited form	we	page 4, in italics
+§1.3	Thomas J. Heins, Lisa Matthewson	name	Hoard	James E. Hoard, obstruent voicing (1978)
+§1.3	Thomas J. Heins, Lisa Matthewson	name	Ingram	John Ingram, obstruent voicing with Rigsby (1990)
+§1.3	Thomas J. Heins, Lisa Matthewson	note	Imperatives also appear to allow gi, as shown in (3). The particle is not felicitous the first time Henry orders us to make food, but becomes acceptable when the command is repeated. (A parallel example gave rise to the same results with VG.)	page 4
+(3) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Henry comes in to our elicitation session where we are working with Barbara and decides that she needs some food. He says:	page 4, the context
+(3) line 2	Thomas J. Heins, Lisa Matthewson	note	Henry:	page 4, the speaker of the turn
+(3) line 3	Gitksan	segmentation	Jap=hl wineex a-s Barbara(#=gi)!	page 4
+(3) line 4	Gitksan	gloss	make=CN food PREP-PN Barbara(#=PR.EVID)	page 4
+(3) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘Make Barbara some food!’	page 4
+(3) line 6	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 4, the speaker of the turn
+(3) line 7	Gitksan	segmentation	Gwi?	page 4
+(3) line 8	Gitksan	gloss	what	page 4
+(3) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘What?’	page 4
+(3) line 10	Thomas J. Heins, Lisa Matthewson	note	Henry:	page 4, the speaker of the turn
+(3) line 11	Gitksan	segmentation	Jap=hl wineex a-s Barbara(=gi)!	page 4
+(3) line 12	Gitksan	gloss	make=CN food PREP-PN Barbara(=PR.EVID)	page 4
+(3) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘Make Barbara some food!’	page 4
+(3) line 14	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 4, the source at the right of the translation
+§1.3	Thomas J. Heins, Lisa Matthewson	note	Our preliminary data from imperatives are very much in line with the data from declaratives and interrogatives we will present below. However, gi in imperatives has not been investigated in any detail, so these constructions will be set aside for the remainder of the paper.	page 4
+§2	Thomas J. Heins, Lisa Matthewson	heading	2 Prior research on gi	page 4
+§2	Thomas J. Heins, Lisa Matthewson	note	Writing about Nisg̲a'a (the ‘Nass dialect’), Boas (1911:349–350) states that the suffix -g·ê marks distance in space and time. Tarpent (1984:366) similarly claims for Nisg̲a'a that ‘the postclitic -gi indicates that the topic of conversation is remote from the speaker in place or time or both.’ One of Tarpent’s examples is given in (4) (glosses slightly updated):	page 5
+§2	Nisg̲a'a	cited form	-g·ê	page 5, in italics
+§2	Nisg̲a'a	cited form	-gi	page 5, in italics
+(4) line 1	Nisg̲a'a	segmentation	'Wii sim'oogit t=nigwood-i'y=gi	page 5
+(4) line 2	Nisg̲a'a	gloss	big chief PN=father-1SG.II=PR.EVID	page 5
+(4) line 3	Thomas J. Heins, Lisa Matthewson	translation	‘[either] My father, who lives far away, is a great chief [or] My father, who is dead, was a great chief.’	page 5
+(4) line 4	Thomas J. Heins, Lisa Matthewson	citation	(Tarpent 1984:366)	page 5, the source at the right of the translation
+§2	Thomas J. Heins, Lisa Matthewson	note	Tarpent (1998) also presents a similar description of the Southern Tsimshian phrase-final enclitic =ga'a, saying it encodes deictic distance – either physical or psychological – from the speaker.	page 5
+§2	Southern Tsimshian	cited form	=ga'a	page 5, in italics
+§2	Thomas J. Heins, Lisa Matthewson	language	Southern Tsimshian	Tsimshianic, Tarpent (1998)
+§2	Thomas J. Heins, Lisa Matthewson	note	For Gitksan itself there is very minimal discussion of gi. Rigsby (1986), in his grammar of the language, glosses it as ‘DIST’ but does not provide discussion. Jóhannsdóttir (2006), in the context of an examination of some aspectual morphemes, analyzes gi as a distal adverb and glosses it as ‘past’, proposing that gi places the reference time before the utterance time. However, she observes that she has occasionally observed gi in a present tense context, and states that further research is required. The current paper aims to begin filling the gap in work on gi by providing the first detailed attempt at characterizing its empirical properties in Gitksan, and the first discourse-based analysis of it in any of the Tsimshianic languages.4	page 5
+footnote 4	Thomas J. Heins, Lisa Matthewson	note	See Matthewson (2015) for analysis of two other discourse particles in Gitksan: ist, which signals that the question under discussion is being downdated, and k̲'ap/ap, which signals that the negation of the asserted proposition is in the set of projected future common grounds at the time of utterance.	page 5, footnote 4
+footnote 4	Gitksan	cited form	k̲'ap/ap	page 5, in italics
+§3	Thomas J. Heins, Lisa Matthewson	heading	3 Function of gi in declarative and interrogative clauses	page 5
+§3	Thomas J. Heins, Lisa Matthewson	note	In this section we present the major empirical generalizations about the contexts where gi is and is not licensed, in both declarative and interrogative clauses.	page 5
+§3.1	Thomas J. Heins, Lisa Matthewson	heading	3.1 Repetition of an assertion or question	page 5
+§3.1	Thomas J. Heins, Lisa Matthewson	note	One very robust case where gi is felicitous is when the speaker is repeating information that has been presented before. One common sub-case of this is in contexts where the addressee has forgotten what they had previously been told, as in (1) above. Further examples of forgetting contexts are given in (5)–(6).	page 5
+(5) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: T.J. and Aidan are in Moricetown. They’ve been talking about going there all day. T.J. wasn’t paying attention to where they were driving and he forgot the entire conversation.	page 6, the context
+(5) line 2	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 6, the speaker of the turn
+(5) line 3	Gitksan	segmentation	Hinda wil 'wihl wil-i'm?	page 6
+(5) line 4	Gitksan	gloss	where COMP around LV-1PL.II	page 6
+(5) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘Where are we?’	page 6
+(5) line 6	Thomas J. Heins, Lisa Matthewson	note	Aidan:	page 6, the speaker of the turn
+(5) line 7	Gitksan	segmentation	Moricetown wil wil-i'm(=gi).	page 6
+(5) line 8	Gitksan	gloss	Moricetown COMP LV-1PL.II(=PR.EVID)	page 6
+(5) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘We’re in Moricetown.’	page 6
+(5) line 10	Thomas J. Heins, Lisa Matthewson	citation	(LW)	page 6, the source at the right of the translation
+(5) line 11	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “The gi says that you weren’t paying attention.”5	page 6, the consultant's comment
+footnote 5	Thomas J. Heins, Lisa Matthewson	note	In a similar vein, BS comments in another context that gi “can be used as like a snarky way of saying ‘I told you!’” And HH comments about gi in a forgetting context that “That means he better not forget again. When you put the gi on, it’s like screaming at him, but you’re not really.”	page 6, footnote 5
+(6) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: One of my really good friends is having a dinner party on May 12. He told me about the dinner a while ago, and I told him I will not be there because I'm going up north that week. But he forgot, so he asks me:	page 6, the context
+(6) line 2	Thomas J. Heins, Lisa Matthewson	note	Friend:	page 6, the speaker of the turn
+(6) line 3	Gitksan	segmentation	Dim 'witxw 'niin g̲o'o=hl luu gwendins-'y	page 6
+(6) line 4	Gitksan	gloss	PROSP arrive 2SG.III LOC=CN in party-1SG.II	page 6
+(6) line 5	Gitksan	segmentation	e=hl May 12=aa?	page 6
+(6) line 6	Gitksan	gloss	PREP=CN May 12=YNQ	page 6
+(6) line 7	Thomas J. Heins, Lisa Matthewson	translation	‘Are you coming to my dinner party on May 12?’	page 6
+(6) line 8	Thomas J. Heins, Lisa Matthewson	note	Me:	page 6, the speaker of the turn
+(6) line 9	Gitksan	segmentation	Nee, dim daa'whl 'nii'y g̲o'o=hl gigeenix̲	page 6
+(6) line 10	Gitksan	gloss	NEG PROSP leave 1SG.III LOC=CN Gigeenix̲	page 6
+(6) line 11	Gitksan	segmentation	e=hl g̲anootxw tust(=gi).	page 6
+(6) line 12	Gitksan	gloss	PREP=CN week DEM.PROX(=PR.EVID)	page 6
+(6) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘No, that week I’m going up north (to Gigeenix̲ territory).’	page 6
+(6) line 14	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 6, the source at the right of the translation
+(6) line 15	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Yeah. Previously mentioned you can use gi.”	page 6, the consultant's comment
+(6) line 16	Thomas J. Heins, Lisa Matthewson	note	[Researcher: “If I hadn’t mentioned it before, could I use gi?”]	page 6, the researcher's question inside the comment
+(6) line 17	Thomas J. Heins, Lisa Matthewson	speaker comment	“The first time you don’t need it. No.”	page 6, the consultant's comment
+§3.1	Thomas J. Heins, Lisa Matthewson	note	A second subset of repetition cases involve scenarios where the addressee has expressed disbelief and the speaker repeats herself for that reason. An example of this type is given in (7).	page 6
+(7) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Jack and Jill are at the library, reading books about animals. Jill is reading about the Chinese water deer.	page 6, the context
+(7) line 2	Thomas J. Heins, Lisa Matthewson	note	Jill:	page 6, the speaker of the turn
+(7) line 3	Gitksan	segmentation	Wan=hl 'win-am=hl wan g̲oo=hl China(#=gi)	page 6
+(7) line 4	Gitksan	gloss	sit.PL=CN tooth-ATTR=CN deer LOC=CN China(#=PR.EVID)	page 6
+(7) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘There are toothed deer in China.’	page 6
+(7) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment about gi-version: “I would say no; it’s like when you have to convince somebody.”	page 6, the consultant's comment
+(7) line 7	Thomas J. Heins, Lisa Matthewson	note	Jack:	page 7, the speaker of the turn
+(7) line 8	Gitksan	segmentation	Nee=dii=n sim-e-din=hl he-n!	page 7
+(7) line 9	Gitksan	gloss	NEG=FOC=1SG.I true-say-CAUS2=CN say-2SG.II	page 7
+(7) line 10	Thomas J. Heins, Lisa Matthewson	translation	‘I don’t believe you!’	page 7
+(7) line 11	Thomas J. Heins, Lisa Matthewson	note	Jill:	page 7, the speaker of the turn
+(7) line 12	Gitksan	segmentation	Nee! Ap lukw'il wan=hl 'win-am wan g̲oo=hl	page 7
+(7) line 13	Gitksan	gloss	NEG ¬PPS very sit.PL=CN tooth-ATRR deer LOC=CN	page 7
+(7) line 14	Gitksan	segmentation	China=gi.	page 7
+(7) line 15	Gitksan	gloss	China=PR.EVID	page 7
+(7) line 16	Thomas J. Heins, Lisa Matthewson	translation	‘No! Deer with teeth do live in China.’	page 7
+(7) line 17	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 7, the source at the right of the translation
+(7) line 18	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “She could use the gi to emphasize to him that she’s right.”	page 7, the consultant's comment
+§3.1	Thomas J. Heins, Lisa Matthewson	note	A third set of repetition uses of gi is where the addressee did not hear the information the first time it was uttered. Examples of this are given in (8) and (9).	page 7
+(8) line 1	Thomas J. Heins, Lisa Matthewson	note	Mary:	page 7, the speaker of the turn
+(8) line 2	Gitksan	segmentation	Hats'-d-i=hl us=hl duus.	page 7
+(8) line 3	Gitksan	gloss	bite-T-TR=CN dog=CN cat	page 7
+(8) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘The dog bit the cat.’	page 7
+(8) line 5	Thomas J. Heins, Lisa Matthewson	note	John:	page 7, the speaker of the turn
+(8) line 6	Gitksan	segmentation	Gwi?	page 7
+(8) line 7	Gitksan	gloss	what	page 7
+(8) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘What?’	page 7
+(8) line 9	Thomas J. Heins, Lisa Matthewson	note	Mary:	page 7, the speaker of the turn
+(8) line 10	Gitksan	segmentation	Hats'-d-i=hl us=hl duus=gi!	page 7
+(8) line 11	Gitksan	gloss	bite-T-TR=CN dog=CN cat=PR.EVID	page 7
+(8) line 12	Thomas J. Heins, Lisa Matthewson	translation	‘The dog bit the cat!’	page 7
+(8) line 13	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 7, the source at the right of the translation
+(9) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: T.J. has asked Serena what her name is.	page 7, the context
+(9) line 2	Thomas J. Heins, Lisa Matthewson	note	Serena:	page 7, the speaker of the turn
+(9) line 3	Gitksan	segmentation	Serena=hl wa-'y(#=gi).	page 7
+(9) line 4	Gitksan	gloss	Serena=CN name-1SG.II(#=PR.EVID)	page 7
+(9) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘My name is Serena.’	page 7
+(9) line 6	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 7, the speaker of the turn
+(9) line 7	Gitksan	segmentation	Guu? Nee=dii=n lax̲'ni=hl he-n.	page 7
+(9) line 8	Gitksan	gloss	what NEG=FOC=1SG.I hear=CN say-2SG.II	page 7
+(9) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘What? I didn’t hear what you said.’	page 7
+(9) line 10	Thomas J. Heins, Lisa Matthewson	note	Serena:	page 7, the speaker of the turn
+(9) line 11	Gitksan	segmentation	Serena=hl wa-'y=gi.	page 7
+(9) line 12	Gitksan	gloss	Serena=CN name-1SG.II=PR.EVID	page 7
+(9) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘My name is Serena.’	page 7
+(9) line 14	Thomas J. Heins, Lisa Matthewson	citation	(LW)	page 7, the source at the right of the translation
+§3.1	Thomas J. Heins, Lisa Matthewson	note	The consultant for (9) rejects gi when Serena tells T.J. her name for the first time, commenting that using gi the first time is “rude”, “like insinuating I don’t have all my faculties. And that how dare I not remember something.” However, gi is fine in Serena’s second sentence, as T.J. didn’t hear the information the first time. LW comments that in the repeated sentence, “It’s re- emphasizing her name. Not being sarcastic.” Another consultant, RJ, spontaneously commented “That’s when you use gi, when people are hard of hearing.”6	page 7
+footnote 6	Thomas J. Heins, Lisa Matthewson	note	However, another consultant, HH, rejected gi in a failure-to-hear scenario on one occasion, and VG states that gi does not appear in the first repetition after a failure to hear, but only after a time lapse or after several repetitions. For VG, gi is systematically licensed by forgetting – as shown in (6) – but not by failure to hear. Further research is required into this variation; it could be that for some speakers, an addressee who did not hear the information is judged as not having been exposed to it. It could also be that for some speakers, there needs to be a longer time-span between the initial mention and the gi-sentence.	page 8, footnote 6
+§3.1	Thomas J. Heins, Lisa Matthewson	note	Summarizing so far, prototypical contexts for gi in declarative clauses are where the speaker is asserting information that the addressee had prior exposure to (whether they have forgotten, didn’t believe it the first time, or failed to hear). With the two exceptions noted in footnote 6, gi is consistently accepted by our speakers in all these contexts.	page 8
+§3.1	Thomas J. Heins, Lisa Matthewson	note	We also see a ‘prior knowledge’ effect when gi appears in interrogatives. An example of this was given in (1) above, in which gi appears in the question because the speaker knew the answer before. A similar point is made by the minimal pair in (10)–(11). The consultant judges that gi is acceptable in Katie’s question if she had known before when the next full moon is and temporarily forgot (10), but not if she never knew the answer (11).	page 8
+(10) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Katie wants to know when the full moon is. She knew when it is, but she temporarily forgot.	page 8, the context
+(10) line 2	Gitksan	segmentation	Dax̱ gwi dim hoo luu mitxw hlox̱s-im ax̱xw(=gi)?	page 8
+(10) line 3	Gitksan	gloss	when what PROSP again in full sun-ATTR night(=PR.EVID)	page 8
+(10) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘When is the next full moon?’	page 8
+(10) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 8, the source at the right of the translation
+(11) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Katie wants to know when the full moon is. She never had any idea when it is.	page 8, the context
+(11) line 2	Gitksan	segmentation	Dax̱ gwi dim hoo luu mitxw hlox̱s-im ax̱xw(#=gi)?	page 8
+(11) line 3	Gitksan	gloss	when what PROSP again in full sun-ATTR night(#=PR.EVID)	page 8
+(11) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘When is the next full moon?’	page 8
+(11) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 8, the source at the right of the translation
+§3.1	Thomas J. Heins, Lisa Matthewson	note	Similarly in (10), gi is acceptable if the questioner has forgotten an answer they previously knew, but is not acceptable in an out-of-the-blue question.	page 8
+(12) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Adam and Bill meet up, and across the room they see a woman who Adam has never seen before. Adam asks Bill:	page 8, the context
+(12) line 2	Gitksan	segmentation	# Naa=hl we=hl hanak̲' tus=gi?	page 8
+(12) line 3	Gitksan	gloss	who=CN name= CN woman DEM.DIST=PR.EVID	page 8
+(12) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What is that woman’s name?’	page 8
+(12) line 5	Thomas J. Heins, Lisa Matthewson	citation	(HH)	page 8, the source at the right of the translation
+(12) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “If Adam forgot. When you put that, it means he forgot.”	page 8, the consultant's comment
+§3.1	Thomas J. Heins, Lisa Matthewson	note	Interestingly, gi is licensed in questions by prior knowledge not just on the part of the speaker – as in (1) and (10) – but also of the addressee. And it can be either the answer, or the question, which was previously known. In (13), gi is accepted because the addressee had heard the question before, but forgot it.	page 9
+(13) line 1	Thomas J. Heins, Lisa Matthewson	note	A:	page 9, the speaker of the turn
+(13) line 2	Gitksan	segmentation	Nde win jog̲-an?	page 9
+(13) line 3	Gitksan	gloss	where COMP live-2SG.II	page 9
+(13) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Where do you live?’	page 9
+(13) line 5	Thomas J. Heins, Lisa Matthewson	note	B:	page 9, the speaker of the turn
+(13) line 6	Gitksan	segmentation	T'eg-i'y=hl guu=hl gidax̲-n.	page 9
+(13) line 7	Gitksan	gloss	forget-1SG.II=CN what=CN ask-2SG.II	page 9
+(13) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot what you asked.’	page 9
+(13) line 9	Thomas J. Heins, Lisa Matthewson	note	A:	page 9, the speaker of the turn
+(13) line 10	Gitksan	segmentation	Nde win jog̲-an(=gi)?	page 9
+(13) line 11	Gitksan	gloss	where COMP live-2SG.II(=PR.EVID)	page 9
+(13) line 12	Thomas J. Heins, Lisa Matthewson	translation	‘Where do you live?’	page 9
+(13) line 13	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 9, the source at the right of the translation
+§3.1	Thomas J. Heins, Lisa Matthewson	note	Just like with assertions, gi in questions is licensed not only by forgetting, but also by not hearing, at least for some speakers. In (14), A repeats his question because B did not hear it the first time.	page 9
+(14) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: At a noisy bar.	page 9, the context
+(14) line 2	Thomas J. Heins, Lisa Matthewson	note	A:	page 9, the speaker of the turn
+(14) line 3	Gitksan	segmentation	Naa=hl wa-n?	page 9
+(14) line 4	Gitksan	gloss	who=CN name-2SG.II	page 9
+(14) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What’s your name?’	page 9
+(14) line 6	Thomas J. Heins, Lisa Matthewson	note	B:	page 9, the speaker of the turn
+(14) line 7	Gitksan	segmentation	Gwi? Nee=dii=n lax̲'ni=hl he-n!	page 9
+(14) line 8	Gitksan	gloss	what NEG=FOC=1SG.I hear=CN say-2SG.II	page 9
+(14) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘What? I didn’t hear what you said!’	page 9
+(14) line 10	Thomas J. Heins, Lisa Matthewson	note	A:	page 9, the speaker of the turn
+(14) line 11	Gitksan	segmentation	Naa=hl wa-n=gi?	page 9
+(14) line 12	Gitksan	gloss	who=CN name-2SG.II=PR.EVID	page 9
+(14) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘What’s your name?’	page 9
+(14) line 14	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 9, the source at the right of the translation
+§3.1	Thomas J. Heins, Lisa Matthewson	note	Gi is also licensed in interrogatives when a third person repeats a question that was not heard. This is shown in (15), where Clarissa fails to hear T.J.’s question and Katie repeats it.7	page 9
+footnote 7	Thomas J. Heins, Lisa Matthewson	note	BS gave parallel judgments on this example, modulo dialectal pronunciation differences.	page 9, footnote 7
+(15) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: T.J., Katie, and Clarissa are in the room together. Clarissa has recently returned to Vancouver from Toronto.	page 9, the context
+(15) line 2	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 9, the speaker of the turn
+(15) line 3	Gitksan	segmentation	Dax̲ guu jiswihl gukws 'witxw-in e=hl Vancouver?	page 9
+(15) line 4	Gitksan	gloss	when what when return arrive-2SG.II PREP=CN Vancouver	page 9
+(15) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘When did you return to Vancouver?’	page 9
+(15) line 6	Thomas J. Heins, Lisa Matthewson	note	C:	page 10, the speaker of the turn
+(15) line 7	Gitksan	segmentation	Guu? Nee=dii=n nax̲'ni=hl he-n!	page 10
+(15) line 8	Gitksan	gloss	what NEG=FOC=1SG.I hear=CN say-2SG.II	page 10
+(15) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘What? I didn’t hear what you said!’	page 10
+(15) line 10	Thomas J. Heins, Lisa Matthewson	note	K:	page 10, the speaker of the turn
+(15) line 11	Gitksan	segmentation	Dax̲ guu jiswihl gukws 'witxw-in=gi?	page 10
+(15) line 12	Gitksan	gloss	when what when return arrive-2SG.II=PR.EVID	page 10
+(15) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘When did you return?’	page 10
+(15) line 14	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 10, the source at the right of the translation
+(15) line 15	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “That’s when you repeat and then you use [gi].”	page 10, the consultant's comment
+§3.1	Thomas J. Heins, Lisa Matthewson	note	This use of gi to repeat a third person’s question is reminiscent of the behaviour of the Cuzco Quechua reportative evidential, which is shown by Faller (2002) to be felicitous when somebody is reporting (i.e., repeating) somebody else’s question. We return to this in Section 3.6.	page 10
+§3.1	Thomas J. Heins, Lisa Matthewson	name	Faller	Martina Faller, Cuzco Quechua evidentials (2002, 2007, 2011)
+§3.1	Thomas J. Heins, Lisa Matthewson	language	Cuzco Quechua	Faller's reportative and direct evidentials; (38)
+§3.1	Thomas J. Heins, Lisa Matthewson	note	The preceding data illustrated cases where the question is old information, for whatever reason. The example in (16) is a case where it’s the answer which should already be known by the addressee. We see that gi is felicitous here as well.	page 10
+(16) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: The teacher teaches the children that ‘our lands’ is called ‘lax̲ yip’. The next day she gives them a quiz and asks:	page 10, the context
+(16) line 2	Gitksan	segmentation	Gwi dip si-wa-di=hl ‘our lands’=gi?	page 10
+(16) line 3	Gitksan	gloss	what 1PL.I CAUS1-name-T=CN ‘our lands’=PR.EVID	page 10
+(16) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What do we call ‘our lands’?	page 10
+(16) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 10, the source at the right of the translation
+(16) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Yeah, you could because she told them yesterday.”	page 10, the consultant's comment
+§3.2	Thomas J. Heins, Lisa Matthewson	heading	3.2 All-new contexts	page 10
+§3.2	Thomas J. Heins, Lisa Matthewson	note	In order to establish that gi is not merely compatible with repetition contexts, but requires some kind of prior knowledge, we need to establish that gi is rejected in situations where the information is brand new. For the reasons mentioned in Section 1.2 above, it is sometimes difficult to obtain clear and consistent rejections of gi. Speakers could, for example, always (perhaps subconsciously) enrich the context to infer that there was some prior knowledge. However, we do detect a difference in the acceptability status of gi in new-information contexts as opposed to prior-evidence contexts. For example, in (17) the consultant rejects gi unless the students have known the answer before.	page 10
+(17) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: A classroom, somewhere in the United States. The children know nothing about Gitksan territory. The teacher hands them all a map of Gitksan territory and is trying to see whether they can read the map to work out what the name of a river is. She asks:	page 10, the context
+(17) line 2	Gitksan	segmentation	Guu=hl aks g̲alksi bax̲-t g̲a'a=hl lax̲ yip=hl	page 10
+(17) line 3	Gitksan	gloss	what=CN water through run=3.II LOC=CN on land=CN	page 10
+(17) line 4	Gitksan	segmentation	Gitxsen(#=gi)?	page 10
+(17) line 5	Gitksan	gloss	Gitksan(#=PR.EVID)	page 10
+(17) line 6	Thomas J. Heins, Lisa Matthewson	translation	‘What river runs through Gitksan territory?’	page 11
+(17) line 7	Thomas J. Heins, Lisa Matthewson	citation	(HH)	page 11, the source at the right of the translation
+(17) line 8	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “When you put gi on there, they’ve already known it before … Not if they didn’t know it before.”	page 11, the consultant's comment
+§3.2	Thomas J. Heins, Lisa Matthewson	note	In (12) above, we saw that the consultant rejects gi if it is the first time Adam asks Bill the woman’s name. This result was confirmed with another speaker; as shown in (18), VG also rejects gi on Bill’s answer if it is the first time the information is given. This is evidence that gi is not merely compatible with prior knowledge contexts, it enforces them. (Note also that although Bill has prior evidence here, this is not sufficient to license gi in Bill’s answer. We return to this pragmatic bias towards address knowledge in Section 4.3.)	page 11
+(18) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Adam and Bill meet up, and across the room they see a woman. Adam knows that Bill knows who she is.	page 11, the context
+(18) line 2	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 11, the speaker of the turn
+(18) line 3	Gitksan	segmentation	Naa=hl we=hl hanak̲'(#=gi)?	page 11
+(18) line 4	Gitksan	gloss	who=CN name=CN woman(#=PR.EVID)	page 11
+(18) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What’s the woman’s name?’	page 11
+(18) line 6	Thomas J. Heins, Lisa Matthewson	note	Bill:	page 11, the speaker of the turn
+(18) line 7	Gitksan	segmentation	Daphne=hl we-t(#=gi).	page 11
+(18) line 8	Gitksan	gloss	Daphne=CN name-3.II(#=PR.EVID)	page 11
+(18) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘Her name is Daphne.’	page 11
+(18) line 10	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 11, the source at the right of the translation
+§3.2	Thomas J. Heins, Lisa Matthewson	note	Often, the effect of a new-information context is revealed primarily by consultant comments. In (19), for example, the consultant finds a way for the utterance to be acceptable, but her comment reveals that the speaker of the sentence must be incorrectly assuming he is not really in an out-of-the-blue context. This is consistent with our generalization about gi.	page 11
+(19) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: A stranger comes up to me on the street. We’ve never spoken before. He says:	page 11, the context
+(19) line 2	Gitksan	segmentation	# Yukw dim ha-'nii-sgyad-i'y t'aahlakw=gi.	page 11
+(19) line 3	Gitksan	gloss	IPFV PROSP INS-on-be.born-1SG.II tomorrow=PR.EVID	page 11
+(19) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘It’s my birthday tomorrow.’	page 11
+(19) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 11, the source at the right of the translation
+(19) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “No. But if he was telling a complete stranger he might use gi – maybe he thinks he knows you.”	page 11, the consultant's comment
+§3.2	Thomas J. Heins, Lisa Matthewson	note	In (20), we again see that the speaker appears to accept gi in a new- information context (in this case, a context where the speaker is answering a question they have just been asked for the first time). However, the comment reveals that the consultant understands the speaker to be suggesting that the addressee should know the information already.	page 11
+(20) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Lisa is married to Henry. T.J. asks her:	page 11, the context
+(20) line 2	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 11, the speaker of the turn
+(20) line 3	Gitksan	segmentation	Naa=hl siip'-in-in?	page 11
+(20) line 4	Gitksan	gloss	who=CN like-CAUS-2SG.II	page 12
+(20) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘Who do you love?’	page 12
+(20) line 6	Thomas J. Heins, Lisa Matthewson	note	Lisa:	page 12, the speaker of the turn
+(20) line 7	Gitksan	segmentation	Henry=gi.	page 12
+(20) line 8	Gitksan	gloss	Henry=PR.EVID	page 12
+(20) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘Henry.’	page 12
+(20) line 10	Thomas J. Heins, Lisa Matthewson	citation	(LW)	page 12, the source at the right of the translation
+(20) line 11	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “It’s like ‘How could you not know that it’s Henry?’”	page 12, the consultant's comment
+§3.2	Thomas J. Heins, Lisa Matthewson	note	In the context in (20), the addressee (T.J.) knows that Lisa and Henry are married, so it is not a solid new-information context. In a minimally different context where the interlocutors are strangers, gi is predictably rejected, as shown in (21).	page 12
+(21) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Peter and Jack are strangers to each other.	page 12, the context
+(21) line 2	Thomas J. Heins, Lisa Matthewson	note	Peter:	page 12, the speaker of the turn
+(21) line 3	Gitksan	segmentation	Naa=hl siip'-in-in?	page 12
+(21) line 4	Gitksan	gloss	who=CN like-CAUS-2SG.II	page 12
+(21) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘Who do you love?’	page 12
+(21) line 6	Thomas J. Heins, Lisa Matthewson	note	Jack:	page 12, the speaker of the turn
+(21) line 7	Gitksan	segmentation	# T=Jill=hl siip'-in-i'y=gi.8	page 12
+footnote 8	Thomas J. Heins, Lisa Matthewson	note	The initial determinate marker t in Jack’s reply is optional for BS, and would not be present for HH or VG.	page 12, footnote 8
+footnote 8	Gitksan	cited form	t	page 12, in italics
+(21) line 8	Gitksan	gloss	DM=Jill=CN like-CAUS-1SG.II=PR.EVID	page 12
+(21) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘Jill is the one I love.’	page 12
+(21) line 10	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 12, the source at the right of the translation
+§3.2	Thomas J. Heins, Lisa Matthewson	note	Examples (22)–(23) are a minimal pair illustrating the contrast between a situation where the addressee had no prior knowledge, and where they did. We see that gi is rejected in the former case, but accepted in the latter.	page 12
+(22) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: We’re at Totem Field Studios (the UBC Linguistics Department) and it’s Katie's baby shower! An SFU undergrad who is thinking about applying to the UBC linguistics program opens the door and sees the party.	page 12, the context
+(22) line 2	Thomas J. Heins, Lisa Matthewson	note	Student:	page 12, the speaker of the turn
+(22) line 3	Gitksan	segmentation	Yukw=hl gwi-si'm?	page 12
+(22) line 4	Gitksan	gloss	IPFV=CN what-2PL.II	page 12
+(22) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What are you guys doing?’	page 12
+(22) line 6	Thomas J. Heins, Lisa Matthewson	note	Katie:	page 12, the speaker of the turn
+(22) line 7	Gitksan	segmentation	Yukw dip jap=hl sii-sgyad-im party	page 12
+(22) line 8	Gitksan	gloss	IPFV 1PL.I do=CN new-be.born-ATTR party	page 12
+(22) line 9	Gitksan	segmentation	(loo-'y)(#=gi)!	page 12
+(22) line 10	Gitksan	gloss	(OBL-1SG.II)(#=PR.EVID)	page 12
+(22) line 11	Thomas J. Heins, Lisa Matthewson	translation	‘We’re having a baby shower!’	page 12
+(22) line 12	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 12, the source at the right of the translation
+(22) line 13	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “If he asks just after opening the door and seeing something going on, no gi.”	page 12, the consultant's comment
+(23) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: As in (22), except instead of some random SFU student, it’s Katie’s husband Luke who wasn’t at the baby shower, and only came to UBC because he locked himself out of the house and thought he’d be able to swing by the department and pick up the keys. Luke says:	page 13, the context
+(23) line 2	Thomas J. Heins, Lisa Matthewson	note	Luke:	page 13, the speaker of the turn
+(23) line 3	Gitksan	segmentation	Yukw=hl gwi-si'm?	page 13
+(23) line 4	Gitksan	gloss	IPFV=CN what-2PL.II	page 13
+(23) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What are you guys doing?’	page 13
+(23) line 6	Thomas J. Heins, Lisa Matthewson	note	Katie:	page 13, the speaker of the turn
+(23) line 7	Gitksan	segmentation	Yukw dip jap=hl sii-sgyad-im party	page 13
+(23) line 8	Gitksan	gloss	IPFV 1PL.I do=CN new-be.born-ATTR party	page 13
+(23) line 9	Gitksan	segmentation	(loo-'y)(=gi)!	page 13
+(23) line 10	Gitksan	gloss	(OBL-1SG.II)(=PR.EVID)	page 13
+(23) line 11	Thomas J. Heins, Lisa Matthewson	translation	‘We're having a baby shower!’	page 13
+(23) line 12	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 13, the source at the right of the translation
+(23) line 13	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “The more I think about it you definitely use the gi. ‘See we’re making a party for your baby, y’know.’”9	page 13, the consultant's comment
+footnote 9	Thomas J. Heins, Lisa Matthewson	note	BS frequently volunteers the comment that gi translates into English as ‘y’know’.	page 13, footnote 9
+§3.2	Thomas J. Heins, Lisa Matthewson	note	Here is one more minimal pair showing the effect of prior knowledge in licensing gi. The same sentence with gi is rejected when it is the first answer to a question, but accepted when it is repeated.	page 13
+(24) line 1	Thomas J. Heins, Lisa Matthewson	note	A:	page 13, the speaker of the turn
+(24) line 2	Gitksan	segmentation	Gwi dim wi-n hiihluxw t'aahlakw?	page 13
+(24) line 3	Gitksan	gloss	what PROSP LV-2SG.II morning tomorrow	page 13
+(24) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What are you doing tomorrow morning?’	page 13
+(24) line 5	Thomas J. Heins, Lisa Matthewson	note	B:	page 13, the speaker of the turn
+(24) line 6	Gitksan	segmentation	Yug=uma dim yee-'y g̲oo=hl sbag̲ayt	page 13
+(24) line 7	Gitksan	gloss	IPFV=EPIS PROSP go-1SG.II LOC=CN together	page 13
+(24) line 8	Gitksan	segmentation	g̲an(#=gi).	page 13
+(24) line 9	Gitksan	gloss	tree(#=PR.EVID)	page 13
+(24) line 10	Thomas J. Heins, Lisa Matthewson	translation	‘I might go for a walk in the forest.’	page 13
+(24) line 11	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “The gi would be there if he’s answering for at least a second time.”	page 13, the consultant's comment
+(24) line 12	Thomas J. Heins, Lisa Matthewson	note	A:	page 13, the speaker of the turn
+(24) line 13	Gitksan	segmentation	Nee=dii=n lax̲'ni=hl he-n=gi.10	page 13
+footnote 10	Thomas J. Heins, Lisa Matthewson	note	This is not a prototypical use of gi, since the addressee does not have prior knowledge of the proposition ‘I didn’t hear what you said.’ It is however parallel to other cases where prior speaker knowledge alone is apparently sufficient to license gi; cf. (25) and (26) below. When asked about the presence of gi in A’s utterance in (24), the consultant says that gi makes it more polite.	page 13, footnote 10
+(24) line 14	Gitksan	gloss	NEG=FOC=1SG.I hear=CN say-2SG.II=PR.EVID	page 13
+(24) line 15	Thomas J. Heins, Lisa Matthewson	translation	‘I didn’t hear what you said.’	page 13
+(24) line 16	Thomas J. Heins, Lisa Matthewson	note	B:	page 13, the speaker of the turn
+(24) line 17	Gitksan	segmentation	Yug=uma dim yee-'y g̲oo=hl sbag̲ayt	page 13
+(24) line 18	Gitksan	gloss	IPFV=EPIS PROSP go-1SG.II LOC=CN together	page 14
+(24) line 19	Gitksan	segmentation	g̲an(=gi).	page 14
+(24) line 20	Gitksan	gloss	tree(=PR.EVID)	page 14
+(24) line 21	Thomas J. Heins, Lisa Matthewson	translation	‘I might go for a walk in the forest.’	page 14
+(24) line 22	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 14, the source at the right of the translation
+§3.2	Thomas J. Heins, Lisa Matthewson	note	In summary, there is clear evidence that gi requires some kind of prior knowledge on the part of at least one interlocutor.	page 14
+§3.3	Thomas J. Heins, Lisa Matthewson	heading	3.3 Prior evidence for the speaker only	page 14
+§3.3	Thomas J. Heins, Lisa Matthewson	note	We have seen so far that prototypical contexts for gi in declaratives include cases where the addressee is hearing the information for the second (or subsequent) time (if the addressee has forgotten, or is disbelieving, or has not heard). In the data seen so far (with the one exception noted in footnote 10), gi in declaratives is rejected if the information is completely new to the hearer. Based on these facts alone, it seems like gi in assertions could be restricted solely by a requirement for prior evidence for the addressee. This would differ from the situation in interrogatives, where we have seen that either the speaker or the addressee having had prior information is sufficient to license gi.	page 14
+§3.3	Thomas J. Heins, Lisa Matthewson	note	However, there are data which show that even in declaratives, we cannot tie the effect of gi solely to the addressee. There are cases where gi is accepted or produced even when the information is completely new to the hearer, as long as the information is based on prior evidence on the part of the speaker. Consider, for example, (25)–(26).	page 14
+(25) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I was in Gitksan territory last winter and I felt that it was really cold. Katie is going there now and asks me what the weather is like in winter there. I say:	page 14, the context
+(25) line 2	Gitksan	segmentation	Lukw'il sak̲=gi.	page 14
+(25) line 3	Gitksan	gloss	very cold=PR.EVID	page 14
+(25) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘It’s very cold.’	page 14
+(25) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 14, the source at the right of the translation
+(25) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “If she knew you’d been there, yeah.”	page 14, the consultant's comment
+(26) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: As in (25).	page 14, the context
+(26) line 2	Gitksan	segmentation	Ap lukw'il sak̲ g̲oo=hl lax̲ yip tust=gi.	page 14
+(26) line 3	Gitksan	gloss	¬PPS very cold LOC=CN on land DEM.DIST=PR.EVID	page 14
+(26) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘It’s very cold in the territory.’	page 14
+(26) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 14, the source at the right of the translation
+(26) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “You wanna add the gi because you’re telling her for the second time?”	page 14, the consultant's comment
+(26) line 7	Thomas J. Heins, Lisa Matthewson	note	[Researcher: “No.”]	page 14, the researcher's question inside the comment
+(26) line 8	Thomas J. Heins, Lisa Matthewson	speaker comment	“Well, you could say that just for emphasis.”	page 14, the consultant's comment
+§3.3	Thomas J. Heins, Lisa Matthewson	note	In both (25) and (26), the consultants make a comment which alludes to prior addressee knowledge, but nevertheless in both cases they accept the gi- sentence in the absence of such knowledge. (In (25), the addressee may know that the speaker has been to Gitksan territory before, but she crucially does not know the proposition to which gi attaches, namely that it is cold in the territory in winter.) Our interpretation of these facts is that while gi in assertions is strongly biased towards signalling addressee prior knowledge, speaker prior knowledge can suffice. We return to a possible explanation for the strong bias towards addressee knowledge in Section 4.3.	page 14
+§3.4	Thomas J. Heins, Lisa Matthewson	heading	3.4 Evidence time must be before utterance time	page 15
+§3.4	Thomas J. Heins, Lisa Matthewson	note	In this sub-section we present data to show that gi crucially relies on evidence which was obtained prior to the utterance time, and therefore is rejected when the evidence obtains at the utterance time. This is true whether it is speaker or addressee evidence which is invoked.	page 15
+§3.4	Thomas J. Heins, Lisa Matthewson	note	Consider again (25)–(26) from the preceding sub-section, which we presented to show that speaker prior knowledge is sufficient to license gi. In these sentences, gi becomes bad if the evidence is not obtained before the utterance time, but instead holds at the utterance time. This is shown in (27). Both VG and BS accept and volunteer other versions of this sentence, either with no sentence-final particle or with ist (the ‘question under discussion downdate’ particle; Matthewson 2015). With gi, it is rejected. This is because the speaker is just now experiencing the cold for the first time.	page 15
+§3.4	Gitksan	cited form	ist	page 15, in italics
+(27) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I am in Gitksan territory in winter for the first time. I land and get out of the plane and the air is cold. I call my husband on my cellphone and say:	page 15, the context
+(27) line 2	Gitksan	segmentation	# Uuu, lukw'il sak̲(=gi).	page 15
+(27) line 3	Gitksan	gloss	oh very cold(=PR.EVID)	page 15
+(27) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Oh, it’s very cold.’	page 15
+(27) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 15, the source at the right of the translation
+(27) line 6	Gitksan	segmentation	# Ap lukw'il sak̲=gi.11	page 15
+footnote 11	Thomas J. Heins, Lisa Matthewson	note	BS requires the Question Under Discussion downdate particle ist in this sentence, because “You know he wants to know if it’s really cold.”	page 15, footnote 11
+(27) line 7	Gitksan	gloss	¬PPS very cold=PR.evid	page 15
+(27) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘It’s very cold.’	page 15
+(27) line 9	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 15, the source at the right of the translation
+§3.4	Thomas J. Heins, Lisa Matthewson	note	The contrast between (25)–(26) and (27) suggests that gi is only felicitous when the evidence for the assertion was obtained prior to the utterance time.	page 15
+§3.4	Thomas J. Heins, Lisa Matthewson	note	The same point is made, this time with respect to addressee prior knowledge, by the triplet in (28)–(30). In (28), gi is felicitous in both question and answer because the information about the capital of Canada was taught earlier that day. In (29), gi is rejected, because the question comes out of the blue. And in (30), gi is rejected if the children are presently looking at the maps while the teacher asks them, but becomes good if they have put away the maps and are working from memory.	page 15
+(28) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: The teacher had taught the children what the capital of Canada is in the morning. In the afternoon she checks to make sure they remember the lesson from the morning.	page 16, the context
+(28) line 2	Thomas J. Heins, Lisa Matthewson	note	Teacher:	page 16, the speaker of the turn
+(28) line 3	Gitksan	segmentation	Nde=hl miinhlg̲alts'ep=hl Canada=gi?	page 16
+(28) line 4	Gitksan	gloss	where=CN main.village=CN Canada=PR.EVID	page 16
+(28) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What is the capital of Canada?’	page 16
+(28) line 6	Thomas J. Heins, Lisa Matthewson	note	Student:	page 16, the speaker of the turn
+(28) line 7	Gitksan	segmentation	Ottawa=gi.	page 16
+(28) line 8	Gitksan	gloss	Ottawa=PR.EVID	page 16
+(28) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘It’s Ottawa.’	page 16
+(28) line 10	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 16, the source at the right of the translation
+(29) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Following up on (28), the teacher has a bonus question. She has never talked about it before, but she asks the students:	page 16, the context
+(29) line 2	Gitksan	segmentation	# Nde=hl miinhlg̲alts'ep=hl Australia=gi?	page 16
+(29) line 3	Gitksan	gloss	where=CN main.village=CN Australia=PR.EVID	page 16
+(29) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What is the capital of Australia?’	page 16
+(29) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 16, the source at the right of the translation
+(29) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “No. Not if she hadn't mentioned it.”	page 16, the consultant's comment
+(30) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Now the teacher is asking about capitals in Africa. She passes out maps of Africa and says “Okay, everyone let's look at Kenya.” Then she asks the students:	page 16, the context
+(30) line 2	Gitksan	segmentation	# Nde=hl miinhlg̲alts'ep=hl Kenya=gi?	page 16
+(30) line 3	Gitksan	gloss	where=CN main.village=CN Kenya=PR.EVID	page 16
+(30) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What is the capital of Kenya?’	page 16
+(30) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 16, the source at the right of the translation
+(30) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Putting away the maps, yeah. If you’re not looking at it then yes. It’s memory.”	page 16, the consultant's comment
+§3.4	Thomas J. Heins, Lisa Matthewson	note	A further question is whether gi requires some prior personal evidence by an interlocutor, or whether common or general knowledge is sufficient. This issue frequently arises in the evidentials literature, and it could potentially be relevant for gi. For example, Faller (2002, 2011) argues that the Cuzco Quechua ‘direct’ evidential =mi actually marks the ‘best possible grounds’ a speaker can have for an utterance. She further argues that the best possible grounds may include propositions which were obtained by general knowledge rather than personally witnessed. On the other hand, some evidentials are specialized for sensory evidence and are incompatible with general knowledge (e.g., St’át’imcets (Lillooet Salish) lákw7a; Matthewson 2011, 2012).	page 16
+§3.4	Cuzco Quechua	cited form	=mi	page 16, in italics
+§3.4	St’át’imcets	cited form	lákw7a	page 16, in italics
+§3.4	Thomas J. Heins, Lisa Matthewson	language	St’át’imcets	Lillooet Salish, the evidential lákw7a
+§3.4	Thomas J. Heins, Lisa Matthewson	note	Further research is required into this issue with gi, but our preliminary results suggest that for at least one speaker, common knowledge is not sufficient. VG displays a clear difference in judgment between (25), where the speaker personally witnessed the cold weather, and (31), where the claim relies on common knowledge. However, BS accepts (32). These results are preliminary.	page 16
+(31) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I’m packing to go to Antarctica and T.J. asks me a silly question: ‘Why are you packing warm clothes?’ I answer:	page 17, the context
+(31) line 2	Gitksan	segmentation	E=hl win sak̲=g̲at g̲o'o=hl Antarctica(#=gi).	page 17
+(31) line 3	Gitksan	gloss	PREP=CN COMP cold-REP LOC=CN Antartica(#=PR.EVID)	page 17
+(31) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘It’s cold in Antarctica.’	page 17
+(31) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 17, the source at the right of the translation
+(32) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: as in (31).	page 17, the context
+(32) line 2	Gitksan	segmentation	Ap lukw'il sak̲ g̲oo=hl Antarctica(=gi).	page 17
+(32) line 3	Gitksan	gloss	¬PPS very cold LOC=CN Antarctica(=PR.EVID)	page 17
+(32) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘It’s very cold in Antarctica.’	page 17
+(32) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 17, the source at the right of the translation
+(32) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Is she saying it more than two times now?”	page 17, the consultant's comment
+(32) line 7	Thomas J. Heins, Lisa Matthewson	note	[Researcher: “No.”]	page 17, the researcher's question inside the comment
+(32) line 8	Thomas J. Heins, Lisa Matthewson	speaker comment	“It’s good because you’re just making a statement, but it’s emphasized by the gi.”	page 17, the consultant's comment
+§3.4	Thomas J. Heins, Lisa Matthewson	note	There is also evidence that a gi-interrogative is not felicitous when the answer will be based on pure guesswork. In (33), gi is acceptable if Bob had some prior evidence about where the pinecone is (as we expect), but (34) shows that gi is rejected if Bob is merely guessing and did not witness where the pinecone went.	page 17
+(33) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Adam and Bob are playing a game. The table between them has three boxes; you cannot see inside the boxes. Adam shows Bob a pinecone, and while Bob is watching he puts the pinecone into one of the boxes. Adam and Bob have a conversation, and five minutes passes. Then Adam asks Bob:12	page 17, the context
+footnote 12	Thomas J. Heins, Lisa Matthewson	note	This is also an acceptable question even without five minutes passing, if Bob is known by Adam to have an extremely bad short term memory.	page 17, footnote 12
+(33) line 2	Gitksan	segmentation	Nde=hl win luu sgi=hl meek̲=gi?	page 17
+(33) line 3	Gitksan	gloss	where=CN COMP in lie=CN pinecone=PR.EVID	page 17
+(33) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Where is the pinecone?’	page 17
+(33) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 17, the source at the right of the translation
+(34) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Adam is running a sort of gambling game. Bob has to pay Adam $1 to play this game. He has to randomly guess which box Adam put the pinecone in. And if he's right he wins $5. Bob closes his eyes, Adam puts the pinecone in one of the boxes, then Bob opens his eyes. Adam asks Bob:	page 17, the context
+(34) line 2	Gitksan	segmentation	Nde=hl win luu sgi=hl meek̲(#=gi)?	page 17
+(34) line 3	Gitksan	gloss	where=CN COMP in lie=CN pinecone(#=PR.EVID)	page 17
+(34) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Where is the pinecone?’	page 17
+(34) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 17, the source at the right of the translation
+§3.5	Thomas J. Heins, Lisa Matthewson	heading	3.5 The flexibility of gi	page 17
+§3.5	Thomas J. Heins, Lisa Matthewson	note	So far, we have seen that gi requires some information to have been available to at least one interlocutor, prior to the utterance time. This is the case both in declaratives and in wh-interrogatives. In this section we present data which show that gi is flexible with respect to exactly what must be already known.	page 17
+§3.5	Thomas J. Heins, Lisa Matthewson	note	First, observe that it is not the case that gi in a declarative sentence requires gi’s prejacent proposition to be already known. We see this in (35), which is a continuation of the forgetting scenario in (12) above. While the gi in Bill’s answer is entirely expected (Bill is repeating information he had previously told Adam), the gi in Adam’s question is not as straightforward, because the fact that Adam forgot the name is not actually old information.	page 18
+(35) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Adam and Bill meet up, and across the room they see a woman. Adam asks Bill the woman’s name, and he tells her. But Adam forgets it after a while.	page 18, the context
+(35) line 2	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 18, the speaker of the turn
+(35) line 3	Gitksan	segmentation	T'eg-i'y=hl we=hl hanak̲' tus=gi.	page 18
+(35) line 4	Gitksan	gloss	forget-1SG.II=CN name=CN woman DEM.DIST=PR.EVID	page 18
+(35) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot the woman’s name.’	page 18
+(35) line 6	Thomas J. Heins, Lisa Matthewson	note	Bill:	page 18, the speaker of the turn
+(35) line 7	Gitksan	segmentation	Daphne=hl we=hl hanak̲' tus=gi.	page 18
+(35) line 8	Gitksan	gloss	Daphne= CN name=CN woman DEM.DIST=PR.EVID	page 18
+(35) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘The woman’s name is Daphne.’	page 18
+(35) line 10	Thomas J. Heins, Lisa Matthewson	citation	(HH)	page 18, the source at the right of the translation
+§3.5	Thomas J. Heins, Lisa Matthewson	note	This usage is vaguely reminiscent of English restitutive again, where for example ‘John opened the door again’ does not entail that the door was opened before (let alone by John), but only that it had previously been in an open position (perhaps it was built that way; see von Stechow 1996, a.o.). Similarly in (35), it is not old information that Adam forgot the name, but it is old information that he is in a state of needing to know the name.	page 18
+§3.5	Thomas J. Heins, Lisa Matthewson	name	von Stechow	Arnim von Stechow, wieder ‘again’ (1996)
+§3.5	Thomas J. Heins, Lisa Matthewson	note	A slightly different example, although again with the predicate t'ak ‘forget’, is given in (36).13 The presence of gi does not signal that the speaker forgot the berries before. The old information was that they were supposed to buy the berries.	page 18
+footnote 13	Thomas J. Heins, Lisa Matthewson	note	Recall from Section 1.3 that the final consonant of t'ak voice before a vowel.	page 18, footnote 13
+§3.5	Gitksan	cited form	t'ak	page 18, in italics, ‘forget’
+(36) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I'm having a party tomorrow. And I'm in charge of the catering and I promised that I would bring huckleberries. And then tomorrow comes and I tell everyone:	page 18, the context
+(36) line 2	Gitksan	segmentation	T'ag-i'y dim sgals sim maa'y ky'oots=gi.	page 18
+(36) line 3	Gitksan	gloss	forget-1SG.II PROSP buy real berry yesterday=PR.EVID	page 18
+(36) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot to buy the huckleberries yesterday.’	page 18
+(36) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 18, the source at the right of the translation
+(36) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Having the gi just emphasizes what you’re saying. It’s like if you say I forgot to bring berries yesterday, y’know, see.”	page 18, the consultant's comment
+§3.5	Thomas J. Heins, Lisa Matthewson	note	In short, gi requires some relevant information to be prior knowledge, but there is flexibility in what exactly needs to be already known.	page 18
+§3.6	Thomas J. Heins, Lisa Matthewson	heading	3.6 No commitment to the speech act	page 18
+§3.6	Thomas J. Heins, Lisa Matthewson	note	In (15) above, repeated here as (37), we saw an interesting case where gi can be used in a repeated question, even when the person using gi was not the original asker, and may not even want to know the answer themselves.	page 19
+(37) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: T.J., Katie, and Clarissa are in the room together. Clarissa has recently returned to Vancouver from Toronto.	page 19, the context
+(37) line 2	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 19, the speaker of the turn
+(37) line 3	Gitksan	segmentation	Dax̲ guu jiswihl gukws 'witxw-in e=hl	page 19
+(37) line 4	Gitksan	gloss	when what when return arrive-2SG.II PREP=CN	page 19
+(37) line 5	Gitksan	segmentation	Vancouver?	page 19
+(37) line 6	Gitksan	gloss	Vancouver	page 19
+(37) line 7	Thomas J. Heins, Lisa Matthewson	translation	‘When did you return to Vancouver?’	page 19
+(37) line 8	Thomas J. Heins, Lisa Matthewson	note	C:	page 19, the speaker of the turn
+(37) line 9	Gitksan	segmentation	Guu? Nee=dii=n nax̲'ni=hl he-n!	page 19
+(37) line 10	Gitksan	gloss	what NEG=FOC=1SG.I hear=CN say-2SG.II	page 19
+(37) line 11	Thomas J. Heins, Lisa Matthewson	translation	‘What? I didn’t hear what you said!’	page 19
+(37) line 12	Thomas J. Heins, Lisa Matthewson	note	K:	page 19, the speaker of the turn
+(37) line 13	Gitksan	segmentation	Dax̲ guu jiswihl gukws 'witxw-in=gi?	page 19
+(37) line 14	Gitksan	gloss	when what when return arrive-2SG.II=PR.EVID	page 19
+(37) line 15	Thomas J. Heins, Lisa Matthewson	translation	‘When did you return?’	page 19
+(37) line 16	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 19, the source at the right of the translation
+§3.6	Thomas J. Heins, Lisa Matthewson	note	As mentioned above, Faller (2002) notes a similar ability of the Cuzco Quechua reportative evidential to appear in questions being repeated on behalf of a third person. A Quechua example is given in (38).14	page 19
+footnote 14	Thomas J. Heins, Lisa Matthewson	note	Faller (2007) gives a slightly different version of the same example.	page 19, footnote 14
+(38) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Martina asks the consultant’s sister a question, which the sister does not hear. The consultant repeats Martina’s question.	page 19, the context
+(38) line 2	Thomas J. Heins, Lisa Matthewson	note	Martina:	page 19, the speaker of the turn
+(38) line 3	Cuzco Quechua	segmentation	Imayna-ta-n ka-sha-nki	page 19
+(38) line 4	Cuzco Quechua	gloss	how-ACC-BPG be-PROG-2	page 19
+(38) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘How are you?’	page 19
+(38) line 6	Thomas J. Heins, Lisa Matthewson	note	Consultant:	page 19, the speaker of the turn
+(38) line 7	Cuzco Quechua	segmentation	Imayna-s ka-sha-nki	page 19
+(38) line 8	Cuzco Quechua	gloss	how-ACC-REP be-PROG-2	page 19
+(38) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘(She says) How are you?’	page 19
+(38) line 10	Thomas J. Heins, Lisa Matthewson	citation	(Faller 2002:233)	page 19, the source at the right of the translation
+§3.6	Thomas J. Heins, Lisa Matthewson	note	Faller argues that the Cuzco Quechua reportative is an illocutionary operator which can scope over other illocutionary operators, such as a question operator. In (38), the consultant reports that Martina had asked ‘How are you?’ The consultant is not herself performing a speech act of questioning.	page 19
+§3.6	Thomas J. Heins, Lisa Matthewson	note	With gi, a similar effect may arise in declarative sentences as well. In (39), Adam asks Bill a question, Bill answers, Adam doesn’t hear, and Charlie repeats Bill’s answer but then indicates that he doesn’t himself believe it. Example (40) is a similar case, with forgetting rather than not hearing.	page 19
+(39) line 1	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 19, the speaker of the turn
+(39) line 2	Gitksan	segmentation	Naa=hl wa=hl hanak̲'?	page 19
+(39) line 3	Gitksan	gloss	who=CN name=CN woman	page 19
+(39) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What’s the woman’s name?’	page 20
+(39) line 5	Thomas J. Heins, Lisa Matthewson	note	Bill:	page 20, the speaker of the turn
+(39) line 6	Gitksan	segmentation	Daphne=hl wa-d=ist.	page 20
+(39) line 7	Gitksan	gloss	Daphne=CN name-3.II=QUDD	page 20
+(39) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘Her name is Daphne.’	page 20
+(39) line 9	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 20, the speaker of the turn
+(39) line 10	Gitksan	segmentation	Gwi? Nee=dii=n lax̲'ni=hl he-n.	page 20
+(39) line 11	Gitksan	gloss	what NEG=FOC=1SG.I hear=CN say-2SG.II	page 20
+(39) line 12	Thomas J. Heins, Lisa Matthewson	translation	‘What? I didn’t hear what you said.’	page 20
+(39) line 13	Thomas J. Heins, Lisa Matthewson	note	Charlie:	page 20, the speaker of the turn
+(39) line 14	Gitksan	segmentation	Daphne=hl wa-t=gi, ii ap Erin=hl	page 20
+(39) line 15	Gitksan	gloss	Daphne=CN name-3.II=PR.EVID CL.CNJ ¬PPS Erin=CN	page 20
+(39) line 16	Gitksan	segmentation	dii ap wa-t.	page 20
+(39) line 17	Gitksan	gloss	FOC ¬PPS name-3.II	page 20
+(39) line 18	Thomas J. Heins, Lisa Matthewson	translation	‘Daphne is her name, but Erin is her name.’	page 20
+(39) line 19	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 20, the source at the right of the translation
+(40) line 1	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 20, the speaker of the turn
+(40) line 2	Gitksan	segmentation	Naa=hl we=hl hanak̲'?	page 20
+(40) line 3	Gitksan	gloss	who=CN name=CN woman	page 20
+(40) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What’s the woman’s name?’	page 20
+(40) line 5	Thomas J. Heins, Lisa Matthewson	note	Bill:	page 20, the speaker of the turn
+(40) line 6	Gitksan	segmentation	Daphne=hl we-t.	page 20
+(40) line 7	Gitksan	gloss	Daphne=CN name-3.II	page 20
+(40) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘Her name is Daphne.’	page 20
+(40) line 9	Thomas J. Heins, Lisa Matthewson	note	Time passes …	page 20, between the turns
+(40) line 10	Thomas J. Heins, Lisa Matthewson	note	Adam:	page 20, the speaker of the turn
+(40) line 11	Gitksan	segmentation	Oo t'eg-i'y=hl he-n. Naa=hl we=hl	page 20
+(40) line 12	Gitksan	gloss	oh forget-1SG.II=CN say=2SG.II who=CN name=CN	page 20
+(40) line 13	Gitksan	segmentation	hanak̲'=gi?	page 20
+(40) line 14	Gitksan	gloss	woman=PR.EVID	page 20
+(40) line 15	Thomas J. Heins, Lisa Matthewson	translation	‘Oh, I forgot what you said. What’s the woman’s name?’	page 20
+(40) line 16	Thomas J. Heins, Lisa Matthewson	note	Charlie:	page 20, the speaker of the turn
+(40) line 17	Gitksan	segmentation	Daphne=hl we-t=gi. Oo Erin=hl we=hl	page 20
+(40) line 18	Gitksan	gloss	Daphne=CN name-3.II=PR.EVID oh Erin=CN name=CN	page 20
+(40) line 19	Gitksan	segmentation	an-e-n.	page 20
+(40) line 20	Gitksan	gloss	NMLZ-say-2SG.II	page 20
+(40) line 21	Thomas J. Heins, Lisa Matthewson	translation	‘Her name is Daphne. Oh you meant to say [lit. ‘you said’] her name is Erin.’	page 20
+(40) line 22	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 20, the source at the right of the translation
+§3.6	Thomas J. Heins, Lisa Matthewson	note	These uses have in common that the speaker of the gi utterance does not themselves perform the relevant speech act. As mentioned, in (37), Katie is not herself asking when Clarissa returned, and in (39)–(40), Charlie is not himself asserting that Daphne is her name. Nor is the speaker merely repeating a third person’s previous utterance verbatim, since they are adding gi. It seems that gi, like the Cuzco Quechua reportative, is able to take scope over either the ordinary semantic content of its prejacent, or over an entire speech act.	page 20
+§4	Thomas J. Heins, Lisa Matthewson	heading	4 Steps toward an analysis	page 20
+§4	Thomas J. Heins, Lisa Matthewson	note	This paper is the first targeted investigation of gi in the literature, and our main goal is to establish the core empirical generalizations about its function. We are not yet able to provide a formal analysis which derives all of gi’s properties, but in this section we take steps towards an eventual analysis. We begin by dismissing an analysis which will not work.	page 21
+§4.1	Thomas J. Heins, Lisa Matthewson	heading	4.1 Not a marker of past tense	page 21
+§4.1	Thomas J. Heins, Lisa Matthewson	note	As noted in Section 2, previous research has often claimed that gi enforces past tense. There are indeed data which seem to suggest a correlation with past tense, as for example in (41). VG construes the presence of gi here as indicating that the speaker no longer loves Jill; he judges that if Jack still loves Jill at the time of speech, gi is inappropriate.	page 21
+(41) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Jack speaking to Peter.	page 21, the context
+(41) line 2	Gitksan	segmentation	Jill siip'-in-i'y=gi.	page 21
+(41) line 3	Gitksan	gloss	Jill like-CAUS-1SG.II=PR.EVID	page 21
+(41) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘I loved Jill.’	page 21
+(41) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 21, the source at the right of the translation
+§4.1	Thomas J. Heins, Lisa Matthewson	note	Consultants will also often spontaneously translate sentences containing gi into past-tense English sentences, while the corresponding gi-less sentences are translated with present tense. An example of this is given in (42), where the English translations were provided by the consultant.	page 21
+(42a) line 1	Gitksan	segmentation	Yukw-t hats'-i=hl us=hl duus.	page 21
+(42a) line 2	Gitksan	gloss	IPFV-3.II bite-TR=CN dog=CN cat	page 21
+(42a) line 3	Thomas J. Heins, Lisa Matthewson	translation	‘The dog is biting the cat.’	page 21
+(42b) line 1	Gitksan	segmentation	Yukw-t hats'-i=hl us=hl duus=gi.	page 21
+(42b) line 2	Gitksan	gloss	IPFV-3.II bite-TR=CN dog=CN cat=PR.EVID	page 21
+(42b) line 3	Thomas J. Heins, Lisa Matthewson	translation	‘The dog was biting the cat.’	page 21
+(42b) line 4	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 21, the source at the right of the translation
+§4.1	Thomas J. Heins, Lisa Matthewson	note	Often, however, data which initially seem to support a past-tense analysis have another explanation. Consider (43)–(44). Here, VG judges that Aidan cannot use gi while the interlocutors are still at Anlak̲, even if the sentence is being repeated due to Michael not having heard. He accepts gi, in both Michael’s and Aidan’s utterances, only if the conversation is taking place the next day. This looks like a past-tense effect, especially in light of the consultant’s volunteered comment on (43).	page 21
+(43) line 1	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 21, the speaker of the turn
+(43) line 2	Gitksan	segmentation	Nde win 'wihl wil-i'm=si, Aidan?	page 21
+(43) line 3	Gitksan	gloss	where COMP around LV-1PL.II=PROX Aidan	page 21
+(43) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Where are we, Aidan?’	page 21
+(43) line 5	Thomas J. Heins, Lisa Matthewson	note	Aidan:	page 21, the speaker of the turn
+(43) line 6	Gitksan	segmentation	Yukw=hl win 'wihl wil-i'm g̱o'o=hl Anlaḵ.	page 21
+(43) line 7	Gitksan	gloss	IPFV=CN COMP around LV-1PL.II LOC=CN Anlaḵ	page 21
+(43) line 8	Thomas J. Heins, Lisa Matthewson	translation	‘We are at Anlaḵ.’	page 21
+(43) line 9	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 22, the speaker of the turn
+(43) line 10	Gitksan	segmentation	Nee=dii=n nax̱'ni=hl he-n! Pdeld-in=hl	page 22
+(43) line 11	Gitksan	gloss	NEG=FOC=1SG.I hear=CN say-2SG.II raise-2SG.II=CN	page 22
+(43) line 12	Gitksan	segmentation	ame-n.	page 22
+(43) line 13	Gitksan	gloss	voice-2SG.II	page 22
+(43) line 14	Thomas J. Heins, Lisa Matthewson	translation	‘I didn’t hear what you said! Say it louder.’	page 22
+(43) line 15	Thomas J. Heins, Lisa Matthewson	note	Aidan:	page 22, the speaker of the turn
+(43) line 16	Gitksan	segmentation	Yukw=hl win 'wihl wil-im g̱o'o=hl	page 22
+(43) line 17	Gitksan	gloss	IPFV=CN COMP around LV-1PL.II LOC=CN	page 22
+(43) line 18	Gitksan	segmentation	Anlaḵ(#=gi).	page 22
+(43) line 19	Gitksan	gloss	Anlaḵ(#=PR.EVID)	page 22
+(43) line 20	Thomas J. Heins, Lisa Matthewson	translation	‘We are at Anlaḵ.’	page 22
+(43) line 21	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 22, the source at the right of the translation
+(43) line 22	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “The gi is used to remind that we were there previously, we were talking about it previously. But if it’s in the present you don’t use it.”	page 22, the consultant's comment
+(44) line 1	Thomas J. Heins, Lisa Matthewson	note	The next day after (43).	page 22, between the turns
+(44) line 2	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 22, the speaker of the turn
+(44) line 3	Gitksan	segmentation	T'ag-i'y win wil-i'm=gi.	page 22
+(44) line 4	Gitksan	gloss	forget-1SG.II COMP LV-1PL.II=PR.EVID	page 22
+(44) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot where we were.’	page 22
+(44) line 6	Thomas J. Heins, Lisa Matthewson	note	Aidan:	page 22, the speaker of the turn
+(44) line 7	Gitksan	segmentation	'Wihl wil 'nuu'm g̱o'o=hl Anlaḵ(=gi).	page 22
+(44) line 8	Gitksan	gloss	around LV 1PL.III LOC=CN Anlaḵ(=PR.EVID)	page 22
+(44) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘We were at Anlaḵ.’	page 22
+(44) line 10	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 22, the source at the right of the translation
+§4.1	Thomas J. Heins, Lisa Matthewson	note	However, the contrast between (43) and (44) is expected anyway for this consultant, and does not motivate a past-tense analysis of gi. As we noted above, VG often rejects gi in a context where the utterance is repeated due to the addressee not having heard, but accepts it in a forgetting context (see footnote 6).15	page 22
+footnote 15	Thomas J. Heins, Lisa Matthewson	note	In fact, there are indications that the ‘forgetting’ scenario does not always exclude gi for VG. The conversation in (43) was judged by him as felicitous with gi on a different occasion. Further investigation is required into this phenomenon; it could be that gi is undergoing a shift for some speakers.	page 22, footnote 15
+§4.1	Thomas J. Heins, Lisa Matthewson	note	Our claim that gi does not enforce past tense is supported by evidence that gi is possible in sentences which talk about present or future events. For example, (28), repeated here as (45), includes a present-tense assertion with gi, and (46) is another present-tense scenario.	page 22
+(45) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: The teacher had taught the children what the capital of Canada is in the morning. In the afternoon she checks to make sure they remember the lesson from the morning.	page 22, the context
+(45) line 2	Thomas J. Heins, Lisa Matthewson	note	Teacher:	page 22, the speaker of the turn
+(45) line 3	Gitksan	segmentation	Nde=hl miinhlg̲alts'ep=hl Canada=gi?	page 22
+(45) line 4	Gitksan	gloss	where=CN main.village=CN Canada=PR.EVID	page 22
+(45) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘What is the capital of Canada?’	page 22
+(45) line 6	Thomas J. Heins, Lisa Matthewson	note	Student:	page 23, the speaker of the turn
+(45) line 7	Gitksan	segmentation	Ottawa=gi.	page 23
+(45) line 8	Gitksan	gloss	Ottawa=PR.EVID	page 23
+(45) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘It’s Ottawa.’	page 23
+(45) line 10	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 23, the source at the right of the translation
+(46) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: Michael and Aidan have been hiking. They take a break and they sit down to have a picnic. Michael doesn’t know where they are. While they’re sitting down, having their picnic, he asks:	page 23, the context
+(46) line 2	Gitksan	segmentation	Nde wil 'wihl wil-i'm=gi, Aidan?	page 23
+(46) line 3	Gitksan	gloss	where COMP around LV-1PL.II=PR.EVID Aidan	page 23
+(46) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘Where are we, Aidan?’	page 23
+(46) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 23, the source at the right of the translation
+(46) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “Only if he had to repeat.”	page 23, the consultant's comment
+§4.1	Thomas J. Heins, Lisa Matthewson	note	With respect to future interpretations, (6), repeated here as (47), makes an assertion about a future event which contains gi, as does (48). Further indication that gi is acceptable in future sentences is given by the consultant’s comment in (49). The consultant rejects gi here due for an independent reason (the absence of prior evidence), but her comment reveals that gi is in principle fine when talking about the future.	page 23
+(47) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: One of my really good friends is having a dinner party on May 12. He told me about the dinner a while ago, and I told him I will not be there because I'm going up north that week. But he forgot, so he asks me:	page 23, the context
+(47) line 2	Thomas J. Heins, Lisa Matthewson	note	Friend:	page 23, the speaker of the turn
+(47) line 3	Gitksan	segmentation	Dim 'witxw 'niin g̲o'o=hl luu gwendins-'y e=hl	page 23
+(47) line 4	Gitksan	gloss	PROSP arrive 2SG.III LOC=CN in party-1SG.II PREP=CN	page 23
+(47) line 5	Gitksan	segmentation	May 12=aa?	page 23
+(47) line 6	Gitksan	gloss	May 12=YNQ	page 23
+(47) line 7	Thomas J. Heins, Lisa Matthewson	translation	‘Are you coming to my party on May 12?’	page 23
+(47) line 8	Thomas J. Heins, Lisa Matthewson	note	Me:	page 23, the speaker of the turn
+(47) line 9	Gitksan	segmentation	Nee, dim daa'whl 'nii'y g̲o'o=hl Gigeenix̲	page 23
+(47) line 10	Gitksan	gloss	NEG PROSP leave 1SG.III LOC=CN Gigeenix̲	page 23
+(47) line 11	Gitksan	segmentation	e=hl g̲anootxw tust(=gi).	page 23
+(47) line 12	Gitksan	gloss	PREP=CN week DEM.DIST(=PR.EVID)	page 23
+(47) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘No, that week I'm going up north to Gigeenix̲ territory.’	page 23
+(47) line 14	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 23, the source at the right of the translation
+(48) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I’m going to Chicago this summer, and I mentioned this to Aidan before. He forgets what I said, and he tells me he forgot. I say:	page 23, the context
+(48) line 2	Gitksan	segmentation	Dim wil 'nii'y g̲o'o=hl Chicago sint tun(=gi).	page 23
+(48) line 3	Gitksan	gloss	PROSP LV 1SG.III LOC=CN Chicago summer DEM.PROX(=PR.EVID)	page 23
+(48) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘I’ll be in Chicago this summer.’	page 23
+(48) line 5	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 23, the source at the right of the translation
+(49) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: We have not yet discussed my plans for tomorrow. You haven’t asked me yet what I’m doing tomorrow, and you don’t know what I usually do on that day of the week. You ask me:	page 23, the context
+(49) line 2	Gitksan	segmentation	Gwi dim wi-n hiihluxw t'aahlakw(#=gi)?	page 23
+(49) line 3	Gitksan	gloss	what PROSP LV-2SG.II morning tomorrow(#=PR.EVID)	page 23
+(49) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘What are you doing tomorrow morning?	page 24
+(49) line 5	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 24, the source at the right of the translation
+(49) line 6	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant’s comment: “You can use gi if you had to say it another time … You could have a gi if you had asked the question before.”	page 24, the consultant's comment
+§4.1	Thomas J. Heins, Lisa Matthewson	note	Interestingly, the cases where we have found gi to be acceptable when talking about the future all involve schedulable events, as in (47)–(49). Non- schedulable events, such as the weather, resist gi, as shown in (50). Here, the consultant rejects gi in Michael’s answer, even though it repeats information that T.J. was told before. We address this fact in the next sub-section.	page 24
+(50) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: At 11am Michael says:	page 24, the context
+(50) line 2	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 24, the speaker of the turn
+(50) line 3	Gitksan	segmentation	Dim wis yuxwsa t'aahlakw.	page 24
+(50) line 4	Gitksan	gloss	PROSP rain evening tomorrow	page 24
+(50) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘It’s gonna rain tomorrow evening.’	page 24
+(50) line 6	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 24, the speaker of the turn
+(50) line 7	Gitksan	segmentation	Nee=dii am!	page 24
+(50) line 8	Gitksan	gloss	NEG=FOC good	page 24
+(50) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘That’s not good!’	page 24
+(50) line 10	Thomas J. Heins, Lisa Matthewson	note	Michael and T.J. go their separate ways. At 4pm they see each other again.	page 24, between the turns
+(50) line 11	Thomas J. Heins, Lisa Matthewson	note	T.J.:	page 24, the speaker of the turn
+(50) line 12	Gitksan	segmentation	T'eg-i'y=hl he-n e=hl wila wi=hl	page 24
+(50) line 13	Gitksan	gloss	forget-1SG.II=CN say-2SG.II PREP=CN manner COMP=CN	page 24
+(50) line 14	Gitksan	segmentation	wis=gi.	page 24
+(50) line 15	Gitksan	gloss	rain=PR.EVID	page 24
+(50) line 16	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot what you said about rain.’	page 24
+(50) line 17	Thomas J. Heins, Lisa Matthewson	note	Michael:	page 24, the speaker of the turn
+(50) line 18	Gitksan	segmentation	Dim wis yuxwsa t'aahlakw(#=gi).	page 24
+(50) line 19	Gitksan	gloss	PROSP rain evening tomorrow(#=PR.EVID)	page 24
+(50) line 20	Thomas J. Heins, Lisa Matthewson	translation	‘It’s gonna rain tomorrow evening.’	page 24
+(50) line 21	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 24, the source at the right of the translation
+§4.1.1	Thomas J. Heins, Lisa Matthewson	heading	4.1.1 Deriving the past-tense effect	page 24
+§4.1.1	Thomas J. Heins, Lisa Matthewson	note	We just showed that gi is not restricted to sentences which talk about past events; we conclude from this that gi does not hardwire a requirement that the described event took place in the past. Any apparent past tense effects must be derived from the core meaning of gi (that at least one interlocutor had prior evidence for the proposition).	page 24
+§4.1.1	Thomas J. Heins, Lisa Matthewson	note	This will work roughly as follows, taking the dog-biting case in (42) as an example. If at least one interlocutor needs prior evidence for the dog-biting, it is very likely that the biting took place in the past. In fact, as shown in (27) (the case where I have just arrived in Gitksan territory and am experiencing the cold), the prior-evidence requirement of gi renders it infelicitous in contexts where the evidence for the utterance holds only at the utterance time. Given this, it follows that the consultant’s default translation of the gi-sentence of (42) will use an English past-tense verb.	page 24
+§4.1.1	Thomas J. Heins, Lisa Matthewson	note	What about the cases where gi is felicitous with present- or future-time events, as for (45)–(49)? Notice that these contexts have the special property that there was past-time evidence for a present or future eventuality. In (45), the students learned earlier that the capital of Canada is Ottawa, and in (47)–(49) I had previously stated my future plans. And in (50), we suggest that the reason gi is infelicitous is because with un-schedulable events like rain, it is not possible to have obtained past evidence that they will occur.	page 24
+§4.1.1	Thomas J. Heins, Lisa Matthewson	note	Hence, our proposal that gi requires prior evidence accounts for both the fact that gi does not enforce past tense, as well as for the fact that it favours past tense as a default.	page 25
+§4.2	Thomas J. Heins, Lisa Matthewson	heading	4.2 A marker of prior evidence	page 25
+§4.2	Thomas J. Heins, Lisa Matthewson	note	The core generalizations we have discovered about gi are listed in (51).	page 25
+(51a) line 1	Thomas J. Heins, Lisa Matthewson	note	In declaratives, gi is licensed if at least one interlocutor had prior evidence for some salient proposition, usually the prejacent proposition to which gi attaches.	page 25, a generalization
+(51a) line 2	Thomas J. Heins, Lisa Matthewson	note	(Sub-cases: The addressee was told the proposition but forgot it; the addressee did not hear the previous utterance; the addressee did not believe the previous utterance; the speaker had prior personal evidence for the proposition.)	page 25, its sub-cases
+(51b) line 1	Thomas J. Heins, Lisa Matthewson	note	In interrogatives, gi is licensed if at least one interlocutor had prior evidence for either the question or the answer.	page 25, a generalization
+(51b) line 2	Thomas J. Heins, Lisa Matthewson	note	(Sub-cases: The speaker is repeating the question due to the addressee’s having forgotten it, or failed to hear it; the speaker expects that the addressee had prior evidence for the answer to the question; the speaker is re-asking the question because they knew the answer previously but have forgotten it; a third person is repeating someone else’s question due to the addressee’s not having heard it the first time.)	page 25, its sub-cases
+§4.2	Thomas J. Heins, Lisa Matthewson	note	It is clear that there is a unifying core to the licensing contexts for gi, which we have roughly summarized as a ‘prior evidence’ requirement. We are, however, several steps away from being able to present a formal unified analysis which derives all of gi’s uses. Challenges include firstly the question of how to allow gi to be flexible about what is required to be already known (cf. discussion in Section 3.5), but not to be too flexible so as to over-generate. Another important challenge is how one might lexically encode the prior evidence requirement in a way which allows gi to attach compositionally to both declaratives and interrogatives, with the desired individual effects. It is also challenging to compositionally derive the flexible effect of gi in interrogatives. The fact that gi allows prior evidence of either the question or the answer already poses difficulties, let alone the fact that gi allows a ‘speech act’ reading whereby the questioner is merely reporting somebody else’s question.	page 25
+§4.2	Thomas J. Heins, Lisa Matthewson	note	For these reasons we have to delay a formal analysis till some future time. In the next sub-section we will nevertheless sketch how one might derive the fact that gi strongly prefers the prior evidence requirement to target the addressee, but nevertheless allows speaker prior evidence to be sufficient in some contexts.	page 25
+§4.3	Thomas J. Heins, Lisa Matthewson	heading	4.3 Deriving the addressee bias	page 26
+§4.3	Thomas J. Heins, Lisa Matthewson	note	Suppose that we are correct in claiming that gi requires prior evidence on the part of at least one interlocutor for the speech act being performed. How might we then account for the bias towards gi being used only when the addressee has prior evidence? We would like to propose that this preference falls out from Gricean reasoning and from standard assumptions about the felicity conditions on assertions (cf. Stalnaker 1978).	page 26
+§4.3	Thomas J. Heins, Lisa Matthewson	name	Stalnaker	Robert Stalnaker, presuppositions (1973) and assertion (1978)
+§4.3	Thomas J. Heins, Lisa Matthewson	note	If a speaker is asserting a proposition p, the default assumption (by Grice’s Quality maxim) is that she has sufficient evidence for p. And simple world knowledge dictates that she obtained her evidence before she began to speak. So we propose that the prior evidence constraint, if applied to the speaker, achieves little beyond duplicating the existing conditions on the assertion of p. For this reason, gi is used mostly to signal addressee evidence. However, gi can also be used to signal speaker evidence, and this is naturally more likely to happen when for some reason, the speaker wishes to emphasize that they had prior evidence for their utterance.	page 26
+§4.3	Thomas J. Heins, Lisa Matthewson	note	This approach predicts that gi will be perceived as having an emphatic effect when it signals only speaker evidence. This appears to be correct, based on consultant’s comments during elicitation sessions. For example, BS frequently summarizes her views on gi by means of a disjunctive definition, highlighting either the prior-knowledge effect or an emphasis effect. Thus, she comments that “We use gi for emphasis or to show that we’re repeating ourselves.” On another occasion BS commented that “The gi is for repeating yourself or ‘That's what happened.’” And in (52), a case where gi signals only speaker prior evidence, she spontaneously mentions the emphatic effect.	page 26
+(52) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: An answer to (11) above. Katie has asked Michael when the next full moon is; she has never had any idea when it is. He replies:	page 26, the context
+(52) line 2	Gitksan	segmentation	Dim luu mitxw hlox̱s-im ax̱xw ji hlaa	page 26
+(52) line 3	Gitksan	gloss	PROSP in full sun-ATTR night IRR INCEP	page 26
+(52) line 4	Gitksan	segmentation	xwsdins sa=gi.	page 26
+(52) line 5	Gitksan	gloss	five day=PR.EVID	page 26
+(52) line 6	Thomas J. Heins, Lisa Matthewson	translation	‘The full moon will be in five days.’	page 26
+(52) line 7	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 26, the source at the right of the translation
+(52) line 8	Thomas J. Heins, Lisa Matthewson	note	Researcher: “And he’s not reminding her?”	page 26, the researcher's question
+(52) line 9	Thomas J. Heins, Lisa Matthewson	speaker comment	Consultant: “No, he’s just emphasizing. Sometimes it’s just used to emphasize.”	page 26, the consultant's answer
+§4.3	Thomas J. Heins, Lisa Matthewson	note	We predict that whenever gi indicates only speaker evidence, there will be an emphatic effect. Further testing is required to establish whether this is upheld.	page 26
+§5	Thomas J. Heins, Lisa Matthewson	heading	5 Investigating gi in stories and conversation	page 26
+§5	Thomas J. Heins, Lisa Matthewson	note	Investigating discourse-dependent markers based on corpus data is fraught with difficulty. It is often extremely difficult to determine what licensed a particular marker found in a narrative or conversation; one can often only guess. Another major problem is the absence of negative evidence. The researcher does not know whether an utterance containing the marker in a discourse would have been felicitous without it, or whether an utterance lacking the marker in a discourse would have been felicitous with it. Obviously, one also cannot extract from a corpus information about how the meaning would have been altered, were the marker to be inserted or deleted.	page 26
+§5	Thomas J. Heins, Lisa Matthewson	note	Nevertheless, it is important to at least attempt to test our empirical generalizations on spontaneous data. In this section we report on some preliminary findings based on seven stories told by VG, and on one conversation between BS and VG. We do find evidence which supports our generalizations. We also find a number of cases of gi where it is difficult to tell why it appears. There may be an emphatic effect, but this information is not extractable from the corpus itself.	page 27
+§5	Thomas J. Heins, Lisa Matthewson	note	In (53), taken from the conversation, we have a case where gi may well be licensed because BS is assuming that VG knows the information already. Alternatively (or as well), gi may be licensed here because Walter is dead (cf. Tarpent’s translation of (4) above).	page 27
+(53) line 1	Thomas J. Heins, Lisa Matthewson	note	BS:	page 27, the speaker of the turn
+(53) line 2	Gitksan	segmentation	Ii 'nit=hl k'uuhl wil hetxw=hl gya=hl	page 27
+(53) line 3	Gitksan	gloss	CL.CNJ 3SG.III=CN year COMP stand=CN pierce=CN	page 27
+(53) line 4	Gitksan	segmentation	g̲an-s Walter=gi, G̲eel.	page 27
+(53) line 5	Gitksan	gloss	tree-PN Walter=PR.EVID G̲eel	page 27
+(53) line 6	Thomas J. Heins, Lisa Matthewson	translation	‘And that was the year when they raised Walter’s, Chief G̲eel’s, totem pole.’	page 27
+(53) line 7	Thomas J. Heins, Lisa Matthewson	note	BS:	page 27, the speaker of the turn
+(53) line 8	Gitksan	segmentation	Nee-m amg̲ood=aa?	page 27
+(53) line 9	Gitksan	gloss	NEG-2SG.I remember=YNQ	page 27
+(53) line 10	Thomas J. Heins, Lisa Matthewson	translation	‘Do you remember?’	page 27
+§5	Thomas J. Heins, Lisa Matthewson	note	Example (54), from the same conversation, is a case where gi appears in a question because the speaker knew the answer before, but has forgotten it.	page 27
+(54) line 1	Gitksan	segmentation	Ii hlaa Friday ii bakw=hl hlogots'uu-diit,	page 27
+(54) line 2	Gitksan	gloss	CL.CNJ INCEP Friday CL.CNJ arrive.PL=CN other-3SG.II	page 27
+(54) line 3	Gitksan	segmentation	sim'oogit Alice Jeffrey, naa=hl wa=hl hanak̲'=gi,	page 27
+(54) line 4	Gitksan	gloss	chief Alice Jeffrey who=CN name=CN woman=PR.EVID	page 27
+(54) line 5	Gitksan	segmentation	Benson, Rena Benson	page 27
+(54) line 6	Gitksan	gloss	Benson, Rena Benson	page 27
+(54) line 7	Thomas J. Heins, Lisa Matthewson	translation	‘And on Friday, the others came, chief Alice Jeffrey (what’s the woman’s name?), Benson, Rena Benson, …’	page 27
+(54) line 8	Thomas J. Heins, Lisa Matthewson	citation	(BS)	page 27, the source at the right of the translation
+§5	Thomas J. Heins, Lisa Matthewson	note	In (55) there is no obvious reason why gi is used – that is, there is no reason to suppose that this is repeated information for the addressee – so perhaps gi is licensed here only by the fact that the speaker had prior evidence for the relevant proposition. As outlined above, we predict that gi has an emphatic effect here, but this is impossible to confirm (or deny) based on the transcription of the conversation.	page 27
+(55) line 1	Thomas J. Heins, Lisa Matthewson	note	BS:	page 28, the speaker of the turn
+(55) line 2	Gitksan	segmentation	Ii 'nit=hl wil-i'y, hlis=hl graduate-'y,	page 28
+(55) line 3	Gitksan	gloss	CL.CNJ 3SG.III=CN LV-1SG.II COMPL=CN graduate-1SG.II	page 28
+(55) line 4	Thomas J. Heins, Lisa Matthewson	translation	‘And that’s what I did, I already graduated.’	page 28
+(55) line 5	Thomas J. Heins, Lisa Matthewson	note	[overlapping:]	page 28, between the turns
+(55) line 6	Thomas J. Heins, Lisa Matthewson	note	BS:	page 28, the speaker of the turn
+(55) line 7	Gitksan	segmentation	Hlis-hlisxw-'y ii—	page 28
+(55) line 8	Gitksan	gloss	COMPL-COMPL-1SG.II CL.CNJ	page 28
+(55) line 9	Thomas J. Heins, Lisa Matthewson	translation	‘And I finished—’	page 28
+(55) line 10	Thomas J. Heins, Lisa Matthewson	note	VG:	page 28, the speaker of the turn
+(55) line 11	Gitksan	segmentation	Ii dii hlis g̲alksa-x̲-hl-xw-in.	page 28
+(55) line 12	Gitksan	gloss	CL.CNJ FOC COMPL through-mouth-?-PASS-2SG.II	page 28
+(55) line 13	Thomas J. Heins, Lisa Matthewson	translation	‘And you got through (it).’	page 28
+(55) line 14	Thomas J. Heins, Lisa Matthewson	note	BS:	page 28, the speaker of the turn
+(55) line 15	Gitksan	segmentation	Ii am wila daa'wihl	page 28
+(55) line 16	Gitksan	gloss	CL.CNJ good MANNER leave	page 28
+(55) line 17	Gitksan	segmentation	sa-g̲oot-xw-i'y=gi.	page 28
+(55) line 18	Gitksan	gloss	CAUS1-heart-PASS-1SG.II=PR.EVID	page 28
+(55) line 19	Thomas J. Heins, Lisa Matthewson	translation	‘And my plan went very well.’	page 28
+§5	Thomas J. Heins, Lisa Matthewson	note	The preceding examples were all from the conversation. The relative frequency of gi in conversation is in line with consultants’ comments that gi is informal. For example, BS states that gi would not be used in a speech at a feast, because such speeches are formal, while gi is “conversational”. LW similarly comments that gi “puts it in the informal”, and that gi is “casual”.	page 28
+§5	Thomas J. Heins, Lisa Matthewson	note	In narratives, gi has more variable frequency. The stories in Smith (2004) contain many gis, but the instances of it in seven stories by VG can be counted on the fingers of one hand. Here is one example of gi from the story ‘War with the Jits'aawit’. It is unclear why gi is present here. It could be either that the information is judged to be already known by the addressee, or it could be an emphatic usage.	page 28
+§5	Thomas J. Heins, Lisa Matthewson	name	Smith	Marsha J. Smith, Gitxsan stories (2004)
+(56) line 1	Gitksan	segmentation	Sim luu tk̲'al g̲ood-in-diit=hl Jits'aawit g̲o'o=hl	page 28
+(56) line 2	Gitksan	gloss	true in against heart-CAUS2-3PL=CN Jits'aawit LOC=CN	page 28
+(56) line 3	Gitksan	segmentation	T'aam Meji'aadn	page 28
+(56) line 4	Gitksan	gloss	lake Meji'aadn.	page 28
+(56) line 5	Thomas J. Heins, Lisa Matthewson	translation	‘They completely killed off all the Jits'aawit at Meji'aadn Lake.’	page 28
+(56) line 6	Gitksan	segmentation	'Nit g̲an wi=hl gi'nam=hl Gitwinhlguu'l	page 28
+(56) line 7	Gitksan	gloss	3SG.III SUBORD COMP=CN give=CN Gitwinhlguu'l	page 28
+(56) line 8	Gitksan	segmentation	ha~anak̲' dim niiniks-xw=hl x̲sdaa-t=gi.	page 28
+(56) line 9	Gitksan	gloss	PL~woman PROSP spouse.PL-PASS=CN win-3.II-PR.EVID	page 28
+(56) line 10	Thomas J. Heins, Lisa Matthewson	translation	‘That is why Gitwinhlguu'l offered women to marry these victors.’	page 28
+(56) line 11	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 28, the source at the right of the translation
+§5	Thomas J. Heins, Lisa Matthewson	note	Further investigation of spontaneous uses of gi will be most useful if it is combined with follow-up elicitation with the original speakers, in an attempt to elicit more information about why gi appears where it does.	page 28
+§6	Thomas J. Heins, Lisa Matthewson	heading	6 Conclusion	page 29
+§6	Thomas J. Heins, Lisa Matthewson	note	In this paper we have provided the first targeted investigation of the particle gi in Gitksan. Contrary to previous literature, which has classified gi as a spatio- temporal distal marker, we have argued that gi is a discourse particle which encodes a prior evidence requirement. Our core empirical findings are repeated in (57). (Recall from section 4.3 that there are further pragmatic complexities which govern when gi is used, even when the conditions in (57) are met.)	page 29
+(57a) line 1	Thomas J. Heins, Lisa Matthewson	note	In declaratives, gi is licensed if at least one interlocutor had prior evidence for some salient proposition, usually the prejacent proposition to which gi attaches.	page 29, a generalization
+(57a) line 2	Thomas J. Heins, Lisa Matthewson	note	(Sub-cases: The addressee was told the proposition but forgot it; the addressee did not hear the previous utterance; the addressee did not believe the previous utterance; the speaker had prior personal evidence for the proposition.)	page 29, its sub-cases
+(57b) line 1	Thomas J. Heins, Lisa Matthewson	note	In interrogatives, gi is licensed if at least one interlocutor had prior evidence for either the question or the answer.	page 29, a generalization
+(57b) line 2	Thomas J. Heins, Lisa Matthewson	note	(Sub-cases: The speaker is repeating the question due to the addressee’s having forgotten it, or failed to hear it; the speaker expects that the addressee had prior evidence for the answer to the question; the speaker is re-asking the question because they knew the answer previously but have forgotten it; a third person is repeating someone else’s question due to the addressee’s not having heard it the first time.)	page 29, its sub-cases
+§6	Thomas J. Heins, Lisa Matthewson	note	Although we have not yet provided a unified formal analysis, we believe that our findings represent a significant step forward in the empirical understanding of gi. In addition, our generalizations suggest that gi is a particle with a cross-linguistically interesting property: it requires prior evidence or knowledge, but it does not care which interlocutor has that evidence or knowledge. This makes it different from presuppositional elements (which specifically require information to be in the shared common ground, Stalnaker 1973), and also potentially different from German discourse particles like ja or doch, which at least under many analyses specifically encode information about the addressee’s knowledge state (Zimmermann 2011).	page 29
+§6	German	cited form	ja	page 29, in italics
+§6	German	cited form	doch	page 29, in italics
+§6	Thomas J. Heins, Lisa Matthewson	name	Zimmermann	Malte Zimmermann, discourse particles (2011)
+§6	Thomas J. Heins, Lisa Matthewson	language	German	the discourse particles ja and doch
+§6.1	Thomas J. Heins, Lisa Matthewson	heading	6.1 For future research	page 29
+§6.1	Thomas J. Heins, Lisa Matthewson	note	There are many avenues for future research with gi. In this sub-section we present just one outstanding puzzle, which is a potential interaction with lexical aspect (Aktionsart), at least for one of our consultants. Although (58a) and (58b) both convey approximately the same information, the eventive version in (58a) allows gi, while the stative version in (58b) does not. We have no explanation for this at this time, and further research is necessary to establish whether the effect is systematic.	page 29
+(58) line 1	Thomas J. Heins, Lisa Matthewson	note	Context: I meet a guy, he introduces himself, and in the middle of conversation with him, I realize I’ve forgotten his name.	page 30, the context
+(58a) line 1	Gitksan	segmentation	T'eg-i'y=hl we-n(=gi).	page 30
+(58a) line 2	Gitksan	gloss	forget-1SG.II=CN name-2SG.II(=PR.EVID)	page 30
+(58a) line 3	Thomas J. Heins, Lisa Matthewson	translation	‘I forgot your name.’	page 30
+(58a) line 4	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 30, the source at the right of the translation
+(58b) line 1	Gitksan	segmentation	Nee=dii=n amg̲oo=hl we-n(#=gi)	page 30
+(58b) line 2	Gitksan	gloss	NEG=FOC=1SG.I remember=CN name-2SG.II(#=PR.EVID)	page 30
+(58b) line 3	Thomas J. Heins, Lisa Matthewson	translation	‘I don’t remember your name.’	page 30
+(58b) line 4	Thomas J. Heins, Lisa Matthewson	citation	(VG)	page 30, the source at the right of the translation
+references	Thomas J. Heins, Lisa Matthewson	heading	References	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Boas, F. (1911). Tsimshian. In F. Boas, Handbook of American Indian languages (pp. 283–422). Washington, D.C.: Government Printing Office.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Brown, J. C. (2008). Theoretical aspects of Gitksan phonology. Doctoral dissertation, University of British Columbia, Department of Linguistics.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Faller, M. (2002). Semantics and pragmatics of evidentials in Cuzco Quechua. Doctoral dissertation, Stanford University, Department of Linguistics.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Faller, M. (2007). Evidentiality below and above speech acts. Unpublished manuscript, University of Manchester.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Faller, M. (2011). A possible worlds semantics for Cuzco Quechua evidentials. In N. Li, & D. Lutz (Ed.), Proceedings of SALT 20 (pp. 660–683). Ithaca: CLC Publications.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	First Peoples' Cultural Council. (2014). Report on the status of B.C. First Nations languages 2014 (2nd ed.). Brentwood Bay, BC: FPCC.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Grenoble, L. (2007). The importance and challenges of documenting pragmatics. In P. K. Austin (Ed.), Language documentation and description (Vol. 4, pp. 145–162). London: SOAS. Retrieved from http://www.elpublishing.org/PID/054.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Hindle, L., & Rigsby, B. (1973). A short practical dictionary of the Gitksan language. Northwest Anthropological Research Notes, 7(1), 1–60.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Hoard, J. E. (1978). Obstruent voicing in Gitksan: Some implications for distinctive feature theory. In E.-D. Cook, & J. Kaye (Eds.), Linguistic studies of native Canada (pp. 111–119). Vancouver: UBC Press.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Jóhannsdóttir, K. M. (2006). Aspect in Gitxsan. In A. Fujimori, & M. A. Reis Silva (Ed.), Proceedings of WSCLA XI (pp. 82–94). Vancouver: UBCWPL.	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Matthewson, L. (2004). On the methodology of semantic fieldwork. International Journal of American Linguistics, 70(4), 369–415. doi:10.1086/429207	page 30
+references	Thomas J. Heins, Lisa Matthewson	reference	Matthewson, L. (2011). On apparently non-modal evidentials. In O. Bonami, & P. Cabredo Hofherr (Ed.), Empirical Issues in Syntax and Semantics 8, (pp. 333–357). Retrieved from http://www.cssp.cnrs.fr/eiss8/	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Matthewson, L. (2012). Evidence about evidentials: Where fieldwork meets theory. In B. Stolterfoht, & S. Featherston (Eds.), Empirical approaches to linguistic theory: Studies in meaning and structure (pp. 85–114). Berlin: De Gruyter Mouton. doi:10.1515/9781614510888.85	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Matthewson, L. (2015). On ‘emphatic’ discourse particles in Gitksan. Paper presented at 37. Jahrestagung der Deutsche Gesellschaft für Sprachwissenschaft, Universität Leipzig, March 4.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Rigsby, B. (1986). Gitksan grammar. Unpublished manuscript, University of Queensland.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Rigsby, B. (1987). Indigenous language shift and maintenance in Fourth World settings. Multilingua, 6(4), 359–378. doi:10.1515/mult.1987.6.4.359	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Rigsby, B., & Ingram, J. (1990). Obstruent voicing and glottalic obstruents in Gitksan. International Journal of American Linguistics, 56(2), 251–263. doi:10.1086/466152	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Rigsby, B., & Kari, J. (1987). Gitksan and Wet'suwet'en linguistic relations. Opinion evidence for the plaintiffs, Delgamuukw et al. v. Her Majesty the Queen.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Smith, M. J. (2004). Placing Gitxsan stories in text: Returning the feathers. Guuxs mak'am mik̲'aax. Doctoral dissertation, University of British Columbia, Department of Curriculum Studies.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Stalnaker, R. (1973). Presuppositions. Journal of Philosophical Logic, 2(4), 447–457. doi:10.1007/BF00262951	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Stalnaker, R. (1978). Assertion. In P. Cole (Ed.), Syntax and Semantics, Vol. 9. Pragmatics (pp. 315–322). New York: Academic Press.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	von Stechow, A. (1996). The different readings of wieder ‘again’: A structural account. Journal of Semantics, 13(2), 87–138. doi:10.1093/jos/13.2.87	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Tarpent, M.-L. (1984). From the Nisgha speaker's point of view: The evidential postclitics. Papers of the XIX ICSNL (pp. 356–371). Victoria: WPLC.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Tarpent, M.-L. (1987). A grammar of the Nisgha language. Doctoral dissertation, University of Victoria, Department of Linguistics.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Tarpent, M.-L. (1998). The function of the Southern Tsimshian elemnts ==taʔ and ==ka̲ʔ and the nature of the Tsimshian “connectives”. Paper presented at CAIL/SSIL, Philadelphia, December 5.	page 31
+references	Thomas J. Heins, Lisa Matthewson	reference	Zimmermann, M. (2011). Discourse particles. In K. von Heusinger, C. Maienborn, & P. Portner (Eds.), Semantics: An international handbook of natural language meaning (Vol. 2, pp. 2012–2038). Berlin: De Gruyter Mouton. doi:10.1515/9783110255072.2012	page 31

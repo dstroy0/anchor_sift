@@ -1,0 +1,1032 @@
+where	who	kind	form	gloss
+front	John Lyon	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	nsyilxcn	cited affix	əc-	page 1
+front	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+front	John Lyon	note	Abstract: This paper provides a semantic reanalysis of property concept (‘PC’) and change-of-state (‘CS’) roots in Nsyilxcn, as given in Lyon (2023). It includes additional data from restitution tests (Beavers & Koontz-Garboden 2020) showing that CS roots entail a change-of-state. It also provides evidence that (a) inchoativizers are sensitive to root semantics and should be treated as v heads (see Lyon 2025b, also in this volume), (b) the əc- stativizer occurs higher than inchoativizers in Nsyilxcn, and (c) there is a null v head present for certain statives which is an identity function on CS roots specifically. Notably, inchoatives derived from PC roots resist culmination entailment, whereas inchoatives derived from CS roots entail culmination. Overall, this indicates that root-sensitive inchoativizers introduce different degree standards at v, which in turn suggests that roots are themselves bare measure (PC) or measure-of-change (CS) functions (Kennedy & Levin 2008) without themselves specifying a standard (contra Beavers & Koontz-Garboden’s 2020 analysis of English). This approach can account for cross-Salish variation in whether or not bare CS roots can be used as patient-oriented predicates, assuming variation in whether null v introduces a degree standard (e.g. St’át’imcets) or does not (e.g. Nsyilxcn), while at the same time maintaining the same basic root semantics across languages. Keywords: statives, target states, state passives, roots, inchoatives, change-of-state	page 1
+§1	John Lyon	heading	1 Introduction	page 1
+§1	John Lyon	note	Nsyilxcn (a.k.a. Okanagan, ISO: 639-3 oka) is a Southern Interior Salish language spoken in south- central British Columbia, and the northern interior of Washington State. There are approximately 81 fluent elder speakers on the Canadian side of the border (FPCC 2022). The examples in this paper come primarily from Delphine Derickson-Armstrong and Dave Michele (Westbank reserve), as well as from previously published materials.	page 1
+footnote *	John Lyon	note	* Many thanks go to ɬk̓mxnalqs Delphine Derrickson-Armstrong and c̓skʕáknaʔ Dave Michele of Westbank reserve, without whom none of this work would have been possible. This work has been financially supported through SSHRC IDG 430-2022-00827 and by the En’owkin Centre.	page 1, footnote
+front	John Lyon	note	Contact: john.lyon@ubc.ca	page 1, the author's contact line, at the foot of the page
+§1	nsyilxcn	name	ɬk̓mxnalqs	the nsyilxcn name of Delphine Derrickson-Armstrong, footnote *
+§1	nsyilxcn	name	c̓skʕáknaʔ	the nsyilxcn name of Dave Michele, footnote *
+§1	John Lyon	name	En’owkin	the En’owkin Centre, a supporter of the work, footnote *
+§1	John Lyon	note	This paper is an exploration of root semantics in Nsyilxcn. It contributes an additional cross- linguistic perspective and methodology to the ongoing debate regarding the types of meaning roots encode in natural language (Beavers et al. 2021) and the syntactic structures that roots occur in, and synthesizes and applies theoretical work on roots and change-of-state (Beavers & Koontz- Garboden 2012, 2020), state passives (Parsons 1990, Kratzer 2000, Embick 2004), and the syntactic and semantic functions of v (Kratzer 1994; Embick 2004, 2023), situated within a degree framework (Kennedy 1999; Kennedy & Levin 2008; Nederveen 2023 for Salish). The primary goal of this paper is to provide an accurate description and compositional analysis of Nsyilxcn roots as they occur within several key anti-causative structures (i.e statives, inchoatives). I posit the following two types of roots in Nsyilxcn: change-of-state (‘CS’) roots which entail change (1), and property concept (‘PC’) roots (2) which do not. This is similar to Beavers & Koontz-Garboden’s (2020) distinction between result and PC roots in English, except that Nsyilxcn CS roots not only denote the result of an event-of-change, like English result roots, they also allow reference to change event itself, and so are more similar to Kratzer’s (2000) underived target state participles in this respect. I distinguish PC and CS roots through language specific morphosyntactic patterns, sublexical modification (restitution tests), and patterns of entailment and contradiction.	page 1
+(1) line 1	John Lyon	note	CS roots statives inchoatives	page 2, heads the rows below
+(1a) line 1	nsyilxcn	root	*√nik̓	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(1a) line 1	John Lyon	translation	‘cut’	page 2
+(1a) line 1	nsyilxcn	transcription	əc-nik̓	page 2, the orthography
+(1a) line 1	John Lyon	translation	‘to be cut’	page 2
+(1a) line 1	nsyilxcn	transcription	nik̓•ək̓	page 2, the orthography
+(1a) line 1	John Lyon	translation	‘get cut’	page 2
+(1b) line 1	nsyilxcn	root	*√kʷum	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(1b) line 1	John Lyon	translation	‘store away’	page 2
+(1b) line 1	nsyilxcn	transcription	əc-kʷum	page 2, the orthography
+(1b) line 1	John Lyon	translation	‘to be stored’	page 2
+(1b) line 1	nsyilxcn	transcription	kʷum•əm	page 2, the orthography
+(1b) line 1	John Lyon	translation	‘get stored’	page 2
+(1c) line 1	nsyilxcn	root	*√naq̓ʷ	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(1c) line 1	John Lyon	translation	‘steal’	page 2
+(1c) line 1	nsyilxcn	transcription	əc-naq̓ʷ	page 2, the orthography
+(1c) line 1	John Lyon	translation	‘to be stolen’	page 2
+(1c) line 1	nsyilxcn	transcription	náq̓ʷ•əq̓ʷ	page 2, the orthography
+(1c) line 1	John Lyon	translation	‘get stolen’	page 2
+(1d) line 1	nsyilxcn	root	*√ɬwin	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(1d) line 1	John Lyon	translation	‘abandon’	page 2
+(1d) line 1	nsyilxcn	transcription	əc-ɬwin	page 2, the orthography
+(1d) line 1	John Lyon	translation	‘to be abandoned’	page 2
+(1d) line 1	nsyilxcn	transcription	ɬw•win	page 2, the orthography
+(1d) line 1	John Lyon	translation	‘get abandoned’	page 2
+(1e) line 1	John Lyon	rule	λdλxλsλe.cutΔ(x,e,s) ≥ d λxλs∃e.cutΔ(x,e,s) ≥ stnd(cutΔ) λxλe∃s.cutΔ(x,e,s) = max(cutΔ)	page 2, the denotations of (1), one for each column
+(2) line 1	John Lyon	note	PC roots positive adjectives inchoatives	page 2, heads the rows below
+(2a) line 1	nsyilxcn	root	*√t̓ʕas	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(2a) line 1	John Lyon	translation	‘hard’	page 2
+(2a) line 1	nsyilxcn	transcription	t̓əs•t̓ʕas-t	page 2, the orthography
+(2a) line 1	John Lyon	translation	‘to be hard’	page 2
+(2a) line 1	nsyilxcn	transcription	t̓<ʔ>ʕas	page 2, the orthography
+(2a) line 1	John Lyon	translation	‘get hard’	page 2
+(2b) line 1	nsyilxcn	root	*√ɬʕat̓	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(2b) line 1	John Lyon	translation	‘wet’	page 2
+(2b) line 1	nsyilxcn	transcription	ɬʕat̓	page 2, the orthography
+(2b) line 1	John Lyon	translation	‘to be wet’	page 2
+(2b) line 1	nsyilxcn	transcription	ɬ<ʔ>ʕat̓	page 2, the orthography
+(2b) line 1	John Lyon	translation	‘get wet’	page 2
+(2c) line 1	nsyilxcn	root	*√nʕas	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(2c) line 1	John Lyon	translation	‘heavy’	page 2
+(2c) line 1	nsyilxcn	transcription	(nəs)•nʕas-t	page 2, the text layer breaks it after (nəs)
+(2c) line 1	John Lyon	translation	‘to be heavy’	page 2
+(2c) line 1	nsyilxcn	transcription	n<ʔ>ʕas	page 2, the orthography
+(2c) line 1	John Lyon	translation	‘get heavy’	page 2
+(2d) line 1	nsyilxcn	root	*√piq	page 2, the orthography, the root of the row, starred where it is not a predicate by itself
+(2d) line 1	John Lyon	translation	‘white’	page 2
+(2d) line 1	nsyilxcn	transcription	piq	page 2, the orthography
+(2d) line 1	John Lyon	translation	‘to be white’	page 2
+(2d) line 1	nsyilxcn	transcription	p<ʔ>iq	page 2, the orthography
+(2d) line 1	John Lyon	translation	‘get white’	page 2
+§1	John Lyon	name	Piñon	Christopher Piñon, cited for the verbal positive, Piñon 2005
+§1	John Lyon	language	Secwepemctsín	Northern Interior Salish, Nederveen 2023 and Kuipers 1974
+(2e) line 1	John Lyon	rule	λdλxλs.hard(x,s) ≥ d λxλs.hard(x,s) ≥ stnd(hard) λxλe∃s.hardΔ(x,e,s) > min(hardΔ)	page 2, the denotations of (2), one for each column
+§1	John Lyon	note	Nsyilxcn CS roots require overt derivation, and PC roots generally do as well. Based on evidence showing root gradability, I propose that CS roots lexicalize a kind of measure-of-change function (1e) (Kennedy & Levin 2008), which measure the degree d to which an entity x holds a scalar property s as a result of participating in an event of change e.1 PC roots lexicalize basic measure functions (2e), which measure the degree d to which an entity x holds a scalar property s. The roots themselves, however, do not have specified positive or verbal degree standards (Kennedy & Levin 2008, contra Beavers & Koontz-Garboden 2020). Further overt or covert derivation into positive or stative (i.e. ‘verbal positive’, following Piñon 2005) and eventive (‘inchoative’) forms provide the necessary degree standards in addition to deriving a predicate of states or a predicate of events, respectively.2 The analysis complements Nederveen’s (2023) similar degree -based approach to agentive, control and non-control sentences in Secwepemctsín.	page 2
+§1	nsyilxcn	cited affix	əc-	page 2
+§1	nsyilxcn	cited form	wiʔ	page 2, ‘to finish’
+footnote 1	John Lyon	note	1 I make an ontological distinction between two kinds of eventualities in my semantic representations: Events ‘e’ and states ‘s’ (Bach 1986, Kratzer 200).	page 2, footnote
+footnote 2	John Lyon	note	2 In describing predicates as “predicates of states” vs. “predicates of events” in this paper, I abstract away from the internal argument x. I also remain agnostic with respect to where the internal argument merges.	page 2, footnote
+footnote 3	John Lyon	note	3 Evidence that Stat can adjoin directly to v comes from examples showing that phrasal event -related modifiers cannot modify a stative unless they are directly relevant to the state (McIntyre 2015). For Embick (see also Biggs & Lopes 2024), this follows if there is no phrasal adjunction site lower than StatP. I adopt a similar analysis for Nsyilxcn, but do not discuss it in detail here for reasons of space. This is not critical for the analysis I lay out here.	page 2, footnote
+§1	John Lyon	note	I contextualize the semantics in (1e,2e) within distinct adjectival and verbal structures. I assume that roots do not project phrasal structure (Marantz 2009) and directly merge with adjectival or verbal categorizing heads (Embick 2004, 2023; Beavers & Koontz-Garboden 2020). Adjectivizing head a merges with a PC root (Fig 1), while verbalizing head v merges with either a PC or CS root (Fig 2,3). There are different ‘flavours’ of v. I provide evidence for a null v head that merges with a CS root (Figure 2). Stativizer əc- is required in these cases, and adjoins directly to a v head (Embick 2023).3 Inchoative v heads merge directly to a PC or CS root (Embick 2004), projecting a vP. Stativizer əc- is optional in Figure 3. (As depicted in Figures 2-3, I use the distribution of compounding root wiʔ ‘to finish’ as one argument that stativizer əc- occurs higher than v.)	page 2
+Figure 1	John Lyon	note	Figure 1. Adjectival Structure Figure 2. Verbal Structure Figure 3. Verbal Structure (Target Stative) (Inchoative/Resultant Stative)	page 3, the captions of Figures 1, 2 and 3, trees the text layer does not hold
+§1	John Lyon	note	The basic outline of my argument is as follows. First, both statives and inchoatives involve v structures: These all allow event modifiers (e.g. manner adverbials, non-agentive instruments). Second, inchoativizers introduce a change-of-state and are sensitive to root semantics; this follows if they are v heads and adjoin directly to a root. Third, the stativizer is different: it is sensitive to the presence of a change-of-state (i.e. v), but not specifically to root class: this follows if stativizers are higher in the structure. This correctly predicts that stativizer əc- and inchoativizers may co- occur (3,4, Figure 3). In particular, so long as a PC root is inchoativized (4), it can also be stativized.	page 3
+(3a) line 1	nsyilxcn	transcription	əc-nik’	page 3, printed with a straight apostrophe for the glottalization
+(3a) line 1	John Lyon	translation	‘already cut’	page 3
+(3a) line 1	John Lyon	note	CS root - target stative	page 3, what the form is
+(3b) line 1	nsyilxcn	transcription	əc-nik̓•ək̓	page 3
+(3b) line 1	John Lyon	translation	‘already cut’	page 3
+(3b) line 1	John Lyon	note	CS root - resultant stative	page 3, what the form is
+(4a) line 1	nsyilxcn	transcription	*əc-qʷin	page 3
+(4a) line 1	John Lyon	translation	‘already made green’	page 3
+(4a) line 1	John Lyon	note	PC root - target stative	page 3, what the form is
+(4b) line 1	nsyilxcn	transcription	əc-qʷ<ʔ>in	page 3
+(4b) line 1	John Lyon	translation	‘already made green	page 3, printed without its closing quote
+(4b) line 1	John Lyon	note	PC root - resultant stative	page 3, what the form is
+§1	John Lyon	note	When stativizers and inchoativizers co-occur on a root (3b,4b, Fig. 3), the interpretation of the predicate is that of a resultant stative, in the sense of Kratzer (2000). Resultant states are states of an event having completed “that hold forever after” (Parsons 1990). When the inchoativizer is absent (3a, Fig. 2), the predicate is interpreted as a target stative. Target states are transitory, reversable, and “independently identifiable” (Parsons 1990). Since statives always contain v, inchoative v (Fig. 3) must alternate with a null v head (Fig. 2). The null v head is an identity function over CS roots specifically (1e), which yields a predicate that serves as the argument of Kratzer’s target stativizer. The inchoative v derives a predicate of events (1e,2e) that optionally serves as the argument for Kratzer’s resultant stativizer. I show that the interpretive difference follows most straightforwardly if the identity function, and the CS root itself, are predicates of both transitional events and scalar result states.	page 3
+§1	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§1	John Lyon	note	The argument outlined above is expressed within a degree semantics in order to account for differences between inchoativized PC and CS roots with respect to culmination entailments. CS roots are bare measure-of-change functions, which means that null v in Nsyilxcn is an identity function over CS roots which are underspecified with respect to a degree standard. If one assumes that null v in St’át’imcets does introduce a degree standard, similarly to an inchoativizer, not only are the presence of ‘bare’ CS roots in St’át’imcets made possible while maintaining the same root semantics across languages, but several other points of variation receive explanation, and a kind of predictive typology emerges.	page 3
+§1	John Lyon	note	Theoretically, this approach posits syntactic and semantic parallels between PC and CS roots, and the adjectival and verbal structures they occur in. Both types of roots are underspecified with respect to their degree standards (Kennedy & Levin 2008). Roots receive specification through either a positive marker (Fig 1), a target stativizer (as a verbal positive) (Fig 2), or a v inchoativizer (Fig 3). Categorizing a and v heads may be phonologically null identity functions (Fig 1,2) (Embick 2004), or host inchoativizers which contribute additional semantics (Fig 3). In Nsyilxcn, whether the stativizer derives a target (Fig 2) or resultant stative (Fig 3) crucially depends on the presence or absence of an inchoativizer in v and whether or not v contributes a degree standard. This analysis takes issue with Beaver & Koontz-Garboden’s claim that roots which entail a change-of-state also entail a degree standard, siding rather with Kennedy & Levin (2008) on this issue: Standards may be structurally introduced to roots in at least some languages.	page 4
+§1	John Lyon	note	The paper is structured as follows:	page 4
+§1	John Lyon	note	The remainder of section 1 lays out the basic morphology of PC and CS roots and the anti- causative (‘inchoative’, ‘stative’) structures they occur in, and some discussion on distinguishing the two classes. Section 2 discusses the result of restitution tests, showing that CS roots entail a change-of-state (2.1), and provides a summary discussion of Beavers & Koontz-Garboden’s (2020) analysis of change-of-state in English result roots (2.2). Section 3 demonstrates how v in Nsyilxcn can be realized by an inchoativizer (Fig 3), or by a null v head (Fig 2), and that the interpretation of these structures, when stativized, are resultant and target statives, respectively. Section 4 shows that inchoatives derived from PC roots resist culmination entailment, whereas those derived from CS roots entail culmination. The picture that emerges is that degree standards are introduced at v, rather than at the root level. Section 5 provides a formal analysis of roots, statives and inchoatives, within a degree-based framework. Section 6 discusses a few implications, particularly with respect to St’át’imcets and variation within Salish, and concludes.	page 4
+§1.1	John Lyon	heading	1.1 Property Concept Roots	page 4
+§1.1	John Lyon	note	Property concept (‘PC’) roots express homogenous, static concepts, which most naturally translate into adjectives in English. PC roots derive into positive adjectives in Nsyilxcn. Positive adjectives sometimes take the form of bare PC roots (5), but more often end with a -t suffix and/or involve C1C2 ‘characterizing’ reduplication (6).4 PC root Positive Adjective	page 4
+(5) line 1	nsyilxcn	root	√mir	page 4, the orthography
+(5) line 1	nsyilxcn	transcription	mir	page 4, the orthography
+(5) line 1	John Lyon	translation	‘smooth’	page 4
+(5) line 2	nsyilxcn	root	√x̌aʕl	page 4, the orthography
+(5) line 2	nsyilxcn	transcription	x̌aʕl	page 4, the orthography
+(5) line 2	John Lyon	translation	‘clear, light’	page 4
+(5) line 3	nsyilxcn	root	√yus	page 4, the orthography
+(5) line 3	nsyilxcn	transcription	yus	page 4, the orthography
+(5) line 3	John Lyon	translation	‘dark red’	page 4
+(5) line 4	nsyilxcn	root	√piq	page 4, the orthography
+(5) line 4	nsyilxcn	transcription	piq	page 4, the orthography
+(5) line 4	John Lyon	translation	‘white’	page 4
+(5) line 5	nsyilxcn	root	√c̓uy	page 4, the orthography
+(5) line 5	nsyilxcn	transcription	c̓uy	page 4, the orthography
+(5) line 5	John Lyon	translation	‘dark’	page 4
+(5) line 6	nsyilxcn	root	√ɬʕat̓	page 4, the orthography
+(5) line 6	nsyilxcn	transcription	ɬʕat̓	page 4, the orthography
+(5) line 6	John Lyon	translation	‘wet’	page 4
+(5) line 7	nsyilxcn	root	√tiɬ	page 4, the orthography
+(5) line 7	nsyilxcn	transcription	tiɬ	page 4, the orthography
+(5) line 7	John Lyon	translation	‘straight’	page 4
+(6) line 1	nsyilxcn	root	√x̌ʷup	page 4
+(6) line 1	nsyilxcn	transcription	x̌ʷup-t	page 4
+(6) line 1	John Lyon	translation	‘weak’	page 4
+(6) line 2	nsyilxcn	root	√ʔilxʷ	page 4
+(6) line 2	nsyilxcn	transcription	ʔilxʷ-t	page 4
+(6) line 2	John Lyon	translation	‘hungry’	page 4
+(6) line 3	nsyilxcn	root	√ʔayx̌ʷ	page 5
+(6) line 3	nsyilxcn	transcription	ʔayx̌ʷ-t	page 5
+(6) line 3	John Lyon	translation	‘tired’	page 5
+(6) line 4	nsyilxcn	root	√taɬ	page 5
+(6) line 4	nsyilxcn	transcription	(təɬ)•táɬ-t	page 5
+(6) line 4	John Lyon	translation	‘straight, true’	page 5
+(6) line 5	nsyilxcn	root	√t̓ʕas	page 5
+(6) line 5	nsyilxcn	transcription	t̓əs•t̓ʕas-t	page 5
+(6) line 5	John Lyon	translation	‘hard’	page 5
+(6) line 6	nsyilxcn	root	√nʕas	page 5
+(6) line 6	nsyilxcn	transcription	(nəs)•nʕas-t	page 5
+(6) line 6	John Lyon	translation	‘heavy’	page 5
+(6) line 7	nsyilxcn	root	√xʷəl	page 5
+(6) line 7	nsyilxcn	transcription	xʷəl•xʷál-t	page 5
+(6) line 7	John Lyon	translation	‘alive’	page 5
+(6) line 8	nsyilxcn	root	√xaʔ	page 5
+(6) line 8	nsyilxcn	transcription	x̌aʔ•x̌áʔ	page 5
+(6) line 8	John Lyon	translation	‘sacred’	page 5
+(6) line 9	nsyilxcn	root	√x̌as	page 5
+(6) line 9	nsyilxcn	transcription	x̌as-t	page 5
+(6) line 9	John Lyon	translation	‘good’	page 5
+(6) line 10	nsyilxcn	root	√ham	page 5
+(6) line 10	nsyilxcn	transcription	həm•hám-t	page 5
+(6) line 10	John Lyon	translation	‘damp’	page 5
+(6) line 11	nsyilxcn	root	√c̓aɬ	page 5
+(6) line 11	nsyilxcn	transcription	c̓aɬ-t	page 5
+(6) line 11	John Lyon	translation	‘cold’	page 5
+footnote 4	John Lyon	note	4 Non-reduplicated adjectives with -t are sometimes ambiguously interpretable not only as simple states, but as inchoative states (see Bar-el 2005 for Skwxwú7mesh), e.g. ʔilxʷt which means ‘hungry’ or ‘get hungry’.	page 4, footnote
+§1.1	John Lyon	language	Skwxwú7mesh	Squamish, Bar-el 2005
+§1.1	nsyilxcn	cited form	ʔilxʷt	page 4
+§1.1	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§1.1	nsyilxcn	cited form	<ʔ>	page 5
+§1.1	John Lyon	language	nxaʔamxčín	Moses-Columbian, Kinkade 1989
+§1.1	John Lyon	note	I assume, following Davis’ (2011) analysis of adjectives in St’át’imcets Salish, that characterizing reduplication is semantically inert for adjectives, but nevertheless required in many cases. 5 The -t suffix occurs in comparative forms of adjectives in many cases. 6 Given that comparative and positive morphology should be in complementary distribution, -t is also not a positive marker. I assume here that a null positive morpheme applies to PC roots, and that C1C2 ‘characterizing’ reduplication and -t are semantically inert, though this is not a critical assumption for what follows. PC roots and positive adjectives do not encode any change-of-state: These are homogenous states, having neither an inherent initial nor final point (N. Mattina 1996; Kiyota 2008). A change- of-state is introduced by one or more of several inchoativizers, as illustrated in (7). 7 The inchoativizing infix <ʔ> occurs with phonologically strong (i.e. inherently stressed) PC roots (5a- g), whereas –(a)p occurs on weak roots (7h-j; i.e. inherently unstressed) (N. Mattina 1996, Lyon 2025b (this volume), see Kinkade 1989 for nxaʔamxčín). 8 Roots are sometimes treated ambiguously as strong or weak (7d). In certain cases, both strong and weak PC roots may take C2 ‘second consonant’ reduplication, either as an alternative (7e-g, i-j), or exclusively (7k-m).	page 5
+(7) line 1	John Lyon	note	property concept roots inchoatives	page 5, heads the rows below
+(7a) line 1	nsyilxcn	root	√nʕas	page 5, the orthography
+(7a) line 1	John Lyon	translation	‘heavy’	page 5
+(7a) line 1	nsyilxcn	transcription	n<ʔ>ʕas	page 5, the orthography
+(7a) line 1	nsyilxcn	transcription	*nʕas-p	page 5, the orthography
+(7a) line 1	nsyilxcn	transcription	*nʕás•əs	page 5, the orthography
+(7a) line 1	John Lyon	translation	‘get heavy’	page 5
+(7b) line 1	nsyilxcn	root	√piq	page 5, the orthography
+(7b) line 1	John Lyon	translation	‘white’	page 5
+(7b) line 1	nsyilxcn	transcription	p<ʔ>iq	page 5, the orthography
+(7b) line 1	nsyilxcn	transcription	*piq-p	page 5, the orthography
+(7b) line 1	nsyilxcn	transcription	*piq•əq	page 5, the orthography
+(7b) line 1	John Lyon	translation	‘get white’	page 5
+(7c) line 1	nsyilxcn	root	√ɬʕat̓	page 5, the orthography
+(7c) line 1	John Lyon	translation	‘wet’	page 5
+(7c) line 1	nsyilxcn	transcription	ɬ<ʔ>ʕat̓	page 5, the orthography
+(7c) line 1	nsyilxcn	transcription	*ɬʕat̓-p	page 5, the orthography
+(7c) line 1	nsyilxcn	transcription	?ɬʕát̓•ət̓	page 5, the orthography
+(7c) line 1	John Lyon	translation	‘get wet’	page 5
+(7d) line 1	nsyilxcn	root	√t̓ʕas	page 5, the orthography
+(7d) line 1	John Lyon	translation	‘hard’	page 5
+(7d) line 1	nsyilxcn	transcription	t̓<ʔ>ʕas	page 5, the orthography
+(7d) line 1	nsyilxcn	transcription	t̓sʕ-áp	page 5, the orthography
+(7d) line 1	nsyilxcn	transcription	?t̓ʕás•əs	page 5, the orthography
+(7d) line 1	John Lyon	translation	‘get hard’	page 5
+(7e) line 1	nsyilxcn	root	√c̓aɬ	page 5, the orthography
+(7e) line 1	John Lyon	translation	‘cold’	page 5
+(7e) line 1	nsyilxcn	transcription	c̓<ʔ>aɬ	page 5, the orthography
+(7e) line 1	nsyilxcn	transcription	*c̓aɬ-p	page 5, the orthography
+(7e) line 1	nsyilxcn	transcription	c̓aɬ•əɬ	page 5, the orthography
+(7e) line 1	John Lyon	translation	‘get cold’	page 5
+(7f) line 1	nsyilxcn	root	√mir	page 5, the orthography
+(7f) line 1	John Lyon	translation	‘smooth’	page 5
+(7f) line 1	nsyilxcn	transcription	m<ʔ>ir	page 5, the orthography
+(7f) line 1	nsyilxcn	transcription	*mir-p	page 5, the orthography
+(7f) line 1	nsyilxcn	transcription	mir•ər	page 5, the orthography
+(7f) line 1	John Lyon	translation	‘get smooth’	page 5
+(7g) line 1	nsyilxcn	root	√x̌ʕal	page 5, the orthography
+(7g) line 1	John Lyon	translation	‘light/clear’	page 5
+(7g) line 1	nsyilxcn	transcription	x̌<ʔ>ʕal	page 5, the orthography
+(7g) line 1	nsyilxcn	transcription	*x̌ʕal-p	page 5, a cell of its own, set beside the one before it
+(7g) line 1	nsyilxcn	transcription	x̌l•ʕal	page 5, the orthography
+(7g) line 1	John Lyon	translation	‘get clear’	page 5
+(7h) line 1	nsyilxcn	root	√ham	page 5, the orthography
+(7h) line 1	John Lyon	translation	‘damp’	page 5
+(7h) line 1	nsyilxcn	transcription	*h<ʔ>am	page 5, the orthography
+(7h) line 1	nsyilxcn	transcription	ham-áp	page 5, a cell of its own, set beside the one before it
+(7h) line 1	nsyilxcn	transcription	*hm•ám	page 5, the orthography
+(7h) line 1	John Lyon	translation	‘get damp’	page 5
+(7i) line 1	nsyilxcn	root	√k̓im	page 5, the orthography
+(7i) line 1	John Lyon	translation	‘dark’	page 5
+(7i) line 1	nsyilxcn	transcription	*k̓<ʔ>im	page 5, the orthography
+(7i) line 1	nsyilxcn	transcription	k̓m-áp	page 5, a cell of its own, set beside the one before it
+(7i) line 1	nsyilxcn	transcription	k̓ím•əm	page 5, the orthography
+(7i) line 1	John Lyon	translation	‘get dark’	page 5
+(7j) line 1	nsyilxcn	root	√taɬ	page 5, the orthography
+(7j) line 1	John Lyon	translation	‘straight/true’	page 5
+(7j) line 1	nsyilxcn	transcription	*t<ʔ>aɬ	page 5, the orthography
+(7j) line 1	nsyilxcn	transcription	tɬ-ap	page 5, a cell of its own, set beside the one before it
+(7j) line 1	nsyilxcn	transcription	tɬ•aɬ	page 5, the orthography
+(7j) line 1	John Lyon	translation	‘become straight’	page 5
+(7k) line 1	nsyilxcn	root	√xʷl	page 5, the orthography
+(7k) line 1	John Lyon	translation	‘alive’	page 5
+(7k) line 1	nsyilxcn	transcription	*xʷ<ʔ>al	page 5, the orthography
+(7k) line 1	nsyilxcn	transcription	*xʷl-ap	page 5, the orthography
+(7k) line 1	nsyilxcn	transcription	xʷl•ál	page 5, the orthography
+(7k) line 1	John Lyon	translation	‘become alive’	page 5
+footnote 5	John Lyon	note	5 Davis (2011:32) suggests that bare roots adjectives in St’át’imcets are categorially specified as adjectives, whereas bound root adjectives actually contain category-neutral roots, which are then derived into adjectival or verbal forms.	page 5, footnote
+footnote 6	John Lyon	note	6 -t has been analyzed as a ‘stative’ suffix that is no longer productive (N. Mattina 1996), however it is still analyzable as separate from the root, as can be seen by comparing positive adjectival and inchoative forms.	page 5, footnote
+footnote 7	John Lyon	note	7 Inchoative marking has been described as being semantically inert with St’át’imcets adjectives (Davis 2011:39), though this is clearly not the case in Nsyilxcn.	page 5, footnote
+footnote 8	John Lyon	note	8 In contrast, <ʔ> in St’át’imcets targets verbal roots (van Eijk & Hess 1986; Davis 202 4). There seems to have been a reorganization of inchoative systems across Salish languages over time. An additional difference is apparent with the change-of-state suffix -wilx ‘become X’. In Nsyilxcn, this targets derived verbal or adjectival stems, whereas in St’át’imcets this appears to apply to roots in at least some cases (Davis 2024).	page 5, footnote
+(7l) line 1	nsyilxcn	root	√x̌as	page 6, the orthography
+(7l) line 1	John Lyon	translation	‘good’	page 6
+(7l) line 1	nsyilxcn	transcription	*x̌<ʔ>as	page 6, the orthography
+(7l) line 1	nsyilxcn	transcription	*x̌as-p	page 5, a cell of its own, set beside the one before it
+(7l) line 1	nsyilxcn	transcription	x̌as•s	page 6, the orthography
+(7l) line 1	John Lyon	translation	‘become good’	page 6
+(7m) line 1	nsyilxcn	root	√yus	page 6, the orthography
+(7m) line 1	John Lyon	translation	‘purple’	page 6
+(7m) line 1	nsyilxcn	transcription	*y<ʔ>us	page 6, the orthography
+(7m) line 1	nsyilxcn	transcription	*yus-p	page 5, a cell of its own, set beside the one before it
+(7m) line 1	nsyilxcn	transcription	yús•s	page 6, the orthography
+(7m) line 1	John Lyon	translation	‘get purple’	page 6
+§1.1	John Lyon	note	When applied to a PC root, these three inchoativizers have very similar semantic effects, and so I treat them as semantically equivalent for now. 9 It is important to note that inchoativization targets a PC root rather than a positive adjective, since it replaces both the -t suffix and characterizing reduplication shown in (4) (Kinkade 1989). This suggests that PC roots themselves are derived into distinct adjectival and verbal structures.	page 6
+§1.2	John Lyon	heading	1.2 Change-of-State Roots	page 6
+§1.2	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§1.2	John Lyon	language	ʔayʔaǰuθəm	Comox-Sliammon, Huijsmans 2022
+§1.2	John Lyon	note	Change-of-state (‘CS’) roots occur naturally as patient-oriented predicates in several other Salish languages examined so far (Davis 2024 for St’át’imcets, Huijsmans 2022 for ʔayʔaǰuθəm). These roots have been analyzed as category V (Davis 2024 for St’át’imcets), and as telic unaccusatives, essentially achievements, which denote the culmination of an event (Davis et al. 2020 for ʔayʔaǰuθəm and St’át’imcets).	page 6
+§1.2	nsyilxcn	cited affix	əc-	page 6
+§1.2	John Lyon	note	Nsyilxcn CS roots, in stark contast, do not occur in bare form as patient-oriented predicates (Lyon 2023).10 These must minimally derive into either stative or inchoative forms (8).11 Stative forms are derived with stative prefix əc- (distinct from imperfective (ə)c-12). Inchoatives derived from CS roots quintessentially involve C2 reduplication of the root (Watkins 1970; A. Mattina 1989; van Eijk 1990; N. Mattina 1996).13 In the case of phonologically weak roots (8g-l), an inchoative suffix –(a)p is usually interchangeable with C2 reduplication (8i-l).	page 6
+(8) line 1	John Lyon	note	change-of-state roots statives inchoatives	page 6, heads the rows below
+(8a) line 1	nsyilxcn	root	*√nik̓	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8a) line 1	John Lyon	translation	‘cut’	page 6
+(8a) line 1	nsyilxcn	transcription	əc-nik̓	page 6, the orthography
+(8a) line 1	John Lyon	translation	‘to be cut’	page 6
+(8a) line 1	nsyilxcn	transcription	nik̓•ək̓	page 6, the orthography
+(8a) line 1	John Lyon	translation	‘get cut’	page 6
+(8b) line 1	nsyilxcn	root	*√kʷum	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8b) line 1	John Lyon	translation	‘store away’	page 6
+(8b) line 1	nsyilxcn	transcription	əc-kʷum	page 6, the orthography
+(8b) line 1	John Lyon	translation	‘to be stored’	page 6
+(8b) line 1	nsyilxcn	transcription	kʷum•əm	page 6, the orthography
+(8b) line 1	John Lyon	translation	‘get stored’	page 6
+(8c) line 1	nsyilxcn	root	*√naq̓ʷ	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8c) line 1	John Lyon	translation	‘steal’	page 6
+(8c) line 1	nsyilxcn	transcription	əc-naq̓ʷ	page 6, the orthography
+(8c) line 1	John Lyon	translation	‘to be stolen’	page 6
+(8c) line 1	nsyilxcn	transcription	náq̓ʷ•əq̓ʷ	page 6, the orthography
+(8c) line 1	John Lyon	translation	‘get stolen’	page 6
+(8d) line 1	nsyilxcn	root	*√p̓ic̓	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8d) line 1	John Lyon	translation	‘pinch’	page 6
+(8d) line 1	nsyilxcn	transcription	əc-p̓ic̓	page 6, the orthography
+(8d) line 1	John Lyon	translation	‘to be pinched’	page 6
+(8d) line 1	nsyilxcn	transcription	p̓ic̓•əc̓	page 6, the orthography
+(8d) line 1	John Lyon	translation	‘get pinched’	page 6
+(8e) line 1	nsyilxcn	root	*√x̌aq̓	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8e) line 1	John Lyon	translation	‘pay’	page 6
+(8e) line 1	nsyilxcn	transcription	əc-x̌aq̓	page 6, the orthography
+(8e) line 1	John Lyon	translation	‘to be paid’	page 6
+(8e) line 1	nsyilxcn	transcription	x̌áq̓•əq̓	page 6, the orthography
+(8e) line 1	John Lyon	translation	‘get paid’	page 6
+(8f) line 1	nsyilxcn	root	*√k̓ʷul̓	page 6, the orthography, the root of the row, starred where it is not a predicate by itself
+(8f) line 1	John Lyon	translation	‘make/fix’	page 6
+(8f) line 1	nsyilxcn	transcription	əc-k̓ʷul̓	page 6, the orthography
+(8f) line 1	John Lyon	translation	‘to be made/fixed’	page 6
+(8f) line 1	nsyilxcn	transcription	k̓ʷúl̓•əl̓	page 6, the orthography
+(8f) line 1	John Lyon	translation	‘get made/fixed’	page 6
+footnote 9	John Lyon	note	9 C2 inchoative may have an additional ‘out-of-control’ component (see Davis in prep for St’át’imcets), but the facts around this are unclear in Nsyilxcn.	page 6, footnote
+footnote 10	John Lyon	note	10 Bare CS roots are sometimes accepted (though not volunteered) under an agentive interpretation, but there is evidence that these involve a zero version of the agent-introducing –(a)m suffix (see Davis 1997 for St’át’imcets).	page 6, footnote
+footnote 11	John Lyon	note	11 Nominalization is also a possibility, though its semantic effect remains a question for future research.	page 6, footnote
+footnote 12	John Lyon	note	12 Comparative evidence shows that the Nsyilxcn imperfective almost certainly developed historically from the stative marker (Kinkade 1996:7). First, stativizer əc- is cognate with stative prefixes in other Salish languages, e.g. St’át’imcets es- (van Eijk 1997), and and c-/s- in Secwepemctsín (Kuipers 1974). Second, attaching a əc- prefix onto a CS root does not yield an imperfective interpretation, but rather an ‘resulting state’ reading, often called ‘resultive’ or ‘resultative’ in Salish literature (A. Mattina 1989; van Eijk 1990). Further, imperfective (ə)c- more closely follows the distribution of the imperfective auxiliary wa7 in St’át’imcets, rather than stative prefix es- (Davis, in prep). Lastly, imperfective markers may co-occur with adjectives in both languages, while stative markers may not.	page 6, footnote
+§1.2	John Lyon	language	Secwepemctsín	Northern Interior Salish, Nederveen 2023 and Kuipers 1974
+§1.2	nsyilxcn	cited affix	(ə)c-	page 6
+footnote 13	John Lyon	note	13 There are cases where C2 reduplication seems to apply to a morphological stem, as opposed to a root. For example the stem t̓pəpús ‘to fall on one’s face’ contains a root t̓p plus C2 reduplication and the lexical suffix =us ‘face’. This stem however itself derives into either stative əc-t̓pəpús or inchoative t̓pəpús•əs. I suggest that in these cases, stems have been reanalyzed syntactically and semantically as CS roots.	page 6, footnote
+§1.2	nsyilxcn	cited form	t̓pəpús	page 6, ‘to fall on one’
+§1.2	nsyilxcn	cited form	t̓p	page 6
+§1.2	nsyilxcn	cited form	əc-t̓pəpús	page 6
+§1.2	nsyilxcn	cited form	t̓pəpús•əs	page 6
+(8g) line 1	nsyilxcn	root	*√ɬwin	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8g) line 1	John Lyon	translation	‘abandon’	page 7
+(8g) line 1	nsyilxcn	transcription	əc-ɬwin	page 7, the orthography
+(8g) line 1	John Lyon	translation	‘to be abandoned’	page 7
+(8g) line 1	nsyilxcn	transcription	ɬw•win	page 7, the orthography
+(8g) line 1	John Lyon	translation	‘get abandoned’	page 7
+(8h) line 1	nsyilxcn	root	*√q̓ay̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8h) line 1	John Lyon	translation	‘write’	page 7
+(8h) line 1	nsyilxcn	transcription	əc-q̓ay̓	page 7, the orthography
+(8h) line 1	John Lyon	translation	‘to be written’	page 7
+(8h) line 1	nsyilxcn	transcription	q̓y̓•áy̓	page 7, the orthography
+(8h) line 1	nsyilxcn	transcription	q̓y̓-ap	page 7, the orthography
+(8h) line 1	John Lyon	translation	‘get written’	page 7
+(8i) line 1	nsyilxcn	root	*√c̓axʷ	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8i) line 1	John Lyon	translation	‘spill’	page 7
+(8i) line 1	nsyilxcn	transcription	əc-c̓axʷ	page 7, the orthography
+(8i) line 1	John Lyon	translation	‘to be spilled’	page 7
+(8i) line 1	nsyilxcn	transcription	c̓xʷ•áxʷ / c̓xʷ-ap	page 7, the orthography
+(8i) line 1	John Lyon	translation	‘get spilled’	page 7
+(8j) line 1	nsyilxcn	root	*√t̓l	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8j) line 1	John Lyon	translation	‘tear/rip’	page 7
+(8j) line 1	nsyilxcn	transcription	əc-t̓al̓	page 7, the orthography
+(8j) line 1	John Lyon	translation	‘to be torn’	page 7
+(8j) line 1	nsyilxcn	transcription	t̓l-ap	page 7, the orthography
+(8j) line 1	John Lyon	translation	‘get torn’	page 7
+(8k) line 1	nsyilxcn	root	*√tr̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8k) line 1	John Lyon	translation	‘unravel’	page 7
+(8k) line 1	nsyilxcn	transcription	əc-tar̓	page 7, the orthography
+(8k) line 1	John Lyon	translation	‘to be unravelled’	page 7
+(8k) line 1	nsyilxcn	transcription	tr̓•ar̓/ tr̓-ap	page 7, the orthography
+(8k) line 1	John Lyon	translation	‘get unravelled	page 7, printed without its closing quote
+(8l) line 1	nsyilxcn	root	*√x̌aw̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+(8l) line 1	John Lyon	translation	‘dried’	page 7
+(8l) line 1	nsyilxcn	transcription	əc-x̌aw̓	page 7, the orthography
+(8l) line 1	John Lyon	translation	‘to be dried’	page 7
+(8l) line 1	nsyilxcn	transcription	x̌w̓•áw̓	page 7, the orthography
+(8l) line 1	nsyilxcn	transcription	x̌w̓-ap	page 7, the orthography
+(8l) line 1	John Lyon	translation	‘get dried’	page 7
+§1.2	nsyilxcn	cited form	<ʔ>	page 7
+§1.2	John Lyon	note	PC and CS roots can be morphologically distinguished as follows. Strong CS roots do not take the inchoativizer infix <ʔ> (9), in contrast to strong PC roots (Lyon 2025b). I take this to be evidence that <ʔ> inchoativization operates exclusively over PC roots in Nsyilxcn, and that <ʔ> cannot coerce a PC root from a CS root. Conversely, bare PC roots do not take the əc- stativizer (10).	page 7
+(9a) line 1	nsyilxcn	transcription	*n<ʔ>ik̓	page 7, the orthography
+(9a) line 1	John Lyon	translation	‘get cut’	page 7
+(9a) line 1	nsyilxcn	transcription	ník̓•ək̓	page 7, the orthography
+(9b) line 1	nsyilxcn	transcription	*x̌<ʔ>aq̓	page 7, the orthography
+(9b) line 1	John Lyon	translation	‘get paid’	page 7
+(9b) line 1	nsyilxcn	transcription	x̌áq̓•əq̓	page 7, the orthography
+(9c) line 1	nsyilxcn	transcription	*p̓<ʔ>ic̓	page 7, the orthography
+(9c) line 1	John Lyon	translation	‘get pinched’	page 7
+(9c) line 1	nsyilxcn	transcription	p̓íc̓•əc̓	page 7, the orthography
+(9d) line 1	nsyilxcn	transcription	*n<ʔ>aq̓ʷ	page 7, the orthography
+(9d) line 1	John Lyon	translation	‘get stolen’	page 7
+(9d) line 1	nsyilxcn	transcription	náq̓ʷ•əq̓ʷ	page 7, the orthography
+(9e) line 1	nsyilxcn	transcription	*k̓ʷ<ʔ>ul̓	page 7, the orthography
+(9e) line 1	John Lyon	translation	‘get made/born’	page 7
+(9e) line 1	nsyilxcn	transcription	k̓ʷul̓•əl̓	page 7, the orthography
+(9h) line 1	nsyilxcn	transcription	*m<ʔ>iƛ̓	page 7, the orthography
+(9h) line 1	John Lyon	translation	‘get painted’	page 7
+(9h) line 1	nsyilxcn	transcription	míƛ̓•əƛ̓	page 7, the orthography
+(10a) line 1	nsyilxcn	transcription	*əc-x̌as	page 7, the orthography
+(10a) line 1	John Lyon	translation	‘already made good’	page 7
+(10a) line 1	nsyilxcn	transcription	x̌as-t	page 7, the orthography
+(10a) line 1	John Lyon	translation	‘good’	page 7
+(10a) line 1	nsyilxcn	transcription	x̌as•əs	page 7, the orthography
+(10a) line 1	John Lyon	translation	‘become good’	page 7
+(10b) line 1	nsyilxcn	transcription	*əc-piq	page 7, the orthography
+(10b) line 1	John Lyon	translation	‘already made white’	page 7
+(10b) line 1	nsyilxcn	transcription	piq	page 7, the orthography
+(10b) line 1	John Lyon	translation	‘white’	page 7
+(10b) line 1	nsyilxcn	transcription	p<ʔ>iq	page 7, the orthography
+(10b) line 1	John Lyon	translation	‘become white’	page 7
+(10c) line 1	nsyilxcn	transcription	*əc-ɬʕat̓	page 7, the orthography
+(10c) line 1	John Lyon	translation	‘already made wet’	page 7
+(10c) line 1	nsyilxcn	transcription	ɬʕat̓	page 7, the orthography
+(10c) line 1	John Lyon	translation	‘wet’	page 7
+(10c) line 1	nsyilxcn	transcription	ɬ<ʔ>ʕat̓	page 7, the orthography
+(10c) line 1	John Lyon	translation	‘become wet’	page 7
+§1.2	John Lyon	note	There are nevertheless some roots which occupy a kind of grey area. The roots in (11) have adjectival readings when they undergo C1C2 reduplication and occur with a -t suffix,14 like PC roots, but some of these also take the əc- stativizer (11c-d), similarly to CS roots.	page 7
+(11a) line 1	nsyilxcn	root	√xʷl	page 7, the orthography
+(11a) line 1	John Lyon	translation	‘turn/alive’	page 7
+(11a) line 1	nsyilxcn	transcription	xʷl•xʷal-t	page 7, the orthography
+(11a) line 1	John Lyon	translation	‘alive’	page 7
+(11b) line 1	nsyilxcn	root	√x̌s	page 7, the orthography
+(11b) line 1	John Lyon	translation	‘good’	page 7
+(11b) line 1	nsyilxcn	transcription	x̌s•x̌as-t	page 7, the orthography
+(11b) line 1	John Lyon	translation	‘good/pretty’	page 7
+(11c) line 1	nsyilxcn	root	√x̌w̓	page 7, the orthography
+(11c) line 1	John Lyon	translation	‘dry/dried’	page 7
+(11c) line 1	nsyilxcn	transcription	x̌əw̓•x̌aw̓-t	page 7, the orthography
+(11c) line 1	John Lyon	translation	‘dry’	page 7
+(11d) line 1	nsyilxcn	root	√nik̓	page 7, the orthography
+(11d) line 1	John Lyon	translation	‘cut’	page 7
+(11d) line 1	nsyilxcn	transcription	nək̓•nik̓-t	page 7, the orthography
+(11d) line 1	John Lyon	translation	‘cut up’	page 7
+(11a) line 2	nsyilxcn	transcription	xʷl•al	page 7, the orthography
+(11a) line 2	John Lyon	translation	‘become alive’	page 7
+(11a) line 2	nsyilxcn	transcription	*əc-xʷal	page 7, the orthography
+(11a) line 2	John Lyon	translation	‘already alive’	page 7
+(11b) line 2	nsyilxcn	transcription	x̌as•əs	page 7, the orthography
+(11b) line 2	John Lyon	translation	‘become good’	page 7
+(11b) line 2	nsyilxcn	transcription	*əc-x̌as	page 7, the orthography
+(11b) line 2	John Lyon	translation	‘already good’	page 7
+(11c) line 2	nsyilxcn	transcription	x̌w̓•áw̓	page 7, the orthography
+(11c) line 2	John Lyon	translation	‘get dry’	page 7
+(11c) line 2	nsyilxcn	transcription	əc-x̌aw̓	page 7, the orthography
+(11c) line 2	John Lyon	translation	‘already dried’	page 7
+(11d) line 2	nsyilxcn	transcription	nik̓•ək̓	page 7, the orthography
+(11d) line 2	John Lyon	translation	‘get cut’	page 7
+(11d) line 2	nsyilxcn	transcription	əc-nik̓	page 7, the orthography
+(11d) line 2	John Lyon	translation	‘already cut’	page 7
+footnote 14	John Lyon	note	14 CS roots do not typically have positive adjectival readings when they take C1C2 reduplication and/or the - t suffix. This usually results in a plural or pluractional reading rather than a characteristic ‘positive’ reading of a single entity. There are exceptions, though.	page 7, footnote
+footnote 14 (ia) line 1	nsyilxcn	root	*√naq̓ʷ	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ia) line 1	John Lyon	translation	‘steal’	page 7
+footnote 14 (ia) line 1	nsyilxcn	transcription	*naq̓ʷ-t	page 7, the orthography
+footnote 14 (ia) line 1	John Lyon	translation	‘stolen’	page 7
+footnote 14 (ia) line 1	nsyilxcn	transcription	*nəq̓ʷ•náq̓ʷ-t	page 7, the orthography
+footnote 14 (ia) line 1	John Lyon	translation	‘stolen’	page 7
+footnote 14 (ib) line 1	nsyilxcn	root	*√c̓axʷ	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ib) line 1	John Lyon	translation	‘spill’	page 7
+footnote 14 (ib) line 1	nsyilxcn	transcription	*c̓axʷ-t	page 7, the orthography
+footnote 14 (ib) line 1	John Lyon	translation	‘spilled’	page 7
+footnote 14 (ib) line 1	nsyilxcn	transcription	c̓əxʷ•c̓axʷ-t	page 7, the orthography
+footnote 14 (ib) line 1	John Lyon	translation	‘always spilling’	page 7
+footnote 14 (ic) line 1	nsyilxcn	root	*√x̌aq̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ic) line 1	John Lyon	translation	‘pay’	page 7
+footnote 14 (ic) line 1	nsyilxcn	transcription	*x̌aq̓-t	page 7, the orthography
+footnote 14 (ic) line 1	John Lyon	translation	‘paid’	page 7
+footnote 14 (ic) line 1	nsyilxcn	transcription	x̌əq̓•x̌aq̓-t	page 7, the orthography
+footnote 14 (ic) line 1	John Lyon	translation	‘always paying’	page 7
+footnote 14 (id) line 1	nsyilxcn	root	*√p̓ic̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (id) line 1	John Lyon	translation	‘pinch’	page 7
+footnote 14 (id) line 1	nsyilxcn	transcription	*p̓ic̓-t	page 7, the orthography
+footnote 14 (id) line 1	John Lyon	translation	‘pinched’	page 7
+footnote 14 (id) line 1	nsyilxcn	transcription	*p̓əc̓•p̓ic̓-t	page 7, the orthography
+footnote 14 (id) line 1	John Lyon	translation	‘pinched’	page 7
+footnote 14 (ie) line 1	nsyilxcn	root	*√k̓ʷul̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ie) line 1	John Lyon	translation	‘make/fix’	page 7
+footnote 14 (ie) line 1	nsyilxcn	transcription	*k̓ʷul̓-t	page 7, the orthography
+footnote 14 (ie) line 1	John Lyon	translation	‘made/fixed’	page 7
+footnote 14 (ie) line 1	nsyilxcn	transcription	*k̓ʷəl̓•k̓ʷul̓-t	page 7, the orthography
+footnote 14 (ie) line 1	John Lyon	translation	‘made/fixed’	page 7
+footnote 14 (if) line 1	nsyilxcn	root	*√q̓ay̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (if) line 1	John Lyon	translation	‘write’	page 7
+footnote 14 (if) line 1	nsyilxcn	transcription	*q̓ay̓-t	page 7, the orthography
+footnote 14 (if) line 1	John Lyon	translation	‘written’	page 7
+footnote 14 (if) line 1	nsyilxcn	transcription	q̓əy̓-q́ay̓-t	page 7, the orthography
+footnote 14 (if) line 1	John Lyon	translation	‘always writing’	page 7
+footnote 14 (ig) line 1	nsyilxcn	root	*√t̓l	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ig) line 1	John Lyon	translation	‘tear’	page 7
+footnote 14 (ig) line 1	nsyilxcn	transcription	t̓il-t	page 7, the orthography
+footnote 14 (ig) line 1	John Lyon	translation	‘torn’	page 7
+footnote 14 (ig) line 1	nsyilxcn	transcription	t̓əl-t̓il-t	page 7, the orthography
+footnote 14 (ig) line 1	John Lyon	translation	‘multiple torn’	page 7
+footnote 14 (ih) line 1	nsyilxcn	root	*√nik̓	page 7, the orthography, the root of the row, starred where it is not a predicate by itself
+footnote 14 (ih) line 1	John Lyon	translation	‘cut’	page 7
+footnote 14 (ih) line 1	nsyilxcn	transcription	nik̓-t	page 7, the orthography
+footnote 14 (ih) line 1	John Lyon	translation	‘be cut’	page 7
+footnote 14 (ih) line 1	nsyilxcn	transcription	nək̓-nik̓-t	page 7, the orthography
+footnote 14 (ih) line 1	John Lyon	translation	‘cut up’	page 7
+§1.2	nsyilxcn	cited form	x̌əw̓x̌áw̓t	page 8, ‘dry’
+§1.2	John Lyon	note	Overall, I assume that the əc- stativizer occurring directly before a root is a necessary and sufficient condition for diagnosing a CS root: this foregrounds a change-of-state if one is available in the root. Hence (11c-d) involve CS roots, but (11a,b) do not. This however implies that CS roots can sometimes be coerced into positive adjectives (11c-d), as with x̌əw̓x̌áw̓t ‘dry’. While this is important to consider, I set it aside for now.	page 8
+§1.2	John Lyon	note	There is at least some morphological evidence for a distinction between PC and CS roots, and there is an important semantic distinction as well: CS roots entail change, while PC roots do not.	page 8
+§2	John Lyon	heading	2 Change-of-State and vbecome	page 8
+§2.1	John Lyon	heading	2.1 Restitution vs. Repetition	page 8
+§2.1	John Lyon	note	Beavers & Koontz-Garboden (2020), building on work by Dowty (1979) and Rappaport Hovav & Levin (2010), posit that a fundamental difference between PC and result roots in English is that the former do not entail change, whereas the latter do. A key diagnostic used to support this distinction comes from so-called ‘restitution’ tests.	page 8
+§2.1	John Lyon	note	To illustrate the test, examples which involve inchoative (12a) and causative (12b) uses of deadjectival PC roots like sharp are typically judged felicitous with again in a context where, for example, a knife was manufactured sharp, and only underwent one event of sharpening. In this case, the sentences in (12) do not assert that the event of sharpening occurred again, only that the state of being sharp obtains again as the result of a single event. For this ‘restitutive’ reading, the argument is that again must be scoping over the PC root, to the exclusion of any introduced verbal structure (Figure 4, based on Beavers & Koontz-Garboden 2020).	page 8
+(12a) line 1	English	transcription	The knife was sharpened again.	page 8, an English example, Beavers & Koontz-Garboden 2020
+(12b) line 1	English	transcription	John sharpened the knife again.	page 8, an English example, Beavers & Koontz-Garboden 2020
+§2.1	John Lyon	note	These sentences are also felicitous in a context, for example, where John has repeatedly sharpened the knife over several years. This ‘repetitive’ reading involves two or more sharpening events. Again in this case must be attaching higher, above the point at which change is introduced to the PC root (vbecome for state passives; Figure 5).	page 8
+Figure 4	John Lyon	note	Figure 4. Restitutive Attachment Figure 5. Repetitive Attachment	page 8, the captions of Figures 4 and 5, trees the text layer does not hold
+§2.1	John Lyon	note	As Beavers & Koontz-Garboden (2020) discuss, repetition asymmetrically entails restitution (e.g. getting sharpened again entails becoming sharp again), which supports the idea that the syntactic point of attachment for adverbials like again corresponds to semantic scope.	page 8
+§2.1	John Lyon	note	Crucially, result roots generally allow only repetitive readings. Cases like (13) involving result roots such as melt are judged infelicitous with again in contexts where an event of change occurs only once. Consider a context where “an ice cream factory manufactures ice cream from a package of ingredients by adding water and then freezing the result. After adding the contents of the package to water and freezing it, Kim lets it melt into a liquid state” (Rapaport Hovav & Levin 2010; Beavers & Koontz-Garboden 2020:85).	page 9
+(13a) line 1	English	transcription	#The ice-cream was melted again.	page 9, an English example, Rappaport Hovav & Levin 2010
+(13b) line 1	English	transcription	#Kim melted the ice-cream again.	page 9, an English example, Rappaport Hovav & Levin 2010
+§2.1	John Lyon	note	Although the liquid state existed prior to Kim’s melting the ice-cream, the state itself, to the exclusion of the event which led to the state, remains inaccessible to again. In other words, two melting events must have occurred, which leads to infelicity in the given context. The absence of any restitutive reading with result roots follows even on the low restitutive attachment site (Fig. 4), if result roots themselves entail change.	page 9
+§2.1	John Lyon	note	Nsyilxcn roots show a tendency towards a similar distinction. PC roots easily allow restitutive readings. In (14), only one event of becoming wet is entailed in the context given, and in (15) only one event of becoming white is entailed. Similar facts hold for (16). Several of the examples here (and below with CS root examples) are causative (in the sense of 12b/13b), as opposed to inchoative (12a/13a), since these are more natural for fluent speakers in these contexts.15	page 9
+(14) line 1	John Lyon	note	Context: Susan caught a fish from the lake that had been born there, then after it dried out she realized what kind it was and threw it back in again.	page 9, engine english
+(14a) line 1	nsyilxcn	segmentation	əɬ-ɬʕat̓-nt-ís iʔ qaqxʷəlx.	page 9, engine language
+(14a) line 2	nsyilxcn	gloss	again-wet-DIR-3ERG DET fish	page 9, engine english
+(14a) line 3	John Lyon	translation	‘She made it wet again.’ (Delphine Derrickson-Armstrong | VF)	page 9, engine english
+(14b) line 1	nsyilxcn	segmentation	way̓ əɬ-ɬ<ʔ>ʕat̓.	page 9, engine language
+(14b) line 2	nsyilxcn	gloss	already again-wet<INCH>	page 9, engine english
+(14b) line 3	John Lyon	translation	‘It got wet again.’ (Delphine Derrickson-Armstrong | Dave Michel)	page 9, engine english
+(15) line 1	John Lyon	note	Context: John built a house using white stones. John painted it yellow, then he painted it white again.	page 9, engine english
+footnote 15	John Lyon	note	15 Gloss abbreviations used in this paper are as follows: ADJT – adjunct; C – complementizer; C2 – final reduplication; CAUS – causative transitivizer; CISL – cislocative; CMPD – compound connector; CONT – continuative; DET – determiner; DIR – directive transitivizer; DUB – dubitative; EMPH – emphatic; EPIS – epistemic; ERG – ergative subject; EVID – evidential; FAC – factual; FUT – future; INCH – inchoative; INDP – independent; INTR – intransitive; IPFV – imperfective; LOC – locative; MID – middle; N.CTR – non-control; NEG – negative; NMLZ – nominalizer; OBJ – object; OBL – oblique; PASS – passive; PL – plural; POSS – possessive; PROS – prospective; SG – singular; STAT – stative; SUBJ – intransitive subject; VF – volunteered form. Interlinearized examples without ‘VF’ were constructed by the author, and judged grammatical, except in cases marked by an asterisk ‘*’.	page 9, footnote, set in the middle of (15)
+(15) line 2	nsyilxcn	segmentation	əɬ-p<ʔ>iq iʔ citxʷ.	page 10, engine language
+(15) line 3	nsyilxcn	gloss	again-white<INCH> DET house	page 10, engine english
+(15) line 4	John Lyon	translation	‘It got white again.’ (Delphine Derrickson-Armstrong)	page 10, engine english
+(16) line 1	John Lyon	note	Context: Kim takes a photo that is too large to use as a Facebook profile photo. She shrinks it to a more appropriate size, but thinks it does not look good. So she restores it to its original size and puts it on her personal website instead. Kim enlarged the photograph again. (Context from Beavers & Koontz Garboden 2020)	page 10, engine english
+(16) line 2	nsyilxcn	segmentation	Kim ks-k̓ʷul̓-m-iʔst-s iʔ sk̓ɬq̓əy̓ncút-s, uɬ k̓ʷək̓ʷiyumaʔ-st-s,	page 10, engine language
+(16) line 3	nsyilxcn	gloss	Kim PROS-make-MID-N.CTR-3POSS DET picture-3POSS and small-CAUS-3ERG	page 10, engine english
+(16) line 4	nsyilxcn	segmentation	uɬ ixíʔ ɬ-silxʷaʔ-st-s.	page 10, engine language
+(16) line 5	nsyilxcn	gloss	and she again-large-CAUS-3ERG	page 10, engine english
+(16) line 6	John Lyon	translation	‘Kim made a photo, then she made it smaller, then she made it larger again.’	page 10, engine english
+(16) line 7	John Lyon	citation	(Delphine Derrickson-Armstrong | VF)	page 10, engine english
+§2.1	nsyilxcn	cited affix	əɬ-	page 10, ‘again’
+§2.1	John Lyon	note	CS roots, in contrast, typically allow only repetitive readings. In (17) the result state of being fixed (i.e. functioning) existed for the TV prior to its breaking, but restitution of that state is not possible with əɬ- ‘again’, to the exclusion of the event of ‘causing to function’ (i.e. ‘fix’) which led to the state. Similar facts hold for (18-19). Again, most of the examples below are causative, since these are more natural for speakers.	page 10
+(17) line 1	John Lyon	note	Context: Last week, Mary bought a new TV and a new laptop. Three days later the laptop was working fine, but the TV wasn’t. Very upset, Mary brought her tools and then.... (Based on Spathas 2017).	page 10, engine english
+(17) line 2	nsyilxcn	segmentation	Mary (#əɬ-)k̓ʷul̓-s iʔ snyaʔyáx̌aʔtn.	page 10, engine language
+(17) line 3	nsyilxcn	gloss	Mary (#again)-fix-(DIR)-3ERG DET television	page 10, engine english
+(17) line 4	John Lyon	translation	‘Mary fixed the television.’	page 10, engine english
+(17) line 5	Dave Michele	speaker comment	DM: [With əɬ-], sounds like it was broken twice. (Dave Michel | VF)	page 10, engine english
+(17)	nsyilxcn	cited affix	əɬ-	in the speaker comment, page 10
+(18) line 1	John Lyon	note	Context: Leah kills a rabbit, takes it home and skins and butchers it and then puts the fresh meat in the freezer for three days. She then takes it out and puts it on the table to thaw. (Rapaport Hovav 2010).	page 10, engine english
+(18) line 2	nsyilxcn	segmentation	Leah (#əɬ)-ʕam-st-ís iʔ spəplínaʔ iʔ sɬiqʷ-s.	page 10, engine language
+(18) line 3	nsyilxcn	gloss	Leah (#again)-thaw/melt-CAUS-3ERG DET rabbit DET meat-3POSS	page 10, engine english
+(18) line 4	John Lyon	translation	‘Leah thawed the rabbit meat.’ (Delphine Derrickson-Armstrong)	page 10, engine english
+(19) line 1	John Lyon	note	Context: This morning, John accidentally spilled the milk, later on he got a cleaning rag and he wiped up the milk again.	page 10, engine english
+(19a) line 1	nsyilxcn	segmentation	John (#əɬ)-k̓ɬ-ʔip̓-əs iʔ sqʔim iʔ c̓xʷ•axʷ.	page 10, engine language
+(19a) line 2	nsyilxcn	gloss	John (#again)-under-wipe-(DIR)-3ERG DET milk DET spill•C2.INCH	page 10, engine english
+(19a) line 3	John Lyon	translation	‘John wiped up the milk again that spilled.’	page 10, engine english
+(19a) line 4	Delphine Derickson-Armstrong	speaker comment	DD: the əɬ means he did it again, sounds like he did it twice.	page 10, engine english
+(19a)	nsyilxcn	cited form	əɬ	in the speaker comment, page 10
+(19a) line 5	John Lyon	citation	(Delphine Derrickson-Armstrong)	page 10, engine english
+(19b) line 1	nsyilxcn	segmentation	way̓ (#əɬ)-əc-ʔip̓ iʔ sqʔim.	page 11, engine language
+(19b) line 2	nsyilxcn	gloss	already again-STAT-wipe DET milk	page 11, engine english
+(19b) line 3	John Lyon	translation	‘The milk is wiped up again.’	page 11, engine english
+(19b) line 4	Delphine Derickson-Armstrong	speaker comment	DD: A little awkward, they wiped it once and they wiped it again.	page 11, engine english
+(19b) line 5	John Lyon	citation	(Delphine Derrickson-Armstrong | VF w/o əɬ-, judged odd with əɬ-)	page 11, engine english
+§2.1	John Lyon	note	It should be noted that this test yields only a somewhat strong tendency in Nsyilxcn, and that there are exceptions going in both directions. This is unsurprising, given that in English too, judgements here are not entirely clear. For example, my own intuition around the result root wiped up is that it is fine to say, after my son spills his milk, I wiped it up again, even if there is just one wiping event. The contrast illustrated above between PC and CS roots nevertheless suggests that Nsyilxcn CS roots entail a change-of-state, similarly to English result roots.	page 11
+§2.2	John Lyon	heading	2.2 vbecome and Change-of-State	page 11
+§2.2	John Lyon	note	Beavers & Koontz-Garboden’s (2020) model change-of-state though a BECOME operator that applies to a state and event argument, i.e. BECOME(s,e). This is part of their lexical semantics of a result root, and also a component of a functional head v BECOME (20) (see also Alexiadou et al 2004, Folli & Harley 2005), which applies to both PC and result roots.	page 11
+(20) line 1	John Lyon	rule	⟦vBECOME⟧ = λPλxλe∃s[P(x,s) ∧ BECOME(s,e)]	page 11, engine english
+§2.2	John Lyon	notation	δs	the scalar dimension of a state s, Beavers & Koontz-Garboden 2020
+§2.2	John Lyon	notation	δ	a scalar dimension, Beavers & Koontz-Garboden 2020
+§2.2	John Lyon	note	In simple terms, BECOME(s,e) “is true iff at the beginning of e the state s does not hold and at the end of e the state s does hold.” (ibid:36). More accurately, there is a scalar state s that arises from an individual x undergoing “incremental transitions” as part of an event of change e, such that at the beginning of e, the degree to which x holds s is below some verbal standard, and at the end of e, the degree is above some verbal standard. Regarding the scalar state s, it “is treated as some eventuality that must occur and will have certain properties that hold of it (e.g. P in [20]), sufficient to account for the common diagnostic of change of state as yielding contradictions when asserting that the change occurred but that the relevant state has not obtained” (ibid:33). Formally, the truth conditions for BECOME(s,e) are spelled out in (21a) (ibid:45), where“...the event must stand in a Figure/Path Relation [Krifka 1998, Beavers 2012] to the theme and an appropriate subpart of the scale, where for any scalar state s the individual xs is its patient, δs is its scalar dimension [(e.g. for height, length, straightness, temperature, etc)], ds is the degree to which xs holds δs in s, and Ss is the set of degrees for the scale of s.” The truth conditions in (21a) link the scalar state s to the Figure/Path Relation in (21b) (Beavers 2012), which ensures a homomorphism between the individual x, an event e, and the degree to which they hold some property δ.	page 11
+(21a) line 1	Beavers & Koontz-Garboden 2020:45	note	BECOME(s,e) is true iff s holds at the end of e and at the beginning of e there is a state s’	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 2	Beavers & Koontz-Garboden 2020:45	note	such that there is a degree d’ on 𝛿s where 𝑑𝑥𝑠	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 3	Beavers & Koontz-Garboden 2020:45	note	𝛿𝑠 > d’ and 𝑑𝑥𝑠	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 4	Beavers & Koontz-Garboden 2020:45	note	𝛿𝑠 = 𝑠𝑡𝑛𝑑𝑉	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 5	Beavers & Koontz-Garboden 2020:45	note	′ (𝛿s) and e is in a	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 6	Beavers & Koontz-Garboden 2020:45	note	Figure/Path Relation with x s and the continuous, ordered set of degrees S′ ⊆ Ss of δs	page 11, engine english, the truth conditions of BECOME(s,e), quoted
+(21a) line 7	Beavers & Koontz-Garboden 2020:45	note	containing d′ and whose maximal degree is ds.	page 11, the truth conditions of BECOME(s,e), quoted
+(21b) line 1	Beavers 2012	note	Figure/Path Relation: An event e, patient x, and continuous, ordered set of degrees S on some dimension 𝛿 stand in a Figure/Path Relation (FPR) iff every unique part x’ ≤ x corresponds to a unique subevent e’ ≤ e, the sum of all such subevents constitutes e, and each e’ stands in a Movement Relation with a continuous subset S’ ⊆ S, where S’ includes x’ ’s initial degree of δ in e and where the maximal degree in S’ is x’ ’s final degree of δ in e.	page 11, the Figure/Path Relation, quoted; its last word, e., is set alone on page 12
+§2.2	John Lyon	note	Overall, “change of state involves coming to be in a state of holding some specific d ∈ S of δ greater than the degree held at the beginning of the event” (Beavers & Koontz-Garboden 2020:36). For (21a), so long as ds > d’, a change has occurred, and vBECOME is satisfied.	page 12
+§2.2	John Lyon	note	Beavers & Koontz-Garboden (2020) propose that PC roots like sharp have the semantics in (22a), and result roots like melt have the semantics in (22b). Given the truth conditions in (21a), (22b) may be paraphrased as meaning that there is an event e in which x goes incrementally from holding some degree d’ of a state s of meltedness below the verbal standard for being melted, to some degree d of a state s of meltedness above the verbal standard.	page 12
+(22a) line 1	John Lyon	rule	⟦√sharp⟧ = λxλs[sharp(x,s)] PC root	page 12, engine english
+(22b) line 1	John Lyon	rule	⟦√melt⟧ = λxλs[melted(x,s) ∧ ∃e[BECOME(s,e)]] result root	page 12, engine english
+§2.2	John Lyon	note	vbecome (20) applies to both PC and result roots, and introduces a change-of-state. With PC roots, this derives a deadjectival verb (23a). With result roots (23b), the change-of-state is redundant but truth-conditionally non-problematic (Beavers & Koontz-Garboden 2020:82). In both cases, vbecome derives a predicate of events from a predicate of states.	page 12
+(23a) line 1	John Lyon	rule	⟦vBECOME √sharp⟧ = λxλe∃s[BECOME(s,e) ∧ sharp(x,s)]	page 12, engine english
+(23b) line 1	John Lyon	rule	⟦vBECOME √melt⟧ = λxλe∃s[BECOME(s,e) ∧ melt(x,s) ∧ ∃e’[BECOME(s,e’)]]	page 12, engine english
+§2.2	John Lyon	note	Beavers & Koontz-Garboden (2020:43) generalize across (23a,b) noting that “there is always a condition that the (final) state is one of holding a degree of the relevant property that is at or above some standard determined by scale type, word category, and pragmatic context.” A similar approach seems plausible for modeling change-of-state in Nsyilxcn, though with some differences. First, I propose that v does not necessarily derive only a predicate of events in Nsyilxcn, in contrast to vBECOME (section 3). Second, I propose that Nsyilxcn roots do not come preequipped with a verbal or positive standard (contra Beavers & Koontz-Garboden 2020) and that therefore a specified degree standard should not be included as part of the truth conditions of an entailment of change (Kennedy & Levin 2008), unlike in (21a). Verbal degree standards in Nsyilxcn are introduced at v (Section 4). This requires some deconstruction of (20) and (21).	page 12
+§3	John Lyon	heading	3 Inchoative v versus Null v in Nsyilxcn	page 12
+§3	John Lyon	note	This section provides evidence that Nsyilxcn inchoativizers are v heads which introduce or ensure a change-of-state and derive a predicate of events, similarly to vbecome in (20), and that they alternate with a semantically distinct null v head, which does not derive a predicate of events. That the semantics of v can vary in this manner is crucial to what follows.	page 12
+§3	John Lyon	note	To begin with, stativized CS roots and positive adjectives derived from PC roots pattern as predicates of states, while inchoatives of both types pattern as predicates of events. This is briefly demonstated below through tests involving punctual adverbs (see Lyon 2023 for other tests.). Consider that a punctual adverb anchors internally to the homogenous state of a positive adjective derived from a PC root (24a), but will anchor to the event transition in the corresponding inchoativized PC root (24b). (24a) is judged infelicitous since there is no sequential reading, as required by the context. Stativized CS roots (25a) resemble positive adjectives (24a) in terms of their temporal overlap effects, and inchoativized CS roots (25b) pattern with PC inchoatives (24b).	page 12
+(24) line 1	John Lyon	note	Context: You place something heavy into a box, which then makes the box heavy.	page 13, engine english
+(24a) line 1	nsyilxcn	segmentation	#ixíʔ ɬaʔ n-wt-nt-ixʷ iʔ l knəxnáx, uɬ nʕast.	page 13, engine language
+(24a) line 2	nsyilxcn	gloss	that when LOC-put.in-DIR-2SG.ERG DET in box and heavy(POS)	page 13, engine english
+(24a) line 3	John Lyon	translation	# ‘When you put that in the box, it was already really heavy.’ (Delphine Derickson-Armstrong)	page 13, the tag on the line below
+(24b) line 1	nsyilxcn	segmentation	ixíʔ ɬaʔ n-wt-nt-ixʷ iʔ l knəxnáx, uɬ n<ʔ>ʕas.	page 13
+(24b) line 2	nsyilxcn	gloss	that when LOC-put.in-DIR-2SG.ERG DET in box and heavy<INCH>	page 13
+(24b) line 3	John Lyon	translation	‘When you put that in the box, it got heavy.’ (Delphine Derickson-Armstrong)	page 13
+(25a) line 1	nsyilxcn	segmentation	iʔ snkɬc̓aʔsqáx̌aʔ əc-√naq̓ʷ l sntəx̌ʷəx̌ʷqín.	page 13, engine language
+(25a) line 2	nsyilxcn	gloss	DET horse STAT-get.stolen at noon	page 13, engine english
+(25a) line 3	John Lyon	translation	‘The horse was already stolen by noon.’ (Delphine Derickson-Armstrong)	page 13, engine english
+(25b) line 1	nsyilxcn	transcription	iʔ snkɬc̓aʔsqáx̌aʔ náq̓ʷ•əq̓ʷ l sntəx̌ʷəx̌ʷqín.	page 13, engine language
+(25b) line 2	nsyilxcn	gloss	DET horse get.stolen•C2.INCH at noon	page 13, engine english
+(25b) line 3	John Lyon	translation	‘The horse got stolen at noon.’ (Delphine Derickson-Armstrong | VF)	page 13, engine english
+§3	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§3	John Lyon	note	Next, in contrast to positive adjectives (26), v is present for inchoativized PC and CS roots (27) (Kratzer 1994, Anagnostopoulou 2003, Alexiadou et al 2004, 2015). This is shown by the fact that only the latter can occur with manner adverbials (27a,b) and non-agentive instruments of causation (27c,d) (Davis & Demirdache 1997:108 for St’át’imcets).	page 13
+(26) line 1	nsyilxcn	transcription	*kn ɬʕat̓ t k̓ək̓alíʔ.	page 13, engine language
+(26) line 2	nsyilxcn	gloss	1SG.SUBJ wet(POS) OBL slow	page 13, engine english
+(26) line 3	John Lyon	translation	‘I am slowly wet from the rain.’ (Delphine Derickson-Armstrong)	page 13, engine english
+(27a) line 1	nsyilxcn	segmentation	kn ɬ<ʔ>ʕat̓ t k̓ək̓alíʔ.	page 13, engine language
+(27a) line 2	nsyilxcn	gloss	1SG.SUBJ wet<INCH> OBL slow	page 13, engine english
+(27a) line 3	John Lyon	translation	‘I’m getting wet slowly from the rain.’ (Delphine Derickson-Armstrong)	page 13, engine english
+(27b) line 1	nsyilxcn	transcription	kn ník̓•ək̓ t xʷus.	page 13, engine language
+(27b) line 2	nsyilxcn	gloss	1SG.SUBJ get.cut•C2.INCH OBL quick	page 13, engine english
+(27b) line 3	John Lyon	translation	‘I got cut quickly.’ (Delphine Derickson-Armstrong)	page 13, engine english
+(27c) line 1	nsyilxcn	segmentation	ɬ<ʔ>ʕat̓ iʔ lasmíst iʔ t sq̓it.	page 13, engine language
+(27c) line 2	nsyilxcn	gloss	wet<INCH> DET shirt DET OBL rain	page 13, engine english
+(27c) line 3	John Lyon	translation	‘The shirt got wet by the rain.’ (Delphine Derickson-Armstrong)	page 13, engine english
+(27d) line 1	nsyilxcn	transcription	kn ník̓•ək̓ iʔ t ník̓mən.	page 13, engine language
+(27d) line 2	nsyilxcn	gloss	1SG.SUBJ get.cut•C2.INCH DET OBL knife	page 13, engine english
+(27d) line 3	John Lyon	translation	‘I got cut by a knife.’	page 13, engine english, cited Delphine Derickson-Armstrong, cf. N. Mattina 1996:91
+(27d) line 3	John Lyon	citation	(Delphine Derickson-Armstrong, cf. N. Mattina 1996:91)	the tag or source at the right of the translation
+§3	John Lyon	note	Although stativized CS roots are predicates of states, they differ from positive adjectives in often16 allowing non-agentive, phrasal event modifiers (28) (cf. N. Mattina 1996; Anagnostopolou 2003 for Greek). This follows if stativized CS roots also contain v (Embick 2004, 2023).	page 14
+(28a) line 1	nsyilxcn	segmentation	əc-√naq̓ʷ iʔ kəwáp t xʷúsxʷəst.	page 14, engine language
+(28a) line 2	nsyilxcn	gloss	STAT-get.stolen DET horse OBL quick	page 14, engine english
+(28a) line 3	John Lyon	translation	‘The horse was quickly stolen.’ (Delphine Derickson-Armstrong)	page 14, engine english
+(28b) line 1	nsyilxcn	segmentation	way̓ əc-√nik̓ iʔ sp̓íc̓ən iʔ t k̓rk̓riw̓stn.	page 14, engine residue
+(28b) line 2	nsyilxcn	gloss	already STAT-get.cut DET rope DET OBL scissor	page 14, engine english
+(28b) line 3	John Lyon	translation	‘The rope was cut by the scissors.’ (Delphine Derickson-Armstrong)	page 14, engine english
+§3	nsyilxcn	cited form	<ʔ>	page 14
+§3	John Lyon	note	Given that inchoativizers introduce the change-of-state required for event-related adverbial modification in PC roots (27), that the inchoative infix <ʔ> is sensitive to PC roots (1.1), as well as the fact that <ʔ> is in complementary distribution with other inchoativizers that target roots (2.1- 2.2), I treat inchoativers as v heads which adjoin directly to roots, similarly to Embick’s (2004) analysis of the -en morphology on deadjectival verbs like dark-en (Figure 6) (I assume that roots do not project phrasal structure (Marantz 2009, Embick 2023), though this is not crucial for this paper).	page 14
+Figure 6	John Lyon	note	Figure 6. Inchoatives in v	page 14, the caption of Figure 6, a tree the text layer does not hold
+§3	John Lyon	note	Nsyilxcn v is not always realized by an inchoativizer, however. First, consider that the stativizer can optionally co-occur with the inchoativizer on both CS (29a,b) and PC roots (29c,d).17 Thus the strict complementary distribution posited to hold between the stativizer and inchoativizer in Lyon (2023) does not in fact hold.	page 14
+(29a) line 1	nsyilxcn	segmentation	i-slax̌t (əc)-x̌áq̓•əq̓ t spiʔsc̓iɬt	page 14, engine language
+(29a) line 2	nsyilxcn	gloss	1SG.POSS-friend STAT-pay•C2.INCH OBL yesterday	page 14, engine english
+(29a) line 3	John Lyon	translation	‘My friend got paid yesterday.’ (Delphine Derickson-Armstrong | VF w/o əc-)	page 14, engine english
+footnote 16	John Lyon	note	16 These are not always acceptable, and inchoatives are sometimes preferred here. Similar facts lead Embick (2023) to posit a small v structure for adjectival passives in English. Stat adjoins directly to a v head, rather than taking a full vP as an argument. The lack of a vP projection forces phrasal event modification to occur higher than StatP. This derives the marginality of event-modified statives, except in cases where the event modifier bears direct relevance to a description of the state (McIntyre 2015, Biggs & Lopes 2024). I abstract away from these issues in this paper, but have data showing that ‘state relevance’ is operative in Nsyilxcn.	page 14, footnote
+footnote 17	John Lyon	note	17 Surface similar cases to those in (29) involving a (ə)c- prefix can be analyzed as imperfective inchoatives, where the transitional event is in-progress, or habitual (see Lyon 2023). The bolded predicates in (29) are not predicates of transitional events, however. The availability of wiʔ ‘to finish’ in (23c), in fact, requires that the event not be in progress.	page 14, footnote
+§3	nsyilxcn	cited affix	(ə)c-	page 14
+§3	nsyilxcn	cited form	wiʔ	page 14, ‘to finish’
+(29b) line 1	nsyilxcn	segmentation	way̓ (əc)-t̓l-ap iʔ q̓əy̓mín.	page 15
+(29b) line 2	nsyilxcn	gloss	already STAT-tear-INCH DET paper	page 15
+(29b) line 3	John Lyon	translation	‘The paper is torn.’ (Delphine Derickson-Armstrong | VF w/o əc-)	page 15
+(29c) line 1	nsyilxcn	segmentation	(əc)-wiʔ-s-təɬ•áɬ iʔ wlwlim.	page 15
+(29c) line 2	nsyilxcn	gloss	STAT-finish-CMPD-straight•C2.INCH DET metal	page 15
+(29c) line 3	John Lyon	translation	‘The wire is already straightened.’ (Delphine Derickson-Armstrong)	page 15
+(29d) line 1	nsyilxcn	segmentation	way̓ (əc)-p<ʔ>aq iʔ citxʷ.	page 15
+(29d) line 2	nsyilxcn	gloss	already STAT-white<INCH> DET house	page 15
+(29d) line 3	John Lyon	translation	‘The house has gotten white.’ (Delphine Derickson-Armstrong)	page 15
+§3	nsyilxcn	cited affix	əc-	page 15
+§3	John Lyon	note	To be clear, PC roots like those in (29c-d) do not take a əc- stativizer without first taking an inchoativizer (1.1). This shows that in contrast to an inchoativizer, stativizer əc- requires a change- of-state but is not sensitive to the type of root. Given that the inchoativizer is a v head, this implies that the stativizer is higher than v (Figure 3, repeated below). This hypothesis receives additional support from the position of event modifying compounding roots like wiʔ ‘to finish’ in cases like (29c) (discussed further below).	page 15
+Figure 3	John Lyon	note	Figure 3. Stativized Inchoative v Structure	page 15, the caption of Figure 3, repeated
+§3	John Lyon	note	In the absence of inchoative marking however, the stativizer is crucially required with CS roots (30). In other words, bare patient-oriented CS roots are not permitted in the language.18	page 15
+(30a) line 1	nsyilxcn	segmentation	lut kn t̓a kɬ-kəwáp aɬíʔ *(əc)-naq̓ʷ in-kəwáp.	page 15, engine language
+(30a) line 2	nsyilxcn	gloss	NEG 1SG.SUBJ NEG.FAC have-horse because STAT-get.stolen 1SG.POSS-horse	page 15, engine english
+(30a) line 3	John Lyon	translation	‘I don’t have a horse because it is stolen.’ (Delphine Derickson-Armstrong | VF)	page 15, engine english
+(30b) line 1	nsyilxcn	segmentation	way̓ *(əc)-x̌aq̓ iʔ səxʷk̓ʷúl̓əm.	page 15, engine language
+(30b) line 2	nsyilxcn	gloss	already STAT-paid DET worker	page 15, engine english
+(30b) line 3	John Lyon	translation	‘The worker is paid.’ (Delphine Derickson-Armstrong | VF)	page 15, engine english
+(30c) line 1	nsyilxcn	segmentation	*(əc)-wiʔ-s-q̓áy̓, cakʷ lut ɬə nɬiptm-n.	page 15, engine language
+footnote 18	John Lyon	note	18 These examples also show that wiʔ is just a modifier, not an inchoativizer.	page 15, footnote
+(30c) line 2	nsyilxcn	gloss	STAT-finish-CMPD-write BOUL NEG if forget-(DIR)-1SG.ERG	page 16, engine english
+(30c) line 3	John Lyon	translation	‘It would’ve been already written if I hadn’t forgotten it.’	page 16, engine english
+(30c) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 16, engine english
+(30d) line 1	nsyilxcn	segmentation	way̓ *(əc)-wiʔ-s-ʔiq̓ iʔ sip̓iʔ.	page 16, engine language
+(30d) line 2	nsyilxcn	gloss	already STAT-finish-CMPD-scrape DET hide	page 16, engine english
+(30d) line 3	John Lyon	translation	‘The hide is already tanned.’ (Delphine Derickson-Armstrong | VF)	page 16, engine english
+§3	John Lyon	note	Given that statives contain v, I propose that the inchoative v in (29) alternates with a null v in (30) (Figure 2, repeated below). Null v is not just a null version of the inchoativizers in (29) however: It is ‘defective’ in the sense that it cannot derive a predicate of events from a CS root in the same way that an inchoativizer can, assuming that inchoativizers in Nsyilxcn are basically the equivalent of Beavers & Koontz-Garboden’s (2020) vBECOME.	page 16
+footnote 19	John Lyon	note	19 Not all CS roots taking əc- necessarily have ‘independently identifiable’ target states, e.g. əc-tr̓aq ‘x has been kicked’. I argue that these roots do, however, still have a scalar result state s by virtue of the fact that they entail a change-of-state. In other words, a scalar result state may or may not also be an ‘independently identifiable’ target state. Regardless of the nature of the scalar state, when stativizer əc- applies to a CS root in the absence of an inchoativizer, the state must hold at a reference time. See discussion in section 6.	page 16, footnote
+§3	nsyilxcn	cited form	əc-tr̓aq	page 16
+Figure 2	John Lyon	note	Figure 2. Stativized null v Structure	page 16, the caption of Figure 2, repeated
+§3	John Lyon	note	What then is null v, if not a null inchoativizer? In attempting to answer this question, it is important to note that Figure 3 structures are interpreted as resultant statives, in the sense of Parsons (1990) and Kratzer (2000), in contrast to Figure 2 structures which are typically interpreted as target statives.19 This interpretive difference helps to determine a semantics for null v, as I show below. As originally described in Parsons (1990) (see also Kratzer 2000, Alexiadou et al 2015, Davis, Huijsmans & Mellesmoen 2020 for Salish), target states are in principle reversible, and describe a state that must continue to affect an argument relative to a reference time in order to be felicitously used. When the əc- stativizer combines directly with a CS root (Fig. 2), it derives a target stative (Lyon 2023). This is demonstrated by the fact that these are compatible with the adverb still, which requires a state that is in principle reversable (31), as well as by examples showing that they cannot be used in the present tense in contexts for which the state no longer holds (32-33).	page 16
+(31) line 1	nsyilxcn	segmentation	in-kəwáp əc-naq̓ʷ t spiʔsc̓íɬt, uɬ putíʔ ʕapnaʔ əc-naq̓ʷ.	page 17, engine language
+(31) line 2	nsyilxcn	gloss	1SG.POSS-horse STAT-get.stolen OBL yesterday and still now STAT-get.stolen	page 17, engine english
+(31) line 3	John Lyon	translation	‘My horse was stolen yesterday, and it’s still stolen now.’	page 17, engine english
+(31) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 17, engine english
+(32) line 1	John Lyon	note	Context: A cup breaks and scatters, then I clean the pieces up and glue it back together.20	page 17, engine english
+(32) line 2	nsyilxcn	segmentation	# ʕapnáʔ əc-pakʷ iʔ lpot.	page 17, engine language
+(32) line 3	nsyilxcn	gloss	now STAT-get.scattered DET cup	page 17, engine english
+(32) line 4	John Lyon	translation	‘The cup has (now) been scattered.’ (Delphine Derickson-Armstrong)	page 17, engine english
+(33) line 1	John Lyon	note	Context: A worm got stepped on and squashed, but then it heals and moves on.	page 17, engine english
+(33) line 2	nsyilxcn	segmentation	# əc-p̓ac̓ iʔ mámlaʔ náx̌əmɬ pútiʔ c-xʷəlxʷált.	page 17, engine language
+(33) line 3	nsyilxcn	gloss	STAT-get.squashed DET worm but still IPFV-alive	page 17, engine english
+(33) line 4	John Lyon	translation	‘The worm has been squashed but it is still alive.’ (Delphine Derickson-Armstrong)	page 17, engine english
+§3	German	cited form	aufpump-	page 17, ‘to get inflated’, a German target state participle stem, Kratzer 2000
+§3	John Lyon	note	Kratzer (2000) treats target state participles in German (e.g. aufpump- ‘to get inflated’) 21 as involving change-of-state roots that come pre-equipped with unsaturated state and event arguments (34a). The target stativizer (34b) functions to existentially close the event variable, and to foreground the underlying state (34c).	page 17
+(34a) line 1	John Lyon	rule	λsλe.[BECOME(e,s) ∧ P(x,s)] underived target state participle	page 17, engine english
+(34b) line 1	John Lyon	rule	λR<s<s,t>>λs∃e[R(e,s)] target stativizer	page 17, engine english
+(34c) line 1	John Lyon	rule	λs∃e.[BECOME(e,s) ∧ P(x,s)] target state participle	page 17, engine english
+§3	nsyilxcn	cited form	qʷin	page 17, ‘green’
+§3	John Lyon	note	In contrast, a resultant state simply entails that an event has culminated at some point prior to the reference time (like the English perfect). Thus, a target state entails a resultant state (by virtue of the fact that an event has occurred) (Parsons 1990), but the reverse does not hold. Resultant states are not reversable, and allow, but do not require, a result state to continue affecting an argument at a reference time. In Nsyilxcn, when stativizer əc- combines with an inchoativized predicate (Figure 3), it yields a resultant stative.22 The examples in (35) are judged good in a context in which the state no longer affects an individual. Note that PC roots such as qʷin ‘green’ (35c) only form resultant statives since PC roots require inchoativization prior to taking the stativizer (sec 2.3).	page 17
+(35a) line 1	John Lyon	note	Context: Looking at a picture of a painted car that has had all of the paint removed.	page 17, engine english
+(35a) line 2	nsyilxcn	segmentation	əc-míƛ̓•əƛ̓ iʔ p̓uyxən.	page 17, engine language
+(35a) line 3	nsyilxcn	gloss	STAT-paint•C2.INCH DET car	page 17, engine english
+footnote 20	John Lyon	note	20 Because tense is null in Nsyilxcn, the adverb ʕapnáʔ ‘now’ helps to force a present tense reading of the stative. Storyboards were used to elicit (32-33) (Burton & Matthewson 2015).	page 17, footnote
+§3	nsyilxcn	cited form	ʕapnáʔ	page 17, ‘now’
+footnote 21	John Lyon	note	21 Kratzer (2000,2005) originally used CAUSE(e,s) to represent the relation between a transitional event and a target state. Because CAUSE(e,s) in Kratzer’s sense is equivalent to BECOME(e,s), and in order to make this study maximally comparable to current literature, I use BECOME(e,s) in my representations.	page 17, footnote
+footnote 22	John Lyon	note	22 There is some variation in how əc- is preferentially interpreted when prefixed to an inchoative. DM more easily allows stative interpretations, while DD has a stronger tendency to interpret əc- as the imperfective here. DD nevertheless volunteers and accepts these as statives sometimes, as shown in (35).	page 17, footnote
+(35a) line 4	John Lyon	translation	‘The car has been painted.’ (Delphine Derickson-Armstrong | VF)	page 18, engine english
+(35b) line 1	John Lyon	note	Context: A frozen lake has melted, but is now refrozen.	page 18, engine english
+(35b) line 2	nsyilxcn	segmentation	iʔ sxʷuynt əc-ʕam-áp iʔ t x̌yaɬnxʷ.	page 18, engine language
+(35b) line 3	nsyilxcn	gloss	DET ice STAT-melt-INCH DET OBL sun	page 18, engine english
+(35b) line 4	John Lyon	translation	‘The ice has been melted by the sun.’ (Delphine Derickson-Armstrong | VF)	page 18, engine english
+(35c) line 1	John Lyon	note	Context: A lake turns green in the summer, and clears in the winter. It is now winter.	page 18, engine english
+(35c) line 2	nsyilxcn	segmentation	iʔ siwɬkʷ way̓ əc-qʷ<ʔ>in.	page 18, engine language
+(35c) line 3	nsyilxcn	gloss	DET water already STAT-green<INCH>	page 18, engine english
+(35c) line 4	John Lyon	translation	‘The water has already turned green.’ (Delphine Derickson-Armstrong)	page 18, engine english
+§3	nsyilxcn	cited form	pútiʔ	page 18
+§3	John Lyon	note	As further evidence for this distinction, while target statives are acceptable with pútiʔ, stativized inchoatives are not (36). This follows if the latter are non-reversable, resultant statives. The consultant’s comments in (36a,b) show that pútiʔ forces the imperfective interpretation of the əc- prefix in the context of an inchoativizer (see Lyon 2024 for discussion of the imperfective).	page 18
+(36a) line 1	nsyilxcn	segmentation	way̓ əc-t̓ak̓ʷ snk̓lip, uɬ pútiʔ əc-t̓ak̓ʷ / *əc-t̓k̓ʷ•ak̓ʷ.	page 18, engine language
+(36a) line 2	nsyilxcn	gloss	already STAT-laid.down coyote and still STAT-laid.down / STAT-laid.down•C2.INCH	page 18, engine english
+(36a) line 3	John Lyon	translation	‘Coyote has fallen, and he’s still down.’ (Delphine Derickson-Armstrong | VF əct̓ak̓ʷ)	page 18, engine english
+(36a) line 4	Delphine Derickson-Armstrong	speaker comment	DD: No, with ct̓k̓ʷak̓ʷ he is still falling.	page 18, engine residue
+(36a)	nsyilxcn	cited form	ct̓k̓ʷak̓ʷ	in the speaker comment, page 18
+(36b) line 1	nsyilxcn	segmentation	iʔ siwɬkʷ c̓xʷ•axʷ, uɬ pútiʔ əc-c̓axʷ / *əc-c̓xʷ•axʷ.	page 18, engine language
+(36b) line 2	nsyilxcn	gloss	DET water spill•C2.INCH and still STAT-spill / STAT-spill•C2.INCH	page 18, engine english
+(36b) line 3	John Lyon	translation	‘The water spilled and it is still spilled.’ (Delphine Derickson-Armstrong | VF əcc̓axʷ)	page 18, engine english
+(36b) line 4	Delphine Derickson-Armstrong	speaker comment	DD: With cc̓xʷaxʷ it’s still spilling…. it never stopped.	page 18, engine residue
+(36b)	nsyilxcn	cited form	cc̓xʷaxʷ	in the speaker comment, page 18
+(36c) line 1	nsyilxcn	segmentation	in-kəwáp əc-naq̓ʷ t spiʔsc̓íɬt, uɬ putíʔ ʕapnaʔ	page 18, engine residue
+(36c) line 2	nsyilxcn	gloss	1SG.POSS-horse STAT-steal OBL yesterday and still now	page 18, engine english
+(36c) line 3	nsyilxcn	segmentation	əc-naq̓ʷ / * əc-naq̓ʷ•əq̓ʷ	page 18, engine language
+(36c) line 4	nsyilxcn	gloss	STAT- steal / STAT- steal•C2.INCH	page 18, engine english
+(36c) line 5	John Lyon	translation	‘My horse was stolen yesterday, and it’s still stolen now.’ (Delphine Derickson-Armstrong)	page 18, engine english
+(36d) line 1	nsyilxcn	segmentation	pútiʔ əc-t̓il̓/ #əc-t̓l-ap iʔ q̓əy̓mín.	page 18, engine language
+(36d) line 2	nsyilxcn	gloss	still STAT-tear / STAT-tear-INCH DET paper	page 18, engine english
+(36d) line 3	John Lyon	translation	‘The page is still torn (no-one has taped it yet).’ (Delphine Derickson-Armstrong)	page 18, engine english
+§3	John Lyon	note	Kratzer notes that when a verb has a target state passive, it usually has a resultant state passive as well (2000:11). In Nsyilxcn, the interpretation of a stative varies depending on whether or not v hosts an inchoativizer or is null (Figures 2-3). This essentially follows Kratzer’s (2000) approach in deriving resultant state participles from stems with a target state argument, where a ‘V’ head closes the state argument. Taking again the underived participle in (37a), one function of the inchoativizer (in v) is to close the underlying target state argument, foregrounding the event argument (37b) and yielding an inchoative predicate (37c).23 Kratzer’s resultant stativizer, which applies only to predicates of events (37d), then optionally applies (Fig. 3). This closes the event argument and places the event runtime prior to a reference time t, yielding (37e). It is underspecified whether the target state as well as the event, or just the event, is situated prior to the reference time.	page 18
+(37a) line 1	John Lyon	rule	λsλe.[BECOME(e,s) ∧ P(x,s)] underived target state participle	page 19, engine english
+(37b) line 1	John Lyon	rule	λR<s<s,t>>λe∃s[R(e,s)] inchoativizer	page 19, engine english
+(37c) line 1	John Lyon	rule	λe∃s.[BECOME(e,s) ∧ P(x,s)] inchoative predicate	page 19, engine english
+(37d) line 1	John Lyon	rule	λP<s,t>λt.∃e[P(e) ∧ 𝜏(e) < t] resultant stativizer	page 19, engine english
+(37e) line 1	John Lyon	rule	λt∃e∃s.[BECOME(e,s) ∧ P(x,s) ∧ 𝜏(e) < t] resultant stative	page 19, engine english
+§3	John Lyon	note	Given these semantics, we now are able to assign a semantics for null v. I will first present my proposal, before discussing potential alternatives.	page 19
+§3	John Lyon	note	I propose that null v is an identity function on change-of-state (CS) roots, specifically. The null v head in (38a) is an identity function that ranges over a CS root with two eventuality variables open, an event and a state (38b), similar to an underived target state participle. The result is a null v structure with open event and state variables (38c). This then serves as an argument for the target stativizer in (34b). This approach prevents null v, and ultimately stativizer əc- from applying to underived PC roots, and runs parallel to existing analyses of categorizing head a as an identity function on PC roots (Embick 2004, Beavers & Koontz Garboden 2020).	page 19
+(38) line 1	John Lyon	note	Nsyilxcn null v structure	page 19, the caption
+(38a) line 1	John Lyon	rule	⟦∅v⟧ = λR ∈ D<e,<s,<s,t>>> λxλsλe[R(x,s,e)] null v: identity function	page 19, engine english
+(38b) line 1	John Lyon	rule	⟦√melt⟧ = λxλsλe[melted(x,s) ∧ BECOME(s,e)] CS root	page 19, engine english
+(38c) line 1	John Lyon	rule	⟦∅v(√melt)⟧ = λxλsλe[melted(x,s) ∧ BECOME(s,e)] null v structure	page 19, engine english
+§3	John Lyon	note	The inchoativizer which applies to CS roots (39a) also ranges over roots with two eventuality variables open (39b), but it closes the state argument unlike the null v. This yields the inchoativized CS root in (39c), a predicate of events, which can serve as an argument for the resultant stativizer in (37d).24	page 19
+(39) line 1	John Lyon	note	Nsyilxcn inchoative v structure	page 19, the caption
+(39a) line 1	John Lyon	rule	⟦inchv⟧ = λR ∈ D<e,<s,<s,t>> λxλe∃s[R(x,s,e)] inchoative v (CS roots)	page 19, engine english
+(39b) line 1	John Lyon	rule	⟦√melt⟧ = λxλsλe[melted(x,s) ∧ BECOME(s,e)] CS root	page 19, engine english
+(39c) line 1	John Lyon	rule	⟦inchv(√melt)⟧ = λxλe∃s[melted(x,s) ∧ BECOME(s,e)] inchoative v structure	page 19, engine english
+footnote 23	John Lyon	note	23 This is equivalent to Beaver & Koontz-Garboden’s (2020) analysis of a predicate which vbecome has applied to.	page 19, footnote
+footnote 24	John Lyon	note	24 Note that the inchoativized CS root in (39c) is semantically identical to Beavers & Koontz-Garboden’s result root (iib), after it composes with vBECOME (iia), but without the redundant change-of-state in (iic). (This is because the event variable is unbound in (39b), but bound in (iib).)	page 19, footnote
+§3	John Lyon	note	Both null v (40a) and inchoative v predicates (40b) invariably allow event modification prior to stativization, so the event variable must be available up until the point that the stativizer applies.	page 19
+footnote 24 (iia) line 1	Beavers & Koontz-Garboden 2020	rule	⟦vBECOME⟧ = λP ∈ D<e,<s,t>> λxλe∃s[P(x,s) ∧ BECOME(s,e)]	page 19, footnote 24, the vBECOME of Beavers & Koontz-Garboden
+footnote 24 (iib) line 1	Beavers & Koontz-Garboden 2020	rule	⟦√melt⟧ = λxλs[melted(x,s) ∧ ∃e[BECOME(s,e)]]	page 19, footnote 24, the result root of Beavers & Koontz-Garboden
+footnote 24 (iic) line 1	Beavers & Koontz-Garboden 2020	rule	⟦vBECOME √melt⟧ = λxλe∃s[melted(x,s) ∧ BECOME(s,e) ∧ ∃e’[BECOME(s,e’)]]	page 19, footnote 24, vBECOME applied to the result root
+§3	John Lyon	note	For example, the compounding root wiʔ ‘to finish’ in (40) occurs inside of the stativizer, 25 and entails that the events of writing (40a) and straightening (40b) are finished, not that the states resulting from these events are finished.	page 20
+(40a) line 1	nsyilxcn	segmentation	əc-wiʔ-s-q̓áy̓, cakʷ lut ɬə nɬiptm-n.	page 20, engine language
+(40a) line 2	nsyilxcn	gloss	STAT-finish-CMPD-write BOUL NEG if forget-(DIR)-1SG.ERG	page 20, engine english
+(40a) line 3	John Lyon	translation	‘It would’ve been already written if I hadn’t forgotten it.’	page 20, engine english
+(40a) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 20, engine english
+(40b) line 1	nsyilxcn	segmentation	(əc)-wiʔ-s-təɬ•áɬ iʔ wlwlim.	page 20, engine language
+(40b) line 2	nsyilxcn	gloss	STAT-finish-CMPD-straight•C2.INCH DET metal	page 20, engine english
+(40b) line 3	John Lyon	translation	‘The wire is already straightened.’ (Delphine Derickson-Armstrong)	page 20, engine english
+§3	John Lyon	note	The above approach seems plausible, but why not assume Beavers & Koontz Garboden’s (2020) result root semantics for Nsyilxcn CS roots, as in (41a)? A null v could reintroduce an event argument (41b), yielding (41c). (This has a redundant change-of-state, similar to their ⟦vBECOME √melt⟧ in (23b), but with an unsaturated state variable). After all, (41c) can equally well serve as an argument for the target stativizer in (34b).	page 20
+(41) line 1	John Lyon	note	alternative 1	page 20, the caption
+(41a) line 1	John Lyon	rule	⟦√melt⟧ = λxλs[melted(x,s) ∧ ∃e[BECOME(s,e)]] result root	page 20, engine english
+(41b) line 1	John Lyon	rule	⟦∅v⟧ = λP ∈ D<e,<s,t>> λxλsλe[P(x,s) ∧ BECOME(s,e)] null v	page 20, engine english
+(41c) line 1	John Lyon	rule	⟦∅v(√melt)⟧= λxλsλe[melted(x,s) ∧ BECOME(s,e) ∧ ∃e’[BECOME(s,e’)]] null v structure	page 20, engine english
+§3	John Lyon	note	The main argument against this alternative is that if CS roots are predicates of states, as in (41a), the null v in (41b) should be able to range over PC roots as well, but this is not the case: PC roots in Nsyilxcn never take stativization unless they are first inchoativized.	page 20
+§3	John Lyon	note	Conversely, why not assume Davis’ (2024:311) proposed CS root semantics for St’át’imcets, as in (42a),26 along with a null v which introduces a scalar state argument (42b), yielding (42c)? According to Davis (2024), (42a) should be true if there is an event e of x getting melted which culminates. (42c) should then be true if the event, additionally, results in a scalar state s.	page 20
+(42) line 1	John Lyon	note	alternative 2a	page 20, the caption
+(42a) line 1	John Lyon	rule	⟦√melt⟧ = λxλe[get.melted(x,e)] CS root	page 20, engine english
+(42b) line 1	John Lyon	rule	⟦∅v⟧ = λP ∈ D<e,<s,t>>λxλsλe[P(x,s) ∧ BECOME(s,e)] null v	page 20, engine english
+(42c) line 1	John Lyon	rule	⟦∅v(√melt)⟧ = λxλsλe[get.melted(x,e)(s) ∧ BECOME(s,e)] null v structure	page 20, engine english
+§3	John Lyon	note	Assuming that (42b) only ranges over eventive predicates, not stative predicates, then (42c) looks very similar to my proposed (38c), and can serve as an argument for the target stativizer. As such, this alternative is important to consider.	page 20
+§3	nsyilxcn	cited form	wiʔəʔsq̓ay̓	page 20
+§3	nsyilxcn	cited form	wiʔsq̓əy̓áy̓	page 20
+§3	nsyilxcn	cited form	wiʔ-s-təɬ•áɬ	page 20
+footnote 26	John Lyon	note	26 I exclude intensionality from Davis’ representation, for the ease of comparison.	page 20, footnote
+footnote 25	John Lyon	note	25 There is evidence that wiʔ adjoins to v as opposed to directly to the root, and that Figures 2 and 3 are correct. If wiʔ adjoined directly to the root, then the expected C2 inchoativization pattern would be e.g. *wiʔəʔsq̓ay̓ ‘finished being written’ as opposed to grammatical wiʔsq̓əy̓áy̓. Furthermore, wiʔ does not attach to bare PC roots (though see N. Mattina 1996 for examples of s-level, positive adjectives being coerced into eventive predicates by wiʔ), and so the fact that cases involving inchoativized PC roots like wiʔ-s-təɬ•áɬ ‘finished being straightened’ are grammatical shows that wiʔ applies higher than the inchoativizer. A deeper question here is whether the change-of-state in CS roots requires reference to a resulting scalar state, as I have proposed following Beavers & Koontz Garboden (2020), or whether a culminating, transitional event is sufficient to entail a change-of-state, as implied by Davis (2024). Recall from 2.2 that the scalar state s “is treated as some eventuality that must occur and will have certain properties that hold of it [e.g. being melted in [42]), sufficient to account for the common diagnostic of change of state as yielding contradictions when asserting that the change occurred but that the relevant state has not obtained” (Beavers & Koontz-Garboden 2020:33). For both Nsyilxcn inchoatives derived from CS roots (43a), and St’át’imcets bare CS roots (43b), event culmination is an entailment. In Nsyilxcn, the patient argument must also hold a relevant state at the end of the event, and I assume this is also the case in St’át’imcets. Thus the meat in (43a) must be in a state of having been dried, and the fence in (43b) must presumably be in a state of having been fixed.	page 20
+(43a) line 1	John Lyon	note	Nsyilxcn	page 21, engine english
+(43a) line 2	nsyilxcn	segmentation	#x̌əw•áw̓ iʔ sɬiqʷ, nax̌əmɬ lut talíʔ t̓a əc-x̌áw̓.	page 21, engine language
+(43a) line 3	nsyilxcn	gloss	dried•C2.INCH DET meat but NEG really NEG.FAC STAT-dried	page 21, engine english
+(43a) line 4	John Lyon	translation	‘It’s dried but it hasn’t really dried.’ (Delphine Derickson-Armstrong)	page 21, engine english
+(43b) line 1	John Lyon	note	St’át’imcets	page 21, engine english, a St’át’imcets example, the language of the example
+(43b) line 2	St’át’imcets	segmentation	*mays ti=q̓láx̌an=a, ƛ̓uʔ ʔáy=ƛ̓uʔ kʷ=s=ka-máys=c-a.	page 21, engine language, a St’át’imcets example
+(43b) line 3	St’át’imcets	gloss	get.fixed DET =fence=EXIS but NEG=EXCL D/C=NMLZ=CIRC-get.fixed=3POSS-CIRC	page 21, engine english, a St’át’imcets example
+(43b) line 4	Davis 2024:310	translation	‘The fence got fixed, but it couldn’t get fixed.’	page 21, engine english, the translation of Davis 2024:310
+(43b) line 5	Davis 2024:310	speaker comment	Speaker’s comment: “Contradiction.” (Davis 2024:310)	page 21, engine english
+§3	John Lyon	note	If (42a) is intended to entail that the patient hold a relevant state at the end of the event, but only that this state is somehow lexicalized or semantically inaccessible, then (42a) is semantically equivalent to (44a), which is also the equivalent of an Nsyilxcn inchoative (39c) and Beavers & Koontz-Garboden’s (2020) vbecome applied to a result root. For (44a) there is no question that it is an entailment of the root that the patient hold the relevant state at the end of the event. But in order to derive the correct predicate type for the target stativizer in this case, the null v has to reintroduce a state argument, as well as a change-of-state (44b).	page 21
+(44) line 1	John Lyon	note	alternative 2b	page 21, the caption
+(44a) line 1	John Lyon	rule	⟦√melt⟧ = λxλe∃s[melted(x,s) ∧ BECOME(s,e)] CS root	page 21, engine english
+(44b) line 1	John Lyon	rule	⟦∅v⟧ = λP ∈ D<e,<s,t>>λxλsλe[P(x,s) ∧ BECOME(s,e)] null v	page 21, engine english
+(44c) line 1	John Lyon	rule	⟦∅v(√melt)⟧= λxλsλe∃s’[melted(x,s’) ∧ BECOME(s’,e) ∧ BECOME(s,e)] null v structure	page 21, engine english
+footnote 27	John Lyon	note	27 Embick (2009) argues against Kratzer’s (2000) approach, and proposes that the stativizer introduces a state argument to a predicate of events. Assuming this approach for Nsyilxcn, and that both null v and inchoative v structures are predicates of events, however, incorrectly levels the distinction between stativized roots (target statives) and stativized inchoatives (resultant statives) discussed above.	page 21, footnote
+§3	John Lyon	note	The upshot here is that under either (42) or (44), null v functions to introduce an additional state variable, but to a predicate which already entails a result state (presumably in 42, actually in 44). But what is the additional state, if not the state which is already entailed by the root? In (44c) an event e entails both s’ and s, but only the state entailed by the root (s’) need be a result state of being melted held by x. Unless we stipulate that s = s’, s need not be a state of being melted, it could be any state, and the problem is that it is this s that is the argument for the target stativizer.27 The redundancy in BECOME(s,e) is truth-conditionally problematic here, in contrast to Beavers & Koontz-Garboden’s (2020) (23b) above.	page 21
+§3	John Lyon	note	I conclude that for Nsyilxcn the most straightforward way of explaining their derivations into resultant and target statives is by including both an event and scalar state as unbound variables in a CS root (45a). Inchoative v derives a predicate of events (45b), but null v (as an identity function/empty categorizing head) does not.	page 22
+(45a) line 1	John Lyon	rule	⟦√melt⟧ = λxλsλe[melted(x,s) ∧ BECOME(s,e)] CS root	page 22, engine english
+(45b) line 1	John Lyon	rule	⟦inchv(√melt)⟧ = λxλe∃s[melted(x,s) ∧ BECOME(s,e)] inchoative v structure	page 22, engine english
+(45c) line 1	John Lyon	rule	⟦∅v(√melt)⟧ = λxλsλe[melted(x,s) ∧ BECOME(s,e)] null v structure	page 22, engine english
+§3	John Lyon	note	There’s one other major wrinkle to account for: Inchoativized PC roots differ from inchoativized CS roots in terms of their culmination entailments (section 4). I model this distinction, while incorporating the generalizations above, using a degree semantics (section 5).	page 22
+§4	John Lyon	heading	4 Inchoativization, Culmination Entailments, and Gradability	page 22
+§4	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§4	John Lyon	note	In this section I provide evidence that PC inchoatives correspond to degree achievements in languages like English in resisting culmination entailment, while inchoativized CS roots entail culmination. 28 This fact, together with the proposal in the literature that roots require degree specification (Kennedy & Levin 2008), motivates my current analysis within a degree framework. Inchoatives built from PC roots default to a culminative, maximal interpretation, but they resist culmination entailment (46), regardless of the morphological form of the inchoativizer. This follows if PC roots are gradable predicates (Dowty 1979, Abusch 1986, Hay et. al 1999, see Davis 2011 for St’át’imcets), and if PC inchoativizers do not require a maximal degree of change.29	page 22
+(46a) line 1	nsyilxcn	segmentation	kn ɬ<ʔ>ʕat̓ náx̌əmɬ lútiʔ kn t̓a ɬʕat̓.	page 22, engine language
+(46a) line 2	nsyilxcn	gloss	1SG.SUBJ wet<INCH> but not.yet 1SG.SUBJ NEG.FAC wet(POS)	page 22, engine english
+(46a) line 3	John Lyon	translation	‘I’m getting wet, but I’m not wet yet.’ (Delphine Derickson-Armstrong | Dave Michel)	page 22, engine english
+(46b) line 1	nsyilxcn	segmentation	n<ʔ>ʕas iʔ knəxnáx t k̓ək̓alíʔ náx̌əmɬ lut talíʔ t̓a c-nʕas.	page 22, engine language
+(46b) line 2	nsyilxcn	gloss	heavy<INCH> DET box OBL slow but NEG very NEG.FAC IPFV-heavy(POS)	page 22, engine english
+(46b) line 3	John Lyon	translation	‘The box is getting heavy slowly, but it isn’t really heavy.’	page 22, engine english
+(46b) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 22, engine english
+(46c) line 1	nsyilxcn	segmentation	iwa t̓sʕa-p iʔ kt̓iɬmən, nax̌əmɬ lut talíʔ t̓ t̓əs•t̓ʕást.	page 22, engine language
+(46c) line 2	nsyilxcn	gloss	even hard-INCH DET glue but NEG very NEG.FAC C1C2•hard(POS)	page 22, engine english
+(46c) line 3	John Lyon	translation	‘Even though the glue got hard, it isn’t really hard.’	page 22, engine english
+(46c) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | Dave Michel)	page 22, engine english
+(46d) line 1	nsyilxcn	transcription	kn nƛ̓aʔm•mcn, nax̌əmɬ lut talíʔ kn t̓ nƛ̓aʔmcn.	page 22, engine language
+(46d) line 2	nsyilxcn	gloss	1SG.SUBJ thirsty• C2.INCH but NEG really 1SG.SUBJ NEG.FAC thirsty(POS)	page 22, engine english
+(46d) line 3	John Lyon	translation	‘I got thirsty but not that thirsty.’ (Delphine Derickson-Armstrong | Dave Michel)	page 22, engine english
+(46e) line 1	nsyilxcn	segmentation	c̓<ʔ>aɬ iʔ sniw̓t nax̌əmɬ lut talíʔ t̓ c̓aɬt.	page 22, engine language
+footnote 28	John Lyon	note	28 This was observed in Lyon (2023), but not adequately explained.	page 22, footnote
+footnote 29	John Lyon	note	29 There does not seem to be a distinction between open and close scale adjectives, in this respect.	page 22, footnote
+(46e) line 2	nsyilxcn	gloss	cold<INCH> DET wind but NEG really NEG.FAC cold(POS)	page 23, engine english
+(46e) line 3	John Lyon	translation	‘The wind is getting cold, but it’s not cold yet.’ (Delphine Derickson-Armstrong | VF)	page 23, engine english
+§4	John Lyon	note	In stark contrast, inchoativized CS roots entail culmination (47), again regardless of the morphological form of the inchoativizer.	page 23
+(47a) line 1	nsyilxcn	transcription	#iʔ siwɬkʷ c̓xʷ•axʷ, uɬ pútiʔ c̓xʷ•axʷ.	page 23, engine language
+(47a) line 2	nsyilxcn	gloss	DET water spill•C2.INCH and still spill•C2.INCH	page 23, engine english
+(47a) line 3	John Lyon	translation	#‘The water spilled and it is still spilling.’ (Delphine Derickson-Armstrong)	page 23, engine english
+(47b) line 1	nsyilxcn	transcription	#snk̓lip t̓k̓ʷ•ak̓ʷ uɬ pútiʔ t̓k̓ʷ•ak̓ʷ.	page 23, engine language
+(47b) line 2	nsyilxcn	gloss	coyote lay.down•C2.INCH and still lay.down•C2.INCH	page 23, engine english
+(47b) line 3	John Lyon	translation	#‘Coyote fell and he’s still falling down.’ (Delphine Derickson-Armstrong)	page 23, engine english
+(47c) line 1	nsyilxcn	segmentation	#x̌əw•áw̓ / #x̌əw̓-áp iʔ sɬiqʷ, nax̌əmɬ lut talíʔ t̓a əc-x̌áw̓.	page 23, engine language
+(47c) line 2	nsyilxcn	gloss	dried•C2.INCH / dried-INCH DET meat but NEG really NEG.FAC STAT-dried	page 23, engine english
+(47c) line 3	John Lyon	translation	‘It’s dried but it’s not really dried.’ (Delphine Derickson-Armstrong)	page 23, engine english
+§4	nsyilxcn	cited form	əc-nik̓	page 23
+§4	nsyilxcn	cited form	əc-nik̓•ək̓	page 23
+§4	John Lyon	note	Despite this contrast, CS roots are themselves gradable in at least some cases. This indicates that the culmination/maximality entailment in (47) is an effect of CS root inchoativization, and not a requirement of the roots themselves, in contrast to Davis’ (2024) analysis of St’át’imcets CS roots. The first observation is that a target stative can be negated by another instance of the same target stative without any contradiction. This indicates that CS roots can be gradable. In (48a), a scalar state of being cut affects the rope at speech time, but the state does not necessarily hold to the maximal degree. The second occurrence of the target stative in (48a) can be changed to a resultant stative by the addition of inchoative marking (48b), with only a subtle change in meaning. The difference between the two is that while target state əc-nik̓ only implies a maximal degree of change (i.e. it is cancellable), resultant state əc-nik̓•ək̓ entails maximality (48b).	page 23
+(48a) line 1	nsyilxcn	segmentation	way̓ iwá əc-nik̓ iʔ sp̓ic̓n nax̌əmɬ lut talíʔ t̓a əc-nik̓.	page 23, engine language
+(48a) line 2	nsyilxcn	gloss	already even STAT-cut DET rope but NEG really NEG.FAC STAT-cut	page 23, engine english
+(48a) line 3	John Lyon	translation	‘Even though the rope is cut, it’s not really cut (all the way) through.’	page 23, engine english
+(48a) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 23, engine english
+(48b) line 1	nsyilxcn	segmentation	way̓ iwá əc-nik̓ iʔ sp̓ic̓n nax̌əmɬ lut talíʔ t̓a əc-nik̓•ək̓.	page 23, engine language
+(48b) line 2	nsyilxcn	gloss	already even STAT-cut DET rope but NEG really NEG.FAC STAT-cut•C2.INCH	page 23, engine english
+(48b) line 3	John Lyon	translation	‘Even though the rope is cut, it’s not really cut (all the way) through.’	page 23, engine english
+(48b) line 4	Dave Michele	speaker comment	DM: It’s cut but it’s not quite cut through... (Delphine Derickson-Armstrong)	page 23, engine english
+§4	John Lyon	note	That CS root inchoativizers entail maximality, and that this maximality is inherited in a resultant stative, is shown by the fact that it is not possible to reverse (48b). (49a) below is unacceptable because if the rope is cut to the maximal degree, as entailed by əc-nik̓•ək̓, saying that it does not possess at least some degree of having been cut is a contradiction. (49b) was volunteered as a correction.	page 23
+(49a) line 1	nsyilxcn	segmentation	#way̓ əc-nik̓•ək̓ iʔ sp̓ic̓n nax̌əmɬ lut talíʔ t̓a əc-nik̓.	page 23, engine language
+(49a) line 2	nsyilxcn	gloss	already STAT-cut•C2.INCH DET rope but NEG really NEG.FAC STAT-cut	page 23, engine english
+(49a) line 3	John Lyon	translation	‘The rope is #(totally) cut, but it’s not really cut.’	page 23, engine english
+(49a) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | Dave Michel)	page 24, engine english
+(49b) line 1	nsyilxcn	segmentation	lut talíʔ əc-nik̓•ək̓ iʔ sp̓ic̓n nax̌əmɬ way̓ əc-nik̓.	page 24, engine language
+(49b) line 2	nsyilxcn	gloss	NEG really STAT-cut•C2.INCH DET rope but already STAT-cut	page 24, engine english
+(49b) line 3	John Lyon	translation	‘The rope isn’t (totally) cut, but it is already cut.’ (Dave Michel | VF)	page 24, engine english
+§4	John Lyon	note	Non-stativized inchoatives derived from CS roots follow the same pattern, as shown in (50). This suggests that result inchoativizers require a maximal degree of change from an otherwise gradable CS root, and that a resultant stative (49) inherits the degree specification of its inchoative argument.	page 24
+(50a) line 1	nsyilxcn	segmentation	#x̌əw̓•áw̓ iʔ sɬiqʷ, nax̌əmɬ lut talíʔ t̓a əc-x̌áw̓.	page 24, engine language
+(50a) line 2	nsyilxcn	gloss	dried•C2.INCH DET meat but NEG really NEG.FAC STAT-dried	page 24, engine english
+(50a) line 3	John Lyon	translation	‘The meat got #(totally) dry but it isn’t really dry.’ (Delphine Derickson-Armstrong)	page 24, engine english
+(50b) line 1	nsyilxcn	segmentation	way̓ əc-x̌aw̓ iʔ sɬiqʷ nax̌əmɬ lut talíʔ t̓ x̌əw̓•aw̓.	page 24, engine language
+(50b) line 2	nsyilxcn	gloss	already STAT-dried DET meat but NEG really NEG.FAC dried•C2.INCH	page 24, engine english
+(50b) line 3	John Lyon	translation	‘The meat is already dry, but it isn’t really (totally) dry.’	page 24, engine english
+(50b) line 4	John Lyon	citation	(Delphine Derickson-Armstrong | VF)	page 24, engine english
+§4	John Lyon	name	Piñon	Christopher Piñon, cited for the verbal positive, Piñon 2005
+§4	John Lyon	note	The semantic analysis in the next section treats inchoativizers and the target stativizer as introducing a verbal degree standard to a root (or root which has combined with a null v) which otherwise has only a root-supplied scale-specific standard. As Kennedy & Levin (2008) and others argue, root-supplied standards are not enough in and of themselves: these predicates must combine with degree morphology which introduces a positive or verbal standard. I propose that PC root inchoativizers require a greater-than-minimum degree of change, CS root inchoativizers require a maximum degree of change, and that the target stativizer introduces a verbal positive standard (Piñon 2005, Kennedy & Levin 2008). The resultant stativizer is not a degree head, but rather applies only to event-denoting predicates whose degree arguments have been saturated.	page 24
+§5	John Lyon	heading	5 Degree Analysis	page 24
+§5	nsyilxcn	cited form	ɬʕat̓	page 24, ‘wet’
+footnote 30	John Lyon	note	30 For Salish specifically, Davis (2011) discusses how St’át’imcets adjectives are sometimes gradable, and Nederveen (2023) implements a scalar analysis of Secwepemctsin control and non-control predicates.	page 24, footnote
+§5	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§5	John Lyon	note	My semantic analysis is situated within a degree-based framework, for several reasons. This incorporates the idea of scalar change, which Beavers & Koontz-Garboden’s (2020) treatment of BECOME, as introducing a change-of-state, relies upon. It also allows for a formal expression of the observation that inchoatives derived from CS roots entail culmination but those derived from PC roots resist culmination entailments (cf. Dowty 1979, Abusch 1986, Hay et. al 1999).30 Finally, I suggest that it offers an additional way of explaining why Nsyilxcn roots cannot be used in bare form, and as a means of addressing cross-linguistic variation on this point (section 6). I propose that Nsyilxcn PC roots lexicalize a measure function m (51) (Cresswell 1977, Kennedy 1999). These measure the degree to which an individual x is in a scalar state s of holding the property measured by m. Thus the PC root ɬʕat̓ ‘wet’ (51) denotes a function from degrees to a set of individuals x possessing some state of ‘wetness’ s. PC roots adjoin to a categorizing head a, which is an identity function on m (49a) (Embick 2004), but the output requires a positive degree standard to be interpretable, just as in English (Kennedy & Levin 2008). A positive head sets the degree to which x has s at or above a contextually specified standard (52b). (52c) denotes a positive adjective, such that there is a state s in which x holds a degree d of wetness at or above the positive standard for wetness, with what counts as the positive standard varying pragmatically. The semantics in (51-52) are an interpretation of the structure in Figure 1, shown again below.	page 24
+(51) line 1	John Lyon	rule	⟦√ɬʕat̓⟧ = m = λdλxλs.[wet(x,s)] ≥ d	page 25, engine english
+(52a) line 1	John Lyon	rule	⟦∅a⟧ = a = λg ∈ Dm λdλxλs.g(x,s) ≥ d	page 25, engine english
+(52b) line 1	John Lyon	rule	⟦∅⟧ = pos = λg ∈ Dm λxλs.g(x,s) ≥ stnd(g)	page 25, engine english
+(52c) line 1	John Lyon	rule	⟦∅-ɬʕat̓⟧ = pos(a) = λxλs.wet(x,s) ≥ stnd(wet)	page 25, engine english
+§5	John Lyon	language	Secwepemctsín	Northern Interior Salish, Nederveen 2023 and Kuipers 1974
+Figure 1	John Lyon	note	Figure 1. Adjectival Structure Figure 2. Verbal Structure Figure 3. Verbal Structure (Target Stative) (Inchoative vP/Resultant Stative)	page 25, the captions of Figures 1, 2 and 3, repeated
+§5	John Lyon	note	Beavers & Koontz-Garboden’s (2020) analysis of result roots, discussed above in section 2, builds on Kennedy & Levin’s (2008) treatment of degree achievements, which utilizes a measure- of-change function. This is a specialized difference function which “measures the amount that an object changes along a scalar dimension as a result of participating in an event.” (ibid:18). This is rendered formally in (53a), with the prose description in (53b) (see Nederveen 2023 for applications of 53 in agentive control and non-control predicates in Secwepemctsín (Salish).).	page 25
+(53a) line 1	Kennedy & Levin 2008	note	Measure of change	page 25, the heading of the definition
+(53a) line 2	Kennedy & Levin 2008	rule	For any measure function m, mΔ = λxλe.mm(x)(init(e)) ↑ (x)(fin(e))	page 25, the measure-of-change function, its ↑ set on the line below
+(53b) line 1	Kennedy & Levin 2008:18-19	note	“A measure of change function mΔ takes an object x and an event e and returns the degree that represents the amount that x changes in the property measured by m as a result of participating in e. It does this by mapping its individual argument x onto a derived scale whose minimal element is the degree to which x measures m at the initiation of e. The output is a degree that represents the positive difference between the degree to which x measures m at the beginning of e and the degree to which it measures m at the end of e; if there is no positive difference, it returns zero.”	page 25, the prose description, quoted
+(53b) line 1	John Lyon	citation	(Kennedy & Levin 2008:18-19)	the source of the quotation
+§5	John Lyon	notation	mΔ	a measure-of-change function, Kennedy & Levin 2008
+§5	John Lyon	note	The truth conditions for Beavers & Koontz-Garboden’s (2020) BECOME(s,e), discussed in section 2, essentially integrate a scalar state and a verbal degree standard into Kennedy & Levin’s (2008) measure-of-change function (53). For Nsyilxcn, I include a scalar state as part of a measure- of-change function (54) as a way of directly modeling a change-of-state entailment in CS roots and as a means of deriving the difference between target and resultant states discussed above in section 3, but I do not integrate any verbal standard.31 This is because while CS roots entail a change-of- state, they do not specify the degree of change (Kennedy & Levin 2008): this is the role of the degree head, e.g. an inchoativizer or stativizer, as shown in Section 4.	page 25
+(54a) line 1	John Lyon	note	Measure of change (Nsyilxcn CS roots)	page 26, engine english, the measure-of-change function of Nsyilxcn CS roots
+(54a) line 2	John Lyon	rule	For any measure function m, mΔ = λxλeλs.mm(x)(init(e),s)	page 26, engine english, the measure-of-change function of Nsyilxcn CS roots
+(54a) line 3	John Lyon	rule	↑ (x)(fin(e),s)	page 26, engine residue, the measure-of-change function of Nsyilxcn CS roots
+(54b) line 1	John Lyon	note	mΔ takes an object x, an event e, and a scalar state s, and returns the degree that represents	page 26, engine english, the measure-of-change function of Nsyilxcn CS roots
+§5	John Lyon	notation	δs	the scalar dimension of a state s, Beavers & Koontz-Garboden 2020
+(54b) line 2	John Lyon	note	the amount that x changes in the state s of holding the property measured by m as a result of participating in e. mΔ is true iff s holds at the end of e and at the beginning of e there is a state s’ such that there is a degree d’ on 𝛿s where 𝑑𝑥𝑠 𝛿𝑠 > d’ and e is in a Figure/Path Relation with xs and the continuous, ordered set of degrees S′ ⊆ Ss of δs containing d′ and whose maximal degree is ds.	page 26, the rest of (54b), carries footnote 32, written here without its digit
+§5	John Lyon	note	In a nutshell, while Nsyilxcn PC roots lexicalize measure functions (55a), CS roots lexicalize measure-of-change functions (55b). In both cases, further derivation involving a degree head (e.g. a positive, inchoativizer or stativizer) supplies the appropriate verbal standard (Kennedy & Levin 2008).	page 26
+(55a) line 1	John Lyon	rule	⟦√ɬʕat̓⟧ = m = λdλxλs.[wet(x,s)] ≥ d PC root	page 26, engine english
+(55b) line 1	John Lyon	rule	⟦√nik̓⟧ = mΔ = λdλxλsλe.[cutΔ(x,e,s)] ≥ d CS root	page 26, engine english
+§5	John Lyon	note	Similar to Beavers & Koontz-Garboden’s (2020) vbecome, Nsyilxcn v heads always introduce (or require) a change-of-state, but in the guise of a measure-of-change function mΔ. These v heads can differ however with respect to whether they range over measure or measure-of-change functions, and whether they introduce a verbal standard or not.	page 26
+§5	John Lyon	note	First, Nsyilxcn PC inchoativizers are semantically parallel to Embick’s (2004) analysis of the suffix -en as vbecome in the deadjectival verb flatten. They range only over measure functions (56a), require the degree-of-change to be above the verbal minimum, and saturate the state variable inherited from the PC root, deriving a predicate of events. Applied to a PC root ɬʕat̓ ‘wet’ (55a), the inchoativizer in (56a) entails that the degree to which x is in a scalar state of wetness exceeds the minimum amount of change (i.e. 0) for an event of becoming wet, yielding (56b).	page 26
+footnote 31	John Lyon	note	31 Beavers & Koontz -Garboden integrate a verbal standard into BECOME(s,e) in part to ensure that in restitutive cases, comparison to the same standard occurs. These tests have yet to be done in Nsyilxcn. However, it is hard to resist Kennedy & Levin’s (2008) view that roots lack verbal standards, given that inchoativizers contribute different standards.	page 26, footnote
+footnote 32	John Lyon	note	32 Alternatively “a measure of change function mΔ takes an object x and an event e and a state s and returns the degree that represents the amount that x changes in the state s of holding the property measured by m as a result of participating in e. It does this by mapping its individual argument x onto a derived scale whose minimal element is the degree to which x is in a scalar state s of holding the property measured by m at the initiation of e. The output is a degree that represents the positive difference between the degree to which x is in a scalar state s of holding the property measured by m at the beginning of e and the degree to which x is in a scalar state s of holding the property measured by m at the end of e; if there is no positive difference, it returns zero.”	page 26, footnote
+(56a) line 1	John Lyon	rule	⟦ INCHv PC⟧ = inch = λg ∈ Dm λxλe∃s.gΔ(x,e,s) > min(gΔ)	page 27, engine english
+(56b) line 1	John Lyon	rule	⟦√ɬ<ʔ>ʕat̓⟧ = inch(m) = λxλe∃s.wetΔ(x,e,s) > min(wetΔ)	page 27, engine english
+§5	John Lyon	note	This derives the absence of any culmination entailment for PC inchoatives that have scales with intermediate values. Just as with English degree achievements, the preferred interpretation of an inchoativized PC root is maximal, since the maximal intepretation entails the minimal interpretation, and as such is more informative (Kennedy & Levin 2008:22).	page 27
+§5	nsyilxcn	cited form	nik̓	page 27, ‘cut’
+§5	John Lyon	note	Second, inchoativizers which apply to CS roots are also in v position, but these range only over measure-of-change functions, require a maximal degree of change, and foreground the change event through existential closure of the CS root’s state argument. Applied to a CS root nik̓ ‘cut’ (55b), the inchoativizer in (57a) entails that the degree to which x is in a scalar state of being cut meets the maximum degree-of-change for an event of getting cut, yielding (57b).	page 27
+(57a) line 1	John Lyon	rule	⟦INCHv	page 27, engine english
+(57a) line 2	John Lyon	rule	CS⟧ = inch = λg ∈ DmΔ λxλe∃s.gΔ(x,e,s) = max(g)	page 27, engine english
+(57b) line 1	John Lyon	rule	⟦√nik̓•ək̓⟧ = inch(mΔ) = λxλe∃s.cutΔ(x,e,s) = max(cutΔ)	page 27, engine english
+§5	nsyilxcn	cited form	<ʔ>	page 27
+§5	nsyilxcn	cited form	wiʔ	page 27, ‘to finish’
+§5	John Lyon	note	This derives the culmination entailment for CS inchoative predicates It is worth briefly reiterating that the <ʔ> inchoativizer is limited to PC roots, but all inchoativized PCs (including those derived by –(a)p and C2) resist culmination entailment. Since there is no other level of a v structure where a functional head could be sensitive to this distinction, it makes sense that inchoativizers merge directly with the root (Figure 3). I should also make clear that although both PC and CS roots inchoativize with –(a)p and C2 reduplication, the degree standards introduced by these inchoativizers differ depending on the root type, or in other words, whether the inchoativizer is ranging over m (56a) or mΔ (57a). Whether there are in fact two sets of homophonous but semantically distinct –(a)p and C2 inchoative markers, which I basically assume here, or whether perhaps a CS root (mΔ) triggers a type shift in (55a) accompanied by a strengthening of the degree standard, is a question I leave for future research. Third, v can be a null, identity function which applies specifically to CS roots (58, cf. Figure 2 and section 3). This is parallel to the null categorizing a head as an identity function on PC roots (52a, cf. Figure 1). The null v head does not contribute a degree standard, or derive a predicate of events, which accounts for the inability of CS roots to be used in bare form in Nsyilxcn. As desired, the event variable remains open for head modification by compound roots like wiʔ ‘to finish’, prior to stativization, and the state variable remains open for the target stativizer (see section 3).	page 27
+(58a) line 1	John Lyon	rule	⟦∅v⟧ = v = λg ∈ DmΔ λdλxλeλs.gΔ(x,e,s)	page 27, engine english
+(58b) line 1	John Lyon	rule	⟦∅-√nik̓⟧ = v(mΔ) = λdλxλeλs.[cutΔ(x,e,s)] ≥ d	page 27, engine english
+§5	John Lyon	name	Piñon	Christopher Piñon, cited for the verbal positive, Piñon 2005
+§5	John Lyon	note	The target stativizer introduces a positive verbal standard (Piñon 2005) to CS roots which have combined with the null v. It foregrounds a state argument present in the root (Kratzer 2000), by existentially closing the event variable (59). As the closest Nsyilxcn equivalent of a state passive, these are similar totarget state participles in other languages in representing the outcomes of a scalar change. As a verbal positive (Piñon 2005), the stativizer specifies the degree of change to be at or above the verbal standard: this is implied to be maximal, but maximality is cancellable, as shown above in section 4.	page 27
+(59a) line 1	John Lyon	rule	⟦əc- TRGT.STA T ⟧= Stat = λg ∈ DmΔ λxλs∃e.gΔ(x,e,s) ≥ stnd(gΔ) target stativizer	page 28, engine english
+(59b) line 1	John Lyon	rule	⟦əc-∅-√nik̓⟧= Stat(v(mΔ)) = λxλs∃e.cutΔ(x,e,s) ≥ stnd(cutΔ) target stative	page 28, engine english
+§5	John Lyon	note	Finally, when the stativizer combines with an inchoativized PC or CS root, it derives a resultant stative (Parsons 1990, Kratzer 2000, Davis et. al 2020). The resultant stativizer is not a degree head, but only applies to a predicate of events whose degree argument has been saturated. Applying (60a) to the inchoativized CS root in (57b) yields (60b).	page 28
+(60a) line 1	John Lyon	rule	⟦əc-RSLT.STA T⟧ = Stat = λP ∈ D<s,t> λt.∃e[P(e) ∧ 𝜏(e) < t] resultant stativizer	page 28, engine english
+(60b) line 1	John Lyon	rule	⟦əc-√nik̓•ək̓⟧ = Stat(inch(mΔ))	page 28, engine residue
+(60b) line 2	John Lyon	rule	= λt.∃e∃s.cutΔ(x,e,s) = max(cutΔ) ∧ 𝜏(e) < t resultant stative	page 28, engine english
+§5	John Lyon	note	This analysis provides an interesting point of discussion for addressing variation between Nsyilxcn and other Salish languages, as I now discuss.	page 28
+§6	John Lyon	heading	6 Cross-Salish Variation, Predictions, and Conclusion	page 28
+§6	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+§6	John Lyon	language	ʔayʔaǰuθəm	Comox-Sliammon, Huijsmans 2022
+§6	John Lyon	note	In certain other Salish languages (e.g. St’át’imcets, Davis 2024; ʔayʔaǰuθəm, Huijsmans 2022), bare CS roots can be used as intransitive predicates, with a meaning very close or identical to that seen with Nsyilxcn inchoativized CS roots. This is shown in St’át’imcets (61).	page 28
+(61) line 1	St’át’imcets	segmentation	mays ta=káoh=a.	page 28, engine english, the page names the language, St’át’imcets, at the right of the line
+(61) line 2	St’át’imcets	gloss	get.fixed DET=car=EXIS	page 28, engine english, a St’át’imcets example
+(61) line 3	Davis in prep.	translation	‘The car got fixed.’ (Davis, in prep, ch 53)	page 28, engine english, the translation of Davis (in prep.), as the tag says
+§6	John Lyon	note	I suggest that by allowing cross-linguistic variation with respect to whether or not null v introduces a degree standard (62a,b), we can explain why certain languages such as St’át’imcets allow bare CS roots, while maintaining the same root semantics across Salish languages (63). Under this view, null v in St’át’imcets introduces a degree standard like a CS inchoativizer in Nsyilxcn (57a), as well as Kratzer’s (2000) ‘V’ head but with the addition of a degree specification. ‘Bare’ CS roots in St’át’imcets are thus not in fact truly bare, they are null-derived inchoatives with a culmination entailment.	page 28
+(62a) line 1	John Lyon	rule	⟦∅v⟧ = λg ∈ DmΔ λdλxλeλs.gΔ(x,e,s) Nsyilxcn	page 28, engine english
+(62b) line 1	John Lyon	rule	⟦∅v⟧ = λg ∈ DmΔ λxλe∃s.gΔ(x,e,s) = max(gΔ) St’át’imcets	page 28, engine english
+(63) line 1	John Lyon	rule	⟦√CS⟧ = λdλxλsλe.[mΔ(x,e,s)] ≥ d Salish change-of-state root	page 28, engine english
+§6	John Lyon	note	There are some implications to this approach which I now discuss.	page 28
+§6	John Lyon	note	First, Davis (2024:311) contrasts St’át’imcets bare CS roots which entail culmination with overtly derived inchoatives based on these roots which do not entail culmination (64).	page 28
+(64) line 1	John Lyon	note	Bare CS roots Derived inchoative	page 28, heads the rows below
+(64) line 2	St’át’imcets	transcription	ʕʷəl	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 2	Davis 2024:311	translation	‘get lit’	page 28, the translation of Davis 2024:311
+(64) line 2	St’át’imcets	transcription	ʕʷəl-p	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 2	Davis 2024:311	translation	‘burn’	page 28, the translation of Davis 2024:311
+(64) line 3	St’át’imcets	transcription	ɬiʕ	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 3	Davis 2024:311	translation	‘get scattered’	page 28, the translation of Davis 2024:311
+(64) line 3	St’át’imcets	transcription	ɬí<ʔ>əʕ̕	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 3	Davis 2024:311	translation	‘scatter’	page 28, the translation of Davis 2024:311
+(64) line 4	St’át’imcets	transcription	kəɬ	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 4	Davis 2024:311	translation	‘get removed’	page 28, the translation of Davis 2024:311
+(64) line 4	St’át’imcets	transcription	kəɬ-p	page 28, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 4	Davis 2024:311	translation	‘come off’	page 28, the translation of Davis 2024:311
+(64) line 5	St’át’imcets	transcription	qap	page 29, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 5	Davis 2024:311	translation	‘get softened’	page 29, the translation of Davis 2024:311
+(64) line 5	St’át’imcets	transcription	qa<ʔ>p	page 29, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 5	Davis 2024:311	translation	‘go soft’	page 29, the translation of Davis 2024:311
+(64) line 6	St’át’imcets	transcription	c̓aw̓	page 29, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 6	Davis 2024:311	translation	‘get washed/baptized’	page 29, the translation of Davis 2024:311
+(64) line 6	St’át’imcets	transcription	c̓á<7>əw̓	page 29, the orthography, a St’át’imcets form, Davis 2024:311
+(64) line 6	Davis 2024:311	translation	‘wash out’	page 29, the translation of Davis 2024:311
+§6	John Lyon	note	If St’át’imcets CS roots themselves entail culmination as Davis claims, then the inchoativizer must somehow remove the culmination entailment. It is unclear, however, how this might be achieved compositionally. If however one assumes the CS root I propose in (63), the meaning in (65a) for null v derived inchoatives (i.e. ‘bare’ roots), and an inchoativizer (in complementary distribution with null v) which introduces a greater than minimal degree-of-change standard33 to a CS root (65b), the semantic contrast follows straightforwardly.	page 29
+(65a) line 1	John Lyon	rule	⟦∅v(√CS)⟧ = λxλe∃s.gΔ(x,e,s) = max(gΔ) St’át’imcets (64, column 1)	page 29, engine english
+(65b) line 1	John Lyon	rule	⟦INCHv	page 29, engine english
+(65b) line 2	John Lyon	rule	CS(√CS)⟧⟧ = λxλe∃s.gΔ(x,e,s) > min(gΔ) St’át’imcets (64, column 2)	page 29, engine english
+§6	nsyilxcn	cited affix	əc-	page 29
+§6	John Lyon	note	This approach also correctly predicts that imperfective wa7 in St’át’imcets will target the transitional event in a null-derived inchoative (66a), in the same way that imperfective əc- targets the transitional event in an Nsyilxcn inchoative (66b) (Lyon 2023). These are both derived, predicates of events.	page 29
+(66a) line 1	St’át’imcets	segmentation	wa7 mays ta=n-kaoh=a.	page 29, engine english, the page names the language, St’át’imcets, at the right of the line
+(66a) line 2	St’át’imcets	gloss	IPFV get.fixed DET=1SG.POSS-car=EXIS	page 29, engine english, a St’át’imcets example
+(66a) line 3	Davis in prep.	translation	‘My car is being fixed.’ (Davis, in prep, ch 53)	page 29, engine english, the translation of Davis (in prep.), as the tag says
+(66b) line 1	nsyilxcn	segmentation	i-slax̌t əc-x̌áq̓•əq̓ ʕapnáʔ.	page 29, engine language, the page names the language, Nsyilxcn, at the right of the line
+(66b) line 2	nsyilxcn	gloss	1SG.POSS-friend IPFV-get.paid•INCH now	page 29, engine english
+(66b) line 3	John Lyon	translation	‘My friend is getting paid now.’ (Delphine Derrickson-Armstrong)	page 29, engine english
+§6	John Lyon	language	St’at’imcets	St’át’imcets, printed here without its acute
+§6	John Lyon	note	Next, Davis et al. (2020) claim that St’at’imcets stativizer es- derives a resultant, rather than a target state (see 59,60 above). Hence es-mays in (67) below is argued to denote a non-reversible event of getting fixed that has culminated at some point in the past.	page 29
+(67) line 1	St’át’imcets	segmentation	es-mays ta=n-kaoh=a.	page 29, engine english, the page names the language, St’át’imcets, at the right of the line
+(67) line 2	St’át’imcets	gloss	STAT-get.fixed DET=1SG.POSS-car=EXIS	page 29, engine english, a St’át’imcets example
+(67) line 3	Davis in prep.	translation	‘My car has been fixed.’ (Davis, in prep, ch 53)	page 29, engine english, the translation of Davis (in prep.), as the tag says
+§6	John Lyon	note	This interpretation of (67) straightforwardly follows if a null v derived inchoative predicate mays (i.e. 65a) is the argument for a resultant stativizer es- (60a), yielding (68).	page 29
+(68) line 1	John Lyon	rule	⟦es-mays⟧ = Stat(∅v(√CS)) = λxλt∃e∃s.[fixedΔ(x,e,s) = max(fixedΔ) ∧ 𝜏(e) < t]	page 29, engine english
+§6	John Lyon	note	An issue with the approach in (68) arises however from the fact that St’át’imcets stativizer es- does not co-occur with an overt inchoativizer (Davis, p.c.), in contrast to Nsyilxcn. The problem here is that if stativizer es- can combine with a null v derived inchoative predicate (65a), it should be able to occur with an overt inchoativizer as well (65b), but this is not the case.	page 29
+footnote 33	John Lyon	note	33 This is similar to the Nsyilxcn PC inchoativizer in (56a), but ranging over mΔ rather than m. This also raises the interesting possibility that although <ʔ> applies to CS roots in some languages, and PC roots in others, it may share a common semantics which resists culmination entailment.	page 29, footnote
+§6	John Lyon	notation	mΔ	a measure-of-change function, Kennedy & Levin 2008
+§6	nsyilxcn	cited form	<ʔ>	page 29
+§6	John Lyon	note	I suggest instead that St’át’imcets stativizer es- can occur in v position, lower that əc- in Nsyilxcn, but with the same semantics as Nsyilxcn (59a).34 It thus merges directly with CS roots, similarly to both overt and null inchoativizers. This lower position predicts the complementary distribution of stativizers and inchoativizers, both overt and null: There is no null v in St’át’imcets es- statives, contra (68). The difference between St’át’imcets null-derived inchoatives and stativized roots, then, is as follows:	page 30
+(69a) line 1	John Lyon	rule	⟦∅v(√mays)⟧ = λxλe∃s.fixedΔ(x,e,s) = max(fixedΔ) St’át’imcets (61)	page 30, engine english
+(69b) line 1	John Lyon	rule	⟦es-v(√mays)⟧ = λxλs∃e.fixedΔ(x,e,s) ≥ stnd(fixedΔ) St’át’imcets (67)	page 30, engine english
+§6	John Lyon	note	However (69b) predicts that St’át’imcets statives should have target state interpretations available, rather than the resultant state interpretations demonstrated in Davis et al (2020). There is a further contrast between Nsyilxcn and St’át’imcets which bears, I believe, directly on this issue. The Nsyilxcn imperfective and stativizer do not co-occur, which makes sense if they are competing for the same event variable. Indeed Nsyilxcn stativizer əc- seems to be in complementary distribution with viewpoint aspect, more generally (Lyon 2023, 2024). St’át’imcets however allows imperfective auxiliary wa7 to co-occur with stativizer es- (70a), which is consistent with the idea just put forward that es- can occur in a lower, v position. As predicted by (69b), when imperfective wa7 occurs with a stativized predicate, it targets the resulting state (70a), not the event transition as in the case of a null-derived inchoative (70b, cf. 69a).	page 30
+(70a) line 1	St’át’imcets	segmentation	wa7 es-mays ta=n-kaoh=a.	page 30, engine english, the page names the language, St’át’imcets, at the right of the line
+(70a) line 2	St’át’imcets	gloss	IPFV STAT-get.fixed DET=1SG.POSS-car=EXIS	page 30, engine english, a St’át’imcets example
+(70a) line 3	Davis in prep.	translation	‘My car is fixed (temporarily).’ (Davis, in prep, ch 53)	page 30, engine english, the translation of Davis (in prep.), as the tag says
+(70b) line 1	St’át’imcets	segmentation	wa7 mays ta=n-kaoh=a.	page 30, engine english, the page names the language, St’át’imcets, at the right of the line
+(70b) line 2	St’át’imcets	gloss	IPFV get.fixed DET=1SG.POSS-car=EXIS	page 30, engine english, a St’át’imcets example
+(70b) line 3	Davis in prep.	translation	‘My car is being fixed.’ (Davis, in prep, ch 53)	page 30, engine english, the translation of Davis (in prep.), as the tag says
+§6	John Lyon	note	Given that St’át’imcets stativizer es- can co-occur with (im)perfective viewpoint aspect, I suggest that (71a. cf. 67) and (71b, cf. 70a) represent a contrast between (null) perfective and imperfective statives, and that (69b) is the correct analysis of an es- stative. The resultant state intepretation in perfective (71a) arises from the fact that the reference time contains the runtime of the result state argument, potentially as a proper superset: The car may or may not still be fixed at reference time. By contrast with imperfective (71b), the runtime of the result state contains the reference time, which leads to the inference that the state is temporary or reversable: a target state, in other words.	page 30
+(71a) line 1	St’át’imcets	segmentation	es-mays ta=n-kaoh=a.	page 30, engine english, the page names the language, St’át’imcets, at the right of the line
+(71a) line 2	St’át’imcets	gloss	STAT-get.fixed DET=1SG.POSS-car=EXIS	page 30, engine english, a St’át’imcets example
+(71a) line 3	Davis in prep.	translation	‘The car has been fixed.’ (Davis, in prep, ch 53)	page 30, engine english, the translation of Davis (in prep.), as the tag says
+(71a) line 4	John Lyon	rule	λxλt∃s∃e.[fixedΔ(x,e,s) ≥ stnd(fixedΔ) ∧ 𝜏(s) ⊆ t] (pfv) target stative	page 30, the denotation of (71a)
+(71b) line 1	St’át’imcets	segmentation	wa7 es-mays ta=n-kaoh=a.	page 30, a St’át’imcets example, the page names the language at the right of the line
+(71b) line 2	St’át’imcets	gloss	IPFV STAT-get.fixed DET=1SG.POSS-car=EXIS	page 30, a St’át’imcets example
+(71b) line 3	Davis in prep.	translation	‘My car is fixed (temporarily).’ (Davis, in prep, ch 53)	page 30, the translation of Davis (in prep.), as the tag says
+(71b) line 4	John Lyon	rule	λxλt∃s∃e.[fixedΔ(x,e,s) ≥ stnd(fixedΔ) ∧ t ⊆ 𝜏(s)] (ipfv) target stative	page 31, the denotation of (71b)
+footnote 34	John Lyon	note	34 A different position for stativizer es- may be warranted for stative causatives (see Davis et al, 2020).	page 30, footnote
+§6	John Lyon	note	Resultant state intepretations in St’át’imcets thus actually derive from an interaction between a scalar (target) state and perfective aspect, rather than something more akin to a perfect, as in Nsyilxcn. The analysis outlined for (68), in contrast, cannot explain why the imperfective targets the resulting state in (71b), nor why the es- stativizer happens to be in complementary distribution with inchoative markers.	page 30
+§6	John Lyon	note	Looking at the issue this way, Salish languages do not differ with respect to whether their derived statives denote target and/or resultant states because of the number of eventuality arguments in their roots (as suggested in Lyon 2023), or solely as a result of the lexical meaning of a stativizer, but rather the interpretation should depend on (a) whether or not null v contributes a degree standard, and (b) whether or not the stativizer is in complementary distribution with inchoativizers and (im)perfectives in any one particular language.	page 31
+§6	nsyilxcn	cited form	qam̓t	page 31, ‘get hit’
+§6	nsyilxcn	cited form	es-qam̓t	page 31
+§6	nsyilxcn	cited form	naq̓ʷ	page 31, ‘get stolen’
+§6	nsyilxcn	cited form	əc-naq̓ʷ	page 31, ‘be stolen’
+footnote 35	John Lyon	note	35 Cases like əc-tr̓aq ‘x is kicked’ in Nsyilxcn are perhaps a clearer case in point.	page 31, footnote
+§6	nsyilxcn	cited form	əc-tr̓aq	page 31, ‘x is kicked’
+footnote 36	John Lyon	note	36 ʔayʔaǰuθəm may actually do this, however. This is because not all CS roots in this language take stative marking, in contrast to Nsyilxcn and St’at’imcets, only those with a clearly identifiable target state that continues to affect the patient (Davis et al 2020:116). This restriction could be written into the semantics of the ʔayʔaǰuθəm stativizer.	page 31, footnote
+§6	nsyilxcn	cited form	putiʔ	page 32, ‘still’
+§6	nsyilxcn	cited form	əcnaq̓ʷəq̓ʷ	page 32
+§6	John Lyon	note	It should be noted that part of Davis et al’s (2020) motivation for treating es- prefixed predicates in St’át’imcets as deriving a resultant stative in the sense of Kratzer (2000) is that es- applies even in cases where no target state is clearly identifiable. To illustrate, their example (18) involves a CS root qam̓t ‘get hit’. They demonstrate that the derived stative es-qam̓t ‘x has been hit’ can be used in a context where a bottle has been hit by a bullet but not broken or necessarily damaged in any way. There is no physically identifiable target state affecting the bottle, only the result state of the event having occurred. The Nsyilxcn CS root naq̓ʷ ‘get stolen’ is arguably similar: The derived stative əc-naq̓ʷ ‘be stolen’ can be true of some horse so long as it is ‘stolen’ at the reference time, but there is no physically identifiable state affecting the horse, other than perhaps its absence from the owner’s herd, and so if the result state can be characterized as a target state, it is a weak one at best.35 The change-of-state semantics I have adopted in this paper, however, do not require the scalar state in a root to be ‘physically identifiable’, or a strong target state in other words. For example, under the current analysis St’át’imcets es-qam̓t ‘x has been hit’ will be true if x possesses a degree d of a state s of ‘having been hit’ at or above the verbal threshold for an event e of ‘getting hit’, and imperfective wa7 and the null perfective can apply to this state like any other scalar state in the language, target or otherwise (Davis’ ex. 18 actually includes a contracted form of wa7). Similar facts hold for Nsyilxcn əc-naq̓ʷ ‘x is stolen’: though the scalar state is at best a weak target state, the state must nevertheless hold at reference time (since viewpoint aspect cannot shift the reference time in this case). Thus, St’át’imcets es- and Nsyilxcn əc- do not clearly distinguish between CS roots whose scalar state argument denotes a target state, and those that denote a weak result state.36 One could try and propose that there are two types of CS roots: those with a clear target state argument, and those without any state argument at all (corresponding to my revised mΔ (54) and Kennedy & Levin’s original mΔ (53), respectively). Under such an analysis, roots like Nsyilxcn naq̓ʷ and St’át’imcets qam’t would presumably not have an underlying state argument, since there is not necessarily any clearly identifiable target state. But then one is left with the task of explaining why Nsyilxcn əc-naq̓ʷ ‘be stolen’, for example, patterns exactly like other stativized roots with clearer target states in requiring the scalar state to hold at reference time and allowing extension of that state with putiʔ ‘still’, while resultant stative əcnaq̓ʷəq̓ʷ just requires the event to have culminated and does not allow an extension, again exactly like resultant statives formed from roots that do have clear target states. One is also left to explain what imperfective wa7 is targeting in St’át’imcets wa7 esqam’t (Davis et al 2020:ex18), if not a state variable.	page 31
+§6	John Lyon	note	I think the most straightforward solution to this issue for both Nsyilxcn and St’át’imcets is to assume that the scalar state s in a CS root will be a target state if one is available, and a weak result state otherwise. It seems to me that both Nsyilxcn əc- and St’át’imcets es- require a scalar state to hold at reference time, barring inchoativization in Nsyilxcn (which closes the state variable, forcing a resultant stative, where a target state specifically may or may not continue to hold) and barring perfective aspect in St’át’imcets (which encloses the scalar state within the reference time as a non- proper subset, where a target state may or may not continue to hold), following arguments I have made above. To be clear, weak result states always hold because they are non-reversible: the Nsyilxcn inchoativizer and St’át’imcets perfective will make no difference in these cases, and the semantics I have proposed are flexible enough to allow for this possibility. Overall, whether the scalar state s in a CS root denotes a target state or weak result state depends on the property itself and our real-world knowledge about the property, but this is not a compositional issue, I argue, nor does it necessitate treating CS roots with target states vs. weak result states as anything other than lexicalized measure-of-change functions with scalar result states.	page 32
+§6	John Lyon	note	To summarize this section, positing a lower v position for St’át’imcets stativizer es- is supported by the fact that it can co-occur with (im)perfective viewpoint aspect. This also correctly predicts its complementary distribution with null and overt inchoativizers in the language. Allowing null v to vary cross-linguistically in whether or not it introduces a degree standard predicts the existence of ‘bare’ CS roots in some Salish languages, while at the same time maintaining the same base root semantics across Salish.	page 32
+§6	John Lyon	note	The theory put forward in this paper predicts that if a Salish language uses bare CS roots, it must have a null v which provides a degree standard so that the bare root is interpretable. Stativizers in a language may or may not occur as v heads, depending on whether or not they are in complementary distribution with overt (and null) inchoativizers in v. In St’át’imcets they can be, I have argued, and this in turn predicts the co-occurence of stativizers with higher aspectual operators like the (im)perfective. But one could imagine a Salish language (language 3 below) which (a) allows bare roots like St’át’imcets, but also (b) allows stativizers and inchoativizers to co-occur like Nsyilxcn. Without positing multiple, semantically distinct null v heads, this theory makes a prediction that such a language should only derive resultant statives in the sense of Kratzer (2000). Conversely, one could imagine a Salish language (language 4 below) which (a) does not allow bare roots like Nsyilxcn, but also does not allow stativizers and inchoativizers to co-occur, like St’át’imcets. The prediction here is that there is a null v identity function applying to CS roots, but that one could not use the stativizer to establish its existence, though perhaps one could through some other means. Other languages are predicted not to be possible. It will be interesting to see if, and how, this typology pans out.	page 32
+Table 1	John Lyon	note	Table 1. Towards a Typology for Salish	page 32, the caption
+Table 1	John Lyon	note	bare roots null v w/ stnd Stat in v Stat/Inch Co-occur Stat/(I)pfv Co-occur Target	page 32, the column heads, as the text layer runs them together
+Table 1 line 1	John Lyon	note	1 Nsyilxcn * * * √ * √	page 32, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 2	John Lyon	note	2 St’át’imcets √ √ √ * √ √	page 32, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 3	John Lyon	note	3 predicted √ √ √ * √ * *	page 32, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 4	John Lyon	note	4 predicted √ * * √ * √ √	page 32, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 5	John Lyon	note	5 predicted * √ √ * √ * √	page 33, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 6	John Lyon	note	6 predicted * √ * √/* √/* √/* √/*	page 33, a row of the typology, √ where the language has the property and * where it lacks it
+Table 1 line 7	John Lyon	note	7 predicted * * √ √/* √/* √/* √/*	page 33, a row of the typology, √ where the language has the property and * where it lacks it
+§6	John Lyon	note	In conclusion, positing a null v that can vary cross-linguistically as to whether it derives a predicate of events, and introduces a degree standard, helps to address cross-linguistic variation in the availability of bare CS roots as natural predicates. Positing a scalar state s as part of the semantics of CS roots straightforwardly predicts the change-of-state entailments, and also allows for both target and resultant state interpretations, in principle, depending on the semantics of null v. Finally, analyzing the roots themselves as measure, or measure-of-change functions in need of degree specification (Kennedy & Levin 2008), rather than having the roots themselves provide a degree standard (Beavers & Koontz-Garboden 2020) allows for a full expression of inchoativizers (and null v in some languages) to determine the specified degrees. I have attempted to pursue a balanced approach which recognizes differences between English and Nsyilxcn, while preserving the same root semantics across Salish, yet still allowing for a certain amount of variation.	page 33
+references	John Lyon	heading	References	page 33
+references	John Lyon	reference	Abusch, D. (1986). Verbs of Change, Causation, and Time. Report 86-50, CSLI, Stanford University, Stanford, CA.	
+references	John Lyon	reference	Anagnostopoulou, E. (2003) “Participles and Voice,” in A. Alexiadou, M. Rathert, and A. von Stechow, eds., Perfect Explorations, Mouton de Gruyter.	
+references	John Lyon	reference	Alexiadou, A. & E. Anagnostopolou. (2004). Voice Morphology in the Causative–Inchoative Al ternation: Evidence for a Non-Unified Structural Analysis of Unaccusatives. In The unaccusativity puzzle. eds. A. Alexiadou, E. Anagnostopoulou, and M. Everaert, M. 114–136. Oxford University Press, Oxford.	
+references	John Lyon	name	Schäfer	a coauthor of Alexiadou et al. 2015, in the references
+references	John Lyon	reference	Alexiadou, A., Anagnostopolou, E. & F. Schäfer. (2015). External arguments in transitivity alternations: A layering approach. Oxford: Oxford University Press.	
+references	John Lyon	reference	Bach, E. (1986). The algebra of events. Linguistics and Philosophy 9(1): 5–16.	
+references	John Lyon	language	Skwxwú7mesh	Squamish, Bar-el 2005
+references	John Lyon	reference	Bar-el, L. (2005). Aspectual Distinction in Skwxwú7mesh. Ph.D. Dissertation. University of British Columbia: Vancouver, BC.	
+references	John Lyon	reference	Beavers, J. (2012). Lexical aspect and multiple incremental themes. In Telicity, Change, and State: A Cross-Categorial View of Event Structureeds. V. Demonte and L. McNalle.23–59. Oxford: Oxford University Press.	
+references	John Lyon	reference	Beavers, J. & A. Koontz-Garboden. (2012). Manner and result in the roots of verbal meaning. Linguistic Inquiry 43(3), 331–369.	
+references	John Lyon	reference	Beavers, J. & A. Koontz-Garboden. (2020). The roots of verbal meaning. Oxford: Oxford University Press.	
+references	John Lyon	reference	Beavers, J., M. Everdell, K. Jerro, H. Kauhanen, A. Koontz-Garboden, E. LeBovidge, & S. Nichols. (2021). States and changes of state: A crosslinguistic study of the roots of verbal meaning. Language 97:439–484.	
+references	John Lyon	reference	Biggs, A. & B. Lopes. (2024). The Syntax of Stative Participles in Brazilian Portuguese. Talk given at the Annual Canadian Linguistic Association Conference, Ottawa, ON.	
+references	John Lyon	reference	Burton, S. & L. Matthewson (2015). Targeted construction storyboards in semantic fieldwork. In Semantic fieldwork methodology, ed. by R. Bochnak and L. Matthewson. 135–156. Oxford: Oxford University Press.	
+references	John Lyon	reference	Cresswell, M. (1977). The semantics of degree. In B. Partee, ed., Montague Grammar, pages 261– 92. New York: Academic Press.	
+references	John Lyon	language	St’át’imcets	Northern Interior Salish, whose bare change-of-state roots the paper compares, Davis 2024
+references	John Lyon	reference	Davis, H. (in prep.). St’át’imcets Teaching Grammar. manuscript.	
+references	John Lyon	reference	Davis, H. (1997). Deep unaccusativity and zero syntax in St’át’imcets. In Theoretical Issues at the Morphology- Syntax Interface. eds.	
+references	John Lyon	reference	Mendikoetxea, A. and M. Uribe-Etxebarria. Bilbao: Supplements of the International Journal of Basque Linguistics and Philology. 55–96.	
+references	John Lyon	reference	Davis, H. (2011). Stalking the Adjective in St’át’imcets. Northwest Journal of Linguistics 5.2(1)– 60.	
+references	John Lyon	reference	Davis, H. (2024). Going Radical in Salish. In R. Autry, G. de la Cruz Sanchez, L.A. Irizzary Figueroa, K. Mijhailovic, T. Ni, R. Smith and H. Harley (eds.), Proceedings of the West Coast Conference on Formal Linguistics 39. Somerville, MD: Cascadilla Press, 303-312.	
+references	John Lyon	language	ʔayʔaǰúθəm	Comox-Sliammon, in the title of Davis et al. 2020
+references	John Lyon	reference	Davis, H. & H. Demirdache. (1997). On Lexical Verb Meanings: Evidence from Salish. In C. Tenny & J. Pustejovsky. Events as Grammatical Objects. The Converging Perspectives of Lexical Semantics and Syntax, Stanford, CSLI Publications: Stanford University Press, p.97-142 Davis, H., Huijsmans, M. & G. Mellesmoen. (2020). Statives in ʔayʔaǰúθəm and St’át’imcets. Preceedings of the 55th Annual International Conference on Salish and Neighbouring Languages. eds. D. K. E. Reisinger, H. Green, M. Huijsmans, G. Mellesmoen, and B. Trotter. 107-132.	
+references	John Lyon	reference	Dowty, D. (1979). Word Meaning and Montague Grammar: The Semantics of Verbs and Times in Generative Semantics and in Montague’s PTQ. Dordrecht: Reidel.	
+references	John Lyon	reference	Dunham, J. (2011). Imperfective, Nominalization (& Irrealis) in Okanagan. Presented at the Semantics of Under-represented Languages of the Americas (SULA) 6.	
+references	John Lyon	reference	Embick, D. (2004). On the structure of resultative participles in English. Linguistic Inquiry 35(3), 355–392.	
+references	John Lyon	reference	Embick, D. (2009). Roots, states, stative passives. Presented at the 2009 Roots Workshop, University of Stuttgart.	
+references	John Lyon	reference	Embick, D. (2023). Smaller syntax for English stative passives: A first report. Acta Linguistica Academica 70 (2023) 3, 285–316.	
+references	John Lyon	reference	First Peoples’ Cultural Council. (2022). The Report on the Status of B.C. First Nations Languages. Brentwood Bay, BC.	
+references	John Lyon	reference	Folli, R., Harley, H. (2005). Flavors of v. In: Kempchinsky, P., Slabakova, R. (eds) Aspectual Inquiries. Studies in Natural Language and Linguistic Theory, vol 62. Springer, Dordrecht. https://doi.org/10.1007/1-4020-3033-9_5 Hay, J., Kennedy, C., & B. Levin. (1999). Scalar Structure Underlies Telicity in “Degree Achievements”. In Mathews, T. and D. Strolovitch (eds.): 1999, SALT IX, CLC Publications, Ithaca, 127–144.	
+references	John Lyon	language	ʔayʔaǰuθəm	Comox-Sliammon, Huijsmans 2022
+references	John Lyon	reference	Huijsmans, M. (2022). Second-position clitics, from morphosyntax to semantics: The ʔayʔaǰuθəm (Comox-Sliammon) Perspective. PhD dissertation, University of British Columbia.	
+references	John Lyon	reference	Kennedy, C. (1999). Projecting the adjective: The syntax and semantics of gradability and comparison. New York: Garland. (1997 UCSC PhD thesis).	
+references	John Lyon	reference	Kennedy, C. & B. Levin (2008). Measure of Change: The Adjectival Core of Degree Achievements. In Adjectives and Adverbs: Syntax, Semantics and Discourse, Oxford University Press. eds.	
+references	John Lyon	reference	McNally, L. and C. Kennedy. 156-182.	
+references	John Lyon	reference	Kinkade, D. M. (1989). Inchoative in Columbian Salish. Working Papers for the 24th International Conference on Salish and Neighboring Languages. Steilacoom, WA. 114–119.	
+references	John Lyon	reference	Kinkade, D. M. (1996). Reconstructing Aspect in Salishan Languages. Precedings of the 31st Annual International Conference on Salish and Neighboring Languages.	
+references	John Lyon	reference	Kiyota, M. (2008). Situation aspect and viewpoint aspect: from Salish to Japanese. PhD dissertation, University of British Columbia.	
+references	John Lyon	reference	Kratzer, A. (1989). Stage-Level and Individual-Level Predicates. University of Massachusetts Occasional Papers in Linguistics 15(2), Article 10.	
+references	John Lyon	reference	Kratzer, A. (1994). The Event Argument and the Semantics of Voice. manuscript. UMass Amherst.	
+references	John Lyon	reference	Kratzer, A. (1998). More structural analogies between pronouns and tenses. In Proceedings of semantics and linguistic theory VIII, eds. Strolovitch Devon and Aaron Lawson, 92–110. Ithaca: Cornell University.	
+references	John Lyon	reference	Kratzer, A. (2000). Building statives. In Proceedings of the Twenty-Sixth Annual Meeting of the Berkeley Linguistics Society: General Session and Parasession on Aspect.eds. L.J. Conathan, J. Good, D. Kavitskaya, A.B. Wulf, and A.C.L. Yu. Berkeley, CA: Berkeley Linguistics Society, 385–399.	
+references	John Lyon	name	Wöllstein-Leisten	an editor of Event arguments, in Kratzer 2005
+references	John Lyon	place	Tübingen	the place of publication of Kratzer 2005
+references	John Lyon	reference	Kratzer, A. (2005). Building resultatives. In Event arguments: Functions and applications, eds. Claudia Maienborn and Wöllstein-Leisten, 177–212. Tübingen: Niemeyer.	
+references	John Lyon	reference	Krifka, M. (1998). The origins of telicity. In S. Rothstein, ed., Events and Grammar, pages 197– 235. Dordrecht: Kluwer.	
+references	John Lyon	reference	Kuipers, A. (1974). The Shuswap Language: Grammar, Texts, Dictionary. The Hague, Netherlands: Mouton.	
+references	John Lyon	reference	Lyon, J. (2023). Building Statives and Inchoatives in Nsyilxcn. In Precedings of the 58th Annual International Conference on Salish and Neighbouring Languages. eds. D. K. E. Reisinger, L. Griffin, G. Mellesmoen, S. Nederveen, J. Schillo, and B. Trotter. 230-290.	
+references	John Lyon	reference	Lyon, J. (2024). Continuative Aspect in Nsyilxcn: Bridging the Progressive and the Perfect. In Precedings of the 59th Annual International Conference on Salish and Neighbouring Languages. eds. D. K. E. Reisinger, L. Griffin, E. Hannon, G. Mellesmoen, S. Nederveen, B. Oliver, J. Schillo, L. Schneider, and B. Trotter. 223-299.	
+references	John Lyon	reference	Maienborn, C., Gese, H., and Stolterfoht, B. (2016). Adverbial modifiers in adjectival passives. Journal of Semantics, 33(2), 99–358.	
+references	John Lyon	reference	Marantz, A. (2009). Resultatives and re-resultatives: Direct objects may construct events by themselves. Talk handout, NYU.	
+references	John Lyon	reference	Mattina, A. (1989). (V)C2 Reduplication in Colville-Okanagan, with Historical Notes. Presented at the 24th Annual International Conference on Salish and Neighbouring Languages.	
+references	John Lyon	reference	Mattina, N. (1996). Aspect and category in Okanagan word formation. PhD dissertation, Simon Fraser University.	
+references	John Lyon	reference	McIntyre, A. (2015). Event modifiers in (German) adjectival participles: Remarks on Gehrke. Natural Language & Linguistic Theory, 33(3):939–953.	
+references	John Lyon	name	Calderón-Corona	an editor of the SULA 12 proceedings, in Nederveen 2023
+references	John Lyon	reference	Nederveen, S. (2023). Maximal and non-minimal change of state in Salish event structure. In Proceedings of the 12th Semantics of Underrepresented Languages of the Americas (SULA) Conference. eds M. Calderón-Corona, P. Kasyanova, and E. Neu.	
+references	John Lyon	reference	Parsons, T. (1990). Events in the Semantics of English. A Study in Subatomic Semantics. Cambridge, MA: MIT Press.	
+references	John Lyon	name	Piñon	Christopher Piñon, cited for the verbal positive, Piñon 2005
+references	John Lyon	reference	Piñon, C. (2005). Adverbs of completion in an event semantics. In Perspectives on aspect, ed. H. Verkuyl, H. de Swart, and A. van Hout, Studies in Theoretical Psycholinguistics, 149–166. Springer, Netherlands.	
+references	John Lyon	reference	Rappaport Hovav, M. & B. Levin. (2010). Reflections on manner/result complementarity. In E. Doron, M. Rappaport Hovav, and I. Sichel, eds., Syntax, Lexical Semantics, and Event Structure, pages 21–38. Oxford: Oxford University Press.	
+references	John Lyon	reference	Spathas, G. (2017). Results in the decomposition of verbal predicates: Evidence from additive operators. Talk given at The Building Blocks and Mortar of Meaning II, University of Tübingen, November 3–4.	
+references	John Lyon	reference	van Eijk, J. (1990). VC Reduplication in Salish. Anthropological Linguistics 32(3/4), 228–262. van Eijk, J. P. (1997). The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: UBC Press.	
+references	John Lyon	reference	Watkins, D. (1970). A description of the phonemes and position classes in the morphology of Head of the Lake Okanagan (Salish). PhD dissertation, University of Alberta.	
+title	John Lyon	title	Change-of-State in Nsyilxcn Roots and Beyond	the paper's title, which carries the star of footnote *
+title	John Lyon	name	John Lyon	the author, University of British Columbia – Okanagan
+footnote *	John Lyon	name	Delphine Derickson-Armstrong	of Westbank reserve, ɬk̓mxnalqs; footnote * spells her Derrickson-Armstrong, and DD in the speaker comments
+footnote *	John Lyon	name	Dave Michele	of Westbank reserve, c̓skʕáknaʔ; DM in the speaker comments, and Dave Michel in some tags
+footnote *	John Lyon	place	Westbank reserve	home of Delphine Derickson-Armstrong and Dave Michele
+footnote *	John Lyon	name	En’owkin Centre	a supporter of the work
+§1	John Lyon	language	Nsyilxcn	the language of the paper, a.k.a. Okanagan, ISO 639-3 oka, Southern Interior Salish
+§1	John Lyon	language	Okanagan	another name for Nsyilxcn

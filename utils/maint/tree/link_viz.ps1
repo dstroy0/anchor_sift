@@ -1,4 +1,4 @@
-# Points anchor_sift's examples/00_blob_viz_tools at this repository's view tools.
+# Points orior's examples/00_blob_viz_tools at this repository's view tools.
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","maint\tree\link_viz.ps1"
 #
@@ -15,8 +15,8 @@
 #
 # WHICH WAY THE LINK POINTS
 #
-# link_shared.ps1 runs the other direction: shared research paper and prose files live in anchor_sift and are
-# linked into here. This one is the reverse, because the viewers were written here and anchor_sift
+# link_shared.ps1 runs the other direction: shared research paper and prose files live in orior and are
+# linked into here. This one is the reverse, because the viewers were written here and orior
 # is the consumer. One directory link instead of a file each. A viewer added to view later
 # appears over there without anyone re-running this.
 #
@@ -36,11 +36,11 @@ $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
 $tools = Join-Path $root "tools"
-$anchor = Join-Path (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $root))) "anchor_sift"
+$anchor = Join-Path (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $root))) "orior"
 
 if (-not (Test-Path $anchor))
 {
-    Write-Error "anchor_sift not found at $anchor"
+    Write-Error "orior not found at $anchor"
     exit 1
 }
 

@@ -1,0 +1,969 @@
+where	who	kind	form	gloss
+front	Lisa Matthewson	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+front	Nɬeʔkepmxcín	cited form	keʔ	page 1
+front	Nɬeʔkepmxcín	cited form	n̓	page 1
+front	Nɬeʔkepmxcín	cited form	keʔ-contexts	page 1, keʔ-contexts, the hyphen at the line end
+front	Nɬeʔkepmxcín	cited form	n̓-contexts	page 1
+front	Lisa Matthewson	title	Two Types of Polar Question in Nɬeʔkepmxcín*	page 1
+front	Lisa Matthewson	byline	Lisa Matthewson, University of British Columbia	page 1
+front	Lisa Matthewson	note	Abstract: Nɬeʔkepmxcín (Northern Interior Salish) has two ways to form polar questions: a matrix predicate keʔ plus a nominalized subordinate clause, or a second-position clitic n̓. I show that the two strategies have different pragmatic properties. keʔ is used for neutral questions: typical keʔ- contexts are when the speaker is (or wishes to appear) completely unsure about the answer. n̓ is used when the speaker is not able to commit to a particular proposition p, but expects that the addressee will do so. Typical n̓-contexts are when the speaker has evidence that the addressee believes p. Nɬeʔkepmxcín sheds light on several theoretical debates about polar questions. It provides evidence that (i) both bipolar and monopolar questions exist; (ii) inquisitive and assertive declarative questions are not a unified phenomenon; (iii) there is no universal default mapping between declarative/interrogative syntax and assertion/questioning speech acts; (iv) alternative questions are not necessarily formed from monopolar bases.	page 1
+front	Lisa Matthewson	note	Keywords: Nɬeʔkepmxcín, Salish, polar questions, semantics, pragmatics, bias, fieldwork	page 1
+front	Lisa Matthewson	name	Lisa Matthewson	author, University of British Columbia
+§1	Lisa Matthewson	heading	1 Introduction	page 1
+§1.1	Lisa Matthewson	heading	1.1 Research question	page 1
+§1.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1.1	Nɬeʔkepmxcín	cited form	keʔ(-è)	page 1, the question predicate as Thompson and Thompson 1992 cite it, carries footnote 1, written here without its digit
+§1.1	Nɬeʔkepmxcín	cited form	keʔ	page 1
+§1.1	Nɬeʔkepmxcín	cited form	keʔe	page 1
+footnote *	Lisa Matthewson	note	* I am very grateful to Nɬeʔkepmxcín consultants Bev Phillips, kʷəłtèzetkʷuʔ (Bernice Garcia), and c̕úʔsinek (Marty Aspinall). kʷukʷsteyp! Bernice wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker, who is re-learning her language. She introduces herself thus:	page 1, footnote
+footnote *	Lisa Matthewson	name	Henry Davis	thanked for feedback and work on the language
+footnote *	Lisa Matthewson	name	Mandy Jimmie	thanked for putting the author in touch with the speakers and for supporting the 2022–2023 UBC Field Methods class
+footnote *	Lisa Matthewson	name	Marty Aspinall	a Nɬeʔkepmxcín consultant (CMA), c̕úʔsinek
+footnote *	Lisa Matthewson	name	Bernice Garcia	a Nɬeʔkepmxcín consultant (KBG), kʷəłtèzetkʷuʔ, a Kamloops Indian Residential School speaker re-learning her language
+footnote *	Lisa Matthewson	name	Bev Phillips	a Nɬeʔkepmxcín consultant (BP)
+footnote *	Bernice Garcia	running speech	ʔes ʔúməcms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scweʷw̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔkepmx e tmixʷs.	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.’	page 1, footnote, her introduction in English
+footnote *	Lisa Matthewson	note	I am also very grateful to Mandy Jimmie for putting me in touch with the Nɬeʔkepmxcín speakers and for supporting the 2022–2023 UBC Field Methods class. For feedback and for their work on the language, many thanks to the students in the Field Methods class, the Nɬab, the Secwepemctsín Working Group, the Salish Working Group, the UBC Q-lab, and especially Henry Davis. Thanks also to the editors of this volume for their eagle eyes. This research is supported by the UBC Department of Linguistics and by SSHRC Insight Grant #435-2021-0900. Contact info: lisa.matthewson@ubc.ca	page 1, footnote
+footnote *	Lisa Matthewson	name	kʷəłtèzetkʷuʔ	page 1, Bernice Garcia's Nɬeʔkepmxcín name
+footnote *	Lisa Matthewson	name	c̕úʔsinek	page 1, Marty Aspinall's Nɬeʔkepmxcín name
+footnote *	Nɬeʔkepmxcín	cited form	kʷukʷsteyp	page 1, the author's thanks to the consultants
+footnote *	Lisa Matthewson	name	Nlaka’pamux	page 1, the Nlaka’pamux lands of Bernice Garcia's home
+footnote *	Lisa Matthewson	name	Nɬab	page 1, the Nɬeʔkepmxcín lab the author thanks
+footnote *	Lisa Matthewson	language	Secwepemctsín	Secwepemctsín, a Northern Interior Salish language, in the Secwepemctsín Working Group the author thanks
+footnote 1	Lisa Matthewson	note	1 T&T (1992:166) call keʔ an interrogative indefinite, and state that it means ‘which, whichever, whatever’ as well as ‘is it (that) …?’. T&T do not give examples of keʔ in its use as a wh-word, and I have not yet been able to elicit it in its ‘which’ meaning. Here I focus exclusively on its use in polar questions.	page 1, footnote
+footnote 2	Lisa Matthewson	note	2 In data taken from prior literature, glosses have sometimes been added or adjusted. Glosses not found in the Leipzig Glossing Rules are: ADD: additive; AUG: augmentative; AUT: autonomous; CHAR: characteristic	page 1, footnote
+§1.1	Lisa Matthewson	note	In Nɬeʔkepmxcín (a.k.a. Thompson River Salish; ISO 639-3: thp), polar questions can be formed in two ways. The first involves an intransitive predicate, cited by Thompson and Thompson (1992; henceforth T&T 1992) as keʔ(-è).1 I will cite this element as keʔ for convenience, although it does often show up, especially in the Coldwater dialect, as keʔe. keʔ takes as complement a nominalized subordinate clause introduced by the ‘unrealized’ determiner/complementizer k. Examples are given in (1) and (2).2	page 1
+(1) line 1	Nɬeʔkepmxcín	segmentation	kéʔe k=eʔ=s=xʷuy̓ nés?	page 2, engine language
+(1) line 2	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=PROSP go	page 2, engine english
+(1) line 3	T&T 1992:166	translation	‘Will you go?’	page 2, engine residue, cited T&T 1992:166
+(1) line 3	Lisa Matthewson	citation	(T&T 1992:166)	the tag or source at the right of the translation
+(2) line 1	Nɬeʔkepmxcín	segmentation	keʔ k=s=wik-t-Ø-xʷ u cíʔ e helew̓?	page 2, engine language
+(2) line 2	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=see-TR-3OBJ-2SG.ERG to there DET eagle	page 2, engine english
+(2) line 3	Koch 2008:285	translation	‘Do you see the eagle over there?’	page 2, engine english, cited Koch 2008:285
+(2) line 3	Lisa Matthewson	citation	(Koch 2008:285)	the tag or source at the right of the translation
+§1.1	Nɬeʔkepmxcín	cited form	n̓	page 2
+§1.1	Lisa Matthewson	note	The second strategy involves a second-position enclitic n̓, as illustrated in (3) and (4). A two- sentence string containing an example of each strategy is shown in (5).	page 2
+(3) line 1	Nɬeʔkepmxcín	segmentation	qʷnóx̣ʷ=kʷ=n̓?	page 2, engine language
+(3) line 2	Nɬeʔkepmxcín	gloss	sick=2SG.SBJ=Q	page 2, engine english
+(3) line 3	T&T 1992:24	translation	‘Are you ill?’	page 2, engine residue, cited T&T 1992:24
+(3) line 3	Lisa Matthewson	citation	(T&T 1992:24)	the tag or source at the right of the translation
+(4) line 1	Nɬeʔkepmxcín	segmentation	c̓e=n̓ xéʔe k=eʔ-n-tíy-tn?	page 2, engine language
+(4) line 2	Nɬeʔkepmxcín	gloss	CLEFT=Q DEM DET=2SG.POSS-NMLZ-tea-INS	page 2, engine english
+(4) line 3	T&T 1992:163	translation	‘Is that your teapot?’x (T&T 1992:163)	page 2, engine english, cited T&T 1992:163
+(5) line 1	Nɬeʔkepmxcín	segmentation	kéʔ k=s=y̓é=s ƛ̓uʔ ɬ=eʔ-sqáqx̣a ɬ=Hermann?	page 2, engine language
+(5) line 2	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good=3POSS EXCL DET=2SG.POSS-dog DET=Hermann	page 2, engine english
+(5) line 3	Nɬeʔkepmxcín	segmentation	Tem=n̓ k=s-piʔ-íp=s?	page 2, engine language
+(5) line 4	Nɬeʔkepmxcín	gloss	lack=Q D/C=NMLZ=lose-OOC=3POSS	page 2, engine english
+(5) line 5	Koch 2008:272	translation	‘Is your dog Hermann still ok? He didn’t get lost?’	page 2, engine english, cited Koch 2008:272
+(5) line 5	Lisa Matthewson	citation	(Koch 2008:272)	the tag or source at the right of the translation
+§1.1	Lisa Matthewson	note	The semantic and pragmatic differences between these two strategies for forming positive polar questions have not previously been investigated.	page 2
+§1.1	Nɬeʔkepmxcín	cited form	keʔ-questions	page 2
+§1.1	Nɬeʔkepmxcín	cited form	n̓-questions	page 2
+§1.1	Nɬeʔkepmxcín	cited affix	n̓-	page 2
+§1.1	Lisa Matthewson	note	The primary goals of this paper are to establish the discourse conditions on each type of polar question, and to provide an analysis that derives the facts. Once that is done, we will also be able to shed light on some current debates about the semantic and pragmatic analysis of polar questions. In the rest of the introduction, I provide language background, theoretical background, and information about methodology. In Section 2 I provide basic syntactic information about polar questions in Nɬeʔkepmxcín. Section 3 lays out my hypothesis and its predictions. I propose that keʔ-questions present a set of two alternative answers to the addressee (in other words, they are ‘bipolar’), while n̓-questions present only one proposition to the addressee (they are ‘monopolar’). This proposal predicts that in fully neutral discourse contexts, keʔ is the preferred option. For n̓- questions, I adopt Rudin’s (2018, 2022) analysis of English declarative questions. This analysis predicts that n̓-questions are the preferred option whenever the speaker is not able to commit to the presented proposition p, but has reason to believe that the addressee is able to commit to p. reduplication; CMPL: completed; COUNTER: counter to expectation; CTR: control; EMPH: emphatic; EXCL: exclusive; FMV: formative; IMM: immediate; INC: inchoative; IND: indirective applicative; INH: inherent; LC: limited control; OOC: out of control; RPRT: reportative; TAG: tag question particle. There is no consistent system for marking stress in Nɬeʔkepmxcín. In data I have collected, I have chosen to mark stress only on words with more than one syllable (where ‘words’ is construed to also include any clitics that might have attached to a root). Material that is grammatically there but not pronounced is enclosed in square brackets.	page 2
+§1.1	Lisa Matthewson	note	Section 4 is the main data section; it presents evidence that the predictions of the hypothesis are confirmed. In Section 5, I present my analysis in more detail and discuss how the Nɬeʔkepmxcín data relate to several theoretical debates. One debated issue is whether polar questions are all bipolar, all monopolar, or can be both; I argue that polar questions can be either bipolar or monopolar, and that Nɬeʔkepmxcín morphosyntactically encodes the difference. A second issue is whether inquisitive and assertive declarative questions are different phenomena or can be unified. I argue that inquisitive and assertive declarative questions are not the same thing, and only the former are marked with n̓ in Nɬeʔkepmxcín. Thirdly, I argue that Nɬeʔkepmxcín speaks against the prevailing view that there is a default mapping between declarative syntax and assertion, on the one hand, and between interrogative syntax and questioning, on the other. This belief has led to proposals that declarative questions are non-default and as such are subject to additional pragmatic constraints. In Nɬeʔkepmxcín, there is no evidence that either form of polar question is more closely related to an interrogative syntax. Finally, in Nɬeʔkepmxcín ‘or not’ questions can only be formed from bipolar bases, contrary to what has been argued for English by Biezma and Rawlins (2012) and Krifka (2021a,b).	page 3
+§1.2	Lisa Matthewson	heading	1.2 Language background	page 3
+§1.2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1.2	Lisa Matthewson	note	Nɬeʔkepmxcín is a Northern Interior Salish language, spoken along the Fraser Canyon and the Nicola and Thompson Rivers in British Columbia, Canada. The language comprises several dialects; the Spuzzum and Lytton dialects are the most well-documented, with the Nicola Valley dialect less well-studied. According to Gessner et al. (2022), the language had approximately 105 fluent speakers in 2022.	page 3
+§1.2	Nɬeʔkepmxcín	cited form	kʷəłtèzetkʷuʔ	page 3
+§1.2	Lisa Matthewson	note	For this research I worked with two speakers of Nɬeʔkepmxcín: Bev Phillips, who is from Lytton, and kʷəłtèzetkʷuʔ (Bernice Garcia), who is from Coldwater and speaks the Nicola Valley dialect. As the two consultants speak different dialects, I will sometimes give two versions of the same sentence so that both variants are represented. Unless otherwise noted, the two speakers’ judgments agree on all the core generalizations presented here.	page 3
+§1.2	Lisa Matthewson	note	Data are presented in a North American Phonetic Alphabet orthography, used in Thompson and Thompson’s 1992 grammar and 1996 dictionary, and in Jimmie (1994). This is one of the orthographies used by community members,3 but there are other writing systems in use as well.	page 3
+§1.3	Lisa Matthewson	heading	1.3 Theoretical background	page 3
+§1.3	Lisa Matthewson	note	A classical analysis of polar questions says that they denote the set of their possible answers. Thus, for Hamblin (1973), the question Is it raining? denotes the set of propositions {it is raining, it is not raining}. This idea immediately raises puzzles, however, since in many languages there are multiple different ways of constructing a polar question. Some examples from English are given in (6).4	page 3
+footnote 3	Lisa Matthewson	note	3 See https://www.firstvoices.com/explore/FV/sections/Data/.	page 3, footnote
+footnote 4	Lisa Matthewson	note	4 Rising declaratives and verum questions may also contain (high or low) negation, further adding to the range of possibilities.	page 3, footnote
+(6a) line 1	English	transcription	Is it raining?	page 3, English, positive Q
+(6b) line 1	English	transcription	Isn’t it raining?	page 3, English, high negative Q
+(6c) line 1	English	transcription	Is it not raining?	page 3, English, low negative Q
+(6d) line 1	English	transcription	It’s raining?	page 3, English, declarative Q
+(6e) line 1	English	transcription	IS it raining?	page 3, English, verum Q
+(6f) line 1	English	transcription	It’s raining, isn’t it?	page 3, English, reverse-polarity tag
+(6g) line 1	English	transcription	It’s raining, is it?	page 3, English, same-polarity tag
+§1.3	Lisa Matthewson	note	The questions in (6)a–g) are all in some sense designed to find out whether it is raining, and all can receive similar answers, such as Yes, it’s raining or No, it’s not raining. Under a classical analysis, therefore, they all have the same semantics: {it is raining, it is not raining}. The puzzle is that the questions in (6)a–g) each convey slightly different pragmatic meanings, and are felicitous in a different subset of discourse contexts.	page 3
+§1.3	Lisa Matthewson	note	A couple of examples of different contexts for polar questions are given in (7) and (8). In (7), the speaker had no prior epistemic bias (i.e., no prior beliefs) about the truth of the prejacent proposition, but is faced at the utterance time with positive evidence for it. The only appropriate forms of the polar question are a positive question (7), a declarative question (7), or a same-polarity tag (7). (The symbol # indicates unacceptability in the context.)	page 4
+(7) line 1	Lisa Matthewson	note	Context: A is in a windowless room, with no idea what the weather is like outside. B enters the room wearing a dripping wet raincoat. A asks:	page 4, the caption
+(7a) line 1	English	transcription	Is it raining?	page 4, English
+(7b) line 1	English	transcription	# Isn’t it raining?	page 4, English
+(7c) line 1	English	transcription	# Is it not raining?	page 4, English
+(7d) line 1	English	transcription	It’s raining?	page 4, English
+(7e) line 1	English	transcription	# IS it raining?	page 4, English
+(7f) line 1	English	transcription	# It’s raining, isn’t it?	page 4, English
+(7g) line 1	English	transcription	It’s raining, is it? (adapted from Gunlogson 2008)	page 4, English
+§1.3	Lisa Matthewson	note	In contrast, in (8), the speaker had a prior epistemic bias towards the positive answer (that there is a Chinese restaurant nearby), and receives no further evidence at the utterance time. The most felicitous ways to ask the question are with high negation (8), or a reverse-polarity tag (8). The plain positive question (8) is possible, but not preferred.	page 4
+(8) line 1	Lisa Matthewson	note	Context: A thinks there is a Chinese restaurant nearby. B says, “You wanna go get something to eat?” and A replies:	page 4, the caption
+(8a) line 1	English	transcription	? Is there a Chinese restaurant around here?	page 4, English
+(8b) line 1	English	transcription	Isn’t there a Chinese restaurant around here?	page 4, English
+(8c) line 1	English	transcription	# Is there not a Chinese restaurant around here?	page 4, English
+(8d) line 1	English	transcription	# There’s a Chinese restaurant around here?	page 4, English
+(8e) line 1	English	transcription	# IS there a Chinese restaurant around here?	page 4, English
+(8f) line 1	English	transcription	There’s a Chinese restaurant around here, isn’t there?	page 4, English
+(8g) line 1	English	transcription	# There’s a Chinese restaurant around here, is there? (adapted from Ladd 1981)	page 4, English
+§1.3	Lisa Matthewson	note	In this paper my main focus is positive polar questions, although for completeness I will give some negative question data in Section 6.	page 4
+footnote 5	Lisa Matthewson	note	5 The intended intonation of (7f) is with a final rise. There is another construction again, with falling intonation on the tag, which is acceptable in this context.	page 4, footnote
+§1.3	Lisa Matthewson	note	Even sticking to positive questions and excluding verum questions and tag questions, there are interesting analytical issues. Compare the situation in (7) (where the speaker had a neutral prior epistemic stance, but receives positive contextual evidence that it is raining) with that in (9), which has neutral epistemic bias and also neutral (i.e., no) contextual evidence.6 In (9), the declarative question is no longer appropriate and the only real option is a plain positive question.	page 4
+(9) line 1	Lisa Matthewson	note	Context: Mary calls her friend Bob who lives far away. After saying “hi”, she asks, “What’s the weather like over there? …”:	page 5, the caption
+(9a) line 1	English	transcription	Is it raining?	page 5, English
+(9b) line 1	English	transcription	# Isn’t it raining?	page 5, English
+(9c) line 1	English	transcription	# Is it not raining?	page 5, English
+(9d) line 1	English	transcription	# It’s raining?	page 5, English
+(9e) line 1	English	transcription	# IS it raining?	page 5, English
+(9f) line 1	English	transcription	# It’s raining, isn’t it?	page 5, English
+(9g) line 1	English	transcription	# It’s raining, is it? (adapted from Büring & Gunlogson 2000)	page 5, English
+§1.3	Lisa Matthewson	note	The puzzles raised by data such as in (7) to (9) have led to much debate; examples of relevant works include Bolinger (1978), Ladd (1981), Han (1998, 1999), Beun (2000), Büring and Gunlogson (2000), Hsieh (2001), Huddleston and Pullum (2002), Gunlogson (2003, 2008), van Rooy and Šafářová (2003), Romero and Han (2004), Šafářová (2005), Beyssade and Marandin (2006), Romero (2006, 2020), Asher and Reese (2007), Reese (2007), Poschmann (2008), Aihara (2009), Reese and Asher (2010), Roelofsen and van Gool (2010), AnderBois (2011, 2019), Biezma and Rawlins (2012), Roelofsen et al. (2012), Repp (2013), Sudo (2013), Yuan and Hara (2013), Trinh (2014), Ito (2015), Krifka (2015, 2017, 2021a, 2021b), Malamud and Stephenson (2015), Roelofsen and Farkas (2015), Domaneschi et al. (2017), Farkas and Roelofsen (2017), Gärtner and Gyuris (2017), Gyuris (2017), Westera (2017), Xu (2017, 2018), Jeong (2018), Rudin (2018, 2022), Frana and Rawlins (2019), Bhatt and Dayal (2020), Silk (2020), Ciardelli (2021), Giannakidou and Mari (2021), Goodhue (2018, 2019, 2021, 2022), Liu et al. (2021), Woods and Roeper (2021), Bill and Koev (2022), Larrivée and Mari (2022), among others.	page 5
+§1.3	Lisa Matthewson	note	One point of debate concerns whether or not polar questions always denote their two possible answers (as they do in the classical Hamblin approach where they denote the set {p, ¬p}, or in Inquisitive Semantics, where polar questions denote bipolar sets of information states). In a series of recent papers, Krifka (2015, 2017, 2021a,b) has defended the idea that at least some polar questions are monopolar, in that they present only one proposition to the addressee, requesting the addressee to confirm that proposition. Other authors have even proposed that all polar questions are monopolar; see for example Gunlogson (2003:37), Roberts (2012:10), and Biezma and Rawlins (2012). Biezma and Rawlins write that “there is no alternative-introducing item in polar questions” (2012:395), and that all polar questions “denote just a single Hamblin alternative” (2012:366). In Biezma and Rawlins’ analysis, the question operator in a polar question simply adds a presupposition that the proposition in the singleton set is one of the salient alternatives in the context.	page 5
+footnote 6	Lisa Matthewson	note	6 Büring and Gunlogson (2000:7) define ‘contextual evidence’ as ‘Evidence that has just become available to the participants in the current discourse situation.’	page 5, footnote
+footnote 7	Lisa Matthewson	note	7 Within Inquisitive Semantics, the concept of ‘highlighting’ is used to reflect the fact that one of the alternative propositions can be more prominent in a polar question; see for example Roelofsen and van Gool	page 5, footnote
+§1.3	Lisa Matthewson	note	We thus see that there are (at least) three possible positions with respect to the semantic denotation of polar questions: (i) they are all bipolar (as in Ciardelli 2021, among others);7 (ii) they (2009), Farkas and Roelofsen (2017), among others.	page 5
+§1.3	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1.3	Lisa Matthewson	note	are all monopolar (Biezma & Rawlins 2012, among others); or (iii) they can be either bipolar or monopolar (Krifka 2015, 2017, among others). In this paper I will argue for the third option, based on evidence from Nɬeʔkepmxcín.	page 6
+§1.3	Lisa Matthewson	note	Beyond the question of bipolarity vs. monopolarity, there are details to be settled about the precise pragmatic effect of monopolar questions; see for example discussion of English declarative questions in Gunlogson (2003, 2008), Malamud and Stephenson (2015), Jeong (2018), Rudin (2018, 2022), Goodhue (2021), among others. I will return to these matters in Section 5.	page 6
+§1.4	Lisa Matthewson	heading	1.4 Methodology	page 6
+§1.4	Nɬeʔkepmxcín	cited form	ƛ̓əq̓əmcín	page 6, Lytton, a place
+§1.4	Nɬeʔkepmxcín	cited form	kʷəłtèzetkʷuʔ	page 6
+§1.4	Nɬeʔkepmxcín	cited form	c̓əɬétkʷu	page 6, Coldwater, a place
+§1.4	Lisa Matthewson	note	The data presented here result from the author’s fieldwork with two speakers: Bev Phillips, from ƛ̓əq̓əmcín (Lytton; Lytton dialect), and kʷəłtèzetkʷuʔ (Bernice Garcia), from c̓əɬétkʷu (Coldwater; Nicola Valley dialect).	page 6
+§1.4	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1.4	Lisa Matthewson	note	The two main data collection methodologies used were translation tasks and acceptability judgment tasks (Matthewson 2004, among others). Translation tasks involve a consultant being asked to produce a Nɬeʔkepmxcín utterance after hearing and/or seeing a specific discourse context paired with an English utterance. The discourse contexts are presented either verbally, or via connected strings of pictures, also known as storyboards (Burton & Matthewson 2015). An example of a storyboard-based translation task is given in Figure 1. The consultant views the pictures (while the researcher reads any text in the pictures), and then produces a translation of the final utterance. Figure 1: Storyboard for neutral epistemic bias, positive contextual evidence This is a slightly different way of working with storyboards than was originally proposed by Burton and Matthewson (2015), whose method involves the consultant telling the whole story in their own words, with typically no written text in the pictures. Common to both methods is the fact that the storyboards are designed to elicit specific linguistic phenomena and to test specific linguistic hypotheses; they thus differ from all-purpose narrative-eliciting techniques such as the Pear Stories (Chafe 1980) or Frog Stories (Berman & Slobin 1994).	page 6
+§1.4	Lisa Matthewson	note	Acceptability judgment tasks involve the consultant evaluating a Nɬeʔkepmxcín utterance in a specific discourse context, which is again presented either verbally or with the help of pictures. Consultants were not given a strict response scale, but simply responded about whether the sentence sounded acceptable in the context. See Matthewson (2004), the papers in Bochnak and Matthewson (2015), and Tonhauser and Matthewson (2016), among others, for further details of these methodologies.	page 7
+§1.4	Lisa Matthewson	note	It is important to note that the distinction I will be discussing — between two different ways of expressing a polar question in Nɬeʔkepmxcín — is both subtle and extremely discourse- dependent. We can see this in English too, where there is only a slight difference between Is it raining? and It’s raining?, in a context where one’s addressee has just walked in wearing wet raingear. And even in a context which strongly favours a negative question such as (8) above, the positive question may be accepted by some speakers.	page 7
+§1.4	Lisa Matthewson	note	For languages with large numbers of speakers, these issues can be somewhat alleviated by conducting experiments with large numbers of participants. This method allows researchers to establish overall preferences between different question forms; see for example Roelofsen et al. (2012), Domaneschi et al. (2017) for English, or Liu et al. (2021) for German. In the current context, a large-scale experimental methodology is not possible. Instead, I will present information about which forms were volunteered by consultants, as opposed to merely accepted. This will stand as a proxy for which form they prefer. I will also report on negative judgments where these arose, and I will give consultants’ comments wherever they are relevant to elucidating the meaning of the questions or the contexts they are felicitous in.	page 7
+§2	Lisa Matthewson	heading	2 Basic structure of Nɬeʔkepmxcín polar questions	page 7
+§2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§2	Nɬeʔkepmxcín	cited form	keʔ	page 7
+§2	Nɬeʔkepmxcín	cited form	n̓	page 7
+§2	Lisa Matthewson	note	As mentioned in Section 1.1, matrix polar questions in Nɬeʔkepmxcín may involve either the keʔ strategy or the n̓ strategy. keʔ is an intransitive predicate that takes a subordinate nominalized clause (see (1) and (2)) while n̓ is a second-position clitic (see (3) and (4)). T&T gloss keʔ as ‘is.it.that’, while Koch (2008) glosses it as ‘is.it.case’. I will gloss both keʔ and n̓ as ‘Q’. The enclitic n̓ and the predicate keʔ can co-occur, although this is not often volunteered. Their co-occurrence is illustrated in (10) and (11).8	page 7
+(10) line 1	Nɬeʔkepmxcín	transcription	keʔ n̓ ks ʕʷəsʕʷə́ sts?	page 7, engine language
+(10) line 2	Nɬeʔkepmxcín	segmentation	keʔ=n̓ k=s=ʕʷəs~ʕʷə́s-t=s	page 7, engine language
+(10) line 3	Nɬeʔkepmxcín	gloss	Q=Q D/C=NMLZ=AUG~sunshine-IMM=3POSS	page 7, engine english
+(10) line 4	Bev Phillips	translation	‘It is sunny?’	page 7, engine english
+(10) line 4	Lisa Matthewson	citation	(BP; volunteered without n̓; accepted with it)	the tag or source at the right of the translation
+footnote 8	Lisa Matthewson	note	8 In all data I have elicited, I provide a four-line presentation, where the first line does not include morpheme breaks.	page 7, footnote
+(11) line 1	Nɬeʔkepmxcín	transcription	keʔ n̓ ks xʷtəpstéxʷ ʔe school?	page 8, engine language
+(11) line 2	Nɬeʔkepmxcín	segmentation	keʔ=n̓ k=s=xʷtəp-s-t-éxʷ ʔe=school	page 8, engine language
+(11) line 3	Nɬeʔkepmxcín	gloss	Q=Q D/C=NMLZ=finish-CAUS-TR-2SG.ERG DET=school	page 8, engine english
+(11) line 4	Bev Phillips	translation	‘Have you finished school?’	page 8, engine english
+(11) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+§2	Lisa Matthewson	note	One of my consultants disprefers the keʔ n̓ combination, although she has on occasion accepted it. When asked to judge (12), on one occasion this consultant frowned slightly and said “Yeah, that’s one way”, and on another occasion said “Yeah, I’d understand you”, but indicated that she would not normally say it like that. It is possible that I have simply not yet established the appropriate discourse contexts for the keʔ n̓ combination, so future research is required here.	page 8
+(12) line 1	Nɬeʔkepmxcín	transcription	? keʔ n̓ ks tekɬs?	page 8, engine language
+(12) line 2	Nɬeʔkepmxcín	segmentation	? keʔ=n̓ k=s=tekɬ=s	page 8, engine language
+(12) line 3	Nɬeʔkepmxcín	gloss	Q=Q D/C=NMLZ=rain=3POSS	page 8, engine english
+(12) line 4	Bernice Garcia	translation	‘Is it raining?’	page 8, engine english
+(12) line 4	Lisa Matthewson	citation	(KBG)	the tag or source at the right of the translation
+§2	Nɬeʔkepmxcín	cited form	ʔe	page 8
+§2	Lisa Matthewson	note	I will not be analyzing embedded questions in this paper, but for completeness I briefly show how they are formed. According to Kroeber (1997), embedded questions are introduced by the ‘hypothetical’ complementizer ʔe and contain subjunctive marking, as in (13). For my consultants also, subjunctive marking is obligatory in an embedded question, and the ʔe complementizer is usually present. It may be dropped, but I assume this is phonological elision, since the subjunctive marking is licensed by the presence of this complementizer. Examples are given in (14) and (15).	page 8
+(13) line 1	Nɬeʔkepmxcín	segmentation	sew-e-cm-s [ʔe=xʷuy̓=wn nes].	page 8, engine language
+(13) line 2	Nɬeʔkepmxcín	gloss	ask-TR-1SG.OBJ-3ERG [COMP=PROSP=1SG.SBJV go]	page 8, engine english
+(13) line 3	Kroeber 1997:383	translation	‘He asked me if I was going to go.’	page 8, engine english, cited Kroeber 1997:383
+(13) line 3	Lisa Matthewson	citation	(Kroeber 1997:383)	the tag or source at the right of the translation
+(14) line 1	Lisa Matthewson	note	Context: The phone rings and I have a quick conversation with the person. It was my friend Mary who is coming to visit from a neighbouring town. You ask me, “What did Mary want?” and I say:	page 8, engine english
+(14) line 2	Nɬeʔkepmxcín	transcription	ʔex séwecms ʔe tékɬ us nʔéye.	page 8, engine language
+(14) line 3	Nɬeʔkepmxcín	segmentation	ʔex séw-e-cm-s [ʔe=tékɬ=us nʔéye]	page 8, engine language
+(14) line 4	Nɬeʔkepmxcín	gloss	IPFV ask-TR-1SG.OBJ-3ERG [COMP=rain=3SBJV DEM]	page 8, engine english
+(14) line 5	Bev Phillips	translation	‘She asked me whether it was raining here.’	page 8, engine english
+(14) line 5	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(15) line 1	Lisa Matthewson	note	Context: You are supposed to work with Aaditya and he doesn’t show up. So you text me and ask if he is coming. I don’t know whether he’s coming, but I’m sure that Samir knows. I reply:	page 8, engine english
+(15) line 2	Nɬeʔkepmxcín	transcription	x̣əkstés ɬ Samir (ʔe) xʷúy̓ us móqʷix.	page 8, engine language
+(15) line 3	Nɬeʔkepmxcín	segmentation	x̣ək-s-t-és ɬ=Samir [(ʔe=)xʷúy̓=us móqʷ-ix]	page 8, engine language
+(15) line 4	Nɬeʔkepmxcín	gloss	know-CAUS-TR-3ERG DET=Samir [(COMP=)PROSP=3SBJV gather-AUT]	page 8, engine english
+(15) line 5	Bev Phillips	translation	‘Samir knows if he’s coming.’	page 8, engine english
+(15) line 5	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+§2	Lisa Matthewson	note	In addition to the hypothetical ʔe complementizer plus subjunctive, it is possible to have the question predicate keʔ in an embedded question, as shown in (16) and (17) (one from each speaker). This is occasionally volunteered, and usually accepted when offered.	page 8
+(16) line 1	Lisa Matthewson	note	Context: As in (14).	page 9, engine english
+(16) line 2	Nɬeʔkepmxcín	transcription	ʔex sewɬn ʔe kéʔ us ks tekɬs nʔéye.	page 9, engine language
+(16) line 3	Nɬeʔkepmxcín	segmentation	ʔex sewɬn [ʔe=kéʔ=us k=s=tekɬ=s nʔéye]	page 9, engine language
+(16) line 4	Nɬeʔkepmxcín	gloss	IPFV ask [COMP=Q=3SBJV D/C=NMLZ=rain=3POSS DEM]	page 9, engine english
+(16) line 5	Bev Phillips	translation	‘She asked if it is raining here.’	page 9, engine english
+(16) line 5	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(17) line 1	Lisa Matthewson	note	Context: As in (15).	page 9, engine english
+(17) line 2	Nɬeʔkepmxcín	transcription	x̣əkstés ɬ Samir ʔe kéʔ us ks xʷuy̓s móq̓ʷix.	page 9, engine language
+(17) line 3	Nɬeʔkepmxcín	segmentation	x̣ək-s-t-és ɬ=Samir [ʔe=kéʔ=us k=s=xʷuy̓=s móq̓ʷ-ix]	page 9, engine language
+(17) line 4	Nɬeʔkepmxcín	gloss	know-CAUS-TR-3ERG DET=Samir [COMP=Q=3SBJV D/C=NMLZ=PROSP=3POSS gather-AUT]	page 9, engine english
+(17) line 5	Bev Phillips	translation	‘Samir knows if he’s coming.’	page 9, engine english
+(17) line 5	Lisa Matthewson	citation	(BP; volunteered after prompting to use keʔ)	the tag or source at the right of the translation
+§2	Lisa Matthewson	note	The enclitic n̓ is only marginally possible inside an embedded question. It has not been volunteered in data so far collected. When I offer n̓ inside an embedded question to the consultants, it is sometimes accepted, sometimes judged as marginal, and sometimes outright rejected. In (18) we see a range of reactions to the presence of n̓, and in (19) we see that n̓ was accepted under a positive matrix predicate but rejected under a negative one. Whether this is significant or a coincidence must be the subject of future research.	page 9
+(18) line 1	Lisa Matthewson	note	Context: As in (14).	page 9, engine english
+(18a) line 1	Nɬeʔkepmxcín	transcription	ʔex séwecms ʔe tékɬ us n̓ nʔéye.	page 9, engine language
+(18a) line 2	Nɬeʔkepmxcín	segmentation	ʔex séw-e-cm-s [ʔe=tékɬ=us=n̓ nʔéye]	page 9, engine language
+(18a) line 3	Nɬeʔkepmxcín	gloss	IPFV ask-TR-1SG.OBJ-3ERG [COMP=rain=3SBJV=Q DEM]	page 9, engine english
+(18a) line 4	Bernice Garcia	translation	‘She asked me if it is raining.’	page 9, engine english
+(18a) line 4	Lisa Matthewson	citation	(KBG)	the tag or source at the right of the translation
+(18b) line 1	Nɬeʔkepmxcín	transcription	? sewɬn ɬ Mary ʔe tékɬ us n̓.	page 9, engine language
+(18b) line 2	Nɬeʔkepmxcín	segmentation	? sewɬn ɬ=Mary [ʔe=tékɬ=us=n̓]	page 9, engine language
+(18b) line 3	Nɬeʔkepmxcín	gloss	ask DET=Mary [COMP=rain=3SBJV=Q]	page 9, engine english
+(18b) line 4	Bev Phillips	translation	‘Mary asked if it is raining.’	page 9, engine english
+(18b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+(18b) line 5	Bev Phillips	speaker comment	Consultant’s comment: “It sounds correct … I don’t know, not sure. I think it’s correct.”	page 9, engine english
+(18c) line 1	Nɬeʔkepmxcín	transcription	? ʔex sewɬn ɬ Mary ʔe tékɬ us n̓.	page 9, engine language
+(18c) line 2	Nɬeʔkepmxcín	segmentation	? ʔex sewɬn ɬ=Mary [ʔe=tékɬ=us=n̓]	page 9, engine language
+(18c) line 3	Nɬeʔkepmxcín	gloss	IPFV ask DET=Mary [COMP=rain=3SBJV=Q]	page 9, engine english
+(18c) line 4	Bev Phillips	translation	‘Mary asked if it is raining.’	page 9, engine english
+(18c) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+(18c) line 5	Bev Phillips	speaker comment	Consultant’s comment: “I think it’s ok. I don’t know though. It’s another way to say it.”	page 9, engine english
+(19) line 1	Lisa Matthewson	note	Context: as in (15).	page 9, engine english
+(19a) line 1	Nɬeʔkepmxcín	transcription	x̣əkstés ɬ Samir ʔe xʷúy̓ us n̓ moq̓ʷix.	page 9, engine language
+(19a) line 2	Nɬeʔkepmxcín	segmentation	x̣ək-s-t-és ɬ=Samir [ʔe=xʷúy̓=us=n̓ móq̓ʷ-ix]	page 9, engine language
+(19a) line 3	Nɬeʔkepmxcín	gloss	know-CAUS-TR-3ERG DET=Samir [COMP=PROSP=3SBJV=Q gather-AUT]	page 9, engine english
+(19a) line 4	Bev Phillips	translation	‘Samir knows if he’s coming.’	page 9, engine english
+(19a) line 4	Lisa Matthewson	citation	(BP; volunteered when prompted to use n̓)	the tag or source at the right of the translation
+(19b) line 1	Nɬeʔkepmxcín	transcription	# tetéʔ ks x̣əksténe ʔe xʷúy̓ us n̓ móq̓ʷix.	page 10, engine language
+(19b) line 2	Nɬeʔkepmxcín	segmentation	# tetéʔ k=s=x̣ək-s-t-éne [ʔe=xʷúy̓=us=n̓	page 10, engine language
+(19b) line 3	Nɬeʔkepmxcín	gloss	NEG D/C=NMLZ=know-CAUS-TR-1SG.ERG [COMP=NMLZ=PROSP=3SBJV=Q	page 10, engine english
+(19b) line 4	Nɬeʔkepmxcín	segmentation	móq̓ʷ-ix]	page 10, engine language
+(19b) line 5	Nɬeʔkepmxcín	gloss	gather-AUT]	page 10, engine english
+(19b) line 6	Bev Phillips	translation	‘I don’t know if he’s coming.’	page 10, engine english
+(19b) line 6	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§2	Nɬeʔkepmxcín	cited form	teʔe	page 10
+§2	Lisa Matthewson	note	The final option I have observed for embedded polar questions is to use the negative marker teʔe (along with ʔe and subjunctive). This was volunteered once but also requires further investigation.	page 10
+(20) line 1	Lisa Matthewson	note	Context: As in (14).	page 10, engine english
+(20) line 2	Nɬeʔkepmxcín	transcription	ʔex sewɬn ʔe téʔe us ks tekɬc nʔéye.	page 10, engine language
+(20) line 3	Nɬeʔkepmxcín	segmentation	ʔex sewɬn [ʔe=téʔe=us k=s=tekɬ=c nʔéye]	page 10, engine language
+(20) line 4	Nɬeʔkepmxcín	gloss	IPFV ask [COMP=NEG=3SBJV D/C=NMLZ=rain=3POSS DEIC]	page 10, engine english
+(20) line 5	Bev Phillips	translation	‘She asked if it is raining here.’ (Literally: ‘She asked if it isn’t raining here.’)	page 10, engine english
+(20) line 6	Lisa Matthewson	citation	(BP; volunteered)	page 10, engine english
+§3	Lisa Matthewson	heading	3 Hypothesis and predictions	page 10
+§3	Lisa Matthewson	note	The hypothesis I will be testing is given in (21).	page 10
+§3	Nɬeʔkepmxcín	cited form	keʔ	page 10
+§3	Nɬeʔkepmxcín	cited form	n̓	page 10
+§3	Lisa Matthewson	note	(21) keʔ creates a bipolar question, and n̓ creates a monopolar question.	page 10
+§3	Lisa Matthewson	note	For bipolar questions, I assume a classical analysis whereby they denote the two-member alternative set {p, ¬p}. keʔ questions offer both p and its negation as possible next commitments of the addressee, and are therefore predicted to be unbiased. In fully neutral discourse contexts, keʔ should be the preferred strategy.	page 10
+§3	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§3	Nɬeʔkepmxcín	cited form	n̓-question	page 10
+§3	Lisa Matthewson	note	Monopolar questions present only a single proposition p to the addressee. In terms of their pragmatic effects, I adopt Rudin’s (2018, 2022) analysis of English declarative questions. We will see below that the Nɬeʔkepmxcín data fit very well with Rudin’s analysis. The basic idea is that the speaker of an n̓-question refrains from committing to the prejacent proposition p, but also offers only p (and not its negation) as a future addition to the Common Ground. Pragmatic competition with other possible ways to present p (either through an assertion, or through a bipolar question) derives the effect that the speaker of an n̓-question has an expectation that the addressee believes p to be true. Section 5 below gives more details.	page 10
+§3	Nɬeʔkepmxcín	cited form	n̓-questions	page 10
+§3	Lisa Matthewson	note	This approach to n̓-questions predicts that they will be the preferred option whenever the speaker is not in a position to commit to p, but believes that the addressee will commit to p. This includes almost all cases in which English declarative questions are possible, including ‘incredulity’ cases where the speaker does not believe p to be true. However, it crucially excludes so-called ‘assertive declarative questions’, where the speaker is in a position to commit to p, but is merely unsure of the appropriateness of the discourse move.	page 10
+§4	Lisa Matthewson	heading	4 Data	page 10
+§4	Lisa Matthewson	note	In this section I first report on the results for questions in fully neutral discourse contexts, and then for contexts that fit the predicted pragmatic profile for monopolar questions. Recall that we cannot expect the results to be a fully clear-cut matter of 100% acceptance of one form and rejection of the other. I will give information about which forms are volunteered by consultants, which are rejected, and which are only accepted when prompted.	page 10
+§4.1	Lisa Matthewson	heading	4.1 Fully neutral discourse contexts	page 11
+§4.1	Nɬeʔkepmxcín	cited form	keʔ	page 11
+§4.1	Nɬeʔkepmxcín	cited form	n̓	page 11
+§4.1	Lisa Matthewson	note	In fully neutral discourse contexts, the most commonly volunteered polar questions contain keʔ. Example (22) is a case where keʔ is initially volunteered, but n̓ is produced upon request.	page 11
+(22) line 1	Lisa Matthewson	note	Context: One evening, Mary decides to call her friend Bob who lives far away. Immediately after they greet each other, Mary says, “What’s the weather like over there? …”:	page 11, engine english
+(22a) line 1	Nɬeʔkepmxcín	transcription	keʔ ks ʕʷəsʕʷə́ st?	page 11, engine language
+(22a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=ʕʷəs~ʕʷə́s-t	page 11, engine language
+(22a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=AUG~sunshine-IMM	page 11, engine english
+(22a) line 4	Bev Phillips	translation	‘Is it sunny?’	page 11, engine english
+(22a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(22b) line 1	Nɬeʔkepmxcín	transcription	ʕʷəsʕʷə́ st n̓?	page 11, engine language
+(22b) line 2	Nɬeʔkepmxcín	segmentation	ʕʷəs~ʕʷə́s-t=n̓	page 11, engine language
+(22b) line 3	Nɬeʔkepmxcín	gloss	AUG~sunshine-IMM=Q	page 11, engine english
+(22b) line 4	Bev Phillips	translation	‘Is it sunny?’	page 11, engine english
+(22b) line 4	Lisa Matthewson	citation	(BP; volunteered after prompting to use n̓)	the tag or source at the right of the translation
+§4.1	Nɬeʔkepmxcín	cited form	nukʷ	page 11
+§4.1	Lisa Matthewson	note	In (23), the consultant volunteers keʔ in (23a), and when asked about the version with n̓ in (23b), corrects it to (23c) which contains an evidential. In (23c), I assume that the evidential nukʷ conveys that the speaker has some reason to assume, or evidence to suggest, that it’s going to be nice weather, and is seeking confirmation from the addressee. (For discussion of nukʷ, see Littell & Mackie 2011, 2014; Smith 2022; and Hannon & Smith 2023.)	page 11
+(23) line 1	Lisa Matthewson	note	Context: Rose is at work. Her colleague Bob walks in and they greet each other. Rose immediately says:	page 11, engine english
+(23a) line 1	Nɬeʔkepmxcín	transcription	kéʔe xʷuy̓ ks nq̓ʷəyénks ʔe spiʔx̣áwt us?	page 11, engine language
+(23a) line 2	Nɬeʔkepmxcín	segmentation	kéʔe xʷuy̓ k=s=n-q̓ʷəy-énk=s ʔe=spiʔx̣áwt=us	page 11, engine language
+(23a) line 3	Nɬeʔkepmxcín	gloss	Q PROSP D/C=NMLZ=LOC-cook-belly=3POSS COMP=day.removed=3SBJV	page 11, engine english
+(23a) line 4	Bernice Garcia	translation	‘Is it going to be nice weather / sunny tomorrow?’	page 11, engine english
+(23a) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(23b) line 1	Nɬeʔkepmxcín	transcription	# xʷuy̓ n̓ nq̓ʷəyénk ʔe spiʔx̣áwt us?	page 11, engine language
+(23b) line 2	Nɬeʔkepmxcín	segmentation	# xʷuy̓=n̓ n-q̓ʷəy-énk ʔe=spiʔx̣áwt=us	page 11, engine language
+(23b) line 3	Nɬeʔkepmxcín	gloss	PROSP=Q LOC-cook-belly COMP=day.removed=3SBJV	page 11, engine english
+(23b) line 4	Bernice Garcia	translation	‘Is it going to be nice weather / sunny tomorrow?’	page 11, engine english
+(23b) line 4	Lisa Matthewson	citation	(KBG)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	note	Consultant’s comment on (23b): “Well it hasn’t happened yet. You have to add in something.”	page 11
+(23c) line 1	Nɬeʔkepmxcín	transcription	xʷúy̓ nukʷ n̓ nq̓ʷəyénk ʔe spiʔxáwt us?	page 11, engine language
+(23c) line 2	Nɬeʔkepmxcín	segmentation	xʷúy̓=nukʷ=n̓ n-q̓ʷəy-énk ʔe=spiʔxáwt=us	page 11, engine language
+(23c) line 3	Nɬeʔkepmxcín	gloss	PROSP=EVID=Q LOC-cook-belly COMP=day.removed=3SBJV	page 11, engine english
+(23c) line 4	Bernice Garcia	translation	‘Is it going to be nice weather / sunny tomorrow?’	page 11, engine english
+(23c) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4.1	Lisa Matthewson	note	Consultant’s comment on (23c): “So you’re kinda predicting.” A good example of a fully neutral context is exam or test questions; the test-giver takes care not to presuppose or suggest anything about the possible answer (see AnderBois 2019). As shown in (24) and (25), test questions prefer the keʔ strategy in Nɬeʔkepmxcín.	page 11
+(24) line 1	Lisa Matthewson	note	Context: Question on a test in school.	page 12, engine english
+(24) line 2	Nɬeʔkepmxcín	transcription	kéʔe ks k̓íʔk̓eʔts ɬ ƛ̓əq̓əmcín təw ɬə c̓əɬétkʷuʔ?	page 12, engine language
+(24) line 3	Nɬeʔkepmxcín	segmentation	kéʔe k=s=k̓íʔk̓eʔt=s ɬ=ƛ̓əq̓əmcín təw=ɬə=c̓əɬ-étkʷu	page 12, engine language
+(24) line 4	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=close=3POSS DET=Lytton PREP=DET=cold-water	page 12, engine english
+(24) line 5	Bernice Garcia	translation	‘Is Lytton close to Coldwater?’	page 12, engine english
+(24) line 5	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(25) line 1	Lisa Matthewson	note	Context: Question on a test in school.	page 12, engine english
+(25a) line 1	Nɬeʔkepmxcín	transcription	keʔ kex sʔúpis ʔe spéʔec ʔe stakʷól̕s?	page 12, engine language
+(25a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=ex s=ʔúpi-s ʔe=spéʔec ʔe=stakʷól̕s	page 12, engine language
+(25a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=IPFV NMLZ=eat+TR-3ERG DET=bear DET=potato	page 12, engine english
+(25a) line 4	Bev Phillips	translation	‘Do bears eat potatoes?’	page 12, engine english
+(25a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(25b) line 1	Nɬeʔkepmxcín	transcription	ʔex n̓ ʔúpis ʔe spéʔec ʔe stakʷól̕s?	page 12, engine language
+(25b) line 2	Nɬeʔkepmxcín	segmentation	ʔex=n̓ ʔúpi-s ʔe=spéʔec ʔe=stakʷól̕s	page 12, engine language
+(25b) line 3	Nɬeʔkepmxcín	gloss	IPFV=Q eat+TR-3ERG DET=bear DET=potato	page 12, engine english
+(25b) line 4	Bev Phillips	translation	‘Do bears eat potatoes?’	page 12, engine english
+(25b) line 4	Lisa Matthewson	citation	(BP; volunteered after prompting to use n̓)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	note	Another set of fully neutral questions is in the statement of debate topics (see AnderBois 2019, and Gunlogson 2008 on ‘speculative questions’). The keʔ strategy is routinely offered for debate topics, as the hypothesis predicts; examples are given in (26).	page 12
+(26) line 1	Lisa Matthewson	note	Context: A teacher is setting her students some debate topics.	page 12, engine english
+(26a) line 1	Nɬeʔkepmxcín	transcription	keʔ ks y̓es ʔe wʔéxuxʷ weɬ pankúpa?	page 12, engine language
+(26a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=y̓e=s ʔe=wʔéx=əxʷ we=ɬ=pankúpa	page 12, engine language
+(26a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good=3POSS COMP=live=2SG.SBJV PREP=DET=Vancouver	page 12, engine english
+(26a) line 4	Bernice Garcia	translation	‘Is Vancouver a good place to live?’	page 12, engine english
+(26a) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(26b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks y̓es tək swʔex ʔe Vancouver?	page 12, engine language
+(26b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=y̓e=s tə=k=s=wʔex ʔe=Vancouver	page 12, engine language
+(26b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good=3POSS OBL=D/C=NMLZ=live DET=Vancouver	page 12, engine english
+(26b) line 4	Bev Phillips	translation	‘Is it good to live in Vancouver?	page 12, engine english
+(26b) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(26c) line 1	Nɬeʔkepmxcín	transcription	kéʔe xʷuy̓ scwuwms ʔe scmém̓iʔt?	page 12, engine language
+(26c) line 2	Nɬeʔkepmxcín	segmentation	kéʔe xʷuy̓ s=cwuw-m=s ʔe=scmém̓iʔt	page 12, engine language, carries footnote 9, written here without its digit
+(26c) line 3	Nɬeʔkepmxcín	gloss	Q PROSP NMLZ=work-CTR.MID=3POSS DET=children	page 12, engine english
+(26c) line 4	Lisa Matthewson	translation	‘Should children work?’ (Literally: ‘Will children work?’) (KBG; volunteered)	page 12, engine english
+footnote 9	Lisa Matthewson	note	9 It is interesting to note that the prospective auxiliary xʷuy̓ is not attracting the clausal nominalizer and the possessive subject clitic in (26). Henry Davis (p.c.) speculates that it is being re-analyzed as a prefix. Similarly in (26), the imperfective auxiliary is not hosting the nominalizing and possessive clitics. Further investigation is required.	page 12, footnote
+footnote 9	Nɬeʔkepmxcín	cited form	xʷuy̓	page 12
+(26d) line 1	Nɬeʔkepmxcín	transcription	keʔ kes wmexs təwe sptéks ʔe zuqʷ?	page 13, engine language
+(26d) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=e s=wmex=s təw=e=s=pték=s ʔe=zuqʷ	page 13, engine language
+(26d) line 3	Nɬeʔkepmxcín	gloss	Q D/C=IPFV NMLZ=live=3POSS PREP=D/C=NMLZ=pass=3POSS D/C=die	page 13, engine english
+(26d) line 4	Bev Phillips	translation	‘Is there life after death?’	page 13, engine english
+(26d) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	note	Consultant’s comment on (26d): “Sounds like I’m really getting philosophical or something. I think you can. Sort of like you’re asking somebody smarter than you.” Although keʔ versions are volunteered, n̓ versions are also accepted in debate contexts, as shown in (27).	page 13
+(27) line 1	Lisa Matthewson	note	Context: As in (26).	page 13, engine english
+(27a) line 1	Nɬeʔkepmxcín	transcription	y̓e n̓ tək swʔéx ne Vancouver?	page 13, engine language
+(27a) line 2	Nɬeʔkepmxcín	segmentation	y̓e=n̓ tə=k=s=wʔéx ne=Vancouver	page 13, engine language
+(27a) line 3	Nɬeʔkepmxcín	gloss	good=Q OBL=DET=NMLZ=live PREP=Vancouver	page 13, engine english
+(27a) line 4	Bev Phillips	translation	‘Is it good to live in Vancouver?’	page 13, engine english
+(27a) line 4	Lisa Matthewson	citation	(BP; volunteered when prompted to use n̓)	the tag or source at the right of the translation
+(27b) line 1	Nɬeʔkepmxcín	transcription	ʔe swmex n̓ təwe ptéks ʔe zúqʷ?	page 13, engine language
+(27b) line 2	Nɬeʔkepmxcín	segmentation	ʔe s-wmex=n̓ təw=e=pték=s ʔe=zúqʷ	page 13, engine language
+(27b) line 3	Nɬeʔkepmxcín	gloss	INT NMLZ-live=Q PREP=D/C=pass=3POSS D/C=die	page 13, engine english
+(27b) line 4	Bev Phillips	translation	‘Is there life after death?’	page 13, engine english
+(27b) line 5	Lisa Matthewson	citation	(BP; volunteered without context; accepted in debate context)	page 13, engine english
+§4.1	Lisa Matthewson	note	Another fully neutral case is during a job interview; the questioner does not normally want to indicate any bias towards a particular answer, at least not when the prejacent is a proposition that would negatively impact the interviewee’s ability to do the job. As shown in (28), keʔ is the default strategy in this type of context, and as shown in (28), using n̓ can introduce unwanted bias.	page 13
+(28) line 1	Lisa Matthewson	note	Context: Someone is being interviewed for a job working at an animal shelter. The job involves keeping the animals’ cages clean and taking the dogs for walks.	page 13, engine english
+(28a) line 1	Nɬeʔkepmxcín	transcription	keʔ keʔ sy̓e ne c̓éx̣əm?	page 13, engine language
+(28a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=eʔ=s=y̓e ne=c̓éx̣-əm	page 13, engine language
+(28a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=good PREP=clean-CTR.MID	page 13, engine english
+(28a) line 4	Bev Phillips	translation	‘Are you good at cleaning?’	page 13, engine english
+(28a) line 4	Lisa Matthewson	citation	(BP; volunteered first)	the tag or source at the right of the translation
+(28b) line 1	Nɬeʔkepmxcín	transcription	y̓e kʷ n̓ ne c̓ə́x̣əm?	page 13, engine language
+(28b) line 2	Nɬeʔkepmxcín	segmentation	y̓e=kʷ=n̓ ne=c̓ə́x̣-əm	page 13, engine language
+(28b) line 3	Nɬeʔkepmxcín	gloss	good=2SG.SBJ=Q PREP=clean-CTR.MID	page 13, engine english
+(28b) line 4	Bev Phillips	translation	‘Are you good at cleaning?’	page 13, engine english
+(28b) line 4	Lisa Matthewson	citation	(BP; volunteered second)	the tag or source at the right of the translation
+(28c) line 1	Nɬeʔkepmxcín	transcription	keʔ ks zuʔíxəmnəxʷ keʔ szuzúwt ʔe ʔéxəxʷ cwuwm?	page 13, engine language
+(28c) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=zuʔíx-əmn[-t]=əxʷ keʔ=s=zu~zúw-t	page 13, engine language
+(28c) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=used.to-RLT[-TR]=2SG.ERG 2SG.POSS=NMLZ=AUG~slow-IMM	page 13, engine english
+(28c) line 4	Nɬeʔkepmxcín	segmentation	ʔe=ʔéx=əxʷ cwuw-m	page 13, engine language
+(28c) line 5	Nɬeʔkepmxcín	gloss	D/C=IPFV=2SG.SBJV work-CTR.MID	page 13, engine english
+(28c) line 6	Bev Phillips	translation	‘Are you used to being late when you work?’	page 13, engine english
+(28c) line 6	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	note	Consultant’s comment on (28c): “That’s a good interview one.”	page 13
+(28d) line 1	Nɬeʔkepmxcín	transcription	naʕʔíp kʷ n̓ zuzúwt ʔe ʔéxəxʷ cwuwm?	page 14, engine language
+(28d) line 2	Nɬeʔkepmxcín	segmentation	naʕʔíp=kʷ=n̓ zu~zúw-t ʔe=ʔéx=əxʷ cwuw-m	page 14, engine language
+(28d) line 3	Nɬeʔkepmxcín	gloss	always=2SG.SBJ=Q AUG~slow-IMM D/C=IPFV=2SG.SBJV work-CTR.MID	page 14, engine english
+(28d) line 4	Bev Phillips	translation	‘Are you always late when you go to work?’	page 14, engine english
+(28d) line 4	Lisa Matthewson	citation	(BP; volunteered; volunteered translation)	the tag or source at the right of the translation
+§4.1	Lisa Matthewson	note	Consultant’s comment on (28d): “This could get insulting.”	page 14
+(28e) line 1	Nɬeʔkepmxcín	transcription	keʔ ks naʕʔíps keʔ szuzúwt ʔe ʔéxəxʷ cwuwm?	page 14, engine language
+(28e) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=naʕʔíp=s k=eʔ=s=zu~zúw-t	page 14, engine language
+(28e) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=already=3POSS D/C=2SG.POSS=NMLZ=AUG~slow-IMM	page 14, engine english
+(28e) line 4	Nɬeʔkepmxcín	segmentation	ʔe=ʔéx=əxʷ cwuw-m	page 14, engine language
+(28e) line 5	Nɬeʔkepmxcín	gloss	D/C=IPFV=2SG.SBJV work-CTR.MID	page 14, engine english
+(28e) line 6	Bev Phillips	translation	‘Are you always late when you go to work?’	page 14, engine english
+(28e) line 7	Lisa Matthewson	citation	(BP; semi-volunteered; correcting details of offered sentence)	page 14, engine english
+§4.1	Lisa Matthewson	note	Researcher, about (28e): “Is that insulting?” Consultant: “No, it’s just saying ‘Are you?’. Not the way you said it, no.” The data in this section have shown that there is a strong tendency for the keʔ strategy to be preferred when the context is fully neutral (i.e., with no prior epistemic bias on the part of the speaker, and no reason to take for granted that the addressee believes the prejacent to be true). Questions formed with n̓ are often also accepted in these neutral contexts, but sometimes we see evidence that the context is subtly changed by doing so.	page 14
+§4.1	Nɬeʔkepmxcín	cited form	keʔ-questions	page 14
+§4.1	Lisa Matthewson	note	In the next section we turn to the first set of non-neutral contexts, and we will see an opposite data pattern. In fact, the tendency will be even stronger here, with keʔ-questions often being outright rejected.	page 14
+§4.2	Lisa Matthewson	heading	4.2 Neutral epistemic bias, contextual evidence that the addressee believes p	page 14
+§4.2	Lisa Matthewson	note	In this section we look at cases where the speaker has no prior epistemic bias, but is faced with evidence in the utterance situation that the addressee believes the prejacent proposition. In these contexts, the speaker is expecting the addressee to confirm the prejacent. These are some of the prime cases where in English declarative questions are acceptable (see e.g., Gunlogson 2003, 2008 and much subsequent research).	page 14
+§4.2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4.2	Nɬeʔkepmxcín	cited form	n̓	page 14
+§4.2	Nɬeʔkepmxcín	cited form	keʔ	page 14
+§4.2	Lisa Matthewson	note	In these contexts, in Nɬeʔkepmxcín, speakers standardly volunteer and prefer the enclitic n̓, as shown for example in (29). The consultant’s comment about (29) suggests that the keʔ strategy leaves it too open as a live possibility that it is not raining.	page 14
+(29) line 1	Lisa Matthewson	note	Context (adapted from Gunlogson 2008): Rose is working in an office that has no windows. She is thinking to herself, “I wonder what the weather is like outside?” Just at that moment, Bob enters the office wearing raingear and carrying an umbrella. Rose says:	page 14, engine english
+(29a) line 1	Nɬeʔkepmxcín	transcription	ʔex n̓ tékɬ?	page 14, engine language
+(29a) line 2	Nɬeʔkepmxcín	segmentation	ʔex=n̓ tékɬ	page 14, engine language
+(29a) line 3	Nɬeʔkepmxcín	gloss	IPFV=Q rain	page 14, engine english
+(29a) line 4	Bev Phillips	translation	‘Is it raining?’	page 14, engine english
+(29a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(29b) line 1	Nɬeʔkepmxcín	transcription	# keʔ ks tekɬs?	page 15, engine language
+(29b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=tekɬ=s	page 15, engine language
+(29b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=rain=3POSS	page 15, engine english
+(29b) line 4	Bev Phillips	translation	‘Is it raining?’	page 15, engine english
+(29b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.2	Nɬeʔkepmxcín	cited form	tekɬs	page 15
+§4.2	Lisa Matthewson	note	Consultant’s comment about (29b): “I don’t know if she would say keʔ ks tekɬs, unless there’s a way he got wet otherwise (laughs).” Example (30) is a similar case. The consultant again offers n̓, and when asked about the keʔ version, changes the context to one that crucially lacks the positive contextual evidence.	page 15
+(30) line 1	Lisa Matthewson	note	Context (adapted from Gunlogson 2008): Bob is going for a walk and runs into Mary, a friend of his who he hasn’t seen for a while. He notices that her hair is shorter than usual and he says:	page 15, engine english
+(30a) line 1	Nɬeʔkepmxcín	transcription	ʔesɬóq̓ʷqn kʷ n̓?	page 15, engine language
+(30a) line 2	Nɬeʔkepmxcín	segmentation	ʔes-ɬóq̓ʷ-qn=kʷ=n̓	page 15, engine language
+(30a) line 3	Nɬeʔkepmxcín	gloss	STAT-strip-head=2SG.SBJ=Q	page 15, engine english
+(30a) line 4	Bev Phillips	translation	‘You had a haircut?’	page 15, engine english
+(30a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(30b) line 1	Nɬeʔkepmxcín	transcription	# keʔ keʔ sesɬóq̓ʷqn?	page 15, engine language
+(30b) line 2	Nɬeʔkepmxcín	segmentation	# keʔ k=eʔ s=es-ɬóq̓ʷ-qn	page 15, engine language
+(30b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS NMLZ=STAT-strip-head	page 15, engine english
+(30b) line 4	Bev Phillips	translation	‘Did you have a haircut?’	page 15, engine english
+(30b) line 5	Lisa Matthewson	citation	(BP; volunteered when asked to use keʔ, but context changed)	page 15, engine english
+§4.2	Lisa Matthewson	note	Consultant’s comment on (30b): “Maybe, yes. Maybe they’re talking on the phone.” Another context in which there is contextual evidence that the addressee believes the prejacent is given in (31). Both consultants volunteered n̓, as seen in (31a) and (31b). When one consultant was asked to create a keʔ version, she gave (31c), but judged it as worse than the n̓ version in (31a).	page 15
+(31) line 1	Lisa Matthewson	note	Context: Your friend applied for a job, but you have no idea whether she was successful or not. You show up at her place and she is celebrating. You say:	page 15, engine english
+(31a) line 1	Nɬeʔkepmxcín	transcription	kʷənwén̓ xʷ n̓ ɬ scuw?	page 15, engine language
+(31a) line 2	Nɬeʔkepmxcín	segmentation	kʷə[n]-nwén̓[-t]=xʷ=n̓ ɬ=s-cuw	page 15, engine language
+(31a) line 3	Nɬeʔkepmxcín	gloss	grasp-LC[-TR]=2SG.ERG=Q DET=NMLZ-work	page 15, engine english
+(31a) line 4	Bev Phillips	translation	‘You got the job?’	page 15, engine english
+(31a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(31b) line 1	Nɬeʔkepmxcín	transcription	kʷenwéɬn̓ kʷ n̓ ɬe scúw?	page 15, engine language
+(31b) line 2	Nɬeʔkepmxcín	segmentation	kʷe[n]-nwéɬn̓[-t]=kʷ=n̓ ɬe=s-cúw	page 15, engine language
+(31b) line 3	Nɬeʔkepmxcín	gloss	grasp-LC.MID[-TR]=2SG.SBJ=Q DET=NMLZ-work	page 15, engine english
+(31b) line 4	Bernice Garcia	translation	‘You got the job?’	page 15, engine english
+(31b) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(31c) line 1	Nɬeʔkepmxcín	transcription	keʔ ks kʷenwén̓ xʷ ɬ scuw?	page 15, engine language
+(31c) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=kʷe[n]-nwén̓[-t]=xʷ ɬ=s-cuw	page 15, engine language
+(31c) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=grasp-LC[-TR]=2SG.ERG D/C=NMLZ-work	page 15, engine english
+(31c) line 4	Bev Phillips	translation	‘Did you get the job?’	page 15, engine english
+(31c) line 5	Lisa Matthewson	citation	(BP; volunteered when asked to use keʔ; volunteered translation)	page 15, engine english
+§4.2	Nɬeʔkepmxcín	cited form	kʷenwen̓xʷ	page 16
+§4.2	Nɬeʔkepmxcín	cited form	ɬscuw	page 16
+§4.2	Lisa Matthewson	note	Consultant’s comment, when asked which would be better in this context between (31a) and (31c): “I would use kʷenwen̓xʷ n̓ ɬscuw. But they’re both totally correct. I would use kʷenwen̓xʷ n̓.” Further evidence is given in (32) to (34). In all these contexts involving contextual evidence that the addressed believes the prejacent proposition p, consultants volunteered questions with n̓.	page 16
+(32) line 1	Lisa Matthewson	note	Context: Rose left her lunch in the lounge at work and then had to answer an urgent phone call in her office. She comes back, excited to eat, and finds that the food is gone. The only other person in the lounge is Nadia. Rose says to Nadia:	page 16, engine english
+(32a) line 1	Nɬeʔkepmxcín	transcription	ʔúpixcem xʷ n̓ ɬ n sɬaʔx̣áns?	page 16, engine language
+(32a) line 2	Nɬeʔkepmxcín	segmentation	ʔúpi-x[-t]-cem=xʷ=n̓ ɬ=n-s-ɬaʔx̣-áns	page 16, engine language
+(32a) line 3	Nɬeʔkepmxcín	gloss	eat-IND[-TR]-1SG.OBJ=2SG.ERG=Q DET=1SG.POSS-NMLZ-eat-tooth	page 16, engine english
+(32a) line 4	Bernice Garcia	translation	‘Did you eat my food?’	page 16, engine english
+(32a) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(32b) line 1	Nɬeʔkepmxcín	transcription	ʔúpixcem xʷ n̓ te n sɬaʔx̣áns?	page 16, engine language
+(32b) line 2	Nɬeʔkepmxcín	segmentation	ʔúpi-x[-t]-cem=xʷ=n̓ te=n-s-ɬaʔx̣-áns	page 16, engine language
+(32b) line 3	Nɬeʔkepmxcín	gloss	eat-IND[-TR]-1SG.OBJ=2SG.ERG=Q OBL=1SG.POSS-NMLZ-eat-tooth	page 16, engine english
+(32b) line 4	Bev Phillips	translation	‘Did you eat my food?’	page 16, engine english
+(32b) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(33) line 1	Lisa Matthewson	note	Context: Your beloved pet canary was sick and had to have an operation. You are waiting while the operation takes place and then the vet comes out looking sad and guilty. You say:	page 16, engine english
+(33a) line 1	Nɬeʔkepmxcín	transcription	zuqʷ n̓?	page 16, engine language
+(33a) line 2	Nɬeʔkepmxcín	segmentation	zuqʷ=n̓	page 16, engine language
+(33a) line 3	Nɬeʔkepmxcín	gloss	die=Q	page 16, engine english
+(33a) line 4	Bev Phillips	translation	‘It’s dead?’	page 16, engine english
+(33a) line 4	Lisa Matthewson	citation	(BP; volunteered first)	the tag or source at the right of the translation
+(33b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks zuqʷs?	page 16, engine language
+(33b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=zuqʷ=s	page 16, engine language
+(33b) line 3	Nɬeʔkepmxcín	gloss	Q DET=NMLZ=die=3POSS	page 16, engine english
+(33b) line 4	Bev Phillips and Bernice Garcia	translation	‘Is it dead?’	page 16, engine english
+(33b) line 4	Lisa Matthewson	citation	(BP; volunteered second; KBG accepted)	the tag or source at the right of the translation
+§4.2	Lisa Matthewson	note	Consultant’s comment about (33a) vs. (33b): “I would probably use that first one.”	page 16
+(33c) line 1	Nɬeʔkepmxcín	transcription	zuqʷ n̓ ƛ̓əm̓?	page 16, engine language
+(33c) line 2	Nɬeʔkepmxcín	segmentation	zuqʷ=n̓ ƛ̓əm̓	page 16, engine language
+(33c) line 3	Nɬeʔkepmxcín	gloss	die=Q CMPL	page 16, engine english
+(33c) line 4	Bernice Garcia	translation	‘It’s dead?’	page 16, engine english
+(33c) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+footnote 10	Lisa Matthewson	note	10 The two sentences in (34) are not quite a minimal pair because the n̓ version in (34a) also contains the tag- marker nəst; follow-up elicitation is required.	page 16, footnote
+footnote 10	Nɬeʔkepmxcín	cited form	nəst	page 16
+§4.2	Lisa Matthewson	note	In (34), the consultant’s comments clearly indicate the more neutral status of the keʔ strategy. Her comments about (34) indicate that keʔ requires a different context from the one given.10	page 16
+(34) line 1	Lisa Matthewson	note	Context: A friend comes over to visit and it’s about 2pm. If she was hungry, you would feed her, but you assume she’s already eaten. You just want to check.	page 17, engine english
+(34a) line 1	Nɬeʔkepmxcín	transcription	nwen̓ kʷ n̓ ƛ̓əm̓ ɬaʔx̣áns, nəst?	page 17, engine language
+(34a) line 2	Nɬeʔkepmxcín	segmentation	n-wen̓=kʷ=n̓ ƛ̓əm̓ ɬaʔx̣-áns, nəst	page 17, engine language, carries footnote 11, written here without its digit
+(34a) line 3	Nɬeʔkepmxcín	gloss	LOC-already=2SG.SBJ=Q CMPL eat-tooth TAG	page 17, engine english
+(34a) line 4	Bev Phillips	translation	‘You ate already, right?’	page 17, engine english
+(34a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(34b) line 1	Nɬeʔkepmxcín	transcription	# keʔ ks nwen̓ keʔ sɬaʔx̣áns?	page 17, engine language
+(34b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=n-wen̓ keʔ=s=ɬaʔx̣-áns	page 17, engine language
+(34b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=LOC-already 2SG.POSS=NMLZ=eat-tooth	page 17, engine english
+(34b) line 4	Bev Phillips	translation	‘Did you eat already?’	page 17, engine english
+(34b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.2	Lisa Matthewson	note	Consultant’s comment on (34b): “Yes. But that’s really asking a question. It’s not the same as the other one [(34a)]. You really just have no clue.”	page 17
+§4.3	Lisa Matthewson	heading	4.3 Other contexts where the speaker expects the addressee to confirm p	page 17
+§4.3	Nɬeʔkepmxcín	cited form	keʔ	page 17
+§4.3	Nɬeʔkepmxcín	cited form	n̓	page 17
+§4.3	Lisa Matthewson	note	So far, we have seen that in fully neutral contexts, keʔ is preferred, and in contexts with contextual evidence that the addressee believes the prejacent, n̓ is preferred. Now I will show that n̓ is the preferred choice not only when there is such positive evidence in the discourse context, but more broadly whenever the speaker expects the addressee to confirm the prejacent.	page 17
+§4.3.1	Lisa Matthewson	heading	4.3.1 Greetings	page 17
+§4.3.1	Nɬeʔkepmxcín	cited form	n̓	page 17
+§4.3.1	Nɬeʔkepmxcín	cited form	keʔ	page 17
+§4.3.1	Lisa Matthewson	note	The semantic contrast between the n̓ strategy and the keʔ strategy is clearly revealed when we consider a common greeting in the language, which involves asking whether the addressee is doing well. The greeting is standardly formed with n̓, as shown in (35). When asked how it would sound to use keʔ in a greeting context, both consultants gave comments indicating that with keʔ, the greeting is transformed instead into a real question, where the negative answer is an open possibility.	page 17
+(35) line 1	Lisa Matthewson	note	Context: A greeting.	page 17, engine english
+(35a) line 1	Nɬeʔkepmxcín	transcription	y̓e kʷ n̓, Lisa?	page 17, engine language
+(35a) line 2	Nɬeʔkepmxcín	segmentation	y̓e=kʷ=n̓, Lisa	page 17, engine language
+(35a) line 3	Nɬeʔkepmxcín	gloss	good=2SG.SBJ=Q Lisa	page 17, engine english
+(35a) line 4	Bev Phillips	translation	‘How are you Lisa?’	page 17, engine english
+(35a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(35b) line 1	Nɬeʔkepmxcín	transcription	# keʔ keʔ sy̓é?	page 17, engine language
+(35b) line 2	Nɬeʔkepmxcín	segmentation	# keʔ k=eʔ=s=y̓é	page 17, engine language, carries footnote 12, written here without its digit
+(35b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=good	page 17, engine english
+(35b) line 4	Bernice Garcia and Bev Phillips	translation	‘Are you good?’	page 17, engine english
+(35b) line 4	Lisa Matthewson	citation	(KBG; BP)	the tag or source at the right of the translation
+footnote 11	Nɬeʔkepmxcín	cited form	ƛ̓əm̓	page 17
+footnote 12	Lisa Matthewson	note	12 Example (35) was technically volunteered, but only as a corrected form from one that I gave the consultant,	page 17, footnote
+§4.3.1	Nɬeʔkepmxcín	cited form	sy̓e	page 18
+footnote 11	Lisa Matthewson	note	11 T&T:139 gloss ƛ̓əm̓ as ‘COMPLETED, already accomplished or established; pe rfective’. In my preliminary explorations of this morpheme, it seems to contain evidential semantics, at least in the Lytton dialect. BP’s comment on (35b): “No I wouldn’t [use it]. But I would use it if I was fishing for information. … There’s a place for all of them but … If a person is not well, then somebody might say that, keʔ keʔ sy̓e … Maybe you saw something or something happened and you wanna know how they are but you don’t wanna assume, keʔ keʔ sy̓e.” KBG’s comment on (35b): “For me, you’re asking a direct question. And maybe you know an incident that happened.” In a greeting context, it is perhaps not really the case that the speaker has reason to believe the addressee is doing well, but nevertheless, the monopolar analysis captures an important feature of these contexts. The speaker of a greeting intends to offer only one possible proposition for entry into the Common Ground. The possibility of a negative answer is not usually considered.	page 17
+§4.3.2	Lisa Matthewson	heading	4.3.2 Incredulity questions	page 18
+§4.3.2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4.3.2	Nɬeʔkepmxcín	cited form	n̓	page 18
+§4.3.2	Nɬeʔkepmxcín	cited form	keʔ	page 18
+§4.3.2	Lisa Matthewson	note	Another set of cases where the speaker expects the addressee to confirm p, even though there is no contextual evidence for p being true, are incredulity questions. Here, the addressee has often just asserted the prejacent, but the speaker is skeptical. In English, these contexts allow declarative questions; see Farkas and Roelofsen (2017), Rudin (2018), among others, for discussion. In Nɬeʔkepmxcín, speakers volunteer n̓ in these contexts, and the keʔ versions are less acceptable.	page 18
+(36) line 1	Lisa Matthewson	note	Context (from Rudin 2018:39/2022:348; based on Farkas & Roelofson 2017:276): A mother asks her child to set the table, and he does a really bad job before announcing himself to be done. The mother says to the child:	page 18, engine english
+(36a) line 1	Nɬeʔkepmxcín	transcription	ʔescqáyqʷ n̓ xʔe tək tə́pəl?	page 18, engine language
+(36a) line 2	Nɬeʔkepmxcín	segmentation	ʔes-cq-áyqʷ=n̓ xʔe tə=k=tə́pəl	page 18, engine language
+(36a) line 3	Nɬeʔkepmxcín	gloss	STAT-set-tree=Q DEIC OBL=DET=table	page 18, engine english
+(36a) line 4	Bev Phillips	translation	‘This table is set?’	page 18, engine english
+(36a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(36b) line 1	Nɬeʔkepmxcín	transcription	keʔ kes ʔescqáyqʷ xʔe tək tə́pəl?	page 18, engine language
+(36b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=e=s=ʔes-cq-áyqʷ xʔe tə=k=tə́pəl	page 18, engine language
+(36b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=IPFV=NMLZ=STAT-set-tree DEIC OBL=DET=table	page 18, engine english
+(36b) line 4	Bev Phillips	translation	‘Is this table set?’	page 18, engine english
+(36b) line 4	Lisa Matthewson	citation	(BP; volunteered when asked to use keʔ; volunteered translation)	the tag or source at the right of the translation
+§4.3.2	Lisa Matthewson	note	Consultant’s comment on (36b): “It’s pretty much saying the same thing [as (36a)], but it’s asking the air. She’s not directing the comment to anybody.” which is given in (i). This contains an extra third person possessive ending that should never have been there. The utterance in (35) is grammatically correct, but pragmatically does not fit the greeting context.	page 18
+footnote 12 (i) line 1	Nɬeʔkepmxcín	transcription	* keʔ keʔ sy̓és?	page 18, engine language
+footnote 12 (i) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=eʔ=s=y̓é=s	page 18, engine language
+footnote 12 (i) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=good=3POSS	page 18, engine english
+footnote 12 (i) line 4	Bev Phillips	translation	‘Are you good?’	page 18, engine english
+footnote 12 (i) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+(37) line 1	Lisa Matthewson	note	Context (adapted from Rudin 2018:38/2022:37, who obtained it from Donka Farkas, p.c., from an interview with Donald Trump on ABC news, July 30 th, 2016): Person A is complaining. They say “My life is bad. I work a lot and I’m the boss of many people.” Person B replies:	page 19, engine english
+(37a) line 1	Nɬeʔkepmxcín	transcription	k̓est n̓ xéʔe?	page 19, engine language
+(37a) line 2	Nɬeʔkepmxcín	segmentation	k̓es-t=n̓ xéʔe	page 19, engine language
+(37a) line 3	Nɬeʔkepmxcín	gloss	bad-IMM=Q DEIC	page 19, engine english
+(37a) line 4	Bev Phillips	translation	‘That’s bad?’	page 19, engine english
+(37a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(37b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks k̓ests xéʔe?	page 19, engine language
+(37b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=k̓es-t=s xéʔe	page 19, engine language
+(37b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=bad-IMM=3POSS DEIC	page 19, engine english
+(37b) line 4	Bev Phillips	translation	‘Is that bad?’	page 19, engine english
+(37b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.3.2	Nɬeʔkepmxcín	cited form	k̓est	page 19
+§4.3.2	Nɬeʔkepmxcín	cited form	meɬ	page 19
+§4.3.2	Nɬeʔkepmxcín	cited form	xeʔe	page 19
+§4.3.2	Nɬeʔkepmxcín	cited form	n̓-questions	page 19
+§4.3.2	Lisa Matthewson	note	Consultant’s comment on (37b): “That one you’re asking them. But you could have also said k̓est n̓ meɬ xeʔe? [bad-IMM=Q COUNTER DEIC]. That’s more when you’re trying to find out more information.” Notice again that these are contexts in which the speaker is skeptical that the prejacent is true, but there is evidence that the addressee believes p. This confirms that it would not be correct to analyze n̓-questions as signalling speaker contingent commitment (as for example in Gunlogson’s 2008 analysis of English declarative questions).	page 19
+§4.3.3	Lisa Matthewson	heading	4.3.3 Projected speaker and addressee commitments	page 19
+§4.3.3	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4.3.3	Nɬeʔkepmxcín	cited form	n̓-questions	page 19
+§4.3.3	Nɬeʔkepmxcín	cited form	n̓	page 19
+§4.3.3	Nɬeʔkepmxcín	cited form	keʔ	page 19
+footnote 13	Lisa Matthewson	note	13 Rudin (2018:7–8) argues that the primitive notion of a projected addressee commitment is not necessary; in his analysis of declarative questions, the mere placing of p on the Table, in combination with pragmatic competition effects, achieves the same result, namely that the addressee is expected to commit to p. I agree with this, and am using the phrase ‘projected commitment’ here only for convenience.	page 19, footnote
+§4.3.3	Lisa Matthewson	note	Malamud and Stephenson (2015) (henceforth M&S) offer a set of contexts designed to tease apart fine-grained nuances with regard to speaker and addressee commitments and also their projected commitments. A projected commitment to a proposition p means that the expected next step in the discourse is that the relevant agent commits to p. The results for M&S’s contexts in Nɬeʔkepmxcín support my proposal that n̓-questions are used when the speaker cannot themselves commit to the prejacent p, but p is a projected commitment of the addressee.13 The first case to consider is given in (38). In this context, the speaker is projecting the addressee’s commitment; they expect the addressee to confirm that the neighbour is good looking. The speaker knows nothing about the neighbour, and therefore is not even contingently committing themselves to p. Here, one consultant volunteered a version with n̓ ((38)a), and the other volunteered keʔ ((38)b), which fits with the fact that in English also, a neutral polar question is appropriate. The second consultant also judges n̓ to be perfect, as shown in (38).	page 19
+(38) line 1	Lisa Matthewson	note	Context (‘Blushing/Innuendo’; adapted from M&S:5): B. and Lisa are gossiping. B. doesn’t know anything about Lisa’s neighbour. Lisa says, blushing, “You’ve GOT to see this picture of my new neighbour!” Without looking, B. replies:	page 20, engine english
+(38a) line 1	Nɬeʔkepmxcín	transcription	nem n̓ y̓e sk̓ʷen̓n̓s?	page 20, engine language
+(38a) line 2	Nɬeʔkepmxcín	segmentation	nem=n̓ y̓e s=k̓ʷen̓~n̓=s	page 20, engine language
+(38a) line 3	Nɬeʔkepmxcín	gloss	very=Q good NMLZ=look~OOC=3POSS	page 20, engine english
+(38a) line 4	Bernice Garcia	translation	‘Is he good to look at?’	page 20, engine english
+(38a) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(38b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks y̓ehúsc?	page 20, engine language
+(38b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=y̓eh-ús=c	page 20, engine language
+(38b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good-face=3POSS	page 20, engine english
+(38b) line 4	Bev Phillips	translation	‘Is he good looking?’	page 20, engine english
+(38b) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(38c) line 1	Nɬeʔkepmxcín	transcription	y̓ehús n̓?	page 20, engine language
+(38c) line 2	Nɬeʔkepmxcín	segmentation	y̓eh-ús=n̓	page 20, engine language
+(38c) line 3	Nɬeʔkepmxcín	gloss	good-face=Q	page 20, engine english
+(38c) line 4	Bev Phillips	translation	‘Is he good-looking?’	page 20, engine english
+(38c) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.3.3	Nɬeʔkepmxcín	cited form	nəst	page 20
+§4.3.3	Lisa Matthewson	note	Consultant’s comment on (38c): (laughs) “Yes. it’s right on, perfect sentence. It’s just funny.” In the next example, both the speaker and the addressee are well-informed about the facts, but the predicate is a taste predicate, so there is still room for negotiating agreement. The speaker here is expressing an opinion and seeking agreement from the addressee. The consultant volunteers an utterance containing the tag-marker nəst. For both n̓ and keʔ, she offers comments indicating that they would not be appropriate in this particular context.14	page 20
+(39) line 1	Lisa Matthewson	note	Context (‘Seeking agreement’; adapted from M&S:5): Bev and Lisa are discussing various characteristics of their mutual acquaintances. Lisa says, “I think Bill’s good point is that he is just a really nice guy.” Bev replies:	page 20, engine english
+(39a) line 1	Nɬeʔkepmxcín	transcription	y̓ehús wiʔ ʔéɬ ƛ̓uʔ, nəst?	page 20, engine language
+(39a) line 2	Nɬeʔkepmxcín	segmentation	y̓eh-ús wiʔ ʔéɬ=ƛ̓uʔ nəst	page 20, engine language
+(39a) line 3	Nɬeʔkepmxcín	gloss	good-face EMPH and=ADD TAG	page 20, engine english
+(39a) line 4	Bev Phillips	translation	‘He’s good looking as well, isn’t he?’	page 20, engine english
+(39a) line 4	Lisa Matthewson	citation	(BP; volunteered; volunteered translation)	the tag or source at the right of the translation
+footnote 14	Lisa Matthewson	note	14 Besides (39)(39), the consultant also volunteered the version in (ii) which contains tem, a form of negation, plus n̓. This will be a target of future research.	page 20, footnote
+§4.3.3	Lisa Matthewson	note	Consultant’s comment on (39a): “I’m trying to get you to agree with me, nəst?”	page 20
+footnote 14 (ii) line 1	Nɬeʔkepmxcín	transcription	y̓ehús wiʔ ʔéɬ ƛ̓uʔ tem n̓?	page 20, engine language
+footnote 14 (ii) line 2	Nɬeʔkepmxcín	segmentation	y̓eh-ús wiʔ ʔéɬ=ƛ̓uʔ tem=n̓	page 20, engine language
+footnote 14 (ii) line 3	Nɬeʔkepmxcín	gloss	good-face EMPH also=EXCL NEG=Q	page 20, engine english
+footnote 14 (ii) line 4	Bev Phillips	translation	‘He’s good looking as well, isn’t he?’	page 20, engine english
+footnote 14 (ii) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+footnote 14 (ii) line 5	Bev Phillips	speaker comment	Consultant’s comment: “tem n̓ is like I know it as a fact, and I don’t know if you know it. It’s more like implying that you and I both know the fact already, we talked about it. Maybe you forgot.”	page 20, engine english
+footnote 14 (ii)	Nɬeʔkepmxcín	cited form	n̓	in the speaker comment, page 20
+(39b) line 1	Nɬeʔkepmxcín	transcription	# y̓ehús n̓ wiʔ ʔéɬ ƛ̓uʔ?	page 21, engine language
+(39b) line 2	Nɬeʔkepmxcín	segmentation	# y̓eh-ús=n̓ wiʔ ʔéɬ=ƛ̓uʔ	page 21, engine language
+(39b) line 3	Nɬeʔkepmxcín	gloss	good-face=Q EMPH and=ADD	page 21, engine english
+(39b) line 4	Bev Phillips	translation	‘Is he good looking as well?’	page 21, engine english
+(39b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.3.3	Lisa Matthewson	note	Consultant’s comment on (39b): “I guess you could, but you’re asking the other person … [repeats (39b) twice]. Yeah, but it’s kind of like you don’t know. So you’re just asking. I’m asking you, ‘Is he good-looking as well?’”	page 21
+(39c) line 1	Nɬeʔkepmxcín	transcription	# keʔ ks y̓ehúsc?	page 21, engine language
+(39c) line 2	Nɬeʔkepmxcín	segmentation	#keʔ k=s=y̓eh-ús=c	page 21, engine language
+(39c) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good-face=3POSS	page 21, engine english
+(39c) line 4	Bev Phillips	translation	‘Is he good looking as well?’	page 21, engine english
+(39c) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§4.3.3	Lisa Matthewson	note	Consultant’s comment on (39c): “I’m really just either being sarcastic or I don’t know [if he’s good looking].” What M&S say about (39) for English is that a reverse-polarity (RP) tag (isn’t he?) is felicitous, because RP tags add p to the speaker’s projected commitments, and in this context the speaker can indeed be tentatively committing to p (M&S:16). A declarative question (which M&S call a ‘non- interrogative rising intonation’, NI-rise) is in contrast infelicitous here. According to M&S, NI- rises similarly add p to the speaker’s projected commitment set, but also raise a metalinguistic issue concerning the utterance of p. In a typical declarative question (DQ) context like (7) (It’s raining?), or the Blushing/Innuendo case in (38), the metalinguistic issue would be whether the speaker’s inference is correct. But in (39), the speaker is the sole arbiter of their own taste, so a DQ is infelicitous (M&S:22).	page 21
+§4.3.3	Lisa Matthewson	note	Similar reasoning about (39) applies in Nɬeʔkepmxcín. Rephrased to fit the way I have framed my hypothesis (following Rudin 2018, 2022), the reason n̓-questions are not good in (39) is that the speaker is in a position to commit to the proposition that Bill is good looking. keʔ is inappropriate for a similar reason: the speaker knows Bill, so there is no reason to ask whether he is good looking. Finally, (39) also suggests that the tag-marker nəst functions similarly to an English RP-tag, but since nəst is not the focus of the current paper, further testing would be required to confirm this.	page 21
+footnote 15	Lisa Matthewson	note	15 Although the consultant’s comments are very clear here, I have not yet been able to replicate this with the other consultant, nor with a second similar discourse context with the first consultant. However, each of these follow-up attempts has only been tried once so far, and these are extremely tricky discourse contexts to explain. In imminent future research, I plan to use storyboards to ensure that the contexts are fully transparent, and I hope to firm up the generalization.	page 21, footnote
+§4.3.3	Lisa Matthewson	note	The final test case from M&S is given in (40). According to M&S, in English a DQ is acceptable here because the speaker, while sure about their own opinion that the neighbour is good looking, raises the metalinguistic issue of whether the neighbour’s attractiveness is the right conversational move to make. In (40), we see that the consultant volunteers a version that contains no morpho-syntactic marking of a question, but is uttered with a rising intonation. In (40), we see for the first time a clear divergence between Nɬeʔkepmxcín n̓-questions and English DQs: n̓ is infelicitous. This suggests that n̓ does not function to raise this kind of metalinguistic issue (being unsure of the felicity of one’s discourse move).15	page 21
+(40) line 1	Lisa Matthewson	note	Context (‘Unsure of move’; adapted from M&S:6): B hasn’t met A’s neighbour, and asks,	page 22, engine english
+(40) line 2	Lisa Matthewson	translation	“What do you think of your new neighbour?” A isn’t sure if B wants to know about	page 22, engine english
+§4.3.3	Lisa Matthewson	note	neighbourliness or suitability for dating. A replies:	page 22
+§4.3.3	Nɬeʔkepmxcín	cited form	y̓ehús	page 22
+§4.3.3	Nɬeʔkepmxcín	cited form	y̓eh-ús	page 22
+§4.3.3	Lisa Matthewson	note	a. y̓ehús? [uttered with rising intonation] y̓eh-ús good-face ‘He’s good looking?’ (BP; volunteered) Consultant’s comment on (40a): “You just do the same as English, you have to watch your tone, your facial expression. But if you’re not looking at somebody, if you’re talking on the phone, then you have to [say] y̓ehús? [uttered with rising intonation].” b. # y̓ehús n̓?	page 22
+§4.3.3	Nɬeʔkepmxcín	cited form	y̓eh-ús=n̓	page 22
+§4.3.3	Lisa Matthewson	note	# y̓eh-ús=n̓ good-face=Q ‘Is he good looking?’ (BP) Consultant’s comment on (40b): “No, cause I [= the addressee] have never seen him. No, you can’t.” The data in (40) raise a problem for applying M&S’s analysis of English DQs to Nɬeʔkepmxcín n̓. The analysis could be tweaked, but we would have to say that there is cross-linguistic variation in the precise types of meta-linguistic issue that are raised. One might even say that the Nɬeʔkepmxcín data provide a cross-linguistic reason to be skeptical of M&S’s attempted unification of all types of DQs; I return to this issue in Section 5.1 below.	page 22
+§4.3.3	Lisa Matthewson	note	Within a Rudin-style analysis, (40) makes sense. n̓ is predicted to be good when the speaker cannot commit to p, but in (40) she can, so n̓ is infelicitous.	page 22
+§4.4	Lisa Matthewson	heading	4.4 Summary	page 22
+§4.4	Nɬeʔkepmxcín	cited form	keʔ	page 22
+§4.4	Nɬeʔkepmxcín	cited form	n̓	page 22
+§4.4	Lisa Matthewson	note	The hypothesis that keʔ introduces a neutral bipolar question predicts that keʔ will be the preferred option when (and only when) the speaker has no epistemic bias about the answer, and also has no strong reason to assume that the addressee believes the prejacent proposition to be true. Section 4.1 showed the results for such fully neutral discourse contexts. As predicted, these are the only cases where keʔ is preferred over n̓.	page 22
+§4.4	Lisa Matthewson	note	In Sections 4.2 and 4.3 we saw that n̓ is the preferred option when (and only when) the speaker is not themselves in a position to commit to p, but they believe the addressee will commit to p. Section 4.2 presented contexts where the speaker has no epistemic bias about p, but there is evidence in the utterance context that the addressee believes p. Here, n̓ is the preferred question form. In Section 4.3.1 we looked at greetings, where the only discourse continuation offered to the addressee is to confirm p. Here, n̓ is the only acceptable option. Section 4.3.2 gave data involving incredulity contexts. Here, the speaker has an epistemic bias against p, but nevertheless believes that the addressee will confirm p, and again, n̓ is preferred.	page 22
+§4.4	Nɬeʔkepmxcín	cited form	n̓-questions	page 22
+§4.4	Lisa Matthewson	note	Finally, in Section 4.3.3 we considered three contexts from Malamud and Stephenson (2015): Blushing/Innuendo, Seeking agreement, and Unsure of move. In the first two of these, n̓-questions behave similarly to English declarative questions, but in the third, they seem to diverge. In Blushing/Innuendo, the speaker has no information but suspects the addressee believes p, so n̓ is good. In Seeking agreement, the speaker can themselves commit to p, so n̓ is bad. Finally, in Unsure of move, n̓-questions are not acceptable, at least in preliminary data. This follows from the approach I am adopting, because in this context, the speaker is sure about p and therefore should not be able to use n̓.	page 22
+§5	Lisa Matthewson	heading	5 Analysis and theoretical consequences	page 23
+§5.1	Lisa Matthewson	heading	5.1 Analysis	page 23
+§5.1	Lisa Matthewson	note	There are a range of semantic analyses of polar questions in English: all the way from the proposal that all polar questions are bipolar (Farkas & Roelofsen 2017; Ciardelli 2021), to the idea that all polar questions are monopolar (Biezma & Rawlins 2012), and in-between, the idea that they can be either bipolar or monopolar (Krifka 2015, 2017). Within monopolar approaches, there are further issues of debate, including which specific speaker and addressee (projected) commitments are introduced.	page 23
+§5.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§5.1	Nɬeʔkepmxcín	cited form	keʔ-questions	page 23
+§5.1	Nɬeʔkepmxcín	cited form	n̓-questions	page 23
+§5.1	Lisa Matthewson	note	The difficulty in pinning down the analysis when looking only at English is that positive PQs can be felicitously uttered both in completely neutral discourse contexts, and in contexts where the speaker is seeking to have p confirmed by the addressee. The situation in Nɬeʔkepmxcín appears to be a lot clearer. The Nɬeʔkepmxcín data can be accounted for by analyzing keʔ-questions as bipolar, and n̓-questions as monopolar.	page 23
+§5.1	Nɬeʔkepmxcín	cited form	keʔ	page 23
+§5.1	Lisa Matthewson	note	I adopt a standard bipolar analysis of keʔ-questions: keʔ (p) denotes the set of alternatives {p, ¬p}.16 The denotation of keʔ is given in (41). This is parallel to Krifka’s (2017:382) proposal for a ‘wh-operator’, which in English is pronounced as whether in embedded questions and is null in matrix questions.17	page 23
+(41) line 1	Lisa Matthewson	rule	⟦ keʔ ⟧ = λp<s,t> . {p, ¬p}	page 23, engine residue
+§5.1	Lisa Matthewson	note	We still need to get from this semantic denotation to the discourse effect of the question, namely that the addressee is expected to pick one of the alternative answers to commit to. There are various proposals in the literature about this. For Farkas and Bruce (2010), the question denotation is placed on the Table (roughly, a representation of the current Question Under Discussion), and “[p]lacing a question on the Table steers the conversation towards a state in which the question is resolved” (Farkas & Bruce 2010:94). For Krifka (2017), after the wh-operator whether applies to create the alternative set, an illocutionary operator QU imposes a restriction on the addressee that their next contribution will be one of the alternative answer propositions.18 I will not go into further details here, since the discourse effects of bipolar questions are far less controversial than those of monopolar questions, on which I focus in the rest of this section.	page 23
+§5.1	Lisa Matthewson	note	For n̓-questions, I adopt Rudin’s (2018, 2022) analysis of English declarative questions, which builds (like most work in this area) on seminal ideas found in Gunlogson (2003). According to Rudin, English DQs have the following four defining properties:	page 23
+footnote 16	Lisa Matthewson	note	16 Here and throughout, I am not bothering to distinguish an utterance’s form from the proposition it denotes, annotating both with the variable p.	page 23, footnote
+footnote 17	Lisa Matthewson	note	17 Krifka later amends this (2021a:60) and claims that the whether operator creates a singleton set from a proposition.	page 23, footnote
+footnote 18	Lisa Matthewson	note	18 For English, Krifka claims that verb movement is an effect of the illocutionary operator QU. Nɬeʔkepmxcín does not have verb movement in polar questions, so there may be cross-linguistic differences in the morpho- syntactic spell-out of the components that make up a polar question.	page 23, footnote
+(42) line 1	Lisa Matthewson	note	FOUR CRUCIAL GENERALIZATIONS (Rudin 2022:343–344): For any [DQ] p? whose falling declarative counterpart denotes the proposition p	page 24, engine english
+(42a) line 1	Nɬeʔkepmxcín	gloss	NON-ASSERTIVENESS	page 24, engine english
+§5.1	Lisa Matthewson	note	A speaker who utters p? does not commit to the truth of p b. ANSWER SOLICITATION An utterance of p? invites the addressee to weigh in on whether p is true c. VARIABLE SPEAKER EPISTEMIC BIAS An utterance of p? can license an inference that the speaker suspects that p is true or that it is false, depending on context d. ANTICIPATION OF ADDRESSEE COMMITMENT An utterance of p? is only felicitous when the speaker has reason to believe that the addressee believes p Whether English DQs convey projected commitment by the speaker, by the addressee, or neither, has been a matter of some debate; see Gunlogson (2008), Malamud and Stephenson (2015), among others, for approaches involving contingent/projected speaker commitment, and Gunlogson (2003), Krifka (2015, 2017, 2021a,b), Jeong (2018), among others, for approaches involving projected addressee commitment. Choices here partly correlate with whether a researcher believes that so-called ‘assertive DQs’ should receive a unified analysis with ‘inquisitive DQs’. Assertive DQs are those where the speaker is in a position to commit to p — indeed is the authority on p — but is unsure whether asserting p is the correct discourse move; an example is Malamud and Stephenson’s (2015) ‘Unsure of move’ context, given in (40) above. Goodhue (2022), who seeks a unified analysis of all English DQs, argues against an addressee commitment component as in (42), since this generalization only holds for inquisitive DQs. He proposes that what all DQs have in common is simply a lack of speaker commitment to some proposition q, which is usually equal to the prejacent proposition (with inquisitive DQs, including incredulity ones), but can be some other proposition (as with assertive DQs).	page 24
+§5.1	Nɬeʔkepmxcín	cited form	n̓	page 24
+§5.1	Lisa Matthewson	note	The reason I adopt Rudin’s generalizations for Nɬeʔkepmxcín n̓-questions is that, as shown in (40), n̓-questions do not seem to be acceptable in assertive DQ contexts. Thus, in Nɬeʔkepmxcín there is a distinction between cases where the speaker cannot themselves commit to p but expects that the addressee will do so (marked via n̓), and cases where the speaker can commit but is unsure whether this is the right discourse move (apparently marked via rising intonation, as in (40), although more targeted research is necessary to confirm this). This provides cross-linguistic support for those who argue that inquisitive and assertive DQs are distinct, including for example Jeong (2018).	page 24
+§5.1	Lisa Matthewson	note	Another reason to adopt Rudin’s proposal is that unlike approaches which rely on contingent or projected speaker commitment to p (Gunlogson 2008; M&S, etc.), it successfully captures incredulity cases such as (36) and (37).	page 24
+§5.1	Lisa Matthewson	note	Rudin argues (following Truckenbrodt 2006) that in English, rising intonation signals that the speaker’s commitments do not change. A DQ, then, involves no speaker commitments, but “raise[s] a singleton Issue, projecting only one future Common Ground” (Rudin 2018:55/2022:360). In terms of Farkas and Bruce’s (2010) model, a DQ based on a proposition p puts p on the Table, but not into the speaker’s discourse commitments.	page 24
+§5.1	Lisa Matthewson	note	This approach can be straightforwardly applied to Nɬeʔkepmxcín, with the difference that the relevant meaning component is conveyed not by rising intonation, but by the morpheme n̓. The claim that n̓ (p) places p on the Table but does not add p to the speaker’s (projected) commitments straightforwardly derives generalizations (42) (non-assertiveness) and (42) (answer solicitation). As for (42) (variable speaker epistemic bias) and (42) (anticipation of addressee commitment), Rudin derives these through principles of pragmatic competition, relying on the Gricean maxims of Quantity and Quality. Applied to Nɬeʔkepmxcín, it works as follows.	page 25
+§5.1	Nɬeʔkepmxcín	cited form	n̓-question	page 25
+§5.1	Nɬeʔkepmxcín	cited form	keʔ-interrogative	page 25
+§5.1	Lisa Matthewson	note	An n̓-question is in pragmatic competition with two alternative utterance types: a declarative, and a keʔ-interrogative. If a speaker utters an n̓-question, they have chosen not to utter either of these other types, and the addressee draws inferences based on this choice.	page 25
+§5.1	Lisa Matthewson	note	First, an n̓-question differs from a declarative utterance only in lacking speaker commitment to p. Assuming that one should commit to as much as possible (Quantity) while preserving Quality, the inference is generated that the speaker is unable to commit to p (generalization (42)). This covers cases of positive speaker epistemic bias, where the speaker has some, but not sufficient, evidence to commit to p, and also cases of negative speaker epistemic bias, where the speaker has evidence that p is false.	page 25
+§5.1	Nɬeʔkepmxcín	cited form	keʔ-question	page 25
+§5.1	Lisa Matthewson	note	Second, the n̓-question differs from a keʔ-question only in not offering ¬p as a possible answer/future commitment of the addressee. Assuming that one should project as many possible future Common Grounds as one can (Quantity) without violating any interlocutor’s beliefs (Quality), the inference is generated that only p is an expected answer (generalization (42)). See Rudin (2018:63–74, 2022:363–368) for this reasoning, justified and spelled out in more detail. Formally implemented, Rudin’s analysis of the English rising intonation is adapted for Nɬeʔkepmxcín n̓ in (43). The notation Tn stands for the Table at time n, and DC sp,n stands for a speaker sp’s discourse commitments at time n. The formalism in (43) says that an utterance n̓ (p) by sp in context cn places p on the Table, and does not change sp’s discourse commitments. The other pragmatic effects of n̓-questions are derived as outlined immediately above.	page 25
+(43) line 1	Lisa Matthewson	note	Contribution of n̓ (adapted from Rudin’s 2018:20 analysis of English L* H-H% intonation):	page 25, the caption
+footnote 19	Lisa Matthewson	note	19 Gunlogson (2008:105) argues against a positive contextual evidence condition for English DQs, citing also Beun (2000) and Poschmann (2008).	page 25, footnote
+§5.1	Lisa Matthewson	note	For any utterance u : ⟨sp, n̓ (p), cn⟩ → cn+1 Tn+1 = Tn + ⟦ p ⟧ DCsp,n+1 = DCsp,n Notice that this analysis does not involve any conditions on contextual evidence, unlike many analyses of various types of PQs in the literature (e.g., Büring & Gunlogson 2000; Gunlogson 2003; Trinh 2014; Goodhue 2021, and references therein).19 This accords with the Nɬeʔkepmxcín facts. For example, we saw in Section 4.3.1 that the greetings require n̓, even though there is not necessarily any evidence in the utterance context that the addressee is doing well. Rather, the critical point is only that the speaker expects the addressee to commit to doing well.	page 25
+§5.2	Lisa Matthewson	heading	5.2 Theoretical consequences	page 26
+§5.2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§5.2	Lisa Matthewson	note	The Nɬeʔkepmxcín data have the potential to shed light on several theoretical debates. First is the issue of bipolar vs. monopolar analyses of PQs. In the literature, all positions are represented: all the way from the claim that all PQs are bipolar, even including DQs (e.g., Farkas & Roelofsen 2017; Ciardelli 2021), to the claim that all PQs are monopolar, even including un- biased ones (Biezma & Rawlins 2012), and in the middle the claim that some PQs, including DQs, are monopolar, while others are bipolar (e.g., Krifka 2015, 2017).	page 26
+§5.2	Lisa Matthewson	note	The debate is difficult to settle on the basis of English data alone; empirical evidence is given on all sides, and theoretical assumptions also drive some of the proposals. While I don’t take a strong position on English here, I suggest that Nɬeʔkepmxcín provides cross-linguistic evidence against the idea that all questions have to share the same semantic denotation.	page 26
+§5.2.1	Lisa Matthewson	heading	5.2.1 Not all questions are bipolar	page 26
+§5.2.1	Lisa Matthewson	note	Farkas and Roelofsen (2017; henceforth F&R) argue that DQs and polar interrogatives have the same semantic denotation, illustrated in (44); they both denote a bipolar set of information states. The bolding in (44) indicates that this alternative is highlighted.20	page 26
+(44) line 1	Lisa Matthewson	note	a. Did Amalia leave? = Amalia left?	page 26, the caption
+(42b) line 1	Nɬeʔkepmxcín	transcription	{{w : Amalia left in w}	page 26, in { }
+(42b) line 1	Nɬeʔkepmxcín	transcription	{w : Amalia didn’t leave in w}	page 26, in { }
+(42b) line 1	Lisa Matthewson	note	(F&R:263)	page 26
+§5.2.1	Lisa Matthewson	note	One of the main assumptions underlying F&R’s proposal that DQs have the same semantic denotation as ordinary polar questions is that DQs are a ‘marked’ sentence type. The marked status of DQs means that they are allowed to have ‘special discourse effects’, in addition to the discourse effects that follow automatically from the semantic type of the utterance:	page 26
+§5.2.1	Lisa Matthewson	note	(45) Division of labor principle (F&R:250):	page 26
+§5.2.1	Lisa Matthewson	note	a. The discourse effects of unmarked forms should be fully determined by their semantic content and the basic convention of use, Fb.	page 26
+§5.2.1	Lisa Matthewson	note	b. The discourse effects of marked forms should always include the discourse effects that are dictated by their semantic content and the basic convention of use Fb. In addition, they may include special discourse effects connected to the particular sentence type involved.	page 26
+§5.2.1	Lisa Matthewson	note	The special discourse effect that F&R propose for DQs is that the speaker has some evidence for the highlighted alternative, but has a credence level in this alternative between ‘zero’ and ‘low’ (F&R:269).	page 26
+footnote 20	Lisa Matthewson	note	20 The up-arrow  in (44) indicates rising intonation. The superscripted down-arrow  in (44) indicates that the denotation is a proposition, in an inquisitive semantics sense: ‘The proposition expressed by a sentence in inquisitive semantics is not a set of worlds, but rather a set of information states, those information states that are said to support the sentence. Information states are modeled as sets of possible worlds’ (F&R:248).	page 26, footnote
+§5.2.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§5.2.1	Nɬeʔkepmxcín	cited form	n̓-questions	page 27
+§5.2.1	Nɬeʔkepmxcín	cited form	keʔ-questions	page 27
+§5.2.1	Nɬeʔkepmxcín	cited form	keʔ	page 27
+§5.2.1	Lisa Matthewson	note	An approach of this type could work fine for English, but notice the complexity in the analysis of DQs. First, DQs have a bipolar denotation. Next, one of the alternatives is highlighted, an additional theoretical tool beyond simply having a bipolar set. Finally, a special discourse effect is stipulated, which replicates similar pragmatic effects to those of Rudin’s (2018, 2022) monopolar analysis. The special discourse effect is allowed to exist because of the ‘marked’ status of DQs. Nɬeʔkepmxcín offers a different perspective on the relationship between DQ-like questions and neutral polar questions. In this language, n̓-questions are no more marked than keʔ-questions. To see this, consider F&R’s definition of markedness: “If two forms have the same semantic content, one may be considered more marked than the other because it is formally more complex, or because it is more prone to misinterpretation and therefore less likely to ensure communicative success.” If anything, keʔ-questions are formally more complex than n̓-questions, since keʔ embeds a subordinate clause and n̓-questions are monoclausal. Nor are n̓-questions more prone to misinterpretation. For English, F&R argue that DQs are more prone to misinterpretation than DQs because in DQs, “the only formal feature that signals inquisitiveness is rising intonation … Were this signal to be missed, the conveyed proposition would not be the intended one” (F&R:264). But in Nɬeʔkepmxcín, DQs are not marked only by rising intonation. They are marked by an overt morpheme and are no more likely to be misinterpreted than any other utterance type. Nɬeʔkepmxcín n̓-questions are also not a marked utterance type in the sense that, for example, Ciardelli (2021) considers. Like many authors, Ciardelli assumes certain default mappings between sentence types and speech act effects, as shown in Table 1. English DQs do not fit into these default mappings, since they share some content-type properties with statements and some with questions, and they are therefore special in some sense.	page 26
+§5.2.1	Lisa Matthewson	language	Nɬeʔkepmxcín-internal	page 27, Nɬeʔkepmxcín-internal, within Nɬeʔkepmxcín
+§5.2.1	Lisa Matthewson	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§5.2.1	Lisa Matthewson	language	Skwxwú7mesh	Skwxwú7mesh, a Central Salish language
+§5.2.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, page 27, before footnote mark 21
+footnote 21	Lisa Matthewson	note	21 Giannakidou (2013), Giannakidou and Mari (2021a,b) similarly argue against a strict dichotomy between assertions and questions.	page 27, footnote
+§5.2.1	Lisa Matthewson	language	Nɬeʔkepmxcín-based	page 28, Nɬeʔkepmxcín-based, drawn from Nɬeʔkepmxcín
+§5.2.1	Lisa Matthewson	note	Table 1: Ciardelli’s (2021:17) ‘Favored conceptual picture’ STATEMENT QUESTION CONTENT TYPE Proposition Issue DEFAULT FORCE Assert Ask Again, however, there is no Nɬeʔkepmxcín-internal evidence for any default mapping between content type and pragmatic force. First, there is no syntactic distinction between sentences that have the default force of asserting and sentences that have the default force of asking. There is no declarative vs. interrogative syntax in this language: there is no verb or auxiliary movement in any kind of question, and the word order is identical in declaratives, keʔ-questions, and n̓-questions. Nor is there any intonational way to distinguish statements from questions. Although no acoustic studies have been done on this yet in Nɬeʔkepmxcín, Salish languages for which information is available do not have a final rise in polar questions. Caldecott (2016) shows for St’át’imcets (a Northern Interior Salish language, closely related to Nɬeʔkepmxcín) that “while all speakers had increased pitch associated with yes/no questions, none signalled yes/no questions with a final rise.” For the Central Salish language Skwxwú7mesh, Jacobs (2007) finds that there is a final fall in both declaratives and polar questions. Impressionistically in Nɬeʔkepmxcín as well, this is the case: neither keʔ-questions nor n̓-questions standardly end in rising intonation. In other words, there is no evidence for any part of Ciardelli’s favoured conceptual picture in Nɬeʔkepmxcín.21 Given that Nɬeʔkepmxcín n̓-questions are not marked utterance types, there is no principled explanation for why they would be subject to extra discourse effects, over the ‘basic’ discourse effects of keʔ-questions. This removes one of the main conceptual arguments for an F&R-style approach. Instead, it appears preferable to assign keʔ-questions and n̓-questions differing semantic denotations, if these are embedded within a theory of discourse that derives their respective pragmatic effects from those denotations (as Rudin’s 2018/2022 approach, adopted above, does). Whether or not this Nɬeʔkepmxcín-based argument is a strong argument for the analysis of English, Nɬeʔkepmxcín does at least demonstrate that languages exist in which there is no evidence to assign DQ-like utterances the same semantic denotations as bipolar questions.	page 27
+§5.2.2	Lisa Matthewson	heading	5.2.2 Not all questions are monopolar	page 28
+§5.2.2	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§5.2.2	Nɬeʔkepmxcín	cited form	keʔ-questions	page 28
+§5.2.2	Nɬeʔkepmxcín	cited form	n̓-questions	page 28
+§5.2.2	Lisa Matthewson	note	At the opposite end of the spectrum from F&R and Ciardelli (2021), Biezma and Rawlins (2012) propose a monopolar analysis for all polar questions, including even un-biased ones. According to Biezma and Rawlins (henceforth B&R), a Q-operator applied to a proposition creates not a bipolar set, but a singleton set containing one alternative, and the addressee is supposed to choose between that alternative and other salient alternatives. B&R’s evidence for this comes largely from a comparison between plain polar questions on the one hand, and alternative questions like Do you want coffeeL*H−or teaH*L−L%? and or not-questions (Do you want coffee or not?) on the other.22 B&R’s proposal that all PQs are monopolar obviously cannot be extended to Nɬeʔkepmxcín, if I am right that keʔ-questions are bipolar. Alternative questions and or not questions have not yet been systematically investigated in Nɬeʔkepmxcín. However, there are several reasons to believe that something more is going on in Nɬeʔkepmxcín than all questions being monopolar. First, simply claiming that all polar questions are monopolar begs the question of the pragmatic differences between question-types that almost everybody analyzes as monopolar (for example, English DQs), and those which are usually analyzed as bipolar (English ordinary polar interrogatives). B&R themselves do not provide an account of the pragmatic differences between English PQs and DQs; they merely affirm that both are monopolar (B&R:394). For Nɬeʔkepmxcín, analyzing both keʔ-questions and n̓-questions as monopolar would immediately raise the question of why keʔ-questions, unlike n̓-questions, are so perfectly suited for fully neutral discourse contexts. Second, part of the motivation for B&R’s monopolar analysis of PQs in English comes from interpretive differences between ordinary PQs (Is it raining?) and or not questions (Is it raining or not?). Significantly, preliminary Nɬeʔkepmxcín data suggest that keʔ-questions behave more like English or not questions than like English plain PQs. Consider (46). As pointed out by Bolinger (1978), or not is odd here because the speaker knows the question can only be answered in the affirmative. This fits well with B&R’s claim that (46) is monopolar.	page 28
+(46) line 1	Lisa Matthewson	note	Context (adapted from Bolinger 1978:88): You see your brother lying on the sofa with his eyes closed and you say:	page 28, engine english
+§5.2.2	Lisa Matthewson	note	a. Are you awake?	page 28
+§5.2.2	Lisa Matthewson	note	b. #Are you awake or not?	page 28
+§5.2.2	Nɬeʔkepmxcín	cited form	n̓-question	page 28
+§5.2.2	Nɬeʔkepmxcín	cited form	keʔ-question	page 28
+§5.2.2	Lisa Matthewson	note	In Nɬeʔkepmxcín, an n̓-question is volunteered in this context, and a keʔ-question is marginal or dispreferred. This supports the idea that keʔ-questions are bipolar, as I have argued. Versions from two speakers are given in (47).	page 28
+footnote 22	Lisa Matthewson	note	22 On or not questions, Biezma and Rawlins draw partly on data and arguments found in Bolinger (1978).	page 28, footnote
+(47) line 1	Lisa Matthewson	note	Context: As in (46).	page 29, engine english
+(47a) line 1	Nɬeʔkepmxcín	transcription	ʔesnqʔíɬ kʷ n̓?	page 29, engine language
+(47a) line 2	Nɬeʔkepmxcín	segmentation	ʔes-n-qʔíɬ=kʷ=n̓	page 29, engine language
+(47a) line 3	Nɬeʔkepmxcín	gloss	STAT-LOC-awake=2SG.SBJ=Q	page 29, engine english
+(47a) line 4	Bev Phillips	translation	‘Are you awake?’	page 29, engine english
+(47a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(47b) line 1	Nɬeʔkepmxcín	transcription	? keʔ keʔ snqʔíɬ?	page 29, engine language
+(47b) line 2	Nɬeʔkepmxcín	segmentation	? keʔ k=eʔ=s-n-qʔíɬ	page 29, engine language
+(47b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=LOC-awake	page 29, engine english
+(47b) line 4	Bev Phillips	translation	‘Are you awake?’	page 29, engine english
+(47b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§5.2.2	Nɬeʔkepmxcín	cited form	qʔiɬ	page 29, ‘awake’
+§5.2.2	Lisa Matthewson	note	Consultant’s comment on (47b): “It would probably work but, I don’t know. Cause you’re using that one qʔiɬ [‘awake’] word so then any version of that, it’d be like ‘ok, I think they’re trying to say this.’”	page 29
+(47c) line 1	Nɬeʔkepmxcín	transcription	ʔesqíɬ kʷ n̓?	page 29, engine language
+(47c) line 2	Nɬeʔkepmxcín	segmentation	ʔes-qíɬ=kʷ=n̓	page 29, engine language
+(47c) line 3	Nɬeʔkepmxcín	gloss	STAT-awake=2SG.SBJ=Q	page 29, engine english
+(47c) line 4	Bernice Garcia	translation	‘Are you awake?’	page 29, engine english
+(47c) line 4	Lisa Matthewson	citation	(KBG; volunteered)	the tag or source at the right of the translation
+(47d) line 1	Nɬeʔkepmxcín	transcription	?keʔe keʔ sqíɬ?	page 29, engine language
+(47d) line 2	Nɬeʔkepmxcín	segmentation	?keʔe k=eʔ=s-qíɬ	page 29, engine language
+(47d) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=STAT-awake	page 29, engine english
+(47d) line 4	Bernice Garcia	translation	‘Are you awake?’	page 29, engine english
+(47d) line 4	Lisa Matthewson	citation	(KBG)	the tag or source at the right of the translation
+§5.2.2	Nɬeʔkepmxcín	cited form	ʕʷoy̓téc̓eme	page 29
+§5.2.2	Nɬeʔkepmxcín	cited form	kʷ	page 29
+§5.2.2	Nɬeʔkepmxcín	cited form	n̓	page 29
+§5.2.2	Lisa Matthewson	note	Consultant’s comment on (47d): “Yeah, it’s ok. I’d rather use ʕʷoy̓téc̓eme kʷ n̓? [‘Are you pretending to be asleep?’]” Interestingly, keʔ-questions are not entirely parallel to English or not questions. B&R argue that alternative questions (including or not questions) differ from plain PQs in that the former are exhaustive and the latter are not. For example, B&R observe (following Bolinger 1978) that the PQ in (48) is more ‘open’ (and therefore more pragmatically appropriate) than the or not question in (48). In B&R’s analysis, this is because or not questions “presuppose exactly two salient alternative propositions, which semantically exhaust the space of possibilities.” So, (48) offers the water as just one out of potentially many salient options, while (48) offers the addressee only two options: water, or no water.	page 29
+§5.2.2	Lisa Matthewson	note	(48) Invitations/offers: Your friends just arrived at your house.	page 29
+§5.2.2	Lisa Matthewson	note	a. Do you want some water?	page 29
+§5.2.2	Lisa Matthewson	note	b. #Do you want some water or not? (B&R:400, adapted from Bolinger 1978) For B&R, the exhaustivity effect is tied to the falling intonation on English alternative questions, which introduces a closure operator. It is not clear whether keʔ-questions and n̓-questions are intonationally different; impressionistically, no difference has been detected. If keʔ-questions lack a closure operator, this might explain why keʔ-questions — while showing some similarities with or not questions, as shown in (46) — are not ruled out in offer-contexts. This is shown in (49).	page 29
+(49) line 1	Lisa Matthewson	note	Context: As in (48).	page 30, engine english
+(49a) line 1	Nɬeʔkepmxcín	transcription	keʔ keʔ sx̣ʷóx̣ʷst tək qʷúʔ?	page 30, engine language
+(49a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=eʔ=s=x̣ʷóx̣ʷst tə=k=qʷúʔ	page 30, engine language, carries footnote 23, written here without its digit
+(49a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=want OBL=DET=water	page 30, engine english
+(49a) line 4	Bev Phillips	translation	‘Do you want water?’	page 30, engine english
+(49a) line 4	Lisa Matthewson	citation	(BP; volunteered first)	the tag or source at the right of the translation
+(49b) line 1	Nɬeʔkepmxcín	transcription	x̣ʷox̣ʷst k̓ʷ n̓ tək qʷúʔ?	page 30, engine language
+(49b) line 2	Nɬeʔkepmxcín	segmentation	x̣ʷox̣ʷst=k̓ʷ=n̓ tə=k=qʷúʔ	page 30, engine language
+(49b) line 3	Nɬeʔkepmxcín	gloss	want=2SG.SBJ=Q OBL=DET=water	page 30, engine english
+(49b) line 4	Bev Phillips	translation	‘Do you want water?’	page 30, engine english
+(49b) line 4	Lisa Matthewson	citation	(BP; volunteered second)	the tag or source at the right of the translation
+§5.2.2	Lisa Matthewson	note	A lack of exhaustivity in keʔ-questions would also explain why keʔ-questions, unlike English or not questions, are fine in (50) (another case where more ‘open’ questions are pragmatically preferred).	page 30
+(50) line 1	Lisa Matthewson	note	Conversation starters (adapted from B&R:400 / Bolinger 1978): You are at your friend Jane’s house and she has a few people over. You are trying to start a casual conversation with someone you don’t know who you just met there.	page 30, engine english
+(50a) line 1	Nɬeʔkepmxcín	transcription	keʔ ks y̓emínəxʷ ʔe q̓ʷyew̓m?	page 30, engine language
+(50a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=y̓e-mín[-t]=əxʷ ʔe=q̓ʷyew̓-m	page 30, engine language
+(50a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=good-RLT[-TR]=2SG.ERG D/C=pick.berries-CTR.MID	page 30, engine english
+(50a) line 4	Bernice Garcia	translation	‘Do you like to go berry picking?’	page 30, engine english
+(50a) line 4	Lisa Matthewson	citation	(KBG; volunteered first)	the tag or source at the right of the translation
+(50b) line 1	Nɬeʔkepmxcín	transcription	y̓emínxʷ n̓ ʔe q̓ʷyéw̓m?	page 30, engine language
+(50b) line 2	Nɬeʔkepmxcín	segmentation	y̓e-mín[-t]-xʷ=n̓ ʔe=q̓ʷyéw̓-m	page 30, engine language
+(50b) line 3	Nɬeʔkepmxcín	gloss	good-RLT[-TR]-2SG.ERG=Q D/C=pick.berries-CTR.MID	page 30, engine english
+(50b) line 4	Bernice Garcia	translation	‘Do you like to go berry picking?’	page 30, engine english
+(50b) line 4	Lisa Matthewson	citation	(KBG; volunteered second)	the tag or source at the right of the translation
+§5.2.2	Nɬeʔkepmxcín	cited form	keʔ	page 30
+§5.2.2	Lisa Matthewson	note	Consultant’s comment on (50a) vs. (50b): “Both the same, similar.” As predicted by the claim that keʔ-questions are non-exhaustive, keʔ-questions contrast with overt or not questions, as shown in the minimal triplet in (51). This suggests that there is likely a three-way split, rather than a two-way split as assumed in B&R’s discussion: monopolar questions (n̓), bipolar questions (keʔ), and bipolar questions plus exhaustivity (or not questions).	page 30
+(51) line 1	Lisa Matthewson	note	Context: As in (50).	page 30, engine english
+(51a) line 1	Nɬeʔkepmxcín	transcription	xin̓ n̓ meɬ kex sx̣əkpstéxʷ ɬ Jane?	page 30, engine language
+(51a) line 2	Nɬeʔkepmxcín	segmentation	xin̓=n̓ meɬ k=ex s=x̣ək-p-s-t=éxʷ ɬ=Jane	page 30, engine language
+(51a) line 3	Nɬeʔkepmxcín	gloss	long.time=Q COUNTER D/C=IPFV NMLZ=know-INC-CAU-TR=2SG.ERG DET=Jane	page 30, engine english
+(51a) line 4	Bev Phillips	translation	‘Have you known Jane for long?’	page 30, engine english
+(51a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+footnote 23	Lisa Matthewson	note	23 T&T (1992:77) write that the form x̣ʷox̣ʷst ‘want’ “occurs only with reflexive or immediate inflection, and the reflexive falls immediately after the stem with no transitive suffix.” They break it down as x̣ʷox̣ʷ-st ‘want- REFL’. I have chosen to be skeptical of this breakdown because there is no reflexive meaning.	page 30, footnote
+footnote 23	Nɬeʔkepmxcín	cited form	x̣ʷox̣ʷst	page 30, ‘want’
+footnote 23	Nɬeʔkepmxcín	cited form	x̣ʷox̣ʷ-st	page 30
+(51b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks xin̓s ks x̣əkpstéxʷ ɬ Jane?	page 31, engine language
+(51b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=xin̓=s k=s=x̣ək-p-s-t-éxʷ	page 31, engine language
+(51b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=long.time=3POSS D/C=NMLZ=know-INC-CAU-TR=2SG.ERG	page 31, engine english
+(51b) line 4	Nɬeʔkepmxcín	segmentation	ɬ=Jane	page 31, engine residue
+(51b) line 5	Nɬeʔkepmxcín	gloss	DET=Jane	page 31, engine english
+(51b) line 6	Bev Phillips	translation	‘Have you known Jane for long?’	page 31, engine english
+(51b) line 6	Lisa Matthewson	citation	(BP; volunteered when asked about keʔ version)	the tag or source at the right of the translation
+(51c) line 1	Nɬeʔkepmxcín	transcription	? keʔ ks xin̓s ks x̣əkpstéxʷ ɬ Jane ʔe tém̓ us nke?	page 31, engine language
+(51c) line 2	Nɬeʔkepmxcín	segmentation	?keʔ k=s=xin̓=s k=s=x̣ək-p-s-t=éxʷ	page 31, engine language
+(51c) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=long.time=3POSS D/C=NMLZ=know-INC-CAU-TR=2SG.ERG	page 31, engine english
+(51c) line 4	Nɬeʔkepmxcín	segmentation	ɬ=Jane ʔe=tém̓=us=nke	page 31, engine language
+(51c) line 5	Nɬeʔkepmxcín	gloss	DET=Jane COMP=NEG=3SBJV=EVID	page 31, engine english
+(51c) line 6	Bev Phillips	translation	‘Have you known Jane for a long time or not?’	page 31, engine english
+(51c) line 6	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+§5.2.2	Nɬeʔkepmxcín	cited form	ʔe	page 31
+§5.2.2	Nɬeʔkepmxcín	cited form	tem̓us	page 31
+§5.2.2	Lisa Matthewson	note	Consultant’s comment on (51c): “If they pause, sometimes you could say that too, like if they take a long time to answer, then you could read their face and say ʔe tem̓us nke [‘or not’] … It might work [as is, no pause], but maybe you already have some information that’s telling you.” A final consequence of the Nɬeʔkepmxcín data for a B&R-style analysis is that whereas for B&R, alternative questions and or not questions are argued to be formed from a monopolar base, in Nɬeʔkepmxcín we see evidence for the opposite. Using overt negation after a polar question is (in preliminary elicitations) acceptable only with keʔ and not with n̓:	page 31
+(52) line 1	Lisa Matthewson	note	Context: You want to go berry picking tomorrow, but you don’t want to go alone so you ask your daughter to come along. She says, “I’m not sure if I can come, I’ll let you know tonight.” But she doesn’t call. The next morning you call her and say:	page 31, engine english
+(52a) line 1	Nɬeʔkepmxcín	transcription	keʔ keʔ sxʷúy̓ cʔes, ʔe tém̓ us nke?	page 31, engine language
+(52a) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=eʔ=s=xʷúy̓ cʔes ʔe=tém̓=us=nke	page 31, engine language
+(52a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=PROSP come COMP=NEG=3SBJV=EVID	page 31, engine english
+(52a) line 4	Bev Phillips	translation	‘Are you coming or not?’	page 31, engine english
+(52a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(52b) line 1	Nɬeʔkepmxcín	transcription	# cʔes kʷ n̓, ʔe tém̓ us nke?	page 31, engine language
+(52b) line 2	Nɬeʔkepmxcín	segmentation	# cʔes=kʷ=n̓ ʔe=tém̓=us=nke	page 31, engine language
+(52b) line 3	Nɬeʔkepmxcín	gloss	come=2SG.SBJ=Q COMP=NEG=3SBJV=EVID	page 31, engine english
+(52b) line 4	Bev Phillips	translation	‘Are you coming or not?’	page 31, engine english
+(52b) line 4	Lisa Matthewson	citation	(BP)	the tag or source at the right of the translation
+footnote 24	Lisa Matthewson	note	24 Kulkarni (2023) argues that alternative questions in Nɬeʔkepmxcín convey a “much weaker” exhaustivity	page 31, footnote
+§5.2.2	Lisa Matthewson	note	Consultant’s comment on (52b): “Hmmmmm. I don’t know if I would use that one. It doesn’t sound as good as the other one [(52a)]. But if you said it someone would understand.” Full alternative questions in Nɬeʔkepmxcín also contain keʔ, as shown in (53). Again, this casts doubt on the assumption that alternative questions must be formed from monopolar bases (an assumption also held by Krifka 2021a:57).24	page 31
+(53) line 1	Nɬeʔkepmxcín	transcription	keʔ xʷúy̓ ks tíy us x̣ə́k us nke kápiy us?	page 32, engine language
+(53) line 2	Nɬeʔkepmxcín	segmentation	keʔ xʷúy̓ k=s=tíy=us x̣ə́k=us=nke kápiy=us	page 32, engine language
+(53) line 3	Nɬeʔkepmxcín	gloss	Q PROSP D/C=NMLZ=tea=3SBJV know=3SBJV=EVID coffee=3SBJV	page 32, engine english
+(53) line 4	Kulkarni 2023	translation	‘Would you like tea or coffee?’	page 32, engine english, cited Kulkarni 2023
+(53) line 4	Lisa Matthewson	citation	(Kulkarni 2023)	the tag or source at the right of the translation
+§6	Lisa Matthewson	heading	6 Future research	page 32
+§6	Nɬeʔkepmxcín	cited form	keʔ	page 32
+§6	Nɬeʔkepmxcín	cited form	n̓	page 32
+§6	Lisa Matthewson	note	In this section I highlight some avenues for future research: questions containing negation, a difference with English DQs, and the co-occurrence of keʔ and n̓.	page 32
+§6.1	Lisa Matthewson	heading	6.1 Questions containing negation	page 32
+§6.1	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§6.1	Lisa Matthewson	note	One area for future research is questions containing negation, which I have avoided so far in this paper. These have been the subject of a large literature focusing on English, but there is very little cross-linguistic work in this area. In this section, I provide examples of questions containing negation in Nɬeʔkepmxcín. In each case, I give only the version that was volunteered by the consultant(s), leaving comprehensive testing of all options for future research. For the ease of those who are familiar with the theoretical literature, I annotate each example with its prior epistemic bias and its contextual evidence.	page 32
+§6.1	Nɬeʔkepmxcín	cited form	n̓	page 32
+§6.1	Lisa Matthewson	note	Contexts designed to elicit questions that contain negation can be long and/or complex. All the data in this section were elicited using storyboards, so the consultant did not have to listen to long paragraphs being read aloud. Instead, they had visual stimuli to help make each context clear. In the first case in (54), there is positive epistemic bias and neutral contextual evidence. The consultants both volunteer a negative predicate tem, plus n̓. In English, the preferred form of the question here contains high negation (Isn’t there …, as opposed to low negation Is there no(t) …).	page 32
+(54) line 1	Lisa Matthewson	note	Context (positive epistemic bias, neutral contextual evidence): Mary is at the airport and	page 32, the caption
+§6.1	Lisa Matthewson	note	tells a woman there that she is going to visit her friend Bob in Springtown. The woman says, “Nice! There is a good Chinese restaurant there, you should try it.” A couple of days after Mary gets to Springtown, Bob asks her, “Do you want to go out to dinner tonight?” and she says “Yes!”. Bob asks, “Where should we go?”, and Mary says:	page 32
+§6.1	Nɬeʔkepmxcín	cited form	wiʔ	page 32
+§6.1	Nɬeʔkepmxcín	cited form	téʔe	page 32
+§6.1	Nɬeʔkepmxcín	cited form	y̓es	page 32
+§6.1	Nɬeʔkepmxcín	cited form	ʔe	page 32
+§6.1	Nɬeʔkepmxcín	cited form	cénmən	page 32
+§6.1	Nɬeʔkepmxcín	cited form	sɬaʔx̣áns	page 32
+§6.1	Nɬeʔkepmxcín	cited form	nʔéye	page 32
+§6.1	Lisa Matthewson	note	a. tem n̓ wiʔ téʔe ks y̓es ʔe cénmən ʔe sɬaʔx̣áns nʔéye?	page 32
+§6.1	Nɬeʔkepmxcín	cited form	tem=n̓	page 32
+§6.1	Nɬeʔkepmxcín	cited form	k=s=y̓e=s	page 32
+§6.1	Nɬeʔkepmxcín	cited form	ʔe=cénmən	page 32
+§6.1	Nɬeʔkepmxcín	cited form	ʔe=s-ɬaʔx̣-áns	page 32
+§6.1	Nɬeʔkepmxcín	cited form	ƛ̓em̓	page 33
+§6.1	Nɬeʔkepmxcín	cited form	tək	page 33
+§6.1	Nɬeʔkepmxcín	cited form	nɬaʔx̣anséytn	page 33
+§6.1	Lisa Matthewson	note	tem=n̓ wiʔ téʔe k=s=y̓e=s ʔe=cénmən ʔe=s-ɬaʔx̣-áns NEG=Q EMPH DEIC D/C=NMLZ=good=3POSS DET=Chinese DET=NMLZ-eat-tooth nʔéye DEIC ‘Isn’t there a good Chinese restaurant here?’ (KBG; volunteered) inference than English alternative questions do. For example, giving a non-mentioned option is a felicitous response to (53): juice=us (juice=3SBJV) ‘[I will have] juice.’ The semantic differences between English and Nɬeʔkepmxcín alternative questions may derive from their different structures and component parts. Nɬeʔkepmxcín lacks a clear disjunctive operator; the alternative question in (53) is more literally ‘Are you going to have tea, maybe coffee?’ b. tem n̓ téʔe ƛ̓em̓ y̓es tək cénmən tək nɬaʔx̣anséytn nʔéye?	page 32
+§6.1	Nɬeʔkepmxcín	cited form	y̓e=s	page 33
+§6.1	Nɬeʔkepmxcín	cited form	tə=k=cénmən	page 33
+§6.1	Nɬeʔkepmxcín	cited form	tə=k=n-ɬaʔx̣-ans-éytn	page 33
+§6.1	Lisa Matthewson	note	tem=n̓ téʔe ƛ̓em̓ y̓e=s tə=k=cénmən NEG=Q DEIC CMPL good=3POSS OBL=DET=Chinese tə=k=n-ɬaʔx̣-ans-éytn nʔéye OBL=DET=LOC-eat-tooth-prepared.food DEIC ‘Isn’t there a good Chinese restaurant here?’ (BP; volunteered) Consultant’s comment on (54b): “If she was told and so she kinda knows.” The case in (55) has positive epistemic bias and negative contextual evidence. Again, tem ‘negation’ plus n̓ is volunteered by both consultants.	page 33
+(55) line 1	Lisa Matthewson	note	Context (positive epistemic bias, negative contextual evidence): Bob and Rose are chatting, and Olivia walks up. After they greet each other, Olivia says, “I am having a party tomorrow. You are both invited!” Olivia then leaves. Rose looks very excited. Bob says, “You seem pretty excited”, and Rose answers, “I love Olivia so much!”. Later that evening, Bob and Rose are chatting on the phone. After they have been talking for a while, Rose says, “Yeah so I’m going out of town tomorrow.” Surprised, Bob asks:	page 33, engine english
+(55a) line 1	Nɬeʔkepmxcín	transcription	tem n̓ (téʔe) keʔ sxʷúy̓ nes wə ɬ Olivia ʔe pátis?	page 33, engine language
+(55a) line 2	Nɬeʔkepmxcín	segmentation	tem=n̓ (téʔe) keʔ=s=xʷúy̓ nes wə=ɬ=Olivia ʔe=páti-s	page 33, engine language
+(55a) line 3	Nɬeʔkepmxcín	gloss	NEG=Q (DEIC) 2SG.POSS=NMLZ=PROSP go PREP=DET=Olivia DET=party-3POSS	page 33, engine english
+(55a) line 4	Bev Phillips	translation	‘Aren’t you going to Olivia’s party?’	page 33, engine english
+(55a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(55b) line 1	Nɬeʔkepmxcín	transcription	tem n̓ xʷuy̓ keʔ snés, xʷuy̓ kt móq̓ʷix wéʔe we ɬe Olivia?	page 33, engine language
+(55b) line 2	Nɬeʔkepmxcín	segmentation	tem=n̓ xʷuy̓ keʔ=s=nés xʷuy̓=kt móq̓ʷ-ix wéʔe	page 33, engine language
+(55b) line 3	Nɬeʔkepmxcín	gloss	NEG=Q PROSP 2SG.POSS=NMLZ=go PROSP=1PL.SBJ gather-AUT DEIC	page 33, engine english
+(55b) line 4	Nɬeʔkepmxcín	segmentation	we=ɬe=Olivia	page 33, engine english
+(55b) line 5	Nɬeʔkepmxcín	gloss	PREP=DET=Olivia	page 33, engine english
+(55b) line 6	Bernice Garcia	translation	‘Aren’t you coming to the gathering at Olivia’s?’	page 33, engine english
+(55b) line 7	Lisa Matthewson	citation	(KBG; volunteered; volunteered translation)	page 33, engine english
+§6.1	Lisa Matthewson	note	In (56), there is neutral epistemic bias and negative contextual evidence. Again, tem=n̓ is volunteered. This time, English, prefers a low negative question. Notice that the Nɬeʔkepmxcín here is basically identical to (54) above, which in English corresponds to a high negative question.	page 33
+(56) line 1	Lisa Matthewson	note	Context (neutral epistemic bias, negative contextual evidence): Mary is flying to visit her friend Bob in Springtown. She thinks to herself, “I hope there are some good restaurants in Springtown.” A couple of days after Mary gets to Springtown, Bob asks her “Do you want to go out to dinner tonight?” and she says, “Yes!”. Bob says, “We’ll have to eat greasy hamburgers, is that ok?” and Mary replies:	page 33, engine english
+(56) line 2	Nɬeʔkepmxcín	transcription	tem n̓ téʔe ks y̓es tək nɬaʔx̣anséytn nʔéye?	page 33, engine language
+(56) line 3	Nɬeʔkepmxcín	segmentation	tem=n̓ téʔe k=s=y̓e=s tə=k=nɬaʔx̣-ans-éytn nʔéye	page 33, engine language
+(56) line 4	Nɬeʔkepmxcín	gloss	NEG=Q DEIC D/C=NMLZ=good=3POSS OBL=DET=LOC-eat-tooth-prepared.food DEIC	page 33, engine english
+(56) line 5	Bev Phillips	translation	‘Are there no good restaurants here?’	page 33, engine english
+(56) line 5	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+§6.1	Lisa Matthewson	note	Example (57) has negative epistemic bias and neutral contextual evidence. These cases often contain both high and low negation in English; see Romero and Han (2004:619). The consultant offers a question containing two negations in Nɬeʔkepmxcín: tem in a higher clause, plus a negated subordinate clause.	page 34
+(57) line 1	Lisa Matthewson	note	Context (negative epistemic bias, neutral contextual evidence): Mary is at the airport. She	page 34, the caption
+§6.1	Lisa Matthewson	note	meets someone and tells her, “I’m going to visit my friend Bob in Springtown.” The woman replies, “Oh! Don’t eat Chinese. There are no good Chinese restaurants in Springtown.” A couple of days after Mary arrives at Bob’s house, he asks her, “Would you like to go out to dinner tonight?” and she replies, “Yes!”. Bob says, “Want to eat Chinese food?”. Mary replies:	page 34
+§6.1	Nɬeʔkepmxcín	cited form	ƛ̓əm̓	page 34
+§6.1	Nɬeʔkepmxcín	cited form	tetéʔe	page 34
+§6.1	Nɬeʔkepmxcín	cited form	y̓e	page 34
+§6.1	Lisa Matthewson	note	tem n̓ ƛ̓əm̓ ks tetéʔe tek y̓e tək cénmən tək nɬaʔx̣anséytn nʔéye?	page 34
+§6.1	Nɬeʔkepmxcín	cited form	k=s=tetéʔe	page 34
+§6.1	Nɬeʔkepmxcín	cited form	te=k=y̓e	page 34
+§6.1	Nɬeʔkepmxcín	cited form	nexʷm̓	page 34, ‘very, really, exceedingly’
+§6.1	Lisa Matthewson	note	tem=n̓ ƛ̓əm̓ k=s=tetéʔe te=k=y̓e tə=k=cénmən NEG=Q CMPL D/C=NMLZ=NEG OBL=DET=good OBL=DET=Chinese tə=k=n-ɬaʔx̣-ans-éytn nʔéye OBL=DET=LOC-eat-tooth-prepared.food DEIC ‘Aren’t there no good Chinese restaurants here?’ (BP; volunteered) Consultant’s comment: “So she already has a kind of idea. … She’s going on previous information.” Finally, (58) illustrates negative epistemic bias and positive contextual evidence. These cases are infelicitous with negation in English and prefer a marker like really. Similarly in Nɬeʔkepmxcín, the consultant volunteers the intensifier nexʷm̓ ‘very, really, exceedingly’.	page 34
+(58) line 1	Lisa Matthewson	note	Context (negative epistemic bias, positive contextual evidence): Bob and Rose are chatting,	page 34, the caption
+§6.1	Lisa Matthewson	note	and Olivia walks up. After they greet each other, Olivia says, “I am having a party tomorrow! You are both invited!”. Olivia then leaves. Bob notices Rose is looking unhappy and asks, “Why are you looking upset?”. Rose answers, “I don’t like Olivia.” Later that evening, Bob and Rose are chatting on the phone. After they have been talking for a while, Rose says, “I’m looking forward to seeing you at Olivia’s party.” Surprised, Bob asks:	page 34
+§6.1	Nɬeʔkepmxcín	cited form	xʷuy̓	page 34
+§6.1	Nɬeʔkepmxcín	cited form	keʔ	page 34
+§6.1	Nɬeʔkepmxcín	cited form	snés	page 34
+§6.1	Nɬeʔkepmxcín	cited form	ɬ	page 34
+§6.1	Lisa Matthewson	note	nexʷm̓ n̓ xʷuy̓ keʔ snés we ɬ Olivia ɬ partys?	page 34
+§6.1	Nɬeʔkepmxcín	cited form	nexʷ-m̓=n̓	page 34
+§6.1	Nɬeʔkepmxcín	cited form	keʔ=s=nés	page 34
+§6.1	Nɬeʔkepmxcín	cited form	we=ɬ=Olivia	page 34
+§6.1	Nɬeʔkepmxcín	cited form	ɬ=party=s	page 34
+§6.1	Lisa Matthewson	note	nexʷ-m̓=n̓ xʷuy̓ keʔ=s=nés we=ɬ=Olivia ɬ=party=s very-CTR.MID=Q PROSP 2SG.POSS=NMLZ=go PREP=DET=Olivia DET=party=3POSS ‘Are you really going to Olivia’s party?’ (BP; volunteered) Table 2 summarizes the results from this section and indicates where each type of data can be found. Note that contexts with either negative epistemic bias and negative contextual evidence, or positive epistemic bias and positive contextual evidence, would not result in a question being asked, as the speaker would be very sure about the truth or falsity of the prejacent. Hence, these cells are greyed out. The table also includes reference to the earlier discussion of positive questions in sections 4.1 and 4.2.	page 34
+§6.1	Lisa Matthewson	note	Table 2: Examples for each type of epistemic bias-contextual evidence combination EPISTEMIC BIAS CONTEXTUAL EVIDENCE positive neutral negative positive §4.2, n̓ preferred (58), nexʷm̓ n̓ neutral (54), tem n̓ §4.1, keʔ preferred (57), tem n̓ negative (55), tem n̓ (56), tem n̓ As these data show, all negative questions in Nɬeʔkepmxcín seem to be formed with n̓. In the future it will be useful to explore the predictions that are made about bias when we combine the denotation I have proposed for n̓ with a negative construction. This is particularly interesting because unlike in English, there is no high / low negation contrast in Nɬeʔkepmxcín. The very fact that Nɬeʔkepmxcín lacks a high / low negation difference and renders both English high-negative questions and low-negative questions the exact same way is interesting, since many people have argued that English high negation contains something in addition to, or something instead of, ordinary propositional negation (Han 1999; Romero & Han 2004; Goodhue 2019, 2022; Giannakidou & Mari 2021, among others).	page 35
+§6.2	Lisa Matthewson	heading	6.2 The relevance of addressee authority, and a difference with English DQs	page 35
+§6.2	Nɬeʔkepmxcín	cited form	n̓	page 35
+§6.2	Nɬeʔkepmxcín	cited form	keʔ	page 35
+§6.2	Lisa Matthewson	note	In (33) above (the case with the vet and the canary: It’s dead?), the consultant expresses a preference for the n̓ strategy; this fits with the fact that the vet is looking sad and guilty, so the speaker believes the addressee believes p. Interestingly, the preference for n̓ over keʔ disappears when the authority gap between addressee and speaker is reduced. This can be seen in (59).	page 35
+(59) line 1	Lisa Matthewson	note	Context: You hit an animal with your car, and it is lying completely still by the side of the road. You say to the person you are with:	page 35, engine english
+(59a) line 1	Nɬeʔkepmxcín	transcription	zuqʷ n̓?	page 35, engine language
+(59a) line 2	Nɬeʔkepmxcín	segmentation	zuqʷ=n̓	page 35, engine language
+(59a) line 3	Nɬeʔkepmxcín	gloss	die=Q	page 35, engine english
+(59a) line 4	Bev Phillips	translation	‘Is it dead?’	page 35, engine english
+(59a) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(59b) line 1	Nɬeʔkepmxcín	transcription	keʔ ks zuqʷs?	page 35, engine language
+(59b) line 2	Nɬeʔkepmxcín	segmentation	keʔ k=s=zuqʷ=s	page 35, engine language
+(59b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=NMLZ=die=3POSS	page 35, engine english
+(59b) line 4	Bev Phillips	translation	‘Is it dead?’	page 35, engine english
+(59b) line 4	Lisa Matthewson	citation	(BP; volunteered)	the tag or source at the right of the translation
+(59b) line 5	Lisa Matthewson	speaker comment	Researcher: “Are these the same?”	page 35, the author asks
+(59b) line 6	Bev Phillips	speaker comment	Consultant: “They’re both pretty good.”	page 35, engine english
+§6.2	Nɬeʔkepmxcín	cited form	keʔ-question	page 35
+§6.2	Nɬeʔkepmxcín	cited form	n̓-version	page 35
+§6.2	Nɬeʔkepmxcín	cited affix	n̓-	page 35
+§6.2	Lisa Matthewson	note	It makes sense that a keʔ-question is fine here, since the speaker could be unsure whether the animal is dead and not wish to convey any bias. The n̓-version is also still possible; perhaps the speaker is fairly sure the animal is dead, and expects the addressee to confirm it. The puzzle here is provided by English. At least in my judgment, an English DQ is not very good in (59): in this context, I find it marginal to say It’s dead? Given that I have assigned n̓- questions the exact same denotation as Rudin’s analysis of English DQs, further research is required. Why can an English speaker not use a DQ in (59) to signal that they are unable to commit to p and they expect the addressee to commit? Do we need to go back to earlier ideas by Gunlogson (2008) that explicitly encode the role of addressee authority compared to the speaker?	page 35
+§6.3	Lisa Matthewson	heading	6.3 Co-occurrence of keʔ and n̓	page 36
+§6.3	Nɬeʔkepmxcín	cited form	keʔ	page 36
+§6.3	Nɬeʔkepmxcín	cited form	n̓	page 36
+§6.3	Lisa Matthewson	note	As shown above in (10) and (11), keʔ and n̓ can co-occur. Further examples are given in (60) and (61). In the context for (61), plain keʔ was volunteered earlier in example (23), and plain n̓ was rejected.	page 36
+(60) line 1	Lisa Matthewson	note	Context (as in (54)): Mary is at the airport, and tells a woman there that she is going to visit her friend Bob in Springtown. The woman says, “Nice! There is a good Chinese restaurant there, you should try it.” A couple of days after Mary gets to Springtown, Bob asks her, “Do you want to go out to dinner tonight?” and she says, ‘Yes!”. Bob asks, “Where should we go?” and Mary says:	page 36, engine english
+(60) line 2	Nɬeʔkepmxcín	transcription	keʔ n̓ ƛ̓em̓ ks y̓es tək tʔéye cénmən tək nɬaʔx̣anséytn?	page 36, engine language
+(60) line 3	Nɬeʔkepmxcín	segmentation	keʔ=n̓ ƛ̓em̓ k=s=y̓e=s tə=k=tʔéye cénmən	page 36, engine language
+(60) line 4	Nɬeʔkepmxcín	gloss	Q=Q CMPL D/C=NMLZ=good=3POSS OBL=DET=DEIC Chinese	page 36, engine english
+(60) line 5	Nɬeʔkepmxcín	segmentation	tə=k=n-ɬaʔx̣-ans-éytn	page 36, engine language
+(60) line 6	Nɬeʔkepmxcín	gloss	OBL=DET=LOC-eat-tooth-prepared.food	page 36, engine english
+(60) line 7	Bev Phillips	translation	‘Isn’t there a good Chinese restaurant here?’	page 36, engine english
+(60) line 7	Lisa Matthewson	citation	(BP; volunteered, among other options)	the tag or source at the right of the translation
+(61) line 1	Lisa Matthewson	note	Context (as in (23)): Rose is at work. Her colleague Bob walks in and they greet each other. Rose immediately says:	page 36, engine english
+(61) line 2	Nɬeʔkepmxcín	transcription	kéʔe n̓ xʷuy̓ ks nq̓ʷəyénks ne spiʔx̣áwt us?	page 36, engine language
+(61) line 3	Nɬeʔkepmxcín	segmentation	kéʔe=n̓ xʷuy̓ k=s=n-q̓ʷəy-énk=s ne=spiʔx̣áwt=us	page 36, engine language
+(61) line 4	Nɬeʔkepmxcín	gloss	Q=Q PROSP D/C=NMLZ=LOC-cook-belly=3POSS PREP=day.removed=3SBJV	page 36, engine english
+(61) line 5	Bernice Garcia	translation	‘Is it going to be sunny tomorrow?’	page 36, engine english
+(61) line 5	Lisa Matthewson	citation	(KBG)	the tag or source at the right of the translation
+§6.3	Nɬeʔkepmxcín	cited form	keʔ-questions	page 36
+§6.3	Nɬeʔkepmxcín	cited form	n̓-questions	page 36
+§6.3	Nɬeʔkepmxcín	cited form	n̓’s	page 36
+§6.3	Lisa Matthewson	note	In the analysis I have given, keʔ-questions introduce bipolar alternative sets, and n̓-questions place their prejacent p on the Table without committing the speaker to p. How might these combine? Their relative syntactic scope is a little unclear. Either way, however, the object that keʔ and n̓ should place on the Table is different: {p, ¬p} as opposed to p. One possibility is that since the denotation of n̓ is a subset of the denotation of {p, ¬p}, the two should be compatible but n̓’s contribution should be redundant .25 Further research is needed to determine the pragmatic properties of keʔ n̓ questions.	page 36
+§7	Lisa Matthewson	heading	7 Conclusion	page 36
+§7	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§7	Nɬeʔkepmxcín	cited form	keʔ-questions	page 36
+§7	Nɬeʔkepmxcín	cited affix	n̓-	page 36
+footnote 25	Lisa Matthewson	note	25 Thanks to Henry Davis for discussion of this.	page 36, footnote
+§7	Lisa Matthewson	note	Nɬeʔkepmxcín has two strategies for forming polar questions. I have shown that the two strategies have different pragmatic effects, and argued that they have different semantic denotations. keʔ-questions are bipolar and denote a set of alternatives {p, ¬p}. This alternative set is placed on the Table and the addressee is expected to commit to one of the alternative propositions. n̓- questions are monopolar and place a single proposition p on the Table. Neither type of question updates the speaker’s commitments. I have shown that this analysis accounts for a wide range of data concerning the discourse properties of the two question-types.	page 36
+§7	Nɬeʔkepmxcín	cited form	n̓-questions	page 37
+§7	Lisa Matthewson	note	The analysis presented here, if correct, leads to several theoretical conclusions, discussed above. I will end by re-highlighting one of the most important take-home messages from this investigation. In Nɬeʔkepmxcín, n̓-questions are not a sub-type of keʔ-questions, nor more marked than them in any sense. There are simply two different forms, for two different types of question. And there is no empirical or conceptual reason to avoid assigning these two types different semantic denotations.	page 37
+references	Lisa Matthewson	heading	References	page 37
+references	Lisa Matthewson	reference	Aihara, Masahiko. 2009. (Un)biased negative yes-no questions in Japanese. In Anisa Schardi, Martin Walkow, & Muhammad Abdurrahman (eds.), Proceedings of NELS 38, Volume 1. Amherst, MA: GLSA, 13–24.	
+references	Lisa Matthewson	reference	AnderBois, Scott. 2011. Issues and alternatives. Doctoral dissertation, University of California, Santa Cruz, CA.	
+references	Lisa Matthewson	reference	AnderBois, Scott. 2019. Negation, alternatives, and negative polar questions in American English. In Klaus von Heusinger, Edgar Onea, & Malte Zimmerman (eds.), Questions in discourse. Leiden, Netherlands: Brill, 118–171.	
+references	Lisa Matthewson	reference	Asher, Nicholas & Brian Reese. 2007. Intonation and discourse: Biased questions. Interdisciplinary Studies on Information Structure 8:1–38.	
+references	Lisa Matthewson	reference	Berman, Ruth & Dan Slobin. 1994. Relating events in narrative: a cross-linguistic developmental study. Hillsdale, NJ: Erlbaum.	
+references	Lisa Matthewson	reference	Beun, Robbert-Jan. 2000. Context and form: declarative or interrogative, that is the question. In Harry Bunt & William Black (eds.), Abduction, belief and context in dialogue: studies in computational pragmatics. Amsterdam, Netherlands: John Benjamins, 311–326.	
+references	Lisa Matthewson	reference	Beyssade, Claire & Jean-Marie Marandin. 2006. The speech act assignment problem revisited: Disen- tangling speaker’s commitment from speaker’s call on addressee. Empirical Studies in Syntax and Semantics 6:37–68.	
+references	Lisa Matthewson	reference	Bhatt, Rajesh & Veneeta Dayal 2020. Polar question particles: Hindi-Urdu kya:. Natural Language and Linguistic Theory 38:1115–1144.	
+references	Lisa Matthewson	reference	Biezma, Maria & Kyle Rawlins. 2012. Responding to alternative and polar questions. Linguistics and Philosophy 35:361–406.	
+references	Lisa Matthewson	reference	Bill, Cory & Todor Koev. 2022. Really: ambiguity and question bias. In Daniel Gutzmann & Sophie Repp (eds.), Proceedings of Sinn und Bedeutung 26. Cologne, Germany: University of Cologne, 130–148.	
+references	Lisa Matthewson	reference	Bolinger, Dwight 1978. Yes-no questions are not alternative questions. In Henry Hiz (ed.), Questions, 87–105. Dordrecht, Netherlands: Reidel, 87–105.	
+references	Lisa Matthewson	reference	Büring, Daniel & Christine Gunlogson. 2000. Aren’t positive and negative polar questions the same? Ms., University of California, Los Angeles, CA and University of California, Santa Cruz, CA.	
+references	Lisa Matthewson	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+references	Lisa Matthewson	reference	Caldecott, Marion. 2016. St’át’imcets intonation contours: a preliminary study. Canadian Journal of Linguistics/Revue canadienne de linguistique 61:119–155.	
+references	Lisa Matthewson	reference	Chafe, Wallace (ed.). 1980. The pear stories: Cognitive, cultural, and linguistic aspects of narrative production. Norwood, NJ: Ablex.	
+references	Lisa Matthewson	reference	Ciardelli, Ivano. 2021. Why we need a question semantics. In Moritz Cordes (ed.), Asking and answering: rival approaches to interrogative methods. Tübingen, Germany: Narr Francke Attempto Verlag, 15–47.	
+references	Lisa Matthewson	reference	Domaneschi, Filippo, Maribel Romero, & Bettina Braun. 2017. Bias in polar questions: evidence from English and German production experiments. Glossa 23:1–28.	
+references	Lisa Matthewson	reference	Farkas, Donka & Kim Bruce. 2010. On reacting to assertions and polar questions. Journal of Semantics 27:81–118.	
+references	Lisa Matthewson	reference	Farkas, Donka & Floris Roelofsen. 2017. Division of labor in the interpretation of declaratives and interrogatives. Journal of Semantics 34:237–289.	
+references	Lisa Matthewson	reference	Frana, Ilaria & Kyle Rawlins. 2019. Attitudes in discourse: Italian polar questions and the particle mica. Semantics and Pragmatics 12(16):1–48.	
+references	Lisa Matthewson	reference	Gärtner, Hans-Martin & Beáta Gyuris. 2017. On delimiting the space of bias profiles for polar interrogatives. Linguistische Berichte 251:293–316.	
+references	Lisa Matthewson	notation	φ	page 38
+references	Lisa Matthewson	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2022. Report on the status of B.C. First Nations languages, Fourth edition. Brentwood Bay, B.C.: The First Peoples’ Cultural Council.	
+references	Lisa Matthewson	reference	Giannakidou, Anastasia. 2013. Inquisitive assertions and nonveridicality. In Maria Aloni, Michael Franke, & Floris Roelofsen (eds.), The dynamic, inquisitive, and visionary life of φ, ?φ and possibly φ, A festschrift for Jeroen Groenendijk, Martin Stokhof and Frank Veltman. Amsterdam, Netherlands: ILLC, University of Amsterdam, 115–126.	
+references	Lisa Matthewson	reference	Giannakidou, Anastasia & Alda Mari. 2021a. Bias in questions and modal ranking. Ms., University of Chicago and Institut Jean Nicod.	
+references	Lisa Matthewson	reference	Giannakidou, Anastasia & Alda Mari. 2021b. Truth and veridicality and grammar and thought: mood, modality, and propositional attitudes. Chicago, IL: University of Chicago Press.	
+references	Lisa Matthewson	reference	Goodhue, Daniel. 2018. On asking and answering biased polar questions. Doctoral dissertation, McGill University, Montreal, QC.	
+references	Lisa Matthewson	reference	Goodhue, Daniel. 2019. High negation questions and epistemic bias. In M. Teresa Espinal, Elena Castroviejo, Manuel Leonetti, & Louise McNally (eds.), Proceedings of Sinn und Bedeutung 23:469–486.	
+references	Lisa Matthewson	reference	Goodhue, Daniel. 2021. A unified account of inquisitive and assertive rising declaratives. In Patrick Farrell (ed.), Proceedings of the Linguistic Society of America 6:951–965.	
+references	Lisa Matthewson	reference	Goodhue, Daniel. 2022. Isn’t there more than one way to bias a polar question? Natural Language Semantics 30:379–413.	
+references	Lisa Matthewson	reference	Gunlogson, Christine. 2003. True to form: rising and falling declaratives as questions in English. New York, NY: Routledge.	
+references	Lisa Matthewson	reference	Gunlogson, Christine. 2008. A question of commitment. Belgian Journal of Linguistics 22:101– 136.	
+references	Lisa Matthewson	reference	Gyuris, Beáta. 2017. New perspectives on bias in polar questions. International Review of Pragmatics 9:1–50.	
+references	Lisa Matthewson	reference	Hamblin, Charles L. 1973. Questions in Montague English. Foundations of Language 10:41–53. Han, Chung-hye. 1998. Deriving the interpretation of rhetorical questions. In Emily Curis, James Lyle, & Gabriel Webster (eds.), Proceedings of West Coast Conference in Formal Linguistics 16:237–253.	
+references	Lisa Matthewson	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+references	Lisa Matthewson	reference	Han, Chung-hye. 1999. The structure and interpretation of imperatives: mood and force in Universal Grammar. Doctoral dissertation, University of Pennsylvania, Philadelphia, PA.	
+references	Lisa Matthewson	reference	Hannon, Ella & Cayla Smith. 2023. A comparison of two evidentials in Nɬeʔkepmxcín. Poster presented at A Day of Nɬeʔkepmxcín at UBC, April 2023.	
+references	Lisa Matthewson	reference	Hsieh, Miao-Ling. 2001. Form and meaning: negation and question in Chinese. Doctoral dissertation, University of Southern California, Los Angeles, CA.	
+references	Lisa Matthewson	reference	Huddleston, Rodney & Jeffrey K. Pullum. 2002. The Cambridge grammar of the English language. Cambridge, UK: Cambridge University Press.	
+references	Lisa Matthewson	reference	Ito, Satoshi. 2015. Bias and prosody in Japanese negative polar questions. Doctoral dissertation, Cornell University, Ithaca, NY.	
+references	Lisa Matthewson	language	Skwxwú7mesh	Skwxwú7mesh, a Central Salish language
+references	Lisa Matthewson	reference	Jacobs, Peter. 2007. Intonation of yes/no questions in Skwxwú7mesh. Papers for ICSNL 42:236– 255.	
+references	Lisa Matthewson	reference	Jeong, Sunwoo. 2018. Intonation and sentence type conventions: Two types of rising declaratives. Journal of Semantics 35:305–356.	
+references	Lisa Matthewson	language	Nɬeʔkepmx	Nɬeʔkepmx, the people whose language is Nɬeʔkepmxcín
+references	Lisa Matthewson	reference	Jimmie, Mandy Na’zinek 1994. A prosodic analysis of Nɬeʔkepmx reduplication. MA thesis, University of British Columbia, Vancouver, BC.	
+references	Lisa Matthewson	reference	Koch, Karsten. 2008. Intonation and focus in Nɬeʔkepmxcín (Thompson River Salish). Doctoral dissertation, University of British Columbia, Vancouver, BC.	
+references	Lisa Matthewson	reference	Krifka, Manfred. 2015. Bias in Commitment Space Semantics: declarative questions, negated questions, and question tags. Proceedings of Semantics and Linguistics Theory 25:328–345.	
+references	Lisa Matthewson	reference	Krifka, Manfred. 2017. Negated polarity questions as denegations of assertions. In Chungmin Lee, Ferenc Kiefer, & Manfred Krifka (eds.), Contrastiveness in information structure, alternatives and scalar implicatures. Berlin, Germany: Springer, 359–398.	
+references	Lisa Matthewson	reference	Krifka, Manfred. 2021a. In defense of question diversity: comments on Ciardelli. In Moritz Cordes (ed.), Asking and answering: rival approaches to interrogative methods. Tübingen, Germany: Narr Francke Attempto Verlag, 55–62.	
+references	Lisa Matthewson	reference	Krifka, Manfred. 2021b. Modelling questions in commitment spaces. In Moritz Cordes (ed.), Asking and answering: rival approaches to interrogative methods. Tübingen, Germany: Narr Francke Attempto Verlag, 63–95.	
+references	Lisa Matthewson	reference	Kroeber, Paul D. 1997. Relativization in Thompson River Salish. Anthropological Linguistics 39:376–422.	
+references	Lisa Matthewson	reference	Kulkarni, Aaditya. 2023. Alternative questions in Nɬeʔkepmxcín. Poster presented at A Day of Nɬeʔkepmxcín at UBC, April 2023.	
+references	Lisa Matthewson	reference	Ladd, D. Robert. 1981. A first look at the semantics and pragmatics of negative questions and tag questions. Proceedings of the Chicago Linguistic Society 17:164–171.	
+references	Lisa Matthewson	reference	Larrivée, Pierre & Alda Mari. 2022. Interpreting high negation in Negative Interrogatives: the role of the Other. Linguistics Vanguard 8:219–226.	
+references	Lisa Matthewson	reference	Littell, Patrick & Scott Mackie. 2011. Reconsidering sensory evidence in Nɬeʔkepmxcín. In Papers for ICSNL 46:164–183.	
+references	Lisa Matthewson	reference	Littell, Patrick & Scott Mackie. 2014. Further dimensions of evidential variation in Nɬeʔkepmxcín. In Jérémy Pasquereau (ed.), Proceedings of SULA 7. Amherst, MA: GLSA.	
+references	Lisa Matthewson	reference	Liu, Mingya, Stephanie Rotter, & Anastasia Giannakidou. 2021. Bias and modality in conditionals: experimental evidence and theoretical implications. Journal of Psycholinguistic Research 50:1369–1399.	
+references	Lisa Matthewson	reference	Malamud, Sophia A. & Tamina Stephenson. 2015. Three ways to avoid commitments: declarative force modifiers in the conversational scoreboard. Journal of Semantics 32:275–311.	
+references	Lisa Matthewson	reference	Poschmann, Claudia. 2008. All declarative questions are attributive?. Belgian Journal of Linguistics 23:247–269.	
+references	Lisa Matthewson	reference	Reese, Brian. 2007. Bias in Questions. Doctoral Dissertation, University of Texas, Austin, TX.	
+references	Lisa Matthewson	reference	Reese, Brian & Nicholas Asher. 2010. Biased questions, intonation and discourse. In Malte Zimmermann & Caroline Fery (eds.), Information Structure. Oxford, UK: Oxford University Press, 139–173.	
+references	Lisa Matthewson	reference	Repp, Sophie. 2013. Common Ground management: modal particles, illocutionary negation and VERUM. In Daniel Gutzmann & Hans-Martin Gärtner (eds.), Beyond expressives: ex- plorations in use-conditional meaning. Leiden, Netherlands: Brill, 231–274.	
+references	Lisa Matthewson	reference	Roelofsen, Floris, Noortje Venhuizen, & Galit Weidman Sassoon. 2012. Positive and negative questions in discourse. Proceedings of Sinn und Bedeutung 17:455–472.	
+references	Lisa Matthewson	reference	Roelofsen, Floris & Donka Farkas. 2015. Polarity particle responses as a window onto the interpretation of questions and assertions. Language 91:359–414.	
+references	Lisa Matthewson	reference	Roelofsen, Floria & Sam van Gool. 2010. Disjunctive questions, intonation, and highlighting. In Maria Aloni, Harald Bastiaanse, Tikitu de Jager, & Katrin Schulz (eds.), Logic, Language, and Meaning: Selected Papers from the Seventeenth Amsterdam Colloquium, 384–394. Berlin & Heidelberg, Germany: Springer.	
+references	Lisa Matthewson	reference	Romero, Maribel. 2006. Biased yes/no questions: The role of VERUM. Sprache und Datenverarbeitung 30:9–24.	
+references	Lisa Matthewson	reference	Romero, Maribel. 2020. Form and function of negative, tag, and rhetorical questions. In Viviane Déprez & M. Teresa Espinal (eds.), The Oxford Handbook of Negation. Oxford, UK: Oxford University Press, 235–256.	
+references	Lisa Matthewson	reference	Romero, Maribel & Chung-Hye Han. 2004. On negative yes/no questions. Linguistics and Philosophy 27:609–658.	
+references	Lisa Matthewson	reference	Rudin, Deniz. 2018. Rising above commitment. Doctoral dissertation, University of California, Santa Cruz, CA.	
+references	Lisa Matthewson	reference	Rudin, Deniz. 2022. Intonational Commitments. Journal of Semantics 39:339–383.	
+references	Lisa Matthewson	reference	Šafářová, Marie. 2005. The semantics of rising intonation in interrogatives and declaratives. In Emar Maier, Corien Bary, & Janneke Huitink (eds.), Proceedings of Sinn und Bedeutung 9:355–369.	
+references	Lisa Matthewson	reference	Silk, Alex. 2020. Expectation biases and context management with negative polar questions. Journal of Philosophical Logic 49:51–92.	
+references	Lisa Matthewson	reference	Smith, Cayla. 2022. My feeling is that nukw is more than it seems: nukw’s status as an evidential. Ms., University of British Columbia, Vancouver, BC.	
+references	Lisa Matthewson	reference	Sudo, Yasutada. 2013. Biased polar questions in English and Japanese. In Daniel Gutzmann & Hans-Martin Gärtner (eds.), Beyond expressives: explorations in use-conditional meaning Brill: Leiden, 275–295.	
+references	Lisa Matthewson	reference	Thompson, Lawrence C. & Terry M. Thompson. 1992. The Thompson language. Missoula, MT: UMOPL.	
+references	Lisa Matthewson	language	nłeʔkepmxcín	nłeʔkepmxcín, Thompson River Salish, as a reference title writes it
+references	Lisa Matthewson	reference	Thompson, Laurence C. & Terry M. Thompson. 1996. Thompson River Salish dictionary: nłeʔkepmxcín. Missoula, MT: UMOPL.	
+references	Lisa Matthewson	reference	Trinh, Tue. 2014. How to ask the obvious: A presuppositional account of evidential bias in English yes/no questions. In Luka Crnič & Uli Sauerland (eds.), The art and craft of semantics: a festschrift for Irene Heim, vol. 2 Cambridge, MA: MIT Working Papers in Linguistics, 227– 249.	
+references	Lisa Matthewson	reference	Truckenbrodt, Hubert. 2006. On the semantic motivation of syntactic verb movement to C in German. Theoretical Linguistics 32:257–306.	
+references	Lisa Matthewson	reference	van Rooy, Robert & Marie Šafářová. 2003. On polar questions. Proceedings of Semantics and Linguistic Theory 13:292–309.	
+references	Lisa Matthewson	reference	van Rooy, Robert & Marie Safarova. 2003. On polar questions. In Robert Young & Yuping Zhou (eds.), Proceedings of SALT XIII. Ithaca, NY: Cornell University.	
+references	Lisa Matthewson	reference	Westera, Matthijs. 2017. Exhaustivity and intonation: a unified theory. Doctoral dissertation, Institute for Logic, Language and Information, Universiteit van Amsterdam, Amsterdam, Netherlands.	
+references	Lisa Matthewson	reference	Woods, Rebecca & Tom Roeper. 2021. The acquisition path of ‘high’ negation in English. In Danielle Dionne & Lee-Ann Vidal Covas (eds.), Proceedings of the 45th annual Boston University Conference on Language Development. Somerville, MA: Cascadilla Press, 761– 775.	
+references	Lisa Matthewson	reference	Xu, Beibei. 2017. Question bias and biased question words in Mandarin, German & Bangla. Doctoral dissertation, Rutgers University, NJ.	
+references	Lisa Matthewson	reference	Xu, Beibei. 2018. Dedicated bias word nandao as an illocutionary modifier. In Wm. G. Bennett et al. (eds.), Proceedings of the 35th West Coast Conference on Formal Linguistics. Somerville, MA: Cascadilla Press, 448–457.	
+references	Lisa Matthewson	reference	Yuan, Mengxi & Yurie Hara. 2013. Questioning and asserting at the same time: the L% tone in A- not-A questions. In Maria Aloni, Michael Franke, & Floris Roelofsen (eds.), Proceedings of the 19th Amsterdam Colloquium, 265–272.	

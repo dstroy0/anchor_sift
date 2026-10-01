@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the measured ground-state electron configurations from the NIST Atomic Spectra Database.
@@ -64,7 +64,7 @@ LEAST_BYTES = 100000
 def fetch(out):
     """Retrieve the ground-state table and cache it, or raise on a short or empty response."""
     address = ENDPOINT + "?" + urllib.parse.urlencode(QUERY)
-    request = urllib.request.Request(address, headers={"User-Agent": "anchor_sift/particle_physics"})
+    request = urllib.request.Request(address, headers={"User-Agent": "orior/particle_physics"})
     with urllib.request.urlopen(request, timeout=60) as response:
         body = response.read()
     if len(body) < LEAST_BYTES:

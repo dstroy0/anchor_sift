@@ -1,6 +1,6 @@
 # Sweeps the window phase, which no measurement in this tree has ever varied.
 #
-# From the symbol width posit in anchor_sift: a detector is not told where the units begin, and a
+# From the symbol width posit in orior: a detector is not told where the units begin, and a
 # slice of the right width at the wrong offset splits every unit across two symbols. Every window
 # bench_renyi reads is byte aligned. Seven of the eight possible alignments have never been
 # looked at, at any width. Structure sitting at an offset of one to seven bits would be split at

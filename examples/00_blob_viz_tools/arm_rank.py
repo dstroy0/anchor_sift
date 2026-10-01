@@ -6,7 +6,7 @@
 THE QUESTION
 
 The eight sign octants are an arm set of rank 8, blind in 248 of 256 directions. That rank is a
-property of THAT CHOICE and not a law: `theory/workbooks/anchor_sift/arm-records.md` defines an arm as a weight function
+property of THAT CHOICE and not a law: `theory/workbooks/orior/arm-records.md` defines an arm as a weight function
 over the placement and an arm set as a matrix whose rank is what the reading carries. So the obvious
 question is whether some other arrangement of eight arms sees directions the octants do not, and by
 how much.
@@ -72,7 +72,7 @@ def cap_arms(points, centers, radians=CAP_RADIANS):
     """One arm per center: the indicator of a spherical cap of that angular radius.
 
     A cap is the simplest arm that is not an octant. It overlaps its neighbors, which the octants
-    never do, and overlap is the property `theory/workbooks/anchor_sift/arm-records.md` says an arm set is allowed to have.
+    never do, and overlap is the property `theory/workbooks/orior/arm-records.md` says an arm set is allowed to have.
     """
     unit = as_unit(points)
     axes = as_unit(centers)

@@ -1,0 +1,1066 @@
+where	who	kind	form	gloss
+front	Peter Jacobs	title	Vowel harmony and schwa strengthening in Sḵwx̱wu7mesh	page 1
+front	Peter Jacobs	name	Peter Jacobs	author
+front	Peter Jacobs	note	University of Victoria1	page 1, under Peter Jacobs
+footnote 1	Peter Jacobs	note	Chen kw’enmantumiyap i7x̱w ta newyap na ch’awats i ti sts’its’ap’. I7x̱w ta na st’emt’am men n-swa7. Thank you to all who helped from our Elders, the Squamish Language Program, my dissertation committee and particularly to Jason Brown for helping to make my thoughts and writing clearer. This research was made possible by support form the Squamish Nation Education Department. All thoughts, words and errors, though, are ultimately my own. Tim̓á tkwetsi.	page 1, footnote 1
+footnote 1	Peter Jacobs	name	Jason Brown	thanked for helping make the thoughts and writing clearer
+front	Peter Jacobs	note	In this paper, I provide a further phonological basis for Jacobs’ (2011) hypothesis that the vowel (V) before the directive (DIR) is an epenthetic schwa in Sḵwx̱wu7mesh. I argue V’s other realizations can independently be accounted for by vowel harmony and schwa strengthening. Dyck (2004) provides a formal analyses for vowel harmony for the Squamish directive. I present more vowel harmony data in other constructions and extend her account to these constructions. I then present data with instances of schwa alternating with a stressed /á/, describing some of them as schwa strengthening. I argue that schwa strengthening takes place (in environments yet to be fully understood) to fulfill moraic requirements that schwa or its coda cannot on their own. Since these processes are independent of the directive, I conclude that it is not necessary to include them in the directive’s lexical description.	page 1, the abstract
+front	Peter Jacobs	language	Sḵwx̱wu7mesh	Central Salish, Squamish in its own name, the language of the paper
+§1	Peter Jacobs	heading	1 Introduction	page 1
+§1	Peter Jacobs	note	The Directive is a very common transitive construction in Sḵwx̱wu7mesh. It is comprised basically of a root/stem followed by a vowel (V) and then the transitivizer –n. The vowel preceding the transitivizer -n has various realizations: as a copy vowel of the root vowel (1a), as an unstressed schwa (1b), as a stressed schwa (1c) or as a stressed low vowel /á/ (1d).	page 1
+§1	Sḵwx̱wu7mesh	cited form	-n	page 1, in italics
+(1a) line 1	Sḵwx̱wu7mesh	transcription	chen yúts’-u-n2	page 2
+footnote 2	Peter Jacobs	note	The following are the abbreviations used in this papers: 1S.OBJ = first person singular object, 1PL.POSS = first person plural possessive, 1S.INDP = first person singular independent, 1S.SUB = first person singular subject, 2.OBJ = second person object, 2S.SUB = second person singular subject, 3OBJ = third person object, 3POSS = third person possessive, 3SUBJ = third person subject, CAUS = causative, CRECIP = control reciprocal, DEM = demonstrative, DET = determiner, DIR = directive transitivizer, FUT = future tense, IMPER = imperative, IMPF = imperfective aspect, INTR = intransitivizer, LCRECIP = reciprocal, LOC = locative, NOM = nominalizer, PASS = passive, PL = plural, RED = CVC reduplicant, REDIR = redirective transitivizer, RL = realis aspect, STAT = stative, SUBJ = subjunctive, TR = transitivizer, V = vowel, VDIR = vowel directive transitivizer	page 2, footnote 2
+(1a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB nudge-V-DIR	page 2
+(1a) line 3	Peter Jacobs	translation	‘I nudged him.’	page 2
+(1b) line 1	Sḵwx̱wu7mesh	transcription	chen p’í7-shn-e-n	page 2
+(1b) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB grab-foot-V-DIR	page 2
+(1b) line 3	Peter Jacobs	translation	‘I nudged him.’	page 2
+(1c) line 1	Sḵwx̱wu7mesh	transcription	na p’ayaḵ-é-n-t-as ta tetxwem	page 2
+(1c) line 2	Sḵwx̱wu7mesh	gloss	RL fix-V-DIR-TR-3SUBJ DET car	page 2
+(1c) line 3	Peter Jacobs	translation	‘He fixed the car.’	page 2
+(1d) line 1	Sḵwx̱wu7mesh	transcription	x̱its-ḵ-á-n chen eḵ’ ta stseḵ	page 2
+(1d) line 2	Sḵwx̱wu7mesh	gloss	lay-bottom-V-DIR 1S.SUB FUT DET tree	page 2
+(1d) line 3	Peter Jacobs	translation	‘I’m going to fell a tree.’	page 2
+§1	Peter Jacobs	note	In this paper I provide further argumentation for my analysis in Jacobs (2011), wherein this vowel is an epenthetic schwa. I will argue that each of its different realizations can be derived from more general phonological properties in the language. This analysis will include a phonological account for V’s realization as a copy vowel (cf. Dyck 2004) and for its realization as a stressed /á/. For the copy vowel I will argue that this realization is derived from a more general vowel harmony process in Sḵwx̱wu7mesh (cf. Dyck 2004). For the stressed /á/ realization I will appeal to a phenomena which I will call schwa strengthening.	page 2
+§1	Peter Jacobs	name	Dyck	Ruth Anne Dyck, Squamish stress assignment and the directive's copy vowel (2004)
+§1	Peter Jacobs	note	This paper is organized as follows. In section (§2), I provide a full description for the distribution of V. In (§3), I present all the different cases of vowel harmony in Squamish. In (§4), we examine the cases where stressed /á/ alternates with schwa. In (§5), I provide my analysis of the various realization of V in the directive construction. In (§6) I provide the conclusion.	page 2
+§1	Peter Jacobs	language	Squamish	Sḵwx̱wu7mesh
+§2	Peter Jacobs	heading	2 The Vowel before the -n Directive	page 3
+§2	Peter Jacobs	note	As described in the introduction, the DIR in Sḵwx̱wu7mesh has a vowel immediately preceding it. This vowel has four different realizations:	page 3
+§2	Peter Jacobs	note	i. copy vowel of the root (i.e. vowel harmony)	page 3
+§2	Peter Jacobs	note	ii. stressed schwa /é/	page 3
+§2	Peter Jacobs	note	iii. unstressed schwa /e/	page 3
+§2	Peter Jacobs	note	iv stressed /á/ In this section I demonstrate that these realizations are conditioned by the shape of the root, or stem, that the DIR is attached to, as well as by stress.	page 3
+§2.1	Peter Jacobs	heading	2.1 V with CVC roots	page 3
+§2.1	Peter Jacobs	note	The following are examples where V is realized as an unstressed copy vowel of the root vowel when the root itself has the shape CVC (Demers and Horn 1978, Dyck 2004). It occurs with all four vowels in Squamish (a, i, u, e).	page 3
+§2.1	Peter Jacobs	name	Demers	Richard A. Demers, with Horn, stress assignment in Squamish (1978)
+§2.1	Peter Jacobs	name	Horn	George M. Horn, with Demers (1978)
+(2) line 1	Peter Jacobs	note	DIR	page 3, the example's heading
+(2a) line 1	Sḵwx̱wu7mesh	transcription	na p’áts’-a-n-t-as ta yeḵwáy̓.	page 3
+(2a) line 2	Sḵwx̱wu7mesh	gloss	RL sew-V-DIR-TR-3SUBJ DET dress	page 3
+(2a) line 3	Peter Jacobs	translation	‘She sewed the dress.’	page 3
+(2b) line 1	Sḵwx̱wu7mesh	transcription	na t’íxw-i-n-t-as ta lapát.	page 3
+(2b) line 2	Sḵwx̱wu7mesh	gloss	RL down-V-DIR-TR-3SUBJ DET cup	page 3
+(2b) line 3	Peter Jacobs	translation	‘He took the cups down (from the shelf).’	page 3
+(2c) line 1	Sḵwx̱wu7mesh	transcription	na ḵw’úp’-u-n-t-as ta yeḵwáy̓.	page 3
+(2c) line 2	Sḵwx̱wu7mesh	gloss	RL pleat-V-DIR-TR-3SUBJ DET dress	page 3
+(2c) line 3	Peter Jacobs	translation	‘She pleated the dress.’	page 3
+(2d) line 1	Sḵwx̱wu7mesh	transcription	na péts-e-n-t-as ta hém̓ten.	page 3
+(2d) line 2	Sḵwx̱wu7mesh	gloss	RL fold-V-DIR-TR-3SUBJ DET blanket	page 3
+(2d) line 3	Peter Jacobs	translation	‘She folded the blankets.’	page 3
+§2.1	Peter Jacobs	note	Generally in Squamish, unstressed full vowels (a, i, u) can be reduced to schwa. This is also true of V, which is often realized as schwa. Often we obtain (3a) instead of (2a), (3b) instead of (2b) and (3c) instead of (2c).	page 3
+(3a) line 1	Sḵwx̱wu7mesh	transcription	na p’áts’-e-n-t-as ta yeḵwáy̓.	page 4
+(3a) line 2	Sḵwx̱wu7mesh	gloss	RL sew-V-DIR-TR-3SUBJ DET dress	page 4
+(3a) line 3	Peter Jacobs	translation	‘She sewed the dress.’	page 4
+(3b) line 1	Sḵwx̱wu7mesh	transcription	na t’íxw-e-n-t-as ta yeḵwáy̓.	page 4
+(3b) line 2	Sḵwx̱wu7mesh	gloss	RL down-V-DIR-TR-3SUBJ DET dress	page 4
+(3b) line 3	Peter Jacobs	translation	‘She took the dress down (form the shelf).’	page 4
+(3c) line 1	Sḵwx̱wu7mesh	transcription	na ḵw’úp’-e-n-t-as ta yeḵwáy̓.	page 4
+(3c) line 2	Sḵwx̱wu7mesh	gloss	RL pleat-V-DIR-TR-3SUBJ DET dress	page 4
+(3c) line 3	Peter Jacobs	translation	‘She pleated the dress.’	page 4
+§2.2	Peter Jacobs	heading	2.2 V with CVR7 and CeCC roots	page 4
+§2.2	Peter Jacobs	note	V can also be realized as a stressed /á/ when the DIR is attached to: i. roots of the shape CVR7, that is, a CVC root where the second C	page 4
+§2.2	Sḵwx̱wu7mesh	cited form	á	page 4, in italics
+§2.2	Peter Jacobs	note	is a glottalized resonant as in (4a-b), ii. roots of the shape CeCC (5a-b), that is, roots where the vowel is	page 4
+§2.2	Peter Jacobs	note	a schwa and the coda has two consonants.	page 4
+(4a) line 1	Sḵwx̱wu7mesh	transcription	na t’am̓-á-n-t-m tl’a Jack	page 4
+(4a) line 2	Sḵwx̱wu7mesh	gloss	RL removed-V- DIR-tr-pass OBL/DET Jack	page 4
+(4a) line 3	Peter Jacobs	translation	‘Jack removed it.’	page 4
+(4b) line 1	Sḵwx̱wu7mesh	transcription	na taw̓-á-n-t-m	page 4
+(4b) line 2	Sḵwx̱wu7mesh	gloss	RL lighted-V- DIR-TR-PASS	page 4
+(4b) line 3	Peter Jacobs	translation	‘He was illuminated by him (e.g. with a flash-light)	page 4
+(4b) line 4	Peter Jacobs	citation	(Kuipers 1967: 264)	page 4, the tag or source at the right of the translation
+(5a) line 1	Sḵwx̱wu7mesh	transcription	na temlh-á-n-t-Ø-as ta s7átsus	page 4
+(5a) line 2	Sḵwx̱wu7mesh	gloss	RL ocre-V- DIR-TR-3OBJ-3SUB DET face	page 4
+(5a) line 3	Peter Jacobs	translation	‘He put ocre on his face.’	page 4
+(5b) line 1	Sḵwx̱wu7mesh	transcription	chen kw’enm-á-n-t-umi	page 4
+(5b) line 2	Sḵwx̱wu7mesh	gloss	RL thank-V- DIR-TR-2.OBJ	page 4
+(5b) line 3	Peter Jacobs	translation	‘I thank you.’	page 4
+§2.3	Peter Jacobs	heading	2.3 V with CVC roots plus lexical suffix	page 5
+§2.3	Peter Jacobs	note	Examples (6a-b) below have a CVC root followed by a lexical suffix (CVC-LS). In these cases, stress can vary depending on whether there are further suffixes or clitics following the DIR. When the primary stress is on the verbal root, then V is realized as an unstressed schwa (6a). However, when the primary stress is shifted to V, V is realized as /á/ (6b).3	page 5
+footnote 3	Peter Jacobs	note	Stress shifts because of the following subject clitic.	page 5, footnote 3
+(6a) line 1	Sḵwx̱wu7mesh	transcription	chen x̱íts-ḵ-e-n-(t)-Ø4 ta stseḵ	page 5
+footnote 4	Peter Jacobs	note	The transitivizer –t gets deleted when it is word final following another transitivizer that ends in a consonant. In this case, it is following the consonantal DIR –n.	page 5, footnote 4
+(6a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB lay-bottom-V- DIR-TR-3OBJ DET tree	page 5
+(6a) line 3	Peter Jacobs	translation	‘I fell a tree.’	page 5
+(6a) line 4	Peter Jacobs	citation	(Kuipers 1967: 369)	page 5, the tag or source at the right of the translation
+(6b) line 1	Sḵwx̱wu7mesh	transcription	x̱its-ḵ-á-n̓-(t)-Ø chen kwetsi stseḵ	page 5
+(6b) line 2	Sḵwx̱wu7mesh	gloss	lay-bottom-V-DIR-TR-3OBJ 1S.SUB DEM tree	page 5
+(6b) line 3	Peter Jacobs	translation	‘I’m going to fell a tree.’	page 5
+(6b) line 4	Peter Jacobs	citation	(Kuipers 1967: 369)5	page 5, the tag or source at the right of the translation
+footnote 5	Peter Jacobs	note	The DIR is glottalized in this example. I leave a phonological account for this glottalization for future research. Dyck (2004) does provide an account for resonant glottalization in Sḵwx̱wu7mesh, however does not extend it to these cases.	page 5, footnote 5
+§2.3	Peter Jacobs	note	A different case obtains with roots of the shape CVCVC. They are similar to CVCC roots and CVC-LS, in that they are longer than CVC roots. With these roots, V can occur stressed or unstressed, again depending on whether other suffixes or clitics follow. However, when V is stressed with these roots, it surfaces as a stressed schwa, as in (7a), and not as a stressed /á/, as in (5a-b) and in (6b). When unstressed after a CVCVC root, V surfaces as an unstressed schwa (7b).	page 5
+(7a) line 1	Sḵwx̱wu7mesh	transcription	na p’ayaḵ-é-n-t-Ø-as ta tétxwem	page 5
+(7a) line 2	Sḵwx̱wu7mesh	gloss	RL fix-V- DIR-TR-3OBJ-3SUB DET car	page 5
+(7a) line 3	Peter Jacobs	translation	‘He fixed the car.’	page 5
+(7b) line 1	Sḵwx̱wu7mesh	transcription	chen p’áyaḵ-e-n-(t)-Ø	page 5
+(7b) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB fix-V-DIR-TR-3SUB	page 5
+(7b) line 3	Peter Jacobs	translation	‘I fixed it.’	page 5
+§2.4	Peter Jacobs	heading	2.4 Summary of V	page 6
+§2.4	Peter Jacobs	note	The following table summarizes the various realizations of V. Base V Stressed Unstressed CVC copy vowel e CVR7 á CeCC CVC+LS á e CVCVC é e Table 1: Realizations of V When V follows a:	page 6
+§2.4	Peter Jacobs	note	i. CVC root, it can be realized as either an unstressed copy of the root’s vowel or as an unstressed schwa.	page 6
+§2.4	Peter Jacobs	note	ii. CVR7 or a CVCC root, it is realized as a stressed /á/.	page 6
+§2.4	Peter Jacobs	note	iii. CVC+LS, it can be realized as either a stressed /á/ or an unstressed schwa.	page 6
+§2.4	Peter Jacobs	note	iv. CVCVC root, it can be realized as either a stressed schwa or an unstressed schwa.	page 6
+§3	Peter Jacobs	heading	3 Vowel harmony in Sḵwx̱wu7mesh	page 6
+§3	Peter Jacobs	note	In this section I examine two types of vowel alternations that I will call vowel harmony. One type of vowel harmony is where the phonemic quality of a vowel changes to match that of another vowel, and will therefore be described as phonemic vowel harmony. The copy vowels associated with V and the CVC roots above in (2a-d) are a type of phonemic vowel harmony. A second type of vowel harmony is where the allophones of two phonemically identical vowels harmonize. I will call this allophonic vowel harmony. Throughout our investigation, we will note that vowel harmony occurs only in the configuration of CVCV, except for those cases involving clitics.	page 6
+§3.1	Peter Jacobs	heading	3.1 Phonemic vowel harmony	page 6
+§3.1	Peter Jacobs	note	Phonemic vowel harmony, as mentioned, also occurs in other constructions besides the DIR. These other constructions include:	page 6
+§3.1	Peter Jacobs	note	i. another transitive construction: the - V-t transitive construction	page 7
+§3.1	Peter Jacobs	note	ii. some intransitives with the intransitive suffix -m.	page 7
+§3.1	Sḵwx̱wu7mesh	cited form	-m	page 7, in italics
+§3.1	Peter Jacobs	note	iii. CV7 bare roots	page 7
+§3.1	Peter Jacobs	note	iv. diminutive reduplication	page 7
+§3.1	Peter Jacobs	note	v. one possible case with a non-suffixed intransitive	page 7
+§3.1	Peter Jacobs	note	vi. one numeral	page 7
+§3.1	Peter Jacobs	note	vii. one possible case with an independent noun	page 7
+§3.1	Peter Jacobs	note	viii. one lexical suffix	page 7
+§3.1	Peter Jacobs	note	ix. two aspectual clitics	page 7
+§3.1.1	Peter Jacobs	heading	3.1.1 Transitives: the vowel directive transitivizer	page 7
+§3.1.1	Peter Jacobs	note	There is a closed set of CVC roots which have a copy vowel as their transitivizer, but no DIR –n (Jacobs 2011). The analysis presented here follows Jacobs (2011), who analyzes the copy vowel as a non- automatic allomorph of the -n transitivizer, somewhat similar to Kuipers (1967:69). I will call V in this construction the VDIR, or the Vowel Directive, to distinguish it from the V that occurs before the DIR –n. In other words, the distribution of the Directive as –n or as VDIR is not determined by phonological factors. The –t following the VDIR is itself a second transitivizer. Kuipers (1967:69) analyzes this construction as comprised of a root followed by a transitivizer–Vt. I differ from him in that I have divided this sequence into two transitivizers –V and –t. I will call the CVC roots which take the VDIR, VDIR roots. The following are examples of VDIR roots with the VDIR.	page 7
+§3.1.1	Peter Jacobs	name	Kuipers	Aert H. Kuipers, the Squamish grammar (1967) and lexicon (1969, 1989)
+(8a) line 1	Sḵwx̱wu7mesh	transcription	na káw-a-t-as ta s7ílhen.	page 7
+(8a) line 2	Sḵwx̱wu7mesh	gloss	RL down-VDIR-TR-3SUBJ DET food	page 7
+(8a) line 3	Peter Jacobs	translation	‘She brought the food down (towards the beach).’	page 7
+(8b) line 1	Sḵwx̱wu7mesh	transcription	na lhích’-i-t-as ta seplín.	page 7
+(8b) line 2	Sḵwx̱wu7mesh	gloss	RL cut-VDIR-TR-3SUBJ DET bread	page 7
+(8b) line 3	Peter Jacobs	translation	‘She sliced the bread.’	page 7
+(8c) line 1	Sḵwx̱wu7mesh	transcription	na ḵw’úḵw-u-t-as ta shemán-s.	page 7
+(8c) line 2	Sḵwx̱wu7mesh	gloss	RL beat-VDIR-TR-3SUBJ DET enemy-3POSS	page 8
+(8c) line 3	Peter Jacobs	translation	‘He beat up his enemy.’	page 8
+(8d) line 1	Sḵwx̱wu7mesh	transcription	na ḵp’-é-t-as ta shewálh	page 8
+(8d) line 2	Sḵwx̱wu7mesh	gloss	RL close-VDIR-TR-3SUBJ DET door	page 8
+(8d) line 3	Peter Jacobs	translation	‘She closed the door.’	page 8
+§3.1.1	Peter Jacobs	note	Again, since unstressed full vowels can be reduced to schwa, VDIR can also be realized as schwa. But schwa reduction seems to happen less in this construction than it does in the –n DIR construction. When V is realized as schwa next to a CVC root realized, as in (2d), it never surfaces as stressed. The VDIR, however, when realized as schwa can surface with stress, as in (8d).	page 8
+§3.1.1	Peter Jacobs	note	Note that the VDIR only occurs when it is the second V in a CVCV sequence. It does not occur when the root/stem is longer than CVC (and hence not in a CVCCV sequence). In transitive constructions with a VDIR root plus lexical suffix, the predicate surfaces with the DIR instead of the VDIR. Compare the following two VDIR roots. The (a) examples show the VDIR root with the VDIR. The (b) examples show the VDIR root but with the lexical suffix -kw ‘head’, and now with the DIR instead.	page 8
+§3.1.1	Sḵwx̱wu7mesh	cited form	-kw	page 8, in italics, ‘head’
+(9a) line 1	Sḵwx̱wu7mesh	transcription	ḵw’uḵw-u-t	page 8
+(9a) line 2	Sḵwx̱wu7mesh	gloss	beat-VDIR-TR	page 8
+(9a) line 3	Peter Jacobs	translation	‘to hit (someone) with a stick’	page 8
+(9b) line 1	Sḵwx̱wu7mesh	transcription	ḵw’uḵw-ḵw-á-n	page 8
+(9b) line 2	Sḵwx̱wu7mesh	gloss	beat-head-V-DIR	page 8
+(9b) line 3	Peter Jacobs	translation	‘the hit (someone) on the head, with a stick’	page 8
+(10a) line 1	Sḵwx̱wu7mesh	transcription	lhich’-i-t	page 8
+(10a) line 2	Sḵwx̱wu7mesh	gloss	cut-VDIR-TR	page 8
+(10a) line 3	Peter Jacobs	translation	‘to cut (something)’	page 8
+(10b) line 1	Sḵwx̱wu7mesh	transcription	lhich’-ilhx̱a7-n	page 8
+(10b) line 2	Sḵwx̱wu7mesh	gloss	cut-neck-DIR	page 8
+(10b) line 3	Peter Jacobs	translation	‘to cut (someone’s) neck’	page 8
+§3.1.2	Peter Jacobs	heading	3.1.2 Intransitives	page 8
+§3.1.2	Peter Jacobs	note	For intransitives, phonemic vowel harmony occurs with CVC roots with the intransitivizer -m (§3.1.2.1), a small set of CV7 roots (§3.1.2.2), diminutives (§3.1.2.3) and a few other miscellaneous intransitives (§3.1.2.4).	page 8
+§3.1.2.1	Peter Jacobs	heading	3.1.2.1 Intransitives with -m	page 9
+§3.1.2.1	Peter Jacobs	note	Kuipers (1967:81,§111) describes phonemic vowel harmony for a set of intransitives. This small set of intransitive verbs are comprised of a CVC root and the intransitivizer –m. Intervening between the root and suffix is a copy vowel of the root’s vowel.	page 9
+(11a) line 1	Sḵwx̱wu7mesh	root	√nich	page 9
+(11a) line 1	Sḵwx̱wu7mesh	transcription	ních-i-m	page 9
+(11a) line 1	Peter Jacobs	translation	‘to speak’	page 9
+(11b) line 1	Sḵwx̱wu7mesh	root	√xwit	page 9
+(11b) line 1	Sḵwx̱wu7mesh	transcription	xwít-i-m	page 9
+(11b) line 1	Peter Jacobs	translation	‘to jump’	page 9
+(11c) line 1	Sḵwx̱wu7mesh	root	√x̱in̓	page 9
+(11c) line 1	Sḵwx̱wu7mesh	transcription	x̱ín̓-i-m	page 9
+(11c) line 1	Peter Jacobs	translation	‘to growl’	page 9
+(11d) line 1	Sḵwx̱wu7mesh	root	√ts’ulh	page 9
+(11d) line 1	Sḵwx̱wu7mesh	transcription	ts’úlh-u-m	page 9
+(11d) line 1	Peter Jacobs	translation	‘to feel cold’	page 9
+(11e) line 1	Sḵwx̱wu7mesh	root	√shukw’	page 9
+(11e) line 1	Sḵwx̱wu7mesh	transcription	shúkw’-u-m	page 9
+(11e) line 1	Peter Jacobs	translation	‘to bathe oneself’	page 9
+(11f) line 1	Sḵwx̱wu7mesh	root	√xwuy	page 9
+(11f) line 1	Sḵwx̱wu7mesh	transcription	xwúy-u-m	page 9
+(11f) line 1	Peter Jacobs	translation	‘to sell’	page 9
+(11g) line 1	Sḵwx̱wu7mesh	root	√tsaxw	page 9
+(11g) line 1	Sḵwx̱wu7mesh	transcription	tsáxw-a-m	page 9
+(11g) line 1	Peter Jacobs	translation	‘to reach out, to stick hand out’	page 9
+(11h) line 1	Sḵwx̱wu7mesh	root	√yaḵw’	page 9
+(11h) line 1	Sḵwx̱wu7mesh	transcription	yáḵw’-a-m	page 9
+(11h) line 1	Peter Jacobs	translation	‘to sweat’	page 9
+§3.1.2.1	Peter Jacobs	note	As with unstressed vowels elsewhere in the grammar, the unstressed copy vowel can be reduced to schwa, and often is with these verbs. Note that as with all other cases of copy vowels, the copy vowel occurs as an unstressed second V of a CVCV sequence.	page 9
+§3.1.2.2	Peter Jacobs	heading	3.1.2.2 CV7 intransitives	page 9
+§3.1.2.2	Peter Jacobs	note	In Sḵwx̱wu7mesh, there are a few CVC roots with glottal stop for their second C (henceforth, CV7 roots). When these CV7 roots occur as bare roots (that is, they are unaffixed), then, and only then, do they occur with a copy vowel of the root vowel. For example:	page 9
+(12) line 1	Sḵwx̱wu7mesh	transcription	lhá7a	page 9
+(12) line 2	Peter Jacobs	translation	‘to approach’	page 9
+(13) line 1	Sḵwx̱wu7mesh	transcription	tá7a	page 9
+(13) line 2	Peter Jacobs	translation	‘to happen’	page 9
+§3.1.2.2	Peter Jacobs	note	However, when these roots have a transitivizer, there is no copy vowel:	page 10
+(14a) line 1	Sḵwx̱wu7mesh	transcription	lha7-n	page 10
+(14a) line 2	Sḵwx̱wu7mesh	gloss	touch-DIR	page 10
+(14a) line 3	Peter Jacobs	translation	‘to approach, to touch’	page 10
+(14b) line 1	Sḵwx̱wu7mesh	transcription	*lha7an	page 10
+(15a) line 1	Sḵwx̱wu7mesh	transcription	ta7-s	page 10
+(15a) line 2	Sḵwx̱wu7mesh	gloss	do-CAUS	page 10
+(15a) line 3	Peter Jacobs	translation	‘to make, to do’	page 10
+(15b) line 1	Sḵwx̱wu7mesh	transcription	*ta7a-s	page 10
+(15c) line 1	Sḵwx̱wu7mesh	transcription	tá7-n-exw	page 10
+(15c) line 2	Sḵwx̱wu7mesh	gloss	do-DIR-3OBJ	page 10
+(15c) line 3	Peter Jacobs	translation	‘to have made, to have done’	page 10
+(15d) line 1	Sḵwx̱wu7mesh	transcription	*ta7a-n-exw	page 10
+§3.1.2.2	Peter Jacobs	note	The following CV7 roots only occur as bare roots in my database. They also have a copy of the root vowel.	page 10
+(16a) line 1	Sḵwx̱wu7mesh	transcription	ḵ’á7a	page 10
+(16a) line 2	Peter Jacobs	translation	‘to get hung up’	page 10
+(16b) line 1	Sḵwx̱wu7mesh	transcription	tl’ú7u	page 10
+(16b) line 2	Peter Jacobs	translation	‘to rest after pain’	page 10
+§3.1.2.2	Peter Jacobs	note	There appears to be a special case with the following root:	page 10
+(17) line 1	Sḵwx̱wu7mesh	transcription	√wa7	page 10
+§3.1.2.2	Peter Jacobs	note	When it occurs as an intransitive predicate it seems to exhibit a type of reduplication.	page 10
+(18a) line 1	Sḵwx̱wu7mesh	transcription	wá7-ew	page 10
+(18a) line 2	Peter Jacobs	translation	‘to continue on with; to keep’	page 10
+(18b) line 1	Sḵwx̱wu7mesh	transcription	na men wá7ew lháḵw’-a-n-t-s-as	page 10
+(18b) line 2	Sḵwx̱wu7mesh	gloss	RL just continue slap-V-DIR-TR-1S.OBJ-3SUBJ	page 10
+(18b) line 3	Peter Jacobs	translation	‘She kept slapping me.’	page 10
+§3.1.2.2	Peter Jacobs	note	Importantly for our discussion here, when this root occurs as an interjection, it has a copy vowel of the root vowel.	page 11
+(19) line 1	Sḵwx̱wu7mesh	transcription	wá7a!	page 11
+(19) line 2	Peter Jacobs	translation	‘(interjection indicating exasperation), good heavens!’	page 11
+§3.1.2.2	Peter Jacobs	note	Note that as with all other cases of copy vowels, the copy vowel occurs as the second V of a CVCV sequence. Shaw et al (1999) describe a similar type of translaryngeal vowel harmony occurring in Xwmetskwiy̓am̓ (Musqueam Halkomelem).	page 11
+§3.1.2.2	Peter Jacobs	name	Shaw	Patricia A. Shaw et al., stress in hunkaminum (Musqueam) (1999)
+§3.1.2.2	Peter Jacobs	language	Musqueam	Halkomelem, the Downriver dialect
+§3.1.2.2	Peter Jacobs	language	Halkomelem	Central Salish
+§3.1.2.3	Peter Jacobs	heading	3.1.2.3 Diminutives	page 11
+§3.1.2.3	Peter Jacobs	note	Vowel harmony is also found with diminutive reduplication in Sḵwx̱wu7mesh. Diminutives in Sḵwx̱wu7mesh are formed by a special type of reduplication that largely occurs with nouns. The process appears to be unproductive for contemporary speakers, but was active until fairly recently, given that a number of recorded diminutive forms are built on loan words.	page 11
+§3.1.2.3	Peter Jacobs	note	When there is vowel harmony with the diminutive, the first vowel of the root harmonizes with the vowel of the diminutive reduplicant.6 The diminutive reduplicant is comprised of a copy of the first consonant of the root C-, followed by the sequence -i(7), followed by the root itself.	page 11
+footnote 6	Peter Jacobs	note	Stress appears to be somewhat variable for the diminutives. For many forms stress is realized on the reduplicant. But for some forms, it occurs on the root or it seems to be in free variation between the reduplicant and the root. I note any variation and leave this issue for future research.	page 11, footnote 6
+(20) line 1	Peter Jacobs	note	Diminutive in Squamish	page 11, set as an example
+(20) line 2	Peter Jacobs	note	C1i(7)-C1VC	page 11, set as an example
+§3.1.2.3	Peter Jacobs	note	The following are some examples where vowel harmony does not occur between the diminutive reduplicant and the root’s vowel. The diminutive reduplicant and the first vowel of the root (when it surfaces) are in bold.	page 11
+(21) line 1	Peter Jacobs	note	No vowel harmony	page 11, the example's heading
+(21) line 2	Peter Jacobs	note	Base form Diminutive	page 11, the column heads
+(21a) line 1	Sḵwx̱wu7mesh	transcription	lam̓	page 11, the base form
+(21a) line 2	Peter Jacobs	word gloss	house	page 11, the base form's English
+(21a) line 3	Sḵwx̱wu7mesh	transcription	lí7-lam̓	page 11, the diminutive
+(21a) line 4	Peter Jacobs	word gloss	little house	page 11, the diminutive's English
+(21b) line 1	Sḵwx̱wu7mesh	transcription	lhach’tn	page 11, the base form
+(21b) line 2	Peter Jacobs	word gloss	knife	page 11, the base form's English
+(21b) line 3	Sḵwx̱wu7mesh	transcription	lhí7-lhach’tn	page 11, the diminutive
+(21b) line 4	Peter Jacobs	word gloss	little knife	page 11, the diminutive's English
+(21c) line 1	Sḵwx̱wu7mesh	transcription	slhaw̓ín̓	page 12, the base form
+(21c) line 2	Peter Jacobs	word gloss	bed	page 12, the base form's English
+(21c) line 3	Sḵwx̱wu7mesh	transcription	s-lhí7-lhaw̓in̓	page 12, the diminutive
+(21c) line 4	Peter Jacobs	word gloss	little bed	page 12, the diminutive's English
+(21d) line 1	Sḵwx̱wu7mesh	transcription	s-mant	page 12, the base form
+(21d) line 2	Peter Jacobs	word gloss	rock	page 12, the base form's English
+(21d) line 3	Sḵwx̱wu7mesh	transcription	s-mí7-mant	page 12, the diminutive
+(21d) line 4	Peter Jacobs	word gloss	little rock (or, pebble)	page 12, the diminutive's English
+(21e) line 1	Sḵwx̱wu7mesh	transcription	s-ts’á7ḵin	page 12, the base form
+(21e) line 2	Peter Jacobs	word gloss	bullrush	page 12, the base form's English
+(21e) line 3	Sḵwx̱wu7mesh	transcription	s-ts’í-ts’a7ḵin	page 12, the diminutive
+(21e) line 4	Peter Jacobs	word gloss	little bullrush	page 12, the diminutive's English
+(21f) line 1	Sḵwx̱wu7mesh	transcription	?kwelh	page 12, the base form
+(21f) line 2	Peter Jacobs	word gloss	to be split	page 12, the base form's English
+(21f) line 3	Sḵwx̱wu7mesh	transcription	kwí7-kwelh	page 12, the diminutive
+(21f) line 4	Peter Jacobs	word gloss	small (type of) canoe	page 12, the diminutive's English
+(21g) line 1	Sḵwx̱wu7mesh	transcription	méḵsen	page 12, the base form
+(21g) line 2	Peter Jacobs	word gloss	nose	page 12, the base form's English
+(21g) line 3	Sḵwx̱wu7mesh	transcription	mí7-meḵsen	page 12, the diminutive
+(21g) line 4	Peter Jacobs	word gloss	little nose	page 12, the diminutive's English
+(21h) line 1	Sḵwx̱wu7mesh	transcription	shéway	page 12, the base form
+(21h) line 2	Peter Jacobs	word gloss	to grow	page 12, the base form's English
+(21h) line 3	Sḵwx̱wu7mesh	transcription	shí7-sheway	page 12, the diminutive
+(21h) line 4	Peter Jacobs	word gloss	twig	page 12, the diminutive's English
+(21i) line 1	Sḵwx̱wu7mesh	transcription	x̱ep’	page 12, the base form
+(21i) line 2	Peter Jacobs	word gloss	to crack	page 12, the base form's English
+(21i) line 3	Sḵwx̱wu7mesh	transcription	x̱i7-x̱p’	page 12, the diminutive
+(21i) line 4	Peter Jacobs	word gloss	to smash the shell of a little neck clam on a rock [in order to eat it raw]	page 12, the diminutive's English
+(21j) line 1	Sḵwx̱wu7mesh	transcription	yulh	page 12, the base form
+(21j) line 2	Peter Jacobs	word gloss	to burn	page 12, the base form's English
+(21j) line 3	Sḵwx̱wu7mesh	transcription	yí7-yulh	page 12, the diminutive
+(21j) line 4	Peter Jacobs	word gloss	a fire, firewood, to burn, to have a burning	page 12, the diminutive's English
+(21k) line 1	Sḵwx̱wu7mesh	transcription	s-kwekwiy̓ín̓tsut	page 12, the base form
+(21k) line 2	Peter Jacobs	word gloss	actions	page 12, the base form's English
+(21k) line 3	Sḵwx̱wu7mesh	transcription	s-kwi-kwekwiy̓ín̓tsut	page 12, the diminutive
+(21k) line 4	Peter Jacobs	word gloss	small actions	page 12, the diminutive's English
+§3.1.2.3	Peter Jacobs	note	This next set of data provides examples of vowel harmony between the reduplicant’s vowel and the root’s vowel. This appears to be a classic case of reduplicative back-copying. Again the reduplicant and the first vowel of the root are in bold.	page 12
+(22) line 1	Peter Jacobs	note	Vowel Harmony (of reduplicant’s vowel)	page 12, the example's heading
+(22) line 2	Peter Jacobs	note	Base form Diminutive	page 12, the column heads
+(22a) line 1	Sḵwx̱wu7mesh	transcription	s-ḵwemáy̓	page 12, the base form
+(22a) line 2	Peter Jacobs	word gloss	dog	page 12, the base form's English
+(22a) line 3	Sḵwx̱wu7mesh	transcription	s-ḵwí7-ḵwimay̓	page 12, the diminutive
+(22a) line 4	Peter Jacobs	word gloss	little (type of) dog	page 12, the diminutive's English
+(22b) line 1	Sḵwx̱wu7mesh	transcription	s-ḵw’shétsut	page 12, the base form
+(22b) line 2	Peter Jacobs	word gloss	toy	page 12, the base form's English
+(22b) line 3	Sḵwx̱wu7mesh	transcription	s-ḵw’í-ḵw’ishetsut	page 12, the diminutive
+(22b) line 4	Peter Jacobs	word gloss	little toy	page 12, the diminutive's English
+(22c) line 1	Sḵwx̱wu7mesh	transcription	s-ḵ’émel	page 12, the base form
+(22c) line 2	Peter Jacobs	word gloss	paddle	page 12, the base form's English
+(22c) line 3	Sḵwx̱wu7mesh	transcription	s-ḵ’í-ḵ’imel	page 12, the diminutive
+(22c) line 4	Peter Jacobs	word gloss	little paddle	page 12, the diminutive's English
+(22d) line 1	Sḵwx̱wu7mesh	transcription	latám	page 12, the base form
+(22d) line 2	Peter Jacobs	word gloss	table	page 12, the base form's English
+(22d) line 3	Sḵwx̱wu7mesh	transcription	lí7-litam	page 12, the diminutive
+(22d) line 4	Peter Jacobs	word gloss	little table	page 12, the diminutive's English
+(22e) line 1	Sḵwx̱wu7mesh	transcription	s-tl’álḵem	page 13, the base form
+(22e) line 2	Peter Jacobs	word gloss	monster	page 13, the base form's English
+(22e) line 3	Sḵwx̱wu7mesh	transcription	s-tl’i-tl’íl̓ḵem	page 13, the diminutive
+(22e) line 4	Peter Jacobs	word gloss	bug (=little monster)	page 13, the diminutive's English
+(22f) line 1	Sḵwx̱wu7mesh	transcription	nexw-lám-ay̓	page 13, the base form
+(22f) line 2	Peter Jacobs	word gloss	bottle	page 13, the base form's English
+(22f) line 3	Sḵwx̱wu7mesh	transcription	nexw-lí7-lim̓ay̓	page 13, the diminutive
+(22f) line 4	Peter Jacobs	word gloss	little bottle	page 13, the diminutive's English
+(22g) line 1	Sḵwx̱wu7mesh	transcription	ts’nay̓	page 13, the base form
+(22g) line 2	Peter Jacobs	word gloss	bullhead	page 13, the base form's English
+(22g) line 3	Sḵwx̱wu7mesh	transcription	ts’í-ts’inay̓	page 13, the diminutive
+(22g) line 4	Peter Jacobs	word gloss	little bullhead	page 13, the diminutive's English
+(22h) line 1	Sḵwx̱wu7mesh	transcription	tsaw̓ín	page 13, the base form
+(22h) line 2	Peter Jacobs	word gloss	coho	page 13, the base form's English
+(22h) line 3	Sḵwx̱wu7mesh	transcription	tsí7-tsaw̓in	page 13, the diminutive
+(22h) line 4	Sḵwx̱wu7mesh	transcription	tsi7-tsáw̓in	page 13, the diminutive as also said
+(22h) line 5	Peter Jacobs	word gloss	small coho	page 13, the diminutive's English
+(22i) line 1	Sḵwx̱wu7mesh	transcription	s-nexwílh	page 13, the base form
+(22i) line 2	Peter Jacobs	word gloss	canoe	page 13, the base form's English
+(22i) line 3	Sḵwx̱wu7mesh	transcription	s-ní7-nixwilh	page 13, the diminutive
+(22i) line 4	Peter Jacobs	word gloss	toy canoe	page 13, the diminutive's English
+§3.1.2.3	Peter Jacobs	note	I have found one other sub-type of vowel harmony with the diminutives. With this small set of words, both vowels can harmonize with the diminutive’s vowel, or with the root’s vowel. In none of these forms are the vowels different. Three of the four forms also have the expected i7 form for the reduplicant.	page 13
+footnote 7	Peter Jacobs	note	Note that in the practical orthography, the schwa of the root is written as /i/, but that is meant to represent the allophone [i] for schwa when it is pretonic before the glide [j].	page 14, footnote 7
+(23) line 1	Peter Jacobs	note	Vowel harmony (variable)	page 13, the example's heading
+(23) line 2	Peter Jacobs	note	Base form Diminutive	page 13, the column heads
+(23a) line 1	Sḵwx̱wu7mesh	transcription	p’ákwilh	page 13, the base form
+(23a) line 2	Peter Jacobs	word gloss	to launch a canoe	page 13, the base form's English
+(23a) line 3	Sḵwx̱wu7mesh	transcription	p’í-p’ikwilh	page 13, the diminutive
+(23a) line 4	Sḵwx̱wu7mesh	transcription	p’á-p’akwilh	page 13, the diminutive as also said
+(23b) line 1	Sḵwx̱wu7mesh	transcription	kw’áxwa7	page 13, the base form
+(23b) line 2	Peter Jacobs	word gloss	box	page 13, the base form's English
+(23b) line 3	Sḵwx̱wu7mesh	transcription	kw’í-kw’ixwa7	page 13, the diminutive
+(23b) line 4	Sḵwx̱wu7mesh	transcription	kw’á-kw’xwa7	page 13, the diminutive as also said
+(23c) line 1	Sḵwx̱wu7mesh	transcription	x̱ápay̓ay	page 13, the base form
+(23c) line 2	Peter Jacobs	word gloss	cedar tree	page 13, the base form's English
+(23c) line 3	Sḵwx̱wu7mesh	transcription	x̱í7-x̱ipay̓-ay	page 13, the diminutive
+(23c) line 4	Sḵwx̱wu7mesh	transcription	x̱e-x̱epáy̓-ay	page 13, the diminutive as also said
+(23d) line 1	Sḵwx̱wu7mesh	transcription	kw’eyúkw	page 13, the base form
+(23d) line 2	Peter Jacobs	word gloss	a hook	page 13, the base form's English
+(23d) line 3	Sḵwx̱wu7mesh	transcription	kw’e-kw’eyúkw	page 13, the diminutive
+§3.1.2.3	Peter Jacobs	note	The first example in (23a) provides the clearest case of this subtype. Either the root’s vowel harmonizes with the reduplicant or vice versa. In (23b) the root’s initial vowel harmonizes with the reduplicant, or the reduplicant’s vowel harmonizes with the underlying initial vowel of the root. The root’s initial vowel is then deleted. In (23c), again either the root’s vowel harmonizes with the reduplicant or vice versa. In this case, though, the movement of stress to the penultimate syllable causes schwa reduction in the first two vowels of the root. It is this schwa that the reduplicant harmonizes with (making this form look formally identical to CV- reduplication). The form in (23d) has not been found with the expected Ci7 reduplicant form.7	page 13
+§3.1.2.3	Peter Jacobs	note	In all those cases where vowel harmony does occur with the diminutives, both vowels are part of the initial CVCV in the word, not including the prefixes. Again, vowel harmony occurs in the environment of a CVCV sequence.	page 14
+§3.1.2.4	Peter Jacobs	heading	3.1.2.4 Miscellaneous intransitives	page 14
+§3.1.2.4	Peter Jacobs	note	I have one other possible example with an intransitive verb without an overt transitivizer which appears to exhibit vowel harmony, at least for some speakers. This word varies in pronunciation between the low vowel and the front vowel. The sequence a7 is probably derived from e7, but schwa never appears before a glottal stop. It gets lowered to a7 instead.	page 14
+(24) line 1	Sḵwx̱wu7mesh	transcription	tl’íya7 ~ tl’íyi7	page 14
+(24) line 2	Peter Jacobs	translation	‘to stop’	page 14
+§3.1.2.4	Peter Jacobs	note	Kuipers (1967) analyzes this word as having the inchoative suffix –i7, in which case the a7 realization is just a case of schwa reduction.	page 14
+(25) line 1	Sḵwx̱wu7mesh	transcription	tl’ey-i7	page 14
+(25) line 2	Sḵwx̱wu7mesh	gloss	stop-INCH	page 14
+§3.1.2.4	Peter Jacobs	note	One reason to think that this may not be correct is that not all speakers recognize the tl’íyi7 pronunciation, but all do recognize the tl’íya7 pronunciation.	page 14
+§3.1.2.4	Sḵwx̱wu7mesh	cited form	tl’íyi7	page 14, in italics
+§3.1.2.4	Sḵwx̱wu7mesh	cited form	tl’íya7	page 14, in italics
+§3.1.2.4	Peter Jacobs	note	I also have one numeral, which for some speakers’ pronunciation, appears to have vowel harmony. The numeral ‘five’ has two different pronunciations. The second vowel can either be an /a/ or it can harmonize (to the first vowel) and surface as /i/.	page 14
+(26) line 1	Sḵwx̱wu7mesh	transcription	tsíyachis ~ tsíyichis	page 14
+(26) line 2	Peter Jacobs	translation	‘five’	page 14
+§3.1.2.4	Peter Jacobs	note	The numeral ‘five’ has the suffix -achis which historically was the lexical suffix for ‘hand’. The contemporary lexical suffix is just –ach ‘hand’.	page 14
+§3.1.2.4	Sḵwx̱wu7mesh	cited form	-achis	page 14, in italics
+§3.1.2.4	Peter Jacobs	note	Note for both tl’iyi7 and for tsíyichis that vowel harmony occurs in a CVCV environment: tl’iyi and tsiyi respectively.	page 15
+§3.1.2.4	Sḵwx̱wu7mesh	cited form	tsíyichis	page 15, in italics
+§3.1.3	Peter Jacobs	heading	3.1.3 Vowel harmony in the nominal domain	page 15
+§3.1.3	Peter Jacobs	note	In this section I look at one noun and one nominal lexical suffix.	page 15
+§3.1.3	Peter Jacobs	note	Except for diminutive reduplication, phonemic vowel harmony is not found in any other systematic fashion in the nominal domain. I have one possible case, of what is probably allophonic variation for schwa, with one nominal root. The following noun has two different pronunciations. The unstressed vowel can be realized as either a schwa (27a) or as a copy of a stressed vowel (27b). Thus the unstressed vowel could be said to be harmonizing with the stressed vowel in (27b).	page 15
+(27a) line 1	Sḵwx̱wu7mesh	transcription	ḵwe7úp	page 15
+(27a) line 1	Sḵwx̱wu7mesh	phonetic	[qʷʌɁóp]	page 15
+(27a) line 2	Peter Jacobs	translation	‘crabapple’	page 15
+(27b) line 1	Sḵwx̱wu7mesh	transcription	ḵwu7úp	page 15
+(27b) line 1	Sḵwx̱wu7mesh	phonetic	[qʷoɁóp]	page 15
+(27b) line 2	Peter Jacobs	translation	‘crabapple’	page 15
+§3.1.3	Peter Jacobs	note	One problem for analyzing this as vowel harmony, though, is that schwa already has [o] as one of its allophones in the environment of a rounded consonant. Comparative data with other Salish languages could help resolve whether the unstressed /u/ is an underlying vowel or just an allophone of schwa.	page 15
+§3.1.3	Peter Jacobs	language	Salish	the family
+§3.1.3	Peter Jacobs	note	A clearer case of phonemic vowel harmony presents itself with one transitive verb, wherein the initial vowel of the lexical suffix harmonizes with the root’s vowel. The initial vowel of this suffix is /a/ as in (28a). Normally, this vowel surfaces as either /a/ or schwa, depending on factors relating to stress (28b). But, in (28c) the initial vowel of the suffix harmonizes with the root’s vowel.	page 15
+(28a) line 1	Sḵwx̱wu7mesh	transcription	-alhx̱a	page 15
+(28a) line 2	Peter Jacobs	translation	‘neck, throat’	page 15
+(28b) line 1	Sḵwx̱wu7mesh	transcription	tsiḵ-alhx̱á7-n	page 15
+(28b) line 2	Sḵwx̱wu7mesh	gloss	stab-neck-DIR	page 15
+(28b) line 3	Peter Jacobs	translation	‘to stab (someone) in the throat’	page 15
+(28c) line 1	Sḵwx̱wu7mesh	transcription	lhich’-ilhx̱á7-n	page 15
+(28c) line 2	Sḵwx̱wu7mesh	gloss	cut-neck-DIR	page 15
+(28c) line 3	Peter Jacobs	translation	‘to cut (someone’s) neck’	page 15
+§3.1.3	Peter Jacobs	note	The fact that by far the majority of words that contain this suffix surface with either an initial /a/ or schwa indicates that this harmonization is not regular. It does raise the question, though, of how regular this process of vowel harmonization was for some speakers. It is quite possible that there are more words where this process took place for some speakers. In my recording of some words which actually had /i/, I may have mistakenly recorded them as schwa since schwa has the allophone [ɪ].	page 16
+§3.1.3	Peter Jacobs	note	As far as syllable shape with nouns is concerned, vowel harmony again occurs in a CVCV environment: kwu7ú and lhich’i. Harmonization appears to be leftward with the noun kwu7úp.	page 16
+§3.1.4	Peter Jacobs	heading	3.1.4 Aspectual clitics	page 16
+§3.1.4	Peter Jacobs	note	Phonemic vowel harmony is also found with two different aspectual clitics, na ‘realis’ and wa ‘imperfective’, but only when they occur in a nominalized clause.8 Their vowel, /a/, harmonizes with the vowel of the preceding complementizer/determiner kwi. In a nominalized clause these aspectual clitics often occur in a reduced form.	page 16
+footnote 8	Peter Jacobs	note	Nominalized clauses function as: i) complement clauses, ii) adverbial clauses or iii) purpose clauses (Jacobs 1992). The following example shows a nominalized clause as complement:	page 16, footnote 8
+footnote 8 line 1	Sḵwx̱wu7mesh	transcription	chen ta7áw̓n kwi s-e-s nam̓ huyá7	page 16
+footnote 8 line 2	Sḵwx̱wu7mesh	gloss	I think DET NOM-RL-3POSS go leave	page 16
+footnote 8 line 3	Peter Jacobs	translation	‘I think that he left.’	page 16
+§3.1.4	Peter Jacobs	note	When na occurs between the nominalizer s- and the third person possessive -s, it can have three different surface realizations. Rarely, it will surface with the full vowel (29a). Commonly, it will surface with its vowel reduced to schwa (29b) or simply as a schwa (29c).	page 16
+§3.1.4	Sḵwx̱wu7mesh	cited form	s-	page 16, in italics
+§3.1.4	Sḵwx̱wu7mesh	cited form	-s	page 16, in italics
+(29a) line 1	Peter Jacobs	note	Full form of the clitic Phonetic realization	page 16, a heading in the example
+(29a) line 2	Sḵwx̱wu7mesh	transcription	kwi s-na-s	page 16
+(29a) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi snas]	page 16
+(29a) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-RL-3POSS	page 16
+(29b) line 1	Peter Jacobs	note	Partially reduced form of the clitic	page 16, a heading in the example
+(29b) line 2	Sḵwx̱wu7mesh	transcription	kwi s-ne-s	page 16
+(29b) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi snəs]	page 16
+(29b) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-RL-3POSS	page 16
+(29c) line 1	Peter Jacobs	note	Fully reduced form of the clitic	page 16, a heading in the example
+(29c) line 2	Sḵwx̱wu7mesh	transcription	kwi s-e-s	page 16
+(29c) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi səs]	page 16
+(29c) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-RL-3POSS	page 16
+§3.1.4	Peter Jacobs	note	The partially reduced form (29b) can also alternatively be realized with the clitic’s vowel harmonized to the vowel of the determiner as in (30a). The fully reduced form can also alternatively be realized with the clitic’s vowel harmonized to the vowel of the determiner as in (30b).	page 17
+(30) line 1	Peter Jacobs	note	Vowel harmony with reduced clitics	page 17, a heading in the example
+(30a) line 1	Peter Jacobs	note	Partially reduced form of the clitic Phonetic realization	page 17, a heading in the example
+(30a) line 2	Sḵwx̱wu7mesh	transcription	kwi s-ni-s	page 17
+(30a) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi snis]	page 17
+(30b) line 1	Peter Jacobs	note	Fully reduced form of the clitic	page 17, a heading in the example
+(30b) line 2	Sḵwx̱wu7mesh	transcription	kwi s-i-s	page 17
+(30b) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi sis]	page 17
+§3.1.4	Peter Jacobs	note	The same vowel harmonization can occur with the clitic wa ‘imperfective’ in the identical environment, i.e. when it is preceded by the nominalizer s- and immediately followed by the third person possessive –s. The full form of the clitic does not usually surface as such (31a). Instead it either surfaces with its vowel reduced to schwa (31b) or just with the vocalized version of its /w/ onset, i.e. it surfaces as /u/ (31c).	page 17
+(31a) line 1	Peter Jacobs	note	Full form of the clitic Phonetic realization	page 17, a heading in the example
+(31a) line 2	Sḵwx̱wu7mesh	transcription	kwi s-wa-s	page 17
+(31a) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi swas]	page 17
+(31a) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-IMPF-3POSS	page 17
+(31b) line 1	Peter Jacobs	note	Partially reduced form of the clitic	page 17, a heading in the example
+(31b) line 2	Sḵwx̱wu7mesh	transcription	kwi s-we-s	page 17
+(31b) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi swəs]	page 17
+(31b) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-IMPF-3POSS	page 17
+(31c) line 1	Peter Jacobs	note	Fully reduced form of the clitic	page 17, a heading in the example
+(31c) line 2	Sḵwx̱wu7mesh	transcription	kwi s-u-s	page 17
+(31c) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi sos]	page 17
+(31c) line 3	Sḵwx̱wu7mesh	gloss	DET NOM-IMPF-3POSS	page 17
+§3.1.4	Peter Jacobs	note	The partially reduced form (31b) can also alternatively be realized with the clitic’s vowel harmonized to the vowel of the determiner as in (32).	page 17
+(32) line 1	Peter Jacobs	note	Partially reduced from of the clitic Phonetic realization	page 17, a heading in the example
+(32) line 2	Sḵwx̱wu7mesh	transcription	kwi s-wi-s	page 17
+(32) line 2	Sḵwx̱wu7mesh	phonetic	[kʷi swis]	page 17
+§3.1.4	Peter Jacobs	note	With these clitics, vowel harmony is not always taking place in a CVCV environment within the same word, unlike all the other cases that we have examined. Furthermore, it is taking place from clitic to following clitic.	page 17
+§3.2	Peter Jacobs	heading	3.2 Allophonic vowel harmony	page 18
+§3.2	Peter Jacobs	note	Skwxwu7mesh also has a few cases of allophonic vowel harmony. Again, allophonic vowel harmony is where two vowels are identical phonemes and unexpectedly, they share the same allophones. I only examine cases with full vowels since establishing vowel harmony is more straightforward given that the allophones of full vowels are simpler to define than for schwa. I first present a summary of the vowel allophones in Skwxwu7mesh. I then present the data on allophonic vowel harmony.	page 18
+§3.2	Peter Jacobs	language	Skwxwu7mesh	Sḵwx̱wu7mesh, as the references spell it
+§3.2.1	Peter Jacobs	heading	3.2.1 Vowel allophones in Skwxwu7mesh	page 18
+§3.2.1	Peter Jacobs	note	Skwxwu7mesh has three full vowels (a, i, u) and a schwa. There are also long variants of the full vowels, but they are not very common and they do not come into play with allophonic vowel harmony. The following are descriptions of the allophonic variation for the front vowel /i/ in (33a), the back vowel /u/ in (33b) and the low vowel /a/ in (33c).	page 18
+(33a) line 1	Sḵwx̱wu7mesh	rule	/i/ -----> [ɛ] ______ uvular, w, l	page 18
+(33a) line 2	Sḵwx̱wu7mesh	rule	[i] _______CV́, V́C_____	page 18
+(33a) line 3	Sḵwx̱wu7mesh	rule	(unstressed syllables)	page 18
+(33a) line 4	Sḵwx̱wu7mesh	rule	[e] elsewhere	page 18
+(33a) line 5	Sḵwx̱wu7mesh	rule	_______	page 18
+(33b) line 1	Sḵwx̱wu7mesh	rule	/u/ -----> [u] _______ CV́ (unstressed syllables)	page 18
+(33b) line 2	Sḵwx̱wu7mesh	rule	[o] elsewhere	page 18
+(33b) line 3	Sḵwx̱wu7mesh	rule	_______	page 18
+(33c) line 1	Sḵwx̱wu7mesh	rule	/a/ ------> [æ] ________lh	page 18
+(33c) line 2	Sḵwx̱wu7mesh	rule	[a] elsewhere	page 18
+(33c) line 3	Sḵwx̱wu7mesh	rule	________	page 18
+§3.2.1	Peter Jacobs	note	Note in particular that the high allophones for /i/ and /u/ only occur in unstressed syllables, and only some of the time. That is, unstressed syllables do not always have the high variants.	page 18
+§3.2.1	Peter Jacobs	note	Here are examples of these allophones:	page 18
+(34) line 1	Peter Jacobs	note	/i/	page 18, a heading in the example
+(34a) line 1	Peter Jacobs	note	[ɛ]	page 18, a heading in the example
+(34a) line 2	Sḵwx̱wu7mesh	transcription	tl’iḵ	page 18
+(34a) line 2	Sḵwx̱wu7mesh	phonetic	[ƛ’ɛ·q]	page 18
+(34a) line 2	Peter Jacobs	translation	‘to arrive here’	page 18
+(34a) line 3	Sḵwx̱wu7mesh	transcription	tiwa	page 18
+(34a) line 3	Sḵwx̱wu7mesh	phonetic	[tɛwa]	page 18
+(34a) line 3	Peter Jacobs	translation	‘this’	page 18
+(34a) line 4	Sḵwx̱wu7mesh	transcription	sil	page 18
+(34a) line 4	Sḵwx̱wu7mesh	phonetic	[sɛ·l]	page 18
+(34a) line 4	Peter Jacobs	translation	‘cloth’	page 18
+(34b) line 1	Peter Jacobs	note	[i]	page 18, a heading in the example
+(34b) line 2	Sḵwx̱wu7mesh	transcription	siyáy̓	page 18
+(34b) line 2	Sḵwx̱wu7mesh	phonetic	[siyáyʔ]	page 18
+(34b) line 2	Peter Jacobs	translation	‘friend’	page 18
+(34b) line 3	Sḵwx̱wu7mesh	transcription	tímin	page 19
+(34b) line 3	Sḵwx̱wu7mesh	phonetic	[té·min]	page 19
+(34b) line 3	Peter Jacobs	translation	‘muscle’	page 19
+(34c) line 1	Peter Jacobs	note	[e]	page 19, a heading in the example
+(34c) line 2	Sḵwx̱wu7mesh	transcription	síten	page 19
+(34c) line 2	Sḵwx̱wu7mesh	phonetic	[sé·tn̥]	page 19
+(34c) line 2	Peter Jacobs	translation	‘berry basket’	page 19
+(35) line 1	Peter Jacobs	note	/u/	page 19, a heading in the example
+(35a) line 1	Peter Jacobs	note	[u]	page 19, a heading in the example
+(35a) line 2	Sḵwx̱wu7mesh	transcription	shusháw̓	page 19
+(35a) line 2	Sḵwx̱wu7mesh	phonetic	[šušáwʔ]	page 19
+(35a) line 2	Peter Jacobs	translation	‘bones’	page 19
+(35b) line 1	Peter Jacobs	note	[o]	page 19, a heading in the example
+(35b) line 2	Sḵwx̱wu7mesh	transcription	múm̓ten	page 19
+(35b) line 2	Sḵwx̱wu7mesh	phonetic	[mómʔtən]	page 19
+(35b) line 2	Peter Jacobs	translation	‘grouse’	page 19
+(35b) line 3	Sḵwx̱wu7mesh	transcription	sút’un	page 19
+(35b) line 3	Sḵwx̱wu7mesh	phonetic	[só·t’on]	page 19
+(35b) line 3	Peter Jacobs	translation	‘to inhale’	page 19
+(36) line 1	Peter Jacobs	note	/a/	page 19, a heading in the example
+(36a) line 1	Peter Jacobs	note	[æ]	page 19, a heading in the example
+(36a) line 2	Sḵwx̱wu7mesh	transcription	míx̱alh	page 19
+(36a) line 2	Sḵwx̱wu7mesh	phonetic	[mɛ́·χæɬ]	page 19
+(36a) line 2	Peter Jacobs	translation	‘black bear’	page 19
+(36b) line 1	Peter Jacobs	note	[a]	page 19, a heading in the example
+(36b) line 2	Sḵwx̱wu7mesh	transcription	tá7a	page 19
+(36b) line 2	Sḵwx̱wu7mesh	phonetic	[táʔa]	page 19
+(36b) line 2	Peter Jacobs	translation	‘mom, granny’	page 19
+§3.2.2	Peter Jacobs	heading	3.2.2 Allophonic vowel harmony in CV- reduplication	page 19
+§3.2.2	Peter Jacobs	note	Kuipers (1967:26-27,§12) describes cases of what I here call allophonic vowel harmony. All of the cases involve CV- reduplication. Kuipers only provides one example, so I provide here two more. All of these examples involve the front vowel /i/ and its two allophones [e] and [ɛ].	page 19
+(37a) line 1	Sḵwx̱wu7mesh	transcription	tl’ítl’ix̱way	page 19
+(37a) line 1	Sḵwx̱wu7mesh	phonetic	[ƛ’ɛ́·ƛ’ɛχʷay]	page 19
+(37a) line 1	Sḵwx̱wu7mesh	phonetic	[ƛ’é·ƛ’eχʷɛy]	page 19
+(37b) line 1	Sḵwx̱wu7mesh	transcription	sí-siḵ	page 19
+(37b) line 1	Sḵwx̱wu7mesh	phonetic	[sé·sɛq]	page 19
+(37b) line 1	Sḵwx̱wu7mesh	phonetic	[sɛ́·sɛq]	page 19
+(37b) line 1	Sḵwx̱wu7mesh	phonetic	[sé·seq]	page 19
+(37c) line 1	Sḵwx̱wu7mesh	transcription	ts’í-ts’iḵ	page 19
+(37c) line 1	Sḵwx̱wu7mesh	transcription	[c’é·c’ɛq] [c’ɛ́·c’ɛq]	page 19
+(37c) line 1	Sḵwx̱wu7mesh	phonetic	[c’é·c’eq]	page 19
+§3.2.2	Peter Jacobs	note	In the first set of phonetic realization in (37b-c), the two vowels surface as expected given the above description in the previous section. The first vowel is realized by the mid-front allophone [e] and the second vowel, due to the immediately following uvular, is realized as the low front allophone [ɛ]. In the second set of phonetic realizations in (37a-c) the first vowel harmonizes to the second vowel’s allophonic realization as [ɛ], instead of its expected realization as [e]. In the third set of phonetic realizations in (37a-c), the second vowel harmonizes to the first vowel’s allophonic realization as [e], instead of its expected realization as [ɛ].	page 19
+§3.2.2	Peter Jacobs	note	Allophonic vowel harmony with these cases occurs in a CVCV environment similar to most of our cases of phonemic vowel harmony. Unlike most previous examples, though, vowel harmony appears to spread either rightward or leftward with no apparent preference.	page 20
+§3.2.3	Peter Jacobs	heading	3.2.3 Allophonic vowel harmony with nouns	page 20
+§3.2.3	Peter Jacobs	note	As with phonemic vowel harmony in the nominal domain, allophonic vowel harmonization does not appear to be active in the nominal domain. I have one possible case with the adverbial DP ti stsi7s	page 20
+§3.2.3	Peter Jacobs	note	‘today’ in which the noun’s vowel appears to be harmonizing with the vowel quality of the determiner. Both vowels are phonemically /i/. For some speakers, they can both be realized by the high front vowel [i]. This allophone is normally reserved for some unstressed environments, such as the determiner. The vowel of the head of the phrase, stsi7s, is expected to be realized as a stressed [é], since in Sḵwx̱wu7mesh every phrase has to have at least one vowel with stress, and this is normally the head noun in the DP.	page 20
+(38) line 1	Sḵwx̱wu7mesh	transcription	ti s-tsi7-s	page 20
+(38) line 1	Sḵwx̱wu7mesh	phonetic	[ti stséɁs] ~ [ti stsíɁs]	page 20
+(38) line 2	Sḵwx̱wu7mesh	gloss	DET NOM-exist-3POSS	page 20
+(38) line 3	Peter Jacobs	translation	‘today’	page 20
+§3.2.3	Peter Jacobs	note	As with phonemic vowel harmony, there is only one putative case of allophonic vowel harmony with nouns. I assume, therefore, that allophonic vowel harmony is not an active process with nouns. As far as syllabic environment, vowel harmony in (38) does not occur in a CVCV environment as with the majority of cases. It is similar, however, to some of the cases with the aspectual clitics.	page 20
+§3.3	Peter Jacobs	heading	3.3 Summary on vowel harmony	page 20
+§3.3	Peter Jacobs	note	In this section vowel harmony was examined, both as phonemic vowel harmony and allophonic vowel harmony. The following are summaries of the findings for phonemic vowel harmony and for allophonic vowel harmony.	page 20
+(39) line 1	Peter Jacobs	note	Domains for phonemic vowel harmony Example	page 20, a heading in the example
+(39a) line 1	Peter Jacobs	note	the Directive construction:	page 20
+(39a) line 1	Sḵwx̱wu7mesh	transcription	yúts’-u-n	page 20
+(39b) line 1	Peter Jacobs	note	the V Directive construction:	page 20
+(39b) line 1	Sḵwx̱wu7mesh	transcription	ch’áw-a-t	page 20
+(39c) line 1	Peter Jacobs	note	the -m intransitivizer:	page 20
+(39c) line 1	Sḵwx̱wu7mesh	transcription	xwít-i-m	page 20
+(39d) line 1	Peter Jacobs	note	diminutives:	page 21
+(39d) line 1	Sḵwx̱wu7mesh	transcription	lí7-litam	page 21
+(39e) line 1	Peter Jacobs	note	CV7 bare roots:	page 21
+(39e) line 1	Sḵwx̱wu7mesh	transcription	lhá7a	page 21
+(39f) line 1	Peter Jacobs	note	miscellaneous intransitives	page 21
+(39f) line 1	Sḵwx̱wu7mesh	transcription	tl’íyi7	page 21
+(39g) line 1	Peter Jacobs	note	aspectual clitics:	page 21
+(39g) line 1	Sḵwx̱wu7mesh	transcription	kwi s-i-s	page 21
+(39h) line 1	Peter Jacobs	note	one possible noun:	page 21
+(39h) line 1	Sḵwx̱wu7mesh	transcription	ḵwu7úp	page 21
+(40) line 1	Peter Jacobs	note	Domains for allophonic vowel harmony	page 21, a heading in the example
+(40a) line 1	Peter Jacobs	note	CV- reduplication	page 21
+(40a) line 1	Sḵwx̱wu7mesh	transcription	tl’ítl’iḵ	page 21
+(40b) line 1	Peter Jacobs	note	one possible DP	page 21
+(40b) line 1	Sḵwx̱wu7mesh	transcription	ti stsi7s	page 21
+(40b) line 2	Peter Jacobs	note	Dyck (2004) only examines vowel harmony for the DIR and for the VDIR	page 21
+(40b) line 3	Peter Jacobs	note	constructions. The data provided in this section demonstrates that vowel	page 21
+(40b) line 4	Peter Jacobs	note	harmony occurs in a wider range of constructions. In most cases vowel	page 21
+(40b) line 5	Peter Jacobs	note	harmony occurs in a CVCV environment. Only the diminutives, the one	page 21
+(40b) line 6	Peter Jacobs	note	possible noun ḵwu7úp and the CV- forms appear to optionally have	page 21
+(40b) line 7	Peter Jacobs	note	vowel harmony spreading leftward from the second vowel. The paucity	page 21
+(40b) line 8	Peter Jacobs	note	of examples in the nominal domain, except for the diminutives, seems to	page 21
+(40b) line 9	Peter Jacobs	note	indicate that vowel harmony is not an active process in this domain.	page 21
+§4	Peter Jacobs	heading	4 Schwa-/á/ alternations	page 21
+§4	Peter Jacobs	note	In this section I examine phonological processes in Sḵwx̱wu7mesh which involve schwa alternating with /a/. In many of these cases schwa is expected to surface but instead a stressed /á/ surfaces. We find this alternation with some CVC reduplicants, with the intransitivizer –m, with some transitive/intransitive pairs, and finally with subject clitics. I will examine each of these in turn.	page 21
+§4.1	Peter Jacobs	heading	4.1 Schwa-/á/ alternations with CVC- reduplication	page 21
+§4.1	Peter Jacobs	note	The first schwa-/á/ alternation I examine is that which occurs with some CVC- reduplicants. I first provide some examples which do not have this alternation. In the examples in (41), the root has a full vowel, but the CVC reduplicant has an unstressed schwa. In the examples in (42), the root has a schwa, and the reduplicant again has an unstressed schwa.	page 21
+(41) line 1	Peter Jacobs	note	Full vowel roots	page 22, the example's heading
+(41) line 2	Peter Jacobs	note	Non-reduplicated Reduplicated	page 22, the column heads
+(41a) left line 1	Sḵwx̱wu7mesh	transcription	kw’ách-n-exw	page 22, the non-reduplicated column
+(41a) left line 2	Sḵwx̱wu7mesh	gloss	see-DIR-3OBJ	page 22, the non-reduplicated column
+(41a) left line 3	Peter Jacobs	translation	‘to see (something)’	page 22, the non-reduplicated column
+(41a) right line 1	Sḵwx̱wu7mesh	transcription	kw’ech-kw’ách-n-exw	page 22, the reduplicated column
+(41a) right line 2	Sḵwx̱wu7mesh	gloss	RED-see-DIR-3OBJ	page 22, the reduplicated column
+(41a) right line 3	Peter Jacobs	translation	‘to see (a group)’	page 22, the reduplicated column
+(41b) left line 1	Sḵwx̱wu7mesh	transcription	xwít-i-m	page 22, the non-reduplicated column
+(41b) left line 2	Sḵwx̱wu7mesh	gloss	jump-V-INTR	page 22, the non-reduplicated column
+(41b) left line 3	Peter Jacobs	translation	‘to jump’	page 22, the non-reduplicated column
+(41b) right line 1	Sḵwx̱wu7mesh	transcription	xwet-xwít-i-m	page 22, the reduplicated column
+(41b) right line 2	Sḵwx̱wu7mesh	gloss	RED-jump-V-INTR	page 22, the reduplicated column
+(41b) right line 3	Peter Jacobs	translation	‘to be skipping’	page 22, the reduplicated column
+(41c) left line 1	Sḵwx̱wu7mesh	transcription	ts’úp’-n-ew̓as-n	page 22, the non-reduplicated column
+(41c) left line 2	Sḵwx̱wu7mesh	gloss	connect-DIR-LCRECIP-DIR	page 22, the non-reduplicated column
+(41c) left line 3	Peter Jacobs	translation	‘to connect (sticks) together’	page 22, the non-reduplicated column
+(41c) right line 1	Sḵwx̱wu7mesh	transcription	ts’ep’-ts’úp’-n-ew̓as-n	page 22, the reduplicated column
+(41c) right line 2	Sḵwx̱wu7mesh	gloss	RED-connect-DIR-LCRECIP-DIR	page 22, the reduplicated column
+(41c) right line 3	Peter Jacobs	translation	‘to connect (sticks) end-to-end	page 22, the reduplicated column
+(42) line 1	Peter Jacobs	note	Schwa based roots	page 22, the example's heading
+(42) line 2	Peter Jacobs	note	Non-reduplicated Reduplicated	page 22, the column heads
+(42a) left line 1	Sḵwx̱wu7mesh	transcription	éx̱wu7n	page 22, the non-reduplicated column
+(42a) left line 2	Sḵwx̱wu7mesh	gloss	cough	page 22, the non-reduplicated column
+(42a) left line 3	Peter Jacobs	translation	‘to cough’	page 22, the non-reduplicated column
+(42a) right line 1	Sḵwx̱wu7mesh	transcription	7ex̱w-7éx̱wu7n	page 22, the reduplicated column
+(42a) right line 2	Sḵwx̱wu7mesh	gloss	RED-cough	page 22, the reduplicated column
+(42a) right line 3	Peter Jacobs	translation	‘to cough all the time’	page 22, the reduplicated column
+(42b) left line 1	Sḵwx̱wu7mesh	transcription	kwélash-t	page 22, the non-reduplicated column
+(42b) left line 2	Sḵwx̱wu7mesh	gloss	shoot-TR	page 22, the non-reduplicated column
+(42b) left line 3	Peter Jacobs	translation	‘to shoot (something)’	page 22, the non-reduplicated column
+(42b) right line 1	Sḵwx̱wu7mesh	transcription	kwel-kwélash-t	page 22, the reduplicated column
+(42b) right line 2	Sḵwx̱wu7mesh	gloss	RED-shoot-TR	page 22, the reduplicated column
+(42b) right line 3	Peter Jacobs	translation	‘to shoot (something) continuously’	page 22, the reduplicated column
+(42c) left line 1	Sḵwx̱wu7mesh	transcription	x̱ewtl’-á-n	page 22, the non-reduplicated column
+(42c) left line 2	Sḵwx̱wu7mesh	gloss	break-V-DIR	page 22, the non-reduplicated column
+(42c) left line 3	Peter Jacobs	translation	‘to break (something)’	page 22, the non-reduplicated column
+(42c) right line 1	Sḵwx̱wu7mesh	transcription	x̱ew-x̱ewtl’-á-n	page 22, the reduplicated column
+(42c) right line 2	Sḵwx̱wu7mesh	gloss	RED-break-V-DIR	page 22, the reduplicated column
+(42c) right line 3	Peter Jacobs	translation	‘to break (a pile of things)	page 22, the reduplicated column
+(42d) left line 1	Sḵwx̱wu7mesh	transcription	x̱éch-n-exw	page 22, the non-reduplicated column
+(42d) left line 2	Sḵwx̱wu7mesh	gloss	remember-DIR-3OBJ	page 22, the non-reduplicated column
+(42d) left line 3	Peter Jacobs	translation	‘to think of (something)’	page 22, the non-reduplicated column
+(42d) right line 1	Sḵwx̱wu7mesh	transcription	x̱éch-x̱ech-s	page 22, the reduplicated column
+(42d) right line 2	Sḵwx̱wu7mesh	gloss	RED-remember-CAUS	page 22, the reduplicated column
+(42d) right line 3	Peter Jacobs	translation	‘to remember (something)’	page 22, the reduplicated column
+§4.1	Peter Jacobs	note	In all the examples so far, the reduplicant surfaces with a schwa for its vowel, regardless of the vowel of the base. This schwa, except for (42d), is unstressed.	page 22
+§4.1	Peter Jacobs	note	Now compare the above examples in (41) and (42) to the following examples, in (43) and (44), where the reduplicant has, given our pattern above, an unexpected stressed /á/. The reduplicated element is in bold. Stress is written as it was indicated either in Kuipers (1967, 1969) or as I found it written in the unpublished collections at the Squamish Nation. They represent all the known tokens of this subtype of reduplication.	page 22
+(43) line 1	Peter Jacobs	note	Schwa based roots	page 23, the example's heading
+(43) line 2	Peter Jacobs	note	Non-reduplicated Reduplicated	page 23, the column heads
+(43a) left line 1	Sḵwx̱wu7mesh	transcription	sheych’-á-n-t-sut	page 23, the non-reduplicated column
+(43a) left line 2	Sḵwx̱wu7mesh	gloss	around-V-DIR-TR-CREFL	page 23, the non-reduplicated column
+(43a) left line 3	Peter Jacobs	translation	‘to turn oneself around’	page 23, the non-reduplicated column
+(43a) right line 1	Sḵwx̱wu7mesh	transcription	sháy̓-sheych’-á-n-t-sut	page 23, the reduplicated column
+(43a) right line 2	Sḵwx̱wu7mesh	gloss	Red-around-V-DIR-TR-CREFL	page 23, the reduplicated column
+(43a) right line 3	Peter Jacobs	translation	‘to be spinning around’	page 23, the reduplicated column
+(43b) left line 1	Sḵwx̱wu7mesh	transcription	nexw-yelx̱-áy̓	page 23, the non-reduplicated column
+(43b) left line 2	Sḵwx̱wu7mesh	gloss	LOC-search-place	page 23, the non-reduplicated column
+(43b) left line 3	Peter Jacobs	translation	‘to look around searching’	page 23, the non-reduplicated column
+(43b) right line 1	Sḵwx̱wu7mesh	transcription	nexw-yál̓-yelx̱-áy’	page 23, the reduplicated column
+(43b) right line 2	Sḵwx̱wu7mesh	gloss	LOC-RED-search-place	page 23, the reduplicated column
+(43b) right line 3	Peter Jacobs	translation	‘to look around searching’	page 23, the reduplicated column
+(43c) left line 1	Sḵwx̱wu7mesh	transcription	welḵw’áls	page 23, the non-reduplicated column
+(43c) left line 2	Sḵwx̱wu7mesh	gloss	sk	page 23, the non-reduplicated column
+(43c) left line 3	Peter Jacobs	translation	‘to ask’	page 23, the non-reduplicated column
+(43c) right line 1	Sḵwx̱wu7mesh	transcription	wál̓-welḵw’áls	page 23, the reduplicated column
+(43c) right line 2	Sḵwx̱wu7mesh	gloss	RED-ask	page 23, the reduplicated column
+(43c) right line 3	Peter Jacobs	translation	‘to ask around’	page 23, the reduplicated column
+(43d) left line 1	Sḵwx̱wu7mesh	transcription	lepx̱w-á-n-t-sut	page 23, the non-reduplicated column
+(43d) left line 2	Sḵwx̱wu7mesh	gloss	noise-V-DIR-TR-CREFL	page 23, the non-reduplicated column
+(43d) left line 3	Peter Jacobs	translation	‘to make noise’	page 23, the non-reduplicated column
+(43d) right line 1	Sḵwx̱wu7mesh	transcription	láp-lepx̱w-á-n-t-sut	page 23, the reduplicated column
+(43d) right line 2	Sḵwx̱wu7mesh	gloss	RED-noise-V-DIR-TR-CREFL	page 23, the reduplicated column
+(43d) right line 3	Peter Jacobs	translation	‘a group is making noise’	page 23, the reduplicated column
+(43e) left line 1	Sḵwx̱wu7mesh	transcription	tsexw-s	page 23, the non-reduplicated column
+(43e) left line 2	Sḵwx̱wu7mesh	gloss	get hit-CAUS	page 23, the non-reduplicated column
+(43e) left line 3	Peter Jacobs	translation	‘to throw (something)’	page 23, the non-reduplicated column
+(43e) right line 1	Sḵwx̱wu7mesh	transcription	tsáxw-tsexw-s-t-énam̓ut	page 23, the reduplicated column
+(43e) right line 2	Sḵwx̱wu7mesh	gloss	RED-get.hit-CAUS-TR-CAUS.REFL	page 23, the reduplicated column
+(43e) right line 3	Peter Jacobs	translation	‘to throw oneself around (i.e. tossing and turning while sleeping)’	page 23, the reduplicated column
+(43f) left line 1	Sḵwx̱wu7mesh	transcription	?lheḵ’el9	page 23, the non-reduplicated column
+footnote 9	Peter Jacobs	note	The root appears to be lheḵ’el the l-form of the verb lhḵ’i7-s or lhḵ’ey -s ’to know’. The suffix –əlmən/–əlmən is the desiderative in other Coast Salish languages (cf. Stuttles 2004:261-2,§11.2.1 and Gerdts 1991 for Downriver and Island Halkomelem, respectively).	page 23, footnote 9
+(43f) right line 1	Sḵwx̱wu7mesh	transcription	lháḵ’-lheḵ’elél̓men	page 23, the reduplicated column
+(43f) right line 2	Peter Jacobs	translation	‘to make inquiries’	page 23, the reduplicated column
+(43g) left line 1	Sḵwx̱wu7mesh	transcription	tskw’-á-t-sut	page 23, the non-reduplicated column
+(43g) left line 2	Sḵwx̱wu7mesh	gloss	stretch?-VDIR-TR-CREFL	page 23, the non-reduplicated column
+(43g) left line 3	Peter Jacobs	translation	‘to run’	page 23, the non-reduplicated column
+(43g) right line 1	Sḵwx̱wu7mesh	transcription	tsákw’-tskw’-á-t-sut	page 23, the reduplicated column
+(43g) right line 2	Sḵwx̱wu7mesh	gloss	RED- stretch?-VDIR-TR-CREFL	page 23, the reduplicated column
+(43g) right line 3	Peter Jacobs	translation	‘to run around’	page 23, the reduplicated column
+(43h) left line 1	Sḵwx̱wu7mesh	transcription	tx̱w-áyaní7-m	page 23, the non-reduplicated column
+(43h) left line 2	Sḵwx̱wu7mesh	gloss	correct-ear-INTR	page 23, the non-reduplicated column
+(43h) left line 3	Peter Jacobs	translation	‘to make sure’	page 23, the non-reduplicated column
+(43h) right line 1	Sḵwx̱wu7mesh	transcription	táx̱w-tx̱w-aya7ni7-m	page 23, the reduplicated column
+(43h) right line 2	Sḵwx̱wu7mesh	gloss	RED-correct-ear-INTR	page 23, the reduplicated column
+(43h) right line 3	Peter Jacobs	translation	‘to make sure of the news’	page 23, the reduplicated column
+(43i) left line 1	Sḵwx̱wu7mesh	transcription	ḵexw	page 24, the non-reduplicated column
+(43i) left line 2	Sḵwx̱wu7mesh	gloss	gathered	page 24, the non-reduplicated column
+(43i) left line 3	Peter Jacobs	translation	‘to be gathered together‘	page 24, the non-reduplicated column
+(43i) right line 1	Sḵwx̱wu7mesh	transcription	es-ḵáxw-ḵexw	page 24, the reduplicated column
+(43i) right line 2	Sḵwx̱wu7mesh	gloss	STAT-RED-gathered	page 24, the reduplicated column
+(43i) right line 3	Peter Jacobs	translation	‘to be in groups (e.g. people in the longhouse)’	page 24, the reduplicated column
+(44) line 1	Peter Jacobs	note	Full vowel + glide root	page 24, the example's heading
+(44) line 2	Peter Jacobs	note	Non-reduplicated Reduplicated	page 24, the column heads
+(44a) left line 1	Sḵwx̱wu7mesh	transcription	múy-u-n	page 24, the non-reduplicated column
+(44a) left line 2	Sḵwx̱wu7mesh	gloss	submerge-V-DIR	page 24, the non-reduplicated column
+(44a) left line 3	Peter Jacobs	translation	‘to submerge (something)’	page 24, the non-reduplicated column
+(44a) right line 1	Sḵwx̱wu7mesh	transcription	máy̓-múy-u-n	page 24, the reduplicated column
+(44a) right line 2	Sḵwx̱wu7mesh	gloss	RED-submerge-V-DIR	page 24, the reduplicated column
+(44a) right line 3	Peter Jacobs	translation	‘to submerge (something) repeatedly’	page 24, the reduplicated column
+(44b) left line 1	Sḵwx̱wu7mesh	transcription	múy-u-n-t-sut	page 24, the non-reduplicated column
+(44b) left line 2	Sḵwx̱wu7mesh	gloss	submerge-V-DIR-TR-CREFL	page 24, the non-reduplicated column
+(44b) left line 3	Peter Jacobs	translation	‘to submerge onself’	page 24, the non-reduplicated column
+(44b) right line 1	Sḵwx̱wu7mesh	transcription	máy̓-múy-u-n-t-sut	page 24, the reduplicated column
+(44b) right line 2	Sḵwx̱wu7mesh	gloss	RED-submerge-V-DIR-TR-CREFL	page 24, the reduplicated column
+(44b) right line 3	Peter Jacobs	translation	‘to submerge (something) repeatedly’	page 24, the reduplicated column
+§4.1	Peter Jacobs	note	The initial vowels of the base form (in bold) are schwa in all the examples in (43). In examples (43g,h), the schwa is elided. In the examples in (44), the root does not have schwa, but instead has /u/. Furthermore, it has a glide [j] for its coda.	page 24
+§4.1	Peter Jacobs	note	In all these examples there are two stresses per word. One stress falls on the reduplicant and another, second stress falls closer to the end of the word. A note is in order about secondary stress. Kuipers (1967:23,§2) states that words may have two stresses. Of the two stresses, the right stress is the more prominent one, or in his terms the “stress closest to the end of the word is ... facultative”. None of the words in (43) and (44) have been checked for secondary stress and, in fact, no studies have been done on Sḵwx̱wu7mesh stress to determine what the correlates of secondary stress are compared to primary stress. Following Kuipers (1967:23,§2), I will assume that the rightmost stress has primary stress. Note that with this analysis, the reduplicant carries secondary stress and primary stress falls towards the end of the word, except for (45i), which carries the primary and only stress.	page 24
+(45a) line 1	Sḵwx̱wu7mesh	transcription	shày̓sheych’ántsut	page 24
+(45b) line 1	Sḵwx̱wu7mesh	transcription	nexwyàl̓yelx̱áy̓	page 24
+(45c) line 1	Sḵwx̱wu7mesh	transcription	wàl̓welḵw’áls	page 24
+(45d) line 1	Sḵwx̱wu7mesh	transcription	làplepx̱wántsut	page 25
+(45e) line 1	Sḵwx̱wu7mesh	transcription	tsàxwtsexwsténam’ut	page 25
+(45f) line 1	Sḵwx̱wu7mesh	transcription	lhàḵ’lheḵ’elél̓men	page 25
+(45g) line 1	Sḵwx̱wu7mesh	transcription	tsàkw’tskw’átsut	page 25
+(45h) line 1	Sḵwx̱wu7mesh	transcription	tàx̱wtx̱waya7ní7m	page 25
+(45i) line 1	Sḵwx̱wu7mesh	transcription	esḵáxwḵexw	page 25
+(46a) line 1	Sḵwx̱wu7mesh	transcription	mày̓múyun	page 25
+(46b) line 1	Sḵwx̱wu7mesh	transcription	mày̓múyuntsut	page 25
+§4.1	Peter Jacobs	note	I have also recorded example (45a) with an unstressed schwa glide combination which gets vocalized:	page 25
+(47) line 1	Sḵwx̱wu7mesh	rule	shey-sheych’ántsut ----> shi-shich’ántsut	page 25
+§4.1	Peter Jacobs	note	To summarize the findings from these data on CVC- reduplicants:	page 25
+§4.1	Peter Jacobs	note	i. the vowel of the reduplicant is normally an unstressed schwa, regardless of whether the base has a full vowel or schwa, as in (41)0 and (42).	page 25
+§4.1	Peter Jacobs	note	ii. in some forms, though, the vowel of the reduplicant is realized as the low vowel /a/ instead of the expected /e/, as in (43) and (44).	page 25
+§4.1	Peter Jacobs	note	iii. furthermore, this low vowel seems to correlate with secondary stress /à/, as in (45) and (46)	page 25
+§4.1	Peter Jacobs	note	iv. for most of these forms, the root that the reduplicated forms is derived from is schwa-based (43), except for the two examples in (44).	page 25
+§4.1	Peter Jacobs	note	v. at least for one form, it appears that the these /á/ forms can alternatively surface with an unstressed schwa (47)0.	page 25
+§4.2	Peter Jacobs	heading	4.2 Schwa-/á/ alternations with –m	page 26
+§4.2	Peter Jacobs	note	The vowel before the intransitivizer –m also surfaces with a stressed /á/ before it in some cases and a schwa in other cases. This pattern is reminiscent of the pattern of stressed /á/ before the DIR –n. I will, therefore, call this vowel V. In all the following examples, stress has shifted because of the subject clitic following the verb.	page 26
+(48a) line 1	Sḵwx̱wu7mesh	transcription	chay-aḵ-á-m chexw	page 26
+(48a) line 2	Sḵwx̱wu7mesh	gloss	follow-?-V-INTR 2.SUB	page 26
+(48a) line 3	Peter Jacobs	translation	‘Follow (me)!’	page 26
+(48b) line 1	Sḵwx̱wu7mesh	transcription	mikw’-shn-á-m̓ chen	page 26
+(48b) line 2	Sḵwx̱wu7mesh	gloss	wash-foot-V-INTR 1S.SUB	page 26
+(48b) line 3	Peter Jacobs	translation	‘I’m going to wash my feet.	page 26
+§4.2	Peter Jacobs	note	However, when the vowel before the –m is not stressed it is realized as a schwa. Compare the following examples in (49) to the ones in (48). The main difference is the placement of the subject clitic resulting in a change in primary stress.	page 26
+(49a) line 1	Sḵwx̱wu7mesh	transcription	chen cháy-aḵ-e-m	page 26
+(49a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB follow-?-V-INTR	page 26
+(49a) line 3	Peter Jacobs	translation	‘I followed.’	page 26
+(49b) line 1	Sḵwx̱wu7mesh	transcription	chen míkw’-shn-e-m	page 26
+(49b) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB wash-foot-V-INTR	page 26
+(49b) line 3	Peter Jacobs	translation	‘I washed my feet.	page 26
+§4.2	Peter Jacobs	note	Compare the above examples in (48) and (49), with the lexical suffix present, to the following examples in (50a-b). Recall that V with the DIR also surfaced either as a stressed /á/ or as an unstressed schwa (§2.3), depending on where stress falls (examples (6a-b) repeated here as (50a-b)). If stress falls on the root, then V is realized as schwa (50a). If stress falls on the syllable with the Directive, then V is realized as /á/ (50b).	page 26
+(50a) line 1	Sḵwx̱wu7mesh	transcription	chen x̱íts-ḵ-e-n-(t)-Ø ta stseḵ	page 26
+(50a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB lay-bottom-V- DIR-TR-3OBJ DET tree	page 26
+(50a) line 3	Peter Jacobs	translation	‘I fell a tree.’	page 26
+(50a) line 4	Peter Jacobs	citation	(Kuipers 1967:369)	page 26, the tag or source at the right of the translation
+(50b) line 1	Sḵwx̱wu7mesh	transcription	x̱its-ḵ-á-n̓-(t)-Ø chen kwetsi stseḵ	page 27
+(50b) line 2	Sḵwx̱wu7mesh	gloss	lay-bottom-V-DIR-TR-3OBJ 1S.SUB DEM tree	page 27
+(50b) line 3	Peter Jacobs	translation	‘I’m going to fell a tree.’	page 27
+(50b) line 4	Peter Jacobs	citation	(Kuipers 1967:369)	page 27, the tag or source at the right of the translation
+§4.2	Peter Jacobs	note	In summary, the V before the intransitivizer -m, like V before the DIR, can surface as either /á/ or schwa. This distribution is determined by factors of stress in the sentence for the intransitivizer –m, just as it is for the Directive -n. If we include the roots from §3.1.2.1, where the vowel before the intransitivizer -m harmonizes with the root’s vowel, then we have the exact same distribution for V with the intransitivizer -m as we do for V before the Directive transitivizer -n.	page 27
+§4.2	Peter Jacobs	note	In summary, the vowel V before –m:	page 27
+§4.2	Peter Jacobs	note	i. surfaces as /á/ when it is stressed	page 27
+§4.2	Peter Jacobs	note	ii. harmonizes with the vowel of a CVC root when the	page 27
+§4.2	Peter Jacobs	note	(in)transitivizer is immediately following.	page 27
+§4.2	Peter Jacobs	note	iii. surfaces as an unstressed schwa elsewhere. This distribution is the exact same distribution for V before the DIR.	page 27
+§4.2	Peter Jacobs	note	As with the CVC reduplicant, the realization of V as a stressed /á/ is determined by stress patterns. When stress is required on V, then it is realized as /á/, otherwise it surfaces as schwa, except when it is contiguous to a CVC root, then it harmonizes with the root vowel.	page 27
+§4.3	Peter Jacobs	heading	4.3 Schwa-/a/ alternations with person clitics	page 27
+§4.3	Peter Jacobs	note	Sḵwx̱wu7mesh has schwa-/á/ alternations with subject clitics and in one case with one possessive suffix.	page 27
+§4.3	Peter Jacobs	note	In matrix clauses, Sḵwx̱wu7mesh has subject clitics for first and second person, both singular and plural. Except for second person plural, these clitics have both a schwa form and a form with /á/. The /á/ form surfaces with a sentence level stress while the schwa forms do not.10 The second person plural forms, however, can surface with sentence level stress or not. Singular Plural 1st chen chet chán chát 2nd chexw cháxw cháp, cháyap Table 2: Subject clitics in Sḵwx̱wu7mesh Kuipers (1967:86,§125) analyzes these subject clitics as consisting of a clitic ch- ‘to do’ followed by the subject suffix.11 For Kuipers, the subject suffix underlyingly has the full vowel /a/ but this vowel is reduced when it is unstressed. One reason to consider that the difference between the two types of subject clitics is not just stress-related is their different distributions. The two types of clitics are not freely interchangeable in most environments.	page 27
+footnote 10	Peter Jacobs	note	Sentence level stress is not normally indicated in Sḵwx̱wu7mesh orthography, but I indicate it here for sake of the discussion in this section.	page 27, footnote 10
+footnote 11	Peter Jacobs	note	Other forms with this root include:	page 28, footnote 11
+footnote 11 (i) line 1	Sḵwx̱wu7mesh	transcription	chá-nem	page 28
+footnote 11 (i) line 2	Peter Jacobs	translation	‘do what?’	page 28
+footnote 11 (i) line 3	Peter Jacobs	translation	‘go where?’	page 28
+footnote 11 (i) line 4	Sḵwx̱wu7mesh	gloss	(do-?)	page 28
+footnote 11 (ii) line 1	Sḵwx̱wu7mesh	transcription	chá-s	page 28
+footnote 11 (ii) line 2	Peter Jacobs	translation	‘do what with (it)?’	page 28
+footnote 11 (ii) line 3	Sḵwx̱wu7mesh	gloss	(do-CAUS)	page 28
+footnote 11 (iii) line 1	Sḵwx̱wu7mesh	transcription	chá7-t	page 28
+footnote 11 (iii) line 2	Peter Jacobs	translation	’to make (it)’	page 28
+footnote 11 (iii) line 3	Sḵwx̱wu7mesh	gloss	(do-TR)	page 28
+footnote 11 (iv) line 1	Sḵwx̱wu7mesh	transcription	chá-shi-t	page 28
+footnote 11 (iv) line 2	Peter Jacobs	translation	‘to do what with for (someone)?’	page 28
+footnote 11 (iv) line 3	Sḵwx̱wu7mesh	gloss	(do-REDIR-TR)	page 28
+footnote 11 (v) line 1	Sḵwx̱wu7mesh	transcription	chá7-t-wilh	page 28
+footnote 11 (v) line 2	Peter Jacobs	translation	‘to build a canoe’	page 28
+footnote 11 (v) line 3	Sḵwx̱wu7mesh	gloss	(do-TR)	page 28
+§4.3	Sḵwx̱wu7mesh	cited form	ch-	page 28, in italics, ‘to do’
+§4.3	Peter Jacobs	note	A very common way for the stressed subject clitics to surface is in affirmative answers to yes/no questions, such as:	page 28
+(51a) line 1	Sḵwx̱wu7mesh	transcription	n-u chexw ílhen.	page 28
+(51a) line 2	Sḵwx̱wu7mesh	gloss	RL-Y/N 2S.SUB eat	page 28
+(51a) line 3	Peter Jacobs	translation	‘Did you eat?’	page 28
+(51b) line 1	Sḵwx̱wu7mesh	transcription	na chán.	page 28
+(51b) line 2	Sḵwx̱wu7mesh	gloss	RL 1S.SUB	page 28
+(51b) line 3	Peter Jacobs	translation	‘I did.’	page 28
+(51c) line 1	Sḵwx̱wu7mesh	transcription	chan.	page 28
+(51c) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB	page 28
+(51c) line 3	Peter Jacobs	translation	‘I did.’	page 28
+§4.3	Peter Jacobs	note	A yes/no question can also be answered affirmatively with the unstressed subject clitic, but normally only if the realis clitic na is also present (52a), not if na is absent (52b).12	page 29
+footnote 12	Peter Jacobs	note	This is true for most speakers. I recently found a recording of one speaker who appears to allow chen by itself in answer to a yes/no question.	page 29, footnote 12
+(52a) line 1	Sḵwx̱wu7mesh	transcription	na chen	page 29
+(52a) line 2	Sḵwx̱wu7mesh	gloss	RL 1S.SUB	page 29
+(52a) line 3	Peter Jacobs	translation	‘I did.’	page 29
+(52b) line 1	Sḵwx̱wu7mesh	transcription	*chen	page 29
+(52b) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB	page 29
+(52b) line 3	Peter Jacobs	translation	‘I did.’	page 29
+§4.3	Peter Jacobs	note	Another distributional difference is that stressed subject clitics are strongly dispreferred when a full VP is present. When a sentence with the stressed subject clitic is offered in elicitation, such as (53a), a sentence with an unstressed subject clitic is offered instead, such as (53b). In out of the blue context, though, a sentence without the realis clitic is typically offered like in (53c).	page 29
+(53a) line 1	Sḵwx̱wu7mesh	transcription	#na chán wa ts’its’áp’	page 29
+(53a) line 2	Sḵwx̱wu7mesh	gloss	RL 1S.SUB IMPF work	page 29
+(53b) line 1	Sḵwx̱wu7mesh	transcription	na chen wa ts’its’áp’	page 29
+(53b) line 2	Sḵwx̱wu7mesh	gloss	RL 1S.SUB IMPF work	page 29
+(53b) line 3	Peter Jacobs	translation	‘I was working.’	page 29
+(53c) line 1	Sḵwx̱wu7mesh	transcription	chen wa ts’its’áp’	page 29
+(53c) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB IMPF work	page 29
+(53c) line 3	Peter Jacobs	translation	‘I was working.’	page 29
+§4.3	Peter Jacobs	note	Another feature of the subject clitics is that, unlike pronouns in English, they cannot be used to create contrastive focus with the person of the subject. This is true even if the subject clitic is stressed. As in Salish in general, such contrastive focus is encoded with the independent pronouns.	page 29
+§4.3	Peter Jacobs	language	English	the language of the translations
+(54a) line 1	Sḵwx̱wu7mesh	transcription	*chán wa lúlum.	page 29
+(54a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB IMPF sing	page 29
+(54a) line 3	Peter Jacobs	translation	‘I am the one singing.’	page 29
+(54b) line 1	Sḵwx̱wu7mesh	transcription	énts na wa lúlum.	page 30
+(54b) line 2	Sḵwx̱wu7mesh	gloss	1S.INDP RL IMPF sing	page 30
+(54b) line 3	Peter Jacobs	translation	‘I am the one singing (not him),’	page 30
+(54b) line 4	Peter Jacobs	translation	‘I am singing (not him).’	page 30
+§4.3	Peter Jacobs	note	The independent pronoun in (54b) carries sentence level stress (which is not normally written in the practical orthography). It is also in a focus position at the front of the sentence with a following relative clause. Contrastive focus can only be expressed with the independent pronoun in Sḵwx̱wu7mesh.	page 30
+§4.3	Peter Jacobs	note	These distributional differences provide strong evidence that the distribution of subject clitics is not only determined by stress as Kuipers (1969) suggests; rather, the choice of a stressed subject clitic over an unstressed one must be influenced by other grammatical factors, i.e. from semantics, syntax or discourse/pragmatics. A fuller understanding of the role of stress in Sḵwx̱wu7mesh is required to better understand what these factors are. I offer one observation here. Whatever the grammatical motivation for stressing subject clitics is, the phonological strategy for expressing this stress also includes changing the vowel from schwa to a stressed /á/.	page 30
+§4.3	Peter Jacobs	note	Kuipers (1967:87) also provides one other example of a person clitic being realized with a stressed /á/ when normally it would be realized with a schwa: the first person plural possessive clitic in a nominalized clause. This is in the nominalized clause as also noted by Dyck (2004:324). Note the first person plural possessive affix which marks the subject of the nominalized clause is realized by schwa in (55a), but by stressed /á/ in (55b). This is the only environment where the vowel of this clitic is ever realized by a stressed /á/.	page 30
+(55a) line 1	Sḵwx̱wu7mesh	transcription	..... kwi-s ch’áw-a-t-umi-chet	page 30
+(55a) line 2	Sḵwx̱wu7mesh	gloss	DET-NOM help-VDIR-TR-2S.OBJ-1PL.POSS	page 30
+(55a) line 3	Peter Jacobs	translation	‘our helping you (sg)’ = that we help you (sg)	page 30
+(55b) line 1	Sḵwx̱wu7mesh	transcription	..... kwi-s ch’áw-a-t-umi-chát-wit	page 30
+(55b) line 2	Sḵwx̱wu7mesh	gloss	DET-NOM help-VDIR-TR-2S.OBJ-1PL.POSS-PL	page 30
+(55b) line 3	Peter Jacobs	translation	‘our helping you (pl)’ = that we help you (pl)	page 30
+§4.3	Peter Jacobs	note	Dyck (2004) notes that the stress pattern in (55b) falls out straightforwardly for stress in Sḵwx̱wu7mesh. Every second vowel after the stressed vowel in the root receives stress, unless that vowel is in the final syllable, although her analysis does not explain the lack of stress on the third syllable tum (56a-b). Thus we obtain the following stress patterns according to her analysis (nb. foot internal resonants are ambisyllabic; feet are trochaic). Assuming that the rightmost stress is the primary stress, we obtain the following parsing:	page 30
+(56a) line 1	Sḵwx̱wu7mesh	parse	(ch’áw.wa)(tum.mi)chet	page 31
+(56b) line 1	Sḵwx̱wu7mesh	parse	(ch’áw.wa)(tum.mi)(chát)(wit)	page 31
+§4.3	Peter Jacobs	note	In (56a), the possessive clitic cannot receive stress (primary or secondary) because it is word final. The same possessive in (56b), though, can and does receive stress. Its syllable heads the foot and is therefore eligible for stress. Important to our discussion in this section, then, is that when an element which is normally realized by schwa surfaces with stress, then it can instead be realized by a stressed /á/ instead of its normal schwa. In this case, differently than with the subject clitics, this change in vowel quality appears to be only conditioned by factors relating to stress. Furthermore, the underlying vowel of the possessive is clearly a schwa.	page 31
+§4.3	Peter Jacobs	note	In summary, for Sḵwx̱wu7mesh person markers:	page 31
+§4.3	Peter Jacobs	note	i. the subject clitics can surface with either schwa or a stressed /á/ (Table 2),	page 31
+§4.3	Peter Jacobs	note	ii. one of the possessives, which normally surfaces with schwa, can surface with á/ (in a nominalized clause) (55),	page 31
+§4.3	Peter Jacobs	note	iii. for the subject clitics, this alternation appears to be conditioned by factors other than just phonological stress (i.e. semantics, syntax, discourse/pragmatics) as shown in (51) to (54),	page 31
+§4.3	Peter Jacobs	note	iv. for the one possessive clitic, this alternation appears to be conditioned solely by factors relating to stress. Its underlying vowel is schwa and it changes to stressed /á/ only when under stress (55).	page 31
+§4.4	Peter Jacobs	heading	4.4 Summary of schwa-/á/ alternations	page 31
+§4.4	Peter Jacobs	note	In this section four different types of schwa-/á/ alternations were examined. The following table provides a summary of the findings. Alternation Example Conditioning Factor for /á/ a. some CVC- shay̓- Stress (secondary) Reduplicants sheych’ántsut b. V before -m mikw’-shn-á-m̓ Stress (primary) míkw’-shn-e-m c. subject clitics chen chán Semantics, syntax, discourse-pragmatics d. possessive suffix -chet -chát Stress (primary) Table 3: Schwa-/á/ alternations Of the four instances of schwa-/á/ alternations, three of them (CVC- reduplicants, V before -m, first person plural possessive) appear to be solely conditioned by phonological factors relating to stress. The distribution of the subject clitics, however, appears to be determined by semantic, syntactic or discourse/pragmatic factors. That is, stress and vowel quality for the subject clitics appear to be controlled by these other factors.	page 31
+§5	Peter Jacobs	heading	5 Analysis	page 32
+§5	Peter Jacobs	note	In this section I present a brief analysis of the vowel harmony cases that we have seen in Sḵwx̱wu7mesh and some preliminary observations about schwa strengthening. In short, I propose that vowel harmony, for the majority of cases in Sḵwx̱wu7mesh, occurs between two vowels in the same foot. This account is an extension of Dyck’s (2004) account for V as a copy vowel (2004). I, then, make the observation that schwa strengthening correlates with stress.	page 32
+§5.1	Peter Jacobs	heading	5.1 Vowel harmony	page 32
+§5.1	Peter Jacobs	note	In this section I argue from the data in §3 that vowel harmony is an active process in Squamish, wider than just for the transitivizers. I further argue that since it is a general process in the language, that an account confining it to just the transitivizers is too restrictive, contra Dyck (2004). I begin by examining Dyck’s (2004) OT account for the DIR and VDIR transitive construction. She proposes a vowel harmony account but explicitly stipulates that this account is only applicable to these two transitive constructions. I then demonstrate that her account can readily be extended to all the other cases of vowel harmony that we examined in §3, with a couple of possible exceptions.	page 32
+§5.1.1	Peter Jacobs	heading	5.1.1 Phonemic vowel harmony with the transitivizers	page 33
+§5.1.1	Peter Jacobs	note	Dyck (2004) provides an analysis of the copy vowel with the two transitive constructions: DIR and VDIR. She proposes that the copy vowel phenomenon is a type of vowel harmony that only occurs with these two transitive constructions. In particular, she provides an analysis for vowel harmony as being circumscribed by the prosodic foot.13 When the V before the DIR -n (57a-d), or the VDIR (58a-d) itself, are parsed in the same prosodic foot as a CVC root, then they surface as a copy of the root’s vowel. For example:	page 33
+footnote 13	Peter Jacobs	note	Dyck` s (2004) account has various prosodic levels. The transitivizers occur in the Prosodic Phrase, or PPhrase.	page 33, footnote 13
+(57a) line 1	Sḵwx̱wu7mesh	transcription	sát-a-n	page 33
+(57a) line 1	Sḵwx̱wu7mesh	parse	(sá.tan)	page 33
+(57a) line 2	Sḵwx̱wu7mesh	gloss	hand.to-V-DIR	page 33
+(57a) line 3	Peter Jacobs	translation	‘to hand (something) over’	page 33
+(57b) line 1	Sḵwx̱wu7mesh	transcription	lhíkw’-i-n	page 33
+(57b) line 1	Sḵwx̱wu7mesh	parse	(lhí.kw’in)	page 33
+(57b) line 2	Sḵwx̱wu7mesh	gloss	hooked-V-DIR	page 33
+(57b) line 3	Peter Jacobs	translation	‘to hook (something)	page 33
+(57c) line 1	Sḵwx̱wu7mesh	transcription	yúts’-u-n	page 33
+(57c) line 1	Sḵwx̱wu7mesh	parse	(yú.ts’un)	page 33
+(57c) line 2	Sḵwx̱wu7mesh	gloss	nudge-V-DIR	page 33
+(57c) line 3	Peter Jacobs	translation	‘to nudge (someone)	page 33
+(57d) line 1	Sḵwx̱wu7mesh	transcription	més-e-n	page 33
+(57d) line 1	Sḵwx̱wu7mesh	parse	(mé.sen)	page 33
+(57d) line 2	Sḵwx̱wu7mesh	gloss	attach-V-DIR	page 33
+(57d) line 3	Peter Jacobs	translation	‘to attach (something)’	page 33
+(58a) line 1	Sḵwx̱wu7mesh	transcription	ḵ’ás-a-t	page 33
+(58a) line 1	Sḵwx̱wu7mesh	parse	(ḵ’á.sat)	page 33
+(58a) line 2	Sḵwx̱wu7mesh	gloss	ask-VDIR-TR	page 33
+(58a) line 3	Peter Jacobs	translation	‘to ask (someone)’	page 33
+(58b) line 1	Sḵwx̱wu7mesh	transcription	lhích’-i-t	page 33
+(58b) line 1	Sḵwx̱wu7mesh	parse	(lhí.ch’it)	page 33
+(58b) line 2	Sḵwx̱wu7mesh	gloss	cut-VDIR-TR	page 33
+(58b) line 3	Peter Jacobs	translation	‘to cut (something)’	page 33
+(58c) line 1	Sḵwx̱wu7mesh	transcription	tsúḵw-u-t	page 33
+(58c) line 1	Sḵwx̱wu7mesh	parse	(tsú.ḵwut)	page 33
+(58c) line 2	Sḵwx̱wu7mesh	gloss	squeal-VDIR-TR	page 33
+(58c) line 3	Peter Jacobs	translation	‘to squeal on (someone)’	page 33
+(58d) line 1	Sḵwx̱wu7mesh	transcription	ḵp’-é-t	page 34
+(58d) line 1	Sḵwx̱wu7mesh	parse	(ḵ. p’ét)	page 34
+(58d) line 2	Sḵwx̱wu7mesh	gloss	close-VDIR-TR	page 34
+(58d) line 3	Peter Jacobs	translation	‘to close (something)’	page 34
+§5.1.1	Peter Jacobs	note	Dyck (2004) further argues that in all other cases when V does not surface as a copy vowel, it is because V is not parsed in the same foot as the root. In order for V to be parsed in a separate foot, Dyck proposes that CVC is an acceptable (although not optimal) foot in Squamish.14 Essentially, this proposal prevents (CVC.CVC) from being parsed as a single foot. Instead, such sequences are always parsed as two feet: (CVC)(CVC). Compare the following two examples with the same root.	page 34
+footnote 14	Peter Jacobs	note	This proposal is based on patterns found in the stress system (Dyck 2004).	page 34, footnote 14
+(59a) line 1	Sḵwx̱wu7mesh	transcription	tsíḵ-i-n	page 34
+(59a) line 1	Sḵwx̱wu7mesh	parse	(tsí.ḵin)	page 34
+(59a) line 2	Sḵwx̱wu7mesh	gloss	stabbed-V-DIR	page 34
+(59a) line 3	Peter Jacobs	translation	‘to stab (something/someone)	page 34
+(59b) line 1	Sḵwx̱wu7mesh	transcription	tsiḵ-ts-á-n	page 34
+(59b) line 1	Sḵwx̱wu7mesh	parse	(tsiḵ)(tsán)	page 34
+(59b) line 2	Sḵwx̱wu7mesh	gloss	stabbed-mouth-V-DIR	page 34
+(59b) line 3	Peter Jacobs	translation	‘to stab (someone) in the mouth	page 34
+§5.1.1	Peter Jacobs	note	In example (59a), the CVC root and V are parsed in the same foot, and since it is in the same foot, V harmonizes with the root’s vowel. However, in (59b), when the same CVC root has the additional lexical suffix, the root and V are no longer parsed in the same foot. The root is in its own foot and the lexical suffix forms the onset of a second foot with V for its nucleus. Since V is in a separate foot from the root’s foot, it does not harmonize with the root’s vowel and instead surfaces as a stressed /á/. As noted in §3.1.1, there are no cases of the VDIR with roots other than CVC. Therefore, it is not possible to provide data with the VDIR attached to a root plus lexical suffix.	page 34
+§5.1.1	Peter Jacobs	note	In summary, Dyck’s (2004) proposal says that vowel harmony:	page 34
+§5.1.1	Peter Jacobs	note	i. is circumscribed by the prosodic foot,	page 34
+§5.1.1	Peter Jacobs	note	ii. only occurs with the two transitive constructions: DIR and VDIR,	page 34
+§5.1.1	Peter Jacobs	note	iii. the V vowel before the DIR, or the VDIR, harmonizes with the root’s vowel, only when they are parsed in the same foot.	page 34
+§5.1.1	Peter Jacobs	note	iv. acceptable feet in Squamish are: (CV.CVC) or (CVC), but not (CVC.CVC). I will now demonstrate that these same conditions for vowel harmony are obtained with all the other examples of vowel harmony that we have seen in §3.1.2- §3.2.3. Only vowel harmony with the aspectual clitics and the one putative DP does not follow straightforwardly from this account.	page 35
+§5.1.2	Peter Jacobs	heading	5.1.2 Phonemic vowel harmony with intransitivizers	page 35
+§5.1.2	Peter Jacobs	note	Dyck’s (2004) account of vowel harmony specifically states that the only domain it applies to includes the DIR and the VDIR. She does not examine the -m intransitive construction. I first extend her account to the intransitives from §3.1.2.1 with the -m intransitivizer showing that this is a natural extension of her account. The V before -m harmonizes with the root vowel when they are in the same foot. The following examples are from (11a-d) repeated here as (60a-d).	page 35
+(60a) line 1	Sḵwx̱wu7mesh	transcription	ních-i-m	page 35
+(60a) line 1	Sḵwx̱wu7mesh	parse	(ní.chim)	page 35
+(60a) line 2	Sḵwx̱wu7mesh	gloss	speak-V-INTR	page 35
+(60a) line 3	Peter Jacobs	translation	‘to speak’	page 35
+(60b) line 1	Sḵwx̱wu7mesh	transcription	xwít-i-m	page 35
+(60b) line 1	Sḵwx̱wu7mesh	parse	(xwí.tim)	page 35
+(60b) line 2	Sḵwx̱wu7mesh	gloss	jump-V-INTR	page 35
+(60b) line 3	Peter Jacobs	translation	‘to jump’	page 35
+(60c) line 1	Sḵwx̱wu7mesh	transcription	x̱ín̓-i-m	page 35
+(60c) line 1	Sḵwx̱wu7mesh	parse	(x̱ín.7im)	page 35
+(60c) line 2	Sḵwx̱wu7mesh	gloss	growl-V-INTR	page 35
+(60c) line 3	Peter Jacobs	translation	‘to growl’	page 35
+(60d) line 1	Sḵwx̱wu7mesh	transcription	ts’úlh-u-m	page 35
+(60d) line 1	Sḵwx̱wu7mesh	parse	(ts’ú.lhum)	page 35
+(60d) line 2	Sḵwx̱wu7mesh	gloss	cold-V-INTR	page 35
+(60d) line 3	Peter Jacobs	translation	‘to feel cold’	page 35
+§5.1.2	Peter Jacobs	note	In every case, V is parsed in the same foot as the root and therefore according to the analysis, it harmonizes with root’s vowel.	page 35
+§5.1.2	Peter Jacobs	note	Recall that the V before the intransitiver –m does not harmonize with the root’s vowel when a lexical suffix is present. The same analysis can be applied to this concatenation that we applied to the DIR construction with a lexical suffix. The V before -m does not harmonize with the root’s vowel for the same reason that V before -n does not: it is not parsed into the same foot as the root. I repeat here example (48b) as (61a). Example (61b) provides the parsing for this sentence with the correct vowel /á/. Both V and -m are in a separate foot from the root’s foot and, therefore, do not harmonize (61c).	page 35
+(61a) line 1	Sḵwx̱wu7mesh	transcription	mikw’-shn-á-m̓ chen	page 36
+(61a) line 2	Sḵwx̱wu7mesh	gloss	wash-foot-V-INTR 1S.SUB	page 36
+(61a) line 3	Peter Jacobs	translation	‘I’m going to wash my feet.	page 36
+(61b) line 1	Sḵwx̱wu7mesh	parse	(mikw’)(shnám̓.chen)	page 36
+(61c) line 1	Sḵwx̱wu7mesh	parse	*(mikw’)(shním̓.chen)	page 36
+§5.1.2	Peter Jacobs	note	This same account applies with the same verb when stress is on the root and not on V (62a). Again, V is parsed in a separate foot from the root, and therefore, it does not harmonize with the root’s vowel (62b).	page 36
+(62a) line 1	Sḵwx̱wu7mesh	transcription	chen míkw’-shn-e-m	page 36
+(62a) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB wash-foot-V-INTR	page 36
+(62a) line 3	Peter Jacobs	translation	‘I washed my feet.	page 36
+(62b) line 1	Sḵwx̱wu7mesh	parse	chen(míkw’)(shnem)	page 36
+§5.1.3	Peter Jacobs	heading	5.1.3 Phonemic vowel harmony with CV7 intransitives	page 36
+§5.1.3	Peter Jacobs	note	Dyck’s (2004) account, I argue, can also be extended to the CV7 roots. Recall that they surface with a copy of the root vowel after the glottal stop when they surface as bare roots (however, we still require an account for why this second vowel appears in this context). As with all other cases of vowel harmony, the second vowel is parsed in the same foot as the root and therefore it harmonizes with the root’s vowel. Examples (12) and (13) are repeated here as (63a-b).	page 36
+(63a) line 1	Sḵwx̱wu7mesh	transcription	lhá7a	page 36
+(63a) line 1	Sḵwx̱wu7mesh	parse	(lhá.7a)	page 36
+(63a) line 2	Peter Jacobs	translation	‘to approach’	page 36
+(63b) line 1	Sḵwx̱wu7mesh	transcription	tá7a	page 36
+(63b) line 1	Sḵwx̱wu7mesh	parse	(tá.7a)	page 36
+(63b) line 2	Peter Jacobs	translation	‘to happen’	page 36
+§5.1.4	Peter Jacobs	heading	5.1.4 Phonemic vowel harmony with the diminutives	page 36
+§5.1.4	Peter Jacobs	note	Our account can also straightforwardly be applied to the diminutives. With the diminutives, the root’s vowel is always parsed in the same foot as the diminutive reduplicant’s vowel (Dyck 2004 proposes that parsing of diminutives starts at the left edge of the diminutive reduplicant). Examples (22a,d) are repeated here as (64a,b).	page 36
+(64a) line 1	Sḵwx̱wu7mesh	transcription	s-ḵwí7-ḵwimay̓	page 37
+(64a) line 1	Sḵwx̱wu7mesh	parse	(sḵwí7.ḵwim)may̓	page 37
+(64b) line 1	Sḵwx̱wu7mesh	transcription	lí7-litam	page 37
+(64b) line 1	Sḵwx̱wu7mesh	parse	(lí7.li)tam	page 37
+§5.1.4	Peter Jacobs	note	The diminutives also provide evidence that vowel harmony can optionally spread leftward from the root’s vowel to the diminutive reduplicant. Example (23a) is repeated here as (65).	page 37
+(65) line 1	Sḵwx̱wu7mesh	transcription	p’i7-p’akw-wilh	page 37
+(65) line 2	Sḵwx̱wu7mesh	gloss	DIM-float-canoe	page 37
+(65) line 3	Peter Jacobs	translation	‘to play with toy canoes’	page 37
+(65a) line 1	Sḵwx̱wu7mesh	transcription	p’í-p’ikwilh	page 37
+(65a) line 1	Sḵwx̱wu7mesh	parse	(p’í.p’i)(kwilh)	page 37
+(65b) line 1	Sḵwx̱wu7mesh	transcription	p’á-p’akwilh	page 37
+(65b) line 1	Sḵwx̱wu7mesh	parse	(p’á.p’a)(kwilh)	page 37
+(65c) line 1	Sḵwx̱wu7mesh	transcription	*p’í-p’akwilh	page 37
+(65c) line 1	Sḵwx̱wu7mesh	parse	(p’í.p’a)(kwilh)	page 37
+§5.1.4	Peter Jacobs	note	In (65a) the vowel harmony spreads rightward from the reduplicant’s vowel to the root’s vowel. In (65b), however, the vowel harmony spreads leftward from the root’s vowel to the reduplicant’s vowel. Unexplainably, we do not find cases without vowel harmony, such as (65c), at least in the few forms we have where spreading optionally takes place leftward. Regardless, in all cases the domain for vowel harmony is the foot.	page 37
+§5.1.5	Peter Jacobs	heading	5.1.5 Phonemic vowel harmony - miscellaneous	page 37
+§5.1.5	Peter Jacobs	note	For the two miscellaneous intransitives that appear to have vowel harmony, these two predicates also parse with both vowels in the same foot. Therefore, according to our extended proposal of Dyck’s (2004) account, we again have the right environment for vowel harmony. The predicates from examples (24) and (26) are repeated here in (66) and (67).	page 37
+(66a) line 1	Sḵwx̱wu7mesh	parse	(tl’íy.ya7)	page 37
+(66a) line 1	Peter Jacobs	translation	‘to stop’	page 37
+(66b) line 1	Sḵwx̱wu7mesh	parse	(tl’íy.yi7)	page 37
+(67a) line 1	Sḵwx̱wu7mesh	parse	(tsíy.ya)(chis)	page 38
+(67a) line 1	Peter Jacobs	translation	‘five’	page 38
+(67b) line 1	Sḵwx̱wu7mesh	parse	(tsíy.yi)(chis)	page 38
+§5.1.5	Peter Jacobs	note	While the forms for vowel harmony are not preferred by all speakers, our account provides an explanation for those speakers who do apply vowel harmony here. These forms also provide data indicating that vowel harmony in Sḵwx̱wu7mesh extends beyond the two transitivizer types.	page 38
+§5.1.5	Peter Jacobs	note	For the one case we have of the vowel of a lexical suffix harmonizing with the root’s vowel, when that vowel is parsed, it is also in the same foot as the root. Again, this is the environment where vowel harmony takes place. Example (28c) is repeated here as (68a). Examples (68b-c) show this form parsed. The initial vowel of the lexical suffix is parsed in the same foot as the root and so vowel harmony is permitted (68b). As often happens, though, a pretonic vowel can be reduced to schwa, as in (68c).	page 38
+(68a) line 1	Sḵwx̱wu7mesh	transcription	lhich’-alhx̱á7-n	page 38
+(68a) line 2	Sḵwx̱wu7mesh	gloss	cut-neck-DIR	page 38
+(68a) line 3	Peter Jacobs	translation	‘to cut (someone’s) neck’	page 38
+(68b) line 1	Sḵwx̱wu7mesh	parse	(lhi.ch’ilh)(x̱á.7n)	page 38
+(68c) line 1	Sḵwx̱wu7mesh	parse	(lhi.ch’elh)(x̱á.7n)	page 38
+§5.1.5	Peter Jacobs	note	Our account also provides the correct environment for vowel harmony for the one noun in (69) which could be analyzed as having vowel harmony. The first vowel can be realized as schwa (69a). But, it can also be realized as a copy of the second vowel (69b). When parsed, both vowels are in the same foot, thus allowing for vowel harmony. In this case, though, the vowel harmony occurs leftward.	page 38
+(69a) line 1	Sḵwx̱wu7mesh	transcription	ḵwe7úp	page 38
+(69a) line 1	Sḵwx̱wu7mesh	parse	(ḵwe.7úp)	page 38
+(69b) line 1	Sḵwx̱wu7mesh	transcription	ḵwu7úp	page 38
+(69b) line 1	Sḵwx̱wu7mesh	parse	(ḵwu.7úp)	page 38
+§5.1.6	Peter Jacobs	heading	5.1.6 Phonemic vowel harmony with clitics	page 38
+§5.1.6	Peter Jacobs	note	Our account for vowel harmony does not account for all of the cases of vowel harmony that we find with clitics, whether aspectual or nominal. I therefore offer some preliminary thoughts about vowel harmony here.	page 38
+§5.1.6	Peter Jacobs	note	Vowel harmony is found to occur in the following three cases with the verb phrase clitics. I have parsed these forms following Dyck’s (2004) parsing for Squamish.	page 39
+(70) line 1	Sḵwx̱wu7mesh	transcription	kwi s-na-s	page 39
+(70) line 2	Sḵwx̱wu7mesh	gloss	DEM NOM-RL-3POSS	page 39
+(70a) line 1	Sḵwx̱wu7mesh	transcription	kwi s-ni-s	page 39
+(70a) line 1	Sḵwx̱wu7mesh	parse	(kwis)(nis)	page 39
+(70b) line 1	Sḵwx̱wu7mesh	transcription	kwi s-i-s	page 39
+(70b) line 1	Sḵwx̱wu7mesh	parse	(kwi.sis)	page 39
+(71) line 1	Sḵwx̱wu7mesh	transcription	kwi s-wa-s	page 39
+(71) line 2	Sḵwx̱wu7mesh	gloss	DEM NOM-IMPF-3POSS	page 39
+(71) line 3	Sḵwx̱wu7mesh	transcription	kwi s-wi-s	page 39
+(71) line 3	Sḵwx̱wu7mesh	parse	(kwis)(wis)	page 39
+§5.1.6	Peter Jacobs	note	From our account we would only predict vowel harmony for (70b), since it is the only form wherein the two vowels are parsed in the same foot.	page 39
+§5.1.6	Peter Jacobs	note	One possible solution is the process of vowel harmony in the clitic domain is not constrained by the prosodic foot. Again, this hypothesis is difficult to test given the clitics are a small, closed set in the lexicon. One other possible case of a clitic harmonizing with the root is the frozen form for the ‘hortative’, as in (72a). It appears to have the ‘imperative’ clitic which normally surfaces as –ka, as in (72b). I have provided the parsing for these forms.	page 39
+(72a) line 1	Sḵwx̱wu7mesh	transcription	wí7-s-ki	page 39
+(72a) line 1	Sḵwx̱wu7mesh	parse	(wí7s)(ki)	page 39
+(72a) line 2	Sḵwx̱wu7mesh	gloss	go.ahead-CAUS-IMPER	page 39
+(72a) line 3	Peter Jacobs	translation	‘Let’s ________’	page 39
+(72b) line 1	Sḵwx̱wu7mesh	transcription	emút-ka	page 39
+(72b) line 1	Sḵwx̱wu7mesh	parse	(em.mút)(ka)	page 39
+(72b) line 2	Sḵwx̱wu7mesh	gloss	sit-IMPER	page 39
+(72b) line 3	Peter Jacobs	translation	‘Sit down!’	page 39
+§5.1.6	Peter Jacobs	note	Importantly, for our discussion, the imperative is not parsed in the same foot as the verbal root. Yet, at least for the ‘hortative’ construction, its vowel appears to harmonize with the verbal root.	page 39
+§5.1.6	Peter Jacobs	note	Clitics in Sḵwx̱wu7mesh, however, often display different phonological properties from words elsewhere in the grammar. Take, for example, the subjunctive subject clitics (often called the conjunctive subject clitics in Salish). When they are combined with certain clitics, their initial glottal stop is realized as glottalization on a previous obstruent, such as:	page 39
+(73a) line 1	Sḵwx̱wu7mesh	rule	ḵ + 7an ---> ḵ’an	page 40
+(73b) line 1	Sḵwx̱wu7mesh	rule	lh + 7an ----> tl’an	page 40
+§5.1.6	Peter Jacobs	note	However, if the subjunctive subject follows a verb which ends in an obstruent, the clitic’s initial glottal stop is simply deleted. This is the pronunciation in (74a). Unlike in (73a-b), its initial glottal stop does not get realized as glottalization on the final obstruent (74b). The verb’s initial glottal stop, however, can optionally be realized as glottalization on the preceding clitic (74c).	page 40
+(74) line 1	Sḵwx̱wu7mesh	transcription	k + 7ítut + 7an	page 40
+(74) line 2	Sḵwx̱wu7mesh	gloss	SUBJ + sleep + 1S.SUBJ	page 40
+(74a) line 1	Sḵwx̱wu7mesh	transcription	k 7ítutan	page 40
+(74b) line 1	Sḵwx̱wu7mesh	transcription	*k’ítut’an	page 40
+(74c) line 1	Sḵwx̱wu7mesh	transcription	k’ítutan	page 40
+§5.1.6	Peter Jacobs	note	Given that the clitic domain allows for phonological processes different from those found in other domains, it is reasonable to assume that the same holds for the process of vowel harmony. A modified account may be required to understand the domain of vowel harmony with clitics. One possible explanation could be that the parsing of clitics is different than that of verbs and nouns. To date, no study has been done on the parsing of these clitics to test this.	page 40
+§5.1.6	Peter Jacobs	note	As far as the one other putative example of allophonic vowel harmony, the adverbial phrase ti stsi7s, I have no other cases of such harmony spreading from the determiner to the head noun. I have no explanation for vowel harmony here. It is possible that the process of vowel harmony itself is being reanalyzed and for some speakers it has started to spread differently in different domains. Recall, though, that this alternative pronunciation is only accepted by some speakers.	page 40
+§5.1.7	Peter Jacobs	heading	5.1.7 Allophonic vowel harmony: CV- reduplication and one DP	page 40
+§5.1.7	Peter Jacobs	note	Our account for vowel harmony can also be applied to our one clear case of allophonic vowel harmony which occurs with CV- reduplication. Example (37b) is repeated here as (75a) with all three possible, phonetic realizations. In (75b) I provide the parsing for this form.	page 40
+(75a) line 1	Sḵwx̱wu7mesh	transcription	sí-siḵ	page 41
+(75a) line 1	Sḵwx̱wu7mesh	phonetic	[sé·sɛq]	page 41
+(75a) line 1	Sḵwx̱wu7mesh	phonetic	[sɛ́·sɛq]	page 41
+(75a) line 1	Sḵwx̱wu7mesh	phonetic	[sé·seq]	page 41
+(75b) line 1	Sḵwx̱wu7mesh	parse	(sí.siḵ)	page 41
+§5.1.7	Peter Jacobs	note	As with the majority of cases of phonemic vowel harmony, allophonic vowel harmony also occurs within the same foot. It is also circumscribed by the prosodic foot.	page 41
+§5.1.7	Peter Jacobs	note	The other case of allophonic vowel harmony is the one adverbial DP ti stsi7s ‘today’. It does not parse into a single foot yet there is allophonic vowel harmony spreading from the determiner to the noun, unexpectedly. I have no account for this, except that, perhaps as with the English equivalent, the Sḵwx̱wu7mesh DP has been reanalyzed as a single word.	page 41
+§5.1.8	Peter Jacobs	heading	5.1.8 Vowel harmony – conclusion	page 41
+§5.1.8	Peter Jacobs	note	This examination of the domain of vowel harmony in Squamish demonstrates that by far the majority of cases of both phonemic and allophonic harmony occur within the same foot. Furthermore, vowel harmony is not restricted to the transitivizer domain:	page 41
+(76a) line 1	Peter Jacobs	note	the transitive constructions: DIR and VDIR	page 41, set as an example
+(76b) line 1	Peter Jacobs	note	the intransitive construction: -m	page 41, set as an example
+(76c) line 1	Peter Jacobs	note	CV7 bare roots	page 41, set as an example
+(76d) line 1	Peter Jacobs	note	diminutive reduplication	page 41, set as an example
+(76e) line 1	Peter Jacobs	note	a few miscellaneous intransitives	page 41, set as an example
+(76f) line 1	Peter Jacobs	note	CV- reduplication.	page 41, set as an example
+§5.1.8	Peter Jacobs	note	Only two cases of vowel harmony do not appear to occur in the same foot:	page 41
+(77a) line 1	Peter Jacobs	note	phonemic vowel harmony with aspectual clitics	page 41, set as an example
+(77b) line 1	Peter Jacobs	note	allophonic vowel harmony in DP.	page 41, set as an example
+§5.1.8	Peter Jacobs	note	In by far the majority of cases, vowel harmony occurs between vowels in the same prosodic foot in Sḵwx̱wu7mesh. This, I have argued, indicates that Dyck’s (2004) account can be expanded to include these cases other than just the two transitivizer constructions. Vowel harmony, besides occurring with transitivizers, also occurs with the intransitivizer -m and with CV- reduplication for both nouns and for verbs. Instead, I argue, it is possible to simply state that vowel harmony occurs between vowels when they occur in the same prosodic foot as the root. The process of vowel harmony with the two transitivizer constructions falls out from this more general phonological process. Furthermore, since it is no longer necessary to include this information in the definition of the V with the DIR, we are now left with explaining its other realizations: stressed and unstressed schwa and stressed /á/.	page 41
+§5.1.8	Peter Jacobs	note	Such a constraint undoubtedly overgenerates. Already it is clear that the vast majority of root plus lexical suffix combinations do not result in vowel harmony. The vowel of the affix is maintained in the majority of cases. That vowel harmony does occur for some speakers may indicate, in an OT-type of account, that two (sets of) constraints are not strictly ranked for all speakers. For example, the constraints responsible for deriving vowel harmony may be lower ranked than those responsible for maintaining an affix’s vowel, for those speakers who do not have vowel harmony with lexical suffixes. For those who do, though, they may have the reverse ranking available. This requires further research.	page 42
+§5.1.8	Peter Jacobs	note	I now turn to an examination of schwa strengthening.	page 42
+§5.2	Peter Jacobs	heading	5.2 Schwa strengthening	page 42
+§5.2	Peter Jacobs	note	In §4, we examined four different occasions of schwa-/á/ alternations, summarized again in the table below. Alternation Example Conditioning Factor for /á/ a. some CVC- shay̓- Stress (secondary) Reduplicants sheych’ántsut b. V before -m mikw’-shn-á-m̓ Stress (primary) míkw’-shn-e-m c. subject clitics chen chán Semantics, syntax, discourse-pragmatics d. possessive suffix -chet -chát Stress (primary) Table 4: Schwa-/á/ alternations	page 42
+§5.2	Peter Jacobs	note	In summary, schwa-/á/ alternations occur with CVC- reduplicants, with V before the intransitivizer –m, with the subject clitics and in one environment with the first person possessive suffix. Except for the subject clitics, I noted that the presence of stressed /á/ correlates with either primary or secondary stress. The presence of the stressed /á/ forms for the subject clitics is conditioned by factors other than just stress. I will examine those three cases which appear to be conditioned by primary or secondary stress.	page 43
+§5.2	Peter Jacobs	note	I will now note some of the stress properties of the three cases of stressed /á/ that appear to be solely conditioned by stress. My argument here is this: I propose that in all these cases schwa is changed to a stressed /á/ in a process which I call schwa strengthening. A schwa is strengthened to a stressed /á/ in order to provide a mora for that syllable, a mora which schwa cannot provide (Dyck, 2004, also Shaw et al 1999 for closely related Halkomelem). In other words, schwa strengthening is a repair strategy for prosody in Squamish. While it is beyond the scope of this paper to provide a full phonological account of primary and secondary stress in Squamish, I will make some preliminary notes on some patterns that arise from the data. I will follow Dyck’s (2004) proposal for parsing. I turn to the CVC-reduplicants first.	page 43
+§5.2.1	Peter Jacobs	heading	5.2.1 Schwa strengthening with the CVC- reduplicant	page 43
+§5.2.1	Peter Jacobs	note	The following are examples of schwa strengthening with the CVC- reduplicant, examples from (45) and (46) repeated here as (78) and (79), with secondary stress indicated.	page 43
+(78a) line 1	Sḵwx̱wu7mesh	transcription	shày̓sheych’ántsut	page 43
+(78b) line 1	Sḵwx̱wu7mesh	transcription	nexwyàl̓yelx̱áy̓	page 43
+(78c) line 1	Sḵwx̱wu7mesh	transcription	wàl̓wel.ḵw’áls	page 43
+(78d) line 1	Sḵwx̱wu7mesh	transcription	làplepx̱wántsut	page 43
+(78e) line 1	Sḵwx̱wu7mesh	transcription	tsàxwtsexwsténam’ut	page 43
+(78f) line 1	Sḵwx̱wu7mesh	transcription	lhàḵ’lheḵ’elél̓men	page 43
+(78g) line 1	Sḵwx̱wu7mesh	transcription	tsàkw’tskw’átsut	page 43
+(78h) line 1	Sḵwx̱wu7mesh	transcription	tàx̱wtx̱waya7ní7m	page 43
+(78i) line 1	Sḵwx̱wu7mesh	transcription	esḵáxwḵexw	page 44
+(79a) line 1	Sḵwx̱wu7mesh	transcription	mày̓múyun	page 44
+(79b) line 1	Sḵwx̱wu7mesh	transcription	mày̓múyuntsut	page 44
+§5.2.1	Peter Jacobs	note	The following example in (80a) is with my parsing into feet following Dyck (2004).15 Example (80b) is the expected, but unattested, form with the stressed schwa.	page 44
+footnote 15	Peter Jacobs	note	The following proposals from Dyck (2004) are relevant regarding the parsing of this word. For the first foot, the CVC- reduplicant: a) CVC- reduplicant is also a root and is always parsed separately into its own syllable, even if this creates a deficient foot. b) resonants at the edge of a foot are glottalized For the second foot: a) the root itself must be parse as its own foot. b) if the root is longer than CVC then only the CVC portion of the root is parsed as the root. The extra consonant becomes the onset of the following foot.	page 44, footnote 15
+(80a) line 1	Sḵwx̱wu7mesh	parse	✓(shày̓)(shey)(ch’án)(tsut)	page 44
+(80b) line 1	Sḵwx̱wu7mesh	parse	*(shèy̓)(shey)(ch’án)(tsut)	page 44
+§5.2.1	Peter Jacobs	note	The reason that (80b) is not optimal, I argue, has to do with stress and moras. As Dyck (2004) argues for Sḵwx̱wu7mesh, schwa does not carry a mora and neither do glottalized resonants, such as /y̓/. Stress in Squamish is looking for a syllable with a mora. We now have one possible reason why we find stressed /á/ instead of schwa with these CVC-reduplicants: it is inserted to provide a mora for stress. Since neither schwa nor glottalized resonant /y̓/ are moraic, stressed /á/, which is moraic, surfaces instead. While the addition of this vowel obscures the identity of the root, the regular form of the root is found in the following feet. Furthermore, the CVC- reduplicant rarely surfaces with the same vowel as the root anyway, given that the reduplicant normally surfaces with a schwa.	page 44
+§5.2.1	Peter Jacobs	note	Supporting evidence for our hypothesis here for schwa strengthening comes from the schwa-based roots that do not have schwa strengthening with their CVC-reduplicant. I repeat the examples from (42) here in (81).	page 44
+(81) line 1	Peter Jacobs	note	Schwa based roots	page 45, the example's heading
+(81) line 2	Peter Jacobs	note	Non-reduplicated Reduplicated	page 45, the column heads
+(81a) left line 1	Sḵwx̱wu7mesh	transcription	éx̱wu7n	page 45, the non-reduplicated column
+(81a) left line 2	Sḵwx̱wu7mesh	gloss	cough	page 45, the non-reduplicated column
+(81a) left line 3	Peter Jacobs	translation	‘to cough’	page 45, the non-reduplicated column
+(81a) right line 1	Sḵwx̱wu7mesh	transcription	7ex̱w-7éx̱wu7n	page 45, the reduplicated column
+(81a) right line 2	Sḵwx̱wu7mesh	gloss	RED-cough	page 45, the reduplicated column
+(81a) right line 3	Peter Jacobs	translation	‘to cough all the time’	page 45, the reduplicated column
+(81b) left line 1	Sḵwx̱wu7mesh	transcription	kwélash-t	page 45, the non-reduplicated column
+(81b) left line 2	Sḵwx̱wu7mesh	gloss	shoot-TR	page 45, the non-reduplicated column
+(81b) left line 3	Peter Jacobs	translation	‘to shoot (something)’	page 45, the non-reduplicated column
+(81b) right line 1	Sḵwx̱wu7mesh	transcription	kwel-kwélash-t	page 45, the reduplicated column
+(81b) right line 2	Sḵwx̱wu7mesh	gloss	RED-shoot-TR	page 45, the reduplicated column
+(81b) right line 3	Peter Jacobs	translation	‘to shoot (something) continuously’	page 45, the reduplicated column
+(81c) left line 1	Sḵwx̱wu7mesh	transcription	x̱ewtl’-á-n	page 45, the non-reduplicated column
+(81c) left line 2	Sḵwx̱wu7mesh	gloss	break-V-DIR	page 45, the non-reduplicated column
+(81c) left line 3	Peter Jacobs	translation	‘to break (something)’	page 45, the non-reduplicated column
+(81c) right line 1	Sḵwx̱wu7mesh	transcription	x̱ew-x̱ewtl’-á-n	page 45, the reduplicated column
+(81c) right line 2	Sḵwx̱wu7mesh	gloss	RED-break-V-DIR	page 45, the reduplicated column
+(81c) right line 3	Peter Jacobs	translation	‘to break (a pile of things)	page 45, the reduplicated column
+(81d) left line 1	Sḵwx̱wu7mesh	transcription	x̱éch-n-exw	page 45, the non-reduplicated column
+(81d) left line 2	Sḵwx̱wu7mesh	gloss	remember-DIR-3OBJ	page 45, the non-reduplicated column
+(81d) left line 3	Peter Jacobs	translation	‘to think of (something)’	page 45, the non-reduplicated column
+(81d) right line 1	Sḵwx̱wu7mesh	transcription	x̱éch-x̱ech-s	page 45, the reduplicated column
+(81d) right line 2	Sḵwx̱wu7mesh	gloss	RED-remember-CAUS	page 45, the reduplicated column
+(81d) right line 3	Peter Jacobs	translation	‘to remember (something)’	page 45, the reduplicated column
+§5.2.1	Peter Jacobs	note	In examples (81a-b), stress fall on the first vowel of the word and, therefore, there is no secondary stress on the reduplicant. In example (81c), the CVC reduplicant is not written with a stressed /á/, but this may be a transcription error, since one of the allophones of schwa adjacent to a uvular is [a]. This example may therefore be another case of schwa strengthening. However, example (81d) has the primary, and only stress, on the reduplicant, yet there is no stressed /á/. This demonstrates that not all tokens of a reduplicant derived from a schwa based root have a stressed /á/.	page 45
+§5.2.1	Peter Jacobs	note	Two of our examples in (79a-b) do not fit our establish patterns for alternating stress, either. They have secondary stress and primary stress in contiguous feet. I have no account for this. Nevertheless, the foot with secondary stress has its schwa strengthened to /á/.	page 45
+§5.2.1	Peter Jacobs	note	One last piece of data we have yet to review is the alternate pronunciation of as (47), repeated here as (82). In this case, the diphthongs in the initial two syllables get vocalized. This strategy also appears to cause the CVC reduplicant to not get secondary stress.	page 45
+(82) line 1	Sḵwx̱wu7mesh	parse	✓(shi)(shi)(ch’án)(tsut)	page 45
+§5.2.2	Peter Jacobs	heading	5.2.2 Schwa strengthening before –m intransitivizer	page 45
+§5.2.2	Peter Jacobs	note	Recall that the vowel V before –m is realized as /á/ when it is stressed, otherwise it is realized as a schwa. I propose that the appearance of the stressed /á/ is due to schwa strengthening. I repeat (48b) and (49b) as (83a-b).	page 45
+(83a) line 1	Sḵwx̱wu7mesh	transcription	mikw’-shn-á-m̓ chen	page 46
+(83a) line 2	Sḵwx̱wu7mesh	gloss	wash-foot-V-INTR 1S.SUB	page 46
+(83a) line 3	Peter Jacobs	translation	‘I’m going to wash my feet.	page 46
+(83b) line 1	Sḵwx̱wu7mesh	transcription	chen míkw’-shn-e-m	page 46
+(83b) line 2	Sḵwx̱wu7mesh	gloss	1S.SUB wash-foot-V-INTR	page 46
+(83b) line 3	Peter Jacobs	translation	‘I washed my feet.	page 46
+§5.2.2	Peter Jacobs	note	Before discussing these forms, I further provide parsing into feet for these two forms. Examples (84a-b) provide the parsing for (83a-b), respectively. The intransitivizer -m is glottalized in the penultimate syllable of (84a), indicating that it is at the edge of a foot, leaving the subject clitic either unparsed even though it is part of the parsing of this sentence.	page 46
+(84a) line 1	Sḵwx̱wu7mesh	parse	(mikw’)(shnám̓)chexw	page 46
+(84b) line 1	Sḵwx̱wu7mesh	parse	chen(míkw’)(shnem)	page 46
+§5.2.2	Peter Jacobs	note	Firstly, the presence of the stressed /á/ in the example (85b) results in its syllable having one mora via the full vowel. Without the stressed /á/, this syllable would be moraless since neither stressed schwa nor a glottalized resonant can receive a mora, as shown in (85b). Thus the second foot of the word would be moraless and the last syllable (the subject clitic) would also be moraless.	page 46
+(85a) line 1	Sḵwx̱wu7mesh	parse	✓(mikw’)(shnám̓)chexw	page 46
+(85b) line 1	Sḵwx̱wu7mesh	parse	✗(mikw’)(shném̓)chexw	page 46
+§5.2.2	Peter Jacobs	note	As for a possible alternative hypothesis, if the underlying vowel for V here were /a/, then we might expect a form such as in (86a) to surface instead of (86b). The last syllable with the intransitivizer would be expected to compete for stress and win every time, since the rightmost stress dominates. This is clearly not the case, though. If we assume that V in this example is an epenthetic schwa, then we can derive the stress for this word straightforwardly. The only fully form foot is the (ch’ay.ya) foot.	page 46
+(86a) line 1	Sḵwx̱wu7mesh	parse	*chen(chày.ya)(ḵám)	page 46
+(86b) line 1	Sḵwx̱wu7mesh	parse	chen(cháy.ya)ḵem	page 47
+§5.2.3	Peter Jacobs	heading	5.2.3 Schwa strengthening with -chat	page 47
+§5.2.3	Peter Jacobs	note	Briefly, one example with the first person possessive clitic also indicates that its vowel is strenghthened to stress /á/, when its syllable requrie primary stress. I repeat examples (55a-b) as examples (87a-b).	page 47
+(87a) line 1	Sḵwx̱wu7mesh	transcription	..... kwi-s ch’áw-a-t-umi-chet	page 47
+(87a) line 2	Sḵwx̱wu7mesh	gloss	DET-NOM help-VDIR-TR-2S.OBJ-1PL.POSS	page 47
+(87a) line 3	Peter Jacobs	translation	‘our helping you (sg)’ = (that we help you (sg))	page 47
+(87b) line 1	Sḵwx̱wu7mesh	transcription	..... kwi-s ch’áw-a-t-umi-chát-wit	page 47
+(87b) line 2	Sḵwx̱wu7mesh	gloss	DET-NOM help-VDIR-TR-2S.OBJ-1PL.POSS-PL	page 47
+(87b) line 3	Peter Jacobs	translation	‘our helping you (pl)’ = (that we help you (pl))	page 47
+§5.2.3	Peter Jacobs	note	The following examples form show these forms parsed as is implied by Dyck (2004:323-324)	page 47
+(88a) line 1	Sḵwx̱wu7mesh	parse	(ch’áw.wa)(tum.mi)chet	page 47
+(88b) line 1	Sḵwx̱wu7mesh	parse	(ch’áw.wa)(tum.mi)(chát)(wit)	page 47
+§5.2.3	Peter Jacobs	note	Again, we find that stressed /á/ is occurring where stressed schwa is expected to occur. In example (88b), stress appears to be alternating over feet. This pattern, then, requires that the first person possessive clitic, -chet, which is normally realized with a schwa, to bear (primary?) stress. This requirement for stress in turn results in its vowel being changed to a stressed /á/. I offer that this is another case of schwa strengthening. Schwa has been strengthened to /á/ to help its syllable meet the requirements of prosody.	page 47
+§5.2.3	Sḵwx̱wu7mesh	cited form	-chet	page 47, in italics
+§6	Peter Jacobs	heading	6 Conclusion	page 47
+§6	Peter Jacobs	note	In this paper we examined data in Squamish on both vowel harmony and schwa alternating with stressed /á/. Vowel harmony occurs most often between vowels in what appears to be the same (CVCV) foot. I also described, certain cases of schwa alternating with /a/ as schwa strengthening. I hypothesized that schwa strengthening may be taking place in order to satisfy moraic requirements relating to stress since stressed /á/ in these cases appears to carry either primary or secondary stress. It is yet to be determined, though, what the exact conditions are for when schwa strengthening takes place and when it does not for all cases that we have examined. Nevertheless, we have seen that schwa strengthening is an available phonological strategy available in Sḵwx̱wu7mesh.	page 47
+§6	Peter Jacobs	note	I further propose that, given that we have shown about vowel harmony and schwa alternating with /á/, it is a reasonable hypothesis that the various properties of V are derivable from the general properties of vowel harmony and schwa strengthening. That is, V's properties can be derived independently from more general phonological processes in the language, instead of being lexically specified. If V is simply an epenthetic schwa as Jacobs (2011) proposes, then such a pattern is fully expected from its various realizations as schwa. Schwa in Squamish, and in Salish in general, derives its specific features from the surrounding context. If this account is on the right track, then this context also includes: i) foot structure, e.g. its can get its features as a copy vowel when foot internal to the root or ii) stress properties, e.g. it can surface as stressed schwa or as stressed /á/.	page 48
+references	Peter Jacobs	heading	References	page 48
+references	Peter Jacobs	reference	Demers, Richard A. and George M. Horn. 1978. Stress assignment in Squamish. IJAL 44:180-191.	page 48
+references	Peter Jacobs	reference	Dyck, Ruth Anne. 2004. Prosodic and Morphological Factors in Squamish (Skwxwu7mesh) Stress Assignment. Unpublished PhD dissertation, UVic, Canada.	page 48
+references	Peter Jacobs	reference	Jacobs, Peter. 2011. Control in Skwxwu7mesh. Unpublished PhD dissertation, UBC.	page 48
+references	Peter Jacobs	reference	Kuipers, Aert H. 1967. Squamish Language. The Hague: Mouton.	page 48
+references	Peter Jacobs	reference	———. 1969. The Squamish Language. Vol. II. The Hague: Mouton.	page 48
+references	Peter Jacobs	reference	———. 1989. A Report on Shuswap, with a Squamish Lexical Appendix. LSA. Vol. 310. Paris: Peeters/SELAF.	page 48
+references	Peter Jacobs	reference	Shaw, Patricia A., Susan Blake, Jill Campbell and Cody Shepherd. 1999. “Stress in hunkaminum (Musqueam) Salish” in the Proceedings of WSCLA 4. Vancouver: UBCWPL.	page 48
+references	Peter Jacobs	reference	Suttles, Wayne P. 2004. Musqueam Reference Grammar. First Nations Languages. Vancouver: UBC Press.	page 48
+end	Peter Jacobs	note	Peter Jacobs pejacobs@uvic.ca	page 48

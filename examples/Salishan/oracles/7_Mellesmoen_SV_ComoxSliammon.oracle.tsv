@@ -1,0 +1,415 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	title	Sonorant voicing ([SV]) in Comox-Sliammon1	page 1
+front	Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen	note	Abstract: Rice and Avery (1989) argue that there are two types of voicing systems found cross-linguistically. There are Type I languages, which have a laryngeal [voice] feature, and Type II languages, which have a sonorant voicing [SV] feature. The development of resonants into voiced obstruents in Salish was cited as evidence for [SV], but synchronic voicing patterns have not been considered. The present paper argues that Comox-Sliammon has a Type II voicing system and has [SV] instead of [voice]. The diachronic development of the voiced obstruents (/g/ and /ǰ/) is considered. Finding that the intermediate voiceless obstruent proposed by Thompson and Sloat (2004) is less compatible with a Type II voicing system, I propose that the voiced obstruents in Comox- Sliammon came directly from the resonants and have a [SV] feature retained from Proto-Salish (*w and *y). This can also account for the development of voiced obstruents in other Salish languages.	page 1, the abstract
+front	Gloria Mellesmoen	note	Keywords: sonorant voicing, voiced obstruents, voicing, Comox-Sliammon, phonological features, Proto-Salish	page 1, the keywords
+front	Gloria Mellesmoen	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	Gloria Mellesmoen	language	Comox-Sliammon	Central Salish, British Columbia
+footnote 1	Gloria Mellesmoen	note	I am very thankful for the patience of the Comox-Sliammon speakers who have shared their language with me, including Phyllis Dominic, Joanne Francis, Jerry Francis, Karen Galligos, Marion Harry, Freddie Louie, Elsie Paul, Margaret Vivier, Betty Wilson, and Maggie Wilson. I am also grateful to the ʔayʔaǰuθəm Lab at UBC for their encouragement and ideas.	page 1, footnote 1, on the title
+footnote 1	Gloria Mellesmoen	name	Phyllis Dominic	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Joanne Francis	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Jerry Francis	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Karen Galligos	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Marion Harry	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Freddie Louie	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Elsie Paul	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Margaret Vivier	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Betty Wilson	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	name	Maggie Wilson	Comox-Sliammon speaker, thanked in the note on the title
+footnote 1	Gloria Mellesmoen	language	ʔayʔaǰuθəm	the language's own name
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	Cross-linguistically, there are two main types of voicing: laryngeal and spontaneous voicing. Laryngeal voicing is distinctive for obstruents; a [voice] feature distinguishes voiced and voiceless segments (Chomsky & Halle 1968). Spontaneous voicing is traditionally associated with sonorants, though Rice and Avery (1989) argue that obstruents can have this type of voicing in certain languages. They distinguish two types of voicing systems: those where voiceless and voiced obstruents pattern together (Type I languages) and those where voiced obstruents pattern with the sonorants (Type II languages). In order to account for the Type II languages, Rice (1993) proposes Sonorant Voice, [SV], as an alternative to the traditional feature [sonorant].	page 1
+§1	Gloria Mellesmoen	note	Rice and Avery (1989:80) suggest that the historical development of voiced obstruents from resonants in Salish might be evidence for the languages having [SV], rather than [voice].2 Rice (2013:5) further highlights the shift from nasal consonants to voiced obstruents in Twana and Lushootseed as evidence for Type II voicing. While the Salish language family is used to provide diachronic support for [SV] and a distinction between Type I and Type II languages, the synchronic voicing systems of Salish languages are unexplored.	page 1
+footnote 2	Gloria Mellesmoen	note	Resonant is the term used in the Salish literature for sonorant segments.	page 1, footnote 2
+§1	Gloria Mellesmoen	language	Twana	Central Salish, nasals to voiced obstruents
+§1	Gloria Mellesmoen	language	Lushootseed	Central Salish, nasals to voiced obstruents; *y and *w both shifted
+§1	Gloria Mellesmoen	note	In this paper, I provide a description of the voiced obstruents (/g/ and /ǰ/) in Comox-Sliammon, a Central Salish language, evaluating whether the voicing patterns are more consistent with a Type I (Laryngeal) or Type II (Sonorant) language, ultimately concluding that it can be characterized as Type II and that there is little evidence for a [voice] feature.3 I also evaluate if this synchronic analysis fits with Thompson and Sloat’s (2004) proposal for how Proto-Salish *y became /ǰ/ in Comox-Sliammon. Finding their analysis less compatible with a Type II voicing system, I provide an alternate proposal for the development of voiced obstruents in Comox-Sliammon, as well as other Salish languages.	page 2
+footnote 3	Gloria Mellesmoen	note	I follow the notation of Watanabe (2003) and use APA and represent underlying forms, except where phonetic brackets are used to indicate surface form.	page 2, footnote 3
+§1	Gloria Mellesmoen	language	Proto-Salish	the source of /ǰ/ and /g/ in *y and *w
+§1	Gloria Mellesmoen	language	Thompson	Interior Salish, only *y shifted; has /ɣ/
+§2	Gloria Mellesmoen	heading	2 Voiced obstruents in Comox-Sliammon	page 2
+§2	Gloria Mellesmoen	note	Comox-Sliammon (ʔayʔaǰuθəm) is a Central Salish language spoken in British Columbia. It is critically endangered with an estimated 36 fluent speakers remaining as of 2014 (FPCC 2014). There are a total of 43 consonants, with two voiced obstruents, /g/ and /ǰ/, which are the reflexes of the Proto-Salish resonants *w and *y, respectively (Blake 1992; Blake 2000; Kuipers 2002).	page 2
+§2	Gloria Mellesmoen	note	The voiced obstruents in Comox-Sliammon are well-described (i.e. Blake 1992; Blake 2000; Watanabe 2003; Davis 2005). Blake (2000) lists the surface realizations of /ǰ/ as [ǰ ~ y ~ i ~ e ~ č] and /g/ as [g ~ w ~ u ~ o ~ k ~ xʷ]. Examples of each surface realization are shown in (1) for /ǰ/ and (2) for /g/.4	page 2
+footnote 4	Gloria Mellesmoen	note	Stress is not marked because it is fixed-initial (Watanabe 2003:20–23). Due to its predictable distribution, schwa is not present in underlying forms from Blake (2000).	page 2, footnote 4
+(1a) line 1	Comox-Sliammon	phonetic	[ǰ]	page 2, the realization the part shows
+(1a) line 2	Comox-Sliammon	phonemic	/huǰ-it/	page 2
+(1a) line 3	Comox-Sliammon	phonetic	[hoǰit]	page 2
+(1a) line 4	Gloria Mellesmoen	translation	‘ready’	page 2
+(1b) line 1	Comox-Sliammon	phonetic	[y]	page 2, the realization the part shows
+(1b) line 2	Comox-Sliammon	phonemic	/huǰ/	page 2
+(1b) line 3	Comox-Sliammon	phonetic	[hoy]	page 2
+(1b) line 4	Gloria Mellesmoen	translation	‘stop, finish’	page 2
+(1c) line 1	Comox-Sliammon	phonetic	[i,ǰ]	page 2, the realization the part shows
+(1c) line 2	Comox-Sliammon	phonemic	/ʔǰ•ʔǰ=umiš/	page 2
+(1c) line 3	Comox-Sliammon	phonetic	[ʔiʔaǰumɨš]	page 2
+(1c) line 4	Gloria Mellesmoen	translation	‘very beautiful'	page 2
+(1d) line 1	Comox-Sliammon	phonetic	[č,ǰ]	page 2, the realization the part shows
+(1d) line 2	Comox-Sliammon	phonemic	/tǰ•taǰ̓•aǰ̓=us/	page 2
+(1d) line 3	Comox-Sliammon	phonetic	[tɩčtaʔǰeʔǰɩs]	page 2
+(1d) line 4	Gloria Mellesmoen	translation	‘cheeks’	page 2
+(1d) line 5	Gloria Mellesmoen	citation	(Blake 2000:47)	page 2, under the example
+(2a) line 1	Comox-Sliammon	phonetic	[g]	page 2, the realization the part shows
+(2a) line 2	Comox-Sliammon	phonemic	/hig=us/	page 2
+(2a) line 3	Comox-Sliammon	phonetic	[hegus]	page 2
+(2a) line 4	Gloria Mellesmoen	translation	‘chief’	page 2
+(2b) line 1	Comox-Sliammon	phonetic	[w,g]	page 2, the realization the part shows
+(2b) line 2	Comox-Sliammon	phonemic	/hi•hw•hig=us/	page 2
+(2b) line 3	Comox-Sliammon	phonetic	[hɛhəwhegʊs]	page 2
+(2b) line 4	Gloria Mellesmoen	translation	‘small chiefs’	page 2
+(2c) line 1	Comox-Sliammon	phonetic	[u,g]	page 2, the realization the part shows
+(2c) line 2	Comox-Sliammon	phonemic	/ɬw•ɬagt̓/	page 2
+(2c) line 3	Comox-Sliammon	phonetic	[ɬuːɬagɩt̓]	page 2
+(2c) line 4	Gloria Mellesmoen	translation	‘herring (pl)’	page 2
+(2d) line 1	Comox-Sliammon	phonetic	[k]	page 2, the realization the part shows
+(2d) line 2	Comox-Sliammon	phonemic	/t̓ig=qin=tn/	page 2
+(2d) line 3	Comox-Sliammon	phonetic	[t̓ɩkqetən]	page 2
+(2d) line 4	Gloria Mellesmoen	translation	‘dessert’	page 2
+(2e) line 1	Comox-Sliammon	phonetic	[xʷ]	page 2, the realization the part shows
+(2e) line 2	Comox-Sliammon	phonemic	/k̓ʷn-ng/	page 2
+(2e) line 3	Comox-Sliammon	phonetic	[k̓ʷənəxʷ]	page 2
+(2e) line 4	Gloria Mellesmoen	translation	‘see him/her’	page 2
+(2e) line 5	Gloria Mellesmoen	citation	(Blake 2000:47,327)	page 2, under the example
+§2	Gloria Mellesmoen	note	Blake (2000) finds that the voiced obstruents ([ǰ] and [g]) occur in an onset position, the glides ([y] and [w]) in a coda position, and the vowels ([i~e] and ([u~o]) as nuclei. The voiceless allophones occur exclusively in coda positions, with [č] and [k] before another voiceless obstruent and [xʷ] word-finally.	page 3
+§2.1	Gloria Mellesmoen	heading	2.1 Evidence for voicing type	page 3
+§2.1	Gloria Mellesmoen	note	Rice (2013) gives four types of evidence that distinguish Type I languages, where voiced and voiceless obstruents pattern together, or Type II, where voiced obstruents and sonorants pattern together. These types, given in Table 1, include variation in voicing, target patterning, trigger patterning, and historical patterns.	page 3
+Table 1	Gloria Mellesmoen	note	Table 1: Sources of evidence for two voicing patterns (from Rice 2013)	page 3, the table's caption
+Table 1 line 1	Gloria Mellesmoen	note	Evidence Type I Language Type II Language	page 3, Table 1
+Table 1 line 2	Gloria Mellesmoen	note	Variation in	page 3, Table 1
+Table 1 line 3	Gloria Mellesmoen	note	voicing Variation within obstruents Variation between voiced	page 3, Table 1
+Table 1 line 4	Gloria Mellesmoen	note	obstruents and sonorants	page 3, Table 1
+Table 1 line 5	Gloria Mellesmoen	note	Alternations:	page 3, Table 1
+Table 1 line 6	Gloria Mellesmoen	note	target patterning	page 3, Table 1
+Table 1 line 7	Gloria Mellesmoen	note	Target alternations between	page 3, Table 1
+Table 1 line 8	Gloria Mellesmoen	note	voiced and voiceless	page 3, Table 1
+Table 1 line 9	Gloria Mellesmoen	note	obstruents	page 3, Table 1
+Table 1 line 10	Gloria Mellesmoen	note	Target alternations between	page 3, Table 1
+Table 1 line 11	Gloria Mellesmoen	note	voiced obstruents and	page 3, Table 1
+Table 1 line 12	Gloria Mellesmoen	note	sonorants	page 3, Table 1
+Table 1 line 13	Gloria Mellesmoen	note	Trigger patterning Voiced obstruents are	page 3, Table 1
+Table 1 line 14	Gloria Mellesmoen	note	triggers	page 3, Table 1
+Table 1 line 15	Gloria Mellesmoen	note	Voiced obstruents and	page 3, Table 1
+Table 1 line 16	Gloria Mellesmoen	note	sonorants are triggers	page 3, Table 1
+Table 1 line 17	Gloria Mellesmoen	note	Historical patterns Shifts within obstruents Shifts from obstruent to	page 3, Table 1
+Table 1 line 18	Gloria Mellesmoen	note	sonorant	page 3, Table 1
+§2.1	Gloria Mellesmoen	note	As the development of voiced obstruents from resonants in Salish languages is suggested to involve a [SV] feature (Rice & Avery 1989:80), I hypothesize that voicing patterns in Comox-Sliammon will be more consistent with a Type II language. The synchronic evidence (the first three types in Table 1) is evaluated in Section 2, while the diachronic development is considered in Section 3.	page 3
+§2.1.1	Gloria Mellesmoen	heading	2.1.1 Variation in voicing: Type II	page 3
+§2.1.1	Gloria Mellesmoen	note	Rice (2013) uses phonetic variation to distinguish Type I and Type II languages. Type I languages may show variation in degree of voicing in obstruents, while Type II languages show variation between voiced obstruents and sonorants.	page 3
+§2.1.1	Gloria Mellesmoen	note	Nasals can be realized as voiced obstruents in Comox-Sliammon, consistent with a Type II voicing pattern. Gibbs (1877) transcribes b and d more frequently than m and n in the Island dialect. As shown in Table 2, b and d in Gibbs (1877) correspond to [m] or [n] in modern Mainland Comox.5,6 However, this is not categorical, as he transcribes a word-final m in ‘river’, matching modern Mainland Comox.	page 3
+footnote 5	Gloria Mellesmoen	note	There is an s in ‘mouth’ in Gibbs (1877) where I transcribe [θ] because Proto-Salish *c corresponds to /s/ in the Island dialect and /θ/ in the Mainland one (Kuipers 2002:3).	page 4, footnote 5
+footnote 6	Gloria Mellesmoen	note	Data not otherwise attributed comes from my own fieldwork sessions with speakers of Comox-Sliammon over a two-year period.	page 4, footnote 6
+Table 2	Gloria Mellesmoen	note	Table 2: Gibbs’ (1877) vs. (modern) Mainland Comox-Sliammon transcriptions	page 4, the table's caption
+Table 2 line 1	Gloria Mellesmoen	note	Gibbs (1877)	page 4, Table 2, a column head
+Table 2 line 1	Gloria Mellesmoen	note	(Modern) Mainland Comox-Sliammon	page 4, Table 2, a column head
+Table 2 line 1	Gloria Mellesmoen	note	Translation	page 4, Table 2, a column head
+Table 2 line 2	Comox-Sliammon	transcription	bo-osh’	page 4, Table 2, Gibbs (1877)
+Table 2 line 2	Comox-Sliammon	phonetic	[moʔos]	page 4, Table 2, (Modern) Mainland Comox-Sliammon
+Table 2 line 2	Gloria Mellesmoen	translation	‘head’	page 4, Table 2, Translation
+Table 2 line 3	Comox-Sliammon	transcription	datt	page 4, Table 2, Gibbs (1877)
+Table 2 line 3	Comox-Sliammon	phonetic	[nat]	page 4, Table 2, (Modern) Mainland Comox-Sliammon
+Table 2 line 3	Gloria Mellesmoen	translation	‘night’	page 4, Table 2, Translation
+Table 2 line 4	Comox-Sliammon	transcription	soh-sed	page 4, Table 2, Gibbs (1877)
+Table 2 line 4	Comox-Sliammon	phonetic	[θoθɩn]	page 4, Table 2, (Modern) Mainland Comox-Sliammon
+Table 2 line 4	Gloria Mellesmoen	translation	‘mouth’	page 4, Table 2, Translation
+Table 2 line 5	Comox-Sliammon	transcription	tai-gib	page 4, Table 2, Gibbs (1877)
+Table 2 line 5	Comox-Sliammon	phonetic	[t̓ʌgəm]	page 4, Table 2, (Modern) Mainland Comox-Sliammon
+Table 2 line 5	Gloria Mellesmoen	translation	‘moon’	page 4, Table 2, Translation
+Table 2 line 6	Comox-Sliammon	transcription	kwut’-tim	page 4, Table 2, Gibbs (1877)
+Table 2 line 6	Comox-Sliammon	phonetic	[q̓ʷatəm]	page 4, Table 2, (Modern) Mainland Comox-Sliammon
+Table 2 line 6	Gloria Mellesmoen	translation	‘river’	page 4, Table 2, Translation
+§2.1.1	Gloria Mellesmoen	note	Unlike Gibbs (1877), Harris (1981) does not report [b] and [d] in his Island Comox data. He further describes inconsistency in the distribution of [b] and [d] between Gibbs (1877), Tolmie and Dawson (1884), and Sapir (1915). If the alternation between nasals and voiced stops is phonetic variation, it is not surprising to find differences across speakers and lexical items.	page 4
+§2.1.1	Gloria Mellesmoen	note	Previous descriptions of the Mainland dialect have also found [b] and [d] in place of nasal segments. Blake (2000:27) provides two examples where variability occurs in a word final position, [ǰɛ́q̓ʷʌm ~ ǰɛ́q̓ʷʌb] ‘sweat, perspire’ and [čɪ́tuxʷʌn ~ čɪ́tuxʷʌd] ‘wild blackberry’. Davis (1970) suggests that this is generally restricted to the oldest speakers of the Mainland dialect. Working with speakers of the language in 2018, I have not found much evidence of [b] and [d].	page 4
+§2.1.1	Gloria Mellesmoen	note	Though modern speakers may not produce [b] and [d], they exhibit another type of phonetic variation that is consistent with a Type II language. Blake (2000:25) documents the pre-nasalization of word-initial /g/ in the Mainland dialect, describing it as “a phonetic effect which is variable”. Figure 1 shows an example of [ᵑg], produced at the beginning of the word gəq̓it ‘open’. There are visible formants in the spectrogram leading up to the stop release, consistent with pre-nasalization. To illustrate the phonetic variability in pre-nasalization, a corresponding word-initial /g/, produced by the same speaker, is given in Figure 2. Figure 2 is the spectrogram for the word giǰa ‘earth’. Though there is pre- voicing, evident from the voicing bar at the bottom of the spectrogram, there are no formants or audible nasalization.	page 4
+§2.1.1	Comox-Sliammon	cited form	gəq̓it	page 4, in italics, ‘open’
+§2.1.1	Comox-Sliammon	cited form	giǰa	page 4, in italics, ‘earth’
+Figure 1	Gloria Mellesmoen	note	Figure 1: Pre-nasalized word-initial /g/	page 5, the figure's caption
+Figure 2	Gloria Mellesmoen	note	Figure 2: Word-initial /g/ without pre-nasalization	page 5, the figure's caption
+§2.1.1	Gloria Mellesmoen	note	While Blake (2000) only found pre-nasalization with /g/, yielding an asymmetry with /ǰ/, the speaker in Figure 1 and 2 occasionally realizes an initial /ǰ/ with pre- nasalization. An example of this is shown in Figure 3, where there are formants before the stop release of the affricate in the production of the word ǰuθutič ‘I push’. The corresponding spectrogram in Figure 4 shows an example of a word- initial /ǰ/ in ǰəǰənixʷ ‘little fish’, from the same speaker, with no visible formants and no audible nasalization preceding the stop release. This variability in a word-initial position is found for different speakers and lexical items.	page 5
+§2.1.1	Comox-Sliammon	cited form	ǰuθutič	page 5, in italics, ‘I push’
+§2.1.1	Comox-Sliammon	cited form	ǰəǰənixʷ	page 5, in italics, ‘little fish’
+Figure 3	Gloria Mellesmoen	note	Figure 3: Pre-nasalized word-initial /ǰ/	page 6, the figure's caption
+Figure 4	Gloria Mellesmoen	note	Figure 4: Word-initial /ǰ/ without pre-nasalization	page 6, the figure's caption
+§2.1.1	Gloria Mellesmoen	note	The production of /m/ as [b] and /n/ as [d] and pre-nasalization of /g/ and /ǰ/ suggest a link between voiced obstruents and resonants in the modern grammar. This synchronic variation is consistent with Rice’s (2013) Type II languages.	page 6
+§2.1.2	Gloria Mellesmoen	heading	2.1.2 Target patterning in alternations: Type II	page 6
+§2.1.2	Gloria Mellesmoen	note	The patterning of phonological targets in alternations is the second type of evidence Rice (2013) considers in separating Type I and Type II voicing systems. Glottalization processes in Comox-Sliammon target resonants and voiced obstruents, providing support for a Type II voicing pattern.	page 6
+§2.1.2	Gloria Mellesmoen	note	Resonants in Comox-Sliammon, like in other Salish languages, can be either plain or glottalized (Blake 2000). Glottalization can be lexically specified or occur as part of a morphological process, such as imperfective or diminutive reduplication (Watanabe 2000:385,394). The data in (3) show glottalization accompanying imperfective reduplication (CV-). Consistent with a Type II language, glottalization can be assigned to a resonant (3a–c) or voiced obstruent (3d–e).	page 6
+(3a) line 1	Comox-Sliammon	transcription	luq̓ʷum	page 7
+(3a) line 2	Gloria Mellesmoen	translation	‘be stuck’	page 7
+(3a) line 3	Comox-Sliammon	transcription	lu•l̓uq̓ʷum	page 7
+(3a) line 4	Gloria Mellesmoen	translation	‘be getting stuck’	page 7
+(3b) line 1	Comox-Sliammon	transcription	mač̓at	page 7
+(3b) line 2	Gloria Mellesmoen	translation	‘grease it’	page 7
+(3b) line 3	Comox-Sliammon	transcription	ma•m̓ač̓at	page 7
+(3b) line 4	Gloria Mellesmoen	translation	‘greasing it’	page 7
+(3c) line 1	Comox-Sliammon	transcription	wuwum	page 7
+(3c) line 2	Gloria Mellesmoen	translation	‘sing’	page 7
+(3c) line 3	Comox-Sliammon	transcription	wu•w̓uwum	page 7
+(3c) line 4	Gloria Mellesmoen	translation	‘singing’	page 7
+(3d) line 1	Comox-Sliammon	transcription	gayatas	page 7
+(3d) line 2	Gloria Mellesmoen	translation	‘he asked her’	page 7
+(3d) line 3	Comox-Sliammon	transcription	ga•g̓ayatas	page 7
+(3d) line 4	Gloria Mellesmoen	translation	‘he is asking her’	page 7
+(3e) line 1	Comox-Sliammon	transcription	ǰaqnəxʷ	page 7
+(3e) line 2	Gloria Mellesmoen	translation	‘watch something’	page 7
+(3e) line 3	Comox-Sliammon	transcription	ǰa•ǰ̓aqnəxʷ	page 7
+(3e) line 4	Gloria Mellesmoen	translation	‘watching something’	page 7
+(3e) line 5	Gloria Mellesmoen	citation	(Watanabe 2003:395–396)	page 7, under the example
+§2.1.2	Gloria Mellesmoen	note	Comparing ejective obstruents with the glottalized resonants and voiced obstruents provides further evidence for a Type II voicing system. Blake (2000:56–59) suggests that the laryngeal feature constricted glottis, [cgl], is present in both ejective and glottalized consonants. Cross-linguistically, this can result in laryngeal feature agreement and the same phonological processes may target obstruent and sonorant segments specified with laryngeal features (Steriade 1997; Blevins 2003). This is not the case in Comox-Sliammon, however, as ejectives and glottalized resonants are not subject to the same alternations. In (4a–b), ejectives remain ejective in CVC plural reduplication, while glottalized resonants are copied as plain resonants in (4c–d).	page 7
+(4a) line 1	Comox-Sliammon	transcription	gəq̓	page 7
+(4a) line 2	Gloria Mellesmoen	translation	‘open’	page 7
+(4a) line 3	Comox-Sliammon	transcription	gəq̓•gəq̓	page 7
+(4a) line 4	Gloria Mellesmoen	translation	‘all of them opened’	page 7
+(4b) line 1	Comox-Sliammon	transcription	ʔaq̓at	page 7
+(4b) line 2	Gloria Mellesmoen	translation	‘chase him’	page 7
+(4b) line 3	Comox-Sliammon	transcription	ʔəq̓•ʔaq̓at	page 7
+(4b) line 4	Gloria Mellesmoen	translation	‘chase him all around’	page 7
+(4c) line 1	Comox-Sliammon	transcription	kʷum̓t	page 7
+(4c) line 2	Gloria Mellesmoen	translation	‘kelp’	page 7
+(4c) line 3	Comox-Sliammon	transcription	kʷum•kʷum̓t	page 7
+(4c) line 4	Gloria Mellesmoen	translation	‘lots of kelp’	page 7
+(4d) line 1	Comox-Sliammon	transcription	qin̓qin	page 7
+(4d) line 2	Gloria Mellesmoen	translation	‘duck’	page 7
+(4d) line 3	Comox-Sliammon	transcription	qən•qin̓qin	page 7
+(4d) line 4	Gloria Mellesmoen	translation	‘ducks’	page 7
+(4d) line 5	Gloria Mellesmoen	citation	Watanabe (2003:373,375)	page 7, under the example
+§2.1.2	Gloria Mellesmoen	note	The data in (5) confirm that voiced obstruents pattern with the resonants, rather than with the ejectives. The glottalization on the voiced obstruent in the base is not present on the corresponding segment in the reduplicant.7	page 7
+footnote 7	Gloria Mellesmoen	note	I only have data with /ǰ̓/ at this time, but I assume /g̓/ would behave the same.	page 7, footnote 7
+(5a) line 1	Comox-Sliammon	phonemic	/χəǰ̓-/	page 7, the root
+(5a) line 2	Comox-Sliammon	transcription	χəǰiš	page 7
+(5a) line 3	Gloria Mellesmoen	translation	‘rock’	page 7
+(5a) line 4	Comox-Sliammon	transcription	χəyχəǰ̓iš	page 7
+(5a) line 5	Gloria Mellesmoen	translation	‘rocks’	page 7
+(5b) line 1	Comox-Sliammon	phonemic	/čuǰ̓-/	page 7, the root
+(5b) line 2	Comox-Sliammon	transcription	čuy̓	page 7
+(5b) line 3	Gloria Mellesmoen	translation	‘child’	page 7
+(5b) line 4	Comox-Sliammon	transcription	čəyčuy̓	page 7
+(5b) line 5	Gloria Mellesmoen	translation	‘children’	page 7
+§2.1.2	Gloria Mellesmoen	note	The fact that voiced obstruents and resonants are targeted by glottalization processes that do not affect the voiceless obstruents is evidence that Comox- Sliammon has a Type II voicing system.	page 7
+§2.1.3	Gloria Mellesmoen	heading	2.1.3 Trigger patterning in alternations: Type I	page 7
+§2.1.3	Gloria Mellesmoen	note	Rice (2013) finds that some languages allow voiced obstruents and sonorants to trigger voicing alternations, to the exclusion of voiceless obstruents. This fits with a Type II language and is used as evidence for two types of voicing.	page 7
+§2.1.3	Gloria Mellesmoen	note	While the data thus far has suggested that Comox-Sliammon behaves like a Type II language, Blake (2000) describes voicing alternations in Comox- Sliammon that are triggered by voiceless obstruents. Examples of this alternation from (1) and (2) are restated in (6).	page 8
+(6a) line 1	Comox-Sliammon	phonetic	[č,ǰ]	page 8, the realization the part shows
+(6a) line 2	Comox-Sliammon	phonemic	/tǰ•taǰ̓•aǰ̓=us/	page 8
+(6a) line 3	Comox-Sliammon	phonetic	[tɩčtaʔǰeʔǰɩs]	page 8
+(6a) line 4	Gloria Mellesmoen	translation	‘cheeks’	page 8
+(6b) line 1	Comox-Sliammon	phonetic	[k]	page 8, the realization the part shows
+(6b) line 2	Comox-Sliammon	phonemic	/t̓ig=qin=tn/	page 8
+(6b) line 3	Comox-Sliammon	phonetic	[t̓ɩkqetən]	page 8
+(6b) line 4	Gloria Mellesmoen	translation	‘dessert’	page 8
+(6b) line 5	Gloria Mellesmoen	citation	(Blake 2000:47,327)	page 8, under the example
+§2.1.3	Gloria Mellesmoen	note	A voiceless obstruent ([k] or [č]) occurs before another voiceless obstruent, rather than the predicted resonant ([w] or [y]) that generally occurs in a coda position. While the data in (6) show voicing agreement in obstruent clusters, (7) shows that resonants are unaffected by a following voiceless obstruent.	page 8
+(7a) line 1	Comox-Sliammon	transcription	qəmsat	page 8
+(7a) line 2	Gloria Mellesmoen	translation	‘put away’	page 8
+(7b) line 1	Comox-Sliammon	transcription	məmkʷatas	page 8
+(7b) line 2	Gloria Mellesmoen	translation	‘he is eating it’	page 8
+(7c) line 1	Comox-Sliammon	transcription	punpun	page 8
+(7c) line 2	Gloria Mellesmoen	translation	‘spoons’	page 8
+(7d) line 1	Comox-Sliammon	transcription	lulq̓it	page 8
+(7d) line 2	Gloria Mellesmoen	translation	‘a little bit stuck’	page 8
+(7e) line 1	Comox-Sliammon	transcription	ʔaχiθawtxʷ	page 8
+(7e) line 2	Gloria Mellesmoen	translation	‘bedroom’	page 8
+(7f) line 1	Comox-Sliammon	transcription	taytayqaθut	page 8
+(7f) line 2	Gloria Mellesmoen	translation	‘moving from here to there’	page 8
+§2.1.3	Gloria Mellesmoen	note	Voicing agreement in obstruent clusters is more consistent with a Type I voicing system, with a [voice] feature. The voiceless obstruents act as a trigger for devoicing, only affecting the voiced obstruents, /g/ and /ǰ/. Voicing agreement suggests that a feature, such as laryngeal [voice], may be needed.	page 8
+§2.1.3	Gloria Mellesmoen	note	Sonorants are exempt from voicing agreement, though they do interact with voiceless obstruents in other phonological processes. This is shown in (8), where two examples of sonorant-obstruent interactions are given.8 In (8a), the /n/ in the root k̓ʷən ‘to see’ is deleted before the /t/ of the control transitivizer. A similar deletion pattern is found when a /n/ occurs before a /θ/ (Watanabe 2003:14). Additionally, the second person object suffix -anapi is sometimes produced as [- ampi], as in (8b), showing place assimilation between a nasal and a voiceless obstruent.	page 8
+footnote 8	Gloria Mellesmoen	note	Glossing abbreviations used in this paper are: 1SG.ERG = 1st person singular ergative subject, 1SG.IND = 1st person singular indicative subject, 2PL.OBJ = 2nd person plural object, 3ERG = 3rd person ergative subject, 3OBJ = 3rd person object, CAUS = causative transitivizer, CTR = control transitivizer, FUT = future, IMPF = imperfective, INCH = inchoative, MDL = middle, NTR = non-control transitivizer, PL = PLURAL, PST = past, and STV = stative.	page 8, footnote 8
+§2.1.3	Comox-Sliammon	cited form	k̓ʷən	page 8, in italics, ‘to see’
+(8a) line 1	Comox-Sliammon	transcription	k̓ʷət	page 8
+(8b) line 1	Comox-Sliammon	transcription	ʔaq̓nampič	page 8
+(8a) line 2	Comox-Sliammon	segmentation	k̓ʷən-t	page 8
+(8b) line 2	Comox-Sliammon	segmentation	ʔaq̓-n-anapi-č	page 8
+(8a) line 3	Comox-Sliammon	gloss	see-CTR	page 8
+(8b) line 3	Comox-Sliammon	gloss	chase-NTR-2PL.OBJ-1SG.IND	page 8
+(8a) line 4	Gloria Mellesmoen	translation	‘He sees it.’	page 8
+(8b) line 4	Gloria Mellesmoen	translation	‘I am chasing you all.’	page 8
+§2.1.3	Gloria Mellesmoen	note	Though obstruent and sonorant segments may interact in phonological processes in Comox-Sliammon, the voicing agreement is restricted to obstruents. The fact that voicing agreement is limited to obstruent clusters, to the exclusion of sonorant segments, is more consistent with a laryngeal [voice] feature, fitting a Type I system.	page 9
+§2.2	Gloria Mellesmoen	heading	2.2 Summary of synchronic voicing evidence	page 9
+§2.2	Gloria Mellesmoen	note	A preliminary summary of the synchronic evidence is given in Table 3. Given that the voiced obstruents in Comox-Sliammon developed from resonants, it was predicted that the language would have Type II patterns. As an interim generalization, it appears that Comox-Sliammon shows evidence of both Type I and Type II voicing patterns, which makes it unclear how Comox-Sliammon voicing should be categorized.	page 9
+Table 3	Gloria Mellesmoen	note	Table 3: Interim summary of Comox-Sliammon voicing (following Rice 2013)	page 9, the table's caption
+Table 3 line 1	Gloria Mellesmoen	note	Evidence Type I Language Type II Language	page 9, Table 3
+Table 3 line 2	Gloria Mellesmoen	note	Variation in voicing X	page 9, Table 3
+Table 3 line 3	Gloria Mellesmoen	note	Alternations: target patterning X	page 9, Table 3
+Table 3 line 4	Gloria Mellesmoen	note	Trigger patterning X	page 9, Table 3
+§2.2	Gloria Mellesmoen	note	While it is possible that Comox-Sliammon has a third type of voicing, a mix of Type I and II, this requires both [voice] and [SV]. In this case, the inclusion of [voice] is motivated by a single agreement pattern. The following section examines the distribution and frequency of the voiceless surface forms of /g/ and /ǰ/ to ascertain whether [voice] is necessary.	page 9
+§2.3	Gloria Mellesmoen	heading	2.3 Evidence for [voice] revisited	page 9
+§2.3	Gloria Mellesmoen	note	The fact that the voiced obstruents can become voiceless and that this can be triggered by an adjacent voiceless obstruent may be evidence for [voice]. The key generalizations are that /g/ becomes [xʷ] in a word-final position, while /g/ and /ǰ/ become [k] and [č], respectively, before a voiceless obstruent (Blake 2000:47). Despite these patterns, the occurrence of the voiceless allophones is far from categorical or systematic in Comox-Sliammon.	page 9
+§2.3.1	Gloria Mellesmoen	heading	2.3.1 [xʷ] from /g/	page 9
+§2.3.1	Gloria Mellesmoen	note	The non-control and causative transitivizers are used as evidence for [xʷ] being a surface form of /g/ (Blake 1992; Blake 2000; Watanabe 2003). This is contingent on examples with third person object where the non-control transitivizer is -əxʷ, from /-ng/, and the causative one is -sxʷ, from /-stg/, in these forms. In both cases, the third person object must be null. An example of each transitivizer is provided in (9), glossed to reflect these assumptions.	page 9
+§2.3.1	Comox-Sliammon	cited form	-əxʷ	page 9, in italics
+§2.3.1	Comox-Sliammon	cited form	-sxʷ	page 9, in italics
+(9a) line 1	Comox-Sliammon	transcription	qʷa•qʷay-sxʷ-as Bruno Daniel	page 10
+(9a) line 2	Comox-Sliammon	segmentation	CV•qʷay-stg-as Bruno Daniel	page 10
+(9a) line 3	Comox-Sliammon	gloss	IMPF•talk-CAUS-3ERG Bruno Daniel	page 10
+(9a) line 4	Gloria Mellesmoen	translation	‘Bruno is talking to Daniel.’	page 10
+(9b) line 1	Comox-Sliammon	transcription	niy-əxʷ-an-uɬ sǰasuɬ	page 10
+(9b) line 2	Comox-Sliammon	segmentation	niy-ng-an-uɬ sǰasuɬ	page 10
+(9b) line 3	Comox-Sliammon	gloss	forget-NTR-1SG.ERG-PST yesterday	page 10
+(9b) line 4	Gloria Mellesmoen	translation	‘I forgot it yesterday.’	page 10
+§2.3.1	Gloria Mellesmoen	note	In (9), [xʷ] occurs before ergative suffixes. However, /g/ is expected to surface as [g] in an onset position. This predicts that the verb in (9a) should actually be *qʷaqʷaysgas and the one in (9b) should actually be *niyəganuɬ. However, in the non-control and causative paradigms, [xʷ] always occurs with a third person object, regardless of its position in the word.	page 10
+§2.3.1	Comox-Sliammon	cited form	*qʷaqʷaysgas	page 10, in italics
+§2.3.1	Comox-Sliammon	cited form	*niyəganuɬ	page 10, in italics
+§2.3.1	Gloria Mellesmoen	note	There are also many lexical items where /g/ becomes [w] in a word-final position, rather than [xʷ]. The data in (10) show word-final /g/ realized as [w] with a grammatical affix in (10a), reduplicant in (10b), and bare root in (10c). Corresponding forms where /g/ remains faithful are given for comparison.	page 10
+(10a) line 1	Comox-Sliammon	segmentation	čiɬ-im-iw	page 10, the form on the left
+(10a) line 2	Comox-Sliammon	gloss	dance-MDL-PL	page 10, the form on the left
+(10a) line 3	Gloria Mellesmoen	translation	‘They are dancing.’	page 10, the form on the left
+(10a) line 4	Comox-Sliammon	segmentation	čiɬ-ig-im	page 10, the form on the right
+(10a) line 5	Comox-Sliammon	gloss	dance-PL-MDL	page 10, the form on the right
+(10a) line 6	Gloria Mellesmoen	translation	‘They are dancing.’	page 10, the form on the right
+(10b) line 1	Comox-Sliammon	segmentation	yəw̓	page 10, the form on the left
+(10b) line 2	Comox-Sliammon	gloss	dry.up	page 10, the form on the left
+(10b) line 3	Gloria Mellesmoen	translation	‘dried up’	page 10, the form on the left
+(10b) line 4	Comox-Sliammon	segmentation	yəg•əw	page 10, the form on the right
+(10b) line 5	Comox-Sliammon	gloss	dry.up•INCH	page 10, the form on the right
+(10b) line 6	Gloria Mellesmoen	translation	‘It’s getting dried up.’	page 10, the form on the right
+(10c) line 1	Comox-Sliammon	segmentation	təw̓	page 10, the form on the left
+(10c) line 2	Comox-Sliammon	gloss	ice	page 10, the form on the left
+(10c) line 3	Gloria Mellesmoen	translation	‘ice’	page 10, the form on the left
+(10c) line 4	Comox-Sliammon	segmentation	təg-it	page 10, the form on the right
+(10c) line 5	Comox-Sliammon	gloss	ice-STV	page 10, the form on the right
+(10c) line 6	Gloria Mellesmoen	translation	‘frozen’	page 10, the form on the right
+§2.3.1	Gloria Mellesmoen	note	Word-final /g/ is often [w] while the [xʷ] in the non-control and causative transitivizers does not alternate. While this challenges the generalization that /g/ is [xʷ] when word-final, it is only a problem if one assumes [xʷ] comes from a /g/. If one adopts the analysis in (11), following Mellesmoen (2017), and treats -xʷ as overt third person object agreement, [xʷ] is no longer a problem.	page 10
+§2.3.1	Comox-Sliammon	cited form	-xʷ	page 10, in italics
+(11a) line 1	Comox-Sliammon	transcription	qʷa•qʷay-s-xʷ-as Bruno Daniel	page 10
+(11a) line 2	Comox-Sliammon	segmentation	CV•qʷay-st-xʷ-as Bruno Daniel	page 10
+(11a) line 3	Comox-Sliammon	gloss	IMPF•talk-CAUS-3OBJ-3ERG Bruno Daniel	page 10
+(11a) line 4	Gloria Mellesmoen	translation	‘Bruno is talking to Daniel.’	page 10
+(11b) line 1	Comox-Sliammon	transcription	niy-əxʷ-an-uɬ sǰasuɬ	page 10
+(11b) line 2	Comox-Sliammon	segmentation	niy-ng-xʷ-an-uɬ sǰasuɬ	page 11
+(11b) line 3	Comox-Sliammon	gloss	forget-NTR-1SG.ERG-3OBJ-PST yesterday	page 11
+(11b) line 4	Gloria Mellesmoen	translation	‘I forgot it yesterday.’	page 11
+§2.3.1	Gloria Mellesmoen	note	The morpheme breakdown in (11) marks -xʷ as overt third person agreement and comes from /xʷ/, not /g/. This accounts for why it does not alternate with [g] when in an onset position. Adopting this analysis, [xʷ] can be left out of the analysis of /g/ because all the evidence for it comes from the non-control and causative examples.9 This means that [xʷ] cannot be taken as evidence for an alternation between voiced and voiceless obstruents.	page 11
+footnote 9	Gloria Mellesmoen	note	This has the advantage of making /ǰ/ and /g/ symmetrical in phonological behaviour.	page 11, footnote 9
+§2.3.2	Gloria Mellesmoen	heading	2.3.2 [k] from /g/ and [č] from /ǰ/	page 11
+§2.3.2	Gloria Mellesmoen	note	The strongest evidence for obstruent voicing comes from agreement in obstruent clusters, where /g/ and /ǰ/ surface as [k] and [č] before a voiceless consonant (Blake 2000). The examples of this given in (6) are restated in (12).	page 11
+(12a) line 1	Comox-Sliammon	phonetic	[č,ǰ]	page 11, the realization the part shows
+(12a) line 2	Comox-Sliammon	phonemic	/tǰ•taǰ̓•aǰ̓=us/	page 11
+(12a) line 3	Comox-Sliammon	phonetic	[tɩčtaʔǰeʔǰɩs]	page 11
+(12a) line 4	Gloria Mellesmoen	translation	cheeks	page 11, printed without quotes
+(12b) line 1	Comox-Sliammon	phonetic	[k]	page 11, the realization the part shows
+(12b) line 2	Comox-Sliammon	phonemic	/t̓ig=qin=tn/	page 11
+(12b) line 3	Comox-Sliammon	phonetic	[t̓ɩkqetən]	page 11
+(12b) line 4	Gloria Mellesmoen	translation	dessert	page 11, printed without quotes
+(12b) line 5	Gloria Mellesmoen	citation	(Blake 2000:47,327)	page 11, under the example
+§2.3.2	Gloria Mellesmoen	note	For feature agreement to occur, there must be a feature related to obstruent voicing, such as [voice]. However, the actual occurrence of [k] and [č] is marginal in the literature. The only examples given in Blake (2000) are in (12).10	page 11
+footnote 10	Gloria Mellesmoen	note	The only example from my own elicitation data is qəkqigaθ ‘deer’.	page 11, footnote 10
+footnote 10	Comox-Sliammon	cited form	qəkqigaθ	page 11, in italics, ‘deer’
+§2.3.2	Gloria Mellesmoen	note	Voicing agreement is not found in most lexical items with obstruent clusters. The examples in (13) demonstrate how /ǰ/ or /g/ can surface as [y] or [w], instead of [k] and [č], before a voiceless obstruent. This is observed for stops, fricatives, and affricates across different places of articulation.	page 11
+(13a) line 1	Comox-Sliammon	phonemic	/č̓ag=tn/	page 11
+(13a) line 2	Comox-Sliammon	phonetic	[č̓ɛwtən]	page 11
+(13a) line 3	Gloria Mellesmoen	translation	‘helper’	page 11
+(13a) line 4	Gloria Mellesmoen	citation	(Blake 2000:337)	page 11, the source at the right
+(13b) line 1	Comox-Sliammon	phonemic	/χʷǰ-t/	page 11
+(13b) line 2	Comox-Sliammon	phonetic	[χʷeyt]	page 11
+(13b) line 3	Gloria Mellesmoen	translation	‘stretch’	page 11
+(13b) line 4	Gloria Mellesmoen	citation	(Blake 2000:286)	page 11, the source at the right
+(13c) line 1	Comox-Sliammon	phonemic	/tg=qin/	page 11
+(13c) line 2	Comox-Sliammon	phonetic	[tuwqɛn]	page 11
+(13c) line 3	Gloria Mellesmoen	translation	‘answer back’	page 11
+(13c) line 4	Gloria Mellesmoen	citation	(Blake 2000:421)	page 11, the source at the right
+(13d) line 1	Comox-Sliammon	phonemic	/ǰ-ǰƛ̓	page 11
+(13d) line 2	Comox-Sliammon	phonetic	[ǰəyƛ̓]	page 11
+(13d) line 3	Gloria Mellesmoen	translation	‘running’	page 11
+(13d) line 4	Gloria Mellesmoen	citation	(Blake 2000:386)	page 11, the source at the right
+(13e) line 1	Comox-Sliammon	phonemic	kʷan=igs-m	page 11, printed with no slashes
+(13e) line 2	Comox-Sliammon	phonetic	[kʷanewsʌm]	page 11
+(13e) line 3	Gloria Mellesmoen	translation	‘rest’	page 11
+(13e) line 4	Gloria Mellesmoen	citation	(Blake 2000:399)	page 11, the source at the right
+(13f) line 1	Comox-Sliammon	phonemic	t̓ᶿaǰ=tn	page 11, printed with no slashes
+(13f) line 2	Comox-Sliammon	phonetic	[t̓ᶿaytən]	page 11
+(13f) line 3	Gloria Mellesmoen	translation	‘sun umbrella’	page 11
+(13f) line 4	Gloria Mellesmoen	citation	(Blake 2000:368)	page 11, the source at the right
+(13g) line 1	Comox-Sliammon	phonemic	qagθ	page 11, printed with no slashes
+(13g) line 2	Comox-Sliammon	phonetic	[qawθ]	page 11
+(13g) line 3	Gloria Mellesmoen	translation	‘potato’	page 11
+(13g) line 4	Gloria Mellesmoen	citation	(Blake 2000:36)	page 11, the source at the right
+(13h) line 1	Comox-Sliammon	phonemic	ǰ-ǰk̓ʷ	page 11, printed with no slashes
+(13h) line 2	Comox-Sliammon	phonetic	[ǰɛyk̓ʷ]	page 11
+(13h) line 3	Gloria Mellesmoen	translation	‘rubbing’	page 11
+(13h) line 4	Gloria Mellesmoen	citation	(Blake 2000:176)	page 11, the source at the right
+(13i) line 1	Comox-Sliammon	phonemic	q̓ʷaǰ̓χ	page 11, printed with no slashes
+(13i) line 2	Comox-Sliammon	phonetic	[q̓ʷey̓χ]	page 11
+(13i) line 3	Gloria Mellesmoen	translation	‘firewood’	page 11
+(13i) line 4	Gloria Mellesmoen	citation	(Blake 2000:351)	page 11, the source at the right
+(13j) line 1	Comox-Sliammon	phonemic	hg-higus	page 11, printed with no slashes
+(13j) line 2	Comox-Sliammon	phonetic	[hʌwhegʊs]	page 11
+(13j) line 3	Gloria Mellesmoen	translation	‘chiefs’	page 11
+(13j) line 4	Gloria Mellesmoen	citation	(Blake 2000:365)	page 11, the source at the right
+(13k) line 1	Comox-Sliammon	phonemic	k’ig-k’igm	page 11, printed with no slashes
+(13k) line 2	Comox-Sliammon	phonetic	[k̓ɛwk̓egɩm]	page 11
+(13k) line 3	Gloria Mellesmoen	translation	‘coyote’	page 11
+(13k) line 4	Gloria Mellesmoen	citation	(Blake 2000:371)	page 11, the source at the right
+§2.3.2	Gloria Mellesmoen	note	In (13a) and (13c), /ǰ/ and /g/ surface as glides before /t/ and /q/, respectively. These environments match those in (12), where agreement occurs. Further, voicing assimilation does not apply in the opposite direction. The voiced obstruents in (14) are not devoiced, even though voiceless consonants follow.	page 12
+(14a) line 1	Comox-Sliammon	phonemic	ɬaχg-t	page 12, printed with no slashes
+(14a) line 2	Comox-Sliammon	phonetic	[ɬaχgʌt]	page 12
+(14a) line 3	Gloria Mellesmoen	translation	‘to destroy it’	page 12
+(14a) line 4	Gloria Mellesmoen	citation	(Blake 2000:371)	page 12, the source at the right
+(14b) line 1	Comox-Sliammon	phonemic	t-tg=qin̓	page 12, printed with no slashes
+(14b) line 2	Comox-Sliammon	phonetic	[tətgaqɛn̓]	page 12
+(14b) line 3	Gloria Mellesmoen	translation	‘answering back’	page 12
+(14b) line 4	Gloria Mellesmoen	citation	(Blake 2000:39)	page 12, the source at the right
+(14c) line 1	Comox-Sliammon	phonemic	χpǰaʔan=kʷu	page 12, printed with no slashes
+(14c) line 2	Comox-Sliammon	phonetic	[χʌpǰɛʔʌnkʷu]	page 12
+(14c) line 3	Gloria Mellesmoen	translation	‘back eddy’	page 12
+(14c) line 4	Gloria Mellesmoen	citation	(Blake 2000:435)	page 12, the source at the right
+(14d) line 1	Comox-Sliammon	phonemic	ɬik̓ʷ=ǰan	page 12, printed with no slashes
+(14d) line 2	Comox-Sliammon	phonetic	[ɬik̓ʷǰɛn]	page 12
+(14d) line 3	Gloria Mellesmoen	translation	‘to repair a net’	page 12
+(14d) line 4	Gloria Mellesmoen	citation	(Blake 2000:345)	page 12, the source at the right
+§2.3.2	Gloria Mellesmoen	note	Voicing agreement in obstruents clusters is quite limited. More often, a voiced obstruent will be realized as a glide before another consonant. The voicing agreement in obstruent clusters does not appear to be productive and therefore does not provide strong motivation for [voice].	page 12
+§2.4	Gloria Mellesmoen	heading	2.4 Comox-Sliammon: Type II language	page 12
+§2.4	Gloria Mellesmoen	note	The evidence considered in this paper allows Comox-Sliammon to be classified as a Type II language in the voicing typology proposed by Rice and Avery (1989). The potential exception to this was found in the voiceless surface forms of /g/ and /ǰ/, which are more consistent with a [voice] feature in a Type I system. However, the voiceless allophones of /g/ and /ǰ/ are very marginal and do not represent phonologically regular alternations. Setting these aside as exceptions, the grammar of Comox-Sliammon adheres to the Type II patterns described by Rice (2013). This suggests that [SV] is sufficient to account for the data. A [voice] feature is not needed in Comox-Sliammon.11	page 12
+footnote 11	Gloria Mellesmoen	note	Though this is not knockdown evidence by itself and does not really fit elsewhere, it is relevant to note that voiceless obstruents replace voiced obstruents in loanwords from English. For example, the /g/ and /b/ in the English word gumboots become /k/ and /p/ in [kæmputs] and the /ǰ/ in engine becomes /č/ in [ʔɛnčɩn]. This suggests, minimally, that voicing in English is different than voicing in Comox-Sliammon.	page 12, footnote 11
+footnote 11	Gloria Mellesmoen	language	English	loanwords voiceless for voiced, footnote 11
+§2.4	Gloria Mellesmoen	note	A [SV] feature, present on resonants and voiced obstruents, allows them to be targeted to the exclusion of the voiceless obstruents. Blake (2000:49) achieves a similar result with the use of the traditional feature [sonorant], which is assigned to voiced obstruents as well as resonants. Though many of the generalizations and motivations are similar to those described in Blake (2000), I adopt the [SV] feature proposed by Rice and Avery (1989) and Rice (1993) instead of [sonorant]. [SV] captures that this is a distinct type of voicing that is not restricted to sonorant consonants and, crucially for the Comox-Sliammon data, is found with obstruents as well.	page 12
+§3	Gloria Mellesmoen	heading	3 The diachronic development of voiced obstruents	page 12
+§3	Gloria Mellesmoen	note	The fourth type of evidence that Rice (2013) presents is diachronic. Type I systems show a shift in voicing between obstruents, while shifts between sonorants and obstruents are found in Type II systems. The development of nasals from voiced obstruents in Twana and Lushootseed, other Central Salish languages, are given as examples of this Type II pattern.	page 12
+§3	Gloria Mellesmoen	note	Proto-Salish *y and *w became /ǰ/ and /g/ in Comox-Sliammon, respectively, consistent with a Type II voicing system. Further, the synchronic facts do indicate that Comox-Sliammon voiced obstruents are specified for spontaneous voice ([SV]), rather than laryngeal voice ([voice]). The simplest explanation for this is that /ǰ/ and /g/ have retained sonorant voicing, despite becoming obstruents. The voiced obstruents have retained [SV] and therefore can be targeted by the same phonological processes that affect resonants, such as glottalization, to the exclusion of voiceless obstruents.	page 13
+§3	Gloria Mellesmoen	note	While proposing the retention of [SV] fits with contemporary patterns in Comox-Sliammon, it diverges from the previous account of this change. Thompson and Sloat (2004) reconstruct an intermediate *č between Proto-Salish *y and /ǰ/. Though this analysis unifies the patterns found in different Central Salish languages, it is less cohesive with the Type II voicing patterns found in Comox-Sliammon. The change between a voiceless and voiced obstruent is characteristic of a Type I language and further suggests the presence of a [voice] feature, mediating the shift from voiceless to voiced obstruent. Reconstructing a voiceless obstruent between the *y in Proto-Salish and /ǰ/ in Comox-Sliammon suggests that the features associated with sonorant voicing were originally present, lost, and then regained. It is unclear what would motivate this.	page 13
+§3	Comox-Sliammon	cited form	*č	page 13, in italics
+§3.1	Gloria Mellesmoen	heading	3.1 An alternate analysis	page 13
+§3.1	Gloria Mellesmoen	note	As suggested at the outset of Section 3, the simplest explanation for the development of voiced obstruents in Comox-Sliammon is that they retain the same voicing specification as the Proto-Salish resonants.	page 13
+§3.1	Gloria Mellesmoen	note	Unlike Thompson and Sloat (2004), I do not reconstruct an intermediate step between *y and /ǰ/ for Comox-Sliammon. Instead, I propose that /ǰ/ came directly from *y, retaining [SV] and thus maintaining the type of voicing associated with a resonant. This captures the historical connection between resonants and voiced obstruents while accounting for the Type II voicing patterns present in the synchronic grammar. This does not require a [voice] feature. This analysis can also be extended to the development of Proto-Salish *w into /g/, which Thompson and Sloat (2004) do not consider.	page 13
+§3.1	Gloria Mellesmoen	note	Comparing reflexes of Proto-Salish *y and *w given in Kuipers (2002) allows for several generalizations. There are the languages where Proto-Salish *w and *y remain /w/ and /y/, including Squamish and Bella Coola. These can be separated from languages where *y has shifted. Only *y shifted in Lillooet and Thompson. In others, including Lushootseed and Comox-Sliammon, both *y and *w shifted. There are no languages where only *w shifted.	page 13
+§3.1	Gloria Mellesmoen	language	Squamish	Central Salish, *w and *y remain
+§3.1	Gloria Mellesmoen	language	Bella Coola	*w and *y remain
+§3.1	Gloria Mellesmoen	language	Lillooet	Interior Salish, only *y shifted; has /ɣ/
+§3.1	Gloria Mellesmoen	note	Reflexes of Proto-Salish *y in the shifting languages are either voiced or voiceless. The voiceless variant /č/ occurs in Straits, while voiced obstruents occur in the other ones (Thompson & Sloat 2004). One of the diachronic developments that sets Straits apart from the other Central Salish *y-shifting languages is that Proto-Salish *k developed past a *č to /c/, /s/, or /θ/, depending on the dialect (Kuipers 2002). It is likely that Proto-Salish *k began to shift before *y did, given that the change is found in more languages. If *k had already shifted past a *č when *y began to change, there would be no risk of losing the contrast between words with Proto-Salish *y and *k. The other Central Salish *y-shifting languages also underwent the *k > /č/ change, but did not undergo the subsequent shift that occurred in Straits.12 The presence of /č/ in these languages, from Proto-Salish *k, could serve to block *y becoming /č/. In this case, retaining the [SV] feature associated with resonants would distinguish the reflexes of *y and *k. A testable prediction is that the reflexes of *y (and likely *w) in dialects of Straits should not show evidence of sonorant voicing in their phonological patterns.	page 13
+footnote 12	Gloria Mellesmoen	note	I set aside the Interior Salish languages, given that reflexes of *y are not palatal and *k > /č/ shift (or lack thereof) is likely less relevant. This is a question for future work.	page 14, footnote 12
+§3.1	Gloria Mellesmoen	language	Straits	Central Salish, *y to voiceless /č/
+§3.1	Gloria Mellesmoen	note	The development of *w parallels *y. For example, Straits has a voiceless obstruent, /kʷ/, while the other languages have a voiced one, /g/ or /gʷ/. Additionally, similar phonological alternations are found. In Comox-Sliammon, /g/ only surfaces as [g] when in an onset position, paralleling how /ǰ/ is only realized as [ǰ] when it is in the onset of a syllable. Reflexes of *w also show evidence of sonorant voicing, with /g/ patterning like a resonant.	page 14
+§3.1	Gloria Mellesmoen	note	Proto-Salish *w not shifting in Lillooet and Thompson may also be due to their phonemic inventories. Of the *y-shifting languages, Lillooet and Thompson are the only ones to have /ɣ/ (Kuipers 2002). Van Eijk (2011:4) describes /ɣ/ and /ɣ̓/ in Lillooet as resonants which are “the velarized counterparts of y y̓”. He further suggests that /w/ and /w̓/ can be treated as the “rounded counterparts of ɣ ɣ̓” (Van Eijk 2011:253). This suggests that /ɣ/ and /ɣ̓/ have sonorant qualities, much like the voiced obstruents that develop from Proto-Salish *w in other languages, and that they are quite similar in place of articulation to /w/ and /w̓/. The failure of Proto-Salish *w to shift in Lillooet and Thompson may be explained by the fact that they already have /ɣ/ in their phonemic inventories, which is a voiced velar obstruent that behaves like a resonant.13 Producing /w/ closer to an obstruent, with a narrower constriction or more turbulent airflow, would bring it closer to the realization of /ɣ/. Thus, while Lillooet and Thompson underwent *y-shifting, /ɣ/ is a likely candidate to block a parallel development of Proto-Salish *w.	page 14
+footnote 13	Gloria Mellesmoen	note	The presence of /ɣ/ in Lillooet and Thompson provides a potential explanation for why Proto-Salish *y developed into /z/, rather than an affricate. Already having a fricative-like resonant may have guided the development of Proto-Salish *y toward a similar manner of articulation to promote some sort of symmetry in the sound system.	page 14, footnote 13
+§4	Gloria Mellesmoen	heading	4 Future questions	page 14
+§4	Gloria Mellesmoen	note	Glottalization must also be considered in the treatment of resonants. There is a gap in the distribution of glottalized resonants in some Salish languages. Glottalized resonants do not occur word-initially in Comox-Sliammon (Blake 2000) and are reportedly rare in Lillooet (Bird et al. 2008), which both underwent *y-shifting. However, Bird et al. (2008) also report that Thompson does not demonstrate a similar onset restriction, suggesting that there may be a more complicated interaction between glottalization and the word-initial position.14 If the word-initial position was where *y-shifting originated, there may be a correlation with whether glottalization is licensed in a word-initial position and with what frequency it occurs.	page 14
+footnote 14	Gloria Mellesmoen	note	Jimmie (1994) only lists one /z̓/-initial root, z̓əχ. It is possible that word-initial glottalization is permitted in Thompson, but has a much more limited distribution for word-initial /z/ from Proto-Salish *y than other resonants.	page 15, footnote 14
+footnote 14	Comox-Sliammon	cited form	z̓əχ	page 15, in italics
+§4	Gloria Mellesmoen	note	Thompson and Sloat (2004) report stylistic alternations involving Proto- Salish *y that are outside the scope of this paper to consider, though they suggest a more complicated layer in its development. For example, the use of [y] or [ǰ] in Quinault in diminutive constructions corresponds to the degree of diminutiveness. Thompson and Sloat (2004) also report unexpected surface forms in the speech of characters in stories in Comox-Sliammon and Lushootseed, spirit-related speech in Straits, and female-related speech in Lushootseed. Other exceptions include adverbs, which are found to not always undergo the expected shifts in Lushootseed, Quinault, and Lummi, as well as in the semantic domain of garments in Lushootseed and Twana. It is unclear if the same applies for *w, though this is something that should be examined in future work. If the changes between Proto-Salish *y and *w are truly parallel, the reflexes of *w should also show similar stylistic alternations.	page 15
+§4	Gloria Mellesmoen	language	Quinault	[y] or [ǰ] in diminutives
+§4	Gloria Mellesmoen	language	Lummi	a Straits language, adverbs that do not shift
+§4	Gloria Mellesmoen	note	More generally, the development of Proto-Salish *w deserves further study. In this paper, I suggest the presence of /ɣ/ in Lillooet and Thompson may block *w-shifting. Though *ɣ is reconstructed in Proto-Salish, it only occurs in the Interior Salish languages (Kuipers 2002). Little is known about its acoustics, though Van Eijk (2011) speculates that it is articulated like a retracted [y] in Lillooet. Examining [ɣ] and contrasting it to [y] and [w] in these languages may prove useful in understanding why (or if) /ɣ/ would have blocked *w-shifting. The development of Proto-Salish *y and *w deserves further examination in the Interior Salish languages.	page 15
+§4	Comox-Sliammon	cited form	ɣ	page 15, in italics
+§5	Gloria Mellesmoen	heading	5 Conclusion	page 15
+§5	Gloria Mellesmoen	note	The evidence presented in this paper argues for a [SV] feature in Comox- Sliammon, rather than [voice]. Comox-Sliammon is a Type II language under Rice and Avery’s (1989) typology of voicing systems. This is not consistent with reconstructing an intermediate voiceless obstruent between the Proto-Salish glides and the Comox-Sliammon voiced obstruents. Instead, it is more likely that [SV] was retained in their development, suggesting no intermediate step. More broadly, the actual identity of the resulting obstruents across different Salish languages appears to be influenced by the other ongoing changes and their phonemic inventories. Overall, a laryngeal [voice] feature is not needed for a synchronic or diachronic analysis.	page 15
+references	Gloria Mellesmoen	heading	References	page 16
+references	Gloria Mellesmoen	reference	Bird, S., Caldecott, M., Campbell, F., Gick, B., & Shaw, P. A. (2008). Oral– laryngeal timing in glottalised resonants. Journal of Phonetics, 36(3), 492– 507.	page 16
+references	Gloria Mellesmoen	reference	Blake, S. J. (1992). Two aspects of Sliammon phonology (Master’s thesis, University of British Columbia).	page 16
+references	Gloria Mellesmoen	reference	Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives (Doctoral dissertation, University of British Columbia).	page 16
+references	Gloria Mellesmoen	reference	Blevins, J. (2003). The phonology of Yurok glottalized sonorants: Segmental fission under syllabification. International Journal of American Linguistics, 69(4), 371–396.	page 16
+references	Gloria Mellesmoen	reference	Chomsky, N., & Halle, M. (1968). The sound pattern of English. New York: Harper & Row.	page 16
+references	Gloria Mellesmoen	reference	Davis, J. H. (1970). Notes on Mainland Comox phonology. Papers for ICSNL, 5.	page 16
+references	Gloria Mellesmoen	reference	Davis, J. H. (2005). High consonants, articulatory transitions, and nonhigh vowels in Comox. Papers for ICSNL, 40, 89–97.	page 16
+references	Gloria Mellesmoen	reference	First Peoples’ Cultural Council. (2014). Report on the Status of B.C. First Nations Languages. Retrieved from http://www.fpcc.ca/files/PDF/ Language/FPCC-LanguageReport-141016-WEB.pdf	page 16
+references	Gloria Mellesmoen	reference	Gibbs, G. (1877). Vocabulary of the Ko-mookhs. In J. W. Powell, Contributions to North American ethnology, vol. 1 (269–283). Washington: Department of the Interior.	page 16
+references	Gloria Mellesmoen	reference	Harris, H. R. (1981). A grammatical sketch of Comox (Doctoral dissertation, University of Kansas).	page 16
+references	Gloria Mellesmoen	reference	Jimmie, M. (1994). A prosodic analysis of Nłek̉epmx reduplication (Masters thesis, University of British Columbia).	page 16
+references	Gloria Mellesmoen	reference	Kuipers, A. H. (2002). Salish etymological dictionary (No. 16). Linguistics Laboratory University of Montana.	page 16
+references	Gloria Mellesmoen	reference	Mellesmoen, G. 2017. Overt third person object agreement in ʔayʔaǰuθəm. Papers for ICSNL 52, 171–194.	page 16
+references	Gloria Mellesmoen	reference	Rice, K., & Avery, P. (1989). On the interaction between sonorancy and voicing. Toronto Working Papers in Linguistics, 10.	page 16
+references	Gloria Mellesmoen	reference	Rice, K. (1993). A reexamination of the feature [sonorant]: the status of ‘sonorant obstruents’. Language, 308–344.	page 17
+references	Gloria Mellesmoen	reference	Rice, K. (2013). Sonorant obstruents revisited. Paper presented at the International Conference on Phonetics and Phonology, Tokyo, Japan.	page 17
+references	Gloria Mellesmoen	reference	Sapir, E. (1915). Noun reduplication in Comox. A Salish language of Vancouver Island, Canada. Department of Mines, Geological Survey, Memoir, 63, 4.	page 17
+references	Gloria Mellesmoen	reference	Steriade, D. (1997). Phonetics in phonology: the case of laryngeal neutralization. Ms.	page 17
+references	Gloria Mellesmoen	reference	Thompson, N.R. & Sloat, C.D. (2004). New insights concerning Proto-Salish *y in Coastal Salishan. In D. B. Gerdts & L. Matthewson (Eds.), Studies in Salish linguistics in honor of M. Dale Kinkade (377–404).	page 17
+references	Gloria Mellesmoen	reference	Tolmie, W. F., & Dawson, G. M. (1884). Comparative Vocabularies of the Indian Tribes of British Columbia: With a Map Illustrating Distribution. Dawson Bros.	page 17
+references	Gloria Mellesmoen	reference	Van Eijk, J. (2011). The Lillooet language: Phonology, morphology, syntax. UBC Press.	page 17
+references	Gloria Mellesmoen	reference	Watanabe, H. (2003). A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Endangered Languages of the Pacific Rim, Faculty of Informatics, Osaka Gakuin University.	page 17

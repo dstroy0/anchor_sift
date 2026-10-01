@@ -1,0 +1,572 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen and Suzanne Urbanczyk	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+title	Gloria Mellesmoen and Suzanne Urbanczyk	title	Reduplication and “Vowel Reduction” in Lushootseed*	page 1, the title, its star the acknowledgement footnote's
+title	Gloria Mellesmoen and Suzanne Urbanczyk	note	Gloria Mellesmoen Suzanne Urbanczyk University of British Columbia University of Victoria	page 1, the authors and their affiliations
+title	Gloria Mellesmoen and Suzanne Urbanczyk	name	Gloria Mellesmoen	author, University of British Columbia
+title	Gloria Mellesmoen and Suzanne Urbanczyk	name	Suzanne Urbanczyk	author, University of Victoria
+front	Gloria Mellesmoen and Suzanne Urbanczyk	note	Abstract: This paper reviews patterns of reduplication and vowel reduction in Lushootseed. Zimmermann (2021) provides a case study of Lushootseed vowel reduction in diminutive reduplication to motivate the Copying-Weakening-Implication (CWI). The CWI predicts that there are languages in which vowel reduction only occurs in reduplication. We outline the core features of the model and identify empirical issues with the CWI, presenting an analysis of the Lushootseed diminutive reduplication and “vowel reduction” that uses Gradient Symbolic Representations (Smolensky & Goldrick 2016). This analysis accounts for a wider range of data without the necessary assumptions of the CWI. We then discuss some problematic predictions of the CWI and conclude that treating reduplication as weakening is not necessary for analyzing Lushootseed reduplication, and further introduces additional complications from a cross-linguistic perspective. Keywords: Lushootseed, reduplication, vowel reduction, Gradient Symbolic Representations	page 1, the abstract
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Salish languages exhibit a wide and diverse array of reduplication patterns, with multiple meanings and shapes (including size, position, and segmental properties). These diverse properties make Salish languages ideal for case studies to test and confirm models of reduplication. A recent model of reduplication called the Copying-Weakening-Implication (CWI) has been developed by Zimmermann (2021). The CWI makes predictions about patterns of vowel reduction and reduplication. A central prediction of the CWI is that languages that may not have any general process of vowel reduction may permit vowel reduction in reduplication. She describes Lushootseed diminutive reduplication as an example of this, giving the patterns in (1). There are several diminutive reduplication patterns shown in (1): a copy of the first consonant and vowel of the root, with “reduction” to schwa in (1a), copying the first consonant and placing it after the stressed vowel in (1b), and a copy of the first consonant with a fixed vowel /i/ in (1c).	page 1
+(1) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Diminutive reduplication in Lushootseed (Bates et al. 1994; Urbanczyk 2001)1	page 1, the caption
+(1a) line 1	Lushootseed	transcription	yúbil	page 1, the orthography
+(1a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘die, starve’	page 1
+(1a) line 1	Lushootseed	transcription	yú-yəbil	page 1, the orthography
+(1a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small animal dies’	page 1
+(1a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 207)	page 1
+(1a) line 2	Lushootseed	transcription	s-bádil	page 1, the orthography
+(1a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘mountain’	page 1
+(1a) line 2	Lushootseed	transcription	s-bá-bədil	page 1, the orthography
+(1a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small mountain’	page 1
+(1a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 192)	page 1
+(1a) line 3	Lushootseed	transcription	ʔágʷal-əb	page 1, the orthography
+(1a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘yawn’	page 1
+(1a) line 3	Lushootseed	transcription	ʔa-ʔəgʷál-əb	page 1, the orthography
+(1a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘yawn’	page 1, carries footnote 2, written here without its digit
+(1a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 191)	page 1
+(1b) line 1	Lushootseed	transcription	ʔúsil	page 1, the orthography
+(1b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘dive’	page 1
+(1b) line 1	Lushootseed	transcription	ʔú-ʔsil	page 1, the orthography
+(1b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘shallow dive’	page 1
+(1b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 192)	page 1
+(1b) line 2	Lushootseed	transcription	kúpi	page 1, the orthography
+(1b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘coffee’	page 1
+(1b) line 2	Lushootseed	transcription	kú-kpi	page 1, the orthography
+(1b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little coffee’	page 1
+(1b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 196)	page 1
+(1b) line 3	Lushootseed	transcription	sáq̓ʷ	page 1, the orthography
+(1b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fly’	page 1
+(1b) line 3	Lushootseed	transcription	sá-sq̓ʷ	page 1, the orthography
+(1b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fly just a little bit’	page 1
+(1b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 201)	page 1
+footnote *	Gloria Mellesmoen and Suzanne Urbanczyk	note	* We are grateful to each other for the opportunity to nerd out about Salish reduplication ☺. We are also grateful to Daniel Reisinger and Julia Schillo for their helpful comments and excellent editorial advice. Contact info: Gloria Mellesmoen: gloria.mellesmoen@ubc.ca; Suzanne Urbanczyk: urbansu@uvic.ca	page 1, footnote
+footnote 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	1 Examples throughout the paper are presented in the North American Phonetic Alphabet (NAPA), in which the voiceless uvular fricative is represented as [x̌]. Unless stated otherwise, page numbers for the Lushootseed forms refer to the Appendix in Urbanczyk (2001).	page 1, footnote
+§1	Lushootseed	cited form	x̌	page 1
+footnote 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	2 This example is a diminutive in form, though the translation given by Bates et al. (1994) is ‘yawn’.	page 1, footnote
+(1c) line 1	Lushootseed	transcription	dú:kʷ	page 2, the orthography
+(1c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘knife’	page 2
+(1c) line 1	Lushootseed	transcription	dí-du:kʷ	page 2, the orthography
+(1c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small knife’	page 2
+(1c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 195)	page 2
+(1c) line 2	Lushootseed	transcription	dáʔ(a)	page 2, the orthography
+(1c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘name, call’	page 2
+(1c) line 2	Lushootseed	transcription	dí-daʔa-t-əb	page 2, the orthography
+(1c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘name, calling’	page 2
+(1c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 194)	page 2
+(1c) line 3	Lushootseed	transcription	č̓sáy	page 2, the orthography
+(1c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘salmon spear’	page 2
+(1c) line 3	Lushootseed	transcription	č̓i-č̓sày	page 2, the orthography
+(1c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘toy spear’	page 2, carries footnote 3, written here without its digit
+(1c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 194)	page 2
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The patterns summarized in (1), which Zimmermann (2021) considers in her case study of Lushootseed, are all attested; however, we note that they represent only a subset of the reduplication patterns in Lushootseed. First, the pattern of “vowel reduction” associated with diminutive reduplication is a bit more complex, because there are many words which faithfully copy the root vowel, which is not predicted under the CWI. Second, Zimmermann does not consider the other reduplicative morphemes in Lushootseed, which should be equally susceptible to vowel reduction under the CWI.	page 2
+§1	Gloria Mellesmoen and Suzanne Urbanczyk	note	In this paper, we consider Zimmermann’s approach (Section 2) and illustrate how it is unable to account for the full range of diminutive forms in Lushootseed. We then present an analysis of diminutive reduplication, using Gradient Symbolic Representations (GSR; Smolensky & Goldrick 2016) in Section 3. This analysis does not require any extra assumptions about reduplication, other than what has already been proposed and accepted widely. We then discuss other predictions of the CWI that are typically odd or unattested (Section 4). We conclude that the CWI is not necessary for Lushootseed diminutive reduplication, and further that it makes some undesirable predictions with respect to reduplication more broadly.	page 2
+§2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2 CWI and Lushootseed reduplication	page 2
+§2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The CWI “predicts that copied elements are more likely to undergo phonological reduction and that reduction in a non-copying context implies reduction in a copying context, but not vice versa” (Zimmermann 2021:1). The model is based on two core assumptions: (i) reduplication is formalized as fission from a single segment in the input to multiple segments in the output, and (ii) each one of the fissioned segments in the output is weakened. The CWI assumes GSRs, in which every segment in the input will have an activity level. Zimmermann (2021) assumes that input segments have an activity level of 1 and this activity is split evenly among output segments in fission; when there is a single copy (1 input segment mapped to 2 output segments), each output segment has an activity level of 0.5. This section outlines the basic components of that model (Section 2.1), before providing a more complete picture of Lushootseed reduplication and vowel reduction (Section 2.2). We provide an analysis of the reduplication and reduction pattern in Section 3, showing that the extra complications introduced by the CWI model are not needed, and in fact make incorrect predictions for Lushootseed reduplication.	page 2
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.1 CWI	page 2
+footnote 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	3 This form was only listed with secondary stress in the Lushootseed Dictionary, but one would expect the initial vowel to have primary stress in this case.	page 2, footnote
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The central insight for the CWI comes from applying concepts from GSRs (Smolensky & Goldrick 2016) to the process of segmental fission. In the model of reduplication Zimmermann (2021) assumes, copying occurs via fission to fill an empty prosodic unit (also known as Generalized Nonlinear Affixation; Bermúdez-Otero 2012). While an input segment has full strength (activity level 1.0), fissioned segments divide up the strength equally, and thus only have half or one third the strength of an input segment (activity level 0.5 or 0.33, respectively), depending on the type of reduplication. The more copies of a single segment, the weaker the activity of all corresponding output segments. We start the discussion by first reviewing the central insights behind GSR, followed by an overview of Zimmermann’s analysis.	page 2
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	In the framework of GSR, representations are non-discrete and may be made up of gradient symbols (Smolensky & Goldrick 2016). For example, segments in GSR may be partially active, which means they have an activity level greater than zero but less than 1.0. GSR is well-suited for analyzing exceptional patterns, such as vowel deletion in Palauan (Hsu 2022). As can be seen below some stem vowels undergo deletion in Palauan (2a), while others retain the vowel (2b).	page 3
+(2) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Palauan variable vowel deletion (Hsu 2022:4)	page 3, the caption
+(2a) line 1	Palauan	transcription	ðíŋəs	page 3, the orthography
+(2a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘satisfaction’	page 3
+(2a) line 1	Palauan	transcription	θŋəs-ɛ́ l	page 3, the orthography
+(2a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘his/her satisfaction’	page 3
+(2a) line 2	Palauan	transcription	ðík	page 3, the orthography
+(2a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘wedge’	page 3
+(2a) line 2	Palauan	transcription	θk-ɛ́ l	page 3, the orthography
+(2a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘his/her wedge’	page 3
+(2b) line 1	Palauan	transcription	ðíŋ	page 3, the orthography
+(2b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘ear’	page 3
+(2b) line 1	Palauan	transcription	ðiŋá-l	page 3, the orthography
+(2b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘his/her ear’	page 3
+(2b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(/a/ is part of the stem)	page 3
+(2b) line 2	Palauan	transcription	ðóko	page 3, the orthography
+(2b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘swim bladder’	page 3
+(2b) line 2	Palauan	transcription	ðok-ɛ́l	page 3, the orthography
+(2b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘his/her swim bladder’	page 3
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	In Hsu’s analysis, the vowels that are retained have a higher activity level than the ones that delete (0.75 vs. 0.25). This use of GSR provides an elegant solution to the idiosyncratic pattern of vowel deletion in Palauan. GSR is also plausible due to psychological grounding, as it models the strength of phonological representations in the mental lexicon. In GSR, segments across different lexical items may have different activations, which provides a systematic way to derive exceptional patterns that are otherwise phonologically regular.	page 3
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Zimmermann (2021) assumes a model of reduplication in which a reduplicative morpheme is a segmentally empty prosodic unit that needs to be filled in the output (e.g., Bye & Svenonius 2012). This is done via fission of an input segment to two output segments, in violation of a constraint demanding a faithful 1:1 mapping between input and output segments. The following figure illustrates the basic assumptions of the model, in which the input morpheme is a mora which is then filled in the output by fission.	page 3
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	notation	y0.5u0.5y0.5ə0.5b1.0i1.0l1.0	a word with the weight of each segment
+§2.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Figure 1: Reduplicated word with fission of input segments Zimmermann (2021) applies the concept of activity levels from GSR to reduplication by proposing that whenever there is a copy, each fissioned segment in the output word bears a proportion of the activity level of the input segment, such that the activity levels of both output segments add up to 1.0. Crucially, she assumes that fission of an input is accompanied by the division, not fission, of its activity level. An activity level of 1.0 in the input corresponds to 0.5 for each output segment. If there are two copies of the same segment (triplication), each output segment would have an activity level of 0.33. The fissioned consonants in the output will add up to 1.0. For the example in Figure 1 above, each segment in the input has a value of 1.0, but the segments in the output have the following values: [y0.5u0.5y0.5ə0.5b1.0i1.0l1.0]. Set within Gradient Harmonic Grammar (Smolensky et al. 2014), with numerically weighted constraints, the value of the segment is a multiplier. Markedness constraints penalize all segments equally, but the faithfulness constraints incur penalties relative to the segment’s strength. With a markedness constraint that bans unstressed full vowels, the least costly way to satisfy that is to reduce a copied vowel, as it incurs half the penalties of the full-strength segments with an activity level of 1.0 under faithfulness constraints. Thus, the CWI predicts that copied segments are more likely to reduce than non-copied segments because they have a lower activity level. Violations involving partially active segments will be worth less than segments with an activity level of 1.0 (e.g., if IDENT-[PLACE] has a weight of 3, then a segment S0.5 = −1.5 and S1.0 = −3). The prediction that this model makes is all reduplicated words in Lushootseed should have vowel reduction. We turn next to a closer examination of reduplication and vowel reduction in Lushootseed.	page 3
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	2.2 Lushootseed reduplication and vowel reduction	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1ə	a reduplicant shape
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Bates et al. (1994:xvii) identify seven ways to classify reduplication in the Lushootseed Dictionary. Among the diminutive forms with no fixed vowel, there are three main patterns, identified below: C1V with faithful copying of the vowel (3a), C1ə with schwa as the post-tonic vowel (3b), and C1 with just a bare consonant (3c).	page 4
+(3) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	a. C1V- reduplication, retention of root vowel (= 56 forms) (Bates et al. 1994)	page 4, the caption
+(3) line 2	Lushootseed	transcription	ƛ̓úb	page 4, the orthography
+(3) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘good, fine, alright’	page 4
+(3) line 2	Lushootseed	transcription	ʔəs-ƛ̓úƛ̓ubil	page 4, the orthography
+(3) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little better’	page 4
+(3) line 3	Lushootseed	transcription	č̓ít	page 4, the orthography
+(3) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘near’	page 4
+(3) line 3	Lushootseed	transcription	č̓ič̓it4	page 4, the orthography
+(3) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a bit nearer’	page 4
+(3) line 4	Lushootseed	transcription	q̓íxʷ	page 4, the orthography
+(3) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘located upstream’	page 4
+(3) line 4	Lushootseed	transcription	q̓iq̓ixʷ	page 4, the orthography
+(3) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little upstream’	page 4
+(3) line 5	Lushootseed	transcription	s-tiqíw	page 4, the orthography
+(3) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘horse’	page 4
+(3) line 5	Lushootseed	transcription	s-títiqiw	page 4, the orthography
+(3) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘pony, foal’	page 4
+(3) line 6	Lushootseed	transcription	čáləs	page 4, the orthography
+(3) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hand’	page 4
+(3) line 6	Lushootseed	transcription	čáčaləs	page 4, the orthography
+(3) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘little hand’	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1ə-	a reduplicant shape, the first consonant and schwa
+§2.2	Lushootseed	cited form	táb	page 4, ‘thing, what’
+§2.2	Lushootseed	cited form	s-tátəb	page 4, ‘a little while’
+§2.2	Lushootseed	cited form	yíq̓	page 4, ‘weave a cedar root basket’
+§2.2	Lushootseed	cited form	yíyəq̓ʷus	page 4, ‘small cedar root basket’
+§2.2	Lushootseed	cited form	ɬágʷ	page 4, ‘mat, sleeping mat’
+§2.2	Lushootseed	cited form	ɬáʔɬəgʷid	page 4, ‘little mat’
+§2.2	Lushootseed	cited form	kúpi	page 4, ‘coffee’
+§2.2	Lushootseed	cited form	kúkpi	page 4
+§2.2	Lushootseed	cited form	ɬúp	page 4, ‘early morning dawn’
+§2.2	Lushootseed	cited form	ɬúʔɬp	page 4
+§2.2	Lushootseed	cited form	kʷátač	page 4, ‘climb a hill’
+§2.2	Lushootseed	cited form	s-kʷákʷtač	page 4, ‘little mountain’
+§2.2	Lushootseed	cited form	k̓ʷásəd	page 4, ‘stomach’
+§2.2	Lushootseed	cited form	k̓ʷak̓ʷsəd	page 4, ‘little stomach’
+§2.2	Lushootseed	cited form	k̓ʷát̓ad	page 4, ‘mouse’
+§2.2	Lushootseed	cited form	k̓ʷák̓ʷt̓ad	page 4, ‘tiny mouse’
+§2.2	Lushootseed	cited form	pús	page 4, ‘throw through the air’
+§2.2	Lushootseed	cited form	púps	page 4
+§2.2	Lushootseed	cited form	sáq̓ʷ	page 4, ‘fly’
+§2.2	Lushootseed	cited form	sásq̓ʷ	page 4
+§2.2	Lushootseed	cited form	cáq̓	page 4, ‘spear (verb), jab’
+§2.2	Lushootseed	cited form	cácq̓	page 4
+footnote 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	4 Not all the words in the Lushootseed Dictionary are consistently marked for stress. Rather than add any stress marks, we have decided to leave the words as they are represented in the dictionary. The only exception to this is that we have added primary stress marks to monosyllabic words, as the stress would clearly be there.	page 4, footnote
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	b. C1ə- reduplication, post-tonic vowel is schwa (= 23 forms) táb ‘thing, what’ s-tátəb ‘a little while’ yíq̓ ‘weave a cedar root basket’ yíyəq̓ʷus ‘small cedar root basket’ ɬágʷ ‘mat, sleeping mat’ ɬáʔɬəgʷid ‘little mat’ c. C1- reduplication (= 37 forms) kúpi ‘coffee’ kúkpi ‘a little coffee’ ɬúp ‘early morning dawn’ ɬúʔɬp ‘a little early’ kʷátač ‘climb a hill’ s-kʷákʷtač ‘little mountain’ k̓ʷásəd ‘stomach’ k̓ʷak̓ʷsəd ‘little stomach’ k̓ʷát̓ad ‘mouse’ k̓ʷák̓ʷt̓ad ‘tiny mouse’ pús ‘throw through the air’ púps ‘toss pebbles’ sáq̓ʷ ‘fly’ sásq̓ʷ ‘fly just a little bit’ cáq̓ ‘spear (verb), jab’ cácq̓ ‘act of spearing big game on water’ Counting the diminutive forms in the Lushootseed dictionary, 23 are associated with “vowel reduction”, and 37 with “deletion” of the vowel. However, 56 forms retain the root vowel, which is not predicted under the CWI, given that it predicts reduction of unstressed vowels in all reduplicative environments. Even though there are trends related to the distribution of C1V, C1ə, and C1 forms, there is no robust pattern. For example, vowel quality (specifically sonority) is a significant factor in whether the vowel was retained (see Urbanczyk 2001:111 for details), but this is only a trend; there are exceptions.	page 4
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1í-	a reduplicant shape, the first consonant and í
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The most common type of diminutive pattern has a fixed vowel /i/. These forms, given in (1c) at the onset of the paper, have a C1í- reduplicant. This pattern is not explicitly analyzed by Zimmermann (2021): she treats it as a phonologically conditioned suppletive allomorph, to be accounted for by subcategorization (cf. Bates 1986 and Urbanczyk 2001, who treat the /i/ as a phonological repair). Table 1 summarizes where /i/ is found and associated counts; there are 77 words with the C1í- form of the diminutive that are built on stems with a schwa (or with vowelless roots).	page 5
+Table 1 line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Environments where /i/ occurs	page 5, the caption
+Table 1 line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Phonological context Number of forms	page 5, heads the rows below
+Table 1 line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	C1C2-initial stem 13	page 5, heads the rows below
+Table 1 line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Long vowel in base 4	page 5, heads the rows below
+Table 1 line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	C1VC[glottal] 8	page 5, heads the rows below
+Table 1 line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	Schwa or no vowel in base 77	page 5, heads the rows below
+Table 1 line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	Other (i.e. C1VC2- shaped roots) 10	page 5, heads the rows below
+§2.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	We propose in the following section that the exceptional pattern of “vowel reduction” in (3b) and “vowel deletion” in (3c) above can be accounted for by assuming partially active segments in the input (lexical entries), rather than having reduplication create partially active segments from full strength representations in the input. The vowels that appear to delete in (3c) have lower strength, as with Palauan. However, we do not analyze this as deletion or reduction: instead, partially active vowels are not reduplicated. The schwa that occurs in (3b) is epenthesized; it is not a reduced copy of the root vowel. We further extend our analysis to account for the C1í- forms, showing that the phonological grammar can derive these forms without need for subcategorization.	page 5
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	heading	3 Analysis of Lushootseed using GSR	page 5
+§3	Lushootseed	cited form	µ	page 5
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Our analysis of Lushootseed uses GSRs to account for the exceptional reduction patterns. This is the usual application of GSR (see, e.g., Hsu 2022). We assume a model of reduplication in which the input is a prosodic unit that must be filled by fission, as in Zimmermann (2021).5 For diminutive reduplication, the input is a mora (µ).	page 5
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	We take the approach to schwa that is standard in Salish phonology: schwa is epenthetic (e.g., Blake 2000) and non-moraic (Shaw et al. 1999). We specifically assume that the schwas in the diminutive are epenthetic, rather than reduced vowels. Finally, we follow Urbanczyk (2001) in treating coda consonants as moraic in Lushootseed.	page 5
+footnote 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	5 The reasons for adopting this framework are twofold: (i) we find that it is well-suited to analysing reduplicative patterns, and (ii) it allows for a more direction comparison of our analysis with the predictions of the CWI.	page 5, footnote
+§3	Gloria Mellesmoen and Suzanne Urbanczyk	note	Finally, we adopt a stratal model of phonology, which means that different processes of reduplication and epenthesis may occur at different strata. There is robust evidence that strata are needed for phenomena that are relevant to syllable structure in pre-OT phonology, and the process of resyllabification at each stage is referred to as continuous syllabification (Itô 1986). With some simple and well-supported assumptions about reduplication, syllable structure, and Salish phonology, we can account for the full range of diminutive reduplication patterns in Lushootseed. Notably, we do not require any constraint about the markedness of unstressed full vowels, which Zimmermann (2021) needs to motivate the reduction of copied vowels. This turns out to be particularly important when we discuss implications of the CWI in Section 4.	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	heading	3.1 C1(V)- reduplication	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	We begin by analyzing the pattern of C1V- reduplication (given in 3a in Section 2.2), in which the full vowel is retained post-tonically. This is by far the most common pattern of reduplication for those that do not have the fixed segment.6 Following the assumptions of Generalized Nonlinear Affixation (Bermúdez-Otero 2012) and Minimal Reduplication (Saba Kirchner 2010; 2013), reduplication involves the affixation of a segmentally empty prosodic unit. The prosodic unit is filled by fission of the input segment into two output segments, as was illustrated in Figure 1 in Section 2.1. There are several constraints needed to ensure that the prosodic unit is filled, including *FLOAT, REALIZEMORPHEME (RM), INTEGRITY, and DEP. The definitions are provided in (4) below, defined by when a violation mark is assigned (as per McCarthy 2008). We also use a markedness constraint against heavy (trimoraic) syllables, given in (5).	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(4) Constraints that ensure an input prosodic unit is filled by fission of input segments in the output *FLOAT Assign a violation for every prosodic unit not filled in the output.	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	RM Assign a violation for every morpheme not parsed in the output.	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY Assign a violation for every input segment that has two output correspondents.	page 6
+§3.1	Lushootseed	cited form	σµµµ	page 6
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	DEP Assign a violation for every segment in the output that is not in the input. (5) Markedness constraint against heavy syllables *σµµµ Assign a violation for every trimoraic syllable.	page 6
+§3.1	Lushootseed	cited form	q̓	page 6
+footnote 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	6 The fixed segment that occurs with Lushootseed diminutive reduplication is analyzed as a default epenthetic vowel /i/, not a segment in the input, as per Alderete et al. (1999).	page 6, footnote
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The tableau in (6) illustrates how the optimal form violates INTEGRITY twice (6a). It does so to avoid having a trimoraic syllables (6b), which violate the markedness constraint in (5). The model we use incorporates principles of constraint weighting from Gradient Harmonic Grammar (Smolensky et al. 2014), which we adopt too. In this approach, the linear position (ranking) of the constraints is not important. Constraints that would be higher ranked in classic OT are typically associated with higher weights. Violations of a constraint are first added together and then multiplied by the constraint. For example, in (6a), the violations −1 (fission of q̓) and −1 (fission of a) equal −2, which is then multiplied by weight of INTEGRITY (w=1) to yield −2. The totals for each constraint are added up to yield an H score. We have indicated the weights below each constraint. INTEGRITY is the preferred way to fill a mora and, accordingly, it has the lowest weight.	page 6
+(6) line 1	Lushootseed	transcription	q̓áq̓al ‘fooling someone’	page 7, engine residue
+(6) line 2	Lushootseed	gloss	µ + q̓ál *FLOAT RM DEP *σµµµ INTEGRITY H	page 7, engine english
+(6) line 3	Lushootseed	segmentation	w=7 w=7 w=3 w=2 w=1	page 7, engine residue
+(6a) line 1	Lushootseed	transcription	☞ q̓áq̓al −2 −2	page 7, engine residue
+(6b) line 1	Lushootseed	transcription	q̓áq̓l −1 −1 −3	page 7, engine residue
+(6c) line 1	Lushootseed	transcription	µ q̓ál −1 −7	page 7, engine residue
+(6d) line 1	Lushootseed	transcription	q̓íq̓al −1 −1 −4	page 7, engine residue
+(6e) line 1	Lushootseed	transcription	q̓ál −1 −7	page 7, engine residue
+(6f) line 1	Lushootseed	transcription	µ q̓áq̓əl −1 −1 −1 −11	page 7, engine residue
+§3.1	Lushootseed	cited form	µ	page 7
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	As can be seen, candidate (6a) fills the mora by copying the consonant and vowel, incurring two INTEGRITY violations with an overall harmony (H) score of −2. Candidate (6b) fills the mora by copying the first consonant into a coda, resulting in a trimoraic syllable. The constraint penalizing trimoraic syllables has a higher weight than INTEGRITY, which means one violation incurs a score of −2. The resulting harmony score for (6b) is −3. Candidate (6c) is ruled out because it has an unfilled mora, incurring a violation of *FLOAT, which has the highest weighting of all the constraints (w=7). Candidate (6d) fills the mora by epenthesizing /i/, and fission occurs to supply an onset. DEP has a weight of 3, its overall harmony score is −4, ruling out (6d). Candidate (6e) fails to parse the input diminutive morpheme (µ), incurring a violation of RM, which also has a high weight (w=7). The final candidate (6f) fails to fill the mora. This candidate is of particular interest because it appears to have vowel reduction. However, in this analysis, we assume there is no vowel reduction (unlike Zimmermann 2021), and the schwa is inserted at this stratum, incurring a DEP violation as well as a *FLOAT violation.	page 7
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The next most frequent pattern is when only a single consonant is copied, which was shown in (3c) in Section 2.2. We derive this pattern by proposing that the root vowel in the input for these forms has an activity level of 0.5, rather than having the typical activity level of 1.0. We mark only activity levels in the input that are less than 1.0. Certain lexical items have partially active vowels, which allows for the exceptional pattern to emerge in an analysis with GSR. In other words, the exceptionality of the pattern is encoded in the input vowel. A vowel with an activity level of less than one must be brought to an activity level of 1.0. Adding to the activity level of a segment is a violation of DEP, such that a segment with an activity level of 0.25 will incur a violation of −0.75 under DEP.7 We need the faithfulness constraint MAX, defined in (7), to account for the single consonant diminutive pattern.	page 7
+footnote 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	7 We assume that the requirement for partially active segments to be brought to an activity level of 1.0 does not apply until the word stratum. Partially activated vowels at the stem may remain at an activity level below 1.0.	page 7, footnote
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	(7) MAX Assign a violation for every segment in the input that is not in the output. We assume that fissioned segments in the output have the same activity level as the input segment, which diverges from Zimmermann’s (2021) proposed weakening in reduplication. The tableau in (8) shows how the diminutive with only a copied consonant is derived. The vowel in the input has an activity level of 0.5, indicated with a subscript. To reach an activity level of 1.0, candidates must add 0.5 for each copy, which explains the DEP violation of −0.5 for the attested candidate in (8a). The mora is filled by copying the root-initial consonant into the coda position, incurring a violation of both INTEGRITY and *σµµµ. The harmony score is −4.5, which is the lowest among the candidates, making it optimal. Candidate (8b) copies the partially active vowel, incurring two violations of DEP ([−0.5 ∗ 2] ∗ w = −3) and INTEGRITY ([−1 ∗ 2] ∗ w = −2). The harmony score for (8b) is −5.8 Candidates (8c−f) are like those in the previous tableau because they have a floating mora (8c), insert /i/ (8d), fail to parse the morpheme (8e), or epenthesize a schwa (8f). Candidate (8g) fills the mora by epenthesis but does so at the expense of deleting the input vowel. This incurs a violation of MAX. However, because the input vowel only has an activity level of 0.5, it does not get a full violation of MAX. Its harmony score is −5, making it non-optimal.	page 7
+(8) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	sásq̓ʷ ‘fly just a little bit’	page 8, set as an example
+(8) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	µ + s á0.5 q̓ʷ	page 8, set as an example
+(8) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	*FLOAT	page 8, set as an example
+(8) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	RM	page 8, set as an example
+(8) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	DEP	page 8, set as an example
+(8) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµ	page 8, set as an example
+(8) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY	page 8, set as an example
+(8) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	MAX	page 8, set as an example
+(8) line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	H	page 8, set as an example
+(8) line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	w=7 w=7 w=3 w=2 w=1 w=4	page 8, set as an example
+(8) line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	a. ☞ sásq̓ʷ −0.5 −1 −1 −4.5	page 8, set as an example
+(8) line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	b. sásaq̓ʷ −1 −2 −5	page 8, set as an example
+(8) line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	c. µ sáq̓ʷ −1 −0.5 −8.5	page 8, set as an example
+(8) line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	d. sísaq̓ʷ −1.5 −1 −5.5	page 8, set as an example
+(8) line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	e. sáq̓ʷ −1 −0.5 −8.5	page 8, set as an example
+(8) line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	f. sásəq̓ʷ −1.5 −1 −5.5	page 8, set as an example
+(8) line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	g. siq̓ʷ −1 −0.5 −5	page 8, set as an example
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1ə-	a reduplicant shape, the first consonant and schwa
+footnote 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	8 We assume that fission produces two output segments with identical activity levels to the input. An input segment with an activity level of 0.5 corresponds to two output segments that each have an activity level of 0.5. This means that an unreduplicated partially active segment incurs a violation of −0.5 under DEP, while reduplicating that vowel will incur a violation of −1 to bring both vowels to an activity level of 1.0.	page 8, footnote
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	The patterns where the root vowel is not copied, such as in (8), and those with a faithful copy, such as in (6), are not explicitly analyzed in Zimmermann (2021). These two are more common than the pattern she analyzes (C1ə- with schwa as the post-tonic vowel). They are predicted not to occur at all in the language, given the CWI. A potential way to derive these patterns with the CWI is to incorporate exceptionality in some way. There are several potential approaches to this, including having different co-phonologies or by incorporating some aspects of GSR and applying them to the exceptional forms (exceptional being either the retention of the full vowel or failure to copy it). Our analysis incorporates the assumption that the input vowel is only partially active, so it does not get copied in those stems. The CWI assumes that weakening via GSR is an inherent property of reduplication. The CWI in combination with Zimmermann’s (2021) constraints, including one against unstressed full vowels, only predicts the post-tonic schwa pattern. We turn to these forms next.	page 8
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	We assume that all forms that do not have a faithful copy of the root vowel are analyzed as single consonant reduplication in the coda to fill a mora, as in the tableau in (8) above. The first two consonants of the root are voiceless obstruents for most roots that only copy a single consonant to form the diminutive forms. The forms which have schwa do so via insertion of an epenthetic schwa to create well-formed syllables. The following forms illustrate the central patterns: schwa is inserted when at least one of the consonants is voiced. Most of these have the pattern where the first consonant is voiceless, as in (9a), while there are only a few where the first consonant is voiced, as in (9b).	page 9
+(9) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Schwa insertion with one segment being voiced	page 9, the caption
+(9a) line 1	Lushootseed	transcription	táb	page 9, the orthography
+(9a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thing, what’	page 9
+(9a) line 1	Lushootseed	transcription	s-tátəb	page 9, the orthography
+(9a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little while’	page 9
+(9a) line 2	Lushootseed	transcription	ɬágʷ	page 9, the orthography
+(9a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘mat, sleeping mat’	page 9
+(9a) line 2	Lushootseed	transcription	ɬáʔɬəgʷid	page 9, the orthography
+(9a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘little mat’	page 9
+(9a) line 3	Lushootseed	transcription	ɬúb	page 9, the orthography
+(9a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘soup’	page 9
+(9a) line 3	Lushootseed	transcription	s-ɬú1ʔɬəb	page 9, the orthography
+(9a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little soup’	page 9
+(9a) line 4	Lushootseed	transcription	ʔádzq	page 9, the orthography
+(9a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘meet’	page 9
+(9a) line 4	Lushootseed	transcription	ʔaʔədzəq-bi-d	page 9, the orthography
+(9a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘meet someone dear’	page 9
+(9a) line 5	Lushootseed	transcription	ʔágʷal-əb	page 9, the orthography
+(9a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘yawn’	page 9
+(9a) line 5	Lushootseed	transcription	ʔa-ʔəgʷál-əb	page 9, the orthography
+(9a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘yawn’	page 9
+(9a) line 6	Lushootseed	transcription	k̓ʷíd	page 9, the orthography
+(9a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘how much, how many’	page 9
+(9a) line 6	Lushootseed	transcription	k̓ʷik̓ʷəd	page 9, the orthography
+(9a) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small amount’	page 9
+(9a) line 7	Lushootseed	transcription	s-ɬádəyʔ	page 9, the orthography
+(9a) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘woman, lady’	page 9
+(9a) line 7	Lushootseed	transcription	s-ɬáɬədəyʔ	page 9, the orthography
+(9a) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘girl, girlfriend’	page 9
+(9a) line 8	Lushootseed	transcription	sídq̓	page 9, the orthography
+(9a) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘swing aside, turn s.t.’	page 9
+(9a) line 8	Lushootseed	transcription	sísədq̓	page 9, the orthography
+(9a) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘turn it just a bit’	page 9
+(9b) line 1	Lushootseed	transcription	yíq̓	page 9, the orthography
+(9b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘weave a cedar root basket’	page 9
+(9b) line 1	Lushootseed	transcription	yíyəq̓ʷus	page 9, the orthography
+(9b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small cedar root basket’	page 9
+(9b) line 2	Lushootseed	transcription	s-bádil	page 9, the orthography
+(9b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘mountain’	page 9
+(9b) line 2	Lushootseed	transcription	s-bábədil	page 9, the orthography
+(9b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small mountain’	page 9
+(9b) line 3	Lushootseed	transcription	yúbil	page 9, the orthography
+(9b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘die, starve’	page 9
+(9b) line 3	Lushootseed	transcription	yú-yəbil	page 9, the orthography
+(9b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small animal dies’	page 9
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	As part of our research, we checked the Lushootseed dictionary for phonotactic patterns and were not able to find any voiceless obstruents followed by a voiced consonant.9 We therefore analyze schwa insertion as epenthesis related to having well-formed syllable structure, wherein voiceless–voiced consonant sequences are banned. The epenthesis seems to be a general pattern in the language, not linked directly to reduplication. We could only find the following examples of diminutive reduplication in which there was a schwa inserted between two voiceless obstruents, provided in (10). The second word is very likely epenthetic schwa to avoid a sequence of a glottal stop followed by four voiceless obstruents.	page 9
+(10) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Schwa with two voiceless obstruents	page 9, the caption
+(10) line 2	Lushootseed	transcription	x̌ic	page 9, the orthography
+(10) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to lunch, snack, get a bite’	page 9
+(10) line 2	Lushootseed	transcription	x̌íx̌əc	page 9, the orthography
+(10) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘just lunches (verb)’	page 9
+(10) line 3	Lushootseed	transcription	súp̓=qs	page 9, the orthography
+(10) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hair seal, harbour seal’	page 9
+(10) line 3	Lushootseed	transcription	súʔsəp̓=qs	page 9, the orthography
+(10) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hair seal pup’	page 9
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	In all other diminutive words where schwa occurs between voiceless obstruents, schwa is present in the base form.	page 9
+footnote 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	9 The only exceptions to this generalization are that there are some roots with /y/ following a voiceless obstruent, one set of related forms that begin with /pl/, and some interjections and animal vocalizations beginning with /šw/ in legends.	page 9, footnote
+§3.1	Lushootseed	cited form	/šw/	page 9
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	There are also a handful of examples with no epenthesis, when the first consonant is voiced. Examples are provided in (11). The generalization that we draw on to account for these cases is related to sonority. Voiced consonants are more sonorous, so the first syllable will end with a more sonorous consonant than the following, resulting in a well-formed sequence with respect to the Syllable Contact Law (SCL; Urbanczyk 2001). The SCL bans adjacent syllables that would result in having rising sonority between them (Murray & Vennemann 1983). As you can see below, with a more sonorous coda than the consonant in the following onset, these forms obey the SCL.	page 9
+(11) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	No schwa insertion when first consonant is voiced	page 10, the caption
+(11) line 2	Lushootseed	transcription	láq	page 10, the orthography
+(11) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘last, behind’	page 10
+(11) line 2	Lushootseed	transcription	láʔlqil	page 10, the orthography
+(11) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘a little late’	page 10
+(11) line 3	Lushootseed	transcription	dukʷ	page 10, the orthography
+(11) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘strange, transform’	page 10
+(11) line 3	Lushootseed	transcription	dúdkʷibəɬ	page 10, the orthography
+(11) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘strange’	page 10
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1V.C[ə]C…	a syllable shape
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	We assume that the unexpected lack of epenthesis in forms like (11) can also be accounted for with some aspect of GSR. Due to space limitations, and because epenthesis is a general property of the language, we do not present a formal OT analysis of this. Specifically, we assume that epenthesis of a schwa in forms like (9) above follows the stratum where reduplication occurs. At the point of reduplication, the copied segment fills the mora (C1V<C>.C…) and later epenthesis results in the copied consonant surfacing as an onset (C1V.C[ə]C…).	page 10
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	There were also some roots which have two forms: one with vowel reduction and one without. This is not predicted by GSR, because if the root vowel is partially active, we would not expect deletion with one word-formation process and retention of the vowel with another. However, the words that show this pattern are exceptional in other ways: they have two meanings associated with them. It could be the case that there are two lexical entries for these roots, or that the addition of different morphemes results in weighting of other constraints, that does not result in deletion. Some illustrative examples are presented in (12) below, with the diminutive form first.	page 10
+(12) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Roots with multiple patterns	page 10, the caption
+(12a) line 1	Lushootseed	transcription	pástəd	page 10, the orthography
+(12a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘white person, Caucasian (from Boston)’	page 10
+(12a) line 2	Lushootseed	transcription	pápstəd	page 10, the orthography
+(12a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘white child, white friend’	page 10
+(12a) line 3	Lushootseed	transcription	pápastəd	page 10, the orthography
+(12a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘insulting way of referring to a white man’	page 10
+(12b) line 1	Lushootseed	transcription	sáxʷəb	page 10, the orthography
+(12b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘jump, leap, scamper off’	page 10
+(12b) line 2	Lushootseed	transcription	sáʔsxʷəb	page 10, the orthography
+(12b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘run a few quick steps’	page 10
+(12b) line 3	Lushootseed	transcription	sáʔsaxʷəb	page 10, the orthography
+(12b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘they scampered all about, many run’	page 10
+§3.1	Gloria Mellesmoen and Suzanne Urbanczyk	note	As you can see in (12), the vowel is retained with non-diminutive meanings. We turn next to the patterns of diminutive reduplication which have a fixed segment.	page 10
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	heading	3.2 C1í- reduplication	page 10
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The fixed segment /i/ occurs with forms that would make it challenging to fill the mora as previously illustrated (i.e., with a copy of the root vowel or copying the first consonant of the root in coda position). These include those with a long vowel (13a), those with a schwa, which is non- moraic (13b), those that begin with a cluster (13c), and those with a glottal as the second consonant (13d).	page 10
+(13) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	C1í- reduplication	page 11, the caption
+(13a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Long vowel	page 11, heads the rows below
+(13a) line 2	Lushootseed	transcription	búus	page 11, the orthography
+(13a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘four’	page 11
+(13a) line 2	Lushootseed	transcription	bíʔbuus	page 11, the orthography
+(13a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘four little items’	page 11
+(13a) line 3	Lushootseed	transcription	s-dúukʷ	page 11, the orthography
+(13a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘knife’	page 11
+(13a) line 3	Lushootseed	transcription	s-díduukʷ	page 11, the orthography
+(13a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘small knife’	page 11
+(13b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	V = schwa	page 11, heads the rows below
+(13b) line 2	Lushootseed	transcription	dzə́ x̌	page 11, the orthography
+(13b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘move’	page 11
+(13b) line 2	Lushootseed	transcription	dzídzəx̌	page 11, the orthography
+(13b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘move a bit’	page 11
+(13b) line 3	Lushootseed	transcription	bə́ lx̌	page 11, the orthography
+(13b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘go by, pass’	page 11
+(13b) line 3	Lushootseed	transcription	bíʔbəlx̌	page 11, the orthography
+(13b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘pass a little’	page 11
+(13b) line 4	Lushootseed	transcription	bə́č	page 11, the orthography
+(13b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fall down, from standing’	page 11
+(13b) line 4	Lushootseed	transcription	bíbəč	page 11, the orthography
+(13b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘drop in from time to time’	page 11
+(13b) line 5	Lushootseed	transcription	cə́q̓	page 11, the orthography
+(13b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘jab, spear’	page 11
+(13b) line 5	Lushootseed	transcription	cícq	page 11, the orthography
+(13b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘act of spearing game on water’	page 11
+(13c) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Cluster-initial roots	page 11, heads the rows below
+(13c) line 2	Lushootseed	transcription	tx̌ʷúd	page 11, the orthography
+(13c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘pull, drag’	page 11
+(13c) line 2	Lushootseed	transcription	títx̌ʷud	page 11, the orthography
+(13c) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘lightly pull on’	page 11
+(13c) line 3	Lushootseed	transcription	tq(a)	page 11, the orthography
+(13c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘close, block’	page 11
+(13c) line 3	Lushootseed	transcription	títqad	page 11, the orthography
+(13c) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘close, but not tightly, …’	page 11
+(13c) line 4	Lushootseed	transcription	ɬč-íl	page 11, the orthography
+(13c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘arrive, get there’	page 11
+(13c) line 4	Lushootseed	transcription	ɬiɬčil	page 11, the orthography
+(13c) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘will arrive occasionally’	page 11
+(13c) line 5	Lushootseed	transcription	č̓ƛ̓áʔ	page 11, the orthography
+(13c) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘rock, stone, boulder’	page 11
+(13c) line 5	Lushootseed	transcription	č̓íč̓ƛ̓aʔ	page 11, the orthography
+(13c) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘little rock(s), stone(s)’	page 11
+(13d) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Glottal as second consonant	page 11, heads the rows below
+(13d) line 2	Lushootseed	transcription	luh	page 11, the orthography
+(13d) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hear (Snohomish)’	page 11
+(13d) line 2	Lushootseed	transcription	líʔluu-d	page 11, the orthography
+(13d) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hear a little of something’	page 11
+(13d) line 3	Lushootseed	transcription	ɬáʔx̌	page 11, the orthography
+(13d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘platter, plate’	page 11
+(13d) line 3	Lushootseed	transcription	ɬíɬaʔx̌	page 11, the orthography
+(13d) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘little platter’	page 11
+(13d) line 4	Lushootseed	transcription	púʔ	page 11, the orthography
+(13d) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘blow, wind’	page 11
+(13d) line 4	Lushootseed	transcription	pípúʔ-təd	page 11, the orthography
+(13d) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thin shirt’	page 11
+(13d) line 5	Lushootseed	transcription	qʷúʔ	page 11, the orthography
+(13d) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘water, especially fresh water’	page 11
+(13d) line 5	Lushootseed	transcription	qʷíʔqʷuʔ	page 11, the orthography
+(13d) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘little water, creek endearment’	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	C1í-	a reduplicant shape, the first consonant and í
+§3.2	Lushootseed	cited form	əʔ	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	We derive the C1í- pattern as insertion of the least marked full vowel (/i/) to fill the mora. The consonant is copied to provide an onset. Long vowels cannot be copied faithfully, so the default vowel is provided. Because schwa is non-moraic, it does not fill the mora, and the cluster-initial stems lack a vowel to fill the mora. The stems with a glottal as the second consonant could be analyzed as a schwa that is affected by the preceding consonant: sequences like [əʔ] are typically avoided in Salish (Bessell & Czaykowska-Higgins 1993). We start by analyzing the forms with long vowels.	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	INTEGRITY-Vː	an optimality-theoretic constraint
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	To account for the fact that a long vowel is never copied, we adopt the constraints in (14): one banning extremely heavy syllables (those with four moras), and two faithfulness constraints related to length. INTEGRITY-Vː is violated when a long vowel undergoes fission; IDENT-LENGTH is violated when the length of a vowel in the input does not match the length of a corresponding vowel in the output.	page 11
+§3.2	Lushootseed	cited form	σµµµµ	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(14) *σµµµµ Assign a violation for every syllable that is four moras.	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	notation	Vː	a long vowel
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY-Vː Assign a violation for every input Vː with multiple output correspondents.	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	IDENT-LENGTH Assign a violation for every vowel that changes its length.	page 11
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The tableau in (15) shows how incorporating these constraints with the correct weight predicts the attested form (15a). Candidate (15a) has the lowest harmony score, even though it has an inserted vowel, a trimoraic syllable, and has fission of the initial consonant. Other candidates that aim to fill the mora differently fare worse. Candidate (15b) copies the base vowel as short, incurring an extra INTEGRITY violation and a constraint against changing the length of the vowel. Candidate (15c) fails to fill the mora. Candidate (15d) copies the long vowel faithfully, adding an extra mora. Candidate (15e) does not parse the morpheme. And candidate (15f) copies the consonant into the coda, resulting in an extremely heavy syllable.	page 11
+(15) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	dí-duːkʷ ‘small knife’	page 12, set as an example
+(15) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	µ + dúːkʷ	page 12, set as an example
+(15) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	*FLOAT	page 12, set as an example
+(15) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	RM	page 12, set as an example
+(15) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	DEP	page 12, set as an example
+(15) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµ	page 12, set as an example
+(15) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY	page 12, set as an example
+(15) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµµ	page 12, set as an example
+(15) line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	INT-Vː	page 12, set as an example
+(15) line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	MAX	page 12, set as an example
+(15) line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	IDENT-LENGTH	page 12, set as an example
+(15) line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	H	page 12, set as an example
+(15) line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	w=7 w=7 w=3 w=2 w=1 w=4 w=3 w=4 w=3	page 12, set as an example
+(15) line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	a. ☞ díduːkʷ −1 −1 −1 −6	page 12, set as an example
+(15) line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	b. duduːkʷ −1 −2 −1 −7	page 12, set as an example
+(15) line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	c. µ dúːkʷ −1 −1 −9	page 12, set as an example
+(15) line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	d. duːduːkʷ −1 −2 −1 −7	page 12, set as an example
+(15) line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	e. dúːkʷ −1 −1 −9	page 12, set as an example
+(15) line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	f. dúːdkʷ −1 −1 −1 −7	page 12, set as an example
+§3.2	Lushootseed	cited form	ə́	page 12
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Moving on to stems with schwa, we assume that the diminutive applies to a phonological stem, rather than a root. We also add a constraint * ə́ in (16), which is violated whenever a schwa bears primary stress.	page 12
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(16) *ə́ Assign a violation for every stressed schwa.	page 12
+§3.2	Lushootseed	cited affix	bč-	page 12
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	A schwa must be added to the root bč- in (17) to yield a well-formed phonological stem. As we assume a stratal model of phonology, this means that the diminutive applies at a later stratum than the phonological stem (i.e., at the level of the phonological word); the diminutive applies to the stem with a stressed schwa. Accordingly, we include schwa in the input in (17), which illustrates a range of candidates. The attested candidate (17a) inserts /i/ and copies the first consonant of the root to provide an onset. Candidates (17b) and (17c) fail to fill the mora, violating *FLOAT (recall that schwa is non-moraic). Candidate (17d) fills the mora by copying the initial consonant into the coda but incurs a violation of a constraint against stressing schwa. Candidate (17f) fails to parse the underlying schwa, and candidate (17g) has a syllable with three moras.	page 12
+(17) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	bíbəč ‘drop in from time to time’	page 13, set as an example
+(17) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	µ + (bə́č)	page 13, set as an example
+(17) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	*FLOAT	page 13, set as an example
+(17) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	RM	page 13, set as an example
+(17) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	DEP	page 13, set as an example
+(17) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµ	page 13, set as an example
+(17) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY	page 13, set as an example
+(17) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµµ	page 13, set as an example
+(17) line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	INT-Vː	page 13, set as an example
+(17) line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	*Ə́	page 13, set as an example
+(17) line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	MAX	page 13, set as an example
+(17) line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	IDENT-LENGTH	page 13, set as an example
+(17) line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	H	page 13, set as an example
+(17) line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	w=7 w=7 w=3 w=2 w=1 w=4 w=3 w=5 w=4 w=3	page 13, set as an example
+(17) line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	a. ☞ bíbəč −1 −1 −4	page 13, set as an example
+(17) line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	b. µ bə́bəč −1 −2 −1 −14	page 13, set as an example
+(17) line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	c. µ bə́č −1 −1 −12	page 13, set as an example
+(17) line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	d. bə́bč −1 −1 −6	page 13, set as an example
+(17) line 19	Gloria Mellesmoen and Suzanne Urbanczyk	note	e. bə́č −1 −1 −12	page 13, set as an example
+(17) line 20	Gloria Mellesmoen and Suzanne Urbanczyk	note	f. bíč −1 −1 −7	page 13, set as an example
+(17) line 21	Gloria Mellesmoen and Suzanne Urbanczyk	note	g. bíbč −1 −1 −1 −6	page 13, set as an example
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Our analysis raises the question of what would happen with stems with a stressed schwa that do not have diminutive reduplication: would they epenthesize /i/ to avoid stressing schwa as well? We do not find empirical evidence of stressed schwa being replaced outside of reduplication, which is consistent with what our analysis predicts. Deleting a schwa is more costly than allowing it to remain stressed. This is presented in the following tableau. We include the constraint GRWD=PRWD, which is violated if the output is not a well-formed prosodic word, to rule out candidate (18c), which keeps the schwa but does not assign primary stress.	page 13
+(18) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	No reduplication, stress stays on ə	page 13, set as an example
+(18) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	bə́č	page 13, set as an example
+(18) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	*FLOAT	page 13, set as an example
+(18) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	RM	page 13, set as an example
+(18) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	GRWD=PRWD	page 13, set as an example
+(18) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	note	DEP	page 13, set as an example
+(18) line 7	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµ	page 13, set as an example
+(18) line 8	Gloria Mellesmoen and Suzanne Urbanczyk	note	INTEGRITY	page 13, set as an example
+(18) line 9	Gloria Mellesmoen and Suzanne Urbanczyk	note	*σµµµµ	page 13, set as an example
+(18) line 10	Gloria Mellesmoen and Suzanne Urbanczyk	note	INT-V:	page 13, set as an example
+(18) line 11	Gloria Mellesmoen and Suzanne Urbanczyk	note	*Ə́	page 13, set as an example
+(18) line 12	Gloria Mellesmoen and Suzanne Urbanczyk	note	MAX	page 13, set as an example
+(18) line 13	Gloria Mellesmoen and Suzanne Urbanczyk	note	IDENT-LENGTH	page 13, set as an example
+(18) line 14	Gloria Mellesmoen and Suzanne Urbanczyk	note	H	page 13, set as an example
+(18) line 15	Gloria Mellesmoen and Suzanne Urbanczyk	note	w=7 w=7 w=6 w=3 w=2 w=1 w=4 w=3 w=5 w=4 w=3	page 13, set as an example
+(18) line 16	Gloria Mellesmoen and Suzanne Urbanczyk	note	a. ☞ bə́č −1 −5	page 13, set as an example
+(18) line 17	Gloria Mellesmoen and Suzanne Urbanczyk	note	b. bíč −1 −1 −7	page 13, set as an example
+(18) line 18	Gloria Mellesmoen and Suzanne Urbanczyk	note	c. bəč −1 −6	page 13, set as an example
+§3.2	Gloria Mellesmoen and Suzanne Urbanczyk	note	The analysis that we propose in this paper accounts for a wide range of patterns seen in Lushootseed diminutive formation. We are able to account for this breadth of patterns using GSR and Harmonic Grammar. Our analysis shares some of the same basic assumptions as those in Zimmermann (2021), but without adopting the predictions of the CWI. We find no evidence that reduplication in Lushootseed is inherently weakening, and further find that the patterns can be accounted for by partial activation of vowels in certain lexical items and an analysis that assumes the input activity level is identical to the output activity level for all fissioned consonants. Having shown that the assumptions of the CWI are not necessary for Lushootseed, and extending our analysis to a set of examples that were not discussed with respect to the CWI, we turn to a consideration of the predictions made by the CWI, more generally.	page 13
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	heading	4 Other typological predictions of the CWI	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	As noted by many, reduplicants can often undergo reduction processes (Becker & Potts 2011; McCarthy & Prince 1994). The range of reduction processes have been termed “the emergence of the unmarked” (TETU) and frequently extend beyond reduplication, showing up in many morphophonological contexts such as root-affix asymmetries and other types of positional effects (Beckman 1999). A widely cited pattern is found in Sanskrit in which voiced aspirates are copied as unaspirated. Examples are given in (19).	page 14
+(19) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Sanskrit intensive reduplication (Steriade 1988:108)	page 14, the caption
+(19) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Root Full grade Zero grade Gloss	page 14, heads the rows below
+(19) line 3	Sanskrit	transcription	bhranɕ / bhrnɕ ban-i-bhranɕ bhan-i-bnrnɕ	page 14, the orthography
+(19) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fall’	page 14
+(19) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	dhvans / dhvns dan-i-dhvans dan-i-dhvas	page 14, between the cells
+(19) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘sound’	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Only the reduplicative prefix eliminates the marked structure in (19). This is not predicted by the CWI: the strength of both fissioned segments is half the strength of the input segment, which means that they have an equal activity level in the output. If there is pressure to eliminate marked structure and fission yields a weakened activity level, both segments should eliminate the marked structure. The CWI does not predict patterns where only one of the segments undergoes change, without something to protect one of the segments from reduction. The rest of this section delves into this issue further, starting with the analysis of Lushootseed vowel reduction that Zimmermann (2021) presents.	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	The CWI analysis of Lushootseed relies on having a markedness constraint with a context encoded in it. This constraint is given in (20) and comes directly from Zimmermann (2021:22). The context of a vowel being in a non-prominent position (i.e., an unstressed position) is built into this constraint, making it a context-sensitive markedness constraint.	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	(20) *UNSTRV Assign −1 violation for every unstressed full vowel (= a vowel with place features).	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	In diminutive words in Lushootseed, one of the copied vowels is always stressed (usually the first), so one of the fissioned and weakened vowels (which bears stress) would not be subject to this constraint. That leaves the other vowel subject to it. The context-sensitive constraint protects one of the vowels from being reduced. That is why we do not see reduction in both vowels in reduplication. There is thus a confound in the analysis: the location of stress coincides with the location of the diminutive morpheme.	page 14
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	The CWI approach also makes the wrong predictions for other types of reduplication, including distributive C1VC2 reduplication, as in (21a), and out-of-control VC2 reduplication, as in (21b). We would expect that all reduplicative morphemes would have vowel reduction, under pressure from the constraint in (20). However, while there are a handful of words which have vowel reduction, the vast majority do not show any vowel reduction. Notice that in each of these patterns, the input vowel is copied faithfully, without reduction.	page 14
+(21) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Lushootseed reduplication	page 15, the caption
+(21a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Distributive C1VC2	page 15, heads the rows below
+(21a) line 2	Lushootseed	transcription	šáx̌	page 15, the orthography
+(21a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘scrape’	page 15
+(21a) line 2	Lushootseed	transcription	bə-šax̌šax̌ad	page 15, the orthography
+(21a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘scrape and scrape some more’	page 15
+(21a) line 3	Lushootseed	transcription	s-táləɬ	page 15, the orthography
+(21a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘nephew, niece’	page 15
+(21a) line 3	Lushootseed	transcription	s-tál’taləɬ	page 15, the orthography
+(21a) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘nephews, nieces’	page 15
+(21a) line 4	Lushootseed	transcription	p̓ál-il	page 15, the orthography
+(21a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘come to, revive’	page 15
+(21a) line 4	Lushootseed	transcription	p̓ál̓p̓al-il	page 15, the orthography
+(21a) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘many revived’	page 15
+(21a) line 5	Lushootseed	transcription	s-ɬádəyʔ	page 15, the orthography
+(21a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘woman’	page 15
+(21a) line 5	Lushootseed	transcription	s-ɬadɬadəyʔ	page 15, the orthography
+(21a) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘women’	page 15
+(21b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Out-of-control VC2	page 15, heads the rows below
+(21b) line 2	Lushootseed	transcription	sáxʷ-əb	page 15, the orthography
+(21b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘jump, leap,…’	page 15
+(21b) line 2	Lushootseed	transcription	sáxʷaxʷ-əb	page 15, the orthography
+(21b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘scurrying about (inefficiently)’	page 15
+(21b) line 3	Lushootseed	transcription	ʔaɬ	page 15, the orthography
+(21b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fast, quickly’	page 15
+(21b) line 3	Lushootseed	transcription	ʔáɬaɬ	page 15, the orthography
+(21b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘hurry’	page 15
+(21b) line 4	Lushootseed	transcription	ʔíbəš	page 15, the orthography
+(21b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘walk, travel,…’	page 15
+(21b) line 4	Lushootseed	transcription	ʔíbibəš	page 15, the orthography
+(21b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘pace back and forth’	page 15
+(21b) line 5	Lushootseed	transcription	ƛ̓iq	page 15, the orthography
+(21b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘emerge, …’	page 15
+(21b) line 5	Lushootseed	transcription	ƛ̓íqiq	page 15, the orthography
+(21b) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘emerge partially’	page 15
+(21b) line 6	Lushootseed	transcription	saq̓ʷ	page 15, the orthography
+(21b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fly (verb)’	page 15
+(21b) line 6	Lushootseed	transcription	sáq̓ʷaq̓ʷ	page 15, the orthography
+(21b) line 6	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fly around, wheeling in the sky’	page 15
+§4	Lushootseed	cited form	sáq̓ʷq̓ʷ	page 15
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	A non-schwa vowel may be copied faithfully in the type of reduplication shown in (21) above. This shows a place where the CWI does not make the correct predictions as all reduplication should involve weakening and, therefore, vowel reduction should apply to any unstressed vowel in reduplication. The forms in (21) are not predicted to be possible in the same language that reduces the vowel with diminutive reduplication. Of particular interest is the last form in (21b). Recall that we have proposed a partially active vowel in the input for this root, and that only the first consonant copies with diminutive reduplication. In this pattern of VC2 reduplication, there is a faithful copy. We draw on observations in Urbanczyk (2001) that geminates are not permitted in Lushootseed, so would rule out (*sáq̓ʷq̓ʷ).	page 15
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Moving beyond Lushootseed, where reducing both vowels with the diminutive is avoided by having a context-sensitive constraint, it is also relevant to examine how the CWI model works with context-free markedness constraints. The prediction the CWI makes is that all reduplicated segments should be weakened. The only context-free markedness constraint we could find in the case studies provided for the CWI was used in an analysis of Tagalog glottal deletion. Zimmermann (2021) proposes that *GLOTTAL emerges in the context of reduplication to result in the elimination of glottal consonants in reduplication. The patterns are presented in (22). In (22b), intervocalic glottal consonants are present in the base, but lost in reduplicated forms.	page 15
+(22) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tagalog reduplication (Blust 2007:7, cited in Zimmermann 2021:5)	page 15, the caption
+(22) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	Base Reduplicated	page 15, heads the rows below
+(22a) line 1	Tagalog	transcription	ma-basag	page 15, the orthography
+(22a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘get broken’	page 15
+(22a) line 1	Tagalog	transcription	ma-basag-basag	page 15, the orthography
+(22a) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘get thoroughly broken’	page 15
+(22a) line 2	Tagalog	transcription	mag-sugat	page 15, the orthography
+(22a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘have sores’	page 15
+(22a) line 2	Tagalog	transcription	magka-sugat-sugat	page 15, the orthography
+(22a) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘thoroughly covered with sores’	page 15
+(22b) line 1	Tagalog	transcription	laʔás	page 15, the orthography
+(22b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘cracked’	page 15
+(22b) line 1	Tagalog	transcription	las-lás	page 15, the orthography
+(22b) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘ripped’	page 15
+(22b) line 2	Tagalog	transcription	láhad	page 15, the orthography
+(22b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘opening of the hand’	page 15
+(22b) line 2	Tagalog	transcription	lad-lád	page 15, the orthography
+(22b) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘opened’	page 15
+(22b) line 3	Tagalog	transcription	súhol	page 15, the orthography
+(22b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘bribe’	page 15
+(22b) line 3	Tagalog	transcription	sul-sól	page 15, the orthography
+(22b) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘instigation to do evil’	page 15
+(22b) line 4	Tagalog	transcription	suʔóŋ	page 15, the orthography
+(22b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘advance against odds’	page 15
+(22b) line 4	Tagalog	transcription	suŋ-sóŋ	page 15, the orthography
+(22b) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘go against wind’	page 15
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	We do not find the Tagalog forms to be convincing as evidence for the CWI because glottal insertion is a result of a historical process reliant on having disyllabic bases (Blust 1976, 2007), and the meanings of the reduplication pattern are not consistent with other productive reduplicative meanings in Tagalog. When one looks at the meanings associated with reduplication above, it is challenging to find a consistent meaning. Furthermore, reduplication in Tagalog is quite productive, occurring with over 80 different prefixes (Schachter & Otanes 1972). Of relevance here, there is a regular process that epenthesizes glottal consonants to provide onsets either at the beginning of words or in a liaison context between morphemes (French 1988), as shown in (23).	page 16
+(23) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tagalog glottal insertions & vowel elision (French 1988)	page 16, the caption
+(23) line 2	Tagalog	phonemic	/bilí/	page 16, phonemic, in / /
+(23) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to buy’	page 16
+(23) line 2	Tagalog	phonemic	/-in/	page 16, phonemic, in / /
+(23) line 2	Tagalog	phonemic	[bilhín]	page 16, phonetic, in [ ]
+(23) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to buy X’	page 16
+(23) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 12)	page 16
+(23) line 3	Tagalog	phonemic	/dalá/	page 16, phonemic, in / /
+(23) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to carry’	page 16
+(23) line 3	Tagalog	phonemic	/-an/	page 16, phonemic, in / /
+(23) line 3	Tagalog	phonemic	[dalhán]	page 16, phonetic, in [ ]
+(23) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to carry to X’	page 16
+(23) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 12)	page 16
+§4	Lushootseed	cited form	/ʔ	page 16
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	It is therefore unexpected to have such a heavily weighted constraint active in the language. To get glottals as the default epenthetic consonant, *GLOTTAL would have to be weighted lower than other places, like *CORONAL, to ensure that inserted consonants like /ʔ, h/ have a lower H score than /t, s/. There is then a puzzle as to why consonants with a coronal place are preserved in the reduplicated forms in (22b), while glottals are not.	page 16
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	Furthermore, it is very easy to find forms that copy glottals, that have more clearly compositional translations, and result from productive processes of reduplication. Some examples are given in (24) below. The question arising from the examples in (24) is: why are these glottal stops treated differently in reduplication? The CWI and context-free constraint would predict that they would be sensitive to it, as in (22b).	page 16
+(24) line 1	Gloria Mellesmoen and Suzanne Urbanczyk	note	Tagalog reduplication with glottal stops (from French 1988)	page 16, the caption
+(24) line 2	Tagalog	transcription	ʔisdáʔ	page 16, the orthography
+(24) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘fish’	page 16
+(24) line 2	Tagalog	transcription	naŋ-ʔi-ʔisdáʔ	page 16, the orthography
+(24) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘X is fishing’	page 16
+(24) line 2	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 23)	page 16
+(24) line 3	Tagalog	transcription	ʔupóʔ	page 16, the orthography
+(24) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to sit’	page 16
+(24) line 3	Tagalog	transcription	p-in-a-ʔu-ʔupóʔ	page 16, the orthography
+(24) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘is causing X to sit’	page 16
+(24) line 3	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 25)	page 16
+(24) line 4	Tagalog	transcription	ʔupóʔ	page 16, the orthography
+(24) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to sit’	page 16
+(24) line 4	Tagalog	transcription	pa-ʔu-ʔupoʔ-ín	page 16, the orthography
+(24) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘will cause X to sit’	page 16
+(24) line 4	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 25)	page 16
+(24) line 5	Tagalog	transcription	ʔíbig	page 16, the orthography
+(24) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘to love’	page 16
+(24) line 5	Tagalog	transcription	ʔi-ʔibíg-in	page 16, the orthography
+(24) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	translation	‘will love X’	page 16
+(24) line 5	Gloria Mellesmoen and Suzanne Urbanczyk	note	(p. 33)	page 16
+§4	Gloria Mellesmoen and Suzanne Urbanczyk	note	We close this section by concluding that any grammar with context-free markedness constraints is prone to face problems under the assumptions of the CWI. Specifically, the CWI predicts rampant reduction of contrasts in both reduplicant and base as they will have equal activity levels and this model of reduplication does not distinguish between a base and reduplicant. This kind of widespread weakening through both a base and reduplicant is not well-attested in language. In light of this, the CWI is likely to over-generate with respect to TETU and reduction processes.	page 16
+§5	Gloria Mellesmoen and Suzanne Urbanczyk	heading	5 Summary	page 16
+§5	Gloria Mellesmoen and Suzanne Urbanczyk	note	To summarize, the variation and conditions on “vowel reduction” in Lushootseed are the kind of pattern that GSRs predict: there are lexical exceptions that can be accounted for by positing that some lexical items have partially active segments. GSR is needed to account for the variation in the system in general. A model in which segments are weakened further by reduplication, such as the CWI, is not required. By Occam’s Razor, the simpler model of reduplication we use in our analysis can account for the facts more parsimoniously.	page 16
+references	Gloria Mellesmoen and Suzanne Urbanczyk	heading	References	page 17
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Alderete, John, Jill Beckman, Laura Benua, Amalia Gnanadesikan, John McCarthy, & Suzanne Urbanczyk. (1999). Reduplication and segmental markedness. Linguistic Inquiry 30:327–364. Bates, Dawn. (1986). An analysis of Lushootseed diminutive reduplication. In V. Nikiforidou, M. Van Clay, & M. Niepokuj (eds.), Proceedings of the Twelfth Annual Meeting of the Berkeley Linguistics Society. Berkeley, CA: Berkeley Linguistics Society Publications, 1–12.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bates, Dawn, Thom Hess, & Vi Hilbert. (1994). Lushootseed dictionary. Seattle, WA: University of Washington Press.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Becker, Michael, & Kathryn Flack Potts. (2011). The emergence of the unmarked. In Marc van Oostendorp, Colin J. Ewen, Elizabeth Hume, & Keren Rice (eds.), The Blackwell Companion to Phonology. London, UK: Wiley Blackwell, 1363–1379.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Beckman, Jill. (1999). Positional faithfulness: An Optimality Theoretic treatment of phonological asymmetries. New York, NY: Garland.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bermúdez-Otero, Ricardo. (2012). The architecture of the grammar and division of labor in exponence. In Jochen Trommer (ed.), The morphology and phonology of exponence. Oxford, UK: University Press, 8–83.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	language	Nxaʔamxcin	Nxaʔamxcin, Moses-Columbia Salish
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bessell, Nicola, & Ewa Czaykowska-Higgins. (1993). The phonetics and phonology of postvelar consonant in Moses-Columbia Salish (Nxaʔamxcin). Toronote, ON: Toronto Working Papers in Linguistics, CLA Proceedings, 35–48.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Blake, Susan, J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral dissertation, University of British Columbia, Vancouver, BC.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Blust, Robert. (1976). Dempwolff’s reduplicated monosyllables. Oceanic linguistics 15(1):107– 130.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Blust, Robert. (2007). Disyllabic attractors and anti-antigemination in Austronesian sound change. Phonology 24:1–36.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Bye, Patrick, & Peter Svenonius. (2012). Non-concatenative morphology as epiphenomenon. In Jochen Trommer (ed.), The morphology and phonology of exponence. Oxford, UK: University Press, 426–495.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	French, Koleen M. (1988). Insights into Tagalog reduplication, infixation and stress from nonlinear phonology. SIL.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Hsu, Brian. (2022). Gradient symbolic representations in Harmonic Grammar. Language and Linguistics Compass 16(9):1−21.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Itô, Junko. (1986). Syllable theory in prosodic phonology. Doctoral dissertation, University of Massachusetts, Amherst, MA.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	McCarthy, John, J. (2008). Doing Optimality Theory: Applying theory to data. Hoboken, NJ: Wiley.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	McCarthy, John J., & Alan Prince. (1994). The emergence of the unmarked: Optimality in prosodic morphology. Proceedings of NELS 24:333–379.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Murray, Robert, & Theo Vennemann. (1983). Sound change and syllable structure in Germanic phonology. Language 59:514–528.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Saba Kirchner, Jesse. (2010). Minimal reduplication. Doctoral dissertation, University of California, Santa Cruz, CA.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Saba Kirchner, Jesse. (2013). Minimal reduplication and reduplicative exponence. Morphology 23:227–243.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Schachter, Paul, & Fe T. Otanes. (1983). Tagalog reference grammar. Los Angeles, CA: University of California Press.	
+references	Lushootseed	cited form	hən̓q̓əmin̓əm̓	page 18
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Shaw, Patricia A., Susan J. Blake, Jill Campbell, & Cody Shepard. (1999). Stress in hən̓q̓əmin̓əm̓. Proceedings of WSCLA 4:131–163.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Smolensky, Paul, & Matthew Goldrick. (2016). Gradient symbolic representations in grammar: The case of French liaison. Ms. Johns Hopkins University and Northwestern University. ROA 1286.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Smolensky, Paul, Matthew Goldrick, & Donald Mathis, D. (2014). Optimization and quantization in gradient symbol systems: A framework for integrating the continuous and the discrete in cognition. Cognitive Science 38(6):1102–1138.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Steriade, Donca. (1988). Reduplication and syllable transfer in Sanskrit and elsewhere. Phonology, 5(1):73–155.	
+references	Gloria Mellesmoen and Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. (2001). Patterns of reduplication in Lushootseed. New York, NY: Garland. Zimmermann, Ewa. (2021). Faded copies: Reduplication as distribution of activity. Glossa: a journal of general linguistics 6 (1):58.1–38.	

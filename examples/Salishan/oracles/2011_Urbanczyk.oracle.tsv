@@ -1,0 +1,447 @@
+where	who	kind	form	gloss
+front	Suzanne Urbanczyk	title	Evidence from Halkomelem for word-based morphology	page 1
+front	Suzanne Urbanczyk	name	Suzanne Urbanczyk	author
+front	Suzanne Urbanczyk	note	University of Victoria	page 1, under Suzanne Urbanczyk
+front	Suzanne Urbanczyk	note	This paper examines a range of word-formation processes in Halkomelem providing evidence for a word-based, relational approach to morphology, where the form of a word is based on its relation to other fully formed words. Evidence is presented that traditional morpheme-based approaches (Kiparsky 1982; Lieber 1992; Selkirk 1982) in which words are constructed incrementally have difficulty. Realizational approaches (Anderson 1992; Embick and Halle 2005; Halle and Marantz 1992; Matthews 1972, 1991; Stump 2001; Wolf 2008) are also problematic. This discussion supports an abstractive, relational approach to word formation (as outlined in Blevins 2006), in which new words are created by analogy, as opposed to a constructive approach to morphology in which words are built up incrementally.	page 1, the abstract
+front	Suzanne Urbanczyk	language	Halkomelem	Central Salish, the language of the paper
+§1	Suzanne Urbanczyk	heading	1 Introduction	page 1
+§1	Suzanne Urbanczyk	note	Halkomelem (Central Salish) makes use of a variety of word-formation processes to express imperfective aspect (among other distinctions), diminutive and plural meanings. The following data from the Hul’q’umi’num’ (Vancouver Island) dialect, illustrate a range of allomorphy used to express imperfective aspect. Interestingly, neither prefixing nor suffixing is used. In (1a) CV- prefixing reduplication is used, in (1b) metathesis, in (1c) apophony (ablaut), in (1d) there is a different pattern of reduplication, in (1e) there is reduplication plus resonant aspiration, and in (1f), imperfective aspect is realized by medial vowel deletion. Resonant glottalization also accompanies these stem modifications (as in 1adef). Some of the vowel alterations arise from a regular process of vowel reduction, as illustrated in (1a) in which unstressed full vowels are reduced to schwa.	page 1
+§1	Suzanne Urbanczyk	language	Hul’q’umi’num’	the Vancouver Island dialect of Halkomelem, the paper's data
+§1	Suzanne Urbanczyk	language	Central Salish	the branch of Halkomelem
+(1) line 1	Suzanne Urbanczyk	note	Hul’q’umi’num’ imperfective (from Hukari and Peter 1995)1	page 1, the example's heading
+footnote 1	Suzanne Urbanczyk	note	Many thanks to Tom Hukari for discussion of the patterns and topics and for generously sharing an electronic version of the Cowichan Dictionary that greatly assisted me.	page 1, footnote 1
+footnote 1	Suzanne Urbanczyk	name	Tom Hukari	thanked for discussion and for the electronic Cowichan Dictionary, footnote 1
+(1a) line 1	Halkomelem	transcription	t̓ᶿaq̓ʷəm	page 1, the perfective
+(1a) line 2	Suzanne Urbanczyk	word gloss	rotten	page 1, the perfective's English
+(1a) line 3	Halkomelem	transcription	t̓ᶿat̓ᶿəq̓ʷəm̓	page 1, the imperfective
+(1a) line 4	Suzanne Urbanczyk	word gloss	rotting	page 1, the imperfective's English
+(1b) line 1	Halkomelem	transcription	pqʷat	page 2, the perfective
+(1b) line 2	Suzanne Urbanczyk	word gloss	break it (substance)	page 2, the perfective's English
+(1b) line 3	Halkomelem	transcription	paqʷt	page 2, the imperfective
+(1b) line 4	Suzanne Urbanczyk	word gloss	breaking it	page 2, the imperfective's English
+(1c) line 1	Halkomelem	transcription	c̓ət̓q̓ʷt	page 2, the perfective
+(1c) line 2	Suzanne Urbanczyk	word gloss	grind, pulverize, smash it	page 2, the perfective's English
+(1c) line 3	Halkomelem	transcription	c̓at̓q̓ʷt	page 2, the imperfective
+(1c) line 4	Suzanne Urbanczyk	word gloss	grinding it, pulverizing, smashing it.	page 2, the imperfective's English
+(1d) line 1	Halkomelem	transcription	caʔels	page 2, the perfective
+(1d) line 2	Suzanne Urbanczyk	word gloss	pull off a layer; cut slabs from wood	page 2, the perfective's English
+(1d) line 3	Halkomelem	transcription	cəcal̓s	page 2, the imperfective
+(1d) line 4	Suzanne Urbanczyk	word gloss	pulling off a layer; cutting slabs from wood.	page 2, the imperfective's English
+(1e) line 1	Halkomelem	transcription	ləc̓ət	page 2, the perfective
+(1e) line 2	Suzanne Urbanczyk	word gloss	fill it	page 2, the perfective's English
+(1e) line 3	Halkomelem	transcription	həl̓c̓t	page 2, the imperfective
+(1e) line 4	Suzanne Urbanczyk	word gloss	filling it.	page 2, the imperfective's English
+(1f) line 1	Halkomelem	transcription	ƛ̓eyəq̓əm	page 2, the perfective
+(1f) line 2	Suzanne Urbanczyk	word gloss	smoke	page 2, the perfective's English
+(1f) line 3	Halkomelem	transcription	ƛ̓ey̓q̓əm̓	page 2, the imperfective
+(1f) line 4	Suzanne Urbanczyk	word gloss	smoking (fire).	page 2, the imperfective's English
+§1	Suzanne Urbanczyk	note	As can be seen from this cursory examination, Halkomelem illustrates a very rich system, and understanding it can serve to shed light on word-formation processes in general.	page 2
+§1	Suzanne Urbanczyk	note	Two ways of conceptualizing word-formation regards whether the approach is constructional and in isolation or abstractive and relational (Blevins 2006). This is a useful dichotomy to examine because it makes a clear distinction between the multitude of approaches to word formation, grouping several approaches together under some basic assumptions. According to Blevins (2006) constructive models assume that words are created from roots and affixes (i.e. Chomsky and Halle 1968; Halle and Marantz 1993), starting with the root and then adding morphemes or applying “readjustments”, with the root as the basic starting point. Constructivist approaches can also be word- based (Anderson 1992; Beard 1995; Matthews 1972, 1991; Stump 2001). In these cases one starts with a word/lexeme/stem, and then one specifies how morphosyntactic (or derivational) features are realized, with the word/lexeme/stem as the basic starting point. Crucially, in constructive approaches word formation is completed for each individual word in isolation. A constructive approach is contrasted with abstractive approaches to word- formation. Abstractive approaches do not involve adding affixes or applying rules to bases/lexemes, and are crucially conceived of as relational (Blevins 2006; Bybee 1985). In this approach, there are no morphemes per se. Rather, concepts like root and affix are abstractions over shared elements of form and meaning over paradigms or word schemas, much like how phonemes are abstractions over the actual distribution of sounds across the entire lexicon of words. Abstractive approaches are paradigmatic, relational and analogical.	page 2
+§1	Suzanne Urbanczyk	name	Blevins	James P. Blevins, word-based morphology (2006)
+§1	Suzanne Urbanczyk	name	Matthews	P. H. Matthews, inflectional morphology (1972, 1991)
+§1	Suzanne Urbanczyk	name	Anderson	Stephen R. Anderson, A-morphous morphology (1992)
+§1	Suzanne Urbanczyk	name	Stump	Gregory T. Stump, inflectional morphology (2001)
+§1	Suzanne Urbanczyk	name	Halle and Marantz	Morris Halle and Alec Marantz, Distributed Morphology (1993)
+§1	Suzanne Urbanczyk	name	Chomsky	Noam Chomsky, Knowledge of Language (1986)
+§1	Suzanne Urbanczyk	note	The goal of this paper is to examine how the rich system of word- formation processes in Halkomelem used to express imperfective aspect can shed light on these two fundamentally different approaches to word-formation. The basic findings support an abstractive, relational, word-based approach (c.f. Leonard and Turner 2010). It turns out that a wide array of phonological and morphological conditioning is needed to predict the form of a word; this is best done by comparing morphologically similar words, rather than by building each word in isolation. In other words, the principles that are active in determining the correct allomorph are more in keeping with examining the full space of imperfective words. This implies that the root is not a unit of word-formation in Halkomelem, even though crucial reference has been made to the root in terms of understanding Salish lexical semantics (Davis and Demirdache 2000) and derivational and inflectional morphology (Wilschko 2009). The paper begins by providing an overview of the key assumptions with several constructivist and relational approaches to morphology (§2). This is followed by an examination of the phonological conditions (§3) and morphological conditions (§4) on the various allomorphs. A final section (§5) summarizes the discussion and provides external motivation for adopting a word-based relational approach to Halkomelem morphology.	page 2
+§1	Suzanne Urbanczyk	name	Leonard and Turner	Janet Leonard and Claire Turner, SENĆOŦEN imperfectives (2010)
+§2	Suzanne Urbanczyk	heading	2 Approaches to morphology	page 3
+§2	Suzanne Urbanczyk	note	As discussed above, the various different approaches to morphology can be divided into two basic types: constructive and relational. This section outlines some basic assumptions regarding constructive approaches to word- formation versus relational word-based approaches. This is followed by a brief discussion of the kinds of evidence that can be used to tease these approaches apart.	page 3
+§2	Suzanne Urbanczyk	note	In a nutshell, constructivist approaches are those in which words are built up incrementally. We can loosely categorize these as morpheme-based or as realizational theories. In morpheme-based approaches to word-formation, the lexicon is assumed to be a repository of roots and affixes which are added to some base of increasing size and complexity (Kiparsky 1982; Lieber 1992; Selkirk 1982). These approaches are well-equipped to derive words formed by concatenation of items, such as affixation and compounding. Non-concatenative processes processes such as metathesis are problematic, because they are process based and thus cannot be stored as items in the lexicon. Within morpheme-based models, there is a core of research aimed at either arguing that metathesis is not a valid word-formation process or by proposing that the reordering of segments follows from affixation of other elements, such as timing units like the mora (Stonham 1994).	page 3
+§2	Suzanne Urbanczyk	name	Kiparsky	Paul Kiparsky, lexical phonology (1982)
+§2	Suzanne Urbanczyk	note	In realizational approaches to morphology, morphological operations apply to some base (be it a root or stem) to create a new word. These operations can include affixation as well as non-concatenative operations, such as metathesis. This includes classic realizational theories as proposed by Matthews (1972; 1991), Anderson (1992), Aronoff (1994), and Stump (2001) among others. In these approaches, some base is considered to provide the central formal properties of the word, usually a stem. It is not necessary that the form match the morpho-syntactic features of other words in the paradigm, as research on Latin has shown. Other realizational approaches differ in terms of how the realization occurs, such as in Distributed Morphology (Embick and Halle 2005; Halle and Marantz 1993), Lexeme-Morpheme Base Morphology (Beard 1995), and Optimal Interleaving (Wolf 2008). In Distributed Morphology (DM), syntax provides morpho-syntactic and semantic features. These are then subject to vocabulary insertion and readjustment rules. It is morpheme-based in the sense that actual vocabulary items are stored in the lexicon and then inserted. However, it is realizational in the sense that the meaning and form are separated, and also in the sense that readjustment rules can apply, accounting for cases of ablaut, metathesis, and reduplication. All realizational approaches are constructive because they start off with a base of some sort that has material added to it or adjusted, according to an ordered set of rules.	page 3
+§2	Suzanne Urbanczyk	name	Embick and Halle	David Embick and Morris Halle, the status of stems (2005)
+§2	Suzanne Urbanczyk	language	Latin	research on its paradigms
+§2	Suzanne Urbanczyk	note	These approaches contrast sharply with relational-based word-based approaches, which assume that there are only fully formed words in the lexicon (Blevins 2006). New words are created by analogy to other words in the lexicon. For example, given the relation of sing:sang, when faced with the word bring one could posit brang by analogy. This is, of course, what children do when they have not yet acquired brought. There are no intermediate stages; there are no roots or affixes; roots and affixes arise as abstractions of shared form and meaning over words, not because they exist as actual elements in the lexicon.	page 4
+§2	English	cited form	sing:sang	page 4, in italics
+§2	English	cited form	bring	page 4, in italics
+§2	English	cited form	brang	page 4, in italics
+§2	English	cited form	brought	page 4, in italics
+§2	Suzanne Urbanczyk	note	There are several types of evidence that can be compiled to distinguish these approaches from each other. First, constructivist approaches assume an intermediate stage of word formation. Counter-evidence for this would be if there is one ordering for one word and another ordering for a different word. Second, constructivist approaches assume that words are created in isolation. If the form of a word is influenced by the form of other morphologically related words, this would provide evidence against creating words in isolation. Third, constructivist approaches assume what I will refer to as invariant exponence. Consider that the realization of a meaning in a word is its exponence. Invariant exponence assumes that, if [X] is the exponent of morpho-syntactic feature [+F], then [X] cannot be the exponent of morpho-syntactic feature [-F] (the contrasting morpho-syntactic feature). If some exponent [X] can be associated with the meanings of both [+F] and [-F], this would pose a challenge to the principle of invariant exponence and theories that implicitly assume it. The final type of evidence is more general and is related to cognitive factors regarding the structure of the mental lexicon. If one aims for linguistic theory to model our language faculty, the most perspicuous approach would be one in which there is a close match between the formal theoretical mechanisms and our cognitive system. Constructivist models of morphology make the crucial assumption that there is no connection between morphologically related words, while the relational approach assumes that new words can only be formed by comparing similar words. A brief overview of the psycholinguistic evidence once again supports the relational analogical approach.	page 4
+§2	Suzanne Urbanczyk	note	The rest of this paper aims to provide the specific details for the types of evidence discussed above. Because the pattern of forming Hul’q’umi’num’ imperfective verbs is quite complex, it is necessary to first discuss the phonological conditions on choice of allomorph. This is followed by a discussion of morphological conditions. Specific evidence is discussed as the details of the system are presented. A final section summarizes the Hul’q’umi’num’ evidence as well as introducing more general evidence from the mental lexicon. In all cases, constructivist approaches to word-formation are challenged by the findings.	page 4
+§3	Suzanne Urbanczyk	heading	3 Phonological conditions	page 5
+§3	Suzanne Urbanczyk	note	For the most part, the choice of imperfective allomorph is predictable, based on the phonological properties of the perfective word. The basic phonological factors relevant for determining the form of the imperfective relate to 1) whether the word contains a root-initial cluster or not, 2) whether the first vowel is a schwa or full vowel, and 3) whether the consonants are obstruents (T), sonorants (R), or laryngeals (H). The basic patterns are outlined here, as they related to understanding the morphological conditions and evidence to be introduced. See Suttles (2004: §7.2) for a thorough discussion of the full range of conditions on choice of imperfective allomorphs in Musqueam Halkomelem.	page 5
+§3	Suzanne Urbanczyk	name	Suttles	Wayne Suttles, the Musqueam reference grammar (2004)
+§3	Suzanne Urbanczyk	language	Musqueam Halkomelem	the Downriver dialect, Suttles's grammar
+§3	Suzanne Urbanczyk	note	There are three reduplicative allomorphs. If the perfective begins with a single non-laryngeal consonant followed by a full stressed vowel and another non-laryngeal consonant, then CV- reduplication occurs. As one can see below, these have initial stress, with the root vowel reducing to schwa when it is unstressed. Notice that non-initial resonants are glottalized; this occurs with every imperfective form.	page 5
+(2) line 1	Suzanne Urbanczyk	note	CV- reduplication (Leslie 1979: 45; PROG meanings added by SU)	page 5, the example's heading
+(2a) line 1	Halkomelem	transcription	ɬíc̓ət	page 5, the perfective
+(2a) line 2	Suzanne Urbanczyk	word gloss	cut it	page 5, the perfective's English
+(2a) line 3	Halkomelem	transcription	ɬíɬəc̓ət	page 5, the imperfective
+(2a) line 4	Suzanne Urbanczyk	word gloss	cutting it	page 5, the imperfective's English
+(2b) line 1	Halkomelem	transcription	kʷíntəl	page 5, the perfective
+(2b) line 2	Suzanne Urbanczyk	word gloss	fight	page 5, the perfective's English
+(2b) line 3	Halkomelem	transcription	kʷíkʷən̓təl	page 5, the imperfective
+(2b) line 4	Suzanne Urbanczyk	word gloss	fighting	page 5, the imperfective's English
+(2c) line 1	Halkomelem	transcription	ɬímət	page 5, the perfective
+(2c) line 2	Suzanne Urbanczyk	word gloss	lick it	page 5, the perfective's English
+(2c) line 3	Halkomelem	transcription	ɬíɬəm̓ət	page 5, the imperfective
+(2c) line 4	Suzanne Urbanczyk	word gloss	licking it	page 5, the imperfective's English
+(2d) line 1	Halkomelem	transcription	yeq̓	page 5, the perfective
+(2d) line 2	Suzanne Urbanczyk	word gloss	topple down	page 5, the perfective's English
+(2d) line 3	Halkomelem	transcription	yéy̓əq̓	page 5, the imperfective
+(2d) line 4	Suzanne Urbanczyk	word gloss	toppling down	page 5, the imperfective's English
+§3	Suzanne Urbanczyk	note	Reduplication also occurs if the perfective is TəC (T is an obstruent). However, in this case stress remains on the root, and the reduplicative prefix is unstressed.	page 5
+(3) line 1	Suzanne Urbanczyk	note	Cə- reduplication (Hukari and Peter 1995)	page 5, the example's heading
+(3a) line 1	Halkomelem	transcription	təs	page 5, the perfective
+(3a) line 2	Suzanne Urbanczyk	word gloss	get near	page 5, the perfective's English
+(3a) line 3	Halkomelem	transcription	tətə́s	page 5, the imperfective
+(3a) line 4	Suzanne Urbanczyk	word gloss	getting near	page 5, the imperfective's English
+(3b) line 1	Halkomelem	transcription	t̓əq̓ʷ	page 6, the perfective
+(3b) line 2	Suzanne Urbanczyk	word gloss	break	page 6, the perfective's English
+(3b) line 3	Halkomelem	transcription	t̓ət̓ə́q̓ʷ	page 6, the imperfective
+(3b) line 4	Suzanne Urbanczyk	word gloss	breaking	page 6, the imperfective's English
+(3c) line 1	Halkomelem	transcription	c̓əq̓ʷ	page 6, the perfective
+(3c) line 2	Suzanne Urbanczyk	word gloss	pierced, shot	page 6, the perfective's English
+(3c) line 3	Halkomelem	transcription	c̓əc̓ə́q̓ʷ	page 6, the imperfective
+(3c) line 4	Suzanne Urbanczyk	word gloss	getting pierced, shot	page 6, the imperfective's English
+(3d) line 1	Halkomelem	transcription	θək̓ʷ	page 6, the perfective
+(3d) line 2	Suzanne Urbanczyk	word gloss	stretched taut	page 6, the perfective's English
+(3d) line 3	Halkomelem	transcription	θəθə́k̓ʷ	page 6, the imperfective
+(3d) line 4	Suzanne Urbanczyk	word gloss	stretching, becoming stretched taut.	page 6, the imperfective's English
+§3	Suzanne Urbanczyk	note	The third reduplicative allomorph occurs when the root begins with a single sonorant followed by a schwa. A process of resonant devoicing also accompanies this allomorph (Hukari 1977; c.f. Urbanczyk 1999), such that the initial sonorant becomes the laryngeal fricative.	page 6
+§3	Suzanne Urbanczyk	name	Hukari	Thomas E. Hukari, resonant devoicing (1977) and nonsegmental morphology (1978)
+(4) line 1	Suzanne Urbanczyk	note	Sonorant-schwa reduplication (Hukari and Peter 1995)	page 6, the example's heading
+(4a) line 1	Halkomelem	transcription	lə́c̓ət	page 6, the perfective
+(4a) line 2	Suzanne Urbanczyk	word gloss	fill it	page 6, the perfective's English
+(4a) line 3	Halkomelem	transcription	hə́l̓c̓t	page 6, the imperfective
+(4a) line 4	Suzanne Urbanczyk	word gloss	filling it	page 6, the imperfective's English
+(4b) line 1	Halkomelem	transcription	mə́kʷels	page 6, the perfective
+(4b) line 2	Suzanne Urbanczyk	word gloss	pile hay	page 6, the perfective's English
+(4b) line 3	Halkomelem	transcription	hə́m̓kʷəl̓s	page 6, the imperfective
+(4b) line 4	Suzanne Urbanczyk	word gloss	piling hay	page 6, the imperfective's English
+(4c) line 1	Halkomelem	transcription	nə́kʷəyəł	page 6, the perfective
+(4c) line 2	Suzanne Urbanczyk	word gloss	bounce a cradle	page 6, the perfective's English
+(4c) line 3	Halkomelem	transcription	hə́n̓kʷəy̓əł	page 6, the imperfective
+(4c) line 4	Suzanne Urbanczyk	word gloss	bouncing a cradle	page 6, the imperfective's English
+(4d) line 1	Halkomelem	transcription	wə́q̓ʷətəm	page 6, the perfective
+(4d) line 2	Suzanne Urbanczyk	word gloss	downstream: drift downstream	page 6, the perfective's English
+(4d) line 3	Halkomelem	transcription	hə́w̓q̓ʷətəm̓	page 6, the imperfective
+(4d) line 4	Suzanne Urbanczyk	word gloss	downstream: drifting downstream	page 6, the imperfective's English
+§3	Suzanne Urbanczyk	note	This pattern also occurs when the first consonant is a sonorant and the second is a laryngeal.	page 6
+§3	Suzanne Urbanczyk	note	Apophony (also known as ablaut) occurs to form imperfective with a restricted set of stems as well. The words below all have the property of being composed of triconsonantal zero grade roots, that is to say, there is no full vowel. The first two stems are morphologically complex, having the ‘control transitive suffix’ /-t/ attached, though this does not seem to be a necessary condition, as (5cd) illustrate without any further affixes.	page 6
+(5) line 1	Suzanne Urbanczyk	note	Apophony (ablaut) (Hukari 1978)	page 6, the example's heading
+(5a) line 1	Halkomelem	transcription	ɬəp̓t̓ᶿt	page 6, the perfective
+(5a) line 2	Suzanne Urbanczyk	word gloss	slurp it	page 6, the perfective's English
+(5a) line 3	Halkomelem	transcription	ɬep̓t̓ᶿt	page 6, the imperfective
+(5a) line 4	Suzanne Urbanczyk	word gloss	slurping it	page 6, the imperfective's English
+(5b) line 1	Halkomelem	transcription	c̓ət̓q̓ʷt	page 7, the perfective
+(5b) line 2	Suzanne Urbanczyk	word gloss	grind it	page 7, the perfective's English
+(5b) line 3	Halkomelem	transcription	c̓at̓q̓ʷt	page 7, the imperfective
+(5b) line 4	Suzanne Urbanczyk	word gloss	grinding it	page 7, the imperfective's English
+(5c) line 1	Halkomelem	transcription	səwq̓	page 7, the perfective
+(5c) line 2	Suzanne Urbanczyk	word gloss	seek	page 7, the perfective's English
+(5c) line 3	Halkomelem	transcription	sew̓q̓	page 7, the imperfective
+(5c) line 4	Suzanne Urbanczyk	word gloss	seeking	page 7, the imperfective's English
+(5d) line 1	Halkomelem	transcription	č̓əkʷx̌	page 7, the perfective
+(5d) line 2	Suzanne Urbanczyk	word gloss	fry	page 7, the perfective's English
+(5d) line 3	Halkomelem	transcription	č̓ekʷx̌	page 7, the imperfective
+(5d) line 4	Suzanne Urbanczyk	word gloss	frying	page 7, the imperfective's English
+§3	Suzanne Urbanczyk	note	The quality of the vowel is phonologically predictable. It is [a] if a rounded consonant follows, otherwise it is [e] (Jones 1978). The lack of a stressed schwa with the imperfective has been analyzed as a way to avoid stressed schwa with the imperfective in Halkomelem (Urbanczyk 2000). In many different derived environments stressed schwa is actively avoided. An instance when one finds a stressed schwa with the imperfective is with Cə- reduplication with initial sonorants, as illustrated in (4). Notice that other reduplications involving schwa, as in (3), retain stress on the root vowel.	page 7
+§3	Suzanne Urbanczyk	name	Jones	Michael K. Jones, the Cowichan actual aspect (1978)
+§3	Suzanne Urbanczyk	note	Apophony can be accounted for in several different ways. For a morpheme-based approach, one could specify an infix /-e-/ with a phonological rule to change the quality to [a] in the context of rounded consonants. For realizational approaches, one would specify a (readjustment) rule where schwa becomes either [e] or [a], depending on the phonological context. The historical origins are most likely related to some form of infix, as several Interior Salish languages illustrate infixal vowels associated with plurality and aspect (Urbanczyk 2004). As such we can see that constructive approaches can readily account for these data, with a minimal number of assumptions.	page 7
+§3	Suzanne Urbanczyk	language	Interior Salish	infixal vowels of plurality and aspect
+§3	Suzanne Urbanczyk	note	When the suffix is /-m/, an interesting pattern is found with triconsonantal roots. First, notice that rather than having schwa as the initial vowel, the ablaut vowel shows up with the perfective form. The exponent of imperfective is schwa deletion in this case.	page 7
+(6) line 1	Suzanne Urbanczyk	note	Schwa deletion (Hukari 1978)	page 7, the example's heading
+(6a) line 1	Halkomelem	transcription	c̓át̓əq̓ʷəm	page 7, the perfective
+(6a) line 2	Suzanne Urbanczyk	word gloss	fall apart (from cooking)	page 7, the perfective's English
+(6a) line 3	Halkomelem	transcription	c̓át̓q̓ʷəm	page 7, the imperfective
+(6a) line 4	Suzanne Urbanczyk	word gloss	falling apart (from cooking)	page 7, the imperfective's English
+(6b) line 1	Halkomelem	transcription	ƛ̓épəx̌əm	page 7, the perfective
+(6b) line 2	Suzanne Urbanczyk	word gloss	fall (leaves)	page 7, the perfective's English
+(6b) line 3	Halkomelem	transcription	ƛ̓épx̌əm̓	page 7, the imperfective
+(6b) line 4	Suzanne Urbanczyk	word gloss	falling (leaves)	page 7, the imperfective's English
+(6c) line 1	Halkomelem	transcription	ɬát̓əq̓ʷəm	page 7, the perfective
+(6c) line 2	Suzanne Urbanczyk	word gloss	snore	page 7, the perfective's English
+(6c) line 3	Halkomelem	transcription	ɬát̓q̓ʷəm̓	page 7, the imperfective
+(6c) line 4	Suzanne Urbanczyk	word gloss	snoring	page 7, the imperfective's English
+(6d) line 1	Halkomelem	transcription	č̓ekʷəx̌əm	page 7, the perfective
+(6d) line 2	Suzanne Urbanczyk	word gloss	sizzling,sound (e.g., grease in a hot pan)	page 7, the perfective's English
+(6d) line 3	Halkomelem	transcription	č̓ekʷx̌əm̓	page 7, the imperfective
+(6d) line 4	Suzanne Urbanczyk	word gloss	sizzling sound (e.g., grease in a hot pan)	page 7, the imperfective's English
+§3	Suzanne Urbanczyk	note	This pattern illustrates a few puzzles for both morpheme-based and realizational theories of morphology. First, schwa deletion cannot be expressed as an item per se, so this allomorph of the imperfective cannot be a lexical entry. Realizational theories can handle this process-based change though, via some form of stem adjustment. More challenging is the second problem: the ablaut vowel is used for both aspectual distinctions. This violates the principle of invariant exponence discussed above. If ablaut is used to express perfective AND imperfective, there is no real way to tell the two words apart from each other, except for resonant glottalization. For morpheme-based theories, the ablaut vowel would need to be present for both aspectual morphemes. Realizational theories would need to have the same rule for both aspectual meanings. The imperfective would also require two additional rules: one for schwa deletion and another for resonant glottalization. This sort of triple exponence is rarely found in languages. It is predicted not to occur in some models (Kurisu 2001) and poses serious challenges to models which rely on principles like the Elsewhere Condition (Anderson 1992; Halle and Marantz 1993). The Elsewhere Condition states that if a specific rule applies, a general rule does not. This is to prevent excessive multiple exponence, where words like man would not be pluralized by two operations: the specific ablaut, creating men, but not permitting the more general /-s/ affixation, as in the ill-formed *mens. Schwa deletion would be a specific rule here, with ablaut being less specific and resonant glottalization is the general rule. The fact that all three occur is a serious problem.	page 8
+§3	English	cited form	man	page 8, in italics
+§3	English	cited form	men	page 8, in italics
+§3	English	cited form	*mens	page 8, in italics
+§3	Suzanne Urbanczyk	note	On the other hand, if word formation is relational, that implies that the form of one word is dependent on the shape of other words in the paradigm. In a relational theory, the only unusual thing is that ablaut has applied to the triconsonantal roots with /-m/ as a suffix. This is truly unexpected, regardless of the approach. Schwa deletion can be understood as being motivated in order to create a distinct word from the perfective. Resonant glottalization is also straightforward, because it is a property of all imperfective verb forms. An examination of the Cowichan Dictionary reveals that every triconsonantal root (except one) falls into the pattern in (6) above. By analogy, this is as expected.	page 8
+§3	Suzanne Urbanczyk	note	Metathesis occurs with a restricted set of stem shapes. When a biconsonantal obstruent-only root has the control transitive suffix /-t/, the perfective often has the shape TTVt, where T stands for an obstruent and V is either [a] or [e] the choice being predictable, based on whether there is a rounded consonant (Jones 1978). As one can see, the imperfective is formed by switching the order of C2 and the vowel, with imperfective having the target shape TVTt.	page 8
+(7) line 1	Suzanne Urbanczyk	note	Metathesis (Hukari 1978)	page 8, the example's heading
+(7a) line 1	Halkomelem	transcription	pqʷat	page 8, the perfective
+(7a) line 2	Suzanne Urbanczyk	word gloss	break it (substance)	page 8, the perfective's English
+(7a) line 3	Halkomelem	transcription	paqʷt	page 8, the imperfective
+(7a) line 4	Suzanne Urbanczyk	word gloss	breaking it	page 8, the imperfective's English
+(7b) line 1	Halkomelem	transcription	t̓q̓ʷat	page 9, the perfective
+(7b) line 2	Suzanne Urbanczyk	word gloss	break it	page 9, the perfective's English
+(7b) line 3	Halkomelem	transcription	t̓aq̓ʷt	page 9, the imperfective
+(7b) line 4	Suzanne Urbanczyk	word gloss	breaking it	page 9, the imperfective's English
+(7c) line 1	Halkomelem	transcription	xʷk̓ʷat	page 9, the perfective
+(7c) line 2	Suzanne Urbanczyk	word gloss	pull it	page 9, the perfective's English
+(7c) line 3	Halkomelem	transcription	xʷak̓ʷt	page 9, the imperfective
+(7c) line 4	Suzanne Urbanczyk	word gloss	pulling it	page 9, the imperfective's English
+(7d) line 1	Halkomelem	transcription	sq̓et	page 9, the perfective
+(7d) line 2	Suzanne Urbanczyk	word gloss	tear/split it	page 9, the perfective's English
+(7d) line 3	Halkomelem	transcription	seq̓t	page 9, the imperfective
+(7d) line 4	Suzanne Urbanczyk	word gloss	tearing/splitting it	page 9, the imperfective's English
+§3	Suzanne Urbanczyk	note	Morphological processes like metathesis are problematic for morpheme-based models because there is no “sign”; rather the meaning is expressed by reordering segments. Metathesis is not difficult to account for with realizational models, though there is resistance to accepting this as a morphological operation, with the desire to avoid opening the door to such powerful mechanisms as reordering segments.	page 9
+§3	Suzanne Urbanczyk	note	Metathesis can be seen as a specific instance of stress-shift, where stress generally tends to fall on the initial syllable of imperfective verb forms. Other patterns of stress shift are found in which a cluster-initial stem has epenthesis, while the original vowel is reduced to schwa.	page 9
+(8) line 1	Suzanne Urbanczyk	note	Stress shift and schwa insertion	page 9, the example's heading
+(8a) line 1	Halkomelem	transcription	cset	page 9, the perfective
+(8a) line 2	Suzanne Urbanczyk	word gloss	tell him/her	page 9, the perfective's English
+(8a) line 3	Halkomelem	transcription	cə́sət	page 9, the imperfective
+(8a) line 4	Suzanne Urbanczyk	word gloss	telling him/her	page 9, the imperfective's English
+(8b) line 1	Halkomelem	transcription	tset	page 9, the perfective
+(8b) line 2	Suzanne Urbanczyk	word gloss	put it near	page 9, the perfective's English
+(8b) line 3	Halkomelem	transcription	tə́sət	page 9, the imperfective
+(8b) line 4	Suzanne Urbanczyk	word gloss	putting it near	page 9, the imperfective's English
+(8c) line 1	Halkomelem	transcription	k̓ʷšáləst	page 9, the perfective
+(8c) line 2	Suzanne Urbanczyk	word gloss	count stitches	page 9, the perfective's English
+(8c) line 3	Halkomelem	transcription	k̓ʷə́šəl̓əst	page 9, the imperfective
+(8c) line 4	Suzanne Urbanczyk	word gloss	counting stitches	page 9, the imperfective's English
+(8d) line 1	Halkomelem	transcription	ɬc̓áləst	page 9, the perfective
+(8d) line 2	Suzanne Urbanczyk	word gloss	slice out a piece of weaving	page 9, the perfective's English
+(8d) line 3	Halkomelem	transcription	ɬə́c̓əl̓əst	page 9, the imperfective
+(8d) line 4	Suzanne Urbanczyk	word gloss	slicing out a piece of weaving	page 9, the imperfective's English
+§3	Suzanne Urbanczyk	note	Notice that in this case, the initial vowel is a stressed schwa, without changing its quality, and more significantly, the full vowel is reduced to schwa, rather than being gone entirely. This seems to suggest that metathesis is the best way to understand the pattern in (7), in which the vowel and consonant shift location. There is a correlation between TTVT -> TVTT, such that the reordering of segments is complete, while if schwa is epenthesized, there is still a remnant of the non-initial vowel. In general if the non-initial vowel reduces to schwa, then the initial vowel is schwa (not a copy of the base vowel). This seems to be one of the cases where some lexical conditioning is at play, because it is not entirely predictable whether or not stress-shift and metathesis occur, or whether stress- shift and schwa epenthesis occur.	page 9
+§3	Suzanne Urbanczyk	note	Given the range of phonologically conditioned allomorphy and the range of stem changes, it is tempting to see if there is a unified way to look at the imperfective. There seems to be a few conditions that are prevalent, which relate to an emergent target shape, in which the segment-prosody interactions are less marked than in the perfective. First, imperfectives tend to have initial stress. The only non-initial stressed forms are those with Cə- reduplication in which the initial consonant is not a resonant. It is assumed that this non-initial stress is a way to avoid stressing an affix schwa. Second, root-initial clusters are avoided; a vowel breaks the cluster up, either by metathesis or epenthesis. Third, stressed schwa tends to be avoided. These all relate to having less marked segment-prosody interactions. Sequences of obstruents are marked, and avoided; stressed schwa is marked and avoided. The following chart summarizes the allomorphs that are found with different bases.2	page 10
+footnote 2	Suzanne Urbanczyk	note	The following abbreviations are used: C = any consonant; T = any obstruent; R = any resonant; H = a laryngeal consonant; V = any vowel; A = ablaut vowel.	page 10, footnote 2
+(9) line 1	Suzanne Urbanczyk	note	Summary	page 10, the example's heading
+(9) line 2	Suzanne Urbanczyk	note	Allomorph Base	page 10, a line of the example
+(9) line 3	Suzanne Urbanczyk	note	CV- CVC…	page 10, a line of the example
+(9) line 4	Suzanne Urbanczyk	note	Cə- TəC, TəH, CV:C	page 10, a line of the example
+(9) line 5	Suzanne Urbanczyk	note	hə́- Rə́C…	page 10, a line of the example
+(9) line 6	Suzanne Urbanczyk	note	Ablaut Tə́CC…	page 10, a line of the example
+(9) line 7	Suzanne Urbanczyk	note	Stress shift + metathesis TTAT	page 10, a line of the example
+(9) line 8	Suzanne Urbanczyk	note	Stress shift + epenthesis CCVC	page 10, a line of the example
+(9) line 9	Suzanne Urbanczyk	note	Schwa deletion TATəTəm	page 10, a line of the example
+(9) line 10	Suzanne Urbanczyk	note	Resonant glottalization All non-initial resonants	page 10, a line of the example
+§3	Suzanne Urbanczyk	note	Having examined the basic phonological conditions, and illustrated some of the potential problems for morpheme-based and realizational theories of morphology, the following section turns to the morphological conditions.	page 10
+§4	Suzanne Urbanczyk	heading	4 Morphological conditions	page 10
+§4	Suzanne Urbanczyk	note	One of the morphological conditions on the expression of imperfective aspect has already been discussed: how the realization of triconsonantal roots differs, depending on the affix that is attached. We will go into this pattern in more detail below, as well as introduce a few new morphological conditions. Again, the discussion provided below is not exhaustive, but is focused on those issues that pose challenges to standard morphological theories. In what follows below, more discussion will be given to the ordering of phonological and morphological rules, rather than simply the application of the correct allomorph. We begin by providing evidence that the determination of the correct allomorph is based on the stem, rather than the root.	page 10
+§4	Suzanne Urbanczyk	note	The following examples illustrate that the root cannot be the determinant. Notice that the words in (10) all have the shared meaning of ‘pierce, shoot’. However, depending on what affix is added, the shape of the perfective differs, as does the choice of imperfective allomorph. This means that, in general the imperfective is phonologically conditioned. If it were always related to what the root is, then each of the forms below should have the Cə- allomorph, as in (10a), which has the bare root.	page 11
+(10) line 1	Suzanne Urbanczyk	note	Root = ‘pierce, shoot’	page 11, the example's heading
+(10a) line 1	Halkomelem	transcription	c̓əq̓ʷ	page 11, the perfective
+(10a) line 2	Suzanne Urbanczyk	word gloss	pierced, shot	page 11, the perfective's English
+(10a) line 3	Halkomelem	transcription	c̓əc̓əq̓ʷ	page 11, the imperfective
+(10a) line 4	Suzanne Urbanczyk	word gloss	getting pierced, shot	page 11, the imperfective's English
+(10b) line 1	Halkomelem	transcription	c̓q̓ʷeʔəm	page 11, the perfective
+(10b) line 2	Suzanne Urbanczyk	word gloss	poke through something	page 11, the perfective's English
+(10b) line 3	Halkomelem	transcription	c̓əq̓ʷəm̓	page 11, the imperfective
+(10b) line 4	Suzanne Urbanczyk	word gloss	poking through something	page 11, the imperfective's English
+(10c) line 1	Halkomelem	transcription	c̓q̓ʷat	page 11, the perfective
+(10c) line 2	Suzanne Urbanczyk	word gloss	pierce it, […]	page 11, the perfective's English
+(10c) line 3	Halkomelem	transcription	c̓aq̓ʷt	page 11, the imperfective
+(10c) line 4	Suzanne Urbanczyk	word gloss	piercing it, shooting it	page 11, the imperfective's English
+(10d) line 1	Halkomelem	transcription	c̓əq̓ʷnexʷ	page 11, the perfective
+(10d) line 2	Suzanne Urbanczyk	word gloss	shoot, pierce (manage to)	page 11, the perfective's English
+(10d) line 3	Halkomelem	transcription	c̓aq̓ʷnəxʷ	page 11, the imperfective
+(10d) line 4	Suzanne Urbanczyk	word gloss	shooting it, piercing it (managing to)	page 11, the imperfective's English
+(10e) line 1	Halkomelem	transcription	c̓q̓ʷels	page 11, the perfective
+(10e) line 2	Suzanne Urbanczyk	word gloss	poke through (working on a mat)	page 11, the perfective's English
+(10e) line 3	Halkomelem	transcription	c̓aq̓ʷəl̓s	page 11, the imperfective
+(10e) line 4	Suzanne Urbanczyk	word gloss	poking through (e.g., working on a mat)	page 11, the imperfective's English
+§4	Suzanne Urbanczyk	note	Constructivist approaches start with a base, making it necessary to determine what the correct form of the root is. Given the range of allomorphy exhibited above, one is faced with three choices: /c̓əq̓ʷ/, /c̓q̓ʷ/, or /c̓q̓ʷa/. The most common assumption among Salishanists is that schwa is predictable, and hence absent underlyingly, making these vowelless roots; so /c̓q̓ʷ/ would be a standard approach. Schwa insertion would be one of the phonological processes to apply.	page 11
+§4	Halkomelem	cited form	c̓əq̓ʷ	page 11, in italics
+§4	Halkomelem	cited form	c̓q̓ʷ	page 11, in italics
+§4	Halkomelem	cited form	c̓q̓ʷa	page 11, in italics
+§4	Suzanne Urbanczyk	note	Having established that the choice of exponent is based not on the root, let us now turn to systematic exceptions to this: cases in which the root determines the correct form of imperfective. There are a set of affixes that trigger a reduction of the root vowel to schwa. In these cases, the imperfective is based on the root, not the perfective stem.	page 11
+(11) line 1	Suzanne Urbanczyk	note	Root = ‘look at’	page 11, the example's heading
+(11a) line 1	Halkomelem	transcription	lemət	page 11, the perfective
+(11a) line 2	Suzanne Urbanczyk	word gloss	look at	page 11, the perfective's English
+(11a) line 3	Halkomelem	transcription	lel̓əm̓ət	page 11, the imperfective
+(11a) line 4	Suzanne Urbanczyk	word gloss	looking at; looking after	page 11, the imperfective's English
+(11b) line 1	Halkomelem	transcription	xʷləmqət	page 11, the perfective
+(11b) line 2	Suzanne Urbanczyk	word gloss	look down someone's throat	page 11, the perfective's English
+(11b) line 3	Halkomelem	transcription	xʷlel̓əm̓qət	page 11, the imperfective
+(11b) line 4	Suzanne Urbanczyk	word gloss	looking down someone's throat	page 11, the imperfective's English
+(11c) line 1	Halkomelem	transcription	ləmnəxʷ	page 12, the perfective
+(11c) line 2	Suzanne Urbanczyk	word gloss	see	page 12, the perfective's English
+(11c) line 3	Halkomelem	transcription	lel̓əm̓nəxʷ	page 12, the imperfective
+(11c) line 4	Suzanne Urbanczyk	word gloss	seeing it.	page 12, the imperfective's English
+§4	Suzanne Urbanczyk	note	In these words, the addition of a CVC-shaped suffix seems to trigger reduction of the root vowel to schwa in the perfective. Seemingly unexpectedly, the imperfective is CV- reduplication; this is not expected, because the stem begins with a sonorant-stressed schwa sequence.	page 12
+§4	Suzanne Urbanczyk	note	In order to account for this in a constructive approach, one would need to order the realization of imperfective, prior to the application of the vowel reduction process. In order to illustrate this ordering, let us assume first that there is some function in the morphological component that is able to determine the correct allomorph, based on the properties of the base to which the operation applies.	page 12
+(12) line 1	Suzanne Urbanczyk	note	Imperfective Function: ƒIMP	page 12, the example's heading
+(12) line 2	Suzanne Urbanczyk	note	ƒIMP is a function that selects the exponent of IMPERFECTIVE, depending on phonological features of its base.	page 12, the function's definition
+§4	Suzanne Urbanczyk	note	In order to derive words like (11a) and (11c), the following order of phonological and morphological operations would need to occur. In the derivation below, RED = morphophonemic vowel reduction process and SCHWA = regular process of unstressed vowel reduction.	page 12
+(13) line 1	Suzanne Urbanczyk	note	perfective imperfective	page 12, a line of the example
+(13) line 2	Suzanne Urbanczyk	note	root lem lem lem lem	page 12, a line of the example
+(13) line 3	Suzanne Urbanczyk	note	affix lem -ət lem -nəxʷ lem -ət lem -nəxʷ	page 12, a line of the example
+(13) line 4	Suzanne Urbanczyk	note	ƒIMP – – lel̓em̓ət lel̓em̓nəxʷ	page 12, a line of the example
+(13) line 5	Suzanne Urbanczyk	note	RED – ləmnəxʷ – lel̓əm̓nəxʷ	page 12, a line of the example
+(13) line 6	Suzanne Urbanczyk	note	SCHWA – – lel̓əm̓ət –	page 12, a line of the example
+§4	Suzanne Urbanczyk	note	Notice that both reduction processes need to apply after ƒIMP, in order to be sure that there are no schwas before ƒIMP and so that full vowels are reduced after reduplication has applied.	page 12
+§4	Suzanne Urbanczyk	note	Related to this systematic exception, a challenge occurs for all constructive approaches when certain derivational affixes are added to the stem. There are two basic patterns. The most common is that the choice of imperfective is based on the word-form, most closely related to it semantically and morphologically, i.e. the perfective word-form. The other pattern is that where the choice of imperfective exponent is related to the underlying root of the word (Urbanczyk 2005).	page 12
+(14) line 1	Suzanne Urbanczyk	note	Root = ‘sew’	page 12, the example's heading
+(14a) line 1	Halkomelem	transcription	p̓ét̓ᶿət	page 12, the perfective
+(14a) line 2	Suzanne Urbanczyk	translation	‘sew it’	page 12, the perfective's English
+(14a) line 3	Halkomelem	transcription	p̓ép̓ət̓ᶿət	page 12, the imperfective
+(14a) line 4	Suzanne Urbanczyk	translation	‘sewing it’	page 12, the imperfective's English
+(14b) line 1	Halkomelem	transcription	p̓t̓ᶿéls	page 13, the perfective
+(14b) line 2	Suzanne Urbanczyk	translation	‘sew’	page 13, the perfective's English
+(14b) line 3	Halkomelem	transcription	p̓ép̓ət̓ᶿəl̓s	page 13, the imperfective
+(14b) line 4	Suzanne Urbanczyk	translation	‘sewing’	page 13, the imperfective's English
+§4	Suzanne Urbanczyk	note	Observe that in both imperfective forms above, CV- reduplication is utilized. This is unexpected in (b) because the perfective begins with a cluster. One might suggest that it is always the root that determines the form of imperfective, but we have already seen that it is the stem. Furthermore, the following data set illustrates that not every derivational suffix functions this way, as one can see with the lexical suffix associated with the meaning of ‘eyelet’. In (15b) below, the perfective begins with a cluster and imperfective is formed by schwa insertion.	page 13
+(15) line 1	Suzanne Urbanczyk	note	lexical suffix ‘stitch, eyelet’ /-aləs/	page 13, the example's heading
+(15a) line 1	Halkomelem	transcription	ɬí̓c̓ət	page 13, the perfective
+(15a) line 2	Suzanne Urbanczyk	translation	‘sliced it’	page 13, the perfective's English
+(15a) line 3	Halkomelem	transcription	ɬíɬəc̓ət	page 13, the imperfective
+(15a) line 4	Suzanne Urbanczyk	translation	‘slicing it’	page 13, the imperfective's English
+(15b) line 1	Halkomelem	transcription	ɬc̓áləst	page 13, the perfective
+(15b) line 2	Suzanne Urbanczyk	translation	‘slice out a piece of weaving’	page 13, the perfective's English
+(15b) line 3	Halkomelem	transcription	ɬə́c̓əl̓əst	page 13, the imperfective
+(15b) line 4	Suzanne Urbanczyk	translation	‘slicing out a piece of weaving’	page 13, the imperfective's English
+§4	Suzanne Urbanczyk	note	In addition to these examples, forms have also been found in which a root can take both types of affixes, as illustrated below.	page 13
+(16) line 1	Suzanne Urbanczyk	note	Root = ‘punch, hit with jabbing motion’ (Hukari and Peter 1995)	page 13, the example's heading
+(16a) line 1	Halkomelem	transcription	t̓ᶿiq̓ʷət	page 13, the perfective
+(16a) line 2	Suzanne Urbanczyk	word gloss	punch, hit with fist, […]	page 13, the perfective's English
+(16a) line 3	Halkomelem	transcription	t̓ᶿit̓ᶿəq̓ʷət	page 13, the imperfective
+(16a) line 4	Suzanne Urbanczyk	word gloss	punching, hitting with fist, stabbing	page 13, the imperfective's English
+(16b) line 1	Halkomelem	transcription	t̓ᶿq̓ʷels	page 13, the perfective
+(16b) line 2	Suzanne Urbanczyk	word gloss	punch, stab	page 13, the perfective's English
+(16b) line 3	Halkomelem	transcription	t̓ᶿit̓ᶿəq̓ʷəl̓s	page 13, the imperfective
+(16b) line 4	Suzanne Urbanczyk	word gloss	punching	page 13, the imperfective's English
+(16c) line 1	Halkomelem	transcription	xʷt̓ᶿq̓ʷaləst	page 13, the perfective
+(16c) line 2	Suzanne Urbanczyk	word gloss	punch someone in the eye	page 13, the perfective's English
+(16c) line 3	Halkomelem	transcription	xʷt̓ᶿəq̓ʷəl̓əst	page 13, the imperfective
+(16c) line 4	Suzanne Urbanczyk	word gloss	punching someone in the eye	page 13, the imperfective's English
+§4	Suzanne Urbanczyk	note	This pattern poses several problems for constructive approaches. The basic problem is how to order the phonological processes that produce the clusters with the addition of various morphemes. To make this discussion explicit, I will outline what a classic stratal approach would need to assume. In stratal morphological approaches, such as Lexical Phonology (Kiparsky 1982), morphological operations are interleaved with phonological operations. Multiple strata are proposed to account for the pattern whereby some phonological operations might apply at a specific stage in the derivation of a word, such as stem vs. word-level (Borowsky 1991). The usual type of morphology-phonology interaction is such that an affix is added at some strata and this triggers a phonological operation. However, this approach cannot be applied to the patterns discussed and exemplified in (15-16) above. In the Halkomelem case, one would need to assume that fIMP is in different strata depending on the kind of affix that is added. The following sketches out what must be assumed to derive the correct forms. When it appears that the root is the target of the operation, fIMP would be a stem-level affix. When it appears that the word is the target, fIMP would be a word-level affix.	page 13
+(17) line 1	Suzanne Urbanczyk	note	a. • with /-els/ -stem is the locus:	page 14, a line of the example
+(17) line 2	Suzanne Urbanczyk	note	ƒIMP (/t̓ᶿiq̓ʷ-els/) ⇒ [t̓ᶿi-t̓ᶿiq̓ʷ-els]	page 14, a line of the example
+(17) line 3	Suzanne Urbanczyk	note	VOWEL REDUCTION	page 14, a line of the example
+(17) line 4	Suzanne Urbanczyk	note	[t̓ᶿit̓ᶿəq̓ʷəl̓s]	page 14, a line of the example
+(17) line 5	Suzanne Urbanczyk	note	b. • with /-aləs/ -word is the locus:	page 14, a line of the example
+(17) line 6	Suzanne Urbanczyk	note	ƒIMP ([xʷt̓ᶿq̓ʷaləst]) ⇒ [xʷt̓ᶿəq̓ʷaləst]	page 14, a line of the example
+(17) line 7	Suzanne Urbanczyk	note	VOWEL REDUCTION	page 14, a line of the example
+(17) line 8	Suzanne Urbanczyk	note	[xʷt̓ᶿəq̓ʷəl̓əst]	page 14, a line of the example
+§4	Suzanne Urbanczyk	note	This sort of situation – in which fIMP is both a stem-level AND a word-level affix – is unheard of in the literature on stratal morphology. To illustrate this even more clearly, let us do a derivation similar to what was done in (13).	page 14
+(18) line 1	Suzanne Urbanczyk	note	perfective imperfective	page 14, the example's heading
+(18) line 2	Suzanne Urbanczyk	note	affix t̓ᶿiq̓ʷ-els xʷ-t̓ᶿiq̓ʷ-aləs-t t̓ᶿiq̓ʷ-els xʷ-t̓ᶿiq̓ʷ-aləs-t	page 14, a line of the example
+(18) line 3	Suzanne Urbanczyk	note	ƒIMP – – t̓ᶿi-t̓ᶿiq̓ʷ-els –	page 14, a line of the example
+(18) line 4	Suzanne Urbanczyk	note	SCHWA t̓ᶿq̓ʷels xʷt̓ᶿq̓ʷaləst t̓ᶿit̓ᶿəq̓ʷəl̓s xʷt̓ᶿq̓ʷaləst	page 14, a line of the example
+(18) line 5	Suzanne Urbanczyk	note	ƒIMP – – – xʷt̓ᶿəq̓ʷəl̓əst	page 14, a line of the example
+§4	Suzanne Urbanczyk	note	Notice that a constructivist approach would need to apply ƒIMP before vowel reduction with some affixes, but after vowel reduction with other affixes. While there are proposals to account for ordering paradoxes in constructivist approaches, such as proposing that a specific morphological operation is a head operation, targeting the root or head of a word (Hoeksema 1985; Aronoff 1988), there are no cases that I am aware of, in which an operation is both a head operation AND a non-head operation.	page 14
+§4	Suzanne Urbanczyk	note	Contrast the difficulties facing constructivist approaches, with how one would account for the different patterns in a relational approach. Recall that relational approaches derive new words by analogy. All that is required in a relational word-based approach is to determine what word stands in an analogical relation with the form. This is sketched out below.	page 14
+(19) line 1	Suzanne Urbanczyk	note	Proportional Analogy	page 14, the example's heading
+(19) line 2	Suzanne Urbanczyk	note	a. A:B C:X	page 14, a line of the example
+(19) line 3	Suzanne Urbanczyk	note	b. p̓t̓ᶿéls : p̓ép̓ət̓ᶿəl̓s t̓ᶿq̓ʷels: X = t̓ᶿit̓ᶿəq̓ʷəl̓s	page 14, a line of the example
+(19) line 4	Suzanne Urbanczyk	note	c. ɬc̓áləst: ɬə́c̓əl̓əst xʷt̓ᶿq̓ʷaləst: X = xʷt̓ᶿəq̓ʷəl̓əst	page 14, a line of the example
+§4	Suzanne Urbanczyk	note	Given the rest of the word-forms in the word-family, one can readily see that with /-els/, the root-form is relevant and with /-aləst/ the word-form is relevant.	page 15
+§4	Halkomelem	cited form	-aləst	page 15, in italics
+§4	Suzanne Urbanczyk	note	The complexities of how to determine the correct form become more of a challenge to constructivist theories, once one acknowledges that there is variation in how speakers form words with more than one affix. For example, there are several forms in the Cowichan Dictionary, in which the root or word is taken as the basis for determining the imperfective allomorph.	page 15
+(20) line 1	Suzanne Urbanczyk	note	Root = ‘dig’ + /-ənəp/ ‘bottom’	page 15, the example's heading
+(20a) line 1	Halkomelem	transcription	weq̓ət	page 15, the perfective
+(20a) line 2	Suzanne Urbanczyk	word gloss	dig it (a hole)	page 15, the perfective's English
+(20b) line 1	Halkomelem	transcription	wəq̓ənəp	page 15, the perfective
+(20b) line 2	Suzanne Urbanczyk	word gloss	dig the soil	page 15, the perfective's English
+(20b) line 3	Halkomelem	transcription	həw̓q̓ən̓əp	page 15, the imperfective
+(20b) line 4	Suzanne Urbanczyk	word gloss	digging the soil	page 15, the imperfective's English
+(20c) line 1	Halkomelem	transcription	wəq̓ənəpt	page 15, the perfective
+(20c) line 2	Suzanne Urbanczyk	word gloss	dig it	page 15, the perfective's English
+(20c) line 3	Halkomelem	transcription	həw̓q̓ən̓əpt	page 15, the imperfective
+(20c) line 4	Suzanne Urbanczyk	word gloss	digging the soil	page 15, the imperfective's English
+(20c) line 5	Halkomelem	transcription	wew̓əq̓ən̓əpt	page 15, the imperfective
+(20c) line 6	Suzanne Urbanczyk	word gloss	digging it	page 15, the imperfective's English
+§4	Suzanne Urbanczyk	note	Notice that in (20c) two different forms are provided for the imperfective of ‘dig it’. In this case, there are two different suffixes added: the lexical suffix meaning ‘bottom’ and the ‘control transitive’ /-t/. For the constructivist to get the variation, they would need to change the order in which ƒIMP applies. In the first case, it would apply after vowel reduction, in the second, it would apply before vowel reduction. There wouldn’t be any particular explanation for why the reordering occurs. The problem arises, because there is no variation in (20b), but there is in (20c). Let’s look at some derivations. The first goes over the case where ƒIMP applies at the end.	page 15
+(21) line 1	Suzanne Urbanczyk	note	perfective imperfective	page 15, the example's heading
+(21) line 2	Suzanne Urbanczyk	note	affix weq̓-ənəp weq̓-ənəp-t weq̓-ənəp weq̓-ənəp-t	page 15, a line of the example
+(21) line 3	Suzanne Urbanczyk	note	SCHWA wəq̓ənəp wəq̓ənəpt wəq̓ənəp wəq̓ənəpt	page 15, a line of the example
+(21) line 4	Suzanne Urbanczyk	note	ƒIMP – – həw̓q̓ən̓əp həw̓q̓ən̓əpt	page 15, a line of the example
+§4	Suzanne Urbanczyk	note	In order to get the reduplicative allomorph, ƒIMP needs to apply before vowel reduction. This is illustrated below.	page 15
+(22) line 1	Suzanne Urbanczyk	note	perfective imperfective	page 15, the example's heading
+(22) line 2	Suzanne Urbanczyk	note	affix weq̓-ənəp weq̓-ənəp-t weq̓-ənəp weq̓-ənəp-t	page 15, a line of the example
+(22) line 3	Suzanne Urbanczyk	note	ƒIMP – – – wew̓eq̓ən̓əpt	page 15, a line of the example
+(22) line 4	Suzanne Urbanczyk	note	SCHWA wəq̓ənəp wəq̓ənəpt wəq̓ənəp wew̓əq̓ənəpt	page 15, a line of the example
+(22) line 5	Suzanne Urbanczyk	note	ƒIMP – – həw̓q̓ən̓əp –	page 15, a line of the example
+§4	Suzanne Urbanczyk	note	The variation only occurs with the form that has the /-t/ suffix. This implies that the suffix must be attached after the lexical affix, but prior to the application of ƒIMP. Without the transitive suffix, ƒIMP applies after schwa reduction. This is simply a complication that the rules must capture in the ordering.	page 15
+§4	Suzanne Urbanczyk	note	With the relational approach, there seems to be an explanation for why there is varation, that relates to the fact that there are two suffixes. Speakers may not be sure which word to choose as the base for the proportional analogy, because there are two suffixes.	page 16
+§4	Suzanne Urbanczyk	note	The final pattern to discuss, involves returning to the examples of triconsonantal roots with the suffix /-m/. Recall that there was an unexpected ablaut vowel associated with the perfective form of the verb. The following examples are repeated from above.	page 16
+(23) line 1	Suzanne Urbanczyk	note	Schwa deletion (Hukari 1978)	page 16, the example's heading
+(23a) line 1	Halkomelem	transcription	c̓át̓əq̓ʷəm	page 16, the perfective
+(23a) line 2	Suzanne Urbanczyk	word gloss	fall apart (from cooking)	page 16, the perfective's English
+(23a) line 3	Halkomelem	transcription	c̓át̓q̓ʷəm	page 16, the imperfective
+(23a) line 4	Suzanne Urbanczyk	word gloss	falling apart (from cooking)	page 16, the imperfective's English
+(23b) line 1	Halkomelem	transcription	ƛ̓épəx̌əm	page 16, the perfective
+(23b) line 2	Suzanne Urbanczyk	word gloss	fall (leaves)	page 16, the perfective's English
+(23b) line 3	Halkomelem	transcription	ƛ̓épx̌əm̓	page 16, the imperfective
+(23b) line 4	Suzanne Urbanczyk	word gloss	falling (leaves)	page 16, the imperfective's English
+(23c) line 1	Halkomelem	transcription	ɬát̓əq̓ʷəm	page 16, the perfective
+(23c) line 2	Suzanne Urbanczyk	word gloss	snore	page 16, the perfective's English
+(23c) line 3	Halkomelem	transcription	ɬát̓q̓ʷəm̓	page 16, the imperfective
+(23c) line 4	Suzanne Urbanczyk	word gloss	snoring	page 16, the imperfective's English
+(23d) line 1	Halkomelem	transcription	č̓ekʷəx̌əm	page 16, the perfective
+(23d) line 2	Suzanne Urbanczyk	word gloss	sizzling sound (e.g., grease in a hot pan)	page 16, the perfective's English
+(23d) line 3	Halkomelem	transcription	č̓ekʷx̌əm̓	page 16, the imperfective
+(23d) line 4	Suzanne Urbanczyk	word gloss	sizzling sound (e.g., grease in a hot pan)	page 16, the imperfective's English
+§4	Suzanne Urbanczyk	note	We have already discussed the issues raised by these forms. However, there is a further complication to bring forward by words that have lexical suffixes preceding the suffix /-m/. Notice that in the words below, the perfective does not have the ablaut vowel.	page 16
+(24) line 1	Suzanne Urbanczyk	note	Complex triconsonantal forms	page 16, the example's heading
+(24a) line 1	Halkomelem	cited form	/-as/	page 16, the lexical suffix
+(24a) line 2	Suzanne Urbanczyk	translation	‘face’	page 16, the suffix's gloss
+(24a) line 3	Halkomelem	transcription	x̌əmxʷəsəm	page 16, the perfective
+(24a) line 4	Suzanne Urbanczyk	word gloss	haircut; have a haircut	page 16, the perfective's English
+(24a) line 5	Halkomelem	transcription	x̌am̓xʷəsəm̓	page 16, the imperfective
+(24a) line 6	Suzanne Urbanczyk	word gloss	haircut; having hair cut	page 16, the imperfective's English
+(24b) line 1	Halkomelem	cited form	/=ew̓txʷ/	page 16, the lexical suffix
+(24b) line 2	Suzanne Urbanczyk	translation	‘building’	page 16, the suffix's gloss
+(24b) line 3	Halkomelem	transcription	səw̓q̓əw̓txʷəm	page 16, the perfective
+(24b) line 4	Suzanne Urbanczyk	word gloss	look for a house	page 16, the perfective's English
+(24b) line 5	Halkomelem	transcription	sew̓q̓əw̓txʷəm̓	page 16, the imperfective
+(24b) line 6	Suzanne Urbanczyk	word gloss	looking for a house (for yourself)	page 16, the imperfective's English
+§4	Suzanne Urbanczyk	note	In order to derive words like those in (23) and (24), the rule for ablaut (let us call it ABL) must be specific enough to apply to words with only the /-m/ suffix, but not any other suffix. For a constructivist approach, the rule must be stated to include a negative condition. The conditions for the rule include a combination of phonological and morphological conditions: triconsonantal root, /-m/ suffix, and NOT any other suffix. A derivation of the various forms will illustrate how this rule applies to some forms, but not others. Following standard approaches, we will assume that there are no schwas in the input and that there are rules for epenthesis that need to apply first. The rule of perfective ablaut (ABL) will be ordered after schwa epenthesis (EP), though as can be seen below, this is not a crucial assumption.	page 16
+(25) line 1	Suzanne Urbanczyk	note	perfective imperfective	page 17, the example's heading
+(25) line 2	Suzanne Urbanczyk	note	affix c̓t̓q̓ʷ-m sw̓q̓-ew̓txʷ-m c̓t̓q̓ʷ-m sw̓q̓-ew̓txʷ-m	page 17, a line of the example
+(25) line 3	Suzanne Urbanczyk	note	EP c̓ət̓əq̓ʷəm səw̓q̓ew̓txʷəm c̓ət̓əq̓ʷəm səw̓q̓ew̓txʷəm	page 17, a line of the example
+(25) line 4	Suzanne Urbanczyk	note	ABL c̓at̓əq̓ʷəm – – –	page 17, a line of the example
+(25) line 5	Suzanne Urbanczyk	note	ƒIMP – – c̓át̓q̓ʷəm sew̓q̓ew̓txʷəm̓	page 17, a line of the example
+(25) line 6	Suzanne Urbanczyk	note	SCHWA – səw̓q̓əw̓txʷəm – sew̓q̓əw̓txʷəm̓	page 17, a line of the example
+§4	Suzanne Urbanczyk	note	The complication associated with specifying the application of ablaut to forms without specific suffixes is not needed with the relational approach.	page 17
+§5	Suzanne Urbanczyk	heading	5 Summary and discussion	page 17
+§5	Suzanne Urbanczyk	note	Having illustrated the problems that Halkomelem imperfective allomorphy poses to both traditional notions of the morpheme as well as realizational models of word formation, it is useful to now summarize the specific evidence from Hul’q’umi’num’ for a word-based relational approach, and to provide a more general discussion of why such an approach would be preferred to standard constructivist models.	page 17
+§5	Suzanne Urbanczyk	note	First, it is not impossible for constructivist approaches to derive Hul’q’umi’num’ imperfective verbs. Rather, this paper’s aim is to illustrate the issues that arise in doing so. The previous discussion has shown several areas where the fundamental nature of constructivist approaches – sequential building up of word structure – poses several problems. Probably the most significant of these is that whatever mechanism is used to create imperfective words must be either a stem-level or word-level operation, depending on what the other affixes are in the word. This is a kind of ordering paradox that illustrates the hazards of ordering in general. Other issues relate to word-formation occurring in isolation. While it is possible to create the words, an understanding of why the patterns may be as they are is not possible. On the other hand, a relational approach can offer some level of understanding as to why some processes apply and others do not, and has a simple approach to accounting for the patterns. While realizational approaches are more successful at accounting for the patterns, there are some cases in which morpheme-based approaches simply cannot account for some of the exponents of the imperfective.	page 17
+§5	Suzanne Urbanczyk	note	As Chomsky (1986, et seq.) has often pointed out, linguistics can be understood as a branch of cognitive science, with the goal to model a speaker’s internal universal knowledge of language systems. In terms of word-formation, it is commonly understood that we store full words in our mental lexicon, as evidenced by theories relying on this, such as exemplar dynamic theory. There is also evidence to suggest that speakers have knowledge of morphemes. Both viewpoints are compatible with various approaches to morphology, including relational abstractive approaches. The questions one must ask are: whether there is evidence that words are linked to each other and whether there is evidence for analogical reasoning. As a quick answer to these questions, one need look no further than the basic design of psycholinguistic studies, which rely on repetition priming to have evidence for the former: faster responses to words heard previously can only be accomplished if there is some link between what was heard prior to what was presented. And as Blevins and Blevins (2009: 1) note, analogy is “the core of human cognition”. It would seem that there is ample evidence to support a relational analogical approach to word-formation over a constructivist approach in which words are created in isolation from other words.	page 17
+§5	Suzanne Urbanczyk	note	This paper also represents a first small step to articulating a theory of Grounded Morphology (after Archangeli and Pulleyblank’s (1994) Grounded Phonology), in which formal properties of a model of morphology are grounded in what is known about the mental lexicon. A growing body of research supports a view that morphological structure is emergent and gradient (Bybee 1985, et seq.; Hay 1991 et seq.; Hay and Baayen 2005). Furthermore, there is a formal mechanism within Optimality Theory (Prince and Smolensky 1993) in which words are related to each other: in particular McCarthy and Prince’s (1995, 1999) Correspondence Theory.	page 18
+§5	Suzanne Urbanczyk	note	In summary, Halkomelem imperfective word-formation poses a challenge to constructivist approaches to morphology in which words are concretely built up incrementally from roots or from stems in isolation. An alternative approach has been outlined which is abstractive and relational, based on a fundamental assumption regarding the structure of the lexicon – that speakers and hearers store full words rather than the individual bits of words or complex rule interactions.	page 18
+references	Suzanne Urbanczyk	heading	References	page 18
+references	Suzanne Urbanczyk	reference	Anderson, Stephen R. 1992. A-morphous morphology. Cambridge: Cambridge University Press.	page 18
+references	Suzanne Urbanczyk	reference	Archangeli, Diana and Doug Pulleyblank. 1994. Grounded Phonology. Cambridge, MA: MIT Press.	page 18
+references	Suzanne Urbanczyk	reference	Aronoff, Mark. 1988. Head operations and strata in reduplication: A linear treatment. Yearbook of Morphology 1: 1-15.	page 18
+references	Suzanne Urbanczyk	reference	Aronoff, Mark. 1994. Morphology by Itself: Stems and Inflection Classes. Cambridge MA: MIT Press.	page 18
+references	Suzanne Urbanczyk	reference	Beard, Robert. 1995. Lexeme-Morpheme Base Morphology: A General Theory of Inflection and Word Formation. Albany NY: SUNY Press.	page 18
+references	Suzanne Urbanczyk	reference	Blevins, James P. 2006. Word-based morphology. Journal of Linguistics 42: 531-573.	page 18
+references	Suzanne Urbanczyk	reference	Blevins, James P. and Juliette Blevins. 2009. Analogy in Grammar: Form and Acquisition. Oxford: Oxford University Press.	page 19
+references	Suzanne Urbanczyk	reference	Borowsky, Toni. 1991. Topics in the Lexical Phonology of English. New York: Garland.	page 19
+references	Suzanne Urbanczyk	reference	Bybee, Joan. 1985. Morphology: a study of the relation between meaning and form. Amsterdam: John Benjamins.	page 19
+references	Suzanne Urbanczyk	reference	Bybee, Joan. 2001. Phonology and language use. Cambridge: Cambridge University Press.	page 19
+references	Suzanne Urbanczyk	reference	Chomsky, Noam. 1986. Knowledge of Language: Its Nature, Origin and Use. New York: Praeger.	page 19
+references	Suzanne Urbanczyk	reference	Chomsky, Noam and Morris Halle. 1968. The Sound Pattern of English. New York: Harper and Row.	page 19
+references	Suzanne Urbanczyk	reference	Davis, Henry, and Hamida Demirdache. 2000. On lexical verb meanings: evidence from Salish. In Events as grammatical objects, ed. C. Tenny and J. Pustejovsky. CSLI.	page 19
+references	Suzanne Urbanczyk	reference	Embick, David and Morris Halle. 2005. On the status of stems in morphological theory. In T. Geerts and H. Jacobs eds. Proceedings of Going Romance 2003, John Benjamins.	page 19
+references	Suzanne Urbanczyk	reference	Galloway, Brent. 1993. A Grammar of Upriver Halkomelem. Berkeley: UC Berkeley Press.	page 19
+references	Suzanne Urbanczyk	reference	Halle, Morris and Alec Marantz. 1993. Distributed morphology and the pieces of inflection. In Hale, Kenneth and Keyser, S. J. (eds.), The view from Building 20. Cambridge, MA: MIT Press. 111–176.	page 19
+references	Suzanne Urbanczyk	reference	Hay, Jennifer. 2001. Lexical frequency in morphology: Is everything relative? Linguistics 39: 1041-1070.	page 19
+references	Suzanne Urbanczyk	reference	Hay, Jennifer and Harald R. Baayen. 2005. Shifting paradigms: Gradient structure in morphology. Trends in Cognitive Sciences 9: 342-48.	page 19
+references	Suzanne Urbanczyk	reference	Hoeksema, J. 1985. Categorial Morphology. New York: Garland.	page 19
+references	Suzanne Urbanczyk	reference	Hukari, Thomas E. 1977. Resonant devoicing in Cowichan. Canadian Journal of Linguistics 22: 46-61.	page 19
+references	Suzanne Urbanczyk	reference	Hukari, Thomas E. 1978. Halkomelem nonsegmental morphology. Proceedings of the 13th International Conference on Salish and Neighbouring Languages. Pp. 157-209.	page 19
+references	Suzanne Urbanczyk	reference	Hukari, Thomas E. and Ruby Peter. eds. 1995. The Cowichan Dictionary of the Hul’qumi’num’ Dialect of the Cowichan People. Cowichan Tribes.	page 19
+references	Suzanne Urbanczyk	reference	Jones, Michael K. 1978. Morphophonemic properties of the Cowichan actual aspect. MA thesis, University of Victoria.	page 19
+references	Suzanne Urbanczyk	reference	Kiparsky, Paul. 1982. From cyclic phonology to lexical phonology. in van der Hulst and Smith (eds). The Structure of Phonological Representations (Part I). Foris Publications. Pp. 131-175.	page 19
+references	Suzanne Urbanczyk	reference	Kurisu, Kazutaka. 2001. The phonology of morpheme realization. Ph.D. thesis, UC Santa Cruz. [ROA: 490-0102]	page 19
+references	Suzanne Urbanczyk	reference	Leonard, Janet and Claire Turner. 2010. Predicting the shape of SENĆOŦEN imperfectives. In David Beck (ed). Festschrift for Thomas M. Hess on the Occasion of his 70th Birthday. Bellingham WA: Whatcome Museum Press.	page 19
+references	Suzanne Urbanczyk	reference	Leslie, Adrian. 1979. A Grammar of the Cowichan dialect of Halkomelem Salish. Ph.D. thesis, University of Victoria.	page 20
+references	Suzanne Urbanczyk	reference	Lieber, Rochelle. 1992. Deconstructing Morphology. Chicago: CUP.	page 20
+references	Suzanne Urbanczyk	reference	Matthews, P. H. 1972. Inflectional morphology: a theoretical study based on aspects of Latin verb conjugation. Cambridge: Cambridge University Press.	page 20
+references	Suzanne Urbanczyk	reference	Matthews, P. H. 1991. Morphology. Cambridge: Cambridge University Press.	page 20
+references	Suzanne Urbanczyk	reference	McCarthy, John and Alan Prince. 1995. Reduplicative identity. In Jill Beckman, Laura Walsh Dickey, and Suzanne Urbanczyk (eds) University of Massachusetts Occasional Papers in Linguistics 18. Amherst: GLSA, 249-384.	page 20
+references	Suzanne Urbanczyk	reference	McCarthy, John and Alan Prince. 1999. Faithfulness and identity in Prosodic Morphology. In René Kager, Harry van der Hulst, and Wim Zonneveld (eds) The Prosody Morphology Interface. Cambridge: CUP, 218-309.	page 20
+references	Suzanne Urbanczyk	reference	Prince, Alan and Paul Smolensky. 1993. Optimality Theory: Constraint Interaction in Generative Grammar. Technical Report, Rutgers University.	page 20
+references	Suzanne Urbanczyk	reference	Selkirk, Elisabeth O. 1982. The Syntax of Words. Cambridge MA: MIT Press.	page 20
+references	Suzanne Urbanczyk	reference	Stonham, John. 1994. Combinatorial Morphology. Amsterdam: John Benjamins.	page 20
+references	Suzanne Urbanczyk	reference	Stump, Gregory T. 2001. Inflectional morphology: a theory of paradigm structure. Cambridge: Cambridge University Press.	page 20
+references	Suzanne Urbanczyk	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. Vancouver: UBC Press.	page 20
+references	Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 1999. A-templatic reduplication in Halq’eméylem. Proceedings of WCCFL 17: 655-669.	page 20
+references	Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 2000. Upriver Halq’eméylem continuative stems: A working paper. m.s. University of Calgary, University of Victoria. presented at ICSNL 35.	page 20
+references	Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 2004. Plurality and ablaut in Central Salish. In Donna B. Gerdts and Lisa Matthewson (eds). Studies in Salish Linguistics in Honour of M. Dale Kinkade. University of Montana Occasional Papers in Linguistics No. 17. Pp. 429-453.	page 20
+references	Suzanne Urbanczyk	reference	Urbanczyk, Suzanne. 2005. A note on paradigm uniformity and priority of the root. In Laura J. Downing, T. Allan Hall, and Renate Raffelsiefen (eds). Paradigms in Phonological Theory. Oxford: Oxford University Press. Pp. 296-312.	page 20
+references	Suzanne Urbanczyk	reference	Wiltschko, Martina. 2009. √Root incorporation. Evidence from Halkomelem lexical suffixes. Lingua 119: 199-223.	page 20
+references	Suzanne Urbanczyk	reference	Wolf, Matthew. 2008. Optimal Interleaving: Serial Phonology-Morphology Interaction in a Constraint-Based Model. Ph.D. thesis, University of Massachusetts, Amherst.	page 20
+end	Suzanne Urbanczyk	note	Suzanne Urbanczyk	page 20, the author's address, under the references
+end	Suzanne Urbanczyk	note	urbansu@uvic.ca	page 20, the author's address, under the references

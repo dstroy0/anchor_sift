@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Find the exact file titles for the paintings the abruptness test needs, for Section 4.2 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/find_commons.py
 #
@@ -23,7 +23,7 @@ import sys
 import urllib.parse
 import urllib.request
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0"}
+AGENT = {"User-Agent": "orior-research/1.0"}
 API = "https://commons.wikimedia.org/w/api.php"
 
 WANTED = (

@@ -1,0 +1,379 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	title	A one (morpheme) by one (morpheme) approach to paʔapyaʔ: -Vʔ- as a temporal pluractional infix in Comox-Sliammon	page 1, carries footnote *
+front	Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Gloria Mellesmoen	note	Abstract: The Comox-Sliammon word paʔapyaʔ is translated as ‘one by one’ or ‘one at a time’. Though previous work has not explored the semantic function of paʔapyaʔ, Matthewson (2000) finds that a cognate form in Lillooet (pəlpálaʔ/pipálaʔ) requires temporal distribution over events. An examination of Comox-Sliammon data suggests that paʔapyaʔ has similar temporal pluractional properties. paʔapyaʔ can be analysed compositionally as diminutive CV reduplication and a pluractional -Vʔ- infix applied to a numeral. The requirement for temporal distribution is attributed to the semantic contribution of the pluractional marker -Vʔ-. This analysis accounts for paʔapyaʔ as well as other ‘X by X’ constructions, like saʔasyaʔ ‘two by two’, and verbal predicates that take the -Vʔ- affix.	page 1, the abstract
+front	Gloria Mellesmoen	note	Keywords: Comox-Sliammon, event plurality, temporal distribution, pluractional marker, number	page 1, the keywords
+front	Gloria Mellesmoen	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	Gloria Mellesmoen	language	Comox-Sliammon	Central Salish, British Columbia
+footnote *	Gloria Mellesmoen	note	I am incredibly grateful to the speakers of ʔayʔaǰuθəm (Comox-Sliammon) that I have had the opportunity to work with. Thank you to Joanne Francis, Phyllis Dominic, Elsie Paul, Freddie Louie, and Marion Harry. I also want to thank Henry Davis, Lisa Matthewson, and Hotze Rullmann for their encouragement and feedback. Additionally, I want to acknowledge Marianne Huijsmans and Kaining Xu for help with elicitation, as well as Shannon Arsenault and Darvell Long for English grammaticality judgments.	page 1, footnote *, on the title
+footnote *	Gloria Mellesmoen	name	Joanne Francis	Comox-Sliammon speaker, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Phyllis Dominic	Comox-Sliammon speaker, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Elsie Paul	Comox-Sliammon speaker, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Freddie Louie	Comox-Sliammon speaker, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Marion Harry	Comox-Sliammon speaker, thanked in the note on the title
+footnote *	Gloria Mellesmoen	name	Henry Davis	thanked
+footnote *	Gloria Mellesmoen	name	Lisa Matthewson	thanked; the analysis of pəlpálaʔ/pipálaʔ (2000)
+footnote *	Gloria Mellesmoen	name	Hotze Rullmann	thanked
+footnote *	Gloria Mellesmoen	name	Marianne Huijsmans	helped with elicitation; an editor of the volume
+footnote *	Gloria Mellesmoen	name	Kaining Xu	helped with elicitation
+footnote *	Gloria Mellesmoen	name	Shannon Arsenault	English grammaticality judgments
+footnote *	Gloria Mellesmoen	name	Darvell Long	English grammaticality judgments
+footnote *	Gloria Mellesmoen	language	ʔayʔaǰuθəm	the language's own name
+footnote *	Gloria Mellesmoen	language	English	each, one
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	Plurality can be marked on non-nominal predicates in Salish languages to refer to multiple events or subevents that can be distributed in some manner. Plural morphology on verbs can function semantically to convey pluractionality, which is defined by Lasersohn (1995:240) as “a multiplicity of actions, whether involving multiple participants, times, or locations”.	page 1
+§1	Gloria Mellesmoen	name	Lasersohn	P. N. Lasersohn, pluractionality (1995)
+§1	Gloria Mellesmoen	note	Matthewson (2000) analyses a distributive element with pluractional properties in Lillooet, pəlpálaʔ/pipálaʔ ‘one at a time’, which can occur in a predicate/adverbial or quantifier position and requires temporal distribution over events.1 Though cognate forms can be found in neighbouring Central Salish languages, including pápəla in Sechelt (Beaumont 2011) and paʔapyaʔ in Comox-Sliammon (Watanabe 2003), it is unclear if these cognates have the same syntactic and semantic properties as pəlpálaʔ/pipálaʔ in Lillooet.	page 1
+footnote 1	Gloria Mellesmoen	note	Examples in this paper are given in or converted to APA to allow for easier comparison.	page 1, footnote 1
+§1	Comox-Sliammon	cited form	paʔapyaʔ	page 1, in italics
+§1	Comox-Sliammon	cited form	pəlpálaʔ/pipálaʔ	page 1, in italics, ‘one at a time’
+§1	Comox-Sliammon	cited form	pápəla	page 1, in italics
+§1	Gloria Mellesmoen	name	Watanabe	H. Watanabe, Sliammon grammar (2003)
+§1	Gloria Mellesmoen	name	Beaumont	R. C. Beaumont, Sechelt dictionary (2011)
+§1	Gloria Mellesmoen	language	Lillooet	Interior Salish, pəlpálaʔ/pipálaʔ
+§1	Gloria Mellesmoen	language	Sechelt	Central Salish, pápəla
+§1	Gloria Mellesmoen	note	In this paper, I provide a semantic analysis of paʔapyaʔ in Comox- Sliammon, a Central Salish language with approximately 36 fluent speakers (FPCC 2014). First, I provide an overview of the syntactic distribution of paʔapyaʔ and compare its interpretation to Matthewson’s (2000) generalizations about pəlpálaʔ/pipálaʔ, finding that it shows a similar preference for temporal distribution. Second, I describe the morphology of paʔapyaʔ, demonstrating how its meaning can be derived from the contribution of three morphemes. One of these morphemes is a -Vʔ- infix, which occurs with a wide range of lexical items and functions as a temporal pluractional marker. Though paʔapyaʔ can be treated under the same formal analysis as pəlpálaʔ/pipálaʔ when analysed as a whole, attention to the semantics of its composite morphemes suggests that the temporal pluractionality associated with paʔapyaʔ is more common in the language than has been previously described.	page 1
+§1	Comox-Sliammon	cited form	-Vʔ-	page 1, in italics
+§2	Gloria Mellesmoen	heading	2 Data and generalizations about paʔapyaʔ	page 2
+§2	Gloria Mellesmoen	note	2.1 paʔapyaʔ: An overview Watanabe (2003:503) ascribes the meanings ‘one at a time’ and ‘one by one’ to the lexical item paʔapyaʔ in Comox-Sliammon. The data in (1) is consistent with these definitions; paʔapyaʔ is translated into English as ‘one by one’ in (1a) and ‘one at a time’ in (1b).2,3 The data given in this paper come from elicitation sessions with five fluent speakers of Comox-Sliammon and involve a combination of translations from English, translations from Comox-Sliammon, and the description of hand-drawn pictures.	page 2
+footnote 2	Gloria Mellesmoen	note	I gloss paʔapyaʔ as DISTRIB in Section 2, following Matthewson (2000). Other glossing conventions used in this paper are: 1 - 1st person, 2 - 2nd person, 3 - 3rd person, AINTR - active intransitive, CAUS - causative transitivizer, CONJ - conjunctive CTR - control transitivizer, DET - determiner, DIM - diminutive, ERG - ergative, FUT - future, IMPF - imperfective, INCH - inchoative, IND - indicative, MDL - middle, NTR - non-control transitivizer, PL - plural, POSS - possessive, PST - past, RED - unspecified CV reduplication, SG - singular, and TR - transitivizer. The • notation marks a reduplicant boundary.	page 2, footnote 2
+footnote 3	Gloria Mellesmoen	note	Determiners are often elided in Comox-Sliammon and so the absence of a determiner in any particular example should not be treated as significant. The syntactic structure of paʔapyaʔ sentences is often ambiguous in the absence of determiners. Additionally, the degree to which determiners are present varies across speakers.	page 2, footnote 3
+(1a) line 1	Comox-Sliammon	transcription	paʔapyaʔ ǰək̓ʷ-t-as θəkʷnačtən	page 2
+(1a) line 2	Comox-Sliammon	gloss	DISTRIB paint-CTR-3ERG chair	page 2
+(1a) line 3	Gloria Mellesmoen	translation	‘She is painting the chairs, one at a time.’	page 2
+(1a) line 4	Gloria Mellesmoen	citation	PD	page 2, the speaker's initials, Phyllis Dominic
+(1b) line 1	Comox-Sliammon	transcription	paʔapyaʔ pəč-əm	page 2
+(1b) line 2	Comox-Sliammon	gloss	DISTRIB wake-MDL	page 2
+(1b) line 3	Gloria Mellesmoen	translation	‘They (the children) woke up one by one.’	page 2
+(1b) line 4	Gloria Mellesmoen	citation	PD	page 2, the speaker's initials, Phyllis Dominic
+§2	Gloria Mellesmoen	note	The word paʔapyaʔ resembles the cognate pəlpálaʔ/pipálaʔ in Lillooet in form and translation, which Matthewson (2000) argues is a distributive element, occurring in DP-external and DP-internal positions while quantifying over events and requiring a temporal distribution. This paper explores whether the generalizations about pəlpálaʔ/pipálaʔ can be extended to paʔapyaʔ through a description of its syntactic distribution, semantic contribution, and morphological composition. Following this, a formal semantic analysis of paʔapyaʔ in one syntactic environment (DP-internal) is given. 2.2 The syntactic distribution of paʔapyaʔ The expression paʔapyaʔ is found in DP-external and DP-internal environments in Comox-Sliammon. Examples of the former are given in (2) and (3), where paʔapyaʔ is in a DP-external position and occurs with either a subordinate or relative clause. In (2), paʔapyaʔ is predicative and takes a nominalized subordinate clause. In (3), paʔapyaʔ takes a headless relative clause.	page 2
+(2) line 1	Comox-Sliammon	transcription	paʔapyaʔ=səm [kʷə=tᶿ təqʷ-t=səm tə χʷaχʷit]	page 3
+(2) line 2	Comox-Sliammon	gloss	DISTRIB=FUT [DET=1SG.POSS crack-CTR=FUT DET egg]	page 3
+(2) line 3	Gloria Mellesmoen	translation	‘I will crack the eggs one at a time.’	page 3
+(2) line 4	Gloria Mellesmoen	citation	MH	page 3, the speaker's initials, Marion Harry
+(3) line 1	Comox-Sliammon	transcription	paʔapyaʔ [tə kʷa•kʷat-ig-an]	page 3
+(3) line 2	Comox-Sliammon	gloss	DISTRIB [DET IMPF•pass.by-PL-1SG.CONJ]	page 3
+(3) line 3	Gloria Mellesmoen	translation	‘One by one, they (the cars) passed by me.’	page 3
+(3) line 4	Gloria Mellesmoen	citation	MH	page 3, the speaker's initials, Marion Harry
+§2	Gloria Mellesmoen	note	An example of paʔapyaʔ within a DP is given in (4), where paʔapyaʔ occurs in a post-predicative, DP-internal position, forming a constituent with tə χʷaχʷit ‘the eggs’.	page 3
+§2	Comox-Sliammon	cited form	tə χʷaχʷit	page 3, in italics, ‘the eggs’
+(4) line 1	Comox-Sliammon	transcription	yəp̓-ʔəm=tᶿəm [paʔapyaʔ tə χʷaχʷit]	page 3
+(4) line 2	Comox-Sliammon	gloss	break-AINTR=1SG.IND.FUT [DISTRIB DET egg]	page 3
+(4) line 3	Gloria Mellesmoen	translation	‘I will break the eggs one at a time.’	page 3
+(4) line 4	Gloria Mellesmoen	citation	FL	page 3, the speaker's initials, Freddie Louie
+§2	Gloria Mellesmoen	note	The DP-internal structure in (4) is similar to the one that Matthewson (2000) analyses for pəlpálaʔ/pipálaʔ. She finds that pəlpálaʔ/pipálaʔ can modify events, despite occurring in a DP-internal position. Following Matthewson (2000), I provide an analysis that can account for the semantics of paʔapyaʔ in a DP-internal position, leaving the DP-external cases for future examination. 2.3 The semantic interpretation of paʔapyaʔ In order to approach the analysis of paʔapyaʔ in a systematic way, I follow the general approach adopted by Matthewson (2000). Specifically, I assess whether paʔapyaʔ universally quantifies over individuals, requires all subevents to be distributed, and shows a preference for no temporal overlap between subevents.	page 3
+§2	Gloria Mellesmoen	note	Matthewson (2000) first explores the possibility that pəlpálaʔ/pipálaʔ functions like the English quantifier each, which universally quantifies over individuals. This hypothesis was disproved by data showing that pəlpálaʔ/pipálaʔ can be used felicitously in situations where not every individual picked out by the DP participates in the action. While English each quantifies over individuals, requiring participation of all individuals in a set, pəlpálaʔ/pipálaʔ does not.	page 3
+§2	Gloria Mellesmoen	note	The word paʔapyaʔ in Comox-Sliammon resembles its Lillooet cognate, rather than each in English. As in Lillooet, paʔapyaʔ is acceptable in situations where not every individual in the denotation of the relevant DP partakes in the event. Two examples of this are given in (5), where paʔapyaʔ is permissible in a context where not every individual in the DP participates in the event. In (5a), only five of a total of six cups were broken, leaving one still intact and not subject to the breaking event. Similarly, there are a dozen eggs in (5b), but only four are cracked, as per instructions from a recipe, leaving eight intact.	page 4
+(5a) line 1	Comox-Sliammon	transcription	paʔapyaʔ kʷaʔsta yəp̓-t-an-uɬ	page 4
+(5a) line 2	Comox-Sliammon	gloss	DISTRIB cup break-CTR-1SG.ERG-PST	page 4
+(5a) line 3	Gloria Mellesmoen	translation	‘I broke the cups one by one.’	page 4
+(5a) line 4	Gloria Mellesmoen	note	Context: I have six cups and I break five of them.	page 4, a context
+(5a) line 5	Gloria Mellesmoen	citation	JF	page 4, the speaker's initials, Joanne Francis
+(5b) line 1	Comox-Sliammon	transcription	paʔapyaʔ təqʷ-t-an χʷaχʷit	page 4
+(5b) line 2	Comox-Sliammon	gloss	DISTRIB crack-CTR-1SG.CONJ egg	page 4
+(5b) line 3	Gloria Mellesmoen	translation	‘I broke the eggs one at a time.’	page 4
+(5b) line 4	Gloria Mellesmoen	note	Context: A recipe calls for four eggs, but I have a dozen.	page 4, a context
+(5b) line 5	Gloria Mellesmoen	citation	EP	page 4, the speaker's initials, Elsie Paul
+§2	Gloria Mellesmoen	note	The difference from English each is clearer in (6), which shows that paʔapyaʔ can be followed by an explicit statement specifying an individual who does not participate in the action. This statement, given in parentheses, is optional.	page 4
+(6) line 1	Comox-Sliammon	transcription	paʔapyaʔ pəč-əm ɬu məm•mimaw (qəǰi ƛ̓əc̓t paʔa mimaw)	page 4
+(6) line 2	Comox-Sliammon	gloss	DISTRIB awake-MDL DET PL•cat (still sleep one cat)	page 4
+(6) line 3	Gloria Mellesmoen	translation	‘The cats woke up one at a time (but one cat is still sleeping).’	page 4
+(6) line 4	Gloria Mellesmoen	note	Context: There are five cats, four of them have woken up in succession throughout the day, but one has remained asleep.	page 4, a context
+(6) line 5	Gloria Mellesmoen	citation	JF	page 4, the speaker's initials, Joanne Francis
+§2	Gloria Mellesmoen	note	Two parallel English sentences are provided in (7), where each is not acceptable if all of the cats did not wake up. In a situation where only four out of the five woke up, using each is contradictory, regardless of whether this is made explicit or not. Thus, paʔapyaʔ does not universally quantify over individuals like each.	page 4
+(7a) line 1	Gloria Mellesmoen	note	# Each of the cats woke up.	page 4, an English sentence, # marking it infelicitous
+(7b) line 1	Gloria Mellesmoen	note	# Each of the cats woke up, but one is still asleep.	page 4, an English sentence, # marking it infelicitous
+(7b) line 2	Gloria Mellesmoen	note	Context: You have five cats, and one is still asleep.	page 4, a context
+§2	Gloria Mellesmoen	note	Matthewson (2000) also finds that pəlpálaʔ/pipálaʔ in Lillooet requires total distributivity across events. Her data shows that sentences with pəlpálaʔ/pipálaʔ are not accepted if the context includes a combination of distributive and non- distributive events. The Comox-Sliammon quantifier shows the same pattern. In (8), it is not felicitous to use paʔapyaʔ when describing putting away chairs if two chairs were put away at the same time in the midst of cleaning up, even if all the other chairs were put away individually.	page 4
+(8) line 1	Comox-Sliammon	transcription	# paʔapyaʔ θəkʷnačtən qə•qəms-at-as Gloria	page 5
+(8) line 2	Comox-Sliammon	gloss	DISTRIB chair IMPF•put.away-CTR-3ERG Gloria	page 5
+(8) line 3	Gloria Mellesmoen	translation	‘Gloria is putting the chairs away.’	page 5
+(8) line 4	Gloria Mellesmoen	note	Context: Gloria puts one chair away, then another, then two together, and then the last one alone.	page 5, a context
+(8) line 5	Gloria Mellesmoen	citation	JF	page 5, the speaker's initials, Joanne Francis
+§2	Gloria Mellesmoen	note	The example in (9), previously (5b), was felicitous if four eggs were cracked in succession, following a recipe. The same sentence is rejected if the same four eggs are involved, but two were cracked at the same time. This shows that paʔapyaʔ is not felicitous when one of the subevents is non-distributive, even if it happens to be the last event and all those before had been distributive.	page 5
+(9) line 1	Comox-Sliammon	transcription	# paʔapyaʔ təqʷ-t-an χʷaχʷit	page 5
+(9) line 2	Comox-Sliammon	gloss	DISTRIB crack-CTR-1SG.CONJ egg	page 5
+(9) line 3	Gloria Mellesmoen	translation	‘I broke the eggs one at a time.’	page 5
+(9) line 4	Gloria Mellesmoen	note	Context: The recipe calls for four eggs and I crack one egg, then another, before cracking the last two together (as a chef might).	page 5, a context
+(9) line 5	Gloria Mellesmoen	citation	EP	page 5, the speaker's initials, Elsie Paul
+§2	Gloria Mellesmoen	note	Examples (8) and (9) suggest that the use of paʔapyaʔ in Comox-Sliammon requires events to be distributed in time. In Lillooet, Matthewson (2000) argues that pəlpálaʔ/pipálaʔ has a strong preference for temporal distribution. Similar tests in Comox-Sliammon show that this generalization can be extended to paʔapyaʔ. In (10), it is not acceptable to use paʔapyaʔ to describe squishing multiple worms at the same time. The sentence itself is grammatical and can be used in a situation where all the worms are squished, but the squishing of each worm must have happened separately in a distinct stepping subevent.	page 5
+(10) line 1	Comox-Sliammon	transcription	# paʔapyaʔ ʔim-əxʷ-an t̓ᶿit̓ᶿik̓ʷ	page 5
+(10) line 2	Comox-Sliammon	gloss	DISTRIB walk-NTR-1SG.ERG worm	page 5
+(10) line 3	Gloria Mellesmoen	translation	‘I stepped on the worms.’	page 5
+(10) line 4	Gloria Mellesmoen	note	Context: I squished five worms in one step.	page 5, a context
+(10) line 5	Gloria Mellesmoen	citation	JF	page 5, the speaker's initials, Joanne Francis
+§2	Gloria Mellesmoen	note	The same is true of (11), where paʔapyaʔ is rejected in a context where all the doors of a car lock at the same time. However, it is acceptable to use paʔapyaʔ if each door is locked manually or if the locking event is part of a series of locking events, such as someone locking the doors of individual cars consecutively at a car dealership. The examples in (10) and (11) suggest that paʔapyaʔ is used in situations where events are temporally distributed, rather than just spatially.	page 5
+(11) line 1	Comox-Sliammon	transcription	paʔapyaʔ ləkli-t-as ʔəm•ʔimin	page 6
+(11) line 2	Comox-Sliammon	gloss	DISTRIB lock-CTR-3CONJ PL•door	page 6
+(11) line 3	Gloria Mellesmoen	translation	‘She locked the doors.’	page 6
+(11) line 4	Gloria Mellesmoen	note	Context: I went around and manually locked each door on the car.	page 6, a context
+(11) line 5	Gloria Mellesmoen	note	Context: I work at a dealership and I press buttons to lock each car.	page 6, a context
+(11) line 6	Gloria Mellesmoen	note	# Context: I pressed a button and all the doors locked on my car.	page 6, a context
+(11) line 7	Gloria Mellesmoen	citation	JF	page 6, the speaker's initials, Joanne Francis
+§2	Gloria Mellesmoen	note	Though a strong preference for temporal distribution of subevents is found for ‘one by one’ in both Lillooet and Comox-Sliammon, Matthewson (2000) does find that spatial distribution is marginally sufficient for the felicitous use of pəlpálaʔ/pipálaʔ, provided spatial distribution is emphasized. This is also the case in Comox-Sliammon, as paʔapyaʔ is permissible in a particular situation with an emphasized spatial, but not temporal, distribution. Though the sentence in (12) was explicitly rejected in a context where two guests arrived at a party at the same time and walked in side-by-side, it was acceptable if the two guests entered the house at the same time, but from different doors.	page 6
+(12) line 1	Comox-Sliammon	transcription	paʔapyaʔ qʷəl təs-uɬ Kaining higa Daniel	page 6
+(12) line 2	Comox-Sliammon	gloss	DISTRIB come reach-PST Kaining and Daniel	page 6
+(12) line 3	Gloria Mellesmoen	translation	‘Daniel and Kaining arrived one by one.’	page 6
+(12) line 4	Gloria Mellesmoen	note	Context: They entered different doors on opposite sides of the house at the same time.	page 6, a context
+(12) line 5	Gloria Mellesmoen	note	#Context: They entered through one door, side by side.	page 6, a context
+(12) line 6	Gloria Mellesmoen	citation	JF	page 6, the speaker's initials, Joanne Francis
+§2	Gloria Mellesmoen	note	While the example in (12) suggests that a spatial distribution may be sufficient to license the use of paʔapyaʔ, further elicitation is needed to understand whether this is systematic and how much emphasis needs to be put on spatial distribution in order for paʔapyaʔ to be accepted without temporal distributivity. Despite this, it is safe to conclude that paʔapyaʔ minimally requires spatio- temporal distribution. As in Lillooet, there is a strong preference for temporal distribution, such that subevents are non-overlapping in running times. While spatial distribution alone is generally rejected, such as in (10) and (11), almost every accepted paʔapyaʔ sentence involves temporally distributed events. This suggests that the function of paʔapyaʔ is quite similar to pəlpálaʔ/pipálaʔ.	page 6
+§3	Gloria Mellesmoen	heading	3 The morphology of paʔapyaʔ	page 6
+§3	Gloria Mellesmoen	note	Though Matthewson (2000) notes that pəlpálaʔ/pipálaʔ is reduplicated, she analyses the word as a whole, rather than considering its parts. The equivalent Comox-Sliammon word is also morphologically complex. It follows from the principle of compositionality that the meaning of a morphologically complex word would come from the denotations of its composite morphemes. Further, I assume that word-formation processes add, but cannot remove, meaning, which follows from the principle of monotonicity (Koontz-Garboden 2007). In this section, I argue that paʔapyaʔ in Comox-Sliammon should be treated compositionally, as a combination of the meaning of its component morphemes.	page 6
+§3	Gloria Mellesmoen	name	Koontz-Garboden	A. Koontz-Garboden, the Monotonicity Hypothesis (2007)
+§3	Gloria Mellesmoen	note	A compositional treatment of paʔapyaʔ has the benefit of being able to account for other ‘X by X’ or ‘X at a time’ words. In (13), a set of words with the root paʔa ‘one’ are given, where the simple number has corresponding forms that mean ‘just/only one’ and one that means ‘one by one’. These forms are systematic in their morphology; Watanabe (2003:503) analyses them with CV (diminutive) and CVʔV (meaning unknown) reduplication. In (13), the root vowel deletes in base and there is an alternation between /y/ and /ʔ/. See Footnotes 7 and 10 for a brief discussion of these phonological processes.	page 7
+§3	Comox-Sliammon	cited form	paʔa	page 7, in italics, ‘one’
+(13a) line 1	Comox-Sliammon	transcription	paʔa	page 7, in columns
+(13b) line 1	Comox-Sliammon	transcription	pa•pyaʔ	page 7, in columns
+(13c) line 1	Comox-Sliammon	transcription	paʔa•pyaʔ	page 7, in columns
+(13a) line 2	Comox-Sliammon	gloss	one	page 7, in columns
+(13b) line 2	Comox-Sliammon	gloss	DIM•one	page 7, in columns
+(13c) line 2	Comox-Sliammon	gloss	RED•one	page 7, in columns
+(13a) line 3	Gloria Mellesmoen	translation	‘one’	page 7, in columns
+(13b) line 3	Gloria Mellesmoen	translation	‘just/only one’	page 7, in columns
+(13c) line 3	Gloria Mellesmoen	translation	‘one by one’	page 7, in columns
+§3	Gloria Mellesmoen	note	Forms that correspond to paʔa in (13) are provided in (14) for saʔa ‘two’ and čalas ‘three’ are provided in (14). As shown in Table 1, this regularity is found in other Central Salish languages, which also have ‘X by X’ constructions formed by reduplication, as shown in Table 1.4	page 7
+footnote 4	Gloria Mellesmoen	note	Data in Table 1 comes from: Beaumont (2011) – Sechelt; Drachman (1969) – Twana; Bates, Hess, and Hilbert (1994) and Anderson (1999) – Lushootseed, Montler (2012) – Klallam; Montler (1986) – Saanich; and Suttles (2004) – Musqueam.	page 7, footnote 4
+footnote 4	Gloria Mellesmoen	language	Lushootseed	Central Salish, Table 1
+footnote 4	Gloria Mellesmoen	language	Klallam	Central Salish, Table 1
+footnote 4	Gloria Mellesmoen	language	Saanich	Central Salish, Table 1
+footnote 4	Gloria Mellesmoen	language	Musqueam	Central Salish, Table 1
+§3	Comox-Sliammon	cited form	saʔa	page 7, in italics, ‘two’
+§3	Comox-Sliammon	cited form	čalas	page 7, in italics, ‘three’
+(14a) line 1	Comox-Sliammon	transcription	saʔa	page 7
+(14a) line 2	Gloria Mellesmoen	translation	‘two’	page 7
+(14a) line 3	Comox-Sliammon	transcription	sasyaʔ	page 7
+(14a) line 4	Gloria Mellesmoen	translation	‘just/only two’	page 7
+(14a) line 5	Comox-Sliammon	transcription	saʔasyaʔ	page 7
+(14a) line 6	Gloria Mellesmoen	translation	‘two by two’	page 7
+(14b) line 1	Comox-Sliammon	transcription	čalas	page 7
+(14b) line 2	Gloria Mellesmoen	translation	‘three’	page 7
+(14b) line 3	Comox-Sliammon	transcription	čačlas	page 7
+(14b) line 4	Gloria Mellesmoen	translation	‘just/only three’	page 7
+(14b) line 5	Comox-Sliammon	transcription	čaʔačləs	page 7
+(14b) line 6	Gloria Mellesmoen	translation	‘three by three’	page 7
+Table 1	Gloria Mellesmoen	note	Table 1: ‘one’, ‘one by one’, ‘two’, and ‘two by two’ in Central Salish languages	page 7, the table's caption
+Table 1 line 1	Gloria Mellesmoen	note	‘one’ ‘one by one’ ‘two’ ‘two by two’	page 7, the column heads
+Table 1 line 2	Gloria Mellesmoen	note	Comox-Sliammon paʔa paʔapyaʔ saʔa saʔasyaʔ	page 7, a language's forms
+Table 1 line 3	Gloria Mellesmoen	note	Sechelt pála pápəla t̓ə́m-šín	page 7, a language's forms
+Table 1 line 4	Gloria Mellesmoen	note	Twana dáhqas dáqs ʔəsále(h) ʔəsə́səle(h)	page 7, a language's forms
+Table 1 line 5	Gloria Mellesmoen	note	Lushootseed dəč̓úʔ dídidč̓u sáliʔ sal̓saliʔ	page 7, a language's forms
+Table 1 line 6	Gloria Mellesmoen	note	Klallam nə́c̓uʔ nəc̓nə́c̓uʔ čə́saʔ	page 7, a language's forms
+Table 1 line 7	Gloria Mellesmoen	note	Saanich nə́t̓ᶿəʔ nət̓ᶿnə́t̓ᶿəʔ čə́seʔ	page 7, a language's forms
+Table 1 line 8	Gloria Mellesmoen	note	Musqueam nə́c̓aʔ nəc̓nánc̓aʔ ʔisél̓ə ~ ʔəsél̓ə yəsyə́y̓sələ	page 7, a language's forms
+§3	Gloria Mellesmoen	note	Comox-Sliammon and Sechelt form a cognate set for ‘one’, while the other languages form another.5 Despite different words for ‘one’, the ‘X by X’ construction is common in Central Salish languages and formed by reduplication in each, suggesting that it is not an idiosyncratic innovation restricted to particular languages, as suggested by Anderson (1999). It is also worth noting that this construction, termed “distributive” by Drachman (1969), is attested in Twana up to the number ten, using -VC reduplication.6	page 7
+footnote 5	Gloria Mellesmoen	note	Kuipers (2002) reconstructs *nak̓/*nk̓-uʔ for ‘one’ in Proto-Salish. This root is found in some Comox-Sliammon words, such as nač̓axʷ ‘one time’ (Watanabe 2003:504). paʔa cognates are also found in Lillooet and Thompson (Anderson 1999).	page 7, footnote 5
+footnote 5	Comox-Sliammon	cited form	*nak̓	page 7, in italics
+footnote 5	Comox-Sliammon	cited form	*nk̓-uʔ	page 7, in italics
+footnote 5	Comox-Sliammon	cited form	nač̓axʷ	page 7, in italics, ‘one time’
+footnote 5	Gloria Mellesmoen	name	Kuipers	A. H. Kuipers, Salish etymological dictionary (2002)
+footnote 5	Gloria Mellesmoen	language	Thompson	Interior Salish, paʔa cognates
+footnote 5	Gloria Mellesmoen	language	Proto-Salish	*nak̓/*nk̓-uʔ ‘one’
+footnote 6	Gloria Mellesmoen	note	‘One’ is an exception, but Drachman (1969) offers a phonological explanation for it.	page 8, footnote 6
+§3	Gloria Mellesmoen	name	Anderson	G. D. Anderson, reduplicated numerals in Salish (1999)
+§3	Gloria Mellesmoen	name	Drachman	G. Drachman, Twana phonology (1969)
+§3	Gloria Mellesmoen	language	Twana	Central Salish, Table 1
+§3	Gloria Mellesmoen	note	Though the reduplication in ‘X by X’ forms reported in other Salish languages may be lexicalized, the construction appears to still be productive in Comox-Sliammon. Though its semantic function is difficult to ascertain, a CVʔV pattern is found in non-numerical lexical items. Previous work treats this as a single reduplicative process (e.g., Watanabe 2003) or a combination of reduplication and an -L’- affix (e.g., Blake 2000).7,8 While I follow Blake (2000) in splitting the CVʔV sequence into a reduplicant (CV) and an affix (-Vʔ-), I treat the affix as an infix (instead of a prefix) and I propose that it has a more specific semantic function than just expressing a general sense of plurality.9	page 8
+footnote 7	Gloria Mellesmoen	note	Blake (2000) treats the L’ in this affix as an archiphoneme, which can be realized as [w̓], [y̓], [ʔ], and [ɬ]. She argues that this affix is cognate to a plural infix found in other Salish languages. The affix occurs with diminutive (CV), plural (CVC), characteristic (CVC), imperfective (CV), and inchoative (VC) reduplication. A future question is why this affix often occurs with reduplication. There may be phonological reasons for this.	page 8, footnote 7
+footnote 8	Gloria Mellesmoen	note	Watanabe’s (2003:503) inclusion of word-final glottalization is consistent with paʔapyaʔ having diminutive CV reduplication, which shifts or assigns glottalization toward the right edge of the word.	page 8, footnote 8
+footnote 9	Gloria Mellesmoen	note	As the language has lost all prefixes aside from reduplicants, I find that it is more intuitive to treat this as an infix. Additionally, I choose to treat it as infixing (C<Vʔ>V), rather than prefixing/suffixing (CV-ʔV) due to its behaviour with other reduplicants.	page 8, footnote 9
+§3	Comox-Sliammon	cited form	-L’-	page 8, in italics
+§3	Gloria Mellesmoen	name	Blake	S. J. Blake, schwa in Sliammon (2000)
+§3	Gloria Mellesmoen	note	I assume the morpheme breakdown in (15). The unreduplicated numeral is paʔa ‘one’, while papyaʔ ‘just/only one’ has a diminutive CV reduplicant. The plural -Vʔ- infix is added to papyaʔ to yield paʔapyaʔ.	page 8
+§3	Comox-Sliammon	cited form	papyaʔ	page 8, in italics, ‘just/only one’
+(15a) line 1	Comox-Sliammon	transcription	paʔa	page 8, in columns
+(15b) line 1	Comox-Sliammon	transcription	pa•pyaʔ	page 8, in columns
+(15c) line 1	Comox-Sliammon	transcription	p<aʔ>a•pyaʔ	page 8, in columns
+(15a) line 2	Comox-Sliammon	gloss	one	page 8, in columns
+(15b) line 2	Comox-Sliammon	gloss	DIM•one	page 8, in columns
+(15c) line 2	Comox-Sliammon	gloss	DIM<PL>•one	page 8, in columns
+(15a) line 3	Gloria Mellesmoen	translation	‘one’	page 8, in columns
+(15b) line 3	Gloria Mellesmoen	translation	‘just/only one’	page 8, in columns
+(15c) line 3	Gloria Mellesmoen	translation	‘one by one’	page 8, in columns
+§3	Gloria Mellesmoen	note	While I follow Watanabe (2003:503) in assuming papyaʔ ‘just/one only’ has undergone diminutive CV reduplication, it is relevant to note that CV reduplication is also used to mark imperfective aspect and plurality. Imperfective reduplication can be set apart because it behaves differently from the other two in the phonology. Watanabe (2003) suggests that the base vowel in strong roots is retained in imperfective reduplication while it is deleted in diminutive and plural reduplication.10 The result of this is that diminutive and plural CV reduplication are essentially homophonous. 11 Further, even with context, it can be hard to separate diminutive and plural reduplication on verbal roots. The semantic functions of CV reduplication need further exploration. For this reason, I gloss the combination of CV reduplication and the -Vʔ- affix as RED<PL> for non-numeral roots.	page 8
+footnote 10	Gloria Mellesmoen	note	It is not immediately clear why there is a phonological difference between imperfective and plural/diminutive CV reduplication. Urbancyzk (2005) argues that the difference arises to enhance contrast between the reduplicated forms. Mellesmoen (2017) suggests that it is due to the diminutive (and likely plural) reduplicants being C1 infixes. For consistency here, I follow Watanabe (2003) and gloss the imperfective, plural, and diminutive as C1V reduplication.	page 8, footnote 10
+footnote 11	Gloria Mellesmoen	note	Watanabe (2003:383–384) reports that there may be contrastive vowel length in the first syllable that serves to differentiate them, with the plural stative forms having a longer initial vowel. I have not yet found this in a preliminary acoustic examination.	page 9, footnote 11
+§4	Gloria Mellesmoen	heading	4 Analysis of paʔapyaʔ	page 9
+§4	Gloria Mellesmoen	note	Though the interpretation of paʔapyaʔ is comparable across different syntactic environments, the formal analysis pursued in this paper addresses paʔapyaʔ in a DP-internal position. As the interpretation and syntactic position of paʔapyaʔ parallel Matthewson’s (2000) description of pəlpálaʔ/pipálaʔ, it follows that her analysis can likely account for both. The lexical entry she proposes is given in (16). It makes use of event semantics, in the style of Kratzer (2003), and Lasersohn’s (1995) analysis of pluractional markers.	page 9
+§4	Comox-Sliammon	cited form	pəlpálaʔ	page 9, in italics
+§4	Gloria Mellesmoen	name	Kratzer	A. Kratzer, event semantics (2003)
+(16) line 1	Gloria Mellesmoen	note	⟦pəlpálaʔ⟧ = 𝜆𝑥𝜆𝑅⟨𝑒,𝑠𝑡⟩𝜆𝑒’ [∃ 𝑒1 … ∃ 𝑒𝑛 [𝑒’ = 𝑒1 + … + 𝑒𝑛 & ∀𝑒𝑛∃𝑦 [𝑦 < 𝑥 & 𝑎𝑡𝑜𝑚 (𝑦) & 𝑅 (𝑦) (𝑒𝑛)] & ∀𝑒𝑛, 𝑒𝑚 [¬ 𝜏(𝑒𝑛) ∘ 𝜏 (𝑒𝑚)]]]	page 9, the lexical entry, a formula; its subscripts set inline
+(16) line 2	Gloria Mellesmoen	citation	(Matthewson 2000:109)	page 9, the formula's source
+§4	Gloria Mellesmoen	note	The lexical entry in (16) states a sentence containing pəlpálaʔ/pipálaʔ is true of a plural individual 𝑥, a predicate 𝑅, and an event 𝑒’ if and only if 𝑒’ consists of multiple subevents and there is a plural individual made up of atomic subparts, and for each subevent there is an atomic individual who participates in that subevent. The group 𝑥 is defined by the relevant DP. The lexical entry also defines a temporal condition, where the running time of subevents is represented with 𝜏, which states that the running times of the events must not overlap.	page 9
+§4	Gloria Mellesmoen	note	Matthewson’s (2000) analysis also makes the correct predictions for paʔapyaʔ in Comox-Sliammon. However, she analyses pəlpálaʔ/pipálaʔ as a single lexical entry and the relative semantic contribution of the number itself is not crucial to the analysis. As argued in Section 3, there is reason to treat paʔapyaʔ as a combination of three morphemes. This approach can be extended to other ‘X by X’ forms, while (16) can only account for paʔapyaʔ, and requires modification for saʔasyaʔ ‘two by two’ or čaʔačlas ‘three by three’.	page 9
+§4	Comox-Sliammon	cited form	saʔasyaʔ	page 9, in italics, ‘two by two’
+§4	Comox-Sliammon	cited form	čaʔačlas	page 9, in italics, ‘three by three’
+§4	Gloria Mellesmoen	note	The ‘X by X’ words are decomposable into three morphemes: the number, the diminutive CV reduplication, and the plural -Vʔ- affix. To understand the contributions of each morpheme in paʔapyaʔ, it is necessary to examine some data where CV reduplication occurs on numbers without -Vʔ-. The sentences in (17) and (18) have CV reduplication and were translated with ‘only’ and ‘just’.	page 9
+(17) line 1	Comox-Sliammon	transcription	ǰəkʷ-t-ig-as pa•pyaʔ θəkʷnačtən	page 10
+(17) line 2	Comox-Sliammon	gloss	paint-CTR-PL-3ERG DIM•one chair	page 10
+(17) line 3	Gloria Mellesmoen	translation	‘They painted just one chair.’	page 10
+(17) line 4	Gloria Mellesmoen	citation	JF	page 10, the speaker's initials, Joanne Francis
+(18) line 1	Comox-Sliammon	transcription	sa•syaʔ ʔim-əxʷ-an t̓ᶿit̓ᶿik̓ʷ	page 10
+(18) line 2	Comox-Sliammon	gloss	DIM•two walk-NTR-1SG.ERG worm	page 10
+(18) line 3	Gloria Mellesmoen	translation	‘I stepped on only two worms.’	page 10
+(18) line 4	Gloria Mellesmoen	note	Context: I stepped on two worms.	page 10, a context
+(18) line 5	Gloria Mellesmoen	note	#Context: I stepped on one worm.	page 10, a context
+(18) line 6	Gloria Mellesmoen	note	#Context: I stepped on three worms.	page 10, a context
+(18) line 7	Gloria Mellesmoen	citation	JF	page 10, the speaker's initials, Joanne Francis
+§4	Gloria Mellesmoen	note	Watanabe (2003:502) finds that diminutive CV reduplication on numbers can refer to an exact number of objects. When diminutive reduplication is applied to paʔa ‘one’, it means ‘exactly one’. The same applies for saʔa ‘two’, which becomes ‘exactly two’. The sasyaʔ sentence in (18) is only accepted if two, and only two, worms were squished. If three were stepped on, sasyaʔ is rejected, despite the fact it was technically true that two were squished. Diminutive reduplication on numerals forces an ‘exactly’ reading.	page 10
+§4	Comox-Sliammon	cited form	sasyaʔ	page 10, in italics
+§4	Gloria Mellesmoen	note	In contrast, the sentences in (19) are provided as an example where the numbers ‘one’ and ‘two’ are used without additional morphology. The English translations do not include words like just and only.	page 10
+(19a) line 1	Comox-Sliammon	transcription	yə•yč-it=čxʷ paʔa k̓ʷaʔsta	page 10
+(19a) line 2	Comox-Sliammon	gloss	PL•fill-STV=2SG.IND one cup	page 10
+(19a) line 3	Gloria Mellesmoen	translation	‘You are pouring them into one cup.’	page 10
+(19a) line 4	Gloria Mellesmoen	note	Context: I have two cups that I am pouring together (with both hands) into a different cup.	page 10, a context
+(19a) line 5	Gloria Mellesmoen	citation	FL	page 10, the speaker's initials, Freddie Louie
+(19b) line 1	Comox-Sliammon	transcription	saʔa χʷaχʷit yəq̓-aš-an	page 10
+(19b) line 2	Comox-Sliammon	gloss	two 1SG.ERG use-TR-1SG.ERG	page 10
+(19b) line 3	Gloria Mellesmoen	translation	‘I am using two eggs.’	page 10
+(19b) line 4	Gloria Mellesmoen	citation	EP	page 10, the speaker's initials, Elsie Paul
+§4	Gloria Mellesmoen	note	Bare numerals can also have ‘at least’ interpretations. An example of this is given in (20), which shows that it is fine for a speaker to say she has two apples in a context where she has more than that. This means that the bare numerals may be used in situations where the context identifies a greater number, as long as there are at least two.	page 10
+(20) line 1	Comox-Sliammon	transcription	saʔa tᶿ ʔapəls	page 10
+(20) line 2	Comox-Sliammon	gloss	two 1SG.POSS apple	page 10
+(20) line 3	Gloria Mellesmoen	translation	‘I have two apples.’	page 10
+(20) line 4	Gloria Mellesmoen	note	Context: You have three apples.	page 10, a context
+(20) line 5	Gloria Mellesmoen	citation	PD	page 10, the speaker's initials, Phyllis Dominic
+§4	Gloria Mellesmoen	note	To explain the difference between paʔa and the diminutive reduplicated papyaʔ, I adopt Krifka’s (1999) proposal for numbers with alternatives. An example of this is given in (21) for one in English, where 𝑁 is the set of all number words and the number words themselves are represented by numbers, such that 1(𝑥) expresses that 𝑥 is a total of one. Subscript A marks the set of alternatives.	page 10
+§4	Gloria Mellesmoen	name	Krifka	M. Krifka, numbers with alternatives (1999)
+(21a) line 1	Gloria Mellesmoen	note	⟦one⟧ = 𝜆𝑃𝜆𝑥 [1(𝑥) & 𝑃(𝑥)]	page 11, a denotation, a formula
+(21b) line 1	Gloria Mellesmoen	note	⟦one⟧ A = {𝜆𝑃𝜆𝑥 [𝑛(𝑥) & 𝑃(𝑥)] | 𝑛 ∈ 𝑁}	page 11, a denotation, a formula
+§4	Gloria Mellesmoen	note	The standard interpretation, or meaning, of the lexical item one is given in (21a). In (21a), ⟦one⟧ requires that 𝑥 refer to exactly one of something. However, the set of alternatives, represented by the denotation in (21b), allows for the inclusion of ‘at least’ and ‘at most’ readings. This reflects the fact that one can be used in situations where the amount is either greater or less than one, context- permitting. Examples of this in English are given in (22), where I weigh 51 kilograms can have an ‘at most’ or ‘at least’ reading if the context allows it. These represent alternatives to the standard interpretation. However, the alternatives are only available if they are appropriate in the context. Otherwise, the only permissible reading would be the standard interpretation.	page 11
+(22) line 1	Gloria Mellesmoen	note	I weigh 51 kilograms.	page 11, an English sentence
+(22) line 2	Gloria Mellesmoen	note	Context: I have qualified to compete in the 51kg weight class in a wrestling tournament, where I must be under 51 kilograms at the time of the weigh-in to compete. I weigh 50 kilograms.	page 11, a context
+(22) line 3	Gloria Mellesmoen	note	Context: I want to compete in the 54kg weight class in a tournament. My coach says I must be at least 51 kilograms. I weigh 52 kilograms.	page 11, a context
+§4	Gloria Mellesmoen	note	Assuming alternatives are available, though subject to pragmatic constraints, the difference between ⟦paʔa⟧ and ⟦papyaʔ⟧ can be explained as the loss of alternatives. However, the denotations must be modified to reflect the fact that numerals are cardinality predicates in Salish (Jelinek 1995). Denotations for the standard interpretations and alternatives are given in (23) for ⟦paʔa⟧ and ⟦saʔa⟧.	page 11
+§4	Gloria Mellesmoen	name	Jelinek	E. Jelinek, quantification in Straits Salish (1995)
+(23a) line 1	Gloria Mellesmoen	note	⟦paʔa⟧ = 𝜆𝑥 [| 𝑥 | = 1]	page 11, a denotation, a formula
+(23a) line 2	Gloria Mellesmoen	note	⟦paʔa⟧ A = {𝜆𝑥 [| 𝑥 | = 1] | 𝑛 ∈ 𝑁}	page 11, a denotation, a formula
+(23b) line 1	Gloria Mellesmoen	note	⟦saʔa⟧ = 𝜆𝑥 [| 𝑥 | = 2]	page 11, a denotation, a formula
+(23b) line 2	Gloria Mellesmoen	note	⟦saʔa⟧ A = {𝜆𝑥 [| 𝑥 | = 2] | 𝑛 ∈ 𝑁}	page 11, a denotation, a formula
+§4	Gloria Mellesmoen	note	The application of the diminutive CV reduplication to a number results in the elimination of alternatives. Losing the possibility of alternatives leaves only the standard interpretation, which denotes an exact quantity. This would have the desired consequence of limiting papyaʔ to ‘one and only one’, while paʔa can mean ‘at least one’. Denotations for ⟦papyaʔ⟧ and ⟦sasyaʔ⟧ are given in (24).	page 11
+(24a) line 1	Gloria Mellesmoen	note	⟦papyaʔ⟧ = 𝜆𝑥 [| 𝑥 | = 1]	page 11, a denotation, a formula
+(24b) line 1	Gloria Mellesmoen	note	⟦sasyaʔ⟧ = 𝜆𝑥 [| 𝑥 | = 2]	page 11, a denotation, a formula
+§4	Gloria Mellesmoen	note	The denotations given in (24) provide a way to adapt Matthewson’s (2000) formula. She used atoms to limit individuals as required for the ‘one by one’ reading. In order to make it work for a broader range of numbers, the restriction ‘atom (y)’ in (16) should be traded for | 𝑦 | = 𝑛, where 𝑛 is a natural number and corresponds to the cardinality specified by the numeral root. This is demonstrated in (25) and (26), where the number of atomic individuals in a given event is limited to one and two.	page 12
+(25) line 1	Gloria Mellesmoen	note	⟦paʔapyaʔ⟧ = 𝜆𝑥𝜆𝑅⟨𝑒,𝑠𝑡⟩𝜆𝑒’ [∃ 𝑒1 … ∃ 𝑒𝑛 [𝑒’ = 𝑒1 + … + 𝑒𝑛 & ∀𝑒𝑛∃𝑦 [𝑦 < 𝑥 & | 𝑦 | = 1 & 𝑅 (𝑦) (𝑒𝑛)] & ∀𝑒𝑛, 𝑒𝑚 [¬𝜏 (𝑒𝑛) ∘ 𝜏 (𝑒𝑚)]]]	page 12, the lexical entry, a formula; its subscripts set inline
+(26) line 1	Gloria Mellesmoen	note	⟦saʔasyaʔ⟧ = 𝜆𝑥𝜆𝑅⟨𝑒,𝑠𝑡⟩𝜆𝑒’ [∃ 𝑒1 … ∃ 𝑒𝑛 [𝑒’ = 𝑒1 + … + 𝑒𝑛 & ∀𝑒𝑛∃𝑦 [𝑦 < 𝑥 & | 𝑦 | = 2 & 𝑅 (𝑦) (𝑒𝑛)] & ∀𝑒𝑛, 𝑒𝑚 [¬𝜏 (𝑒𝑛) ∘ 𝜏 (𝑒𝑚)]]]	page 12, the lexical entry, a formula; its subscripts set inline
+§4	Gloria Mellesmoen	note	The denotation in (25) states that a sentence containing paʔapyaʔ will be true of a plural individual 𝑥, a predicate 𝑅, and an event 𝑒’ if and only if 𝑒’ is made up of subevents that do not overlap in running time. For each subevent, there needs to be a plural individual 𝑥, and for each subevent there must be a subpart of 𝑥 which has a cardinality of one. The denotation in (26) has the same conditions, except the sum of the subparts involved in each subevent must equal two.	page 12
+§4	Gloria Mellesmoen	note	The analysis laid out here suggests the -Vʔ- affix is responsible for the temporal pluractionality associated with paʔapyaʔ. Neither ⟦papyaʔ⟧ nor ⟦paʔa⟧ refer to plurality or temporal distribution. However, ⟦paʔapyaʔ⟧ has the semantics given in (25) and requires that an event be comprised of a sum of subevents that do not overlap in time. This suggests that the pluractional component of the formulae in (25) and (26) must be attributed to the -Vʔ- affix.	page 12
+§4	Comox-Sliammon	cited form	-Vʔ-	page 12, in italics
+§4	Gloria Mellesmoen	note	The denotation for ⟦-Vʔ-⟧ is given in (27). The crucial difference from Matthewson’s (2000) analysis of pəlpálaʔ/pipálaʔ is that the semantics of the reduplicated number have been incorporated. Formally, this involves substituting | 𝑦| = 𝑛 for the atomic condition.	page 12
+(27) line 1	Gloria Mellesmoen	note	⟦-Vʔ-⟧ = 𝜆𝑆⟨𝑒,𝑡⟩ 𝜆𝑥𝜆𝑅⟨𝑒,𝑠𝑡⟩ 𝜆𝑒’ [∃ 𝑒1 . . . ∃ 𝑒𝑛 [𝑒’ = 𝑒1 + . . . + 𝑒𝑛 & ∀𝑒𝑛∃𝑦[𝑦 < 𝑥 & 𝑆(𝑦) & 𝑅 (𝑦) (𝑒𝑛)] & ∀𝑒𝑛, 𝑒𝑚 [¬𝜏 (𝑒𝑛) ∘ 𝜏 (𝑒𝑚)]]]	page 12, the lexical entry, a formula; its subscripts set inline
+§4	Gloria Mellesmoen	note	The formula in (27) allows for the derivation of saʔasyaʔ and čaʔačləs, as well as paʔapyaʔ. When ⟦-Vʔ-⟧ is applied to a ‘just X’ form like ⟦papyaʔ⟧, with the semantics in (24a), it results in the formula given in (25) for ⟦paʔapyaʔ⟧. A ‘one by one’ reading arises from the combination of the semantics of ‘just one’ with event plurality and a restriction on temporal overlap. The pluractional and distributive qualities associated with paʔapyaʔ can be attributed to the -Vʔ- affix, meaning -Vʔ- is a pluractional marker requiring temporally distributed events.	page 12
+§4	Comox-Sliammon	cited form	čaʔačləs	page 12, in italics
+§5	Gloria Mellesmoen	heading	5 Further evidence for a temporal pluractional -Vʔ- infix	page 13
+§5	Gloria Mellesmoen	note	Characterizing -Vʔ- as a temporal pluractional marker is supported by its occurrence with other lexical items, where it is associated with similar temporal conditions to those in (27). An example of this is given in (28), where the -Vʔ- infix occurs with the root yəm- ‘to kick’.	page 13
+§5	Comox-Sliammon	cited form	yəm-	page 13, in italics, ‘to kick’
+(28) line 1	Comox-Sliammon	transcription	y<iʔ>i•ym-t-as	page 13
+(28) line 2	Comox-Sliammon	gloss	RED<PL>•kick-CTR-3ERG	page 13
+(28) line 3	Gloria Mellesmoen	translation	‘She is (repeatedly) nudging him.’	page 13
+(28) line 4	Gloria Mellesmoen	citation	EP	page 13, the speaker's initials, Elsie Paul
+§5	Gloria Mellesmoen	note	Treating the -Vʔ- affix as a temporal pluractional marker leads to the prediction that verbs with it should be subject to the same requirement for temporal distribution as paʔapyaʔ, but number should be irrelevant. This follows from the proposal to treat paʔapyaʔ compositionally, where the denotation of root paʔa ‘one’ contributes to the overall meaning of the word. Without paʔa ‘one’, there should be no numerical limit on the distribution of the event across individuals.	page 13
+§5	Gloria Mellesmoen	note	This prediction turns out to be valid, as shown in (29), where the same verb is shown with and without the -Vʔ- affix. In (29a), the affix is absent and the sentence describes a group of children who are all sick. In (29b), with the affix, the sentence refers to children who got sick in sequence. The “getting sick” event is temporally distributed across individual children.	page 13
+(29a) line 1	Comox-Sliammon	transcription	ʔuk̓ʷ kʷə•kʷt-im čəy•čuy	page 13
+(29a) line 2	Comox-Sliammon	gloss	all PL•sick-MDL PL•child	page 13
+(29a) line 3	Gloria Mellesmoen	translation	‘All the children got sick (at the same time).’	page 13
+(29a) line 4	Gloria Mellesmoen	citation	JF	page 13, the speaker's initials, Joanne Francis
+(29b) line 1	Comox-Sliammon	transcription	ʔuk̓ʷ kʷ<iʔ>i~kʷt-im čəy•čuy	page 13
+(29b) line 2	Comox-Sliammon	gloss	all RED<PL>•sick-MDL PL•child	page 13
+(29b) line 3	Gloria Mellesmoen	translation	‘All the children got sick (one after another).’	page 13
+(29b) line 4	Gloria Mellesmoen	citation	JF	page 13, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	A further example, with a transitive verb, is given in (30). Multiple brushes can be dipped in water at the same time with the -Vʔ- affix, as long as the action is repeated, showing that argument number does not affect its acceptability.	page 13
+(30) line 1	Comox-Sliammon	transcription	ƛ<iʔ>i•ƛm-i-t-as brushes	page 13
+(30) line 2	Comox-Sliammon	gloss	RED<PL>•wet-STV-CTR-3ERG brushes	page 13
+(30) line 3	Gloria Mellesmoen	translation	‘She is wetting all the brushes, repeatedly / #one time.’	page 13
+(30) line 4	Gloria Mellesmoen	note	Context: Dipping a bunch of paintbrushes in water to get them wet.	page 13, a context
+(30) line 5	Gloria Mellesmoen	citation	JF	page 13, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	If temporal distribution comes from the semantic contribution of -Vʔ-, temporal overlap should be acceptable for forms without it. The example in (31) with papyaʔ and paʔapyaʔ shows that a reduplicated numeral without -Vʔ- is accepted if two people are painting the same chair together. This situation involves temporal overlap, as the painting event is only distributed across participants who are participating simultaneously in the painting event. This temporal overlap is incompatible with paʔapyaʔ, as expected.	page 13
+(31) line 1	Comox-Sliammon	transcription	Daniel higa Gloria ǰəkʷ-t pa•pyaʔ/#p<aʔ>a•pyaʔ θəkʷnačtən	page 14
+(31) line 2	Comox-Sliammon	gloss	Daniel and Gloria paint-CTR DIM•one/#DIM<PL>•one chair	page 14
+(31) line 3	Gloria Mellesmoen	translation	‘Daniel and Gloria were painting the one chair.’	page 14
+(31) line 4	Gloria Mellesmoen	note	Context: A single chair with two people painting it.	page 14, a context
+(31) line 5	Gloria Mellesmoen	citation	JF	page 14, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	Similarly, saʔasyaʔ ‘two by two’ also requires temporal distribution. In (32), two worms are crushed in one step and the form with -Vʔ-, requiring that subevents do not overlap, is rejected. Note that sasyaʔ is accepted in this context.	page 14
+(32) line 1	Comox-Sliammon	transcription	sa•syaʔ/#s<aʔ>a•syaʔ ʔim-əxʷ-an t̓ᶿit̓ᶿik̓ʷ	page 14
+(32) line 2	Comox-Sliammon	gloss	DIM~two/#DIM<PL>~two walk-NTR-1SG.ERG worm	page 14
+(32) line 3	Gloria Mellesmoen	translation	‘I stepped on just two worms.’	page 14
+(32) line 4	Gloria Mellesmoen	citation	JF	page 14, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	If -Vʔ- is a temporal pluractional marker, another prediction is it should be compatible with readings with varying temporal distance between events. If the restriction is just about overlap, it should not matter if the events are immediately sequential or spread out over a wider, or more sporadic, range of time. This prediction is supported by the data in (33–35), as -Vʔ- occurs in a situation where the events are minimally spaced out in (33), confined to a specific time range without a given interval in (34), and with an unconstrained time range but structured interval in (35).	page 14
+(33) line 1	Comox-Sliammon	transcription	ɬ<uʔ>u•ɬt̓-ut	page 14
+(33) line 2	Comox-Sliammon	gloss	RED<PL>•sip-CTR	page 14
+(33) line 3	Gloria Mellesmoen	translation	‘sipping’	page 14
+(33) line 4	Gloria Mellesmoen	note	Context: The drink is really hot; you take a lot of little sips because you’re impatient.	page 14, a context
+(33) line 5	Gloria Mellesmoen	citation	FL	page 14, the speaker's initials, Freddie Louie
+(34) line 1	Comox-Sliammon	transcription	tih-mut=č p<iʔ>i•pč-əm snat-uɬ	page 14
+(34) line 2	Comox-Sliammon	gloss	big-very=1SG.IND RED<PL>•wake-MDL tonight-PST	page 14
+(34) line 3	Gloria Mellesmoen	translation	‘I kept waking up last night.’	page 14
+(34) line 4	Gloria Mellesmoen	citation	JF	page 14, the speaker's initials, Joanne Francis
+(35) line 1	Comox-Sliammon	transcription	paya p<iʔ>i•pč-əm čuy	page 14
+(35) line 2	Comox-Sliammon	gloss	always RED<PL>•awake-MDL child	page 14
+(35) line 3	Gloria Mellesmoen	translation	‘The child is always waking up.’	page 14
+(35) line 4	Gloria Mellesmoen	note	Context: Every night, the baby wakes up at four and starts crying.	page 14, a context
+(35) line 5	Gloria Mellesmoen	citation	JF	page 14, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	Further, there is no reason to suspect that -Vʔ- would affect the rate and duration of the event, given that it only stipulates that subevents should not overlap. This seems to be the case. The temporal pluractional affix co-occurs with the temporal adverbials ƛ̓imut ‘very quickly’, hahaysmut ‘very slowly’, and χuχmut ‘for a very long time’ in (36).	page 14
+§5	Comox-Sliammon	cited form	ƛ̓imut	page 15, in italics, ‘very quickly’
+§5	Comox-Sliammon	cited form	χuχmut	page 15, in italics, ‘for a very long time’
+(36) line 1	Comox-Sliammon	transcription	ƛ̓i-mut/hahays-mut/χuχ-mut kʷ<iʔ>i•kʷt̓ᶿ-əm	page 15
+(36) line 2	Comox-Sliammon	gloss	quick-very/slow-very/long.time-very RED<PL>•jump-MDL	page 15
+(36) line 3	Gloria Mellesmoen	translation	‘She jumped quickly/slowly/for a long time.’	page 15
+(36) line 4	Gloria Mellesmoen	citation	JF	page 15, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	In the absence of time adverbials, however, the unmodified form can be associated with a slower rate. One consultant translated paʔapnaʔam in (37) as ‘digging slowly’.12	page 15
+footnote 12	Gloria Mellesmoen	note	The form in (37) was translated as ‘planting a little, here and there’ by PD.	page 15, footnote 12
+§5	Comox-Sliammon	cited form	paʔapnaʔam	page 15, in italics
+(37) line 1	Comox-Sliammon	transcription	p<aʔ>a•pn-aʔam	page 15
+(37) line 2	Comox-Sliammon	gloss	RED<PL>•bury-AINTR	page 15
+(37) line 3	Gloria Mellesmoen	translation	‘digging slowly’	page 15
+(37) line 4	Gloria Mellesmoen	citation	JF	page 15, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	The slow rate associated with (37) may come from the semantic contribution of CV reduplication, rather than the -Vʔ- infix. As mentioned in Section 3, plural and diminutive reduplication are homophonous in Comox-Sliammon. It is not clear whether (37) should be analysed as having a diminutive or plural reduplicant. However, it is possible that the reduced rate in (37) can be attributed to the function of the diminutive.	page 15
+§5	Gloria Mellesmoen	note	A final prediction is that the pluractional -Vʔ- affix might be incompatible with individual-level predicates, as it requires a kind of repetition or temporal distribution that is not typical of this type of lexical item. However, (38) shows that the -Vʔ- affix can occur in individual-level predicates, with eye colour.	page 15
+(38) line 1	Comox-Sliammon	transcription	kʷ<iʔ>i•kʷsim+awus	page 15
+(38) line 2	Comox-Sliammon	gloss	RED<PL>•blue+eye	page 15
+(38) line 3	Gloria Mellesmoen	translation	‘Eyes keep changing.’	page 15
+(38) line 4	Gloria Mellesmoen	note	Context: Colour contacts are put in and taken out, changing my eye colour from blue to brown to blue to brown, etc.	page 15, a context
+(38) line 5	Gloria Mellesmoen	citation	JF	page 15, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	The form in (38) is typical of aspectual coercion, where event plurality is applied to an individual-level predicate. Forms like this are only accepted with very specific (and generally odd) contexts.13 Given the limited data available right now, I conclude that -Vʔ- is only marginally acceptable with individual- level predicates. In many cases, attempts to add the -Vʔ- affix to an individual- level predicate were rejected or corrected, as in (39).	page 15
+footnote 13	Gloria Mellesmoen	note	Their acceptability may relate to the amount of patience the consultant had with me. In one session, things like (38) were readily accepted and produced. But, in the next session, more were rejected and she was more tentative about acceptable ones, even if she attributed the expected meaning to suggested forms.	page 15, footnote 13
+(39) line 1	Comox-Sliammon	transcription	* p̓iʔi•p̓θ	page 16
+(39) line 2	Comox-Sliammon	gloss	RED<PL>•black	page 16
+(39) line 3	Gloria Mellesmoen	translation	‘Things that are changing colour (from black).’	page 16
+(39) line 4	Gloria Mellesmoen	note	Consultant:	page 16, the consultant's correction follows
+(39) line 5	Comox-Sliammon	transcription	ʔuk̓ʷ pə•pθ•əθ qʷəɬ•qʷəɬayšin	page 16, the consultant's correction
+(39) line 6	Comox-Sliammon	gloss	all PL•black•INCH PL•shoe	page 16
+(39) line 7	Gloria Mellesmoen	translation	‘All the shoes are getting black.’	page 16
+(39) line 8	Gloria Mellesmoen	citation	JF	page 16, the speaker's initials, Joanne Francis
+§5	Gloria Mellesmoen	note	The patterns observed for paʔapyaʔ, other ‘X by X’ forms, and other predicates with -Vʔ- are consistent with treating -Vʔ- as a temporal pluractional marker.	page 16
+§6	Gloria Mellesmoen	heading	6 Remaining questions	page 16
+§6	Gloria Mellesmoen	note	A problem for labelling -Vʔ- as a pluractional marker arises from diminutive plural forms of a noun with CV reduplication and something resembling the -Vʔ- affix, as in (40). If -Vʔ- is pluractional, it is unclear why it occurs with nouns.	page 16
+(40a) line 1	Comox-Sliammon	transcription	t<iʔ>i•tkʷəɬi	page 16, in columns
+(40b) line 1	Comox-Sliammon	transcription	m<iʔ>i•mʔin	page 16, in columns
+(40a) line 2	Comox-Sliammon	gloss	DIM<PL>•rabbit	page 16, in columns
+(40b) line 2	Comox-Sliammon	gloss	DIM<PL>•carrot	page 16, in columns
+(40a) line 3	Gloria Mellesmoen	translation	‘small rabbits’	page 16, in columns
+(40b) line 3	Gloria Mellesmoen	translation	‘small carrots’	page 16, in columns
+(40) line 4	Gloria Mellesmoen	citation	(Watanabe 2003:401–402)	page 16, the source of both parts
+§6	Gloria Mellesmoen	note	The data in (40) is not necessarily problematic for the present analysis though, as this construction occurs with relatively few lexical items. The diminutive plural can also be formed by combining CV diminutive and CVC plural reduplication or by using titul ‘small’ or qəχ ‘lots’. Phrases with titul ‘small’ and qəχ ‘lots’ are most commonly produced. The diminutive plural with -Vʔ- may be highly lexicalized. The degree to which it challenges this analysis is unclear.	page 16
+§6	Comox-Sliammon	cited form	qəχ	page 16, in italics, ‘lots’
+§6	Gloria Mellesmoen	note	Finally, the formal analysis laid out in Section 4 accounts for the DP- internal use of paʔapyaʔ, leaving the DP-external cases for future work. Though the interpretation of paʔapyaʔ appears to be constant across syntactic environments, a compositional analysis will need further adjustment to account for the fact that paʔapyaʔ can take either a subordinate clause or relative clause.	page 16
+§7	Gloria Mellesmoen	heading	7 Conclusion	page 16
+§7	Gloria Mellesmoen	note	In this paper, I have argued that paʔapyaʔ is very similar to the corresponding Lillooet lexical item pəlpálaʔ/pipálaʔ, described by Matthewson (2000). Though this cross-linguistic comparison served as the foundation for a formal analysis, paʔapyaʔ in Comox-Sliammon can be analysed as the combination of a diminutive and pluractional morpheme operating on a numeral. The requirement for the event to be a sum of subevents with non-overlapping running times is attributed to the semantic contribution of a temporal pluractional marker -Vʔ-, rather than paʔapyaʔ itself. This analysis has the benefit of being able to account for other ‘X by X’ constructions, like saʔasyaʔ ‘two by two’, and verbs that take the affix with a similar iterative interpretation. The data presented in this paper provide evidence that -Vʔ- functions as a temporal pluractional marker.	page 16
+references	Gloria Mellesmoen	heading	References	page 17
+references	Gloria Mellesmoen	reference	Anderson, G. D. (1999). Reduplicated numerals in Salish. International Journal of American Linguistics, 65(4), 407–448.	page 17
+references	Gloria Mellesmoen	reference	Bates, D., Hess, T., & Hilbert, V. (1994). Lushootseed dictionary. Washington: University of Washington Press.	page 17
+references	Gloria Mellesmoen	reference	Beaumont, R. C. (2011). Sechelt dictionary. Sechelt: Sechelt Indian Band.	page 17
+references	Gloria Mellesmoen	reference	Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives (Doctoral dissertation, University of British Columbia).	page 17
+references	Gloria Mellesmoen	reference	Drachman, G. (1969). Twana phonology (Doctoral dissertation, Ohio State University).	page 17
+references	Gloria Mellesmoen	reference	First Peoples’ Cultural Council. (2014). Report on the Status of B.C. First Nations Languages. Retrieved from http://www.fpcc.ca/files/PDF/ Language/FPCC-LanguageReport-141016-WEB.pdf	page 17
+references	Gloria Mellesmoen	reference	Jelinek, E. (1995). Quantification in Straits Salish. In Quantification in Natural Languages. E. Bach, E. Jelinek, A. Kratzer & B. H. Partee (eds.). Springer, Dordrecht, 487–540.	page 17
+references	Gloria Mellesmoen	reference	Koontz-Garboden, A. (2007). States, changes of state, and the Monotonicity Hypothesis (Doctoral dissertation, Stanford University).	page 17
+references	Gloria Mellesmoen	reference	Kratzer, A. (2003). The event argument and the semantics of verbs. Ms., University of Massachusetts, Amherst.	page 17
+references	Gloria Mellesmoen	reference	Krifka, M. (1999). At least some determiners aren’t determiners. The semantics/pragmatics interface from different points of view, 1, 257–291.	page 17
+references	Gloria Mellesmoen	reference	Kuipers, A. H. (2002). Salish etymological dictionary (No. 16). Linguistics Laboratory University of Montana.	page 17
+references	Gloria Mellesmoen	reference	Lasersohn, P. N. (1995). Plurality, conjunction and events. Dordrecht: Spring Science+Business Media	page 17
+references	Gloria Mellesmoen	reference	Matthewson, L. (2000). On distributivity and pluractionality. Semantics and Linguistic Theory, 10: 98–114.	page 17
+references	Gloria Mellesmoen	reference	Mellesmoen, G. (2017). All the small things: Diminutive reduplication as infixation in ʔayʔaǰuθəm. Papers for ICSNL 52, 151–169.	page 17
+references	Gloria Mellesmoen	reference	Montler, T. (1986). Saanich morphology and phonology. (Doctoral dissertation, University of Hawaii).	page 17
+references	Gloria Mellesmoen	reference	Montler, T. (2012). Klallam dictionary. Washington: University of Washington Press.	page 17
+references	Gloria Mellesmoen	reference	Suttles, W. P. (2004). Musqueam reference grammar (Vol. 2). Vancouver: UBC Press.	page 17
+references	Gloria Mellesmoen	reference	Urbanczyk, S. (2005). Enhancing contrast in reduplication. Studies on reduplication, 431–454.	page 18
+references	Gloria Mellesmoen	reference	Van Eijk, J. (2011). The Lillooet language: Phonology, morphology, syntax. UBC Press.	page 18
+references	Gloria Mellesmoen	reference	Watanabe, H. (2003). A morphological description of Sliammon, Mainland Comox Salish: With a sketch of syntax. Endangered Languages of the Pacific Rim, Faculty of Informatics, Osaka Gakuin University.	page 18

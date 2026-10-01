@@ -1,0 +1,559 @@
+where	who	kind	form	gloss
+front	Lauren Schneider and Laura Griffin	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60. Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+front	ʔayʔaǰuθəm	cited form	ho/θo	page 1, ‘go’
+front	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+front	Lauren Schneider and Laura Griffin	note	Abstract: We provide a preliminary investigation of the auxiliary word class in ʔayʔaǰuθəm, focusing on the verb ho/θo ‘go’ as a case study. In Watanabe (2003:90), the word ‘auxiliary’ broadly encompasses a list of predicate-initial words with variable syntactic behaviors (e.g., most can behave as the main predicate, but not all). Existing tests developed for verbs and auxiliaries in closely related languages are applied to ho/θo ‘go’ to document the similarities and differences in the structure. We find that ho/θo exhibits distinct auxiliary and main verb functions. Pre-predicative ho/θo demonstrates features of the auxiliary-lexical verb grammaticalization cline, while post-predicative ho/θo behaves like a verb that is taking on coverb functions, similar to what was found in nearby Hul’q’umi’num’ (see Schneider 2024b). This research provides a first step toward creating a unified account of auxiliaries in Central Salish languages.	page 1, the abstract
+front	Lauren Schneider and Laura Griffin	note	Keywords: Central Salish, Comox-Sliammon (ʔayʔaǰuθəm), multi-verb constructions, motion verbs, auxiliaries	page 1
+§1	Lauren Schneider and Laura Griffin	heading	1 Introduction1	page 1
+§1	ʔayʔaǰuθəm	cited form	ho/θo	page 1
+§1	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§1	ʔayʔaǰuθəm	name	Tla’amin	one of the four communities where ʔayʔaǰuθəm is spoken
+§1	ʔayʔaǰuθəm	name	K’ómoks	one of the four communities where ʔayʔaǰuθəm is spoken
+§1	Lauren Schneider and Laura Griffin	note	This paper provides a description of multi-verb constructions containing the auxiliary verb ho/θo ‘go’ in ʔayʔaǰuθəm [ISO: coo], a Salishan language traditionally spoken in the Tla’amin, K’ómoks, Klahoose, and Homalco communities. Multi-verb constructions of this nature are absent in English and thus may present challenges in translation and language learning (see Schneider 2021). We seek to document these constructions and present a brief account of their distribution, comparing this distribution to the constructions described by Schneider (2022, 2024b).	page 1
+footnote 1	Lauren Schneider and Laura Griffin	note	1 We are deeply grateful to Elsie Paul for her ʔayʔaǰuθəm language expertise and generosity in sharing her stories. We also would like to thank Jillian Heathe for her early contributions to this project as well as the members of ʔayʔaǰuθəm Lab for their helpful comments, particularly Dr. Marianne Huijsmans for her invaluable input and ongoing feedback. We also offer our thanks to the Hul’q’umi’num’ speakers whose voices are represented in this paper; Ruby Peter (RP), Delores Louie (DL), Andrew Misheal (AM), and Ellen White (EW). All errors are our own. Contact information: lauren_schneider@sfu.ca, laura.griffin@mail.utoronto.ca	page 1, footnote
+§1	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§1	Lauren Schneider and Laura Griffin	note	In Salish, verbs, rather than prepositions, do much of the work of many directional and spatial meanings (Kroeber 1999:44). All languages in the family have inventories of verbs (and verbal(izing) morphology) that encode meanings of direction and location. In fact, the Central Salish languages, with one exception, have only a single multi-purpose oblique marker (see Montler 2008:5). Instead of prepositions that encode directional and spatial meanings, Central Salish languages can express these meanings by stacking verbs together. The label multi-verb construction broadly encompasses any monoclausal construction consisting of multiple verbal elements (Aikhenvald 2011:1). This definition includes both serial verb constructions and auxiliary verb constructions and it excludes constructions involving subordinate or coordinated clauses or coordinated verbs. Three subtypes of multi-verb construction will be relevant here: serial verb constructions, auxiliary verb constructions, and coverb constructions.	page 1
+§1	Lauren Schneider and Laura Griffin	note	The essential features of a prototypical serial-verb construction (SVC) are that the construction is monoclausal, has no subordinating or coordinating element linking the verbs, and that the verb components are independent, lexical verbs (see Aikhenvald 2018; Haspelmath 2016). These criteria separate the SVCs from constructions with dependent verb forms, such as auxiliaries, participles, or gerunds.	page 2
+§1	Lauren Schneider and Laura Griffin	note	An auxiliary verb construction (AVC) is a monoclausal structure minimally consisting of a lexical verb and an auxiliary, where an auxiliary verb is defined as:	page 2
+§1	Lauren Schneider and Laura Griffin	note	An item on the lexical verb–functional affix continuum, which tends to be at least somewhat semantically bleached, and grammaticalized to express one or more of a range of salient verbal categories, most typically aspectual and modal categories, but also not infrequently temporal, negative polarity, or voice categories. (Anderson 2006:4–5) These definitions are (intentionally) vague; clines of grammaticalization and semantic bleaching have ‘grey areas’, where the element in question has accrued some features generally associated with end-points on the continuum (2005:5). It should be noted that AVCs and SVCs are not mutually exclusive, as a sentence can contain both if an auxiliary introduces two serialized verbs (see the Hul’q’umi’num’ Salish example in (1) below).	page 2
+§1	Lauren Schneider and Laura Griffin	note	The third and final type of multi-verb construction relevant here is the coverb construction, which consists of a main predicate and another verb that serves a preposition-like function, known as a coverb (Matthews 2006:70–71). Coverbs may occur as standalone verbs outside of coverb constructions, and often take an oblique argument (Schneider 2024b:81, Tao 2009:218–219). Schneider (2024b:§5) found that the types of multi-verb constructions outlined above were highly frequent in Hul’q’umi’num’ narratives, and they are often used to encode motion, as well as to pack in complex actions in moments of high action. This can include different aspects of an event — such as manner and direction of motion — as well as sequential subevents, such as (1).	page 2
+(1) line 1	Hul’q’umi’num’	transcription	nem’ tsun t’itsum kwunut tthunu shun’tsu.	page 2, carries footnote 2, written here without its digit, Hul’q’umi’num’ printed at the right of the line
+(1) line 2	Hul’q’umi’num’	segmentation	nem̓=cən t̓icəm kʷənət tᶿə-nə šən̓cə	page 2, engine language
+(1) line 3	Hul’q’umi’num’	gloss	go.AUX=1SG.SUBJ swim take.TR DET-1POS catch	page 2, engine english
+(1) line 4	Schneider 2024b:4	translation	‘I’ll swim and get my catch.’	page 2, engine english, cited Schneider 2024b:4
+(1) line 4	Lauren Schneider and Laura Griffin	citation	(DL) (Schneider 2024b:4)	page 2, the speaker and the source at the right of the line
+footnote 2	Lauren Schneider and Laura Griffin	note	2 Abbreviations used are as follows: 1, 2, 3: person marking, ACT.INTR: active intransitive, AUX: auxiliary, CLD: clausal demonstrative, CN: connective element, CS: causative, CTR: control, CVB: coverb, DEM: demonstrative, DIST: distal, DPRT: discourse particle, EPEN: epenthetic segment, ERG: ergative, F: feminine, FILL.PRT: filler particle, FOC: focus, FUT: future, INCH: inchoative, INFER: inferential, INT: intensifier, INTR: intransitive, LMT: limiting enclitic, LNK: linker, LV: link vowel, MD: middle, MUT: mutative, N: nominalizer, NCTR: non-control transitive, OBL: oblique, PAS: passive, PL: plural, POS: possessive, PROG: progressive, PST: past, RECP: reciprocal, RFL: reflexive, RPT: reportative, SUBJ: subject, SBJV: subjunctive, SG: singular, TR: transitive.	page 2, footnote
+§1	Hul’q’umi’num’	cited form	t’itsum	page 3, ‘swim’, in (1)
+§1	Hul’q’umi’num’	cited form	kwunut	page 3, ‘take it’, in (1)
+§1	Hul’q’umi’num’	cited form	tsun	page 3, ‘I’, the second-position clitic of (1)
+§1	Hul’q’umi’num’	cited form	shun’tsu	page 3, in thunu shun’tsu ‘my catch’ of (1)
+§1	Lauren Schneider and Laura Griffin	note	This example has three elements making up the predicate: auxiliary nem’ ‘go’, intransitive verb t’itsum ‘swim’, and transitive verb kwunut ‘take it.’ All verbal elements share a subject marked by the second-position clitic tsun ‘I’ and the transitive verb adds an object thunu shun’tsu ‘my catch’ into the argument structure.	page 3
+§1	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§1	Lauren Schneider and Laura Griffin	note	Serialization is of interest first because its occurrence is unexpected in more synthetic languages, such as those in the Salish language family (Aikhenvald 2018: 187). It also is of interest because until recently it has gone largely unreported in the Salishan literature. Verb serialization is attested in three Central Salish languages so far: Klallam [ISO 639-3 clm] (Montler 2008); Halkomelem [ISO 639-3 hur] (Schneider 2021; 2024b); and SENĆOŦEN [ISO 639-3 str] (Campbell 2023).	page 3
+§1	Lauren Schneider and Laura Griffin	note	This paper sets out to compare multi-verb constructions in ʔayʔaǰuθəm with the verb ho/θo ‘go’ with the patterns found in Hul’q’umi’num’ by Schneider (2024b:§3.2) and SENĆOŦEN by Campbell (2023:§3). Cross-linguistically, directional motion verbs like ‘come’ and ‘go’ are the most frequently serialized (Aikhenvald 2018:157). In all three of these languages, the ‘go’ verbs are much more frequent than the ‘come’ verbs, so the distribution and behaviour of ‘go’ will be the focus of this paper. To provide a more cohesive description, we will touch upon larger concepts of verbhood in ʔayʔaǰuθəm to investigate the differences between verbs and auxiliaries in the language.	page 3
+§1	ʔayʔaǰuθəm	name	Qayx̣	page 3, Mink, of Elsie Paul's stories
+§1	Lauren Schneider and Laura Griffin	note	Data for ʔayʔaǰuθəm data is drawn from published narratives and stories and a forthcoming publication by Elsie Paul on a collection of traditional Qayx̣ (Mink) stories. This will be the first discussion of constructions consisting of multiple stacked verbs in ʔayʔaǰuθəm and this paper will lay the groundwork for in-depth analysis of this feature of the language. Section 2 provides a brief background section on the three main languages included in this paper. Section 3 outlines the tests that exist for differentiating between auxiliaries and verbs in Central Salish languages, and §4 analyzes auxiliary ‘go’ in ʔayʔaǰuθəm in light of these tests. And finally, §5 discusses the use of ‘go’ verbs to introduce oblique phrases to encode various directional meanings.	page 3
+§2	Lauren Schneider and Laura Griffin	heading	2 Languages	page 3
+§2	Lauren Schneider and Laura Griffin	note	There are twenty-three Salish languages currently or historically spoken in what is now known as British Columbia, Idaho, Montana, Oregon, and Washington. The Salish language family is divided into five branches: Bella Coola, Central Salish, Tillamook, Tsamosan, and Interior Salish. Figure-1 provides a map of the languages in the Central Salish branch; the three languages discussed at length in this paper come from this branch and have been highlighted in blue.	page 3
+§2	Lauren Schneider and Laura Griffin	note	Figure 1: Central Salish languages (adapted from Kiyosawa & Gerdts 2010:10)	page 4, the caption of Figure 1, a map the text layer does not carry
+§2	Lauren Schneider and Laura Griffin	note	Halkomelem is a Central Salish language, which consists of three main dialects:	page 4
+§2	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§2	Lauren Schneider and Laura Griffin	language	hən̓q̓əmin̓əm̓	page 4, the Downriver dialect of Halkomelem, Musqueam
+§2	Lauren Schneider and Laura Griffin	language	Halq’eméylem	page 4, the Upriver dialect of Halkomelem, Chilliwack
+§2	Lauren Schneider and Laura Griffin	note	Hul’q’umi’num’ (Island: Cowichan, Nanaimo), hən̓q̓əmin̓əm̓ (Downriver: Musqueam), and Halq’eméylem (Upriver: Chilliwack). Schneider (2024b) researched serial verbs in Hul’q’umi’num’, the Vancouver Island dialect of the language. The territory of the Hul’q’umi’num’ people extends along the Salish Sea from Nanoose to Malahat on Vancouver Island in British Columbia. Today around thirty fluent first-language speakers of this dialect remain, mostly over the age of seventy (Donna Gerdts, p.c. 2024). However, amongst the population of over six thousand Hul’q’umi’num’, there are many people who desire to learn the language or to improve their fluency. For example, the Hul’q’umi’num’ Language & Culture Society runs language programs for adults through Simon Fraser University and organizes language nests.	page 4
+§2	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§2	Lauren Schneider and Laura Griffin	language	Lək̓ʷəŋín̓əŋ	page 4, Lekwungen or Songhees, a dialect of Northern Straits
+§2	Lauren Schneider and Laura Griffin	language	T’Sou-ke	page 4, Sooke, a dialect of Northern Straits
+§2	Lauren Schneider and Laura Griffin	language	Xwlemi’chosen	page 4, Lummi, the dialect of Northern Straits in Washington State
+§2	SENĆOŦEN	name	W̱SÁNEĆ	page 4, the W̱SÁNEĆ School Board, which offers SENĆOŦEN immersion schooling
+§2	Lauren Schneider and Laura Griffin	note	SENĆOŦEN (aka Saanich) is considered one of the dialects of Northern Straits Salish; the other dialects include four more in B.C. — Malchosen (Samish), Lekwungen (Lək̓ʷəŋín̓əŋ, Songhees), Semiahmoo (Semyome), T’Sou-ke (Sooke) — and one in Washington State, Xwlemi’chosen (Lummi). There are estimated to be about sixteen fluent speakers of B.C. Northern Straits languages and over 500 learners (Gessner et al. 2023: 16,54). There are revitalization efforts in progress for the SENĆOŦEN language. For example, the W̱SÁNEĆ School Board offers SENĆOŦEN immersion schooling and language-learning programs (Campbell 2023:4).	page 4
+§2	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§2	ʔayʔaǰuθəm	name	Tla’amin	one of the four communities where ʔayʔaǰuθəm is spoken
+§2	ʔayʔaǰuθəm	name	K’ómoks	one of the four communities where ʔayʔaǰuθəm is spoken
+§2	Lauren Schneider and Laura Griffin	note	ʔayʔaǰuθəm is a Central Salish language historically spoken in the northern Georgia Strait region of B.C. in the Tla’amin, K’ómoks, Klahoose, and Homalco Nations. The ʔayʔaǰuθəm language is considered endangered, with approximately seventy-eight fluent speakers and over 200 learners (Gessner et al. 2023:25,49). Efforts are underway for second-language speakers to improve their fluency, such as master-apprentice programs, a K-G1 immersion program in Tla’amin, and a language nest in Homalco.	page 4
+§2	Lauren Schneider and Laura Griffin	note	Verb serialization has been documented in languages of the Salish Sea region. These include the Central Salish languages Klallam, Northern Straits, and Halkomelem. To our knowledge, multi- verb constructions have not been systematically investigated in other Salish languages.	page 5
+§3	Lauren Schneider and Laura Griffin	heading	3 Tests for auxiliaries and verbs in Central Salish	page 5
+§3	Lauren Schneider and Laura Griffin	note	There are no language-independent diagnostics to differentiate auxiliary verbs from main predicates — i.e., there is no test that works for every language (Anderson 2006:5). Even within Salish, this distinction is quite fuzzy, with different labels (verb, predicate, auxiliary, and adverb) being used for words that appear to have similar grammatical functions as well as the same label being used for words with dissimilar functions (see Montler 2003:108).	page 5
+§3	Lauren Schneider and Laura Griffin	note	Auxiliaries in Central Salish languages are almost always bare roots, and they take inflected verbs as complements, which means that Central Salish AVCs are considered LEX-headed (Montler 2003:113; Schneider 2024b:39).3 This classification is obscured somewhat by the prolific use of second-position clitics in these languages. Person and number marking as well as various TAM and discourse-marking categories are frequently marked using second-position clitics, which attach to the first available host in their clause (Gerdts & Werle 2014:250; Huijsmans 2023:3). Salish languages are predicate initial, so the second position clitic follows the first predicative element in the clause, which may be a preverbal auxiliary or the main predicate (Gerdts & Werle 2014:251). The following example includes four second-position clitics.4	page 5
+(2) line 1	ʔayʔaǰuθəm	transcription	“nɛ::::ʔč č̓ɛ sa ga [ʔə] taʔa šɛʔt.”	page 5, the line as spoken in the story, in quotes, ʔayʔaǰuθəm printed at the right
+(2) line 2	ʔayʔaǰuθəm	segmentation	niʔ=č=č̓a=səm+ga [ʔə=]taʔa šəʔt	page 5, the end of the row above, set on its own line
+(2) line 3	ʔayʔaǰuθəm	gloss	be.there=1SG.SUBJ=INFER=FUT+DPRT [OBL=]DEM high	page 5, engine english
+(2) line 4	Lauren Schneider and Laura Griffin	translation	“And I’ll be way up there.”	page 5
+(2) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Eagle:line 8)	page 5, the story and its line
+(2) line 4	Lauren Schneider and Laura Griffin	citation	(Paul to appear:88)	page 5, the source
+§3	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+footnote 3	Lauren Schneider and Laura Griffin	note	3 Anderson (2006) devised this classifcation system. For comparison, English AVCs are considered AUX- headed; this means that the auxiliary takes the obligatory morphosyntactic inflection and then takes a non- finite verb form as its complement (Anderson 2006: 25; Krug 2011: 551).	page 5, footnote
+footnote 4	Lauren Schneider and Laura Griffin	note	4 In ʔayʔaǰuθəm examples, square brackets [ ] represent words that are unpronounced in fast speech but which are included when repeating the lines more slowly during translation (Paul to appear: xix).	page 5, footnote
+§3	Lauren Schneider and Laura Griffin	note	ʔayʔaǰuθəm also appears to follow the LEX-headed pattern, like the other Central Salish languages:	page 5
+(3) line 1	ʔayʔaǰuθəm	transcription	ho:: k̓ʷa qəǰi χaχpi, ʔaʔaqʷɩš k̓ʷa qəǰi θo χaχpi.	page 6, engine language
+(3) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa qəǰi x̌ə~x̌pəǰ	page 6, engine language
+(3) line 3	ʔayʔaǰuθəm	gloss	go=RPT again PROG~return	page 6, engine english
+(3) line 4	ʔayʔaǰuθəm	segmentation	ʔa~ʔaqʷ-iš=k̓ʷa qəǰi θu x̌ə~x̌pəǰ	page 6, engine residue
+(3) line 5	ʔayʔaǰuθəm	gloss	PROG~go.downriver-INTR=RPT again go PROG~return	page 6, engine english
+(3) line 6	Lauren Schneider and Laura Griffin	translation	‘Now he’s going downstream again.’	page 6, engine english
+(3) line 6	Lauren Schneider and Laura Griffin	citation	(Mink and Greybird:line 10) (Paul to appear:8)	page 6, the speaker and the source at the right of the line
+§3	ʔayʔaǰuθəm	cited form	χaχpi	page 6, ‘returning’
+§3	Lauren Schneider and Laura Griffin	note	In (3), ho ‘go’ is not inflected for progressive while χaχpi ‘returning’ is inflected. If ʔayʔaǰuθəm is indeed LEX-headed, we would not expect auxiliary ‘go’ in examples like (3) to have aspect inflection when the clause is inflected for progressive aspect, since auxiliaries are expected to appear as bare roots. Thus, for the purposes of typological classification of AVCs in this paper, second-position clitics are considered clause-level inflection.5 When comparing the inflectional properties of particular verbal elements within the clause, we will be primarily concerned with inflection encoded by morphological processes applied directly to the verb stem (i.e., affixation, metathesis, reduplication, etc.).	page 6
+§3	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§3	Hul’q’umi’num’	cited form	Ɂi	page 6, ‘here (and now)’, an auxiliary, Gerdts 1988:22
+§3	Hul’q’umi’num’	cited form	niɁ	page 6, ‘there (and then)’, an auxiliary, Gerdts 1988:22
+§3	Hul’q’umi’num’	cited form	m’i	page 6, ‘come’, an auxiliary, Gerdts 1988:22
+§3	Lauren Schneider and Laura Griffin	note	Schneider (2021) found that subject NPs cannot occur immediately after an auxiliary in Hul’q’umi’num’. This language has four auxiliary verbs: Ɂi ‘here (and now)’, niɁ ‘there (and then)’, m’i ‘come’, and nem’ ‘go’ (Gerdts 1988:22). A subject NP can follow a verb functioning as part of the main predicate, as in (4a) and (b), but not after an auxiliary, as in (c).	page 6
+(4a) line 1	Hul’q’umi’num’	transcription	ni’ huye’ ’imush tthu swiw’lus.	page 6, Hul’q’umi’num’ printed at the right of the line
+(4a) line 2	Hul’q’umi’num’	segmentation	niʔ hǝyeʔ ʔimǝš tθǝ swiw̓lǝs	page 6, engine language
+(4a) line 3	Hul’q’umi’num’	gloss	DIST.AUX leave walk DET boy	page 6, engine english
+(4a) line 4	Lauren Schneider and Laura Griffin	translation	‘The boy left, walked.’	page 6, engine english
+(4a) line 4	Lauren Schneider and Laura Griffin	citation	(RP)	the tag or source at the right of the translation
+(4b) line 1	Hul’q’umi’num’	transcription	ni’ huye’ tthu swiw’lus ’imush.	page 6, engine residue
+(4b) line 2	Hul’q’umi’num’	segmentation	niʔ hǝyeʔ tθǝ swiw̓lǝs ʔimǝš	page 6, engine language
+(4b) line 3	Hul’q’umi’num’	gloss	DIST.AUX leave DET boy walk	page 6, engine english
+(4b) line 4	Lauren Schneider and Laura Griffin	translation	‘The boy left, walked.’	page 6, engine english
+(4b) line 4	Lauren Schneider and Laura Griffin	citation	(RP)	the tag or source at the right of the translation
+(4c) line 1	Hul’q’umi’num’	transcription	*ni’ tthu swiw’lus huye’ ’imush.	page 6, engine residue
+(4c) line 2	Hul’q’umi’num’	segmentation	*niʔ tθǝ swiw̓lǝs hǝyeʔ ʔimǝš	page 6, engine language
+(4c) line 3	Hul’q’umi’num’	gloss	DIST.AUX DET boy leave walk	page 6, engine english
+(4c) line 3	Lauren Schneider and Laura Griffin	citation	(Schneider 2024b:45)	page 6, the speaker and the source at the right of the line
+§3	Lauren Schneider and Laura Griffin	note	In (4), the NP subject, tthu swiw’lus ‘the boy’ can follow the verbs huye’ ‘leave’, ’imush ‘walk’, but cannot follow the auxiliary ni’ ‘there/then’.	page 6
+§3	Lauren Schneider and Laura Griffin	note	In the case of what looks like two stacked auxiliaries, we can see that when nem’ follows ni’ it behaves like a verb:	page 6
+footnote 5	Lauren Schneider and Laura Griffin	note	5 For a detailed analysis of the morphosyntax of second-position clitics, please see Huijsmans 2023: (§2)	page 6, footnote
+(5a) line 1	Hul’q’umi’num’	transcription	ni’ nem’ huye’ tthu swiw’lus ’imush.	page 7, Hul’q’umi’num’ printed at the right of the line
+(5a) line 2	Hul’q’umi’num’	segmentation	niʔ nem̓ hǝyeʔ tθǝ swiw̓lǝs ʔimǝš	page 7, engine language
+(5a) line 3	Hul’q’umi’num’	gloss	DIST.AUX go leave DET boy walk	page 7, engine english
+(5a) line 4	Lauren Schneider and Laura Griffin	translation	‘The boy went, left, walked.’	page 7, engine english
+(5a) line 4	Lauren Schneider and Laura Griffin	citation	(RP)	the tag or source at the right of the translation
+(5b) line 1	Hul’q’umi’num’	transcription	ni’ nem’ tthu swiw’lus huye’ ’imush.	page 7, engine residue
+(5b) line 2	Hul’q’umi’num’	segmentation	niʔ nem̓ tθǝ swiw̓lǝs hǝyeʔ ʔimǝš	page 7, engine language
+(5b) line 3	Hul’q’umi’num’	gloss	DIST.AUX go DET boy leave walk	page 7, engine english
+(5b) line 4	Lauren Schneider and Laura Griffin	translation	‘The boy went, left, walked.’	page 7, engine english
+(5b) line 4	Lauren Schneider and Laura Griffin	citation	(RP)	the tag or source at the right of the translation
+(5c) line 1	Hul’q’umi’num’	transcription	*ni’ tthu swiw’lus nem’ huye’ ’imush.	page 7, engine residue
+(5c) line 2	Hul’q’umi’num’	segmentation	niʔ tθǝ swiw̓lǝs nem̓ hǝyeʔ ʔimǝš	page 7, engine language
+(5c) line 3	Hul’q’umi’num’	gloss	DIST.AUX DET boy go leave walk	page 7, engine english
+(5c) line 3	Lauren Schneider and Laura Griffin	citation	(Schneider 2024b:46)	page 7, the speaker and the source at the right of the line
+§3	Lauren Schneider and Laura Griffin	note	In (5b), when following another auxiliary, nem’ behaves as a main predicate, allowing the subject argument to occur immediately after it.	page 7
+§3	Klallam	cited form	hiyáʔ	page 7, ‘go’, an auxiliary, Montler 2003:114
+§3	Klallam	cited form	ʔənʔá	page 7, ‘come’, an auxiliary, Montler 2003:114
+§3	Klallam	cited form	ƛ̓áy	page 7, ‘again’, an auxiliary, Montler 2003:114
+§3	Klallam	cited form	húy	page 7, ‘finish’, an auxiliary, Montler 2003:114
+§3	Lauren Schneider and Laura Griffin	note	Montler (2003) used auxiliaries as a test for verbhood. Klallam has four auxiliary verbs hiyáʔ ‘go’, ʔənʔá ‘come’, ƛ̓áy ‘again’, and húy ‘finish’ (Montler 2003:114).6 Montler demonstrates that if a word can follow one of these auxiliaries, it can be considered a verb in Klallam (2003:114– 117).	page 7
+(6) line 1	Klallam	segmentation	hiyáɁ=caɁn ƛ’ácu.	page 7, Klallam printed at the right of the line
+(6) line 2	Klallam	gloss	go=1SUBJ.FUT fishing	page 7, engine english
+(6) line 3	Montler 2003:114	translation	‘I’ll go fishing.’	page 7, engine english, cited Montler 2003:114
+(6) line 3	Lauren Schneider and Laura Griffin	citation	(Montler 2003:114)	the tag or source at the right of the translation
+(7) line 1	Klallam	segmentation	hiyáɁ=cn Ɂúx̣ʷ ɁaɁ=cə=súɫ	page 7, engine language
+(7) line 2	Klallam	gloss	go=1SUBJ go.there OBL=DET=door	page 7, engine english
+(7) line 3	Montler 2003:114	translation	‘I went over to the door.’	page 7, engine english, cited Montler 2003:114
+(7) line 3	Lauren Schneider and Laura Griffin	citation	(Montler 2003:114)	the tag or source at the right of the translation
+(8a) line 1	Klallam	segmentation	*hiyáɁ=cn šaɁšúɁɫ.	page 7, engine language
+(8a) line 2	Klallam	gloss	go=1SUBJ happy	page 7, engine english
+(8b) line 1	Klallam	segmentation	*hiyáɁ=cn Ɂə́y’.	page 7, engine language
+(8b) line 2	Klallam	gloss	go=1SUBJ good	page 7, engine english
+(8c) line 1	Klallam	segmentation	*hiyáɁ=cn nəɁáɁiŋ.	page 7, engine language
+(8c) line 2	Klallam	gloss	go=1SUBJ my.house	page 7, engine english
+(8c) line 2	Lauren Schneider and Laura Griffin	citation	(Montler 2003:115)	page 7, the speaker and the source at the right of the line
+§3	Lauren Schneider and Laura Griffin	note	These examples show that ƛ’ácu ‘fishing’ in (6) and Ɂúx̣ʷ ‘go there’ in (7) can be considered verbs in Klallam, while (a–c) in (8) šaɁšúɁɫ ‘happy’, Ɂə́y’ ‘good’, and nəɁáɁiŋ ‘my house’ cannot. These auxiliaries are bare roots and take verbs as complements.	page 7
+footnote 6	Lauren Schneider and Laura Griffin	note	6 For this paper, the other categories of “auxiliaries” described by Montler (2003) — adverbial intensifiers (§5.2), adverbs (§5.3), negative adverbs (§5.5), and the conjoined conditional (§5.6) — have been excluded because Montler convincingly argues for distinct grammatical categories.	page 7, footnote
+§3	Lauren Schneider and Laura Griffin	note	Auxiliary functions may develop and coexist with a homonymous main verb, such as English HAVE (Krug 2011:549). For example, in (9), nem’ ‘go’ is the only verb and functions as the main predicate, and in (10), nem’ precedes the main predicate.	page 8
+(9) line 1	Hul’q’umi’num’	transcription	nem’ tsun ’u kwthu tl’al’qwul’s.	page 8, Hul’q’umi’num’ printed at the right of the line
+(9) line 2	Hul’q’umi’num’	segmentation	nem̓=cən ʔə kʷθə ƛ̓al̓qʷəl̓s	page 8, engine language
+(9) line 3	Hul’q’umi’num’	gloss	go=1SG.SUBJ OBL DET dabbing	page 8, engine english
+(9) line 4	Gerdts 2010:3	translation	‘I’m going to bingo.’	page 8, engine english, cited Gerdts 2010:3
+(9) line 4	Lauren Schneider and Laura Griffin	citation	(Gerdts 2010:3)	the tag or source at the right of the translation
+(10) line 1	Hul’q’umi’num’	transcription	nem’ ’imush.	page 8, engine residue
+(10) line 2	Hul’q’umi’num’	segmentation	nem̓ ʔiməš	page 8, engine language
+(10) line 3	Hul’q’umi’num’	gloss	go.AUX walk	page 8, engine english
+(10) line 4	Gerdts 1988:23	translation	‘He went and walked.’	page 8, engine english, cited Gerdts 1988:23
+(10) line 4	Lauren Schneider and Laura Griffin	citation	(Gerdts 1988:23)	the tag or source at the right of the translation
+§3	Lauren Schneider and Laura Griffin	note	Examples such as (10) could also be translated ‘S/he goes for a walk’ or ‘S/he goes hunting/traveling’.	page 8
+§3	Lauren Schneider and Laura Griffin	note	A semantic test for auxiliary status is to look for bleaching in the auxiliary position. Evidence of bleaching can be found when the auxiliary in question frequently co-occurs with its coexisting verb homonym without any sense of redundancy, such as the examples in (11) and (12).	page 8
+(11) line 1	Hul’q’umi’num’	transcription	nem’ tsun tse’ nem’ ’utl’ shwut.	page 8, Hul’q’umi’num’ printed at the right of the line
+(11) line 2	Hul’q’umi’num’	segmentation	nem̓=cən=ceʔ nem̓ ʔəƛ̓ šwət	page 8, engine english
+(11) line 3	Hul’q’umi’num’	gloss	go.AUX=1SG.SUBJ=FUT go OBL.DET sparrow	page 8, engine english
+(11) line 4	Schneider 2024b:74	translation	‘I am going to go visit Sparrow.’	page 8, engine english, cited Schneider 2024b:74
+(11) line 4	Lauren Schneider and Laura Griffin	citation	(AM) (Schneider 2024b:74)	page 8, the speaker and the source at the right of the line
+(12) line 1	Hul’q’umi’num’	transcription	’a, nem’ ch nemustuhw ’u kwu’i s’e’tl’q.	page 8, engine language
+(12) line 2	Hul’q’umi’num’	segmentation	ʔa, nem̓=č nem-ǝstǝxʷ ʔǝ kwu’i s̓eʔƛ̓q	page 8, engine language
+(12) line 3	Hul’q’umi’num’	gloss	Ah go.AUX=2SG.SUBJ go-CS OBL DET outside	page 8, engine english
+(12) line 4	Schneider 2024b:74	translation	‘Ah, take it outside.’	page 8, engine english, cited Schneider 2024b:74
+(12) line 4	Lauren Schneider and Laura Griffin	citation	(AM) (Schneider 2024b:74)	page 8, the speaker and the source at the right of the line
+§3	Lauren Schneider and Laura Griffin	note	This type of construction resembles a similar English construction such as going to go. Go has lost some of its semantic weight in these contexts and taken on a grammatical function. To investigate the degree of grammaticalization, Schneider (2022:§2.3) tested the Hul’q’umi’num’ verb huye’ ‘leave’ in the same type of construction:	page 8
+(13) line 1	Hul’q’umi’num’	transcription	?’aa, huye’ ch huye’stuhw tthu sqwumey’.	page 8, the question mark marks it awkward, Hul’q’umi’num’ printed at the right of the line
+(13) line 2	Hul’q’umi’num’	segmentation	ʔa: həyeʔ=č həyeʔ-stǝxʷ tθǝ sqʷəmey̓	page 8
+(13) line 3	Hul’q’umi’num’	gloss	Ah leave=2SG.SUBJ leave-CS DET dog	page 8
+(13) line 4	Hul’q’umi’num’	note	Intended:	page 8, the label before the translation
+(13) line 4	Schneider 2024b	translation	‘Ah, you take the dog away.’	page 8, the intended meaning
+(13) line 4	Lauren Schneider and Laura Griffin	citation	(DL) (Schneider 2024b:74)	page 8, the speaker and the source at the right of the line
+§3	Hul’q’umi’num’	cited form	huye’stuhw	page 8, ‘go take it away’, in nem’ huye’stuhw
+§3	Lauren Schneider and Laura Griffin	note	The consultant said that she would prefer nem’ huye’stuhw ‘go take it away’ instead of repeating huye’ ‘leave’, as in (13). Doubling huye’ in this way is a bit awkward because it has not been semantically bleached like auxiliary nem’. Furthermore, there are no cases of huye’ doubled naturally occurring in the Hul’q’umi’num’ text corpus, while there are numerous cases of nem’ being doubled (Schneider 2024b:75).	page 8
+§3	Hul’q’umi’num’	cited form	/həyeʔ/	page 9, ‘leave, depart’, the cognate of SENĆOŦEN /yéʔ/
+§3	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§3	SENĆOŦEN	cited form	YÁ¸	‘go, depart’
+§3	SENĆOŦEN	cited form	/yéʔ/	page 9, ‘go, depart’
+§3	Lauren Schneider and Laura Griffin	note	Campbell (2023:§3) performed a similar investigation into a cognate of huye’ /həyeʔ/ in SENĆOŦEN.7 Hul’q’umi’num’ example (13) above illustrated that ‘depart, leave’ does not demonstrate significant semantic bleaching, but in SENĆOŦEN, YÁ¸ /yéʔ/ ‘go, depart’ appears to be more bleached:	page 9
+(14) line 1	SENĆOŦEN	transcription	YÁ¸ SEN SE¸ YÁ¸TW̱.	page 9, SENĆOŦEN printed at the right of the line
+(14) line 2	SENĆOŦEN	segmentation	yéʔ=sən=səʔ yéʔ-txʷ	page 9, engine language
+(14) line 3	SENĆOŦEN	gloss	go=1SG.SUBJ=FUT go-CS	page 9, engine english
+(14) line 4	Montler 2018:840	translation	‘I’ll go take one.’	page 9, engine english, cited Montler 2018:840
+(14) line 4	Lauren Schneider and Laura Griffin	citation	(Montler 2018:840)	the tag or source at the right of the translation
+(15) line 1	SENĆOŦEN	transcription	YÁ¸ SEN YÁ¸ OX̱	page 9, engine english
+(15) line 2	SENĆOŦEN	segmentation	yéʔ=sən yéʔ ʔáxʷ	page 9, engine language
+(15) line 3	SENĆOŦEN	gloss	go=1SG.SUBJ go go.to	page 9, engine english
+(15) line 4	Campbell 2023:64	translation	‘I left to go over (there).’	page 9, engine english, cited Campbell 2023:64
+(15) line 4	Lauren Schneider and Laura Griffin	citation	(Campbell 2023:64)	the tag or source at the right of the translation
+§3	Lauren Schneider and Laura Griffin	note	Hul’q’umi’num’ examples (4) and (5) above demonstrated that auxiliaries cannot immediately precede subject argument NPs, which cannot occur until after the first lexical verb making up the predicate. There is evidence from SENĆOŦEN that YÁ¸ ‘go’ can be immediately followed by a non-clitic subject argument:	page 9
+(16) line 1	SENĆOŦEN	transcription	… I¸ YÁ¸ LE¸ TŦEU¸NENI¸ȽEYE¸ W̱QOSTEṈ YÁ¸ E TŦE EŚÁS.	page 9, SENĆOŦEN printed at the right of the line
+(16) line 2	SENĆOŦEN	segmentation	ʔiʔ yéʔ=ləʔ tθəw̕nəníʔɬəyəʔ xʷk̕ʷást-əŋ yéʔ	page 9, engine language
+(16) line 3	SENĆOŦEN	gloss	CNJ go=PST 3SUBJ drag.TR-PAS go	page 9, engine english
+(16) line 4	SENĆOŦEN	segmentation	ʔə tθə ʔəšés	page 9, engine language
+(16) line 5	SENĆOŦEN	gloss	OBL DEM sea.lion	page 9, engine english
+(16) line 6	Montler 2018:65	translation	‘... when they were pulled away by the sea lion.’	page 9, engine english, cited Montler 2018:65
+(16) line 6	Lauren Schneider and Laura Griffin	citation	(ErC) (Montler 2018:65)	page 9, the speaker and the source at the right of the line
+(17) line 1	SENĆOŦEN	transcription	SU¸ YÁ¸S TŦEU¸NIȽ OOȽ E TŦE ḰȽȺ¸.	page 9, engine english
+(17) line 2	SENĆOŦEN	segmentation	suʔ yéʔ-s tθəw̕níɬ ʔáaɬ ʔə tθə qʷɬéy̕	page 9, engine language
+(17) line 3	SENĆOŦEN	gloss	LNK go-3POS 3DEM go.aboard OBL DEM log	page 9, engine english
+(17) line 4	Montler 2018:390	translation	‘So he went aboard the log.’	page 9, engine english, cited Montler 2018:390
+(17) line 4	Lauren Schneider and Laura Griffin	citation	(EC,VW) (Montler 2018:390)	page 9, the speaker and the source at the right of the line
+§3	Hul’q’umi’num’	cited form	həyeʔ	page 9, ‘leave’
+§3	Lauren Schneider and Laura Griffin	note	Examples (16) and (17) illustrate that non-clitic subject markers may immediately follow YÁ¸ ‘go’. Whether or not NP subjects can fill this position is still under investigation. In this test, SENĆOŦEN YÁ¸ ‘go’ behaves more like Hul’q’umi’num’ həyeʔ ‘leave’ than it does like nem’ ‘go’. On a cline of grammaticalization from lexical to functional item, YÁ¸ exhibits some bleaching, as in (14) and (15), yet may exhibit the ability to precede non-clitic subject arguments, as in (16) and (17).	page 9
+footnote 7	Lauren Schneider and Laura Griffin	note	7 Cognates: Hul’q’umi’num’ /həyeʔ/ ‘leave, depart’; SENĆOŦEN /yéʔ/ ‘go, depart’; and Klallam /hiyáʔ/ ‘go away’ (Campbell 2023: 62).	page 9, footnote
+§3	Klallam	cited form	/hiyáʔ/	page 9, footnote 7, ‘go away’, Campbell 2023:62
+§3	Central Salish	cited form	(hə)yeʔ	page 10, ‘depart’, Hul’q’umi’num’ həyeʔ and SENĆOŦEN yéʔ at once
+§3	Lauren Schneider and Laura Griffin	note	While no cross-linguistic tests exist for distinguishing auxiliaries from lexical verbs, we find a few tendencies in these Central Salish languages. In Klallam, only verbs may follow auxiliaries, and in Hul’q’umi’num’ NP subject arguments may not follow auxiliaries. When these tests are applied to the verb (hə)yeʔ ‘depart’ in two different Central Salish languages, we see a cline of grammaticalization, where the verbs in question exhibit features generally associated with each end of the lexical item–functional affix continuum.	page 9
+Figure 2	Lauren Schneider and Laura Griffin	note	Auxiliary8 *precede NP argument bleaching Main predicate	page 10, the labels along the continuum, Auxiliary carries footnote 8
+Figure 2	Lauren Schneider and Laura Griffin	note	|-------------------------------|-------------------------------|-------------------------------|	page 10, the continuum drawn as a rule in three parts
+Figure 2	Lauren Schneider and Laura Griffin	note	nem̓ (hur) yéʔ (str) həyeʔ (hur)	page 10, the verbs placed along the continuum
+Figure 2	Hul’q’umi’num’	cited form	nem̓	page 10, (hur) Halkomelem, at the auxiliary end
+Figure 2	SENĆOŦEN	cited form	yéʔ	page 10, (str) Northern Straits, between bleaching and the main predicate
+Figure 2	Hul’q’umi’num’	cited form	həyeʔ	page 10, (hur) Halkomelem, at the main predicate end
+Figure 2	Lauren Schneider and Laura Griffin	note	Figure 2: Representation of the lexical verb-auxiliary continuum	page 10, the caption
+§3	ʔayʔaǰuθəm	cited form	ho/θo	page 10, ‘go’
+§3	Lauren Schneider and Laura Griffin	note	As demonstrated by Table 1 below, Watanabe (2003:90) grouped a relatively long list of words under the label ‘auxiliary’. Montler (2003) demonstrated that a similarly long list of “auxiliaries” listed by Thompson and Thompson (1971) could be divided into distinct groups. An exploration of the entire list of Watanabe’s auxiliaries is beyond the scope of this short paper — which seeks to begin with ho/θo ‘go’ — but we hope this is a starting point for deeper exploration of these grammatical categories in ʔayʔaǰuθəm and the rest of Central Salish.	page 10
+§4	Lauren Schneider and Laura Griffin	heading	4 Auxiliary ‘go’ in ʔayʔaǰuθəm	page 10
+§4	ʔayʔaǰuθəm	cited form	taʔat	page 10
+§4	Lauren Schneider and Laura Griffin	note	Watanabe (2003:§12.2) details complex verbal predicates, which primarily focuses on auxiliary verb constructions. Some auxiliaries may behave either as a main predicate or as an auxiliary, with at least one, taʔat, described as also surfacing as a demonstrative (Watanabe 2003:90). Table 1 provides a list of “auxiliaries”:	page 10
+Table 1	Lauren Schneider and Laura Griffin	note	Table 1: Auxiliaries in ʔayʔaǰuθəm (Watanabe 2003:90)	page 11, the caption
+Table 1	Lauren Schneider and Laura Griffin	note	ʔayʔaǰuθəm English gloss	page 11, the column heads
+Table 1 line 1	ʔayʔaǰuθəm	cited form	ʔaw̓θ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 1	Watanabe 2003	translation	suddenly	page 11, the English gloss
+Table 1 line 2	ʔayʔaǰuθəm	cited form	ʔut	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 2	Watanabe 2003	translation	if	page 11, the English gloss
+Table 1 line 3	ʔayʔaǰuθəm	cited form	ʔuwk̓ʷ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 3	Watanabe 2003	translation	all	page 11, the English gloss
+Table 1 line 4	ʔayʔaǰuθəm	cited form	čaʔat	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 4	Watanabe 2003	translation	now	page 11, the English gloss
+Table 1 line 5	ʔayʔaǰuθəm	cited form	hahays	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 5	Watanabe 2003	translation	slowly	page 11, the English gloss
+Table 1 line 6	ʔayʔaǰuθəm	cited form	hihiw	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 6	Watanabe 2003	translation	really	page 11, the English gloss
+Table 1 line 7	ʔayʔaǰuθəm	cited form	hiya	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 7	Watanabe 2003	translation	quickly	page 11, the English gloss
+Table 1 line 8	ʔayʔaǰuθəm	cited form	hu/θu	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 8	Watanabe 2003	translation	go	page 11, the English gloss
+Table 1 line 9	ʔayʔaǰuθəm	cited form	ǰaqaʔ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 9	Watanabe 2003	translation	might; exclamative marker	page 11, the English gloss, carries footnote 9, written here without its digit
+Table 1 line 10	ʔayʔaǰuθəm	cited form	kʷən	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 10	Watanabe 2003	translation	interrogative (yes-no question)	page 11, the English gloss
+Table 1 line 11	ʔayʔaǰuθəm	cited form	ƛ̓iʔ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 11	Watanabe 2003	translation	fast	page 11, the English gloss
+Table 1 line 12	ʔayʔaǰuθəm	cited form	namaɬ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 12	Watanabe 2003	translation	a little, short time, small amount	page 11, the English gloss
+Table 1 line 13	ʔayʔaǰuθəm	cited form	niš	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 13	Watanabe 2003	translation	be there, stay there	page 11, the English gloss
+Table 1 line 14	ʔayʔaǰuθəm	cited form	payaʔ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 14	Watanabe 2003	translation	always	page 11, the English gloss
+Table 1 line 15	ʔayʔaǰuθəm	cited form	qəǰi	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 15	Watanabe 2003	translation	still	page 11, the English gloss
+Table 1 line 16	ʔayʔaǰuθəm	cited form	qʷəl̓	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 16	Watanabe 2003	translation	come	page 11, the English gloss
+Table 1 line 17	ʔayʔaǰuθəm	cited form	taʔat	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 17	Watanabe 2003	translation	used to, demonstrative	page 11, the English gloss
+Table 1 line 18	ʔayʔaǰuθəm	cited form	χʷit	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 18	Watanabe 2003	translation	really	page 11, the English gloss
+Table 1 line 19	ʔayʔaǰuθəm	cited form	χʷuχʷ	page 11, an auxiliary of Watanabe 2003:90
+Table 1 line 19	Watanabe 2003	translation	long time	page 11, the English gloss
+footnote 8	Lauren Schneider and Laura Griffin	note	8 May coexist with a homonymous main verb.	page 10, footnote
+§4	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§4	ʔayʔaǰuθəm	cited form	ho/θo	page 11, ‘go’
+§4	ʔayʔaǰuθəm	cited form	θo	page 11
+§4	Lauren Schneider and Laura Griffin	note	As with the other Central Salish ‘go’ auxiliaries, ʔayʔaǰuθəm ho/θo ‘go’ can function alone as the main predicate, as demonstrated by (18) and (19). It should also be noted that it may surface as either ho or θo, with no apparent predictors for each variant, and we will refer to them interchangeably or to the variant present in a specific example.	page 11
+(18) line 1	ʔayʔaǰuθəm	transcription	θo:: k̓ʷa ga [ɬə] tanʔos ƛ̓aʔɬʔom.	page 11, engine language
+(18) line 2	ʔayʔaǰuθəm	segmentation	θu=k̓ʷa=ga [ɬə=]tan-ʔuɬ+s ƛ̓aʔɬʔum	page 11, engine language
+(18) line 3	ʔayʔaǰuθəm	gloss	go=RPT=DPRT [F.DET=]mother-PST+3POS wolf	page 11, engine english
+(18) line 4	Lauren Schneider and Laura Griffin	translation	‘Wolf’s mother left.’	page 11, engine english
+(18) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Wolf:line 64) (Paul to appear:53)	page 11, the speaker and the source at the right of the line
+(19) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷa [ʔə] kʷaʔa č̓ɛʔ.	page 11, engine language
+(19) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa [ʔə=]kʷaʔa č̓aʔ	page 11, engine language
+(19) line 3	ʔayʔaǰuθəm	gloss	go=RPT [OBL=]DEM far.out.to.sea	page 11, engine english
+(19) line 4	Lauren Schneider and Laura Griffin	translation	‘He went way out in the water.’	page 11, engine english
+(19) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Whale:line 2) (Paul to appear:134)	page 11, the speaker and the source at the right of the line
+§4	Lauren Schneider and Laura Griffin	note	In (18), θo ‘go’ acts as the sole predicate and is translated as ‘left’, and in (19), ho ‘go’ is the sole predicate and is translated as ‘went’.	page 11
+footnote 9	Lauren Schneider and Laura Griffin	note	9 For more information on ǰaqaʔ, please refer to Reisinger & Huijsmans (2020).	page 11, footnote
+§4	Lauren Schneider and Laura Griffin	note	In (20) and (21), ho/θo ‘go’ occurs as the first element of the predicate, preceding another verb. Auxiliaries preceding the predicate proper host the clause’s second-position clitics.	page 11
+(20) line 1	ʔayʔaǰuθəm	segmentation	hu=č č̓ag-a-t-uɬ	page 12, engine language
+(20) line 2	ʔayʔaǰuθəm	gloss	go=1SG.SUBJ help-LV-CTR-PST	page 12, engine english
+(20) line 3	Watanabe 2003:91	translation	‘I went and helped him.’	page 12, engine english, cited Watanabe 2003:91
+(20) line 3	Lauren Schneider and Laura Griffin	citation	(Watanabe 2003:91)	the tag or source at the right of the translation
+(21) line 1	ʔayʔaǰuθəm	transcription	θo k̓ʷa kʷa ǰɩƛ̓ məlχʷ, ho k̓ʷa kʷa poqʷs [ʔə] taʔa qay̓ɛ, θo k̓ʷa na ʔaqʷɩš.	page 12, engine language
+(21) line 2	ʔayʔaǰuθəm	segmentation	θu=k̓ʷa=kʷa ǰəƛ̓ məlx̌ʷ,	page 12, engine language
+(21) line 3	ʔayʔaǰuθəm	gloss	go=RPT=CLD run greybird	page 12, engine english
+(21) line 4	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa=kʷa pəqʷs [ʔə=]taʔa qay̓a	page 12, engine residue
+(21) line 5	ʔayʔaǰuθəm	gloss	go=RPT =CLD fall.in.water [OBL=]DEM water	page 12, engine english
+(21) line 6	ʔayʔaǰuθəm	segmentation	θu=k̓ʷa na ʔaqʷ-iš	page 12, engine language
+(21) line 7	ʔayʔaǰuθəm	gloss	go=PRT FILL.PRT go.downriver-INTR	page 12, engine english
+(21) line 8	Lauren Schneider and Laura Griffin	translation	‘Məlχʷ went running down into the river and went downstream.’	page 12, engine english
+(21) line 9	Lauren Schneider and Laura Griffin	citation	(Mink and Greybird:line 46) (Paul to appear:24)	page 12, engine english
+§4	Lauren Schneider and Laura Griffin	note	In (20) and (21), each instance of ho/θo ‘go’ hosts one or more second-position clitics. These clitics are realized following the first word of a phrase, regardless if the word behaves as a full verb or as an auxiliary (Huijsmans 2023:2). Their presence can be used as one method of determining where clause boundaries are present (Bätscher 2014:51). In the following example, the clause boundaries signaled by the second-position clitics (red) have been maked by vertcal lines (also red).	page 12
+(22) line 1	ʔayʔaǰuθəm	segmentation	| čaɁat=k̓ʷa=ga θu qayx̣ | ɫəq̓ʷ-θut=k̓ʷa=ga θu	page 12, engine language
+(22) line 2	ʔayʔaǰuθəm	gloss	now=RPT=DPRT go Mink put.under-CTR+RFL=RPT=DPRT go	page 12, engine english
+(22) line 3	Watanabe 2003:575	translation	‘Then, Mink went and crawled under the log.’	page 12, engine english, cited Watanabe 2003:575
+(22) line 3	Lauren Schneider and Laura Griffin	citation	(EP 146) (Watanabe 2003:575)	page 12, the speaker and the source at the right of the line
+§4	ʔayʔaǰuθəm	cited form	/ɫəq̓ʷθut/	page 12
+§4	Lauren Schneider and Laura Griffin	note	In (22), we can tell that the first θo ‘go’ is in a separate clause from the second verb /ɫəq̓ʷθut/ ‘put himself under’ because that verb is followed by second position clitics (see Huijsmans 2023 for a detailed analysis of ʔayʔaǰuθəm second-position clitics).	page 12
+§4	Lauren Schneider and Laura Griffin	note	Auxiliary ho ‘go’ often hosts the second-position clitics for person and future marking, but it does not attract verbal morphology, such as causative marking:10	page 12
+(23) line 1	ʔayʔaǰuθəm	transcription	“hotᶿəm səp̓ʔəmsxʷ, səp̓ʔəmsxʷtᶿəm. yɛɬattᶿəm [ga] qʷas ɬayiš.”	page 12, the lines as spoken in the story, in quotes
+(23) line 2	ʔayʔaǰuθəm	segmentation	hu=tᶿ+səm səp̓-ʔəm-sxʷ səp̓-ʔəm-sxʷ=tᶿ+səm	page 12, the end of the row above, set on its own line
+(23) line 3	ʔayʔaǰuθəm	gloss	go=1SG.SUBJ+FUT get.hit-ACT.INTR-CS get.hit-ACT.INTR-CS=1SG.SUBJ+FUT	page 12, engine english
+(23) line 4	ʔayʔaǰuθəm	segmentation	yaɬ-at=tᶿ+səm [ga=]qʷəl̓+as ɬay-iš	page 12, the end of the row above, set on its own line
+(23) line 5	ʔayʔaǰuθəm	gloss	call-CTR=1SG.SUBJ+FUT [if=]come+3SBJV come.ashore-INTR	page 12, engine english
+(23) line 6	Lauren Schneider and Laura Griffin	translation	“I’m going to invite him to come to shore, and I’m going to smack him around.”	page 12
+(23) line 6	Lauren Schneider and Laura Griffin	citation	(Mink and Greybird:line 21)	page 12, the story and its line
+(23) line 6	Lauren Schneider and Laura Griffin	citation	(Paul to appear:13)	page 12, the source of the row above
+footnote 10	Lauren Schneider and Laura Griffin	note	10 Note that hu can take causative morphology when it behaves as a main verb, see below:	page 12, footnote
+footnote 10 (i) line 1	ʔayʔaǰuθəm	transcription	hɛhɛw tihmot šɛ k̓ʷaxʷa θohosxʷasoɬ.	page 12
+footnote 10 (i) line 2	ʔayʔaǰuθəm	segmentation	hihiw tih-mut šə=k̓ʷaxʷa θu~hu-sxʷ-as-uɬ.	page 12
+footnote 10 (i) line 3	ʔayʔaǰuθəm	gloss	really big-INT DET=box PROG~go-CAUS-3ERG-PST	page 12
+footnote 10 (i) line 4	Huijsmans 2023	translation	‘He was bringing a really big box.’	page 12
+footnote 10 (i) line 4	Lauren Schneider and Laura Griffin	citation	(vf | EP 2021/09/04, from Huijsmans 2023: 17)	page 12, volunteered by the speaker, EP, on the date, and the source
+§4	ʔayʔaǰuθəm	cited form	səp̓	page 13, ‘get hit’
+§4	Lauren Schneider and Laura Griffin	note	In (23), the full verb səp̓ ‘get hit’ may take both verbal morphology and second position clitics if no auxiliary is present within a clause.	page 13
+§4	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§4	Lauren Schneider and Laura Griffin	note	Comparing ʔayʔaǰuθəm ‘go’ with Hul’q’umi’num’ nem’, we find that ho/θo does not exhibit the same restrictions on NP subject placement. In (24)–(25), the NP subject occurs immediately after ‘go’ and before the next verb in the predicate.	page 13
+(24) line 1	ʔayʔaǰuθəm	segmentation	θu:::=k̓ʷa qayx̣ kʷum.	page 13, ʔayʔaǰuθəm printed at the right of the line
+(24) line 2	ʔayʔaǰuθəm	gloss	go=RPT Mink go.up	page 13, engine english
+(24) line 3	Watanabe 2003:570	translation	‘Mink kept on going up.’	page 13, engine english, cited Watanabe 2003:570
+(24) line 3	Lauren Schneider and Laura Griffin	citation	(EP 119) (Watanabe 2003:570)	page 13, the speaker and the source at the right of the line
+(25) line 1	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa=qǰi x̌awgas Ɂiɫtən.	page 13, engine language
+(25) line 2	ʔayʔaǰuθəm	gloss	go=RPT=again grizzly.bear eat	page 13, engine english
+(25) line 3	Watanabe 2003:587	translation	‘Grizzly went back to eat.’	page 13, engine english, cited Watanabe 2003:587
+(25) line 3	Lauren Schneider and Laura Griffin	citation	(EP 223) (Watanabe 2003:587)	page 13, the speaker and the source at the right of the line
+§4	Lauren Schneider and Laura Griffin	note	In (24), θo ‘go’ is combined with a verb expressing the path of motion, and in (25), ho ‘go’ is combined with a non-motion verb which produces a purposive motion meaning (see Lovestrand & Ross 2021). In (26) and (27) below, ‘go’ is combined with a manner of motion verb.	page 13
+(26) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷa ga qayχ ɁəmɁɛmaš.	page 13, ʔayʔaǰuθəm printed at the right of the line
+(26) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa=ga qayx̌ Ɂəm~Ɂɛmaš	page 13, engine language
+(26) line 3	ʔayʔaǰuθəm	gloss	go=RPT=DPRT Mink PL~walk	page 13, engine english
+(26) line 4	Lauren Schneider and Laura Griffin	translation	‘Qayχ was just walking about.’	page 13, engine english
+(26) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Greybird:line 6) (Paul to appear:7)	page 13, the speaker and the source at the right of the line
+(27) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷa ga qayχ hɛhɛwčɩsma.	page 13, engine language
+(27) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa=ga qayx̌ hi~hig-čis-ma	page 13, engine language
+(27) line 3	ʔayʔaǰuθəm	gloss	go=RPT=DPRT Mink PROG~go.forward-hand-go.by	page 13, engine english
+(27) line 4	Lauren Schneider and Laura Griffin	translation	‘Mink is paddling, he’s travelling.’	page 13, engine english
+(27) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Wolf:line 35) (Paul to appear:45)	page 13, the speaker and the source at the right of the line
+§4	Lauren Schneider and Laura Griffin	note	To summarize so far, ho/θo shows overlap with Hul’q’umi’num’ nem’ in that they both attract second position clitics, but diverges in the placement of non-clitic subjects. There are three potential analyses of ho/θo in predicate-initial position preceding another predicational element given the tests in the previous section:	page 13
+§4	Lauren Schneider and Laura Griffin	note	A. Pre-predicate ho/θo is not an auxiliary but a verb, B. Pre-predicate ho/θo is an auxiliary, but ʔayʔaǰuθəm auxiliaries are syntactically different from those in other Central Salish languages, and C. There exist two distinct forms of ho/θo that occur in this position.	page 13
+§4	Lauren Schneider and Laura Griffin	note	Under Analysis A ho/θo has not fully grammaticalized into an auxiliary. Analysis B requires an expansion of this class of auxiliaries in ʔayʔaǰuθəm to allow for the introduction of non-clitic subjects, while Analysis A and C do not require changing the nature of the auxiliary class and remain consistent with other Central Salish languages. In Analysis C there are two forms of ho/θo that occur in this syntactic position, an auxiliary immediately preceding another verb, and a coexisting homonymous lexical verb that introduces non-clitic subjects.	page 13
+§4	Lauren Schneider and Laura Griffin	note	The presence of a ‘going to go’-like construction would provide evidence that there are separate lexical categories for the full verb and an auxiliary reading with semantic bleaching. So far, the ‘going to go’ type doubling construction is not evident in ʔayʔaǰuθəm texts.11 The following table sums up our findings so far.	page 14
+Table 2	Lauren Schneider and Laura Griffin	note	Table 2: Comparing pre-predicate ‘go’ verbs in three Central Salish languages	page 14, the caption
+Table 2	Lauren Schneider and Laura Griffin	note	‘go’ verb *precede NP argument bleaching	page 14, the column heads
+Table 2 line 1	Lauren Schneider and Laura Griffin	note	Hul’q’umi’num’ nem’ no yes	page 14, a line of the table
+Table 2 line 1	Hul’q’umi’num’	cited form	nem’	page 14, the Hul’q’umi’num’ ‘go’ verb: precedes an NP argument no, bleaching yes
+Table 2 line 2	Lauren Schneider and Laura Griffin	note	SENĆOŦEN YÁ¸ yes! yes!	page 14, a line of the table
+Table 2 line 2	SENĆOŦEN	cited form	YÁ¸	page 14, the SENĆOŦEN ‘go’ verb: precedes an NP argument yes!, bleaching yes!
+Table 2 line 3	Lauren Schneider and Laura Griffin	note	ʔayʔaǰuθəm ho/θo yes no!	page 14, a line of the table
+Table 2 line 3	ʔayʔaǰuθəm	cited form	ho/θo	page 14, the ʔayʔaǰuθəm ‘go’ verb: precedes an NP argument yes, bleaching no!
+Table 2	Lauren Schneider and Laura Griffin	note	!Based on observations from texts; negative data needed.	page 14, the note under the table
+§4	Lauren Schneider and Laura Griffin	note	In addition to preceding the main predicate, Watanabe notes that “auxiliaries can follow the predicate proper, although this order is less frequently recorded” (2003:94).	page 14
+(28) line 1	ʔayʔaǰuθəm	segmentation	Ɂa~Ɂaqʷ-ag-iš=k̓ʷa θu	page 14, ʔayʔaǰuθəm printed at the right of the line
+(28) line 2	ʔayʔaǰuθəm	gloss	PROG~go.downriver-PL-INTR=RPT go	page 14
+(28) line 3	Lauren Schneider and Laura Griffin	translation	‘They were going down the river.’	page 14
+(28) line 3	Lauren Schneider and Laura Griffin	citation	(Watanabe 2003:94)	page 14, the source
+§4	Lauren Schneider and Laura Griffin	note	Watanabe also includes the following examples of a non-motion verb followed by θo ‘go’. These have a ‘go and do V’ interpretation but with non-iconic verb order — i.e., the verb order does not match the sequential order of events in the translation.	page 14
+(29) line 1	ʔayʔaǰuθəm	segmentation	taw-t-əm=k̓ʷa θu	page 14, ʔayʔaǰuθəm printed at the right of the line
+(29) line 2	ʔayʔaǰuθəm	gloss	tell-CTR-PAS=RPT go	page 14, engine english
+(29) line 3	Watanabe 2003:94	translation	‘They went and told him.’	page 14, engine english, cited Watanabe 2003:94
+(29) line 3	Lauren Schneider and Laura Griffin	citation	(Watanabe 2003:94)	the tag or source at the right of the translation
+(30) line 1	ʔayʔaǰuθəm	segmentation	x̣ʷət’θ-Ɂəm=čxʷ θu	page 14, engine residue
+(30) line 2	ʔayʔaǰuθəm	gloss	break.off-ACT.INTR=2SG.SUBJ go	page 14, engine english
+(30) line 3	Watanabe 2003:94	translation	‘You go and break (e.g., branches).’	page 14, engine english, cited Watanabe 2003:94
+(30) line 3	Lauren Schneider and Laura Griffin	citation	(Watanabe 2003:94)	the tag or source at the right of the translation
+§4	Lauren Schneider and Laura Griffin	note	Typologically, examples (29) and (30) are unusual for two reasons: (i) auxiliaries (grammaticalized elements) do not tend to have as flexible order as their main verb counterparts, and (ii) non-iconic order is less common when verbs describe sequential subevents (Lord 1993:237). If we are going to call this an auxiliary, we must broaden our auxiliary category to be even more flexible. Alternatively, we can treat these post-predicate elements as the second verb (V2) in a serial verb construction, and assume there is a coexisting auxiliary which is limited to pre-predicate position. In the next section, we will look at another construction where the ‘go’ verb follows the main predicate and introduces an oblique phrase.	page 14
+footnote 11	Lauren Schneider and Laura Griffin	note	11 This generalization is based on the following narrative texts: Watanabe (2003:§4, 2020, 2022a, 2022b, 2023, 2025) and Paul (to appear).	page 14, footnote
+§5	Lauren Schneider and Laura Griffin	heading	5 Coverb ‘go’ constructions	page 15
+§5	Lauren Schneider and Laura Griffin	note	Recall that a coverb construction consists of a main predicate and another verb that serves a preposition-like function (see Matthews 2006:70–71). Kroeber (1999:44) notes that no Salish language has a very large inventory of prepositions and that notions of location and direction tend to be coded in the clause predicates. Central Salish languages, with the exception of Lushootseed, have only a multipurpose oblique marker.	page 15
+§5	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§5	Lauren Schneider and Laura Griffin	note	Central Salish languages tend to have small inventories of prefixes, and ʔayʔaǰuθəm has entirely lost non-reduplicative prefixes (Davis & Mellesmoen 2019:32). This language even has a strong tendency to omit proclitics, including — but not limited to — determiners and the oblique marker (Reisinger et. al 2021:752). Davis and Mellesmoen note that “the overall result is that ʔayʔaǰuθəm often looks superficially distinct from other Salish languages, even when its underlying syntax is largely identical” (2019:32). An example of a sentence with elided proclitics is given in (31), where the oblique marker and determiner in brackets are unrealized in speech but recoverable.	page 15
+(31) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷa k̓ʷʊtəm [ʔə tə] čuy̓.	page 15, ʔayʔaǰuθəm printed at the right of the line
+(31) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa k̓ʷə{n}-t-əm [ʔə=tə=]čuy̓	page 15, engine language
+(31) line 3	ʔayʔaǰuθəm	gloss	go=RPT see-CTR-PAS [OBL=DET=]child	page 15, engine english
+(31) line 4	Lauren Schneider and Laura Griffin	translation	‘That little one went back to see him.	page 15, engine english
+(31) line 4	Lauren Schneider and Laura Griffin	citation	(Mink and Wolf:line 82) (Paul to appear:60)	page 15, the speaker and the source at the right of the line
+§5	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§5	Lauren Schneider and Laura Griffin	note	Schneider (2024b) found that, in addition to its auxiliary and main predicate functions, the verb nem’ ‘go’ in Hul’q’umi’num’ can also function as a coverb, as in (32) and (33).	page 15
+(32) line 1	Hul’q’umi’num’	transcription	sis ’uw’ huye’stum nem’ ’u thu skwthe’.	page 15, Hul’q’umi’num’ printed at the right of the line
+(32) line 2	Hul’q’umi’num’	segmentation	sis=ʔəw̓ həyeʔ-stəm nem̓ ʔə θə skʷθeʔ	page 15, engine language
+(32) line 3	Hul’q’umi’num’	gloss	N.AUX.3POS=CN leave-CS.PAS go.CVB OBL DET island	page 15, engine english
+(32) line 4	Schneider 2024b:84	translation	‘She was taken away to the island.’	page 15, engine english, cited Schneider 2024b:84
+(32) line 4	Lauren Schneider and Laura Griffin	citation	(DL) (Schneider 2024b:84)	page 15, the speaker and the source at the right of the line
+(33) line 1	Hul’q’umi’num’	transcription	nem’ ts’tem nem’ ’u tthun’ men, qeq!	page 15, engine residue
+(33) line 2	Hul’q’umi’num’	segmentation	nem̓ c̓tem nem̓ ʔə tᶿən̓ men qeq	page 15, engine language
+(33) line 3	Hul’q’umi’num’	gloss	go.AUX crawl go OBL DET.2POS father baby	page 15, engine english
+(33) line 4	Gerdts 2010:4	translation	‘Go crawl to your dad, baby!’	page 15, engine english, cited Gerdts 2010:4
+(33) line 4	Lauren Schneider and Laura Griffin	citation	(Gerdts 2010:4)	the tag or source at the right of the translation
+§5	Hul’q’umi’num’	cited form	ts’tem	page 15, ‘crawl’
+footnote 12	Lauren Schneider and Laura Griffin	note	12 An alternative to the use of a coverb construction is the use of the directional applicative /-nəs/ suffixed to the manner of motion verb — e.g., /c̓tem-nəs/ ‘crawl to’ — which provides an argument slot for the endpoint of motion (Gerdts 2010:4).	page 15, footnote
+§5	Hul’q’umi’num’	cited affix	/-nəs/	page 15, footnote 12, the directional applicative
+§5	Hul’q’umi’num’	cited form	/c̓tem-nəs/	page 15, footnote 12, ‘crawl to’
+§5	Lauren Schneider and Laura Griffin	note	In both examples, nem’ follows the main predicate, encodes a general directional meaning and introduces an oblique phrase encoding the destination. Additionally, examples like (33) are ungrammatical if nem’ is removed (Gerdts 2010:4). In Hul’q’umi’num’, a manner of motion verb like ts’tem ‘crawl’ cannot express the endpoint of motion without a directional element.12 Similar to its auxiliary function, coverb nem’ also exhibits semantic bleaching. The evidence of this bleaching is threefold: (i) nem’ is used to encode a broader variety of semantic relations than any other directional verb in this syntactic position (Schneider 2024b:82–83); (ii) it occurs much more frequently in this syntactic position than any other directional verb (Schneider 2024b:82); and (iii) this structure can also be used in comparative and benefactive constructions to indicate the standard of comparison or the beneficiary, respectively (Schneider 2024b:§4.6; Kiyosawa & Gerdts 2010:55). We discuss (i) and (ii) in §5.1 and (iii) will be dealt with in §5.2.	page 15
+§5.1	Lauren Schneider and Laura Griffin	heading	5.1 Directional constructions	page 16
+§5.1	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§5.1	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§5.1	SENĆOŦEN	cited form	YÁ¸	‘go, depart’
+§5.1	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§5.1	Lauren Schneider and Laura Griffin	note	Similar to Hul’q’umi’num’ nem’ SENĆOŦEN YÁ¸ ‘go’ appears frequently in the coverb position, following another verb and introducing an oblique phrase. Like ʔayʔaǰuθəm, the oblique marker can sometimes be left out, as in (34).13	page 16
+(34) line 1	SENĆOŦEN	transcription	OOȽ YÁ¸ [E] TŦE SNEW̱EȽ ȻȺL E TŦE ȻEĆIL¸.	page 16, SENĆOŦEN printed at the right of the line
+(34) line 2	SENĆOŦEN	segmentation	ʔáaɬ yéʔ [ʔə] tθə snə́xʷəɬ kʷéyl ʔə tθə kʷəčíl̕	page 16, engine language
+(34) line 3	SENĆOŦEN	gloss	go.aboard go OBL DET canoe hide OBL DET morning	page 16, engine english
+(34) line 4	Montler 2018:390	translation	‘He got on the canoe and hid early in the morning.’	page 16, engine english, cited Montler 2018:390
+(34) line 4	Lauren Schneider and Laura Griffin	citation	(EC,VWb) (Montler 2018:390)	page 16, the speaker and the source at the right of the line
+§5.1	Lauren Schneider and Laura Griffin	note	Similar to Hul’q’umi’num’, the ‘go’+OBL construction is used with a wide variety of “prepositional” relations and the specific relation is often selected by the semantics of the preceding verb:	page 16
+(35) line 1	SENĆOŦEN	transcription	SU¸ TESS YÁ¸ E TŦE ṮEṮÁĆES.	page 16, SENĆOŦEN printed at the right of the line
+(35) line 2	SENĆOŦEN	segmentation	suʔ-tə́s-s yéʔ ʔə tθə ƛ̕əƛ̕éčəs	page 16, engine language
+(35) line 3	SENĆOŦEN	gloss	LNK-arrive-3POS go OBL DET island	page 16, engine english
+(35) line 4	Montler 2018:666	translation	‘So they got to an island.’	page 16, engine english, cited Montler 2018:666
+(35) line 4	Lauren Schneider and Laura Griffin	citation	(ErC) (Montler 2018:666)	page 16, the speaker and the source at the right of the line
+(36) line 1	SENĆOŦEN	transcription	ŚELEṈ SW̱ YÁ¸ E TŦE SȾE¸SENEṈ.	page 16, engine english
+(36) line 2	SENĆOŦEN	segmentation	šə́ləŋ=sxʷ yéʔ ʔə tθə st̕ᶿəʔsə́nəŋ	page 16, engine language
+(36) line 3	SENĆOŦEN	gloss	climb.MD=2SG go OBL DET ladder	page 16, engine english
+(36) line 4	Montler 2018:573	translation	‘Climb up the ladder.’	page 16, engine english, cited Montler 2018:573
+(36) line 4	Lauren Schneider and Laura Griffin	citation	(LGC) (Montler 2018:573)	page 16, the speaker and the source at the right of the line
+§5.1	Lauren Schneider and Laura Griffin	note	In (34) above, the relation is ‘on’ because of the verb meaning ‘go aboard’, here in (35) it is ‘to’ because of the verb meaning ‘arrive’, and finally in (36), it is ‘up’ because of the verb meaning ‘climb’.	page 16
+§5.1	Lauren Schneider and Laura Griffin	note	Above in (34)–(36), the oblique NP encodes a location or direction, here in (37) and (38) it encodes a purpose or goal.	page 16
+(37) line 1	SENĆOŦEN	transcription	SU¸ TW̱E HÍS OL¸ TŦÁ¸E ĆÁ¸SE¸ NEḴEṈ YÁ¸ E TŦE ŦO¸TX.	page 16, SENĆOŦEN printed at the right of the line
+(37) line 2	SENĆOŦEN	segmentation	suʔ-txʷə-háy-s ʔal̕ tθéʔə čéʔsəʔ nə́qəŋ yéʔ	page 16, engine language
+(37) line 3	SENĆOŦEN	gloss	LNK-MUT-alone-3POS LMT DET two.person dive.MD go	page 16, engine english
+(37) line 4	SENĆOŦEN	segmentation	ʔə tθə θáʔtx̣	page 16, engine language
+(37) line 5	SENĆOŦEN	gloss	OBL DET halibut	page 16, engine english
+(37) line 6	Montler 2018:359	translation	‘So there were only the two left who went diving for halibut.’	page 16, engine english, cited Montler 2018:359
+(37) line 6	Lauren Schneider and Laura Griffin	citation	(ErC) (Montler 2018:359)	page 16, the speaker and the source at the right of the line
+footnote 13	Lauren Schneider and Laura Griffin	note	13 This dictionary example is listed both with and without the oblique marker (two separate, nearly identical examples); brackets have been added to indicate that it can be left out.	page 16, footnote
+(38) line 1	SENĆOŦEN	transcription	ŚKEL¸JSET SW̱ YÁ¸ E TŦE SȽEMEW̱.	page 17, engine english
+(38) line 2	SENĆOŦEN	segmentation	šq̕ə́l̕č̕sət=sxʷ yéʔ ʔə tθə sɬə́məxʷ	page 17, engine language
+(38) line 3	SENĆOŦEN	gloss	shelter=2SG go OBL DET rain	page 17, engine english
+(38) line 4	Montler 2018:622	translation	‘Go get a shelter from the rain.’	page 17, engine english, cited Montler 2018:622
+(38) line 4	Lauren Schneider and Laura Griffin	citation	(LGC) (Montler 2018:622)	page 17, the speaker and the source at the right of the line
+§5.1	Lauren Schneider and Laura Griffin	note	In (37), the subjects are diving in order to obtain ‘the halibut’, and in (38), the subject is sheltering to get protection ‘from the rain’. As with the previous examples, YÁ¸ ‘go’ provides a bleached directional function and the specific interpretation is dependent on the context. So far, the coverb ‘go’+OBL construction appears to be somewhat less frequent in ʔayʔaǰuθəm narratives.14 Examples (39)–(41) demonstrate the directional function where the interpretation is determined by the preceding verb.	page 17
+(39) line 1	ʔayʔaǰuθəm	segmentation	ƛ̓əč̓-t-as θu Ɂə=tə=qayɁa	page 17, ʔayʔaǰuθəm printed at the right of the line
+(39) line 2	ʔayʔaǰuθəm	gloss	push-TR-3SUBJ go OBL=DET=water	page 17, engine english
+(39) line 3	Kroeber 1999:46	translation	‘He pushed it into the water.’	page 17, engine english, cited Kroeber 1999:46
+(39) line 3	Lauren Schneider and Laura Griffin	citation	(Kroeber 1999:46)	the tag or source at the right of the translation
+(40) line 1	ʔayʔaǰuθəm	segmentation	təɫq̓ʷ-a-θut = k̓ʷa θu Ɂə=taɁa	page 17, engine language
+(40) line 2	ʔayʔaǰuθəm	gloss	bounce-LV-CTR+RFL=RPT go OBL=DEM	page 17, engine english
+(40) line 3	Watanabe 2003:574	translation	‘He jumped to over there.’	page 17, engine english, cited Watanabe 2003:574
+(40) line 3	Lauren Schneider and Laura Griffin	citation	(EP 144) (Watanabe 2003:574)	page 17, the speaker and the source at the right of the line
+(41) line 1	ʔayʔaǰuθəm	segmentation	ɫəq̓ʷ-θut θu Ɂə=tə=ǰaǰ̓a	page 17, engine residue
+(41) line 2	ʔayʔaǰuθəm	gloss	put.under-CTR.REFL go OBL=DET=tree	page 17, engine english
+(41) line 3	Watanabe 2003:575	translation	‘He put himself under the tree.’	page 17, engine english, cited Watanabe 2003:575
+(41) line 3	Lauren Schneider and Laura Griffin	citation	(EP 147) (Watanabe 2003:575)	page 17, the speaker and the source at the right of the line
+§5.1	ʔayʔaǰuθəm	cited form	ho/θo	page 17
+§5.1	Lauren Schneider and Laura Griffin	note	There is evidence of bleaching of ho/θo in this position, for example, in (42) there is no literal motion.	page 17
+(42) line 1	ʔayʔaǰuθəm	segmentation	Ɂaǰ-am-a-t-as θu Ɂə=kʷ=naɁa nənqəm.	page 17
+(42) line 2	ʔayʔaǰuθəm	gloss	change-MD-LV-CTR-3ERG go OBL=DET=FILL.PRT blackfish	page 17
+(42) line 3	Watanabe 2022a	translation	‘They would change him into a blackfish.’	page 17
+(42) line 3	Lauren Schneider and Laura Griffin	citation	(MG016) (Watanabe 2022a:319)	page 17, the text and the source at the right of the line
+§5.1	ʔayʔaǰuθəm	cited form	θo	page 17, ‘go’
+§5.1	ʔayʔaǰuθəm	cited form	ho/θo+OBL	page 17
+§5.1	Lauren Schneider and Laura Griffin	note	In this example, θo ‘go’ represents metaphorical movement from one shape to another. Additionally, the ho/θo+OBL construction also has a grammaticalized function in comparative constructions, which are the topic of the next section.	page 17
+§5.2	Lauren Schneider and Laura Griffin	heading	5.2 Comparative constructions	page 17
+§5.2	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§5.2	ʔayʔaǰuθəm	cited form	ho/θo	page 17, ‘go’
+§5.2	Lauren Schneider and Laura Griffin	note	Davis and Mellesmoen (2019:32) found that ʔayʔaǰuθəm ho/θo ‘go’ is used in comparative constructions to mark the standard of comparison:	page 17
+(43) line 1	ʔayʔaǰuθəm	segmentation	kʷihit x̌ax̌aɫ Tony hu Gloria	page 17, ʔayʔaǰuθəm printed at the right of the line
+(43) line 2	ʔayʔaǰuθəm	gloss	more tall Tony go Gloria	page 17
+(43) line 3	Davis & Mellesmoen 2019	translation	‘Tony is taller than Gloria.’	page 18, after footnote 14
+(43) line 3	Lauren Schneider and Laura Griffin	citation	(Davis & Mellesmoen 2019:32)	page 18, the source at the right of the line
+footnote 14	Lauren Schneider and Laura Griffin	note	14 This generalization is based on the following narrative texts: Watanabe (2003:§4, 2020, 2022a, 2022b, 2023, 2025) and Paul (to appear).	page 17, footnote
+(44) line 1	ʔayʔaǰuθəm	transcription	kʷihit tih tə kʷakʷaǰu θu tə qʷisqʷis	page 18, engine residue
+(44) line 2	ʔayʔaǰuθəm	gloss	more big DET squirrel go DET Steller's.jay	page 18, engine english
+(44) line 3	Davis & Mellesmoen 2019:32	translation	‘The squirrel is bigger than the Steller’s jay.’	page 18, engine english, cited Davis & Mellesmoen 2019:32
+(44) line 3	Lauren Schneider and Laura Griffin	citation	(L&R:121)	page 18, the speaker and the source at the right of the line
+(44) line 4	Lauren Schneider and Laura Griffin	citation	(Davis & Mellesmoen 2019:32)	page 18, engine english
+§5.2	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num	Hul’q’umi’num’, printed here without its last apostrophe
+§5.2	Lauren Schneider and Laura Griffin	note	Schneider (2024b) found that a similar construction exists in Hul’q’umi’num:	page 18
+(45) line 1	Hul’q’umi’num’	transcription	hay ’al’ qul’et thi hwu nem’ ’u tthu qwunus.	page 18, Hul’q’umi’num’ printed at the right of the line
+(45) line 2	Hul’q’umi’num’	segmentation	hay ʔal̓qəl̓et θi xʷə=nem̓ ʔə tθǝ qʷənəs	page 18, engine language
+(45) line 3	Hul’q’umi’num’	gloss	3FOC just again big INCH=go OBL DET whale	page 18, engine english
+(45) line 4	Schneider 2024b:203	translation	‘He is much larger than a whale.’	page 18, engine english, cited Schneider 2024b:203
+(45) line 4	Lauren Schneider and Laura Griffin	citation	(EW) (Schneider 2024b:203)	page 18, the speaker and the source at the right of the line
+§5.2	ʔayʔaǰuθəm	cited form	kʷihit	page 18, ‘more’
+§5.2	Hul’q’umi’num’	cited form	qəl̓et	page 18, ‘again’
+§5.2	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§5.2	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§5.2	SENĆOŦEN	cited form	YÁ¸	‘go, depart’
+§5.2	Lauren Schneider and Laura Griffin	note	The main differences between these two languages is that the ʔayʔaǰuθəm uses the predicate adverb kʷihit ‘more’ and Hul’q’umi’num uses qəl̓et ‘again’, and the fact that the ʔayʔaǰuθəm construction need not contain an overt oblique marker, while Hul’q’umi’num’ obligatorily must. Based on the data available in Montler (2018) and Campbell (2023), it does not appear that SENĆOŦEN YÁ¸ ‘go’ — or any other directional verb — is used in comparative constructions. The most common comparative construction in Montler’s (2018) dictionary has been exemplified here in (46).	page 18
+(46) line 1	SENĆOŦEN	transcription	NIȽ TŦE SWÍ¸ḴE¸ ĆEḴ E ŦE SȽÁNI¸.	page 18, SENĆOŦEN printed at the right of the line
+(46) line 2	SENĆOŦEN	segmentation	níɬ tθə swə́y̕qəʔ čə́q ʔə θə sɬéniʔ	page 18, engine language
+(46) line 3	SENĆOŦEN	gloss	FOC DET man big OBL DET woman	page 18, engine english
+(46) line 4	Montler 2018:136	translation	‘The man is bigger than the woman.’	page 18, engine english, cited Montler 2018:136
+(46) line 4	Lauren Schneider and Laura Griffin	citation	(EC,VW) (Montler 2018:136)	page 18, the speaker and the source at the right of the line
+§5.2	Lauren Schneider and Laura Griffin	note	The standard of comparison ‘the woman’ is marked with an oblique phrase and no motion verb is required. The second comparative construction appears to involve two clauses; in (47), the first clause establishes that the subject of comparison ‘the cat’ is very big and then the second clause states that it exceeds the standard of comparison ‘the dog’.	page 18
+(47) line 1	SENĆOŦEN	transcription	ÁN¸ U¸ ĆEḴ TŦE PUS; ĆEL¸ÁU¸NEṈ TŦE SḴAXE¸.	page 18, SENĆOŦEN printed at the right of the line
+(47) line 2	SENĆOŦEN	segmentation	ʔén̕ uʔ čə́q tθə pús; čəl̕éw̕nəŋ tθə sqéx̣əʔ	page 18, engine language
+(47) line 3	SENĆOŦEN	gloss	very LNK big DET cat exceed DET dog	page 18, engine english
+(47) line 4	Montler 2018:41	translation	‘The cat is bigger than the dog.’	page 18, engine english, cited Montler 2018:41
+(47) line 4	Lauren Schneider and Laura Griffin	citation	(LAC) (Montler 2018:41)	page 18, the speaker and the source at the right of the line
+§5.2	Lauren Schneider and Laura Griffin	note	The construction in (47) is of interest because it appears very similar to the structure of comparative SVCs. A comparative SVC typically contains a verb expressing the parameter of comparison and another verb with a meaning such as exceed, surpass, win, pass, or defeat expressing the index of comparison (Aikhenvald 2018:42), as in (48).	page 18
+(48) line 1	Nigerian Pidgin	transcription	Nyam swit pas rays.	page 18, Nigerian Pidgin printed at the right of the line
+(48) line 2	Nigerian Pidgin	gloss	yam be.tasty pass rice	page 18
+(48) line 3	Faraclas 1996	translation	‘Yam is more delicious than rice.’	page 18
+(48) line 3	Lauren Schneider and Laura Griffin	citation	(Faraclas 1996:11)	page 18, the source at the right of the line
+§5.2	Lauren Schneider and Laura Griffin	note	The SENĆOŦEN examples that mirror this structure are punctuated as if they contain two clauses, but an exploration of the clause boundaries may prove interesting.	page 18
+§5.2	Lauren Schneider and Laura Griffin	note	In summary, ho/θo ‘go’ exhibits behaviours previously documented for coverb constructions, where it may introduce oblique arguments and encode both physical and metaphorical motion, as presented in §5.1. It also functions as a marker in comparative constructions, as described in §5.2, similar to Hul’q’umi’num. These patterns suggest that ho/θo ‘go’ in this syntactic position is undergoing semantic bleaching, given its wider range of possible functions.	page 19
+§6	Lauren Schneider and Laura Griffin	heading	6 Conclusion	page 19
+§6	ʔayʔaǰuθəm	cited form	ho/θo	page 19, ‘go’
+§6	Lauren Schneider and Laura Griffin	language	Hul’q’umi’num’	the Island dialect of Halkomelem, Cowichan and Nanaimo
+§6	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+§6	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+§6	ʔayʔaǰuθəm	cited form	tawusaman	page 19, ‘go along beach,’
+§6	ʔayʔaǰuθəm	cited form	yikʷ	page 19, ‘go around’
+§6	ʔayʔaǰuθəm	cited form	ʔaqʷ	page 19, ‘go downriver,’
+§6	ʔayʔaǰuθəm	cited form	kʷum	page 19
+§6	ʔayʔaǰuθəm	cited form	ɬayiš	page 19, ‘go ashore’
+§6	ʔayʔaǰuθəm	cited form	ƛ̓iʔigən	page 19, ‘go into bush’
+§6	ʔayʔaǰuθəm	cited form	qʷol̓	page 19, ‘come,’
+§6	ʔayʔaǰuθəm	cited form	payaʔ	page 19, ‘always’
+§6	ʔayʔaǰuθəm	cited form	ʔaw̓θ	page 19, ‘suddenly’
+§6	ʔayʔaǰuθəm	cited form	hihiw	page 19, ‘really’
+§6	Lauren Schneider and Laura Griffin	note	We present a description of constructions with ho/θo ‘go’, highlighting its wide range of applications separate from encoding physical motion. Similar to Hul’q’umi’num’ nem’, ʔayʔaǰuθəm ho/θo ‘go’ may exist as both an auxiliary and as a homonymous main verb, which accounts for the flexibility of its syntactic position. The use of the ‘go’ coverb construction appears less pervasive in ʔayʔaǰuθəm than in Hul’q’umi’num’ and SENĆOŦEN, but it has grammaticalized enough to lose sufficient motion semantics to be used in comparative constructions. In future work, we intend to explore other motion-associated auxiliaries and predicates (see Montler 2008) such as tawusaman ‘go along beach,’ yikʷ ‘go around’, ʔaqʷ ‘go downriver,’, kʷum ‘go up (away from beach or towards the mountains), ɬayiš ‘go ashore’, ƛ̓iʔigən ‘go into bush’, and qʷol̓ ‘come,’ to see whether the distribution of ho/θo ‘go’ is linked to a certain semantic class of predicates, a syntactic group of either auxiliaries or verbs, or is unique to just this verb. Ultimately, we aim to create a set of valid diagnostics that can be more widely applied to Salishan languages to identify when verbs behave as predicates versus as auxiliaries. Future studies will also encompass investigations into the role of adverbs in verb phrases. Namely, words like payaʔ ‘always’, ʔaw̓θ ‘suddenly’, and hihiw ‘really’ (Watanabe 2003:90) may behave as auxiliaries with an adverbial meaning or as a main predicate (Huijsmans 2023:15). A detailed description of adverbs in ʔayʔaǰuθəm is beneficial for learners of the language, as English-speaking learners of morphologically rich languages tend to rely more on adverbs than morphology during early stages of learning (Sagarra & Ellis 2013:263).	page 19
+§6	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm-speaking	page 19, of the people who speak ʔayʔaǰuθəm
+§6	Lauren Schneider and Laura Griffin	note	There is also comparative work to be done in neighboring dialects and languages (see Schneider 2024a). We hope to look at mainland Halkomelem dialects to see if the patterns found in Schneider (2024b) are also attested, and if so, whether motion-associated predicates exhibit similar trajectories of semantic bleaching, coverb status, and compatibility with NP subjects. We may also consider seeing whether Squamish — neighbour to mainland Halkomelem dialects — and other Island languages, such as those belonging to the Wakashan language family, contain these constructions to see whether serialization may be an areal feature (see Inman 2019). Few studies have been made of Central Salish multi-verb constructions to date, and data from these languages have not been included in most cross-linguistic studies (e.g., Aikhenvald 2018; Lovestrand 2018; Lovestrand & Ross 2021). Expanding the typology of documented languages with multi-verb constructions away from Indo-European languages benefits both modern theoretical models of linguistics and language pedagogy. Through this investigation, we presented a description of the verb, ho/θo ‘go,’ in order to better understand how the ʔayʔaǰuθəm-speaking people conceptualize and express complex motion events when moving about the Central Salish world.	page 19
+references	Lauren Schneider and Laura Griffin	heading	References	page 20
+references	Lauren Schneider and Laura Griffin	reference	Aikhenvald, Alexandra Y. 2011. Multi-verb constructions: Setting the scene. In Aikhenvald, Alexandra & Muysken, Pieter (eds.), Multi-verb constructions: A view from the Americas. Leiden/Boston: Brill.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Aikhenvald, Alexandra Y. 2018. Serial verbs. Oxford: Oxford University Press. (https://doi.org/htxp)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Anderson, Gregory D. S. 2006. Auxiliary verb constructions. Oxford: Oxford University Press. (https://doi.org/10.1093/acprof:oso/9780199280315.001.0001)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Bätscher, Kevin. 2014. Interclausal and intraclausal linking elements in Hul’q’umi’num’ Salish. MA thesis. Simon Fraser University.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Campbell, Jessalyn. 2023. Serial verb constructions and auxiliary verb constructions in SENĆOŦEN. University of Victoria. (MA Thesis.).	page 20
+references	Lauren Schneider and Laura Griffin	reference	Davis, Henry & Gloria Mellesmoen. 2019. Degree constructions in two Salish languages. Papers for the International Conference on Salish and Neighbouring Languages 54, 24–52. Vancouver, BC: UBCWPL.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Faraclas, Nick. 1996/2002. Nigerian Pidgin. London: Routledge. (doi:10.4324/9780203192801)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Gerdts, Donna B. 1988. Object and absolutive in Halkomelem Salish. New York: Routledge/Garland. (https://doi.org/htxq)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Gerdts, Donna B. 2010. Semantic effects in Halkomelem directional applicatives. Northwest Journal of Linguistics 4(3). 1–17.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Gerdts, Donna B. & Adam Werle. 2014. Halkomelem clitic types. Morphology 24. 245–281.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Gessner, Suzanne & Tracey Herbert & Aliana Parker. 2023. The Report on the status of B.C. First Nations Languages. Brentwood Bay, BC: First Peoples’ Cultural Council. (https://fpcc.ca/wp-content/uploads/2023/02/FPCC-LanguageReport-23.02.14-FINAL.pdf)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Haspelmath, Martin. 2016. The serial verb construction: Comparative concept and cross- linguistic generalizations. Language and Linguistics 17(3). 291–319. (doi:https://doi.org/10.1177/2397002215626895)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: the ʔayʔaǰuθəm (Comox-Sliammon) perspective. Vancouver, Canada: University of British Columbia dissertation.	page 20
+references	Lauren Schneider and Laura Griffin	reference	Inman, David Anthony. 2019. Multi-predicate constructions in Nuuchahnulth. (PhD.) (http://hdl.handle.net/1773/44841)	page 20
+references	Lauren Schneider and Laura Griffin	reference	Kiyosawa, Kaoru & Gerdts, Donna B. 2010. Benefactive and malefactive uses of Salish applicatives. In Zúñiga, Fernando & Kittilä, Seppo (eds.), Benefactives and Malefactives: Typological perspectives and case studies, 147–184. John Benjamins Publishing Company. (https://doi.org/10.1075/tsl.92)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Kroeber, Paul D. 1999. The Salish language family: Reconstructing syntax. University of Nebraska Press.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Krug, Manfred. 2011. Auxiliaries and grammaticalization. In Heine, Bernd & Narrog, Heiko (eds.), The Oxford Handbook of Grammaticalization, 547–558. Oxford: Oxford University Press. (doi:10.1093/oxfordhb/9780199586783.013.0044)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Lord, Carol. 1993. Historical change in serial verb constructions. Amsterdam: John Benjamins Publishing Company. (https://doi.org/10.1075/tsl.26)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Lovestrand, Joseph. 2018. Serial verb constructions in Barayin: Typology, description and lexical-functional grammar. University of Oxford. (PhD dissertation.) (https://ora.ox.ac.uk/objects/uuid:39406562-02d3-46f5-abf3-180d22225925)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Lovestrand, Joseph & Ross, Daniel. 2021. Serial verb constructions and motion semantics. In Guillaume, Antoine & Koch, Harold (eds.), Associated motion, 87–128. Berlin: De Gruyter. (https://doi-org.proxy.lib.sfu.ca/10.1515/9783110692099)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Matthews, Stephen. 2006. On serial verb constructions in Cantonese. In Alexandra Y. Aikhenvald, & R.M.W. Dixon (eds.), Serial verb constructions: A cross-linguistic typology, 69–87. Oxford: Oxford University Press.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Montler, Timothy. 2003. Auxiliaries and other categories in Straits Salishan. International Journal of American Linguistics, 69(2), 103-134.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Montler, Timothy. 2008. Serial Verbs and Complex Paths in Klallam. Northwest Journal of Linguistics 2(2), 1-26.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Montler, Timothy. 2018. SENĆOŦEN: A Dictionary of the Saanich Language. Seattle, WA: University of Washington Press.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Paul, Elsie. to appear. χʷaχʷaǰɩm niniǰɛ qayχ Stories about Qayχ. Marianne Huijsmans, Henry Davis, Laura Griffin, Gloria Mellesmoen, D. K. E. Reisinger, Bailey Trotter, & Jillian Heathe (eds.). Vancouver, BC: Pacific Northwest Languages and Literatures Press.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Reisinger, Daniel K. E. & Marianne Huijsmans. 2020. ǰaqaʔ: A generalized exclamation operator in ʔayʔaǰuθəm. In M. Franke et al. (eds.) Proceedings of Sinn und Bedeutung 24(2), 183–200.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Reisinger, Daniel K. E. & Marianne Huijsmans & Lisa Matthewson. 2021. Evidentials in the nominal domain: a Speasian analysis of ʔayʔaǰuθəm determiners. Proceedings of Sinn und Bedeutung 25, 751–768. (doi:10.18148/sub/2021.v25i0.965)	page 21
+references	Lauren Schneider and Laura Griffin	reference	Sagarra, Nuria & Ellis, Nick C. 2013. From seeing adverbs to seeing verbal morphology: Language Experience and Adult Acquisition of L2 Tense. Studies in Second Language.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Schneider, Lauren. 2021. Classifying multi-verb constructions in Hulʼqʼumiʼnumʼ Salish. Papers for the International Conference on Salish and Neighboring Languages 56, 392-409.	page 21
+references	Lauren Schneider and Laura Griffin	reference	Schneider, Lauren. 2022. Using Hul’q’umi’num’ directional SVCs to express path and manner. Working Papers of the Linguistics Circle of the University of Victoria, 32(1), 1–20. WPLC.	page 22
+references	Lauren Schneider and Laura Griffin	reference	Schneider, Lauren. 2024a. The development of serial verbs in a subset of Salish languages. Proceedings of WAIL 26, 1–33. UC Santa Barbara. (https://drive.google.com/file/d/1rqHYMi50Sg9L5M4_2l4urfK4_i8nJzyk/view)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Schneider, Lauren. 2024b. Serial verb constructions in Hul’q’umi’num’ Salish. Burnaby, BC: Simon Fraser University. (PhD thesis.)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Tao, Liang. 2009. Serial verb construction in Mandarin Chinese: The interface of syntax and semantics. Proceedings of the 21st North American Conference on Chinese Linguistics, vol. 2, 209–228. Smithfield, Rhode Island: Bryant University.	page 22
+references	Lauren Schneider and Laura Griffin	reference	Thompson, Laurence C., & M. Terry Thompson. 1971. Clallam: a preview. In Jesse Sawyer (ed.), Studies in American Indian Languages, 251-94, UCPL 65. Berkeley & Los Angeles: University of California Press.	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2003. A morphological description of Sliammon, Mainland Comox Salish with a sketch of syntax (Endangered Languages of the Pacific Rim). BC: Smithsonian Libraries.	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2020. A Sliammon text : “When Coming Out of the Woods”, as told by Mary George. Northern Language Studies 10. 275–294. (doi:10.14943/93121)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2022a. A Sliammon text: “Blackfish”, as told by Mary George. Asian and African Languages and Linguistics 16. 309–328. (doi:10.15026/117167)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2022b. A Sliammon text: “First Pregnancy”, as Told by Mary George. Asian and African Languages and Linguistics 15. 93–103. (doi:10.15026/99898)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2023. Making dugout canoes: A Sliammon text told by Agnes McGee. Asian and African Languages and Linguistics 17. 89–103. (doi:10.15026/122477)	page 22
+references	Lauren Schneider and Laura Griffin	reference	Watanabe, Honoré. 2025. Picking blackberries: A Sliammon text told by Mary George. Asian and African Languages and Linguistics 19. (doi:10.15026/0002001079) (https://tufs.repo.nii.ac.jp/records/2001079)	page 22
+references	Lauren Schneider and Laura Griffin	language	SENĆOŦEN	Saanich, a dialect of Northern Straits Salish
+references	Lauren Schneider and Laura Griffin	language	ʔayʔaǰuθəm	Comox-Sliammon, ISO coo, the Central Salish language of the paper
+references	ʔayʔaǰuθəm	cited form	χʷaχʷaǰɩm	page 21
+references	ʔayʔaǰuθəm	cited form	niniǰɛ	page 21
+references	ʔayʔaǰuθəm	cited form	qayχ	page 21
+references	ʔayʔaǰuθəm	cited form	Qayχ	page 21
+references	ʔayʔaǰuθəm	cited form	ǰaqaʔ	page 21
+references	Lauren Schneider and Laura Griffin	language	Hulʼqʼumiʼnumʼ	Hul’q’umi’num’ in the title of Schneider 2021, with U+02BC
+title	Lauren Schneider and Laura Griffin	title	On the ‘go’: Exploring auxiliary-hood in ʔayʔaǰuθəm in comparative perspective	the paper's title
+title	Lauren Schneider and Laura Griffin	name	Lauren Schneider	an author, University of Arizona
+title	Lauren Schneider and Laura Griffin	name	Laura Griffin	an author, University of Toronto

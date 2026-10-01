@@ -1,0 +1,659 @@
+where	who	kind	form	gloss
+front	Hank Nater	title	Vestiges of Tsimshianic and other Penutian in Bella Coola	page 1
+front	Hank Nater	name	Hank Nater	author
+front	Hank Nater	note	Abstract: Bella Coola is a Salish language that has been heavily influenced by North Wakashan, while more than half of its free morphemes and about a third of its bound morphemes have no known origin. In this paper, I identify possible Tsimshianic matches for some of these morphemes, and evaluate relations within Bella Coola-Tsimshianic-other NW Pacific sets of like forms as well. I also contemplate a Tsimshianic origin for vowel length in Bella Coola, and examine a few connections with coastal Oregon Penutian languages.	page 1, the abstract
+front	Hank Nater	note	Keywords: Bella Coola, Tsimshianic-Penutian, diffusion, lexical and structural copying, trade and migration patterns	page 1, the keywords
+front	Hank Nater	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	Hank Nater	note	Contact info: hanknater@gmail.com	page 1, the note at the foot of the page with no mark
+front	Hank Nater	language	Bella Coola	Nuxalk, Salish
+§1	Hank Nater	heading	1 Introduction	page 1
+§1	Hank Nater	note	In native Bella Coola, we find an amalgamation of populations from Stuie (1), Kwatna (2), the head of Dean Channel (3), the head of South Bentinck Arm (4), locations along North Bentinck Arm (5), the Bella Coola valley (between 1 and 5), the Dean River area (east-southeast of 3), Dean Channel (south-southwest of 3 and east of Ocean Falls), Kwatna River (east of 2), and South Bentinck Arm (north-northwest of 4) (numbers correspond with the ones in Figure 1). Denizens of this region spoke the Salish language we now call Bella Coola or Nuxalk.	page 1
+§1	Hank Nater	language	Nuxalk	Bella Coola
+§1	Hank Nater	language	Salish	the family
+Figure 1	Hank Nater	note	Figure 1: Bella Coola language region (based on bing.com/maps)	page 1, the caption
+§1	Hank Nater	note	In regard to physical, cultural, and linguistic traits of the Bella Coola people, Franz Boas (1898:26,122–126) saw a close affinity between Bella Coola and Coast Salish on the one hand, and between Bella Coola and North Wakashan on the other. But it was not until much later that areal properties of Bella Coola lexicon as such were addressed in detail, i.e., when Stanley Newman (1973) deliberated the North Wakashan origin of a portion of Bella Coola vocabulary. In 1974, I presented my first account of lexical similarities between Bella Coola and Heiltsuk (Bella Bella), and in 1994, 2010, and 2013, I expanded and adjusted Newman’s findings, and cited unique links that indicate southern maritime origins of the Bella Coola (see Section 4.3 for details). Evidence for one such origin is given by Boas himself, who refers to an oral tradition that mentions the location of Naws (Bute Inlet, 226 km south of Bella Coola):	page 2
+§1	Bella Coola	cited form	Naws	page 2, in italics
+§1	Hank Nater	name	Franz Boas	The Mythology of the Bella Coola Indians (1898), Salishan Texts (1895)
+§1	Hank Nater	name	Stanley Newman	the North Wakashan origin of Bella Coola vocabulary (1973)
+§1	Hank Nater	language	North Wakashan	Wakashan, the other source of Bella Coola copies
+§1	Hank Nater	language	Coast Salish	Salish
+§1	Hank Nater	language	Heiltsuk	North Wakashan
+§1	Hank Nater	note	… the Sun created a number of men whom he sent down … Another	page 2
+§1	Hank Nater	note	group of men was sent down to Bute Inlet, and later on migrated to Bella	page 2
+§1	Hank Nater	note	Coola River. (Boas 1898:50)	page 2
+§1	Hank Nater	note	Anoxemaʹaxōts, SpānpaLtnaiʹx∙, Ōʹ’meaLk∙as, Ōʹ’meaLmai, and	page 2
+§1	Hank Nater	note	NanaʹtskuiL were sent down to Naʹus. They desired to move to Nuxaʹlk∙!,	page 2
+§1	Hank Nater	note	and travelled overland until they reached the mountain Nusq!Eʹlst, where	page 2
+§1	Hank Nater	note	they found stones for making axes. (Boas 1898:70) This myth may be based on one or more of a number of events: slaves escaping or being liberated, feuding and warfare, banishment, emergency evacuations (fires, earthquakes, tsunamis), etc. As for the five individuals mentioned by Boas, the names Ōʹ’meaLk∙as, Ōʹ’meaLmai, and NanaʹtskuiL are not analyzable within Bella Coola, and look North Wakashan: cf. Kwakwala √ʔwm ‘mortal, ordinary’ (- ił-kas and -ił-may, both also originally North Wakashan, recur in the names Kaniłkas and Kaniłmay) and Heiltsuk nánáskʷm̩ala ‘to hang over one’s face (said of hair)’ (Lincoln & Rath 1980). I recorded the name Naws myself in 1972 as referring to a place mentioned in a Sniniq’ myth. (But geographic and other particulars of Naws were ostensibly unknown to my Bella Coola language consultants.) Sniniq’ has a North Wakashan origin as well: cf. Oowekyala- Kwak’wala ʒunuq’ʷa ‘Sasquatch’ (√ʒuqʷ ‘to pucker lips’) (Lincoln & Rath 1980). In line with the overall North Wakashan aspects of these Naws myths (including the location of Bute Inlet), the place name Naws itself has a North Wakashan appearance: cf. Heiltsuk ’Náwís ‘name of Nowish Inlet on Roderick Island’ and/or Náwís ‘name of a place on Hunter Island’ (Rath 2010).	page 2
+§1	Kwakwala	cited form	√ʔwm	page 2, in italics, ‘mortal, ordinary’
+§1	Bella Coola	cited form	ił-kas	page 2, in italics
+§1	Bella Coola	cited form	-ił-may	page 2, in italics
+§1	Bella Coola	cited form	Kaniłkas	page 2, in italics
+§1	Bella Coola	cited form	Kaniłmay	page 2, in italics
+§1	Heiltsuk	cited form	nánáskʷm̩ala	page 2, in italics, ‘to hang over one’s face (said of hair)’
+§1	Bella Coola	cited form	Sniniq’	page 2, in italics
+§1	Kwak’wala	cited form	ʒunuq’ʷa	page 2, in italics, ‘Sasquatch’
+§1	Kwak’wala	cited form	√ʒuqʷ	page 2, in italics, ‘to pucker lips’
+§1	Bella Coola	cited form	Náwís	page 2, in italics, ‘name of a place on Hunter Island’
+§1	Hank Nater	name	Lincoln & Rath	Neville J. Lincoln and John Rath, North Wakashan roots (1980), Haisla (1986)
+§1	Hank Nater	name	Rath	John Rath, the Heiltsuk-English dictionary (2010) and personal communication
+§1	Hank Nater	language	Kwakwala	North Wakashan
+§1	Hank Nater	language	Kwak’wala	North Wakashan
+§1	Hank Nater	language	Oowekyala	North Wakashan
+§1	Hank Nater	note	My 1974–2013 records suggest that the Bella Coola (a pre-Coast Salish division, see Nater 2013) began, arriving from the south prior to and while settling in the area outlined in Figure 1, to interact with other populations in the following regions: southwest of the head of South Bentinck Arm (Ooweekeno: lexicon, loss of distinctive stress and schwa), west of Kwatna (Heiltsuk: lexicon), east of Stuie (Athabascan: lexicon, other phonological developments), and north of the head of Dean Channel (Haisla: lexicon). (For other scenarios, see Baker 1973:77–79.) But as far as northern contacts other than Haisla are concerned, I have to date seen little linguistic evidence of frequent interaction with speakers of Tsimshianic languages, even though some Tsimshianic villages were once located rather close to Bella Coola-speaking communities (e.g., the village of Sucł was separated from Kitlope by less than 80 km of grease trail). However, Boas writes that there are myth-related and cultural links with Tsimshianic:	page 2
+§1	Bella Coola	cited form	Sucł	page 3, in italics
+§1	Hank Nater	name	Baker	James W. E. Baker, Bella Coola prehistory (1973)
+§1	Hank Nater	language	Tsimshianic	the family the paper compares
+§1	Hank Nater	language	Ooweekeno	North Wakashan
+§1	Hank Nater	language	Haisla	North Wakashan
+§1	Hank Nater	language	Athabascan	Na-Dene
+§1	Hank Nater	note	It is very remarkable, that, besides the ancestors of the villages	page 3
+§1	Hank Nater	note	enumerated here, the Bella Coola state that the Sun created a number of	page 3
+§1	Hank Nater	note	men whom he sent down to a mountain on Skeena River, and that they	page 3
+§1	Hank Nater	note	became the ancestors of a part of the Tsimshian.1 (Boas 1898:50)	page 3
+footnote 1	Hank Nater	note	The Skeena is located – as the crow flies – 383 km north of Bella Coola.	page 3, footnote 1
+§1	Hank Nater	note	The prayers of the Bella Coola directed to SEnx or Tāʹata bear a	page 3
+§1	Hank Nater	note	remarkable resemblance to the prayers of the Tsimshian directed to	page 3
+§1	Hank Nater	note	Laxha, the sky. In both tribes we find the idea that when the Sun wipes	page 3
+§1	Hank Nater	note	his face it will be clear weather … (Boas 1898:126) Boas’ remarks call for a continued investigation into Bella Coola-Tsimshianic lexical resemblances. In the examination carried out in Section 2 below, I cite forms from proto-Tsimshianic (Tarpent 1997 and p.c.) and three surviving Tsimshianic variants (North Tsimshian (= Dunn’s Sm’algyax), Nisqaʔ, and Gitksan) where they are available. Tarpent (p.c.) places North Tsimshian and Sgüüχs (the latter is now extinct) within a Maritime Tsimshianic branch, and classes Nisqaʔ and Gitksan as Inland Tsimshianic, at the same time deeming Nisqaʔ and Sgüüχs more conservative than Gitksan and North Tsimshian.	page 3
+§1	Hank Nater	name	Tarpent	Marie-Lucie Tarpent, proto-Tsimshianic (1997) and personal communication
+§1	Hank Nater	name	Dunn	John A. Dunn, the Sm’algyax dictionary (1995)
+§1	Hank Nater	language	Nisqaʔ	Inland Tsimshianic
+§1	Hank Nater	language	Gitksan	Inland Tsimshianic
+§1	Hank Nater	language	North Tsimshian	Maritime Tsimshianic
+§1	Hank Nater	language	Sm’algyax	North Tsimshian, Dunn's name
+§1	Hank Nater	language	Sgüüχs	Maritime Tsimshianic, extinct
+§1	Hank Nater	note	In Section 3, I aim to show that Bella Coola vowel length has evolved via Tsimshianic pre-glottalization, and in Section 4, links between Bella Coola and Tsimshianic, between older Bella Coola and pre-Tsimshianic, and between pre- Bella Coola and other Penutian, are considered.	page 3
+§1	Hank Nater	language	Penutian	the stock Tsimshianic is placed in
+§2	Hank Nater	heading	2 Bella Coola-Tsimshianic similarities	page 3
+§2	Hank Nater	note	In Sections 2.1–2 below, I list Bella Coola morphemes that can be linked with Tsimshianic. In most cases, the copying direction appears to be either Tsimshianic → Bella Coola or Bella Coola ← substrate → Tsimshianic, but ten morphemes are also matched in Wakashan (with two in Quileute and one in Tlingit as well), while ‘rabbit’ is originally Tlingit-Eyak-Athabascan, and Tsimshianic ‘to sweep’ and ‘to crack’ may have a substrate or Salish origin. Where a resemblance may appear opaque, the common sequence is contained in curly brackets (entries 7, 20, 23).	page 3
+footnote 2	Hank Nater	note	CT = Coast Tsimshian = North Tsimshian, ST = South Tsimshian = Sgüüχs	page 4, footnote 2
+§2	Hank Nater	language	Quileute	Chimakuan
+§2	Hank Nater	language	Tlingit	Na-Dene
+§2	Hank Nater	note	The Bella Coola phonemes are:	page 3
+Figure 2 line 1	Hank Nater	note	p t c k q kʷ qʷ	page 4, a line of the figure as the text layer reads it
+Figure 2 line 2	Hank Nater	note	ʔ p’ t’ c’ ƛ’ k’ q’ k’ʷ q’ʷ	page 4, a line of the figure as the text layer reads it
+Figure 2 line 3	Hank Nater	note	s ł x χ xʷ χʷ h	page 4, a line of the figure as the text layer reads it
+Figure 2 line 4	Hank Nater	note	m n l y w	page 4, a line of the figure as the text layer reads it
+Figure 2 line 5	Hank Nater	note	m̩ n̩ l̩ i u a	page 4, a line of the figure as the text layer reads it
+Figure 2	Hank Nater	note	Figure 2: Bella Coola phoneme inventory	page 4, the caption
+§2	Hank Nater	note	Tarpent (1997:70) tentatively reconstructs the proto-Tsimshianic consonant inventory as follows:	page 4
+Figure 3 line 1	Hank Nater	note	*p *t *ts *k *kʷ *q *qʷ	page 4, a line of the figure as the text layer reads it
+Figure 3 line 2	Hank Nater	note	*p’ *t’ *ts’ *k’ *k’ʷ *q’ *q’ʷ	page 4, a line of the figure as the text layer reads it
+Figure 3 line 3	Hank Nater	note	*ł *s *x *χ *χʷ	page 4, a line of the figure as the text layer reads it
+Figure 3 line 4	Hank Nater	note	*m *n *l *y *w *h *hʷ	page 4, a line of the figure as the text layer reads it
+Figure 3 line 5	Hank Nater	note	*m’ *n’ *l’ *y’ *w’ *ʔ *ʔʷ	page 4, a line of the figure as the text layer reads it
+Figure 3	Hank Nater	note	Figure 3: Proto-Tsimshianic consonant inventory according to Tarpent (1997)	page 4, the caption
+§2	Hank Nater	note	Bella Coola χʷ corresponds with current Tsimshianic χ deriving from proto- Tsimshianic *χʷ (entries 1 and 11); current Tsimshianic [xʷ] varies freely with [χʷ] (entry 8); Bella Coola plain stop = Tsimshianic voiced stop:	page 4
+§2	Bella Coola	cited form	χʷ	page 4, in italics
+§2	Tsimshianic	cited form	χ	page 4, in italics
+§2	Hank Nater	note	The modern Tsimshianic languages have no labialized postvelar series	page 4
+§2	Hank Nater	note	(…), since labio-uvulars merged with uvulars. … CT has only X; others	page 4
+§2	Tsimshianic	cited form	X	page 4, in italics
+§2	Hank Nater	note	also have x, xw ~ Xw. CT and ST also have glides ü and ü’, central,	page 4
+§2	Tsimshianic	cited form	x	page 4, in italics
+§2	Tsimshianic	cited form	xw	page 4, in italics
+§2	Tsimshianic	cited form	Xw	page 4, in italics
+§2	Tsimshianic	cited form	ü	page 4, in italics
+§2	Hank Nater	note	unrounded counterparts of w and w’. Plain stops are usually	page 4
+§2	Tsimshianic	cited form	w	page 4, in italics
+§2	Hank Nater	note	allophonically voiced before vowels.2 (Tarpent 1997:70) The geo-linguistic setting of Tsimshianic is as shown in Figure 4 below (which shows a large portion of Bella Coola territory (in white) to the east of Heiltsuk). Sgüüχs was once spoken at Klemtu, which is located behind the letter u in the word Heiltsuk at the bottom of the map shown below.	page 4
+Figure 4	Hank Nater	note	Figure 4: Tsimshianic and neighboring languages (Peterson 2010:7)	page 5, the caption
+§2.1	Hank Nater	heading	2.1 Bella Coola–Tsimshianic common lexicon and bound morphemes	page 5
+§2.1	Hank Nater	note	In Nater 2013, I linked four Bella Coola words with North Wakashan or Salish rather than with Tsimshianic, while other connections with Tsimshianic also remained undetected. Thus, ʔaχʷ ‘not’ was believed to derive from older Salish *hawq, naχnχ ‘mallard duck’ was linked with Heiltsuk n(i)snáq, saaχʷan ‘tidal flats’ with Haisla sàɢʷan ‘grass’, and χaχaq’ ‘goose’ with Heiltsuk hńɢáq. These etymologies are revised here, and new ones are added.3, 4	page 5
+footnote 3	Hank Nater	note	Abbreviations used hereafter are: BC = Bella Coola, C = consonant, Ch = Upper Chehalis, Gi = Gitksan, F = FirstVoices, H = Hindle & Rigsby (1973), Ha = Haisla, He = Heiltsuk, K = Kuipers (2002), L = Lincoln & Rath (1980), N = Newman (1973), Ni = Nisqaʔ, NT = North Tsimshian (source: Dunn 1995), NW = North Wakashan, Oo = Oowekyala, P = Peterson (2010), PT = proto-Tsimshianic, R = Rath (2010), TEA = Tlingit-Eyak- Athabascan, tr. = transitive, Ts = Tsimshianic, V = vowel.	page 5, footnote 3
+footnote 3	Hank Nater	name	Hindle & Rigsby	Lonnie Hindle and Bruce Rigsby, the Gitksan dictionary (1973)
+footnote 3	Hank Nater	name	Peterson	Tyler R. G. Peterson, Gitksan modality (2010)
+footnote 4	Hank Nater	note	While prevocalic plain (allophonically voiced) stops are usually rendered as bV, dV, gV, etc. (Dunn 1995, FirstVoices, Hindle & Rigsby 1973, and in part Peterson 2010), I write phonemically, concurring with Tarpent (1997), pV, tV, kV, etc. in Sections 2.1 and 2.2 (where c equals Tarpent’s ts). However, there is a marginal plain vs. aspirated contrast in NT: taagan [tʰa∙ɢɑ́n] ‘planking’ vs. daaw [da∙w] ‘frozen’, puksk [pʰukskʰ] ‘spit’ vs. bu’il [búʔɪl] ‘warn’, kyooxt [cʰo∙χtʰ] ‘grass’ vs. gyoos [ɟo∙s] ‘algae’ (Dunn 1995).	page 5, footnote 4
+footnote 4	Tsimshianic	cited form	bV	page 5, in italics
+footnote 4	Tsimshianic	cited form	dV	page 5, in italics
+footnote 4	Tsimshianic	cited form	gV	page 5, in italics
+footnote 4	Tsimshianic	cited form	pV	page 5, in italics
+footnote 4	Tsimshianic	cited form	tV	page 5, in italics
+footnote 4	Tsimshianic	cited form	kV	page 5, in italics
+footnote 4	Tsimshianic	cited form	c	page 5, in italics
+footnote 4	Tsimshianic	cited form	ts	page 5, in italics
+footnote 4	North Tsimshian	cited form	taagan	page 5, in italics
+footnote 4	North Tsimshian	cited form	daaw	page 5, in italics
+footnote 4	North Tsimshian	cited form	puksk	page 5, in italics
+footnote 4	North Tsimshian	cited form	bu’il	page 5, in italics
+footnote 4	North Tsimshian	cited form	kyooxt	page 5, in italics
+footnote 4	North Tsimshian	cited form	gyoos	page 5, in italics
+§2.1	Bella Coola	cited form	ʔaχʷ	page 5, in italics, ‘not’
+§2.1	Salish	cited form	*hawq	page 5, in italics
+§2.1	Bella Coola	cited form	naχnχ	page 5, in italics, ‘mallard duck’
+§2.1	Heiltsuk	cited form	n(i)snáq	page 5, in italics
+§2.1	Bella Coola	cited form	saaχʷan	page 5, in italics, ‘tidal flats’
+§2.1	Haisla	cited form	sàɢʷan	page 5, in italics, ‘grass’
+§2.1	Bella Coola	cited form	χaχaq’	page 5, in italics, ‘goose’
+§2.1	Heiltsuk	cited form	hńɢáq	page 5, in italics
+(1)	Hank Nater	note	(1) BC ʔaχʷ, ʔaχ… ‘not’ (pre-predicative particle), ‘it is not (so), there is no …’ (verb stem) = Ni (F) ʔaχ- ‘not’ (pre-predicative prefix)	page 5, the entry
+(1)	Bella Coola	cited form	ʔaχʷ	page 5, entry 1, ‘not’
+(1)	Bella Coola	cited form	ʔaχ…	page 5, entry 1, ‘not’, ‘it is not (so), there is no …’
+(1)	Nisqaʔ	cited form	ʔaχ-	page 5, entry 1, ‘not’
+(1)	Hank Nater	note	Allomorphic ʔaχ is in BC found before ˽kʷ… and ˽k’ʷ…: ʔaχ˽kʷ ‘I heard that is not so’, ʔaχ˽kʷu ‘but that is not so’, ʔaχ˽k’ʷ ‘that is never so’. Ts origin: Tarpent (p.c.) relates ʔaχ- to ʔaq ‘not to be’.	page 6, a comment on entry 1
+(1)	Bella Coola	cited form	˽kʷ…	page 6, in italics
+(1)	Bella Coola	cited form	˽k’ʷ…	page 6, in italics
+(1)	Bella Coola	cited form	ʔaχ˽kʷ	page 6, in italics, ‘I heard that is not so’
+(1)	Bella Coola	cited form	ʔaχ˽kʷu	page 6, in italics, ‘but that is not so’
+(1)	Bella Coola	cited form	ʔaχ˽k’ʷ	page 6, in italics, ‘that is never so’
+(1)	Tsimshianic	cited form	ʔaq	page 6, in italics, ‘not to be’
+(2)	Hank Nater	note	(2) BC cap ‘bone’ = Ni (F, T:88) c’ip, Gi (H) sip, NT sayp	page 6, the entry
+(2)	Bella Coola	cited form	cap	page 6, entry 2, ‘bone’
+(2)	Nisqaʔ	cited form	c’ip	page 6, entry 2
+(2)	Gitksan	cited form	sip	page 6, entry 2
+(2)	North Tsimshian	cited form	sayp	page 6, entry 2
+(2)	Hank Nater	note	BC cap appears to be a hybrid of the different Ts forms.	page 6, a comment on entry 2
+(3)	Hank Nater	note	(3) BC muχʷmuχʷ-łt’-uł-ikan-ta ‘large earrings’ = Gi (H) & Ni (F) maχmuxʷ ‘earrings’, Gi (H) & Ni (F) muxʷ ‘ear(s)’	page 6, the entry
+(3)	Bella Coola	cited form	muχʷmuχʷ-łt’-uł-ikan-ta	page 6, entry 3, ‘large earrings’
+(3)	Gitksan	cited form	maχmuxʷ	page 6, entry 3, ‘earrings’
+(3)	Nisqaʔ	cited form	maχmuxʷ	page 6, entry 3, ‘earrings’
+(3)	Gitksan	cited form	muxʷ	page 6, entry 3, ‘ear(s)’
+(3)	Nisqaʔ	cited form	muxʷ	page 6, entry 3, ‘ear(s)’
+(3)	Hank Nater	note	The BC word is an unusual compound consisting of an unidentifiable noun + verb (‘?-attach with a hook’) followed by -uł-ikan-ta ‘bulky- ear-gadget’ (cf. entry 27). √muχʷmuχʷ certainly has been copied from Ts.	page 6, a comment on entry 3
+(3)	Bella Coola	cited form	-uł-ikan-ta	page 6, in italics, ‘bulky-ear-gadget’
+(3)	Bella Coola	cited form	√muχʷmuχʷ	page 6, in italics
+(4)	Hank Nater	note	(4) BC naχnχ ‘duck’ = Ni (F) naχnaaχ, Gi (H) naχnaaχt	page 6, the entry
+(4)	Bella Coola	cited form	naχnχ	page 6, entry 4, ‘duck’
+(4)	Nisqaʔ	cited form	naχnaaχ	page 6, entry 4
+(4)	Gitksan	cited form	naχnaaχt	page 6, entry 4
+(4)	Hank Nater	note	PT or substrate origin (and cf. Nootkan (Davidson 2002) na∙ḥt’ač).	page 6, a comment on entry 4
+(4)	Nootkan	cited form	na∙ḥt’ač	page 6, in italics
+(4)	Hank Nater	name	Davidson	Matthew Davidson, Nootkan grammar (2002)
+(4)	Hank Nater	language	Nootkan	South Wakashan
+(5)	Hank Nater	note	(5) BC √pakʷ ‘having been reached, joined, caught up with’ = Gi pakʷ ‘arrive pl.’ (H, P:32), Ni pakʷ ‘return pl.’ (F)	page 6, the entry
+(5)	Bella Coola	cited form	√pakʷ	page 6, entry 5, ‘having been reached, joined, caught up with’
+(5)	Gitksan	cited form	pakʷ	page 6, entry 5, ‘arrive pl.’
+(5)	Nisqaʔ	cited form	pakʷ	page 6, entry 5, ‘return pl.’
+(5)	Hank Nater	note	PT or substrate origin. The BC stem is found in pakʷ-nix reached- NC.TR ‘catch up with somebody’ and pakʷ-n-m̩axʷ reached-NC-RECP ‘arrive together’.	page 6, a comment on entry 5
+(5)	Bella Coola	cited form	pakʷ-nix	page 6, in italics
+(5)	Bella Coola	cited form	pakʷ-n-m̩axʷ	page 6, in italics
+(6)	Hank Nater	note	(6) BC qaaχ ‘salmonberry’, qaaχaaχ-łp ‘salmonberry bush (-łp)’ = NT qaχaaχ ‘berries in bloom’	page 6, the entry
+(6)	Bella Coola	cited form	qaaχ	page 6, entry 6, ‘salmonberry’
+(6)	Bella Coola	cited form	qaaχaaχ-łp	page 6, entry 6, ‘salmonberry bush (-łp)’
+(6)	North Tsimshian	cited form	qaχaaχ	page 6, entry 6, ‘berries in bloom’
+(6)	Bella Coola	cited form	-łp	page 6, in italics
+(6)	Hank Nater	note	Definitely NT origin. BC qaaχaaχ-łp is structurally close to NT qaχaaχ, which according to Tarpent (p.c.) may consist of qa- noun- forming prefix and *χaaχ = Ni χeeq ‘blossoms’ (= NT χéeχ ‘foam’, cf. entry 9).	page 6, a comment on entry 6
+(6)	Bella Coola	cited form	qa-	page 6, in italics
+(6)	Bella Coola	cited form	*χaaχ	page 6, in italics
+(6)	Nisqaʔ	cited form	χeeq	page 6, in italics, ‘blossoms’
+(6)	North Tsimshian	cited form	χéeχ	page 6, in italics, ‘foam’
+(7)	Hank Nater	note	(7) BC {qacq}ił ‘ant’ = NT {qasq}acaχ, Gi s{qansq}ocinχt (H), Ni (F) {q’asq’}ocinχ	page 6, the entry
+(7)	Bella Coola	cited form	{qacq}ił	page 6, entry 7, ‘ant’
+(7)	North Tsimshian	cited form	{qasq}acaχ	page 6, entry 7
+(7)	Gitksan	cited form	s{qansq}ocinχt	page 6, entry 7
+(7)	Nisqaʔ	cited form	{q’asq’}ocinχ	page 6, entry 7
+(7)	Hank Nater	note	The formal diversity within Ts suggests a PT origin (cf. entry 2 for glottalization in Ni). BC …ił is fossilized -ił ‘ring-shaped’, and qacq… may also be linked with qacχ ‘starfish’ (entry 23).	page 6, a comment on entry 7
+(7)	Bella Coola	cited form	…ił	page 6, in italics
+(7)	Bella Coola	cited form	-ił	page 6, in italics, ‘ring-shaped’
+(7)	Bella Coola	cited form	qacq…	page 6, in italics
+(7)	Bella Coola	cited form	qacχ	page 6, in italics, ‘starfish’
+(8)	Hank Nater	note	(8) BC saaχʷan ‘tidal flats’ = Gi (H) & Ni (F) saxʷ ‘mouth of a river’	page 6, the entry
+(8)	Bella Coola	cited form	saaχʷan	page 6, entry 8, ‘tidal flats’
+(8)	Gitksan	cited form	saxʷ	page 6, entry 8, ‘mouth of a river’
+(8)	Nisqaʔ	cited form	saxʷ	page 6, entry 8, ‘mouth of a river’
+(8)	Hank Nater	note	PT or substrate origin. For Ts [xʷ] ~ [χʷ], see comments after Figure 3. BC …an is fossilized -an (various glosses).	page 6, a comment on entry 8
+(8)	Bella Coola	cited form	…an	page 6, in italics
+(8)	Bella Coola	cited form	-an	page 6, in italics
+(9)	Hank Nater	note	(9) BC xʷiq’ ‘cow parsnip’ = Ni & Gi χeeq ‘sea foam, foamy white blossoms (e.g., those of cow parsnip or elder)’ (Tarpent, p.c.)	page 6, the entry
+(9)	Bella Coola	cited form	xʷiq’	page 6, entry 9, ‘cow parsnip’
+(9)	Nisqaʔ	cited form	χeeq	page 6, entry 9, ‘sea foam, foamy white blossoms (e.g., those of cow parsnip or elder)’
+(9)	Gitksan	cited form	χeeq	page 6, entry 9, ‘sea foam, foamy white blossoms (e.g., those of cow parsnip or elder)’
+(9)	Hank Nater	note	Here, Ts appears to have copied from BC, via *xʷeʔq ~ *χʷeʔq (for pre-glottalization see Section 3, while [xʷ ~ χʷ] alternation and unrounding is discussed by Tarpent under Figure 3). Cf. entry 6.	page 6, a comment on entry 9
+(9)	Bella Coola	cited form	*xʷeʔq	page 6, in italics
+(9)	Bella Coola	cited form	*χʷeʔq	page 6, in italics
+(10)	Hank Nater	note	(10) BC χaχaq’ ‘goose’ = NT haʔa, haʔq, haaʔq, Gi (H) & Ni (F) haq	page 7, the entry
+(10)	Bella Coola	cited form	χaχaq’	page 7, entry 10, ‘goose’
+(10)	North Tsimshian	cited form	haʔa	page 7, entry 10
+(10)	North Tsimshian	cited form	haʔq	page 7, entry 10
+(10)	North Tsimshian	cited form	haaʔq	page 7, entry 10
+(10)	Gitksan	cited form	haq	page 7, entry 10
+(10)	Nisqaʔ	cited form	haq	page 7, entry 10
+(10)	Hank Nater	note	PT or substrate origin. For BC q’ = NT ʔq see Section 3.	page 7, a comment on entry 10
+(10)	Bella Coola	cited form	q’	page 7, in italics
+(10)	North Tsimshian	cited form	ʔq	page 7, in italics
+(11)	Hank Nater	note	(11) χʷsan-im ‘gambling game’ = Gi (H), Ni (F), NT χsan ‘gamble’	page 7, the entry
+(11)	Bella Coola	cited form	χʷsan-im	page 7, entry 11, ‘gambling game’
+(11)	North Tsimshian	cited form	χsan	page 7, entry 11, ‘gamble’
+(11)	Hank Nater	note	PT, substrate, or BC (cf. Nater 2013, entry 557) origin. Regular unrounding of *χʷ in Ts. BC -im 3SG.PASS is found in a number of nouns denoting useful or enjoyable things: knix-im eat-3SG.PASS ‘food’, qaaχla-m-im drink-APPL-3SG.PASS ‘beverage’, nu-ʔakʷn-als- im inside-buy-space-3SG.PASS ‘store’.	page 7, a comment on entry 11
+(11)	Bella Coola	cited form	-im	page 7, in italics
+(11)	Bella Coola	cited form	knix-im	page 7, in italics
+(11)	Bella Coola	cited form	qaaχla-m-im	page 7, in italics
+(11)	Bella Coola	cited form	nu-ʔakʷn-als-im	page 7, in italics
+§2.1	Hank Nater	note	Below, I list a number of BC bound morphemes that have been copied from Ts: a deictic root, three enclitics, and four prefixes (two of which – as entry 17 – appear related).	page 7
+(12)	Hank Nater	note	(12) BC √ʔaw(a) ‘in area, nearby’ = Ni & Gi ʔawáʔ (Tarpent, p.c.)	page 7, the entry
+(12)	Bella Coola	cited form	√ʔaw(a)	page 7, entry 12, ‘in area, nearby’
+(12)	Nisqaʔ	cited form	ʔawáʔ	page 7, entry 12
+(12)	Gitksan	cited form	ʔawáʔ	page 7, entry 12
+(12)	Hank Nater	note	PT origin.	page 7, a comment on entry 12
+(13)	Hank Nater	note	(13) BC ʔit- ‘to speak the language of …’ = Ni (Tarpent, p.c.) ʔit-kʷ ‘to name’, ʔit-im- ‘to utter, call out’	page 7, the entry
+(13)	Bella Coola	cited form	ʔit-	page 7, entry 13, ‘to speak the language of …’
+(13)	Nisqaʔ	cited form	ʔit-kʷ	page 7, entry 13, ‘to name’
+(13)	Nisqaʔ	cited form	ʔit-im-	page 7, entry 13, ‘to utter, call out’
+(13)	Hank Nater	note	PT origin. Ni ʔit- is isolable as per Tarpent (p.c.).	page 7, a comment on entry 13
+(14)	Hank Nater	note	(14) BC ˽ma ‘maybe, possibly, likely’ = Gi & Ni (P:57-63) ˽ima	page 7, the entry
+(14)	Bella Coola	cited form	˽ma	page 7, entry 14, ‘maybe, possibly, likely’
+(14)	Gitksan	cited form	˽ima	page 7, entry 14
+(14)	Nisqaʔ	cited form	˽ima	page 7, entry 14
+(14)	Hank Nater	note	PT origin.	page 7, a comment on entry 14
+(15)	Hank Nater	note	(15) BC ˽mas ‘likely, inclined to’ = Gi (P:140) ˽ima˽s ‘might, must have …’	page 7, the entry
+(15)	Bella Coola	cited form	˽mas	page 7, entry 15, ‘likely, inclined to’
+(15)	Gitksan	cited form	˽ima˽s	page 7, entry 15, ‘might, must have …’
+(15)	Hank Nater	note	PT origin. Gi ˽ima˽s = ˽ima + ˽s (a noun determiner) (P:140). Unlike BC ˽ma and Gi ˽ima(˽s), BC ˽mas conveys, besides possibility/likelihood, an additional sense of frustration: cutnu˽mas ‘I knew you might say that, you always say that’, ʔaχʷ˽mas ʔixʔakʷkʷas ‘I don’t expect him to do any shopping, he never does the shopping’.	page 7, a comment on entry 15
+(15)	Gitksan	cited form	˽s	page 7, in italics
+(15)	Gitksan	cited form	˽ima(˽s)	page 7, in italics
+(15)	Bella Coola	cited form	cutnu˽mas	page 7, in italics, ‘I knew you might say that, you always say that’
+(15)	Bella Coola	cited form	ʔaχʷ˽mas ʔixʔakʷkʷas	page 7, in italics, ‘I don’t expect him to do any shopping, he never does the shopping’
+(16)	Hank Nater	note	(16) BC sm- ‘from the very start, totally, truly’ = Ts s(i)m- ‘real, genuine’	page 7, the entry
+(16)	Bella Coola	cited form	sm-	page 7, entry 16, ‘from the very start, totally, truly’
+(16)	Tsimshianic	cited form	s(i)m-	page 7, entry 16, ‘real, genuine’
+(16)	Hank Nater	note	PT origin. BC sm- combines with verbo-nominal stems: sm-yalxs ‘he got better right away’, sm-ʔałʔatma ‘he was already dead’, sm̩-nm̩nm̩- uuc absolutely-obstructed-mouth ‘mute’. Tarpent (p.c.) disagrees, deeming BC and Ts sm- too dissimilar semantically to be related.	page 7, a comment on entry 16
+(16)	Bella Coola	cited form	sm-yalxs	page 7, in italics, ‘he got better right away’
+(16)	Bella Coola	cited form	sm-ʔałʔatma	page 7, in italics, ‘he was already dead’
+(16)	Bella Coola	cited form	sm̩-nm̩nm̩-uuc	page 7, in italics
+(17)	Hank Nater	note	(17) BC sta(m)- ‘beside, together with’, sti- ‘asymmetrical, one-sided’ = Ts st… ‘companion, half of symmetrical items’ (Tarpent, p.c.)	page 7, the entry
+(17)	Bella Coola	cited form	sta(m)-	page 7, entry 17, ‘beside, together with’
+(17)	Bella Coola	cited form	sti-	page 7, entry 17, ‘asymmetrical, one-sided’
+(17)	Tsimshianic	cited form	st…	page 7, entry 17, ‘companion, half of symmetrical items’
+(17)	Hank Nater	note	PT origin. Tarpent states that st… is “common in some Northern Penutian with ‘dual’ meaning.”	page 7, a comment on entry 17
+(18)	Hank Nater	note	(18) BC ˽ck, ˽cki ‘I assume that…, I’m almost sure it is …, it has to be …’ = Ni ski ‘circumstantial (weak) necessity’ (Matthewson 2013:380– 385)	page 8, the entry
+(18)	Bella Coola	cited form	˽ck	page 8, entry 18, ‘I assume that…, I’m almost sure it is …, it has to be …’
+(18)	Bella Coola	cited form	˽cki	page 8, entry 18, ‘I assume that…, I’m almost sure it is …, it has to be …’
+(18)	Nisqaʔ	cited form	ski	page 8, entry 18, ‘circumstantial (weak) necessity’
+(18)	Hank Nater	note	PT origin.	page 8, a comment on entry 18
+§2.2	Hank Nater	heading	2.2 Bella Coola-Tsimshianic-Other common lexicon and one prefix	page 8
+§2.2	Hank Nater	note	We will now examine multilateral resemblances. The direction in which material was copied is here not always easily determined. Did elements diffuse from language A to language B to language C, did they spread from A to B and C, did the shared element come from a substrate language X, etc.? Below, I posit copying directions where they appear to be implied by structural or other factors. Haisla data are from Lincoln & Rath 1986, Nootkan data from Davidson 2002, Quileute data from Powell & Woodruff 1976.	page 8
+§2.2	Hank Nater	name	Powell & Woodruff	J. V. Powell and Fred Woodruff, Sr., the Quileute dictionary (1976)
+(19)	Hank Nater	note	(19) BC hawhaw ‘mythical bird’ = NT hawhaw ‘fabulous monster’ = Oo hauhaukʷ ‘mythical bird’ (Rath, p.c.)	page 8, the entry
+(19)	Bella Coola	cited form	hawhaw	page 8, entry 19, ‘mythical bird’
+(19)	North Tsimshian	cited form	hawhaw	page 8, entry 19, ‘fabulous monster’
+(19)	Oowekyala	cited form	hauhaukʷ	page 8, entry 19, ‘mythical bird’
+(19)	Hank Nater	note	Oo hauhaukʷ is derived from √hwkʷ (L). Oo → BC → NT.	page 8, a comment on entry 19
+(19)	Oowekyala	cited form	√hwkʷ	page 8, in italics
+(20)	Hank Nater	note	(20) BC c’ik’ʷic’ sea urchin’ = Ni (F) c’ik’ʷic’, NT cükʷiic = He (R) c’k’ʷíc’, c’k’ʷísa = Quileute {ci~ckʷ}ókʷaʔ (and cf. Nootkan √k’ʷič ‘spiny’)	page 8, the entry
+(20)	Bella Coola	cited form	c’ik’ʷic’	page 8, entry 20, ‘sea urchin’
+(20)	Nisqaʔ	cited form	c’ik’ʷic’	page 8, entry 20
+(20)	North Tsimshian	cited form	cükʷiic	page 8, entry 20
+(20)	Heiltsuk	cited form	c’k’ʷíc’	page 8, entry 20
+(20)	Heiltsuk	cited form	c’k’ʷísa	page 8, entry 20
+(20)	Quileute	cited form	{ci~ckʷ}ókʷaʔ	page 8, entry 20
+(20)	Nootkan	cited form	√k’ʷič	page 8, entry 20, ‘spiny’
+(20)	Hank Nater	note	A widely diffused term. Either originally NW (from where it would have diffused to Ts, BC, and Quileute) or of substrate origin.	page 8, a comment on entry 20
+(21)	Hank Nater	note	(21) BC łaq’s ‘seaweed’ = Gi (H) łaq’asxʷ, Ni (F) łaq’askʷ, NT łaʔask = Ha łaq’s, łaq’sg (NW (L) √łq) = Tlingit łaaq’ásk (Edwards 2009)	page 8, the entry
+(21)	Bella Coola	cited form	łaq’s	page 8, entry 21, ‘seaweed’
+(21)	Gitksan	cited form	łaq’asxʷ	page 8, entry 21
+(21)	Nisqaʔ	cited form	łaq’askʷ	page 8, entry 21
+(21)	North Tsimshian	cited form	łaʔask	page 8, entry 21
+(21)	Haisla	cited form	łaq’s	page 8, entry 21
+(21)	Haisla	cited form	łaq’sg	page 8, entry 21
+(21)	Tlingit	cited form	łaaq’ásk	page 8, entry 21
+(21)	North Wakashan	cited form	√łq	page 8, entry 21
+(21)	Hank Nater	note	łaq’(a)s has likely been copied from Ts to NW and Tlingit, and from Ha to BC: Tarpent (p.c.) posits PT *łaq-ʔ[a]s-kʷ = √łaq- ANTIP+epenthetic [a]-formative suffix.	page 8, a comment on entry 21
+(21)	Bella Coola	cited form	łaq’(a)s	page 8, in italics
+(21)	proto-Tsimshianic	cited form	*łaq-ʔ[a]s-kʷ	page 8, in italics
+(21)	proto-Tsimshianic	cited form	√łaq-	page 8, in italics
+(22)	Hank Nater	note	(22) BC plχani ‘abalone’ = NT pilhaa, Gi (H) & Ni (F) pilaa = Ha plχʔà	page 8, the entry
+(22)	Bella Coola	cited form	plχani	page 8, entry 22, ‘abalone’
+(22)	North Tsimshian	cited form	pilhaa	page 8, entry 22
+(22)	Gitksan	cited form	pilaa	page 8, entry 22
+(22)	Nisqaʔ	cited form	pilaa	page 8, entry 22
+(22)	Haisla	cited form	plχʔà	page 8, entry 22
+(22)	Hank Nater	note	Either of substrate origin, or copied from Ha to Ts and BC. Formative suffix -ani added in BC.	page 8, a comment on entry 22
+(22)	Bella Coola	cited form	-ani	page 8, in italics
+(23)	Hank Nater	note	(23) BC qacχ ‘starfish’ = Gi (H) {qasq}aac = Oo (R) ɢacχ (NW (L) √ɢaʒ/c/s) = Quileute {qasq}ayap = Nootkan {qasq}eyap	page 8, the entry
+(23)	Bella Coola	cited form	qacχ	page 8, entry 23, ‘starfish’
+(23)	Gitksan	cited form	{qasq}aac	page 8, entry 23
+(23)	Oowekyala	cited form	ɢacχ	page 8, entry 23
+(23)	Quileute	cited form	{qasq}ayap	page 8, entry 23
+(23)	Nootkan	cited form	{qasq}eyap	page 8, entry 23
+(23)	North Wakashan	cited form	√ɢaʒ/c/s	page 8, entry 23
+(23)	Hank Nater	note	Like entry 20, a wide-spread term that originated either in a substrate language or in NW (from where it would have been copied into Ts, BC, and Quileute).	page 8, a comment on entry 23
+(24)	Hank Nater	note	(24) BC qaχ ‘rabbit’ = Gi (H) & Ni (F) qaχ = TEA *ɢaχ, *ɢəχ (N:210, Nater 1994:182) = Oo qaaχ (L)	page 8, the entry
+(24)	Bella Coola	cited form	qaχ	page 8, entry 24, ‘rabbit’
+(24)	Gitksan	cited form	qaχ	page 8, entry 24
+(24)	Nisqaʔ	cited form	qaχ	page 8, entry 24
+(24)	Tlingit-Eyak-Athabascan	cited form	*ɢaχ	page 8, entry 24
+(24)	Tlingit-Eyak-Athabascan	cited form	*ɢəχ	page 8, entry 24
+(24)	Oowekyala	cited form	qaaχ	page 8, entry 24
+(24)	Hank Nater	note	Diffused from TEA to Tsimshianic and BC, and from BC to Oo.	page 8, a comment on entry 24
+(25)	Hank Nater	note	(25) BC qayt ‘hat’ = Gi (H) & Ni (F) qayt, NT qaayt ‘billed hat’ = NW (R) √qyt ‘to surround, encircle (like ring a finger, hat a skull)’	page 8, the entry
+(25)	Bella Coola	cited form	qayt	page 8, entry 25, ‘hat’
+(25)	Gitksan	cited form	qayt	page 8, entry 25
+(25)	Nisqaʔ	cited form	qayt	page 8, entry 25
+(25)	North Tsimshian	cited form	qaayt	page 8, entry 25, ‘billed hat’
+(25)	North Wakashan	cited form	√qyt	page 8, entry 25, ‘to surround, encircle (like ring a finger, hat a skull)’
+(25)	Hank Nater	note	Does NW √qyt underlie the BC and Ts forms, or is it a back- formation of a substrate term?	page 9, a comment on entry 25
+(26)	Hank Nater	note	(26) BC q’pst (tr.) ‘to taste’ = NW (L) √p’q = NT paq, Gi (H) paq ‘try, feel’, Ni (F) paq ‘feel, try, taste’	page 9, the entry
+(26)	Bella Coola	cited form	q’pst	page 9, entry 26, ‘to taste’
+(26)	North Wakashan	cited form	√p’q	page 9, entry 26
+(26)	North Tsimshian	cited form	paq	page 9, entry 26
+(26)	Gitksan	cited form	paq	page 9, entry 26, ‘try, feel’
+(26)	Nisqaʔ	cited form	paq	page 9, entry 26, ‘feel, try, taste’
+(26)	Hank Nater	note	The BC form (← *q’əp-st) contains fossilized -st (TR or CAUS). Either originally NW or a substrate word. The Ts words deviate in terms of semantic range and absence of glottalization.	page 9, a comment on entry 26
+(26)	Bella Coola	cited form	*q’əp-st	page 9, in italics
+(26)	Bella Coola	cited form	-st	page 9, in italics
+(27)	Hank Nater	note	(27) BC q’ʷumsxiwa ‘whiteman, European’ = Ni q’amksiiwaa (Tarpent, p.c.) = He q’ʷḿ̩̩xsiwa, Ha q’ʷm̩̩̀ksiwa	page 9, the entry
+(27)	Bella Coola	cited form	q’ʷumsxiwa	page 9, entry 27, ‘whiteman, European’
+(27)	Nisqaʔ	cited form	q’amksiiwaa	page 9, entry 27
+(27)	Heiltsuk	cited form	q’ʷḿ̩̩xsiwa	page 9, entry 27
+(27)	Haisla	cited form	q’ʷm̩̩̀ksiwa	page 9, entry 27
+(27)	Hank Nater	note	BC q’ʷumsxiwa is analyzable as q’ʷum-sx-iwa “high-bad-similative” (√q’ʷum (uniquely combined with another adjective, cf. entry 3), is originally NW (L)); copying sequence is likely NW ← BC → Ts.	page 9, a comment on entry 27
+(27)	Bella Coola	cited form	q’ʷum-sx-iwa	page 9, in italics
+(27)	Bella Coola	cited form	√q’ʷum	page 9, in italics
+(28)	Hank Nater	note	(28) BC sq’ (tr.) ‘to cut open’ = Gi (H) saq’ ‘to split’, Ni (F) saq’ ‘to crack’, NT saʔqt ‘be split’ = proto-Salish (K) *səq’ ‘split, crack’	page 9, the entry
+(28)	Bella Coola	cited form	sq’	page 9, entry 28, ‘to cut open’
+(28)	Gitksan	cited form	saq’	page 9, entry 28, ‘to split’
+(28)	Nisqaʔ	cited form	saq’	page 9, entry 28, ‘to crack’
+(28)	North Tsimshian	cited form	saʔqt	page 9, entry 28, ‘be split’
+(28)	proto-Salish	cited form	*səq’	page 9, entry 28, ‘split, crack’
+(28)	Hank Nater	note	Salish or substrate origin.	page 9, a comment on entry 28
+(29)	Hank Nater	note	(29) BC tχ- ‘geographic location’ (a rare prefix) = He (Rath, p.c.) tχ˽…, tχ˽a˽s … ‘the geographical place of …’ = NT tχa- ‘locative’, Ni (F) tχas- ‘all along a place’	page 9, the entry
+(29)	Bella Coola	cited form	tχ-	page 9, entry 29, ‘geographic location’
+(29)	Heiltsuk	cited form	tχ˽…	page 9, entry 29, ‘the geographical place of …’
+(29)	Heiltsuk	cited form	tχ˽a˽s …	page 9, entry 29, ‘the geographical place of …’
+(29)	North Tsimshian	cited form	tχa-	page 9, entry 29, ‘locative’
+(29)	Nisqaʔ	cited form	tχas-	page 9, entry 29, ‘all along a place’
+(29)	Hank Nater	note	The BC and Ts prefixes have likely been copied from NW (where it is more productive than both BC tχ- and Ts tχas-). Rath (p.c.) states “The HE/OO use of {tχ-} as a proclitic before a place name is compulsory whenever that name is not being used as the predicate of a sentence.”	page 9, a comment on entry 29
+(30)	Hank Nater	note	(30) BC t’q (tr.) ‘to spread out, paste to surface’ = PT (Tarpent 1997:98) *t’Aq ‘flattening, especially by applying pressure’ = NW (L) √t’aq ‘scatter, spread’ = proto-Interior Salish *t’əq (K) ‘to put down, pile soft material’	page 9, the entry
+(30)	Bella Coola	cited form	t’q	page 9, entry 30, ‘to spread out, paste to surface’
+(30)	proto-Tsimshianic	cited form	*t’Aq	page 9, entry 30, ‘flattening, especially by applying pressure’
+(30)	North Wakashan	cited form	√t’aq	page 9, entry 30, ‘scatter, spread’
+(30)	proto-Interior Salish	cited form	*t’əq	page 9, entry 30, ‘to put down, pile soft material’
+(30)	Hank Nater	note	Substrate origin.	page 9, a comment on entry 30
+(31)	Hank Nater	note	(31) BC t’xʷ (tr.) ‘to sweep, brush’ = proto-Coast Salish (K) *t’əxʷ = Gi (H) & Ni (F) t’axʷ	page 9, the entry
+(31)	Bella Coola	cited form	t’xʷ	page 9, entry 31, ‘to sweep, brush’
+(31)	proto-Coast Salish	cited form	*t’əxʷ	page 9, entry 31
+(31)	Gitksan	cited form	t’axʷ	page 9, entry 31
+(31)	Nisqaʔ	cited form	t’axʷ	page 9, entry 31
+(31)	Hank Nater	note	Salish or substrate origin.	page 9, a comment on entry 31
+§3	Hank Nater	heading	3 Bella Coola vowel length from Tsimshianic pre-glottalization	page 9
+§3	Hank Nater	note	Bella Coola has, unlike most (if not all) other Salish, distinctive vowel and syllabic sonorant length (doubling, see Nater 1984:15): qaχ ‘rabbit’ vs. qaaχ ‘salmonberries’, ʔiχʷ ‘far’ vs. ʔiiχʷ ‘to burn’, puχ ‘to stir, poke’ vs. puuχ ‘moldy’, mnmnta ‘path’ vs. mnmnnta ‘stairway’, tltlkʷ ‘slippery’ vs. tltllkʷ ‘pill’. In Nater (1994), I ascribed this contrast to older Athabascan influence, but an allophonic- distributional trait of Tsimshianic indicates that it is more plausibly the result of diffusion from Tsimshianic, for which see below. My hypothesis about a Tsimshianic → Bella Coola copying direction is in part based on an apparent correlation between Tsimshianic pre-glottalization and distinctive vowel/sonorant length in Bella Coola. Regarding pre-glottalization, note that in Tsimshianic, [C’V…] appears to be in complementary distribution with […VʔC#], as observed in some Nisqaʔ and Gitksan FirstVoices sound clips, and as reflected in Dunn’s (1995) orthography of North Tsimshian:5	page 9
+footnote 5	Hank Nater	note	In re Nisqaʔ and Gitksan phonetic details, Tarpent (p.c.) disagrees insofar as she appears to perceive /VC’#/ as [VʔC’#] rather than [VʔC#]. However, my findings are unequivocally confirmed by Rigsby & Ingram (1987), who state: In Rigsby’s earlier work, he derived all the preglottalized allophones by a rule that segmentalizes the preconsonantal and the final glottalized obstruents into /ʔ/ followed by the relevant homorganic plain voiceless stop or affricate. The latter segment in final position then undergoes the aspiration rule as formulated in Rule 2 above. (Rigsby & Ingram 1987:11) (The “earlier work” must be Rigsby 1967, where […VʔC#] is considered on pp. 11–12).	page 10, footnote 5
+footnote 5	Hank Nater	name	Rigsby & Ingram	Bruce Rigsby and John Ingram, Gitksan obstruents (1987)
+§3	Bella Coola	cited form	ʔiχʷ	page 9, in italics, ‘far’
+§3	Bella Coola	cited form	ʔiiχʷ	page 9, in italics, ‘to burn’
+§3	Bella Coola	cited form	puχ	page 9, in italics, ‘to stir, poke’
+§3	Bella Coola	cited form	puuχ	page 9, in italics, ‘moldy’
+§3	Bella Coola	cited form	mnmnta	page 9, in italics, ‘path’
+§3	Bella Coola	cited form	mnmnnta	page 9, in italics, ‘stairway’
+§3	Bella Coola	cited form	tltlkʷ	page 9, in italics, ‘slippery’
+§3	Bella Coola	cited form	tltllkʷ	page 9, in italics, ‘pill’
+Figure 5 line 1	Hank Nater	note	Gloss Nisqaʔ (F) Gitksan (F, H) North Tsimshian	page 10, a line of the figure as the text layer reads it
+Figure 5 line 2	Hank Nater	note	‘ball’ łit’ [łɪʔt˺] łit’ [łɪʔtʰ] łaʔt [łaʔt]	page 10, a line of the figure as the text layer reads it
+Figure 5 line 2	Nisqaʔ	cited form	łit’	page 10, Figure 5, ‘ball’ [łɪʔt˺]
+Figure 5 line 2	Gitksan	cited form	łit’	page 10, Figure 5, ‘ball’ [łɪʔtʰ]
+Figure 5 line 2	North Tsimshian	cited form	łaʔt	page 10, Figure 5, ‘ball’ [łaʔt]
+Figure 5 line 3	Hank Nater	note	‘dress’ naq’ [naʔqᵡ] naq’ [naʔqᵡ] naaʔq [na∙ʔq]	page 10, a line of the figure as the text layer reads it
+Figure 5 line 3	Nisqaʔ	cited form	naq’	page 10, Figure 5, ‘dress’ [naʔqᵡ]
+Figure 5 line 3	Gitksan	cited form	naq’	page 10, Figure 5, ‘dress’ [naʔqᵡ]
+Figure 5 line 3	North Tsimshian	cited form	naaʔq	page 10, Figure 5, ‘dress’ [na∙ʔq]
+Figure 5 line 4	Hank Nater	note	‘sockeye’ kiƛ’ [ɟɪʔtł] kiƛ’ (not in F) kiʔƛ [ɟɪʔtł]	page 10, a line of the figure as the text layer reads it
+Figure 5 line 4	Nisqaʔ	cited form	kiƛ’	page 10, Figure 5, ‘sockeye’ [ɟɪʔtł]
+Figure 5 line 4	Gitksan	cited form	kiƛ’	page 10, Figure 5, ‘sockeye’ (not in F)
+Figure 5 line 4	North Tsimshian	cited form	kiʔƛ	page 10, Figure 5, ‘sockeye’ [ɟɪʔtł]
+Figure 5	Hank Nater	note	Figure 5: Pre-glottalized syllable-final stops in Tsimshianic	page 10, the caption
+§3	Hank Nater	note	This distributional feature appears to have diffused to Bella Coola, likely via speakers of Tsimshianic, who – prior to acquiring full fluency in Bella Coola – would have been prone to replace Bella Coola word-final VC’# with VʔC#. Such a trend, then, would result in a, however short-lived and limited, VC’ → VʔC phonemic shift. This shift would eventually give rise to the emergence of (I) distinctive vowel length in Bella Coola lexicon (including two suffixes) and (II) VC’# ~ V∙C# allomorphy in a few verb stems and suffixes. The allomorphs of two of the latter suffixes (‘skin’, ‘eye’) are now distributed randomly throughout the lexicon, while *-aq’ ‘food’ and *-iq’ʷ ‘head’ are fossilized (non-productive). (I) VC’ → VʔC and VʔC → V∙C √wiiχ ‘to pry open’ (← *wiʔq ← **wiq’); paaχʷu ‘to be afraid’ (← *paʔqʷu ← **p’aq’ʷu); q’aat ‘small baited hook’ (← *q’aʔt ← **q’at’); -aliixc ‘tongue’ (← *-al-ixʷc ~ *-al-iʔxʷc); -aaχla ‘berries, juice, liquid’ (← *-aʔ-qla, cf. qla ‘water’, qaa-χla ‘to drink’) (II) VC’ ~ V∙C xʷuk’ ~ √xʷuuk ‘to bathe’; kic’ ~ √kiic ‘to wring’; √łuk’ ~ √łuuk ‘disinclined’; sq’ʷ ~ √siiqʷ ‘to fly’; tiq’ ~ √tiiq ‘to sew, stitch’; -lic’ ~ -liic ‘bark, skin’; -aq’ʷs ~ -aaqʷs ‘eye’; *-aq’ ~ -aaχ ‘food’ (*-aq’ is found only in sl-aq’-k ‘sliced smoked salmon’ and sl-aq’-nk ‘smoked fish tail’ (sl ‘to cut, slice’, -k = -ik ‘flat top surface’, -nk ‘tail’)); *-iq’ʷ ~ -iiχʷ ‘head’ (*-iq’ʷ occurs only in q’ʷumn-iq’ʷ ‘skull’)	page 10
+§3	Bella Coola	cited form	-aq’	page 10, in italics, ‘food’
+§3	Bella Coola	cited form	-iq’ʷ	page 10, in italics, ‘head’
+§3	Bella Coola	cited form	√wiiχ	page 10, in italics, ‘to pry open’
+§3	Bella Coola	cited form	*wiʔq	page 10, in italics
+§3	Bella Coola	cited form	**wiq’	page 10, in italics
+§3	Bella Coola	cited form	paaχʷu	page 10, in italics, ‘to be afraid’
+§3	Bella Coola	cited form	*paʔqʷu	page 10, in italics
+§3	Bella Coola	cited form	*p’aq’ʷu	page 10, in italics
+§3	Bella Coola	cited form	q’aat	page 10, in italics, ‘small baited hook’
+§3	Bella Coola	cited form	*q’aʔt	page 10, in italics
+§3	Bella Coola	cited form	**q’at’	page 10, in italics
+§3	Bella Coola	cited form	-aliixc	page 10, in italics, ‘tongue’
+§3	Bella Coola	cited form	*-al-ixʷc	page 10, in italics
+§3	Bella Coola	cited form	*-al-iʔxʷc	page 10, in italics
+§3	Bella Coola	cited form	-aaχla	page 10, in italics, ‘berries, juice, liquid’
+§3	Bella Coola	cited form	*-aʔ-qla	page 10, in italics
+§3	Bella Coola	cited form	qla	page 10, in italics, ‘water’
+§3	Bella Coola	cited form	qaa-χla	page 10, in italics, ‘to drink’
+§3	Bella Coola	cited form	xʷuk’	page 10, in italics
+§3	Bella Coola	cited form	√xʷuuk	page 10, in italics, ‘to bathe’
+§3	Bella Coola	cited form	kic’	page 10, in italics
+§3	Bella Coola	cited form	√kiic	page 10, in italics, ‘to wring’
+§3	Bella Coola	cited form	√łuk’	page 10, in italics
+§3	Bella Coola	cited form	√łuuk	page 10, in italics, ‘disinclined’
+§3	Bella Coola	cited form	sq’ʷ	page 10, in italics
+§3	Bella Coola	cited form	√siiqʷ	page 10, in italics, ‘to fly’
+§3	Bella Coola	cited form	tiq’	page 10, in italics
+§3	Bella Coola	cited form	√tiiq	page 10, in italics, ‘to sew, stitch’
+§3	Bella Coola	cited form	-lic’	page 10, in italics
+§3	Bella Coola	cited form	-liic	page 10, in italics, ‘bark, skin’
+§3	Bella Coola	cited form	-aq’ʷs	page 10, in italics
+§3	Bella Coola	cited form	-aaqʷs	page 10, in italics, ‘eye’
+§3	Bella Coola	cited form	-aaχ	page 10, in italics, ‘food’
+§3	Bella Coola	cited form	sl-aq’-k	page 10, in italics, ‘sliced smoked salmon’
+§3	Bella Coola	cited form	sl-aq’-nk	page 11, in italics, ‘smoked fish tail’
+§3	Bella Coola	cited form	sl	page 11, in italics, ‘to cut, slice’
+§3	Bella Coola	cited form	-k	page 11, in italics
+§3	Bella Coola	cited form	-ik	page 11, in italics, ‘flat top surface’
+§3	Bella Coola	cited form	-nk	page 11, in italics, ‘tail’
+§3	Bella Coola	cited form	-iiχʷ	page 11, in italics, ‘head’
+§3	Bella Coola	cited form	q’ʷumn-iq’ʷ	page 11, in italics, ‘skull’
+§4	Hank Nater	heading	4 Interaction through time: Tsimshianic, pre-Tsimshianic, Penutian	page 11
+§4	Hank Nater	note	The observations made above raise a few questions. Can one determine when Bella Coola groups began to interact with Tsimshianic people? How, and where, was contact first made? In the following sections, I posit an approximate time depth for Bella Coola-Tsimshianic relations, reflect on possible contacts with pre- Tsimshianic groups, and consider three Bella Coola–Penutian links.	page 11
+§4.1	Hank Nater	heading	4.1 Bella Coola and Tsimshianic	page 11
+§4.1	Hank Nater	note	If one accepts Swadesh’s 55 century units of divergence for Bella Coola and Coastal Salish (see Baker 1973:15), one might infer that interaction between Bella Coola and Tsimshianic may have started as early as 5500 BP, when proto-Bella Coola groups would have entered, and settled in, the area shown in Figure 1. But the century unit concept is notoriously flawed, and Swadesh did not take into consideration the substantial non-Salish lexical influence that must have accelerated the attrition of Salish vocabulary in Bella Coola (e.g., the entries ‘dog’, ‘horn’, ‘stone’ (North Wakashan), ‘not’, ‘bone’ (Tsimshianic), ‘tree’ (Athabascan), ‘hair’, ‘head’ (other) from his 100-word list). We should therefore hypothesize a shallower time depth, say, around 2000 BP. Note here that Suttles & Elmendorf (1963) prefer to think in terms of relative units: they agree with Swadesh on the number, but not the size, of units counted.	page 11
+§4.1	Hank Nater	name	Swadesh	Morris Swadesh, the century units of divergence
+§4.1	Hank Nater	name	Suttles & Elmendorf	W. Suttles and W. W. Elmendorf, Salish prehistory (1963)
+§4.2	Hank Nater	heading	4.2 Pre-Tsimshianic or other substrate presence in the Kwatna area	page 11
+§4.2	Hank Nater	note	Having considered the linguistic evidence for the comparative recentness of Salish migrations into the Bella Coola region, let us now contemplate pertinent archaeological records:	page 11
+§4.2	Hank Nater	note	An even earlier phase which is not found at FaSu 2 is manifest at four	page 11
+§4.2	Hank Nater	note	sites in the area. Carlson has named this earlier phase “Cathedral” and says:	page 11
+§4.2	Hank Nater	name	Carlson	Roy Carlson, the Cathedral phase at Kwatna
+§4.2	Hank Nater	note	The geological picture suggests that the sites of this phase	page 11
+§4.2	Hank Nater	note	belong in a period of time when sea level was lower than it is	page 11
+§4.2	Hank Nater	note	today, at least in the Kwatna locality … The site locations	page 11
+§4.2	Hank Nater	note	themselves are strongly indicative of a maritime coastal	page 11
+§4.2	Hank Nater	note	oriented culture with watercraft and utilization of sea resources	page 11
+§4.2	Hank Nater	note	(1972:43).	page 11
+§4.2	Hank Nater	note	The Cathedral phase material is described by Carlson as probably the	page 11
+§4.2	Hank Nater	note	earliest in the locality … One radiocarbon estimate from the type site at	page 11
+§4.2	Hank Nater	note	Cathedral Point yielded a date of approximately 300 B.C., but Carlson	page 11
+§4.2	Hank Nater	note	feels the Cathedral phase will eventually be shown to date between 4000–1000 B.C.6 (Baker 1973:62) A time depth of this magnitude, however, casts doubt on the presence of Bella Coola populations in the region so long ago. One might expect Bella Coola and other Salish languages – if they did separate 6000–3000 years ago – to have diverged a bit more than they actually have. As well, the links with Chimakuan, South Wakashan, and Chinookan mentioned earlier may imply a more recent origin, as do Hobler’s (1970) observations (italics mine):	page 12
+footnote 6	Hank Nater	note	Cathedral Point is a cape located at the confluence of Kwatna Inlet and Burke Channel about 12 km north-northwest of Kwatna.	page 12, footnote 6
+§4.2	Hank Nater	name	Hobler	Philip M. Hobler, the Bella Coola survey (1970)
+§4.2	Hank Nater	language	Chimakuan	the family
+§4.2	Hank Nater	language	South Wakashan	Wakashan
+§4.2	Hank Nater	language	Chinookan	the family
+§4.2	Hank Nater	language	Chinook	Chinookan
+§4.2	Hank Nater	note	Within the Bella Coola domain, four intensive use areas can be	page 12
+§4.2	Hank Nater	note	identified: the Bella Coola Valley, the Dean River at Kimsquit below the	page 12
+§4.2	Hank Nater	note	canyon, the Kwatna River, and the south end of South Bentinck Arm. …	page 12
+§4.2	Hank Nater	note	With the exception of the Kwatna sites, few artifacts were found by the	page 12
+§4.2	Hank Nater	note	survey. We did only surface collecting and no test excavations. On the	page 12
+§4.2	Hank Nater	note	basis of surface characteristics only five of the forty-eight surveyed sites	page 12
+§4.2	Hank Nater	note	are estimated to have any quantity of cultural material or depth of	page 12
+§4.2	Hank Nater	note	deposit. Taken as a whole, the sites do not give an impression of great	page 12
+§4.2	Hank Nater	note	time depth or of a large population. (Hobler 1970:85) Regarding the identity of these early Kwatna inhabitants, we should allow for the possibility that they were either pre-Tsimshianic Penutians or speakers of another substrate language alluded to in Sections 2.1 and 2.2. This population, then, may later have made contact with Salish groups travelling through and/or settling around Kwatna Inlet. The language spoken by the ancient Kwatna ethnos may be the source of e.g. Bella Coola χʷuχʷuci ‘yearling mountain goat’; this word resembles Tahltan xú∙ʒe ‘id.’ (a non-Athabascan word listed in my Tahltan field notes), but differs from ‘yearling mountain goat’ terms in all surrounding languages. (However, Oo xʷuxʷciʒa ‘mountain goat suet’ – now analyzable as √xʷw(xʷ)s ‘ball, airbag, lungs’ + -siʒ-a ‘foot, base’ (Rath 2010 and p.c.) – may, like Bella Coola χʷuχʷuci and Tahltan xú∙ʒe, also be based on substratal *xʷu(xʷ)ci ~ *χʷu(χʷ)ci.)	page 12
+§4.2	Bella Coola	cited form	χʷuχʷuci	page 12, in italics, ‘yearling mountain goat’
+§4.2	Tahltan	cited form	xú∙ʒe	page 12, in italics, ‘id.’
+§4.2	Oowekyala	cited form	xʷuxʷciʒa	page 12, in italics, ‘mountain goat suet’
+§4.2	Oowekyala	cited form	√xʷw(xʷ)s	page 12, in italics, ‘ball, airbag, lungs’
+§4.2	Oowekyala	cited form	-siʒ-a	page 12, in italics, ‘foot, base’
+§4.2	substrate	cited form	*xʷu(xʷ)ci	page 12, in italics
+§4.2	substrate	cited form	*χʷu(χʷ)ci	page 12, in italics
+§4.2	Hank Nater	language	Tahltan	Athabascan
+§4.3	Hank Nater	heading	4.3 Bella Coola and Penutian: beyond Tsimshianic	page 12
+§4.3	Hank Nater	note	There is a striking resemblance between Bella Coola and Coast Oregon Penutian reciprocal suffixes: this suggests that Penutian- and pre-Bella Coola Salish- speaking populations must once have been in close contact. In Figure 6 below, Penutian data are from Frachtenberg 1917:506 (Siuslaw) and Frachtenberg 1914:332 (Coos), Bella Coola data from Nater 1984:66, other Salish data from Kinkade 1989:29.	page 12
+§4.3	Hank Nater	name	Kinkade	M. Dale Kinkade, Upper Chehalis (1991), proto-Salish *-awalxʷ (1989), Alsea pronouns (2005)
+§4.3	Hank Nater	name	Frachtenberg	Leo J. Frachtenberg, Coos (1914) and Siuslawan (1917)
+§4.3	Hank Nater	language	Siuslaw	Coast Oregon Penutian
+§4.3	Hank Nater	language	Coos	Coast Oregon Penutian
+Figure 6 line 1	Hank Nater	note	Penutian Bella Coola Interior Salish Coast Salish	page 13, a line of the figure as the text layer reads it
+Figure 6 line 2	Hank Nater	note	Siuslaw -muxʷ/-muχʷ -maxʷ Kalispel -uwéxʷ Tillamook -əgʷl	page 13, a line of the figure as the text layer reads it
+Figure 6 line 2	Siuslaw	cited form	-muxʷ	page 13, in italics
+Figure 6 line 2	Siuslaw	cited form	-muχʷ	page 13, in italics
+Figure 6 line 2	Bella Coola	cited form	-maxʷ	page 13, in italics
+Figure 6 line 2	Kalispel	cited form	-uwéxʷ	page 13, in italics
+Figure 6 line 2	Tillamook	cited form	-əgʷl	page 13, in italics
+Figure 6 line 3	Hank Nater	note	Coos -mew Colville -nwáxʷ Squamish -way	page 13, a line of the figure as the text layer reads it
+Figure 6 line 3	Coos	cited form	-mew	page 13, in italics
+Figure 6 line 3	Colville	cited form	-nwáxʷ	page 13, in italics
+Figure 6 line 3	Squamish	cited form	-way	page 13, in italics
+Figure 6 line 4	Hank Nater	note	Spokane -wéʔxʷ Sechelt -áwəł	page 13, a line of the figure as the text layer reads it
+Figure 6 line 4	Spokane	cited form	-wéʔxʷ	page 13, in italics
+Figure 6 line 4	Sechelt	cited form	-áwəł	page 13, in italics
+Figure 6	Hank Nater	note	Figure 6: The reciprocal suffix in Coast Oregon Penutian and Salish	page 13, the caption
+§4.3	Hank Nater	note	As concerns Siuslaw -muxʷ/-muχʷ, note that Hymes (1966:338) states that in Siuslaw the /k(ʷ)/ series and /q(ʷ)/ series do not appear to be phonemically distinct. Note also that while the difference between Interior Salish and Coast Salish here seems considerable, Kinkade managed – taking Cowlitz -awlx and Quinault - tulalxʷ into account as well – to reconstruct proto-Salish *-awalxʷ, effectively uniting the Coast and Interior Salish forms. Bella Coola -maxʷ may be based on *-n-waxʷ (with transitivizing -n-, see Nater 1984:64) (via *-mwaxʷ, à la “sandwich” [sǽnwɪtʃ] → [sǽmɪtʃ]), cf. Colville -nwáxʷ.	page 13
+§4.3	Cowlitz	cited form	-awlx	page 13, in italics
+§4.3	Bella Coola	cited form	tulalxʷ	page 13, in italics
+§4.3	proto-Salish	cited form	-awalxʷ	page 13, in italics
+§4.3	Bella Coola	cited form	-n-waxʷ	page 13, in italics
+§4.3	Bella Coola	cited form	-n-	page 13, in italics
+§4.3	Bella Coola	cited form	-mwaxʷ	page 13, in italics
+§4.3	Hank Nater	name	Hymes	Dell Hymes, Siuslaw phonology (1966)
+§4.3	Hank Nater	language	Interior Salish	Salish
+§4.3	Hank Nater	language	Colville	Interior Salish
+§4.3	Hank Nater	language	Cowlitz	Tsamosan Salish
+§4.3	Hank Nater	language	Quinault	Tsamosan Salish
+§4.3	Hank Nater	note	It appears, then, that a pre-Bella Coola reciprocal suffix was here copied by Coos and Siuslaw, rather than the other way around. (Frachtenberg 1917:506 writes that -muxʷ/-muχʷ is less productive than -naw(a) RECP.) Note, in this respect, that Tarpent (p.c.) quotes Kinkade (2005) in re Alsea ← Salish pronominal suffix copying. Of these pronominal suffixes, Kinkade cites two that, conversely, appear to have been copied (with 2SG.SBJ → SG.IMP and DU → PL modifications) from Alsea-Siuslaw into pre-Bella Coola:	page 13
+§4.3	Bella Coola	cited form	-naw(a)	page 13, in italics
+§4.3	Hank Nater	language	Alsea	Coast Oregon Penutian
+Figure 7 line 1	Hank Nater	note	Bella Coola Alsea Siuslaw	page 13, a line of the figure as the text layer reads it
+Figure 7 line 2	Hank Nater	note	-χ SG.IMP -aχ 2SG.SBJ -nχ 2SG.SBJ	page 13, a line of the figure as the text layer reads it
+Figure 7 line 3	Hank Nater	note	-aw 3PL.SBJ -auχ 3DU.SBJ -awχ 3DU.SBJ	page 13, a line of the figure as the text layer reads it
+Figure 7	Hank Nater	note	Figure 7: Similar pronominal suffixes in Bella Coola and Alsea	page 13, the caption
+§4.3	Hank Nater	note	Reduction of Coast Oregon Penutian -awχ to -aw in pre-Bella Coola is likely due to …χ being construed and copied as IMP. However, -χ IMP was later added to -aw again to form *-aw-χ → -aχʷ PL.IMP (Nater 1984:37).7	page 13
+footnote 7	Hank Nater	note	For pronominally neutral -aw… PL.SBJ in general, see Nater (1984:113, 116, 130–131).	page 13, footnote 7
+footnote 7	Bella Coola	cited form	-aw…	page 13, in italics
+§4.3	Bella Coola	cited form	…χ	page 13, in italics
+§4.3	Coast Oregon Penutian	cited form	-awχ	page 13, in italics
+§4.3	Bella Coola	cited form	-aw-χ	page 13, in italics
+§4.3	Bella Coola	cited form	-aχʷ	page 13, in italics
+§4.3	Bella Coola	cited form	-χ	page 13, in italics
+§4.3	Bella Coola	cited form	-aw	page 13, in italics
+§4.3	Hank Nater	note	We can now confidently add -maxʷ, -χ, and -aw to the list of morphemes that Bella Coola has in common only with maritime languages spoken west of the Cascade Range:	page 13
+§4.3 (1)	Hank Nater	note	(1) BC x˽ ‘via’ (Nater 1984:50) = Ch š ‘to, into’ (Kinkade 1991:127)	page 13, the entry
+§4.3 (1)	Bella Coola	cited form	x˽	page 13, entry 1, ‘via’
+§4.3 (1)	Upper Chehalis	cited form	š	page 13, entry 1, ‘to, into’
+§4.3 (2)	Hank Nater	note	(2) BC -(s)t(u)- CAUS (Nater 1984:67) = Ch -(s)t(u)- (Kinkade 1991:371- 73)	page 13, the entry
+§4.3 (2)	Bella Coola	cited form	-(s)t(u)-	page 13, entry 2, CAUS
+§4.3 (2)	Upper Chehalis	cited form	-(s)t(u)-	page 13, entry 2
+§4.3 (3)	Hank Nater	note	(3) BC t’nχʷ (*t’əχʷ) ‘head’ = Quileute ʔó∙-t’iqʷ (Powell & Woodruff 1976) = Nootkan √t’uχ, √t’uḥʷ (Davidson 2002)	page 13, the entry
+§4.3 (3)	Bella Coola	cited form	t’nχʷ	page 13, entry 3, ‘head’
+§4.3 (3)	Bella Coola	cited form	*t’əχʷ	page 13, entry 3
+§4.3 (3)	Quileute	cited form	ʔó∙-t’iqʷ	page 13, entry 3
+§4.3 (3)	Nootkan	cited form	√t’uχ	page 13, entry 3
+§4.3 (3)	Nootkan	cited form	√t’uḥʷ	page 13, entry 3
+§4.3 (4)	Hank Nater	note	(4) BC mnłkʷa (*m-əłkʷ-ən) ‘hair’ = Quileute bołkʷ (*mołkʷ) (Powell & Woodruff 1976)	page 14, the entry
+§4.3 (4)	Bella Coola	cited form	mnłkʷa	page 14, entry 4, ‘hair’
+§4.3 (4)	Bella Coola	cited form	*m-əłkʷ-ən	page 14, entry 4
+§4.3 (4)	Quileute	cited form	bołkʷ	page 14, entry 4
+§4.3 (4)	Quileute	cited form	*mołkʷ	page 14, entry 4
+§4.3 (5)	Hank Nater	note	(5) BC k’awn ‘type of salmon’ = Chinook i-k’awan (Nater 2010)	page 14, the entry
+§4.3 (5)	Bella Coola	cited form	k’awn	page 14, entry 5, ‘type of salmon’
+§4.3 (5)	Chinook	cited form	i-k’awan	page 14, entry 5
+§4.3 (6)	Hank Nater	note	(6) BC -uks PL = Chinook -ukš (Nater 2010)	page 14, the entry
+§4.3 (6)	Bella Coola	cited form	-uks	page 14, entry 6, PL
+§4.3 (6)	Chinook	cited form	-ukš	page 14, entry 6
+§4.3 (7)	Hank Nater	note	(7) BC ʔaw ‘yes’ = Chinook aw (Nater 2010)	page 14, the entry
+§4.3 (7)	Bella Coola	cited form	ʔaw	page 14, entry 7, ‘yes’
+§4.3 (7)	Chinook	cited form	aw	page 14, entry 7
+§4.3 (8)	Hank Nater	note	(8) BC -maxʷ RECP = Coast Oregon Penutian -muxʷ/-muχʷ, -mew (this paper)	page 14, the entry
+§4.3 (8)	Bella Coola	cited form	-maxʷ	page 14, entry 8, RECP
+§4.3 (8)	Coast Oregon Penutian	cited form	-muxʷ/-muχʷ	page 14, entry 8
+§4.3 (8)	Coast Oregon Penutian	cited form	-mew	page 14, entry 8
+§4.3 (9)	Hank Nater	note	(9) BC -χ SG.IMP = Coast Oregon Penutian -aχ, -nχ 2SG.SBJ (this paper)	page 14, the entry
+§4.3 (9)	Bella Coola	cited form	-χ	page 14, entry 9, SG.IMP
+§4.3 (9)	Coast Oregon Penutian	cited form	-aχ	page 14, entry 9
+§4.3 (9)	Coast Oregon Penutian	cited form	-nχ	page 14, entry 9, 2SG.SBJ
+§4.3 (10)	Hank Nater	note	(10) BC -aw 3PL.SBJ = Coast Oregon Penutian -auχ, -awχ 3DU.SBJ (this paper)	page 14, the entry
+§4.3 (10)	Bella Coola	cited form	-aw	page 14, entry 10, 3PL.SBJ
+§4.3 (10)	Coast Oregon Penutian	cited form	-auχ	page 14, entry 10
+§4.3 (10)	Coast Oregon Penutian	cited form	-awχ	page 14, entry 10, 3DU.SBJ
+§4.3	Hank Nater	note	The pairs shown in 1–2 are obviously cognate, whereas the ones in 3–10 are the result of lexical copying between unrelated languages. Entries (1) and (2) (with …(u)…) are to my knowledge not attested as such in Salish other than Upper Chehalis and Bella Coola.	page 14
+§4.3	Hank Nater	language	Upper Chehalis	Tsamosan Salish
+§5	Hank Nater	heading	5 Summary	page 14
+§5	Hank Nater	note	In Sections 2–4 above, I considered Tsimshianic influence on Bella Coola and interaction around Kwatna and the Olympic peninsula, citing diverse evidence: archaeology (Baker 1973, Hobler 1970), oral traditions (Boas 1898), and etymologies (various sources). Below, I offer additional evidence and summarize my findings.	page 14
+§5	Hank Nater	note	Further to the southern pre-Bella Coola phase considered in Section 4.3, one notes that the significance of ancient migrations and trade patterns is as a rule overlooked, ignored, or underestimated. Thus, Kinkade (2005) found it difficult to reconcile similarities between Salish and Coast Oregon Penutian languages with the seemingly insurmountable distances separating these languages. Neither could he imagine how similarities between Penutian and Salish could have resulted from interaction with Tillamook, as this language would – in view of its deviant phoneme inventory – not appear to be a likely source for Penutian pronominal suffixes. In his own words (italics mine):	page 14
+§5	Hank Nater	language	Tillamook	Coast Salish
+§5	Hank Nater	note	If Alsea has borrowed from Salish, how did it get forms with p or m,	page 14
+§5	Alsea	cited form	p	page 14, in italics
+§5	Alsea	cited form	m	page 14, in italics
+§5	Hank Nater	note	which could not have come from Tillamook, Alsea’s only Salishan	page 14
+§5	Hank Nater	note	neighbor (unless the changes of *p to h and *m to w are recent changes	page 14
+§5	Hank Nater	note	in Tillamook)? Unless there have been major population shifts in the area,	page 14
+§5	Hank Nater	note	borrowing is possible, although problematic, given changes in Tillamook	page 14
+§5	Hank Nater	note	phonology and morphology. Intermarriage, slavery, or trade would not	page 14
+§5	Hank Nater	note	provide adequate sources for borrowing in either direction because of	page 15
+§5	Hank Nater	note	the distances involved. Contact between Alsea and non-Tillamook Salish	page 15
+§5	Hank Nater	note	must have been minimal. (Kinkade 2005:66–67) Yet, Alsea is located (between Chinookan and Takelma) within the ancient trade region shown below, and it is inconceivable that contact with Salish (incl. pre- Bella Coola and (pre-)Tillamook) would not have transpired. It is precisely this type of regular interaction that would motivate lexical and structural copying. (But contact between speakers of pre-Bella Coola and groups located in, and east of, the Cascade Range must have been rather infrequent, as there is a noticeable lack of lexical similarities between Bella Coola and e.g. Sahaptin (for the latter see Beavert & Hargus 2009).) And whereas Kinkade did allow for contact between Coast Oregon Penutian and Tillamook prior to the *p → h and *m → w shifts, his assumption that these shifts would have to have been completed recently is unwarranted, since Penutian–(pre-)Tillamook contact may have been established much earlier than surmised (see below for details).	page 15
+§5	Tillamook	cited form	h	page 15, in italics
+§5	Hank Nater	name	Beavert & Hargus	Virginia Beavert and Sharon Hargus, the Yakama Sahaptin dictionary (2009)
+§5	Hank Nater	language	Sahaptin	Sahaptian
+§5	Hank Nater	language	Takelma	Oregon Penutian
+Figure 8	Hank Nater	note	Figure 8: Traditional trade centers and networks (Walker 1997)	page 15, the caption
+§5	Hank Nater	note	On the scope and antiquity of this network, Walker (1997) states (italics mine):	page 15
+§5	Hank Nater	name	Walker	Deward E. Walker, Jr., the Yakama trade system (1997)
+§5	Hank Nater	note	Archaeological evidence suggests that the Plateau way of life has	page 15
+§5	Hank Nater	note	remained fundamentally the same for at least ten thousand years prior to	page 15
+§5	Hank Nater	note	the first Euroamerican influences of the eighteenth century … The	page 15
+§5	Hank Nater	note	Yakama were part of a prehistoric, protohistoric, and historic system of	page 15
+§5	Hank Nater	note	trade and exchange that linked them with other Plateau tribes as well as	page 15
+§5	Hank Nater	note	more distant tribes of the Northwest Coast, Plains, and Great Basin	page 15
+§5	Hank Nater	note	culture areas. Eventually, proto-Bella Coola parties began their northbound exodus out of the Olympic area. Contact was now made with Coast Salish and North Wakashan groups, as confirmed by certain terms that Bella Coola has in common only with Kwak’wala or with Kwak’wala and Coast Salish: łq ‘wet’ = Kwak’wala √ƛq ‘id.’, sχʷat ‘globe, bulb’ = Kwak’wala √χʷat ‘testicle’, sχiiłla ‘boastful song’ = Kwak’wala χiƛla ‘to shout’, k’ʷult ‘porpoise’ = Kwak’wala k’ulut’a ‘id.’ = Sechelt and Squamish k’ʷúnut’ ‘id.’, χʷs ‘to oil, grease’ = proto-Coast Salish *χʷəs ‘id.’ = Kwak’wala √χʷs ‘seal blubber’, cał ‘lake’ = proto-Coast Salish cal’ał ‘id.’ = Kwak’wala ʒl’ał ‘id.’ (Kuipers 2002, Lincoln & Rath 1980, Nater 2013). Continuing their voyage, these travellers made contact with more northerly coastal groups, i.e., Heiltsuk and Ooweekeno.	page 15
+§5	Bella Coola	cited form	łq	page 16, in italics, ‘wet’
+§5	Kwak’wala	cited form	√ƛq	page 16, in italics, ‘id.’
+§5	Bella Coola	cited form	sχʷat	page 16, in italics, ‘globe, bulb’
+§5	Kwak’wala	cited form	√χʷat	page 16, in italics, ‘testicle’
+§5	Bella Coola	cited form	sχiiłla	page 16, in italics, ‘boastful song’
+§5	Kwak’wala	cited form	χiƛla	page 16, in italics, ‘to shout’
+§5	Bella Coola	cited form	k’ʷult	page 16, in italics, ‘porpoise’
+§5	Kwak’wala	cited form	k’ulut’a	page 16, in italics, ‘id.’
+§5	Squamish	cited form	k’ʷúnut’	page 16, in italics, ‘id.’
+§5	Kwak’wala	cited form	√χʷs	page 16, in italics, ‘seal blubber’
+§5	proto-Coast Salish	cited form	*χʷəs	page 16, in italics, ‘id.’
+§5	Bella Coola	cited form	cał	page 16, in italics, ‘lake’
+§5	proto-Coast Salish	cited form	cal’ał	page 16, in italics, ‘id.’
+§5	Kwak’wala	cited form	ʒl’ał	page 16, in italics, ‘id.’
+§5	Hank Nater	name	Kuipers	Aert H. Kuipers, the Salish etymological dictionary (2002)
+§5	Hank Nater	language	Squamish	Coast Salish
+§5	Hank Nater	language	Sechelt	Coast Salish
+§5	Hank Nater	note	In view of (a) connections between pre-Bella Coola and other populations west of the Cascade Range and (b) Bella Coola-Coast Salish-Kwakwala lexical overlap, I infer that proto-Bella Coola migrants approached the territory shown in Figure 1 via the Inside Passage, Fitz Hugh Sound, and then via Fisher Channel– Dean Channel and Burke Channel. 8 Having passed through North Wakashan territory west of Elcho Harbour and Kwatna, some would settle on or near King Island and in the Kwatna River area. Others would move on, with Dean Channel travellers venturing deeper into Dean Channel and beyond. The latter would interact with NT groups, as suggested by the occurrence of names with NT mythical origins: Wic’lks ‘a man’s name’ ← NT W’ii C’alks ‘Big Whirlpool’, Wiłpun ‘a woman’s name’ ← NT W’ii Łpuun ‘Big Whale’ (Tarpent, p.c.). Those who continued to travel up Burke Channel entered North Bentinck Arm, with some settling there and others dispersing into South Bentinck Arm and throughout the Bella Coola valley. Athabascan and inland Tsimshianic groups now came into contact with Bella Coola speakers. Later, contact was established with Haisla groups that had dislodged Tsimshianic populations.	page 16
+footnote 8	Hank Nater	note	Note here that the dialect formerly spoken at the head of Dean Channel and the mouth of Dean River was considered by some of my language consultants to be a deviant form of Bella Coola (cf. Boas 1895:31). This view is consistent with the Fisher Channel/Burke Channel split path scenario.	page 16, footnote 8
+§5	Bella Coola	cited form	Wic’lks	page 16, in italics, ‘a man’s name’
+§5	North Tsimshian	cited form	W’ii C’alks	page 16, in italics, ‘Big Whirlpool’
+§5	Bella Coola	cited form	Wiłpun	page 16, in italics, ‘a woman’s name’
+§5	North Tsimshian	cited form	W’ii Łpuun	page 16, in italics, ‘Big Whale’
+Figure 9	Hank Nater	note	Figure 9: Prevailing Proto-Bella Coola migration routes (based on bing.com/maps)	page 17, the caption
+references	Hank Nater	heading	References	page 17
+references	Hank Nater	reference	Baker, James W. E. (1973). A Linguistic and Ethnohistoric Approach to Bella Coola Prehistory. MA thesis, Simon Fraser University.	page 17
+references	Hank Nater	reference	Beavert, Virginia & Sharon Hargus (2009). Ichishkíin Sínwit Yakama/Yakima Sahaptin Dictionary. Heritage University, Toppenish, WA in association with University of Washington Press.	page 17
+references	Hank Nater	reference	Boas, Franz (1895). Salishan Texts. Proceedings of the American Philosophical Society, Vol. 34, No. 147:31–48.	page 17
+references	Hank Nater	reference	Boas, Franz (1898). The Mythology of the Bella Coola Indians. Memoirs of the American Museum of Natural History, Vol. II, Part II.	page 17
+references	Hank Nater	reference	Davidson, Matthew (2002). Studies in Southern Wakashan (Nootkan) Grammar (PhD dissertation). University of New York at Buffalo.	page 17
+references	Hank Nater	reference	Dunn, John A. (1995). Sm’algyax / A Reference Dictionary and Grammar for the Coast Tsimshian language. University of Washington Press. Seattle and London.	page 17
+references	Hank Nater	reference	Edwards, Keri (2009). Dictionary of Tlingit. Sealaska Heritage Institute.	page 17
+references	Hank Nater	reference	FirstVoices (2017). Gitsenimx: words. www.firstvoices.com/en/Gitsenimx/words.	page 18
+references	Hank Nater	reference	FirstVoices (2017). Nisga’a: words. www.firstvoices.com/en/Nisgaa/words.	page 18
+references	Hank Nater	reference	Frachtenberg, Leo J. (1914). Coos, An Illustrative Sketch. Extract from Handbook of American Indian Languages (Bulletin 40), Part 2, of Bureau of American Ethnology (Boas). Washington Government Printing Office.	page 18
+references	Hank Nater	reference	Frachtenberg, Leo J. (1917). Siuslawan (Lower Umpqua), An Illustrative Sketch. Extract from Handbook of American Indian Languages (Bulletin 40), Part 2, of Bureau of American Ethnology (Boas). Washington Government Printing Office.	page 18
+references	Hank Nater	reference	Hindle, Lonnie & Bruce Rigsby (1973). A Short Practical Dictionary of the Gitksan Language. Northwest Anthropological Research Notes, Vol. 7, No. 1.	page 18
+references	Hank Nater	reference	Hobler, Philip M. (1970). Archaeological survey and excavations in the vicinity of Bella Coola. BC Studies, no. 6 and 7, Fall and Winter 1970:77–94.	page 18
+references	Hank Nater	reference	Hymes, Dell (1966). Some points of Siuslaw phonology. IJAL 32:328–342.	page 18
+references	Hank Nater	reference	Kinkade, M. Dale (1989). When patients are topics: topic maintenance in North American Indian languages. Papers for the 24th International Conference on Salish and Neighbouring Languages.	page 18
+references	Hank Nater	reference	Kinkade, M. Dale (1991). Upper Chehalis Dictionary. UMOPL No. 7.	page 18
+references	Hank Nater	reference	Kinkade, M. Dale (2005). Alsea pronouns. Anthropological Linguistics 47:61– 76.	page 18
+references	Hank Nater	reference	Kuipers, Aert H. (2002). Salish Etymological Dictionary. UMOPL No. 16.	page 18
+references	Hank Nater	reference	Lincoln, Neville J. & John Rath (1980). North Wakashan Comparative Root List. Canadian Ethnology Service Paper No. 68. Canadian Museum of Civilization Mercury Series.	page 18
+references	Hank Nater	reference	Lincoln, Neville J. & John Rath (1986). Phonology, Dictionary and Listing of Roots and Lexical Derivates of the Haisla Language of Kitlope and Kitimaat, B.C. Canadian Ethnology Service Paper No. 103. Canadian Museum of Civilization Mercury Series.	page 18
+references	Hank Nater	reference	Matthewson, Lisa (2013). Gitksan Modals. IJAL 79:349–394.	page 18
+references	Hank Nater	reference	Nater, Hank (1974). Lexical comparisons between Bella Coola and neighbouring languages. Papers for the 9th International Conference on Salish Languages.	page 18
+references	Hank Nater	reference	Nater, Hank (1984). The Bella Coola Language. Canadian Ethnology Service Paper 92. Canadian Museum of Civilization Mercury Series.	page 18
+references	Hank Nater	reference	Nater, Hank (1994). The Athapaskan component of Nuxalk. IJAL 60:177–190.	page 18
+references	Hank Nater	reference	Nater, Hank (2010). Bella Coola /-uks/: diffusion from distant sources. A Festschriftfor Thomas A. Hess on the Occasion of his Seventieth Birthday. Whatcom Museum Publications No. 21.	page 19
+references	Hank Nater	reference	Nater, Hank (2013). How Salish is Bella Coola? Papers for the 48th International Conference on Salish and Neighbouring Languages. UBCWPL 35.	page 19
+references	Hank Nater	reference	Newman, Stanley (1973). Linguistic retention and diffusion in Bella Coola. Language in Society 2:201–214.	page 19
+references	Hank Nater	reference	Peterson, Tyler R. G. (2010). Epistemic Modality and Evidentiality in Gitksan at the Semantics-Pragmatics Interface (PhD thesis). UBC, Vancouver.	page 19
+references	Hank Nater	reference	Powell, J. V. & Fred Woodruff, Sr. (1976). Quileute Dictionary. Northwest Anthropological Research Notes, Memoir No. 3.	page 19
+references	Hank Nater	reference	Rath, John (2010). Digital Heiltsuk-English Dictionary (version 2.2.1) (Excel file)	page 19
+references	Hank Nater	reference	Rigsby, Bruce (1967). Tsimshian comparative vocabularies with notes on Nass-Gitksan systematic phonology. Papers for the 2nd International Conference on Salish Languages.	page 19
+references	Hank Nater	reference	Rigsby, Bruce & John Ingram (1987). Obstruent voicing and glottalic obstruents in Gitksan. Papers for the 22nd International Conference on Salish and Neighbouring Languages.	page 19
+references	Hank Nater	reference	Suttles, W. & W. W. Elmendorf (1963). Linguistic evidence for Salish prehistory. Symposium on Language and Culture. Proceedings of the 1962 Annual Spring Meeting of the American Ethnological Society. Seattle.	page 19
+references	Hank Nater	reference	Tarpent, Marie-Lucie (1997). Tsimshianic and Penutian: problems, methods, results, and implications. IJAL 63:65–112.	page 19
+references	Hank Nater	reference	Walker, Deward E., Jr. (1997). The Yakama system of trade and exchange. Northwest Anthropological Research Notes 31:71–95.	page 19

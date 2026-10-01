@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: EXP-x-001
 #
-# The Bloom filter shown to be the anchor sift's theorem in another field, and its floor measured
+# The Bloom filter shown to be the orior's theorem in another field, and its floor measured
 # and not assumed.
 #
 #   Usage:  python examples/0_experimental/bloom_is_the_sift_theorem.py

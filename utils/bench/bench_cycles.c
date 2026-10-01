@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "anchor_sift.h"
+#include "orior.h"
 #include "mmgr_sha256.h"
 
 #if defined(__x86_64__) || defined(__i386__)
@@ -131,7 +131,7 @@ static double collision_entropy(const uint8_t *corpus, size_t length, size_t *di
 typedef struct
 {
     const char *name;
-    AnchorSiftEngine run;
+    OriorEngine run;
 } Arm;
 
 typedef struct
@@ -160,10 +160,10 @@ int main(void)
 {
     static uint8_t corpus[CORPUS_BYTES];
     static const Arm ARMS[] = {
-        {"naive", anchor_sift_naive},
-        {"horspool", anchor_sift_horspool},
-        {"anchor_inorder", anchor_sift_inorder},
-        {"anchor_free", anchor_sift_free},
+        {"naive", orior_naive},
+        {"horspool", orior_horspool},
+        {"anchor_inorder", orior_inorder},
+        {"anchor_free", orior_free},
     };
     static const Corpus CORPORA[] = {
         {"skewed", corpus_skewed},
@@ -195,7 +195,7 @@ int main(void)
             for (size_t pick = 0u; pick < NEEDLES_PER_ROW; pick += 1u)
             {
                 starts[pick] = (pick * 977u) % (CORPUS_BYTES - needle_len);
-                reference += anchor_sift_naive(corpus, CORPUS_BYTES, corpus + starts[pick], needle_len);
+                reference += orior_naive(corpus, CORPUS_BYTES, corpus + starts[pick], needle_len);
             }
 
             for (size_t slot = 0u; slot < arm_count; slot += 1u)
@@ -236,11 +236,11 @@ int main(void)
 
             AnchorFieldCensus census;
             anchor_field_census(corpus, CORPUS_BYTES, &census);
-            const AnchorSiftPlan plan = {
+            const OriorPlan plan = {
                 .census = &census,
                 .needle_len = needle_len,
             };
-            const AnchorSiftEngine chosen = anchor_sift_choose(&plan);
+            const OriorEngine chosen = orior_choose(&plan);
 
             size_t fastest = 0u;
             size_t picked = 0u;
@@ -260,7 +260,7 @@ int main(void)
             }
 
             printf("ancorae_dispatch,%s,%zu,%.4f,%zu,%s,%s,%.1f,%.1f,%.3f\n", CORPORA[which].name,
-                   needle_len, entropy, distinct, anchor_sift_engine_name(chosen), ARMS[fastest].name,
+                   needle_len, entropy, distinct, orior_engine_name(chosen), ARMS[fastest].name,
                    timed[picked], timed[fastest], timed[picked] / timed[fastest]);
         }
     }

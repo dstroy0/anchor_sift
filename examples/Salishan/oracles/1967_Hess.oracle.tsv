@@ -1,0 +1,249 @@
+where	who	kind	form	gloss
+title	Thom Hess	title	The Morph /-(ə)b/ in Snohomish	the paper's title, carrying footnote 1
+§1	Thom Hess	note	The morph /-(ə)b/ occurs as a verb suffix in a variety of environments. In most cases its significance is elusive. The problem is to determine how many different morphemes are represented by it and, if possible, their meaning or grammatical function.	the first mention carries footnote 2
+§1	Snohomish	cited affix	/-(ə)b/	the verb suffix the paper is about
+§1	Thom Hess	note	/-b/ has cognates in most, if not all, Salish languages. In the Straits group it is realized as /-ŋ/. In Tillamook it is /-w/. In all other languages, so far as I know, it is /-m/. Thus the problem is of general Salish interest. It is hoped that our combined knowledge will provide new insights.	the mention of /-ŋ/ carries footnote 3
+§1	Snohomish	cited affix	/-b/	the suffix without its epenthetic vowel
+§1	Straits	cited affix	/-ŋ/	the Straits realization of the cognate
+§1	Tillamook	cited affix	/-w/	the Tillamook realization of the cognate
+§1	Salish	cited affix	/-m/	the realization in all other languages, so far as the author knows
+footnote 1	Thom Hess	note	Snohomish is a northern dialect of Puget Salish.
+footnote 1	Thom Hess	thanks	I am indebted to Professor Laurence C. Thompson to whom I owe a very large share of my present understanding to the language.	printed as a second paragraph under footnote 1, and the page reads understanding to the language
+footnote 2	Thom Hess	note	The /ə/ is epenthetic. It occurs when /-b/ is preceded by a consonant other than /l/ and is either final or followed by /ə/.
+footnote 3	Lummi	note	In Lummi a few cognate forms are found with /-m/ in stead of the usual /-ŋ/.	in stead is set as two words on the page
+§2	Thom Hess	note	/-b/ occurs in the following general environments:
+§2	Thom Hess	heading	1. as a theme constituent
+§2	Thom Hess	heading	2. as a derivational suffix
+§2	Thom Hess	heading	3. as an inflectional suffix
+§2	Thom Hess	heading	4. as a component in pronominal object suffixes.
+§2	Thom Hess	note	The details of these environments are as follows.
+section 1	Thom Hess	heading	1. root - b	the first environment, set with spaces around the hyphen
+section 1	Snohomish	cited form	root - b	the theme construction this section is about
+section 1	Thom Hess	note	This construction is a theme. Themes are the fundamental descriptive unit of the Snohomish verb. (There are three other theme types.) The roots involved belong to two classes, those always bound to /-b/ and those that can occur with other suffixes or none.
+section 1	Thom Hess	note	Themes characterized by the suffix /-b/ belong to several subclasses on the basis of the kind of transitive expansion possible.
+section 1.i	Thom Hess	heading	1.i.
+section 1.i	Thom Hess	note	Most members of this class are never found with a transitive suffix. The few that are take {-T} 'general transitive'. These themes express inherent qualities such	the sentence breaks off at the foot of page 2 and finishes on page 3, and 'general transitive' carries footnote 4
+section 1.i	Snohomish	cited affix	{-T}	'general transitive'
+footnote 4	Thom Hess	note	This morpheme has the shape /-(ə)d/ under the same conditions listed for the morph /-(ə)b/ in footnote 2. Its other allomorphs are discussed as they appear in subsequent sections of the paper.
+footnote 4	Snohomish	cited affix	/-(ə)d/	the shape {-T} takes under the conditions footnote 2 lists
+footnote 4	Thom Hess	note	{-T} is variously glossed as 'him, her, it, them' as context requires. However, it is a transitive marker. It is not a pronominal suffix.	the closing sentence is underlined on the page
+section 1.i	Thom Hess	note	as taste, size or shape, and conditions of weather. They also designate involuntary physical reactions. Examples:	the sentence begun at the foot of page 2 finishes here
+section 1.i	Thom Hess	symbol note	ƛ̓ is an x body with a bar through it and a glottal tick, t̓ is the same t as in the English word taste with a tick added, and plain x has neither	settled on this page. xáyəb 'laugh' and xʷúyub 'sell' print a bare x in the same table where ƛ̓áɬəb 'salty' prints the barred body with the tick, and t̓ác̓əb 'bitter' prints the taste t with a tick, so all three contrast within one table. Two later readings agree and neither is the authority for what this page prints: 1975_Hilbert_Hess sets the same ƛ̓ in dəxʷgʷəƛ̓əlads and its oracle names it, and Nater's Coast Salish *ƛ̓aɬ 'bitter, salt' matches ƛ̓áɬəb segment for segment
+section 1.i	Thom Hess	symbol note	this paper writes its uvular fricative as x with a dot below, first at sx̣ʷáʔiluɬ on page 7	1975_Hilbert_Hess writes the same sound as x under a caron, so the two typescripts do not share the mark
+section 1.i	Thom Hess	symbol note	two letters carry a comma hook joined to the body: q̓, whose stem runs below the baseline to a foot bar and also rises above the x-height into the hook, and c̓, whose hook meets its upper terminal and whose bowl stays open on the right between the hook and the lower terminal	read at 2400 dpi: q̓áƛ̓əb 'cloud' and t̓ác̓əb 'bitter' stand in one table, the q̓ stem matching the plain q of qʷə́šəb 'smoke'. The final d of c̓ágʷ-abəc-əd has no such gap: its stem runs straight from its top serif to a foot serif at the baseline
+section 1.i	Snohomish	cited form	ƛ̓áɬəb	salty
+section 1.i	Snohomish	cited form	qʷágʷəb	sweet
+section 1.i	Snohomish	cited form	č̓ápəb	sour
+section 1.i	Snohomish	cited form	t̓ác̓əb	bitter
+section 1.i	Snohomish	cited form	sájəb	tall
+section 1.i	Snohomish	cited form	cqʷáb	tight
+section 1.i	Snohomish	cited form	púkʷəb	pile, hill
+section 1.i	Snohomish	cited form	qə́lb	rain
+section 1.i	Snohomish	cited form	qʷə́šəb	smoke
+section 1.i	Snohomish	cited form	qʷšáb	fog
+section 1.i	Snohomish	cited form	ɬə́cəb	light rain
+section 1.i	Snohomish	cited form	q̓áƛ̓əb	cloud
+section 1.i	Snohomish	cited form	páhəb	haze
+section 1.i	Snohomish	cited form	č̓ébəb	shiver
+section 1.i	Snohomish	cited form	čə́lpəb	itch
+section 1.i	Snohomish	cited form	hásəb	sneeze
+section 1.i	Thom Hess	notation	the b of every form in this table is underlined, and the ə before it where the form has one	the underline marks the morph under discussion and is not part of the transcription
+section 1.i	Thom Hess	note	A very few members of this class do take a transitive suffix, {-T}, e.g., /ƛ̓áɬəb-əd/ 'salt it' and /púkʷəb-əd/ 'pile it up'. (On the basis of /ƛ̓áɬəbəd/ one would expect */qʷágʷəbəd/ and * /č̓ápəbəd/ meaning 'sweeten it' and 'make it sour'. However, neither is possible.)
+section 1.i	Snohomish	cited form	ƛ̓áɬəb-əd	'salt it'
+section 1.i	Snohomish	cited form	púkʷəb-əd	'pile it up'
+section 1.i	Snohomish	cited form	ƛ̓áɬəbəd	the same form written without the hyphen, as the base for the expectation that follows
+section 1.i	Snohomish	impossible	*qʷágʷəbəd	'sweeten it', starred on the page and stated to be impossible
+section 1.i	Snohomish	impossible	*č̓ápəbəd	'make it sour', starred on the page and stated to be impossible
+section 1.ii	Thom Hess	heading	1.ii.
+section 1.ii	Thom Hess	note	Themes of this group can take the transitive suffix {-tu} 'causative'. Most of them express various vocalizations and intransitive motions. Compare the following:
+section 1.ii	Snohomish	cited affix	{-tu}	'causative'
+section 1.ii	Snohomish	cited form	t̓ílib	sing
+section 1.ii	Snohomish	cited form	t̓ílib-txʷ	play radio, phonograph, and this one carries footnote 5
+section 1.ii	Snohomish	cited form	xáyəb	laugh
+section 1.ii	Snohomish	cited form	xáyəb-txʷ	smile at him
+section 1.ii	Snohomish	cited form	xʷúyub	sell
+section 1.ii	Snohomish	cited form	xʷúyub-txʷ	sell him
+section 1.ii	Snohomish	cited form	sáxʷəb	jump, run
+section 1.ii	Snohomish	cited form	sáxʷəb-txʷ	kidnap him
+section 1.ii	Snohomish	cited form	t̓íčib	wadc, swim, and the page reads wadc with a clean c for wade
+section 1.ii	Snohomish	cited form	t̓íčib-txʷ	make him wade out
+section 1.ii	Thom Hess	note	Many of these themes can be expanded by means of a	the sentence breaks off at the foot of page 3
+footnote 5	Thom Hess	note	/-txʷ/ is an allomorph of {-tu}.	the whole of footnote 5
+footnote 5	Snohomish	cited affix	/-txʷ/	an allomorph of {-tu}
+section 1.ii	Thom Hess	note	secondary stem suffix {-i-}. These secondary stems always take {-T}:	the sentence begun at the foot of page 3 finishes here
+section 1.ii	Snohomish	cited affix	{-i-}	the secondary stem suffix
+section 1.ii	Snohomish	cited form	xáyəb-i-d	laugh at him
+section 1.ii	Snohomish	cited form	xʷúyub-i-d	sell to him
+section 1.ii	Snohomish	cited form	sáxʷəb-i-d	run after him
+section 1.ii	Snohomish	cited form	t̓íčib-i-d	wade out after him
+section 1.iii	Thom Hess	heading	1.iii.
+section 1.iii	Thom Hess	note	The roots in the themes of this group are not bound to /-b/; and /-b/ contrasts with {-T}:
+section 1.iii	Snohomish	cited form	ɬíč̓i-b	cut cattails for mats
+section 1.iii	Snohomish	cited form	ɬíč̓i-d	cut it
+section 1.iii	Snohomish	cited form	yíq̓i-b	make baskets
+section 1.iii	Snohomish	cited form	yíq̓i-d	weave it
+section 1.iii	Snohomish	cited form	yə́c-əb	inform
+section 1.iii	Snohomish	cited form	yə́c-əd	report him
+section 1.iii	Snohomish	cited form	ƛ̓ágʷə-b	make mats, and this one carries footnote 6
+section 1.iii	Snohomish	cited form	ƛ̓ágʷə-d	stitch it
+section 1.iii	Snohomish	cited form	yáƛ̓ə-b	carry water, and this one carries footnote 6
+section 1.iii	Snohomish	cited form	yáƛ̓ə-d	dip it out
+section 1.iii	Thom Hess	note	Several of these themes resemble subclass 1.ii in that they occur with {-tu}, e.g., /ɬíč̓-b-txʷ/ 'take her along to cut cattails for mats'; /yə́c-əb-txʷ/ 'inform him'.
+section 1.iii	Snohomish	cited form	ɬíč̓-b-txʷ	'take her along to cut cattails for mats'
+section 1.iii	Snohomish	cited form	yə́c-əb-txʷ	'inform him'
+section 1.iii	Thom Hess	note	Some roots in 1.iii have two allomorphs. With {-T} the shape is CVCV-; with /-b/ it is CVC, e.g., /p̓íl-əb/ 'flat', /p̓íli-d/ 'flatten it'; /súb-əb/ 'emit oder', /súbu-d/ 'smell it'.	the page reads emit oder
+section 1.iii	Snohomish	cited form	p̓íl-əb	'flat'
+section 1.iii	Snohomish	cited form	p̓íli-d	'flatten it'
+section 1.iii	Snohomish	cited form	súb-əb	'emit oder', spelled that way on the page
+section 1.iii	Snohomish	cited form	súbu-d	'smell it'
+section 1.iv	Thom Hess	heading	1.iv.	root-á-b
+section 1.iv	Snohomish	cited form	root-á-b	the secondary theme shape this section is about
+section 1.iv	Thom Hess	note	Secondary themes are formed by the suffix	the sentence breaks off at the foot of page 4
+footnote 6	Thom Hess	note	This /ə/ is not epenthetic. It occurs in place of weakly stressed /a/.
+section 1.iv	Thom Hess	note	{-a-} 'specialized'. Some of these are characterized by /-b/ thus forming subclasses of groups 1.i - 1.iii:	the sentence begun at the foot of page 4 finishes here
+section 1.iv	Snohomish	cited affix	{-a-}	'specialized'
+section 1.iv	Thom Hess	heading	Secondary themes	the left column of the table below
+section 1.iv	Thom Hess	heading	Primary themes	the right column of the table below
+section 1.iv	Snohomish	cited form	qʷcáb	slip, a secondary theme
+section 1.iv	Snohomish	cited form	qʷə́c-əd	slide it, the primary theme beside it
+section 1.iv	Snohomish	cited form	qʷšáb	fog, a secondary theme
+section 1.iv	Snohomish	cited form	qʷə́šəb	smoke, the primary theme beside it
+section 1.iv	Snohomish	cited form	(səʔ-)sxʷáb	broad jump, a secondary theme, and this one carries footnote 8
+section 1.iv	Snohomish	cited form	sáxʷəb	jump, run, the primary theme beside it
+section 2	Thom Hess	heading	2. stem - b	the second environment, a derivational suffix
+section 2	Snohomish	cited form	stem - b	the construction this section is about, set with spaces around the hyphen
+section 2	Thom Hess	note	As a derivational suffix (and not a theme constituent) /-b/ occurs in four environments.
+section 2.i	Thom Hess	heading	2.i. theme - lexical - b
+section 2.i	Snohomish	cited form	theme - lexical - b	the construction this section is about
+section 2.i	Thom Hess	note	Here /-b/ is partner to forms comprising a theme plus lexical suffix(es). In this environment, as in 1.iii above, it contrasts with {-T}. This post lexical /-b/ resembles the medio-passive of Indo-European languages by indicating an act performed in connection with one's own being or possessions:
+section 2.i	Thom Hess	heading	Suffix /-b/	the left column of the table below
+section 2.i	Thom Hess	heading	Suffix /-d/	the right column of the table below
+section 2.i	Snohomish	cited form	c̓ágʷ-abəc-əb	wash own body
+section 2.i	Snohomish	cited form	c̓ágʷ-abəc-əd	wash his body
+section 2.i	Snohomish	cited form	ɬágʷ-ic̓a-b	take own clothing off
+section 2.i	Snohomish	cited form	ɬágʷ-ic̓a-d	take his clothing off
+section 2.i	Snohomish	cited form	ɬíč̓-ači-b	cut own hand
+section 2.i	Snohomish	cited form	ɬíč̓-ači-d	cut his hand
+footnote 8	Thom Hess	note	More specifically, this form designates a contest similar to the broad jump but involving two successive leaps.
+footnote 7	Thom Hess	damage	no call for footnote 7 and no footnote 7 appears on pages 1 to 5	the run goes 6 at the foot of page 4 then 8 at the foot of page 5
+section 2.i	Thom Hess	note	Lexical suffixes also follow themes characterized by /-b/, i.e., 1.i - 1.iv:
+section 2.i	Snohomish	cited form	čə̀lpəb-ábəc	itch on body
+section 2.i	Snohomish	cited form	t̓ə̀s-əb-áʔɬ-dəɬ	chapped lips
+section 2.i	Snohomish	cited form	qʷc-á-b-šəd	foot slipped
+section 2.i	Thom Hess	notation	a grave over ə, as in čə̀lpəb-ábəc and t̓ə̀s-əb-áʔɬ-dəɬ, against the acute the same table uses on á	the two marks are cut differently on the page and lean opposite ways
+section 2.i	Thom Hess	note	However, these forms never take post lexical /-b/. That is, there is no form consisting of root - b - lexical - b. This complementary distribution suggests that 2.i belongs to the same morpheme as 1.
+section 2.ii	Thom Hess	heading	2.ii. stem - b-i-T	the heading carries footnote 9
+section 2.ii	Snohomish	cited form	stem - b-i-T	the construction this section is about
+section 2.ii	Thom Hess	note	Here /-b/ is a member of the constitute /-b-i-d/. This constitute follows all theme classes except those characterized by /-b/. /-b/ alone cannot occur wherever /-b-i-d/ is possible. Compare /xʷúyubid/ 'sell to him' (page 3) and /ʔúp̓bid/ 'seat self on his lap'. The structures are different. In the former, the root /xʷuyu/ never occurs without /-b/, and /xʷúyub/ does occur without /-i-d/. In the latter, the root /ʔup̓(u)/ is found with /-b/ only when /-b/ is a member of the constitute /-b-i-d/. This complementary distribution indicates that /-b/ of themes and the /-b/of /-b-i-d/ are the same.	ʔúp̓bid carries footnote 10
+section 2.ii	Snohomish	cited affix	/-b-i-d/	the constitute /-b/ is a member of
+section 2.ii	Snohomish	cited form	xʷúyubid	'sell to him', which the page refers back to page 3 for
+section 2.ii	Snohomish	cited form	ʔúp̓bid	'seat self on his lap'
+section 2.ii	Snohomish	root	xʷuyu	the root of xʷúyub, which never occurs without /-b/
+section 2.ii	Snohomish	root	ʔup̓(u)	the root of ʔúp̓bid, found with /-b/ only inside /-b-i-d/
+footnote 9	Thom Hess	note	Compare /-wi/ and /-win/ in Tillamook. May M. Edel, The Tillamook language, IJAL 10.28, 32 (1939).
+footnote 9	Tillamook	cited affix	/-wi/	one of the two Tillamook forms the note compares
+footnote 9	Tillamook	cited affix	/-win/	the other Tillamook form the note compares
+footnote 9	Thom Hess	reference	May M. Edel, The Tillamook language, IJAL 10.28, 32 (1939)	the only bibliographic reference in the paper
+footnote 10	Thom Hess	note	Compare with /ʔúp̓/ 'happen to sit on his lap', /ʔúp̓u-d/ 'he holds her on his lap', /ʔúp̓-txʷ/ 'seat her on someone else's lap'. Neither */ʔup̓ub/ nor */ʔup̓əb/ is possible.
+footnote 10	Snohomish	cited form	ʔúp̓	'happen to sit on his lap'
+footnote 10	Snohomish	cited form	ʔúp̓u-d	'he holds her on his lap'
+footnote 10	Snohomish	cited form	ʔúp̓-txʷ	'seat her on someone else's lap'
+footnote 10	Snohomish	impossible	*ʔup̓ub	starred on the page and stated to be impossible
+footnote 10	Snohomish	impossible	*ʔup̓əb	starred on the page and stated to be impossible
+section 2.iii	Thom Hess	heading	2.iii. dxʷ/ʔəxʷ - stem - b
+section 2.iii	Thom Hess	note	/-b/ is a suffix to secondary stems formed by the compositional prefixes {dxʷ-} and {ʔəxʷ-}. As in 2.i, "medio-passive" seems to fit the significance of /-b/:
+section 2.iii	Snohomish	cited prefix	{dxʷ-}	one of the two compositional prefixes
+section 2.iii	Snohomish	cited prefix	{ʔəxʷ-}	the other compositional prefix
+section 2.iii	Snohomish	cited form	ʔu-dxʷ-líq̓ʷus-əb	He painted his face.
+section 2.iii	Snohomish	cited form	ʔəxʷ-slə́k̓ʷəd-əb	He wants to eat it.
+section 2.iii	Snohomish	cited form	ʔəxʷ-slə̀k̓ʷədxʷyítəb-əb	They want to eat it in place of her., and this one carries footnote 11
+section 2.iii	Snohomish	cited form	ʔu-dxʷ-sx̣ʷáʔiluɬ-əb	He needs to urinate.
+section 2.iii	Thom Hess	notation	the x of sx̣ʷáʔiluɬ carries a dot below it, which no other x in the paper so far does	1975_Hilbert_Hess writes its uvular with a caron above instead, so the two typescripts do not share this mark
+section 2.iv	Thom Hess	heading	2.iv. noun -áb
+section 2.iv	Thom Hess	note	The noun suffix {-ab} 'by means of' may prove to be derived from the secondary theme suffix {-a-} 'specialized', 1.iv., plus the /-b/ in question. Compare the following constructions with those in 1.iv, pages 4 and 5:
+section 2.iv	Snohomish	cited affix	{-ab}	'by means of', the noun suffix
+section 2.iv	Snohomish	cited form	sxəy̓us-áb	by means of the head
+section 2.iv	Snohomish	cited example	sxəy̓usáb tə səskìiss.	He is standing on his head.
+section 2.iv	Snohomish	cited form	sxəy̓ús	head
+section 2.iv	Snohomish	cited form	čələs-áb	by means of the hands
+section 2.iv	Snohomish	cited example	čələsáb tə səʔìbəšs.	He is walking on his hands.
+section 2.iv	Snohomish	cited form	čáləs	hand
+footnote 11	Thom Hess	note	/-yi-/ is one allomorph of the suffix {-I-} 'in place of'. This morpheme is not a benefactive. Although it can mean to do something for someone as a favor; it also means the opposite. Here it means to steal from her.	not is underlined on the page
+footnote 11	Snohomish	cited affix	/-yi-/	one allomorph of {-I-}
+footnote 11	Snohomish	cited affix	{-I-}	'in place of'
+footnote 11	Thom Hess	note	The first morph /-əb/, not underlined, is discussed in 3., page 8.	printed as a second paragraph under footnote 11
+section 2.iv	Snohomish	cited form	pùt-áb	(arrive) by boat
+section 2.iv	Snohomish	cited form	pút	boat, and this one carries footnote 12
+section 2.iv	Snohomish	cited form	q̓ìlbid-áb	(arrive) by vehicle
+section 2.iv	Snohomish	cited form	q̓ílbid	vehicle (including any type of canoe), and this one carries footnote 13
+section 3	Thom Hess	heading	3.	the third environment, an inflectional suffix
+section 3	Thom Hess	note	/-b/ as an inflectional suffix signals syntactic relationships and often implies a primary interest in the recipient of an act. /-b/ is found after all transitive suffixes and after the secondary stem suffix {-i-}:
+section 3	Snohomish	cited form	kʷədá-t-əb	He was grabbed., and this one carries footnote 14
+section 3	Snohomish	cited example	pús-du-b čəd	Someone hit me by throwing something.
+section 3	Snohomish	cited example	sáxʷəb-tu-b čəxʷ	You were kidnapped.
+section 3	Snohomish	cited form	ʔúx̣ʷ-c-əb	Someone came after him.
+section 3	Snohomish	cited form	ƛ̓ál-i-b	It was put on her.
+footnote 12	Thom Hess	note	This form derives ultimately from English boat.	boat is underlined on the page
+footnote 13	Thom Hess	note	Compare with /q̓íli-d/ 'load it' and /q̓íl-agʷ-il/ 'board, mount'. The constitute /-b-i-d/ is discussed in 2.ii, page 6.
+footnote 13	Snohomish	cited form	q̓íli-d	'load it'
+footnote 13	Snohomish	cited form	q̓íl-agʷ-il	'board, mount'
+footnote 14	Thom Hess	note	/-t-/ is an allomorph of {-T}. See footnote 4, page 2.
+footnote 14	Snohomish	cited affix	/-t-/	an allomorph of {-T}
+section 3	Thom Hess	note	Certain relational changes are concomitant with /-b/. First, pronominal particles that are partners to verbs having transitive suffixes plus /-b/ are never actors but always recipients of the action. Compare:
+section 3	Snohomish	cited example	kʷədát-əb čəɬ	we were grabbed
+section 3	Snohomish	cited example	kʷədád čəɬ	we grabbed it
+section 3	Snohomish	cited example	ʔúx̣ʷtu-b čəɬ	we were taken
+section 3	Snohomish	cited example	ʔúx̣ʷtxʷ čəɬ	we took it
+section 3	Thom Hess	note	Second, by means of directive phrases in {ʔə}, a third person actor can be specified. Without /-b/ only pronominal particles can designate an actor of a transitive verb. Compare:
+section 3	Snohomish	cited affix	{ʔə}	the directive phrase particle
+section 3	Snohomish	cited example	kʷədát-əb ʔə tiʔiɬ stùbš	that man grabbed her, and this one carries footnote 15
+section 3	Snohomish	cited example	kʷədád	he grabbed her.
+section 4	Thom Hess	heading	4.	the fourth environment, a component in pronominal object suffixes
+section 4	Thom Hess	note	/-b/ occurs as a component in some allomorphs of pronominal object suffixes:
+section 4	Thom Hess	heading	morpheme	the left column of the table below
+section 4	Thom Hess	heading	allomorphs	the right pair of columns, headed 1 and 2
+section 4	Snohomish	cited affix	{-S}	'singular', whose allomorphs are /-s/ and /-bš/
+section 4	Snohomish	cited affix	/-s/	allomorph 1 of {-S}
+section 4	Snohomish	cited affix	/-bš/	allomorph 2 of {-S}
+section 4	Snohomish	cited affix	{-L}	'plural', whose allomorphs are /-ubuɬ/ and /-buɬ/
+section 4	Snohomish	cited affix	/-ubuɬ/	allomorph 1 of {-L}
+section 4	Snohomish	cited affix	/-buɬ/	allomorph 2 of {-L}
+section 4	Snohomish	cited affix	{-ut}	'reflexive', whose allomorphs are /-ut/ and /-but/
+section 4	Snohomish	cited affix	/-ut/	allomorph 1 of {-ut}
+section 4	Snohomish	cited affix	/-but/	allomorph 2 of {-ut}
+section 4	Thom Hess	note	These allomorphs are morphologically conditioned. Those in	the sentence breaks off at the foot of page 9
+footnote 15	Thom Hess	note	The directive phrase indicating actor usually occurs immediately after the verb and before a substantive phrase expressing recipient:
+footnote 15	Snohomish	cited example	č̓áxʷet-əb ʔə tiʔiɬ stùbš tiʔə sqʷəbày̓ ʔə tə x̣ʷùbt	That man clubbed this dog with a paddle.
+footnote 15	Thom Hess	interlinear transcription	verb / actor / recipient / instrument	the four labels set under č̓áxʷet-əb, ʔə tiʔiɬ stùbš, tiʔə sqʷəbày̓ and ʔə tə x̣ʷùbt in that order
+section 4	Thom Hess	note	column 1 follow {-T} 'general transitive'; those in column 2 are found elsewhere.	the sentence begun at the foot of page 9 finishes here
+section 4	Thom Hess	note	Paradigms like the following suggest an analysis into four morphemes for (2) and (4) (e.g., /šú-du-b-š/, /šú-du-b-ut/) with /-b-/ in all four forms assigned to the same morpheme:
+section 4	Snohomish	segmentation	šú-du-b-š	the four morpheme analysis of šúdubš
+section 4	Snohomish	segmentation	šú-du-b-ut	the four morpheme analysis of šúdubut
+1	Snohomish	cited form	šúdub	be seen
+2	Snohomish	cited form	šúdubš	see me
+3	Snohomish	cited form	šúdubuɬ	see us
+4	Snohomish	cited form	šúdubut	see self
+section 4	Thom Hess	note	Historically, such an interpretation is probably correct, but for two reasons it is less desirable synchronically. A consideration of forms with {-T}, e.g., /kʷədá-d/ 'grab it', points to a different analysis:
+section 4	Snohomish	cited form	kʷədá-d	'grab it'
+section 4	Thom Hess	heading	theme / trans. / goal	the three column headings of the paradigm below
+section 4 A 1	Snohomish	segmentation	kʷədá- t- əb	be grabbed
+section 4 A 2	Snohomish	segmentation	šú- du- b	be seen
+section 4 B 1	Snohomish	segmentation	kʷədá- t- s	grab me, and the goal s carries footnote 16
+section 4 B 2	Snohomish	segmentation	šú- du- bš	see me
+section 4 B 1	Snohomish	segmentation	kʷədá- t- ubuɬ	grab us
+section 4 B 2	Snohomish	segmentation	šú- du- buɬ	see us
+section 4 B 1	Snohomish	segmentation	kʷədá- c- ut	grab self, and the transitive c carries footnote 17
+section 4 B 2	Snohomish	segmentation	šú- du- but	see self
+footnote 16	Thom Hess	note	The suffix sequence /-t-s/ is replaced by /c/.
+footnote 17	Thom Hess	note	/-c-/ is an allomorph of {-T}. See footnote 4, page 2.
+footnote 17	Snohomish	cited affix	/-c-/	an allomorph of {-T}
+section 4	Thom Hess	note	There are two considerations. First, with this second analysis all verb classes have equivalent inflection. If B2 were analyzed into /šú-du-b-š/ (and so on for the plural and reflexive), there would be nothing in B1 corresponding to /-b-/.	the page sets the 2 and the 1 as subscripts
+section 4	Thom Hess	note	Second, B1 and B2 occur in identical syntactic environments. The same is true for A1 and A2. Directive phrases expressing actor can follow both A forms but neither B1 nor B2. Pronominal particles like /čəɬ/ 'we, us' are recipients (goals) of the action in both A constructions, while they represent the actor in all B forms.
+section 4	Snohomish	cited form	čəɬ	'we, us', a pronominal particle
+section 4	Thom Hess	note	The second analysis makes distributional statements more facil and avoids the dilemma of an "extra" *{b} morpheme of an analysis like /-du-b-š/ which is semantically and syntactically parallel to /-t-s/.	the page reads more facil
+section 4	Snohomish	impossible	*{b}	the extra morpheme the second analysis avoids, starred on the page
+section 4	Snohomish	segmentation	/-du-b-š/	the analysis whose extra morpheme is at issue
+section 4	Snohomish	segmentation	/-t-s/	the sequence /-du-b-š/ is said to parallel
+closing	Thom Hess	note	I tentatively conclude that /-b/ in environments 1.i - 1.iv and 2.i - 2.iii represents the same morpheme. It seems to encompass inherent qualities and medio-passive significance. The suffix {-ab} 'by means of', 2.iv, is probably etymologically related to the secondary theme suffix {-a-} plus this /-b/. However, on the basis of the different morphologic and syntactic rôle of /-b/ in environment 3, it is thought to represent a second morpheme. The component /-b/ in environment 4 seems to be historically related to this /-b/ of 3.	rôle carries a circumflex on the page, and second morpheme carries footnote 18
+closing	Thom Hess	name	Thom Hess	Pacific and Asian Linguistics Instute, University of Hawaii, set at the foot of the last page, and the page spells it Instute
+footnote 18	Thom Hess	note	Salishanists working on languages having cognates of this /-b/ have called it 'passive'.

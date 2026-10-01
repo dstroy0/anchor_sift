@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Grades sift.anchors' kernel form against the kernel in src/engine/nbody/anchor_sift/, count for count and read for
+# Grades sift.anchors' kernel form against the kernel in src/engine/nbody/orior/, count for count and read for
 # read.
 #
 #   python utils/test/harness.py run engine_c
@@ -16,10 +16,10 @@
 # caller probes, and whether probes fit. It prints for each case the count, the in order and steered reads on each
 # side, the items compared and how many differ.
 #
-# It needs anchor_sift_host (src/engine/CMakeLists.txt): the kernel's host sources and the exact_integer sources built
-# as a shared library with ANCHOR_SIFT_COUNT_READS=1, on Windows with utils/test/python/anchor_sift_probe.def. The harness
-# env engine_c runs it from utils/maint/engine/build_engine.sh, which builds the library and names it in ANCHOR_SIFT_LIB.
-# Without that, anchor_sift_host.dll or libanchor_sift_host.so is searched for under build/. A missing library fails
+# It needs orior_host (src/engine/CMakeLists.txt): the kernel's host sources and the exact_integer sources built
+# as a shared library with ORIOR_COUNT_READS=1, on Windows with utils/test/python/orior_probe.def. The harness
+# env engine_c runs it from utils/maint/engine/build_engine.sh, which builds the library and names it in ORIOR_LIB.
+# Without that, orior_host.dll or liborior_host.so is searched for under build/. A missing library fails
 # the run and is never skipped.
 
 import ctypes
@@ -49,11 +49,11 @@ class _Probe(ctypes.Structure):
 
 
 def find_library():
-    given = os.environ.get("ANCHOR_SIFT_LIB")
+    given = os.environ.get("ORIOR_LIB")
     if given and os.path.isfile(given):
         return given
     for base, _dirs, files in os.walk(os.path.join(ROOT, "build")):
-        for name in ("anchor_sift_host.dll", "libanchor_sift_host.so"):
+        for name in ("orior_host.dll", "liborior_host.so"):
             if name in files:
                 return os.path.join(base, name)
     return None
@@ -62,17 +62,17 @@ def find_library():
 def load(path):
     lib = ctypes.CDLL(path)
     counting = [ctypes.c_char_p, ctypes.c_size_t, ctypes.c_char_p, ctypes.c_size_t]
-    for name in ("anchor_sift_naive", "anchor_sift_inorder", "anchor_sift_free"):
+    for name in ("orior_naive", "orior_inorder", "orior_free"):
         getattr(lib, name).argtypes = counting
         getattr(lib, name).restype = ctypes.c_size_t
-    lib.anchor_sift_run.argtypes = [ctypes.POINTER(_Plan)] + counting
-    lib.anchor_sift_run.restype = ctypes.c_size_t
-    lib.anchor_sift_choose.argtypes = [ctypes.POINTER(_Plan)]
-    lib.anchor_sift_choose.restype = ctypes.c_void_p
-    lib.anchor_sift_engine_name.argtypes = [ctypes.c_void_p]
-    lib.anchor_sift_engine_name.restype = ctypes.c_char_p
-    lib.anchor_sift_anchors_for.argtypes = [ctypes.POINTER(_Plan)]
-    lib.anchor_sift_anchors_for.restype = ctypes.c_size_t
+    lib.orior_run.argtypes = [ctypes.POINTER(_Plan)] + counting
+    lib.orior_run.restype = ctypes.c_size_t
+    lib.orior_choose.argtypes = [ctypes.POINTER(_Plan)]
+    lib.orior_choose.restype = ctypes.c_void_p
+    lib.orior_engine_name.argtypes = [ctypes.c_void_p]
+    lib.orior_engine_name.restype = ctypes.c_char_p
+    lib.orior_anchors_for.argtypes = [ctypes.POINTER(_Plan)]
+    lib.orior_anchors_for.restype = ctypes.c_size_t
     lib.anchor_field_census.argtypes = [ctypes.c_char_p, ctypes.c_size_t, ctypes.POINTER(_Census)]
     lib.anchor_steer_magnitude.argtypes = [ctypes.POINTER(_Census), ctypes.c_uint8]
     lib.anchor_steer_magnitude.restype = ctypes.c_uint64
@@ -148,17 +148,17 @@ def census_row(census):
 
 
 def c_counted(lib, name, corpus, needle):
-    lib.anchor_sift_counters_reset()
+    lib.orior_counters_reset()
     found = getattr(lib, name)(corpus, len(corpus), needle, len(needle))
-    return (found, ctypes.c_uint64.in_dll(lib, "anchor_sift_probes").value,
-            ctypes.c_uint64.in_dll(lib, "anchor_sift_verifications").value)
+    return (found, ctypes.c_uint64.in_dll(lib, "orior_probes").value,
+            ctypes.c_uint64.in_dll(lib, "orior_verifications").value)
 
 
 def c_run(lib, plan, corpus, needle):
-    lib.anchor_sift_counters_reset()
-    found = lib.anchor_sift_run(plan, corpus, len(corpus), needle, len(needle))
-    return (found, ctypes.c_uint64.in_dll(lib, "anchor_sift_probes").value,
-            ctypes.c_uint64.in_dll(lib, "anchor_sift_verifications").value)
+    lib.orior_counters_reset()
+    found = lib.orior_run(plan, corpus, len(corpus), needle, len(needle))
+    return (found, ctypes.c_uint64.in_dll(lib, "orior_probes").value,
+            ctypes.c_uint64.in_dll(lib, "orior_verifications").value)
 
 
 def c_steered(lib, corpus, needle, steered):
@@ -204,14 +204,14 @@ def grade(lib, corpus, needle, period):
                   [steer_magnitude(py_side, value) for value in needle[:8]]))
     items.append(("prefers free", lib.anchor_steer_prefers_free(ctypes.byref(c_side)), int(steer_prefers_free(py_side))))
     plan = _Plan(ctypes.pointer(c_side), len(needle), period)
-    items.append(("choose", lib.anchor_sift_engine_name(lib.anchor_sift_choose(ctypes.byref(plan))).decode(),
+    items.append(("choose", lib.orior_engine_name(lib.orior_choose(ctypes.byref(plan))).decode(),
                   sift_choose(py_side)))
-    items.append(("choose, no plan", lib.anchor_sift_engine_name(lib.anchor_sift_choose(None)).decode(),
+    items.append(("choose, no plan", lib.orior_engine_name(lib.orior_choose(None)).decode(),
                   sift_choose(None)))
-    items.append(("anchors for", lib.anchor_sift_anchors_for(ctypes.byref(plan)), sift_anchors_for(period)))
-    items.append(("anchors for, no plan", lib.anchor_sift_anchors_for(None), sift_anchors_for(0)))
-    for name, engine in (("anchor_sift_naive", "naive"), ("anchor_sift_inorder", "anchor_inorder"),
-                         ("anchor_sift_free", "anchor_free")):
+    items.append(("anchors for", lib.orior_anchors_for(ctypes.byref(plan)), sift_anchors_for(period)))
+    items.append(("anchors for, no plan", lib.orior_anchors_for(None), sift_anchors_for(0)))
+    for name, engine in (("orior_naive", "naive"), ("orior_inorder", "anchor_inorder"),
+                         ("orior_free", "anchor_free")):
         items.append((engine, c_counted(lib, name, corpus, needle), tuple(sift_count(corpus, needle, engine))))
     items.append(("run", c_run(lib, ctypes.byref(plan), corpus, needle), tuple(sift_run(py_side, period, corpus,
                                                                                          needle))))
@@ -240,10 +240,10 @@ def flat(value):
 def main():
     path = find_library()
     if path is None:
-        print("  anchor_sift_host library not found: set ANCHOR_SIFT_LIB, or build it under build/.")
+        print("  orior_host library not found: set ORIOR_LIB, or build it under build/.")
         return 1
     lib = load(path)
-    print("\n  sift.anchors AGAINST nbody/anchor_sift, count for count and read for read. library: %s\n" % path)
+    print("\n  sift.anchors AGAINST nbody/orior, count for count and read for read. library: %s\n" % path)
     print("  %-24s %-4s %-6s %-22s %-14s %-14s %-6s %s" % (
         "case", "side", "found", "in order probes/verif", "steered reads", "engine", "items", "verdict"))
     failed = 0

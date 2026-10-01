@@ -1,0 +1,410 @@
+where	who	kind	form	gloss
+front	Isabel McKay	title	The Internal Structure of Montana Salish Instrumental Nominals	page 1
+front	Isabel McKay	name	Isabel McKay	author
+front	Isabel McKay	note	University of Arizona	page 1, under Isabel McKay
+front	Isabel McKay	note	Abstract: In this paper I will discuss a novel analysis of instrumental nominalization patterns in Montana Salish. This language has three primary mechanisms which can be used to derive nouns depicting tools from the verb the tool is used to perform. The verb may be suffixed with -m(í)n (INST1), -t(í)n (INST2), or with both, in the order -mín-tn. The primary semantic difference between these two forms is in the semantic function of the tool’s possessor. When -mín nominals are marked with a possessor, the possessor DP is interpreted as the owner of the tool, but when -tín or -mín-tn tools are marked with a possessor, that possessor is interpreted as the patient of a tool. In this paper I describe how, by breaking down each of these suffix complexes into their component parts, the appropriate interpretation for the possessor may be derived.	page 1, the abstract
+footnote 1	Isabel McKay	note	Agentive -er nouns are also ambiguous as to whether the performer of the action is a tool (object that pokes) or a human (person that pokes) (Alexiadou and Schäfer 2008; Baker and Vinokurova 2009). Since this paper is concerned only with tool nouns in Montana Salish, this particular ambiguity will not be discussed here. However, it is worth noting that the forms under discussion here do not bear this agent/instrument ambiguity and all denote tools.	page 1, footnote 1
+footnote 1	Isabel McKay	name	Alexiadou	Artemis Alexiadou, instrumental -er nominals (2008)
+footnote 1	Isabel McKay	name	Schäfer	Florian Schäfer (2008)
+footnote 2	Isabel McKay	note	Montana Salish (sometimes known as “Flathead”) is the Montana dialect of the language whose other dialects are Kalispel and Spokane.	page 1, footnote 2
+footnote 2	Isabel McKay	language	Flathead	Montana Salish
+footnote 2	Isabel McKay	language	Kalispel	a dialect of the language
+footnote 2	Isabel McKay	language	Spokane	a dialect of the language
+front	Isabel McKay	note	Keywords: Montana Salish, nominalization, instrument, morphology, syntax, semantics	page 1, the keywords
+front	Isabel McKay	note	Papers for the International Conference on Salish and Neighbouring Languages 54. D. K. E. Reisinger & Gloria Mellesmoen (eds.). Vancouver: UBCWPL, 2019.	page 1, the volume's header
+front	Isabel McKay	language	Montana Salish	Southern Interior Salish, the Montana dialect of Kalispel-Spokane
+§1	Isabel McKay	heading	1 Introduction	page 1
+§1	Isabel McKay	note	When de-verbal instrument DPs in English are possessed, the semantic function of the possessor is often ambiguous, as is illustrated by the example in (1). In one meaning, the possessor is interpreted as the owner of a tool (1a), while in the other meaning, the possessor is interpreted, instead, as the standard object of the action the tool performs (1b).1	page 1
+§1	Isabel McKay	language	English	-er instrumental and agentive nominals
+(1)	Isabel McKay	note	My poker	page 1, an English example
+(1a)	Isabel McKay	note	The object that I use to poke things	page 1, a reading of the English example
+(1b)	Isabel McKay	note	The object that was/is used to poke me	page 1, a reading of the English example
+§1	Isabel McKay	note	Though instrument DPs in English are ambiguous in this way, in Montana Salish2 these two types of instrument nouns may be disambiguated, as they are nominalized using different strategies. In this paper I will discuss how these two types of instrument nouns may be derived and the differences between the internal structures of the nouns created using these strategies.	page 1
+§1	Isabel McKay	language	Salish	the family
+§1	Isabel McKay	note	In Montana Salish there are two suffixes which can be used to derive instrument (= “tool”) nouns from the verbs they are used to perform. These two suffixes are -m(í)n and ‑t(í)n. Each of these suffixes may be used alone, or the two may be used together, in which case the -mín suffix always precedes -tín. An example of each type of instrument is given in (2).3	page 1
+footnote 3	Isabel McKay	note	Data for this project has been drawn from published sources, not from my own elicitations. Most of the example instrument nouns were drawn from Mengiarini et al. (1877–1879), but Thomason’s more modern dictionary (2014a) was used as a glossing aid and to provide some longer examples. Though I am in the process of planning future elicitations to provide support for the analysis proposed here, such elicitations have not yet taken place. Where examples are drawn from Mengiarini et al. (1877–1879), the first line is given using the orthography which was used in this text. The second line is a morphemic breakdown using the orthography used in Thomason’s more recent dictionary (2014a). Many of the words listed in Mengiarini et al. appear to have fallen out of usage in the modern language, and therefore phonetic transcriptions of these words using modern orthography are sometimes unavailable. Where re-elicited forms are available, they have been cited.	page 1, footnote 3
+footnote 3	Isabel McKay	name	Mengiarini	Gregory Mengarini et al., the Kalispel dictionary (1877–1879), spelled Mengiarini in the citations
+§1	Montana Salish	cited form	-m(í)n	page 1, in italics
+§1	Montana Salish	cited form	-mín	page 1, in italics
+§1	Montana Salish	cited form	-tín	page 1, in italics
+§1	Montana Salish	cited form	-m(í)n	page 1, in italics
+§1	Montana Salish	cited form	‑t(í)n	page 1, in italics
+(2)	Isabel McKay	note	Three Types of Instrument Nouns in Montana Salish	page 2, the title over the example
+(2a) line 1	Montana Salish	transcription	chalmín	page 2
+(2a) line 2	Montana Salish	segmentation	čál-mín	page 2
+(2a) line 3	Montana Salish	gloss	cut-INST1	page 2
+(2a) line 4	Isabel McKay	translation	‘scissors (regarding the man)’	page 2
+(2b) line 1	Montana Salish	transcription	aiptín	page 2
+(2b) line 2	Montana Salish	segmentation	ʕay̓-p-tín	page 2
+(2b) line 3	Montana Salish	gloss	fast-INCH-INST2	page 2
+(2b) line 4	Isabel McKay	translation	‘what carries a fellow fast’	page 2
+(2c) line 1	Montana Salish	transcription	čalmínten	page 2
+(2c) line 2	Montana Salish	segmentation	čal-mín-tín	page 2
+(2c) line 3	Montana Salish	gloss	cut-INST1-INST2	page 2
+(2c) line 4	Isabel McKay	translation	‘scissors in regard to the thing cut’	page 2
+(2c) line 5	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 2, the tag or source at the right of the translation
+§1	Isabel McKay	note	As illustrated by the examples in (2), a speaker’s decision to use -mín, -tín, or -mín-tn seems to have very little impact on the semantics of the resulting tool noun, when such nouns are presented in isolation. The differences between nouns derived using these suffixes only really surface when they are marked for possession. When the -mín nominalizer is used on its own, the possessor is interpreted as the owner of the tool, as is illustrated by the examples in (3). However, whenever the -tín nominalizer is used either on its own, or after the -mín nominalizer, the possessor is interpreted, instead, as the patient of the verb performed by the tool, as is illustrated by the examples in (4).	page 2
+§1	Montana Salish	cited form	-mín-tn	page 2, in italics
+(3a) line 1	Montana Salish	transcription	inagamin	page 2
+(3a) line 2	Montana Salish	segmentation	in-ʕáq̓-mín	page 2
+(3a) line 3	Montana Salish	gloss	1S.POSS-stretch/scrape-INST1	page 2
+(3a) line 4	Isabel McKay	translation	‘my stretcher, etc., what I use’	page 2
+(3b) line 1	Montana Salish	transcription	kɫazmíis Louis	page 2
+(3b) line 2	Montana Salish	segmentation	k̓̓ʷɫ-ʕác-mín-s Louis	page 2, its k with two glottal marks as printed
+(3b) line 3	Montana Salish	gloss	LOC:under-tie-INST1-3.POSS Louis	page 2
+(3b) line 4	Isabel McKay	translation	‘be it the trap of Louis, he may use it’	page 2
+(4a) line 1	Montana Salish	transcription	kɫchazshintíis	page 2
+(4a) line 2	Montana Salish	segmentation	č-ʕác-šn-tín-s	page 2
+(4a) line 3	Montana Salish	gloss	LOC:to-tie-foot-INST2-3.POSS	page 2
+(4a) line 4	Isabel McKay	translation	‘his feet-hobbler’	page 2
+(4a) line 5	Isabel McKay	note	(i.e. to hobble his feet)	page 2, at the right of the translation
+(4b) line 1	Montana Salish	transcription	kɫazmíntis ɫu ipégu	page 2
+(4b) line 2	Montana Salish	segmentation	k̓ʷɫ-ʕác-mín-tín-s ɫu ipéqʷu	page 2
+(4b) line 3	Montana Salish	gloss	LOC:under-tie-INST1-INST2-3.POSS COMP bay.horse	page 2
+(4b) line 4	Isabel McKay	translation	‘be it the cabress of the bay horse’	page 2
+(4b) line 5	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 2, the tag or source at the right of the translation
+§1	Isabel McKay	note	In the following sections of this paper I will argue that, by breaking down these two instrumental nominalization complexes into their component parts, we can construct distinct syntactic representations of these nouns which will lead to their differing interpretations. The primary difference between these two comes from the way that the internal argument role of each nominalized verb is saturated. While the -mín forms do this by existentially quantifying over the un-filled position, the -tín forms actually involve merging in an object DP, which is later extracted to the specifier position above DP where it can receive Case and triggers agreement on the determiner just as is accomplished by a possessor.	page 3
+§1	Montana Salish	cited form	-mín	page 3, in italics
+§1	Isabel McKay	note	In Section 2 I will describe the derivation of -mín nominals, in Section 3 I will describe the derivation of -tín nominals, and in Section 4 I will describe the derivation of -mín-tn nominals. Section 5 will provide some conclusions and directions for future research.	page 3
+§2	Isabel McKay	heading	2 The Possessor-Oriented Instrumental, -mín	page 3
+§2	Isabel McKay	note	We begin with the simpler of the two instrumental suffix complexes, -m(í)n. I will argue that this complex is actually three independent suffixes which operate together to perform a predictable function. The -m portion, I will argue, is the Existential Binder (EB) which saturates the type e argument of type 〈𝑒, 𝑡〉 transitive roots. These saturated predicates are then generally verbalized either with one of two verbalizers which convert the saturated root into a predicate of type 〈𝑠, 𝑡〉. These two verbalizers are vbecome (vbec), a phonologically null non-finite verbalizer used to describe an event during which the embedded state comes into being, and vbe, the -í suffix, which describes an event during which the embedded state simply continues. Finally, the verbal predicate is nominalized using the true Instrumental Nominalizer (INST), -n, which nominalizes the verb while also adding causation into the semantics.	page 3
+§2	Montana Salish	cited form	-m	page 3, in italics
+§2	Montana Salish	cited form	-í	page 3, in italics
+§2	Isabel McKay	note	Each of the three suffixes (-EB, -vbe/become, and -INST) performs one of the essential functions which have been proposed to be present in the creation of instrumental nominals cross- linguistically. A representation of the structure of an English -er agentive/instrumental nominal is given in (5). I propose that the only significant difference between this structure and the structure of Montana Salish -mín nominals is in the mechanism by which the internal argument of the verb is saturated, as illustrated by the structure given in (6).	page 3
+§2	Montana Salish	cited form	-vbe/become	page 3, in italics
+(5)	Isabel McKay	note	English Agentive/Instrumental Nominalization (Baker and Vinokurova 2009)4	page 3, the title of a tree
+footnote 4	Isabel McKay	note	This paper uses a distributed morphology framework which makes three essential assumptions: (i) each morpheme is a terminal node, (ii) syntax operates on nodes that are underspecified for phonological content, so pronunciations can be dependent on syntactic placement, and (iii) syntactic features may be underspecified, permitting elsewhere interpretations. For more on Distributed Morphology see Harley and Noyer (1999).	page 3, footnote 4
+footnote 4	Isabel McKay	name	Noyer	Rolf Noyer, Distributed Morphology (1999)
+(5) tree line 1	Isabel McKay	note	DP	page 3, a line of the tree as the text layer reads it
+(5) tree line 2	Isabel McKay	note	D nP	page 3, a line of the tree as the text layer reads it
+(5) tree line 3	Isabel McKay	note	the n° vP	page 3, a line of the tree as the text layer reads it
+(5) tree line 4	Isabel McKay	note	-er v° VP	page 3, a line of the tree as the text layer reads it
+(5) tree line 5	Isabel McKay	note	∅ V DP	page 3, a line of the tree as the text layer reads it
+(5) tree line 6	Isabel McKay	note	find (of) the wallet	page 3, a line of the tree as the text layer reads it
+(6)	Isabel McKay	note	Proposed Montana Salish Instrumental Nominalization: -mín	page 4, the title of a tree
+(6) line 1	Montana Salish	segmentation	ʕác-m-í-n	page 4
+(6) line 2	Montana Salish	gloss	tie-EB-vbe-INST	page 4
+(6) line 3	Isabel McKay	translation	‘a trap’	page 4
+(6) tree line 1	Isabel McKay	note	DP	page 4, a line of the tree as the text layer reads it
+(6) tree line 2	Isabel McKay	note	D nP	page 4, a line of the tree as the text layer reads it
+(6) tree line 3	Isabel McKay	note	∅ n° vP	page 4, a line of the tree as the text layer reads it
+(6) tree line 4	Isabel McKay	note	-n v° EBP	page 4, a line of the tree as the text layer reads it
+(6) tree line 5	Isabel McKay	note	-INST	page 4, a line of the tree as the text layer reads it
+(6) tree line 6	Isabel McKay	note	-í EB V	page 4, a line of the tree as the text layer reads it
+(6) tree line 7	Isabel McKay	note	-vbe	page 4, a line of the tree as the text layer reads it
+(6) tree line 8	Isabel McKay	note	-m ʕác	page 4, a line of the tree as the text layer reads it
+(6) tree line 9	Isabel McKay	note	-EB tie	page 4, a line of the tree as the text layer reads it
+§2	Isabel McKay	note	In the following sections, I will go through each of these component suffixes in the proposed structure in (6) to explain the step-by-step derivation of instrument nouns bearing the -mín suffix complex.	page 4
+§2.1	Isabel McKay	heading	2.1 The Existential Binder -m	page 4
+§2.1	Isabel McKay	note	The first portion of the instrumental suffix complex -mín is the existential binder, -m. This suffix has been referred-to in the Salish literature by various names and is most commonly called either an “intransitivizer”, an “antipassive”, or “middle” (Thomason 1994; Carlson 1972; Spek and Post 1980). Though most of these terms could be applied to describe the broad function of this morpheme in the language, I have chosen to use the term “existential binder” here because the other names for the suffix are inherently connected with verbs. Since the current analysis assumes that the existential binder is merged with the root before verbalization takes place, I have chosen to use a label which is less tied to the presence of an event in the semantics.	page 4
+§2.1	Isabel McKay	name	Thomason	Sarah Thomason, the Montana Salish dictionary and lessons (2014), The Flathead Word (1992); Lucy Thomason (1994)
+§2.1	Isabel McKay	name	Carlson	Barry F. Carlson, the grammar of Spokan (1972)
+§2.1	Isabel McKay	name	Spek	Brenda J. Speck, Father Post's Kalispel grammar (1980), spelled Spek in the citations
+§2.1	Isabel McKay	name	Post	John A. Post (1980)
+§2.1	Isabel McKay	note	The proposed semantics associated with the existential binder are given in (7) and the effect a predicate has when merged with a transitive root5 is given in (8).	page 4
+footnote 5	Isabel McKay	note	Here I use the phrase ‘transitive root’ to mean ‘unaccusative root,’ (Perlmutter, 1978) as I believe the former term is clearer in this context. The essential difference between a transitive root and an intransitive root here, then, is that transitive roots license an internal argument while intransitive roots do not.	page 4, footnote 5
+footnote 5	Isabel McKay	name	Perlmutter	David M. Perlmutter, unaccusativity (1978)
+(7) line 1	Isabel McKay	formula	-m = EB Type: 〈〈𝑒, 𝑡〉, 𝑡〉	page 4, a formula, its subscripts set inline
+(7) line 2	Isabel McKay	formula	⟦EB⟧ = 𝜆𝑓〈𝑒,𝑡〉∃𝑥𝑒. 𝑓(𝑥)	page 4, a formula, its subscripts set inline
+(8a) line 1	Montana Salish	formula	ʕác = tie, tangle	page 4, a formula
+(8a) line 2	Isabel McKay	formula	⟦ʕác⟧ = 𝜆𝑥𝑒. TIE(𝑥) Type: 〈𝑒, 𝑡〉	page 4, a formula, its subscripts set inline
+(8a) line 3	Isabel McKay	translation	‘for some entity xx is tied’	page 4
+(8b) line 1	Isabel McKay	formula	⟦ʕác-m⟧ = ∃𝑥𝑒. TIE(𝑥) Type: t	page 5, a formula, its subscripts set inline
+(8b) line 2	Isabel McKay	translation	‘there exists some x such that x is tied’	page 5
+§2.1	Isabel McKay	note	The existential binder acts as a function of type 〈〈𝑒, 𝑡〉, 𝑡〉, which takes a transitive root as its argument and existentially binds the unsaturated argument. This means that when the existential binder is merged with the root ʕác ‘tie’, the resulting word means something like ‘the state of something being tied.’	page 5
+§2.1	Montana Salish	cited form	ʕác	page 5, in italics, ‘tie’
+§2.1	Isabel McKay	note	Usually when such existentially bound forms appear on their own they are interpreted as being verbalized and merged with a null pronoun, producing a meaning ‘he/she/it/they caused something to in a state of having been verbed.’ An example illustrating this effect is given in (9).	page 5
+(9a) line 1	Montana Salish	transcription	čn háʔu.	page 5
+(9a) line 2	Montana Salish	segmentation	čn háʕ̓ʷ	page 5
+(9a) line 3	Montana Salish	gloss	1S.SBJ loose	page 5
+(9a) line 4	Isabel McKay	translation	‘I got rested, I got relaxed.’	page 5
+(9b) line 1	Montana Salish	transcription	čn háʔum.	page 5
+(9b) line 2	Montana Salish	segmentation	čn háʕ̓ʷ-m	page 5
+(9b) line 3	Montana Salish	gloss	1S.SBJ loose-EB	page 5
+(9b) line 4	Isabel McKay	translation	‘I made something loose.’	page 5
+(9b) line 5	Isabel McKay	note	(Thomason 2014a)	page 5, at the right of the translation
+§2.1	Isabel McKay	note	In the example sentence in (9a) the verb is not existentially bound. For this reason the internal argument position is still open to be filled by the subject of the sentence, and the subject is interpreted as the patient/undergoer of the verb. In the example sentence in (9b), on the other hand, the internal argument position is saturated by the existential binder (see 8b), and so the subject of the sentence is interpreted, instead, as an agent that causes the state depicted by the existentially bound root.	page 5
+§2.1	Isabel McKay	note	Since the first morpheme in the instrumental nominalizing complex -m-í-n is the existential binder, we would predict that any stem that can bear the existential binder should also be able to bear the complex -mín. As it turns out, this is the case. The -mín complex is only attached to unsaturated transitive stems. Generally both suffixes attach directly to bare roots, though sometimes the stems may be marked by one of the locative prefixes as well. Some examples of the types of stems that can host both the -mín complex or the existential binder are given in (10).	page 5
+§2.1	Montana Salish	cited form	-m-í-n	page 5, in italics
+(10)	Isabel McKay	note	Instrumental Nouns Derived Using -mín:	page 5, over the example
+(10a) line 1	Montana Salish	transcription	agamín	page 5, the -mín noun, the left column
+(10a) line 2	Montana Salish	segmentation	ʔaq̓-mín	page 5, the -mín noun, the left column
+(10a) line 3	Montana Salish	gloss	hide.cure -INST1	page 5, the -mín noun, the left column
+(10a) line 4	Isabel McKay	translation	‘what one uses to stretch (hides)’	page 5, the -mín noun, the left column
+(10a) line 5	Montana Salish	transcription	chin agem.	page 5, the -m verb, the right column
+(10a) line 6	Montana Salish	segmentation	čn ʔaq̓-m	page 5, the -m verb, the right column
+(10a) line 7	Montana Salish	gloss	1S.SBJ hide.cure-EB	page 5, the -m verb, the right column
+(10a) line 8	Isabel McKay	translation	‘I tie, band, stake a hide.’	page 5, the -m verb, the right column
+(10b) line 1	Montana Salish	transcription	azmín	page 5, the -mín noun, the left column
+(10b) line 2	Montana Salish	segmentation	ʕác-mín	page 5, the -mín noun, the left column
+(10b) line 3	Montana Salish	gloss	tie-INST1	page 5, the -mín noun, the left column
+(10b) line 4	Isabel McKay	translation	‘trap’	page 5, the -mín noun, the left column
+(10b) line 5	Montana Salish	transcription	chin-azmí.	page 5, the -m verb, the right column
+(10b) line 6	Montana Salish	segmentation	čn [ʕac-m]-í	page 5, the -m verb, the right column
+(10b) line 7	Montana Salish	gloss	1S.SBJ [tie-EB]-C.ST	page 5, the -m verb, the right column
+(10b) line 8	Isabel McKay	translation	‘I am tying, catching.’	page 5, the -m verb, the right column
+(10c) line 1	Montana Salish	transcription	chalmín	page 6, the -mín noun, the left column
+(10c) line 2	Montana Salish	segmentation	čal-mín	page 6, the -mín noun, the left column
+(10c) line 3	Montana Salish	gloss	cut-INST1	page 6, the -mín noun, the left column
+(10c) line 4	Isabel McKay	translation	‘sissors etc.’	page 6, the -mín noun, the left column
+(10c) line 5	Montana Salish	transcription	chines-chalmi.	page 6, the -m verb, the right column
+(10c) line 6	Montana Salish	segmentation	čn e-s-[čál-m]-í	page 6, the -m verb, the right column
+(10c) line 7	Montana Salish	gloss	1S.SBJ ACT-NOM-[cut-EB]-C.ST	page 6, the -m verb, the right column
+(10c) line 8	Isabel McKay	translation	‘I cut something into strings.’	page 6, the -m verb, the right column
+(10c) line 9	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 6, under the translation
+§2.1	Isabel McKay	note	It is also worth noting, in discussing the similarities between the suffix -mín and the existential binder, that the presence of either morpheme in the structure seems to block the case licensing of an overt patient. Though that patient is semantically present, any overt noun describing that patient must be independently licensed by a preposition, rather than by the verb in question. When the existential binder is used on its own, the patient is licensed by the preposition t (11), 6 and when the instrumental complex -mín is used, the patient is usually licensed by the preposition l (12).	page 6
+footnote 6	Isabel McKay	note	Though reflexes of the particle t in related languages are often categorized as oblique markers or as ergative case markers (ex: Matthewson and Davis 1995), there is strong evidence that at least some instances of the morpheme are, instead, prepositions and this morpheme was analyzed as such in much of the older work on this language (Mengiarini et al. 1877–1879; Spek and Post 1977). Not only can this particle be used to syntactically license adjunct instruments of semantically saturated transitive verbs, but the particle is also used to license clear adjuncts such as time adverbials (Thomason 2014b). For a more in- depth discussion of this particle see McKay (2019).	page 6, footnote 6
+footnote 6	Isabel McKay	name	Matthewson	Lisa Matthewson, DP in St’át’imcets (1995)
+footnote 6	Isabel McKay	name	Davis	Henry Davis (1995)
+footnote 6	Isabel McKay	name	McKay	Isabel McKay, the author, transitive subjects as adjuncts (2019)
+(11a) line 1	Montana Salish	transcription	kʷ c̓wétm t sʔíɫn.	page 6
+(11a) line 2	Montana Salish	segmentation	kʷ c̓wét-m t sʔíɫn	page 6
+(11a) line 3	Montana Salish	gloss	2S.SBJ fetch-EB OBL food	page 6
+(11a) line 4	Isabel McKay	translation	‘You went to get some food.’	page 6
+(11a) line 5	Isabel McKay	note	(Compare: ‘You went fetching for food.’)	page 6, at the right of the translation
+(11b) line 1	Montana Salish	transcription	čn č̓éxʷm t st̓šá.	page 6
+(11b) line 2	Montana Salish	segmentation	čn č̓éxʷ-m t st̓šá	page 6
+(11b) line 3	Montana Salish	gloss	1S.SBJ dry.in.sun-EB OBL huckleberries	page 6
+(11b) line 4	Isabel McKay	translation	‘I dried the huckleberries.’	page 6
+(11b) line 5	Isabel McKay	note	(Compare: ‘I did drying of huckleberries.’)	page 6, at the right of the translation
+(11b) line 6	Isabel McKay	note	(Thomason 2014a)	page 6, under the translation
+(12) line 1	Montana Salish	transcription	snkólemen ɫu l’chminemen.	page 6
+(12) line 2	Montana Salish	segmentation	s-n-k̓ʷúl̓-mín [ l č-míƛ-mín]	page 6
+(12) line 3	Montana Salish	gloss	NOM-LOC:in-make-INST1 [ to LOC:on-smear-INST1]	page 6
+(12) line 4	Isabel McKay	translation	‘a butter churn’	page 6
+(12) line 5	Isabel McKay	note	(Compare: ‘an in-maker for butter’)	page 6, at the right of the translation
+(12) line 6	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 6, the tag or source at the right of the translation
+§2.1	Isabel McKay	note	We can therefore conclude that though transitive stems bearing the instrumental complex or the existential binder have an object present in the semantics, there is no syntactic position permitting the presence of a patient in either case.	page 6
+§2.2	Isabel McKay	heading	2.2 The Verbalizers vbecome and vbe	page 6
+§2.2	Isabel McKay	note	The second portion of the instrumental suffix complex is the verbalizer. There are two morphemes which may be selected for this purpose. The first, vbecome, is phonologically null and indicates that the state depicted by the saturated root is coming into being, while the second, vbe, is the phonologically overt suffix -í, which indicates that the state depicted by the saturated root is continuing in a state of being. This -í suffix has been called the “continuative” suffix in previous literature (Spek and Post 1980; Thomason 1992; Carlson 1972).	page 6
+§2.2	Isabel McKay	note	Generally, in this language, when a bare or minimally-modified transitive root is combined with an intransitive subject, the resulting sentence denotes an event in which the subject takes on the quality denoted by the verb.7 Some examples are given in (13).	page 7
+footnote 7	Isabel McKay	note	Because transitive roots license an internal argument, the assumption here is that, like unaccusative verbs crosslinguistically, the intransitive subject is first merged with the root below the level of verbalization, and is then extracted to subject position to satisfy syntactic constraints. Thus the syntactic subject is the semantic object.	page 7, footnote 7
+(13a) line 1	Montana Salish	transcription	čn nʔás.	page 7
+(13a) line 2	Montana Salish	segmentation	čn nás	page 7
+(13a) line 3	Montana Salish	gloss	1S.SBJ wet	page 7
+(13a) line 4	Isabel McKay	translation	‘I got wet.’	page 7
+(13a) line 5	Isabel McKay	note	(Compare: ‘I wetted.’)	page 7, at the right of the translation
+(13b) line 1	Montana Salish	transcription	c̓ʔúy.	page 7
+(13b) line 2	Montana Salish	segmentation	∅ c̓úy	page 7
+(13b) line 3	Montana Salish	gloss	3.SBJ sour	page 7
+(13b) line 4	Isabel McKay	translation	‘It turns sour.’	page 7
+(13b) line 5	Isabel McKay	note	(Compare: ‘It sours.’)	page 7, at the right of the translation
+(13b) line 6	Isabel McKay	note	(Thomason, 2014a)	page 7, at the right of the translation
+§2.2	Isabel McKay	note	Since sentences that semantically involve change-of-state verbalization do not require a phonetically overt change-of-state verbalizer, we can assume that in this language vbecome is phonologically null. Many, perhaps most, instrument nominalizations use this phonologically null verbalization to derive an embedded event. Some examples in which the -m-∅-n variant of the INST1 suffix complex is used are given in (14).	page 7
+§2.2	Montana Salish	cited form	-m-∅-n	page 7, in italics, the ∅ in an upright face
+(14a) line 1	Montana Salish	transcription	c̓óq̓ʷmn	page 7
+(14a) line 2	Montana Salish	segmentation	[c̓óq̓ʷ-m]-∅-n	page 7
+(14a) line 3	Montana Salish	gloss	point-EB-vbec-INST	page 7
+(14a) line 4	Isabel McKay	translation	‘finger’	page 7
+(14a) line 5	Isabel McKay	note	(lit: ‘pointer’)	page 7, at the right of the translation
+(14b) line 1	Montana Salish	transcription	láq̓ʷmn	page 7
+(14b) line 2	Montana Salish	segmentation	[láq̓ʷ-m]-∅-n	page 7
+(14b) line 3	Montana Salish	gloss	splash-EB-vbec-INST	page 7
+(14b) line 4	Isabel McKay	translation	‘something you use to throw water’	page 7
+(14b) line 5	Isabel McKay	note	(lit: ‘splasher’)	page 7, at the right of the translation
+(14b) line 6	Isabel McKay	note	(Thomason, 2014a)	page 7, at the right of the translation
+§2.2	Isabel McKay	note	Many instrument nominalizations, however, do clearly involve an -í vowel within the suffix. I argue that this -í suffix is the phonetic reflex of the verbalizer vbe. An illustration of the semantic contrast between sentences verbalized with vbecome and sentences verbalized with vbe is given in (15). The sentence in (15a) is verbalized with vbecome, while the sentence in (15b) is verbalized with vbe.	page 7
+(15a) line 1	Montana Salish	transcription	čn háʔu.	page 7
+(15a) line 2	Montana Salish	segmentation	čn háʕ̓ʷ	page 7
+(15a) line 3	Montana Salish	gloss	1S.SBJ loose	page 7
+(15a) line 4	Isabel McKay	translation	‘I got rested, I got relaxed.’	page 7
+(15b) line 1	Montana Salish	transcription	i čn háʕ̓ʷ.	page 8
+(15b) line 2	Montana Salish	segmentation	i čn háʕ̓ʷ	page 8
+(15b) line 3	Montana Salish	gloss	vbe 1S.SBJ loose	page 8
+(15b) line 4	Isabel McKay	translation	‘I feel good, I feel well.’	page 8
+(15b) line 5	Isabel McKay	note	(Thomason, 2014a)	page 8, at the right of the translation
+§2.2	Isabel McKay	note	Though in intransitive sentences like those in (15) the verbalizer surfaces as a prefix, it seems to be the case that once derivations become more complex vbe usually surfaces as a suffix. This commonly takes place within aspectually continuative constructions. Some examples are given in (16).	page 8
+(16a) line 1	Montana Salish	transcription	chines-chiamí.	page 8
+(16a) line 2	Montana Salish	segmentation	čn e-s-[čya-m-í]	page 8
+(16a) line 3	Montana Salish	gloss	1S.SBJ ACT-NOM-seduce-EB-vbec	page 8
+(16a) line 4	Isabel McKay	translation	‘I seduce, debauch.’	page 8
+(16a) line 5	Isabel McKay	note	(Compare: ‘I am doing seducing’)	page 8, at the right of the translation
+(16b) line 1	Montana Salish	transcription	chines-chiái	page 8
+(16b) line 2	Montana Salish	segmentation	čn e-s-[čya-∅-í]	page 8
+(16b) line 3	Montana Salish	gloss	1S.SBJ ACT-NOM-seduce-PRO-vbec	page 8
+(16b) line 4	Isabel McKay	translation	‘I am seduced, solicited to evil.’	page 8
+(16b) line 5	Isabel McKay	note	(Compare: ‘I am being seduced’)	page 8, at the right of the translation
+(16b) line 6	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 8, under the translation
+§2.2	Isabel McKay	note	In (16a), the vbe suffix licenses a transitive verb that has been saturated by the existential binder, while in (16b) it licenses a transitive verb that has been saturated by a null pronominal element, which causes the difference in the two sentences’ semantics.	page 8
+§2.2	Isabel McKay	note	The suffix -í most commonly appears in constructions such as those given in (16), which are known collectively as “continuative” constructions because of the aspectual interpretation of these verbs as progressive or ongoing. For this reason -í is sometimes considered an aspect marker, rather than a verbalizer. I would argue, however, that the continuative interpretation of structures such as those in (16) stems from the fact that these structures are formed by nominalizing an embedded verb (given in brackets above) using the prefix s- to form a participle which is then merged with the subject in a copular construction. This effectively creates a structure much like the English progressive, where the subject is linked to a participle using a copula or other verbalizer (ex: She is dancing, He does filing…).	page 8
+§2.2	Montana Salish	cited form	s-	page 8, in italics
+§2.2	Isabel McKay	note	I suggest that the basic semantics of these two morphemes can be captured by the descriptions given in (17) which are fairly standard as representations of these verbalizers cross- linguistically (Folli and Harley, 2005).	page 8
+§2.2	Isabel McKay	name	Harley	Heidi Harley, compounding and morpheme order (2011, 2013)
+§2.2	Isabel McKay	name	Folli	Raffaella Folli, flavors of v (2005)
+(17a) line 1	Montana Salish	formula	-∅ = vbecome	page 8, a formula
+(17a) line 2	Isabel McKay	formula	⟦𝑣𝑏𝑒𝑐⟧ = 𝜆𝑣𝑡𝜆𝑒𝑠. BECOME(𝑣, 𝑒)	page 8, a formula, its subscripts set inline
+(17b) line 1	Montana Salish	formula	-í = vbe	page 8, a formula
+(17b) line 2	Isabel McKay	formula	⟦𝑣𝑏𝑒⟧ = 𝜆𝑣𝑡𝜆𝑒𝑠. BE(𝑣, 𝑒)	page 8, a formula, its subscripts set inline
+§2.2	Isabel McKay	note	We can therefore continue the semantic derivation of the instrumental nominal begun in (8) through the addition of this suffix, as is illustrated in (18c).	page 8
+(18a) line 1	Montana Salish	formula	ʕác = tie, tangle	page 8, a formula
+(18a) line 2	Isabel McKay	formula	⟦ʕác⟧ = 𝜆𝑥𝑒. TIE(𝑥) Type: 〈𝑒, 𝑡〉	page 8, a formula, its subscripts set inline
+(18a) line 3	Isabel McKay	translation	‘x is tied’	page 8
+(18b) line 1	Isabel McKay	formula	⟦ʕác-m⟧ = ∃𝑥𝑒. TIE(𝑥) Type: t	page 9, a formula, its subscripts set inline
+(18b) line 2	Isabel McKay	translation	‘there exists some entity x such that x is tied’	page 9
+(18c) line 1	Isabel McKay	formula	⟦ʕác-m-í⟧ = 𝜆𝑒𝑠∃𝑥𝑒. BE(TIE(𝑥), 𝑒) Type: 〈𝑠, 𝑡〉	page 9, a formula, its subscripts set inline
+(18c) line 2	Isabel McKay	translation	‘for some event e, there exists an entity x such that during e, x exists in a state of being tied’	page 9
+§2.3	Isabel McKay	heading	2.3 The Instrumental Nominalizer	page 9
+§2.3	Isabel McKay	note	The final component of -mín nominalization is the instrumental nominalizer, -n, which performs essentially the same function as the English -er nominalizer. Though this morpheme is generally not analyzed on its own for this language, it does bear some similarity to the non-control portion of the uncontrolled transitivizing complex -n-t- (Carlson 1972; Thomason 1994).	page 9
+§2.3	Montana Salish	cited form	-n	page 9, in italics
+§2.3	Montana Salish	cited form	-er	page 9, in italics
+§2.3	Montana Salish	cited form	-n-t-	page 9, in italics
+§2.3	Isabel McKay	note	In this context, the -n morpheme acts as a nominalizer, taking an event as its argument and returning a predicate of type 〈𝑒, 𝑡〉 describing the non -volitional causer of that event. The proposed semantics of this suffix are given in (19).	page 9
+(19) line 1	Montana Salish	formula	-n = INST	page 9, a formula
+(19) line 2	Isabel McKay	formula	⟦INST⟧ = 𝜆𝑓〈𝑠,𝑡〉𝜆𝑥𝑒∃𝑒𝑠. 𝑓(𝑒) & CAUSE(𝑒, 𝑥) Type: 〈〈𝑠, 𝑡〉, 〈𝑒, 𝑡〉〉	page 9, a formula, its subscripts set inline
+§2.3	Isabel McKay	note	By merging this nominalizer with the event predicate given in (16c) we can derive the instrument noun given in (20).	page 9
+(20) line 1	Isabel McKay	formula	⟦ʕác-m-í-n⟧ = 𝜆𝑥𝑒∃𝑒𝑠∃𝑦𝑒. BE(TIE(𝑦), 𝑒) & CAUSE(𝑥, 𝑒) Type: 〈𝑒, 𝑡〉	page 9, a formula, its subscripts set inline
+(20) line 2	Isabel McKay	translation	‘For some entity x, there exists an event e and an entity y such that x caused e and y continues in a state of being tied during e’	page 9
+(20) line 3	Isabel McKay	note	(= ‘trap’)	page 9, at the right of the translation
+§2.4	Isabel McKay	heading	2.4 Possession of -mín Instrumental Nominals	page 9
+§2.4	Isabel McKay	note	I will assume that possessive nominals in Montana Salish are formed according to a structure roughly equivalent to that illustrated in (21), which is a fairly standard structure for possession cross-linguistically (ex: Baker and Vinokurova 2009). In this structure, the possessive determiner agrees in person and number features with the possessor DP in its specifier position.	page 9
+§2.4	Isabel McKay	name	Baker	Mark Baker, agent nominalizations (2009)
+§2.4	Isabel McKay	name	Vinokurova	Nadya Vinokurova (2009)
+(21)	Isabel McKay	note	Montana Salish Possessive DP	page 9, the title of a tree
+(21) line 1	Montana Salish	transcription	inʕácmín	page 9
+(21) line 2	Montana Salish	segmentation	in-ʕác-m-í-n	page 9
+(21) line 3	Montana Salish	gloss	1S.POSS-trap-EB-vbe-INST	page 9
+(21) line 4	Isabel McKay	translation	‘my trap’	page 9
+(21) line 5	Isabel McKay	note	(my tool for trapping things)	page 9, at the right of the translation
+(21) tree line 1	Isabel McKay	note	DP	page 9, a line of the tree as the text layer reads it
+(21) tree line 2	Isabel McKay	note	DP D’	page 9, a line of the tree as the text layer reads it
+(21) tree line 3	Isabel McKay	note	∅ D NP	page 9, a line of the tree as the text layer reads it
+(21) tree line 4	Isabel McKay	note	1S.PN	page 9, a line of the tree as the text layer reads it
+(21) tree line 5	Isabel McKay	note	in- ʕác-mín	page 9, a line of the tree as the text layer reads it
+(21) tree line 6	Isabel McKay	note	POSS (1SG) trap-INST1	page 9, a line of the tree as the text layer reads it
+§2.4	Isabel McKay	note	The possessive determiner head in this model essentially just applies definite semantics to the un-filled type e argument of the NP. The result of merging the instrumental NP with a possessive determiner is given in (22).	page 10
+(22) line 1	Isabel McKay	formula	⟦in-ʕác-m-í-n⟧ = 𝜄𝑥𝑒∃𝑒𝑠∃𝑦𝑒. BE(TIE(𝑦), 𝑒) & CAUSE(𝑒, 𝑥)	page 10, a formula, its subscripts set inline
+(22) line 2	Isabel McKay	translation	‘the entity x for which there exists an event e and an entity y such that during e, y continues in a state of being tied and x causes e’	page 10
+§2.4	Isabel McKay	note	Because the semantics of the D’ described in (20) are fully specified, the relationship between the DP in specifier position above the determiner is interpreted as a simple possession relationship. This, then, results in the intuition that the possessor of a -mín instrumental nominal is the possessor of a tool, not the object upon which the tool acts.	page 10
+§3	Isabel McKay	heading	3 The Object-Oriented Instrumental, -tín	page 10
+§3	Isabel McKay	note	In this section I examine instrument nouns formed using the -t(í)n instrumental nominalizing complex. I will argue that this nominalizer is also composed of three independent morphemes. The first of these morphemes, -t (ast), is an adjectivizer that derives ‘characterized-by’ adjectives. The second and third morphemes -í and -n are the same vbe (or vbecome) and instrumental nominalizer morphemes described above (in sections 2.2 and 2.3 respectively).	page 10
+§3	Montana Salish	cited form	-t(í)n	page 10, in italics
+§3	Isabel McKay	note	The primary difference between -mín and -t(í)n nominals, I will argue, comes from the manner in which the internal argument of the root becomes saturated. While in -mín nominals the internal argument is existentially bound by the existential binder morpheme -m, in -t(í)n nominals the root/stem is adjectivized before combining with an explicit DP object. The proposed structure of -t(í)n nominals is given in (23).	page 10
+(23)	Isabel McKay	note	Proposed Montana Salish Instrumental Nominalization: -t(í)n	page 10, the title of a tree
+(23) line 1	Montana Salish	transcription	aiptín	page 10
+(23) line 2	Montana Salish	segmentation	[ʕáy̓-p]-t-í-n	page 10
+(23) line 3	Montana Salish	gloss	[fast-INCH]-ST-vbe-INST	page 10
+(23) line 4	Isabel McKay	translation	‘what carries a fellow fast’	page 10
+(23) line 5	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 10, the tag or source at the right of the translation
+(23) tree line 1	Isabel McKay	note	DP	page 10, a line of the tree as the text layer reads it
+(23) tree line 2	Isabel McKay	note	DPi D’	page 10, a line of the tree as the text layer reads it
+(23) tree line 3	Isabel McKay	note	∅ D nP	page 10, a line of the tree as the text layer reads it
+(23) tree line 4	Isabel McKay	note	3.PN	page 10, a line of the tree as the text layer reads it
+(23) tree line 5	Isabel McKay	note	∅ n° (vP)	page 10, a line of the tree as the text layer reads it
+(23) tree line 6	Isabel McKay	note	-n (v°) SC	page 10, a line of the tree as the text layer reads it
+(23) tree line 7	Isabel McKay	note	INST	page 10, a line of the tree as the text layer reads it
+(23) tree line 8	Isabel McKay	note	(-í ) ei aP	page 10, a line of the tree as the text layer reads it
+(23) tree line 9	Isabel McKay	note	(vbe)	page 10, a line of the tree as the text layer reads it
+(23) tree line 10	Isabel McKay	note	a° √P	page 10, a line of the tree as the text layer reads it
+(23) tree line 11	Isabel McKay	note	-t ʕáy̓p	page 10, a line of the tree as the text layer reads it
+(23) tree line 12	Isabel McKay	note	ast fast	page 10, a line of the tree as the text layer reads it
+§3.1	Isabel McKay	heading	3.1 The Stative Suffix -t	page 11
+§3.1	Isabel McKay	note	The first portion of the -tín suffix complex is the morpheme commonly referred-to as the stative suffix, -t. This suffix is used to derive create words describing states of being from bare roots. Generally these words are translated into English as adjectives. Some examples of stative-marked words being used in sentences are given in (24).	page 11
+§3.1	Montana Salish	cited form	-t	page 11, in italics
+(24a) line 1	Montana Salish	transcription	čn q̓ʷéyɫt.	page 11
+(24a) line 2	Montana Salish	segmentation	čn q̓ʷéyɫ-t	page 11
+(24a) line 3	Montana Salish	gloss	1S.SBJ healthy-aST	page 11
+(24a) line 4	Isabel McKay	translation	‘I’m well (again), I’m capable.’	page 11
+(24b) line 1	Montana Salish	transcription	čn ʕáymt.	page 11
+(24b) line 2	Montana Salish	segmentation	čn ʕáym-t	page 11
+(24b) line 3	Montana Salish	gloss	1S.SBJ angry-aST	page 11
+(24b) line 4	Isabel McKay	translation	‘I got mad.’	page 11
+(24b) line 5	Isabel McKay	note	(Thomason 2014a)	page 11, at the right of the translation
+§3.1	Isabel McKay	note	I suggest that the stative suffix is an a° morpheme, used to derive adjectives, that may be compared to English morphemes like -ful (delight-ful) or -ous (lustr-ous), in that it creates an adjective meaning ‘characterized-by’ the quality denoted by the root (Harley, 2011). A suggested semantics for this morpheme is given in (25).	page 11
+§3.1	Montana Salish	cited form	a°	page 11, in italics
+§3.1	Montana Salish	cited form	-ful	page 11, in italics
+§3.1	Montana Salish	cited form	-ous	page 11, in italics
+(25) line 1	Isabel McKay	formula	-t = aST Type: 〈〈𝑒, 𝑡〉, 〈𝑒, 𝑡〉〉	page 11, a formula, its subscripts set inline
+(25) line 2	Isabel McKay	formula	⟦𝑎ST⟧ = 𝜆𝑓〈𝑒,𝑡〉𝜆𝑥𝑒. CHARACTERIZED. BY(𝑓, 𝑥)	page 11, a formula, its subscripts set inline
+§3.1	Isabel McKay	note	When the stative adjective suffix is merged with a bare root or simple stem of type 〈𝑒, 𝑡〉, the result is a semantic derivation like the one given in (26).	page 11
+(26a) line 1	Isabel McKay	formula	⟦ʕay̓p⟧ = 𝜆𝑥𝑒. FAST(𝑥) Type: 〈𝑒, 𝑡〉	page 11, a formula, its subscripts set inline
+(26a) line 2	Isabel McKay	translation	‘for some entity x, x is fast’	page 11
+(26b) line 1	Isabel McKay	formula	⟦ʕay̓p-t⟧ = 𝜆𝑥𝑒. CHARACTERIZED. BY(𝜆𝑦. FAST(𝑦), 𝑥) Type: 〈𝑒, 𝑡〉	page 11, a formula, its subscripts set inline
+(26b) line 2	Isabel McKay	translation	‘for some entity x, x is characterized by the function that takes entities and evaluates them for the quality of being fast.’	page 11
+§3.1	Isabel McKay	note	Stative adjectives created by the addition of ast are syntactically distinct from the bare roots and stems that are existentially bound by -m. One result of this is that in instrumental nominals based around stative adjectives, the adjectival predicate is not existentially bound, but is instead combined with an object DP in a small clause, as is illustrated in (27).	page 11
+(27) line 1	Isabel McKay	formula	⟦ʕay̓p-t-∅𝑝𝑛⟧ = CHARACTERIZED. BY(𝜆𝑦𝑒. FAST(𝑦), 𝒂) Type: t	page 11, a formula, its subscripts set inline
+(27) line 2	Isabel McKay	translation	‘the entity a is characterized by the function that takes entities and evaluates them by the quality of being fast.’	page 11
+§3.2	Isabel McKay	heading	3.2 Deriving the Remainder of the -tín Instrumental	page 11
+§3.2	Isabel McKay	note	The remaining portion of -tín instrumental nominals are derived using the same set of morphemes that were used in the upper portion of -mín nominals. A semantic derivation is provided in (28).	page 11
+(28a) line 1	Isabel McKay	formula	⟦ʕay̓p-t-∅𝑝𝑛-í⟧ = 𝜆𝑒𝑠. BE(CHARACTERIZED. BY(𝜆𝑦. FAST(𝑦), 𝒂), 𝑒)	page 12, a formula, its subscripts set inline
+(28a) line 2	Isabel McKay	translation	‘for some event e, e is an event of the entity a being characterized by the function that takes entities and evaluates them by the quality of being fast.’	page 12
+(28b) line 1	Isabel McKay	formula	⟦ʕay̓p-t-∅𝑝𝑛-í-n⟧ = 𝜆𝑥𝑒∃𝑒𝑠. BE(CHARACTERIZED. BY(𝜆𝑦. FAST(𝑦), 𝒂), 𝑒) & CAUSE(𝑒, 𝑥)	page 12, a formula, its subscripts set inline
+(28b) line 2	Isabel McKay	translation	‘for some entity x, there exists an event e such that e is an event ov the entity a’s being characterized by the function that takes entities and evaluates them by the quality of being fast, and such that x causes e.’	page 12
+(28c) line 1	Isabel McKay	formula	⟦DET-ʕay̓p-t-∅𝑝𝑛-í-n⟧ = 𝜄𝑥𝑒∃𝑒𝑠. BE(CHARACTERIZED. BY(𝜆𝑦. FAST(𝑦), 𝒂), 𝑒) & CAUSE(𝑒, 𝑥)	page 12, a formula, its subscripts set inline
+(28c) line 2	Isabel McKay	translation	‘the entity x for which there exists an event e…’	page 12
+§3.2	Isabel McKay	note	In the above derivation, the small clause from (27) is first combined with vbe (28a). This verbalizer syntactically licenses the embedded object. The verbalized predicate is then merged with the instrumental nominalizer -n (28b) and with the determiner (28c), resulting in a DP of type e.	page 12
+§3.2	Isabel McKay	note	Because the embedded object DP is case-licensed by a verbalizer, it may sometimes appear as a full DP nominal, as in the example in (29).8	page 12
+footnote 8	Isabel McKay	note	Often roots used in -tín nominals undergo manner adjunction with a lexical suffix before being merged with the -t suffix, allowing for the creation of nouns like ɫp̓úlexʷtn ‘boundary’ (ɫíp ‘line’ + -úɫexʷ ‘land’ + -t (aST) + ∅ (vBEC) + -n (INST), compare ‘[land-line]-it-er’)	page 12, footnote 8
+footnote 8	Montana Salish	cited form	ɫp̓úlexʷtn	page 12, in italics, ‘boundary’
+footnote 8	Montana Salish	cited form	ɫíp	page 12, in italics, ‘line’
+footnote 8	Montana Salish	cited form	-úɫexʷ	page 12, in italics, ‘land’
+(29) line 1	Montana Salish	transcription	c̓wétn inq̓eymín	page 12
+(29) line 2	Montana Salish	segmentation	c̓wét-t-∅-n in-q̓éymín	page 12
+(29) line 3	Montana Salish	gloss	fetched-aST-vBEC-INST 1S.POSS-papers	page 12
+(29) line 4	Isabel McKay	translation	‘a carrier, someone who goes after a paper, a mailman’	page 12
+(29) line 5	Isabel McKay	note	(Compare: paper-fetcher)	page 12, at the right of the translation
+(29) line 6	Isabel McKay	note	(Thomason, 2014a)	page 12, under the translation
+§3.2	Isabel McKay	note	In cases where the object remains pronominal, but the speaker wishes that pronoun to be coreferent with some other entity in the clause, the object undergoes optional extraction to the specifier position of the DP, as illustrated by the dotted line on the figure in (23). This extraction triggers agreement with the determiner and also allows the embedded pronoun to be semantically accessible to the rest of the clause. This is what causes the possessors of -tín instrumentals to be interpreted as the object the tool acts upon rather than the owner of the tool (see the examples given in (4)).	page 12
+§3.2	Isabel McKay	note	If the pronoun does not need to be coreferent with another entity in the sentence it generally remains low in the syntax, resulting in unpossessed -tín instrumentals.	page 12
+§4	Isabel McKay	heading	4 Double-Marked Instrumentals, -mín-tn	page 12
+§4	Isabel McKay	note	There are numerous instrument nouns in Montana Salish that make use of both the -mín and -tín nominalizing complexes (Spek and Post 1980; Carlson 1977). When this happens the -mín suffix is always closer to the stem than the -tín suffix. Additionally, like -tín nominals, the possessors of -mín-tn nouns are interpreted as the standard object of the action performed by the tool denoted by the noun. Some examples are given in (29).	page 12
+§4	Montana Salish	cited form	-mín-tn	page 12, in italics
+(29a) line 1	Montana Salish	transcription	inagaminten	page 13
+(29a) line 2	Montana Salish	segmentation	in-[ʕáq̓-m-í-n]-t-í-n	page 13
+(29a) line 3	Montana Salish	gloss	1S.POSS-[stretch-EB-vbe-INST]-ast-vbe-INST	page 13
+(29a) line 4	Isabel McKay	translation	‘what is used to stretch me’	page 13
+(29b) line 1	Montana Salish	transcription	kɫazmíntis ɫu ipégu	page 13
+(29b) line 2	Montana Salish	segmentation	[k̓ʷɫ-ʕác-m-í-n]-t-í-n-s9 ɫu ipéqu	page 13
+footnote 9	Isabel McKay	note	There is a phonetic process in this language whereby /n/ → [i] / __ [s] which has arguably taken place here (Thomason 1994).	page 13, footnote 9
+(29b) line 3	Montana Salish	gloss	[LOC-under-tie-EB-vbe-INST]-ast-vbe-INST-3.POSS COMP bay.horse	page 13
+(29b) line 4	Isabel McKay	translation	‘be it the cabress of the bay horse’	page 13
+(29c) line 1	Montana Salish	transcription	chalmínten	page 13
+(29c) line 2	Montana Salish	segmentation	[čál-m-í-n]-t-i-n	page 13
+(29c) line 3	Montana Salish	gloss	[cut-EB-vbe-INST]-ast-vbe-INST	page 13
+(29c) line 4	Isabel McKay	translation	‘scissors, in regard to the thing cut’	page 13
+(29c) line 5	Isabel McKay	citation	(Mengiarini et al. 1877–1879)	page 13, the tag or source at the right of the translation
+§4	Isabel McKay	note	I propose these sorts of double-marked instruments are actually simple -tín instrumental nominals formed around a stem which is a re-verbalization of a -mín nominal, as illustrated in the diagram in (30).	page 13
+§4	Isabel McKay	note	The derivation in (30) begins with the formation of the -mín instrumental, which is a possessor-oriented instrument DP describing ‘a trap’ or ‘cabress.’ This DP is what forms the stem for -tín nominalization. After merging the -t suffix, we have a stative adjective describing meaning ‘characterized by a trap.’ This is then merged with a null pronoun, and is then verbalized with vbecome and nominalized using the instrumental nominalizer -n, giving us a noun depicting the thing that caused an event in which a something was characterized by a trap. Since the pronoun in this sentence is coreferent with ipequ ‘bay horse’, it is extracted to the specifier position above the DP, which results in definite determiner’s being inflected for the 3rd person.	page 13
+(30)	Isabel McKay	note	Proposed Montana Salish Instrumental Nominal Structure: -mín-tn	page 13, the title of a tree
+(30) tree line 1	Isabel McKay	note	DP	page 13, a line of the tree as the text layer reads it
+(30) tree line 2	Isabel McKay	note	DP D’	page 13, a line of the tree as the text layer reads it
+(30) tree line 3	Isabel McKay	note	ipequ D nP	page 13, a line of the tree as the text layer reads it
+(30) tree line 4	Isabel McKay	note	bay.horse	page 13, a line of the tree as the text layer reads it
+(30) tree line 5	Isabel McKay	note	-s n° vP	page 13, a line of the tree as the text layer reads it
+(30) tree line 6	Isabel McKay	note	3.POSS	page 13, a line of the tree as the text layer reads it
+(30) tree line 7	Isabel McKay	note	-n v° SC	page 13, a line of the tree as the text layer reads it
+(30) tree line 8	Isabel McKay	note	INST	page 13, a line of the tree as the text layer reads it
+(30) tree line 9	Isabel McKay	note	-í ei aP	page 13, a line of the tree as the text layer reads it
+(30) tree line 10	Isabel McKay	note	vbe	page 13, a line of the tree as the text layer reads it
+(30) tree line 11	Isabel McKay	note	a° DP	page 13, a line of the tree as the text layer reads it
+(30) tree line 12	Isabel McKay	note	-t k̓ʷɫʕácmín	page 13, a line of the tree as the text layer reads it
+(30) tree line 13	Isabel McKay	note	ast trap/cabress	page 13, a line of the tree as the text layer reads it
+§5	Isabel McKay	heading	5 Conclusion	page 14
+§5	Isabel McKay	note	In this paper I have proposed an analysis of the three different mechanisms used to form instrumental nominals in Montana Salish. In doing so, I have provided an explanation for the differences in the ways the possessors of these two types of nouns are interpreted. The possessors of -mín instrumental nouns are interpreted as owning a tool which causes someone or something else to be verbed, while the possessors of -tín and -mín-tn instrumental nouns are interpreted as the object which is acted upon by the tool depicted.	page 14
+§5	Isabel McKay	note	Many other Southern Interior Salish languages use morphemes related to one or both of these instrumental nominalizing complexes (ex: Okanagan (Doak and Mattina 1997), Nxa’amxcin/Moses-Columbia (Willet 2003), etc.). Whether or not this analysis could be extended to other languages would be an interesting subject for further research, but is, unfortunately, beyond the scope of the current investigation.	page 14
+§5	Isabel McKay	name	Doak	Ivy Doak, Okanagan -lx (1997)
+§5	Isabel McKay	name	Mattina	Anthony Mattina (1997)
+§5	Isabel McKay	name	Willet	Marie Louise Willett, the grammar of Nxa’amxcin (2003), spelled Willet in the text
+§5	Isabel McKay	language	Southern Interior Salish	the branch
+§5	Isabel McKay	language	Okanagan	Southern Interior Salish
+§5	Isabel McKay	language	Nxa’amxcin	Moses-Columbia Salish
+§5	Isabel McKay	language	Moses-Columbia	Nxa’amxcin
+§5	Isabel McKay	note	This analysis is relevant not only to Salish but also to the analysis of instrument nouns cross- linguistically. In many languages, including English, possessed instrument nouns are semantically ambiguous, but it seems likely that this ambiguity results from structural differences not unlike the differences between -mín and -tín nouns in Montana Salish that are simply not phonetically realized in languages like English.	page 14
+references	Isabel McKay	heading	References:	page 14
+references	Isabel McKay	reference	Alexiadou, Artemis & Schäfer, Florian. 2008. Instrumental -er nominals revisited. Online-Proceedings of WCCFL XXVII (Poster Session), 10–19.	page 14
+references	Isabel McKay	reference	Baker, Mark, & Vinokurova, Nadya. 2009. On agent nominalizations and why they are not like event nominalizations. Language 85, 517–556.	page 14
+references	Isabel McKay	reference	Carlson, Barry F. 1972. A grammar of Spokan: A Salish language of eastern Washington. University of Hawaii, Honolulu.	page 14
+references	Isabel McKay	reference	Doak, Ivy, & Mattina, Anthony. 1997. Okanagan -lx, Coeur d’Alene -ilš and cognate forms. International Journal of American Linguistics 63, 334–361.	page 14
+references	Isabel McKay	reference	Folli, Raffaella, & Harley, Heidi. 2005. Flavors of v. Aspectual inquiries, 95–120.	page 14
+references	Isabel McKay	reference	Harley, Heidi. 2013. Getting morphemes in order: Merger, affixation, and head movement, in: Cheng, L.L.-S., Corver, N. (eds.), Diagnosing Syntax. Oxford University Press.	page 14
+references	Isabel McKay	reference	Harley, Heidi. 2011. Compounding in Distributed Morphology, in: Lieber, R., Štekauer, P. (eds.), The Oxford Handbook of Compounding. Oxford University Press.	page 14
+references	Isabel McKay	reference	Harley, Heidi & Noyer, Rolf. 1999. Distributed morphology. Glot international 4, 3–9.	page 14
+references	Isabel McKay	reference	Matthewson, Lisa, & Davis, Henry. 1995. The structure of DP in St’át’imcets (Lillooet Salish), 30th International Conference on Salish and Neighbouring Languages. University of Victoria.	page 14
+references	Isabel McKay	reference	McKay, Isabel. 2019. Transitive Subjects as Adjuncts in Montana Salish. LSA 2019, New York, NY.	page 14
+references	Isabel McKay	reference	Mengarini, Gregory, S. J., Giorda, Joseph, van Gorp, Leopold, Bandini, Joseph, Guidi, Joseph. 1877–1879. A dictionary of the Kalispel of Flat-head Indian language. St. Ignatius, MT; St. Ignatius.	page 14
+references	Isabel McKay	reference	Perlmutter, David M. 1978. Impersonal Passives and the Unaccusative Hypothesis, The Annual Meeting of the Berkeley Linguistics Society 38. Linguistic Society of America.	page 15
+references	Isabel McKay	reference	Speck, Brenda J., & Post, John A. 1980. An edition of Father Post’s Kalispel grammar. University of Montana.	page 15
+references	Isabel McKay	reference	Thomason, Lucy. 1994. Transitivity-related morphological alternations in Montana Salish. 29th International Conference on Salish and Neighboring Languages, 265–287.	page 15
+references	Isabel McKay	reference	Thomason, Sarah. 1992. The Flathead Word. University of Michigan.	page 15
+references	Isabel McKay	reference	Thomason, Sarah. 2014a. Montana Salish Dictionary. University of Michigan.	page 15
+references	Isabel McKay	reference	Thomason, Sarah. 2014b. Montana Salish Grammar Lessons. University of Michigan.	page 15
+references	Isabel McKay	reference	Willett, Marie Louise. 2003. A Grammatical Sketch of Nxa’amxcin (Moses-Columbia Salish). University of Victoria.	page 15

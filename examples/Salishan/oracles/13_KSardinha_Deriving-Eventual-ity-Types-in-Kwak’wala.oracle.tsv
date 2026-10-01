@@ -1,0 +1,723 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	title	Deriving Eventuality Types in Kwak’wala	page 1, carries footnote *
+front	Katie Sardinha	name	Katie Sardinha	author
+front	Katie Sardinha	note	Abstract: Greene (2013) proposes that verbs in Kwak’wala fall into three lexical aspectual classes: States, Processes, and Transitions. In this paper, my aim is to extend this system by proposing that Kwak’wala possesses grammatical means for deriving these same three eventuality types. Below, I discuss three suffixes: -ała which derives States, -la which derives Processes, and –xʔid which derives Transitions.	page 1, the abstract
+front	Katie Sardinha	note	Keywords: lexical aspect, event structure, verbs, semantics, Kwak’wala, Wakashan	page 1, the keywords
+front	Katie Sardinha	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	Katie Sardinha	language	Kwak’wala	Northern Wakashan
+footnote *	Katie Sardinha	note	I would like to thank my Kwak’wala language consultants for all they have taught me in language and life: Violet Bracic, Mildred Child, Ruby Dawson Cranmer, Lily Johnny, Julia Nelson, and anonymous, ƛuma mul̕ən noqeʔ! I am also grateful to Hannah Greene, whose insights into Kwak’wala aspect have helped me think more clearly about the language. A final thanks goes to Line Mikkelsen, for helping me think through some of the predictions of the analysis set forth in this paper. Contact info: katie.sardinha@berkeley.edu	page 1, footnote *, on the title
+footnote *	Kwak’wala	cited form	ƛuma mul̕ən noqeʔ	page 1, in italics
+footnote *	Katie Sardinha	name	Violet Bracic	Kwak’wala language consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Mildred Child	Kwak’wala language consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Ruby Dawson Cranmer	Kwak’wala language consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Lily Johnny	Kwak’wala language consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Julia Nelson	Kwak’wala language consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Hannah Greene	the author of the verb classes the paper builds on, HG in the examples
+footnote *	Katie Sardinha	name	Line Mikkelsen	thanked in the note on the title
+§1	Katie Sardinha	heading	1 Introduction	page 1
+§1	Katie Sardinha	note	Greene (2013) proposes that verbs in Kwak’wala fall into three lexical aspectual classes: States, Processes, and Transitions. The general aim of this paper is to corroborate Greene’s central insight that States, Processes, and Transitions are basic eventuality types within Kwak’wala grammar, in particular by proposing that the language possesses grammatical means for deriving these same three eventuality types. Here, I will focus on three especially common aspectual suffixes: –aɬa which derives States, -la which derives Processes, and –xʔid which derives Transitions. An implication of my analysis of these suffixes is that the three eventuality types posited in Greene (2013) turn out to be even more pervasive categories in Kwak’wala grammar than previously recognized.	page 1
+§1	Kwak’wala	cited form	-la	page 1, in italics
+§1	Kwak’wala	cited form	–xʔid	page 1, in italics
+§1	Kwak’wala	cited form	–aɬa	page 1, in italics
+§1	Katie Sardinha	note	My analysis of –la and –xʔid differs from the one proposed in Greene (2013), where –la is analyzed as a frozen pluractional and –xʔid as a (non-canonical) perfective. My first task in this paper, then, will be to demonstrate that my analysis accounts for those empirical generalizations reported previously in relation to –la and –xʔid. My second task will then be to demonstrate that my analysis is plausible. To do so, I’ll show that the range of interpretations available for duqʷ- ‘see’ predicates containing –aɬa, -la, and –xʔid is consistent with these predicates being derived States, Processes, and Transitions, respectively. My hope is that this paper will both stimulate a new way of thinking about these suffixes’ role in the grammar, and will draw renewed attention to the importance of Greene’s three eventuality types.	page 1
+§1	Kwak’wala	cited form	duqʷ-	page 1, in italics, ‘see’
+§1	Katie Sardinha	note	The rest of the paper proceeds as follows: Section 2 introduces Greene’s (2013) theory of lexical aspectual classes; Section 3 provides background on the aspectual suffixes –aɬa, -la, and –xʔid and restates my analysis; Section 4 summarizes and critiques Greene’s (2013) analysis of –xʔid and -la; Section 5 discusses the range of interpretations available for duqʷ- ‘see’ predicates with –aɬa, -la, and –xʔid, and how this range is explained by my analysis; and Section 6 summarizes and concludes by pointing out some implications of the analysis.	page 2
+§2	Katie Sardinha	heading	2 Greene (2013) on lexical aspectual verb classes	page 2
+§2	Katie Sardinha	note	The study of lexical aspect1 is concerned with the inner temporal structure of situations. Greene (2013) proposes that verbs in Kwak’wala fall into three classes with respect to lexical aspectual type: States, Processes, and Transitions. Greene’s three proposed verb classes are summarized in Table 1, along with their associated verb templates and semantic features.2	page 2
+footnote 1	Katie Sardinha	note	Lexical aspect is also sometimes referred to as situation aspect or aktionsart.	page 2, footnote 1
+footnote 2	Katie Sardinha	note	The templates for Processes and Transitions in Table 1 replicate Rothstein’s (2004) templates for Activities and Achievements (in English), respectively. The operators DO and BECOME in Table 1 are from Dowty (1979); their definitions are given in Appendix A.	page 2, footnote 2
+Table 1	Katie Sardinha	note	Table 1: Lexical aspect classes in Kwak’wala (from Greene 2013)	page 2, the table's caption
+Table 1 line 1	Katie Sardinha	note	Verb class Template Semantic features	page 2, Table 1
+Table 1 line 2	Katie Sardinha	note	a. States λe.P(e) [-telic, -stages/-dynamic]	page 2, Table 1
+Table 1 line 3	Katie Sardinha	note	b. Processes λe.(DO(P))(e) [-telic, +stages/+dynamic]	page 2, Table 1
+Table 1 line 4	Katie Sardinha	note	c. Transitions λe.(BECOME(P))(e) [+telic, -stages/-dynamic]	page 2, Table 1
+§2	Katie Sardinha	note	States are eventualities which do not develop or progress through time. Some examples of States listed in Greene (ibid.) include c̓əxq̓a ‘to be sick’, p̓isa ‘to be hard’, and gəlt̕əx̌st ‘to be tall’. In Kwak’wala, bare State predicates can be interpreted either in the present tense or the past tense, as shown by the two possible translations of the sentence in (1).3 Since bare States do not possess an inherent initial point, they cannot receive an inchoative interpretation (2).	page 2
+footnote 3	Katie Sardinha	note	Some of the glosses in Greene (2013) have been amended for presentation here. All data other than what is attributed to Greene (ibid.) are from fieldwork carried out during 2008- 2018. Examples are presented in the APA (UVic variety) orthography. Abbreviations used in glosses include the following: 1 ‘first person’, 2 ‘second person’, 3 ‘third person’, AUX ‘auxiliary’, ACC ‘accusative case’, BEC ‘become, momentaneous/inchoative, transition marker’, CONN ‘connective’, CONJ ‘conjunction’, DET ‘determiner’, DIST ‘distal’, FUT ‘future tense’, FV ‘final vowel’, GRAD.ADV ‘gradual advancement’, HG ‘Hannah Greene’, HYP ‘hypothetical’, IMP ‘imperative’, INST ‘instrumental case’, INV ‘invisibility marker’, KS ‘Katie Sardinha’, MED ‘medial’, NEG ‘negation’, NEG.EXIST ‘negative existential’, OST ‘ostensive’, PL ‘plural’, POSS ‘possessive’, PREP ‘preposition’, PROC ‘process’, REFL ‘reflexive’, STAT ‘stative’, VER ‘verum focus’, VIS ‘visibility marker’.	page 2, footnote 3
+§2	Kwak’wala	cited form	c̓əxq̓a	page 2, in italics, ‘to be sick’
+§2	Kwak’wala	cited form	p̓isa	page 2, in italics, ‘to be hard’
+§2	Kwak’wala	cited form	gəlt̕əx̌st	page 2, in italics, ‘to be tall’
+(1) line 1	Kwak’wala	transcription	p̓isox̌da dzəxʔən	page 3
+(1) line 2	Kwak’wala	segmentation	p̓is =ox̌ =da dzəxʔən	page 3
+(1) line 3	Kwak’wala	gloss	hard =3MED =OST metal	page 3
+(1i) line 1	Katie Sardinha	translation	‘The metal is hard’	page 3, reading i.
+(1ii) line 1	Katie Sardinha	translation	‘The metal was hard.’	page 3, reading ii.
+(1ii) line 2	Katie Sardinha	citation	(Greene 2013:34)	page 3, the source at the right of the reading
+(2) line 1	Kwak’wala	transcription	c̓əxq̓ən	page 3
+(2) line 2	Kwak’wala	segmentation	c̓əxq̓ =ən	page 3
+(2) line 3	Kwak’wala	gloss	ill =1	page 3
+(2i) line 1	Katie Sardinha	translation	‘I’m ill.’	page 3, reading i.
+(2ii) line 1	Katie Sardinha	translation	*‘I became ill.’	page 3, reading ii.
+(2ii) line 2	Katie Sardinha	citation	(Greene 2013:35)	page 3, the source at the right of the reading
+§2	Katie Sardinha	note	Greene considers States in Kwak’wala to be generally comparable to States in English (2013:110).	page 3
+§2	Katie Sardinha	language	English	the translations
+§2	Katie Sardinha	note	Processes are eventualities which unlike States, do develop and progress through time. Also, they are eventualities which are instigated by an Agent. Some examples of Processes investigated in Greene (2013) include qas- ‘to walk’, k̓ʷəmt- ‘to smoke’, and nix̌- ‘to pull’. Like States, bare Processes may have either a present tense or past tense interpretation (3) and cannot receive inchoative interpretations on account of the fact that they lack inherent initial points (4). Another notable feature of Processes is that unlike their translational equivalents in many languages (including English), Processes consistently fail telicity tests. An example of this is shown in (5) with the Process verb stem ʔəx̌ila ‘to make, do’. This example illustrates how the culmination of a Process eventuality can be felicitously cancelled (unlike its English translation, which is infelicitous).	page 3
+§2	Kwak’wala	cited form	qas-	page 3, in italics, ‘to walk’
+§2	Kwak’wala	cited form	k̓ʷəmt-	page 3, in italics, ‘to smoke’
+§2	Kwak’wala	cited form	nix̌-	page 3, in italics, ‘to pull’
+§2	Kwak’wala	cited form	ʔəx̌ila	page 3, in italics, ‘to make, do’
+(3) line 1	Kwak’wala	transcription	nix̌ox̌ Hannah x̌a dənəm	page 3
+(3) line 2	Kwak’wala	segmentation	nix̌ =ox̌ Hannah =x̌ =a dənəm	page 3
+(3) line 3	Kwak’wala	gloss	pull=3MED Hannah =ACC =DET rope	page 3
+(3) line 4	Kwak’wala	transcription	lax̌a xʷak̓ʷəna	page 3
+(3) line 5	Kwak’wala	segmentation	la =x̌ =a xʷak̓ʷəna	page 3
+(3) line 6	Kwak’wala	gloss	PREP =ACC =DET canoe	page 3
+(3) line 7	Kwak’wala	transcription	lax̌a wa	page 3
+(3) line 8	Kwak’wala	segmentation	la =x̌ =a wa	page 3
+(3) line 9	Kwak’wala	gloss	PREP =ACC =DET river	page 3
+(3) line 10	Katie Sardinha	translation	‘Hannah was pulling/pulled the rope of the canoe on the river.’	page 3
+(3) line 11	Katie Sardinha	citation	(Greene 2013:37)	page 3, under the translation
+(4) line 1	Kwak’wala	transcription	nix̌ən x̌a pəlawas	page 3
+(4) line 2	Kwak’wala	segmentation	nix̌ =ən =x̌ =a pəlawas	page 3
+(4) line 3	Kwak’wala	gloss	pull=1 =ACC =DET flower	page 3
+(4i) line 1	Katie Sardinha	translation	‘I am pulling the flower.’	page 3, reading i.
+(4ii) line 1	Katie Sardinha	translation	*‘I started to pull the flower.’	page 3, reading ii.
+(4ii) line 2	Katie Sardinha	citation	(Greene 2013:36-7)	page 3, the source at the right of the reading
+(5) line 1	Kwak’wala	transcription	ʔəx̌ilox̌ Jen λox̌ Alexisax̌a	page 4
+(5) line 2	Kwak’wala	segmentation	ʔəx̌-(g)ila =ox̌ Jen λəw̓ = ox̌ Alexis =x̌ =a	page 4
+(5) line 3	Kwak’wala	gloss	do -make =3MED Jen CONJ =3MED Alexis =ACC =DET	page 4
+(5) line 4	Kwak’wala	transcription	xʷak̓ʷəna x̌a hiʔənx̌	page 4
+(5) line 5	Kwak’wala	segmentation	xʷak̓ʷəna =x̌ =a hiʔənx̌	page 4
+(5) line 6	Kwak’wala	gloss	canoe =ACC =DET summer	page 4
+(5) line 7	Katie Sardinha	translation	‘Jen and Alexis made a canoe during the summer time, and never finished.’	page 4
+(5) line 8	Katie Sardinha	citation	(Greene 2013:39)	page 4, under the translation
+§2	Katie Sardinha	note	The set of verbs which pattern as Processes in Kwak’wala are comparable to the combined set of Activities and Accomplishments in English (Greene 2013:41).	page 4
+§2	Katie Sardinha	note	The third eventuality type, Transitions, are eventualities which consist of an interval of time in which a change of state occurs. Unlike Processes, Transitions do not develop over time or progress in stages, but are instantaneous, or at least nearly so. Some examples of Transitions given in Greene (2013) include dulo ‘to win’, c̓o- ‘to give’, and q̓a ‘to find’. Note that unlike States and Processes, Transitions do possess an inherent endpoint – namely, the moment that a change of state occurs – and therefore consistently do give rise to telic predicates. As such, bare Transitions can only receive a past tense interpretation, never a present progressive one (6). Greene notes, however, that with Transitions the interval of time containing the change of state is generally not accessible to the grammar for modification. Thus, Transitions cannot co-occur with initial bound modifiers like galabənd ‘to start’ (7) or final bound modifiers like ʔox̌sem̓ ‘still’ (8).	page 4
+§2	Kwak’wala	cited form	c̓o-	page 4, in italics, ‘to give’
+§2	Kwak’wala	cited form	q̓a	page 4, in italics, ‘to find’
+§2	Kwak’wala	cited form	galabənd	page 4, in italics, ‘to start’
+§2	Kwak’wala	cited form	ʔox̌sem̓	page 4, in italics, ‘still’
+(6) line 1	Kwak’wala	transcription	dulowida dzuɬtu gudan	page 4
+(6) line 2	Kwak’wala	segmentation	dulo =i =da dzuɬtu gudan	page 4
+(6) line 3	Kwak’wala	gloss	win =3DIST =OST black horse	page 4
+(6i) line 1	Katie Sardinha	translation	‘The black horse won the race.’	page 4, reading i.
+(6ii) line 1	Katie Sardinha	translation	*‘The black horse is winning the race.’	page 4, reading ii.
+(6ii) line 2	Katie Sardinha	citation	(Greene 2013:40)	page 4, the source at the right of the reading
+(7) line 1	Kwak’wala	transcription	# ləm̓ox̌ galabəndox̌ Catherine	page 5
+(7) line 2	Kwak’wala	segmentation	lə =ʔm =ox̌ galabənd =ox̌ Catherine	page 5
+(7) line 3	Kwak’wala	gloss	AUX =VER =3MED start =3MED Catherine	page 5
+(7) line 4	Kwak’wala	transcription	q̓a x̌is wayas	page 5
+(7) line 5	Kwak’wala	segmentation	q̓a =x̌ =is wayas	page 5
+(7) line 6	Kwak’wala	gloss	find =ACC =3REFL.POSS honey	page 5
+(7) line 7	Katie Sardinha	translation	Intended: ‘Catherine has started to find her honey.’	page 5
+(7) line 8	Katie Sardinha	speaker comment	Speaker: “You either have or you haven’t found your wayas.”	page 5, the speaker's words under the example
+(7) line 9	Katie Sardinha	citation	(Greene 2013:41)	page 5, under the speaker's words
+(8) line 1	Kwak’wala	transcription	# ʔox̌səm̓ox̌da gənanəm q̓a x̌is	page 5
+(8) line 2	Kwak’wala	segmentation	ʔox̌səm̓ =ox̌ =da gənanəm q̓a =x̌ =is	page 5
+(8) line 3	Kwak’wala	gloss	still =3MED =OST child find =ACC =3.REFL.POSS	page 5
+(8) line 4	Kwak’wala	transcription	cəya	page 5
+(8) line 5	Kwak’wala	segmentation	cəya	page 5
+(8) line 6	Kwak’wala	gloss	chair	page 5
+(8) line 7	Katie Sardinha	translation	Intended: ‘The child is still finding his chair.’	page 5
+(8) line 8	Katie Sardinha	citation	(Greene 2013:48)	page 5, the tag or source at the right of the translation
+§2	Katie Sardinha	note	Greene notes that the class of Transitions in Kwak’wala is comparable to the class of Achievements in English, though she reports that (at least certain) Kwak’wala Transitions are more resistant than their English counterparts to receiving in-progress interpretations (Greene 2013:55).	page 5
+§2	Katie Sardinha	note	In summary, Greene’s (2013) theory of lexical aspectual classes takes Kwak’wala verbs to belong to three classes – States, Processes, and Transitions. These lexical aspectual classes differ in various ways, such as whether they develop or progress through time in stages (Processes do, States and Transitions don’t) and whether they are telic (Transitions are, Processes and States are not).	page 5
+§3	Katie Sardinha	heading	3 The proposal: -aɬa, -la, and –xʔid derive eventuality types	page 5
+§3	Katie Sardinha	note	Greene’s (2013) analysis explains the aspectual classification of bare verbs – that is verbs without aspectual morphology. In this paper, I propose that Kwak’wala possesses morphological means for deriving these same three eventuality types. My claim is therefore that in addition to being lexical classes, the eventuality types States, Processes, and Transitions are capable of being grammatically derived. The three suffixes I will be concerned with are among the most frequent grammatical suffixes on Kwak’wala verbs. Their basic forms are -aɬa, -la, and -xʔid. In the rest of this section, I’ll discuss background information on each suffix, followed by my analysis.	page 5
+§3	Kwak’wala	cited form	-aɬa	page 5, in italics
+§3	Kwak’wala	cited form	-xʔid	page 5, in italics
+§3	Katie Sardinha	note	The suffix -aɬa is described in Boas (1911) as a ‘continuative’ suffix, which “indicates the continued position implied in an act, not the continued activity itself” (pg. 489). This definition is echoed in Boas (1947), where -aɬa is glossed as meaning ‘to be in the position of performing some action’ (pg. 291) and ‘continued position’. Since the time of Boas’ writing, I am not aware of additional research having been carried out on this suffix. However, in the course of my own research, I have found -aɬa to have a general aspectual meaning. Rather than being specifically concerned with spatial position, as Boas’ definition might suggest, -aɬa seems to indicate stativity in general. Some examples illustrating - aɬa as a stativizer are given in (9).	page 5
+§3	Kwak’wala	cited form	-aɬa	page 6, in italics
+(9) line 1	Katie Sardinha	note	Examples of verb stems containing -aɬa	page 6, the list's title
+(9a) line 1	Kwak’wala	transcription	daɬa	page 6
+(9a) line 2	Katie Sardinha	translation	‘to hold something’	page 6
+(9a) line 3	Kwak’wala	root	√da-	page 6, the root in the parentheses after the verb
+(9a) line 4	Katie Sardinha	translation	‘to be in hand’	page 6, the gloss of the root
+(9b) line 1	Kwak’wala	transcription	quqaɬa	page 6
+(9b) line 2	Katie Sardinha	translation	‘to be crooked, tilted over’	page 6
+(9b) line 3	Kwak’wala	root	√quq-	page 6, the root in the parentheses after the verb
+(9b) line 4	Katie Sardinha	translation	‘to tilt, list’	page 6, the gloss of the root
+(9c) line 1	Kwak’wala	transcription	w̓ənaɬa	page 6
+(9c) line 2	Katie Sardinha	translation	‘to be in hiding’	page 6
+(9c) line 3	Kwak’wala	root	√w̓ən-	page 6, the root in the parentheses after the verb
+(9c) line 4	Katie Sardinha	translation	‘to hide oneself’	page 6, the gloss of the root
+(9d) line 1	Kwak’wala	transcription	λəxaɬa	page 6
+(9d) line 2	Katie Sardinha	translation	‘to be driving, steering’	page 6
+(9d) line 3	Kwak’wala	root	√λəx-	page 6, the root in the parentheses after the verb
+(9d) line 4	Katie Sardinha	translation	‘to drive, steer’	page 6, the gloss of the root
+(9e) line 1	Kwak’wala	transcription	tikʷaɬa	page 6
+(9e) line 2	Katie Sardinha	translation	‘to be hanging’	page 6
+(9e) line 3	Kwak’wala	root	√tikʷ-	page 6, the root in the parentheses after the verb
+(9e) line 4	Katie Sardinha	translation	‘to hang’	page 6, the gloss of the root
+(9f) line 1	Kwak’wala	transcription	dəxaɬa	page 6
+(9f) line 2	Katie Sardinha	translation	‘to have eyes wide open’	page 6
+(9f) line 3	Kwak’wala	root	√dəx-	page 6, the root in the parentheses after the verb
+(9f) line 4	Katie Sardinha	translation	‘to open eyes’	page 6, the gloss of the root
+(9g) line 1	Kwak’wala	transcription	q̓ʷəqaɬa	page 6
+(9g) line 2	Katie Sardinha	translation	‘to be on, be lit up’	page 6
+(9g) line 3	Kwak’wala	root	√q̓ʷəq-	page 6, the root in the parentheses after the verb
+(9g) line 4	Katie Sardinha	translation	‘to light up, blink’	page 6, the gloss of the root
+§3	Katie Sardinha	note	I propose analyzing -aɬa as an aspectual suffix for deriving States, and gloss it here as ‘STAT’.	page 6
+§3	Katie Sardinha	note	The suffix -la is described in Boas (1911) as a ‘continuative’ suffix which indicates the continuation of an activity itself (pg. 488–9). Boas (1947) provides some additional details about -la, noting that “it expresses actions that imply multiplicity, repetition or continuity. It is used when the action is continued, when the same actor performs the same action several times, when several objects are handled in the same way, or the whole action consists of many parts” (pgs. 291, 306). Some examples of verbs with this suffix are given in (10).	page 6
+(10) line 1	Katie Sardinha	note	Examples of verb stems containing -la	page 6, the list's title
+(10a) line 1	Kwak’wala	transcription	dala	page 6
+(10a) line 2	Katie Sardinha	translation	‘to carry something’	page 6
+(10a) line 3	Kwak’wala	root	√da-	page 6, the root in the parentheses after the verb
+(10a) line 4	Katie Sardinha	translation	‘to be in hand’	page 6, the gloss of the root
+(10b) line 1	Kwak’wala	transcription	dzəlxʷəla	page 6
+(10b) line 2	Katie Sardinha	translation	‘to run’	page 6
+(10b) line 3	Kwak’wala	root	√dzəlxʷ-	page 6, the root in the parentheses after the verb
+(10b) line 4	Katie Sardinha	translation	‘to run’	page 6, the gloss of the root
+(10c) line 1	Kwak’wala	transcription	dəɬʔəla	page 6
+(10c) line 2	Katie Sardinha	translation	‘to laugh’	page 6
+(10c) line 3	Kwak’wala	root	√dəʔɬ-	page 6, the root in the parentheses after the verb
+(10c) line 4	Katie Sardinha	translation	‘to laugh’	page 6, the gloss of the root
+(10d) line 1	Kwak’wala	transcription	puƛəla	page 6
+(10d) line 2	Katie Sardinha	translation	‘to be full from eating’	page 6
+(10d) line 3	Kwak’wala	root	√puƛ-	page 6, the root in the parentheses after the verb
+(10d) line 4	Katie Sardinha	translation	‘to be full from eating’	page 6, the gloss of the root
+(10e) line 1	Kwak’wala	transcription	nəɬəla	page 6
+(10e) line 2	Katie Sardinha	translation	‘to shake’	page 6
+(10e) line 3	Kwak’wala	root	√nəɬ-	page 6, the root in the parentheses after the verb
+(10e) line 4	Katie Sardinha	translation	‘to shake’	page 6, the gloss of the root
+(10f) line 1	Kwak’wala	transcription	məlqʷəla	page 6
+(10f) line 2	Katie Sardinha	translation	‘to remember’	page 6
+(10f) line 3	Kwak’wala	root	√məlqʷ-	page 6, the root in the parentheses after the verb
+(10f) line 4	Katie Sardinha	translation	‘to remember’	page 6, the gloss of the root
+(10g) line 1	Kwak’wala	transcription	yola	page 6
+(10g) line 2	Katie Sardinha	translation	‘to be windy’	page 6
+(10g) line 3	Kwak’wala	root	√yu-	page 6, the root in the parentheses after the verb
+(10g) line 4	Katie Sardinha	translation	‘to be windy’	page 6, the gloss of the root
+§3	Katie Sardinha	note	Greene (2013) analyzes -la as a pluractional suffix. In addition, Greene’s analysis centers on the claim that -la is no longer fully productive in modern Kwak’wala – a claim which I do not think is correct. I will return to discuss reasons for rejecting this claim in Section 4. In the meantime, I propose analyzing -la as an aspectual suffix for deriving Processes, and gloss it here as ‘PROC’.	page 6
+§3	Katie Sardinha	note	The suffix -xʔid is described in Boas (1911) as an ‘inchoative’ (pg. 486-8). In Boas (1947) the label ‘momentaneous’ is added to its description, and it is stated that “-xʔid expresses fundamentally the change from one state to another” (pgs. 290, 365). Some examples with this suffix are provided in (11).	page 6
+(11) line 1	Katie Sardinha	note	Examples of verb stems containing -xʔid	page 7, the list's title
+(11a) line 1	Kwak’wala	transcription	daxʔid	page 7
+(11a) line 2	Katie Sardinha	translation	‘to take, pick up’	page 7
+(11a) line 3	Kwak’wala	root	√da-	page 7, the root in the parentheses after the verb
+(11a) line 4	Katie Sardinha	translation	‘to be in hand’	page 7, the gloss of the root
+(11b) line 1	Kwak’wala	transcription	mənxʷʔid	page 7
+(11b) line 2	Katie Sardinha	translation	‘to smile’	page 7
+(11b) line 3	Kwak’wala	root	√mənxʷ-	page 7, the root in the parentheses after the verb
+(11b) line 4	Katie Sardinha	translation	‘to smile’	page 7, the gloss of the root
+(11c) line 1	Kwak’wala	transcription	puɬʔid	page 7
+(11c) line 2	Katie Sardinha	translation	‘to get full from eating’	page 7
+(11c) line 3	Kwak’wala	root	√puƛ-	page 7, the root in the parentheses after the verb
+(11c) line 4	Katie Sardinha	translation	‘to be full from eating’	page 7, the gloss of the root
+(11d) line 1	Kwak’wala	transcription	qəlxʔid	page 7
+(11d) line 2	Katie Sardinha	translation	‘to get tired’	page 7
+(11d) line 3	Kwak’wala	root	√qəlk-	page 7, the root in the parentheses after the verb
+(11d) line 4	Katie Sardinha	translation	‘to be tired’	page 7, the gloss of the root
+(11e) line 1	Kwak’wala	transcription	təp̓id	page 7
+(11e) line 2	Katie Sardinha	translation	‘to get broken, to break’	page 7
+(11e) line 3	Kwak’wala	root	√təp-	page 7, the root in the parentheses after the verb
+(11e) line 4	Katie Sardinha	translation	‘to be broken’	page 7, the gloss of the root
+(11f) line 1	Kwak’wala	transcription	kəɬʔid	page 7
+(11f) line 2	Katie Sardinha	translation	‘to get scared’	page 7
+(11f) line 3	Kwak’wala	root	√kəɬ-	page 7, the root in the parentheses after the verb
+(11f) line 4	Katie Sardinha	translation	‘to be scared’	page 7, the gloss of the root
+(11g) line 1	Kwak’wala	transcription	q̓ʷax̌ʔid	page 7
+(11g) line 2	Katie Sardinha	translation	‘to turn on, light up’	page 7
+(11g) line 3	Kwak’wala	root	√q̓ʷəq-	page 7, the root in the parentheses after the verb
+(11g) line 4	Katie Sardinha	translation	‘to light up, blink	page 7, the gloss of the root
+§3	Katie Sardinha	note	Depending on its phonological environment -xʔid can lose its initial velar segment and/or final coronal segment, thus appearing minimally as -ʔi. Moreover, when -xʔid attaches to verb stems containing lexical suffixes, it has an alternate set of realizations, appearing as -d, -nd, or -ud depending on its phonological environment (see Boas 1947:365 for details). Some examples of verb stems containing –xʔid as it is realized after lexical suffixes are given in (12).	page 7
+§3	Kwak’wala	cited form	-ʔi	page 7, in italics
+§3	Kwak’wala	cited form	-d	page 7, in italics
+§3	Kwak’wala	cited form	-nd	page 7, in italics
+§3	Kwak’wala	cited form	-ud	page 7, in italics
+(12) line 1	Katie Sardinha	note	Examples of verbs containing -xʔid after lexical suffixes	page 7, the list's title
+(12a) line 1	Kwak’wala	transcription	ʔəx̌stud	page 7
+(12a) line 2	Katie Sardinha	translation	‘to open’	page 7
+(12a) line 3	Kwak’wala	root	√ʔəx̌-	page 7, the root in the parentheses after the verb
+(12a) line 4	Katie Sardinha	translation	‘∅’	page 7, the gloss of the root
+(12a) line 5	Kwak’wala	cited affix	√-ʔstu	page 7, the suffix in the parentheses after the verb
+(12a) line 6	Katie Sardinha	translation	‘round opening’	page 7, the gloss of the suffix
+(12b) line 1	Kwak’wala	transcription	gəlc̓ud	page 7
+(12b) line 2	Katie Sardinha	translation	‘to crawl into container	page 7
+(12b) line 3	Kwak’wala	root	√gəl-	page 7, the root in the parentheses after the verb
+(12b) line 4	Katie Sardinha	translation	‘crawl’	page 7, the gloss of the root
+(12b) line 5	Kwak’wala	cited affix	√-c̓u	page 7, the suffix in the parentheses after the verb
+(12b) line 6	Katie Sardinha	translation	‘(to) inside’	page 7, the gloss of the suffix
+(12c) line 1	Kwak’wala	transcription	ʔəx̌stənd	page 7
+(12c) line 2	Katie Sardinha	translation	‘to put in water’	page 7
+(12c) line 3	Kwak’wala	root	√ʔəx̌-	page 7, the root in the parentheses after the verb
+(12c) line 4	Katie Sardinha	translation	‘∅’	page 7, the gloss of the root
+(12c) line 5	Kwak’wala	cited affix	√-ʔsta	page 7, the suffix in the parentheses after the verb
+(12c) line 6	Katie Sardinha	translation	‘(in) water’	page 7, the gloss of the suffix
+§3	Katie Sardinha	note	Greene (2013) analyzes -xʔid as a marker of perfective aspect. It is a non- canonical perfective, however, because its use does not give rise to an entailment that the described eventuality culminated in totality, as canonical perfective aspect markers do. I propose here that -xʔid should be analyzed not as a marker of perfective aspect, but as an aspectual suffix for deriving Transitions. I gloss it as ‘BEC’ below. In Section 5, I will discuss the empirical evidence which led Greene to propose her analysis of -xʔid, and will argue that this evidence is also accounted for on my analysis.	page 7
+§3	Katie Sardinha	note	The analysis I am proposing in this paper is summarized in Table 2, alongside each suffixes’ gloss in Boas (1911, 1947) and its analysis in Greene (2013).	page 7
+Table 2	Katie Sardinha	note	Table 2: Suffixes for deriving eventuality type in Kwak’wala	page 8, the table's caption
+Table 2 line 1	Katie Sardinha	note	Suffix form(s)	page 8, Table 2, a column head
+Table 2 line 1	Katie Sardinha	note	Eventuality Type derived by the suffix (my analysis)	page 8, Table 2, a column head
+Table 2 line 1	Katie Sardinha	note	Gloss in Boas (1911, 1947)	page 8, Table 2, a column head
+Table 2 line 1	Katie Sardinha	note	Analysis in Greene (2013)	page 8, Table 2, a column head
+Table 2 line 2	Kwak’wala	cited affix	-aɬa	page 8, Table 2, Suffix form(s)
+Table 2 line 2	Katie Sardinha	note	State	page 8, Table 2, Eventuality Type derived by the suffix (my analysis)
+Table 2 line 2	Katie Sardinha	note	‘continuative’	page 8, Table 2, Gloss in Boas (1911, 1947)
+Table 2 line 2	Katie Sardinha	note	‘continued position’	page 8, Table 2, Gloss in Boas (1911, 1947)
+Table 2 line 2	Katie Sardinha	note	(not discussed)	page 8, Table 2, Analysis in Greene (2013)
+Table 2 line 3	Kwak’wala	cited affix	-la	page 8, Table 2, Suffix form(s)
+Table 2 line 3	Katie Sardinha	note	Process	page 8, Table 2, Eventuality Type derived by the suffix (my analysis)
+Table 2 line 3	Katie Sardinha	note	‘continuative’	page 8, Table 2, Gloss in Boas (1911, 1947)
+Table 2 line 3	Katie Sardinha	note	frozen pluractional	page 8, Table 2, Analysis in Greene (2013)
+Table 2 line 4	Kwak’wala	cited affix	-xʔid	page 8, Table 2, Suffix form(s)
+Table 2 line 4	Kwak’wala	cited affix	-d/-nd/-ud	page 8, Table 2, Suffix form(s)
+Table 2 line 4	Katie Sardinha	note	Transition	page 8, Table 2, Eventuality Type derived by the suffix (my analysis)
+Table 2 line 4	Katie Sardinha	note	‘inchoative’	page 8, Table 2, Gloss in Boas (1911, 1947)
+Table 2 line 4	Katie Sardinha	note	‘momentaneous’	page 8, Table 2, Gloss in Boas (1911, 1947)
+Table 2 line 4	Katie Sardinha	note	non-canonical perfective	page 8, Table 2, Analysis in Greene (2013)
+§3	Katie Sardinha	note	My claim, therefore, is that -aɬa, -la, and -xʔid are overt indicators of whether a verbal predicate is a State, Process, or Transition.4 A tentative formal analysis of these suffixes is offered in Appendix B.	page 8
+footnote 4	Katie Sardinha	note	More precisely, the eventuality type of a verbal predicate is indicated by the leftmost aspectual suffix in cases where more than one is present on the stem. For simplicity in this paper, I will not discuss examples containing more than one aspectual suffix. As might be expected, there are co-occurrence constraints and ordering constraints on strings of aspectual suffixes. Spelling these constraints is a topic of ongoing research.	page 8, footnote 4
+§3	Katie Sardinha	note	Note that the eventuality type of any verb stem which does not contain an aspectual suffix will correspond to the eventuality type of the verb itself (Greene 2013). Typically, verb stems lacking aspectual morphology surface with the stem completive final vowel -a, though this -a is often not apparent due to elision in the presence of determiners (Greene ibid.:7–8).	page 8
+§3	Kwak’wala	cited form	-a	page 8, in italics
+§4	Katie Sardinha	heading	4 Greene’s (2013) analysis of -la and -xʔid	page 8
+§4	Katie Sardinha	note	The analysis of -la and -xʔid in Section 3 differs from the analysis of these suffixes in Greene (2013) (recall that Greene did not investigate -aɬa). It stands to be shown, then, that my analysis can account for the same empirical generalizations that Greene’s analysis does. I’ll begin by discussing Greene’s analysis of -xʔid (4.1), and then will discuss her analysis of -la (4.2).	page 8
+§4.1	Katie Sardinha	heading	4.1 -xʔid as a non-canonical perfective	page 8
+§4.1	Katie Sardinha	note	Greene (2013) analyzes -xʔid as a non-canonical perfective aspect marker. This analysis was proposed to account for two types of empirical generalizations: one related to the function of -xʔid in narratives, and the other related to the culmination properties of verbal predicates containing -xʔid.	page 8
+§4.1	Katie Sardinha	note	Greene’s first finding, which she uses to motivate the analysis of -xʔid as a type of perfective marker, is that -xʔid moves event time forward in narratives. An example illustrating this property of -xʔid from my own fieldwork is given in (13), where I provide an excerpt from a narrative where the speaker is describing her late relative’s procedure for preparing cockles. The suffix -xʔid is present in lines (13a), (13c), (13d), and (13e), where each time it functions to introduce a new, sequential eventuality, thereby moving the narrative’s event time forward.	page 8
+(13) line 1	Katie Sardinha	note	Excerpt from a story about preparing cockles:	page 9, over the example
+(13a) line 1	Kwak’wala	transcription	ləʔəm ʔəx̌studida	page 9
+(13a) line 2	Kwak’wala	segmentation	lə =ʔm ʔəx̌ -ʔstu -xʔid =i =da	page 9
+(13a) line 3	Kwak’wala	gloss	AUX =VER do -round.opening -BEC =3DIST =OST	page 9
+(13a) line 4	Kwak’wala	transcription	dzoli	page 9
+(13a) line 5	Kwak’wala	segmentation	dzoli	page 9
+(13a) line 6	Kwak’wala	gloss	cockle	page 9
+(13a) line 7	Katie Sardinha	translation	‘Then the cockles open up.’	page 9
+(13b) line 1	Kwak’wala	transcription	ləʔəm 15-minutes lax̌	page 9
+(13b) line 2	Kwak’wala	segmentation	lə =ʔm 15-minutes la =x̌	page 9
+(13b) line 3	Kwak’wala	gloss	AUX =VER 15-minutes PREP =ACC	page 9
+(13b) line 4	Kwak’wala	transcription	mədəlkʷəlakənaʔɬ	page 9
+(13b) line 5	Kwak’wala	segmentation	mədəlkʷ -la =kənaʔɬ	page 9
+(13b) line 6	Kwak’wala	gloss	boil -PROC =nice	page 9
+(13b) line 7	Katie Sardinha	translation	‘And they stay 15 minutes in the nice boiling (water).’	page 9
+(13c) line 1	Kwak’wala	transcription	ləm̓is Adi qəp̓i	page 9
+(13c) line 2	Kwak’wala	segmentation	lə =ʔm =(w)is Adi qəp -xʔid	page 9
+(13c) line 3	Kwak’wala	gloss	AUX =VER =and.so Adi spill -BEC	page 9
+(13c) line 4	Kwak’wala	transcription	sa w̓ap	page 9
+(13c) line 5	Kwak’wala	segmentation	=s =a w̓ap	page 9
+(13c) line 6	Kwak’wala	gloss	=INST =DET water	page 9
+(13c) line 7	Katie Sardinha	translation	‘Then Adi poured out the water.’	page 9
+(13d) line 1	Kwak’wala	transcription	ləʔəm ʔəx̌stus	page 9
+(13d) line 2	Kwak’wala	segmentation	lə =ʔm ʔəx̌ -stu =s5	page 9
+footnote 5	Katie Sardinha	note	It’s likely that -xʔid is present underlying in this verb stem as well (ʔəx̌studs...), given that -d often gets elided in coda position, especially in quick speech.	page 9, footnote 5
+footnote 5	Kwak’wala	cited form	ʔəx̌studs	page 9, in italics
+(13d) line 3	Kwak’wala	gloss	AUX=VER do -round.opening =INST	page 9
+(13d) line 4	Kwak’wala	transcription	lax̌ada w̓əda	page 9
+(13d) line 5	Kwak’wala	segmentation	la =x̌ =a =da w̓əda	page 9
+(13d) line 6	Kwak’wala	gloss	PREP =ACC =DET =OST cold	page 9
+(13d) line 7	Kwak’wala	transcription	qəs t̕usʔideʔ	page 10
+(13d) line 8	Kwak’wala	segmentation	q(a) =is t̕us -xʔid =eʔ	page 10
+(13d) line 9	Kwak’wala	gloss	PREP =3REFL.POSS cut -BEC =INVIS	page 10
+(13d) line 10	Kwak’wala	transcription	x̌ada dzoli	page 10
+(13d) line 11	Kwak’wala	segmentation	=x̌ =a =da dzoli	page 10
+(13d) line 12	Kwak’wala	gloss	=ACC =DET =OST cockle	page 10
+(13d) line 13	Katie Sardinha	translation	‘Then she put them into the cold so that she could cut the cockles,’	page 10
+(13e) line 1	Kwak’wala	transcription	qəs ʔəx̌ʔideʔ	page 10
+(13e) line 2	Kwak’wala	segmentation	q(a) =s ʔəx̌ -xʔid =eʔ	page 10
+(13e) line 3	Kwak’wala	gloss	PREP =3REFL.POSS do -BEC =INVIS	page 10
+(13e) line 4	Kwak’wala	transcription	sada q̓ʷəx̌ lax̌	page 10
+(13e) line 5	Kwak’wala	segmentation	=s =a =da q̓ʷəx̌ la =x̌	page 10
+(13e) line 6	Kwak’wala	gloss	=INST =DET =OST flour PREP =ACC	page 10
+(13e) line 7	Kwak’wala	transcription	λəw̓ida garlic	page 10
+(13e) line 8	Kwak’wala	segmentation	λəw̓ =i =da garlic	page 10
+(13e) line 9	Kwak’wala	gloss	CONJ =3DIST =OST garlic	page 10
+(13e) line 10	Katie Sardinha	translation	‘So then she could put flour in there, together with garlic.’	page 10
+(13e) line 11	Katie Sardinha	citation	(20160728 VF)	page 10, under the translation
+§4.1	Katie Sardinha	note	The way -xʔid functions in narratives resembles the way canonical perfective markers function in other languages (Smith 2007).	page 10
+§4.1	Katie Sardinha	note	The second finding, which motivates Greene’s analysis of -xʔid as a ‘non- canonical’ perfective marker, is that unlike canonical perfectives, the presence of -xʔid does not entail total culmination of an eventuality. The presence of -xʔid does, however, entail that an initial transition into the eventuality has taken place, and thus that the eventuality has culminated to some degree. For instance, in an eventuality like the one described in (14), what is entailed is that Stacey began eating the apple when the speaker showed up; how much of the apple was eaten and whether the apple-eating was finished when the speaker showed up is left up to pragmatics.	page 10
+(14) line 1	Kwak’wala	transcription	həm̓xʔidox̌ Stacey x̌a ʔabəls gax̌ən	page 10
+(14) line 2	Kwak’wala	segmentation	həm̓-xʔid =ox̌ Stacey =x̌ =a ʔabəls gax̌ =ən	page 10
+(14) line 3	Kwak’wala	gloss	eat -BEC =3MED Stacey =ACC =DET apple come =1	page 10
+(14) line 4	Kwak’wala	transcription	niɬʔida	page 10
+(14) line 5	Kwak’wala	segmentation	niɬ -xʔid -a	page 10
+(14) line 6	Kwak’wala	gloss	show -BEC -FV	page 10
+(14) line 7	Katie Sardinha	translation	‘Stacey ate an apple when I showed up.’	page 10
+(14) line 8	Katie Sardinha	citation	(Greene 2013:87)	page 10, the tag or source at the right of the translation
+§4.1	Katie Sardinha	note	The finding that -xʔid entails culmination to some degree, but not necessarily to a total degree, is what underlies Greene’s decision to describe it as a ‘non- canonical’ perfective. Greene’s (2013) formal analysis of -xʔid is given in (15).	page 10
+(15) line 1	Katie Sardinha	formula	⟦xʔid⟧ = λP<v,<s,t>>.λti.λws.∃e.(BECOME(P))(e)(w) & time(e) ⊆ t 6	page 11
+footnote 6	Katie Sardinha	note	I have substituted ‘v’ for ‘l’ as the semantic type for eventualities; otherwise, the definition is identical to the one given in Greene (2013:88).	page 11, footnote 6
+(15) line 2	Katie Sardinha	citation	(Greene 2013:88)	page 11, under the formula
+§4.1	Katie Sardinha	note	On this analysis, -xʔid denotes a function which takes a property of events and returns an event with an initial transition, e1 whose event time, time(e1), is included within reference time t. Significantly, the BECOME operator in (15) is the same operator that was used in defining Transition eventualities (see Table 1). This means that predicates with -xʔid, on Greene’s analysis, are semantically very similar to lexical Transitions (Greene 2013:97).	page 11
+§4.1	Katie Sardinha	note	The only difference between Greene’s analysis of -xʔid and my own is that I’m not committed to -xʔid establishing a relation between event time and reference time, as canonical perfectives do (e.g. Kratzer 1998). One reason to be skeptical of -xʔid being a perfective, is that while the presence of -xʔid is indeed sufficient for expressing a perfective meaning, it is not necessary for such a meaning to arise. For one thing, predicates without -xʔid can also have perfective readings. For instance, (16) and (17) are interpreted as descriptions of culminated eventualities, even though -xʔid is not present in either example.	page 11
+(16) line 1	Katie Sardinha	note	KS: “Let’s say Shelly did a hu:ge load of laundry. She didn’t have time to finish hanging it to dry. So she asked Eddie to do it. So he started doing it, but then he got a phone call, and he only hung up some of the laundry. So, Shelly calls him later, and – she asks him – and he admits that he didn’t finish it.”	page 11, the author's words, KS in the examples
+(16) line 2	Katie Sardinha	speaker comment	Speaker: “Mhm.”	page 11, the speaker's answer
+(16) line 3	Katie Sardinha	note	KS: “And she’s like, ‘Oh my gosh! Some things really need to get dry.’”	page 11, the author's words, KS in the examples
+(16) line 4	Katie Sardinha	speaker comment	Speaker: “Mhm.”	page 11, the speaker's answer
+(16) line 5	Katie Sardinha	note	KS: “So she asks him, ‘What got hung up, and what didn’t?’ […] And then he says, ‘The shirts got hung up, but none of the pants did.’”	page 11, the author's words, KS in the examples
+(16) line 6	Kwak’wala	transcription	ǧix̌ʷaƛələn ƛa x̌a q̓əsəneʔ,	page 11
+(16) line 7	Kwak’wala	segmentation	ǧix̌ʷaƛ -la =ən ƛa =x̌ =a q̓əsəneʔ	page 11
+(16) line 8	Kwak’wala	gloss	hang.up -PROC =1 CONN =ACC =DET shirt	page 11
+(16) line 9	Kwak’wala	transcription	k̓iʔsən ǧix̌ʷaƛəla x̌a qəx̌sis	page 11
+(16) line 10	Kwak’wala	segmentation	k̓iʔs =ən ǧix̌ʷaƛ -la =x̌ =a qəx̌ -(x)sis	page 11
+(16) line 11	Kwak’wala	gloss	NEG =1 hang.up -PROC =ACC =DET ring -foot/leg	page 11
+(16) line 12	Katie Sardinha	translation	‘I hung up the shirts, I didn’t hang up the pants.’	page 11
+(16) line 13	Katie Sardinha	citation	(20160708 VF)	page 11, the tag or source at the right of the translation
+(17) line 1	Katie Sardinha	note	Context: The speaker and KS are talking about a character named Hope, who is getting prettied-up for a date.	page 12, over the example
+(17) line 2	Kwak’wala	transcription	walas ʔəx̌əla sada	page 12
+(17) line 3	Kwak’wala	segmentation	walas ʔəx̌ -la =s =a =da	page 12
+(17) line 4	Kwak’wala	gloss	big/very do -PROC =INST =DET =OST	page 12
+(17) line 5	Kwak’wala	transcription	ʔixp̓alakənaʔɬ lax̌is	page 12
+(17) line 6	Kwak’wala	segmentation	ʔix -p̓ala =kənaʔɬ la =x̌ =is	page 12
+(17) line 7	Kwak’wala	gloss	good -smell =nice PREP =ACC =3REFL.POSS	page 12
+(17) line 8	Kwak’wala	transcription	q̓ʷəmdzuy̓u	page 12
+(17) line 9	Kwak’wala	segmentation	q̓ʷəmdzuy̓u	page 12
+(17) line 10	Kwak’wala	gloss	dress	page 12
+(17) line 11	Katie Sardinha	speaker comment	Speaker: “She put some nice smelly stuff on her dress.”	page 12, the speaker's words under the example, its only English
+(17) line 12	Katie Sardinha	citation	(20160728 VF)	page 12, the source at the right of the speaker's words
+§4.1	Katie Sardinha	note	The fact that -xʔid is not necessary for perfective readings casts some doubt on its analysis as a perfective. Another reason for doubt is that predicates with -xʔid can be used to describe in-progress eventualities; this is shown with the verb k̓at- ‘write’ in (18) and ƛ̓əp- ‘climb’ in (19). (In this latter example, sentence (19a) was volunteered in the given context, and (19b), with -xʔid, was subsequently judged to be felicitous in the same context).	page 12
+§4.1	Kwak’wala	cited form	k̓at-	page 12, in italics, ‘write’
+§4.1	Kwak’wala	cited form	ƛ̓əp-	page 12, in italics, ‘climb’
+(18) line 1	Katie Sardinha	note	Context: Abby is Mabel’s Kwak’wala language teacher.	page 12, the context
+(18) line 2	Katie Sardinha	note	KS: “Um, she [Mabel] overhears Abby saying something kind of neat, so she [Mabel] writes it down. So how would we say, ‘Mabel is writing down what Abby said’...?”	page 12, the author's words, KS in the examples
+(18) line 3	Kwak’wala	transcription	k̓at̕idux̌ Mabelx̌ waɬdəmes Abbi	page 12
+(18) line 4	Kwak’wala	segmentation	k̓at -xʔid =ux̌ Mabel =(ə)x̌ waɬdəm =s Abbi	page 12
+(18) line 5	Kwak’wala	gloss	write -BEC =3MED Mabel =VIS saying =3POSS Abby	page 12
+(18) line 6	Katie Sardinha	translation	‘Mabel is writing down what Abby said.’	page 12
+(18) line 7	Katie Sardinha	citation	(20160711 VF)	page 12, the tag or source at the right of the translation
+(19) line 1	Katie Sardinha	note	Context: [HG shows the speaker a picture of Katie starting to climb a tree]	page 13, the context
+(19) line 2	Katie Sardinha	note	HG: “But now the situation I want you to describe just has her starting to climb the tree. She’s taking her first step. So how would you say, ‘Katie’s starting to climb the tree.’”	page 13, Hannah Greene's words, HG in the examples
+(19a) line 1	Kwak’wala	transcription	ləm̓ux̌ galabəndux̌ Ketiyəx̌	page 13
+(19a) line 2	Kwak’wala	segmentation	lə =ʔm =ux̌ galabənd =ux̌ Keti =(ə)x̌	page 13
+(19a) line 3	Kwak’wala	gloss	AUX =VER =3MED start =3MED Katie =VIS	page 13
+(19a) line 4	Kwak’wala	transcription	ƛ̓əpaƛ x̌ʷa λoʔsix̌	page 13
+(19a) line 5	Kwak’wala	segmentation	ƛ̓əpa =ƛ =x̌ =w =a λoʔs =(ə)x̌	page 13
+(19a) line 6	Kwak’wala	gloss	climb =FUT =ACC =3MED =DET tree =VIS	page 13
+(19a) line 7	Katie Sardinha	translation	‘Katie’s gonna start climbing the tree.’	page 13
+(19a) line 8	Katie Sardinha	citation	(20130618 VF)	page 13, the tag or source at the right of the translation
+(19b) line 1	Kwak’wala	transcription	ləm̓ux̌ Ketiyəx̌ ƛ̓əp̓id	page 13
+(19b) line 2	Kwak’wala	segmentation	lə =ʔm =ux̌ Keti =(ə)x̌ ƛ̓əp -xʔid	page 13
+(19b) line 3	Kwak’wala	gloss	AUX =VER =3MED Katie =VIS climb -BEC	page 13
+(19b) line 4	Kwak’wala	transcription	x̌ʷa λoʔsix̌	page 13
+(19b) line 5	Kwak’wala	segmentation	=x̌ =w =a λoʔs =(ə)x̌	page 13
+(19b) line 6	Kwak’wala	gloss	=ACC =3MED =DET tree =VIS	page 13
+(19b) line 7	Katie Sardinha	translation	‘Katie’s climbing the tree.’	page 13
+(19b) line 8	Katie Sardinha	citation	(20130618 JF)	page 13, the tag or source at the right of the translation
+§4.1	Katie Sardinha	note	Data like these suggest that -xʔid is not necessary for establishing a relation between event time and reference time. Kwak’wala appears, rather, to lack a grammatical perfective. This makes Kwak’wala similar to languages like Finnish which do not grammaticalize viewpoint aspect in their verbal morphology (Smith 1997).7	page 13
+footnote 7	Katie Sardinha	note	I argued as such in a presentation delivered at the 44th Meeting of the Berkeley Linguistics Society, February 10, 2018 entitled: “Kwak’wala and Finnish are semantically mirrored: Implications for a theory of viewpoint aspect”. A paper on this topic is in preparation.	page 13, footnote 7
+§4.1	Katie Sardinha	language	Finnish	a language with no grammatical perfective
+§4.1	Katie Sardinha	note	In any case, given that Greene’s analysis of -xʔid and my own are very similar, I would like to suggest that Greene’s empirical findings are accounted for on my analysis as well, where -xʔid derives Transitions. To begin with, Transitions are eventualities which include a change of state and thus do culminate (at least to a degree). Given this, we still predict -xʔid predicates should play a role in advancing event time in narratives. Secondly, the fact that -xʔid predicates need only culminate to a degree follows from the fact that -xʔid modifies eventualities which themselves can culminate by degree. For instance, the eventuality described using həm̓- ‘eat’ in (14) can culminate to various degrees, depending on how much of the apple is eaten. By comparison, the fact that lexical Transitions must culminate in totality follows from the type of eventualities they are – namely, ones which do not culminate by degree, but which culminate instantaneously. Thus, the fact that lexical Transitions culminate in totality while -xʔid predicates need only culminate by degree is not a sufficient reason for classifying lexical Transitions and -xʔid predicates as different eventuality types. They are, rather, both examples of Transition eventualities, the difference between them being that the former are lexical Transitions and the latter are grammatically derived ones.	page 13
+§4.1	Kwak’wala	cited form	həm̓-	page 13, in italics, ‘eat’
+§4.1	Katie Sardinha	note	Finally, Greene (2013) reports that -xʔid is found on States and Processes, but is ungrammatical on Transitions (Greene 2013:96–101). This pattern of ungrammaticality is illustrated in (20) with the Transition verb gax̌- ‘come’.	page 14
+§4.1	Kwak’wala	cited form	gax̌-	page 14, in italics, ‘come’
+(20a) line 1	Kwak’wala	transcription	*gax̌ʔidida dagʷada x̌ʷa	page 14
+(20a) line 2	Kwak’wala	segmentation	gax̌ -xʔid =i =da dagʷada =x̌ =w =a	page 14
+(20a) line 3	Kwak’wala	gloss	come -BEC =3DIST =OST doctor =ACC =3MED =DET	page 14
+(20a) line 4	Kwak’wala	transcription	n̓ala	page 14
+(20a) line 5	Kwak’wala	segmentation	n̓ala	page 14
+(20a) line 6	Kwak’wala	gloss	day	page 14
+(20b) line 1	Kwak’wala	transcription	gax̌ida dagʷada x̌ʷa n̓ala	page 14
+(20b) line 2	Kwak’wala	segmentation	gax̌ =i =da dagʷada =x̌ =w =a n̓ala	page 14
+(20b) line 3	Kwak’wala	gloss	come =3DIST =OST doctor =ACC =3MED =DET day	page 14
+(20b) line 4	Katie Sardinha	translation	‘A doctor came today.’	page 14
+(20b) line 5	Katie Sardinha	citation	(Greene 2013:97)	page 14, the tag or source at the right of the translation
+§4.1	Katie Sardinha	note	Greene proposes a semantic explanation for why -xʔid cannot be added to lexical Transitions. In particular, she surmises that modifying a Transition with -xʔid would give rise to a non-sensical property of times (namely, one “in which there is an instantaneous transition into an event, e.g. from not arrived to arrived, in addition to an instantaneous transition into the initial subevent of that embedded transition” pg. 98). This explanation carries over to my analysis, where -xʔid derives Transitions: for the same reason, we should expect semantic anomaly when trying to derive a Transition of a Transition.	page 14
+§4.1	Katie Sardinha	note	In summary, I’ve suggested that the data which led to Greene’s (2013) analysis of -xʔid as a non-canonical perfective can also be accounted for on an analysis where -xʔid derives Transitions.	page 14
+§4.2	Katie Sardinha	heading	4.2 -la as a frozen pluractional	page 14
+§4.2	Katie Sardinha	note	In Greene (2013), -la is analyzed as a frozen pluractional. The label ‘pluractional’ is adopted, at least in part, because it is a label that fits the constellation of properties associated with -la reported in Boas (1911, 1947). On the other hand, Greene considers -la to be a frozen (that is, unproductive) on account of its limited distribution in the modern language. Thus according to Greene (2013:107), -la can never occur with States or Transitions, and can only occur with a subset of lexical Processes. This leads Greene to compare Kwak’wala –la to the old iterative suffixes -er and -le in English, found in lexical verbs such as chatter, glitter, shimmer, crumble, twinkle, and wriggle (Cusic 1981:244). In other words, Greene takes -la to be an historical remant.	page 14
+§4.2	Kwak’wala	cited form	-er	page 14, in italics
+§4.2	Kwak’wala	cited form	-le	page 14, in italics
+§4.2	Katie Sardinha	note	Contrary to Greene, I believe -la to be productive in modern Kwak’wala, and have proposed here that it is used to derive Processes. Not only is -la very frequent in the language (as any dictionary will attest), but its distribution is not obviously arbitrary. In order for my analysis to be tenable, then, the distributional restrictions on -la cited in Greene’s study require explanation.	page 14
+§4.2	Katie Sardinha	note	To begin with, why should -la be impossible on lexical States? A possible explanation for this is semantic: if lexical States are fundamentally non-dynamic eventualities, and if -la derives Processes which are fundamentally dynamic eventualities, then lexical States should indeed be unable to co-occur with -la. In fact, there are some apparently stative roots in Kwak’wala which do allow -la. For instance, I discuss -la on the root duqʷ- ‘see’ in the next section, and kəɬ- ‘be scared’ is another example (kəɬəla ‘to be scared’). A more accurate generalization seems to be that States can in fact take -la, but only if the resulting predicate can be construed as a dynamic eventuality. How exactly this generalization fleshes out is a topic for future investigation.	page 15
+§4.2	Kwak’wala	cited form	kəɬ-	page 15, in italics, ‘be scared’
+§4.2	Kwak’wala	cited form	kəɬəla	page 15, in italics, ‘to be scared’
+§4.2	Katie Sardinha	note	Second, why should -la be impossible on lexical Transitions? A possible explanation for this is again semantic. Since lexical Transitions are eventualities which consist of a near-instantaneous change of state, it may just be impossible to modify one part of the change of state to turn the eventuality into a Process. On this note, recall Greene’s (2013) finding, reported above, that Transitions cannot be modified by galabənd ‘to start’ or ʔox̌sem̓ ‘still’. In any case, I have not come across any clear exceptions to the generalization that lexical Transitions do not take -la.	page 15
+§4.2	Katie Sardinha	note	Finally, why should -la be confined to occuring on only a subset of Processes? Greene (2013) reports that the set of Processes which can take -la are those “in which the repetitive nature of the process can be emphasized.” (pg. 107) Greene then lists the following examples of Processes which are compatible with -la: dənx̌əla ‘singing’, dzəlkʷəla ‘running’, dəxʷəla ‘jumping’, dəʔɬəla ‘laughing’, mədəlkʷəla ‘boiling’, duqʷəla ‘seeing’8, and dala ‘carrying’ (pg. 105). One possibility is that Greene’s generalization itself contains the seed of an explanation for why -la is restricted on lexical Processes. Namely, if -la derives Processes, as I propose it does, then we might expect -la to be redundant on lexical Processes. However, those lexical Processes which allow their repetitive nature to be emphasized could still be modified by -la, in which case the resulting predicate would denote a Process of a Process, of some sort. This, too, is a topic which deserves further attention.	page 15
+footnote 8	Katie Sardinha	note	I consider it more likely that duqʷ- ‘see’ is a lexical State, though because it occurs rarely without aspectual suffixes, this turns out to be hard to prove (on this, see footnote (9)).	page 15, footnote 8
+§4.2	Kwak’wala	cited form	dənx̌əla	page 15, in italics, ‘singing’
+§4.2	Kwak’wala	cited form	dzəlkʷəla	page 15, in italics, ‘running’
+§4.2	Kwak’wala	cited form	dəxʷəla	page 15, in italics, ‘jumping’
+§4.2	Kwak’wala	cited form	dəʔɬəla	page 15, in italics, ‘laughing’
+§4.2	Kwak’wala	cited form	mədəlkʷəla	page 15, in italics, ‘boiling’
+§4.2	Kwak’wala	cited form	duqʷəla	page 15, in italics, ‘seeing’
+§4.2	Katie Sardinha	note	In summary, I’ve argued that contrary to what is stated in Greene (2013), -la is productive in modern Kwak’wala. I’ve suggested that the distributional restrictions on -la noted in Greene (ibid.) could be explained on an anlysis where -la derives Processes.	page 15
+§5	Katie Sardinha	heading	5 Evidence from the interpretation of duqʷ- ‘see’ predicates	page 15
+§5	Katie Sardinha	note	In this section, I turn to look at the interpretation of predicates involving the verb root duqʷ- ‘to see’ with the aspectual suffixes -aɬa, -la, and -xʔid. My aim in doing this is to show that the interpretation of these predicates is consistent with an analysis where these suffixes derive States, Processes, and Transitions, respectively.	page 15
+§5	Katie Sardinha	note	I’ve chosen to look at duqʷ- ‘see’ predicates because they provide a particularly clear illustration of the meaning that is added by -aɬa, -la, and -xʔid. The verb duqʷ- readily occurs with all three aspectual suffixes (while for many verbs, this is not the case), and all three relevant verb forms – duqʷaɬa, duqʷəla, and dux̌ʷʔid – are fairly frequent and show relatively clear biases in how they are interpreted.	page 16
+§5	Kwak’wala	cited form	duqʷaɬa	page 16, in italics
+§5	Kwak’wala	cited form	dux̌ʷʔid	page 16, in italics
+§5	Katie Sardinha	note	In Kwak’wala, the root duqʷ- ‘to see’ is used in forming the vast majority of expressions related to seeing.9 To express nuances of meaning beyond the meaning of the bare root, Kwak’wala speakers make use of a wide array of suffixes, both lexical and grammatical.10 Some examples illustrating the use of suffixes on duqʷ- are provided in (21), alongside the translations these predicates receive in the First Voices online dictionary (2009).11	page 16
+footnote 9	Katie Sardinha	note	Interestingly, duqʷ- is very rarely volunteered without aspectual suffixes (with default -a). Example (i) is one of only a few examples of duqʷa predicates in my fieldwork data:	page 16, footnote 9
+footnote 9	Kwak’wala	cited form	duqʷa	page 16, in italics
+footnote 9 (i) line 1	Katie Sardinha	note	Context: Mabel heard a noise behind her, so she turned around to look at it.	page 16, over the example
+footnote 9 (i) line 2	Kwak’wala	transcription	ləm̓isi məlsiʔlela duqʷax̌	page 16
+footnote 9 (i) line 3	Kwak’wala	segmentation	lə =ʔm =(w)is =i məlsiʔlela duqʷ-a =x̌	page 16
+footnote 9 (i) line 4	Kwak’wala	gloss	AUX =VER =and.so =3DIST turning.around see-FV =ACC	page 16
+footnote 9 (i) line 5	Katie Sardinha	translation	‘She turned around to look at it.’	page 16
+footnote 9 (i) line 6	Katie Sardinha	speaker comment	Speaker: “She looked around.”	page 16, footnote 9, the speaker's words
+footnote 9 (i) line 7	Katie Sardinha	citation	(20160712 VF)	page 16, footnote 9, at the right of the speaker's words
+footnote 10	Katie Sardinha	note	Some of these suffixes mutate a consonant in the stem they attach to, causing either lenition (e.g. q → ǧ) or glottalization (e.g. q → q̓). Sometimes, the final consonant of the stem spirantizes (q → x̌).	page 16, footnote 10
+footnote 10	Kwak’wala	cited form	ǧ	page 16, in italics
+footnote 10	Kwak’wala	cited form	q̓	page 16, in italics
+footnote 10	Kwak’wala	cited form	x̌	page 16, in italics
+footnote 11	Katie Sardinha	note	Except for example (21h), which is from my own research.	page 16, footnote 11
+(21) line 1	Katie Sardinha	note	Examples of verb stems with the root duqʷ- ‘see’	page 16, the list's title
+(21a) line 1	Kwak’wala	transcription	duqʷaɬa	page 16
+(21a) line 2	Katie Sardinha	translation	‘to watch’	page 16
+(21b) line 1	Kwak’wala	transcription	duqʷəla	page 16
+(21b) line 2	Katie Sardinha	translation	‘to see’	page 16
+(21c) line 1	Kwak’wala	transcription	dux̌ʷʔid	page 16
+(21c) line 2	Katie Sardinha	translation	‘to look’	page 16
+(21d) line 1	Kwak’wala	transcription	dux̌ʷsiʔstala	page 16
+(21d) line 2	Katie Sardinha	translation	‘looking around’	page 16
+(21e) line 1	Kwak’wala	transcription	duǧʷət̕ala	page 16
+(21e) line 2	Katie Sardinha	translation	‘look out to sea’	page 16
+(21f) line 1	Kwak’wala	transcription	duqʷustoɬa	page 16
+(21f) line 2	Katie Sardinha	translation	‘looking up’	page 16
+(21g) line 1	Kwak’wala	transcription	duq̓ʷəx̌stənd	page 16
+(21g) line 2	Katie Sardinha	translation	‘looking at the rear end’	page 16
+(21h) line 1	Kwak’wala	transcription	duqʷəm	page 16
+(21h) line 2	Katie Sardinha	translation	‘look in the face’	page 16
+(21i) line 1	Kwak’wala	transcription	daduqʷəm̓a	page 16
+(21i) line 2	Katie Sardinha	translation	‘attempting to look someone in the face’	page 16
+§5	Katie Sardinha	note	The relevant forms here are the forms in (21a)–(21c), containing -aɬa, -la, and -xʔid. My purpose in the remainder of this section will be to show data that are consistent with duqʷaɬa predicates being derived States, duqʷəla predicates being derived Processes, and dux̌ʷʔid predicates being derived Transitions. I confine myself below to examples involving at most one aspectual suffix, leaving a discussion of stems with multiple aspectual suffixes to future research.	page 16
+§5	Katie Sardinha	note	First, it is important to note that it is usually the case that more than one verb form is possible, strictly-speaking, in a given context. For instance, take the simple context in (22) which describes a situation of looking out a window and seeing a bear. This context could be truthfully described using any of the four different English ‘see’ verbs in (22a)–(22c). Yet while all of these descriptions of the event are true, each description differs subtly in how it construes the event.	page 17
+(22) line 1	Katie Sardinha	note	Context: An hour ago, a bear was rummaging through my trash. I looked out my window, and there was a bear.	page 17, the context
+(22a) line 1	Katie Sardinha	note	I saw a bear.	page 17, an English sentence set as a lettered part
+(22b) line 1	Katie Sardinha	note	I spotted a bear.	page 17, an English sentence set as a lettered part
+(22c) line 1	Katie Sardinha	note	I glimpsed a bear.	page 17, an English sentence set as a lettered part
+(22d) line 1	Katie Sardinha	note	I witnessed a bear.	page 17, an English sentence set as a lettered part
+§5	Katie Sardinha	note	Likewise in Kwak’wala, it is often the case that one and the same seeing eventuality can be truthfully described using more than one of the verb stems duqʷaɬa, duqʷəla, and dux̌ʷʔid. What I will be specifically interested in below, then, is what factors bias speakers towards choosing duqʷaɬa, duqʷəla, or dux̌ʷʔid in a given context to express a certain type of meaning.	page 17
+§5	Katie Sardinha	note	I’ll begin with volunteered instances of duqʷaɬa (5.1), followed by duqʷəla (5.2) and dux̌ʷʔid (5.3); I’ll then summarize the findings (5.4).	page 17
+§5.1	Katie Sardinha	heading	5.1 duqʷaɬa predicates	page 17
+§5.1	Katie Sardinha	note	The verb stem duqʷaɬa, containing the aspectual suffix -aɬa, is consistently volunteered in contexts where an action of seeing is sustained over a period of time. The most common English translation for duqʷaɬa predicates is ‘watch’. The interpretation of duqʷaɬa predicates, I suggest, is consistent with them being derived States.	page 17
+§5.1	Katie Sardinha	note	Four examples of duqʷaɬa predicates are shown below. Examples (23), (24), and (25) each describe eventualities in which Mabel is maintaining a fixed gaze on something for an extended period of time; in each example, the corresponding English verb is ‘watch’.	page 17
+(23) line 1	Katie Sardinha	note	Context: Mabel thinks she heard something in the bushes. She keeps her eye on the bushes to see if it’ll move again.	page 18, over the example
+(23) line 2	Kwak’wala	transcription	ləm̓is duqʷaɬa x̌ada	page 18
+(23) line 3	Kwak’wala	segmentation	lə =ʔm =(w)is duqʷ -aɬa =x̌ =a =da	page 18
+(23) line 4	Kwak’wala	gloss	AUX =VER =and.so see -STAT =ACC =DET =OST	page 18
+(23) line 5	Kwak’wala	transcription	q̓ʷax̌mis k̓əyosida yaw̓ixa	page 18
+(23) line 6	Kwak’wala	segmentation	q̓ʷax̌mis k̓əyos =i =da yaw̓ix -a	page 18
+(23) line 7	Kwak’wala	gloss	bushes NEG.EXIST =3DIST =OST move -FV	page 18
+(23) line 8	Katie Sardinha	translation	‘She watched the bushes, but nothing moved.’	page 18
+(23) line 9	Katie Sardinha	citation	(20160712 VF)	page 18, the tag or source at the right of the translation
+(24) line 1	Katie Sardinha	note	Context: Mabel saw a black bear on the road, but then it disappeared. So she keeps her eye on the road to see if it re-appears.	page 18, over the example
+(24) line 2	Kwak’wala	transcription	ləm̓is duqʷaɬa x̌a kənl̕as	page 18
+(24) line 3	Kwak’wala	segmentation	lə =ʔm =(w)is duqʷ -aɬa =x̌ =a kənl̕aš	page 18
+(24) line 4	Kwak’wala	gloss	AUX =VER =and.so see -STAT =ACC =DET road	page 18
+(24) line 5	Kwak’wala	transcription	qu edaqa lax̌	page 18
+(24) line 6	Kwak’wala	segmentation	qu edaqa =lax	page 18
+(24) line 7	Kwak’wala	gloss	if return =HYP	page 18
+(24) line 8	Katie Sardinha	translation	‘She’s watching the road to see if it comes back.’	page 18
+(24) line 9	Katie Sardinha	citation	(20160712 VF)	page 18, the tag or source at the right of the translation
+(25) line 1	Kwak’wala	transcription	duqʷaɬux̌ Mabelex̌is wəyugʷəmala	page 18
+(25) line 2	Kwak’wala	segmentation	duqʷ -aɬa =ux̌ Mabel =x̌ =is wəyugʷəmala	page 18
+(25) line 3	Kwak’wala	gloss	see -STAT =3MED Mabel =ACC =3REFL.POSS baby	page 18
+(25) line 4	Kwak’wala	transcription	ləʔəm mix̌an̓akʷəla c̓ic̓an̓iqəlabidu	page 18
+(25) line 5	Kwak’wala	segmentation	lə =ʔm mix̌ -a =n̓akʷəla c̓ic̓an̓iqəla =bidu	page 18
+(25) line 6	Kwak’wala	gloss	AUX =VER sleep -FV =GRAD.ADV cute =DIM	page 18
+(25) line 7	Katie Sardinha	translation	‘Mabel’s watching her baby as it goes to sleep, it’s so cute.’	page 18
+(25) line 8	Katie Sardinha	citation	(20160712 VF)	page 18, under the translation
+§5.1	Katie Sardinha	note	In example (26), the speaker uses duqʷaɬa to describe an eventuality that involves ‘looking at one’s heart’. The intended meaning of the predicate in (26) is that in order to live a moral life, people should monitor themselves by looking inwards and sustaining this inner gaze. While duqʷaɬa in this case is not translated as ‘watch’, the eventuality is still understood as sustained over time.	page 18
+(26) line 1	Kwak’wala	transcription	duqʷaɬal̕a x̌us noqeʔ qe	page 19
+(26) line 2	Kwak’wala	segmentation	duqʷ -aɬa =l̕a =x̌ =us noqeʔ q(a)	page 19
+(26) line 3	Kwak’wala	gloss	see -STAT =IMP =ACC =2POSS heart PREP	page 19
+(26) line 4	Kwak’wala	transcription	ʔikeʔsux̌	page 19
+(26) line 5	Kwak’wala	segmentation	ʔik =eʔ =s =ux̌	page 19
+(26) line 6	Kwak’wala	gloss	good =INVIS =3POSS =3MED	page 19
+(26) line 7	Katie Sardinha	speaker comment	Speaker: “Look at your heart to be good.”	page 19, the speaker's words under the example, its only English
+(26) line 8	Katie Sardinha	citation	(20160712 VF)	page 19, the source at the right of the speaker's words
+§5.1	Katie Sardinha	note	In summary, duqʷaɬa predicates are volunteered in contexts where what is being emphasized is a sustained action of seeing. This finding is consistent with duqʷaɬa predicates denoting States, and with -aɬa being the grammatical source of this aspectual interpretation.12	page 19
+footnote 12	Katie Sardinha	note	When a sustained seeing eventuality involves a high degree of agentivity, Kwak’wala speakers can also use humoɬa ‘to watch, to be a spectator’, which itself also appears to contain -aɬa. A use of this verb is shown in (ii). Note the appearance here of the word humoɬac̓i ‘television’, which is derived from the same stem. Example (iii) shows a context where either humoɬa or duqʷaɬa is felicitous.	page 19, footnote 12
+footnote 12	Kwak’wala	cited form	humoɬa	page 19, in italics, ‘to watch, to be a spectator’
+footnote 12	Kwak’wala	cited form	humoɬac̓i	page 19, in italics, ‘television’
+footnote 12 (ii) line 1	Kwak’wala	transcription	ʔom̓ox̌ n̓əmc̓aqux̌ Annax̌ mənxʷaɬa	page 19
+footnote 12 (ii) line 2	Kwak’wala	segmentation	ʔo =ʔm =ox̌ n̓əm -c̓aq =ux̌ Anna =(ə)x̌ mənxʷ -aɬa	page 19
+footnote 12 (ii) line 3	Kwak’wala	gloss	so =VER=3MED one -hour =3MED Anna =VIS smile -STAT	page 19
+footnote 12 (ii) line 4	Kwak’wala	transcription	leʔəx̌ humoɬa x̌ida humoɬac̓i	page 19
+footnote 12 (ii) line 5	Kwak’wala	segmentation	la =(ə)x̌ humoɬa =x̌ =i =da humoɬac̓i	page 19
+footnote 12 (ii) line 6	Kwak’wala	gloss	PREP =VIS watch =ACC =3DIST =OST television	page 19
+footnote 12 (ii) line 7	Katie Sardinha	translation	‘Anna smiled for a whole hour while she watched the television.’	page 19
+footnote 12 (ii) line 8	Katie Sardinha	citation	(20160725 VF)	page 19, the tag or source at the right of the translation
+footnote 12 (iii) line 1	Katie Sardinha	note	Context: One evening, Mabel went out to the beach to relax.	page 19, over the example
+footnote 12 (iii) line 2	Kwak’wala	transcription	n̓əm ǧanuƛ leʔ Mabel humoɬa / duqʷaɬa	page 19
+footnote 12 (iii) line 3	Kwak’wala	segmentation	n̓əm ǧanuƛ la =eʔ Mabel humoɬa / duqʷ -aɬa	page 19
+footnote 12 (iii) line 4	Kwak’wala	gloss	one night PREP =INVIS Mabel watch / see -STAT	page 19
+footnote 12 (iii) line 5	Kwak’wala	transcription	x̌ida ƛ̓isəla k̓əyoxʷʔidan̓akʷəla	page 19
+footnote 12 (iii) line 6	Kwak’wala	segmentation	=x̌ =i =da ƛ̓is -la k̓əyoxʷʔid -a =n̓akʷəla	page 19
+footnote 12 (iii) line 7	Kwak’wala	gloss	=ACC =3DIST =OST sun.shine -PROC disappear -FV =GRAD.ADV	page 19
+footnote 12 (iii) line 8	Katie Sardinha	translation	‘One evening, Mabel went out to watch the sun disappear.’	page 19
+footnote 12 (iii) line 9	Katie Sardinha	citation	(20160712 VF/JF)	page 19, the tag or source at the right of the translation
+footnote 12	Katie Sardinha	note	I have found duqʷaɬa to be possible in every context that humoɬa is (of those contexts I’ve tested). The reverse generalization is not true, however.	page 19, footnote 12
+§5.2	Katie Sardinha	heading	5.2 duqʷəla predicates	page 19
+§5.2	Katie Sardinha	note	Processes are eventualities which develop and progress over time and are instigated by an Agent. The verb stem duqʷəla, containing the aspectual suffix –la, is the most commonly volunteered duqʷ- stem for translating sentences with the English verb ‘see’ into Kwak’wala. Additionally, duqʷəla predicates are volunteered as translations for ‘look over (something)’ and ‘be looking at (something)’, and are usually the duqʷ- stem of choice when an abilitative, iterated, or habitual meaning is intended. This range of possible interpretations for duqʷəla predicates, I suggest, is consistent with them being derived Processes.	page 19
+§5.2	Katie Sardinha	note	Example (27) contains two instances of duqʷəla. In the first clause, duqʷəla describes an eventuality in which Eddie is looking over an object, while in the second clause, duqʷəla describes an eventuality in which Eddie fails to see an object. Example (28) shows another instance of the ‘look over’ use of duqʷəla, and example (29) shows another instance of the basic ‘see’ use of duqʷəla. This ‘see’ use of -la is shown again in (30), this time with a sentential complement.	page 20
+(27) line 1	Katie Sardinha	note	Context: Vicky drew a complicated picture of a garden. In it there was a butterfly. She asked Eddie if he could find the butterfly.	page 20, over the example
+(27) line 2	Kwak’wala	transcription	duqʷəlux̌ Eddiyəx̌ x̌ada	page 20
+(27) line 3	Kwak’wala	segmentation	duqʷ -la =ux̌ Eddi =(ə)x̌ =x̌ =a =da	page 20
+(27) line 4	Kwak’wala	gloss	see -PROC =3MED Eddie =VIS =ACC =DET =OST	page 20
+(27) line 5	Kwak’wala	transcription	k̓atəmakʷ k̓iʔsƛux̌ duqʷəla	page 20
+(27) line 6	Kwak’wala	segmentation	k̓atəmakʷ k̓iʔs =ƛ =ux̌ duqʷ -la	page 20
+(27) line 7	Kwak’wala	gloss	picture NEG =FUT =3MED see -PROC	page 20
+(27) line 8	Kwak’wala	transcription	x̌ida həmumu	page 20
+(27) line 9	Kwak’wala	segmentation	=x̌ =i =da həmumu	page 20
+(27) line 10	Kwak’wala	gloss	=ACC =3DIST =OST butterfly	page 20
+(27) line 11	Katie Sardinha	translation	‘Eddie looked over the picture, but he didn’t see the butterfly.’	page 20
+(27) line 12	Katie Sardinha	citation	(20160712 VF)	page 20, under the translation
+(28) line 1	Katie Sardinha	note	Context: Mabel woke up and looked out the window. She looked all over the sky, and didn’t see a single cloud.	page 20, over the example
+(28) line 2	Kwak’wala	transcription	ləm̓i Mabel duqʷəla x̌a	page 20
+(28) line 3	Kwak’wala	segmentation	lə =ʔm =i Mabel duqʷ -la =x̌ =a	page 20
+(28) line 4	Kwak’wala	gloss	AUX =VER =3DIST Mabel see -PROC =ACC =DET	page 20
+(28) line 5	Kwak’wala	transcription	ʔik̓i k̓əyosλa ʔənwey̓a	page 20
+(28) line 6	Kwak’wala	segmentation	ʔik̓i k̓əyos =λa ʔənweʔ =a	page 20
+(28) line 7	Kwak’wala	gloss	sky NEG.EXIST =but cloud =INVIS	page 20
+(28) line 8	Katie Sardinha	translation	‘Mabel looked all over the sky, and there weren’t any clouds.’	page 20
+(28) line 9	Katie Sardinha	citation	(20160712 VF)	page 20, under the translation
+(29) line 1	Katie Sardinha	note	Context: Mabel was walking along the road, and happened to glance over her shoulder. She saw a black bear.	page 21, over the example
+(29) line 2	Kwak’wala	transcription	ləm̓is qasʔid	page 21
+(29) line 3	Kwak’wala	segmentation	lə =ʔm =(w)is qas -xʔid	page 21
+(29) line 4	Kwak’wala	gloss	AUX =VER =and.so walk -BEC	page 21
+(29) line 5	Kwak’wala	transcription	lax̌ada kənl̕as ləm̓is	page 21
+(29) line 6	Kwak’wala	segmentation	la =x̌ =a =da kənl̕as lə =ʔm =(w)is	page 21
+(29) line 7	Kwak’wala	gloss	PREP =ACC =DET =OST road AUX =VER =and.so	page 21
+(29) line 8	Kwak’wala	transcription	məlsʔi ləʔəm duqʷəla	page 21
+(29) line 9	Kwak’wala	segmentation	məls -xʔid lə =ʔm duqʷ -la	page 21
+(29) line 10	Kwak’wala	gloss	turn -BEC AUX =VER see -PROC	page 21
+(29) line 11	Kwak’wala	transcription	x̌ada ƛ̓eʔ	page 21
+(29) line 12	Kwak’wala	segmentation	=x̌ =a =da ƛ̓ay̓i	page 21
+(29) line 13	Kwak’wala	gloss	=ACC =DET =OST black.bear	page 21
+(29) line 14	Katie Sardinha	translation	‘She was walking down the road, then she turned, and she saw a black bear.’	page 21
+(29) line 15	Katie Sardinha	citation	(20160712 VF)	page 21, under the translation
+(30) line 1	Katie Sardinha	note	Context: Mabel looks out her window one morning and sees that the eagle living in the tree out there had made a nest.	page 21, over the example
+(30) line 2	Kwak’wala	transcription	ləm̓isi duqʷəl =i	page 21
+(30) line 3	Kwak’wala	segmentation	lə =ʔm =(w)is =i duqʷ -la =i	page 21
+(30) line 4	Kwak’wala	gloss	AUX =VER =and.so =3DIST see -PROC =3DIST	page 21
+(30) line 5	Kwak’wala	transcription	Mabelx̌ leʔeda kʷikʷ	page 21
+(30) line 6	Kwak’wala	segmentation	Mabel =(ə)x̌ la =aʔ =i =da kʷikʷ	page 21
+(30) line 7	Kwak’wala	gloss	Mabel =VIS PREP =INVIS =3DIST =OST eagle	page 21
+(30) line 8	Kwak’wala	transcription	ʔəx̌ila x̌a kʷigʷac̓i	page 21
+(30) line 9	Kwak’wala	segmentation	ʔəx̌ -(g)ila =x̌ =a kʷigʷac̓i	page 21
+(30) line 10	Kwak’wala	gloss	do -make =ACC =DET eagle.nest	page 21
+(30) line 11	Katie Sardinha	translation	‘Mabel saw that the eagle had made a nest.’	page 21
+(30) line 12	Katie Sardinha	citation	(20160712 VF)	page 21, the tag or source at the right of the translation
+§5.2	Katie Sardinha	note	These data show that the semantics of duqʷəla must allow for both ‘look over’ and ‘see’ interpretations. The fact that duqʷəla can have a ‘look over’ interpretation is consistent with this predicate being a derived Process, as the activity of ‘looking over’ something is obviously dynamic in nature. On the other hand, an eventuality in which someone simply ‘sees’ something is not as obviously a Process, since it is not dynamic in nature. Basic seeing eventualities do, however, satisfy another criterion for being a Process – namely, the criterion of being instigated by an Agent, the one who is doing the seeing. If we assume that instigation by an Agent is enough to qualify the predicate duqʷəla as a Process, then we arrive at an explanation for why duqʷəla can simply mean ‘see’.	page 21
+§5.2	Katie Sardinha	note	There is a potential problem, however, with the explanation in the previous paragraph, which is that all seeing eventualities are presumably instigated by an Agent – not just ones involving duqʷəla – and should thereby qualify as Processes. Why, then, are some seeing eventualities described using verb stems other than duqʷəla? The reason, I suggest, may be that other duqʷ- predicates, such as duqʷaɬa and dux̌ʷʔid, are preferred when the speaker wishes to express a more specific meaning. On this point, it’s worth pointing out that duqʷəla is the most basic ‘see’ verb in the language, in the sense that it is volunteered the most frequently and is found in the widest range of contexts. The fact that duqʷəla functions as the language’s default ‘see’ verb may follow from the fact that all that is required for an eventuality to qualify as a Process (and hence, appear with -la) is agentivity, whereas more than mere agentivity is required to qualify a given seeing eventuality as a State or as a Transition.	page 22
+§5.2	Katie Sardinha	note	The next two examples show duqʷəla predicates with abilitative meanings; in (31) the verb has an object, while the verb in (32) does not.	page 22
+(31) line 1	Kwak’wala	transcription	k̓iʔsux̌ Mebəlx̌ ʔolək̓al duqʷəla	page 22
+(31) line 2	Kwak’wala	segmentation	k̓iʔs =ux̌ Mebəl =(ə)x̌ ʔolək̓al duqʷ -la	page 22
+(31) line 3	Kwak’wala	gloss	NEG =3MED Mabel =VIS truly see -PROC	page 22
+(31) line 4	Kwak’wala	transcription	x̌a kənl̕as ƛumeʔ p̓ədəkəla	page 22
+(31) line 5	Kwak’wala	segmentation	=x̌ =a kənl̕as ƛum =eʔ p̓ədək -la	page 22
+(31) line 6	Kwak’wala	gloss	=ACC =DET road really =INVIS dark -PROC	page 22
+(31) line 7	Katie Sardinha	translation	‘Mabel could barely see the road, it was so dark.’	page 22
+(31) line 8	Katie Sardinha	citation	(20160712 VF)	page 22, the tag or source at the right of the translation
+(32) line 1	Kwak’wala	transcription	ƛumida dəkdəxəluɬ duqʷəla	page 22
+(32) line 2	Kwak’wala	segmentation	ƛum =i =da dəkdəxəluɬ duqʷ -la	page 22
+(32) line 3	Kwak’wala	gloss	really =3DIST =OST owl see -PROC	page 22
+(32) line 4	Kwak’wala	transcription	lax̌a p̓ədəkəla	page 22
+(32) line 5	Kwak’wala	segmentation	la =x̌ =a p̓ədək -la	page 22
+(32) line 6	Kwak’wala	gloss	PREP =ACC =DET dark -PROC	page 22
+(32) line 7	Katie Sardinha	translation	‘Owls see really well in the dark.’	page 22
+(32) line 8	Katie Sardinha	citation	(20160712 VF)	page 22, the tag or source at the right of the translation
+§5.2	Katie Sardinha	note	As in (27), (29) and (30), the seeing eventualities described in (31)–(32) are instigated by an Agent; therefore, they too qualify as Processes.	page 22
+§5.2	Katie Sardinha	note	Finally, I present some data which complicate things somewhat – namely, data in which duqʷəla is used to describe an eventuality that consists of multiple ‘seeing’ subevents. Example (33) describes a seeing eventuality which is interpreted as iterated via the quantifying phrase ʔoʔəm həyulis ‘always’, while (34) describes a seeing eventuality with an iterated interpretation (i.e. Mabel saw the baby eagle on multiple occasions) in which there is no overt quantifying phrase.	page 22
+§5.2	Kwak’wala	cited form	ʔoʔəm həyulis	page 22, in italics, ‘always’
+(33) line 1	Katie Sardinha	note	Context: Every morning Mabel looks out her window and sees an eagle sitting in the tree there.	page 23, over the example
+(33) line 2	Kwak’wala	transcription	ʔom̓i həyulisi Mabel duqʷəla	page 23
+(33) line 3	Kwak’wala	segmentation	ʔo =ʔm =i həyulis =i Mabel duqʷ -la	page 23
+(33) line 4	Kwak’wala	gloss	so =VER =3DIST continue =3DIST Mabel see -PROC	page 23
+(33) line 5	Kwak’wala	transcription	x̌ida kʷikʷ lax̌a λoʔs	page 23
+(33) line 6	Kwak’wala	segmentation	=x̌ =i =da kʷikʷ la =x̌ =a λoʔs	page 23
+(33) line 7	Kwak’wala	gloss	=ACC =3DIST =OST eagle PREP =ACC =DET tree	page 23
+(33) line 8	Kwak’wala	transcription	lax̌ida ǧəʔala	page 23
+(33) line 9	Kwak’wala	segmentation	la =x̌ =i =da ǧəʔala	page 23
+(33) line 10	Kwak’wala	gloss	PREP =ACC =3DIST =OST morning	page 23
+(33) line 11	Katie Sardinha	translation	‘Mabel always sees an eagle in the tree in the morning.’	page 23
+(33) line 12	Katie Sardinha	citation	(20160712 VF)	page 23, the tag or source at the right of the translation
+(34) line 1	Katie Sardinha	note	Context: The eagle has a baby eagle. Mabel watches the eagle’s nest over a series of days, and sees it get bigger and bigger.	page 23, over the example
+(34) line 2	Kwak’wala	transcription	ləm̓i Mabel duqʷəla	page 23
+(34) line 3	Kwak’wala	segmentation	lə =ʔm =i Mabel duqʷ -la	page 23
+(34) line 4	Kwak’wala	gloss	AUX =VER =3DIST Mabel see -PROC	page 23
+(34) line 5	Kwak’wala	transcription	x̌ida wəyugʷəmala kʷikʷbidu	page 23
+(34) line 6	Kwak’wala	segmentation	=x̌ =i =da wəyugʷəmala kʷikʷ =bidu	page 23
+(34) line 7	Kwak’wala	gloss	=ACC =3DIST =OST baby eagle =DIM	page 23
+(34) line 8	Kwak’wala	transcription	q̓ʷax̌ən̓akʷəla	page 23
+(34) line 9	Kwak’wala	segmentation	q̓ʷax̌ -a =n̓akʷəla	page 23
+(34) line 10	Kwak’wala	gloss	grow -FV =GRAD.ADV	page 23
+(34) line 11	Katie Sardinha	translation	‘Mabel saw the baby eagle grow.’	page 23
+(34) line 12	Katie Sardinha	citation	(20160712 VF)	page 23, the tag or source at the right of the translation
+§5.2	Katie Sardinha	note	The problem that these examples highlight is that it is not obvious from data like these whether -la is a source of iterative meaning or not. On the one hand, recall that Boas (1911, 1947) takes -la to be associated with ‘multiplicity’ and ‘repetition’. On the other hand, it could be that -la does not actually add meaning related to multiplicity and repetition, and that the iterative meaning in these examples could instead come from ʔoʔəm həyulis in (33) and from pragmatics in (34).13 Thus, a listener encountering (34) could infer that for Mabel to see an eagle-baby grow, practically speaking she must have seen it on multiple occasions; hence, the eventuality being described must have involved iterated seeing subevents (note that the alternative would be for Mabel to have kept her eyes constantly on the eagle for a series of days – a very unlikely scenario in the real world!). In short, it is not at all clear from data like these whether -la actually does give rise to meanings of ‘multiplicity’ and ‘repetition’. Ultimately, more work is needed to know whether -la contributes this type of meaning under any particular circumstances. For now, it’s worth noting that duqʷəla is the verb stem (of the three looked at here) which tends to be volunteered in contexts involving multiplicity or repetition. While for the moment unexplained, this generalization is not obviously inconsistent with duqʷəla predicates denoting Processes.	page 23
+footnote 13	Katie Sardinha	note	Note that if this is true, it has repercussions for my explanation in Section 4.2 concerning why -la can only occur on certain Processes.	page 23, footnote 13
+§5.2	Katie Sardinha	note	In summary, duqʷəla describes eventualities which qualify as Processes, either because they are clearly dynamic or because they involve agentivity. These findings are consistent with duqʷəla predicates denoting Processes, where –la is the grammatical source of this aspectual interpretation.	page 24
+§5.3	Katie Sardinha	heading	5.3 dux̌ʷʔid predicates	page 24
+§5.3	Katie Sardinha	note	Recall that Transitions are telic eventualities. They consist of an interval of time containing a near-instantaneous change of state. The most common English translations for dux̌ʷʔid predicates are ‘look at’ and ‘glance at’, though it is not uncommon for them to also be translated simply as ‘see’. This range of possible interpretations for dux̌ʷʔid predicates, I’ll suggest, is consistent with them being derived Transitions.	page 24
+§5.3	Katie Sardinha	note	Example (35), which should be compared against example (27), contains two duqʷ- predicates. In the first clause, dux̌ʷʔid is used to describe glancing at a picture, while in the second clause, duqʷəla is used to describe seeing a butterfly.	page 24
+(35) line 1	Katie Sardinha	note	Context: Vicky drew a complicated picture of a garden. In it there was a butterfly. Shelly walks into the room, glances at the picture, and right away sees the butterfly.	page 24, over the example
+(35) line 2	Kwak’wala	transcription	gam̓i Shelli dux̌ʷʔi x̌a	page 24
+(35) line 3	Kwak’wala	segmentation	ga =ʔm =i Shelli duqʷ -xʔid =x̌ =a	page 24
+(35) line 4	Kwak’wala	gloss	come =VER =3DIST Shelly see -BEC =ACC =DET	page 24
+(35) line 5	Kwak’wala	transcription	k̓atəmakʷ ʔom̓is hixʔidaʔəm duqʷəla	page 24
+(35) line 6	Kwak’wala	segmentation	k̓atəmakʷ ʔo =m̓ =(w)is hixʔidaʔəm duqʷ -la	page 24
+(35) line 7	Kwak’wala	gloss	picture so =VER =and.so suddenly see -PROC	page 24
+(35) line 8	Kwak’wala	transcription	x̌ada həmumu	page 24
+(35) line 9	Kwak’wala	segmentation	=x̌ =a =da həmumu	page 24
+(35) line 10	Kwak’wala	gloss	=ACC =DET =OST butterfly	page 24
+(35) line 11	Katie Sardinha	translation	‘Shelly came and {looked at, glanced at, saw} the picture, and just right away she saw the butterfly.’	page 24
+(35) line 12	Katie Sardinha	citation	(20160712 VF)	page 24, the tag or source at the right of the translation
+§5.3	Katie Sardinha	note	In comparison with (27) which contains duqʷəla in the first clause, the presence of dux̌ʷʔid in the first clause of (35) emphasizes a quick transition into seeing (‘look at’, ‘glance at’, ‘see’), rather than a process of seeing (‘look over’). Two additional examples of the use of dux̌ʷʔid to indicate a quick transition into seeing are shown in (36)–(37).	page 24
+(36) line 1	Katie Sardinha	note	Context: The speaker is telling a story about paying her hydro bill at the bank. The bill was for an absurdly small sum.	page 25, over the example
+(36) line 2	Kwak’wala	transcription	ləm̓i da c̓ədaq dux̌ʷʔi	page 25
+(36) line 3	Kwak’wala	segmentation	lə =ʔm =i =da c̓ədaq duqʷ -xʔid	page 25
+(36) line 4	Kwak’wala	gloss	AUX =VER =3DIST =OST woman see -BEC	page 25
+(36) line 5	Kwak’wala	transcription	x̌ən bill ləʔəm dəʔɬʔi	page 25
+(36) line 6	Kwak’wala	segmentation	=x̌ =ən bill lə =ʔm dəʔɬ -xʔid	page 25
+(36) line 7	Kwak’wala	gloss	=ACC =1POSS bill AUX =VER laugh -BEC	page 25
+(36) line 8	Katie Sardinha	translation	‘Then the woman saw/looked at my bill, and laughed.’	page 25
+(36) line 9	Katie Sardinha	citation	(20150527 VF)	page 25, the tag or source at the right of the translation
+(37) line 1	Katie Sardinha	note	Context: The speaker is describing something that just happened in the elicitation session.	page 25, over the example
+(37) line 2	Kwak’wala	transcription	ʔom̓isux̌ la dux̌ʷʔi	page 25
+(37) line 3	Kwak’wala	segmentation	ʔo =ʔm =(w)is =ux̌ la duqʷ -xʔid	page 25
+(37) line 4	Kwak’wala	gloss	so =VER =and.so =3MED AUX see -BEC	page 25
+(37) line 5	Kwak’wala	transcription	x̌ux̌ Ketiyəx̌ lux̌ Ketiyəx̌	page 25
+(37) line 6	Kwak’wala	segmentation	=x̌ =ux̌ Keti =(ə)x̌ lə =ux̌ Keti =(ə)x̌	page 25
+(37) line 7	Kwak’wala	gloss	=ACC =3MED Katie =VIS AUX =3MED Katie =VIS	page 25
+(37) line 8	Kwak’wala	transcription	dux̌ʷʔix̌ ləm̓ux̌ ʔoʔəm	page 25
+(37) line 9	Kwak’wala	segmentation	duqʷ -xʔid =x̌ lə =ʔm =ux̌ ʔo =ʔm	page 25
+(37) line 10	Kwak’wala	gloss	see -BEC =ACC AUX =VER =3MED so =VER	page 25
+(37) line 11	Kwak’wala	transcription	didəʔɬəla	page 25
+(37) line 12	Kwak’wala	segmentation	Ci~ dəʔɬ -la	page 25
+(37) line 13	Kwak’wala	gloss	PL~ laugh -PROC	page 25
+(37) line 14	Katie Sardinha	translation	‘She just looked at Katie, and Katie looked at her, and they just laughed.’	page 25
+(37) line 15	Katie Sardinha	citation	(20150629 VF)	page 25, under the translation
+§5.3	Katie Sardinha	note	In each of these examples, dux̌ʷʔid is used to express the initial moment of a seeing eventuality. The eventualities thus described are inchoative states, a fact which is consistent with them being derived Transitions.	page 25
+§5.3	Katie Sardinha	note	In summary, dux̌ʷʔid describes eventualities which involve near-instantaneous transitions into seeing eventualities. This finding is consistent with dux̌ʷʔid predicates denoting Transitions, with -xʔid being the grammatical source of this aspectual interpretation.	page 25
+§5.4	Katie Sardinha	heading	5.4 Interpretations of duqʷ- predicates: Summary	page 25
+§5.4	Katie Sardinha	note	In this section, I’ve presented data involving duqʷ- predicates in order to illustrate that the analysis in Section 3 is plausible. The findings from this section are summarized in Table 3.	page 25
+Table 3	Katie Sardinha	note	Table 3: Summary of duqʷ- predicates	page 26, the table's caption
+Table 3 line 1	Katie Sardinha	note	duqʷ- ‘see’ predicate	page 26, Table 3, a column head
+Table 3 line 1	Katie Sardinha	note	Eventuality type	page 26, Table 3, a column head
+Table 3 line 1	Katie Sardinha	note	English translation(s)	page 26, Table 3, a column head
+Table 3 line 1	Katie Sardinha	note	Description	page 26, Table 3, a column head
+Table 3 line 2	Kwak’wala	transcription	duqʷaɬa	page 26, Table 3, duqʷ- ‘see’ predicate
+Table 3 line 2	Katie Sardinha	note	derived State	page 26, Table 3, Eventuality type
+Table 3 line 2	Katie Sardinha	translation	‘watch’	page 26, Table 3, English translation(s)
+Table 3 line 2	Katie Sardinha	note	sustained action of seeing	page 26, Table 3, Description
+Table 3 line 3	Kwak’wala	transcription	duqʷəla	page 26, Table 3, duqʷ- ‘see’ predicate
+Table 3 line 3	Katie Sardinha	note	derived Process	page 26, Table 3, Eventuality type
+Table 3 line 3	Katie Sardinha	translation	‘look over’	page 26, Table 3, English translation(s)
+Table 3 line 3	Katie Sardinha	translation	‘see’	page 26, Table 3, English translation(s)
+Table 3 line 3	Katie Sardinha	note	action of seeing	page 26, Table 3, Description
+Table 3 line 4	Kwak’wala	transcription	dux̌ʷʔid	page 26, Table 3, duqʷ- ‘see’ predicate
+Table 3 line 4	Katie Sardinha	note	derived Transition	page 26, Table 3, Eventuality type
+Table 3 line 4	Katie Sardinha	translation	‘look at’	page 26, Table 3, English translation(s)
+Table 3 line 4	Katie Sardinha	translation	‘glance at’	page 26, Table 3, English translation(s)
+Table 3 line 4	Katie Sardinha	translation	‘see’	page 26, Table 3, English translation(s)
+Table 3 line 4	Katie Sardinha	note	inchoative; transition into seeing	page 26, Table 3, Description
+§5.4	Katie Sardinha	note	I also pointed out that more research is needed to discover whether or not -la is semantically associated with multiplicity and iterativity, as claimed in Boas (1911, 1947).	page 26
+§6	Katie Sardinha	heading	6 Conclusion	page 26
+§6	Katie Sardinha	note	In this paper, I proposed an analysis of three common aspectual suffixes in Kwak’wala that builds upon several key insights in Greene (2013). I began by introducing Greene’s analysis of lexical aspectual verb classes in Kwak’wala, in which verbs belong to three eventuality types: States, Processes, and Transitions. I then proposed that Kwak’wala possesses grammatical means of deriving these three eventuality types: -aɬa derives States, -la derives Processes, and -xʔid derives Transitions. After this, I discussed how my analysis accounts for previously reported generalizations about -xʔid and -la reported in Greene (2013). Finally, I looked at the interpretation of duqʷ- ‘see’ predicates containing -aɬa, -la, and -xʔid in order to illustrate the plausibility of my analysis. While I don’t feel I’ve provided enough evidence in this paper to establish my analysis with great certainty, I have at least tried to frame a new way of thinking about the semantics of -aɬa, -la, and -xʔid. Along the way, I have also made note of some open questions and avenues for future work.	page 26
+§6	Katie Sardinha	note	A significant implication of analyzing -aɬa, -la, and -xʔid as morphemes for deriving eventuality types is that it shows the three aspectual categories of States, Processes, and Transitions to have even greater significance within the grammar of Kwak’wala than previously thought. In essence, this means that Greene’s (2013) insights into aspectual organization in Kwak’wala were more far-reaching than she herself realized. Future research on aspect in Kwak’wala should take into account the central importance of these three eventuality types.	page 26
+§6	Katie Sardinha	note	The analysis proposed above also has important implications for teaching Kwak’wala. If the three categories of State, Process, and Transition are indeed as pervasive within the grammar of Kwak’wala as I’ve claimed they are, then it will be important going forward to come up with intuitive ways of teaching these concepts to students of Kwak’wala.	page 26
+§Appendix A	Katie Sardinha	heading	Appendix A: Definitions of DO and BECOME from Dowty (1979)	page 27
+§Appendix A	Katie Sardinha	note	Greene’s (2013) templates for lexical Processes and Transitions make use of two semantic operators from Dowty (1979), DO and BECOME. The denotations of these operators are given in (38) and (39), respectively, accompanied by notes regarding their truth conditions from Dowty (ibid.).	page 27
+(38a) line 1	Katie Sardinha	formula	DO(α, φ) ↔ φ & u.t.u.c.o.a.(φ)	page 27, DO as Dowty (1979) defines it
+(38b) line 1	Katie Sardinha	note	“…the abbreviation [u.t.u.c.o.a.] stands for “is under the unmediated control of the agent (individual denoted by α)” and is this is of course a blatant fudge since I have no way of giving a standard (explicit model- theoretic) interpretation for this notion.”	page 27, Dowty's (1979) note on the operator, quoted
+(38b) line 2	Katie Sardinha	citation	(pg. 118)	page 27, the page of Dowty (1979) at the right
+(39a) line 1	Katie Sardinha	note	[BECOME φ] is true at I iff there is an interval J containing the initial bound of I such that ¬φ is true at J and there is an interval K containing the final bound of I such that φ is true at K.	page 27, a definition from Dowty (1979)
+(39b) line 1	Katie Sardinha	note	Interval: Let T be the set of real numbers. Let ≺ be the standard dense linear ordering of T. I is an interval iff I ⊂ T and for all moments t1, t2, t3, if t3 ∈ I, and t1 ≺ t2 ≺ t3, then t2 ∈ I.	page 27, a definition from Dowty (1979)
+(39c) line 1	Katie Sardinha	note	Initial and final bound: t is an initial bound for I iff t is the latest moment just before I. Final bound is defined similarly.	page 27, a definition from Dowty (1979)
+§Appendix A	Katie Sardinha	note	In her discussion of these operators and their application to modeling lexical aspectual classes in Kwak’wala, Greene (ibid.) suggests that the DO operator may be in need of revision in order to make it based on a property like [+ stages] (Landman 1992) or [+dynamic], rather than on agentivity alone.	page 27
+§Appendix B	Katie Sardinha	heading	Appendix B: Formal analysis of -aɬa, -la, and -xʔid	page 27
+§Appendix B	Katie Sardinha	note	A tentative formal analysis of -aɬa, -la, and -xʔid is given in (40)–(42).	page 27
+(40) line 1	Katie Sardinha	formula	⟦-aɬa⟧ = λP<v,<s,t>>.λe.(STATE(P))(e)	page 27
+(41) line 1	Katie Sardinha	formula	⟦-la⟧ = λP<v,<s,t>>.λe.(DO(P))(e)	page 27
+(42) line 1	Katie Sardinha	formula	⟦-xʔid⟧ = λP<v,<s,t>>.λe.(BECOME(P))(e)	page 27
+§Appendix B	Katie Sardinha	note	The analysis in (40)–(42) treats -aɬa, -la, and -xʔid as event modifiers. On this analysis, each suffix denotes a function from properties of events, to properties of events which correspond to a particular eventuality type: a State in the case of -aɬa, a Process in the case of -la, and a Transition in the case of -xʔid. The analysis is stated as “tentative” only because I am unsure at this time whether these suffixes are also responsible for binding the event variable.	page 27
+references	Katie Sardinha	heading	References	page 28
+references	Katie Sardinha	reference	Boas, Franz. 1911. Kwakiutl. In Franz Boas (ed.), Handbook of American Indian Languages, vol. 1. 423–557. Cambridge, UK: Cambridge University Press.	page 28
+references	Katie Sardinha	reference	Boas, Franz (Helene Boas Yampolsky, ed.). 1947. Kwakiutl grammar with a glossary of the suffixes. Transactions of the American Philosophical Society 37. 202–377. Republished 1976. New York, NY: AMS Press Inc.	page 28
+references	Katie Sardinha	reference	Cusic, David D. 1981. Verbal plurality and aspect. Stanford, CA: Stanford University doctoral dissertation.	page 28
+references	Katie Sardinha	reference	Dowty, David R. 1979. Word meaning and Montague grammar: The semantics of verbs and times in Generative Semantics and in Montague’s PTQ (Synthese Language Library, Texts and Studies in Linguistics and Philosophy, vol. 7). Dordrecht, NL: D. Reidel Publishing Company.	page 28
+references	Katie Sardinha	reference	FirstVoices. 2009. Kwak’wala: Words. First Peoples’ Heritage, Language & Culture Council (FHPHLCC). Retrieved from http://www.firstvoices.com/en/Kwakwala/words on April 19, 2018.	page 28
+references	Katie Sardinha	reference	Greene, Hannah. 2013. Verb classes in Kwak’wala. Vancouver, BC: University of British Columbia MA thesis.	page 28
+references	Katie Sardinha	reference	Kratzer, Angelika. 1998. More structural analogies between pronouns and tenses. Proceedings of SALT VIII: 92–110.	page 28
+references	Katie Sardinha	reference	Landman, Fred. 1992. The progressive. Natural Language Semantics 1(1): 1–32.	page 28
+references	Katie Sardinha	reference	Rothstein, Susan. 2004. Structuring events: A study in the semantics of lexical aspect (Explorations in Semantics 2). Oxford, UK: Blackwell Publishing.	page 28
+references	Katie Sardinha	reference	Smith, Carlotta S. (1997[1991]). The parameter of aspect (Studies in Linguistics and Philosophy 43), Second edn. Dordrecht, NL: Kluwer Academic Publishers.	page 28

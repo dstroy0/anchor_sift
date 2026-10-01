@@ -1,0 +1,295 @@
+where	who	kind	form	gloss
+front	Hank Nater	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60. Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Hank Nater	note	Abstract: Bella Coola is a Coast Salish language, now defunct, that is closely affiliated with other Coast Salish in regards to certain deictic and phonological features. However, it differs on other levels profoundly from all non-Bella Coola Salish, e.g., where the genetic makeup of its lexicon is concerned: less than a third of all Bella Coola verbo-nominal vocabulary is of Salish (and areal) descent (Nater 2013). In this report, I focus on those Bella Coola verbo-nominal stems that have been copied from Chinook Jargon, Russian and Spanish.	page 1, the abstract
+front	Hank Nater	note	Keywords: Salish, Bella Coola, trade- & migration-induced contact, lexical copying	page 1
+§1	Hank Nater	heading	1 Introduction and background	page 1
+§1	Hank Nater	name	Nuχalk	the Nuχalk community of Bella Coola, British Columbia, to which the language belongs
+§1	Hank Nater	note	In this report, I present and discuss words – copied from Chinook Jargon, Russian and Spanish – formerly used by fluent speakers of Bella Coola, a Salish language that belongs to the Nuχalk community of Bella Coola, British Columbia. Their traditional territory spans approx. 52°–53° northern latitude, and 126°–127° western longitude. In Figure 1, once thriving regions are marked as follows: 1 = South Bentinck Arm, 2 = North Bentinck Arm, 3 = Bella Coola valley, 4 = Kwatna River, 5 = Dean Channel, 6 = Dean River, 7 = Head of Dean Channel.	page 1
+§1	Hank Nater	note	Figure 1: Traditional Bella Coola territory (based on Bing Maps)	page 1, the caption of Figure 1, a map of the seven once thriving regions the text layer does not carry
+front	Hank Nater	note	Contact info: hanknater@gmail.com	page 1, the author's contact line at the foot of the page
+§1	Hank Nater	note	In regards to physical, cultural, and linguistic traits of the people native to Bella Coola (henceforth BeCo), Franz Boas (1898) saw a close affinity between BeCo and Coast Salish on the one hand, and between BeCo and North Wakashan on the other. But it was not until much later that areal properties of BeCo lexicon as such were addressed in detail, i.e. when Stanley Newman (1973) pondered the North Wakashan origin of a portion of BeCo vocabulary. In 1974, I presented my first account of lexical similarities between BeCo and Heiltsuk, and in 1994, 2010, and 2013, I expanded and adjusted Newman’s findings, and cited unique links that indicate southern maritime origins for BeCo.	page 2
+§1.1	Hank Nater	heading	1.1 Bella Coola in time and space	page 2
+§1.1	Hank Nater	note	My 1974–2013 and 2024 reports yielded evidence that the BeCo began, arriving from the south (via Ooweekeno) prior to and while settling in the area outlined in Figure 1, to interact with other populations in several regions: southwest of the head of South Bentinck Arm (Ooweekeno: lexicon, absence of distinctive stress and schwa), west of Kwatna (Heiltsuk: lexicon), east of Stuie (Athabascan: lexicon), and north of the head of Dean Channel (Haisla and Tsimshianic: lexicon). For other scenarios, see Baker 1973:77-79.	page 2
+§1.1	Coast Salish	cited form	/č/	page 2, the /č/ series that */k/ became in SE Interior and non-BeCo Coast Salish
+§1.1	Bella Coola	cited form	cipsx	page 3, ‘fisher’, a Common Salish word, = Coeur d’Alene cišps
+§1.1	Coeur d’Alene	cited form	cišps	page 3, ‘fisher’, = BeCo cipsx, Kuipers 2002
+§1.1	Bella Coola	cited form	milixʷ	page 3, ‘kinnickinnick’, whose dried leaves were smoked, = Coeur d’Alene mil’xʷ
+§1.1	Coeur d’Alene	cited form	mil’xʷ	page 3, ‘tobacco’, = BeCo milixʷ, Kuipers 2002
+§1.1	Bella Coola	root	√smiw	page 3, *‘medium-sized mammal’, = Coeur d’Alene smiyíw ‘coyote’; the √ is a Symbol-font glyph the text layer holds as U+F0D6
+§1.1	Coeur d’Alene	cited form	smiyíw	page 3, ‘coyote’, = BeCo smiw, with /y/ from */γ/, Kuipers 2002
+§1.1	Proto-Salish	cited form	/γ/	page 3, */γ/, the source of Coeur d’Alene /y/ in smiyíw
+§1.1	Coeur d’Alene	cited form	/ǯ/	page 3, the reflex smiyíw does not show
+§1.1	Bella Coola	cited form	t’kʷ	page 3, ‘to bleed’, = Coeur d’Alene t’əkʷs
+§1.1	Coeur d’Alene	cited form	t’əkʷs	page 3, ‘to bleed’, = BeCo t’kʷ, Kuipers 2002
+§1.1	Bella Coola	cited form	χm	page 3, ‘to bite’, = Coeur d’Alene χem
+§1.1	Coeur d’Alene	cited form	χem	page 3, ‘id. (of animal)’, ‘to bite’, = BeCo χm, Kuipers 2002
+§1.1	Hank Nater	note	The position of BeCo vis-à-vis other Salish is as illustrated in Table 1 below. Note that BeCo is closely affiliated with other coastal Salish – especially Tsamosan (see Nater 2014) – in terms of deictic and phonological features (noun gender and absence of velar and pharyngal sonorants).	page 2
+Table 1	Hank Nater	note	Table 1: The position of BeCo within Salish	page 2, the caption
+Table 1 line 1	Hank Nater	note	interior southeast: Spokane-Kalispel-Flathead, Coeur d’Alene	page 2, a line of the table
+Table 1 line 2	Hank Nater	note	interior central: Okanagan	page 2, a line of the table
+Table 1 line 3	Hank Nater	note	interior north: Shuswap, Lillooet, Thompson	page 2, a line of the table
+Table 1 line 4	Hank Nater	note	interior southwest: Columbian	page 2, a line of the table
+Table 1 line 5	Hank Nater	note	Proto-Salish	page 2, a line of the table
+Table 1 line 6	Hank Nater	note	northwest: Bella Coola	page 2, a line of the table
+Table 1 line 7	Hank Nater	note	Tsamosan: Lower Chehalis, Quinault, Upper Chehalis, Cowlitz	page 2, a line of the table
+Table 1 line 8	Hank Nater	note	Central: (3 branches, 10 languages)	page 2, a line of the table
+Table 1 line 9	Hank Nater	note	Oregon: Tillamook-Siletz-Nehalem	page 2, a line of the table
+§1.1	Hank Nater	note	For Central Salish branches and languages see Davis 2024. This cladistic model ⬧ is consistent with the intra-Salish distribution (16.4% proto-Salish, 7.4% Coast Salish, 4.9% Interior Salish) of the Salish portion (28.7%) of Bella Coola lexicon (Nater 2013:124); ⬧ accounts for the fact that the */k/ series > /č/ series shift has affected only SE Interior and non- BeCo Coast Salish (due to contact on the Common Salish level);	page 2
+§1.1	Hank Nater	note	Note also that Coeur d’Alene /*y *w/ > /d gʷ/ parallels Tillamook /*y *w/ > /y gʷ~g/, Lushootseed /*y *w/ > /ǯ~ʒ gʷ/, and Comox /*y *w/ > /ǯ g/ (Kuipers 2002). Common Salish would have been a dialect continuum that was in existence as certain Salish-speaking groups began to relocate towards, into, and beyond the Cascade Range. A few Common Salish words survive in BeCo and Coeur d’Alene: BeCo cipsx ‘fisher’ = Coeur d’Alene cišps, BeCo milixʷ ‘kinnickinnick’ (dried leaves were smoked) = Coeur d’Alene mil’xʷ ‘tobacco’, BeCo √smiw *‘medium-sized mammal’ = Coeur d’Alene smiyíw (with /y/ (< */γ/) rather than /ǯ/) ‘coyote’, BeCo t’kʷ ‘to bleed’ = Coeur d’Alene t’əkʷs, BeCo χm ‘to bite’ = Coeur d’Alene χem ‘id. (of animal)’ (Kuipers 2002).	page 2 and 3
+§1.1	Proto-Salish	cited form	/*y *w/	page 2, the glides whose reflexes the four languages share
+§1.1	Coeur d’Alene	cited form	/d gʷ/	page 2, the reflexes of */*y *w/, Kuipers 2002
+§1.1	Tillamook	cited form	/y gʷ~g/	page 2, the reflexes of */*y *w/, Kuipers 2002
+§1.1	Lushootseed	cited form	/ǯ~ʒ gʷ/	page 2, the reflexes of */*y *w/, Kuipers 2002
+§1.1	Comox	cited form	/ǯ g/	page 2, the reflexes of */*y *w/, Kuipers 2002
+§1.1	Hank Nater	note	Figure 2: Salish language area (Kuipers 2002)	page 3, the caption of Figure 2, a map the text layer does not carry
+§1.1	Hank Nater	note	In regards to a Salish homeland, Kinkade (1990) posits that:	page 3
+§1.1	Kinkade 1990	note	… The homeland thus delimited for the Proto-Salish would extend from the Fraser River southward at least to the Skagit River, and possibly as far south as the Stillaguamish or Skykomish River … From west to east, their territory would have extended from the Strait of Georgia and Admiralty Inlet to the Cascade Mountains.	page 3, a quotation, Kinkade 1990:10
+footnote 1	Hank Nater	note	1 E.g., Alsea /-muxʷ/ ‘RECIP’ = BeCo /-maxʷ/ (which, if from */-n-waxʷ/, looks like a merger of the Alsea form and PS */-awalxʷ/ as reconstructed by Kinkade, see Nater 2018a), Chinook Proper ik’awan ‘type of salmon’ = BeCo k’awn, /-kš, -ikš, -ukš/ ‘ANIM PL’ = BeCo /-uks/ ‘ANIM/MASS PL’, Quileute bołkʷ (/b/ < */m/) ‘hair’ = BeCo mnłkʷa (< *məłkʷ-ən), South Wakashan √t’uχ, √t’uḥʷ ‘head’ = BeCo t’nχʷ. Eventually, North Wakashan would become the main source of loan words in BeCo.	page 3 and 4, footnote
+footnote 1	Alsea	cited affix	/-muxʷ/	page 3, footnote 1, ‘RECIP’, = BeCo /-maxʷ/
+footnote 1	Bella Coola	cited affix	/-maxʷ/	page 3, footnote 1, the reciprocal, = Alsea /-muxʷ/
+footnote 1	Bella Coola	cited affix	/-n-waxʷ/	page 3, footnote 1, */-n-waxʷ/, a possible source of /-maxʷ/
+footnote 1	Proto-Salish	cited affix	/-awalxʷ/	page 3, footnote 1, */-awalxʷ/, the reciprocal as Kinkade reconstructs it
+footnote 1	Chinook Proper	cited form	ik’awan	page 3, footnote 1, ‘type of salmon’, = BeCo k’awn
+§1.1	Hank Nater	citation	(Kinkade 1990:10)	the source of the quotation above
+§1.1	Hank Nater	note	Of course, this implies that pre-BeCo Salish, too, would first have evolved in this area. This is in fact quite likely: the Olympic peninsula is significant in terms of pre-BeCo migrations and language expansion. There is evidence of pre-BeCo groups moving through and away (west- and northward) from that region, coming in contact with Oregon Penutian, Chinook Proper, Quileute (Nater 2010), and South Wakashan (Davidson 2002) 1, and establishing relations with North Wakashan groups (and later, Tsimshianic and Athabascan as well), see Nater (1994), (2010), (2013), (2014), (2018).	page 3
+§2	Hank Nater	heading	2 Bella Coola Phoneme inventory	page 4
+§2	Hank Nater	note	The BeCo phonemes can be tabulated as follows:	page 4
+Table 2	Hank Nater	note	Table 2: BeCo phoneme inventory	page 4, the caption
+Table 2	Hank Nater	note	O B S T R U E N T S O N O R A N T	page 4, the column heads, set over four lines, the letters of OBSTRUENT and SONORANT spaced apart
+Table 2 line 1	Hank Nater	note	P L O S I V E	page 4, a line of the table
+Table 2 line 2	Hank Nater	note	FRICATIVE CONSONANTAL VOCALIC	page 4, a line of the table
+Table 2 line 3	Hank Nater	note	PLAIN EJECTIVE	page 4, a line of the table
+Table 2 line 4	Hank Nater	note	F R O N T LABIAL / p / / p’ / / m / / m̩/	page 4, a line of the table
+Table 2 line 5	Hank Nater	note	DENTAL / t / / t’ /	page 4, a line of the table
+Table 2 line 6	Hank Nater	note	/ n / / n̩/	page 4, a line of the table
+Table 2 line 7	Hank Nater	note	ALVEOLAR / c / / c’ / / s /	page 4, a line of the table
+Table 2 line 8	Hank Nater	note	LATERAL / ƛ’ / / ł / / l / / l̩/	page 4, a line of the table
+Table 2 line 9	Hank Nater	note	B A C K PALATAL / k / / k’ / / x / / y / / I /	page 4, a line of the table
+Table 2 line 10	Hank Nater	note	UVULAR / q / / q’ / / χ /	page 4, a line of the table
+Table 2 line 11	Hank Nater	note	VELAR ROUNDED / kʷ / / k’ʷ / / xʷ / / w / / u /	page 4, a line of the table
+Table 2 line 12	Hank Nater	note	UVULAR ROUNDED / qʷ / / q’ʷ / / χʷ /	page 4, a line of the table
+Table 2 line 13	Hank Nater	note	L A R Y N G A L / ’ / / h / / a /	page 4, a line of the table
+§2	Bella Coola	cited form	/m̩, n̩, l̩/	page 4, the syllabic sonorants, whose syllabicity is written only where it is not predictable
+§2	Hank Nater	note	Doubled phonemes and dragged vocalic sonorants are considered in Nater (1983, sections 5 and 12.4.1). Henceforth, syllabicity of /m̩, n̩, l̩/ is indicated only where it is not predictable.	page 4
+§3	Hank Nater	heading	3 Sources and presentation	page 4
+§3	Hank Nater	note	BeCo lexical data cited in this account are from Nater (1990). I refer to Nater (1983) for a detailed account of the language. In section 4, I list words copied from Chinook Jargon, Russian, and Spanish; in section 5, I make final observations.	page 4
+§4	Hank Nater	heading	4 The data	page 4
+§4	Hank Nater	note	Below, I consider BeCo copies of Chinook Jargon words (4.1), one word of Russian origin (4.2), and one word that owes its existence to Spanish traders (4.3). All words were copied in the early nineteenth century, when the fur trade peaked , and BeCo traders did business in C’aamas2 (now called Victoria) on Vancouver Island.	page 4
+§4	Bella Coola	cited form	C’aamas	page 4, Victoria on Vancouver Island, where BeCo traders did business, carries footnote 2, written here without its digit
+footnote 1	Bella Coola	cited form	k’awn	page 4, footnote 1, = Chinook Proper ik’awan ‘type of salmon’
+footnote 1	Quileute	cited form	bołkʷ	page 4, footnote 1, ‘hair’, /b/ from */m/, = BeCo mnłkʷa
+footnote 1	Bella Coola	cited form	mnłkʷa	page 4, footnote 1, ‘hair’, from *məłkʷ-ən, = Quileute bołkʷ
+footnote 1	Bella Coola	cited form	məłkʷ-ən	page 4, footnote 1, *məłkʷ-ən, the source of mnłkʷa
+footnote 1	South Wakashan	root	√t’uχ	page 4, footnote 1, ‘head’, = BeCo t’nχʷ
+footnote 1	South Wakashan	root	√t’uḥʷ	page 4, footnote 1, ‘head’, = BeCo t’nχʷ
+footnote 1	Bella Coola	cited form	t’nχʷ	page 4, footnote 1, ‘head’, = South Wakashan t’uχ, t’uḥʷ
+footnote 2	Hank Nater	note	2 Cf. Makah c’a·bap, No c’a·maqak ‘sound, large body of water’ (from √c’a)	page 4, footnote
+footnote 2	Makah	cited form	c’a·bap	page 4, footnote 2, cf. C’aamas, from c’a
+footnote 2	Nootka	cited form	c’a·maqak	page 4, footnote 2, ‘sound, large body of water’, No in the text
+footnote 2	Nootka	root	√c’a	page 4, footnote 2, the root of c’a·bap and c’a·maqak
+§4.1	Hank Nater	heading	4.1 Words of Chinook Jargon descent	page 5
+§4.1	Bella Coola	cited form	tulumic	page 5, ‘I defeated him’, from tulu, tuulu
+§4.1	Bella Coola	cited form	tulwamkcut	page 5, ‘to exceed one’s expectations about self, successfully complete a task’, from tulu, tuulu
+§4.1	Bella Coola	cited form	tuulu	page 5, ‘to win, succeed’, from Chinook Jargon tulu
+§4.1	Bella Coola	cited form	tulu	page 5, ‘to win, succeed’, from Chinook Jargon tulu
+§4.1	Bella Coola	cited form	nusaplinta	page 5, ‘flour (saplin) sack’
+§4.1	Bella Coola	cited form	saplin	page 5, ‘flour’, in nusaplinta
+§4.1	Bella Coola	cited form	kʷułtaala	page 5, ‘rich’, from taala ‘money’
+§4.1	Bella Coola	cited form	nutaalaata	page 5, ‘wallet’
+§4.1	Bella Coola	cited form	taala	page 5, ‘money’, from Chinook Jargon dala, tala
+§4.1	Bella Coola	cited form	’aplsuł	page 5, ‘apple (’apls) juice’
+§4.1	Bella Coola	cited form	’apls	page 5, ‘apple’
+§4.1	Hank Nater	note	A few Chinook Jargon words copied into BeCo (as recorded by myself in 1972) are listed in Table 3. They are fully incorporated morphologically. Examples of such morphological integration are: tulumic ‘I defeated him’, tulwamkcut ‘to exceed one’s expectations about self, successfully complete a task’ (from tulu, tuulu ‘to win, succeed’), nusaplinta ‘flour (saplin) sack’, nutaalaata ‘wallet’, kʷułtaala ‘rich’ (from taala ‘money’), ’aplsuł ‘apple (’apls) juice’.	page 5
+Table 3	Hank Nater	note	Table 3: Chinook Jargon vocabulary in BeCo (Nater BeCo field notes)3	page 5, the caption, carrying footnote 3's mark
+Table 3	Hank Nater	note	Gloss BeCo CTGR (2011) Origin	page 5, the column heads; CTGR is the Confederated Tribes of the Grand Ronde, footnote 3
+Table 3 line 1	Hank Nater	translation	‘pig’	page 5, the Gloss column
+Table 3 line 1	Bella Coola	transcription	kʷusu	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 1	Chinook Jargon	transcription	kushu	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 1	Hank Nater	note	French cochon (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 2	Hank Nater	translation	‘sheep’	page 5, the Gloss column
+Table 3 line 2	Bella Coola	transcription	lamatu	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 2	Chinook Jargon	transcription	limoto	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 2	Hank Nater	note	French le mouton (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 3	Hank Nater	translation	‘bag’	page 5, the Gloss column
+Table 3 line 3	Bella Coola	transcription	lisaak	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 3	Chinook Jargon	transcription	lisak, lesak	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 3	Hank Nater	note	French le sac (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 4	Hank Nater	translation	‘bovine’	page 5, the Gloss column
+Table 3 line 4	Bella Coola	transcription	mus.mus	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 4	Chinook Jargon	transcription	musmus	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 4	Hank Nater	note	unknown (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 5	Hank Nater	translation	‘priest’	page 5, the Gloss column
+Table 3 line 5	Bella Coola	transcription	laplit	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 5	Chinook Jargon	transcription	liphret, liphlit	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 5	Hank Nater	note	French le prêtre (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 6	Hank Nater	translation	‘money’	page 5, the Gloss column
+Table 3 line 6	Bella Coola	transcription	taala	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 6	Chinook Jargon	transcription	dala, tala	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 6	Hank Nater	note	English dollar (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 7	Hank Nater	translation	‘and’	page 5, the Gloss column
+Table 3 line 7	Bella Coola	transcription	’n, ’in	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 7	Chinook Jargon	transcription	ən	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 7	Hank Nater	note	English and [n̩] (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 8	Hank Nater	translation	‘win, succeed’	page 5, the Gloss column
+Table 3 line 8	Bella Coola	transcription	tulu, tuulu	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 8	Chinook Jargon	transcription	tulu	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 8	Hank Nater	note	Kalapuya (Gibbs 1863)	page 5, the Origin column
+Table 3 line 9	Hank Nater	translation	‘feast’	page 5, the Gloss column
+Table 3 line 9	Bella Coola	transcription	paałac	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 9	Chinook Jargon	transcription	palach, pałach	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 9	Hank Nater	note	Nootkan (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 10	Hank Nater	translation	‘flour, bread’	page 5, the Gloss column
+Table 3 line 10	Bella Coola	transcription	saplin	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 10	Chinook Jargon	transcription	saplel	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 10	Hank Nater	note	Unknown (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 11	Hank Nater	translation	‘bell’	page 5, the Gloss column
+Table 3 line 11	Bella Coola	transcription	tntn	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 11	Chinook Jargon	transcription	tintin	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 11	Hank Nater	note	Chinook Proper (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 12	Hank Nater	translation	‘wagon’	page 5, the Gloss column
+Table 3 line 12	Bella Coola	transcription	cixcik	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 12	Chinook Jargon	transcription	t’sikt’sik	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 12	Hank Nater	note	Chinook Proper or Salish (Zenk et al 2010)	page 5, the Origin column
+Table 3 line 13	Hank Nater	translation	‘cannery’	page 5, the Gloss column
+Table 3 line 13	Bella Coola	transcription	pisaws	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 13	Hank Nater	note	n/a	page 5, the CTGR (2011) column, which has no entry
+Table 3 line 13	Hank Nater	note	English fish + house	page 5, the Origin column
+Table 3 line 14	Hank Nater	translation	‘smokehouse’	page 5, the Gloss column
+Table 3 line 14	Bella Coola	transcription	smukʷaws	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 14	Hank Nater	note	n/a	page 5, the CTGR (2011) column, which has no entry
+Table 3 line 14	Hank Nater	note	English smokehouse	page 5, the Origin column
+Table 3 line 15	Hank Nater	translation	‘fish with a net’	page 5, the Gloss column
+Table 3 line 15	Bella Coola	transcription	pisman	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 15	Hank Nater	note	n/a	page 5, the CTGR (2011) column, which has no entry
+Table 3 line 15	Hank Nater	note	English fisherman	page 5, the Origin column
+Table 3 line 16	Hank Nater	translation	‘church’	page 5, the Gloss column
+Table 3 line 16	Bella Coola	transcription	caacaws	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 16	Chinook Jargon	transcription	eklis	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 16	Hank Nater	note	English church + house, French église	page 5, the Origin column
+Table 3 line 17	Hank Nater	translation	‘turnip’	page 5, the Gloss column
+Table 3 line 17	Bella Coola	transcription	tanaps	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 17	Chinook Jargon	transcription	lenamo	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 17	Hank Nater	note	English turnips, Spanish el nabo	page 5, the Origin column
+Table 3 line 18	Hank Nater	translation	‘apple’	page 5, the Gloss column
+Table 3 line 18	Bella Coola	transcription	’apls	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 18	Chinook Jargon	transcription	lipom	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 18	Hank Nater	note	English apples, French la pomme	page 5, the Origin column
+Table 3 line 19	Hank Nater	translation	‘orange’	page 5, the Gloss column
+Table 3 line 19	Bella Coola	transcription	’ancns	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 19	Chinook Jargon	transcription	samən-ulali lipom	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 19	Hank Nater	note	English oranges, Jargon ‘fish-berry apple’	page 5, the Origin column
+Table 3 line 20	Hank Nater	translation	‘brine, salt water’	page 5, the Gloss column
+Table 3 line 20	Bella Coola	transcription	sulut	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 20	Chinook Jargon	transcription	solt ‘salt’	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 20	Hank Nater	note	English salt (Zenk & al 2010)	page 5, the Origin column
+Table 3 line 21	Hank Nater	translation	‘get married’	page 5, the Gloss column, carries footnote 4, written here without its digit
+Table 3 line 21	Bella Coola	transcription	talaws	page 5, the BeCo column, the author's 1972 field notes
+Table 3 line 21	Chinook Jargon	transcription	… dala haws ‘bank’	page 5, the CTGR (2011) column, the Chinook Jargon form
+Table 3 line 21	Hank Nater	note	English dollar + house	page 5, the Origin column
+§4.1	Chinook Jargon	cited form	musmus	page 5, ‘cow’, of “obscure origin” in Zenk et al 2010
+§4.1	Upper Chehalis	root	√músmuski	page 5, ‘cow, cattle’, compared in Zenk et al 2010
+footnote 3	Hank Nater	note	3 Here and henceforth, CTGR stands for Confederated Tribes of the Grand Ronde Community of Oregon.	page 5, footnote
+footnote 4	Hank Nater	note	4 The original meaning must have been ‘to (go to the) bank: deposit or withdraw money for a dowry or wedding feast’.	page 5, footnote
+§4.1	Tahltan	cited form	mášmaš	page 6, ‘cow’, the author's field notes
+§4.1	Tlingit	cited form	wasóos	page 6, ‘cow’, Edwards 2009
+§4.1	Haida	cited form	masmúus	page 6, ‘cow’, Lachler 2010
+§4.1	French	cited form	vache	page 6, ‘cow’
+§4.1	Chinook Jargon	cited form	mašmús	page 6, *mašmús, a regional form the northern words may continue, a hybrid of French vache and Cree mōswa
+§4.1	Cree	cited form	mōswa	page 6, ‘moose’, Aubin 1975
+§4.1	Chinook Jargon	cited form	saplel	page 6, ‘flour, bread’, an old origin (1579) in Lyon 2016
+§4.1	Hank Nater	note	In regards to Chinook Jargon musmus ‘cow’, Zenk et al (2010) claim “obscure origin”, but they also compare Upper Chehalis √músmuski ‘cow, cattle’ and Klamath mosmas~mosmos, Molala musims ‘black-tailed deer’. However, Tahltan mášmaš ‘cow’ (my field notes) – along with the first syllables of Tlingit wasóos ‘cow’ (Edwards 2009) and Haida masmúus ‘cow’ (Lachler 2010) – resembles French vache ‘cow’ more than mus… does. Northern wasóos, masmúus and mášmaš themselves may continue regional Chinook Jargon *mašmús, arguably a hybrid (Métis?) form based on French vache and Cree mōswa ‘moose’ (Aubin 1975). Further to Chinook Jargon saplel ‘flour, bread’, Lyon (2016) considers an old origin (1579) for this term.	page 5 and 6
+§4.2	Hank Nater	heading	4.2 A Russian word in Bella Coola	page 6
+§4.2	Bella Coola	cited form	panya	page 6, transitive-intransitive, ‘to smoke fish’, perhaps from Russian баня
+§4.2	Hank Nater	note	BeCo panya (transitive-intransitive) ‘to smoke fish’ has no Salish cognates or areal matches, but note that:	page 6
+§4.2	Russian	cited form	баня	page 6, ‘sauna’, in Cyrillic, [baɲə]
+§4.2	Russian	cited form	baɲə	page 6, [baɲə], the pronunciation of баня ‘sauna’
+§4.2	Bella Coola	cited form	q’ʷup	page 6, ‘to (expose to) smoke’, transitive
+§4.2	Bella Coola	cited form	nusq’ʷupalsta	page 6, *nusq’ʷupalsta, a smokehouse as BeCo might have named it without panya
+§4.2	Bella Coola	cited form	nusuq’ʷpalsta	page 6, *nusuq’ʷpalsta, a smokehouse as BeCo might have named it without panya
+§4.2	Bella Coola	cited form	nuspanyaasta	page 6, ‘smokehouse’
+§4.2	Hank Nater	note	♦ it bears a striking phonetic resemblance to Russian баня [baɲə] ‘sauna’; ♦ due to restricted means of communication as well as similarities between banyas and smoke-houses, either structure – as a vapor-emitting shed or cabin that is quite dissimilar to the average traditional dome-shaped sweat lodge – could easily be misidentified by visitors during discussions; ♦ BeCo transitivity-intransitivity is often indicative of an originally nominal status, such that X may gloss as ‘to apply (an) X to something’, see Nater (1983); ♦ panya is clearly a redundant (and once-fashionable) lexical innovation, as BeCo already had q’ʷup (tr.) ‘to (expose to) smoke’. If not for contact with Russian traders, a BeCo smokehouse might now have been called *nusq’ʷupalsta or *nusuq’ʷpalsta rather than nuspanyaasta.	page 6
+§4.2	Hank Nater	note	This word must have entered the language in the early 19th century (some twenty years after Mackenzie set foot in BeCo, see Mackenzie 1801 and Nater 2020), when the fur trade boomed, and Chinook Jargon began to flourish. In regards to the second argument, note that Chinook Jargon had one word for both ‘smoke’ and ‘steam’ at the time (Hibben 1889 and Shaw 1909), which could certainly lead to misconstruction in conversations between Russian and BeCo traders whenever, and wherever, their paths crossed.	page 6
+§4.3	Hank Nater	heading	4.3 A Spanish connection	page 6
+§4.3	Bella Coola	cited form	’yanahu	page 6, ‘turnip’, a copy of Oowekyala ’yanahu
+§4.3	Oowekyala	cited form	’yanahu	page 6, ‘turnip’
+§4.3	Spanish	cited form	elnaβo	page 6, [elnaβo], el nabo ‘the turnip’
+§4.3	Spanish	cited form	el nabo	page 6, ‘the turnip’
+§4.3	Spanish	cited form	enˑaβo	page 6, [enˑaβo], el nabo ‘the turnip’
+§4.3	Chinook Jargon	cited form	lenawo	page 6, ‘turnip’, Shaw 1909
+§4.3	Chinook Jargon	cited form	lamooow	page 6, ‘turnip’, Shaw 1909, marked [sic]
+§4.3	Chinook Jargon	cited form	lenamo	page 6, ‘turnip’, CTGR 2011
+§4.3	Hank Nater	note	BeCo ’yanahu ‘turnip’ is a copy of Oowekyala ’yanahu which itself resembles Heiltsuk, Tlingit, Haida, and Nishga forms. Evidently, all go back to Spanish el nabo ‘the turnip’ = [elnaβo, enˑaβo]. Shaw (1909) lists lenawo, lamooow [sic], and CTGR (2011) quotes lenamo. These data strongly suggest that the different forms evolved as follows:	page 6
+Table 4	Hank Nater	note	Table 4: Spanish origin of areal term ‘turnip’	page 6, the caption
+Table 4 line 1	Spanish	phonemic	/elˬnabo/	page 6, el nabo ‘the turnip’
+Table 4 line 1	Spanish	transcription	[elnaβo]	page 6, its pronunciation
+Table 4 line 1	Chinook Jargon	cited form	*l̩nawo	page 6, the reconstructed Jargon stage
+Table 4 line 1	Chinook Jargon	transcription	lenawo ~ lenamo	page 6, Chinook Jargon, Shaw 1909 and CTGR 2011
+Table 4 line 2	Spanish	transcription	[enˑaβo]	page 7, the second pronunciation
+Table 4 line 2	Hank Nater	cited form	*’enawu	page 7, the reconstructed stage of the northern forms
+Table 4 line 2	Heiltsuk	transcription	’ynawú	page 7, Rath 2010
+Table 4 line 2	Haida	transcription	inúˑ	page 7, Lachler 2010
+Table 4 line 2	Nishga	transcription	iinuu	page 7, Tarpent 1987
+Table 4 line 3	Hank Nater	cited form	*’enahu	page 7, the reconstructed stage of the forms below
+Table 4 line 3	Tlingit	transcription	anahuˑ	page 7, Edwards 2009
+Table 4 line 3	Oowekyala	transcription	’yanahu	page 7, First Voices
+Table 4 line 3	Bella Coola	transcription	’yanahu	page 7, ‘turnip’
+Table 4	Hank Nater	note	(For Haida, see Lachler 2010; Heiltsuk – Rath 2010; Nishga – Tarpent 1987; Oowekyala – First Voices; Tlingit – Edwards 2009)	page 7, the sources of the forms of the table
+§5	Hank Nater	heading	5 Concluding observations	page 7
+§5	Hank Nater	note	In regards to the southern origin of BeCo, the significance of ancient migrations and trade patterns is often underestimated. Thus, Kinkade (2005) found it difficult to reconcile similarities between Salish and Alsea with the seemingly insurmountable distances separating these languages. Neither could he imagine how similarities between Penutian and Salish could have resulted from interaction with Tillamook:	page 7
+§5	Kinkade 2005	note	If Alsea has borrowed from Salish, how did it get forms with p or m, which could not have come from Tillamook, Alsea’s only Salishan neighbor (unless the changes of *p to h and *m to w are recent changes in Tillamook)? Unless there have been major population shifts in the area, borrowing is possible, although problematic, given changes in Tillamook phonology and morphology. Intermarriage, slavery, or trade would not provide adequate sources for borrowing in either direction because of the distances involved. Contact between Alsea and non-Tillamook Salish must have been minimal.	page 7, a quotation, Kinkade 2005: 66-67
+§5	Hank Nater	citation	(Kinkade 2005: 66-67)	the source of the quotation above
+§5	Hank Nater	note	Yet, Alsea is located between Chinookan and Takelma, within the ancient trade network shown in Figure 3, and it is unlikely that Alsea contact with Salish (pre-Tillamook and/or pre-BeCo) would not have taken place a millennium or so ago. It is precisely this type of regular interaction that could motivate lexical and structural copying (cf. Nater 2010 and 2018b).	page 7
+§5	Hank Nater	note	Figure 3: Traditional trade centers and networks (based on Walker 1997)	page 7, the caption of Figure 3, a map the text layer does not carry
+§5	Hank Nater	note	Amounts and percentages pertaining to BeCo verbo-nominal vocabulary are:	page 8
+Table 5	Hank Nater	note	Table 5: Etymological distribution of verbo-nominal vocabulary	page 8, the caption
+Table 5	Hank Nater	note	Proto-Salish Coast Salish Interior Salish Areal Copied Unaffiliated	page 8, the column heads
+Table 5 line 1	Hank Nater	note	209 (16%) 94 (7%) 63 (5%) 34 (3%) 214 (17%) 661 (52%)	page 8, a line of the table
+Table 5 line 2	Hank Nater	note	400 (31%) 875 (69%)	page 8, a line of the table
+§5	Hank Nater	note	These percentages confirm the early separation of BeCo from other Coast Salish. Note that most copied vocabulary is originally North Wakashan. It should here be mentioned that morpho- syntactically, too, North Wakashan influence has been pervasive:	page 8
+§5	Hank Nater	note	♦ nowhere in Salish do we find spatio-temporal deictic systems as elaborate as in BeCo (see Nater 1983); ♦ lexical suffix stringing plays in BeCo a more prominent role than in all other Salish: while most BeCo lexical suffixes are retentions from PS, productive suffix-stringing (detailed in Nater 1983) is a BeCo innovation; ♦ more typical of BeCo than of all other Salish, except Lillooet, is post-predicative enclisis and enclitic-stringing, which must have evolved parallel to a rise in usage of suffixation (this escalation may underlie another difference: where other Salish marks mood via different verbal paradigms, BeCo uses enclisis); ♦ the rigid PSO syntax of BeCo is more reminiscent of North Wakashan than of other Salish (where word order appears to be less fixed than is the case in BeCo).	page 8
+§5	Proto-Salish	cited form	ə	page 8, *ə, whose elimination BeCo shows
+§5	Bella Coola	cited form	q’psttχ	page 8, ‘taste it!’, a voiceless word
+§5	Bella Coola	cited form	k’xłłcxʷ słχʷtłłc	page 8, ‘you had seen me go through the passage’, a voiceless sentence
+§5	Hank Nater	note	Another feature that sets BeCo apart from all other Salish is lack of distinctive schwa and stress. Elimination of *ə (or devoicing of vowels, see Nater 2024) has made it possible for entirely voiceless words and sentences to evolve (e.g. q’psttχ! ‘taste it!’, k’xłłcxʷ słχʷtłłc ‘you had seen me go through the passage’), and for distinctive stress – which cannot play a role in voiceless words – to disappear (see Nater 1983). This trait is shared with, and has originated in, Oowekyala (Nater 2024, Howe 2000).	page 8
+references	Hank Nater	heading	References	page 8
+references	Hank Nater	reference	Aubin, George F. (1975). A Proto-Algonquian Dictionary. National Museums of Canada.	
+references	Hank Nater	reference	Baker, James W. E. (1973). A Linguistic and Ethnohistoric Approach to Bella Coola Prehistory. MA thesis, Simon Fraser University.	
+references	Hank Nater	reference	Boas, Franz (1898). The Mythology of the Bella Coola Indians. Memoirs of the American Museum of Natural History, Vol. II.	
+references	Hank Nater	reference	Confederated Tribes of the Grand Ronde Community of Oregon (2011). Chinuk Wawa Reference Lexicon. The Chinuk Wawa Dictionary Project.	
+references	Hank Nater	reference	Davidson, Matthew (2002). Studies in Southern Wakashan (Nootkan) Grammar (PhD thesis). State University of New York at Buffalo.	
+references	Hank Nater	reference	Davis, Henry. (2024). Central Salish from a Nooksack perspective. Papers for ICSNL 59, 24–51.	
+references	Hank Nater	reference	Edwards, Keri (2009). Dictionary of Tlingit. Sealaska Heritage Institute.	
+references	Hank Nater	reference	First Voices. ’Wuik’ala. https://www.firstvoices.com/wuikala/words.	
+references	Hank Nater	reference	Gibbs, George (1863). A Dictionary of the Chinook Jargon, or, Trade Language of Oregon. Cramoisy Press.	
+references	Hank Nater	reference	Hibben, T. N. (1889). Dictionary of the Chinook Jargon, or Indian Trade Language, of the North Pacific Coast. T. N. Hibben Co. Publishers.	
+references	Hank Nater	reference	Howe, Darin M. 2000. Oowekyala Segmental Phonology. PhD thesis. UBC.	
+references	Hank Nater	reference	Kinkade, M. Dale (1990). Prehistory of Salish languages. ICSNL XXV.	
+references	Hank Nater	reference	Kinkade, M. Dale (2005). Alsea pronouns. Anthropological Linguistics 47:61–76.	
+references	Hank Nater	reference	Kuipers, Aert H. (2002). Salish Etymological Dictionary. UMOPL No. 16.	
+references	Hank Nater	reference	Lachler, Dr. Jordan (2010). Dictionary of Alaskan Haida. Sealaska Heritage Institute.	
+references	Hank Nater	reference	Lyon, John (2016). Francis Drake's 1579 Voyage: Assessing Linguistic Evidence for an Oregon Landing. Anthropological Linguistics, Vol. 58, no. 1.	
+references	Hank Nater	reference	Mackenzie, Alexander (1801). Voyages from Montreal, on the River St. Laurence, through the Continent of North America, to the Frozen and Pacific Oceans, in the Years 1789 and 1793: with a Preliminary Account of the Rise, Progress, and Present State of the Fur Trade of that Country. London: R. Noble.	
+references	Hank Nater	reference	Nater, H. F. (1974). Lexical Comparisons between Bella Coola and Neighbouring Languages. ICSNL IX.	
+references	Hank Nater	reference	Nater, H. F. (1983). A Grammar of the Bella Coola Language (PhD thesis). Rijksuniversiteit Leiden.	
+references	Hank Nater	reference	Nater, H. F. (1990). A Concise Nuxalk-English Dictionary. Canadian Museum of Civilization.	
+references	Hank Nater	reference	Nater, H. F. (1994). The Athapaskan Component of Nuxalk. IJAL 60:177-190.	
+references	Hank Nater	reference	Nater, Hank (2010). Bella Coola /-uks/: Diffusion from Distant Sources. A Festschrift for Thomas A. Hess on the Occasion of his Seventieth Birthday. Whatcom Museum Publications No. 21.	
+references	Hank Nater	reference	Nater, Hank (2013). How Salish is Bella Coola? ICSNL XLVIII, 92–143.	
+references	Hank Nater	reference	Nater, Hank (2014). The Position of Bella Coola within Salish: Bound Morphemes. ICSNL XLIX, 65–88.	
+references	Hank Nater	reference	Nater, Hank (2018a). Vestiges of Tsimshianic and other Penutian in Bella Coola. ICSNL 53, 161– 179.	
+references	Hank Nater	reference	Nater, Hank (2018b). Language Contact in the Northernmost Regions of the Pacific Northwest: Tlingit Elements in Tahltan. Anthropological Linguistics 60:44–59.	
+references	Hank Nater	reference	Nater, Hank (2020). Old Records of Three Contiguous Pacific Northwest Languages: Bella Coola, Carrier, Shuswap. Anthropological Linguistics 62:183–191.	
+references	Hank Nater	reference	Nater, Hank (2024). Voiceless Words in Bella Coola: Facts vs. Fiction. ICSNL 59, 411–422.	
+references	Hank Nater	reference	Newman, Stanley (1973). Linguistic retention and diffusion in Bella Coola. Language in Society 2:201-214.	
+references	Hank Nater	reference	Rath, John C. (2010). Digital Heiltsuk-English Dictionary (version 2.2.1). Heiltsuk Cultural Education Centre.	
+references	Hank Nater	reference	Shaw, George C. (1909). The Chinook Jargon and How to Use it. Rainier Printing Company, Inc.	
+references	Hank Nater	reference	Tarpent, Marie-Lucie (1987). A Grammar of the Nishga Language (PhD thesis). University of Victoria.	
+references	Hank Nater	reference	Walker, Deward E., Jr. (1997). The Yakama System of Trade and Exchange. Northwest Anthropological Research Notes 31:71–95.	
+references	Hank Nater	reference	Zenk, Henry, Tony Johnson, & Sarah Braun Hamilton (2010). Chinuk Wawa (Chinook Jargon) Etymologies. Confederated Tribes of Grand Ronde.	
+title	Hank Nater	title	Jargon and European Origins of some Bella Coola Lexicon	the paper's title
+title	Hank Nater	name	Hank Nater	the author, Independent Linguist
+§1	Hank Nater	language	Bella Coola	the Salish language the paper is about, BeCo, now defunct
+footnote 1	Chinook Proper	cited form	/-kš, -ikš, -ukš/	page 4, footnote 1, ‘ANIM PL’, = BeCo /-uks/
+footnote 1	Bella Coola	cited form	/-uks/	page 4, footnote 1, ‘ANIM/MASS PL’
+§4.1	Klamath	cited form	mosmas~mosmos	page 5, compared with Chinook Jargon musmus in Zenk et al 2010
+§4.1	Molala	cited form	musims	page 6, ‘black-tailed deer’

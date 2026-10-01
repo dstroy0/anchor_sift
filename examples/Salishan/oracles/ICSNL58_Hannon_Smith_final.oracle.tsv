@@ -1,0 +1,542 @@
+where	who	kind	form	gloss
+front	Ella Hannon and Cayla Smith	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+front	Ella Hannon and Cayla Smith	title	A Brief Comparison of Two Nɬeʔkepmxcín Evidentials*	page 1
+front	Ella Hannon and Cayla Smith	byline	Ella Hannon, University of British Columbia, Cayla Smith, University of British Columbia	page 1
+front	Ella Hannon and Cayla Smith	note	Abstract: This paper will compare two second-position clitics in Nɬeʔkepmxcín (Thompson River Salish; British Columbia): nke, the ‘conjectural/inferential ’ evidential, and nukw, the ‘sensory ’ evidential. This paper builds on work done by Willett (1988), Thompson and Thompson (1992, 1996), Littell et al. (2010), and Littell and Mackie (2011, 2014). It also adds to ongoing documentation work done on the language, and the growing literature on evidentials cross-linguistically.	page 1
+front	Ella Hannon and Cayla Smith	note	Keywords: Nɬeʔkepmxcín, evidentiality, epistemic modality	page 1
+front	Ella Hannon and Cayla Smith	name	Ella Hannon	author, University of British Columbia
+front	Ella Hannon and Cayla Smith	name	Cayla Smith	author, University of British Columbia
+§1	Ella Hannon and Cayla Smith	heading	1 Introduction	page 1
+§1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§1	Ella Hannon and Cayla Smith	language	St’át’imcets	St’át’imcets, Lillooet
+footnote *	Ella Hannon and Cayla Smith	note	* We would like to extend our sincerest thanks to our consultants, without whom this work would not have been possible: K̀wəłtèzetkwu (Bernice Garcia), Bev Phillips, and C̕úʔsinek (Marty Aspinall). nem kʷukʷstéyp! Bernice would like it to be stated that she is a Kamloops Indian Residential School survivor who is relearning her language. She introduces herself thus:	page 1, footnote
+footnote *	Nɬeʔkepmxcín	cited form	nem	page 1, in nem kʷukʷstéyp, the authors' thanks
+footnote *	Ella Hannon and Cayla Smith	name	K̀wəłtèzetkwu	page 1, Bernice Garcia's Nɬeʔkepmxcín name
+footnote *	Ella Hannon and Cayla Smith	name	Bernice Garcia	a Nɬeʔkepmxcín consultant, K̀wəłtèzetkwu
+footnote *	Ella Hannon and Cayla Smith	name	Bev Phillips	a Nɬeʔkepmxcín consultant
+footnote *	Ella Hannon and Cayla Smith	name	Marty Aspinall	a Nɬeʔkepmxcín consultant, C̕úʔsinek
+footnote *	Ella Hannon and Cayla Smith	name	Lisa Matthewson	thanked by the authors
+footnote *	Bernice Garcia	running speech	ʔes ʔúməcms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔkepmx e tmixʷs.	page 1, footnote, Bernice Garcia introduces herself, with no English given
+footnote *	Ella Hannon and Cayla Smith	note	We would also like to acknowledge that the funding for this research comes from the Department of Linguistics at the University of British Columbia, as well as the Jacobs Fund, SSHRC Insight Grant 435-2020-1293, and the Kinkade Language and Culture Foundation. Thirdly, we would like to thank the UBC Linguistics Field Methods Class of 2022/2023, which put us in contact with our consultants and introduced us to Nɬeʔkepmxcín. We would also like to extend our thanks to members of the Nɬab, the Interior Salish Working Group, and the larger Salish Working Group for their invaluable insight, comments, and feedback, particularly Lisa Matthewson. Glossing follows the Leipzig Glossing Conventions for the most part; other abbreviations used are: ASP = aspectual; CJV = conjunctive; CTR.MID = control middle; D/C = determiner/complementizer; EMPH.INT = emphatic introductory predicate; NCM= non-control middle; PRSM = presumptive; SENSE = sensory evidential; T = transitivizer. Any errors in glossing or transcription are our own.	page 1, footnote
+footnote *	Ella Hannon and Cayla Smith	name	C̕úʔsinek	page 1, Marty Aspinall's Nɬeʔkepmxcín name
+footnote *	Nɬeʔkepmxcín	cited form	kʷukʷstéyp	page 1, in nem kʷukʷstéyp, the authors' thanks
+footnote *	Ella Hannon and Cayla Smith	name	Nɬab	page 1, the Nɬeʔkepmxcín lab the authors thank
+§1	Ella Hannon and Cayla Smith	note	This paper will discuss two of the evidential clitics at work in Nɬeʔkepmxcín, an Interior Salish language spoken in British Columbia, Canada. Nɬeʔkepmxcín is spoken as an L1 by around 100 people (Gessner et al. 2023. The evidential clitics in Nɬeʔkepmxcín all make explicit the source of evidence a speaker has for believing in the truth of a proposition p. Both evidentials discussed in this paper are second-position clitics i.e., syntactically, they are restricted to occurring in second position. Similarly to what Matthewson et al. (2007) found for the neighbouring language St’át’imcets (Interior Salish; British Columbia), our data suggest that evidentials can act as epistemic modals in Nɬeʔkepmxcín. Section 1 will be an introduction to the language and also to evidentiality more generally. Section 2 will provide an overview of two of the evidential clitics at work in Nɬeʔkepmxcín: nukw and nke. Section 3 will compare these evidentials. Section 4 will provide some hypotheses and potential analyses of these evidentials from a semantic standpoint. Section 5 compares the Nɬeʔkepmxcín evidentials with those present in St’át’imcets. Section 6 concludes. Data in this paper come from elicitation sessions conducted by the authors over a period of roughly six months, with three different speakers of Nɬeʔkepmxcín, unless otherwise indicated. Two speak the Nicola Valley dialect and one speaks the Lytton dialect. These dialects, particularly the Nicola Valley dialect, are under-represented in the literature on Nɬeʔkepmxcín, which is itself quite sparse. There is a grammar of the language (Thompson & Thompson 1992), as well as a dictionary (Thompson & Thompson 1996), and a number of publications on prosody (Jimmie 1994), intonation and focus (Koch 2011), and syntax (Kroeber 1999). Papers on the semantics of Nɬeʔkepmxcín are limited; brief reference is made to the language in Littell et al. (2010). Thompson and Thompson (1992, 1996) are primarily based on the Spuzzum dialect.	page 1
+§1.1	Ella Hannon and Cayla Smith	heading	1.1 Evidentiality	page 2
+§1.1	Ella Hannon and Cayla Smith	language	St’át’imcets	St’át’imcets, Lillooet
+§1.1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§1.1	Ella Hannon and Cayla Smith	note	Evidentials are grammatical morphemes that encode the source of evidence a speaker has for a proposition p (Aikhenvald 2004). Evidentials can be optional or obligatory depending on the language; languages can have smaller systems of (grammaticized) evidentiality, only distinguishing two separate evidentials, or more complex systems, with five or six different evidentials (Aikhenvald 2004). Many non-European languages distinguish between different types of evidence; for example, in St’át’imcets (Matthewson et al. 2007), there are three evidentials which indicate that p has been reported to the speaker, that p has been perceived in some way by the speaker, or that p has been inferred by the speaker. In Nɬeʔkepmxcín, there appears to be at least a three-way distinction between non-visual sensory evidence for p, indicated by nukw (Littell & Mackie 2011, 2014), inferential or conjectural evidence for p, indicated by nke, and reported evidence for p, indicated by ekwu (Thompson & Thompson 1992, 1996). This paper will not discuss the reportative evidential, ekwu, in detail, but leaves this possibility open for future research. Evidentials can sometimes act as modals i.e., as quantifiers over possible worlds (Izvorski 1997; Matthewson et al. 2007). In other cases, they act as speech-act (illocutionary) operators which indicate no commitment on the part of the speaker to the truth of p (Faller 2002). Even within a language, as has been attested for St’át’imcets (Matthewson 2011), evidentials can be either modal or non-modal. This paper hypothesizes that nukw and nke can and do act as modals in contexts compatible with epistemic conversational backgrounds, similarly to what Matthewson et al. (2007) found for St’át’imcets. This is not to say that nukw and nke only function as epistemic modals: as we will demonstrate in Section 2, they also have a variety of other uses. As will be demonstrated in Section 3, nukw and nke are not felicitous in non- epistemic modal environments. They are also used in a variety of other contexts with varying degrees of semantic equivalence to each other, i.e., they have been found to be interchangeable in certain contexts for certain consultants.	page 2
+§1.1	Ella Hannon and Cayla Smith	note	Following Willett’s (1988) typology of evidentiality, there exist two main categories of evidentials (direct and indirect) which are then further divided into subcategories. Direct evidentials are further divided into attested evidentials, which then branch off into different types of attestation according to whether the information has been obtained by visual, auditory, or other sensory means. The second main category is indirect evidentials, which are further subdivided into reported and inferring evidentials. Reported evidentials can come from second- or third-hand information, or folklore. Inferring evidentials distinguish between inference based on results, and information based on reasoning. We hypothesize that the Nɬeʔkepmxcín evidentials nukw and nke occupy very particular spaces in this typology, which will be discussed and analyzed further in Section 4. Willett’s (1988) typology is represented visually using the following schema (adapted from Matthewson et al. 2007):	page 2
+§1.1	Ella Hannon and Cayla Smith	note	Figure 1: Representation of Willett’s (1988) typology of evidentiality, adapted from Matthewson et al. (2007)	page 2
+§2	Ella Hannon and Cayla Smith	heading	2 Evidentiality in Nɬeʔkepmxcín	page 3
+§2	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§2	Ella Hannon and Cayla Smith	note	Both of the evidential morphemes in Nɬeʔkepmxcín discussed in this paper are second-position clitics syntactically. Thompson and Thompson (1992) classify nukw as ‘perceptual’, and nke as ‘conjectural’. This classification is later revised by Littell et al. (2010) and Littell an d Mackie (2014) as follows: nukw is the ‘sensory’ evidential, and nke is the ‘inferential’ evidential. For the purposes of this paper, the more recent categorizations will be used.	page 3
+§2	Ella Hannon and Cayla Smith	language	St’át’imcets	St’át’imcets, Lillooet
+§2	St’át’imcets	cited form	k’a	the St’át’imcets inferential evidential
+§2	Ella Hannon and Cayla Smith	note	Thompson and Thompson (1992) and Littell and Mackie (2014) make no claims as to whether any of these evidentials can act as modals. Littell et al. (2010) hypothesize that the inferential evidential nke patterns similarly to the St’át’imcets inferential evidential k’a and to the Gitksan inferential clitic ima, particularly within the context of conjectural questions, i.e., the authors hypothesize that nke can act as an epistemic modal.	page 3
+§2.1	Ella Hannon and Cayla Smith	heading	2.1 The sensory evidential nukw	page 3
+§2.1	Ella Hannon and Cayla Smith	note	The sensory evidential nukw was first reported on by Thompson and Thompson (1992) and first semantically investigated by Littell and Mackie (2011). Littell and Mackie (2011) proposed the following restrictions on the use of nukw: (i) the speaker personally has the evidence, i.e., it has not been reported to them by another source; Littell and Mackie (2011) also contend that this restricts nukw to first person contexts, (ii) the evidence is sensory, but not visual — this includes smell, taste, hearing, but also internal states such as hunger, emotions, or gut feelings, (iii) the evidence is present at the time of the utterance, (iv) nukw is infelicitous in interrogative contexts.	page 3
+§2.1	Ella Hannon and Cayla Smith	note	Littell and Mackie (2011) report that nukw most frequently accompanies sentences about the speaker’s current internal state or emotion, as in (1). It also is found in constructions describing sensory experiences such as smell, taste, hearing, and touch, as in (2). There have been conflicting results about restriction (iii) and restriction (iv) specifically; nukw has been found to be felicitous for certain speakers when the proposition it expresses an attitude towards is situated in the recent past, or in the very near future, as in (3), and nukw has been found to be felicitous in a small subset of interrogative contexts, as in (4).	page 3
+(1) line 1	Nɬeʔkepmxcín	transcription	téyt kn nukw.	page 3, engine language
+(1) line 2	Nɬeʔkepmxcín	segmentation	téyt-kn=nukw	page 3, engine language
+(1) line 3	Nɬeʔkepmxcín	gloss	hungry-1SG.SBJ=SENSE	page 3, engine english
+(1) line 4	Ella Hannon and Cayla Smith	translation	‘I’m hungry.’	page 3, engine english
+(2) line 1	Nɬeʔkepmxcín	transcription	qeʔnímne nukw ʔe tekɬ.	page 3, engine language
+(2) line 2	Nɬeʔkepmxcín	segmentation	qeʔním=ne=nukw ʔe=tekɬ	page 3, engine language
+(2) line 3	Nɬeʔkepmxcín	gloss	hear=1SG.ERG=SENSE DET=rain	page 3, engine english
+(2) line 4	Ella Hannon and Cayla Smith	translation	‘I hear the rain.’	page 3, engine english
+(3) line 1	Ella Hannon and Cayla Smith	note	Context: Speakers were presented with a picture of people playing instruments and asked to discuss it. One consultant volunteered the following sentence:	page 3, engine english
+(3) line 2	Nɬeʔkepmxcín	transcription	xwúy’ nukw ʔiƛ̓-m ʔeɬ séy’siʔ.	page 3, engine language
+(3) line 3	Nɬeʔkepmxcín	segmentation	xwúy’=nukw ʔiƛ̓-m ʔeɬ séy’siʔ	page 3, engine language
+(3) line 4	Nɬeʔkepmxcín	gloss	FUT=SENSE sing-CTR.MID and play	page 3, engine english
+(3) line 5	Ella Hannon and Cayla Smith	translation	‘They’re going to sing and play (for us).’	page 3, engine english
+(4) line 1	Ella Hannon and Cayla Smith	note	Context: You suddenly hear a loud sound. You ask your friend:	page 4, engine english
+(4) line 2	Nɬeʔkepmxcín	transcription	kéʔ keʔ sqeʔním nukw xéʔe?	page 4, engine language
+(4) line 3	Nɬeʔkepmxcín	segmentation	kéʔ k=eʔ=s=qeʔním=nukw xéʔe	page 4, engine language
+(4) line 4	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=hear=SENSE DEM	page 4, engine english
+(4) line 5	Ella Hannon and Cayla Smith	translation	‘Did you hear that?’	page 4, engine english
+§2.1	Ella Hannon and Cayla Smith	note	Note that (1) to (4) can all also be expressed without nukw; one consultant commented that the use of nukw in contexts like (1) and (2) is usually licensed by a sudden onset of, in (1), the feeling of hunger, and, in (2), the sound of the rain. The same consultant commented that (1) is felicitous if you’ve just realized you’re hungry. A similar point can be made for (3) and (4): in (3), nukw contributes a slight uncertainty on the part of the speaker as to the actions of the people in question. It appears to be licensed by the stimulus being a picture rather than an actual event; i.e., the consultant is inferring what action(s) the group of people pictured will take. This could also be rephrased as ‘it feels like they’re going to play for us’. The use of nukw attested in (3) is also somewhat contrary to what Littell and Mackie (2011) observed; in this case, the speaker is only basing her judgment on visual evidence, as there is no other evidence available to her. Another discrepancy with the behavior of nukw described by Littell and Mackie (2011) is that, from our investigation, it can appear in interrogative contexts like (4).	page 4
+§2.1	Ella Hannon and Cayla Smith	note	The sensory evidential nukw is also often volunteered in constructions translated by ‘I think’ or ‘I feel’, as in (5):	page 4
+(5) line 1	Nɬeʔkepmxcín	transcription	nsxwákw nukw xwúy’ tekɬ tk spiʔxáwt.	page 4, engine language
+(5) line 2	Nɬeʔkepmxcín	segmentation	n-s-xwákw=nukw xwúy’ tekɬ t=k=s-piʔx̣-áwt	page 4, engine language
+(5) line 3	Nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-desire=SENSE FUT rain OBL=D/C=NMLZ-day.removed-isolated.time	page 4, engine english
+(5) line 4	Ella Hannon and Cayla Smith	translation	‘I feel like it’s going to rain tomorrow.’	page 4, engine english
+§2.1	Nɬeʔkepmxcín	cited form	n-s-xwákw=nukw	the construction volunteered with a teleological weak necessity flavor
+§2.1	Ella Hannon and Cayla Smith	note	Interestingly, this n-s-xwákw=nukw construction has been volunteered by consultants in contexts with a teleological (i.e., goal-oriented) weak necessity flavor, such as the below:	page 4
+(6) line 1	Ella Hannon and Cayla Smith	note	Context (adapted from Vander Klok 2022): Say that there are two stores in town. One is slightly bigger than the other, so you’d like to go to that one. You plan to go shopping with your sister later on. You tell your sister:	page 4, engine english
+(6) line 2	Nɬeʔkepmxcín	transcription	nsxwákw nukw ks nes kt xzúm te ntéwmn.	page 4, engine language
+(6) line 3	Nɬeʔkepmxcín	segmentation	n-s-xwákw=nukw k=s=nes=kt xzúm t=e=n-téwmn	page 4, engine language
+(6) line 4	Nɬeʔkepmxcín	gloss	1SG.POSS-NMLZ-desire=SENSE D/C=NMLZ=go=1PL.SBJ big OBL=DET=LOC-store	page 4, engine english
+(6) line 5	Ella Hannon and Cayla Smith	translation	‘We should go to the big store.’	page 4, engine english
+§2.1	Nɬeʔkepmxcín	cited form	n-s-x̣wáwk=nukw	the n-s-xwákw=nukw construction, not a dedicated circumstantial weak necessity modal
+§2.1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§2.1	Ella Hannon and Cayla Smith	note	This is not to say that n-s-x̣wáwk=nukw is the dedicated circumstantial weak necessity modal in the language; in fact, from our investigation, it is closer in meaning to the English want. Our hypothesis is therefore that it happens to be compatible for certain speakers with situations of teleological weak necessity that can be understood as the speaker expressing their internal biases or motivations for choosing one goal over another. The Nɬeʔkepmxcín sentence in (6) could also be translated as ‘I want to go to the big store’ or ‘It is my preference that we go to the big store’, as the consultant who volunteered it commented. As well as the above uses, nukw has also been found to be felicitous (and is often volunteered) in epistemic modal contexts. It can be used in epistemic modal contexts regardless of modal force, although it is more common in contexts of necessity (7) and contexts of possibility (8) than contexts of weak necessity. As will be seen in Section 2.2, nke patterns in a very similar manner in epistemic modal contexts.	page 4
+(7) line 1	Ella Hannon and Cayla Smith	note	Context: You look out of your window, and you see that there is frost on your neighbor’s roof. You think:	page 5, engine english
+(7) line 2	Nɬeʔkepmxcín	transcription	c’éɬ xwúy’ nukw ke tmíxw.	page 5, engine language
+(7) line 3	Nɬeʔkepmxcín	segmentation	c’éɬ xwúy’=nukw ke=tmíxw	page 5, engine language
+(7) line 4	Nɬeʔkepmxcín	gloss	cold FUT=SENSE DET=land	page 5, engine english
+(7) line 5	Ella Hannon and Cayla Smith	translation	‘It must be cold outside.’	page 5, engine english
+(8) line 1	Ella Hannon and Cayla Smith	note	Context: You’re out on a walk in the forest with your friend. You see something that looks like a rock, but it’s covered in moss. You say:	page 5, engine english
+(8) line 2	Nɬeʔkepmxcín	transcription	c’i nukw te sxʔénx xéʔe.	page 5, engine language
+(8) line 3	Nɬeʔkepmxcín	segmentation	c’i=nukw t=e=sxʔénx xéʔe	page 5, engine language
+(8) line 4	Nɬeʔkepmxcín	gloss	EMPH.INT=SENSE OBL=DET=rock DEM	page 5, engine english
+(8) line 5	Ella Hannon and Cayla Smith	translation	‘That might be a rock.’	page 5, engine english
+§2.1	Ella Hannon and Cayla Smith	note	Equivalences between nke and nukw, particularly in epistemic modal contexts, will be discussed in Section 3.	page 5
+§2.2	Ella Hannon and Cayla Smith	heading	2.2 The inferential evidential nke	page 5
+§2.2	Ella Hannon and Cayla Smith	note	The inferential evidential nke appears in epistemic modal constructions (9–11) regardless of modal force, in conjectural questions (12), in alternative questions (13), and in contexts of disjunction (14):	page 5
+(9) line 1	Ella Hannon and Cayla Smith	note	Context: Your friend Mary goes on walks to the lake between 10am and 11am on Mondays. It is now 10:30am on Monday. You think:	page 5, engine english
+(9) line 2	Nɬeʔkepmxcín	transcription	ʔex nke ʔe Mary wə ɬe péɬuskwu.	page 5, engine language
+(9) line 3	Nɬeʔkepmxcín	segmentation	ʔex=nke ʔe=Mary wə ɬe=péɬuskwu	page 5, engine language
+(9) line 4	Nɬeʔkepmxcín	gloss	be=INFER DET=Mary at DET=lake	page 5, engine english
+(9) line 5	Ella Hannon and Cayla Smith	translation	‘Mary must be at the lake.’	page 5, engine english
+(10) line 1	Ella Hannon and Cayla Smith	note	Context: Your friend Mary goes on walks to the lake between 10am and 11am on Mondays. You’re on your way to the lake and you run into a friend who tells you that Mary was at the lake an hour ago, and she said she was going to stay there for a while more. You think:	page 5, engine english
+(10) line 2	Nɬeʔkepmxcín	transcription	ʔex nke ƛ̓əm ɬ Mary wə ɬe péɬuskwu.	page 5, engine language
+(10) line 3	Nɬeʔkepmxcín	segmentation	ʔex=nke ƛ̓əm ɬ=Mary wə ɬe=péɬuskwu	page 5, engine language
+(10) line 4	Nɬeʔkepmxcín	gloss	be=INFER ASP DET=Mary at DET=lake	page 5, engine english
+(10) line 5	Ella Hannon and Cayla Smith	translation	‘Mary should (still) be at the lake.’1	page 5, engine english
+(11) line 1	Ella Hannon and Cayla Smith	note	Context: Your friend Mary goes on walks every Monday between 10am and 11am. Sometimes she goes to the lake and sometimes she goes to the forest. It’s now 10:30am on Monday. You think:	page 5, engine english
+(11) line 2	Nɬeʔkepmxcín	transcription	x̣əkus nke ɬ Mary wə ɬe péɬuskwu.	page 5, engine language
+(11) line 3	Nɬeʔkepmxcín	segmentation	x̣ək=us=nke ɬ=Mary wə ɬe=péɬuskwu	page 5, engine language
+(11) line 4	Nɬeʔkepmxcín	gloss	know=CJV=INFER DET=Mary at DET=lake	page 5, engine english
+(11) line 5	Ella Hannon and Cayla Smith	translation	‘Mary might be at the lake.’	page 5, engine english
+footnote 1	Ella Hannon and Cayla Smith	note	1 We are treating ƛ̓əm as an aspectual marker, whose exact semantic contribution to the utterance is unknown. It appears to mean something like ‘still’ or ‘already’, according to the preliminary data we have collected.	page 5, footnote
+footnote 1	Nɬeʔkepmxcín	cited form	ƛ̓əm	an aspectual marker whose exact contribution is unknown, footnote 1
+(12) line 1	Ella Hannon and Cayla Smith	note	Context: You hear someone knocking at the door, but none of your friends or family have told you they’re visiting today. You wonder:	page 6, engine english
+(12) line 2	Nɬeʔkepmxcín	transcription	swét us nke npoʕwcínm?	page 6, engine language
+(12) line 3	Nɬeʔkepmxcín	segmentation	s-wét=us=nke n-poʕw-cín-m	page 6, engine language
+(12) line 4	Nɬeʔkepmxcín	gloss	NMLZ-who=CJV=INFER LOC-knock-mouth-CTR.MID	page 6, engine english
+(12) line 5	Ella Hannon and Cayla Smith	translation	‘Who might that be (knocking on the door)?’	page 6, engine english
+(13) line 1	Ella Hannon and Cayla Smith	note	Context: You’re over at your friend’s house and they’re preparing some drinks. How would they ask you:	page 6, engine english
+(13) line 2	Nɬeʔkepmxcín	transcription	kéʔ kéʔ sx̣wóx̣wt ʔe ti ské us nke he kapi?	page 6, engine language
+(13) line 3	Nɬeʔkepmxcín	segmentation	kéʔ k=éʔ=s=x̣wóx̣w-t ʔe=ti ské=us=nke he=kapi	page 6, engine language
+(13) line 4	Nɬeʔkepmxcín	gloss	Ǫ D/C=2SG.POSS=NMLZ=want-T DET=tea PRSM=CJV=INFER DET=coffee	page 6, engine english
+(13) line 5	Ella Hannon and Cayla Smith	translation	‘Would you like tea↑ or coffee↓?’2	page 6, engine english
+(14) line 1	Ella Hannon and Cayla Smith	note	Context: You’re out for a walk in the forest with your friend. You see something out of the corner of your eye, but you can’t quite make out what it was. You think it could have been either a dog or a deer. You say:	page 6, engine english
+(14) line 2	Nɬeʔkepmxcín	transcription	wíkəm kn ʔe sqáqx̣a x̣əkús nke te smíyc.	page 6, engine language
+(14) line 3	Nɬeʔkepmxcín	segmentation	wík-əm=kn ʔe=sqáqx̣a x̣ək=us=nke t=e=smíyc	page 6, engine language
+(14) line 4	Nɬeʔkepmxcín	gloss	see-MDL=1SG.SBJ DET=dog know=CJV=INFER OBL=DET=deer	page 6, engine english
+(14) line 5	Ella Hannon and Cayla Smith	translation	‘I saw a dog or (maybe) a deer.’	page 6, engine english
+§2.2	Nɬeʔkepmxcín	cited form	meɬ	the ‘consequential’ morpheme of conjectural questions (Thompson & Thompson 1992)
+§2.2	Nɬeʔkepmxcín	cited form	ʔeɬ	the conjunctive/disjunctive marker
+§2.2	Nɬeʔkepmxcín	cited form	ús	‘conjunctive’, marking each disjunct
+§2.2	Ella Hannon and Cayla Smith	note	Of these contexts, nke does not appear to be obligatory in (12) to (14); consultants have volunteered sentences without nke in each of these contexts as well. It is the preferred method of indicating epistemic necessity when the evidence comes from prior knowledge, as in (9). Consultants have volunteered and accepted epistemic possibility utterances like (11) without nke. In conjectural questions like (12), consultants also regularly volunteer utterances without nke; instead, the ‘consequential’ morpheme meɬ (Thompson & Thompson 1992) is used. Alternative questions like (13) can be formed in many different ways, and disjunction like in (14) can be expressed with the conjunctive/disjunctive marker ʔeɬ, or by marking each disjunct with ús ‘conjunctive’.	page 6
+§2.2	Ella Hannon and Cayla Smith	note	The inferential evidential nke can also appear in contexts where the speaker is guessing, inferring (based on prior evidence), or betting as to the truth of a proposition p, as in (15):	page 6
+(15) line 1	Nɬeʔkepmxcín	transcription	nem nke xéʔe wéʔ qwiʔt!	page 6, engine language
+(15) line 2	Nɬeʔkepmxcín	segmentation	nem=nke xéʔe wéʔ qwiʔt	page 6, engine language
+(15) line 3	Nɬeʔkepmxcín	gloss	very=INFER DEM DEM hurt	page 6, engine english
+(15) line 4	Ella Hannon and Cayla Smith	translation	‘I bet that hurt!’	page 6, engine english
+§2.2	Ella Hannon and Cayla Smith	note	Consultants sometimes reject nke in contexts of absolute certainty, as in (16):	page 6
+footnote 2	Ella Hannon and Cayla Smith	note	2 The upward and downward arrows used in this example are taken from Biezma and Rawlins’s (2015) paper on alternative questions. This is notation that represents the different intonational patterns for each disjunct and enables us to neatly distinguish between alternative and polar questions.	page 6, footnote
+(16) line 1	Ella Hannon and Cayla Smith	note	Context: You see your friend Mary at the lake.	page 7, engine english
+(16) line 2	Nɬeʔkepmxcín	transcription	# ʔex nke ʔe Mary wə ɬe péɬuskwu.	page 7, engine language
+(16) line 3	Nɬeʔkepmxcín	segmentation	ʔex=nke ʔe=Mary wə=ɬe=péɬuskwu	page 7, engine language
+(16) line 4	Nɬeʔkepmxcín	gloss	be=INFER DET=Mary at=DET=lake	page 7, engine english
+(16) line 5	Ella Hannon and Cayla Smith	translation	Intended: ‘Mary must be at the lake.’	page 7, engine english
+§2.2	Ella Hannon and Cayla Smith	note	However, consultants have also been known to accept nke in contexts of certainty, and have sometimes volunteered translations of utterances containing nke that indicate certainty, particularly in the near future, as in (17):	page 7
+(17) line 1	Nɬeʔkepmxcín	transcription	xwúy’ nke ʔiƛ̓tis.	page 7, engine language
+(17) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=nke ʔiƛ̓-t-i-s	page 7, engine language
+(17) line 3	Nɬeʔkepmxcín	gloss	FUT=INFER sing-T-1PL.OBJ-3ERG	page 7, engine english
+(17) line 4	Ella Hannon and Cayla Smith	translation	‘They’re going to sing to us.’	page 7, engine english
+§2.2	Ella Hannon and Cayla Smith	note	Finally, nke is also felicitous when a speaker is making an epistemic modal claim based solely on their prior knowledge. Such a context is presented in (18):	page 7
+(18) line 1	Ella Hannon and Cayla Smith	note	Context (adapted from Vander Klok 2022): You know that John goes to school from 9am until 4pm every day. You look at the clock and you see that it’s 2pm. You think:	page 7, engine english
+(18) line 2	Nɬeʔkepmxcín	transcription	ʔex nke ʔe John wə ɬ skul.	page 7, engine language
+(18) line 3	Nɬeʔkepmxcín	segmentation	ʔex=nke ʔe=John wə=ɬ=skul	page 7, engine language
+(18) line 4	Nɬeʔkepmxcín	gloss	be=INFER DET=John at=DET=school	page 7, engine english
+(18) line 5	Ella Hannon and Cayla Smith	translation	‘John must be at school.’	page 7, engine english
+§2.2	Ella Hannon and Cayla Smith	note	In sum, nke is compatible with many contexts that inferential evidentials appear in cross-linguistically, such as epistemic modal contexts, conjectural questions, and contexts compatible with inferential evidence. Furthermore, it has also been attested and volunteered in alternative questions and in contexts of disjunction, although it is not the only means of expressing these notions.	page 7
+§3	Ella Hannon and Cayla Smith	heading	3 Comparison of nukw and nke	page 7
+§3	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3	Ella Hannon and Cayla Smith	note	As we have seen in Section 2, the Nɬeʔkepmxcín evidentials often occupy a very similar space, semantically speaking. They can and do overlap with respect to their semantic functions, and for some speakers evidentials are interchangeable in certain contexts. A number of these contexts will be discussed here. This section compares nke and nukw in a variety of contexts in order to tease apart their differences and examine their similarities.	page 7
+§3.1	Ella Hannon and Cayla Smith	heading	3.1 Epistemic modal contexts	page 7
+§3.1	Ella Hannon and Cayla Smith	note	For all of the speakers consulted, there was a degree of interchangeability between nke and nukw in certain epistemic modal contexts, both in contexts of epistemic possibility and in contexts of epistemic necessity. This suggests that both nukw and nke can act as va riable force epistemic modals. These contexts are presented below. Example (19) demonstrates the interchangeability of nukw and nke in a context of epistemic necessity, and (20) in a context of epistemic possibility.	page 7
+(19) line 1	Ella Hannon and Cayla Smith	note	Context: You’re in a fancy restaurant. In this restaurant, they serve the food in the dark, so you can’t see it; you can only guess what it is by taste, touch, or smell. You take a bite of something and you recognize the taste. You think to yourself:	page 8, engine english
+(19a) line 1	Nɬeʔkepmxcín	transcription	chicken nukw xéʔe.	page 8, engine language
+(19a) line 2	Nɬeʔkepmxcín	segmentation	chicken nukw xéʔe	page 8, engine language
+(19a) line 3	Nɬeʔkepmxcín	gloss	chicken SENSE DEM	page 8, engine english
+(19a) line 4	Ella Hannon and Cayla Smith	translation	‘This must be chicken.’	page 8, engine english
+(19b) line 1	Nɬeʔkepmxcín	transcription	chicken nke xéʔe.	page 8, engine language
+(19b) line 2	Nɬeʔkepmxcín	segmentation	chicken nke xéʔe	page 8, engine language
+(19b) line 3	Nɬeʔkepmxcín	gloss	chicken INFER DEM	page 8, engine english
+(19b) line 4	Ella Hannon and Cayla Smith	translation	‘This must be chicken.’	page 8, engine english
+§3.1	Ella Hannon and Cayla Smith	note	For (19b), one consultant commented that it is more acceptable in situations where you haven’t yet put the mysterious ingredient into your mouth; maybe it really feels like chicken when you touch it, or it really smells like chicken. Example (19a) was preferred when judging based on taste alone. The compatibility of both nukw and nke with direct sensory evidence is discussed further in Section 4.2.	page 8
+(20) line 1	Ella Hannon and Cayla Smith	note	Context: Your friend Tom often likes to go on walks. He doesn’t have a set schedule, so on any given day, he might be out walking or he might not. Someone asks you where Tom is today, and you reply:	page 8, engine english
+(20a) line 1	Nɬeʔkepmxcín	transcription	x̣əkus nukw xʷəsít ʔe Tom.	page 8, engine language
+(20a) line 2	Nɬeʔkepmxcín	segmentation	x̣ək=us=nukw xʷəsít ʔe=Tom	page 8, engine language
+(20a) line 3	Nɬeʔkepmxcín	gloss	know=CJV=SENSE walk DET=Tom	page 8, engine english
+(20a) line 4	Ella Hannon and Cayla Smith	translation	‘Tom might be (out) walking.’3	page 8, engine english
+(20b) line 1	Nɬeʔkepmxcín	transcription	x̣əkus nke xʷəsít ʔe Tom.	page 8, engine language
+(20b) line 2	Nɬeʔkepmxcín	segmentation	x̣ək=us=nke xʷəsít ʔe=Tom	page 8, engine language
+(20b) line 3	Nɬeʔkepmxcín	gloss	know=CJV=INFER walk DET=Tom	page 8, engine english
+(20b) line 4	Ella Hannon and Cayla Smith	translation	‘Tom might be (out) walking.’	page 8, engine english
+(20c) line 1	Nɬeʔkepmxcín	transcription	x̣əkus (k s)xʷəsít ʔe Tom.	page 8, engine language
+(20c) line 2	Nɬeʔkepmxcín	segmentation	x̣ək=us (k=s=)xʷəsít ʔe=Tom	page 8, engine language
+(20c) line 3	Nɬeʔkepmxcín	gloss	know=CJV (D/C=NMLZ=)walk DET=Tom	page 8, engine english
+(20c) line 4	Ella Hannon and Cayla Smith	translation	‘Tom might be (out) walking.’	page 8, engine english
+§3.1	Nɬeʔkepmxcín	cited form	x̣ək=us	the epistemic possibility construction ‘maybe’
+footnote 3	Ella Hannon and Cayla Smith	note	3 One consultant volunteered these sentences with different determiners (in this case, ɬ). Two consultants volunteered the sentences listed in (20) on separate occasions. The third consultant volunteered the sentences in (19) with changes to subordinating morphology, as indicated by the bracketed (k=s=) in (20c). No changes were made to the evidentials by any consultant.	page 8, footnote
+footnote 3	Nɬeʔkepmxcín	cited form	ɬ	a determiner one consultant volunteered, footnote 3
+§3.1	Ella Hannon and Cayla Smith	note	One consultant judged the sentences given in (20) to have no difference in meaning; she commented that they all meant the same thing. For another consultant, there was a slight difference in meaning between (20a) and (20b); she commented that (20b) is only acceptable if you sense Tom walking somehow, not if you’ve seen him out walking (e.g., maybe you heard footsteps that sound like his outside, or he’s walking around in the room above you and you can hear his footsteps through the ceiling). It is worth noting here that different judgments come from speakers from two different dialect areas. Example (20c) was judged acceptable in the given context by all speakers consulted; this could mean that it is x̣ək=us that gives an utterance its possibility flavor. This is not to say that nke and nukw are not modal, rather that their modal force may be explicitly weakened by the use of x̣ək=us, in particular by the presence of the conjunctive enclitic us.	page 8
+§3.1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.1	Ella Hannon and Cayla Smith	note	The conjunctive in Salish languages has been hypothesized to share at least some functions with the Romance subjunctive (Davis 2005), in that it is commonly used in subordinate clauses and can indicate a dubitative attitude towards the truth of p on the part of the speaker. In Nɬeʔkepmxcín, it is often used in imperative and optative constructions (Thompson & Thompson 1992). It has also been found to appear in contexts that do not have imperative or optative (or otherwise subjunctive) flavors. A more thorough investigation of the conjunctive enclitics in Nɬeʔkepmxcín is warranted but is outside the scope of this paper.	page 9
+§3.1	Ella Hannon and Cayla Smith	note	It is also worth noting that speakers can and do use other morphological means to express epistemic possibility. These often include nke:	page 9
+(21a) line 1	Nɬeʔkepmxcín	transcription	ʔe kéʔ us nke xʷəsít ʔe Tom.	page 9, engine language
+(21a) line 2	Nɬeʔkepmxcín	segmentation	ʔe=kéʔ=us=nke xʷəsít ʔe=Tom	page 9, engine language
+(21a) line 3	Nɬeʔkepmxcín	gloss	COMP=Q=CJV=INFER walk DET=Tom	page 9, engine english
+(21a) line 4	Ella Hannon and Cayla Smith	translation	‘Tom might be (out) walking.’ / ‘Tom is walking.’	page 9, engine english
+(21b) line 1	Nɬeʔkepmxcín	transcription	stéʔ us nke.	page 9, engine language
+(21b) line 2	Nɬeʔkepmxcín	segmentation	stéʔ=us=nke	page 9, engine language
+(21b) line 3	Nɬeʔkepmxcín	gloss	what=CJV=INFER	page 9, engine english
+(21b) line 4	Ella Hannon and Cayla Smith	translation	‘Maybe.’	page 9, engine english
+(21c) line 1	Nɬeʔkepmxcín	transcription	kéʔ us nke ʔex wə ɬ cuʔwúms.	page 9, engine language
+(21c) line 2	Nɬeʔkepmxcín	segmentation	kéʔ=us=nke ʔex wə=ɬ=cuʔwúm-s	page 9, engine language
+(21c) line 3	Nɬeʔkepmxcín	gloss	Q=CJV=INFER be at=DET=work-3POSS	page 9, engine english
+(21c) line 4	Ella Hannon and Cayla Smith	translation	‘Maybe he’s at work.’ / ‘I wonder if he’s at work.’	page 9, engine english
+§3.1	Ella Hannon and Cayla Smith	note	For at least one consultant, nukw is not felicitous in any of the above ways of saying ‘maybe’. This suggests that the versions of ‘maybe’ listed in (21a–c) i.e., those containing nke, are lexicalized.	page 9
+§3.2	Ella Hannon and Cayla Smith	heading	3.2 Negated epistemic modal contexts	page 9
+§3.2	Ella Hannon and Cayla Smith	note	Another set of contexts in which speakers commented on a functional semantic equivalence of nukw and nke is in negated epistemic modal contexts. Two of these are presented in (22a–b) and (23a–b) below:	page 9
+(22) line 1	Ella Hannon and Cayla Smith	note	Negated epistemic necessity:	page 9, engine english
+(22) line 2	Ella Hannon and Cayla Smith	note	Context: You’re driving home from work and you’re really craving take-out. You pull up to your favourite restaurant, but all the lights are off and the door is closed. You think:	page 9, engine english
+(22a) line 1	Nɬeʔkepmxcín	transcription	te nukw téʔ ks nwəlcíns.	page 9, engine language
+(22a) line 2	Nɬeʔkepmxcín	segmentation	te=nukw=téʔ k=s=n=wəl-cín-s	page 9, engine language
+(22a) line 3	Nɬeʔkepmxcín	gloss	NEG=SENSE=DEM D/C=NMLZ=LOC=open-mouth-3POSS	page 9, engine english
+(22a) line 4	Ella Hannon and Cayla Smith	translation	‘It must not be open.’	page 9, engine english
+(22b) line 1	Nɬeʔkepmxcín	transcription	teʔ nke téʔe ks nwəlcíns.	page 9, engine language
+(22b) line 2	Nɬeʔkepmxcín	segmentation	teʔ=nke=téʔe k=s=n=wəl-cín-s	page 9, engine language
+(22b) line 3	Nɬeʔkepmxcín	gloss	NEG=INFER=DEM D/C=NMLZ=LOC=open-mouth-3POSS	page 9, engine english
+(22b) line 4	Ella Hannon and Cayla Smith	translation	‘It must not be open.’	page 9, engine english
+§3.2	Ella Hannon and Cayla Smith	note	The sentences in (22) were volunteered by different consultants when presented with the same context. This demonstrates that both nukw and nke are felicitous in negated epistemic necessity contexts, and that the reason for choosing one over the other appears slight and relatively inconsequential in this particular context.	page 10
+(23) line 1	Ella Hannon and Cayla Smith	note	Negated epistemic possibility:	page 10, engine english
+(23) line 2	Ella Hannon and Cayla Smith	note	Context: You go to pick your friend up for an early morning hike. When you arrive at her house, her bedroom light is on. However, you know that her husband gets up around this time to go to work, and your friend isn’t answering her phone. You think:	page 10, engine english
+(23a) line 1	Nɬeʔkepmxcín	transcription	teʔ nukw téʔe k sqíɬs ʔi nsnúk̓weʔ.	page 10, engine language
+(23a) line 2	Nɬeʔkepmxcín	segmentation	teʔ=nukw=téʔe k=s-qíɬ-s ʔi n-snúk̓weʔ	page 10, engine language
+(23a) line 3	Nɬeʔkepmxcín	gloss	NEG=SENSE=DEM D/C=NMLZ=awake=3POSS yet 1POSS-friend	page 10, engine english
+(23a) line 4	Ella Hannon and Cayla Smith	translation	‘My friend might not be awake yet.’	page 10, engine english
+(23b) line 1	Nɬeʔkepmxcín	transcription	teʔ nke téʔe k sqíɬs ʔi nsnúk̓weʔ.	page 10, engine language
+(23b) line 2	Nɬeʔkepmxcín	segmentation	teʔ=nke=téʔe k=s=qíɬ-s ʔi n-snúk̓weʔ	page 10, engine language
+(23b) line 3	Nɬeʔkepmxcín	gloss	NEG=INFER=DEM D/C=NMLZ=awake=3POSS yet 1POSS-friend	page 10, engine english
+(23b) line 4	Ella Hannon and Cayla Smith	translation	‘My friend might not be awake yet.’	page 10, engine english
+§3.2	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.2	Ella Hannon and Cayla Smith	note	It is important to note that the utterances in (22) and (23) can be translated either as epistemic necessity utterances (i.e., with the English ‘must’), or as epistemic possibility utterances (i.e., with the English ‘might’). This suggests that both nke and nukw can and do act as variable -force epistemic modals in Nɬeʔkepmxcín. The sentences in (23) were given by one consultant but accepted by two other consultants. One consultant commented that they meant “the same” thing in the context given. This shows that both nukw and nke are acceptable in negated epistemic possibility contexts, and that the meaning difference is slight. This slight difference in meaning will be explored further in Section 4.	page 10
+§3.3	Ella Hannon and Cayla Smith	heading	3.3 Conjectural questions	page 10
+§3.3	Ella Hannon and Cayla Smith	note	We have also found preliminary evidence that nukw is felicitous in certain conjectural question contexts, such as (24) below:	page 10
+(24) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at home alone and you hear someone knocking at the door, but none of your family and friends have told you they’re visiting you today. You think:	page 10, engine english
+(24a) line 1	Nɬeʔkepmxcín	transcription	swét us nke npoʕwcínm?	page 10, engine language
+(24a) line 2	Nɬeʔkepmxcín	segmentation	s-wét=us=nke n-poʕw-cín-m	page 10, engine language
+(24a) line 3	Nɬeʔkepmxcín	gloss	NMLZ-who=CJV=INFER LOC=knock-mouth-CTR.MID	page 10, engine english
+(24a) line 4	Ella Hannon and Cayla Smith	translation	‘Who might that be (knocking at the door)?’	page 10, engine english
+(24b) line 1	Nɬeʔkepmxcín	transcription	swét nukw ʔex npoʕwcínm?	page 10, engine language
+(24b) line 2	Nɬeʔkepmxcín	segmentation	s-wét=nukw ʔex n-poʕw-cín-m	page 10, engine language
+(24b) line 3	Nɬeʔkepmxcín	gloss	NMLZ-who=SENSE be LOC-knock-mouth-CTR.MID	page 10, engine english
+(24b) line 4	Ella Hannon and Cayla Smith	translation	‘Who might that be (knocking at the door)?’	page 10, engine english
+(24c) line 1	Nɬeʔkepmxcín	transcription	swét nke meɬ xéʔe?	page 10, engine language
+(24c) line 2	Nɬeʔkepmxcín	segmentation	s-wét=nke meɬ xéʔe	page 10, engine language
+(24c) line 3	Nɬeʔkepmxcín	gloss	NMLZ-who=INFER CNSQ DEM	page 10, engine english
+(24c) line 4	Ella Hannon and Cayla Smith	translation	‘Who might that be?’	page 10, engine english
+(24d) line 1	Nɬeʔkepmxcín	transcription	swét nukw kéʔ kíycecms?	page 11, engine language
+(24d) line 2	Nɬeʔkepmxcín	segmentation	s-wét=nukw kéʔ kíyc-e-[t]-cm-s	page 11, engine language
+(24d) line 3	Nɬeʔkepmxcín	gloss	NMLZ-who=SENSE Q arrive-CTR-[T]-1SG.OBJ-3ERG	page 11, engine english
+(24d) line 4	Ella Hannon and Cayla Smith	translation	‘Who has arrived to see me?’	page 11, engine english
+§3.3	Ella Hannon and Cayla Smith	note	It is of note that (24a) and (24b) were volunteered by one consultant; examples (24c) and (24d) were volunteered by another consultant. Both are from different dialect areas. For one consultant, (24a) and (24b) are close in meaning. For another consultant, (24c) and (24d) are slightly different in meaning, as seen by the different translations volunteered; for one consultant, (24d) was less speculative than (24c), as evidenced by the lack of the modal in the translation. This is not to say that nukw cannot be modal, just that it does not always behave the exact same way as nke, particularly in conjectural question contexts. More will be said about this alternation in Section 4.	page 11
+§3.4	Ella Hannon and Cayla Smith	heading	3.4 Alternative questions	page 11
+§3.4	Ella Hannon and Cayla Smith	note	There are a few contexts in which nukw and nke are not interchangeable for speakers. These include alternative questions (i.e., questions where the speaker has a choice between two options (Biezma & Rawlins 2015)). This is illustrated in (25) below:	page 11
+(25) line 1	Ella Hannon and Cayla Smith	note	Context: You’re over at your friend’s house and they’re preparing some drinks. They ask you:	page 11, engine english
+(25a) line 1	Nɬeʔkepmxcín	transcription	kéʔ keʔ sx̣wóxwt ʔe ti ske us nke he kapi?	page 11, engine language
+(25a) line 2	Nɬeʔkepmxcín	segmentation	kéʔ k=eʔ=s=x̣wóx̣wt ʔe=ti ské=us=nke he=kapi	page 11, engine language
+(25a) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=want DET=tea PRSM=CJV=INFER DET=coffee	page 11, engine english
+(25a) line 4	Ella Hannon and Cayla Smith	translation	‘Would you like tea↑ or coffee↓?’4	page 11, engine english
+(25b) line 1	Nɬeʔkepmxcín	transcription	# kéʔ keʔ sx̣wóxwt ʔe ti ske us nukw he kapi?	page 11, engine language
+(25b) line 2	Nɬeʔkepmxcín	segmentation	kéʔ k=eʔ=s=x̣wóx̣wt ʔe=ti ské=us=nukw he=kapi	page 11, engine language
+(25b) line 3	Nɬeʔkepmxcín	gloss	Q D/C=2SG.POSS=NMLZ=want DET=tea PRSM=CJV=SENSE DET=coffee	page 11, engine english
+(25b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Would you like tea↑ or coffee↓?’	page 11, engine english
+§3.4	Ella Hannon and Cayla Smith	note	One speaker commented that nukw doesn’t work here because it specifically means ‘feels like’. Other consultants also rejected nukw in alternative questions; one consultant volunteered an alternative question with nukw appearing utterance-final, but nukw does not replace nke.	page 11
+§3.5	Ella Hannon and Cayla Smith	heading	3.5 Disjunction	page 11
+§3.5	Ella Hannon and Cayla Smith	note	The sensory evidential nukw is also infelicitous in contexts of disjunction, as demonstrated in (26):	page 11
+(26) line 1	Ella Hannon and Cayla Smith	note	Context: You’re out for a walk in the forest with your friend and, out of the corner of your eye, you see something that looks like it could be a dog or a deer. You’re not 100% sure what you saw. You say to your friend:	page 11, engine english
+(26a) line 1	Nɬeʔkepmxcín	transcription	wíkəm kn ʔe sqáqx̣a x̣əkus nke te smíyc.	page 11, engine language
+(26a) line 2	Nɬeʔkepmxcín	segmentation	wík-əm=kn ʔe=sqáqx̣a x̣ək=us=nke t=e=smíyc	page 11, engine language
+(26a) line 3	Nɬeʔkepmxcín	gloss	see-MDL=1SG.SBJ DET=dog know=CJV=INFER OBL=DET=deer	page 11, engine english
+(26a) line 4	Ella Hannon and Cayla Smith	translation	‘I saw a dog or a deer.’	page 11, engine english
+(26a) line 5	Ella Hannon and Cayla Smith	translation	‘I saw a dog, but it might have been a deer.’	page 11, engine english
+footnote 4	Ella Hannon and Cayla Smith	note	4 This spelling of ‘want’ is also attested; multiple variants of ‘want’ are found in the dictionary and have been spelled in this paper according to the particular variant that a consultant used.	page 11, footnote
+(26b) line 1	Nɬeʔkepmxcín	transcription	# wíkəm kn ʔe sqáqx̣a x̣əkus nukw te smíyc.	page 12, engine language
+(26b) line 2	Nɬeʔkepmxcín	segmentation	wík-əm=kn ʔe=sqáqx̣a x̣ək=us=nukw t=e=smíyc	page 12, engine language
+(26b) line 3	Nɬeʔkepmxcín	gloss	see-ᴍᴅʟ=1SG.SBJ DET=dog know=CJV=SENSE OBL=DET=deer	page 12, engine english
+(26b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘I saw a dog or a deer.’	page 12, engine english
+§3.5	Ella Hannon and Cayla Smith	note	One speaker commented that nukw doesn’t work here because you’re unsure of what you saw. This alternation between nukw and nke based on differences in levels of certainty will be discussed in more detail in Section 4.3.	page 12
+§3.6	Ella Hannon and Cayla Smith	heading	3.6 Non-epistemic modal contexts	page 12
+§3.6	Nɬeʔkepmxcín	cited form	n-s-x̣wákʷ=nukw	the lexicalized construction, in the non-epistemic modal contexts
+§3.6	Ella Hannon and Cayla Smith	note	We also present some contexts in which both nukw and nke are infelicitous; these are primarily deontic, circumstantial, teleological, and bouletic modal contexts.5 It is of note that the lexicalized n-s-x̣wákʷ=nukw construction is sometimes volunteered in contexts of teleological weak necessity and bouletic necessity; given that it is often translated as ‘I want’ or ‘it is my feeling that’, this is not that unusual. Many languages use lexicalized verbs of wanting or desire in bouletic modal contexts (Portner 2009), and it is also possible to rephrase some teleological weak necessity contexts as ‘it is my opinion that we should do X (in order to achieve a specific goal)’. A deontic possibility context is presented in (27), a teleological possibility context in (28), a circumstantial possibility context in (29), and a bouletic necessity context in (30):	page 12
+(27) line 1	Ella Hannon and Cayla Smith	note	Context: You’re a child and your friend is having a large party for her birthday at her house. You ask your mother if you can go and she replies:	page 12, engine english
+(27a) line 1	Nɬeʔkepmxcín	transcription	heʔéy nes wéʔ.	page 12, engine language
+(27a) line 2	Nɬeʔkepmxcín	segmentation	(heʔéy) nes wéʔ	page 12, engine language
+(27a) line 3	Nɬeʔkepmxcín	gloss	(yes) go DEM	page 12, engine english
+(27a) line 4	Ella Hannon and Cayla Smith	translation	‘Yes, you can go (lit. yes, go).’	page 12, engine english
+(27b) line 1	Nɬeʔkepmxcín	transcription	# y̓e nke ʔe snes.	page 12, engine language
+(27b) line 2	Nɬeʔkepmxcín	segmentation	y̓e nke ʔe=s=nes	page 12, engine language
+(27b) line 3	Nɬeʔkepmxcín	gloss	good INFER D/C=NMLZ-go	page 12, engine english
+(27b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Yes, you can go.’	page 12, engine english
+(27c) line 1	Nɬeʔkepmxcín	transcription	# y̓e nukw ke snes.	page 12, engine language
+(27c) line 2	Nɬeʔkepmxcín	segmentation	y̓e nukw ke=s=nes	page 12, engine language
+(27c) line 3	Nɬeʔkepmxcín	gloss	good SENSE D/C=NMLZ=go	page 12, engine english
+(27c) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Yes, you can go.’	page 12, engine english
+§3.6	Ella Hannon and Cayla Smith	note	One consultant commented that saying either (27b) or (27c) is like ‘guessing’ or ‘questioning’ the asker’s ability to go. She added that some people might say it that way, but it’s almost ‘like you’re sucking up’. When asked to rephrase the deontic possibility statement using nukw or nke and without modifying other words, the consultant remarked that it sounded odd. This is evidence that neither nukw nor nke can act as deontic modals.	page 12
+footnote 5	Ella Hannon and Cayla Smith	note	5 For a more thorough explanation of different types of modality, see Portner (2009), Kratzer (2012), Vander Klok (2022), a.o. For the purposes of this paper, deontic modal contexts include contexts that discuss social norms, laws, obligations, and permissions. Circumstantial modal contexts are those compatible with environmental factors, such as the natural world, or a person or thing’s inherent ability to complete an action. Teleological modality refers, in short, to goal-oriented modality. Bouletic modal contexts are those compatible with internal wants or desires.	page 12, footnote
+(28) line 1	Ella Hannon and Cayla Smith	note	Context (adapted from Vander Klok 2022): There are two main ways to get to the mountains from your friend’s house. You can either take the road that goes by the lake, or you can take the inland road that passes through a town. Both roads take the same amount of time. Someone asks you how to get to the mountains. You reply:	page 13, engine english
+(28a) line 1	Nɬeʔkepmxcín	transcription	xʷəsít xeʔ wéʔe péɬuskwu.	page 13, engine language
+(28a) line 2	Nɬeʔkepmxcín	segmentation	xʷəsít xeʔ wéʔe péɬuskwu	page 13, engine language
+(28a) line 3	Nɬeʔkepmxcín	gloss	walk DEM DEM lake	page 13, engine english
+(28a) line 4	Ella Hannon and Cayla Smith	translation	‘You can take the lake road.’ (Closer to: ‘You can go by the lake’).	page 13, engine english
+(28b) line 1	Nɬeʔkepmxcín	transcription	# xʷəsít nke xeʔ wéʔe péɬuskwu.	page 13, engine language
+(28b) line 2	Nɬeʔkepmxcín	segmentation	xʷəsít=nke xeʔ wéʔe péɬuskwu	page 13, engine language
+(28b) line 3	Nɬeʔkepmxcín	gloss	walk=INFER DEM DEM lake	page 13, engine english
+(28b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘You can take the lake road.’	page 13, engine english
+(28c) line 1	Nɬeʔkepmxcín	transcription	# xʷəsít nukw xeʔ wéʔe péɬuskwu.	page 13, engine language
+(28c) line 2	Nɬeʔkepmxcín	segmentation	xʷəsít=nukw xeʔ wéʔe péɬuskwu	page 13, engine language
+(28c) line 3	Nɬeʔkepmxcín	gloss	walk=SENSE DEM DEM lake	page 13, engine english
+(28c) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘You can take the lake road.’	page 13, engine english
+(28d) line 1	Nɬeʔkepmxcín	transcription	xwúy’kw nes wéʔ péɬuskwu e xwéʔeɬ.	page 13, engine language
+(28d) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=kw nes wéʔ péɬuskwu e=xwéʔeɬ	page 13, engine language
+(28d) line 3	Nɬeʔkepmxcín	gloss	FUT=2SG.SBJ go DEM lake DET=road	page 13, engine english
+(28d) line 4	Ella Hannon and Cayla Smith	translation	‘You can take the lake road.’	page 13, engine english
+(28e) line 1	Nɬeʔkepmxcín	transcription	# xwúy’kw nke nes wéʔ péɬuskwue xwéʔeɬ.	page 13, engine language
+(28e) line 2	Nɬeʔkepmxcín	segmentation	xwúy’-kw=nke nes wéʔ péɬuskwu e=xwéʔeɬ	page 13, engine language
+(28e) line 3	Nɬeʔkepmxcín	gloss	FUT=2SG.SBJ=INFER go DEM lake DET=road	page 13, engine english
+(28e) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘You can take the lake road.’	page 13, engine english
+(28f) line 1	Nɬeʔkepmxcín	transcription	# xwúy’kw nukw nes wéʔ péɬuskwu e xwéʔeɬ.	page 13, engine language
+(28f) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=kw=nukw nes wéʔ péɬuskwu e=xwéʔeɬ	page 13, engine language
+(28f) line 3	Nɬeʔkepmxcín	gloss	FUT=2SG.SBJ=SENSE go ᴅᴇᴍ lake DET=road	page 13, engine english
+(28f) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘You can take the lake road.’	page 13, engine english
+§3.6	Ella Hannon and Cayla Smith	note	Sentences (28a–c) are from one consultant; those in (28d–f) are from another consultant. In any case, it is clear that nukw and nke on their own are infelicitous as teleological modal elements.	page 13
+(29) line 1	Ella Hannon and Cayla Smith	note	Context (adapted from Vander Klok 2022): You’re out for a walk with your friend near their home. You haven’t been to this area before. You notice that the soil and the climate are similar to near your home, where you know that soapberries grow. You think:	page 13, engine english
+(29a) line 1	Nɬeʔkepmxcín	transcription	cuwunweɬn ske nʔéye k sx̣ʷúsm.	page 13, engine language
+(29a) line 2	Nɬeʔkepmxcín	segmentation	cuwu-nweɬn ske nʔéye k=sx̣ʷúsm	page 13, engine language
+(29a) line 3	Nɬeʔkepmxcín	gloss	grow-NCM PRSM here DET=soapberries	page 13, engine english
+(29a) line 4	Ella Hannon and Cayla Smith	translation	‘Soapberries can grow here.’	page 13, engine english
+(29b) line 1	Nɬeʔkepmxcín	transcription	# cuwunweɬn nke nʔéye ksx̣ʷúsm.	page 14, engine language
+(29b) line 2	Nɬeʔkepmxcín	segmentation	cuwu-nweɬn=nke nʔéye k=sx̣ʷúsm	page 14, engine language
+(29b) line 3	Nɬeʔkepmxcín	gloss	grow-NCM=INFER here DET=soapberries	page 14, engine english
+(29b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Soapberries can grow here.’	page 14, engine english
+(29c) line 1	Nɬeʔkepmxcín	transcription	# cuwunweɬn nukw nʔéye ksx̣ʷúsm.	page 14, engine language
+(29c) line 2	Nɬeʔkepmxcín	segmentation	cuwu-nweɬn=nukw nʔéye k=sx̣ʷúsm	page 14, engine language
+(29c) line 3	Nɬeʔkepmxcín	gloss	grow-NCM=SENSE here DET=soapberries	page 14, engine english
+(29c) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Soapberries can grow here.’	page 14, engine english
+§3.6	Ella Hannon and Cayla Smith	note	One consultant commented that you could say (29b) and/or (29c) in this context, but that it would not mean that soapberries simply have the ability to grow in that place, which is the meaning this context intends to target. She commented that (29b) is unsure, as if you’re not 100% convinced that soapberries can in fact grow in this place. Example (29c) is felicitous only if you have some more direct evidence, i.e., someone hands you a soapberry that has grown in the area, or you see some soapberry bushes. In any case, this makes it clear that nukw and nke cannot act as teleological possibility modals.	page 14
+(30) line 1	Ella Hannon and Cayla Smith	note	Context: You’re out shopping with your friend. You see a really nice dress in a shop window. You say to your friend:	page 14, engine english
+(30a) line 1	Nɬeʔkepmxcín	transcription	xwúy’ tewne xéʔe tkt e ɬeɬúxw.	page 14, engine language
+(30a) line 2	Nɬeʔkepmxcín	segmentation	xwúy’ tew-ne xéʔe t=k=t=e-ɬeɬúxw	page 14, engine language
+(30a) line 3	Nɬeʔkepmxcín	gloss	FUT buy-1SG.ERG DEM OBL=D/C=OBL=DET-dress	page 14, engine english
+(30a) line 4	Ella Hannon and Cayla Smith	translation	‘I have to buy that dress (lit. I’m going to buy that dress).’	page 14, engine english
+(30b) line 1	Nɬeʔkepmxcín	transcription	# xwúy’ nke tewne xéʔe tk te ɬeɬúxw.	page 14, engine language
+(30b) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=nke tew-ne xéʔe t=k=t=e-ɬeɬúxw	page 14, engine language
+(30b) line 3	Nɬeʔkepmxcín	gloss	FUT=INFER buy-1SG.ERG DEM OBL=D/C=OBL=DET-dress	page 14, engine english
+(30b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘I have to buy that dress.’	page 14, engine english
+(30c) line 1	Nɬeʔkepmxcín	transcription	# xwúy’ nukw tewne xéʔe tk te ɬeɬúxw.	page 14, engine language
+(30c) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=nukw tew-ne xéʔe t=k=t=e-ɬeɬúxw	page 14, engine language
+(30c) line 3	Nɬeʔkepmxcín	gloss	FUT=SENSE buy-1SG.ERG DEM OBL=D/C=OBL=DET-dress	page 14, engine english
+(30c) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘I have to buy that dress.’	page 14, engine english
+§3.6	Ella Hannon and Cayla Smith	note	One consultant commented that (30b) and (30c) were grammatical utterances, but that you would need to be either touching your wallet, or at the till with the dress in hand, or someone would have needed to give you the money to buy the dress, in order for (30b) and/or (30c) to be felicitous — namely, that there would need to be some kind of evidence present in the discourse or in the context that would lead a hearer to believe that the speaker is buying the dress. This demonstrates that neither nukw nor nke are sufficient to give an utterance bouletic modal flavor.	page 14
+§3.7	Ella Hannon and Cayla Smith	heading	3.7 Compatibility with direct, non-visual, sensory evidence	page 14
+§3.7	Ella Hannon and Cayla Smith	note	We have found that both nukw and nke are compatible with various types of direct evidence, including smell (31), touch (32), and taste (33). In these contexts in particular, the choice of evidential appears to be conditioned by how certain a speaker is about their sensory perception. This will be discussed further in Section 4.1 and Section 4.3.	page 14
+(31) line 1	Ella Hannon and Cayla Smith	note	Context: You’re walking through the forest and you smell smoke. You think:	page 15, engine english
+(31a) line 1	Nɬeʔkepmxcín	transcription	ʔex nke te emsem swétus.	page 15, engine language
+(31a) line 2	Nɬeʔkepmxcín	segmentation	ʔex=nke t=e=emsem s-wét=us	page 15, engine language
+(31a) line 3	Nɬeʔkepmxcín	gloss	be=INFER OBL=DET=fire NMLZ-who=CJV	page 15, engine english
+(31a) line 4	Ella Hannon and Cayla Smith	translation	‘Someone must/might be/is making a fire.’	page 15, engine english
+(31b) line 1	Nɬeʔkepmxcín	transcription	ʔex nukw te emsem swétus.	page 15, engine language
+(31b) line 2	Nɬeʔkepmxcín	segmentation	ʔex=nukw t=e=emsem s-wét=us	page 15, engine language
+(31b) line 3	Nɬeʔkepmxcín	gloss	be=SENSE OBL=DET=fire NMLZ-who=CJV	page 15, engine english
+(31b) line 4	Ella Hannon and Cayla Smith	translation	‘Someone must/might be/is making a fire.’	page 15, engine english
+(32) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at a restaurant where they serve all the food in the dark. You can only guess at what you’re being served. You get your first course, and you pick it up and feel it to try and guess what it is. To you, it feels like a mushroom. You say:	page 15, engine english
+(32a) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nke xéʔe.	page 15, engine language
+(32a) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nke xéʔe	page 15, engine language
+(32a) line 3	Nɬeʔkepmxcín	gloss	mushroom=INFER DEM	page 15, engine english
+(32a) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 15, engine english
+(32b) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nukw xéʔe.	page 15, engine language
+(32b) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nukw xéʔe	page 15, engine language
+(32b) line 3	Nɬeʔkepmxcín	gloss	mushroom=SENSE DEM	page 15, engine english
+(32b) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 15, engine english
+(33) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at a restaurant where they serve all the food in the dark. You can only guess at what you’re being served. You get your first course, and you taste it. To you, it tastes like a mushroom. You say:	page 15, engine english
+(33a) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nke xéʔe.	page 15, engine language
+(33a) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nke xéʔe	page 15, engine language
+(33a) line 3	Nɬeʔkepmxcín	gloss	mushroom=INFER DEM	page 15, engine english
+(33a) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 15, engine english
+(33b) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nukw xéʔe.	page 15, engine language
+(33b) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nukw xéʔe	page 15, engine language
+(33b) line 3	Nɬeʔkepmxcín	gloss	mushroom=SENSE DEM	page 15, engine english
+(33b) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 15, engine english
+§3.7	Ella Hannon and Cayla Smith	note	The compatibility of both nukw and nke with direct senses like smell, taste, and touch shows that they are both felicitous in contexts where the speaker has direct evidence and so can both be used as direct evidentials. One speaker noted no difference in meaning between (32a–b) and (33a–b) but did note a preference for nukw when the smell of smoke is stronger in (31).	page 15
+§4	Ella Hannon and Cayla Smith	heading	4 Analysis	page 15
+§4	Ella Hannon and Cayla Smith	note	This section will present a number of hypotheses we have developed to account for those contexts where nukw and nke are semantically interchangeable, as well as contexts in which they are not. Three main hypotheses will be explored in this section: that the choice of nukw in place of nke and vice versa is based on distinctions between sources of evidence; that this alternation is due to speaker variation; and that this alternation is conditioned by how certain the speaker is of the truth of p.	page 15
+§4.1	Ella Hannon and Cayla Smith	heading	4.1 Categorization according to Willett (1988)	page 16
+§4.1	Ella Hannon and Cayla Smith	note	In view of the observations made in this paper so far, it is clear that assigning either nukw or nke to one of Willett’s (1988) categories will not be as clear-cut a task as it could be. We have demonstrated that nukw and nke are both compatible with a range of sources of direct evidence, such as speaker hearing, taste, smell, and, for some speakers, sight. We have also demonstrated that nke is compatible with indirect evidence, in the form of results and also reasoning (given its appearance in epistemic modal contexts that have nothing to do with the speaker’s senses). These observations are curious in a number of ways; firstly, it is uncommon cross-linguistically for an evidential to be able to encode both direct and indirect evidence. Secondly, the compatibility of both nke and nukw with all types of direct sensory evidence is also not widely attested; usually, languages will partition this domain into visual and non-visual. Willett’s typology of evidentiality does nevertheless allow us to pinpoint a crucial difference between nukw and nke; the latter is compatible with inference and the former is not. This partition allows us to make the broad claim that nukw is a direct sensory non-visual evidential and nke is both a direct sensory non-visual and indirect inferring evidential. The domain of the indirect reported evidential appears to be almost entirely reserved for ekwu, which we have not discussed. We have marked in bold on our adapted diagrams of Willett’s (1988) typology the domains we believe each evidential to occupy. The domain we believe nukw to occupy is the following:	page 16
+§4.1	Ella Hannon and Cayla Smith	note	Figure 2: nukw modelled on Willett’s (1988) typology of evidentiality	page 16, the caption of Figure 2, a picture
+§4.1	Ella Hannon and Cayla Smith	note	This characterization restricts nukw to being compatible only with non-visual sensory evidence. It makes no claims about nukw.	page 16
+§4.1	Ella Hannon and Cayla Smith	note	The domain we believe nke to occupy is the following:	page 16
+§4.1	Ella Hannon and Cayla Smith	note	Figure 3: nke modelled on Willett’s (1988) typology of evidentiality	page 16, the caption of Figure 3, a picture
+§4.1	Ella Hannon and Cayla Smith	note	This characterization demonstrates that nke is compatible with both inferential evidence based on results and reasoning, and evidence based on direct perception (but not visual perception). This categorization does raise a few issues that are outside the scope of this paper, namely, the fact that direct non-visual sensory evidence is often what speakers use to make inferences, so it can be hard to separate pure inference from inference based on non-visual sensory evidence.	page 16
+§4.2	Ella Hannon and Cayla Smith	heading	4.2 Distinction based on evidence source	page 17
+§4.2	Ella Hannon and Cayla Smith	note	According to the categorization of these evidential morphemes that we have adopted, there should be some slight differences in the contexts of use of nukw and nke. Broadly speaking, nukw should be restricted to contexts where the speaker has non-visual, sensory direct evidence for a proposition p, whereas nke should be felicitous in contexts where the speaker has visual, sensory, or knowledge-based evidence for p. We have seen above that, for one speaker, this distinction holds. It is also important to note that, in contexts where nukw is preferred, nke is often still felicitous. This suggests that nukw is compatible with a slightly narrower range of contexts than nke, i.e., there are more restrictions on its usage than there are for nke. Even when the evidence available to the speaker is sensory but not visual, nke is still felicitous — as seen in (18), one consultant prefers nke when evidence comes from touch or smell, and nukw when evidence comes from taste only. We hypothesize that this is because nukw is a direct evidential (according to Willett’s (1988) typology), whereas nke cross-cuts the direct/indirect evidence boundary and can be felicitous in contexts where the speaker has direct sensory evidence as well as those in which the speaker has only indirect evidence.	page 17
+§4.2	Ella Hannon and Cayla Smith	note	The distinction between evidence sources is demonstrated below:	page 17
+(34) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at work and you notice one of your co-workers is absent. You’re discussing their absence with your other co-workers; none of you knows for sure why this co-worker is absent, so you’re all just speculating. You say:	page 17, engine english
+(34a) line 1	Nɬeʔkepmxcín	transcription	x̣əkus nke k sqwnóx̣ws.	page 17, engine language
+(34a) line 2	Nɬeʔkepmxcín	segmentation	x̣ək=us=nke k=s=qwnóx̣w=s	page 17, engine language
+(34a) line 3	Nɬeʔkepmxcín	gloss	know=CJV=INFER D/C=NMLZ=sick=3POSS	page 17, engine english
+(34a) line 4	Ella Hannon and Cayla Smith	translation	‘Maybe she’s sick.’	page 17, engine english
+(34b) line 1	Nɬeʔkepmxcín	transcription	# x̣əkus nukw k sqwnóx̣ws.	page 17, engine language
+(34b) line 2	Nɬeʔkepmxcín	segmentation	x̣ək=us=nukw k=s=qwnóx̣w=s	page 17, engine language
+(34b) line 3	Nɬeʔkepmxcín	gloss	know=CJV=SENSE D/C=NMLZ=sick=3POSS	page 17, engine english
+(34b) line 4	Ella Hannon and Cayla Smith	translation	Intended: ‘Maybe she’s sick.’	page 17, engine english
+§4.2	Ella Hannon and Cayla Smith	note	For one consultant, in order for (34b) to be felicitous, the person who is talking has to be actively touching the person who they think might be sick. If they are just speculating, then it is infelicitous. This supports our hypothesis that nukw requires some kind of direct, sensory evidence in order to be felicitous, while nke does not.	page 17
+§4.2	Ella Hannon and Cayla Smith	note	This distinction based on evidence source is also seen in (35) and (36), which are reiterated below:	page 17
+(35) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at a restaurant where they serve all the food in the dark. You can only guess at what you’re being served. You get your first course, and you pick it up and feel it to try and guess what it is. To you, it feels like a mushroom. You say:	page 17, engine english
+(35a) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nke xéʔe.	page 17, engine language
+(35a) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nke xéʔe	page 17, engine language
+(35a) line 3	Nɬeʔkepmxcín	gloss	mushroom=INFER DEM	page 17, engine english
+(35a) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 17, engine english
+(35b) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nukw xéʔe.	page 17, engine language
+(35b) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nukw xéʔe	page 17, engine language
+(35b) line 3	Nɬeʔkepmxcín	gloss	mushroom=SENSE DEM	page 17, engine english
+(35b) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 17, engine english
+(36) line 1	Ella Hannon and Cayla Smith	note	Context: You’re at a restaurant where they serve all the food in the dark. You can only guess at what you’re being served. You get your first course, and you taste it. To you, it tastes like a mushroom. You say:	page 18, engine english
+(36a) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nke xéʔe.	page 18, engine language
+(36a) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nke xéʔe	page 18, engine language
+(36a) line 3	Nɬeʔkepmxcín	gloss	mushroom=INFER DEM	page 18, engine english
+(36a) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 18, engine english
+(36b) line 1	Nɬeʔkepmxcín	transcription	məƛ̓qí nukw xéʔe.	page 18, engine language
+(36b) line 2	Nɬeʔkepmxcín	segmentation	məƛ̓qí=nukw xéʔe	page 18, engine language
+(36b) line 3	Nɬeʔkepmxcín	gloss	mushroom=SENSE DEM	page 18, engine english
+(36b) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be a mushroom.’	page 18, engine english
+§4.2	Nɬeʔkepmxcín	cited form	məƛ̓qí	in məƛ̓qí nke xéʔe, ‘This must/might be a mushroom.’
+§4.2	Nɬeʔkepmxcín	cited form	xéʔe	in məƛ̓qí nke xéʔe, ‘This must/might be a mushroom.’
+§4.2	Ella Hannon and Cayla Smith	note	All three consultants accepted məƛ̓qí nke xéʔe in both contexts, but all volunteered məƛ̓qí nukw xéʔe initially. One consultant commented that məƛ̓qí nke xéʔe is better if you have only touched the mushroom and not tasted it, while məƛ̓qí nukw xéʔe is better if you are basing your statement on taste alone. The same consultant also commented that, if you were at this fictional dinner with multiple people, and someone tasted the first course and commented məƛ̓qí nukw xéʔe, you could then, without having tasted the first course yourself, tell another person at the table məƛ̓qí nke xéʔe. For this consultant, you could not say məƛ̓qí nukw xéʔe if you haven’t tasted or touched the mushroom yourself.	page 18
+§4.2	Ella Hannon and Cayla Smith	note	A third context in which the difference between evidence sources influences speakers’ choice of either nukw or nke is presented below:	page 18
+(37) line 1	Ella Hannon and Cayla Smith	note	Context: I am trying to find my friend’s dog, Clyde, inside a house. I have no idea where he is. I see a large box in the corner of the room I am in, and Clyde could easily fit in the box. I think he could be inside the box.	page 18, engine english
+(37a) line 1	Nɬeʔkepmxcín	transcription	xəkus nukʷ ɬ ʔex ɬ néʔe tk kʼʷáxʷeh ɬ Clyde.	page 18, engine language
+(37a) line 2	Nɬeʔkepmxcín	segmentation	xək=us=nukʷ ɬ=ʔex ɬ=néʔe t=k=kʼʷáxʷeh ɬ=Clyde	page 18, engine language
+(37a) line 3	Nɬeʔkepmxcín	gloss	know=CJV=SENSE D/C=be DET=DEM OBL=D/C=box DET=Clyde	page 18, engine english
+(37a) line 4	Ella Hannon and Cayla Smith	translation	‘Clyde might be in that box.’	page 18, engine english
+(37b) line 1	Nɬeʔkepmxcín	transcription	xəkus nke ɬ ʔex ɬ néʔe tk kʼʷáxʷeh ɬ Clyde.	page 18, engine language
+(37b) line 2	Nɬeʔkepmxcín	segmentation	xək=us=nke ɬ=ʔex ɬ=néʔe t=k=kʼʷáxʷeh ɬ=Clyde	page 18, engine language
+(37b) line 3	Nɬeʔkepmxcín	gloss	know=CJV=INFER D/C=be DET=DEM OBL=D/C=box DET=Clyde	page 18, engine english
+(37b) line 4	Ella Hannon and Cayla Smith	translation	‘Clyde might be in that box.’	page 18, engine english
+(37b) line 5	Consultant	speaker comment	Consultant Comment: “The second one [(37b)] is more correct. To use the first one, [(37a)], you have to have your hand on it.”	page 18, engine english
+§4.2	Ella Hannon and Cayla Smith	note	While this comment suggests both are understood and felicitous under specific circumstances, it provides further evidence that direct sensory evidence is required to licence nukw.	page 18
+§4.3	Ella Hannon and Cayla Smith	heading	4.3 Speaker variation	page 18
+§4.3	Ella Hannon and Cayla Smith	note	Our three consultants come from two different dialect areas: Nicola Valley (Coldwater) and Lytton. Interestingly, each consultant seems to have slightly different uses of nukw; usage of nke is more standardized and predictable. For one consultant, nukw only means ‘seems/feels like’; for other consultants its meaning is slightly broader. One such example of this difference can be seen in (38).	page 18
+(38) line 1	Ella Hannon and Cayla Smith	note	Context (adapted from Littell & Mackie 2011): Sander has some odd opinions about the taste of food. Rather than finding soapberries are bitter in taste like most everyone, he finds them salty. To describe his opinion, you say:	page 19, engine english
+(38) line 2	Nɬeʔkepmxcín	transcription	c̓áltc̓ál nukʷ xéʔe ʔe sx̣ʷúsm cút xéʔe ʔe Sander.	page 19, engine language
+(38) line 3	Nɬeʔkepmxcín	segmentation	c̓ált~c̓ál=nukʷ xéʔe ʔe=sx̣ʷúsm cú-t xéʔe ʔe=Sander	page 19, engine language
+(38) line 4	Nɬeʔkepmxcín	gloss	salt~RED=SENSE DEM D/C=soapberry say-T DEM DET=Sander	page 19, engine english
+(38) line 5	Ella Hannon and Cayla Smith	translation	‘Soapberries taste salty to Sander (lit. Soapberries are salty according to Sander).’	page 19, engine english
+§4.3	Nɬeʔkepmxcín	cited form	nukʷ	the sensory evidential, and a cognate verb ‘to feel like’
+§4.3	Ella Hannon and Cayla Smith	note	Consultant 1 comment: “Yeah, it’s okay.” Consultant 2 comment: “I don’t know about the nukʷ. Are you tasting them?” Consultant 1 and 2 are from different dialect areas. Consultant 2’s comment reveals that she regards nukʷ as infelicitous in (38) because it is used to describe the opinion of someone else, rather than the opinion of the speaker. This also reveals her more restricted use of nukʷ. Consultant 2 patterns more like the speakers Littell and Mackie (2011) worked with, whereas Consultant 1 has a less restricted use than previously described. We believe this to be a dialect difference. It is possible, although speculative, that this distinction in usage comes from the existence of a cognate verb nukʷ, which solely means ‘to feel like’ (Thompson & Thompson 1996). The grammaticization of nukʷ as an evidential clitic may therefore be more recent than the grammaticization of nke, and for some speakers, this is reflected in the contexts which nukʷ is compatible with. Further investigation is required to find the full scope of the differences in nukʷ usage between the dialects.	page 19
+§4.4	Ella Hannon and Cayla Smith	heading	4.4 Distinction based on certainty	page 19
+§4.4	Ella Hannon and Cayla Smith	note	Another hypothesis that we put forward accounts for certain cases where consultants translate sentences containing nke and nukw as having slight differences in certainty. Often, nke is used to express a higher degree of certainty than nukw; although sometimes this pattern is reversed. The certainty distinction can be seen in (39):	page 19
+(39) line 1	Ella Hannon and Cayla Smith	note	Context: You can see that there are some dark clouds in the sky, and you say/think to yourself:	page 19, engine english
+(39a) line 1	Nɬeʔkepmxcín	transcription	xwúy’ nukw tekɬ.	page 19, engine language
+(39a) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=nukw tekɬ	page 19, engine language
+(39a) line 3	Nɬeʔkepmxcín	gloss	FUT=SENSE rain	page 19, engine english
+(39a) line 4	Ella Hannon and Cayla Smith	translation	‘I think it’s going to rain.’ (Literally: ‘It seems like it’s going to rain.’)	page 19, engine english
+(39b) line 1	Nɬeʔkepmxcín	transcription	xwúy’ nke tekɬ.	page 19, engine language
+(39b) line 2	Nɬeʔkepmxcín	segmentation	xwúy’=nke tekɬ	page 19, engine language
+(39b) line 3	Nɬeʔkepmxcín	gloss	FUT=INFER rain	page 19, engine english
+(39b) line 4	Ella Hannon and Cayla Smith	translation	‘It’s more than likely going to rain.’ / ‘It’s probably going to rain.’	page 19, engine english
+§4.4	Ella Hannon and Cayla Smith	note	One consultant volunteered (39b) when she judged that the likelihood of it raining was higher than in (39a). When the same sentences were presented in the same context to a second consultant, she judged that (39b) was stronger in likelihood than (39a).	page 19
+§4.4	Ella Hannon and Cayla Smith	note	However, there are contexts in which nke appears to be less certain than nukw for certain consultants. Such a context is a slightly modified version of (35) above:	page 19
+(40) line 1	Ella Hannon and Cayla Smith	note	Context: It’s your birthday and you’re trying out a new restaurant. In this restaurant, all the food is served in the dark, so customers can’t tell what it is they’re eating. You’re eating the main course, and you think you recognize the taste of something. You think:	page 20, engine english
+(40a) line 1	Nɬeʔkepmxcín	transcription	chicken nukw xéʔe.	page 20, engine language
+(40a) line 2	Nɬeʔkepmxcín	segmentation	chicken=nukw xéʔe	page 20, engine language
+(40a) line 3	Nɬeʔkepmxcín	gloss	chicken=SENSE DEM	page 20, engine english
+(40a) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be chicken.’	page 20, engine english
+(40b) line 1	Nɬeʔkepmxcín	transcription	chicken nke xéʔe.	page 20, engine language
+(40b) line 2	Nɬeʔkepmxcín	segmentation	chicken=nke xéʔe	page 20, engine language
+(40b) line 3	Nɬeʔkepmxcín	gloss	chicken=INFER DEM	page 20, engine english
+(40b) line 4	Ella Hannon and Cayla Smith	translation	‘This must/might be chicken.’	page 20, engine english
+§4.4	Ella Hannon and Cayla Smith	note	One consultant commented that (40a) is more sure, or certain, than (40b), but also commented that “it doesn’t always work like that”. Another example of nukw being more certain than nke can be seen in (41).	page 20
+(41) line 1	Ella Hannon and Cayla Smith	note	Context: You are walking in the woods when you see some paw prints in the mud that look like skunk paw prints.	page 20, engine english
+(41a) line 1	Nɬeʔkepmxcín	transcription	splənt nukʷ xéʔe.	page 20, engine language
+(41a) line 2	Nɬeʔkepmxcín	segmentation	splənt=nukʷ xéʔe	page 20, engine language
+(41a) line 3	Nɬeʔkepmxcín	gloss	skunk=SENSE ᴅᴇᴍ	page 20, engine language
+(41a) line 4	Ella Hannon and Cayla Smith	translation	‘That must/might be a skunk.’	page 20, engine english
+(41b) line 1	Nɬeʔkepmxcín	transcription	splənt nke xéʔe.	page 20, engine language
+(41b) line 2	Nɬeʔkepmxcín	segmentation	splənt=nke xéʔe	page 20, engine language
+(41b) line 3	Nɬeʔkepmxcín	gloss	skunk=INFER ᴅᴇᴍ	page 20, engine language
+(41b) line 4	Ella Hannon and Cayla Smith	translation	‘That must/might be a skunk.’	page 20, engine english
+§4.4	Ella Hannon and Cayla Smith	note	One consultant commented that (41a) is “more sure” than (41b), and that (41b) is “like you’re asking for someone’s input”. More investigation is needed into this very slight difference in certainty that sometimes influences the choice of evidential.	page 20
+§5	Ella Hannon and Cayla Smith	heading	5 Comparison with St’át’imcets	page 20
+§5	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§5	Ella Hannon and Cayla Smith	language	St’át’imcets	St’át’imcets, Lillooet
+§5	St’át’imcets	cited form	k’a	the St’át’imcets inferential evidential
+§5	Ella Hannon and Cayla Smith	note	Thus far, we have described the contexts of use of two of the second-position evidentials in Nɬeʔkepmxcín. We have also discussed contexts in which they are essentially semantically equivalent for speakers, and also some contexts in which there appears to be a very fine-grained distinction between the two. We now turn to a brief comparison with a similar three-way split evidential system, that of a neighboring Northern Interior Salish language: St’át’imcets (Matthewson et al. 2007). Similarly to Nɬeʔkepmxcín, St’át’imcets contains an inferential evidential, k’a. The other evidentials at work in St’át’imcets are -’an ‘perceived evidence’, and ku7, ‘reportative’.	page 20
+§5	Ella Hannon and Cayla Smith	note	Given that Nɬeʔkepmxcín and St’át’imcets both belong to the Northern Interior branch of the Salish language family, we might expect a degree of equivalence between at least some of their syntax and semantics. Preliminary investigation by the authors of this paper reveals that nke appears to pattern similarly to k’a; interestingly, Nɬeʔkepmxcín consultants sometimes volunteer sentences without an evidential where St’át’imcets speakers would use -’an. The equivalence between nke and k’a is presented in (42), and the alternation between k’a, nke, and -’an is demonstrated in (43).	page 20
+(42) line 1	Ella Hannon and Cayla Smith	note	Context: You had five pieces of sc̓wen left when you checked yesterday. Today, you go to get some sc̓wen to make some soup and you notice it’s all gone! You aren’t sure who took them but you know that your housemate John really loves sc̓wen and usually eats lots of it when he gets the chance! You think:	page 21, engine english
+(42a) line 1	Ella Hannon and Cayla Smith	language	St’át’imcets:	page 21, engine residue
+(42a) line 2	St’át’imcets	transcription	ts’aqwan’ás k’a i ts’wána kw sJohn.	page 21, engine language
+(42a) line 3	St’át’imcets	segmentation	ts’aqw-an’-ás k’a i ts’wán-a kw s-John	page 21, engine language
+(42a) line 4	St’át’imcets	gloss	eat-DIR-3ERG INFER DET.PL wind.dried.salmon-DET DET NOM-John	page 21, engine english
+(42a) line 5	Matthewson et al. 2007:225	translation	‘John must have eaten the ts’wan.’	page 21, engine english, cited Matthewson et al. 2007:225
+(42a) line 5	Ella Hannon and Cayla Smith	citation	(Matthewson et al. 2007:225)	the tag or source at the right of the translation
+(42b) line 1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín:	page 21, engine language
+(42b) line 2	Nɬeʔkepmxcín	transcription	ʔupis nke e sc̓wen e John.	page 21, engine residue
+(42b) line 3	Nɬeʔkepmxcín	segmentation	ʔupis=nke e=sc̓wen e=John	page 21, engine language
+(42b) line 4	Nɬeʔkepmxcín	gloss	eat=INFER DET=sc̓wen DET=John	page 21, engine english
+(42b) line 5	Ella Hannon and Cayla Smith	translation	‘John must have eaten the sc̓wen.’	page 21, engine english
+(43) line 1	Ella Hannon and Cayla Smith	note	Context: Same as above, except this time, you see the sc̓wen skins in John’s room.	page 21, engine english
+(43a) line 1	Ella Hannon and Cayla Smith	language	St’át’imcets:	page 21, engine residue
+(43a) line 2	St’át’imcets	transcription	ts’aqwan’ás k’a i ts’wána kw sJohn.	page 21, engine language
+(43a) line 3	St’át’imcets	segmentation	ts’aqw-an’-ás k’a i ts’wán-a kw s-John	page 21, engine language
+(43a) line 4	St’át’imcets	gloss	eat-DIR-3ERG INFER DET.PL wind.dried.salmon-DET DET NOM-John	page 21, engine english
+(43a) line 5	Matthewson et al. 2007:225	translation	‘John must have eaten the ts’wan.’	page 21, engine english, cited Matthewson et al. 2007:225
+(43a) line 5	Ella Hannon and Cayla Smith	citation	(Matthewson et al. 2007:225)	the tag or source at the right of the translation
+(43b) line 1	Ella Hannon and Cayla Smith	language	St’át’imcets:	page 21, engine residue
+(43b) line 2	St’át’imcets	transcription	ts’aqwan’ás’an i ts’wána kw sJohn.	page 21, engine language
+(43b) line 3	St’át’imcets	segmentation	ts’aqw-an’-ás-’an i ts’wán-a kw s-John	page 21, engine language
+(43b) line 4	St’át’imcets	gloss	eat-DIR-3ERG-PERC.EVID DET.PL wind.dried.salmon-DET DET NOM-John	page 21, engine english
+(43b) line 5	Matthewson et al. 2007:225	translation	‘John apparently ate the ts’wan.’	page 21, engine english, cited Matthewson et al. 2007:225
+(43b) line 5	Ella Hannon and Cayla Smith	citation	(Matthewson et al. 2007:225)	the tag or source at the right of the translation
+(43c) line 1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín:	page 21, engine language
+(43c) line 2	Nɬeʔkepmxcín	transcription	ʔupis nke e sc̓wen e John.	page 21, engine residue
+(43c) line 3	Nɬeʔkepmxcín	segmentation	ʔupi-s=nke e=sc̓wen e=John	page 21, engine language
+(43c) line 4	Nɬeʔkepmxcín	gloss	eat-3ERG=INFER DET=sc̓wen DET=John	page 21, engine english
+(43c) line 5	Ella Hannon and Cayla Smith	translation	‘John must have eaten the sc̓wen.’	page 21, engine english
+(43d) line 1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín:	page 21, engine language
+(43d) line 2	Nɬeʔkepmxcín	transcription	# ʔupis nukw e sc̓wen e John.	page 21, engine residue
+(43d) line 3	Nɬeʔkepmxcín	segmentation	ʔupi-s=nukw e=sc̓wen e=John	page 21, engine language
+(43d) line 4	Nɬeʔkepmxcín	gloss	eat-3ERG=SENSE DET=sc̓wen DET=John	page 21, engine english
+(43d) line 5	Ella Hannon and Cayla Smith	translation	Intended: ‘John must have eaten the sc̓wen.’	page 21, engine english
+(43e) line 1	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín:	page 22, engine language
+(43e) line 2	Nɬeʔkepmxcín	transcription	ʔupis e John e sc̓wen.	page 22, engine residue
+(43e) line 3	Nɬeʔkepmxcín	segmentation	ʔupi-s e=John e=sc̓wen	page 22, engine language
+(43e) line 4	Nɬeʔkepmxcín	gloss	eat-3ERG DET=John DET=sc̓wen	page 22, engine english
+(43e) line 5	Ella Hannon and Cayla Smith	translation	‘John ate the sc̓wen.’	page 22, engine english
+§5	Nɬeʔkepmxcín	cited form	sc̓wen	in (42) and (43)
+§5	Ella Hannon and Cayla Smith	note	In (42), it is clear that both k’a and nke are felicitous in similar contexts, i.e., in contexts where the speaker is inferring results based on the evidence available to them. In (43), when presented with visual evidence that increases the likelihood of John having eaten the sc̓wen, i.e., seeing the sc̓wen skins in his room, our consultants volunteered the utterance in (43e), that is, a sentence containing no evidential marking and intended to be understood as a factual declaration. Consultants did not volunteer versions of (43) containing nukw; in fact, they explicitly rejected it. It is therefore clear that ’an and nukw do not occupy the same space from a semantic standpoint. This investigation therefore provides evidence of semantic parallels between k’a and nke, but not total equivalence of the evidential systems. Further investigation is required to establish whether or not there is any equivalence between ekwu and ku7.	page 22
+§6	Ella Hannon and Cayla Smith	heading	6 Conclusion	page 22
+§6	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§6	Ella Hannon and Cayla Smith	note	In this paper, we have provided an overview of two of the second-position evidentials at work in Nɬeʔkepmxcín. We have described their contexts of use, both modal and non-modal, and have compared them from a semantic standpoint. We have demonstrated that, for all consultants, there is a degree of interchangeability between nukw and nke, particularly in epistemic modal contexts. We have presented a number of hypotheses to account for this semantic equivalence, including speaker variation, restrictions on evidence source, and fine-grained differences in the level of certainty encoded by the different evidentials. We also hypothesize that nukw, the sensory evidential, and nke, the inferential evidential, can act as epistemic modals. We have also demonstrated that they are infelicitous in deontic, circumstantial, teleological, and bouletic modal environments. We have also claimed that the two evidentials occupy slightly different spaces semantically, and have situated them according to Willett’s (1988) typology. The sensory evidential nukw is compatible with contexts where the speaker has direct sensory evidence (most often non-visual) for a proposition p. The inferential evidential nke is compatible both with situations in which the speaker has direct, non-visual, sensory evidence for p and those in which a speaker is inferring p based on either results or deduction. This distinction enables us to account for those contexts in which nukw and nke are essentially interchangeable for certain consultants; their evidential domains overlap but are not the exact same. The inferential evidential nke is compatible with a wider range of contexts than the sensory evidential nukw, but nukw is preferred in certain contexts where the speaker has more certain, direct, sensory evidence for believing in a proposition p. All hypotheses presented in this paper need to be investigated further and tested through more elicitation sessions.	page 22
+references	Ella Hannon and Cayla Smith	heading	References	page 22
+references	Ella Hannon and Cayla Smith	reference	Aikhenvald, Alexandra Y. 2004. Evidentiality. New York: Oxford University Press. Biezma, María & Kyle Rawlins. 2015. Alternative Questions. Language and Linguistics Compass 9(11):450–468.	
+references	Ella Hannon and Cayla Smith	reference	Davis, Henry. 2005. On the Syntax and Semantics of Negation in Salish. International Journal of American Linguistics 71(1):1–55.	
+references	Ella Hannon and Cayla Smith	reference	Faller, Martina. 2002. Semantics and Pragmatics of Evidentials in Cuzco Quechua. Doctoral dissertation. University of Stanford, Stanford, CA.	
+references	Ella Hannon and Cayla Smith	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2023. Report on the Status of BC First Nations Languages. First Peoples’ Cultural Council.	
+references	Ella Hannon and Cayla Smith	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, in the title of a reference
+references	Ella Hannon and Cayla Smith	language	Nɬeʔkepmx	Nɬeʔkepmx, in the title of a reference
+references	Ella Hannon and Cayla Smith	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: the ʔayʔaǰuθəm (Comox-Sliammon) perspective. Doctoral dissertation. University of British Columbia, Vancouver, BC.	
+references	Ella Hannon and Cayla Smith	reference	Izvorski, Roumyana. 1997. The Present Perfect as an Epistemic Modal. Proceedings of SALT 7:222–239. Jimmie, Mandy Na’zinek Beverly. 1994. A Prosodic Analysis of Nɬeʔkepmx Reduplication. M.A. thesis. University of British Columbia, Vancouver, BC.	
+references	Ella Hannon and Cayla Smith	reference	Koch, Karsten A. 2011. Focus marking in a language lacking pragmatic presuppositions. In Joseph Windsor (ed.), Calgary Working Papers in Linguistics. Calgary, AB: CWPL, 1–17.	
+references	Ella Hannon and Cayla Smith	reference	Kratzer, Angelika. 2012. Modals and Conditionals. Oxford UK: Oxford University Press.	
+references	Ella Hannon and Cayla Smith	reference	Kroeber, Paul D. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	
+references	Ella Hannon and Cayla Smith	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+references	Ella Hannon and Cayla Smith	reference	Littell, Patrick & Scott Mackie. 2011. Reconsidering Sensory Evidence in Nɬeʔkepmxcín. Papers for ICSNL 46:164–183.	
+references	Ella Hannon and Cayla Smith	reference	Littell, Patrick & Scott Mackie. 2014. Further dimensions of evidential variation: Evidence from Nɬeʔkepmxcín. Presented at SULA 7. Available at: https://littell.nfshost.com/papers/littell2014.pdf (Accessed on 5/15/23).	
+references	Ella Hannon and Cayla Smith	reference	Littell, Patrick, Lisa Matthewson, & Tyler Peterson. 2010. On the Semantics of Conjectural Questions. In Tyler Peterson & Uli Sauerland (eds.), Evidence from Evidentials. Vancouver, BC: UBCWPL, 89–104.	
+references	Ella Hannon and Cayla Smith	reference	Matthewson, Lisa. 2011. On apparently non-modal evidentials. In Olivier Bonami & Patricia Cabredo Hofherr (eds.), Empirical Issues in Syntax and Semantics 8, 333–357. Colloque de Syntaxe et Sémantique à Paris. Available at: [http://www.cssp.cnrs.fr/eiss8/index_en.html] (Accessed on 07/18/2023).	
+references	Ella Hannon and Cayla Smith	language	St’át’imcets	St’át’imcets, Lillooet
+references	Ella Hannon and Cayla Smith	reference	Matthewson, Lisa, Henry Davis, & Hotze Rullmann. 2007. Evidentials as epistemic modals: Evidence from St’át’imcets. In Jeroen van Craenenbroeck & Johan Rooryck (eds.), Linguistic Variation Yearbook 7. Amsterdam, Netherlands: John Benjamins, 203–256.	
+references	Ella Hannon and Cayla Smith	reference	Portner, Paul. 2009. Modality. Oxford, UK: Oxford University Press.	
+references	Ella Hannon and Cayla Smith	reference	Thompson, Laurence C. & M. Terry Thompson.1992. The Thompson Language. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Ella Hannon and Cayla Smith	language	nɬeʔkepmxcín	Nɬeʔkepmxcín, in the title of a reference
+references	Ella Hannon and Cayla Smith	reference	Thompson, Laurence C. & M. Terry Thompson. 1996. Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Ella Hannon and Cayla Smith	reference	Vander Klok, Jozina. 2022. Revised modal questionnaire for cross-linguistic use. Available at: https://www.eva.mpg.de/lingua/tools-at-lingboard/questionnaires.php [Accessed on 29/5/23].	
+references	Ella Hannon and Cayla Smith	reference	Willett, Thomas. 1988. A cross-linguistic survey of the grammaticization of evidentiality. Studies in Language 12:51–97.	

@@ -1,0 +1,662 @@
+where	who	kind	form	gloss
+front	Clarissa Forbes	title	The Structure of Transitivity in Gitksan	page 1, carries footnote *
+front	Clarissa Forbes	name	Clarissa Forbes	author
+front	Clarissa Forbes	note	University of Arizona	page 1, under Clarissa Forbes
+front	Clarissa Forbes	note	Abstract: This paper presents a morphosyntactic analysis of transitive verbal morphology in Gitksan (Tsimshianic). I synthesize the Interior Tsimshianic literature on these morphemes and present some novel data. I then present a Distributed Morphology analysis of the Gitksan vP, arguing that transi- tivity is encoded with minimally two projections, v and Voice. In other words, Gitksan is a ‘split-vP’ language in the vein of Pylkkänen (2002). Transitivizers such as causatives and comitatives appear in v, while the independent-order transitive vowel is in Voice. The (ergative) external argument is merged in Voice, which also serves as the locus of transitive case and agreement. Finally, I argue that the transitivizers I locate in v all have distinct underlying semantic-syntactic representations—that is, they are not allomorphs—and explore some issues to be tackled regarding their semantic decompo- sition, including redundant morpheme-stacking.	page 1, the abstract
+front	Clarissa Forbes	note	Keywords: Gitksan, Tsimshianic, transitivity, argument structure, little v, Voice	page 1, the keywords
+front	Clarissa Forbes	language	Gitksan	Interior Tsimshianic, spoken in the British Columbia northern interior
+footnote *	Clarissa Forbes	note	As always, ’wii t’isim ha’miiyaa ’nii’y aloos my teachers: Barbara Sennott, Vince Gogag, Hector Hill, and Louise Wilson. Thanks to Heidi Harley and Susana Bejar for their advice and feedback on stages of this work, and to the UBC Gitksan Research Lab and particularly Michael Schwan for their continued commitment to collaboration, and for helping me with data collection. Examples are from my personal fieldwork since 2011, or are from the UBC Gitksan Research Lab database (Dative, formerly the Online Linguistic Database; Dunham 2014). These examples cite the speaker by initials. Other examples are cited from their original source. This research was supported by a SSHRC postdoctoral fellowship and a Jacobs Research Grant. Contact info: forbesc@email.arizona.edu Paper of the International Conference on Salish and Neighbouring Languages 54, D. K. E. Reisinger and Gloria Mellesmoen (eds.). Vancouver, BC: UBCWPL, 2019.	page 1, footnote *, on the title
+footnote *	Gitksan	cited form	’wii t’isim ha’miiyaa ’nii’y aloos	page 1, in italics
+footnote *	Clarissa Forbes	name	Barbara Sennott	Gitksan consultant (BS), the author's teacher
+footnote *	Clarissa Forbes	name	Vince Gogag	Gitksan consultant (VG), the author's teacher
+footnote *	Clarissa Forbes	name	Hector Hill	Gitksan consultant (HH), the author's teacher
+footnote *	Clarissa Forbes	name	Louise Wilson	Gitksan consultant (LW), the author's teacher
+footnote *	Clarissa Forbes	name	Heidi Harley	thanked; Harley (2008, 2017), Folli and Harley (2007, 2008)
+footnote *	Clarissa Forbes	name	Susana Bejar	thanked
+footnote *	Clarissa Forbes	name	Michael Schwan	of the UBC Gitksan Research Lab
+footnote *	Clarissa Forbes	name	Dunham	Joel Dunham, the Online Linguistic Database (2014)
+§1	Clarissa Forbes	heading	1 Introduction	page 1
+§1	Clarissa Forbes	note	This paper examines some properties of transitivity and argument structure in Gitksan, a Tsimshianic language of the British Columbia northern interior. I consider these topics from a morphosyntactic perspective: how is transitivity composed in the syntactic structure of this language, and how does overt ‘transitive’ morphology map to this structure?	page 1
+§1	Clarissa Forbes	language	Tsimshianic	the family
+§1	Clarissa Forbes	note	This paper adopts the framework of Distributed Morphology, or DM (Halle and Marantz 1993), which assumes that clausal structures are compositionally constructed from Roots (√) from which lexical content is derived, and verbalizers (v) from which argument structure is syntactically pro- jected. While the lexical content of the Root contributes properties of the internal argument, it is v and related projections (e.g. Voice) which contribute properties of the external argument, in- cluding agency and causation, as well as the syntactic properties of transitive clauses, including case/agreement. In adopting this assumption, this paper explores morphemes which possibly in- stantiate the v level, their relation to one another, and the beginnings of their syntactic and semantic contributions to transitive structures.	page 1
+§1	Clarissa Forbes	name	Halle	Morris Halle; Halle and Marantz (1993)
+§1	Clarissa Forbes	name	Marantz	Alec Marantz; Halle and Marantz (1993)
+§1	Clarissa Forbes	note	I propose that Gitksan is a language wherein the functions of the v-level are split into minimally two projections: v and Voice. I argue that the transitive vowel in independent clauses and ergative agreement in dependent clauses are two ways that Voice, the locus of grammatical transitivity, is instantiated. Consequently, I interpret seven other morphemes relating to causation, agentivity, and	page 1
+Table 1	Clarissa Forbes	note	Table 1: Transitivizing patterns in Gitksan	page 2, the table's caption
+Table 1	Clarissa Forbes	note	Intransitive Transitive	page 2, the column heads
+Table 1	Clarissa Forbes	note	unmarked	page 2, Table 1, the row of verbs no transitivizer marks
+Table 1	Gitksan	cited form	ts’iip	page 2, Table 1, intransitive, ‘be tied up’
+Table 1	Clarissa Forbes	note	‘be tied up’	page 2, Table 1, the English of intransitive ts’iip
+Table 1	Gitksan	cited form	ts’iip	page 2, Table 1, transitive unmarked, ‘tie up’
+Table 1	Clarissa Forbes	note	‘tie up’	page 2, Table 1, the English of transitive ts’iip
+Table 1	Gitksan	cited form	si-	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	’mas	page 2, Table 1, intransitive, ‘grow, grow up’
+Table 1	Clarissa Forbes	note	‘grow, grow up’	page 2, Table 1, the English of intransitive ’mas
+Table 1	Gitksan	cited form	si’mas	page 2, Table 1, transitive with si-, ‘grow, raise’
+Table 1	Clarissa Forbes	note	‘grow, raise’	page 2, Table 1, the English of transitive si’mas
+Table 1	Gitksan	cited form	-xw	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	naks	page 2, Table 1, intransitive, ‘be married’
+Table 1	Clarissa Forbes	note	‘be married’	page 2, Table 1, the English of intransitive naks
+Table 1	Gitksan	cited form	naksxw	page 2, Table 1, transitive with -xw, ‘marry’
+Table 1	Clarissa Forbes	note	‘marry’	page 2, Table 1, the English of transitive naksxw
+Table 1	Gitksan	cited form	-T	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	jilks	page 2, Table 1, intransitive, ‘melt, thaw’
+Table 1	Clarissa Forbes	note	‘melt, thaw’	page 2, Table 1, the English of intransitive jilks
+Table 1	Gitksan	cited form	jilksd-/jilksi-	page 2, Table 1, transitive with -T, ‘melt, thaw’
+Table 1	Clarissa Forbes	note	‘melt, thaw’	page 2, Table 1, the English of transitive jilksd-/jilksi-
+Table 1	Gitksan	cited form	-in	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	kw’as	page 2, Table 1, intransitive, ‘break, be broken’
+Table 1	Clarissa Forbes	note	‘break, be broken’	page 2, Table 1, the English of intransitive kw’as
+Table 1	Gitksan	cited form	kw’asin	page 2, Table 1, transitive with -in, ‘break’
+Table 1	Clarissa Forbes	note	‘break’	page 2, Table 1, the English of transitive kw’asin
+Table 1	Gitksan	cited form	di-	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	yee	page 2, Table 1, intransitive, ‘walk, go’
+Table 1	Clarissa Forbes	note	‘walk, go’	page 2, Table 1, the English of intransitive yee
+Table 1	Gitksan	cited form	diyee	page 2, Table 1, transitive with di-, ‘escort’
+Table 1	Clarissa Forbes	note	‘escort’	page 2, Table 1, the English of transitive diyee
+Table 1	Gitksan	cited form	sil	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	he	page 2, Table 1, intransitive, ‘say, feel, express’
+Table 1	Clarissa Forbes	note	‘say, feel, express’	page 2, Table 1, the English of intransitive he
+Table 1	Gitksan	cited form	sil(g̲a) he	page 2, Table 1, transitive with sil, ‘say along with’
+Table 1	Clarissa Forbes	note	‘say along with’	page 2, Table 1, the English of transitive sil(g̲a) he
+Table 1	Gitksan	cited form	gun	page 2, Table 1, the transitivizer
+Table 1	Gitksan	cited form	wil	page 2, Table 1, intransitive, ‘do’
+Table 1	Clarissa Forbes	note	‘do’	page 2, Table 1, the English of intransitive wil
+Table 1	Gitksan	cited form	gun wil	page 2, Table 1, transitive with gun, ‘make (s.o.) do’
+Table 1	Clarissa Forbes	note	‘make (s.o.) do’	page 2, Table 1, the English of transitive gun wil
+§1	Clarissa Forbes	note	event structure, as syntactic terminals in vP, each with their own particular semantic flavor. I suggest that none of these ‘transitive’ morphemes can be interpreted as allomorphs of each other, conditioned on the basis of the Root they attach to, but instead are semantically and/or syntactically distinct.	page 2
+§1	Gitksan	cited form	-in	page 2, in italics
+§1	Clarissa Forbes	note	The paper is structured as follows: §2 discusses the properties of several transitive markers in Gitksan as they have been reported in prior literature. §3 provides further background on the theoretical assumptions of DM as they relate to the compositional structure of transitive predicates. §4 presents an argument that Gitksan is a language which splits properties of transitivity between two heads: v and Voice. Having attributed inflectional transitive properties to Voice, §5 explores the semantic contributions of various v morphemes, including areas where they appear to be semantically vacuous or redundant. §6 concludes.	page 2
+§2	Clarissa Forbes	heading	2 Transitive marking in Gitksan	page 2
+§2	Clarissa Forbes	note	The initial description of the transitive morphemes I here review was initially presented by Rigsby (1986), for Gitksan, and Tarpent (1987) for mutually intelligible Nisg̲a’a to the west. These lan- guages constitute the Interior branch of the Tsimshianic family. Table 1 summarizes transitivizers, showing eight different transitivizing patterns on roots that may appear bare as intransitives.	page 2
+§2	Clarissa Forbes	name	Rigsby	Bruce Rigsby, Gitxsan grammar (1986), a later view of Gitksan syntax (1989)
+§2	Clarissa Forbes	name	Tarpent	Marie-Lucie Tarpent, a grammar of the Nisgha language (1987)
+§2	Clarissa Forbes	language	Nisg̲a’a	Interior Tsimshianic, mutually intelligible with Gitksan, to the west
+§2	Clarissa Forbes	note	Hunt (1993) presents an alternate account of an additional transitive morpheme -i-, originally treated by Rigsby the same way as the morphemes in Table 1 but which is conditioned by clause type. Hunt argues that this is not a transitivizer, but instead a transitive inflectional marker. I discuss transitive inflection in §2.1, to follow. Belvin (1997) also investigates the properties of causation and transitivity; his account of the Nisg̲a’a causatives (cognates: si-, -in, and gun) includes a mor- phosemantic analysis, which Peterson (2006) replicates for Gitksan. I review this background, as well as general properties of the seven transitivizing morphemes in §2.2.	page 2
+§2	Gitksan	cited form	-i-	page 2, in italics
+§2	Gitksan	cited form	si-	page 2, in italics
+§2	Gitksan	cited form	gun	page 2, in italics
+§2	Clarissa Forbes	name	Hunt	Katharine Hunt, clause structure, agreement and case in Gitksan (1993)
+§2	Clarissa Forbes	name	Peterson	Tyler Peterson (2006, 2007, 2012, 2019)
+§2	Clarissa Forbes	name	Belvin	Robert S. Belvin, the causation hierarchy in Nisgha (1997)
+§2.1	Clarissa Forbes	heading	2.1 Transitive inflection	page 2
+§2.1	Clarissa Forbes	note	Gitksan is a morphologically ergative language: transitive clauses can be identified by the fact that transitive subjects receive special agreement. However, this special agreement differs between the two possible clause types in the language. Dependent clauses1 are introduced by subordinators of all kinds, including the clausal coordi- nator ii, complementizers and subordinating verbs, aspectual markers, negation, irrealis, and moods such as the imperative. In dependent clauses, exemplified in (1), transitive subjects receive pre- verbal ‘Series I’ agreement (1b), while absolutive arguments typically receive suffixal ‘Series II’ agreement.2	page 2
+footnote 1	Clarissa Forbes	note	This terminology (independent/dependent) originates from Rigsby (1986). I adopt it here for its theory- neutral character.	page 2, footnote 1
+footnote 2	Clarissa Forbes	note	Abbreviations used in examples are as follows: 1 = first person, 2 = second person, 3 = third person, acc = accusative, antip = antipassive, assoc = associative, attr = attributive, ax = agent extraction, caus = causative, cn = common noun determiner, com = comitative, comp = complementizer, compl = completive, dem = demonstrative, distr = distributive, dn = determinate noun determiner, epis = epistemic, erg = ergative, foc = focus, i = series I agreement, ii = series II agreement, iii = series III pronoun, ins = instrumental, ipfv = imperfective, loc = locative, manr = manner, nact = non-active voice, neg = negative, nmlz = nominaliz- er, obl = oblique, pfv = perfective, pl = plural, prep = preposition, prosp = prospective, prox = proximal, q = question particle, qudd = question under discussion downdate, sg = singular, spt = spatiotemporal, tr = tran- sitive, ver = verum focus.	page 3, footnote 2
+§2.1	Gitksan	cited form	ii	page 3, in italics
+(1a) line 1	Gitksan	transcription	Needii baha’y.	page 3
+(1a) line 2	Gitksan	segmentation	nee=dii bax̲-’y	page 3
+(1a) line 3	Gitksan	gloss	neg=foc run-1sg.ii	page 3
+(1a) line 4	Clarissa Forbes	translation	‘I didn’t run.’	page 3
+(1b) line 1	Gitksan	transcription	Neediit iileni’y.	page 3
+(1b) line 2	Gitksan	segmentation	nee=dii=t hilen-’y	page 3
+(1b) line 3	Gitksan	gloss	neg=foc=1.i chase-1sg.ii	page 3
+(1b) line 4	Clarissa Forbes	translation	‘She didn’t chase me.’	page 3
+(1b) line 5	Clarissa Forbes	citation	(VG)	page 3, the tag or source at the right of the translation
+§2.1	Clarissa Forbes	note	In independent clauses, presented in (2), transitive subjects receive Series II agreement (2b), while absolutive arguments surface as ‘Series III’ pronouns. Transitive independent clauses further- more contain an additional morpheme, which I refer to here as the ‘transitive vowel’.	page 3
+(2a) line 1	Gitksan	transcription	Bax̲ ’nii’y.	page 3
+(2a) line 2	Gitksan	segmentation	bax̲ ’nii’y	page 3
+(2a) line 3	Gitksan	gloss	run 1sg.iii	page 3
+(2a) line 4	Clarissa Forbes	translation	‘I ran.’	page 3
+(2b) line 1	Gitksan	transcription	Iilenit ’nii’y.	page 3
+(2b) line 2	Gitksan	segmentation	hilen-i-t ’nii’y	page 3
+(2b) line 3	Gitksan	gloss	chase-tr-3.ii 1sg.iii	page 3
+(2b) line 4	Clarissa Forbes	translation	‘She chased me.’	page 3
+(2b) line 5	Clarissa Forbes	citation	(VG)	page 3, the tag or source at the right of the translation
+§2.1	Clarissa Forbes	note	All sources note that the transitive vowel (/-ə-/, realized as [-i-] or [-yi-]) is restricted to indepen- dent clauses. It was originally interpreted by Rigsby (1986) as an allomorph of the -T- morpheme, a transitivizer that I will discuss in the next subsection. The two were differentiated in Tarpent’s (1987) description of Nisg̲a’a, where she referred to the transitive vowel as ‘grammatical control’.3 Hunt (1993:230) builds on this and proposes that the transitive vowel was not a transitivizer, but rather an inflectional marker of transitivity.4 It does not actually transitivize a verb; if that were the case, it would be expected to appear on the verb root regardless of clause type. Both authors argue that its apparent complementarity with some other true transitivizing suffixes is phonolog- ically conditioned; most notably, the vowel is deleted after the sonorant-final -in causative (Hunt 1993:230).	page 3
+footnote 3	Clarissa Forbes	note	Later work in Tarpent (1991) proposes that this vowel is an object-relativizer, and that independent clauses are derived via relativization. Hunt (1993) presents a strong argument against this analysis.	page 3, footnote 3
+footnote 4	Clarissa Forbes	note	Specifically, Hunt (1993) proposes that the transitive vowel realizes the [+transitive] head of an inflectional Transitive Phrase (TrP). This is essentially the analysis I adopt in §4, though rather than ‘TransitiveP’ I use VoiceP (Hale and Keyser 1993a). See also footnote 12.	page 4, footnote 4
+§2.1	Clarissa Forbes	note	In sum, grammatically transitive clauses can always be differentiated from grammatically in- transitive ones in principle, even where there are not two obvious DPs. If a clause is dependent, it can be identified as transitive if there is ergative preverbal agreement with the subject. If a clause is independent, then suffixal agreement will be with the subject, rather than the object; furthermore, there is often an additional vowel (the transitive vowel) preceding the agreement suffix.	page 4
+§2.2	Clarissa Forbes	heading	2.2 Transitivizers	page 4
+§2.2	Clarissa Forbes	note	In contrast to the transitive vowel, the following transitivizing morphemes appear on verb stems regardless of the clause type of the overall construction. I begin with multi-purpose morphemes that are commonly used in both intransitive and transitive contexts, then move to morphemes that are more strictly transitive.	page 4
+§2.2.1	Clarissa Forbes	heading	2.2.1 si-	page 4
+§2.2.1	Clarissa Forbes	note	The morphemes si- and -xw are both most frequently used in constructions that produce intransitive predicates, but can also be used to form transitive predicates. The better attested of these is si-, a highly productive morpheme which commonly operates on nouns to produce a ‘create, procure, or process N’ meaning (Rigsby 1986:350–351).	page 4
+§2.2.1	Gitksan	cited form	-xw	page 4, in italics
+(3) line 1	Gitksan	transcription	Hlishl si’anaaxi’y hiihluxw tun.	page 4
+(3) line 2	Gitksan	segmentation	hlis=hl si-anaax-’y hiihluxw t=xwin	page 4
+(3) line 3	Gitksan	gloss	pfv=cn caus-bread-1sg.ii morning dn=dem.prox	page 4
+(3) line 4	Clarissa Forbes	translation	‘I already made bread this morning.’	page 4
+(3) line 5	Clarissa Forbes	citation	(VG)	page 4, the tag or source at the right of the translation
+§2.2.1	Clarissa Forbes	note	In this use, si- is possibly operating as a verbalizer (v) which incorporates its complement nominal.5	page 4
+footnote 5	Clarissa Forbes	note	Another morpheme with a similar function, but a different semantic contribution, is x̲ -, as in (i) which provides a ‘consumes, experiences N’ interpretation to the incorporated noun.	page 4, footnote 5
+footnote 5	Gitksan	cited form	x̲	page 4, in italics
+footnote 5 (i) line 1	Gitksan	transcription	X̲hun ’nii’y hiihluxw daa’whl.	page 4
+footnote 5 (i) line 2	Gitksan	segmentation	x̲ -hun ’nii’y hiihluxw daa’whl	page 4
+footnote 5 (i) line 3	Gitksan	gloss	consume-fish 1sg.iii morning leave	page 4
+footnote 5 (i) line 4	Clarissa Forbes	translation	‘I ate fish this morning.’	page 4
+footnote 5 (i) line 5	Clarissa Forbes	citation	(BS)	page 4, the tag or source at the right of the translation
+footnote 5	Clarissa Forbes	note	However, both si- and x̲ - can be used to modify nouns without verbalizing them, indicating ‘the N that Possr made’ or ‘the N that Possr is eating/drinking/experiencing’, as in (ii).	page 4, footnote 5
+footnote 5 (iia) line 1	Gitksan	transcription	T’aahl maa’y ’nuu’m ky’oots, iit ap jahl ts’uuts’ simaa’yi’m.	page 5
+footnote 5 (iia) line 2	Gitksan	segmentation	t’aahl-maa’y ’nuu’m ky’oots ii=t ap jahl-t=hl ts’uuts’ si-maa’y-’m	page 5
+footnote 5 (iia) line 3	Gitksan	gloss	pick-berries 1pl.iii yesterday and=3.i ver eat.up-3.ii=cn bird caus-berry-1pl.ii	page 5
+footnote 5 (iia) line 4	Clarissa Forbes	translation	‘We picked berries yesterday, and a bird ate them all (lit: ate all our picked-berries).’	page 5
+footnote 5 (iia) line 5	Clarissa Forbes	citation	(BS)	page 5, the tag or source at the right of the translation
+footnote 5 (iib) line 1	Gitksan	transcription	Am sax̲ x̲dii dii aksis Lisa.	page 5
+footnote 5 (iib) line 2	Gitksan	segmentation	am x̲sax̲ x̲ -dii dii aks-i-t=s Lisa	page 5
+footnote 5 (iib) line 3	Gitksan	gloss	only only consume-tea foc drink-tr-3.ii=dn Lisa	page 5
+footnote 5 (iib) line 4	Clarissa Forbes	translation	‘Lisa only drinks tea.’	page 5
+footnote 5 (iib) line 5	Clarissa Forbes	citation	(LW)	page 5, the tag or source at the right of the translation
+footnote 5	Clarissa Forbes	note	It is therefore unclear whether, for both morphemes, the contribution is of verbalization, event structure, or lexical content more like roots (e.g. √make and √consume)—or some combination of these. I leave this question for future work.	page 4, footnote 5
+§2.2.1	Clarissa Forbes	note	In addition, si- acts as a causative, operating on many intransitive verbs and adjectives to produce a transitive form, illustrated in (4).	page 4
+(4a) line 1	Gitksan	transcription	G̲al gyamk ’nit, yugwimaahl siipxwt.	page 5
+(4a) line 2	Gitksan	segmentation	g̲al gyamk ’nit yukw=imaa=hl siip-xw-t	page 5
+(4a) line 3	Gitksan	gloss	too warm 3.iii ipfv=epis=cn sick-nact-3.ii	page 5
+(4a) line 4	Clarissa Forbes	translation	‘He feels hot, he must be sick.’	page 5
+(4a) line 5	Clarissa Forbes	citation	(BS)	page 5, the tag or source at the right of the translation
+(4b) line 1	Gitksan	transcription	Sigyamgit.	page 5
+(4b) line 2	Gitksan	segmentation	si-gyamk-i-t	page 5
+(4b) line 3	Gitksan	gloss	caus-warm-tr-3.ii	page 5
+(4b) line 4	Clarissa Forbes	translation	‘S/he heated it.’	page 5
+(4b) line 5	Clarissa Forbes	citation	(Rigsby 1986:359)	page 5, the tag or source at the right of the translation
+§2.2.1	Clarissa Forbes	note	Belvin (1997) proposes that si- represents state causation; it is a direct causative that operates on, typically, states.	page 5
+§2.2.2	Clarissa Forbes	heading	2.2.2 -xw	page 5
+§2.2.2	Clarissa Forbes	note	The morpheme -xw largely enjoys a life as an intransitive ‘non-active’ marker, subsuming the func- tions of a middle/inchoative, passive, and sometimes a reflexive. Its middle use is illustrated in (5).6	page 5
+footnote 6	Clarissa Forbes	note	This morpheme has the allophones [-s] (post-velar), [-txʷ] (post-sonorant), and [-xʷ] (elsewhere). However, there are a few examples that demonstrate that the full alternation (particularly that of -s) is either no longer productive (Hunt 1993), or must be attributed to two closely related morphemes, only one of which participates in the full alternation (Rigsby 1986).	page 5, footnote 6
+footnote 6	Gitksan	cited form	-s	page 5, in italics
+(5) line 1	Gitksan	transcription	Sim lukw’il ankws anaaxis.	page 5
+(5) line 2	Gitksan	segmentation	sim lukw’il ankw-xw anaax=is	page 5
+(5) line 3	Gitksan	gloss	true very cook-nact bread=qudd	page 5
+(5) line 4	Clarissa Forbes	translation	‘The bread is completely cooked.’	page 5
+(5) line 5	Clarissa Forbes	citation	(HH)	page 5, the tag or source at the right of the translation
+§2.2.2	Clarissa Forbes	note	It also appears on a small number of transitives. Rigsby (1986) identifies two classes for its us- age: first, on roots that also have a nominal use, illustrated in (6); second in positional constructions, illustrated in (7). Rigsby (1986:343) states that the latter type of -xw construction specifically indi- cates a sense of ‘adopting a position’, contrasting with intransitive constructions that merely denote a locative state.	page 5
+(6) line 1	Clarissa Forbes	note	Context: The speaker has amnesia and is guessing facts about their forgotten life.	page 5, over the example
+(6a) line 1	Gitksan	transcription	Naksimaa ’nii’y.	page 6
+(6a) line 2	Gitksan	segmentation	naks=imaa ’nii’y	page 6
+(6a) line 3	Gitksan	gloss	marry=epis 1sg.iii	page 6
+(6a) line 4	Clarissa Forbes	translation	‘Maybe I’m married.’	page 6
+(6a) line 5	Clarissa Forbes	note	(cf. naks ‘spouse (N)’)	page 6, at the right of the translation
+(6b) line 1	Gitksan	transcription	Naksxwi’yimaa gyat tust.	page 6
+(6b) line 2	Gitksan	segmentation	naks-xw-i-’y=imaa gyat t=xwist	page 6
+(6b) line 3	Gitksan	gloss	marry-nact?-tr-1sg.ii=epis man dn=dem.prox	page 6
+(6b) line 4	Clarissa Forbes	translation	‘Maybe I married that man.’	page 6
+(6b) line 5	Clarissa Forbes	citation	(BS)	page 6, the tag or source at the right of the translation
+(7a) line 1	Gitksan	transcription	’Niit’aahl ts’uuts’ lax̲ g̲an.	page 6
+(7a) line 2	Gitksan	segmentation	’nii=t’aa=hl ts’uts’ lax̲ g̲an	page 6
+(7a) line 3	Gitksan	gloss	on=sit=cn bird on tree	page 6
+(7a) line 4	Clarissa Forbes	translation	‘The bird is sitting in the tree.’	page 6
+(7b) line 1	Gitksan	transcription	Gipaykwhl ts’uuts’ lax̲’u’y iit ’niit’aatxwhl g̲an.	page 6
+(7b) line 2	Gitksan	segmentation	giphaykw=hl ts’uuts’ lax̲’u-’y ii=t ’nii=t’aa-xw-t=hl g̲an	page 6
+(7b) line 3	Gitksan	gloss	fly=cn bird above-1sg.ii and=3.i on=sit-nact?-3.ii=cn tree	page 6
+(7b) line 4	Clarissa Forbes	translation	‘The bird flew over and landed in the tree.’	page 6
+(7b) line 5	Clarissa Forbes	citation	(VG)	page 6, the tag or source at the right of the translation
+§2.2.2	Clarissa Forbes	note	In either of these cases, roots appear with the -xw morpheme in transitive constructions, but not intransitive ones, in contrast to the broader generalization that -xw marks a type of intransitive. It is possible, however, that these transitive uses can be subsumed under a notion of adopting a result state, or a type of reflexive voice.	page 6
+§2.2.3	Clarissa Forbes	heading	2.2.3 -T	page 6
+§2.2.3	Clarissa Forbes	note	There is a second morpheme which, like -xw, may have both intransitive and transitive uses. The morpheme is abstractly represented as -T (Tarpent 1987), given its multitude of different allomorphs including [t], [d], [td], [di], and [i]. The distribution of these allomorphs largely depends on the form of the preceding stem (whether there is a stem-final consonant or vowel) and presence or absence of following suffixes. The surface realization of the suffix as consonant, vowel, or both is likely determined through reference to syllable structure, though I do not review these properties here. Broadly, the suffix is -t when immediately followed by a vowel (such as the transitive vowel in independent clauses), and -i- or -di- when followed by a non-vocalic suffix, including all the pronominal suffixes, as is typical of dependent clauses. Thus, we typically find a consonant-vowel alternation across clause types, as illustrated in (8).	page 6
+§2.2.3	Gitksan	cited form	-T	page 6, in italics
+§2.2.3	Gitksan	cited form	-t	page 6, in italics
+§2.2.3	Gitksan	cited form	-di-	page 6, in italics
+(8a) line 1	Gitksan	transcription	Yukwdin k̲’abaluuyaa?	page 6
+(8a) line 2	Gitksan	segmentation	yukw-T-i-n k̲’abaluu=aa	page 6
+(8a) line 3	Gitksan	gloss	carry-T-tr-2sg.ii rifle=q	page 6
+(8a) line 4	Clarissa Forbes	translation	‘Do you have the rifle?’	page 6
+(8a) line 5	Clarissa Forbes	citation	(HH)	page 6, the tag or source at the right of the translation
+(8b) line 1	Gitksan	transcription	Ii needipdii yugwihl aks.	page 6
+(8b) line 2	Gitksan	segmentation	ii nee=dip=dii yukw-T-t=hl aks	page 6
+(8b) line 3	Gitksan	gloss	and neg=1pl.i=foc carry-T-3.ii=cn water	page 6
+(8b) line 4	Clarissa Forbes	translation	‘And we didn’t bring the water with us.’	page 6
+(8b) line 5	Clarissa Forbes	citation	(HH)	page 6, the tag or source at the right of the translation
+§2.2.3	Clarissa Forbes	note	I focus here on the established transitive uses of -T.7 First, certain roots are lexically specified to use -T when functioning as transitive verbs. These are referred to as ‘T-verbs’ (Hunt 1993). One example is yukw ‘carry, hold’, from (8) above. Another is mahl ‘tell’, provided in (9a); contrast an antipassive use in (9b).	page 7
+footnote 7	Clarissa Forbes	note	Tarpent (1987:634–638), for Nisg̲a’a, proposes that -T has both intransitive and transitive uses, while Rigsby (1986:337,340) attributes these properties to two different t-shaped morphemes in Gitksan. Across the two languages, the intransitive construction in question provides a ‘passive of state’ (Rigsby 1986:337) or ‘resultative state’ (Tarpent 1987:635) interpretation, illustrated in (i).	page 7, footnote 7
+footnote 7 (i) line 1	Gitksan	transcription	Aksthl gudats’i’y.	page 7
+footnote 7 (i) line 2	Gitksan	segmentation	aks-t=hl gudats’-’y	page 7
+footnote 7 (i) line 3	Gitksan	gloss	water-T?=cn jacket-1sg.ii	page 7
+footnote 7 (i) line 4	Clarissa Forbes	translation	‘My coat is wet.’	page 7
+footnote 7 (i) line 5	Clarissa Forbes	citation	(Hunt 1993:17)	page 7, the tag or source at the right of the translation
+footnote 7	Clarissa Forbes	note	What motivates grouping this intransitive morpheme as another instance of -T? Tarpent’s (1987) pro- posals regarding the connection were supported by both morphemes’ participation in the t/vowel alternation across clause types. Example (ii) illustrates how the Nisg̲a’a intransitive -t exhibits the same alternation as in transitives from (8). Although in isolation the intransitive stem might have a final -t, this -t alternates with a vowel when followed by an agreement suffix, as in (ii).	page 7, footnote 7
+footnote 7 (ii) line 1	Nisg̲a’a	transcription	Hlaa kw’asihl tgwa.	page 7
+footnote 7 (ii) line 2	Nisg̲a’a	segmentation	hlaa kw’as-T-t=hl tgwa	page 7
+footnote 7 (ii) line 3	Nisg̲a’a	gloss	now broken-T-3.ii=cn glass	page 7
+footnote 7 (ii) line 4	Clarissa Forbes	translation	‘Now the glass is broken.’	page 7
+footnote 7 (ii) line 4	Clarissa Forbes	note	(cf. kw’ast ‘broken’)	page 7, after the translation
+footnote 7 (ii) line 4	Nisg̲a’a	cited form	kw’ast	page 7, broken, the intransitive in isolation
+footnote 7 (ii) line 4	Clarissa Forbes	citation	Nisg̲a’a;	page 7, the language at the right of the translation
+footnote 7 (ii) line 5	Clarissa Forbes	citation	(Tarpent 1987:637)	page 7, the tag or source at the right of the translation
+footnote 7	Clarissa Forbes	note	Rigsby (1986) does not unite the transitive -T and intransitive -t partially because his description did not identify transitive -T; this was established slightly later for Gitksan by Hunt (1993). However, it also seems that intransitive -t does not actively alternate with a vowel in Gitksan; when followed by a suffix, the suffix instead deletes, as illustrated in (iii).	page 7, footnote 7
+footnote 7 (iiia) line 1	Gitksan	transcription	Lukw’il ts’eet’iksthl hlguuhlxwi’y.	page 7
+footnote 7 (iiia) line 2	Gitksan	segmentation	lukw’il ts’eet’iks-t=hl hlguuhlxw-’y	page 7
+footnote 7 (iiia) line 3	Gitksan	gloss	very dirty-pass.of.stat?=cn child-1sg.ii	page 7
+footnote 7 (iiia) line 4	Clarissa Forbes	translation	‘My child is so dirty.’	page 7
+footnote 7 (iiia) line 5	Clarissa Forbes	citation	(VG)	page 7, the tag or source at the right of the translation
+footnote 7 (iiib) line 1	Gitksan	transcription	Hlaa ts’eet’ikshl hlguuhlxwi’y.	page 7
+footnote 7 (iiib) line 2	Gitksan	segmentation	hlaa ts’eet’iks(-t??)-t=hl hlguuhlxw-’y	page 7
+footnote 7 (iiib) line 3	Gitksan	gloss	incep dirty(-pass.of.stat??)-3.ii=cn child-1sg.ii	page 7
+footnote 7 (iiib) line 4	Clarissa Forbes	translation	‘My child is now dirty.’	page 7
+footnote 7 (iiib) line 5	Clarissa Forbes	note	(*ts’eet’iksihl)	page 7, at the right of the translation
+footnote 7 (iiib) line 6	Clarissa Forbes	citation	(VG)	page 7, the tag or source at the right of the translation
+footnote 7	Clarissa Forbes	note	Pending further investigation, this might present a basis to conclude that unlike in Nisg̲a’a, the Gitksan intransitive construction is derived from a distinct morpheme, synchronically. Regardless, the productivity and precise semantic contribution of the intransitive -t construction have yet to be deeply investigated.	page 7, footnote 7
+§2.2.3	Gitksan	cited form	yukw	page 7, in italics, ‘carry, hold’
+§2.2.3	Gitksan	cited form	mahl	page 7, in italics, ‘tell’
+(9a) line 1	Gitksan	transcription	Mahldi’y dim wil ha’wis Michael.	page 7
+(9a) line 2	Gitksan	segmentation	mahl-T-i-’y dim wil ha’w-t=s Michael	page 7
+(9a) line 3	Gitksan	gloss	tell-T-tr-1sg.ii prosp comp go.home-3.ii=dn Michael	page 7
+(9a) line 4	Clarissa Forbes	translation	‘I said/told that Michael was going home.’	page 7
+(9a) line 5	Clarissa Forbes	citation	(BS)	page 7, the tag or source at the right of the translation
+(9b) line 1	Gitksan	transcription	ant’imahlasxw	page 7
+(9b) line 2	Gitksan	segmentation	an-t’ip-mahl-asxw	page 7
+(9b) line 3	Gitksan	gloss	nmlz-sharply.down-tell-antip	page 7
+(9b) line 4	Clarissa Forbes	translation	‘story, tale’	page 7
+§2.2.3	Clarissa Forbes	note	Second, the morpheme -T can be conditioned to appear on roots that do not normally require it, when used in conjunction with certain preverbal modifiers (Hunt 1993; Rigsby 1986). Below, the verb gup ‘eat’ normally appears as a bare transitive (10a). When the modifier his ‘pretend’ is used, it requires the addition of the morpheme -T, resulting in the complete expression his gup-T- ‘pretend to eat’, as in (10b).	page 8
+§2.2.3	Gitksan	cited form	gup	page 8, in italics, ‘eat’
+§2.2.3	Gitksan	cited form	his	page 8, in italics, ‘pretend’
+§2.2.3	Gitksan	cited form	his gup-T-	page 8, in italics, ‘pretend to eat’
+(10a) line 1	Gitksan	transcription	Gubis Maryhl hun.	page 8
+(10a) line 2	Gitksan	segmentation	gup-i-t=s Mary=hl hun	page 8
+(10a) line 3	Gitksan	gloss	eat-tr-3.ii=dn Mary=cn fish	page 8
+(10a) line 4	Clarissa Forbes	translation	‘Mary ate the fish.’	page 8
+(10b) line 1	Gitksan	transcription	Am his gupdis Maryhl hun.	page 8
+(10b) line 2	Gitksan	segmentation	am his gup-T-i-t=s Mary=hl hun	page 8
+(10b) line 3	Gitksan	gloss	only pretend eat-T-tr-3.ii=dn	page 8
+(10b) line 4	Clarissa Forbes	translation	‘Mary only pretended to eat the fish.’	page 8
+(10b) line 5	Clarissa Forbes	citation	(Hunt 1993:237)	page 8, the tag or source at the right of the translation
+§2.2.3	Clarissa Forbes	note	Third, -T sometimes also seems to appear when code-switching or mixing verbs from English (Tarpent 1987:647).	page 8
+§2.2.3	Clarissa Forbes	language	English	the lexical causative
+(11) line 1	Gitksan	transcription	... dim ant filldihl positions.	page 8
+(11) line 2	Gitksan	segmentation	... dim an=t fill-T-t=hl positions	page 8
+(11) line 3	Gitksan	gloss	... prosp ax=3.i fill-T-3.ii=cn positions	page 8
+(11) line 4	Clarissa Forbes	translation	‘...who will fill the positions.’	page 8
+(11) line 5	Clarissa Forbes	citation	(LW)	page 8, the tag or source at the right of the translation
+§2.2.3	Clarissa Forbes	note	Tarpent (1987) glosses the morpheme as ‘definite medial’, making events more ‘definite’; this could potentially correlate to event boundedness or some other type of aspect.8 What is clear is that this morpheme, in addition to being morphophonologically complex, has several functions that vary in their productivity, which may or may not be semantically contentful.	page 8
+footnote 8	Clarissa Forbes	note	Peterson (2019) suggests it could historically derive from a grammatical applicative, presenting evidence that the presence or absence of -T corresponds to the appearance of an oblique argument, as in (i).	page 8, footnote 8
+footnote 8 (ia) line 1	Gitksan	transcription	Mahldis Mark ahl gimxdit dim wil saa daa’whlt g̲o’ohl	page 8
+footnote 8 (ia) line 2	Gitksan	segmentation	mahl-T-i-t=s Mark a-t=hl gimxdi-t dim wil saa daa’whl-t g̲o’o-t=hl	page 8
+footnote 8 (ia) line 3	Gitksan	gloss	tell-T-tr-3.ii=dn Mark prep-3.ii=cn cross.sibling-3.ii prosp comp away leave-3.ii loc-3.ii=cn	page 8
+footnote 8 (ia) line 4	Gitksan	transcription	lax̲mo’on.	page 8
+footnote 8 (ia) line 5	Gitksan	segmentation	lax-mo’on	page 8
+footnote 8 (ia) line 6	Gitksan	gloss	on-salt	page 8
+footnote 8 (ia) line 7	Clarissa Forbes	translation	‘Mark told his sister that he would leave to go to the coast.’	page 8
+footnote 8 (ib) line 1	Gitksan	transcription	Mahlis Mark dim wil saa daa’whlt...	page 8
+footnote 8 (ib) line 2	Gitksan	segmentation	mahl-i-t=s Mark dim wil saa daa’whl-t	page 8
+footnote 8 (ib) line 3	Gitksan	gloss	tell-T-tr-3.ii=dn Mark prosp comp away leave-3.ii	page 8
+footnote 8 (ib) line 4	Clarissa Forbes	translation	‘Mark said he would leave...’	page 8
+footnote 8 (ib) line 5	Clarissa Forbes	citation	(Peterson 2019:5)	page 8, the tag or source at the right of the translation
+footnote 8	Clarissa Forbes	note	However, I have been unable to replicate this alternation with the speakers I work with; as illustrated in (9a), the morpheme -T is used regardless of the presence of an oblique. It is possible this indicates a divergence or development in the meaning or usage of -T; in §5.2 I suggest that -T contributes some kind of complexity in the structure of events with respect to a figure/ground relation, even if it does not directly act as an applicative by introducing an argument or oblique.	page 8, footnote 8
+§2.2.4	Clarissa Forbes	heading	2.2.4 -in	page 9
+§2.2.4	Clarissa Forbes	note	The morpheme -in is strictly a causative; Belvin (1997) reports that it contributes event causation. This morpheme is used both with roots that appear bare as intransitives (12), and with roots that take the -xw morpheme in order to surface as intransitives (12).	page 9
+(12a) line 1	Gitksan	transcription	Buxwhl maaxws lax̲ sg̲a’nist.	page 9
+(12a) line 2	Gitksan	segmentation	buxw=hl maaxws lax̲ sg̲a’nist	page 9
+(12a) line 3	Gitksan	gloss	spread.in.air=cn snow on mountain	page 9
+(12a) line 4	Clarissa Forbes	translation	‘Snow blew on the mountaintop.’	page 9
+(12a) line 5	Clarissa Forbes	citation	(VG)	page 9, the tag or source at the right of the translation
+(12b) line 1	Gitksan	transcription	Buxwinthl maaxws.	page 9
+(12b) line 2	Gitksan	segmentation	buxw-in-i-t=hl maaxws	page 9
+(12b) line 3	Gitksan	gloss	spread.in.air-caus-tr-3.ii=cn snow	page 9
+(12b) line 4	Clarissa Forbes	translation	‘He’s blowing the snow.’	page 9
+(12b) line 5	Clarissa Forbes	note	(with a snowblower)	page 9, at the right of the translation
+(12b) line 6	Clarissa Forbes	citation	(VG)	page 9, the tag or source at the right of the translation
+(13a) line 1	Gitksan	transcription	Dim ii mitxwhl g̲alts’ap tun ahl aks.	page 9
+(13a) line 2	Gitksan	segmentation	dim ii mit-xw-t=hl g̲alts’ap t=xwin a-t=hl aks	page 9
+(13a) line 3	Gitksan	gloss	prosp and fill-nact-3.ii=cn village dn=dem.prox prep-3.ii=cn water	page 9
+(13a) line 4	Clarissa Forbes	translation	‘And this village will fill up with water.’	page 9
+(13a) line 5	Clarissa Forbes	citation	(BS)	page 9, the tag or source at the right of the translation
+(13b) line 1	Gitksan	transcription	G̲aniwilat luu midinhl ts’ak’t.	page 9
+(13b) line 2	Gitksan	segmentation	g̲ani-wila=t luu mit-in-t=hl ts’ak’-t	page 9
+(13b) line 3	Gitksan	gloss	continually-manr=3.i in fill-caus-3.ii=cn bowl-3.ii	page 9
+(13b) line 4	Clarissa Forbes	translation	‘And he kept refilling his bowl.’	page 9
+(13b) line 5	Clarissa Forbes	citation	(BS)	page 9, the tag or source at the right of the translation
+§2.2.4	Clarissa Forbes	note	Although Rigsby (1986:341) reports that this morpheme conveys causation “by one’s own hand or action”, it has a secondary use as a causative which derives experiencer predicates from adjectives (Belvin 1997; Tarpent 1987). These cases, illustrated in (14), do not involve direct action, but instead describe a mental state of the external argument.	page 9
+(14a) line 1	Gitksan	transcription	Asgihl sg̲abihlee’ediit.	page 9
+(14a) line 2	Gitksan	segmentation	asgi=hl sg̲a-bahl-ee’e-diit	page 9
+(14a) line 3	Gitksan	gloss	ugly=cn blocking-spread-antip-3pl.ii	page 9
+(14a) line 4	Clarissa Forbes	translation	‘Their curtains are ugly.’	page 9
+(14b) line 1	Gitksan	transcription	Asgidini’yhl sg̲abihlee’e.	page 9
+(14b) line 2	Gitksan	segmentation	asgi-in-i-’y=hl sg̲a-bahl-ee’e	page 9
+(14b) line 3	Gitksan	gloss	ugly-caus-tr-1sg.ii=cn blocking-spread-antip	page 9
+(14b) line 4	Clarissa Forbes	translation	‘I didn’t like the curtains.’	page 9
+(14b) line 5	Clarissa Forbes	note	(Not ‘Ifind the curtains ugly.’)	page 9, at the right of the translation
+(14b) line 6	Clarissa Forbes	citation	(HH)	page 9, the tag or source at the right of the translation
+§2.2.4	Clarissa Forbes	note	It is unclear whether these two uses should be treated distinctly, or if an analysis of -in can derive both with the same semantics.	page 9
+§2.2.5	Clarissa Forbes	heading	2.2.5 di-	page 9
+§2.2.5	Clarissa Forbes	note	This prefix is a relatively productive transitivizer. It is most frequently used with verbs that convey directional events. Most verbs of motion are able to use it to form a comitative transitive construc- tion, as illustrated in (15), where the external argument accompanies an internal argument in the moving event.	page 9
+(15a) line 1	Gitksan	transcription	Dim yeet g̲a’ahl Gitsegukla.	page 10
+(15a) line 2	Gitksan	segmentation	dim yee-t g̲a’a-t=hl Gitsegukla	page 10
+(15a) line 3	Gitksan	gloss	prosp go-3.ii loc-3.ii=cn Gitsegukla	page 10
+(15a) line 4	Clarissa Forbes	translation	‘He is going to Gitsegukla.’	page 10
+(15a) line 5	Clarissa Forbes	citation	(HH)	page 10, the tag or source at the right of the translation
+(15b) line 1	Gitksan	transcription	Woy ii dip diyeet g̲o’ohl jayn dipun...	page 10
+(15b) line 2	Gitksan	segmentation	woy ii dip di-yee-t g̲o’o-t=hl jayn dip=xwin	page 10
+(15b) line 3	Gitksan	gloss	so and 1pl.i com-go-3.ii loc-3.ii=cn Chinese assoc=dem.prox	page 10
+(15b) line 4	Clarissa Forbes	translation	‘And we went to the Chinese... (to sell it)’	page 10
+(15b) line 5	Clarissa Forbes	translation	Lit: ‘And we took it to the Chinese/went to the Chinese with it’	page 10
+(15b) line 6	Clarissa Forbes	citation	(VG)	page 10, the tag or source at the right of the translation
+§2.2.5	Clarissa Forbes	note	The prefix is not used exclusively with verbs of motion. As noted by Rigsby (1989:344), some other examples include dimootxw ‘save, cure’ (from mootxw ‘heal, be healthy’) and didalk̲ ‘talk to’ (from dalk̲ ‘speak’). However, these predicates still seem to be directional, or asymmetric. Tarpent (1987:552) further notes an additional use, wherein a clausal argument can appear as the transitive object, creating a while-phrase interpretation. This use is also available in Gitksan, as illustrated in (16), although the speaker who provided this example (VG) notes it as being old language from the feast hall.9	page 10
+footnote 9	Clarissa Forbes	note	Another speaker (HH) translates these constructions with a nominalized object clauses, e.g. ‘She cried her song’, rather than a while phrase. Further investigation is required to determine the nature of the object ‘clause’ in this construction, including whether it is still robustly used.	page 10, footnote 9
+§2.2.5	Gitksan	cited form	dimootxw	page 10, in italics, ‘save, cure’
+§2.2.5	Gitksan	cited form	mootxw	page 10, in italics, ‘heal, be healthy’
+§2.2.5	Gitksan	cited form	didalk̲	page 10, in italics, ‘talk to’
+§2.2.5	Gitksan	cited form	dalk̲	page 10, in italics, ‘speak’
+(16) line 1	Gitksan	transcription	Di’wiiyitxwithl limixt.	page 10
+(16) line 2	Gitksan	segmentation	di-’wiiyitxw-i-t=hl limx-t	page 10
+(16) line 3	Gitksan	gloss	com-cry-tr-3.ii=cn song-3.ii	page 10
+(16) line 4	Clarissa Forbes	translation	‘S/he cried while singing.’	page 10
+(16) line 5	Clarissa Forbes	citation	(VG)	page 10, the tag or source at the right of the translation
+§2.2.5	Clarissa Forbes	note	A possible analysis of this morpheme is perhaps then as some sort of applicative, perhaps a comitative applicative. In a typical case like (15), an object is introduced as the internal argument, and accompanies the subject through a directional action. In the older while-phrase case like (16), a (possibly-reduced) clause is introduced as the internal argument, and receives a simultaneity reading.	page 10
+§2.2.6	Clarissa Forbes	heading	2.2.6 sil	page 10
+§2.2.6	Clarissa Forbes	note	While the transitivizers discussed have been classed as verbal prefixes and suffixes, the following two are of a slightly different morphological class: preverbals which do not always prosodically attach to the root. They have quite productive meanings, and can be used with a variety of roots.	page 10
+§2.2.6	Clarissa Forbes	note	The preverb sil, sometimes used in conjunction with the distributive marker g̲a-, is a comitative. Like the morpheme di-, discussed above, sil is able to transitivize an intransitive predicate by intro- ducing a second argument which performs the action or is subject to the state “along with” the first, as illustrated in (17) and (18). Unlike di-, events which involve sil need not be directional. Note that an adverb intervenes between sil and the verb root.	page 10
+§2.2.6	Gitksan	cited form	sil	page 10, in italics
+§2.2.6	Gitksan	cited form	g̲a-	page 10, in italics
+(17) line 1	Gitksan	transcription	Yukw na sil sa’ap yeehl ansiip’insxwi’y.	page 11
+(17) line 2	Gitksan	segmentation	yukw na sil sa’ap yee-t=hl an-siip-in-asxw-’y	page 11
+(17) line 3	Gitksan	gloss	ipfv 1.i com without.purpose go-3.ii=cn nmlz-ache-caus-antip-1sg.ii	page 11
+(17) line 4	Clarissa Forbes	translation	‘I am walking with my friend.’	page 11
+(17) line 5	Clarissa Forbes	citation	(BS)	page 11, the tag or source at the right of the translation
+(18) line 1	Gitksan	transcription	Sil g̲asg̲ootxwit.	page 11
+(18) line 2	Gitksan	segmentation	sil g̲a-sg̲oo-xw-i-t	page 11
+(18) line 3	Gitksan	gloss	com distr-amount.mass-nact-tr-3.ii	page 11
+(18) line 4	Clarissa Forbes	translation	‘S/he is the same size (or shape) as him/her.’	page 11
+(18) line 5	Clarissa Forbes	citation	(Rigsby 1986:347)	page 11, the tag or source at the right of the translation
+§2.2.6	Clarissa Forbes	note	The use of sil does not obligatorily transitivize a root; it can also be used with intransitive pred- icates taking plural arguments, as in (19).	page 11
+(19) line 1	Gitksan	transcription	Silg̲a ama’mast Sue g̲ans Mary.	page 11
+(19) line 2	Gitksan	segmentation	sil-g̲a ama-’mas=t Sue g̲an-t=s Mary	page 11
+(19) line 3	Gitksan	gloss	com-distr well-grow=dn Sue and-3.ii=dn Mary	page 11
+(19) line 4	Clarissa Forbes	translation	Prompt: ‘Sue is as pretty as Mary.’	page 11
+(19) line 5	Clarissa Forbes	translation	Lit: ‘Sue and Mary are both pretty.’	page 11
+(19) line 6	Clarissa Forbes	citation	(VG)	page 11, the tag or source at the right of the translation
+§2.2.6	Clarissa Forbes	note	The precise contribution of sil with respect to syntactic transitivization is then somewhat unclear.	page 11
+§2.2.7	Clarissa Forbes	heading	2.2.7 gun	page 11
+§2.2.7	Clarissa Forbes	note	This well-studied preverb is known as an indirect causative which provides the typical meaning of ‘make someone do X’, or also ‘tell someone to X’ (Belvin 1997; Peterson 2006; Rigsby 1986). It can be added to an intransitive to create a simple transitive predicate, as in (20b).	page 11
+(20a) line 1	Gitksan	transcription	Ts’inhl hanak̲’.	page 11
+(20a) line 2	Gitksan	segmentation	ts’in=hl hanak̲’	page 11
+(20a) line 3	Gitksan	gloss	enter=cn woman	page 11
+(20a) line 4	Clarissa Forbes	translation	‘The woman came in.’	page 11
+(20b) line 1	Gitksan	transcription	Gwints’inis Gwenhl hanak̲’.	page 11
+(20b) line 2	Gitksan	segmentation	gun-ts’in-i-t=s Gwen=hl hanak̲’	page 11
+(20b) line 3	Gitksan	gloss	caus-enter-tr-3.ii=dn Gwen=cn woman	page 11
+(20b) line 4	Clarissa Forbes	translation	‘Gwen had the woman come in.’	page 11
+(20b) line 5	Clarissa Forbes	citation	(Peterson 2007:10)	page 11, the tag or source at the right of the translation
+§2.2.7	Clarissa Forbes	note	Gun can also be added to transitive predicates, in which case the -T suffix will also be triggered on the predicate. The original subject may or may not be present as an oblique, following the theme direct object.	page 11
+§2.2.7	Gitksan	cited form	Gun	page 11, in italics
+(21a) line 1	Gitksan	transcription	T’amis Billhl ha’niilitsx̲xw siwatdihl...	page 11
+(21a) line 2	Gitksan	segmentation	t’am-i-t=s Bill=hl ha-’nii-litsx̲-xw si-wa-t-i-t=hl	page 11
+(21a) line 3	Gitksan	gloss	write-tr-3.ii=dn Bill=cn ins-on-read-nact caus-name-T-tr-3.ii=cn	page 11
+(21a) line 4	Clarissa Forbes	translation	‘Bill was writing a book called ...’	page 11
+(21a) line 5	Clarissa Forbes	citation	(VG)	page 11, the tag or source at the right of the translation
+(21b) line 1	Gitksan	transcription	Gun t’amdi’yhl letter aloos Barbara.	page 12
+(21b) line 2	Gitksan	segmentation	gun t’am-T-i-’y=hl letter a-loo-t=s Barbara	page 12
+(21b) line 3	Gitksan	gloss	caus write-T-tr-1sg.ii=cn letter prep-obl-3.ii=dn Barbara	page 12
+(21b) line 4	Clarissa Forbes	translation	‘I told Barbara to write a letter.’	page 12
+(21b) line 5	Clarissa Forbes	translation	‘I had Barbara write a letter.’	page 12
+(21b) line 6	Clarissa Forbes	citation	(Rigsby 1986:349)	page 12, the tag or source at the right of the translation
+§2.2.7	Clarissa Forbes	note	This morpheme is quite productive, and may combine with any predicate where the existing subject acts with volition. It may combine with transitive and unergative predicates, but not unac- cusative predicates, which lack volitional subjects.	page 12
+§2.2.8	Clarissa Forbes	heading	2.2.8 Labile alternations	page 12
+§2.2.8	Clarissa Forbes	note	Finally, as in most languages of the world, Gitksan has a number of labile roots which can appear morphologically bare either as intransitives or transitives. No affixes are required for either inter- pretation, as demonstrated in (22).	page 12
+(22a) line 1	Gitksan	transcription	Duxwt’akwhl anlip’insxwi’y.	page 12
+(22a) line 2	Gitksan	segmentation	CVC∼t’akw=hl an-lip-in-asxw-’y	page 12
+(22a) line 3	Gitksan	gloss	pl∼twist=cn nmlz-sew-caus-antip-1sg.ii	page 12
+(22a) line 4	Clarissa Forbes	translation	‘My thread twisted (many times).’	page 12
+(22a) line 5	Clarissa Forbes	citation	(Hunt 1993:158)	page 12, the tag or source at the right of the translation
+(22b) line 1	Gitksan	transcription	Ii daayimaahl wili’y g̲an wina sg̲at’akwhl aats’ip.	page 12
+(22b) line 2	Gitksan	segmentation	ii daa=imaa=hl wil-’y g̲an wil=na sg̲a-t’akw-t=hl aats’ip	page 12
+(22b) line 3	Gitksan	gloss	and spt=epis=cn do-1sg.ii reason do=1.i block.way-twist-3.ii=cn door	page 12
+(22b) line 4	Clarissa Forbes	translation	‘And I don’t know why I locked the door.’	page 12
+(22b) line 5	Clarissa Forbes	citation	(BS)	page 12, the tag or source at the right of the translation
+§2.2.8	Clarissa Forbes	note	The availability of a zero-strategy for transitivization is not particularly surprising, but serves as a reminder that not all structure can be detected through overt morphology.	page 12
+§3	Clarissa Forbes	heading	3 Theoretical context	page 12
+§3	Clarissa Forbes	note	The split-V hypothesis, under which verbs are decomposed into distinct syntactic and semantic lev- els, has been proposed by multiple authors on the basis of a variety of facts (Hale and Keyser 1993a; Kratzer 1996; Larson 1988). It became particularly necessary after the general adoption of the VP- internal subject hypothesis, a structure which more broadly allows for the derivation of VSO word orders. If the external argument is introduced within the VP, then there are only two VP-internal ar- gument positions, as demonstrated in (23). Assuming the binary branching hypothesis, also widely adopted at the time, a single V projection is unable to accommodate the properties of ditransitive verbs and applicatives, which involve multiple internal arguments. A verb phrase broken into mul- tiple projections is able to do so, as illustrated in (24).	page 12
+§3	Clarissa Forbes	name	Hale	Kenneth Hale; Hale and Keyser (1993a, 1993b)
+§3	Clarissa Forbes	name	Keyser	Samuel Jay Keyser; Hale and Keyser (1993a, 1993b)
+§3	Clarissa Forbes	name	Larson	Richard Larson, the double object construction (1988)
+§3	Clarissa Forbes	name	Kratzer	Angelika Kratzer, severing the external argument (1996)
+§3	Clarissa Forbes	name	Key	Gregory Key, the Turkish causative (2013)
+(23) line 1	Clarissa Forbes	note	VP (24) vP	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+(23) line 2	Clarissa Forbes	note	EA V′ EA v′	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+(23) line 3	Clarissa Forbes	note	V IA	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+(23) line 4	Clarissa Forbes	note	v VP	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+(23) line 5	Clarissa Forbes	note	(IA2) V′	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+(23) line 6	Clarissa Forbes	note	V IA	page 13, the trees (23) and (24) side by side, a line of the tree as the glyph rows read it
+§3	Clarissa Forbes	note	A split VP furthermore reflects properties that crosslinguistically differentiate internal and external arguments, such as the common exclusion of external arguments from idioms. These properties previously received a natural explanation when the base position of the external argument was in TP/IP.	page 13
+§3	Clarissa Forbes	note	Distributed Morphology in particular assumes that the lower of the two projections in the verb is a category neutral Root which provides encyclopedic lexical content guiding the interpretation of the rest of the structure. The Root typically introduces the internal argument as its complement. The higher of the projections is v, which in the simplest possible structure introduces the external argument. A transitive structure would therefore have the structure in (25).	page 13
+(25) line 1	Clarissa Forbes	note	vP	page 13, a line of the tree as the glyph rows read it
+(25) line 2	Clarissa Forbes	note	EA v′	page 13, a line of the tree as the glyph rows read it
+(25) line 3	Clarissa Forbes	note	v √P	page 13, a line of the tree as the glyph rows read it
+(25) line 4	Clarissa Forbes	note	√root IA	page 13, a line of the tree as the glyph rows read it
+§3	Clarissa Forbes	note	The v projection is responsible for a number of discrete operations besides external argument introduction (Harley 2017). It verbalizes the √P, neccesitating that subsequent structure be ver- bal/clausal; alternately a little n head can nominalize √P, producing complex nominalizations like the growth of the flower from √grow and its internal argument the flower. The head v can also causativize the Root, adding such possible semantics as causation, agency, or volition. A root like √eat is interpreted agentively both in transitives like Jane ate salmon and passive intransitives like Salmon was eaten. Finally, v also assigns case in transitives, or is responsible for agreement; clas- sically, a transitive v is responsible for accusative case assignment, deriving the tight relationship between the presence of an external argument and accusative case on the internal argument, both of which are lacking in passives (Burzio’s Generalization: Burzio 1986; Kratzer 1996). It has also been argued that v engages in ergative agreement or case assignment with the external argument in ergative/absolutive languages (e.g. Coon 2017; Woolford 1997, 2006).	page 13
+§3	Clarissa Forbes	name	Burzio	Luigi Burzio, Italian syntax (1986)
+§3	Clarissa Forbes	name	Coon	Jessica Coon, little-v agreement in Ch’ol (2017)
+§3	Clarissa Forbes	name	Woolford	Ellen Woolford (1997, 2006)
+§3	Clarissa Forbes	note	In examining an individual verb, then, from the syntactic perspective it is expected that the verb can be decomposed into multiple pieces: verbal structures, and particularly transitive verbs, are inherently structurally complex (that is, all predicates are ‘complex predicates’). Distributed Mor- phology also provides the additional assumption that individual terminal nodes in syntactic structure are associated with discrete morphemes. These two ideas coupled together lead to the natural pre- diction that structurally complex verbs will often be morphologically complex.	page 13
+§3	Clarissa Forbes	note	This presents a guiding framework for the investigation of morphologically complex verbs. When faced with different morphological transitivizers, there are several possibilities to explore. Different morphological forms might be associated with different ‘flavors’ of v with distinct seman- tic properties; for example, Folli and Harley (2007) discuss the distinction between vCA USE and vDO in Romance faire-causatives, both of which introduce causation in the event but only the latter of which requires volition and agency on the part of the external argument causer.	page 14
+§3	Clarissa Forbes	name	Folli	Raffaella Folli; Folli and Harley (2007, 2008)
+§3	Clarissa Forbes	note	Another possibility when faced with multiple morphological transitivizers is allomorphy. The same underlying instance of v might contribute the same syntactic and semantic information, but have distinct allomorphs conditioned on the basis of the Root that they attach to; some examples are given in (26). Harley (2008) argues that lexical causation in Japanese is reflected by distinct allo- morphs for different Roots, as illustrated in (26). Roots which do not demand a specific allomorph of this low causative head use the default morpheme, -(s)ase, also used in productive causatives.	page 14
+§3	Japanese	cited form	-(s)ase	page 14, in italics
+§3	Clarissa Forbes	language	Japanese	lexical causatives with distinct allomorphs (Harley 2008)
+(26) line 1	Clarissa Forbes	note	Root Intransitive Transitive Gloss	page 14, the column heads
+(26) line 2	Japanese	cited form	hag	page 14, the root of ‘peel off’
+(26) line 2	Japanese	cited form	hag-e-ru	page 14, the intransitive of ‘peel off’
+(26) line 2	Japanese	cited form	hag-u	page 14, the transitive of ‘peel off’
+(26) line 2	Clarissa Forbes	note	‘peel off’	page 14, the gloss of the row of hag
+(26) line 3	Japanese	cited form	ak	page 14, the root of ‘open’
+(26) line 3	Japanese	cited form	ak-u	page 14, the intransitive of ‘open’
+(26) line 3	Japanese	cited form	ak-e-ru	page 14, the transitive of ‘open’
+(26) line 3	Clarissa Forbes	note	‘open’	page 14, the gloss of the row of ak
+(26) line 4	Japanese	cited form	ag	page 14, the root of ‘rise’
+(26) line 4	Japanese	cited form	ag-a-ru	page 14, the intransitive of ‘rise’
+(26) line 4	Japanese	cited form	ag-e-ru	page 14, the transitive of ‘rise’
+(26) line 4	Clarissa Forbes	note	‘rise’	page 14, the gloss of the row of ag
+(26) line 5	Japanese	cited form	hasam	page 14, the root of ‘catch between’
+(26) line 5	Japanese	cited form	hasam-ar-u	page 14, the intransitive of ‘catch between’
+(26) line 5	Japanese	cited form	hasam-u	page 14, the transitive of ‘catch between’
+(26) line 5	Clarissa Forbes	note	‘catch between’	page 14, the gloss of the row of hasam
+(26) line 6	Japanese	cited form	hana	page 14, the root of ‘separate from’
+(26) line 6	Japanese	cited form	hana-re-ru	page 14, the intransitive of ‘separate from’
+(26) line 6	Japanese	cited form	hana-s-u	page 14, the transitive of ‘separate from’
+(26) line 6	Clarissa Forbes	note	‘separate from’	page 14, the gloss of the row of hana
+(26) line 7	Japanese	cited form	ka	page 14, the root of ‘borrow/lend’
+(26) line 7	Japanese	cited form	ka-ri-ru	page 14, the intransitive of ‘borrow/lend’
+(26) line 7	Japanese	cited form	ka-s-u	page 14, the transitive of ‘borrow/lend’
+(26) line 7	Clarissa Forbes	note	‘borrow/lend’	page 14, the gloss of the row of ka
+(26) line 8	Japanese	cited form	hekom	page 14, the root of ‘dent’
+(26) line 8	Japanese	cited form	hekom-u	page 14, the intransitive of ‘dent’
+(26) line 8	Japanese	cited form	hekom-as-u	page 14, the transitive of ‘dent’
+(26) line 8	Clarissa Forbes	note	‘dent’	page 14, the gloss of the row of hekom
+(26) line 9	Japanese	cited form	bar	page 14, the root of ‘come/bring to light’
+(26) line 9	Japanese	cited form	bar-e-ru	page 14, the intransitive of ‘come/bring to light’
+(26) line 9	Japanese	cited form	bar-as-u	page 14, the transitive of ‘come/bring to light’
+(26) line 9	Clarissa Forbes	note	‘come/bring to light’	page 14, the gloss of the row of bar
+(26) line 10	Japanese	cited form	ak	page 14, the root of ‘tire’
+(26) line 10	Japanese	cited form	ak-i-ru	page 14, the intransitive of ‘tire’
+(26) line 10	Japanese	cited form	ak-as-u	page 14, the transitive of ‘tire’
+(26) line 10	Clarissa Forbes	note	‘tire’	page 14, the gloss of the row of ak
+(26) line 11	Japanese	cited form	obi	page 14, the root of ‘take fright/frighten’
+(26) line 11	Japanese	cited form	obi-e-ru	page 14, the intransitive of ‘take fright/frighten’
+(26) line 11	Japanese	cited form	obi-(y)akas-u	page 14, the transitive of ‘take fright/frighten’
+(26) line 11	Clarissa Forbes	note	‘take fright/frighten’	page 14, the gloss of the row of obi
+(26) line 12	Japanese	cited form	wak	page 14, the root of ‘divide’
+(26) line 12	Japanese	cited form	wak-are-ru	page 14, the intransitive of ‘divide’
+(26) line 12	Japanese	cited form	wak-e-ru	page 14, the transitive of ‘divide’
+(26) line 12	Clarissa Forbes	note	‘divide’	page 14, the gloss of the row of wak
+(26) line 13	Clarissa Forbes	citation	Japanese (Harley 2008:13–14)	page 14, under the table
+§3	Clarissa Forbes	note	A final possibility is that differences in the form of transitivizers can be attributed to a dif- ference in syntactic function and/or category. Applicatives, which may transitivize a predicate by introducing additional internal arguments, are typically represented with a distinct category Appl.10 In addition, Pylkkänen (2002) proposes that the aforementioned functions of v are distributed in some languages across two projections: v and Voice. In the remaining sections, I argue that the dis- tinction drawn in Gitksan between transitivizing morphology and transitive inflection is a reflection of precisely this property. I propose that Gitksan is a language where semantic and formal transitiv- ity are split across the heads v and Voice. Transitive inflection such as the transitive vowel discussed in §2.1 is a realization of Voice; the seven transitivizers discussed in §2.2 are possible realizations of v. I argue that none of these transitivizers are in an obvious allomorphic relation to one another; all seem to contribute distinct semantics.	page 14
+footnote 10	Clarissa Forbes	note	In addition, Key (2013) proposes that differences in the form and function of some causatives in Turkish are better accounted for by distinguishing the multifunctional projection vCA US from a non-iterable projection Caus. With this distinction, he draws a crisp picture of Turkish causative morphology and spellout through reference to the two possible heads vCA US versus Caus. One might assume a similar possibility for applicatives: the insertion of internal arguments might be conducted by morphemes of the category Appl or a specific flavor of vAPPL.	page 14, footnote 10
+footnote 10	Clarissa Forbes	language	Turkish	an iterated causative (Key 2013)
+§3	Clarissa Forbes	name	Pylkkänen	Liina Pylkkänen, introducing arguments (2002)
+§4	Clarissa Forbes	heading	4 On Voice: A split vP/VoiceP	page 15
+§4	Clarissa Forbes	note	Assuming that languages vary parametrically in whether formal transitivity is composed across a single head (v) or two heads (v and Voice), there are two possible structures for transitive verbs, crosslinguistically. These are illustrated in (27).	page 15
+(27) line 1	Clarissa Forbes	note	a. Bundled vP b. Split vP	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 2	Clarissa Forbes	note	vP VoiceP	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 3	Clarissa Forbes	note	EA v′ EA Voice′	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 4	Clarissa Forbes	note	v √P Voice vP	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 5	Clarissa Forbes	note	√root IA	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 6	Clarissa Forbes	note	v √P	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+(27) line 7	Clarissa Forbes	note	√root IA	page 15, the trees (27a) and (27b) side by side, a line of the tree as the glyph rows read it
+§4	Clarissa Forbes	note	In so-called ‘bundled-vP’ languages, represented by the tree in (27a), semantic causation, agentivity and the merge of the external argument are conducted by the same head, v. In so-called ‘split-vP’ languages, represented by the tree in (24), v is a projection responsible for the semantic composition and verbal character of the predicate, including the introduction of causation and agentivity. (It is generally assumed that v projections may iterate.) Voice is a strictly non-iterable projection that selects vP as its complement, merges the external argument in its specifier, and assigns transitive case (acc and/or erg).	page 15
+§4	Clarissa Forbes	note	Bundled vP languages consequently have a very tight relationship between the use of a tran- sitivizer or causative (v) and the appearance of the external argument. In split-vP languages, this relation is more indirect; transitivizers or causatives may be used (v), but Voice is the locus of syn- tactic transitivity. Passive constructions provide a diagnostic for differentiating the two types of language, because they involve the addition of agentive or causative semantics even in the absence of syntactic transitivity.	page 15
+§4	Clarissa Forbes	note	In Distributed Morphology, for a bundled-vP language, a passive structure involves a causative v which does not merge an external argument, as illustrated in (28). The existence of the causer can be inferred and retrieved from the causative semantics of v. Crucially, this might be morphologically instantiated by a causative morpheme, or an intransitive/passive morpheme, but not both.	page 15
+(28) line 1	Clarissa Forbes	note	vP	page 15, a line of the tree as the glyph rows read it
+(28) line 2	Clarissa Forbes	note	vcaus,intr √P	page 15, a line of the tree as the glyph rows read it
+(28) line 3	Clarissa Forbes	note	√root IA	page 15, a line of the tree as the glyph rows read it
+§4	Clarissa Forbes	note	In a split-vP language, passivization (like transitivization) proceeds in two distinct steps: v in- troduces causative semantics and agentivity, and intransitive Voice does not merge an external argu- ment, as illustrated in (29). Each of these steps can be morphologically instantiated: v as a causative morpheme, and Voice as a passive. Split languages can therefore be diagnosed where intransitive or passivizing morphology stacks outside an overt morphological causative or transitivizer.	page 15
+(29) line 1	Clarissa Forbes	note	VoiceP	page 16, a line of the tree as the glyph rows read it
+(29) line 2	Clarissa Forbes	note	Voiceintr vP	page 16, a line of the tree as the glyph rows read it
+(29) line 3	Clarissa Forbes	note	vcaus √P	page 16, a line of the tree as the glyph rows read it
+(29) line 4	Clarissa Forbes	note	√root IA	page 16, a line of the tree as the glyph rows read it
+§4	Clarissa Forbes	note	One crucial assumption of the Distributed Morphology framework is monotonicity: syntactic structure only adds material; it cannot delete it. This means that transitive structures can be built upon non-transitive ones, but non-transitive structures cannot be built from transitive ones. Once a DP has been added to a structure, there is no way for it to be deleted. In languages where causative morphology appears inside of the passive morpheme, it cannot be the case that the projection host- ing the causative morpheme is the point where the causer DP is merged, because that DP would subsequently have to be deleted in order for the construction to be passivized.	page 16
+§4	Clarissa Forbes	note	In Gitksan, we find that causative and passive morphology can be stacked, in the manner ex- pected of split-vP languages. Overtly causative verbs like jiks-in ‘wet, moisten’ can be used as transitives as in (30), or be morphologically passivized with -xw as in (31).11	page 16
+footnote 11	Clarissa Forbes	note	It has been noted that Gitksan does not have a ‘syntactic’ passive, in the sense that the external argument is suppressed or realized in a PP and the internal argument is promoted to subject position (Hunt 1993:68; Rigsby 1986:334). The lack of internal argument promotion is incidental to the analysis of -xw here as a passive morpheme or realization of Voice. Promotion of arguments to ‘grammatical subject’ position is governed by properties of T/Infl, not by Voice; there is no obvious evidence for a grammatical subject position at the T/Infl level in Gitksan, or other types of A-movement. It is also uncommon for the Gitksan passive agent to be expressed, even as an oblique PP, but this is again incidental, given that passive by-phrases are not taken to be derivationally connected to the absence of the external argument. Instead they are simply adjuncts.	page 16, footnote 11
+§4	Gitksan	cited form	jiks-in	page 16, in italics, ‘wet, moisten’
+(30) line 1	Gitksan	transcription	Hliwaay’ildiithl bilaas g̲anhl aks iit jiksindiithl ’yens...	page 16
+(30) line 2	Gitksan	segmentation	hliwaax-’l-diit=hl bilaas g̲an-t=hl aks ii=t jiks-in-diit=hl ’yens	page 16
+(30) line 3	Gitksan	gloss	mix-compl-3pl.ii=cn syrup and-3.ii=cn water and=3.i wet-caus-3pl.ii=cn leaf	page 16
+(30) line 4	Clarissa Forbes	translation	‘They stir together the syrup and water and they wet the thimbleberry leaves...’	page 16
+(30) line 5	Clarissa Forbes	citation	(VG)	page 16, the tag or source at the right of the translation
+(31) line 1	Gitksan	transcription	Huxwdii jiksintxwhl ksuu’w.	page 16
+(31) line 2	Gitksan	segmentation	huxw=dii jiks-in-xw-t=hl ksuu’w	page 16
+(31) line 3	Gitksan	gloss	also=foc wet-caus-nact-3.ii=cn hemlock.bark	page 16
+(31) line 4	Clarissa Forbes	translation	‘The ksuu’w (hemlock inner bark) is also moistened.’	page 16
+(31) line 5	Clarissa Forbes	citation	(VG)	page 16, the tag or source at the right of the translation
+§4	Clarissa Forbes	note	This is consistent with an analysis of Gitksan as a split-vP language. I consequently propose the following structures: a transitive construction like (30) can be represented with a causative v -in, topped by a transitive Voice head which merges the external argument, as in (32), while a passivized construction like (31) can be represented with the same causative v topped by an intransitive Voice head, as in (33).	page 16
+(32) line 1	Clarissa Forbes	note	Transitive: ‘=t jiksindiithl ’yens’ (30) (33) Passive: ‘jiksintxwhl ksuu’w’ (31)	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 2	Clarissa Forbes	note	VoiceP VoiceP	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 3	Clarissa Forbes	note	DPEA Voice′ Voiceintr vP	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 4	Clarissa Forbes	note	pro3pl Voicetr vP -xw vcaus √P	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 5	Clarissa Forbes	note	vcaus √P -in √jiks DPIA	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 6	Clarissa Forbes	note	-in √jiks DPIA =hl ksuu’w	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+(32) line 7	Clarissa Forbes	note	=hl ’yens	page 17, the trees (32) and (33) side by side, a line of the tree as the glyph rows read it
+§4	Clarissa Forbes	note	The use of the causative morpheme -in does not correlate directly to the merge of the external ar- gument DP. What instead correlates to external argument merge and grammatical transitivity is, in independent clauses, the transitive vowel, and in dependent clauses, ergative clitics, as stated in §2.	page 17
+§4	Clarissa Forbes	note	I propose the following possible instantiations of Voice. For intransitives, Voice is typically zero; in passives it is the morpheme -xw. The instantiation of transitive Voice varies based on clause type. In independent clauses, the inflectional transitive vowel marks transitive Voice; in dependent clauses the ergative clitics mark transitive Voice—specifically, agreement that transitive Voice un- dergoes with the ergative subject, presumably through spec-head agreement (Coon 2017; Woolford 1997, 2006). This aligns with the intuitions of earlier analyses where the transitive vowel was di- rectly glossed as ‘ergative case’, even though it is part of the verbal complex (Hunt 1993; Jelinek 1986); in both clause types, these morphemes have the tightest relation to an ergative DP.12 Forbes (2018) presents some discussion on implementing the difference between the two clause types; there I suggest that in independent clauses, ergative agreement features are transfered to a higher head (where Series II suffixal agreement takes place), and transitive Voice is consequently impoverished. The Series II suffixes shift to an ergative pattern, and the impoverished transitive Voice is realized as the transitive vowel.	page 17
+footnote 12	Clarissa Forbes	note	Hunt (1993) proposed a TransitiveP (TrP) to host these morphemes; in her analysis, the transitive vowel is located in the head of TrP while the Series I ergative clitics are located in the specifier. The Voice projection I propose here is essentially a combination of Hunt’s TrP (locus of transitive vowel and ergative agreement) and higher VP (where the external argument is merged), motivated by the crosslinguistic literature on VoiceP. In this Voice analysis, the external argument is merged in spec-Voice, and the head of Voice conducts ergative agreement and may be spelled out as ergative clitics or the transitive vowel.	page 17, footnote 12
+§4	Clarissa Forbes	name	Jelinek	Eloise Jelinek, the ergativity hypothesis in Nisgha (1986)
+§4	Clarissa Forbes	name	Forbes	Clarissa Forbes, the author (2018)
+§4	Clarissa Forbes	note	To summarize, I have proposed that morphological transitivity in Gitksan is distributed across two projections: v, for verbalization and semantic causation; and Voice, for external argument merge and grammatical transitivity including ergative agreement. Below both of these projections is the lexical Root. Having attributed the transitive vowel morpheme from §2.1 to Voice, it follows that all other ‘transitivizers’ discussed in §2.2 should be located at the level of vP. The next section examines this result in greater detail.	page 17
+§5	Clarissa Forbes	heading	5 On the vP-level	page 18
+§5	Clarissa Forbes	note	If the previously described transitivizing morphemes (si-, -xw, -T, -in, di-, sil, gun) are inserted at the vP level, what are their underlying morphosyntactic representations? Are some of these morphemes semantically and syntactically distinct, in which case they should be modeled as distinct flavors of v, or are some of these morphemes semantically identical, standing in an allomorphic relation with one another? Below, I argue that all the transitivizing morphemes I discuss are distinct flavors of v associated with different semantics or argument structure; none are allomorphs of the same head conditioned by specific Roots. However, this does not mean their semantic contributions can be easily pinned down. In §5.1 I point out some areas where use of the transitivizers triggers distinct interpretive effects for the same root. In §5.2 I discuss constructions where multiple transitivizers are used at one time, sometimes to no obvious semantic effect.	page 18
+§5.1	Clarissa Forbes	heading	5.1 Distinct semantic flavors and argument structure	page 18
+§5.1	Clarissa Forbes	note	The semantic contrast between the three causatives si-, -in, and gun has already been established (Belvin 1997; Peterson 2006): si- selects states while the other two select events, and only gun requires a volitional complement. In addition, si- seems to place some sort of restriction on possible causers; as illustrated in (34), books are unable to cause someone to sleep if the verb si-wok̲ ‘make sleep’ is used (34a), but this is perfectly acceptable with the verb wog̲-an ‘make sleep’ (34b). 13	page 18
+footnote 13	Clarissa Forbes	note	This restriction is not simply an animacy restriction; as shown in (i), cold air is a possible causer when something is made to freeze with si-daw.	page 18, footnote 13
+footnote 13	Gitksan	cited form	si-daw	page 18, in italics
+footnote 13 (i) line 1	Gitksan	transcription	Sidawihl sag̲am bahasxwhl majag̲alee.	page 18
+footnote 13 (i) line 2	Gitksan	segmentation	si-daw-i-t=hl sak̲-m bax̲-asxw=hl majag̲alee	page 18
+footnote 13 (i) line 3	Gitksan	gloss	caus-ice-tr-3.ii=cn cold-attr run-antip=cn flower	page 18
+footnote 13 (i) line 4	Clarissa Forbes	translation	‘The cold wind froze the flower.’	page 18
+footnote 13 (i) line 5	Clarissa Forbes	citation	(BS)	page 18, the tag or source at the right of the translation
+footnote 13	Clarissa Forbes	note	Perhaps a better restriction would be one of teleological capacity, as proposed by Folli and Harley (2008). This requires additional investigation.	page 18, footnote 13
+§5.1	Gitksan	cited form	si-wok̲	page 18, in italics, ‘make sleep’
+§5.1	Gitksan	cited form	wog̲-an	page 18, in italics, ‘make sleep’
+(34a) line 1	Gitksan	transcription	Wog̲anhl ha’niilitsx̲xw ’nii’y.	page 18
+(34a) line 2	Gitksan	segmentation	wok̲-in-i-t=hl ha-’nii-litsx̲xw ’nii’y	page 18
+(34a) line 3	Gitksan	gloss	sleep-caus-tr-3.ii=cn ins-on-read 1sg.iii	page 18
+(34a) line 4	Clarissa Forbes	translation	‘The book put me to sleep.’	page 18
+(34a) line 5	Clarissa Forbes	citation	(HH)	page 18, the tag or source at the right of the translation
+(34b) line 1	Gitksan	transcription	# Siwog̲ohl ha’niilitsx̲xw ’nii’y.	page 18
+(34b) line 2	Gitksan	segmentation	si-wok̲-i-t=hl ha-’nii-litsx̲xw ’nii’y	page 18
+(34b) line 3	Gitksan	gloss	caus-sleep-tr-3.ii=cn ins-on-read 1sg.iii	page 18
+(34b) line 4	Clarissa Forbes	translation	Prompt: ‘The book put me to sleep.’	page 18
+(34b) line 5	Clarissa Forbes	speaker comment	HH: It’s like the book has arms, it’s more physical.	page 18, under the example, the consultant not named
+(34b) line 6	Clarissa Forbes	citation	(HH)	page 18, the tag or source at the right of the comment
+§5.1	Clarissa Forbes	note	Several of the other morphemes can be distinguished by virtue of being able to attach to the same root. Even the two comitatives can both combine with the root yee ‘walk, go’, as demonstrated in (35).	page 18
+§5.1	Gitksan	cited form	yee	page 18, in italics, ‘walk, go’
+(35a) line 1	Gitksan	transcription	Woy ii dip diyeet g̲o’ohl jayn dipun...	page 19
+(35a) line 2	Gitksan	segmentation	woy ii dip di-yee-t g̲o’o-t=hl jayn dip=xwin	page 19
+(35a) line 3	Gitksan	gloss	so and 1pl.i com-go-3.ii loc-3.ii=cn Chinese assoc=dem.prox	page 19
+(35a) line 4	Clarissa Forbes	translation	‘And we went to the Chinese with it...’	page 19
+(35a) line 5	Clarissa Forbes	citation	(VG)	page 19, the tag or source at the right of the translation
+(35b) line 1	Gitksan	transcription	Yukw na sil sa’ap yeehl ansiip’insxwi’y.	page 19
+(35b) line 2	Gitksan	segmentation	yukw na sil sa’ap yee-t=hl an-siip-in-asxw-’y	page 19
+(35b) line 3	Gitksan	gloss	ipfv 1.i com without.purpose go-3.ii=cn nmlz-ache-caus-antip-1sg.ii	page 19
+(35b) line 4	Clarissa Forbes	translation	‘I am walking with my friend.’	page 19
+(35b) line 5	Clarissa Forbes	citation	(BS)	page 19, the tag or source at the right of the translation
+§5.1	Clarissa Forbes	note	This demonstrates that it is not strictly the property of the root as being directional or non- directional which conditions the difference between di- and the more general sil. Morphemes which provide the same root with distinct interpretations must themselves be dis- tinct syntactic and/or semantic entities. The examples below demonstrate that the root bax̲ can be combined with -in (36a), di- (36b), and -xw (36c), to different interpretive and argument structural effect. In the latter two cases, part of the interpretation is also contributed by directional preverbs.	page 19
+§5.1	Gitksan	cited form	bax̲	page 19, in italics
+(36a) line 1	Gitksan	transcription	Yukwhl dim bahani’mhl aks.	page 19
+(36a) line 2	Gitksan	segmentation	yukw=hl dim bax̲-in-’m=hl aks	page 19
+(36a) line 3	Gitksan	gloss	ipfv=cn prosp run-caus-1pl.ii=cn water	page 19
+(36a) line 4	Clarissa Forbes	translation	‘We will run the water.’	page 19
+(36a) line 5	Clarissa Forbes	citation	(VG)	page 19, the tag or source at the right of the translation
+(36b) line 1	Gitksan	transcription	T’aahlakw dim dip k̲’ali dibahan g̲oohl Gisbayakws...	page 19
+(36b) line 2	Gitksan	segmentation	t’aahlaxw dim dip k̲’ali di-bax̲ -n g̲oo=hl Gisbayakws	page 19
+(36b) line 3	Gitksan	gloss	tomorrow prosp 1pl.i upstream com-run-2sg.ii loc=cn Kispiox	page 19
+(36b) line 4	Clarissa Forbes	translation	‘It’s tomorrow that we’ll run you up to Kispiox...’	page 19
+(36b) line 5	Clarissa Forbes	citation	(Rigsby 1986:293)	page 19, the tag or source at the right of the translation
+(36c) line 1	Gitksan	transcription	’Nii bax̲xwihl kyaahl g̲an.	page 19
+(36c) line 2	Gitksan	segmentation	’nii bax̲-xw-i-t=hl kyaa=hl g̲an	page 19
+(36c) line 3	Gitksan	gloss	on run-nact-tr-3.ii=cn car=cn tree	page 19
+(36c) line 4	Clarissa Forbes	translation	‘The car ran into the tree.’	page 19
+(36c) line 5	Clarissa Forbes	citation	(BS)	page 19, the tag or source at the right of the translation
+§5.1	Clarissa Forbes	note	The first of these is a causative, wherein a causer acts upon a causee; the second is a comitative (I suggest a comitative applicative), wherein an actor undergoes motion with an accompanying object; and in the last a figure takes a position against a ground, which serves as the object. A further contrast using the root t’aa ‘sit’ can be drawn between the suffixes -xw (37a) and -T (37b).	page 19
+§5.1	Gitksan	cited form	t’aa	page 19, in italics, ‘sit’
+(37a) line 1	Gitksan	transcription	Gipaykwhl ts’uuts’ lax̲’u’y iit ’niit’aatxwhl g̲an.	page 19
+(37a) line 2	Gitksan	segmentation	gipaykw=hl ts’uuts’ lax̲-u-’y ii=t ’nii=t’aa-xw-t=hl g̲an	page 19
+(37a) line 3	Gitksan	gloss	fly=cn bird on-top-1sg.ii and=3.i on=sit-nact-3.ii=cn tree	page 19
+(37a) line 4	Clarissa Forbes	translation	‘The bird flew over and landed in the tree.’	page 19
+(37a) line 5	Clarissa Forbes	citation	(VG)	page 19, the tag or source at the right of the translation
+(37b) line 1	Gitksan	transcription	Ii yukwt ’nii t’aadihl hlgu t’ihlxw g̲oohl lax̲ se’et k’i’ihl sa.	page 19
+(37b) line 2	Gitksan	segmentation	ii yukw=t ’nii t’aa-T-t=hl hlgu t’ihlxw g̲oo=hl lax̲ se’e-t k’i’y=hl sa	page 19
+(37b) line 3	Gitksan	gloss	and ipfv=3.i on sit-T-3.ii=cn small child loc=cn on leg-3.ii one=cn day	page 19
+(37b) line 4	Clarissa Forbes	translation	‘One day he took a little child on his lap.’	page 19
+(37b) line 5	Clarissa Forbes	citation	(BS)	page 19, the tag or source at the right of the translation
+§5.1	Clarissa Forbes	note	The morpheme -xw again triggers the appearance of a figure (ergative) adopting a position against a ground (object), while -T denotes a more complex version of this event, where a causer (ergative) organizes the placement of the figure (object) against the ground.	page 20
+§5.1	Clarissa Forbes	note	For these, it is possible that some conditions on the appearance of -xw and -T might include complex prepositional structures below the level of v, as in analyses of resultatives and Germanic particle verbs (McIntyre 2007, 2015; Milway 2013). It may not be the content of the root, but instead these structures which condition a difference between these two morphemes. In general, a wider dataset is necessary to come to a clear account of these morphemes and their conditions for appearance.	page 20
+§5.1	Clarissa Forbes	name	McIntyre	Andrew McIntyre, particle verbs (2007, 2015)
+§5.1	Clarissa Forbes	name	Milway	Daniel Milway, particle verbs (2013)
+§5.2	Clarissa Forbes	heading	5.2 Multiple morphemes and semantic redundancy	page 20
+§5.2	Clarissa Forbes	note	An important property of these transitivizing morphemes is the fact that several can be used on a root simultaneously. For example, all three causatives can attach to the compatible root wilaax ‘know’, as in (38).	page 20
+§5.2	Gitksan	cited form	wilaax	page 20, in italics, ‘know’
+(38) line 1	Gitksan	transcription	Gwinsiwilaayins Billhl Gitxsanimx̲ as Gwen.	page 20
+(38) line 2	Gitksan	segmentation	gun-si-wilaax-in-t=s Bill=hl Gitxsan-mx̲ a-t=s Gwen	page 20
+(38) line 3	Gitksan	gloss	caus-caus-know-caus-3.ii=dn Bill=cn Gitxsan-language prep-3.ii=dn Gwen	page 20
+(38) line 4	Clarissa Forbes	translation	‘Bill had Gwen teach the Gitksan language.’	page 20
+(38) line 5	Clarissa Forbes	translation	‘Bill had Gwen make someone learn Gitksan.’	page 20
+(38) line 6	Clarissa Forbes	citation	(Peterson 2012:9)	page 20, the tag or source at the right of the translation
+§5.2	Clarissa Forbes	note	Belvin (1997:41) analyzes parallel examples in Nisg̲a’a as having, at least historically, three dis- tinct causative event layers. The innermost is siwilaax ‘learn’, a transitive causative verb which he proposes had a reflexive interpretation: ‘make (oneself) know’. Next is the transitive doubly- causativized verb siwilaayin∼siwilaak’in ‘teach’, in which one causes someone to learn (‘make themself know’) a subject. Finally, gun contributes the final layer of ‘having someone teach’ the subject.	page 20
+§5.2	Gitksan	cited form	siwilaax	page 20, in italics, ‘learn’
+§5.2	Gitksan	cited form	siwilaayin∼siwilaak’in	page 20, in italics, ‘teach’
+§5.2	Clarissa Forbes	note	However, while (38) can potentially be analyzed as having multiple causation events, there are some instances of multiple causatives or multiple transitivizers where this is not possible. The use of two transitivizers—two causatives in (39), and a causative and comitative in (40)—result in only a simple transitive, near-identical in interpretation to a construction where only one of those morphemes is used.	page 20
+(39a) line 1	Gitksan	transcription	Wog̲anhl ha’niilitsx̲xw ’nii’y.	page 20
+(39a) line 2	Gitksan	segmentation	wok̲-in-i-t=hl ha-’nii-litsx̲xw ’nii’y	page 20
+(39a) line 3	Gitksan	gloss	sleep-caus-tr-3.ii=cn ins-on-read 1sg.iii	page 20
+(39a) line 4	Clarissa Forbes	translation	‘The book put me to sleep.’	page 20
+(39a) line 5	Clarissa Forbes	citation	(HH)	page 20, the tag or source at the right of the translation
+(39b) line 1	Gitksan	transcription	Si-wog̲anhl ha’niilitsx̲xw ’nii’y.	page 20
+(39b) line 2	Gitksan	segmentation	si-wok̲-in-i-t=hl ha-’nii-litsx̲xw ’nii’y	page 20
+(39b) line 3	Gitksan	gloss	caus-sleep-caus-tr-3.ii=cn ins-on-read 1sg.iii	page 20
+(39b) line 4	Clarissa Forbes	translation	‘The book put me to sleep.’	page 20
+(39b) line 5	Clarissa Forbes	citation	(HH)	page 20, the tag or source at the right of the translation
+(40a) line 1	Gitksan	transcription	Suu k’eeg̲anhl ushl gibuu.	page 21
+(40a) line 2	Gitksan	segmentation	suu k’eek̲-in-t=hl us=hl gibuu	page 21
+(40a) line 3	Gitksan	gloss	away flee-caus-3.ii=cn dog=cn wolf	page 21
+(40a) line 4	Clarissa Forbes	translation	‘The dog chased/scared the wolf away.’	page 21
+(40a) line 5	Clarissa Forbes	citation	(HH)	page 21, the tag or source at the right of the translation
+(40b) line 1	Gitksan	transcription	Suu dik’eeg̲anhl ushl gibuu.	page 21
+(40b) line 2	Gitksan	segmentation	suu di-k’eek̲-in-t=hl us=hl gibuu	page 21
+(40b) line 3	Gitksan	gloss	away com-flee-caus-3.ii=cn dog=cn wolf	page 21
+(40b) line 4	Clarissa Forbes	translation	‘The dog chased the wolf away.’	page 21
+(40b) line 5	Clarissa Forbes	citation	(HH)	page 21, the tag or source at the right of the translation
+§5.2	Clarissa Forbes	note	For a simple causative, an argument is introduced to cause some event; in a simple comitative, an argument is introduced to accompany another argument in some event. In a double causative construction, then, the expected interpretation is a complex event wherein A makes B act on C.14 In a causative + comitative construction, the expected interpretation is one where A is accompanied by B in acting on C, or perhaps A causes B to accompany C in some event. Instead, in both of the examples above, both the causative and comitative semantics map onto an event which involves only two participants, A and B. For the causative + comitative construction, in particular, the interpretation is of A (the dog) causing B (the wolf) to undergo an event by means of accompaniment.	page 21
+footnote 14	Clarissa Forbes	note	These examples are not amenable to some earlier accounts of semantically redundant multiple-causation in languages like Japanese or Turkish, in which the causative morpheme is iterated. This iteration has been treated as focal reduplication (Key 2013). The reduplication approach does extend to a situation where multi- ple causation is conducted by morphologically distinct causativizers. See Peterson (2012) for further discus- sion on multiple causation in Tsimshianic and Tarascan.	page 21, footnote 14
+§5.2	Clarissa Forbes	note	This is puzzling from a perspective under which each morpheme participates in the construction of the event through the addition of a new argument or distinct event. Rather, the contributions of each morpheme are more subtle, and seem to challenge assumptions about morphosyntactic map- ping.15 However, these facts remain in support of the general view that semantic transitivity and the business of predicate construction (at the level of vP) should be differentiated from grammatical transitivity (at the level of VoiceP).	page 21
+footnote 15	Clarissa Forbes	note	Notably, it seems as if the contributions of each morpheme might not strictly be additive. Recall that the mor- pheme si- from (34b) seemed to place an animacy or volitional restriction on its causer; this is circumvented when si- and -in are used together in (39b).	page 21, footnote 15
+§6	Clarissa Forbes	heading	6 Conclusion	page 21
+§6	Clarissa Forbes	note	In this paper I have presented description and analysis of ‘transitive’ morphology in Gitksan, re- flecting on the morphosyntactic makeup of transitivity in this language. I have argued that Gitksan is a ‘split’-vP language in the sense of Pylkkänen (2002), wherein transitivity is distributed across the two projections v and Voice. Transitive inflectional marking and ergative agreement occurs at the level of Voice, while an array of transitivizing morphemes, including causative, comitative, and spatial transitivizers surface lower at the level of v.	page 21
+§6	Clarissa Forbes	note	I have suggested that these various lower transitivizers are, by and large, not surface allomorphs of one another, but instead differ in their underlying representation and contribute distinct syntactic and/or semantic information to the Roots to which they attach. However, their precise contributions require further investigation. Relevant to such investigation is not only their semantic contribution when combined with a Root, but also the ways that these morphemes interact with one another, which may more broadly inform our understanding of morphosyntactic and morphosemantic mapping.	page 21
+references	Clarissa Forbes	heading	References	page 22
+references	Clarissa Forbes	reference	Belvin, Robert S. 1997. The causation hierarchy, semantic control and eventivity in Nisgha. In Theoretical issues at the morphology-syntax interface, ed. Amaya Mendiko-Etxea and Myriam Uribe-Etxebarria, 35–53.	page 22
+references	Clarissa Forbes	reference	Burzio, Luigi. 1986. Italian syntax: A Government-Binding approach. Dordrecht: Springer.	page 22
+references	Clarissa Forbes	reference	Coon, Jessica. 2017. Little-v0 agreement and templatic morphology in Ch’ol. Syntax 20:101–137.	page 22
+references	Clarissa Forbes	reference	Dunham, Joel. 2014. The Online Linguistic Database: Software for linguistic fieldwork. Doctoral Dissertation, University of British Columbia.	page 22
+references	Clarissa Forbes	reference	Folli, Raffaella, and Heidi Harley. 2007. Causation, obligation and argument structure: On the nature of little v. Linguistic Inquiry 38:197–238.	page 22
+references	Clarissa Forbes	reference	Folli, Raffaella, and Heidi Harley. 2008. Teleology and animacy in external arguments. Lingua 118:190–202.	page 22
+references	Clarissa Forbes	reference	Forbes, Clarissa. 2018. Persistent ergativity: Agreement and splits in Tsimshianic. Doctoral Disser- tation, University of Toronto.	page 22
+references	Clarissa Forbes	reference	Hale, Kenneth, and Samuel Jay Keyser. 1993a. On argument structure and the lexical expression of syntactic relations. In Hale and Keyser (1993b), 53–110.	page 22
+references	Clarissa Forbes	reference	Hale, Kenneth, and Samuel Jay Keyser, ed. 1993b. The view from Building 20: Essays in linguistics in honor of Sylvain Bromberger. MIT Press.	page 22
+references	Clarissa Forbes	reference	Halle, Morris, and Alec Marantz. 1993. Distributed Morphology and the pieces of inflection. In Hale and Keyser (1993b), 111–176.	page 22
+references	Clarissa Forbes	reference	Harley, Heidi. 2008. On the causative construction. In The Oxford handbook of Japanese linguistics, ed. Shigeru Miyagawa. Oxford University Press.	page 22
+references	Clarissa Forbes	reference	Harley, Heidi. 2017. The “bundling” hypothesis and the disparate functions of little v. In The verbal domain, ed. Roberta D’Alessandro, Irene Franco, and Ángel Gallego, 3–28. Oxford University Press.	page 22
+references	Clarissa Forbes	reference	Hunt, Katharine. 1993. Clause structure, agreement and case in Gitksan. Doctoral Dissertation, University of British Columbia.	page 22
+references	Clarissa Forbes	reference	Jelinek, Eloise. 1986. The ergativity hypothesis and the argument hierarchy in Nisgha. In Papers for the 21st International Conference on Salish and Neighbouring Languages. Seattle, WA.	page 22
+references	Clarissa Forbes	reference	Key, Gregory. 2013. The morphosyntax of the Turkish causative construction. Doctoral Dissertation, University of Arizona.	page 22
+references	Clarissa Forbes	reference	Kratzer, Angelika. 1996. Severing the external argument from its verb. In Phrase structure and the lexicon, 109–137. Springer.	page 22
+references	Clarissa Forbes	reference	Larson, Richard. 1988. On the double object construction. Linguistic Inquiry 19:335–391.	page 22
+references	Clarissa Forbes	reference	McIntyre, Andrew. 2007. Particle verbs and argument structure. Language and Linguistics Compass 1:350–367.	page 22
+references	Clarissa Forbes	reference	McIntyre, Andrew. 2015. Particle verb formation. In Word-formation: An international handbook of the languages of Europe, ed. Peter O. Müller, Ingeborg Ohnheiser, Susan Olsen, and Franz Rainer, 434–449. Mouton de Gruyter.	page 23
+references	Clarissa Forbes	reference	Milway, Daniel. 2013. Pulling up grounds and holding figures back: On the syntax and semantics of ground promotion and figure retention particle verbs. Master’s thesis, University of Toronto.	page 23
+references	Clarissa Forbes	reference	Peterson, Tyler. 2006. The morpho-semantics of causation in Interior Tsimshian. In Berkeley Lin- guistic Society, volume 32.	page 23
+references	Clarissa Forbes	reference	Peterson, Tyler. 2007. Examining the function of the oblique across the Tsimshianic continuum. In Conference on ditransitive constructions. Leipzig.	page 23
+references	Clarissa Forbes	reference	Peterson, Tyler. 2012. Some remarks on the morphosemantics of multiple causative sequences. In Papers from the 32nd annual meeting of the berkeley linguistics society. Berkeley Linguistics Society.	page 23
+references	Clarissa Forbes	reference	Peterson, Tyler. 2019. On the status of applicatives in Tsimshianic. In Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He loves the people’s languages. essays in honour of Henry Davis, ed. Lisa Matthewson, Erin Guntly, and Michael Rochemont, volume 6, 569–582. UBC Occasional Pa- pers in Linguistics.	page 23
+references	Clarissa Forbes	reference	Pylkkänen, Liina. 2002. Introducing arguments. Doctoral Dissertation, MIT.	page 23
+references	Clarissa Forbes	reference	Rigsby, Bruce. 1986. Gitxsan grammar. Ms., University of Queensland, Australia.	page 23
+references	Clarissa Forbes	reference	Rigsby, Bruce. 1989. A later view of Gitksan syntax. In General and Amerindian ethnolinguistics: In remembrance of Stanley Newman, ed. M. Key and H. Hoenigswald. Berlin: Mouton de Gruyter.	page 23
+references	Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1987. A grammar of the Nisgha language. Doctoral Dissertation, University of Victoria.	page 23
+references	Clarissa Forbes	reference	Tarpent, Marie-Lucie. 1991. The morpheme -ə- and the mysteries of Nisgha syntax. In Papers for the 26th International Conference on Salish and Neighbouring Languages, 317–345.	page 23
+references	Clarissa Forbes	reference	Woolford, Ellen. 1997. Four-way case systems: ergative, nominative, objobject and accusative. Natural Language and Linguistic Theory 15:181–227.	page 23
+references	Clarissa Forbes	reference	Woolford, Ellen. 2006. Lexical case, inherent case, and argument structure. Linguistic Inquiry 37:111–130.	page 23

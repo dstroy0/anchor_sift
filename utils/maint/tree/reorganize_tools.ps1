@@ -15,7 +15,7 @@
 #
 # WHAT DOES NOT MOVE
 #
-# research_paper and prose already exist and hold symlinks into anchor_sift.
+# research_paper and prose already exist and hold symlinks into orior.
 # research_paper\build_theory.sh derives the
 # repository root with dirname "$0"/../.., which is only correct at exactly that depth. Moving it
 # deeper would break it silently. Both stay where they are.

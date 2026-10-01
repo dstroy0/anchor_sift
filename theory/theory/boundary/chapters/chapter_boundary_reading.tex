@@ -6,7 +6,7 @@
 
 Every number below came from \texttt{python examples/00\_blob\_viz\_tools/boundary\_read.py --check} and can be produced again by running it.
 
-\textbf{Note, 26 September.} Not every number below comes from that check. The degree table and the orthonormality figures come from \texttt{reading\_rank.py} (\texttt{DEGREES} at :55) and \texttt{docs/\allowbreak{}arm-records.md:265-272}, the floors from \texttt{null\_harness.py}, and the redraw row from \texttt{arm\_draw.py}, all at anchor\_sift \texttt{ddeccb3}. The Scope leaves out \texttt{reading\_rank.py}.
+\textbf{Note, 26 September.} Not every number below comes from that check. The degree table and the orthonormality figures come from \texttt{reading\_rank.py} (\texttt{DEGREES} at :55) and \texttt{docs/\allowbreak{}arm-records.md:265-272}, the floors from \texttt{null\_harness.py}, and the redraw row from \texttt{arm\_draw.py}, all at orior \texttt{ddeccb3}. The Scope leaves out \texttt{reading\_rank.py}.
 
 \section{What has to come with it}
 
@@ -94,7 +94,7 @@ Eight regions is a small alphabet, and how small is a counting fact and not a ju
 
 On \(256\) points the pitch is \(-0.003255258\) whatever the amount is. Across the six amounts the check tries, the spread between the largest pitch and the smallest is \(4.3 \times 10^{-19}\). That is the floating point grain and carries no dependence on the amount. One axis and one pitch therefore serve every shift, and a shift comes to a slide of the whole pattern along one fixed helix.
 
-\textbf{Derived, 26 September.} The pitch is \(-2/(N\gamma)\), and \(N = 256\) gives \(-0.003255258\). \texttt{screw\_of} computes the pitch from that definition (\texttt{boundary\_read.py:213} at anchor\_sift \texttt{ddeccb3}), and the spread of \(4.3 \times 10^{-19}\) is the rounding of the division. It says nothing about the placement. The move is rigid in height and longitude and is not an isometry of the sphere (the note under the placements).
+\textbf{Derived, 26 September.} The pitch is \(-2/(N\gamma)\), and \(N = 256\) gives \(-0.003255258\). \texttt{screw\_of} computes the pitch from that definition (\texttt{boundary\_read.py:213} at orior \texttt{ddeccb3}), and the spread of \(4.3 \times 10^{-19}\) is the rounding of the division. It says nothing about the placement. The move is rigid in height and longitude and is not an isometry of the sphere (the note under the placements).
 
 \texttt{wrap\_arm(count, amount)} names the indices a shift runs off the end of. They return as a second rigid arm, a full axial extent away from where the screw alone would put them. A shift is the screw plus that arm, and where a lit point lands is fixed once the amount is known.
 
@@ -104,7 +104,7 @@ On \(256\) points the pitch is \(-0.003255258\) whatever the amount is. Across t
 
 \texttt{legendre\_column} climbs the diagonal and then recurs in degree, keeping every intermediate at unit scale~\cite{src:Holmes-and-Featherstone-2002}. Computing the same values from factorials overflows above degree about \(150\) and loses digits well before that, and it fails quietly: the low degrees stay right while the fine structure goes wrong. The recurrence is there to prevent a picture that looks plausible and is not.
 
-\textbf{Derived, 26 September.} The two routes overflow at different degrees. The double's largest value is \(1.797 \times 10^{308}\). The normalization's \((l+m)!\) passes it at \(l + m = 171\), degree \(86\) at \(m = l\) and degree \(171\) at \(m = 0\). The unnormalized diagonal \((2l-1)!!\) passes it at \(l = 151\), since \(\log_{10} 299!! \approx 306.6\). The figure of about \(150\) matches the second route, and the docstring (\texttt{sphere\_field.py:93} at anchor\_sift \texttt{ddeccb3}) names factorials, the first.
+\textbf{Derived, 26 September.} The two routes overflow at different degrees. The double's largest value is \(1.797 \times 10^{308}\). The normalization's \((l+m)!\) passes it at \(l + m = 171\), degree \(86\) at \(m = l\) and degree \(171\) at \(m = 0\). The unnormalized diagonal \((2l-1)!!\) passes it at \(l = 151\), since \(\log_{10} 299!! \approx 306.6\). The figure of about \(150\) matches the second route, and the docstring (\texttt{sphere\_field.py:93} at orior \texttt{ddeccb3}) names factorials, the first.
 
 \section{Choosing the degree}
 

@@ -1,0 +1,575 @@
+where	who	kind	form	gloss
+front	Gloria Mellesmoen	title	DIG Reconstruction and the Secret Life of Proto-Salish Diminutives: An Amphichronic Analysis of Diminutives in Upper Chehalis	page 1, carries footnote *
+front	Gloria Mellesmoen	byline	Gloria Mellesmoen, University of British Columbia	page 1
+front	Gloria Mellesmoen	note	Abstract: Comparative studies of Salish languages have successfully reconstructed many features back to Proto-Salish (e.g., Kroeber 1999; Kuipers 2002). Despite a long tradition of comparative investigation, the diachronic trajectories of non-concatenative morphemes in Salish are not well understood. Non-concatenative morphemes pose practical concerns for the traditional comparative method because their form can vary across different lexical items. The goals of this paper are threefold: (i) present a synchronic analysis of diminutives in a Tsamosan language (Upper Chehalis), (ii) reconstruct a diminutive morpheme to Proto-Salish, and (iii) employ the proposed DIG (domain, input, and grammar) method for reconstructing non-concatenative morphology. The contrast in vowel length associated with diminutives in Upper Chehalis is a reflex of the Proto-Salish diminutive reduplication; the domain (word) and the input (an affixed mora) remain the same, but a change in the general grammar of the language underlies the innovation of vowel length as marker of the diminutive.	page 1
+front	Gloria Mellesmoen	note	Keywords: mora affixation, diminutive, Tsamosan languages, comparative linguistics, Proto-Salish	page 1
+front	Gloria Mellesmoen	name	Gloria Mellesmoen	author, University of British Columbia
+front	Gloria Mellesmoen	language	Upper Chehalis	the language of the paper, a Tsamosan language of the Salish family
+front	Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighboring Languages 57. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2022.	page 1, the journal header at the foot of the page
+footnote *	Gloria Mellesmoen	note	* This paper would not be possible without the meticulous and careful documentation of Upper Chehalis by Dale Kinkade. I am very grateful to Henry Davis for his generosity (both with his time and feedback) and for allowing me to borrow his copy of the Upper Chehalis Dictionary for several consecutive weeks. Thank you to Suzanne Urbanczyk for the continued conversation on non-concatenative morphology in Salish.	page 1, footnote
+§1	Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Gloria Mellesmoen	note	The comparative method is a crucial tool for reconstruction in historical linguistics (e.g., Campbell 2013). Cognates from genetically-related languages are compared and contrasted to generate hypotheses about a shared ancestor. Evidence used to support a particular hypothesis often comes from synchronic frequency (counting the number of languages with a particular form) and diachronic likelihood (considering which direction of change is less marked cross-linguistically). The comparative method is limited by available data (frequency), and in turn, the hypotheses reached are influenced by precedence from previous literature (likelihood), which means that the effectiveness of the traditional comparative method may be worse when considering cross- linguistically uncommon structures, such as reduplication. Non-concatenative morphemes pose an additional challenge for reconstruction as the surface form can vary substantially across different lexical items, which interferes with the construction of tidy cognate sets.	page 1
+§1	Gloria Mellesmoen	note	This paper presents an amphichronic analysis of Upper Chehalis diminutives (marked by a contrast in length), meaning that I first present a synchronic analysis of the vowel length and then connect it to the diachronic trajectories of change that have shaped the synchronic grammar (see Ramsammy 2015, and references therein). This analysis of Upper Chehalis diminutives motivates the DIG method for reconstructing non-concatenative morphology, which applies the comparative method across three different dimensions where change can occur: domain, input, and grammar. I define the domain as the position of the morpheme in the phonological derivation, the input as the phonological content specified in a lexical entry, and the grammar as a set of assumptions about how the lexical entry (input) is mapped to the surface form (output).1	page 1, runs on to page 2, carries footnote 1
+footnote 1	Gloria Mellesmoen	note	1 Provided that theoretical assumptions about the phonological grammar are made explicit, DIG reconstruction is compatible with different types of phonological analysis (e.g., rule- vs. constraint-based).	page 2, footnote
+§1	Gloria Mellesmoen	note	The central contribution of the DIG approach is providing a framework for reconstruction of morphophonological processes that is contextualized within the grammar of the language. This paper builds from a synchronic analysis of diminutives in Upper Chehalis (Section 2) to a diachronic analysis of diminutives in Salish (Section 3). This amphichronic analysis of diminutives in Upper Chehalis is used to reconstruct each of the three components (domain, input, and grammar) specified by the DIG method to Proto-Salish (Section 4). The DIG method is more appropriate for the analysis of non-concatenative morphology than the traditional comparative method, allows for more specific hypotheses about diachronic trajectories, and can be adapted for use with different theoretical frameworks (Section 5).	page 2
+§1	Gloria Mellesmoen	note	While surface forms of the diminutive marker in Upper Chehalis appear unrelated to those found in the rest of the Salish language family (formed via reduplication), the putative absence of the Proto-Salish diminutive reflects a change to the overall grammar of Tsamosan languages, and vowel length in Upper Chehalis can be analyzed as a reflex of the Proto-Salish diminutive (an affixed mora).	page 2
+§2	Gloria Mellesmoen	heading	2 Diminutives in Upper Chehalis: A Synchronic Perspective	page 2
+§2	Gloria Mellesmoen	note	C1 reduplication, also called consonant or partial reduplication, is the most common way to mark a diminutivity across Salish languages (Czaykowska-Higgins & Kinkade 1998:18; Kroeber 1999:10). Minimally, a consonant is doubled in C1 reduplication, though an adjacent vowel is copied (1a–b) or epenthesized (1c–d) in certain languages, including Lushootseed.2	page 2, carries footnote 2
+§2	Gloria Mellesmoen	language	Lushootseed	page 2, the language of (1)
+footnote 2	Gloria Mellesmoen	note	2 Data are given in the North American Phonetic Alphabet (NAPA). All the data used for the phonological analysis come from Kinkade’s (1991) Upper Chehalis Dictionary. I use K91 as an abbreviation of “Kinkade (1991)” when citing data. Where Kinkade (1991) did not provide a gloss for a specific form, his labels are given. Labels include CONT – continuative, DIM – diminutive, INTR – intransitive, FREQ – frequentative, PL – plural, and TR – transitive.	page 2, footnote
+(1)	Gloria Mellesmoen	note	Diminutives in Lushootseed:	page 2, the caption
+(1a)	Lushootseed	transcription	ʔalʔal	page 2, the base
+(1a)	Gloria Mellesmoen	translation	‘house’	page 2
+(1a)	Lushootseed	transcription	ʔaʔalʔal	page 2, the diminutive
+(1a)	Gloria Mellesmoen	translation	‘hut’	page 2
+(1b)	Lushootseed	transcription	ʔuq̓ʷud	page 2, the base
+(1b)	Gloria Mellesmoen	translation	‘pull out’	page 2
+(1b)	Lushootseed	transcription	ʔuʔuq̓ʷud	page 2, the diminutive
+(1b)	Gloria Mellesmoen	translation	‘pull partway out’	page 2
+(1c)	Lushootseed	transcription	təlawil	page 2, the base
+(1c)	Gloria Mellesmoen	translation	‘run’	page 2
+(1c)	Lushootseed	transcription	titəlaw̓il	page 2, the diminutive
+(1c)	Gloria Mellesmoen	translation	‘jog’	page 2
+(1d)	Lushootseed	transcription	sduukʷ	page 2, the base
+(1d)	Gloria Mellesmoen	translation	‘knife’	page 2
+(1d)	Lushootseed	transcription	sdiduukʷ	page 2, the diminutive
+(1d)	Gloria Mellesmoen	translation	‘small knife’	page 2
+(1)	Gloria Mellesmoen	citation	(Urbanczyk 1996, from Bates et al. 1994)	page 2, the source of (1a) to (1d)
+§2	Gloria Mellesmoen	note	The widespread use of C1 reduplication across the family supports reconstructing a diminutive morpheme expressed via reduplication to Proto-Salish, as most languages use C1 reduplication to form diminutives.3 A summary of the languages that use reduplication, vowel length, and affixation to mark the diminutive is given in Table 1.4	page 2, carries footnotes 3 and 4
+footnote 3	Gloria Mellesmoen	note	3 C1C2 reduplication is also associated with diminutive forms in Bella Coola (Nater 1978).	page 2, footnote
+footnote 4	Gloria Mellesmoen	note	4 Some diminutive forms in Bella Coola do contain long vowels (see Nater 1984), but this alone does not mark a contrast between diminutive and non-diminutive forms and therefore is not included in Table 1. Similarly, stem-final doubling observed in a subset of diminutives in Quinault is set aside (see Modrow 1971).	page 2, footnote
+Table 1	Gloria Mellesmoen	note	Table 1: Diminutives in Salish languages	page 3, the caption
+Table 1	Gloria Mellesmoen	note	Reduplication Vowel Lengthening Affix	page 3, the column heads
+Table 1	Gloria Mellesmoen	note	Interior Salish ✓	page 3, the check under Reduplication
+Table 1	Gloria Mellesmoen	note	Central Salish ✓	page 3, the check under Reduplication
+Table 1	Gloria Mellesmoen	note	Tillamook ✓	page 3, the check under Reduplication
+Table 1	Gloria Mellesmoen	note	Bella Coola ✓ ✓	page 3, the checks under Reduplication and Affix
+Table 1	Gloria Mellesmoen	note	Tsamosan Upper Chehalis & Cowlitz ✓	page 3, the check under Vowel Lengthening, the first Tsamosan line
+Table 1	Gloria Mellesmoen	note	Lower Chehalis & Quinault ✓	page 3, the check under Affix, the second Tsamosan line
+§2	Gloria Mellesmoen	note	Diminutive C1 reduplication is notably absent from the Tsamosan branch of the Salish language family, which Kinkade (1993) highlights in a paper presenting non-lexical evidence for classifying the four Tsamosan languages (Upper Chehalis, Quinault, Cowlitz, and Lower Chehalis) as a distinct branch of the family. Diminutives in Upper Chehalis and Cowlitz are marked by lengthening the stressed vowel, as shown in (2a–b), while diminutives in Lower Chehalis and Quinault are marked by the addition of the suffix -uʔ, as shown in (2c–d).5	page 3, carries footnote 5
+§2	Upper Chehalis	cited affix	-uʔ	page 3, the diminutive suffix of Lower Chehalis and Quinault
+§2	Gloria Mellesmoen	language	Cowlitz	page 3, a Tsamosan language, one of those (2) draws on
+§2	Gloria Mellesmoen	language	Lower Chehalis	page 3, a Tsamosan language, one of those (2) draws on
+§2	Gloria Mellesmoen	language	Quinault	page 3, a Tsamosan language, one of those (2) draws on
+(2a)	Upper Chehalis	transcription	latáːm	page 3, the diminutive, Upper Chehalis at the right
+(2a)	Upper Chehalis	transcription	latám	page 3, the base, printed (from latám)
+(2a)	Gloria Mellesmoen	translation	‘little table’	page 3
+(2b)	Cowlitz	transcription	ʔéːmx̣kʷu	page 3, the diminutive, Cowlitz at the right
+(2b)	Cowlitz	transcription	ʔə́mx̣kʷu	page 3, the base, printed (from ʔə́mx̣kʷu)
+(2b)	Gloria Mellesmoen	translation	‘little cedar-basket’	page 3
+(2c)	Lower Chehalis	transcription	x̣áʔšuʔ	page 3, the diminutive, Lower Chehalis at the right
+(2c)	Lower Chehalis	transcription	x̣áš	page 3, the base, printed (from x̣áš)
+(2c)	Gloria Mellesmoen	translation	‘little house’	page 3
+(2d)	Quinault	transcription	tušə́ʔnuʔ	page 3, the diminutive, Quinault at the right
+(2d)	Quinault	transcription	tušə́n	page 3, the base, printed (from tušə́n)
+(2d)	Gloria Mellesmoen	translation	‘little raven’	page 3
+(2)	Gloria Mellesmoen	citation	(Kinkade 1993:15)	page 3, the source of (2a) to (2d)
+footnote 5	Gloria Mellesmoen	note	5 The diminutive forms in Lower Chehalis and Quinault in (2c–d) each have an additional glottal stop infixed following the stressed vowel (see also Robertson 2014), and the addition of the diminutive affix in Quinault is often accompanied by lengthening or doubling of the stem-final consonant (Modrow 1971).	page 3, footnote
+§2	Gloria Mellesmoen	note	Diminutives in Upper Chehalis and Cowlitz are of typological interest as they use a non- concatenative process to mark diminutives (which is similar to other Salish languages), but they employ a length contrast instead of reduplication (which is different from other Salish languages). Kinkade (1993:15) states that “the origin of these Tsamosan diminutive markers is unclear”, and therefore the historical development of diminutive morphology in the Tsamosan languages represents an area where further research is warranted.	page 3
+§2	Gloria Mellesmoen	note	In order to understand the synchronic patterns of Tsamosan diminutive morphology, and to connect these patterns back to Proto-Salish, this paper focuses on diminutive formation in Upper Chehalis, which is the most thoroughly described of the Tsamosan languages (see e.g., Kinkade 1963a–c, 1964a–b, 1991), though the analysis given here can also be extended to diminutive formation in Cowlitz (see Kinkade 2004).	page 3
+§2	Gloria Mellesmoen	note	There is considerable variation in the realization of diminutives in Upper Chehalis. I first provide a descriptive overview of the diminutive from Kinkade (1991) before presenting the generalizations that underlie my analysis. This is followed by an analysis that accounts for changes in vowel quality and quantity, and a discussion of the other allomorph (with ʔ-infixation) and potential sources of variation conclude Section 2.	page 3
+§2.1	Gloria Mellesmoen	heading	2.1 Diminutives in Upper Chehalis: Data	page 4
+§2.1	Gloria Mellesmoen	note	The diminutive in Upper Chehalis can be formed by lengthening the stressed vowel, lowering the stressed vowel, and/or infixation of a glottal stop following the stressed vowel. All three components (length, height, and ʔ-infixation) may co-occur if the stressed vowel in the non- diminutive form is /i/ or /u/ (3).	page 4
+(3a)	Upper Chehalis	transcription	yút̓i-	page 4, the base
+(3a)	Gloria Mellesmoen	translation	‘stir’	page 4
+(3a)	Upper Chehalis	transcription	yóːʔt̓-n	page 4, the diminutive
+(3a)	Gloria Mellesmoen	translation	‘stir’	page 4, labeled DIM
+(3a)	Gloria Mellesmoen	citation	(K91:176)	page 4, the entry in Kinkade (1991)
+(3b)	Upper Chehalis	transcription	t̓úš-	page 4, the base
+(3b)	Gloria Mellesmoen	translation	‘tall’	page 4
+(3b)	Upper Chehalis	transcription	tóːʔš-ɬ	page 4, the diminutive
+(3b)	Gloria Mellesmoen	translation	‘a little tall’	page 4
+(3b)	Gloria Mellesmoen	citation	(K91:149)	page 4, the entry in Kinkade (1991)
+(3c)	Upper Chehalis	transcription	ʔúxʷ-	page 4, the base
+(3c)	Gloria Mellesmoen	translation	‘different’	page 4
+(3c)	Upper Chehalis	transcription	ʔóːʔxʷ-ɬ	page 4, the diminutive
+(3c)	Gloria Mellesmoen	translation	‘a little different’	page 4
+(3c)	Gloria Mellesmoen	citation	(K91: 16)	page 4, the entry in Kinkade (1991)
+(3d)	Upper Chehalis	transcription	x̣asíl̓	page 4, the base
+(3d)	Gloria Mellesmoen	translation	‘rain’	page 4
+(3d)	Upper Chehalis	transcription	s-x̣aséːʔl-n̓	page 4, the diminutive
+(3d)	Gloria Mellesmoen	translation	‘rain a little’	page 4, labeled INTR
+(3d)	Gloria Mellesmoen	citation	(K91:160)	page 4, the entry in Kinkade (1991)
+§2.1	Gloria Mellesmoen	note	Combinations of two of the three features are also attested. The diminutive form of a word with stressed /i/ or /u/ may be differentiated from the non-diminutive stem by lowering the vowel and infixing a glottal stop, without lengthening the stressed vowel (4). Alternatively, the diminutive form of a word with stressed /i/ or /u/ in the non-diminutive form may be formed by lowering and lengthening the stressed vowel, but without ʔ-infixation (5).	page 4
+(4a)	Upper Chehalis	transcription	x̣ʷí-	page 4, the base
+(4a)	Gloria Mellesmoen	translation	‘river falls, shallow’	page 4
+(4a)	Upper Chehalis	transcription	s-x̣ʷéʔ	page 4, the diminutive
+(4a)	Gloria Mellesmoen	translation	‘river falls, shallow’	page 4, labeled DIM
+(4a)	Gloria Mellesmoen	citation	(K91:167)	page 4, the entry in Kinkade (1991)
+(4b)	Upper Chehalis	transcription	xʷík̓ʷ-	page 4, the base
+(4b)	Gloria Mellesmoen	translation	‘light, lightweight’	page 4
+(4b)	Upper Chehalis	transcription	xʷéʔk̓ʷ-ɬ	page 4, the diminutive
+(4b)	Gloria Mellesmoen	translation	‘very light’	page 4
+(4b)	Gloria Mellesmoen	citation	(K91:157)	page 4, the entry in Kinkade (1991)
+(4c)	Upper Chehalis	transcription	wísq̓aq̓-	page 4, the base
+(4c)	Gloria Mellesmoen	translation	‘robin’	page 4
+(4c)	Upper Chehalis	transcription	s-wéʔsq̓aq̓-iʔɬ	page 4, the diminutive
+(4c)	Gloria Mellesmoen	translation	‘baby robin’	page 4
+(4c)	Gloria Mellesmoen	citation	(K91:155)	page 4, the entry in Kinkade (1991)
+(4d)	Upper Chehalis	transcription	x̣as-íɬ-či	page 4, the base
+(4d)	Gloria Mellesmoen	translation	‘bad, dirty water’	page 4
+(4d)	Upper Chehalis	transcription	x̣as-éʔɬ-či	page 4, the diminutive
+(4d)	Gloria Mellesmoen	translation	‘little bad water’	page 4
+(4d)	Gloria Mellesmoen	citation	(K91:163)	page 4, the entry in Kinkade (1991)
+(4e)	Upper Chehalis	transcription	mús	page 4, the base
+(4e)	Gloria Mellesmoen	translation	‘eye’	page 4
+(4e)	Upper Chehalis	transcription	móʔs	page 4, the diminutive
+(4e)	Gloria Mellesmoen	translation	‘eye’	page 4, labeled DIM
+(4e)	Gloria Mellesmoen	citation	(K91: 85)	page 4, the entry in Kinkade (1991)
+(5a)	Upper Chehalis	transcription	yúxʷi-	page 4, the base
+(5a)	Gloria Mellesmoen	translation	‘know (a person)’	page 4
+(5a)	Upper Chehalis	transcription	yóːxʷ-t̓-al-ač̓-n	page 4, the diminutive
+(5a)	Gloria Mellesmoen	translation	‘he knew how to do it’	page 4
+(5a)	Gloria Mellesmoen	citation	(K91:176)	page 4, the entry in Kinkade (1991)
+(5b)	Upper Chehalis	transcription	x̣asíɬšin-	page 4, the base
+(5b)	Gloria Mellesmoen	translation	‘forest, tree’	page 4
+(5b)	Upper Chehalis	transcription	s-x̣aséːɬšn	page 4, the diminutive
+(5b)	Gloria Mellesmoen	translation	‘weeds’	page 4, labeled DIM
+(5b)	Gloria Mellesmoen	citation	(K91:160)	page 4, the entry in Kinkade (1991)
+(5c)	Upper Chehalis	transcription	s-wəq̓íq̓	page 4, the base
+(5c)	Gloria Mellesmoen	translation	‘frog’	page 4
+(5c)	Upper Chehalis	transcription	s-wəq̓éːq̓-iʔɬ	page 4, the diminutive
+(5c)	Gloria Mellesmoen	translation	‘tadpole’	page 4
+(5c)	Gloria Mellesmoen	citation	(K91:153)	page 4, the entry in Kinkade (1991)
+(5d)	Upper Chehalis	transcription	xʷípaq	page 4, the base
+(5d)	Gloria Mellesmoen	translation	‘whistle’	page 4
+(5d)	Upper Chehalis	transcription	xʷéːpq-n	page 4, the diminutive
+(5d)	Gloria Mellesmoen	translation	‘whistle (for play)’	page 4
+(5d)	Gloria Mellesmoen	citation	(K91:158)	page 4, the entry in Kinkade (1991)
+(5e)	Upper Chehalis	transcription	xʷíli-	page 4, the base
+(5e)	Gloria Mellesmoen	translation	‘hang, hang up’	page 4
+(5e)	Upper Chehalis	transcription	xʷéːl-ɬ	page 4, the diminutive
+(5e)	Gloria Mellesmoen	translation	‘hang up’	page 4, labeled DIM INTR
+(5e)	Gloria Mellesmoen	citation	(K91:157)	page 4, the entry in Kinkade (1991)
+§2.1	Gloria Mellesmoen	note	If the diminutive is added to a stem with stressed /a/, there is no vowel lowering; /a/ is already a low vowel. The features associated with the diminutive with a stressed /a/ are vowel lengthening and ʔ-infixation. Diminutives with stressed /a/ have either vowel lengthening without ʔ-infixation (6), or ʔ-infixation without vowel lengthening (7).6	page 4, carries footnote 6
+(6a)	Upper Chehalis	transcription	yáya-	page 4, the base
+(6a)	Gloria Mellesmoen	translation	‘like, love’	page 4
+(6a)	Upper Chehalis	transcription	ʔac-yáːy̓-tuš	page 4, the diminutive
+(6a)	Gloria Mellesmoen	translation	‘love each other a little’	page 4
+(6a)	Gloria Mellesmoen	citation	(K91:172)	page 4, the entry in Kinkade (1991)
+(6b)	Upper Chehalis	transcription	x̣áx̣iuɬ	page 4, the base
+(6b)	Gloria Mellesmoen	translation	‘pine tree’	page 4
+(6b)	Upper Chehalis	transcription	x̣áːx̣iuɬ	page 4, the diminutive
+(6b)	Gloria Mellesmoen	translation	‘pine tree’	page 4, labeled DIM
+(6b)	Gloria Mellesmoen	citation	(K91:161)	page 4, the entry in Kinkade (1991)
+(6c)	Upper Chehalis	transcription	x̣áɬš-	page 4, the base
+(6c)	Gloria Mellesmoen	translation	‘settle’	page 4
+(6c)	Upper Chehalis	transcription	x̣áːɬš-m	page 4, the diminutive
+(6c)	Gloria Mellesmoen	translation	‘camp, camping’	page 4
+(6c)	Gloria Mellesmoen	citation	(K91:159)	page 4, the entry in Kinkade (1991)
+(6d)	Upper Chehalis	transcription	x̣əp-áy-tmš	page 4, the base
+(6d)	Gloria Mellesmoen	translation	‘land gets dry’	page 4
+(6d)	Upper Chehalis	transcription	x̣əp-áːy-tmš	page 4, the diminutive
+(6d)	Gloria Mellesmoen	translation	‘land gets dry’	page 4, labeled DIM
+(6d)	Gloria Mellesmoen	citation	(K91:162)	page 4, the entry in Kinkade (1991)
+(6e)	Upper Chehalis	transcription	t̓áč̓-n	page 4, the base
+(6e)	Gloria Mellesmoen	translation	‘sew’	page 4, labeled TR
+(6e)	Upper Chehalis	transcription	t̓áːč̓-n	page 4, the diminutive
+(6e)	Gloria Mellesmoen	translation	‘sew’	page 4, labeled DIM, TR
+(6e)	Gloria Mellesmoen	citation	(K91:145)	page 4, the entry in Kinkade (1991)
+(7a)	Upper Chehalis	transcription	x̣axʷ	page 4, the base
+(7a)	Gloria Mellesmoen	translation	‘fast, quick’	page 4
+(7a)	Upper Chehalis	transcription	x̣áʔxʷ	page 4, the diminutive
+(7a)	Gloria Mellesmoen	translation	‘a little quick’	page 4
+(7a)	Gloria Mellesmoen	citation	(K91:160)	page 4, the entry in Kinkade (1991)
+(7b)	Upper Chehalis	transcription	x̣áš	page 4, the base
+(7b)	Gloria Mellesmoen	translation	‘house’	page 4
+(7b)	Upper Chehalis	transcription	x̣áʔš	page 4, the diminutive
+(7b)	Gloria Mellesmoen	translation	‘house’	page 4, labeled DIM
+(7b)	Gloria Mellesmoen	citation	(K91:160)	page 4, the entry in Kinkade (1991)
+footnote 6	Gloria Mellesmoen	note	6 A more marginal third pattern (with both ʔ-infixation and a long vowel) is found in the word s-xʷa:ʔsi-nɬ, which is the diminutive form of s-xʷas-nɬ ‘blackberry vines’ (K91:156). While the glottalization of a sonorant following a lengthened vowel in the diminutive is possible (e.g., 6a), there are more counterexamples where a plain sonorant follows the long vowel (e.g., 5a and 6d).	page 4, footnote
+footnote 6	Upper Chehalis	cited form	s-xʷa:ʔsi-nɬ	page 4, the diminutive with both ʔ-infixation and a long vowel
+footnote 6	Upper Chehalis	cited form	s-xʷas-nɬ	page 4, ‘blackberry vines’, the base, (K91:156)
+(7c)	Upper Chehalis	transcription	x̣ʷaɬ	page 5, the base
+(7c)	Gloria Mellesmoen	translation	‘older sibling’	page 5
+(7c)	Upper Chehalis	transcription	x̣ʷáʔɬ	page 5, the diminutive
+(7c)	Gloria Mellesmoen	translation	‘older sibling’	page 5, labeled DIM
+(7c)	Gloria Mellesmoen	citation	(K91:165)	page 5, the entry in Kinkade (1991)
+(7d)	Upper Chehalis	transcription	x̣ác̓-	page 5, the base
+(7d)	Gloria Mellesmoen	translation	‘rib’	page 5
+(7d)	Upper Chehalis	transcription	s-x̣áʔc̓	page 5, the diminutive
+(7d)	Gloria Mellesmoen	translation	‘rib’	page 5, labeled DIM
+(7d)	Gloria Mellesmoen	citation	(K91:159)	page 5, the entry in Kinkade (1991)
+(7e)	Upper Chehalis	transcription	wax̣-ális-m	page 5, the base
+(7e)	Gloria Mellesmoen	translation	‘open eyes’	page 5
+(7e)	Upper Chehalis	transcription	wax̣-áʔlis-m	page 5, the diminutive
+(7e)	Gloria Mellesmoen	translation	‘open eyes a little’	page 5
+(7e)	Gloria Mellesmoen	citation	(K91:152)	page 5, the entry in Kinkade (1991)
+(7f)	Upper Chehalis	transcription	s-ʔášaq-n	page 5, the base
+(7f)	Gloria Mellesmoen	translation	‘snow (falling)’	page 5, labeled INTR
+(7f)	Upper Chehalis	transcription	s-ʔáʔšaq-n	page 5, the diminutive
+(7f)	Gloria Mellesmoen	translation	‘snowing a little’	page 5
+(7f)	Gloria Mellesmoen	citation	(K91: 6)	page 5, the entry in Kinkade (1991)
+§2.1	Gloria Mellesmoen	note	If the diminutive is added to a word with stressed /ə/, the vowel is not lengthened; /ə/ is strengthened to a full (normal length) /e/ instead. This change in vowel quality (/ə/ to /e/) may or may not be accompanied by ʔ-infixation, as in (8) and (9), respectively.	page 5
+(8a)	Upper Chehalis	transcription	yə́twaʔ	page 5, the base
+(8a)	Gloria Mellesmoen	translation	‘salmonberry	page 5, printed without its closing quote
+(8a)	Upper Chehalis	transcription	yéʔtwaʔ-nɬ	page 5, the diminutive
+(8a)	Gloria Mellesmoen	translation	‘salmonberry’	page 5, labeled DIM
+(8a)	Gloria Mellesmoen	citation	(K91:175)	page 5, the entry in Kinkade (1991)
+(8b)	Upper Chehalis	transcription	yə́nkʷs	page 5, the base
+(8b)	Gloria Mellesmoen	translation	‘pack-rope (on basket)’	page 5
+(8b)	Upper Chehalis	transcription	yéʔnkʷs	page 5, the diminutive
+(8b)	Gloria Mellesmoen	translation	‘pack-rope’	page 5, labeled DIM
+(8b)	Gloria Mellesmoen	citation	(K91:174)	page 5, the entry in Kinkade (1991)
+(8c)	Upper Chehalis	transcription	x̣ʷə́lq-n	page 5, the base
+(8c)	Gloria Mellesmoen	translation	‘rub’	page 5, labeled TR
+(8c)	Upper Chehalis	transcription	x̣ʷéʔlq-n	page 5, the diminutive
+(8c)	Gloria Mellesmoen	translation	‘rub’	page 5, labeled DIM, TR
+(8c)	Gloria Mellesmoen	citation	(K91:167)	page 5, the entry in Kinkade (1991)
+(8d)	Upper Chehalis	transcription	x̣ʷə́l-	page 5, the base
+(8d)	Gloria Mellesmoen	translation	‘sweat’	page 5
+(8d)	Upper Chehalis	transcription	s-x̣ʷéʔl-w-n	page 5, the diminutive
+(8d)	Gloria Mellesmoen	translation	‘perspire a little’	page 5, labeled CONT
+(8d)	Gloria Mellesmoen	citation	(K91:166)	page 5, the entry in Kinkade (1991)
+(8e)	Upper Chehalis	transcription	x̣ə́s	page 5, the base
+(8e)	Gloria Mellesmoen	translation	‘bad’	page 5
+(8e)	Upper Chehalis	transcription	x̣éʔs	page 5, the diminutive
+(8e)	Gloria Mellesmoen	translation	‘bad’	page 5, labeled DIM
+(8e)	Gloria Mellesmoen	citation	(K91:162)	page 5, the entry in Kinkade (1991)
+(8f)	Upper Chehalis	transcription	wələ́č̓-	page 5, the base
+(8f)	Gloria Mellesmoen	translation	‘glitter, shine’	page 5
+(8f)	Upper Chehalis	transcription	wéʔlč̓-	page 5, the diminutive
+(8f)	Gloria Mellesmoen	translation	‘shine a little’	page 5
+(8f)	Gloria Mellesmoen	citation	(K91:152)	page 5, the entry in Kinkade (1991)
+(9a)	Upper Chehalis	transcription	yə́l-	page 5, the base
+(9a)	Gloria Mellesmoen	translation	‘around, along, beside’	page 5
+(9a)	Upper Chehalis	transcription	s-yél-mt-n	page 5, the diminutive
+(9a)	Gloria Mellesmoen	translation	‘go around’	page 5, labeled DIM
+(9a)	Gloria Mellesmoen	citation	(K91:173)	page 5, the entry in Kinkade (1991)
+(9b)	Upper Chehalis	transcription	yə́l-	page 5, the base
+(9b)	Gloria Mellesmoen	translation	‘thread’	page 5
+(9b)	Upper Chehalis	transcription	yél-t-n	page 5, the diminutive
+(9b)	Gloria Mellesmoen	translation	‘he threaded it’	page 5, labeled DIM
+(9b)	Gloria Mellesmoen	citation	(K91:173)	page 5, the entry in Kinkade (1991)
+(9c)	Upper Chehalis	transcription	x̣ʷə́q̓-ɬ	page 5, the base
+(9c)	Gloria Mellesmoen	translation	‘grooved, ridged’	page 5
+(9c)	Upper Chehalis	transcription	ʔac-x̣ʷéq̓-ɬ	page 5, the diminutive
+(9c)	Gloria Mellesmoen	translation	‘small canyon’	page 5
+(9c)	Gloria Mellesmoen	citation	(K91:167)	page 5, the entry in Kinkade (1991)
+(9d)	Upper Chehalis	transcription	wə́q̓-	page 5, the base
+(9d)	Gloria Mellesmoen	translation	‘run’	page 5
+(9d)	Upper Chehalis	transcription	s-wéq̓-w-n	page 5, the diminutive
+(9d)	Gloria Mellesmoen	translation	‘run a little’	page 5
+(9d)	Gloria Mellesmoen	citation	(K91:153)	page 5, the entry in Kinkade (1991)
+(9e)	Upper Chehalis	transcription	t̓ə́lp-n	page 5, the base
+(9e)	Gloria Mellesmoen	translation	‘put on’	page 5
+(9e)	Upper Chehalis	transcription	t̓élp-n	page 5, the diminutive
+(9e)	Gloria Mellesmoen	translation	‘put on’	page 5, labeled DIM
+(9e)	Gloria Mellesmoen	citation	(K91:146)	page 5, the entry in Kinkade (1991)
+(9f)	Upper Chehalis	transcription	s-xʷayə́k̓ʷ	page 5, the base
+(9f)	Gloria Mellesmoen	translation	‘slug’	page 5
+(9f)	Upper Chehalis	transcription	s-xʷayék̓ʷ	page 5, the diminutive
+(9f)	Gloria Mellesmoen	translation	‘slug’	page 5, labeled DIM
+(9f)	Gloria Mellesmoen	citation	(K91:156)	page 5, the entry in Kinkade (1991)
+(9g)	Upper Chehalis	transcription	t̓ə́k̓ʷ-	page 5, the base
+(9g)	Gloria Mellesmoen	translation	‘bite’	page 5
+(9g)	Upper Chehalis	transcription	s-t̓ék̓ʷ-t-n	page 5, the diminutive
+(9g)	Gloria Mellesmoen	translation	‘bite a little’	page 5
+(9g)	Gloria Mellesmoen	citation	(K91:146)	page 5, the entry in Kinkade (1991)
+§2.1	Gloria Mellesmoen	note	Kinkade (1991) also records variation within lexical items: the examples in (10) show diminutive pairs with and without ʔ-infixation.	page 5
+(10a)	Upper Chehalis	transcription	x̣ʷə́qʷ-	page 5, the base
+(10a)	Gloria Mellesmoen	translation	‘be/get hungry’	page 5
+(10a)	Upper Chehalis	transcription	s-x̣ʷéʔqʷ-w-n	page 5, the diminutive
+(10a)	Gloria Mellesmoen	translation	‘be/get hungry’	page 5, labeled DIM INTR
+(10a)	Upper Chehalis	transcription	s-x̣ʷéqʷ-w-anš	page 5, a second diminutive, the line below
+(10a)	Gloria Mellesmoen	translation	‘I get a little hungry’	page 5, labeled CONT
+(10a)	Gloria Mellesmoen	citation	(K91:167)	page 5, the entry in Kinkade (1991)
+(10b)	Upper Chehalis	transcription	x̣ə́ƛ̓-	page 5, the base
+(10b)	Gloria Mellesmoen	translation	‘break’	page 5
+(10b)	Upper Chehalis	transcription	x̣éʔƛ̓-ɬ	page 5, the diminutive
+(10b)	Gloria Mellesmoen	translation	‘break’	page 5, labeled DIM
+(10b)	Upper Chehalis	transcription	ʔac-x̣éƛ̓-ɬ	page 5, a second diminutive, the line below
+(10b)	Gloria Mellesmoen	translation	‘it is broken a little’	page 5
+(10b)	Gloria Mellesmoen	citation	(K91:162)	page 5, the entry in Kinkade (1991)
+(10c)	Upper Chehalis	transcription	x̣atx̣at-	page 5, the base
+(10c)	Gloria Mellesmoen	translation	‘duck’	page 5
+(10c)	Upper Chehalis	transcription	x̣áːtx̣at	page 5, the diminutive
+(10c)	Gloria Mellesmoen	translation	‘small duck’	page 5
+(10c)	Upper Chehalis	transcription	x̣áʔtx̣t	page 5, a second diminutive, the line below
+(10c)	Gloria Mellesmoen	translation	‘small duck’	page 5
+(10c)	Gloria Mellesmoen	citation	(K91:160)	page 5, the entry in Kinkade (1991)
+(10d)	Upper Chehalis	transcription	ʔíɬn	page 5, the base
+(10d)	Gloria Mellesmoen	translation	‘eat’	page 5
+(10d)	Upper Chehalis	transcription	ʔéːʔɬn	page 5, the diminutive
+(10d)	Gloria Mellesmoen	translation	‘eat a little’	page 5
+(10d)	Upper Chehalis	transcription	ʔéʔɬn	page 5, a second diminutive, the line below
+(10d)	Gloria Mellesmoen	translation	‘eat a little’	page 5
+(10d)	Gloria Mellesmoen	citation	(K91: 12)	page 5, the entry in Kinkade (1991)
+§2.1	Gloria Mellesmoen	note	Length is used to mark perfectivity (Kinkade 1963a:37), which means that there may be interactions between the diminutive and aspectual marking that influence the realization of the diminutive, but this is beyond the scope of the paper.	page 5
+§2.2	Gloria Mellesmoen	heading	2.2 Diminutives in Upper Chehalis: Generalizations	page 5
+§2.2	Gloria Mellesmoen	note	Kinkade (1998) proposes the diminutive rule in (11) for Upper Chehalis, which accounts for the changes in vowel quality and quantity described in Section 2.1.7	page 5, carries footnote 7
+footnote 7	Gloria Mellesmoen	note	7 The rule in (11) does not account for ʔ-infixation. Section 2.3 captures the same generalizations as Kinkade’s (1998) rule, and Section 2.4 considers how the analysis can be extended to include ʔ-infixation.	page 5, footnote
+(11)	Gloria Mellesmoen	rule	Diminutive formation: [+low] add one mora of length	page 6, Kinkade's rule, [+low] set above add one mora of length
+(11)	Gloria Mellesmoen	citation	(Kinkade 1998:204)	page 6, the source of the rule
+§2.2	Gloria Mellesmoen	note	There are three features associated with the diminutive morpheme. The first of these is vowel quantity, which is defined as a change in the phonological length or weight of a vowel. Concretely, a vowel quantity change involves a difference between input (non-diminutive form) and output (diminutive form) in the number of moras associated with a vowel. The second feature is vowel quality, which is defined as a shift from one vowel to a different vowel (such as /u/ > /o/). The third feature is ʔ-infixation, which involves the infixation of a glottal stop following the stressed vowel. The distribution of the three features (vowel quantity, vowel quality, and ʔ-infixation) is summarized in Table 2 for each vowel, and the possible combination of features (as described in Section 2.1) is summarized in Table 3. The change from /ə/ to /e/ is a change in both vowel quantity and quality. The differences in vowel quantity include V > Vμ (a mora added to /ə/) and Vμ > Vμμ (a mora added to a short vowel). These two quantity changes represent the addition of a mora (0 > 1 and 1 > 2).	page 6
+Table 2	Gloria Mellesmoen	note	Table 2: Possible realization of diminutive features by vowel	page 6, the caption
+Table 2	Gloria Mellesmoen	note	Vowel Quantity Quality ʔ	page 6, the column heads
+Table 2	Gloria Mellesmoen	note	/u/ Vμ > Vμμ u > o Yes	page 6, the row of /u/, its moras set as subscripts
+Table 2	Gloria Mellesmoen	note	/i/ Vμ > Vμμ i > e Yes	page 6, the row of /i/, its moras set as subscripts
+Table 2	Gloria Mellesmoen	note	/a/ Vμ > Vμμ N/A Yes	page 6, the row of /a/, its moras set as subscripts
+Table 2	Gloria Mellesmoen	note	/ə/ V > Vμ ə > e Yes	page 6, the row of /ə/, its moras set as subscripts
+Table 3	Gloria Mellesmoen	note	Table 3: Possible combinations of diminutive features by vowel	page 6, the caption
+Table 3	Gloria Mellesmoen	note	Vowel Quantity ʔ Quality+ʔ Quality+Quantity Quality+Quantity+ʔ	page 6, the column heads
+Table 3	Gloria Mellesmoen	note	/u/ ✓ (-oʔ-) ✓ (-oː-) ✓ (-oːʔ-)	page 6, the checks under Quality+ʔ, Quality+Quantity and Quality+Quantity+ʔ
+Table 3	Gloria Mellesmoen	note	/i/ ✓ (-eʔ-) ✓ (-eː-) ✓ (-eːʔ-)	page 6, the checks under Quality+ʔ, Quality+Quantity and Quality+Quantity+ʔ
+Table 3	Gloria Mellesmoen	note	/ə/ ✓ (-e-) ✓ (-eʔ-)	page 6, the checks under Quality+Quantity and Quality+Quantity+ʔ
+Table 3	Gloria Mellesmoen	note	/a/ ✓ (-aː-) ✓ (-aʔ-)	page 6, the checks under Quantity and ʔ
+§2.2	Gloria Mellesmoen	note	While all vowels excluding /a/ undergo changes in vowel quality, these changes can be accounted for as secondary to vowel quantity and ʔ-infixation. The vowel quality differences are divided into lowering (/i/ > /e/ and /u/ > /o/) and strengthening (/ə/ > /e/). Vowel lowering is triggered by a glottal stop in the coda of a stressed syllable or where the addition of a mora would create a long /i/ or /u/. The patterns observed with vowel quality in Upper Chehalis therefore follow from two restrictions: (i) high vowels may not be long, and (ii) stressed high vowels may not have a glottal stop in the coda position. This accounts for categorical changes in vowel quality that affect words with /i/ and /u/ as the stressed vowel. The change in vowel quality affecting stressed /ə/ follows from the fact that schwas in Salish are nuclear but non-moraic (cf. Shaw et al. 1999; Blake 2000; Leonard 2019), which means that /ə/ must be strengthened to a full vowel when it bears a mora. In sum, the diminutive in Upper Chehalis may be formed with the addition of a mora or a glottal stop, and both may affect vowel quality.	page 6
+§2.3	Gloria Mellesmoen	heading	2.3 Diminutives in Upper Chehalis: Analysis	page 7
+§2.3.1	Gloria Mellesmoen	heading	2.3.1 Constraint-Based Analysis of Upper Chehalis Diminutives	page 7
+§2.3.1	Gloria Mellesmoen	note	The analysis of Upper Chehalis diminutives is given within Optimality Theory (Prince & Smolensky 1993), where candidates are generated and evaluated with respect to ranked and violable constraints. The diminutive in Upper Chehalis is assumed to be a segmentally empty mora (and the possibility of an additional allomorph containing /ʔ/ is discussed in Section 2.3.2), which is consistent with the diminutive rule given in Kinkade (1998).	page 7
+§2.3.1	Gloria Mellesmoen	note	This analysis of Upper Chehalis diminutive morphology follows the tradition of analyzing non- concatenative morphology in Salish as phonological repairs which provide segmental content to an affixed mora (see Bye & Svenonius 2012; Saba Kirchner 2013; Urbanczyk 1998; Zimmermann 2013; Mellesmoen & Urbanczyk 2020, and others).	page 7
+§2.3.1	Gloria Mellesmoen	note	The constraint *FLOAT, defined in (12), bans unaffiliated prosodic units, which compels phonological processes (e.g., lengthening) that provide segmental content to an affixed prosodic unit (Saba Kirchner 2013:232).	page 7
+(12)	Gloria Mellesmoen	rule	*FLOAT: ∀p ∈ O, where p is a prosodic unit: ∃s, where s is a segment, and p dominates s.	page 7
+§2.3.1	Gloria Mellesmoen	note	A mismatch between the length of a segment in the input and a corresponding segment in the input (including lengthening a vowel) violates the faithfulness constraint WT-IDENT-IO (McCarthy 1995, as cited in Kager 1999:269). This constraint is defined in (13) and has been modified to include segments that are non-moraic (/ə/). Diminutives marked by a length contrast or by strengthening /ə/ to a full vowel will violate WT-IDENT-IO.	page 7
+(13)	Gloria Mellesmoen	rule	WT-IDENT-IO: If α ∈ Domain(f), if α is non-moraic, then f(α) is non-moraic. if α is monomoraic, then f(α) is monomoraic. if α is bimoraic, then f(α) is bimoraic.	page 7, the definition, a condition a line
+§2.3.1	Gloria Mellesmoen	note	The change in vowel quality and quantity from non-moraic /ə/ to monomoraic /e/ occurs because the markedness constraint *əμ, defined in (14), is undominated. Candidates with a monomoraic (or bimoraic) /ə/ fatally violate *əμ. A change in the quality of the vowel violates the faithfulness constraint IDENT-V (defined in 15, after McCarthy & Prince 1999:294).	page 7
+(14)	Gloria Mellesmoen	rule	*əμ: Schwa is non-moraic.	page 7
+(15)	Gloria Mellesmoen	rule	IDENT-V: Corresponding segments have identical values for vowel features.	page 7
+§2.3.1	Gloria Mellesmoen	note	Ranking IDENT-V and WT-IDENT-IO beneath *əμ and *FLOAT allows winning candidates to associate the diminutive μ to /é/ (from an input /ə́/). This is shown in (16), where the attested form (16b) t̓élpn prevails over candidates with a floating mora (16a) or with a moraic /ə/ (16c).	page 7
+§2.3.1	Upper Chehalis	cited form	t̓élpn	page 7, the attested diminutive, (16b)
+(16)	Gloria Mellesmoen	rule	*əμ, *FLOAT >> WT-IDENT-IO, IDENT-V	page 8, the ranking over the tableau
+(16)	Upper Chehalis	underlying	t̓ə́lpn + μ	page 8, the input, over the columns *əμ, *FLOAT, WT-IDENT-IO and IDENT-V
+(16a)	Upper Chehalis	candidate	t̓ə́lpn μ	page 8, *! under *FLOAT
+(16b)	Upper Chehalis	winner	t̓élpn	page 8, the winner, ☞, * under WT-IDENT-IO and IDENT-V
+(16c)	Upper Chehalis	candidate	t̓ə́ːlpn	page 8, *! under *əμ, * under WT-IDENT-IO
+§2.3.1	Gloria Mellesmoen	note	The diminutive μ is affiliated with the stressed vowel instead of other vowels in the word because WT-IDENT-IOunstressed is ranked above WT-IDENT-IO. The definition of WT-IDENT- IOunstressed is identical to the one given for WT-IDENT-IO in (13), but it is only violated by changes in the length of unstressed vowels. The ranking WT-IDENT-IOunstressed >> WT-IDENT-IO ensures that a candidate (e.g., 17b) with the affixed mora assigned to the stressed syllable fares better than one that lengthens a full vowel elsewhere in the word (e.g., 17a).	page 8
+(17)	Gloria Mellesmoen	rule	*əμ, WT-IDENT-IOunstressed, *FLOAT >> WT-IDENT-IO, IDENT-V	page 8, the ranking over the tableau
+(17)	Upper Chehalis	underlying	sx̣ʷə́qʷwanš + μ	page 8, the input, over the columns *əμ, WT-IDENT-IOunstressed, *FLOAT, WT-IDENT-IO and IDENT-V
+(17a)	Upper Chehalis	candidate	sx̣ʷə́qʷwaːnš	page 8, *! under WT-IDENT-IOunstressed, * under WT-IDENT-IO
+(17b)	Upper Chehalis	winner	sx̣ʷéqʷwanš	page 8, the winner, ☞, * under WT-IDENT-IO and IDENT-V
+§2.3.1	Gloria Mellesmoen	note	Diminutive forms of words with stressed /a/ are derived by the constraint ranking in (17). The constraint *Vː [+high], defined in (18), bans vowels that are both high and long, which drives the lowering of /i/ and /u/ when forming a diminutive. *Vː [+high] must be ranked above IDENT-V to capture the change in vowel quality with high vowels. With this ranking, a candidate with a faithful high vowel fatally violates *Vː [+high] (e.g., 19a), and a candidate with lowering will win (e.g., 19b).8	page 8, carries footnote 8
+(18)	Gloria Mellesmoen	rule	*Vː [+high]: Assign a violation mark for every long vowel that is [+high].	page 8
+(19)	Gloria Mellesmoen	rule	*əμ, WT-IDENT-IOunstressed, *Vː [+high], *FLOAT >> WT-IDENT-IO, IDENT-V	page 8, the ranking over the tableau
+(19)	Upper Chehalis	underlying	swəq̓íq̓iʔɬ + μ	page 8, the input, over the columns *Vː [+high], WT-IDENT-IO and IDENT-V
+(19a)	Upper Chehalis	candidate	swəq̓íːq̓iʔɬ	page 8, *! under *Vː [+high], * under WT-IDENT-IO
+(19b)	Upper Chehalis	winner	swəq̓éːq̓iʔɬ	page 8, the winner, ☞, * under WT-IDENT-IO and IDENT-V
+§2.3.1	Gloria Mellesmoen	note	The changes in vowel quality and quantity described by Kinkade (1998) are derived by the constraint ranking in (20).	page 8
+(20)	Gloria Mellesmoen	rule	*əμ, WT-IDENT-IOunstressed, *Vː [+high], *FLOAT >> WT-IDENT-IO, IDENT-V	page 8
+§2.3.2	Gloria Mellesmoen	heading	2.3.2 Accounting for Diminutive Allomorphy	page 8
+§2.3.2	Gloria Mellesmoen	note	The constraint-based analysis presented in Section 2.3.1 accounts for changes in vowel quality and quantity in Upper Chehalis diminutives, but does not capture ʔ-infixation or the variation across and within lexical items.9 It is not clear what mediates the variability in the realization of the diminutive and what determines whether Vː, Vːʔ, or Vʔ surface.	page 8, runs on to page 9, carries footnote 9
+footnote 8	Gloria Mellesmoen	note	8 WT-IDENT-IOunstressed,*əμ, and *FLOAT are omitted from (19). They are not violated by either candidate.	page 8, footnote
+footnote 9	Gloria Mellesmoen	note	9 The combination of vowel lowering and lengthening is probably the productive form of the diminutive, as this is the pattern represented in pedagogical materials (e.g., Kinkade 2003).	page 8, footnote
+§2.3.2	Gloria Mellesmoen	note	An initial possibility is that there are multiple allomorphs of the diminutive and the selection of a particular input is lexically specified. While this may account for variation across lexical items, it does not predict the variation within lexical items (see 10 in Section 2.1).	page 9
+§2.3.2	Gloria Mellesmoen	note	I will present two possible explanations for diminutive allomorphy: (i) a phonological solution assuming free variation (2.3.2.1), and (ii) a phonetic solution assuming variation in the acoustic realization of long vowels. The first solution assumes a single input to the phonological grammar with multiple possible outputs, while the second solution can arise from a single output from the phonological grammar.10 The two proposed explanations are not mutually exclusive, however, as variation in the phonology can occur in combination with phonetic gradience, but neither solution is conclusive given the limitations on available data (no negative data or acoustic evidence).	page 9, carries footnote 10
+§2.3.2.1	Gloria Mellesmoen	heading	2.3.2.1 Diminutive Allomorphy: Free Variation (Phonological Solution)	page 9
+§2.3.2.1	Gloria Mellesmoen	note	Variation poses problems for a traditional OT framework, as a strict total constraint ranking does not allow for multiple candidates to win, and many solutions have been proposed to allow for optionality in the phonological grammar (e.g., Stochastic OT in Boersma 1997). If the variation resides in the phonological grammar, one solution is to propose that constraints in the grammar are partially ranked (Anttila 1995, 1997).	page 9
+§2.3.2.1	Gloria Mellesmoen	note	A partially ranked grammar allows for variation when some constraints are not strictly ordered, which allows for multiple total rankings to arise from a single partially ranked grammar. A benefit of this analysis is that it is more capable of handling the free variation found in lexical items including x̣á:tx̣at ~ x̣áʔtx̣t ‘small duck’.	page 9
+§2.3.2.1	Upper Chehalis	cited form	x̣á:tx̣at	page 9, ‘small duck’, in free variation with x̣áʔtx̣t
+§2.3.2.1	Upper Chehalis	cited form	x̣áʔtx̣t	page 9, ‘small duck’, in free variation with x̣á:tx̣at
+§2.3.2.1	Gloria Mellesmoen	note	A partially ranked grammar also allows for the derivation of multiple surface forms from a single input for the diminutive morpheme that contains both a mora and a glottal stop. The constraint ranking from Section 2.3.1 serves as the base of this analysis, but with the addition of two additional faithfulness constraints: O-CONTIGUITY (McCarthy & Prince 1995:123), defined in (21), and REALIZEMORPHEME (Kurisu 2001:39), defined in (22).	page 9
+(21)	Gloria Mellesmoen	rule	O-CONTIGUITY: The portion of S2 standing in correspondence forms a contiguous string.	page 9
+(22)	Gloria Mellesmoen	rule	REALIZEMORPHEME (RM): Let α be a morphological form, β be a morphosyntactic category, and F(α) be the phonological form from which F(α+β) is derived to express a morphosyntactic category β. Then RM is satisfied with respect to β iff F(α + β)≠F(α) phonologically.	page 9, the definition over three lines
+§2.3.2.1	Gloria Mellesmoen	note	O-CONTIGUITY is violated when the diminutive is marked via ʔ-infixation. In the partial ranking, O-CONTIGUITY is not strictly ranked relative to WT-IDENT-IO, which allows for variation in the realization of the diminutive between forms with vowel lengthening and ʔ-infixation. REALIZEMORPHEME requires every input morpheme to be expressed in the output.	page 9
+§2.3.2.1	Gloria Mellesmoen	note	REALIZEMORPHEME is undominated, which results in the updated ranking in (23).	page 9
+(23)	Gloria Mellesmoen	rule	RM, əμ, WT-IDENT-IOunstr, *Vː [+high], *FLOAT >> {WT-IDENT-IO, O-CONTIGUITY} >> IDENT-V	page 9, the ranking over two lines
+footnote 10	Gloria Mellesmoen	note	10 Proposing multiple allomorphs of the diminutive means that each has a distinct input and output.	page 9, footnote
+§2.3.2.1	Gloria Mellesmoen	note	The partial ranking in (23) allows for two total rankings: a word can be made diminutive by vowel lengthening or ʔ-infixation. The two options (with only the relevant constraints included) are shown in (24) and (25). The input contains a mora and a glottal stop, and the grammar determines which candidate will win.	page 10
+(24)	Gloria Mellesmoen	rule	Total Ranking 1: RM >> CONTIGUITY >> WT-IDENT-IO	page 10, the ranking over the tableau
+(24)	Upper Chehalis	underlying	x̣atx̣at + μ ʔ	page 10, the input, over the columns RM, O-CONTIGUITY and WT-IDENT-IO
+(24a)	Upper Chehalis	winner	x̣áːtx̣at	page 10, the winner, ☞, * under WT-IDENT-IO
+(24b)	Upper Chehalis	candidate	x̣áʔtx̣t	page 10, *! under O-CONTIGUITY
+(24c)	Upper Chehalis	candidate	x̣áːʔtx̣at	page 10, *! under O-CONTIGUITY, * under WT-IDENT-IO
+(24d)	Upper Chehalis	candidate	x̣atx̣at	page 10, *! under RM
+(25)	Gloria Mellesmoen	rule	Total Ranking 2: RM >> WT-IDENT-IO >> CONTIGUITY	page 10, the ranking over the tableau
+(25)	Upper Chehalis	underlying	x̣atx̣at + μ ʔ	page 10, the input, over the columns RM, WT-IDENT-IO and O-CONTIGUITY
+(25a)	Upper Chehalis	candidate	x̣áːtx̣at	page 10, *! under WT-IDENT-IO
+(25b)	Upper Chehalis	winner	x̣áʔtx̣t	page 10, the winner, ☞, * under O-CONTIGUITY
+(25c)	Upper Chehalis	candidate	x̣áːʔtx̣at	page 10, *! under WT-IDENT-IO, * under O-CONTIGUITY
+(25d)	Upper Chehalis	candidate	x̣atx̣at	page 10, *! under RM
+§2.3.2.1	Gloria Mellesmoen	note	Candidates with both a glottal stop and a long vowel are ruled out (24c, 25c), which is consistent with diminutives with stressed /a/. This analysis now covers the Vː and Vʔ allomorphs, but would need to be adapted to derive the Vːʔ allomorph attested with /i/ and /u/.	page 10
+§2.3.2.1	Gloria Mellesmoen	note	While negative data are not available to examine the acceptability of free variation across a number of lexical items and contexts, Kinkade (1993:5) states that “the diminutive lengthening of vowels varies freely with a glottal stop inserted after the stressed vowel”. This description is consistent with the free variation permitted by a partially ranked grammar.	page 10
+§2.3.2.2	Gloria Mellesmoen	heading	2.3.2.2 Diminutive Allomorphy: Gradient Realization (Phonetic Solution)	page 10
+§2.3.2.2	Gloria Mellesmoen	note	Variability in forming diminutives in Upper Chehalis between Vː, Vʔ, and Vːʔ may have a phonetic source. Kinkade (1963a:128) states that glottalization and lengthening associated with diminutives in Upper Chehalis is perceived as a long vowel with notable creakiness. He notes that creakiness can fall anywhere from slight creakiness to a full glottal closure. This description suggests acoustic variability, which can arise from a single allomorph of the diminutive.	page 10
+§2.3.2.2	Gloria Mellesmoen	note	This solution predicts that realizations of the diminutive would vary along two dimensions (short-long and modal-creaky) which could not be divided neatly into discrete categories (e.g., Vː, Vʔ, or Vːʔ). Variation within a single phonologically discrete category (i.e., variation with a phonetic source) would allow for considerable variation across repetitions of the same word and may be less perceptually salient to speakers.	page 10
+§2.3.2.2	Gloria Mellesmoen	note	If variability in amount of creakiness or presence of glottal closure are characteristics of the phonetic instantiation of phonological length, then alternations of the type Vː ~ Vʔ ~Vːʔ would not be specific to the diminutive morpheme. The word in (26) is not a diminutive form and shows variation (interpreted from Kinkade’s 1991 transcription) between Vː and Vʔ. The presence of this alternation outside of the diminutive is potentially evidence that the variation reflects a more general property of long vowels in Upper Chehalis.	page 10
+(26)	Upper Chehalis	transcription	čáʔɬi	page 11, the form with Vʔ
+(26)	Upper Chehalis	transcription	čáːɬi	page 11, the form with Vː, printed after ~
+(26)	Gloria Mellesmoen	translation	‘three’	page 11
+(26)	Gloria Mellesmoen	citation	(K91:33)	page 11, the entry in Kinkade (1991)
+§2.3.2.2	Gloria Mellesmoen	note	While a phonetic solution remains a plausible solution on the basis of available documentation, acoustic data and speaker judgments would provide more conclusive evidence, but unfortunately neither is available because there are currently no speakers of Upper Chehalis.	page 11
+§3	Gloria Mellesmoen	heading	3 Diminutives in Upper Chehalis: Diachronic Perspective	page 11
+§3	Gloria Mellesmoen	note	The Tsamosan languages are exceptional among the Salish languages for not using C1 reduplication to mark diminutives (Kinkade 1993). Vowel length is used to mark diminutivity in Upper Chehalis and Cowlitz, while the affix -uʔ is used in Lower Chehalis and Quinault (see Section 2). Little has been said about the source of the Tsamosan diminutive markers or what kind of diachronic trajectory would lead to these innovations.11 Having presented an analysis of the synchronic Upper Chehalis data in Section 2, I now return to one of the guiding questions of this paper: how do diminutives in Tsamosan languages compare with diminutives in other Salish languages, and what is the trajectory of change that would lead to their innovation?	page 11, carries footnote 11
+§3	Gloria Mellesmoen	note	I follow Kinkade (1998) in analyzing the diminutive in Upper Chehalis as the addition of a mora, and my analysis allows for a better diachronic understanding of Salish diminutives because vowel length in Upper Chehalis and C1 reduplication in the other languages can be unified under a single lexical entry containing a mora without segmental content. This suggests not only a concrete connection between Proto-Salish and the Tsamosan languages, but also that the lexical entry for the diminutive has remained relatively intact across Salish, even where the surface forms appear unrelated.	page 11
+§3.1	Gloria Mellesmoen	heading	3.1 Reduplication and INTEGRITY in Salish	page 11
+§3.1	Gloria Mellesmoen	note	Reduplication in other Salish languages has been analyzed as the fission of an input segment into two output segments (a one-to-two input-output mapping), which provides segmental content to fill an empty mora and violates INTEGRITY (McCarthy & Prince 1999).	page 11
+(27)	Gloria Mellesmoen	rule	INTEGRITY: No element of the input has multiple correspondents in the output.	page 11
+§3.1	Gloria Mellesmoen	note	The position of INTEGRITY relative to other faithfulness constraints determines whether the grammar will prefer candidates with reduplication, or candidates that use a different phonological repair strategy. INTEGRITY is ranked above WT-IDENT-IO in a “lengthening” grammar (29), while INTEGRITY is ranked lower in a “reduplicating” grammar (30).	page 11
+footnote 11	Gloria Mellesmoen	note	11 While Kinkade (1993) notes that the origin of the Tsamosan diminutive markers remains unclear, he speculates that the glottal stop found in the Vʔ form of the diminutive may be the source of vowel lengthening. If vowel length originated from the loss of a glottal stop, this is similar to the emergence of length and tone in the Upriver dialect of Halkomelem (see Galloway 1977).	page 11, footnote, its number printed 1 1 in the text layer
+(28)	Gloria Mellesmoen	rule	“Lengthening” Grammar: *FLOAT, INTEGRITY >> WT-IDENT-IO	page 12, the ranking over the tableau
+(28)	Gloria Mellesmoen	underlying	C1VC + μ	page 12, the input, over the columns *FLOAT, INTEGRITY and WT-IDENT-IO
+(28a)	Gloria Mellesmoen	candidate	CVC μ	page 12, * under *FLOAT, printed without its !
+(28b)	Gloria Mellesmoen	winner	CVːC	page 12, the winner, ☞, * under WT-IDENT-IO
+(28c)	Gloria Mellesmoen	candidate	C1VC1C	page 12, *! under INTEGRITY
+(29)	Gloria Mellesmoen	rule	“Reduplicating” Grammar: *FLOAT, WT-IDENT-IO >> INTEGRITY	page 12, the ranking over the tableau
+(29)	Gloria Mellesmoen	underlying	C1VC + μ	page 12, the input, over the columns *FLOAT, WT-IDENT-IO and INTEGRITY
+(29a)	Gloria Mellesmoen	candidate	CVC μ	page 12, *! under *FLOAT
+(29b)	Gloria Mellesmoen	candidate	CVːC	page 12, *! under WT-IDENT-IO
+(29c)	Gloria Mellesmoen	winner	C1VC1C	page 12, the winner, ☞, * under INTEGRITY
+§3.1	Gloria Mellesmoen	note	Upper Chehalis and Cowlitz have “lengthening” grammars (29), while the rest of the Salish language family (excluding the other two Tsamosan languages) have “reduplicating” grammars (30). The difference between diminutives in Upper Chehalis and the rest of Salish therefore does not indicate a change to the lexical entry (input) for the diminutive, but instead reflects a change in the rest of the grammar.	page 12
+§3.2	Gloria Mellesmoen	heading	3.2 C2 and C1C2 Reduplication in Upper Chehalis	page 12
+§3.2	Gloria Mellesmoen	note	Ranking INTEGRITY above other faithfulness constraints in Upper Chehalis results in a grammar where lengthening a vowel is a permitted phonological repair. However, this ranking has an unintended consequence if considered within a parallel derivation; reduplication should never occur and while C1 reduplication is absent in Upper Chehalis, C1C2 (“distributive”) and C2 (“gradual”) reduplication are attested (30–31).	page 12
+(30a)	Upper Chehalis	transcription	ʔit wákʷwakʷs	page 12
+(30a)	Gloria Mellesmoen	translation	‘he went again and again’	page 12
+(30b)	Upper Chehalis	transcription	ʔac-yə́myemx̣ʷ-ɬ	page 12
+(30b)	Gloria Mellesmoen	translation	‘bumps’	page 12
+(30)	Gloria Mellesmoen	citation	(Kinkade 1993:14)	page 12, the source of (30a and (30b
+(31a)	Upper Chehalis	transcription	ʔit yáƛ̓aƛ̓	page 12
+(31a)	Gloria Mellesmoen	translation	‘he went home slowly’	page 12
+(31b)	Upper Chehalis	transcription	sákʷkʷ-mit-n	page 12
+(31b)	Gloria Mellesmoen	translation	‘he is whispering while going’	page 12
+(31)	Gloria Mellesmoen	citation	(Kinkade 1993:15)	page 12, the source of (31a and (31b
+§3.2	Gloria Mellesmoen	note	I account for the presence of two types of reduplication and absence of C1 reduplication by adopting a Stratal OT framework (Kiparsky 2010, 2015; Bermúdez-Otero 2012). The constraint ranking which permits lengthening as a phonological repair (and eliminates candidates with reduplication) is found at one stratum, while the constraint ranking that permits candidates with reduplication to win is active at a different stratum. I analyze reduplication in Upper Chehalis as a stem-level process and I propose that WT-IDENT-IO is ranked higher than INTEGRITY at the stem stratum (32a). This ranking favours candidates with reduplication over those with lengthening. 12 I analyze vowel lengthening as a word-level process and I propose that INTEGRITY is ranked higher than WT-IDENT-IO at the word stratum (32b). Vowel length emerges as the primary marker of diminutivity at the word level, while reduplication is retained for stem-level processes.	page 12, carries footnote 12
+footnote 12	Gloria Mellesmoen	note	12 WT-IDENT-IO is violated by unfaithful input-output mapping; long vowels in individual lexical items remain long (as in čá:ɬi ‘three’).	page 12, footnote
+footnote 12	Upper Chehalis	cited form	čá:ɬi	page 12, ‘three’, a long vowel of a lexical item
+(32a)	Gloria Mellesmoen	rule	a. Stem Level: WT-IDENT-IO >> INTEGRITY	page 13
+(32b)	Gloria Mellesmoen	rule	b. Word Level: INTEGRITY >> WT-IDENT-IO	page 13
+§3.2	Gloria Mellesmoen	note	Following Mellesmoen and Urbanczyk (2021a) on multiple reduplication in Halkomelem, I assume that non-concatenative morphology can be derived across three strata (stem, word, phrase). I further adopt the binarity restriction on GEN proposed by Mellesmoen and Urbanczyk (2021b), stated in (33). This restriction limits GEN to generating candidates that are maximally binary branching, and excludes multiple reduplication (at a single stratum) and fission that results in a 1:3 mapping.	page 13
+(33)	Gloria Mellesmoen	rule	Binarity Restriction on GEN: An element in the input corresponds to a maximum of two elements in the output.	page 13, the restriction over two lines
+§3.2	Gloria Mellesmoen	note	The Binarity Restriction provides evidence for dividing the non-concatenative morphology in Upper Chehalis into those that apply at the stem stratum (reduplication) and those that apply at the word stratum (lengthening). If reduplication only occurs at the stem stratum and can only create candidates via fission with a 1:2 mapping, then I predict that multiple reduplication will be avoided in Upper Chehalis. Specifically, if C2 and C1C2 reduplication apply at the same stratum, they are not expected to co-occur. This prediction is supported by the available data: Kinkade (1991) records many forms of each lexical item and discusses both types of reduplication in detail without providing examples of multiple reduplication (see Kinkade 1985 on C2 reduplication and Kinkade 1995 on C1C2 reduplication).	page 13
+§3.2	Gloria Mellesmoen	note	While multiple reduplication is not attested in Upper Chehalis, there are many examples of words with both a reduplicative morpheme and the diminutive. The diminutive can be combined with C2 reduplication (34) or with C1C2 reduplication (35).	page 13
+(34a)	Upper Chehalis	transcription	yə́p	page 13, the base
+(34a)	Gloria Mellesmoen	translation	‘walk’	page 13
+(34a)	Upper Chehalis	transcription	s-yéʔp~ip-w-n	page 13, the diminutive
+(34a)	Gloria Mellesmoen	translation	‘he walks along slowly’	page 13
+(34a)	Gloria Mellesmoen	citation	(K91:174)	page 13, the entry in Kinkade (1991)
+(34b)	Upper Chehalis	transcription	ʔášaq-	page 13, the base
+(34b)	Gloria Mellesmoen	translation	‘snow falling’	page 13
+(34b)	Upper Chehalis	transcription	s-ʔáʔš<aš>aq-n	page 13, the diminutive
+(34b)	Gloria Mellesmoen	translation	‘it is snowing slowly’	page 13
+(34b)	Gloria Mellesmoen	citation	(K91: 6)	page 13, the entry in Kinkade (1991)
+(34c)	Upper Chehalis	transcription	ʔə́pxʷ-	page 13, the base
+(34c)	Gloria Mellesmoen	translation	‘drop’	page 13, labeled PL
+(34c)	Upper Chehalis	transcription	ʔép<p>xʷ-ɬ	page 13, the diminutive
+(34c)	Gloria Mellesmoen	translation	‘dropping’	page 13, labeled DIM PL
+(34c)	Gloria Mellesmoen	citation	(K91: 9)	page 13, the entry in Kinkade (1991)
+(34d)	Upper Chehalis	transcription	ʔíɬn	page 13, the base
+(34d)	Gloria Mellesmoen	translation	‘eat’	page 13
+(34d)	Upper Chehalis	transcription	s-ʔéːɬ<iɬ>n-n	page 13, the diminutive
+(34d)	Gloria Mellesmoen	translation	‘eat slowly away’	page 13
+(34d)	Gloria Mellesmoen	citation	(K91: 12)	page 13, the entry in Kinkade (1991)
+(35a)	Upper Chehalis	transcription	yə́p	page 13, the base
+(35a)	Gloria Mellesmoen	translation	‘walk’	page 13
+(35a)	Upper Chehalis	transcription	s-yap~yap-áːl̓-ax̣š-t-n	page 13, the diminutive
+(35a)	Gloria Mellesmoen	translation	‘visit for little bit often’	page 13
+(35a)	Gloria Mellesmoen	citation	(K91:174)	page 13, the entry in Kinkade (1991)
+(35b)	Upper Chehalis	transcription	x̣asíl̓	page 13, the base
+(35b)	Gloria Mellesmoen	translation	‘rain’	page 13
+(35b)	Upper Chehalis	transcription	x̣əs~x̣aséːʔl	page 13, the diminutive
+(35b)	Gloria Mellesmoen	translation	‘it rained a little’	page 13
+(35b)	Gloria Mellesmoen	citation	(K91:160)	page 13, the entry in Kinkade (1991)
+(35c)	Upper Chehalis	transcription	wə́l-ɬ	page 13, the base
+(35c)	Gloria Mellesmoen	translation	‘fly’	page 13, labeled INTR
+(35c)	Upper Chehalis	transcription	s-wél̓~wəl-w-n	page 13, the diminutive
+(35c)	Gloria Mellesmoen	translation	‘fly to and fro a little’	page 13
+(35c)	Gloria Mellesmoen	citation	(K91:152)	page 13, the entry in Kinkade (1991)
+(35d)	Upper Chehalis	transcription	yút̓-n	page 13, the base
+(35d)	Gloria Mellesmoen	translation	‘stir’	page 13, labeled TR
+(35d)	Upper Chehalis	transcription	yóːʔt̓~yut̓-n	page 13, the diminutive
+(35d)	Gloria Mellesmoen	translation	‘stir a little (FREQ)’	page 13
+(35d)	Gloria Mellesmoen	citation	(K91:176)	page 13, the entry in Kinkade (1991)
+§3.2	Gloria Mellesmoen	note	C2 and C1C2 reduplication can each co-occur with the diminutive, but crucially are not attested together in the same word. The avoidance of multiple reduplication at the same stratum is predicted under the Binarity Constraint, and this analysis is consistent with proposing that reduplication occurs at the stem level, which has a different constraint ranking (INTEGRITY ranked lower = reduplication permitted) than the word level (INTEGRITY ranked higher = reduplication blocked).	page 13
+§3.2	Gloria Mellesmoen	note	The domain for the Upper Chehalis diminutive is the word, the input is an affixed mora, and the crucial ranking in the grammar (at the word stratum) is INTEGRITY >> WT-IDENT-IO. These three parameters (domain, input, and grammar) are the basis of the DIG method, which allows for a better understanding of the trajectories of diachronic change by allowing for the identification of change along three dimensions.	page 13
+§4	Gloria Mellesmoen	heading	4 An Amphichronic Approach to Salish Diminutives	page 14
+§4	Gloria Mellesmoen	note	Amphichronic approaches to phonology combine two elements: (i) the synchronic analysis of patterns that are phonologically active in a given language, and (ii) relations between the synchronic phenomena and their respective diachronic trajectories (see Kiparsky 2006; Bermúdez-Otero 2013; and Ramsammy 2015).	page 14
+§4	Gloria Mellesmoen	note	Ramsammy (2015) describes how an amphichronic approach can be used to explore variation between dialects and closely related languages, providing a framework for understanding the micro-typologies that arise from gradual changes, which develop at different rates and result in different outcomes across language varieties.	page 14
+§4	Gloria Mellesmoen	note	Assuming the same initial input (an affixed mora with some kind of glottal component), constraint ranking (INTEGRITY ranked low enough to allow for reduplication), and position in the derivation (with respect to strata), I consider how synchronic patterns in diminutive morphology fit into the diachronic trajectories of language change in Salish and further explore how language change effects reduplicative (and non-concatenative) morphemes.	page 14
+§4.1	Gloria Mellesmoen	heading	4.1 Reconstructing a Diminutive Morpheme to Proto-Salish	page 14
+§4.1	Gloria Mellesmoen	note	Change can arise from a number of sources, including domain narrowing (e.g., a process initially applied at the word stratum is now applied at the stem stratum), reanalysis (e.g., the lexical entry for a morpheme changes), and constraint reranking (e.g., changes to the general grammar). Each of the three sources can be evaluated in comparison to the domain, input, and grammar of the morpheme reconstructed to Proto-Salish.	page 14
+§4.1	Gloria Mellesmoen	note	I reconstruct the input for the Proto-Salish diminutive first, guided by the synchronic analysis of Upper Chehalis. Examining the surface realization of diminutives across the language family (Table 4, originally given as Table 1) confirms that C1 reduplication is the most common type of diminutive marking, and is found in every language aside from the Tsamosan languages.	page 14
+Table 4	Gloria Mellesmoen	note	Table 4: Diminutives in Salish languages	page 14, the caption
+Table 4	Gloria Mellesmoen	note	Reduplication Vowel Lengthening Affix	page 14, the column heads
+Table 4	Gloria Mellesmoen	note	Interior Salish ✓	page 14, the check under Reduplication
+Table 4	Gloria Mellesmoen	note	Central Salish ✓	page 14, the check under Reduplication
+Table 4	Gloria Mellesmoen	note	Tillamook ✓	page 14, the check under Reduplication
+Table 4	Gloria Mellesmoen	note	Bella Coola ✓ ✓	page 14, the checks under Reduplication and Affix
+Table 4	Gloria Mellesmoen	note	Tsamosan Upper Chehalis & Cowlitz ✓	page 14, the check under Vowel Lengthening, the first Tsamosan line
+Table 4	Gloria Mellesmoen	note	Lower Chehalis & Quinault ✓	page 14, the check under Affix, the second Tsamosan line
+§4.1	Gloria Mellesmoen	note	If vowel length in Upper Chehalis and Cowlitz is analyzed as the affixation of a mora (Section 2), and C1 reduplication is also analyzed as the affixation of a mora (Section 3.1), then a mora can therefore be reconstructed to Proto-Salish to mark the diminutive. This affixed mora is still present across different branches of the family.	page 14
+§4.1	Gloria Mellesmoen	note	In addition to the affixed mora, there is also evidence for a glottal component associated with the diminutive across the family. Though the glottal component in Upper Chehalis is subject to variation and is difficult to analyze synchronically, either glottalization of a sonorant or a glottal stop often accompany diminutive reduplication across Salish (see e.g., Lillooet in Van Eijk 2011 and Halkomelem in Hukari 1978). Given that a full glottal closure is not present in all languages, and many languages have glottalization of a sonorant segment that is discontinuous with the diminutive reduplication, I reconstruct a floating [+constricted glottis] feature which has developed into a glottal stop in some languages (cf. [+constricted glottis] with reduplication in Thompson used by Jimmie 1994 and Shaw et al. 2005).13	page 14, runs on to page 15, carries footnote 13
+§4.1	Gloria Mellesmoen	language	Lillooet	page 14, a language whose diminutive reduplication carries glottalization
+§4.1	Gloria Mellesmoen	language	Halkomelem	page 14, a language whose diminutive reduplication carries glottalization
+§4.1	Gloria Mellesmoen	language	Thompson	page 15, [+constricted glottis] with its reduplication
+§4.1	Gloria Mellesmoen	note	Change to the input is most evident within the Maritime Tsamosan languages (Quinault and Lower Chehalis), as the underlying form must have changed in order for the diminutive suffix -uʔ to replace the Proto-Salish *μ.14	page 15, carries footnote 14
+§4.1	Upper Chehalis	cited affix	-uʔ	page 15, the diminutive suffix of the Maritime Tsamosan languages
+§4.1	Gloria Mellesmoen	cited form	*μ	page 15, the Proto-Salish diminutive, carries footnote 14
+§4.1	Gloria Mellesmoen	note	The second question pertaining to the reconstruction of the Proto-Salish diminutive concerns the position of the diminutive with respect to the derivation (the domain of application). The anticipated direction of phonological change is domain narrowing (cf. phonological life cycle of change in Ramsammy 2015). The Upper Chehalis diminutive is a word-level process (Section 3), and I analyze the diminutive as a stem-level process for some Salish languages (e.g., Comox- Sliammon in Mellesmoen 2020), and a word-level process in others (e.g., Halkomelem in Mellesmoen & Urbanczyk 2021a). The Northern Interior languages show alignment to the position of stress (e.g., Lillooet in Van Eijk 2011), similar to what is observed in Upper Chehalis. 15 The interaction between the position of the diminutive morpheme and word-level stress across different branches of the family (despite having very different surface forms), and the anticipated direction of change (domain narrowing) supports reconstructing the diminutive to Proto-Salish as a word- level process.	page 15, carries footnote 15
+§4.1	Gloria Mellesmoen	language	Comox-Sliammon	page 15, a language whose diminutive is a stem-level process
+§4.1	Gloria Mellesmoen	note	Having reconstructed the input and the domain for the Proto-Salish diminutive, the remaining task is to reconstruct the grammar needed to derive the observed patterns. As reduplication is observed across all non-Tsamosan languages, and the Tsamosan languages have innovated long vowels, the constraint ranking that results in vowel length in Upper Chehalis must mark a departure from the Proto-Salish system. Therefore, the Proto-Salish word-level grammar must have INTEGRITY ranked low enough to allow for reduplication to occur, while faithfulness constraints evaluating segment length or markedness constraints violated by long vowels would have been ranked higher.	page 15
+§4.1	Gloria Mellesmoen	note	This third type of change is not specific to any given morpheme or type of morpheme, but instead reflects global changes in the phonological grammar of the language. This is the case with the diminutive in Upper Chehalis, which can be analyzed as having the same input mora as in Proto- Salish and applying within the same domain, but the general word-level phonological grammar of the language has changed, resulting in differences in the surface form. The affixed mora is associated with the stressed vowel, either turning /ə/ to a full vowel or turning a short vowel to a long one. This reflects a general reranking of constraints in the language, which yields a grammar that prefers to lengthen a vowel over reduplicating one (and the emergence of phonemic long vowels in the general lexicon is evidence for changes to the broader grammar of the language).	page 15
+footnote 13	Gloria Mellesmoen	note	13 The reconstruction of a mora to Proto-Salish is a key contribution of this paper. While I am confident that there was a glottal component associated with the Proto-Salish diminutive, there are many different ways this could be represented in the lexical entry for the diminutive.	page 15, footnote
+footnote 14	Gloria Mellesmoen	note	14 The diminutive in the Maritime Tsamosan languages does share some resemblance to the Proto-Salish diminutive by virtue of having a glottal component.	page 15, footnote
+footnote 15	Gloria Mellesmoen	note	15 While the established view is that diminutive reduplication in Lillooet is stress-aligned, it should be noted that there is emerging evidence for variation in its domain. In forms with lexical suffixes, the diminutive may be positioned relative to the root vowel instead of the stressed one (Henry Davis, p.c.). Variation in how speakers produce diminutive in Lillooet, with a trend toward the emergence of edge-aligned (rather than stress-aligned) reduplication is consistent with domain narrowing, and supports the reconstruction proposed in this paper.	page 15, footnote
+§4.1	Gloria Mellesmoen	note	Given that the Inland Tsamosan (Upper Chehalis and Cowlitz) and Northern Interior Salish (Lillooet, Shuswap, and Thompson) diminutives can be analyzed as retaining the input and domain of application that are closest to the proposed Proto-Salish diminutive marker, I further propose that the Proto-Salish diminutive was stress-aligned. This reconstruction and proposed trajectory of change are consistent with what Van Eijk (1990a) observed in learner errors; it was easier for adult learners of Shuswap to generalize to a word-aligned reduplication pattern.	page 16
+§4.1	Gloria Mellesmoen	language	Shuswap	page 16, a Northern Interior Salish language, with Lillooet and Thompson
+§4.1	Gloria Mellesmoen	note	Though reconstructing the grammar itself is a step that often is not considered explicitly in comparative linguistics, there are always implicit assumptions that accompany reconstruction. If one reconstructs a form based on surface output across a number of languages, there is an assumption of stability in the input and the grammar of each of the languages. This poses less of a challenge with concatenative fixed segment affixes, as a more faithful input-output mapping can often be observed. It is trickier with non-concatenative morphology involving affixation of segment-free features or prosodic units, as their realization is determined by the grammar. Changes to the grammar of a language can make reconstruction and comparative work challenging in these cases, as the resulting forms can look nothing alike and reconstruction requires more than a comparison of surface forms across languages.	page 16
+§4.1	Gloria Mellesmoen	note	Upper Chehalis diminutives might be classified as “unlike” Salish diminutives on first examination, but a careful amphichronic analysis of the synchronic input and grammar, paired with a comparative examination of diminutives across the Salish language family reveals that the Proto- Salish diminutive is hidden in plain sight. Changes in the input, domain, and phonological grammar of the diminutive are attested across the Salish language family. Synchronic analyses of a morpheme that incorporate all three aspects (input, domain, and grammar) can enrich the detail of historical reconstructions, which in turn allows for a more constrained and precise explanation of diachronic trajectories, since they can be connected more precisely to the sources and mechanisms of language change. Adopting an amphichronic approach allows for a better understanding of variation across dialects and languages, and adopting a DIG approach permits for richer reconstructions (as well as predictions that further the understanding and documentation of synchronic grammars).	page 16
+§4.2	Gloria Mellesmoen	heading	4.2 The DIG Method for Reconstruction and Comparative Salish	page 16
+§4.2	Gloria Mellesmoen	note	There is a long tradition of comparative work on Salish languages (e.g., Thompson 1979; Galloway 1988; Van Eijk 1990b; Kroeber 1999; Kuipers 2002; Kiyosawa & Gerdts 2010, and others), and the kind of analysis undertaken here would not be possible without the solid foundation of previous historical research on Salish. A good historical analysis requires not just knowledge of comparative linguistics and the potential pathways of diachronic change, but also extensive knowledge of at least one (usually multiple) language(s). It is precisely because of previous work on Salish languages and linguistics that this paper is possible, as it draws on documentation and generalizations and draws connections between various sources.	page 16
+§4.2	Gloria Mellesmoen	note	At the outset of this paper, I outlined some of the challenges and pitfalls of traditional comparative approaches for the study of non-concatenative morphology (and reduplication in particular). The DIG method for reconstruction is intended to complement existing comparative studies of Salish languages. In particular, I suggest the DIG method allows for more precision in reconstructing morphemes with multiple allomorphs (or surface forms, in the case of reduplication). It is further intended to be a tool to move beyond a static reconstruction of a single snapshot of Proto-Salish, and to provide a framework for identifying the source of changes and understanding grammars in a state of change (which is also helpful when identifying the source of interspeaker variation in synchronic analysis).	page 16, runs on to page 17
+§4.2	Gloria Mellesmoen	note	The analysis in this paper adopts particular assumptions about the phonological grammar (e.g., Stratal OT). However, the DIG method is compatible with different theoretical assumptions and transcends any single theoretical model. The crucial insight of this approach, and where the future of historical Salish phonology lies, is that it is important to state the assumptions about the phonological grammar from the outset and to follow these assumptions consistently when reconstructing the Proto-Salish grammar.	page 17
+§4.2	Gloria Mellesmoen	note	One of the problems that the DIG method addresses is how diachronic studies often try to stay theory-neutral, or focus on the reflexes and cognates independent of the larger context of the grammar. Yet, even hypotheses made on the comparative method using surface forms are nonetheless often implicitly informed by linguistic theory or the reconstruction ends up based mostly on surface patterns, which decouples the feature from the grammar of the language. An example of this is lexicostatistic studies which construct large sets of cognates, but require decontextualizing the cognates and abstracting away from their position within the individual lexicon and grammars of the speakers who use them.	page 17
+§4.2	Gloria Mellesmoen	note	When the focus is exclusively on working backward to the proto-language, opportunities are missed to understand the synchronic grammars and the actual mechanisms that underlie changes (which in turn improve our understanding of changes within a language). Changes do not occur in isolation, and therefore there is more to be gained by reconstructing not just individual sounds or morphemes, but also the grammar of the proto-language. The DIG method seeks to contextualize reconstruction within the grammar of the language, and provides opportunities to make new contributions to our understanding of Salish historical phonology.	page 17
+§5	Gloria Mellesmoen	heading	5 Conclusion	page 17
+§5	Gloria Mellesmoen	note	This paper provides an amphichronic analysis of diminutives in Upper Chehalis, and demonstrates how the DIG method can be used to understand the diachronic trajectories of non-concatentative morphology. This analysis supports reconstructing a mora (and a glottal component) back to Proto- Salish to mark diminutives, and this mora has been retained across most of the Salish language family. The change from reduplication to vowel lengthening does not reflect a change to the lexical entry for the diminutive, but instead reflects changes in the overall grammar of the Tsamosan languages. It is possible to see the connection between vowel lengthening and reduplication when the domain, input, and grammar are considered, which allows for novel insights about Proto-Salish and the development of non-concatenative morphology across the family.	page 17
+references	Gloria Mellesmoen	heading	References	page 17
+references	Gloria Mellesmoen	reference	Anttila, Arto. 1995. Deriving variation from grammar: A study of Finnish genitives. Rutgers Optimality Archive 63.	
+references	Gloria Mellesmoen	reference	Anttila, Arto. 1997. Variation in Finnish phonology and morphology. Doctoral dissertation, Stanford University.	
+references	Gloria Mellesmoen	reference	Bates, Dawn, Thom Hess, and Vi Hilbert. 1994. Lushootseed dictionary. Seattle: University of Washington Press.	
+references	Gloria Mellesmoen	reference	Bermúdez-Otero, Ricardo. 2012. The architecture of the grammar and division of labor in exponence. In Jochen Trommer (ed.), The morphology and phonology of exponence. Oxford: Oxford University Press.	
+references	Gloria Mellesmoen	reference	Bermúdez-Otero, Ricardo. 2013. Amphichronic explanation and the life cycle of phonological processes. In P. Honeybone and J. C. Salmons (eds.), The Oxford handbook of historical phonology, Oxford: Oxford University Press.	
+references	Gloria Mellesmoen	reference	Blake, Susan. 2000. On the distribution and representation of schwa in Sliammon (Salish). Doctoral dissertation, University of British Columbia.	
+references	Gloria Mellesmoen	reference	Boersma, Paul. 1997. How we learn variation, optionality, and probability. In Proceedings of the Institute of Phonetic Sciences of the University of Amsterdam 21, 43–58.	
+references	Gloria Mellesmoen	reference	Bye, Patrik, and Peter Svenonius. 2012. Non-concatenative morphology as epiphenomenon. In J. Trommer (ed.), The morphology and phonology of exponence. Oxford, UK: Oxford University Press.	
+references	Gloria Mellesmoen	reference	Campbell, Lyle. 2013. Historical linguistics. Edinburgh: Edinburgh University Press.	
+references	Gloria Mellesmoen	reference	Czaykowska-Higgins, Ewa, and M. Dale Kinkade. 1998. Salish languages and linguistics. In E. Czaykowska-Higgins and M. D. Kinkade (eds.). Salish languages and linguistics. Berlin and New York: Mouton de Gruyter, 1–68.	
+references	Gloria Mellesmoen	reference	Galloway, Brent. 1977. A grammar of Chilliwack Halkomelem. Doctoral dissertation, University of California, Berkeley.	
+references	Gloria Mellesmoen	reference	Galloway, Brent. 1988. Some Proto-Central Salish sound correspondences. In Honor of Mary Haas: From the Mary Haas Festival on Native American Linguistics. Berlin: Mouton de Gruyter, 293–343.	
+references	Gloria Mellesmoen	language	Nłek̉epmx	page 18, Thompson, in the title of Jimmie (1994)
+references	Gloria Mellesmoen	reference	Hukari, Tom. 1978. Halkomelem nonsegmental morphology. Proceedings of ICSNL 12, 157–209.	
+references	Gloria Mellesmoen	reference	Jimmie, Mandy. 1994. A prosodic analysis of Nłek̉epmx reduplication. MA thesis, University of British Columbia.	
+references	Gloria Mellesmoen	reference	Kager, René. 1999. Optimality theory. Cambridge: Cambridge University Press.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1963a. Phonology and morphology of Upper Chehalis. Doctoral dissertation, Indiana University.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1963b. Phonology and morphology of Upper Chehalis: I. International Journal of American Linguistics, 29(3), 181–195.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1963c. Phonology and morphology of Upper Chehalis: II. International Journal of American Linguistics, 29(4), 345–356.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1964a. Phonology and morphology of Upper Chehalis: III. International Journal of American Linguistics, 30(1), 32–61.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1964b. Phonology and morphology of Upper Chehalis: IV. International Journal of American Linguistics, 30(3), 251–260.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1991. Upper Chehalis Dictionary. Missoula: Linguistics Laboratory, University of Montana.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1993. The non-lexical basis for a Tsamosan branch of Salish. In Proceedings of ICSNL 28.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1998. How much does a schwa weigh? In E. Czaykowska-Higgins and M. D. Kinkade (eds.), Salish languages and linguistics. Berlin and New York: Mouton de Gruyter, 197–216.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 2003. Upper Chehalis Lessons (ms).	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1995. A plethora of plurals: inflection for number in Upper Chehalis. Anthropological Linguistics, 347–365.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 1985. Upper Chehalis slow reduplication. In Proceedings of ICSNL 20, 189– 198.	
+references	Gloria Mellesmoen	reference	Kinkade, M. Dale. 2004. Cowlitz dictionary and grammatical sketch. Missoula: Linguistics Laboratory, University of Montana.	
+references	Gloria Mellesmoen	reference	Kiparsky, Paul. 2006. The amphichronic program vs. evolutionary phonology. Theoretical Linguistics 32, 217–236.	
+references	Gloria Mellesmoen	reference	Kiparsky, Paul. 2010. Reduplication in stratal OT. Reality exploration and discovery: pattern interaction in language & life. (Festschrift for KP Mohanan), 125–141.	
+references	Gloria Mellesmoen	reference	Kiparsky, Paul. 2015. Stratal OT: A synopsis and FAQs. Capturing phonological shades within and across languages, 2, 1–45.	
+references	Gloria Mellesmoen	reference	Kiyosawa, Kaoru, and Donna Gerdts. 2010. Salish applicatives. Leiden: Brill.	
+references	Gloria Mellesmoen	reference	Kurisu, Kazutaka. 2001. The phonology of morpheme realization. Doctoral dissertation, University of California, Santa Cruz.	
+references	Gloria Mellesmoen	reference	Kroeber, Paul. 1999. The Salish language family: Reconstructing syntax. Lincoln: University of Nebraska Press.	
+references	Gloria Mellesmoen	reference	Kuipers, Aert. 2002. Salish etymological dictionary. Missoula: Linguistics Laboratory University of Montana.	
+references	Gloria Mellesmoen	language	SENĆOŦEN	page 19, Saanich, in the title of Leonard (2019)
+references	Gloria Mellesmoen	reference	Leonard, Janet. 2019. The phonological representation and distribution vowels in SENĆOŦEN (Saanich). Doctoral dissertation, University of Victoria.	
+references	Gloria Mellesmoen	reference	McCarthy, John, and Alan Prince. 1995. Faithfulness and reduplicative identity. Linguistics Department Faculty Publication Series, 10.	
+references	Gloria Mellesmoen	reference	McCarthy, John, and Alan Prince. 1999. Faithfulness and Identity in Prosodic Morphology. In R. Kager, H. van der Hulst, and W. Zonneveld (eds.), The prosody-morphology interface. Cambridge, UK: Cambridge University Press, 218–309.	
+references	Gloria Mellesmoen	reference	Mellesmoen, Gloria. 2020. A reanalysis of CV-reduplication in Comox-Sliammon. Working Papers of the Linguistics Circle, 30(1), 1–10.	
+references	Gloria Mellesmoen	reference	Mellesmoen, Gloria, and Suzanne Urbanczyk. 2020. Mora affixation and Halkomelem imperfective allomorphy. In Proceedings of ICSNL 55: 238–256.	
+references	Gloria Mellesmoen	reference	Mellesmoen, Gloria, and Suzanne Urbanczyk. 2021a. Avoiding Multiple Reduplication without INTEGRITY. In 37th West Coast Conference on Formal Linguistics. Somerville: Cascadilla Proceedings Project, 169–178.	
+references	Gloria Mellesmoen	reference	Mellesmoen, Gloria, and Suzanne Urbanczyk. 2021b. Binarity in Prosodic Morphology and Elsewhere. In Proceedings of the Annual Meetings on Phonology (Vol. 8).	
+references	Gloria Mellesmoen	reference	Modrow, Ruth. 1971. The Quinault dictionary. Quinault Indian Nation.	
+references	Gloria Mellesmoen	reference	Nater, Hank. 1978. Reduplication patterns in Bella Coola. In Proceedings of ICSNL 14.	
+references	Gloria Mellesmoen	reference	Nater, Hank. 1984. The Bella Coola language. Ottawa: National Museums of Canada.	
+references	Gloria Mellesmoen	reference	Prince, Alan, and Paul Smolensky. 1993. Optimality theory: Constraint interaction in generative grammar. New Brunswick, NJ: Rutgers University Center for Cognitive Science Technical Report 2.	
+references	Gloria Mellesmoen	reference	Ramsammy, Michael. 2015. The life cycle of phonological processes: Accounting for dialectal microtypologies. Language and Linguistics Compass, 9(1), 33–54.	
+references	Gloria Mellesmoen	language	ɬəw̓ál̓məš	page 20, Lower Chehalis, in the title of Robertson (2014)
+references	Gloria Mellesmoen	reference	Robertson, Dave. 2014. ɬəw̓ál̓məš (Lower Chehalis) morphosyntax. In Proceedings of ICSNL 49, 89–153.	
+references	Gloria Mellesmoen	reference	Saba Kirchner, Jesse. 2013. Minimal reduplication and reduplicative exponence. Morphology 23: 227–243.	
+references	Gloria Mellesmoen	language	hən̓q̓əmin̓əm̓	page 20, Musqueam, in the title of Shaw et al. (1999)
+references	Gloria Mellesmoen	reference	Shaw, Patricia, Susan Blake, Jill Campbell, and Codie Sheperd. 1999. Stress in hən̓q̓əmin̓əm̓ (Musqueam) Salish. Workshop on the Structure and Constituency of the Languages of the Americas 4: 131–164.	
+references	Gloria Mellesmoen	reference	Thompson, Larry C. 1979. Salishan and the northwest. In L. Campbell and M. Mithun (eds.), The languages of native America: Historical and comparative assessment. Austin and London: University of Texas Press, 692–765	
+references	Gloria Mellesmoen	reference	Urbancyzk, Suzanne. 1996. Patterns of reduplication in Lushootseed. Doctoral dissertation, University of Massachusetts Amherst.	
+references	Gloria Mellesmoen	reference	Urbanczyk, Suzanne. 1998. Segment doubling and INTEGRITY violation. West Coast Conference on Formal Linguistics 17, University of British Columbia. Vancouver, BC.	
+references	Gloria Mellesmoen	reference	Van Eijk, Jan. 1990a. Syllable-based reduplication in Shuswap: An analysis of students’ errors. Proceedings of ICSNL 25.	
+references	Gloria Mellesmoen	reference	Van Eijk, Jan. 1990b. VC reduplication in Salish. Anthropological Linguistics, 228–262.	
+references	Gloria Mellesmoen	reference	Van Eijk, Jan. 2011. The Lillooet language: Phonology, morphology, syntax. Vancouver: UBC Press.	
+references	Gloria Mellesmoen	reference	Zimmermann, Eva. 2013. Non-concatenative allomorphy is generalized prosodic affixation: The case of Upriver Halkomelem. Lingua 134: 1–26.	

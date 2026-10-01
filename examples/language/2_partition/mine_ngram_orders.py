@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-2-001
 #
 # Read the settings other people chose for their own languages, for Section 4.13 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python examples/language/2_partition/mine_ngram_orders.py [--take]
 #
@@ -39,7 +39,7 @@ while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 TARGET = os.path.join(CORPORA, "acl_abstracts.bib.gz")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 SOURCE = "https://aclanthology.org/anthology+abstracts.bib.gz"
 

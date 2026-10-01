@@ -8,30 +8,9 @@ build-*/
 # A copy in git is one that goes stale the moment a page changes.
 site/
 
-# Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
-# byte identical to the original and none of them recording which commit it came from. A stale
-# copy and a current one looked the same. `python utils/maint/deps/get_deps.py` clones it instead, and
-# git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
-# fetch is not carried here.
-#
-# ANCHORED, and the slash is the whole of the repair. Written as `deps/` with no leading slash this
-# matched a directory named deps at ANY depth, besides the clone directory it was written for it
-# also swallowed utils/maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
-# therefore in no commit that has ever existed, while sitting on one machine's disk, and five
-# documents instructed a reader to run a file their clone could not contain. Being ignored AND
-# untracked, `git clean -xfd` would have deleted them with nothing to restore from.
-#
-# The rule written to stop unrecorded copies had silently stopped the tool that does the recording
-# from being carried at all. A pattern anchored to the repository root says what it meant to say.
+# A deps/ folder at the root is never carried. The slash anchors it to the root, and a directory
+# named deps anywhere below is carried as usual.
 /deps/
-
-# The hand extractions and the papers they were read from. Every row is a form transcribed out of a
-# published paper. The tables are those papers' text and not this work's to redistribute, and the
-# papers are their authors' copyright. Both live in a closed repository, inventoried by
-# tools/maintain/corpus_manifest.py and signed there, and reach this tree under build/oracles and
-# build/papers through tools/maintain/private_sync.py. The derivations built on them are this work's
-# and stay in the repository: the ledger, the bound, the checks and the code are all here.
-*.oracle.tsv
 
 # Python caches. The tools here are run directly and cache next to themselves.
 __pycache__/
@@ -42,7 +21,7 @@ __pycache__/
 #
 # utils/maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
 # and TeXShop compile IN PLACE. A research paper opened in one of those to look at it comes back with a
-# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/anchor_sift picked
+# .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/orior picked
 # up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
 # every one of them into a submission before it learned to skip them.
 #

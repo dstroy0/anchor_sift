@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Find the characters and commands inside a document's math that break before the math is rendered.
 #
-#   Usage:  python utils/maint/texbuild/math_hazards.py theory/workbooks/anchor_sift [more.md]
+#   Usage:  python utils/maint/texbuild/math_hazards.py theory/workbooks/orior [more.md]
 #
 # Markdown gets the first pass at the text and the math renderer gets the second. Anything that means
 # something to markdown or to HTML is consumed before the formula is ever parsed. Three of these turned up

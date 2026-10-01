@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch languages that share a writing system and do not share speech, for Section 4.13 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/fetch_sinitic.py
 #
@@ -40,7 +40,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
 ):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 WANTED_CHARACTERS = 200000
 PER_REQUEST = 20

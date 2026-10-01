@@ -1,0 +1,450 @@
+where	who	kind	form	gloss
+front	D. K. E. Reisinger	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	D. K. E. Reisinger	title	The Count-Mass Distinction in ʔayʔaǰuθəm*	page 1
+front	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+front	D. K. E. Reisinger	byline	D. K. E. Reisinger, University of British Columbia	page 1, footnote
+front	D. K. E. Reisinger	note	Abstract: This paper explores the status of the count-mass distinction in ʔayʔaǰuθəm (a.k.a. Comox- Sliammon; ISO 639-3: coo). Employing a series of common diagnostics, such as number marking, countability, and quantifiers (cf. Wiltschko 2005, 2008, 2012; Davis 2014), I argue that the language distinguishes between count and mass nouns in its grammar. Strikingly, this conclusion does not emerge from the usual diagnostics, but rather hinges on the use of a hitherto unused tool: the Wh quantifier. Thus, this study not only contributes to the discussion on whether the Salish languages encode the count-mass distinction, but it also expands our toolkit for future surveys.	page 1, footnote
+front	D. K. E. Reisinger	note	Keywords: ʔayʔaǰuθəm (Comox-Sliammon), count-mass, countability, quantifiers, plural marking	page 1, footnote
+front	D. K. E. Reisinger	name	D. K. E. Reisinger	author, University of British Columbia
+§1	D. K. E. Reisinger	heading	1 Introduction	page 1
+§1	D. K. E. Reisinger	note	This paper explores the status of the count-mass distinction in ʔayʔaǰuθəm (a.k.a. Comox- Sliammon; ISO 639-3: coo), a Central Salish language traditionally spoken by four communities along the northern Strait of Georgia in British Columbia, Canada. According to the most recent survey by the FPCC (2022), the language is currently spoken by 78 fluent speakers. While count and mass nouns behave very differently in languages like English, as shown in (1) and (2), profoundly little is known about the status of this distinction in Salish.1	page 1, footnote
+§1	D. K. E. Reisinger	note	To my knowledge, only St’át’imcets and Halkomelem have been systematically probed in this regard and, ironically, the big picture emerging from these investigations is less than clear. On the	page 1, footnote
+footnote *	D. K. E. Reisinger	note	* Im Andenken an meinen Papa, Werner Reisinger. Heartfelt thanks go to the many ʔayʔaǰuθəm speakers who contributed to this project, specifically to Betty Wilson, Freddie Louie, Elsie Paul, the late Joanne Francis, and Jerry Francis. čɛčɛhatanapɛč! In addition, I would like to thank Gloria Mellesmoen, who kindly shared crucial data points and judgments with me. Takk! This work has been funded by a JRF grant. Contact info: daniel.reisinger@ubc.ca	page 1, footnote
+footnote *	D. K. E. Reisinger	name	Betty Wilson	an ʔayʔaǰuθəm speaker, BW
+footnote *	D. K. E. Reisinger	name	Freddie Louie	an ʔayʔaǰuθəm speaker, FL
+footnote *	D. K. E. Reisinger	name	Elsie Paul	an ʔayʔaǰuθəm speaker, EP
+footnote *	D. K. E. Reisinger	name	Joanne Francis	an ʔayʔaǰuθəm speaker, late, JoF
+footnote *	D. K. E. Reisinger	name	Jerry Francis	an ʔayʔaǰuθəm speaker, JeF
+§1	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+(1) line 1	D. K. E. Reisinger	note	Count nouns:	page 1, the caption
+(1a) line 1	English	transcription	There’s a rock in my shoe.	page 1, English
+(1b) line 1	English	transcription	There are rocks in my shoe.	page 1, English
+(1c) line 1	English	transcription	There are two rocks in my shoe.	page 1, English
+(2) line 1	D. K. E. Reisinger	note	Mass nouns:	page 1, the caption
+(2a) line 1	English	transcription	There’s sand in my shoe.	page 1, English
+(2b) line 1	English	transcription	* There are sands in my shoe.	page 1, English
+(2c) line 1	English	transcription	* There are two sands in my shoe.	page 1, English
+§1	D. K. E. Reisinger	language	St’át’imcets	St’át’imcets, Lillooet
+footnote *	ʔayʔaǰuθəm	cited form	čɛčɛhatanapɛč	page 1, ‘thank you all’
+footnote 1	D. K. E. Reisinger	note	1 Ungrammatical examples are marked with an asterisk (*), infelicitous examples with a hashtag (#). In the ʔayʔaǰuθəm examples, the first line is given in the orthography, the second line is a phonemic representation showing morpheme breaks, the third line provides a gloss, and the fourth line gives the translation. The abbreviations used in this paper follow the Leipzig Glossing Rules, with the following additions: CLDEM ‘clausal demonstrative’, CTR ‘control transitive’, DPRT ‘discourse particle’, HAB ‘habitual’, INT ‘intensifier’, LV ‘linking vowel’, NTR ‘non-control transitive’, RPT ‘reportative’. Affixes are marked by a hyphen ‘-’, clitics by an equal sign ‘=’, and fused morphemes that cannot be segmented by a ‘+’.	page 1, footnote
+§1	D. K. E. Reisinger	note	one hand, Davis and Matthewson (1999) as well as Wiltschko (2005, 2008, 2012) argue against the existence of a count-mass distinction in the grammars of St’át’imcets and Halkomelem. Davis (2014), on the other hand, comes to the opposite conclusion. After analyzing novel data from St’át’imcets, and re-evaluating Wiltschko’s Halkomelem data, he even goes so far as to propose that:	page 2
+§1	ʔayʔaǰuθəm	cited form	k̓ʷɛn	page 2
+§1	ʔayʔaǰuθəm	phonemic	/k̓ʷin/	page 2, ‘how many’
+(3) line 1	Davis 2014:179	note	All Salish languages grammatically encode the count-mass distinction.	page 2
+(3) line 1	D. K. E. Reisinger	citation	(Davis 2014:179)	page 2
+§1	D. K. E. Reisinger	note	Motivated by this bold hypothesis, this paper provides a first systematic investigation of the status of count and mass nouns in ʔayʔaǰuθəm. Drawing from original fieldwork data, I show that ʔayʔaǰuθəm encodes a count-mass distinction in its grammar. Strikingly, however, it is not the established diagnostics that lead to this conclusion, but rather the use of a novel tool: the Wh quantifier k̓ʷɛn /k̓ʷin/ (‘how many’). The current study thus not only adds another puzzle piece to the discussion on whether Salish languages distinguish count and mass nouns, but it also expands our toolkit for future explorations.	page 2
+§1	D. K. E. Reisinger	note	The remainder of this paper is structured as follows. In Section 2, I will briefly provide some theoretical background. Once this has been done, Section 3 will present the results of three key diagnostics for ʔayʔaǰuθəm. Section 4 will outline some avenues for future research, and Section 5 will conclude.	page 2
+§2	D. K. E. Reisinger	heading	2 Background	page 2
+§2	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§2	D. K. E. Reisinger	note	Before we take a closer look at the situation in ʔayʔaǰuθəm, it seems worthwhile to briefly review the literature on count and mass nouns.	page 2
+§2	D. K. E. Reisinger	note	As Frawley (1992:84) notes, what we call the count-mass distinction is merely a linguistic reflex of an overarching conceptual distinction, namely the difference between bounded and unbounded entities. On a conceptual level, an entity counts as bounded if it is clearly demarcated — that is, if it comes with an obvious spatial boundary (1992:81). Wiltschko (2005, 2012) uses the term individuals to refer to such entities. In contrast, unbounded entities are said to lack an obvious limit and instead occupy a less well-defined region in space. Wiltschko (2005, 2012) labels such entities as substances.	page 2
+§2	D. K. E. Reisinger	note	Figure 1 illustrates this distinction by means of a concrete example. The sandpiper in the picture exemplifies a bounded entity (i.e., an individual) as we can clearly identify its limits. In contrast, it is much more difficult to determine the limits of the sand and the water surrounding the bird. These entities lack a clear demarcation and, consequently, we tend to think of them as unbounded entities (i.e., substances).	page 2
+§2	D. K. E. Reisinger	note	Figure 1: An illustration of bounded (sandpiper) and unbounded (sand, water) entities. Wiltschko (2012:147) argues that this conceptual distinction is universal. More specifically, she proposes “that all languages have nominals that denote substance and nominals that denote individuals”. However, she adds, languages differ in whether they also reflect this distinction in their grammar. In other words, some languages grammatically distinguish count and mass nouns while others treat nouns as a single uniform class. Table 1 schematizes these different distinctions. Table 1: A typology for the count-mass distinction. Arrows indicate a contrast.	page 2
+§2	D. K. E. Reisinger	note	CONCEPTUAL LEVEL LANGUAGE LEVEL grammar with count-mass distinction grammar without count-mass distinction bounded entities (individuals) count nouns nouns ↕ ↕ unbounded entities (substances) mass nouns English belongs to the group of languages that grammatically distinguish count and mass nouns. The following paragraphs will show how this distinction manifests itself in the grammar. First, only count nouns can carry number marking in English, while mass nouns typically can not. Examples (4) and (5) illustrate this behaviour for the count noun boy and the mass noun snow.	page 3
+(4a) line 1	English	transcription	Hazel likes a boy.	page 3, English
+(4b) line 1	English	transcription	Hazel likes snow.	page 3, English
+(5a) line 1	English	transcription	Hazel likes boys.	page 3, English
+(5b) line 1	English	transcription	* Hazel likes snows.	page 3, English
+§2	D. K. E. Reisinger	note	Secondly, count nouns can be directly introduced by numerals, like one, two, three, etc. As shown in (6) and (7), this is usually not the case for mass nouns, like blood.	page 3
+(6a) line 1	English	transcription	Saoirse donated a coat.	page 3, English
+(6b) line 1	English	transcription	Saoirse donated blood.	page 3, English
+(7a) line 1	English	transcription	Saoirse donated two coats.	page 3, English
+(7b) line 1	English	transcription	* Saoirse donated two blood(s).	page 3, English
+§2	D. K. E. Reisinger	note	Third, count and mass nouns can only be selected by certain determiners and quantifiers. The following examples show that quantifiers like each (8) and many (9) only combine with count nouns, whereas quantifiers like much (10) and little (11) only combine with mass nouns.	page 3
+(8a) line 1	English	transcription	Werner likes each cat.	page 3, English
+(8b) line 1	English	transcription	* This plant needs each water.	page 3, English
+(9a) line 1	English	transcription	Werner likes many cats.	page 3, English
+(9b) line 1	English	transcription	* This plant needs many water(s).	page 3, English
+(10a) line 1	English	transcription	* Werner likes much cat(s).	page 3, English
+(10b) line 1	English	transcription	This plant needs much water.	page 3, English
+(11a) line 1	English	transcription	# Werner likes little cat(s).	page 3, English
+(11b) line 1	English	transcription	This plant needs little water.	page 3, English
+footnote 2	D. K. E. Reisinger	note	2 While the sentence in (11a) is technically grammatical, it does not convey the intended meaning (i.e., little ‘a small amount’ as opposed to little ‘small in size’). Consequently, I mark it as infelicitous, and not as ungrammatical.	page 3, footnote
+§2	D. K. E. Reisinger	note	Based on these observations, we can see that the English grammar explicitly tells us whether a noun refers to an individual or to a substance — or to put it another way, the language has a grammatical count-mass distinction. While this distinction is fairly robust, two processes may occasionally obscure the line between count and mass nouns: apportionment and grinding (cf. Deal 2013; Davis 2014).	page 4
+§2	D. K. E. Reisinger	note	Apportionment describes a phenomenon in which mass nouns have been coerced to act like count nouns, usually because the substance has been divided into contextually appropriate portions. Water, for instance, is typically conceptualized as an unbounded mass, but in a restaurant context, where it tends to get portioned into glasses or bottles, it behaves like a count noun, as shown in (12).	page 4
+(12a) line 1	English	transcription	A pipe burst, and now we have water in the basement.	page 4, English, [MASS]
+(12b) line 1	English	transcription	Waiter, two waters, please.	page 4, English, [COUNT]
+§2	D. K. E. Reisinger	note	Grinding does the exact opposite: it turns something that’s usually thought of as an individual into a substance. Raccoons, for example, are usually encountered as clearly delimitated units and, hence, can easily be counted. However, a car crash may turn raccoons into an unbounded mass, as illustrated in (13).	page 4
+(13a) line 1	English	transcription	Look, there are two raccoons in the front yard!	page 4, English, [COUNT]
+(13b) line 1	English	transcription	We got into a car accident, and now there is raccoon all over the windshield.	page 4, English, [MASS]
+§2	D. K. E. Reisinger	note	While these two processes can add a bit of complexity to the system, the count-mass distinction remains a well-established fact in the grammar of English.	page 4
+§3	D. K. E. Reisinger	heading	3 The count-mass distinction in ʔayʔaǰuθəm	page 4
+§3	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§3	D. K. E. Reisinger	note	With the theoretical background in place, we can now return to our initial question: does ʔayʔaǰuθəm have a grammatical count-mass distinction? In the following sections, I present the results of three key diagnostics that have been commonly used to determine whether a language distinguishes count and mass nouns in its grammar. In particular, I will look at number marking (Section 3.1), countability (Section 3.2), and quantifiers (Section 3.3).	page 4
+§3.1	D. K. E. Reisinger	heading	3.1 Diagnostic #1: number marking	page 4
+§3.1	D. K. E. Reisinger	note	The first diagnostic focuses on number marking. As mentioned earlier, it is generally assumed that only count nouns can be pluralized, as shown in (14), while mass nouns cannot combine with a plural marker, as shown in (15).	page 4
+(14a) line 1	English	transcription	book, cat, guitar, wife	page 4, English, [COUNT]
+(14b) line 1	English	transcription	books, cats, guitars, wives	page 4, English
+(15a) line 1	English	transcription	blood, grease, sand, snow	page 4, English, [MASS]
+(15b) line 1	English	transcription	* bloods, *greases, *sands, *snows	page 4, English
+§3.1	D. K. E. Reisinger	language	St’át’imcets	St’át’imcets, Lillooet
+§3.1	D. K. E. Reisinger	note	In Salish, this diagnostic has produced varied results. Wiltschko (2012:153) notes that in Halkomelem all nouns can be pluralized, regardless of whether they refer to an individual or to a substance, and consequently concludes that “pluralization is not sensitive to a mass/count distinction”. Davis (2014:158ff.), on the other hand, argues that this diagnostic provides the most substantial evidence for establishing a grammatical count-mass distinction in St’át’imcets. This judgment is not only supported by t he distribution of the plural determiner ,3 but also by the unavailability of plural reduplication on mass nouns.	page 4
+§3.1	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§3.1	D. K. E. Reisinger	notation	C1əC2~	page 5
+§3.1	D. K. E. Reisinger	note	In ʔayʔaǰuθəm, plural marking on nouns is usually realized via C1əC2~ reduplication, and optional for non-human entities (Huijsmans & McCarthy 2024). Many count nouns in the language freely can be inflected this way, as illustrated by the forms in (16).	page 5
+(16) line 1	D. K. E. Reisinger	note	Plural reduplication with count nouns (cf. Huijsmans & McCarthy 2024):	page 5, the caption
+(16) line 2	D. K. E. Reisinger	note	SINGULAR PLURAL	page 5, heads the rows below
+(16a) line 1	Huijsmans and McCarthy 2024	translation	‘man’	page 5, cited Huijsmans and McCarthy 2024
+(16a) line 1	ʔayʔaǰuθəm	transcription	tumɩš	page 5, the orthography
+(16a) line 1	ʔayʔaǰuθəm	transcription	təm~tumɩš	page 5, the orthography
+(16b) line 1	Huijsmans and McCarthy 2024	translation	‘chief’	page 5, cited Huijsmans and McCarthy 2024
+(16b) line 1	ʔayʔaǰuθəm	transcription	hegus	page 5, the orthography
+(16b) line 1	ʔayʔaǰuθəm	transcription	haw~hegus	page 5, the orthography
+(16c) line 1	Huijsmans and McCarthy 2024	translation	‘cat’	page 5, cited Huijsmans and McCarthy 2024
+(16c) line 1	ʔayʔaǰuθəm	transcription	mɛmaw	page 5, the orthography
+(16c) line 1	ʔayʔaǰuθəm	transcription	məm~mɛmaw	page 5, the orthography
+(16d) line 1	Huijsmans and McCarthy 2024	translation	‘horse’	page 5, cited Huijsmans and McCarthy 2024
+(16d) line 1	ʔayʔaǰuθəm	transcription	tɛqɛw	page 5, the orthography
+(16d) line 1	ʔayʔaǰuθəm	transcription	təq~tɛqɛw	page 5, the orthography
+(16e) line 1	Huijsmans and McCarthy 2024	translation	‘book’	page 5, cited Huijsmans and McCarthy 2024
+(16e) line 1	ʔayʔaǰuθəm	transcription	puk	page 5, the orthography
+(16e) line 1	ʔayʔaǰuθəm	transcription	pək~puk	page 5, the orthography
+§3.1	D. K. E. Reisinger	note	prep.) finds that many ʔayʔaǰuθəm nouns that typically refer to substances can be pluralized via C1əC2~ reduplication — but only if they have been apportioned (cf. Section 2). To complicate things further, she also finds that the acceptance of these forms varies widely across speakers, even if the context emphasizes an apportionment interpretation.	page 5
+(17) line 1	D. K. E. Reisinger	note	Plural reduplication with mass nouns (cf. Mellesmoen [in prep.]):	page 5, the caption
+(17) line 2	D. K. E. Reisinger	note	SINGULAR PLURAL	page 5, heads the rows below
+(17a) line 1	Mellesmoen in prep.	translation	‘water’	page 5, cited Mellesmoen in prep.
+(17a) line 1	ʔayʔaǰuθəm	transcription	qayɛ	page 5, the orthography
+(17a) line 1	ʔayʔaǰuθəm	transcription	qi~qayɛ	page 5, the orthography
+(17b) line 1	Mellesmoen in prep.	translation	‘land, dirt’	page 5, cited Mellesmoen in prep.
+(17b) line 1	ʔayʔaǰuθəm	transcription	giǰɛ	page 5, the orthography
+(17b) line 1	ʔayʔaǰuθəm	transcription	gəǰ~giǰɛ	page 5, the orthography
+(17c) line 1	Mellesmoen in prep.	translation	‘sugar’	page 5, cited Mellesmoen in prep.
+(17c) line 1	ʔayʔaǰuθəm	transcription	šukʷa	page 5, the orthography
+(17c) line 1	ʔayʔaǰuθəm	transcription	šəkʷ~šukʷa	page 5, the orthography
+(17d) line 1	Mellesmoen in prep.	translation	‘soup’	page 5, cited Mellesmoen in prep.
+(17d) line 1	ʔayʔaǰuθəm	transcription	lasup	page 5, the orthography
+(17d) line 1	ʔayʔaǰuθəm	transcription	ləs~lasup	page 5, the orthography
+(17e) line 1	Mellesmoen in prep.	translation	‘coffee’	page 5, cited Mellesmoen in prep.
+(17e) line 1	ʔayʔaǰuθəm	transcription	kapi	page 5, the orthography
+(17e) line 1	ʔayʔaǰuθəm	transcription	kəp~kɛpi	page 5, the orthography
+§3.1	ʔayʔaǰuθəm	cited form	qayɛ	page 5
+§3.1	ʔayʔaǰuθəm	phonemic	/qayaʔ/	page 5, ‘water’
+§3.1	D. K. E. Reisinger	note	Example (18) illustrates these phenomena for the noun qayɛ /qayaʔ/ ‘water’. Both (18a) and (18b) suggest that pluralizing this form is okay as long as we apportion the water first, for instance, by placing it into pots, bottles, or buckets. However, if we conceptualize the water as a substance, for instance when talking about the water of a lake, the pluralized form is judged as infelicitous, as shown in (18c). Finally, (18d) highlights that some speakers don’t like the pluralized form, even when the context suggests that the entity has been apportioned.	page 5
+footnote 3	D. K. E. Reisinger	note	3 Like most Salish languages, ʔayʔaǰuθəm lacks dedicated plural determiners (cf. Huijsmans et al. 2020; Reisinger et al. 2020), so this particular test is not applicable.	page 5, footnote
+(18a) line 1	D. K. E. Reisinger	note	Context [volunteered]: There’s lots of pots of water in the kitchen.	page 6, engine english
+(18a) line 2	ʔayʔaǰuθəm	transcription	qaχmot qiqayɛ θoʔna.	page 6, engine language
+(18a) line 3	ʔayʔaǰuθəm	segmentation	qəx̌-mut qəy~qayaʔ θuʔna	page 6, engine language
+(18a) line 4	ʔayʔaǰuθəm	gloss	a.lot.of-INT PL~water other.room	page 6, engine english
+(18a) line 5	Joanne Francis	translation	‘There’s lots of water in the other room.’	page 6, engine english
+(18a) line 5	D. K. E. Reisinger	citation	(vf | JoF 2019-02-14)	the tag or source at the right of the translation
+(18b) line 1	ʔayʔaǰuθəm	transcription	qiqayɛ	page 6, engine language
+(18b) line 2	ʔayʔaǰuθəm	segmentation	qəy~qayaʔ	page 6, engine language
+(18b) line 3	ʔayʔaǰuθəm	gloss	PL~water	page 6, engine english
+(18b) line 4	Jerry Francis	translation	‘lots of water’ (in buckets or bottles)	page 6, engine english
+(18b) line 4	D. K. E. Reisinger	citation	(vf | JeF 2019-02-24)	page 6, engine english
+(18c) line 1	ʔayʔaǰuθəm	transcription	# qiqayɛ	page 6, engine language
+(18c) line 2	ʔayʔaǰuθəm	segmentation	qəy~qayaʔ	page 6, engine language
+(18c) line 3	ʔayʔaǰuθəm	gloss	PL~water	page 6, engine english
+(18c) line 4	Jerry Francis	translation	‘water’ (for a lake)	page 6, engine english
+(18c) line 4	D. K. E. Reisinger	citation	(vf | JeF 2019-02-24)	page 6, engine english
+(18d) line 1	D. K. E. Reisinger	note	Context: You are at the gas station and your friend asks you to pick up some bottles of water. You ask how many.	page 6, engine english
+(18d) line 2	ʔayʔaǰuθəm	transcription	# χanaθ ga čɛlas tə qiqayɛ.	page 6, engine language
+(18d) line 3	ʔayʔaǰuθəm	segmentation	x̌an-a-θ=ga čalas tə=qəy~qayaʔ	page 6, engine language
+(18d) line 4	ʔayʔaǰuθəm	gloss	give-LV-CTR+1SG.OBJ=DPRT three DET=PL~water	page 6, engine english
+(18d) line 5	Betty Wilson	translation	Intended: ‘Bring me three waters.’	page 6, engine english
+(18d) line 6	Betty Wilson	speaker comment	Consultant’s comment: “No, you would say, χanaθ ga čɛlas lamayɛ qayɛ [‘Give me three bottles of water’].” (sf | BW 2024-02-14)	page 6, engine english
+(18d)	ʔayʔaǰuθəm	cited form	χanaθ	in the speaker comment, page 6
+(18d)	ʔayʔaǰuθəm	cited form	čɛlas	in the speaker comment, page 6
+(18d)	ʔayʔaǰuθəm	cited form	lamayɛ	in the speaker comment, page 6
+(18d)	ʔayʔaǰuθəm	cited form	qayɛ	in the speaker comment, page 6
+§3.1	D. K. E. Reisinger	note	It might be tempting to conclude from the above that ʔayʔaǰuθəm has a count-mass distinction, as mass nouns seemingly fail to carry number marking unless they’ve been apportioned. However, the question arises how conclusive this diagnostic really is, particularly for ʔayʔaǰuθəm. After all, as Huijsmans and McCarthy (2024) show, a lot of count nouns fail to reduplicate as well. A selection of such forms is presented in (19).	page 6
+(19) line 1	D. K. E. Reisinger	note	No reduplication with count nouns (cf. Huijsmans & McCarthy 2024):	page 6, the caption
+(19) line 2	D. K. E. Reisinger	note	SINGULAR PLURAL	page 6, heads the rows below
+(19a) line 1	Huijsmans and McCarthy 2024	translation	‘father’	page 6, cited Huijsmans and McCarthy 2024
+(19a) line 1	ʔayʔaǰuθəm	transcription	man	page 6, the orthography
+(19a) line 1	ʔayʔaǰuθəm	transcription	* mən~man	page 6, the orthography
+(19b) line 1	Huijsmans and McCarthy 2024	translation	‘fish’	page 6, cited Huijsmans and McCarthy 2024
+(19b) line 1	ʔayʔaǰuθəm	transcription	ǰɛnxʷ	page 6, the orthography
+(19b) line 1	ʔayʔaǰuθəm	transcription	* ǰɩn~ǰɛnxʷ	page 6, the orthography
+(19c) line 1	Huijsmans and McCarthy 2024	translation	‘seal’	page 6, cited Huijsmans and McCarthy 2024
+(19c) line 1	ʔayʔaǰuθəm	transcription	ʔasxʷ	page 6, the orthography
+(19c) line 1	ʔayʔaǰuθəm	transcription	* ʔəs~ʔasxʷ	page 6, the orthography
+(19d) line 1	Huijsmans and McCarthy 2024	translation	‘heron’	page 6, cited Huijsmans and McCarthy 2024
+(19d) line 1	ʔayʔaǰuθəm	transcription	pal̓	page 6, the orthography
+(19d) line 1	ʔayʔaǰuθəm	transcription	pəl~pal̓	page 6, the orthography
+(19e) line 1	Huijsmans and McCarthy 2024	translation	‘potato’	page 6, cited Huijsmans and McCarthy 2024
+(19e) line 1	ʔayʔaǰuθəm	transcription	qawθ	page 6, the orthography
+(19e) line 1	ʔayʔaǰuθəm	transcription	* qo~qawθ	page 6, the orthography
+§3.1	D. K. E. Reisinger	note	Considering this, it seems impossible to tell whether it is the count-mass distinction that stops typical mass nouns from reduplicating, or perhaps some completely unrelated factor.	page 6
+§3.2	D. K. E. Reisinger	heading	3.2 Diagnostic #2: Countability	page 7
+§3.2	D. K. E. Reisinger	note	The second diagnostic targets the countability of entities. As noted in Section 2, only count nouns can be introduced by numerals, whereas mass nouns typically can not. In English, for instance, a numeral like five can only select countable entities like books, pretzels, skirts, etc. (20), but usually not mass entities such as butter, fat, flour, etc. (21).	page 7
+(20a) line 1	English	transcription	I bought books / pretzels / skirts.	page 7, English, [COUNT]
+(20b) line 1	English	transcription	I bought five books / pretzels / skirts.	page 7, English
+(21a) line 1	English	transcription	I bought butter / fat / flour / water / wine.	page 7, English, [MASS]
+(21b) line 1	English	transcription	# I bought five butter(s) / fat(s) / flour(s) / water(s) / wine(s).	page 7, English
+§3.2	D. K. E. Reisinger	language	St’át’imcets	St’át’imcets, Lillooet
+§3.2	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§3.2	D. K. E. Reisinger	note	For Salish, this diagnostic has been consistent in yielding inconsistent results. In Halkomelem, Wiltschko (2012) finds that numerals can sometimes — but not always — combine with nouns that denote mass entities. The data she presents suggest that this is particularly the case for substances that can be easily apportioned, like sand and wood. In contrast, nouns referring to entities that are less likely to allow apportionment, like snow and wind, typically cannot be selected by numerals.4 Davis (2014) observes a similar pattern in St’át’imcets and shows that, while numerals can sometimes combine with mass nouns, judgments for this diagnostic strongly depend on the provided context and on speaker preferences. As the following paragraphs will show, the same is true for ʔayʔaǰuθəm.	page 7
+§3.2	D. K. E. Reisinger	note	To establish a baseline, let us first look at the interaction of numerals and count nouns. As illustrated by the examples in (22), these elements tend to combine without any issues in ʔayʔaǰuθəm.	page 7
+(22a) line 1	D. K. E. Reisinger	note	Context: I tell Henry about a recent hiking trip and the birds that I saw there:	page 7, engine english
+(22a) line 2	ʔayʔaǰuθəm	transcription	k̓ʷʊnʊxʷoɬč čɛlas hom̓hom̓.	page 7, engine language
+(22a) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷən-nxʷ-uɬ=č čalas hum̓hum̓	page 7, engine language
+(22a) line 4	ʔayʔaǰuθəm	gloss	see-NTR-PST=1SG.SBJ three grouse	page 7, engine english
+(22a) line 5	Betty Wilson	translation	‘I saw three grouse.’	page 7, engine english
+(22a) line 5	D. K. E. Reisinger	citation	(sf | BW 2023-06-27)	the tag or source at the right of the translation
+(22b) line 1	D. K. E. Reisinger	note	Context: Gloria and I are taking a class on Swedish crime novels. The prof gave us a long list of books that we are supposed to read. At some point, I ask Gloria how the reading is going. She says:	page 7, engine english
+(22b) line 2	ʔayʔaǰuθəm	transcription	ʔimot, čɛlas pəkpuk hoǰuxʷən.	page 7, engine language
+(22b) line 3	ʔayʔaǰuθəm	segmentation	ʔəy-mut čalas pək~puk huǰ-əxʷ=an	page 7, engine language
+(22b) line 4	ʔayʔaǰuθəm	gloss	good-INT three PL~book finish-NTR=1SG.ERG	page 7, engine english
+(22b) line 5	Betty Wilson	translation	‘Very good, I have finished three books so far.’	page 7, engine english
+(22b) line 5	D. K. E. Reisinger	citation	(sf | BW 2023-06-27)	the tag or source at the right of the translation
+footnote 4	D. K. E. Reisinger	note	4 Unfortunately, Wiltschko (2012) does not include any contexts for her language data. For the former examples, however, the translation line refers to “pieces of” or “kinds of”, which indicates that both the sand and the wood must have been apportioned.	page 7, footnote
+(22c) line 1	D. K. E. Reisinger	note	Context: I’m chatting with a friend about her dreams for the future. She tells me:	page 8, engine english
+(22c) line 2	ʔayʔaǰuθəm	transcription	mosayɛ čičuy kʷʊtᶿ χaƛ̓.	page 8, engine language
+(22c) line 3	ʔayʔaǰuθəm	segmentation	mos-aya čəy~čuy kʷ=ətᶿ=x̌aƛ̓	page 8, engine language
+(22c) line 4	ʔayʔaǰuθəm	gloss	four-people PL~child DET=1SG.POSS=want	page 8, engine english
+(22c) line 5	Betty Wilson	translation	‘I want to have four children.’	page 8, engine english
+(22c) line 5	D. K. E. Reisinger	citation	(vf | BW 2023-06-27)	the tag or source at the right of the translation
+§3.2	ʔayʔaǰuθəm	cited form	qiqayɛ	page 8
+§3.2	ʔayʔaǰuθəm	phonemic	/qəyqayaʔ/	page 8, ‘water(s)’
+§3.2	ʔayʔaǰuθəm	cited form	šəkʷšukʷa	page 8
+§3.2	ʔayʔaǰuθəm	phonemic	/šəkʷšukʷa/	page 8
+§3.2	ʔayʔaǰuθəm	cited form	lamayɛ	page 8
+§3.2	ʔayʔaǰuθəm	cited form	kʷaʔsta	page 8
+§3.2	ʔayʔaǰuθəm	phonemic	/kʷaʔsta/	page 8, ‘cup(s)’
+§3.2	D. K. E. Reisinger	note	In contrast, the results for this diagnostic appear much less tidy for nouns that typically denote substances. The following examples, which Gloria Mellesmoen kindly shared with me, show that judgments tend to vary considerably regarding the countability of mass nouns. In some contexts, as exemplified by (23), the speaker firmly rejects utterances in which a numeral directly selects an (apportioned) mass noun, such as qiqayɛ /qəyqayaʔ/ (‘water(s)’) or šəkʷšukʷa /šəkʷšukʷa/ (‘sugar(s)’). To repair these utterances, she inserts a countable noun specifying the unit of apportionment, such as lamayɛ /lamayu/ (‘bottle(s)’) or kʷaʔsta /kʷaʔsta/ (‘cup(s)’). Yet, in other contexts, directly combining numerals and mass nouns seems to be much less of an issue, as shown in (24).	page 8
+(23a) line 1	D. K. E. Reisinger	note	Context: You are at the gas station and your friend asks you to pick up some bottles of water. You ask how many.	page 8, engine english
+(23a) line 2	ʔayʔaǰuθəm	transcription	# χanaθ ga čɛlas tə qiqayɛ.	page 8, engine language
+(23a) line 3	ʔayʔaǰuθəm	segmentation	x̌an-a-θ=ga čalas tə=qəy~qayaʔ	page 8, engine language
+(23a) line 4	ʔayʔaǰuθəm	gloss	give-LV-CTR+1SG.OBJ=DPRT three DET=PL~water	page 8, engine english
+(23a) line 5	Betty Wilson	translation	Intended: ‘Bring me three waters.’	page 8, engine english
+(23a) line 6	Betty Wilson	speaker comment	Consultant’s comment: “No, you would say, χanaθ ga čɛlas lamayɛ qayɛ [‘Give me three bottles of water’].” (sf | BW 2024-02-14)	page 8, engine english
+(23a)	ʔayʔaǰuθəm	cited form	χanaθ	in the speaker comment, page 8
+(23a)	ʔayʔaǰuθəm	cited form	čɛlas	in the speaker comment, page 8
+(23a)	ʔayʔaǰuθəm	cited form	lamayɛ	in the speaker comment, page 8
+(23a)	ʔayʔaǰuθəm	cited form	qayɛ	in the speaker comment, page 8
+(23b) line 1	D. K. E. Reisinger	note	Context: You are at home baking a cake, and the cake requires two cups of sugar. You tell your friend:	page 8, engine english
+(23b) line 2	ʔayʔaǰuθəm	transcription	# χanaθ ga saʔa šəkʷšukʷa.	page 8, engine language
+(23b) line 3	ʔayʔaǰuθəm	segmentation	x̌an-a-θ=ga saʔa šəkʷ~šukʷa	page 8, engine language
+(23b) line 4	ʔayʔaǰuθəm	gloss	give-LV-CTR+1SG.OBJ=DPRT two PL~sugar	page 8, engine english
+(23b) line 5	Betty Wilson	translation	Intended: ‘Give me two sugars.’	page 8, engine english
+(23b) line 6	Betty Wilson	speaker comment	Consultant’s comment: “You’ve got cups in there. χanaθ ga saʔa kʷaʔsta šəkʷšukʷa. [‘Give me two cups of sugar’].” (sf | BW 2024-02-14)	page 8, engine language
+(23b)	ʔayʔaǰuθəm	cited form	χanaθ	in the speaker comment, page 8
+(23b)	ʔayʔaǰuθəm	cited form	saʔa	in the speaker comment, page 8
+(23b)	ʔayʔaǰuθəm	cited form	kʷaʔsta	in the speaker comment, page 8
+(23b)	ʔayʔaǰuθəm	cited form	šəkʷšukʷa	in the speaker comment, page 8
+(24a) line 1	ʔayʔaǰuθəm	transcription	čɛlas qayɛ tᶿ χaƛ̓.	page 8, engine language
+(24a) line 2	ʔayʔaǰuθəm	segmentation	čalas qayaʔ tᶿ=x̌aƛ̓	page 8, engine language
+(24a) line 3	ʔayʔaǰuθəm	gloss	three water 1SG.POSS=want	page 8, engine english
+(24a) line 4	Betty Wilson	translation	‘I want three waters.’	page 8, engine english
+(24a) line 5	Betty Wilson	speaker comment	Consultant’s comment: “The waitress comes around, three of us are there. ‘Three waters, please.’ So… the person serving you automatically knows you are talking about three glasses.” (vf | BW 2024-02-14)	page 8, engine english
+(24b) line 1	D. K. E. Reisinger	note	Context: Asking someone for two sugar cubes.	page 9, engine english
+(24b) line 2	ʔayʔaǰuθəm	transcription	χanaθ ga saʔa šəkʷšukʷa.	page 9, engine language
+(24b) line 3	ʔayʔaǰuθəm	segmentation	x̌an-a-θ=ga saʔa šəkʷ~šukʷa	page 9, engine language
+(24b) line 4	ʔayʔaǰuθəm	gloss	give-LV-CTR+1SG.OBJ=DPRT two PL~sugar	page 9, engine english
+(24b) line 5	Betty Wilson	translation	‘Give me two sugars.’	page 9, engine english
+(24b) line 6	Betty Wilson	speaker comment	Consultant’s comment: “Then it would work.” (sf | BW 2024-02-14)	page 9, engine english
+(24c) line 1	D. K. E. Reisinger	note	Context: You order coffee at a restaurant for you and a date. Your server brings you one coffee.	page 9, engine english
+(24c) line 2	ʔayʔaǰuθəm	transcription	xʷa, saʔa kəpkapi tᶿ χaƛ̓.	page 9, engine language
+(24c) line 3	ʔayʔaǰuθəm	segmentation	xʷaʔ saʔa kəp~kapi tᶿ=x̌aƛ̓	page 9, engine language
+(24c) line 4	ʔayʔaǰuθəm	gloss	NEG two PL~coffee 1SG.POSS=want	page 9, engine english
+(24c) line 5	Betty Wilson	translation	‘No, I want two coffees.’	page 9, engine english
+(24c) line 5	D. K. E. Reisinger	citation	(vf | BW 2024-02-14)	the tag or source at the right of the translation
+§3.2	D. K. E. Reisinger	note	So, what does this tell us? While Davis (2014:170) muses that patterns like this could be a sign for a grammatical count-mass distinction, Wiltschko (2012:157) interprets the variability of the judgments as evidence against a grammatical count-mass distinction. As far as I can see, both arguments seem reasonable, suggesting that countability may perhaps not be a very good diagnostic in the first place. For ʔayʔaǰuθəm, I regard this test as inconclusive.	page 9
+§3.3	D. K. E. Reisinger	heading	3.3 Diagnostic #3: Quantifiers	page 9
+§3.3	D. K. E. Reisinger	note	Finally, the third diagnostic tests whether quantifiers (i.e., words like all, many, much, some, etc.) are sensitive to a potential count-mass distinction. In English, for instance, the quantifier many only occurs with count nouns (25), whereas the quantifier much only occurs with mass nouns (26). In addition, there are also some general-purpose quantifiers, like a lot of, which can freely combine with both count and mass nouns (27).	page 9
+(25a) line 1	English	transcription	Keith uses many guitars.	page 9, English
+(25b) line 1	English	transcription	* Gordon doesn’t use many butter.	page 9, English
+(26a) line 1	English	transcription	* Keith uses much guitars.	page 9, English
+(26b) line 1	English	transcription	Gordon doesn’t use much butter.	page 9, English
+(27a) line 1	English	transcription	Keith uses a lot of guitars.	page 9, English
+(27b) line 1	English	transcription	Gordon doesn’t use a lot of butter.	page 9, English
+§3.3	D. K. E. Reisinger	language	St’át’imcets	St’át’imcets, Lillooet
+§3.3	St’át’imcets	cited form	cw7ít	page 9
+§3.3	St’át’imcets	cited form	k’wík’wena7	page 10, ‘(a) few; little’
+§3.3	St’át’imcets	cited form	tákem	page 10, ‘all’
+§3.3	St’át’imcets	cited form	sáq’ulh	page 10, ‘half’
+§3.3	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§3.3	ʔayʔaǰuθəm	cited form	qaχ	page 10
+§3.3	ʔayʔaǰuθəm	phonemic	/qəx̌/	page 10, ‘a lot of’
+§3.3	ʔayʔaǰuθəm	cited form	ʔuk̓ʷ	page 10
+§3.3	ʔayʔaǰuθəm	phonemic	/ʔuwk̓ʷ/	page 10, ‘all’
+§3.3	D. K. E. Reisinger	note	Looking at the Salish literature, this diagnostic has not been very fruitful. Wiltschko (2005:269–271), for instance, examined the Halkomelem quantifiers qex (‘many, much’), mekw’ (‘all’), and ewete (‘no’), but found that none of them are sensitive to a potential count-mass distinction. Based on this, she concludes that “there is no […] quantifier that would distinguish between two subcategories of N’s akin to mass and count N’s in English”. In St’át’imcets, Davis (2014:164ff.) makes a similar observation regarding the weak quantifiers cw7ít (‘much; many; a lot of’) and k’wík’wena7 (‘(a) few; little’). His results for the strong quantifiers tákem (‘all’) and sáq’ulh (‘half’) look a bit more promising at first sight, showing signs of a grammatical count-mass distinction. However, upon closer inspection, Davis concedes that it is impossible to tell whether it’s these quantifiers, or rather the accompanying determiners, that are responsible for this. He concludes that “the distribution of strong quantifiers doesn’t tell us anything we didn’t already know from the number marking on the determiners” (Davis 2014:167). Despite this rather underwhelming track record, we should nonetheless look at quantifiers in ʔayʔaǰuθəm. Unsurprisingly, just like in Halkomelem and St’át’imcets, most quantifiers in ʔayʔaǰuθəm turn out to be of the general-purpose variety. To illustrate this, the examples in (28) and (29) show that both qaχ /qəx̌/ (‘a lot of’) and ʔuk̓ʷ /ʔuwk̓ʷ/ (‘all’) can introduce count nouns as well as mass nouns.	page 9
+(28a) line 1	D. K. E. Reisinger	note	Context: I show my nephew a large centipede I found in the backyard. My nephew is fascinated and mutters:	page 10, engine english
+(28a) line 2	ʔayʔaǰuθəm	transcription	qaχmot ǰɩšǰɩšɩns!	page 10, engine language
+(28a) line 3	ʔayʔaǰuθəm	segmentation	qəx̌-mut ǰəš~ǰəšən-s	page 10, engine language
+(28a) line 4	ʔayʔaǰuθəm	gloss	a.lot.of-INT PL~legs-3POSS	page 10, engine english
+(28a) line 5	Betty Wilson	translation	‘It has a lot of legs!’	page 10, engine english
+(28a) line 5	D. K. E. Reisinger	citation	(vf | BW 2023-04-14)	the tag or source at the right of the translation
+(28b) line 1	D. K. E. Reisinger	note	Context: My friend Andi and I are hiking across the White Mountains in Crete. It’s almost a desert up there, and water is difficult to find. At one point, I ask if he has any water left. He tells me:	page 10, engine english
+(28b) line 2	ʔayʔaǰuθəm	transcription	ʔɛʔ, qaχʔot kʷʊtᶿ qayɛ.	page 10, engine language
+(28b) line 3	ʔayʔaǰuθəm	segmentation	ʔiʔ qəx̌=ʔut kʷ=ətᶿ=qayaʔ	page 10, engine language
+(28b) line 4	ʔayʔaǰuθəm	gloss	yes a.lot.of=EXCL DET=1SG.POSS=water	page 10, engine english
+(28b) line 5	Betty Wilson	translation	‘Yes, I have lots of water.’	page 10, engine english
+(28b) line 5	D. K. E. Reisinger	citation	(vf | BW 2023-04-11)	the tag or source at the right of the translation
+(29a) line 1	D. K. E. Reisinger	note	Context: My mother is babysitting my niece and my nephew. In the evening, my sister comes to pick them up. My mother tells my sister:	page 10, engine english
+(29a) line 2	ʔayʔaǰuθəm	transcription	mʊkʷtəm Anabel ʔuk̓ʷ šɛ qawθs.	page 10, engine language
+(29a) line 3	ʔayʔaǰuθəm	segmentation	məkʷ-t-əm Anabel ʔuwk̓ʷ šə=qawθ-s	page 10, engine language
+(29a) line 4	ʔayʔaǰuθəm	gloss	eat-CTR-PASS Anabel all DET=potato-3POSS	page 10, engine english
+(29a) line 5	Betty Wilson	translation	‘Anabel ate all her potatoes.’	page 10, engine english
+(29a) line 5	D. K. E. Reisinger	citation	(vf | BW 2023-08-14)	the tag or source at the right of the translation
+(29b) line 1	ʔayʔaǰuθəm	transcription	mʊkʷtəm Anabel ʔuk̓ʷ šɛ qawθ.	page 10, engine language
+(29b) line 2	ʔayʔaǰuθəm	segmentation	məkʷ-t-əm Anabel ʔuwk̓ʷ šə=qawθ	page 10, engine language
+(29b) line 3	ʔayʔaǰuθəm	gloss	eat-CTR-PASS Anabel all DET=potato	page 10, engine english
+(29b) line 4	Betty Wilson	translation	‘Anabel ate the whole potato.’	page 10, engine english
+(29b) line 4	D. K. E. Reisinger	citation	(sf | BW 2024-07-17)	the tag or source at the right of the translation
+(29c) line 1	ʔayʔaǰuθəm	transcription	qʷoqʷotəm Gloria ʔuk̓ʷ šɛ tihayɛ.	page 10, engine language
+(29c) line 2	ʔayʔaǰuθəm	segmentation	qʷuqʷu-t-əm Gloria ʔuwk̓ʷ šə=tihaya	page 10, engine language
+(29c) line 3	ʔayʔaǰuθəm	gloss	drink-CTR-PASS Gloria all DET=tea	page 10, engine english
+(29c) line 4	Betty Wilson	translation	‘Gloria drank all the tea.’	page 10, engine english
+(29c) line 4	D. K. E. Reisinger	citation	(sf | BW 2023-07-17)	the tag or source at the right of the translation
+§3.3	ʔayʔaǰuθəm	cited form	k̓ʷɛn	page 11
+§3.3	ʔayʔaǰuθəm	phonemic	/k̓ʷin/	page 11, ‘how many’
+§3.3	D. K. E. Reisinger	note	While these quantifiers obviously don’t encode a count-mass distinction, I argue that there is at least one quantifier in the language which does — namely the Wh word k̓ʷɛn /k̓ʷin/ (‘how many’). As shown in (31), speakers typically use this Wh word when they want to inquire about the quantity of some countable entity (e.g., potatoes, grouse, socks).	page 11
+(30a) line 1	D. K. E. Reisinger	note	Context: Marianne and I are shopping at Save On’s. We’re also supposed to buy a few things for Gloria. I ask Marianne:	page 11, engine english
+(30a) line 2	ʔayʔaǰuθəm	transcription	k̓ʷɛn k̓ʷa qawθ χaƛ̓s Gloria?	page 11, engine language
+(30a) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin=k̓ʷa qawθ x̌aƛ̓-s Gloria	page 11, engine language
+(30a) line 4	ʔayʔaǰuθəm	gloss	how.many=RPT potato want-3POSS Gloria	page 11, engine english
+(30a) line 5	Freddie Louie	translation	‘How many potatoes did Gloria say she wanted?’	page 11, engine english
+(30a) line 5	D. K. E. Reisinger	citation	(vf | FL 2024-04-11)	the tag or source at the right of the translation
+(30b) line 1	D. K. E. Reisinger	note	Context: Henry tells me about all the birds he has seen this year. I ask him:	page 11, engine english
+(30b) line 2	ʔayʔaǰuθəm	transcription	k̓ʷɛn hom̓hom̓ kʷi k̓ʷʊnʊxʷʊxʷ?	page 11, engine language
+(30b) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin hum̓hum̓ kʷi k̓ʷən-nxʷ=axʷ	page 11, engine language
+(30b) line 4	ʔayʔaǰuθəm	gloss	how.many grouse CLDEM see-NTR=2SG.ERG	page 11, engine english
+(30b) line 5	Betty Wilson	translation	‘How many grouse have you seen so far?’	page 11, engine english
+(30b) line 5	D. K. E. Reisinger	citation	(sf | BW 2023-08-14)	the tag or source at the right of the translation
+(30c) line 1	D. K. E. Reisinger	note	Context: My mother told me she is knitting socks for everyone in my family. This morning, I call her and ask her about her progress:	page 11, engine english
+(30c) line 2	ʔayʔaǰuθəm	transcription	k̓ʷɛn tɩktɛkɛn hoǰʊxʷʊxʷ?	page 11, engine language
+(30c) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin tək~takin huǰ-əxʷ=axʷ	page 11, engine language
+(30c) line 4	ʔayʔaǰuθəm	gloss	how.many PL~sock finish-NTR=2SG.ERG	page 11, engine english
+(30c) line 5	Betty Wilson	translation	‘How many socks have you finished?’	page 11, engine english
+(30c) line 5	D. K. E. Reisinger	citation	(vf | BW 2023-08-14)	the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger	note	However, when speakers want to know the amount of a mass entity (e.g., soup, rice, water), the use of k̓ʷɛn /k̓ʷin/ (‘how many’) becomes ungrammatical, as illustrated in (31). Here, the consultant’s comments are particularly illuminating.	page 11
+(31a) line 1	ʔayʔaǰuθəm	transcription	* k̓ʷɛn lasup kʷ mʊkʷtəsoɬ?	page 11, engine language
+(31a) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷin lasup kʷ=məkʷ-t=as-uɬ	page 11, engine language
+(31a) line 3	ʔayʔaǰuθəm	gloss	how.many soup DET=eat-CTR=3SG.ERG-PST	page 11, engine english
+(31a) line 4	Betty Wilson	translation	Intended: ‘How much soup did he eat?’	page 11, engine english
+(31a) line 5	Betty Wilson	speaker comment	Consultant’s comment: “You can’t count soup!” (sf | BW 2020-04-03)	page 11, engine english
+(31b) line 1	D. K. E. Reisinger	note	Context: We’ve invited some people from the community over to dinner. Gloria has been tasked to cook some rice. She asks:	page 11, engine english
+(31b) line 2	ʔayʔaǰuθəm	transcription	* k̓ʷɛn səm ǰuk̓ʷ č̓ɛχatən?	page 11, engine language
+(31b) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin=səm ǰuk̓ʷ č̓ax̌-a-t=an	page 11, engine language
+(31b) line 4	ʔayʔaǰuθəm	gloss	how.many=FUT Indian.rice cook-LV-CTR=1SG.ERG	page 11, engine english
+(31b) line 5	Betty Wilson	translation	Intended: ‘How much rice shall I cook?’	page 11, engine english
+(31b) line 6	Betty Wilson	speaker comment	Consultant’s comment: “Would be counting.” (sf | BW 2023-04-25)	page 11, engine english
+(31c) line 1	D. K. E. Reisinger	note	Context: My friend Andi and I are hiking across the White Mountains in Crete. It’s almost a desert up there, and water is difficult to find. At one point, I ask Andi:	page 12, engine english
+(31c) line 2	ʔayʔaǰuθəm	transcription	* k̓ʷɛn kʷʊθ qayɛ?	page 12, engine language
+(31c) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin kʷ=əθ=qayaʔ	page 12, engine language
+(31c) line 4	ʔayʔaǰuθəm	gloss	how.many DET=1SG.POSS=water	page 12, engine english
+(31c) line 5	Betty Wilson	translation	Intended: ‘How much water do you have left?’	page 12, engine english
+(31c) line 6	Betty Wilson	speaker comment	Consultant’s comment: “No, would be used if we could count it.”	page 12, engine english
+(31c) line 7	D. K. E. Reisinger	citation	(vf | BW 2023-04-25)	page 12, engine residue
+§3.3	D. K. E. Reisinger	note	Since amount questions obviously cannot be formed with k̓ʷɛn /k̓ʷin/ (‘how many’), speakers have to use other means to get such inquiries across. Usually, they do this by making use of yes/no questions involving the quantifier qaχ /qəx̌/ (‘a lot of’), as shown in (32).	page 12
+(32a) line 1	ʔayʔaǰuθəm	transcription	qaχa kʷ mʊkʷtʊxʷoɬ?	page 12, engine language
+(32a) line 2	ʔayʔaǰuθəm	segmentation	qəx̌=a kʷ=məkʷ-t=axʷ-uɬ	page 12, engine language
+(32a) line 3	ʔayʔaǰuθəm	gloss	a.lot.of=Q DET=eat-CTR=2SG.ERG-PST	page 12, engine english
+(32a) line 4	Betty Wilson	translation	‘How much (soup) did you eat?’	page 12, engine english
+(32a) line 5	Betty Wilson	translation	Literally: ‘Did you eat a lot?’	page 12, engine english
+(32a) line 5	D. K. E. Reisinger	citation	(vf | BW 2020-04-03)	the tag or source at the right of the translation
+(32b) line 1	D. K. E. Reisinger	note	Context: We’ve invited some people from the community over to dinner. Gloria has been tasked to cook some rice. She asks:	page 12, engine english
+(32b) line 2	ʔayʔaǰuθəm	transcription	qaχasəm ǰuk̓ʷ č̓ɛχatən?	page 12, engine language
+(32b) line 3	ʔayʔaǰuθəm	segmentation	qəx̌=a=səm ǰuk̓ʷ č̓ax̌-a-t=an	page 12, engine language
+(32b) line 4	ʔayʔaǰuθəm	gloss	a.lot.of=Q=FUT Indian.rice cook-LV-CTR=1SG.ERG	page 12, engine english
+(32b) line 5	Betty Wilson	translation	‘How much rice shall I cook?’	page 12, engine english
+(32b) line 6	Betty Wilson	translation	Literally: ‘Should I cook a lot of rice?’	page 12, engine english
+(32b) line 6	D. K. E. Reisinger	citation	(vf | BW 2023-04-11)	the tag or source at the right of the translation
+(32c) line 1	D. K. E. Reisinger	note	Context: My friend Andi and I are hiking across the White Mountains in Crete. It’s almost a desert up there, and water is difficult to find. At one point, I ask Andi:	page 12, engine english
+(32c) line 2	ʔayʔaǰuθəm	transcription	qaχʔota kʷʊθ qayɛ?	page 12, engine language
+(32c) line 3	ʔayʔaǰuθəm	segmentation	qəx̌=ʔut=a kʷ=əθ=qayaʔ	page 12, engine language
+(32c) line 4	ʔayʔaǰuθəm	gloss	a.lot.of=EXCL=Q DET=1SG.POSS=water	page 12, engine english
+(32c) line 5	Betty Wilson	translation	‘How much water do you have left?’	page 12, engine english
+(32c) line 6	Betty Wilson	translation	Literally: ‘Do you have a lot of water?’	page 12, engine english
+(32c) line 6	D. K. E. Reisinger	citation	(vf | BW 2023-04-11)	the tag or source at the right of the translation
+§3.3	D. K. E. Reisinger	note	The data presented in this section show that quantifiers do not form a monolithic class, and that the results of this diagnostic may vary drastically depending on which quantifiers we decide to look at. For ʔayʔaǰuθəm, if we had only focussed on qaχ /qəx̌/ (‘a lot of’) and ʔuk̓ʷ /ʔuwk̓ʷ/ (‘all’), we would have found no signs of a count-mass distinction. Fortunately, we also included the Wh quantifier k̓ʷɛn /k̓ʷin/ (‘how many’) in our survey. Since this form only combines with count nouns, but never with mass nouns, it offers convincing evidence that there is a count-mass distinction in the grammar of the language.	page 12
+§3.4	D. K. E. Reisinger	heading	3.4 Summary	page 13
+§3.4	ʔayʔaǰuθəm	cited form	k̓ʷɛn	page 13
+§3.4	ʔayʔaǰuθəm	phonemic	/k̓ʷin/	page 13, ‘how many’
+§3.4	D. K. E. Reisinger	note	In the preceding sub-sections, we tested three common diagnostics for the existence of a grammatical count-mass distinction. Both the numeral marking test and the countability test turned out to be inconclusive. While the results of these tests support a count-mass distinction, they could also be motivated by other factors. Ironically, the strongest evidence comes from the quantifier test — the diagnostic with the weakest track record in previous research (Wiltschko 2005; Davis 2014). Strikingly, the key to success was adding the Wh quantifier k̓ʷɛn /k̓ʷin/ (‘how many’) to the toolkit, as this form robustly distinguishes between count and mass nouns. This emphasizes that we need a more comprehensive approach when testing for the count-mass distinction.	page 13
+§4	D. K. E. Reisinger	heading	4 Avenues for future research	page 13
+§4	ʔayʔaǰuθəm	cited form	k̓ʷɛn	page 13
+§4	ʔayʔaǰuθəm	phonemic	/k̓ʷin/	page 13, ‘how many’
+§4	D. K. E. Reisinger	note	Section 3 showed that the Wh quantifier may be a crucial tool for determining the status of count and mass nouns in Salish. In the following paragraphs, I will outline two avenues for future research regarding this diagnostic. As shown in Table 2, k̓ʷɛn /k̓ʷin/ (‘how many’) has cognates in most Coast Salish languages.	page 13
+Table 2 line 1	D. K. E. Reisinger	note	Language Cognate Translation Source	page 13, heads the rows below
+Table 2 line 2	D. K. E. Reisinger	language	Pentlatch	page 13, no cognate, translation or source given
+Table 2 line 3	D. K. E. Reisinger	language	Sechelt	page 13, between the cells
+Table 2 line 3	Sechelt	transcription	k̓ʷin	page 13, the orthography
+Table 2 line 3	Beaumont 2011:223	translation	‘how many’	page 13, cited Beaumont 2011:223
+Table 2 line 3	Beaumont 2011:223	translation	‘how much’	page 13, cited Beaumont 2011:223
+Table 2 line 3	D. K. E. Reisinger	citation	(Beaumont 2011:223)	page 13
+Table 2 line 4	D. K. E. Reisinger	language	Squamish	page 13, between the cells
+Table 2 line 4	Squamish	transcription	k̓ʷin	page 13, the orthography
+Table 2 line 4	Jacobs and Jacobs 2011:279	translation	‘how many’	page 13, cited Jacobs and Jacobs 2011:279
+Table 2 line 4	Jacobs and Jacobs 2011:279	translation	‘how much’	page 13, cited Jacobs and Jacobs 2011:279
+Table 2 line 4	D. K. E. Reisinger	citation	(Jacobs & Jacobs 2011:279)	page 13
+Table 2 line 5	D. K. E. Reisinger	language	Halkomelem	page 13, between the cells
+Table 2 line 5	Halkomelem	transcription	k̓ʷin, k̓ʷil	page 13, the orthography
+Table 2 line 5	Suttles 2004:395	translation	‘how many’	page 13, cited Suttles 2004:395
+Table 2 line 5	D. K. E. Reisinger	citation	(Suttles 2004:395)	page 13
+Table 2 line 6	D. K. E. Reisinger	language	Nooksack	page 13, between the cells
+Table 2 line 6	Nooksack	transcription	k̓ʷin	page 13, the orthography
+Table 2 line 6	Davis and Galloway in prep.	translation	‘how many’	page 13, cited Davis and Galloway in prep.
+Table 2 line 7	Davis and Galloway in prep.	translation	‘some/any number’	page 13, cited Davis and Galloway in prep.
+Table 2 line 8	D. K. E. Reisinger	citation	(Davis & Galloway [in prep.])	page 13
+Table 2 line 9	D. K. E. Reisinger	language	Northern Straits	page 13, between the cells
+Table 2 line 9	Northern Straits	transcription	k̓ʷin	page 13, the orthography
+Table 2 line 9	Montler 2018:431	translation	‘how many’	page 13
+Table 2 line 9	Montler 2018:431	translation	‘how much’	page 13
+Table 2 line 10	Montler 2018:431	translation	‘a few’	page 13
+Table 2 line 10	Montler 2018:431	translation	‘many’	page 13
+Table 2 line 11	D. K. E. Reisinger	citation	(Montler 2018:431)	page 13
+Table 2 line 12	D. K. E. Reisinger	language	Klallam	page 13, between the cells
+Table 2 line 12	Klallam	transcription	k̓ʷin	page 13, the orthography
+Table 2 line 12	Montler 2012:201	translation	‘how many’	page 13, cited Montler 2012:201
+Table 2 line 12	Montler 2012:201	translation	‘how much’	page 13, cited Montler 2012:201
+Table 2 line 12	D. K. E. Reisinger	citation	(Montler 2012:201)	page 13
+Table 2 line 13	D. K. E. Reisinger	language	Lushootseed	page 13, between the cells
+Table 2 line 13	Lushootseed	transcription	k̓ʷid	page 13, the orthography
+Table 2 line 13	Daskalaki and Beck 2013:1	translation	‘how much’	page 13, cited Daskalaki and Beck 2013:1
+Table 2 line 14	Daskalaki and Beck 2013:1	translation	‘some amount’	page 13, cited Daskalaki and Beck 2013:1
+Table 2 line 15	D. K. E. Reisinger	citation	(Daskalaki & Beck 2013:1)	page 13
+Table 2 line 16	D. K. E. Reisinger	language	Twana	page 13, between the cells
+Table 2 line 16	Twana	transcription	k̓ʷid	page 13, the orthography
+Table 2 line 16	Thompson 1979:70	translation	‘how many’	page 13, cited Thompson 1979:70
+Table 2 line 16	D. K. E. Reisinger	citation	(Thompson 1979:70)	page 13
+§4	ʔayʔaǰuθəm	phonemic	/k̓ʷin/	page 13, with the possessive ’s
+§4	ʔayʔaǰuθəm	cited form	k̓ʷin	page 14
+§4	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4	D. K. E. Reisinger	note	First, it seems worthwhile to test whether /k̓ʷin/’s sensitivity regarding the count -mass distinction holds across all the Coast Salish languages. Some entries in the table, namely those in which the form is translated as both ‘how many’ and ‘how much’, suggest the opposite. This is specifically the case for Sechelt, Squamish, Northern Straits, Klallam, and Lushootseed. But to my knowledge, the distribution of /k̓ʷin/ has not been tested systematically in these languages. Regardless, some observations should raise at least some doubt whether translating this Wh quantifier as ‘how much’ is appropriate. For instance, Beaumont (2011:223) notes for Sechelt that “k̓ʷin applies only to amounts that are normally measured by counting”. Moreover, all his example sentences that involve a ‘how much’ reading revolve around money. The same appears to be the case for Klallam. Montler (2012)’s only example in which k̓ʷin is translated as ‘how much’ involves money as well. This raises the question whether the ‘how much’ translations are perhaps just the result of non-literal translations in one very specific context of use. While English speakers talk about money as if it was a substance (e.g., How much money do you make? How much does this cost?), this may not be the case for speakers of Salish. At least, this seems to be true for ʔayʔaǰuθəm, as shown in (33). While the free translation suggests a mass reading, the literal translation shows that we are actually talking about coins — a countable entity.	page 13
+(33) line 1	D. K. E. Reisinger	note	Context: Gloria and I are looking at cars. We find one we like and ask the guy from the car dealership:	page 14, engine english
+(33) line 2	ʔayʔaǰuθəm	transcription	k̓ʷɛnos ga tɛʔɛ?	page 14, engine language
+(33) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷin-us=ga tiʔi	page 14, engine language
+(33) line 4	ʔayʔaǰuθəm	gloss	WH-round.thing=DPRT DEM	page 14, engine english
+(33) line 5	Elsie Paul	translation	‘How much is this one?’	page 14, engine english
+(33) line 6	Elsie Paul	translation	Literally: ‘How many round things (= coins) is this one?’	page 14, engine english
+(33) line 6	D. K. E. Reisinger	citation	(sf | EP 2021-10-15)	the tag or source at the right of the translation
+§4	D. K. E. Reisinger	note	More systematic testing on this is obviously needed, particularly in the languages listed above. Nonetheless, I hypothesize that the Wh quantifier /k̓ʷin/ can only select count nouns across the Central Salish languages.	page 14
+§4	D. K. E. Reisinger	note	Secondly, Table 2 also indicates another avenue for future research. As the translations for some entries indicate, /k̓ʷin/ not only has a question reading, but also an indefinite reading in some languages. This seems to be at least the case for Nooksack (‘any/some number’), Northern Straits (‘a few’, ‘many’), and Lushootseed (‘some amount’) . In ʔayʔaǰuθəm, k̓ʷɛn /k̓ʷin/ ‘how many’ allows such an indefinite reading as well (‘a few; several’), as illustrated by the examples in (34).	page 14
+(34a) line 1	D. K. E. Reisinger	note	Context: I’m showing my friend Saoirse some photos from a recent hiking trip I did with a friend.	page 14, engine english
+(34a) line 2	ʔayʔaǰuθəm	transcription	hɛhɛw qaχmot qegəθ. kʷʊnəs k̓ʷɛn təsɛʔɛč.	page 14, engine language
+(34a) line 3	ʔayʔaǰuθəm	segmentation	hihiw qəx̌-mut qigaθ kʷən=as k̓ʷin təsaʔič	page 14, engine language
+(34a) line 4	ʔayʔaǰuθəm	gloss	really a.lot.of-INT deer AUX=3SBJV a.few hundred	page 14, engine english
+(34a) line 5	Elsie Paul	translation	‘There were so many deer! Must’ve been maybe a few hundred.’	page 14, engine english
+(34a) line 5	D. K. E. Reisinger	citation	(vf | EP 2021-10-15)	the tag or source at the right of the translation
+(34b) line 1	D. K. E. Reisinger	note	Context: My grandfather tells me about how he worked on a farm, when he was a little boy. He tells me how he had to cut hay for the cows, and he says:	page 14, engine english
+(34b) line 2	ʔayʔaǰuθəm	transcription	χʷoχʷ ʔi taʔat šɩm̓ tə ƛəqəm. kʷʊnəs k̓ʷɛn t̓ᶿok̓ʷ.	page 14, engine language
+(34b) line 3	ʔayʔaǰuθəm	segmentation	x̌ʷux̌ʷ ʔiy taʔat šəm̓ tə=ƛəqəm kʷən=as k̓ʷin t̓ᶿuk̓ʷ	page 14, engine language
+(34b) line 4	ʔayʔaǰuθəm	gloss	long.time and HAB dry DET=hay AUX=3SBJV a.few day	page 14, engine english
+(34b) line 5	Elsie Paul	translation	‘It took a long time to dry the hay. Maybe several days.’	page 14, engine english
+(34b) line 5	D. K. E. Reisinger	citation	(sf | EP 2021-10-15)	the tag or source at the right of the translation
+§4	D. K. E. Reisinger	note	I have not systematically tested yet whether the count-mass distinction will also surface for these indefinite instantiations, though it seems reasonable to assume so.	page 15
+footnote 4	D. K. E. Reisinger	note	4 Conclusion To conclude, in this paper, I provided evidence for the existence of a grammatical count-mass distinction in ʔayʔaǰuθəm, lending support for Davis (2014)’s hypothesis that all Salish languages distinguish between count and mass nouns. Strikingly, this conclusion does not emerge from the usual tests, but hinges upon the use of a novel diagnostic: the Wh quantifier. Doubtlessly, this tool should be included in future explorations of the count-mass distinction in Salish.	page 15
+references	D. K. E. Reisinger	heading	References	page 15
+references	D. K. E. Reisinger	reference	Beaumont, Ronald. (2011). Sechelt dictionary. Sechelt, BC: Sechelt Indian Band.	
+references	D. K. E. Reisinger	reference	Daskalaki, Evangelia & David Beck. (2013) The Multi-functionality of the Indefinite/Interrogative stab in Lushootseed. Northwest Journal of Linguistics 7(3):1–17.	
+references	D. K. E. Reisinger	language	St’át’imcets	St’át’imcets, Lillooet
+references	D. K. E. Reisinger	reference	Davis, Henry. (2014). The count-mass distinction in St’át’imcets (and beyond). Papers for ICSNL 49:155–181.	
+references	D. K. E. Reisinger	reference	Davis, Henry & Brent Galloway. [in preparation]. NK Grammar 2: Morphology and Syntax.	
+references	D. K. E. Reisinger	reference	Davis, Henry & Lisa Matthewson. (1999). On the functional determination of lexical categories. Revue Québecoise de Linguistique 27:29–69.	
+references	D. K. E. Reisinger	reference	Deal, Amy Rose. (2013). Apportionment and the mass-count distinction in Nez Perce. Ms., University of California, Santa Cruz.	
+references	D. K. E. Reisinger	reference	FPCC. (2022). Report on the status of B.C. First Nations languages. URL: https://fpcc.ca/wp-content/uploads/2023/02/FPCC-LanguageReport-23.02.14-FINAL.pdf Frawley, William. (1992). Linguistic semantics. London, UK: Lawrence Erlbaum.	
+references	D. K. E. Reisinger	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+references	D. K. E. Reisinger	reference	Huijsmans, Marianne & Mary McCarthy. (2024). The Puzzle of Plurals in ʔayʔaǰuθəm. Papers for ICSNL 59:169–186.	
+references	D. K. E. Reisinger	reference	Huijsmans, Marianne, D. K. E. Reisinger, & Lisa Matthewson. (2020). Evidential Determiners in ʔayʔaǰuθəm. Papers for ICSNL 55:165–182.	
+references	D. K. E. Reisinger	reference	Jacobs, Peter & Damara Jacobs. (2011). Squamish-English Dictionary. Seattle, WA: University of Washington Press.	
+references	D. K. E. Reisinger	reference	Mellesmoen, Gloria. [in preparation]. The grammar of Salish reduplication. Doctoral dissertation. University of British Columbia, Vancouver, BC.	
+references	D. K. E. Reisinger	language	Senćoten	SENĆOŦEN, Saanich, in the title of a reference
+references	D. K. E. Reisinger	reference	Montler, Timothy. (2012). Klallam dictionary. Seattle, WA: University of Washington Press Montler, Timothy. (2018). Senćoten: A Dictionary of the Saanich Language. Seattle, WA: University of Washington Press Reisinger, D. K. E., Marianne Huijsmans, & Lisa Matthewson. (2021). Evidentials in the Nominal Domain: A Speasian Analysis of ʔayʔaǰuθəm Determiners. Proceedings of Sinn und Bedeutung 25:751–768.	
+references	D. K. E. Reisinger	reference	Suttles, Wayne. (2004). Musqueam Reference Grammar. Vancouver, BC: UBC Press.	
+references	D. K. E. Reisinger	reference	Thompson, Nile. (1979). Twana dictionary: student version. Shelton, WA: Twana Language Project, Skokomish Indian Tribe.	
+references	D. K. E. Reisinger	reference	Wiltschko, Martina. (2005). A part of wood is not a tree: on the absence of the count mass distinction in Halkomelem. Papers for ICSNL 40:264–288.	
+references	D. K. E. Reisinger	reference	Wiltschko, Martina. (2008). The syntax of non-inflectional plural marking. Natural Language and Linguistic Theory 26:639–694.	
+references	D. K. E. Reisinger	reference	Wiltschko, Martina. (2012). Decomposing the mass/count distinction: Evidence from languages that lack it. In D. Massam (ed.), Count and Mass Across Languages. Oxford, UK: Oxford University Press, 146–171.	

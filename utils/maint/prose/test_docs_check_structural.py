@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Tests for the structural stage of docs_check. That stage fails a commit.
@@ -12,7 +12,7 @@
 #
 # Every count this file asserts on is measured when the test runs. A constant would have been
 # correct on the day it was written and wrong on the day the tree moved, and the whole reason the
-# structural stage needed repairing is that nobody had measured it outside anchor_sift.
+# structural stage needed repairing is that nobody had measured it outside orior.
 
 import os
 import re
@@ -246,7 +246,7 @@ class StandardsPassTheirOwnStructuralStage(unittest.TestCase):
 class ProtoCoreStructuralStage(unittest.TestCase):
     """The whole stage against a Doxygen C repository, which is where it was measured to be wrong.
 
-    anchor_sift is Python and markdown and uses no Doxygen. The rule is correct here and was
+    orior is Python and markdown and uses no Doxygen. The rule is correct here and was
     never tested anywhere else. ProtoCore carries @ref throughout. Had this gate reached its
     pre-commit hook, ProtoCore could not have committed at all, and per-repo prose tiering would not
     have helped because the break is in the structural stage.

@@ -5,7 +5,7 @@
 #
 #   kdm_write     writes a part's .kdm: every arrangement of primitives that produces each operator
 #   chain_check   reads how much of a relation the ladder's own cases decide
-#   gate_descent  runs the gate as anchor_sift's descent and checks it against every arrangement asked every case
+#   gate_descent  runs the gate as orior's descent and checks it against every arrangement asked every case
 #   ask_order_check  holds the known order of asks to its exact claims and measures the contention read
 #   query_ask_check  holds the ask to what it answers at addresses whose state is known, and finds a clock
 #   query_cell_check walks asks from inside the cell, every ending kept as the answer of the address that caused it
@@ -31,13 +31,13 @@ for one in "$TOP/utils/maint/engine/kdm_write.c" "$TOP/utils/test/engine/compile
         "$TOP/src/engine/compiler/bootstrap/chain_build.c" || exit 1
 done
 
-# the descent is anchor_sift's own, and anchor_sift reads exact integers
-SIFT="$TOP/src/engine/nbody/anchor_sift"
+# the descent is orior's own, and orior reads exact integers
+SIFT="$TOP/src/engine/nbody/orior"
 EXACT="$TOP/src/engine/arithmetic/no_rounding"
 cc -std=c11 -O2 -Wall -Wextra -I"$SIFT" -I"$EXACT" -o "$OUT/gate_descent" \
     "$TOP/utils/test/engine/compiler/bootstrap/gate_descent.c" "$TOP/src/engine/compiler/bootstrap/chain_build.c" \
-    "$SIFT/anchor_sift_core.c" "$SIFT/anchor_sift_field.c" "$SIFT/anchor_sift_steer.c" \
-    "$SIFT/anchor_sift_steer_count.c" "$SIFT/anchor_sift_steer_plan.c" "$SIFT/scan_portable.c" \
+    "$SIFT/orior_core.c" "$SIFT/orior_field.c" "$SIFT/orior_steer.c" \
+    "$SIFT/orior_steer_count.c" "$SIFT/orior_steer_plan.c" "$SIFT/scan_portable.c" \
     "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/ask_order_check" "$TOP/utils/test/engine/compiler/bootstrap/ask_order_check.c" \
     "$TOP/src/engine/compiler/bootstrap/ask_order.c" \

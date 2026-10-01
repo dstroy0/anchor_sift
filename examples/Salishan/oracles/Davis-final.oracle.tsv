@@ -1,0 +1,592 @@
+where	who	kind	form	gloss
+front	Henry Davis	title	The count-mass distinction in St’át’imcets (and beyond)	page 1, carries footnote *
+front	Henry Davis	name	Henry Davis	author
+front	Henry Davis	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis	note	Abstract: There has been little systematic investigation of the count-mass distinction in Salish; previous work is confined to a brief discussion on St’át’imcets in Davis and Matthewson (1999), and a fuller treatment of Upriver Halkomelem in Wiltschko (2005, 2009, 2012). Both conclude that the distinction is not grammatically instantiated in Salish. Based on the pattern of number marking on determiners and the distribution of plural reduplication on nouns, I show that mass and count nouns must be grammatically distinguished in St’át’imcets. I then turn to the Upriver Halkomelem evidence, and argue that though it differs from St’át’imcets in the inflectional encoding of number, it too can be shown to grammatically encode the count-mass distinction.	page 1, the abstract
+front	Henry Davis	note	Keywords: Salish, St’át’imcets, Upriver Halkomelem, syntax, semantics, count- mass	page 1, the keywords
+front	Henry Davis	note	Papers for the International Conference on Salish and Neighbouring Languages 49, University of British Columbia Working Papers in Linguistics 37, Natalie Weber, Emily Sadlier-Brown and Erin Guntly (eds.), 2014.	page 1, the volume's header
+front	Henry Davis	language	St’át’imcets	Northern Interior Salish (Lillooet)
+footnote *	Henry Davis	note	I am profoundly grateful to Carl Alexander and Laura Thevarge, who supplied all the unattributed St’át’imcets examples here, as well as providing many thoughtful and perceptive comments. Thanks also to Strang Burton, Peter Jacobs, Hotze Rullmann, Martina Wiltschko, and particularly Lisa Matthewson, as well as to an audience at SULA 8. Contact info: Henry.Davis@ubc.ca	page 1, footnote *, on the title
+footnote *	Henry Davis	name	Carl Alexander	St’át’imcets speaker, supplied the unattributed examples
+footnote *	Henry Davis	name	Laura Thevarge	St’át’imcets speaker, supplied the unattributed examples
+footnote *	Henry Davis	name	Strang Burton	thanked
+footnote *	Henry Davis	name	Peter Jacobs	thanked
+footnote *	Henry Davis	name	Hotze Rullmann	thanked
+footnote *	Henry Davis	name	Martina Wiltschko	thanked; the Upriver Halkomelem analysis
+footnote *	Henry Davis	name	Lisa Matthewson	thanked
+footnote *	Henry Davis	name	Wiltschko	Martina Wiltschko (2005, 2008, 2012)
+§1	Henry Davis	heading	1 Introduction	page 1
+§1	Henry Davis	note	It is a sobering thought that after nearly half a century of sustained linguistic investigation, there are so many areas of Salish grammar that remain only partially understood. This speaks, of course, to the richness and sophistication of the languages themselves, but also to the theoretical (or anti-theoretical!) preoccupations of those investigating them, which inevitably lead to a focus on certain questions to the neglect of others. It is also a timely reminder that in the few years that we have left with the current generation of first language speakers, it is important to identify and examine areas which for one reason or another have hitherto escaped detailed attention.	page 1
+§1	Henry Davis	note	The distinction between count and mass nouns is one such area. As far as I am aware, previous work on this distinction in the Salish literature has been confined to St’át’imcets (Davis and Matthewson 1999) and especially Upriver Halkomelem (Wiltschko 2005, 2008, 2012). For both languages, it has been claimed that the distinction is absent, a radical proposal which invites more detailed investigation. In this paper, I take up that invitation.	page 1
+§1	Henry Davis	language	Upriver Halkomelem	Central Salish
+§1	Henry Davis	language	Halkomelem	Central Salish
+§1	Henry Davis	note	I begin in Section 2 by reviewing the core diagnostics for the mass-count distinction, as established by cross-linguistic work over the past twenty years. In Section 3, I turn to a detailed examination of St’át’imcets, presenting new data which I think rather conclusively establish the distinction, contra to Davis and Matthewson’s earlier speculation. In Section 4, I go on to compare the St’át’imcets facts to those reported by Wiltschko for Upriver Halkomelem: I conclude that is spite of morphosyntactic differences between the two languages which partially obscure the distinction in Halkomelem, there is good evidence that both languages distinguish count from mass nouns. I finish in Section 5 by providing a preliminary cross-linguistic typology of the distinction.	page 1
+§2	Henry Davis	heading	2 Core diagnostics for the count-mass distinction	page 2
+§2	Henry Davis	note	In cross-linguistic work on the count-mass distinction (see e.g. Chierchia 1998, 2010, Cheng and Sybesma 1999, and the papers in Massam 2012, inter alia) the following set of core diagnostics has emerged (illustrated here by English, which tests positively for all of them):	page 2
+§2	Henry Davis	name	Chierchia	Chierchia (1998, 2010)
+§2	Henry Davis	language	English	compared for the core diagnostics
+§2	Henry Davis	note	(i) Number marking. In languages such as English with a grammaticalized number marking system, count nouns typically inflect for (plural versus singular) number, trigger number concord in the nominal system, and trigger number agreement on the verb, while mass nouns do not.	page 2
+(1a) line 1	English	note	Those potatoes/apples/candies are on the table.	page 2, the English sentence
+(1b) line 1	English	note	# Those rices/waters/gums are on the table.	page 2, the English sentence
+§2	Henry Davis	note	In other languages, classifiers can take the place of number marking, but still	page 2
+§2	Henry Davis	note	distinguish mass from count nouns. Mandarin, for example, has both classifiers and ‘massifiers’, the former for count and the latter for mass nouns (Cheng and Sybesma, 1999). As emphasized by Chierchia (2010), however, there are also languages where number does not appear to be grammaticalized at all. Dëne Suɬine (Athabaskan) under Wilhelm’s (2008) analysis fits this ‘number neutral’ profile, though it tests positive for other count-mass diagnostics.1	page 2
+footnote 1	Henry Davis	note	In particular, for ‘countability’ (diagnostic (iii) below).	page 2, footnote 1
+§2	Henry Davis	name	Wilhelm	Wilhelm (2008), Dëne Suɬine
+§2	Henry Davis	language	Mandarin	classifiers and massifiers
+§2	Henry Davis	language	Dëne Suɬine	Athabaskan, number neutral
+§2	Henry Davis	note	(ii) Count and mass quantifiers. In many languages, quantifiers can be specialized to take either count restrictions (2), or mass restrictions (3); others can take both (4).2	page 2
+footnote 2	Henry Davis	note	The distinction is actually a little more fine-grained once number marking is taken into consideration: the examples in (2) only take a plural count restriction, whereas every, each, and a(n), which are equally allergic to mass nouns, take only a singular count noun restriction.	page 2, footnote 2
+(2a) line 1	English	note	Many/several/(a) few apples fell from the table.	page 2, the English sentence
+(2b) line 1	English	note	# Many/several/(a) few water spilt from the bottle.	page 2, the English sentence
+(3a) line 1	English	note	Much/a bit of/a little water spilt from the bottle.	page 3, the English sentence
+(3b) line 1	English	note	# Much/a bit of/a little apples fell from the table.	page 3, the English sentence
+(4a) line 1	English	note	All the/a lot of/some/no apples fell from the table.	page 3, the English sentence
+(4b) line 1	English	note	All the/a lot of/some/no water spilt from the bottle.	page 3, the English sentence
+§2	Henry Davis	note	This diagnostic is known to vary widely across languages: for example,	page 3
+§2	Henry Davis	note	languages in the Pacific Northwest do not generally distinguish ‘many’ from ‘much’. Instead, they employ a general-purpose quantifier with the distribution of ‘a lot (of’): see Section 3.2 below.	page 3
+§2	Henry Davis	note	(iii) Countability. Identified by Chierchia (2010) as the ‘signature property’ of count nouns, this diagnostic describes the ability of count but not mass nouns to be directly selected by numerals:	page 3
+(5a) line 1	English	note	I bought three potatoes/apples/candies.	page 3, the English sentence
+(5b) line 1	English	note	# I bought three rice(s)/wine(s)/salsa(s)	page 3, the English sentence
+§2	Henry Davis	note	Notoriously, however, this distinction may be obscured by what are	page 3
+§2	Henry Davis	note	sometimes known as ‘apportionment functions’. These functions coerce mass nouns into showing count behaviour by dividing them covertly into contextually and/or conventionally appropriate portions, as shown in (6). A special case of apportionment is represented by ‘kind of’ readings, which are quite prominent for certain mass nouns in English (6d):	page 3
+(6a) line 1	English	note	Three rices on table six!	page 3, the English sentence
+(6b) line 1	English	note	Four waters for table eight!	page 3, the English sentence
+(6c) line 1	English	note	Two salsas for table nine!	page 3, the English sentence
+(6d) line 1	English	note	I sampled two rices/wines/salsas.	page 3, the English sentence
+§2	Henry Davis	note	While in English the felicity of apportioned readings varies according to a number of factors, including real-world plausibility and conventional usage, Deal (2013) argues that in Nez Perce, a covert apportionment function can always be grammatically supplied for any given pragmatic context. This is important, because it provides evidence that apportionment is not simply a pragmatically controlled ‘universal packager’, but a grammatically mediated operation which may be subject to parametric variation.3	page 3
+footnote 3	Henry Davis	note	Another well-known source of cross-linguistic variation in countability is the existence of numeral classifier languages, which do not allow nouns to be directly counted, but instead require them to compose with a classifier first. Krifka (1995) argues that counting universally involves a measure function, introduced in classifier languages by an overt classifier, and in non-classifier languages by a covert one; under this view, apportionment is always necessary, with count nouns being distinguished from mass nouns only by being lexically supplied with an ‘atomic’ apportionment/measure function.	page 3, footnote 3
+§2	Henry Davis	note	It is important to emphasize that though all three core diagnostics for the count-mass distinction coincide in English, this is not necessarily the case cross- linguistically: one or more of the tests may be obscured for independent reasons, leading to the partial or perhaps even total occlusion of the distinction in the grammars of individual languages. For example, Yudja (Tupian) as analyzed by Lima (2014) appears to be freely apportioning (like Nez Perce), lacks selective quantifiers (like Salish languages), and is number neutral, like Dëne Suɬine; it therefore fails to test positive for any of the core diagnostics for the count-mass distinction. This poses a particularly interesting analytical question: if the count- mass distinction is undetectable in a given language, is it legitimate to say it does not exist in the mind of a speaker of that language, or is it latently present but simply not expressed? For a promising attempt to tackle this question empirically, see Lima (2014).	page 3
+§2	Henry Davis	note	With this background in mind, let us now turn to Salish, beginning with St’át’imcets.	page 4
+§3	Henry Davis	heading	3 St’át’imcets	page 4
+§3	Henry Davis	note	In the only previous investigation of the count-mass distinction in St’át’imcets, Davis and Matthewson (1999) (henceforth D&M) make the following (radical) claim:	page 4
+(7) line 1	Henry Davis	note	All nouns in St’át’imcets denote sets of individuals	page 4, set as an example
+§3	Henry Davis	note	They go on to comment: ‘We intend (71) [i.e., (7)] to be understood in a strict sense, that also excludes mass nouns; we are literally claiming that in St’át’imcets Ns denote sets of atomic individuals, and not un-individualized masses.’	page 4
+§3	Henry Davis	note	It turns out that this claim is mistaken: contrary to first appearances, St’át’imcets does indeed show a robust count-mass distinction in its nominal system, as diagnosed particularly by number marking (Section 3.1). It follows that not all St’át’imcets nouns denote (sets of) atoms: some must be substance- denoting, just as in English.	page 4
+§3.1	Henry Davis	heading	3.1 Number marking	page 4
+§3.1	Henry Davis	note	The principal empirical support adduced by D&M for their contention that all nouns are atomic comes from the distribution of singular and plural determiners. Unusually for a Salish language, St’át’imcets obligatorily encodes number in the ‘existence-asserting’ part of its determiner system, as shown in the following table, adapted from Matthewson (1998):	page 4
+(8) line 1	Henry Davis	note	St’át’imcets Determiners	page 4, set as an example
+(8) line 2	Henry Davis	note	assertion-of-existence (a-o-e) ¬ a-o-e	page 4, set as an example
+(8) line 3	Henry Davis	note	present absent invisible	page 4, set as an example
+(8) line 4	Henry Davis	note	- plural ta/ti= … =a na/ni= … =a ku = … =a ku	page 4, set as an example
+(8) line 5	Henry Davis	note	+ plural -collective i= … =a nelh = … =a kwelh = … =a (kwelh)	page 4, set as an example
+(8) line 6	Henry Davis	note	+ collective ki= … =a	page 4, set as an example
+§3.1	Henry Davis	note	Singular count nouns obligatorily take singular determiners (9a), and plural count nouns obligatorily take plural determiners (9b).4	page 5
+footnote 4	Henry Davis	note	St’át’imcets examples are given in the van Eijk orthography adopted by all St’át’imc communities. Glosses generally follow the Leipzig Glossing Rules except ABS = absent, ACT = active intransitive, CIRC = circumstantial modal, DIR= directive transitivizer, EXCL = exclusive,, EXIS = existential, IND = indirective transitivizer, INST = instrumental suffix, LOC = locative, NCT = non-control transitivizer, OOC = out-of-control, RED = reduplication, RLT = relational transitivizer.	page 5, footnote 4
+(9a) line 1	St’át’imcets	transcription	wa7 wáz’-am ta=sqáx7=a	page 5
+(9a) line 2	St’át’imcets	gloss	IPFV bark-MID SG.DET=dog=EXIS	page 5
+(9a) line 3	Henry Davis	translation	‘A dog is barking.’	page 5
+§3.1	Henry Davis	note	≠ ‘Some dogs are barking.’	page 5
+§3.1	Henry Davis	note	b. wa7 wáz’-am i=sqáx7=a IPFV bark-MID PL.DET=dog=EXIS ‘Some dogs are barking.’	page 5
+§3.1	Henry Davis	note	≠ ‘A dog is barking.’	page 5
+§3.1	Henry Davis	note	This much is unremarkable; but D&M observe that unlike in English, ‘mass’ nouns freely take plural Ds (10):	page 5
+(10a) line 1	St’át’imcets	transcription	wa7 i=máq7=a l=ta=c.wálh=a	page 5
+(10a) line 2	St’át’imcets	gloss	IPFV PL.DET=snow=EXIS on=DET=road=EXIS	page 5
+(10a) line 3	Henry Davis	translation	‘There’s snow on the road.’	page 5
+(10b) line 1	St’át’imcets	transcription	áts’x-en i=qú7=a	page 5
+(10b) line 2	St’át’imcets	gloss	see-DIR PL.DET=water=EXIS	page 5
+(10b) line 3	Henry Davis	translation	‘Look at the water!’	page 5
+§3.1	Henry Davis	note	They conclude that ‘mass’ nouns are treated simply as plural count nouns in St’át’imcets.	page 5
+§3.1	Henry Davis	note	However, it turns out that this is only part of the story. In fact, plural marking is actually optional with determiners on mass nouns (11)–(15), whereas it is obligatory on plural count nouns, as shown above in (9b).	page 5
+(11a) line 1	St’át’imcets	transcription	cw7it i=máq7=a l=ta=sqwém=a	page 5
+(11a) line 2	St’át’imcets	gloss	many PL.DET=snow=EXIS PREP=SG.DET=mountain=EXIS	page 5
+(11a) line 3	Henry Davis	translation	‘There is a lot of snow on the mountain.’	page 5
+(11a) line 4	Henry Davis	citation	(Alexander et al n.d.)	page 5, the tag or source at the right of the translation
+(11b) line 1	St’át’imcets	transcription	p’a7cw s=cw7it=s ta=máq7=a	page 6
+(11b) line 2	St’át’imcets	gloss	more NMZ=many=3POSS SG.DET=snow=EXIS	page 6
+(11b) line 3	St’át’imcets	transcription	l=ki=sqwém=a	page 6
+(11b) line 4	St’át’imcets	gloss	PREP=PL.DET=mountain=EXIS	page 6
+(11b) line 5	Henry Davis	translation	‘There’s more snow on the mountains.’	page 6
+(11b) line 6	Henry Davis	note	(Alexander at al. n.d.)	page 6, at the right of the translation
+(12a) line 1	St’át’imcets	transcription	wa7 n-t’ak’w i=qú7=a	page 6
+(12a) line 2	St’át’imcets	gloss	IPFV LOC-flow PL.DET=water=EXIS	page 6
+(12a) line 3	St’át’imcets	transcription	l=ti=xzúm=a n-gwáts’-cal-ten	page 6
+(12a) line 4	St’át’imcets	gloss	PREP=SG.DET=big=EXIS LOC-irrigate-ACT-INST	page 6
+(12a) line 5	Henry Davis	translation	‘There was water in the big irrigation ditch.’	page 6
+(12a) line 6	Henry Davis	citation	(Matthewson 2005:156)	page 6, the tag or source at the right of the translation
+(12b) line 1	St’át’imcets	transcription	tsícw-almen l=ti=tsitcw-lhkálh=a	page 6
+(12b) line 2	St’át’imcets	gloss	reach-almost PREP=SG.DET=house-1PL.POSS=EXIS	page 6
+(12b) line 3	St’át’imcets	transcription	ti=qú7=a	page 6
+(12b) line 4	St’át’imcets	gloss	SG.DET=water=EXIS	page 6
+(12b) line 5	Henry Davis	translation	‘The water almost reached our house.’	page 6
+(12b) line 6	Henry Davis	citation	(Matthewson 2005:164)	page 6, the tag or source at the right of the translation
+(13a) line 1	St’át’imcets	transcription	wá7=lhkacw=t’u7 zewát-en i=qwal’ílh=a,	page 6
+(13a) line 2	St’át’imcets	gloss	IPFV=2SG.SUB=EXCL know-DIR PL.DET=pitch=EXIS	page 6
+(13a) line 3	St’át’imcets	transcription	stéxw=t’u7 q’ix.	page 6
+(13a) line 4	St’át’imcets	gloss	really hard	page 6
+(13a) line 5	Henry Davis	translation	‘You know what pitch is, it is really hard.’	page 6
+(13a) line 6	Henry Davis	citation	(van Eijk and Williams 1981:10)	page 6, under the translation
+(13b) line 1	St’át’imcets	transcription	sáol-vl ta=qwal’ílh=a	page 6
+(13b) line 2	St’át’imcets	gloss	liquid.runs-OOC.RED SG.DET=pitch=EXIS	page 6
+(13b) line 3	St’át’imcets	transcription	lh=w=as qemp	page 6
+(13b) line 4	St’át’imcets	gloss	COMP=IPFV=3SBJV hot	page 6
+(13b) line 5	Henry Davis	translation	‘Pitch runs when it’s hot.’	page 6
+(13b) line 6	Henry Davis	citation	(Alexander et al. n.d.)	page 6, the tag or source at the right of the translation
+(14a) line 1	St’át’imcets	transcription	Mék’-en ta=máqin-sw=a	page 6
+(14a) line 2	St’át’imcets	gloss	slick-DIR SG.DET=hair-2SG.POSS=EXIS	page 6
+(14a) line 3	Henry Davis	translation	‘Slick your hair down.’	page 6
+(14a) line 4	Henry Davis	citation	(Alexander et al. n.d.)	page 6, the tag or source at the right of the translation
+(14b) line 1	St’át’imcets	transcription	pináni7 papt wa7 zact i=n-máqin=a	page 6
+(14b) line 2	St’át’imcets	gloss	back.then always IPFV long PL.DET=1SG.POSS-hair=EXIS	page 6
+(14b) line 3	St’át’imcets	transcription	nilh kwes q’áq’lha7	page 6
+(14b) line 4	St’át’imcets	gloss	COP DET+NOM+IPFV+3POSS braided	page 6
+(14b) line 5	Henry Davis	translation	‘Back then my hair was always long, so I wore it in braids.’	page 6
+(14b) line 6	Henry Davis	citation	(Matthewson 2005:132)	page 6, under the translation
+(15a) line 1	St’át’imcets	transcription	mays i=szaq’7-úl=a lhel=ta=qú7=a	page 7
+(15a) line 2	St’át’imcets	gloss	made PL.DET=bread-real=EXIS from=SG.DET=water=EXIS	page 7
+(15a) line 3	St’át’imcets	transcription	múta7 saplín	page 7
+(15a) line 4	St’át’imcets	gloss	and flour	page 7
+(15a) line 5	Henry Davis	translation	‘Bannock is made from water and flour.’	page 7
+(15b) line 1	St’át’imcets	transcription	mays i=szaq’7-úl=a lhel=ki=qú7=a	page 7, carries footnote 5
+footnote 5	Henry Davis	note	The determiner ki= is the predictable allomorph of plural i= that occurs after prepositions.	page 7, footnote 5
+(15b) line 2	St’át’imcets	gloss	made PL.DET=bread-real=EXIS from=PL.DET=water=EXIS	page 7
+(15b) line 3	St’át’imcets	transcription	múta7 saplín	page 7
+(15b) line 4	St’át’imcets	gloss	and flour	page 7
+(15b) line 5	Henry Davis	translation	‘Bannock is made from water and flour.’	page 7
+(15b) line 6	Henry Davis	speaker comment	Consultant’s comment: ‘Yep, that works too.’	page 7, under the example, the consultant not named
+§3.1	Henry Davis	note	As far as I can see, there is no appreciable semantic difference between mass nouns with singular and plural determiners. The plural versions do not necessarily signal a greater quantity of the substance denoted by the noun, nor do they necessarily refer to ‘apportioned’ masses. In (11), for example, the singular ta máq7a ‘snow’ in (b) refers to snow distributed over more than one mountain, while the plural i máq7a ‘snows’ in (a) refers to a mass of snow on one mountain (both examples are from the same source). Likewise, (12a) and (12b) (from the same speaker, in the same narrative) both refer to single masses of water (an irrigation ditch in (a), and a flood in (b)). And the elicited sentences in (15), from the same speaker in the same session, are identical in every way except for the number of the determiner on the prepositional object. 6	page 7
+footnote 6	Henry Davis	note	It is nevertheless important to mention that ‘optionality’ in this case is not a simple notion. For any given sentence containing a mass noun, speakers almost always choose either a singular or a plural determiner. However, the choice is arbitrary, and speakers often seem unsure of which determiner to use. For example, one consultant volunteered the following sentence with a singular determiner on a mass noun:	page 7, footnote 6
+footnote 6 (i) line 1	St’át’imcets	transcription	áp’-an ti=ptél7=a l=ti=sts’úqwaz’=a	page 7
+footnote 6 (i) line 2	St’át’imcets	gloss	wipe-DIR SG.DET=blood=EXIS PREP=SG.DET=fish=EXIS	page 7
+footnote 6 (i) line 3	Henry Davis	translation	‘Wipe the blood off the fish.’	page 7
+footnote 6	Henry Davis	note	But when subsequently asked whether she preferred the singular ti= or the plural i= for this case, she replied ‘i= is better.’ Furthermore, consultants’ explanations for their determiner choices often contradict each other (though in interesting ways). For example, the same consultant who volunteeered (i) preferred to use a plural determiner in the following sentence:	page 7, footnote 6
+footnote 6 (ii) line 1	St’át’imcets	transcription	lan wa7 n-7úts’qa7, nilh s=za-7-xw=s	page 8
+footnote 6 (ii) line 2	St’át’imcets	gloss	already IPFV LOC-go.outside COP NMZ-melt[INCH]=3POSS	page 8
+footnote 6 (ii) line 3	St’át’imcets	transcription	*ti=/i=cw7ít=a máqa7	page 8
+footnote 6 (ii) line 4	St’át’imcets	gloss	* SG.DET=/PL.DET=lots.of=EXIS snow	page 8
+footnote 6 (ii) line 5	Henry Davis	translation	‘It’s already spring so a lot of snow has melted.’	page 8
+footnote 6 (ii) line 6	Henry Davis	translation	She then commented: ‘Can’t use that word [ti=] because it’s lots; ti= always means just one.’	page 8
+footnote 6 (ii) line 7	Henry Davis	citation	A second consultant preferred to use a singular determiner for the example in (iii):	page 8, the tag or source at the right of the translation
+footnote 6 (iii) line 1	St’át’imcets	transcription	cw7it ta=/??i=tíh=a wa7 s-k’wilh	page 8
+footnote 6 (iii) line 2	St’át’imcets	gloss	lots.of SG.DET=/??PL.DET=tea=EXIS IPFV STAT-left.over	page 8
+footnote 6 (iii) line 3	St’át’imcets	transcription	l=ta=n-tíh-ten=a	page 8
+footnote 6 (iii) line 4	St’át’imcets	gloss	PREP=SG.DET=LOC-tea-INST=EXIS	page 8
+footnote 6 (iii) line 5	Henry Davis	translation	‘There’s lots of tea left in the pot.’	page 8
+footnote 6	Henry Davis	note	His comment on the plural version was: ‘That’s pretty hard but it would work, because i= means something like “what you can count”, but some people […] would use something like that.’	page 7, footnote 6
+§3.1	St’át’imcets	cited form	ta máq7a	page 7, in italics, ‘snow’
+§3.1	St’át’imcets	cited form	i máq7a	page 7, in italics, ‘snows’
+§3.1	Henry Davis	note	The neutralization of number marking on determiners, therefore, acts as a clear positive diagnostic for the count-mass distinction. It also allows us to identify the class of mass nouns in St’át’imcets, which turns out to be smaller than the equivalent class in English, because it excludes ‘aggregate’ mass nouns such as English furniture and jewelry with heterogeneous atomic subparts. To the limited extent to which they exist at all in St’át’imcets, aggregates behave as plural count nouns; the only clear instance I am aware of is stem’tétem’ ‘clothing, belongings’, which is derived from the indeterminate pronoun stam’ ‘what, something’ via plural and diminutive reduplication. Since it is pluralized at the stem level, stem’tétem’ always takes a plural determiner (see Section 3.1.1 below).	page 8
+§3.1	St’át’imcets	cited form	stem’tétem’	page 8, in italics, ‘clothing, belongings’
+(16) line 1	St’át’imcets	transcription	ka-lhwál-s=kan-a i=/*ta=n-stem’tétem’=a	page 8
+(16) line 2	St’át’imcets	gloss	CIRC-leave.behind-CAUS=1SG.SUB-CIRC PL.DET=/*SG.DET=clothes=EXIS	page 8
+(16) line 3	Henry Davis	translation	‘I accidentally left my clothing/belongings behind.’	page 8
+§3.1.1	Henry Davis	heading	3.1.1 Stem-level number-marking	page 8
+§3.1.1	Henry Davis	note	As can be observed in (15), the determiner system is not the only place where number is marked in St’át’imcets. Like many other Salish languages, it also has a stem-level process of CVC reduplication which yields a plural meaning when applied to count nouns. Here are some typical examples of singular and plural count nouns:7	page 8
+footnote 7	Henry Davis	note	Some reduplicative plurals have ‘collective’ connotations: srepráp, for example, doesn’t just mean more than one individual tree, but a collection of contiguous trees (i.e., a forest). This is particularly clear with the plural form ecw7úcwalmicw, which refers to ‘a people’ in the sense of a nation or tribe, as shown below	page 8, footnote 7
+footnote 7	St’át’imcets	cited form	srepráp	page 8, in italics
+footnote 7	St’át’imcets	cited form	ecw7úcwalmicw	page 8, in italics
+footnote 7 (iv) line 1	St’át’imcets	transcription	pála7 ecw.úcwalmicw i=st’át’imc=a	page 9
+footnote 7 (iv) line 2	St’át’imcets	gloss	one PL.RED-person PL.DET=st’át’imc=EXIS	page 9
+footnote 7 (iv) line 3	Henry Davis	translation	‘The St’átimc are one people.’	page 9
+footnote 7 (iv) line 4	Henry Davis	citation	(Alexander et al. n.d.)	page 9, the tag or source at the right of the translation
+(17) line 1	Henry Davis	note	SINGULAR PLURAL	page 9, the column heads
+(17a)	Henry Davis	translation	‘child’	page 9
+(17a)	St’át’imcets	cited form	sk’úk’wmi7t	page 9, the singular
+(17a)	St’át’imcets	cited form	sk’wemk’úk’wmi7t	page 9, the plural
+(17b)	Henry Davis	translation	‘friend, relative’	page 9
+(17b)	St’át’imcets	cited form	snúk’wa7	page 9, the singular
+(17b)	St’át’imcets	cited form	snek’wnúk’wa7	page 9, the plural
+(17c)	Henry Davis	translation	‘man’	page 9
+(17c)	St’át’imcets	cited form	sqaycw	page 9, the singular
+(17c)	St’át’imcets	cited form	sqáyqeycw	page 9, the plural
+(17d)	Henry Davis	translation	‘woman’	page 9
+(17d)	St’át’imcets	cited form	smúlhats	page 9, the singular
+(17d)	St’át’imcets	cited form	smelhmúlhats	page 9, the plural, carries footnote 8
+footnote 8	Henry Davis	note	This is the Upper St’át’imcets form: the Lower dialect has syáqtsa7 for ‘woman’, which reduplicates as syeqyáqtsa7.	page 9, footnote 8
+footnote 8	St’át’imcets	cited form	syáqtsa7	page 9, in italics
+footnote 8	St’át’imcets	cited form	syeqyáqtsa7	page 9, in italics
+(17e)	Henry Davis	translation	‘First Nations person’	page 9
+(17e)	St’át’imcets	cited form	úcwalmicw	page 9, the singular
+(17e)	St’át’imcets	cited form	ecw7úcwalmicw	page 9, the plural
+(17f)	Henry Davis	translation	‘tree’	page 9
+(17f)	St’át’imcets	cited form	srap	page 9, the singular
+(17f)	St’át’imcets	cited form	srepráp	page 9, the plural
+(17g)	Henry Davis	translation	‘mountain’	page 9
+(17g)	St’át’imcets	cited form	sqwem	page 9, the singular
+(17g)	St’át’imcets	cited form	sqwémqwem	page 9, the plural
+§3.1.1	Henry Davis	note	Pluralized nouns in argument positions obligatory take plural determiners:	page 9
+(18a) line 1	St’át’imcets	transcription	t’iq i=smelh-múlhats=a	page 9
+(18a) line 2	St’át’imcets	gloss	arrive PL.DET=PL.RED-woman=EXIS	page 9
+(18a) line 3	Henry Davis	translation	‘Some women arrived.’	page 9
+(18b) line 1	St’át’imcets	transcription	* t’iq ta=smelh-múlhats=a	page 9
+(18b) line 2	St’át’imcets	gloss	arrive SG.DET=PL.RED-woman=EXIS	page 9
+(18b) line 3	Henry Davis	translation	* ‘A women arrived.’	page 9
+§3.1.1	Henry Davis	note	However, the converse is not true: plural determiners quite happily take non- reduplicated count nouns:	page 9
+(19a) line 1	St’át’imcets	transcription	t’iq ta=smúlhats=a	page 9
+(19a) line 2	St’át’imcets	gloss	arrive SG.DET=woman=EXIS	page 9
+(19a) line 3	Henry Davis	translation	‘A woman arrived.’	page 9
+(19b) line 1	St’át’imcets	transcription	t’iq i=smúlhats=a	page 9
+(19b) line 2	St’át’imcets	gloss	arrive PL.DET=woman=EXIS	page 9
+(19b) line 3	Henry Davis	translation	‘Some women arrived.’	page 9
+§3.1.1	Henry Davis	note	Not all count nouns have reduplicative plurals: those that lack them also occur freely with plural determiners and a plural interpretation (see e.g. sqáxa7 ‘dog’ in (9b) above).	page 9
+§3.1.1	St’át’imcets	cited form	sqáxa7	page 9, in italics, ‘dog’
+§3.1.1	Henry Davis	note	However, significantly, mass nouns systematically lack reduplicative plurals:	page 9
+(20) line 1	Henry Davis	note	SINGULAR *PLURAL	page 10, the column heads
+(20a)	Henry Davis	translation	‘snow	page 10
+(20a)	St’át’imcets	cited form	máqa7	page 10, the singular
+(20a)	St’át’imcets	cited form	*meqmáqa7	page 10, the plural
+(20b)	Henry Davis	translation	‘water’	page 10
+(20b)	St’át’imcets	cited form	qu7	page 10, the singular
+(20b)	St’át’imcets	cited form	*qú7qu7	page 10, the plural
+(20c)	Henry Davis	translation	‘ice’	page 10
+(20c)	St’át’imcets	cited form	sk’ímal’ts	page 10, the singular
+(20c)	St’át’imcets	cited form	*sk’emk’ímal’ts	page 10, the plural
+(20d)	Henry Davis	translation	‘mud’	page 10
+(20d)	St’át’imcets	cited form	sk’vlht	page 10, the singular
+(20d)	St’át’imcets	cited form	*sk’v́lhk’vlht	page 10, the plural
+§3.1.1	Henry Davis	note	The cases in (20c) and (20d) are particularly interesting in that they are derived via nominalization (s- prefixation) of non-nominal stems (k’ímal’ts ‘freeze’, and k’vlht ‘be muddy’, respectively). The latter permit CVC reduplication (with a distributive sense of ‘freeze/be muddy here and there’):	page 10
+§3.1.1	St’át’imcets	cited form	s-	page 10, in italics
+§3.1.1	St’át’imcets	cited form	k’ímal’ts	page 10, in italics, ‘freeze’
+(21) line 1	St’át’imcets	transcription	wa7 k’em-k’ímal’ts ti=c.wálh=a	page 10
+(21) line 2	St’át’imcets	gloss	IPFV PL.RED-freeze SG.DET=road=EXIS	page 10
+(21) line 3	Henry Davis	translation	‘There are patches of ice on the road / The road is frozen here and there.’	page 10
+(22a) line 1	St’át’imcets	transcription	wa7 i=sk’v́lht=a l=ti=c.wálh=a	page 10
+(22a) line 2	St’át’imcets	gloss	IPFV PL.DET=mud=EXIS PREP=SG.DET=road=EXIS	page 10
+(22a) line 3	Henry Davis	translation	‘There’s mud on the road.’	page 10
+(22b) line 1	St’át’imcets	transcription	wa7 k’vlh-k’vlht-áw’s ti=c.wálh=a	page 10
+(22b) line 2	St’át’imcets	gloss	IPFV PL.RED-muddy-road SG.DET=road=EXIS	page 10
+(22b) line 3	Henry Davis	translation	‘There are patches of mud on the road/ The road is muddy here and there.’	page 10
+§3.1.1	Henry Davis	note	In other words, plural reduplication is specifically out for mass nouns, even when the same stem can be reduplicated (with a distributed meaning) on a derivationally related verb or adjective.	page 10
+§3.1.1	Henry Davis	note	Like number on determiners, stem-level reduplication thus serves as a positive test for the count-mass distinction in St’át’imcets, though in a rather different fashion: while count nouns receive a plural interpretation when reduplicated, mass nouns simply fail to reduplicate at all.	page 10
+§3.2	Henry Davis	heading	3.2 Count and mass quantifiers	page 10
+§3.2	Henry Davis	note	As documented in Matthewson (1998), there are no determiner quantifiers in St’át’imcets (or in Salish more generally). This means that in argument positions, quantificational elements will always form part of DPs, making it rather difficult to test for the sensitivity of quantifiers to the count-mass distinction, as opposed to that of determiners.	page 10
+§3.2	Henry Davis	note	One way to sort the two out is to employ quantifiers in environments where number marking on determiners is neutralized. For the non-numerical weak quantifiers cw7it ‘much, many, a lot of’ and k’wík’wena7 ‘(a) few’, there are two such environments: in predicate position, where the quantifiers lack determiners altogether, and in ‘polarity’ environments, where they co-occur with the number neutral determiner ku = (for the latter, see Matthewson 1998, 1999). Weak quantifiers in these environments are illustrated in (23)–(24) and (25)–(26), respectively.	page 10
+§3.2	St’át’imcets	cited form	k’wík’wena7	page 10, in italics, ‘(a) few’
+(23) line 1	St’át’imcets	transcription	[cw7it/k’wík’wena7 qu7] na=n-s-záw’em=a	page 11
+(23) line 2	St’át’imcets	gloss	[much/little water] SG.ABS.DET=1SG.POSS-NOM-fetch=EXIS	page 11
+(23) line 3	Henry Davis	translation	‘I fetched a lot/a little bit of water.’	page 11
+(24) line 1	St’át’imcets	transcription	[cw7it/k’wík’wena7 stsáqwem] nelh=n-s-q’weláw’-em=a	page 11
+(24) line 2	St’át’imcets	gloss	[much/little saskatoon] PL.ABS.DET=1SG.POSS-NOM-pick=EXIS	page 11
+(24) line 3	Henry Davis	translation	‘We picked many/a few saskatoon berries.’	page 11
+(25) line 1	St’át’imcets	transcription	n-t’ak’w-ci-túmul-i [ku=cw7ít/k’wík’wena7	page 11
+(25) line 2	St’át’imcets	gloss	LOC-pour-IND-1PL.OBJ-PL.IMP [DET=much/little	page 11
+(25) line 3	St’át’imcets	transcription	sxusum-átkwa7]	page 11
+(25) line 4	St’át’imcets	gloss	soapberry-liquid]	page 11
+(25) line 5	Henry Davis	translation	‘Pour us a lot/a little bit of sxúsum (soapberry juice).’	page 11
+(26) line 1	St’át’imcets	transcription	n-lham’-ci-túmul-i [ku=cw7ít/k’wík’wena7 petáok]	page 11
+(26) line 2	St’át’imcets	gloss	LOC-put.in-IND-1PL.OBJ-PL.IMP [DET=much/little potato]	page 11
+(26) line 3	Henry Davis	translation	‘Serve us a lot of/a few potatoes.’	page 11
+§3.2	Henry Davis	note	This test yields negative results for the count-mass distinction: weak quantifiers are perfectly comfortable with either mass or count nouns, with no obvious semantic difference between the two.	page 11
+§3.2	Henry Davis	note	In contrast to weak quantifiers, strong (proportional) quantifiers do not occupy predicate position when they quantify over individuals, and generally do not co-occur with ku =, because they presuppose the existence of their DP restriction and therefore require assertion-of-existence determiners. This means that neither of the tests employed above with weak quantifiers is applicable.	page 11
+§3.2	Henry Davis	note	However, differences between count and mass nouns do emerge with DP- adjoined strong quantifiers, as shown in (27) with tákem ‘all’ and in (28) with sáq’ulh ‘half’. With count nouns, there is a distinction between quantification over individuals (a) and parts of a single individual (b), while with mass nouns this distinction is neutralized (c).9	page 11
+footnote 9	Henry Davis	note	This is true whether speakers permit plural, singular or both singular and plural determiners on mass nouns (see footnote 5). The important point is the absence of the systematic singular-plural distinction seen in the contrast between the (a) and (b) examples with count nouns.	page 11, footnote 9
+§3.2	St’át’imcets	cited form	tákem	page 11, in italics, ‘all’
+§3.2	St’át’imcets	cited form	sáq’ulh	page 11, in italics, ‘half’
+(27a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [tákem ta=sts’úqwaz’=a]	page 11
+(27a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [all SG.DET=fish=EXIS]	page 11
+(27a) line 3	Henry Davis	translation	‘They ate the whole fish.’	page 11
+(27b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [tákem i=sts’úqwaz’=a]	page 12
+(27b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [all PL.DET=fish=EXIS]	page 12
+(27b) line 3	Henry Davis	translation	‘They ate all the fish(es).’	page 12
+(27c) line 1	St’át’imcets	transcription	uqw7-ans-twítas [tákem ta/i=sxusum-átkw7=a]	page 12
+(27c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [all SG/SPL.DET=soapberry-liquid=EXIS]	page 12
+(27c) line 3	Henry Davis	translation	‘They drank all the sxúsum (soapberry juice).’	page 12
+(28a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [sáq’ulh ta=sts’úqwaz’=a]	page 12
+(28a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [half SG.DET=fish=EXIS]	page 12
+(28a) line 3	Henry Davis	translation	‘They ate half of the fish.’	page 12
+(28b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [sáq’ulh i=sts’úqwaz’=a]	page 12
+(28b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [half PL.DET=fish=EXIS]	page 12
+(28b) line 3	Henry Davis	translation	‘They ate half of the fish(es).’	page 12
+(28c) line 1	St’át’imcets	transcription	uqw7-ans-twítas [sáq’ulh ta/i=sxusum-átkw7=a]	page 12
+(28c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [half SG/PL.DET=soapberry-liquid=EXIS]	page 12
+(28c) line 3	Henry Davis	translation	‘They drank half the sxúsum (soapberry juice).’	page 12
+§3.2	Henry Davis	note	However, a closer examination shows that this contrast is not tied to the selectional properties of the quantifiers themselves, but to the determiners with which they co-occur. In fact, without the quantifiers, (27) and (28) show exactly the same contrasts: the DPs in the (a) cases refer to sets of atoms; those in the (b) cases to sets of pluralities, and those in the (c) case to substances, where the atom/plurality distinction is neutralized.	page 12
+(29a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [tákem ta=sts’úqwaz’=a]	page 12
+(29a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [all SG.DET=fish=EXIS]	page 12
+(29a) line 3	Henry Davis	translation	‘They ate the whole fish.’	page 12
+(29b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [i=sts’úqwaz’=a]	page 12
+(29b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [PL.DET=fish=EXIS]	page 12
+(29b) line 3	Henry Davis	translation	‘They ate the [plural] fish(es).’	page 12
+(29c) line 1	St’át’imcets	transcription	uqw7-ans-twítas [ta/i=sxusum-átkw7=a]	page 12
+(29c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [SG/SPL.DET=soapberry-liquid=EXIS]	page 12
+(29c) line 3	Henry Davis	translation	‘They drank the sxúsum (soapberry juice).’	page 12
+(30a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [ta=sts’úqwaz’=a]	page 12
+(30a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [SG.DET=fish=EXIS]	page 12
+(30a) line 3	Henry Davis	translation	‘They ate the (single) fish.’	page 12
+(30b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [i=sts’úqwaz’=a]	page 13
+(30b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [PL.DET=fish=EXIS]	page 13
+(30b) line 3	Henry Davis	translation	‘They ate the [plural] fish(es).’	page 13
+(30c) line 1	St’át’imcets	transcription	uqw7-ans-twítas [ta/i=sxusum-átkw7=a]	page 13
+(30c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [SG/PL.DET=soapberry-liquid=EXIS]	page 13
+(30c) line 3	Henry Davis	translation	‘They drank the sxúsum (soapberry juice).’	page 13
+§3.2	Henry Davis	note	In other words, the distribution of strong quantifiers doesn’t tell us anything we didn’t already know from the number marking on the determiners with which they co-occur.	page 13
+§3.2	Henry Davis	note	This does, though, raise some interesting questions for the mass-count distinction in languages where the sole positive diagnostic is based on the behaviour of strong quantifiers. Deal (2013), for example, claims the following for Nez Perce, which lacks overt determiners altogether:	page 13
+§3.2	Henry Davis	note	…mass nouns, modulo apportionment, combine with quantifiers within singular	page 13
+§3.2	Henry Davis	note	NPs, whereas count nouns, modulo grinding, always occupy plural NPs when	page 13
+§3.2	Henry Davis	note	they combine with a Nez Perce quantifier.	page 13
+§3.2	Henry Davis	note	This generalization is identical to that which holds for St’át’imcets – but as we have just seen, in St’át’imcets this does not reflect a property of the quantifiers themselves, but of the number marking on the determiners of the DPs to which they adjoin.10 The possibility then arises that the same is true for Nez Perce – but that the relevant determiners are null.	page 13
+footnote 10	Henry Davis	note	Davis (2010, 2013) argues on independent grounds that strong quantifiers in St’át’imcets are not really ‘true’ quantifiers (in the logical sense) at all; instead, they encode presuppositions over plural DP domains. It follows that their behaviour will always be dependent on the properties of the DPs to which they adjoin, as shown in (27)–(30).	page 13, footnote 10
+§3.2	Henry Davis	note	Before concluding this section, it is worth pointing out that weak quantifiers on their strong (proportional) readings behave identically to strong quantifiers in the relevant respects. This is unsurprising, given that in St’át’imcets, strong readings of weak quantifiers occur in (almost) precisely the same environments as strong quantifiers – i.e., in argument positions, with number-marked determiners. The examples in (31) and (32) with cw7it and k’wík’wena7 are directly comparable to the strong quantifier cases in (27) and (28) above.	page 13
+(31a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [ta=cw7ít=a sts’úqwaz’]	page 13
+(31a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [SG.DET=lot.of=EXIS fish]	page 13
+(31a) line 3	Henry Davis	translation	‘They ate a lot of the fish.’	page 13
+(31b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [i=cw7ít=a sts’úqwaz’]	page 13
+(31b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [PL.DET=lot.of=EXIS fish]	page 13
+(31b) line 3	Henry Davis	translation	‘They ate a lot of the fish(es).’	page 13
+(31c) line 1	St’át’imcets	transcription	uqw7-ans-twítas [[i/ta=cw7ít=a sxusum-átkwa7]	page 14
+(31c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [PL/SG.DET=lot.of=EXIS soapberry-liquid]	page 14
+(31c) line 3	Henry Davis	translation	‘They drank a lot of the sxúsum (soapberry juice).’	page 14
+(32a) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [ta=k’wík’wen7=a sts’úqwaz’]	page 14
+(32a) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [SG.DET=bit.of=EXIS fish]	page 14
+(32a) line 3	Henry Davis	translation	‘They ate a bit of the fish.’	page 14
+(32b) line 1	St’át’imcets	transcription	ts’aqw-an’-ítas [i=k’wik’wen7=a sts’úqwaz’]	page 14
+(32b) line 2	St’át’imcets	gloss	eat-DIR-3PL.ERG [PL.DET=bit.of=EXIS fish]	page 14
+(32b) line 3	Henry Davis	translation	‘They ate a few fish(es).’	page 14
+(32c) line 1	St’át’imcets	transcription	uqw7-áns-twitas [i/ta=k’wik’wen7=a	page 14
+(32c) line 2	St’át’imcets	gloss	drink-DIR-3PL.ERG [PL/SG.DET=bit.of=EXIS	page 14
+(32c) line 3	St’át’imcets	transcription	sxusum-átkwa7]	page 14
+(32c) line 4	St’át’imcets	gloss	soapberry-liquid]	page 14
+(32c) line 5	Henry Davis	translation	‘They drank a bit of the sxúsum (soapberry juice).’	page 14
+§3.2	Henry Davis	note	Given that weak quantifiers are unselective in number-neutral environments, the data in (31) and (32) provide further evidence that quantifiers never directly distinguish between count and mass nouns – where they appear to do so, it is in fact the number-marking on the determiners they occur with which is doing the work.	page 14
+§3.2	Henry Davis	note	To conclude this section, there is evidence that non-numerical weak quantifiers in St’át’imcets are unselective as far as the mass-count distinction is concerned. Furthermore, and in spite of initial appearances, there is no evidence that strong quantifiers (and weak quantifiers with strong readings) distinguish between count and mass nouns, either; rather, they are confined to environments with number-marked determiners, which, as we saw in the last section, independently manifest the count-mass distinction.	page 14
+§3.3	Henry Davis	heading	3.3 Countability	page 14
+§3.3	Henry Davis	note	As a number-marking language, St’át’imcets allows numerals, whether in predicate (33) or argument position (34), to select directly for (plural) count nouns:	page 14
+(33) line 1	St’át’imcets	transcription	xzúm-alts ta=tsitcw-kálh=a,	page 14
+(33) line 2	St’át’imcets	gloss	big-house SG.DET=house-1PL.POSS=EXIS	page 14
+(33) line 3	St’át’imcets	transcription	kalhás *ta=/i=n-guy’t-ten-álhcw-s=a	page 14
+(33) line 4	St’át’imcets	gloss	three *SG.DET=/PL.DET=LOC-sleep-INST-place-3POSS=EXIS	page 14
+(33) line 5	Henry Davis	translation	‘Our house is big, it has three bedrooms.’	page 14
+(33) line 6	Henry Davis	citation	(Alexander et al. n.d.)	page 14, the tag or source at the right of the translation
+(34) line 1	St’át’imcets	transcription	kwám-em=wit *ta=/i=kalhélhs=a metsáz’	page 15
+(34) line 2	St’át’imcets	gloss	get-FRE=3PL *SG.DET=/PL.DET=three=EXIS lingcod	page 15
+(34) line 3	Henry Davis	translation	‘They got three lingcod.’	page 15
+(34) line 4	Henry Davis	citation	(Alexander et al. n.d.)	page 15, the tag or source at the right of the translation
+§3.3	Henry Davis	note	However, numerals do not so easily combine directly with mass nouns. In cases where an implicit apportionment function can be supplied by convention or by context, it is sometimes possible to count masses directly, but judgments are variable.	page 15
+(35a) line 1	Henry Davis	note	Context: at breakfast	page 15, over the example
+(35a) line 2	St’át’imcets	transcription	% uqw7-áns=kan i=án’was=a káopi	page 15
+(35a) line 3	St’át’imcets	gloss	drink-DIR=1SG.SUB PL.DET=two=EXIS coffee	page 15
+(35a) line 4	Henry Davis	translation	‘I drank two coffees.’	page 15
+(35a) line 5	Henry Davis	note	(i.e., cups of coffee)	page 15, at the right of the translation
+§3.3	Henry Davis	note	speaker I: good	page 15
+§3.3	Henry Davis	note	speaker II: corrected to (b) b. uqw7-áns=kan i=án’was=a zew’áksten	page 15
+§3.3	Henry Davis	note	drink-DIR=1SG.SUB PL.DET=two=EXIS cup (ku=)káopi (DET=)coffee	page 15
+§3.3	Henry Davis	note	‘I drank two cups of coffees.’	page 15
+(36a) line 1	Henry Davis	note	Context: in a grocery store	page 15, over the example
+(36a) line 2	St’át’imcets	transcription	% xát’-min’=lhkan ku=án’was káopi	page 15
+(36a) line 3	St’át’imcets	gloss	want-RLT=1SG.SUB DET=two coffee	page 15
+(36a) line 4	Henry Davis	translation	‘I want two coffees	page 15
+(36a) line 5	Henry Davis	note	(i.e., pound packets of coffee)	page 15, at the right of the translation
+§3.3	Henry Davis	note	speaker I: good	page 15
+§3.3	Henry Davis	note	speaker II: corrected to (b) b. xát’-min’=lhkan ku=án’was pound ku=káopi want-RLT=1SG.SUB DET=two pound DET=coffee	page 15
+§3.3	Henry Davis	note	‘I want two pounds of coffee.’	page 15
+(37a) line 1	Henry Davis	note	Context: at breakfast	page 15, over the example
+(37a) line 2	St’át’imcets	transcription	% xw7útsin szaq’ kwelh=n-s-xat’	page 15
+(37a) line 3	St’át’imcets	gloss	four bread PL.DET=1SG.POSS-NMZ-desire	page 15
+(37a) line 4	Henry Davis	translation	‘I want four breads.’	page 15
+(37a) line 5	Henry Davis	note	(i.e., slices)	page 15, at the right of the translation
+§3.3	Henry Davis	note	speaker I: good	page 15
+§3.3	Henry Davis	note	speaker II: corrected to (b) b. xw7útsin snik’ ku=száq’ kw=n-s-xat’	page 15
+§3.3	Henry Davis	note	four slice DET=bread DET=1SG.POSS-NMZ-desire	page 15
+§3.3	Henry Davis	note	‘I want four slices of bread.	page 15
+(38) line 1	Henry Davis	note	Context: in a grocery store	page 16, over the example
+(38) line 2	St’át’imcets	transcription	xw7útsin szaq’ kwelh=n-s-xát’	page 16
+(38) line 3	St’át’imcets	gloss	four bread PL.DET=1SG.POSS-NMZ-desire	page 16
+(38) line 4	Henry Davis	translation	‘I want four bread.’	page 16
+(38) line 5	Henry Davis	note	(i.e., loaves)	page 16, at the right of the translation
+§3.3	Henry Davis	note	speaker I: good	page 16
+§3.3	Henry Davis	note	speaker II: ‘I can’t remember what the word for loaf is …’	page 16
+(39a) line 1	St’át’imcets	transcription	ka-nik’-aká7=lhkan-a, án’was=t’u7	page 16
+(39a) line 2	St’át’imcets	gloss	CIRC-cut-hand=1SG.SUB-CIRC two=EXCL	page 16
+(39a) line 3	St’át’imcets	transcription	i=ptél7=a kwis	page 16
+(39a) line 4	St’át’imcets	gloss	PL.DET=blood=EXIS fall	page 16
+(39a) line 5	Henry Davis	translation	‘I cut my hand, but just two bloods fell.’	page 16
+(39a) line 6	Henry Davis	note	(i.e., drops of blood)	page 16, at the right of the translation
+§3.3	Henry Davis	note	speaker I: ‘No, you can’t say “two bloods”.’	page 16
+§3.3	Henry Davis	note	speaker II: good	page 16
+§3.3	Henry Davis	note	b. Context: donating blood	page 16
+§3.3	Henry Davis	note	an’was i=um’náy’lh=a ptéla7	page 16
+§3.3	Henry Davis	note	two PL.DET=donate=EXIS blood	page 16
+§3.3	Henry Davis	note	‘I donated two bloods.’ (i.e., bottles of blood)	page 16
+§3.3	Henry Davis	note	speaker I: corrected to (c)	page 16
+§3.3	Henry Davis	note	c. an’was-úlwilh i=um’náy’lh=a ptéla7	page 16
+§3.3	Henry Davis	note	two-vessel PL.DET=donate=EXIS blood	page 16
+§3.3	Henry Davis	note	‘I donated two bottles of blood.’	page 16
+§3.3	Henry Davis	note	This pattern is familiar: it also characterizes English. Given the fact that English otherwise shows a clear-cut count-mass distinction (as evidenced by number marking and selective quantification), it is tempting to conclude that such a pattern is diagnostic of languages which distinguish between count and mass nouns.	page 16
+§3.3	Henry Davis	note	However, there is an alternative explanation (explicitly proposed by Wiltschko 2012 for Upriver Halkomelem): ‘countability’ is not a diagnostic for a ‘grammaticalized’ count-mass distinction, but merely for a pre-linguistic ‘ontological’ distinction. Under this view, the variability and pragmatic sensitivity characteristic of both English and St’át’imcets is a reflection of the fact that countability is not part of the grammar at all. We will return to this issue in Section 4.3 below.	page 16
+§3.4	Henry Davis	heading	3.4 A pilot field experiment	page 16
+§3.4	Henry Davis	note	Before leaving St’át’imcets, I want to report on a very preliminary attempt to emulate the pioneering efforts of Lima (2014), who tries to move beyond the standard repertoire of linguistic diagnostics for the count-mass distinction by employing a series of tests drawn from the psycholinguistic literature. One of Lima’s tests involves a scenario in which substances are divided into countable units (e.g., glasses of water) and compared with non-apportioned quantities of the same substance (e.g., water in a jug). Lima found that in answer to the question ‘Who has more x’, her Yudja consultants consistently chose the apportioned over the non-apportioned quantities, even when the latter were clearly greater in total mass than the sum of the former. She concludes that substances are treated as count nouns by Yudja speakers, supporting her contention that the language lacks the count-mass distinction altogether.	page 16
+§3.4	Henry Davis	note	Given that St’át’imcets shows clear grammatical evidence for the distinction, the prediction for the psycholinguistic test described above is straightforward: St’át’imcets should show the opposite pattern from Yudja. Preliminary testing shows this prediction to be borne out. I presented a speaker with exactly the scenario describe above (a large amount of water in a single jug, and a smaller total amount of water apportioned into several glasses), and asked the question in (40a). The answer was – as predicted – (40b).	page 17
+(40a) line 1	St’át’imcets	transcription	p’á7cw=ha s=cw7it=s ta=qú7=a	page 17
+(40a) line 2	St’át’imcets	gloss	more=Q NMZ=lots.of=3POSS SG.DET=water=EXIS	page 17
+(40a) line 3	St’át’imcets	transcription	l=ta=xzúm=a zaw’áksten, p’a7cw=ás=ha	page 17
+(40a) line 4	St’át’imcets	gloss	PREP=SG.DET=big=EXIS glass more=3SJV=Q	page 17
+(40a) line 5	St’át’imcets	transcription	l=ki=kwíkws=a zaw’áksten?	page 17
+(40a) line 6	St’át’imcets	gloss	PREP=PL.DET=small=EXIS glass	page 17
+(40a) line 7	Henry Davis	translation	‘Is there more water in the big glass, or in the small glasses?’	page 17
+(40b) line 1	St’át’imcets	transcription	p’a7cw s=cw7it=s ta=qú7=a	page 17
+(40b) line 2	St’át’imcets	gloss	more=Q NMZ=lots.of=3POSS SG.DET=water=EXIS	page 17
+(40b) line 3	St’át’imcets	transcription	l=ta=xzúm=a zaw’áksten,	page 17
+(40b) line 4	St’át’imcets	gloss	PREP=SG.DET=big=EXIS glass	page 17
+(40b) line 5	Henry Davis	translation	‘There’s more water in the big glass.’11	page 17
+footnote 11	Henry Davis	note	The speaker rejected the plural determiner on the mass noun in this case; see footnote 5 for discussion.	page 17, footnote 11
+§3.4	Henry Davis	note	Obviously, these data are very preliminary, but they do suggest a promising avenue for further cross-linguistic investigation; for example, it would be intriguing to know what Nez Perce speakers would do in the same scenario.	page 17
+§3.5	Henry Davis	heading	3.5 Summary	page 17
+§3.5	Henry Davis	note	Summing up, contra to the original claims of D&M, St’át’imcets shows clear evidence for the count-mass distinction in its nominal system. The principal evidence comes from number marking in two separate domains: on determiners and on nouns. Determiners are obligatorily marked for number (singular versus plural) on count nouns, but the distinction is neutralized with mass nouns, where both singular and plural determiners are possible. Count noun stems are optionally marked for reduplicative plural, but mass nouns systematically fail to yield a plural form.	page 17
+§3.5	Henry Davis	note	In contrast to number marking, non-numerical quantificational elements fail to show any sensitivity to the count-mass distinction. Apparent cases of selectivity turn out to be indirect: strong quantifiers only appear on DPs which are already number-marked, and since number-marking on determiners is independently sensitive to the count-mass distinction, the quantifiers simply inherit the selectional properties of the determiners.	page 18
+§3.5	Henry Davis	note	Finally, St’át’imcets shows a ‘countability’ profile very much like that of English: certain conventionalized kinds of apportionment allow mass nouns to be (apparently) directly countable, but in contrast to count nouns, which denote sets of atoms and are therefore always directly countable, apportionment is sensitive to lexical and pragmatic factors, and varies between speakers and contexts.	page 18
+§4	Henry Davis	heading	4 Cross-Salish Considerations	page 18
+§4	Henry Davis	note	In this section, I turn to the issue of whether other Salish languages display the count-mass distinction, and what kinds of evidence might bear on the question. In practice, this means I will be comparing St’át’imcets to Upriver Halkomelem, the only other Salish language which has been systematically investigated in this respect, thanks to the work of Wiltschko (2005, 2008, 2012).	page 18
+§4	Henry Davis	note	First, however, it is worth emphasizing a significant difference between St’át’imcets and nearly all of its relatives: out of the 23 Salish languages, only St’át’imcets and Bella Coola/Nuxalk obligatorily encode number in their determiner systems. 12 Obviously, this means that for most languages, the arguments I have provided based on number marking will be partially or entirely inapplicable, and raises the perennial question of whether absence of evidence can constitute evidence of absence, a question which will be particularly relevant in our discussion of Wiltschko’s arguments against the count-mass distinction in Upriver Halkomelem, to which we now turn.	page 18
+footnote 12	Henry Davis	note	There is a short but informative discussion of Bella Coola deictic determiners and the count-mass distinction in Nater (1984:41–42, 46). Nater reports that mass nouns such as qla ‘water’ and k̓ay ‘snow’ prefer to take plural determiners, except when they refer to a specific amount (e.g. water in a bucket). However, the class of nouns which prefer plural determiners also includes a number of subcategories (buildings, geographical and meteorological phenomena, temporal and spatial concepts, and events) which do not obviously fit the semantic profile of mass nouns; it is possible that these constitute a separate class of pluralia tantum, but more investigation is needed.	page 18, footnote 12
+footnote 12	St’át’imcets	cited form	k̓ay	page 18, in italics, ‘snow’
+§4.1	Henry Davis	heading	4.1 Wiltschko on Upriver Halkomelem	page 18
+§4.1	Henry Davis	note	Like D&M for St’át’imcets, Wiltschko (2012) denies the existence of a count- mass distinction for Upriver Halkomelem (henceforth UH). Her principal arguments are as follows.	page 18
+§4.1	Henry Davis	note	(i) Plural marking on mass nouns. In contrast to St’át’imcets, UH allows stem- level plural morphology on mass nouns, as shown in (39), based on Wiltschko (2012:153); compare (19) above.13	page 19
+footnote 13	Henry Davis	note	UH examples are given in the community orthography employed by the Sto:lo Nation.	page 19, footnote 13
+(41) line 1	Henry Davis	note	SINGULAR PLURAL14	page 19, the column heads
+footnote 14	Henry Davis	note	Though historically derived from the same CVC reduplication operation as stem-level pluralization in St’át’imcets, the Halkomelem plural is more complex, involving three phonologically conditioned allomorphs (reduplication, ablaut, and l-infixation).	page 19, footnote 14
+(41a)	Henry Davis	translation	‘snow’	page 19
+(41a)	Upriver Halkomelem	cited form	syiq	page 19, the singular
+(41a)	Upriver Halkomelem	cited form	syiqyíq	page 19, the plural
+(41b)	Henry Davis	translation	‘fog’	page 19
+(41b)	Upriver Halkomelem	cited form	shwathetel	page 19, the singular
+(41b)	Upriver Halkomelem	cited form	shweláthetel	page 19, the plural
+(41c)	Henry Davis	translation	‘ice’	page 19
+(41c)	Upriver Halkomelem	cited form	spiw	page 19, the singular
+(41c)	Upriver Halkomelem	cited form	spepíw	page 19, the plural
+(41d)	Henry Davis	translation	‘wind’	page 19
+(41d)	Upriver Halkomelem	cited form	speháls	page 19, the singular
+(41d)	Upriver Halkomelem	cited form	spelháls	page 19, the plural
+(41e)	Henry Davis	translation	‘gravel’	page 19
+(41e)	Upriver Halkomelem	cited form	th’éxet	page 19, the singular
+(41e)	Upriver Halkomelem	cited form	th’exth’éxet	page 19, the plural
+§4.1	Henry Davis	note	(ii) Lack of selectivity. No quantifier or determiner selects for only count or mass nouns, as shown in the examples in (40) (Wiltschko 2012:151):	page 19
+(42a) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw qex (te) syíts’em/siyólh/qó/mélk	page 19
+(42a) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT lot.of (DET) sand/wood/milk/water	page 19
+(42a) line 3	Henry Davis	translation	‘I saw lots of sand/wood/water/milk.’	page 19
+(42b) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw qex (te) theqát/sth’ím/swíweles	page 19
+(42b) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT lot.of (DET) tree/berry/boy	page 19
+(42b) line 3	Henry Davis	translation	‘I saw lots of trees/berries/boys.’	page 19
+§4.1	Henry Davis	note	Wiltschko (2012) gives no data on the optional plural determiner ye. 15 However, in Wiltschko (2008:669) we find the following:	page 19
+footnote 15	Henry Davis	note	UH is one of two Central Salish languages – the other being Squamish/ Skwxwú7mesh – to have optional plural determiners. These have almost certainly been innovated relatively recently, since other Central Salish languages lack them, as do the other two (more conservative) dialects of Halkomelem. Their source is clearly in the demonstrative system, where the singular-plural distinction is more systematically encoded in both languages: as Suttles (2004:152) observes, the UH form yə (ye) is probably derived from the Halkomelem plural present demonstratives yəθéʔ and yəθéləy̓, and Peter Jacobs (p.c. 2014) notes that the Squamish plural determiners ʔiya and ʔiyci have analogues in the plural proximate and distal demonstratives ʔiyawit/ʔiyawa and ʔiyciwit, respectively (see also Kuipers 1967:143). It seems that the plural determiners in both languages were originally confined to human or animate referents: this is still apparently the case in Squamish (Peter Jacobs, p.c. 2014), and is claimed by Galloway (1993:390) to hold for UH, though some of the examples he gives actually involve plural inanimate nouns.	page 19, footnote 15
+footnote 15	St’át’imcets	cited form	yə (ye)	page 19, in italics
+footnote 15	St’át’imcets	cited form	yəθéʔ	page 19, in italics
+footnote 15	St’át’imcets	cited form	yəθéləy̓	page 19, in italics
+footnote 15	St’át’imcets	cited form	ʔiya	page 19, in italics
+footnote 15	St’át’imcets	cited form	ʔiyci	page 19, in italics
+footnote 15	St’át’imcets	cited form	ʔiyawit/ʔiyawa	page 19, in italics
+footnote 15	St’át’imcets	cited form	ʔiyciwit	page 19, in italics
+(43) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw te/ye th’eth’éxet/syiyíq/spepíw/sweláthetel	page 19
+(43) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT DET/PL.DET gravel[PL]/snow[PL]/ice[PL]/fog[PL]	page 19
+(43) line 3	Henry Davis	translation	‘I saw a lot of gravel/snow/ice/fog.’	page 19
+§4.1	Henry Davis	note	At least with pluralized mass nouns, then, the plural determiner appears to be possible but not obligatory.16	page 20
+footnote 16	Henry Davis	note	The following example, supplied by Martina Wiltschko from her UH database, shows that the plural determiner can also occur with non-pluralized mass nouns:	page 20, footnote 16
+footnote 16 (v) line 1	Upriver Halkomelem	transcription	tsel kw'éts-lexw ye mélk/qó	page 20
+footnote 16 (v) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT PL.DET milk/water	page 20
+footnote 16 (v) line 3	Henry Davis	translation	‘I see milk/water.’	page 20
+footnote 16 (v) line 4	Henry Davis	citation	(Martina Wiltschko, p.c. 2014)	page 20, the tag or source at the right of the translation
+footnote 16	Henry Davis	note	On the other hand, Strang Burton reports that ye is ungrammatical in the same environment for his consultant, the last remaining first language speaker of UH:	page 20, footnote 16
+footnote 16 (vi) line 1	Upriver Halkomelem	transcription	* ye mélk/qó/syíts’em	page 20
+footnote 16 (vi) line 2	Upriver Halkomelem	gloss	PL.DET milk/water/sand	page 20
+footnote 16 (vi) line 3	Henry Davis	citation	(Strang Burton, p.c. 2014)	page 20, under the gloss
+footnote 16	Henry Davis	note	Given the paucity of data, and the unlikelihood of any more being forthcoming, the status of ye with respect to the count-mass distinction remains somewhat uncertain.	page 20, footnote 16
+§4.1	Henry Davis	note	(iii) Direct modification by degree adjectives. In UH, adjectives meaning ‘small’ can directly modify either count nouns (in which case they refer to the size of the atomic individual(s) in the denotation of the noun) or to mass nouns (in which case they either coerce an apportioned reading and refer to the size of the portions, or alternatively refer directly to the size of the total mass). This is illustrated in (44):	page 20
+(44a) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw (te) i 'axwíl theqát/theqtheqát	page 20
+(44a) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT (DET) small tree/trees	page 20
+(44a) line 3	Henry Davis	translation	‘I saw a small little tree/small little trees.’	page 20
+(44b) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw (te) i 'axwíl siyólh	page 20
+(44b) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT (DET) small wood	page 20
+(44b) line 3	Henry Davis	translation	‘I saw a piece of wood.	page 20, reading (i)
+(44b) line 4	Henry Davis	translation	‘I saw a little bit of wood.’	page 20, reading (ii)
+(44b) line 5	Henry Davis	citation	(Wiltschko 2012:154)	page 20, the source at the right
+§4.1	Henry Davis	note	This is impossible in St’át’imcets: kwikws ‘small’ cannot directly modify mass nouns; instead k’wík’wena7 ‘(a) few’ is used to indicate a small amount of a substance.	page 20
+(45a) line 1	St’át’imcets	transcription	kwikws ta=stswáw’c=a	page 20
+(45a) line 2	St’át’imcets	gloss	small SG.DET=creek=EXIS	page 20
+(45a) line 3	Henry Davis	translation	‘The creek is small.’	page 20
+(45b) line 1	St’át’imcets	transcription	* kwikws ta=qú7=a l=ta=stswáw’c=a	page 21
+(45b) line 2	St’át’imcets	gloss	small SG.DET=water=EXIS PREP=SG.DET=creek=EXIS	page 21
+(45b) line 3	Henry Davis	translation	‘The water in the creek is small.’	page 21
+(45c) line 1	St’át’imcets	transcription	k’wík’wena7 ta=qú7=a l=ta=stswáw’c=a	page 21
+(45c) line 2	St’át’imcets	gloss	few SG.DET=water=EXIS PREP=SG.DET=creek=EXIS	page 21
+(45c) line 3	Henry Davis	translation	‘There is little water in the creek.’	page 21
+§4.2	Henry Davis	heading	4.2 Countability: a potential counter-argument	page 21
+§4.2	Henry Davis	note	One property of UH discussed by Wiltschko (2012) poses a potential problem for her claim that there is no count-mass distinction in the language: notional mass nouns are not as easily countable as notional count nouns. In fact, the pattern of countability she records for UH is very similar to that of St’át’imcets, as discussed in Section 3.3 above, which in turn is not dissimilar from that of English: mass nouns may be apportioned (and therefore become countable), but variably so, and subject to convention and context. For example, ‘sand’ and ‘wood’ can be apportioned in UH, but not ‘snow’ or ‘wind’:	page 21
+(46a) line 1	Upriver Halkomelem	transcription	tsel kw’étslexw isále siyítsem/siyólh	page 21
+(46a) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT two sand[PL]/wood	page 21
+(46a) line 3	Henry Davis	translation	‘I’ve seen two sands/wood.’	page 21
+(46b) line 1	Upriver Halkomelem	transcription	* tsel kw’étslexw isále syiqyíq/pehals	page 21
+(46b) line 2	Upriver Halkomelem	gloss	1SG.SUB see-NCT two snow[PL]/wind	page 21
+(46b) line 3	Henry Davis	translation	‘I’ve seen two snows/wind.’17	page 21
+footnote 17	Henry Davis	note	It is unclear whether these ungrammatical cases would become felicitous with sufficient contextual support. In St’át’imcets, for example, ‘wind’ is usually unacceptable with numerals, but felicitous with a ‘kind of’ reading.	page 21, footnote 17
+footnote 17 (vii) line 1	St’át’imcets	transcription	xw7útsin i=sk’éxem=a: ta=sutik-ák7=a,	page 21
+footnote 17 (vii) line 2	St’át’imcets	gloss	four PL.DET=wind=EXIS PL.DET=winter-hand=EXIS	page 21
+footnote 17 (vii) line 3	St’át’imcets	transcription	ta=sqápts=a, ta=sgapten-ák7=a,	page 21
+footnote 17 (vii) line 4	St’át’imcets	gloss	SG.DET=spring.wind=EXIS SG.DET=west-hand=EXIS	page 21
+footnote 17 (vii) line 5	St’át’imcets	transcription	múta7 ta=haw-haw-lán’cw=a,	page 21
+footnote 17 (vii) line 6	St’át’imcets	gloss	and SG.DET=hot-RED-wind=EXIS	page 21
+footnote 17 (vii) line 7	Henry Davis	translation	‘There are four winds: the north wind, the spring wind, the west wind, and the south wind.’	page 21
+(46b) line 4	Henry Davis	citation	(Wiltschko 2012:155)	page 21, the tag or source at the right of the translation
+§4.2	Henry Davis	note	Wiltschko’s explanation for this is that the mass-count difference with numerals is not part of the grammar, but reflects non-linguistic conceptual (‘ontological’) properties. According to this view, countability should therefore be excluded as a diagnostic for a grammatical count-mass distinction. We return to this issue in the following section.	page 21
+§4.3	Henry Davis	heading	4.3 Assessing the arguments	page 22
+§4.3	Henry Davis	note	Given that St’át’imcets clearly shows a count-mass distinction, there are two possibilities for UH: either Wiltschko’s arguments against the distinction go through, in which case there is a genuine (and major) parametric difference between the two languages; or they do not, in which case both languages respect the distinction, with any differences being micro-parametric in nature.	page 22
+§4.3	Henry Davis	note	Let us then consider Wiltschko’s arguments one by one, beginning with plural marking. The following table compares the St’át’imcets and UH number- marking systems on both nouns and determiners:	page 22
+(47) line 1	Henry Davis	note	Number marking in St’át’imcets and Upriver Halkomelem	page 22, set as an example
+(47) line 2	Henry Davis	note	Singular count Plural count Mass	page 22, set as an example
+(47) line 3	Henry Davis	note	N St’át’imcets SG SG/PL SG	page 22, set as an example
+(47) line 4	Henry Davis	note	Upriver Halkomelem SG SG/PL SG/PL	page 22, set as an example
+(47) line 5	Henry Davis	note	D St’át’imcets SG PL SG/PL	page 22, set as an example
+(47) line 6	Henry Davis	note	Upriver Halkomelem SG SG/PL SG/PL(?)	page 22, set as an example
+§4.3	Henry Davis	note	The two systems are very similar: in fact, there are just two differences. First, plural determiners are obligatory on plural count nouns in St’át’imcets – number is fully ‘grammaticalized’ in the D-system – but only optional in UH, where number is ‘non-inflectional’ (Wiltschko 2008). Second, mass nouns do not undergo stem-level pluralization in St’át’imcets, whereas they do in UH. Both of these characteristics are diagnostic for the count-mass distinction in St’át’imcets, and correspondingly, this means that the distinction is obscured by the number- marking system of UH. The larger question, of course, is whether the differences are superficial morphosyntactic ones, or relate to more fundamental properties of the two systems.	page 22
+§4.3	Henry Davis	note	Turning to the (non-)selectivity of quantificational elements, we have already seen for St’át’imcets that this property is parasitic on the determiner system: quantifiers are selective for the count-mass distinction in exactly the places where their co-occurring determiners are selective. It is unsurprising, then, that Halkomelem shows no selectivity in its quantificational system, since as we have seen, its determiners neutralize the count-mass distinction.	page 22
+§4.3	Henry Davis	note	Wiltschko’s third argument is based on the ability of degree adjectives (more specifically, ‘small’) to directly modify mass nouns. (As we saw in Section 4.1, St’át’imcets doesn’t allow this.) According to Wiltschko, this follows from the fact that UH lacks a ‘reclassifying strategy’ for converting mass nouns into count nouns – naturally enough, if there are no mass nouns. However, recall that the interpretation of ‘small’ in UH is different for count and mass nouns: with count nouns, the adjective refers to the size of the individuals in the noun denotation, while with mass nouns, it may refer either to the size of contextually defined portions, or to the total amount of substance in the noun denotation. If anything, this appears to support the existence of a count-mass distinction, rather than providing evidence against it. If there were no distinction, we’d either expect ‘small’ to refer to the number of individuals in the count noun denotation rather than their size, or alternatively, only to the size of the portions in the mass noun denotation, rather than to their total mass. As for why UH allows ‘small’ to refer to amounts, while St’át’imcets does not, I suspect this is a matter of differing lexical entries for degree adjectives: in UH, i’axwíl comes with an optional measure function for amounts, while in St’át’imcets, kwikws does not.	page 22
+§4.3	Upriver Halkomelem	cited form	i’axwíl	page 23, in italics
+§4.3	Henry Davis	note	Finally, consider again the question of countability, and in particular Wiltschko’s proposal that it reflects ‘ontological’ (conceptual) rather than grammatical properties of the nominal system. While this can account for the UH facts, it runs into problems when confronted with languages such as Nez Perce and Yudja, which freely allow mass nouns to be apportioned into countable units, irrespective of pragmatic and lexical factors. Given that UH, St’át’imcets, and English do not allow free apportionment, countability (cast in terms of the availability of apportionment functions) must therefore be parameterized. But if so, it cannot be located outside the grammar altogether, as Wiltschko proposes: if it were, we would not expect it to differ from language to language. In fact, the only way Wiltschko’s view could be accommodated to the observed cross- linguistic variation would be to claim that Nez Perce and Yudja speakers have different conceptual systems than those of Salish and English speakers. However, this runs into trouble with Nez Perce, which makes a conventional mass-count distinction in the quantificational part of its grammar, as Deal (2013) takes pains to point out. If apportionment were part of the conceptual system, this would entail that Nez Perce encoded the count-mass distinction grammatically, but not conceptually. Since this consequence is untenable, I conclude that countability must indeed constitute a grammatical diagnostic for the count-mass distinction, albeit one subject to a separate ‘apportionment parameter’. More specifically, the ‘restricted apportionment’ value of the parameter provides positive evidence for the distinction; since UH has restricted apportionment, it follows that it grammatically encodes the count-mass distinction.	page 23
+§4.4	Henry Davis	heading	4.4 Understanding the differences	page 23
+§4.4	Henry Davis	note	We have now pinpointed the source of the differences between St’át’imcets and UH: in the former, number marking is an obligatory component of the inflectional system, whereas in the latter it is ‘non-inflectional’, to use Wiltschko’s (2008) term. This difference itself plays out in different ways on nouns and determiners. On nouns, plural marking is optional for plural count nouns in both languages and for mass nouns in UH, but impossible for mass nouns in St’át’imcets. On determiners, plural marking is optional for mass nouns in both languages and for count nouns in UH, but obligatory for count nouns in St’át’imcets.	page 23
+§4.4	Henry Davis	note	Let me sketch out an account of how these differences might be analyzed. I will start out with the assumption that count and mass nouns differ fundamentally in their denotations – in particular, that whereas count nouns have non-arbitrary atomic subparts, mass nouns only have arbitrary ‘material parts’ (the term is from Link 1983). In that case, it is relatively easy to define an operation of pluralization which refers specifically to atoms:	page 23
+(48) line 1	Henry Davis	note	For any A  U, PL A = *A – A	page 24, set as an example
+(48) line 2	Henry Davis	note	(where A is a set of atoms: cf. Chierchia 1998:60)	page 24, set as an example
+§4.4	Henry Davis	note	This says that the operation of pluralization PL yields the closure under sum formation (*) of the set of atoms A constituting the noun’s denotation, minus the set of atoms itself. Since by hypothesis mass nouns are non-atomic, the operation PL will simply not apply to them, deriving the failure of mass nouns in St’át’imcets to undergo stem-level plural formation.	page 24
+§4.4	Henry Davis	note	What about UH? The obvious option to allow mass nouns to undergo plural formation is simply to extend (48) to material parts, as in (49):	page 24
+(49) line 1	Henry Davis	note	For any A,M  U, PL A, M = *A, *M – A, M	page 24, set as an example
+(49) line 2	Henry Davis	note	(where A is a set of atoms and M is a set of material parts)	page 24, set as an example
+§4.4	Henry Davis	note	This says minimally that there must be more than one material part in the denotation of a pluralized mass noun, a condition which is trivial to satisfy, since material parts are of arbitrary size (at least, down to the granular level). This predicts that pluralization will have less effect on mass nouns than on count nouns – which appears to be correct, as far as I can tell from the UH data.	page 24
+§4.4	Henry Davis	note	Turning to determiners, and beginning once again with St’át’imcets, this time we have to exclude plural marking on determiners with singular count nouns, and exclude singular marking on determiners with plural count nouns, while permitting mass nouns to freely take either singular or plural determiners. In the spirit of Sauerland (2003), who suggests that determiners encode presuppositions on the domain of noun denotations, we can model these restrictions as (negative) presuppositions, which prevent singular determiners from composing with plural count nouns (50a) and plural determiners from composing with singular count nouns (50b). Since these restrictions make no mention of material parts, either determiner is free to combine with mass nouns.	page 24
+(50) line 1	Henry Davis	note	Denotations of St’át’imcets singular and plural determiners	page 24, set as an example
+(50) line 2	Henry Davis	note	a. [[ta = … =a]] g,c =	page 24, set as an example
+(50) line 3	Henry Davis	note	f<e,t>: ¬x y[(f(x) = 1)  [y<x  atom(y)]].MAX {z: f(z) =1}	page 24, set as an example
+(50) line 4	Henry Davis	note	b. [[i= … =a]] g,c =	page 24, set as an example
+(50) line 5	Henry Davis	note	f <e,t>: ¬x[(f(x) = 1)  atom(x)].MAX {z: f(z) =1}	page 24, set as an example
+§4.4	Henry Davis	note	Turning now to UH, the story is straightforward: the non-plural determiner te is unrestricted, and thus has the simple entry in (51a), while the plural determiner ye has the same lexical entry as i= … =a in St’át’imcets – that is, it precludes composition with nouns whose denotation consists of sets of atoms (51b). As in St’át’imcets, mass nouns are free to combine with either determiner.	page 24
+(51) line 1	Henry Davis	note	Denotations of Upriver Halkomelem unmarked and plural determiners	page 25, set as an example
+(51) line 2	Henry Davis	note	a. [[te=]] g,c = f<e,t> MAX {z: f(z) =1}	page 25, set as an example
+(51) line 3	Henry Davis	note	b. [[ye=]] g,c = f <e,t>: ¬x[(f(x) = 1)  atom(x)].MAX {z: f(z) =1}	page 25, set as an example
+§4.4	Henry Davis	note	Note that the difference between the two determiner systems boils down simply to an extra presupposition on the lexical entry for the St’át’imcets singular determiners: there is no need for any kind of radical parametric restructuring of the system, let alone for a macroparametric division between languages with a count-mass distinction and those without. Given that St’át’imcets and UH are neighbours and relatives, I find this reassuring, if unsurprising.	page 25
+§5	Henry Davis	heading	5 Salish and Beyond	page 25
+§5	Henry Davis	note	I take it that the discussion above has established the existence of a count-mass distinction in the grammars of both St’át’imcets and Upriver Halkomelem. Given that these are the only two Salish languages where the issue has been discussed in any detail, I therefore make the following claim:	page 25
+(52) line 1	Henry Davis	note	All Salish languages grammatically encode the count-mass distinction	page 25, set as an example
+§5	Henry Davis	note	Of course, this claim also constitutes a challenge to other Salishanists to extend the investigation beyond the two languages discussed here: it is important that the issue is explored in detail in as many Salish languages as is still possible, while there is still time.	page 25
+§5	Henry Davis	note	It is also worth considering how Salish languages fit into wider patterns of cross-linguistic variation in the behaviour of count and mass nouns. We have seen that Nez Perce (which forms part of the plateau subdivision of the northwest Sprachbund) differs from St’át’imcets and UH in its ability to freely invoke apportionment functions. In this, it resembles Yudja, a Tupian language spoken in Brazil (Lima 2014). Unlike Nez Perce, however, Yudja lacks both grammatical number and selective quantifiers; it therefore yields no positive evidence for the count-mass distinction at all, and Lima argues on both linguistic and psycholinguistic grounds that it lacks the distinction altogether.	page 25
+§5	Henry Davis	note	The picture is summarized in the following table, where the shaded cells contain languages which test positively for the mass-count distinction; the unshaded cell contains languages where no positive evidence is forthcoming, and therefore might lack the distinction altogether.	page 25
+(53) line 1	Henry Davis	note	Parameters of variation in the expression of the count-mass distinction	page 25, set as an example
+(53) line 2	Henry Davis	note	Restricted apportionment General	page 25, set as an example
+(53) line 3	Henry Davis	note	apportionment	page 25, set as an example
+(53) line 4	Henry Davis	note	+ Grammatical # English, St’át’imcets, … Nez Perce, …	page 25, set as an example
+(53) line 5	Henry Davis	note	- Grammatical # Dëne Suɬine, Yudja, …	page 25, set as an example
+(53) line 6	Henry Davis	note	Upriver Halkomelem, …	page 25, set as an example
+§5	Henry Davis	note	Of course, (53) is greatly over-simplified, and – quite aside from micro- parametric variation in the expression of number marking, which is known to differ widely across languages – there are almost certainly other dimensions of variation which I have not touched on here. A full investigation is well beyond the scope of this paper, so I will not attempt to elaborate further. Nevertheless, and rudimentary though it is, (53) at least indicates where we must look if we are to find genuine cases of languages without a count-mass distinction.	page 26
+references	Henry Davis	heading	References	page 26
+references	Henry Davis	reference	Alexander, C., H. Davis, B. Frank, G. Ned, D. Peters Sr., L. Redan, C. Scotchman, R. Whitley. (n.d.) Nqwal’uttenlhkálha: an English to Upper St’át’imcets Dictionary (combined version). Ms., Upper St’át’imc Language, Culture and Education Society and University of British Columbia.	page 26
+references	Henry Davis	reference	Cheng, L. and R. Sybesma. (1999). Bare and not-so-bare nouns and the structure of NP. Linguistic Inquiry 30:509–542.	page 26
+references	Henry Davis	reference	Chierchia, G. (1998). Reference to kinds across languages. Natural Language Semantics 6:339–405.	page 26
+references	Henry Davis	reference	Chierchia, G. (2010). Mass nouns, vagueness, and semantic variation. Synthese 174: 99–149.	page 26
+references	Henry Davis	reference	Davis, H. (2010). Salish languages lack generalized quantifiers after all! Paper given at SALT 20, Vancouver, B.C.	page 26
+references	Henry Davis	reference	Davis, H. (2013). All about all in (some) Salish languages. In K.-H. Gil, S. Harlow and G. Tsoulas (eds.) Strategies of Quantification, pp. 214–259. Oxford: Oxford University Press.	page 26
+references	Henry Davis	reference	Davis, H. and L. Matthewson. (1999). On the functional determination of lexical categories. Revue Québecoise de Linguistique 27:29–69.	page 26
+references	Henry Davis	reference	Deal, A.R. (2013). Aportionment and the mass-count distinction in Nez Perce. Ms., University of California, Santa Cruz.	page 26
+references	Henry Davis	reference	Galloway, B. (1993). A Grammar of Upriver Halkomelem. Berkeley, CA. (University of California Publications in Linguistics 96.)	page 26
+references	Henry Davis	reference	Krifka, M. (1995). Common nouns: a contrastive analysis of English and Chinese. In G. Carlson and J. F. Pelletier (eds.) The Generic Book, pp. 238–264. Chicago: The University of Chicago Press.	page 26
+references	Henry Davis	reference	Kuipers, A. (1967). The Squamish Language; Grammar, Texts, Dictionary. The Hague: Mouton.	page 26
+references	Henry Davis	reference	Lima, S. (2014). The grammar of individuation and counting. Ph.D. dissertation, University of Massachusetts, Amherst.	page 26
+references	Henry Davis	reference	Link, G. (1983). The logical analysis of plurals and mass terms. In R. Bauerle, C.	page 27
+references	Henry Davis	reference	Schwarze, and A. von Stechow (eds.), Meaning, Use, and Interpretation of Language, pp. 302–323. Berlin: de Gruyter.	page 27
+references	Henry Davis	reference	Massam, D. (2012). Count and Mass Across Languages. Oxford: Oxford University Press.	page 27
+references	Henry Davis	reference	Matthewson, L. (1998). Determiner Systems and Quantificational Strategies: Evidence from Salish. The Hague: Holland Academic Graphics.	page 27
+references	Henry Davis	reference	Matthewson, L. (1999). On the interpretation of wide scope indefinites. Natural Language Semantics 7:79–134.	page 27
+references	Henry Davis	reference	Matthewson, L. (2005). When I was Small: I Wan Kwikws: a Grammatical Analysis of St’át’imc Oral Narratives. Vancouver: UBC Press.	page 27
+references	Henry Davis	reference	Nater, H. (1984). The Bella Coola Language. Ottawa: Canadian Ethnology Service Paper No. 92.	page 27
+references	Henry Davis	reference	Sauerland, U. (2003). A new semantics for number. Proceedings of SALT XIII.	page 27
+references	Henry Davis	reference	Suttles, W. (2004). Musqueam Reference Grammar. Vancouver: UBC Press. Van Eijk, J. and L. Williams. (1981). Lillooet Legends and Stories. Mount Currie, B.C.: Ts’zil Press.	page 27
+references	Henry Davis	reference	Wilhelm, A. (2008). Bare Nouns in Dëne Sułine. Natural Language Semantics 16:39–68.	page 27
+references	Henry Davis	reference	Wiltschko, M. (2005). A part of wood is not a tree: on the absence of the count- mass distinction in Halkomelem. In J. C. Brown, M. Kiyota, and T. Peterson (eds.), Papers for the Fortieth ICSNL: 264–288. Vancouver, B.C. (University of British Columbia Working Papers in Linguistics 16.)	page 27
+references	Henry Davis	reference	Wiltschko, M. (2008). The syntax of non-inflectional plural marking. Natural Language and Linguistic Theory 26:639–694.	page 27
+references	Henry Davis	reference	Wiltschko, M. (2012). Decomposing the mass/count distinction: Evidence from languages that lack it. In D. Massam (ed.), Count and Mass Across Languages: 146–171. Oxford: Oxford University Press.	page 27

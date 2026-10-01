@@ -1,0 +1,1531 @@
+where	who	kind	form	gloss
+front	Ella Hannon, Anna Stacey and Reed Steiner	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+front	Ella Hannon, Anna Stacey and Reed Steiner	title	Glossed Conversational Data in Nɬeʔkepmxcín*	page 1
+front	Ella Hannon, Anna Stacey and Reed Steiner	byline	Ella Hannon, University of British Columbia, Anna Stacey, University of British Columbia, Reed Steiner, University of British Columbia	page 1
+front	Ella Hannon, Anna Stacey and Reed Steiner	note	Abstract: Nɬeʔkepmxcín, from the Northern Interior sub-family of the Salish languages, has a very limited amount of glossed data available. This work introduces 20 minutes of fully glossed conversational data. The speakers involved were two friends who discussed image prompts supplied by the fieldworkers. Data of this kind offers several advantages not conferred by regular elicitation data. Since it is less controlled by the fieldworker, it permits the possibility of a greater variety of vocabulary, sentence structures, etc. CONVERSATIONAL data also provides a body of data from which we can study phenomena not found in isolated sentences, such as question-and-response patterns and natural prosody. In future, the glossed transcriptions, audio recordings, and image prompts can be packaged together to provide learning resources for students of the language. And of course, this work adds to the too-limited body of glossed texts in the language.	page 1
+front	Ella Hannon, Anna Stacey and Reed Steiner	note	Keywords: Nɬeʔkepmxcín, Salish, conversation, text	page 1
+front	Ella Hannon, Anna Stacey and Reed Steiner	name	Ella Hannon	author, University of British Columbia
+front	Ella Hannon, Anna Stacey and Reed Steiner	name	Anna Stacey	author, University of British Columbia
+front	Ella Hannon, Anna Stacey and Reed Steiner	name	Reed Steiner	author, University of British Columbia, who drew Figure 4
+§1	Ella Hannon, Anna Stacey and Reed Steiner	heading	1 Background	page 1
+§1	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§1	Ella Hannon, Anna Stacey and Reed Steiner	note	Nɬeʔkepmxcín (also known as Thompson River Salish; ISO 639-3: thp) is a Northern Interior Salish language spoken along the Thompson river in British Columbia, with around 100 fluent speakers remaining (Gessner et al. 2023). Though there are only a handful of first-language speakers, language revitalization efforts are ongoing. Thus, there is an urgent need to document the language in order to support present and future learners. It is particularly useful to have glossed data, which consists of not only Nɬeʔkepmxcín text and its English translation, but a more detailed breakdown of each meaningful unit in the Nɬeʔkepmxcín text. At present, there is very little glossed data available, even compared to the other Northern Interior languages. There is only a single book of glossed text available (Egesdal et al. 2011), along with the limited glossed examples that appear in various linguistics papers on the language.	page 1
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	note	* Our sincere gratitude goes to the consultants whose speech data we present in this paper, Bev Phillips, Kʷəɬtèzetkʷuʔ (Bernice Garcia), and C̓úʔsinek (Marty Aspinall), whose intuitions and patient support made this research possible. Bernice wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker, who is re-learning her language. She introduces herself thus:	page 1, footnote
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Bev Phillips	a Nɬeʔkepmxcín consultant
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Bernice Garcia	a Nɬeʔkepmxcín consultant, Kʷəɬtèzetkʷuʔ, KBG in the conversations
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Marty Aspinall	a Nɬeʔkepmxcín consultant, C̓úʔsinek, CMA in the conversations
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Lisa Matthewson	thanked by the authors
+footnote *	Bernice Garcia	running speech	ʔes ʔúməcms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔkepmx e tmixʷs,	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.’	page 1, footnote, her introduction in English
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	note	We would like to thank our colleagues at the Nɬab and Salish Working Group for their ongoing collaboration, especially Lisa Matthewson. We are also grateful to our funders: the UBC Department of Linguistics, the Jacobs Research Funds, and the Kinkade Language and Culture Foundation.	page 1, footnote
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Kʷəɬtèzetkʷuʔ	page 1, Bernice Garcia's Nɬeʔkepmxcín name
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	C̓úʔsinek	page 1, Marty Aspinall's Nɬeʔkepmxcín name
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Nlaka’pamux	page 1, the Nlaka’pamux lands of Bernice Garcia's home
+footnote *	Ella Hannon, Anna Stacey and Reed Steiner	name	Nɬab	page 1, the Nɬeʔkepmxcín lab the authors thank
+§1	Ella Hannon, Anna Stacey and Reed Steiner	note	We thus begin remedying this dearth of glossed data by presenting a collection of glossed conversational data. Though any glossed data is certainly useful, our hope is that the conversational nature of the data gives it additional utility. Most glossed data that exists (that which typically occurs in linguistics papers) is from very structured elicitation sessions, where the fieldworker is studying a particular phenomenon in the language and is asking the consultant to perform discrete tasks such as giving translations or providing judgments. This data tends to be in the form of isolated sentences, and is not spontaneously offered by the consultant (either because the sentence was created by the fieldworker, or created by the consultant in a fairly contrived setting). Thus, this data can fail to capture some more natural components of speech in the language. Eliciting conversational data is a means to try to avoid some of these limitations from typical elicitation data. The more spontaneous nature of the speech may reveal some aspects of the language that do not come up in fieldworker-controlled language tasks. As well, the continuous, back-and-forth nature of conversation allows the data to include some components of language use that wouldn’t be present in other kinds of data, such as question-and-response patterns (San Roque et al. 2012), and various prosodic structures (Caldecott & Koch 2014). Finally, the friendly dynamic between the speakers permits more creative language use (including joking and singing) that allows us to see the language being used joyfully, rather than just in the more sterile elicitation setting. The structure of this paper is as follows: Section 2 deals with the methodology we employed for eliciting these conversations, as well as a note on glossing and transcription conventions followed throughout the paper. Section 3 discusses interesting linguistic elements about Nɬeʔkepmxcín featured in the conversational data. Section 4 presents the conversational data using a four-line gloss. Section 5 concludes.	page 1
+§2	Ella Hannon, Anna Stacey and Reed Steiner	heading	2 Methodology	page 2
+§2.1	Ella Hannon, Anna Stacey and Reed Steiner	heading	2.1 Elicitation practice	page 2
+§2.1	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§2.1	Ella Hannon, Anna Stacey and Reed Steiner	note	The following data comes from a single elicitation session with two speakers of the Nicola Valley dialect of Nɬeʔkepmxcín. The speakers knew one another outside of their consulting work. The elicitation approach we used comes from Caldecott and Koch’s (2014) discussion of fieldwork methodologies that facilitate both the investigation of linguistic phenomena often missing from elicitation data (e.g., prosody, discourse structure) and the creation of accessible language-learning resources. We selected one of their methodologies for guided conversation: asking the consultants to have a conversation between themselves, but prompting them with images in order to give them a starting point (to prevent the awkwardness of being asked to “have a normal conversation”). Caldecott and Koch (2014) also note that this prompted approach avoids the potential pitfalls of bringing up personal topics (which the speakers may not be comfortable discussing in data that will be shared with the community) or having conversations they’ve already had (as may be the case if they’re asked to discuss the weather, what they’ve been up to lately, etc.). The conversation data and accompanying images can also be shared with communities to provide a learning resource. With this in mind, royalty-free images were chosen — these are easy to find online and can be shared without copyright concerns. We tried to select photos that had enough going on to prompt conversation and involved content that would be relevant (or at least familiar) for the speakers. Over Zoom, we would screenshare one image at a time and ask the consultants to talk to one another about what they saw in the photo. They would chat for a few minutes per photo and then let the fieldworkers know once they had nothing more to say. The photos used are presented in Figures 1 to 4 (in order of use).	page 2
+footnote 1	Ella Hannon, Anna Stacey and Reed Steiner	note	1 Photo URL: https://www.alamy.com/stock-photo-europe-ireland-kerry-dingle-an-irish-music-session-in-a- local-pub-11812014.html	page 3, footnote
+footnote 2	Ella Hannon, Anna Stacey and Reed Steiner	note	2 Photo by pixabay user Ronile: https://pixabay.com/photos/canada-goose-chick-branta-canadensis-273732/	page 3, footnote
+§2.1	Ella Hannon, Anna Stacey and Reed Steiner	note	Figure 1: A group playing instruments, singing, and dancing.1 Figure 2: A family of geese setting off into the water.2 Figure 3: Another family of geese swimming, this time with older offspring.3 Figure 4: A smiling cat holds a fish while a birthday cat glowers in the background, set in an outdoor scene including the Fraser River.4	page 3
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	heading	2.2 Glossing and transcription conventions	page 4
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	note	The data was recorded in Zoom. It was transcribed at the sentence-level in ELAN. It was then glossed using a four-line approach: Nɬeʔkepmxcín sentence, morpheme-by-morpheme segmenta- tion, gloss corresponding to each segmented morpheme, and an English translation of the sentence (see example (90)).	page 4
+footnote 3	Ella Hannon, Anna Stacey and Reed Steiner	note	3 Photo by pixabay user Kapa65: https://pixabay.com/photos/geese-canada-geese-family-2346322/	page 4, footnote
+footnote 4	Ella Hannon, Anna Stacey and Reed Steiner	note	4 Author Reed Steiner’s own work, assembled from miscellaneous images.	page 4, footnote
+(90) line 1	Marty Aspinall	citation	CMA:	page 5, the initials of the turn's speaker
+(90) line 1	Nɬeʔkepmxcín	transcription	ʔúkʷuntes e sx̣əqx̣iq	page 5, engine language
+(90) line 2	Nɬeʔkepmxcín	segmentation	ʔúkʷu-n-t-∅-es e=s-x̣əq~x̣iq	page 5, engine language
+(90) line 3	Nɬeʔkepmxcín	gloss	deliver-DRV-TR-3OBJ-3ERG DET=NMLZ-PL~duck	page 5, engine english
+(90) line 4	Nɬeʔkepmxcín	transcription	e scmey̓ts wə qʷoʔ	page 5, engine language
+(90) line 5	Nɬeʔkepmxcín	segmentation	e=s-cm-ey̓t-s wə=qʷoʔ	page 5, engine language
+(90) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-small-agent-3POSS to=water	page 5, engine english
+(90) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They brought their children to the water.’	page 5, engine english
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	tʃ	page 5, the IPA [tʃ] NAPA writes <c>
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	ʃ	page 5, the IPA [ʃ] NAPA writes <s>
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	<c̣>	page 5, NAPA <c̣>, IPA [ts]
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	<ṣ>	page 5, NAPA <ṣ>, IPA [s]
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	<x̣>	page 5, NAPA <x̣>, for <χ>
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	<χ>	page 5, what NAPA <x̣> stands for
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	<ƛ̓>	page 5, NAPA <ƛ̓>, IPA [tɬ’]
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	notation	tɬ	page 5, the IPA [tɬ’] NAPA writes <ƛ̓>
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	cited title	Nɬeʔkepmxcín-English	page 5, the Nɬeʔkepmxcín-English dictionary (Thompson & Thompson 1996)
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	note	The Nɬeʔkepmxcín transcription (used in the first two lines) is written in a version of the North American Phonetic Alphabet (NAPA) which is standard for the language. The primary differences between this orthography and the International Phonetic Alphabet (IPA) are as follows: NAPA uses <c> for IPA [tʃ], <s> for [ʃ], <c̣> for [ts], <ṣ> for [s], <x̣> for <χ>, and <ƛ̓> for [tɬ’] (aspiration is specified in this last case, as the unaspirated variant does not exist in the language). The Leipzig glossing rules (Comrie et al. 2008) were followed as much as possible. Glosses used in this paper that do not appear in the Leipzig Glossing Rules are listed in footnote 5.5 As for stress marking, we marked primary stress (using an acute accent), following the style of the Nɬeʔkepmxcín-English dictionary (Thompson & Thompson 1996).	page 5
+§2.2	Ella Hannon, Anna Stacey and Reed Steiner	note	There are a number of phonological processes at work in Nɬeʔkepmxcín whereby certain morphemes are often phonologically unrealized. Instances where underlying morphemes are present but phonologically unrealized will be indicated within square brackets in line 2 of the gloss (i.e., the morpheme-by-morpheme segmentation line). Pauses in speech are represented only in line 1 (the orthographic line) by ellipses. Repeated words are often included, but false starts for sentences that appear later in full are not. Where consultants follow up Nɬeʔkepmxcín utterances with English ones, these have been left in as they are still meaningful parts of the conversation. As a result, not all translations are particularly literal (such as 246). Music notes (♪) in the gloss indicate that a particular utterance was sung. Square brackets in the fourth line of the gloss (i.e., the English translation) indicate linguistic metadata. Regular parentheses indicate missing context. All errors in glossing are our own.	page 5
+§3	Ella Hannon, Anna Stacey and Reed Steiner	heading	3 Analysis	page 5
+§3	Ella Hannon, Anna Stacey and Reed Steiner	note	Eliciting in this way allowed us to observe some linguistic features that we had not hitherto come across in our other elicitation sessions. A selection of these features are commented on below.	page 5
+§3.1	Ella Hannon, Anna Stacey and Reed Steiner	heading	3.1 Potential discourse markers	page 5
+§3.1	Nɬeʔkepmxcín	cited form	meɬ	the consequential, in e meɬ nes, INT CNSQ INCIP
+footnote 5	Ella Hannon, Anna Stacey and Reed Steiner	note	5 Such glosses are as follows: AFF = affective, ANT = anticipatory, ASP = aspectual, AUG = augmentative, AUT = autonomous, CTR.MID = control middle, CNJ = conjunctive, CNSQ = consequential, CONTR = contrastive, D/C = determiner/complementizer, DIR = directive, DISC = discourse marker, DRV = directive, EMPH.INT = emphatic introductory predicate, EXCM = exclamative, INCIP = incipient, IM = immediate, INH = inherent, INT = introductory predicate, LCTL = limited control transitivizer, MOD = modal, NCTL = non-control predicate, NEUT = “semantically neutral stem to which certain lexical suffixes are added” (Thompson & Thompson 1996:1), OOC = out of control, PRP = proportional, PRSM = presumptive, REP = reportative, RLT = relational, SENSE = sensory evidential, TAG = tag question, UNR = unrealized.	page 5, footnote
+§3.1	Ella Hannon, Anna Stacey and Reed Steiner	note	The consultants frequently used the phrase e meɬ nes, glossed here as INT CNSQ INCIP, e.g., (59), (62), (75), (79), (112), (141), (172). The consequential morpheme is described by Thompson and Thompson as meaning “change from present situation: anyway, anyhow; despite the evidence, contrary to expectations” (1992:139), whereas the incipient is described with “depart, go toward” (1992:142). The prevalence of this phrase in our conversational data in particular suggests it could have a discourse-related role. It seems that it may be used to connect events, e.g., (62), (112), (173). Its function could be a fruitful direction for further study.	page 5
+§3.1	Nɬeʔkepmxcín	cited form	téywey	a word CMA described as ‘oh gosh’, glossed EXCM
+§3.1	Ella Hannon, Anna Stacey and Reed Steiner	note	Additionally, consultant CMA used the word téywey (119), which is seemingly unattested in Thompson and Thompson (1992, 1996) but which she described as meaning “oh gosh”, expressing surprise, wonder, anger, etc. For this reason, we have presently glossed it as EXCM. Interestingly, she also told us that the word is not appropriate for young speakers to use.	page 6
+§3.1	Nɬeʔkepmxcín	cited form	ʔo	a very lengthened ʔo CMA used, glossed DISC
+§3.1	Ella Hannon, Anna Stacey and Reed Steiner	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§3.1	Ella Hannon, Anna Stacey and Reed Steiner	note	Finally, a very lengthened ʔo was also used by CMA, and our suspicion that it could be a discourse marker was reinforced by the use of a similar morpheme in St’át’imcets, another Northern Interior Salish language (Lisa Matthewson, p.c.). We have glossed it as DISC for now based on this theory, but more data is needed. If it is indeed a discourse marker, then eliciting more conversational data in future should provide further instances to study.	page 6
+§3.2	Ella Hannon, Anna Stacey and Reed Steiner	heading	3.2 Evidentials	page 6
+§3.2	Ella Hannon, Anna Stacey and Reed Steiner	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§3.2	Ella Hannon, Anna Stacey and Reed Steiner	note	Something else of note is that consultants sometimes prefer to translate sentences containing evidential morphemes, particularly nke and nukw, as utterances indicating speaker certainty.6 This is seen particularly in Conversation 1, and in lines (1), (11) to (13), (16), (188), (199), and (255). These sentences all seem to be oriented towards either the near future, e.g., (1), (11) to (13), (16), (188), or the present, e.g., (199) and (255). There are also instances of consultants choosing to use a modal when translating sentences containing evidentials, as in (122), (161), (165), (186), and (206). In these instances, utterances containing the inferential evidential nke are translated using the strong English modal ‘must’. This pattern of evidentials acting as modals in contexts compatible with epistemic conversational backgrounds is observed in a neighbouring language, St’át’imcets (Matthewson et al. 2007). Utterances translated as ‘maybe’, a weaker English modal, also use nke, as in (5) and (14), as do those translated with ‘probably’ (167). There are also two instances of nke being used to indicate some kind of conjecture on the part of the speaker as to the actions or states of the various subjects in the picture. This usage is seen in (181) and (192); (181) is translated using ‘seems to be’, and (192) as ‘looks like’; these could both be regarded as inferential statements on the part of the speakers based on the evidence provided by the picture, which is in line with the labelling of nke as an inferential evidential (Littell et al. 2010).	page 6
+footnote 6	Ella Hannon, Anna Stacey and Reed Steiner	note	6 Nɬeʔkepmxcín evidentials are discussed further in Hannon and Smith (2023).	page 6, footnote
+§3.2	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.2	Ella Hannon, Anna Stacey and Reed Steiner	note	These conversations also feature some instances of the reportative evidential, ekwu (sometimes realized as wkwu or kwu). As predicted by the name, this evidential appears most commonly in contexts where a speaker is relaying a story or event that they have found out about through another person, i.e., they are passing on information that they obtained from a second- or third-hand source. Examples of this are seen particularly clearly in (26) and (27), where the speaker is recounting an event that was told to her by another person. There are also examples of the reportative evidential in contexts where it is less clear who the reported information was obtained from, as in (40), or (109). Another instance of the reportative is found in (222), where participants are discussing the birthday hat that one of the pictured cats is wearing, particularly referring to the fact that it is a birthday hat. More research into the exact functions of the reportative is needed, and these glossed conversations represent a first step in and a valuable resource for examining these functions.	page 6
+§3.3	Ella Hannon, Anna Stacey and Reed Steiner	heading	3.3 Determiners and demonstratives	page 7
+§3.3	Nɬeʔkepmxcín	cited form	ɬ(ə)=	a base determiner, following Kroeber (1997)
+§3.3	Nɬeʔkepmxcín	cited form	[t]=ɬ=	the segmentation of ⟨ɬ⟩, a base determiner after an oblique preposition
+§3.3	Nɬeʔkepmxcín	cited form	⟨ɬ⟩	written [t]=ɬ= in the segmentation
+§3.3	Nɬeʔkepmxcín	cited form	⟨tək⟩	written t=k= in the segmentation
+§3.3	Ella Hannon, Anna Stacey and Reed Steiner	note	For the sake of glossing, we follow Kroeber (1997) in treating (h)e=, ɬ(ə)=, and k= as base determiners, and in segmenting t=e= ⟨te⟩, [t]=ɬ= ⟨ɬ⟩, and t=k= ⟨tək⟩ into base determiners preceded by oblique prepositions. We gloss the elements introducing complement and adjunct clauses as D/C for determiner/complementizer, following Henry Davis (p.c.). However, due to the complexity of the conversational sentences and the lack of standardization in glossing conventions, we expect mistakes.	page 7
+§3.3	Nɬeʔkepmxcín	cited form	ʔe=	a form of the (h)e= determiner in rapid speech
+§3.3	Nɬeʔkepmxcín	cited form	hə=	a form of the (h)e= determiner in rapid speech
+§3.3	Nɬeʔkepmxcín	cited form	ʔə=	a form of the (h)e= determiner in rapid speech
+§3.3	Nɬeʔkepmxcín	cited form	ə=	a form of the (h)e= determiner in rapid speech
+§3.3	Ella Hannon, Anna Stacey and Reed Steiner	note	One interesting point of analysis is that the (h)e= determiner is far more variable in rapid speech. Attested forms include he=, ʔe=, hə=, ʔə=, e=, and ə=. It often phonologically blends into the previous word, sometimes to the point of dropping entirely (especially if the previous word ends in a vowel). This is especially common after demonstratives, which consultants use very frequently. The demonstratives are often chained together in strings preceding the DP, as in (217), (234), and (243).	page 7
+§3.4	Ella Hannon, Anna Stacey and Reed Steiner	heading	3.4 Other morphemes	page 7
+§3.4	Ella Hannon, Anna Stacey and Reed Steiner	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§3.4	Nɬeʔkepmxcín	cited form	xeymxímus	xeym inflected, “[that’s what] people did”, (246)
+§3.4	Nɬeʔkepmxcín	cited affix	-xí	possibly an indirective, in xeymxímus
+§3.4	Ella Hannon, Anna Stacey and Reed Steiner	note	In the conversational data, there are some novel morphemes that were previously unattested in the dictionary (Thompson & Thompson 1996). One such example is visible in (240) and (241). At first, we assumed the -sut morpheme was reflexive, but the translation did not indicate reflexivity. Matthewson (p.c.) notes that it looks like the St’át’imcets out-of-control suffix -sut, which makes more sense in this context, but is unattested in the grammar (Thompson & Thompson 1992). Some morphemes also occurred in unexpected new contexts. Typically, we translated the word xeym7 as ‘indeed’ (54, 78, 122). However, it received two very different translations in (166) and (246). In (166), the consultants volunteered the translation “there’s a balance”, acknowledging the circle of life. In (246), however, the same morpheme appears inflected as xeymxímus (possibly using an indirective -xí and a conjunctive =us) to mean “[that’s what] people did”. In each case, the root seems to mean something like “that’s how it is”, but depending on the context and inflection, it can achieve new unexpected meanings.	page 7
+§3.4	Nɬeʔkepmxcín	cited form	q̓axném	‘holler’, a morpheme new to the dictionary, (61)
+§3.4	Nɬeʔkepmxcín	cited form	kwyxus	‘?’, a morpheme new to the dictionary, (110)
+§3.4	Nɬeʔkepmxcín	cited form	senk	‘mean-tempered’, a morpheme new to the dictionary, (119)
+§3.4	Ella Hannon, Anna Stacey and Reed Steiner	note	Other new morphemes include q̓axném ‘holler’ (61), kwyxus ‘?’ (110), senk ‘mean-tempered’ (119), k̓ʷmi ‘small’ (160), stʷúsc ‘face’ (190), sk̓ʷúc̓s ‘log’ (199), and stustks ‘a wire snare trap used for catching squirrels’(252).	page 7
+§3.4	Nɬeʔkepmxcín	cited form	k̓ʷmi	page 7, ‘small’, (160)
+§3.4	Nɬeʔkepmxcín	cited form	stʷúsc	page 7, ‘face’, (190)
+§3.4	Nɬeʔkepmxcín	cited form	sk̓ʷúc̓s	page 7, ‘log’, (199)
+§3.4	Nɬeʔkepmxcín	cited form	stustks	page 7, ‘a wire snare trap used for catching squirrels’, (252)
+§4	Ella Hannon, Anna Stacey and Reed Steiner	heading	4 Data	page 7
+§4	Ella Hannon, Anna Stacey and Reed Steiner	note	The data presented in this section represent approximately 20 minutes of conversation between two speakers, CMA and KBG. The breakdown by image is as follows: 6 minutes 35 seconds for Figure 1, 4 minutes 40 seconds for Figure 2, 1 minute 50 seconds for Figure 3, and 6 minutes for Figure 4.	page 7
+§4.1	Ella Hannon, Anna Stacey and Reed Steiner	heading	4.1 Conversation 1	page 7
+footnote 7	Ella Hannon, Anna Stacey and Reed Steiner	note	7 This word may be x̣i̓y ‘behave (a particular way)’ (with the MDL suffix -m).	page 7, footnote
+footnote 7	Nɬeʔkepmxcín	cited form	x̣i̓y	‘behave (a particular way)’, which a word of Conversation 1 may be, footnote 7
+§4.1	Ella Hannon, Anna Stacey and Reed Steiner	note	The conversational data collected is numbered according to the order the sentences were uttered after the initial image prompt. The image used to prompt this conversation is reiterated below. Figure 1: A group playing instruments, singing and dancing.	page 7
+(1) line 1	Bernice Garcia	citation	KBG:	page 8, the initials of the turn's speaker
+(1) line 1	Nɬeʔkepmxcín	transcription	xwúy̓ nke ʔiƛ̓ʔiƛ̓tis	page 8, pairs
+(1) line 2	Nɬeʔkepmxcín	segmentation	xwúy=nke ʔiƛ̓~ʔiƛ̓-t-i-s	page 8, pairs
+(1) line 3	Nɬeʔkepmxcín	gloss	FUT=INFER PL~sing-TR-1PL.OBJ-3ERG	page 8, pairs
+(1) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re going to sing to us.’	page 8, pairs
+(2) line 1	Bernice Garcia	citation	KBG:	page 8, the initials of the turn's speaker
+(2) line 1	Nɬeʔkepmxcín	transcription	xwúy̓ néʔ ʔi séy̓siʔ	page 8, pairs
+(2) line 2	Nɬeʔkepmxcín	segmentation	xwúy̓ néʔ ʔi séy̓siʔ	page 8, pairs
+(2) line 3	Nɬeʔkepmxcín	gloss	FUT DEM still play	page 8, pairs
+(2) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re going to play.’	page 8, pairs
+(3) line 1	Bernice Garcia	citation	KBG:	page 8, the initials of the turn's speaker
+(3) line 1	Nɬeʔkepmxcín	transcription	séy̓siʔ	page 8, pairs
+(3) line 2	Nɬeʔkepmxcín	segmentation	séy̓siʔ	page 8, pairs
+(3) line 3	Nɬeʔkepmxcín	gloss	play	page 8, pairs
+(3) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re playing.’	page 8, pairs
+(4) line 1	Marty Aspinall	citation	CMA:	page 8, the initials of the turn's speaker
+(4) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 8, pairs
+(4) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 8, pairs
+(4) line 3	Nɬeʔkepmxcín	gloss	yes	page 8, pairs
+(4) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 8, pairs
+(5) line 1	Bernice Garcia	citation	KBG:	page 8, the initials of the turn's speaker
+(5) line 1	Nɬeʔkepmxcín	transcription	kéʔ us nke	page 8, pairs
+(5) line 2	Nɬeʔkepmxcín	segmentation	kéʔ=us=nke	page 8, pairs
+(5) line 3	Nɬeʔkepmxcín	gloss	Q=CNJ=INFER	page 8, pairs
+(5) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Maybe.’	page 8, pairs, carries footnote 8, written here without its digit
+footnote 8	Ella Hannon, Anna Stacey and Reed Steiner	note	8 Translation not volunteered by consultant but form recognized by authors from previous elicitations.	page 8, footnote
+(6) line 1	Bernice Garcia	citation	KBG:	page 9, the initials of the turn's speaker
+(6) line 1	Nɬeʔkepmxcín	transcription	téʔe néʔ fiddle peɬ ɬe stéʔ us nke he guitar	page 9, pairs
+(6) line 2	Nɬeʔkepmxcín	segmentation	téʔe néʔ fiddle peɬ ɬe=s-téʔ=us=nke he=guitar	page 9, pairs
+(6) line 3	Nɬeʔkepmxcín	gloss	NEG DEM fiddle INH D/C=NMLZ-what=CNJ=INFER DET=guitar	page 9, pairs
+(6) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I don’t know the word for fiddle or guitar.’	page 9, pairs
+(7) line 1	Marty Aspinall	citation	CMA:	page 9, the initials of the turn's speaker
+(7) line 1	Nɬeʔkepmxcín	transcription	teʔ nsx̣əksténe xéʔe guitar	page 9, pairs
+(7) line 2	Nɬeʔkepmxcín	segmentation	teʔ n=s=x̣əks-t-∅-éne xéʔe guitar	page 9, pairs
+(7) line 3	Nɬeʔkepmxcín	gloss	NEG LOC=NMLZ=know-TR-3OBJ-1SG.ERG DEM guitar	page 9, pairs
+(7) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I don’t know the word for guitar.’	page 9, pairs
+(8) line 1	Bernice Garcia	citation	KBG:	page 9, the initials of the turn's speaker
+(8) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 9, pairs
+(8) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 9, pairs
+(8) line 3	Nɬeʔkepmxcín	gloss	yes	page 9, pairs
+(8) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 9, pairs
+(9) line 1	Bernice Garcia	citation	KBG:	page 9, the initials of the turn's speaker
+(9) line 1	Nɬeʔkepmxcín	transcription	ƛ̓uʔ xwúy̓ xéʔ ʔiƛ̓ʔiƛ̓m	page 9, pairs, carries footnote 9, written here without its digit
+(9) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓uʔ xwúy̓ xéʔ ʔiƛ̓~ʔiƛ̓-m	page 9, pairs
+(9) line 3	Nɬeʔkepmxcín	gloss	until FUT DEM PL~sing-CTR.MID	page 9, pairs
+(9) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are going to sing.’	page 9, pairs
+(10) line 1	Bernice Garcia	citation	KBG:	page 9, the initials of the turn's speaker
+(10) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 9, pairs
+(10) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 9, pairs
+(10) line 3	Nɬeʔkepmxcín	gloss	yes	page 9, pairs
+(10) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 9, pairs
+(11) line 1	Marty Aspinall	citation	CMA:	page 9, the initials of the turn's speaker
+(11) line 1	Nɬeʔkepmxcín	transcription	xwúy̓ nukw... xwúy̓ nukw ʔiƛ̓m ʔeɬ séy̓siʔ	page 9, pairs
+(11) line 2	Nɬeʔkepmxcín	segmentation	xwúy̓=nukw xwúy̓=nukw ʔiƛ̓-m ʔeɬ séy̓siʔ	page 9, pairs
+(11) line 3	Nɬeʔkepmxcín	gloss	FUT=SENSE FUT=SENSE sing-CTR.MID and play	page 9, pairs
+(11) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are going to sing and play.’ [indicating their instruments]	page 9, pairs
+(12) line 1	Marty Aspinall	citation	CMA:	page 9, the initials of the turn's speaker
+(12) line 1	Nɬeʔkepmxcín	transcription	xwúy̓ nukw néʔ ʔiƛ̓m ʔeɬ séy̓siʔ	page 9, pairs
+(12) line 2	Nɬeʔkepmxcín	segmentation	xwúy̓=nukw néʔ ʔiƛ̓-m ʔeɬ séy̓siʔ	page 9, pairs
+(12) line 3	Nɬeʔkepmxcín	gloss	FUT=SENSE DEM sing-CTR.MID and play	page 9, pairs
+(12) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are going to sing and play.’	page 9, pairs
+(13) line 1	Bernice Garcia	citation	KBG:	page 9, the initials of the turn's speaker
+(13) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ xwúy̓ nukw kt t nmimɬ ʔiƛ̓m ʔe ƛ̓úʔ	page 9, pairs
+(13) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ xwúy̓=nukw=kt t=nmimɬ ʔiƛ̓-m ʔe=ƛ̓úʔ	page 9, pairs
+(13) line 3	Nɬeʔkepmxcín	gloss	and FUT=SENSE=1PL.SBJ OBL=1PL.EMPH sing-CTR.MID DET=also	page 9, pairs
+(13) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And we are going to have to sing too.’	page 9, pairs
+footnote 9	Ella Hannon, Anna Stacey and Reed Steiner	note	9 This morpheme, ƛ̓uʔ, can have a range of meanings from ‘only’, to ‘until’, to ‘just’, and curiously, can also mean ‘also’. It is unclear whether the ƛ̓uʔ meaning ‘only’ and the ƛ̓uʔ meaning ‘also’ are two distinct morphemes. More research needs to be done into ƛ̓uʔ. For now, we have glossed each instance of ƛ̓uʔ according to the meaning it has in that particular sentence; therefore, there are varying glosses of ‘only’, ‘until’, ‘just’, and ‘also’.	page 9, footnote
+footnote 9	Nɬeʔkepmxcín	cited form	ƛ̓uʔ	page 9, ‘only’, ‘until’, ‘just’ or ‘also’
+(14) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(14) line 1	Nɬeʔkepmxcín	transcription	e kéʔ us nke	page 10, pairs
+(14) line 2	Nɬeʔkepmxcín	segmentation	e=kéʔ=us=nke	page 10, pairs
+(14) line 3	Nɬeʔkepmxcín	gloss	DET=Q=CNJ=INFER	page 10, pairs
+(14) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Maybe.’	page 10, pairs, carries footnote 10, written here without its digit
+(15) line 1	Marty Aspinall	citation	CMA:	page 10, the initials of the turn's speaker
+(15) line 1	Nɬeʔkepmxcín	transcription	ské us nke nəst	page 10, pairs
+(15) line 2	Nɬeʔkepmxcín	segmentation	ské=us=nke nəst	page 10, pairs
+(15) line 3	Nɬeʔkepmxcín	gloss	PRSM=CNJ=INFER TAG	page 10, pairs
+(15) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I suppose they will (won’t they?).’	page 10, pairs
+(16) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(16) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ xwúy̓ nke néʔe ʔiƛ̓m néʔ stéʔ xwúy̓	page 10, pairs
+(16) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ xwúy̓=nke néʔe ʔiƛ̓-m néʔ s-téʔ xwúy̓	page 10, pairs
+(16) line 3	Nɬeʔkepmxcín	gloss	and FUT=INFER DEM sing-CTR.MID DEM NMLZ-what FUT	page 10, pairs
+(16) line 4	Nɬeʔkepmxcín	transcription	he square dancing	page 10, pairs
+(16) line 5	Nɬeʔkepmxcín	segmentation	he=square dancing	page 10, pairs
+(16) line 6	Nɬeʔkepmxcín	gloss	DET=square.dancing	page 10, pairs
+(16) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘We’re gonna have to sing while we’re square dancing.’	page 10, pairs
+(17) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(17) line 1	Nɬeʔkepmxcín	transcription	♪ súwle ke teteʔ eʔsnúk̓ʷeʔ ♪	page 10, pairs, carries footnote 11, written here without its digit
+(17) line 2	Nɬeʔkepmxcín	segmentation	súwle ke=te~téʔ eʔ-s-núk̓ʷeʔ	page 10, pairs
+(17) line 3	Nɬeʔkepmxcín	gloss	spin.around DET=PL~DEM 2SG.POSS-NMLZ-friend	page 10, pairs
+(17) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Swing your partner round and round.’	page 10, pairs
+(18) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(18) line 1	Nɬeʔkepmxcín	transcription	♪ súwle ke teteʔ eʔsnúk̓ʷeʔ ♪	page 10, pairs
+(18) line 2	Nɬeʔkepmxcín	segmentation	súwle ke=te~téʔ eʔ-s-núk̓ʷeʔ	page 10, pairs
+(18) line 3	Nɬeʔkepmxcín	gloss	spin.around DET=PL~DEM 2SG.POSS-NMLZ-friend	page 10, pairs
+(18) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Swing your partner round and round.’	page 10, pairs
+(19) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(19) line 1	Nɬeʔkepmxcín	transcription	stéʔ xwúy̓ceʔ	page 10, pairs
+(19) line 2	Nɬeʔkepmxcín	segmentation	s-téʔ xwúy̓ceʔ	page 10, pairs
+(19) line 3	Nɬeʔkepmxcín	gloss	NMLZ-what more	page 10, pairs
+(19) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘What else?’	page 10, pairs
+(20) line 1	Bernice Garcia	citation	KBG:	page 10, the initials of the turn's speaker
+(20) line 1	Nɬeʔkepmxcín	transcription	ʔex wiʔ néʔ ti e fiddle	page 10, pairs
+(20) line 2	Nɬeʔkepmxcín	segmentation	ʔex wiʔ néʔ ti e=fiddle	page 10, pairs
+(20) line 3	Nɬeʔkepmxcín	gloss	be EMPH DEM INT DET=fiddle	page 10, pairs
+(20) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And there’s a fiddle.’	page 10, pairs
+(21) line 1	Marty Aspinall	citation	CMA:	page 10, the initials of the turn's speaker
+(21) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ square dancing	page 10, pairs
+(21) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ square dancing	page 10, pairs
+(21) line 3	Nɬeʔkepmxcín	gloss	and square dancing	page 10, pairs
+(21) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And square dancing.’	page 10, pairs
+footnote 10	Ella Hannon, Anna Stacey and Reed Steiner	note	10 Translation not volunteered by consultant but form recognized by authors from previous elicitations.	page 10, footnote
+footnote 11	Ella Hannon, Anna Stacey and Reed Steiner	note	11 Music notes indicate that this was sung by the consultant.	page 10, footnote
+(22) line 1	Bernice Garcia	citation	KBG:	page 11, the initials of the turn's speaker
+(22) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 11, pairs
+(22) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 11, pairs
+(22) line 3	Nɬeʔkepmxcín	gloss	yes	page 11, pairs
+(22) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 11, pairs
+(23) line 1	Marty Aspinall	citation	CMA:	page 11, the initials of the turn's speaker
+(23) line 1	Nɬeʔkepmxcín	transcription	ʔex xwúy̓ néʔ ʔiƛ̓m t e dosie do e... e snúk̓ʷeʔ	page 11, pairs
+(23) line 2	Nɬeʔkepmxcín	segmentation	ʔéx=xwúy̓ néʔ ʔiƛ̓-m t=e=dosie do e e=s-núk̓ʷeʔ	page 11, pairs
+(23) line 3	Nɬeʔkepmxcín	gloss	be=FUT DEM sing-CTR.MID OBL=DET=dosie.do DET DET=NMLZ-friend	page 11, pairs
+(23) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are going to sing dosie do with their friend(s).’	page 11, pairs, carries footnote 12, written here without its digit
+(24) line 1	Bernice Garcia	citation	KBG:	page 11, the initials of the turn's speaker
+(24) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 11, pairs
+(24) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 11, pairs
+(24) line 3	Nɬeʔkepmxcín	gloss	yes	page 11, pairs
+(24) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 11, pairs
+(25) line 1	Marty Aspinall	citation	CMA:	page 11, the initials of the turn's speaker
+(25) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 11, pairs
+(25) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 11, pairs
+(25) line 3	Nɬeʔkepmxcín	gloss	yes	page 11, pairs
+(25) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 11, pairs
+(26) line 1	Bernice Garcia	citation	KBG:	page 11, the initials of the turn's speaker
+(26) line 1	Nɬeʔkepmxcín	transcription	ʔex ƛ̓əp néʔ cút nskíxzeʔ ekwu ʔeɬ ɬ nsk̓wóz May	page 11, pairs
+(26) line 2	Nɬeʔkepmxcín	segmentation	ʔéx ƛ̓əp néʔ cú-t n-skíxzeʔ ekwu ʔeɬ ɬ=n-sk̓wóz May	page 11, pairs
+(26) line 3	Nɬeʔkepmxcín	gloss	be MOD DEM say-TR 1POSS-mother REP and DET=1POSS-aunt May	page 11, pairs
+(26) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘[My mother said that] my Aunt May used to call at square dances.’	page 11, pairs
+(27) line 1	Bernice Garcia	citation	KBG:	page 11, the initials of the turn's speaker
+(27) line 1	Nɬeʔkepmxcín	transcription	nem ekwu cunwéns xéʔe	page 11, pairs
+(27) line 2	Nɬeʔkepmxcín	segmentation	nem=ekwu cu-nwén-s xéʔe	page 11, pairs
+(27) line 3	Nɬeʔkepmxcín	gloss	very=REP tell-NCTL-3POSS DEM	page 11, pairs
+(27) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘She was really good at it.’	page 11, pairs
+(28) line 1	Bernice Garcia	citation	KBG:	page 11, the initials of the turn's speaker
+(28) line 1	Nɬeʔkepmxcín	transcription	♪ súwle ke teteʔ eʔsnúk̓ʷeʔ súwle	page 11, pairs
+(28) line 2	Nɬeʔkepmxcín	segmentation	súwle ke=te~téʔ eʔ-s-núk̓ʷeʔ súwle	page 11, pairs
+(28) line 3	Nɬeʔkepmxcín	gloss	spin.around DET=PL~DEM 2SG.POSS-NMLZ-friend spin.around	page 11, pairs
+(28) line 4	Nɬeʔkepmxcín	transcription	ke teteʔ eʔsnúk̓ʷeʔ ʔeɬ	page 11, pairs
+(28) line 5	Nɬeʔkepmxcín	segmentation	k=te~te eʔ-s-nuk̓̓ʷeʔ ʔeɬ	page 11, pairs
+(28) line 6	Nɬeʔkepmxcín	gloss	D/C=PL~DEM 2SG.POSS-NMLZ-friend and	page 11, pairs
+(28) line 7	Nɬeʔkepmxcín	transcription	ɬ nc̕úm̕qsete ♪	page 11, pairs
+(28) line 8	Nɬeʔkepmxcín	segmentation	ɬ=n=c̓úm̓-qs-e-t-∅-e[s]	page 11, pairs
+(28) line 9	Nɬeʔkepmxcín	gloss	D/C=LOC=bump-nose-DIR-TR-3OBJ-3ERG	page 11, pairs
+(28) line 10	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Swing your partner round and round, swing your partner round and round and give her a kiss.’	page 11, pairs
+footnote 12	Ella Hannon, Anna Stacey and Reed Steiner	note	12 This verb, ʔex, is glossed as either ‘be’ or progressive depending on the context in which it appears.	page 11, footnote
+footnote 12	Nɬeʔkepmxcín	cited form	ʔex	page 11, ‘be’ or progressive
+(29) line 1	Bernice Garcia	citation	KBG:	page 12, the initials of the turn's speaker
+(29) line 1	Nɬeʔkepmxcín	transcription	pút	page 12, pairs
+(29) line 2	Nɬeʔkepmxcín	segmentation	pút	page 12, pairs
+(29) line 3	Nɬeʔkepmxcín	gloss	be.enough	page 12, pairs
+(29) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Enough.’	page 12, pairs
+(30) line 1	Marty Aspinall	citation	CMA:	page 12, the initials of the turn's speaker
+(30) line 1	Nɬeʔkepmxcín	transcription	teɬ te pút kn se ʔex he...	page 12, pairs
+(30) line 2	Nɬeʔkepmxcín	segmentation	teɬ te pút=kn se ʔex he	page 12, pairs
+(30) line 3	Nɬeʔkepmxcín	gloss	extend.straight NEG be.enough=1SG.SBJ PRSM be DET	page 12, pairs
+(30) line 4	Nɬeʔkepmxcín	transcription	eh stéʔ ƛ̓əm̓ e dance	page 12, pairs
+(30) line 5	Nɬeʔkepmxcín	segmentation	eh s-téʔ ƛ̓əm̓ e=dance	page 12, pairs
+(30) line 6	Nɬeʔkepmxcín	gloss	eh NMLZ-what PERF DET=dance	page 12, pairs
+(30) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I haven’t done enough dance.’	page 12, pairs
+(31) line 1	Bernice Garcia	citation	KBG:	page 12, the initials of the turn's speaker
+(31) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 12, pairs
+(31) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 12, pairs
+(31) line 3	Nɬeʔkepmxcín	gloss	yes	page 12, pairs
+(31) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 12, pairs
+(32) line 1	Marty Aspinall	citation	CMA:	page 12, the initials of the turn's speaker
+(32) line 1	Nɬeʔkepmxcín	transcription	ƛ̓éy	page 12, pairs
+(32) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓éy	page 12, pairs
+(32) line 3	Nɬeʔkepmxcín	gloss	women’s.dance	page 12, pairs
+(32) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Women’s dance.’	page 12, pairs
+(33) line 1	Bernice Garcia	citation	KBG:	page 12, the initials of the turn's speaker
+(33) line 1	Nɬeʔkepmxcín	transcription	sƛ̓éy	page 12, pairs
+(33) line 2	Nɬeʔkepmxcín	segmentation	s-ƛ̓éy	page 12, pairs
+(33) line 3	Nɬeʔkepmxcín	gloss	NMLZ-women’s.dance	page 12, pairs
+(33) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Women’s dance.’	page 12, pairs
+(34) line 1	Marty Aspinall	citation	CMA:	page 12, the initials of the turn's speaker
+(34) line 1	Nɬeʔkepmxcín	transcription	sƛ̓éy.	page 12, pairs
+(34) line 2	Nɬeʔkepmxcín	segmentation	s-ƛ̓éy	page 12, pairs
+(34) line 3	Nɬeʔkepmxcín	gloss	NMLZ-women’s.dance	page 12, pairs
+(34) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Women’s dance.’	page 12, pairs
+(35) line 1	Marty Aspinall	citation	CMA:	page 12, the initials of the turn's speaker
+(35) line 1	Nɬeʔkepmxcín	transcription	ƛ̓uʔ pút kn cúw e kn sƛ̓éy	page 12, pairs
+(35) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓uʔ pút=kn cúw e=kn s-ƛ̓éy	page 12, pairs
+(35) line 3	Nɬeʔkepmxcín	gloss	only be.enough=1SG.SBJ do DET=1SG.SBJ NMLZ-women’s.dance	page 12, pairs
+(35) line 4	Nɬeʔkepmxcín	transcription	ɬ k̓ʷmíʔmeʔ un	page 12, pairs
+(35) line 5	Nɬeʔkepmxcín	segmentation	ɬ=k̓ʷm~íʔmeʔ=un	page 12, pairs
+(35) line 6	Nɬeʔkepmxcín	gloss	DET=small~PRP=1SG.CNJ	page 12, pairs
+(35) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘When I was little, I didn’t do enough dancing.’	page 12, pairs
+(36) line 1	Bernice Garcia	citation	KBG:	page 12, the initials of the turn's speaker
+(36) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 12, pairs
+(36) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 12, pairs
+(36) line 3	Nɬeʔkepmxcín	gloss	yes	page 12, pairs
+(36) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 12, pairs
+(37) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(37) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 13, pairs
+(37) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 13, pairs
+(37) line 3	Nɬeʔkepmxcín	gloss	yes	page 13, pairs
+(37) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 13, pairs
+(38) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(38) line 1	Nɬeʔkepmxcín	transcription	təteʔ sx̣əksténe xéʔe	page 13, pairs
+(38) line 2	Nɬeʔkepmxcín	segmentation	təteʔ s-x̣ək-s-t-Ø-éne xéʔe	page 13, pairs
+(38) line 3	Nɬeʔkepmxcín	gloss	NEG NMLZ-know-CAUS-TR-3OBJ-1SG.ERG DEM	page 13, pairs
+(38) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I don’t know that.’	page 13, pairs
+(39) line 1	Bernice Garcia	citation	KBG:	page 13, the initials of the turn's speaker
+(39) line 1	Nɬeʔkepmxcín	transcription	ƛ̓úʔ xéʔe	page 13, pairs
+(39) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓úʔ xéʔe	page 13, pairs
+(39) line 3	Nɬeʔkepmxcín	gloss	only DEM	page 13, pairs
+(39) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Just that one.’	page 13, pairs
+(40) line 1	Bernice Garcia	citation	KBG:	page 13, the initials of the turn's speaker
+(40) line 1	Nɬeʔkepmxcín	transcription	ʔéy ƛ̓úʔ ʔex kwu ʔex kwu xwúy̓ e cúwnwén̓xw	page 13, pairs
+(40) line 2	Nɬeʔkepmxcín	segmentation	ʔéy ƛ̓úʔ ʔex=kwu ʔex=kwu xwúy̓ e=cúw-nwén̓-xw	page 13, pairs
+(40) line 3	Nɬeʔkepmxcín	gloss	yes only be=REP be=REP FUT D/C=do-NCTL-2SG.ERG	page 13, pairs
+(40) line 4	Nɬeʔkepmxcín	transcription	stéʔ xwúy̓ ƛ̓əm̓ xéʔ e Irish jig	page 13, pairs
+(40) line 5	Nɬeʔkepmxcín	segmentation	s-téʔ xwúy̓ ƛ̓əm̓ xéʔ e=Irish jig	page 13, pairs
+(40) line 6	Nɬeʔkepmxcín	gloss	NMLZ-what FUT PFV DEM DET=Irish jig	page 13, pairs
+(40) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘But you know how to do the Irish jig.’	page 13, pairs
+(41) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(41) line 1	Nɬeʔkepmxcín	transcription	the Irish... cúwte ʔéy	page 13, pairs
+(41) line 2	Nɬeʔkepmxcín	segmentation	the Irish cúw-t-e ʔéy	page 13, pairs
+(41) line 3	Nɬeʔkepmxcín	gloss	the Irish do-TR-1SG.ERG yes	page 13, pairs
+(41) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yeah, the Irish jig.’	page 13, pairs
+(42) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(42) line 1	Nɬeʔkepmxcín	transcription	yeah e c̓íy téʔe k̓ém̓eɬx̓ém̓eɬ xéʔe	page 13, pairs
+(42) line 2	Nɬeʔkepmxcín	segmentation	yeah e=c̓íy téʔe k̓ém̓eɬ~x̓ém̓eɬ xéʔe	page 13, pairs
+(42) line 3	Nɬeʔkepmxcín	gloss	yeah D/C=like.that NEG CONTR~AUG DEM	page 13, pairs
+(42) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yeah, like that, not like this.’	page 13, pairs
+(43) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(43) line 1	Nɬeʔkepmxcín	transcription	c̓é ƛ̓ixʷeƛ̓ixwes xéʔe	page 13, pairs
+(43) line 2	Nɬeʔkepmxcín	segmentation	c̓é ƛ̓ixwe~ƛ̓ixwe-s xéʔe	page 13, pairs
+(43) line 3	Nɬeʔkepmxcín	gloss	EMPH.INT different~PL-3POSS DEM	page 13, pairs
+(43) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re different.’	page 13, pairs
+(44) line 1	Bernice Garcia	citation	KBG:	page 13, the initials of the turn's speaker
+(44) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 13, pairs
+(44) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 13, pairs
+(44) line 3	Nɬeʔkepmxcín	gloss	yes	page 13, pairs
+(44) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 13, pairs
+(45) line 1	Marty Aspinall	citation	CMA:	page 13, the initials of the turn's speaker
+(45) line 1	Nɬeʔkepmxcín	transcription	ʔéy ʔes e… nem ʔes x̣əksténe wéʔ	page 13, pairs
+(45) line 2	Nɬeʔkepmxcín	segmentation	ʔéy ʔes e… nem ʔes-x̣ək-s-t-∅-éne wéʔ	page 13, pairs
+(45) line 3	Nɬeʔkepmxcín	gloss	yes STAT eh… very STAT-know-CAUS-TR-3OBJ-1SG.ERG DEM	page 13, pairs
+(45) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘But I know the motions of that [square dancing].’	page 13, pairs
+(46) line 1	Marty Aspinall	citation	CMA:	page 14, the initials of the turn's speaker
+(46) line 1	Nɬeʔkepmxcín	transcription	y̓émíns xéʔ eh eh and eh… y̓émíns	page 14, pairs
+(46) line 2	Nɬeʔkepmxcín	segmentation	y̓é-mín-s xéʔ eh eh and eh… y̓é-mín-s	page 14, pairs
+(46) line 3	Nɬeʔkepmxcín	gloss	good-RLT-3ERG DET eh eh and eh… good-RLT-3ERG	page 14, pairs
+(46) line 4	Nɬeʔkepmxcín	transcription	e séytknmx ws ʔex wéʔ e témn̓ ʔes…	page 14, pairs
+(46) line 5	Nɬeʔkepmxcín	segmentation	e=séytkn-mx=ws ʔex wéʔ e=témn̓ ʔes…	page 14, pairs
+(46) line 6	Nɬeʔkepmxcín	gloss	DET=people-person=CNJ be DEM D/C=then STAT	page 14, pairs
+(46) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The people used to, they like(d) that kind of music.’	page 14, pairs
+(47) line 1	Bernice Garcia	citation	KBG:	page 14, the initials of the turn's speaker
+(47) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 14, pairs
+(47) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 14, pairs
+(47) line 3	Nɬeʔkepmxcín	gloss	yes	page 14, pairs
+(47) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 14, pairs
+(48) line 1	Marty Aspinall	citation	CMA:	page 14, the initials of the turn's speaker
+(48) line 1	Nɬeʔkepmxcín	transcription	ʔe séy̓siʔs	page 14, pairs
+(48) line 2	Nɬeʔkepmxcín	segmentation	ʔe=séy̓siʔ-s	page 14, pairs
+(48) line 3	Nɬeʔkepmxcín	gloss	D/C=play-3POSS	page 14, pairs
+(48) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They would play.’	page 14, pairs
+(49) line 1	Bernice Garcia	citation	KBG:	page 14, the initials of the turn's speaker
+(49) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 14, pairs
+(49) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 14, pairs
+(49) line 3	Nɬeʔkepmxcín	gloss	yes	page 14, pairs
+(49) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 14, pairs
+(50) line 1	Marty Aspinall	citation	CMA:	page 14, the initials of the turn's speaker
+(50) line 1	Nɬeʔkepmxcín	transcription	siʔséy̓siʔs e meɬ nʔéye ukt	page 14, pairs
+(50) line 2	Nɬeʔkepmxcín	segmentation	siʔséy̓siʔ-s e meɬ nʔéye u=kt	page 14, pairs
+(50) line 3	Nɬeʔkepmxcín	gloss	several.play-3ERG INT CNSQ here to=1PL.SBJ	page 14, pairs
+(50) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re playing their instruments.’	page 14, pairs
+(51) line 1	Bernice Garcia	citation	KBG:	page 14, the initials of the turn's speaker
+(51) line 1	Nɬeʔkepmxcín	transcription	ske wéwetiyxs e séytknmx	page 14, pairs
+(51) line 2	Nɬeʔkepmxcín	segmentation	ske wéw-[n]-t-iyxs e=séytkn-mx	page 14, pairs
+(51) line 3	Nɬeʔkepmxcín	gloss	PRSM call-DIR-TR-3PL DET=people-person	page 14, pairs
+(51) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They call the people.’	page 14, pairs
+(52) line 1	Bernice Garcia	citation	KBG:	page 14, the initials of the turn's speaker
+(52) line 1	Nɬeʔkepmxcín	transcription	c̓é ɬ wéw wə ʔéye néʔ piʔstéʔ us e ks	page 14, pairs
+(52) line 2	Nɬeʔkepmxcín	segmentation	c̓é ɬ=wéw wə ʔéye néʔ piʔstéʔ us e k=s	page 14, pairs
+(52) line 3	Nɬeʔkepmxcín	gloss	EMPH.INT D/C=call PREP here DEM when CNJ INT D/C=NMLZ	page 14, pairs
+(52) line 4	Nɬeʔkepmxcín	transcription	ɬ xwúy̓ k c̓é séy̓siʔme xwúy̓ te móqwíyxs	page 14, pairs
+(52) line 5	Nɬeʔkepmxcín	segmentation	ɬ=xwúy̓=k c̓é séy̓siʔ-me xwúy̓ t=e=móqw-íyxs	page 14, pairs
+(52) line 6	Nɬeʔkepmxcín	gloss	D/C=FUT=D/C EMPH.INT play-INDF.ERG FUT OBL=DET=gather-3PL	page 14, pairs
+(52) line 7	Nɬeʔkepmxcín	transcription	ʔeɬ t xwúy̓kt séy̓siʔ	page 14, pairs
+(52) line 8	Nɬeʔkepmxcín	segmentation	ʔe t=xwúy̓=kt séy̓siʔ	page 14, pairs
+(52) line 9	Nɬeʔkepmxcín	gloss	and OBL=FUT=1PL.SBJ play	page 14, pairs
+(52) line 10	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They call the people that they were going to gather and they were going to play the instruments.’	page 14, pairs
+(53) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(53) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 15, pairs
+(53) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 15, pairs
+(53) line 3	Nɬeʔkepmxcín	gloss	yes	page 15, pairs
+(53) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 15, pairs
+(54) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(54) line 1	Nɬeʔkepmxcín	transcription	e xwúy̓ témn̓ k séws eh séytknmx xwúy̓ xeym té	page 15, pairs
+(54) line 2	Nɬeʔkepmxcín	segmentation	e=xwúy̓ témn̓ k=séw-s eh séytkn-mx xwúy̓ xeym té	page 15, pairs
+(54) line 3	Nɬeʔkepmxcín	gloss	DET=FUT then D/C=ask-3ERG eh people-person FUT indeed DEM	page 15, pairs
+(54) line 4	Nɬeʔkepmxcín	transcription	témn̓ e meɬ snes wéʔ… mín pumínms…	page 15, pairs
+(54) line 5	Nɬeʔkepmxcín	segmentation	témn̓ e meɬ s=nes wéʔ mín pu-mín-m-s	page 15, pairs
+(54) line 6	Nɬeʔkepmxcín	gloss	then INT CNSQ NMLZ=INCIP DEM RLT drum-RLT-INDF.ERG-3POSS	page 15, pairs
+(54) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They asked the people, and they began to drum.’	page 15, pairs
+(55) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(55) line 1	Nɬeʔkepmxcín	transcription	téʔə	page 15, pairs
+(55) line 2	Nɬeʔkepmxcín	segmentation	téʔə	page 15, pairs
+(55) line 3	Nɬeʔkepmxcín	gloss	NEG	page 15, pairs
+(55) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Nope.’	page 15, pairs
+(56) line 1	Bernice Garcia	citation	KBG:	page 15, the initials of the turn's speaker
+(56) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 15, pairs
+(56) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 15, pairs
+(56) line 3	Nɬeʔkepmxcín	gloss	yes	page 15, pairs
+(56) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 15, pairs
+(57) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(57) line 1	Nɬeʔkepmxcín	transcription	...te loud	page 15, pairs
+(57) line 2	Nɬeʔkepmxcín	segmentation	t=e=loud	page 15, pairs
+(57) line 3	Nɬeʔkepmxcín	gloss	OBL=DET=loud	page 15, pairs
+(57) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It was loud.’	page 15, pairs
+(58) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(58) line 1	Nɬeʔkepmxcín	transcription	pumínms te… tk […] e	page 15, pairs
+(58) line 2	Nɬeʔkepmxcín	segmentation	pu-mín-m-s t=e… t=k […] e	page 15, pairs
+(58) line 3	Nɬeʔkepmxcín	gloss	drum-RLT-INDF.ERG-3POSS OBL=DET OBL=DET INT	page 15, pairs
+(58) line 4	Nɬeʔkepmxcín	transcription	k sqeʔníms tékm e séytknmx e meɬ néʔ	page 15, pairs
+(58) line 5	Nɬeʔkepmxcín	segmentation	k=s=qeʔním-s tékm e=séytkn-mx e meɬ néʔ	page 15, pairs
+(58) line 6	Nɬeʔkepmxcín	gloss	D/C=NMLZ=hear-3POSS all DET=people-person INT CNSQ DEM	page 15, pairs
+(58) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They were drumming so all the people can hear.’	page 15, pairs
+(59) line 1	Marty Aspinall	citation	CMA:	page 15, the initials of the turn's speaker
+(59) line 1	Nɬeʔkepmxcín	transcription	x̣wúy̓tx̣wúy̓t ƛ̓əm̓ stéʔ wéʔ ʔex citxw xwúy̓	page 15, pairs
+(59) line 2	Nɬeʔkepmxcín	segmentation	x̣wúy̓t~x̣wúy̓t ƛ̓əm̓ s-téʔ wéʔ ʔex citxw xwúy̓	page 15, pairs
+(59) line 3	Nɬeʔkepmxcín	gloss	PL~go.out PERF NMLZ-what DEM be house FUT	page 15, pairs
+(59) line 4	Nɬeʔkepmxcín	transcription	ks ʔes néʔis ʔes cút c̓iye e meɬ nes	page 15, pairs
+(59) line 5	Nɬeʔkepmxcín	segmentation	k=s-ʔes-néʔis ʔes-cút c̓iye e meɬ nes	page 15, pairs
+(59) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-STAT-people.go STAT-get.ready EMPH.INT INT CNSQ INCIP	page 15, pairs
+(59) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They would go out the doors and hear the drum and they’d know so they’d all get ready to go out for the evening.’	page 15, pairs
+(60) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(60) line 1	Nɬeʔkepmxcín	transcription	ʔes pumínems tékm swét ʔeɬ ʔiƛ̓m	page 16, pairs
+(60) line 2	Nɬeʔkepmxcín	segmentation	ʔes-pu-mín-em-s tékm s-wét ʔeɬ ʔiƛ̓-m	page 16, pairs
+(60) line 3	Nɬeʔkepmxcín	gloss	STAT-drum-RLT-INDF.ERG-3POSS all NMLZ-who and sing-CTR.MID	page 16, pairs
+(60) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They all would drum and sing.’	page 16, pairs
+(61) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(61) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ q̓axném oo tk q̓axném ʔes ew̓kt	page 16, pairs, carries footnote 13, written here without its digit
+(61) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ q̓axném oo t=k=q̓axném ʔes-ew̓=kt	page 16, pairs
+(61) line 3	Nɬeʔkepmxcín	gloss	and holler oh OBL=D/C=holler STAT-gather=1PL.SBJ	page 16, pairs
+(61) line 4	Nɬeʔkepmxcín	transcription	te séytknmx	page 16, pairs
+(61) line 5	Nɬeʔkepmxcín	segmentation	t=e=séytkn-mx	page 16, pairs
+(61) line 6	Nɬeʔkepmxcín	gloss	OBL=DET=people-person	page 16, pairs
+(61) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And some would be able to holler.’	page 16, pairs
+(62) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(62) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e meɬ nes ʔes…	page 16, pairs
+(62) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e meɬ nes ʔes…	page 16, pairs
+(62) line 3	Nɬeʔkepmxcín	gloss	and INT CNSQ INCIP STAT	page 16, pairs
+(62) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And then they would…’	page 16, pairs
+(63) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(63) line 1	Nɬeʔkepmxcín	transcription	ɬépne ƛ̓əm̓ ʔex nwéntne dance	page 16, pairs
+(63) line 2	Nɬeʔkepmxcín	segmentation	ɬép-ne ƛ̓əm̓ ʔex nwén-t-∅-ene dance	page 16, pairs
+(63) line 3	Nɬeʔkepmxcín	gloss	forget-1SG.ERG PFV be NCTL-TR-3OBJ-1SG.ERG dance	page 16, pairs
+(63) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I forgot the word for dance.’	page 16, pairs
+(64) line 1	Bernice Garcia	citation	KBG:	page 16, the initials of the turn's speaker
+(64) line 1	Bernice Garcia	running speech	Square dancing?	page 16, pairs
+(65) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(65) line 1	Nɬeʔkepmxcín	transcription	…sƛ̓éy	page 16, pairs
+(65) line 2	Nɬeʔkepmxcín	segmentation	s-ƛ̓éy	page 16, pairs
+(65) line 3	Nɬeʔkepmxcín	gloss	NMLZ-women’s.dance	page 16, pairs
+(65) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The sƛ̓éy.’	page 16, pairs
+(66) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(66) line 1	Marty Aspinall	running speech	Hm?	page 16, pairs
+(67) line 1	Bernice Garcia	citation	KBG:	page 16, the initials of the turn's speaker
+(67) line 1	Nɬeʔkepmxcín	transcription	square dancing us	page 16, pairs
+(67) line 2	Nɬeʔkepmxcín	segmentation	square dancing=us	page 16, pairs
+(67) line 3	Nɬeʔkepmxcín	gloss	square dancing=CNJ	page 16, pairs
+(67) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Square dancing [suggestion].’	page 16, pairs
+(68) line 1	Marty Aspinall	citation	CMA:	page 16, the initials of the turn's speaker
+(68) line 1	Nɬeʔkepmxcín	transcription	te... téʔe	page 16, pairs
+(68) line 2	Nɬeʔkepmxcín	segmentation	te téʔe	page 16, pairs
+(68) line 3	Nɬeʔkepmxcín	gloss	NEG NEG	page 16, pairs
+(68) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘No... no.’	page 16, pairs
+footnote 13	Ella Hannon, Anna Stacey and Reed Steiner	note	13 This word does not appear in the dictionary (Thompson & Thompson 1996); this translation was given by the consultant.	page 16, footnote
+(69) line 1	Marty Aspinall	citation	CMA:	page 17, the initials of the turn's speaker
+(69) line 1	Nɬeʔkepmxcín	transcription	eh ɬ ʔex us...	page 17, pairs
+(69) line 2	Nɬeʔkepmxcín	segmentation	eh ɬ=ʔex=us	page 17, pairs
+(69) line 3	Nɬeʔkepmxcín	gloss	eh D/C=be=CNJ	page 17, pairs
+(69) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And then they would...’	page 17, pairs
+(70) line 1	Bernice Garcia	citation	KBG:	page 17, the initials of the turn's speaker
+(70) line 1	Nɬeʔkepmxcín	transcription	kéʔ us stéʔ	page 17, pairs
+(70) line 2	Nɬeʔkepmxcín	segmentation	kéʔ=us s-téʔ	page 17, pairs
+(70) line 3	Nɬeʔkepmxcín	gloss	Q=CNJ NMLZ-what	page 17, pairs
+(70) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Which one?’	page 17, pairs
+(71) line 1	Marty Aspinall	citation	CMA:	page 17, the initials of the turn's speaker
+(71) line 1	Nɬeʔkepmxcín	transcription	néʔ ʔéy	page 17, pairs
+(71) line 2	Nɬeʔkepmxcín	segmentation	néʔ ʔéy	page 17, pairs
+(71) line 3	Nɬeʔkepmxcín	gloss	DEM yes	page 17, pairs
+(71) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘That one.’	page 17, pairs
+(72) line 1	Bernice Garcia	citation	KBG:	page 17, the initials of the turn's speaker
+(72) line 1	Nɬeʔkepmxcín	transcription	ƛ̓̓́íxweɬ ʔíy néʔe	page 17, pairs
+(72) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓íxweɬ ʔíy néʔe	page 17, pairs
+(72) line 3	Nɬeʔkepmxcín	gloss	different yes DEM	page 17, pairs
+(72) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘That one’s different.’	page 17, pairs, carries footnote 14, written here without its digit
+(73) line 1	Bernice Garcia	citation	KBG:	page 17, the initials of the turn's speaker
+(73) line 1	Nɬeʔkepmxcín	transcription	ƛ̓íxweɬ e wiʔ xéʔe sƛ̓éy	page 17, pairs
+(73) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓íxweɬ e=wiʔ xéʔe s-ƛ̓éy	page 17, pairs
+(73) line 3	Nɬeʔkepmxcín	gloss	different D/C=EMPH DEM NMLZ-women’s.dance	page 17, pairs
+(73) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The sƛ̓éy is different.’	page 17, pairs
+(74) line 1	Marty Aspinall	citation	CMA:	page 17, the initials of the turn's speaker
+(74) line 1	Nɬeʔkepmxcín	transcription	heʔéy sƛ̓éy	page 17, pairs
+(74) line 2	Nɬeʔkepmxcín	segmentation	heʔéy s-ƛ̓éy	page 17, pairs
+(74) line 3	Nɬeʔkepmxcín	gloss	yes NMLZ-women’s.dance	page 17, pairs
+(74) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes, the sƛ̓éy.’	page 17, pairs
+(75) line 1	Marty Aspinall	citation	CMA:	page 17, the initials of the turn's speaker
+(75) line 1	Nɬeʔkepmxcín	transcription	e meɬ nes ʔe k sƛ̓éy ʔes wə	page 17, pairs
+(75) line 2	Nɬeʔkepmxcín	segmentation	e meɬ nes ʔe k=s-ƛ̓éy ʔes=wə	page 17, pairs
+(75) line 3	Nɬeʔkepmxcín	gloss	INT CNSQ INCIP INT D/C=NMLZ-women’s.dance STAT=PREP	page 17, pairs
+(75) line 4	Nɬeʔkepmxcín	transcription	e smumúɬec	page 17, pairs
+(75) line 5	Nɬeʔkepmxcín	segmentation	e=s-mu~múɬec	page 17, pairs
+(75) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-PL~woman	page 17, pairs
+(75) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the women would dance with each other.’	page 17, pairs
+(76) line 1	Marty Aspinall	citation	CMA:	page 17, the initials of the turn's speaker
+(76) line 1	Nɬeʔkepmxcín	transcription	ʔex ʔiƛ̓m	page 17, pairs
+(76) line 2	Nɬeʔkepmxcín	segmentation	ʔex ʔiƛ̓-m	page 17, pairs
+(76) line 3	Nɬeʔkepmxcín	gloss	be sing-CTR.MID	page 17, pairs
+(76) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They would sing.’	page 17, pairs
+footnote 14	Ella Hannon, Anna Stacey and Reed Steiner	note	14 Speech from lines (68) to (73) is overlapping and difficult to decipher due to this. What is presented here is what could be deciphered (both by the authors and the consultants).	page 17, footnote
+(77) line 1	Bernice Garcia	citation	KBG:	page 18, the initials of the turn's speaker
+(77) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 18, pairs
+(77) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 18, pairs
+(77) line 3	Nɬeʔkepmxcín	gloss	yes	page 18, pairs
+(77) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 18, pairs
+(78) line 1	Marty Aspinall	citation	CMA:	page 18, the initials of the turn's speaker
+(78) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ xeym tʔé tʔé témn̓ swéwtiyxs e séytknmx	page 18, pairs
+(78) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ xeym tʔé tʔé témn̓ s=wéw-t-iyxs e=séytkn-mx	page 18, pairs
+(78) line 3	Nɬeʔkepmxcín	gloss	and indeed DEM DEM then NMLZ=call-TR-3PL DET=people-person	page 18, pairs
+(78) line 4	Nɬeʔkepmxcín	transcription	kwntiyxs e néʔ eh s ʔe sutn	page 18, pairs
+(78) line 5	Nɬeʔkepmxcín	segmentation	kwn-t-iyxs e=néʔ eh s ʔe=sutn	page 18, pairs
+(78) line 6	Nɬeʔkepmxcín	gloss	get-TR-3PL D/C=DEM eh s DET=thing	page 18, pairs
+(78) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Long time ago, when the women used to gather and dance, they would call the people, and they grabbed something.’	page 18, pairs
+(79) line 1	Marty Aspinall	citation	CMA:	page 18, the initials of the turn's speaker
+(79) line 1	Nɬeʔkepmxcín	transcription	e violin e meɬ nes qeʔnímetiyxs e séytknmx	page 18, pairs
+(79) line 2	Nɬeʔkepmxcín	segmentation	e=violin e meɬ nes qeʔním-e-t-iyxs e=séytkn-mx	page 18, pairs
+(79) line 3	Nɬeʔkepmxcín	gloss	DET=violin INT CNSQ INCIP hear-DIR-TR-3PL DET=people-person	page 18, pairs
+(79) line 4	Nɬeʔkepmxcín	transcription	ʔes… ʔes néʔís cúw c̓iy ʔeɬ x̣əkstíyxs	page 18, pairs
+(79) line 5	Nɬeʔkepmxcín	segmentation	ʔes… ʔes=neʔís cúw c̓iy ʔeɬ x̣ək-s-t-íyxs	page 18, pairs
+(79) line 6	Nɬeʔkepmxcín	gloss	STAT STAT=people.go do EMPH and know-CAUS-TR-3PL	page 18, pairs
+(79) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Someone would play the violin, and the neighbours would be able to hear it from across the river and up the valley, and they’d know it was time to gather.’	page 18, pairs
+(80) line 1	Marty Aspinall	citation	CMA:	page 18, the initials of the turn's speaker
+(80) line 1	Nɬeʔkepmxcín	transcription	xwúy̓ néʔís e sxwákws t skwís ʔiƛ̓m	page 18, pairs
+(80) line 2	Nɬeʔkepmxcín	segmentation	xwúy̓ néʔís e=s=xwákʷ-s t=s-kwís ʔiƛ̓-m	page 18, pairs
+(80) line 3	Nɬeʔkepmxcín	gloss	FUT people.go D/C=NMLZ=desire-3POSS OBL=NMLZ-fall sing-CTR.MID	page 18, pairs
+(80) line 4	Nɬeʔkepmxcín	transcription	ʔeɬ xwúy̓ k qeʔním néʔ néʔ tk ʔìy…. eh tk…	page 18, pairs
+(80) line 5	Nɬeʔkepmxcín	segmentation	ʔeɬ xwúy̓ k=qeʔním néʔ néʔ t=k=ʔìy eh t=k	page 18, pairs
+(80) line 6	Nɬeʔkepmxcín	gloss	and FUT D/C=hear DEM DEM OBL=D/C=good eh OBL=D/C	page 18, pairs
+(80) line 7	Nɬeʔkepmxcín	transcription	tk siƛ̓m ʔeɬ ɬe ʔeɬ xwúy̓	page 18, pairs
+(80) line 8	Nɬeʔkepmxcín	segmentation	t=k=s-iƛ̓-m ʔeɬ ɬe ʔeɬ xwúy̓	page 18, pairs
+(80) line 9	Nɬeʔkepmxcín	gloss	OBL=D/C=NMLZ-sing-CTR.MID and DEM and FUT	page 18, pairs
+(80) line 10	Nɬeʔkepmxcín	transcription	k sƛ̓éy ʔéy	page 18, pairs
+(80) line 11	Nɬeʔkepmxcín	segmentation	k=s=ƛ̓éy ʔéy	page 18, pairs
+(80) line 12	Nɬeʔkepmxcín	gloss	D/C=NMLZ=women’s.dance yes	page 18, pairs
+(80) line 13	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They would gather and people would sing and dance and people would feel good.’	page 18, pairs
+(81) line 1	Bernice Garcia	citation	KBG:	page 18, the initials of the turn's speaker
+(81) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 18, pairs
+(81) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 18, pairs
+(81) line 3	Nɬeʔkepmxcín	gloss	yes	page 18, pairs
+(81) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 18, pairs
+(82) line 1	Marty Aspinall	citation	CMA:	page 18, the initials of the turn's speaker
+(82) line 1	Nɬeʔkepmxcín	transcription	ʔìy e meɬ xéʔ	page 18, pairs
+(82) line 2	Nɬeʔkepmxcín	segmentation	ʔìy e meɬ xéʔ	page 18, pairs
+(82) line 3	Nɬeʔkepmxcín	gloss	good INT CNSQ DEM	page 18, pairs
+(82) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It was good.’	page 18, pairs
+(83) line 1	Bernice Garcia	citation	KBG:	page 19, the initials of the turn's speaker
+(83) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ naʕʔíp néʔ ɬaʔx̣stis e sɬaʔx̣áns	page 19, pairs
+(83) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ naʕʔíp néʔ ɬaʔx̣-s-t-i-s e=s-ɬaʔx̣-áns	page 19, pairs
+(83) line 3	Nɬeʔkepmxcín	gloss	and always DEM eat-CAUS-TR-1PL.OBJ-3ERG DET=NMLZ-eat-tooth	page 19, pairs
+(83) line 4	Nɬeʔkepmxcín	transcription	k̓ʷmíʔmeʔ t e... te sɬaʔx̣áns ʔéy	page 19, pairs
+(83) line 5	Nɬeʔkepmxcín	segmentation	k̓ʷm~íʔmeʔ t=e t=e=s-ɬaʔx̣-áns ʔéy	page 19, pairs
+(83) line 6	Nɬeʔkepmxcín	gloss	small~PRP OBL=DET OBL=DET=NMLZ-eat-tooth yes	page 19, pairs
+(83) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And they would always bring food with them, they would bring out a little bit of food each.’	page 19, pairs
+(84) line 1	Marty Aspinall	citation	CMA:	page 19, the initials of the turn's speaker
+(84) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 19, pairs
+(84) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 19, pairs
+(84) line 3	Nɬeʔkepmxcín	gloss	yes	page 19, pairs
+(84) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 19, pairs
+(85) line 1	Bernice Garcia	citation	KBG:	page 19, the initials of the turn's speaker
+(85) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 19, pairs
+(85) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 19, pairs
+(85) line 3	Nɬeʔkepmxcín	gloss	yes	page 19, pairs
+(85) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 19, pairs
+§4.2	Ella Hannon, Anna Stacey and Reed Steiner	heading	4.2 Conversation 2	page 19
+footnote 15	Ella Hannon, Anna Stacey and Reed Steiner	note	15 Photo by pixabay user Ronile: https://pixabay.com/photos/canada-goose-chick-branta-canadensis-273732/	page 19, footnote
+§4.2	Ella Hannon, Anna Stacey and Reed Steiner	note	Figure 2: A family of geese setting off into the water.15	page 19
+(86) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(86) line 1	Nɬeʔkepmxcín	transcription	ʔe sx̣íq	page 20, pairs
+(86) line 2	Nɬeʔkepmxcín	segmentation	ʔe s-x̣íq	page 20, pairs
+(86) line 3	Nɬeʔkepmxcín	gloss	DET NMLZ-duck	page 20, pairs
+(86) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Duck.’	page 20, pairs
+(87) line 1	Bernice Garcia	citation	KBG:	page 20, the initials of the turn's speaker
+(87) line 1	Nɬeʔkepmxcín	transcription	sx̣əqx̣íq	page 20, pairs
+(87) line 2	Nɬeʔkepmxcín	segmentation	s-x̣əq~x̣íq	page 20, pairs
+(87) line 3	Nɬeʔkepmxcín	gloss	NMLZ-PL~duck	page 20, pairs
+(87) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Ducks.’	page 20, pairs
+(88) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(88) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 20, pairs
+(88) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 20, pairs
+(88) line 3	Nɬeʔkepmxcín	gloss	yes	page 20, pairs
+(88) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 20, pairs
+(89) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(89) line 1	Nɬeʔkepmxcín	transcription	sx̣əqx̣íq	page 20, pairs
+(89) line 2	Nɬeʔkepmxcín	segmentation	s-x̣əq~x̣íq	page 20, pairs
+(89) line 3	Nɬeʔkepmxcín	gloss	NMLZ-PL~duck	page 20, pairs
+(89) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Ducks.’	page 20, pairs
+(90) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(90) line 1	Nɬeʔkepmxcín	transcription	ʔúkʷuntiyxs e sx̣əqx̣íq	page 20, engine language
+(90) line 2	Nɬeʔkepmxcín	segmentation	ʔúkʷu-n-t-∅-iyxs e=s-x̣əq~x̣íq	page 20, engine language
+(90) line 3	Nɬeʔkepmxcín	gloss	deliver-DIR-TR-3OBJ-3PL DET=NMLZ-PL~duck	page 20, engine english
+(90) line 4	Nɬeʔkepmxcín	transcription	e scmey̓ts wə qʷoʔ	page 20, engine language
+(90) line 5	Nɬeʔkepmxcín	segmentation	e=s-cm-ey̓t-s wə=qʷoʔ	page 20, engine language
+(90) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-small-agent-3POSS to=water	page 20, engine english
+(90) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They brought their children to the water.’	page 20, engine english
+(91) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(91) line 1	Marty Aspinall	running speech	Did that sound right?	page 20, pairs
+(92) line 1	Marty Aspinall	citation	CMA:	page 20, the initials of the turn's speaker
+(92) line 1	Nɬeʔkepmxcín	transcription	ʔúkʷuntiyxs ʔe scmey̓ts	page 20, pairs
+(92) line 2	Nɬeʔkepmxcín	segmentation	ʔúkʷu-n-t-∅-iyxs ʔe=s-cm-ey̓t-s	page 20, pairs
+(92) line 3	Nɬeʔkepmxcín	gloss	deliver-DIR-TR-3OBJ-3PL DET=NMLZ-small-agent-3POSS	page 20, pairs
+(92) line 4	Nɬeʔkepmxcín	transcription	ʔe sx̣əqx̣íq	page 20, pairs
+(92) line 5	Nɬeʔkepmxcín	segmentation	ʔe=s-x̣əq~x̣íq	page 20, pairs
+(92) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-PL~duck	page 20, pairs
+(92) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They brought their children.’	page 20, pairs
+(93) line 1	Bernice Garcia	citation	KBG:	page 20, the initials of the turn's speaker
+(93) line 1	Bernice Garcia	running speech	I would say…	page 20, pairs
+(94) line 1	Bernice Garcia	citation	KBG:	page 20, the initials of the turn's speaker
+(94) line 1	Nɬeʔkepmxcín	transcription	nem nuk q̓íym neʔ xéʔe… cmíʔmeʔ…	page 20, pairs
+(94) line 2	Nɬeʔkepmxcín	segmentation	nem=nukʷ q̓íy-m neʔ xéʔe cm~íʔmeʔ	page 20, pairs
+(94) line 3	Nɬeʔkepmxcín	gloss	very=SENSE cook-CTR.MID DEM DEM small~PRP	page 20, pairs
+(94) line 4	Nɬeʔkepmxcín	transcription	tə sx̣əqx̣íq	page 20, pairs
+(94) line 5	Nɬeʔkepmxcín	segmentation	t=ə=s-x̣əq~x̣íq	page 20, pairs
+(94) line 6	Nɬeʔkepmxcín	gloss	OBL=DET=NMLZ-PL~duck	page 20, pairs
+(94) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘My dad really liked to eat the ducklings.’	page 20, pairs
+(95) line 1	Marty Aspinall	citation	CMA:	page 21, the initials of the turn's speaker
+(95) line 1	Marty Aspinall	running speech	Must be getting close to noon, Bernice, you getting hungry?	page 21, pairs
+(96) line 1	Bernice Garcia	citation	KBG:	page 21, the initials of the turn's speaker
+(96) line 1	Nɬeʔkepmxcín	transcription	ɬéʔe wíkne xéʔe meɬ nes téyt	page 21, pairs
+(96) line 2	Nɬeʔkepmxcín	segmentation	ɬeʔe wík-∅-ne xéʔe meɬ nes téy-t	page 21, pairs
+(96) line 3	Nɬeʔkepmxcín	gloss	DEM see-3OBJ-1SG.ERG DEM CNSQ INCIP hunger-IM	page 21, pairs
+(96) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I haven’t seen that for a while and now I’m hungry.’	page 21, pairs
+(97) line 1	Marty Aspinall	citation	CMA:	page 21, the initials of the turn's speaker
+(97) line 1	Nɬeʔkepmxcín	transcription	ʔéy ʔéy	page 21, pairs
+(97) line 2	Nɬeʔkepmxcín	segmentation	ʔéy ʔéy	page 21, pairs
+(97) line 3	Nɬeʔkepmxcín	gloss	yes yes	page 21, pairs
+(97) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes, yes.’	page 21, pairs
+(98) line 1	Bernice Garcia	citation	KBG:	page 21, the initials of the turn's speaker
+(98) line 1	Nɬeʔkepmxcín	transcription	ʔex xʔe ʔúpis n-sqáczeʔ	page 21, pairs
+(98) line 2	Nɬeʔkepmxcín	segmentation	ʔex xʔe ʔúpi-∅-s n-s-qáczeʔ	page 21, pairs
+(98) line 3	Nɬeʔkepmxcín	gloss	be DEM eat-3OBJ-3ERG 1SG.POSS-NMLZ-father	page 21, pairs
+(98) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘My father used to eat those.’	page 21, pairs
+(99) line 1	Marty Aspinall	citation	CMA:	page 21, the initials of the turn's speaker
+(99) line 1	Marty Aspinall	running speech	Oh?	page 21, pairs
+(100) line 1	Bernice Garcia	citation	KBG:	page 21, the initials of the turn's speaker
+(100) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 21, pairs
+(100) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 21, pairs
+(100) line 3	Nɬeʔkepmxcín	gloss	yes	page 21, pairs
+(100) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 21, pairs
+(101) line 1	Bernice Garcia	citation	KBG:	page 21, the initials of the turn's speaker
+(101) line 1	Nɬeʔkepmxcín	transcription	ɬúm̓es néʔe sc̓ém̓	page 21, pairs
+(101) line 2	Nɬeʔkepmxcín	segmentation	ɬúm̓-[n-t]-∅-s néʔe s-c̓ém̓	page 21, pairs
+(101) line 3	Nɬeʔkepmxcín	gloss	slurp-DIR-TR-3OBJ-3ERG DEM NMLZ-bone	page 21, pairs
+(101) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He would slurp the bone.’	page 21, pairs
+(102) line 1	Marty Aspinall	citation	CMA:	page 21, the initials of the turn's speaker
+(102) line 1	Nɬeʔkepmxcín	transcription	míɬəm	page 21, pairs
+(102) line 2	Nɬeʔkepmxcín	segmentation	míɬəm	page 21, pairs
+(102) line 3	Nɬeʔkepmxcín	gloss	?	page 21, pairs, carries footnote 16, written here without its digit
+(102) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 21, pairs
+(103) line 1	Bernice Garcia	citation	KBG:	page 21, the initials of the turn's speaker
+(103) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 21, pairs
+(103) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 21, pairs
+(103) line 3	Nɬeʔkepmxcín	gloss	yes	page 21, pairs
+(103) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 21, pairs
+footnote 16	Ella Hannon, Anna Stacey and Reed Steiner	note	16 The consultant said in her translation that this is a way to agree after hearing some new information, similar to something like “Oh, really?” or “Oh, I see.”	page 21, footnote
+(104) line 1	Bernice Garcia	citation	KBG:	page 22, the initials of the turn's speaker
+(104) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e ʔeʔúseʔs nem	page 22, pairs
+(104) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e=ʔe~ʔ-úseʔ-s nem	page 22, pairs
+(104) line 3	Nɬeʔkepmxcín	gloss	and DET=AFF~NEUT17-small.round.object-3POSS very	page 22, pairs
+(104) line 4	Nɬeʔkepmxcín	transcription	y̓emíns xéʔe	page 22, pairs
+(104) line 5	Nɬeʔkepmxcín	segmentation	y̓e-mín-[t]-∅-s xéʔe	page 22, pairs
+(104) line 6	Nɬeʔkepmxcín	gloss	good-RLT-TR-3OBJ-3ERG DEM	page 22, pairs
+(104) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the duck eggs, he really liked those.’	page 22, pairs
+(105) line 1	Marty Aspinall	citation	CMA:	page 22, the initials of the turn's speaker
+(105) line 1	Marty Aspinall	running speech	Mmm.	page 22, pairs
+(106) line 1	Bernice Garcia	citation	KBG:	page 22, the initials of the turn's speaker
+(106) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 22, pairs
+(106) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 22, pairs
+(106) line 3	Nɬeʔkepmxcín	gloss	yes	page 22, pairs
+(106) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 22, pairs
+(107) line 1	Marty Aspinall	citation	CMA:	page 22, the initials of the turn's speaker
+(107) line 1	Nɬeʔkepmxcín	transcription	c̓iy nke te nsqáczeʔ ncéweʔ e meɬ	page 22, pairs
+(107) line 2	Nɬeʔkepmxcín	segmentation	c̓iy=nke te=n-s-qáczeʔ ncéweʔ e=meɬ	page 22, pairs
+(107) line 3	Nɬeʔkepmxcín	gloss	be.like=INFER DET=1SG.POSS-NMLZ-father 1SG.EMPH D/C=CNSQ	page 22, pairs
+(107) line 4	Nɬeʔkepmxcín	transcription	s… nescút c̓íy témn̓ when he’s trapping	page 22, pairs
+(107) line 5	Nɬeʔkepmxcín	segmentation	s=nes-[t-s]út c̓íy témn̓ when he’s trapping	page 22, pairs
+(107) line 6	Nɬeʔkepmxcín	gloss	NMLZ=go-TR-REFL be.like then when he’s trapping	page 22, pairs
+(107) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘My father used to go get the eggs when he was trapping.’	page 22, pairs
+(108) line 1	Bernice Garcia	citation	KBG:	page 22, the initials of the turn's speaker
+(108) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 22, pairs
+(108) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 22, pairs
+(108) line 3	Nɬeʔkepmxcín	gloss	yes	page 22, pairs
+(108) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 22, pairs
+(109) line 1	Marty Aspinall	citation	CMA:	page 22, the initials of the turn's speaker
+(109) line 1	Nɬeʔkepmxcín	transcription	ʔes kʷném cú xʷéʔe... nem ekʷu...	page 22, pairs
+(109) line 2	Nɬeʔkepmxcín	segmentation	ʔes=kʷné-m cú xʷéʔe nem=ekʷu	page 22, pairs
+(109) line 3	Nɬeʔkepmxcín	gloss	STAT=grasp-CTR.MID say DEM very=REP	page 22, pairs
+(109) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He gets some eggs from the nest.’	page 22, pairs
+(110) line 1	Marty Aspinall	citation	CMA:	page 22, the initials of the turn's speaker
+(110) line 1	Nɬeʔkepmxcín	transcription	tk xʷúsxʷəs-t xéʔe ʔe kwyxus e xúʔu	page 22, pairs
+(110) line 2	Nɬeʔkepmxcín	segmentation	t=k=xʷús~xʷəs-t xéʔe ʔe kwyus e=xúʔu	page 22, pairs
+(110) line 3	Nɬeʔkepmxcín	gloss	OBL=D/C=fierce~CHAR-IM DEM INT ? DET=?	page 22, pairs
+(110) line 4	Nɬeʔkepmxcín	transcription	kʷném tuxʷə ʔeʔúseʔs	page 22, pairs
+(110) line 5	Nɬeʔkepmxcín	segmentation	kʷné-m tuxʷə ʔe~ʔ-úseʔ-s	page 22, pairs
+(110) line 6	Nɬeʔkepmxcín	gloss	grasp-CTR.MID from AFF~NEUT-small.round.object-3POSS	page 22, pairs
+(110) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Those ducklings are really mean when you go to grab the eggs.’	page 22, pairs
+footnote 17	Ella Hannon, Anna Stacey and Reed Steiner	note	17 This is a “semantically neutral stem to which certain lexical suffixes are added” (Thompson & Thompson 1996).	page 22
+(111) line 1	Bernice Garcia	citation	KBG:	page 23, the initials of the turn's speaker
+(111) line 1	Nɬeʔkepmxcín	transcription	heʔéy néxʷm	page 23, pairs
+(111) line 2	Nɬeʔkepmxcín	segmentation	heʔéy néxʷ-m	page 23, pairs
+(111) line 3	Nɬeʔkepmxcín	gloss	yes intense-CTR.MID	page 23, pairs
+(111) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 23, pairs
+(112) line 1	Marty Aspinall	citation	CMA:	page 23, the initials of the turn's speaker
+(112) line 1	Nɬeʔkepmxcín	transcription	ʔo cut ɬ nsqáczeʔ te ʔo ʔe meɬ nes	page 23, pairs
+(112) line 2	Nɬeʔkepmxcín	segmentation	ʔo cut ɬ=n-s-qáczeʔ t=e=ʔo ʔe meɬ nes	page 23, pairs
+(112) line 3	Nɬeʔkepmxcín	gloss	DISC say D/C=1POSS-NMLZ-father OBL=DET=DISC INT CNSQ INCIP	page 23, pairs
+(112) line 4	Nɬeʔkepmxcín	transcription	kʷném ʔe meɬ nes ʕlíyxeyxʷ	page 23, pairs
+(112) line 5	Nɬeʔkepmxcín	segmentation	kʷné-m ʔe meɬ nes ʕl-íyx-eyxʷ	page 23, pairs
+(112) line 6	Nɬeʔkepmxcín	gloss	grasp-CTR.MID DET CNSQ INCIP run.fast-AUT-people	page 23, pairs
+(112) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘My father said he took some eggs and he ran!’	page 23, pairs
+(113) line 1	Bernice Garcia	citation	KBG:	page 23, the initials of the turn's speaker
+(113) line 1	Nɬeʔkepmxcín	transcription	náq̓ʷm	page 23, pairs
+(113) line 2	Nɬeʔkepmxcín	segmentation	náq̓ʷ-m	page 23, pairs
+(113) line 3	Nɬeʔkepmxcín	gloss	steal-CTR.MID	page 23, pairs
+(113) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He stole them.’	page 23, pairs
+(114) line 1	Marty Aspinall	citation	CMA:	page 23, the initials of the turn's speaker
+(114) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 23, pairs
+(114) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 23, pairs
+(114) line 3	Nɬeʔkepmxcín	gloss	yes	page 23, pairs
+(114) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 23, pairs
+(115) line 1	Bernice Garcia	citation	KBG:	page 23, the initials of the turn's speaker
+(115) line 1	Nɬeʔkepmxcín	transcription	ʔéy xéʔe náq̓ʷms e sx̣iq xéʔ ʔú	page 23, pairs
+(115) line 2	Nɬeʔkepmxcín	segmentation	ʔéy xéʔe náq̓ʷ-m[in]-t-∅-s e=s-x̣iq xéʔ ʔú	page 23, pairs
+(115) line 3	Nɬeʔkepmxcín	gloss	yes DEM steal-RLT-TR-3OBJ-3ERG DET=NMLZ-duck DEM EXCM	page 23, pairs
+(115) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He used to steal the eggs.’	page 23, pairs
+(116) line 1	Marty Aspinall	citation	CMA:	page 23, the initials of the turn's speaker
+(116) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 23, pairs
+(116) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 23, pairs
+(116) line 3	Nɬeʔkepmxcín	gloss	yes	page 23, pairs
+(116) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 23, pairs
+(117) line 1	Bernice Garcia	citation	KBG:	page 23, the initials of the turn's speaker
+(117) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 23, pairs
+(117) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 23, pairs
+(117) line 3	Nɬeʔkepmxcín	gloss	yes	page 23, pairs
+(117) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 23, pairs
+(118) line 1	Bernice Garcia	citation	KBG:	page 23, the initials of the turn's speaker
+(118) line 1	Nɬeʔkepmxcín	transcription	ʔe meɬ neʔ wiʔ púystem e sx̣iq	page 23, pairs
+(118) line 2	Nɬeʔkepmxcín	segmentation	ʔe meɬ neʔ wiʔ púys-t-∅-em e=s-x̣iq	page 23, pairs
+(118) line 3	Nɬeʔkepmxcín	gloss	INT CNSQ DEM EMPH kill-TR-3OBJ-1PL.ERG DET=NMLZ-duck	page 23, pairs
+(118) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘We killed the ducks.’	page 23, pairs
+(119) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(119) line 1	Nɬeʔkepmxcín	transcription	senk wiʔ xéʔe témn̓ téywey	page 24, pairs
+(119) line 2	Nɬeʔkepmxcín	segmentation	senk wiʔ xéʔe témn̓ téywey	page 24, pairs
+(119) line 3	Nɬeʔkepmxcín	gloss	mean.tempered EMPH DEM then EXCM	page 24, pairs, carries footnote 18 and 19, written here without its digit
+(119) line 4	Nɬeʔkepmxcín	transcription	nem e sx̣íqs	page 24, pairs
+(119) line 5	Nɬeʔkepmxcín	segmentation	nem e=s-x̣íq-s	page 24, pairs
+(119) line 6	Nɬeʔkepmxcín	gloss	very DET=NMLZ-duck-3POSS	page 24, pairs
+(119) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They’re very mean (when we steal their eggs).’	page 24, pairs
+(120) line 1	Bernice Garcia	citation	KBG:	page 24, the initials of the turn's speaker
+(120) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 24, pairs
+(120) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 24, pairs
+(120) line 3	Nɬeʔkepmxcín	gloss	yes	page 24, pairs
+(120) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 24, pairs
+(121) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(121) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 24, pairs
+(121) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 24, pairs
+(121) line 3	Nɬeʔkepmxcín	gloss	yes	page 24, pairs
+(121) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 24, pairs
+(122) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(122) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ ʔex nke cuntíyxs e scmey̓ts...	page 24, pairs
+(122) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ ʔex=nke cun-t-íyxs e=s-cm-ey̓t-s	page 24, pairs
+(122) line 3	Nɬeʔkepmxcín	gloss	and be=INFER say-TR-3PL DET=NMLZ-small-agent-3POSS	page 24, pairs
+(122) line 4	Nɬeʔkepmxcín	transcription	xʷuy kʷ xeym ʔel ʔíy ɬeʔe e keʔ s...	page 24, pairs
+(122) line 5	Nɬeʔkepmxcín	segmentation	xʷuy=kʷ xeym ʔeɬ ʔíy ɬeʔe e=keʔ=s	page 24, pairs
+(122) line 6	Nɬeʔkepmxcín	gloss	FUT=2SG indeed and good DEM DET=Q=NMLZ	page 24, pairs
+(122) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The mother duck must be telling her ducklings [this] is what they have to do.’	page 24, pairs
+(123) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(123) line 1	Marty Aspinall	running speech	Oh no.	page 24, pairs
+(124) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(124) line 1	Marty Aspinall	running speech	Swim.	page 24, pairs
+(125) line 1	Bernice Garcia	citation	KBG:	page 24, the initials of the turn's speaker
+(125) line 1	Nɬeʔkepmxcín	transcription	séxʷm	page 24, pairs
+(125) line 2	Nɬeʔkepmxcín	segmentation	séxʷ-m	page 24, pairs
+(125) line 3	Nɬeʔkepmxcín	gloss	bathe-CTR.MID	page 24, pairs
+(125) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Swim.’	page 24, pairs
+(126) line 1	Marty Aspinall	citation	CMA:	page 24, the initials of the turn's speaker
+(126) line 1	Nɬeʔkepmxcín	transcription	ʔéy keʔ e séxʷm... ne qʷoʔ	page 24, pairs
+(126) line 2	Nɬeʔkepmxcín	segmentation	ʔéy keʔ e=séxʷ-m n=e=qʷoʔ	page 24, pairs
+(126) line 3	Nɬeʔkepmxcín	gloss	yes DEM DET=bathe-CTR.MID in=DET=water	page 24, pairs
+(126) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Swim in the water.’	page 24, pairs
+footnote 18	Ella Hannon, Anna Stacey and Reed Steiner	note	18 This word was not found in the dictionary (Thompson & Thompson 1996); the meaning given was provided by the consultant.	page 24, footnote
+footnote 19	Ella Hannon, Anna Stacey and Reed Steiner	note	19 Same as above.	page 24, footnote
+(127) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(127) line 1	Nɬeʔkepmxcín	transcription	nem y̓e xéʔ tək sʔíʔtm̓ xéʔe e sx̣əqx̣iq...	page 25, pairs
+(127) line 2	Nɬeʔkepmxcín	segmentation	nem y̓e xéʔ tə=k=s-ʔí~ʔtm̓ x́eʔe e=s-x̣əq~x̣iq	page 25, pairs
+(127) line 3	Nɬeʔkepmxcín	gloss	very good DEM OBL=DET=NMLZ-PL~parent DEM DET=NMLZ-PL-duck	page 25, pairs
+(127) line 4	Nɬeʔkepmxcín	transcription	ʔes k̓ʷen̓stíyxs	page 25, pairs
+(127) line 5	Nɬeʔkepmxcín	segmentation	ʔes=k̓ʷen̓-s-t-íyxs	page 25, pairs
+(127) line 6	Nɬeʔkepmxcín	gloss	STAT=look-CAUS-TR-3PL	page 25, pairs
+(127) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The parents of the ducklings look after their ducklings really good.’	page 25, pairs
+(128) line 1	Bernice Garcia	citation	KBG:	page 25, the initials of the turn's speaker
+(128) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 25, pairs
+(128) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 25, pairs
+(128) line 3	Nɬeʔkepmxcín	gloss	yes	page 25, pairs
+(128) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 25, pairs
+(129) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(129) line 1	Nɬeʔkepmxcín	transcription	scmey̓tíyxs	page 25, pairs
+(129) line 2	Nɬeʔkepmxcín	segmentation	s-cm-ey̓t-íyxs	page 25, pairs
+(129) line 3	Nɬeʔkepmxcín	gloss	NMLZ-small-agent-3PL.POSS	page 25, pairs
+(129) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Their kids.’	page 25, pairs
+(130) line 1	Ella Hannon, Anna Stacey and Reed Steiner	note	(130) CMA and KBG overlap here, so it’s difficult to make out what they’re saying.	page 25
+(131) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(131) line 1	Marty Aspinall	running speech	I diminuized the k̓ʷmíʔmeʔ [k̓ʷm~íʔmeʔ; small~prp]. I said tumíʔmeʔ.	page 25, pairs
+(132) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(132) line 1	Marty Aspinall	running speech	I haven’t used that word in, oh my gosh, a long time. tumíʔmeʔ.	page 25, pairs
+(133) line 1	Bernice Garcia	citation	KBG:	page 25, the initials of the turn's speaker
+(133) line 1	Nɬeʔkepmxcín	transcription	təteʔ k k scukʷs nmímɬ xéʔe...	page 25, pairs
+(133) line 2	Nɬeʔkepmxcín	segmentation	təteʔ k k=s=cukʷ-s nmímɬ xéʔe	page 25, pairs
+(133) line 3	Nɬeʔkepmxcín	gloss	NEG UNR D/C=NMLZ=finish-3POSS 1PL.EMPH DEM	page 25, pairs
+(133) line 4	Nɬeʔkepmxcín	transcription	ʔes naq̓ʷntm	page 25, pairs
+(133) line 5	Nɬeʔkepmxcín	segmentation	ʔes=naq̓ʷ-n-t-∅-m	page 25, pairs
+(133) line 6	Nɬeʔkepmxcín	gloss	STAT=steal-DIR-TR-3OBJ-INDF.ERG	page 25, pairs
+(133) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘We’re not the only ones that steal the eggs.’	page 25, pairs
+(134) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(134) line 1	Marty Aspinall	running speech	Mhm.	page 25, pairs
+(135) line 1	Bernice Garcia	citation	KBG:	page 25, the initials of the turn's speaker
+(135) line 1	Nɬeʔkepmxcín	transcription	ʔeʔúseʔ c̓e ƛ̓uʔ xéʔe snk̓y̓ep	page 25, pairs
+(135) line 2	Nɬeʔkepmxcín	segmentation	ʔe~ʔ-úseʔ c̓e ƛ̓uʔ xéʔe s-nk̓y̓ep	page 25, pairs
+(135) line 3	Nɬeʔkepmxcín	gloss	AFF~NEUT-small.round.object EMPH.INT also DEM NMLZ-coyote	page 25, pairs
+(135) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The coyote does too.’	page 25, pairs
+(136) line 1	Marty Aspinall	citation	CMA:	page 25, the initials of the turn's speaker
+(136) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 25, pairs
+(136) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 25, pairs
+(136) line 3	Nɬeʔkepmxcín	gloss	yes	page 25, pairs
+(136) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 25, pairs
+(137) line 1	Marty Aspinall	citation	CMA:	page 26, the initials of the turn's speaker
+(137) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e sq̓awm	page 26, pairs
+(137) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e=s-q̓awm	page 26, pairs
+(137) line 3	Nɬeʔkepmxcín	gloss	and DET=NMLZ-wolf	page 26, pairs
+(137) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the wolf.’	page 26, pairs
+(138) line 1	Bernice Garcia	citation	KBG:	page 26, the initials of the turn's speaker
+(138) line 1	Nɬeʔkepmxcín	transcription	ʔéy tékm xéʔe	page 26, pairs
+(138) line 2	Nɬeʔkepmxcín	segmentation	ʔéy tékm xéʔe	page 26, pairs
+(138) line 3	Nɬeʔkepmxcín	gloss	yes all DEM	page 26, pairs
+(138) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘All the animals.’	page 26, pairs
+(139) line 1	Marty Aspinall	citation	CMA:	page 26, the initials of the turn's speaker
+(139) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e sʔéʔeʔ	page 26, pairs
+(139) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e=s-ʔéʔeʔ	page 26, pairs
+(139) line 3	Nɬeʔkepmxcín	gloss	and DET=NMLZ-crow	page 26, pairs
+(139) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the crow.’	page 26, pairs
+(140) line 1	Bernice Garcia	citation	KBG:	page 26, the initials of the turn's speaker
+(140) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 26, pairs
+(140) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 26, pairs
+(140) line 3	Nɬeʔkepmxcín	gloss	yes	page 26, pairs
+(140) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 26, pairs
+(141) line 1	Marty Aspinall	citation	CMA:	page 26, the initials of the turn's speaker
+(141) line 1	Nɬeʔkepmxcín	transcription	nem xéʔ tək ʔa stéʔ sʔéʔeʔ... e meɬ	page 26, pairs
+(141) line 2	Nɬeʔkepmxcín	segmentation	nem xéʔ tə=k=ʔa s-téʔ s-ʔéʔeʔ e=meɬ	page 26, pairs
+(141) line 3	Nɬeʔkepmxcín	gloss	very DEM OBL=D/C=DISC NMLZ-what NMLZ-crow D/C=CNSQ	page 26, pairs
+(141) line 4	Nɬeʔkepmxcín	transcription	nes cmixʷetíyxs e citxʷíyxs xéʔe	page 26, pairs
+(141) line 5	Nɬeʔkepmxcín	segmentation	nes cm-ixʷe-t-íyxs e=citxʷ-íyxs xéʔe	page 26, pairs
+(141) line 6	Nɬeʔkepmxcín	gloss	INCIP small-?-TR-3PL DET=house-3PL.POSS DEM	page 26, pairs
+(141) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The crow messes up the duck’s nest.’	page 26, pairs
+(142) line 1	Bernice Garcia	citation	KBG:	page 26, the initials of the turn's speaker
+(142) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 26, pairs
+(142) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 26, pairs
+(142) line 3	Nɬeʔkepmxcín	gloss	yes	page 26, pairs
+(142) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 26, pairs
+(143) line 1	Marty Aspinall	citation	CMA:	page 26, the initials of the turn's speaker
+(143) line 1	Marty Aspinall	running speech	Oh, poor little things.	page 26, pairs
+(144) line 1	Bernice Garcia	citation	KBG:	page 26, the initials of the turn's speaker
+(144) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e heléw̓	page 26, pairs
+(144) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e=heléw̓	page 26, pairs
+(144) line 3	Nɬeʔkepmxcín	gloss	and DET=eagle	page 26, pairs
+(144) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the eagle.’	page 26, pairs
+(145) line 1	Bernice Garcia	citation	KBG:	page 26, the initials of the turn's speaker
+(145) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 26, pairs
+(145) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 26, pairs
+(145) line 3	Nɬeʔkepmxcín	gloss	yes	page 26, pairs
+(145) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 26, pairs
+(146) line 1	Marty Aspinall	citation	CMA:	page 27, the initials of the turn's speaker
+(146) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ e heléw̓ ʔéy	page 27, pairs
+(146) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ e=heléw̓ ʔéy	page 27, pairs
+(146) line 3	Nɬeʔkepmxcín	gloss	and DET=eagle yes	page 27, pairs
+(146) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the eagle, yes.’	page 27, pairs
+(147) line 1	Bernice Garcia	citation	KBG:	page 27, the initials of the turn's speaker
+(147) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 27, pairs
+(147) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 27, pairs
+(147) line 3	Nɬeʔkepmxcín	gloss	yes	page 27, pairs
+(147) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 27, pairs
+(148) line 1	Marty Aspinall	citation	CMA:	page 27, the initials of the turn's speaker
+(148) line 1	Nɬeʔkepmxcín	transcription	kʷném tə xʷéʔ... ʔeɬ kʷném tə xʷéʔ	page 27, pairs
+(148) line 2	Nɬeʔkepmxcín	segmentation	kʷné-m t=ə=xʷéʔ ʔeɬ kʷné-m t=ə=xʷéʔ	page 27, pairs
+(148) line 3	Nɬeʔkepmxcín	gloss	grasp-CTR.MID OBL=DET=DEM and grasp-CTR.MID OBL=DET=DEM	page 27, pairs
+(148) line 4	Nɬeʔkepmxcín	transcription	t cmíʔmeʔ tək ci téʔe	page 27, pairs
+(148) line 5	Nɬeʔkepmxcín	segmentation	t=cm~íʔmeʔ tə=k ci téʔe	page 27, pairs
+(148) line 6	Nɬeʔkepmxcín	gloss	OBL=small~PRP OBL=DET EMPH DEM	page 27, pairs
+(148) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They even take the little ducklings.’	page 27, pairs
+(149) line 1	Bernice Garcia	citation	KBG:	page 27, the initials of the turn's speaker
+(149) line 1	Nɬeʔkepmxcín	transcription	ʔéy néxʷm	page 27, pairs
+(149) line 2	Nɬeʔkepmxcín	segmentation	ʔéy néxʷ-m	page 27, pairs
+(149) line 3	Nɬeʔkepmxcín	gloss	yes intense-CTR.MID	page 27, pairs
+(149) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘That’s right.’	page 27, pairs
+(150) line 1	Marty Aspinall	citation	CMA:	page 27, the initials of the turn's speaker
+(150) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 27, pairs
+(150) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 27, pairs
+(150) line 3	Nɬeʔkepmxcín	gloss	yes	page 27, pairs
+(150) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 27, pairs
+(151) line 1	Marty Aspinall	citation	CMA:	page 27, the initials of the turn's speaker
+(151) line 1	Nɬeʔkepmxcín	transcription	qʷənqʷént	page 27, pairs
+(151) line 2	Nɬeʔkepmxcín	segmentation	qʷən~qʷén-t	page 27, pairs
+(151) line 3	Nɬeʔkepmxcín	gloss	AUG~poor-IM	page 27, pairs
+(151) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Poor little thing.’	page 27, pairs
+(152) line 1	Bernice Garcia	citation	KBG:	page 27, the initials of the turn's speaker
+(152) line 1	Nɬeʔkepmxcín	transcription	ƛ̓uʔ nem y̓e tək sɬaʔx̣áns	page 27, pairs
+(152) line 2	Nɬeʔkepmxcín	segmentation	ƛ̓uʔ nem y̓e tə=k=s-ɬaʔx̣̣-áns	page 27, pairs
+(152) line 3	Nɬeʔkepmxcín	gloss	also very good OBL=DET=NMLZ-eat-tooth	page 27, pairs
+(152) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are good to eat.’	page 27, pairs
+(153) line 1	Marty Aspinall	citation	CMA:	page 27, the initials of the turn's speaker
+(153) line 1	Marty Aspinall	running speech	Mmm.	page 27, pairs
+§4.3	Ella Hannon, Anna Stacey and Reed Steiner	heading	4.3 Conversation 3	page 28
+§4.3	Ella Hannon, Anna Stacey and Reed Steiner	note	Figure 3: Another family of geese swimming, this time with older offspring.20	page 28
+(154) line 1	Bernice Garcia	citation	KBG:	page 28, the initials of the turn's speaker
+(154) line 1	Nɬeʔkepmxcín	transcription	c̓i nukʷ téʔe te ƛ̓əxƛ̓ax̣t ʔeyɬ ʔe s–	page 28, pairs
+(154) line 2	Nɬeʔkepmxcín	segmentation	c̓i=nukʷ téʔe t=e=ƛ̓əx̣~ƛ̓ax̣-t ʔeyɬ ʔe=s	page 28, pairs
+(154) line 3	Nɬeʔkepmxcín	gloss	EMPH=SENSE DEM OBL=DET=PL~tall-IM now DET=NMLZ	page 28, pairs
+(154) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They seem to be a little bit bigger–̓	page 28, pairs
+(155) line 1	Marty Aspinall	citation	CMA:	page 28, the initials of the turn's speaker
+(155) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 28, pairs
+(155) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 28, pairs
+(155) line 3	Nɬeʔkepmxcín	gloss	yes	page 28, pairs
+(155) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 28, pairs
+(156) line 1	Marty Aspinall	citation	CMA:	page 28, the initials of the turn's speaker
+(156) line 1	Nɬeʔkepmxcín	transcription	təteʔ k sxʷuy̓cxʷúy̓ce heʔéy nəst	page 28, pairs
+(156) line 2	Nɬeʔkepmxcín	segmentation	təteʔ k=s-xʷuy̓c-xʷúy̓ce heʔéy nəst	page 28, pairs
+(156) line 3	Nɬeʔkepmxcín	gloss	NEG DET=NMLZ-AUG-more yes TAG	page 28, pairs
+(156) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘There seems to be less of them.’	page 28, pairs
+(157) line 1	Marty Aspinall	citation	CMA:	page 28, the initials of the turn's speaker
+(157) line 1	Nɬeʔkepmxcín	transcription	séy keʔɬés mús c̓eɬ cíks ƛ̓̓uʔ	page 28, pairs
+(157) line 2	Nɬeʔkepmxcín	segmentation	séy keʔɬés mús c̓=eɬ cí-ks ƛ̓̓uʔ	page 28, pairs
+(157) line 3	Nɬeʔkepmxcín	gloss	two three four EMPH=and open-hand also	page 28, pairs
+(157) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Two, three, four, five.’	page 28, pairs
+(158) line 1	Bernice Garcia	citation	KBG:	page 28, the initials of the turn's speaker
+(158) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 28, pairs
+(158) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 28, pairs
+(158) line 3	Nɬeʔkepmxcín	gloss	yes	page 28, pairs
+(158) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 28, pairs
+(159) line 1	Marty Aspinall	citation	CMA:	page 28, the initials of the turn's speaker
+(159) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 28, pairs
+(159) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 28, pairs
+(159) line 3	Nɬeʔkepmxcín	gloss	yes	page 28, pairs
+(159) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 28, pairs
+(160) line 1	Marty Aspinall	citation	CMA:	page 28, the initials of the turn's speaker
+(160) line 1	Nɬeʔkepmxcín	transcription	k̓ém̓eɬ k̓ʷmi cmíʔmeʔtus ʔes cíy stéʔ xwúy̓ceʔ	page 28, pairs
+(160) line 2	Nɬeʔkepmxcín	segmentation	k̓ém̓eɬ k̓ʷm-i cm~íʔmeʔ-t=us ʔes=cíy s-téʔ xwúy̓ceʔ	page 28, pairs
+(160) line 3	Nɬeʔkepmxcín	gloss	CONTR small-? small~PRP-IM=CNJ STAT=be.like NMLZ-what more	page 28, pairs, carries footnote 21, written here without its digit
+(160) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘When they were younger, there was more of them.’	page 28, pairs
+footnote 20	Ella Hannon, Anna Stacey and Reed Steiner	note	20 Photo by pixabay user Kapa65: https://pixabay.com/photos/geese-canada-geese-family-2346322/	page 28, footnote
+footnote 21	Ella Hannon, Anna Stacey and Reed Steiner	note	21 This may be the start of the same form as the next word.	page 28, footnote
+(161) line 1	Marty Aspinall	citation	CMA:	page 29, the initials of the turn's speaker
+(161) line 1	Nɬeʔkepmxcín	transcription	nem nke tumíxwətem e stéʔ téʔe	page 29, pairs
+(161) line 2	Nɬeʔkepmxcín	segmentation	nem=nke tumíxwə-t-em e=s-téʔ téʔe	page 29, pairs
+(161) line 3	Nɬeʔkepmxcín	gloss	very=INFER kill.one.by.one22-TR-INDF.ERG DET=NMLZ-what DEM	page 29, pairs
+(161) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Something must’ve killed them off.’	page 29, pairs
+(162) line 1	Bernice Garcia	citation	KBG:	page 29, the initials of the turn's speaker
+(162) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 29, pairs
+(162) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 29, pairs
+(162) line 3	Nɬeʔkepmxcín	gloss	yes	page 29, pairs
+(162) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 29, pairs
+(163) line 1	Marty Aspinall	citation	CMA:	page 29, the initials of the turn's speaker
+(163) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 29, pairs
+(163) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 29, pairs
+(163) line 3	Nɬeʔkepmxcín	gloss	yes	page 29, pairs
+(163) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 29, pairs
+(164) line 1	Marty Aspinall	citation	CMA:	page 29, the initials of the turn's speaker
+(164) line 1	Nɬeʔkepmxcín	transcription	qʷənqʷənem s aw	page 29, pairs
+(164) line 2	Nɬeʔkepmxcín	segmentation	qʷən~qʷən-[t-∅]-em s aw	page 29, pairs
+(164) line 3	Nɬeʔkepmxcín	gloss	PL~pity-[TR-3OBJ]-1PL.ERG ? aw	page 29, pairs
+(164) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I feel sorry for them.’	page 29, pairs
+(165) line 1	Bernice Garcia	citation	KBG:	page 29, the initials of the turn's speaker
+(165) line 1	Nɬeʔkepmxcín	transcription	téyt nke wiʔ	page 29, pairs
+(165) line 2	Nɬeʔkepmxcín	segmentation	téy-t=nke wiʔ	page 29, pairs
+(165) line 3	Nɬeʔkepmxcín	gloss	hunger-IM=INFER EMPH	page 29, pairs
+(165) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They must've been hungry.’	page 29, pairs
+(166) line 1	Marty Aspinall	citation	CMA:	page 29, the initials of the turn's speaker
+(166) line 1	Nɬeʔkepmxcín	transcription	xeym	page 29, pairs
+(166) line 2	Nɬeʔkepmxcín	segmentation	xeym	page 29, pairs
+(166) line 3	Nɬeʔkepmxcín	gloss	indeed	page 29, pairs
+(166) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘There’s a balance.’	page 29, pairs
+(167) line 1	Bernice Garcia	citation	KBG:	page 29, the initials of the turn's speaker
+(167) line 1	Nɬeʔkepmxcín	transcription	c̓e nke ƛ̓əp he snk̓y̓ep or heléw̓	page 29, pairs
+(167) line 2	Nɬeʔkepmxcín	segmentation	c̓e=nke ƛ̓əp he=s-nk̓y̓ep or heléw̓	page 29, pairs
+(167) line 3	Nɬeʔkepmxcín	gloss	EMPH=INFER MOD DET=NMLZ-coyote or eagle	page 29, pairs
+(167) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It’s probably the coyote or the eagle.’	page 29, pairs
+(168) line 1	Marty Aspinall	citation	CMA:	page 29, the initials of the turn's speaker
+(168) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ ƛ̓uʔ wéʔe… qʷílxqn	page 29, pairs
+(168) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ ƛ̓uʔ wéʔe qʷílxqn	page 29, pairs, carries footnote 23, written here without its digit
+(168) line 3	Nɬeʔkepmxcín	gloss	and also DEM wolverine	page 29, pairs
+(168) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And the same with the wolverine.’	page 29, pairs
+footnote 22	Ella Hannon, Anna Stacey and Reed Steiner	note	22 This word was not found in the dictionary (Thompson &Thompson, 1996); the meaning given was provided by the consultant.	page 29
+footnote 23	Ella Hannon, Anna Stacey and Reed Steiner	note	23 This word may contain the lexical suffix -q(i)n ‘head’ (Thompson & Thompson 1996:295).	page 29, footnote
+(169) line 1	Bernice Garcia	citation	KBG:	page 30, the initials of the turn's speaker
+(169) line 1	Nɬeʔkepmxcín	transcription	e stéʔ	page 30, pairs
+(169) line 2	Nɬeʔkepmxcín	segmentation	e=s-téʔ	page 30, pairs
+(169) line 3	Nɬeʔkepmxcín	gloss	DET=NMLZ-what	page 30, pairs
+(169) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘What?’	page 30, pairs
+(170) line 1	Marty Aspinall	citation	CMA:	page 30, the initials of the turn's speaker
+(170) line 1	Nɬeʔkepmxcín	transcription	qʷílxqn	page 30, pairs
+(170) line 2	Nɬeʔkepmxcín	segmentation	qʷílxqn	page 30, pairs
+(170) line 3	Nɬeʔkepmxcín	gloss	wolverine	page 30, pairs
+(170) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The wolverine.’	page 30, pairs
+(171) line 1	Bernice Garcia	citation	KBG:	page 30, the initials of the turn's speaker
+(171) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 30, pairs
+(171) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 30, pairs
+(171) line 3	Nɬeʔkepmxcín	gloss	yes	page 30, pairs
+(171) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 30, pairs
+(172) line 1	Marty Aspinall	citation	CMA:	page 30, the initials of the turn's speaker
+(172) line 1	Nɬeʔkepmxcín	transcription	ʔe xʷuy̓ témn̓ t e me súm̓es tekm	page 30, pairs
+(172) line 2	Nɬeʔkepmxcín	segmentation	ʔe xʷuy̓ témn̓ t=e=me súm̓-[n-t]-∅-s tekm	page 30, pairs
+(172) line 3	Nɬeʔkepmxcín	gloss	INT FUT then OBL=DET=? sniff-[DIR-TR]-3OBJ-3ERG all	page 30, pairs
+(172) line 4	Nɬeʔkepmxcín	transcription	stéʔ ci te snk̓y̓ep e meɬ nes	page 30, pairs
+(172) line 5	Nɬeʔkepmxcín	segmentation	s-téʔ ci t=e=s-nk̓y̓ep e=meɬ nes	page 30, pairs
+(172) line 6	Nɬeʔkepmxcín	gloss	NMLZ-what EMPH OBL=DET=NMLZ-coyote D/C=CNSQ INCIP	page 30, pairs
+(172) line 7	Nɬeʔkepmxcín	transcription	nescút c̓íy xʷitlə sq̓ós e qʷóʔ	page 30, pairs
+(172) line 8	Nɬeʔkepmxcín	segmentation	nes-[t-s]út c̓íy xʷitlə sq̓ó-s e=qʷóʔ	page 30, pairs
+(172) line 9	Nɬeʔkepmxcín	gloss	go-TR-REFL be.like ? ?-3POSS DET=water	page 30, pairs, carries footnote 24, written here without its digit
+(172) line 10	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They smell everything just like the coyote. They go beside the water, on the other side of the water.’	page 30, pairs
+(173) line 1	Marty Aspinall	citation	CMA:	page 30, the initials of the turn's speaker
+(173) line 1	Nɬeʔkepmxcín	transcription	ʔes púnms ʔupi néʔ ɬe k̓ʷmíʔmeʔ	page 30, pairs
+(173) line 2	Nɬeʔkepmxcín	segmentation	ʔes=pún-m[in]-[t]-∅-s ʔupi néʔ ɬe=k̓ʷm~íʔmeʔ	page 30, pairs
+(173) line 3	Nɬeʔkepmxcín	gloss	STAT=find-RLT-TR-3OBJ-3ERG eat DEM DET=small~PRP	page 30, pairs
+(173) line 4	Nɬeʔkepmxcín	transcription	cmíʔmeʔt... e meɬ nes sɬaʔx̣áns	page 30, pairs
+(173) line 5	Nɬeʔkepmxcín	segmentation	cm~íʔmeʔ-t e=meɬ nes s-ɬaʔx̣-áns	page 30, pairs
+(173) line 6	Nɬeʔkepmxcín	gloss	small~PRP-IM D/C=CNSQ INCIP NMLZ-eat-tooth	page 30, pairs
+(173) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And they find some. They find the little ones, and they eat them up.’	page 30, pairs
+(174) line 1	Bernice Garcia	citation	KBG:	page 30, the initials of the turn's speaker
+(174) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 30, pairs
+(174) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 30, pairs
+(174) line 3	Nɬeʔkepmxcín	gloss	yes	page 30, pairs
+(174) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 30, pairs
+(175) line 1	Marty Aspinall	citation	CMA:	page 30, the initials of the turn's speaker
+(175) line 1	Nɬeʔkepmxcín	transcription	ʔéy c̓iy t e xéʔe ƛ̓uʔ	page 30, pairs
+(175) line 2	Nɬeʔkepmxcín	segmentation	ʔéy c̓iy t=e=xéʔe ƛ̓uʔ	page 30, pairs
+(175) line 3	Nɬeʔkepmxcín	gloss	yes same OBL=DET=DEM also	page 30, pairs
+(175) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They do the same thing as the coyote.’	page 30, pairs
+footnote 24	Ella Hannon, Anna Stacey and Reed Steiner	note	24 The consultant said that xʷitlə sq̓ós refers to ‘the other side’.	page 30, footnote
+footnote 24	Nɬeʔkepmxcín	cited form	xʷitlə	page 30, in xʷitlə sq̓ós, ‘the other side’
+footnote 24	Nɬeʔkepmxcín	cited form	sq̓ós	page 30, in xʷitlə sq̓ós, ‘the other side’
+(176) line 1	Bernice Garcia	citation	KBG:	page 31, the initials of the turn's speaker
+(176) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ nem nxʷuʔxʷúʔxʷs xéʔe	page 31, pairs
+(176) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ nem n=xʷuʔ~xʷúʔxʷ-s xéʔe	page 31, pairs
+(176) line 3	Nɬeʔkepmxcín	gloss	and very LOC=PL~odour-3POSS DEM	page 31, pairs
+(176) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They are really smelly.’	page 31, pairs
+(177) line 1	Bernice Garcia	citation	KBG:	page 31, the initials of the turn's speaker
+(177) line 1	Nɬeʔkepmxcín	transcription	néxʷm wey [inaudible] mim nem nxʷuʔxʷúʔxʷs	page 31, pairs
+(177) line 2	Nɬeʔkepmxcín	segmentation	néxʷ-m wey [inaudible] mim nem n=xʷuʔ~xʷúʔxʷ-s	page 31, pairs
+(177) line 3	Nɬeʔkepmxcín	gloss	intense-CTR.MID ? [inaudible] ? very LOC=PL~odour-3POSS	page 31, pairs, carries footnote 25, written here without its digit
+(177) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It’s true; people say they really smell.’	page 31, pairs
+(178) line 1	Marty Aspinall	citation	CMA:	page 31, the initials of the turn's speaker
+(178) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 31, pairs
+(178) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 31, pairs
+(178) line 3	Nɬeʔkepmxcín	gloss	yes	page 31, pairs
+(178) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 31, pairs
+(179) line 1	Marty Aspinall	citation	CMA:	page 31, the initials of the turn's speaker
+(179) line 1	Nɬeʔkepmxcín	transcription	stéʔusnke xwúy̓ceʔ	page 31, pairs
+(179) line 2	Nɬeʔkepmxcín	segmentation	s-téʔ=us=nke xwúy̓ceʔ	page 31, pairs
+(179) line 3	Nɬeʔkepmxcín	gloss	NMLZ-what=CNJ=INFER more	page 31, pairs
+(179) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘What else are we gonna talk about?’	page 31, pairs
+§4.4	Ella Hannon, Anna Stacey and Reed Steiner	heading	4.4 Conversation 4	page 31
+§4.4	Ella Hannon, Anna Stacey and Reed Steiner	note	Figure 4: A smiling cat holds a fish while a birthday cat glowers in the background, set in an outdoor scene including the Fraser River.26	page 31
+(180) line 1	Marty Aspinall	citation	CMA:	page 31, the initials of the turn's speaker
+(180) line 1	Nɬeʔkepmxcín	transcription	nk̓ətním̓ e pús	page 31, pairs
+(180) line 2	Nɬeʔkepmxcín	segmentation	n=k̓ətní-m̓ e=pús	page 31, pairs
+(180) line 3	Nɬeʔkepmxcín	gloss	LOC=fish-CTR.MID DET=cat	page 31, pairs
+(180) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The cat went fishing.’	page 31, pairs
+footnote 25	Ella Hannon, Anna Stacey and Reed Steiner	note	25 This could be another form of téywey, ‘exclamatory’.	page 31, footnote
+footnote 25	Nɬeʔkepmxcín	cited form	téywey	page 31, ‘exclamatory’, which a word may be another form of
+footnote 26	Ella Hannon, Anna Stacey and Reed Steiner	note	26 Author Reed Steiner’s own work, assembled from miscellaneous images.	page 31, footnote
+(181) line 1	Bernice Garcia	citation	KBG:	page 32, the initials of the turn's speaker
+(181) line 1	Nɬeʔkepmxcín	transcription	ʔex neʔ tʔe nke he weasel	page 32, pairs
+(181) line 2	Nɬeʔkepmxcín	segmentation	ʔex=neʔ tʔe=nke he=weasel	page 32, pairs
+(181) line 3	Nɬeʔkepmxcín	gloss	STAT=DEM DEM=INFER DET=weasel	page 32, pairs
+(181) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It seems to be a weasel.’	page 32, pairs, carries footnote 27, written here without its digit
+(182) line 1	Bernice Garcia	citation	KBG:	page 32, the initials of the turn's speaker
+(182) line 1	Nɬeʔkepmxcín	transcription	stéʔ… stéʔ wiʔ ƛ̓əm̓ he weasel	page 32, pairs
+(182) line 2	Nɬeʔkepmxcín	segmentation	s-téʔ s-téʔ wiʔ ƛ̓əm̓ he=weasel	page 32, pairs
+(182) line 3	Nɬeʔkepmxcín	gloss	NMLZ-what NMLZ-what indeed PERF DET=weasel	page 32, pairs
+(182) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘What’s the weasel called again?’	page 32, pairs
+(183) line 1	Marty Aspinall	citation	CMA:	page 32, the initials of the turn's speaker
+(183) line 1	Marty Aspinall	running speech	Oh, because she’s white?	page 32, pairs
+(184) line 1	Marty Aspinall	citation	CMA:	page 32, the initials of the turn's speaker
+(184) line 1	Nɬeʔkepmxcín	transcription	spíq… ʔes spíq	page 32, pairs
+(184) line 2	Nɬeʔkepmxcín	segmentation	spíq ʔes=spíq	page 32, pairs
+(184) line 3	Nɬeʔkepmxcín	gloss	white STAT=white	page 32, pairs
+(184) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘[S]he’s white.’	page 32, pairs, carries footnote 28, written here without its digit
+(185) line 1	Bernice Garcia	citation	KBG:	page 32, the initials of the turn's speaker
+(185) line 1	Bernice Garcia	running speech	Oh yeah, mhm.	page 32, pairs
+(186) line 1	Bernice Garcia	citation	KBG:	page 32, the initials of the turn's speaker
+(186) line 1	Nɬeʔkepmxcín	transcription	c̓e nke xeʔ néxtm… e pús	page 32, pairs
+(186) line 2	Nɬeʔkepmxcín	segmentation	c̓e=nke xeʔ né-x-t-∅-em e=pús	page 32, pairs
+(186) line 3	Nɬeʔkepmxcín	gloss	EMPH=INFER DEM give-IND-TR-3OBJ-INDF.ERG DET=cat	page 32, pairs
+(186) line 4	Nɬeʔkepmxcín	transcription	e… e swéw̓ł	page 32, pairs
+(186) line 5	Nɬeʔkepmxcín	segmentation	e e=swéw̓ł	page 32, pairs
+(186) line 6	Nɬeʔkepmxcín	gloss	DET DET=fish	page 32, pairs
+(186) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘She must have gave the cat the fish.’	page 32, pairs
+(187) line 1	Marty Aspinall	citation	CMA:	page 32, the initials of the turn's speaker
+(187) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 32, pairs
+(187) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 32, pairs
+(187) line 3	Nɬeʔkepmxcín	gloss	yes	page 32, pairs
+(187) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 32, pairs
+(188) line 1	Bernice Garcia	citation	KBG:	page 32, the initials of the turn's speaker
+(188) line 1	Nɬeʔkepmxcín	transcription	c̓e nke swéw̓ɬ ʔe məɬ néʔe ws kʷukʷscútc	page 32, pairs
+(188) line 2	Nɬeʔkepmxcín	segmentation	c̓e=nke swéw̓ɬ ʔe=məɬ néʔe=ws kʷukʷ-s-cút-s	page 32, pairs
+(188) line 3	Nɬeʔkepmxcín	gloss	EMPH=INFER fish INT=CNSQ DEM=CNJ be.saved-CAUS-REFL-3POSS	page 32, pairs
+(188) line 4	Nɬeʔkepmxcín	transcription	e pús	page 32, pairs
+(188) line 5	Nɬeʔkepmxcín	segmentation	e=pús	page 32, pairs
+(188) line 6	Nɬeʔkepmxcín	gloss	DET=cat	page 32, pairs
+(188) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The cat is gonna enjoy the fish.’	page 32, pairs
+footnote 27	Ella Hannon, Anna Stacey and Reed Steiner	note	27 Throughout both the conversation and subsequent elicitations, the animal in the foreground of the image has been lovingly identified as several different animals, including a cat, a weasel, a groundhog, and an owl (both in English and Nɬeʔkepmxcín). The animal in the background is always identified as a cat.	page 32, footnote
+§4.4	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+footnote 28	Ella Hannon, Anna Stacey and Reed Steiner	note	28 Because Nɬeʔkepmxcín pronouns do not encode gender, consultants used “he” and “she” interchangeably in their translations to refer to the foreground cat/weasel/groundhog/owl (the background cat is always assumed male). To make the narration easier to follow, I assume the foreground cat/weasel/groundhog/owl uses she/her pronouns and updated the translations accordingly.	page 32, footnote
+(189) line 1	Ella Hannon, Anna Stacey and Reed Steiner	note	[KBG and CMA laugh]	page 33, the authors' remark where a turn stands
+(190) line 1	Marty Aspinall	citation	CMA:	page 33, the initials of the turn's speaker
+(190) line 1	Nɬeʔkepmxcín	transcription	y̓e wiʔ he sxʷáwkʷs – kᵂén̓ete te...	page 33, pairs
+(190) line 2	Nɬeʔkepmxcín	segmentation	y̓e wiʔ he=s-xʷáwkʷ-s kᵂen̓-et-e t=e	page 33, pairs
+(190) line 3	Nɬeʔkepmxcín	gloss	good indeed DET=NMLZ-heart-3POSS look-TR-IMP OBL=DET	page 33, pairs
+(190) line 4	Nɬeʔkepmxcín	transcription	e stʷúsc	page 33, pairs
+(190) line 5	Nɬeʔkepmxcín	segmentation	e=stʷ-ús-s	page 33, pairs
+(190) line 6	Nɬeʔkepmxcín	gloss	DET=[?]-face-3POSS	page 33, pairs
+(190) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘[S]he is so happy — look at [her] face!’	page 33, pairs
+(191) line 1	Bernice Garcia	citation	KBG:	page 33, the initials of the turn's speaker
+(191) line 1	Nɬeʔkepmxcín	transcription	ʔéy, néʔe	page 33, pairs
+(191) line 2	Nɬeʔkepmxcín	segmentation	ʔéy néʔe	page 33, pairs
+(191) line 3	Nɬeʔkepmxcín	gloss	yes DEM	page 33, pairs
+(191) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes, that.’	page 33, pairs
+(192) line 1	Marty Aspinall	citation	CMA:	page 33, the initials of the turn's speaker
+(192) line 1	Nɬeʔkepmxcín	transcription	c̓íy te ʔéx nke sqʷíƛ̓sm	page 33, pairs
+(192) line 2	Nɬeʔkepmxcín	segmentation	c̓íy t=e=ʔex=nke s-qʷíƛ̓-s-m	page 33, pairs
+(192) line 3	Nɬeʔkepmxcín	gloss	be.like OBL=DET=be=INFER NMLZ-smile-face-CTR.MID	page 33, pairs
+(192) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It looks like [s]he’s smiling.’	page 33, pairs
+(193) line 1	Bernice Garcia	citation	KBG:	page 33, the initials of the turn's speaker
+(193) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 33, pairs
+(193) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 33, pairs
+(193) line 3	Nɬeʔkepmxcín	gloss	yes	page 33, pairs
+(193) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 33, pairs
+(194) line 1	Marty Aspinall	citation	CMA:	page 33, the initials of the turn's speaker
+(194) line 1	Nɬeʔkepmxcín	transcription	♪ xʷúy̓ kn ʔex wéʔ kʷukʷscút ♪	page 33, pairs
+(194) line 2	Nɬeʔkepmxcín	segmentation	xʷuy̓=kn ʔex wéʔ kʷukʷ-s-t-sút	page 33, pairs
+(194) line 3	Nɬeʔkepmxcín	gloss	FUT=1SG.SBJ be DEM be.saved-CAUS-TR-REFL	page 33, pairs
+(194) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘I [the cat] am going to be very thankful.’	page 33, pairs, carries footnote 29, written here without its digit
+(195) line 1	Bernice Garcia	citation	KBG:	page 33, the initials of the turn's speaker
+(195) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 33, pairs
+(195) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 33, pairs
+(195) line 3	Nɬeʔkepmxcín	gloss	yes	page 33, pairs
+(195) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 33, pairs
+(196) line 1	Bernice Garcia	citation	KBG:	page 33, the initials of the turn's speaker
+(196) line 1	Nɬeʔkepmxcín	transcription	ʔiɬ xʷuy̓ néʔe e snmiʔes ƛ̓uʔ	page 33, pairs
+(196) line 2	Nɬeʔkepmxcín	segmentation	ʔiɬ xʷuy̓ néʔe e=s=n=miʔ-[t-∅]-és ƛ̓uʔ	page 33, pairs
+(196) line 3	Nɬeʔkepmxcín	gloss	then FUT DEM DET=NMLZ=LOC=share-TR-3OBJ-3ERG until	page 33, pairs
+(196) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Then [s]he is going to share it out.’30 29 The consultant is singing on behalf of the cat. 30 Consultant KBG offered many translations, all of which used ‘share it out’ , presumably due to the ƛ̓uʔ at the end. How that meaning is accessed from this preposition is unclear.	page 33, pairs
+(197) line 1	Marty Aspinall	citation	CMA:	page 34, the initials of the turn's speaker
+(197) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 34, pairs
+(197) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 34, pairs
+(197) line 3	Nɬeʔkepmxcín	gloss	yes	page 34, pairs
+(197) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 34, pairs
+(198) line 1	Bernice Garcia	citation	KBG:	page 34, the initials of the turn's speaker
+(198) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 34, pairs
+(198) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 34, pairs
+(198) line 3	Nɬeʔkepmxcín	gloss	yes	page 34, pairs
+(198) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 34, pairs
+(199) line 1	Marty Aspinall	citation	CMA:	page 34, the initials of the turn's speaker
+(199) line 1	Nɬeʔkepmxcín	transcription	ʔex nke e pús ʔes míceq ɬə̓́n̓e sk̓ʷúc̓s	page 34, pairs
+(199) line 2	Nɬeʔkepmxcín	segmentation	ʔex=nke e=pús ʔes=míceq ɬə́n̓e s-k̓ʷúc̓-s	page 34, pairs
+(199) line 3	Nɬeʔkepmxcín	gloss	be=INFER DET=cat STAT=sit there NMLZ-[crooked?]-3POSS	page 34, pairs
+(199) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The cat is sitting on the log.’	page 34, pairs
+(200) line 1	Bernice Garcia	citation	KBG:	page 34, the initials of the turn's speaker
+(200) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 34, pairs
+(200) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 34, pairs
+(200) line 3	Nɬeʔkepmxcín	gloss	yes	page 34, pairs
+(200) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 34, pairs
+(201) line 1	Bernice Garcia	citation	KBG:	page 34, the initials of the turn's speaker
+(201) line 1	Nɬeʔkepmxcín	transcription	k̓y̓mínc	page 34, pairs
+(201) line 2	Nɬeʔkepmxcín	segmentation	k̓y̓-mín-t-∅-s	page 34, pairs
+(201) line 3	Nɬeʔkepmxcín	gloss	wait-RLT-TR-3OBJ-3ERG	page 34, pairs
+(201) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He’s waiting for someone.’	page 34, pairs
+(202) line 1	Marty Aspinall	citation	CMA:	page 34, the initials of the turn's speaker
+(202) line 1	Nɬeʔkepmxcín	transcription	ʔes k̓y̓mínc e sqʷiqʷnt	page 34, pairs
+(202) line 2	Nɬeʔkepmxcín	segmentation	ʔes=k̓y̓-mín-t-∅-s e=sqʷiqʷnt	page 34, pairs
+(202) line 3	Nɬeʔkepmxcín	gloss	STAT=wait-RLT-TR-3OBJ-3ERG DET=groundhog	page 34, pairs
+(202) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The groundhog is waiting for someone.’	page 34, pairs
+(203) line 1	Marty Aspinall	citation	CMA:	page 34, the initials of the turn's speaker
+(203) line 1	Nɬeʔkepmxcín	transcription	təteʔ, təteʔ k stpíq	page 34, pairs
+(203) line 2	Nɬeʔkepmxcín	segmentation	təteʔ təteʔ k=s-tpíq	page 34, pairs
+(203) line 3	Nɬeʔkepmxcín	gloss	NEG NEG DET=NMLZ-weasel	page 34, pairs
+(203) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘No, it’s not a weasel.’	page 34, pairs
+(204) line 1	Bernice Garcia	citation	KBG:	page 34, the initials of the turn's speaker
+(204) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 34, pairs
+(204) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 34, pairs
+(204) line 3	Nɬeʔkepmxcín	gloss	yes	page 34, pairs
+(204) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 34, pairs
+(205) line 1	Marty Aspinall	citation	CMA:	page 34, the initials of the turn's speaker
+(205) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 34, pairs
+(205) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 34, pairs
+(205) line 3	Nɬeʔkepmxcín	gloss	yes	page 34, pairs
+(205) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 34, pairs
+(206) line 1	Marty Aspinall	citation	CMA:	page 35, the initials of the turn's speaker
+(206) line 1	Nɬeʔkepmxcín	transcription	cút nke [ə] xʷuy̓ kt wiʔ... xʷuy̓ kt wiʔs...	page 35, pairs
+(206) line 2	Nɬeʔkepmxcín	segmentation	cút=nke [ə]=xʷuy̓=kt wiʔ xʷuy̓=kt wiʔ-s	page 35, pairs
+(206) line 3	Nɬeʔkepmxcín	gloss	say=INFER D/C=FUT=1PL.SBJ indeed FUT=1PL.SBJ indeed-3POSS	page 35, pairs
+(206) line 4	Nɬeʔkepmxcín	transcription	snək̓ʷnúk̓ʷeʔ – (207) – xʷuy̓ kt wiʔ kt	page 35, pairs, carries footnote 31, written here without its digit
+(206) line 5	Nɬeʔkepmxcín	segmentation	s-nək̓ʷ~núk̓ʷeʔ xʷuy̓=kt wiʔ=kt	page 35, pairs
+(206) line 6	Nɬeʔkepmxcín	gloss	NMLZ-PL~friend FUT=1PL.SBJ indeed=1PL.SBJ	page 35, pairs
+(206) line 7	Nɬeʔkepmxcín	transcription	snək̓ʷnúk̓ʷeʔ tes n̓cín	page 35, pairs
+(206) line 8	Nɬeʔkepmxcín	segmentation	s-nək̓ʷ~núk̓ʷeʔ t=e=s=n̓-t-si-en	page 35, pairs
+(206) line 9	Nɬeʔkepmxcín	gloss	NMLZ-PL~friend OBL=DET=NMLZ=give-TR-2SG.OBJ-1SG.ERG	page 35, pairs
+(206) line 10	Nɬeʔkepmxcín	transcription	te swéw̓ɬ	page 35, pairs
+(206) line 11	Nɬeʔkepmxcín	segmentation	t=e=swéw̓ɬ	page 35, pairs
+(206) line 12	Nɬeʔkepmxcín	gloss	OBL=DET=fish	page 35, pairs
+(206) line 13	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Must’ve said we’re going to be friends because I gave you a fish.’	page 35, pairs
+(207) line 1	Bernice Garcia	citation	KBG:	page 35, the initials of the turn's speaker
+(207) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 35, pairs
+(207) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 35, pairs
+(207) line 3	Nɬeʔkepmxcín	gloss	yes	page 35, pairs
+(207) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 35, pairs
+(208) line 1	Bernice Garcia	citation	KBG:	page 35, the initials of the turn's speaker
+(208) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 35, pairs
+(208) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 35, pairs
+(208) line 3	Nɬeʔkepmxcín	gloss	yes	page 35, pairs
+(208) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 35, pairs
+(209) line 1	Marty Aspinall	citation	CMA:	page 35, the initials of the turn's speaker
+(209) line 1	Nɬeʔkepmxcín	transcription	stéʔ k xy néʔ k scuts te témn̓	page 35, pairs
+(209) line 2	Nɬeʔkepmxcín	segmentation	s-teʔ k=x̣y néʔ k=s=cut-s t=e=témn̓	page 35, pairs
+(209) line 3	Nɬeʔkepmxcín	gloss	NMLZ-NEG DET=ask.for DEM DET=NMLZ=say-3POSS OBL=DET=then	page 35, pairs
+(209) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Don’t ask her [the weasel] for it because of what he [the cat] said.’	page 35, pairs, carries footnote 32, written here without its digit
+(210) line 1	Bernice Garcia	citation	KBG:	page 35, the initials of the turn's speaker
+(210) line 1	Nɬeʔkepmxcín	transcription	ʔéy nexʷm̓	page 35, pairs
+(210) line 2	Nɬeʔkepmxcín	segmentation	ʔéy nexʷ-m̓	page 35, pairs
+(210) line 3	Nɬeʔkepmxcín	gloss	yes intense-CTR.MID	page 35, pairs
+(210) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes, you’re right.’	page 35, pairs
+(211) line 1	Bernice Garcia	citation	KBG:	page 35, the initials of the turn's speaker
+(211) line 1	Nɬeʔkepmxcín	transcription	c̓iy nukʷ xéʔe te nʔéye te tmixʷ	page 35, pairs
+(211) line 2	Nɬeʔkepmxcín	segmentation	c̓iy=nukʷ xéʔe t=e=n-ʔéye t=e=tmixʷ	page 35, pairs
+(211) line 3	Nɬeʔkepmxcín	gloss	be.like=SENSE DEM OBL=DET=LOC-here OBL=DET=land	page 35, pairs
+(211) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It feels like the land is close by.’	page 35, pairs
+footnote 31	Ella Hannon, Anna Stacey and Reed Steiner	note	31 This indicates that sentence (207) interrupted at approximately sentence (206) at about this point.	page 35, footnote
+footnote 32	Ella Hannon, Anna Stacey and Reed Steiner	note	32 CMA clarifies that although the grumpy cat wants the fish, it would not be appropriate for him to ask for it directly.	page 35, footnote
+(212) line 1	Marty Aspinall	citation	CMA:	page 36, the initials of the turn's speaker
+(212) line 1	Nɬeʔkepmxcín	transcription	nəst	page 36, pairs
+(212) line 2	Nɬeʔkepmxcín	segmentation	nəst	page 36, pairs
+(212) line 3	Nɬeʔkepmxcín	gloss	TAG	page 36, pairs
+(212) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Isn’t it?’	page 36, pairs
+(213) line 1	Bernice Garcia	citation	KBG:	page 36, the initials of the turn's speaker
+(213) line 1	Nɬeʔkepmxcín	transcription	nʔéy wéʔe wə ɬ ƛ̓q̕əmcín	page 36, pairs
+(213) line 2	Nɬeʔkepmxcín	segmentation	n-ʔéy wéʔe wə=ɬ=ƛ̓q̕əmcín	page 36, pairs
+(213) line 3	Nɬeʔkepmxcín	gloss	LOC-here DEM at=DET=Lytton	page 36, pairs
+(213) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘[It’s] in Lytton way.’	page 36, pairs
+(214) line 1	Marty Aspinall	citation	CMA:	page 36, the initials of the turn's speaker
+(214) line 1	Nɬeʔkepmxcín	transcription	ʔéy, ʔéy	page 36, pairs
+(214) line 2	Nɬeʔkepmxcín	segmentation	ʔéy ʔéy	page 36, pairs
+(214) line 3	Nɬeʔkepmxcín	gloss	yes yes	page 36, pairs
+(214) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes, yes.’	page 36, pairs
+(215) line 1	Bernice Garcia	citation	KBG:	page 36, the initials of the turn's speaker
+(215) line 1	Nɬeʔkepmxcín	transcription	néʔe	page 36, pairs
+(215) line 2	Nɬeʔkepmxcín	segmentation	néʔe	page 36, pairs
+(215) line 3	Nɬeʔkepmxcín	gloss	DEM	page 36, pairs
+(215) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘There.’	page 36, pairs
+(216) line 1	Marty Aspinall	citation	CMA:	page 36, the initials of the turn's speaker
+(216) line 1	Nɬeʔkepmxcín	transcription	[inaudible] kn ʔeɬ ƛ̓uʔ téʔe	page 36, pairs
+(216) line 2	Nɬeʔkepmxcín	segmentation	[inaudible]=kn ʔeɬ ƛ̓uʔ téʔe	page 36, pairs
+(216) line 3	Nɬeʔkepmxcín	gloss	[inaudible]=1SG.SBJ and until DEM	page 36, pairs
+(216) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And I’m going along (doing whatever — I don’t know).’	page 36, pairs, carries footnote 33, written here without its digit
+(217) line 1	Marty Aspinall	citation	CMA:	page 36, the initials of the turn's speaker
+(217) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ us... s-tem̓n̓ xéʔ néʔ néʔ he s...	page 36, pairs
+(217) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ=us s-tem̓=n̓ xéʔ néʔ néʔ he=s	page 36, pairs
+(217) line 3	Nɬeʔkepmxcín	gloss	and=CNJ NMLZ-what=Q DEM DEM DEM DET=NMLZ	page 36, pairs
+(217) line 4	Nɬeʔkepmxcín	transcription	he ssəqs e... e q̓ʷumqns e pús	page 36, pairs
+(217) line 5	Nɬeʔkepmxcín	segmentation	he=s-səq-s e e=q̓ʷum-qn-s e=pús	page 36, pairs
+(217) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-sitting-3POSS DET DET=head-top-3POSS DET=cat	page 36, pairs
+(217) line 7	Nɬeʔkepmxcín	transcription	stéʔ wiʔ xéʔ	page 36, pairs
+(217) line 8	Nɬeʔkepmxcín	segmentation	s-téʔ wiʔ xéʔ	page 36, pairs
+(217) line 9	Nɬeʔkepmxcín	gloss	NMLZ-what indeed DEM	page 36, pairs
+(217) line 10	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘What is that sitting on top of the cat’s head? What is that?’	page 36, pairs
+(218) line 1	Marty Aspinall	citation	CMA:	page 36, the initials of the turn's speaker
+(218) line 1	Nɬeʔkepmxcín	transcription	qemút n̕xéʔe	page 36, pairs
+(218) line 2	Nɬeʔkepmxcín	segmentation	qemut=n̕xéʔe	page 36, pairs
+(218) line 3	Nɬeʔkepmxcín	gloss	hat=Q DEM	page 36, pairs
+(218) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Is that a hat?’	page 36, pairs
+footnote 33	Ella Hannon, Anna Stacey and Reed Steiner	note	33 CMA was not able to provide a full translation for this sentence, since the first part is inaudible.	page 36, footnote
+(219) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(219) line 1	Nɬeʔkepmxcín	transcription	e qemúts	page 37, pairs
+(219) line 2	Nɬeʔkepmxcín	segmentation	e=qemut-s	page 37, pairs
+(219) line 3	Nɬeʔkepmxcín	gloss	DET=hat-3POSS	page 37, pairs
+(219) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘His hat.’	page 37, pairs
+(220) line 1	Marty Aspinall	citation	CMA:	page 37, the initials of the turn's speaker
+(220) line 1	Nɬeʔkepmxcín	transcription	e qemúts	page 37, pairs
+(220) line 2	Nɬeʔkepmxcín	segmentation	e=qemut-s	page 37, pairs
+(220) line 3	Nɬeʔkepmxcín	gloss	DET=hat-3POSS	page 37, pairs
+(220) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘His hat.’	page 37, pairs
+(221) line 1	Marty Aspinall	citation	CMA:	page 37, the initials of the turn's speaker
+(221) line 1	Nɬeʔkepmxcín	transcription	k̓ʷmiʔmeʔ néʔ te qemút	page 37, pairs
+(221) line 2	Nɬeʔkepmxcín	segmentation	k̓ʷmiʔmeʔ néʔ t=e=qemút	page 37, pairs
+(221) line 3	Nɬeʔkepmxcín	gloss	little DEM OBL=DET=hat	page 37, pairs
+(221) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘A little hat.’	page 37, pairs
+(222) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(222) line 1	Nɬeʔkepmxcín	transcription	y̓ ekʷu néʔ e kʷísitus	page 37, pairs
+(222) line 2	Nɬeʔkepmxcín	segmentation	y̓=ekʷu néʔ e=kʷís-it=us	page 37, pairs
+(222) line 3	Nɬeʔkepmxcín	gloss	good=REP DEM DET=fall-baby=CNJ	page 37, pairs
+(222) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘[It’s] referring to happy birthday.’	page 37, pairs
+(223) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(223) line 1	Nɬeʔkepmxcín	transcription	ʔe meɬ xéʔe sxʷuy̓s ʔiƛ̓m	page 37, pairs
+(223) line 2	Nɬeʔkepmxcín	segmentation	ʔe=meɬ xéʔe s=xʷuy̓-s ʔiƛ̓-m	page 37, pairs
+(223) line 3	Nɬeʔkepmxcín	gloss	INT=CNSQ DEM NMLZ=FUT-3POSS sing-CTR.MID	page 37, pairs
+(223) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And then she starts to sing.’	page 37, pairs
+(224) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(224) line 1	Nɬeʔkepmxcín	transcription	♪ y̓e y̓e te síƛ̓q̓t e kʷísituxw ♪	page 37, pairs
+(224) line 2	Nɬeʔkepmxcín	segmentation	y̓e y̓e t=e=síƛ̓-q̓t e=kʷís-it=uxw	page 37, pairs
+(224) line 3	Nɬeʔkepmxcín	gloss	good good OBL=DET=day-sky DET=fall-baby=2SG.CNJ	page 37, pairs
+(224) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It was a good day that you were born.’	page 37, pairs
+(225) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(225) line 1	Nɬeʔkepmxcín	transcription	♪ nem y̓e síƛ̓q̓t e kʷísituxw ♪	page 37, pairs
+(225) line 2	Nɬeʔkepmxcín	segmentation	nem y̓e síƛ̓-q̓t e=kʷís-it=uxw	page 37, pairs
+(225) line 3	Nɬeʔkepmxcín	gloss	very good day-sky DET=fall-baby=2SG.CNJ	page 37, pairs
+(225) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It was a very good day that you were born.’	page 37, pairs
+(226) line 1	Marty Aspinall	citation	CMA:	page 37, the initials of the turn's speaker
+(226) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 37, pairs
+(226) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 37, pairs
+(226) line 3	Nɬeʔkepmxcín	gloss	yes	page 37, pairs
+(226) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 37, pairs
+(227) line 1	Bernice Garcia	citation	KBG:	page 37, the initials of the turn's speaker
+(227) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 37, pairs
+(227) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 37, pairs
+(227) line 3	Nɬeʔkepmxcín	gloss	yes	page 37, pairs
+(227) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 37, pairs
+(228) line 1	Marty Aspinall	citation	CMA:	page 38, the initials of the turn's speaker
+(228) line 1	Nɬeʔkepmxcín	transcription	nəst	page 38, pairs
+(228) line 2	Nɬeʔkepmxcín	segmentation	nəst	page 38, pairs
+(228) line 3	Nɬeʔkepmxcín	gloss	TAG	page 38, pairs
+(228) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Right?’	page 38, pairs
+(229) line 1	Bernice Garcia	citation	KBG:	page 38, the initials of the turn's speaker
+(229) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 38, pairs
+(229) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 38, pairs
+(229) line 3	Nɬeʔkepmxcín	gloss	yes	page 38, pairs
+(229) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 38, pairs
+(230) line 1	Marty Aspinall	citation	CMA:	page 38, the initials of the turn's speaker
+(230) line 1	Nɬeʔkepmxcín	transcription	♪ y̓e ʔeyɬ nsxʷáwkʷ	page 38, pairs
+(230) line 2	Nɬeʔkepmxcín	segmentation	y̓e ʔeyɬ n-s-xʷáwkʷ	page 38, pairs
+(230) line 3	Nɬeʔkepmxcín	gloss	good now 1SG.POSS-NMLZ-heart	page 38, pairs
+(230) line 4	Nɬeʔkepmxcín	transcription	te snkʷisit-cn ♪	page 38, pairs, carries footnote 34, written here without its digit
+(230) line 5	Nɬeʔkepmxcín	segmentation	t=e=s=n=kʷis-it-t-si-en	page 38, pairs
+(230) line 6	Nɬeʔkepmxcín	gloss	OBL=DET=NMLZ=LOC=fall-baby-TR-2SG.OBJ-[PASSIVE?]	page 38, pairs
+(230) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘My heart feels good that you were born.’	page 38, pairs
+(231) line 1	Marty Aspinall	citation	CMA:	page 38, the initials of the turn's speaker
+(231) line 1	Marty Aspinall	running speech	That’s cute!	page 38, pairs
+(232) line 1	Bernice Garcia	citation	KBG:	page 38, the initials of the turn's speaker
+(232) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 38, pairs
+(232) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 38, pairs
+(232) line 3	Nɬeʔkepmxcín	gloss	yes	page 38, pairs
+(232) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 38, pairs
+(233) line 1	Marty Aspinall	citation	CMA:	page 38, the initials of the turn's speaker
+(233) line 1	Nɬeʔkepmxcín	transcription	tu y̓e xeʔ	page 38, pairs
+(233) line 2	Nɬeʔkepmxcín	segmentation	tu y̓e xeʔ	page 38, pairs
+(233) line 3	Nɬeʔkepmxcín	gloss	still good DEM	page 38, pairs
+(233) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘That’s good.’	page 38, pairs
+(234) line 1	Marty Aspinall	citation	CMA:	page 38, the initials of the turn's speaker
+(234) line 1	Nɬeʔkepmxcín	transcription	nem məqʷmoqʷixm ʔeɬ neʔ k sy̓e...	page 38, pairs
+(234) line 2	Nɬeʔkepmxcín	segmentation	nem məqʷ~moqʷ-ix-m ʔeɬ neʔ k=s=y̓e	page 38, pairs
+(234) line 3	Nɬeʔkepmxcín	gloss	very PL~gather-AUT-CTR.MID and DEM DET=NMLZ=good	page 38, pairs
+(234) line 4	Nɬeʔkepmxcín	transcription	ʔe k scutes e sɬaʔx̣áns ʔe məɬ	page 38, pairs
+(234) line 5	Nɬeʔkepmxcín	segmentation	ʔe k=s=cu-t-∅-es e=s-ɬaʔx̣-áns ʔe məɬ	page 38, pairs
+(234) line 6	Nɬeʔkepmxcín	gloss	ANT DET=NMLZ=fix-TR-3OBJ-3ERG STAT-NMLZ-eat-tooth INT CNSQ	page 38, pairs
+(234) line 7	Nɬeʔkepmxcín	transcription	néʔ séy̓siʔs	page 38, pairs
+(234) line 8	Nɬeʔkepmxcín	segmentation	néʔ k=séy̓siʔ-s	page 38, pairs
+(234) line 9	Nɬeʔkepmxcín	gloss	DEM DET=play-3POSS	page 38, pairs
+(234) line 10	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And then he’s gonna fix the food and then they’re gonna play.’	page 38, pairs
+footnote 34	Ella Hannon, Anna Stacey and Reed Steiner	note	34 The stem ends in a very audible cn. We originally interpreted this as a first-person ergative/second-person- singular object ending (as if a mother is singing “my heart feels good that I birthed you”) but this is likely not accurate, since the translation is very clearly patient-oriented. We suspect the -en might be a homophonous morpheme that passivizes the construction, although testing is necessary.	page 38, footnote
+(235) line 1	Bernice Garcia	citation	KBG:	page 39, the initials of the turn's speaker
+(235) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 39, pairs
+(235) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 39, pairs
+(235) line 3	Nɬeʔkepmxcín	gloss	yes	page 39, pairs
+(235) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 39, pairs
+(236) line 1	Bernice Garcia	citation	KBG:	page 39, the initials of the turn's speaker
+(236) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ ʔiƛ̓m ʔeɬ sƛ̓éy	page 39, pairs
+(236) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ ʔiƛ̓-m ʔeɬ s-ƛ̓éy	page 39, pairs
+(236) line 3	Nɬeʔkepmxcín	gloss	and sing-CTR.MID and NMLZ-women’s.dance	page 39, pairs
+(236) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And they sang and they danced.’	page 39, pairs
+(237) line 1	Marty Aspinall	citation	CMA:	page 39, the initials of the turn's speaker
+(237) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 39, pairs
+(237) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 39, pairs
+(237) line 3	Nɬeʔkepmxcín	gloss	yes	page 39, pairs
+(237) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 39, pairs
+(238) line 1	Marty Aspinall	citation	CMA:	page 39, the initials of the turn's speaker
+(238) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 39, pairs
+(238) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 39, pairs
+(238) line 3	Nɬeʔkepmxcín	gloss	yes	page 39, pairs
+(238) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 39, pairs
+(239) line 1	Bernice Garcia	citation	KBG:	page 39, the initials of the turn's speaker
+(239) line 1	Nɬeʔkepmxcín	transcription	néʔe	page 39, pairs
+(239) line 2	Nɬeʔkepmxcín	segmentation	néʔe	page 39, pairs
+(239) line 3	Nɬeʔkepmxcín	gloss	DEM	page 39, pairs
+(239) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘There.’	page 39, pairs
+(240) line 1	Bernice Garcia	citation	KBG:	page 39, the initials of the turn's speaker
+(240) line 1	Nɬeʔkepmxcín	transcription	q̕uyʔcút–	page 39, pairs
+(240) line 2	Nɬeʔkepmxcín	segmentation	q̕uyʔ-t-sút	page 39, pairs
+(240) line 3	Nɬeʔkepmxcín	gloss	laugh-TR-OOC	page 39, pairs
+(240) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘He laughed –’	page 39, pairs
+(241) line 1	Marty Aspinall	citation	CMA:	page 39, the initials of the turn's speaker
+(241) line 1	Nɬeʔkepmxcín	transcription	[inaudible] q̓uyʔcút ʔe məɬ nes y̓és	page 39, pairs
+(241) line 2	Nɬeʔkepmxcín	segmentation	[inaudible] q̓uyʔ-t-sút ʔe məɬ nes y̓é-s	page 39, pairs
+(241) line 3	Nɬeʔkepmxcín	gloss	[inaudible] laugh-TR-OOC INT CNSQ INCIP good-3POSS	page 39, pairs
+(241) line 4	Nɬeʔkepmxcín	transcription	e sxʷéwkʷiyxs	page 39, pairs
+(241) line 5	Nɬeʔkepmxcín	segmentation	e=s-xʷéwkʷ-iyxs	page 39, pairs
+(241) line 6	Nɬeʔkepmxcín	gloss	DET=NMLZ-heart-3PL	page 39, pairs
+(241) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘They laughed and they will feel better.’	page 39, pairs
+(242) line 1	Bernice Garcia	citation	KBG:	page 39, the initials of the turn's speaker
+(242) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 39, pairs
+(242) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 39, pairs
+(242) line 3	Nɬeʔkepmxcín	gloss	yes	page 39, pairs
+(242) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 39, pairs
+(243) line 1	Bernice Garcia	citation	KBG:	page 40, the initials of the turn's speaker
+(243) line 1	Nɬeʔkepmxcín	transcription	ʔeɬ wéʔe wə ɬ qʷoʔ e meɬ neʔ wiʔ sy̓és	page 40, pairs
+(243) line 2	Nɬeʔkepmxcín	segmentation	ʔeɬ wéʔe wə=ɬ=qʷoʔ e meɬ neʔ wiʔ s=y̓é-s	page 40, pairs
+(243) line 3	Nɬeʔkepmxcín	gloss	and DEM at=D/C=water INT CNSQ DEM indeed NMLZ=good-3POSS	page 40, pairs
+(243) line 4	Nɬeʔkepmxcín	transcription	s ʕʷoy̓ts ʔéye ɬ qʷoʔ ws	page 40, pairs
+(243) line 5	Nɬeʔkepmxcín	segmentation	s=ʕʷoy̓t-[t]-∅-s ʔeye ɬ=qʷoʔ=ws	page 40, pairs
+(243) line 6	Nɬeʔkepmxcín	gloss	STAT=sleep-TR-3OBJ-3ERG here DET=water=CNJ	page 40, pairs
+(243) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And over there by the water they’re gonna sleep really good.’	page 40, pairs
+(244) line 1	Marty Aspinall	citation	CMA:	page 40, the initials of the turn's speaker
+(244) line 1	Nɬeʔkepmxcín	transcription	cu kt ƛ̓uʔ xeʔ néʔ wiʔ qeʔnímes e qʷoʔ	page 40, pairs
+(244) line 2	Nɬeʔkepmxcín	segmentation	cu=kt ƛ̓uʔ xeʔ néʔ wiʔ qeʔním-es e=qʷoʔ	page 40, pairs
+(244) line 3	Nɬeʔkepmxcín	gloss	say=1PL.SBJ only DEM DEM indeed hear-3ERG DET=water	page 40, pairs
+(244) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘And that’s all he’s gonna hear is the water.’	page 40, pairs
+(245) line 1	Bernice Garcia	citation	KBG:	page 40, the initials of the turn's speaker
+(245) line 1	Nɬeʔkepmxcín	transcription	heʔéy	page 40, pairs
+(245) line 2	Nɬeʔkepmxcín	segmentation	heʔéy	page 40, pairs
+(245) line 3	Nɬeʔkepmxcín	gloss	yes	page 40, pairs
+(245) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yes.’	page 40, pairs
+(246) line 1	Marty Aspinall	citation	CMA:	page 40, the initials of the turn's speaker
+(246) line 1	Nɬeʔkepmxcín	transcription	téʔ xeymxím us e séytknmx téteʔ stéʔ	page 40, pairs
+(246) line 2	Nɬeʔkepmxcín	segmentation	téʔ xeymxím=us e=séytkn-mx téteʔ s-téʔ	page 40, pairs
+(246) line 3	Nɬeʔkepmxcín	gloss	what [people.did]=CNJ DET=people-person NEG NMLZ-what	page 40, pairs
+(246) line 4	Nɬeʔkepmxcín	transcription	k ʔex téʔe cukʷ ƛ̓uʔ neʔ xeʔ qʷoʔ e qeʔnímetiyxs	page 40, pairs
+(246) line 5	Nɬeʔkepmxcín	segmentation	k=ʔex=téʔe cukʷ ƛ̓uʔ neʔ xeʔ qʷoʔ e=qeʔním-et-∅-iyxs	page 40, pairs
+(246) line 6	Nɬeʔkepmxcín	gloss	D/C=be=NEG finish until DEM DEM water D/C=hear-TR-3OBJ-3PL	page 40, pairs
+(246) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘That’s what our people used to do: sleep by the water and there was nothing around.’	page 40, pairs, carries footnote 35, written here without its digit
+(247) line 1	Bernice Garcia	citation	KBG:	page 40, the initials of the turn's speaker
+(247) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 40, pairs
+(247) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 40, pairs
+(247) line 3	Nɬeʔkepmxcín	gloss	yes	page 40, pairs
+(247) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 40, pairs
+(248) line 1	Bernice Garcia	citation	KBG:	page 40, the initials of the turn's speaker
+(248) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 40, pairs
+(248) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 40, pairs
+(248) line 3	Nɬeʔkepmxcín	gloss	yes	page 40, pairs
+(248) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 40, pairs
+footnote 35	Ella Hannon, Anna Stacey and Reed Steiner	note	35 Although the volunteered translation includes ‘sleep’, we do not see the root for ‘sleep’ in the sentence. Similarly, we do not see the root for ‘hear’ reflected in the translation. We suspect the translation is more idiomatic.	page 40, footnote
+(249) line 1	Marty Aspinall	citation	CMA:	page 41, the initials of the turn's speaker
+(249) line 1	Nɬeʔkepmxcín	transcription	pey̓ us snéʔe e sqeʔnímetiyxs	page 41, pairs
+(249) line 2	Nɬeʔkepmxcín	segmentation	pey̓=us s-néʔe e=s=qeʔním-et-∅-iyxs	page 41, pairs
+(249) line 3	Nɬeʔkepmxcín	gloss	one=CNJ NMLZ-DEM DET=NMLZ=hear-TR-3OBJ-3PL	page 41, pairs
+(249) line 4	Nɬeʔkepmxcín	transcription	e... e snk̓y̓ép	page 41, pairs
+(249) line 5	Nɬeʔkepmxcín	segmentation	e e=snk̓y̓ép	page 41, pairs
+(249) line 6	Nɬeʔkepmxcín	gloss	DET DET=coyote	page 41, pairs
+(249) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Once in a while they would hear a coyote.’	page 41, pairs
+(250) line 1	Marty Aspinall	citation	CMA:	page 41, the initials of the turn's speaker
+(250) line 1	Marty Aspinall	running speech	ʔaw! ʔaw! ʔaw! ʔawww!	page 41, pairs
+(251) line 1	Bernice Garcia	citation	KBG:	page 41, the initials of the turn's speaker
+(251) line 1	Nɬeʔkepmxcín	transcription	ʔéy	page 41, pairs
+(251) line 2	Nɬeʔkepmxcín	segmentation	ʔéy	page 41, pairs
+(251) line 3	Nɬeʔkepmxcín	gloss	yes	page 41, pairs
+(251) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Yep.’	page 41, pairs
+(252) line 1	Bernice Garcia	citation	KBG:	page 41, the initials of the turn's speaker
+(252) line 1	Nɬeʔkepmxcín	transcription	ʔe məɬ néʔe sʔexs nox̣ʷnox̣ʷ e stpíq	page 41, pairs
+(252) line 2	Nɬeʔkepmxcín	segmentation	ʔe məɬ néʔe s=ʔex-s nox̣ʷ~nox̣ʷ e=s-tpíq	page 41, pairs
+(252) line 3	Nɬeʔkepmxcín	gloss	INT CNSQ DEM NMLZ=PROG-3POSS PL~run DET=NMLZ-weasel	page 41, pairs
+(252) line 4	Nɬeʔkepmxcín	transcription	ʔex us te kʷun wə ɬ né stustks	page 41, pairs
+(252) line 5	Nɬeʔkepmxcín	segmentation	ʔex=us t=e=kʷun wə=ɬ=né s-tustk-s	page 41, pairs
+(252) line 6	Nɬeʔkepmxcín	gloss	PROG=CNJ OBL=DET=protrude to=D/C=DEM NMLZ-wire.trap-3POSS	page 41, pairs
+(252) line 7	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘The little white weasel is running along until she got to the wire trap.’	page 41, pairs
+(253) line 1	Bernice Garcia	citation	KBG:	page 41, the initials of the turn's speaker
+(253) line 1	Nɬeʔkepmxcín	transcription	kʷukʷscút neʔ ʔeyɬ… tekm e spzspzúʔ	page 41, pairs
+(253) line 2	Nɬeʔkepmxcín	segmentation	kʷukʷ-s-cút neʔ ʔeyɬ tekm e=spz~spzúʔ	page 41, pairs
+(253) line 3	Nɬeʔkepmxcín	gloss	be.saved-CAUS-REFL DEM now all DET=PL~animal	page 41, pairs
+(253) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘All the animals are treating themselves very well.’	page 41, pairs
+(254) line 1	Marty Aspinall	citation	CMA:	page 41, the initials of the turn's speaker
+(254) line 1	Nɬeʔkepmxcín	transcription	nəst??	page 41, pairs
+(254) line 2	Nɬeʔkepmxcín	segmentation	nəst	page 41, pairs
+(254) line 3	Nɬeʔkepmxcín	gloss	TAG	page 41, pairs
+(254) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘Aren’t they?’	page 41, pairs
+(255) line 1	Bernice Garcia	citation	KBG:	page 41, the initials of the turn's speaker
+(255) line 1	Nɬeʔkepmxcín	transcription	c̓i nukʷ e cukʷ ʔeyɬ	page 41, pairs
+(255) line 2	Nɬeʔkepmxcín	segmentation	c̓i=nukʷ e=cukʷ ʔeyɬ	page 41, pairs
+(255) line 3	Nɬeʔkepmxcín	gloss	EMPH=SENSE DET=finish now	page 41, pairs
+(255) line 4	Ella Hannon, Anna Stacey and Reed Steiner	translation	‘It’s finished.’	page 41, pairs
+§5	Ella Hannon, Anna Stacey and Reed Steiner	heading	5 Conclusion	page 41
+§5	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§5	Ella Hannon, Anna Stacey and Reed Steiner	note	In this paper, we have presented four glossed and annotated conversations in Nɬeʔkepmxcín. With this, we begin to fill a gap that exists in the availability of glossed texts in the language, as well as providing both Nɬeʔkepmxcín learners and scholars of linguistics with spontaneous, naturalisitc speech data. Elicitation sessions targeting spontaneous, naturalistic speech are essential in language documentation, as they reveal features of the language that are often not evident in elicitations targeting only specific linguistic phenomena. We have discussed a small selection of the linguistic features our conversations uncovered; there are certainly many more to be found and commented on.	page 41
+references	Ella Hannon, Anna Stacey and Reed Steiner	heading	References	page 42
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Caldecott, Marion & Karsten Koch. 2014. Using mixed media tools for eliciting discourse in Indigenous languages. Language Documentation and Conservation 8:209–240.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Comrie, Bernard, Martin Haspelmath, & Balthasar Bickel. 2008. The Leipzig Glossing Rules: Conventions for interlinear morpheme-by-morpheme glosses. Max Planck Institute for Evolutional Anthropology.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	language	nłeʔképmxcín	Nɬeʔkepmxcín, in the title of a reference, with ł
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Egesdal, Steven M., M. Terry Thompson, & Mandy N. Jimmie. 2011. nłeʔképmxcín: Thompson River Salish Speech. Bellingham, WA: Whatcom Museum Publications.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Gessner, Suzanne, Tracey Herbert, & Aliana Parker. 2023. Report on the Status of BC First Nations Languages. First Peoples’ Cultural Council.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Hannon, Ella & Cayla Smith. 2023. A Brief Comparison of Two Nɬeʔkepmxcín Evidentials. Papers for ICSNL 58:94–116.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Koch, Karsten A. 2004. On predicate modification in Nɬeʔkepmxcín (Thompson River Salish). Papers for ICSNL 39:269–282.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Kroeber, Paul David. 1997. Relativization in Thompson River Salish. Anthropological Linguistics 39(3):376–422.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Littell, Patrick, Lisa Matthewson, & Tyler Peterson. 2010. On the Semantics of Conjectural Questions. In Tyler Peterson and Uli Sauerland (eds.), Evidence from Evidentials. Vancouver, BC: UBCWPL, 89–104.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	language	Státimcets	St’át’imcets, in the title of a reference, without its apostrophes
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Matthewson, Lisa, Henry Davis, and Hotze Rullmann. 2007. Evidentials as epistemic modals: Evidence from Státimcets. In Jeroen van Craenenbroeck and Johan Rooryck (eds.), Linguistic Variation Yearbook 7, Amsterdam, Netherlands: John Benjamins Publishing Company, 201- 254.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	San Roque, Lila, Lauren Gawne, Darja Hoenigman, Julia Colleen Miller, Alan Rumsey, Stef Spronck, Alice Carroll, and Nicholas Evans. 2012. Getting the story straight: language fieldwork using a narrative problem-solving task. Language Documentation and Conservation 6:135–174.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Thompson, Laurence C. & M. Terry Thompson.1992. The Thompson Language. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Ella Hannon, Anna Stacey and Reed Steiner	language	nɬeʔkepmxcín	Nɬeʔkepmxcín, in the title of a reference
+references	Ella Hannon, Anna Stacey and Reed Steiner	reference	Thompson, Laurence C. & M. Terry Thompson. 1996. Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics.	

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fetch the ICSNL papers and turn them into the text the readers expect.
@@ -119,7 +119,7 @@ INDEX = "https://lingpapers.sites.olt.ubc.ca/icsnl-volumes/"
 # check meant to be passed by a person is that person's to pass. The way to fetch in bulk from here
 # is to ask the archive, at the address above, and the address is in this string for that reason.
 AGENT = (
-    "Salishan-corpus-tools/1.0 (+https://github.com/dstroy0/anchor_sift; "
+    "Salishan-corpus-tools/1.0 (+https://github.com/dstroy0/orior; "
     "academic corpus extraction; dquigg123@gmail.com)"
 )
 

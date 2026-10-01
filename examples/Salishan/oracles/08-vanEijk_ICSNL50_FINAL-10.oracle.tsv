@@ -1,0 +1,231 @@
+where	who	kind	form	gloss
+front	Jan P. van Eijk	title	Lillooet irrealis: how real is it?	page 1, carries footnote *
+front	Jan P. van Eijk	name	Jan P. van Eijk	author
+front	Jan P. van Eijk	note	First Nations University of Canada	page 1, under Jan P. van Eijk
+front	Jan P. van Eijk	note	Abstract: The category ‘irrealis’ has been studied for a large number of languages, but remains controversial in that a number of authors question the validity of this term, or the entire existence of the category, as a viable linguistic concept. This paper discusses ‘irrealis’ with regard to Lillooet, within the context of existing observations on this concept.	page 1, the abstract
+front	Jan P. van Eijk	note	Keywords: Lillooet, irrealis, aspect, tense, mood	page 1, the keywords
+front	Jan P. van Eijk	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Jan P. van Eijk	language	Lillooet	Northern Interior Salishan, St’át’imcets, the paper's subject
+footnote *	Jan P. van Eijk	note	As before, it is my pleasant task to thank my Lillooet (St’át’imcets) consultants for their invaluable teachings, and First Nations University of Canada for providing the job security and stimulating academic environment that made this article possible. Thanks are also due to Christina Mickleborough for priming my interest in the irrealis issue. The responsibility for the contents of this article remains mine alone.	page 1, footnote *, on the title
+footnote *	Jan P. van Eijk	name	Christina Mickleborough	thanked on the title for priming the author's interest in the irrealis
+§1	Jan P. van Eijk	heading	1 Introduction	page 1
+§1	Jan P. van Eijk	note	Over the years a large number of studies have appeared that are devoted to the concept ‘irrealis,’ i.e. (briefly) the linguistic expression of unrealized or not realizable conditions or situations. As an example we can use English phrases like ‘she was here,’ ‘she is here,’ ‘she will be here,’ all of which refer to situations that have been realized, are realized or will be realized, while ‘if she were here (or, ‘were she here’), she would do it’ or ‘I wish she were here’ refer to situations the realization of which has been rendered moot as they do not reflect real or potential facts but unfulfilled conditions or wishes and the like.	page 1
+§1	Jan P. van Eijk	note	In his paper we investigate ‘irrealis’ with regard to Lillooet, but we also need to study the validity of this concept as that has been called into question in a number of recent studies. We explore this latter issue first, in section 2, before turning to Lillooet in section 3.	page 1
+§2	Jan P. van Eijk	heading	2 Problems in conceptualizing irrealis	page 1
+§2	Jan P. van Eijk	note	A workable definition of ‘irrealis’ is given in Trask (1993:147):	page 1
+§2	Jan P. van Eijk	name	Trask	R. L. Trask, the definition of irrealis (1993:147) quoted on page 1
+§2	Jan P. van Eijk	note	A label often applied in a somewhat ad hoc manner to some distinctive grammatical form, most often a verbal inflection, occurring in some particular language and having some kind of connection with unreality. Palmer (1968) recommends that this term should be avoided in linguistic theory on the ground that it corresponds to no linguistic content.	page 1, a block quotation of Trask (1993:147)
+§2	Jan P. van Eijk	name	Palmer	F. R. Palmer, Mood and modality (1968; 2001), quoted on page 2
+§2	Jan P. van Eijk	note	Palmer (1968) has appeared in a second edition as Palmer (2001) to which we will refer henceforth. On p. 148 of that source, Palmer has indeed the following to say on ‘realis’ and ‘irrealis:’	page 2
+§2	Jan P. van Eijk	note	Although they are transparent, it is, perhaps, a little unfortunate that the terms ‘realis’ and ‘irrealis’ have been adopted as grammatical terms in place of the traditional terms ‘indicative’ and ‘subjunctive’.	page 2, a block quotation of Palmer (2001:148)
+§2	Jan P. van Eijk	note	Palmer’s misgivings are reflected in Bybee (1998:267), “A highly generalized notion such as ‘lacking in reality’ is probably too abstract to be of much communicative use,” Martin (1998:198), “[...] the irrealis category in Mocho [a Mayan language—JvE] is not amenable to a single analysis and is best understood as involving a spectrum of meanings and speaker stances that are neither grammatically nor discursively unified,” Vidal and Manelis Klein (1998:185), “[..] the categorization of all such speech acts [counterfactuals, conditionals, etc. —JvE] as belonging to an irrealis mode is highly variable.”	page 2
+§2	Jan P. van Eijk	name	Bybee	J. L. Bybee (1998:267), on irrealis as too abstract
+§2	Jan P. van Eijk	name	Martin	L. Martin (1998:198), on the irrealis in Mocho
+§2	Jan P. van Eijk	name	Vidal	E. Vidal, with Manelis Klein (1998), on Pilagá and Toba
+§2	Jan P. van Eijk	name	Manelis Klein	H. E. Manelis Klein, with Vidal (1998), on Pilagá and Toba
+§2	Jan P. van Eijk	language	Mocho	a Mayan language, Martin (1998) on its irrealis
+§2	Jan P. van Eijk	note	The above hedgings are neatly summarized in Kinkade’s properly pithy comment “[...] irrealis remains inconsistently defined” (Kinkade 1998:234), followed up in a later work with “[...] linguistic literature has used this term in a variety of ways, often referring to very different phenomena,” and “these papers [in Anthropological Linguistics, vol. 40, no. 2—JvE] clearly do not reflect a single notion of irrealis” (Kinkade 2001:189).	page 2
+§2	Jan P. van Eijk	name	Kinkade	M. D. Kinkade (1998, 2001), on irrealis in Upper Chehalis and Proto-Salish
+§2	Jan P. van Eijk	note	We are thus presented with two problems: (a) is it necessary to use the terms ‘realis’ and ‘irrealis’ in addition to ‘indicative’ and ‘subjunctive,’ and (b) is a term like ‘irrealis’ useful (if it is used at all) when it covers a large range of different notions (which also may vary from one language to another).	page 2
+§2	Jan P. van Eijk	note	As for the first point, although Palmer’s book is thoroughly researched and richly detailed, with a plethora of examples from a wide array of languages, I can still see the usefulness of ‘realis’ and ‘irrealis’ in addition to ‘indicative’ and ‘subjunctive,’ as (to me, at least) ‘indicative’ and ‘subjunctive’ refer to the formal aspects of category-marking, while ‘realis’ and ‘irrealis’ refer to their (admittedly broad and richly varied) semantic functions, comparable to, say, the terms ‘nominative’ and ‘accusative’ indicating the formal markers of ‘subject’ and ‘object’ respectively. Furthermore, there is not always an automatic link between ‘indicative’ and ‘realis,’ as in English ‘I move that she is promoted’ (colloquial equivalent of ‘I move that she be promoted,’ see also section 2.1), where indicative ‘is’ signals the irrealis. There may be a firmer (be it as yet not completely established) relation between ‘subjunctive’ and ‘irrealis,” an issue we explore for Lillooet in sections 3 and 4.	page 2
+§2	Jan P. van Eijk	note	The fact that ‘irrealis’ covers a large number of ostensibly different categories or functions (again, also varying from language to language) should not be a problem either. It would be utterly impractical to invent a new term for a certain formal or semantic category for each language where that language covers related but also different categories under that term. (For example, the fact that Russian uses the genitive for the object of a negative construction, as in ja ne znaju etogu čeloveka ‘I do not know that person’ [literally, ‘I do not know of that person’], while, for instance, German generally does not [except for archaic expressions like Ich kenne des Menschen nicht] does not require us to come up with different terms for the genitive in Russian or German. Similarly, Van Eijk and Hess (1986) argue for using ‘noun’ and ‘verb’ for Salish, even though these word classes pattern differently in Salish than in, for example, Indo-European, but still share enough qualities with non-salish languages to not abandon these terms. Finally, Matthewson (2010) sensibly uses the term ‘subjunctive’ for the non-factual and non-indicative paradigm in Lillooet, even though “[...] the St’át’imcets subjunctive differs semantically in interesting ways from European subjunctives” [p. 59].)	page 2
+§2	Russian	cited form	ja ne znaju etogu čeloveka	page 2, in italics, ‘I do not know that person’
+§2	German	cited form	Ich kenne des Menschen nicht	page 3, in italics
+§2	Jan P. van Eijk	name	Van Eijk	the author's own work, Van Eijk and Hess (1986), Van Eijk (1997, 2013)
+§2	Jan P. van Eijk	name	Hess	T. Hess, with Van Eijk (1986), on noun and verb in Salish
+§2	Jan P. van Eijk	name	Matthewson	L. Matthewson (2010), on the St’át’imcets subjunctive
+§2	Jan P. van Eijk	language	Russian	sets the object of a negative construction in the genitive
+§2	Jan P. van Eijk	language	German	sets the object of a negative construction in the genitive only in archaic expressions
+§2	Jan P. van Eijk	note	Having proposed that the term ‘irrealis’ is indeed useful and that the fact that it may cover a range of notions is not a problem, we need to define what it actually “does” in any language that employs it. Again, Kinkade (1998:234) hits the nail squarely on the head when he states: “It is necessary to distinguish between that which is actually unreal and an irrealis grammatical category.” Kinkade then mentions negatives, questions, conditionals and subjunctives, and references to the future as expressions that refer to unreal situations, but that are not necessarily marked grammatically (morphologically or syntactically) as unreal. (Note that, in contrast to Palmer, he does not automatically associate or equate ‘subjunctive’ [or ‘conditional’] with ‘irrealis.’) Kinkade then concludes his discussion of unreal vs. irrealis by observing that Upper Chehalis does make a distinction between logical and grammatical unreality (the latter marked in Upper Chehalis with the particle q’aɬ).	page 3
+§2	Upper Chehalis	cited form	q’aɬ	page 3, in italics
+§2	Jan P. van Eijk	language	Upper Chehalis	marks grammatical unreality with the particle q’aɬ, after Kinkade (1998)
+§2.1	Jan P. van Eijk	heading	2.1 Formal markers of ‘irrealis	page 3
+§2.1	Jan P. van Eijk	note	Extrapolating Kinkade’s comments (at the risk of unintentionally misrepresenting them) to a number of languages not mentioned by him we could say that grammatical marking of the irrealis can also consist of a formally distinct paradigm (as in Latin moneam ‘that I warn’ vs. moneō ‘I warn’), or the “raiding” of a realis (indicative) paradigm for forms that could not be used in their realis function (as in English ‘if she were here’ [irrealis] vs. ‘she was here’ [realis], with ‘were’ is taken from the realis expressions ‘you were here’ or ‘we were here’), or an unusual syntactic pattern, such as the inversion in ‘had she been here’ (irrealis) vs. ‘she had been here’ (realis).	page 3
+§2.1	Latin	cited form	moneam	page 3, in italics, ‘that I warn’
+§2.1	Latin	cited form	moneō	page 3, in italics, ‘I warn’
+§2.1	Jan P. van Eijk	language	Latin	a formally distinct subjunctive paradigm
+§2.1	Jan P. van Eijk	note	Probably the clearest examples of irrealis marking are those cases where a past tense and future tense marker are combined in one form, as in English ‘could,’ ‘should’ and ‘would’ (past tense forms of ‘can,’ ‘shall’ and ‘will,’ all with a future reference). Other examples (taken from Jensen 1990 include Sanskrit a-tar-isy-at ‘he would cross (tar), a-dhar-isy-at ‘he would hold (dhar),’ both with the past tense marker a- … -at and the future tense marker -isy, or Georgian da-v-c’er-di ‘I (v-) would write (c’er) it/them,’ with the future marker da- and the past tense marker -di.	page 3
+§2.1	Sanskrit	cited form	a-tar-isy-at	page 3, in italics, ‘he would cross (tar), a-dhar-isy-at ‘he would hold (dhar),’
+§2.1	Sanskrit	cited form	tar	page 3, in italics
+§2.1	Sanskrit	cited form	a-dhar-isy-at	page 3, in italics, ‘he would hold (dhar),’
+§2.1	Sanskrit	cited form	dhar	page 3, in italics
+§2.1	Sanskrit	cited form	-isy	page 3, in italics
+§2.1	Georgian	cited form	da-v-c’er-di	page 3, in italics, ‘I (v-) would write (c’er) it/them,’
+§2.1	Georgian	cited form	v-	page 3, in italics
+§2.1	Georgian	cited form	c’er	page 3, in italics
+§2.1	Georgian	cited form	da-	page 3, in italics
+§2.1	Georgian	cited form	-di	page 3, in italics
+§2.1	Jan P. van Eijk	name	Jensen	J. T. Jensen (1990), the source of the Sanskrit and Georgian examples
+§2.1	Jan P. van Eijk	language	Sanskrit	past and future markers combined in one form, after Jensen (1990)
+§2.1	Jan P. van Eijk	language	Georgian	past and future markers combined in one form, after Jensen (1990)
+§2.1	Jan P. van Eijk	note	It should also be observed that sometimes realis and irrealis are not formally distinguished when the ‘indicative’ and ‘subjunctive’ paradigms partially coincide, as in English ‘if she was here’ (realis in ‘if she was here, she should have left that book she borrowed from me’) vs. ‘if she was here’ (irrealis as the colloquial variant of ‘if she were here,’ as in ‘if she was here, she would help us out’). The first use refers to a situation that is truth-testable (she was here or she was not), while the second use refers to a situation that is not, as it merely refers to a hypothetical condition. In Italian, andiamo can mean either ‘we go’ (realis) or ‘let’s go’ (irrealis), depending on context. (We clearly have the latter reading in Don Giovanni’s Andiam! Andiam!, where he seduces Zerlina into joining him in his private chambers.) The fact that Italian distinguishes indicative/realis from subjunctive/irrealis in other parts of its macro-paradigm argues for maintaining that we have two semantically different, though formally identical, forms of andiamo. (There is a partial parallel to the Italian case in English ‘we’re walking’ [instead of ‘let’s keep walking’], as used by a tour guide who needs a group of tourists moving when they are dawdling in front of the art pieces in the museum they are visiting.) Finally, Lillooet c̓áqʷan̓as expresses both ‘s/he eats it’ (indicative/realis) and ‘let her/him eat it’ (subjunctive/irrealis). We have the latter reading in c̓aqʷan̓ásˬƛ̓uɁ (with the general discourse particle ˬƛ̓uɁ, which also moves the stress in the preceding word), in a line from Bill Edwards’ story ‘The man who stayed with the bear,’ where a man is chastised by his kinfolk for bringing home a deer from the hunt without sharing it with the others (in violation of strict hunter’s protocol).	page 4
+§2.1	Italian	cited form	andiamo	page 4, in italics
+§2.1	Italian	cited form	Andiam! Andiam!	page 4, in italics
+§2.1	Lillooet	cited form	c̓áqʷan̓as	page 4, in italics
+§2.1	Lillooet	cited form	c̓aqʷan̓ásˬƛ̓uɁ	page 4, in italics
+§2.1	Lillooet	cited form	ˬƛ̓uɁ	page 4, in italics
+§2.1	Jan P. van Eijk	name	Bill Edwards	his story ‘The man who stayed with the bear’ gives c̓aqʷan̓ásˬƛ̓uɁ
+§2.1	Jan P. van Eijk	language	Italian	andiamo, indicative and subjunctive alike
+§2.1	Jan P. van Eijk	note	Summing up the above, we can say that the realis expresses truth-testable situations, whether those are real (as in ‘she was here’ or ‘she is here’) or as yet unreal (as in ‘she will be here’), while the irrealis expresses non-truth-testable situations (‘I wish she were here’ or ‘had she been here, she would have done it’). Conditionals (basically ‘if’ constructions) can be either realis, as in ‘if you touch me, I’ll scream’ (the truth of your touching me will be tested at some point), or irrealis, as in ‘if you touched me, I’d scream’ (truth not testable). It is for that reason that Leech (1971:110), from whom these examples are taken, classes the first one as a real condition and the second as an unreal condition. (Note also that ‘had she been here,’ quoted above, is rendered as ‘if she had been here’ [unreal condition] in more colloquial English.)	page 4
+§2.1	Jan P. van Eijk	name	Leech	G. N. Leech (1971:110), on real and unreal conditions
+§2.1	Jan P. van Eijk	note	We now apply our observations to Lillooet.	page 4
+§3	Jan P. van Eijk	heading	3 Lillooet irrealis	page 4
+§3	Jan P. van Eijk	note	In addition to an indicative and a factual paradigm, Lillooet also employs a subjunctive, which is used in three different ways, of which at least two have a clear irrealis function.1 In the first place, when the subjunctive is used by itself, without additional morpho-syntactic markers, it expresses an optative mood, as in ‘I (s.Ɂə́ncˬa) am the one who shot (qʷúsxit) him’ (indicative, with zero-marking on sɁə́ncˬa) vs. s.Ɂənc-ás kʷuˬnás ‘let me be the one to go (nas)’ (3sing./subjunctive -as on s.Ɂənc), xʷɁạz kʷˬs.ƛ̓íq-i ‘they did not (xʷɁạz) come (ƛ̓iq)’ (literally, there was not the fact (s-) of their (-i) coming’ (indicative, with zero-marking on xʷɁạz) vs. xʷɁạ́z-as kʷˬs.q̓ʷə́ɬp-su ‘do not get burnt/scalded’ (‘let it not be the fact of your (-su) getting burnt:’ -as 3sing./subjunctive), wáɁˬƛ̓uɁ Ɂíƛ̓əm ‘he is singing (Ɂíƛ̓əm)’ (indicative) vs. wáɁ-asˬƛ̓uɁ Ɂíƛ̓əm ‘let him (be) sing(ing)’ (subjunctive). For the subjunctive reading of c̓áqʷan̓as see section 2.	page 4
+footnote 1	Jan P. van Eijk	note	Prefixes are followed by a period [.] in orthographic transcriptions and a hyphen [-] in morpheme-by-morpheme glosses. Clitics are indicated with the underloop [ˬ], which follows proclitics and precedes enclitics. For these and other morphological markers, see Van Eijk (2013).	page 4, footnote 1
+§3	Lillooet	cited form	s.Ɂə́ncˬa	page 5, in italics
+§3	Lillooet	cited form	qʷúsxit	page 5, in italics
+§3	Lillooet	cited form	sɁə́ncˬa	page 5, in italics
+§3	Lillooet	cited form	s.Ɂənc-ás kʷuˬnás	page 5, in italics, ‘let me be the one to go (nas)’
+§3	Lillooet	cited form	nas	page 5, in italics
+§3	Lillooet	cited form	-as	page 5, in italics
+§3	Lillooet	cited form	s.Ɂənc	page 5, in italics
+§3	Lillooet	cited form	xʷɁạz kʷˬs.ƛ̓íq-i	page 5, in italics, ‘they did not (xʷɁạz) come (ƛ̓iq)’
+§3	Lillooet	cited form	xʷɁạz	page 5, in italics
+§3	Lillooet	cited form	ƛ̓iq	page 5, in italics
+§3	Lillooet	cited form	s-	page 5, in italics
+§3	Lillooet	cited form	-i	page 5, in italics
+§3	Lillooet	cited form	xʷɁạ́z-as kʷˬs.q̓ʷə́ɬp-su	page 5, in italics, ‘do not get burnt/scalded’
+§3	Lillooet	cited form	-su	page 5, in italics
+§3	Lillooet	cited form	wáɁˬƛ̓uɁ Ɂíƛ̓əm	page 5, in italics, ‘he is singing (Ɂíƛ̓əm)’
+§3	Lillooet	cited form	Ɂíƛ̓əm	page 5, in italics
+§3	Lillooet	cited form	wáɁ-asˬƛ̓uɁ Ɂíƛ̓əm	page 5, in italics, ‘let him (be) sing(ing)’
+§3	Jan P. van Eijk	note	In the second place, the subjunctive is automatically triggered by the enclitic ˬan̓ which indicates ‘possibility, surmise,’ as in tayt-áxʷ-an ‘you (-axʷ 2sing./subjunctive) must be hungry (tayt),’ vs. tayt-káxʷˬha ‘are you hungry?’ (-kaxʷ 2sing./indicative; question marker), plán-atˬan̓ waɁ pəl̓p ‘it looks like we (-at 1plur./subjunctive), vs. plán-ɬkaɬ waɁ pəl̓p ‘we are lost already,’ (-kaɬ 1plur./indicative), wáɁ-asˬan̓ k̓ʷzúsəm ‘it looks like he is working (k̓ʷzúsəm),’ vs. wáɁ k̓ʷzúsəm ‘he is working.’	page 5
+§3	Lillooet	cited form	ˬan̓	page 5, in italics
+§3	Lillooet	cited form	tayt-áxʷ-an	page 5, in italics, ‘you (-axʷ 2sing./subjunctive) must be hungry (tayt),’
+§3	Lillooet	cited form	-axʷ	page 5, in italics
+§3	Lillooet	cited form	tayt	page 5, in italics
+§3	Lillooet	cited form	tayt-káxʷˬha	page 5, in italics, ‘are you hungry?’
+§3	Lillooet	cited form	-kaxʷ	page 5, in italics
+§3	Lillooet	cited form	plán-atˬan̓ waɁ pəl̓p	page 5, in italics, ‘it looks like we (-at 1plur./subjunctive), vs. plán-ɬkaɬ waɁ pəl̓p ‘we are lost already,’
+§3	Lillooet	cited form	-at	page 5, in italics
+§3	Lillooet	cited form	plán-ɬkaɬ waɁ pəl̓p	page 5, in italics, ‘we are lost already,’
+§3	Lillooet	cited form	-kaɬ	page 5, in italics
+§3	Lillooet	cited form	wáɁ-asˬan̓ k̓ʷzúsəm	page 5, in italics, ‘it looks like he is working (k̓ʷzúsəm),’
+§3	Lillooet	cited form	k̓ʷzúsəm	page 5, in italics
+§3	Lillooet	cited form	wáɁ k̓ʷzúsəm	page 5, in italics, ‘he is working.’
+§3	Jan P. van Eijk	note	In the third place, the proclitics ɬˬ ‘if’ and Ɂiˬ ‘when’ also automatically require the subjunctive, as in ɬˬɁiɁwaɁ-mín-c-axʷ, ɬˬs.zaytən-mín-axʷ [ɬˬ]s.tám̓-as kʷˬs.cún-ci-n, húy̓-ɬkan cunám̓ən-ci-n kʷaˬpíx̌əm̓ ‘if you (-axʷ) come along (ɁíɁwaɁ) with (-min) me (-c), and you do (s.záytən-min) everything I tell (cun) you, I will teach (cunám̓ən) you how to hunt (píx̌əm̓),’ Ɂiˬxín̓-as ‘a long time ago’ (xin̓ ‘to last a long time’), Ɂiˬsítst-as ‘last night (sitst),’ Ɂiˬcíxʷ-wit-as, s.x̌áw̓ˬtiɁˬƛ̓uɁ ‘when they got there, was that ever a surprise (s.x̌aw̓) for them’ (cixʷ ‘to arrive there’). Although at first blush, these sentences refer to a real, essentially truth-testable situation (much like Leech’s ‘If you touch me, I’ll scream’) but are combined with a subjunctive, and as such suggest that there is not an automatic link between subjunctive and irrealis, the matter may be more complex than that. We explore this issue further in section 4.	page 5
+§3	Lillooet	cited form	ɬˬ	page 5, in italics, ‘if’
+§3	Lillooet	cited form	Ɂiˬ	page 5, in italics, ‘when’
+§3	Lillooet	cited form	ɬˬɁiɁwaɁ-mín-c-axʷ, ɬˬs.zaytən-mín-axʷ [ɬˬ]s.tám̓-as kʷˬs.cún-ci-n, húy̓-ɬkan cunám̓ən-ci-n kʷaˬpíx̌əm̓	page 5, in italics, ‘if you (-axʷ) come along (ɁíɁwaɁ) with (-min) me (-c), and you do (s.záytən-min) everything I tell (cun) you, I will teach (cunám̓ən) you how to hunt (píx̌əm̓),’
+§3	Lillooet	cited form	ɁíɁwaɁ	page 5, in italics
+§3	Lillooet	cited form	-min	page 5, in italics
+§3	Lillooet	cited form	-c	page 5, in italics
+§3	Lillooet	cited form	s.záytən-min	page 5, in italics
+§3	Lillooet	cited form	cun	page 5, in italics
+§3	Lillooet	cited form	cunám̓ən	page 5, in italics
+§3	Lillooet	cited form	píx̌əm̓	page 5, in italics
+§3	Lillooet	cited form	Ɂiˬxín̓-as	page 5, in italics, ‘a long time ago’
+§3	Lillooet	cited form	xin̓	page 5, in italics, ‘to last a long time’
+§3	Lillooet	cited form	Ɂiˬsítst-as	page 5, in italics, ‘last night (sitst),’
+§3	Lillooet	cited form	Ɂiˬcíxʷ-wit-as, s.x̌áw̓ˬtiɁˬƛ̓uɁ	page 5, in italics, ‘when they got there, was that ever a surprise (s.x̌aw̓) for them’
+§3	Lillooet	cited form	s.x̌aw̓	page 5, in italics
+§3	Lillooet	cited form	cixʷ	page 5, in italics, ‘to arrive there’
+§3	Lillooet	cited form	-ɬkan	page 5, in italics
+§3	Jan P. van Eijk	note	For a far more detailed discussion of the Lillooet subjunctive I refer to Matthewson (2010), which also divides the three functions listed above over nine types of use.	page 5
+§3	Jan P. van Eijk	note	There are also three enclitics which have an irrealis “feel” to them, but might not be irrealis from a Lillooet point of view, since they allow combinations with indicative formations. First of all, there is ˬkɬ (ˬkə́ɬ) which roughly translates as ‘may’ and indicates a potential event in the future, as in Ɂac̓x̌ən-cí-ɬkanˬkɬ mútaɁ ‘I (-ɬkan) will see (Ɂác̓x̌ən) you (-ci) again (mútaɁ)’ (good-bye expression, possibly calqued from English ‘I’ll be seeing you’), ƛ̓ạḷạn-c-ásˬkɬ tiˬs.qax̌aɁ-lápˬa ‘the dog (s.qáx̌aɁ) of you folks (-lap) may bite (ƛ̓ạ́ḷạn) me (-c).’ The irrealis “feel” is reinforced when ˬkɬ is combined with ˬtuɁ which indicates that something is definitely over and done with (as in c̓ə́kˬtuɁ ‘it’s all gone, finished’). An example of ˬkɬˬtuɁ is qlil-min̓-cih-asˬkə́ɬˬtuɁ ‘he might get mad (qlil) at (-min̓) you.’ (The difference between ˬkɬ and ˬkɬˬtuɁ is largely paralleled by an example like English ‘Cigarette smoking may be hazardous to your health’ [relatively strong possibility] vs. ‘Cigarette smoking might be hazardous to your health’ [weaker possibility], as given in Steele 1975:201.)	page 5
+§3	Lillooet	cited form	ˬkɬ	page 5, in italics
+§3	Lillooet	cited form	ˬkə́ɬ	page 5, in italics
+§3	Lillooet	cited form	Ɂac̓x̌ən-cí-ɬkanˬkɬ mútaɁ	page 5, in italics, ‘I (-ɬkan) will see (Ɂác̓x̌ən) you (-ci) again (mútaɁ)’
+§3	Lillooet	cited form	Ɂác̓x̌ən	page 5, in italics
+§3	Lillooet	cited form	-ci	page 5, in italics
+§3	Lillooet	cited form	mútaɁ	page 5, in italics
+§3	Lillooet	cited form	ƛ̓ạḷạn-c-ásˬkɬ tiˬs.qax̌aɁ-lápˬa	page 5, in italics, ‘the dog (s.qáx̌aɁ) of you folks (-lap) may bite (ƛ̓ạ́ḷạn) me (-c).’
+§3	Lillooet	cited form	s.qáx̌aɁ	page 5, in italics
+§3	Lillooet	cited form	-lap	page 5, in italics
+§3	Lillooet	cited form	ƛ̓ạ́ḷạn	page 5, in italics
+§3	Lillooet	cited form	ˬtuɁ	page 5, in italics
+§3	Lillooet	cited form	c̓ə́kˬtuɁ	page 5, in italics, ‘it’s all gone, finished’
+§3	Lillooet	cited form	ˬkɬˬtuɁ	page 6, in italics
+§3	Lillooet	cited form	qlil-min̓-cih-asˬkə́ɬˬtuɁ	page 6, in italics, ‘he might get mad (qlil) at (-min̓) you.’
+§3	Lillooet	cited form	qlil	page 6, in italics
+§3	Lillooet	cited form	-min̓	page 6, in italics
+§3	Jan P. van Eijk	name	Steele	S. Steele (1975), on past and irrealis in Uto-Aztecan
+§3	Jan P. van Eijk	note	In addition to ˬkɬ, Lillooet employs ˬka ‘obligation, expectancy,’ as in cukʷun̓-ɬkánˬkaˬtiɁ ‘I (-ɬkan) should finish (cúkʷun̓) that (tiɁ),’ x̌zúmˬkaˬhəm̓ kʷuˬkəm̓xʷyəqs-káɬ ‘we should have a big (x̌zum) car (kə́m̓xʷyəqs)’ (-kaɬ ‘our,’ ˬhəm̓ ‘antithesis, unfulfilled condition’), and ˬk̓a ‘possibility, surmise,’ as in sámaɁˬk̓a kʷuˬs.qʷal̓ən-táli ‘it must have been a white person (sámaɁ) who told (s.qʷál̓ən) her,’ xʷɁạ́zˬk̓a kʷasˬxʷɁít kʷuˬwaɁˬs.təm̓tə́təm̓-s ‘apparently she did not have many (xʷɁit) belongings (s.təm̓tə́təm̓)’ (-s ‘her’). Interestingly, ˬk̓a overlaps semantically with ˬan̓ in that both indicate a speculation about what may be the case. However, while ˬan̓ refers to an almost inevitable conclusion, ˬk̓a refers to a possibility only, as in wáɁ-asˬan̓ k̓ʷzúsəm ‘it looks like he is working’ vs. wáɁˬk̓a k̓ʷzúsəm ‘he must be at work (that’s why he is not here).’ The enclitics ˬkɬ, ˬka, ˬk̓a may also combine with forms in the subjunctive, as in Ɂinwat-wít-asˬkɬ ‘I wonder what they (-wit-as 3plur./subjunctive) will say’ (Ɂínwat ‘to say what?’) vs. Ɂinwat-wítˬkɬ ‘what will they (-wit 3plur./indicative) say?,’ plan-atˬkáˬtuɁ waɁ cixʷ ‘I wish we (-at 1plur./subjunctive) were there already (plan)’ (cixʷ ‘to arrive over there’) vs. plan-ɬkaɬˬkáˬtuɁ ‘we (-ɬkaɬ 1plur./indicative) should have been there already,’ kanm-ánˬk̓a ‘I (-an 1sing./subjunctive) don’t know what happened to me’ (kánəm ‘what happens?’) vs. kanəm-ɬkánˬk̓a ‘what happened to me?’ (e.g., when a person has fainted, breaks out in blotches, has an allergy’) (-ɬkan 1sing./indicative). The fact that we have subjunctive forms in combination with ˬkɬ, ˬka, ˬk̓a, with a true irrealis function, suggests that these enclitics do not create irrealis forms when they combine with indicative forms. It should be noted in this connection that, although Van Eijk (1997) does not describe the Lillooet enclitics in terms of ‘irrealis’ (as indicated in Kinkade 2001:194), Van Eijk’s translations of these enclitics (‘remote future, possibility’ for ˬkɬ, ‘possiblity, surmise’ for ˬan̓ and ˬk̓a, and ‘obligation, expectancy’ for ˬka, as repeated above) do suggest an irrealis, on the basis of which Kinkade (2001:195) remarks that ˬkɬ, ˬka and ˬk̓a “[...] have meanings that are compatible with ‘irrealis’.”	page 6
+§3	Lillooet	cited form	ˬka	page 6, in italics, ‘obligation, expectancy,’
+§3	Lillooet	cited form	cukʷun̓-ɬkánˬkaˬtiɁ	page 6, in italics, ‘I (-ɬkan) should finish (cúkʷun̓) that (tiɁ),’
+§3	Lillooet	cited form	cúkʷun̓	page 6, in italics
+§3	Lillooet	cited form	tiɁ	page 6, in italics
+§3	Lillooet	cited form	x̌zúmˬkaˬhəm̓ kʷuˬkəm̓xʷyəqs-káɬ	page 6, in italics, ‘we should have a big (x̌zum) car (kə́m̓xʷyəqs)’
+§3	Lillooet	cited form	x̌zum	page 6, in italics
+§3	Lillooet	cited form	kə́m̓xʷyəqs	page 6, in italics
+§3	Lillooet	cited form	ˬhəm̓	page 6, in italics, ‘antithesis, unfulfilled condition’
+§3	Lillooet	cited form	ˬk̓a	page 6, in italics, ‘possibility, surmise,’
+§3	Lillooet	cited form	sámaɁˬk̓a kʷuˬs.qʷal̓ən-táli	page 6, in italics, ‘it must have been a white person (sámaɁ) who told (s.qʷál̓ən) her,’
+§3	Lillooet	cited form	sámaɁ	page 6, in italics
+§3	Lillooet	cited form	s.qʷál̓ən	page 6, in italics
+§3	Lillooet	cited form	xʷɁạ́zˬk̓a kʷasˬxʷɁít kʷuˬwaɁˬs.təm̓tə́təm̓-s	page 6, in italics, ‘apparently she did not have many (xʷɁit) belongings (s.təm̓tə́təm̓)’
+§3	Lillooet	cited form	xʷɁit	page 6, in italics
+§3	Lillooet	cited form	s.təm̓tə́təm̓	page 6, in italics
+§3	Lillooet	cited form	-s	page 6, in italics, ‘her’
+§3	Lillooet	cited form	wáɁˬk̓a k̓ʷzúsəm	page 6, in italics, ‘he must be at work (that’s why he is not here).’
+§3	Lillooet	cited form	Ɂinwat-wít-asˬkɬ	page 6, in italics, ‘I wonder what they (-wit-as 3plur./subjunctive) will say’
+§3	Lillooet	cited form	-wit-as	page 6, in italics
+§3	Lillooet	cited form	Ɂínwat	page 6, in italics, ‘to say what?’
+§3	Lillooet	cited form	Ɂinwat-wítˬkɬ	page 6, in italics, ‘what will they (-wit 3plur./indicative) say?,’
+§3	Lillooet	cited form	-wit	page 6, in italics
+§3	Lillooet	cited form	plan-atˬkáˬtuɁ waɁ cixʷ	page 6, in italics, ‘I wish we (-at 1plur./subjunctive) were there already (plan)’
+§3	Lillooet	cited form	plan	page 6, in italics
+§3	Lillooet	cited form	plan-ɬkaɬˬkáˬtuɁ	page 6, in italics, ‘we (-ɬkaɬ 1plur./indicative) should have been there already,’
+§3	Lillooet	cited form	-ɬkaɬ	page 6, in italics
+§3	Lillooet	cited form	kanm-ánˬk̓a	page 6, in italics, ‘I (-an 1sing./subjunctive) don’t know what happened to me’
+§3	Lillooet	cited form	-an	page 6, in italics
+§3	Lillooet	cited form	kánəm	page 6, in italics, ‘what happens?’
+§3	Lillooet	cited form	kanəm-ɬkánˬk̓a	page 6, in italics, ‘what happened to me?’
+§3	Jan P. van Eijk	note	Matthewson, Rullmann, and Davis (2005) provide an insightful discussion of ˬkɬ, ˬka, ˬk̓a, in relation to the resultative combination ka-…ˬa (labeled ‘purely circumstantial’ by the authors), assigning two functions (‘deontic’ and ‘irrealis’) to ˬka (accordingly divided into ˬka1 and ˬka2), but holding open the possibility of at least a partial unification of these functions (p. 182). For an equally insightful and very detailed discussion of ˬk̓a and ˬan̓, this time in relation to the reportative marker ˬkʷuɁ, I refer to Matthewson, Rullmann, and Davis (2006).	page 6
+§3	Lillooet	cited form	ka-…ˬa	page 6, in italics
+§3	Lillooet	cited form	ˬkʷuɁ	page 6, in italics
+§3	Jan P. van Eijk	name	Rullmann	H. Rullmann, with Matthewson and Davis (2005, 2006)
+§3	Jan P. van Eijk	name	Davis	H. Davis, with Matthewson (2003) on ˬtuɁ and with Matthewson and Rullmann (2005, 2006)
+§4	Jan P. van Eijk	heading	4 Conclusions and outlook	page 7
+§4	Jan P. van Eijk	note	The whole issue of ‘irrealis’ remains a vexingly complex one, as it basically asks the unanswerable question ‘How much wood would a woodchuck chuck if a woodchuck would chuck wood?’ It is therefore understandable that oceans of ink have been spilled on this matter, with some authors blithely using the term, while others seriously question its usefulness. In what follows we briefly touch on two interrelated issues that apply to this problem: (a) the relation of ‘realis’/‘irrealis’ (essentially a type of mood) to ‘tense’ and ‘aspect,’ and (b) the function of the subjunctive in Lillooet.	page 7
+§4	Jan P. van Eijk	note	Unless a language has a completely separate paradigm for the irrealis (much like the subjunctive in Latin), the irrealis may “raid” other parts of the macropradigm, and the past tense seems to be a prime target, as in English “I wish she were here,” “were she here, she would do it” (the latter with both the past tense of “be” and “will,” as commented on in section 2.1). There is also an interesting overlap between aspect and irrealis, in that ‘if she had been here (= had she been here)’ (perfect aspect) can only have an irrealis reading, while ‘if she was here’ (imperfect) can have either a realis or an irrealis reading, as detailed in section 2.1. Similarly to the association between ‘past’ and ‘irrealis’ in English, Steele (1975) proposes that ‘past’ and ‘irrealis’ are linked in Uto-Aztecan. Following Seiler (1971), Steele then uses ‘dissociative’ (which Seiler uses in reference to the optative and the preterit in Greek), to refer to the ‘past’/‘irrealis’ link. On the other hand, Vidal and Manelis Klein (1998) interpret the particles ga’ and ka in respectively Pilagá and Toba as having a general future reference (without being future tense markers, since neither language marks tense grammatically), the irrealis function implied by contextual inference.	page 7
+§4	Pilagá	cited form	ga’	page 7, in italics
+§4	Toba	cited form	ka	page 7, in italics
+§4	Jan P. van Eijk	name	Seiler	H. Seiler (1971), on the dissociative in Greek
+§4	Jan P. van Eijk	language	Uto-Aztecan	past and irrealis linked, after Steele (1975)
+§4	Jan P. van Eijk	language	Greek	the optative and the preterit, after Seiler (1971)
+§4	Jan P. van Eijk	language	Pilagá	the particle ga’, after Vidal and Manelis Klein (1998)
+§4	Jan P. van Eijk	language	Toba	the particle ka, after Vidal and Manelis Klein (1998)
+§4	Jan P. van Eijk	note	It thus remains to be seen whether ‘irrealis’ is primarily associated with the past or the future (or both, as in English ‘could,’ ‘should,’ ‘would’). We turn to this topic briefly in our comments below, with regard to the subjunctive in Lillooet.	page 7
+§4	Jan P. van Eijk	note	As we have seen in section 3, the Lillooet subjunctive clearly expresses the irrealis in its optative function (i.e., when it is used by itself) and in combination with ˬan̓, but it seems to express the realis in ‘if’ and ‘when’ situations (i.e., when combined with ɬˬ or Ɂiˬ). However, it is possible that Lillooet ‘if’ and ‘when’ constructions are, from a Lillooet point of view, seen as unreal in as much that the past (Ɂiˬ) cannot be reached anymore, while a potential future (ɬˬ) still falls outside our grasp. We have already commented on the fact that the enclitics ˬkɬ, ˬka, ˬk̓a possibly do not indicate the irrealis when combined with forms in the indicative, in spite of the fact that they generally indicate the irrealis when translated into English (in itself a weak criterion), but probably should be interpreted as expressing the irrealis when combined with forms in the subjunctive.	page 7
+§4	Jan P. van Eijk	note	In a broader cultural linguistic context it should be pointed out that what is interpreted as ‘real’ or ‘unreal’ from an English (and general European-based) point of worldview, might not be interpreted in the same way within a different culture. (To give an idea, beings that within the Western canon are classified as fictional, such as mermaids, ghosts, two-headed serpents and the like, may be very real within the classificatory systems of other cultures.) For example, Hofling (1998:225) mentions the fact that past-perfect and future-irrealis may be marked in similar ways in Itzaj Maya, and then suggests that this is related to a fact he noted in a previous article; namely that “Maya time is largely cyclical time, in which past time periods (e.g., days) are considered to be equivalent to future time periods in a comparable calendric position” (Hofling 1993). Hofling also, on p. 214 of his 1998 article but quoting from his 1993 effort, mentions that “Itzaj narrative discourse suggests a division between what a person knows from personal experience centered in one’s home and town (the actual), and what is less known, but imaginable, further away in space-time.” (Incidentally, Hofling’s observations on Maya space-time also mesh with Whorf’s (1956:63) observation that in Hopi, events happening at a distant location are not seen as happening “now,” as we will not find out about them until later, so that in a sense distance in location is associated with distance in time. An association between past and future is also suggested in Dutch vannacht [1] ‘last night,’ [2] ‘tonight,’ or Lillooet natxʷ, which means ‘tomorrow’ when used by itself, but is also used in the expression Ɂiˬnátxʷ-as ‘yesterday.’)	page 7
+§4	Dutch	cited form	vannacht	page 8, in italics
+§4	Lillooet	cited form	natxʷ	page 8, in italics
+§4	Lillooet	cited form	Ɂiˬnátxʷ-as	page 8, in italics, ‘yesterday.’
+§4	Jan P. van Eijk	name	Hofling	C. A. Hofling (1993, 1998), on Itzaj Maya
+§4	Jan P. van Eijk	name	Whorf	B. L. Whorf (1956:63), on distance in Hopi
+§4	Jan P. van Eijk	language	Itzaj Maya	past-perfect and future-irrealis marked alike, after Hofling (1998)
+§4	Jan P. van Eijk	language	Hopi	distance in location as distance in time, after Whorf (1956)
+§4	Jan P. van Eijk	language	Dutch	vannacht, ‘last night’ and ‘tonight’
+§4	Jan P. van Eijk	note	Of course, issues like these are best explored with fluent speakers of the language in question, who should be encouraged to comment on the forms they provide rather than just deliver them as translations of the English forms put before them. As such, a problem like ‘irrealis’ and the way or ways in which it is marked in any language becomes a powerful argument for involving speakers not only as consultants but also as co-investigators.	page 8
+§4	Jan P. van Eijk	note	In summation, I suggest three areas for further research in connection to ‘irrealis.’ In the first place, and with reference to my remarks above, we need to look deeper into the connection between ‘irrealis’ and tense and aspect, even for a language like Lillooet, of which Van Eijk (1997) claims that it has no tense but that it does have aspect. However, other studies to be consulted in relation to this topic in Lillooet include Glougie (2007) on the difference between the future event indicators xʷuz̓ and ˬkɬ, and Davis and Matthewson (2003) on the Lillooet enclitic ˬtuɁ, which, although it generally describes a completed event, the authors describe neither as a tense nor an aspectual marker but a distal demonstrative adverb, be it one that supports a ‘tensed’ analysis of Lillooet over a tenseless one.	page 8
+§4	Lillooet	cited form	xʷuz̓	page 8, in italics
+§4	Jan P. van Eijk	name	Glougie	J. Glougie (2007), on xʷuz̓ and ˬkɬ
+§4	Jan P. van Eijk	note	In the second place, although ‘irrealis’ presents itself as a very complex topic (and I for one have only scratched the surface when it comes to Lillooet), the complexity of this topic should not prevent us from investigating it as vigorously as we can. As holds true for all forms of language research, continued exploration of ‘irrealis’ will occasion us to finetune and, where appropriate, revise the theoretical constructs we have set up to describe and analyze human language. For example, whereas Palmer (2001) essentially identifies ‘subjunctive’ with ‘irrealis,’ as mentioned in section 2, Matthewson (2010) cogently argues against such an automatic identification (see also her summaries of this on pp. 59 and 102 of her article). Even if the Lillooet subjunctive in ‘if’ and ‘when’ constructions can be shown to serve the irrealis, and no cases of a subjunctive serving a realis can be found in any language, Palmer’s association of ‘subjunctive’ with ‘irrealis’ is correct, but not, in my view, his identification of these two categories with each other.	page 8
+§4	Jan P. van Eijk	note	Finally, the topic of ‘irrealis’ needs to be investigated within a wider Salish context. Kinkade (2001) is an excellent first attempt at reconstructing the Proto- Salish irrealis, but he also admits (p. 199) that “What had appeared to me to be a rather straightforward reconstruction of an irrealis morpheme in Salish turns out to have some rather messy loose ends.” There have been other studies on irrealis, such as Baier (2010) on Montana Salish, and those referenced by Kinkade (including some that do not use the term ‘irrealis’), but much further work is needed. I hope that this very minor effort is a modest but hopefully interest- piquing contribution to such an endeavour.	page 9
+§4	Jan P. van Eijk	name	Baier	N. Baier (2010), on irrealis in Montana Salish
+§4	Jan P. van Eijk	language	Montana Salish	irrealis morphology, after Baier (2010)
+references	Jan P. van Eijk	heading	References	page 9
+references	Jan P. van Eijk	reference	Baier, N. (2010). Irrealis morphology in Montana Salish. In Papers for the 45th International Conference on Salish and Neighbouring Languages, pp. 124–139. UBCWPL vol. 27.	page 9
+references	Jan P. van Eijk	reference	Bybee, J. L. (1998). “Irrealis” as a grammatical category. Anthropological Linguistics 40:257–271.	page 9
+references	Jan P. van Eijk	reference	Davis, H. and L. Matthewson. (2003). A note on remote: The temporal enclitic tu7 in St’át’imcets. In Papers for the 38th International Conference on Salish and Neighbouring Languages, pp. 47–63. UBCWPL vol. 11.	page 9
+references	Jan P. van Eijk	reference	Glougie, J. (2007). Aspect in St’át’imcets future expressions. In Papers for the 42nd International Conference on Salish and Neighbouring Languages, pp. 220–235. UBCWPL vol. 20.	page 9
+references	Jan P. van Eijk	reference	Hofling, C. A. (1993). Marking space and time in Itzaj Maya narrative. Journal of Linguistic Anthropology 3(2):34–54.	page 9
+references	Jan P. van Eijk	reference	Hofling, C. A. (1998). Irrealis and perfect in Itzaj Maya. Anthropological Linguistics 40:214–227.	page 9
+references	Jan P. van Eijk	reference	Jensen, J. T. (1990). Morphology: word structure in generative grammar. John Benjamins.	page 9
+references	Jan P. van Eijk	reference	Kinkade, M. D. (1998). Is irrealis a grammatical category in Upper Chehalis? Anthropological Linguistics 40:234–244.	page 9
+references	Jan P. van Eijk	reference	Kinkade, M. D. (2001). Proto-Salish irrealis. In Papers for the 36th International Conference on Salish and Neighbouring Languages, pp. 189–200. UBCWPL vol. 6.	page 9
+references	Jan P. van Eijk	reference	Leech, G. N. (1971). Meaning and the English verb. Longman.	page 9
+references	Jan P. van Eijk	reference	Martin, L. (1998). Irrealis construction in Mocho (Mayan). Anthropological Linguistics 40:198–213.	page 9
+references	Jan P. van Eijk	reference	Matthewson, L. (2010). Mood and modality in St’át’imcets and beyond. In Papers for the 44th International Conference on Salish and Neighbouring Languages, pp. 46-107. UBCWPL vol. 27.	page 10
+references	Jan P. van Eijk	reference	Matthewson, L., Rullmann, H. and Davis, H. (2005). Modality in St’át’imcets. In Papers for the 40st International Conference on Salish and Neighbouring Languages, pp. 166–183. UBCWPL vol. 16.	page 10
+references	Jan P. van Eijk	reference	Matthewson, L., Rullmann, H. and Davis, H. (2006). Evidentials are epistemic modals in St’át’imcets. In Papers for the 41st International Conference on Salish and Neighbouring Languages, pp. 221–263. UBCWPL vol. 18.	page 10
+references	Jan P. van Eijk	reference	Palmer, F. R. (2001 [1968]). Mood and modality. Cambridge University Press.	page 10
+references	Jan P. van Eijk	reference	Seiler, H. (1971). Abstract structures for mood in Greek. Language 47:79–89.	page 10
+references	Jan P. van Eijk	reference	Steele, S. (1975). Past and irrealis: Just what does it all mean? International Journal of American Linguistics 41:200–217.	page 10
+references	Jan P. van Eijk	reference	Trask, R. L. (1993). A dictionary of grammatical terms in Linguistics. Routledge.	page 10
+references	Jan P. van Eijk	reference	Van Eijk, J. P. (1997). The Lillooet language: Phonology, morphology, syntax. UBC Press.	page 10
+references	Jan P. van Eijk	reference	Van Eijk, J. P. (2013). Non-concatenative morphology and interlinear translations: A Lillooet example. In Papers for the 48th International Conference on Salish and Neighbouring Languages, pp. 236–251. UBCWPL vol. 32.	page 10
+references	Jan P. van Eijk	reference	Van Eijk. J. P. and Hess, T. (1986). Noun and verb in Salish. Lingua 69:319–331.	page 10
+references	Jan P. van Eijk	reference	Vidal, E. and Manelis Klein, H. E. (1998). Irrealis in Pilagá and Toba? Syntactic versus pragmatic coding. Anthropological Linguistics 40:175–197.	page 10
+references	Jan P. van Eijk	reference	Whorf, B. L. (1956). An American Indian model of the universe. In Language, thought and reality: Selected writings of Benjamin Lee Whorf (S. Chase, ed.), pp. 57–64. M.I.T. Press.	page 10

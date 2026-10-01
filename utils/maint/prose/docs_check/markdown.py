@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The defects that reach a reader as a broken page: empty tables, dead links, leftovers.
@@ -112,7 +112,7 @@ def path_candidate(target):
 
     Measured at ProtoCore f3e96f68, `python utils/maint/prose/docs_check <protocore>/docs` reported 251
     breaking findings where 4 were real. 244 were Doxygen references and 3 were C declarators. The
-    gate is correct in anchor_sift, a tree of Python and markdown that uses no Doxygen. Pointed at a
+    gate is correct in orior, a tree of Python and markdown that uses no Doxygen. Pointed at a
     repository that does use it, the gate would have errored on every commit ProtoCore could make. That
     is why this test sits in front of os.path.exists instead of in an exemption list somewhere.
 
@@ -125,7 +125,7 @@ def path_candidate(target):
     example writes `[](const char *user, const char *pass)`, and a parenthesized group following a
     bracketed one is the shape LINK looks for.
 
-    Which signal earns its place. Across anchor_sift, ProtoCore, idemIP, MMgr and embedded_types,
+    Which signal earns its place. Across orior, ProtoCore, idemIP, MMgr and embedded_types,
     646 targets are skipped here and not one of them names a path that is on disk. Nothing that
     was a real finding has been silenced. 496 of the 646 are Doxygen commands and the other 150 hold
     a pointer star. Of the three declarator signals only the star fired. The type-keyword head and

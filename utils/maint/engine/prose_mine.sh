@@ -18,7 +18,7 @@ sed -n 's/^  RISEN \([^:]*\):.*/\1/p' "$OUT/all.txt" | sort -u >"$OUT/risen.txt"
 echo "files raised above their ceiling: $(wc -l <"$OUT/risen.txt")"
 : >"$OUT/findings.txt"
 while read -r file; do
-    grep "^  prose .*/$file:" "$OUT/all.txt" | sed "s|D:/git_project/repos/owned/public/anchor_sift/||" \
+    grep "^  prose .*/$file:" "$OUT/all.txt" | sed "s|D:/git_project/repos/owned/public/orior/||" \
         >>"$OUT/findings.txt"
 done <"$OUT/risen.txt"
 echo "findings to fix: $(wc -l <"$OUT/findings.txt")"

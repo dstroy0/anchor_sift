@@ -1,4 +1,4 @@
-# Points the files shared with anchor_sift at anchor_sift. One edit reaches both.
+# Points the files shared with orior at orior. One edit reaches both.
 #
 #   Run elevated:  Start-Process pwsh -Verb RunAs -ArgumentList "-File","tools\link_shared.ps1"
 #
@@ -7,7 +7,7 @@
 #
 # THE TARGETS ARE SEARCHED FOR, NOT SPELLED OUT
 #
-# anchor_sift is being reorganized: tools/ became maint/ and the links broke silently. The next
+# orior is being reorganized: tools/ became maint/ and the links broke silently. The next
 # commit here errored in a hook whose checker had no file behind it. A path written down here
 # would break again on the next move. Each target is found by name instead, and a name that matches
 # more than one file is reported and skipped instead of guessed at.
@@ -17,7 +17,7 @@
 # It derives its root with cd "$(dirname "$0")/../..". A shell sets $0 to the path as invoked and
 # does not resolve it through the link. Running it from this repository as
 # tools/research_paper/build_theory.sh gives dirname tools/research_paper, a real directory here, and ../.. lands back
-# at this repository instead of at anchor_sift. The invocation carries the location.
+# at this repository instead of at orior. The invocation carries the location.
 #
 # WHAT THIS COSTS
 #
@@ -52,12 +52,12 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
     exit 1
 }
 $trees = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $here))
-$anchor = Join-Path $trees "anchor_sift"
+$anchor = Join-Path $trees "orior"
 $repotools = Join-Path $trees "repo_tools"
 
 if (-not (Test-Path $anchor))
 {
-    Write-Error "anchor_sift not found at $anchor"
+    Write-Error "orior not found at $anchor"
     exit 1
 }
 if (-not (Test-Path $repotools))
@@ -69,7 +69,7 @@ if (-not (Test-Path $repotools))
 # Where the file lives here, the name to find it by, and WHICH TREE to find it in.
 #
 # THE TOOLS COME FROM repo_tools, NOT FROM ANOTHER CAPTAIN'S REPOSITORY. docs_check pointed into
-# anchor_sift. This tree's prose gate was whatever that repository last saved - and on 2026-09-11
+# orior. This tree's prose gate was whatever that repository last saved - and on 2026-09-11
 # eight patterns arrived here without anyone on this side asking for them or knowing. That is not a
 # shared file, it is one repository silently setting another's standard. Doug's rule is that every
 # captain takes tools from repo_tools. The source moves and the theory files, which really are
@@ -84,7 +84,7 @@ $shared = @(
 
 foreach ($one in $shared)
 {
-    # The tree this entry is sourced from. NOT named $anchor: it is anchor_sift for the theory files
+    # The tree this entry is sourced from. NOT named $anchor: it is orior for the theory files
     # and repo_tools for the tooling, and a name that says otherwise would be wrong half the time.
     $root = $one.root
     $rootName = Split-Path -Leaf $root
@@ -112,7 +112,7 @@ foreach ($one in $shared)
     }
     if ($found.Count -gt 1)
     {
-        Write-Host ("  STOP  {0}  matches {1} files in anchor_sift:" -f $one.name, $found.Count) -ForegroundColor Red
+        Write-Host ("  STOP  {0}  matches {1} files in orior:" -f $one.name, $found.Count) -ForegroundColor Red
         $found | ForEach-Object { Write-Host ("          {0}" -f $_.FullName) }
         continue
     }
@@ -136,7 +136,7 @@ foreach ($one in $shared)
         # with no record of it, and a silent loss is worse than a stopped script.
         if ((Get-FileHash $mine -Algorithm SHA256).Hash -ne (Get-FileHash $theirs -Algorithm SHA256).Hash)
         {
-            Write-Host ("  STOP  {0}  differs from anchor_sift; reconcile it first" -f $one.mine) -ForegroundColor Red
+            Write-Host ("  STOP  {0}  differs from orior; reconcile it first" -f $one.mine) -ForegroundColor Red
             continue
         }
         Remove-Item $mine -Force
@@ -151,7 +151,7 @@ foreach ($one in $shared)
     # not exist is created without complaint by Windows and by every other system. "link" printed
     # in green has never meant the file is reachable - only that a link object now sits there.
     #
-    # That gap is not hypothetical here. anchor_sift moved its research paper build scripts and
+    # That gap is not hypothetical here. orior moved its research paper build scripts and
     # the build_theory.sh link dangled for a day, while REPRODUCE.md went on telling a reader to
     # run it. Nothing noticed until a scanner crashed opening it. The search above makes the
     # link survive a rename, but only once someone re-runs this; until then a stale link is a

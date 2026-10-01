@@ -1,0 +1,538 @@
+where	who	kind	form	gloss
+title	John Lyon	title	Nsyilxcn Inchoatives and their Distributions Across Root Types	the paper's title
+title	John Lyon	name	John Lyon	the author
+title	John Lyon	place	University of British Columbia - Okanagan	the author's institution
+abstract	Nsyilxcən	language	Nsyilxcn	the language the paper surveys, as the paper spells it
+abstract	Nsyilxcən	cited affix	ʔ	the infixal inchoativizer, which applies only to strong property concept roots
+keywords	John Lyon	heading	inchoatives, anti-causatives, distribution, Interior Salish, semantic class	the paper's keywords
+§1	John Lyon	heading	Introduction	section 1
+§1	Nsyilxcən	language	Okanagan	the other name for Nsyilxcn
+§1	John Lyon	notation	oka	the ISO 639-3 code for Nsyilxcn
+§1	John Lyon	name	Delphine Derickson-Armstrong	one of the two speakers the examples were elicited from
+§1	John Lyon	name	Dave Michele	the other of the two speakers
+§1	John Lyon	place	Westbank reserve	where both speakers are from
+§1	Nsyilxcən	cited affix	<ʔ>	the infix, one of the three inchoative markers surveyed
+§1	Nsyilxcən	cited affix	-p	the suffix, one of the three inchoative markers surveyed
+§1	John Lyon	notation	C2	out-of-control reduplication, the third inchoative marker
+§1	John Lyon	notation	PC	property concept, one of the two root classes
+§1	John Lyon	notation	CS	change-of-state, the other root class
+fn*	Nsyilxcən	name	ɬk̓mxnalqs	the Nsyilxcn name of Delphine Derrickson-Armstrong
+fn*	Nsyilxcən	name	c̓skʕáknaʔ	the Nsyilxcn name of Dave Michele, as spelled on page 1
+fn*	John Lyon	place	En’owkin Centre	one of the funders of the work
+fn*	John Lyon	reference	john.lyon@ubc.ca	the author's contact address
+fn2	Nsyilxcən	cited affix	-wilx	the developmental suffix the paper does not discuss, since it targets stems
+(1a)	Nsyilxcən	transcription	p̓<ʔ>axʷ	'It's lit up.', from N. Mattina 1996:89
+(1a)	Nsyilxcən	gloss	shine<INCH>	the gloss of p̓<ʔ>axʷ
+(1b)	Nsyilxcən	transcription	taʔlíʔ uɬ c̓x̌ʷ-ap	'It's really stocked up.', from N. Mattina 1996:89
+(1b)	Nsyilxcən	gloss	very and stock-INCH	the gloss of taʔlíʔ uɬ c̓x̌ʷ-ap
+(1c)	Nsyilxcən	transcription	c̓k•ak iʔ sqlaw̓	'The money is counted.', from N. Mattina 1996:89
+(1c)	Nsyilxcən	gloss	count•C2.INCH DET money	the gloss of c̓k•ak iʔ sqlaw̓
+§1	nxaʔamxčín	language	nxaʔamxčín	the language Kinkade 1989 studied inchoatives in
+§1	Nsyilxcən	cited affix	-(a)p	the suffix, written with its optional vowel
+(2a)	Nsyilxcən	root	√c̓aɬ	'cold', a strong root
+(2a)	Nsyilxcən	cited form	c̓<ʔ>aɬ	'get cold', the grammatical inchoative of √c̓aɬ
+(2a)	Nsyilxcən	impossible	*c̓aɬ-p	rejected for √c̓aɬ
+(2a)	Nsyilxcən	impossible	*c̓ɬ-ap	rejected for √c̓aɬ
+(2b)	Nsyilxcən	root	√ɬʕat̓	'wet', a strong root
+(2b)	Nsyilxcən	cited form	ɬ<ʔ>ʕat̓	'get wet', the grammatical inchoative of √ɬʕat̓
+(2b)	Nsyilxcən	impossible	*ɬʕat̓-p	rejected for √ɬʕat̓
+(2b)	Nsyilxcən	impossible	*ɬt̓-ʕap	rejected for √ɬʕat̓
+(3a)	Nsyilxcən	root	√hm	'damp', a weak root
+(3a)	Nsyilxcən	impossible	*h<ʔ>am	rejected for √hm
+(3a)	Nsyilxcən	cited form	ham-áp	'get damp', the grammatical inchoative of √hm
+(3b)	Nsyilxcən	root	√c̓s	'empty', a weak root
+(3b)	Nsyilxcən	impossible	*n-c̓<ʔ>as	rejected for √c̓s
+(3b)	Nsyilxcən	cited form	n-c̓s-áp	'get empty', the grammatical inchoative of √c̓s
+(4a)	Nsyilxcən	root	√nik̓	'cut', a strong change-of-state root
+(4a)	Nsyilxcən	impossible	*n<ʔ>ik̓	rejected for √nik̓
+(4a)	Nsyilxcən	impossible	*nik̓p	rejected for √nik̓
+(4a)	Nsyilxcən	impossible	*nk̓-ap	rejected for √nik̓
+(4a)	Nsyilxcən	cited form	nik̓•ək̓	'get cut', the C2 reduplication of √nik̓
+(4b)	Nsyilxcən	root	√x̌aq̓	'pay', a strong change-of-state root
+(4b)	Nsyilxcən	impossible	*x̌<ʔ>aq̓	rejected for √x̌aq̓
+(4b)	Nsyilxcən	impossible	*x̌aq̓p	rejected for √x̌aq̓
+(4b)	Nsyilxcən	impossible	*x̌q̓-ap	rejected for √x̌aq̓
+(4b)	Nsyilxcən	cited form	x̌aq̓•əq̓	'get paid', the C2 reduplication of √x̌aq̓
+§1	St'át'imcets	language	St’át’imcets	the language where <ʔ> has been claimed to apply only to verbal roots
+(5a)	Nsyilxcən	root	√c̓aw̓	'clean', a strong root with more than one inchoative form
+(5a)	Nsyilxcən	cited form	c̓<ʔ>aw̓	'get clean', one inchoative of √c̓aw̓
+(5a)	Nsyilxcən	impossible	*c̓w̓-ap	rejected for √c̓aw̓
+(5a)	Nsyilxcən	cited form	c̓w̓•aw̓	'get clean', the other inchoative of √c̓aw̓
+(5b)	Nsyilxcən	root	√yr̓	'tangle', a weak root with more than one inchoative form
+(5b)	Nsyilxcən	impossible	*y<ʔ>ar̓	rejected for √yr̓
+(5b)	Nsyilxcən	cited form	yr̓-ap	'get tangled', one inchoative of √yr̓
+(5b)	Nsyilxcən	cited form	yr̓•ar̓	'get tangled', the other inchoative of √yr̓
+§1	Nsyilxcən	cited affix	əc-	the prefix that gives a resultative interpretation with a change-of-state root
+§2	John Lyon	heading	Elicitation Survey	section 2
+§2	Nsyilxcən	name	c̓əskʕáknaʔ	the Nsyilxcn name of Dave Michele, as spelled on page 3
+§2	Nsyilxcən	place	stq̓aʔtkʷɬniw̓t	the Nsyilxcn name of the Westbank Reserve
+§2	John Lyon	reference	meltr.org	A. Mattina's online Colville-Okanagan dictionary
+§2	John Lyon	notation	c-	the imperfective prefix, against stativizer əc-
+§2	John Lyon	notation	*	what indicates an ungrammatical judgement in the tables
+§2	John Lyon	notation	?	what indicates a marginal judgement in the tables
+§2	John Lyon	notation	+	what indicates inchoativizer -p read as the distinct lexical suffix -(i)p 'end'
+§2	Nsyilxcən	cited affix	-(i)p	the distinct lexical suffix 'end' that + marks
+§2	John Lyon	notation	i	the superscript for an imperfective interpretation with əc-
+§2	John Lyon	notation	s	the superscript for a result state
+fn4	Nsyilxcən	cited form	yus	'purple', one of the two colour terms that show resultative interpretations with əc-
+fn4	Nsyilxcən	cited form	kʷil	'red', the other colour term that shows a resultative interpretation with əc-
+Table 1	John Lyon	heading	Property Concept (PC) Roots	the caption of Table 1
+Table 1	John Lyon	notation	əc+√	the column head for the stative and imperfective forms
+Table 1	Nsyilxcən	root	√piq	'white', root 1, phonologically strong
+Table 1	Nsyilxcən	impossible	*piq-t	the positive adjective rejected for √piq
+Table 1	Nsyilxcən	cited form	p<ʔ>iq	'get white', the ʔ inchoative of √piq
+Table 1	Nsyilxcən	cited form	p<ʔ>aq	'get white', the other ʔ inchoative of √piq
+Table 1	Nsyilxcən	impossible	*piq-p	rejected for √piq
+Table 1	Nsyilxcən	impossible	*piq•əq	rejected for √piq
+Table 1	Nsyilxcən	impossible	*əc-piq	rejected for √piq
+Table 1	Nsyilxcən	root	√nir	'smooth, slippery', root 2, phonologically strong
+Table 1	Nsyilxcən	positive	ni•rnr-t	the positive adjective of √nir
+Table 1	Nsyilxcən	positive	nir-t	the other positive adjective of √nir
+Table 1	Nsyilxcən	cited form	n<ʔ>ar	'get smooth', the ʔ inchoative of √nir
+Table 1	Nsyilxcən	impossible	*nirp	rejected for √nir
+Table 1	Nsyilxcən	impossible	*nrap	rejected for √nir
+Table 1	Nsyilxcən	impossible	*nir•ər	rejected for √nir
+Table 1	Nsyilxcən	impossible	*əc-nir	rejected for √nir
+Table 1	Nsyilxcən	root	√ɬʕat̓	'wet', root 3, phonologically strong
+Table 1	Nsyilxcən	positive	ɬʕat̓	the positive adjective of √ɬʕat̓
+Table 1	Nsyilxcən	cited form	ɬ<ʔ>ʕat̓	'get wet', the ʔ inchoative of √ɬʕat̓
+Table 1	Nsyilxcən	impossible	*ɬʕat̓-p	rejected for √ɬʕat̓
+Table 1	Nsyilxcən	impossible	*ɬt̓-ʕap	rejected for √ɬʕat̓
+Table 1	Nsyilxcən	candidate	?ɬʕát̓•ət̓	marginal C2 form of √ɬʕat̓
+Table 1	Nsyilxcən	impossible	*əc-ɬʕat̓	rejected for √ɬʕat̓
+Table 1	Nsyilxcən	root	√qʷas	'deep', root 4, phonologically strong
+Table 1	Nsyilxcən	positive	(n)-qʷas-t	the positive adjective of √qʷas
+Table 1	Nsyilxcən	positive	n-qʷəsqʷas-t	the plural positive adjective of √qʷas
+Table 1	Nsyilxcən	cited form	n-qʷ<ʔ>as	'get deep', the ʔ inchoative of √qʷas
+Table 1	Nsyilxcən	impossible	*n-qʷs-ap	rejected for √qʷas
+Table 1	Nsyilxcən	impossible	*n-qʷas•əs	rejected for √qʷas
+Table 1	Nsyilxcən	impossible	*əc-nqʷas	rejected for √qʷas
+Table 1	Nsyilxcən	root	√nʕas	'heavy', root 5, phonologically strong
+Table 1	Nsyilxcən	positive	(nəs)•nʕas-t	the positive adjective of √nʕas
+Table 1	Nsyilxcən	cited form	n<ʔ>ʕas	'get heavy', the ʔ inchoative of √nʕas
+Table 1	Nsyilxcən	impossible	*nʕas-p	rejected for √nʕas
+Table 1	Nsyilxcən	impossible	*nʕás•əs	rejected for √nʕas
+Table 1	Nsyilxcən	impossible	*əc-nʕas	rejected for √nʕas
+Table 1	Nsyilxcən	root	√c̓aɬ	'cold', root 6, phonologically strong
+Table 1	Nsyilxcən	positive	c̓aɬ-t	the positive adjective of √c̓aɬ
+Table 1	Nsyilxcən	cited form	c̓<ʔ>aɬ	'get cold', the ʔ inchoative of √c̓aɬ
+Table 1	Nsyilxcən	impossible	*c̓aɬ-p	rejected for √c̓aɬ
+Table 1	Nsyilxcən	impossible	*c̓ɬ-ap	rejected for √c̓aɬ
+Table 1	Nsyilxcən	cited form	c̓aɬ•əɬ	'get cold', the C2 inchoative of √c̓aɬ
+Table 1	Nsyilxcən	cited form	k-c̓aɬ•əɬ-t	a further C2 form of √c̓aɬ
+Table 1	Nsyilxcən	impossible	*əc-c̓aɬ	rejected for √c̓aɬ
+Table 1	Nsyilxcən	root	√mir	'smooth', root 7, phonologically strong
+Table 1	Nsyilxcən	impossible	*mir-t	the positive adjective rejected for √mir
+Table 1	Nsyilxcən	cited form	m<ʔ>ir	'get smooth', the ʔ inchoative of √mir
+Table 1	Nsyilxcən	impossible	*mir-p	rejected for √mir
+Table 1	Nsyilxcən	cited form	mir•ər	'get smooth', the C2 inchoative of √mir
+Table 1	Nsyilxcən	impossible	*əc-mir	rejected for √mir
+Table 1	Nsyilxcən	root	√k̓as	'bad', root 8, phonologically strong
+Table 1	Nsyilxcən	positive	k̓as-t	the positive adjective of √k̓as
+Table 1	Nsyilxcən	cited form	k̓<ʔ>as	'feel bad', the ʔ inchoative of √k̓as
+Table 1	Nsyilxcən	impossible	*k̓sap	rejected for √k̓as
+Table 1	Nsyilxcən	cited form	k̓as•əs	'argue', the C2 inchoative of √k̓as
+Table 1	Nsyilxcən	impossible	*əc-k̓as	rejected for √k̓as
+Table 1	Nsyilxcən	root	√kʷil	'red', root 9, phonologically strong
+Table 1	Nsyilxcən	impossible	*kʷil-t	the positive adjective rejected for √kʷil
+Table 1	Nsyilxcən	cited form	kʷ<ʔ>il	'get red', the ʔ inchoative of √kʷil
+Table 1	Nsyilxcən	impossible	*kʷlap	rejected for √kʷil
+Table 1	Nsyilxcən	cited form	kʷil•əl	'get red', the C2 inchoative of √kʷil
+Table 1	Nsyilxcən	stative	əc-kʷil	'made red', the result state of √kʷil
+Table 1	Nsyilxcən	root	√x̌ʷup	'weak', root 10, phonologically strong
+Table 1	Nsyilxcən	positive	x̌ʷup-t	the positive adjective of √x̌ʷup
+Table 1	Nsyilxcən	cited form	x̌ʷ<ʔ>up	'get weak', the ʔ inchoative of √x̌ʷup
+Table 1	Nsyilxcən	impossible	*x̌ʷəpap	rejected for √x̌ʷup
+Table 1	Nsyilxcən	cited form	x̌ʷúp•əp	'get weak', the C2 inchoative of √x̌ʷup
+Table 1	Nsyilxcən	impossible	*əc-x̌ʷup	rejected for √x̌ʷup
+Table 1	Nsyilxcən	stative	əc-x̌ʷupt	'got weak', the result state of √x̌ʷup
+Table 1	Nsyilxcən	root	√t̓ʕas	'hard', root 11, phonologically strong
+Table 1	Nsyilxcən	positive	(t̓əs)•t̓ʕas-t	the positive adjective of √t̓ʕas
+Table 1	Nsyilxcən	cited form	t̓<ʔ>ʕas	'get hard', the ʔ inchoative of √t̓ʕas
+Table 1	Nsyilxcən	cited form	t̓s-ʕáp	'get hard', the -p inchoative of √t̓ʕas
+Table 1	Nsyilxcən	candidate	?t̓ʕás•əs	marginal C2 form of √t̓ʕas
+Table 1	Nsyilxcən	impossible	*əc-t̓ʕas	rejected for √t̓ʕas
+Table 1	Nsyilxcən	root	√c̓aw̓	'clean', root 12, indeterminate between strong and weak
+Table 1	Nsyilxcən	positive	c̓əw•c̓áw-t	the positive adjective of √c̓aw̓
+Table 1	Nsyilxcən	cited form	c̓<ʔ>aw̓	'get clean', the ʔ inchoative of √c̓aw̓
+Table 1	Nsyilxcən	impossible	*c̓w̓-áp	rejected for √c̓aw̓
+Table 1	Nsyilxcən	cited form	c̓w̓•áw̓	'get clean', the C2 inchoative of √c̓aw̓
+Table 1	Nsyilxcən	stative	əc-c̓aw̓	the imperfective of √c̓aw̓
+Table 1	Nsyilxcən	root	√x̌ʕal	'light/clear', root 13, indeterminate between strong and weak
+Table 1	Nsyilxcən	positive	x̌ʕal	the positive adjective of √x̌ʕal
+Table 1	Nsyilxcən	positive	x̌ə•x̌ʕal	another positive adjective of √x̌ʕal
+Table 1	Nsyilxcən	positive	x̌əlx̌ʕalt	another positive adjective of √x̌ʕal
+Table 1	Nsyilxcən	cited form	x̌<ʔ>ʕal	'get light', the ʔ inchoative of √x̌ʕal
+Table 1	Nsyilxcən	impossible	*x̌ʕal-p	rejected for √x̌ʕal
+Table 1	Nsyilxcən	cited form	x̌lap	'tomorrow', the -p form of √x̌ʕal with a distinct meaning
+Table 1	Nsyilxcən	cited form	x̌l•ʕal	'get clear', the C2 inchoative of √x̌ʕal
+Table 1	Nsyilxcən	impossible	*əc-x̌ʕal	rejected for √x̌ʕal
+Table 1	Nsyilxcən	root	√x̌as	'good', root 14, indeterminate between strong and weak
+Table 1	Nsyilxcən	positive	(x̌əs)•x̌as-t	the positive adjective of √x̌as
+Table 1	Nsyilxcən	impossible	*x̌<ʔ>as	rejected for √x̌as
+Table 1	Nsyilxcən	impossible	*x̌as-p	rejected for √x̌as
+Table 1	Nsyilxcən	candidate	?x̌as•s	marginal C2 form of √x̌as
+Table 1	Nsyilxcən	cited form	x̌asəstiʔst	'get better', a further form of √x̌as
+Table 1	Nsyilxcən	impossible	*əc-x̌as	rejected for √x̌as
+Table 1	Nsyilxcən	root	√yus	'purple', root 15, phonologically weak
+Table 1	Nsyilxcən	impossible	*yus-t	the positive adjective rejected for √yus
+Table 1	Nsyilxcən	impossible	*y<ʔ>us	rejected for √yus in the meaning 'get purple'
+Table 1	Nsyilxcən	cited form	y<ʔ>us	'infected', the ʔ form of √yus with a distinct meaning
+Table 1	Nsyilxcən	impossible	*yus-p	rejected for √yus
+Table 1	Nsyilxcən	cited form	yús•s	'become purple', the C2 inchoative of √yus
+Table 1	Nsyilxcən	candidate	?əc-yus	'already purple', the marginal result state of √yus
+Table 1	Nsyilxcən	root	√ʔilxʷ	'hungry', root 16, phonologically weak
+Table 1	Nsyilxcən	positive	ʔilxʷ-t	the positive adjective of √ʔilxʷ
+Table 1	Nsyilxcən	positive	ʔalʔilxʷt-əlx	the plural positive adjective of √ʔilxʷ
+Table 1	Nsyilxcən	impossible	*ʔ<ʔ>ilxʷt	rejected for √ʔilxʷ
+Table 1	Nsyilxcən	impossible	*ʔilxʷp	rejected for √ʔilxʷ
+Table 1	Nsyilxcən	impossible	*ʔelxʷáp	rejected for √ʔilxʷ
+Table 1	Nsyilxcən	impossible	*ʔilxʷ•əxʷ	rejected for √ʔilxʷ
+Table 1	Nsyilxcən	stative	əc-ʔilxʷt	the imperfective of √ʔilxʷ
+Table 1	Nsyilxcən	root	√ʔayx̌ʷ	'tired', root 17, phonologically weak
+Table 1	Nsyilxcən	positive	ʔayx̌ʷ-t	the positive adjective of √ʔayx̌ʷ
+Table 1	Nsyilxcən	positive	ʔay•ʔayx̌ʷ	'tiresome', a further positive form of √ʔayx̌ʷ
+Table 1	Nsyilxcən	impossible	*ʔ<ʔ>ayx̌ʷt	rejected for √ʔayx̌ʷ
+Table 1	Nsyilxcən	impossible	*ʔayx̌ʷp	rejected for √ʔayx̌ʷ
+Table 1	Nsyilxcən	impossible	*ʔəyx̌ʷáp	rejected for √ʔayx̌ʷ
+Table 1	Nsyilxcən	impossible	*ʔayx̌ʷ•əx̌ʷ	rejected for √ʔayx̌ʷ
+Table 1	Nsyilxcən	impossible	*əc-ʔayx̌ʷt	rejected for √ʔayx̌ʷ
+Table 1	Nsyilxcən	root	√ham	'damp', root 18, phonologically weak
+Table 1	Nsyilxcən	positive	həm•hám-t	the positive adjective of √ham
+Table 1	Nsyilxcən	impossible	*h<ʔ>am	rejected for √ham in the meaning 'get damp'
+Table 1	Nsyilxcən	cited form	h<ʔ>am	'respected', the ʔ form of √ham with a distinct meaning
+Table 1	Nsyilxcən	cited form	ham-áp	'get damp', the -p inchoative of √ham
+Table 1	Nsyilxcən	impossible	*hm•ám	rejected for √ham
+Table 1	Nsyilxcən	stative	əc-ham	the imperfective of √ham
+Table 1	Nsyilxcən	root	√c̓əs	'empty', root 19, phonologically weak
+Table 1	Nsyilxcən	impossible	*c̓əs-t	the positive adjective rejected for √c̓əs
+Table 1	Nsyilxcən	impossible	*(n)-c̓<ʔ>as	rejected for √c̓əs
+Table 1	Nsyilxcən	cited form	(n)-c̓s-ap	'get empty', the -p inchoative of √c̓əs
+Table 1	Nsyilxcən	impossible	*c̓əsás	rejected for √c̓əs
+Table 1	Nsyilxcən	impossible	*əc-c̓as	rejected for √c̓əs
+Table 1	Nsyilxcən	root	√taɬ	'straight/true', root 20, phonologically weak
+Table 1	Nsyilxcən	root	√tiɬ	'straight/true', the other root of entry 20
+Table 1	Nsyilxcən	positive	(təɬ)•táɬ-t	the positive adjective of √taɬ
+Table 1	Nsyilxcən	impossible	*t<ʔ>aɬ	rejected for √taɬ
+Table 1	Nsyilxcən	cited form	tɬ-ap	'get straight', the -p inchoative of √taɬ
+Table 1	Nsyilxcən	cited form	tɬ•aɬ	'get straight', the C2 inchoative of √taɬ
+Table 1	Nsyilxcən	stative	əc-tiɬ	the imperfective of √tiɬ
+Table 1	Nsyilxcən	candidate	?əc-taɬ	the marginal imperfective of √taɬ
+Table 1	Nsyilxcən	root	√ƛ̓al	'still', root 21, phonologically weak
+Table 1	Nsyilxcən	positive	(ƛ̓əl)ƛ̓al-t	the positive adjective of √ƛ̓al
+Table 1	Nsyilxcən	impossible	*ƛ̓<ʔ>al	rejected for √ƛ̓al
+Table 1	Nsyilxcən	cited form	ƛ̓l-ap	'stop', the -p inchoative of √ƛ̓al
+Table 1	Nsyilxcən	cited form	ƛ̓l•al	'dead', the C2 inchoative of √ƛ̓al
+Table 1	Nsyilxcən	impossible	*əc-ƛ̓al	rejected for √ƛ̓al
+Table 1	Nsyilxcən	root	√xʷak̓ʷ	'clean', root 22, indeterminate between strong and weak
+Table 1	Nsyilxcən	positive	xʷk̓ʷ•xʷák̓ʷ-t	the positive adjective of √xʷak̓ʷ
+Table 1	Nsyilxcən	cited form	xʷ<ʔ>ak̓ʷ	'get clean', the ʔ inchoative of √xʷak̓ʷ
+Table 1	Nsyilxcən	cited form	xʷk̓ʷ-ap	'get clean', the -p inchoative of √xʷak̓ʷ
+Table 1	Nsyilxcən	cited form	xʷk̓ʷ•ak̓ʷ	'get clean', the C2 inchoative of √xʷak̓ʷ
+Table 1	Nsyilxcən	stative	əc-xʷak̓ʷ	the imperfective of √xʷak̓ʷ
+Table 1	Nsyilxcən	root	√k̓im	'dark', root 23, indeterminate between strong and weak
+Table 1	Nsyilxcən	positive	k̓ím•k̓əm-t	the positive adjective of √k̓im
+Table 1	Nsyilxcən	impossible	*(n)-k̓<ʔ>im	rejected for √k̓im
+Table 1	Nsyilxcən	cited form	(n)-k̓m-áp	'get dark', the -p inchoative of √k̓im
+Table 1	Nsyilxcən	cited form	(n)-k̓ím•əm	'get dark', the C2 inchoative of √k̓im
+Table 1	Nsyilxcən	impossible	*nk̓mám	rejected for √k̓im
+Table 1	Nsyilxcən	stative	əc-k̓im	the imperfective of √k̓im
+Table 1	Nsyilxcən	root	√xʷal	'continuous', root 24, phonologically weak
+Table 1	Nsyilxcən	positive	xʷəl•xʷál-t	the positive adjective of √xʷal
+Table 1	Nsyilxcən	impossible	*xʷ<ʔ>al	rejected for √xʷal
+Table 1	Nsyilxcən	impossible	*xʷl-ap	rejected for √xʷal
+Table 1	Nsyilxcən	cited form	xʷl•ál	'become continuous', the C2 inchoative of √xʷal
+Table 1	Nsyilxcən	impossible	*əc-xʷal	rejected for √xʷal
+Table 1	Nsyilxcən	root	√x̌aʔ	'sacred', root 25, phonologically weak
+Table 1	Nsyilxcən	positive	x̌aʔ•x̌áʔ	the positive adjective of √x̌aʔ
+Table 1	Nsyilxcən	impossible	*x̌<ʔ>aʔ	rejected for √x̌aʔ
+Table 1	Nsyilxcən	impossible	*x̌aʔp	rejected for √x̌aʔ
+Table 1	Nsyilxcən	impossible	*x̌aʔ•aʔ	rejected for √x̌aʔ
+Table 1	Nsyilxcən	candidate	?əc-x̌aʔ	the marginal imperfective of √x̌aʔ
+Table 2	John Lyon	heading	Change-of-state (CS) Roots	the caption of Table 2
+Table 2	John Lyon	notation	c+√	the column head for the stative and imperfective forms of Table 2
+Table 2	Nsyilxcən	root	√nik̓	'cut', root 26, phonologically strong
+Table 2	Nsyilxcən	positive	(nək̓)•nik̓-t	the positive adjective of √nik̓
+Table 2	Nsyilxcən	impossible	*n<ʔ>ik̓	rejected for √nik̓
+Table 2	Nsyilxcən	impossible	*nik̓-p	rejected for √nik̓, read as the lexical suffix -(i)p
+Table 2	Nsyilxcən	cited form	nik̓•ək̓	'get cut', the C2 inchoative of √nik̓
+Table 2	Nsyilxcən	stative	əc-nik̓	'already cut', the result state of √nik̓
+Table 2	Nsyilxcən	root	√kʷum	'store away', root 27, phonologically strong
+Table 2	Nsyilxcən	positive	kʷəm•kʷum-t	the positive adjective of √kʷum
+Table 2	Nsyilxcən	impossible	*kʷ<ʔ>um	rejected for √kʷum
+Table 2	Nsyilxcən	impossible	*kʷum-p	rejected for √kʷum
+Table 2	Nsyilxcən	cited form	kʷum•əm	'get stored away', the C2 inchoative of √kʷum
+Table 2	Nsyilxcən	stative	əc-kʷum	'already stored away', the result state of √kʷum
+Table 2	Nsyilxcən	root	√naq̓ʷ	'steal', root 28, phonologically strong
+Table 2	Nsyilxcən	impossible	*(nəq̓ʷ)•naq̓ʷ-t	the positive adjective rejected for √naq̓ʷ
+Table 2	Nsyilxcən	impossible	*n<ʔ>aq̓ʷ	rejected for √naq̓ʷ
+Table 2	Nsyilxcən	impossible	*naq̓ʷ-p	rejected for √naq̓ʷ
+Table 2	Nsyilxcən	cited form	náq̓ʷ•əq̓ʷ	'get stolen', the C2 inchoative of √naq̓ʷ
+Table 2	Nsyilxcən	stative	əc-naq̓ʷ	'already stolen', the result state of √naq̓ʷ
+Table 2	Nsyilxcən	root	√p̓ic̓	'pinch', root 29, phonologically strong
+Table 2	Nsyilxcən	impossible	*(p̓əc̓)•p̓ic̓-t	the positive adjective rejected for √p̓ic̓
+Table 2	Nsyilxcən	impossible	*p̓<ʔ>ic̓	rejected for √p̓ic̓
+Table 2	Nsyilxcən	candidate	?p̓c̓-áp	the marginal -p inchoative of √p̓ic̓
+Table 2	Nsyilxcən	cited form	p̓ic̓•əc̓	'get pinched', the C2 inchoative of √p̓ic̓
+Table 2	Nsyilxcən	stative	əc-p̓ic̓	'already pinched', the result state of √p̓ic̓
+Table 2	Nsyilxcən	root	√x̌aq̓	'pay', root 30, phonologically strong
+Table 2	Nsyilxcən	impossible	*x̌aq̓-t	the positive adjective rejected for √x̌aq̓
+Table 2	Nsyilxcən	impossible	*x̌<ʔ>aq̓	rejected for √x̌aq̓
+Table 2	Nsyilxcən	impossible	*x̌áq̓-p	rejected for √x̌aq̓
+Table 2	Nsyilxcən	cited form	x̌áq̓•əq̓	'get paid', the C2 inchoative of √x̌aq̓
+Table 2	Nsyilxcən	stative	əc-x̌aq̓	'already paid', the result state of √x̌aq̓
+Table 2	Nsyilxcən	root	√k̓ʷul̓	'make/fix', root 31, phonologically strong
+Table 2	Nsyilxcən	impossible	*(k̓ʷəl̓)•k̓ʷul̓-t	the positive adjective rejected for √k̓ʷul̓
+Table 2	Nsyilxcən	impossible	*k̓ʷ<ʔ>ul̓	rejected for √k̓ʷul̓
+Table 2	Nsyilxcən	impossible	*k̓ʷul̓-p	rejected for √k̓ʷul̓
+Table 2	Nsyilxcən	cited form	k̓ʷúl̓•əl̓	'get made', the C2 inchoative of √k̓ʷul̓
+Table 2	Nsyilxcən	stative	əc-k̓ʷul̓	'already made', the result state of √k̓ʷul̓
+Table 2	Nsyilxcən	root	√miƛ̓	'paint', root 32, phonologically strong
+Table 2	Nsyilxcən	positive	məƛ̓•miƛ̓-t	the positive adjective of √miƛ̓
+Table 2	Nsyilxcən	impossible	*m<ʔ>iƛ̓	rejected for √miƛ̓
+Table 2	Nsyilxcən	impossible	*miƛ̓-p	rejected for √miƛ̓, read as the lexical suffix -(i)p
+Table 2	Nsyilxcən	cited form	miƛ̓•əƛ̓	'get painted', the C2 inchoative of √miƛ̓
+Table 2	Nsyilxcən	stative	əc-miƛ̓	'already painted', the result state of √miƛ̓
+Table 2	Nsyilxcən	root	√ʔiq̓	'scrape', root 33, phonologically strong
+Table 2	Nsyilxcən	positive	(ʔəq̓)•ʔiq̓-t	the positive adjective of √ʔiq̓
+Table 2	Nsyilxcən	impossible	*ʔ<ʔ>iq̓	rejected for √ʔiq̓
+Table 2	Nsyilxcən	impossible	*ʔiq̓-p	rejected for √ʔiq̓
+Table 2	Nsyilxcən	cited form	ʔiq̓•əq̓	'get scraped', the C2 inchoative of √ʔiq̓
+Table 2	Nsyilxcən	stative	əc-ʔiq̓	'already scraped', the result state of √ʔiq̓
+Table 2	Nsyilxcən	root	√q̓ay̓	'write', root 34, phonologically weak
+Table 2	Nsyilxcən	impossible	*q̓ay̓-t	the positive adjective rejected for √q̓ay̓
+Table 2	Nsyilxcən	impossible	*q̓<ʔ>ay̓	rejected for √q̓ay̓
+Table 2	Nsyilxcən	cited form	q̓y̓-áp	'get written', the -p inchoative of √q̓ay̓
+Table 2	Nsyilxcən	cited form	q̓y̓•áy̓	'get written', the C2 inchoative of √q̓ay̓
+Table 2	Nsyilxcən	stative	əc-q̓ay̓	'already written', the result state of √q̓ay̓
+Table 2	Nsyilxcən	root	√c̓axʷ	'spill', root 35, phonologically weak
+Table 2	Nsyilxcən	impossible	*c̓axʷ-t	the positive adjective rejected for √c̓axʷ
+Table 2	Nsyilxcən	impossible	*c̓<ʔ>axʷ	rejected for √c̓axʷ
+Table 2	Nsyilxcən	cited form	c̓xʷ-áp	'get spilled', the -p inchoative of √c̓axʷ
+Table 2	Nsyilxcən	cited form	c̓xʷ•áxʷ	'get spilled', the C2 inchoative of √c̓axʷ
+Table 2	Nsyilxcən	stative	əc-c̓axʷ	'already spilled', the result state of √c̓axʷ
+Table 2	Nsyilxcən	root	√laɣ	'stuck', root 36, phonologically weak
+Table 2	Nsyilxcən	impossible	*laɣ-t	the positive adjective rejected for √laɣ
+Table 2	Nsyilxcən	impossible	*l<ʔ>aɣ	rejected for √laɣ
+Table 2	Nsyilxcən	cited form	ləɣ-áp	'shot', the -p inchoative of √laɣ
+Table 2	Nsyilxcən	cited form	ləɣ•áɣ	'get stuck', the C2 inchoative of √laɣ
+Table 2	Nsyilxcən	stative	əc-laɣ	'already stuck', the result state of √laɣ
+Table 2	Nsyilxcən	root	√yar̓	'tangled', root 37, phonologically weak
+Table 2	Nsyilxcən	candidate	?yar̓-t	the marginal positive adjective of √yar̓
+Table 2	Nsyilxcən	impossible	*y<ʔ>ar̓	rejected for √yar̓
+Table 2	Nsyilxcən	cited form	yr̓-áp	'get tangled', the -p inchoative of √yar̓
+Table 2	Nsyilxcən	cited form	yr̓•ar̓	'get tangled', the C2 inchoative of √yar̓
+Table 2	Nsyilxcən	stative	əc-yar̓	'already tangled', the result state of √yar̓
+Table 2	Nsyilxcən	root	√wl	'burn', root 38, phonologically weak
+Table 2	Nsyilxcən	impossible	*wal-t	the positive adjective rejected for √wl
+Table 2	Nsyilxcən	impossible	*w<ʔ>al	rejected for √wl
+Table 2	Nsyilxcən	cited form	wl-áp	'get burned', the -p inchoative of √wl
+Table 2	Nsyilxcən	cited form	wl•al	'get burned', the C2 inchoative of √wl
+Table 2	Nsyilxcən	impossible	*əc-wal	rejected for √wl
+Table 2	Nsyilxcən	root	√k̓at̓	'cut off', root 39, phonologically weak
+Table 2	Nsyilxcən	impossible	*k̓<ʔ>at̓	rejected for √k̓at̓
+Table 2	Nsyilxcən	cited form	k̓ɬ-k̓t̓-áp	'get cut off', the -p inchoative of √k̓at̓
+Table 2	Nsyilxcən	cited form	k̓t̓•at̓	'get cut off', the C2 inchoative of √k̓at̓
+Table 2	Nsyilxcən	damage	k̓t̓•at̓əc-k̓ɬ-k̓at̓	the page prints k̓t̓•at̓ 'get cut off' and əc-k̓ɬ-k̓at̓ 'already cut off' in two cells; a single space separates the columns and the repair closes it
+Table 2	Nsyilxcən	root	√k̓ʷaƛ̓	'get seen / visible /come apart', root 40, phonologically weak
+Table 2	Nsyilxcən	impossible	*k̓ʷaƛ̓-t	the positive adjective rejected for √k̓ʷaƛ̓
+Table 2	Nsyilxcən	impossible	*k̓ʷ<ʔ>aƛ̓	rejected for √k̓ʷaƛ̓
+Table 2	Nsyilxcən	cited form	k̓ʷƛ̓-ap	'come apart', the -p inchoative of √k̓ʷaƛ̓
+Table 2	Nsyilxcən	cited form	k̓ʷiƛ̓-p	'come apart', the other -p inchoative of √k̓ʷaƛ̓
+Table 2	Nsyilxcən	cited form	k̓ʷƛ̓•aƛ̓	'unstuck', the C2 inchoative of √k̓ʷaƛ̓
+Table 2	Nsyilxcən	stative	əc-k̓ʷaƛ̓	'unstuck', the result state of √k̓ʷaƛ̓
+Table 2	Nsyilxcən	root	√pan̓	'bent', root 41, phonologically weak
+Table 2	Nsyilxcən	impossible	*pan̓-t	the positive adjective rejected for √pan̓
+Table 2	Nsyilxcən	impossible	*p<ʔ>an̓	rejected for √pan̓
+Table 2	Nsyilxcən	cited form	pn̓-ap	'get bent', the -p inchoative of √pan̓
+Table 2	Nsyilxcən	cited form	pn̓•an̓	'get bent', the C2 inchoative of √pan̓
+Table 2	Nsyilxcən	stative	əc-pan̓	'already bent', the result state of √pan̓
+Table 2	Nsyilxcən	root	√t̓ak̓ʷ	'lay down', root 42, phonologically weak
+Table 2	Nsyilxcən	impossible	*t̓ak̓ʷ-t	the positive adjective rejected for √t̓ak̓ʷ
+Table 2	Nsyilxcən	cited form	t̓<ʔ>ak̓ʷ	'come to top', the ʔ form of √t̓ak̓ʷ
+Table 2	Nsyilxcən	cited form	n-t̓k̓ʷ-ap	'burst', the -p form of √t̓ak̓ʷ
+Table 2	Nsyilxcən	cited form	t̓k̓ʷ•ak̓ʷ	'get laid down', the C2 inchoative of √t̓ak̓ʷ
+Table 2	Nsyilxcən	stative	əc-t̓ak̓ʷ	'already laid down', the result state of √t̓ak̓ʷ
+Table 2	Nsyilxcən	root	√x̌aw̓	'dry', root 43, phonologically weak
+Table 2	Nsyilxcən	positive	x̌əw̓•x̌áw̓-t	the positive adjective of √x̌aw̓
+Table 2	Nsyilxcən	impossible	*x̌<ʔ>aw̓	rejected for √x̌aw̓
+Table 2	Nsyilxcən	cited form	x̌w̓-ap	'get dry', the -p inchoative of √x̌aw̓
+Table 2	Nsyilxcən	cited form	x̌w̓•aw̓	'get dry', the C2 inchoative of √x̌aw̓
+Table 2	Nsyilxcən	stative	əc-x̌aw̓	'already dried', the result state of √x̌aw̓
+Table 2	Nsyilxcən	root	√t̓il	'tear/rip', root 44, phonologically weak
+Table 2	Nsyilxcən	root	√t̓al	'tear/rip', the other root of entry 44
+Table 2	Nsyilxcən	positive	t̓il-t	the positive adjective of √t̓il
+Table 2	Nsyilxcən	impossible	*t̓<ʔ>il	rejected for √t̓il
+Table 2	Nsyilxcən	cited form	t̓l-ap	'get torn', the -p inchoative of √t̓il
+Table 2	Nsyilxcən	cited form	t̓l•al	'get torn', the C2 inchoative of √t̓il
+Table 2	Nsyilxcən	stative	əc-t̓al̓	'already torn', the result state of √t̓al
+Table 2	Nsyilxcən	root	√ʕam	'melt', root 45, phonologically weak
+Table 2	Nsyilxcən	positive	ʕəmʕámt	'melts easily', the positive adjective of √ʕam
+Table 2	Nsyilxcən	impossible	*ʕ<ʔ>am	rejected for √ʕam
+Table 2	Nsyilxcən	cited form	ʕam-áp	'get melted', the -p inchoative of √ʕam
+Table 2	Nsyilxcən	cited form	ʕam•ám	'get melted', the C2 inchoative of √ʕam
+Table 2	Nsyilxcən	candidate	?əc-ʕam	the marginal result state of √ʕam
+Table 2	Nsyilxcən	root	√tar	'unravel', root 46, indeterminate between strong and weak
+Table 2	Nsyilxcən	positive	tar-t	the positive adjective of √tar
+Table 2	Nsyilxcən	cited form	t<ʔ>ar	'get unravelled', the ʔ inchoative of √tar
+Table 2	Nsyilxcən	cited form	tr-ap	'get unravelled', the -p inchoative of √tar
+Table 2	Nsyilxcən	cited form	tr•ar	'get unravelled', the C2 inchoative of √tar
+Table 2	Nsyilxcən	stative	əc-tar	'already unravelled', the result state of √tar
+Table 2	Nsyilxcən	root	√p̓aƛ̓	'flattened', root 47, phonologically weak
+Table 2	Nsyilxcən	positive	p̓aƛ̓-t	the positive adjective of √p̓aƛ̓
+Table 2	Nsyilxcən	impossible	*p̓<ʔ>aƛ̓	rejected for √p̓aƛ̓
+Table 2	Nsyilxcən	impossible	*p̓ƛ̓-ap	rejected for √p̓aƛ̓
+Table 2	Nsyilxcən	cited form	p̓ƛ̓•aƛ̓	'get flattened', the C2 inchoative of √p̓aƛ̓
+Table 2	Nsyilxcən	stative	əc-p̓aƛ̓	'already flattened', the result state of √p̓aƛ̓
+Table 2	Nsyilxcən	root	√ɬwin	'abandon', root 48, phonologically weak
+Table 2	Nsyilxcən	impossible	*ɬwin-t	the positive adjective rejected for √ɬwin
+Table 2	Nsyilxcən	candidate	?ɬ<ʔ>win	the marginal ʔ inchoative of √ɬwin
+Table 2	Nsyilxcən	impossible	*ɬwnáp	rejected for √ɬwin
+Table 2	Nsyilxcən	impossible	*ɬwinp	rejected for √ɬwin
+Table 2	Nsyilxcən	cited form	ɬw•win	'get abandoned', the C2 inchoative of √ɬwin
+Table 2	Nsyilxcən	stative	əc-ɬwin	'already abandoned', the result state of √ɬwin
+fn5	Nsyilxcən	cited form	tar•r	'be stretched out', a similar strong root inchoative form
+§3	John Lyon	heading	Discussion of Elicitation Tables	section 3
+§1	Nsyilxcən	damage	√yr̓(5b	the page prints √yr̓ and the example number (5b) apart; the repair closes the space after the glottalization mark
+(5b)	Nsyilxcən	damage	y<ʔ>ar̓yr̓-ap	the page prints *y<ʔ>ar̓ and yr̓-ap in two cells; a single space separates them and the repair closes it
+Table 1	Nsyilxcən	damage	ɬʕat̓ɬ<ʔ>ʕat̓	the page prints ɬʕat̓ and ɬ<ʔ>ʕat̓ in two cells; a single space separates them and the repair closes it
+Table 2	Nsyilxcən	damage	yr̓•ar̓əc-yar̓	the page prints yr̓•ar̓ and əc-yar̓ in two cells; a single space separates them and the repair closes it
+§3	John Lyon	notation	B2	the subgroup code for roots indeterminate between weak and strong
+§4	John Lyon	heading	Corpus Survey	section 4
+§4	John Lyon	notation	CʔVC	the shape of the roots that take inchoative <ʔ>
+§4	John Lyon	notation	CVC	the shape of the roots those are derived from
+(49)	Nsyilxcən	cited form	ɬ<ʔ>uc	'to get soaked (of hard objects, e.g. beans)', a form the consultants did not know
+(49)	Nsyilxcən	root	√ɬc	'soak', the root ɬ<ʔ>uc comes from
+(49)	Nsyilxcən	cited form	p<ʔ>uɬ	'to get splashed', a form the consultants did not know
+(49)	Nsyilxcən	root	√pɬ	'splash', the root p<ʔ>uɬ comes from
+(49)	Nsyilxcən	cited form	piɬ/puɬ	'splash', cited beside √pɬ
+(49)	Nsyilxcən	cited form	spʔuɬ	'spray', a noun cited beside √pɬ
+(50)	Nsyilxcən	cited form	p̓<ʔ>ax̌	'to heal (a wound or scar)'
+(50)	Nsyilxcən	root	√p̓x̌	'brand/sear', the root p̓<ʔ>ax̌ comes from
+(50)	Nsyilxcən	cited form	p̓ix̌•əx̌	'get branded', cited beside √p̓x̌
+(50)	Nsyilxcən	stative	əc-p̓ax̌	'already branded', judged stative
+(50)	Nsyilxcən	stative	əc-p̓ʔax̌	'already healed', judged stative
+(50)	Nsyilxcən	impossible	*əc-p̓ax̌	rejected under the meaning 'already healed'
+(50)	Spokane	cited form	√p̓ax̌	'healed, well', the Spokane cognate
+(50)	Spokane	cited form	p̓ʔáx̌	'he got well', the Spokane cognate
+(50)	Nsyilxcən	cited form	m<ʔ>aɬ	'to have relief from pain; enough (pain)'
+(50)	Nsyilxcən	root	√mɬ	'rest', the root m<ʔ>aɬ comes from
+(50)	Nsyilxcən	cited form	mɬ•aɬ	'be rested', cited beside √mɬ
+(50)	Spokane	cited form	mʔéɬ	'his injury quit hurting, it eased up', the Spokane cognate
+(50)	Nsyilxcən	cited form	ɬ•ɬ<ʔ>ap	'to be near the end, dying'
+(50)	Nsyilxcən	root	√ɬp	'suck in', the root ɬ•ɬ<ʔ>ap comes from
+(50)	Nsyilxcən	cited form	ɬip	'extinguish, disappear', cited beside √ɬp
+(50)	Nsyilxcən	cited form	t̓<ʔ>ak̓ʷ	'to surface; to come to the top'
+(50)	Nsyilxcən	root	√t̓k̓ʷ	'lay down/place/fall', the root t̓<ʔ>ak̓ʷ comes from
+(50)	Nsyilxcən	cited form	t̓k̓ʷ•ak̓ʷ	'fall down', cited beside √t̓k̓ʷ
+(50)	Secwepemctsin	cited form	(s-)tʔek̓ʷ	'to rise to surface of water', the Secwepemctsín cognate
+(50)	Lillooet	cited form	n.ƛ̓ak̓ʷ	'to get filled with liquid', the Lillooet cognate
+(51)	Nsyilxcən	cited form	xʷ<ʔ>ul	'steam; to be steaming'
+(51)	Nsyilxcən	root	√xʷl	'fog/steam', the root xʷ<ʔ>ul comes from
+(51)	Nsyilxcən	cited form	sxʷʔul	'to get to steam', cited beside √xʷl
+(51)	Nsyilxcən	impossible	*əc-xʷul	rejected under both the imperfective and the stative reading
+(51)	Nsyilxcən	stative	əc-xʷʔul	'steams (habitually)', judged imperfective
+(51)	nɬeʔkepmxcín	cited form	xʷ[ʔ]úl	'get hot inside [an enclosure]', the Thompson cognate
+(51)	Nsyilxcən	cited form	c̓<ʔ>ax	'to get ashamed'
+(51)	Nsyilxcən	root	√c̓x	'shame', the root c̓<ʔ>ax comes from
+(51)	Nsyilxcən	cited form	c̓ix•c̓əx-t	'ashamed', cited beside √c̓x
+(51)	Nsyilxcən	cited form	s-cʔax	'one's shame', cited beside √c̓x
+(51)	Nsyilxcən	impossible	*əc-c̓ax	rejected under both the stative and the imperfective reading
+(51)	Nsyilxcən	stative	əc-c̓ʔax	'always shy', judged habitual
+(51)	Nsyilxcən	cited form	c̓ʔax	'shy', as Delphine Derrickson-Armstrong translates it
+(51)	Nsyilxcən	cited form	c̓ixc̓əxt	'shameful', as the speakers judged it
+(51)	Spokane	cited form	√c̓eš	'bashful, shy, embarrassed', the Spokane cognate
+(51)	nxaʔamxčín	cited form	c̓aʔx	'be bashful, shy, ashamed', the Columbian cognate
+(51)	nxaʔamxčín	cited form	c̓a-c̓aʔx-t	'be ashamed', the Columbian cognate
+(51)	Secwepemctsin	cited form	√c̓ex	'ashamed', the Secwepemctsín cognate
+(51)	nɬeʔkepmxcín	cited form	√c̓éx(ʔ)	'shame', the Thompson cognate
+(51)	Lillooet	cited form	√c̓ax	'shame', the Lillooet cognate
+(52)	Nsyilxcən	cited form	p<ʔ>ul̕	'to start to smoke'
+(52)	Nsyilxcən	root	√pl̓	'smoke', the root p<ʔ>ul̕ comes from
+(52)	Nsyilxcən	cited form	pl̓ul̓	'get smoking', cited beside √pl̓
+(52)	Nsyilxcən	cited form	spʔul̓	'smoke', a noun cited beside √pl̓
+(52)	Nsyilxcən	root	√pul̓	'get smoked', the change-of-state root
+(52)	Nsyilxcən	root	√pʔul̓	'smoking', the related property concept root with a lexicalized ʔ
+(52)	Spokane	cited form	√pul̕	'fluff up the dirt', the Spokane cognate
+(52)	Spokane	cited form	hi púl̕	'the dirt is fluffed up', the Spokane cognate
+(52)	Secwepemctsin	cited form	√pal	'to smear, smudge', the Secwepemctsín cognate
+(53)	Nsyilxcən	cited form	t̓<ʔ>ul̕	'to settle down; to subside'
+(53)	Nsyilxcən	root	√t̓l̓	'subside', the root t̓<ʔ>ul̕ comes from
+(53)	Nsyilxcən	transcription	t̓ʔul̓isx̌num̓t	'My injury got better'
+(53)	Nsyilxcən	transcription	t̓i t̓ul isnq̓ílis	'My toothache is better/calm'
+(53)	Nsyilxcən	impossible	*əc-t̓ul̓	rejected under the meaning 'already gotten better'
+(54)	Nsyilxcən	cited form	q̓ʷ<ʔ>il	'wilted; to wilt; to dry up'
+(54)	Nsyilxcən	root	√q̓ʷʔil	the root q̓ʷ<ʔ>il comes from
+(54)	Nsyilxcən	cited form	q̓ʷil	'in a state of being wilted', the bare root, volunteered by DD
+(54)	Nsyilxcən	stative	əc-q̓ʷil	'already dried up', the result state
+(54)	Spokane	cited form	hi q̓ʷél	'the plant is wilted', the Spokane cognate
+(54)	Spokane	cited form	qt:q̓ʷʔél	'it became wilted', the Spokane cognate; qt: is the meltr.org quotation marker, set against the form with no space
+(54)	Secwepemctsin	cited form	qt:q̓ʷelx̌	'dead branch(es)', the Secwepemctsín cognate; qt: is the meltr.org quotation marker
+(54)	nɬeʔkepmxcín	cited form	q̓ʷ[ʔ]íl	'[of plant] droop, wilt', the Thompson cognate
+(54)	Lillooet	cited form	q̓ʷal	'dead trees, dead bushes', the Lillooet cognate
+(54)	Nsyilxcən	cited form	y<ʔ>aʕ̓	'to gather; to begin to gather'
+(54)	Nsyilxcən	root	√yʕ̓	'gather', the root y<ʔ>aʕ̓ comes from
+(54)	Nsyilxcən	cited form	yaʕ̓•ʕ̓	'to gather', cited beside √yʕ̓
+(54)	Nsyilxcən	cited form	c-yaʕ̓	'things gathered', cited beside √yʕ̓
+(54)	Nsyilxcən	cited form	yaʕ̓	the bare root, rejected by the speakers
+(54)	Nsyilxcən	stative	əc-yaʕ̓	'things gathered', in the dictionary but rejected as odd
+(54)	Nsyilxcən	root	√yaʕ̓	the root the speakers were primed to read as a property concept
+(54)	Spokane	cited form	yiʕaʔp	'they all arrived together', the Spokane cognate
+(54)	Coeur d'Alene	cited form	c+yaʕ̓	'all arrived', the Coeur d'Alene cognate
+(54)	Secwepemctsin	cited form	c-yʕ-ep	'to arrive (from far)', the Secwepemctsín cognate
+(54)	nxaʔamxčín	cited form	yaʕ̓-aʕ̓	'to get together (people)', the Columbian cognate
+(54)	Coeur d'Alene	cited form	yaʕ	'assemble, crowd, gather', the Coeur d'Alene cognate
+(54)	Spokane	cited form	√yaʕ̓	'gathered, accumulated', the Spokane cognate
+(54)	Spokane	cited form	(yaʔ)	the variant Spokane spelling given beside √yaʕ̓
+(54)	Spokane	cited form	hec yáʕ̓	'it is everything', the Spokane cognate
+(54)	Spokane	cited form	hecyáʕ̓	'all, everything, everyone', the Spokane cognate
+(54)	Spokane	cited form	(ʔecyáʕ̓)	a variant of hecyáʕ̓
+(54)	Spokane	cited form	cyáʕ̓	'all, everything, everyone', the Spokane cognate
+(54)	nxaʔamxčín	cited form	syáʕ̓-ʕ̓	'gathering, meeting', the Columbian cognate
+(54)	nxaʔamxčín	cited form	s-yaʕ̓ʷ-ʕ̓ʷ	'to meet, gather', the Columbian cognate
+(54)	nɬeʔkepmxcín	cited form	zaʕ	'[of people] assembled, gotten together, having arrived at a place', the Thompson cognate
+(54)	nɬeʔkepmxcín	cited form	zaʕ•záʕ-t	'[of people] assembled, gotten together, having arrived at a place', the Thompson cognate
+(54)	nɬeʔkepmxcín	cited form	zaʕ-m-ə́m	'assemble, collect, gather (things) in a particular place', the Thompson cognate
+§4	Nsyilxcən	cited form	t̓ʔak̓ʷ	'to float to the surface', against t̓k̓ʷak̓ʷ
+§4	Nsyilxcən	cited form	t̓k̓ʷak̓ʷ	'get laid down'
+§4	Nsyilxcən	root	√t̓ak̓ʷ	the strong root ʔ became lexicalized in
+fn9	Nsyilxcən	predicted	t̓əʔáʔk̓ʷ	an expected C2 form of t̓ʔak̓ʷ that has not been found
+fn9	Nsyilxcən	predicted	t̓áʔəʔk̓ʷ	the other expected C2 form of t̓ʔak̓ʷ that has not been found
+fn10	Nsyilxcən	cited form	tʔar	'unravelled', in the weak root √tar
+fn10	Nsyilxcən	root	√tar	the homophonous strong root
+fn10	Nsyilxcən	cited form	yʔus	'infected', derived from √yus
+fn10	Nsyilxcən	cited form	yus•əs	'become purple', derived from √yus
+§4	Spokane	language	Spoqínx	the Spokane language, as the paper names it, abbreviated Sp
+§4	Secwepemctsin	language	Secwepemctsín	the Shuswap language, as the paper names it, abbreviated Sh
+§4	nɬeʔkepmxcín	language	nɬeʔkepmxcín	the Thompson language, as the paper names it, abbreviated Th
+§4	nɬeʔkepmxcín	cited form	xʷʔul	the Thompson form implying a change of state
+§4	Nsyilxcən	cited form	x̌aw̓	'dry', the root of entry 43, cited in prose
+§4	Spokane	damage	√pul̕qt:{fluff	the page prints Sp √pul̕ and qt:{fluff up the dirt} apart; the repair closes the space after the glottalization mark
+§4	Spokane	damage	púl̕qt:{the	the page prints hi púl̕ and qt:{the dirt is fluffed up} apart; the repair closes the space after the glottalization mark
+§4	Nsyilxcən	damage	t̓ul̓‘already	the page prints *əc-t̓ul̓ and ‘already gotten better’ apart; the repair closes the space after the glottalization mark
+§4	Nsyilxcən	damage	yaʕ̓was	the page prints bare root yaʕ̓ and the word was apart; the repair closes the space after the glottalization mark
+§4	Nsyilxcən	damage	əc-yaʕ̓occurs	the page prints əc-yaʕ̓ and the word occurs apart; the repair closes the space after the glottalization mark
+§4	Nsyilxcən	damage	y<ʔ>aʕ̓at	the page prints y<ʔ>aʕ̓ and the word at apart; the repair closes the space after the glottalization mark
+§5	John Lyon	heading	Root Reanalysis	section 5
+Table 3	John Lyon	heading	Reanalysis: Weak Result -> Weak PC Root	the caption of Table 3
+Table 3	John Lyon	notation	Stage 1 (CS)	an unambiguous change-of-state root, class CS A
+Table 3	John Lyon	notation	Stage 2 (CS)	a change-of-state root that also derives into a positive adjective, class CS A
+Table 3	John Lyon	notation	Stage 3 (CS)	a change-of-state root that also allows bare root uses, class CS B
+Table 3	John Lyon	notation	Stage 4 (PC)	a root that has completed the transition, class PC B
+§6	John Lyon	heading	Conclusion	section 6
+§6	John Lyon	reference	Lyon 2025a	the companion paper in the same volume
+References	John Lyon	heading	References	the paper's bibliography
+References	John Lyon	reference	Bar-el, L. (2005). Aspectual Distinction in Skwxwú7mesh. Ph.D. Dissertation. University of British Columbia: Vancouver, BC.	cited on inchoative states
+References	Squamish	cited title	Skwxwú7mesh	the Squamish language name in Bar-el's title
+References	John Lyon	reference	Carlson, B. (1993). Strong and weak root inchoatives in Spokane. In American Indian Linguistics and Ethnography in Honor of Laurence C. Thompson. Anthony Mattina and Timothy Montler (eds.). UMOPL 10: Missoula. 37–46.	cited on strong and weak root inchoatives
+References	John Lyon	reference	Czaykowska-Higgins, E. (manuscript). The nxaʔamxčín Inchoative Morpheme: Dissimilarity in Allomorphy.	the source of the nxaʔamxčín counts
+References	John Lyon	reference	Davis, H. (2024). Going Radical in Salish. In Proceedings of the West Coast Conference on Formal Linguistics 39. Somerville, MD: Cascadilla Press, 303-312.	cited on St'át'imcets <ʔ>
+References	John Lyon	reference	Kinkade, M. D. (1982). Columbian (Salish) C2-Reduplication. Anthropological Linguistics 24: 66–71.	the source of the C2 reduplication analysis
+References	John Lyon	reference	Kinkade, M. D. (1989). Inchoative in Columbian Salish. In Precedings of the 24th International Conference on Salish and Neighboring Languages. Steilacoom, WA. 114–119.	the source of the strong and weak root correlation
+References	John Lyon	reference	Lyon, J. (2023). Building Statives and Inchoatives in Nsyilxcn. In Precedings of the 58th Annual International Conference on Salish and Neighbouring Languages. Nanaimo, BC. 230-290.	the author's earlier paper on statives
+References	John Lyon	reference	Lyon, J. (2025a). Change-of-State in Nsyilxcn Roots and Beyond. In Precedings of the 60th Annual International Conference on Salish and Neighbouring Languages. (this volume). Chilliwack, BC.	the companion paper
+References	John Lyon	reference	Mattina, A. (n.d.). Colville-Okanagan Dictionary. https://www.meltr.org/CvDict/lexicon/index.htm.	the dictionary the corpus survey is based on
+References	John Lyon	reference	Mattina, N. (1996). Aspect and category in Okanagan word formation. PhD dissertation, Simon Fraser University.	the source of the anti-causative analysis
+References	John Lyon	reference	van Eijk, J. (1987). Interior glottalization and the suffix -(V)p in Lillooet, Shuswap and Thompson. Precedings of the 22nd International Conference on Salish and Neighboring Languages. Victoria, BC. 41–48.	cited on interior glottalization
+References	John Lyon	reference	van Eijk, J. (1990). VC Reduplication in Salish. Anthropological Linguistics 32:3/4. 228–262.	cited on VC reduplication
+References	John Lyon	reference	van Eijk, J. & T. Hess. (1986). Noun and verb in Salish. Lingua 69: 319–331.	the source of the claim that <ʔ> targets verbs in St'át'imcets

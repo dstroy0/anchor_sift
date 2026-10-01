@@ -1,8 +1,8 @@
 # The engine's correctness does not depend on its control flow
 
 **Purpose:** Prove that the count is exact for every probe set, that the refinement loop's invariant is its own postcondition, that an arbitrary planner cannot endanger the answer, and that the descent terminates without a depth cap.
-**Scope:** `src/engine/nbody/anchor_sift/anchor_sift.h`, `src/engine/nbody/anchor_sift/anchor_sift_*.c`
-**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/anchor_sift.h`. Commit `510577b` (16 September) folded the steer files into `anchor_sift.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/anchor_sift/`, where they are at anchor_sift `1948ae1`. The file splits of 27 September cut `anchor_sift.c` into `anchor_sift_*.c` beside `anchor_sift.h`.
+**Scope:** `src/engine/nbody/orior/orior.h`, `src/engine/nbody/orior/orior_*.c`
+**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/orior.h`. Commit `510577b` (16 September) folded the steer files into `orior.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/orior/`, where they are at orior `1948ae1`. The file splits of 27 September cut `orior.c` into `orior_*.c` beside `orior.h`.
 
 ## Contents
 
@@ -115,7 +115,7 @@ computability, or termination of anything. No such hypothesis can be needed to d
 defined `S_i` is a plan; apply Theorem 1. For the divergent case, `S_k` is a plan; apply Theorem 1. ∎
 
 This is the theorem worth stating to anyone who has read the header's claim about halting
-(`src/engine/nbody/anchor_sift/anchor_sift.h:731-742`). It says the
+(`src/engine/nbody/orior/orior.h:731-742`). It says the
 planner slot accepts an arbitrary computation, including one that decides an undecidable question and
 therefore never returns, without the answer depending on it. The undecidability is real and it is
 confined to the planner, where nothing reads its result as a precondition for correctness.

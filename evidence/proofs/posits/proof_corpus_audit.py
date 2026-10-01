@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRF-x-002
 #
 # Proof of the posit that the content has to be printed and not only the statistic, from the posits
-# section of theory/workbooks/anchor_sift.
+# section of theory/workbooks/orior.
 #
 #   Usage:  python evidence/proofs/posits/proof_corpus_audit.py
 #

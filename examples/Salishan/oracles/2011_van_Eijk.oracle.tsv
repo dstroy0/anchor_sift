@@ -1,0 +1,290 @@
+where	who	kind	form	gloss
+front	Jan P. van Eijk	title	Look out for number one, kid: An exercise in Lillooet morphology	page 1
+front	Jan P. van Eijk	name	Jan P. van Eijk	author
+front	Jan P. van Eijk	note	First Nations University of Canada	page 1, under Jan P. van Eijk
+front	Jan P. van Eijk	note	The complexity of Lillooet morphology can often be demonstrated through a single root which then allows a multitude of derivations, employing a variety of morphological operations. In the present article we select the root pálaʔ ‘one’ which allows a total of 36 derivations, through various types of affixation and reduplication, plus combinations thereof, and compounding. All listed derivations are commented on with regard to their morphological structure and, where available, are illustrated with example sentences drawn from my Lillooet corpus. Implications of this material for linguistic typology and theoretical analysis are offered in the concluding section.	page 1, the abstract
+front	Jan P. van Eijk	language	Lillooet	Northern Interior Salish, spoken in British Columbia
+front	Jan P. van Eijk	language	St’át’imcets	the language's own name, given with Lillooet
+§1	Jan P. van Eijk	heading	1 Introduction	page 1
+§1	Jan P. van Eijk	note	Like all Salish languages, Lillooet (St’át’imcets) has a large and complex morphological repertoire, which includes prefixation, infixation and suffixation, various forms of reduplication, compounding, and the unproductive process of apophony. These operations may also occur in a wide variety of combinations, the locus and ordering of which is discussed in detail in Van Eijk 2004. A brief excursus on the various morphological operations employed by Lillooet follows, together with the typographical devices used to signal these operations. A fuller description of Lillooet morphology is given in Van Eijk 1997, to which I refer the interested reader (with the caveat that instead of the various typographical devices listed below, Van Eijk 1997 only employs hyphens or, in the case of internal changes, does not indicate morpheme boundaries).	page 1
+§1	Jan P. van Eijk	name	Van Eijk	Jan P. van Eijk, the author, cited for his grammar of Lillooet (1997) and his papers on reduplication (1990, 1993, 1998a, 1998b) and morphology (2004)
+§1	Jan P. van Eijk	note	Prefixation is limited in relation to suffixation, but it contains a number of highly important markers, such as the nominalizer s-, and the ‘locative’ suffix n- which indicates that the referent of the root is placed in a larger setting. Prefixes are indicated with a following hyphen in isolated quotations (as in the two cases just quoted) but with a following period in full words, as in s.k̓ʷzús-əm ‘job, work (noun),’ (southern dialect) from k̓ʷzús-əm ‘to work.’ The only infix employed by Lillooet is the inchoative marker ʔ, indicated with a high dot, as in √γíp ‘to raise, grow (persons, horses, trees, etc.)’ > γi·ʔp ‘to grow, grow up.’	page 1
+§1	Lillooet	cited form	s-	page 1, in the sans face of the forms
+§1	Lillooet	cited form	n-	page 1, in the sans face of the forms
+§1	Lillooet	cited form	s.k̓ʷzús-əm	page 1, in the sans face of the forms, ‘job, work (noun),’
+§1	Lillooet	cited form	k̓ʷzús-əm	page 1, in the sans face of the forms, ‘to work.’
+§1	Lillooet	cited form	ʔ	page 2, in the sans face of the forms
+§1	Lillooet	cited form	√γíp	page 2, in the sans face of the forms, ‘to raise, grow (persons, horses, trees, etc.)’
+§1	Lillooet	cited form	γi·ʔp	page 2, in the sans face of the forms, ‘to grow, grow up.’
+§1	Jan P. van Eijk	note	Suffixes are signalled with a preceding hyphen, as in k̓ʷzús-əm above (with the intransitivizing suffix -əm). The largest subset of suffixes is formed by so-called lexical suffixes which in general indicate an object or area to which the referent of the root applies. Hinkson 1999 provides an in-depth survey of Salish lexical suffixes, based on a large number of sources on individual Salish languages, and on original field work.	page 2
+§1	Lillooet	cited form	-əm	page 2, in the sans face of the forms
+§1	Jan P. van Eijk	name	Hinkson	Mercedes Q. Hinkson, Salishan lexical suffixes (1999)
+§1	Jan P. van Eijk	note	Reduplication falls into three major (productive) types and a number of unproductive types. The three major types, with their typographical encodings are the following:	page 2
+§1	Jan P. van Eijk	note	CVC reduplication (labeled ‘total reduplication’ in Van Eijk 1997), i.e., reduplication of the first CVC sequence of the root. This type signals the augmentative (plural/collective in nouns, repetition/intensity in verbs) and it is indicated with a colon following the CVC copy. Stress may fall on the CVC copy or on the root, according to a phonologically largely predictable pattern, as expained in Van Eijk 1997:65. The CVC copy or the targeted CVC sequence in the root usually have their vowel reduced to ə when they are unstressed. Examples are s.qayxʷ ‘man’ > s.qáy:qyəxʷ (via *s.qáy:qəyxʷ) ‘men,’ s.múɬac ‘woman’ (northern dialect) > s.məɬ:múɬac ‘women.’ For a detailed discussion of CVC reduplication in Lillooet, and in Salish in general, I refer the reader to Van Eijk 1998a.	page 2
+§1	Lillooet	cited form	s.qayxʷ	page 2, in the sans face of the forms, ‘man’
+§1	Lillooet	cited form	s.qáy:qyəxʷ	page 2, in the sans face of the forms
+§1	Lillooet	cited form	*s.qáy:qəyxʷ	page 2, in the sans face of the forms
+§1	Lillooet	cited form	s.múɬac	page 2, in the sans face of the forms, ‘woman’
+§1	Lillooet	cited form	s.məɬ:múɬac	page 2, in the sans face of the forms, ‘women.’
+§1	Jan P. van Eijk	note	Consonant reduplication (C-reduplication for short), i.e., reduplication of the consonant before the stressed vowel and placement of the C copy after that vowel. This type signals the diminutive and it is indicated by two angular brackets enclasping the copy, as in s.pzuʔ ‘(wild) animal’ > s.pzú<za>ʔ ‘bird’ (literally ‘wild animal,’ with epenthetic a in the unstressed portion). In most cases, the stressed vowel is reduced to ə as part of the re- duplicative process, as in nax̌ʷít ‘snake’ > nax̌ʷə́<x̌ʷ>t ‘worm.’ See, however, pá<p>laʔ and pə́<p>laʔ in section 2 for two forms that are seman- tically distinguished by whether or not the stressed vowel is reduced to ə.	page 2
+§1	Lillooet	cited form	s.pzuʔ	page 2, in the sans face of the forms, ‘(wild) animal’
+§1	Lillooet	cited form	s.pzú<za>ʔ	page 2, in the sans face of the forms, ‘bird’
+§1	Lillooet	cited form	nax̌ʷít	page 2, in the sans face of the forms, ‘snake’
+§1	Lillooet	cited form	nax̌ʷə́<x̌ʷ>t	page 2, in the sans face of the forms, ‘worm.’
+§1	Lillooet	cited form	pá<p>laʔ	page 2, in the sans face of the forms
+§1	Lillooet	cited form	pə́<p>laʔ	page 2, in the sans face of the forms
+§1	Jan P. van Eijk	note	VC reduplication (labeled ‘final reduplication’ in Van Eijk 1997), i.e., reduplication of the consonant following the stressed vowel, with the consonant and its copy separated by ə, unless the copy itself is followed by a vowel. This type signals an ongoing process, usually one leading to a certain result, and it often implies a lack of control. It is indicated with the equal sign preceding the consonant copy or, where applicable, the copy and preceding ə, as in √puɬ ‘to get boiled’ > púɬ=əɬ ‘to be boiling,’ s.ƛ̓qʷ-aw̓s ‘together’ (with stative prefix s-, homophonous with the nominalizer s-) > ƛ̓qʷ-áw̓=w̓əs ‘to get together’ (with epenthetic ə preceding final s, which then deletes the need for ə preceding the w̓ copy). A general overview of VC reduplication in Salish is given in Van Eijk 1990.	page 2
+§1	Lillooet	cited form	√puɬ	page 2, in the sans face of the forms, ‘to get boiled’
+§1	Lillooet	cited form	púɬ=əɬ	page 2, in the sans face of the forms, ‘to be boiling,’
+§1	Lillooet	cited form	s.ƛ̓qʷ-aw̓s	page 2, in the sans face of the forms, ‘together’
+§1	Lillooet	cited form	ƛ̓qʷ-áw̓=w̓əs	page 2, in the sans face of the forms, ‘to get together’
+§1	Jan P. van Eijk	note	In addition, there is the unproductive process of CV reduplication (labeled ‘initial reduplication’ in Van Eijk 1997), i.e., reduplication of the first consonant of the root, with a vowel following the consonant copy. Semantic functions vary, depending on whether the vowel following the consonant copy is identical to the vowel following the initial consonant of the root, or whether it is a different vowel, and on whether or not the vowel in the CV augment is stressed. Like CVC reduplication, CV reduplication is indicated with a colon, and an example is pálaʔ ‘one’ > pi:pálaʔ ‘one at a time,’ as detailed in section 2.	page 3
+§1	Lillooet	cited form	pálaʔ	page 3, in the sans face of the forms, ‘one’
+§1	Lillooet	cited form	pi:pálaʔ	page 3, in the sans face of the forms, ‘one at a time,’
+§1	Jan P. van Eijk	note	Compounding may be more productive than is suggested in Van Eijk 1997:54, but the number of available examples is limited. It consists of two roots, usually linked with a connective aɬ that is typographically preceded and followed by the plus-symbol (+), as in palʔ+aɬ+cítxʷ ‘next-door neighbour,’ see section 2.	page 3
+§1	Lillooet	cited form	aɬ	page 3, in the sans face of the forms
+§1	Lillooet	cited form	palʔ+aɬ+cítxʷ	page 3, in the sans face of the forms, ‘next-door neighbour,’
+§1	Jan P. van Eijk	note	Apophony is unproductive, and its single most striking example is √γíp-in̓ ‘to raise, grow (persons, horses, trees, etc.), transitive (-in̓)’ ~ s.γap ‘tree,’ ~ γə́p-ən ‘to stand smt. up, transitive (-ən).’	page 3
+§1	Lillooet	cited form	√γíp-in̓	page 3, in the sans face of the forms, ‘to raise, grow (persons, horses, trees, etc.), transitive (-in̓)’
+§1	Lillooet	cited form	-in̓	page 3, in the sans face of the forms
+§1	Lillooet	cited form	s.γap	page 3, in the sans face of the forms, ‘tree,’
+§1	Lillooet	cited form	γə́p-ən	page 3, in the sans face of the forms, ‘to stand smt. up, transitive (-ən).’
+§1	Lillooet	cited form	-ən	page 3, in the sans face of the forms
+§1	Jan P. van Eijk	note	Clitics are indicated with an underloop that follows proclitics and precedes enclitics, as in tiˬpálʔˬa ‘the one (thing),’ with the proclitic article ti, and the reinforcing enclitic a.	page 3
+§1	Lillooet	cited form	tiˬpálʔˬa	page 3, in the sans face of the forms, ‘the one (thing),’
+§1	Lillooet	cited form	ti	page 3, in the sans face of the forms
+§1	Lillooet	cited form	a	page 3, in the sans face of the forms, the reinforcing enclitic
+§1	Jan P. van Eijk	note	As an example of the reach of Lillooet morphological operations we present, in section 2, the root pálaʔ ‘one’ with all its recorded derivations. All operations discussed in the above paragraphs are exemplified by pálaʔ, except for infixation and apophony. Details on the presentation of pálaʔ and its derivations are given in the opening paragraphs of section 2.	page 3
+§2	Jan P. van Eijk	heading	2 The root pálaʔ ‘one’ and its derivations	page 3
+§2	Jan P. van Eijk	note	In what follows we give first the word pálaʔ in its root form, then the nominalized form s.pálaʔ, then the derivations with lexical suffixes, followed by the one compound form involving pálaʔ, then the forms with various types of reduplication, and finally pálʔ-upst ‘eight,’ where we are dealing with a different numeral (though one derived from pálaʔ). The alphabetical order of forms with lexical suffixes is the one that is explained in Van Eijk 1997:77,261, going from labials to laryngeals.	page 3
+§2	Lillooet	cited form	s.pálaʔ	page 3, in the sans face of the forms
+§2	Lillooet	cited form	pálʔ-upst	page 3, in the sans face of the forms, ‘eight,’
+§2	Jan P. van Eijk	note	The word pálaʔ and its derivations start flush left, except for secondary derivations which are introduced with an m-dash and are listed under the form from which they are derived. A double pipe, | |, introduces morphological comments and other pieces of information. A colon after the year of publication of a reference (e.g., Kuipers 2002:217) indicates the relevant page number in that source, while a slash (e.g., Van Eijk 1997/9) indicates a numbered section (encompassing several pages) in that source. The symbol ‘M’ indicates the southern (or Mount Currie) dialect, while ‘F’ indicates the northern (or Fountain dialect). Forms not marked by either symbol are identical for both dialects.	page 3
+§2	Jan P. van Eijk	name	Kuipers	Aert H. Kuipers, the Shuswap language (1974) and the Salish etymological dictionary (2002)
+§2	Jan P. van Eijk	note	Where available, example sentences (drawn from my corpus of Lillooet data) are provided for each derivation. A detailed analysis of these sentences falls outside the parameters of this article, although readers familiar with Van Eijk 1997 will recognize many of the morphemes used in these sentences. A Lillooet dictionary, listing all recorded roots and bound morphemes, and most derivations, is in preparation (Van Eijk, in prep).	page 4
+§2, pálaʔ	Lillooet	cited form	pálaʔ	page 4, the headword of an entry, ‘one (object):’
+§2, pálaʔ	Jan P. van Eijk	note	pálaʔ ‘one (object):’	page 4, the entry: its headword and gloss
+§2, pálaʔ	Lillooet	transcription	tiˬpálʔˬa s.q̓it, tiˬpálʔˬa s.n̓á:n̓atxʷ ʔác̓x̌-n-əm, plan waʔ n.k̓ətxʷ-ús	page 4, a sentence of the entry
+§2, pálaʔ	Jan P. van Eijk	translation	‘one day, one morning he was found (literally, “seen”) with his head cut off;’	page 4
+§2, pálaʔ	Lillooet	transcription	s.ʔístknˬa lá.kʷuʔ, waʔ lá.kʷuʔ palaʔˬkʷúʔˬƛ̓uʔ ʔiz̓ˬkʷuˬʔúxʷalmixʷ	page 4, a sentence of the entry
+§2, pálaʔ	Jan P. van Eijk	translation	‘there was this one group of people living together in an underground house over there;’	page 4
+§2, pálaʔ	Lillooet	transcription	pálaʔˬƛ̓uʔ ʔiz̓ˬkʷuˬʔúxʷalmixʷ lá.kʷuʔ kʷaˬʔəs.cítxʷ lá.kʷuʔ s.ʔístknˬa	page 4, a sentence of the entry
+§2, pálaʔ	Jan P. van Eijk	translation	‘this one group of people was living in an underground house over there.’	page 4
+§2, pálaʔ	Jan P. van Eijk	note	| | The numeral pálaʔ is of Central Salish origin and attested for Comox, Twana, Quinault, Lower Chehalis, Siletz and Tillamook, with subsequent borrowing into Lillooet and Thompson (Kuipers 2002:217).	page 4, the entry's comment, after the double pipe
+§2, pálaʔ	Jan P. van Eijk	language	Comox	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Twana	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Quinault	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Lower Chehalis	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Siletz	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Tillamook	one of the languages that attest the numeral pálaʔ
+§2, pálaʔ	Jan P. van Eijk	language	Thompson	a language that borrowed pálaʔ, as Lillooet did
+§2, s.pálaʔ	Lillooet	cited form	s.pálaʔ	page 4, the headword of an entry, ‘one time,’
+§2, s.pálaʔ	Jan P. van Eijk	note	s.pálaʔ ‘one time,’ only recorded with the third person possessive suffix -s in the expression naˬs.pálaʔ-sˬa ‘once:’	page 4, the entry: its headword and gloss
+§2, s.pálaʔ	Lillooet	cited form	-s	page 4, in the sans face of the forms
+§2, s.pálaʔ	Lillooet	cited form	naˬs.pálaʔ-sˬa	page 4, in the sans face of the forms, ‘once:’
+§2, s.pálaʔ	Lillooet	transcription	húỷ-ɬkan núk̓ʷʔ-an-ci-n, niɬ tˬs.nuk̓ʷʔ-an-c-axʷˬaˬtúʔˬa naˬs.pálaʔ-sˬa	page 4, a sentence of the entry
+§2, s.pálaʔ	Jan P. van Eijk	translation	‘I will help you, because you helped me once.’	page 4
+§2, s.pálaʔ	Jan P. van Eijk	note	| | s- nominalizer, Van Eijk 1997/9.	page 4, the entry's comment, after the double pipe
+§2, pəlʔ-ám̓	Lillooet	cited form	pəlʔ-ám̓	page 4, the headword of an entry, ‘one row (e.g., of potatoes).’
+§2, pəlʔ-ám̓	Jan P. van Eijk	note	pəlʔ-ám̓ ‘one row (e.g., of potatoes).’	page 4, the entry: its headword and gloss
+§2, pəlʔ-ám̓	Jan P. van Eijk	note	| | -ám̓ ‘row’ (recorded only with numerals and numerical substitutes), Van Eijk 1997:78.	page 4, the entry's comment, after the double pipe
+§2, pəlʔ-ám̓	Lillooet	cited form	-ám̓	page 4, in the sans face of the forms, ‘row’
+§2, pálʔ-ac	Lillooet	cited form	pálʔ-ac	page 4, the headword of an entry, ‘to eat by oneself.’
+§2, pálʔ-ac	Jan P. van Eijk	note	pálʔ-ac ‘to eat by oneself.’	page 4, the entry: its headword and gloss
+§2, pálʔ-ac	Jan P. van Eijk	note	| | -c ‘mouth, food’ (with regular morpho- phonemic variant -ac in this form), Van Eijk 1997:81. The form pálʔ-ac is rejected by some speakers in favour of palʔ-acín̓ (see below).	page 4, the entry's comment, after the double pipe
+§2, pálʔ-ac	Lillooet	cited form	-c	page 4, in the sans face of the forms, ‘mouth, food’
+§2, pálʔ-ac	Lillooet	cited form	-ac	page 4, in the sans face of the forms
+§2, pálʔ-ac	Lillooet	cited form	palʔ-acín̓	page 4, in the sans face of the forms
+§2, pálʔ-ac-min̓	Lillooet	cited form	pálʔ-ac-min̓	page 4, the headword of an entry, a secondary derivation set after an m-dash under pálʔ-ac, ‘to eat s.t. by oneself, tr.:’
+§2, pálʔ-ac-min̓	Jan P. van Eijk	note	— pálʔ-ac-min̓ ‘to eat s.t. by oneself, tr.:’	page 4, the entry: its headword and gloss
+§2, pálʔ-ac-min̓	Lillooet	transcription	palʔ-ac-min̓-asˬtúʔˬƛ̓uʔ	page 4, a sentence of the entry
+§2, pálʔ-ac-min̓	Jan P. van Eijk	translation	‘he ate it all by himself;’	page 4
+§2, pálʔ-ac-min̓	Lillooet	transcription	plánˬƛ̓uʔ waʔ ʔáma kʷˬs.palʔ-ac-min̓-asˬƛ̓úʔˬtiʔ, c̓aqʷ-an̓-ásˬƛ̓uʔ s.niɬ	page 4, a sentence of the entry
+§2, pálʔ-ac-min̓	Jan P. van Eijk	translation	‘it is o.k., already that he eats it all by himself, let him eat it.’	page 4
+§2, pálʔ-ac-min̓	Jan P. van Eijk	note	| | -min̓ ‘relational’ transitivizer, Van Eijk 1997/18. The form pálʔ-ac-min̓ is rejected by some speakers in favour of palʔ-acín̓-min (see below). However, the fact that the second example sentence with pálʔ-ac-min̓ above is from a story told by Bill Edwards vouches for its correctness.	page 4, the entry's comment, after the double pipe
+§2, pálʔ-ac-min̓	Lillooet	cited form	-min̓	page 4, in the sans face of the forms, ‘relational’
+§2, pálʔ-ac-min̓	Lillooet	cited form	palʔ-acín̓-min	page 4, in the sans face of the forms
+§2, pálʔ-ac-min̓	Lillooet	cited form	-min	page 4, in the sans face of the forms
+§2, pálʔ-ac-min̓	Jan P. van Eijk	name	Bill Edwards	a storyteller, whose story holds pálʔ-ac-min̓
+§2, palʔ-acín̓	Lillooet	cited form	palʔ-acín̓	page 4, the headword of an entry, ‘to eat by oneself.’
+§2, palʔ-acín̓	Jan P. van Eijk	note	palʔ-acín̓ ‘to eat by oneself.’	page 4, the entry: its headword and gloss
+§2, palʔ-acín̓	Jan P. van Eijk	note	| | -acín̓ ‘to eat,’ Van Eijk 1997:82.	page 4, the entry's comment, after the double pipe
+§2, palʔ-acín̓	Lillooet	cited form	-acín̓	page 4, in the sans face of the forms, ‘to eat,’
+§2, palʔ-acín̓-min	Lillooet	cited form	palʔ-acín̓-min	page 4, the headword of an entry, a secondary derivation set after an m-dash under palʔ-acín̓, ‘to eat s.t. by oneself, tr.:’
+§2, palʔ-acín̓-min	Jan P. van Eijk	note	— palʔ-acín̓-min ‘to eat s.t. by oneself, tr.:’	page 4, the entry: its headword and gloss
+§2, palʔ-acín̓-min	Lillooet	transcription	palʔ-acin̓-min-ásˬtuʔˬƛ̓uʔ nəɬˬs.c̓q̓-ápˬa	page 4, a sentence of the entry
+§2, palʔ-acín̓-min	Jan P. van Eijk	translation	‘he ate the mashed berries by himself.’	page 4
+§2, palʔ-acín̓-min	Jan P. van Eijk	note	| | -min ‘relational’ transitivizer, Van Eijk 1997/18.	page 4, the entry's comment, after the double pipe
+§2, n.pálʔ-us	Lillooet	cited form	n.pálʔ-us	page 4, the headword of an entry, ‘single, one single thing:’
+§2, n.pálʔ-us	Jan P. van Eijk	note	n.pálʔ-us ‘single, one single thing:’	page 4, the entry: its headword and gloss
+§2, n.pálʔ-us	Lillooet	transcription	wáʔˬƛ̓uʔ n.pálʔ-us tiˬs.ƛ̓p-íw̓ən-sˬa	page 4, a sentence of the entry
+§2, n.pálʔ-us	Jan P. van Eijk	translation	‘he’s only got a shirt on.’	page 4
+§2, n.pálʔ-us	Jan P. van Eijk	note	| | n-..-us ‘-fold,’ a combination of the locative prefix n- and the suffix -us ‘face, front, head, appearance,’ Van Eijk 1997:82.	page 4, the entry's comment, after the double pipe
+§2, n.pálʔ-us	Lillooet	cited form	n-..-us	page 5, in the sans face of the forms, ‘-fold,’
+§2, n.pálʔ-us	Lillooet	cited form	-us	page 5, in the sans face of the forms, ‘face, front, head, appearance,’
+§2, pálʔ-us-əm	Lillooet	cited form	pálʔ-us-əm	page 5, the headword of an entry, ‘one group of people (family, tribe, etc.):’
+§2, pálʔ-us-əm	Jan P. van Eijk	note	pálʔ-us-əm ‘one group of people (family, tribe, etc.):’	page 5, the entry: its headword and gloss
+§2, pálʔ-us-əm	Lillooet	transcription	palʔ-us-əmˬʔíz̓ˬƛ̓uʔ kʷuˬʔúxʷalmixʷ	page 5, a sentence of the entry
+§2, pálʔ-us-əm	Jan P. van Eijk	translation	‘they are from the same family.’	page 5
+§2, pálʔ-us-əm	Jan P. van Eijk	note	| | -us-əm ‘kind, sort,’ a combination of -us ‘face, front, head, appearance’ and either the intransitivizer -əm or its homophonous aspectual suffix, Van Eijk 1997:82.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-us-əm	Lillooet	cited form	-us-əm	page 5, in the sans face of the forms, ‘kind, sort,’
+§2, palʔ-ásq̓ət	Lillooet	cited form	palʔ-ásq̓ət	page 5, the headword of an entry, ‘one day.’
+§2, palʔ-ásq̓ət	Jan P. van Eijk	note	palʔ-ásq̓ət ‘one day.’	page 5, the entry: its headword and gloss
+§2, palʔ-ásq̓ət	Jan P. van Eijk	note	| | -asq̓ət ‘day,’ Van Eijk 1997:84.	page 5, the entry's comment, after the double pipe
+§2, palʔ-ásq̓ət	Lillooet	cited form	-asq̓ət	page 5, in the sans face of the forms, ‘day,’
+§2, palʔ-aszánuxʷ	Lillooet	cited form	palʔ-aszánuxʷ	page 5, the headword of an entry, ‘one year, one year old:’
+§2, palʔ-aszánuxʷ	Jan P. van Eijk	note	palʔ-aszánuxʷ ‘one year, one year old:’	page 5, the entry: its headword and gloss
+§2, palʔ-aszánuxʷ	Lillooet	transcription	niˬpalʔ-aszánuxʷˬa	page 5, a sentence of the entry
+§2, palʔ-aszánuxʷ	Jan P. van Eijk	translation	‘one year before (the last year), two years ago.’	page 5
+§2, palʔ-aszánuxʷ	Jan P. van Eijk	note	|| -aszanuxʷ ‘year,’ Van Eijk 1997:84.	page 5, the entry's comment, after the double pipe
+§2, palʔ-aszánuxʷ	Lillooet	cited form	-aszanuxʷ	page 5, in the sans face of the forms, ‘year,’
+§2, palʔ-aszə́<z̓>nuxʷ	Lillooet	cited form	palʔ-aszə́<z̓>nuxʷ	page 5, the headword of an entry, a secondary derivation set after an m-dash under palʔ-aszánuxʷ, ‘one year old animal.’
+§2, palʔ-aszə́<z̓>nuxʷ	Jan P. van Eijk	note	— palʔ-aszə́<z̓>nuxʷ ‘one year old animal.’	page 5, the entry: its headword and gloss
+§2, palʔ-aszə́<z̓>nuxʷ	Jan P. van Eijk	note	| | Combination of -aszanuxʷ (see preceding item) and consonant reduplication, here signalling the category ‘animal(s).’ Resonant-glottalization (in this case applied to z) is a feature of many, but not all, cases of consonant reduplication involving resonants.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-usaʔ	Lillooet	cited form	pálʔ-usaʔ	page 5, the headword of an entry, ‘one piece of fruit, potato, dollar.’
+§2, pálʔ-usaʔ	Jan P. van Eijk	note	pálʔ-usaʔ ‘one piece of fruit, potato, dollar.’	page 5, the entry: its headword and gloss
+§2, pálʔ-usaʔ	Jan P. van Eijk	note	| | -usaʔ ‘round object, fruit, money,’ Van Eijk 1997:83.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-usaʔ	Lillooet	cited form	-usaʔ	page 5, in the sans face of the forms, ‘round object, fruit, money,’
+§2, palʔ-aɬqʷáwt	Lillooet	cited form	palʔ-aɬqʷáwt	page 5, the headword of an entry, ‘one group of people (e.g., people walking together, or relatives):’
+§2, palʔ-aɬqʷáwt	Jan P. van Eijk	note	palʔ-aɬqʷáwt ‘one group of people (e.g., people walking together, or relatives):’	page 5, the entry: its headword and gloss
+§2, palʔ-aɬqʷáwt	Lillooet	transcription	palʔ-aɬqʷawt-kál̓ap	page 5, a sentence of the entry
+§2, palʔ-aɬqʷáwt	Jan P. van Eijk	translation	‘you folks are one group.’	page 5
+§2, palʔ-aɬqʷáwt	Jan P. van Eijk	note	| | -aɬqʷawt ‘group of people,’ recorded only with pálaʔ, Van Eijk 1997:100.	page 5, the entry's comment, after the double pipe
+§2, palʔ-aɬqʷáwt	Lillooet	cited form	-aɬqʷawt	page 5, in the sans face of the forms, ‘group of people,’
+§2, pálʔ-iɬaz̓	Lillooet	cited form	pálʔ-iɬaz̓	page 5, the headword of an entry, ‘one tree bush, plant.’
+§2, pálʔ-iɬaz̓	Jan P. van Eijk	note	pálʔ-iɬaz̓ ‘one tree bush, plant.’	page 5, the entry: its headword and gloss
+§2, pálʔ-iɬaz̓	Jan P. van Eijk	note	| | -iɬaz̓ ‘tree, bush, plant’ (used mainly with numerals), Van Eijk 1997:86.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-iɬaz̓	Lillooet	cited form	-iɬaz̓	page 5, in the sans face of the forms, ‘tree, bush, plant’
+§2, palʔ-úlm̓əxʷ	Lillooet	cited form	palʔ-úlm̓əxʷ	page 5, the headword of an entry, ‘one spot:’
+§2, palʔ-úlm̓əxʷ	Jan P. van Eijk	note	palʔ-úlm̓əxʷ ‘one spot:’	page 5, the entry: its headword and gloss
+§2, palʔ-úlm̓əxʷ	Lillooet	transcription	qʷacácˬkʷuʔ mútaʔ píx̌əm̓, ʔúl̓=l̓us-n-as ʔiˬc̓íʔˬa lˬtiˬpalʔ-úlm̓əxʷˬa, niɬ s.zúqʷ-s-as tákəm	page 5, a sentence of the entry
+§2, palʔ-úlm̓əxʷ	Jan P. van Eijk	translation	‘he went out hunting again, he gathered the deer in one spot, and he killed them all.’	page 5
+§2, palʔ-úlm̓əxʷ	Jan P. van Eijk	note	| | -úlm̓əxʷ ‘earth, land, soil,’ Van Eijk 1997:87.	page 5, the entry's comment, after the double pipe
+§2, palʔ-úlm̓əxʷ	Lillooet	cited form	-úlm̓əxʷ	page 5, in the sans face of the forms, ‘earth, land, soil,’
+§2, pálʔ-alc-əm	Lillooet	cited form	pálʔ-alc-əm	page 5, the headword of an entry, ‘to visit people, intr., tr.:’
+§2, pálʔ-alc-əm	Lillooet	cited form	pálʔ-alc-ən	page 5, the headword of an entry, ‘to visit people, intr., tr.:’
+§2, pálʔ-alc-əm	Jan P. van Eijk	note	pálʔ-alc-əm, pálʔ-alc-ən ‘to visit people, intr., tr.:’	page 5, the entry: its headword and gloss
+§2, pálʔ-alc-əm	Lillooet	transcription	cíxʷ-kaxʷˬha pálʔ-alc-əm	page 5, a sentence of the entry
+§2, pálʔ-alc-əm	Jan P. van Eijk	translation	‘did you go for a visit?’	page 5
+§2, pálʔ-alc-əm	Jan P. van Eijk	note	| | -alc ‘house,’ Van Eijk 1997:87; -əm intransitivizer, -ən transitivizer, Van Eijk 1997/18.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-alc-əm	Lillooet	cited form	-alc	page 5, in the sans face of the forms, ‘house,’
+§2, palʔ-al̓íkst	Lillooet	cited form	palʔ-al̓íkst	page 5, the headword of an entry, ‘one sheet (of paper).’
+§2, palʔ-al̓íkst	Jan P. van Eijk	note	palʔ-al̓íkst ‘one sheet (of paper).’	page 5, the entry: its headword and gloss
+§2, palʔ-al̓íkst	Jan P. van Eijk	note	| | -al̓ikst ‘sheet,’ Van Eijk 1997:89.	page 5, the entry's comment, after the double pipe
+§2, palʔ-al̓íkst	Lillooet	cited form	-al̓ikst	page 5, in the sans face of the forms, ‘sheet,’
+§2, pálʔ-alqʷ	Lillooet	cited form	pálʔ-alqʷ	page 5, the headword of an entry, ‘one cylindrical object (tree, log, stick):’
+§2, pálʔ-alqʷ	Jan P. van Eijk	note	pálʔ-alqʷ ‘one cylindrical object (tree, log, stick):’	page 5, the entry: its headword and gloss
+§2, pálʔ-alqʷ	Lillooet	transcription	pálʔ-alqʷ lá.tiʔ tiˬs.γápˬa	page 5, a sentence of the entry
+§2, pálʔ-alqʷ	Jan P. van Eijk	translation	‘that tree is standing by itself;’	page 5
+§2, pálʔ-alqʷ	Lillooet	transcription	pálʔ-alqʷ lá.tiʔ tiˬcalis-áz̓ˬa	page 5, a sentence of the entry
+§2, pálʔ-alqʷ	Jan P. van Eijk	translation	‘that cherry tree is standing by itself.’	page 5
+§2, pálʔ-alqʷ	Jan P. van Eijk	note	| | -alqʷ ‘cylindrical object,’ Van Eijk 1997:90.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-alqʷ	Lillooet	cited form	-alqʷ	page 5, in the sans face of the forms, ‘cylindrical object,’
+§2, pálʔ-ulwiɬ	Lillooet	cited form	pálʔ-ulwiɬ	page 5, the headword of an entry, ‘one container, conveyance (bottle, canoe, car, etc.):’
+§2, pálʔ-ulwiɬ	Jan P. van Eijk	note	pálʔ-ulwiɬ ‘one container, conveyance (bottle, canoe, car, etc.):’	page 5, the entry: its headword and gloss
+§2, pálʔ-ulwiɬ	Lillooet	transcription	palʔ- ulwíɬˬƛ̓uʔ tiˬn.slam-álhˬa	page 5, a sentence of the entry
+§2, pálʔ-ulwiɬ	Jan P. van Eijk	translation	‘I have just one bottle;’	page 5
+§2, pálʔ-ulwiɬ	Lillooet	transcription	palʔ-ulwíɬˬƛ̓uʔ tiˬn.wáknˬa	page 5, a sentence of the entry
+§2, pálʔ-ulwiɬ	Jan P. van Eijk	translation	‘I have just one wagon.’	page 5
+§2, pálʔ-ulwiɬ	Jan P. van Eijk	note	| | -ulwiɬ ‘conveyance, container,’ Van Eijk 1997:97, with the main semantic function borne by -wiɬ, which combines with the connective -ul.	page 5, the entry's comment, after the double pipe
+§2, pálʔ-ulwiɬ	Lillooet	cited form	-ulwiɬ	page 5, in the sans face of the forms, ‘conveyance, container,’
+§2, pálʔ-ulwiɬ	Lillooet	cited form	-wiɬ	page 5, in the sans face of the forms
+§2, pálʔ-ulwiɬ	Lillooet	cited form	-ul	page 5, in the sans face of the forms
+§2, palaʔ-qín̓	Lillooet	cited form	palaʔ-qín̓	page 5, the headword of an entry, ‘one year old buck.’
+§2, palaʔ-qín̓	Jan P. van Eijk	note	palaʔ-qín̓ ‘one year old buck.’	page 5, the entry: its headword and gloss
+§2, palaʔ-qín̓	Jan P. van Eijk	note	| | -qin̓ ‘head, antler,’ Van Eijk 1997:94. See also next item.	page 5, the entry's comment, after the double pipe
+§2, palaʔ-qín̓	Lillooet	cited form	-qin̓	page 5, in the sans face of the forms, ‘head, antler,’
+§2, palʔ-á<ʔ>qaʔ	Lillooet	cited form	palʔ-á<ʔ>qaʔ	page 6, the headword of an entry, the same as palaʔ-qín̓, the entry before it
+§2, palʔ-á<ʔ>qaʔ	Jan P. van Eijk	note	palʔ-á<ʔ>qaʔ id. as palaʔ-qín̓ (preceding item).	page 6, the entry: its headword and gloss
+§2, palʔ-á<ʔ>qaʔ	Jan P. van Eijk	note	| | Combination of -aqaʔ ‘spike, gunbarrel, slender cylindrical object’ (Van Eijk 1997:93) and consonant reduplication, an operation without which -aqaʔ does not appear in any of its recorded occurrences.	page 6, the entry's comment, after the double pipe
+§2, palʔ-á<ʔ>qaʔ	Lillooet	cited form	-aqaʔ	page 6, in the sans face of the forms, ‘spike, gunbarrel, slender cylindrical object’
+§2, palʔ+aɬ+cítxʷ	Lillooet	cited form	palʔ+aɬ+cítxʷ	page 6, the headword of an entry, ‘next-door neighbour:’
+§2, palʔ+aɬ+cítxʷ	Jan P. van Eijk	note	palʔ+aɬ+cítxʷ ‘next-door neighbour:’	page 6, the entry: its headword and gloss
+§2, palʔ+aɬ+cítxʷ	Lillooet	transcription	húy̓-ɬkaɬ lá.tiʔ q̓aʔ, níɬˬƛ̓uʔ s.wáz̓- am-s tiˬs.qə́<q>x̌ʔˬa lá.kʷuʔ, cúwaʔ-s ʔiˬpalʔ+aɬ+cítxʷˬa ʔá.kʷuʔ s.q̓ʷút-kaɬˬa	page 6, a sentence of the entry
+§2, palʔ+aɬ+cítxʷ	Jan P. van Eijk	translation	‘we were just about to eat when the pup of our next- door neighbours barked.’	page 6
+§2, palʔ+aɬ+cítxʷ	Jan P. van Eijk	note	| | Rejected by some speakers as a possible confusion with pəl̓+aɬ+cítxʷ ‘stranger.’ However, the form palʔ+aɬ+cítxʷ (citxʷ ‘house’) makes perfect morpho-semantic sense, and it was also recorded in a story by Rosie Joseph, whose knowledge of her language was beyond suspicion.	page 6, the entry's comment, after the double pipe
+§2, palʔ+aɬ+cítxʷ	Lillooet	cited form	pəl̓+aɬ+cítxʷ	page 6, in the sans face of the forms, ‘stranger.’
+§2, palʔ+aɬ+cítxʷ	Lillooet	cited form	citxʷ	page 6, in the sans face of the forms, ‘house’
+§2, palʔ+aɬ+cítxʷ	Jan P. van Eijk	name	Rosie Joseph	a storyteller, whose story holds palʔ+aɬ+cítxʷ
+§2, pá<p>laʔ	Lillooet	cited form	pá<p>laʔ	page 6, the headword of an entry, ‘one person:’
+§2, pá<p>laʔ	Jan P. van Eijk	note	pá<p>laʔ ‘one person:’	page 6, the entry: its headword and gloss
+§2, pá<p>laʔ	Lillooet	transcription	ʔiˬxín̓-as, wáʔˬkʷuʔ taˬpá<pə>lʔˬa s.qayxʷ, taˬs.əmʔám-sˬa, n.kə:kaɬás ʔiˬs.cm-ál̓t-sˬa, l.kʷʔú-na n.x̌ʷís-tnˬa	page 6, a sentence of the entry
+§2, pá<p>laʔ	Jan P. van Eijk	translation	‘a long time ago, there was this one man, his wife, (and) his three children, over there at n.x̌ʷís-tən (Bridge River).’	page 6
+§2, pá<p>laʔ	Jan P. van Eijk	note	| | Consonant reduplication, which signals the category ‘person(s)’ in pálaʔ, Van Eijk 1997/19.	page 6, the entry's comment, after the double pipe
+§2, pa<p>laʔ-sút	Lillooet	cited form	pa<p>laʔ-sút	page 6, the headword of an entry, a secondary derivation set after an m-dash under pá<p>laʔ, ‘to be all by oneself.’
+§2, pa<p>laʔ-sút	Jan P. van Eijk	note	— pa<p>laʔ-sút ‘to be all by oneself.’	page 6, the entry: its headword and gloss
+§2, pa<p>laʔ-sút	Jan P. van Eijk	note	| | -sút ‘out of control,’ Van Eijk 1997:103.	page 6, the entry's comment, after the double pipe
+§2, pa<p>laʔ-sút	Lillooet	cited form	-sút	page 6, in the sans face of the forms, ‘out of control,’
+§2, pə́<p>laʔ	Lillooet	cited form	pə́<p>laʔ	page 6, the headword of an entry, ‘one animal:’
+§2, pə́<p>laʔ	Jan P. van Eijk	note	pə́<p>laʔ ‘one animal:’	page 6, the entry: its headword and gloss
+§2, pə́<p>laʔ	Lillooet	transcription	pútˬhaˬkɬ tákəm-ɬkaɬ n̓as s.zaxən-s-táli kʷuˬpə́<p>laʔˬƛ̓uʔ c̓iʔ	page 6, a sentence of the entry
+§2, pə́<p>laʔ	Jan P. van Eijk	translation	‘do we really all have to go to pack one deer?’	page 6
+§2, pə́<p>laʔ	Jan P. van Eijk	note	| | Consonant reduplication in combination of the change of the stressed vowel to ə́, which signals the category ‘animal(s)’ in a the numerals ‘one,’ ‘three’ and ‘five,’ Van Eijk 1997/19.	page 6, the entry's comment, after the double pipe
+§2, n.pə́<pə>lʔ-aqʷ	Lillooet	cited form	n.pə́<pə>lʔ-aqʷ	page 6, the headword of an entry, a secondary derivation set after an m-dash under pə́<p>laʔ, ‘one egg.’
+§2, n.pə́<pə>lʔ-aqʷ	Jan P. van Eijk	note	— n.pə́<pə>lʔ-aqʷ ‘one egg.’	page 6, the entry: its headword and gloss
+§2, n.pə́<pə>lʔ-aqʷ	Jan P. van Eijk	note	| | Also one of the author’s nicknames, based on the phonetic similarity between ‘one egg’ and ‘Van Eijk.’ The combination of the locative suffix n- and the suffix -qʷ ‘head, animal’ signals the category ‘egg(s)’ on numerals that are already marked (through consonant reduplication) for the category ‘animal(s),’ Van Eijk 1997/19.	page 6, the entry's comment, after the double pipe
+§2, n.pə́<pə>lʔ-aqʷ	Lillooet	cited form	-qʷ	page 6, in the sans face of the forms, ‘head, animal’
+§2, pál=laʔ	Lillooet	cited form	pál=laʔ	page 6, the headword of an entry, ‘to come together, to get together (e.g., people, or two rivers at a confluence):’
+§2, pál=laʔ	Jan P. van Eijk	note	pál=laʔ ‘to come together, to get together (e.g., people, or two rivers at a confluence):’	page 6, the entry: its headword and gloss
+§2, pál=laʔ	Lillooet	transcription	pál=laʔ ʔiˬʔuxʷalmíxʷˬa	page 6, a sentence of the entry
+§2, pál=laʔ	Jan P. van Eijk	translation	‘the people got together.’	page 6
+§2, pál=laʔ	Jan P. van Eijk	note	| | VC reduplication, as explained in the Introduction.	page 6, the entry's comment, after the double pipe
+§2, pi:pálaʔ	Lillooet	cited form	pi:pálaʔ	page 6, the headword of an entry, ‘(to do) one thing at a time:’
+§2, pi:pálaʔ	Jan P. van Eijk	note	pi:pálaʔ ‘(to do) one thing at a time:’	page 6, the entry: its headword and gloss
+§2, pi:pálaʔ	Lillooet	transcription	pi:pálaʔˬƛ̓uʔ kʷənˬcíxʷ	page 6, a sentence of the entry
+§2, pi:pálaʔ	Jan P. van Eijk	translation	‘I go once in a while.’	page 6
+§2, pi:pálaʔ	Jan P. van Eijk	note	| | Reduplication of the first consonant of the root plus i, signalling ‘X number of times’ and limited to pálaʔ and ʔán̓was ‘two,’ Van Eijk 1997:58, 131.	page 6, the entry's comment, after the double pipe
+§2, pi:pálaʔ	Lillooet	cited form	ʔán̓was	page 6, in the sans face of the forms, ‘two,’
+§2, pi:pálʔ-usaʔ	Lillooet	cited form	pi:pálʔ-usaʔ	page 6, the headword of an entry, a secondary derivation set after an m-dash under pi:pálaʔ, ‘(to take, eat, etc.) one piece of fruit at a time.’
+§2, pi:pálʔ-usaʔ	Jan P. van Eijk	note	— pi:pálʔ-usaʔ ‘(to take, eat, etc.) one piece of fruit at a time.’	page 6, the entry: its headword and gloss
+§2, pi:pálʔ-usaʔ	Jan P. van Eijk	note	| | -usaʔ ‘round object, fruit, money,’ Van Eijk 1997:83.	page 6, the entry's comment, after the double pipe
+§2, pi:pálʔ-alqʷ	Lillooet	cited form	pi:pálʔ-alqʷ	page 6, the headword of an entry, a secondary derivation set after an m-dash under pi:pálaʔ, ‘(to handle) one stick, log, etc., at a time.’
+§2, pi:pálʔ-alqʷ	Jan P. van Eijk	note	— pi:pálʔ-alqʷ ‘(to handle) one stick, log, etc., at a time.’	page 6, the entry: its headword and gloss
+§2, pi:pálʔ-alqʷ	Jan P. van Eijk	note	| | -alqʷ ‘cylindrical object,’ Van Eijk 1997:90.	page 6, the entry's comment, after the double pipe
+§2, pi:pá<p>laʔ	Lillooet	cited form	pi:pá<p>laʔ	page 7, the headword of an entry, a secondary derivation set after an m-dash under pi:pálaʔ, ‘one by one, one at a time (people).’
+§2, pi:pá<p>laʔ	Jan P. van Eijk	note	— pi:pá<p>laʔ ‘one by one, one at a time (people).’	page 7, the entry: its headword and gloss
+§2, pi:pá<p>laʔ	Jan P. van Eijk	note	| | Combination of Ci- reduplication (see under pi:pálaʔ above) and consonant reduplication (see under pá<p>laʔ above).	page 7, the entry's comment, after the double pipe
+§2, pálʔ-upst	Lillooet	cited form	pálʔ-upst	page 7, the headword of an entry, M, the southern (Mount Currie) dialect, ‘eight.’
+§2, pálʔ-upst	Jan P. van Eijk	note	pálʔ-upst M ‘eight.’	page 7, the entry: its headword and gloss
+§2, pálʔ-upst	Jan P. van Eijk	note	| | -upst formative, found only in this numeral but possibly related to -ups ‘tail,’ Van Eijk 1997:78. For the derivation of ‘eight’ from ‘one’ see also Shuswap, as discussed in Kuipers 1974:56.	page 7, the entry's comment, after the double pipe
+§2, pálʔ-upst	Lillooet	cited form	-upst	page 7, in the sans face of the forms
+§2, pálʔ-upst	Lillooet	cited form	-ups	page 7, in the sans face of the forms, ‘tail,’
+§2, pálʔ-upst	Jan P. van Eijk	language	Shuswap	a language that derives ‘eight’ from ‘one’
+§2, pá<pə>lʔ-upst	Lillooet	cited form	pá<pə>lʔ-upst	page 7, the headword of an entry, a secondary derivation set after an m-dash under pálʔ-upst, M, the southern (Mount Currie) dialect, ‘eight animals.’
+§2, pá<pə>lʔ-upst	Jan P. van Eijk	note	— pá<pə>lʔ-upst M ‘eight animals.’	page 7, the entry: its headword and gloss
+§2, pá<pə>lʔ-upst	Jan P. van Eijk	note	| | Consonant reduplication without the change of the stressed vowel to ə́ (cf. pə́<p>laʔ above), signalling the category ‘animal(s)’ in ‘two,’ ‘four,’ ‘six,’ ‘seven’ and ‘eight,’ Van Eijk 1997/19	page 7, the entry's comment, after the double pipe
+§2, n.pál:pəlʔ-upst	Lillooet	cited form	n.pál:pəlʔ-upst	page 7, the headword of an entry, a secondary derivation set after an m-dash under pálʔ-upst, M, the southern (Mount Currie) dialect, ‘eight persons.’
+§2, n.pál:pəlʔ-upst	Jan P. van Eijk	note	— n.pál:pəlʔ-upst M ‘eight persons.’	page 7, the entry: its headword and gloss
+§2, n.pál:pəlʔ-upst	Jan P. van Eijk	note	| | Combination of the locative prefix n- and CVC-reduplication, signalling the category ‘person(s)’ in a number of numerals, Van Eijk 1997/19.	page 7, the entry's comment, after the double pipe
+§2, pəlʔ-ú<ʔ>pst	Lillooet	cited form	pəlʔ-ú<ʔ>pst	page 7, the headword of an entry, a secondary derivation set after an m-dash under pálʔ-upst, F, the northern (Fountain) dialect, (A) ‘eight (objects);’ (B) ‘eight animals.’
+§2, pəlʔ-ú<ʔ>pst	Jan P. van Eijk	note	— pəlʔ-ú<ʔ>pst F (A) ‘eight (objects);’ (B) ‘eight animals.’	page 7, the entry: its headword and gloss
+§2, pəlʔ-ú<ʔ>pst	Jan P. van Eijk	note	| | Unexplained stress shift to the vowel of the suffix, in combination with consonant reduplication, here signalling both object(s)’ and ‘person(s),’ Van Eijk 1997/19.	page 7, the entry's comment, after the double pipe
+§2, n.pəl:pəlʔ-ú<ʔ>pst	Lillooet	cited form	n.pəl:pəlʔ-ú<ʔ>pst	page 7, the headword of an entry, a secondary derivation set after an m-dash under pálʔ-upst, F, the northern (Fountain) dialect, ‘eight persons.’
+§2, n.pəl:pəlʔ-ú<ʔ>pst	Jan P. van Eijk	note	— n.pəl:pəlʔ-ú<ʔ>pst F ‘eight persons.’	page 7, the entry: its headword and gloss
+§2, n.pəl:pəlʔ-ú<ʔ>pst	Jan P. van Eijk	note	| | See n.pál:pəlʔ-upst above for the expression of ‘person(s).’	page 7, the entry's comment, after the double pipe
+§3	Jan P. van Eijk	heading	3 Conclusions and acknowledgements	page 7
+§3	Jan P. van Eijk	note	As the above sections should make clear, Lillooet, like all Salish languages, employs a wide range of morphological operations which first of all have great inherent value as an example set of how intricate the wedding of semantics to formal expression can be. In the second place, these operations provide a wealth of material for both typologists and linguistic theoreticians, who on the one hand will find a mass of information in a language like this to add to their data base of cross-linguistically compared morphological operations, while on the other hand they will be able to use this material for testing the validity and strength of their theories. For example, the type of stress-based reduplication that we find in cases like pá<p>laʔ or pál=laʔ is very highly marked among the world’s languages and as such is of profound interest to typologists, especially where such reduplication leads to the insertion of material from one morpheme into another, as in palʔ-á<ʔ>qaʔ or pəlʔ-ú<ʔ>pst.	page 7
+§3	Jan P. van Eijk	note	Of recognized importance to theoreticians is the question of whether reduplication is a form of affixation (as argued in, for example, Marantz 1982) or an internal process, more akin to, say, apophony or subtraction (as in French [vεrt] ‘green (feminine)’ > [vε:r] ‘id. (masculine)’). Although Van Eijk 1998a still argues for classing CVC reduplication as affixation (be it within the root-contour), Van Eijk 1998b rejects this and provides arguments for classing CVC reduplicaton and other forms of partial reduplication as a non-affixing process. A recent theoretical account of reduplication and infixation, based on a wide sample of languages, including Salish, is Yu 2007. (Somehat oddly, Yu does not discuss Lillooet inchoative infixation, which leaves the question open whether a form like ʔáʔma ‘cute, funny’ (from ʔáma ‘good’) results from infixation of inchoative ʔ or from consonant reduplication. It is the latter, but the fact that this insert may result from two different processes should be recognized, and typographically indicated—as ʔá<ʔ>ma in this case. A related issue of theoretical interest is the fact that the inserts that result from consonant reduplication are not ‘read off’ by CVC reduplication, because they are on the prosodic tier of the word, while the inchoative infix ʔ is read off by CVC reduplication, because it is on the morphological tier, an issue explored further in Van Eijk 1993 and 1998a, with particular reference to Broselow 1983.)	page 7
+§3	Lillooet	cited form	ʔáʔma	page 8, in the sans face of the forms, ‘cute, funny’
+§3	Lillooet	cited form	ʔáma	page 8, in the sans face of the forms, ‘good’
+§3	Lillooet	cited form	ʔá<ʔ>ma	page 8, in the sans face of the forms
+§3	Jan P. van Eijk	name	Marantz	Alec P. Marantz, Re Reduplication (1982)
+§3	Jan P. van Eijk	name	Yu	Alan C. L. Yu, a natural history of infixation (2007)
+§3	Jan P. van Eijk	name	Broselow	Ellen Broselow, Salish double reduplications
+§3	Jan P. van Eijk	language	French	its vert and vère, reduplication against apophony
+§3	Jan P. van Eijk	note	A study like this would not have been possible without the profound knowledge and limitless intellectual generosity of my many Lillooet consultants to whom collectively I offer my thanks. The advice I have received from my many Salishist colleagues over the years, and the invigorating discussions I have had with them, also deserves a grateful mention. The support from First Nations University of Canada, where I have been employed since 1989, is once again gladly and gratefully acknowledged.	page 8
+references	Jan P. van Eijk	heading	References	page 8
+references	Jan P. van Eijk	reference	Broselow, Ellen. ‘Salish Double Reduplications: Subjacency in Morphology.’ Natural Language and Linguistic Theory 1:317-346.	page 8
+references	Jan P. van Eijk	reference	Hinkson, Mercedes Q. 1999. ‘Salishan Lexical Suffixes: A Study in the Conceptualization of Space.’ Simon Fraser University Ph.D. dissertation.	page 8
+references	Jan P. van Eijk	reference	Kuipers, Aert H. 1974. The Shuswap Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 8
+references	Jan P. van Eijk	reference	—. 2002. Salish Etymological Dictionary. University of Montana Occasional Papers in Linguistics No. 16.	page 8
+references	Jan P. van Eijk	reference	Marantz, Alec P. 1982. ‘Re Reduplication.’ Linguistic Inquiry 13:435-482.	page 8
+references	Jan P. van Eijk	reference	Van Eijk, Jan P. 1990. ‘VC Reduplication in Salish.’ Anthropological Linguistics 32:228-262.	page 8
+references	Jan P. van Eijk	reference	—. 1993. ‘CVC Reduplication and Infixation in Lillooet.’ Pp. 317-326 of Mattina, Anthony, and Timothy Montler (eds.), American Indian Linguistics and Ethnography in Honor of Laurence C. Thompson. University of Montana Occasional papers in Linguistics No. 10.	page 8
+references	Jan P. van Eijk	reference	—. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver, B.C.: UBC Press.	page 8
+references	Jan P. van Eijk	reference	—. 1998a. ‘CVC Reduplication in Salish.’ Pp. 453-476 of Czaykowska-Higgins, Ewa, and M. Dale Kinkade (eds.), Salish Languages and Linguistics: Theoretical and Descriptive Perspectives. Berlin: Mouton de Gruyter.	page 9
+references	Jan P. van Eijk	reference	—. 1998b. ‘The Morphological Status of Partial Reduplication: Evidence from Lushootseed and Lillooet.’ Pp. 433-447 of Janse, Mark (ed.), Productivity and Creativity: Studies in General and Descriptive Linguistics in Honor of E.M. Uhlenbeck. Berlin: Mouton de Gruyter.	page 9
+references	Jan P. van Eijk	reference	—. 2004. ‘Locus and Ordering in Lillooet Morphology.’ Pp. 454-467 of Gerdts, Donna B., and Lisa Matthewson (eds.), Studies in Salish Linguistics in Honor of M. Dale Kinkade. University of Montana Occasional Papers in Linguistics No. 17.	page 9
+references	Jan P. van Eijk	reference	—. in prep. Lillooet Dictionary. University of British Columbia Working Papers in Linguistics.	page 9
+references	Jan P. van Eijk	reference	Yu, Alan C. L. 2007. A Natural History of Infixation. Oxford: Oxford University Press.	page 9
+references	Jan P. van Eijk	note	jvaneijk@fnuniv.ca	page 9, the author's e-mail, under the references

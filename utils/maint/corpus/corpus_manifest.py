@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The master inventory of the private corpus, and the check that reconciles a tree against it.
@@ -74,7 +74,7 @@ INVENTORIES = ((NAME, False), (AUDIO, True))
 # The one way past the gate, spelled the same here and in citations.py because a person who has
 # met one of them should not have to learn a second name for the same thing. The variable is how
 # the flag reaches a commit hook, where nobody is typing arguments.
-BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
+BYPASS_ENV = "ORIOR_BYPASS"
 
 # Written by the tool and never entered as content. They are not themselves inventoried.
 # __pycache__ joined this list once the corpus started carrying code. A .pyc is generated, it
@@ -215,7 +215,7 @@ def write_manifest(root, rows, out, name=NAME):
             )
         )
         handle.write(
-            "# Rewritten by utils/maint/corpus/corpus_manifest.py --write in anchor_sift.\n"
+            "# Rewritten by utils/maint/corpus/corpus_manifest.py --write in orior.\n"
         )
         handle.write(
             "# Reconciled before every commit. Sign this file, not the corpus.\n"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-"""Where anchor_sift's root is, for the scripts under utils/test/ and utils/tools/.
+"""Where orior's root is, for the scripts under utils/test/ and utils/tools/.
 
 Searches upward from this file for `utils` and `src`. This file sits two folders below the root: the
 answer does not depend on the caller's depth, its working directory, or how it was launched.

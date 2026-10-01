@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Tests for what docs_check can open and what its alphabet stage can see.
@@ -470,7 +470,7 @@ class BuildFilesAreReadAtAll(unittest.TestCase):
 
     def test_a_git_hook_is_selected_although_it_has_no_extension(self):
         # A four-extension sweep dropped a hook and took the gate with it. That is the failure
-        # HOOK_NAMES exists for, and anchor_sift keeps three of these under roots it already scans.
+        # HOOK_NAMES exists for, and orior keeps three of these under roots it already scans.
         for name in ("pre-commit", "commit-msg", "pre-push"):
             self.assertTrue(docs_check.build_file(os.path.join("hooks", name)), name)
 

@@ -41,7 +41,7 @@ WHAT EACH NULL RESTS ON
     a redraw of the arms          an arm is identified by its topology and its weight, and a shape
                                   is one realization of that. Redrawing the arms as different
                                   shapes carrying the same weight cannot move a letter. Stated in
-                                  `theory/workbooks/anchor_sift/arm-records.md`, measured in
+                                  `theory/workbooks/orior/arm-records.md`, measured in
                                   `arm_draw`.
 
 The last one is the floor `live_modes` should be given instead of a guessed one, since it is the

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Check that a language corpus is in the language it claims, for Section 4.13 of
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 #   Usage:  python maint/data/salishan/corpus_purity.py
 #

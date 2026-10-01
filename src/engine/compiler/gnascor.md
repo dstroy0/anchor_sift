@@ -101,7 +101,7 @@ Cross-branch comparison follows from slicing. Every arrangement that produces an
 
 ### The gate
 
-Before any cost is read, the gate decides which arrangements hold the relation at all. It is anchor_sift's own descent: each candidate arrangement is an alignment, the relation's cases are the needle, and the descent places the case that prunes the most, stops where the best case prunes nothing, and leaves the survivors as its answer. It is planned on the host against arithmetic every system that computes agrees about, and the target is asked only the cases it placed. A plan that steers badly costs speed and never a wrong survivor, because survival is a conjunction.
+Before any cost is read, the gate decides which arrangements hold the relation at all. It is orior's own descent: each candidate arrangement is an alignment, the relation's cases are the needle, and the descent places the case that prunes the most, stops where the best case prunes nothing, and leaves the survivors as its answer. It is planned on the host against arithmetic every system that computes agrees about, and the target is asked only the cases it placed. A plan that steers badly costs speed and never a wrong survivor, because survival is a conjunction.
 
 Every step above, its status and the run behind it is in the query protocol's own table, [query_protocol_table.md](../../../theory/workbooks/engine/query_protocol_table.md).
 

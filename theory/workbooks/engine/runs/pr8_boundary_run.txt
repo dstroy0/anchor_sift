@@ -1,4 +1,4 @@
-  build directory: /d/git_project/repos/owned/public/anchor_sift_engine/build/20260924_173801_record_boundary_test
+  build directory: /d/git_project/repos/owned/public/orior_engine/build/20260924_173801_record_boundary_test
 scriptura.c
 scriptura_arm_avx2.c
 scriptura_arm_avx512.c

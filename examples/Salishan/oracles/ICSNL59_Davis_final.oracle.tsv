@@ -1,0 +1,673 @@
+where	who	kind	form	gloss
+front	Henry Davis	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	Henry Davis	language	Halq’eméylem	page 1, Upriver Halkomelem
+front	Henry Davis	language	nɬeʔkepmxcín	page 1, Thompson River Salish
+title	Henry Davis	title	Central Salish from a Nooksack Perspective*	page 1, the title, its star the acknowledgement footnote's
+title	Henry Davis	note	Henry Davis University of British Columbia	page 1, the author and his affiliation
+title	Henry Davis	name	Henry Davis	author, University of British Columbia
+front	Henry Davis	note	Abstract: Lhechalosem/Nooksack is a sleeping Central Salish language whose last fluent speaker, Sindick Jimmy, passed away in 1977. Documentary work, largely carried out in the 1950s by Paul Fetzer and Pamela Thorsen Amoss, left a fragmentary but invaluable record of the language; the late Brent Galloway was in the process of turning this material into a grammar when he passed away in 2014. This paper reports on a continuation of Galloways’ grammatical work, which yields insight not only into the structure of Nooksack itself but also into its connections with its Central Salish relatives and neighbours. The key findings are first of all that Nooksack constitutes a fully independent grammatical system in its own right, and second that beneath a recent layer of obvious influence from Halq’eméylem/Upriver Halkomelem, it shows strong morphosyntactic affinities with Skwxwu7mesh/Squamish, with suggestive clues of even earlier influence from Northern Interior Salish (in particular, nɬeʔkepmxcín/Thompson River Salish).	page 1, the abstract
+front	Henry Davis	note	Keywords: Lhechalosem /Nooksack, Central Salish, comparative morphosyntax, historical Salish	page 1
+§1	Henry Davis	heading	1 Introduction	page 1
+§1	Henry Davis	note	In 2017, Strang Burton and I took on the task of completing the late Brent Galloway’s work on the sleeping Central Salish language Lhechalosem ~ Lhechelesem/Nooksack, henceforth NK), whose last fully fluent speaker, Sindick Jimmy (SJ), passed away in 1977.	page 1
+§1	Henry Davis	note	Primary documentation of the language had been carried out in the 1950s with fluent speaker George Swanaset (GS), initially by University of Washington graduate student Paul Fetzer, and after Fetzer’s untimely death in about 1952, by Pamela Thorsen Amoss, who worked with both GS and SJ, and wrote her (1961) University of Washington MA thesis on the phonology of the language. Fetzer left an extensive collection of file cards, and Amoss left file cards, field notes, and — of critical importance — some three or four hours of audio recordings from both speakers, which have now been digitized.	page 1
+§1	Henry Davis	note	GS passed away around 1960; subsequently, additional fieldwork was carried out with SJ and semi-fluent speaker Louisa George (LG) by linguists Barbara Efrat, Laurence C. Thompson, and finally Brent Galloway himself, each of whom left further field notes, largely focused on vocabulary and phonology. All of this material is now archived in the Pacific Northwest Collection at the University of Washington Libraries, distributed over several individual bequests. Galloway had originally conceived of his NK project as consisting of three components: a grammar, a set of illustrative texts, and a classified word list. Before his death in 2014, he had more or less completed the phonetics/phonology part of the grammar, and together with community members George Adams and Catalina Renteria had transcribed, translated, and published two texts (Galloway et al. 2004; Adams et al. 2005). Adams and Galloway had also made substantial progress on a draft of the classified word list.	page 1
+footnote *	Henry Davis	note	* Acknowledgements. Thanks to Strang Burton and Bailey Trotter, my co-workers on the Nooksack project, as well as to members of the Salish Working Group, who contributed many useful comments at an earlier presentation of this work. Research on Nooksack has been supported by SSHRC Insight Grant 435-2020- 1293 to the author. Author’s e-mail: henry.davis@ubc.ca	page 1, footnote
+§1	Henry Davis	note	This still left a lot of work to do. In particular, the morphology and syntax sections of the grammar consisted of about 20 pages of fragmentary notes and examples. I undertook the task of expanding and revising these sections, and ended up with a 170-page grammatical sketch, drawing on examples from the texts and the word list as well as Galloway’s previously published work on the language (Galloway 1984b/1993b and particularly 1997).	page 2
+§1	Henry Davis	language	Halq’eméylem	page 2, Upriver Halkomelem
+§1	Henry Davis	note	One of Galloway’s goals in writing the phonetics/phonology section of the grammar had been to establish NK once and for all as a language in its own right. The reason why this had been cast into doubt in previous scholarship on Central Salish was the peculiar status of NK in the 20th century. Due to language attrition and the small size of the original speech community compared to those of neighbouring Central Salish languages, as well as extensive out-marriage, NK had ended up by the early part of the century as nobody’s first language.1 More specifically, GS was an L1 speaker of, Halq’eméylem/Upriver Halkomelem (henceforth UH) and SJ and LG were both L1 speakers of the Upper Skagit dialect of Lushootseed (henceforth LU). Though all three had learned NK from older relatives who were L1 speakers, and had used the language quite extensively earlier in their lives, it was suspected that their NK might be a partially re-lexified version of their own L1s rather than constituting a fully independent grammatical system.	page 2
+§1	Henry Davis	note	In the phonetics/phonology section of his grammar (based largely on Galloway 1983/1984a), Galloway distinguishes two varieties of NK: a “Halkomelemized” version characteristic of the speech of GS, which he terms Lhechelesem, and a (presumably) more conservative version used by SJ and LG, which he terms Lhechalosem. (In reality, phonological traits of UH appear in the speech of all three speakers, but more prominently in that of GS, whose intonation in particular shows obvious influence from the distinctive tonal system of UH.) As the foremost authority on UH, Galloway was in a particularly good position to recognize intrusions from UH into NK, and therefore to reconstruct an “unadulterated” phonology of NK. His conclusion bears repeating:	page 2
+§1	Henry Davis	note	It [Nooksack] forms a coherent system, distinct in many ways from Halkomelem and its other neighbors. There is no doubt now that Nooksack is a distinct language from Halkomelem. The Upriver, Downriver and Island dialect groups of Halkomelem (often called Chilliwack, Musqueam and Cowichan after their principal dialects) all share a number of phonological structures and rules which Nooksack lacks or organizes in different ways. The authentic features of the Nooksack phonemic system can be established through comparison of the idiolects of different speakers, which contrast with HL and neighboring languages and their patterns of sound correspondences.	page 2
+footnote 1	Henry Davis	note	1 This situation hampered earlier fieldwork on the language by Boas’s student Thelma Adamson, who visited Nooksack territory in the summers of 1928 and 1932, and wrote to Boas that NK “has been entirely replaced by Halkomelem… and has been for some time.” (cited in Seaburg 1999:79). Interestingly, in the same letter Adams mentions a promising NK informant, who turns out to be none other than GS, the very same consultant who provided all of Fetzer’s and great deal of Amoss’s NK material in the 1950s. Sadly, Adamson’s own fieldnotes have never been retrieved: see Seaburg (1999) for an account of her life and work.	page 2, footnote
+§1	Henry Davis	note	(Galloway 1984a:39) However, since his work on the morphology and particularly the syntax of NK was less developed than his work on phonetics and phonology, Galloway was not in as strong a position to support these conclusions using other components of the grammar (though see Galloway 1997 on a comparison of pronouns and transitivity in NK and neighbouring languages). This is one of the two main goals of this paper.	page 2
+§1	Henry Davis	note	The second goal is to explore the question of what NK grammar tells us about the history of related Central Salish languages, in particular Halkomelem (HL) and Skwxwu7mesh/Squamish (SQ). Here I am particularly interested in disentangling traits which NK may have borrowed from neighbouring languages from those that it may have inherited from Proto-Central Salish or its South Georgia subbranch. This involves looking at grammatical properties which are either shared with a subset of neighbouring languages, or which are unique to NK. On the other hand, properties which are shared by all Central Salish languages tell us less.	page 3
+§1	Henry Davis	note	The paper is structured as follows. In Section 2, I set NK within its geographical and historical context, before turning in Section 3 to detailed comparison of a set of 16 grammatical traits across seven out of the ten original Central Salish languages. The traits were chosen specifically because they are all instantiated in NK and vary across the rest of Central Salish. Section 4 summarizes the findings, and Section 5 explores their consequences both for NK itself and for its Salish neighbours and relatives. Section 6 concludes.	page 3
+§2	Henry Davis	heading	2 Nooksack in a Central Salish context	page 3
+§2	Henry Davis	note	In Salish historical linguistics, the ten Central Salish (CS) languages are usually divided into three main sub-branches, with further sub-divisions within the South Georgia subbranch, as shown in Figure 1.	page 3
+Figure 1	Henry Davis	note	Figure 1: Central Salish	page 3, the caption of the tree
+Figure 1	Henry Davis	language	*Proto-Central Salish	page 3, a node of the tree, the root, carrying footnote 3
+Figure 1	Henry Davis	language	North Georgia	page 3, a node of the tree, under *Proto-Central Salish
+Figure 1	Henry Davis	language	South Georgia	page 3, a node of the tree, under *Proto-Central Salish
+Figure 1	Henry Davis	language	Puget	page 3, a node of the tree, under *Proto-Central Salish
+Figure 1	Henry Davis	language	Comox-Sliammon	page 3, a node of the tree, under North Georgia
+Figure 1	Henry Davis	language	Pentlatch	page 3, a node of the tree, under North Georgia
+Figure 1	Henry Davis	language	Sechelt	page 3, a node of the tree, under North Georgia
+Figure 1	Henry Davis	language	Squamish	page 3, a node of the tree, under South Georgia
+Figure 1	Henry Davis	language	Nooksack	page 3, a node of the tree, under South Georgia, in bold italics
+Figure 1	Henry Davis	language	Halkomelem	page 3, a node of the tree, under South Georgia, with Straits
+Figure 1	Henry Davis	language	Straits	page 3, a node of the tree, under South Georgia, with Halkomelem
+Figure 1	Henry Davis	language	Northern Straits	page 3, a node of the tree, under Straits
+Figure 1	Henry Davis	language	Klallam	page 3, a node of the tree, under Straits
+Figure 1	Henry Davis	language	Lushootseed	page 3, a node of the tree, under Puget
+Figure 1	Henry Davis	language	Twana	page 3, a node of the tree, under Puget
+footnote 2	Henry Davis	note	2 This classification is the same as in Kuipers (2002:ix), with the minor exception that I have grouped Lushootseed and Twana together in the Puget branch, whereas Kuipers assigns Twana to a separate Hood Canal branch. Since I do not discuss Twana here extensively, nothing hinges on this decision.	page 3, footnote
+footnote 3	Henry Davis	note	3 Not all ten Central Salish languages are equally well described: aside from NK, material on Twana (TW) and particularly Pentlatch (PT) is scanty, due initially to the small number of speakers of these languages and subsequently to the comparatively early date when they ceased being used regularly. These two languages (neither of which had close contacts with NK) are omitted from the systematic comparisons below, though mentioned where relevant. I have also collapsed Klallam (KL) together with Northern Straits Salish (NSS) into Straits Salish (SS), since the Straits languages are largely identical in relevant respects; again, differences are noted where they are known to occur.	page 3, footnote
+§2	Henry Davis	note	The division in Figure 1 places NK at the heart of CS: appropriately, since Kinkade (1990) situates the Salish homeland between the Fraser and Skagit rivers, which is exactly the location of NK territory. However, the current linguistic geography of CS does not always correspond to the historical relationships represented in Figure 1: For example, LU is in a separate sub-branch from NK, but is its immediate southern neighbor, while SQ is genetically close to NK, but separated from it geographically by UH to the north.	page 3
+§2	Henry Davis	note	This gives us the opportunity to examine the question of whether properties shared by NK and other CS languages are due to geographical contact or historical relationship: for example, if NK shows affinities with LU which are not shared across CS, they are likely to result from contact rather than shared ancestry, while the converse is true of traits shared with SQ but not UH. This is precisely the strategy I will pursue in the following sections, where I undertake a systematic comparison of selected grammatical traits in seven out of the ten CS languages, using NK as the basis of comparison.4	page 4
+§3	Henry Davis	heading	3 Grammatical variation between Nooksack and other Central Salish languages	page 4
+§3	Henry Davis	note	In this section, I compare 16 grammatical traits across seven CS languages. These traits have been selected on the basis of two criteria: first, there must be sufficiently detailed documentation across all seven languages to allow for a robust comparison; and second, there must be significant variation between NK and at least some of its CS relatives. The comparison is therefore unabashedly Nooksack-centric, and as such cannot by itself be used as a more general guide to the comparative morphosyntax of CS, though I hope it will be taken as a contribution towards that larger enterprise. The grammatical traits surveyed are the following:	page 4
+footnote 4	Henry Davis	note	4 Principal sources are as follows: for LU, Hess (1995, 1998), Beck (2007, 2018); for TW, Drachman (1969); for KL, Montler (2015); for Northern Straits Salish (NSS), Jelinek and Demers (1983), Czaykowska-Higgins and Leonard (2015), Montler (2018); for HL, Gerdts (1988, 1989: IH), Suttles (2004: DH), Galloway (1977, 1993a, 2009: UH); for SQ, Kuipers (1967), Bar-el (2005), Jacobs (2011); for Sechelt (SE), Beaumont (1985, 2011); and for ʔayʔaǰuθəm/Comox-Sliammon (CX) Watanabe (2003), Davis and Huijsmans (2017).	page 4, footnote
+§3	Henry Davis	language	ʔayʔaǰuθəm	page 4, Comox-Sliammon, in footnote 4
+§3	Henry Davis	note	(i) Imperfective marking (3.1) (ii) Subject marking (3.2) a. Distribution of ergative marking (3.2.1) b. Person hierarchy effects (3.2.2) c. Promotional versus non promotional passive (3.2.3) (iii) Oblique marking (3.3) a. Presence of oblique proper noun determiner (3.3.1) b. Loss of oblique-marking preposition (3.3.2) (iv) The distribution of overt DPs (3.4) a. Pre-predicative subjects (3.4.1) b. Post-verbal DPs (3.4.2) (v) The transitivity system (3.5) a. Intransitive markers (3.5.1) b. Transitivizers (3.5.2) c. Applicatives (3.5.3) (vi) Form of clausal negation (3.6) (vii) Independent pronouns and clefts (3.7) a. Invariant versus alternating independent pronouns (3.7.1) b. Free use of independent pronouns as arguments (3.7.2) c. Form of the clefting predicate and the third-person independent pronoun (3.7.3) In each case, I will present relevant examples from the NK grammar, but for reasons of space, will not always illustrate the traits in other CS languages, since they can readily be found in the sources cited.	page 4
+§3.1	Henry Davis	heading	3.1 Imperfective marking	page 5
+§3.1	Henry Davis	note	While perfect is uniformly unmarked in CS, as in the rest of the family, there is significant variation in the form of imperfective marking, as shown in Table 1. (The table also shows which markers are progressive as opposed to general imperfective, at least as far as I have been able to ascertain.)	page 5
+Table 1	Henry Davis	note	Table 1: Imperfective marking across Central Salish	page 5, the caption
+Table 1	Henry Davis	note	C1 reduplication — — — — PROG PROG (?) PROG	page 5, LU —, NK —, UH —, NSS —, SQ PROG, SE PROG (?), CX PROG
+Table 1	Henry Davis	note	‘actual’ — — IPFV IPFV(?) — — —	page 5, LU —, NK —, UH IPFV, NSS IPFV(?), SQ —, SE —, CX —
+Table 1	Henry Davis	note	auxiliary — IPFV — — IPFV — —	page 5, LU —, NK IPFV, UH —, NSS —, SQ IPFV, SE —, CX —
+Table 1	Henry Davis	note	prefix/proclitic PROG — — — — — —	page 5, LU PROG, NK —, UH —, NSS —, SQ —, SE —, CX —
+§3.1	Henry Davis	note	There are four patterns.	page 5
+§3.1	Henry Davis	note	(i) The northern languages (the North Georgia sub-branch plus SQ) employ C1- (‘initial’) reduplication, which marks progressive aspect (at least in SQ and CX: the situation in SE is not as clear).	page 5
+§3.1	Henry Davis	note	(ii) HL and SS (including KL) have a distinct and very complex system of alternations involving reduplication, ablaut, and glottal infixation, known as the actual in the literature: at least in HL, the actual marks general imperfectivity rather than the progressive.	page 5
+footnote 5	Henry Davis	note	5 Beck (2018) argues that the LU progressive marker lə= is a proclitic, in contrast to the other viewpoint aspect markers, which are prefixes.	page 5, footnote
+§3.1	Lushootseed	cited affix	lə=	the progressive marker, a proclitic by Beck (2018)
+§3.1	Henry Davis	note	(iii) The aspectual system of the Puget Sound sub-branch (LU plus TW) employs a set of verbal prefixes which include a progressive marker.5 (iv) Two languages (NK and SQ) have an imperfective auxiliary; in both languages, this auxiliary marks general imperfectivity, leading to a distinction between the progressive and the imperfective in SQ (see Bar-el 2005). Other languages seem to have either progressive or general imperfective, but not both.	page 5
+§3.1	Henry Davis	note	NK has the simplest system, consisting simply of an imperfective auxiliary (ʔay).6	page 6
+(1) line 1	Nooksack	transcription	Ay ílal(7) tsíya.	page 6, engine residue
+(1) line 2	Nooksack	segmentation	ʔay=Ø ʔílal cíya	page 6, engine language
+(1) line 3	Nooksack	gloss	IPFV=3SUBJ cry FEM.DEM	page 6, engine english
+(1) line 4	Henry Davis	translation	‘She is crying.’	page 6, engine english
+(2) line 1	Nooksack	transcription	Ay núkwenas te kw’eláns.	page 6, engine language
+(2) line 2	Nooksack	segmentation	ʔay núkʷ-ən-Ø-as ta=k̓ʷəlán-s	page 6, engine language
+(2) line 3	Nooksack	gloss	IPFV move-CTR-3OBJ-3ERG DET=ear-3POSS	page 6, engine english
+(2) line 4	Henry Davis	translation	‘S/he is wiggling her ears.’	page 6, engine english
+(3) line 1	Nooksack	transcription	Ilh ay asísta ta selátsos lhiyá	page 6, engine residue
+(3) line 2	Nooksack	segmentation	ʔiɬ=Ø ʔay ʔəs-(ʔ)ísta ta=[s-]səlá-t-su[t]-s ɬiyá	page 6, engine language
+(3) line 3	Nooksack	gloss	AUX=3SUBJ IPFV STAT-resemble DET=[NMLZ-]do-CTR-RFLX-3POSS PROX.DEM	page 6, engine english
+(3) line 4	Nooksack	transcription	xwelitem…	page 6, engine language
+(3) line 5	Nooksack	segmentation	xʷəlítəm	page 6, engine language
+(3) line 6	Nooksack	gloss	white.person	page 6, engine english
+(3) line 7	Henry Davis	translation	‘It’s like what these white people do…’	page 6, engine english
+§3.1	Nooksack	cited form	ʔay	the imperfective auxiliary
+§3.1	Upriver Halkomelem	cited form	ʔe:y	the intransitive aspectual verb Galloway glosses in UH, the source he gives for ʔay
+§3.1	Henry Davis	note	Galloway speculates that ʔay descends from an intransitive aspectual verb ʔe:y which he glosses in UH as ‘keep on going’ (Galloway 2009:22). Suttles (2004:39) gives the following DH example involving what appears to be an auxiliary use of the same verb:	page 6
+footnote 6	Henry Davis	note	6 NK examples are given in a four-line format. The first line is in the NK practical orthography designed by Galloway, based on his orthography for UH; the second is a phonemic transcription employing the North American Phonetic Alphabet (NAPA) in general use by Salish linguists, including morpheme breaks and zero morphemes; the third is a morpheme-by-morpheme gloss; and the fourth is an English translation. Abbreviations are as follows: ABSN = absent, ACT = active intransitive, AUT = autonomous intransitive, AUX = auxiliary, CAUS = causative transitivizer, CLEFT = clefting predicate, COMP = complementizer, CONJ = conjunction, CTR = control transitivizer, DEM = demonstrative, DES = desiderative, DET = determiner, DEV = developmental, DIR = directional, EMPH = emphatic, ERG = ergative subject, EXCL = exclusive, EXIS = existential enclitic, FEM = feminine, FUT= future, IND = indirective transitivizer, INDP = independent pronoun, IMP = imperative, IPFV = imperfective, LCT = limited control transitivizer, LOC = locative, MID = middle marker, NEG = negation, NMLZ = nominalizer, OBJ = object, OBL = oblique, PASS = passive, PL = plural, POSS = possessive, PROS = prospective aspect, PROX = proximal, PST = past tense marker, PUR = purposive transitivizer, Q = yes-no question marker, RDR = redirective applicative marker, RFLX = reflexive, SG = singular, SJV = subjunctive subject clitic, STAT = stative, SUBJ = indicative subject clitic, TRA = transitivizer. An equal sign (=) marks a clitic boundary, a hyphen (-) marks an affix boundary, and angled brackets (<…>) mark an infix (including reduplicative infixes); a plus sign (+) is used to mark instances where morpheme boundaries are unclear, for example where two or more morphemes are fused or contracted.	page 6, footnote
+(4) line 1	Upriver Halkomelem	segmentation	ʔi=cn ʔe:y̓ kʷukʷ…	page 7, engine language, Galloway's UH, which the text names
+(4) line 2	Upriver Halkomelem	gloss	AUX=1SG.SUBJ continue cook	page 7, engine english, Galloway's UH, which the text names
+(4) line 3	Henry Davis	translation	‘I continued to cook…’	page 7, engine english
+§3.1	Nooksack	cited form	ʔux̌ʷ	the prospective auxiliary, from the verb ‘go’, borrowed from LU
+§3.1	Henry Davis	note	Assuming the NK form was borrowed from HL, the question arises as to what it replaced. There are no relics of C1 progressive or actual marking in NK, which suggests that it may always have employed an auxiliary, but has re-lexified it with a borrowing from HL. This hypothesis is indirectly supported by the fact that the NK prospective auxiliary ʔux̌ʷ, derived from the verb ‘go’, is also borrowed, this time from LU.	page 7
+§3.1	Henry Davis	note	The only other CS language with an imperfective auxiliary is SQ (though its imperfective marker wa has cognates in all three Northern Interior (NIS) languages, rather than being unique, like NK ʔay).7 Assuming re-lexification, this suggests that the auxiliary marking of imperfective aspect is not innovative in NK, but a retention of a conservative pattern it shares with SQ.8	page 7
+§3.2	Henry Davis	heading	3.2 Subject marking	page 7
+§3.2	Henry Davis	note	In this section, I examine three areas of variation centred around subjects: ergative (transitive) subject agreement (Section 3.2.1), person hierarchy effects (Section 3.2.2), and the distinction between promotional and non-promotional passives (Section 3.3.3).	page 7
+§3.2.1	Henry Davis	heading	3.2.1 Ergative marking	page 7
+§3.2.1	Henry Davis	note	Table 2 gives the distribution of third-person transitive subject (ergative) markers across clause types.	page 7
+Table 2	Henry Davis	note	Table 2: Third person transitive subject marking across Central Salish	page 7, the caption
+Table 2	Henry Davis	note	main clause	page 7, the head of a row
+Table 2 LU	Lushootseed	cited affix	=Ø	page 7, main clause, the LU column
+Table 2 NK	Nooksack	cited affix	-as	page 7, main clause, the NK column
+Table 2 UH	Upriver Halkomelem	cited affix	-as	page 7, main clause, the UH column
+Table 2 SS	Straits Salish	cited affix	-s	page 7, main clause, the SS column
+Table 2 SQ	Squamish	cited affix	-as	page 7, main clause, the SQ column
+Table 2 SE	Sechelt	cited affix	-as	page 7, main clause, the SE column
+Table 2 CX	Comox	cited affix	-as	page 7, main clause, the CX column
+Table 2	Henry Davis	note	subordinate clause	page 7, the head of a row
+Table 2 LU	Lushootseed	cited affix	=Ø	page 7, subordinate clause, the LU column
+Table 2 NK	Nooksack	cited affix	-as	page 7, subordinate clause, the NK column
+Table 2 UH	Upriver Halkomelem	cited affix	-as	page 7, subordinate clause, the UH column
+Table 2 SS	Straits Salish	cited affix	-əs	page 7, subordinate clause, the SS column
+Table 2 SQ	Squamish	cited affix	-as	page 7, subordinate clause, the SQ column
+Table 2 SE	Sechelt	cited affix	-as	page 7, subordinate clause, the SE column
+Table 2 CX	Comox	cited affix	-as	page 7, subordinate clause, the CX column
+Table 2	Henry Davis	note	subjunctive clause	page 7, the head of a row
+Table 2 LU	Lushootseed	cited affix	=as	page 7, subjunctive clause, the LU column
+Table 2 NK	Nooksack	cited affix	=as	page 7, subjunctive clause, the NK column
+Table 2 UH	Upriver Halkomelem	cited affix	=as (+-as)	page 7, subjunctive clause, the UH column
+Table 2 SS	Straits Salish	cited affix	-əs	page 7, subjunctive clause, the SS column
+Table 2 SQ	Squamish	cited affix	=as (+-as)	page 7, subjunctive clause, the SQ column
+Table 2 SE	Sechelt	cited affix	=as (+-as)	page 7, subjunctive clause, the SE column
+Table 2 CX	Comox	cited affix	=as (+-as)	page 7, subjunctive clause, the CX column
+Table 2	Henry Davis	note	nominalized clause	page 7, the head of a row
+Table 2 LU	Lushootseed	cited affix	=s	page 7, nominalized clause, the LU column
+Table 2 NK	Nooksack	cited affix	=s (+-as)	page 7, nominalized clause, the NK column
+Table 2 UH	Upriver Halkomelem	cited affix	=s (+-as)	page 7, nominalized clause, the UH column
+Table 2 SS	Straits Salish	cited affix	=s	page 7, nominalized clause, the SS column
+Table 2 SQ	Squamish	cited affix	=s (+-as)	page 7, nominalized clause, the SQ column
+Table 2 SE	Sechelt	cited affix	=s	page 7, nominalized clause, the SE column
+Table 2 CX	Comox	cited affix	=s (+-as)	page 7, nominalized clause, the CX column
+§3.2.1	Henry Davis	note	Four types of clause are shown here: (indicative) main clauses; (indicative) subordinate clauses (comprising object-centred relative clauses and clefts); subjunctive clauses; and nominalized clauses. As can be seen in the table, no Central Salish language marks transitive subjects separately in all four types. There are several different patterns and sub-patterns, falling into three main groups (see Davis 1999, 2000; Kroeber 1999 for details and analysis).	page 7
+footnote 7	Henry Davis	note	7 This is not quite true: though it is difficult to figure out its precise semantics, PT also clearly has a cognate of the SQ auxiliary wa, so it should be probably added to the short list of Central Salish languages with an imperfective auxiliary.	page 7, footnote
+footnote 8	Henry Davis	note	8 Another possibility is that HL actually borrowed ʔay from NK, though then it is harder to account for its use in UH exclusively as a main verb rather than an auxiliary.	page 7, footnote
+§3.2.1	Nooksack	cited form	ʔay	the imperfective auxiliary
+§3.2.1	Henry Davis	note	(i) In LU all subject suffixes have been lost, and so has the distinction between subject marking on transitive and intransitive verbs: the zero third-person clitic marks all indicative subjects, and =as marks all subjunctive subjects, regardless of transitivity.9 (ii) In the second pattern, exemplified by the majority of CS languages, the third-person transitive suffix -as is retained in both main and subordinate indicative clauses, but surfaces only in subjunctive and nominalized clauses when an auxiliary is present to host the subjunctive or possessive subject clitic, leading to a distinctive “subject doubling” construction, indicated in Table 2 with parentheses around the subject suffix.10 There is further variation within this pattern: NK has lost the ergative suffix completely in subjunctive clauses, while SE has lost it in nominalized clauses.	page 8
+§3.2.1	Henry Davis	note	(iii) The third pattern is exemplified by SS (NSS and KL). Here the subjunctive clitic has merged with the subordinate transitive suffix, leading to a single subordinate suffix -əs undifferentiated for transitivity, contrasting with the main clause transitive suffix -s. In nominalized clauses, on the other hand, third-person possessive =s has completely replaced the transitive suffix (as in SE). The result is that only indicative main clauses distinguish intransitive from transitive subjects.	page 8
+§3.2.1	Henry Davis	note	Within this picture, NK groups with UH/SQ/SE/CX in pattern (ii), but has simplified the system in transitive subjunctive clauses, where the subjunctive clitic has completely replaced the ergative suffix and, therefore, subject doubling no longer takes place, as shown in (5).	page 8
+(5) line 1	Nooksack	transcription	...qay ílhas ni asísta(s)txw tan	page 8, engine language
+(5) line 2	Nooksack	segmentation	qəy ʔíɬ=as ni ʔəs-[ʔ]ísta-txʷ-Ø ta=n	page 8, engine language
+(5) line 3	Nooksack	gloss	CONJ AUX=3SJV AUX STAT-be.like.that-CAUS-3OBJ DET=1SG.POSS	page 8, engine english
+(5) line 4	Nooksack	transcription	swáley.	page 8, engine language
+(5) line 5	Nooksack	segmentation	s-wáləy	page 8, engine language
+(5) line 6	Nooksack	gloss	NMLZ-pay.parent	page 8, engine english
+(5) line 7	Henry Davis	translation	‘...if my pay parents agree to it.’	page 8, engine english, carries footnote 11, written here without its digit
+§3.2.1	Henry Davis	note	Note that in this single respect NK resembles LU, which has lost ergative suffixes completely. Otherwise, however, the two systems are very different.	page 8
+§3.2.2	Henry Davis	heading	3.2.2 Person hierarchy effects	page 8
+§3.2.2	Henry Davis	note	A second area of variation in subject marking involves person hierarchy effects: more specifically, a ban on the co-occurrence of third-person transitive subject (ergative) suffixes with second-person object suffixes (*3 > 2).	page 8
+footnote 9	Henry Davis	note	9 The status of TW with respect to subject marking is unclear, though judging from the somewhat fragmentary evidence in Drachman (1969), it seems to behave largely like LU.	page 8, footnote
+footnote 10	Henry Davis	note	10 Further variation is found with first- and second-person rather than third-person subjects: see Davis (1999, 2000), Kroeber (1999).	page 8, footnote
+footnote 11	Henry Davis	note	11 Unfortunately, this is the only relevant example which has turned up in the NK corpus so far. This is not altogether surprising: crucial cases consist of a subjunctive clause containing a transitive verb with a third- person subject and a pre-predicative auxiliary, and such structures are unlikely to be numerous in a small corpus.	page 8, footnote
+§3.2.2	Henry Davis	note	Evidence for the *3 > 2 ban in NK is necessarily indirect, since it involves an ungrammatical pattern and therefore cannot be induced directly from the corpus. The absence of examples in the corpus with third-person ergative marking and second-person object marking provides indirect negative evidence, together with the presence of sentences exemplifying typical avoidance strategies employed by other CS languages with the *3 > 2 ban. The most common of these is the use of passives with second-person patients, as shown in in (6) (see (8b) below for a parallel UH example).	page 9
+(6) line 1	Nooksack	transcription	Ílha chaxw kwá7atem?	page 9, engine residue
+(6) line 2	Nooksack	segmentation	ʔíɬ=a=čaxʷ kʷáʔ-at-əm	page 9, engine language
+(6) line 3	Nooksack	gloss	AUX=Q=2SG.SUBJ let.go-CTR-PASS	page 9, engine english
+(6) line 4	Henry Davis	translation	‘Did he let you go?’ (‘Were you let go?’)	page 9, engine english
+§3.2.2	Henry Davis	note	A second strategy, confined to NK and UH, involves the use of second-person independent pronouns instead of object suffixes: see Section 3.7.1 below and Wiltschko and Burton (2004) on parallel structures in UH.	page 9
+(7) line 1	Nooksack	transcription	Ilh lhqw’ósenamines tenuwí tsemetl’ú	page 9, engine language
+(7) line 2	Nooksack	segmentation	ʔíɬ ɬq̓-ús-ən-Ø-amən-as tə+nəwí ca+ma+ƛ̓ú	page 9, engine language
+(7) line 3	Nooksack	gloss	AUX slap-face-CTR-3OBJ-DES-3ERG DET+2SG.INDP FEM.DET+so+be.that	page 9, engine english
+(7) line 4	Henry Davis	translation	‘She wants to slap you in the face.’	page 9, engine english, carries footnote 12, written here without its digit
+§3.2.2	Henry Davis	note	The distribution of the *3 > 2 ban across CS is given in Table 3.	page 9
+Table 3	Henry Davis	note	Table 3: *3 > 2 in Central Salish	page 9, the caption
+Table 3	Henry Davis	note	*3 > 2 no yes yes yes yes yes no	page 9, LU no, NK yes, UH yes, NSS yes, SQ yes, SE yes, CX no
+§3.2.2	Henry Davis	note	Here NK is part of a core block of CS languages extending from SE in the north to SS in the south, but excluding CX at the northern and LU at the southern peripheries. Given that the geographically peripheral languages do not show person hierarchy effects, it seems likely that the * 3 > 2 ban is an innovation originating in the South Georgia region, which includes NK.	page 9
+§3.2.3	Henry Davis	heading	3.2.3 Passives	page 9
+§3.2.3	Henry Davis	note	There are two patterns of passive marking in CS:	page 9
+footnote 12	Henry Davis	note	12 This example shows VOS word order, as discussed in Section 3.4 below.	page 9, footnote
+footnote 13	Henry Davis	note	13 The Lummi dialect of NSS has a more extensive *1/2 > 3 ban (see Jelinek & Demers 1983). I do not include this in Table 3 since it is clearly a local development within NSS and does not affect NK. LU NK UH NSS SQ SE CX * 3 > 2 no yes yes yes yes yes no	page 9, footnote
+§3.2.3	Henry Davis	note	(i) The more conservative pattern (also characteristic of Interior Salish) is non- promotional: the agent is demoted to oblique status, but the patient argument is still marked by object suffixes on the passivized verb.14 Examples are given below from UH (Galloway 1993a:187).15	page 9
+(8a) line 1	Upriver Halkomelem	segmentation	lə mɛ́y-θɛ̀ləm.	page 10, engine language, UH, from Galloway 1993a:187
+(8a) line 2	Upriver Halkomelem	gloss	AUX help-CTR+1SG.PASS	page 10, engine english, UH, from Galloway 1993a:187
+(8a) line 3	Henry Davis	translation	‘Somebody helped me.’ / ‘I was helped.’	page 10, engine english
+(8b) line 1	Upriver Halkomelem	segmentation	lə mɛ́y-θà:m.	page 10, engine language, UH, from Galloway 1993a:187
+(8b) line 2	Upriver Halkomelem	gloss	AUX help-CTR+2SG.PASS	page 10, engine english, UH, from Galloway 1993a:187
+(8b) line 3	Henry Davis	translation	‘Somebody helped you.’ / ‘You were helped.’	page 10, engine english
+§3.2.3	Henry Davis	note	(ii) The more innovative pattern (absent in Interior Salish) is promotional: the agent is demoted and the patient gets marked as the subject of the passivized verb, as in the SQ examples below from Kuipers (1967:89).	page 10
+(9a) line 1	Squamish	segmentation	čən c̓áw-at-əm.	page 10, engine language, SQ, from Kuipers 1967:89
+(9a) line 2	Squamish	gloss	1SG.SUBJ help-CTR-PASS	page 10, engine english, SQ, from Kuipers 1967:89
+(9a) line 3	Henry Davis	translation	‘I was helped.’	page 10, engine english
+(9b) line 1	Squamish	segmentation	čəxʷ c̓áw-at-əm.	page 10, engine language, SQ, from Kuipers 1967:89
+(9b) line 2	Squamish	gloss	2SG.SUBJ help-CTR-PASS	page 10, engine english, SQ, from Kuipers 1967:89
+(9b) line 3	Henry Davis	translation	‘You were helped.’	page 10, engine english
+§3.2.3	Henry Davis	note	NK is a promotional passive language, like SQ but unlike UH: see (6) above and (10) below:	page 10
+(10) line 1	Nooksack	transcription	Ilh chalh swenátem kwtha laplítchalh.	page 10, engine residue
+(10) line 2	Nooksack	segmentation	ʔíɬ=čaɬ [ʔə]s-wən-át-əm kʷθa=laplít-čaɬ	page 10, engine language
+(10) line 3	Nooksack	gloss	AUX=1PL.SUBJ STAT-invite-CTR-PASS ABSN.DET=preacher-1PL.POSS	page 10, engine english
+(10) line 4	Henry Davis	translation	‘We’re invited by our missionary.’	page 10, engine english
+§3.2.3	Henry Davis	note	The distribution of promotional and non-promotional passive across CS is shown in Table 4.	page 10
+Table 4	Henry Davis	note	Table 4: Passive in Central Salish	page 10, the caption
+Table 4	Henry Davis	note	non-promotional — — √ — — √ √	page 10, LU —, NK —, UH √, NSS —, SQ —, SE √, CX √
+Table 4	Henry Davis	note	promotional √ √ — √ √ — —	page 10, LU √, NK √, UH —, NSS √, SQ √, SE —, CX —
+§3.2.3	Henry Davis	note	HL is exceptional amongst the South Georgia languages in retaining a non-promotional passive: other non-promoting languages (including PT as well as SE and CX) are from the North Georgia branch. I return to this distributional pattern in Section 5.1 below.	page 10
+footnote 14	Henry Davis	note	14 The non-promotional pattern in CS is also characterized by differential passive marking in “main” and “subordinate” clauses (though main clause passive marking also surfaces in subordinate clauses with an auxiliary). See Kroeber (1999:26–28).	page 10, footnote
+footnote 15	Henry Davis	note	15 As seems to be the rule for CS languages with non-promotional passives, HL shows a partially distinct passive object paradigm which cannot be transparently analyzed into sequences of object suffix + passive suffix. In addition, the control transitivizer and object suffixes in HL undergo “T-Obj fusion” (Gerdts 1989).	page 10, footnote
+§3.3	Henry Davis	heading	3.3 Oblique marking	page 11
+§3.3	Henry Davis	note	In this section, I deal with two related parameters concerning oblique marking. The first is the distribution of the oblique determiner, discussed in Section 3.3.1; the second, the loss of the general-purpose oblique marker/preposition, discussed in Section 3.3.2.	page 11
+§3.3.1	Henry Davis	heading	3.3.1 The oblique determiner	page 11
+§3.3.1	Nooksack	cited affix	ƛ̓=	the oblique proper noun determiner of NK, HL and SQ
+§3.3.1	Henry Davis	note	A subset of CS languages in the South Georgia area have developed a special oblique determiner, whose form is generally ƛ̓=. Except in NSS, this determiner is confined to proper nouns . A NK example with an oblique-marked passive agent is given in (11).	page 11
+(11) line 1	Nooksack	transcription	Ilh xétl’enem tl’ John ta sqwemáy.	page 11, engine residue
+(11) line 2	Nooksack	segmentation	ʔiɬ=Ø x̌ə́ƛ̓-ən-əm ƛ̓=John ta=sqʷəmáy	page 11, engine language
+(11) line 3	Nooksack	gloss	AUX=3SUBJ bite-CTR-PASS OBL.DET=John DET=dog	page 11, engine english
+(11) line 4	Henry Davis	translation	‘The dog was bitten by John.’	page 11, engine english
+§3.3.1	Henry Davis	note	Table 5 shows the distribution of the oblique determiner across CS.	page 11
+Table 5	Henry Davis	note	Table 5: Distribution of the oblique determiner across Central Salish	page 11, the caption
+Table 5	Henry Davis	note	ergative proper noun subjects — — √ — — — —	page 11, LU —, NK —, UH √, NSS —, SQ —, SE —, CX —
+Table 5	Henry Davis	note	oblique proper noun subjects — √ √ (√) √ — —	page 11, LU —, NK √, UH √, NSS (√), SQ √, SE —, CX —
+Table 5	Henry Davis	note	oblique common noun subjects — — — (√) — — —	page 11, LU —, NK —, UH —, NSS (√), SQ —, SE —, CX —
+§3.3.1	Northern Straits Salish	cited affix	tɬ=	the oblique determiner, tɬ= ~ ƛ̓=
+§3.3.1	Henry Davis	language	SENĆOTEN	page 11, Saanich
+§3.3.1	Henry Davis	note	As can be seen in the table, the distribution of the NK oblique determiner most closely resembles that of SQ. UH, on the other hand, has extended the distribution of its proper noun determiner from oblique arguments to ergative subjects (thus marking passive and active transitive proper noun agents identically: see Galloway 1993a:390).16 The NSS oblique tɬ= ~ ƛ̓= determiner is distinct in a number of ways: aside from being present on common as well as proper names, it seems to be more generally optional, unlike its counterparts in the other languages (see Montler 2018:676 on SENĆOTEN/Saanich).	page 11
+§3.3.2	Henry Davis	heading	3.3.2 Loss of the oblique marker/preposition	page 11
+§3.3.2	Central Salish	cited affix	(ʔ)ə=	the general oblique marker of most of CS
+footnote 16	Henry Davis	note	16 UH differs in this respect from DH, as described by Suttles (2004:49,52,348). In DH, proper names are simply prohibited from acting as the (ergative) subjects of active transitive predicates, which means that passive is always used with a proper name agent.	page 11, footnote
+footnote 17	Henry Davis	note	17 This is curious, because the only Interior Salish language that borders SQ territory is St’át’imcets/Lillooet (LI), but LI’s general oblique marker is (ʔ)ə=, which is standard for CS, but not for IS, which generally uses t=. Furthermore, if LI borrowed (ʔ)ə= from UH, it would have had to do so prior to the latter losing it altogether.	page 11, footnote
+§3.3.2	Henry Davis	language	St’át’imcets	page 11, Lillooet, in footnote 17
+§3.3.2	Nooksack	cited affix	ʔə=	oblique ʔə=, of which the NK corpus has no case
+§3.3.2	Henry Davis	note	Most CS languages have a “catch-all preposition” (the term is from Gerdts 2010) which introduces oblique arguments of all kinds, including antipassive objects, passive agents, instruments, and locations. In most of CS, the oblique marker is (ʔ)ə=, but in SQ it is t=, the form used in most Interior Salish languages.17 Because schwa is notoriously evanescent, the oblique marker is frequently dropped even where it is underlying present: but two languages (UH and NK) have lost it completely, meaning it never surfaces and cannot be restored. (A third, CX, is also well on the way to losing it, as documented in Davis and Huijsmans 2017.) As with the *3 > 2 ban, negative evidence is required to show that the oblique marker is definitively absent, and since such evidence is not available in the NK corpus, we must rely on two types of indirect evidence: first, there are no attested cases of oblique ʔə=, and second, where we would expect it to occur (e.g., on passive agents), it is absent, as shown in (12).	page 11
+(12) line 1	Nooksack	transcription	Ilh xétl’enem te John ta sqwemáy.	page 12, engine residue
+(12) line 2	Nooksack	segmentation	ʔiɬ=Ø x̌ə́ƛ̓-ən-əm ta=John ta=sqʷəmáy	page 12, engine language
+(12) line 3	Nooksack	gloss	AUX=3SUBJ bite-CTR-PASS DET=John DET=dog	page 12, engine english
+(12) line 4	Henry Davis	translation	‘John was bitten by the dog.’	page 12, engine english
+§3.3.2	Henry Davis	note	The form and distribution of the general oblique marker across CS is given in Table 6.	page 12
+Table 6	Henry Davis	note	Table 6: The general oblique marker/preposition across Central Salish	page 12, the caption
+Table 6	Henry Davis	note	oblique marker	page 12, the head of a row
+Table 6 LU	Lushootseed	cited affix	ʔə=	page 12, oblique marker, the LU column
+Table 6 NSS	Northern Straits Salish	cited affix	ʔə=	page 12, oblique marker, the NSS column
+Table 6 SQ	Squamish	cited affix	t=	page 12, oblique marker, the SQ column
+Table 6 SE	Sechelt	cited affix	ʔə=	page 12, oblique marker, the SE column
+Table 6 CX	Comox	cited affix	(ʔə=)	page 12, oblique marker, the CX column
+§3.3.2	Henry Davis	note	As the table shows, loss of the oblique marker is a local development, confined to NK and UH (and in fact, there is variation within HL, with IH retaining it and DH showing an intermediate pattern). It seems most likely that NK lost oblique marking under UH influence; however, there is no evidence against the change going in the other direction.	page 12
+§3.4	Henry Davis	heading	3.4 The distribution of overt DPs	page 12
+§3.4	Henry Davis	note	In this section, I discuss two parameters of word order variation. The first is the possibility of pre- predicative subjects (i.e., SV(O) order), discussed in Section 3.4.1; the second concerns post-verbal word order variation in transitive clauses with two overt DPs, discussed in Section 3.4.2.	page 12
+§3.4.1	Henry Davis	heading	3.4.1 Pre-predicative subjects	page 12
+§3.4.1	Henry Davis	note	The distribution of pre-predicative subjects in CS is given in Table 7.	page 12
+Table 7	Henry Davis	note	Table 7: Pre-predicative subjects in Central Salish	page 12, the caption
+Table 7	Henry Davis	note	SV(O) — √ √ — √ √ —	page 12, LU —, NK √, UH √, NSS —, SQ √, SE √, CX —
+footnote 18	Henry Davis	note	18 It is worth mentioning that there is intra-language variation in Salish with respect to the availability of subject-initial clauses: see for example Davis and Huijsmans (2017), who document SV(O) order in a speaker of the Homalco dialect of CX, a language which otherwise prohibits pre-predicative subjects.	page 12, footnote
+§3.4.1	Henry Davis	note	As the table shows, subject-initial clauses are well-attested in a block of contiguous languages from NK to SE; they are either highly marked or absent elsewhere.18 SVO is in fact the most common word order in the NK corpus for transitive clauses with two DP arguments, as illustrated in (13).19 (Notice also that this example shows a non-oblique proper noun subject in an active transitive clause: this would be impossible in HL.)	page 12
+(13) line 1	Nooksack	transcription	Tsa Mathilda ilh ílenas te schatl’ tl’ Sammy.	page 13, engine english
+(13) line 2	Nooksack	segmentation	ca=Mathilda ʔiɬ ʔíl-ən-Ø-as ta=s-čáƛ̓ ƛ̓=Sammy	page 13, engine language
+(13) line 3	Nooksack	gloss	FEM.DET=Mathilda AUX hide-CTR-3OBJ-3ERG DET=NMLZ-toy OBL.DET=Sammy	page 13, engine english
+(13) line 4	Henry Davis	translation	‘Mathilda hid the toy from Sammy.’	page 13, engine english
+§3.4.1	Henry Davis	heading	3.4.1 Postverbal DPs	page 13, the heading, numbered 3.4.1 on the page
+§3.4.1	Henry Davis	note	Table 8 shows the distribution of post-verbal DPs in active transitive clauses across CS.	page 13
+Table 8	Henry Davis	note	Table 8: Distribution of post-verbal DPs in Central Salish	page 13, the caption
+Table 8	Henry Davis	note	— VOS VSO VSO VSO VSO —	page 13, LU —, NK VOS, UH VSO, NSS VSO, SQ VSO, SE VSO, CX —
+§3.4.1	Henry Davis	note	There are three attested patterns. First, two languages at the periphery of CS, LU in the south, and (contemporary) CX in the north, simply do not permit a subject DP in active transitive clauses. (TW appears to be identical to LU in this respect.) Passive is triggered in both languages to allow the expression of an overt DP agent, which may then surface as an oblique: see Davis and Huijsmans (2017) and references therein.	page 13
+§3.4.1	Henry Davis	note	Second, a bloc of languages from SS to SE show unmarked verb-subject-object (VSO) order, with verb-object-subject (VOS) also permitted as a marked order when no ambiguity arise. And finally, NK alone shows the opposite pattern, with a clear preponderance of VOS over VSO clauses. Though the overall number of such clauses in the NK corpus is very small (reflecting the generally marked status of clauses with two overt DPs throughout the family), the proportion of VOS to VSO clauses is 6:1: this is unlikely to be accidental and is quite different from any other CS language. (Unmarked VOS is much more widespread in IS, where it is almost as common as VSO, with several languages showing dialect splits.) An example of VOS order in NK is given in (14); see also (7) above.	page 13
+(14) line 1	Nooksack	transcription	Pónoxwas ta sqwemáy7 qe ta pus tsa q’ámay7.	page 13, engine language
+(14) line 2	Nooksack	segmentation	pún-[n]əxʷ-Ø-as ta=s-qʷəmáy̓ qə ta=pus ca=q̓ámay̓	page 13, engine language
+(14) line 3	Nooksack	gloss	see-LCT-3OBJ-3ERG DET=NMLZ-dog CONJ DET=cat FEM.DET=girl	page 13, engine english
+(14) line 4	Henry Davis	translation	‘The girl saw the cat and the dog.’	page 13, engine english
+§3.5	Henry Davis	heading	3.5 The transitivity system	page 13
+§3.5	Henry Davis	note	In broad outline, both the form and function of intransitive and transitive marking in NK are very much in line with other CS languages; however, within the larger picture, there are a number of interesting points of comparison between NK and other languages and subgroups.	page 13
+§3.5	Henry Davis	note	In the following subsections, I examine intransitive markers (Section 3.5.1), transitivizers (Section 3.5.2) and applicative markers (3.5.3).	page 13
+footnote 19	Henry Davis	note	19 To be precise, I have found 14 instances of active transitive verbs with two overt DPs in the NK corpus; of these, half (seven) have SVO order, six have VOS order, and one has VSO order.	page 13, footnote
+§3.5.1	Henry Davis	heading	3.5.1 Intransitive markers	page 14
+§3.5.1	Henry Davis	note	Table 9 compares intransitive markers across CS.	page 14
+Table 9	Henry Davis	note	Table 9: Intransitive Markers across Central Salish	page 14, the caption
+Table 9	Henry Davis	note	active intransitive	page 14, the head of a row
+Table 9 LU	Lushootseed	cited affix	-alikʷ	page 14, active intransitive, the LU column
+Table 9 NK	Nooksack	cited affix	-áls ~ -əls	page 14, active intransitive, the NK column
+Table 9 UH	Upriver Halkomelem	cited affix	-a:ls ~ -əls	page 14, active intransitive, the UH column
+Table 9 NSS	Northern Straits Salish	cited affix	-əls	page 14, active intransitive, the NSS column
+Table 9 SQ	Squamish	cited affix	-im̓	page 14, active intransitive, the SQ column
+Table 9 SE	Sechelt	cited affix	-ʔəm	page 14, active intransitive, the SE column
+Table 9 CX	Comox	cited affix	-ʔəm	page 14, active intransitive, the CX column
+Table 9	Henry Davis	note	developmental	page 14, the head of a row
+Table 9 LU	Lushootseed	cited affix	-il	page 14, developmental, the LU column
+Table 9 NK	Nooksack	cited affix	-il̓	page 14, developmental, the NK column
+Table 9 UH	Upriver Halkomelem	cited affix	-íl ~ -əl	page 14, developmental, the UH column
+Table 9 NSS	Northern Straits Salish	cited affix	-íl ~ -əl	page 14, developmental, the NSS column
+Table 9 SQ	Squamish	cited affix	-iʔ	page 14, developmental, the SQ column
+Table 9 SE	Sechelt	cited affix	-il ~ -əl	page 14, developmental, the SE column
+Table 9	Henry Davis	note	autonomous	page 14, the head of a row
+Table 9 LU	Lushootseed	cited affix	-agʷil	page 14, autonomous, the LU column
+Table 9 NK	Nooksack	cited affix	-(w)il	page 14, autonomous, the NK column
+Table 9 CX	Comox	cited affix	-iyiš	page 14, autonomous, the CX column
+Table 9	Henry Davis	note	middle	page 14, the head of a row
+Table 9 LU	Lushootseed	cited affix	-b	page 14, middle, the LU column
+Table 9 NK	Nooksack	cited affix	-m	page 14, middle, the NK column
+Table 9 UH	Upriver Halkomelem	cited affix	-m	page 14, middle, the UH column
+Table 9 NSS	Northern Straits Salish	cited affix	-ŋ	page 14, middle, the NSS column
+Table 9 SQ	Squamish	cited affix	-m	page 14, middle, the SQ column
+Table 9 SE	Sechelt	cited affix	-m	page 14, middle, the SE column
+Table 9 CX	Comox	cited affix	-m	page 14, middle, the CX column
+§3.5.1	Nooksack	cited affix	-əls	the active intransitive, -als ~ -əls in NK, HL and NSS
+§3.5.1	Comox	cited affix	-iyiš	the autonomous suffix, in footnote 20
+§3.5.1	Henry Davis	note	All of the intransitive markers in NK have counterparts throughout CS, but not all of them have the same shape.	page 14
+§3.5.1	Central Salish	cited affix	-(ə)m	the middle suffix, whose glottalized version the northern languages use for the active intransitive
+§3.5.1	Lushootseed	cited form	ikʷ	the increment [ikʷ] of the LU active intransitive
+§3.5.1	Henry Davis	note	To start with, there is a notable split in active intransitive marking between the three northernmost languages represented here (including SQ as well as SE and CX) and the more southerly languages, including NK. The former use a suffix probably originally derived from a glottalized version of the middle suffix -(ə)m, while the latter all have a suffix beginning with [al], realized as -als ~ -əls in NK and its neighbours HL and NSS (as well as KL); the extra increment [ikʷ] in LU is unaccounted for. Here NK shows the same pattern as all its immediate neighbours; an example is given in (15).	page 14
+(15) line 1	Nooksack	transcription	Ay qw’oyáls ta mósmos.	page 14, engine language
+(15) line 2	Nooksack	segmentation	ʔay=Ø q̓ʷuy-áls ta=músmus	page 14, engine language
+(15) line 3	Nooksack	gloss	IPFV=3SUBJ die-ACT DET=cow	page 14, engine english
+(15) line 4	Henry Davis	translation	‘He’s butchering a cow.’	page 14, engine english
+§3.5.1	Interior Salish	cited affix	-ílx	the autonomous, -ílx ~ -ləx, with a lexical reflexive meaning
+§3.5.1	Interior Salish	cited affix	-ləx	the autonomous, -ílx ~ -ləx
+§3.5.1	Interior Salish	cited affix	-wíl̓x	the developmental, a lexically stressed suffix with an inchoative meaning
+§3.5.1	Henry Davis	notation	gʷ	the initial [w] ~ [gʷ] of the autonomous suffix in NK and LU
+footnote 20	Henry Davis	note	20 The difference between the autonomous and developmental is also clearly detectable in CX, but for a different reason. There, the developmental suffix is missing completely (its role is assumed by <C2> reduplication), and the autonomous suffix has the shape -iyiš, with the [y] and [š] clearly descended from the [l] and [x] in *-ilx, respectively.	page 14, footnote
+§3.5.1	Henry Davis	notation	š	the segment [š]
+footnote 21	Henry Davis	note	21 There is still a puzzle here, though: in IS, the developmental suffix comes with an extra [w], which is missing in the autonomous — in other words, the inverse of the situation in CS. This suggests a complex	page 14, footnote
+§3.5.1	Henry Davis	note	The autonomous and developmental suffixes have a complex distribution across Salish (see Kinkade & Kiyota 2004). They are most clearly distinguished in IS, where the autonomous takes the form -ílx ~ -ləx and has a lexical reflexive meaning, while the developmental is realized as a lexically stressed (strong) suffix -wíl̓x and has an inchoative (‘become’) meaning. In CS, these two suffixes have partially or completely merged in most languages (and the autonomous suffix has partially been supplanted by reflexives); however, in NK and LU, a phonological difference between the two can still be detected, based on the presence of an initial [w] ~ [gʷ] in the autonomous suffix which is missing in the developmental suffix.20 NK examples of the autonomous and developmental suffixes are given in (16) and (17), respectively. This is one of the few places where NK and LU pattern together in opposition to the rest of CS, though it is unclear whether the resemblance is due to contact or to shared history.21	page 14
+(16) line 1	Nooksack	transcription	Mi lha tesewíl xwemí tl’a ánats!	page 15, engine residue
+(16) line 2	Nooksack	segmentation	mí=ɬa təs-wíl xʷ-əmí ƛ̓+ʔánac	page 15, engine language
+(16) line 3	Nooksack	gloss	come=IMP close-AUT DIR-come OBL.DET+1SG.INDP	page 15, engine english
+(16) line 4	Henry Davis	translation	‘Come close to me!’	page 15, engine english
+(17) line 1	Nooksack	transcription	Ilh thatíl7 ta tsoxátsot.	page 15, engine english
+(17) line 2	Nooksack	segmentation	ʔiɬ=Ø θat-íl̓ ta=cux̌ácut	page 15, engine language
+(17) line 3	Nooksack	gloss	AUX=3SUBJ dark-DEV DET=sun	page 15, engine english
+(17) line 4	Henry Davis	translation	‘The sun grew dark (as in an eclipse).’	page 15, engine english
+§3.5.2	Henry Davis	heading	3.5.2 Transitivizers	page 15
+§3.5.2	Henry Davis	note	Table 10 shows the basic (non-applicative) transitivizers in Central Salish.	page 15
+Table 10	Henry Davis	note	Table 10: Transitivizers across Central Salish	page 15, the caption
+Table 10	Henry Davis	note	control	page 15, the head of a row
+Table 10 LU	Lushootseed	cited affix	-t	page 15, control, the LU column
+Table 10 NK	Nooksack	cited affix	-t, -n(t)	page 15, control, the NK column
+Table 10 UH	Upriver Halkomelem	cited affix	-t	page 15, control, the UH column
+Table 10 NSS	Northern Straits Salish	cited affix	-(ə)t	page 15, control, the NSS column
+Table 10 SQ	Squamish	cited affix	-t, -nt	page 15, control, the SQ column
+Table 10 SE	Sechelt	cited affix	-t	page 15, control, the SE column
+Table 10 CX	Comox	cited affix	-t	page 15, control, the CX column
+Table 10	Henry Davis	note	limited control	page 15, the head of a row
+Table 10 LU	Lushootseed	cited affix	-dxʷ	page 15, limited control, the LU column
+Table 10 NK	Nooksack	cited affix	-nəxʷ	page 15, limited control, the NK column
+Table 10 UH	Upriver Halkomelem	cited affix	-ləxʷ	page 15, limited control, the UH column
+Table 10 NSS	Northern Straits Salish	cited affix	-naxʷ	page 15, limited control, the NSS column
+Table 10 SQ	Squamish	cited affix	-nəxʷ	page 15, limited control, the SQ column
+Table 10 SE	Sechelt	cited affix	-nəxʷ	page 15, limited control, the SE column
+Table 10 CX	Comox	cited affix	-(n)xʷ	page 15, limited control, the CX column
+Table 10	Henry Davis	note	causative	page 15, the head of a row
+Table 10 LU	Lushootseed	cited affix	-txʷ	page 15, causative, the LU column
+Table 10 NK	Nooksack	cited affix	-txʷ	page 15, causative, the NK column
+Table 10 UH	Upriver Halkomelem	cited affix	-stəxʷ	page 15, causative, the UH column
+Table 10 NSS	Northern Straits Salish	cited affix	-taxʷ	page 15, causative, the NSS column
+Table 10 SQ	Squamish	cited affix	-s	page 15, causative, the SQ column
+Table 10 SE	Sechelt	cited affix	-stxʷ	page 15, causative, the SE column
+Table 10 CX	Comox	cited affix	-sxʷ	page 15, causative, the CX column
+Table 10	Henry Davis	note	(transitive)	page 15, the head of a row
+Table 10 NK	Nooksack	cited affix	(-ns)	page 15, (transitive), the NK column
+Table 10 UH	Upriver Halkomelem	cited affix	(-ləs)	page 15, (transitive), the UH column
+Table 10 NSS	Northern Straits Salish	cited affix	-nəs	page 15, (transitive), the NSS column
+Table 10	Henry Davis	note	(purposive)	page 15, the head of a row
+Table 10 NK	Nooksack	cited affix	(-aš ~ axy )	page 15, (purposive), the NK column
+Table 10 UH	Upriver Halkomelem	cited affix	(-əxy)	page 15, (purposive), the UH column
+Table 10 NSS	Northern Straits Salish	cited affix	-as ~ -əs	page 15, (purposive), the NSS column
+Table 10 SE	Sechelt	cited affix	(-aš ~ iš)	page 15, (purposive), the SE column
+Table 10 CX	Comox	cited form	(aš ~ iš)	page 15, (purposive), the CX column
+§3.5.2	Nooksack	cited affix	-txʷ	the causative
+§3.5.2	Proto-Salish	cited affix	*-stəxʷ	the causative *-stəxʷ, whose [s] NK deletes
+§3.5.2	Proto-Salish	cited affix	*-nəs	the relic transitivizer *-nəs of the South Georgia languages
+§3.5.2	Proto-Salish	cited affix	*-aš	the purposive transitivizer *-aš ~ -iš
+§3.5.2	Henry Davis	note	Of the five transitivizers shown in the table, the first three are “core” transitivizers which derive the vast majority of transitive verbs in all CS languages; the other two (parenthesized) are relic forms that attach to a small, finite set of roots.	page 15
+§3.5.2	Henry Davis	notation	š	the segment [š]
+§3.5.2	Henry Davis	note	As with intransitive markers, a comparison of core transitivizers in NK with those of its CS relatives is more striking for its similarities than for its differences. In fact, beyond regular phonological correspondences (*[n] > [l] in UH, *[n] > [d] in LU, *[š] > [s], *[u] > [a] in HL and NSS), there are only two points of variation, both of which include NK.	page 15
+§3.5.2	Henry Davis	note	The first is the presence of an -n(t) variant of the control transitivizer, which has a counterpart in SQ but nowhere else in CS. A NK example is given in (18).	page 15
+(18) line 1	Nooksack	transcription	Ilh xáykw’anas.	page 15, engine language
+(18) line 2	Nooksack	segmentation	ʔiɬ x̌áyk̓ʷ-an-Ø-as	page 15, engine language
+(18) line 3	Nooksack	gloss	AUX dry-CTR-3OBJ-3ERG	page 15, engine english
+(18) line 4	Henry Davis	translation	‘He dried it.’	page 15, engine english
+§3.5.2	Henry Davis	note	In IS, -n is a standard component of control transitives: for example, in TH and SH, -n acts as a pre-transitivizer, yielding a systematic -n-t pattern, while in LI, -t has been reanalyzed as part of the system of object pronouns, and the control transitivizer is simply -n. In this respect the NK historical picture, possibly with an originally undifferentiated *-wilx suffix which split separately into autonomous and developmental morphemes in the two main branches of the family.	page 15
+§3.5.2	Henry Davis	note	system, like SQ, is conservative relative to the rest of CS, and distinct from its immediate neighbours.22 The second difference involves the deletion of [s] in the causative suffix *-stəxʷ. Here NK patterns with LU and NSS (and contra UH) in deleting [s]; since deletion is presumably innovative, local influence from the south and west is likely here. (SQ has undergone a distinct reduction of *-stəxʷ to -s, an innovation it shares with LI and other NIS languages to the east.) An example of causative -txʷ in NK is given in (19).	page 16
+(19) line 1	Nooksack	transcription	T’ókw’txwas.	page 16, engine language
+(19) line 2	Nooksack	segmentation	t̕úk̓ʷ-txʷ-Ø-as	page 16, engine language
+(19) line 3	Nooksack	gloss	go.homeward-CAUS-3OBJ-3ERG	page 16, engine english
+(19) line 4	Henry Davis	translation	‘She took it home.’	page 16, engine english
+§3.5.2	Proto-Salish	cited affix	-iš	the purposive transitivizer *-aš ~ -iš
+§3.5.2	Nooksack	cited affix	-n(ə)s	the relic transitivizer of (20)
+§3.5.2	Henry Davis	note	The relic transitivizers are of chief interest for their geographical distribution: *-nəs is confined to the South Georgia languages HL, NK, and NSS (excluding SQ) while the distribution of the purposive transitivizer *-aš ~ -iš also includes the North Georgia languages, and thus is likely to be of greater antiquity, with local losses in SQ and LU.23 NK examples of -n(ə)s and the purposive transitivizer are given below in (20) and (21), respectively.	page 16
+(20) line 1	Nooksack	transcription	Ilh chaxw tl’ínsem.	page 16, engine residue
+(20) line 2	Nooksack	segmentation	ʔíɬ=čaxʷ ƛ̓í-ns-əm	page 16, engine language
+(20) line 3	Nooksack	gloss	AUX=2SG.SUBJ like/want-TRA-PASS	page 16, engine english
+(20) line 4	Henry Davis	translation	‘You are liked/wanted.’	page 16, engine english
+(21) line 1	Nooksack	transcription	Ilh ay kwálxes.	page 16, engine residue
+(21) line 2	Nooksack	segmentation	ʔiɬ ʔay kʷál-xy-Ø-as	page 16, engine language
+(21) line 3	Nooksack	gloss	AUX IPFV hide-PUR-3OBJ-3ERG	page 16, engine english
+(21) line 4	Henry Davis	translation	‘He is hiding it.’	page 16, engine english
+§3.5.3	Henry Davis	heading	3.5.3 Applicatives	page 16
+footnote 22	Henry Davis	note	22 TW has both a -d transitivizer (descended from -n by a regular sound change) and a -t transitivizer (Drachman 1969). Both are usually deleted before a following C, making it hard to reconstruct their distribution, particularly given the sparsity of material on the language.	page 16, footnote
+footnote 23	Henry Davis	note	23 All the examples of the purposive transitivizer in the NK corpus are from George Swanaset, and take the form -(a)xy, as expected for “Halkomelemized” NK. We would predict a less UH -influenced version to be pronounced -(a)š.	page 16, footnote
+§3.5.3	Nooksack	cited affix	-(a)š	the purposive as a less UH-influenced NK would pronounce it, in footnote 23
+§3.5.3	Halkomelem	cited affix	-əɬc-t	the redirective, an innovation
+§3.5.3	Halkomelem	cited affix	-əs-t	the redirective, an innovation
+§3.5.3	Sechelt and Comox	cited affix	-ʔəm-t	the redirective of the North Georgia region
+§3.5.3	Squamish	cited affix	-min̓-t	the relational, marginal in SQ
+§3.5.3	Henry Davis	note	There are three main applicative transitive combinations in CS, shown in Table 11. (For a detailed look at applicatives across the family, see Kiyosawa and Gerdts 2010, whose labeling conventions I adopt here.)	page 16
+Table 11	Henry Davis	note	Table 11: Applicatives across Central Salish	page 17, the caption
+Table 11	Henry Davis	note	redirective	page 17, the head of a row
+Table 11 LU	Lushootseed	cited affix	-yi-t	page 17, redirective, the LU column
+Table 11 NK	Nooksack	cited affix	-ši-t ~ -xyi-t	page 17, redirective, the NK column
+Table 11 UH	Upriver Halkomelem	cited affix	-əɬc-t, (-əs-t)	page 17, redirective, the UH column
+Table 11 NSS	Northern Straits Salish	cited affix	-si-t, -as-t	page 17, redirective, the NSS column
+Table 11 SQ	Squamish	cited affix	-ši-t	page 17, redirective, the SQ column
+Table 11 SE	Sechelt	cited affix	-ʔəm-t	page 17, redirective, the SE column
+Table 11 CX	Comox	cited affix	-ʔəm-t	page 17, redirective, the CX column
+Table 11	Henry Davis	note	relational	page 17, the head of a row
+Table 11 LU	Lushootseed	cited affix	-mid	page 17, relational, the LU column
+Table 11 UH	Upriver Halkomelem	cited affix	-mə-t	page 17, relational, the UH column
+Table 11 NSS	Northern Straits Salish	cited affix	-ŋi-t	page 17, relational, the NSS column
+Table 11 SQ	Squamish	cited affix	(-min̓-t)	page 17, relational, the SQ column
+Table 11 SE	Sechelt	cited affix	-mi-t	page 17, relational, the SE column
+Table 11 CX	Comox	cited affix	-mi-t	page 17, relational, the CX column
+Table 11	Henry Davis	note	indirective	page 17, the head of a row
+Table 11 LU	Lushootseed	cited affix	(-did)	page 17, indirective, the LU column
+Table 11 NK	Nooksack	cited affix	-ni-t	page 17, indirective, the NK column
+Table 11 NSS	Northern Straits Salish	cited affix	(-ni-t)	page 17, indirective, the NSS column
+Table 11 SQ	Squamish	cited affix	-ni-t	page 17, indirective, the SQ column
+Table 11 SE	Sechelt	cited affix	(-ni-t)	page 17, indirective, the SE column
+Table 11 CX	Comox	cited affix	(-ni-t)	page 17, indirective, the CX column
+§3.5.3	Henry Davis	note	Looking first at the redirectives, NK patterns with LU (and TW), NSS (and KL), and SQ in using reflexes of Proto-Salish *-xi-t as their redirective markers. The distribution of these forms is widespread, indicating that it was the original pattern, supplanted locally by innovative forms in the North Georgia region (-ʔəm-t) and HL (-əɬc-t, -əs-t: for the latter, see Gerdts 2010). This hypothesis is confirmed when we look further afield: reflexes of *-xi-t are found in all major branches of the family, and it is the only redirective applicative which can be clearly reconstructed to Proto-Salish (Kiyosawa & Gerdts 2010). A NK redirective is given in (22).	page 16
+(22) line 1	Nooksack	transcription	Óxwshits.	page 17, engine residue
+(22) line 2	Nooksack	segmentation	ʔúx̌ʷ-šit-s	page 17, engine language
+(22) line 3	Nooksack	gloss	go-RDR-1SG.OBJ	page 17, engine english
+(22) line 4	Henry Davis	translation	‘Go get it for me.’	page 17, engine english
+§3.5.3	Henry Davis	note	Turning to the relationals, the most significant variation is the absence of reflexes of the Proto- Salish relational suffix *-min(-t) in NK. This is tied to the fact that NK makes much more extensive use of indirective *-ni-t than most other CS languages, where it is generally confined to a very few stems (around 6 in SE and 2 in CX, for example). A NK example is given in (23):	page 17
+(23) line 1	Nooksack	transcription	Oxw chewáxnitas.	page 17, engine residue
+(23) line 2	Nooksack	segmentation	ʔux̌ʷ čəwaxy-nit-Ø-as	page 17, engine language
+(23) line 3	Nooksack	gloss	go wife-IND-3OBJ-3ERG	page 17, engine english
+(23) line 4	Henry Davis	translation	‘He went to get her for a wife.’	page 17, engine english
+§3.5.3	Squamish	cited affix	min̓-t	three stems with min̓-t in Kuipers (1967:78)
+§3.5.3	Henry Davis	note	The only other CS language with an appreciable number of ni-t forms is SQ, where, significantly, -min̓-t is also marginal: Kuipers (1967:78) reports only three stems with min̓-t, one of them representing a less usual alternate of -ni-t. NK/SQ thus represents the inverse of the situation in the rest of CS.	page 17
+§3.5.3	Henry Davis	note	Looking further afield, *-ni-t is confined to Coast Salish (including Tsamosan as well as the Central branch), whereas *-min(-t) is widespread both in Interior and Coast Salish, again including the Tsamosan branch. The most likely explanation for the present distribution involves competition between *-ni-t and *-min-t at an earlier stage of Coast Salish, with -min-t winning out except in NK and SQ.	page 17
+footnote 24	Henry Davis	note	24 For consistency, I have segmented each of these combinations into a pre-transitivizing applicative component and a transitivizer (as seems to have been the pattern in Proto-Salish): however, it is likely that in some languages, some or all combinations of the two components have fused.	page 17, footnote
+§3.6	Henry Davis	heading	3.6 Clausal negation	page 18
+§3.6	Henry Davis	note	Clausal negation shows significant variation across CS.25 In NK, it follows a pattern known as “Type B” in the classification of Davis (2005), characterized by subjunctive subject marking on the complement to the negative predicate, with a “doubled” subject clitic attached to the negative predicate itself, as shown in the NK example in (24) below.	page 18
+(24) line 1	Nooksack	transcription	Ów7a chan t’íliman.	page 18, engine residue
+(24) line 2	Nooksack	segmentation	ʔə́w̓ə=čan t̕íl-im=an	page 18, engine language
+(24) line 3	Nooksack	gloss	NEG=1SG.SUBJ sing-MID=1SG.SJV	page 18, engine english
+(24) line 4	Henry Davis	translation	‘I did not sing.’	page 18, engine english
+§3.6	Henry Davis	note	Type B is attested in five CS languages: HL, NK, SE, CX, and PT. In other CS languages, the negative predicate either: (i) takes a nominalized subordinate clause (“Type A”), as in LU, and also as a secondary pattern in NSS, KL, HL, and probably TW;26 (ii) acts as an auxiliary, as in NSS, KL, and TW (“Type C”); or (iii) in the case of SQ, shows a distinct subjunctive pattern (“Type B'”), introduced by the irrealis complementizer q=.	page 18
+§3.6	Henry Davis	note	The distribution of these patterns is shown in Table 12.	page 18
+Table 12	Henry Davis	note	Table 12: Clausal negation across Central Salish	page 18, the caption
+Table 12	Henry Davis	note	Type A primary — secondary secondary — — —	page 18, LU primary, NK —, UH secondary, NSS secondary, SQ —, SE —, CX —
+Table 12	Henry Davis	note	Type B — primary primary — — primary primary	page 18, LU —, NK primary, UH primary, NSS —, SQ —, SE primary, CX primary
+Table 12	Henry Davis	note	Type B’ — — — — primary — —	page 18, LU —, NK —, UH —, NSS —, SQ primary, SE —, CX —
+Table 12	Henry Davis	note	Type C — — — primary — — —	page 18, LU —, NK —, UH —, NSS primary, SQ —, SE —, CX —
+§3.6	Henry Davis	note	The distribution of Type B is disjoint, encompassing the South Georgia languages NK and HL and the North Georgia branch, including PT as well as SE and CX, separated by SQ in the middle. I explore the significance of this distribution in Section 5.1 below.	page 18
+§3.6	Henry Davis	note	SQ shows a unique Type B’ pattern that, as discussed in Davis (2005), likely represents a precursor of Type B: however, this does not explain why Type B languages appear on both sides of it. In any case, Type B negation in NK is most likely borrowed from UH, which is the only of its neighbours to show this pattern.	page 18
+§3.7	Henry Davis	heading	3.7 Independent pronouns and clefts	page 18
+§3.7	Henry Davis	note	Here, I discuss two parameters of variation for independent pronouns, and a third based on the form of the clefting predicate, which in most CS languages is formally identical to the third-person independent pronoun. The first parameter concerns the opposition between alternating and invariant pronoun systems (Section 3.7.1); the second, the use of first- and second-person independent pronouns instead of object agreement (Section 3.7.2); and the third, the form of the clefting predicate (Section 3.7.3).	page 18
+footnote 25	Henry Davis	note	25 I do not discuss negative existential predicates (‘there is/are no…’) here: they show a separate (though related) distribution. See Davis (2005).	page 18, footnote
+footnote 26	Henry Davis	note	26 There is one example in the NK corpus where negation takes a nominalized subordinate clause, as in Type C languages.	page 18, footnote
+§3.7.1	Henry Davis	heading	3.7.1 Alternating versus invariant independent pronouns	page 19
+§3.7.1	Henry Davis	note	The distinction between invariant and alternating independent pronoun systems is introduced in Davis (2022): in invariant systems, the pronoun has the same form in both predicate and argument positions, whereas in alternating systems, including NK, a pronoun in argument position is introduced by a determiner (25a) which is missing in predicate position (25b).	page 19
+(25a) line 1	Nooksack	transcription	Nestl’í tanowí.	page 19, engine residue
+(25a) line 2	Nooksack	segmentation	nə-s-ƛ̓í=Ø ta+nəwí	page 19, engine language
+(25a) line 3	Nooksack	gloss	1SG.POSS-NMLZ-like/want=3SUBJ DET+2SG.INDP	page 19, engine english
+(25a) line 4	Henry Davis	translation	‘I like you.’ (‘You are my liking.’)	page 19, engine english
+(25b) line 1	Nooksack	transcription	Oxw kwom nowí nswáqets.	page 19, engine language
+(25b) line 2	Nooksack	segmentation	ʔúx̌ʷ=Ø=kʷəm nəwí n-s-wáqəc	page 19, engine language
+(25b) line 3	Nooksack	gloss	PROS=3SUBJ=FUT 2SG.INDP 1SG.POSS-NMLZ-husband	page 19, engine english
+(25b) line 4	Henry Davis	translation	‘You will be my husband.’ (‘It is going to be you who will be my husband.’)	page 19, engine english
+§3.7.1	Henry Davis	note	The distribution of these systems is given in Table 13.	page 19
+Table 13	Henry Davis	note	Table 13: Invariant and alternating independent pronoun systems in Central Salish	page 19, the caption
+Table 13	Henry Davis	note	invariant alternating alternating alternating alternating alternating invariant	page 19, LU invariant, NK alternating, UH alternating, NSS alternating, SQ alternating, SE alternating, CX invariant
+§3.7.1	Henry Davis	note	The pattern shown here clearly sets off the periphery of Central Salish territory (LU and CX) against its core (the other five languages). On well-established principles of diachronic change, this strongly suggests an older pattern at the edges being supplanted by an innovative one in the middle. This conclusion is further supported by the fact that elsewhere in the family (e.g., in the Interior) the invariant pattern is the rule (see Davis 2022). NK, as a member of the South Georgian core, shares the innovative pattern.	page 19
+§3.7.2	Henry Davis	heading	3.7.2 Free use of independent pronouns as arguments	page 19
+§3.7.2	Henry Davis	note	The second parameter concerns the use of first and second-person independent pronouns with third person object agreement as a freely available alternative to first and second-person object agreement. An example from NK is given in (26): see also (7) above and Wiltschko and Burton (2004) for UH.	page 19
+(26) line 1	Nooksack	transcription	Ilh chan xlhet teweláp.	page 19, engine english
+(26) line 2	Nooksack	segmentation	ʔíɬ=čan x̌ɬ-ət-Ø ta+wəláp	page 19, engine language
+(26) line 3	Nooksack	gloss	AUX=1SG.SUBJ hurt-CTR-3OBJ DET+2PL.INDP	page 19, engine english
+(26) line 4	Henry Davis	translation	‘I beat you folks up.’	page 19, engine english
+§3.7.2	Henry Davis	note	The distribution of this pattern is given in Table 14.	page 19
+Table 14	Henry Davis	note	Table 14: Use of 1st- and 2nd- person independent pronouns as arguments in Central Salish	page 20, the caption
+Table 14	Henry Davis	note	free use of independent pronouns as arguments — √ √ — — — —	page 20, LU —, NK √, UH √, NSS —, SQ —, SE —, CX —
+§3.7.2	Henry Davis	note	As the table shows, this development is a local innovation shared between NK and UH, with UH the most likely source.27	page 20
+§3.7.3	Henry Davis	heading	3.7.3 The clefting particle and the third-person independent pronoun	page 20
+§3.7.3	Henry Davis	note	All Central Salish languages make use of a special predicative particle to introduce the equivalent of an English cleft construction (referred to by Kroeber 1999:370 as an “introduced cleft”): this particle is probably best treated as an equational copula, as assumed in, e.g., Davis (2022). In most CS languages (including NK), the clefting predicate is identical in form to the third- person independent pronoun.28 It is an open question, however, whether its syntax is distinct: see Davis (2022) and references therein. A NK examples of a cleft (27a) and a predicative third-person independent pronoun (27b) are given below.	page 20
+(27a) line 1	Nooksack	transcription	Tl’o kw[7]áno ilh yawán ha7lh.	page 20, engine language
+(27a) line 2	Nooksack	segmentation	ƛ̓’u=Ø kʷ[ʔ]á-nu ʔiɬ yawán haʔɬ	page 20, engine language
+(27a) line 3	Nooksack	gloss	CLEFT=3SUBJ DEM-right AUX first good	page 20, engine english
+(27a) line 4	Henry Davis	translation	‘That’s the best.’ (‘It’s that one (that) is the best.’)	page 20, engine english
+(27b) line 1	Nooksack	transcription	Tl’o an7ma se7ásawot.	page 20, engine language
+(27b) line 2	Nooksack	segmentation	ƛ̓u=Ø an̓=ma səʔásawət	page 20, engine language
+(27b) line 3	Nooksack	gloss	3INDP=3SUBJ very=so youngest.in.family	page 20, engine english
+(27b) line 4	Henry Davis	translation	‘He’s the very youngest.’ (‘He is the one who is the very youngest.’)	page 20, engine english
+§3.7.3	Lushootseed	cited form	diɬ	the clefting predicate
+§3.7.3	Nooksack	cited form	ƛ̓u	the clefting predicate and third-person independent pronoun
+§3.7.3	Halkomelem	cited form	ƛ̓a	the clefting predicate, ƛ̓u after the u → a shift
+§3.7.3	Central Salish	cited form	niɬ	the clefting particle of the languages with a reflex of PS *niɬ
+§3.7.3	Lushootseed	cited form	cədiɬ	the third-person independent pronoun
+footnote 27	Henry Davis	note	27 There are scattered instances of this pattern in other languages (e.g., TW); however, particularly for languages such as TW where almost all available data were gathered at a point of severe language attrition, it is important to err on the side of caution in attributing such instances to the core grammar of the language, as opposed to a replacement effect triggered by the loss of agreement morphology.	page 20, footnote
+footnote 28	Henry Davis	note	28 Historically, the third-person independent pronoun can be reconstructed to PS as *cəniɬ (Newman 1977), whereas the clefting particle niɬ is never realized with reflexes of an initial [c].	page 20, footnote
+§3.7.3	Proto-Salish	cited form	cəniɬ	the third-person independent pronoun, reconstructed by Newman (1977)
+§3.7.3	Henry Davis	note	Table 15 shows the form of the clefting predicate across CS, with the predicative form of the third- person independent pronoun for comparison. (Note that the three northernmost languages generally use demonstratives in place of third person independent pronouns, as indicated by DEM in the table.)	page 20
+Table 15	Henry Davis	note	Table 15: Form of the clefting predicate and the 3rd-person independent pronoun in Central Salish	page 20, the caption
+Table 15	Henry Davis	note	clefting particle	page 20, the head of a row
+Table 15 LU	Lushootseed	cited form	diɬ	page 20, clefting particle, the LU column
+Table 15 NK	Nooksack	cited form	ƛ̓u	page 20, clefting particle, the NK column
+Table 15 UH	Upriver Halkomelem	cited form	ƛ̓a	page 20, clefting particle, the UH column
+Table 15 NSS	Northern Straits Salish	cited form	niɬ	page 20, clefting particle, the NSS column
+Table 15 SQ	Squamish	cited form	niɬ	page 20, clefting particle, the SQ column
+Table 15 SE	Sechelt	cited form	niɬ	page 20, clefting particle, the SE column
+Table 15 CX	Comox	cited form	hiɬ	page 20, clefting particle, the CX column
+Table 15	Henry Davis	note	3rd-person independent pronoun	page 20, the head of a row
+Table 15 LU	Lushootseed	cited form	cədiɬ	page 20, 3rd-person independent pronoun, the LU column
+Table 15 NK	Nooksack	cited form	ƛ̓u	page 20, 3rd-person independent pronoun, the NK column
+Table 15 UH	Upriver Halkomelem	cited form	ƛ̓a	page 20, 3rd-person independent pronoun, the UH column
+Table 15 NSS	Northern Straits Salish	cited form	niɬ	page 20, 3rd-person independent pronoun, the NSS column
+Table 15 SQ	Henry Davis	note	— (DEM)	page 20, 3rd-person independent pronoun, the SQ column
+Table 15 SE	Sechelt	cited form	niɬ (?) (DEM)	page 20, 3rd-person independent pronoun, the SE column
+Table 15 CX	Henry Davis	note	— (DEM)	page 20, 3rd-person independent pronoun, the CX column
+§3.7.3	Henry Davis	note	In the form of the clefting predicate, NK and UH differ from all the other languages represented here: whereas the latter all employ a reflex of PS *niɬ, NK and UH employ a predicative particle whose original form was likely *ƛ̓u, with the subsequent u → a shift in HL yielding ƛ̓a. See Section 5.2 for discussion of the origin of this unusual form.	page 20
+§3.7.3	Proto-Salish	cited form	cəníɬ	the third-person independent pronoun
+§3.7.3	Henry Davis	note	The relationship between the form of the clefting predicate and the third-person independent pronoun shows a three-way split. First, SQ, CX, and possibly SE (the data are not clear) do not use a reflex of PS *cəníɬ for the third-person independent pronoun: instead, they employ a demonstrative pronoun. Second, in NK, HL, and SS, third-person pronouns are identical to the clefting predicate when in predicate position, but are introduced by determiners in argument positions, since these languages have alternating pronoun systems (see Table 14). And third, LU (as well as TW) is conservative in maintaining a formal distinction between its third-person independent pronoun cədiɬ and its clefting predicate diɬ.	page 21
+§4	Henry Davis	heading	4 Results	page 21
+§4	Henry Davis	note	Table 16 summarizes the most salient grammatical differences which emerge from the comparison carried out in Section 3 between NK and its CS relatives and neighbours. NK is set to positive for each of the sixteen variables in the table.	page 21
+Table 16	Henry Davis	note	Table 16: Grammatical variation across Central Salish from a NK perspective	page 21, the caption
+Table 16	Henry Davis	note	imperfective auxiliary — √ — — √ — —	page 21, LU —, NK √, UH —, NSS —, SQ √, SE —, CX —
+Table 16	Henry Davis	note	oblique proper noun determiner — √ √ (√) √ — —	page 21, LU —, NK √, UH √, NSS (√), SQ √, SE —, CX —
+Table 16	Henry Davis	note	no oblique marker — √ √ — — — —	page 21, LU —, NK √, UH √, NSS —, SQ —, SE —, CX —
+Table 16	Henry Davis	note	3 ergative suffix in indicative clauses — √ √ √ √ √ √	page 21, LU —, NK √, UH √, NSS √, SQ √, SE √, CX √
+Table 16	Henry Davis	note	no 3 ergative suffix in subjunctive clauses √ √ — — — — —	page 21, LU √, NK √, UH —, NSS —, SQ —, SE —, CX —
+Table 16	Henry Davis	note	3 ergative suffix in nominalized clauses — √ √ — √ — √	page 21, LU —, NK √, UH √, NSS —, SQ √, SE —, CX √
+Table 16	Henry Davis	note	*3 > 2 — √ √ √ √ √ —	page 21, LU —, NK √, UH √, NSS √, SQ √, SE √, CX —
+Table 16	Henry Davis	note	promotional passive √ √ — √ √ — —	page 21, LU √, NK √, UH —, NSS √, SQ √, SE —, CX —
+Table 16	Henry Davis	note	SV(O) word order — √ √ √ √ — —	page 21, LU —, NK √, UH √, NSS √, SQ √, SE —, CX —
+Table 16	Henry Davis	note	unmarked VOS word order — √ — — — — —	page 21, LU —, NK √, UH —, NSS —, SQ —, SE —, CX —
+Table 16	Henry Davis	note	use of *-xi-t redirective √ √ — √ √ — —	page 21, LU √, NK √, UH —, NSS √, SQ √, SE —, CX —
+Table 16	Henry Davis	note	use of -ni-t rather than -min-t — √ — — √ — —	page 21, LU —, NK √, UH —, NSS —, SQ √, SE —, CX —
+Table 16	Henry Davis	note	pattern B negation — √ √ — — √ √	page 21, LU —, NK √, UH √, NSS —, SQ —, SE √, CX √
+Table 16	Henry Davis	note	alternating independent pronouns — √ √ √ √ √ —	page 21, LU —, NK √, UH √, NSS √, SQ √, SE √, CX —
+Table 16	Henry Davis	note	free use of independent pronouns as arguments — √ √ — — — —	page 21, LU —, NK √, UH √, NSS —, SQ —, SE —, CX —
+Table 16	Henry Davis	note	use of ƛ̓u/ƛ̓a as clefting predicate — √ √ — — — —	page 21, LU —, NK √, UH √, NSS —, SQ —, SE —, CX —
+§4.1	Henry Davis	heading	4.1 Nooksack is an independent grammatical system	page 21
+§4.1	Henry Davis	note	Of the 16 different parameters represented here, NK shares 10 with SQ and UH, 6 or 7 with NSS, 4 with SE, and 3 with LU and CX.	page 21
+§4.1	Henry Davis	note	These results are striking in two ways. First, they clearly establish NK as a grammatical system in its own right, parallel to Galloway’s findings for phonology. Though there is only a single trait which sets NK off against all other Central Salish languages (unmarked VOS word order), the maximum number of values which it share with any other single language is 10 (62.5%). Second, on the question of the relative influence of history over geography on the grammar of NK, a clear answer emerges. NK shares 10 traits with its close relative SQ, even though they are not neighbours (or at least, not in recent history). On the other hand, it shares only three traits with its more distant relative but immediate neighbour, LU: aside from CX, which is both historically and geographically distant, this is the lowest number of characteristics it shares with any other CS language.	page 21
+§4.1	Henry Davis	note	This is particularly striking in view of the fact that two out of the three principal NK speakers represented in the corpus (SJ and LG) were first language speakers of the Upper Skagit dialect of LU. It is clear that these speakers maintained NK and LU as quite separate grammatical systems.29	page 22
+§5	Henry Davis	heading	5 Nooksack as a window into the history of Central Salish	page 22
+§5	Henry Davis	note	What more can we learn from these results about the history of CS?	page 22
+§5	Henry Davis	note	First of all, the high number of grammatical traits shared between NK and SQ (10) suggests that they must have been geographically contiguous at some point. This is further reinforced by the fact that, though NK also shares 10 traits with neighbouring UH, these are not always the same as those it shares with SQ. The overlap between the three languages is 60% (6/10), which means that 40% of the characteristics shared between NK and SQ “skip” UH.30 This means one of three things: either (i) SQ speakers moved across HL territory from the south to their current location, (ii) NK speakers moved in the opposite direction, or (iii) HL bisected SQ and NK. The third possibility seems much the most likely, which in turn suggests that UH arrived later in the area — and this in turn raises the issue of where it came from. There are really only two possible directions: from the east (the Upper Fraser Valley and Lower Fraser Canyon, adjacent to TH territory), from where it spread downriver to present DH territory and then across the Georgia Straight to current IH territory; or from the west, either from DH territory, or even further west, from IH territory across the Georgia Straight.	page 22
+§5	Henry Davis	note	I want to suggest — tentatively — the last of these possibilities, drawing on the following lines of argumentation:	page 22
+§5	Henry Davis	note	(i) There are some otherwise inexplicable connections between HL and the North Georgia languages — crucially excluding SQ. The only place where there is geographical contiguity between CX, PT, and SE on the one hand and HL on the other is in the Georgia Straight area.	page 22
+§5	Henry Davis	language	nɬeʔkepmxcín	page 22, Thompson River Salish
+§5	Henry Davis	note	(ii) SQ has had obvious and extensive morphosyntactic influence on its NIS neighbour LI. In contrast, UH has had very little grammatical influence on either LI or its other NIS neighbour nɬeʔkepmxcín/Thompson River Salish (TH), even though major trade and travel routes to the coast (via Harrison Lake in the case of the LI and the Fraser River in the case of TH) go right through UH territory in the Fraser Valley, and extensive contact has been documented in more recent historical times.	page 22
+§5	Henry Davis	note	I elaborate on these points further in sections 5.1 and 5.2, respectively.	page 22
+footnote 29	Henry Davis	note	29 There are some minor influences of LU on the grammar of LG in particular: her grammar contains the “perfective” prefix wə-, clearly cognate with LU u-.	page 22, footnote
+§5	Nooksack	cited affix	wə-	the “perfective” prefix of Louisa George's grammar, cognate with LU u-
+footnote 30	Henry Davis	note	30 The NK bias of the sample means it is not possible to generalize beyond these results on the basis of Table 16; a more comprehensive examination would include grammatical traits which distinguish other CS languages from each other, but not necessarily from NK.	page 22, footnote
+§5.1	Henry Davis	heading	5.1 Halkomelem and the North Georgia languages	page 23
+§5.1	Henry Davis	note	Two points of grammatical variation seem to indicate shared history between HL and the North Georgia languages.	page 23
+§5.1	Henry Davis	note	The first is the retention of the non-promotional passive, shared by HL, CX, SE, and probably PT (see Section 3.2.3 above). It is of course conceivable that resistance to the (presumably innovative) promotional passive took place independently in HL and the North Georgia languages. However, it is less likely that the promotional passive developed independently in SQ from NK, NSS, and LU: passives in all of these languages share the same form, with the third-person passive -m generalizing to all persons and supplanting the subordinate passive -t (see Kroeber 1999:26– 28). If promotional passive is a shared innovation, then SQ must have been contiguous to NK at the time it took place, which suggests HL speakers were later arrivals in the Fraser Valley. And if HL originated in the Georgia Strait region, this would in turn make promotional passive-resisting languages into a contiguous block on either side of the Strait.	page 23
+§5.1	Henry Davis	note	The second point involves the distribution of Type B negation, which is very unlikely to have developed independently in HL and the north Georgia languages, given its rather unusual profile, involving a main clause (indicative) subject clitic on the negative predicate doubling a subjunctive subject clitic on the negated predicate (see Section 3.6 above).	page 23
+§5.1	Henry Davis	note	Type B languages include NK, HL, and the North Georgia branch, including CX, SE, and PT. NK almost certainly borrowed the pattern from UH, but where did the North Georgia languages get it? Once again, we are led to the conclusion that HL must have been in geographical proximity to CX, PT, and SE when it developed — and since SQ is not a Pattern B language (it has a distinct system of subjunctive negation), the only location which fits this description is the Georgia Strait region where IH is spoken.	page 23
+§5.2	Henry Davis	heading	5.2 Transmontane contact with NIS languages	page 23
+§5.2	Henry Davis	note	Patterns of “transmontane” grammatical borrowing between CS and NIS suggest that SQ and NK have been in longer linguistic contact with LI and TH than UH has.	page 23
+§5.2	Henry Davis	note	There has been extensive lexical borrowing from both SQ and HL into LI and TH (Kinkade 1995; Kuipers 2002; Pincott 2020).31 However, morphosyntactic influence on LI is confined to SQ. As has been documented extensively, beginning with Newman (1979a,b, 1980), the LI pronominal system has been partially borrowed from SQ; there is nothing like this scale of influence on LI from UH.32 As for TH, there seems to be no trace of CS influence from either SQ or HL on its grammar, even though the most important trade route from the interior to the coast went right down the Fraser River from TH territory through UH territory. This again suggests that HL speakers were later arrivals in the Upper Fraser Valley.	page 23
+§5.2	Henry Davis	note	On the other hand, there are at least three apparent cases of grammatical borrowing by NK from TH, suggesting an earlier period of transmontane contact.	page 23
+§5.2	nɬeʔkepmxcín	cited affix	-nwéɬən	the non-control intransitive morpheme
+footnote 31	Henry Davis	note	31 The same is true to a somewhat lesser extent of borrowing from the North Georgia languages SE and CX into LI (van Eijk et al. 1974); trade routes to the coast are known to have existed from LI territory over the mountains and down the inlets into the Georgia Strait.	page 23, footnote
+§5.2	Nooksack	cited affix	-waɬən	the first-person plural object marker
+§5.2	Henry Davis	note	The first (noted by Galloway 1997:34) involves the non-control intransitive morpheme -nwéɬən (present in TH and SH, but not in contemporary LI), which shows up in two CS languages: first, in SQ as a ‘limited control unergative’ marker (Jacobs 2011:141), and second in NK (oddly) as the first-person plural object marker -waɬən, first recognized by Galloway (1997) and illustrated in (28) below.	page 23
+(28) line 1	Nooksack	transcription	Ilh ay po7otxwálhanas ta spo7ch.	page 24, engine residue
+(28) line 2	Nooksack	segmentation	ʔiɬ ʔay puʔu-txʷ+[w]áɬən-as ta=spúʔč	page 24, engine language
+(28) line 3	Nooksack	gloss	AUX IPFV blow-CAUS+1PL.OBJ-3ERG DET=wind	page 24, engine english
+(28) line 4	Henry Davis	translation	‘The wind was blowing on us.’	page 24, engine english
+§5.2	Proto-Salish	cited affix	-nwaɬən	*-nwaɬən, which became an object marker in NK
+§5.2	Henry Davis	note	I have no idea why *-nwaɬən ended up as an object marker in NK, but the existence of reflexes of this morpheme in NK and SQ, but not in HL, suggests an earlier period when TH was in contact with SQ and NK.	page 24
+§5.2	Nooksack	cited form	ƛ̓u	the clefting predicate and third-person independent pronoun
+§5.2	Halkomelem	cited form	ƛ̓a	the clefting predicate, ƛ̓u after the u → a shift
+§5.2	Henry Davis	note	The second case involves the clefting predicate/third-person intransitive pronoun, which shows up as ƛ̓u in NK and as ƛ̓a in mainland HL (DH a s well as UH): see Section 3.7.3 above. The phonological difference between the NK and HL forms suggests it was borrowed from NK into HL prior to the u → a shift which affected the latter, setting an upper time limit on the arrival of HL speakers into the Upper Fraser Valley.33 However, this does not tell us where *ƛ̓u came from in the first place.	page 24
+§5.2	nɬeʔkepmxcín	cited form	ƛ̓uʔ	the exclusive particle, ‘so, just, but, only’
+§5.2	nɬeʔkepmxcín	cited form	cukʷ	‘finish’
+§5.2	Henry Davis	note	There do not appear to be any obvious candidates in CS, but there are in NIS: specifically, the exclusive particle ƛ̓uʔ ‘so, just, but, only’ which is ubiquitous in both TH and LI. 34 While it is not itself a clefting particle, ƛ̓uʔ occurs predictably in both languages in the exclusive (‘only’) construction, which is a type of cleft, involving the predicate cukʷ ‘finish’ together with ƛ̓uʔ.	page 24
+(29) line 1	nɬeʔkepmxcín	segmentation	cúkʷ=ƛ̓uʔ=weʔ e=kéyx e=wík-t-Ø-ne.	page 24, engine language, TH, from Koch & Zimmermann 2009:242
+(29) line 2	nɬeʔkepmxcín	gloss	finish=EXCL=DEM DET=hand COMP=see-TRA-3OBJ-1SG.ERG	page 24, engine english, TH, from Koch & Zimmermann 2009:242
+(29) line 3	Henry Davis	translation	‘I only see a hand there.’ (literally ‘It’s only a hand that I see there.’)	page 24, engine english, cited TH: Koch & Zimmermann 2009:242
+(29) line 4	Henry Davis	citation	(TH: Koch & Zimmermann 2009:242)	page 24, engine english
+(30) line 1	St’át’imcets	segmentation	cúkʷ=ƛ̓uʔ látiʔ ta=skʷákst=a waʔ ʔác̓x̌-ən-Ø-an	page 24, engine language, LI, from the consultant CA
+(30) line 2	St’át’imcets	gloss	finish=EXCL DEM DET=hand=EXIS IPFV see-TRA-3OBJ-1SG.ERG	page 24, engine english, LI, from the consultant CA
+(30) line 3	Henry Davis	translation	‘I only see a hand there.’ (literally ‘It’s only a hand that I see there.’)	page 24, engine english
+(30) line 3	Henry Davis	citation	(LI: CA)	the tag or source at the right of the translation
+footnote 33	Henry Davis	note	33 Another useful phonological marker for the time depth of the arrival of HL in the area is the partial palatalization of PS */k/ /k̓/ /x/ to /ky/ /k̓y/ /xy/ in mainland HL (DH and UH), in contrast to (non- Halkomelemized) NK and SQ, both of which have fully palatalized the Proto-Salish series to /č/ /č̓/ /š/. This suggests HL was originally more conservative than its CS relatives, with palatalization eventually spreading to IH but only partially to DH and UH, which in this respect alone makes HL the most conservative of CS languages. It also means that the arrival of UH speakers into their current territory must have predated the spread of palatalization to IH, setting an upper temporal bound for the migration. See also Pincott (2020) for evidence that palatalization must have taken place in CS after the branch had already started to diverge from Proto-Salish.	page 24, footnote
+§5.2	Henry Davis	notation	/k̓/	the ejective velar of the PS series */k/ /k̓/ /x/
+§5.2	Henry Davis	notation	/k̓y/	a palatalized ejective velar of mainland HL
+§5.2	Henry Davis	notation	/č/	the palato-alveolar affricate
+§5.2	Henry Davis	notation	/č̓/	the ejective palato-alveolar affricate
+§5.2	Henry Davis	notation	/š/	the palato-alveolar fricative
+footnote 34	Henry Davis	note	34 It is just possible that *ƛ̓u is related to the oblique proper noun determiner ƛ̓= found in both HL and NK as well as SQ. However, the more likely source for the latter is the oblique determiner tɬ= found in NSS: see Section 3.3.1 above.	page 24, footnote
+§5.2	Nooksack	cited affix	ƛ̓=	the oblique proper noun determiner of NK, HL and SQ
+§5.2	Northern Straits Salish	cited affix	tɬ=	the oblique determiner, tɬ= ~ ƛ̓=
+§5.2	Nooksack	cited form	ʔiɬ	the auxiliary
+§5.2	Henry Davis	note	This opens up the possibility that NK borrowed ƛ̓uʔ, likely from TH, and reanalyzed it as clefting predicate, once again attesting to early contact between the two languages. A third case of potential TH influence involves the ubiquitous NK auxiliary ʔiɬ (see examples (3), (5–7), (10)–(13), (17)–(18), (20)–(21), and (26)–(28) above). In his preliminary draft of the NK grammar, Galloway assumes that ʔiɬ must be derived from the common UH auxiliary ʔi (also present in NK) plus a reduced version of the past tense enclitic =uɬ. The problem with this hypothesis is that there is clearly no past tense component to ʔiɬ: it occurs readily in present tense contexts (31) and co-occurs with =uɬ in past tense contexts (32):	pages 24 and 25
+(31) line 1	Nooksack	transcription	Ilh oxw á7axits.	page 25, engine english
+(31) line 2	Nooksack	segmentation	ʔiɬ=Ø ʔux̌ʷ ʔá<ʔa>x̌ič	page 25, engine language
+(31) line 3	Nooksack	gloss	AUX=3SUBJ go lie.down<DIM>	page 25, engine english
+(31) line 4	Henry Davis	translation	‘He’s going off to lie down for a bit.’	page 25, engine english
+(32) line 1	Nooksack	transcription	Iĺhalh tl’om?	page 25, engine residue
+(32) line 2	Nooksack	segmentation	ʔiɬ=a+uɬ=Ø ƛ̓um	page 25, engine language
+(32) line 3	Nooksack	gloss	AUX=Q+PST=3SUBJ alright	page 25, engine english
+(32) line 4	Henry Davis	translation	‘Was it alright?’	page 25, engine english
+§5.2	nɬeʔkepmxcín	cited form	ʔeyɬ	the adverb ‘now, next, then’
+§5.2	St’át’imcets	cited form	ʔayɬ	the adverb ‘now, next, then’
+§5.2	Henry Davis	note	However, it turns out there is a plausible alternative source in NIS: the adverb ʔeyɬ (TH) / ʔayɬ (LI), ‘now, next’, then’, which is extremely frequent in both languages.	page 25
+(33) line 1	nɬeʔkepmxcín	segmentation	xʷúy̓=kt=wiʔ ʔeyɬ n-x̌ʷáz-xən.	page 25, engine language, TH, from Thompson & Thompson 1996:7
+(33) line 2	nɬeʔkepmxcín	gloss	PROS=1PL.SUBJ=EMPH now LOC-starve-foot	page 25, engine english, TH, from Thompson & Thompson 1996:7
+(33) line 3	Henry Davis	translation	‘We’re going to starve now, regardless.’	page 25, engine english, cited TH: Thompson & Thompson 1996:7
+(33) line 3	Henry Davis	citation	(TH: Thompson & Thompson 1996:7)	the tag or source at the right of the translation
+(34) line 1	St’át’imcets	segmentation	xin̓ kʷas qʷənúx̌ʷ, ʔama-wíl̓x ʔayɬ.	page 25, engine language, LI, from Davis et al. in prep.
+(34) line 2	St’át’imcets	gloss	long.time DET+NMLZ+IPFV+3POSS sick good-DEV now	page 25, engine english, LI, from Davis et al. in prep.
+(34) line 3	Henry Davis	translation	‘He was sick for a long time, now he has recovered.’	page 25, engine english, cited LI: Davis et al. in prep.
+(34) line 3	Henry Davis	citation	(LI: Davis et al. in prep.)	the tag or source at the right of the translation
+§5.2	Upriver Halkomelem	cited form	ʔi	the common auxiliary Galloway derives ʔiɬ from
+§5.2	Upriver Halkomelem	cited affix	uɬ	the past tense enclitic =uɬ
+§5.2	Henry Davis	note	The meaning of ʔayɬ /ʔeyɬ, which picks out the topic time of a discourse, is more compatible with the meaning of NK ʔiɬ than the ʔi + uɬ alternative from UH, and the phonology is a good fit, particularly with the TH version, which is the most plausible IS source for the NK form.35	page 25
+§6	Henry Davis	heading	6 Conclusion	page 25
+footnote 35	Henry Davis	note	35 Aside from its use as an auxiliary, ʔiɬ has two other functions in NK: as an existential verb ‘be’, and as a prepositional predicate ‘be at/on/in’, which is frequent in serial verb constructions. It is less easy to see how these uses are derived from TH ʔeyɬ.	page 25, footnote
+§6	Nooksack	cited form	ʔiɬ	the auxiliary
+§6	nɬeʔkepmxcín	cited form	ʔeyɬ	the adverb ‘now, next, then’
+§6	Henry Davis	note	I hope to have shown here that the study of NK has a surprising amount to teach us about the history of CS, as well as being of obvious interest in its own right both to Salish linguistics and to the Lhechalosem speech community. The fact that a relatively coherent picture of its grammatical properties is now emerging also gives us grounds for optimism about how much information can be extracted from a small and fragmented, but nevertheless highly informative corpus. (It is difficult to estimate the exact size of the corpus, which is scattered across several collections and includes recordings which have not yet been transcribed, but it probably contains fewer than a thousand full sentences.) Above all, however, the results reported here are testament to the dedication of the last fluent speakers of the language (George Swanaset, Sindick Jimmy, and Louisa George), as well as to the linguists who recorded them (Paul Fetzer, Pamela Thorsen Amoss, Barbara Efrat, Laurence C. Thompson, and Brent Galloway). And they are a particularly fitting tribute to the memory of Brent Galloway, who proudly bore a name given to him by the Nooksack Tribe, and who never lost his enthusiasm for the language over the 30 years that he dedicated to understanding and elucidating it.	page 25
+references	Henry Davis	heading	References	page 26
+references	Henry Davis	reference	Adams, George, Brent D. Galloway, and Catalina Renteria. 2005. A Nooksack story from 1956: How to become an Indian Doctor. Papers for ICSNL 40:1–31.	
+references	Henry Davis	reference	Amoss, Pamela Thorsen. 1961. Nuksack phonemics. MA thesis. University of Washington, Seattle, WA.	
+references	Henry Davis	language	Sḵwxwúmesh	Squamish, in the title of Bar-el 2005
+references	Henry Davis	reference	Bar-el, Leora. 2005. Aspectual distinctions in Sḵwxwúmesh. Ph.D. dissertation. University of British Columbia, Vancouver, BC.	
+references	Henry Davis	reference	Beaumont, Ronald C. 1985. She Shashishalhem, the Sechelt Language: Language, Stories and Sayings of the Sechelt Indian People of British Columbia. Penticton, BC: Theytus Books.	
+references	Henry Davis	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. Sechelt, BC: Sechelt Indian Band.	
+references	St’át’imcets	cited form	Xweysás	in the title of the volume Davis 2012 stands in, Wa7 Xweysás i Nqwal’úttensa i Ucwalmícwa
+references	St’át’imcets	cited form	Nqwal’úttensa	in the title Wa7 Xweysás i Nqwal’úttensa i Ucwalmícwa
+references	St’át’imcets	cited form	Ucwalmícwa	in the title Wa7 Xweysás i Nqwal’úttensa i Ucwalmícwa
+references	Henry Davis	reference	Beck, David. 2007. A taxonomy of Lushootseed valency-increasing affixes. Papers for ICSNL 52:28–88 Beck, David. 2018. Aspectual affixation in Lushootseed: A minor reanalysis. In L. Matthewson, E. Guntly, and M. Rochemont (eds.), Wa7 Xweysás i Nqwal’úttensa i Ucwalmícwa: He Loves the Peoples’ Languages: Essays in Honour of Henry Davis. Vancouver, BC: UBCOPL, 597– 612.	
+references	Henry Davis	reference	Czaykowska-Higgins, Ewa and Janet Leonard. 2015. North Straits Salish syntax. In T. Kiss and A. Alexiadou (eds.), Handbook of Contemporary Syntax. New York, NY: Mouton de Gruyter, 1726–1764.	
+references	Henry Davis	reference	Davis, Henry. 1999. Subject inflection in Salish. In Marion G. Caldecott, Suzanne Gessner, and Eun-Sook Kim (eds.), Current Research on Language and Linguistics. Vancouver, BC: UBCWPL, 181–239.	
+references	Henry Davis	language	St’át’imc	in a reference title
+references	St’át’imcets	cited form	Nqwal’uttenlhkálha	the title of the Upper St’át’imcets dictionary in preparation
+references	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet
+references	Henry Davis	reference	Davis, Henry. 2000. Remarks on Proto-Salish subject inflection. IJAL 66:499–520.	
+references	Henry Davis	reference	Davis, Henry. 2005. On the syntax and semantics of negation in Salish. IJAL 71:1–55.	
+references	Henry Davis	reference	Davis, Henry. 2022. Are pronouns ever predicative in Salish? Papers for ICSNL 57:1–42.	
+references	Henry Davis	reference	Davis, Henry, Beverley Frank, Rose Whitley and the Upper St’át’imc Language Authority. In preparation. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Ms., Upper St’át’imc Language, Culture and Education Society, Lillooet, B.C.	
+references	Henry Davis	language	ʔayʔaǰuθəm	Comox-Sliammon, in the title of Davis and Huijsmans 2017
+references	Henry Davis	reference	Davis, Henry and Marianne Huijsmans. 2017. Changes in the alignment of arguments in transitive clauses in ʔayʔaǰuθəm (Comox-Sliammon). Papers for ICSNL 52:13–46.	
+references	Henry Davis	reference	Drachman, Gaberell. 1969. Twana Phonology. Columbus, Ohio: Department of Linguistics, Ohio State University.	
+references	Henry Davis	reference	Galloway, Brent D. 1977. A grammar of Chilliwack Halkomelem. Ph.D. dissertation, University of California, Berkeley.	
+references	Henry Davis	reference	Galloway, Brent D. 1983. A look at Nooksack phonology. Papers for ICSNL 18:80–132.	
+references	Henry Davis	reference	Galloway, Brent D. 1984a. A look at Nooksack phonology. AL 26(1):13–41.	
+references	Henry Davis	reference	Galloway, Brent D. 1984b. Nooksack reduplication. Papers for ICSNL 19:81–100.	
+references	Henry Davis	reference	Galloway, Brent D. 1993a. A Grammar of Chilliwack Halkomelem. Berkeley, CA: University of California Press.	
+references	Henry Davis	reference	Galloway, Brent D. 1993b. Nooksack reduplication. In Anthony Mattina and Timothy Montler (eds.), American Indian Linguistics and Ethnography in Honor of Laurence C.	
+references	Henry Davis	reference	ThompsonMissoula, MN: UMOPL, 93–112.	
+references	Henry Davis	reference	Galloway, Brent D. 1997. Nooksack pronouns, transitivity, and control. Papers forICSNL 32, 197– 243.	
+references	Henry Davis	reference	Galloway, Brent D. 2009. Dictionary of Upriver Halkomelem, Volumes I and II. Berkeley, CA: University of California Press.	
+references	Henry Davis	reference	Galloway, Brent D. 2012. Work on the Nooksack file slips of Paul Fetzer. Papers for ICSNL 47:13– 46.	
+references	Henry Davis	reference	Galloway, Brent D., George Adams, and Catalina Renteria. 2004. What a Nooksack story can tell us about morphology and syntax. Papers for ICSNL 39:149–168.	
+references	Henry Davis	reference	Gerdts, Donna B. 1988. Object and Absolutive in Halkomelem Salish. New York, NY: Garland Publishing.	
+references	Henry Davis	reference	Gerdts, Donna B. 1989. Object agreement in the Halkomelem Salish passive: a morphological explanation. In M. R. Key and H. M. Hoenigswald (eds.), General and Amerindian Ethnolinguistics: In Remembrance of Stanley Newman. New York, NY, and Berlin, Germany: Mouton de Gruyter, 185–199.	
+references	Henry Davis	reference	Gerdts, Donna B. 2010. Ditransitive constructions in Halkomelem Salish: a direct object/oblique object language. In A. Malchukov, M. Haspelmath, and B. Comrie (eds.), Studies in Ditransitive Constructions: A Comparative Handbook. Berlin, Germany: De Gruyter, 563– 610.	
+references	Henry Davis	reference	Hess, Thom. 1995. Lushootseed Reader with Introductory Grammar. Volume I: Four Stories from Edward Sam. Missoula, MN: UMOPL.	
+references	Henry Davis	reference	Hess, Thom. 1998. Lushootseed Reader with Intermediate Grammar. Volume 2: Four Stories from Martha Lamont. Missoula, MN: UMOPL.	
+references	Henry Davis	reference	Jacobs, Peter. 2011. Control in Skwxwu7mesh. Ph.D. dissertation. University of British Columbia, Vancouver, BC.	
+references	Henry Davis	reference	Jelinek, Eloise and Richard Demers. 1983. An agent hierarchy in some Coast Salish languages. IJAL 49:167–185.	
+references	Henry Davis	reference	Kinkade, M. Dale. 1990. Prehistory of Salish languages. Papers for ICSNL 25:197–208. Vancouver, B.C.	
+references	Henry Davis	reference	Kinkade, M. Dale. 1995. Transmontane lexical borrowing in Salish. Papers for ICSNL 30:28–46. Victoria, BC.	
+references	Henry Davis	reference	Kinkade, M. Dale and Masaru Kiyota. 2004. Changing state in Salishan languages. Papers for ICSNL 39:31–40.	
+references	Henry Davis	reference	Kiyosawa, Kaoru and Donna B. Gerdts. 2010. Salish Applicatives. Leiden, Netherlands: Brill Publishing.	
+references	Henry Davis	language	Nɬeʔkepmxcín	Thompson River Salish, in the title of Koch and Zimmermann 2009
+references	Henry Davis	reference	Koch, Karsten and Malte Zimmermann. 2009. Focus-sensitive operators in Nɬeʔkepmxcín (Thompson River Salish). Proceedings of Sinn und Bedeutung 14:237–255.	
+references	Henry Davis	reference	Kroeber, Paul. 1999. Reconstructing Syntax: The Salish Language Family. Lincoln, NE: University of Nebraska Press.	
+references	Henry Davis	reference	Kuipers, Aert H. 1967. The Squamish Language: Grammar, Texts, Dictionary. Janua Linguarum, Series Practica 73. The Hague, Netherlands: Mouton.	
+references	Henry Davis	reference	Kuipers, Aert H. 2002. Salish Etymological Dictionary. Missoula, MN: UMOPL.	
+references	Henry Davis	language	SENĆOŦEN	Saanich, in the title of Montler 2018
+references	Henry Davis	reference	Montler, Timothy. 2015. Klallam Grammar. Seattle, WA: University of Washington Press. Montler Timothy. 2018. SENĆOŦEN: A Dictionary of the Saanich Language. Seattle, WA: University of Washington Press.	
+references	Henry Davis	reference	Newman, Stanley. 1977. The Salish independent pronoun system. IJAL 43:302–314.	
+references	Henry Davis	reference	Newman, Stanley. 1979a. A history of the Salish possessive and subject forms. IJAL 45:207–223.	
+references	Henry Davis	reference	Newman, Stanley. 1979b. The Salish object forms. IJAL 45:299–308.	
+references	Henry Davis	reference	Newman, Stanley. 1980. Functional changes in the Salish pronominal system. IJAL 46:155–167. Pincott, Ethan. 20 20. When did the *k >*čshift occur in Central Salish? Papers for ICSNL 55, 257–264.	
+references	Henry Davis	reference	Seaburg, William. 1999. Whatever happened to Thelma Adamson? A footnote in the history of Northwest anthropological research. Northwest Anthropological Research Notes 33(1):73–83.	
+references	Henry Davis	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. Vancouver, BC: UBC Press.	
+references	Henry Davis	language	nɬeʔkepmxcín	Thompson River Salish
+references	Henry Davis	reference	Thompson, Laurence C. and M. Terry Thompson. 1996. Thompson River Salish Dictionary: nɬeʔkepmxcín. Missoula, MN: UMOPL.	
+references	Henry Davis	reference	Van Eijk, Jan P., Aert H. Kuipers, Henk F. Nater, and Jan A. Timmers. 1974. Lillooet-Sechelt lexical parallels. Papers for ICSL 9:22–25.	
+references	Henry Davis	name	Honoré	Honoré Watanabe, in a reference entry
+references	Henry Davis	reference	Watanabe, Honoré. 2003. A Morphological Description of Sliammon, Mainland Comox Salish, with a Sketch of Syntax. ELPR Publications Series AZ-040. Osaka, Japan: Osaka Gakuin University.	
+references	Henry Davis	reference	Wiltschko, Martina, and Strang Burton. 2004. On the sources of person hierarchy effects. CJL 49:51–71.	
+all	Henry Davis	notation	*	a reconstructed form, or with a person sequence an ungrammatical one

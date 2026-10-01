@@ -1,0 +1,220 @@
+where	who	kind	form	gloss
+front	David Douglas Robertson	title	The flip side of lexical tabooing: Coast Salish puns, names, and intangible cultural heritage	page 1, carries footnote *
+front	David Douglas Robertson	name	David Douglas Robertson	author
+front	David Douglas Robertson	note	David Douglas Robertson, PhD	page 1, the author line
+front	David Douglas Robertson	note	Linguistic Archaeologist, Shoalwater Bay Indian Tribe	page 1, under David Douglas Robertson
+front	David Douglas Robertson	note	Abstract: Newly identified humorous word play in Washington State Coast Salish languages may be a corollary of areal onomastically-conditioned postmortem lexical taboos, revealing historical Native cultural values and perceptions of homonymy.	page 1, the abstract
+front	David Douglas Robertson	note	Keywords: homonymy, intangible cultural heritage, linguistic archaeology, onomastics, puns, tabooing	page 1, the keywords
+front	David Douglas Robertson	note	In Papers for the International Conference on Salish and Neighbouring Languages 53, University of British Columbia Working Papers in Linguistics 47, Marianne Huijsmans, Roger Lo, Daniel Reisinger, and Oksana Tkachman (eds.), 2018	page 1, the volume's header
+front	David Douglas Robertson	language	Upper Chehalis	Tsamosan, Coast Salish
+footnote *	David Douglas Robertson	note	I thank the Shoalwater Bay Indian Tribe for its ongoing support of my research into ɬəw̓ál̓məš (Lower Chehalis) language and culture; q̓íləč̓šəc čn. I also acknowledge the support of the American Philosophical Society and of Native Languages of the Americas. Known morphemic boundaries are indicated according to Salishist conventions: hyphen (- ) sets off affixes, mid-level dot (•) reduplications, and equals sign (=) lexical affixes.	page 1, footnote *, on the title
+footnote *	Lower Chehalis	cited form	q̓íləč̓šəc čn	page 1, in italics
+footnote *	David Douglas Robertson	language	Lower Chehalis	Tsamosan, Coast Salish
+§1	David Douglas Robertson	heading	1 Introduction	page 1
+§1	David Douglas Robertson	note	William Elmendorf’s much-cited ethnographic work documented an onomastically-based custom of lexical prohibition practiced among Twana Salish speakers on the Olympic Peninsula of Washington state, USA, up to the late 19th century (1951, expanded upon in 1992:391–396). This observance was known as stə́bəqəb, which roughly means ‘spoken of/for the dead’ (N. Thompson, p.c.). It involved eliminating from a community’s vocabulary any words perceived as sounding similar to the unused name of a deceased eminent high-class person, substituting a semantically transparent neologism until such time as the name was bestowed on a living kinsperson (pp. 205–206). A specific example was the 1880s initiative to taboo the Chinuk Wawa loan láys ‘rice’ following the death of a Skokomish woman known as Eliza (p. 207).1 As to its geographic distribution, Elmendorf observed cryptically, “There is some slight evidence that the same type of word tabooing was practiced by other coastal groups speaking Salish languages” (p. 205). The present study proposes novel evidence to confirm, albeit in a paradoxical way, his sense of the broad occurrence of such customs.	page 1
+footnote 1	David Douglas Robertson	note	Various factors prevented tabooing from decimating the lexicon; for instance, Eliza’s was rejected by the community because she was not high-status and the application of the observance to an English name (and presumably to a Chinuk Wawa word of English provenance) “was felt to be ‘queer’” (ibid.). And almost all personal names eventually came to be “empty...of semantic content” (ibid.). This development implicitly reduced any pressure to taboo the many obviously cognate derivatives (e.g., lexically-suffixed formations) that would likely exist in a Salish language. Such observations are reminiscent of observations on the lack of analyzable meanings among neighboring Klallam Salish personal names (Montler et al. 2012; Montler 2015:377), and regarding Kiksht (Wishram) Chinookan (Sapir 1990:258).	page 1, footnote 1
+footnote 1	David Douglas Robertson	language	Klallam	personal names
+footnote 1	David Douglas Robertson	language	Kiksht	Wishram Chinookan
+§1	Twana	cited form	stə́bəqəb	page 1, in italics
+§1	Chinuk Wawa	cited form	láys	page 1, in italics, ‘rice’
+§1	David Douglas Robertson	name	William Elmendorf	Twana word tabooing (1951, 1992)
+§1	David Douglas Robertson	language	Twana	Central Coast Salish
+§1	David Douglas Robertson	language	Chinuk Wawa	the loan láys ‘rice’
+§1	David Douglas Robertson	note	Clearly, the Native tradition of word avoidance shows that this region’s cultures possessed a keen awareness, if a negative valuation, of some kind(s) of homophony. A positive counterpart to it – word play – is mentioned in passing by Thelma Adamson in connection with a 1926 myth performance in the Humptulips dialect of Lower Chehalis. Although it is less than clear in storyteller Lucy Heck’s husband Silas Heck’s English translation as edited by Adamson, the researcher calls attention to a	page 2
+§1	David Douglas Robertson	name	Thelma Adamson	Coast Salish folk-tales (2009), the play on words
+§1	David Douglas Robertson	name	Lucy Heck	storyteller, the 1926 Humptulips myth
+§1	David Douglas Robertson	name	Silas Heck	her husband, its translator
+§1	David Douglas Robertson	language	English	the translations
+§1	David Douglas Robertson	note	...play on words, a feature that is not uncommon in Coast Salish mythology, and one that always gives rise to a humorous situation. It is impossible to render a passage of this sort adequately in English.	page 2, a block quotation
+§1	David Douglas Robertson	citation	(Adamson 2009:287 fn. 2)	page 2, under the quotation
+§1	David Douglas Robertson	note	In the following sections, I solidify Adamson’s claim by documenting Salish- language punning in some detail for the first time, showing some of the parameters of the homophony it involves. I discuss how this species of humor can be seen as part and parcel of a single cultural trait with lexical tabooing, thus supporting Elmendorf’s view of a fairly widespread practice. I end with a call for further investigation by specialists in the various Coast languages, perhaps even beyond Salish.	page 2
+§2	David Douglas Robertson	heading	2 Methodology	page 2
+§2	David Douglas Robertson	note	A de facto methodology that has proven productive for detecting Coast Salish puns, since I am not fluent in all of the languages I will be referring to, has been to read traditional stories in English translation, pausing to check a dictionary of the original language when a particularly bizarre misunderstanding happens between characters. For example, when some villagers report the ridiculous experience of being terrorized by a lark but the culprit turns out to be the basket ogress, a glance in the Upper Chehalis dictionary shows that the words for both are closely similar (Kinkade 1991). Thus a play on words is found.	page 2
+§2	David Douglas Robertson	name	Kinkade	M. Dale Kinkade, the Upper Chehalis dictionary (1991)
+§2	David Douglas Robertson	note	Similarly, in the course of dictionary-building for the Shoalwater Bay Indian Tribe, in the rare situation when etymologies prove indeterminate between a prosaic and an absurd reading, I have found this a predictor of probable puns in Lower Chehalis. The following section tabulates the outcome of both approaches.	page 2
+§3	David Douglas Robertson	heading	3 Examples	page 2
+§3	David Douglas Robertson	note	The following Table displays the probable Coast Salish puns found as of this writing, including at least one masterful three-way wordplay (the notations “+” and “-” are explained in the immediately following section; roots are visually demarcated from other material):	page 2
+Table 1	David Douglas Robertson	note	Table 1: Some Coast Salish puns	page 3, the caption
+Table 1	David Douglas Robertson	note	LANGUAGE +WORD 1 -WORD 2 WORD 3 CONTEXT	page 3, heads the columns
+Table 1 row 1	David Douglas Robertson	language	Lushootseed	page 3, Table 1, LANGUAGE, carries footnote 2
+footnote 2	David Douglas Robertson	note	Lushootseed words are as found in Bates et al. (1994). A probably additional example occurs in a “Changer Story”, where the repeated verb ‘travel’ (presumably ʔíbəš) is said to be replaced with ‘spit’ (presumably tuʔáɬəd) for humorous effect by narrator Martha Lamont (Bierwert 1996:98). Despite the obvious dissimilarity of those two words, here the humor may again lie in homophony, since Bates et al. (1994:228) define tuʔáɬəd as both ‘spit’ and a salmon species.	page 3, footnote 2
+footnote 2	Lushootseed	cited form	ʔíbəš	page 3, in italics
+footnote 2	Lushootseed	cited form	tuʔáɬəd	page 3, in italics
+footnote 2	David Douglas Robertson	name	Bierwert	Crisca Bierwert, Lushootseed texts (1996)
+Table 1 row 1	Lushootseed	cited form	bə́ščəb	page 3, Table 1, +WORD 1
+Table 1 row 1	David Douglas Robertson	translation	+‘Mink’	page 3, Table 1, +WORD 1
+Table 1 row 1	Lushootseed	cited form	bšč̓ád	page 3, Table 1, -WORD 2
+Table 1 row 1	David Douglas Robertson	translation	-‘Louse’	page 3, Table 1, -WORD 2
+Table 1 row 1	David Douglas Robertson	note	--	page 3, Table 1, WORD 3, empty
+Table 1 row 1	David Douglas Robertson	note	There are many Mink stories (Bierwert 1996:64); just one Lady Louse story (op. cit.:16; MacDonald 2006:14).	page 3, Table 1, CONTEXT
+Table 1 row 2	Lushootseed	cited form	háʔɬ	page 3, Table 1, +WORD 1
+Table 1 row 2	David Douglas Robertson	translation	+‘good’	page 3, Table 1, +WORD 1
+Table 1 row 2	Lushootseed	cited form	p̓áƛ̓•aƛ̓	page 3, Table 1, -WORD 2
+Table 1 row 2	David Douglas Robertson	translation	-‘insignificant’	page 3, Table 1, -WORD 2
+Table 1 row 2	David Douglas Robertson	note	--	page 3, Table 1, WORD 3, empty
+Table 1 row 2	David Douglas Robertson	note	“...p̓áƛ̓aƛ̓...which expresses the impression Mink hopes the waterfall will make on Changer, is replaced in this later passage with háʔɬ, which expresses what Changer thinks when he sees the little fall” (Bierwert 1996:98).	page 3, Table 1, CONTEXT
+Table 1 row 2	Upper Chehalis	cited form	p̓áƛ̓aƛ̓	page 3, in italics
+Table 1 row 3	David Douglas Robertson	language	Upper Chehalis	page 3, Table 1, LANGUAGE, carries footnote 3
+footnote 3	David Douglas Robertson	note	Upper Chehalis words cited are as found in Kinkade (1991), where three more potential examples are (A) +‘his little sister, his younger sister’ (pés-ns, from pəsé·n-) vs. -‘his monster’ (pə́s-ns ~ pés-n̓s, from pə́saʔ), since the latter word documented by Franz Boas (in some text unfortunately not yet found by me) makes unexpected use of the Inalienable Possession marking otherwise typically associated with kin terms (cf. Robertson forthcoming), (B) (?)-čát-t̓iqi-m̓ɬ ‘policeman’ using a variant form of the root t̓ə́q- ‘tie up, get arrested’ vs. (+)t̓íq-m̓ɬ ‘soak dried food’ using the root t̓íqi- ‘soak, under water’, and (C) (?)+qʷáɬ[=]iš- ‘neighbor, company, companion’ vs. (?)+kʷáɬ ‘aunt’ vs. (?)-<KwaL> ‘slave’, the latter perhaps a jocular personal name since we know that slaves were named by their owners (Donald 1997:77), often but not always for their place of origin (T. Johnson, p.c.). (Also note that in closely related Lower Chehalis, among Xʷəníxʷəni’s disconcerting ways of addressing his daughters, whom he also calls “my wives”, is “my companions”, Boas 1890.)	page 3, footnote 3
+footnote 3	Upper Chehalis	cited form	pés-ns	page 3, in italics
+footnote 3	Upper Chehalis	cited form	pəsé·n-	page 3, in italics
+footnote 3	Upper Chehalis	cited form	pə́s-ns	page 3, in italics
+footnote 3	Upper Chehalis	cited form	pés-n̓s	page 3, in italics
+footnote 3	Upper Chehalis	cited form	pə́saʔ	page 3, in italics
+footnote 3	Upper Chehalis	cited form	čát-t̓iqi-m̓ɬ	page 3, in italics, ‘policeman’
+footnote 3	Upper Chehalis	cited form	t̓ə́q-	page 3, in italics, ‘tie up, get arrested’
+footnote 3	Upper Chehalis	cited form	t̓íq-m̓ɬ	page 3, in italics, ‘soak dried food’
+footnote 3	Upper Chehalis	cited form	t̓íqi-	page 3, in italics, ‘soak, under water’
+footnote 3	Upper Chehalis	cited form	qʷáɬ[=]iš-	page 3, in italics, ‘neighbor, company, companion’
+footnote 3	Upper Chehalis	cited form	kʷáɬ	page 3, in italics, ‘aunt’
+footnote 3	Upper Chehalis	cited form	<KwaL>	page 3, in italics, ‘slave’
+footnote 3	David Douglas Robertson	name	Boas	Franz Boas, the Lower Chehalis myth (1890) and Chinook (1910)
+Table 1 row 3	Upper Chehalis	cited form	x̣aƛ̓-éʔč	page 3, Table 1, +WORD 1
+Table 1 row 3	David Douglas Robertson	translation	+‘dentalium’	page 3, Table 1, +WORD 1
+Table 1 row 3	Upper Chehalis	cited form	x̣aƛ̓-ílax̣ʷc	page 3, Table 1, -WORD 2
+Table 1 row 3	David Douglas Robertson	translation	-‘brush(y place)’	page 3, Table 1, -WORD 2
+Table 1 row 3	David Douglas Robertson	note	--	page 3, Table 1, WORD 3, empty
+Table 1 row 3	David Douglas Robertson	note	x̣ʷəné·x̣ʷəne makes a necklace by stringing cut brush segments and tries to pawn it off on basket ogress as dentalia (Amrine Goertz 2018:35).	page 3, Table 1, CONTEXT
+Table 1 row 3	Upper Chehalis	cited form	x̣ʷəné·x̣ʷəne	page 3, in italics
+Table 1 row 4	Upper Chehalis	cited form	xʷə́n	page 4, Table 1, +WORD 1
+Table 1 row 4	Upper Chehalis	cited form	xʷəní•xʷəni	page 4, Table 1, +WORD 1, carries footnote 4
+Table 1 row 4	David Douglas Robertson	translation	+‘myth hero’s name’	page 4, Table 1, +WORD 1
+footnote 4	David Douglas Robertson	note	Based on comparison with Lower Chehalis, I transcribe the myth hero’s name with a velar initial, xʷ, whereas Kinkade (1991) has it as a uvular, x̣ʷ. Kinkade’s spelling matches Boas’, but Boas was using the x-with-subscript-dot character to indicate a velar.	page 4, footnote 4
+footnote 4	Upper Chehalis	cited form	xʷ	page 4, in italics
+footnote 4	Upper Chehalis	cited form	x̣ʷ	page 4, in italics
+Table 1 row 4	Upper Chehalis	cited form	x̣ʷə́n-	page 4, Table 1, -WORD 2
+Table 1 row 4	David Douglas Robertson	translation	-‘buzzing’	page 4, Table 1, -WORD 2
+Table 1 row 4	Upper Chehalis	cited form	xʷə́n-	page 4, Table 1, WORD 3
+Table 1 row 4	David Douglas Robertson	translation	- ‘impotent, tired’	page 4, Table 1, WORD 3
+Table 1 row 4	David Douglas Robertson	note	malé and daughter are trying to retrieve grandson from the “buzzing of the world” place; many people suspect x̣ʷəné·x̣ʷəne of his abduction, but Mountain Lion sneers that “x̣ʷəné·x̣ʷəne’s hip is wearing out” (Amrine Goertz 2018:50–51).5	page 4, Table 1, CONTEXT
+Table 1 row 4	Upper Chehalis	cited form	malé	page 4, in italics
+footnote 5	David Douglas Robertson	note	ʔac-xʷə́n̓=yəlps ‘tired tail, tired hips; impotent, paralyzed hips [swear word]’.	page 4, footnote 5
+footnote 5	Upper Chehalis	cited form	ʔac-xʷə́n̓=yəlps	page 4, in italics, ‘tired tail, tired hips; impotent, paralyzed hips [swear word]’
+Table 1 row 5	Upper Chehalis	cited form	qʷə́cx̣aʔ	page 4, Table 1, +WORD 1
+Table 1 row 5	David Douglas Robertson	translation	+‘lark’	page 4, Table 1, +WORD 1
+Table 1 row 5	Upper Chehalis	cited form	qʷcx̣ʷé	page 4, Table 1, -WORD 2
+Table 1 row 5	David Douglas Robertson	translation	-‘witch’	page 4, Table 1, -WORD 2
+Table 1 row 5	David Douglas Robertson	note	--	page 4, Table 1, WORD 3, empty
+Table 1 row 5	David Douglas Robertson	note	“The people say it is Lark who always kills the people but it is not that. It is a real monster” (Amrine Goertz 2018:67).	page 4, Table 1, CONTEXT
+Table 1 row 6	Upper Chehalis	cited form	s-yal-ə́m̓	page 4, Table 1, +WORD 1
+Table 1 row 6	David Douglas Robertson	translation	+‘hired help’	page 4, Table 1, +WORD 1
+Table 1 row 6	Upper Chehalis	cited form	s-ya-qín̓	page 4, Table 1, -WORD 2, carries footnote 6
+Table 1 row 6	David Douglas Robertson	translation	-‘slaves’	page 4, Table 1, -WORD 2
+footnote 6	David Douglas Robertson	note	Comparison with Lower Chehalis syəl̓qín and Quinault jəl̓qín (Modrow 1971) shows that ‘slave’ is historically *s-yəl=qín ‘NOMINALIZER-round=head’. Since the word no longer closely resembles ‘hired help’, but once did, this is perhaps a very old pun.	page 4, footnote 6
+footnote 6	Lower Chehalis	cited form	syəl̓qín	page 4, in italics
+footnote 6	Quinault	cited form	jəl̓qín	page 4, in italics
+footnote 6	Upper Chehalis	cited form	*s-yəl=qín	page 4, in italics, ‘NOMINALIZER-round=head’
+footnote 6	David Douglas Robertson	language	Quinault	jəl̓qín
+Table 1 row 6	David Douglas Robertson	note	--	page 4, Table 1, WORD 3, empty
+Table 1 row 6	David Douglas Robertson	note	Mink’s wife’s relatives are her “hired help”; this is a known euphemism for “slaves” (Amrine Goertz 2018:143–144, 295n3).	page 4, Table 1, CONTEXT
+Table 1 row 7	Upper Chehalis	cited form	mánc	page 4, Table 1, +WORD 1
+Table 1 row 7	David Douglas Robertson	translation	+‘salmon fry'	page 4, Table 1, +WORD 1
+Table 1 row 7	Upper Chehalis	cited form	mə́nč	page 4, Table 1, -WORD 2
+Table 1 row 7	David Douglas Robertson	translation	-‘excrement’	page 4, Table 1, -WORD 2
+Table 1 row 7	David Douglas Robertson	note	--	page 4, Table 1, WORD 3, empty
+Table 1 row 7	David Douglas Robertson	note	Mink’s wife gives him “fry” five times but it tastes oddly terrible (Amrine Goertz 2018:143–144).	page 4, Table 1, CONTEXT
+Table 1 row 8	Upper Chehalis	cited form	wə́li	page 4, Table 1, +WORD 1
+Table 1 row 8	David Douglas Robertson	translation	+‘name of Raven’ (?)	page 4, Table 1, +WORD 1
+Table 1 row 8	Upper Chehalis	cited form	wəlí-	page 4, Table 1, -WORD 2, carries footnote 7
+Table 1 row 8	David Douglas Robertson	translation	-‘fly (away)’	page 4, Table 1, -WORD 2
+footnote 7	David Douglas Robertson	note	Compare also Lushootseed wəlíʔ ‘appear, be visible’.	page 4, footnote 7
+footnote 7	Lushootseed	cited form	wəlíʔ	page 4, in italics, ‘appear, be visible’
+Table 1 row 8	David Douglas Robertson	note	--	page 4, Table 1, WORD 3, empty
+Table 1 row 8	David Douglas Robertson	note	“The Crows” are addressed by someone from inland as they paddle hard, “Where are you going, wə́li?” (Amrine Goertz 2018:169).	page 4, Table 1, CONTEXT
+Table 1 row 9	David Douglas Robertson	language	Lower Chehalis	page 4, Table 1, LANGUAGE, carries footnote 8
+footnote 8	David Douglas Robertson	note	Lower Chehalis words are as in our Lower Chehalis Language Project dictionary draft.	page 4, footnote 8
+Table 1 row 9	Lower Chehalis	cited form	kə́cə	page 4, Table 1, +WORD 1
+Table 1 row 9	David Douglas Robertson	translation	+‘Bluejay’s happy call’	page 4, Table 1, +WORD 1
+Table 1 row 9	Lower Chehalis	cited form	kə́sə	page 4, Table 1, -WORD 2
+Table 1 row 9	David Douglas Robertson	translation	-‘urinate’	page 4, Table 1, -WORD 2
+Table 1 row 9	David Douglas Robertson	note	--	page 4, Table 1, WORD 3, empty
+Table 1 row 9	David Douglas Robertson	note	Bluejay is trying to distract potential wives for the Chief by saying “Piss, piss, piss,” causing them an uncontrollable need to urinate (Amrine Goertz 2018:204).	page 4, Table 1, CONTEXT
+Table 1 row 10	Upper Chehalis	cited form	nə́č	page 5, Table 1, +WORD 1
+Table 1 row 10	David Douglas Robertson	translation	+‘sink into water’	page 5, Table 1, +WORD 1
+Table 1 row 10	Lower Chehalis	cited form	s-n̓ə́č	page 5, Table 1, -WORD 2
+Table 1 row 10	David Douglas Robertson	translation	-‘area around rectum’	page 5, Table 1, -WORD 2
+Table 1 row 10	David Douglas Robertson	note	--	page 5, Table 1, WORD 3, empty
+Table 1 row 10	David Douglas Robertson	note	A local man nicknamed “Snitchy” was remembered for having fallen into an outhouse as a child (T. Johnson, p.c.).9	page 5, Table 1, CONTEXT
+footnote 9	David Douglas Robertson	note	The s- is the NOMINALIZER prefix and -i is a HYPOCORISTIC suffix. The form for ‘sink into water’ is cited from Upper Chehalis, but I expect it to be of identical form in Lower Chehalis if our ongoing work on the latter encounters it outside this name.	page 5, footnote 9
+footnote 9	Lower Chehalis	cited form	s-	page 5, in italics
+footnote 9	Lower Chehalis	cited form	-i	page 5, in italics
+Table 1 row 11	Lower Chehalis	cited form	ʔúlps	page 5, Table 1, +WORD 1
+Table 1 row 11	David Douglas Robertson	translation	+‘go out(side)’	page 5, Table 1, +WORD 1
+Table 1 row 11	Lower Chehalis	cited form	ʔúl=ps	page 5, Table 1, -WORD 2
+Table 1 row 11	David Douglas Robertson	translation	-‘urinate (FEM)’	page 5, Table 1, -WORD 2
+Table 1 row 11	David Douglas Robertson	note	[seemingly ‘bare- backside’]	page 5, Table 1, -WORD 2, under the gloss
+Table 1 row 11	David Douglas Robertson	note	--	page 5, Table 1, WORD 3, empty
+Table 1 row 11	David Douglas Robertson	note	Mentions of people “going outside” and of women urinating alternate throughout the narrative (Boas 1890).10	page 5, Table 1, CONTEXT
+footnote 10	David Douglas Robertson	note	‘Go outside’ is itself an areally-shared euphemism in the inland and coastal Pacific Northwest for elimination of bodily wastes, for example in Spokane Salish snʔóʔcqeʔtn ‘outhouse’ derived from ʔócqeʔ ‘outside’ (Carlson and Flett 1989).	page 5, footnote 10
+footnote 10	Spokane	cited form	snʔóʔcqeʔtn	page 5, in italics, ‘outhouse’
+footnote 10	Spokane	cited form	ʔócqeʔ	page 5, in italics, ‘outside’
+footnote 10	David Douglas Robertson	language	Spokane	snʔóʔcqeʔtn ‘outhouse’
+§4	David Douglas Robertson	heading	4 Structure	page 5
+§4	David Douglas Robertson	note	Regularities run throughout the above dyads (and triad): For one, a semantic polarity contrast occurs in every case, in that a word with neutral to positive connotations (“+”) is replaced with a word having negative or absurd ones (“-”).	page 5
+§4	David Douglas Robertson	note	With regard to morphology, all of the above puns involve at least roots; most involve the more complex level of the stem.	page 5
+§4	David Douglas Robertson	note	Of course homophony is evident, here definable as a strong tendency for each word pair to have both the same number of syllables and the same stress pattern (unless a stress contrast is the only way available to clearly differentiate meanings), and fairly strict segmental identity. Articulations are identical (especially those of vowels) or differ minimally, with consonants essentially allowed to differ by either an adjacent place position or a coarticulation/secondary articulation (thus fricative vs. affricate; plain vs. labialized; plain vs. ejective). 11	page 5
+footnote 11	David Douglas Robertson	note	The postulated h~p̓ correspondence in Lushootseed is interesting for its similarity with Tillamook’s historical *p > h development (Kuipers 2002:3).	page 5, footnote 11
+footnote 11	Lushootseed	cited form	h~p̓	page 5, in italics
+footnote 11	Tillamook	cited form	*p	page 5, in italics
+footnote 11	Tillamook	cited form	h	page 5, in italics
+§5	David Douglas Robertson	heading	5 Motivations	page 5
+§5	David Douglas Robertson	note	Perhaps a major reason for so much punning is to be inferred from the evaluative differences that characterize the members of each pun pair (or triplet). This reason may be similar or even identical to that which drives lexical tabooing: avoidance of powerful forces. In telling myths, one obviously has to mention their potent central characters and themes, yet one might run the risk of summoning “dangerous beings” by mentioning their names. For example, in Lower Chehalis tradition, three successive utterances of the name of one type of dangerous being (viz. the titular character of J. Miller n.d.) calls them to one’s presence (E. Davis and T. Johnson, p.c.). It may be no coincidence that the name of that being appears to be a prefixed, metathesized form of the Upper Chehalis word for it, pə́saʔ – perhaps, in its origin, an avoidance form. Alternating mentions of homophonous spiritually powerful and non-powerful entities might serve to ward off the untoward consequences of invoking powerful names.	page 5
+§5	David Douglas Robertson	note	Of course avoidance has little to do with the non-mythic puns seen above. The sheer pleasure of creative wordplay seems sufficient to explain Lower Chehalis’s puns on female urination and the area man’s nickname. In this light it is interesting that Jay Miller has written (2006) of “puns” in Salish visual art as well, and in fact the Coast Salish artist lessLIE speaks overtly of graphically punning in pieces such as Figure 1.	page 6
+§5	David Douglas Robertson	name	Jay Miller	puns in Salish visual art (2006)
+§5	David Douglas Robertson	name	lessLIE	Coast Salish artist, Figure 1
+§5	David Douglas Robertson	note	Figure 1: “Sun, Salmon, Frogs, and Raven” by lessLIE (2007)	page 6, the caption of Figure 1
+§6	David Douglas Robertson	heading	6 Implications	page 6
+§6	David Douglas Robertson	note	Identifying puns via this sort of linguistic archaeology holds the promise of repatriating Salish intangible cultural heritage (cf. UNESCO 2003; as Smeets 2004 observes, language is a somewhat neglected component within the latter concept). It does so by allowing a deeper ethnolinguistic comprehension of these languages, all of which are undergoing revitalization among generations who did not grow up speaking them. Examples of the information brought to light include:	page 6
+§6	David Douglas Robertson	note	• Cultural values: Some of these are perhaps eroded or forgotten by the tide of Anglophone dominance, e.g., around proper behavior with respect to spiritual powers, and regarding the sense that traditional stories are in fact more humorous in the Native language than in translation (cf. Archibald 2014:75–76).	page 6, a bulleted item
+§6	David Douglas Robertson	note	• The native sense of phonology: Which of a language’s sounds “feel” similar enough to be substituted for each other while maintaining identifiability of each word in the pun relationship? This takes us beyond the limited observations hitherto made about segmental substitutions, e.g., those typical of baby talk in this region’s languages (as in Thompson 1984:334, Frachtenberg 1920:296).	page 7, a bulleted item
+§6	David Douglas Robertson	note	• Cross-reference notations: Dictionaries and grammars of these languages will be able to make overt connections among words that would not otherwise have occurred to linguists.	page 7, a bulleted item
+§6	David Douglas Robertson	note	Among other explanations for the rampant yet non-predictable C1VC2 ↔ C2VC1 root alternations that have motivated lexical change from Proto-Salish onward, Michael Noonan (1997:507–508) speculates that such metathesis might be historically traceable to either a language game or to lexical tabooing à la Elmendorf. The latter idea has support in Tuite and Schulze’s observations in Caucasus languages (1998). I suggest that whatever its explanation, metathesis reinforces a claim that Salish people have for uncounted centuries engaged in deliberate manipulation of their languages. In a language family that demonstrably relies on a variety of root-centered reduplicative templates as grammatical devices (Czaykowska-Higgins and Kinkade 1998, section 3.5.1), it would be absurd to ignore the heightened sensitivity to root-segment manipulations that Salish speakers would possess.	page 7
+§6	David Douglas Robertson	name	Michael Noonan	inverted roots in Salish (1997)
+§6	David Douglas Robertson	note	And indeed, out of all Northwest Coast groups (Figure 2), nearly all those ethnographically reported as tabooing not just names of the deceased but also similar-sounding lexemes are Salish: besides the Twana there are the Southwestern Coast Salish (i.e. Tsamosan branch; Hajda 1990:512) and Tillamook (Seaburg and Miller 1990:563). That this phenomenon is areally diffused is suggested by facts about two immediate non-Salish neighbors. Lower Chinookan manifests homonymy-tabooing of words resembling the names of the dead (Boas 1910:617; a memorable instance is the tabooing of the word for ‘dead’ in such circumstances, page 666!), and partially similar is the Quileute phenomenon of avoiding at least a proper name, if not other word classes, resembling a decedent’s name (Powell 1990:433).	page 7
+§6	David Douglas Robertson	language	Tillamook	*p > h
+§6	David Douglas Robertson	language	Quileute	name avoidance
+§6	David Douglas Robertson	note	The distribution of groups recorded as avoiding dead people’s names but not said to taboo phonologically similar names or common nouns further supports an idea of an areal split between an Olympic Peninsula-northwest Oregon zone and everywhere else: only onomastic, not phonological, avoidance is noted for names of deceased people among the Central Coast Salish (Suttles 1990b:465), Kwakwaka’wakw (Webster 1990:389), Nuuchahnulth (Arima and Dewhirst 1990:407), and Athapaskans of southwestern Oregon (Miller and Seaburg 1990:585).	page 7
+§6	David Douglas Robertson	note	Figure 2: Northwest Coast cultures (Suttles 1990a:ix)	page 8, the caption of Figure 2
+§6	David Douglas Robertson	note	Given the ease with which examples of puns have already been spotted in western Washington Salish, the corpus thereof is likely to expand a great deal. They have certainly been noted in nearby sister languages such as Twana (N. Thompson, p.c.) and Stó:lō (my friend Emmett Chase was quickly nicknamed emét ‘sit down’ when visiting Mission, BC (C. Renteria, p.c.)), as well as in the Interior Salish language Lillooet (van Eijk 1984), and are probably widespread. We can look forward to further contributions by Salish and other Pacific Northwest scholars to this hitherto little-known topic of study.	page 8
+§6	Stó:lō	cited form	emét	page 8, in italics, ‘sit down’
+§6	David Douglas Robertson	name	Emmett Chase	nicknamed emét
+§6	David Douglas Robertson	language	Stó:lō	emét ‘sit down’
+§6	David Douglas Robertson	language	Lillooet	punning, van Eijk 1984
+references	David Douglas Robertson	heading	References	page 9
+references	David Douglas Robertson	reference	Adamson, Thelma. 2009. Folk-tales of the Coast Salish. Lincoln, NE: University of Nebraska Press.	page 9
+references	David Douglas Robertson	reference	Amrine Goertz, Jolynn. 2018. Chehalis stories. Lincoln, NE: University of Nebraska Press.	page 9
+references	David Douglas Robertson	reference	Archibald, Jo-ann. 2014. Indigenous storywork: Educating the heart, mind, body and spirit. Vancouver, BC: UBC Press.	page 9
+references	David Douglas Robertson	reference	Arima, Eugene and John Dewhirst. 1990. Nootkans of Vancouver Island. In Suttles (1990a:391-411).	page 9
+references	David Douglas Robertson	reference	Bates, Dawn, Thom Hess and Vi Hilbert. 1994. Lushootseed dictionary. Seattle, WA: University of Washington Press.	page 9
+references	David Douglas Robertson	reference	Bierwert, Crisca. 1996. Lushootseed texts: An introduction to Puget Sound narrative aesthetics. Lincoln, NE: University of Nebraska Press.	page 9
+references	David Douglas Robertson	reference	Boas, Franz. 1890. [xʷəníxʷəni myth told in Lower Chehalis by Charles Cultee.] Ms., American Philosophical Society.	page 9
+references	David Douglas Robertson	reference	Boas, Franz. 1910. Chinook: An illustrative sketch. Washington, DC: Government Printing Office.	page 9
+references	David Douglas Robertson	reference	Carlson, Barry and Pauline Flett. 1989. Spokane dictionary. Missoula, MT: University of Montana.(University of Montana Occasional Papers in Linguistics, number 6.)	page 9
+references	David Douglas Robertson	reference	Czaykowska-Higgins, Ewa and M. Dale Kinkade. 1998. Salish languages and linguistics. In Czaykowska-Higgins, Ewa and M. Dale Kinkade (eds.), Salish languages and linguistics: Theoretical and descriptive perspectives, pages 1-70. Berlin: Mouton de Gruyter. (Trends in Linguistics: Studies and Monographs, 107.)	page 9
+references	David Douglas Robertson	reference	Donald, Leland. 1997. Aboriginal slavery on the Northwest coast of North America. Berkeley, CA: University of California Press.	page 9
+references	David Douglas Robertson	reference	Elmendorf, William W. 1951. Word taboo and lexical change in Coast Salish. International Journal of American Linguistics 17(4):205-208.	page 9
+references	David Douglas Robertson	reference	Elmendorf, William W. 1992. The structure of Twana culture. Pullman, WA: Washington State University Press.	page 9
+references	David Douglas Robertson	reference	Frachtenberg, Leo J. 1920. Abnormal types of speech in Quileute. International Journal of American Linguistics 1(4):295-299.	page 9
+references	David Douglas Robertson	reference	Hajda, Yvonne. 1990. Southwestern Coast Salish. In Suttles (1990a:503-517).	page 9
+references	David Douglas Robertson	reference	Kinkade, M. Dale. 1991. Upper Chehalis dictionary. Missoula, MT: University of Montana. (University of Montana Occasional Papers in Linguistics, number 7.)	page 9
+references	David Douglas Robertson	reference	Kuipers, Aert H. 2004. Salish etymological dictionary. Missoula, MT: University of Montana. (University of Montana Occasional Papers in Linguistics, number 16.)	page 10
+references	David Douglas Robertson	reference	lessLIE. 2007. Sun, salmon, frogs and raven. https://www.sfu.ca/brc/imeshMobileApp/imesh-art-walk-/coast-salish- prints.html, accessed May 15, 2018.	page 10
+references	David Douglas Robertson	reference	MacDonald, Margaret Read. 2006. Ten traditional tellers. Urbana, IL: University of Illinois Press.	page 10
+references	David Douglas Robertson	reference	Miller, Jay. (n.d.). Missing Mispʰ: Restor(y)ing the Transformer of Tsamosans of coastal Washington. Ms. in author's possession.	page 10
+references	David Douglas Robertson	reference	Miller, Jay. 2006. Contemporary Coast Salish art. Museum Anthropology 29(2):95-175.	page 10
+references	David Douglas Robertson	reference	Miller, Jay and William R. Seaburg. 1990. Athapaskans of Southwestern Oregon. In Suttles (1990a:580-588).	page 10
+references	David Douglas Robertson	reference	Modrow, Ruth. 1971. Quinauult [sic] dictionary. [Taholah, WA]: Quinault Indian Tribe.	page 10
+references	David Douglas Robertson	reference	Montler. Timothy, Adeline Smith and Beatrice Charles. 2012. Traditional personal names in Klallam. Paper presented at SSILA annual meeting, organized session “American Indian Personal Names: A Neglected Genre”, Portland, OR, January 7. http://www.cas.unt.edu/~montler/KlallamNames-Montler-S SILA2012.pdf, accessed May 15, 2018.	page 10
+references	David Douglas Robertson	reference	Montler, Timothy. 2015. Klallam grammar. Seattle, WA: University of Washington Press.	page 10
+references	David Douglas Robertson	reference	Noonan, Michael. 1997. Inverted roots in Salish. International Journal of American Linguistics 63(4):475-515.	page 10
+references	David Douglas Robertson	reference	Powell, James V. 1990. Quileute. In Suttles (1990a:431-437).	page 10
+references	David Douglas Robertson	reference	Robertson, David Douglas. (forthcoming.) Salish has inalienable possession...and always did. For Amérindia 42.	page 10
+references	David Douglas Robertson	reference	Sapir, Edward. 1990. Wishram texts. Leyden: E.J. Brill.	page 10
+references	David Douglas Robertson	reference	Seaburg, William R. and Jay Miller. 1990. Tillamook. In Suttles (1990a:560-567).	page 10
+references	David Douglas Robertson	reference	Smeets, Rieks. 2004. Language as a vehicle of the intangible cultural heritage. Museum International 56(1-2):156-165.	page 10
+references	David Douglas Robertson	reference	Suttles, Wayne (ed.). 1990a. Northwest Coast. Washington, DC: Smithsonian Institution. (Volume 7 of Handbook of North American Indians.)	page 10
+references	David Douglas Robertson	reference	Suttles, Wayne. 1990b. Central Coast Salish. In Suttles (1990a:453-475).	page 10
+references	David Douglas Robertson	reference	Thompson, Nile. 1984. Female indicators in the Twana language. Working Papers of the Linguistics Circle (University of Victoria) 4(2):331-336.	page 11
+references	David Douglas Robertson	reference	Tuite, Kevin and Wolfgang Schulze. 1998. A case of taboo-motivated lexical replacement in the indigenous languages of the Caucasus. Anthropological Linguistics 40(3):363-383.	page 11
+references	David Douglas Robertson	reference	UNESCO. 2003. Text of the Convention for the Safeguarding of the Intangible Cultural Heritage. https://ich.unesco.org/en/convention, accessed May 16, 2018. Van Eijk, Jan. 1984. Punning in Lillooet. Working Papers of the Linguistics Circle (University of Victoria) 4(2):337-338.	page 11
+references	David Douglas Robertson	reference	Webster, Gloria Cranmer. 1990. Kwakiutl since 1980. In Suttles (1990a:387-390).	page 11

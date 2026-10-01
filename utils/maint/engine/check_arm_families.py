@@ -1,4 +1,4 @@
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Fail when the two arm families stop naming the same instruction sets.
@@ -6,7 +6,7 @@
 #     python utils/maint/engine/check_arm_families.py
 #
 # The engine carries one operation per instruction set in two families: the steering scan in
-# src/engine/nbody/anchor_sift/scan_<set>.c and the exact arithmetic in
+# src/engine/nbody/orior/scan_<set>.c and the exact arithmetic in
 # src/engine/arithmetic/no_rounding/arm_<set>.c.
 # The CMake file states that a listing of the two directories names the same sets, because the
 # portable arm is the reference in each and every other set exists to be faster at an answer portable
@@ -26,7 +26,7 @@ from pathlib import Path
 # __file__ and not by walking up for a marker, since a marker the tree also produces can send the
 # resolution off the top of the drive.
 ROOT = Path(__file__).resolve().parents[3]
-SCAN_DIR = ROOT / "src" / "engine" / "nbody" / "anchor_sift"
+SCAN_DIR = ROOT / "src" / "engine" / "nbody" / "orior"
 ARM_DIR = ROOT / "src" / "engine" / "arithmetic" / "no_rounding"
 
 # The reference every other arm is graded against. A family without it has no baseline and errors.
@@ -51,7 +51,7 @@ def sets_in(directory, prefix):
 
 
 def main():
-    print("  arm family homogeneity, nbody/anchor_sift/scan_<set> against arithmetic/no_rounding/arm_<set>")
+    print("  arm family homogeneity, nbody/orior/scan_<set> against arithmetic/no_rounding/arm_<set>")
     print("  roots scanned:")
     print("    " + str(SCAN_DIR))
     print("    " + str(ARM_DIR))
@@ -102,7 +102,7 @@ def main():
             "scan_" + one + " has no matching arm_" + one + " in no_rounding/"
         )
     for one in sorted(arm_only):
-        problems.append("arm_" + one + " has no matching scan_" + one + " in nbody/anchor_sift/")
+        problems.append("arm_" + one + " has no matching scan_" + one + " in nbody/orior/")
 
     if problems:
         for one in problems:

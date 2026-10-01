@@ -1,0 +1,630 @@
+where	who	kind	form	gloss
+front	Ethan Pincott	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+front	Ethan Pincott	note	Abstract: In this paper, I examine the vowels that occur in root-stressed and middle forms of weak roots in Secwepemctsín. I show that there is a predictable pattern of vowel position and quality in these paradigms, suggesting that a series of historical sound shifts affecting stressed schwa can explain the observed variation. This is supported by comparative data from the other Northern Interior Salish languages. Synchronically, the picture is more complicated, but an analysis assuming underlying schwa in weak morphemes helps to explain otherwise problematic stress patterns. This paper is a first step towards a better understanding of the stress system of Secwepemctsín from a diachronic and synchronic perspective.	page 1, the abstract
+front	Ethan Pincott	language	Secwepemctsín/Shuswap	page 1, a keyword, the language's own name and its English one
+front	Ethan Pincott	note	Keywords: Secwepemctsín/Shuswap, historical Salish, stress, schwa, vowel gradation	page 1
+§1	Ethan Pincott	heading	1 Introduction	page 1
+§1	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§1	Secwepemctsín	name	Wumecwílc	page 1, the elders’ group Wumecwílc re Secwepemctsín, whose speakers the author works with
+§1	Ethan Pincott	note	Secwepemctsín (Shuswap) is a Northern Interior Salish language spoken across a large territory of southern British Columbia, from the Fraser River in the west to the Rockies in the east. A dialect division splits the language into Western and Eastern dialects between Kamloops and Chase, with minor differences between bands within these larger speech communities. There are probably less than 50 fluent speakers of the language, although language revitalization efforts are ongoing throughout the nation. Data for this paper mostly comes from descriptive work on the language by Aert Kuipers (Kuipers 1974, 1989), with clarification on certain points coming from my work with fluent speakers of the Wumecwílc re Secwepemctsín elders’ group, comprising speakers from various Western dialect speaking communities.	page 1
+footnote *	Secwepemctsín	transcription	* Yerí7 re skukwstsétsems re stet̓ex7ém te Wumecwílc re Secwepemctsín es knúncwentsems es xepqenwéw̓en re xqwelténs. E ta7us k sknúncwentsems, ta7 ken sxenwéw̓llen ens xíxlem ye7éne ten s7é7elkst.	page 1, footnote *, the author's thanks to the elders written in Secwepemctsín, in the community orthography
+footnote *	Ethan Pincott	note	Thank you to the elders of the Wumecwílc re Secwepemctsín group, who have been so helpful and generous in my learning of the language. Without their help, my work in the language would be impossible. Thank you also to the Salish Working Group for valuable feedback on this topic.	page 1, footnote
+footnote *	Secwepemctsín	cited form	Yerí7	page 1
+footnote *	Secwepemctsín	cited form	skukwstsétsems	page 1
+footnote *	Secwepemctsín	cited form	stet̓ex7ém	page 1
+footnote *	Secwepemctsín	cited form	knúncwentsems	page 1
+footnote *	Secwepemctsín	cited form	xepqenwéw̓en	page 1
+footnote *	Secwepemctsín	cited form	xqwelténs	page 1
+footnote *	Secwepemctsín	cited form	sknúncwentsems	page 1
+footnote *	Secwepemctsín	cited form	sxenwéw̓llen	page 1
+footnote *	Secwepemctsín	cited form	xíxlem	page 1
+footnote *	Secwepemctsín	cited form	ye7éne	page 1
+footnote *	Secwepemctsín	cited form	s7é7elkst	page 1
+§1	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, a Northern Interior Salish language
+§1	Ethan Pincott	note	Secwepemctsín, like most Interior Salish languages, has a lexically specified stress system, where morphemes are described as “strong” or “weak” based on their ability to attract stress. Strong and weak roots in Salish are typically thought to go back to a Proto-Salish distinction between roots with full vowels and roots with schwa (Thompson 1979b), a distinction which has become obscured through sound changes in various languages. Secwepemctsín is an example of a language where stressed schwa never surfaces, but the distinction between strong and weak roots remains. In Section 1, I explain the distinction between strong and weak roots in Secwepemctsín as it relates to stress patterns found in the language. In Section 2, I establish the patterns of vowel grades that exist in Secwepemctsín weak roots, and suggest that the surface patterns can be explained by sound changes that eliminated stressed schwa from the language. Cognates with the other Northern Interior languages are presented in Section 3, which provide further evidence that weak roots go back to roots with schwa, with phonological changes in Secwepemctsín and nɬeʔkepmxcín partially obscuring this. I suggest a synchronic analysis in Section 5 that proposes that schwa is still underlyingly present and active in the phonology of Secwepemctsín. Section 6 concludes.	page 1
+§2	Ethan Pincott	heading	2 Strong and weak roots	page 2
+§2	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§2	Ethan Pincott	note	Secwepemctsín, like most Interior Salish languages, has a lexical stress system (Czaykowska- Higgins 1993 for Nxa'amxcin, Bates and Carlson 1989 for Spokane). Roots and suffixes are typically grouped into stress classes ranked into a hierarchy, where the morpheme in a word highest on that hierarchy receives stress. All roots are potentially stressable, although in practice not all are attested in forms where they would bear stress. Prefixes never interact with stress. Stress is attracted to a morpheme based on the following hierarchy, which is a generalized description of Interior Salish stress from Czaykowska-Higgins (1993):	page 2
+(1) line 1	Ethan Pincott	note	(1) strong suffix > strong root > variable suffix > variable root > weak root > weak suffix	page 2, the stress hierarchy of Interior Salish, after Czaykowska-Higgins 1993
+§2	Ethan Pincott	note	However, these categories do not seem to explain all the data in the language. Consider the examples below:	page 2
+(2) line 1	Ethan Pincott	note	Problematic stress	page 2, the caption
+(2a) line 1	Secwepemctsín	phonemic	/peɣ-Vm/	page 2, phonemic, in / /, carries footnote 1, written here without its digit
+(2a) line 1	Secwepemctsín	phonemic	[péɣəm]	page 2, phonetic, in [ ]
+(2a) line 1	Ethan Pincott	translation	‘cool off’	page 2
+(2b) line 1	Secwepemctsín	phonemic	/peɣ-etkʷə/	page 2, phonemic, in / /
+(2b) line 1	Secwepemctsín	phonemic	[pəɣétkʷe]	page 2, phonetic, in [ ]
+(2b) line 1	Ethan Pincott	translation	‘cooled-off water’	page 2
+(2c) line 1	Secwepemctsín	phonemic	/ciq-Vm/	page 2, phonemic, in / /
+(2c) line 1	Secwepemctsín	phonemic	[cíqəm]	page 2, phonetic, in [ ]
+(2c) line 1	Ethan Pincott	translation	‘dig’	page 2
+(2d) line 1	Secwepemctsín	phonemic	/ciq-etkʷə/	page 2, phonemic, in / /
+(2d) line 1	Secwepemctsín	phonemic	[cíqkʷe]	page 2, phonetic, in [ ]
+(2d) line 1	Ethan Pincott	translation	‘dig a well’	page 2
+(2e) line 1	Secwepemctsín	phonemic	/pet-Vm/	page 2, phonemic, in / /
+(2e) line 1	Secwepemctsín	phonemic	[ptém]	page 2, phonetic, in [ ]
+(2e) line 1	Ethan Pincott	translation	‘spread out’	page 2, carries footnote 2, written here without its digit
+§2	Secwepemctsín	cited affix	/-etkʷə/	page 2, the suffix ‘water’, of variable stress
+§2	Secwepemctsín	cited form	/√peɣ/	page 2
+§2	Secwepemctsín	cited form	pəɣétkʷe	page 2
+§2	Secwepemctsín	cited form	cíqkʷe	page 2
+§2	Ethan Pincott	note	The suffix /-etkʷə/ “water” displays variable stress: it is stressed in (2b) with the root /√peɣ/ in [pəɣétkʷe] and unstressed in (2d) with the root /√ciq/ in [cíqkʷe]. However, the behaviour of stress with the middle suffix /-Vm/ poses a problem for this hierarchy. It can be stressed as in (2e) in combination with a weak root like /√pet/, but it is unstressed in combination with the root /√peɣ/ in (2a). In other words, (2a) implies a strong root + variable suffix, and (2e) implies a weak root + variable suffix, but (2b) with the same root as (2a) implies a weak/variable root + variable suffix. I will return to this apparent contradiction in Section 5.	page 2
+§2	Ethan Pincott	note	Finally, there are certain suffixes that are never stressed. This seems to be due to the fact that they contain no vowels in their underlying representations, hence have no syllable nucleus to bear stress:	page 2
+footnote 1	Ethan Pincott	note	1 The vowel of the middle suffix varies between [ə], [é], and [ú], which will be discussed in detail in this paper.	page 2, footnote
+footnote 1	Secwepemctsín	cited form	ə	page 2, footnote 1, a vowel of the middle suffix, in [ ]
+footnote 1	Secwepemctsín	cited form	é	a vowel of the argument
+footnote 1	Secwepemctsín	cited form	ú	a vowel of the argument
+footnote 2	Ethan Pincott	note	2 Community orthography transcription for the examples in (2): (2a) pérem, (2b) perétkwe, (2c) tsíqem, (2d) tsíqkwe, (2e) ptem.	page 2, footnote
+footnote 2	Secwepemctsín	transcription	pérem	page 2, the community orthography of (2a) [péɣəm]
+footnote 2	Secwepemctsín	transcription	perétkwe	page 2, the community orthography of (2b) [pəɣétkʷe]
+footnote 2	Secwepemctsín	transcription	tsíqem	page 2, the community orthography of (2c) [cíqəm]
+footnote 2	Secwepemctsín	transcription	tsíqkwe	page 2, the community orthography of (2d) [cíqkʷe]
+footnote 2	Secwepemctsín	transcription	ptem	page 2, the community orthography of (2e) [ptém]
+(3) line 1	Ethan Pincott	note	Unstressable suffixes	page 3, the caption
+(3a) line 1	Secwepemctsín	phonemic	/x̌lit-mx/	page 3, phonemic, in / /
+(3a) line 1	Secwepemctsín	phonemic	[x̌lítəmx]	page 3, phonetic, in [ ]
+(3a) line 1	Ethan Pincott	translation	‘invite guests’	page 3
+(3b) line 1	Secwepemctsín	phonemic	/pil-mt/	page 3, phonemic, in / /
+(3b) line 1	Secwepemctsín	phonemic	[píləmt]	page 3, phonetic, in [ ]
+(3b) line 1	Ethan Pincott	translation	‘scattered, lost’	page 3
+(3c) line 1	Secwepemctsín	phonemic	/t-qel-tk/	page 3, phonemic, in / /
+(3c) line 1	Secwepemctsín	phonemic	[tqeltk]	page 3, phonetic, in [ ]
+(3c) line 1	Ethan Pincott	translation	‘high’	page 3
+(3d) line 1	Secwepemctsín	phonemic	/c̓eɬ-t/	page 3, phonemic, in / /
+(3d) line 1	Secwepemctsín	phonemic	[c̓éɬt]	page 3, phonetic, in [ ]
+(3d) line 1	Ethan Pincott	translation	‘cold’	page 3, carries footnote 3, written here without its digit
+§2	Ethan Pincott	note	A full accounting of the Secwepemctsín stress system must remain a topic for future research, but it is necessary to first describe the basics to account for the patterns in vocalism I discuss. The focus of this paper is on weak roots, here taken to mean roots that will yield stress to all suffixes other than weak suffixes, which can never be stressed.	page 3
+§3	Ethan Pincott	heading	3 Vocalism in weak roots	page 3
+§3	Ethan Pincott	note	Although weak roots will typically surface unstressed, as they yield stress to the vast majority of suffixes in the language, there are certain morphological formations that require them to be accented. In these cases, the stressed vowel in the root and middle suffix is nearly always predictable. This is most apparent with triconsonantal weak roots. Some examples can demonstrate this:	page 3
+(4)	Ethan Pincott	note	Triconsonantal weak root paradigms	page 3, the caption
+(4)	Ethan Pincott	note	Root-stressed Middle Transitive	page 3, the column heads
+(4a) line 1	Secwepemctsín	cited form	x̌léq̓	page 3, the root-stressed form
+(4a) line 1	Secwepemctsín	cited form	x̌əlq̓-ém	page 3, the middle form
+(4a) line 1	Secwepemctsín	cited form	x̌əlq̓-ənt-és	page 3, the transitive form
+(4a) line 2	Ethan Pincott	translation	‘rolled’	page 3, of x̌léq̓
+(4a) line 2	Ethan Pincott	translation	‘roll’	page 3, of x̌əlq̓-ém
+(4a) line 2	Ethan Pincott	translation	‘s/he rolls it’	page 3, of x̌əlq̓-ənt-és
+(4b) line 1	Secwepemctsín	cited form	c-ptúkʷ	page 3, the root-stressed form
+(4b) line 1	Secwepemctsín	cited form	pətkʷ-úm	page 3, the middle form
+(4b) line 1	Secwepemctsín	cited form	pətkʷ-ənt-és	page 3, the transitive form
+(4b) line 2	Ethan Pincott	translation	‘pierced’	page 3, of c-ptúkʷ
+(4b) line 2	Ethan Pincott	translation	‘pierce’	page 3, of pətkʷ-úm
+(4b) line 2	Ethan Pincott	translation	‘s/he pierces it’	page 3, of pətkʷ-ənt-és, carries footnote 4, written here without its digit
+§3	Secwepemctsín	cited form	/é/	a vowel of the argument
+§3	Ethan Pincott	notation	CCéC	a root shape, C a consonant, V a vowel
+§3	Ethan Pincott	notation	CəCC	a root shape, C a consonant, V a vowel
+§3	Secwepemctsín	cited form	/ú/	a vowel of the argument
+§3	Ethan Pincott	notation	CCúCʷ	a root shape, C a consonant, V a vowel
+§3	Ethan Pincott	note	The examples in (4a) show a paradigm where the root final consonant is unrounded. In these cases, the vowel in a root-stressed form is /é/ and it occurs before the final consonant of the root (shape CCéC). The vowel in the middle suffix is also /é/, and the unstressed root has the shape CəCC when suffixed. If the final consonant of the root is rounded, as in (4b), then the vowel in the root-stressed form is /ú/ (shape CCúCʷ), and the vowel of the middle suffix is also /ú/. These paradigms can be summed up in the following template:	page 3
+Table 1	Ethan Pincott	note	Table 1: Triconsonantal weak root paradigms	page 3, the caption, carries footnote 5 on Transitive
+Table 1	Ethan Pincott	note	Root consonants Root-stressed Middle Transitive5	page 3, the column heads
+Table 1 line 1	Ethan Pincott	note	√CCC CCéC CəCC-ém CəCC-ənt-és	page 3, a line of the table
+Table 1 line 2	Ethan Pincott	note	√CCCʷ CCúCʷ CəCCʷ-úm CəCCʷ-ənt-és	page 3, a line of the table
+footnote 3	Ethan Pincott	note	3 Community orthography transcription for the examples in (3): (3a) xlítemc, (3b) pílemt, (3c) tqeltk, (3d) ts̓ellt.	page 3, footnote
+footnote 3	Secwepemctsín	transcription	xlítemc	page 3, the community orthography of (3a) [x̌lítəmx]
+footnote 3	Secwepemctsín	transcription	pílemt	page 3, the community orthography of (3b) [píləmt]
+footnote 3	Secwepemctsín	transcription	tqeltk	page 3, the community orthography of (3c) [tqeltk]
+footnote 3	Secwepemctsín	transcription	ts̓ellt	page 3, the community orthography of (3d) [c̓éɬt]
+footnote 4	Ethan Pincott	note	4 Community orthography transcription for the examples in (4): (4a) xleq̓, xelq̓ém, xelq̓entés, (4b) tsptukw, petkúm, petkwentés.	page 3, footnote
+footnote 4	Secwepemctsín	transcription	xleq̓	page 3, the community orthography of (4a) x̌léq̓
+footnote 4	Secwepemctsín	transcription	xelq̓ém	page 3, the community orthography of (4a) x̌əlq̓-ém
+footnote 4	Secwepemctsín	transcription	xelq̓entés	page 3, the community orthography of (4a) x̌əlq̓-ənt-és
+footnote 4	Secwepemctsín	transcription	tsptukw	page 3, the community orthography of (4b) c-ptúkʷ
+footnote 4	Secwepemctsín	transcription	petkúm	page 3, the community orthography of (4b) pətkʷ-úm
+footnote 4	Secwepemctsín	transcription	petkwentés	page 3, the community orthography of (4b) pətkʷ-ənt-és
+footnote 5	Ethan Pincott	note	5 Transitive forms are given in the 3SUB>3OBJ form, the typical citation form found in dictionaries.	page 3, footnote
+§3	Secwepemctsín	cited form	/á/	a vowel of the argument
+§3	Secwepemctsín	cited form	/ó/	a vowel of the argument
+§3	Secwepemctsín	cited form	/í/	a vowel of the argument
+§3	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§3	Ethan Pincott	note	The root-stressed forms nearly always express stative meanings, since two of the most common stative morphemes in the language, the prefix /c-/ and the weak suffix /-t/, do not interact with stress. Occasionally, bare-root forms with no additional morphology occur, and these typically have a stative meaning as well. Finally, root-stressed forms may occur as nominalizations in absence of any other morphology, since the nominalizer prefix /s-/ also does not interact with stress. The key generalization is that the vowel quality of the root-stressed form and middle form are predictable based on the final consonant of the root: if it is rounded, the stressed vowel will be /ú/, otherwise it is /é/. A small caveat here is that roots with a retracting feature have the retracted counterparts of /é/ and /ú/, which are /á/ and /ó/, respectively, although in practice this is rare.6 When suffixed, this retraction will typically spread to the stressed vowel of the suffix, changing the vowel from light /i u e/ to the retracted counterpart /e o a/. This generalization about the vowel quality in weak roots predicts that root-stressed forms with /í/ should not exist, and this is exactly what we find in Secwepemctsín.	page 3
+§3	Secwepemctsín	cited form	/ʔ/	a consonant of the argument, the glottal stop
+§3	Ethan Pincott	note	There is one exception to this pattern, where we have an unexpected /ú/ in a root with a final /ʔ/. This exceptional pattern also occurs in biconsonantal roots and will be discussed later.	page 4
+(5)	Ethan Pincott	note	Exceptional vocalism	page 4, the caption
+(5)	Ethan Pincott	note	Root-stressed Middle Transitive	page 4, the column heads
+(5a) line 1	Secwepemctsín	cited form	s-t̓qʷúʔ	page 4, the root-stressed form
+(5a) line 1	Secwepemctsín	cited form	t̓əqʷʔ-úm	page 4, the middle form
+(5a) line 1	Secwepemctsín	cited form	t̓qʷ-ənt-és	page 4, the transitive form, carries footnote 7, written here without its digit
+(5a) line 2	Ethan Pincott	translation	‘sewn up’	page 4, of s-t̓qʷúʔ
+(5a) line 2	Ethan Pincott	translation	‘sew’	page 4, of t̓əqʷʔ-úm
+(5a) line 2	Ethan Pincott	translation	‘s/he sews it’	page 4, of t̓qʷ-ənt-és, carries footnote 8, written here without its digit
+§3	Ethan Pincott	note	Biconsonantal roots show the same pattern, although with a few more exceptions. The following table sums up the paradigms:	page 4
+Table 2	Ethan Pincott	note	Table 2: Biconsonantal weak root paradigms	page 4, the caption
+Table 2	Ethan Pincott	note	Root consonants Root-stressed Middle Transitive	page 4, the column heads
+Table 2 line 1	Ethan Pincott	note	√CC CéC C(ə)C-ém C(ə)C-ənt-és	page 4, a line of the table
+Table 2 line 2	Ethan Pincott	note	√CCʷ CúCʷ C(ə)Cʷ-úm C(ə)Cʷ-ənt-és	page 4, a line of the table
+§3	Ethan Pincott	note	Unstressed schwa surfaces in end-stressed forms if one of the root consonants is a resonant. Biconsonantal roots show more exceptions to this pattern than triconsonantal ones, although they are not numerous:	page 4
+(6)	Ethan Pincott	note	Unexpected root /é/ before rounded consonant	page 5, the caption
+(6)	Ethan Pincott	note	Root-stressed Middle Transitive	page 5, the column heads
+(6a) line 1	Secwepemctsín	cited form	x̌éw-t	page 5, the root-stressed form
+(6a) line 1	Secwepemctsín	cited form	x̌əw-úm	page 5, the middle form
+(6a) line 1	Secwepemctsín	cited form	x̌əw-ənt-és	page 5, the transitive form
+(6a) line 2	Ethan Pincott	translation	‘dry (state)’	page 5, of x̌éw-t
+(6a) line 2	Ethan Pincott	translation	‘dry (action)’	page 5, of x̌əw-úm
+(6a) line 2	Ethan Pincott	translation	‘s/he dries it’	page 5, of x̌əw-ənt-és
+(6b) line 1	Secwepemctsín	cited form	c-q̓éxʷ	page 5, the root-stressed form
+(6b) line 1	Secwepemctsín	cited form	q̓xʷ-úm	page 5, the middle form
+(6b) line 1	Secwepemctsín	cited form	q̓xʷ-ənt-és	page 5, the transitive form
+(6b) line 2	Ethan Pincott	translation	‘crowded’	page 5, of c-q̓éxʷ
+(6b) line 2	Ethan Pincott	translation	‘gather’	page 5, of q̓xʷ-úm
+(6b) line 2	Ethan Pincott	translation	‘s/he gathers it’	page 5, of q̓xʷ-ənt-és, carries footnote 9, written here without its digit
+(7)	Ethan Pincott	note	Unexpected root /ú/ before /ʔ/	page 5, the caption
+(7)	Ethan Pincott	note	Root-stressed Middle Transitive	page 5, the column heads
+(7a) line 1	Secwepemctsín	cited form	s-p̓uʔ	page 5, the root-stressed form
+(7a) line 1	Secwepemctsín	cited form	p̓ʔ-úm	page 5, the middle form
+(7a) line 1	Secwepemctsín	cited form	p̓-ənt-és	page 5, the transitive form
+(7a) line 2	Ethan Pincott	translation	‘fart’	page 5, of s-p̓uʔ
+(7a) line 2	Ethan Pincott	translation	‘squirt’	page 5, of p̓ʔ-úm
+(7a) line 2	Ethan Pincott	translation	‘s/he squirts it’	page 5, of p̓-ənt-és
+(7b) line 1	Secwepemctsín	cited form	ɬə-ɬúʔ	page 5, the root-stressed form
+(7b) line 1	Secwepemctsín	cited form	ɬʔ-úm	page 5, the middle form
+(7b) line 1	Secwepemctsín	cited form	ɬ-ənt-és	page 5, the transitive form
+(7b) line 2	Ethan Pincott	translation	‘stabbed’	page 5, of ɬə-ɬúʔ
+(7b) line 2	Ethan Pincott	translation	‘stab’	page 5, of ɬʔ-úm
+(7b) line 2	Ethan Pincott	translation	‘s/he stabs it’	page 5, of ɬ-ənt-és
+(7c) line 1	Secwepemctsín	cited form	s-q̓ʷúʔ	page 5, the root-stressed form
+(7c) line 1	Secwepemctsín	cited form	q̓ʷʔ-úm	page 5, the middle form
+(7c) line 1	Secwepemctsín	cited form	q̓ʷ-ənt-és	page 5, the transitive form
+(7c) line 2	Ethan Pincott	translation	‘trap (noun)’	page 5, of s-q̓ʷúʔ
+(7c) line 2	Ethan Pincott	translation	‘trap (verb)’	page 5, of q̓ʷʔ-úm
+(7c) line 2	Ethan Pincott	translation	‘s/he traps it’	page 5, of q̓ʷ-ənt-és, carries footnote 10, written here without its digit
+footnote 6	Ethan Pincott	note	6 The one example I’m aware of: c-ylók̓ʷ ‘coiled’, yəlk̓ʷ-ənt-ás ‘s/he coils it’ (no middle form attested), where the retracting feature darkens the root vowel /ú/ to /ó/ and the /é/ of the transitive subject ending to /á/. Community orthography: tsilók̓w, yelk̓wentás.	page 4, footnote
+footnote 6	Secwepemctsín	transcription	tsilók̓w	page 4, the community orthography of c-ylók̓ʷ
+footnote 6	Secwepemctsín	transcription	yelk̓wentás	page 4, the community orthography of yəlk̓ʷ-ənt-ás
+footnote 7	Ethan Pincott	note	7 Root-final /ʔ/ is regularly deleted before an unstressed syllable.	page 4, footnote
+footnote 8	Ethan Pincott	note	8 Community orthography transcription for the examples in (5): st̓qwu7, t̓eqw7úm, t̓qwentés.	page 4, footnote
+footnote 8	Secwepemctsín	transcription	st̓qwu7	page 4, the community orthography of (5a) s-t̓qʷúʔ
+footnote 8	Secwepemctsín	transcription	t̓eqw7úm	page 4, the community orthography of (5a) t̓əqʷʔ-úm
+footnote 8	Secwepemctsín	transcription	t̓qwentés	page 4, the community orthography of (5a) t̓qʷ-ənt-és
+§3	Secwepemctsín	cited form	/c-k̓éʔ/	page 5, ‘placed’
+§3	Secwepemctsín	cited form	/k̓ʔ-ém/	page 5, ‘place’
+§3	Secwepemctsín	cited form	/k̓-ənt-és/	page 5
+§3	Secwepemctsín	cited form	/s-cxéʔ/	page 5, ‘fixed’
+§3	Secwepemctsín	cited form	/cəxʔ-ém/	page 5, ‘fix’
+§3	Secwepemctsín	cited form	/cx-ənt-és/	page 5, ‘s/he fixes it’
+§3	Ethan Pincott	note	These exceptional cases are difficult to account for. It is interesting that the root-stressed forms with /é/ before a rounded final consonant still have the expected /ú/ in the middle suffix. The reoccurrence of /ú/ with final /ʔ/ is also notable, however, this is not a consistent rule, as forms with the expected /é/ occur in this position as well: /c-k̓éʔ/ ‘placed’, /k̓ʔ-ém/ ‘place’, /k̓-ənt-és/ ‘s/he places it’; /s-cxéʔ/ ‘fixed’, /cəxʔ-ém/ ‘fix’, /cx-ənt-és/ ‘s/he fixes it’.11 I currently have no explanation for these exceptional forms; however, it should be noted that they are rare. The chart below shows the occurrence of expected vs unexpected vowels in Secwepemctsín biconsonantal and triconsonantal weak roots.	page 5
+footnote 9	Ethan Pincott	note	9 Community orthography transcription for the examples in (6): (6a) xewt, xuwúm, xuwentés, (6b) tsq̓ecw, q̓cum, q̓cwentés.	page 5, footnote
+footnote 9	Secwepemctsín	transcription	xewt	page 5, the community orthography of (6a) x̌éw-t
+footnote 9	Secwepemctsín	transcription	xuwúm	page 5, the community orthography of (6a) x̌əw-úm
+footnote 9	Secwepemctsín	transcription	xuwentés	page 5, the community orthography of (6a) x̌əw-ənt-és
+footnote 9	Secwepemctsín	transcription	tsq̓ecw	page 5, the community orthography of (6b) c-q̓éxʷ
+footnote 9	Secwepemctsín	transcription	q̓cum	page 5, the community orthography of (6b) q̓xʷ-úm
+footnote 9	Secwepemctsín	transcription	q̓cwentés	page 5, the community orthography of (6b) q̓xʷ-ənt-és
+footnote 10	Ethan Pincott	note	10 Community orthography transcription for the examples in (7): (7a) sp̓u7, p̓7um, p̓entés, (7b) llellú7, ll7um, llentés, (7c) sq̓u7, q̓w7um, q̓wentés.	page 5, footnote
+footnote 10	Secwepemctsín	transcription	sp̓u7	page 5, the community orthography of (7a) s-p̓uʔ
+footnote 10	Secwepemctsín	transcription	p̓7um	page 5, the community orthography of (7a) p̓ʔ-úm
+footnote 10	Secwepemctsín	transcription	p̓entés	page 5, the community orthography of (7a) p̓-ənt-és
+footnote 10	Secwepemctsín	transcription	llellú7	page 5, the community orthography of (7b) ɬə-ɬúʔ
+footnote 10	Secwepemctsín	transcription	ll7um	page 5, the community orthography of (7b) ɬʔ-úm
+footnote 10	Secwepemctsín	transcription	llentés	page 5, the community orthography of (7b) ɬ-ənt-és
+footnote 10	Secwepemctsín	transcription	sq̓u7	page 5, the community orthography of (7c) s-q̓ʷúʔ
+footnote 10	Secwepemctsín	transcription	q̓w7um	page 5, the community orthography of (7c) q̓ʷʔ-úm
+footnote 10	Secwepemctsín	transcription	q̓wentés	page 5, the community orthography of (7c) q̓ʷ-ənt-és
+footnote 11	Ethan Pincott	note	11 Community orthography transcription for these examples: tsk̓e7, k̓7em, k̓entés, stsce7, tsec7ém, tscentés.	page 5, footnote
+footnote 11	Secwepemctsín	transcription	tsk̓e7	page 5, the community orthography of /c-k̓éʔ/
+footnote 11	Secwepemctsín	transcription	k̓7em	page 5, the community orthography of /k̓ʔ-ém/
+footnote 11	Secwepemctsín	transcription	k̓entés	page 5, the community orthography of /k̓-ənt-és/
+footnote 11	Secwepemctsín	transcription	stsce7	page 5, the community orthography of /s-cxéʔ/
+footnote 11	Secwepemctsín	transcription	tsec7ém	page 5, the community orthography of /cəxʔ-ém/
+footnote 11	Secwepemctsín	transcription	tscentés	page 5, the community orthography of /cx-ənt-és/
+§3	Ethan Pincott	note	Figure 1: Expected vs unexpected vowels	page 6, the caption of Figure 1, a chart the text layer does not carry
+§3	Ethan Pincott	note	Of the 79 weak roots in Secwepemctsín that are attested in a root-stressed form, 73 of them (92%) have the expected vocalism (/ú/ before a final rounded consonant and /é/ elsewhere). This robust pattern seems unlikely to occur by chance.	page 6
+§3	Ethan Pincott	language	pre-Secwepemctsín	page 6, the stage of the language before the sound changes of (8)
+§3	Ethan Pincott	note	What can explain the observed patterns of vocalism in Secwepemctsín weak roots? The language, unlike many other Salish languages, never permits stressed schwa. I suggest that in pre- Secwepemctsín, these roots contained schwa (and may still underlyingly, see Section 5).	page 6
+Table 3	Ethan Pincott	note	Table 3: Biconsonantal weak root paradigms in pre-Secwepemctsín	page 6, the caption
+Table 3	Ethan Pincott	note	Root consonants Root-stressed Middle Transitive	page 6, the column heads
+Table 3 line 1	Ethan Pincott	note	√CC *Cə́C *C(ə)C-V́m *C(ə)C-ənt-és	page 6, a line of the table
+Table 3 line 2	Ethan Pincott	note	√CCʷ *Cə́Cʷ *C(ə)Cʷ-V́m *C(ə)Cʷ-ənt-és	page 6, a line of the table
+Table 3 line 3	Ethan Pincott	note	√CCC *CCə́C *CəCC-V́m *CəCC-ənt-és	page 6, a line of the table
+Table 3 line 4	Ethan Pincott	note	√CCCʷ *CCə́Cʷ *CəCCʷ-V́m *CəCCʷ-ənt-és	page 6, a line of the table
+§3	Ethan Pincott	note	Then the following sound changes applied, which eliminated stressed schwa from the language by converting it to a full vowel:	page 6
+(8)	Ethan Pincott	note	Sound changes affecting stressed schwa	page 7, the caption
+(8a) line 1	Ethan Pincott	note	*ə́ > ú / _Cʷ	page 7, a sound change of pre-Secwepemctsín
+(8b) line 1	Ethan Pincott	note	*ə́ > é (listed in Kuipers 2002:5)	page 7, a sound change of pre-Secwepemctsín
+§3	Secwepemctsín	cited form	/√kʷél/	page 7, ‘bake’
+§3	Secwepemctsín	cited form	/√qʷét/	page 7, ‘soft’
+§3	Secwepemctsín	cited affix	-úp	page 7
+§3	Secwepemctsín	cited affix	-ép	page 7
+§3	Ethan Pincott	note	These rules account for the distribution of stressed vowels found in weak roots. However, the vowel in the middle suffix can not be explained this way, as it becomes [ú] after a rounded consonant. This is not the case within roots, where only the final consonant conditions rounding, c.f., /√kʷél/ ‘bake’, /√qʷét/ ‘soft’. It is also worth mentioning that the stative suffix /-Vp/ when stressed displays the exact same alternation as the middle: it is [-úp] after a rounded consonant and [-ép] elsewhere. Because the vowel quality of the stressed middle and stative suffixes displays different conditioning than the vowel quality in root-stressed forms, these must be separate processes.	page 7
+§3.1	Ethan Pincott	heading	3.1 The /í/ grade	page 7
+§3.1	Secwepemctsín	cited form	/í/	a vowel of the argument
+§3.1	Ethan Pincott	note	An additional wrinkle to this story is that a subset of weak roots in the language have alternate strong forms with a full vowel, even when suffixed. Contrary to the pattern already discussed, this vowel is always /í/ and always occurs after the first consonant of the root.	page 7
+§3.1	Secwepemctsín	cited form	é	a vowel of the argument
+§3.1	Secwepemctsín	cited form	ú	a vowel of the argument
+§3.1	Ethan Pincott	note	While the distribution of [é ~ ú] in root-stressed weak roots is a phonological process, I suggest that the occurrence of /í/ is instead a morphological one. The presence of /í/ changes an otherwise weak root into a strong one, meaning it now bears stress when suffixed. Kuipers (1989) and consulting with fluent elders reveals a semantic contrast between roots with and without /í/:	page 7
+Table 4	Ethan Pincott	note	Table 4: Strong and weak root alternants12	page 7, the caption, carries footnote 12
+Table 4	Ethan Pincott	note	Root consonants /í/ grade Regular grade	page 7, the column heads
+Table 4 line 1	Secwepemctsín	root	√ptkʷ	page 7, the root
+Table 4 line 1	Ethan Pincott	translation	‘pierce’	page 7, of the root
+Table 4 line 1	Secwepemctsín	cited form	pítkʷ-ən-s	page 7, the /í/ grade, a strong root
+Table 4 line 1	Ethan Pincott	translation	‘s/he makes holes in it’	page 7, of the /í/ grade, from comments of fluent speakers
+Table 4 line 1	Secwepemctsín	cited form	pətkʷ-ənt-és	page 7, the regular grade, a weak root
+Table 4 line 1	Ethan Pincott	translation	‘s/he makes a hole in it’	page 7, of the regular grade, from comments of fluent speakers
+Table 4 line 2	Secwepemctsín	root	√plk̓	page 7, the root
+Table 4 line 2	Ethan Pincott	translation	‘turn over’	page 7, of the root
+Table 4 line 2	Secwepemctsín	cited form	pílk̓-ən-s	page 7, the /í/ grade, a strong root
+Table 4 line 2	Ethan Pincott	translation	‘s/he rolls it’	page 7, of the /í/ grade, from comments of fluent speakers
+Table 4 line 2	Secwepemctsín	cited form	pəlk̓-ənt-és	page 7, the regular grade, a weak root
+Table 4 line 2	Ethan Pincott	translation	‘s/he turns it over’	page 7, of the regular grade, from comments of fluent speakers
+Table 4 line 3	Secwepemctsín	root	√plqʷ	page 7, the root
+Table 4 line 3	Ethan Pincott	translation	‘break’	page 7, of the root
+Table 4 line 3	Secwepemctsín	cited form	pílqʷ-ən-s	page 7, the /í/ grade, a strong root
+Table 4 line 3	Ethan Pincott	translation	‘s/he breaks pieces off’	page 7, of the /í/ grade, from comments of fluent speakers
+Table 4 line 3	Secwepemctsín	cited form	pəlqʷ-ənt-és	page 7, the regular grade, a weak root
+Table 4 line 3	Ethan Pincott	translation	‘s/he breaks it off’	page 7, of the regular grade, from comments of fluent speakers
+Table 4 line 4	Secwepemctsín	root	√ɬʕʷ	page 7, the root
+Table 4 line 4	Ethan Pincott	translation	‘lose’	page 7, of the root
+Table 4 line 4	Secwepemctsín	cited form	ɬíʕʷ-ən-s	page 7, the /í/ grade, a strong root
+Table 4 line 4	Ethan Pincott	translation	‘s/he loses it’	page 7, of the /í/ grade, from comments of fluent speakers
+Table 4 line 4	Secwepemctsín	cited form	ɬʕʷ-ənt-és	page 7, the regular grade, a weak root
+Table 4 line 4	Ethan Pincott	translation	‘s/he loses them’	page 7, of the regular grade, from comments of fluent speakers
+§3.1	Secwepemctsín	cited form	/pílk̓əns/	page 7
+§3.1	Ethan Pincott	note	Translations are based on comments from fluent speakers. These confirm Kuipers’ statement that /í/ grade can express “plurality of subject or object” (1989:23). Additionally, it seems that the /í/ grade may express an iterative meaning, as in the word /pílk̓əns/ ‘s/he rolls it, s/he turns it over and over’. Given the meanings of this morpheme, I have tentatively glossed the /í/ grade as pluractional.	page 7
+§3.1	Secwepemctsín	cited form	/t̓uxʷt/	page 7, ‘fly’
+§3.1	Secwepemctsín	cited form	/t̓uyxʷt/	page 7, ‘fly (plural)’
+footnote 12	Ethan Pincott	note	12 Community orthography transcription for the examples in this table: pítkwens, pílk̓ens, pílqwens, llígwens, petkwentés, pelk̓entés, pelqwentés, llgwentés.	page 7, footnote
+footnote 12	Secwepemctsín	transcription	pítkwens	page 7, the community orthography of Table 4 pítkʷ-ən-s
+footnote 12	Secwepemctsín	transcription	pílk̓ens	page 7, the community orthography of Table 4 pílk̓-ən-s
+footnote 12	Secwepemctsín	transcription	pílqwens	page 7, the community orthography of Table 4 pílqʷ-ən-s
+footnote 12	Secwepemctsín	transcription	llígwens	page 7, the community orthography of Table 4 ɬíʕʷ-ən-s
+footnote 12	Secwepemctsín	transcription	petkwentés	page 7, the community orthography of Table 4 pətkʷ-ənt-és
+footnote 12	Secwepemctsín	transcription	pelk̓entés	page 7, the community orthography of Table 4 pəlk̓-ənt-és
+footnote 12	Secwepemctsín	transcription	pelqwentés	page 7, the community orthography of Table 4 pəlqʷ-ənt-és
+footnote 12	Secwepemctsín	transcription	llgwentés	page 7, the community orthography of Table 4 ɬʕʷ-ənt-és
+footnote 13	Ethan Pincott	note	13 Community orthography transcription for these examples: t̓ucwt, t̓uycwt.	page 7, footnote
+footnote 13	Secwepemctsín	transcription	t̓ucwt	page 7, the community orthography of /t̓uxʷt/
+footnote 13	Secwepemctsín	transcription	t̓uycwt	page 7, the community orthography of /t̓uyxʷt/
+§3.1	Ethan Pincott	note	A strange thing about this morpheme is that it only occurs with weak roots. It is tempting to see the pair /t̓uxʷt/ ‘fly’ and /t̓uyxʷt/ ‘fly (plural)’13 as a parallel, with the infixation of a consonantal form /y/ after the vowel in a strong root-stressed form. However, this is a unique case in the language so it is difficult to draw any conclusions. To sum up, the following table displays the possible vowel grades of a root in different paradigms:	page 7
+Table 5	Ethan Pincott	note	Table 5: Vowel grades across all paradigms14	page 8, the caption, carries footnote 14
+Table 5	Ethan Pincott	note	√ptkʷ “pierce” Root-stressed Middle Transitive	page 8, the column heads, the root and its gloss over the first column
+Table 5 line 1	Secwepemctsín	root	√ptkʷ	page 8, the regular grade
+Table 5 line 1	Secwepemctsín	cited form	c-ptúkʷ	page 8, the root-stressed form of the regular grade
+Table 5 line 1	Ethan Pincott	translation	‘hole’	page 8, of c-ptúkʷ
+Table 5 line 1	Secwepemctsín	cited form	pətkʷ-úm	page 8, the middle form of the regular grade
+Table 5 line 1	Ethan Pincott	translation	‘puncture’	page 8, of pətkʷ-úm
+Table 5 line 1	Secwepemctsín	cited form	pətkʷ-ənt-és	page 8, the transitive form of the regular grade
+Table 5 line 1	Ethan Pincott	translation	‘s/he makes a hole in it’	page 8, of pətkʷ-ənt-és
+Table 5 line 2	Secwepemctsín	root	√pítkʷ	page 8, the /í/ grade
+Table 5 line 2	Secwepemctsín	cited form	c-pítkʷ	page 8, the root-stressed form of the /í/ grade
+Table 5 line 2	Ethan Pincott	translation	‘pierced’	page 8, of c-pítkʷ
+Table 5 line 2	Secwepemctsín	cited form	pət-pítkʷ-əm	page 8, the middle form of the /í/ grade
+Table 5 line 2	Ethan Pincott	translation	‘puncture holes’	page 8, of pət-pítkʷ-əm
+Table 5 line 2	Secwepemctsín	cited form	pítkʷ-ən-s	page 8, the transitive form of the /í/ grade
+Table 5 line 2	Ethan Pincott	translation	‘s/he makes holes in it’	page 8, of pítkʷ-ən-s
+§4	Ethan Pincott	heading	4 Comparative evidence	page 8
+§4	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§4	Ethan Pincott	language	St’át’imcets	Lillooet, a Northern Interior Salish language
+§4	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, a Northern Interior Salish language
+§4	Ethan Pincott	note	If weak roots in Secwepemctsín go back to forms with schwa, we would expect cognates of these roots to have schwa in root-stressed forms in the Northern Interior languages St’át’imcets and nɬeʔkepmxcín, where stressed schwa can occur. For the most part this is what is found, although the picture is more complicated than predicted:	page 8
+Table 6	Ethan Pincott	note	Table 6: Cognates of root-stressed weak forms in NIS15	page 8, the caption, carries footnote 15
+Table 6	Ethan Pincott	note	Gloss16 Proto-NIS Secwepemctsín St’ át’ imcets n ɬeʔkepmxcín	page 8, the column heads, Gloss carries footnote 16; the text layer sets St’át’imcets and nɬeʔkepmxcín with gaps inside the words
+Table 6 line 1	Ethan Pincott	translation	‘straight, correct’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 1	Proto-Northern Interior Salish	cited form	*təx̌ʷ	page 8, the reconstruction
+Table 6 line 1	Secwepemctsín	root	√túx̌ʷ	page 8, the Secwepemctsín cognate
+Table 6 line 1	St’át’imcets	root	√tə́x̌ʷ	page 8, the St’át’imcets cognate
+Table 6 line 1	nɬeʔkepmxcín	root	√tóx̌ʷ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 2	Ethan Pincott	translation	‘hard’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 2	Proto-Northern Interior Salish	cited form	*t̓əʕʷ	page 8, the reconstruction
+Table 6 line 2	Secwepemctsín	root	√t̓úʕʷ	page 8, the Secwepemctsín cognate
+Table 6 line 2	St’át’imcets	root	√ƛ̓ə́ʕʷ	page 8, the St’át’imcets cognate
+Table 6 line 2	nɬeʔkepmxcín	root	√ƛ̓óʕʷ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 3	Ethan Pincott	translation	‘cut, rip’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 3	Proto-Northern Interior Salish	cited form	*t̓əl-xʷ	page 8, the reconstruction
+Table 6 line 3	Secwepemctsín	root	√t̓lúxʷ	page 8, the Secwepemctsín cognate
+Table 6 line 3	St’át’imcets	root	√ƛ̓ə́l	page 8, the St’át’imcets cognate
+Table 6 line 3	nɬeʔkepmxcín	root	√ƛ̓yúxʷ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 4	Ethan Pincott	translation	‘set upright’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 4	Proto-Northern Interior Salish	cited form	*cəq	page 8, the reconstruction
+Table 6 line 4	Secwepemctsín	root	√céq	page 8, the Secwepemctsín cognate
+Table 6 line 4	St’át’imcets	root	√cə́q	page 8, the St’át’imcets cognate
+Table 6 line 4	nɬeʔkepmxcín	root	√cáq	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 5	Ethan Pincott	translation	‘put on, hang’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 5	Proto-Northern Interior Salish	cited form	*ɬəxʷ	page 8, the reconstruction
+Table 6 line 5	Secwepemctsín	root	√ɬúxʷ	page 8, the Secwepemctsín cognate
+Table 6 line 5	St’át’imcets	root	√ɬə́xʷ	page 8, the St’át’imcets cognate
+Table 6 line 5	nɬeʔkepmxcín	root	√ɬúxʷ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 6	Ethan Pincott	translation	‘lean’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 6	Proto-Northern Interior Salish	cited form	*ɬəʔ	page 8, the reconstruction
+Table 6 line 6	Secwepemctsín	root	√ɬéʔ	page 8, the Secwepemctsín cognate
+Table 6 line 6	St’át’imcets	root	√ɬéʔ	page 8, the St’át’imcets cognate
+Table 6 line 6	nɬeʔkepmxcín	root	√ɬéʔ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 7	Ethan Pincott	translation	‘place round obj.’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 7	Proto-Northern Interior Salish	cited form	*k̓əʔ	page 8, the reconstruction
+Table 6 line 7	Secwepemctsín	root	√k̓éʔ	page 8, the Secwepemctsín cognate
+Table 6 line 7	St’át’imcets	root	√k̓éʔ	page 8, the St’át’imcets cognate
+Table 6 line 7	nɬeʔkepmxcín	root	√k̓éʔ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 8	Ethan Pincott	translation	‘put into, add’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 8	Proto-Northern Interior Salish	cited form	*q̓əʔ	page 8, the reconstruction
+Table 6 line 8	Secwepemctsín	root	√q̓éʔ	page 8, the Secwepemctsín cognate
+Table 6 line 8	St’át’imcets	root	√q̓éʔ	page 8, the St’át’imcets cognate
+Table 6 line 8	nɬeʔkepmxcín	root	√q̓éʔ	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 9	Ethan Pincott	translation	‘roast’	page 8, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 9	Proto-Northern Interior Salish	cited form	*q̓ʷəl	page 8, the reconstruction
+Table 6 line 9	Secwepemctsín	root	√q̓ʷél	page 8, the Secwepemctsín cognate
+Table 6 line 9	St’át’imcets	root	√q̓ʷə́l	page 8, the St’át’imcets cognate
+Table 6 line 9	nɬeʔkepmxcín	root	√q̓ʷí	page 8, the nɬeʔkepmxcín cognate
+Table 6 line 9	nɬeʔkepmxcín	cited form	q̓ʷíʔ	page 8, the nɬeʔkepmxcín cognate, beside the root before it
+Table 6 line 10	Ethan Pincott	translation	‘tie up’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 10	Proto-Northern Interior Salish	cited form	*ʕəc	page 9, the reconstruction
+Table 6 line 10	Secwepemctsín	root	√ʕéc	page 9, the Secwepemctsín cognate
+Table 6 line 10	St’át’imcets	root	√ʕə́c	page 9, the St’át’imcets cognate
+Table 6 line 10	nɬeʔkepmxcín	root	√ʕác	page 9, the nɬeʔkepmxcín cognate
+Table 6 line 11	Ethan Pincott	translation	‘transverse’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 11	Proto-Northern Interior Salish	cited form	*xət̓	page 9, the reconstruction
+Table 6 line 11	Secwepemctsín	root	√xét̓	page 9, the Secwepemctsín cognate
+Table 6 line 11	St’át’imcets	root	√xə́ƛ̓	page 9, the St’át’imcets cognate
+Table 6 line 11	nɬeʔkepmxcín	root	√xə́ƛ̓	page 9, the nɬeʔkepmxcín cognate
+Table 6 line 12	Ethan Pincott	translation	‘build w/ logs’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 12	Proto-Northern Interior Salish	cited form	*x̌əl	page 9, the reconstruction
+Table 6 line 12	Secwepemctsín	root	√x̌él	page 9, the Secwepemctsín cognate
+Table 6 line 12	St’át’imcets	root	√x̌ə́l	page 9, the St’át’imcets cognate
+Table 6 line 12	nɬeʔkepmxcín	root	√x̌íy	page 9, the nɬeʔkepmxcín cognate
+Table 6 line 13	Ethan Pincott	translation	‘break off’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 13	Proto-Northern Interior Salish	cited form	*t̓ələqʷ	page 9, the reconstruction
+Table 6 line 13	Secwepemctsín	root	√t̓luqʷ	page 9, the Secwepemctsín cognate
+Table 6 line 13	St’át’imcets	root	√ƛ̓ə́lqʷ	page 9, the St’át’imcets cognate
+Table 6 line 13	nɬeʔkepmxcín	root	√ƛ̓y̓íqʷ	page 9, the nɬeʔkepmxcín cognate
+Table 6 line 14	Ethan Pincott	translation	‘prop up, lean’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 6 line 14	Proto-Northern Interior Salish	cited form	*t̓əkəʔ	page 9, the reconstruction
+Table 6 line 14	Secwepemctsín	root	√t̓kéʔ	page 9, the Secwepemctsín cognate
+Table 6 line 14	St’át’imcets	root	√ƛ̓ə́keʔ	page 9, the St’át’imcets cognate
+Table 6 line 14	nɬeʔkepmxcín	root	√ƛ̓kéʔ	page 9, the nɬeʔkepmxcín cognate
+footnote 14	Ethan Pincott	note	14 Community orthography transcription for the examples in this table: tsptúkw, petkúm, petkwentés, tspitkw, petpítkwem, pítkwens.	page 8, footnote
+footnote 14	Secwepemctsín	transcription	tsptúkw	page 8, the community orthography of Table 5 c-ptúkʷ
+footnote 14	Secwepemctsín	transcription	petkúm	page 8, the community orthography of Table 5 pətkʷ-úm
+footnote 14	Secwepemctsín	transcription	petkwentés	page 8, the community orthography of Table 5 pətkʷ-ənt-és
+footnote 14	Secwepemctsín	transcription	tspitkw	page 8, the community orthography of Table 5 c-pítkʷ
+footnote 14	Secwepemctsín	transcription	petpítkwem	page 8, the community orthography of Table 5 pət-pítkʷ-əm
+footnote 14	Secwepemctsín	transcription	pítkwens	page 8, the community orthography of Table 5 pítkʷ-ən-s
+footnote 15	Ethan Pincott	note	15 St’át’imcets and nɬeʔkepmxcín data for this section come from Van Eijk (2013) and Thompson and Thompson (1996), respectively.	page 8, footnote
+footnote 16	Ethan Pincott	note	16 Glosses are extremely rough and approximate.	page 8, footnote
+§4	Secwepemctsín	cited form	/ʔ/	a consonant of the argument, the glottal stop
+§4	nɬeʔkepmxcín	cited form	/ə/	page 9, the nɬeʔkepmxcín root vowel elsewhere, Thompson 1979a:210
+§4	Ethan Pincott	note	Sets for which both other Northern Interior languages have a cognate with Secwepemctsín preserving a root-stressed form are relatively rare, and I have listed all that I have found in the table above. Some vowel correspondences can be deduced. For St’ át’ imcets this is trivial: the root vowel is schwa, except before /ʔ/ where it is /e/.17 In n ɬeʔkepmxcín, the quality of the root vowel is usually conditioned by the following consonant (Thompson 1979a:210): it is /o/ before a rounded postvelar, /a/ before an unrounded postvelar, /u/ before a rounded velar, /i/ before /y/ (from earlier *l), /e/ before /ʔ/, and /ə/ elsewhere. There are exceptions to this however: Th √yíx̌, Li √lə́x̌, Sh √léx̌ ‘intelligence, information’; Th √kʷéy, Sh √kʷél ‘cool, lukewarm’; Th √q̓ʷóʕ, Sh √q̓ʷéʕ ‘cheap’; Th √ʕác, Sh √ʕéc ‘tie up’, Th √ƛ̓y̓íqʷ, Sh √t̓lúqʷ ‘break’.	page 8
+§4	nɬeʔkepmxcín	root	√yíx̌	page 9, ‘intelligence, information’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	St’át’imcets	root	√lə́x̌	page 9, ‘intelligence, information’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Secwepemctsín	root	√léx̌	page 9, ‘intelligence, information’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	nɬeʔkepmxcín	root	√kʷéy	page 9, ‘cool, lukewarm’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Secwepemctsín	root	√kʷél	page 9, ‘cool, lukewarm’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	nɬeʔkepmxcín	root	√q̓ʷóʕ	page 9, ‘cheap’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Secwepemctsín	root	√q̓ʷéʕ	page 9, ‘cheap’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	nɬeʔkepmxcín	root	√ʕác	page 9, ‘tie up’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Secwepemctsín	root	√ʕéc	page 9, ‘tie up’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	nɬeʔkepmxcín	root	√ƛ̓y̓íqʷ	page 9, ‘break’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Secwepemctsín	root	√t̓lúqʷ	page 9, ‘break’, an exception to the nɬeʔkepmxcín root vowel of Thompson 1979a:210
+§4	Ethan Pincott	note	Some additional cognate sets where not all three languages preserve a form can further illustrate these points:	page 9
+Table 7	Ethan Pincott	note	Table 7: Additional cognate sets	page 9, the caption
+Table 7	Ethan Pincott	note	Gloss Proto-NIS Secwepemctsín St’ át’ imcets n ɬeʔkepmxcín	page 9, the column heads; the text layer sets St’át’imcets and nɬeʔkepmxcín with gaps inside the words
+Table 7 line 1	Ethan Pincott	translation	‘spread out’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 1	Proto-Northern Interior Salish	cited form	*pət	page 9, the reconstruction
+Table 7 line 1	Secwepemctsín	root	√pét	page 9, the Secwepemctsín cognate
+Table 7 line 1	St’át’imcets	root	√pə́t	page 9, the St’át’imcets cognate
+Table 7 line 2	Ethan Pincott	translation	‘spill’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 2	Proto-Northern Interior Salish	cited form	*pəkʷ	page 9, the reconstruction
+Table 7 line 2	Secwepemctsín	root	√púkʷ	page 9, the Secwepemctsín cognate
+Table 7 line 2	St’át’imcets	root	√pə́kʷ	page 9, the St’át’imcets cognate
+Table 7 line 3	Ethan Pincott	translation	‘haul, drag’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 3	Proto-Northern Interior Salish	cited form	*ləʕ	page 9, the reconstruction
+Table 7 line 3	Secwepemctsín	root	√léʕ	page 9, the Secwepemctsín cognate
+Table 7 line 3	St’át’imcets	root	√lə́ʕ	page 9, the St’át’imcets cognate
+Table 7 line 4	Ethan Pincott	translation	‘hide’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 4	Proto-Northern Interior Salish	cited form	*ləʕʷ	page 9, the reconstruction
+Table 7 line 4	Secwepemctsín	root	√lúʕʷ	page 9, the Secwepemctsín cognate
+Table 7 line 4	St’át’imcets	root	√lə́ʕʷ	page 9, the St’át’imcets cognate
+Table 7 line 5	Ethan Pincott	translation	‘lukewarm’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 5	Proto-Northern Interior Salish	cited form	*kʷəl	page 9, the reconstruction
+Table 7 line 5	Secwepemctsín	root	√kʷél	page 9, the Secwepemctsín cognate
+Table 7 line 5	nɬeʔkepmxcín	root	√kʷél	page 9, the nɬeʔkepmxcín cognate
+Table 7 line 5	nɬeʔkepmxcín	cited form	kʷéy	page 9, the nɬeʔkepmxcín cognate, beside the root before it
+Table 7 line 6	Ethan Pincott	translation	‘smoothe’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 6	Proto-Northern Interior Salish	cited form	*kʷəy	page 9, the reconstruction
+Table 7 line 6	Secwepemctsín	root	√kʷéy	page 9, the Secwepemctsín cognate
+Table 7 line 6	St’át’imcets	root	√kʷə́z	page 9, the St’át’imcets cognate
+Table 7 line 7	Ethan Pincott	translation	‘weave’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 7	Proto-Northern Interior Salish	cited form	*q̓əc̓	page 9, the reconstruction
+Table 7 line 7	Secwepemctsín	root	√qéc̓	page 9, the Secwepemctsín cognate
+Table 7 line 7	St’át’imcets	root	√q̓ə́c̓	page 9, the St’át’imcets cognate
+Table 7 line 8	Ethan Pincott	translation	‘shake’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 8	Proto-Northern Interior Salish	cited form	*q̓ʷəy	page 9, the reconstruction
+Table 7 line 8	Secwepemctsín	root	√q̓ʷéy	page 9, the Secwepemctsín cognate
+Table 7 line 8	St’át’imcets	root	√q̓ʷə́z̓	page 9, the St’át’imcets cognate
+Table 7 line 9	Ethan Pincott	translation	‘heat, spark’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 9	Proto-Northern Interior Salish	cited form	*x̌əy	page 9, the reconstruction
+Table 7 line 9	Secwepemctsín	root	√x̌éy	page 9, the Secwepemctsín cognate
+Table 7 line 9	St’át’imcets	root	√x̌ə́z̓	page 9, the St’át’imcets cognate
+Table 7 line 10	Ethan Pincott	translation	‘burn, glare’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 10	Proto-Northern Interior Salish	cited form	*wəx̌	page 9, the reconstruction
+Table 7 line 10	Secwepemctsín	root	√wéx̌	page 9, the Secwepemctsín cognate
+Table 7 line 10	nɬeʔkepmxcín	root	√wáx̌	page 9, the nɬeʔkepmxcín cognate
+Table 7 line 11	Ethan Pincott	translation	‘pierce, break open’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 11	Proto-Northern Interior Salish	cited form	*pətəkʷ	page 9, the reconstruction
+Table 7 line 11	Secwepemctsín	root	√ptúkʷ	page 9, the Secwepemctsín cognate
+Table 7 line 11	St’át’imcets	root	√pə́tkʷ	page 9, the St’át’imcets cognate
+Table 7 line 12	Ethan Pincott	translation	‘return’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 12	Proto-Northern Interior Salish	cited form	*p̓ələq̓	page 9, the reconstruction
+Table 7 line 12	Secwepemctsín	root	√pléq̓	page 9, the Secwepemctsín cognate
+Table 7 line 12	nɬeʔkepmxcín	root	√p̓yáq̓	page 9, the nɬeʔkepmxcín cognate
+Table 7 line 13	Ethan Pincott	translation	‘slip off’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 13	Proto-Northern Interior Salish	cited form	*mət̓ək̓ʷ	page 9, the reconstruction
+Table 7 line 13	Secwepemctsín	root	√mtúk̓ʷ	page 9, the Secwepemctsín cognate
+Table 7 line 13	St’át’imcets	root	√mə́ƛ̓k̓ʷ	page 9, the St’át’imcets cognate
+Table 7 line 14	Ethan Pincott	translation	‘make hole, crack nits’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 14	Proto-Northern Interior Salish	cited form	*k̓əpəxʷ	page 9, the reconstruction
+Table 7 line 14	Secwepemctsín	root	√k̓púxʷ	page 9, the Secwepemctsín cognate
+Table 7 line 14	St’át’imcets	root	√k̓ə́pxʷ	page 9, the St’át’imcets cognate
+Table 7 line 15	Ethan Pincott	translation	‘become spherical’	page 9, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 15	Proto-Northern Interior Salish	cited form	*q̓əməx̌ʷ	page 9, the reconstruction
+Table 7 line 15	Secwepemctsín	root	√q̓múx̌ʷ	page 9, the Secwepemctsín cognate
+Table 7 line 15	St’át’imcets	root	√q̓ə́m̓x̌ʷ	page 9, the St’át’imcets cognate
+Table 7 line 16	Ethan Pincott	translation	‘roll down’	page 10, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 16	Proto-Northern Interior Salish	cited form	*x̌ələq̓	page 10, the reconstruction
+Table 7 line 16	Secwepemctsín	root	√x̌léq̓	page 10, the Secwepemctsín cognate
+Table 7 line 16	St’át’imcets	root	√x̌ə́lq̓	page 10, the St’át’imcets cognate
+Table 7 line 17	Ethan Pincott	translation	‘coil’	page 10, the gloss of the set, rough and approximate by footnote 16
+Table 7 line 17	Proto-Northern Interior Salish	cited form	*yənəp̓	page 10, the reconstruction
+Table 7 line 17	Secwepemctsín	root	√ynép̓	page 10, the Secwepemctsín cognate
+Table 7 line 17	St’át’imcets	root	√zə́np̓	page 10, the St’át’imcets cognate
+footnote 17	Ethan Pincott	note	17 For ease of comparison I have standardized the orthographies across the three languages. The vowel that is typically written with <a> in St’át’imcets and pronounced [ɛ ~ æ] has been rewritten as <e>.	page 9, footnote
+footnote 17	St’át’imcets	phonetic	ɛ	page 9, footnote 17, the pronunciation of St’át’imcets <a>, written e here
+footnote 17	St’át’imcets	phonetic	æ	page 9, footnote 17, the pronunciation of St’át’imcets <a>, written e here
+§4	Ethan Pincott	notation	Cə́CC	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	CCV́C	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	note	The St’át’imcets cognates present an interesting challenge: in triconsonantal roots, schwa occurs after the first consonant (Cə́CC), while in Secwepemctsín and nɬeʔkepmxcín, the vowel occurs before the final consonant (CCV́C). This variation in the position of the root vowel makes reconstruction to Proto-Northern Interior Salish difficult.	page 10
+§4	Ethan Pincott	notation	E=ə́	page 10, E for stressed schwa, in Van Eijk 1997:32
+§4	Secwepemctsín	cited affix	⟨-ʔ-⟩	page 10, the inchoative infix
+§4	Ethan Pincott	notation	CVʔC	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	CʔVC	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	note	St’át’imcets seems to prefer CVCC roots in general; Van Eijk (1997:32) gives the following percentages for root shapes in the language: CVCC 18%, CCVC 5%. Significantly, he also finds no cases of stressed CCEC (E=ə́) within roots. I have not calculated similar percentages for Secwepemctsín, but a quick search through Kuipers’ grammar shows 11 strong root transitive verbs with the shape CVCC compared to 25 with the shape CCVC. Another parallel can be seen with the behaviour of the ⟨-ʔ-⟩ inchoactive infix, which is inserted after the root vowel in St’át’imcets, resulting in CVʔC, with a final cluster, but before the root vowel in Secwepemctsín, resulting in CʔVC, with an initial cluster. Clearly more research is needed, but this is suggestive of a different tendency in the languages in terms of preferred root/word structure.	page 10
+§4	Ethan Pincott	notation	/*CəCəC/	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	/*Cə́CəC/	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	/Cə́CC/	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	/*CəCə́C/	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	/CCə́C/	a root shape, C a consonant, V a vowel
+§4	Ethan Pincott	notation	/CəCəC/	a root shape, C a consonant, V a vowel
+§4	Secwepemctsín	cited form	/í/	a vowel of the argument
+§4	Ethan Pincott	note	A potential solution to this problem is to posit that triconsonantal weak roots were disyllabic with the form /*CəCəC/ in Proto-Northern Interior Salish. In words with only schwas, St’át’imcets stresses the first one (Van Eijk 1997:14), which would give /*Cə́CəC/, with deletion of unstressed schwa resulting in the attested form /Cə́CC/. Secwepemctsín and nɬeʔkepmxcín on the other hand seem to have stressed the final schwa /*CəCə́C/, again deleting unstressed schwa to give /CCə́C/. Further research to determine if other Salish languages retain cognate forms of the shape /CəCəC/ would help support this hypothesis.18 Root-stressed variants with the /í/ grade present a different story. I did not find any examples in St’át’imcets, and direct cognates in nɬeʔkepmxcín are rare. However, the language does have strong /í/ forms with a plural meaning, some of which have cognates in Secwepemctsín:	page 10
+Table 8, page 10	Ethan Pincott	note	Table 8: /í/ grades in Secwepemctsín and nɬeʔkepmxcín	page 10, the caption
+Table 8, page 10	Ethan Pincott	note	Secwepemctsín19 nɬeʔkepmxcín	page 10, the heads of the column pairs, Secwepemctsín carries footnote 19
+Table 8, page 10	Ethan Pincott	note	weak grade /í/ grade weak grade /í/ grade	page 10, the column heads
+Table 8, page 10 line 1	Secwepemctsín	cited form	kɬəntés	page 10, the Secwepemctsín weak grade
+Table 8, page 10 line 1	Ethan Pincott	translation	‘s/he takes it off’	page 10, of kɬəntés
+Table 8, page 10 line 1	Secwepemctsín	cited form	kəɬkíɬəns	page 10, the Secwepemctsín /í/ grade
+Table 8, page 10 line 1	Ethan Pincott	translation	‘s/he takes it apart’	page 10, of kəɬkíɬəns
+Table 8, page 10 line 1	nɬeʔkepmxcín	cited form	kəɬtés	page 10, the nɬeʔkepmxcín weak grade
+Table 8, page 10 line 1	Ethan Pincott	translation	‘s/he detaches it’	page 10, of kəɬtés
+Table 8, page 10 line 1	nɬeʔkepmxcín	cited form	kíɬes	page 10, the nɬeʔkepmxcín /í/ grade
+Table 8, page 10 line 1	Ethan Pincott	translation	‘s/he detaches things’	page 10, of kíɬes
+Table 8, page 10 line 2	Secwepemctsín	cited form	k̓lám	page 10, the Secwepemctsín weak grade
+Table 8, page 10 line 2	Ethan Pincott	translation	‘s/he cuts strips’	page 10, of k̓lám
+Table 8, page 10 line 2	Secwepemctsín	cited form	k̓éləns	page 10, the Secwepemctsín /í/ grade
+Table 8, page 10 line 2	Ethan Pincott	translation	‘s/he cuts it to strips’	page 10, of k̓éləns
+Table 8, page 10 line 2	nɬeʔkepmxcín	cited form	k̓lǝ̣́m	page 10, the nɬeʔkepmxcín weak grade
+Table 8, page 10 line 2	Ethan Pincott	translation	‘s/he cuts’	page 10, of k̓lǝ̣́m
+Table 8, page 10 line 2	nɬeʔkepmxcín	cited form	k̓ị́lm	page 10, the nɬeʔkepmxcín /í/ grade
+Table 8, page 10 line 2	Ethan Pincott	translation	‘s/he cuts into pieces’	page 10, of k̓ị́lm
+Table 8, page 10 line 3	Secwepemctsín	cited form	cʕep	page 10, the Secwepemctsín weak grade
+Table 8, page 10 line 3	Ethan Pincott	translation	‘torn’	page 10, of cʕep, printed on page 11
+Table 8, page 10 line 3	Secwepemctsín	cited form	cíʕəns	page 10, the Secwepemctsín /í/ grade
+Table 8, page 10 line 3	Ethan Pincott	translation	‘s/he tears it’	page 10, of cíʕəns, printed on page 11
+Table 8, page 10 line 3	nɬeʔkepmxcín	cited form	cʕə́p	page 10, the nɬeʔkepmxcín weak grade
+Table 8, page 10 line 3	Ethan Pincott	translation	‘get torn, ripped’	page 10, of cʕə́p, printed on page 11
+Table 8, page 10 line 3	nɬeʔkepmxcín	cited form	cíʕes	page 10, the nɬeʔkepmxcín /í/ grade
+Table 8, page 10 line 3	Ethan Pincott	translation	‘s/he rips it in several pieces’	page 10, of cíʕes, printed on page 11
+Table 8, page 10 line 4	Secwepemctsín	cited form	t̓meq	page 11, the Secwepemctsín weak grade
+Table 8, page 10 line 4	Ethan Pincott	translation	‘torn, ripped apart’	page 11, of t̓meq
+Table 8, page 10 line 4	Secwepemctsín	cited form	t̓ímqəmt	page 11, the Secwepemctsín /í/ grade
+Table 8, page 10 line 4	Ethan Pincott	translation	‘torn, ripped, with holes’	page 11, of t̓ímqəmt
+Table 8, page 10 line 4	nɬeʔkepmxcín	cited form	ƛ̓əm̓qetés	page 11, the nɬeʔkepmxcín weak grade
+Table 8, page 10 line 4	Ethan Pincott	translation	‘s/he breaks rope’	page 11, of ƛ̓əm̓qetés
+Table 8, page 10 line 4	nɬeʔkepmxcín	cited form	ƛ̓ím̓m̓q	page 11, the nɬeʔkepmxcín /í/ grade
+Table 8, page 10 line 4	Ethan Pincott	translation	‘several strands break’	page 11, of ƛ̓ím̓m̓q
+footnote 18	Ethan Pincott	note	18 In fact, this is what Thompson and Thompson (1996) seem to assume for nɬeʔkepmxcín, where their underlying forms for triconsonantal weak roots have the form /CəCəC/.	page 10, footnote
+footnote 19	Ethan Pincott	note	19 Community orthography for the Secwepemctsín examples in this table: kllentés, kellkíllens, k̓lam, k̓élens, tsgep, tsígens, t̓meq, t̓ímqemt.	page 10, footnote
+footnote 19	Secwepemctsín	transcription	kllentés	page 10, the community orthography of Table 8 kɬəntés
+footnote 19	Secwepemctsín	transcription	kellkíllens	page 10, the community orthography of Table 8 kəɬkíɬəns
+footnote 19	Secwepemctsín	transcription	k̓lam	page 10, the community orthography of Table 8 k̓lám
+footnote 19	Secwepemctsín	transcription	k̓élens	page 10, the community orthography of Table 8 k̓éləns
+footnote 19	Secwepemctsín	transcription	tsgep	page 10, the community orthography of Table 8 cʕep
+footnote 19	Secwepemctsín	transcription	tsígens	page 10, the community orthography of Table 8 cíʕəns
+footnote 19	Secwepemctsín	transcription	t̓meq	page 10, the community orthography of Table 8 t̓meq
+footnote 19	Secwepemctsín	transcription	t̓ímqemt	page 10, the community orthography of Table 8 t̓ímqəmt
+§4	Secwepemctsín	cited form	/cʕep/	page 11, ‘torn’
+§4	Secwepemctsín	cited form	/cíʕəns/	page 11, ‘s/he tears it’
+§4	Secwepemctsín	cited form	/k̓lám/	page 11, ‘s/he cuts strips’
+§4	Secwepemctsín	cited form	/k̓éləns/	page 11
+§4	Secwepemctsín	cited form	/píwkʷəns/	page 11, ‘s/he chips it’
+§4	Secwepemctsín	cited form	/míkʷəns/	page 11
+§4	Secwepemctsín	cited form	/ɬík̓ʷəmt/	page 11, ‘string breaks, net gets holes’
+§4	Ethan Pincott	notation	ə-i	page 11, the ablaut of other Salish languages, Kinkade 1981:268
+§4	Ethan Pincott	note	In Secwepemctsín, some of the singular-plural distinction seems to have been levelled out. For instance, the pairs /cʕep/ ‘torn’, /cíʕəns/ ‘s/he tears it’, and /k̓lám/ ‘s/he cuts strips’, /k̓éləns/ ‘s/he cuts it to strips’20 are interesting, as the first form (stative in the case of /cʕep/ and middle in the case of /k̓lám/) derive from the weak grade, while the transitive forms derive from the /í/ grade. The singular-plural distinction seems to have been lost in these words, possibly due to semantic influence, as things are generally torn or cut into strips in multiple pieces. There are also strong /í/ forms for which no corresponding weak form is recorded, e.g., /píwkʷəns/ ‘s/he chips it’, /míkʷəns/ ‘s/he chips it’, /ɬík̓ʷəmt/ ‘string breaks, net gets holes’, which seem to have an inherently plural meaning, although this remains to be checked with fluent speakers.21 These forms in Secwepemctsín and nɬeʔkepmxcín are certainly derived from the ə-i ablaut patterns found in other Salish languages (Kinkade 1981:268). Further comparative research is necessary to investigate how this morphological process evolved into its current form in Secwepemctsín, particularly in cases where the weak grade and /í/ grade exist in paradigms side by side, without any apparent singular-plural distinction.	page 10
+§5	Ethan Pincott	heading	5 Synchronic status	page 11
+§5	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§5	Ethan Pincott	notation	/(C)CéC/	a root shape, C a consonant, V a vowel
+§5	Ethan Pincott	notation	/(C)CúCʷ/	a root shape, C a consonant, V a vowel
+§5	Ethan Pincott	note	If Secwepemctsín weak roots derive historically from roots with schwa, what is their status synchronically? One possibility is that they have the same forms underlying as on the surface, i.e., /(C)CéC/ and /(C)CúCʷ/. If this were the case, there must be a “weak” feature stored in the lexicon, as the place where unpredictable information is stored, which causes them to repel stress, parallel to the “strong” feature that causes morphemes to attract stress. However, this assumption runs into the problems mentioned in Section 2, where we find certain morphemes, such as the middle suffix /-Vm/ that do not fall neatly into the stress hierarchy.	page 11
+§5	Secwepemctsín	cited form	pəɣétkʷe	page 11
+§5	Secwepemctsín	cited form	péɣəm	page 11, ‘cool off’
+§5	Secwepemctsín	cited form	ptém	page 11, ‘spread out’
+footnote 20	Ethan Pincott	note	20 This root has the retracting feature, which causes the /é/ of the middle suffix to retract to [á] and the /í/ of the root to retract to [é]. This retraction is also found in the nɬeʔkepmxcín cognates.	page 11, footnote
+footnote 20	Secwepemctsín	cited form	/é/	a vowel of the argument
+footnote 20	Secwepemctsín	cited form	á	a vowel of the argument
+footnote 20	Secwepemctsín	cited form	/í/	a vowel of the argument
+footnote 20	Secwepemctsín	cited form	é	a vowel of the argument
+footnote 20	Ethan Pincott	language	nɬeʔkepmxcín	Thompson, a Northern Interior Salish language
+footnote 21	Ethan Pincott	note	21 Community orthography for these examples: píwkwens, míkwens, llík̓wemt.	page 11, footnote
+footnote 21	Secwepemctsín	transcription	píwkwens	page 11, the community orthography of /píwkʷəns/
+footnote 21	Secwepemctsín	transcription	míkwens	page 11, the community orthography of /míkʷəns/
+footnote 21	Secwepemctsín	transcription	llík̓wemt	page 11, the community orthography of /ɬík̓ʷəmt/
+§5	Ethan Pincott	note	If instead we assume that weak roots, as well as the middle and stative suffixes, still contain schwa underlyingly (as Black 2006 does for Spokane), then this problem can be dealt with phonologically by three rules: (1) stress falls on the rightmost strong morpheme in a word, (2) stress falls on the rightmost full vowel in a word, and (3), in words with only schwa, stress falls on the rightmost schwa of a word. This can account for the apparent contradictions between [pəɣétkʷe] ‘cooled-off water’, [péɣəm] ‘cool off’ and [ptém] ‘spread out’ mentioned in Section 2 above:	page 11
+Table 8, page 12	Ethan Pincott	note	Table 8: Revised stress analysis22	page 12, the caption, carries footnote 22; the paper numbers two tables 8
+Table 8, page 12	Ethan Pincott	note	/ciq-etkʷə/ /peɣ-etkʷə/ /peɣ-əm/ /pət-əm/	page 12, the column heads
+Table 8, page 12 line 1	Ethan Pincott	note	Stress > strong cíqetkʷə — — —	page 12, a line of the table
+Table 8, page 12 line 2	Ethan Pincott	note	Stress > V — peɣétkʷə péɣəm —	page 12, a line of the table
+Table 8, page 12 line 3	Ethan Pincott	note	Stress > ə — — — pətə́m	page 12, a line of the table
+Table 8, page 12 line 4	Ethan Pincott	note	[cíqkʷe] [pəɣétkʷe] [péɣəm] [ptém]	page 12, a line of the table
+Table 8, page 12 column 1	Secwepemctsín	phonemic	/ciq-etkʷə/	page 12, the underlying form, in / /
+Table 8, page 12 column 1	Secwepemctsín	cited form	cíqetkʷə	page 12, stressed by Stress > strong
+Table 8, page 12 column 1	Secwepemctsín	phonemic	[cíqkʷe]	page 12, the surface form, phonetic, in [ ]
+Table 8, page 12 column 2	Secwepemctsín	phonemic	/peɣ-etkʷə/	page 12, the underlying form, in / /
+Table 8, page 12 column 2	Secwepemctsín	cited form	peɣétkʷə	page 12, stressed by Stress > V
+Table 8, page 12 column 2	Secwepemctsín	phonemic	[pəɣétkʷe]	page 12, the surface form, phonetic, in [ ]
+Table 8, page 12 column 3	Secwepemctsín	phonemic	/peɣ-əm/	page 12, the underlying form, in / /
+Table 8, page 12 column 3	Secwepemctsín	cited form	péɣəm	page 12, stressed by Stress > V
+Table 8, page 12 column 3	Secwepemctsín	phonemic	[péɣəm]	page 12, the surface form, phonetic, in [ ]
+Table 8, page 12 column 4	Secwepemctsín	phonemic	/pət-əm/	page 12, the underlying form, in / /
+Table 8, page 12 column 4	Secwepemctsín	cited form	pətə́m	page 12, stressed by Stress > ə
+Table 8, page 12 column 4	Secwepemctsín	phonemic	[ptém]	page 12, the surface form, phonetic, in [ ]
+§5	Ethan Pincott	note	In Table 8, I have omitted processes like vowel reduction, schwa deletion, and schwa colouring to simplify the presentation. If underlying schwa is assumed, then the sound changes *ə́ > ú / _Cʷ and *ə́ > e within a root must remain active within the language at a synchronic level. These assumptions also explain the different stress patterns found in the /í/ grade forms. If the singular and plural forms are stored as separate lexical entries, then the full vowel of the plural form is expected to be stressed by the rules given above:	page 12
+Table 9	Ethan Pincott	note	Table 9: Stress with weak and /í/ grade roots23	page 12, the caption, carries footnote 23
+Table 9	Ethan Pincott	note	/ptəkʷ-əm/ /pət-pitkʷ-əm/	page 12, the column heads
+Table 9 line 1	Ethan Pincott	note	Stress > strong — —	page 12, a line of the table
+Table 9 line 2	Ethan Pincott	note	Stress > V — pətpítkʷəm	page 12, a line of the table
+Table 9 line 3	Ethan Pincott	note	Stress > ə ptəkʷə́m —	page 12, a line of the table
+Table 9 line 4	Ethan Pincott	note	[pətkʷúm] [pətpítkʷəm]	page 12, a line of the table
+Table 9 column 1	Secwepemctsín	phonemic	/ptəkʷ-əm/	page 12, the underlying form, in / /
+Table 9 column 1	Secwepemctsín	cited form	ptəkʷə́m	page 12, stressed by Stress > ə
+Table 9 column 1	Secwepemctsín	phonemic	[pətkʷúm]	page 12, the surface form, phonetic, in [ ]
+Table 9 column 2	Secwepemctsín	phonemic	/pət-pitkʷ-əm/	page 12, the underlying form, in / /
+Table 9 column 2	Secwepemctsín	cited form	pətpítkʷəm	page 12, stressed by Stress > V
+Table 9 column 2	Secwepemctsín	phonemic	[pətpítkʷəm]	page 12, the surface form, phonetic, in [ ]
+footnote 22	Ethan Pincott	note	22 Community orthography for the examples in this table: tsíqwke, perétkwe, pérem, ptem.	page 12, footnote
+footnote 22	Secwepemctsín	transcription	tsíqwke	page 12, the community orthography of Table 8 [cíqkʷe]
+footnote 22	Secwepemctsín	transcription	perétkwe	page 12, the community orthography of Table 8 [pəɣétkʷe]
+footnote 22	Secwepemctsín	transcription	pérem	page 12, the community orthography of Table 8 [péɣəm]
+footnote 22	Secwepemctsín	transcription	ptem	page 12, the community orthography of Table 8 [ptém]
+footnote 23	Ethan Pincott	note	23 Community orthography for the examples in this table: petkúm, petpítkwem.	page 12, footnote
+footnote 23	Secwepemctsín	transcription	petkúm	page 12, the community orthography of Table 9 [pətkʷúm]
+footnote 23	Secwepemctsín	transcription	petpítkwem	page 12, the community orthography of Table 9 [pətpítkʷəm]
+footnote 24	Ethan Pincott	note	24 Notably it fails in words with multiple lexical suffixes: /k̓ʷəɬ-k̓əm-cin-ekst/ [k̓ʷəɬk̓əm̓cnékst] ‘wrist’ vs /k̓ʷəɬ-k̓əm-cin-xen/ [k̓ʷəɬk̓əmcín̓xən] ‘ankle’, where stress falls on the last full vowel in ‘wrist’ but on the first in ‘ankle’.	page 12, footnote
+footnote 24	Secwepemctsín	cited form	/k̓ʷəɬ-k̓əm-cin-ekst/	page 12
+footnote 24	Secwepemctsín	cited form	k̓ʷəɬk̓əm̓cnékst	page 12, ‘wrist’
+footnote 24	Secwepemctsín	cited form	/k̓ʷəɬ-k̓əm-cin-xen/	page 12
+footnote 24	Secwepemctsín	cited form	k̓ʷəɬk̓əmcín̓xən	page 12, ‘ankle’
+footnote 25	Ethan Pincott	note	25 Another piece of evidence that schwa may still be phonologically active comes from comparison with St’át’imcets. There, the ‘inchoative’ morphemes <ʔ> and /-p/ are in complementary distribution: roots with a full vowel select <ʔ>, while roots with schwa select /-p/ (Van Eijk 1997:71). This is paralleled in Secwepemctsín, where <ʔ> occurs with strong roots, while /-əp/ occurs with weak roots.	page 12, footnote
+footnote 25	Ethan Pincott	language	St’át’imcets	Lillooet, a Northern Interior Salish language
+footnote 25	St’át’imcets	cited affix	<ʔ>	page 12, footnote 25, the inchoative infix of roots with a full vowel
+footnote 25	Secwepemctsín	cited affix	/-əp/	page 12, footnote 25, the inchoative suffix of weak roots
+§5	Ethan Pincott	note	This analysis is extremely simplified and cannot account for all stress in Secwepemctsín.24 However, I believe that the data is suggestive that the distinction between full vowel vs schwa is still active in the phonology of the language.25 A more developed analysis assuming a constraint- based model like Optimality Theory could better capture the generalizations about stress, syllable structure, and vowel quality found in the data. Notably, Stratal OT, with its reference to different morphological levels (Kiparsky 2015), could reflect the different patterns in schwa colouring at the root level vs stem (root + middle suffix) level. This must remain a project for future research.	page 12
+§6	Ethan Pincott	heading	6 Conclusions	page 13
+§6	Ethan Pincott	language	Secwepemctsín	Shuswap, the Northern Interior Salish language of the paper
+§6	Ethan Pincott	note	This paper shows that the patterns of vowel quality in Secwepemctsín root-stressed weak roots are predictable based on the final consonant of the root. I show that the surface forms in the modern language can be derived from earlier forms with schwa from sound changes which eliminated stressed schwa from the language. This is confirmed by comparative evidence, suggesting that weak roots with schwa should be reconstructed back to Proto-Northern Interior Salish. These findings are in agreement with statements that weak roots in modern Salish languages go back to Proto-Salish forms with schwa. What is less clear is whether schwa still exists in the underlying form of weak roots in Secwepemctsín. I tentatively suggest that, despite never surfacing as such, it does exist in the underlying representation of weak morphemes in the language, and that it still plays an active role in determining stress in the language.	page 13
+§6	Ethan Pincott	note	Further research and theoretical grounding is needed to develop a full analysis of how the stress system of Secwepemctsín functions, and how it interacts with underlying schwa. In addition, comparative research should proceed from reconstructing individual roots and words in Proto- Northern Interior Salish to entire paradigms, allowing the effects of processes like morphological analogy and reanalysis to be examined in further detail. More thorough reconstruction of lower- level protolanguages can then help put our reconstructions of even earlier stages (Proto-Interior Salish, Proto-Salish) on firmer footing.	page 13
+references	Ethan Pincott	heading	References	page 13
+references	Spokane-Kalispel-Seliš	cited form	/əǝ̣/	page 13, in the title of Black 2006, schwa and retracted schwa
+references	Ethan Pincott	language	Spokane-Kalispel-Seliš	in the title of Black 2006
+references	Ethan Pincott	reference	Bates, Dawn and Barry F. Carlson. 1989. Prosodic structure in Spokane morphology. Working Papers of the Linguistics Circle 8(1), 75–95,	
+references	Ethan Pincott	reference	Black, Deirdre. 2006. The /əǝ̣/ patterns of Spokane-Kalispel-Seliš. In Masaru Kiyota, James J. Thompson and Noriko Yamane-Tanaka, eds., Proceedings of ICNSL XLI, 33–59. Vancouver: UBCWPL.	
+references	Ethan Pincott	reference	Czaykowska-Higgins, Ewa. 1993. Cyclicity and Stress in Moses-Columbia Salish (Nxa'amxcin). Natural Language and Linguistic Theory 11, 197–278.	
+references	Ethan Pincott	reference	Kinkade, Dale. 1981. Singular vs. Plural Roots in Salish. Anthropological Linguistics 23(6), 262– 69. University of Indiana.	
+references	Ethan Pincott	reference	Kiparsky, Paul. 2015. Stratal OT: A synopsis and FAQs. In Yuchau E. Hsiao and Lian-Hee Wee, eds., Capturing phonological shades within and across languages 2, 1-45. Cambridge Scholars Publishing.	
+references	Ethan Pincott	reference	Kuipers, Aert. 1974. The Shuswap Language. The Hague: Mouton & Co.	
+references	Ethan Pincott	reference	Kuipers, Aert. 1989. A Report on Shuswap, with a Squamish Lexical Appendix. Paris: Peeters/SELAF.	
+references	Ethan Pincott	reference	Kuipers, Aert. 2002. Salish Etymological Dictionary. Missoula: UMOPL.	
+references	nɬeʔkepmxcín	cited form	íy	page 13, in the title of Thompson 1979, Thompson Salish surface íy
+references	Ethan Pincott	reference	Thompson, Laurence C. 1979. A Note on Thompson Salish Surface íy. Bellingham: ICSL.	
+references	Ethan Pincott	reference	Thompson, Laurence C. 1979. Salishan and the Northwest. In Lyle Campbell and Marianne Mithun, eds., The Languages of Native America, 692–765. Austin: University of Texas Press.	
+references	Ethan Pincott	reference	Thompson, Laurence C. and M. Terry Thompson. 1996. Thompson River Salish Dictionary. Missoula: UMOPL.	
+references	Ethan Pincott	reference	Van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. UBC Press.	
+references	Ethan Pincott	reference	Van Eijk, Jan. 2013. Lillooet-English Dictionary. Vancouver: UBCOPL.	
+title	Ethan Pincott	title	Don’t stress about schwa: The diachrony of weak roots in Secwepemctsín	the paper's title, carries footnote *
+title	Ethan Pincott	name	Ethan Pincott	the author

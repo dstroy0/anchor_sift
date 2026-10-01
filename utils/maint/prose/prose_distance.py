@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Score this repository's own prose against English, on the bench that already measures English.
@@ -116,7 +116,7 @@ def repository_files(where=None, roots=None):
     this tool measures the distance of a body of writing from a human pole, and the body of writing
     is not always this tree.
 
-    Both have to be taken. A tool that ignores a named path measures anchor_sift and reports the
+    Both have to be taken. A tool that ignores a named path measures orior and reports the
     number as though it belonged to whatever the caller asked about, and the only sign of it is the
     word count at the foot. Silently measuring the wrong subject is the failure that looks most like
     success.

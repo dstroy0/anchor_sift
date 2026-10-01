@@ -1,0 +1,911 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	title	Aspectual /-x’id/ in Modern Kwak̕wala	page 1, carries footnote *
+front	Katie Sardinha	name	Katie Sardinha	author
+front	Katie Sardinha	note	Independent researcher	page 1, under Katie Sardinha
+front	Katie Sardinha	note	Abstract: One of the most frequent and important suffixes in Kwak̕wala is /-x’id/, an aspectual suffix with ten allomorphs in the modern language: {-x’id, -’id, -x’i, -’i, -nd, -ud, -d, -n, -u, -∅}. In this paper I summarize research concerning this suffix’s history, syntax, and semantics, and provide an updated rule-based analysis of the morphophonology of /-x’id/ in modern Kwak̕wala. I also comment on issues related to teaching and learning /-x’id/.	page 1, the abstract
+front	Katie Sardinha	note	Keywords: morphology, phonology, aspect, Kwak̕wala, Wakashan	page 1, the keywords
+front	Katie Sardinha	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Katie Sardinha	language	Kwak̕wala	Northern Wakashan
+footnote *	Katie Sardinha	note	Many thanks to Ruby Dawson Cranmer, Mildred Child, Julia Nelson, Violet Bracic, Lily Johnny, and one anonymous speaker for sharing your language with me. Also thank-you to Line Mikkelsen and Henry Davis for comments on an early draft, and to Hannah Greene for meticulous work on /-x’id/. My fieldwork was supported by a Jacobs Research Grant and three Oswalt Endangered Language grants. Errors are my own. Contact info: katie.sardinha@berkeley.edu, www.kaotiva.ca.	page 1, footnote *, on the title
+§1	Katie Sardinha	heading	1 Introduction	page 1
+§1	Katie Sardinha	note	The suffix /-x’id/ is one of the most frequent suffixes encountered in the Kwak̕wala language.1 In terms of its morphophonology, it is also one of the most complex: in modern Kwak̕wala, /-x’id/ has the ten allomorphs, listed in (1).	page 1
+footnote 1	Katie Sardinha	note	Kwak̕wala is an endangered Northern Wakashan language spoken in British Columbia on the central coast, adjacent mainland, and intervening islands, as well as in Victoria and the Fraser Valley. The Kwakwaka’wakw population is estimated to consist of 2.2% fluent speakers, 5.9% semi-speakers, and 12.3% active learners (First Peoples’ Cultural Council 2018).	page 1, footnote 1
+(1) line 1	Katie Sardinha	note	Allomorphs of /-x’id/ in modern Kwak̕wala:	page 1, the title over the set
+(1) line 2	Kwak̕wala	transcription	-x’id	page 1, an allomorph of the set the page prints in braces
+(1) line 3	Kwak̕wala	transcription	-’id	page 1, an allomorph of the set the page prints in braces
+(1) line 4	Kwak̕wala	transcription	-x’i	page 1, an allomorph of the set the page prints in braces
+(1) line 5	Kwak̕wala	transcription	-’i	page 1, an allomorph of the set the page prints in braces
+(1) line 6	Kwak̕wala	transcription	-nd	page 1, an allomorph of the set the page prints in braces
+(1) line 7	Kwak̕wala	transcription	-ud	page 1, an allomorph of the set the page prints in braces
+(1) line 8	Kwak̕wala	transcription	-d	page 1, an allomorph of the set the page prints in braces
+(1) line 9	Kwak̕wala	transcription	-n	page 1, an allomorph of the set the page prints in braces
+(1) line 10	Kwak̕wala	transcription	-u	page 1, an allomorph of the set the page prints in braces
+(1) line 11	Kwak̕wala	transcription	-∅	page 1, an allomorph of the set the page prints in braces
+§1	Katie Sardinha	note	One purpose of this paper is to describe the morphophonology of /-x’id/ in modern Kwak̕wala. While the distribution of five allomorphs, {-x’id, -’id, -nd, -ud, -d}, is unchanged since the language was described at the turn of the 20th century (Boas 1911, 1947), five new allomorphs {-x’i, -’i, -n, -u, -∅} have arisen due to an optional rule in the modern language, the deletion of d in syllable- final position. This change has had the effect of making the morphophonology of /-x’id/ more complicated than it was over a century ago.	page 1
+§1	Kwak̕wala	cited form	-’id	page 1, in italics
+§1	Kwak̕wala	cited form	-x’i	page 1, in italics
+§1	Kwak̕wala	cited form	-’i	page 1, in italics
+§1	Kwak̕wala	cited form	-nd	page 1, in italics
+§1	Kwak̕wala	cited form	-ud	page 1, in italics
+§1	Kwak̕wala	cited form	-d	page 1, in italics
+§1	Kwak̕wala	cited form	-n	page 1, in italics
+§1	Kwak̕wala	cited form	-u	page 1, in italics
+§1	Kwak̕wala	cited form	-∅	page 1, in italics
+§1	Katie Sardinha	note	Because of its high frequency and grammatical importance, /-x’id/ is a central part of the language for consideration by both linguists and language learners. A second purpose of this paper is to bring together what is currently known about /-x’id/. Several recent studies have described the semantics of /-x’id/ (Greene 2013, Sardinha 2018), adding to the detailed descriptions of /-x’id/ provided in Boas’ grammars (Boas 1911, 1947). Novel observations presented below come from field research focused primarily on the central dialect of the language, commonly referred to as Kwak̕wala, as spoken by four language consultants from Tsax̱is and Gway̓i. I have also worked to a lesser extent with two language consultants speaking the Nak̕wala dialect from Tsulquate, and am not aware of any differences across the two dialects in the grammar of /-x’id/.	page 1
+§1	Katie Sardinha	note	I begin with an overview of how /-x’id/ is described in the historical literature (Section 2), followed by an overview of its syntax and semantics (Section 3). Then, I proceed to an analysis of the morphophonology of /-x’id/ in the modern language (Section 4). Following this, I comment on some of the issues facing L2 teachers, L2 students, and toddlers acquiring /-x’id/ (Section 5). Section 6 summarizes and concludes.	page 2
+§1	Kwak̕wala	cited form	-x’id	page 2, in italics
+§1	Kwak̕wala	cited form	-x’id/	page 2, in italics
+§2	Katie Sardinha	heading	2 Descriptions of /-x’id/ in the early 20th century	page 2
+§2	Katie Sardinha	note	Boas (1911) and Boas (1947) constitute the earliest comprehensive descriptions of Kwak̕wala grammar. The focus of these grammars is on the central dialect, especially as it was spoken in and around Tsax̱is (Fort Rupert) around the turn of the 20th century.	page 2
+§2	Katie Sardinha	note	At this time and place in the language’s history, there were five allomorphs of /-x’id/: {-x’id, -’id, -nd, -ud, -d}. In Boas (1911), the forms -d and -(x)’id are provided separate entries in the list of suffixes (456–457 and 486–488, respectively). However, by the time Boas (1947) is written, these forms are identified as allomorphs of the same morpheme. The description in (2) is reproduced from the annotated glossary of suffixes in Boas (1947).	page 2
+§2	Kwak̕wala	cited form	-(x)’id	page 2, in italics
+(2) line 1	Kwak̕wala	transcription	-(x)’id2	page 2, the form of Boas's entry
+footnote 2	Katie Sardinha	note	Brackets around the initial segment indicate that this segment is lost in certain phonological environments, making -(x)’id shorthand for {-x’id, -’id}.	page 2, footnote 2
+(2) line 2	Kwak̕wala	transcription	-nd	page 2, a form of Boas's entry
+(2) line 3	Kwak̕wala	transcription	-ud	page 2, a form of Boas's entry
+(2) line 4	Kwak̕wala	transcription	-d	page 2, a form of Boas's entry
+(2) line 5	Katie Sardinha	note	“These forms express a momentary aspect, generally an inchoative.”	page 2, quoted from Boas (1947)
+(2) line 6	Katie Sardinha	citation	(Boas 1947:365)	page 2
+§2	Katie Sardinha	note	In Boas (1947), there are in fact two distinct morphemes reported with [–(x)’id] as their phonological shape. These include the morpheme in (2) which expresses aspectual information and attaches closer to the root, and the /-x’id/ described below in (3) which attaches further from the root and expresses tense information. Several examples that are identified in Boas (1947) as involving tense /-x’id/ are provided in (4).3	page 2
+footnote 3	Katie Sardinha	note	Glossing conventions and abbreviations are provided at the end of the paper, following References.	page 2, footnote 3
+(3) line 1	Kwak̕wala	transcription	-(x)’id	page 2, the form of Boas's entry
+(3) line 2	Katie Sardinha	note	“This suffix does not occur often in the texts although it is quite common in conversation. It refers to recent past, a few hours, day [sic.] or even weeks ago.”	page 2, quoted from Boas (1947)
+(3) line 3	Katie Sardinha	citation	(Boas 1947:289)	page 2
+(3) line 4	Katie Sardinha	note	“[tense -(x)’id] Retains x except in nouns.”	page 2, quoted from Boas (1947)
+(3) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 2
+(4) line 1	Katie Sardinha	note	Examples with tense /-x’id/:	page 2, over the example
+(4a) line 1	Kwak̕wala	transcription	ga̱lx’id	page 2
+(4a) line 2	Kwak̕wala	segmentation	ga̱l =x’id	page 2
+(4a) line 3	Kwak̕wala	gloss	first =REC.PAST	page 2
+(4a) line 4	Katie Sardinha	translation	‘he had been first’	page 2
+(4a) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 2, the tag or source at the right of the translation
+(4b) line 1	Kwak̕wala	transcription	lax’id	page 2
+(4b) line 2	Kwak̕wala	segmentation	la =x’id	page 2
+(4b) line 3	Kwak̕wala	gloss	go =REC.PAST	page 2
+(4b) line 4	Katie Sardinha	translation	‘he went’	page 2
+(4b) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 2, the tag or source at the right of the translation
+(4c) line 1	Kwak̕wala	transcription	a̱x̱’as’ide	page 3
+(4c) line 2	Kwak̕wala	segmentation	a̱x̱ -’as =x’id =i’	page 3
+(4c) line 3	Kwak̕wala	gloss	do -LOC.PASS =REC.PAST =NMZ	page 3
+(4c) line 4	Katie Sardinha	translation	‘place where he had been before’	page 3
+(4c) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 3, the tag or source at the right of the translation
+§2	Katie Sardinha	note	From a semantic perspective, it is not obvious why the examples of alleged tense /-x’id/ in (4) could not be analyzed as instances of aspectual /–x’id/. The motivation for positing two distinct morphemes seems to derive, rather, from the existence of alternations such as those in (5), where we see [-(x)’id] attaching either closer to (5a) or further from (5b) the root relative to the suffix -a, and where we see it is possible for two morphemes with the shape [-(x)’id] to be present on the same stem (5c).	page 3
+§2	Kwak̕wala	cited form	-a	page 3, in italics
+(5) line 1	Katie Sardinha	note	Aspectual /-x’id/, tense /-x’id/, and their combination:	page 3, over the example
+(5a) line 1	Kwak̕wala	transcription	ḵas’id	page 3
+(5a) line 2	Kwak̕wala	segmentation	ḵas -x’id	page 3
+(5a) line 3	Kwak̕wala	gloss	walk -BEC	page 3
+(5a) line 4	Katie Sardinha	translation	‘to go’	page 3
+(5a) line 5	Katie Sardinha	citation	(Boas 1947:365)	page 3, the tag or source at the right of the translation
+(5b) line 1	Kwak̕wala	transcription	ḵasax’id	page 3
+(5b) line 2	Kwak̕wala	segmentation	ḵas -a =x’id	page 3
+(5b) line 3	Kwak̕wala	gloss	walk -A =REC.PST	page 3
+(5b) line 4	Katie Sardinha	translation	‘he went (about a week or month ago)’	page 3
+(5b) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 3, the tag or source at the right of the translation
+(5c) line 1	Kwak̕wala	transcription	ḵas’ida̱x’id4	page 3
+footnote 4	Katie Sardinha	note	Schwa (a̱) is epenthetic here, and more generally in any example where it is omitted from the parse and gloss lines in the morpheme analysis. It is debatable whether schwa is ever phonemic in Kwak̓wala.	page 3, footnote 4
+(5c) line 2	Kwak̕wala	segmentation	ḵas -x’id =x’id	page 3
+(5c) line 3	Kwak̕wala	gloss	walk -BEC =REC.PST	page 3
+(5c) line 4	Katie Sardinha	translation	‘he took a walk’	page 3
+(5c) line 5	Katie Sardinha	citation	(Boas 1947:366)	page 3, the tag or source at the right of the translation
+§2	Katie Sardinha	note	Greene (2013) investigates [-(x)’id] forms in modern Kwak̕wala and finds that contemporary speakers no longer allow this form in the outer tense slot (6).5 In its place, they volunteer forms with the simple past tense enclitic, =xd (7).6	page 3
+footnote 5	Katie Sardinha	note	Greene’s research also focuses on the central dialect and was carried out with many of the same speakers as my own.	page 3, footnote 5
+footnote 6	Katie Sardinha	note	The morpheme analysis of these examples has been changed slightly from the source to make them align with the glossing conventions adopted here.	page 3, footnote 6
+(6) line 1	Kwak̕wala	transcription	* ḵasax’idox̱da ga̱nana̱m lax̱a skul	page 3
+(6) line 2	Kwak̕wala	segmentation	ḵas -a -x’id =ox̱ =da ga̱nana̱m la =x̱ =a skul	page 3
+(6) line 3	Kwak̕wala	gloss	walk -A -REC.PST =D2 =DET child PREP =ACC =D4 school	page 3
+(6) line 4	Katie Sardinha	translation	Intended: The child walked to school (about a week/month ago).’	page 3
+(6) line 4	Katie Sardinha	citation	(Greene 2013:80)	page 3
+(7) line 1	Kwak̕wala	transcription	ḵasaxdox̱da ga̱nana̱m lax̱a skul	page 4
+(7) line 2	Kwak̕wala	segmentation	ḵas -a =xd =ox̱ =da ga̱nana̱m la =x̱ =a skul	page 4
+(7) line 3	Kwak̕wala	gloss	walk -A =REC.PST =D2 =DET child PREP =ACC =D4 school	page 4
+(7) line 4	Katie Sardinha	translation	‘The child was walking to school.’	page 4
+(7) line 5	Katie Sardinha	citation	(Greene 2013:80)	page 4, the tag or source at the right of the translation
+§2	Katie Sardinha	note	In the modern language, aspectual /-x’id/ can co-occur with the simple past tense enclitic =xd, which is realized in the same outer position as tense /-x’id/ was historically (8). This is the position of tense clitics generally, as shown in (9) where the future tense clitic =tł follows aspectual /-x’id/.	page 4
+§2	Kwak̕wala	cited form	=tł	page 4, in italics
+(8) line 1	Kwak̕wala	transcription	ḵas’ida̱xdox̱da ga̱nana̱m lax̱a skul	page 4
+(8) line 2	Kwak̕wala	segmentation	ḵas -x’id =xd =ox̱ =da ga̱nana̱m la =x̱ =a skul	page 4
+(8) line 3	Kwak̕wala	gloss	walk -BEC =REC.PST =D2 =DET child PREP =ACC =D4 school	page 4
+(8) line 4	Katie Sardinha	translation	‘The child started to walk to school.’	page 4
+(8) line 5	Katie Sardinha	citation	(Greene 2013:80)	page 4, the tag or source at the right of the translation
+(9) line 1	Kwak̕wala	transcription	latła̱n tłix̱w’idtł lax̱ Tsax̱is	page 4
+(9) line 2	Kwak̕wala	segmentation	la =tł =a̱n tłix̱w -x’id =tł la =x̱ Tsax̱is	page 4
+(9) line 3	Kwak̕wala	gloss	go =FUT =1 relocate -BEC =FUT PREP =ACC Fort.Rupert	page 4
+(9) line 4	Kwak̕wala	transcription	ḵa’a̱n xwa̱nukw	page 4
+(9) line 5	Kwak̕wala	segmentation	ḵa =a̱n xwa̱nukw	page 4
+(9) line 6	Kwak̕wala	gloss	PREP =1.POSS child	page 4
+(9) line 7	Katie Sardinha	translation	‘I’m going to move to Tsax̱is for my child.’	page 4
+(9) line 8	Katie Sardinha	citation	(20160720 VF)	page 4, the tag or source at the right of the translation
+§2	Katie Sardinha	note	Examples such as (8–9) indicate that tense /-x’id/ is not used by contemporary Kwak̕wala speakers. The rest of this paper will only be concerned with aspectual /-x’id/.	page 4
+§3	Katie Sardinha	heading	3 Syntax and semantics	page 4
+§3	Katie Sardinha	note	The suffix /-x’id/ is one of the most frequently encountered morphemes in Kwak̕wala, in part because its occurrence on lexical roots is not restricted by syntactic category. The examples in (10) show that /-x’id/ can occur on verbs, nouns, adjectives, and adverbs (see Littell 2016:51–93 for discussion of syntactic categories).	page 4
+(10) line 1	Katie Sardinha	note	/-x’id/ on lexical roots:	page 4, over the example
+(10a) line 1	Kwak̕wala	transcription	ma̱x’id	page 4
+(10a) line 1	Katie Sardinha	note	verb + /-x’id/	page 4, right of the transcription
+(10a) line 2	Kwak̕wala	segmentation	ma̱x -x’id	page 4
+(10a) line 3	Kwak̕wala	gloss	punch -BEC	page 4
+(10a) line 4	Katie Sardinha	translation	‘to punch, hit with fist’	page 4
+(10b) line 1	Kwak̕wala	transcription	ba̱gwana̱mx’id	page 4
+(10b) line 1	Katie Sardinha	note	noun + /-x’id/	page 4, right of the transcription
+(10b) line 2	Kwak̕wala	segmentation	ba̱gwana̱m -x’id	page 4
+(10b) line 3	Kwak̕wala	gloss	man -BEC	page 4
+(10b) line 4	Katie Sardinha	translation	‘to become a man’	page 4
+(10c) line 1	Kwak̕wala	transcription	t̕suł’id	page 4
+(10c) line 1	Katie Sardinha	note	adjective + /-x’id/	page 4, right of the transcription
+(10c) line 2	Kwak̕wala	segmentation	t̕suł -x’id	page 4
+(10c) line 3	Kwak̕wala	gloss	black -BEC	page 4
+(10c) line 4	Katie Sardinha	translation	‘to get black, to blacken’	page 4
+(10d) line 1	Kwak̕wala	transcription	olax’id	page 5
+(10d) line 1	Katie Sardinha	note	adverb + /-x’id/	page 5, right of the transcription
+(10d) line 2	Kwak̕wala	segmentation	ola -x’id	page 5
+(10d) line 3	Kwak̕wala	gloss	really -BEC	page 5
+(10d) line 4	Katie Sardinha	translation	‘really’	page 5
+§3	Katie Sardinha	note	Regarding its morphosyntax, the suffix /-x’id/ attaches exclusively to the stem which it semantically modifies. In this way, /-x’id/ patterns as a suffix and not as a clitic (see Littell 2016:545–583).	page 5
+§3	Katie Sardinha	note	Greene (2013) investigates the semantics of /-x’id/ in modern Kwak̕wala and describes the suffix as a non-canonical perfective. One way /-x’id/ resembles a canonical perfective is that it advances event time in narratives: in stories consisting of multiple sequenced events, /-x’id/ is often used to mark a transition from one event to the next (Greene 2013:82–85). Another way /-x’id/ resembles a perfective is shown by its interpretation in the vicinity of when-clauses, which are known to make the reference time of the event explicit. In (11), the reference time is the moment when the speaker (“I”) enters in a room where Marion is, thereby scaring Marion. The verb dza̱lkw’id (‘run-x’id’) in this sentence indicates that Marion’s running began within the reference time, which in this example is the moment I entered the room. This can be contrasted with (12), where the reference time is once again the moment the speaker enters a room where Marion is, this time interrupting Marion’s workout. In (12), the verb dza̱lkwa̱la with the continuative suffix -la is used to indicate that Marion’s running was ongoing at the reference time.7	page 5
+footnote 7	Katie Sardinha	note	I have modified the morpheme analysis of (11) and (12) from the source to reflect an update in our knowledge about the structure of when-clauses (Littell 2016:604–606).	page 5, footnote 7
+§3	Kwak̕wala	cited form	dza̱lkw’id	page 5, in italics
+§3	Kwak̕wala	cited form	dza̱lkwa̱la	page 5, in italics
+§3	Kwak̕wala	cited form	-la	page 5, in italics
+(11) line 1	Katie Sardinha	note	Context: Marion was scared of me as soon as she saw me walk into the room.	page 5, over the example
+(11) line 2	Kwak̕wala	transcription	le’ga̱n le’etła dza̱lkw’idi Marion	page 5
+(11) line 3	Kwak̕wala	segmentation	la =i’ =(i)k =a̱n le’etła dza̱lkw -x’id =i Marion	page 5
+(11) line 4	Kwak̕wala	gloss	AUX =NMZ =V1 =1 arrive run -BEC =D3 Marion	page 5
+(11) line 5	Katie Sardinha	translation	‘When I arrived, Marion ran.’	page 5
+(11) line 6	Katie Sardinha	citation	(Greene 2013:87)	page 5, the tag or source at the right of the translation
+(12) line 1	Katie Sardinha	note	Context: I interrupted Marion’s daily workout when I came into the room.	page 5, over the example
+(12) line 2	Kwak̕wala	transcription	le’ga̱n le’etła dza̱lkwa̱li Marion	page 5
+(12) line 3	Kwak̕wala	segmentation	la =i’ =(i)k =a̱n le’etła dza̱lkw -la =i Marion	page 5
+(12) line 4	Kwak̕wala	gloss	AUX =NMZ =V1 =1 arrive run -CONT =D3 Marion	page 5
+(12) line 5	Katie Sardinha	translation	‘When I arrived, Marion was running.’	page 5
+(12) line 6	Katie Sardinha	citation	(Greene 2013:88)	page 5, the tag or source at the right of the translation
+§3	Katie Sardinha	note	Greene (2013) makes two conclusions from this type of data. Firstly, /-x’id/ minimally requires the beginning of an event to be included within the reference time of an utterance. Secondly, /-x’id/ does not require the completion of an event within reference time — that is, /-x’id/ does not express telicity. If /-x’id/ were telic, we would expect (11) to receive the interpretation whereby the running was completed within reference time (‘When I arrived, Marion had ran.’). Aspectual /-x’id/ is thus unlike canonical perfectives, because canonical perfectives require event completion within reference time. These two conclusions about /-x’id/ are captured by Greene’s denotation in (13).	page 5
+(13) line 1	Katie Sardinha	note	Denotation of /-x’id/:8	page 6, set as an example
+footnote 8	Katie Sardinha	note	The BECOME operator in (13) is defined in Dowty (1979:139f.) as follows: Interval: Let T be the set of real numbers. Let ⧼ be the standard dense linear ordering of T. I is an interval iff I ⊂ T and for all moments t1, t2, t3, if t1 ⧼ t2 ⧼ t3, then t2 ∈ I. Initial and final bound: t is an initial bound for I iff t is the latest moment just before I. Final bound is defined similarly. [BECOME ϕ] is true at I iff there is an interval J containing the initial bound of I such that ¬ϕ is true at J and there is an interval K containing the final bound of I such that ϕ is true at K.	page 6, footnote 8
+footnote 8	Kwak̕wala	cited form	ϕ	page 6, in italics
+(13) line 2	Katie Sardinha	note	⟦x’id⟧ = λP<v, <s,t>>.λti.λws.∃e.(BECOME(P))(e)(w) & time(e) ⊆ t	page 6, set as an example
+(13) line 3	Katie Sardinha	citation	(Greene 2013:88)	page 6
+§3	Katie Sardinha	note	Another important finding in Greene (2013) is that Kwak̕wala has three basic event types, or aktionsart classes, which are referred to as states, processes, and transitions. States are non-telic and non-dynamic; processes are non-telic and dynamic, or composed of stages; and transitions are telic, but are not dynamic; rather, they are momentaneous events. A summary of these properties is provided in Table 1.	page 6
+Table 1	Katie Sardinha	note	Table 1: Lexical aspect classes in Kwak̕wala (from Greene 2013)	page 6, the table's caption
+Table 1 line 1	Katie Sardinha	note	Verb class Template Semantic features	page 6, Table 1
+Table 1 line 2	Katie Sardinha	note	a. States λe.P(e) [-telic, -stages/-dynamic]	page 6, Table 1
+Table 1 line 3	Katie Sardinha	note	b. Processes λe.(DO(P))(e) [-telic, +stages/+dynamic]	page 6, Table 1
+Table 1 line 4	Katie Sardinha	note	c. Transitions λe.(BECOME(P))(e) [+telic, -stages/-dynamic]	page 6, Table 1
+§3	Katie Sardinha	note	One way of understanding the semantics of /-x’id/ is to look at how it interacts with verbs from each aktionsart class. Greene (2013) shows that on states /-x’id/ receives an inchoative interpretation (14), while on processes /-x’id/ receives either a simple past or inchoative interpretation depending on context (15). Lexical transitions, on the other hand, are ungrammatical with /-x’id/ (16).	page 6
+(14) line 1	Katie Sardinha	note	States and /-x’id/:	page 6, over the example
+(14a) line 1	Kwak̕wala	transcription	k̓a̱na’isa̱n	page 6
+(14a) line 2	Kwak̕wala	segmentation	k̓a̱na’is =a̱n	page 6
+(14a) line 3	Kwak̕wala	gloss	feel.cold =1	page 6
+(14a) line 4	Katie Sardinha	translation	‘I’m cold.’	page 6
+(14a) line 5	Katie Sardinha	citation	(Greene 2013:90)	page 6, the tag or source at the right of the translation
+(14b) line 1	Kwak̕wala	transcription	k̓a̱na’is’ida̱n	page 6
+(14b) line 2	Kwak̕wala	segmentation	k̓a̱na’is -x’id =a̱n	page 6
+(14b) line 3	Kwak̕wala	gloss	feel.cold -BEC =1	page 6
+(14b) line 4	Katie Sardinha	translation	‘I got cold.’	page 6
+(14b) line 5	Katie Sardinha	citation	(Greene 2013:90)	page 6, the tag or source at the right of the translation
+(15) line 1	Katie Sardinha	note	Processes and /-x’id/:	page 7, over the example
+(15a) line 1	Kwak̕wala	transcription	ḵasa̱n	page 7
+(15a) line 2	Kwak̕wala	segmentation	ḵas =a̱n	page 7
+(15a) line 3	Kwak̕wala	gloss	walk =1	page 7
+(15a) line 4	Katie Sardinha	translation	‘I walk (habitually)’ or ‘I am walking’.	page 7
+(15a) line 5	Katie Sardinha	citation	(Greene 2013:37)	page 7, the tag or source at the right of the translation
+(15b) line 1	Kwak̕wala	transcription	ḵas’idox̱da ga̱nana̱m lax̱a skul	page 7
+(15b) line 2	Kwak̕wala	segmentation	ḵas -x’id =ox̱ =da ga̱nana̱m la =x̱ =a skul	page 7
+(15b) line 3	Kwak̕wala	gloss	walk -BEC =D2 =DET child PREP =ACC =D4 school	page 7
+§3	Katie Sardinha	note	(i) ‘The boy started to walk to school.’	page 7
+§3	Katie Sardinha	note	(ii) ‘The boy walked to school.’ (Greene 2013:93)	page 7
+(16) line 1	Katie Sardinha	note	Transitions and /-x’id/:	page 7, over the example
+(16a) line 1	Kwak̕wala	transcription	dulowa̱n	page 7
+(16a) line 2	Kwak̕wala	segmentation	dulo =a̱n	page 7
+(16a) line 3	Kwak̕wala	gloss	win =1	page 7
+(16a) line 4	Katie Sardinha	translation	‘I won.’	page 7
+(16a) line 5	Katie Sardinha	citation	(Greene 2013:97)	page 7, the tag or source at the right of the translation
+(16b) line 1	Kwak̕wala	transcription	* dulox’ida̱n	page 7
+(16b) line 2	Kwak̕wala	segmentation	dulo -x’id =a̱n	page 7
+(16b) line 3	Kwak̕wala	gloss	win -BEC =1 (Greene 2013:97)	page 7
+§3	Katie Sardinha	note	The incompatibility of /-x’id/ and lexical transitions arises from the fact that the denotation of /-x’id/ and the template of lexical transitions (Table 1, c) both contain the BECOME operator. Their combination would derive a non-sensical event type consisting of an initial transition into an instantaneous transition. Sardinha (2018) extends Greene’s system by proposing that three frequent suffixes in Kwak̓wala have the function of deriving Greene’s three event types: -aɬa ‘stative’ derives states, ‑la ‘continuative’ derives processes, and -(x)’id ‘become’ derives transitions. These suffixes form a paradigm with -a, an unmarked default, to specify the event type of every event expressed in the language. Some verb roots, such as duḵw- ‘to see’, can be used to express all three event types through derivation with these suffixes (17).	page 7
+§3	Kwak̕wala	cited form	-aɬa	page 7, in italics, ‘stative’
+§3	Kwak̕wala	cited form	‑la	page 7, in italics, ‘continuative’
+§3	Kwak̕wala	cited form	duḵw-	page 7, in italics, ‘to see’
+(17) line 1	Katie Sardinha	note	duḵw- ‘to see’ with -ała (a), -la (b), -x’id (c), and default -a (d):	page 7, over the example
+(17a) line 1	Katie Sardinha	note	Context: Mabel thinks she heard something in the bushes. She keeps her eye on the bushes to see if it’ll move again.	page 7, over the example
+(17a) line 2	Kwak̕wala	transcription	la̱m̓is duḵwała x̱ada ḵ̓wax̱mis	page 7
+(17a) line 3	Kwak̕wala	segmentation	la̱ =’m =(w)is duḵw -ała =x̱ =a =da ḵ̓wax̱mis	page 7
+(17a) line 4	Kwak̕wala	gloss	AUX =VER =and.so see -STAT =ACC =D4 =DET bush	page 7
+(17a) line 5	Kwak̕wala	transcription	k̓a̱yosida yaw̓ixa	page 7
+(17a) line 6	Kwak̕wala	segmentation	k̓a̱yos =i =da yaw̓ix -a	page 7
+(17a) line 7	Kwak̕wala	gloss	NEG.EXIST =D3 =DET move -A	page 7
+(17a) line 8	Katie Sardinha	translation	‘She watched the bushes, but nothing moved.’	page 7
+(17a) line 9	Katie Sardinha	citation	(20160712 VF)	page 7, the tag or source at the right of the translation
+(17b) line 1	Katie Sardinha	note	Context: Vicky drew a complicated picture of a garden. In it there was a butterfly. She asked Eddie if he could find the butterfly.	page 8, over the example
+(17b) line 2	Kwak̕wala	transcription	duḵwa̱lux̱ Eddiya̱x̱ x̱ada k̓ata̱makw	page 8
+(17b) line 3	Kwak̕wala	segmentation	duḵw -la =ux̱ Eddie =(a̱)x̱ =x̱ =a =da k̓ata̱makw	page 8
+(17b) line 4	Kwak̕wala	gloss	see -CONT =D2 Eddie =V2 =ACC =D4 =DET picture	page 8
+(17b) line 5	Kwak̕wala	transcription	k̓i’stłux̱ duḵwa̱la x̱ida ha̱mumu	page 8
+(17b) line 6	Kwak̕wala	segmentation	k̓i’s =tł =ux duḵw -la =x̱ =i =da ha̱mumu	page 8
+(17b) line 7	Kwak̕wala	gloss	NEG =FUT =D2 see -CONT =ACC =D3 =DET butterfly	page 8
+(17b) line 8	Katie Sardinha	translation	‘Eddie looked over the picture, but he didn’t see the butterfly.’	page 8
+(17b) line 9	Katie Sardinha	citation	(20160712 VF)	page 8, the tag or source at the right of the translation
+(17c) line 1	Katie Sardinha	note	Context: The speaker is telling a story about paying her hydro bill at the bank. The bill was for an absurdly small sum.	page 8, over the example
+(17c) line 2	Kwak̕wala	transcription	la̱m̓ida t̕sa̱daḵ dux̱w’i x̱a̱n	page 8
+(17c) line 3	Kwak̕wala	segmentation	la̱ =’m =i =da t̕sa̱daḵ dux̱w -x’id =x̱ =a̱n	page 8
+(17c) line 4	Kwak̕wala	gloss	AUX =VER =D3 =DET woman see -BEC =ACC =1.POSS	page 8
+(17c) line 5	Kwak̕wala	transcription	bill la̱’a̱m da̱’ł’i	page 8
+(17c) line 6	Kwak̕wala	segmentation	bill la̱ =’m da̱’ł -x’id	page 8
+(17c) line 7	Kwak̕wala	gloss	bill AUX =VER laugh -BEC	page 8
+(17c) line 8	Katie Sardinha	translation	‘Then the woman saw/looked at my bill, and laughed.’	page 8
+(17c) line 9	Katie Sardinha	citation	(20150527 VF)	page 8, the tag or source at the right of the translation
+(17d) line 1	Katie Sardinha	note	Context: Mabel heard a noise behind her, so she turned around to look at it.	page 8, over the example
+(17d) line 2	Kwak̕wala	transcription	la̱m̓isi ma̱ls’i’lela duḵwax̱	page 8
+(17d) line 3	Kwak̕wala	segmentation	la̱ =’m =(w)is =i ma̱lsi’lela duḵw -a =x̱	page 8
+(17d) line 4	Kwak̕wala	gloss	AUX =VER =and.so =D3 turning.around see -A =ACC	page 8
+(17d) line 5	Katie Sardinha	translation	‘She turned around to look at it.’	page 8
+§3	Katie Sardinha	note	Speaker: “She looked around.” (20160712 VF) The existence of a system of event type marking explains why /-x’id/ is so frequent, and why the other suffixes in its paradigm, -ała and -la, are similarly frequent.9 In contrast with tense, which is only obligatory in the future, the specification of event type is obligatory. On nouns, /-x’id/ derives an inchoative with the meaning ‘to become N’ (18). Semantically, this involves the coercion of a predicate of individuals into a predicate of events defined over an interval of time (see (13) and footnote 8).	page 8
+footnote 9	Katie Sardinha	note	The story is more complicated with respect to -a, as there appears to be multiple suffixes and clitics with this shape.	page 8, footnote 9
+§3	Kwak̕wala	cited form	-ała	page 8, in italics
+(18a) line 1	Kwak̕wala	transcription	ba̱gwana̱mux̱ Connor	page 8
+(18a) line 2	Kwak̕wala	segmentation	ba̱gwana̱m =ux̱ Connor	page 8
+(18a) line 3	Kwak̕wala	gloss	man =D2 Connor	page 8
+(18a) line 4	Katie Sardinha	translation	‘Connor is a man.’	page 8
+(18a) line 5	Katie Sardinha	citation	(20100129-Abel VF)	page 8, the tag or source at the right of the translation
+(18b) line 1	Kwak̕wala	transcription	ba̱gwana̱mx’idida kwa̱nkwa̱nxwa̱lige’	page 8
+(18b) line 2	Kwak̕wala	segmentation	ba̱gwana̱m -x’id =i =da kwa̱nkwa̱nxwa̱lige’	page 8
+(18b) line 3	Kwak̕wala	gloss	man -BEC =D3 =DET Thunderbird	page 8
+(18b) line 4	Katie Sardinha	translation	‘Thunderbird became a man.’	page 8
+(18b) line 5	Katie Sardinha	citation	(20130710 VF)	page 8, the tag or source at the right of the translation
+§3	Katie Sardinha	note	While /-x’id/ is in principle possible on any noun, such examples are rare for pragmatic reasons.	page 9
+§3	Katie Sardinha	note	In summary, /-x’id/ patterns morphosyntactically as a suffix and attaches to every category of lexical root. Semantically, /-x’id/ marks a category of event type known as transitions, and its use requires that the event in question began, but was not necessarily completed, during the reference time of the utterance.	page 9
+§4	Katie Sardinha	heading	4 Morphophonology of /-x’id/	page 9
+§4	Katie Sardinha	note	In modern Kwak̕wala, there are ten allomorphs of /-x’id/ which fall into three sets. The set of allomorphs in (19a) and the set of allomorphs in (19b) are differentiated by the morphological environment they appear in, while the allomorphs in (19c) appear in either morphological environment and arise due to an optional phonological rule.	page 9
+(19) line 1	Katie Sardinha	note	Allomorphs of /-x’id/ in modern Kwak̕wala:	page 9, the title over the sets
+(19a) line 1	Kwak̕wala	transcription	-nd	page 9, a set of allomorphs
+(19a) line 2	Kwak̕wala	transcription	-ud	page 9, a set of allomorphs
+(19a) line 3	Kwak̕wala	transcription	-d	page 9, a set of allomorphs
+(19a) line 4	Katie Sardinha	note	After lexical suffixes	page 9, right of the set
+(19b) line 1	Kwak̕wala	transcription	-x’id	page 9, a set of allomorphs
+(19b) line 2	Kwak̕wala	transcription	-’id	page 9, a set of allomorphs
+(19b) line 3	Katie Sardinha	note	On stems without lexical suffixes	page 9, right of the set
+(19c) line 1	Kwak̕wala	transcription	-x’i	page 9, a set of allomorphs
+(19c) line 2	Kwak̕wala	transcription	-’i	page 9, a set of allomorphs
+(19c) line 3	Kwak̕wala	transcription	-n	page 9, a set of allomorphs
+(19c) line 4	Kwak̕wala	transcription	-u	page 9, a set of allomorphs
+(19c) line 5	Kwak̕wala	transcription	-∅	page 9, a set of allomorphs
+(19c) line 6	Katie Sardinha	note	Arises due to optional d loss syllable-finally	page 9, right of the set
+§4	Katie Sardinha	note	In Section 4.1, I discuss the morphological conditioning of the sets of allomorphs in (19a) and (19b), as well as the phonological conditioning of allomorphs within these sets. Then in Section 4.2, I discuss the allomorphs in (19c), which arise due to the occasional omission of d at the end of syllables in connected speech. Section 4.3 presents the full set of rules for the morphophonology of /-x’id/.	page 9
+§4	Katie Sardinha	note	The phonological inventory of Kwak̕wala is summarized in Appendix A. 4.1 {-nd, -ud, -d} and {-x’id, -’id} Two sets of allomorphs were attested in the Kwak̕wala spoken around the turn of the 20th century: {-nd, -ud, -d} and {-x’id, -’id}. These allomorphs are analyzed here as instances of the same abstract morpheme, /-x’id/. This unified analysis is motivated by the fact that these sets are identical in meaning and are in complementary distribution (exceptions are discussed below). The conditions underlying the distribution of these sets is morphological in nature.	page 9
+§4	Katie Sardinha	note	Of these two sets of allomorphs, {-nd, -ud, -d} is more restricted. These allomorphs occur exclusively on stems which already contain one or more “primary suffixes” (Boas 1911:455), a set which includes nearly all suffixes in the language. Suffixes which are specifically listed as not being primary suffixes include terminal completive -a (Boas 1911:456), -la ‘continuative’, -aɬa ‘stative’, and -!iq ‘in mind’ (Boas 1947:365). The reciprocal suffix -ap̓ ‘each other’ may be added to this list. What Boas calls primary suffixes are referred to in the literature on Northwest Coast languages as lexical suffixes, a term which refers to suffixes with meanings resembling independent lexical items in familiar European languages. Some examples of lexical suffixes in Kwak̕wala include -(g̱)a̱m ‘face’, -(x)tła ‘on the fire’, and -’sta ‘in(to) water’. As ‘lexical suffix’ is the more familiar term, I adopt it below. Clitics are naturally excluded from this set, and in any case always attach to the right of /-x’id/ within the word.	page 9
+§4	Kwak̕wala	cited form	-!iq	page 9, in italics, ‘in mind’
+§4	Kwak̕wala	cited form	-ap̓	page 9, in italics, ‘each other’
+§4	Kwak̕wala	cited form	-(g̱)a̱m	page 9, in italics, ‘face’
+§4	Kwak̕wala	cited form	-(x)tła	page 9, in italics, ‘on the fire’
+§4	Kwak̕wala	cited form	-’sta	page 9, in italics, ‘in(to) water’
+§4	Katie Sardinha	note	With stems containing one or more lexical suffixes, one of the allomorphs in the set {-nd, -ud, -d} is chosen according to three phonological rules (Boas 1947:365). After stem-final m and n, the allomorph -d is realized. After stem-final rounded vowels and semi-vowels, -o, -u, or -a̱w, the allomorph -ud is realized, with o and a̱w being converted to u. Elsewhere, the allomorph -nd is realized, in which case up to three additional phonological rules apply: one, if the stem ends in a consonant, a̱ (schwa) is inserted before -nd; two, if the stem ends in the vowel a, this vowel is shortened to a̱; and three, if the stem ends in an obstruent, it undergoes softening (lenition). These rules for realizing {-nd, -ud, -d} are summarized in (20) along with examples.	page 9
+§4	Kwak̕wala	cited form	a̱w	page 9, in italics
+§4	Kwak̕wala	cited form	a̱	page 10, in italics
+(20) line 1	Katie Sardinha	note	Phonological conditioning of the allomorphs {-nd, -ud, -d):	page 10, the title over the rules
+(20A) line 1	Katie Sardinha	note	A. Realize [-d] when the rightmost lexical suffix ends in m or n.	page 10, a rule
+(20Ai) line 1	Kwak̕wala	phonemic	/kus-/	page 10, left of the arrow
+(20Ai) line 2	Kwak̕wala	phonemic	/-(g̱)a̱m/	page 10, left of the arrow
+(20Ai) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Ai) line 4	Kwak̕wala	phonetic	[kusa̱md]	page 10, right of the arrow
+(20Ai) line 5	Kwak̕wala	transcription	kus-	page 10
+(20Ai) line 6	Katie Sardinha	translation	‘to shave’	page 10
+(20Ai) line 7	Kwak̕wala	transcription	-(g̱)a̱m	page 10
+(20Ai) line 8	Katie Sardinha	translation	‘face’	page 10
+(20Ai) line 9	Kwak̕wala	transcription	kusa̱md	page 10
+(20Ai) line 10	Katie Sardinha	translation	‘to shave face’	page 10
+(20Aii) line 1	Kwak̕wala	phonemic	/lus-/	page 10, left of the arrow
+(20Aii) line 2	Kwak̕wala	phonemic	/(-k)’a̱n/	page 10, left of the arrow
+(20Aii) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Aii) line 4	Kwak̕wala	phonetic	[lusa̱nd]	page 10, right of the arrow
+(20Aii) line 5	Kwak̕wala	transcription	lus-	page 10
+(20Aii) line 6	Katie Sardinha	translation	‘to uncover’	page 10
+(20Aii) line 7	Kwak̕wala	transcription	-(k)’a̱n	page 10
+(20Aii) line 8	Katie Sardinha	translation	‘body’	page 10
+(20Aii) line 9	Kwak̕wala	transcription	lusa̱nd	page 10
+(20Aii) line 10	Katie Sardinha	translation	‘to get naked, undress’	page 10
+(20B) line 1	Katie Sardinha	note	B. Realize [-ud] when the rightmost lexical suffix ends in a rounded vowel or semi-vowel (u, o, or a̱w), and convert the vowel or semi-vowel to u.10	page 10, a rule
+footnote 10	Katie Sardinha	note	The Um̓ista letter o used here corresponds to the letters â and ô in Boas (1947), while the Um̓ista letter u here corresponds to u, ū, o, and ō in Boas (ibid.). Note that the sequence a̱w is phonetically identical to o when it makes up the rhyme of a syllable. Phonologically, however, the sequence a̱w can be distinguished from o in a variety of ways (see Littell 2016:444–448).	page 10, footnote 10
+footnote 10	Kwak̕wala	cited form	â	page 10, in italics
+footnote 10	Kwak̕wala	cited form	ô	page 10, in italics
+footnote 10	Kwak̕wala	cited form	ū	page 10, in italics
+footnote 10	Kwak̕wala	cited form	ō	page 10, in italics
+(20Bi) line 1	Kwak̕wala	phonemic	/da̱y-/	page 10, left of the arrow
+(20Bi) line 2	Kwak̕wala	phonemic	/-’stu/	page 10, left of the arrow
+(20Bi) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Bi) line 4	Kwak̕wala	phonetic	[di’stud]	page 10, right of the arrow
+(20Bi) line 5	Kwak̕wala	transcription	da̱y-	page 10
+(20Bi) line 6	Katie Sardinha	translation	‘wipe’	page 10
+(20Bi) line 7	Kwak̕wala	transcription	-’stu	page 10
+(20Bi) line 8	Katie Sardinha	translation	‘round opening’	page 10
+(20Bi) line 9	Kwak̕wala	transcription	di’stud	page 10
+(20Bi) line 10	Katie Sardinha	translation	‘to wipe eyes’	page 10
+(20Bii) line 1	Kwak̕wala	phonemic	/nix̱-/	page 10, left of the arrow
+(20Bii) line 2	Kwak̕wala	phonemic	/-w̓a̱ḵo/	page 10, left of the arrow
+(20Bii) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Bii) line 4	Kwak̕wala	phonetic	[nix̱w̓a̱ḵud]	page 10, right of the arrow
+(20Bii) line 5	Kwak̕wala	transcription	nix̱-	page 10
+(20Bii) line 6	Katie Sardinha	translation	‘to pull’	page 10
+(20Bii) line 7	Kwak̕wala	transcription	-w̓a̱ḵo	page 10
+(20Bii) line 8	Katie Sardinha	translation	‘out of hole’	page 10
+(20Bii) line 9	Kwak̕wala	transcription	nix̱w̓a̱ḵud	page 10
+(20Bii) line 10	Katie Sardinha	translation	‘to pull out of hole’	page 10
+(20Biii) line 1	Kwak̕wala	phonemic	/ḵ̕ux̱-/	page 10, left of the arrow
+(20Biii) line 2	Kwak̕wala	phonemic	/-t̕sa̱w/	page 10, left of the arrow
+(20Biii) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Biii) line 4	Kwak̕wala	phonetic	[ḵ̕ux̱wt̕sud]	page 10, right of the arrow
+(20Biii) line 5	Kwak̕wala	transcription	ḵ̓ux̱-	page 10
+(20Biii) line 6	Katie Sardinha	translation	‘to dress’	page 10
+(20Biii) line 7	Kwak̕wala	transcription	-t̕sa̱w	page 10
+(20Biii) line 8	Katie Sardinha	translation	‘in’	page 10
+(20Biii) line 9	Kwak̕wala	transcription	ḵ̕ux̱t’sud	page 10
+(20Biii) line 10	Katie Sardinha	translation	‘to get dressed’	page 10
+(20C) line 1	Katie Sardinha	note	C. Realize [-nd] elsewhere after lexical suffixes, and apply the following three additional rules:	page 10, a rule
+(20Ca) line 1	Katie Sardinha	note	a. If the stem ends in a consonant (other than m or n), insert a̱ (schwa) before -nd.	page 10, a rule
+(20Cai) line 1	Kwak̕wala	phonemic	/t̕sa̱m̓-/	page 10, left of the arrow
+(20Cai) line 2	Kwak̕wala	phonemic	/-(a̱)nx̱/	page 10, left of the arrow
+(20Cai) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Cai) line 4	Kwak̕wala	phonetic	[t̕sa̱m̓a̱nx̱a̱nd]	page 10, right of the arrow
+(20Cai) line 5	Kwak̕wala	transcription	t̕sa̱m̓-	page 10
+(20Cai) line 6	Katie Sardinha	translation	‘melt’	page 10
+(20Cai) line 7	Kwak̕wala	transcription	-(a̱)nx̱	page 10
+(20Cai) line 8	Katie Sardinha	translation	‘season’	page 10
+(20Cai) line 9	Kwak̕wala	transcription	t̕sa̱m̓a̱nx̱a̱nd	page 10
+(20Cai) line 10	Katie Sardinha	translation	‘season of melting (ice)’	page 10
+(20Cai) line 11	Katie Sardinha	citation	(Boas 1947:305)	page 10
+(20Cb) line 1	Katie Sardinha	note	b. If the stem ends in a non-rounded vowel (a, i, or e)11, shorten this vowel to a̱.	page 10, a rule
+footnote 11	Katie Sardinha	note	I have generalized this rule to include e, though I have not found any examples with this vowel in this position. The only lexical suffix in Boas (1947) which ends in this vowel is -°x̱tłe ‘on top of head, name’ (pg. 274), and the only relevant example provided takes the allomorph [-x’id]: nił’x̱tłex’id ‘to begin to show head’.	page 10, footnote 11
+footnote 11	Kwak̕wala	cited form	-°x̱tłe	page 10, in italics, ‘on top of head, name’
+footnote 11	Kwak̕wala	cited form	nił’x̱tłex’id	page 10, in italics, ‘to begin to show head’
+(20Cbi) line 1	Kwak̕wala	phonemic	/a̱x̱-/	page 10, left of the arrow
+(20Cbi) line 2	Kwak̕wala	phonemic	/-ba/	page 10, left of the arrow
+(20Cbi) line 3	Kwak̕wala	phonemic	/-x’id/	page 10, left of the arrow
+(20Cbi) line 4	Kwak̕wala	phonetic	[a̱x̱ba̱nd]	page 10, right of the arrow
+(20Cbi) line 5	Kwak̕wala	transcription	a̱x̱-	page 10
+(20Cbi) line 6	Katie Sardinha	translation	‘empty root, do’	page 10
+(20Cbi) line 7	Kwak̕wala	transcription	-ba	page 10
+(20Cbi) line 8	Katie Sardinha	translation	‘end of long horizontal object’	page 10
+(20Cbi) line 9	Kwak̕wala	transcription	a̱x̱ba̱nd	page 10
+(20Cbi) line 10	Katie Sardinha	translation	‘to put at end’	page 10
+(20Cbi) line 11	Katie Sardinha	citation	(Boas 1947:365)	page 10
+(20Cbii) line 1	Kwak̕wala	phonemic	/dza̱m-/	page 11, left of the arrow
+(20Cbii) line 2	Kwak̕wala	phonemic	/-(k)a̱y̓i/	page 11, left of the arrow
+(20Cbii) line 3	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(20Cbii) line 4	Kwak̕wala	phonetic	[dza̱mka̱y̓a̱nd]	page 11, right of the arrow
+(20Cbii) line 5	Kwak̕wala	transcription	dza̱m-	page 11
+(20Cbii) line 6	Katie Sardinha	translation	‘to bury in soil’	page 11
+(20Cbii) line 7	Kwak̕wala	transcription	-(k)a̱y̓i	page 11
+(20Cbii) line 8	Katie Sardinha	translation	‘on top (of a surface)’	page 11
+(20Cbii) line 9	Kwak̕wala	transcription	dza̱mka̱ya̱nd	page 11
+(20Cbii) line 10	Katie Sardinha	translation	‘to cover with dirt’	page 11
+(20Cbii) line 11	Katie Sardinha	citation	(Boas 1947:355)	page 11
+(20Cc) line 1	Katie Sardinha	note	c. If the stem ends in an obstruent, soften the obstruent (e.g. s → dz, k → g, ḵ → g̱).	page 11, a rule
+(20Cci) line 1	Kwak̕wala	phonemic	/la-/	page 11, left of the arrow
+(20Cci) line 2	Kwak̕wala	phonemic	/-°x̱s/	page 11, left of the arrow
+(20Cci) line 3	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(20Cci) line 4	Kwak̕wala	phonetic	[lax̱dza̱nd]	page 11, right of the arrow
+(20Cci) line 5	Kwak̕wala	transcription	la-	page 11
+(20Cci) line 6	Katie Sardinha	translation	‘to go’	page 11
+(20Cci) line 7	Kwak̕wala	transcription	-°x̱s	page 11
+(20Cci) line 8	Katie Sardinha	translation	‘in canoe’	page 11
+(20Cci) line 9	Kwak̕wala	transcription	lax̱dza̱nd	page 11
+(20Cci) line 10	Katie Sardinha	translation	‘to shift from one side to other in canoe’	page 11
+(20Cci) line 11	Katie Sardinha	citation	(Boas 1947:365)	page 11
+(20Ccii) line 1	Kwak̕wala	phonemic	/ga̱l-/	page 11, left of the arrow
+(20Ccii) line 2	Kwak̕wala	phonemic	/-°ik/	page 11, left of the arrow
+(20Ccii) line 3	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(20Ccii) line 4	Kwak̕wala	phonetic	[ga̱liga̱nd]	page 11, right of the arrow
+(20Ccii) line 5	Kwak̕wala	transcription	ga̱l-	page 11
+(20Ccii) line 6	Katie Sardinha	translation	‘to crawl’	page 11
+(20Ccii) line 7	Kwak̕wala	transcription	-°ik	page 11
+(20Ccii) line 8	Katie Sardinha	translation	‘on back’	page 11
+(20Ccii) line 9	Kwak̕wala	transcription	ga̱liga̱nd	page 11
+(20Ccii) line 10	Katie Sardinha	translation	‘to climb on back’	page 11
+(20Ccii) line 11	Katie Sardinha	citation	(Boas 1947:365)	page 11
+(20Cciii) line 1	Kwak̕wala	phonemic	/p̕a̱tł-/	page 11, left of the arrow
+(20Cciii) line 2	Kwak̕wala	phonemic	/-p̓iḵ/	page 11, left of the arrow
+(20Cciii) line 3	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(20Cciii) line 4	Kwak̕wala	phonetic	[p̕a̱łp̕ig̱a̱nd]	page 11, right of the arrow
+(20Cciii) line 5	Kwak̕wala	transcription	p̓a̱tł-	page 11
+(20Cciii) line 6	Katie Sardinha	translation	‘to fly’	page 11
+(20Cciii) line 7	Kwak̕wala	transcription	-p̓iḵ	page 11
+(20Cciii) line 8	Katie Sardinha	translation	‘stick, tree’	page 11
+(20Cciii) line 9	Kwak̕wala	transcription	p̓a̱łp̓iga̱nd	page 11
+(20Cciii) line 10	Katie Sardinha	translation	‘to fly to pole’	page 11
+(20Cciii) line 11	Katie Sardinha	citation	(Boas 1947:338)	page 11
+§4	Katie Sardinha	note	In some cases, more than one of the above rules apply. The example in (c-iii), for instance, undergoes both a̱ insertion (C-a) and softening of ḵ to g̱ (C-c).	page 11
+§4	Kwak̕wala	cited form	g̱	page 11, in italics
+§4	Kwak̕wala	cited form	ḵ	page 11, in italics
+§4	Katie Sardinha	note	The rules in (20) are motivated to varying degrees on phonological grounds. The split between the consonants m and n in Rule 20A and all other consonants in Rule 20C-a may be a form of dissimilation, with the allomorph -d being realized instead of -nd in order to prevent sequences of nearly adjacent nasal consonants (*...na̱nd, *...ma̱nd). Note that the glottalized nasals, m̓ and n̓, pattern along with obstruents rather than nasals in failing to trigger Rule A. While Rule 20C-c has been generalized to make reference to all obstruents, the inventory of obstruents which actually appear at the right edge of lexical suffixes is quite small. In fact, the consonants s, k, and ḵ are the only obstruents which occur at the right edge of lexical suffixes and trigger this rule. I know of only one exception to this generalization, which is that the final consonant of the suffix -(k)’ut ‘opposite’ hardens to t̓ before the -nd allomorph of /-x’id/, giving rise to forms such as lak̓ut̓a̱nd ‘to go to other side’ (from la- ‘to go’, -(k)’ut ‘opposite’) (Boas 1947:358).12	page 11
+footnote 12	Katie Sardinha	note	It is ironic that the final consonant of a suffix meaning ‘opposite’ undergoes hardening — the opposite of softening — after the -nd form of /-x’id/. This should make it an easy exception to remember!	page 11, footnote 12
+§4	Kwak̕wala	cited form	na̱nd	page 11, in italics
+§4	Kwak̕wala	cited form	ma̱nd	page 11, in italics
+§4	Kwak̕wala	cited form	m̓	page 11, in italics
+§4	Kwak̕wala	cited form	n̓	page 11, in italics
+§4	Kwak̕wala	cited form	-(k)’ut	page 11, in italics, ‘opposite’
+§4	Kwak̕wala	cited form	t̓	page 11, in italics
+§4	Kwak̕wala	cited form	lak̓ut̓a̱nd	page 11, in italics, ‘to go to other side’
+§4	Kwak̕wala	cited form	la-	page 11, in italics, ‘to go’
+§4	Katie Sardinha	note	Rule 20B, on the other hand, has numerous exceptions. Boas (1947:365) lists a set of suffixes which do not end in rounded vowels or semi-vowels, but which nevertheless invariably condition the -ud form of /-x’id/. These are reported in Boas (1947:365) as including -ax̱a ‘down’ (21a), ‑°tłe’ ‘on water’ (21b), -tła̱la ‘above’ (21c), -(x̱)t’a ‘seaward’ (21d), and -!a ‘ear’ (21e).	page 11
+§4	Kwak̕wala	cited form	-ax̱a	page 11, in italics, ‘down’
+§4	Kwak̕wala	cited form	‑°tłe’	page 11, in italics, ‘on water’
+§4	Kwak̕wala	cited form	-tła̱la	page 11, in italics, ‘above’
+§4	Kwak̕wala	cited form	-(x̱)t’a	page 11, in italics, ‘seaward’
+§4	Kwak̕wala	cited form	-!a	page 11, in italics, ‘ear’
+(21) line 1	Katie Sardinha	note	Exceptional lexical suffixes which condition the use of -ud:	page 11, the title over the rules
+(21a) line 1	Kwak̕wala	phonemic	/a̱x̱-/	page 11, left of the arrow
+(21a) line 2	Kwak̕wala	phonemic	/-ax̱a/	page 11, left of the arrow
+(21a) line 3	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(21a) line 4	Kwak̕wala	phonetic	[a̱x̱ax̱ud]	page 11, right of the arrow
+(21a) line 5	Kwak̕wala	transcription	a̱x̱-	page 11
+(21a) line 6	Katie Sardinha	translation	‘empty root, do’	page 11
+(21a) line 7	Kwak̕wala	transcription	-ax̱a	page 11
+(21a) line 8	Katie Sardinha	translation	‘down’	page 11
+(21a) line 9	Kwak̕wala	transcription	a̱x̱ax̱ud	page 11
+(21a) line 10	Katie Sardinha	translation	‘to take down’	page 11
+(21a) line 11	Katie Sardinha	citation	(Boas 1947:321)	page 11
+(21b) line 1	Kwak̕wala	phonemic	/a̱x̱-/	page 11, left of the arrow
+(21b) line 2	Kwak̕wala	phonemic	/-(g)a’ł/	page 11, left of the arrow
+(21b) line 3	Kwak̕wala	phonemic	/-°tłay̓/	page 11, left of the arrow
+(21b) line 4	Kwak̕wala	phonemic	/-x’id/	page 11, left of the arrow
+(21b) line 5	Kwak̕wala	phonetic	[a̱x̱’atłay̓ud]	page 11, right of the arrow
+(21b) line 6	Kwak̕wala	transcription	a̱x̱-	page 11
+(21b) line 7	Katie Sardinha	translation	‘empty root, do’	page 11
+(21b) line 8	Kwak̕wala	transcription	-(g)a’ł	page 11
+(21b) line 9	Katie Sardinha	translation	‘telic directional’,13	page 11
+footnote 13	Katie Sardinha	note	This and other directional suffixes are analyzed in Rosenblum (2015:88–93 and 294–312).	page 11, footnote 13
+(21b) line 10	Kwak̕wala	transcription	-°tłay̓	page 11
+(21b) line 11	Katie Sardinha	translation	‘moving on water, at sea’	page 11
+(21b) line 12	Kwak̕wala	transcription	a̱x̱’atłay̓ud	page 11
+(21b) line 13	Katie Sardinha	translation	‘to put on water’	page 11
+(21b) line 14	Katie Sardinha	citation	(Boas 1947:377)	page 11
+(21c) line 1	Kwak̕wala	phonemic	/ma̱ns-/	page 12, left of the arrow
+(21c) line 2	Kwak̕wala	phonemic	/-(g)a’ł/	page 12, left of the arrow
+(21c) line 3	Kwak̕wala	phonemic	/-tła̱la/	page 12, left of the arrow
+(21c) line 4	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(21c) line 5	Kwak̕wala	phonetic	[ma̱ns’atła̱lud]	page 12, right of the arrow
+(21c) line 6	Kwak̕wala	transcription	ma̱ns-	page 12
+(21c) line 7	Katie Sardinha	translation	‘to measure’	page 12
+(21c) line 8	Kwak̕wala	transcription	-(g)a’ł	page 12
+(21c) line 9	Katie Sardinha	translation	‘telic directional’	page 12
+(21c) line 10	Kwak̕wala	phonemic	/-tła̱la/	page 12
+(21c) line 11	Katie Sardinha	translation	‘above ground’	page 12
+(21c) line 12	Kwak̕wala	transcription	ma̱ns’atła̱lud	page 12
+(21c) line 13	Katie Sardinha	translation	‘to measure, to try on’	page 12
+(21c) line 14	Katie Sardinha	citation	(Boas 1947:350)	page 12
+(21d) line 1	Kwak̕wala	phonemic	/ha̱ntł-/	page 12, left of the arrow
+(21d) line 2	Kwak̕wala	phonemic	/-(x̱)t̓a/	page 12, left of the arrow
+(21d) line 3	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(21d) line 4	Kwak̕wala	phonetic	[ha̱ntła̱t̓ud]	page 12, right of the arrow
+(21d) line 5	Kwak̕wala	transcription	ha̱ntł-	page 12
+(21d) line 6	Katie Sardinha	translation	‘to hunt with rifle’	page 12
+(21d) line 7	Kwak̕wala	transcription	-(x̱)t̓a	page 12
+(21d) line 8	Katie Sardinha	translation	‘seaward’	page 12
+(21d) line 9	Kwak̕wala	transcription	ha̱ntła̱t̓ud	page 12
+(21d) line 10	Katie Sardinha	translation	‘to shoot seaward’	page 12
+(21d) line 11	Katie Sardinha	citation	(Boas 1947:373)	page 12
+(21e) line 1	Kwak̕wala	phonemic	/da̱y-/	page 12, left of the arrow
+(21e) line 2	Kwak̕wala	phonemic	/-!a/14	page 12, left of the arrow
+footnote 14	Katie Sardinha	note	This suffix triggers reduplication of the root CV and insertion of s into the coda of the reduplicant.	page 12, footnote 14
+(21e) line 3	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(21e) line 4	Kwak̕wala	phonetic	[disda̱y̓ud]	page 12, right of the arrow
+(21e) line 5	Kwak̕wala	transcription	da̱y-	page 12
+(21e) line 6	Katie Sardinha	translation	‘to wipe’	page 12
+(21e) line 7	Kwak̕wala	phonemic	/-!a/	page 12
+(21e) line 8	Katie Sardinha	translation	‘ear’	page 12
+(21e) line 9	Kwak̕wala	transcription	disda̱y̓ud	page 12
+(21e) line 10	Katie Sardinha	translation	‘to wipe ear’	page 12
+(21e) line 11	Katie Sardinha	citation	(Boas 1947:309)	page 12
+§4	Katie Sardinha	note	I have not checked with contemporary speakers to verify whether the same pattern of exceptions holds in the modern language. If a stem does not contain a lexical suffix, one of the allomorphs in the set {-x’id, -’id} is realized instead. These allomorphs also follow -la ‘continuative’, -aɬa ‘stative’, and -!iq ‘in mind’ (Boas 1947:365), as well as -ap̓ ‘each other’ (see 22C-i). The choice between allomorphs {-x’id, ‑’id} is conditioned by a complex set of phonological rules governing the loss of initial x, as well as changes to the final consonant of the stem. These rules, based closely off of the ones stated in Boas (1947:365), are provided alongside examples in (22). In a few places, these rules have been generalized over phonological classes to make predictions about segments for which there is no data; round brackets ‘()’ are used to indicate these segments.	page 12
+(22) line 1	Katie Sardinha	note	Phonological conditioning of the allomorphs {-x’id, -’id}:	page 12, the title over the rules
+(22A) line 1	Katie Sardinha	note	A. Realize [-x’id] when the stem ends in a vowel {a, e, i, (o) u, (a̱)}, or one of the following consonants: {m, n, l, m̓, n̓, l̓}.	page 12, a rule
+(22Ai) line 1	Kwak̕wala	phonemic	/da-/	page 12, left of the arrow
+(22Ai) line 2	Kwak̕wala	phonemic	/x’id/	page 12, left of the arrow
+(22Ai) line 3	Kwak̕wala	phonetic	[dax’id]	page 12, right of the arrow
+(22Ai) line 4	Kwak̕wala	transcription	da-	page 12
+(22Ai) line 5	Katie Sardinha	translation	‘to take in hand’	page 12
+(22Aii) line 1	Kwak̕wala	phonemic	/ale-/	page 12, left of the arrow
+(22Aii) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Aii) line 3	Kwak̕wala	phonetic	[alex’id]	page 12, right of the arrow
+(22Aii) line 4	Kwak̕wala	transcription	ale-	page 12
+(22Aii) line 5	Katie Sardinha	translation	‘to search’	page 12
+(22Aiii) line 1	Kwak̕wala	phonemic	/m̓ałt̓i-/	page 12, left of the arrow
+(22Aiii) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Aiii) line 3	Kwak̕wala	phonetic	[m̓ałt̓ix’id]	page 12, right of the arrow
+(22Aiii) line 4	Kwak̕wala	transcription	m̓ałt̓i-	page 12
+(22Aiii) line 5	Katie Sardinha	translation	‘to recognize’	page 12
+(22Aiv) line 1	Kwak̕wala	phonemic	/gay̓u-/	page 12, left of the arrow
+(22Aiv) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Aiv) line 3	Kwak̕wala	phonetic	[gay̓uxw’id]15	page 12, right of the arrow
+footnote 15	Katie Sardinha	note	Velar and uvular segments neutralize to rounded after rounded vowels and semivowels.	page 12, footnote 15
+(22Aiv) line 4	Kwak̕wala	transcription	gay̓u-	page 12
+(22Aiv) line 5	Katie Sardinha	translation	‘to ask in marriage’	page 12
+(22Av) line 1	Kwak̕wala	phonemic	/t̓sa̱m-/	page 12, left of the arrow
+(22Av) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Av) line 3	Kwak̕wala	phonetic	[t̓sa̱mx’id]	page 12, right of the arrow
+(22Av) line 4	Kwak̕wala	transcription	t̓sa̱m-	page 12
+(22Av) line 5	Katie Sardinha	translation	‘to point’	page 12
+(22Avi) line 1	Kwak̕wala	phonemic	/w̓a̱n-/	page 12, left of the arrow
+(22Avi) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Avi) line 3	Kwak̕wala	phonetic	[w̓a̱nx’id]	page 12, right of the arrow
+(22Avi) line 4	Kwak̕wala	transcription	wa̱n-	page 12
+(22Avi) line 5	Katie Sardinha	translation	‘to hide’	page 12
+(22Avii) line 1	Kwak̕wala	phonemic	/t̓sa̱l-/	page 12, left of the arrow
+(22Avii) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Avii) line 3	Kwak̕wala	phonetic	[t̓sa̱lx’id]	page 12, right of the arrow
+(22Avii) line 4	Kwak̕wala	transcription	t̓sa̱l-	page 12
+(22Avii) line 5	Katie Sardinha	translation	‘to spawn’	page 12
+(22Aviii) line 1	Kwak̕wala	phonemic	/ha̱m̓-/	page 12, left of the arrow
+(22Aviii) line 2	Kwak̕wala	phonemic	/x’id/	page 12, left of the arrow
+(22Aviii) line 3	Kwak̕wala	phonetic	[ha̱m̓x’id]	page 12, right of the arrow
+(22Aviii) line 4	Kwak̕wala	transcription	ha̱m̓-	page 12
+(22Aviii) line 5	Katie Sardinha	translation	‘to eat’	page 12
+(22Aix) line 1	Kwak̕wala	phonemic	/dza̱n̓-/	page 12, left of the arrow
+(22Aix) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Aix) line 3	Kwak̕wala	phonetic	[dza̱n̓x’id]	page 12, right of the arrow
+(22Aix) line 4	Kwak̕wala	transcription	dza̱n̓-	page 12
+(22Aix) line 5	Katie Sardinha	translation	‘to be loyal’	page 12
+(22Ax) line 1	Kwak̕wala	phonemic	/w̓a̱l̓-/	page 12, left of the arrow
+(22Ax) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Ax) line 3	Kwak̕wala	phonetic	[w̓a̱l̓x’id]	page 12, right of the arrow
+(22Ax) line 4	Kwak̕wala	transcription	w̓a̱l̓-	page 12
+(22Ax) line 5	Katie Sardinha	translation	‘to stop’	page 12
+(22B) line 1	Katie Sardinha	note	B. Realize [-x’id] when the stem ends in {y, w, y̓, w̓} and change these semi-vowels to a corresponding vowel: y → i, w → o, y̓ → i, w̓ → u.	page 12, a rule
+(22Bi) line 1	Kwak̕wala	phonemic	/da̱y-/	page 12, left of the arrow
+(22Bi) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Bi) line 3	Kwak̕wala	phonetic	[dix’id]	page 12, right of the arrow
+(22Bi) line 4	Kwak̕wala	transcription	da̱y-	page 12
+(22Bi) line 5	Katie Sardinha	translation	‘to wipe’	page 12
+(22Bii) line 1	Kwak̕wala	phonemic	/ta̱w-/	page 12, left of the arrow
+(22Bii) line 2	Kwak̕wala	phonemic	/-x’id/	page 12, left of the arrow
+(22Bii) line 3	Kwak̕wala	phonetic	[toxw’id]	page 12, right of the arrow
+(22Bii) line 4	Kwak̕wala	transcription	ta̱w-	page 12
+(22Bii) line 5	Katie Sardinha	translation	‘to go forward, get closer’	page 12
+(22Biii) line 1	Kwak̕wala	phonemic	/t̓a̱y̓-/	page 13, left of the arrow
+(22Biii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Biii) line 3	Kwak̕wala	phonetic	[t̓ex’id]	page 13, right of the arrow
+(22Biii) line 4	Kwak̕wala	transcription	t̓a̱y̓-	page 13
+(22Biii) line 5	Katie Sardinha	translation	‘to be sheltered’16	page 13
+footnote 16	Katie Sardinha	note	The vowel change is specific to this stem: t̓a̱y̓- ‘to be out of sight, protected by an intervening shelter against sight, heat, light, against being seen, to keep secret’ (Boas 1948:174).	page 13, footnote 16
+footnote 16	Kwak̕wala	cited form	t̓a̱y̓-	page 13, in italics, ‘to be out of sight, protected by an intervening shelter against sight, heat, light, against being seen, to keep secret’
+(22Biv) line 1	Kwak̕wala	phonemic	/ga̱w̓-/	page 13, left of the arrow
+(22Biv) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Biv) line 3	Kwak̕wala	phonetic	[gu’xw’id]	page 13, right of the arrow
+(22Biv) line 4	Kwak̕wala	transcription	ga̱w̓-	page 13
+(22Biv) line 5	Katie Sardinha	translation	‘to help’	page 13
+(22C) line 1	Katie Sardinha	note	C. Insert a̱ after the stem and realize [-x’id] when the stem ends in a glottalized plosive {p̓, (t̓), k̓, k̓w, ḵ̓, (ḵ̓w), t̓s, t̓ł, ’} or voiced plosive{(b), d, (g), gw, (g̱), (g̱w), dz, (dł)}.	page 13, a rule
+(22Ci) line 1	Kwak̕wala	phonemic	/g̱al̓ap̓-/	page 13, left of the arrow
+(22Ci) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Ci) line 3	Kwak̕wala	phonetic	[ga̱l̓ap̓a̱x’id]	page 13, right of the arrow
+(22Ci) line 4	Kwak̕wala	transcription	ga̱lap̓-	page 13
+(22Ci) line 5	Katie Sardinha	translation	‘to reproach each other’17	page 13
+footnote 17	Katie Sardinha	note	g̱a̱l- ‘to reproach’, -ap̓ ‘reciprocal’ (Boas 1948:318).	page 13, footnote 17
+footnote 17	Kwak̕wala	cited form	g̱a̱l-	page 13, in italics, ‘to reproach’
+footnote 17	Kwak̕wala	cited form	-ap̓	page 13, in italics, ‘reciprocal’
+(22Cii) line 1	Kwak̕wala	phonemic	/ya̱nk̓-/	page 13, left of the arrow
+(22Cii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cii) line 3	Kwak̕wala	phonetic	[ya̱nk̓a̱x’id]	page 13, right of the arrow
+(22Cii) line 4	Kwak̕wala	transcription	y̓a̱nk-	page 13
+(22Cii) line 5	Katie Sardinha	translation	‘to throw with sling’	page 13
+(22Ciii) line 1	Kwak̕wala	phonemic	/kwak̓w-/	page 13, left of the arrow
+(22Ciii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Ciii) line 3	Kwak̕wala	phonetic	[kwak̓wa̱x’id]	page 13, right of the arrow
+(22Ciii) line 4	Kwak̕wala	transcription	kwak̓w-	page 13
+(22Ciii) line 5	Katie Sardinha	translation	‘to peel off’	page 13
+(22Civ) line 1	Kwak̕wala	phonemic	/t̓łiḵ̓-/	page 13, left of the arrow
+(22Civ) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Civ) line 3	Kwak̕wala	phonetic	[t̓łiḵ̓a̱x’id]	page 13, right of the arrow
+(22Civ) line 4	Kwak̕wala	transcription	t̓łiḵ-	page 13
+(22Civ) line 5	Katie Sardinha	translation	‘to be jealous’	page 13
+(22Cv) line 1	Kwak̕wala	phonemic	/max̱t̓s-/	page 13, left of the arrow
+(22Cv) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cv) line 3	Kwak̕wala	phonetic	[max̱t̓sa̱x’id]	page 13, right of the arrow
+(22Cv) line 4	Kwak̕wala	transcription	max̱t̓s-	page 13
+(22Cv) line 5	Katie Sardinha	translation	‘to be ashamed’	page 13
+(22Cvi) line 1	Kwak̕wala	phonemic	/x̱at̓ł-/	page 13, left of the arrow
+(22Cvi) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cvi) line 3	Kwak̕wala	phonetic	[x̱at̓ła̱x’id]	page 13, right of the arrow
+(22Cvi) line 4	Kwak̕wala	transcription	x̱at̓ł-	page 13
+(22Cvi) line 5	Katie Sardinha	translation	‘small amount’	page 13
+(22Cvii) line 1	Kwak̕wala	phonemic	/t̓ał’-/	page 13, left of the arrow
+(22Cvii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cvii) line 3	Kwak̕wala	phonetic	[t̓ał’a̱x’id]	page 13, right of the arrow
+(22Cvii) line 4	Kwak̕wala	transcription	t̓ał’-	page 13
+(22Cvii) line 5	Katie Sardinha	translation	‘to have blanket pinned on left shoulder’18	page 13
+footnote 18	Katie Sardinha	note	This example is from Boas (1948:178).	page 13, footnote 18
+(22Cviii) line 1	Kwak̕wala	phonemic	/w̓a̱d-/	page 13, left of the arrow
+(22Cviii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cviii) line 3	Kwak̕wala	phonetic	[w̓a̱da̱x’id]	page 13, right of the arrow
+(22Cviii) line 4	Kwak̕wala	transcription	w̓a̱d-	page 13
+(22Cviii) line 5	Katie Sardinha	translation	‘to be cold’	page 13
+(22Cix) line 1	Kwak̕wala	phonemic	/y̓ugw-/	page 13, left of the arrow
+(22Cix) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cix) line 3	Kwak̕wala	phonetic	[y̓ugwa̱x’id]	page 13, right of the arrow
+(22Cix) line 4	Kwak̕wala	transcription	y̓ugw-	page 13
+(22Cix) line 5	Katie Sardinha	translation	‘to rain’	page 13
+(22Cx) line 1	Kwak̕wala	phonemic	/udz-/	page 13, left of the arrow
+(22Cx) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Cx) line 3	Kwak̕wala	phonetic	[udza̱x’id]	page 13, right of the arrow
+(22Cx) line 4	Kwak̕wala	transcription	udz-	page 13
+(22Cx) line 5	Katie Sardinha	translation	‘wrong, not working’	page 13
+(22D) line 1	Katie Sardinha	note	D. Elsewhere, initial x is lost and [-’id] is realized, along with the following additional changes to the final stem consonant:	page 13, a rule
+(22Da) line 1	Katie Sardinha	note	a. The glottal stop in [-’id] fuses with stem-final p and t (p →p̓, t → t̓).	page 13, a rule
+(22Dai) line 1	Kwak̕wala	phonemic	/dap-/	page 13, left of the arrow
+(22Dai) line 2	Kwak̕wala	phonemic	/x’id/	page 13, left of the arrow
+(22Dai) line 3	Kwak̕wala	phonetic	[dap̓id]	page 13, right of the arrow
+(22Dai) line 4	Kwak̕wala	transcription	dap-	page 13
+(22Dai) line 5	Katie Sardinha	translation	‘to tow with rope’	page 13
+(22Daii) line 1	Kwak̕wala	phonemic	/sa̱lt-/	page 13, left of the arrow
+(22Daii) line 2	Kwak̕wala	phonemic	/x’id/	page 13, left of the arrow
+(22Daii) line 3	Kwak̕wala	phonetic	[sa̱lt̓id]	page 13, right of the arrow
+(22Daii) line 4	Kwak̕wala	transcription	sa̱lt-	page 13
+(22Daii) line 5	Katie Sardinha	translation	‘to be silent, quiet, calm’	page 13
+(22Db) line 1	Katie Sardinha	note	b. Stem final velars, uvulars, and the unvoiced lateral affricate undergo spirantization (k → x, kw → xw, ḵ → x̱, ḵw → x̱w, tł → ł).19	page 13, a rule
+footnote 19	Katie Sardinha	note	In the case of velars and uvulars, I have also encountered increased aspiration as an alternative to spirantization (k → kʰ, kw → kwʰ, ḵ → ḵʰ, ḵw → ḵwʰ). Hypothetically, this would produce the following alternative set of examples: [n̓ikʰ’id], [ma̱kwʰ’id], [p̓a̱ḵʰ’id], and [duḵwʰ’id]. Boas (1911:231) also mentions aspiration as a reflex of /-x’id/ suffixation, though he only provides examples involving spirantization.	page 13, footnote 19
+footnote 19	Kwak̕wala	cited form	kʰ, kw	page 13, in italics
+footnote 19	Kwak̕wala	cited form	kwʰ, ḵ	page 13, in italics
+footnote 19	Kwak̕wala	cited form	ḵʰ, ḵw	page 13, in italics
+footnote 19	Kwak̕wala	cited form	ḵwʰ	page 13, in italics
+footnote 19	Kwak̕wala	cited form	n̓ikʰ’id	page 13, in italics
+footnote 19	Kwak̕wala	cited form	ma̱kwʰ’id	page 13, in italics
+footnote 19	Kwak̕wala	cited form	p̓a̱ḵʰ’id	page 13, in italics
+footnote 19	Kwak̕wala	cited form	duḵwʰ’id	page 13, in italics
+(22Dbi) line 1	Kwak̕wala	phonemic	/n̓ik-/	page 13, left of the arrow
+(22Dbi) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Dbi) line 3	Kwak̕wala	phonetic	[n̓ix’id]	page 13, right of the arrow
+(22Dbi) line 4	Kwak̕wala	transcription	n̓ik-	page 13
+(22Dbi) line 5	Katie Sardinha	translation	‘to say’	page 13
+(22Dbii) line 1	Kwak̕wala	phonemic	/m̓a̱kw-/	page 13, left of the arrow
+(22Dbii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Dbii) line 3	Kwak̕wala	phonetic	[m̓a̱xw’id]	page 13, right of the arrow
+(22Dbii) line 4	Kwak̕wala	transcription	m̓a̱kw-	page 13
+(22Dbii) line 5	Katie Sardinha	translation	‘to iron’	page 13
+(22Dbiii) line 1	Kwak̕wala	phonemic	/p̓a̱ḵ-/	page 13, left of the arrow
+(22Dbiii) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Dbiii) line 3	Kwak̕wala	phonetic	[p̓a̱x̱’id]	page 13, right of the arrow
+(22Dbiii) line 4	Kwak̕wala	transcription	p̓a̱ḵ-	page 13
+(22Dbiii) line 5	Katie Sardinha	translation	‘to taste’	page 13
+(22Dbiv) line 1	Kwak̕wala	phonemic	/duḵw-/	page 13, left of the arrow
+(22Dbiv) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Dbiv) line 3	Kwak̕wala	phonetic	[dux̱w’id]	page 13, right of the arrow
+(22Dbiv) line 4	Kwak̕wala	transcription	duḵw-	page 13
+(22Dbiv) line 5	Katie Sardinha	translation	‘to see’	page 13
+(22Dbv) line 1	Kwak̕wala	phonemic	/g̱anutł-/	page 13, left of the arrow
+(22Dbv) line 2	Kwak̕wala	phonemic	/-x’id/	page 13, left of the arrow
+(22Dbv) line 3	Kwak̕wala	phonetic	[g̱anuł’id]	page 13, right of the arrow
+(22Dbv) line 4	Kwak̕wala	transcription	g̱anutł-	page 13
+(22Dbv) line 5	Katie Sardinha	translation	‘night’	page 13
+(22Dc) line 1	Katie Sardinha	note	c. There is no change to the final stem consonant when it is a fricative {s, x, xw, x̱, x̱w, ł}.	page 14, a rule
+(22Dci) line 1	Kwak̕wala	phonemic	/ḵas-/	page 14, left of the arrow
+(22Dci) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dci) line 3	Kwak̕wala	phonetic	[ḵas’id]	page 14, right of the arrow
+(22Dci) line 4	Kwak̕wala	transcription	ḵas-	page 14
+(22Dci) line 5	Katie Sardinha	translation	‘to walk’	page 14
+(22Dcii) line 1	Kwak̕wala	phonemic	/dax-/	page 14, left of the arrow
+(22Dcii) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dcii) line 3	Kwak̕wala	phonetic	[dax’id]	page 14, right of the arrow
+(22Dcii) line 4	Kwak̕wala	transcription	dax-	page 14
+(22Dcii) line 5	Katie Sardinha	translation	‘to open eyes’	page 14
+(22Dciii) line 1	Kwak̕wala	phonemic	/da̱xw-/	page 14, left of the arrow
+(22Dciii) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dciii) line 3	Kwak̕wala	phonetic	[da̱xw’id]	page 14, right of the arrow
+(22Dciii) line 4	Kwak̕wala	transcription	da̱xw-	page 14
+(22Dciii) line 5	Katie Sardinha	translation	‘to jump’	page 14
+(22Dciv) line 1	Kwak̕wala	phonemic	/da̱nx̱-/	page 14, left of the arrow
+(22Dciv) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dciv) line 3	Kwak̕wala	phonetic	[da̱nx̱’id]	page 14, right of the arrow
+(22Dciv) line 4	Kwak̕wala	transcription	da̱nx̱-	page 14
+(22Dciv) line 5	Katie Sardinha	translation	‘to sing’	page 14
+(22Dcv) line 1	Kwak̕wala	phonemic	/ya̱x̱w-/	page 14, left of the arrow
+(22Dcv) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dcv) line 3	Kwak̕wala	phonetic	[ya̱x̱w’id]	page 14, right of the arrow
+(22Dcv) line 4	Kwak̕wala	transcription	ya̱x̱w-	page 14
+(22Dcv) line 5	Katie Sardinha	translation	‘to dance’	page 14
+(22Dcvi) line 1	Kwak̕wala	phonemic	/ka̱ł-/	page 14, left of the arrow
+(22Dcvi) line 2	Kwak̕wala	phonemic	/-x’id/	page 14, left of the arrow
+(22Dcvi) line 3	Kwak̕wala	phonetic	[ka̱ł’id]	page 14, right of the arrow
+(22Dcvi) line 4	Kwak̕wala	transcription	ka̱ł-	page 14
+(22Dcvi) line 5	Katie Sardinha	translation	‘to be scared’	page 14
+§4	Katie Sardinha	note	I am not aware of any roots ending in phonemic a̱ (schwa) or o, though we predict these segments to be followed by [-x’id] as with other vowels. The only roots I am aware of which end in ts are phonologized loanwords (labits ‘rabbit’, kalits ‘carrot’), and I have not observed these words with /-x’id/. In theory, we might expect root-final ts to undergo spirantization (ts → s) by analogy with the other plain plosives. As indicated by square brackets above, there are a number of glottalized plosives and voiced plosives for which I lack data; in general, these segments are rarely encountered in the coda of lexical roots. The last remaining unmentioned segment, h, only occurs word-initially, and therefore never interacts phonologically with /-x’id/.	page 14
+§4	Katie Sardinha	note	The number of exceptions to the rules in (22) appears to be quite small. One notable exception is the root t̓sa̱k- ‘to be awake’, which together with /-x’id/ results in t̓sa̱ka̱x’id ‘to awaken’, though we would expect to see spirantization of root-final k (*t̓sa̱x’id). It is likely that t̓sa̱ka̱x’id arises and has been conventionalized in order to avoid homonymy with t̓sa̱x- ‘to hurt, be in pain’, which together with /-x’id/ forms t̓sa̱x’id ‘to become in pain’. Without schwa epenthesis in the former example, the /-x’id/ forms of t̓sa̱k- and t̓sa̱x- would be identical. This exception to the rules in (22) thus appears to be motivated by a need to maintain a contrast in the language between the /-x’id/ forms of two lexical verb roots.	page 14
+§4	Kwak̕wala	cited form	t̓sa̱k-	page 14, in italics, ‘to be awake’
+§4	Kwak̕wala	cited form	t̓sa̱ka̱x’id	page 14, in italics, ‘to awaken’
+§4	Kwak̕wala	cited form	*t̓sa̱x’id	page 14, in italics
+§4	Kwak̕wala	cited form	t̓sa̱x-	page 14, in italics, ‘to hurt, be in pain’
+§4	Kwak̕wala	cited form	t̓sa̱x’id	page 14, in italics, ‘to become in pain’
+§4	Katie Sardinha	note	Up to this point we have been assuming that {-nd, -ud, -d} and {-x’id, -’id} always occur in different morphological environments. In fact, when we look at large amounts of data, we see that this morphological conditioning is not always obeyed and that the {-x’id, -’id} allomorphs are often acceptable following lexical suffixes. Boas (1947:365) even remarks that “probably all the other [lexical] suffixes may also take -x’id...”. Boas’ grammar lists numerous examples where one or more lexical suffixes are present on the stem — that is, where we would expect {-nd, -ud, -d} — but where allomorphs from {-x’id, -’id} can also occur. Two such examples are given in (22–23).	page 14
+(23) line 1	Katie Sardinha	note	-ba ‘end of long horizontal object’:	page 14, over the example
+(23a) line 1	Kwak̕wala	transcription	dza̱xba̱nd	page 14
+(23a) line 2	Kwak̕wala	segmentation	dza̱k -ba -x’id	page 14
+(23a) line 3	Kwak̕wala	gloss	rub -END.OF.LONG.OBJECT -BEC	page 14
+(23a) line 4	Katie Sardinha	translation	‘to rub end’	page 14
+(23a) line 5	Katie Sardinha	citation	(Boas 1947:336)	page 14, the tag or source at the right of the translation
+(23b) line 1	Kwak̕wala	transcription	hiłbax’id	page 14
+(23b) line 2	Kwak̕wala	segmentation	hił -ba -x’id	page 14
+(23b) line 3	Kwak̕wala	gloss	right -END.OF.LONG.OBJECT -BEC	page 14
+(23b) line 4	Katie Sardinha	translation	‘to turn the right way’	page 14
+(23b) line 5	Katie Sardinha	citation	(Boas 1947:336)	page 14, the tag or source at the right of the translation
+(24) line 1	Katie Sardinha	note	-(s)i’sta ‘around’:	page 15, over the example
+(24a) line 1	Kwak̕wala	transcription	hiłtsi’sta̱nd	page 15
+(24a) line 2	Kwak̕wala	segmentation	hił -(s)i’sta -x’id	page 15
+(24a) line 3	Kwak̕wala	gloss	right -around -BEC	page 15
+(24a) line 4	Katie Sardinha	translation	‘to go right around’	page 15
+(24a) line 5	Katie Sardinha	citation	(Boas 1947:341–342)	page 15, the tag or source at the right of the translation
+(24b) line 1	Kwak̕wala	transcription	le’stax’id	page 15
+(24b) line 2	Kwak̕wala	segmentation	la -(s)i’sta -x’id	page 15
+(24b) line 3	Kwak̕wala	gloss	go -around -BEC	page 15
+(24b) line 4	Katie Sardinha	translation	‘to start to go around, to set right’	page 15
+(24b) line 5	Katie Sardinha	citation	(Boas 1947:341–342)	page 15, the tag or source at the right of the translation
+§4	Katie Sardinha	note	Similar sets of examples exist for stems containing at least the following lexical suffixes: -iłba ‘outside of nose, point of land’ (Boas 1947:330), -’stu ‘round opening’ (343), -s(g̱)a̱m ‘round surface, round thing’ (343–344), -dzu ‘on a flat thing’ (345), -t̓sa̱w ‘in, inside’ (356), -k̓a̱s ‘to eat’ (357), -(k)’a̱n ‘body’ (357), -(g̱)a̱m ‘face, head, in front, ahead’ (360), -(x)t̓sana ‘hand’ (372), -x̱to ‘on top of long object’ (373), and -ʰx̱dła ‘hind end, stern of canoe’ (374).	page 15
+§4	Kwak̕wala	cited form	-iłba	page 15, in italics, ‘outside of nose, point of land’
+§4	Kwak̕wala	cited form	-’stu	page 15, in italics, ‘round opening’
+§4	Kwak̕wala	cited form	-s(g̱)a̱m	page 15, in italics, ‘round surface, round thing’
+§4	Kwak̕wala	cited form	-t̓sa̱w	page 15, in italics, ‘in, inside’
+§4	Kwak̕wala	cited form	-k̓a̱s	page 15, in italics, ‘to eat’
+§4	Kwak̕wala	cited form	-(k)’a̱n	page 15, in italics, ‘body’
+§4	Kwak̕wala	cited form	-(x)t̓sana	page 15, in italics, ‘hand’
+§4	Kwak̕wala	cited form	-x̱to	page 15, in italics, ‘on top of long object’
+§4	Kwak̕wala	cited form	-ʰx̱dła	page 15, in italics, ‘hind end, stern of canoe’
+§4	Katie Sardinha	note	In the course of my research on modern Kwak̓wala, I have also occasionally run into particular stems with lexical suffixes that take either {-nd, ud, -d} or {-x’id, -’id}, with no apparent difference in meaning. An example from my own data is given in (25) with the verb ḵ̓ux̱t̕sa̱w- ‘to dress’.	page 15
+§4	Kwak̕wala	cited form	ḵ̓ux̱t̕sa̱w-	page 15, in italics, ‘to dress’
+(25) line 1	Katie Sardinha	note	-ud and -x’id on the same stem (modern Kwak̓wala):	page 15, over the example
+(25a) line 1	Kwak̕wala	transcription	la̱m̓ux̱ la̱mxw’idux̱ Monica, la̱m̓ux̱	page 15
+(25a) line 2	Kwak̕wala	segmentation	la̱ =’m =ux̱ la̱mxw -x’id =ux̱ Monica la̱ =’m =ux̱	page 15
+(25a) line 3	Kwak̕wala	gloss	AUX =VER =D2 dry -BEC =D2 Monica AUX =VER =D2	page 15
+(25a) line 4	Kwak̕wala	transcription	ḵ̓ux̱t̓suda	page 15
+(25a) line 5	Kwak̕wala	segmentation	ḵ̓ux̱ -t̓sa̱w -x’id -a	page 15
+(25a) line 6	Kwak̕wala	gloss	dress -in -BEC -A	page 15
+(25a) line 7	Katie Sardinha	translation	‘Monica got dry, then she got dressed.’	page 15
+(25a) line 8	Katie Sardinha	citation	(20181127 VF)	page 15, the tag or source at the right of the translation
+(25b) line 1	Kwak̕wala	transcription	la̱m̓ux̱ Shelliya̱x̱ ḵ̓ux̱t̓sox’ida	page 15
+(25b) line 2	Kwak̕wala	segmentation	la̱ =’m =ux̱ Shelly =(a̱)x̱ ḵ̓ux̱ -t̓sa̱w -x’id -a	page 15
+(25b) line 3	Kwak̕wala	gloss	AUX =VER =D2 Shelly =V2 dress -in -BEC -A	page 15
+(25b) line 4	Katie Sardinha	translation	‘Shelly got dressed.’	page 15
+(25b) line 5	Katie Sardinha	citation	(20191205 VF)	page 15, the tag or source at the right of the translation
+§4	Katie Sardinha	note	In contrast, I am not aware of any examples where {-nd, -ud, -d} allomorphs are present on stems lacking lexical suffixes where we would expect to see {-x’id, -’id}.	page 15
+§4	Katie Sardinha	note	I am aware of only a few examples where a difference in meaning has been conventionalized between stems containing allomorphs from {-nd, -ud, -d} and stems containing allomorphs from the set {-x’id, -’id}. One such example is given in (26), where the difference between a stem with -ud (26a) and one with -x’id (26b) corresponds to a semantic difference in the configuration and attachment of objects in a caused motion event (this difference is productive; see Boas 1947:361 for additional examples). Another example is given in (27) between a stem with -nd (27a) and a stem with -x’id (27b). Modern speakers use la’sta̱x’id to refer to bathing the whole body in water.	page 15
+§4	Kwak̕wala	cited form	la’sta̱x’id	page 15, in italics
+(26a) line 1	Kwak̕wala	transcription	kaka̱tud	page 16
+(26a) line 2	Kwak̕wala	segmentation	Ca~ ka̱t -(g)u -x’id	page 16
+(26a) line 3	Kwak̕wala	gloss	RED~ long.horizontal -between/together -BEC	page 16
+(26a) line 4	Katie Sardinha	translation	‘to put a long thing between’	page 16
+(26a) line 5	Katie Sardinha	citation	(Boas 1947:361)	page 16, the tag or source at the right of the translation
+(26b) line 1	Kwak̕wala	transcription	kaka̱tuxw’id	page 16
+(26b) line 2	Kwak̕wala	segmentation	Ca~ ka̱t -(g)u -x’id	page 16
+(26b) line 3	Kwak̕wala	gloss	RED~ long.horizontal -between/together -BEC	page 16
+(26b) line 4	Katie Sardinha	translation	‘to put long things together’	page 16
+(26b) line 5	Katie Sardinha	citation	(Boas 1947:361)	page 16, the tag or source at the right of the translation
+(27a) line 1	Kwak̕wala	transcription	la’sta̱nd	page 16
+(27a) line 2	Kwak̕wala	segmentation	la -’sta -x’id	page 16
+(27a) line 3	Kwak̕wala	gloss	go -in.water -BEC	page 16
+(27a) line 4	Katie Sardinha	translation	‘to put into water’	page 16
+(27a) line 5	Katie Sardinha	citation	(Boas 1947:365)	page 16, the tag or source at the right of the translation
+(27b) line 1	Kwak̕wala	transcription	la’sta̱x’id	page 16
+(27b) line 2	Kwak̕wala	segmentation	la -’sta -x’id	page 16
+(27b) line 3	Kwak̕wala	gloss	go -in.water -BEC	page 16
+(27b) line 4	Katie Sardinha	translation	‘to begin to go into water’	page 16
+(27b) line 5	Katie Sardinha	citation	(Boas 1947:365)	page 16, the tag or source at the right of the translation
+§4	Katie Sardinha	note	Altogether, the overlap in distribution of these two sets of allomorphs suggests that since the turn of the 20th century, and extending into the present day, the forms {-nd, -ud, -d} have lost some of their productivity while {-x’id, -’id} forms have been expanding into these other forms’ morphological domain. Thus, researchers and students of Kwak̕wala should not be surprised to encounter the occasional use of {-x’id, -’id} forms in contexts where {-nd, -ud, -d} forms are expected. Note that since these are all allomorphs of the same morpheme, /-x’id/, alternations of this sort should have no effect on the expressive potential of the language. 4.2 {-x’i, -’i, -n, -u, -∅} The remaining five allomorphs of /-x’id/ are innovations in the modern language. They arise due to an ongoing phonological change, whereby speakers occasionally do not pronounce d in syllable- final position. This pattern can be modeled using an optional phonological rule of d deletion (28), which gives rise to the five allomorphs in (29)	page 16
+(28) line 1	Katie Sardinha	note	d deletion:	page 16, set as an example
+(28) line 2	Katie Sardinha	note	d → ∅ / [σ C V (C) __] (d is deleted syllable-finally)	page 16, set as an example
+(29) line 1	Kwak̕wala	transcription	-x’i	page 16, an allomorph of the set the page prints in braces
+(29) line 2	Kwak̕wala	transcription	-’i	page 16, an allomorph of the set the page prints in braces
+(29) line 3	Kwak̕wala	transcription	-n	page 16, an allomorph of the set the page prints in braces
+(29) line 4	Kwak̕wala	transcription	-u	page 16, an allomorph of the set the page prints in braces
+(29) line 5	Kwak̕wala	transcription	-∅	page 16, an allomorph of the set the page prints in braces
+§4	Katie Sardinha	note	Examples of d deletion from the speech of modern speakers are provided in (30). In all of the (a) examples below, the d in /-x’id/ is syllabified in the onset and is retained; in all of the (b) examples, the d in /-x’id/ is syllable-final and is not pronounced. Were d to be added back into these (b) sentences, they would still be judged as grammatical.	page 16
+(30) line 1	Katie Sardinha	note	Retention (a) and deletion (b) of syllable-final d in modern Kwak̕wala:	page 17, the title over the examples
+(30A) line 1	Katie Sardinha	note	A. -x’id → -x’i	page 17, the allomorph pair over the examples
+(30Aa) line 1	Kwak̕wala	transcription	la̱m̓ux̱ dax’idux̱ Katieya̱x̱	page 17
+(30Aa) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ da -x’id =ux̱ Katie =(a̱)x̱	page 17
+(30Aa) line 3	Kwak̕wala	gloss	AUX =VER =D2 take.in.hand -BEC =D2 Katie =V2	page 17
+(30Aa) line 4	Kwak̕wala	transcription	x̱a tła̱ta̱mła̱x̱ lax̱wa	page 17
+(30Aa) line 5	Kwak̕wala	segmentation	=x̱ =a tła̱ta̱mł =(a̱)x̱ la =x̱ =ux̱ =a	page 17
+(30Aa) line 6	Kwak̕wala	gloss	=ACC =D4 hat =V2 PREP =ACC =D2 =D4	page 17
+(30Aa) line 7	Kwak̕wala	segmentation	k̓waxda̱m̓iła̱x̱	page 17
+(30Aa) line 8	Kwak̕wala	gloss	k̓waxda̱m̓ił =(a̱)x̱	page 17
+(30Aa) line 9	Kwak̕wala	segmentation	chair =V2	page 17
+§4	Katie Sardinha	note	‘Katie picked the hat up from off of the chair.’ (20160707 VF) b. la̱’mux̱ waxux̱ Mabelx̱ dax’i l(a̱) =’m =ux̱ wax =ux̱ Mabel =x̱ da -x’id AUX =VER =D2 try =D2 Mabel =V2 take.in.hand -BEC x̱ada ḵ̓wax̱ =x̱ =a =da ḵ̓wax̱	page 17
+§4	Katie Sardinha	note	=ACC =D4 =DET tree ‘Mabel tried to grab the log.’ (20160714 VF) B. -’id → ’i a. łax̱’ida̱n gugwa̱y̓u łax̱ -x’id =a̱n gugwa̱y̓u itchy -BEC =1.POSS leg/foot ‘My leg got itchy.’ (20150621 JF) b. w̓alasux̱ Simonx̱ łax̱’i sis w̓alas =ux̱ Simon =x̱ łax̱ -x’id =s =i(’)s big/very =D2 Simon =V2 itchy -BEC =INST =3.REFL.POSS alumas g̱wiłg̱wela alumas g̱wiłg̱wela	page 17
+§4	Katie Sardinha	note	new clothing ‘Simon got really itchy from his new clothes.’ (20160714 VF) C. -nd → -n a. la̱m̓ux̱ Simonx̱ t̓ipsidza̱nda l(a̱) =’m =ux̱ Simon =x̱ t̓ip -(x)sis -x’id -a AUX =VER =D2 Simon =V2 step -leg/foot -BEC -A ‘Simon is putting on his shoes.’ (20160718 VF) b. ka̱ła̱la̱n ḵutła̱n t̓ipsidza̱n ka̱ł -la =a̱n ḵu =tł =a̱n t̓ip -(x)sis -x’id afraid -CONT =1 if =FUT =1 step -leg/foot -BEC x̱a a̱mabidu geese-a’ =x̱ =a a̱ma =bidu geese =a’ =ACC =D4 small =DIM geese =I3	page 17
+§4	Katie Sardinha	note	‘I was afraid I would step on the tiny geese.’ (20181205 VF) D. -ud → -u20 a. la̱’a̱m ma’łp̓a̱na a̱x̱studi	page 18
+footnote 20	Katie Sardinha	note	Technically, it is ambiguous whether the u remaining in examples of this sort belongs to the suffix or to /-x’id/. In any case, I have bolded this segment for expository purposes.	page 18, footnote 20
+§4	Katie Sardinha	note	l(a̱) =’m ma’ł -p̓a̱na a̱x̱ -(’)stu -x’id =i AUX =VER two -time do -round.opening -BEC =D3 Eddie x̱a t̓a̱xa̱la Eddie =x̱ =a t̓a̱xa̱la Eddie =ACC =D4 door	page 18
+§4	Katie Sardinha	note	‘Eddie has opened the door twice now.’ (20160721 VF) b. la̱m̓isa̱n a̱x̱stu x̱a t̓a̱xa̱la l(a̱) =’m =(w)is =a̱n a̱x̱ -’stu -x’id =x̱ =a t̓a̱xa̱la	page 18
+§4	Katie Sardinha	note	AUX =VER =and.so =1 do -round.opening -BEC =ACC =D4 door	page 18
+§4	Katie Sardinha	note	‘I opened the door.’ (20160715 VF) E. -d → -∅ a. lux̱ Monicax̱ ḵ̓wa̱lis’a̱m l(a̱) =ux̱ Monica =(a̱)x̱ ḵ̓wa̱lis =’m	page 18
+§4	Katie Sardinha	note	AUX =D2 Monica =V2 do.oneself =VER t̕sut̕sa̱x̱wa̱mda Ci~ t̕sux̱w -(g̱)a̱m -x’id -a RED~ wash -face -BEC -A	page 18
+§4	Katie Sardinha	note	‘Monica washed her own face.’ (20181127 VF) b. lux̱ Shelliya̱x̱	page 18
+§4	Katie Sardinha	note	l(a̱) =ux̱ Shelly =(a̱)x̱	page 18
+§4	Katie Sardinha	note	AUX =D2 Shelly =V2 t̕sut̕sa̱x̱wa̱mbidu x̱ux̱ Simonx̱ Ci~ t̕sux̱w -(g̱)a̱m -x’id =bidu =x̱ =ux̱ Simon =x̱ RED~ wash -face -BEC =DIM =ACC =D2 Simon =V2	page 18
+§4	Katie Sardinha	note	‘Shelly washed little Simon’s face.’ (20181127 VF) The rule of d deletion is a post-lexical rule which tends to apply in connected, conversational speech. In citation speech, which is slow and deliberate, d is more reliably retained. This kind of speech occurs during more formal elicitation and teaching contexts, and is more common with some speakers than with others. According to my own observation, it seems that d deletion is most common when d is word-final, and is slightly less common when d is word-medial. However, I have not done the quantitative work necessary to verify whether these impressions are correct. 4.3 Summary: The morphophonology of /-x’id/ The morphophonology of /-x’id/ in modern Kwak̓wala is presented below for easy reference. If a stem contains one or more lexical suffixes: A. Realize [-d] when the rightmost lexical suffix ends in m or n. B. Realize [-ud] when the rightmost lexical suffix ends in a rounded vowel or semi-vowel (u, o, or a̱w), and convert the rounded vowel or semi-vowel to u. C. Realize [-nd] elsewhere after lexical suffixes, and apply the following three additional	page 18
+§4	Katie Sardinha	note	rules:	page 19
+§4	Katie Sardinha	note	a. If the stem ends in a consonant (other than m or n), insert a̱ before -nd.	page 19
+§4	Katie Sardinha	note	b. If the stem ends in a non-rounded vowel (a, i, or e), shorten this vowel to a̱.	page 19
+§4	Katie Sardinha	note	c. If the stem ends in an obstruent, soften the obstruent (e.g. s → dz, k → g, ḵ → g̱). If the stem does not contain any lexical suffixes: A. Realize [-x’id] when the stem ends in a vowel {a, e, i, o u, a̱}, or one of the following consonants: {m, n, l, m̓, n̓, l̓}. B. Realize [-x’id] when the stem ends in {y, w, y̓, w̓} and change these semi-vowels to a	page 19
+§4	Kwak̕wala	cited form	g, ḵ	page 19, in italics
+§4	Kwak̕wala	cited form	m, n, l, m̓, n̓, l̓	page 19, in italics
+§4	Kwak̕wala	cited form	y, w, y̓, w̓	page 19, in italics
+§4	Katie Sardinha	note	corresponding vowel: y → i, w → o, y̓ → i, w̓ → u. C. Insert a̱ after the stem and realize [-x’id] when the stem ends in a glottalized plosive {p̓, t̓, k̓, k̓w, ḵ̓, ḵ̓w, t̓s, t̓ł, ’} or voiced plosive {b, d, g, gw, g̱, g̱w, dz, dł}. D. Elsewhere, initial x is lost and [-’id] is realized, along with the following additional	page 19
+§4	Kwak̕wala	cited form	o, y̓	page 19, in italics
+§4	Kwak̕wala	cited form	i, w̓	page 19, in italics
+§4	Kwak̕wala	cited form	p̓, t̓, k̓, k̓w, ḵ̓, ḵ̓w, t̓s, t̓ł	page 19, in italics
+§4	Kwak̕wala	cited form	ł	page 19, in italics
+§4	Katie Sardinha	note	changes to the final stem consonant:	page 19
+§4	Katie Sardinha	note	a. The glottal stop in [-’id] fuses with stem-final p and t (p →p̓, t → t̓).	page 19
+§4	Kwak̕wala	cited form	p̓, t	page 19, in italics
+§4	Katie Sardinha	note	b. Stem final velars, uvulars, and the unvoiced lateral affricate undergo spirantization (k → x, kw → xw, ḵ → x̱, ḵw → x̱w, tł → ł).21	page 19
+footnote 21	Katie Sardinha	note	Or, perhaps, aspiration (k → kʰ, kw → kwʰ, ḵ → ḵʰ, ḵw → ḵwʰ).	page 19, footnote 21
+§4	Kwak̕wala	cited form	xw, ḵ	page 19, in italics
+§4	Kwak̕wala	cited form	x̱, ḵw	page 19, in italics
+§4	Kwak̕wala	cited form	x̱w, tł	page 19, in italics
+§4	Katie Sardinha	note	c. There is no change to the final stem consonant when it is a fricative {s, x, xw, x̱, x̱w, ł} When a stem with /-x’id/ is used in a sentence, the rule of d deletion is optionally applied: d deletion: d → ∅ / [σ C V (C) __] (d is deleted syllable-finally)	page 19
+§4	Kwak̕wala	cited form	s, x, xw, x̱, x̱w, ł	page 19, in italics
+§5	Katie Sardinha	heading	5 Teaching and learning /-x’id/	page 20
+§5	Katie Sardinha	note	Throughout this paper, we have come to see that the suffix /-x’id/ is a complex and vital component within the grammar of Kwak̕wala. This means that every second language learner of Kwak̕wala will at some point need to study and master the use of this suffix in order to become a competent speaker. Luckily for learners, though the grammar of /-x’id/ is complex, it is also highly regular and is therefore something that can be precisely taught and studied. It will take effort and patience to learn /-x’id/, but because the rules governing its use have few exceptions, it should be learnable with practice.	page 20
+§5	Katie Sardinha	note	There are at least two questions that Kwak̕wala teachers will have to grapple with in the course of teaching /-x’id/. One is the question of what attitude to take regarding the use of the allomorphs {-x’id, -’id} in morphological contexts where the allomorphs {-nd, -ud, -d} were used historically. As mentioned near the end of Section 4.1, the occasional use of {-x’id, -’id} even after lexical suffixes has been occurring since the turn of the 20th century. Since generalization of {-x’id, -’id} would have the effect of making the grammar simpler without any loss of meaning, it is conceivable that some teachers and students could adopt an accepting attitude towards using the {-x’id, -’id} forms in all morphological environments. On the other hand, teachers and students may prefer to learn the language as it was traditionally described, even if this means the grammar is more complicated. Such teachers and students may opt to preserve a distinction between {-nd, -ud, -d} and {-x’id, -’id}, possibly making the distinction more rigid than it currently is. There may end up being disagreement in the community of teachers and students about what to do. Ultimately, it will be up to the next generation of speakers to decide what is best.	page 20
+§5	Katie Sardinha	note	The second question Kwak̕wala teachers will have to grapple with in order to teach /-x’id/ is how to teach the rule of d deletion, as this rule is optional in the modern language. Here too, the next generation of speakers will need to decide how to make use of this rule in their language.	page 20
+§5	Katie Sardinha	note	Children who are learning Kwak̕wala as a first language are faced with a fairly difficult task when it comes to acquiring /-x’id/. In addition to having to learn a distinction between {-nd, -ud, ‑d} and {-x’id, -’id} forms, which is complicated enough, modern Kwakwaka’wakw toddlers also must connect these allomorphs with their counterparts lacking d in certain environments, {-n, -u, ‑∅, -x’i, -’i}, in order to form a coherent grammar of this suffix. Fortunately, there are a few Kwakwaka’wakw children currently learning the language through immersion (Sara Child, p.c.). It will be interesting to see what the grammar of /-x’id/ looks like to them someday.	page 20
+§6	Katie Sardinha	heading	6 Conclusion	page 20
+§6	Katie Sardinha	note	The aspectual suffix /-x’id/ is a very complex morpheme from a morphophonological perspective, and one that is central within Kwak̓wala grammar, making it a vital part of the language for linguists and language learners to understand. This paper has laid out a rule-based analysis of the morphophonology of /-x’id/ for the modern language. The morphological conditioning of {-nd, ‑ud, -d} versus {-x’id, -’id} allomorphs, as well as the phonological conditioning of allomorphs within these sets, has remained essentially unchanged from the language described at the turn of the 20th century. In the modern language, there are five additional allomorphs of /-x’id/ which arise due to an optional rule of d deletion syllable-finally. Luckily, even though the grammar of /-x’id/ is complex, it is also highly regular, making it a suffix which can be precisely taught and studied. In addition to discussing the morphophonology of /-x’id/, this paper has summarized what is known about /-x’id/ from recent research, most notably regarding its semantics as a non-canonical perfective (Greene 2013) and its role within a paradigm of aspectual suffixes that mark event type in the language (Sardinha 2018).	page 20
+§6	Katie Sardinha	note	The study here is limited in a number of ways. First, the grammar of /-x’id/ described above is derived from speakers of two dialects, Kwak̓wala and to a lesser extent, N̓akwala. It is not known whether the generalizations here hold for other dialects of the language, or even for other speakers of these same dialects. There has also not yet been any quantitative analysis of corpora to understand the frequency of d deletion syllable-finally, or to understand the degree to which {-x’id, -’id} forms are replacing {-nd, -ud, -d} forms following lexical suffixes. Quantitative analysis of this sort would help to establish the extent of these processes, which otherwise can only be guessed at.	page 21
+§6	Katie Sardinha	note	My hope in writing this paper is that the complexity of /-x’id/ will cease to be a barrier for students and researchers who are striving to master the language.	page 21
+references	Katie Sardinha	heading	References	page 21
+references	Katie Sardinha	reference	Black, Alexis. 2011. Ostension and definiteness in the Kwak̕wala noun phrase. In: John Lyon and Joel Dunham (eds.), Papers for the 46th International Conference on Salish and Neighbouring Languages. Vancouver, BC: University of British Columbia Working Papers in Linguistics, 1– 31.	page 21
+references	Katie Sardinha	reference	Boas, Franz. 1911. Kwakiutl. In: Franz Boas (ed.), Handbook of American Indian Languages, vol. 1. Cambridge, UK: Cambridge University Press, 423–557.	page 21
+references	Katie Sardinha	reference	Boas, Franz. 1947. Kwakiutl grammar with a glossary of the suffixes. In: Helene Boas Yampolsky (ed.), Transactions of the American Philosophical Society 37. Republished 1976. New York, NY: AMS Press Inc., 202–377.	page 21
+references	Katie Sardinha	reference	Dowty, David. 1979. Word meaning and Montague grammar: The semantics of verbs and times in generative semantics and in Montague’s PTQ. Synthese language library, vol. 7. Kluwer Academic Publishers, Dordrecht.	page 21
+references	Katie Sardinha	reference	First Peoples’ Cultural Council. 2018. Report on the status of B.C. First Nations Languages. http://www.fpcc.ca/about-us/Publications/	page 21
+references	Katie Sardinha	reference	Greene, Hannah. 2013. Verb classes in Kwak̕wala. Master’s thesis, University of British Columbia, Vancouver, BC.	page 21
+references	Katie Sardinha	reference	Littell, Patrick. 2016. Focus, predication, and polarity in Kwak̕wala. Doctoral dissertation, University of British Columbia, Vancouver, BC.	page 21
+references	Katie Sardinha	reference	Nicholsen, Marianne and Adam Werle. 2009. An investigation of modern Kwak̕wala determiner systems. Ms., University of Victoria.	page 21
+references	Katie Sardinha	reference	Rosenblum, Daisy. 2015. A grammar of space in Kwak̕wala. Doctoral dissertation, University of California, Santa Barbara CA.	page 21
+references	Katie Sardinha	reference	Sardinha, Katie. 2018. Deriving eventualities in Kwak̕wala. In: Marianne Huijsmans, Roger Lo, Oksana Tkachman, and Daniel Reisinger (eds.), Papers for the 53rd International Conference on Salish and Neighbouring Languages. Vancouver, BC: University of British Columbia Working Papers in Linguistics, 241–268.	page 21
+abbreviations	Katie Sardinha	heading	Glossing Abbreviations	page 22
+abbreviations line 1	Katie Sardinha	note	Gloss Morphs Notes	page 22, the column heads
+abbreviations line 2	Katie Sardinha	note	- affix boundary	page 22, an entry, its wrapped notes run on
+abbreviations line 3	Katie Sardinha	note	= clitic boundary	page 22, an entry, its wrapped notes run on
+abbreviations line 4	Katie Sardinha	note	~ reduplicant boundary	page 22, an entry, its wrapped notes run on
+abbreviations line 5	Katie Sardinha	note	! hardening mutation	page 22, an entry, its wrapped notes run on
+abbreviations line 6	Katie Sardinha	note	° softening mutation	page 22, an entry, its wrapped notes run on
+abbreviations line 7	Katie Sardinha	note	1 first person singular	page 22, an entry, its wrapped notes run on
+abbreviations line 8	Katie Sardinha	note	1.POSS =a̱n possessed by first person	page 22, an entry, its wrapped notes run on
+abbreviations line 9	Katie Sardinha	note	3.POSS =s possessed by third person	page 22, an entry, its wrapped notes run on
+abbreviations line 10	Katie Sardinha	note	3.REFL.POSS =i(’)s possessed by third person who is coreferent with the sentential subject or topic	page 22, an entry, its wrapped notes run on
+abbreviations line 11	Katie Sardinha	note	A -a Terminal completive -a; in at least some instances, -a functions as a default aspectual suffix (Greene 2013:8), though -a also may correspond to more than one morpheme	page 22, an entry, its wrapped notes run on
+abbreviations line 12	Katie Sardinha	note	ACC =x̱ accusative case	page 22, an entry, its wrapped notes run on
+abbreviations line 13	Katie Sardinha	note	AUX l(a̱) auxiliary verb	page 22, an entry, its wrapped notes run on
+abbreviations line 14	Katie Sardinha	note	BEC -x’id, -’id, -x’i, -’i, -nd, -ud, -d, -n, u, -∅ become operator, momentaneous aspect, inchoative; marks transition predicates (Greene 2013, Sardinha 2018)	page 22, an entry, its wrapped notes run on
+abbreviations line 15	Katie Sardinha	note	C (various) consonant	page 22, an entry, its wrapped notes run on
+abbreviations line 16	Katie Sardinha	note	CONT -la continuative aspect; marks process predicates (Sardinha 2018)	page 22, an entry, its wrapped notes run on
+abbreviations line 17	Katie Sardinha	note	D2 =ux̱, =w third person medial deictic determiner (“this, close by”) (Nicholsen & Werle 2009). The =w morph is realized in some third person medial DPs in the accusative case	page 22, an entry, its wrapped notes run on
+abbreviations line 18	Katie Sardinha	note	D3 =i third person distal deictic determiner (“that, over there”) (Nicholsen & Werle 2009)	page 23, an entry, its wrapped notes run on
+abbreviations line 19	Katie Sardinha	note	D4 =a existential deictic determiner (Black 2011)	page 23, an entry, its wrapped notes run on
+abbreviations line 20	Katie Sardinha	note	DIM =bidu diminutive	page 23, an entry, its wrapped notes run on
+abbreviations line 21	Katie Sardinha	note	EMB =a embedding a (Littell 2016: 604–606)	page 23, an entry, its wrapped notes run on
+abbreviations line 22	Katie Sardinha	note	FUT =tł future	page 23, an entry, its wrapped notes run on
+abbreviations line 23	Katie Sardinha	note	I3 =a’ third person distal invisible	page 23, an entry, its wrapped notes run on
+abbreviations line 24	Katie Sardinha	note	INST =s instrumental case	page 23, an entry, its wrapped notes run on
+abbreviations line 25	Katie Sardinha	note	JF judged form	page 23, an entry, its wrapped notes run on
+abbreviations line 26	Katie Sardinha	note	NEG (k̓)i’s negation	page 23, an entry, its wrapped notes run on
+abbreviations line 27	Katie Sardinha	note	NEG.EXIST k̓a̱yos negative existential (“there is no”, “there are no”)	page 23, an entry, its wrapped notes run on
+abbreviations line 28	Katie Sardinha	note	NMZ =i’ nominalizer	page 23, an entry, its wrapped notes run on
+abbreviations line 29	Katie Sardinha	note	PREP la, ḵ(a̱) preposition	page 23, an entry, its wrapped notes run on
+abbreviations line 30	Katie Sardinha	note	REC.PST =xd, =(x)’id recent past tense; -(x)’id is not used in modern Kwak̕wala	page 23, an entry, its wrapped notes run on
+abbreviations line 31	Katie Sardinha	note	STAT -ała stativizer (Sardinha 2018)	page 23, an entry, its wrapped notes run on
+abbreviations line 32	Katie Sardinha	note	VER =’m verum focus (Littell 2016)	page 23, an entry, its wrapped notes run on
+abbreviations line 33	Katie Sardinha	note	V1 =(i)k third person proximal visible	page 23, an entry, its wrapped notes run on
+abbreviations line 34	Katie Sardinha	note	V2 =(a̱)x̱ third person medial visible	page 23, an entry, its wrapped notes run on
+abbreviations line 35	Katie Sardinha	note	VF volunteered form	page 23, an entry, its wrapped notes run on
+Appendix A	Katie Sardinha	heading	Appendix A: Phonological Inventory	page 24
+Table 2	Katie Sardinha	note	Table 2: Kwak̕wala Consonants	page 24, the table's caption
+Table 2 line 1	Katie Sardinha	note	plain plosives p t tł ts k kw ḵ ḵw	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 2 line 2	Katie Sardinha	note	glottalized plosives p̓ t̓ t̓ł t̓s k̓ k̓w ḵ̓ ḵ̓w ’	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 2 line 3	Katie Sardinha	note	voiced plosives b d dł dz g gw g̱ g̱w	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 2 line 4	Katie Sardinha	note	fricatives ł s x xw x̱ x̱w h	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 2 line 5	Katie Sardinha	note	plain resonants m n l y w	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 2 line 6	Katie Sardinha	note	glottalized resonants m̓ n̓ l̓ y̓ w̓	page 24, a row of Table 2, its heading's lines and its cells joined
+Table 3	Katie Sardinha	note	Table 3: Kwak̕wala Vowels	page 24, the table's caption
+Table 3 line 1	Katie Sardinha	note	Front Central Back	page 24, Table 3
+Table 3 line 2	Katie Sardinha	note	High i u	page 24, Table 3
+Table 3 line 3	Katie Sardinha	note	Mid e a̱ o	page 24, Table 3
+Table 3 line 4	Katie Sardinha	note	Low a	page 24, Table 3

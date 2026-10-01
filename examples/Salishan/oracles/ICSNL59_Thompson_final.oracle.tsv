@@ -1,0 +1,707 @@
+where	who	kind	form	gloss
+front	C. Thompson	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+front	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+front	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+front	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+front	C. Thompson	title	Head-Dependent Asymmetries in Central Salish Prosody*	page 1
+front	C. Thompson	byline	C. Thompson, University of Victoria	page 1
+front	C. Thompson	note	Abstract: This paper presents an analysis of moraic systems in three Central Salish languages. It builds on previous analyses of these systems (Blake 2000; Dyck 2004; Leonard 2007, 2019) by providing a unifying model that accounts for prosodic phenomena in each of these languages and provides a means of systematically deriving the differences between them. This model adapts Dresher and van der Hulst’s (1998) theory of head-dependent asymmetries (HDAs) and proposes an optimal foot structure for Central Salish languages in which the head syllable licenses more moraic complexity than the dependent syllable. Prosodic patterns involving HDAs are accounted for by an Optimality Theory analysis in which the constraint HDA(μ) penalizes dependent syllables with a moraic complexity equal to or greater than their heads. This paper demonstrates how this constraint successfully accounts for vowel reduction, coda lengthening, and stress assignment in morphologically simple words for the languages of ʔayʔaǰuθəm, Sḵwx̱wú7mesh, and SENĆOŦEN.	page 1
+front	C. Thompson	note	Keywords: Central Salish, phonology, prosody, moraic theory	page 1
+front	C. Thompson	name	C. Thompson	author, University of Victoria
+§1	C. Thompson	heading	1 Introduction	page 1
+§1	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§1	C. Thompson	note	Central Salish metrical systems are notoriously complex. Even in mono-morphemic words, where sets of lexical suffixes, reduplicants, and other morphological or syntactic elements don’t interfere with its assignment, stress appears in a variety of positions. The SENĆOŦEN examples below from Leonard (2007) show stress seeming to surface unpredictably on both schwas and full vowels, as well as at both left and right foot-edges.	page 1
+(1) line 1	C. Thompson	note	SENĆOŦEN stress patterns	page 1, the caption
+(1a) line 1	SENĆOŦEN	practical orthography	SȻOTI	page 1, columns
+(1a) line 2	SENĆOŦEN	phonemic	skʷá.ti	page 1, columns
+(1a) line 3	Montler 2018	translation	‘crazy, insane’	page 1, columns, cited Montler 2018
+(1b) line 1	SENĆOŦEN	practical orthography	TI,TOS	page 1, columns
+(1b) line 2	SENĆOŦEN	phonemic	tiʔ.tás	page 1, columns
+(1b) line 3	Montler 2018	translation	‘bucking tide’	page 1, columns, cited Montler 2018
+(1c) line 1	SENĆOŦEN	practical orthography	SḴÁLEX	page 1, columns
+(1c) line 2	SENĆOŦEN	phonemic	sqé.ləx̌	page 1, columns
+(1c) line 3	Montler 2018	translation	‘clam fork’	page 1, columns, cited Montler 2018
+(1d) line 1	SENĆOŦEN	practical orthography	SḴELÁU,	page 1, columns
+(1d) line 2	SENĆOŦEN	phonemic	sqə.léw’	page 1, columns
+(1d) line 3	Montler 2018	translation	‘beaver’	page 1, columns, cited Montler 2018
+(1e) line 1	SENĆOŦEN	practical orthography	ŦEḴI	page 1, columns
+(1e) line 2	SENĆOŦEN	phonemic	θə́.qi	page 1, columns
+(1e) line 3	Montler 2018	translation	‘sockeye’	page 1, columns, cited Montler 2018
+(1f) line 1	SENĆOŦEN	practical orthography	ḴELEX̱	page 1, columns
+(1f) line 2	SENĆOŦEN	phonemic	qə́.ləx̌	page 1, columns
+(1f) line 3	Montler 2018	translation	‘salmon eggs’	page 1, columns, cited Montler 2018
+(1f) line 4	C. Thompson	citation	(Montler 2018)	the source under the example
+footnote *	C. Thompson	note	*Thank you to my supervisor Dr. Suzanne Urbanczyk for her thoughtful feedback and always inspiring me. Contact info: cynanthompson@gmail.com	page 1, footnote
+footnote *	C. Thompson	name	Suzanne Urbanczyk	the author's supervisor
+§1	C. Thompson	note	Despite its apparent unpredictability, two fundamental generalizations can be made about the above examples. First, stress surfaces on the first non-schwa (1a,c,d) ignoring vocalized glides (1b), and second, when there are two schwa-headed syllables, stress falls on the leftmost (1e,f). Leonard (2007) expands on these observations, eventually showing that stress is in fact predictable in SENĆOŦEN, given a weight sensitive stress system in which full vowels are moraic and schwa is not.	page 1
+§1	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§1	C. Thompson	note	Similar proposals of mora sensitivity have been used to describe a number of prosodic phenomena across the Central Salish languages. The examples in (2) show that stress in ʔayʔaǰuθəm, another Central Salish language, is always fixed on a word’s leftmost syllable. They also show that, in stressed syllables headed by a lax vowel, coda consonants are either lengthened (2c,e) or syllabified into the second syllable as a result of epenthesis (2d) (Blake 2000). Finally, unstressed vowels are tense in open syllables (2b–e) and lax in closed syllables (2a,c–d) (Blake 2000).	page 2
+(2) line 1	C. Thompson	note	Some ʔayʔaǰuθəm prosodic patterns	page 2, the caption
+(2a) line 1	ʔayʔaǰuθəm	phonemic	má.sɛqʷ	page 2, columns, carries footnote 1
+(2a) line 2	Blake 2000	translation	‘purple sea urchin’	page 2, columns, cited Blake 2000
+(2b) line 1	ʔayʔaǰuθəm	phonemic	tʋ́kʷ.ɬi	page 2, columns
+(2b) line 2	Blake 2000	translation	‘rabbit’	page 2, columns, cited Blake 2000
+(2c) line 1	ʔayʔaǰuθəm	phonemic	ɬʌ́x̌ːa.qʌp	page 2, columns
+(2c) line 2	Blake 2000	translation	‘black eye’	page 2, columns, cited Blake 2000
+(2d) line 1	ʔayʔaǰuθəm	phonemic	q̓ʌ́x̌.<h>a.wʋs	page 2, columns
+(2d) line 2	Blake 2000	translation	‘I closed it’	page 2, columns, cited Blake 2000
+(2e) line 1	ʔayʔaǰuθəm	phonemic	čínːe	page 2, columns
+(2e) line 2	Blake 2000	translation	‘it’s me	page 2, columns, cited Blake 2000
+(2e) line 3	C. Thompson	citation	(Blake 2000)	the source under the example
+§1	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§1	C. Thompson	note	Blake (2000) was able to account for all these phenomena by proposing that ʔayʔaǰuθəm coda consonants and full vowels are moraic while schwa and lax vowels are not. Again, this analysis is centred around the idea of moraicity, however, it involves a different set of alternations. Sḵwx̱wú7mesh is still another Central Salish language featuring prosodic phenomena which are analyzed in terms of moraicity. The examples in (3) show that, unlike ʔayʔaǰuθəm, Sḵwx̱wú7mesh has both trochaic (left-headed) and iambic (right-headed) feet (Dyck 2004). They also show that, when a full vowel heads the second syllable, initial schwa is stressed before resonants (3c) but not before obstruents (3a). Finally, these examples show that the quality of unstressed vowels is unpredictable when based simply upon whether the syllable is open or closed.	page 2
+(3) line 1	C. Thompson	note	Some Sḵwx̱wú7mesh prosodic patterns	page 2, the caption
+(3a) line 1	Sḵwx̱wú7mesh	practical orthography	ksháwes	page 2, columns
+(3a) line 2	Sḵwx̱wú7mesh	phonemic	kšáwəs	page 2, columns
+(3a) line 3	Dyck 2004	translation	‘bluejay’	page 2, columns, cited Dyck 2004
+(3b) line 1	Sḵwx̱wú7mesh	practical orthography	syex̱ás	page 2, columns
+(3b) line 2	Sḵwx̱wú7mesh	phonemic	syə.x̌ás	page 2, columns
+(3b) line 3	Dyck 2004	translation	‘large rock’	page 2, columns, cited Dyck 2004
+(3c) line 1	Sḵwx̱wú7mesh	practical orthography	ḵénaxw	page 2, columns
+(3c) line 2	Sḵwx̱wú7mesh	phonemic	qə́naxʷ	page 2, columns
+(3c) line 3	Dyck 2004	translation	‘throat’	page 2, columns, cited Dyck 2004
+(3d) line 1	Sḵwx̱wú7mesh	practical orthography	wé.x̱es	page 2, columns
+(3d) line 2	Sḵwx̱wú7mesh	phonemic	wə́x̌əs	page 2, columns
+(3d) line 3	Dyck 2004	translation	‘frog’	page 2, columns, cited Dyck 2004
+(3d) line 4	C. Thompson	citation	(Dyck 2004)	the source under the example
+§1	C. Thompson	note	Dyck (2004) accounts for the patterns represented in (3) by proposing that there are moraicity distinctions both between schwa and full vowels, and between resonant and obstruent codas. This explanation allows her to outline a system in which, like SENĆOŦEN, stress falls on the syllable with most moras.	page 2
+§1	C. Thompson	note	Aspects of these three systems, such as the weight distinction between schwa and full vowels and stress’ sensitivity to syllable weight, speak clearly to their similarities; however, there are also crucial differences in terms of coda moraicity, foot form, and unstressed vowel quality. In all, however, the importance of the mora to Central Salish prosody is clear.	page 2
+footnote 1	C. Thompson	note	1 ʔayʔaǰuθəm is usually written in the APA , so glosses in this language will not include a separate line of practical orthography.	page 2, footnote
+§1	C. Thompson	note	This paper poses the question of whether analyses of the kind of phenomena demonstrated above can be unified under a single model: a model which has the ability to provide both satisfying accounts of the phenomena themselves and a means of systematically deriving the differences between languages. In this paper, I argue that the theory of head-dependent asymmetries (HDAs) (Dresher & van der Hulst 1998) does just this. This theory recognizes a cross-linguistic characteristic of phonological structures in their tendency to have heads which are more complex than their dependents. I point out that feet in Central Salish languages often have a moraic asymmetry between their heads and dependents, and then use this observation to propose an Optimality Theory (OT) constraint which penalizes deviation from this structure. Implementing this constraint, I account for stress assignment, vowel reduction, foot form, and intervocalic consonant lengthening in SENĆOŦEN, Sḵwx̱wú7mesh, and ʔayʔaǰuθəm. I show that constraint re- ranking can systematically derive the differences between these three prosodic systems and predict that the systems of other Central Salish languages could be derived in a similar way. This paper will begin by outlining the theoretical assumptions upon which my analysis is built — namely, moraic theory, the prosodic hierarchy, HDAs, and OT. I will then give some background on the Central Salish languages and locate myself as a settler researcher in their study. We will then explore the previous analyses of SENĆOŦEN, Sḵwx̱wú7mesh, and ʔayʔaǰuθəm prosody introduced above in greater depth, identify how processes in each establish moraic HDAs, and formulate a constraint which would motivate these processes. Finally, I present an OT analysis in which this constraint accounts for examples in (1) to (3) and discuss its implications for our understanding of Central Salish prosody.	page 2
+§2	C. Thompson	heading	2 Theoretical assumptions	page 3
+§2.1	C. Thompson	heading	2.1 Moras and the prosodic hierarchy	page 3
+§2.1	C. Thompson	note	Moras are small prosodic “timing” units first proposed to account for various aspects of Japanese phonology (Kuno 1973). In contemporary linguistics, they have been shown to affect prosody across world languages in a variety of ways, a few examples of which are explored in this paper. First, moras give syllables “weight”; if this weight is contrastive, it often results in such syllables displaying some degree of prosodic prominence (Ryan 2019). Just over a third of stress systems (39% of 500) worldwide display this sensitivity to syllable weight (Goedemans & van der Hulst 2013). In these languages, both the syllabic nucleus and following consonants technically have the capacity to license moras, however, the set of segments which actually do varies by language. In this paper, I follow Zec (1995) and many others in assuming that full vowels always project moras — but that the set of consonants which do is restricted by sonority.2 This model predicts two basic kinds of languages. In languages where coda consonants do not project moras, syllables have the structure in (4a). In languages where coda consonants do, however, syllables have the structure in (4b). Only in syllables of type (4b) do codas contribute to weight.	page 3
+(4)	C. Thompson	note	(4)	page 3, drawn as a picture with no text layer
+§2.1	C. Thompson	notation	μ-licensing	the licensing of a mora by position
+§2.1	C. Thompson	notation	DEP(μ)	DEP(μ), a constraint against inserting a mora
+footnote 2	C. Thompson	note	2 I will also follow Bermúdez -Otero (2001) in claiming that codas consonants are entitle d to moras via positional μ-licensing and are thus exempt from DEP(μ) violations. This will be mentioned again in Section 4.2.3.	page 3
+§2.1	C. Thompson	notation	ə	schwa, never moraic
+§2.1	C. Thompson	note	In sum, moras are small prosodic units which are licensed to full vowels and potentially their following consonants. Importantly, Salish schwa [ə] is assumed never to be moraic (Shaw et al. 1999; cf Section 4). In this paper, we will specifically explore a relationship between the presence of moras in syllables and their effects of the prominence of that syllable.	page 4
+§2.1	C. Thompson	note	I will assume that moras belong themselves to a more inclusive prosodic system. In this system moras are the smallest units in a hierarchy which, in important ways, mirrors some models of syntax (Richards 2016). I adopt the version of this system known as the prosodic hierarchy (Selkirk 1995). Its basic components are shown in (5).	page 4
+(5)	C. Thompson	note	(5)	page 4, drawn as a picture with no text layer
+§2.1	C. Thompson	notation	σ	the syllable
+§2.1	C. Thompson	notation	μ	the mora
+§2.1	C. Thompson	note	The lowest three levels of the prosodic hierarchy — foot (f), syllable (σ), and mora (μ) — are known as rhythmic elements; generally, these are the elements relevant to the present paper. I assume that segments are linked to the most basal element of the prosodic hierarchy which is available to them. In theory, this function might be preformed at any prosodic level, but in practice, segments are linked to moras when moras are available, and syllables where they are not.3 This model certainly makes use of a good deal of abstraction; however, this abstraction is important because it allows for comparisons of what would seem otherwise like unrelated phenomena. Using the prosodic hierarchy enables predictions to be made about, for example, the duration of individual segments based on facts about a language’s stress system. While abstract and theoretical models can appear overly complex at the level of individual phenomena, when comparing larger patterns, and especially across languages, they introduce greater simplicity into the system. Throughout this paper I will demonstrate the various benefits of applying this, and other, abstract models to prosodic phenomena in Central Salish.	page 4
+§2.2	C. Thompson	heading	2.2 Head-dependent asymmetries	page 4
+footnote 3	C. Thompson	note	3 Janet Leonard (2019) proposed, for the Central Salish language of SENĆOŦEN, that consonants in word - medial clusters are licensed at the foot level to preserve CV syllable structure. While this claim is supported by some interesting evidence, it will not be entertained in this paper.	page 4, footnote
+§2.2	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§2.2	C. Thompson	note	This paper adapts Dresher and van der Hulst’s (1998) model of head-dependent asymmetries (HDAs). An HDA is a relationship between two, in this case phonological, elements. One of these is a “head”, an element with some prominence or ability to govern the behavior of other elements. The other is a “dependent”, an element which lacks prominence, and which may be governed by the head. To be clear, a stressed syllable is equivalent to the head of a foot. Dresher and van der Hulst’s (1998) paper propose a typology of HDAs which they use to describe phonological phenomena in various languages.	page 4
+§2.2	C. Thompson	note	There are two forms HDAs may take: complexity HDAs, which occur when the head element licenses more complexity then its dependent, and visibility HDAs, which occur when the internal constituency of the head is more visible than that of its dependent. Importantly, HDAs can occur between various kinds of elements, this paper, however, will focus on moraic complexity HDAs specifically. I will depart from Dresher and van der Hulst (1998) slightly in identifying the head and dependent elements in moraic HDAs as syllables. Therefore, I take a moraic HDA to be a foot in which the head syllable licenses more moraic complexity than the dependent syllable. Because the domain of the HDA is the foot, but the unit of reference is the mora, moraic HDAs are considered non-local (Dresher & van der Hulst 1998). A representation of two moraic HDA structures is given in (6).	page 5
+(6)	C. Thompson	note	(6)	page 5, drawn as a picture with no text layer
+§2.2	C. Thompson	note	The structure in (6a) is left-headed, or trochaic, while that in (6b) is right-headed, or iambic. In both examples, regardless of whether the head syllable is at the left or right edge of the foot, it dominates, or licenses, more moras than its dependent. This pared-down representation of prosodic structure will be used throughout this paper.	page 5
+§2.3	C. Thompson	heading	2.3 Optimality Theory	page 5
+§2.3	C. Thompson	note	As a final set of assumptions, this paper employs Optimality Theory (OT) (Prince & Smolensky, 1993/2004) as the theoretical framework in which an analysis is cast, and in particular references McCarthy (2008) for its practical application. OT is centered around the idea that all linguistic structures are governed by the same universal, violable, and rankable principles. GENERATOR, or GEN, is responsible for creating potential output forms, CON — short for constraint set — is a set of universal, violable, and rankable constraints, and EVAL, evaluates the optimal candidate based on the ranking of CON. The formalism of OT depicts the evaluation of candidates based on constraint ranking by using tableaux.	page 5
+§2.3	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§2.3	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§2.3	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§2.3	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§2.3	C. Thompson	note	My proposal is to adapt Dresher and van der Hulst’s (1998) typology of HDAs into OT as a constraint which I call HDA(μ). I propose a ranking of HDA(μ) with respect to other prosodic constraints for SENĆOŦEN, Sḵwx̱wú7mesh, and ʔayʔaǰuθəm. The rankings proposed in this paper produce the typology of moraic HDAs found in these languages and in doing so account for various prosodic processes. This analysis therefore combines moraic theory, Dresher and van der Hulst’s (1998) typology of HDAs, and OT to provide a unified account of moraic phenomena in the languages in question.	page 5
+§3	C. Thompson	heading	3 Background	page 5
+§3.1	C. Thompson	heading	3.1 The Central Salish Languages	page 5
+§3.1	C. Thompson	note	Before the invasion of western North America by Europeans, the Salishan languages were spoken across the Pacific Northwest by a diverse and rich network of communities known today as Salish. For millennia (Ignace & Ignace 2018), Salish people inhabited lands along the Pacific coast, around the Salish Sea, and up the large and fertile river systems of the Pacific Northwest — most notably the Fraser and Columbia rivers. Their territories extended inland across the Okanagan and Columbia Plateaus and throughout the Cascade and Coast mountains out of which these rivers flow. To this day, despite living under an oppressive colonial government, Salish peoples live on these lands and speak Salishan languages.	page 5
+§3.1	C. Thompson	note	In modern times, traditional Salish land is split between the Canadian province of British Columbia and the U.S. states of Washington, Oregon, Idaho, and Montana. Linguists usually recognize 23 Salishan languages, many with multiple dialects (Czaykowska-Higgins & Kinkade 1998). In this paper, I discuss a group of Salishan languages known as Central Salish. This grouping does not delineate cultural or social boundaries between communities but rather historical and linguistic patterns. The Central Salish languages are spoken in a relatively continuous geographic area around the Salish sea. This falls partly in southwestern British Columbia where it stretches from the modern communities of Qathet (Powell River) and Comox to Victoria and Vancouver, and partly in northwestern Washington around the city of Seattle and the Olympic Peninsula. A list of the Central Salish languages arranged roughly from northern to southern is given in (7).	page 6
+(7) line 1	C. Thompson	note	The Central Salish Languages (based on Van Eijk 2008 and Gessner et al. 2022)	page 6, engine english
+(7) line 2	C. Thompson	language	ʔayʔaǰuθəm	a Central Salish language, page 6
+(7) line 3	C. Thompson	language	Mainland	a variety of ʔayʔaǰuθəm, page 6
+(7) line 4	C. Thompson	language	Island	a variety of ʔayʔaǰuθəm, page 6
+(7) line 5	C. Thompson	language	Pentlatch	a Central Salish language, page 6
+(7) line 6	C. Thompson	language	Shashishalhem	a Central Salish language, page 6
+(7) line 7	C. Thompson	language	Sḵwx̱wú7mesh	a Central Salish language, page 6
+(7) line 8	C. Thompson	language	Halkomelem	a Central Salish language, page 6
+(7) line 9	C. Thompson	language	Hulʼqʼumiʼnumʼ	a variety of Halkomelem, page 6
+(7) line 10	C. Thompson	language	Hən̓qəmin̓əm̓	a variety of Halkomelem, page 6
+(7) line 11	C. Thompson	language	Halqʼəméyləm	a variety of Halkomelem, page 6
+(7) line 12	C. Thompson	language	Nooksack	a Central Salish language, page 6
+(7) line 13	C. Thompson	language	Straits Salish	a Central Salish language, page 6
+(7) line 14	C. Thompson	language	Lummi	a Straits Salish language, page 6
+(7) line 15	C. Thompson	language	SENĆOŦEN	a Straits Salish language, page 6
+(7) line 16	C. Thompson	language	Siʔneməš	a Straits Salish language, page 6
+(7) line 17	C. Thompson	language	Semiahmoo	a Straits Salish language, page 6
+(7) line 18	C. Thompson	language	T’Sou-ke	a Straits Salish language, page 6
+(7) line 19	C. Thompson	language	Lək̓ʷəŋín̓əŋ	a Straits Salish language, also Songhees, page 6
+(7) line 20	C. Thompson	language	Klallam	a Central Salish language, page 6
+(7) line 21	C. Thompson	language	Lushootseed	a Central Salish language, page 6
+(7) line 22	C. Thompson	language	Northern	a variety of Lushootseed, page 6
+(7) line 23	C. Thompson	language	Southern	a variety of Lushootseed, page 6
+(7) line 24	C. Thompson	language	Twana	a Central Salish language, page 6
+§3.2	C. Thompson	heading	3.2 The languages studied in this paper	page 7
+§3.2	C. Thompson	language	ʔayaǰuθəm	ʔayʔaǰuθəm, spelled without its second glottal stop
+§3.2	C. Thompson	name	K’omoks	a community that speaks ʔayʔaǰuθəm
+§3.2	C. Thompson	name	Tla’amin	a community that speaks ʔayʔaǰuθəm
+§3.2	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§3.2	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§3.2	C. Thompson	name	BOḰEĆEN	a SENĆOŦEN-speaking community on the Saanich peninsula
+§3.2	C. Thompson	name	MÁLEXEȽ	a SENĆOŦEN-speaking community on the Saanich peninsula
+§3.2	C. Thompson	name	SȾÁUTW̱	a SENĆOŦEN-speaking community on the Saanich peninsula
+§3.2	C. Thompson	name	W̱JOȽEȽP	a SENĆOŦEN-speaking community on the Saanich peninsula
+§3.2	C. Thompson	name	W̱SIḴEM	a SENĆOŦEN-speaking community on the Saanich peninsula
+§3.2	C. Thompson	note	This paper focuses on the structure of three Central Salish languages: ʔayaǰuθəm, spoken by the Homalco, Klahoose, K’omoks, and Tla’amin communities at the northernmost part of the Salish Sea; Sḵwx̱wú7mesh, which is spoken by the Squamish and Tsleil-Waututh Nations around Howe Sound and the Capilano watershed; and SENĆOŦEN, which is spoken in the BOḰEĆEN, MÁLEXEȽ, SȾÁUTW̱, W̱JOȽEȽP, and W̱SIḴEM communities on the Saanich peninsula and southern Gulf Islands (Gessner et al. 2022). ʔayaǰuθəm examples come from Blake (2000), Sḵwx̱wú7mesh examples from Kuipers (1967), Bar-el and Watt (1998), and Dyck (2004), and SENĆOŦEN examples from Leonard (2007, 2019), and Montler (2018). Examples from these languages are explored in the following sections.	page 7
+§4	C. Thompson	heading	4 Phenomena and foundational analyses	page 7
+§4	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§4	C. Thompson	note	In this section, I give examples of some of the structures discussed in the papers cited above along with the analyses that these researchers used to account for them. For each structure I will give a brief description of the head-dependent relationship the output form takes — the patterns observed in these relationships will form the motivation for using the proposed constraint HDA(μ).	page 7
+§4.1	C. Thompson	heading	4.1 SENĆOŦEN stress	page 7
+§4.1	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.1	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.1	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.1	C. Thompson	note	As demonstrated by the examples in the introduction of this paper, stress systems in Salish languages are quite complex. However, as briefly mentioned, the adoption of moraic theory has allowed crucial insights into ways in which these systems are, in fact, predictable. For example, Blake’s (2000) PhD dissertation on ʔayʔaǰuθəm, Dyck’s (2004) PhD dissertation on Sḵwx̱wú7mesh, and Leonard’s (2007) MA thesis on SENĆOŦEN, show that moraic theory, in conjunction with OT, can be used to predict stress in many types of construction — even in complex, poly-morphemic, words with reduplication and lexical suffixes. However, in a number of cases, especially those involving certain affixes, the best explanation seems to remain some kind of unpredictable lexical specification (Dyck 2004). Therefore, the discussion of stress assignment in this paper will focus on morphologically simple words for which patterns of stress assignment are better understood.	page 7
+§4.1.1	C. Thompson	heading	4.1.1 Examples	page 8
+§4.1.1	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.1.1	C. Thompson	note	In Section 1, we saw that Leonard (2007) proposed that stress in SENĆOŦEN was predictable given a weight sensitive system in which full vowels, but not schwa, are moraic and in which the default foot form is a trochee. In this section, I lay out some basic parts of Leonard’s analysis and introduce relevant OT constraints.	page 8
+§4.1.1	C. Thompson	notation	v́.ə	a stressed full vowel before schwa
+§4.1.1	C. Thompson	notation	ə.v́	schwa before a stressed full vowel
+§4.1.1	C. Thompson	notation	[ə́.ə]	a stressed schwa before schwa
+§4.1.1	C. Thompson	note	To begin, we consider the words in (8). These illustrate the three most common stress patterns in SENĆOŦEN: [v́.ə], [ə.v́], and [ə́.ə].4 In (8a), a full vowel at the left edge of the word receives stress while a schwa at the right edge is unstressed. In (8b), a full vowel at the right edge of the foot receives stress while schwa at the left edge does not. Finally, in (8c), the leftmost of two schwa receives stress.	page 8
+(8) line 1	C. Thompson	note	Common patterns of SENĆOŦEN stress	page 8, the caption
+(8a.i) line 1	SENĆOŦEN	practical orthography	SḴÁLEX	page 8, columns
+(8a.i) line 2	SENĆOŦEN	phonemic	sqéləx̌	page 8, columns
+(8a.i) line 3	Leonard 2007	translation	‘clam fork’	page 8, columns, cited Leonard 2007
+(8a.ii) line 1	SENĆOŦEN	practical orthography	SPÁ,W̱EṈ	page 8, columns
+(8a.ii) line 2	SENĆOŦEN	phonemic	spéʔxʷəŋ	page 8, columns
+(8a.ii) line 3	Leonard 2007	translation	‘misty’	page 8, columns, cited Leonard 2007
+(8a.iii) line 1	SENĆOŦEN	practical orthography	SṈÁNET	page 8, columns
+(8a.iii) line 2	SENĆOŦEN	phonemic	sŋénət	page 8, columns
+(8a.iii) line 3	Leonard 2007	translation	‘mountain’	page 8, columns, cited Leonard 2007
+(8b.i) line 1	SENĆOŦEN	practical orthography	SḴELÁU,	page 8, columns
+(8b.i) line 2	SENĆOŦEN	phonemic	sqəléw̓	page 8, columns
+(8b.i) line 3	Leonard 2007	translation	‘beaver’	page 8, columns, cited Leonard 2007
+(8b.ii) line 1	SENĆOŦEN	practical orthography	SENI,	page 8, columns
+(8b.ii) line 2	SENĆOŦEN	phonemic	səníʔ	page 8, columns
+(8b.ii) line 3	Leonard 2007	translation	‘oregon grape berry’	page 8, columns, cited Leonard 2007
+(8b.iii) line 1	SENĆOŦEN	practical orthography	ENOW̱	page 8, columns
+(8b.iii) line 2	SENĆOŦEN	phonemic	ʔənáx̌ʷ	page 8, columns
+(8b.iii) line 3	Leonard 2007	translation	‘bring over’	page 8, columns, cited Leonard 2007
+(8c.i) line 1	SENĆOŦEN	practical orthography	TEṈEW̱	page 8, columns
+(8c.i) line 2	SENĆOŦEN	phonemic	tə́ŋəxʷ	page 8, columns
+(8c.i) line 3	Leonard 2007	translation	‘earth’	page 8, columns, cited Leonard 2007
+(8c.ii) line 1	SENĆOŦEN	practical orthography	ḴELEX	page 8, columns
+(8c.ii) line 2	SENĆOŦEN	phonemic	qə́ləx̌	page 8, columns
+(8c.ii) line 3	Leonard 2007	translation	‘salmon eggs’	page 8, columns, cited Leonard 2007
+(8c.iii) line 1	SENĆOŦEN	practical orthography	QELU,	page 8, columns
+(8c.iii) line 2	SENĆOŦEN	phonemic	k̓ʷə́ləw̓	page 8, columns
+(8c.iii) line 3	Leonard 2007	translation	‘skin’	page 8, columns, cited Leonard 2007
+(8c.iii) line 4	C. Thompson	citation	(Leonard 2007)	the source under the example
+§4.1.1	C. Thompson	language	Hən̓qəmin̓əm̓	Hən̓qəmin̓əm̓, Downriver Halkomelem
+§4.1.1	C. Thompson	note	The fact that stress falls on a full vowel regardless of whether the resulting foot is iambic or trochaic clearly supports the theory that stress prefers moraic full vowels over non-moraic schwas. This analysis was first proposed for a Central Salish language by Shaw et al. (1999) in their research on Hən̓qəmin̓əm̓. As well as being now widely accepted among phonologists who study Salish languages, non-moraic behavior fits well with schwa’s function cross-linguistically (Shih, 2018). Many scholars have proposed that the default foot form for Salish languages is trochaic (Montler, 1986; Shaw et al., 1999). The pattern of stress in examples (8c) certainly support this generalization. When both syllables in a word are schwa, neither has any moraic weight. Without any weight contrast between syllables, it seems that stress defaults to falling on the initial syllable and thereby forming a trochaic foot.	page 8
+§4.1.1	C. Thompson	note	The examples in (8) seem to allow two generalizations about SENĆOŦEN stress assignment: 1. Stress falls on the syllable with greater moraic weight.	page 8
+§4.1.1	C. Thompson	note	2. When neither syllable has weight, the initial vowel receives stress.	page 8
+§4.1.1	C. Thompson	note	In the following section, we see these generalizations formalized in OT.	page 8
+§4.1.1	C. Thompson	notation	ə	schwa, never moraic
+footnote 4	C. Thompson	note	4 [v] represents a moraic full vowel and [ə] non-moraic schwa.	page 8
+§4.1.2	C. Thompson	heading	4.1.2 OT Analysis	page 9
+§4.1.2	C. Thompson	note	This section proposes a constraint ranking to account for the basic stress assignment facts outlined in the section above. I will begin by defining two constraints whose interaction derives the patterns outlined in Section 4.1.1, present tableaux which show the selection of examples from (8), and briefly address apparent exceptions to the generalizations made in previous sections. Firstly, there must be a constraint which causes moraic full vowels to be stressed over non- moraic schwa. In OT, this pattern is traditionally accounted for by a constraint called WSP (adapted from Prince 1990).	page 9
+(9) line 1	C. Thompson	rule	WEIGHT-TO-STRESS (WSP): Assign one violation for every unstressed moraic vowel.	page 9, the display
+§4.1.2	C. Thompson	note	In Section 5, we will see that WSP becomes irrelevant once we have a constraint on head-dependent asymmetries, but for now, we will use it for simplicity and continuity with Leonard’s (2007) analysis. Secondly, there must be a constraint which ensures that trochaic feet are default. In OT, trochaic feet are produced by the activity of a constraint which penalizes iambs. This constraint is called FT- FORM=TROCHEE or simply TROCHEE (McCarthy 2008).	page 9
+(10) line 1	C. Thompson	rule	TROCHEE: Assign one violation for every foot whose head is not initial.	page 9, the display
+§4.1.2	C. Thompson	note	Using an OT tableau, it is clear how the critical ranking of these two constraints produces the examples in (8). The tableau in (11) shows stress assignment in SḴELÁU [(sqəléμw̓)] ‘beaver’.	page 9
+(11) line 1	C. Thompson	rule	WSP >> TROCHEE	page 9, the display
+§4.1.2	C. Thompson	note	In this example (11), it is impossible for a surface form of this word to satisfy both WSP and TROCHEE. Therefore, the grammar must decide that one constraint is more important than the other. This is called a crucial ranking (>>). Here, the crucial ranking of WSP over TROCHEE yields a surface form ( ) which satisfies the former and violates the latter. It is clear that this is the correct crucial ranking because, if TROCHEE outranked WSP, then an incorrect surface form with a stressed initial schwa would be selected. Instead, candidate (11b) receives a critical (!) violation from WSP because the non-moraic schwa receives stress and the moraic full vowel [e] does not. Candidate (11a) violates TROCHEE, but, because it is lowlier ranked than WSP, the violation is not critical. Candidate a. is therefore selected as the optimal candidate. Tableau (12) shows that this ranking accurately accounts for the patterns illustrated by (8a) as well. This is shown using the word SṈÁNET [(sŋéμnət)] ‘mountain’.	page 9
+(12) line 1	C. Thompson	rule	WSP >> TROCHEE	page 9, the display
+§4.1.2	C. Thompson	note	In the above tableau, candidate (12b) stresses a non-moraic schwa over the moraic full vowel in the initial syllable and thereby incurs a violation of both TROCHEE and WSP. The latter violation being critical, candidate (12b) is ruled out. Candidate (12a) stresses the initial full vowel over schwa and avoids a violation of WSP — the resulting foot being trochaic, it does not incur any violations and is selected the winner. Tableau (13) demonstrates stress assignment in ḴEḴEṮ [(qə́.qəƛ̓)] ‘shadow’. Stress assignment in this, or other schwa-only words like those in (8c.), is very similar to tableau (12) except that no candidate incurs a violation of WSP as neither syllable has moraic weight.	page 9
+(13) line 1	C. Thompson	rule	WSP >> TROCHEE	page 10, the display
+§4.1.2	C. Thompson	note	In this case, candidate (13b) which stresses the rightmost syllable violates TROCHEE and receives a critical violation. Candidate (13a) has a trochaic foot and thus receives no violations and is selected as the winner. One final important piece of information can be gained from the tableau in (11) — this example proves that coda consonants in SENĆOŦEN do not contribute to syllable weight (Leonard 2019). If they did, then the closed final syllable would be heavier than the open initial one. If this closed syllable were heavier, then, candidate (13a) would receive a critical violation of WSP for stressing the open syllable. As this would predict the incorrect surface form, we can be assured that the critical moraic distinction in SENĆOŦEN is between schwa and full vowels: not between open and closed syllables. In this section, we saw how a simple pairwise ranking of WSP >> TROCHEE accounts for the basic stress facts of SENĆOŦEN. In the following section, I will explain how Leonard (2007) and others (Shaw et al. 1999) have addressed words which apparently pose issues for this analysis. These examples will also be used to show that coda consonants do not contribute to syllable weight in SENĆOŦEN.	page 9
+§4.1.3	C. Thompson	heading	4.1.3 Apparent exceptions	page 10
+§4.1.3	C. Thompson	note	The constraint ranking proposed in the previous section seems to predict incorrect surface forms when applied to the following examples. In (12a.) stress falls of the rightmost of two full vowels and in (12b.), stress falls on initial schwa instead of a full vowel.	page 10
+§4.1.3	SENĆOŦEN	cited form	ŦEḴI	sockeye
+§4.1.3	SENĆOŦEN	cited form	tiʔtás	bucking tide
+§4.1.3	SENĆOŦEN	cited form	θə́qi	sockeye
+(14) line 1	C. Thompson	note	Apparent exceptions	page 10, the caption
+(14a) line 1	SENĆOŦEN	practical orthography	TI,TOS	page 10, columns
+(14a) line 2	SENĆOŦEN	phonemic	tiʔtás	page 10, columns
+(14a) line 3	Leonard 2007	translation	‘bucking tide’	page 10, columns, cited Leonard 2007
+(14b) line 1	SENĆOŦEN	practical orthography	ŦEḴI	page 10, columns
+(14b) line 2	SENĆOŦEN	phonemic	θə́qi	page 10, columns
+(14b) line 3	Leonard 2007	translation	‘sockeye’	page 10, columns, cited Leonard 2007
+(14b) line 4	C. Thompson	citation	(Leonard 2007)	the source under the example
+§4.1.3	C. Thompson	note	(14a) is unpredicted because both vowels are full, and should therefore both be moraic. As this makes both vowels equally good candidates for stress in the eyes of WSP, the form in (14a) should incur a critical violation of TROCHEE, leaving the second vowel to receive stress. The form in (14b) should incur a critical violation of highly ranked WSP which would, again, leave the second vowel to receive stress. Leonard (2007) accounts for these examples by explaining that, while the unstressed full vowels in (14) do appear to be moraic, they are actually an example of glide vocalization. Other examples of this phenomena are given in (15).5	page 10
+(15) line 1	C. Thompson	note	Glide vocalization in SENĆOŦEN	page 11, the caption
+(15a) line 1	SENĆOŦEN	practical orthography	ÍY,	page 11, columns
+(15a) line 2	SENĆOŦEN	underlying	ʔəy̓	page 11, columns
+(15a) line 3	Montler 2018	translation	‘good’	page 11, columns, cited Montler 2018
+(15b) line 1	SENĆOŦEN	practical orthography	I,ÁNȻES	page 11, columns
+(15b) line 2	SENĆOŦEN	underlying	ʔəyʔ=énkʷəs	page 11, columns
+(15b) line 3	Montler 2018	translation	‘brave’	page 11, columns, cited Montler 2018
+(15d) line 1	SENĆOŦEN	practical orthography	ĆȺĆI	page 11, columns
+(15d) line 2	SENĆOŦEN	underlying	čey-čəy	page 11, columns
+(15d) line 3	Montler 2018	translation	‘dilegent’	page 11, columns, cited Montler 2018
+(15d) line 4	C. Thompson	citation	(Montler 2018)	the source under the example
+§4.1.3	C. Thompson	notation	/əy/	the underlying schwa and glide under a vocalized glide
+§4.1.3	SENĆOŦEN	cited form	tiʔ.tás	bucking tide
+§4.1.3	C. Thompson	note	Leonard (2007, 2019) and Shaw et al. (1999) analyze glide vocalization as a result of a schwa sharing place features with its coda consonant. The example in (15a) in particular demonstrates how the unstressed [i]’s in (14) are a surface realization of an underlying /əy/. The tableau in (14) shows that, with glide vocalization accounted for, forms like TI,TOS [(tiʔ.tás)] ‘bucking tide’ (12a.) behave as predicted.	page 11
+(16) line 1	C. Thompson	rule	WSP >> TROCHEE	page 11, the display
+§4.1.3	C. Thompson	note	In this tableau, candidate (16b) is eliminated because the non-moraic vocalized glide receives stress rather than the moraic full vowel. Therefore, candidate (16a) is selected as the winner despite violating TROCHEE.	page 11
+§4.1.4	C. Thompson	heading	4.1.4 Section summary	page 11
+§4.1.4	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.1.4	C. Thompson	note	In this section we have seen that stress in SENĆOŦEN is predictable based on a few key principles. 1. Full vowels are moraic while schwa is not.	page 11
+§4.1.4	C. Thompson	note	2. Stress falls on the syllable with greater moraic weight.	page 11
+§4.1.4	C. Thompson	note	3. The default foot-form is trochaic.	page 11
+§4.1.4	C. Thompson	note	4. Coda consonants do not contribute to syllable weight.	page 11
+§4.1.4	C. Thompson	note	It turns out that these generalizations yield just three kinds of moraic structures in SENĆOŦEN surface forms. These are represented by the examples below (17).	page 11
+footnote 5	C. Thompson	note	5 The glosses for these examples show the underlying phonemic structure on the second line.	page 11, footnote
+§4.1.4	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+(17)	C. Thompson	note	HDA foot structures in SENĆOŦEN	page 12, the caption of a picture with no text layer
+§4.1.4	C. Thompson	note	In none of these structures does the moraic content of the dependent exceed that of its head. This makes the forms in (17) syntagmatic HDAs where the complexity of the head may vary but that of the dependent may not (Dresher & van der Hulst 1998). Notice furthermore that in none of the above structures does the dependent have a mora. In Section 5, we will see that this generalization is actually enforced by full vowel reduction in unstressed syllables. These observations about SENĆOŦEN moraic structures are indicators that the phenomena explored in this section could be accounted for by the HDA constraint proposed in this paper. In the following section, we will review Blake’s (2000) proposals about moraicity in ʔayʔaǰuθəm. This will enable a comparison of these two languages and provide the next step in proposing an HDA constraint to unify these analyses.	page 12
+§4.2	C. Thompson	heading	4.2 ʔayʔaǰuθəm moraicity	page 12
+§4.2	C. Thompson	note	As discussed in Section 2.1, there are two basic kinds of languages with regards to coda consonant moraicity. These are shown in (18) below where codas are not moraic, as in (18a), and where they are moraic, as in (18b).	page 12
+(18)	C. Thompson	note	(18)	page 12, drawn as a picture with no text layer
+§4.2	C. Thompson	note	In the previous Section 4.2, we saw evidence that SENĆOŦEN is an example of the former kind of language (10.a). This is not the case for all Central Salish languages however. In the following, I share evidence from Blake (2000) that ʔayʔaǰuθəm is an example of a language with the moraic structure shown in (18.b).	page 12
+§4.2.1	C. Thompson	heading	4.2.1 Syllabification	page 12
+§4.2.1	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.2.1	C. Thompson	note	I begin by providing evidence about how consonants are syllabified in ʔayʔaǰuθəm. This will allow us to determine how intervocalic constants are parsed. The examples in (17) show that syllables in ʔayʔaǰuθəm are required to have onsets.	page 12
+(18) line 1	C. Thompson	note	Intervocalic [h] epenthesis in ʔayʔaǰuθəm	page 13, the caption
+(18a) line 1	ʔayʔaǰuθəm	phonemic	wá.x̌a.t̓ᶿɛ.<h>à.yɛ	page 13, columns
+(18a) line 2	ʔayʔaǰuθəm	underlying	/wax̌at̓ᶿi=aya/	page 13, columns
+(18a) line 3	Blake 2000	translation	‘pipe case’	page 13, columns, cited Blake 2000
+(18b) line 1	ʔayʔaǰuθəm	phonemic	kʸá.pi.<h>à.yɛ	page 13, columns
+(18b) line 2	ʔayʔaǰuθəm	underlying	/kapi=aya/	page 13, columns
+(18b) line 3	Blake 2000	translation	‘coffee pot’	page 13, columns, cited Blake 2000
+(18c) line 1	ʔayʔaǰuθəm	phonemic	lá.ma.to.<h>ò.kʷtʰ	page 13, columns
+(18c) line 2	ʔayʔaǰuθəm	underlying	/lamatu=ukʷt/	page 13, columns
+(18c) line 3	Blake 2000	translation	‘sheep wool’	page 13, columns, cited Blake 2000
+§4.2.1	C. Thompson	note	These forms demonstrate that, when a vowel-initial lexical suffix is combined with a vowel- final root, an [h] is epenthesized intervocalically. Blake (2000) takes these examples as evidence that syllables in ʔayʔaǰuθəm must have an onset.6 This requirement predicts that intervocalic consonants in ʔayʔaǰuθəm will be syllabified as onsets (18).	page 13
+(20)	C. Thompson	note	(20)	page 13, drawn as a picture with no text layer
+§4.2.1	C. Thompson	note	In the following section, we will see how this requirement allows Blake (2000) to show that coda consonants in ʔayʔaǰuθəm are moraic.	page 13
+§4.2.2	C. Thompson	heading	4.2.2 Compensatory lengthening	page 13
+§4.2.2	C. Thompson	note	In the examples in (21a), an underlying glottal stop is deleted and triggers compensatory lengthening of the preceding vowel. A similar effect is observed in (21b) when an underlying vowel is deleted.	page 13
+(21) line 1	C. Thompson	note	Compensatory Lengthening in ʔayʔaǰuθəm	page 13, the caption
+(21a.i) line 1	ʔayʔaǰuθəm	phonemic	gáʔ.gaʔ.t̓ᶿʌpʰ	page 13, columns
+(21a.i) line 2	ʔayʔaǰuθəm	underlying	/RED-gaʔt̓ᶿap/	page 13, columns
+(21a.i) line 3	Blake 2000	translation	‘he’s gone driving’	page 13, columns, cited Blake 2000
+(21a.ii) line 1	ʔayʔaǰuθəm	phonemic	gáː.t̓ᶿʌpʰ	page 13, columns
+(21a.ii) line 2	ʔayʔaǰuθəm	underlying	/gaʔt̓ᶿap/	page 13, columns
+(21a.ii) line 3	Blake 2000	translation	‘drive’	page 13, columns, cited Blake 2000
+(21b.iii) line 1	ʔayʔaǰuθəm	phonemic	x̌ʷʌ́.t̓ᶿɛ.qʷòʔ.ǰɛ	page 13, columns
+(21b.iii) line 2	ʔayʔaǰuθəm	underlying	/x̌ʷat̓ᶿ=iqʷ=uǰ̓a/	page 13, columns
+(21b.iii) line 3	Blake 2000	translation	‘joint (human body)’	page 13, columns, cited Blake 2000
+(21b.iv) line 1	ʔayʔaǰuθəm	phonemic	x̌ʷʌ́t̓ᶿ.qʷòː.ǰɛ	page 13, columns
+(21b.iv) line 2	ʔayʔaǰuθəm	underlying	/x̌ʷat̓ᶿ=iqʷ=uǰ̓a/	page 13, columns
+(21b.iv) line 3	Blake 2000	translation	‘wrist’	page 13, columns, cited Blake 2000
+(21b.iv) line 4	C. Thompson	citation	(Blake 2000)	the source under the example
+§4.2.2	C. Thompson	note	In moraic theory, the distinction between long vowels and short vowels is that the former are bi-moraic while the latter are mono-moraic (Ryan 2019). Such an alternation between a coda consonant and a bi-moraic vowel would only be possible if coda consonants were themselves moraic in this language. This is, indeed, what Blake (2000) proposes. This structure is shown in (20).	page 13
+footnote 6	C. Thompson	note	6 In OT, this requirement is represented by the constraint ONSET (McCarthy, 2008). In all the OT analyses that follow, I assume that this constraint is active and un-dominated. It is omitted from tableaux, however, to make them easier to read. If the requirement that syllables have onsets becomes relevant, as it does in Section 4.3.2, I mention it explicitly as such.	page 13, footnote
+(22)	C. Thompson	note	(22)	page 14, drawn as a picture with no text layer
+§4.2.2	C. Thompson	note	As per Section 4.2.1, simply parsing the following consonant as a new coda is not an option because this operation would leave the final syllable onset-less; instead, to preserve the mora structure of the stressed syllable, the vowel is lengthened as seen above in (20b).	page 14
+§4.2.4	C. Thompson	heading	4.2.4 Speaker judgments	page 14
+§4.2.4	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.2.4	C. Thompson	note	A final piece of evidence for the moraicity of coda consonants in ʔayʔaǰuθəm comes from speaker judgements. In research for Blake’s (2000) dissertation, Elders tapped out two “syllables” for bi- syllabic words like (21c) as well as single syllable words such as (21a–b).	page 14
+(23) line 1	C. Thompson	note	Speaker Judgments of Coda Moraicity	page 14, the caption
+(23a) line 1	ʔayʔaǰuθəm	phonemic	tʋ́k̓ʷμtμ	page 14, columns, carries footnote 7
+(23a) line 2	Blake 2000	translation	‘pull it, cedar root’	page 14, columns, cited Blake 2000
+(23b) line 1	ʔayʔaǰuθəm	phonemic	x̌íμt̓ᶿμ	page 14, columns
+(23b) line 2	Blake 2000	translation	‘iron, metal’	page 14, columns, cited Blake 2000
+(23c) line 1	ʔayʔaǰuθəm	phonemic	xʷíμ.pətʰμ	page 14, columns
+(23c) line 2	Blake 2000	translation	‘sweep it’	page 14, columns, cited Blake 2000
+(23c) line 3	C. Thompson	citation	(Blake 2000)	the source under the example
+§4.2.4	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.2.4	C. Thompson	note	Blakes (2000) explanation for these judgments is that the speakers were identifying sub- syllable constituents: specifically, moras. If they were counting vowels or syllables, then (11a–b) would show a different pattern than (21c). If they were counting consonants then (21a,c) would show a different pattern than (21b) This is yet more evidence that, unlike SENĆOŦEN, ʔayʔaǰuθəm coda consonants project moras.	page 14
+§4.2.4	C. Thompson	heading	4.2.4 Mora licensing in optimality theory	page 14
+§4.2.4	C. Thompson	note	In this section, I use OT to formalize the difference in coda moraicity between SENĆOŦEN and ʔayʔaǰuθəm. In particular, I follow Broselow et al. (1997) in proposing that there are two constraints which govern the moraicity of consonants (paraphrased for continuity with McCarthy 2008).	page 14
+(24a) line 1	C. Thompson	rule	*μ/C: Assign one violation for every consonant which a mora exclusively dominates.	page 14, the display
+(24b) line 1	C. Thompson	rule	*BRANCHμ: Assign one violation for every mora which dominates two segments.	page 14, the display
+§4.2.4	C. Thompson	name	Bermúdez-Otero	Ricardo Bermúdez-Otero, an author cited
+§4.2.4	C. Thompson	notation	μ-licensed	licensed to a mora by position
+§4.2.4	C. Thompson	notation	*μ/C	*μ/C, a constraint against a mora exclusively dominating a consonant
+§4.2.4	C. Thompson	notation	*μ/C	*μ/C, a constraint against a mora exclusively dominating a consonant
+§4.2.4	C. Thompson	notation	*BRANCHμ	*BRANCHμ, a constraint against a mora dominating two segments
+§4.2.4	SENĆOŦEN	cited form	tiʔ.tás	bucking tide
+§4.2.4	C. Thompson	note	To implement these constraints, I also follow Bermúdez-Otero (2001) in making two assumptions about moras in the input. First, I assume that full vowels always have a mora in their underlying form while consonants do not. This is a departure from Blake’s (2000) analysis wherein it is assumed that coda consonants have underlying moras. A moraic distinction between vowels and consonants is important to preserve because it accounts for the different prosodic behavior of vowels (i.e., [i]) and glides (i.e., [y]) (Hyman 1985). Second, I will follow Bermúdez-Otero (2001) in recognizing that coda consonants are positionally μ-licensed. That is, despite not having moras 7 In ʔayʔaǰuθəm, schwa often surfaces as a lax vowel. Lax vowels occur in this language for various reasons, however, Blake (2000) proposes that those in unstressed syllables are always non-moraic. in their underlying form, coda consonants are entitled to a mora by virtue of their position within a string. This means that candidates with moraic coda consonants do not violate a constraint on inserting moras but rather the general constraint on moraic codas defined above: *μ/C.8 In the system outline in the previous paragraph, a crucial ranking of *μ/C over *BRANCHμ will yield a system in which coda consonants are licensed under a mora projected by a vowel as in (10b.). In these systems, consonants do not contribute to the weight of syllables. This is an accurate description of the moraic system of SENĆOŦEN as it was described in Section 4. Tableau (25) shows mora licensing in the SENĆOŦEN word TI,TOS [(tiʔ.tás)] ‘bucking tide’.	page 14
+(25) line 1	C. Thompson	rule	*μ/C >> BRANCHμ	page 15, the display
+§4.2.4	C. Thompson	note	In this tableau, candidate (25b) has coda consonants which project individual moras, this incurs a critical violation of *μ/C and this candidate is then ruled out. Candidate (25a) is selected as the optimal candidate because it only violates the lower ranked *BRANCHμ. In systems where *BRANCHμ outranks *μ/C, the opposite structure is optimal. This is demonstrated by tableau (23) which shows mora licensing in the ʔayʔaǰuθəm word púhʔɛm ‘it’s windy’.	page 15
+(26) line 1	C. Thompson	rule	*BRANCHμ >> *μ/C	page 15, the display
+footnote 8	C. Thompson	note	8 For example, they would violate DEP(μ) or DEP-LINK(μ). In a WEIGHT-BY-POSITION approach, moraic coda consonants do indeed violate these constraints. Bermúdez-Otero (2001) points out that such violations predict untested phenomena such as lexical syllabification contrasts and chain shifts.	page 15, footnote
+§4.2.4	C. Thompson	notation	DEP(μ)	DEP(μ), a constraint against inserting a mora
+§4.2.4	C. Thompson	notation	DEP-LINK(μ)	DEP-LINK(μ), a constraint against inserting a link to a mora
+footnote 9	C. Thompson	note	9 In this example the surface [ɛ] is an epenthetic schwa (Blak, 2000).	page 15, footnote
+§4.2.4	C. Thompson	notation	ɛ	an epenthetic schwa, surface [ɛ]
+§4.2.4	C. Thompson	note	In this tableau, candidate (26b) receives a critical violation from the highly ranked *BRANCHμ because the mora projected by the full vowel branches in an effort to license the coda [h]. Therefore, as candidate (26a) only violates the lower ranked *μ/C, it is selected as the optimal candidate. 4.2.3 Section summary In this section, we saw evidence from compensatory lengthening and speaker judgments indicating that coda consonants in ʔayʔaǰuθəm are licensed under their own mora. This means that, unlike SENĆOŦEN (Section 4.1), ʔayʔaǰuθəm has post-nuclear segments which contribute to the weight of their syllable. This has the important implication that dependent (unstressed) syllables in ʔayʔaǰuθəm license a mora. The representations of some of the examples discussed in this section reveal that, in this language too, the moraic structure of feet take the form of syntagmatic HDAs.	page 16
+(27)	C. Thompson	note	Binary foot structures in ʔayʔaǰuθəm	page 16, the caption of a picture with no text layer
+§4.2.4	C. Thompson	note	The fact that the surface forms of the various examples discussed in this section seem to respect HDAs indicate that they too might be accounted for by an HDA constraint. In Section 5, I will show that this is indeed the case. As a final note, it is interesting that the prosodic phenomena discussed in this section are notably different to those discussed in Section 4.1. This is encouraging for an HDA constraint’s scope in providing a unified analysis of prosodic processes.	page 16
+§4.3	C. Thompson	heading	4.3 Sḵwx̱wú7mesh stress and moraicity	page 16
+§4.3	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.3	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.3	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.3	C. Thompson	note	In the previous two sections, we discussed some phenomena which have been analyzed in terms of moras. However, these phenomena seem mostly unrelated. In this section, we see how the consideration of moraic codas in ʔayʔaǰuθəm (Section 4.2) and weight sensitive stress in SENĆOŦEN (Section 4.1) overlap in Sḵwx̱wú7mesh. We will see that stress in this language functions similarly to SENĆOŦEN with the exception that resonant codas can contribute to syllable weight.	page 16
+§4.3.1	C. Thompson	heading	4.3.1 Stress	page 16
+§4.3.1	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.3.1	C. Thompson	note	Recall that there were four principles which were proposed to account for patterns of stress assignment in SENĆOŦEN:	page 16
+§4.3.1	C. Thompson	note	1. Full vowels are moraic while schwa is not.	page 17
+§4.3.1	C. Thompson	note	2. Stress falls on the syllable with greater moraic weight.	page 17
+§4.3.1	C. Thompson	note	3. The default foot-form is trochaic.	page 17
+§4.3.1	C. Thompson	note	4. Coda consonants do not contribute to the weight of their syllable.	page 17
+§4.3.1	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.3.1	Sḵwx̱wú7mesh	cited form	ímats	grandchild
+§4.3.1	Sḵwx̱wú7mesh	cited form	eḵwís	thin
+§4.3.1	Sḵwx̱wú7mesh	cited form	ḵénaxw	throat
+§4.3.1	Sḵwx̱wú7mesh	cited form	yeḵéy	to creep
+§4.3.1	Sḵwx̱wú7mesh	cited form	wéx̱es	frog
+§4.3.1	C. Thompson	note	All but the last of these generalizations are true for Sḵwx̱wú7mesh. The examples in (25) show four of the most common stress assignment patterns in this language. In (25a) words like ímats which have two full vowels stress the initial one. In (25b), words like eḵwís, which have an initial schwa and a final full vowel, stress the full vowel rather than the schwa. In (25iii.), an initial schwa receives stress over a final full vowel in (25i) ḵénaxw, and a final schwa receives stress in yeḵéy (25ii). In (25d), words like wéx̱es (25vii) have stress on the initial of two schwas.	page 17
+(28) line 1	C. Thompson	note	Some examples of stress in Sḵwx̱wú7mesh	page 17, the caption
+(28a.i) line 1	Sḵwx̱wú7mesh	practical orthography	ímats	page 17, columns
+(28a.i) line 2	Sḵwx̱wú7mesh	phonemic	ʔímac	page 17, columns
+(28a.i) line 3	Dyck 2004	translation	‘grandchild’	page 17, columns, cited Dyck 2004
+(28a.ii) line 1	Sḵwx̱wú7mesh	practical orthography	ksháwes	page 17, columns
+(28a.ii) line 2	Sḵwx̱wú7mesh	phonemic	kšáwəs	page 17, columns
+(28a.ii) line 3	Dyck 2004	translation	‘bluejay’	page 17, columns, cited Dyck 2004
+(28b.i) line 1	Sḵwx̱wú7mesh	practical orthography	eḵwís	page 17, columns
+(28b.i) line 2	Sḵwx̱wú7mesh	phonemic	ʔəqʷís	page 17, columns
+(28b.i) line 3	Dyck 2004	translation	‘thin’	page 17, columns, cited Dyck 2004
+(28b.ii) line 1	Sḵwx̱wú7mesh	practical orthography	syex̱ás	page 17, columns
+(28b.ii) line 2	Sḵwx̱wú7mesh	phonemic	syəx̌ás	page 17, columns
+(28b.ii) line 3	Dyck 2004	translation	‘large rock’	page 17, columns, cited Dyck 2004
+(28c.i) line 1	Sḵwx̱wú7mesh	practical orthography	ḵénaxw	page 17, columns
+(28c.i) line 2	Sḵwx̱wú7mesh	phonemic	qə́naxʷ	page 17, columns
+(28c.i) line 3	Dyck 2004	translation	‘throat’	page 17, columns, cited Dyck 2004
+(28c.ii) line 1	Sḵwx̱wú7mesh	practical orthography	yeḵéy	page 17, columns
+(28c.ii) line 2	Sḵwx̱wú7mesh	phonemic	yəqə́y	page 17, columns
+(28c.ii) line 3	Dyck 2004	translation	‘to creep’	page 17, columns, cited Dyck 2004
+(28d.i) line 1	Sḵwx̱wú7mesh	practical orthography	wéx̱es	page 17, columns
+(28d.i) line 2	Sḵwx̱wú7mesh	phonemic	wə́x̌əs	page 17, columns
+(28d.i) line 3	Dyck 2004	translation	‘frog’	page 17, columns, cited Dyck 2004
+(28d.ii) line 1	Sḵwx̱wú7mesh	practical orthography	x̱éteh	page 17, columns
+(28d.ii) line 2	Sḵwx̱wú7mesh	phonemic	x̌ə́təh	page 17, columns
+(28d.ii) line 3	Dyck 2004	translation	‘far’	page 17, columns, cited Dyck 2004
+(28d.ii) line 4	C. Thompson	citation	(Dyck 2004)	the source under the example
+§4.3.1	C. Thompson	note	Taken on their own, examples in (25d) suggest that the default foot form in this language is, like SENĆOŦEN, trochaic. Both vowels in these words are schwa, so accommodating a preference for stressing moraic segments is irrelevant. However, the word yeḵéy (25cii) shows the opposite pattern; here as well both vowels are schwa — but it is the final, rather than the initial, syllable which is stressed. Furthermore, (25b) would support the theory that, if possible, stress will fall on moraic full vowels rather than non-moraic schwa. But, ḵénaxw (25ci) has a stressed initial schwa despite the perfectly eligible moraic full vowel waiting in the final syllable. In the following sections, I show how Dyck’s (2004) explanation of these phenomena involves both the analysis of weight-sensitive stress given in Section 4.1 and the analysis of coda consonant moraicity given in Section 4.2.	page 17
+§4.3.2	C. Thompson	heading	4.3.2 Moraic resonants	page 17
+§4.3.2	C. Thompson	note	The examples in (29) show an expanded set of the types of words which seemingly contradict the generalizations given at the end of Section 4.3.1. The words in (29a) have an initial stressed schwa despite an available full vowel in the second syllable. Those in (29b) have final stress despite both vowels being schwa and thus non-moraic.	page 17
+(29) line 1	C. Thompson	note	Stressed schwa in Sḵwx̱wú7mesh	page 18, the caption
+(29a.i) line 1	Sḵwx̱wú7mesh	practical orthography	ḵénaxw	page 18, columns
+(29a.i) line 2	Sḵwx̱wú7mesh	phonemic	qə́naxʷ	page 18, columns
+(29a.i) line 3	Dyck 2004	translation	‘throat’	page 18, columns, cited Dyck 2004
+(29a.ii) line 1	Sḵwx̱wú7mesh	practical orthography	héwan	page 18, columns
+(29a.ii) line 2	Sḵwx̱wú7mesh	phonemic	hə́wan	page 18, columns
+(29a.ii) line 3	Dyck 2004	translation	‘dog’	page 18, columns, cited Dyck 2004
+(29a.iii) line 1	Sḵwx̱wú7mesh	practical orthography	kwélash	page 18, columns
+(29a.iii) line 2	Sḵwx̱wú7mesh	phonemic	kʷə́laš	page 18, columns
+(29a.iii) line 3	Dyck 2004	translation	‘shoot’	page 18, columns, cited Dyck 2004
+(29b.iv) line 1	Sḵwx̱wú7mesh	practical orthography	yeḵéy	page 18, columns
+(29b.iv) line 2	Sḵwx̱wú7mesh	phonemic	yəqə́y	page 18, columns
+(29b.iv) line 3	Dyck 2004	translation	‘to creep’	page 18, columns, cited Dyck 2004
+(29b.v) line 1	Sḵwx̱wú7mesh	practical orthography	tl’e7énḵ	page 18, columns
+(29b.v) line 2	Sḵwx̱wú7mesh	phonemic	ƛ̓əʔə́nq	page 18, columns
+(29b.v) line 3	Dyck 2004	translation	‘potlatch’	page 18, columns, cited Dyck 2004
+(29b.v) line 4	C. Thompson	citation	(Dyck 2004)	the source under the example
+§4.3.2	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.3.2	C. Thompson	notation	KəRVK	a syllable shape, K an obstruent, R a resonant, V a full vowel
+§4.3.2	C. Thompson	notation	KəKəR	a syllable shape, K an obstruent, R a resonant
+§4.3.2	C. Thompson	note	In this expanded example set, a pattern emerges concerning the segments which schwa precedes. In all the above cases, this segment is a resonant. Dyck (2004) proposes that the patterns in (29) indicate that resonants (R), but not obstruents (K), are moraic in Sḵwx̱wú7mesh. The presence of a moraic resonant in its coda would mean that the schwa-headed syllables in these words are just as heavy as those headed by full vowels. Thus, in (29a–c.) (KəRVK) the syllables are equally weighted, and the default trochaic foot is established; in (29d–e) (KəKəR) the moraic resonant makes the final syllable heavy and therefore preferable to the initial non-moraic syllable. Recall from Section 2.1 that the set of segments which have mora-licensing capacity in any given language is determined by sonority (Zec 1995). These examples suggest a [+SON] moraicity criterion in Sḵwx̱wú7mesh. The figure below demonstrates how such a criterion would mean that resonants and vowels, but not obstruents, qualify as moraic.	page 18
+§4.3.2	C. Thompson	note	Figure 1: Sḵwx̱wú7mesh moraicity criterion Interestingly, this analysis brings up one more issue: as we saw in Section 4.2.1, there is a requirement that intervocalic consonants must be parsed as onsets. This would imply that the resonant codas in (26i) could not contribute to the weight of the schwa-headed syllables at all as they would be parsed into the final syllable. Dyck (2004) resolves this issue by pointing at evidence from other Salish languages that intervocalic resonants are actually ambisyllabic (Czaykowska- Higgins & Kinkade, 1998). In this formulation, resonants serve as both the coda of the initial syllable and the onset of the final.10 This kind of structure is shown in (30).	page 18
+(30)	C. Thompson	note	(30)	page 18, drawn as a picture with no text layer
+footnote 10	C. Thompson	note	10 While standard feet are represented with a dot between syllables (ie., CV.CVC), those with ambisyllabicity are represented without one (ie., CVRVC).	page 18
+§4.3.2	C. Thompson	note	The ambisyllabic analysis of intervocalic resonants accounts for both the behavior of stress in the examples in (29), as well as showing how these segments fulfill the requirement that all syllables have onsets seen in Section 4.2.1. In the following section, this analysis is integrated into OT.	page 19
+§4.3.3	C. Thompson	heading	4.3.3 Optimality Theory analysis	page 19
+§4.3.3	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.3.3	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.3.3	Sḵwx̱wú7mesh	cited form	syex̱ás	large rock
+§4.3.3	C. Thompson	note	In the previous section, we saw that stress in Sḵwx̱wú7mesh abides by very similar principles as it does in SENĆOŦEN. This predicts the same ranking of the constraints WSP >> TROCHEE. The tableau in (31) shows that this ranking correctly predicts the surface form of syex̱ás ‘large rock’.	page 19
+(31) line 1	C. Thompson	rule	WSP > TROCHEE	page 19, the display
+§4.3.3	C. Thompson	note	In this tableau, candidate b. does have the default trochaic foot, however, because stress falls on the non-moraic schwa over the full vowel in the second syllable, it incurs a critical violation of WSP. Candidate a. does abide by WSP and, therefore, is chosen as the optimal surface form despite violating TROCHEE.	page 19
+§4.3.3	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.3.3	C. Thompson	notation	*μ/C	*μ/C, a constraint against a mora exclusively dominating a consonant
+§4.3.3	C. Thompson	language	Sḵwx̱wú7mesh’s	Sḵwx̱wú7mesh, Squamish, in the possessive
+§4.3.3	C. Thompson	note	To accommodate Dyck’s (2004) analysis of moraic resonants described in Section 4.3.2, it is necessary to invoke the mora licensing constraints used for ʔayʔaǰuθəm. However, *μ/C does not capture Sḵwx̱wú7mesh’s sensitivity to the sonority distinction between obstruents and resonants. Because of this, *μ/C must be split into the following two constraints.	page 19
+(32a) line 1	C. Thompson	rule	*μ/K: Assign one violation for every obstruent (K) which a mora exclusively dominates.	page 19, the display
+(32b) line 1	C. Thompson	rule	*μ/R: Assign one violation for every resonant (R) which a mora exclusively dominates.	page 19, the display
+§4.3.3	C. Thompson	note	To ensure that obstruents are still non-moraic, *μ/K must outrank *BRANCHμ. This ranking will rule out candidates which have an obstruent coda that “has a mora to itself”. To ensure that resonants are moraic, * BRANCHμ must outrank *μ/R. This will rule out candidates which have a mora which licenses both a full vowel and its resonant coda. This yields a ranking of *μ/R>> *BRANCHμ >>*μ/K. The following tableau shows that combining this ranking with that of WSP and TROCHEE in (31) yields the correct surface form for the word ḵénaxw [(qə́naxʷ)] ‘throat’ (33).	page 19
+(33) line 1	C. Thompson	rule	*μ/K >> WSP >> *BRANCHμ, TROCHEE >> *μ/R	page 19, the display
+§4.3.3	C. Thompson	notation	*μ/R	*μ/R, a constraint against a mora exclusively dominating a resonant
+§4.3.3	C. Thompson	notation	*BRANCHμ	*BRANCHμ, a constraint against a mora dominating two segments
+§4.3.3	C. Thompson	note	Candidites (33e–f) are impermissible as they incur critical violations of *μ/K for having moraic obstruents in their final syllable. Candidates (33a–b) have moraic resonants and therefore violate *μ/R, but this constraint is lowly ranked. Candidates (33b–c) are ruled out for having stress on their final syllable, thus violating TROCHEE. Finally, the intervocalic resonant in candidate (33d) fails to project a mora resulting in a violation of WSP for stressing the lighter syllable. Thus, candidate a. is selected as the winning candidate only violating *BRANCHμ — along with candidates (33b–d) — and the lowly ranked *μ/R.	page 20
+§4.3.4	C. Thompson	heading	4.3.4 Section summary	page 20
+§4.3.4	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§4.3.4	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§4.3.4	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§4.3.4	C. Thompson	note	This section explored how the stress assignment constraints proposed in Section 4.1, and the mora licensing constraints in Section 4.2, work together to derive the stress assignment patterns of Sḵwx̱wú7mesh. In Section 5, we will consider the forms in this, and previous, sections in light of Dresher and van der Hulst’s (1998) typology of HDAs. We will compare the various permissible moraic structures in SENĆOŦEN, Sḵwx̱wú7mesh, and ʔayʔaǰuθəm, and use these observations to construct an OT analysis which incorporates a constraint that motivates moraic HDAs.	page 20
+§5	C. Thompson	heading	5 Analysis	page 20
+§5.1.1	C. Thompson	heading	5.1.1 Heads and their dependents	page 20
+§5.1.1	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§5.1.1	Sḵwx̱wú7mesh	cited form	hi7ḵwín	light, torch
+§5.1.1	C. Thompson	note	Let us return to the central proposal of this paper as it was briefly outlined in Section 2. Now that we have taken a deeper look into the prosody of some Central Salish languages, I will demonstrate how these phenomena fit in Dresher and van der Hulst’s (1998) typology of HDAs. The representation below in (34) shows the bare prosodic structure of the Sḵwx̱wú7mesh word hi7ḵwín ‘light, torch’.	page 20
+(34)	C. Thompson	note	(34)	page 20, drawn as a picture with no text layer
+§5.1.1	C. Thompson	note	In Dresher and van der Hulst’s (1998) formulation, a relationship between the foot and the mora does not require the syllable level. I do, however, include this node in my analysis because, as we have seen, there are various processes (such as ambisyllabicity; cf. Section 4.3.2) which target the syllable level in Central Salish and will be demonstrated in coming sections to involve HDAs. The tree in (35) provides an example of the internal constituency of a foot in reference to both syllables and moras. Here both the full rhythmic structure including the foot through segment levels is shown on the left while the “HDA” structure with the head and dependent syllable as well as the moras they license is on the right.	page 20
+(35)	C. Thompson	note	(35)	page 20, drawn as a picture with no text layer
+§5.1.1	Sḵwx̱wú7mesh	cited form	qʷín	the head syllable of hi7ḵwín
+§5.1.1	C. Thompson	note	The structure in (35) is an example of an asymmetry of complexity. The head syllable [qʷín] is more complex as it licenses more moras than its dependent. To restate, when referring to an HDA, this is the specific kind I am referencing — one in which a head syllable has more moras than its dependent.	page 21
+§5.1.2	C. Thompson	heading	5.1.2 HDAs in Central Salish	page 21
+§5.1.2	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§5.1.2	C. Thompson	note	As was shown at the end of Section 4.1, SENĆOŦEN has syntagmatic moraic HDAs. It was also observed that all dependent syllables in SENĆOŦEN lacked a mora. The examples below (36) show that when a dependent syllable has a full — moraic — vowel in its underlying representation, that vowel undergoes reduction and the loss of a mora.	page 21
+(36) line 1	C. Thompson	note	SENĆOŦEN vowel reduction	page 21, the caption
+(36a) line 1	Sḵwx̱wú7mesh	practical orthography	ȻONEṈ	page 21, columns
+(36a) line 2	Sḵwx̱wú7mesh	phonemic	kʷá.nəŋ	page 21, columns
+(36a) line 3	Sḵwx̱wú7mesh	underlying	/kʷaniŋ/	page 21, columns
+(36a) line 4	Montler 2018	translation	‘to run’	page 21, columns, cited Montler 2018
+(36b) line 1	Sḵwx̱wú7mesh	practical orthography	WṮEḴTNEĆ	page 21, columns
+(36b) line 2	Sḵwx̱wú7mesh	phonemic	xʷƛ̓ə́q.tnəč	page 21, columns
+(36b) line 3	Sḵwx̱wú7mesh	underlying	/xʷ-ƛ̓əqt=neč/	page 21, columns
+(36b) line 4	Montler 2018	translation	‘cougar’	page 21, columns, cited Montler 2018
+(36c) line 1	Sḵwx̱wú7mesh	practical orthography	W̱NÁJES	page 21, columns
+(36c) line 2	Sḵwx̱wú7mesh	phonemic	xʷné.č̓əs	page 21, columns
+(36c) line 3	Sḵwx̱wú7mesh	underlying	/xʷ-neč̓=es/	page 21, columns
+(36c) line 4	Montler 2018	translation	‘he looks different’	page 21, columns, cited Montler 2018
+(36c) line 5	C. Thompson	citation	(Montler 2018)	the source under the example
+§5.1.2	C. Thompson	language	Hən̓qəmin̓əm̓	Hən̓qəmin̓əm̓, Downriver Halkomelem
+§5.1.2	C. Thompson	note	In fact, dependent syllables in SENĆOŦEN (Leonard 2019), Hən̓qəmin̓əm̓ (Shaw et al. 1999), and Klallam (Crawford 2015) are uniformly either vowelless, or headed by schwa or some equally non-moraic segment. In all these cases, the deletion of a mora in the dependent syllable creates an HDA.	page 21
+§5.1.2	SENĆOŦEN	cited form	HÍNEW̱	to finally finish something
+§5.1.2	SENĆOŦEN	cited form	ḴELEX	salmon eggs
+§5.1.2	C. Thompson	note	The structures below have the SENĆOŦEN words HÍNEW̱ ‘to finally finish something’ and ḴELEX ‘salmon eggs’, along with their HDA representations. This representation highlights the parallel structure of their dependent syllables.	page 21
+§5.1.2	Sḵwx̱wú7mesh	cited form	hi7ḵwín	light, torch
+§5.1.2	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§5.1.2	ʔayʔaǰuθəm	cited form	xʷípɪt	sweep
+§5.1.2	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+(37)	C. Thompson	note	(37)	page 21, drawn as a picture with no text layer
+§5.1.2	C. Thompson	note	Observe that, while the moraic content of the head varies between these two words, that of the dependents is identical. I take these facts to indicate that an HDA constraint should be able to target dependent syllables as it is they that undergo vowel reduction in service of creating an HDA. A parallel structure is observed in the languages with moraic codas (Sections 4.2 and 4.3). This is shown in (38) by hi7ḵwín ‘light, torch’ from Sḵwx̱wú7mesh (a) and xʷípɪt ‘sweep’ from ʔayʔaǰuθəm (b).	page 21
+(38)	C. Thompson	note	(38)	page 22, drawn as a picture with no text layer
+§5.1.2	C. Thompson	notation	ʔ	the obstruent coda of hi7ḵwín
+§5.1.2	C. Thompson	note	In the Sḵwx̱wú7mesh example, the vowel in the dependent syllable [hiʔ] is full, whereas, in the ʔayʔaǰuθəm example, the vowel in the dependent syllable [pɪt] is reduced — that is, it has undergone the loss of a mora (Blake 2000). Recall that, because only resonant codas are moraic in Sḵwx̱wú7mesh, the obstruent coda [ʔ] in the (38a) is non-moraic. In ʔayʔaǰuθəm — where only unstressed lax vowels and schwa are non-moraic — the obstruent coda [t] does have its own mora. Crucially, this means that, if vowel reduction did not take place, the dependent syllable in the ʔayʔaǰuθəm word would be bi-moraic. The fact that the vowel in (38b) is reduced, while that in (38a) is not, is likely an effect of these languages’ different stances on moraicity. If so, these examples suggest that there is a mono-moraic upper licensing limit for dependent syllables. This limit would be attained by the moraic full vowel in the Sḵwx̱wú7mesh dependent syllable, and by the moraic coda consonant in the ʔayʔaǰuθəm one.	page 22
+§5.1.2	C. Thompson	note	If this is the correct analysis of this phenomenon, then whether or not the vowel in the dependent syllable reduces should be predictable based on the presence of a moraic coda. The examples in (39) show that, indeed, unstressed vowels are lax in closed syllables but not in open ones.	page 22
+(39) line 1	C. Thompson	note	Unstressed vowel reduction in ʔayʔaǰuθəm	page 22, the caption
+(39a.i) line 1	Sḵwx̱wú7mesh	phonemic	másɛqʷ	page 22, columns
+(39a.i) line 2	Sḵwx̱wú7mesh	underlying	/masiqʷ/	page 22, columns
+(39a.i) line 3	Blake 2000	translation	‘purple sea urchin’	page 22, columns, cited Blake 2000
+(39a.ii) line 1	Sḵwx̱wú7mesh	phonemic	k̓ʷúnɔt̓	page 22, columns
+(39a.ii) line 2	Sḵwx̱wú7mesh	underlying	/k̓ʷun̓ut̓/	page 22, columns
+(39a.ii) line 3	Blake 2000	translation	‘porpise’	page 22, columns, cited Blake 2000
+(39a.iii) line 1	Sḵwx̱wú7mesh	phonemic	x̌ɑ́t̓ᶿθɔtʰ	page 22, columns
+(39a.iii) line 2	Sḵwx̱wú7mesh	underlying	/x̌at̓ᶿ-θut/	page 22, columns
+(39a.iii) line 3	Blake 2000	translation	‘fit (clothes)’	page 22, columns, cited Blake 2000
+(39a.iv) line 1	Sḵwx̱wú7mesh	phonemic	nʋ́xʷɪɬ	page 22, columns
+(39a.iv) line 2	Sḵwx̱wú7mesh	underlying	/nuxʷiɬ/	page 22, columns
+(39a.iv) line 3	Blake 2000	translation	‘dugout canoe’	page 22, columns, cited Blake 2000
+(39b.i) line 1	Sḵwx̱wú7mesh	phonemic	ƛ̓ɛ́ʔna	page 22, columns
+(39b.i) line 2	Sḵwx̱wú7mesh	underlying	/ƛ̓in̓a/	page 22, columns
+(39b.i) line 3	Blake 2000	translation	‘oolichan oil’	page 22, columns, cited Blake 2000
+(39b.ii) line 1	Sḵwx̱wú7mesh	phonemic	hɑ́ʔmo	page 22, columns
+(39b.ii) line 2	Sḵwx̱wú7mesh	underlying	/hm̓u/	page 22, columns
+(39b.ii) line 3	Blake 2000	translation	‘pigeon’	page 22, columns, cited Blake 2000
+(39b.iii) line 1	Sḵwx̱wú7mesh	phonemic	qáʔqa	page 22, columns
+(39b.iii) line 2	Sḵwx̱wú7mesh	underlying	/qaʔqa/	page 22, columns
+(39b.iii) line 3	Blake 2000	translation	‘mat, mattress’	page 22, columns, cited Blake 2000
+(39b.iv) line 1	Sḵwx̱wú7mesh	phonemic	tʋ́kʷɬi	page 22, columns
+(39b.iv) line 2	Sḵwx̱wú7mesh	underlying	/tkʷɬi/	page 22, columns
+(39b.iv) line 3	Blake 2000	translation	‘rabbit’	page 22, columns, cited Blake 2000
+(39b.iv) line 4	C. Thompson	citation	(Blake 2000)	the source under the example
+§5.1.2	C. Thompson	note	This seems like solid evidence that vowel reduction occurs to respect an upper licensing limit for dependent moras as proposed.	page 22
+§5.2	C. Thompson	heading	5.2 OT Analysis	page 22
+§5.2.1	C. Thompson	heading	5.2.1 Constraint Proposal	page 22
+§5.2.1	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§5.2.1	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§5.2.1	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§5.2.1	C. Thompson	note	One plausible way an HDA(μ) constraint could account for these observations is, for the non- moraic-coda languages like SENĆOŦEN, constraining the capacity of dependent syllables to license a mora, and, in the case of languages with moraic codas like ʔayʔaǰuθəm, constraining the capacity of dependent syllables to branch. However, the observation that, in both of these cases, the maximum moraic content of the dependent syllable is equal to the minimal moraic content of the head, suggests that a less stipulative description is possible. I therefore propose the following working definition of HDA(μ)	page 22
+(40) line 1	C. Thompson	rule	HDA(μ): assign one violation for every foot which does not have an HDA of moraic complexity.	page 23, the display
+§5.2.1	C. Thompson	note	However, the following examples and tableau show that this is not quite a sufficient definition for this constraint. They show instead that HDA(μ) must do gradient evaluation (McCarthy 2008): that is, it assigns more violations to candidates which have dependents with greater weight than their heads then it does to candidates with equally weighted heads and dependents. Consider the ʔayʔaǰuθəm words in (39ai-iii) which all have an underlying shape of /CVCVC/. If a faithful candidate for this input surfaced, it would have the prosodic structure shown in (41).	page 23
+(41)	C. Thompson	note	(41)	page 23, drawn as a picture with no text layer
+§5.2.1	C. Thompson	notation	MAX(μ)	MAX(μ), a constraint against deleting a mora
+§5.2.1	C. Thompson	note	As we know, this is not the surface form such inputs take. As the examples in (39) show, vowels in closed dependent syllables lose their mora via laxing. To derive this surface form, insofar as determining the purview of HDA requires, an additional constraint must be introduced. This is MAX(μ), a faithfulness constraint which penalizes the deletion of a mora.	page 23
+(42) line 1	C. Thompson	rule	MAX(μ): Assign one violation for every mora present in the input not also present in the output.	page 23, the display
+§5.2.1	C. Thompson	note	The tableau in (38) shows a simplified interaction of MAX(μ) with TROCHEE and an HDA constraint. What is important to observe in this tableau is that, without HDA being able to assign multiple violations to candidate a, candidate b. — the correct winner — is harmonically bounded.	page 23
+(43) line 1	C. Thompson	rule	TROCHEE >> HDA(μ) >> MAX(μ)	page 23, the display
+§5.2.1	C. Thompson	note	In this tableau, neither candidate has a moraic HDA. If HDA(μ) can only recognize the differences between candidates which do or do not have HDAs, then the most faithful candidate in this scenario will always win: as does candidate (43a). This is not what the data in Section 5.1 suggests. The fact that, for the correct candidate to be chosen, an HDA constraint must recognize that candidate (43a) is worse than candidate (43b), allows me to propose the following definition for this constraint:	page 23
+(44) line 1	C. Thompson	rule	HDA(μ): Assign one violation for every dependent syllable with a moraic content equal to its head, and one additional violation for every mora by which it exceeds the moraic content of that head.	page 24, the display
+§5.2.1	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§5.2.1	C. Thompson	note	In the following sections we explore how HDA(μ) is ranked with respect to the other constraints we have seen at work in SENĆOŦEN, ʔayʔaǰuθəm, and Sḵwx̱wú7mesh.	page 24
+§5.2.2	C. Thompson	heading	5.2.2 SENĆOŦEN HDAs	page 24
+§5.2.2	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§5.2.2	C. Thompson	notation	*μ/C	*μ/C, a constraint against a mora exclusively dominating a consonant
+§5.2.2	C. Thompson	notation	*BRANCHμ	*BRANCHμ, a constraint against a mora dominating two segments
+§5.2.2	C. Thompson	notation	MAX(μ)	MAX(μ), a constraint against deleting a mora
+§5.2.2	C. Thompson	note	In Section 4.2.3, we saw that segment moraicity in SENĆOŦEN was determined by a crucial ranking of *μ/C >> *BRANCHμ. This ranking ensures that no candidate with moraic consonants will be optimal. As *μ/C is never violated, it is assumed to be un-dominated and thus cannot be crucially ranked against other un-dominated constraints (McCarthy 2008). Evidence for a crucial ranking of *BRANCHμ, however, can be found with respect to MAX(μ). The following pairwise tableau shows that if the former outranked the latter, then we would expect the mora of stressed vowels to delete so as not to incur a violation of *BRANCHμ.	page 24
+(45) line 1	C. Thompson	rule	*BRANCHμ >> MAX(μ)	page 24, the display
+§5.2.2	C. Thompson	note	In this tableau, candidate a. receives a critical violation from *BRANCHμ because the mora of the full vowel licenses both the head vowel and its coda consonant. Candidate (45b) avoids such a violation by deleting the mora of its full vowel. Despite violating MAX(μ) this candidate is selected as the winner as it does not have a mora which might branch. The examples in (46) show that this phenomenon is unattested in SENĆOŦEN. Monosyllabic words with a mora in their underlying form retain that mora on the surface.	page 24
+(46) line 1	C. Thompson	note	SENĆOŦEN monosyllabic words	page 24, the caption
+(46a) line 1	SENĆOŦEN	practical orthography	ȽLOȽ	page 24, columns
+(46a) line 2	SENĆOŦEN	phonemic	ɬláɬ	page 24, columns
+(46a) line 3	SENĆOŦEN	underlying	/ɬlaɬ/	page 24, columns
+(46a) line 4	Montler 2018	translation	‘travel by canoe’	page 24, columns, cited Montler 2018
+(46b) line 1	SENĆOŦEN	practical orthography	ĆÁṈ	page 24, columns
+(46b) line 2	SENĆOŦEN	phonemic	čéŋ	page 24, columns
+(46b) line 3	SENĆOŦEN	underlying	/čeŋ/	page 24, columns
+(46b) line 4	Montler 2018	translation	‘strong’	page 24, columns, cited Montler 2018
+(46c) line 1	SENĆOŦEN	practical orthography	HIŦ	page 24, columns
+(46c) line 2	SENĆOŦEN	phonemic	híθ	page 24, columns
+(46c) line 3	SENĆOŦEN	underlying	/hiθ/	page 24, columns
+(46c) line 4	Montler 2018	translation	‘long time’	page 24, columns, cited Montler 2018
+(46c) line 5	C. Thompson	citation	(Montler 2018)	the source under the example
+§5.2.2	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§5.2.2	C. Thompson	note	These examples demonstrate that there must be a valid ranking of MAX(μ) >> *BRANCHμ. The examples below (47) demonstrate that HDA(μ) must outrank TROCHEE. In these words, a right-headed foot is established with an HDA rather than a left-headed foot without one.	page 24
+(47) line 1	C. Thompson	note	Mora sensitivity in SENĆOŦEN stress	page 25, the caption
+(47a) line 1	SENĆOŦEN	practical orthography	SḴELÁU	page 25, columns
+(47a) line 2	SENĆOŦEN	phonemic	sqəléw̓	page 25, columns
+(47a) line 3	Leonard 2007	translation	‘beaver’	page 25, columns, cited Leonard 2007
+(47b) line 1	SENĆOŦEN	practical orthography	SENI,	page 25, columns
+(47b) line 2	SENĆOŦEN	phonemic	səníʔ	page 25, columns
+(47b) line 3	Leonard 2007	translation	‘oregon grape berry’	page 25, columns, cited Leonard 2007
+(47c) line 1	SENĆOŦEN	practical orthography	EMAḴ	page 25, columns
+(47c) line 2	SENĆOŦEN	phonemic	ʔəméq	page 25, columns
+(47c) line 3	Leonard 2007	translation	‘deliver’	page 25, columns, cited Leonard 2007
+(47c) line 4	C. Thompson	citation	(Leonard 2007)	the source under the example
+§5.2.2	C. Thompson	note	HDA(μ) must also outrank MAX(μ) so that full vowels in dependent syllables reduce. In the examples in (48), an underlying mora in the dependent syllable is lost thereby creating an HDA in (48a,c) and a symmetrical non-moraic foot in (48b).	page 25
+(48) line 1	C. Thompson	note	SENĆOŦEN vowel reduction	page 25, the caption
+(48a) line 1	SENĆOŦEN	practical orthography	W̱ÍYEM	page 25, columns
+(48a) line 2	SENĆOŦEN	phonemic	xʷáμyəm	page 25, columns
+(48a) line 3	SENĆOŦEN	underlying	/xʷaμyeμm/	page 25, columns
+(48a) line 4	Montler 2018	translation	‘to sell’	page 25, columns, cited Montler 2018
+(48b) line 1	SENĆOŦEN	practical orthography	WṮEḴTNEĆ	page 25, columns
+(48b) line 2	SENĆOŦEN	phonemic	xʷƛ̓ə́q.tnəč	page 25, columns
+(48b) line 3	SENĆOŦEN	underlying	/xʷ-ƛ̓əqt=neμč/	page 25, columns
+(48b) line 4	Montler 2018	translation	‘cougar’	page 25, columns, cited Montler 2018
+(48c) line 1	SENĆOŦEN	practical orthography	W̱NÁJES	page 25, columns
+(48c) line 2	SENĆOŦEN	phonemic	xʷnéμ.č̓əs	page 25, columns
+(48c) line 3	SENĆOŦEN	underlying	/xʷ-neμč̓=eμs/	page 25, columns
+(48c) line 4	Montler 2018	translation	‘he looks different’	page 25, columns, cited Montler 2018
+(48c) line 5	C. Thompson	citation	(Montler 2018)	the source under the example
+§5.2.2	C. Thompson	note	These examples see input-output faithfulness sacrificed, apparently for the sake of establishing an HDA. Tableau (49) accounts for these facts with *μ/C, HDA(μ) >> MAX(μ) >> TROCHEE, *BRANCHμ. This ranking successfully produces vowel reduction in the dependent syllable of W̱ÍYEM [(xʷáμyəm)] ‘to sell’.	page 25
+(49) line 1	C. Thompson	rule	*μ/C, HDA(μ) >> MAX(μ) >> TROCHEE, *BRANCHμ	page 25, the display
+§5.2.2	C. Thompson	note	In this tableau, candidate (49a) is ruled out for violating the un-dominated *μ/C. Candidates	page 25
+§5.2.2	C. Thompson	note	(49b) and (49e) are faithful to the moraicity of the underlying full vowel in the dependent syllable, but in doing so ensure that the head and dependent syllables contain an equal number of moras. This incurs a critical violation of HDA(μ) for both, and they are ruled out. Candidate (49f) avoids violating *BRANCHμ by deleting both underlying moras, but receives a critical violation from HDA(μ) and is eliminated. Finally, both candidates (49c) and (49d) delete a mora, thereby creating an HDA. Candidate (49d) does so for the initial vowel, however, resulting in a right-headed foot and receiving a critical violation from TROCHEE.	page 25
+§5.2.2	C. Thompson	note	The activity of the un-dominated *μ/C and HDA(μ) constraints as demonstrated in (49) explains the very restricted set of moraic structures that we observed in Section 4. The ranking proposed in this section accounts not only for facts about SENĆOŦEN stress assignment and vowel reduction but also explains why SENĆOŦEN only permits the three moraic structures for bisyllabic words shown in (50; overleaf).	page 25
+§5.2.2	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§5.2.2	C. Thompson	note	In the next section we will see that HDA(μ) is just as effective in ʔayʔaǰuθəm — a language with a more inclusive moraicity criterion than SENĆOŦEN. We will see that the presence of moraic codas entails some different phenomena aimed at establishing HDAs, but that the resulting paradigm of moraic structures is very similar to SENĆOŦEN.	page 26
+(50)	C. Thompson	note	Possible binary foot structures in SENĆOŦEN	page 26, the caption of a picture with no text layer
+§5.2.3	C. Thompson	heading	5.2.3 ʔayʔaǰuθəm Gemination	page 26
+§5.2.3	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§5.2.3	C. Thompson	notation	*BRANCHμ	*BRANCHμ, a constraint against a mora dominating two segments
+§5.2.3	C. Thompson	notation	*μ/C	*μ/C, a constraint against a mora exclusively dominating a consonant
+§5.2.3	C. Thompson	note	As we saw in Section 4, speaker judgments and phenomena like compensatory lengthening show that coda consonants are moraic in ʔayʔaǰuθəm. This was formalized in OT by the ranking of BRANCHμ >> *μ/C. This ranking rules out candidates which have a mora shared between both its full vowel and a coda consonant (51a) while permitting the structure in (51b) despite its violation of *μ/C.	page 26
+(51)	C. Thompson	note	(51)	page 26, drawn as a picture with no text layer
+§5.2.3	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§5.2.3	C. Thompson	notation	MAX(μ)	MAX(μ), a constraint against deleting a mora
+§5.2.3	C. Thompson	note	We also saw in Section 5.1 that the presence of this moraic coda meant that vowels in unstressed, closed, syllables lost their mora while those in unstressed open syllables did not. As demonstrated in the previous section (Section 5.2.1), unstressed vowel reduction — or in this case laxing (Blake 2000) — can be derived by a ranking of HDA(μ) >> MAX(μ). We see in tableau (52) that this ranking successfully predicts laxing in ʔayʔaǰuθəm closed syllables.	page 26
+(52) line 1	C. Thompson	rule	TROCHEE >> HDA(μ) >> MAX(μ)	page 27, the display
+§5.2.3	C. Thompson	note	In this tableau, candidate (52a) receives two violations from HDA(μ) for having more moras in the dependent syllable than it does in the head syllable. Candidate (52b) receives one for having equally weighted syllables and is therefore chosen as the winner.	page 27
+§5.2.3	C. Thompson	note	The forms in (53) show that this ranking of these constraints results in a highly constricted set of possible surface moraic structures in this language.	page 27
+(53)	C. Thompson	note	Binary foot structures in ʔayʔaǰuθəm	page 27, the caption of a picture with no text layer
+§5.2.3	C. Thompson	note	Notice that the high ranking of TROCHEE means that heads are always initial in ʔayʔaǰuθəm (Blake 2000). This fact has interesting implications when words have an initial open syllable headed by schwa. Such syllables are weightless as demonstrated in (54) below.	page 27
+(54)	C. Thompson	note	(54)	page 28, drawn as a picture with no text layer
+§5.2.3	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§5.2.3	C. Thompson	note	In SENĆOŦEN, the obvious way to make an HDA for a word like (54) would be to form an iambic foot making the weightless syllable a dependent. However, the high ranking of TROCHEE ensures that this is not an option in ʔayʔaǰuθəm. Blake (2000) gives three ways in which initial, schwa-headed, open syllables come by a coda: preglottalization, [h] epenthesis, and gemination. As an example, we will use gemination to argue that all three of these processes serve to mitigate violations of HDA(μ).	page 28
+§5.2.3	C. Thompson	note	The following examples (55) show that, when an initial, open syllable is headed by a full vowel, intervocalic consonants are parsed as the onset of the second syllable as predicted in section 4.2.1.	page 28
+(55) line 1	C. Thompson	note	Intervocalic consonants parsed as onsets in ʔayʔaǰuθəm	page 28, the caption
+(55a) line 1	ʔayʔaǰuθəm	phonemic	téμ.qɛwμ	page 28, columns
+(55a) line 2	ʔayʔaǰuθəm	underlying	/tiμqiμw/	page 28, columns
+(55a) line 3	Blake 2000	translation	‘horse’	page 28, columns, cited Blake 2000
+(55b) line 1	ʔayʔaǰuθəm	phonemic	q̓áμ.qɛqʷμ	page 28, columns
+(55b) line 2	ʔayʔaǰuθəm	underlying	/q̓aμqiμqʷ/	page 28, columns
+(55b) line 3	Blake 2000	translation	‘bladder wrack’	page 28, columns, cited Blake 2000
+(55c) line 1	ʔayʔaǰuθəm	phonemic	t̓óμ.ɬʌɬμ	page 28, columns
+(55c) line 2	ʔayʔaǰuθəm	underlying	/t̓uμɬaμɬ/	page 28, columns
+(55c) line 3	Blake 2000	translation	‘bed’	page 28, columns, cited Blake 2000
+(55c) line 4	C. Thompson	citation	(Blake 2000)	the source under the example
+§5.2.3	C. Thompson	note	However — as demonstrated by the examples below in (56) — when an initial open syllable is headed by a schwa, intervocalic consonants geminate.	page 28
+(56) line 1	C. Thompson	note	Intervocalic gemination in ʔayʔaǰuθəm	page 28, the caption
+(56a) line 1	ʔayʔaǰuθəm	phonemic	pə́pːμʌμ	page 28, columns, carries footnote 11
+(56a) line 2	ʔayʔaǰuθəm	underlying	/ppaμ/	page 28, columns
+(56a) line 3	Blake 2000	translation	‘pepper’	page 28, columns, cited Blake 2000
+(56b) line 1	ʔayʔaǰuθəm	phonemic	čɪ́nːμeμ	page 28, columns
+(56b) line 2	ʔayʔaǰuθəm	underlying	/čniμ/	page 28, columns
+(56b) line 3	Blake 2000	translation	‘it’s me’	page 28, columns, cited Blake 2000
+(56c) line 1	ʔayʔaǰuθəm	phonemic	qʷʌ́sːμemμ	page 28, columns
+(56c) line 2	ʔayʔaǰuθəm	underlying	/qʷs-iμm/	page 28, columns
+(56c) line 3	Blake 2000	translation	‘white foam, froth’	page 28, columns, cited Blake 2000
+(56c) line 4	C. Thompson	citation	(Blake 2000)	the source under the example
+§5.2.3	ʔayʔaǰuθəm	cited form	čɪ́nːe	it’s me
+§5.2.3	C. Thompson	note	Blake (2000) argues that lengthening occurs in these words to satisfy a requirement that stressed schwa not head open syllables. In light of the present analysis however, I propose that gemination occurs in these forms to ensure that the head syllable does not have fewer moras than its dependent. The representations below in (57) show the ʔayʔaǰuθəm word čɪ́nːe ‘it’s me’12, with the intervocalic consonant parsed simply as an onset to the final syllable (57a) and as a geminate (57b).	page 28
+(57)	C. Thompson	note	(57)	page 28, drawn as a picture with no text layer
+footnote 11	C. Thompson	note	11 I assume that the lax quality of this vowel likely owing to convergence with the English pronunciation and does not indicate that it has lost a mora	page 28, footnote
+footnote 12	C. Thompson	note	12 The first vowel in this word is a schwa which surfaces as [ɪ] (Blake 2000).	page 28, footnote
+§5.2.3	C. Thompson	note	Candidates with the form of (57a) have a decidedly unfavourable structure in the eyes of HDA(μ). Candidates with a geminate (57b) on the other hand, satisfy the final syllable’s need for an onset, as well as the initial syllable’s need for a mora. I propose to represent this analysis with a crucial ranking of HDA(μ) over NO-GEM (McCarthy, 2008) — a constraint on gemination.13	page 29
+(58) line 1	C. Thompson	rule	NO-GEM: Assign one violation for every geminate consonant.	page 29, the display
+§5.2.3	C. Thompson	note	The tableau in (59) shows that a crucial ranking of TROCHEE >> HDA(μ) >> NO-GEM derives the correct surface form for čɪ́nːe ‘it’s me’.	page 29
+(59) line 1	C. Thompson	rule	TROCHEE >> HDA(μ) >> NO-GEM	page 29, the display
+§5.2.3	C. Thompson	note	In this tableau, candidate (59c) receives a critical violation from TROCHEE for having a right- headed foot and is ruled out. Candidate (59a) parses the intervocalic consonant as an onset like in (57a.); however, since this means that the dependent syllable has more moras than the head, it receives two violations from HDA(μ) and is ruled out. Candidate (59b) parses the intervocalic consonant as a geminate and receives a violation from NO-GEM, but since the syllables are equally weighted this candidate only receives a single HDA(μ) violation and is ruled out. In this section, the constraints used to predict stress in SENĆOŦEN were re-ranked to account for fixed initial stress, vowel laxing, and intervocalic gemination after stressed schwa in ʔayʔaǰuθəm. The high ranking of TROCHEE, *BRANCHμ, and HDA(μ) results in the words examined in this section having a highly constrained number of possible foot structures. In accounting for the prosodic phenomena of ʔayʔaǰuθəm by re-ranking constraints used in the analysis of SENĆOŦEN the HDA model predicts this restricted set of possible foot structures and offers a means of unifying the two analyses.	page 29
+§5.2.4	C. Thompson	heading	5.2.4 Sḵwx̱wú7mesh stress	page 29
+§5.2.4	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§5.2.4	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§5.2.4	C. Thompson	note	As a final part of this analysis, we return to stress in Sḵwx̱wú7mesh, exploring what insights the HDA lens can provide, and accounting for some issues with the constraint ranking in Section 4.3. Recall that stress functions similarly to SENĆOŦEN, except that resonants are moraic. Examples are restated in (60).	page 29
+(60) line 1	C. Thompson	note	Some examples of stress in Sḵwx̱wú7mesh	page 29, the caption
+(60a.i) line 1	Sḵwx̱wú7mesh	practical orthography	ímats	page 29, columns
+(60a.i) line 2	Sḵwx̱wú7mesh	phonemic	ʔímac	page 29, columns
+(60a.i) line 3	Dyck 2004	translation	‘grandchild’	page 29, columns, cited Dyck 2004
+(60a.ii) line 1	Sḵwx̱wú7mesh	practical orthography	ksháwes	page 29, columns
+(60a.ii) line 2	Sḵwx̱wú7mesh	phonemic	kšáwəs	page 29, columns
+(60a.ii) line 3	Dyck 2004	translation	‘bluejay’	page 29, columns, cited Dyck 2004
+(60b.i) line 1	Sḵwx̱wú7mesh	practical orthography	eḵwís	page 30, columns
+(60b.i) line 2	Sḵwx̱wú7mesh	phonemic	ʔəqʷís	page 30, columns
+(60b.i) line 3	Dyck 2004	translation	‘thin’	page 30, columns, cited Dyck 2004
+(60b.ii) line 1	Sḵwx̱wú7mesh	practical orthography	syex̱ás	page 30, columns
+(60b.ii) line 2	Sḵwx̱wú7mesh	phonemic	syəx̌ás	page 30, columns
+(60b.ii) line 3	Dyck 2004	translation	‘large rock’	page 30, columns, cited Dyck 2004
+(60c.i) line 1	Sḵwx̱wú7mesh	practical orthography	ḵénaxw	page 30, columns
+(60c.i) line 2	Sḵwx̱wú7mesh	phonemic	qə́naxʷ	page 30, columns
+(60c.i) line 3	Dyck 2004	translation	‘throat’	page 30, columns, cited Dyck 2004
+(60c.ii) line 1	Sḵwx̱wú7mesh	practical orthography	yeḵéy	page 30, columns
+(60c.ii) line 2	Sḵwx̱wú7mesh	phonemic	yəqə́y	page 30, columns
+(60c.ii) line 3	Dyck 2004	translation	‘to creep’	page 30, columns, cited Dyck 2004
+(60d.i) line 1	Sḵwx̱wú7mesh	practical orthography	wéx̱es	page 30, columns
+(60d.i) line 2	Sḵwx̱wú7mesh	phonemic	wə́x̌əs	page 30, columns
+(60d.i) line 3	Dyck 2004	translation	‘frog’	page 30, columns, cited Dyck 2004
+(60d.ii) line 1	Sḵwx̱wú7mesh	practical orthography	x̱éteh	page 30, columns
+(60d.ii) line 2	Sḵwx̱wú7mesh	phonemic	x̌ə́təh	page 30, columns
+(60d.ii) line 3	Dyck 2004	translation	‘far’	page 30, columns, cited Dyck 2004
+(60d.ii) line 4	C. Thompson	citation	(Dyck 2004)	the source under the example
+footnote 13	C. Thompson	note	13 While this constraint is assumed to be present in SENĆOŦEN and Sḵwx̱wú7mesh, it is presumably un- dominated and therefore omitted from the other tableaux.	page 29, footnote
+§5.2.4	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§5.2.4	C. Thompson	note	The above examples demonstrate that resonant moraicity in this language will ensure a greater diversity in the number of possible prosodic structures than we saw in either ʔayʔaǰuθəm or SENĆOŦEN. Some of these are given in (70) below.	page 30
+§5.2.4	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§5.2.4	C. Thompson	notation	*μ/K	*μ/K, a constraint against a mora exclusively dominating an obstruent
+§5.2.4	C. Thompson	notation	*BRANCHμ	*BRANCHμ, a constraint against a mora dominating two segments
+§5.2.4	C. Thompson	notation	*μ/R	*μ/R, a constraint against a mora exclusively dominating a resonant
+§5.2.4	C. Thompson	notation	MAX(μ)	MAX(μ), a constraint against deleting a mora
+§5.2.4	Sḵwx̱wú7mesh	cited form	yeḵéy	to creep
+(61)	C. Thompson	note	Binary foot structures in Sḵwx̱wú7mesh	page 30, the caption of a picture with no text layer
+§5.2.4	C. Thompson	note	The set of structures in (61) might be presented as evidence against the claim that the HDA framework is capable of accounting for foot structure in Sḵwx̱wú7mesh. The most obvious support for such an argument is that dependent syllables are not restricted to licensing either one mora (as in ʔayʔaǰuθəm) or zero moras (as in SENĆOŦEN). Recall that one of the principal pieces of evidence for a constraint on the licensing capacity of dependents was that: while heads showed variation in the number of moras they licensed, dependents did not. Yet, in Sḵwx̱wú7mesh, some dependents have one mora (61a,c.) and others have no moras (61b,d-e.) — why is this? The first step in answering this question is to determine whether there really is any evidence that HDA(μ) is active in Sḵwx̱wú7mesh. We know from Section 4.2.3 that segment moraicity in this language can be derived from the crucial ranking of *μ/K >> *BRANCHμ >> *μ/R. As mentioned previously, this seems to be the main difference between the stress systems of Sḵwx̱wú7mesh and SENĆOŦEN. So, to determine whether HDA(μ) is active in Sḵwx̱wú7mesh, tableau (62) applies a combination of this ranking and HDA(μ) >> MAX(μ) >> TROCHEE to the word yeḵéy ‘to creep’.	page 30
+§5.2.4	C. Thompson	note	In this tableau, HDA(μ) rules out all the incorrect candidates, ensuring that candidate (62a) is correctly selected as the surface form. This is especially clear in the case of candidate (62d) where HDA(μ) is the only constraint which can assign its necessary violation. This seems like clear proof that HDA(μ) is active in Sḵwx̱wú7mesh.	page 31
+(62) line 1	C. Thompson	rule	*μ/K, HDA(μ) >> MAX(μ) >> *BRANCHμ >> TROCHEE, *μ/R	page 31, the display
+§5.2.4	Sḵwx̱wú7mesh	cited form	míx̱alh	bear
+§5.2.4	Sḵwx̱wú7mesh	cited form	mí.x̌aɬ	bear, its surface form
+§5.2.4	C. Thompson	note	However, despite the success of tableau (55) in showing the activity of HDA(μ), when this ranking is applied to any example with more than one underlying mora, it derives the incorrect surface form. This is demonstrated by tableau (56) which shows stress assignment for the word míx̱alh [(mí.x̌aɬ)] ‘bear’.	page 31
+(63) line 1	C. Thompson	rule	*μ/K, HDA(μ) >> MAX(μ) >> *BRANCHμ >> TROCHEE, *μ/R	page 31, the display
+§5.2.4	C. Thompson	note	In this tableau, candidates (63b), (63d) and (63e), and the correct surface form (63c), are ruled out by HDA(μ). Unexpectedly, candidate (63a) is then ruled out by *BRANCHμ for its word-final [ɬ] being licensed under the head vowel’s mora, and candidate (63f) is incorrectly selected as the winner.	page 31
+§5.2.4	C. Thompson	note	While tableau (63) demonstrates that this ranking is obviously incorrect, it does begin to explain why we see more variation in the moraic content of Sḵwx̱wú7mesh dependent syllables than we do in those of SENĆOŦEN or ʔayʔaǰuθəm. In both of those languages — and tableau (63) — HDA(μ) was ranked above MAX(μ). In this ranking schema, dependent syllables always have the option to undergo deletion as a means of satisfying their desire for an asymmetrical foot structure. This is the remedy which tableau (63) misuses. What this observation shows is that the option of deleting moras independent syllables must not be available in Sḵwx̱wú7mesh. Indeed, tableau (64) demonstrates that by simply re-ranking MAX(μ) over HDA(μ), the correct surface form is derived.	page 32
+(64) line 1	C. Thompson	rule	*μ/K >> MAX(μ) >> HDA(μ) >> *BRANCHμ >> TROCHEE, *μ/R	page 32, the display
+§5.2.4	C. Thompson	note	In this tableau, the high ranking MAX(μ) rules out candidates (64a) and (64b) as well as (64e)	page 32
+§5.2.4	C. Thompson	note	(64f). This means that it is between the two faithful candidates (64c) and (64d). Of these, candidate (64d) has an iambic foot and so receives a violation from TROCHEE and is ruled out. This ranking accounts for why full vowels do not lose their mora via reduction to schwa in this language, as well as explaining the variation found in the moraic content of dependent syllables. While there is still a desire to have an asymmetrical foot structure, HDA(μ) can only select output candidates when doing so does not require a violation of MAX(μ).	page 32
+§5.2.5	C. Thompson	heading	5.2.5 Section summary	page 32
+§5.2.5	C. Thompson	note	In this section, observations of HDAs in three Central Salish languages were taken to indicate that there must be an OT-style constraint active in these languages which penalized feet that lacked this structure. To test this proposal, such a constraint was developed, defined, and used to account for various prosodic phenomena. To conclude, some potential implications of this analysis will be discussed.	page 32
+§6	C. Thompson	heading	6 Discussion	page 32
+§6	C. Thompson	note	Three basic constraint rankings were proposed for the different languages discussed in this paper. These are listed below (65).	page 32
+(65) line 1	C. Thompson	rule	ʔayʔaǰuθəm TROCHEE, *BRANCHμ >> HDA(μ) >> MAX(μ), *μ/K, *μ/R	page 32, the display
+(65) line 2	C. Thompson	rule	Sḵwx̱wú7mesh *μ/K >> MAX(μ) >> HDA(μ) >> *BRANCHμ >> TROCHEE, *μ/R	page 32, the display
+(65) line 3	C. Thompson	rule	SENĆOŦEN *μ/K, *μ/R, HDA(μ) >> MAX(μ) >> TROCHEE, *BRANCHμ	page 32, the display
+§6	C. Thompson	note	This paper makes the prediction that re-ranking these constraints will derive the prosodic systems of other Central Salish languages. In particular, the ranking proposed for SENĆOŦEN has the potential to account for the prosody of languages like Hən̓qəmin̓əm̓, Lushootseed, or Klallam which all experience widespread vowel reduction in dependent syllables.	page 33
+§6	C. Thompson	notation	*ə́]σ	*ə́]σ, Blake's constraint against a stressed schwa ending a syllable
+§6	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§6	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§6	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§6	C. Thompson	note	As emphasized in the introduction, this paper’s core objective was to provide a unifying framework for previous analyses of Central Salish prosody. Although the original analyses do successfully account for these phenomena, their descriptive power is for the most part limited to the level of a specific language or a specific phenomenon. By identifying the motivation for processes of mora deletion, weight sensitive stress, and gemination, patterns emerge within languages but also between them. For example, the constraint *ə́]σ — which Blake (2000) used to account for gemination in ʔayʔaǰuθəm — successfully identifies the environment of a schwa- headed, stressed, open syllable; however, it does not also identify the environment of a final, closed, unstressed syllable headed by a full vowel: the environment of unstressed vowel laxing in ʔayʔaǰuθəm. It doesn’t have anything to say about weight sensitive stress in Sḵwx̱wú7mesh or full vowel reduction in SENĆOŦEN. However, as shown in this paper, all of these processes can be effectively described as ways of establishing moraic HDAs. This analysis allows for an effective, inclusive, and cross-linguistically motivated account of moraicity in Central Salish. I would further argue that the HDA approach, through its use of Ocham’s Razor, allows for a simpler analysis of Central Salish moraicity. If headedness is always either a property of the most moraic syllable or determined by TROCHEE, then a constraint which “selects” the head, like WSP, is probably unnecessary. While there certainly is ample evidence in Dresher and van der Hulst’s (1998) study that HDAs are a cross-linguistic phenomenon, the fact that it works so well for Central Salish almost constitutes as sufficient condition for their implementation.	page 33
+§7	C. Thompson	heading	7 Conclusion	page 33
+§7	C. Thompson	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon
+§7	C. Thompson	language	Sḵwx̱wú7mesh	Sḵwx̱wú7mesh, Squamish
+§7	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+§7	C. Thompson	notation	HDA(μ)	HDA(μ), the constraint on moraic head-dependent asymmetries
+§7	C. Thompson	note	This paper saw comparison analyses of prosodic phenomena from three Central Salish languages: ʔayʔaǰuθəm, Sḵwx̱wú7mesh, and SENĆOŦEN. It proposed that, in all three, prosodic processes are driven by an underlying motivation to establish feet which are asymmetrical in terms of the moraic content of their head and dependent syllables. It used Dresher and van der Hulst’s (1998) theory of head-dependent asymmetries to systematize this motivation and proposed a constraint — HDA(μ) — which captured it in an OT framework. Applying this constraint to analyses of SENĆOŦEN stress and vowel reduction (Leonard 2007, 2019), ʔayʔaǰuθəm vowel laxing and gemination (Blake 2000), and Sḵwx̱wú7mesh resonant moraicity and stress assignment (Dyck 2004), showed that the HDA(μ) constraint does indeed account for these phenomena. This model’s strength lies in its ability to unify moraic processes within, and across, languages, account for differences in the kinds of moraic forms present in each, and identify their underlying motivation.	page 33
+references	C. Thompson	heading	References	page 33
+references	C. Thompson	language	Skwxwú7mesh	Sḵwx̱wú7mesh, Squamish, in the title of a reference
+references	C. Thompson	reference	Bar-el, L., & Watt, L. T. (1998). What determines stress in Skwxwú7mesh (Squamish). In Proceedings of the 33rd International Conference on Salishan and Neighboring Languages (pp. 407–427).	
+references	C. Thompson	name	Bermúdez-Otero	Ricardo Bermúdez-Otero, an author cited
+references	C. Thompson	reference	Bermúdez-Otero, R. (2001). Underlyingly nonmoraic coda consonants, faithfulness, and sympathy. [Unpublished Manuscript] Blake, S. J. (2000). On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives (Doctoral dissertation, University of British Columbia).	
+references	C. Thompson	reference	Crawford, A. C. (2015). Reduplication in Klallam (Master’s Thesis, California State University, Northridge).	
+references	C. Thompson	reference	Czaykowska-Higgins, E., & Kinkade, M. D. (eds.). (1998). Salish languages and linguistics: Theoretical and descriptive perspectives. De Gruyter Mouton.	
+references	C. Thompson	reference	Dresher, B. E., & van der Hulst, H. (1998). Head–dependent asymmetries in phonology: complexity and visibility. Phonology, 15(3), 317-352.	
+references	C. Thompson	reference	Dyck, R. A. (2004). Prosodic and morphological factors in Squamish (Skwxwú7mesh) stress assignment (Doctoral dissertation, University of Victoria).	
+references	C. Thompson	reference	Gessner, S., Herbert, T., & Parker, A. (2022). Report on the status of B.C. First Nations languages: Fourth Edition. First People’s Cultural Council. https://fpcc.ca/wp- content/uploads/2023/02/FPCC-LanguageReport-23.02.14FIN Goedemans, R., & van der Hulst, H. (2013). Weight factors in weight-sensitive stress systems. The world atlas of language structures online. Max Planck Institute for Evolutionary Anthropology.	
+references	C. Thompson	reference	Hyman, L. M. (1985). A theory of phonological weight. Foris Publications.	
+references	C. Thompson	reference	Ignace, M. & Ignace, R. (2018). A new look at Interior Salish through the lens of multiple disciplines beyond, and including, linguistics. In L. Matthewson, E. Guntly, M. Rochemont, & M. Huijsmans (eds.), Wa7 xweysás i nqwal’úttensa i ucwalmícwa: He loves the people’s languages: Essays in honor of Henry Davis (p. 403-425). University of British Columbia Working Papers in Linguistics.	
+references	C. Thompson	reference	Kuipers, A. H. (1967). The Squamish language: Grammar, texts, dictionary. Walter de Gruyter GmbH & Co KG.	
+references	C. Thompson	language	SENĆOŦEN	SENĆOŦEN, a Straits Salish language
+references	C. Thompson	reference	Kuno, S. (1973). The structure of the Japanese language. Cambridge, MA: MIT Press.	
+references	C. Thompson	reference	Leonard, J. (2007). A preliminary account of stress in SENĆOŦEN (Saanich/North Straits Salish). Northwest Journal of Linguistics, 1(4), 1-59.	
+references	C. Thompson	reference	Leonard, J. (2019). The phonological representation and distribution of vowels in SENĆOŦEN (Saanich) (Doctoral dissertation, University of Victoria).	
+references	C. Thompson	reference	McCarthy, J. J. (2008). Doing Optimality Theory: Applying Theory to Data. Blackwell Publishing.	
+references	C. Thompson	reference	Montler, T. (1986). An outline of the morphology and phonology of Saanich, North Straits Salish. University of Montana. Online. Available at: http://saanich.montler.net/Outline/index.htm Montler, T. (2018). SENĆOŦEN: a dictionary of the Saanich language. University of Washington Press.	
+references	C. Thompson	reference	Prince, A. (1990). Quantitative consequences of rhythmic organization. Chicago Linguistic Society, 26(2), 355–98.	
+references	C. Thompson	reference	Prince, A. & Smolensky, P (1993/2004) Optimality Theory: Constraint Interaction in Generative Grammar. Malden, MA, & Oxford: Blackwell. [Revision of 1993 technical report, Rutgers University Center for Cognitive Science. Available on Rutgers Optimality Archive, ROA-537.] Richards, N. (2016). Contiguity theory (Vol. 73). MIT Press Ryan, K. M. (2019). Prosodic weight: Categories and continua (3). Oxford University Press.	
+references	C. Thompson	reference	Selkirk, E. (1995). Sentence prosody: Intonation, stress, and phrasing. In J. Goldsmith (eds.) The handbook of phonological theory, 1, 550-569.	
+references	C. Thompson	reference	Shaw, P. A., Blake, S. J., Campbell, J., & Sheperd, C. (1999). Stress in hen’q’emin’em’ (Musqueam) Salish. Proceedings of WSCLA, 4, 131-163.	
+references	C. Thompson	reference	Shih, S. H. (2018). Non-moraic schwa: Phonology and phonetics (Doctoral dissertation, Rutgers University).	
+references	C. Thompson	reference	Van Eijk, J. P. (2008). A bibliography of Salish linguistics Northwest Journal of Linguistics, 2(3), 1–128.	
+references	C. Thompson	reference	Zec, D. (1995). Sonority constraints on syllable structure. Phonology, 12(1), 85-129.	

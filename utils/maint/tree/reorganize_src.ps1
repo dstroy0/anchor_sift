@@ -20,7 +20,7 @@ $src = Join-Path $root "src"
 
 $layout = @{
     "engine"  = @("sha256_core.c", "sha256_core.h", "cuda_miner.cu", "cuda_miner.h",
-                  "anchor_sift.c", "anchor_sift.h", "anchor_sift_hw.c")
+                  "orior.c", "orior.h", "orior_hw.c")
     "client"  = @("btc_miner.cpp", "json_value.h", "candidate.cpp", "harness.cpp")
     "test"    = @("kat_validation.cpp")
     "scripts" = @("cat_logs.ps1", "relaunch_miner.ps1", "run_miner.ps1")

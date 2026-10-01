@@ -1,0 +1,448 @@
+where	who	kind	form	gloss
+front	Patrick Littell	title	Reconsidering sensory evidence in Nɬeʔkepmxcín	page 1, carries footnote *
+front	Patrick Littell	name	Patrick Littell	author
+front	Patrick Littell	name	Scott Mackie	author
+front	Patrick Littell	note	University of British Columbia	page 1, under Scott Mackie
+front	Patrick Littell	note	Nɬeʔkepmxcín (Thompson River Salish), a Northern Interior Sal- ishan language of British Columbia, has traditionally been clas- sified as having a three-way evidential contrast between non- visual evidence (nukʷ), reportative evidence (ekʷu), and infer- ential evidence (nke). In investigating the contexts in which these particles are used, however, we find that nukʷ shows rather different semantic and pragmatic properties than do the other Nɬeʔkepmxcín evidentials or evidentials in other languages. We propose that nukʷ acts rather more like an “expressive” particle (Kaplan, 1999; Potts, 2005; Schlenker, 2007), and that the cate- gory of Evidentials may include a more diverse set of meanings than traditionally considered.	page 1, the abstract
+front	Patrick Littell	language	Nɬeʔkepmxcín	Thompson River Salish, Northern Interior Salishan, of British Columbia
+footnote *	Patrick Littell	note	Thanks to Patricia McKay and Flora Erhardt for sharing their time and their language, and Lisa Matthewson and Hotze Rullmann for advising & funding. This research was funded by SSHRC grants #410-2005-0875 and #410-2007-1046 and the Jacobs Research Funds grant “Second Position Seman- tics”.	page 1, footnote *, on the title
+footnote *	Patrick Littell	name	Patricia McKay	Nɬeʔkepmxcín consultant, thanked
+footnote *	Patrick Littell	name	Flora Erhardt	Nɬeʔkepmxcín consultant, thanked
+footnote *	Patrick Littell	name	Lisa Matthewson	thanked for advising and funding
+footnote *	Patrick Littell	name	Hotze Rullmann	thanked for advising and funding
+footnote *	Patrick Littell	name	Matthewson	Lisa Matthewson (2008, 2010, 2011), and with Davis and Rullmann (2007)
+footnote *	Patrick Littell	name	Rullmann	Hotze Rullmann, with Matthewson and Davis (2008)
+§1	Patrick Littell	heading	1 Introduction	page 1
+§1	Patrick Littell	note	Nɬeʔkepmxcín (Thompson River Salish) and the other Salishan languages exhibit a rich system of “second-position” particles – small words that occur di- rectly after the first word in a clause and typically are pronounced as part of the previous word (Thompson and Thompson, 1992). These particles serve a wide variety of functions: grammatical person markers, modals, emphatic particles, question particles, and many particles whose contribution to the meaning of the sentence is unclear. Indeed, speakers note that, although their use is essential to fluent speech, it is very difficult to provide English definitions or equivalents for them (Patricia McKay, p.c.).	page 1
+§1	Patrick Littell	name	Thompson and Thompson	Laurence C. and M. Terry Thompson, The Thompson Language (1992) and the dictionary (1996)
+§1	Patrick Littell	language	Thompson River Salish	Nɬeʔkepmxcín
+§1	Patrick Littell	language	English	its expressives, oops, ouch, alas, wow and damn
+§1	Patrick Littell	note	To this end, we have been attempting to catalogue the second-position particles of Nɬeʔkepmxcín, noting the various contexts in which they are used, in hopes of discovering each particle’s use conditions. Following up on an observa- tion by Kaplan (1999), for many words (cow, dance, transubstantiation) we can provide definitions, or point to examples of them, but for many other words (ouch, oops, alas) it would be difficult or impossible to define them or point to what they refer to. For these words, describing their “meaning” is equivalent to describing the conditions under which they are used.	page 1
+§1	English	cited form	cow, dance, transubstantiation	page 1, in italics
+§1	English	cited form	ouch, oops, alas	page 1, in italics
+§1	Patrick Littell	name	Kaplan	David Kaplan, the meaning of ouch and oops (1999)
+§1	Patrick Littell	note	“I don’t ask ‘what does goodbye mean?’”. Instead I ask, ‘what are the conditions under which the expression would be cor- rectly or accurately used?’. This seems like a much more fruitful line of inquiry for words like goodbye” (Kaplan, 1999).	page 2
+§1	English	cited form	goodbye	page 2, in italics
+§1	Patrick Littell	note	We have been taking this approach in investigating some of Nɬeʔkepmx- cín’s more “untranslatable” particles, and in doing so have found an interesting phenomenon among the evidential particles: one of them (nukʷ) behaves quite un- like the other Nɬeʔkepmxcín evidentials, and unlike evidentials in other languages as well. We propose that rather than contribute a prototypically evidential mean- ing − that is, adding to an utterance a meaning that that information is known by particular means − it primarily contributes an expressive meaning (Kaplan, 1999; Potts, 2005), expressing that the speaker is at the moment in a particular state.	page 2
+§1	Nɬeʔkepmxcín	cited form	nukʷ	page 2, in italics
+§1	Patrick Littell	name	Potts	Christopher Potts, The Logic of Conventional Implicatures (2005)
+§1	Patrick Littell	note	Specifically, we propose that it expresses that the speaker is in a state of having been affected by a stimulus. This use condition is, admittedly, extremely broad, but so are the situations in which nukʷ appears. Indeed, its use goes far beyond contexts of non-visual evidence, comprising nearly any context in which expressive content is appropriate.	page 2
+§1	Patrick Littell	note	This proposal can be situated as part of a larger debate regarding eviden- tiality and its implementation in formal semantics (Waldie et al., 2009; Matthew- son, 2011). This debate centers around what formal apparatus best captures the semantic and pragmatic properties of evidentials: are they modals (Izvorski, 1997; Matthewson et al., 2007; McCready and Ogata, 2007), speech-act operators (Faller, 2002; Portner, 2006), or some other sort of semantic object (Chung, 2007; Murray, 2010)? We seek to contribute to this debate by suggesting that there can also be expressive evidentials.	page 2
+§1	Patrick Littell	name	Faller	Martina Faller, evidentials in Cuzco Quechua (2002, 2006, 2010)
+§1	Patrick Littell	name	Izvorski	Roumyana Izvorski, the present perfect as an epistemic modal (1997)
+§1	Patrick Littell	name	Murray	Sarah Murray, evidentiality and the structure of speech acts (2010)
+§1	Patrick Littell	name	Waldie	Ryan Waldie, with Peterson and Mackie (2009)
+§1	Patrick Littell	name	Chung	Kyung-Sook Chung, spatial deictic tense and evidentials in Korean (2007)
+§1	Patrick Littell	name	McCready and Ogata	Eric McCready and Norry Ogata, evidentiality, modality and probability (2007)
+§1	Patrick Littell	name	Portner	Paul Portner, comments on Faller (2006)
+§2	Patrick Littell	heading	2 Evidentiality in Nɬeʔkepmxcín	page 2
+§2	Patrick Littell	note	“Evidentiality” is commonly defined as the grammatical marking of in- formation source (Aikhenvald, 2004). In many languages, speakers can (and some- times must) make clear, for each assertion, how they gained the information: whe- ther it was (for example) by direct witness, by hearsay, by pure conjecture, etc. In Nɬeʔkepmxcín, evidentiality is marked by the addition of particular second- position particles to a sentence.	page 2
+§2	Patrick Littell	name	Aikhenvald	Alexandra Aikhenvald, Evidentiality (2004)
+§2	Patrick Littell	note	In Thompson and Thompson’s (1992) grammar of Nɬeʔkepmxcín, three second-position particles are described as signaling “evidential” meanings: nukʷ for non-visual evidence, ekʷu for reportative evidence, and nke for inferential evi- dence. Nɬeʔkepmxcín therefore exhibits a “B4” evidential system in Aikhenvald’s (2004) evidential typology. Direct visual evidence is not morphologically marked, and evidential marking does not appear to be obligatory.1	page 2
+footnote 1	Patrick Littell	note	Although evidential marking is not obligatory for the grammaticality of the sentence, speakers note that it is nonetheless necessary for proper communication; misuse of them can be pragmatically or socially inappropriate (Mandy Jimmie, p.c.).	page 2, footnote 1
+§2	Nɬeʔkepmxcín	cited form	ekʷu	page 2, in italics
+§2	Nɬeʔkepmxcín	cited form	nke	page 2, in italics
+§2.1	Patrick Littell	heading	2.1 nukʷ: non-visual evidence	page 3
+§2.1	Patrick Littell	note	nukʷ is used in situations where the speaker has witnessed the event or state in question, but not visually – they have felt it, or heard it, or smelled or tasted it.	page 3
+(1) line 1	Nɬeʔkepmxcín	transcription	c̓alt-w̓iy nukʷ xeʔ e sqyeytn	page 3
+(1) line 2	Nɬeʔkepmxcín	gloss	salty-very SENSE DEM DET fish	page 3
+(1) line 3	Patrick Littell	translation	‘That fish tastes very/too salty.’	page 3
+§2.1	Patrick Littell	note	It is not in general used to mark knowledge known by direct visual wit- ness, although as we will show below there are systematic exceptions to this. Nonetheless, plain statements of visual fact are almost never marked with nukʷ, and attempts at inserting it are rejected.	page 3
+(2) line 1	Nɬeʔkepmxcín	transcription	ʔes-kʷel̓iʔ (*nukʷ) xeʔ tek n=ƛ̓pic̓eʔ	page 3
+(2) line 2	Nɬeʔkepmxcín	gloss	STAT-green (SENSE) DEM OBL 1POSS=shirt	page 3
+(2) line 3	Patrick Littell	translation	‘My shirt is green.’	page 3
+§2.1	Patrick Littell	note	To clarify, however, we mean by NON-VISUAL here the existence of evidence that is not visual, rather than the non-existence of visual evidence. Visual evidence is not incompatible with the use of nukʷ, so long as other evidence is present as well.	page 3
+(3) line 1	Patrick Littell	note	Context: I return from vacation and see a bag I left in the back of my fridge. There is also a terrible odour emanating from the fridge.	page 3, the context the example answers, in italics
+(3) line 2	Nɬeʔkepmxcín	transcription	ʔes-naq̓ nukʷ xeʔ	page 3
+(3) line 3	Nɬeʔkepmxcín	gloss	STAT-rotten SENSE DEM	page 3
+(3) line 4	Patrick Littell	translation	‘Something’s gone rotten.’	page 3
+§2.1	Patrick Littell	note	nukʷ also has a wide variety of other uses, beyond “non-visual evidence” narrowly construed; we will catalogue some of these uses in §3.	page 3
+§2.2	Patrick Littell	heading	2.2 ekʷu: reportative evidence	page 3
+§2.2	Patrick Littell	note	ekʷu is used to report things that the speaker only knows through report or hearsay. This includes direct reports from the person concerned (4), hearsay (5), common knowledge (6), folktales (7), and things you know by reading (such as prices at the store) (8).	page 3
+(4) line 1	Nɬeʔkepmxcín	transcription	tem ekʷu teʔ k s=ʕwoy̓t=s e Patrick ɬ sitist	page 3
+(4) line 2	Nɬeʔkepmxcín	gloss	NEG REPORT NEG IRR NOM=sleep=3POSS DET Patrick REMOTE night	page 3
+(4) line 3	Patrick Littell	translation	‘Patrick didn’t sleep last night [he says].’	page 3
+(5) line 1	Nɬeʔkepmxcín	transcription	mil̓t kʷ ekʷu ƛ̓uʔ	page 4
+(5) line 2	Nɬeʔkepmxcín	gloss	visit 2SUB REPORT JUST	page 4
+(5) line 3	Patrick Littell	translation	‘They say you are just visiting.’	page 4
+(5) line 4	Patrick Littell	citation	(Thompson and Thompson, 1996, p. 76)	page 4, the source at the right of the translation
+(6) line 1	Nɬeʔkepmxcín	transcription	həni ekʷu xeʔe	page 4
+(6) line 2	Nɬeʔkepmxcín	gloss	honey REPORT DEM	page 4
+(6) line 3	Patrick Littell	translation	‘That’s called “honey”.’	page 4
+(7) line 1	Nɬeʔkepmxcín	transcription	ƛ̓uʔsqayxwʷ ekʷu xeʔ he maʕxetn	page 4
+(7) line 2	Nɬeʔkepmxcín	gloss	person REPORT DEM DET moon	page 4
+(7) line 3	Patrick Littell	translation	‘the moon, they say, was a person’	page 4
+(7) line 4	Patrick Littell	citation	(Thompson and Thompson, 1996, p. 182)	page 4, the source at the right of the translation
+(8) line 1	Nɬeʔkepmxcín	transcription	sey ekʷu xeʔ tk snuye e peyeʔ te c̓y̓eh	page 4
+(8) line 2	Nɬeʔkepmxcín	gloss	two REPORT DEM OBL money DET one OBL berry.basket	page 4
+(8) line 3	Patrick Littell	translation	‘Berries are two dollars per basket [it says].’	page 4
+§2.2	Patrick Littell	note	ekʷu frequently participates in an “evidential doubling” phenomenon. In the ordinary case (4−8), the particle is added to a proposition P to indicate that P is known through report (“According to report, P”). In sentences where P itself expresses the occurence of a report (such as “X says...”), however, the addition of ekʷu does not mean that we only know through hearsay that something was said (#“According to report, X said...”); it simply reinforces the say predicate. This is true even if ekʷu attaches to the matrix rather than the embedded clause:	page 4
+(9) line 1	Nɬeʔkepmxcín	transcription	cut ekʷu e Patrick, n-xwiʔt ws meɬ xeʔ	page 4
+(9) line 2	Nɬeʔkepmxcín	gloss	say REPORT DET Patrick LOC-much 3CONJ FOC DEM	page 4
+(9) line 3	Patrick Littell	translation	‘Patrick says that’s a lot of money.’	page 4, set after =, a reading the sentence has
+(9) line 4	Patrick Littell	translation	‘From what I hear, Patrick says that’s a lot of money.’	page 4, set after ≠, a reading the sentence lacks
+§2.2	Patrick Littell	note	nukʷ likewise shows this “evidential doubling”, frequently attaching to verbs like qeʔnim (“hear”) as in (14). This likewise does not seem to mean that the speaker knows through non-visual evidence that they’re in a state of hearing something − it appears just to mean that they hear something.	page 4
+§2.2	Nɬeʔkepmxcín	cited form	qeʔnim	page 4, in italics, (“hear”)
+§2.3	Patrick Littell	heading	2.3 nke: inferential evidence	page 4
+§2.3	Patrick Littell	note	nke is used in situations where the speaker has only inferential evidence for their claim − that is, when they have deduced it from other pieces of evidence. nke, like the inferential evidential in related languages and other Northwest lan- guages (Matthewson et al., 2007; Rullmann et al., 2008; Peterson, 2010), can be used for inferences ranging from deductive certainty (“it must be”) to pure conjec- ture (“it could be, for all I know”).	page 4
+§2.3	Patrick Littell	name	Peterson	Tyler Peterson, Gitksan evidentials (2009, 2010)
+(10) line 1	Patrick Littell	note	Context: We are looking at a drawing of a smiling man next to a very large fish.	page 5, the context the example answers, in italics
+(10) line 2	Nɬeʔkepmxcín	transcription	x̣zum neʔ tek sqyeytn ʔes-kʷn-nwen̓-s-t-s e ƛ̓uʔsqayxʷ,	page 5
+(10) line 3	Nɬeʔkepmxcín	gloss	big PROX OBL salmon STAT-catch-NC-TR-3ERG DET man	page 5
+(10) line 4	Nɬeʔkepmxcín	transcription	ne:m nke k s=y̓e=s tek sxʷoxʷ=s	page 5
+(10) line 5	Nɬeʔkepmxcín	gloss	very INFER IRR NOM=good=3POSS OBL heart=3POSS	page 5
+(10) line 6	Patrick Littell	translation	‘The man caught the great big fish; he must be very happy.’	page 5
+(11) line 1	Patrick Littell	note	Context: The speaker’s father usually gets sick when it rains.	page 5, the context the example answers, in italics
+(11) line 2	Nɬeʔkepmxcín	transcription	qʷnox̣ʷ cʔeyɬ ɬ n=sqacze, tekɬ nke cʔeyɬ tek siƛ̓q̓t	page 5
+(11) line 3	Nɬeʔkepmxcín	gloss	sick now REMOTE 1POSS=father, rain INFER now OBL today	page 5
+(11) line 4	Patrick Littell	translation	‘My father is sick, so it must have rained today.’	page 5
+§2.3	Patrick Littell	note	It is worth noting that nke marks the manner in which the conclusion is drawn − by inference − rather than the way in which the premises are known; the premises may be known by visual, sensory, reportative, or any other means. In the case below, the premise is known by sensory means (hearing), but what is relevant to the evidence choice in the conclusion is that this sensory information supports a further inference.	page 5
+(12) line 1	Nɬeʔkepmxcín	transcription	nɬkʷ ʕʷyən=s, teyt nke	page 5
+(12) line 2	Nɬeʔkepmxcín	gloss	rumble stomach=3POSS, hungry INFER	page 5
+(12) line 3	Patrick Littell	translation	‘His stomach is rumbling; he must be hungry.’	page 5
+§3	Patrick Littell	heading	3 The many uses of nukʷ	page 5
+§3	Patrick Littell	note	nukʷ appears in a wide variety of contexts, including those where the speaker has non-visual sensory evidence, but is by no means limited to such con- texts. Nonetheless, for some speakers “non-visuality” may still be the particle’s “semantic core”; as one speaker noted, the addition of nukʷ “means you can’t see it” (Flora Erhardt, p.c.).	page 5
+§3.1	Patrick Littell	heading	3.1 Non-visual evidence	page 5
+§3.1	Patrick Littell	note	We find nukʷ almost always when the speaker reports evidence from hear- ing, touch, taste, or smell:	page 5
+§3.1.1	Patrick Littell	heading	3.1.1 Hearing	page 5
+(13) line 1	Nɬeʔkepmxcín	transcription	snk̓y̓əp nukʷ xeʔ	page 5
+(13) line 2	Nɬeʔkepmxcín	gloss	coyote SENSE DEM	page 5
+(13) line 3	Patrick Littell	translation	‘It’s a coyote [that I hear].’	page 5
+(14) line 1	Nɬeʔkepmxcín	transcription	qeʔnim-ne nukʷ xeʔ e Mr. Strang	page 6
+(14) line 2	Nɬeʔkepmxcín	gloss	hear-1SUB SENSE DEM DET Mr. Strang	page 6
+(14) line 3	Patrick Littell	translation	‘I hear Mr. Strang.’	page 6
+§3.1.2	Patrick Littell	heading	3.1.2 Touch	page 6
+(15) line 1	Nɬeʔkepmxcín	transcription	ƛ̓eɬt nukʷ xeʔ	page 6
+(15) line 2	Nɬeʔkepmxcín	gloss	sticky SENSE DEM	page 6
+(15) line 3	Patrick Littell	translation	‘It’s sticky.’	page 6
+(16) line 1	Nɬeʔkepmxcín	transcription	c̓iy nukʷ xeʔ te wul	page 6
+(16) line 2	Nɬeʔkepmxcín	gloss	be.like SENSE DEM OBL wool	page 6
+(16) line 3	Patrick Littell	translation	‘Feels like wool.’	page 6
+§3.1.3	Patrick Littell	heading	3.1.3 Taste	page 6
+(17) line 1	Nɬeʔkepmxcín	transcription	o, ƛ̓əxt-w̓iy nukʷ	page 6
+(17) line 2	Nɬeʔkepmxcín	gloss	oh, sweet-very SENSE	page 6
+(17) line 3	Patrick Littell	translation	‘Oh, it’s very sweet.’	page 6
+(18) line 1	Patrick Littell	note	Context: Speaker has just taken a bite of fish	page 6, the context the example answers, in italics
+(18) line 2	Nɬeʔkepmxcín	transcription	cm-s-t-es nukʷ e sqyeytn	page 6
+(18) line 3	Nɬeʔkepmxcín	gloss	burn-CAUSE-TR-3SUB SENSE DET fish	page 6
+(18) line 4	Patrick Littell	translation	‘He burned the fish.’	page 6
+§3.1.4	Patrick Littell	heading	3.1.4 Smell	page 6
+(19) line 1	Nɬeʔkepmxcín	transcription	splənd nukʷ xeʔ	page 6
+(19) line 2	Nɬeʔkepmxcín	gloss	skunk SENSE DEM	page 6
+(19) line 3	Patrick Littell	translation	‘That’s a skunk.’	page 6
+(20) line 1	Nɬeʔkepmxcín	transcription	naq̓ nukʷ xeʔ	page 6
+(20) line 2	Nɬeʔkepmxcín	gloss	rotten SENSE DEM	page 6
+(20) line 3	Patrick Littell	translation	‘It’s rotten.’	page 6
+§3.2	Patrick Littell	heading	3.2 Internal states	page 6
+§3.2	Patrick Littell	note	nukʷ contexts are not, however, limited to “senses” narrowly construed; a wide range of feelings and experiences can be marked with nukʷ. For example, nukʷ is frequently used when the speaker reports his or her internal states:	page 6
+(21) line 1	Nɬeʔkepmxcín	transcription	teyt kn nukʷ	page 6
+(21) line 2	Nɬeʔkepmxcín	gloss	hungry 1SUB SENSE	page 6
+(21) line 3	Patrick Littell	translation	‘I’m hungry.’	page 6
+(22) line 1	Nɬeʔkepmxcín	transcription	nk̓ex-cin kn nukʷ	page 7
+(22) line 2	Nɬeʔkepmxcín	gloss	dry-mouth 1SUB SENSE	page 7
+(22) line 3	Patrick Littell	translation	‘I’m thirsty.’	page 7
+(23) line 1	Nɬeʔkepmxcín	transcription	qʷnox̣ʷ kn nukʷ	page 7
+(23) line 2	Nɬeʔkepmxcín	gloss	sick 1SUB SENSE	page 7
+(23) line 3	Patrick Littell	translation	‘I’m feeling sick.’	page 7
+(24) line 1	Nɬeʔkepmxcín	transcription	x̣an̓ih kn nukʷ	page 7
+(24) line 2	Nɬeʔkepmxcín	gloss	hurt 1SUB SENSE	page 7
+(24) line 3	Patrick Littell	translation	‘I hurt.’	page 7
+§3.3	Patrick Littell	heading	3.3 Emotional states	page 7
+§3.3	Patrick Littell	note	nukʷ likewise appears when the speaker is reporting their own emotional states:	page 7
+(25) line 1	Nɬeʔkepmxcín	transcription	zew̓t kn nukʷ	page 7
+(25) line 2	Nɬeʔkepmxcín	gloss	annoy 1SUB SENSE	page 7
+(25) line 3	Patrick Littell	translation	‘I’m annoyed [with someone].’	page 7
+(26) line 1	Nɬeʔkepmxcín	transcription	paqʷuʔ kn nukʷ	page 7
+(26) line 2	Nɬeʔkepmxcín	gloss	afraid 1SUB SENSE	page 7
+(26) line 3	Patrick Littell	translation	‘I’m afraid.’	page 7
+(27) line 1	Nɬeʔkepmxcín	transcription	qʷnox̣ʷ nukʷ k n=sxʷoxʷ	page 7
+(27) line 2	Nɬeʔkepmxcín	gloss	sad SENSE IRR 1POSS=heart	page 7
+(27) line 3	Patrick Littell	translation	‘I’m sad.’	page 7
+(28) line 1	Nɬeʔkepmxcín	transcription	maʕ̓t nukʷ k n=sxʷoxʷ	page 7
+(28) line 2	Nɬeʔkepmxcín	gloss	broken SENSE IRR 1POSS=heart	page 7
+(28) line 3	Patrick Littell	translation	‘I’m heartbroken.’	page 7
+§3.4	Patrick Littell	heading	3.4 Suspicions, hunches, and premonitions	page 7
+§3.4	Patrick Littell	note	The “sensory” aspect of nukʷ is not restricted to the five ordinary senses, or physical senses in general; it also applies to other means of knowing such as extra-sensory perception, knowing through dreams, and intuition.	page 7
+(29) line 1	Nɬeʔkepmxcín	transcription	puys-t-xʷ nukʷ səxʷsuxʷs	page 7
+(29) line 2	Nɬeʔkepmxcín	gloss	kill-TRANS-2SUB SENSE grizzly	page 7
+(29) line 3	Patrick Littell	translation	‘[premonition tells me] you’ve killed a grizzly.’	page 7
+(29) line 4	Patrick Littell	citation	(Thompson and Thompson, 1992, p. 221)	page 7, the source at the right of the translation
+(30) line 1	Nɬeʔkepmxcín	transcription	tixʷc̓iy kʷ nukʷ	page 7
+(30) line 2	Nɬeʔkepmxcín	gloss	murder 2SUB SENSE	page 7
+(30) line 3	Patrick Littell	translation	‘I guess you’ve murdered somebody [said by a blind old woman who sensed crime].’	page 7
+(30) line 4	Patrick Littell	citation	(Thompson and Thompson, 1992, p. 221)	page 7, the source at the right of the translation
+§3.4	Patrick Littell	note	It does not seem necessary for the speaker to even know how they know; the sensation of “just knowing” itself seems to be enough:	page 8
+(31) line 1	Patrick Littell	note	Context: The consultant is at the dentist, and has a feeling that something just isn’t right about their business.	page 8, the context the example answers, in italics
+(31) line 2	Nɬeʔkepmxcín	transcription	te nukʷ teʔ c̓iy k s=y̓e=s	page 8
+(31) line 3	Nɬeʔkepmxcín	gloss	NEG SENSE NEG be.like IRR NOM=good=3POSS	page 8
+(31) line 4	Patrick Littell	translation	‘It just didn’t seem right.’	page 8
+§3.5	Patrick Littell	heading	3.5 Realization and surprise	page 8
+§3.5	Patrick Littell	note	Similarly, the experience of coming-to-know appears to be sufficient to license nukʷ: it is frequently used in cases where the speaker has just realized something or has been surprised.	page 8
+(32) line 1	Patrick Littell	note	Context: The speaker accidentally knocks over her cane.	page 8, the context the example answers, in italics
+(32) line 2	Nɬeʔkepmxcín	transcription	kʷi-s-t-ene nukʷ	page 8
+(32) line 3	Nɬeʔkepmxcín	gloss	fall-CAUSE-TRANS-1SUB SENSE	page 8
+(32) line 4	Patrick Littell	translation	‘Oops, I dropped it.’	page 8
+(33) line 1	Patrick Littell	note	Context: The speaker turns and sees that Patrick has fallen asleep dur- ing the elicitation.	page 8, the context the example answers, in italics
+(33) line 2	Nɬeʔkepmxcín	transcription	ʕwoy̓t nukʷ xeʔ e Patrick	page 8
+(33) line 3	Nɬeʔkepmxcín	gloss	sleep SENSE DEM DET Patrick	page 8
+(33) line 4	Patrick Littell	translation	‘Patrick’s fallen asleep.’	page 8
+(34) line 1	Nɬeʔkepmxcín	transcription	qʔaz kʷ nukʷ	page 8
+(34) line 2	Nɬeʔkepmxcín	gloss	tired 2SUB SENSE	page 8
+(34) line 3	Patrick Littell	translation	‘[I just noticed that] you’re getting tired.’	page 8
+(34) line 4	Patrick Littell	citation	Thompson and Thompson (1996)	page 8, the source at the right of the translation, its year on the line under it
+§3.5	Patrick Littell	note	This may explain why nukʷ, despite its apparent non-visual restriction, can and does appear with visual evidence. For example, (35) is a standard greeting, and contains nukʷ despite being usually known through visual evidence. Likewise, (36) was clearly gained through visual means in its context of utterance.	page 8
+(35) line 1	Nɬeʔkepmxcín	transcription	ƛ̓ʔex kʷ nukʷ	page 8
+(35) line 2	Nɬeʔkepmxcín	gloss	arrive 2SUB SENSE	page 8
+(35) line 3	Patrick Littell	translation	‘Hello.’	page 8
+(35) line 4	Patrick Littell	note	(Lit: ‘You’ve arrived.’)	page 8, the literal reading at the right of the translation
+(36) line 1	Patrick Littell	note	Context: The speaker looks out the window and notices that a sunny day has given way to dark clouds.	page 9, the context the example answers, in italics
+(36) line 2	Nɬeʔkepmxcín	transcription	qʷuy̓iʔ nukʷ	page 9
+(36) line 3	Nɬeʔkepmxcín	gloss	cloudy SENSE	page 9
+(36) line 4	Patrick Littell	translation	‘Look, it got cloudy.’	page 9
+§3.5	Patrick Littell	note	Despite each of (32−36) being known through visual evidence, nukʷ is still felicitous; one way to avoid this seeming contradiction is to say that in these cases what nukʷ marks is the sensation of coming-to-know, especially when the realization is sudden, unexpected, or surprising.	page 9
+§3.5	Patrick Littell	note	Speakers differ somewhat in their judgments regarding the appropriate- ness of nukʷ with INFERENCE-FROM-SENSES or INFERENCE-FROM-RESULTS contexts (cf. Peterson, 2009 on Gitksan; Faller, 2010 on Cuzco Quechua; Matthewson, 2011 on St’át’imcets) − those situations in which the speaker has direct evidence not of P itself but of a consequence of P. Some speakers can use nukʷ in such contexts (Mandy Jimmie, p.c.), while others prefer the inferential evidential nke:	page 9
+§3.5	Patrick Littell	name	Mandy Jimmie	Nɬeʔkepmxcín consultant, p.c.
+§3.5	Patrick Littell	language	Cuzco Quechua	Faller (2002), in (45) and (61)
+§3.5	Patrick Littell	language	Quechua	its evidentials in questions
+§3.5	Patrick Littell	language	Gitksan	Peterson (2009, 2010), the root n̓akw
+§3.5	Patrick Littell	language	St’át’imcets	Matthewson (2008, 2011), k’a
+(37) line 1	Patrick Littell	note	Context: The speaker sees bear tracks in the woods.	page 9, the context the example answers, in italics
+(37) line 2	Nɬeʔkepmxcín	transcription	wʔex nke ʔeɬƛ̓uʔ neʔ k speʔec	page 9
+(37) line 3	Nɬeʔkepmxcín	gloss	be INFER also PROX IRR bear	page 9
+(37) line 4	Patrick Littell	translation	‘Bears are here, too.’	page 9
+(37) line 5	Nɬeʔkepmxcín	transcription	%wʔex nukʷ ʔeɬƛ̓uʔ neʔ k speʔec	page 9
+(37) line 6	Nɬeʔkepmxcín	gloss	be INFER also PROX IRR bear	page 9
+(37) line 7	Patrick Littell	translation	‘Bears are here, too.’	page 9
+§3.5	Patrick Littell	note	The further removed the sense data is from the proposition asserted, the less acceptable nukʷ seems to become; when the sensory data must be combined with other knowledge to support the conclusion, the INFERENCE evidential is used instead. In the following, for example, the proposition can not itself be inferred from the relevant sense data; the smell is one premise in several, and here nke is judged more acceptable.	page 9
+(38) line 1	Patrick Littell	note	Context: Hannah’s been angling for that job opening at the flower shop, and one day she comes home late smelling of flowers.	page 9, the context the example answers, in italics
+(38) line 2	Nɬeʔkepmxcín	transcription	#o, kʷ-nweɬn nukʷ e Hannah tek s=cuw=s wciye w	page 9
+(38) line 3	Nɬeʔkepmxcín	gloss	oh, get-NC SENSE DET Hannah OBL NOM=do=3POSS DIST to	page 9
+(38) line 4	Nɬeʔkepmxcín	transcription	ɬe sp̓əp̓m-elxʷ	page 9
+(38) line 5	Nɬeʔkepmxcín	gloss	REMOTE flower-house	page 9
+(38) line 6	Patrick Littell	translation	‘Oh, Hannah managed to get a job at the flower shop.’	page 9
+§3.6	Patrick Littell	heading	3.6 Regret, dismay, and negative regard	page 9
+§3.6	Patrick Littell	note	nukʷ also appears to be used to express negative sentiment towards some- thing; these uses are not particularly frequent but still worth mentioning. In (39), the speaker is expressing their dismay that it is still only Wednesday; (40) is an exclamation of negative regard about someone.2	page 9
+footnote 2	Patrick Littell	note	Dog is a particularly insulting term to use of a human.	page 10, footnote 2
+(39) line 1	Nɬeʔkepmxcín	transcription	c̓iy wʔex nukʷ ƛ̓uʔ keʔɬes-q̓t	page 10
+(39) line 2	Nɬeʔkepmxcín	gloss	be.like be SENSE JUST three-time	page 10
+(39) line 3	Patrick Littell	translation	‘Alas, it’s only Wednesday!’	page 10
+(40) line 1	Nɬeʔkepmxcín	transcription	sqaqx̣a nukʷ	page 10
+(40) line 2	Nɬeʔkepmxcín	gloss	dog SENSE	page 10
+(40) line 3	Patrick Littell	translation	‘That dog!’	page 10
+§3.6	Patrick Littell	note	nukʷ can also carry with it feelings of embarrassment or even apology (Mandy Jimmie, p.c.); in the following, the speaker is apologizing for breaking up a conversation that had been going well:	page 10
+(41) line 1	Nɬeʔkepmxcín	transcription	ɬep-e-ne nukʷ ƛ̓um qʷincut-m-t-m	page 10
+(41) line 2	Nɬeʔkepmxcín	gloss	forget-TR-1SUB SENSE TEMP speak-MID?-TR-2PL.SUB	page 10
+(41) line 3	Patrick Littell	translation	‘I forget what we were talking about.’	page 10
+§4	Patrick Littell	heading	4 Similarities to other evidentials	page 10
+§4	Patrick Littell	note	There is a growing consensus in accounts of the semantics of evidentials regarding some of their semantic and pragmatic properties (Matthewson, 2010, 2011)3 − in particular, that the evidential contribution of an evidential projects, is not-at-issue, and resists “that’s not true!” denial.	page 10
+footnote 3	Patrick Littell	note	This is not to say that there is a consensus as to how to account for these properties; there remain various proposals, but most predict of evidentials some of the same properties.	page 10, footnote 3
+§4.1	Patrick Littell	heading	4.1 Projection	page 10
+§4.1	Patrick Littell	note	One prototypical property of evidentials is that their evidential contribu- tion is some manner of projected content such as a presupposition (Izvorski, 1997; Matthewson et al., 2007) or not-at-issue assertion (Murray, 2010) − that unlike ordinary truth-conditional content it is unaffected when it appears in the scope of operations such as negation, modal operators, and similar (Faller, 2002; Matthew- son et al., 2007; Matthewson, 2010). Negation is the most straightforward test of projected content: if the statement is negated but the evidential content remains un-negated, then this content projects.	page 10
+§4.1	Patrick Littell	note	By this test, nukʷ patterns like an ordinary evidential; negating a sentence containing nukʷ does not negate that a sensory experience is occurring:	page 10
+(42) line 1	Nɬeʔkepmxcín	transcription	ƛ̓əxt nukʷ xeʔ e sɬaʔx̣ans	page 10
+(42) line 2	Nɬeʔkepmxcín	gloss	sweet SENSE DEM DET food	page 10
+(42) line 3	Patrick Littell	translation	‘The food is sweet.’	page 10
+(43) line 1	Nɬeʔkepmxcín	transcription	teteʔ k s=ƛ̓əxt=s nukʷ xeʔ e sɬaʔx̣ans	page 11
+(43) line 2	Nɬeʔkepmxcín	gloss	NEG IRR NOM=sweet=3POSS SENSE DEM DET food	page 11
+(43) line 3	Patrick Littell	translation	‘The food is not sweet’	page 11, set after =, a reading the sentence has
+(43) line 4	Patrick Littell	translation	‘I don’t have sensory evidence that the food is sweet.’	page 11, set after ≠, a reading the sentence lacks
+§4.2	Patrick Littell	heading	4.2 Not-at-issueness	page 11
+§4.2	Patrick Littell	note	Another common feature of evidential content is that it is not-at-issue (Roberts et al., 2009) − it cannot itself constitute an answer to the question under discussion (Faller, 2002; Matthewson, 2010). That is to say, although they con- tribute evidential meanings, evidentials are not used in order to directly answer questions such as “What is your evidence for that?”	page 11
+§4.2	Patrick Littell	name	Roberts	Craige Roberts, with Simons, Beaver and Tonhauser (2009)
+§4.2	Patrick Littell	note	In this manner, as well, nukʷ patterns like other evidentials:	page 11
+(44) line 1	Patrick Littell	note	Context: A is offering a bowl of strawberries to B.	page 11, the context the example answers, in italics
+(44) line 2	Nɬeʔkepmxcín	transcription	məsten-te xeʔ, y̓e xeʔ	page 11
+(44) line 3	Nɬeʔkepmxcín	gloss	try-IMPER DEM, good DEM	page 11
+(44) line 4	Patrick Littell	translation	‘Try it, it’s good.’	page 11
+(44) line 5	Nɬeʔkepmxcín	transcription	then meɬʔiy e s=xek-s-t-exʷ k s=y̓e=s	page 11
+(44) line 6	Nɬeʔkepmxcín	gloss	how FOC DET NOM=know-CAUSE-TRANS-2SUB IRR NOM=good=3POSS	page 11
+(44) line 7	Nɬeʔkepmxcín	transcription	xeʔ	page 11
+(44) line 8	Nɬeʔkepmxcín	gloss	DEM	page 11
+(44) line 9	Patrick Littell	translation	‘How do you know it’s good?’	page 11
+(44) line 10	Nɬeʔkepmxcín	transcription	#y̓e nukʷ xeʔ	page 11
+(44) line 11	Nɬeʔkepmxcín	gloss	good SENSE DEM	page 11
+(44) line 12	Patrick Littell	translation	‘It tastes good.’	page 11
+§4.2	Patrick Littell	note	Speakers noted that you can say this, but doing so is not actually answer- ing B’s question.	page 11
+§4.3	Patrick Littell	heading	4.3 Resisting direct denial	page 11
+§4.3	Patrick Littell	note	A final common property of evidentials is that they seem to resist “that’s not true!” denial (Faller, 2002; Murray, 2010; Matthewson, 2010, 2011).	page 11
+(45) line 1	Patrick Littell	language	Cuzco Quechua	page 11, over the example
+(45) line 2	Patrick Littell	citation	(Faller, 2002)	page 11, the source at the right of the language
+(45) line 3	Cuzco Quechua	transcription	Ines-qa qaynunchay nana-n-ta-s watuku-sqa.	page 11
+(45) line 4	Cuzco Quechua	gloss	Ines-TOP yesterday sister-3-ACC-REPORT visit-PAST2	page 11
+(45) line 5	Patrick Littell	translation	‘Ines [reportedly] visited her sister yesterday.’	page 11
+(45) line 6	Cuzco Quechua	transcription	#Mana-n chiqaq-chu. Mana-n chay-ta willa-rqa-sunki-chu.	page 11
+(45) line 7	Cuzco Quechua	gloss	not-DIRECT true-NEG. not-DIRECT this-ACC tell-PAST1-3S3O-NEG	page 11
+(45) line 8	Patrick Littell	translation	‘That’s not true. You were not told this.’	page 11
+§4.3	Patrick Littell	note	Whether this is reducible to one of the properties in §4.1-4.2 above, or is in an independent pragmatic property (such as an inability to refer to projected content metalinguistically with demonstratives like “that”), there appears to be something strange about referring to projected or not-at-issue content with “That’s not true!” We can see this for both evidential (46) and expressive (47) projected meanings; in each case, “that’s not true!” denials only target the at-issue meaning.	page 12
+(46) line 1	Patrick Littell	note	A: “Apparently there’s a chipmunk hiding under the oven!”	page 12, a turn of the dialogue
+(46) line 2	Patrick Littell	note	B: “That’s not true; it’s just an old sock!”	page 12, a turn of the dialogue
+(46) line 3	Patrick Littell	note	B′: #“That’s not true; you saw it!”	page 12, a turn of the dialogue
+(47) line 1	Patrick Littell	note	A: “I hear they hired that honky Scott.”	page 12, a turn of the dialogue
+(47) line 2	Patrick Littell	note	B: “That’s not true; they hired Patrick!”	page 12, a turn of the dialogue
+(47) line 3	Patrick Littell	note	B′: #“That’s not true; you like white people!”	page 12, a turn of the dialogue
+§4.3	Patrick Littell	note	We find that nukʷ fulfills this test as well: when one falsely uses nukʷ you could still accuse them of deceit (50), but unlike ordinary sentences you cannot quite assert that what they said is untrue.	page 12
+(48) line 1	Patrick Littell	note	Context: A is invited to a dinner, and the host B forgets that he is veg- etarian and serves him meat. He does not want to cause a fuss, so he secretly feeds it to the dog when no one is looking. When A is asked how he think the meat is, he says:	page 12, the context the example answers, in italics
+(48) line 2	Nɬeʔkepmxcín	transcription	nexʷm nukʷ k s=y̓e=s	page 12
+(48) line 3	Nɬeʔkepmxcín	gloss	true SENSE IRR NOM=good=3POSS	page 12
+(48) line 4	Patrick Littell	translation	‘It’s really good!’	page 12
+(49) line 1	Nɬeʔkepmxcín	transcription	#teteʔ xeʔ k s=nexʷm=s	page 12
+(49) line 2	Nɬeʔkepmxcín	gloss	NEG DEM IRR NOM=true=3POSS	page 12
+(49) line 3	Patrick Littell	translation	‘That’s not true!’	page 12
+(50) line 1	Nɬeʔkepmxcín	transcription	kezeʔ kʷ meɬʔiy wʔex, teteʔ k s=ʔupi-n-xʷ	page 12
+(50) line 2	Nɬeʔkepmxcín	gloss	deceive 2SUB FOC be, NEG IRR NOM=eat-DIR-2SUB	page 12
+(50) line 3	Nɬeʔkepmxcín	transcription	ɬ smic	page 12
+(50) line 4	Nɬeʔkepmxcín	gloss	REMOTE meat	page 12
+(50) line 5	Patrick Littell	translation	‘You’re lying; you didn’t eat the meat!’	page 12
+§5	Patrick Littell	heading	5 Differences from other evidentials	page 12
+§5	Patrick Littell	note	As noted initially, the standard definition of evidentiality (in Aikhenvald, 2004 for example) is one in which an evidential contributes to the discourse that the sentence’s content is known through a particular means, be it witness, hearsay, inference, etc. As seen in §3, this captures many (but perhaps not all) uses of nukʷ.	page 12
+§5	Patrick Littell	note	nukʷ, however, has a further restriction, and not one with which we are familiar with in any other evidential: it does not merely require a particular sort of evidence, but also that the speaker have that evidence at or near the time of speaking.	page 12
+(51) line 1	Nɬeʔkepmxcín	transcription	c̓ɬox̣ʷ kʷ nukʷ	page 13
+(51) line 2	Nɬeʔkepmxcín	gloss	hot 2SUB SENSE	page 13
+(51) line 3	Patrick Littell	translation	‘You feel hot [I just took hold of you].’	page 13
+(51) line 4	Patrick Littell	citation	(Thompson and Thompson, 1996)	page 13, the source at the right of the translation
+§5	Patrick Littell	note	Sensory evidence gained in the distant past, even if had by the speaker, does not appear to be enough to license nukʷ; a speaker noted in response to (52) that “It means you’re there.”	page 13
+(52) line 1	Patrick Littell	note	Context: The speaker is not currently in Russia.	page 13, the context the example answers, in italics
+(52) line 2	Nɬeʔkepmxcín	transcription	#c̓eɬcin nukʷ xeʔe n ɬ rusya	page 13
+(52) line 3	Nɬeʔkepmxcín	gloss	cold.weather SENSE DEM LOC REMOTE Russia	page 13
+(52) line 4	Patrick Littell	translation	‘It’s cold in Russia.’	page 13
+§5	Patrick Littell	note	The acceptability of using nukʷ to describe the recent past seems to be dependent in part on what kind of state is being described; the sentence in (53) was infelicitous with teyt (“hungry”), but its counterpart with qʷnox̣ʷ (“sick”) in (54) was acceptable.	page 13
+§5	Nɬeʔkepmxcín	cited form	teyt	page 13, in italics, (“hungry”)
+§5	Nɬeʔkepmxcín	cited form	qʷnox̣ʷ	page 13, in italics, (“sick”)
+(53) line 1	Nɬeʔkepmxcín	transcription	#teyt kn nukʷ xeʔe ɬ s=ʕap	page 13
+(53) line 2	Nɬeʔkepmxcín	gloss	hungry 1SUB SENSE DEM REMOTE NOM=dark	page 13
+(53) line 3	Patrick Littell	translation	‘I was hungry last night.’	page 13, the intended reading
+(54) line 1	Nɬeʔkepmxcín	transcription	qʷnox̣ʷ kn nukʷ xeʔe ɬ s=ʕap	page 13
+(54) line 2	Nɬeʔkepmxcín	gloss	sick 1SUB SENSE DEM REMOTE NOM=dark	page 13
+(54) line 3	Patrick Littell	translation	‘I was sick last night.’	page 13
+§5	Patrick Littell	note	Since a similar judgment occurred with (55) − it was acceptable to use this even if the skunk was sensed an hour beforehand − it seems plausible that the relevant difference is whether the sensory experience lingers after the initial experience.	page 13
+(55) line 1	Nɬeʔkepmxcín	transcription	splənd nukʷ xeʔ	page 13
+(55) line 2	Nɬeʔkepmxcín	gloss	skunk SENSE DEM	page 13
+(55) line 3	Patrick Littell	translation	‘There is/was a skunk.’	page 13
+§5	Patrick Littell	note	It likewise fails to appear when describing generalities or traits; for ex- ample, it appears when describing a current experience of fear (56), but not when describing one’s phobias (57):	page 13
+(56) line 1	Nɬeʔkepmxcín	transcription	paqʷuʔ kn nukʷ	page 13
+(56) line 2	Nɬeʔkepmxcín	gloss	afraid 1SUB SENSE	page 13
+(56) line 3	Patrick Littell	translation	‘I’m afraid.’	page 13
+(57) line 1	Nɬeʔkepmxcín	transcription	paqʷuʔ-sm-ne (#nukʷ) xeʔ e sneyiʔ	page 14
+(57) line 2	Nɬeʔkepmxcín	gloss	afraid-1OBJ-1SUB (SENSE) DEM DET ghost	page 14
+(57) line 3	Patrick Littell	translation	‘I’m afraid of ghosts.’	page 14
+§5	Patrick Littell	note	It is also required that the speaker have this evidence:	page 14
+(58) line 1	Nɬeʔkepmxcín	transcription	*cut e Cameron k s=qəmqəmt=s nukʷ	page 14
+(58) line 2	Nɬeʔkepmxcín	gloss	say DET Cameron IRR NOM=warm=3POSS SENSE	page 14
+(58) line 3	Patrick Littell	translation	‘Cameron says it feels warm.’	page 14, the intended reading
+(59) line 1	Nɬeʔkepmxcín	transcription	*ƛ̓əxt nukʷ xeʔ e leməns cut xeʔ e Patrick	page 14
+(59) line 2	Nɬeʔkepmxcín	gloss	sweet SENSE DEM DET lemons say DEM DET Patrick	page 14
+(59) line 3	Patrick Littell	translation	‘Lemons taste sweet to Patrick.’	page 14, the intended reading
+§5	Patrick Littell	note	Unlike the Nɬeʔkepmxcín reportative and inferential evidentials, as well as evidentials in other languages such as Quechua (Faller, 2002), the source of evidence resists “shifting” or “coercion” to another person, even in questions, or under verbs of saying (58−59).	page 14
+§5	Patrick Littell	note	Although evidentials in questions perform a variety of functions (Faller, 2006; Littell, 2010; Murray, 2010), it is a frequently-reported property of eviden- tials that, in questions, the relevant source of evidence is the addressee rather than the speaker (Floyd, 1996; Faller, 2002; Aikhenvald, 2004). That is, evidentials in assertions encode the speaker’s source of evidence, but evidentials in questions indicate what source of evidence the speaker thinks the addressee will use.	page 14
+§5	Patrick Littell	name	Floyd	Rick Floyd, the direct evidential in Wanka Quechua questions (1996)
+§5	Patrick Littell	name	Littell	Patrick Littell, conjectural questions (2010), and with Matthewson and Peterson (2009)
+(60) line 1	Patrick Littell	language	Wanka Quechua	page 14, over the example
+(60) line 2	Patrick Littell	citation	(Floyd, 1996)	page 14, the source at the right of the language
+(60) line 3	Wanka Quechua	transcription	imay-mi wankayuu-pi kuti-mu-la	page 14
+(60) line 4	Wanka Quechua	gloss	when-DIRECT Huancayo-ABL return-AFAR-PAST	page 14
+(60) line 5	Patrick Littell	translation	‘When did he come back from Huancayo?’	page 14
+(60) line 6	Patrick Littell	note	(implies that the addressee has directly acquired information about the event)	page 14, under the translation
+(61) line 1	Patrick Littell	language	Cuzco Quechua	page 14, over the example
+(61) line 2	Patrick Littell	citation	(Faller, 2002)	page 14, the source at the right of the language
+(61) line 3	Cuzco Quechua	transcription	pi-ta-s Ines-qa watuku-sqa	page 14
+(61) line 4	Cuzco Quechua	gloss	who-ACC-REPORT Ines-TOP visit-PAST2	page 14
+(61) line 5	Patrick Littell	translation	‘Who did Ines visit?’	page 14
+(61) line 6	Patrick Littell	note	(speaker expects hearer to have reportative evidence for his or her answer)	page 14, under the translation
+§5	Patrick Littell	note	We see below the same phenomenon illustrated for the Nɬeʔkepmxcín reportative ekʷu:	page 14
+(62) line 1	Nɬeʔkepmxcín	transcription	c̓eɬt ekʷu e qʷoʔ	page 14
+(62) line 2	Nɬeʔkepmxcín	gloss	cold REPORT DET water	page 14
+(62) line 3	Patrick Littell	translation	‘The water is cold [according to what I’ve heard].’	page 14
+(63) line 1	Nɬeʔkepmxcín	transcription	keʔ ekʷu k s=c̓eɬt=s e qʷoʔ	page 15
+(63) line 2	Nɬeʔkepmxcín	gloss	whether REPORT IRR NOM=cold=3POSS DET water	page 15
+(63) line 3	Patrick Littell	translation	‘Is the water cold [according to what you’ve heard]?’	page 15
+§5	Patrick Littell	note	nukʷ, however, appears to be infelicitous in all questions. If, like other evidentials, nukʷ contributed to a question an implication that the addressee would answer based on sensory evidence, it would be possible (and expected) in questions like (64−65):	page 15
+(64) line 1	Nɬeʔkepmxcín	transcription	keʔ (*nukʷ) k eʔ=s=teyt	page 15
+(64) line 2	Nɬeʔkepmxcín	gloss	whether SENSE IRR 2POSS=NOM=hungry	page 15
+(64) line 3	Patrick Littell	translation	‘Do you feel hungry?’	page 15
+(65) line 1	Nɬeʔkepmxcín	transcription	keʔ (*nukʷ) xeʔ k s=c̓lox̣ʷ=s	page 15
+(65) line 2	Nɬeʔkepmxcín	gloss	whether SENSE DEM IRR NOM=hot=3POSS	page 15
+(65) line 3	Patrick Littell	translation	‘Does it [the tea] feel hot?’	page 15
+§5	Patrick Littell	note	Indeed, nukʷ fails to appear in any queries about senses, internal states, or emotions, even with those predicates (like teyt) with which, in 1st person asser- tions, it is nearly obligatory. This is a significant departure from the behavior of other evidentials in questions, and one of our first reasons for considering that per- haps nukʷ is contributing its evidential meaning in a manner different from other evidentials.	page 15
+§5	Patrick Littell	note	A third way in which nukʷ acts anomalously, when compared to other evidentials, regards the content of sentences it attaches to. Other evidentials, in Nɬeʔkepmxcín and in other languages, invoke their particular type of evidence to support some other claim. We can see this in (4−12), or even with English evidential-like adverbials such as “apparently” or “reportedly”.	page 15
+§5	Patrick Littell	note	Sentences with nukʷ, on the other hand, are frequently just descriptions of the sensation itself − that the speaker is hungry, sad, etc. The information that the speaker knows these things by sensory experience is not evidence used to support some other claim − indeed, the addition of nukʷ to “I am hungry” or “I am sad” does not really seem to add any information that is not already present. Rather, many of these uses of nukʷ seem instead to express something − be it hunger, sadness, regret, regard, or surprise − which leads us to propose that nukʷ is primarily and expressive along the lines of ouch, oops, alas, and wow.	page 15
+§5	English	cited form	ouch	page 15, in italics
+§5	English	cited form	oops	page 15, in italics
+§5	English	cited form	alas	page 15, in italics
+§5	English	cited form	wow	page 15, in italics
+§6	Patrick Littell	heading	6 Expressive evidentiality	page 15
+§6	Patrick Littell	note	The more instances we collected of nukʷ, the more stretched the semantic core of “sensory evidence” became. Since we had begun with the assumption that nukʷ was essentially evidential, much of our earliest investigations focused on this use. In time, however, the apparently non-evidential uses of nukʷ became more pronounced, and in natural, spontaneous speech most of the uses of nukʷ we gathered were of the non-evidential type.	page 15
+§6	Patrick Littell	note	When considered in the following order − the order in which we inves- tigated these meanings, and the order in which we have presented this paper − these contexts could perhaps be considered to be “basically sensory evidential”, with the exceptions being perhaps peripheral semantic extensions of “sensory”.	page 16
+(66) line 1	Patrick Littell	note	a. Evidence from hearing, touch, taste, and smell	page 16, an item of the list
+(66) line 2	Patrick Littell	note	b. Internal states	page 16, an item of the list
+(66) line 3	Patrick Littell	note	c. Emotional states	page 16, an item of the list
+(66) line 4	Patrick Littell	note	d. Having-a-feeling, hunches, and premonitions	page 16, an item of the list
+(66) line 5	Patrick Littell	note	e. Realization and surprise	page 16, an item of the list
+(66) line 6	Patrick Littell	note	f. Regret, dismay, and negative regard	page 16, an item of the list
+§6	Patrick Littell	note	However, this order is in part a historical accident − that the evidential uses of nukʷ were those first described (Thompson and Thompson, 1992, 1996), and our own more intense scrutiny of the particle began as part of a larger cross- linguistic project on evidentiality (Waldie et al., 2009; Littell et al., 2009). If the uses of nukʷ, however, are elaborated in any other order (such as that in 67), it becomes equally plausible that nukʷ is more about expressing-a-feeling than providing-evidence.	page 16
+(67) line 1	Patrick Littell	note	a. Emotional states	page 16, an item of the list
+(67) line 2	Patrick Littell	note	b. Realization and surprise	page 16, an item of the list
+(67) line 3	Patrick Littell	note	c. Regret, dismay, and negative regard	page 16, an item of the list
+(67) line 4	Patrick Littell	note	d. Internal states	page 16, an item of the list
+(67) line 5	Patrick Littell	note	e. Evidence from hearing, touch, taste, and smell	page 16, an item of the list
+(67) line 6	Patrick Littell	note	f. Having-a-feeling, hunches, and premonitions	page 16, an item of the list
+§6	Patrick Littell	note	Likewise, treating nukʷ as an evidential does predict some of its behavior − that it is projective, not-at-issue, and resists “that’s not true!” denial − but other of its semantic properties are unexplained, such as its restriction to present states and evidence had by the first person. It would be possible, of course, to simply add “...and the evidence is had at the moment by the speaker” to a more standardly evidential denotation for nukʷ, but we will instead suggest that another type of projective not-at-issue content can handle all of these properties.	page 16
+§6	Patrick Littell	note	We propose that the idea of expressive content (Kaplan, 1999; Potts, 2005; Schlenker, 2007) best captures the overall use-conditions of nukʷ: that it is among a class of expressions that speakers use to communicate their current inner state. English has a number of these expressions, many but not all of them exclamatory particles; this list includes but is not limited to:	page 16
+§6	Patrick Littell	name	Schlenker	Philippe Schlenker, expressive presuppositions (2007)
+(68) line 1	Patrick Littell	note	oops: the speaker is witnessing a minor mishap	page 16, an item of the list
+(68) line 2	Patrick Littell	note	ouch: the speaker is experiencing pain	page 16, an item of the list
+(68) line 3	Patrick Littell	note	alas: the speaker is experiencing regret	page 16, an item of the list
+(68) line 4	Patrick Littell	note	wow: the speaker is experiencing amazement	page 16, an item of the list
+(68) line 5	Patrick Littell	note	damn: the speaker is experiencing negative feelings	page 16, an item of the list
+§6	Patrick Littell	note	Expressions such as these have all the required semantic properties above: they are projective, not-at-issue, resist “that’s not true!” denial, and are mostly restricted to the speaker’s own present states.4 We can note, in particular, the difficulty in “shifting” their point-of-view away from the speaker. When put into questions, for example, they do not show the “flip” expected of other point-of-view expressions like evidentials, modals or “seems” (Faller, 2002; Speas and Tenny, 2003; Littell et al., 2009), even though they are in questions, “Have you heard that Jane, alas, is seeing someone?” and “Where are my damn keys?” still express the emotional state of the speaker.	page 17
+footnote 4	Patrick Littell	note	It is certainly true that expressions like “oops”, “ouch”, and “alas” can be used regarding past events, and events involving other people, but in these cases there should be, in order to be a sincere use of the expression, the relevant feeling to some degree in the speaker at the moment of utterance. Frequently “ouch” is used sympathetically in reference to another’s pain, and “alas” regarding past events, but for it to be a sincere use it seems there ought to be in the speaker some degree of empathy with the one in pain or a lingering sense of regret. One can also, of course, use any of these terms in jest or sarcastically, but these are not sincere uses (Kaplan, 1999).	page 17, footnote 4
+§6	Patrick Littell	name	Speas and Tenny	Margaret Speas and Carol Tenny, point of view roles (2003)
+§6	Patrick Littell	note	Our proposal is that nukʷ does not, as other evidentials do, have as its pri- mary contribution “...according to X kind of evidence” for some type of evidence X. Instead, nukʷ is an expressive particle, expressing something like “the speaker is being affected by a stimulus”. This, of course, is a very broad use-condition, but nukʷ is used in a very wide variety of conditions − nearly the union of all the con- texts of the English expressives in (68), and then some.5 Overall, it has a similar set of use-conditions to English “Oh!”: that the speaker is, simply, experiencing something.	page 17
+footnote 5	Patrick Littell	note	We can note in support of this that Nɬeʔkepmxcín appears to lack words like “oops” and “ouch” altogether; when asked to translate these, speakers usually use a sentence containing nukʷ instead (32,24).	page 17, footnote 5
+§6	Patrick Littell	note	This is made more plausible by its likely historical origin: used as a sen- tential predicate, ʔes-nukʷ (with the progressive prefix ʔes-) means “affected, upset by some event, frightened, startled” (Thompson and Thompson, 1996, p. 1265). We believe this is a very likely source for the expressive use of nukʷ, although as an expressive particle nukʷ is not currently restricted to negative, frightening, or surprising feelings.6 The sensory evidential use of nukʷ would then be a semantic expansion of this “being affected” meaning, rather than the other way around.	page 17
+footnote 6	Patrick Littell	note	It is, however, somewhat biased towards the negative; it occurs to report sadness but not, to our knowledge, with happiness, and while it sometimes occurs in contexts of negative or pejorative regard we have no instances of its use for positive or honorific regard.	page 17, footnote 6
+§6	Nɬeʔkepmxcín	cited form	ʔes-nukʷ	page 17, in italics
+§6	Nɬeʔkepmxcín	cited form	ʔes-	page 17, in italics
+§6	Patrick Littell	note	While a more traditionally evidential account of nukʷ cannot easily ac- count for many of its semantic properties, an expressive account does; it is no longer mysterious, for example, that nukʷ be restricted to the speaker’s momen- tary states and feelings. In particular, this can explain the infelicity of nukʷ in questions about the addressee’s inner state − questions in which, if nukʷ were a “true” evidential − we would expect it. If nukʷ primarily expresses that the speaker is being affected by an experience, it simply would not make much sense in ques- tions asking about the addressee’s inner state. In a question like (69), the speaker would be simultaneously asking whether a state is true and expressing that they are experiencing it.	page 17
+(69) line 1	Nɬeʔkepmxcín	transcription	*keʔ nukʷ k eʔ=s=teyt	page 18
+(69) line 2	Nɬeʔkepmxcín	gloss	whether SENSE IRR 2POSS=NOM=hungry	page 18
+(69) line 3	Patrick Littell	translation	‘Do you feel hungry?’	page 18, the intended reading
+§6	Patrick Littell	note	After several attempts at trying to translate just how awkward sentences like these are (along the lines of “I know that are you hungry?” and “You’re very fine to yourself that you are, that somebody else is thirsty”), one speaker offered “It’s like you’re asking a question with an answer, or answering with a question.”	page 18
+§7	Patrick Littell	heading	7 Conclusions	page 18
+§7.1	Patrick Littell	heading	7.1 Is nukʷ still an evidential?	page 18
+§7.1	Patrick Littell	note	These facts necessitate raising the question, “Is nukʷ an evidential at all?” After all, in its semantics and pragmatics it behaves more like “ouch” than “appar- ently”, and if we want to preserve a theory in which all evidentials are of a uniform semantic implementation (Matthewson, 2010), it may be better to treat nukʷ as not being an evidential at all.	page 18
+§7.1	Patrick Littell	note	Nonetheless there are reasons to consider nukʷ as still being an eviden- tial. Even though it has a variety of uses, in many uses it does contribute eviden- tial meanings, and this use is, if not the most frequent, a very salient use both to speakers (“It means you can’t see it”) and researchers (Thompson and Thompson, 1992). Moreover, it remains a participant in the overall Nɬeʔkepmxcín eviden- tial paradigm. It occurs in same syntactic position as the other evidentials, is in complementary distribution with them, and even seems to participate in the sort of “evidential implicatures” that we expect from an evidential: that the use of nukʷ implicates that other types of evidence (visual, reportative, etc.) are unavailable or not relevant.	page 18
+§7.1	Patrick Littell	note	Instead of categorizing ekʷu and nke as “true” evidentials and nukʷ as a non-evidential, we would instead like to note that there is a some degree of overlap between expressive and evidential meanings, in the same way that there is over- lap between evidential and modal meanings. We propose therefore that nukʷ is a expessive evidential (or perhaps “evidential expressive”) − an expressive that per- forms (among other things) an evidential function. nke, on the other hand, appears to be more straightforwardly modal − it seems directly parallel to the (possibly cognate) St’át’imcets k’a (Matthewson, 2008) − suggesting that within a single language evidential functions may be distributed among different sorts of seman- tic objects.	page 18
+§7.1	St’át’imcets	cited form	k’a	page 18, in italics
+§7.2	Patrick Littell	heading	7.2 The heterogeneity of evidentials	page 18
+§7.2	Patrick Littell	note	It is a frequent assumption in investigations of evidentials that elements that form a paradigm have the same type of semantic implementation: that in a par- ticular language evidentials are, as a class, homogeneous: that they are all modals, or illocutionary operators, or some other type of operator (Faller, 2002; Matthew- son et al., 2007; Murray, 2010). Peterson (2010) argues, contrary to this trend, that within a single language different evidentials may have very different semantic im- plementations, specifically that some may be modals while others are illocutionary operators.	page 18
+§7.2	Patrick Littell	note	Nɬeʔkepmxcín illustrates this point in a striking fashion. The Gitksan evidentials as described in Peterson (2010) are of various syntactic realizations; in particular, the root n̓akw has both a different syntactic implementation and different semantic properties than the other Gitksan evidentials. Although these evidentials form a “pragmatic” paradigm they do not form a single syntactic paradigm; we could still argue that within a single syntactic paradigm all evidentials of a uniform semantic type.	page 19
+§7.2	Gitksan	cited form	n̓akw	page 19, in italics
+§7.2	Patrick Littell	note	In Nɬeʔkepmxcín, on the other hand, nukʷ, ekʷu, and nke appear to have the same syntactic implementation, but as seen above can vary significantly in their semantics and pragmatics. Even if we do not adopt an “expressive” account of nukʷ, it nonetheless differs in important and unexpected ways from the other evidentials. Regardless of a particular theoretical stance towards or implementa- tion of nukʷ, this highlights the importance, when investigating evidentials in a language, of treating each evidential separately; that just because an element be- haves like others in many ways does not mean that it does not exhibit significant and interesting differences in other ways.	page 19
+references	Patrick Littell	heading	References	page 19
+references	Patrick Littell	reference	Aikhenvald, A. (2004). Evidentiality. Oxford: Oxford University Press.	page 19
+references	Patrick Littell	reference	Chung, K. (2007). Spatial deictic tense and evidentials in Korean. Natural Lan- guage Semantics, 15:187–219.	page 19
+references	Patrick Littell	reference	Faller, M. (2002). Semantics and pragmatics of evidentials in Cuzco Quechua. PhD thesis, Stanford University.	page 19
+references	Patrick Littell	reference	Faller, M. (2006). Evidentiality above and below speech acts.	page 19
+references	Patrick Littell	reference	Faller, M. (2010). A possible worlds semantics for (illocutionary) evidentials. Presentation at SALT 20, Simon Fraser University, May 1, 2010.	page 19
+references	Patrick Littell	reference	Floyd, R. (1996). Experience, certainty and control, and the direct evidential in Wanka Quechua questions. Functions of Language, 3:69–93.	page 19
+references	Patrick Littell	reference	Izvorski, R. (1997). The present perfect as an epistemic modal. Proceedings of SALT VII, pages 222–239.	page 19
+references	Patrick Littell	reference	Kaplan, D. (1999). The meaning of ouch and oops (Explorations in the theory of meaning as use). Ms., UCLA.	page 19
+references	Patrick Littell	reference	Littell, P. (2010). Conjectural questions and the wonder effect. Paper presented at MOSAIC 2, McGill University, June 1, 2010.	page 19
+references	Patrick Littell	reference	Littell, P., Matthewson, L., and Peterson, T. (2009). On the semantics of conjec- tural questions. In M. Schenner, R.-M. Déchaine, T. P. and Sauerland, U., editors, Evidence from Evidentiality. Vancouver: University of British Columbia Working Papers in Linguistics.	page 19
+references	Patrick Littell	reference	Matthewson, L. (2008). Moods vs. modals in St’át’imcets and beyond. Colloquium presentation at New York University, October 24, 2008.	page 20
+references	Patrick Littell	reference	Matthewson, L. (2010). A universal theory of evidentials. Poster presented at PEPA 2, University of British Columbia, April 28, 2010.	page 20
+references	Patrick Littell	reference	Matthewson, L. (2011). On apparently non-modal evidentials. In Hofherr, O. B. . P. C., editor, Empirical Issues in Syntax and Semantics 8, pages 333–357.	page 20
+references	Patrick Littell	reference	Matthewson, L., Davis, H., and Rullmann, H. (2007). Evidentials as epistemic modals: Evidence from St’át’imcets. The Linguistic Variation Yearbook, 7:201–254.	page 20
+references	Patrick Littell	reference	McCready, E. and Ogata, N. (2007). Evidentiality, modality, and probability. Lin- guistics and Philosophy, 30:147–206.	page 20
+references	Patrick Littell	reference	Murray, S. (2010). Evidentiality and the structure of speech acts. PhD thesis, Rutgers University.	page 20
+references	Patrick Littell	reference	Peterson, T. (2009). Pragmatic blocking in Gitksan evidential expressions. In Proceedings of the 38th Meeting of the North East Linguistic Society. Amherst, MA: GLSA.	page 20
+references	Patrick Littell	reference	Peterson, T. (2010). Epistemic Modality and Evidentiality in Gitksan at the Semantics-Pragmatics Interface. PhD thesis, University of British Columbia.	page 20
+references	Patrick Littell	reference	Portner, P. (2006). Comments on Faller’s paper. Ms., Georgetown University.	page 20
+references	Patrick Littell	reference	Potts, C. (2005). The Logic of Conventional Implicatures. Oxford: Oxford Uni- versity Press.	page 20
+references	Patrick Littell	reference	Roberts, C., Simons, M., Beaver, D., and Tonhauser, J. (2009). Presupposition, conventional implicature, and beyond: A unified account of projection. In N. Klinedinst, D. R., editor, Proceedings of New Directions in the The- ory of Presupposition. Toulouse: ESSLLI.	page 20
+references	Patrick Littell	reference	Rullmann, H., Matthewson, L., and Davis, H. (2008). Modals as distributive in- definites. Natural Language Semantics, 16:317–357.	page 20
+references	Patrick Littell	reference	Schlenker, P. (2007). Expressive presuppositions. Theoretical Linguistics, 33:237–246.	page 20
+references	Patrick Littell	reference	Speas, M. and Tenny, C. (2003). Configurational properties of point of view roles. In di Sciullo, A. M., editor, Asymmetry in Grammar, pages 315–344. Amsterdam: John Benjamins.	page 20
+references	Patrick Littell	reference	Thompson, L. C. and Thompson, M. T. (1992). The Thompson Language. Mis- soula: University of Montana Occasional Papers in Linguistics.	page 20
+references	Patrick Littell	reference	Thompson, L. C. and Thompson, M. T. (1996). Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula: University of Montana Occasional Papers in Linguistics.	page 20
+references	Patrick Littell	reference	Waldie, R., Peterson, T., and Mackie, S. (2009). Evidentials as epistemic modals or speech act operators: Testing the tests. In Proceedings of the 14th Workshop on Structure and Constituency in Languages of the Americas. Vancouver: University of British Columbia Working Papers in Linguis- tics.	page 20

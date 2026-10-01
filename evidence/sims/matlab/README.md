@@ -4,12 +4,12 @@
 **Scope:** `evidence/sims/matlab/`
 
 ```matlab
-value = anchor_sift_departure(double(uint8(text)));
+value = orior_departure(double(uint8(text)));
 ```
 
 | file | what it is |
 |---|---|
-| `anchor_sift_departure.m` | the permutation null measure, ported |
+| `orior_departure.m` | the permutation null measure, ported |
 
 ## What it computes
 

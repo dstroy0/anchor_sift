@@ -1,5 +1,5 @@
 {
-  "_note": "Single source of truth for anchor_sift's test suites: one env per suite, run as a tessera job by utils/test/harness.py run. NEVER rewrite this file with json.dump: mutate it with harness.py env add/update/remove, or from a script through harness.splice_replace + harness.write_verified.",
+  "_note": "Single source of truth for orior's test suites: one env per suite, run as a tessera job by utils/test/harness.py run. NEVER rewrite this file with json.dump: mutate it with harness.py env add/update/remove, or from a script through harness.splice_replace + harness.write_verified.",
   "envs": {
     "cell": {
       "desc": "The cell, a probe runner.",

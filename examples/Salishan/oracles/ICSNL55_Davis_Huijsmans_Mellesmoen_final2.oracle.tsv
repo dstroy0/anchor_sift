@@ -1,0 +1,694 @@
+where	who	kind	form	gloss
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	title	Statives in ʔayʔaǰuθəm and St’át’imcets	page 1, carries footnote *
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Henry Davis	author
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Marianne Huijsmans	author
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Marianne Huijsmans
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Gloria Mellesmoen	author
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	University of British Columbia	page 1, under Gloria Mellesmoen
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Abstract: In this paper, we examine the semantic interpretation of stative marking in ʔayʔaǰuθəm (Comox-Sliammon) and St’át’imcets (Lillooet). Examining statives built on bare roots, we find that ʔayʔaǰuθəm statives encode ‘target states’, while St’át’imcets statives encode ‘result states’ (Parsons 1990, Kratzer 2000). More specifically, ʔayʔaǰuθəm statives encode the (potentially temporary) state brought about by the event denoted by a change-of-state verb, while St’át’imcets statives encode the irreversible state which holds simply by virtue of an event having occurred. We also examine the combination of the stative morpheme with the transitivizers found in each language. In ʔayʔaǰuθəm, we find that the stative morpheme can co-occur with the control and causative transitivizers, but not with the non-control transitivizer. With the control transitivizer, the interpretation is always that of the agent ‘maintaining’ a state, while with the causative transitivizer both ‘target state’ and ‘maintaining state’ readings are found. In St’át’imcets, the stative morpheme occurs only with the causative transitivizer and always gives rise to a ‘maintaining state’ reading.	page 1, the abstract
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Keywords: ʔayʔaǰuθəm (Comox-Sliammon), St’át’imcets (Lillooet), stative aspect, semantics	page 1, the keywords
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, ISO 639-3 coo
+front	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	St’át’imcets	Lillooet, Northern Interior Salish, ISO 639-3 lil
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We are deeply grateful to our ʔayʔaǰuθəm consultants, especially Elsie Paul, Betty Wilson, Freddie Louie, Joanne Francis, Phyllis Dominic, the late Karen Galligos, the late Marion Harry, and others. Without these courageous individuals who have been so determined to keep their language alive, this work would not be possible. For St’át’imcets, this is especially true of Carl Alexander: research on the language is increasingly dependent on his expertise. We are also grateful for feedback from the ʔayʔaǰuθəm Lab at UBC and the Salish Working Group. Finally, we would like to acknowledge funding from the Jacobs Research Fund and SSHRC Insight grant #435-2015-1694 awarded to Henry Davis. Authors’ e-mail addresses: Henry.Davis@ubc.ca, marianne.huijsmans@ubc.ca, gloria.mellesmoen@ubc.ca.	page 1, footnote *, on the title
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Elsie Paul	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Betty Wilson	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Freddie Louie	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Joanne Francis	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Phyllis Dominic	ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Karen Galligos	the late ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Marion Harry	the late ʔayʔaǰuθəm consultant
+footnote *	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Carl Alexander	St’át’imcets consultant
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	1 Introduction	page 1
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	There is a morpheme glossed ‘stative’ in both ʔayʔaǰuθəm (Comox-Sliammon, ISO 639-3: coo) and St’át’imcets (Lillooet, ISO 639-3: lil), which at first glance appears to perform similar functions in both languages. In ʔayʔaǰuθəm, the morpheme has a number of phonologically conditioned allomorphs: it may be realized as a suffix -ít, an infix -í-, or a high tone with no segmental content (see Blake 2000:111, 174; Watanabe 2003:410; Mellesmoen & Huijsmans 2019).1 In St’át’imcets, the stative marker is a prefix (ʔə)s-, descended from proto-Salish *ʔac-, which has reflexes in every Salish language except ʔayʔaǰuθəm and Bella Coola (Nuxalk) (Kinkade 1996:8).	page 1
+footnote 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We use an accent above a vowel in ʔayʔaǰuθəm to refer to high tone, realized acoustically as raised pitch: this notation follows Mellesmoen and Huijsmans (2019). Blake (2000) and Watanabe (2003) describe the same prosodic contrast as involving stress placement or foot structure. In St’át’imcets, an accent above a vowel denotes primary stress.	page 1, footnote 1
+§1	ʔayʔaǰuθəm	cited form	-ít	page 1, in italics
+§1	ʔayʔaǰuθəm	cited form	-í-	page 1, in italics
+§1	ʔayʔaǰuθəm	cited form	(ʔə)s-	page 1, in italics
+§1	ʔayʔaǰuθəm	cited form	*ʔac-	page 1, in italics
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Watanabe	Honoré Watanabe, the grammar of ʔayʔaǰuθəm (2003)
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	Comox-Sliammon	the paper's other name for ʔayʔaǰuθəm
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	Lillooet	St’át’imcets
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	Bella Coola	Nuxalk, which also lacks the reflex of *ʔac-
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	Nuxalk	Bella Coola
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In both languages, the stative morpheme combines with change-of-state roots to create a predicate of the type that is often labelled ‘resultative’ in the descriptive literature on Salish. The semantics of these stative predicates has not been previously examined in detail for either language. We show that the meaning of the stative in each language is different. Adopting terminology from Parsons (1990, via Kratzer 2000), we argue that the ʔayʔaǰuθəm statives in (1b) encode TARGET STATES, while the St’át’imcets statives in (2b) encode RESULT STATES.2	page 1
+footnote 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Unless otherwise stated, all examples and data presented in this paper come from fieldwork conducted by the authors (vf = volunteered form, sf = suggested form). Examples throughout are given with both an orthographic representation and a phonemic representation. Phonemic transcriptions are given in the North American Phonetic Alphabet (NAPA). Glossing abbreviations used in this paper are: 1 = 1st person, 3 = 3rd person, C/D = complementizer/determiner, CAUS = causative, CONJ = conjunction, COP = copula, CTR = control transitive, DET = determiner, ERG = ergative, EXCL = exclusive, EXIS = existential enclitic, FUT = future, INFER = inferential, IPFV = imperfective, NEG = negation, NMLZ = nominalizer, NCTR = non-control transitive, NTS = non-topical subject, OBJ = object, PASS = passive, PL = plural, POSS = possessive, PROG = progressive, PST = past, QUEX = ‘quexistential’ (WH-pronoun), RLT = relational, RDR = redirective, RPT = reportative, SBJ = subject, SBJV = subjunctive, SG = singular, and STAT = stative.	page 2, footnote 2
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Kratzer	Angelika Kratzer, target and result states (2000)
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	name	Parsons	Terence Parsons, target and result states (1990)
+(1) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 2, over the example
+(1) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Eventive b. Stative	page 2, the column heads
+(1a) line 1	ʔayʔaǰuθəm	transcription	ƛəpxʷ	page 2, the eventive column
+(1a) line 1	ʔayʔaǰuθəm	phonemic	/ƛəpxʷ/	page 2, the eventive column
+(1a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get broken’	page 2, the eventive column
+(1b) line 1	ʔayʔaǰuθəm	transcription	ƛəpɛ́xʷ	page 2, the stative column
+(1b) line 1	ʔayʔaǰuθəm	phonemic	/ƛəp<í>xʷ/	page 2, the stative column
+(1b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be broken’	page 2, the stative column
+(1a) line 2	ʔayʔaǰuθəm	transcription	təq	page 2, the eventive column
+(1a) line 2	ʔayʔaǰuθəm	phonemic	/təq/	page 2, the eventive column
+(1a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get closed’	page 2, the eventive column
+(1b) line 2	ʔayʔaǰuθəm	transcription	təqɛ́t	page 2, the stative column
+(1b) line 2	ʔayʔaǰuθəm	phonemic	/təq-ít/	page 2, the stative column
+(1b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be closed’	page 2, the stative column
+(1a) line 3	ʔayʔaǰuθəm	transcription	gəq̓	page 2, the eventive column
+(1a) line 3	ʔayʔaǰuθəm	phonemic	/gəq̓/	page 2, the eventive column
+(1a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get opened’	page 2, the eventive column
+(1b) line 3	ʔayʔaǰuθəm	transcription	gəq̓ɛ́t	page 2, the stative column
+(1b) line 3	ʔayʔaǰuθəm	phonemic	/gəq̓-ít/	page 2, the stative column
+(1b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be open’	page 2, the stative column
+(2) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 2, over the example
+(2) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Eventive b. Stative	page 2, the column heads
+(2a) line 1	St’át’imcets	transcription	mays	page 2, the eventive column
+(2a) line 1	St’át’imcets	phonemic	/mays/	page 2, the eventive column
+(2a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get fixed’	page 2, the eventive column
+(2b) line 1	St’át’imcets	transcription	(e)smays	page 2, the stative column
+(2b) line 1	St’át’imcets	phonemic	/(ʔə)s-máys/	page 2, the stative column
+(2b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be fixed’	page 2, the stative column
+(2a) line 2	St’át’imcets	transcription	pulh	page 2, the eventive column
+(2a) line 2	St’át’imcets	phonemic	/puɬ/	page 2, the eventive column
+(2a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get boiled’	page 2, the eventive column
+(2b) line 2	St’át’imcets	transcription	(e)spúlh	page 2, the stative column
+(2b) line 2	St’át’imcets	phonemic	/(ʔə)s-púɬ/	page 2, the stative column
+(2b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be boiled’	page 2, the stative column
+(2a) line 3	St’át’imcets	transcription	tseq	page 2, the eventive column
+(2a) line 3	St’át’imcets	phonemic	/cəq/	page 2, the eventive column
+(2a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get put face up’	page 2, the eventive column
+(2b) line 3	St’át’imcets	transcription	(e)stséq	page 2, the stative column
+(2b) line 3	St’át’imcets	phonemic	/(ʔə)s-cə́q/	page 2, the stative column
+(2b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be put face up’	page 2, the stative column
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Not all examples with the stative morpheme can be characterized as yielding a result or target state. When the stative morpheme combines with stems suffixed with the control transitive -t in ʔayʔaǰuθəm, for instance, the reading is rather one of MAINTAINING STATE. This refers to a state which is under the active control of an agent and persists until an event culminates or terminates.	page 2
+§1	ʔayʔaǰuθəm	cited form	-t	page 2, in italics
+(3) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 2, over the example
+(3) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Eventive control transitive b. Stative control transitive	page 2, the column heads
+(3a) line 1	ʔayʔaǰuθəm	transcription	χɛč̓ɛt	page 2, the eventive column
+(3a) line 1	ʔayʔaǰuθəm	phonemic	/x̣ič̓-it/	page 2, the eventive column
+(3a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘point at it’	page 2, the eventive column
+(3b) line 1	ʔayʔaǰuθəm	transcription	χɛ:č̓ɛ́t	page 2, the stative column
+(3b) line 1	ʔayʔaǰuθəm	phonemic	/x̣ič̓-ít/	page 2, the stative column
+(3b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be pointing at it’	page 2, the stative column
+(3a) line 2	ʔayʔaǰuθəm	transcription	ǰuθot	page 2, the eventive column
+(3a) line 2	ʔayʔaǰuθəm	phonemic	/ǰuθ-ut/	page 2, the eventive column
+(3a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘push it’	page 2, the eventive column
+(3b) line 2	ʔayʔaǰuθəm	transcription	ǰu:θót	page 2, the stative column
+(3b) line 2	ʔayʔaǰuθəm	phonemic	/ǰuθ-út/	page 2, the stative column
+(3b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be pushing on it’	page 2, the stative column
+(3a) line 3	ʔayʔaǰuθəm	transcription	ʔɛmɛt	page 2, the eventive column
+(3a) line 3	ʔayʔaǰuθəm	phonemic	/ʔim-it/	page 2, the eventive column
+(3a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘step on it’	page 2, the eventive column
+(3b) line 3	ʔayʔaǰuθəm	transcription	ʔɛ:mɛ́t	page 2, the stative column
+(3b) line 3	ʔayʔaǰuθəm	phonemic	/ʔim-ít/	page 2, the stative column
+(3b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be holding it in place w. one’s foot’	page 2, the stative column
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Transitive statives in St’át’imcets are morphosyntactically different from those in ʔayʔaǰuθəm. The control (‘directive’) transitivizer -Vn is simply ungrammatical with stative marking, and is uniformly replaced by the causative transitivizer -s.3 Nevertheless, once independent differences between the languages are taken into account, stative causatives in St’át’imcets are semantically close to stative control transitives in ʔayʔaǰuθəm: in particular, they also have a similar maintaining state reading.	page 2
+footnote 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	That this is a purely morphological constraint in St’át’imcets is shown by the fact that other transitivizers, including the redirective (applicative) transitivizer -cit /-xit/, which has control semantics, are fully compatible with stative marking:	page 2, footnote 3
+footnote 3	ʔayʔaǰuθəm	cited form	-cit /-xit/	page 2, in italics
+footnote 3 (i) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 3, over the example
+footnote 3 (i) line 2	St’át’imcets	transcription	stcúsmin’cits.	page 3
+footnote 3 (i) line 3	St’át’imcets	segmentation	s-txʷús-min̓-xi[t]-c	page 3
+footnote 3 (i) line 4	St’át’imcets	gloss	STAT-look-RLT-RDR-1SG.OBJ	page 3
+footnote 3 (i) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Mind it for me.’	page 3
+footnote 3 (ii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 3, over the example
+footnote 3 (ii) line 2	St’át’imcets	transcription	wá7lhkan scweyáyawtcit kw sBill ta pal7usá7a.	page 3
+footnote 3 (ii) line 3	St’át’imcets	segmentation	waʔ=ɬkan s-xʷəyáyawt-xit kʷ=s-Bill ta=palʔ-usáʔ=a	page 3
+footnote 3 (ii) line 4	St’át’imcets	gloss	IPFV=1SG.SBJ STAT-owe-RDR DET=NMLZ-Bill DET=one-round.thing=EXIS	page 3
+footnote 3 (ii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I owe Bill one dollar.’	page 3
+§1	ʔayʔaǰuθəm	cited form	-Vn	page 2, in italics
+§1	ʔayʔaǰuθəm	cited form	-s	page 2, in italics
+(4) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 3, over the example
+(4) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Directive (control) transitive b. Stative causative	page 3, the column heads
+(4a) line 1	St’át’imcets	transcription	áts’xen	page 3, the eventive column
+(4a) line 1	St’át’imcets	phonemic	/ʔác̓x̣-ən/	page 3, the eventive column
+(4a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘see it’	page 3, the eventive column
+(4b) line 1	St’át’imcets	transcription	(e)s7ats’xs	page 3, the stative column
+(4b) line 1	St’át’imcets	phonemic	/(ʔə)s-ʔác̓x̣-s/	page 3, the stative column
+(4b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be watching it’	page 3, the stative column
+(4a) line 2	St’át’imcets	transcription	téqen	page 3, the eventive column
+(4a) line 2	St’át’imcets	phonemic	/tə́q-ən/	page 3, the eventive column
+(4a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘touch it’	page 3, the eventive column
+(4b) line 2	St’át’imcets	transcription	(e)steqs	page 3, the stative column
+(4b) line 2	St’át’imcets	phonemic	/(ʔə)s-tə́q-s/	page 3, the stative column
+(4b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be holding it’	page 3, the stative column
+(4a) line 3	St’át’imcets	transcription	cátan’	page 3, the eventive column
+(4a) line 3	St’át’imcets	phonemic	/xát-an̓/	page 3, the eventive column
+(4a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘lift it’	page 3, the eventive column
+(4b) line 3	St’át’imcets	transcription	(e)scat.s	page 3, the stative column
+(4b) line 3	St’át’imcets	phonemic	/(ʔə)s-xát-s/	page 3, the stative column
+(4b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be holding it up’	page 3, the stative column
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Another goal of this paper is to describe these maintaining state interpretations and their relationship to the ‘resultative’ type interpretations shown in (1–2).	page 3
+§1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The remainder of the paper is organized as follows. Section 2 discusses the meaning of statives built on bare roots, including the similarities and differences between ʔayʔaǰuθəm and St’át’imcets. Section 3 examines the distribution and meaning of stative morphology on transitive verbs in the two languages. Section 4 concludes.	page 3
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	2 Statives built on bare roots	page 3
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Eventive bare roots in ʔayʔaǰuθəm and St’at’imcets are unaccusative and telic. When the stative morpheme combines with a bare root, the form is a ‘resultative’ predicate (5–6), repeated from (1– 2).4	page 3
+footnote 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	There are apparent exceptions to this generalization, pointed out in Watanabe (2003:416). We leave these aside for future research and focus here on the general pattern.	page 3, footnote 4
+(5) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 3, over the example
+(5) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Eventive b. Stative	page 3, the column heads
+(5a) line 1	ʔayʔaǰuθəm	transcription	ƛəpxʷ	page 3, the eventive column
+(5a) line 1	ʔayʔaǰuθəm	phonemic	/ƛəpxʷ/	page 3, the eventive column
+(5a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get broken’	page 3, the eventive column
+(5b) line 1	ʔayʔaǰuθəm	transcription	ƛəpɛ́xʷ	page 3, the stative column
+(5b) line 1	ʔayʔaǰuθəm	phonemic	/ƛəp<í>xʷ/	page 3, the stative column
+(5b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be broken’	page 3, the stative column
+(5a) line 2	ʔayʔaǰuθəm	transcription	təq	page 3, the eventive column
+(5a) line 2	ʔayʔaǰuθəm	phonemic	/təq/	page 3, the eventive column
+(5a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get closed’	page 3, the eventive column
+(5b) line 2	ʔayʔaǰuθəm	transcription	təqɛ́t	page 3, the stative column
+(5b) line 2	ʔayʔaǰuθəm	phonemic	/təq-ít/	page 3, the stative column
+(5b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be closed’	page 3, the stative column
+(5a) line 3	ʔayʔaǰuθəm	transcription	gəq̓	page 3, the eventive column
+(5a) line 3	ʔayʔaǰuθəm	phonemic	/gəq̓/	page 3, the eventive column
+(5a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get opened’	page 3, the eventive column
+(5b) line 3	ʔayʔaǰuθəm	transcription	gəq̓ɛ́t	page 3, the stative column
+(5b) line 3	ʔayʔaǰuθəm	phonemic	/gəq̓-ít/	page 3, the stative column
+(5b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be open’	page 3, the stative column
+(6) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 3, over the example
+(6) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	a. Eventive b. Stative	page 3, the column heads
+(6a) line 1	St’át’imcets	transcription	mays	page 3, the eventive column
+(6a) line 1	St’át’imcets	phonemic	/mays/	page 3, the eventive column
+(6a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get fixed’	page 3, the eventive column
+(6b) line 1	St’át’imcets	transcription	(e)smays	page 3, the stative column
+(6b) line 1	St’át’imcets	phonemic	/(ʔə)s-máys/	page 3, the stative column
+(6b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be fixed’	page 3, the stative column
+(6a) line 2	St’át’imcets	transcription	pulh	page 3, the eventive column
+(6a) line 2	St’át’imcets	phonemic	/puɬ/	page 3, the eventive column
+(6a) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get boiled’	page 3, the eventive column
+(6b) line 2	St’át’imcets	transcription	(e)spúlh	page 3, the stative column
+(6b) line 2	St’át’imcets	phonemic	/(ʔə)s-púɬ/	page 3, the stative column
+(6b) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be boiled’	page 3, the stative column
+(6a) line 3	St’át’imcets	transcription	tseq	page 3, the eventive column
+(6a) line 3	St’át’imcets	phonemic	/cəq/	page 3, the eventive column
+(6a) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘get put face up’	page 3, the eventive column
+(6b) line 3	St’át’imcets	transcription	(e)stséq	page 3, the stative column
+(6b) line 3	St’át’imcets	phonemic	/(ʔə)s-cə́q/	page 3, the stative column
+(6b) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘be put face up’	page 3, the stative column
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The term ‘resultative’ is only a descriptive label, however, not an analysis, and it wrongly groups statives in ʔayʔaǰuθəm and St’át’imcets together.	page 4
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Adopting terminology originally from Parsons (1990), we argue that the ʔayʔaǰuθəm ‘resultatives’ in (1) encode TARGET STATES, while the St’át’imcets ‘resultatives’ in (2) encode RESULT STATES. Kratzer (2000) uses these terms to describe two different subclasses of the German adjectival passive: those that encode the (potentially temporary) state brought about by the occurrence of a change-of-state predicate, and those that encode the state of an event having occurred (a state that exists forever after the occurrence of any event). The first kind of state she calls a target state, and the second a result state. An example of a target state passive is given in (7), while an example of a result state passive is given in (8). The target state passive in (7) is compatible with immer noch ‘still’ since the state described is temporary, while the result state passive in (8) is not, because result states are by definition permanent.5	page 4
+footnote 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Note that if a state passive passes the immer noch ‘still’ test, this distinguishes it as a target state passive, but if it fails the test, this does not necessarily mean that it is a result state passive; individual-level target states like ‘dead’ do not typically pass the test except in exceptional contexts, such as where the dead come back to life (Kratzer 2000:3).	page 4, footnote 5
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	German	Kratzer's adjectival passives, (7) and (8)
+(7) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	German:	page 4, over the example
+(7) line 2	German	transcription	Die Geisslein sind immer noch versteckt.	page 4
+(7) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	The little goats are still hidden.	page 4, a gloss word for word that stands as the translation
+(8) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	German:	page 4, over the example
+(8) line 2	German	transcription	Das Theorem ist (* immer noch) bewiesen.	page 4
+(8) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	The theorem is (* still) proven.	page 4, a gloss word for word that stands as the translation
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	As already hinted in the characterizations above, the lexical aspectual properties of the predicate determine which reading a German adjectival passive will receive. If a stem encodes an event leading to a target state, the adjectival passive built on this stem will have a target state reading. If a stem does not encode a target state, the adjectival passive built on this stem will have a result state reading.	page 4
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In Kratzer (2000), the stativizer for target state readings combines with a predicate that encodes both an event and a target state and existentially closes the event argument, backgrounding the event and foregrounding the target state, as in (9).	page 4
+(9) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	𝜆𝑅𝜆𝑠∃𝑒 . 𝑅(𝑠)(𝑒) (Kratzer 2000:8)	page 4, set as an example
+§2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	This means that target states can only be built from predicates that lexically encode a target state argument, in contrast to result states, which simply require that the event described by the predicate has occurred preceding the reference time. Kratzer characterizes the result state stativizer as an aspectual operator which returns a predicate of times, as shown in (10).	page 4
+(10) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	𝜆𝑃𝜆𝑡∃𝑒 . 𝑃(𝑒) & 𝜏(𝑒) < 𝑡 (Kratzer 2000:12)	page 4, set as an example
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	2.1 ʔayʔaǰuθəm target state statives	page 5
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We show that ʔayʔaǰuθəm statives built on bare roots are only licensed when the predicate provides a target state and this target state holds at the reference time.	page 5
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In order to investigate the distinction between target and result states in the languages under investigation, we designed storyboards to capture a target state interpretation (if available) for a specific root. Over the course of the story, the target state was then reversed or altered to test if it needed to hold at the reference time for felicitous use of the stative-marked form. We also noted whether the stative form was volunteered in each context by the speaker, and then checked whether the stative form could be felicitously used in each context in follow-up elicitation.	page 5
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Each picture was shown as an individual image in a “flipbook-style”, rather than in a traditional “comic-style” storyboard. This allowed for more targeted elicitation, prompting the description of specific semantic contexts with images progressing through minimal adjustments, while not allowing the speaker to look ahead or view other images of the story at the same time.	page 5
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Our Broken Cup storyboard is illustrated in Figures 1–7; the captions provide a minimal description of the English prompt associated with each image. We walked through the storyboards with our ʔayʔaǰuθəm-speaking consultants in English, and then had them go through and tell the story in ʔayʔaǰuθəm. Subsequently, we went back to the most critical images (showing the key semantic contrasts) and asked whether target ʔayʔaǰuθəm sentences could be used to describe the image. This resulted in a combination of spontaneous speech and judgements on the grammaticality and felicity of constructed sentences.	page 5
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	English	the adjectival passive compared
+Figure 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 1: Marianne had a cup.	page 5, the figure's caption
+Figure 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 2: Marianne dropped her cup.	page 5, the figure's caption
+Figure 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 3: Marianne’s cup broke.	page 5, the figure's caption
+Figure 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 4: The cup is broken.	page 5, the figure's caption
+Figure 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 5: Marianne picked up the pieces.	page 6, the figure's caption
+Figure 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 6: Marianne glued the cup together.	page 6, the figure's caption
+Figure 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 7: The cup is glued back together. (“Can you use the stative?”)	page 6, the figure's caption
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The results for this storyboard with one ʔayʔaǰuθəm speaker are given in (11). While the consultant did not initially volunteer the form in (11a) for Figure 4, she found it perfectly felicitous when offered as a description of this point in the story. In contrast, the same stative-marked form was rejected when provided as a description of Figure 7, where the target state has been reversed (11b).	page 6
+(11) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 6, over the example
+(11a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The cup is broken. (Figure 4)	page 6, over the example
+(11a) line 2	ʔayʔaǰuθəm	transcription	pi:ɬɛ́t.	page 6
+(11a) line 3	ʔayʔaǰuθəm	segmentation	piɬ-ít	page 6
+(11a) line 4	ʔayʔaǰuθəm	gloss	get.shattered-STAT	page 6
+(11a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s shattered.’	page 6
+(11a) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+(11b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The cup was broken but has been repaired. Cracks are visible. (Figure 7)	page 6, over the example
+(11b) line 2	ʔayʔaǰuθəm	transcription	# pi:ɬɛ́t.	page 6
+(11b) line 3	ʔayʔaǰuθəm	segmentation	piɬ-ít	page 6
+(11b) line 4	ʔayʔaǰuθəm	gloss	get.shattered-STAT	page 6
+(11b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s shattered.’	page 6
+(11b) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 6, at the right of the translation
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	A second set of pictures, extracted from a storyboard depicting a coat being ripped and then sewn up, is shown in Figure 8.6 As with the sentences elicited for the Broken Cup storyboard (11), the ʔayʔaǰuθəm sentence with the stative form in (12a) was judged felicitous for the left-hand panel of Figure 8, which depicts the coat as ripped. The same form was judged infelicitous for the right- hand panel of Figure 8, at which point the coat has been repaired, as shown in (12b). Note that even visible evidence of the previous target state, such as cracks in the repaired cup in Figure 7 and stitches on the repaired coat in Figure 8 (righthand panel), was not sufficient for felicitous use of the stative form once the target state was reversed.	page 6
+footnote 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In Figure 8, we show only the most crucial images from the Ripped Coat storyboard; we adopt this practice for the remainder of the paper.	page 6, footnote 6
+Figure 8	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 8: Daniel’s coat caught on a tree and ripped (left), but Gloria sewed it up (right).	page 7, the figure's caption
+(12) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 7, over the example
+(12a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Daniel goes for a walk in the woods. His coat gets snagged on a tree and torn. (Figure 8, left-hand panel)	page 7, over the example
+(12a) line 2	ʔayʔaǰuθəm	transcription	paχɛ́t tə kɛpos Daniel.	page 7
+(12a) line 3	ʔayʔaǰuθəm	segmentation	pəx̣-ít tə=kapu-s Daniel	page 7
+(12a) line 4	ʔayʔaǰuθəm	gloss	get.ripped-STAT DET=coat-3POSS Daniel	page 7
+(12a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Daniel’s coat is ripped.’	page 7
+(12a) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 7, at the right of the translation
+(12b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Gloria fixes Daniel’s coat. It’s still possible to see where it’s been mended. (Figure 8, right-hand panel).	page 7, over the example
+(12b) line 2	ʔayʔaǰuθəm	transcription	# paχɛ́t tə kɛpos Daniel.	page 7
+(12b) line 3	ʔayʔaǰuθəm	segmentation	pəx̣-ít tə=kapu-s Daniel	page 7
+(12b) line 4	ʔayʔaǰuθəm	gloss	get.ripped-STAT DET=coat-3POSS Daniel	page 7
+(12b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Daniel’s coat is ripped.’	page 7
+(12b) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 7, at the right of the translation
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The past tense suffix -oɬ /-(ʔ)uɬ/ was volunteered in (13) as a means of rescuing (12b.)	page 7
+§2.1	ʔayʔaǰuθəm	cited form	-oɬ /-(ʔ)uɬ/	page 7, in italics
+(13) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 7, over the example
+(13) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Gloria fixes Daniel’s coat. It’s still possible to see where it’s been mended. (Figure 8, right-hand panel)	page 7, over the example
+(13) line 3	ʔayʔaǰuθəm	transcription	paχɛ́toɬ tə kɛpos Daniel.	page 7
+(13) line 4	ʔayʔaǰuθəm	segmentation	pəx̣-ít-uɬ tə=kapu-s Daniel	page 7
+(13) line 5	ʔayʔaǰuθəm	gloss	get.ripped-STAT-PST DET=coat-3POSS Daniel	page 7
+(13) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Daniel’s coat was ripped.’	page 7
+(13) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 7, at the right of the translation
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The past tense suffix shifts the reference time from the point in time represented by the picture (when the target state does not hold), to a previous point in the story (when the target state does hold).7 Some ʔayʔaǰuθəm bare roots we tested using storyboards turned out to be ungrammatical with stative morphology. For instance, ʔɛ:mɛ́t /ʔim-ít/, from ʔɛm- /ʔim-/ ‘step’, was not accepted by any of our ʔayʔaǰuθəm-speaking consultants, even when they were provided with a context designed to facilitate a target state reading (see below for a contrast with the equivalent root in St’át’imcets). The storyboard in Figure 9 (the Trodden Worm storyboard) was provided to facilitate a potential target state reading for ʔɛ:mɛ́t /ʔim-ít/, giving the action a visible consequence. As seen in (14), however, ʔɛ:mɛ́t /ʔim-ít/ was not accepted and maʔt̓ɛ́ k̓ /mat̓<í>k̓/ ‘squished’ was suggested instead.	page 8
+footnote 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm has a null non-future tense with similar semantic properties to its equivalent in St’át’imcets (Matthewson 2006). The default reference time for unmarked stative forms is the utterance time, but this can be contextually overridden, when stative forms appear in narratives about past happenings, for instance.	page 8, footnote 7
+§2.1	ʔayʔaǰuθəm	cited form	ʔɛ:mɛ́t /ʔim-ít/	page 8, in italics
+§2.1	ʔayʔaǰuθəm	cited form	ʔɛm- /ʔim-/	page 8, in italics, ‘step’
+Figure 9	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 9: The Trodden Worm storyboard.	page 8, the figure's caption
+(14) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 8, over the example
+(14) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The worm has been squished (final two images in bottom right of The Trodden Worm storyboard in Figure 9.8	page 8, over the example
+footnote 8	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	While nouns in argument positions in ʔayʔaǰuθəm are generally preceded by determiners (with the exception of proper names), they are frequently elided in connected speech, especially among younger speakers (see e.g., Watanabe 2003:79, Huijsmans et al. 2018:330).	page 8, footnote 8
+(14a) line 1	ʔayʔaǰuθəm	transcription	* ʔɛ:mɛ́t t̓ᶿɛt̓ᶿɛk̓ʷ.	page 8
+(14a) line 2	ʔayʔaǰuθəm	segmentation	ʔim-ít t̓ᶿit̓ᶿik̓ʷ	page 8
+(14a) line 3	ʔayʔaǰuθəm	gloss	step-STAT worm	page 8
+(14a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The worm is stepped on.’	page 8
+(14a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 8, at the right of the translation
+(14b) line 1	ʔayʔaǰuθəm	transcription	mat̓ɛ́k̓ t̓ᶿɛt̓ᶿɛk̓ʷ.	page 8
+(14b) line 2	ʔayʔaǰuθəm	segmentation	mət̓<i>k̓ t̓ᶿit̓ᶿik̓ʷ	page 8
+(14b) line 3	ʔayʔaǰuθəm	gloss	get.squished<STAT> worm	page 8
+(14b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The worm is squished.’	page 8
+(14b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 8, at the right of the translation
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The restriction demonstrated by the examples in (14) is predicted if the ʔayʔaǰuθəm stative marker only combines with roots that lexically encode a target state, and ʔɛm /ʔim/ ‘step’ does not do so. (Recall that the stative morpheme itself does not introduce a target state, but rather foregrounds a state already encoded by the root, as expressed in the formula in 9.) Additional rejected stative-marked forms in ʔayʔaǰuθəm are given in (15). We provided contexts intended to facilitate target state readings for these predicates, and also asked in follow-up questions whether the stative-marked forms were ever possible: however, consultants were unable to find any context where stative marking would be acceptable and seemed to reject the stative-marked forms as simply ungrammatical, rather than infelicitous in a given context.	page 9
+§2.1	ʔayʔaǰuθəm	cited form	ʔɛm /ʔim/	page 9, in italics, ‘step’
+(15) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 9, over the example
+(15a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: There’s is a murder victim found with a note in his mouth.	page 9, over the example
+(15a) line 2	ʔayʔaǰuθəm	transcription	* qʷo:mɛ́t tə pipa.	page 9
+(15a) line 3	ʔayʔaǰuθəm	segmentation	qʷum-ít tə=pipa	page 9
+(15a) line 4	ʔayʔaǰuθəm	gloss	put.in.mouth-STAT DET=paper	page 9
+(15a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The paper is in *(his) mouth.’	page 9
+(15a) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(15b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: No one is supposed to touch the delicate vases, but Ifindfingerprints on one (using a picture of a vase with fingerprints on it to support the context).	page 9, over the example
+(15b) line 2	ʔayʔaǰuθəm	transcription	* qəpɛ́t tə nəpamɛns kʷ qʷasəm.	page 9
+(15b) line 3	ʔayʔaǰuθəm	segmentation	qəp-ít tə=nəp-amin-s kʷ=qʷasəm	page 9
+(15b) line 4	ʔayʔaǰuθəm	gloss	get.touched-STAT DET=get.put.in-instrument-3POSS DET=flower	page 9
+(15b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	?? ‘The vase is touched.’	page 9
+(15b) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(15c) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context 1: It says in the newspaper that one of the fugitives in a robbery case has been seen. Context 2: It says in the newspaper that one of the fugitives in a robbery case is being watched (tailed by a policeman).	page 9, over the example
+(15c) line 2	ʔayʔaǰuθəm	transcription	* k̓ʷa k̓ʷʊnɛ́t šɛ pɛpaʔa.	page 9
+(15c) line 3	ʔayʔaǰuθəm	segmentation	k̓ʷa k̓ʷən-ít šə=pipaʔa	page 9
+(15c) line 4	ʔayʔaǰuθəm	gloss	RPT get.seen-STAT DET=one.person	page 9
+(15c) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	?? ‘One guy is seen/watched.’	page 9
+(15c) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(15di) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context 1: One ball is across the field and must have been kicked over there.	page 9, over the example
+(15di) line 2	ʔayʔaǰuθəm	transcription	* yɩmɛ́t tə laspal.	page 9
+(15di) line 3	ʔayʔaǰuθəm	segmentation	yəm-ít tə=laspal	page 9
+(15di) line 4	ʔayʔaǰuθəm	gloss	get.kicked-STAT DET=ball	page 9
+(15di) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	?? ‘The ball is kicked.’	page 9
+(15di) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+(15dii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context 2: My wall has a footprint on it where someone kicked it.	page 9, over the example
+(15dii) line 2	ʔayʔaǰuθəm	transcription	* č̓ɛ yɩmɛ́t tə ƛ̓oqʷtən.	page 9
+(15dii) line 3	ʔayʔaǰuθəm	segmentation	č̓a yəm-ít tə=ƛ̓əqʷtən	page 9
+(15dii) line 4	ʔayʔaǰuθəm	gloss	INFER get.kicked-STAT DET=wall	page 9
+(15dii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	?? ‘The wall must be kicked.’	page 9
+(15dii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 9, at the right of the translation
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Which particular roots are compatible with stative marking in ʔayʔaǰuθəm is not always predictable on the basis of English intuitions. While closed, open, and broken encode a target state in English, like the corresponding forms in ʔayʔaǰuθəm (see 5a–c), and can therefore function as adjectival passives in English (as in e.g., the closed door), other predicates that can form target state statives in ʔayʔaǰuθəm do not translate into well-formed adjectival passives in English. For instance, (16) is judged grammatical and felicitous by our ʔayʔaǰuθəm consultants when describing a window that is lifted up and left open, but the corresponding English adjectival passive (as in the translation below) sounds odd.	page 9
+(16) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 10, over the example
+(16) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: A window that opens by sliding upwards is currently open.	page 10, over the example
+(16) line 3	ʔayʔaǰuθəm	transcription	qahɛ́t tə məmk̓eyustən.	page 10
+(16) line 4	ʔayʔaǰuθəm	segmentation	qəh-ít tə=məmk̓ayustən	page 10
+(16) line 5	ʔayʔaǰuθəm	gloss	get.lifted-STAT DET=window	page 10
+§2.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	?? ‘The window is lifted.’/?? ‘a lifted window’ (sf) The fact that the distribution of the ʔayʔaǰuθəm stative is not predictable on the basis of translation is not surprising; the ability of a root to combine with stative morphology depends on its lexical semantic properties, and these properties may differ between translation equivalents in different languages. While the lexical nature of the restriction necessarily makes it difficult to determine exactly which roots will be able to combine with the stative, rough generalizations are possible. What seems to be required of ʔayʔaǰuθəm roots to allow them to combine with the stative is that they describe a change-of-state or change-of-position that continues to affect the argument undergoing the change after the event is completed. The examples in (14a–b) differ from the examples in (5) in requiring ongoing participation from the agent to maintain the effect on the patient, while with (15c–d) it is not clear that the predicate encodes an effect on the theme/patient argument at all; these roots seem to encode only an action/event.9	page 10
+footnote 9	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	yɩm- /yəm-/ ‘kick’ in (15d) refers only to the act of kicking, rather than kicking something somewhere, and so is perfectly compatible with the action of kicking something stationary, such as a large rock or tree stump. This is different from a predicate like qəh /qəh/- ‘lift’ in (16), which necessarily involves a change of position for the patient argument.	page 10, footnote 9
+footnote 9	ʔayʔaǰuθəm	cited form	yɩm- /yəm-/	page 10, in italics, ‘kick’
+footnote 9	ʔayʔaǰuθəm	cited form	qəh /qəh/-	page 10, in italics, ‘lift’
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	2.2 St’át’imcets result state statives	page 10
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Our results for St’át’imcets are different. We used the same storyboards and a similar methodology. The stories were presented using a St’át’imcets script as a prompt to guide the elicitation by ‘co-narration’. The pictures in the storyboard were presented in the context of a conversation, where the consultant was asked questions in St’át’imcets to prompt an appropriate response or asked if a sentence in St’át’imcets was acceptable for a given picture.	page 10
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Using this methodology, we found that for stativized bare root intransitives, the target state does not have to hold at the reference time: in other words, St’át’imcets statives seem to be sensitive only to the result state rather than the target state. We illustrate this finding with three storyboards.	page 10
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The first storyboard involves the root √cik /√xik/ ‘push’, which surfaces as the bare intransitive verb cik /xik/ ‘get pushed’ and as the stative-marked verb (e)scík /(ʔə)s-xík/ ‘be pushed’. In the story, a car breaks down and the driver and passenger must figure out how to get it moving again. The driver and the passenger push it to try and get it to start, as pictured in the left-hand panel of Figure 10. Their efforts are unsuccessful, and nothing happens, as illustrated in the right-hand panel of Figure 10. At that point, the car has been pushed (i.e., there is a result state), but the pushing has had no effect (i.e., there is no discernable target state).	page 10
+§2.2	ʔayʔaǰuθəm	cited form	√cik /√xik/	page 10, in italics, ‘push’
+§2.2	ʔayʔaǰuθəm	cited form	(e)scík /(ʔə)s-xík/	page 10, in italics, ‘be pushed’
+Figure 10	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 10: The Breakdown storyboard.	page 11, the figure's caption
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In response to the right-hand panel in Figure 10, our St’át’imcets-speaking consultant was asked whether the stative form (e)scík /(ʔə)s-xík/ would be appropriate.	page 11
+(17) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 11, over the example
+(17) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Interviewer: ‘What about escík /ʔes-xík/, if it’s just been pushed?’	page 11, the interviewer's question
+(17) line 3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant: ‘Plan escík /plan ʔəs-xík/ (= ‘already pushed’) would work.’10 The second storyboard depicts a visit by two friends to a carnival, where they take turns shooting at bottles in a shooting gallery. If they hit the bottle and it breaks, they win a prize. The first of the friends to try their luck hits a bottle, which shatters, as shown in the left-hand picture in Figure 11; but when the second friend tries, his bullet bounces off the bottle and it remains intact, as shown in the right-hand picture.	page 11, under the example, the consultant not named
+footnote 10	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	It is important to note that the aspectual auxiliary plan ‘already’ does not shift the reference time into the past: its meaning is close to that of the perfect in English.	page 11, footnote 10
+Figure 11	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 11: The Shooting Gallery storyboard.	page 11, the figure's caption
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Following the events depicted in Figure 11, a dispute ensues between the friends about whether a ‘hit bottle’ wins a prize, or just a ‘shattered bottle’. The crucial test sentence is given in (18). There is no target state associated with the stative form esqám’t /ʔəs-qám̓t/ ‘hit’, yet it was judged to be felicitous in this context.	page 11
+§2.2	ʔayʔaǰuθəm	cited form	esqám’t /ʔəs-qám̓t/	page 11, in italics, ‘hit’
+(18) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 12, over the example
+(18) line 2	St’át’imcets	transcription	Wenácw t’u7 kwas esqám’t, tsúkw t’u7	page 12
+(18) line 3	St’át’imcets	segmentation	wənáxʷ=ƛ̓uʔ kʷas ʔəs-qam̓t cúkʷ=ƛ̓uʔ	page 12
+(18) line 4	St’át’imcets	gloss	true=EXCL D/C+NMLZ+IPFV+3POSS STAT-get.hit finish=EXCL	page 12
+(18) line 5	St’át’imcets	transcription	kwas cw7aoz kwas essék’w.	page 12
+(18) line 6	St’át’imcets	segmentation	kʷas xʷʔạz kʷas ʔəs-sə́k̓ʷ	page 12
+(18) line 7	St’át’imcets	gloss	D/C+NMLZ+IPFV+3POSS NEG D/C+NMLZ+IPFV+3POSS STAT-get.shattered	page 12
+(18) line 8	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘It’s true that it’s been hit, it just hasn’t been broken.’	page 12
+(18) line 9	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 12, at the right of the translation
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Our third storyboard involves the ‘Trodden Worm’ storyboard given in Figure 9, but this time rewritten with a different (happier!) ending, as shown in Figure 12.	page 12
+Figure 12	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 12: Trodden worm escapes unscathed in The Trodden Worm Redux.	page 12, the figure's caption
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In the ‘Trodden Worm (redux)’ scenario in Figure 12, the worm survives being trodden on by the boot with no apparent ill-effects. The consultant remarks:	page 12
+(19) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 12, over the example
+(19) line 2	St’át’imcets	transcription	Esk’wwát, t’u7 wa7 t’u7 áma.	page 12
+(19) line 3	St’át’imcets	segmentation	ʔəs-k̓ʷwát, ƛ̓uʔ wáʔ=ƛ̓uʔ ʔáma	page 12
+(19) line 4	St’át’imcets	gloss	STAT-get.trodden but IPFV=EXCL good	page 12
+(19) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s been stepped on, but he’s still good.’	page 12
+(19) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf, consultant’s translation)	page 12, at the right of the translation
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Once again, there is no detectable target state after the event has culminated (the worm wriggles away unscathed), yet the stative prefix is felicitous in this context. In other words, stative marking in St’át’imcets is sensitive to the result state rather than the target state, as also indicated by the English translation provided by the consultant in (19), which uses the perfect, the closest equivalent to a result state-denoting operator in English.	page 12
+§2.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We obtained similar results with two other storyboards (not shown in this paper), involving (e)sk’íh /(ʔə)s-k̓íh/ ‘be picked up (of a baby)’ and (e)ssék’w /(ʔə)s-sək̓ʷ/ ‘be broken (of something brittle)’. We conclude that there is a genuine (and surprising) difference between the representation of stative predicates built on bare intransitives in ʔayʔaǰuθəm and St’át’imcets: the former encode target states, while the latter encode result states.	page 12
+§2.2	ʔayʔaǰuθəm	cited form	(e)sk’íh /(ʔə)s-k̓íh/	page 12, in italics, ‘be picked up (of a baby)’
+§2.2	ʔayʔaǰuθəm	cited form	(e)ssék’w /(ʔə)s-sək̓ʷ/	page 12, in italics, ‘be broken (of something brittle)’
+§3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	3 Transitive statives	page 12
+§3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In this section, we examine the semantic interpretation of stative transitive predicates. As will be seen in the examples below, we find that the stative morpheme co-occurs with both the control and causative transitivizers in ʔayʔaǰuθəm, but with different interpretations. When the stative morpheme co-occurs with the control transitive, the resulting predicate does not encode a target state provided by the root, but instead yields a ‘maintaining’ state reading: that is, a state which is maintained by an agent in control of the event described by the root (see also Watanabe 2003:430). In contrast, when the stative morpheme co-occurs with the causative transitivizer, the resulting predicate often encodes a target state, but can also encode a maintaining state reading, and in some cases is ambiguous between the two (see also Watanabe 2003:443). We did not find that the stative morpheme could co-occur productively with the non-control transitivizer (see also Watanabe 2003; cf. Mellesmoen & Andreotti 2017).	page 12
+§3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In St’át’imcets, there are no control transitive (directive) statives (see example 4 above), and in contrast to ʔayʔaǰuθəm, causative statives seem to only have a maintaining state reading. This finding should be treated with caution, however, since we have not yet examined transitive statives using storyboards, and therefore do not yet have negative data on possible missing readings. Nevertheless, if this finding does hold up to further scrutiny, the lack of a target state reading with transitive statives in St’át’imcets is consistent with its absence on bare root statives, as discussed in the previous section.	page 13
+§3	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Our goal in this section is limited: we aim to produce a preliminary picture of available readings, rather than a full semantic analysis. We leave a more complete account for future work.	page 13
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	3.1 Transitive statives in ʔayʔaǰuθəm	page 13
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We begin with ʔayʔaǰuθəm. As illustrated in (20), when stative marking and the control transitivizer co-occur, the result is a maintaining state reading.	page 13
+(20) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 13, over the example
+(20a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The wind blew papers that Gloria was carrying out of her hands. Henry stopped one with his foot.	page 13, over the example
+(20a) line 2	ʔayʔaǰuθəm	transcription	ʔɛ:mɛ́təs tə paʔa.	page 13
+(20a) line 3	ʔayʔaǰuθəm	segmentation	ʔim-ít-as tə=paʔa	page 13
+(20a) line 4	ʔayʔaǰuθəm	gloss	step-CTR<STAT>-3ERG DET=one	page 13
+(20a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is holding one in place with his foot.’	page 13
+(20a) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 13, at the right of the translation
+(20b) line 1	ʔayʔaǰuθəm	transcription	qəpɛ́təs.	page 13
+(20b) line 2	ʔayʔaǰuθəm	segmentation	qəp-í-t-as	page 13
+(20b) line 3	ʔayʔaǰuθəm	gloss	get.touched-STAT-CTR-3ERG	page 13
+(20b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She is feeling, caressing it.’	page 13
+(20b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 13, at the right of the translation
+(20c) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Gloria is going on a trip...	page 13, over the example
+(20c) line 2	ʔayʔaǰuθəm	transcription	gayɛtəm k̓ʷa səm Gloria Daniel k̓ʷʊnɛ́təs č̓ɛn̓os.	page 13
+(20c) line 3	ʔayʔaǰuθəm	segmentation	gay-at-əm=k̓ʷa=səm Gloria Daniel k̓ʷən-í-t-as č̓an̓u-s	page 13
+(20c) line 4	ʔayʔaǰuθəm	gloss	ask-CTR-PASS=RPT=FUT Gloria Daniel get.seen-STAT-CTR-3ERG dog-3POSS	page 13
+(20c) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Gloria will ask Daniel to watch her dog.’	page 13
+(20c) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 13, at the right of the translation
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In combination with the control transitivizer, the stative morpheme occurs with roots that cannot directly be made stative, such as ʔɛm- /ʔim-/ ‘step’, qəp- /qəp-/ ‘touch’, and k̓ʷʊn- /k̓ʷən-/ ‘see’ (cf. 14–15). We take this to mean that the control transitivizer combines with the root prior to the stative morpheme in these forms.	page 13
+§3.1	ʔayʔaǰuθəm	cited form	qəp- /qəp-/	page 13, in italics, ‘touch’
+§3.1	ʔayʔaǰuθəm	cited form	k̓ʷʊn- /k̓ʷən-/	page 13, in italics, ‘see’
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	While maintaining state statives are translated into English using the progressive, they have a distinct interpretation from progressive forms in ʔayʔaǰuθəm.11 This is particularly clear where the same stem can appear in both stative and progressive forms, as illustrated in (21)–(23). As when investigating intransitive statives, we used pictures and storyboards to elicit these forms. For instance, Figure 13 was used to elicit the negative data in (21ai) and the positive data in (21bi). Figure 14 was used to elicit the positive data in (21aii) and the negative data in (21bii).	page 14
+footnote 11	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Bar-el (2005) argues that CV- (C1) reduplication in Sḵwx̱wú7mesh encodes progressive aspect, rather than imperfective aspect. There are several reasons to think that the same is true of ʔayʔaǰuθəm. C1 reduplication does not occur on stative predicates (Watanabe 2003:412), and we further observe that C1 reduplication does not lead to habitual readings on its own (an additional adverb is used). Both these behaviours would be expected of an imperfective, but not a progressive morpheme (e.g. Comrie 1976). See 3.2 for further remarks on the difference between imperfective marking in ʔayʔaǰuθəm and St’át’imcets.	page 14, footnote 11
+Figure 13	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 13: Henry steps on papers as he walks.	page 14, the figure's caption
+Figure 14	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 14: Henry steps on a paper to keep it in place.	page 14, the figure's caption
+(21) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 14, over the example
+(21a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Stative	page 14, heading the parts under it
+(21ai) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: There are papers strewn over the floor of Henry’s office. To get across his office, he ends up stepping on them	page 14, over the example
+(21ai) line 2	ʔayʔaǰuθəm	transcription	# ʔɛ:mɛ́təs šɛ pəppipas.	page 14
+(21ai) line 3	ʔayʔaǰuθəm	segmentation	ʔim-ít-as šə=pəp~pipa-s	page 14
+(21ai) line 4	ʔayʔaǰuθəm	gloss	step-CTR<STAT>-3ERG DET=PL~paper-3POSS	page 14
+(21ai) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is stepping on his papers.’	page 14
+(21ai) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 14, at the right of the translation
+(21aii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The wind blew papers that Gloria was carrying out of her hands. Henry stopped one with his foot.	page 14, over the example
+(21aii) line 2	ʔayʔaǰuθəm	transcription	ʔɛ:mɛ́təs šɛ paʔa.	page 14
+(21aii) line 3	ʔayʔaǰuθəm	segmentation	ʔim-ít-as šə=paʔa	page 14
+(21aii) line 4	ʔayʔaǰuθəm	gloss	step-CTR<STAT>-3ERG DET=one	page 14
+(21aii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is stepping on one.’	page 14
+(21aii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 14, at the right of the translation
+(21b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Progressive	page 14, heading the parts under it
+(21bi) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: There are papers strewn over the floor of Henry’s office. To get across his office, he ends up stepping on them	page 14, over the example
+(21bi) line 2	ʔayʔaǰuθəm	transcription	ʔɛʔɛmɛtəs šɛ pəppipas.	page 14
+(21bi) line 3	ʔayʔaǰuθəm	segmentation	ʔi~ʔim-it-as šə=pəp~pipa-s	page 14
+(21bi) line 4	ʔayʔaǰuθəm	gloss	PROG~step-CTR-3ERG DET=PL~paper-3POSS	page 14
+(21bi) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is stepping on his papers.’	page 14
+(21bi) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 14, at the right of the translation
+(21bii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: The wind blew papers that Gloria was carrying out of her hands. Henry stopped one with his foot.	page 15, over the example
+(21bii) line 2	ʔayʔaǰuθəm	transcription	# ʔɛʔɛmɛtəs.	page 15
+(21bii) line 3	ʔayʔaǰuθəm	segmentation	ʔi~ʔim-it-as	page 15
+(21bii) line 4	ʔayʔaǰuθəm	gloss	PROG~step-CTR-3ERG	page 15
+(21bii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is stepping on it.’	page 15
+(21bii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 15, at the right of the translation
+(22) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 15, over the example
+(22a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Stative	page 15, heading the parts under it
+(22ai) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture of a man pushing on the wall of a shed that’s being built to keep it in place.	page 15, over the example
+(22ai) line 2	ʔayʔaǰuθəm	transcription	ǰu:θótəs tə laplaš.	page 15
+(22ai) line 3	ʔayʔaǰuθəm	segmentation	ǰuθ-út-as tə=laplaš	page 15
+(22ai) line 4	ʔayʔaǰuθəm	gloss	push-CTR<STAT>-3ERG DET=board	page 15
+(22ai) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s holding the board up.’	page 15
+(22ai) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 15, at the right of the translation
+(22aii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture of a man pushing on a car stuck in the mud.	page 15, over the example
+(22aii) line 2	ʔayʔaǰuθəm	transcription	#ǰu:θótəs tə ʔatnopɛl.	page 15
+(22aii) line 3	ʔayʔaǰuθəm	segmentation	ǰuθ-út-as tə=ʔatnupil	page 15
+(22aii) line 4	ʔayʔaǰuθəm	gloss	push-CTR<STAT>-3ERG DET=board	page 15
+(22aii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s pushing the car.’	page 15
+(22aii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 15, at the right of the translation
+(22aii) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant’s comment: I don’t know why he would be doing that. I don’t think he has strength to hold it in place.	page 15, under the example, the consultant not named
+(22b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Progressive	page 15, heading the parts under it
+(22bi) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture of a man pushing on the wall of a shed that’s being built to keep it in place.	page 15, over the example
+(22bi) line 2	ʔayʔaǰuθəm	transcription	# ǰuǰuθotəs tə laplaš.	page 15
+(22bi) line 3	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-ut-as tə=laplaš	page 15
+(22bi) line 4	ʔayʔaǰuθəm	gloss	PROG~push-CTR-3ERG DET=board	page 15
+(22bi) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s pushing on the board.’	page 15
+(22bi) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 15, at the right of the translation
+(22bi) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant’s comment: ǰuǰuθotəs is pushing something forward.	page 15, under the example, the consultant not named
+(22bii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture of a man pushing on a car stuck in the mud.	page 15, over the example
+(22bii) line 2	ʔayʔaǰuθəm	transcription	ǰuǰuθotəs tə ʔatnopɛl.12	page 15
+footnote 12	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The car does not need to be actually moving for the progressive to be used instead of the stative. The progressive is still preferred in (iii), even if the man is unable to get the car to move, likely because predicates with the control transitive do not entail successful completion, only initiation of the action.	page 15, footnote 12
+footnote 12 (iii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 16, over the example
+footnote 12 (iiia) line 1	ʔayʔaǰuθəm	transcription	ǰuǰuθotəs tə ʔatnopɛls ʔi xʷa čɛməs ʔi tayq.	page 16
+footnote 12 (iiia) line 2	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-ut-as tə=ʔatnupil-s ʔiy xʷaʔ čam̓=as ʔiy tayq	page 16
+footnote 12 (iiia) line 3	ʔayʔaǰuθəm	gloss	PROG~push-CTR-3ERG DET=car-3POSS CONJ NEG QUEX=3SBJV CONJ get.moved	page 16
+footnote 12 (iiia) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s pushing his car and it won’t budge.’	page 16
+footnote 12 (iiia) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 16, at the right of the translation
+footnote 12 (iiib) line 1	ʔayʔaǰuθəm	transcription	#ǰu:θótəs tə ʔatnopɛls ʔi xʷa čɛməs ʔi tayq.	page 16
+footnote 12 (iiib) line 2	ʔayʔaǰuθəm	segmentation	ǰuθ-út-as tə=ʔatnupil-s ʔiy xʷaʔ čam̓=as ʔiy tayq	page 16
+footnote 12 (iiib) line 3	ʔayʔaǰuθəm	gloss	push-CTR<STAT> DET=car-3POSS CONJ NEG QUEX=3SBJV CONJ get.moved	page 16
+footnote 12 (iiib) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s pushing his car and it won’t budge.’	page 16
+footnote 12 (iiib) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 16, at the right of the translation
+footnote 12 (iiib) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant’s comment: [with ǰu:θót], it’s like you’re holding it in place.	page 16, under the example, the consultant not named
+(22bii) line 3	ʔayʔaǰuθəm	segmentation	ǰu~ǰuθ-ut-as tə=ʔatnupil	page 15
+(22bii) line 4	ʔayʔaǰuθəm	gloss	PROG~push-CTR-3ERG DET=car	page 15
+(22bii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He’s pushing on the car.’	page 15
+(22bii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 15, at the right of the translation
+(23) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 16, over the example
+(23a) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Stative	page 16, heading the parts under it
+(23ai) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Marianne is pushing down a suitcase so Gloria can zip it up.	page 16, over the example
+(23ai) line 2	ʔayʔaǰuθəm	transcription	ƛ̓ɛ:t̓ᶿɛ́təs tə χʷɛɬɛmowuɬ.	page 16
+(23ai) line 3	ʔayʔaǰuθəm	segmentation	ƛ̓it̓ᶿ-ít-as tə=χʷiɬimuwuɬ	page 16
+(23ai) line 4	ʔayʔaǰuθəm	gloss	push.down-CTR<STAT>-3ERG DET=suitcase	page 16
+(23ai) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She’s pushing down on the suitcase.’	page 16
+(23ai) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 16, at the right of the translation
+(23aii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Marianne is flattening a batch of cookies with a fork.	page 16, over the example
+(23aii) line 2	ʔayʔaǰuθəm	transcription	# ƛ̓ɛ:t̓ᶿɛ́təs / ƛ̓ɛ:t̓ᶿégatəs.	page 16
+(23aii) line 3	ʔayʔaǰuθəm	segmentation	ƛ̓it̓ᶿ-í-t-as / ƛ̓it̓ᶿ-íg-at-əs	page 16
+(23aii) line 4	ʔayʔaǰuθəm	gloss	push.down-STAT-CTR-3ERG / push.down-PL<STAT>-CTR-3ERG	page 16
+(23aii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She’s pushing them down.’	page 16
+(23aii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 16, at the right of the translation
+(23aii) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	speaker comment	Consultant’s comment: That would mean she’s keeping her hands on it or her hand on it.	page 16, under the example, the consultant not named
+(23b) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Progressive	page 16, heading the parts under it
+(23bi) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Marianne is pushing down a suitcase so Gloria can zip it up.	page 16, over the example
+(23bi) line 2	ʔayʔaǰuθəm	transcription	# ƛ̓ɛƛ̓ɛt̓ᶿɛtəs tə χʷɛɬɛmowuɬ.	page 16
+(23bi) line 3	ʔayʔaǰuθəm	segmentation	ƛ̓i~ƛ̓it̓ᶿ-it-əs tə=χʷiɬimuwuɬ	page 16
+(23bi) line 4	ʔayʔaǰuθəm	gloss	PROG~push.down-CTR-3ERG DET=suitcase	page 16
+(23bi) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She’s pushing down on the suitcase.’	page 16
+(23bi) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 16, at the right of the translation
+(23bii) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Marianne is flattening a batch of cookies with a fork.	page 16, over the example
+(23bii) line 2	ʔayʔaǰuθəm	transcription	ƛ̓ɛƛ̓ɛt̓ᶿegatəs.	page 16
+(23bii) line 3	ʔayʔaǰuθəm	segmentation	ƛ̓i~ƛ̓it̓ᶿ-ig-at-əs	page 16
+(23bii) line 4	ʔayʔaǰuθəm	gloss	PROG~push.down-PL-CTR-3ERG	page 16
+(23bii) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She’s pushing them down.’	page 16
+(23bii) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 16, at the right of the translation
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Stative control transitives forms in ʔayʔaǰuθəm only have maintaining state readings: they cannot have target state readings. In some cases, this means that a stative control transitive form does not exist (the ‘b’ forms of 24–27), while in others the stative control transitive form does exist, but can only have a maintaining state reading (28b). For a transitive target state reading, a causative form is used, built from an intransitive target state stative (as in the ‘a’ forms in 24–28).13 We used a combination of pictures and verbal contexts to elicit these forms; the positive and negative data in (28) were elicited using the pictures in Figure 15, for instance, with the right-hand panel showing the crucial case, since the girl is no longer engaged in the action, but the target state holds.	page 16
+footnote 13	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	As reported in Watanabe (2003:443), stativity appears to be marked twice with causatives: once with the stativizer suffixed or infixed to the root and once within the causative suffix (with the infixation of -i-). We have found that this is not obligatory (see e.g. 29 and 31), and that there does not seem to be any clear semantic difference between forms where the stative is also marked within the causative transitivizer and forms where it is not.	page 16, footnote 13
+footnote 13	ʔayʔaǰuθəm	cited form	-i-	page 16, in italics
+(24) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 17, over the example
+(24) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Freddie left his door open for us to go in the house.	page 17, over the example
+(24a) line 1	ʔayʔaǰuθəm	transcription	gəq̓ɛ́tstɛxʷəs tə ʔɛmɛns.	page 17
+(24a) line 2	ʔayʔaǰuθəm	segmentation	gəq̓-ít-st<i>xʷ-əs tə=ʔimin-s	page 17
+(24a) line 3	ʔayʔaǰuθəm	gloss	get.opened-STAT-CAUS<STAT>-3ERG DET=door-3POSS	page 17
+(24a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He has his door open.’	page 17
+(24a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(24b) line 1	ʔayʔaǰuθəm	transcription	* gəq̓ɛ́təs tə ʔɛmɛns.	page 17
+(24b) line 2	ʔayʔaǰuθəm	segmentation	gəq̓-í-t-əs tə=ʔimin-s	page 17
+(24b) line 3	ʔayʔaǰuθəm	gloss	get.opened-STAT-CTR-3ERG DET=door-3POSS	page 17
+(24b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He has his door open.’	page 17
+(24b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(25) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 17, over the example
+(25) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I got some fish and have frozen it.	page 17, over the example
+(25a) line 1	ʔayʔaǰuθəm	transcription	tagɩ́tstɛxʷč šɩtᶿ ǰɛnxʷ.	page 17
+(25a) line 2	ʔayʔaǰuθəm	segmentation	taʔg-ít-st<i>xʷ=č šə=tᶿ=ǰanxʷ	page 17
+(25a) line 3	ʔayʔaǰuθəm	gloss	freeze-STAT-CAUS<STAT>=1SG.SBJ DET=1SG.POSS=fish	page 17
+(25a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish frozen.’	page 17
+(25a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(25b) line 1	ʔayʔaǰuθəm	transcription	* tagɩ́tč tᶿ ǰɛnxʷ.	page 17
+(25b) line 2	ʔayʔaǰuθəm	segmentation	taʔg-í-t=č tᶿ=ǰanxʷ	page 17
+(25b) line 3	ʔayʔaǰuθəm	gloss	freeze-STAT-CTR=1SG.SBJ 1SG.POSS=fish	page 17
+(25b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish frozen.’	page 17
+(25b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(26) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 17, over the example
+(26) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I took a fish out of the freezer and now it is thawed and ready to cook.	page 17, over the example
+(26a) line 1	ʔayʔaǰuθəm	transcription	ǰɛχʷɛ́tstɛxʷč tətᶿ ǰɛnxʷ.	page 17
+(26a) line 2	ʔayʔaǰuθəm	segmentation	ǰaχʷ-ít-st<i>xʷ=č tə=tᶿ=ǰanxʷ	page 17
+(26a) line 3	ʔayʔaǰuθəm	gloss	melt-STAT-CAUS<STAT>=1SG.SBJ DET=1SG.POSS=fish	page 17
+(26a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish thawed.’	page 17
+(26a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(26b) line 1	ʔayʔaǰuθəm	transcription	?* ǰɛχʷátč tətᶿ ǰɛnxʷ.	page 17
+(26b) line 2	ʔayʔaǰuθəm	segmentation	ǰax̣ʷ-át=č tə=tᶿ=ǰanxʷ	page 17
+(26b) line 3	ʔayʔaǰuθəm	gloss	melt-CTR<STAT>=1SG.SBJ DET=1SG.SBJ=fish	page 17
+(26b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish thawed.’	page 17
+(26b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 17, at the right of the translation
+(27) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 18, over the example
+(27) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I’ve just finished barbecuing my fish.	page 18, over the example
+(27a) line 1	ʔayʔaǰuθəm	transcription	t̓ɛ:nɛ́tstɛxʷč tətᶿ ǰɛnxʷ.	page 18
+(27a) line 2	ʔayʔaǰuθəm	segmentation	t̓in-ít-st<i>xʷ=č tə=tᶿ=ǰanxʷ	page 18
+(27a) line 3	ʔayʔaǰuθəm	gloss	get.bbq’d-STAT-CAUS<STAT>=1SG.SBJ DET=1SG.POSS=fish	page 18
+(27a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish barbecued.’	page 18
+(27a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 18, at the right of the translation
+(27b) line 1	ʔayʔaǰuθəm	transcription	* t̓ɛ:nɛ́tč tətᶿ ǰɛnxʷ.	page 18
+(27b) line 2	ʔayʔaǰuθəm	segmentation	t̓in-ít=č tə=tᶿ=ǰanxʷ	page 18
+(27b) line 3	ʔayʔaǰuθəm	gloss	get.bbq’d-CTR<STAT> DET=1SG.POSS=fish	page 18
+(27b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I have my fish barbecued.’	page 18
+(27b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 18, at the right of the translation
+(28) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 18, over the example
+(28) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture with a little girl having pressed down one cookie with a fork. She’s no longer pressing on it.	page 18, over the example
+(28a) line 1	ʔayʔaǰuθəm	transcription	ƛ̓ɛ:t̓ᶿɛ́tstɛxʷəs.	page 18
+(28a) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓it̓ᶿ-ít-st<i>xʷ-əs	page 18
+(28a) line 3	ʔayʔaǰuθəm	gloss	get.pushed.down-STAT-CAUS<STAT>-3ERG	page 18
+(28a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She has it pushed down.’	page 18
+(28a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 18, at the right of the translation
+(28b) line 1	ʔayʔaǰuθəm	transcription	# ƛ̓ɛ:t̓ᶿɛ́təs.14	page 18
+footnote 14	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	This form is good in a context where someone is maintaining downward pressure on something. See (13a).	page 18, footnote 14
+(28b) line 2	ʔayʔaǰuθəm	segmentation	ƛ̓it̓ᶿ-ít-as	page 18
+(28b) line 3	ʔayʔaǰuθəm	gloss	get.pushed.down-CTR<STAT>-3ERG	page 18
+(28b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She has it pushed down.’	page 18
+(28b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 18, at the right of the translation
+Figure 15	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 15: The girl is pushing the cookie down (left), and the girl has pushed the cookie down (right).	page 18, the figure's caption
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We speculate that the lack of target state readings with control transitives follows from the fact that control transitives never entail event culmination (e.g. J. Davis 1978, 2012 or Watanabe 2003 for ʔayʔaǰuθəm; see also Bar-el, H. Davis, & Matthewson 2005 for Sḵwx̱wú7mesh and St’át’imcets, and Jacobs 2011 for Sḵwx̱wú7mesh), even when built on roots that encode a target state. Since a target state can only hold when an event has culminated, stative morphology on a control transitive cannot encode a target state reading. Instead, a maintaining state reading obtains, but how exactly this reading comes about is a matter for future research. Causative stative forms can have either target state or maintaining state readings. Examples of target state readings are given in (24–28) above, while maintaining state readings are given below in (29–31). Note that some of these seem to be interchangeable with stative control transitive forms, having — as far as we can ascertain at this point — the same interpretation (30–31, cf. 22a and 23a).	page 18
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	language	Sḵwx̱wú7mesh	Squamish, Bar-el 2005 on progressive CV- reduplication
+(29) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 19, over the example
+(29) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Daniel is holding up a window so that a cat can come in.	page 19, over the example
+(29) line 3	ʔayʔaǰuθəm	transcription	qəhɛ́tsxʷəs tə məmk̓eyustən.	page 19
+(29) line 4	ʔayʔaǰuθəm	segmentation	qəh-ít-sxʷ-əs tə məmk̓ayustən	page 19
+(29) line 5	ʔayʔaǰuθəm	gloss	get.lifted.up-STAT-CAUS-3ERG DET=window	page 19
+(29) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is keeping the window lifted up.’	page 19
+(29) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 19, at the right of the translation
+(30) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 19, over the example
+(30) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Marianne is holding the lid of an overfilled suitcase down so that Gloria can zip it up.	page 19, over the example
+(30) line 3	ʔayʔaǰuθəm	transcription	ƛ̓ɛ:t̓ᶿɛ́tstɛxʷəs tə təqamɛns χʷɛɬɛmawuɬ.	page 19
+(30) line 4	ʔayʔaǰuθəm	segmentation	ƛ̓it̓ᶿ-ít-st<i>xʷ-əs tə=təq-amin-s x̣ʷiɬimawuɬ	page 19
+(30) line 5	ʔayʔaǰuθəm	gloss	get.pushed.down-STAT-CAUS<STAT>-3ERG DET=close-instrument-3POSS suitcase	page 19
+(30) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She is keeping the lid of the suitcase down.’	page 19
+(30) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 19, at the right of the translation
+(31) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 19, over the example
+(31) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Picture of a man pushing on the wall of a shed that’s being built to keep it in place.	page 19, over the example
+(31) line 3	ʔayʔaǰuθəm	transcription	ǰu:θɛ́tsxʷəs.	page 19
+(31) line 4	ʔayʔaǰuθəm	segmentation	ǰuθ-ít-sxʷ-as	page 19
+(31) line 5	ʔayʔaǰuθəm	gloss	get.pushed-STAT-CAUS-3ERG	page 19
+(31) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He is holding it in place by pushing.’	page 19
+(31) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(vf)	page 19, at the right of the translation
+Figure 16	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 16: Marianne is holding the suitcase closed.	page 19, the figure's caption
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In some cases, only a maintaining state reading seems to be possible. We tried to elicit a target state reading for the causative stative form in (32) using Figure 18, for instance, but it was infelicitous in this context, and could only be used in a context where the state was being maintained by the agent, such as that illustrated in Figure 17 (see example 29).	page 19
+(32) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 20, over the example
+(32) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Daniel lifted up a window and it caught so he could let go of it and it stayed open.15	page 20, over the example
+footnote 15	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We also tried the form qəhítstixʷəs in an almost identical context and the result was the same, as shown in (iv). As noted in footnote 13, we have been unable to find any clear semantic difference between stative causative forms where the stative marker also appears within the causative morpheme and forms where it does not.	page 20, footnote 15
+footnote 15	ʔayʔaǰuθəm	cited form	qəhítstixʷəs	page 20, in italics
+footnote 15 (iv) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 20, over the example
+footnote 15 (iv) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Daniel lifted up a window and it caught, so he could walk away, and it stayed open.	page 20, over the example
+footnote 15 (iv) line 3	ʔayʔaǰuθəm	segmentation	# qəh-ít-st<i>xʷ-əs.	page 20
+footnote 15 (iv) line 4	ʔayʔaǰuθəm	gloss	get.lifted.up-STAT-CAUS<STAT>-3ERG	page 20
+footnote 15 (iv) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He has it lifted up.’	page 20
+footnote 15 (iv) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 20, at the right of the translation
+(32) line 3	ʔayʔaǰuθəm	transcription	# qəhɛ́tsxʷəs tə məmk̓eyustən.	page 20
+(32) line 4	ʔayʔaǰuθəm	segmentation	qəh-ít-sxʷ-əs tə=məmk̓ayustən	page 20
+(32) line 5	ʔayʔaǰuθəm	gloss	get.lifted.up-STAT-CAUS-3ERG DET=window	page 20
+(32) line 6	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He has the window lifted up.’	page 20
+(32) line 7	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 20, at the right of the translation
+Figure 17	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 17: (The window fell back down after Henry tried to open it and) Daniel lifted the window.	page 20, the figure's caption
+Figure 18	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Figure 18: Daniel let go of the window and it remained where he had lifted it to.	page 20, the figure's caption
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The absence of a target state reading for this form is puzzling from a compositional point of view, since qəhɛ́t /qəhít/ ‘lifted up’ is grammatical as an intransitive target state stative (13); the addition of the causative transitivizer is therefore expected to result in a transitive target state reading. Further elicitation is still required to determine whether there are other intransitive target state statives that cannot be interpreted as transitive target state statives with the addition of the causative transitivizer. If not, qəhɛ́tsxʷ /qəhítsxʷ/ may be treated as a lexicalized exception, but if other forms follow this same pattern, more work is needed to determine what is blocking the expected target state reading.	page 21
+§3.1	ʔayʔaǰuθəm	cited form	qəhɛ́t /qəhít/	page 21, in italics, ‘lifted up’
+§3.1	ʔayʔaǰuθəm	cited form	qəhɛ́tsxʷ /qəhítsxʷ/	page 21, in italics
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We turn now to a final puzzling fact concerning the combination of stative marking with transitivizers in ʔayʔaǰuθəm: the absence of stative non-control predicates. When discussing the stative control transitives, we suggested that the absence of target state readings was due to the fact that control transitives do not entail culmination. Predicates that take the non-control transitivizer do entail culmination (e.g. Watanabe 2003:205), and therefore entail that the target state is reached when built upon roots encoding a target state. Therefore, we might expect to find stative non-control transitives with target state interpretations parallel to those given for the causative statives in (24– 28). This does not seem to be the case, however: non-control forms are ungrammatical with qəǰi /qəǰi/ ‘still’, which is compatible with (temporary) state predicates, even if given a context that would fit a stative use. We tried forms ending in -nɛxʷ /-n<i>xʷ/, as reported by Watanabe (2003:442) for the exceptional (lexicalized) non-control stative toχʷnɛxʷ /təχʷnixʷ/ ‘know’, as well as forms where stative is marked solely by raised pitch, as described by Mellesmoen and Andreotti (2017).16 Neither version was accepted by our consultants, who instead in each case substituted a causative stative form.	page 21
+footnote 16	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Mellesmoen and Andreotti (2017) report that non-control transitive statives are formed productively in this manner. It is possible that our different findings are due to inter-speaker or dialect differences. Although we have worked with several other speakers, we have not had the opportunity to conduct the tests reported here with the two speakers whom Mellesmoen and Andreotti worked with. It is worth noting that the pattern of raised pitch observed by Mellesmoen and Andreotti is parallel to that found with control transitives and may represent an extension of that pattern to the non-control paradigm.	page 21, footnote 16
+§3.1	ʔayʔaǰuθəm	cited form	qəǰi /qəǰi/	page 21, in italics, ‘still’
+§3.1	ʔayʔaǰuθəm	cited form	-nɛxʷ /-n<i>xʷ/	page 21, in italics
+§3.1	ʔayʔaǰuθəm	cited form	toχʷnɛxʷ /təχʷnixʷ/	page 21, in italics, ‘know’
+(33) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 21, over the example
+(33) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: Freddie opened his door open earlier when it was warm out. Now it’s quite cool but his door is still open.	page 21, over the example
+(33a) line 1	ʔayʔaǰuθəm	transcription	qəǰɛ ʔot gəq̓ɛ́tsxʷəs tə ʔɛmɛns.	page 21
+(33a) line 2	ʔayʔaǰuθəm	segmentation	qəǰi=ʔut gəq̓-ít-sxʷ-as tə=ʔimin-s	page 21
+(33a) line 3	ʔayʔaǰuθəm	gloss	still=EXCL get.opened-STAT-CAUS-3ERG DET=door-3POSS	page 21
+(33a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He still has his door open!’	page 21
+(33a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 21, at the right of the translation
+(33b) line 1	ʔayʔaǰuθəm	transcription	* qəǰɛ gəq̓ʊ́xʷəs / gəq̓nɛ́xʷəs tə ʔɛmɛns.	page 21
+(33b) line 2	ʔayʔaǰuθəm	segmentation	qəǰi gəq̓-ə́xʷ-as / gəq̓-n<í>xʷ-as tə=ʔimin-s	page 21
+(33b) line 3	ʔayʔaǰuθəm	gloss	still get.opened-NCTR<STAT>-3ERG DET=door-3POSS	page 21
+(33b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘He still has his door open!’	page 21
+(33b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 21, at the right of the translation
+(34) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 22, over the example
+(34) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I got some fish and froze it. I still haven’t used it.	page 22, over the example
+(34a) line 1	ʔayʔaǰuθəm	transcription	qəǰɛč ʔot taʔgɩ́tstɛ́xʷ šɩtᶿ ǰɛnxʷ.	page 22
+(34a) line 2	ʔayʔaǰuθəm	segmentation	qəǰi=č=ʔut təg̓-ít-st<i>xʷ šə=tᶿ=ǰanxʷ	page 22
+(34a) line 3	ʔayʔaǰuθəm	gloss	still=1SG.SBJ=EXCL get.frozen-STAT-CAUS<STAT> DET=1SG.POSS=fish	page 22
+(34a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I still have my fish frozen.’	page 22
+(34a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 22, at the right of the translation
+(34b) line 1	ʔayʔaǰuθəm	transcription	* qəǰɛč ʔot tagʊ́xʷ / tunɛ́xʷ šɩtᶿ ǰɛnxʷ.	page 22
+(34b) line 2	ʔayʔaǰuθəm	segmentation	qəǰi=č=ʔut təg̓-ə́xʷ / təw-n<í>xʷ šə=tᶿ=ǰanxʷ	page 22
+(34b) line 3	ʔayʔaǰuθəm	gloss	still=1SG.SBJ=EXCL get.frozen-NCTR<STAT> DET=1SG.POSS=fish	page 22
+(34b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I still have my fish frozen.’	page 22
+(34b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 22, at the right of the translation
+(35) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	ʔayʔaǰuθəm:	page 22, over the example
+(35) line 2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Context: I have some butter melted in a pan and I’m keeping it warm so it stays melted. You aren’t sure if I am still keeping the butter hot and ask me if I have melted butter that you could use on the vegetables.	page 22, over the example
+(35a) line 1	ʔayʔaǰuθəm	transcription	ʔɛ, qəǰɛč ǰɛ:χʷɛ́tstɛxʷ tə pətə.	page 22
+(35a) line 2	ʔayʔaǰuθəm	segmentation	ʔi qəǰi=č ǰaχʷ-ít-st<i>xʷ tə=pətə	page 22
+(35a) line 3	ʔayʔaǰuθəm	gloss	yes still=1SG.SBJ get.melted-STAT-CAUS<STAT> DET=butter	page 22
+(35a) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Yes, I still have butter melted.’	page 22
+(35a) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 22, at the right of the translation
+(35b) line 1	ʔayʔaǰuθəm	transcription	* ʔɛ, qəǰɛč ǰɛχʷʊ́xʷ / ǰɛχʷnɛ́χʷ tə pətə.	page 22
+(35b) line 2	ʔayʔaǰuθəm	segmentation	ʔi qəǰi=č ǰaχʷ-ə́xʷ / ǰax̣ʷ-n<í>xʷ tə=pətə	page 22
+(35b) line 3	ʔayʔaǰuθəm	gloss	yes still=1SG.SBJ get.melted-NCTR<STAT> det=butter	page 22
+(35b) line 4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Yes, I still have butter melted.’	page 22
+(35b) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	(sf)	page 22, at the right of the translation
+§3.1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	At this point, we do not have an explanation for the absence of stative marking with non-control transitives. More work is required to determine the aspectual properties of the non-control transitive predicates before we can properly determine whether stative versions of these are blocked semantically, morphologically, or by some other means.	page 22
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	3.2 Transitive statives in St’át’imcets	page 22
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	Turning to St’át’imcets, as already mentioned (see footnote 3) the directive (control) transitivizer is blocked with the stative prefix, for what appear to be purely morphological reasons. Interior Salish languages largely lack non-control transitivizers, so this leaves the causative as the only transitivizer which occurs productively with stative marking.17	page 22
+footnote 17	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We set aside here transitive verbs suffixed with one of the two applicative transitivizers -cit /-xit/ (redirective) and -min(’) /-min̓~-min/ (relational), which tolerate stative marking quite readily. We have yet to investigate the interpretation(s) of stative marking on applicative transitives.	page 22, footnote 17
+footnote 17	ʔayʔaǰuθəm	cited form	-min(’) /-min̓~-min/	page 22, in italics
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	The following examples (from Alexander et al. in prep.) all show stative causatives with a maintaining state reading:	page 22
+(36) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 23, over the example
+(36) line 2	St’át’imcets	transcription	T’ak áta7 saq’w ta haláw’a, esxímsas ta sts’úqwaz’a.	page 23
+(36) line 3	St’át’imcets	segmentation	ƛ̓ak ʔátaʔ saq̓ʷ ta=haláw̓=a ʔəs-x̣ím-s-as ta=sc̓úqʷaz̓=a	page 23
+(36) line 4	St’át’imcets	gloss	go.by to.there fly DET=eagle=EXIS STAT-clutch-CAUS-3ERG DET=fish=EXIS	page 23
+(36) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘An eagle went flying by, clutching a fish.’	page 23
+(37) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 23, over the example
+(37) line 2	St’át’imcets	transcription	Sgwéls malh ti7!	page 23
+(37) line 3	St’át’imcets	segmentation	s-ʕʷəl-s=malh=tiʔ	page 23
+(37) line 4	St’át’imcets	gloss	STAT-lit-CAUS=ADHORT=that	page 23
+(37) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘Keep it lit!’	page 23
+(38) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 23, over the example
+(38) line 2	St’át’imcets	transcription	Smúqwskan i s7icwlhálk’a nlop.	page 23
+(38) line 3	St’át’imcets	segmentation	s-muqʷ-s=kan ʔi=s-ʔixʷɬ-alk̓=a n-ḷop	page 23
+(38) line 4	St’át’imcets	gloss	STAT-mound-CAUS=1SG.SBJ PL.DET=STAT-different-string=EXIS 1SG.POSS-rope	page 23
+(38) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I keep my different sized ropes in one pile.’	page 23
+(39) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 23, over the example
+(39) line 2	St’át’imcets	transcription	Stsáqwemaz’ ta ts’eqw7íqwa scwápstal’i ta sts’úqwaz’a.	page 23
+(39) line 3	St’át’imcets	segmentation	scáqʷəm-az̓ ta=c̓əqʷʔíqʷ=a s-xʷáp-s-tal̕i ta=sc̓úqʷaz̓=a	page 23
+(39) line 4	St’át’imcets	gloss	saskatoon-wood DET=stretcher=EXIS STAT-spread-CAUS-NTS DET=fish=EXIS	page 23
+(39) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘The stretcher that held the fish apart was made of saskatoon wood.’	page 23
+(40) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 23, over the example
+(40) line 2	St’át’imcets	transcription	Nilh aylh zam’ múta7 sts’ílas ku sk’á7sas	page 23
+(40) line 3	St’át’imcets	segmentation	niɬ ʔayɬ zam̓ mútaʔ s=c̓íla=s kʷu=s-k̓aʔ-s-as	page 23
+(40) line 4	St’át’imcets	gloss	COP then well and NMLZ=like=3POSS D/C=STAT-get.stuck-CAUS-3ERG	page 23
+(40) line 5	St’át’imcets	transcription	láku7 ta smém’lhatsa.	page 23
+(40) line 6	St’át’imcets	segmentation	lákʷuʔ ta=smə́m̓ɬac=a	page 23
+(40) line 7	St’át’imcets	gloss	there DET=girl=EXIS	page 23
+(40) line 8	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘So then he kind of kept the girl imprisoned.’	page 23
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In contrast to the examples given in (36–40), we have found no cases where stative marking on a causative yields a target state reading, though this has to be checked more systematically (including with negative data). If our observations are accurate, they are consistent with what we have discovered about intransitive (bare root) statives: in St’át’imcets, stative marking never yields a target state reading, unlike in ʔayʔaǰuθəm.	page 23
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	We conclude with a final point regarding the interaction of stative and imperfective marking in the two languages under discussion. The imperfective auxiliary wa7 /waʔ/ in St’át’imcets is fully compatible with transitive statives (and more generally with any stage-level state), as shown below (again, from Alexander et al. in prep.):	page 23
+§3.2	ʔayʔaǰuθəm	cited form	wa7 /waʔ/	page 23, in italics
+(41) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 24, over the example
+(41) line 2	St’át’imcets	transcription	Wa7 sk’ihsás ta skwékwza7sa.	page 24
+(41) line 3	St’át’imcets	segmentation	waʔ s-k̓ih-s-ás ta=skʷə́<kʷ>zaʔ-s=a	page 24
+(41) line 4	St’át’imcets	gloss	IPFV STAT-get.picked.up-CAUS-3ERG DET=child<DIM>-3POSS=EXIS	page 24
+(41) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘She is holding her little child on her lap.’	page 24
+(42) line 1	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	St’át’imcets:	page 24, over the example
+(42) line 2	St’át’imcets	transcription	Wá7lhkan steqs ta nxulák7a.	page 24
+(42) line 3	St’át’imcets	segmentation	waʔ=ɬkan s-təq-s ta=n-x̣ʷulákʔ=a	page 24
+(42) line 4	St’át’imcets	gloss	IPFV=1SG.SBJ STAT-touch-CAUS DET=1SG.POSS-finger=EXIS	page 24
+(42) line 5	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	translation	‘I was holding my finger.’	page 24
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	This fits its analysis as a general-purpose imperfective marker, since imperfective morphemes cross-linguistically are proposed to be compatible with stative predicates (e.g. Comrie 1976).	page 24
+§3.2	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In contrast, C1 reduplication in ʔayʔaǰuθəm, though similarly glossed imperfective in key references such as Watanabe (2003) and Blake (2000), is not compatible with stative marking (Watanabe 2003:414), nor with stative predicates more generally. While this restriction is not expected for a general imperfective morpheme, it is characteristic of progressive morphemes cross- linguistically (e.g. Comrie 1976). For this reason, we have chosen to gloss C1 reduplication as specifically marking progressive aspect rather than general imperfective, following a previous proposal for C1 reduplication in Skwxwu7mesh (Bar-el 2005); see also footnote 11 above.	page 24
+§4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	4 Conclusion	page 24
+§4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	In this paper, we have examined the different readings available for the stativizer in ʔayʔaǰuθəm and St’át’imcets. Looking at evidence from ʔayʔaǰuθəm, we have argued that the stative morpheme combines with bare roots to produce target state statives. The stative morpheme is only found in combination with roots that encode a target state, foregrounding the target state and backgrounding the event that leads to it (behaving in a similar manner to the stativizer found in German target state adjectival passives, as analyzed in Kratzer 2000). In contrast, the combination of the stative morpheme with bare roots in St’át’imcets leads to a result state reading, the irreversible state of an event having occurred: here, stative marking simply encodes that the event described by the predicate precedes the reference time (behaving like the stativizer in German result state adjectival passives, as analyzed by Kratzer). In ʔayʔaǰuθəm, the stativizer also combines with stems transitivized with the control transitivizer, in which case the resulting reading is not a target state reading, but rather one of maintaining state. Transitive stative forms can also be constructed with the causative transitivizer, in which case both target state and maintaining state readings are possible. In St’at’imcets, the stative morpheme combines only with the causative transitivizer, apparently always giving rise to maintaining state readings.	page 24
+§4	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	note	While we have provided a preliminary analysis of statives built on bare roots in this paper, we have not attempted a more complete analysis of the stative morpheme in combination with transitivizing morphology. We have, however, provided evidence for the different readings that arise when the stative morpheme occurs in combination with control and causative transitivizers: future elicitation and further analysis is needed to determine how these different readings arise, and to what extent the semantics we have proposed to account for the stativizer in combination with bare roots can be extended to capture the readings associated with transitive statives. In addition to this, future work should also examine the stative morpheme in combination with other in/transitivizing morphemes, including active intransitive and middle suffixes. While these questions are beyond the scope of the current paper, we look forward to investigating them in future work.	page 24
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	heading	References	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Alexander, Carl, Henry Davis, Beverley Frank, Gertrude Ned, Desmond Peters Sr., Linda Redan, Rose Whitley. In preparation. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Ms., Lillooet, British Columbia.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Bar-el, Leora. 2005. Aspectual distinctions in Skwxwú7mesh. Doctoral dissertation, University of British Columbia.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Bar-el, Leora, Henry Davis, and Lisa Matthewson. 2005. On non-culminating accomplishments. Proceedings of the 35th Annual Meeting of the North Eastern Linguistic Society. Amherst, MA: Graduate Linguistic Student Association, University of Massachusetts.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Blake, Susan. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral Dissertation, University of British Columbia.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Comrie, Bernard. 1976. Aspect: An introduction to the study of verbal aspect and related problems. Cambridge: Cambridge UP.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Davis, John. 1978. Pronominal Paradigms in Sliammon. In: Papers for ICSNL 13, 208–236.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Davis, John. 2012. Two particles “ga” in Mainland Comox. In: Joel Dunham, John Lyon, and Natalie Weber (eds.), Papers for ICSNL 48. Vancouver, BC: UBCWPL, 34–48.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Huijsmans, Marianne., Daniel. K. E. Reisinger, Roger. Y.-H. Lo, and Kaining. Xu. 2018. A preliminary sketch of determiners in ʔayʔajuθəm. In: Lisa Matthewson, Erin Guntly, and Michael Rochemont (eds.), Wa7 xweysás i nqwal’utteníha i ucwalmícwa: He Loves the People’s Languages. Essays in Honour of Henry Davis. Vancouver, BC: UBCOPL 6, 327– 338.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Jacobs, Peter. 2011. Control in Skwxwu7mesh. Doctoral dissertation, University of British Columbia.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Kinkade, M. Dale. 1996. Reconstructing aspect in Salishan languages. In: Papers for ICSNL 31, 185–196.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Kratzer, Angelika. 2000. Building statives. In Lisa J. Jonathan et al. (eds.): Proceedings of the Twenty-Sixth Annual Meeting of the Berkeley Linguistics Society: General Session and Parasession on Aspect. Berkeley, CA: Berkeley Linguistics Society, 385–399.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Matthewson, Lisa. 2006. Temporal semantics in a superficially tenseless language. Linguistics and Philosophy, 29(6):673–713.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Mellesmoen, Gloria, & Bruno Andreotti. 2017. Result state holds! Stative aspect and non-control morphology in ʔayʔaǰuθəm. In: Andrei Anghelescu, Michael Fry, Marianne Huijsmans, and Daniel Reisinger (eds.), Papers for ICSNL 52. Vancouver, BC: UBCWPL, 176–197.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Mellesmoen, Gloria, & Marianne Huijsmans. 2019. Stative allomorph selection and raised pitch in ʔayʔaǰuθəm. In: D. K. E. Reisinger and Gloria Mellesmoen (eds.), Papers for ICSNL 54.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Vancouver, BC: UBCWPL, 139–162.	page 25
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Parsons, Terence. 1990. Events in the Semantics of English. Cambridge, MA: MIT press.	page 26
+references	Henry Davis, Marianne Huijsmans, Gloria Mellesmoen	reference	Watanabe, Honorè. 2003. A Morphological Description of Sliammon, Mainland Comox Salish, with a Sketch of Syntax. Osaka, Japan: ELPR Publications.	page 26

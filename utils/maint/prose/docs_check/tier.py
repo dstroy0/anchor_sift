@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Which tier a pattern is in, and the note on why a regex never decides that.
@@ -22,7 +22,7 @@ from .locale import LOCALE
 # TIER B is FREQUENCY-SCORED VOCABULARY: a word or an idiom, reported with what it costs a human
 # writer where that has been measured. Most of it is the machine-prose vocabulary code-documentation
 # section 135 through 141 lists by word. The rest is this file's own house style, calibrated on
-# anchor_sift's theory research papers and named as such in the report.
+# orior's theory research papers and named as such in the report.
 #
 # THE TIER IS DECIDED BY THE SENTENCE IN THE STANDARD, NEVER BY THE REGEX. This is the correction
 # that matters and it runs both ways:
@@ -103,7 +103,7 @@ AUTHORITY = {
     r"\bmy training data\b": "code-documentation:141",
     r"\b(i apologi[sz]e|my apologies|sorry for the)\b": "code-documentation:141",
     # One author. The register code-documentation:141 bans, in the form that credits a session, a
-    # role or anchor_sift with the author's own observation.
+    # role or orior with the author's own observation.
     r"\b(a|the|one|each|every|another) (later|earlier|previous|next|other|second|third|peer"
     r"|builder) sessions?\b": "code-documentation:141, one author",
     r"\bpeer sessions?\b": "code-documentation:141, one author",
@@ -117,10 +117,10 @@ AUTHORITY = {
     r"\blead of the private\b": "code-documentation:141, one author",
     r"\b(relayed|reported|flagged|found|caught|reproduced) by (the |a )?(\w+ )?(session|peer"
     r"|theorist|writer|specialist|architect)\b": "code-documentation:141, one author",
-    r"\b(relayed|reported|flagged|found|caught|written) by anchor_sift\b": "code-documentation:141, one author",
-    r"\banchor_sift['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b": "code-documentation:141, one author",
-    r"\b(agreed with|per) anchor_sift\b": "code-documentation:141, one author",
-    r"\banchor_sift (confirmed|checked|changed|gave|framed)\b": "code-documentation:141, one author",
+    r"\b(relayed|reported|flagged|found|caught|written) by orior\b": "code-documentation:141, one author",
+    r"\borior['’]s (reading|framing|bounds?|why|formalization|hand conversion)\b": "code-documentation:141, one author",
+    r"\b(agreed with|per) orior\b": "code-documentation:141, one author",
+    r"\borior (confirmed|checked|changed|gave|framed)\b": "code-documentation:141, one author",
     r"\bbiohub-cell-tracking-\d+\b": "code-documentation:141, one author",
     r"\bleaderboard disruptor\b": "code-documentation:141, one author",
     # The which-is clause again, in the form the later tier wrote it.

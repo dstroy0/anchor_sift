@@ -1,0 +1,438 @@
+where	who	kind	form	gloss
+front	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+front	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+title	Sander Nederveen	title	Bare Roots or a Lack Thereof in Interior Salish *	page 1, the title, its star the acknowledgement footnote's
+title	Sander Nederveen	note	Sander Nederveen University of British Columbia	page 1, the author and affiliation
+title	Sander Nederveen	name	Sander Nederveen	author, University of British Columbia
+front	Sander Nederveen	note	Abstract: This paper builds on previous work by Davis (1996, 2021) and Lyon (2023), who show that there is variation in whether change of state roots can be used in bare form. Davis (1996, 2021) shows that in St’át’imcets, bare roots can freely surface, whereas Lyon (2023) shows that the same cannot be said for Nsyilxcn. In this paper, I show that in Nłeʔkepmxcín, bare roots are illicit. In addition to its empirical contribution, this paper provides a critical discussion on the semantic profile of roots in Interior Salish and provides an initial analysis of change of state roots that predicts the natural occurrence of bare roots in St’át’imcets and simultaneously rules out bare verb roots in Nłeʔkepmxcín and Nsyilxcn.	page 1, the abstract
+front	Sander Nederveen	note	Keywords: bare roots, change of state, event structure, semantics, Interior Salish	page 1
+§1	Sander Nederveen	heading	1 Introduction and Background	page 1
+§1	Sander Nederveen	language	Nłe	the first part of Nłeʔkepmxcín, broken over a line
+§1	Sander Nederveen	language	Pkepxmcín	the second part of Nłeʔkepmxcín, broken over a line
+§1	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+§1	Sander Nederveen	note	This paper shows that change of state (CoS) roots in Nłe Pkepxmcín are illicit when used in their bare form — i.e., without any inflectional morphology. This is in contrast with St’át’imcets, in which bare roots are amply attested (Davis 1996, 2021; Lyon and Davis 2022). The following twelve roots in (1) are from Davis (2021), and present only a small sample of the roots that have been recorded in naturally occurring discourse:	page 1
+(1) line 1	Sander Nederveen	note	Bare root examples from St’á’timcets (Davis 2021:5)	page 1, the caption
+(1) line 2	nɬeʔkepmxcín	transcription	zalk̓w	page 1, the orthography
+(1) line 2	Sander Nederveen	translation	‘get wrapped around’	page 1
+(1) line 2	nɬeʔkepmxcín	transcription	maƛ̓	page 1, the orthography
+(1) line 2	Sander Nederveen	translation	‘get mixed in’	page 1
+(1) line 3	nɬeʔkepmxcín	transcription	pәkw	page 1, the orthography
+(1) line 3	Sander Nederveen	translation	‘get poured out’	page 1
+(1) line 3	nɬeʔkepmxcín	transcription	kәł	page 1, the orthography
+(1) line 3	Sander Nederveen	translation	‘get removed, taken off’	page 1
+(1) line 4	nɬeʔkepmxcín	transcription	łum	page 1, the orthography
+(1) line 4	Sander Nederveen	translation	‘get attached’	page 1
+(1) line 4	nɬeʔkepmxcín	transcription	nik̓	page 1, the orthography
+(1) line 4	Sander Nederveen	translation	‘get cut’	page 1
+(1) line 5	nɬeʔkepmxcín	transcription	xaƛ̓	page 1, the orthography
+(1) line 5	Sander Nederveen	translation	‘get taken out of liquid’	page 1
+(1) line 5	nɬeʔkepmxcín	transcription	ƛ̓up	page 1, the orthography
+(1) line 5	Sander Nederveen	translation	‘get twisted’	page 1
+(1) line 6	nɬeʔkepmxcín	transcription	ciq	page 1, the orthography
+(1) line 6	Sander Nederveen	translation	‘get poked, stabbed’	page 1
+(1) line 6	nɬeʔkepmxcín	transcription	p̓um	page 1, the orthography
+(1) line 6	Sander Nederveen	translation	‘get smoked (e.g., hide)’	page 1
+(1) line 7	nɬeʔkepmxcín	transcription	xʷik̓	page 1, the orthography
+(1) line 7	Sander Nederveen	translation	‘get butchered’	page 1
+(1) line 7	nɬeʔkepmxcín	transcription	c̓aw̓	page 1, the orthography
+(1) line 7	Sander Nederveen	translation	‘get washed, baptized’	page 1
+§1	nɬeʔkepmxcín	cited form	Kukʷscéyp	page 1
+§1	nɬeʔkepmxcín	cited form	kʷәłtèzetkʷʔ	page 1
+§1	nɬeʔkepmxcín	cited form	c̓úʔsinek	page 1
+§1	nɬeʔkepmxcín	cited form	ʔes	page 1
+§1	nɬeʔkepmxcín	cited form	ʔúmәcms	page 1
+§1	nɬeʔkepmxcín	cited form	kʷәłtèzetkʷuʔ	page 1
+§1	nɬeʔkepmxcín	cited form	tәw	page 1
+§1	nɬeʔkepmxcín	cited form	ɬe	page 1
+§1	nɬeʔkepmxcín	cited form	c̓әłétkʷu	page 1
+§1	nɬeʔkepmxcín	cited form	wéʔe	page 1
+§1	nɬeʔkepmxcín	cited form	ncitxʷ	page 1
+§1	nɬeʔkepmxcín	cited form	ƛ̓uʔ	page 1
+§1	nɬeʔkepmxcín	cited form	wéʔec	page 1
+§1	nɬeʔkepmxcín	cited form	ʔex	page 1
+§1	nɬeʔkepmxcín	cited form	netíyxs	page 1
+§1	nɬeʔkepmxcín	cited form	scwew̓xmx	page 1
+§1	nɬeʔkepmxcín	cited form	tékm	page 1
+§1	nɬeʔkepmxcín	cited form	xéʔe	page 1
+§1	nɬeʔkepmxcín	cited form	nłeʔkepmx	page 1
+§1	nɬeʔkepmxcín	cited form	tmixʷs	page 1
+§1	Sander Nederveen	name	Nlaka’pamux	the people
+§1	nɬeʔkepmxcín	cited form	ctsín	page 1
+§1	Sander Nederveen	name	Nłab	the Nłeʔkepmxcín lab
+§1	Sander Nederveen	language	Secwepemctsín	Secwepemctsín, Shuswap
+§1	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+footnote *	Sander Nederveen	note	* This work would not have been possible without elders who have shared their language with me: Kukʷscéyp to kʷәłtèzetkʷʔ Bernice Garcia (KBG), c̓úʔsinek Marty Aspinall (CMA), Gene Moses (GM), and Bev Phillips (BP). Bernice wishes it to be acknowledged that she is a Kamloops Indian Residential School speaker, who is re-learning her language. She introduces herself thus:	page 1
+footnote *	Sander Nederveen	name	Bernice Garcia	page 1, a consultant, kʷәłtèzetkʷʔ, KBG
+footnote *	Sander Nederveen	name	Marty Aspinall	page 1, a consultant, c̓úʔsinek, CMA
+footnote *	Sander Nederveen	name	Gene Moses	page 1, a consultant, GM
+footnote *	Sander Nederveen	name	Bev Phillips	page 1, a consultant, BP
+footnote *	Bernice Garcia	running speech	ʔes ʔúmәcms kʷәłtèzetkʷuʔ tәw ɬe c̓әłétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nłeʔkepmx e tmixʷs ,	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	‘My traditional name is kʷәłtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands.’	page 1, footnote, her translation
+footnote *	Sander Nederveen	note	I would moreover like to thank Ryan Bochnak, Henry Davis, Lisa Matthewson, Bruce Oliver, Ella Hannon, Brent Hall, and other members of the Secwepem- ctsín Research Group and Nłab for feedback and discussions. This research was funded by the Kinkade Grant Agent Control and Aspect in Secwepemctsín and Nłeʔkepmxcín (Nederveen, PI), and the Phillips Fund for Na- tive American Research Agent Control, Aspect and Transitivity in Secwepemctsín and Nłeʔkepmxcín (Ned- erveen, PI). Last, but not least, I would like to thank the Citxw Nlaka’pamux Assembly for supporting this work and facilitating in-person work with fluent speakers. All errors are my own. Contact info: sander.nederveen@ubc.ca In Proceedings of the International Conference on Salish and Neighbouring Languages 59, D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1, footnote
+§1	Sander Nederveen	note	Since bare roots are freely available in St’át’imcets, they have provided a clear picture of the semantic profile of roots, and Davis (1996, 2021), as well as Davis and Matthewson (2009) extend the findings from St’át’imcets and hypothesize that the following two generalizations hold across the Salish language family (from Davis 2021:1):1 1. All verb roots are unaccusative: they systematically lack an external argument even when the meaning of the verb entails an agent.	page 2
+§1	Sander Nederveen	language	NłePkepxmcín	Nłeʔkepmxcín, its ʔ set as P and x and m transposed as printed
+§1	Sander Nederveen	note	2. All verb roots are eventive and culminate (they have the aspectual profile of achievements). In this paper, I show that, unlike in St’át’imcets, verb roots cannot appear uninflected in the Interior Salish language NłePkepxmcín. Based on these new empirical findings, I then reflect on whether Davis’ (1996, 2021) generalizations regarding the semantic profile of roots should be ex- tended throughout the entire language family.	page 2
+§1	Sander Nederveen	note	Before I present the data on bare roots, I briefly introduce some background on the language under study in this paper, Nłe Pkepxmcín.	page 2
+§1.1	Sander Nederveen	heading	1.1 Languages and Methodology	page 2
+§1.1	Sander Nederveen	language	NłePkepmxcín	Nłeʔkepmxcín, its ʔ set as P by the font
+§1.1	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§1.1	Sander Nederveen	note	NłePkepmxcín is a Salish language belonging to the Northern Interior branch of the family. It is spoken in British Columbia, Canada. Nłeʔkepmxcín has approximately 105 remaining L1 speakers (Gessner et al. 2022). As a result, the language is in need of further documentation to support ongoing and active community revitalization initiatives.	page 2
+§1.1	Sander Nederveen	language	Nłe	the first part of Nłeʔkepmxcín, broken over a line
+§1.1	Sander Nederveen	language	Pkepmxcín	the second part of Nłeʔkepmxcín, broken over a line
+§1.1	nɬeʔkepmxcín	cited form	c̓ełétkʷu	page 2
+§1.1	nɬeʔkepmxcín	cited form	sulús	page 2
+§1.1	nɬeʔkepmxcín	cited form	ƛ̓әq̓mcín	page 2
+§1.1	Sander Nederveen	note	The Nłe Pkepmxcín consultants for this paper speak multiple dialects. Two consultants are Cold- water (c̓ełétkʷu) dialect speakers, one is a speaker from Shulus (sulús), and another speaker speaks the Lytton (ƛ̓әq̓mcín) dialect. However, their judgments on bare CoS roots are consistent. In terms of fieldwork methodology, unless otherwise indicated, the data from NłePkepmxcín given here are drawn from fieldwork by the author. Data collection took place both virtually through Zoom and through face-to-face elicitation, employing standard fieldwork methodologies (Bochnak and Matthewson 2020; Matthewson 2004). Nearly all elicitation tasks involved speaker judgment of sentences within particular contexts of use.	page 2
+§1.2	Sander Nederveen	heading	1.2 Defining Change of State	page 2
+§1.2	Sander Nederveen	note	For the purposes of this paper, I only discuss the properties of bare CoS roots. In defining CoS, I follow Dowty (1979):	page 2
+§1.2	nɬeʔkepmxcín	cited form	ϕ	page 2
+§1.2	nɬeʔkepmxcín	cited form	¬ϕ	page 2
+§1.2	Sander Nederveen	note	(2) Change of State (adapted from Dowty 1979:141) ϕ undergoes a change of state iff (i) there is an interval J containing the initial bound of I such that ¬ϕ is true at J , (ii) there is an interval K containing the final bound of I such that ϕ is true at K, and (iii) there is no non-empty interval I’ such that I’ ∈ I and conditions (i) and (ii) hold for J as well as I.	page 2
+footnote 1	Sander Nederveen	note	1 It’s worth noting that this generalization is supported by research on several Central Salish languages, in- cluding Halkomelem (Gerdts 2006), Lushootseed (Beck 2007), and ʔayʔaǰuθәm (Andreotti 2018), all of which have amply attested cases of bare roots with unaccusative semantics; it likely holds throughout the Central branch of the Salish language family.	page 2, footnote
+§1.2	nɬeʔkepmxcín	cited form	ʔayʔaǰuθәm	page 2
+§1.2	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§1.2	Sander Nederveen	note	Informally, (2) states that there is a CoS when the smallest interval which contains a subinterval in which ϕ is not true is followed by a subinterval in which ϕ is true. That is, there is a CoS from ¬ϕ to ϕ. CoS verbs may be achievements and therefore instantaneous, or may involve gradual change, and thus qualify as accomplishments. This paper shows that bare roots of CoS verbs are illicit in Nłeʔkepmxcín.	page 3
+§2	Sander Nederveen	heading	2 The Absence of Bare Roots in Nłeʔkepmxcín	page 3
+§2	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§2	Sander Nederveen	note	If bare roots exist in Nłeʔkepmxcín, my baseline assumption would be that they have the semantics that has been attested for bare roots in other Salish languages (Andreotti 2018; Beck 2007; Davis 2021; Gerdts 2006). Based on this assumption, the environments to test their (non-)existence would be the ones Davis (2021) lists as ones that typically accommodate their pragmatic profile. Davis (2021) points out that due to the absence of an external argument in the lexical representation of CoS roots, it is challenging to find the right discourse circumstances for their felicitous use. Nevertheless, he identifies the following discourse circumstances in which bare roots typically occur (see Davis and Matthewson 2009; Gerdts and Hukari 2006):	page 3
+§2	nɬeʔkepmxcín	cited affix	ʔes-	page 3
+§2	nɬeʔkepmxcín	cited form	-ʔ-	page 3
+§2	nɬeʔkepmxcín	cited affix	-ә́p	page 3
+footnote 2	Sander Nederveen	note	2 Instructional contexts are lacking from this paper, because I was unable to elicit instructional contexts with (e.g., ‘Do x!’), or constituted first person narratives from the past (e.g., ‘Then, we would do x.’)	page 3, footnote
+footnote 3	Sander Nederveen	note	3 If the agent is known or if the agent would have been prominent in the context, I expect a passive construction to be used.	page 3, footnote
+footnote 4	Sander Nederveen	note	4 The immediate marker is somewhat mysterious, and its precise meaning is not fully understood. However, (Thompson and Thompson 1992:92) describe immediate marking as follows: “[the immediate form] refers to states and actions which have just gone into effect. The point of reference may be some time in the past, so that an immediate form can indicate some state of affairs in the past. The emphasis is on the state of affairs, rather than on the change implied.”	page 3, footnote
+footnote 5	Sander Nederveen	note	5 Abbreviations: ADD = additive, CAUS = causative, CTR = control, D/C = determiner/complementizer, DEM = demonstrative, DET = determiner, ERG = ergative, EXCL = exclusive, FUT = future, IMM = immediate, INCH = inchoative, INFER = inferential, IPFV = imperfective, NEG = negative, NMLZ = nominalizer, POSS = possessive, PREP = preposition, SBJ = subject, SBJV = subjunctive, SG = singular, STAT = stative, TR = transitive.	page 3, footnote
+footnote 6	Sander Nederveen	note	6 In the Nłeʔkepmxcin examples, I use the practical orthography of the language in the top line, which results in some clitics being presented as free morphemes. The gloss line includes detailed morpheme boundaries. Material which is underlyingly present but has been deleted by a regular phonological process is marked by square brackets [...] in the gloss line. Clitics are indicated with equal signs (=), and suffixes with hyphens (-). Furthermore, ‘vf’ stands for volunteered form by the consultant, ‘sf’ stands for suggested or supplied form by	page 3, footnote
+§2	Sander Nederveen	language	Nłeʔkepmxcin	Nłeʔkepmxcín, without the accent
+§2	Sander Nederveen	note	1. Speaker does not know, care about, or wish to reveal the identity of the agent 2. Instructional contexts in which the agent is generic [e.g., ‘First, the cars get cleaned. Then they get polished.’] In this paper, all of the data fall in the first category, where there is no reference to an agent in the context, and in which the identity of the agent is irrelevant for the situation.2,3 Below follows a sequence of examples from Nłeʔkepmxcín in contexts where the agent is backgrounded and where the bare root is illicit. In all cases where a bare form was rejected, volunteered alternatives (marked as ‘vf correction’) primarily involved the stative marker ʔes-, the inchoative -ʔ- or -ә́p, or the immediate morpheme -t. 4,5,6 (i) bare roots, or (ii) with minimal inflection. All elicited instructional contexts involved either the imperative	page 3
+(3) line 1	Sander Nederveen	note	Context: There used to be some bread on the counter, but it’s gone, except for a few crumbs.	page 4, engine english
+(3a) line 1	nɬeʔkepmxcín	transcription	*ʔúp(i)	page 4, engine language
+(3a) line 2	nɬeʔkepmxcín	segmentation	ʔúp(i)	page 4, engine language
+(3a) line 3	nɬeʔkepmxcín	gloss	get.eaten	page 4, engine english
+(3a) line 4	nɬeʔkepmxcín	transcription	ʔә seplíl.	page 4, engine language
+(3a) line 5	nɬeʔkepmxcín	segmentation	ʔә=seplíl	page 4, engine language
+(3a) line 6	nɬeʔkepmxcín	gloss	DET=bread	page 4, engine english
+(3a) line 7	Bev Phillips	translation	Intended: ‘The bread got eaten.’	page 4, engine english, cited BP | sf | 05.14.2024, BP | sf | 05.14.2024
+(3a) line 7	Sander Nederveen	citation	(BP | sf | 05.14.2024)	the tag or source at the right of the translation
+(3b) line 1	nɬeʔkepmxcín	transcription	ʔesʔúp(i)	page 4, engine language
+(3b) line 2	nɬeʔkepmxcín	segmentation	ʔes-úp(i)	page 4, engine language
+(3b) line 3	nɬeʔkepmxcín	gloss	STAT-get.eaten	page 4, engine english
+(3b) line 4	nɬeʔkepmxcín	transcription	ʔә seplíl.	page 4, engine language
+(3b) line 5	nɬeʔkepmxcín	segmentation	ʔә=seplíl	page 4, engine language
+(3b) line 6	nɬeʔkepmxcín	gloss	DET=bread	page 4, engine english
+(3b) line 7	Bev Phillips	translation	‘The bread got eaten.’	page 4, engine english, cited BP | vf correction | 05.14.2024, BP | vf correction | 05.14.2024
+(3b) line 7	Sander Nederveen	citation	(BP | vf correction | 05.14.2024)	the tag or source at the right of the translation
+(3c) line 1	nɬeʔkepmxcín	transcription	upә́p	page 4, engine language
+(3c) line 2	nɬeʔkepmxcín	segmentation	up-ә́p	page 4, engine language
+(3c) line 3	nɬeʔkepmxcín	gloss	get.eaten-INCH	page 4, engine english
+(3c) line 4	nɬeʔkepmxcín	transcription	ʔә seplíl.	page 4, engine language
+(3c) line 5	nɬeʔkepmxcín	segmentation	ʔә=seplíl	page 4, engine language
+(3c) line 6	nɬeʔkepmxcín	gloss	DET=bread	page 4, engine english
+(3c) line 7	Bev Phillips	translation	‘The bread got eaten.’	page 4, engine english, cited BP | vf correction | 05.14.2024, BP | vf correction | 05.14.2024
+(3c) line 7	Sander Nederveen	citation	(BP | vf correction | 05.14.2024)	the tag or source at the right of the translation
+(4) line 1	Sander Nederveen	note	Context: There was lots of snow but now it’s been warm for a couple days and the snow dis- appeared.	page 4, engine english
+(4a) line 1	nɬeʔkepmxcín	transcription	*zéxʷ	page 4, engine language
+(4a) line 2	nɬeʔkepmxcín	segmentation	zéxʷ	page 4, engine language
+(4a) line 3	nɬeʔkepmxcín	gloss	get.melted	page 4, engine english
+(4a) line 4	nɬeʔkepmxcín	transcription	ʔә swúxʷt.	page 4, engine language
+(4a) line 5	nɬeʔkepmxcín	segmentation	ʔә=s-wúxʷt	page 4, engine language
+(4a) line 6	nɬeʔkepmxcín	gloss	DET=NMLZ-snow	page 4, engine english
+(4a) line 7	Bev Phillips	translation	Intended: ‘The snow got melted.’	page 4, engine english, cited BP | sf | 02.26.2024, BP | sf | 02.26.2024
+(4a) line 7	Sander Nederveen	citation	(BP | sf | 02.26.2024)	the tag or source at the right of the translation
+(4b) line 1	nɬeʔkepmxcín	transcription	zʔéxʷ	page 4, engine language
+(4b) line 2	nɬeʔkepmxcín	segmentation	z<ʔ>éxʷ	page 4, engine language
+(4b) line 3	nɬeʔkepmxcín	gloss	<INCH>melt	page 4, engine english
+(4b) line 4	nɬeʔkepmxcín	transcription	ʔә swúxʷt.	page 4, engine language
+(4b) line 5	nɬeʔkepmxcín	segmentation	ʔә=s-wúxʷt	page 4, engine language
+(4b) line 6	nɬeʔkepmxcín	gloss	DET=NMLZ-snow	page 4, engine english
+(4b) line 7	Bev Phillips	translation	‘The snow got melted.’	page 4, engine english, cited BP | vf correction | 02.26.2024, BP | vf correction | 02.26.2024
+(4b) line 7	Sander Nederveen	citation	(BP | vf correction | 02.26.2024)	the tag or source at the right of the translation
+(5) line 1	Sander Nederveen	note	Context: When you walk along the road you see a snake that’s totally flat. When it looks like that, you know it got run over by a car.	page 4, engine english
+(5a) line 1	nɬeʔkepmxcín	transcription	*k̓íp̓	page 4, engine language
+(5a) line 2	nɬeʔkepmxcín	segmentation	k̓íp̓	page 4, engine language
+(5a) line 3	nɬeʔkepmxcín	gloss	get.trampled	page 4, engine english
+(5a) line 4	nɬeʔkepmxcín	transcription	ʔә=sméyx.	page 4, engine language
+(5a) line 5	nɬeʔkepmxcín	segmentation	ʔә=s-méyx	page 4, engine language
+(5a) line 6	nɬeʔkepmxcín	gloss	DET=NMLZ-snake	page 4, engine english
+(5a) line 7	Bernice Garcia and Marty Aspinall	translation	Intended: ’The snake got trampled.’	page 4, engine english, cited KBG/CMA | sf | 02.21.2024, KBG/CMA | sf | 02.21.2024
+(5a) line 7	Sander Nederveen	citation	(KBG/CMA | sf | 02.21.2024)	the tag or source at the right of the translation
+(5b) line 1	nɬeʔkepmxcín	transcription	k̓íp̓t	page 4, engine language
+(5b) line 2	nɬeʔkepmxcín	segmentation	k̓íp̓-t	page 4, engine language
+(5b) line 3	nɬeʔkepmxcín	gloss	get.trampled-IMM	page 4, engine english
+(5b) line 4	nɬeʔkepmxcín	transcription	ʔә sméyx.	page 4, engine language
+(5b) line 5	nɬeʔkepmxcín	segmentation	ʔә=s-méyx	page 4, engine language
+(5b) line 6	nɬeʔkepmxcín	gloss	DET=NMLZ-snake	page 4, engine english
+(5b) line 7	Bernice Garcia and Marty Aspinall	translation	‘The snake got trampled.’	page 4, engine english, cited KBG/CMA | vf correction | 02.21.2024, KBG/CMA | vf correction | 02.21.2024
+(5b) line 7	Sander Nederveen	citation	(KBG/CMA | vf correction | 02.21.2024)	the tag or source at the right of the translation
+(5c) line 1	nɬeʔkepmxcín	transcription	ʔesk̓íp̓	page 4, engine language
+(5c) line 2	nɬeʔkepmxcín	segmentation	ʔes-k̓íp̓	page 4, engine language
+(5c) line 3	nɬeʔkepmxcín	gloss	STAT-get.trampled	page 4, engine english
+(5c) line 4	nɬeʔkepmxcín	transcription	ʔә sméyx.	page 4, engine language
+(5c) line 5	nɬeʔkepmxcín	segmentation	ʔә=s-méyx	page 4, engine language
+(5c) line 6	nɬeʔkepmxcín	gloss	DET=NMLZ-snake	page 4, engine english
+(5c) line 7	Bernice Garcia	translation	‘The snake got trampled.’	page 4, engine english, cited KBG | vf correction | 02.21.2024, KBG | vf correction | 02.21.2024
+(5c) line 7	Sander Nederveen	citation	(KBG | vf correction | 02.21.2024)	the tag or source at the right of the translation
+§2	Sander Nederveen	note	the elicitor. Examples that have been elicited by the author are marked with (i) the date that these data points were elicited, and (ii) the initials of the consultant who provided the example.	page 4
+(6) line 1	Sander Nederveen	note	Context: There’s a pile of clothes on the ground in the sun that were wet when you last saw it, and now they’re bone dry.	page 5, engine english
+(6a) line 1	nɬeʔkepmxcín	transcription	*k̓éx	page 5, engine language
+(6a) line 2	nɬeʔkepmxcín	segmentation	k̓éx	page 5, engine language
+(6a) line 3	nɬeʔkepmxcín	gloss	get.dried	page 5, engine english
+(6a) line 4	nɬeʔkepmxcín	transcription	ʔә xʷәpít.	page 5, engine language
+(6a) line 5	nɬeʔkepmxcín	segmentation	ʔә=xʷәpít	page 5, engine language
+(6a) line 6	nɬeʔkepmxcín	gloss	DET=clothing	page 5, engine english
+(6a) line 7	Marty Aspinall	translation	Intended: ‘The clothes got dried.’	page 5, engine english, cited CMA | sf | 02.14.2024, CMA | sf | 02.14.2024
+(6a) line 7	Sander Nederveen	citation	(CMA | sf | 02.14.2024)	the tag or source at the right of the translation
+(6b) line 1	nɬeʔkepmxcín	transcription	ʔesk̓éx	page 5, engine language
+(6b) line 2	nɬeʔkepmxcín	segmentation	ʔes-k̓éx	page 5, engine language
+(6b) line 3	nɬeʔkepmxcín	gloss	STAT-get.dried	page 5, engine english
+(6b) line 4	nɬeʔkepmxcín	transcription	ʔә xʷәpít.	page 5, engine language
+(6b) line 5	nɬeʔkepmxcín	segmentation	ʔә=xʷәpít	page 5, engine language
+(6b) line 6	nɬeʔkepmxcín	gloss	DET=clothing	page 5, engine english
+(6b) line 7	Marty Aspinall	translation	‘The clothes got dried.’	page 5, engine english, cited CMA | vf correction | 02.14.2024, CMA | vf correction | 02.14.2024
+(6b) line 7	Sander Nederveen	citation	(CMA | vf correction | 02.14.2024)	the tag or source at the right of the translation
+(7) line 1	Sander Nederveen	note	Context: You see a branch on the ground next to a tree. You can see a cutting pattern on the tree so you know the branch did not fall but instead got cut.	page 5, engine english
+(7a) line 1	nɬeʔkepmxcín	transcription	*ník̓	page 5, engine language
+(7a) line 2	nɬeʔkepmxcín	segmentation	ník̓	page 5, engine language
+(7a) line 3	nɬeʔkepmxcín	gloss	get.cut	page 5, engine english
+(7a) line 4	nɬeʔkepmxcín	transcription	ʔә keyxmékeʔ.	page 5, engine language
+(7a) line 5	nɬeʔkepmxcín	segmentation	ʔә=keyx-mékeʔ	page 5, engine language
+(7a) line 6	nɬeʔkepmxcín	gloss	DET=hand-branch	page 5, engine english
+(7a) line 7	Sander Nederveen	translation	Intended: ‘The branch got cut.’	page 5, engine english
+(7a) line 8	Marty Aspinall	speaker comment	CMA comment: “This is an incomplete statement.” (GM/BP/CMA | sf | 01.23.2024)	page 5, engine english
+(7b) line 1	nɬeʔkepmxcín	transcription	ʔesník̓	page 5, engine language
+(7b) line 2	nɬeʔkepmxcín	segmentation	ʔes-ník̓	page 5, engine language
+(7b) line 3	nɬeʔkepmxcín	gloss	STAT-get.cut	page 5, engine english
+(7b) line 4	nɬeʔkepmxcín	transcription	ʔә keyxmékeʔ.	page 5, engine language
+(7b) line 5	nɬeʔkepmxcín	segmentation	ʔә=keyx-mékeʔ	page 5, engine language
+(7b) line 6	nɬeʔkepmxcín	gloss	DET=hand-branch	page 5, engine english
+(7b) line 7	Gene Moses, Bev Phillips and Marty Aspinall	translation	‘The branch got cut.’	page 5, engine english, cited GM/BP/CMA | vf correction | 01.23.2024, GM/BP/CMA | vf correction | 01.23.2024
+(7b) line 7	Sander Nederveen	citation	(GM/BP/CMA | vf correction | 01.23.2024)	the tag or source at the right of the translation
+(7c) line 1	nɬeʔkepmxcín	transcription	ník̓t	page 5, engine language
+(7c) line 2	nɬeʔkepmxcín	segmentation	ník̓-t	page 5, engine language
+(7c) line 3	nɬeʔkepmxcín	gloss	get.cut-IMM	page 5, engine english
+(7c) line 4	nɬeʔkepmxcín	transcription	ʔә keyxmékeʔ.	page 5, engine language
+(7c) line 5	nɬeʔkepmxcín	segmentation	ʔә=keyx-mékeʔ	page 5, engine language
+(7c) line 6	nɬeʔkepmxcín	gloss	DET=hand-branch	page 5, engine english
+(7c) line 7	Gene Moses, Bev Phillips and Marty Aspinall	translation	‘The branch got cut.’	page 5, engine english, cited GM/BP/CMA | vf correction | 01.23.2024, GM/BP/CMA | vf correction | 01.23.2024
+(7c) line 7	Sander Nederveen	citation	(GM/BP/CMA | vf correction | 01.23.2024)	the tag or source at the right of the translation
+§2	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+§2	Sander Nederveen	language	Nłeʔkepmxcín.7	Nłeʔkepmxcín, carrying footnote 7
+§2	Sander Nederveen	note	In all the examples above, the agent gets backgrounded in some way, although one apparent objection against these particular examples may be that the discourse contexts fail to accommodate a bare root. That is, bare roots only have an internal argument and no agent, and perhaps the contexts above still fail to background the agent sufficiently. However, in examples (8) and (9) below, the discourse contexts are constructed in such a way that the agent is either a generic causer, or in which there simply is no agency involved in causing a CoS. Therefore, we may conclude that, contrary to St’át’imcets, bare CoS roots are illicit in Nłeʔkepmxcín.7	page 5
+(8) line 1	Sander Nederveen	note	Context: Fat gets melted in a pan (by whoever would melt the fat). Generic agentive causer	page 5, engine english
+(8a) line 1	nɬeʔkepmxcín	transcription	#zéxʷ	page 5, engine language
+(8a) line 2	nɬeʔkepmxcín	segmentation	zéxʷ	page 5, engine language
+(8a) line 3	nɬeʔkepmxcín	gloss	get.melted	page 5, engine english
+(8a) line 4	nɬeʔkepmxcín	transcription	ʔә qʷtéł	page 5, engine language
+(8a) line 5	nɬeʔkepmxcín	segmentation	ʔә=qʷtéł	page 5, engine language
+(8a) line 6	nɬeʔkepmxcín	gloss	DET=fat	page 5, engine english
+(8a) line 7	nɬeʔkepmxcín	transcription	n łkép.	page 5, engine language
+(8a) line 8	nɬeʔkepmxcín	segmentation	n=łkép	page 5, engine language
+(8a) line 9	nɬeʔkepmxcín	gloss	PREP=pot	page 5, engine english
+(8a) line 10	Bev Phillips	translation	Intended: ‘Fat gets melted in a pan.’	page 5, engine english, cited BP | sf | 05.30.2024, BP | sf | 05.30.2024
+(8a) line 10	Sander Nederveen	citation	(BP | sf | 05.30.2024)	the tag or source at the right of the translation
+footnote 7	Sander Nederveen	note	7 There is an additional interesting finding that results from (8), namely that inchoative marking in Nłeʔkep- mxcín is licit in contexts where there is a potential agent, albeit a generic one. This is different from St’át’imcets, where the inchoative is typically used when the CoS involves no potential human agency (Davis 1996:83).	page 5, footnote
+§2	Sander Nederveen	language	Nłeʔkep-	the first part of Nłeʔkepmxcín, broken over a line
+§2	nɬeʔkepmxcín	cited form	mxcín	page 5
+(8b) line 1	nɬeʔkepmxcín	transcription	zʔéxʷ	page 6, engine language
+(8b) line 2	nɬeʔkepmxcín	segmentation	z<ʔ>éxʷ	page 6, engine language
+(8b) line 3	nɬeʔkepmxcín	gloss	get.melted<INCH>	page 6, engine english
+(8b) line 4	nɬeʔkepmxcín	transcription	ʔә qʷtéł	page 6, engine language
+(8b) line 5	nɬeʔkepmxcín	segmentation	ʔә=qʷtéł	page 6, engine language
+(8b) line 6	nɬeʔkepmxcín	gloss	DET=fat	page 6, engine english
+(8b) line 7	nɬeʔkepmxcín	transcription	n łkép.	page 6, engine language
+(8b) line 8	nɬeʔkepmxcín	segmentation	n=łkép	page 6, engine language
+(8b) line 9	nɬeʔkepmxcín	gloss	PREP=pot	page 6, engine english
+(8b) line 10	Bev Phillips	translation	‘Fat gets melted in a pan.’	page 6, engine english, cited BP | vf correction | 05.30.2024, BP | vf correction | 05.30.2024
+(8b) line 10	Sander Nederveen	citation	(BP | vf correction | 05.30.2024)	the tag or source at the right of the translation
+(9) line 1	Sander Nederveen	note	Context: Fat melts in warm environments, if not kept cool. No agency involved	page 6, engine english
+(9a) line 1	nɬeʔkepmxcín	transcription	#zéxʷ	page 6, engine language
+(9a) line 2	nɬeʔkepmxcín	segmentation	zéxʷ	page 6, engine language
+(9a) line 3	nɬeʔkepmxcín	gloss	get.melted	page 6, engine english
+(9a) line 4	nɬeʔkepmxcín	transcription	ʔә qʷtéł	page 6, engine language
+(9a) line 5	nɬeʔkepmxcín	segmentation	ʔә=qʷtéł	page 6, engine language
+(9a) line 6	nɬeʔkepmxcín	gloss	DET=fat	page 6, engine english
+(9a) line 7	nɬeʔkepmxcín	transcription	ʔә témus	page 6, engine language
+(9a) line 8	nɬeʔkepmxcín	segmentation	ʔә=tém=us	page 6, engine language
+(9a) line 9	nɬeʔkepmxcín	gloss	DET=NEG=3SBJV	page 6, engine english
+(9a) line 10	nɬeʔkepmxcín	transcription	téʔe	page 6, engine language
+(9a) line 11	nɬeʔkepmxcín	segmentation	téʔe	page 6, engine language
+(9a) line 12	nɬeʔkepmxcín	gloss	NEG	page 6, engine english
+(9a) line 13	nɬeʔkepmxcín	transcription	k sәc̓éłs.	page 6, engine language
+(9a) line 14	nɬeʔkepmxcín	segmentation	k=sә-c̓éł-s	page 6, engine language
+(9a) line 15	nɬeʔkepmxcín	gloss	D/C=NMLZ-cold-3POSS	page 6, engine english
+(9a) line 16	Bev Phillips	translation	Intended: ‘Fat melts if it is not kept cool.’	page 6, engine english, cited BP | sf | 05.30.2024, BP | sf | 05.30.2024
+(9a) line 16	Sander Nederveen	citation	(BP | sf | 05.30.2024)	the tag or source at the right of the translation
+(9b) line 1	nɬeʔkepmxcín	transcription	zʔéxʷ	page 6, engine language
+(9b) line 2	nɬeʔkepmxcín	segmentation	z<ʔ>éxʷ	page 6, engine language
+(9b) line 3	nɬeʔkepmxcín	gloss	get.melted<INCH>	page 6, engine english
+(9b) line 4	nɬeʔkepmxcín	transcription	ʔә qʷtéł	page 6, engine language
+(9b) line 5	nɬeʔkepmxcín	segmentation	ʔә=qʷtéł	page 6, engine language
+(9b) line 6	nɬeʔkepmxcín	gloss	DET=fat	page 6, engine english
+(9b) line 7	nɬeʔkepmxcín	transcription	ʔә témus	page 6, engine language
+(9b) line 8	nɬeʔkepmxcín	segmentation	ʔә=tém=us	page 6, engine language
+(9b) line 9	nɬeʔkepmxcín	gloss	DET=NEG=3SBJV	page 6, engine english
+(9b) line 10	nɬeʔkepmxcín	transcription	téʔe	page 6, engine language
+(9b) line 11	nɬeʔkepmxcín	segmentation	téʔe	page 6, engine language
+(9b) line 12	nɬeʔkepmxcín	gloss	NEG	page 6, engine english
+(9b) line 13	nɬeʔkepmxcín	transcription	k sәc̓ełs.	page 6, engine language
+(9b) line 14	nɬeʔkepmxcín	segmentation	k=sә-c̓éł-s	page 6, engine language
+(9b) line 15	nɬeʔkepmxcín	gloss	D/C=NMLZ-cold-3POSS	page 6, engine english
+(9b) line 16	Bev Phillips	translation	‘Fat melts if it is not kept cool.’	page 6, engine english, cited BP | vf correction | 05.30.2024, BP | vf correction | 05.30.2024
+(9b) line 16	Sander Nederveen	citation	(BP | vf correction | 05.30.2024)	the tag or source at the right of the translation
+§2	Sander Nederveen	note	Given the inability for bare roots to surface independently in Nłeʔkepmxcín, questions arise about the lexical semantic representation of bare CoS verb roots. Recall from the introduction that Davis (2021) argues that in Salish, all verb roots culminate and have the aspectual profile of an achievement. An alternative proposal for Salish CoS roots by Lyon (2023) is based on findings from the Southern Interior Salish language Nsyilxcn. Following Kratzer (2000), Lyon (2023) proposes that bare verb roots contain both an eventive and stative component, and must compose with other aspectual morphology in order to have an interpretable surface form.	page 6
+§2	Sander Nederveen	note	In the next section, I present a brief discussion of the semantic profile of CoS roots in Interior Salish and highlight areas for further research.	page 6
+§3	Sander Nederveen	heading	3 Questions about the Semantic Profile of Verb Roots in Interior Salish	page 6
+§3	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§3	Sander Nederveen	note	Based on the evidence provided in the previous section, combined with evidence from other Sal- ish languages, I follow Davis (1996, 2021) and adopt the view that verb roots are syntactically unaccusative. However, there are a number of avenues one can take to analyze the semantics of unaccusative CoS roots. Below, I discuss how several analyses fail to account for Nłeʔkepmxcín.	page 6
+§3.1	Sander Nederveen	heading	3.1 Analyzing the Salish CoS Verb Root: Davis (2021) and Lyon (2023)	page 6
+§3.1	Sander Nederveen	note	In addition to the unaccusativity hypothesis, Davis (2021) argues that the aspectual profile of verb roots is like that of achievements, and adopts the following denotation from Bar-el et al. (2005):	page 6
+(10a) line 1	Sander Nederveen	rule	λxλeλw.P(x)(e)(w)	page 6, engine residue
+(10b) line 1	Sander Nederveen	rule	JmaysKw = λxλe [x gets fixed in w(e)]	page 6, engine english
+§3.1	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+§3.1	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§3.1	Sander Nederveen	language	Nłeʔkepmxcín.8	Nłeʔkepmxcín, carrying footnote 8
+§3.1	Sander Nederveen	note	If we adopt the semantics in (10), we predict that bare roots can felicitously be used as long as the event argument and individual argument (of the object) are saturated. While this is the desired outcome for St’át’imcets, this cannot be the correct semantics for bare CoS roots in Nłeʔkepmxcín. That is, if CoS roots in Nłeʔkepmxcín have (10) as their semantics, we would predict that bare roots are felicitous, just like in St’át’imcets. This is not the case. Instead, there should be something in the semantics of CoS roots in Nłeʔkepmxcín that prevents them from surfacing in their bare form. Lyon (2023) proposes a more complex semantics for CoS roots in Nsyilxcn, a language in which bare CoS roots are typically illicit, just like in Nłeʔkepmxcín.8 Lyon (2023) adopts Dowty’s (1979) BECOME and CAUSE predicates, where BECOME is defined as in (2), such that the P-event e causes a change of state. CAUSE specifies that the target state s is caused by the event e. The full denotation for CoS roots proposed by Lyon (2023) is given in (11):	page 6
+§3.1	nɬeʔkepmxcín	cited form	λxλsλeλw	page 7
+§3.1	Sander Nederveen	note	(11) λxλsλeλw[ BECOME(P(x)(e)(w)) ∧ CAUSE(e,s)(w)] Lyon (2023) makes an ontological distinction between states of type s and events of type e (Kratzer 2000). It is this ontological distinction that ultimately prohibits bare roots to surface: since an un- modified root has both stative and eventive arguments open, the bare root leaves it entirely open whether a reference time should target the eventive portion or the target state. This, Lyon (2023) claims, rules out using the bare root, which must be resolved through further composition with other aspectual morphology, such as the stative.	page 7
+§3.1	Sander Nederveen	note	Lyon’s (2023) semantic analysis of CoS roots in Nsyilxcn predicts that CoS roots cannot surface in their bare form. While there are no objections against this analysis based on Lyon’s account of CoS roots, when we look further into the derivation of morphologically complex VPs, we may wish to reevaluate whether (11) allows us to explain other derivations of CoS verbs. Specifically, problems arise when we look at the derivation of non-culminating accomplishments (NCAs; Bar-el et al. 2005, also Nederveen 2024). An example of an NCA is given in (12), where (12a) shows that a telic predicate cannot freely be used in a discourse context that lacks an endpoint, and where (12b) shows that explicit cancelation of culmination is nevertheless allowed.	page 7
+(12) line 1	Sander Nederveen	note	Context: I worked on roasting a deer but it’s a time-consuming process. So the roast isn’t done yet.	page 7, engine english
+(12a) line 1	nɬeʔkepmxcín	transcription	#q̓ʷeyténe	page 7, engine language
+(12a) line 2	nɬeʔkepmxcín	segmentation	q̓ʷey[-n]-t-éne	page 7, engine language
+(12a) line 3	nɬeʔkepmxcín	gloss	roast-CTR-TR-1SG.ERG	page 7, engine english
+(12a) line 4	nɬeʔkepmxcín	transcription	ʔә smíyc.	page 7, engine language
+(12a) line 5	nɬeʔkepmxcín	segmentation	ʔә=smíyc	page 7, engine language
+(12a) line 6	nɬeʔkepmxcín	gloss	DET=deer	page 7, engine english
+(12a) line 7	Bev Phillips and Bernice Garcia	translation	‘I roasted deer.’	page 7, engine english, cited BP/KBG | sf | 09.29.2022, BP/KBG | sf | 09.29.2022
+(12a) line 7	Sander Nederveen	citation	(BP/KBG | sf | 09.29.2022)	the tag or source at the right of the translation
+(12b) line 1	nɬeʔkepmxcín	transcription	q̓ʷeyténe	page 7, engine language
+(12b) line 2	nɬeʔkepmxcín	segmentation	q̓ʷey[-n]-t-éne	page 7, engine language
+(12b) line 3	nɬeʔkepmxcín	gloss	roast-CTR-TR-1SG.ERG	page 7, engine english
+(12b) line 4	nɬeʔkepmxcín	transcription	ʔә smíyc	page 7, engine language
+(12b) line 5	nɬeʔkepmxcín	segmentation	ʔә=smíyc	page 7, engine language
+(12b) line 6	nɬeʔkepmxcín	gloss	DET=deer	page 7, engine english
+(12b) line 7	nɬeʔkepmxcín	transcription	k̓méł	page 7, engine language
+(12b) line 8	nɬeʔkepmxcín	segmentation	k̓méł	page 7, engine language
+(12b) line 9	nɬeʔkepmxcín	gloss	however	page 7, engine english
+(12b) line 10	nɬeʔkepmxcín	transcription	tәtéʔe	page 7, engine language
+(12b) line 11	nɬeʔkepmxcín	segmentation	tәtéʔe	page 7, engine language
+(12b) line 12	nɬeʔkepmxcín	gloss	NEG	page 7, engine english
+(12b) line 13	nɬeʔkepmxcín	transcription	k scúkʷsne	page 7, engine language
+(12b) line 14	nɬeʔkepmxcín	segmentation	k=s=cúkʷ-s[-t]-ne	page 7, engine language
+(12b) line 15	nɬeʔkepmxcín	gloss	D/C=NMLZ=finish-CAUS-TR-1SG.ERG	page 7, engine english
+(12b) line 16	nɬeʔkepmxcín	transcription	yíʔ.	page 7, engine language
+(12b) line 17	nɬeʔkepmxcín	segmentation	yíʔ	page 7, engine language
+(12b) line 18	nɬeʔkepmxcín	gloss	yet	page 7, engine english
+(12b) line 19	Bev Phillips and Bernice Garcia	translation	‘I roasted deer, I haven’t finished it yet.’	page 7, engine english, cited BP/KBG | sf | 09.29.2022, BP/KBG | sf | 09.29.2022
+(12b) line 19	Sander Nederveen	citation	(BP/KBG | sf | 09.29.2022)	the tag or source at the right of the translation
+footnote 8	Sander Nederveen	note	8 There are some exceptions, although Lyon (2023) follows Davis (1996) and assumes that these roots are not bare, but instead are inflected with null middle morphology.	page 7, footnote
+§3.1	Sander Nederveen	language	wxwú7-mesh	the second part of Skwxwú7mesh, broken over a line
+§3.1	Sander Nederveen	note	In order to account for (12), Lyon appeals to an analysis based on inertia worlds (2023:280; based on Bar-el et al. 2005). The result is a set of problematic predictions. Without going into the precise de- tails of the semantic composition, Bar-el et al. (2005) account for non-culminating accomplishments in both Sk wxwú7-mesh and St’át’imcets through the use of inertia worlds, drawing on a modalized approach to progressives (see e.g., Dowty 1979; Landman 1992; Portner 1998). Inertia worlds are worlds that have the same history as the utterance world up to and including the reference time, after which they may branch off. In their analysis of NCAs, Bar-el et al. (2005) explain default culmina- tion by enforcing event culmination in all inertia worlds. Since the utterance world normally is an inertia world as well, the default interpretation of an NCA predicate is one of culmination. However, the utterance world need not be an inertia world, and so culmination is cancelable. This is effectively a modal analysis, and by invoking modality in an aspectual analysis, we must now grapple with the modal predictions that follow with respect to material that is always licensed by modal operators. By introducing inertia worlds on the semantics of control morphology, the control morpheme effectively becomes a modal operator. As a result, it should license morphology that is normally licensed by other modal operators.	page 7
+§3.1	Sander Nederveen	note	Matthewson (1998) shows that the St’át’imcets determiner ku= should always be licit when scoping under a modal (13), and this extends to the Nłeʔkepmxcín determiner k= in (14).9	page 8
+(13) line 1	nɬeʔkepmxcín	transcription	St’át’imcets wa7* (kelh)	page 8, engine residue
+(13) line 2	nɬeʔkepmxcín	transcription	wa7=(kelh)	page 8, engine language
+(13) line 3	nɬeʔkepmxcín	gloss	IPFV=FUT	page 8, engine residue
+(13) line 4	nɬeʔkepmxcín	transcription	mám’teq	page 8, engine language
+(13) line 5	nɬeʔkepmxcín	segmentation	mám’teq	page 8, engine language
+(13) line 6	nɬeʔkepmxcín	gloss	walk(redup)	page 8, engine english
+(13) line 7	nɬeʔkepmxcín	transcription	kents7á	page 8, engine language
+(13) line 8	nɬeʔkepmxcín	segmentation	ken-ts7á	page 8, engine language
+(13) line 9	nɬeʔkepmxcín	gloss	around-here	page 8, engine english
+(13) line 10	nɬeʔkepmxcín	transcription	ku plísmen.	page 8, engine language
+(13) line 11	nɬeʔkepmxcín	segmentation	ku=plísmen	page 8, engine language
+(13) line 12	nɬeʔkepmxcín	gloss	ku=policeman	page 8, engine english
+(13) line 13	Matthewson 1998:203	translation	‘There *is/might be a policeman walking around here.’	page 8, engine english, cited Possibility modal licensing ku= | Matthewson 1998:203, tagged possibility modal licensing ku=
+(13) line 14	Sander Nederveen	citation	(Possibility modal licensing ku= | Matthewson 1998:203)	page 8, engine english
+(14) line 1	Sander Nederveen	note	Context: The speaker sees a bear in the woods.	page 8, engine english
+(14a) line 1	nɬeʔkepmxcín	transcription	wʔéx*( nke) ʔéłuʔ neʔ	page 8, engine language
+(14a) line 2	nɬeʔkepmxcín	segmentation	wʔéx(=nke)=ʔéłƛ̓uʔ=néʔ	page 8, engine language
+(14a) line 3	nɬeʔkepmxcín	gloss	reside=INFER=ADD=DEM	page 8, engine english
+(14a) line 4	nɬeʔkepmxcín	transcription	k spéʔec.	page 8, engine language
+(14a) line 5	nɬeʔkepmxcín	segmentation	k=spéʔec	page 8, engine language
+(14a) line 6	nɬeʔkepmxcín	gloss	k=bear	page 8, engine english
+(14a) line 7	Littell and Mackie 2011:9	translation	‘Bears are here too.’	page 8, engine english, cited Inferential modal licensing k= | Littell and Mackie 2011:9, tagged inferential modal licensing k=
+(14a) line 7	Sander Nederveen	citation	(Inferential modal licensing k= | Littell and Mackie 2011:9)	the tag or source at the right of the translation
+§3.1	Sander Nederveen	language	Nłeʔkepmxcin	Nłeʔkepmxcín, without the accent
+§3.1	Sander Nederveen	note	However, in St’át’imcets and Nłeʔkepmxcin, when there are no other modals present in the clause, these determiners cannot be used under control transitive verbs, regardless of whether the event culminates (15, 16).10,11	page 8
+(15) line 1	nɬeʔkepmxcín	transcription	*ƛ̓qʷuʔténe	page 8, engine language
+(15) line 2	nɬeʔkepmxcín	segmentation	ƛ̓qʷuʔ[-n]-t-éne	page 8, engine language
+(15) line 3	nɬeʔkepmxcín	gloss	sew-CTR-TR-1SG.ERG	page 8, engine english
+(15) line 4	nɬeʔkepmxcín	transcription	k swéte	page 8, engine language
+(15) line 5	nɬeʔkepmxcín	segmentation	k=swéte	page 8, engine language
+(15) line 6	nɬeʔkepmxcín	gloss	DET=sweater	page 8, engine english
+(15) line 7	nɬeʔkepmxcín	transcription	(ƛ̓uʔ	page 8, engine language
+(15) line 8	nɬeʔkepmxcín	segmentation	(ƛ̓uʔ	page 8, engine language
+(15) line 9	nɬeʔkepmxcín	gloss	but	page 8, engine english
+(15) line 10	nɬeʔkepmxcín	transcription	tәtéʔe	page 8, engine language
+(15) line 11	nɬeʔkepmxcín	segmentation	tәtéʔe	page 8, engine language
+(15) line 12	nɬeʔkepmxcín	gloss	NEG	page 8, engine english
+(15) line 13	nɬeʔkepmxcín	transcription	k scúkʷsne).	page 8, engine language
+(15) line 14	nɬeʔkepmxcín	segmentation	k=s=cúkʷ-s[-t]-ne)	page 8, engine language
+(15) line 15	nɬeʔkepmxcín	gloss	D/C=NMLZ-finish-CAUS-TR-1SG.ERG	page 8, engine english
+(15) line 16	Bev Phillips	translation	Intended: ‘I knit a sweater (but I didn’t finish it).’	page 8, engine english, cited BP | sf | 06.19.2024, BP | sf | 06.19.2024
+(15) line 16	Sander Nederveen	citation	(BP | sf | 06.19.2024)	the tag or source at the right of the translation
+footnote 9	Sander Nederveen	note	9 The gloss from (14) has been updated according to current glossing conventions. For the original gloss, see (Littell and Mackie 2011:9).	page 8, footnote
+footnote 10	Sander Nederveen	note	10 The determiner ku= in St’át’imcets is a ‘non-assertion of existence’ determiner, such that it does not assert that the NP complement exists in the utterance world. As a result, DPs headed by ku= — or its counterpart in Secwepemcstín and Nłeʔkepmxcín — that refer to entities that exist in the utterance world are infelicitous on independent grounds. To circumvent this issue, I only use sentences with creation verbs and whose culmina- tion is denied. As a result all DPs headed by ku= or k- refer to not-yet-existing entities, and should, if Bar-el et al. (2005) are correct, be felicitous in (15).	page 8, footnote
+§3.1	Sander Nederveen	language	Secwepemcstín	Secwepemctsín, Shuswap, as printed
+footnote 11	Sander Nederveen	note	11 Thanks to Carl Alexander (CA) and Henry Davis for the St’át’imcets example.	page 8, footnote
+(16) line 1	nɬeʔkepmxcín	transcription	St’át’imcets*k’ul’-ún’lhkan	page 9, engine language
+(16) line 2	nɬeʔkepmxcín	segmentation	k’ul’-ún’=lhkan	page 9, engine language
+(16) line 3	nɬeʔkepmxcín	gloss	make-CTR.TR=1SG.SBJ	page 9, engine english
+(16) line 4	nɬeʔkepmxcín	transcription	ku ts’lá7	page 9, engine language
+(16) line 5	nɬeʔkepmxcín	segmentation	ku=ts’lá7	page 9, engine language
+(16) line 6	nɬeʔkepmxcín	gloss	DET=basket	page 9, engine english
+(16) line 7	nɬeʔkepmxcín	transcription	(t’u7	page 9, engine residue
+(16) line 8	nɬeʔkepmxcín	transcription	(t’u7	page 9, engine residue
+(16) line 9	nɬeʔkepmxcín	transcription	but	page 9, engine english
+(16) line 10	nɬeʔkepmxcín	transcription	ay t’u7	page 9, engine language
+(16) line 11	nɬeʔkepmxcín	segmentation	ay=t’u7	page 9, engine language
+(16) line 12	nɬeʔkepmxcín	gloss	NEG=EXCL	page 9, engine english
+(16) line 13	nɬeʔkepmxcín	transcription	kw stsúkwsan).	page 9, engine language
+(16) line 14	nɬeʔkepmxcín	segmentation	kw=s=tsúkw-s-an)	page 9, engine language
+(16) line 15	nɬeʔkepmxcín	gloss	D/C=NMLZ=finish-CAUS.TR-1SG.ERG	page 9, engine english
+(16) line 16	Sander Nederveen	translation	Intended: ‘I made a basket (but I didn’t finish it).’	page 9, engine english
+(16) line 16	Sander Nederveen	citation	(CA | sf)	the tag or source at the right of the translation
+§3.1	Sander Nederveen	note	Analyses in which the culmination inference of control transitive predicates follows from cul- mination in all inertia worlds (Bar-el et al. 2005) make the incorrect prediction that control marking should license material that is only licit under modal operators. We find that in Nłeʔkepmxcín and St’át’imcets, control transitive marking does not license the (modally licensed) irrealis determiner k=/ku=.	page 9
+§3.1	Sander Nederveen	note	While the objections outlined above are predominantly against an inertia-world analysis of non- culmination, they are relevant for understanding bare roots. Davis (1996, 2021) and Lyon (2023) have fundamentally different analyses of CoS roots. However, both St’át’imcets and Nsyilxcn have non-culminating accomplishments, just like every other Salish language (Davis and Matthewson 2009). This means that CoS roots in St’át’imcets and Nsyilxcn both undergo derivations that yield NCAs. The semantic pieces that roots compose with in order to arrive there, however, will strongly differ based on which analysis for CoS roots is adopted. Thus, while neither analysis of CoS roots is incorrect for the respective language it explains CoS roots for, there is something unsatisfying about the stark contrast between the two analyses.	page 9
+§3.2	Sander Nederveen	heading	3.2 Salish CoS Roots Revisited	page 9
+§3.2	Sander Nederveen	note	The previous section outlined issues with extant analyses of verb roots in Interior Salish, highlighting the need to revisit the analytical approach to capture the semantic profile of telic, unaccusative CoS roots in Salish.	page 9
+§3.2	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+§3.2	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§3.2	Sander Nederveen	note	Simply put, the analysis by Davis (2021) assumes a fairly straightforward semantics of roots that is similar to an achievement, whereas Lyon (2023) proposes a more fully specified represenation of CoS roots, which is so rich that without further derivation, it cannot yield an interpretable output. Based on the evidence from St’át’imcets that roots are telic and unaccusative (Davis 1996, 2021), and despite the lack of bare roots in Nłeʔkepmxcín and Nsyilxcn, there are similarities in the repre- sentation of CoS roots across the three languages. In particular, roots do not include an agent. This fact underscores that there is a clear semantic similarity between roots in all three Interior Salish languages.	page 9
+§3.2	Sander Nederveen	note	In the proposal I present here, the eventive part of the root is identical across Salishan: here I follow Davis (1996, 2021) in the claim that the root is telic and entails culmination. The difference between St’át’imcets on the one hand, and Nłeʔkepmxcín and Nsyilxcn on the other, is simple: whereas in St’át’imcets, the semantics of the root comes pre-equipped with an individual argument and is of type ⟨e, ⟨v, t⟩⟩, roots in Nłeʔkepmxcín and Nsyilxcn come equipped only with an event argument and are of type ⟨v, t⟩. In other words, roots in Nłeʔkepmxcín and Nsyilxcn need to undergo further derivation, for example through composition with stative, inchoative, or immediate marking, in order to introduce the internal argument to the derivation.	page 9
+§3.2	Sander Nederveen	note	For St’át’imcets, then, the semantics proposed by Davis (2021) — from Bar-el et al. (2005) — can be retained (omitting world arguments for the sake of simplicity):	page 9
+(17a) line 1	Sander Nederveen	rule	λxλe.P(x)(e)	page 10, engine residue
+(17b) line 1	Sander Nederveen	rule	JmaysK = λxλe [x gets fixed(e)]	page 10, engine english
+§3.2	Sander Nederveen	note	For Nłeʔkepmxcín and Nsyilxcn, the internal argument is lacking from the verb root:	page 10
+(18a) line 1	Sander Nederveen	rule	λe.P(e)	page 10, engine residue
+(18b) line 1	Sander Nederveen	rule	Jnik̓K = λe [cut(e)]	page 10, engine residue
+§3.2	Sander Nederveen	note	This analysis explains how in St’át’imcets, bare roots are self-contained: they are fully equipped with the semantics to describe an action on an internal argument. It moreover explains why in Nłeʔkepmxcín and Nsyilxcn, CoS roots cannot surface in their bare form. The only way they could appear would be without an argument, which would normally leave them uninterpretable. At the same time, the root cannot compose with an internal argument, as this would result in a type clash. Instead, the root needs to compose with other functional morphology that introduces the internal argument to the derivation, in particular with stative, inchoative, or immediate marking. This analysis presents an interesting starting point for future research not only in the area of bare CoS roots, but also for understanding the nature of derivational morphology such as stative, inchoative, or immediate marking. A more complete understanding of all these particular component parts is needed to better evaluate the merits of this analysis; I leave this for future work.	page 10
+§4	Sander Nederveen	heading	4 Conclusion	page 10
+§4	Sander Nederveen	language	St’at’imcets	St’át’imcets, Lillooet, without the accent
+§4	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+§4	Sander Nederveen	note	This paper contributes to understanding the empirical landscape of Salish languages, showing that within the Interior Salish branch, there is substantial variation as to the felicity of bare verb roots. It proposes a somewhat informal sketch of the semantics of CoS roots that derives the difference between bare roots in St’at’imcets on one side of the coin, and Nłeʔkepmxcín and Nsyilxcn on the other. By highlighting the variation within the branch of Interior Salish, and by tentatively proposing an analytical avenue to understand this variation, I hope this paper furthers the research program in this area.	page 10
+references	Sander Nederveen	heading	References	page 10
+references	nɬeʔkepmxcín	cited form	ʔayʔaǰuθәm	page 10
+references	Sander Nederveen	reference	Andreotti, Bruno. 2018. Interpreting derived stative predicates: Evidence from ʔayʔaǰuθәm. Mas- ter’s thesis, University of British Columbia.	
+references	Sander Nederveen	reference	Bar-el, Leora, Henry Davis, and Lisa Matthewson. 2005. On non-culminating accomplishments. In Proceedings of North East Linguistics Society, volume 35, 87.	
+references	Sander Nederveen	reference	Beck, David. 2007. A taxonomy of Lushootseed valency-increasing affixes. In Papers for the International Conference on Salish and Neighbouring Languages 42, 28–88. UBC Working Papers in Linguistics.	
+references	Sander Nederveen	reference	Bochnak, M Ryan, and Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6:261–283.	
+references	Sander Nederveen	language	St’át’imcets	St’át’imcets, Lillooet
+references	Sander Nederveen	reference	Davis, Henry. 1996. Deep unaccusativity and zero syntax in St’át’imcets. In Papers for the Inter- national Conference on Salish and Neighbouring Languages 32, 39–58. Vancouver, B.C.	
+references	Sander Nederveen	reference	Davis, Henry. 2021. Going radical in Salish. To appear in Proceedings of WCCFL 39.	
+references	Sander Nederveen	reference	Davis, Henry, and Lisa Matthewson. 2009. Issues in Salish syntax and semantics. Language and Linguistics Compass 3:1097–1166.	
+references	Sander Nederveen	reference	Dowty, David R. 1979. Word meaning and Montague grammar: The semantics of verbs and times in generative semantics and in Montague’s PTQ, volume 7. Springer Science & Business Media.	
+references	Sander Nederveen	reference	Gerdts, Donna. 2006. Argument realization in Halkomelem: A study in verb classification. In Proceedings of WSCLA XI, 61–81. UBC Working Papers in Linguistics.	
+references	Sander Nederveen	reference	Gerdts, Donna, and Thomas Hukari. 2006. The argument structure of Halkomelem verb roots: Evi- dence from intransitive/transitive alternations. In Proceedings of the 8th Workshop on American Indigenous Languages.	
+references	Sander Nederveen	reference	Gessner, Suzanne, Tracey Herbert, and Aliana Parker. 2022. Report on the status of B.C. First Nations languages. Technical report, First Peoples’ Cultural Council.	
+references	Sander Nederveen	reference	Kratzer, Angelika. 2000. Building statives. In Annual Meeting of the Berkeley Linguistics Society, 385–399.	
+references	Sander Nederveen	reference	Landman, Fred. 1992. The progressive. Natural Language Semantics 1:1–32.	
+references	Sander Nederveen	language	Nłeʔkepmxcín	Nłeʔkepmxcín, Thompson River Salish
+references	Sander Nederveen	reference	Littell, Patrick, and Scott Mackie. 2011. Reconsidering sensory evidence in Nłeʔkepmxcín. In Papers for the International Conference on Salish and Neighboring Languages 46.	
+references	Sander Nederveen	reference	Lyon, John. 2023. Building Statives and Inchoatives in Nsyilxcn. In Papers for the International Conference on Salish and Neighbouring Languages 58, ed. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, and Bailey Trotter. Vancouver, BC: UBC Working Papers in Linguistics.	
+references	nɬeʔkepmxcín	cited form	Sqwéqwel	page 11
+references	Sander Nederveen	reference	Lyon, John, and Henry Davis. 2022. Introduction. In Wa7 Sqwéqwel’ sSam: St’át’imcets stories from Sam Mitchell. Pacific Northwest Languages and Literatures Press.	
+references	Sander Nederveen	reference	Matthewson, Lisa. 1998. Determiner systems and quantificational strategies. The Hague: Holland Academic Graphics.	
+references	Sander Nederveen	reference	Matthewson, Lisa. 2004. On the methodology of semantic fieldwork. International journal of American linguistics 70:369–415.	
+references	Sander Nederveen	reference	Nederveen, Sander. 2024. Maximal and non-minimal change in Salish event structure. In Proceed- ings of Semantics of Under-represented Languages of the Americas 13, ed. Polina Kasyanova Mariana Calderón-Corona and Eva Neu.	
+references	Sander Nederveen	reference	Portner, Paul. 1998. The progressive in modal semantics. Language 74:760–787.	
+references	Sander Nederveen	reference	Thompson, Laurence, and Terry Thompson. 1992. The Thompson Language. UM Ocassional Papers in Linguistics.	

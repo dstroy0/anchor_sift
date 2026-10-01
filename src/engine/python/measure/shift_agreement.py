@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # How often a sequence agrees with itself at a fixed offset, which reads a period from nothing.
@@ -280,7 +280,7 @@ def frame_shift(extents, before, after, weights=None):
     """The lag carrying the most of one frame's occupied voxels onto the next, counted exactly.
 
     The Python route to shift_agreement_host (src/engine/analysis/shift_agreement/shift_agreement.c at
-    anchor_sift 1789287). `before` and `after` are occupancy over the same box of `extents`, flat
+    orior 1789287). `before` and `after` are occupancy over the same box of `extents`, flat
     and row major with the last axis fastest, one truthy or falsy entry a voxel. The count at a lag
     vector d is how many voxels a occupied in `before` have a + d occupied in `after`, inside the
     box, with no wrap. The C reaches every count at once through a number theoretic transform over

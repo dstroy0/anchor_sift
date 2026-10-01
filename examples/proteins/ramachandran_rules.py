@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: PRO-x-005
 #
@@ -45,8 +45,8 @@ from decimal import Decimal, getcontext
 # it changes no classification; this is headroom, not a knob.
 getcontext().prec = 40
 
-AGENT = {"User-Agent": "anchor-sift-research/1.0 "
-                       "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"}
+AGENT = {"User-Agent": "orior-research/1.0 "
+                       "(https://github.com/dstroy0/orior; dquigg123@gmail.com)"}
 
 GRID_BASE = ("https://raw.githubusercontent.com/rlabduke/reference_data/master/"
              "Top8000/Top8000_ramachandran_pct_contour_grids/")

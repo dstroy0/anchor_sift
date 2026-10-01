@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: EXP-x-005
 #
-# Reject outlier correspondences by an invariant the inliers share: the anchor sift's theorem on a
+# Reject outlier correspondences by an invariant the inliers share: the orior's theorem on a
 # compatibility graph, which is ROBIN.
 #
 #   Usage:  python examples/0_experimental/invariant_consensus_rejects_outliers.py

@@ -1,0 +1,510 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	title	The Grammar of Body-Directed Action Verbs in Kwak̕wala	page 1, carries footnote *
+front	Katie Sardinha	name	Katie Sardinha	author
+front	Katie Sardinha	note	Independent researcher	page 1, under Katie Sardinha
+front	Katie Sardinha	note	Abstract: This essay explores the grammar of body-directed action verbs like kusa ‘to shave’ and ḵ̕ux̱wt̕sud ‘to dress’ in Kwak̕wala. Topics covered include the formation of reflexive and transitive sentences, implicit objects, and the use of body part suffixes.	page 1, the abstract
+front	Katie Sardinha	note	Keywords: reflexives, transitives, body part suffixes, Kwak̕wala, Wakashan	page 1, the keywords
+front	Katie Sardinha	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Katie Sardinha	language	Kwak̕wala	Northern Wakashan
+footnote *	Katie Sardinha	note	This Kwak̕wala essay is derived from elicitation with Mildred Child, Ruby Dawson Cranmer, Julia Nelson, and Violet Bracic. Tłuma̱n mu’la sa nog̱adalat̓siyes. Research contributing to this essay was carried out during the years of 2014–2020 and was supported by three Oswalt Endangered Language Grants and a Jacobs Research Funds individual grant. All errors are my own. Contact info: katie.sardinha@berkeley.edu, www.kaotiva.ca	page 1, footnote *, on the title
+footnote *	Katie Sardinha	name	Mildred Child	Kwak̕wala speaker, the essay's elicitation is derived from work with her
+footnote *	Katie Sardinha	name	Ruby Dawson Cranmer	Kwak̕wala speaker, the essay's elicitation is derived from work with her
+footnote *	Katie Sardinha	name	Julia Nelson	Kwak̕wala speaker, the essay's elicitation is derived from work with her
+footnote *	Katie Sardinha	name	Violet Bracic	Kwak̕wala speaker, the essay's elicitation is derived from work with her
+§1	Katie Sardinha	heading	1 Body-directed action verbs	page 1
+§1	Katie Sardinha	note	The verbs in Table 1 can all be used to describe actions that are directed at the body.	page 1
+Table 1	Katie Sardinha	note	Table 1: Some body-directed action verbs in Kwak̕wala	page 1, the table's caption
+Table 1	Katie Sardinha	note	Verb English Translation Morpheme Analysis	page 1, the column heads
+Table 1 line 1	Kwak̕wala	transcription	dix’id	page 1, Table 1, the Verb cell
+Table 1 line 1	Katie Sardinha	translation	‘to wipe’	page 1, Table 1, the English Translation cell
+Table 1 line 1	Kwak̕wala	segmentation	da̱y-	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 1	Kwak̕wala	gloss	‘to wipe’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 2	Kwak̕wala	segmentation	-(x)’id	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 2	Kwak̕wala	gloss	‘inchoative’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 3	Kwak̕wala	transcription	kusa, kus’id	page 1, Table 1, the Verb cell
+Table 1 line 3	Katie Sardinha	translation	‘to shave’	page 1, Table 1, the English Translation cell
+Table 1 line 3	Kwak̕wala	segmentation	kus-	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 3	Kwak̕wala	gloss	‘to shave’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 4	Kwak̕wala	segmentation	-a	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 4	Kwak̕wala	gloss	‘final vowel’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 5	Kwak̕wala	segmentation	-(x)’id	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 5	Kwak̕wala	gloss	‘inchoative’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 6	Kwak̕wala	transcription	t̕sux̱wa, t̕sux̱w’id	page 1, Table 1, the Verb cell
+Table 1 line 6	Katie Sardinha	translation	‘to wash’	page 1, Table 1, the English Translation cell
+Table 1 line 6	Kwak̕wala	segmentation	t̕sux̱w-	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 6	Kwak̕wala	gloss	‘to wash’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 7	Kwak̕wala	segmentation	-a	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 7	Kwak̕wala	gloss	‘final vowel’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 8	Kwak̕wala	segmentation	-(x)’id	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 8	Kwak̕wala	gloss	‘inchoative’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 9	Kwak̕wala	transcription	la’sta̱x’id	page 1, Table 1, the Verb cell
+Table 1 line 9	Katie Sardinha	translation	‘to bathe’	page 1, Table 1, the English Translation cell
+Table 1 line 9	Kwak̕wala	segmentation	la-	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 9	Kwak̕wala	gloss	‘to go’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 10	Kwak̕wala	segmentation	-(’)sta	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 10	Kwak̕wala	gloss	‘liquid’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 11	Kwak̕wala	segmentation	-(x)’id	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 11	Kwak̕wala	gloss	‘inchoative’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 12	Kwak̕wala	transcription	lusa̱nd	page 1, Table 1, the Verb cell
+Table 1 line 12	Katie Sardinha	translation	‘to undress, get naked’	page 1, Table 1, the English Translation cell
+Table 1 line 12	Kwak̕wala	segmentation	lus-	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 12	Kwak̕wala	gloss	‘to uncover, to open curtain or roof’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 13	Kwak̕wala	segmentation	-(k)’a̱n	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 13	Kwak̕wala	gloss	‘body’	page 1, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 14	Kwak̕wala	segmentation	-(x)’id	page 1, Table 1, the Morpheme Analysis cell
+Table 1 line 14	Kwak̕wala	gloss	‘inchoative’1	page 1, Table 1, the Morpheme Analysis cell, its gloss
+footnote 1	Katie Sardinha	note	After body part suffixes, the suffix -(x)’id takes one of the forms {-d, -ud, -nd} according to a complex set of rules (Boas 1947:365). Contemporary speakers also tend to omit d when this segment is syllable final.	page 1, footnote 1
+footnote 1	Kwak̕wala	cited form	-(x)’id	page 1, in italics
+Table 1 line 15	Kwak̕wala	transcription	ḵux̱t̕sud	page 2, Table 1, the Verb cell
+Table 1 line 15	Katie Sardinha	translation	‘to dress’	page 2, Table 1, the English Translation cell
+Table 1 line 15	Kwak̕wala	segmentation	ḵ̕ux̱-	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 15	Kwak̕wala	gloss	‘to be dressed’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 16	Kwak̕wala	segmentation	-t̕sa̱w	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 16	Kwak̕wala	gloss	‘in’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 17	Kwak̕wala	segmentation	-(x)’id	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 17	Kwak̕wala	gloss	‘inchoative’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 18	Kwak̕wala	transcription	ḵux̱a̱mułt̕sud, ḵ̕ux̱wa̱łt̕so	page 2, Table 1, the Verb cell
+Table 1 line 18	Katie Sardinha	translation	‘to undress’	page 2, Table 1, the English Translation cell
+Table 1 line 18	Kwak̕wala	segmentation	ḵ̕ux̱-	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 18	Kwak̕wala	gloss	‘to be dressed’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 19	Kwak̕wala	segmentation	-a̱m	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 19	Kwak̕wala	gloss	‘nominal suffix’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 20	Kwak̕wala	segmentation	-wa̱ł/-uł2	page 2, Table 1, the Morpheme Analysis cell
+footnote 2	Katie Sardinha	note	This suffix is realized as -uł after plain resonant consonants {m, n, l, y, w} and elsewhere as -wa̱ł.	page 2, footnote 2
+footnote 2	Kwak̕wala	cited form	-uł	page 2, in italics
+Table 1 line 20	Kwak̕wala	gloss	‘reverse direction’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 21	Kwak̕wala	segmentation	-t̕sa̱w	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 21	Kwak̕wala	gloss	‘in’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+Table 1 line 22	Kwak̕wala	segmentation	-(x)’id	page 2, Table 1, the Morpheme Analysis cell
+Table 1 line 22	Kwak̕wala	gloss	‘inchoative’	page 2, Table 1, the Morpheme Analysis cell, its gloss
+§1	Katie Sardinha	note	The rest of this essay will describe basic features of the grammar of these verbs. The essay is divided into four sections:	page 2
+§1	Katie Sardinha	note	• Basic sentence types	page 2
+§1	Katie Sardinha	note	• Implicit objects	page 2
+§1	Katie Sardinha	note	• Interaction with body part suffixes	page 2
+§1	Katie Sardinha	note	• Conclusion	page 2
+§2	Katie Sardinha	heading	2 Basic sentence types	page 2
+§2	Katie Sardinha	note	Two kinds of basic sentences can be constructed using body-directed action verbs: reflexive sentences like in (1), and transitive sentences like in (2). Reflexive sentences lack an object, while transitive sentences have an object in the accusative case. 3	page 2
+footnote 3	Katie Sardinha	note	Accusative case is marked with =x̱ in the third person. First and second person pronouns in the accusative include gax̱a̱n ‘first person ACC’, gax̱a̱n’s ‘first person plural inclusive ACC’, gax̱a̱nu’x̱w ‘first person plural exclusive ACC’, and loł ‘second person ACC’.	page 2, footnote 3
+footnote 3	Kwak̕wala	cited form	loł	page 2, in italics, ‘second person ACC’
+(1) line 1	Katie Sardinha	note	Reflexive sentences:4	page 2, over the example
+footnote 4	Katie Sardinha	note	A list of abbreviations used in the analysis of sentences can be found at the end of this paper.	page 2, footnote 4
+(1a) line 1	Kwak̕wala	transcription	kusux̱ Eddiya̱x̱	page 2
+(1a) line 2	Kwak̕wala	segmentation	kus =ux̱ Eddie =(a̱)x̱	page 2
+(1a) line 3	Kwak̕wala	gloss	shave =D2 Eddie =V2	page 2
+(1a) line 4	Katie Sardinha	translation	‘Eddie is shaving (himself).’	page 2
+(1a) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 2, the tag or source at the right of the translation
+(1b) line 1	Kwak̕wala	transcription	la’sta̱x’idux̱ Shelliya̱x̱	page 2
+(1b) line 2	Kwak̕wala	segmentation	la -(’)sta -(x)’id =ux̱ Shelly =(a̱)x̱	page 2
+(1b) line 3	Kwak̕wala	gloss	go -liquid -BEC =D2 Shelly =V2	page 2
+(1b) line 4	Katie Sardinha	translation	‘Shelly bathed (herself).’	page 2
+(1b) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 2, the tag or source at the right of the translation
+(1c) line 1	Kwak̕wala	transcription	lus’a̱ndux̱ Shelliya̱x̱	page 2
+(1c) line 2	Kwak̕wala	segmentation	lus -(k)’a̱n -(x)’id =ux̱ Shelly =(a̱)x̱	page 2
+(1c) line 3	Kwak̕wala	gloss	uncover -body -BEC =D2 Shelly =V2	page 2
+(1c) line 4	Katie Sardinha	translation	‘Shelly got undressed.’ or ‘Shelly undressed (herself).’	page 2
+(1c) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 2, the tag or source at the right of the translation
+(1d) line 1	Kwak̕wala	transcription	la̱’mux̱ Shelliya̱x̱ ḵ̕ux̱t̕sox’ida	page 3
+(1d) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ Shelly =(a̱)x̱ ḵ̕ux̱ -t̕sa̱w -(x)’id -a	page 3
+(1d) line 3	Kwak̕wala	gloss	AUX =VER =D2 Shelly =V2 dress -in -BEC -A	page 3
+(1d) line 4	Katie Sardinha	translation	‘Shelly got dressed.’ or ‘Shelly dressed (herself).’	page 3
+(1d) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 3, the tag or source at the right of the translation
+(1e) line 1	Kwak̕wala	transcription	la̱m̓ux̱ ḵ̓ux̱wa̱łt̓sudux̱ Monicax̱	page 3
+(1e) line 2	Kwak̕wala	segmentation	la̱ =’m =ux̱ ḵ̓ux̱ -wa̱ł -t̓sa̱w -(x)’id =ux̱ Monica =(a̱)x̱	page 3
+(1e) line 3	Kwak̕wala	gloss	AUX =VER =D2 dress -REV -in -BEC =D2 Monica =V2	page 3
+(1e) line 4	Katie Sardinha	translation	‘Monica is undressing.’	page 3
+(1e) line 5	Katie Sardinha	citation	(20200622-VB VF)	page 3, the tag or source at the right of the translation
+(2) line 1	Katie Sardinha	note	Transitive sentences:	page 3, over the example
+(2a) line 1	Kwak̕wala	transcription	kusux̱ Eddiya̱x̱us g̱ug̱a̱me’x̱	page 3
+(2a) line 2	Kwak̕wala	segmentation	kus =ux̱ Eddie =(a̱)x̱ =x̱ =u(’)s g̱ug̱a̱me’ =(a̱)x̱	page 3
+(2a) line 3	Kwak̕wala	gloss	shave =D2 Eddie =V2 =ACC =3.REFL.POSS face =V2	page 3
+(2a) line 4	Katie Sardinha	translation	‘Eddie is shaving his face.’	page 3
+(2a) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 3, the tag or source at the right of the translation
+(2b) line 1	Kwak̕wala	transcription	lux̱ Shelliya̱x̱ la’sta̱x’i x̱ux̱ Simonx̱	page 3
+(2b) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ Shelly =(a̱)x̱ la -(’)sta -(x)’id =x̱ =ux̱ Simon =(a̱)x̱	page 3
+(2b) line 3	Kwak̕wala	gloss	AUX =D2 Shelly =V2 go -liquid -BEC =ACC =D2 Simon =V2	page 3
+(2b) line 4	Katie Sardinha	translation	‘Shelly bathed Simon.’	page 3
+(2b) line 5	Katie Sardinha	citation	(20181127-MC VF)	page 3, the tag or source at the right of the translation
+(2c) line 1	Kwak̕wala	transcription	la̱’a̱mx̱o’ox̱ Shelliya̱x̱ lus’a̱nd	page 3
+(2c) line 2	Kwak̕wala	segmentation	l(a̱) =’m =x̱a =ux̱ Shelly =(a̱)x̱ lus -(k)’a̱n -(x)’id	page 3
+(2c) line 3	Kwak̕wala	gloss	AUX =VER =ADD.FOC =D2 Shelly =V2 uncover -body -BEC	page 3
+(2c) line 4	Kwak̕wala	transcription	x̱ux̱ Monicax̱	page 3
+(2c) line 5	Kwak̕wala	segmentation	=x̱ =ux̱ Monica =(a̱)x̱	page 3
+(2c) line 6	Kwak̕wala	gloss	=ACC =D2 Monica =V2	page 3
+(2c) line 7	Katie Sardinha	translation	‘Then Shelly undressed Monica too.’	page 3
+(2c) line 8	Katie Sardinha	citation	(20191205-RDC VF)	page 3, the tag or source at the right of the translation
+(2d) line 1	Kwak̕wala	transcription	la̱’a̱mx̱o’ox̱ ḵ̕ux̱t̕sox̱ Monica	page 3
+(2d) line 2	Kwak̕wala	segmentation	l(a̱) =’m =x̱a =ux̱ ḵ̕ux̱ -t̕sa̱w =x̱ Monica	page 3
+(2d) line 3	Kwak̕wala	gloss	AUX =VER =ADD.FOC =D2 dress -in =ACC Monica	page 3
+(2d) line 4	Katie Sardinha	translation	‘Then she dressed Monica too.’	page 3
+(2d) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 3, the tag or source at the right of the translation
+(2e) line 1	Kwak̕wala	transcription	la̱m̓a̱n ḵ̓ux̱wa̱łt̓sud x̱ux̱ Monicax̱.	page 3
+(2e) line 2	Kwak̕wala	segmentation	la̱ =’m =a̱n ḵ̓ux̱ -wa̱ł -t̓sa̱w -(x)’id =x̱ =ux̱ Monica =x̱	page 3
+(2e) line 3	Kwak̕wala	gloss	AUX =VER =1 dress -REV -in -BEC =ACC =D2 Monica =V2	page 3
+(2e) line 4	Katie Sardinha	translation	‘I am undressing Monica.’	page 3
+(2e) line 5	Katie Sardinha	citation	(20200622-VB VF)	page 3, the tag or source at the right of the translation
+§2	Katie Sardinha	note	The reflexive sentences in (1) all describe situations where the subject of the sentence does something to their own body. Note that there are no reflexive object pronouns (‘himself’, ‘herself’, ‘myself’, etc.) in the Kwak̓wala sentences.5 While reflexive sentences lack a grammatical object, speakers understand them as having an implicit object corresponding to the subject’s body or body part (this is discussed in Section 3).	page 3
+footnote 5	Katie Sardinha	note	There is only one reflexive pronominal in Kwak̕wala, =u(’)s/=i(’)s, the third person reflexive possessive pronoun, which is exemplified in (2a) and (3). The only other reflexive-like element in the language is a predicate, ḵ̕wa̱lis- ‘to do something oneself’, which is used in approximately the same situations as intensive pronouns in English.	page 3, footnote 5
+§2	Katie Sardinha	note	The transitive sentences in (2) all have an overt object in the accusative case which specifies where the action is directed. There are several possibilities when it comes to the semantics of the object in transitive sentences.	page 4
+§2	Katie Sardinha	note	With all of the verbs in Table 1, the object in a transitive sentence can refer to a person who is distinct from the subject. This is exemplified in (2b), (2c), (2d), and (2e) above. In (2b), for instance, the object is x̱ux̱ Simonx̱ ‘Simon (ACC)’.	page 4
+§2	Katie Sardinha	note	With the verbs dix’id ‘to wipe’, kusa/kus’id ‘to shave’, and t̓sux̱wa/t̓sux̱w’id ‘to wash’, the object in a transitive sentence can also refer to a body or body part. This can either be the subject’s own body or body part as in (2a) above and (3a) and (3b) below, or can be the body (4a) or body part (4b) of a being distinct from the subject.	page 4
+(3) line 1	Katie Sardinha	note	Subject’s body (part) as object:	page 4, over the example
+(3a) line 1	Kwak̕wala	transcription	la̱’mux̱ dix’idux̱ Shelliya̱x̱ x̱i’s	page 4
+(3a) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ da̱y -(x)’id =ux̱ Shelly =(a̱)x̱ =x̱ =i(’)s	page 4
+(3a) line 3	Kwak̕wala	gloss	AUX =VER =D2 wipe -BEC =D2 Shelly =V2 =ACC =3.REFL.POSS	page 4
+(3a) line 4	Kwak̕wala	transcription	a̱wik̕wine’	page 4
+(3a) line 5	Kwak̕wala	segmentation	a̱wik̕wine’	page 4
+(3a) line 6	Kwak̕wala	gloss	body	page 4
+(3a) line 7	Katie Sardinha	translation	‘Shelly wiped off her body.’	page 4
+(3a) line 8	Katie Sardinha	citation	(20191205-RDC VF)	page 4, the tag or source at the right of the translation
+(3b) line 1	Kwak̕wala	transcription	kusux̱ Shelliya̱x̱ x̱i’s gugwa̱’yu	page 4
+(3b) line 2	Kwak̕wala	segmentation	kus =ux̱ Shelly =(a̱)x̱ =x̱ =i(’)s gugwa̱’yu	page 4
+(3b) line 3	Kwak̕wala	gloss	shave =D2 Shelly =V2 =ACC =3.REFL.POSS leg	page 4
+(3b) line 4	Katie Sardinha	translation	‘Shelly is shaving her legs.’	page 4
+(3b) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 4, the tag or source at the right of the translation
+(4) line 1	Katie Sardinha	note	Other being’s body (part) as object:	page 4, over the example
+(4a) line 1	Kwak̕wala	transcription	la̱’mux̱ Shelliya̱x̱ dix’ix̱ a̱wik̕wine’s	page 4
+(4a) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ Shelly =(a̱)x̱ da̱y -(x)’id =x̱ a̱wik̕wine’ =s	page 4
+(4a) line 3	Kwak̕wala	gloss	AUX =VER =D2 Shelly =V2 wipe -BEC =ACC body =3.POSS	page 4
+(4a) line 4	Kwak̕wala	transcription	Monica	page 4
+(4a) line 5	Kwak̕wala	segmentation	Monica	page 4
+(4a) line 6	Kwak̕wala	gloss	Monica	page 4
+(4a) line 7	Katie Sardinha	translation	‘Shelly wiped off Monica’s body.’	page 4
+(4a) line 8	Katie Sardinha	citation	(20191205-RDC VF)	page 4, the tag or source at the right of the translation
+(4b) line 1	Kwak̕wala	transcription	kusux̱ Shelliya̱x̱ x̱ux̱ g̱ug̱a̱ma’yex̱s Eddie	page 4
+(4b) line 2	Kwak̕wala	segmentation	kus =ux̱ Shelly =(a̱)x̱ =x̱ =ux̱ g̱ug̱a̱me’ =(a̱)x̱ =s Eddie	page 4
+(4b) line 3	Kwak̕wala	gloss	shave =D2 Shelly =V2 =ACC =D2 face =V2 =3.POSS Eddie	page 4
+(4b) line 4	Katie Sardinha	translation	‘Shelly is shaving Eddie’s face.’	page 4
+(4b) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 4, the tag or source at the right of the translation
+§2	Katie Sardinha	note	The distinction between objects referring to the subject’s body part versus a non-subject’s body part is indicated by using different possessive determiners and is not marked on the verb. The verbs la’sta̱x’id ‘to bathe’, lus’a̱nd ‘to undress’, ḵ̓ux̱t̓so ‘to get dressed’, and ḵ̓ux̱wa̱łt̓sud / ḵ̓ux̱a̱mułt̓sud ‘to undress’ cannot take objects referring to body parts. Sentences like those in (5) with ḵ̓ux̱t̓sud ‘to get dressed’ are judged as ungrammatical.	page 4
+(5) line 1	Katie Sardinha	note	Context: Eddie is hanging out in his underwear when the doorbell rings. He puts clothes on his bottom half to answer the door.	page 5, over the example
+(5) line 2	Kwak̕wala	transcription	* ḵ̕ux̱t̕sudi Eddie x̱i’s gugwa̱’yu	page 5
+(5) line 3	Kwak̕wala	segmentation	ḵ̓ux̱ -t̓sa̱w -(x)’id =i Eddie =x̱ =i(’)s gugwa̱y̓u	page 5
+(5) line 4	Kwak̕wala	gloss	dress -in -BEC =D3 Eddie =ACC =3.REFL.POSS leg	page 5
+(5) line 5	Kwak̕wala	transcription	ḵa̱s le’ a̱x̱studa̱x̱ t̕a̱xa̱la	page 5
+(5) line 6	Kwak̕wala	segmentation	ḵ(a̱) =(i)’s la =i’ a̱x̱ -’stu -(x)’id =x̱ t̓a̱xa̱la	page 5
+(5) line 7	Kwak̕wala	gloss	PREP =3.REFL.POSS go =NMZ do -eye -BEC =ACC door	page 5
+(5) line 8	Katie Sardinha	translation	Intended: ‘Eddie dressed his legs to go open the door.’	page 5
+(5) line 9	Katie Sardinha	speaker comment	Speaker’s comment: “You would say ḵa̱x̱sidza̱ndi Eddie (‘Eddie put his pants on.’).”	page 5, under the example, the consultant not named
+(5) line 10	Katie Sardinha	citation	(20200614-JN JF)	page 5, under the translation
+§2	Katie Sardinha	note	Two verb roots from Table 1, t̕sux̱w- ‘wash’ and da̱y- ‘wipe’, cannot be used to form plain reflexive sentences like those exemplified in (1). When read out to Kwak̓wala speakers, the sentences in (6) do not sound like complete sentences.	page 5
+(6) line 1	Katie Sardinha	note	Reflexives with t̕sux̱w- and da̱y-, no body part suffix:	page 5, over the example
+(6a) line 1	Kwak̕wala	transcription	? t̕sux̱w’idi Simon	page 5
+(6a) line 2	Kwak̕wala	segmentation	t̕sux̱w -(x)’id =i Simon	page 5
+(6a) line 3	Kwak̕wala	gloss	wash -BEC =D3 Simon	page 5
+(6a) line 4	Katie Sardinha	translation	Literally: ‘Simon washed.’	page 5
+(6a) line 5	Katie Sardinha	speaker comment	Speaker’s comment: “What did he wash?”	page 5, under the example, the consultant not named
+(6a) line 6	Katie Sardinha	citation	(20200614-JN JF)	page 5, the tag or source at the right of the comment
+(6b) line 1	Kwak̕wala	transcription	? dix’idi Monicax̱	page 5
+(6b) line 2	Kwak̕wala	segmentation	da̱y -(x)’id =ux̱ Monica =(a̱)x̱	page 5
+(6b) line 3	Kwak̕wala	gloss	wipe -BEC =D2 Monica =V2	page 5
+(6b) line 4	Katie Sardinha	translation	Literally: ‘Monica wiped.’	page 5
+(6b) line 5	Katie Sardinha	speaker comment	Speaker’s comment: “For example, you could say didag̱a̱m (‘to face-wipe’).”	page 5, under the example, the consultant not named
+(6b) line 6	Katie Sardinha	citation	(20200614-JN JF)	page 5, under the translation
+§2	Katie Sardinha	note	According to the speaker, the problem with the sentences in (6) is that it is not clear what Simon washed in (6a), or what Monica wiped in (6b). This is because unlike the other verbs in Table 1, the verbs t̕sux̱wa, t̕sux̱w’id ‘to wash’ and dix’id ‘to wipe’ can be used to describe actions directed at objects other than the body. For instance, the verbs t̕sux̱wa and t̕sux̱w’id can also be used to describe washing things like salmonberries (7), clothes, or dishes, while dix’id can also be used to describe wiping different kinds of surfaces, such as floors (8), windows, or tables.	page 5
+(7) line 1	Kwak̕wala	transcription	la̱’misux̱ t̕sux̱w’i x̱ada ḵ̕a̱mdza̱kw	page 5
+(7) line 2	Kwak̕wala	segmentation	l(a̱) =’m =(w)is =ux̱ t̕sux̱w -(x)’id =x̱ =a =da ḵ̕a̱mdza̱kw	page 5
+(7) line 3	Kwak̕wala	gloss	AUX =VER =and.so =D2 wash -BEC =ACC =D4 =DET salmonberry	page 5
+(7) line 4	Katie Sardinha	translation	‘They washed the salmonberries.’	page 5
+(7) line 5	Katie Sardinha	citation	(20160722-MC VF)	page 5, the tag or source at the right of the translation
+(8) line 1	Kwak̕wala	transcription	la̱’misux̱ Shelliya̱x̱ dax’i x̱a	page 6
+(8) line 2	Kwak̕wala	segmentation	l(a̱) =’m =(w)is =ux̱ Shelly =(a̱)x̱ da -(x)’id =x̱ =a	page 6
+(8) line 3	Kwak̕wala	gloss	AUX =VER =and.so =D2 Shelly =V2 take.in.hand -BEC =ACC =D4	page 6
+(8) line 4	Kwak̕wala	transcription	dig̱a̱m’yu ḵa̱s ha’naxw’ide’	page 6
+(8) line 5	Kwak̕wala	segmentation	dig̱a̱m’yu ḵ(a̱) =i(’)s ha’nakw -(x)’id =a =i’	page 6
+(8) line 6	Kwak̕wala	gloss	tea.towel PREP =3.REFL.POSS quick -BEC =EMBED =NMLZ	page 6
+(8) line 7	Kwak̕wala	transcription	dix’id x̱ada a̱wi’na’gwił	page 6
+(8) line 8	Kwak̕wala	segmentation	da̱y -(x)’id =x̱ =a =da a̱wi’na’gwił	page 6
+(8) line 9	Kwak̕wala	gloss	wipe -BEC =ACC =D4 =DET floor.in.house	page 6
+(8) line 10	Katie Sardinha	translation	‘Shelly picked up a cloth to quickly wipe up the floor.’	page 6
+(8) line 11	Katie Sardinha	citation	(20160728-MC VF)	page 6, the tag or source at the right of the translation
+§2	Katie Sardinha	note	To construct reflexive sentences with t̕sux̱w- and da̱y- verbs that refer to body-directed actions, the verb requires a body part suffix in order to make it clear for the listener what is being washed or wiped (see the speaker’s comment for (6b)). Body part suffixes will be discussed in Section 4.	page 6
+§2	Katie Sardinha	note	In summary, the verbs in Table 1 can be used to form both reflexive and transitive sentences, with t̓sux̱w- and da̱y- being exceptional when it comes to forming reflexives. All the verbs in Table 1 can take accusative objects referring to persons distinct from the subject, while a few of the verbs can also take objects referring to particular body parts. Something to note about the basic sentences discussed in this section is that there is no marking on the verb to differentiate reflexive sentences from transitive sentences. In this respect Kwak̕wala differs substantially from neighbouring Salish languages, in which intransitive and transitive sentences are distinguished from each other by suffixes on the verb.	page 6
+§2	Katie Sardinha	language	Salish	neighbouring languages that mark transitive sentences on the verb
+§3	Katie Sardinha	heading	3 Implicit objects	page 6
+§3	Katie Sardinha	note	Reflexive sentences lack grammatical objects. Nevertheless, when a listener hears one of the sentences in (1), he or she will still form an understanding of which body or body part the action is directed at. In other words, reflexive sentences have implicit objects.	page 6
+§3	Katie Sardinha	note	In reflexive sentences with some of the verbs in Table 1, the implicit object can receive a default interpretation. For instance, in reflexive sentences with the verbs kusa and kus’id ‘shave’, the implicit object is typically understood to be the subject’s face (9).	page 6
+(9) line 1	Katie Sardinha	note	Reflexive sentence with kus’id, face as implied object:	page 6, over the example
+(9) line 2	Kwak̕wala	transcription	lux̱ kus’idux̱ Eddiya̱x̱ latłux̱	page 6
+(9) line 3	Kwak̕wala	segmentation	l(a̱) =ux̱ kus -(x)’id =ux̱ Eddie =(a̱)x̱ la =tł =ux̱	page 6
+(9) line 4	Kwak̕wala	gloss	AUX =D2 shave -BEC =D2 Eddie =V2 go =FUT =D2	page 6
+(9) line 5	Kwak̕wala	transcription	lax̱ Gwa’dzi	page 6
+(9) line 6	Kwak̕wala	segmentation	la =x̱ Gwa’dzi	page 6
+(9) line 7	Kwak̕wala	gloss	PREP =ACC Port.Hardy	page 6
+(9) line 8	Katie Sardinha	translation	‘Eddie is shaving (implicit: his own face). He’s gonna go to Port Hardy.’	page 6
+(9) line 9	Katie Sardinha	citation	(20181127-MC VF)	page 6, under the translation
+§3	Katie Sardinha	note	In transitive sentences with kusa and kus’id, when the accusative object refers to a person distinct from the subject, it is this person’s face, more specifically, which is typically understood to be the target of the action (10).6	page 7
+footnote 6	Katie Sardinha	note	In work with modern speakers, I have only come across uses of kusa and kus’id with the meaning ‘to shave’. However, it is possible that the verbs kusa and kus’id can occur in a wider range of contexts with different implicit objects, especially since these words are given the more general translation ‘to scrape off (scales), to scrape with sharp knife’ in Boas (1948:270).	page 7, footnote 6
+(10) line 1	Katie Sardinha	note	Transitive sentence with kus’id, face as implied object:	page 7, over the example
+(10) line 2	Kwak̕wala	transcription	kus’idux̱ Eddiya̱x̱ x̱ux̱ Billx̱ k̕i’sux̱	page 7
+(10) line 3	Kwak̕wala	segmentation	kus -(x)’id =ux̱ Eddie =(a̱)x̱ x̱ =ux̱ Bill =(a̱)x̱ k̕i’s =ux̱	page 7
+(10) line 4	Kwak̕wala	gloss	shave -BEC =D2 Eddie =V2 =ACC =D2 Bill =V2 NEG =D2	page 7
+(10) line 5	Kwak̕wala	transcription	tłu’a̱m ḵ̕otła̱la	page 7
+(10) line 6	Kwak̕wala	segmentation	tłu =’m ḵ̕otł -(a̱)la	page 7
+(10) line 7	Kwak̕wala	gloss	really =VER know -CONT	page 7
+(10) line 8	Katie Sardinha	translation	‘Eddie shaved Bill (understood: Bill’s face). He (Bill) doesn’t really know how.’	page 7
+(10) line 9	Katie Sardinha	citation	(20181127-MC VF)	page 7, under the translation
+§3	Katie Sardinha	note	Rather than being a rigid property of each verb, the interpretation of implicit objects is shaped to some extent by the context sentences are spoken in. For instance, in a context where we know that Shelly is shaving her legs, a speaker might say kusux̱ Shelliya̱x̱ ‘Shelly is shaving’, and a listener would understand the implicit object to be Shelly’s legs. In other words, while implicit objects may be interpreted in a particular way by default, this rule of interpretation is not rigid; the way implicit objects are understood by listeners is also shaped by the context the sentence is uttered in.	page 7
+§3	Katie Sardinha	note	In reflexive sentences with the verbs la’sta̱x’id ‘to bathe’, lus’a̱nd ‘to undress, get naked’, ḵ̕ux̱t̕sud ‘to get dressed’, and ḵ̕ux̱a̱ma̱łt̕sud/ḵ̕ux̱wa̱łt̕so ‘to undress’, the implicit object (what is ‘bathed’, ‘undressed, or ‘dressed’) in a reflexive is the subject’s whole body. For instance, the interpretation of sentence (1b) with la’sta̱x’id ‘to bathe’ is that Shelly bathed her whole body.7 The remaining verbs t̕sux̱wa, t̕sux̱w’id, and dix’id cannot be used to form plain reflexive sentences, and thus do not take implicit objects. The body part that is targeted by washing or wiping action must be specified overtly — either by using a body part suffix on the verb, or by expressing an overt grammatical object.	page 7
+footnote 7	Katie Sardinha	note	The original meaning of the verb la’sta̱x’id seems to be tied to the traditional Kwakwaka’wakw practice of bathing in open water, though at least some modern speakers also use this verb to describe bathing indoors.	page 7, footnote 7
+§3	Katie Sardinha	note	In situations where it is necessary to clarify what the target of a body-directed action is, Kwak̕wala speakers have two strategies available to them: they can either make the object explicit using a transitive sentence, or they can use a body part suffix on the verb. This second strategy is discussed next.	page 7
+§4	Katie Sardinha	heading	4 Interaction with body part suffixes	page 7
+§4	Katie Sardinha	note	Kwak̕wala has a set of suffixes which refer to body parts. Some body part suffixes are listed in Table 2, along with notes about their phonology and example derivations.	page 7
+Table 2	Katie Sardinha	note	Table 2: Examples of body part suffixes	page 8, the table's caption
+Table 2	Katie Sardinha	note	Suffix Translation Phonology Example	page 8, the column heads
+Table 2 row 1	Kwak̕wala	segmentation	-(g̱)a̱m	page 8, Table 2, the Suffix cell
+Table 2 row 1	Katie Sardinha	translation	‘face’	page 8, Table 2, the Translation cell
+Table 2 row 1	Katie Sardinha	note	Loses initial g̱ after non- resonant consonants	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 1	Kwak̕wala	phonemic	/kus-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 1	Kwak̕wala	phonemic	/-(g̱)a̱m/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 1	Kwak̕wala	phonemic	/-(x)’id/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 1	Kwak̕wala	phonetic	[kusa̱md]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 1	Katie Sardinha	translation	‘to face-shave’	page 8, Table 2, the Example cell, the derivation's gloss
+Table 2 row 2	Kwak̕wala	segmentation	-iłba	page 8, Table 2, the Suffix cell
+Table 2 row 2	Katie Sardinha	translation	‘nose’	page 8, Table 2, the Translation cell
+Table 2 row 2	Katie Sardinha	note	Softens a previous consonant	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 2	Kwak̕wala	phonemic	/t̓sux̱w-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 2	Kwak̕wala	phonemic	/-iłba/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 2	Kwak̕wala	phonetic	[t̓sug̱wiłba]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 2	Katie Sardinha	translation	‘to nose-wash’	page 8, Table 2, the Example cell, the derivation's gloss
+Table 2 row 3	Kwak̕wala	segmentation	-(x)t̓sana	page 8, Table 2, the Suffix cell
+Table 2 row 3	Katie Sardinha	translation	‘hand, arm’	page 8, Table 2, the Translation cell
+Table 2 row 3	Katie Sardinha	note	Loses initial x after non- resonant consonants	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 3	Kwak̕wala	phonemic	/a̱x̱-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 3	Kwak̕wala	phonemic	/-(x)t̓sana/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 3	Kwak̕wala	phonemic	/-(a̱)la/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 3	Kwak̕wala	phonetic	[a̱x̱t̓sanala]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 3	Katie Sardinha	translation	‘to be on hand’	page 8, Table 2, the Example cell, the derivation's gloss
+Table 2 row 4	Kwak̕wala	segmentation	-(g)it(a)	page 8, Table 2, the Suffix cell
+Table 2 row 4	Katie Sardinha	translation	‘body’	page 8, Table 2, the Translation cell
+Table 2 row 4	Katie Sardinha	note	Loses initial g after non- resonant consonants	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 4	Kwak̕wala	phonemic	/da̱y-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 4	Kwak̕wala	phonemic	/-(g)it(a)/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 4	Kwak̕wala	phonetic	[dagita]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 4	Katie Sardinha	translation	‘to body-wipe’	page 8, Table 2, the Example cell, the derivation's gloss
+Table 2 row 5	Kwak̕wala	segmentation	-(k)’a̱n	page 8, Table 2, the Suffix cell
+Table 2 row 5	Katie Sardinha	translation	‘body’8	page 8, Table 2, the Translation cell
+footnote 8	Katie Sardinha	note	Regarding the difference between -(g)it(a) and -(k)’a̱n Boas (1947:357) writes: “Fundamentally, -k’a̱n seems to indicate a long body, particularly its surface; -git a round body as a whole. The distinction is not always clear. In some cases, either form may be used [as with, for example,] t̕sux̱’wa̱nd or t̕sux̱wit̕id ‘to wash body’.	page 8, footnote 8
+footnote 8	Kwak̕wala	cited form	-(g)it(a)	page 8, in italics
+Table 2 row 5	Katie Sardinha	note	After a non-resonant consonant, this suffix loses its initial k; then, either the non-resonant consonant hardens or a glottal stop is realized	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 5	Kwak̕wala	phonemic	/lus-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 5	Kwak̕wala	phonemic	/-(k)’a̱n/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 5	Kwak̕wala	phonemic	/-(x)’id/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 5	Kwak̕wala	phonetic	[lus’a̱nd]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 5	Katie Sardinha	translation	‘to undress, get naked’	page 8, Table 2, the Example cell, the derivation's gloss
+Table 2 row 6	Kwak̕wala	segmentation	-’stu	page 8, Table 2, the Suffix cell
+Table 2 row 6	Katie Sardinha	translation	‘eye’ or ‘round opening’	page 8, Table 2, the Translation cell
+Table 2 row 6	Katie Sardinha	note	The initial glottal stop is sometimes missing	page 8, Table 2, the Phonology cell, its wrapped lines joined
+Table 2 row 6	Kwak̕wala	phonemic	/ma̱x-/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 6	Kwak̕wala	phonemic	/-’stu/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 6	Kwak̕wala	phonemic	/-(x)’id/	page 8, Table 2, the Example cell, left of the arrow
+Table 2 row 6	Kwak̕wala	phonetic	[ma̱xstud]	page 8, Table 2, the Example cell, right of the arrow
+Table 2 row 6	Katie Sardinha	translation	‘to strike in eye’	page 8, Table 2, the Example cell, the derivation's gloss
+§4	Katie Sardinha	note	Verbs describing actions directed at the body constitute one domain within the language where body part suffixes occur quite often. Body part suffixes contribute meaning to the predicate in a few different ways.	page 8
+§4	Katie Sardinha	note	To begin with, the verb lus’a̱nd ‘to undress, get naked’ is made up of a verb root, lus-, together with the body part suffix -(k)’a̱n ‘body’ (see Table 2). Without a body part suffix, the verb does not refer specifically to a body-directed action. This is because the verb root lus- has a more abstract meaning. It is translated as ‘to uncover’ or ‘to open curtain or roof’ in Boas (1947:357), and the word lus’id (/lus-/ + /-(x)’id/) can refer to clouds opening up and exposing a clear sky (First Voices 2009). One of the functions of body part suffixes, then, is in creating body-directed action verbs such as lus’a̱nd.	page 8
+§4	Kwak̕wala	cited form	lus-	page 8, in italics
+§4	Katie Sardinha	name	Boas	Franz Boas, Kwakiutl grammar (1947) and its suffixes
+§4	Katie Sardinha	note	Verbs formed from the roots kus- ‘shave’, da̱y- ‘wipe’, and t̕sux̱w- ‘wash’ can refer to a body- directed action whether or not they have a body part suffix. When a body part suffix is present on the verb, it functions to specify which region of the body the action is directed towards. In reflexive sentences, body part suffixes specify a region of the subject’s body (11).	page 8
+(11) line 1	Katie Sardinha	note	Reflexive sentences with body part suffixes:	page 9, over the example
+(11a) line 1	Kwak̕wala	transcription	lux̱ kusa̱mdux̱ Eddiya̱x̱	page 9
+(11a) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ kus -(g̱)a̱m -(x)’id =ux̱ Eddie =(a̱)x̱	page 9
+(11a) line 3	Kwak̕wala	gloss	AUX =D2 shave -face -BEC =D2 Eddie =V2	page 9
+(11a) line 4	Katie Sardinha	translation	‘Eddie shaved his face.’	page 9
+(11a) line 5	Katie Sardinha	citation	(20181127-MC VF)	page 9, the tag or source at the right of the translation
+(11b) line 1	Kwak̕wala	transcription	la̱’mi Monica g̱wał la’sta̱x’ida la̱’a̱m	page 9
+(11b) line 2	Kwak̕wala	segmentation	l(a̱) =’m =i Monica g̱wał la -(’)sta -(x)’id -a l(a̱) =’a̱m	page 9
+(11b) line 3	Kwak̕wala	gloss	AUX =VER =D3 Monica stop go -liquid -BEC -A AUX =VER	page 9
+(11b) line 4	Kwak̕wala	transcription	’walas digitabidu ḵ̕wa̱lis’ma	page 9
+(11b) line 5	Kwak̕wala	segmentation	’walas da̱y -(g)it(a) =bidu ḵ̕wa̱lis =’m =a	page 9
+(11b) line 6	Kwak̕wala	gloss	big/very wipe -body =DIM do.oneself =VER =A	page 9
+(11b) line 7	Katie Sardinha	translation	‘Monica finished taking a bath. Then she dried herself off.’	page 9
+(11b) line 8	Katie Sardinha	translation	Literally: ‘Then she wiped off her body, by herself.’	page 9
+(11b) line 9	Katie Sardinha	citation	(20181127-MC VF)	page 9, the tag or source at the right of the translation
+(11c) line 1	Kwak̕wala	transcription	t̕sug̱wiłbux̱ Shelliya̱x̱	page 9
+(11c) line 2	Kwak̕wala	segmentation	t̕sux̱w -iłba =ux̱ Shelly =(a̱)x̱	page 9
+(11c) line 3	Kwak̕wala	gloss	wash -nose =D2 Shelly =V2	page 9
+(11c) line 4	Katie Sardinha	translation	‘Shelly is washing her nose.’	page 9
+(11c) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 9, the tag or source at the right of the translation
+(11d) line 1	Kwak̕wala	transcription	t̕sut̕sa̱x̱wt̕sanux̱ Shelliya̱x̱9	page 9
+footnote 9	Katie Sardinha	note	In examples (11d), (11e), (11f), (13d), (13e), (13f), and (16a), the verb root t̕sux̱w- ‘wash’ undergoes CV reduplication along with reduction of the stem vowel. I do not know the meaning associated with this particular type of reduplication.	page 9, footnote 9
+(11d) line 2	Kwak̕wala	segmentation	CV~ t̕sux̱w -(x)t̕sana =ux̱ Shelly =(a̱)x̱	page 9
+(11d) line 3	Kwak̕wala	gloss	RED~ wash -hand =D2 Shelly =V2	page 9
+(11d) line 4	Katie Sardinha	translation	‘Shelly is washing her hands.’	page 9
+(11d) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 9, the tag or source at the right of the translation
+(11e) line 1	Kwak̕wala	transcription	lux̱ Monicax̱ ’walas	page 9
+(11e) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ Monica =(a̱)x̱ ’walas	page 9
+(11e) line 3	Kwak̕wala	gloss	AUX =D2 Monica =V2 big/very	page 9
+(11e) line 4	Kwak̕wala	transcription	t̕sut̕sa̱x̱wa̱m lax̱ada la’sta̱’at̕si	page 9
+(11e) line 5	Kwak̕wala	segmentation	CV~ t̕sux̱w -(g̱)a̱m la =x̱ =a =da la’sta̱’at̕si	page 9
+(11e) line 6	Kwak̕wala	gloss	RED~ wash -face PREP =ACC =D4 =DET water.tub	page 9
+(11e) line 7	Katie Sardinha	translation	‘Monica really washed her face in the tub.’	page 9
+(11e) line 8	Katie Sardinha	citation	(20181127-MC VF)	page 9, the tag or source at the right of the translation
+(11f) line 1	Kwak̕wala	transcription	la̱’misa̱n ’nula ḵ̕wa̱lis’a̱m	page 9
+(11f) line 2	Kwak̕wala	segmentation	l(a̱) =’m =(w)is =a̱n ’nula ḵ̕wa̱lis =’m	page 9
+(11f) line 3	Kwak̕wala	gloss	AUX =VER =and.so =1.POSS older.sibling do.oneself =VER	page 9
+(11f) line 4	Kwak̕wala	transcription	t̕sut̕sa̱xwa̱nda	page 9
+(11f) line 5	Kwak̕wala	segmentation	CV~ t̕sux̱w -(k)’a̱n -(x)’id -a	page 9
+(11f) line 6	Kwak̕wala	gloss	RED~ wash -body -BEC -A	page 9
+(11f) line 7	Katie Sardinha	translation	‘And then my older brother washed his body all by himself.’	page 9
+(11f) line 8	Katie Sardinha	citation	(20140324-RDC VF)	page 9, the tag or source at the right of the translation
+§4	Katie Sardinha	note	A more literal English translation of the Kwak’wala verbs in these sentences would be ‘face-shave’ (11a), ‘body-wipe’ (11b), ‘nose-wash’ (11c), ‘hand-wash’ (11d), ‘face-wash’ (11e), and ‘body- wash’ (11f). Verbs with body part suffixes can also be used to form transitive sentences with the same sorts of objects we saw in Section 2. In (12a), the object refers to the subject’s body, while in (12b), the object refers to the body of a person distinct from the subject.	page 9
+§4	Katie Sardinha	language	English	the translations, and its intensive pronouns
+(12) line 1	Katie Sardinha	note	Transitive sentences with body part suffixes, body (part) as object:	page 10, over the example
+(12a) line 1	Kwak̕wala	transcription	la̱’mux̱ digita x̱u’s uk̕wine’x̱	page 10
+(12a) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ da̱y -(g)it(a) =x̱ =u(’)s uk̕wine’ =(a̱)x̱	page 10
+(12a) line 3	Kwak̕wala	gloss	AUX =VER =D2 wipe -body =ACC =3.REFL.POSS body =V2	page 10
+(12a) line 4	Katie Sardinha	translation	‘She wiped her body off.’	page 10
+(12a) line 5	Katie Sardinha	citation	(20181127-MC VF)	page 10, the tag or source at the right of the translation
+(12b) line 1	Kwak̕wala	transcription	lux̱ Shelliya̱x̱ digita x̱ux̱	page 10
+(12b) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ Shelly =(a̱)x̱ da̱y -(g)it(a) =x̱ =ux̱	page 10
+(12b) line 3	Kwak̕wala	gloss	AUX =D2 Shelly =V2 wipe -body =ACC =D2	page 10
+(12b) line 4	Kwak̕wala	transcription	uk̕wine’ex̱s Simon	page 10
+(12b) line 5	Kwak̕wala	segmentation	uk̕wine’ =(a̱)x̱ =s Simon	page 10
+(12b) line 6	Kwak̕wala	gloss	body =V2 =3.POSS Simon	page 10
+(12b) line 7	Katie Sardinha	translation	‘Then Shelly wiped off Simon’s body.’	page 10
+(12b) line 8	Katie Sardinha	citation	(20181127-MC VF)	page 10, the tag or source at the right of the translation
+§4	Katie Sardinha	note	A more literal English translation of (12a) would be ‘She body-washed her own body’, and of (12b) would be ‘Then Shelly body-wiped Simon’s body’. Note that the body part which serves as the target of the action in these sentences is mentioned twice — once by the suffix, and again by the accusative object. Transitive sentences with the roots kus- ‘shave’, da̱y- ‘wipe’, and t̕sux̱w- ‘wash’ which include a body part suffix can also have an accusative object that refers to a person other than the subject. In these sentences, the body part suffix specifies the part of the object’s body that the action is directed towards (13).	page 10
+(13) line 1	Katie Sardinha	note	Transitive sentences with body part suffixes, person object:	page 10, over the example
+(13a) line 1	Kwak̕wala	transcription	la̱’mux̱ Eddiya̱x̱ kusa̱md x̱ux̱	page 10
+(13a) line 2	Kwak̕wala	segmentation	l(a̱) =’m =ux̱ Eddie =(a̱)x̱ kus -(g̱)a̱m -(x)’id =x̱ =ux̱	page 10
+(13a) line 3	Kwak̕wala	gloss	AUX =VER =D2 Eddie =V2 shave -face -BEC =ACC =D2	page 10
+(13a) line 4	Kwak̕wala	transcription	Billx̱	page 10
+(13a) line 5	Kwak̕wala	segmentation	Bill =(a̱)x̱	page 10
+(13a) line 6	Kwak̕wala	gloss	Bill =V2	page 10
+(13a) line 7	Katie Sardinha	translation	‘Eddie shaved Bill’s face.’	page 10
+(13a) line 8	Katie Sardinha	citation	(20181127-MC VF)	page 10, the tag or source at the right of the translation
+(13b) line 1	Kwak̕wala	transcription	lux̱ Shelliya̱x̱ digita x̱ux̱ Simonx̱	page 10
+(13b) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ Shelly =(a̱)x̱ da̱y -(g)it(a) =x̱ =ux̱ Simon =(a̱)x̱	page 10
+(13b) line 3	Kwak̕wala	gloss	AUX =D2 Shelly =V2 wipe -body =ACC =D2 Simon =V2	page 10
+(13b) line 4	Katie Sardinha	translation	‘Shelly wiped Simon down [after a bath].’	page 10
+(13b) line 5	Katie Sardinha	citation	(20181127-MC VF)	page 10, the tag or source at the right of the translation
+(13c) line 1	Kwak̕wala	transcription	t̕sug̱wiłbux̱ Shelliya̱x̱ Monica	page 10
+(13c) line 2	Kwak̕wala	segmentation	t̕sux̱w -iłba =ux̱ Shelly =(a̱)x̱ =x̱ Monica	page 10
+(13c) line 3	Kwak̕wala	gloss	wash -nose =D2 Shelly =V2 =ACC Monica	page 10
+(13c) line 4	Katie Sardinha	translation	‘Shelly washed Monica’s nose.’	page 10
+(13c) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 10, the tag or source at the right of the translation
+(13d) line 1	Kwak̕wala	transcription	t̕sut̕sa̱x̱wt̕sanux̱ Shelliya̱x̱ x̱us	page 11
+(13d) line 2	Kwak̕wala	segmentation	CV~ t̕sux̱w -(x)t̕sana =ux̱ Shelly =(a̱)x̱ =x̱ =u(’)s	page 11
+(13d) line 3	Kwak̕wala	gloss	RED~ wash -hand =D2 Shelly =V2 =ACC =2.POSS	page 11
+(13d) line 4	Kwak̕wala	transcription	xwa̱nukw Monica	page 11
+(13d) line 5	Kwak̕wala	segmentation	xwa̱nukw Monica	page 11
+(13d) line 6	Kwak̕wala	gloss	child Monica	page 11
+(13d) line 7	Katie Sardinha	translation	‘Shelly is washing her child Monica’s hands.’	page 11
+(13d) line 8	Katie Sardinha	citation	(20191205-RDC VF)	page 11, the tag or source at the right of the translation
+(13e) line 1	Kwak̕wala	transcription	lux̱ Shelly t̕sut̕sa̱x̱wa̱m x̱ux̱ Simonx̱	page 11
+(13e) line 2	Kwak̕wala	segmentation	l(a̱) =ux̱ Shelly CV~ t̕sux̱w -(g̱)a̱m =x̱ =ux̱ Simon =(a̱)x̱	page 11
+(13e) line 3	Kwak̕wala	gloss	AUX =D2 Shelly RED~ wash -face =ACC =D2 Simon =V2	page 11
+(13e) line 4	Katie Sardinha	translation	‘Shelly washed Simon’s face.’	page 11
+(13e) line 5	Katie Sardinha	citation	(20181127-MC VF)	page 11, the tag or source at the right of the translation
+(13f) line 1	Kwak̕wala	transcription	la̱’ma̱n a̱ba̱mp t̕sut̕sa̱xwa̱n gax̱a̱n	page 11
+(13f) line 2	Kwak̕wala	segmentation	l(a̱) =’m =a̱n a̱ba̱mp CV~ t̕sux̱w -(k)’a̱n gax̱a̱n	page 11
+(13f) line 3	Kwak̕wala	gloss	AUX =VER =1.POSS mother RED~ wash -body 1.OBJ	page 11
+(13f) line 4	Katie Sardinha	translation	‘My mother washed me (my body).’	page 11
+(13f) line 5	Katie Sardinha	citation	(20140324-RDC VF)	page 11, the tag or source at the right of the translation
+§4	Katie Sardinha	note	A more literal translation of the sentences in (13) would be: ‘Eddie face-shaved Bill’ (13a), ‘Shelly body-wiped Simon’ (13b), ‘Shelly nose-washed Monica’ (13c), ‘Shelly hand-washed her daughter, Monica’ (13d), ‘Shelly face-washed Simon’ (13e), and ‘My mother body-washed me’ (13f). In these sentences, the body part that serves as the target of the action is only mentioned once, in the suffix on the verb. The sentences in (14) show three alternative ways of using a transitive sentence to describe the same situation, where Shelly washes Monica’s nose. In (14a), the verb lacks a body part suffix and ‘Monica’s nose’ is the object; in (14b) the verb has a body part suffix and ‘Monica’ is the object; and in (14c), the verb has a body part suffix and ‘Monica’s nose’ is the object. An analogous pattern is exemplified in (15), this time with the verb kus- ‘to shave’.	page 11
+§4	Kwak̕wala	cited form	kus-	page 11, in italics, ‘to shave’
+(14) line 1	Katie Sardinha	note	Transitive sentences without (a) and with (b)–(c) body part suffixes: t̓sux̱w-	page 11, over the example
+(14a) line 1	Kwak̕wala	transcription	t̕sux̱w’idux̱ Shelliya̱x̱ xa̱ndzases Monica	page 11
+(14a) line 2	Kwak̕wala	segmentation	t̕sux̱w -(x)’id =ux̱ Shelly =(a̱)x̱ =x̱ xa̱ndzas =s Monica	page 11
+(14a) line 3	Kwak̕wala	gloss	wash -BEC =D2 Shelly =V2 =ACC nose =3.POSS Monica	page 11
+(14a) line 4	Katie Sardinha	translation	‘Shelly washed Monica’s nose.’	page 11
+(14a) line 5	Katie Sardinha	citation	(20191205-RDC VF)	page 11, the tag or source at the right of the translation
+(14b) line 1	Kwak̕wala	transcription	t̕sug̱wiłbux̱ Shelliya̱x̱ Monica	page 11
+(14b) line 2	Kwak̕wala	segmentation	t̕sux̱w -iłba =ux̱ Shelly =(a̱)x̱ =x̱ Monica	page 11
+(14b) line 3	Kwak̕wala	gloss	wash -nose =D2 Shelly =V2 =ACC Monica	page 11
+(14b) line 4	Katie Sardinha	translation	‘Shelly washed Monica’s nose.’	page 11
+(14b) line 5	Katie Sardinha	translation	Literally: ‘Shelly nose-washed Monica.’	page 11
+(14b) line 6	Katie Sardinha	citation	(20191205-RDC VF)	page 11, the tag or source at the right of the translation
+(14c) line 1	Kwak̕wala	transcription	t̕sug̱wiłbux̱ Shelliya̱x̱ xa̱ndzases Monica	page 11
+(14c) line 2	Kwak̕wala	segmentation	t̕sux̱w -iłba =ux̱ Shelly =(a̱)x̱ =x̱ xa̱ndzas =s Monica	page 11
+(14c) line 3	Kwak̕wala	gloss	wash -nose =D2 Shelly =v2 =ACC nose =3.POSS Monica	page 11
+(14c) line 4	Katie Sardinha	translation	‘Shelly washed Monica’s nose.’	page 11
+(14c) line 5	Katie Sardinha	translation	Literally: ‘Shelly nose-washed Monica’s nose.’	page 11
+(14c) line 6	Katie Sardinha	citation	(20200614-JN JF)	page 11, the tag or source at the right of the translation
+(15) line 1	Katie Sardinha	note	Transitive sentences without (a) and with (b)-(c) body part suffixes: kus-	page 12, over the example
+(15a) line 1	Kwak̕wala	transcription	kusux̱ Eddiya̱x̱ x̱ux̱ g̱ug̱a̱mey̓ex̱s	page 12
+(15a) line 2	Kwak̕wala	segmentation	kus =ux̱ Eddie =(a̱)x̱ =x̱ =ux̱ g̱ug̱a̱me’ =(a̱)x̱ =s	page 12
+(15a) line 3	Kwak̕wala	gloss	shave =D2 Eddie =V2 =ACC =D2 face =V2 =3.POSS	page 12
+(15a) line 4	Kwak̕wala	transcription	Billx̱	page 12
+(15a) line 5	Kwak̕wala	segmentation	Bill =(a̱)x̱	page 12
+(15a) line 6	Kwak̕wala	gloss	Bill =V2	page 12
+(15a) line 7	Katie Sardinha	translation	‘Eddie shaved Bill’s face.’	page 12
+(15a) line 8	Katie Sardinha	citation	(20200614-JN JF)	page 12, the tag or source at the right of the translation
+(15b) line 1	Kwak̕wala	transcription	kusa̱mdux̱ Eddiya̱x̱ x̱ux̱ Billx̱	page 12
+(15b) line 2	Kwak̕wala	segmentation	kus -(g̱)a̱m -(x)’id =ux̱ Eddie =(a̱)x̱ =x̱ =ux̱ Bill =(a̱)x̱	page 12
+(15b) line 3	Kwak̕wala	gloss	shave -face -BEC =D2 Eddie =V2 =ACC =D2 Bill =V2	page 12
+(15b) line 4	Katie Sardinha	translation	‘Eddie shaved Bill’s face.’	page 12
+(15b) line 5	Katie Sardinha	translation	Literally: ‘Eddie face-shaved Bill.’	page 12
+(15b) line 6	Katie Sardinha	citation	(20200614-JN JF)	page 12, the tag or source at the right of the translation
+(15c) line 1	Kwak̕wala	transcription	kusa̱mdux̱ Eddiya̱x̱ x̱ux̱	page 12
+(15c) line 2	Kwak̕wala	segmentation	kus -(g̱)a̱m -(x)’id =ux̱ Eddie =(a̱)x̱ =x̱ =ux̱	page 12
+(15c) line 3	Kwak̕wala	gloss	shave -face -BEC =D2 Eddie =V2 =ACC =D2	page 12
+(15c) line 4	Kwak̕wala	transcription	g̱ug̱a̱me’yex̱s Billx̱	page 12
+(15c) line 5	Kwak̕wala	segmentation	g̱ug̱a̱me’ =(a̱)x̱ =s Bill =(a̱)x̱	page 12
+(15c) line 6	Kwak̕wala	gloss	face =V2 =3.POSS Bill =V2	page 12
+(15c) line 7	Katie Sardinha	translation	‘Eddie shaved Bill’s face.’	page 12
+(15c) line 8	Katie Sardinha	translation	Literally: ‘Eddie face-shaved Bill’s face.’	page 12
+(15c) line 9	Katie Sardinha	citation	(20200614-JN JF)	page 12, the tag or source at the right of the translation
+§4	Katie Sardinha	note	The factors which cause speakers to choose one of the sentences in (14–15) over the others are not well understood. In many contexts, it seems that the three forms can be used interchangeably. Recall from Sections 2 and 3 that the verb roots t̕sux̱w- ‘wash’ and da̱y- ‘wipe’ are exceptional when it comes to forming reflexive sentences. When constructing transitive sentences with these verb roots, body part suffixes are optional. However, when constructing reflexive sentences with these verb roots, a body part suffix is required on the verb in order to make it clear for the listener what part of the body is being washed or wiped, as exemplified in (16).	page 12
+(16) line 1	Katie Sardinha	note	Reflexives with t̕sux̱w- and da̱y-, with body part suffix:	page 12, over the example
+(16a) line 1	Kwak̕wala	transcription	t̕sut̕sa̱x̱wa̱mdi Simon	page 12
+(16a) line 2	Kwak̕wala	segmentation	CV~ t̕sux̱w -(g̱)a̱m -(x)’id =i Simon	page 12
+(16a) line 3	Kwak̕wala	gloss	RED~ wash -face -BEC =D3 Simon	page 12
+(16a) line 4	Katie Sardinha	translation	‘Simon washed his face.’	page 12
+(16a) line 5	Katie Sardinha	citation	(20200614-JN JF)	page 12, the tag or source at the right of the translation
+(16b) line 1	Kwak̕wala	transcription	di’studux̱ Monicax̱	page 12
+(16b) line 2	Kwak̕wala	segmentation	da̱y -’stu -(x)’id =ux̱ Monica =(a̱)x̱	page 12
+(16b) line 3	Kwak̕wala	gloss	wipe -eye -BEC =D2 Monica =V2	page 12
+(16b) line 4	Katie Sardinha	translation	‘Monica wiped her eye.’	page 12
+(16b) line 5	Katie Sardinha	citation	(20200614-JN JF)	page 12, the tag or source at the right of the translation
+§4	Katie Sardinha	note	The remaining verbs in Table 1 — lasta̱x’id ‘to bathe’, ḵ̕ux̱wt̕sud ‘to dress’, ḵ̕ux̱a̱mułt̕so, ḵ̓ux̱wa̱łt̓so, ḵ̕ux̱wa̱łt̕sud ‘to undress’ — all refer to actions directed at the whole body. To date I have not asked Kwak̕wala speakers whether these verbs can take body part suffixes; all I can say is that I have never encountered these verbs taking body part suffixes in elicitation. Given that these verbs do not take body parts as objects (Section 2), I would predict that they cannot take body part suffixes either.	page 12
+§5	Katie Sardinha	heading	5 Conclusion	page 13
+§5	Katie Sardinha	note	Verbs describing body-directed actions in Kwak̕wala are broadly similar in their grammar. These verbs can all be used to construct both reflexive sentences and transitive sentences, with the caveat that t̕sux̱wa, t̕sux̱w’id, and dix’id require a body part suffix to form a reflexive that refers to a body- directed action. Table 3 summarizes the types of sentences encountered in this essay and classifies them into types.	page 13
+Table 3	Katie Sardinha	note	Table 3: Summary of example sentences	page 13, the table's caption
+Table 3	Katie Sardinha	note	Reflexive sentences Example #s	page 13, the column heads
+Table 3 line 1	Katie Sardinha	note	Basic reflexive 1a, 1b, 1d, 1e, 9	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 2	Katie Sardinha	note	Reflexive with body part suffix 1c, 11a, 11b, 11c, 11d, 11e, 11f, 16a, 16b	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 3	Katie Sardinha	note	Transitive sentences	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 4	Katie Sardinha	note	Transitive + body part as object 2a, 3a, 3b, 4a, 4b, 14a, 15a	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 5	Katie Sardinha	note	Transitive + non-subject person as object 2b, 2d, 2e, 10	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 6	Katie Sardinha	note	Transitive with body part suffix + body part as object 12a, 12b, 14c, 15c	page 13, Table 3, a row, its wrapped lines joined
+Table 3 line 7	Katie Sardinha	note	Transitive with body part suffix + non- subject person as object 2c, 13a, 13b, 13c, 13d, 13e, 13f, 14b, 15b	page 13, Table 3, a row, its wrapped lines joined
+§5	Katie Sardinha	note	Reflexive sentences lack an object and receive an interpretation where the subject is directing the verbal action towards an implicit object. The implicit object in reflexive sentences always corresponds to the subject’s body or a part of their body. Some verbs impose a default reading on an implicit object in reflexives while others do not, with context helping to shape the interpretation of implicit objects. Transitive sentences have an object marked in the accusative case and describe actions directed at this object. The object may correspond to the subject’s own body or body part, or to the body or body part of a person distinct from the subject. Kwak̕wala does not mark the difference between reflexive and transitive sentences on the verb, differing from nearby Salish languages in this regard.	page 13
+§5	Katie Sardinha	note	At least some body-directed action verbs can take suffixes referring to body parts. When present on the verb, body part suffixes specify the location on the body where the action of the verb is directed. In reflexive sentences this location is necessarily on the subject’s body, while in transitive sentences, this location is on whichever body the object refers to. In transitive sentences, the target of the action can be specified by using an overt object, by using a body part suffix, or by using both devices simultaneously.	page 13
+references	Katie Sardinha	heading	References	page 14
+references	Katie Sardinha	reference	Black, Alexis. 2011. Ostension and definiteness in the Kwak̕wala noun phrase. In: John Lyon and Joel Dunham (eds.), Papers for the 46th International Conference on Salish and Neighbouring Languages, Vancouver, BC: UBCWPL, 1–31.	page 14
+references	Katie Sardinha	reference	Boas, Franz. 1947. Kwakiutl grammar with a glossary of the suffixes. Transactions of the American Philosophical Society 37:202–377. [Republished 1976].	page 14
+references	Katie Sardinha	reference	First Voices. 2009. Kwak̕wala: Words. First Peoples’ Heritage, Language and Culture Council. Retrieved from: http://www.firstvoices.com/en/Kwakwala/words on March 9, 2020.	page 14
+references	Katie Sardinha	reference	Littell, Pat. 2016. Focus, predication, and polarity in Kwak’wala. Ph.D. thesis, University of British Columbia, Vancouver, BC.	page 14
+references	Katie Sardinha	reference	Nicholsen, Marianne and Adam Werle. 2009. An investigation of modern Kwak̕wala determiner systems. Victoria, BC: University of Victoria, ms.	page 14
+abbreviations	Katie Sardinha	heading	Glossing Abbreviations	page 14
+abbreviations line 1	Katie Sardinha	note	Gloss Morphs Notes	page 14, the column heads
+abbreviations line 2	Katie Sardinha	note	- affix boundary	page 14, an entry, its wrapped notes run on
+abbreviations line 3	Katie Sardinha	note	= clitic boundary	page 14, an entry, its wrapped notes run on
+abbreviations line 4	Katie Sardinha	note	~ reduplicant boundary	page 14, an entry, its wrapped notes run on
+abbreviations line 5	Katie Sardinha	note	() indicates a segment that is omitted in certain phonological environments	page 14, an entry, its wrapped notes run on
+abbreviations line 6	Katie Sardinha	note	1.OBJ gax̱a̱n first person singular object, accusative case (“me”)	page 14, an entry, its wrapped notes run on
+abbreviations line 7	Katie Sardinha	note	1.POSS =a̱n possessed by first person	page 14, an entry, its wrapped notes run on
+abbreviations line 8	Katie Sardinha	note	2.POSS =u(’)s possessed by second person	page 14, an entry, its wrapped notes run on
+abbreviations line 9	Katie Sardinha	note	3.POSS =s possessed by third person	page 14, an entry, its wrapped notes run on
+abbreviations line 10	Katie Sardinha	note	3.REFL.POSS =u(’)s, =i(’)s possessed by third person who is coreferent with the sentential subject or topic; =u(’)s is used for medial referents, =i(’)s is used for distal referents	page 14, an entry, its wrapped notes run on
+abbreviations line 11	Katie Sardinha	note	A -a default stem-final vowel	page 14, an entry, its wrapped notes run on
+abbreviations line 12	Katie Sardinha	note	ACC =x̱ accusative case	page 14, an entry, its wrapped notes run on
+abbreviations line 13	Katie Sardinha	note	ADD.FOC =x̱a additive focus	page 14, an entry, its wrapped notes run on
+abbreviations line 14	Katie Sardinha	note	AUX l(a̱) auxiliary verb	page 15, an entry, its wrapped notes run on
+abbreviations line 15	Katie Sardinha	note	BEC -x’id, -x’i, -’i, -’id, -d, -ud, -nd become operator, momentaneous aspect, inchoative	page 15, an entry, its wrapped notes run on
+abbreviations line 16	Katie Sardinha	note	CV a consonant followed by a vowel	page 15, an entry, its wrapped notes run on
+abbreviations line 17	Katie Sardinha	note	CONT -(a̱)la continuative aspect	page 15, an entry, its wrapped notes run on
+abbreviations line 18	Katie Sardinha	note	D2 =ux̱ third person medial deictic determiner (“this, close by”) (Nicholsen and Werle 2009)	page 15, an entry, its wrapped notes run on
+abbreviations line 19	Katie Sardinha	note	D3 =i third person distal deictic determiner (“that, over there”) (Nicholsen and Werle 2009)	page 15, an entry, its wrapped notes run on
+abbreviations line 20	Katie Sardinha	note	D4 =a existential deictic determiner (Black 2011)	page 15, an entry, its wrapped notes run on
+abbreviations line 21	Katie Sardinha	note	DET =da determiner, ostensive marker	page 15, an entry, its wrapped notes run on
+abbreviations line 22	Katie Sardinha	note	DIM =bidu diminutive	page 15, an entry, its wrapped notes run on
+abbreviations line 23	Katie Sardinha	note	EMBED =a embedding vowel (Littell 2016:604–606)	page 15, an entry, its wrapped notes run on
+abbreviations line 24	Katie Sardinha	note	FUT =tł future	page 15, an entry, its wrapped notes run on
+abbreviations line 25	Katie Sardinha	note	NEG (k̕)i’s negation	page 15, an entry, its wrapped notes run on
+abbreviations line 26	Katie Sardinha	note	NMLZ -a̱m, =i’ nominalizer	page 15, an entry, its wrapped notes run on
+abbreviations line 27	Katie Sardinha	note	PREP la, ḵ(a̱) preposition; la introduces locative arguments (“at”, “to”, “from”, etc.) while ḵ(a̱) introduces causes, reasons, and purposes (“because”, “for”, “in order to”)	page 15, an entry, its wrapped notes run on
+abbreviations line 28	Katie Sardinha	note	RED CV reduplication	page 15, an entry, its wrapped notes run on
+abbreviations line 29	Katie Sardinha	note	REV -wa̱ł, -uł reverse directional	page 15, an entry, its wrapped notes run on
+abbreviations line 30	Katie Sardinha	note	VER =’m, =’a̱m verum focus (Littell 2016)	page 15, an entry, its wrapped notes run on
+abbreviations line 31	Katie Sardinha	note	V2 =(a̱)x̱ third person medial visible	page 15, an entry, its wrapped notes run on

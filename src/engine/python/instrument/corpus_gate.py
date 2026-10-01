@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The one way a corpus is read here, with the purity check built into it, for Section 4.13 of
-# theory/anchor_sift.
+# theory/orior.
 #
 #   Usage:  from corpus_gate import load, report_on
 #

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: EXP-x-019
 #
@@ -43,7 +43,7 @@
 # and stays a sound upper bound (never below the rank) on every one. Two routes: the descent upper bound
 # and an explicit rational point's lower bound, which meet to pin the rank exactly for the pinned n.
 # Controls on the probe itself, in place of a null (there is nothing to permute in a rank bound, the
-# anchor sift engine's note): a torsor known soluble is certified soluble and one known insoluble is
+# orior engine's note): a torsor known soluble is certified soluble and one known insoluble is
 # certified insoluble by branch death, which shows the refute-only probe fires only on a real
 # obstruction. Floor: the bound is exact iff the 2-part of Sha vanishes; n = 17 is the demonstrated gap,
 # where the first descent gives rank <= 2 while the rank is 0. That gap is not left as a floor but

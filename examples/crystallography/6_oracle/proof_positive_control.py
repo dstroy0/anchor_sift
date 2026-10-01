@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: CRY-6-001
 #
@@ -8,7 +8,7 @@
 #   Usage:  python examples/crystallography/6_oracle/proof_positive_control.py [how many names]
 #
 # Proof of the posit that a negative control cannot show an instrument works, from the posits
-# section of theory/workbooks/anchor_sift. Every control in this work until the protein
+# section of theory/workbooks/orior. Every control in this work until the protein
 # structures was a memoryless process, and one of those shows only that an instrument does not
 # invent structure. It cannot show that the instrument finds structure that is there, and the
 # protein case demonstrated the difference by being reported as unstructured twice.
@@ -80,8 +80,8 @@ from representation.structure.crystal import exact_points  # noqa: E402
 CACHE = os.path.join(ROOT, "build", "cod")
 
 AGENT = {
-    "User-Agent": "anchor-sift-research/1.0 "
-    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+    "User-Agent": "orior-research/1.0 "
+    "(https://github.com/dstroy0/orior; dquigg123@gmail.com)"
 }
 SEARCH = "https://www.crystallography.net/cod/result?format=json&text=%s&count=%d"
 CIF = "https://www.crystallography.net/cod/%s.cif"

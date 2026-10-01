@@ -1,0 +1,326 @@
+where	who	kind	form	gloss
+front	Bailey Trotter	note	Papers for the International Conference on Salish and Neighbouring Languages 60. Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Bailey Trotter	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, the language of the paper, its Mainland dialect
+front	ʔayʔaǰuθəm	cited affix	-uɬ	page 1
+front	Bailey Trotter	note	Abstract: The ʔayʔaǰuθəm past tense suffix -uɬ exhibits unexpected interactions with second position clitics (2PCs) given theoretical assumptions about how suffixes and clitics typically pattern. These interactions include: an ordering paradox between the past tense and subjunctive subject clitics, past tense allomorphs which are triggered by adjacency to possessive subject enclitics, and the apparent transparency of the past tense suffix to allomorph selection for surrounding morphemes. Following Huijsmans (2023) and Davis and Huijsmans (2024) I adopt the two-step model of lexical insertion developed by Svenonius and Bye (2012) and Svenonius (2012) to account for the linearization of 2PCs. The past tense is problematic for this model as it exhibits patterns that suggest it enters the derivation at later phase than the clitics, while its surface order requires it to be linearized before 2PCs. In this paper I propose that certain suffixes — including the past tense — are linearized in the same phase as the clitics, rather than in a lower phase with most other suffixes, or in a phase following the clitics (as proposed by Huijsmans 2023). The present analysis accounts for the distribution of the past tense within the framework the model of clitic linearisation and lexical insertion already established for ʔayʔaǰuθəm. In this paper I show how an analysis which treats the past tense suffix as part of the clitic phase accounts for the complete distribution of the past tense in relation to clitics.	page 1, the abstract
+front	Bailey Trotter	note	Keywords: ʔayʔaǰuθəm (Comox-Sliammon), clitics, morphology, syntax, lexical insertion	page 1
+§1	Bailey Trotter	heading	1 Introduction	page 1
+§1	Bailey Trotter	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, the language of the paper, its Mainland dialect
+§1	ʔayʔaǰuθəm	cited affix	-uɬ	page 1
+footnote *	Bailey Trotter	note	* I am deeply grateful to Betty Wilson for sharing her language so patiently and generously. I would also like to thank the UBC LING 530 Seminar on clitics for their helpful feedback and discussion, and Marianne Huijsmans for her documentation and analysis of ʔayʔaǰuθəm that made this paper possible. I am especially grateful to Henry Davis and Gloria Mellesmoen who have been so generous with their time and feedback; long discussions with them were crucial in the development of this analysis, and this work would not have been possible without them. Contact information: baileyt@mail.ubc.ca	page 1, footnote
+§1	Bailey Trotter	note	The ʔayʔaǰuθəm past tense suffix -uɬ exhibits unexpected interactions with second position clitics (2PCs) given theoretical assumptions about how suffixes and clitics typically pattern. The past tense -uɬ is a temporal modifier that can modify across categories, and does not occupy T (Matthewson 2005, Huijsmans 2023, Huijsmans 2024). Following Huijsmans (2023) and Davis and Huijsmans (2024), I adopt the two-step model of lexical insertion developed by Svenonius and Bye (2012) and Svenonius (2012) to account for the linearization of 2PCs. In this framework a derivation takes place in phases. The lower V/vP/VoiceP phase is spelled out prior to the higher phase containing the 2PCs, which are generated high in the clause above the vP. Each phase undergoes two separate stages of lexical insertion, before the first stage of lexical insertion begins for the following phase (see Mellesmoen 2025 for more details on the architecture of the grammar). The past tense is problematic for this model as it exhibits patterns that suggest it enters the derivation at later phase than the clitics, while its surface order requires it to be linearized before 2PCs. Huijsmans (2023) proposes that the past tense enters the derivation at a phase that follows the one containing the clitics. While this analysis accounts for the interactions between the past tense and 2PCs, it requires expansion of the model beyond what is established for other areas of the grammar. In this paper I propose an alternative analysis: the past tense is part of the clitic phase. I argue that the present analysis better accounts for interactions between the past tense and the clitics within the framework of the model and the rest of the grammar.	page 1
+§1	ʔayʔaǰuθəm	cited affix	-ʔuw	page 2
+§1	ʔayʔaǰuθəm	cited affix	-ʔu	page 2
+§1	Bailey Trotter	note	Evidence for this treatment of the past tense suffix comes from interactions between the past tense and clitics. These include: i) allomorphs -ʔuw and -ʔu of the past tense that occur when the past is adjacent to possessive subject enclitics; ii) apparent transparency of the past tense with respect to the selection of indicative subject clitic allomorphs, iii) apparent transparency of the past tense with respect to the selection of a null ergative allomorph, and finally, iv) the paradoxical ordering of the past tense suffix and the subjunctive subject enclitic, where the subjunctive clitic is linearized inside the past tense suffix, closer to the host. Assuming that the past tense suffix is truly a suffix this ordering is problematic both for the present theory of clitic linearization, and for the theory of clitics more broadly (e.g. Zwicky and Pullum 1983).	page 2
+§1	Bailey Trotter	note	Data used in this paper primarily comes from: Huijsmans (2023), Watanabe (2003), and direct elicitation with a fluent speaker of the Mainland dialect of ʔayʔaǰuθəm. Asmall number of examples come from Kroeber (2002).	page 2
+§1.1	Bailey Trotter	heading	1.1 Huijsmans’ (2023) analysis of the clitic string	page 2
+§1.1	Bailey Trotter	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, the language of the paper, its Mainland dialect
+§1.1	Bailey Trotter	note	ʔayʔaǰuθəm has seventeen1 2PCs that occupy a series of heads in the upper part of the clause; they are strictly ordered with respect to each other. Huijsmans (2023) shows that the linear order and allomorphy of these 2PCs cannot be derived by appealing to either a syntax-only or phonology- only account of clitic placement; clitic placement must take place in the morphology. In her approach, clitic placement is driven by a morphological enclitic feature which must be satisfied between the first and second steps of a two-step lexical insertion process. A slight modified version of the enclitic feature is given in (1).2	page 2
+footnote 1	Bailey Trotter	note	1 All subject clitics are counted as a single clitic in this total number. This includes all forms of the subject clitics in the three subject paradigms (indicative, subjunctive, and nominalized/possessive) as well as forms of the subject clitics inflected for person and number.	page 2, footnote
+footnote 2	Bailey Trotter	note	2 Huijsmans’ (2024) defines the enclitic feature as follows: “the enclitic feature =___ acts as an instruction to join the immediately c-commanding heading in the complement sequence of heads, the span, resulting in re-bracketing” (p. 64). I assume that at the stage of the derivation where enclitic feature is satisfied that all c-command relations in a phase have been converted into precedence relations. Therefore, the enclitic feature refers to linear order rather than c-command.	page 2, footnote
+(1) line 1	Bailey Trotter	rule	[ENCLITIC] = attach following the next highest head in a span	page 2, the enclitic feature
+§1.1	Bailey Trotter	note	Lexical insertion refers to the association of lexical entries with syntactic structure and occurs between spell out and regular phonological processes. In the model of lexical insertion developed in Bye and Svenonius (2012) and Svenonius (2012) the lexical insertion process is broken down into two separate steps. In the first step, L-Match, lexical entries are associated with terminal nodes based on matching features; no phonological content is inserted at this stage — lexical entries are simply bundles of morphological features associated with terminal syntactic nodes. During the second stage of lexical insertion, Insert, phonological content is associated with the derivation and lexically specified allomorphs are selected. Linearisation of clitics occurs between the two steps. Following the first stage of lexical insertion morphological features on lexical entries are satisfied proceeding from the bottom to the top of the phase. The enclitic feature is only satisfied via attachment to a preceding head in a span; as defined by Brody (2000), Bye and Svenonius (2012), Huijsmans (2023) and Mellesmoen (2025), a span is an uninterrupted sequence of heads projecting the syntactic spine which stand in a head-complement relationship. If there are multiple clitics in the derivation, each of the lower clitics will encliticize in sequence to the clitic directly above them as the derivation proceeds upwards. Once its enclitic feature is satisfied a clitic forms a single morphological constituent with the head in which it attaches to, resulting in the formation of a clitic string in derivations with multiple 2PCs. At this stage the enclitic feature on the highest clitic is still unsatisfied as the clitic is not yet adjoined to a preceding head. Since the enclitic feature must be satisfied, re-ordering occurs. The highest clitic is moved downwards following the next lowest head in the span to which it encliticises, taking the rest of the clitics in the string — which have already undergone enclisis — with it. The next lowest head will either be the predicate or a pre-predicative auxiliary if one is present, deriving the second position placement of the clitic string.	page 2
+§1.1	Bailey Trotter	note	At the second stage of lexical insertion phonological content is inserted and allomorphs are selected. Allomorphs are lexically specified in the entries for each morphological item and can be conditioned by adjacency to other morphemes as well as other factors such as the prosodic weight of the host. I follow Huijsmans (2023) in assuming that the most specified allomorph will always be selected when the conditions for insertion are met. For example, if the lexical entry for a clitic includes both a general allomorph that is allowed in all environments, and a more specified allomorph which is conditioned by adjacency to another clitic, the more specified form will always be selected when that adjacency condition is met. Phonological content is inserted for each node sequentially, starting from the most embedded node.	page 3
+§1.1	Bailey Trotter	note	I still assume that lower suffixes undergo lexical insertion as part of the w-span, meaning that they are spelled out as part of a phase that corresponds to the morphological word (see e.g. Bye & Svenonius 2012, Mellesmoen 2025). While clitic linearization is driven by the enclitic feature, suffix attachment is driven by a morphological suffix feature, given in (2). I assume an additional constraint which prevents an affix from attaching following a clitic.	page 3
+§1.1	ʔayʔaǰuθəm	cited affix	-uɬ	page 3
+(2) line 1	Bailey Trotter	rule	[SUFFIX] = attach following the next lowest head in a span	page 3, the suffix feature
+§1.1	Bailey Trotter	note	The suffix feature acts as a instruction to attach as a suffix to the next lowest head. Between the first and second stages of lexical insertion the suffix feature of the past tense is satisfied via attachment to the predicate — which will invariably the next lowest head. The derivation proceeds up the tree and the enclitic features on the clitics are activated. In a derivation with no pre-predicate auxiliary, the enclitic feature of the highest clitic can only be satisfied by downward movement to the predicate, and the clitic string attaches to the right of the past tense suffix. This current analysis differs from Huijsmans’ (2023) account in assuming the past tense suffix -uɬ and a small number of other suffixes are located above the boundary for the lower phase, and therefore undergo both stages of lexical insertion along with the clitics in the higher phase.	page 3
+§2	Bailey Trotter	heading	2 Accounting for problems with the past tense	page 3
+§2	Bailey Trotter	note	There are four environments in which the past tense behaves differently from other suffixes in the language. These environments have been documented by previous authors (Kroeber 2002, Watanabe 2003, and Huijsmans 2023) and go against expectations of how a suffix should interact with clitics:	page 3
+§2	ʔayʔaǰuθəm	cited affix	-ʔuw	page 4
+§2	ʔayʔaǰuθəm	cited affix	-ʔu	page 4
+§2	Bailey Trotter	note	i) The past tense allomorphs -ʔuw and -ʔu occur when the past is adjacent to possessive subject enclitics.	page 4
+§2	Bailey Trotter	note	ii) The past tense behaves as if it is transparent to the selection of indicative subject clitic allomorph, which is selected based on the prosodic weight of its host.	page 4
+§2	Bailey Trotter	note	iii) The past tense behaves as if it is transparent to the selection of the null ergative suffix allomorph, which is selected when the ergative is adjacent to the reportative or the future clitic. The null form of the ergative suffix is selected even when the past tense occurs between the ergative and either relevant clitic.	page 4
+§2	Bailey Trotter	note	iv) The paradoxical ordering of the past tense suffix and the subjunctive subject clitic — where the subjunctive clitic is linearized inside the past tense suffix, closer to the host. All four patterns pose issues for an account that assumes the past tense undergoes lexical insertion as either part of the w-span, or as part of phase higher than the clitics. The first two of the four environments listed above — the past tense allomorphs which surface when adjacent to the possessive subject enclitics, and the transparency to indicative subject clitic selection — can easily be accounted for by assuming that the past tense is part of the same phase as the clitics. The final two problems — transparency to ergative allomorph selection and ordering with the subjective subject enclitic — require further explanation. In the following sections I go through each of the four problems and propose how the current proposal better explains the distribution of the past tense while still adhering to the framework established in Huijsmans (2023).	page 4
+§2.1	Bailey Trotter	heading	2.1 Past tense allomorphy (Interaction #1)	page 4
+§2.1	ʔayʔaǰuθəm	cited affix	-ʔu	page 4
+§2.1	ʔayʔaǰuθəm	cited affix	-ʔuw	page 4
+§2.1	ʔayʔaǰuθəm	cited affix	ʔu	page 4, the past tense allomorph -ʔu
+§2.1	ʔayʔaǰuθəm	cited affix	ʔuw	page 4, the past tense allomorph -ʔuw
+§2.1	Bailey Trotter	note	There are three allomorphs of the past tense, with -ʔu and -ʔuw having the most specified conditions for insertion (i.e. ʔu and ʔuw will be selected in all environments in which the conditions for their selection are met).3 The lexical entry for the past tense is given in (3).	page 4
+(3) line 1	Bailey Trotter	note	allomorph environment	page 4, the column heads of the lexical entry of PST
+(3) line 2	ʔayʔaǰuθəm	cited affix	/uɬ/	page 4, PST ⇔ /uɬ/, the general allomorph
+(3) line 3	ʔayʔaǰuθəm	cited affix	/ʔu/	page 4, PST ⇔ /ʔu/, selected in the environment __3SG.POSS
+(3) line 4	ʔayʔaǰuθəm	cited affix	/ʔuw/	page 4, PST ⇔ /ʔuw/, selected in the environment __2PL.POSS/3PL.POSS
+§2.1	Bailey Trotter	note	The more specified allomorphs only occur when the past tense is adjacent to any of the three possessive subject enclitics, or the possessive suffixes which share the same phonological form as the possessive enclitics. I will not focus on the allomorphs of the past tense with the possessive suffixes here, but I assume that they are derived via the same processes .4 The other possessive subjects are proclitics and are never adjacent to the past tense (Table 1).	page 4
+footnote 3	Bailey Trotter	note	3 I treat the most general allomorph of the past tense as underlyingly -uɬ, following Huijsmans (2023). Previous documentation (including Watanabe 2003) has treated the underlying form of the past tense as - ʔuɬ. See footnote 13 on p. 99 of Huijsmans 2023 for more discussion on representation of the glottal stop in this suffix. I represent the two allomorphs of the past tense with an initial glottal stop following Watanabe’s (2003, p. 40) observation that the allomorphs do not glottalize a preceding resonant like -uɬ does.	page 4, footnote
+footnote 3	ʔayʔaǰuθəm	cited affix	-uɬ	page 4
+footnote 3	ʔayʔaǰuθəm	cited affix	ʔuɬ	page 4, footnote 3, the past tense as earlier documentation writes it, -ʔuɬ, its hyphen closing the line above
+footnote 4	Bailey Trotter	note	4 When adjacent to possessive suffixes the past tense is a nominal modifier, rather than a clausal/predicative modifier (Huijsmans 2024).	page 4, footnote
+Table 1	Bailey Trotter	note	Table 1: Allomorphs of the past tense with possessive subject clitics	page 5, the caption
+Table 1	Bailey Trotter	note	POSS SBJ | √ + PST (-uɬ) + POSS SBJ	page 5, the column heads
+Table 1 1SG	ʔayʔaǰuθəm	cited affix	(ʔə)tᶿ=	page 5, the possessive subject clitic, POSS SBJ
+Table 1 1SG	ʔayʔaǰuθəm	segmentation	(ʔə)tᶿ= √-uɬ	page 5, √ + PST (-uɬ) + POSS SBJ
+Table 1 2SG	ʔayʔaǰuθəm	cited affix	(ʔə)θ=	page 5, the possessive subject clitic, POSS SBJ
+Table 1 2SG	ʔayʔaǰuθəm	segmentation	(ʔə)θ= √-uɬ	page 5, √ + PST (-uɬ) + POSS SBJ
+Table 1 1PL	ʔayʔaǰuθəm	cited affix	ʔəms=	page 5, the possessive subject clitic, POSS SBJ
+Table 1 1PL	ʔayʔaǰuθəm	segmentation	ʔəms= √-uɬ	page 5, √ + PST (-uɬ) + POSS SBJ
+Table 1 2PL	ʔayʔaǰuθəm	cited affix	=ap	page 5, the possessive subject clitic, POSS SBJ
+Table 1 2PL	ʔayʔaǰuθəm	segmentation	√-ʔuw=ap	page 5, √ + PST (-uɬ) + POSS SBJ
+Table 1 3SG	ʔayʔaǰuθəm	cited affix	=s	page 5, the possessive subject clitic, POSS SBJ
+Table 1 3SG	ʔayʔaǰuθəm	segmentation	√-ʔu=s	page 5, √ + PST (-uɬ) + POSS SBJ
+Table 1 3PL	ʔayʔaǰuθəm	cited affix	=it	page 5, the possessive subject clitic, POSS SBJ
+Table 1 3PL	ʔayʔaǰuθəm	segmentation	√-ʔuw=it	page 5, √ + PST (-uɬ) + POSS SBJ
+§2.1	Bailey Trotter	note	The possessive subject enclitics occur only in nominalized clauses, which are used in variety of subordinate and complement environments (see Watanabe 2003 for more on the distribution of nominalized clauses). The two most specified allomorphs and the environments that condition them are shown in (4)–(6)5.	page 5
+(4) line 0	Bailey Trotter	note	Adjacent to 2PL.POSS:	page 5, the heading over the example
+(4) line 1	ʔayʔaǰuθəm	transcription	hɛkʷ čɛ ʔəxʷ hoʔowap č̓ɛgatoɬ?	page 5, engine language
+(4) line 2	ʔayʔaǰuθəm	segmentation	hiɬ+kʷ=ča ʔə=xʷ=hu-ʔuw=ap č̓ag-at-uɬ	page 5, engine language
+(4) line 3	ʔayʔaǰuθəm	gloss	COP+DET=where OBL=OBL.NMLZ=go-PST=2PL.POSS help-CTR-PST	page 5, engine english
+(4) line 4	Bailey Trotter	translation	‘Where did you guys go and help her?’	page 5, engine english
+(4) line 4	Bailey Trotter	citation	[Watanabe 2003, 163]	the tag or source at the right of the translation
+(5) line 0	Bailey Trotter	note	Adjacent to 3SG.POSS:	page 5, the heading over the example
+(5) line 1	ʔayʔaǰuθəm	transcription	k̓ʷʊnɛtoɬč sč̓ɛč̓ɛgatʔos.	page 5, engine language
+(5) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷən-i-t-uɬ=č s=č̓a~č̓ag-at-ʔu=s	page 5, engine language
+(5) line 3	ʔayʔaǰuθəm	gloss	see-STAT-CTR-PST=1SG.SBJ NMLZ=PROG~help-CTR-PST=3SG.POSS	page 5, engine english
+(5) line 4	Bailey Trotter	translation	‘I saw him helping her.’	page 5, engine english
+(5) line 4	Bailey Trotter	citation	[Watanabe 2003, 49]	the tag or source at the right of the translation
+(6) line 0	Bailey Trotter	note	Adjacent to 3PL.POSS:	page 5, the heading over the example
+(6) line 1	ʔayʔaǰuθəm	transcription	hɛkʷsčɛʔnoɬ ʔəxʷ θoʔowɩt?	page 5, engine language
+(6) line 2	ʔayʔaǰuθəm	segmentation	hiɬ+kʷ+s=čan-uɬ ʔə=xʷ=θu-ʔuw=it	page 5, engine language
+(6) line 3	ʔayʔaǰuθəm	gloss	COP+DET+NMLZ=when-PST OBL=OBL.NMLZ=go-PST=3PL.POSS	page 5, engine english
+(6) line 4	Bailey Trotter	translation	‘When did they go?’	page 5, engine english
+(6) line 4	Bailey Trotter	citation	[Huijsmans 2023, 107]	the tag or source at the right of the translation
+§2.1	Bailey Trotter	note	If we were to assume that the past tense undergoes both stages of lexical insertion along with the verb and suffixes in the w-span, then the environment that triggers allomorph selection would never occur; the past tense would undergo allomorph selection at the second stage of lexical insertion, prior lexical insertion (and linearization) of the clitics in the upper phase. By the stage in the derivation where the possessive subject enclitic is linearized following the past tense, the past tense will have already undergone the second stage of lexical insertion and have its surface allomorph selected.	page 5
+footnote 5	Bailey Trotter	note	5 The abbreviations used in this paper follow the Leipzig Glossing Rules, with the following additions: CHAR = characteristic reduplication, CLD = clausal demonstrative, CTR = control transitive, INFER = inferential, NCTR = non-control transitive, RPT = reportative, STV = stative. Affixes are marked by a hyphen ‘-’, clitics by an equal sign ‘=’, contractions and portmanteau morphemes are connected by a ‘+’, and infixes are within angled brackets ‘< >’.	page 5, footnote
+§2.1	Bailey Trotter	note	Alternatively if we assume that the past tense is linearized in a phase following the clitic phase — as Huijsmans does — the suffix feature on the past tense would have to be able to ‘see’ the boundary between a clitic and its host to derive the correct linear order where the possessive clitic follows the past tense. I assume that after the second stage of lexical insertion the derivation is transferred to the phonology and parsed into a prosodic word before lexical insertion proceeds for following phase(s). Following this analysis both the lower word level phase and the clitic phase will have already been parsed into the prosodic structure by the time linearization and the second step of lexical insertion occurs for the higher phase containing the past tense. The suffix feature on the past tense would have to have the ability to interrupt a prosodic word and see the boundary between the clitic and its host and a stage in the derivation where morphological structure no longer exists for the lower word-level phase. This is undesirable as gives too much power to the suffix feature and requires modifications to the model to account for.	page 5
+§2.1	Bailey Trotter	note	Instead, these patterns are easily accounted for if the past tense enters the derivation in the same phase as the clitics. Between the first and second stages of lexical insertion linearisation occurs; morphological features are satisfied from the bottom of the tree, proceeding upwards. The suffix features on the past tense are satisfied first, and it attaches to the right of the verb. The derivation continues upwards and the enclitic feature of the possessive enclitic is satisfied in the absence of a higher head via downward movement and attachment to a lower head. In a derivation with no pre- predicative auxiliary, the possessive subject encliticizes to the verb, attaching to the right of the past tense suffix. The past tense will then be adjacent to a possessive subject enclitic at the second step of lexical insertion and a more specified allomorph of the past tense is selected, deriving the surface allomorphy without giving too much power to the suffix feature.	page 6
+§2.2	Bailey Trotter	heading	2.2 Transparency to subject clitic allomorph selection (Interaction #2)	page 6
+§2.2	Bailey Trotter	note	The indicative subject clitics have two main forms, a full form (7) which directly follows a weak root — where the only vowel is schwa — and a reduced form (8) which follows any other root.6	page 6
+Table 2	Bailey Trotter	note	Table 2: Full and reduced forms of the indicative subject clitics (Huijsmans 2023)	page 6, the caption
+Table 2	Bailey Trotter	note	Full | Reduced	page 6, the column heads
+Table 2 1SG	ʔayʔaǰuθəm	cited affix	čan	page 6, the full form
+Table 2 1SG	ʔayʔaǰuθəm	cited affix	č	page 6, the reduced form
+Table 2 2SG	ʔayʔaǰuθəm	cited affix	čaxʷ	page 6, the full form
+Table 2 2SG	ʔayʔaǰuθəm	cited affix	čxʷ	page 6, the reduced form
+Table 2 1PL	ʔayʔaǰuθəm	cited affix	cat	page 6, the full form
+Table 2 1PL	ʔayʔaǰuθəm	cited affix	št	page 6, the reduced form
+Table 2 2PL	ʔayʔaǰuθəm	cited affix	čap	page 6, one cell centered over both columns
+Table 2 3	ʔayʔaǰuθəm	cited affix	Ø	page 6, one cell centered over both columns
+§2.2	ʔayʔaǰuθəm	cited affix	=a	page 8, the polar question clitic
+(7) line 1	ʔayʔaǰuθəm	transcription	məq̓čɛn.	page 6, engine language
+(7) line 2	ʔayʔaǰuθəm	segmentation	məq̓=čan	page 6, engine language
+(7) line 3	ʔayʔaǰuθəm	gloss	get.full=1SG.SBJ	page 6, engine english
+(7) line 4	Bailey Trotter	translation	‘I’m full.’	page 6, engine english
+(7) line 4	Bailey Trotter	citation	[Huijsmans 2023, 82]	the tag or source at the right of the translation
+(8) line 1	ʔayʔaǰuθəm	transcription	hoyč.	page 6, engine english
+(8) line 2	ʔayʔaǰuθəm	segmentation	huǰ=č	page 6, engine language
+(8) line 3	ʔayʔaǰuθəm	gloss	finish=1SG.SBJ	page 6, engine english
+(8) line 4	Bailey Trotter	translation	‘I’m done.’	page 6, engine english
+(8) line 4	Bailey Trotter	citation	[Huijsmans 2023, 82]	the tag or source at the right of the translation
+footnote 6	Bailey Trotter	note	6 There are additional forms of the reduced subject clitics which occur only when adjacent to the future clitic səm.	page 6, footnote
+footnote 6	ʔayʔaǰuθəm	cited affix	səm	page 6, footnote 6, the future clitic
+§2.2	Bailey Trotter	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, the language of the paper, its Mainland dialect
+§2.2	Bailey Trotter	notation	CəC	page 7, a root of consonant, schwa, consonant
+§2.2	Bailey Trotter	note	I follow Huijsmans’ (2023) account of indicative subject clitic allomorphy.7 Huijsmans treats the reduced from of the subject clitics as the more specified allomorphs which are selected whenever the conditioning environment is met. The conditioning environment for the reduced form is a host that is a well-formed prosodic word.8 Huijsmans follows Blake’s (2000) analysis of minimality in ʔayʔaǰuθəm, which states that both bimoraic and bisyllabic roots satisfy a minimality constraint. Blake notes that CəC roots violate minimality in order to satisfy a higher ranked constraint, as only coda consonants are moraic (Hayes 1989), and Blake analyzes schwa as weightless. Huijsmans also assumes that “the reduced form of the first person singular subject clitic does not bear a mora, since it is a single consonant not associated with a syllable” (p. 84) — I assume that here as well. When an indicative subject clitic undergoes the second stage of lexical insertion, the more specified, reduced form of the subject clitic will only be selected if the clitic’s host contains at least one binary foot. In a derivation where a subject clitic attaches to a monosyllabic schwa root, the conditions will not be met, and the full form of the subject clitic will be selected. This process is shown in (9) and (10) — repeated from (7) and (8) above.	page 7
+(9a) line 1	ʔayʔaǰuθəm	transcription	məq̓	page 7, engine residue
+(9b) line 1	Bailey Trotter	rule	(məq̓μ)*Ft → not a well-formed foot	page 7, engine english, the author's footing of the root
+(9c) line 1	Bailey Trotter	rule	(məq̓μ=č)*Ft → not a well-formed foot	page 7, engine english, the author's footing of the root
+(9d) line 1	Bailey Trotter	rule	(məq̓μ=čaμnμ)Ft → a well-formed foot (bisyllabic)	page 7, engine english, the author's footing of the root
+(10a) line 1	ʔayʔaǰuθəm	transcription	huǰ	page 7, engine residue
+(10b) line 1	Bailey Trotter	rule	(huμǰμ)Ft → a well-formed foot (bimoraic)	page 7, engine english, the author's footing of the root
+(10c) line 1	Bailey Trotter	rule	(huμǰμ=č)Ft → a well-formed foot (bimoraic)	page 7, engine english, the author's footing of the root
+§2.2	Bailey Trotter	note	Suffixes that are spelled out as part of the w-span are integrated into the phonological word and are taken into account when selecting the correct allomorph of the subject clitic, as shown in (11b).	page 7
+(11a) line 1	ʔayʔaǰuθəm	transcription	q̓ətxʷčɛn.	page 7, engine language
+(11a) line 2	ʔayʔaǰuθəm	segmentation	q̓ətxʷ=čan	page 7, engine language
+(11a) line 3	ʔayʔaǰuθəm	gloss	burn=1SG.SBJ	page 7, engine english
+(11a) line 4	Bailey Trotter	translation	‘I got burnt.’	page 7, engine english
+(11b) line 1	ʔayʔaǰuθəm	transcription	q̓ətxʷaʔamč.	page 7, engine language
+(11b) line 2	ʔayʔaǰuθəm	segmentation	q̓ətxʷ-aʔam=č	page 7, engine language
+(11b) line 3	ʔayʔaǰuθəm	gloss	burn-ACT.INTR=1SG.SBJ	page 7, engine english
+(11b) line 4	Bailey Trotter	translation	‘I burn (s.t.).’	page 7, engine residue
+(11b) line 4	Bailey Trotter	citation	[Watanabe 2003, 187]	the tag or source at the right of the translation
+footnote 7	Bailey Trotter	note	7 As Huijsmans (2023) notes (footnote 2, p. 84) there are exceptions to the patterns of indicative subject clitic selection, with reduplication in particular. I have also noticed some roots where the form of the subject clitic appears to be variable, and both the full and reduced forms are used with the same root. The current analysis — which I also assume — is likely a simplified account of the pattern. More research is needed.	page 7, footnote
+footnote 8	Bailey Trotter	note	8 Gloria Mellesmoen (p.c.) points out that an alternative analysis would be to say that the full form of the subject clitics are selected when output of the w-span (i.e. the prosodic word) is monomoraic. In that case, the reduced from of the subject clitics would be the more specified form.	page 7, footnote
+§2.2	Bailey Trotter	note	Unlike other suffixes, the past tense suffix acts as if it is “transparent” and does not impact the selection of subject clitic allomorph. When the past tense and a subject clitic follow a weak root, as in (12b), the full form of the subject clitic is still selected despite the intervening past tense suffix.	page 8
+(12a) line 1	ʔayʔaǰuθəm	transcription	č̓əq̓tčɛn səm tᶿ ʔayɛ.	page 8, engine language
+(12a) line 2	ʔayʔaǰuθəm	segmentation	č̓əq̓-t=čan=səm tᶿ-ʔayaʔ	page 8, engine language
+(12a) line 3	ʔayʔaǰuθəm	gloss	fence-CTR=1SG.SBJ=FUT 1SG.POSS-house	page 8, engine english
+(12a) line 4	Bailey Trotter	translation	‘I will fence in my house.’	page 8, engine english
+(12a) line 4	Bailey Trotter	citation	[sf | BW.2025/04/14]	the tag or source at the right of the translation
+(12b) line 1	ʔayʔaǰuθəm	transcription	č̓əq̓tuɬčɛn tᶿ ʔayɛ.	page 8, engine language
+(12b) line 2	ʔayʔaǰuθəm	segmentation	č̓əq̓-t-uɬ=čan tᶿ-ʔayaʔ	page 8, engine language
+(12b) line 3	ʔayʔaǰuθəm	gloss	fence-CTR-PST=1SG.SBJ 1SG.POSS-house	page 8, engine english
+(12b) line 4	Bailey Trotter	translation	‘I fenced in my house.’	page 8, engine english
+(12b) line 4	Bailey Trotter	citation	[Huijsmans 2023, 101]	the tag or source at the right of the translation
+§2.2	Bailey Trotter	note	It is also not the case that the full form of the subject clitic is always selected when adjacent to the past tense. The reduced form of the subject clitic will always be selected with a strong root, regardless of whether the past tense is present. The reduced form is also selected if the past tense occurs with a weak root and other suffixes — specifically suffixes which have a vowel (13).	page 8
+(13) line 1	ʔayʔaǰuθəm	transcription	...kʷʊnɛtoɬč šɛtᶿ θo ʔɛmaš-oɬ škʷiǰoɬ...	page 8, engine language
+(13) line 2	ʔayʔaǰuθəm	segmentation	k̓ʷən-í-t-uɬ=č šə=tᶿ=θu ʔimaš-uɬ škʷiǰuɬ	page 8, engine language
+(13) line 3	ʔayʔaǰuθəm	gloss	see-STAT-CTR-PST=1SG.SBJ DET=1SG.POSS=go walk-PST morning	page 8, engine english
+(13) line 4	Bailey Trotter	translation	‘...I saw her when I walked this morning...’	page 8, engine english
+(13) line 4	Bailey Trotter	citation	[Huijsmans 2023, 222]	the tag or source at the right of the translation
+§2.2	Bailey Trotter	note	I argue against an explanation of the apparent transparency of the past tense that appeals to late insertion. Instead, the pattern in (12b) can be easily accounted for if the past tense enters the derivation and undergoes both stages of lexical insertion at the same time as the clitics. Only once phonological content has been inserted for every lexical item in a phase is a prosodic word formed. The past tense will already have phonological content inserted at the point of allomorph selection for the subject clitic, but crucially, it will not yet be integrated into the phonological word. Although the past tense precedes the subject clitic in the derivation, the past tense is not factored into the prosodic weight of the host when selecting the allomorph of the subject clitic.	page 8
+§2.2	Bailey Trotter	note	This still leaves the selection of the reduced form of the subject clitic following the polar question clitic =a unaccounted for, as the reduced form of the subject clitic is always selected following =a (14a).	page 8
+(14a) line 1	ʔayʔaǰuθəm	transcription	qəhtačxʷʊm tə θɛwθɛtən?	page 8, engine language
+(14a) line 2	ʔayʔaǰuθəm	segmentation	qəh-t=a=čxʷ=əm tə=θiwθitən	page 8, engine language
+(14a) line 3	ʔayʔaǰuθəm	gloss	lift-CTR=Q=2SG.SBJ=FUT DET=table	page 8, engine english
+(14a) line 4	Bailey Trotter	translation	‘Are you going to lift the table?’	page 8, engine english
+(14b) line 1	ʔayʔaǰuθəm	transcription	qəhtčɛn səm θʊkʷnačtən.	page 8, engine language
+(14b) line 2	ʔayʔaǰuθəm	segmentation	qəh-t=čan=səm θəkʷnačtən	page 8, engine language
+(14b) line 3	ʔayʔaǰuθəm	gloss	lift-CTR=1SG.SBJ=FUT DET=chair	page 8, engine english
+(14b) line 4	Bailey Trotter	translation	‘I’m going to lift the chair.’	page 8, engine english
+(14b) line 4	Bailey Trotter	citation	[Huijsmans 2023, 87]	the tag or source at the right of the translation
+§2.2	Bailey Trotter	note	I argue contrary to Huijsmans (2023) that the selection of the reduced form of the subject clitic following the polar question clitic must be specified in the lexical entry of the subject clitics. Huijsmans uses the selection of the reduced form following the polar question clitic as evidence that the subject clitics are sensitive to the prosodic weight of the host and the reduced form is selected following the question clitic because the polar question adds weight to the host. As each phase is parsed into a prosodic word only once the entire phase has undergone the second step of lexical insertion, this cannot be the case, and the selection of the reduced form of the subject following the question clitic must be lexically specified instead. The lexical entry for the first person singular subject clitic — adapted from Huijsmans (2023, p. 90) — is shown in (15).	page 8
+(15) line 1	Bailey Trotter	note	allomorph environment	page 9, the column heads of the lexical entry of 1SG.SBJ
+(15) line 2	ʔayʔaǰuθəm	cited affix	/čan/	page 9, 1SG.SBJ ⇔ /čan/, the general allomorph
+(15) line 3	ʔayʔaǰuθəm	cited affix	/č/	page 9, 1SG.SBJ ⇔ /č/, selected in the environment ]ω__ or Q__
+(15) line 4	ʔayʔaǰuθəm	cited affix	/tᶿ/	page 9, 1SG.SBJ ⇔ /tᶿ/, selected in the environment ]ω__FUT or Q__FUT
+§2.3	ʔayʔaǰuθəm	cited affix	=k̓ʷa	page 9, the reportative clitic
+§2.3	ʔayʔaǰuθəm	cited affix	-Ø	page 9, the null allomorph of the third person ergative
+§2.3	Bailey Trotter	heading	2.3 Transparency to ergative allomorph selection (Interaction #3)	page 9
+§2.3	Bailey Trotter	note	The third person ergative suffix -as is usually obligatory on transitive predicates in indicative clauses with a third person subject (Huijsmans 2023), but does not surface when the ergative is expected to precede the reportative =k̓ʷa, or the future clitic = səm. Following Huijsmans (2023) I assume that there are two allomorphs of the third person ergative suffix: a null form -Ø and -as. I follow Huijsmans in analyzing the null form as a lexically specified allomorph that is selected during the second stage of lexical insertion if the ergative is adjacent to either the future or the reportative clitic. The pattern is shown in (16) with the future clitic səm. The ergative cannot occur before the future clitic, as in (16c).	page 9
+§2.3	ʔayʔaǰuθəm	cited affix	-as	page 9, the third person ergative suffix
+(16a) line 1	ʔayʔaǰuθəm	transcription	nəpišɛs.	page 9, engine language
+(16a) line 2	ʔayʔaǰuθəm	segmentation	nəp-iš-as	page 9, engine language
+(16a) line 3	ʔayʔaǰuθəm	gloss	put.in-TR-3ERG	page 9, engine english
+(16a) line 4	Bailey Trotter	translation	‘He puts it in.’	page 9, engine english
+(16b) line 1	ʔayʔaǰuθəm	transcription	nəpiš səm.	page 9, engine language
+(16b) line 2	ʔayʔaǰuθəm	segmentation	nəp-iš-Ø=səm	page 9, engine language
+(16b) line 3	ʔayʔaǰuθəm	gloss	put.in-TR-3ERG=FUT	page 9, engine english
+(16b) line 4	Bailey Trotter	translation	‘He will put it in.’	page 9, engine english
+(16c) line 1	ʔayʔaǰuθəm	transcription	*nəpišɛs səm.	page 9, engine language
+(16c) line 2	ʔayʔaǰuθəm	segmentation	nəp-iš-as=səm	page 9, engine language
+(16c) line 3	ʔayʔaǰuθəm	gloss	put.in-TR-3ERG=FUT	page 9, engine english
+(16c) line 3	Bailey Trotter	citation	[Watanabe 2003, 57]	the source at the right of the example
+§2.3	Bailey Trotter	note	The third person ergative obligatorily occurs as an overt morpheme when a pre-predicative element is present (17), and it is no longer adjacent to the clitics which trigger this alternation. Huijsmans’ (2023, p. 95) lexical entry for the ergative is shown in (18).	page 9
+(17) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷa q̓ʷɛtstomšɛs.	page 9, engine language
+(17) line 2	ʔayʔaǰuθəm	segmentation	hu=k̓ʷa q̓ʷit-stu-mš-as	page 9, engine language
+(17) line 3	ʔayʔaǰuθəm	gloss	go=RPT go.to.beach-CAUS-1SBJ+OBJ-3ERG	page 9, engine english
+(17) line 4	Bailey Trotter	translation	‘He’s gonna take me down to the beach.’	page 9, engine english
+(17) line 4	Bailey Trotter	citation	[Kroeber 2002, 25]	the tag or source at the right of the translation
+(18) line 1	Bailey Trotter	note	allomorph environment	page 10, the column heads of the lexical entry of 3ERG
+(18) line 2	ʔayʔaǰuθəm	cited affix	/as/	page 10, 3ERG ⇔ /as/, the general allomorph
+(18) line 3	ʔayʔaǰuθəm	cited affix	Ø	page 10, 3ERG ⇔ Ø, selected in the environment __{RPT/FUT/3POSS/3SBJV}
+§2.3	Bailey Trotter	note	The problem in relation to the past tense is as follows; even when the past tense intervenes between the ergative and either of the two clitics that trigger the selection of the null ergative allomorph, the null allomorph is still selected, despite the conditions for selection not being met (19).	page 10
+(19) line 1	ʔayʔaǰuθəm	transcription	yɩmʊxʷoɬ k̓ʷa kʷ χaǰis. k̓ʷakʷa ƛəpxʷawušiɩn.	page 10, engine language
+(19) line 2	ʔayʔaǰuθəm	segmentation	yəm-əxʷ-Ø-uɬ=k̓ʷa kʷ=x̌aǰəys k̓ʷa=kʷa=ƛəpxʷ-awušin	page 10, engine language
+(19) line 3	ʔayʔaǰuθəm	gloss	kick-NCTR-3ERG-PST=RPT DET=rock RPT=CLD=get.broken-toe	page 10, engine english
+(19) line 4	Bailey Trotter	translation	‘He accidentally kicked a rock (I heard). He broke his toe.’	page 10, engine english
+(19) line 4	Bailey Trotter	citation	[Huijsmans 2023, 101]	the tag or source at the right of the translation
+§2.3	Bailey Trotter	note	The selection of the null ergative allomorph cannot be attributed to adjacency between the past tense and the ergative, as the past and the ergative can freely co-occur in other contexts, such as in (20).	page 10
+(20) line 1	ʔayʔaǰuθəm	transcription	ho k̓ʷʊtasoɬ sǰɛsoɬ.	page 10, engine residue
+(20) line 2	ʔayʔaǰuθəm	segmentation	hu k̓ʷə[n]-t-as-uɬ sǰasuɬ	page 10, engine language
+(20) line 3	ʔayʔaǰuθəm	gloss	go see-CTR-3ERG-PST yesterday	page 10, engine english
+(20) line 4	Bailey Trotter	translation	‘He went to see her yesterday.’	page 10, engine english
+(20) line 4	Bailey Trotter	citation	[Huijsmans 2023, 100]	the tag or source at the right of the translation
+§2.3	Bailey Trotter	note	To account for the present problem the past tense must still enter the derivation in the same phase as the clitics, but unlike the previous two sections additional analysis is required to derive the correct surface form of the ergative. I argue that, i) both the ergative and the past tense suffixes are part of the upper (clitic) phase and undergo lexical insertion along with the clitics, and ii) the past tense and the ergative undergo metathesis — akin to Distributed Morphology’s Local Dislocation (Halle & Marantz 1993) — following the second stage of lexical insertion. This metathesis comes after both stages of lexical insertion, but happens before other regular phonological operations. The underlying order of the ergative and the past tense is then opposite to the order seen on the surface. The apparent transparency of the past tense in examples like (19) is a result of the fact that the past tense precedes the ergative suffix at the time of allomorph selection. The ergative suffix is adjacent to the clitic which triggers the selection of its null allomorph during the second stage of lexical insertion, even in a derivation where the past tense is present.	page 10
+footnote 9	Bailey Trotter	note	9 Note that the third person indicative subject is always null and is not included in these derivations.	page 10, footnote
+§2.3	Bailey Trotter	note	The following examples show how the surface ordering of the ergative and the past tense is derived. The first derivation (21) — based on (20) above — shows what happens when there are no clitics in the derivation. The second derivation (22) — based on (19) above — shows how the reportative clitic triggers the selection of the null ergative allomorph prior to the metathesis between the ergative and the past tense.9	page 10
+(21) line 1	Bailey Trotter	note	No clitics	page 11, the caption
+(21a) line 1	ʔayʔaǰuθəm	segmentation	hu k̓ʷə[n]-t-as-uɬ	page 11
+(21a) line 2	ʔayʔaǰuθəm	gloss	go see-CTR-3ERG-PST	page 11
+(21a) line 3	Bailey Trotter	translation	‘He went to see her... (yesterday).’	page 11
+(21b) line 1	Bailey Trotter	rule	ERG+SUFFIX PST+SUFFIX [hu]ω [kʷət]ω	page 11, the step, first-step of lexical insertion (L-match)
+(21c) line 1	Bailey Trotter	rule	[hu]ω [kʷət]ω-PST-ERG	page 11, the step, linearization
+(21d) line 1	Bailey Trotter	rule	[hu]ω [kʷət]ω-uɬ-as	page 11, the step, second-step of lexical insertion (Insert), allomorph selection
+(21e) line 1	Bailey Trotter	rule	[hu]ω [kʷət-as-uɬ]ω	page 11, the step, metathesis
+(22) line 1	Bailey Trotter	note	With clitics	page 11, the caption
+(22a) line 1	ʔayʔaǰuθəm	segmentation	yəm-əxʷ-Ø-uɬ=k̓ʷa...	page 11
+(22a) line 2	ʔayʔaǰuθəm	gloss	kick-NCTR-ERG-PST=RPT	page 11
+(22a) line 3	Bailey Trotter	translation	‘He accidentally kicked... (a rock).’	page 11
+(22b) line 1	Bailey Trotter	rule	RPT+ENCL ERG+SUF PST+SUF [yəm-əxʷ]ω	page 11, the step, first-step of lexical insertion (L-match)
+(22c) line 1	Bailey Trotter	rule	[yəm-əxʷ]ω-PST-ERG=RPT	page 11, the step, linearization
+(22d) line 1	Bailey Trotter	rule	[yəm-əxʷ]ω-uɬ-Ø=k̓ʷa	page 11, the step, second-step of lexical insertion (Insert), allomorph selection
+(22e) line 1	Bailey Trotter	rule	[yəm-əxʷ-Ø-uɬ=k̓ʷa]ω	page 11, the step, metathesis
+§2.3	Bailey Trotter	note	The post-metathesis surface ordering of the past tense and the ergative is seen in both environments where the past tense and the non-null allomorph of the ergative co-occur — in object centred relative clauses (23) and following the non-control transitivizer (24) (Watanabe 2003, Huijsmans 2023).	page 11
+(23) line 1	ʔayʔaǰuθəm	transcription	toχʷnɛxʷč [šɛ=[θo čɛgatəxʷoɬ]RC]NP	page 11, engine language, set as a bracketing of the relative clause
+(23) line 2	ʔayʔaǰuθəm	segmentation	təx̌-n<i>xʷ=č šə=θu čag-at-axʷ-uɬ	page 11, engine language
+(23) line 3	ʔayʔaǰuθəm	gloss	know-NCTR<STAT>=1SG.SBJ DET=go help=CTR=2SG.ERG=PST	page 11, engine english
+(23) line 4	Bailey Trotter	translation	‘I know the one you went and helped.’	page 11, the translation of (23)
+(23) line 4	Bailey Trotter	citation	[Watanabe 2003, 131]	the tag or source at the right of the translation
+(24) line 1	ʔayʔaǰuθəm	transcription	təqʊxʷanoɬ šɛ ʔɛmɛn	page 11, engine language
+(24) line 2	ʔayʔaǰuθəm	segmentation	təq-əxʷ-an-uɬ šə=ʔimin	page 11, engine language
+(24) line 3	ʔayʔaǰuθəm	gloss	get.closed-NCTR-1SG.ERG DET=door	page 11, engine english
+(24) line 4	Bailey Trotter	translation	‘I managed to close the door.’	page 11, engine english
+(24) line 4	Bailey Trotter	citation	[sf | BW.2025/05/16]	the tag or source at the right of the translation
+§2.4	Bailey Trotter	heading	2.4 Subjunctive clitic ordering paradox (Interaction #4)	page 12
+§2.4	Bailey Trotter	note	Subjunctive subject clitics primarily occur in subordinate clauses, including clauses embedded under negation.10 The past tense suffix always occurs following the subjunctive subject enclitics when they occur on the same predicate (25). This is entirely unexpected in nearly all theories of clitic placement, which use the inability to host suffixes as one of the defining characteristics of clitic-hood (Zwicky and Pullum 1983).	page 12
+(25) line 1	ʔayʔaǰuθəm	transcription	xʷaʔč kʷʊnɛθotaʔnoɬ.	page 12, engine language
+(25) line 2	ʔayʔaǰuθəm	segmentation	xʷaʔ=č k̓ʷən-í=θut=an-uɬ	page 12, engine language
+(25) line 3	ʔayʔaǰuθəm	gloss	NEG=1SG.SBJ see-STAT-CTR.REFL-1SG.SBJV-PST	page 12, engine english
+(25) line 4	Bailey Trotter	translation	‘I wasn’t careful.’	page 12, engine english
+(25) line 4	Bailey Trotter	citation	[Kroeber 2002, 27]	the tag or source at the right of the translation
+§2.4	Bailey Trotter	note	The main evidence that subjunctive subject markers are enclitics is that they invariably encliticize to a pre-predicative auxiliary when one is present (26).	page 12
+(26) line 1	ʔayʔaǰuθəm	transcription	xʷaʔč qʷol̓an hɛwtoɬ.	page 12, engine language
+(26) line 2	ʔayʔaǰuθəm	segmentation	xʷaʔ=č qʷəl̓=an hiwt-uɬ	page 12, engine language
+(26) line 3	ʔayʔaǰuθəm	gloss	NEG=1SG.SBJ come=1SG.SBJV get.home-PST	page 12, engine english
+(26) line 4	Bailey Trotter	translation	‘I didn’t come home.’	page 12, engine english
+(26) line 4	Bailey Trotter	citation	[Kroeber 2002, 31]	the tag or source at the right of the translation
+§2.4	ʔayʔaǰuθəm	cited form	=ʔut	page 12
+§2.4	ʔayʔaǰuθəm	cited form	=č̓a	page 12
+§2.4	Bailey Trotter	note	I argue that the subjunctive subject clitic and the past tense must undergo the same post-Insert, pre- phonological derivation (e.g., a constraint-based grammar as in Mellesmoen 2025) metathesis as proposed for ergative and the past tense in the previous section. Evidence for this is supported by the ordering of the subjunctive clitic and the past tense when other clitics are present. The past tense suffix splits the clitic string, occurring between the subjunctive and the exclusive clitic =ʔut (27a), and the subjunctive and the inferential clitic =č̓a (28a).	page 12
+(27a) line 1	ʔayʔaǰuθəm	transcription	namsaga qʷol̓əsoɬʔot kʷ paʔ a t̓ᶿok̓.	page 12, engine language
+(27a) line 2	ʔayʔaǰuθəm	segmentation	nəm̓saʔga qʷəl̓=as-uɬ=ʔut kʷ=paʔa t̓ᶿuk̓ʷ	page 12, engine language
+(27a) line 3	ʔayʔaǰuθəm	gloss	wonder come=3.SBJV-PST=EXCL DET=one day	page 12, engine english
+(27a) line 4	Bailey Trotter	translation	‘I wonder if she only came for one day.’	page 12, engine english
+(27a) line 4	Bailey Trotter	citation	[sf | BW.2025/04/14]	the tag or source at the right of the translation
+(27b) line 1	ʔayʔaǰuθəm	transcription	*namsaga qʷol̓oɬəsʔot kʷ paʔa t̓ᶿok̓.	page 12, engine language
+(27b) line 2	ʔayʔaǰuθəm	segmentation	nəm̓saʔga qʷəl̓-uɬ=as=ʔut kʷ=paʔa t̓ᶿuk̓ʷ	page 12, engine language
+(27b) line 3	ʔayʔaǰuθəm	gloss	wonder come-PST=3.SBJV=EXCL DET=one day	page 12, engine english
+(27b) line 3	Bailey Trotter	citation	[sf | BW.2025/04/14]	the tag at the right of the example
+footnote 10	Bailey Trotter	note	10 Negation in ʔayʔaǰuθəm is predicative and takes a subjunctive complement clause. Subject inflection is marked in both clauses. A subject clitic (which is typically indicative) encliticizes to the negative predicate and a subjunctive subject clitic occurs in the subordinate clause (Kroeber 1999, Watanabe 2003, Davis 2005).	page 12, footnote
+(28a) line 1	ʔayʔaǰuθəm	transcription	gayɛtᶿəm Kiana, ga č̓ɩmč̓ɩməməsoɬ č̓ɛ	page 13, engine language
+(28a) line 2	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ+səm Kiana ga=č̓əm~č̓əm-əm=as-uɬ=č̓a	page 13, engine language
+(28a) line 3	ʔayʔaǰuθəm	gloss	ask-CTR-1SG.SBJ+FUT Kiana COMP=CHAR~cold-MD=3.SBJV-PST=INFER	page 13, engine english
+(28a) line 4	ʔayʔaǰuθəm	transcription	č̓ɛnos	page 13, engine language
+(28a) line 5	ʔayʔaǰuθəm	segmentation	č̓anu=s	page 13, engine language
+(28a) line 6	ʔayʔaǰuθəm	gloss	dog=3SG.POSS	page 13, engine english
+(28a) line 7	Bailey Trotter	translation	‘I am going to ask Kiana if her dog was cold.’	page 13, engine english
+(28a) line 7	Bailey Trotter	citation	[sf | BW.2025/05/16]	the tag or source at the right of the translation
+(28b) line 1	ʔayʔaǰuθəm	transcription	*gayɛtᶿəm Kiana, ga č̓ɩmč̓ɩməmoɬəs č̓ɛ	page 13, engine language
+(28b) line 2	ʔayʔaǰuθəm	segmentation	gay-at=tᶿ+səm Kiana ga=č̓əm~č̓əm-əm-uɬ=as=č̓a	page 13, engine language
+(28b) line 3	ʔayʔaǰuθəm	gloss	ask-CTR-1SG.SBJ+FUT Kiana COMP=CHAR~cold-MD-PST=3.SBJV=INFER	page 13, engine english
+(28b) line 4	ʔayʔaǰuθəm	transcription	č̓ɛnos	page 13, engine language
+(28b) line 5	ʔayʔaǰuθəm	segmentation	č̓anu=s	page 13, engine language
+(28b) line 6	ʔayʔaǰuθəm	gloss	dog=3SG.POSS	page 13, engine english
+(28b) line 7	Bailey Trotter	citation	[sf | BW.2025/05/16]	the tag at the right of the example
+§2.4	Bailey Trotter	note	As described in the previous sections, between the first and second stages of lexical insertion the morphological features on each lexical item are satisfied from the bottom of the tree, proceeding upwards. In the derivation for (27a) the suffix feature of the past tense is satisfied first, and the past tense is suffixed to the verb. Following the suffixation of the past tense the derivation proceeds up the tree to the clitics. The enclitic feature of the exclusive clitic is satisfied first, and it encliticizes to the preceding head. In this case the exclusive clitic feature is satisfied via attachment to the higher subjunctive clitic. To satisfy its own enclitic feature the subjunctive must undergo downward movement and encliticize to the verb, attaching outside the past tense suffix. The clitic string moves as a single morphological constituent and the exclusive clitic moves downwards with the subjunctive clitic. During the second stage of lexical insertion phonological content is inserted and morphological features are no longer visible. At this stage, there is nothing binding the clitic string together, and nothing that differentiates a clitic from a suffix. The past tense and subjunctive enclitic metathesize, deriving the surface ordering in which the past tense splits the subjunctive subject from the rest of the clitic string.	page 13
+§2.4	Bailey Trotter	note	Exactly what triggers the metathesis is still unclear, and it is likely that it is simply a predictable part of the morphology of the language. What is important is that both the subjunctive clitic and the ergative suffix that undergo this metathesis with the past tense share the same phonological form (see Table 3).	page 13
+Table 3	Bailey Trotter	note	Table 3: The subjunctive and ergative subjects (adapted from Watanabe 2003, p. 52)	page 13, the caption
+Table 3	Bailey Trotter	note	SUBJUNCTIVE | ERGATIVE	page 13, the column heads
+Table 3 1SG	ʔayʔaǰuθəm	cited affix	=an	page 13, the subjunctive subject clitic
+Table 3 1SG	ʔayʔaǰuθəm	cited affix	-an	page 13, the ergative subject suffix
+Table 3 1PL	ʔayʔaǰuθəm	cited affix	=at	page 13, the subjunctive subject clitic
+Table 3 1PL	ʔayʔaǰuθəm	cited affix	-at	page 13, the ergative subject suffix
+Table 3 2SG	ʔayʔaǰuθəm	cited affix	=axʷ	page 13, the subjunctive subject clitic
+Table 3 2SG	ʔayʔaǰuθəm	cited affix	-axʷ	page 13, the ergative subject suffix
+Table 3 2PL	ʔayʔaǰuθəm	cited affix	=ap	page 13, the subjunctive subject clitic
+Table 3 2PL	ʔayʔaǰuθəm	cited affix	-ap	page 13, the ergative subject suffix
+Table 3 3	ʔayʔaǰuθəm	cited affix	=as	page 13, the subjunctive subject clitic
+Table 3 3	ʔayʔaǰuθəm	cited affix	-as	page 13, the ergative subject suffix
+§2.4	Bailey Trotter	note	The morphological features which distinguish the subjunctive and ergative from each other — including the enclitic and suffix features — will have disappeared following the second stage of lexical insertion. At the stage in which morphological metathesis occurs the subjunctive and the ergative are identical, and must be treated in the same way by the grammar. Although it is possible that there are two entirely separate instances of metathesis which coincidentally apply to morphemes with the same phonological shape, such an analysis misses the generalization that the subjunctive and the ergative subjects are phonologically identical and are automatically treated in the same way in the present model. An analysis which argues for two separate instances of metathesis would require an additional mechanism which would distinguish phonologically identical morphemes as this stage. Such a mechanism is not needed for any other area of the grammar.	page 13
+§3	Bailey Trotter	heading	3 Conclusion	page 14
+§3	Bailey Trotter	note	I have argued for an account of the past tense suffix which expands the model of clitic linearization developed by Huijsmans (2023) and Davis and Huijsmans (2024) to account for the distribution of the past tense without giving too much power to the suffix feature or requiring undesirable adaptations to the model. When the past tense is analyzed as part of the clitic phase, the correct surface allomorphy and linear ordering with respect to the surrounding suffixes and clitics can be derived. Crucially, the current analysis reduces four exceptional patterns involving the past tense and clitics to only two: i) the past tense allomorphs which occur adjacent to possessive clitics, and the “transparency” of the past tense with respect to indicative subject selection, are both accounted for by analyzing the past tense suffix as part of the clitic phase; and ii) the “transparency” of the past tense suffix to ergative allomorph selection, and the paradoxical ordering between the subjunctive subject clitic and the past tense suffix, are both accounted for via metathesis. Both claims are supported by new data which shows that the past tense is able to split the clitic string in subjunctive clauses.	page 14
+§3	Bailey Trotter	note	The strength of the current analysis is that it does not require significant modifications to the present model of clitic linearisation and lexical insertion to account for the behaviours of one suffix. The biggest drawback to Huijsmans’ late-insertion analysis of the past tense — which she identifies herself — is that it requires a suffix to be able to ‘see’ the boundary between a clitic and its host in order to derive the attested surface ordering. There is no other evidence in the language which suggests that such an adaptation to the model would be justified. Instead of adapting the model to account for the exceptionality past tense, the behaviour of the past tense and its interactions with clitics becomes entirely predictable within the established model when the past is treated as part of the clitic phase. Although the exceptional patterns involving the past tense and clitics initially appear idiosyncratic and unrelated, I have shown that a unified analysis of all four patterns is available when the past tense is analyzed as a suffix that is part of the clitic phase.	page 14
+references	Bailey Trotter	heading	References	page 14
+references	Bailey Trotter	reference	Blake, Susan J. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. PhD thesis, University of British Columbia.	page 14
+references	Bailey Trotter	reference	Brody, Michael. 2000. Mirror theory: Syntactic representation in perfect syntax. Linguistic Inquiry, 31, 29–56.	page 14
+references	Bailey Trotter	reference	Davis, Henry. 2005. On the syntax and semantics of negation in Salish. International Journal of American Linguistics, 71, 1–55.	page 14
+references	Bailey Trotter	reference	Davis, Henry & Marianne Huijsmans. 2024. Clitics and coordination in two Salish languages. In Proceedings of the West Coast Conference on Formal Linguistics (WCCFL) 39, edited by Robert Autry, Gabriela de la Cruz, Luis A. Irizarry Figueroa, Kristina Mihajlovic, Tianyi Ni, Ryan Smith, and Heidi Harley, 504–511. Somerville, MD: Cascadilla Press.	page 14
+references	Bailey Trotter	reference	Halle, Morris & Marantz, Alec. 1993. Distributed morphology and the pieces of inflection. In The view from the building 20: Essays in linguistics in honor of Sylvain Bromberger, edited by Ken Hale and Samuel Jay Keyser, 111–176. MIT Press.	page 15
+references	Bailey Trotter	reference	Hayes, Bruce. 1989. Compensatory lengthening in moraic phonology. Linguistic Inquiry, 20:2, 253–306.	page 15
+references	Bailey Trotter	reference	Huijsmans, Marianne. 2023. Second-position clitics, from morphosyntax to semantics: The ʔayʔaǰuθəm (Comox-Sliammon) perspective. PhD thesis, University of British Columbia.	page 15
+references	Bailey Trotter	reference	Huijsmans, Marianne. 2024. On the absence of evidence for nominal tense: The ʔayʔaǰuθəm past marker -oɬ. In The title of this volume is shorter than its contributions are allowed to be: Papers in honour of Hotze Rullmann, edited by M Ryan Bochnak, Eva Csipak, Lisa Matthewson, Marcin Morzycki, and Daniel K. E. Reisinger, 197–215. Vancouver, BC: UBC Working Papers in Linguistics.	page 15
+references	Bailey Trotter	reference	Kroeber, Paul. 1999. The Salish language family: Reconstructing syntax. University of Nebraska Press, Lincoln.	page 15
+references	Bailey Trotter	reference	Kroeber, Paul. 2002. Lexical clitics in two Salish languages. Ms. for talk given at the 37th International Conference of Salish and Neighbouring Languages.	page 15
+references	Bailey Trotter	reference	Matthewson, Lisa. 2005. On the absence of tense on determiners. Lingua, 115, 1697–1735.	page 15
+references	Bailey Trotter	reference	Mellesmoen, Gloria. 2025. The Grammar of Salish Reduplication. PhD thesis, University of British Columbia.	page 15
+references	Bailey Trotter	reference	Svenonius, Peter. 2012. Spanning [Manuscript]. University of Tromsø. Retrieved from https://ling.auf.net/lingbuzz/001501.	page 15
+references	Bailey Trotter	reference	Svenonius, Peter, & Patrik Bye. 2012. Non-concatenative morphology as epiphenomenon. In The morphology and phonology of exponence, edited by Jochen Trommer, 427–495. Oxford: Oxford University Press.	page 15
+references	Bailey Trotter	reference	Watanabe, Honoré. 2003. A Morphological Description of Sliammon, Mainland Comox Salish, with a sketch of syntax. ELPR Publications Series AZ-040. Osaka: Osaka Gakuin University.	page 15
+references	Bailey Trotter	reference	Zwicky, Arnold M., & Geoffrey K. Pullum. 1983. Cliticization vs. inflection: English n’t. Language, 59:3, 502–513.	page 15
+references	Bailey Trotter	language	ʔayʔaǰuθəm	Comox-Sliammon, Central Salish, the language of the paper, its Mainland dialect
+references	ʔayʔaǰuθəm	cited affix	-oɬ	page 15, the past marker in the title of Huijsmans 2024
+references	Bailey Trotter	place	Tromsø	the University of Tromsø, in a reference entry
+references	Bailey Trotter	name	Honoré	Honoré Watanabe, in a reference entry
+title	Bailey Trotter	title	The past tense suffix and 2PCs in ʔayʔaǰuθəm (Comox-Sliammon)	the paper's title, carrying the star of the acknowledgement footnote
+title	Bailey Trotter	name	Bailey Trotter	author, The University of British Columbia
+footnote *	Bailey Trotter	name	Betty Wilson	the speaker, BW in the tags, of the Mainland dialect
+footnote *	Bailey Trotter	name	Marianne Huijsmans	thanked for her documentation and analysis
+footnote *	Bailey Trotter	name	Henry Davis	thanked
+footnote *	Bailey Trotter	name	Gloria Mellesmoen	thanked. Footnote 8 cites her
+all	Bailey Trotter	notation	sf	a sentence the author supplied and the speaker judged
+all	Bailey Trotter	notation	*	judged ill-formed
+all	Bailey Trotter	notation	ω	a prosodic word
+all	Bailey Trotter	notation	μ	a mora
+all	Bailey Trotter	notation	Ft	a foot

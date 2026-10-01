@@ -1,0 +1,571 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	note	Papers for the International Conference on Salish and Neighbouring Languages 59. D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1
+front	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+front	Katie Sardinha	title	The Role of the Voice System within Kwak̕wala Grammar*	page 1
+front	Katie Sardinha	byline	Katie Sardinha, University of British Columbia	page 1
+front	Katie Sardinha	note	Abstract: The Kwak̕wala voice system consists of a set of voice morphemes that are used to create a wide array of sentence types. Previous analyses of these morphemes have emphasized their status as nominalizers and their resemblance to passives. In this paper, I provide a new perspective on the role of the voice system, namely as a mechanism for expressing indefinite arguments. The shape of this system is a consequence of the fact that in Kwak̕wala, indefinite roots are exclusively verbal.	page 1
+front	Katie Sardinha	note	Keywords: Kwak̕wala, Wakashan, voice system, nominalization, indefinites	page 1
+front	Katie Sardinha	name	Katie Sardinha	author, University of British Columbia
+§1	Katie Sardinha	heading	1 Introduction	page 1
+§1	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§1	Katie Sardinha	name	Kwakwaka’wakw	the Kwakwaka’wakw nation
+§1	Katie Sardinha	language	Nak’wala	Nak’wala, a dialect of Kwak̕wala
+§1	Katie Sardinha	name	T’sulquate	a place, where Nak’wala is spoken
+§1	Katie Sardinha	note	Kwak̕wala is a Wakashan language spoken on the central coast of British Columbia, Canada, by members of the Kwakwaka’wakw nation. The language is spoken as a first language by around 200 speakers, and there is widespread community interest and involvement in its revitalization (FPCC 2022). While five dialects of the language are generally recognized (Anonby 1997), the language data which contributed to this paper comes from elicitation with speakers of two dialects: the central (Kwak̕wala) dialect spoken in Fort Rupert, Kingcome, and Alert Bay; and the Nak’wala dialect, spoken in T’sulquate.	page 1
+§1	Kwak̕wala	cited affix	sa̱w̓/-su	page 1, the suffix -sa̱w̓/-su’, its hyphen at the end of the line before, footnote 2
+§1	Katie Sardinha	note	Kwak̕wala has a set of voice morphemes that are used to construct a wide array of sentence types. Example (1)1 shows an active clause, which contains no voice morpheme. The sentences in (2) to (6), which differ minimally in form and meaning from (1), contain the voice morpheme, - sa̱w̓/-su’2 and illustrate five voice constructions: passives (2), relative clauses (3), information questions (4), answer clefts (5), and antipassives (6).	page 1
+footnote *	Katie Sardinha	running speech	W̓alas mul̓a̱n noḵe’ ḵa’a̱n ḵ̓iḵ̓aḵ̓ut̕łamas	page 1, the author's thanks in Kwak̕wala
+footnote *	Katie Sardinha	translation	‘I am very grateful for my teachers’	page 1, footnote
+footnote *	Katie Sardinha	note	: Violet Bracic, Mildred Child, Ruby Dawson Cranmer, Lilian Johnny, Julia Nelson, Spruce Wamiss, dła̱w̓i Anonymous. I am also grateful to Sara Child and family for supporting my work in Tsax̱is, and to many people in the research community for helping me understand the Kwak̕wala voice system, especially Henry Davis, Line Mikkelsen, Amy Rose Deal, Jonathan Janzen, Laura Sherer, Patrick Littell, and Daisy Rosenblum. Send questions and comments to katie.sardinha@ubc.ca, or through www.kaotiva.ca/linguistics/.	page 1, footnote
+footnote *	Katie Sardinha	name	Violet Bracic	a teacher, VB
+footnote *	Katie Sardinha	name	Mildred Child	a teacher, MC
+footnote *	Katie Sardinha	name	Ruby Dawson Cranmer	a teacher, RDC
+footnote *	Katie Sardinha	name	Lilian Johnny	a teacher
+footnote *	Katie Sardinha	name	Julia Nelson	a teacher, JN
+footnote *	Katie Sardinha	name	Spruce Wamiss	a teacher
+footnote *	Katie Sardinha	name	Anonymous	a teacher, dła̱w̓i Anonymous
+§1	Katie Sardinha	name	Tsax̱is	a place, Fort Rupert
+footnote 1	Katie Sardinha	note	1 Abbreviations used in the paper: - ‘suffix’, = ‘clitic’, ACC ‘accusative case’, AUG ‘augmentative’, C.VOICE ‘Co-initiator voice, D2 ‘third-person medial (this, close by)’, D3 ‘third-person distal (that, over there)’, D4 ‘assertion-of-existence deictic (Black 2011)’, DET ‘determiner’, EMB ‘embedding vowel’, EMPTY.ROOT ‘root with no lexical meaning’, FV ‘final vowel’, JF ‘judged form’, I3 ‘third-person distal invisible (possibly =a=i =FV=NMZ)’, I.VOICE ‘instrument voice’, INCL ‘inclusive’, INST ‘instrumental case’, L.VOICE ‘Location voice’, N.VOICE ‘Non-initiator voice’, NMZ ‘nominalizer’, OST ‘ostensive determiner’, POSS ‘possessor’, PL ‘plural’, PREP ‘preposition’, PROC ‘process event type’, REFL ‘reflexive’, R.VOICE ‘Reason voice’, STAT ‘state event type’, TRAN ‘transition event type’, V2 ‘third-person medial invisible’, VER ‘verum focus’, VF ‘volunteered form’, WH ‘indefinite interrogative root’. Round brackets ‘( )’ are placed around optional forms within examples.	page 1, footnote
+footnote 2	Katie Sardinha	note	2 The suffix -sa̱w̓/-su’ is realized as -sa̱w̓ before vowels and as -su’ elsewhere.	page 1, footnote
+§1	Kwak̕wala	cited affix	-sa̱w̓/-su	page 1
+§1	Kwak̕wala	cited form	-sa̱w̓	page 1
+(1) line 1	Kwak̕wala	transcription	duḵwa̱li Ted x̱a t̕łay̓i.	page 2, pairs
+(1) line 2	Kwak̕wala	segmentation	duḵw-a̱la =i Ted =x̱=a t̕łay̓i	page 2, pairs
+(1) line 3	Kwak̕wala	gloss	see-PROC =D3 Ted =ACC=D4 bear	page 2, pairs
+(1) line 4	Violet Bracic	translation	‘Ted saw a bear.’	page 2, pairs
+(1) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+(2) line 1	Kwak̕wala	transcription	duḵwa̱lasa̱w̓ida t̕łay̓i.	page 2, pairs
+(2) line 2	Kwak̕wala	segmentation	duḵw-a̱la-sa̱w̓ =i=da t̕łay̓i	page 2, pairs
+(2) line 3	Kwak̕wala	gloss	see-PROC-N.VOICE =D3=OST bear	page 2, pairs
+(2) line 4	Violet Bracic	translation	‘A bear was seen.’	page 2, pairs
+(2) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§1	Kwak̕wala	cited form	t̕łey̓ida	page 2
+§1	Kwak̕wala	cited form	duḵwa̱lasa̱w̓e’si	page 2
+§1	Katie Sardinha	note	(3) t̕łey̓ida duḵwa̱lasa̱w̓e’si Ted.	page 2
+§1	Kwak̕wala	cited form	t̕łay̓i	page 2
+§1	Kwak̕wala	cited form	duḵw-a̱la-sa̱w̓	page 2
+§1	Kwak̕wala	cited form	m̓asi	page 2
+§1	Kwak̕wala	cited form	duḵwa̱lasa̱w̓e’s	page 2
+(3) line 1	Kwak̕wala	transcription	t̕łey̓ida duḵwa̱lasa̱w̓e’si Ted.	page 2, pairs
+(3) line 2	Kwak̕wala	segmentation	t̕łay̓i =i=da duḵw-a̱la-sa̱w̓ =e’ =s=i Ted	page 2, pairs
+(3) line 3	Kwak̕wala	gloss	bear =D3=OST see-PROC-N.VOICE =I3 =3.POSS=D3 Ted	page 2, pairs
+(3) line 4	Violet Bracic	translation	‘What was seen by Ted is a bear.’	page 2, pairs
+(3) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§1	Katie Sardinha	note	(4) m̓asi duḵwa̱lasa̱w̓e’s Ted.	page 2
+§1	Kwak̕wala	cited form	m̓as	page 2
+§1	Kwak̕wala	cited form	hem̓ida	page 2
+§1	Kwak̕wala	cited form	duḵwa̱lasu’s	page 2
+(4) line 1	Kwak̕wala	transcription	m̓asi duḵwa̱lasa̱w̓e’s Ted.	page 2, pairs
+(4) line 2	Kwak̕wala	segmentation	m̓as =i duḵw-a̱la-sa̱w̓ =e’ =s=i Ted	page 2, pairs
+(4) line 3	Kwak̕wala	gloss	be.what =D3 see-PROC-N.VOICE =I3 =3.POSS=D3 Ted	page 2, pairs
+(4) line 4	Violet Bracic	translation	‘What did Ted see?’	page 2, pairs
+(4) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§1	Katie Sardinha	note	(5) hem̓ida t̕łay̓i (duḵwa̱lasu’s Ted).	page 2
+§1	Kwak̕wala	cited form	duḵwa̱lasu’nukwi	page 2
+(5) line 1	Kwak̕wala	transcription	hem̓ida t̕łay̓i (duḵwa̱lasu’s Ted).	page 2, pairs
+(5) line 2	Kwak̕wala	segmentation	he =’m=i=da t̕łay̓i duḵw-a̱la-sa̱w̓ =s Ted	page 2, pairs
+(5) line 3	Kwak̕wala	gloss	be.D3 =VER=D3=OST bear see-PROC-N.VOICE =3.POSS Ted	page 2, pairs
+(5) line 4	Violet Bracic	translation	‘It’s a bear (that Ted saw).’	page 2, pairs
+(5) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§1	Katie Sardinha	note	(6) duḵwa̱lasu’nukwi Ted.	page 2
+§1	Kwak̕wala	cited form	duḵw-a̱la-sa̱w̓-nukw	page 2
+§1	Kwak̕wala	cited affix	-ała	page 2, ‘state’
+§1	Kwak̕wala	cited affix	-a̱la	page 2, ‘process’
+§1	Kwak̕wala	cited affix	-’as/-w’as	page 2
+(6) line 1	Kwak̕wala	transcription	duḵwa̱lasu’nukwi Ted.	page 2, pairs
+(6) line 2	Kwak̕wala	segmentation	duḵw-a̱la-sa̱w̓-nukw =i Ted	page 2, pairs
+(6) line 3	Kwak̕wala	gloss	see-PROC-N.VOICE-have =D3 Ted	page 2, pairs
+(6) line 4	Violet Bracic	translation	‘Ted saw something.’	page 2, pairs
+(6) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§1	Katie Sardinha	note	Voice morphemes fall into two categories, the outer and inner voice morphemes, depending on where in the word they attach (Littell 2016:509). The outer voice morphemes attach outside of (after, to the right of) event type suffixes {-ała ‘state’, -a̱la ‘process’, -(x)’id ‘transition’, -a ‘default final vowel’}, while the inner voice morphemes attach to the inside of (before, to the left of) these same suffixes.3 Voice morphemes are listed in Table 1. Notice that (at least) two voice morphemes belong to both categories: -ayu/-wayu and -’as/-w’as.	page 2
+Table 1 line 1	Katie Sardinha	note	Voice Morphemes	page 2, the caption
+Table 1 line 2	Katie Sardinha	note	Outer -ayu, -sa̱w̓/-su’, -’as, =gił	page 2, heads the rows below
+§1	Kwak̕wala	cited form	=gił	page 2
+Table 1 line 3	Katie Sardinha	note	Inner -wayu, -wa̱m, -wana̱m, -wkw, -wł, -w’as	page 2, heads the rows below
+§1	Kwak̕wala	cited affix	-wa̱m	page 2
+§1	Kwak̕wala	cited affix	-wana̱m	page 2
+§1	Kwak̕wala	cited affix	-wł	page 2
+§1	Kwak̕wala	cited affix	-w’as	page 2
+§1	Katie Sardinha	note	The voice morphemes, together with the grammatical rules that give rise to the sentence types shown in (2) to (6), constitute the Kwak̕wala voice system.	page 2
+footnote 3	Katie Sardinha	note	3 The inner voice morphemes all trigger weakening consonant mutation (-w) in the stem to which they attach.	page 2, footnote
+§1	Katie Sardinha	language	Kwak’wala	Kwak̕wala, as printed
+§1	Katie Sardinha	note	Previous analyses focusing on the Kwak’wala voice system include Levine (1978, 1980, 1981, 1984), Anderson (1984), Sherer (2014), and Rosenblum (2013), with additional description and analysis of the system in Boas (1911, 1947), Littell (2016), and Sardinha (2017). Throughout this literature, two characteristics of the voice morphemes have been emphasized, namely their status as nominalizers and their resemblance to passives. I follow Sherer (2014) here in adopting the term voice morphemes to refer to them, finding that alternative labels turn out to be either too narrow in meaning to capture their various uses (“passives”, “focus markers”), or too wide in meaning to characterize them uniquely (“nominalizers”).	page 3
+§1	Katie Sardinha	note	The purpose of this paper is to put forward a new perspective on the role of the voice system within Kwak̕wala grammar. First, I will provide a concise overview of the five voice constructions, using updated terminology and a carefully sequenced set of minimally contrastive datasets.4 Then, I will present a holistic view of the voice system as a grammatical system for expressing indefinite arguments within initiated events. Whereas in English, indefinite arguments are expressed using indefinite and relative pronouns, in Kwak̕wala they are expressed grammatically, using voice morphemes to derive event nominalizations.	page 3
+§1	Katie Sardinha	note	Section 2 introduces the terminology that will be used to analyze the voice system in this paper. Section 3 provides a brief overview of the five voice constructions previewed above, with data involving the outer voice morphemes. Section 4 extends the overview in Section 3 to account for the grammar of inner voice morphemes. Section 5 discusses the role of the voice system in Kwak̕wala grammar more generally.	page 3
+§2	Katie Sardinha	heading	2 Background terminology	page 3
+§2	Kwak̕wala	cited form	lux̱wil̓ela	page 3, ‘to roll around’
+§2	Kwak̕wala	cited form	=ux̱da	page 3
+§2	Kwak̕wala	cited form	dza̱midza̱mix̱	page 3
+§2	Katie Sardinha	language	Kwak’wala	Kwak̕wala, as printed
+§2	Katie Sardinha	note	When we talk about the form of a word or sentence, we are talking about its parts, and how these parts fit together into larger structures. Each part of a word or sentence, in turn, has a meaning. Forms and meanings are in correspondence with each other, so that when forms are combined into larger structural units, they come to express larger units of meaning. Whole sentences express complete thoughts, which acquire additional meaning from the contexts they are spoken in. In terms of its form, the sentence in (7a) has been broken into two parts in (7b): the predicate and the subject. In terms of meaning, the predicate lux̱wil̓ela ‘to roll around’ refers to an event, and more specifically to a ‘rolling-around’ event. The subject, =ux̱da dza̱midza̱mix̱ ‘the cat (medial distance, visible)’, refers to a participant in this event—the one who does the rolling around (the ‘roller’). In Kwak’wala sentences, the predicate typically precedes the subject.5 The subject is what the sentence is about, while the predicate provides new information about the subject.	page 3
+(7a) line 1	Kwak̕wala	transcription	lux̱wil̓elux̱da dza̱midza̱mix̱.	page 3, pairs
+(7a) line 2	Kwak̕wala	segmentation	lux̱w-eyly̓-a̱la =ux̱=da dza̱midza̱mi =(a̱)x̱	page 3, pairs
+(7a) line 3	Kwak̕wala	gloss	roll-here.and.there-PROC =D2=OST cat =V2	page 3, pairs
+(7a) line 4	Violet Bracic	translation	‘That cat is rolling around.’	page 3, pairs
+(7a) line 4	Katie Sardinha	citation	(20231020-VB VF)	the tag or source at the right of the translation
+(7b) line 1	Kwak̕wala	segmentation	lux̱wil̓el =ux̱da dza̱midza̱mix̱	page 4, the sentence of (7a) parted into its predicate and subject
+(7b) line 2	Katie Sardinha	note	Form: predicate subject	page 4, the form of each part
+(7b) line 3	Katie Sardinha	note	Meaning: event (‘rolling-around’) event participant (‘roller’)	page 4, the meaning of each part
+footnote 4	Katie Sardinha	note	4 The overview of the Kwak̕wala voice system presented here is a simplified and abbreviated version of “Module 3: The Kwak’wala Voice System”, a module within a course on Kwak’wala sentence structure in development by the author. Feedback obtained at the ICSNL will be used to improve the course.	page 3, footnote
+§2	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+footnote 5	Katie Sardinha	note	5 Unless one or more auxiliaries are present, or in certain marked discourse situations.	page 3, footnote
+§2	Kwak̕wala	cited form	=x̱	page 4
+§2	Kwak̕wala	cited form	ḵa-phrases	page 4
+§2	Katie Sardinha	note	The sentence in (7) consists of one clause (i.e., it has no embedded or subordinate clauses). The predicate does not contain a voice morpheme, so we classify it as an active clause. The subject in (7) is also an argument of the predicate. Arguments come in different types (of which the subject is one), and predicates can have multiple arguments. In Kwak̕wala, arguments come in five types, called grammatical roles, which are differentiated on the basis of word order and morphological marking. The five grammatical roles include: subjects, instrumental (=s) objects, accusative (=x̱) objects, la-phrases, and ḵa-phrases. They are illustrated (in the above order) within active clauses in (8) to (11), where predicates are left unmarked, subjects are underlined, and argument types other than the subject are in bold.	page 4
+(8) line 1	Kwak̕wala	transcription	g̱a̱lsi Monica sa t̕łax̱wstu g̱a̱lyayu.	page 4, pairs
+(8) line 2	Kwak̕wala	segmentation	g̱a̱ls =i Monica =s=a t̕łax̱w-(’)stu g̱a̱ls-wayu	page 4, pairs
+(8) line 3	Kwak̕wala	gloss	paint =D3 Monica =INST=D4 red-in.eye paint-I.VOICE	page 4, pairs
+(8) line 4	Violet Bracic	translation	‘Monica was painting with a red paint.’	page 4, pairs
+(8) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§2	Kwak̕wala	cited form	ḵ̓ayi	page 4
+§2	Kwak̕wala	cited form	x̱a	page 4
+§2	Kwak̕wala	cited form	tista̱k̕wa	page 4
+§2	Katie Sardinha	note	(9) ḵ̓ayi Vickiy(e) x̱a tista̱k̕wa.	page 4
+§2	Kwak̕wala	cited form	ḵ̓a	page 4
+§2	Kwak̕wala	cited form	=x̱=a	page 4
+§2	Kwak̕wala	cited form	k̕wałi	page 4
+§2	Kwak̕wala	cited form	lax̱a	page 4
+§2	Kwak̕wala	cited form	a̱win̓a’gwis	page 4
+(9) line 1	Kwak̕wala	transcription	ḵ̓ayi Vickiy(e) x̱a tista̱k̕wa.	page 4, pairs
+(9) line 2	Kwak̕wala	segmentation	ḵ̓a =i Vicky =x̱=a tista̱k̕wa	page 4, pairs
+(9) line 3	Kwak̕wala	gloss	find =D3 Vicky =ACC=D4 earring	page 4, pairs
+(9) line 4	Violet Bracic	translation	‘Vicky found an earring.’	page 4, pairs
+(9) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§2	Katie Sardinha	note	(10) k̕wałi James lax̱a a̱win̓a’gwis.	page 4
+§2	Kwak̕wala	cited form	k̕wa̱-ała	page 4
+§2	Kwak̕wala	cited form	ḵe’eda	page 4
+§2	Kwak̕wala	cited form	y̓ax’ide	page 4
+(10) line 1	Kwak̕wala	transcription	k̕wałi James lax̱a a̱win̓a’gwis.	page 4, pairs
+(10) line 2	Kwak̕wala	segmentation	k̕wa̱-ała =i James la =x̱=a a̱win̓a’gwis	page 4, pairs
+(10) line 3	Kwak̕wala	gloss	sit-STAT =D3 James PREP =ACC=D4 land	page 4, pairs
+(10) line 4	Violet Bracic	translation	‘James is sitting on the land.’	page 4, pairs
+(10) line 4	Katie Sardinha	citation	(20230321-VB VF)	the tag or source at the right of the translation
+§2	Katie Sardinha	note	(11) wosi Shelly ḵe’eda y̓ax’ide’.	page 4
+§2	Kwak̕wala	cited form	ḵa	page 4
+§2	Kwak̕wala	cited form	y̓ak-(x)’id	page 4
+(11) line 1	Kwak̕wala	transcription	wosi Shelly ḵe’eda y̓ax’ide’.	page 4, pairs
+(11) line 2	Kwak̕wala	segmentation	wos =i Shelly ḵa =i=da y̓ak-(x)’id =e’	page 4, pairs
+(11) line 3	Kwak̕wala	gloss	sad =D3 Shelly PREP =D3=OST bad-TRAN =I3	page 4, pairs
+(11) line 4	Violet Bracic	translation	‘Shelly is sad for the person that passed away.’	page 4, pairs
+(11) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§2	Katie Sardinha	note	In terms of meaning, arguments refer to event participants. Event participants also come in five types, called event roles. Many generalizations about Kwak’wala sentence structure can be stated in terms of correspondences between grammatical roles and event roles. The correspondences that hold between these categories in active clauses are summarized in Table 2, along with some notes about how particular event roles are defined.	page 4
+Table 2 line 1	Katie Sardinha	note	Form-Meaning Correspondences in Active Clauses	page 5, the caption
+Table 2 line 2	Katie Sardinha	note	Grammatical Role Event Role Definitions	page 5, heads the rows below
+Table 2 line 3	Katie Sardinha	note	subject Initiator doer, agent, cause, natural force	page 5, heads the rows below
+Table 2 line 4	Katie Sardinha	note	instrumental (=s)	page 5, heads the rows below
+Table 2 line 5	Katie Sardinha	note	object	page 5, heads the rows below
+§2	Kwak̕wala	cited form	ḵa-phrase	page 5
+§2	Katie Sardinha	note	Co-initiator what the Initiator does the event ‘with’, instrument, means, non-locational source, emotional stimulus accusative (=x̱) object Non-initiator what the Initiator does the event ‘to’, undergoer, obtainum, object of perception or cognition, target of emotion la-phrase Location location (at...), goal (to...), source (from...) ḵa-phrase Reason past-oriented reason (explanation), future-oriented reason (motivation), benefactive The events referred to by the predicates in (8) to (11) are all initiated events, meaning that they have an Initiator. Not all clauses, however, contain predicates that refer to initiated events. For instance, take (12):	page 5
+(12) line 1	Kwak̕wala	transcription	dza̱midza̱miyux̱da lux̱wil̓elax̱.	page 5, pairs
+(12) line 2	Kwak̕wala	segmentation	dza̱midza̱mi =ux̱=da lux̱w-eyly̓-a̱la =(a̱)x̱	page 5, pairs
+(12) line 3	Kwak̕wala	gloss	cat =D2=OST roll-here.and.there-PROC =V2	page 5, pairs
+(12) line 4	Violet Bracic	translation	‘The one rolling around is a cat.’	page 5, pairs
+(12) line 4	Katie Sardinha	citation	(20231020-VB VF)	the tag or source at the right of the translation
+§2	Katie Sardinha	note	The predicate in (12), dza̱midza̱mi, refers to a state of ‘being a cat’. Its subject, =ux̱da lux̱wil̓elax̱ ‘the one rolling around (medial distance, visible)’, is not understood to have initiated the state of being a cat, but merely exists in this state. Hence, not all predicates refer to initiated events.6 Since the voice system is only defined in relation to predicates that refer to initiated events, we will not discuss clauses containing predicates like the one in (12) further here.	page 5
+§3	Katie Sardinha	heading	3 Voice constructions	page 5
+§3	Kwak̕wala	cited affix	-sa̱w̓/-su	page 5
+§3	Kwak̕wala	cited form	=gił	page 5
+§3	Katie Sardinha	note	In this section, I provide a brief overview of the five voice constructions: passives (Section 3.1), relative clauses (Section 3.2), information questions (Section 3.3), answer clefts (Section 3.4), and antipassives (Section 3.5). The data in this section contain predicates with the outer voice morphemes: -ayu, -sa̱w̓/-su’, -’as, and =gił.	page 5
+footnote 6	Katie Sardinha	note	6 Note that the sentence in (12) is the mirror reversal of (7) above, in terms of which sentence element is expressed as the predicate versus the subject. Sentence pairs of this sort demonstrate the property of predicate- argument flexibility which Kwak̕wala (and all Wakashan languages) are well known for. In Kwak̕wala, basic predication does not necessitate the use of a copular verb ‘to be’, although equative and cleft constructions do (Littell 2016).	page 5, footnote
+§3	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§3	Katie Sardinha	note	Each voice construction is described in three steps: (i) a dataset is provided, including sentences which differ minimally in content from sentences previously shown, but which illustrate a new voice construction; (ii) a set of generalizations is stated that characterize the new voice construction; and (iii) additional notes are provided about the voice construction that may go beyond what the dataset strictly shows. Each dataset is meant to be compared and contrasted directly with a preceding dataset, in the manner indicated below.	page 5
+§3.1	Katie Sardinha	heading	3.1 Passive	page 6
+§3.1	Katie Sardinha	note	The data in (13) to (16) illustrate four morphological variants of passive clauses. Compare and contrast these sentences with the corresponding active clauses in (8) to (11).	page 6
+(13) line 1	Kwak̕wala	transcription	g̱a̱ls’idayuwida t̕łax̱wstu g̱a̱lyayu.	page 6, pairs
+(13) line 2	Kwak̕wala	segmentation	g̱a̱ls-(x)’id-ayu =i=da t̕łax̱w-(’)stu g̱a̱ls-wayu	page 6, pairs
+(13) line 3	Kwak̕wala	gloss	paint-TRAN-C.VOICE =D3=OST red-in.eye paint-I.VOICE	page 6, pairs
+(13) line 4	Violet Bracic	translation	‘Red paint was painted with.’	page 6, pairs
+(13) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.1	Kwak̕wala	cited form	ḵ̓asa̱w̓ida	page 6
+§3.1	Kwak̕wala	cited form	tista̱k̕we’s	page 6
+§3.1	Katie Sardinha	note	(14) ḵ̓asa̱w̓ida tista̱k̕we’s Vicky.	page 6
+§3.1	Kwak̕wala	cited form	ḵ̓a-sa̱w̓	page 6
+§3.1	Kwak̕wala	cited form	tista̱k̕wa	page 6
+§3.1	Kwak̕wala	cited form	k̕wała̱’asi	page 6
+§3.1	Kwak̕wala	cited form	a̱win̓a’gwise’s	page 6
+(14) line 1	Kwak̕wala	transcription	ḵ̓asa̱w̓ida tista̱k̕we’s Vicky.	page 6, pairs
+(14) line 2	Kwak̕wala	segmentation	ḵ̓a-sa̱w̓ =i=da tista̱k̕wa =e’=s Vicky	page 6, pairs
+(14) line 3	Kwak̕wala	gloss	find-N.VOICE =D3=OST earring =I3=3.POSS Vicky	page 6, pairs
+(14) line 4	Violet Bracic	translation	‘An earring was found by Vicky.’	page 6, pairs
+(14) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§3.1	Katie Sardinha	note	(15) k̕wała̱’asi a̱win̓a’gwise’s (James).	page 6
+§3.1	Kwak̕wala	cited form	k̕wa̱-ała-’as	page 6
+§3.1	Kwak̕wala	cited form	a̱win̓a’gwis	page 6
+§3.1	Kwak̕wala	cited form	wos’idagiłi	page 6
+§3.1	Kwak̕wala	cited form	y̓ax’ide’s	page 6
+(15) line 1	Kwak̕wala	transcription	k̕wała̱’asi a̱win̓a’gwise’s (James).	page 6, pairs
+(15) line 2	Kwak̕wala	segmentation	k̕wa̱-ała-’as =i a̱win̓a’gwis =e’=s (James)	page 6, pairs
+(15) line 3	Kwak̕wala	gloss	sit-STAT-L.VOICE =D3 land =I3=3.POSS (James)	page 6, pairs
+(15) line 4	Violet Bracic	translation	‘The ground is being sat on by him (James).’	page 6, pairs
+(15) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.1	Katie Sardinha	note	(16) wos’idagiłi y̓ax’ide’s.	page 6
+§3.1	Kwak̕wala	cited form	=gił=i	page 6
+§3.1	Kwak̕wala	cited form	y̓ak-(x)’id	page 6
+§3.1	Kwak̕wala	cited form	-sa̱w̓/-su	page 6, the suffix -sa̱w̓/-su’, broken over the line
+§3.1	Kwak̕wala	cited form	=gił	page 6
+(16) line 1	Kwak̕wala	transcription	wos’idagiłi y̓ax’ide’s.	page 6, pairs
+(16) line 2	Kwak̕wala	segmentation	wos-(x)’id-a =gił=i y̓ak-(x)’id =e’=s	page 6, pairs
+(16) line 3	Kwak̕wala	gloss	sad-TRAN-FV =R.VOICE=D3 bad-TRAN =I3=3.POSS	page 6, pairs
+(16) line 4	Violet Bracic	translation	‘The recently deceased is her reason for getting sad.’	page 6, pairs
+(16) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.1	Katie Sardinha	note	Generalizations: The predicate in a passive clause contains a voice morpheme: {-ayu, -sa̱w̓/- su’, -’as, =gił}, while the subject in a passive clause has an event role other than Initiator. There is a correspondence between the voice morpheme on the predicate and the event role of the subject in a passive clause, such that:	page 6
+§3.1	Katie Sardinha	note	• If -ayu is on the predicate, the subject in a passive is a Co-initiator (13).	page 6
+§3.1	Kwak̕wala	cited affix	-sa̱w̓/-su	page 6
+§3.1	Katie Sardinha	note	• If -sa̱w̓/-su’ is on the predicate, the subject in a passive is a Non-initiator (14). • If -’as is on the predicate, the subject in a passive is a Location (15).	page 6
+§3.1	Katie Sardinha	note	• If =gił is on the predicate, the subject in a passive is a Reason (16).	page 6
+footnote 7	Katie Sardinha	note	7 In (14) to (16), this is done by the third -person non -reflexive possessive clitic =s. These sentences are technically ambiguous between two readings: one where =s introduces the Initiator, and one where it	page 6, footnote
+§3.1	Katie Sardinha	note	The Initiator in a passive clause can be overt (expressed) or covert (unpronounced but present as part of the meaning of the sentence). If the Initiator is overt, it is grammatically expressed as a possessor and introduced with possessive morphology.7 If the Initiator is covert and its identity is unknown in context, it is interpreted as indefinite. For instance, an alternative translation for (13) is “They painted with red paint”, where “they” refers to whoever did the painting, known or unknown.	page 6
+§3.1	Katie Sardinha	note	Additional Notes: One function of the passive in discourse is that it enables the foregrounding of an event participant other than the Initiator, while still referring to an event that is understood to have been initiated. Even when the Initiator is overtly expressed in the passive, it is interpreted as backgrounded relative to the foregrounded subject (Rosenblum 2013).	page 7
+§3.1	Katie Sardinha	note	The second function of the passive is that it enables the expression of an indefinite Initiator.	page 7
+§3.2	Katie Sardinha	heading	3.2 Relative clauses	page 7
+§3.2	Katie Sardinha	note	The data in (17) to (21) illustrate five morphological variants of relative clauses, all in subject position. Compare and contrast (17) to (20) with the corresponding passive clauses in (13) to (16).	page 7
+(17) line 1	Kwak̕wala	transcription	t̕łax̱wstuwida g̱a̱ls’idayuwe’s.	page 7, pairs
+(17) line 2	Kwak̕wala	segmentation	t̕łax̱w-(’)stu =i=da g̱a̱ls-(x)’id-ayu =e’=s	page 7, pairs
+(17) line 3	Kwak̕wala	gloss	red-in.eye =D3=OST paint-TRAN-C.VOICE =I3=3.POSS	page 7, pairs
+(17) line 4	Violet Bracic	translation	‘What she painted with was red.’	page 7, pairs
+(17) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.2	Kwak̕wala	cited form	tista̱k̕wi	page 7
+§3.2	Kwak̕wala	cited form	ḵ̓asa̱w̓e’s	page 7
+§3.2	Katie Sardinha	note	(18) tista̱k̕wi ḵ̓asa̱w̓e’s Vicky.	page 7
+§3.2	Kwak̕wala	cited form	tista̱k̕wa	page 7
+§3.2	Kwak̕wala	cited form	ḵ̓a-sa̱w̓	page 7
+(18) line 1	Kwak̕wala	transcription	tista̱k̕wi ḵ̓asa̱w̓e’s Vicky.	page 7, pairs
+(18) line 2	Kwak̕wala	segmentation	tista̱k̕wa =i ḵ̓a-sa̱w̓ =e’=s Vicky	page 7, pairs
+(18) line 3	Kwak̕wala	gloss	earring =D3 find-N.VOICE =I3=3.POSS Vicky	page 7, pairs
+(18) line 4	Violet Bracic	translation	‘What Vicky found was an earring.’	page 7, pairs
+(18) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+(19) line 1	Kwak̕wala	transcription	a̱win̓a’gwisida k̕wała̱’ase’s.	page 7, pairs
+(19) line 2	Kwak̕wala	segmentation	a̱win̓a’gwis =i=da k̕wa̱-ała-’as =e’=s	page 7, pairs
+(19) line 3	Kwak̕wala	gloss	land =D3=OST sit-STAT-L.VOICE =I3=3.POSS	page 7, pairs
+(19) line 4	Violet Bracic	translation	‘Where he’s sitting is the ground.’	page 7, pairs
+(19) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+(20) line 1	Kwak̕wala	transcription	y̓ax’idey̓ida wos’idagiłe’s.	page 7, pairs
+(20) line 2	Kwak̕wala	segmentation	y̓ak-(x)’id =e’ =i=da wos-(x)’id-a =gił=e’=s	page 7, pairs
+(20) line 3	Kwak̕wala	gloss	bad-TRAN =I3 =D3=OST sad-TRAN-FV =R.VOICE=I3=3.POSS	page 7, pairs
+(20) line 4	Violet Bracic	translation	‘Her reason for getting sad is recently deceased.’	page 7, pairs
+(20) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.2	Kwak̕wala	cited form	ka̱lxwa	page 7
+§3.2	Kwak̕wala	cited form	x̱a	page 7
+§3.2	Kwak̕wala	cited form	tła̱ta̱mł	page 7
+§3.2	Katie Sardinha	note	(21) iksukwida ka̱lxwa x̱a tła̱ta̱mł.	page 7
+§3.2	Kwak̕wala	cited form	ka̱lxw-a	page 7
+§3.2	Kwak̕wala	cited form	=x̱=a	page 7
+(21) line 1	Kwak̕wala	transcription	iksukwida ka̱lxwa x̱a tła̱ta̱mł.	page 7, pairs
+(21) line 2	Kwak̕wala	segmentation	iksukw =i=da ka̱lxw-a =x̱=a tła̱ta̱mł	page 7, pairs
+(21) line 3	Kwak̕wala	gloss	good.looking =D3=OST buy-FV =ACC=D4 hat	page 7, pairs
+(21) line 4	Violet Bracic	translation	‘The one who bought a hat is handsome.’	page 7, pairs
+(21) line 4	Katie Sardinha	citation	(20240408-VB JF)	the tag or source at the right of the translation
+§3.2	Katie Sardinha	note	Generalizations: Compared with the passives in (13) to (16), the sentences in (17) to (21) are mirrored in terms of which sentence element is expressed as the predicate and which is expressed as the subject.	page 7
+§3.2	Katie Sardinha	note	Like other subjects we have seen in earlier datasets, the relative clauses in the dataset above immediately follow the predicate in the sentence, and their first element consists of a prenominal introduces a possessor of the subject nominal (e.g., ‘An earring was found by Vicky’ versus ‘Vicky’s earring was found’ in 14). I will ignore this ambiguity in the rest of this paper.	page 7
+§3.2	Katie Sardinha	note	determiner or determiner string (=i, =i=da). Unlike other arguments we have seen, however, relative clauses resemble clauses, in that they contain a predicate which in turn has its own understood subject. In other words, a relative clause is a type of subordinate (or embedded) clause which behaves as a nominal within its containing clause.	page 8
+§3.2	Katie Sardinha	note	With the exception of (21), the predicate within the relative clauses above contains a voice morpheme. The understood subject of these relative-clause-internal predicates has an event role which corresponds with the voice morpheme on the predicate, so that:	page 8
+§3.2	Katie Sardinha	note	• If the relative clause predicate contains -ayu, its understood subject is a Co-initiator (17): ‘what she painted with’.	page 8
+§3.2	Kwak̕wala	cited affix	-sa̱w̓/-su	page 8
+§3.2	Katie Sardinha	note	• If the relative clause predicate contains -sa̱w̓/-su’, its subject is a Non-initiator (18): ‘what Vicky found’.	page 8
+§3.2	Katie Sardinha	note	• If the relative clause predicate contains -’as, its subject is a Location (19): ‘where he is sitting’.	page 8
+§3.2	Kwak̕wala	cited form	=gił	page 8
+§3.2	Katie Sardinha	note	• If the relative clause predicate contains =gił, its subject is a Reason (20): ‘the reason she got sad’.	page 8
+§3.2	Kwak̕wala	cited form	g̱a̱ls’idayuwe’s	page 8, ‘what she painted with’
+§3.2	Katie Sardinha	note	• If there is no voice morpheme on the relative clause predicate, and the predicate refers to an initiated event, its subject is an Initiator (21): ‘the one who bought a hat’. Relative clauses are a grammatical mechanism for creating nominal phrases that refer to particular event participants. For instance, the relative clause =ida g̱a̱ls’idayuwe’s ‘what she painted with’ in (17) refers to a Co-initiator in a painting event that was carried out by a third-person (=s ‘by her’). Additional Notes: Just like in passive clauses, in relative clauses with predicates containing voice morphemes, the Initiator can be either overt and expressed as a possessor, or covert and interpreted as indefinite.	page 8
+§3.2	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§3.2	Katie Sardinha	language	Kwak’wala	Kwak̕wala, as printed
+§3.2	Katie Sardinha	note	Note that the English counterparts of the relative clauses in (17) to (21) contain relative pronouns, like ‘what’, ‘where’, and ‘who’, or indefinite pronouns like ‘one’. In Kwak̕wala, there are no lexical counterparts of these pronouns. However, we can think of Kwak’wala as having silent (covert) pronouns in the position indicated in (22) below (‘∅’), which have approximately the same meaning as the underlined portion of the translations associated with these phrases:	page 8
+(22a) line 1	Kwak̕wala	transcription	=ida ∅ g̱a̱ls’idayuwe’s	page 8, the orthography
+(22a) line 1	Katie Sardinha	translation	‘the thing/stuff she painted with’	page 8
+(22b) line 1	Kwak̕wala	transcription	=i ∅ ḵ̓asa̱w̓e’s Vicky	page 8, the orthography
+(22b) line 1	Katie Sardinha	translation	‘the one Vicky found’	page 8
+(22c) line 1	Kwak̕wala	transcription	=ida ∅ k̕wała̱’ase’s	page 8, the orthography
+(22c) line 1	Katie Sardinha	translation	‘the place he is sitting at’	page 8
+(22d) line 1	Kwak̕wala	transcription	=ida ∅ wos’idagiłe’s	page 8, the orthography
+(22d) line 1	Katie Sardinha	translation	‘the reason she is sad’	page 8
+(22e) line 1	Kwak̕wala	transcription	=ida ∅ ka̱lxwa x̱a tła̱ta̱mł	page 8, the orthography
+(22e) line 1	Katie Sardinha	translation	‘the one who bought a hat’	page 8
+§3.2	Kwak̕wala	cited form	ba̱gwana̱m	page 8, ‘man’
+§3.2	Katie Sardinha	note	Evidence for these silent pronouns comes from the observation that they can be replaced by nouns. Thus, example (23) contains a subject relative clause in which the noun ba̱gwana̱m ‘man’ takes the place occupied by ‘∅’ in (21).	page 8
+(23) line 1	Kwak̕wala	transcription	iksukwida ba̱gwana̱m ka̱lxwa x̱a tła̱ta̱mł.	page 8, pairs
+(23) line 2	Kwak̕wala	segmentation	iksukw =i=da ba̱gwana̱m ka̱lxw-a =x̱=a tła̱ta̱mł	page 8, pairs
+(23) line 3	Kwak̕wala	gloss	good.looking =D3=OST man buy-FV =ACC=D4 hat	page 8, pairs
+(23) line 4	Violet Bracic	translation	‘The man who bought a hat is handsome.’	page 8, pairs
+(23) line 4	Katie Sardinha	citation	(20240408-VB VF)	the tag or source at the right of the translation
+§3.2	Katie Sardinha	note	The noun ba̱gwana̱m ‘man’ in (23) is called the head of the relative clause. Relative clauses with nominal heads are called headed relative clauses, while those with silent pronouns are called headless relative clauses. In Kwak̕wala, headless relative clauses are more common than headed ones (Littell 2016:602).	page 9
+§3.2	Kwak̕wala	cited form	ḵa-phrase	page 9
+§3.2	Kwak̕wala	cited form	=x̱	page 9
+§3.2	Katie Sardinha	note	Though the dataset above only contains relative clauses in subject position, relative clauses are arguments, and as such, can be expressed as any grammatical role (subject, instrumental object, accusative object, la-phrase, or ḵa-phrase). For instance, example (24) contains a headed relative clause (in bold) with the grammatical role of accusative (=x̱) object.	page 9
+(24) line 1	Katie Sardinha	note	Context: MC is describing the actions of a crow-mother, who came to MC’s porch to eat some food she had left out there.	page 9, pairs
+(24) line 2	Kwak̕wala	transcription	lida a̱ba̱mpg̱as wax ḵa̱s	page 9, pairs
+(24) line 3	Kwak̕wala	segmentation	la̱ =i=da a̱ba̱mp =g̱as wak ḵa̱ =(i’)s	page 9
+(24) line 4	Kwak̕wala	gloss	AUX =D3=OST mother =poor.thing try PREP =3.REFL.POSS	page 9
+(24) line 5	Kwak̕wala	transcription	ha̱m̓x’ide’ x̱ada k̓uta̱la, ḵasu’	page 9
+(24) line 6	Kwak̕wala	segmentation	ha̱m̓-(x)’id =a=i’ =x̱=a=da k̓uta̱la ḵa-sa̱w̓	page 9
+(24) line 7	Kwak̕wala	gloss	eat-TRAN =EMB=NMZ =ACC=D4=OST fish find-N.VOICE	page 9
+(24) line 8	Kwak̕wala	transcription	lax̱a t̕łasanoy̓i.	page 9
+(24) line 9	Kwak̕wala	segmentation	la =x̱=a t̕łasanoy̓i	page 9
+(24) line 10	Kwak̕wala	gloss	PREP =ACC=D4 outside	page 9
+(24) line 11	Mildred Child	translation	‘Then the poor mother tried to eat the fish that was found outside.’	page 9, pairs
+(24) line 11	Katie Sardinha	citation	(20160722-MC VF)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	heading	3.3 Information questions	page 9
+§3.3	Katie Sardinha	note	The data in (25) to (30) illustrate six morphological variants of information questions. Compare and contrast these sentences with the sentences in (17) to (21) that contain relative clause subjects.	page 9
+(25) line 1	Kwak̕wala	transcription	m̓asida g̱a̱ls’idayuwe’s Monica?	page 9, pairs
+(25) line 2	Kwak̕wala	segmentation	m̓as =i=da g̱a̱ls-(x)’id-ayu =e’=s Monica	page 9, pairs
+(25) line 3	Kwak̕wala	gloss	be.what=D3=OST paint-TRAN-C.VOICE =I3=3.POSS Monica	page 9, pairs
+(25) line 4	Violet Bracic	translation	‘What did Monica paint with?’	page 9, pairs
+(25) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.3	Kwak̕wala	cited form	ḵ̓asa̱w̓e’sux̱	page 9
+§3.3	Kwak̕wala	cited form	Vickya̱x̱	page 9
+§3.3	Katie Sardinha	note	(26) m̓asi ḵ̓asa̱w̓e’sux̱ Vickya̱x̱?	page 9
+§3.3	Kwak̕wala	cited form	m̓as	page 9
+§3.3	Kwak̕wala	cited form	ḵ̓a-sa̱w̓	page 9
+§3.3	Kwak̕wala	cited form	=e’=s=ux̱Vicky	page 9
+§3.3	Kwak̕wala	cited form	=a̱x̱	page 9
+§3.3	Kwak̕wala	cited form	w̓idida	page 9
+§3.3	Kwak̕wala	cited form	k̕wała̱’ase’s	page 9
+(26) line 1	Kwak̕wala	transcription	m̓asi ḵ̓asa̱w̓e’sux̱ Vickya̱x̱?	page 9, pairs
+(26) line 2	Kwak̕wala	segmentation	m̓as =i ḵ̓a-sa̱w̓ =e’=s=ux̱Vicky =a̱x̱	page 9, pairs
+(26) line 3	Kwak̕wala	gloss	be.what =D3 find-N.VOICE =I3=3.POSS=D2 Vicky =V2	page 9, pairs
+(26) line 4	Violet Bracic	translation	‘What did Vicky find?’	page 9, pairs
+(26) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	note	(27) w̓idida k̕wała̱’ase’s?	page 9
+§3.3	Kwak̕wala	cited form	w̓a̱y	page 9
+§3.3	Kwak̕wala	cited form	k̕wa̱-ała-’as	page 9
+§3.3	Kwak̕wala	cited form	m̓asida	page 9
+§3.3	Kwak̕wala	cited form	wos’idagiłe’s	page 9
+(27) line 1	Kwak̕wala	transcription	w̓idida k̕wała̱’ase’s?	page 9, pairs
+(27) line 2	Kwak̕wala	segmentation	w̓a̱y =d=i=da k̕wa̱-ała-’as =e’=s	page 9, pairs
+(27) line 3	Kwak̕wala	gloss	WH =DET=D3=OST sit-STAT-L.VOICE =I3=3.POSS	page 9, pairs
+(27) line 4	Violet Bracic	translation	‘Where is he sitting?’	page 9, pairs
+(27) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	note	(28) m̓asida wos’idagiłe’s?	page 9
+§3.3	Kwak̕wala	cited form	=gił=e’=s	page 9
+§3.3	Kwak̕wala	cited form	a̱ngwida	page 10
+§3.3	Kwak̕wala	cited form	ka̱lxwa	page 10
+§3.3	Kwak̕wala	cited form	x̱a	page 10
+§3.3	Kwak̕wala	cited form	tła̱ta̱mł	page 10
+(28) line 1	Kwak̕wala	transcription	m̓asida wos’idagiłe’s?	page 9, pairs
+(28) line 2	Kwak̕wala	segmentation	m̓as =i=da wos-(x)’id-a =gił=e’=s	page 9, pairs
+(28) line 3	Kwak̕wala	gloss	be.what=D3=OST sad-TRAN-FV =R.VOICE=I3=3.POSS	page 9, pairs
+(28) line 4	Violet Bracic	translation	‘What did she feel sorry/sad about?’	page 9, pairs
+(28) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	note	(29) a̱ngwida ka̱lxwa x̱a tła̱ta̱mł?	page 9
+§3.3	Kwak̕wala	cited form	a̱ngwa	page 10
+§3.3	Kwak̕wala	cited form	ka̱lxw-a	page 10
+§3.3	Kwak̕wala	cited form	=x̱=a	page 10
+§3.3	Kwak̕wala	cited form	a̱ngwux̱da	page 10
+§3.3	Kwak̕wala	cited form	ba̱gwana̱m	page 10
+(29) line 1	Kwak̕wala	transcription	a̱ngwida ka̱lxwa x̱a tła̱ta̱mł?	page 10, pairs
+(29) line 2	Kwak̕wala	segmentation	a̱ngwa =i=da ka̱lxw-a =x̱=a tła̱ta̱mł	page 10, pairs
+(29) line 3	Kwak̕wala	gloss	be.who =D3=OST buy-FV =ACC=D4 hat	page 10, pairs
+(29) line 4	Violet Bracic	translation	‘Who bought a hat?’	page 10, pairs
+(29) line 4	Katie Sardinha	citation	(20240408-VB VF)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	note	(30) a̱ngwux̱da ba̱gwana̱m?	page 10
+§3.3	Kwak̕wala	cited form	=ux̱=da	page 10
+§3.3	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§3.3	Kwak̕wala	cited form	w̓i	page 10, ‘to be where’
+(30) line 1	Kwak̕wala	transcription	a̱ngwux̱da ba̱gwana̱m?	page 10, pairs
+(30) line 2	Kwak̕wala	segmentation	a̱ngwa =ux̱=da ba̱gwana̱m	page 10, pairs
+(30) line 3	Kwak̕wala	gloss	be.who =D2=OST man	page 10, pairs
+(30) line 4	Littell 2016:610	translation	‘Who is that man?’	page 10, pairs, cited Littell 2016:610
+(30) line 4	Katie Sardinha	citation	(Littell 2016:610)	the tag or source at the right of the translation
+§3.3	Katie Sardinha	note	Generalizations: Information questions are used to request information about the identity of a particular entity (or entities). A comparison of the sentences in (17) to (21) with the information questions in (25) to (30) reveals that in Kwak̕wala, interrogative words are predicates. In this dataset, we see examples of three interrogative predicates: m̓as ‘to be what’, w̓i ‘to be where’,8 and a̱ngwa ‘to be who’.	page 10
+§3.3	Katie Sardinha	note	The entity that is targeted for identification by an information question is expressed in Kwak̕wala as the subject of an interrogative predicate. Minimally, this entity is expressed as a simple noun phrase, as shown in (30). In order to target an entity who is a participant in an initiated event, a relative clause can be constructed, in which case we see the same set of correspondences appearing as seen in other relative clauses:	page 10
+§3.3	Katie Sardinha	note	• If the relative clause predicate contains -ayu, the entity targeted by the question is a Co- initiator.	page 10
+§3.3	Kwak̕wala	cited affix	-sa̱w̓/-su	page 10
+§3.3	Katie Sardinha	note	• If the relative clause predicate contains -sa̱w̓/-su’, the entity targeted by the question is a Non-initiator.	page 10
+§3.3	Katie Sardinha	note	• If the relative clause predicate contains -’as, the entity targeted by the question is a Location.	page 10
+§3.3	Kwak̕wala	cited form	=gił	page 10
+§3.3	Katie Sardinha	note	• If the relative clause predicate contains =gił, the entity targeted by the question is a Reason. • If there is no voice suffix on the relative clause predicate, and the predicate refers to an initiated event, the entity targeted by the question is an Initiator.	page 10
+§3.3	Katie Sardinha	note	Additional Notes: Though the dataset above shows only headless relative clauses expressed as the subject of an interrogative predicate, headed relative clauses are possible here too. When the relative clause predicate within an information question contains a voice morpheme, the Initiator can be either overt or covert. When overt, Initiators are expressed as grammatical possessors.	page 10
+footnote 8	Katie Sardinha	note	8 The interrogative predicate w̓i/w̓a̱y in fact has a very general, indefinite interrogative meaning, more akin to ‘what happened (in a place, at a time)’. It is also used to ask questions about manner (‘how’), and can have its meaning modified by various suffixes and clitics.	page 10, footnote
+§3.3	Kwak̕wala	cited form	w̓i/w̓a̱y	page 10
+§3.4	Katie Sardinha	heading	3.4 Answer clefts	page 11
+§3.4	Katie Sardinha	note	The data in (31) to (35) illustrate five morphological variants of answer clefts. Compare and contrast these sentences with the corresponding information questions in (25) to (29), to which these answer clefts constitute possible answers.	page 11
+(31) line 1	Kwak̕wala	transcription	hem̓ida t̕łax̱wstu g̱a̱lyayu	page 11, pairs
+(31) line 2	Kwak̕wala	segmentation	he =’m=i=da t̕łax̱w-(’)stu g̱a̱ls-wayu	page 11
+(31) line 3	Kwak̕wala	gloss	be.D3 =VER=D3=OST red-in.eye paint-I.VOICE	page 11
+(31) line 4	Kwak̕wala	transcription	(g̱a̱ls’idayuwe’s Monica).	page 11
+(31) line 5	Kwak̕wala	segmentation	(g̱a̱ls-(x)’id-ayu =e’=s Monica)	page 11, pairs
+(31) line 6	Kwak̕wala	gloss	(paint-TRAN-C.VOICE =I3=3.POSS Monica)	page 11, pairs
+(31) line 7	Violet Bracic	translation	‘It was red paint (that Monica painted with).’	page 11, pairs
+(31) line 7	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.4	Kwak̕wala	cited form	tista̱k̕wa	page 11
+§3.4	Kwak̕wala	cited form	ḵ̓asa̱w̓e’s	page 11
+§3.4	Katie Sardinha	note	(32) hem̓ida tista̱k̕wa (ḵ̓asa̱w̓e’s Vicky).	page 11
+§3.4	Kwak̕wala	cited form	ḵ̓a-sa̱w̓	page 11
+(32) line 1	Kwak̕wala	transcription	hem̓ida tista̱k̕wa (ḵ̓asa̱w̓e’s Vicky).	page 11, pairs
+(32) line 2	Kwak̕wala	segmentation	he =’m=i=da tista̱k̕wa (ḵ̓a-sa̱w̓ =e’=s Vicky)	page 11, pairs
+(32) line 3	Kwak̕wala	gloss	be.D3 =VER=D3=OST earring (find-N.VOICE =I3=3.POSS Vicky)	page 11, pairs
+(32) line 4	Violet Bracic	translation	‘It’s an earring (that Vicky found).’	page 11, pairs
+(32) line 4	Katie Sardinha	citation	(20230320-VB VF)	the tag or source at the right of the translation
+(33) line 1	Kwak̕wala	transcription	hem̓ida a̱win̓a’gwis (k̕wała̱’ase’s).	page 11, pairs
+(33) line 2	Kwak̕wala	segmentation	he =’m=i=da a̱win̓a’gwis (k̕wa̱-ała-’as =e’=s)	page 11, pairs
+(33) line 3	Kwak̕wala	gloss	be.D3 =VER=D3=OST land (sit-STAT-L.VOICE =I3=3.POSS)	page 11, pairs
+(33) line 4	Violet Bracic	translation	‘It’s the ground (that is where he’s sitting).’	page 11, pairs
+(33) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.4	Kwak̕wala	cited form	wos’idagiłe’s	page 11
+§3.4	Katie Sardinha	note	(34) hem̓ida dagwada (wos’idagiłe’s).	page 11
+§3.4	Kwak̕wala	cited form	=gił=e’=s	page 11
+§3.4	Kwak̕wala	cited form	ba̱gwana̱m	page 11
+§3.4	Kwak̕wala	cited form	ka̱lxwa	page 11
+§3.4	Kwak̕wala	cited form	x̱a	page 11
+§3.4	Kwak̕wala	cited form	tła̱ta̱mł	page 11
+(34) line 1	Kwak̕wala	transcription	hem̓ida dagwada (wos’idagiłe’s).	page 11, pairs
+(34) line 2	Kwak̕wala	segmentation	he =’m=i=da dagwada (wos-(x)’id-a =gił=e’=s)	page 11, pairs
+(34) line 3	Kwak̕wala	gloss	be.D3 =VER=D3=OST doctor (sad-TRAN-FV =R.VOICE=I3=3.POSS)	page 11, pairs
+(34) line 4	Violet Bracic	translation	‘It’s the doctor (she’s sorry for).’	page 11, pairs
+(34) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.4	Katie Sardinha	note	(35) hedida ba̱gwana̱m (ka̱lxwa x̱a tła̱ta̱mł).	page 11
+§3.4	Kwak̕wala	cited form	ka̱lxw-a	page 11
+§3.4	Kwak̕wala	cited form	=x̱=a	page 11
+(35) line 1	Kwak̕wala	transcription	hedida ba̱gwana̱m (ka̱lxwa x̱a tła̱ta̱mł).	page 11, pairs
+(35) line 2	Kwak̕wala	segmentation	he =d=i=da ba̱gwana̱m (ka̱lxw-a =x̱=a tła̱ta̱mł)	page 11, pairs
+(35) line 3	Kwak̕wala	gloss	be.D3 =DET=D3=OST man (buy-FV =ACC=D4 hat)	page 11, pairs
+(35) line 4	Violet Bracic	translation	‘It’s that man (who bought a hat).’	page 11, pairs
+(35) line 4	Katie Sardinha	citation	(20240408-VB VF)	the tag or source at the right of the translation
+§3.4	Katie Sardinha	note	Generalizations: Answer clefts are a common way of answering information questions. The answer clefts in this dataset all contain the predicate he ‘to be’, a copular (linking) verb that is used when the subject of a clause is third-person and distal (relative to the speaker). The predicate also contains either =’m, the verum focus marker, or =d. There is no consensus on what the meaning difference is between =’m versus =d in this context, though some useful observations on this topic are provided in Littell (2016:111–112).	page 11
+§3.4	Katie Sardinha	note	The subject of an answer cleft looks like a headed relative clause. However, these headless relative clauses differ from the ones introduced in Section 3.2 in the following way: in an answer cleft, it is not the head of the relative clause which either is or is not pronounced (as in headed versus headless relative clauses); rather, it is the phrase which modifies the head that either is or is not pronounced. In order to refer to the parts of a headed relative clause, new terminology is needed. Following Littell (2016:124–128), I refer to the modifying phrase in answer clefts as the remnant. The form of answer clefts can then be summarized using the schema in (36) (note that the subscript ‘i’ indicates coreference):	page 11
+§3.4	Katie Sardinha	note	(36) Answer clefts schema:	page 12
+§3.4	Katie Sardinha	note	he{=’m, =d} headi (remnant)i predicate subject (adjunct) In answer clefts, it is the head that constitutes an answer to the question that was asked. This is because it is the head that provides the new information that was requested in the question. Crucially however, the event role that the head is interpreted to have depends on the voice status of the predicate within the remnant, whether or not the remnant is pronounced. The same set of correspondences between voice morphemes in the remnant and the event role of answer cleft subjects occurs here as in other voice constructions:	page 12
+§3.4	Katie Sardinha	note	• If the remant (overt or covert) contains a predicate with -ayu, the subject of the answer cleft is a Co-initiator.	page 12
+§3.4	Kwak̕wala	cited affix	-sa̱w̓/-su	page 12
+§3.4	Katie Sardinha	note	• If the remant (overt or covert) contains a predicate with -sa̱w̓/-su’, the subject of the answer cleft is a Non-initiator.	page 12
+§3.4	Katie Sardinha	note	• If the remant (overt or covert) contains a predicate with -’as, the subject of the answer cleft is a Location.	page 12
+§3.4	Kwak̕wala	cited form	=gił	page 12
+§3.4	Katie Sardinha	note	• If the remant (overt or covert) contains a predicate with =gił, the subject of the answer cleft is a Reason.	page 12
+§3.4	Katie Sardinha	note	• If the remnant (overt or covert) contains a predicate with no voice morpheme and refers to an initiated event, the subject of the answer cleft is an Initiator.	page 12
+§3.4	Katie Sardinha	note	Whereas the head constitutes an answer to the question that was asked, the remnant merely repeats information that was present in the question. The remnant is therefore redundant. As such, it is often omitted in spoken discourse. Note that the copular predicate itself does not take voice morphology; it is the remnant (whether pronounced or not) which signals the event role of the subject.	page 12
+§3.4	Kwak̕wala	cited form	nugwa	page 12
+§3.4	Katie Sardinha	note	Additional Notes: Other forms of the copula found in answer clefts include nugwa ‘to be (first- person)’, su ‘to be (second-person)’, ga ‘to be (third-person proximal)’, and yu ‘to be (third-person medial)’.	page 12
+§3.4	Katie Sardinha	note	While it is not explicitly shown in this dataset, the Initiator in answer clefts can be overt or covert (and interpreted as indefinite), as in other voice constructions.	page 12
+§3.5	Katie Sardinha	heading	3.5 Antipassives	page 12
+§3.5	Katie Sardinha	note	The data in (37) to (40) illustrate three morphological variants of antipassives, one of which is ungrammatical. Compare and contrast these sentences with the corresponding active clauses in (8) to (11).	page 12
+(37) line 1	Kwak̕wala	transcription	g̱a̱ls’idayunukwi.	page 12, pairs
+(37) line 2	Kwak̕wala	segmentation	g̱a̱ls-(x)’id-ayu-nukw =i	page 12, pairs
+(37) line 3	Kwak̕wala	gloss	paint-TRAN-C.VOICE-have =D3	page 12, pairs
+(37) line 4	Violet Bracic	translation	‘She painted with something.’	page 12, pairs
+(37) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.5	Kwak̕wala	cited form	ḵ̓asu’nukwi	page 13
+§3.5	Katie Sardinha	note	(38) ḵ̓asu’nukwi Vicky.	page 13
+§3.5	Kwak̕wala	cited form	ḵ̓a-sa̱w̓-nukw	page 13
+§3.5	Kwak̕wala	cited form	k̕wała̱’asnukwi	page 13
+(38) line 1	Kwak̕wala	transcription	ḵ̓asu’nukwi Vicky.	page 13, pairs
+(38) line 2	Kwak̕wala	segmentation	ḵ̓a-sa̱w̓-nukw =i Vicky	page 13, pairs
+(38) line 3	Kwak̕wala	gloss	find-N.VOICE-have =D3 Vicky	page 13, pairs
+(38) line 4	Violet Bracic	translation	‘Vicky found something.’	page 13, pairs
+(38) line 4	Katie Sardinha	citation	(20230320-VB JF)	the tag or source at the right of the translation
+§3.5	Katie Sardinha	note	(39) k̕wała̱’asnukwi James.	page 13
+§3.5	Kwak̕wala	cited form	k̕wa̱-ała-’as-nukw	page 13
+(39) line 1	Kwak̕wala	transcription	k̕wała̱’asnukwi James.	page 13, pairs
+(39) line 2	Kwak̕wala	segmentation	k̕wa̱-ała-’as-nukw =i James	page 13, pairs
+(39) line 3	Kwak̕wala	gloss	sit-STAT-L.VOICE-have =D3 James	page 13, pairs
+(39) line 4	Violet Bracic	translation	‘James is sitting on something.’	page 13, pairs
+(39) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+(40) line 1	Kwak̕wala	transcription	*ha̱łaḵagiłnukwi Shelly.	page 13, pairs
+(40) line 2	Kwak̕wala	segmentation	ha̱łaḵ-a =gił-nukw =i Shelly	page 13, pairs
+(40) line 3	Kwak̕wala	gloss	pay-FV =R.VOICE-have =D3 Shelly	page 13, pairs
+(40) line 4	Violet Bracic	translation	Intended: ‘Shelly is paying for something/some reason.’	page 13, pairs
+(40) line 4	Katie Sardinha	citation	(20230321-VB JF)	the tag or source at the right of the translation
+§3.5	Katie Sardinha	note	other than Initiators. Like in active clauses, the subject of an antipassive is an Initiator. Unlike in active clauses, however, the predicate contains a voice morpheme. The voice morpheme is then followed by the suffix -nukw. The voice morpheme on the predicate corresponds with the event role of the indefinite argument, so that:	page 13
+§3.5	Katie Sardinha	note	• If the predicate contains -ayu followed by -nukw, the event is interpreted as having an indefinite Co-initiator.	page 13
+§3.5	Kwak̕wala	cited affix	-sa̱w̓/-su	page 13
+§3.5	Katie Sardinha	note	• If the predicate contains -sa̱w̓/-su’ followed by -nukw, the event is interpreted as having an indefinite Non-initiator.	page 13
+§3.5	Katie Sardinha	note	• If the predicate contains -’as followed by -nukw, the event is interpreted as having an indefininte Location.	page 13
+§3.5	Kwak̕wala	cited form	=gił	page 13
+§3.5	Katie Sardinha	note	• Predicates containing =gił followed by -nukw are ungrammatical.	page 13
+§3.5	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§3.5	Kwak̕wala	cited form	tłuma	page 13
+§3.5	Katie Sardinha	note	Additional Notes: Kwak̕wala speakers find attempts to construct antipassives with =gił ungrammatical, or marginal at best (Sherer 2014, also my data). This is probably because =gił patterns as a second-position clitic, as shown by its appearance on the auxiliary tłuma ‘really, very, too much’ in (41). Clitics always follow suffixes within Kwak̕wala words, so this could explain why it cannot appear before -nukw in (40).9	page 13
+(41) line 1	Katie Sardinha	note	Context: Bill is a greedy person.	page 13, pairs
+(41) line 2	Kwak̕wala	transcription	m̓adzi tłumagiła’sux̱ a̱wa̱lḵ̓a̱sa?	page 13, pairs
+(41) line 3	Kwak̕wala	segmentation	m̓as =dzo=i tłum-a =gił=a’=s=ux̱ a̱wa̱lḵ̓a̱s-a	page 13
+(41) line 4	Kwak̕wala	gloss	be.what=AUG=D3 very-FV=R.VOICE=I3=3.POSS=D2 greedy-FV	page 13
+(41) line 5	Julia Nelson	translation	‘Why is he so greedy?’	page 13, pairs
+(41) line 5	Katie Sardinha	citation	(20150717-JN VF)	the tag or source at the right of the translation
+§3.5	Kwak̕wala	cited affix	-gił	page 13
+§3.5	Kwak̕wala	cited affix	-(g)ił	page 13
+§3.5	Kwak̕wala	cited form	wosił	page 13, ‘sad-reason’
+§3.5	Katie Sardinha	note	9Historically at least, -gił did pattern as an inner voice suffix which occasionally lost its initial consonant (e.g., -(g)ił). I have run into its use as a suffix a few times (e.g., wosił ‘sad-reason’, speaker JN).	page 13
+§3.6	Katie Sardinha	heading	3.6 Summary: correspondences	page 14
+§3.6	Katie Sardinha	note	Across the five voice constructions examined in this section, we’ve seen that particular voice morphemes are in correspondence with particular event roles. These correspondences are summarized in Table 3:	page 14
+§3.6	Kwak̕wala	cited affix	-sa̱w̓/-su	page 14
+§3.6	Kwak̕wala	cited form	=gił	page 14
+§3.6	Katie Sardinha	note	Table 3: Voice system correspondences Voice Morpheme Event Role -ayu Co-initiator -sa̱w̓/-su’ Non-initiator -’as Location =gił Reason Within passives and relative clauses (as well as information questions and answer clefts, which contain relative clauses), the argument that receives the event role corresponding with the voice morpheme on the predicate is a subject. Within antipassives, it is a non-subject argument that receives the corresponding event role.	page 14
+§4	Katie Sardinha	heading	4 The inner voice system	page 14
+§4	Katie Sardinha	note	The inner voice morphemes are more restricted in their distribution than the outer voice morphemes. Whereas the outer voice morphemes correspond with particular event roles, inner voice morphemes correspond with particular thematic roles that are proper subsets of event roles. These correspondences are summarized in Table 4 below, alongside example nominalizations.	page 14
+Table 4 line 1	Katie Sardinha	note	Inner voice morphemes	page 14, the caption
+Table 4 line 2	Katie Sardinha	note	Morpheme Event Role Thematic Role Example	page 14, heads the rows below
+Table 4 line 3	Katie Sardinha	note	-wayu Co-initiator instrument	page 14, between the cells
+Table 4 line 3	Kwak̕wala	transcription	ḵ̓idayu	page 14, the orthography
+Table 4 line 3	Katie Sardinha	translation	‘fishing rod’	page 14
+Table 4 line 4	Katie Sardinha	note	(√ḵ̓it ‘to fish with rod’)	page 14
+§4	Kwak̕wala	cited affix	-wa̱m	page 14
+§4	Kwak̕wala	cited form	ka̱la̱m	page 14, ‘feared one’
+§4	Kwak̕wala	root	√ka̱ł	page 14, ‘to fear’
+§4	Kwak̕wala	cited affix	-wana̱m	page 14
+§4	Kwak̕wala	cited form	ka̱lwana̱m	page 14, ‘bought goods’
+§4	Kwak̕wala	root	√ka̱lxw	page 14, ‘to buy’
+§4	Kwak̕wala	cited affix	-w(a̱)kw	page 14
+§4	Kwak̕wala	cited form	kwa̱nikw	page 14, ‘bread’
+§4	Kwak̕wala	root	√kwa̱ns	page 14, ‘to bake bread’
+§4	Kwak̕wala	cited affix	-wł	page 14
+§4	Kwak̕wala	cited form	dug̱wa̱ł	page 14, ‘seen one’
+§4	Kwak̕wala	root	√duḵw	page 14, ‘to see’
+§4	Kwak̕wala	cited affix	-w’as	page 14
+§4	Kwak̕wala	cited form	xa̱ldas	page 14, ‘sawing place’
+§4	Kwak̕wala	root	√xa̱lt	page 14, ‘to saw’
+§4	Katie Sardinha	note	-wa̱m Co-initiator mental content, instrument ka̱la̱m ‘feared one’ (√ka̱ł ‘to fear’) -wana̱m Non-initiator obtainum ka̱lwana̱m ‘bought goods’ (√ka̱lxw ‘to buy’) -w(a̱)kw Non-initiator result kwa̱nikw ‘bread’ (√kwa̱ns ‘to bake bread’) -wł Non-initiator stimulus dug̱wa̱ł ‘seen one’ (√duḵw ‘to see’) -w’as Location place xa̱ldas ‘sawing place’ (√xa̱lt ‘to saw’) For example, nouns derived with -wana̱m refer specifically to things that are obtained in the course of an event. This is a proper subset of the much wider class of Non-initiators.	page 14
+§4	Kwak̕wala	cited form	ka̱lxwasu	page 15, ‘what was bought’
+§4	Katie Sardinha	note	In general, any predicate containing an inner voice morpheme can be substituted with a predicate containing the outer morpheme with the same corresponding event role. For instance, the word ka̱lwana̱m ‘bought goods’ can in general be replaced with ka̱lxwasu’ ‘what was bought’. Substitution in the other direction (of predicates with outer voice morphemes by predicates with inner ones) is not always possible, however, since words containing inner voice morphemes have more specific meanings.	page 15
+§5	Katie Sardinha	heading	5 Discussion	page 15
+§5	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+§5	Katie Sardinha	note	In order to understand the role of the voice system in Kwak̕wala grammar, it helps us to consider some specific ways in which the grammar and lexicon of Kwak̕wala and English differ. In English, when you want to express an indefinite argument, there are a wide array of lexical means for doing so. For instance, English has a large set of indefinite pronouns (someone, somebody, anyone, anybody, nobody, etc.), and relative pronouns (who, which, what, how, whose, that, whichever, etc.) for this purpose (42) to (43).	page 15
+(42a) line 1	English	transcription	Somebody ate the last piece of cake.	page 15, English, indefinite Initiator
+(42b) line 1	English	transcription	Jo saw something behind the house.	page 15, English, indefinite Non-initiator
+(42c) line 1	English	transcription	Jo is out fishing somewhere.	page 15, English, indefinite Location
+§5	Kwak̕wala	cited form	a̱x̱e	page 15
+§5	Kwak̕wala	root	√a̱x̱	page 15, before (44)
+(43a) line 1	English	transcription	Whoever is cooking needs to be careful.	page 15, English, indefinite Initiator
+(43b) line 1	English	transcription	Jo found what she lost.	page 15, English, indefinite Non-initiator
+(43c) line 1	English	transcription	Jo knows where the bears live.	page 15, English, indefinite Location
+§5	Katie Sardinha	note	Significantly, the roots of these indefinite words are nominal. To express an indefinite argument in English, then, an indefinite noun is simply expressed in an argument position.10 When Kwak̕wala speakers are asked to translate English sentences containing one or more indefinite arguments, they are forced to confront the fact that there are no simple, one-word translational equivalents of the indefinite pronouns and relative pronouns in (42) to (43) above. Perhaps the closest approximation to an indefinite pronoun in Kwak̕wala is the nominalization a̱x̱e’, which is formed from the empty root √a̱x̱(44).	page 15
+(44) line 1	Katie Sardinha	note	Context: You wake up to a strange noise coming from the other side of your apartment. You run out and see that there is a horse standing in your kitchen!	page 15, pairs
+(44) line 2	Kwak̕wala	transcription	gudanox̱da a̱x̱e’x̱ lax̱a̱n’s	page 15, pairs
+(44) line 3	Kwak̕wala	segmentation	gudan =ox̱=da a̱x̱ =e’=(a̱)x̱la =x̱=a̱n’s	page 15
+(44) line 4	Kwak̕wala	gloss	horse =D2=OST EMPTY.ROOT =NMZ=V2 PREP =ACC=1.PL.INCL	page 15
+(44) line 5	Kwak̕wala	transcription	ham̓iksila̱’as.	page 15, pairs
+(44) line 6	Kwak̕wala	segmentation	ham̓iksil-’as	page 15, pairs
+(44) line 7	Kwak̕wala	gloss	make.food-L.VOICE	page 15
+(44) line 8	Ruby Dawson Cranmer	translation	‘There is a horse in our kitchen!’	page 15, pairs
+(44) line 8	Katie Sardinha	citation	(20130111-RDC VF)	the tag or source at the right of the translation
+(44) line 9	Katie Sardinha	translation	Lit. ‘The doing-one in our kitchen is a horse!’	page 15, the literal translation
+footnote 10	Katie Sardinha	note	10 It may subsequently become displaced from its base-generated position in the sentence, through movement.	page 15, footnote
+§5	Katie Sardinha	note	Nevertheless, such uses of a̱x̱e’ are extremely restricted. They are only volunteered in subject position, and with predicates that refer to non-initiated events. In short, the restricted nature of a̱x̱e’ demonstrates that it is not a translational equivalent of ‘someone’ or ‘something’ in Kwak̕wala. In Kwak̕wala, rather, it is the voice system which is used to express indefinite arguments (within initiated events). Particular voice constructions enable the expression of particular kinds of indefinite arguments, namely:	page 15
+§5	Katie Sardinha	note	• Passives enable the expression of indefinite Initiators; this is achieved by leaving the Initiator covert.	page 16
+§5	Katie Sardinha	note	• Relative clauses enable the expression of indefinite arguments which are identifiable in terms of their event role. Typically, these are specific indefinites (‘the one that…’, ‘the thing that…’, ‘the place that…’, etc.).	page 16
+§5	Katie Sardinha	note	• Antipassives are used to assert the existence of an indefinite Co-initiator, Non-initiator, or Location in an initiated event.	page 16
+§5	Katie Sardinha	note	The reason that there are no single-word translational equivalents of English indefinite and relative pronouns in Kwak̕wala is that indefinite noun phrases are created ‘on the fly’ in this language, using voice morphemes to derive event nominalizations. Since the Kwak̕wala voice system requires indefinites to be classified, morphosemantically, in terms of their event role, there can be no simple, one-word indefinites like ‘someone’ in Kwak̕wala. Instead, there is an array of constructions referring to ‘someone’, each one classified by its event role.	page 16
+§5	Kwak̕wala	cited form	m̓as	page 16, ‘to be what’
+§5	Kwak̕wala	cited form	a̱ngwa	page 16, ‘to be who’
+§5	Kwak̕wala	cited form	a̱ngwas	page 16
+§5	Kwak̕wala	cited form	w̓a̱y/w̓i	page 16, ‘what happened, how, where, when’
+§5	Kwak̕wala	cited form	ga̱ns	page 16, ‘how much’
+§5	Kwak̕wala	cited form	g̱wa̱y/g̱wi	page 16, ‘to do thusly’
+§5	Kwak̕wala	cited form	a̱x̱	page 16, ‘to do’
+§5	Katie Sardinha	note	Recall that in English, indefinite and relative pronouns are nominal. In Kwak̕wala, on the other hand, roots with indefinite meanings are exclusively verbal. Common examples of indefinite verbal roots include the interrogative predicates (e.g., m̓as ‘to be what’, a̱ngwa ‘to be who’, a̱ngwas ‘to be whose’, w̓a̱y/w̓i ‘what happened, how, where, when’, ga̱ns ‘how much’) as well as a variety of indefinite verbs (e.g., g̱wa̱y/g̱wi ‘to do thusly’, a̱x̱ ‘to do’, o ‘so, just’), all of which can be modified by various suffixes and/or clitics. The verbal nature of indefinite roots in Kwak̕wala is significant, because it means that in order to express an indefinite in argument position, one must be derived, through nominalization. Hence, the Kwak̕wala lexicon is endowed with a large set of nominalizing suffixes and clitics. Among this large set of nominalizers, the ones which make up the voice system are just those ones that attach to predicates that denote initiated events, thus deriving event nominals. Thus, it is the fact that indefinite roots are verbal in Kwak̕wala which functions to shape the voice system into a system of nominalizers.	page 16
+§5	Katie Sardinha	note	Many details remain to be worked out related to the expression of indefinite arguments in Kwak̕wala. For instance, there are many unanswered questions concerning the relationship between the voice system and the DP system. Nevertheless, I have showed that the Kwak̕wala voice system is not just a constellation of related sentence types, unified by a set of morphemes or derivational operations. It is also a system for expressing indefinite event participants in initiated events. Having another way of thinking about the role of the voice system in Kwak̕wala grammar can guide us to new questions for further research, and help shape how we go about teaching the voice system to Kwak̕wala learners.	page 16
+§5	Katie Sardinha	note	It is often said that languages don’t differ in terms of what ideas they can express, while they can differ profoundly in terms of how they express ideas. The expression of indefinites in English and Kwak̕wala exemplify this principle: in English, indefinites are underlyingly nominal, while in Kwak̕wala, indefinites are underlyingly verbal. Consequently, English expresses indefinite arguments by placing indefinite nominals in argument positions, while Kwak̕wala expresses indefinite arguments by deriving event nominals that are classified, morphosemantically, according to their event role. Both grammatical systems achieve the same meanings, but they do so in mirror- opposite ways.	page 16
+references	Katie Sardinha	heading	References	page 17
+references	Katie Sardinha	reference	Anderson, Stephen R. 1984. Kwakwala syntax and the Government-Binding theory. In Eung-Do Cook & Donna Gerdts (eds.), Syntax and Semantics, vol. 16: The Syntax of Native American Languages. 21–75. Orlando, FL: Academic Press.	
+references	Katie Sardinha	language	Kwak̕wala	Kwak̕wala
+references	Katie Sardinha	reference	Anonby, Stan J. 1997. Reversing language shift: Can Kwak̕wala be revived? Grand Forks, ND: University of North Dakota MA thesis.	
+references	Katie Sardinha	reference	Boas, Franz. 1911. Kwakiutl. In Franz Boas (ed.), Handbook of American Indian Languages, vol. 1. 423–557. Cambridge, UK: Cambridge University Press.	
+references	Katie Sardinha	reference	Boas, Franz (Helene Boas Yampolsky, ed.). 1947. Kwakiutl grammar with a glossary of the suffixes. Transactions of the American Philosophical Society 37. 202-377. Republished 1976. New York, NY: AMS Press Inc.	
+references	Katie Sardinha	reference	Black, Alexis. 2011. Ostension and definiteness in the Kwak̕wala noun phrase. In John Lyon & Joel Dunham (eds.), Papers for the 46th International Conference on Salish and Neighbouring Languages. 1–31. Vancouver, BC: University of British Columbia Working Papers in Linguistics.	
+references	Katie Sardinha	reference	First Peoples’ Cultural Council. 2022. Report on the status of B.C. First Nations Languages, Fourth Edition. Accessed from https://fpcc.ca/stories/status-of-languages/ on Feb. 25, 2024.	
+references	Katie Sardinha	reference	Levine, Robert D. 1978. Apposition and relativization in Kwakwala. Papers for ICSNL 13:298– 331. Retrieved from http://lingserver.arts.ubc.ca/linguistics/icsnl/1978 on June 7, 2017.	
+references	Katie Sardinha	reference	Levine, Robert D. 1980. On the lexical origin of the Kwakwala passive. International Journal of American Linguistics 46(4):240–258.	
+references	Katie Sardinha	reference	Levine, Robert D. 1981. Passives and controllability in Kwakwala. Glossa 14:139–167.	
+references	Katie Sardinha	reference	Levine, Robert D. 1984. Empty categories, rules of grammar, and Kwakwala complementation. In Eung-Do Cook & Donna Gerdts (eds.), Syntax and Semantics, Vol. 16: The Syntax of Native American Languages. 215–245. Orlando, FL: Academic Press.	
+references	Katie Sardinha	reference	Littell, Patrick. 2016. Focus, predication, and polarity in Kwak̕wala. Vancouver, BC: Universit yof British Columbia Ph.D. dissertation.	
+references	Katie Sardinha	reference	Rosenblum, Daisy. 2013. Passive constructions in Kʷa k̓ʷala. In John Sylak -Glassman & Justin Spence (eds.), Structure and contact in languages of the Americas. 229–278. Berkeley, CA: Survey of California and Other Indian Languages.	
+references	Katie Sardinha	reference	Sardinha, Katie. 2017. The semantics of Kwak̕wala object case. Berkeley, CA: University of California, Berkeley, Ph.D. dissertation.	
+references	Katie Sardinha	language	Kʷak̕ʷala	Kwak̕wala, in the title of a reference
+references	Katie Sardinha	reference	Sherer, Laura. 2014. Nominalization and Voice in Kʷak̕ʷala. Vancouver, BC: University of British Columbia MA thesis.	

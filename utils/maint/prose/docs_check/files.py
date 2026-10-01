@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Which files are read, which are walked past, and how a tree is walked.
@@ -34,7 +34,7 @@ BUILD_NAMES = ("CMakeLists.txt", "Makefile", "GNUmakefile", "Dockerfile")
 
 # A git hook has no extension at all, and no extension list can ever select it.
 # Also from ai_words.py, and it is the sharpest thing in that file: a four-extension sweep
-# dropped a hook and took the gate with it. anchor_sift keeps its own hooks in .githooks/ and every
+# dropped a hook and took the gate with it. orior keeps its own hooks in .githooks/ and every
 # one of them is a shell script full of comments.
 HOOK_NAMES = (
     "pre-commit",

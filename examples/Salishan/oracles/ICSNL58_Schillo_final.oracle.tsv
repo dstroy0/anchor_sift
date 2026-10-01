@@ -1,0 +1,528 @@
+where	who	kind	form	gloss
+front	Julia Schillo	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+front	Julia Schillo	title	Details on Eastern Secwepemctsín Nasal Shift: Syllabification and Lenition in Nasal Clusters*	page 1
+front	Julia Schillo	byline	Julia Schillo, Simon Fraser University	page 1
+front	Julia Schillo	note	Abstract: The Eastern Secwepemctsín (Shuswap) dialect displays a “nasal shift” process, which involves lenition of syllabic nasals to more sonorous glides or vowels, which is in turn blocked by homorganic onsets. In this paper, I present data to further describe the Eastern Secwepemctsín nasal shift. I begin with an overview of Secwepemctsín resonant syllabification patterns and prior descriptions of nasal shift, with a preliminary Optimality Theoretical analysis for both. Next, I present data of the /-n/ interrogative suffix which departs from prior descriptions, as syllable onsets cannot be used to predict the suffix’s surface form. Then, I demonstrate how Eastern Secwepemctsín nasal clusters display more varied syllabification patterns than previously documented. Finally, I discuss the nasal shift–syllabification interface in nasal clusters, noting generalizations that can be made based on word category.	page 1
+front	Julia Schillo	note	Keywords: nasal shift, lenition, resonant clusters, syllabification, Secwepemctsín, Shuswap	page 1
+front	Julia Schillo	name	Julia Schillo	author, Simon Fraser University
+§1	Julia Schillo	heading	1 Introduction	page 1
+§1	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§1	Julia Schillo	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson, a Northern Interior Salish language
+§1	Julia Schillo	language	Snchitsu’umshtsn	Snchitsu’umshtsn, Coeur d’Alene, a Southern Interior Salish language
+§1	Julia Schillo	language	Séliš	Séliš, Spokane-Kalispel, a Southern Interior Salish language
+§1	Julia Schillo	language	Nxaʔamxcín	Nxaʔamxcín, Moses-Columbia, a Southern Interior Salish language
+§1	Julia Schillo	language	Nsyilxcən	Nsyilxcən, Okanagan, a Southern Interior Salish language
+§1	Julia Schillo	note	A phonological element of many Interior Salish languages — including Secwepemctsín (Shuswap), Nɬeʔkepmxcín (Thompson), Snchitsu’umshtsn (Coeur d’Alene), Séliš (Spokane-Kalispel), Nxaʔamxcín (Moses-Columbia), and Nsyilxcən (Okanagan) — is a group of processes called “nasal shift” (Carlson 1974; Kinkade 1982). Nasal shift is a general term used to describe various lenition processes that apply to Salish nasal consonants — i.e., processes in which underlying nasal consonants surface as more sonorous glides or vowels.	page 1
+§1	Julia Schillo	note	Interior Salish nasal shifts can be broadly divided into two categories: one that targets both syllabic and non-syllabic nasals, and another which affects only syllabic nasals (Kinkade 1982). The first kind involves both syllabic and non-syllabic nasals shifting when directly followed by a fricative (Carlson 1997:432). This kind of nasal shift is seen in languages such as Nxaʔamxcín (Carlson 1997:432–433; Willett & Czaykowska-Higgins 1995:4–5) and Séliš (Carlson 1974; Kinkade 1982). The second kind of nasal shift only affects syllabic nasals (Carlson 1997:433). For example, in Nɬeʔkepmxcín, unglottalized syllabic nasals shift to [e] before homorganic obstruents (Kinkade 1982:259). Both diachronic and synchronic forms of nasal shift exist in Interior Salish languages, and both may be seen within a language.	page 1
+footnote *	Julia Schillo	note	* Thank you, first and foremost, to Lucy Williams and Garlene (Bernadette) Dodson — the two Secwepemctsín speakers with whom I have worked — who have both put a tremendous amount of knowledge, time, and energy into documenting Secwepemctsín. Kukwstsémc Lucy ell kukwstsétsemc Garlene! Thank you to the Shuswap Working Group and Salish Working Group at UBC, especially Henry Davis, and the PhonArea Lab at SFU for feedback. Thank you to Marianne Ignace for guidance. Thank you to Janice Dick Billy who first brought inconsistencies in the surface form of the interrogative suffix to my attention. Funding for this research comes from the Jacobs Research Funds and the Phillips Fund. Any and all mistakes are my own. Contact info: julia_schillo@sfu.ca	page 1, footnote
+footnote *	Julia Schillo	name	Janice Dick Billy	first brought the interrogative suffix's variable surface form to the author's attention
+footnote *	Julia Schillo	name	Marianne Ignace	thanked for guidance
+footnote *	Julia Schillo	name	Henry Davis	thanked for feedback, of the Shuswap and Salish Working Groups at UBC
+footnote *	Julia Schillo	name	Garlene (Bernadette) Dodson	a Secwepemctsín speaker the author has worked with
+footnote *	Julia Schillo	name	Lucy Williams	a Secwepemctsín speaker the author has worked with
+footnote *	Secwepemctsín	running speech	Kukwstsémc	page 1, footnote, the author thanks Lucy Williams in the language
+footnote *	Secwepemctsín	running speech	kukwstsétsemc	page 1, footnote, the author thanks Garlene Dodson in the language
+§1	Secwepemctsín	cited form	/-úl̕əxʷ/	page 2
+§1	Julia Schillo	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§1	St’át’imcets	cited form	/-úlm̓əxʷ/	page 2, the St’át’imcets form of the suffix, which keeps its nasal
+§1	Nɬeʔkepmxcín	cited form	/-úym̓xʷ/	page 2, the Nɬeʔkepmxcín form of the suffix, which keeps its nasal
+§1	Julia Schillo	note	In Secwepemctsín, evidence of diachronic nasal shift is seen in all dialects, while a synchronic nasal shift of syllabic nasals occurs only in the Eastern Secwepemctsín dialect. Traces of a diachronic nasal shift are evident through comparison of lexical items with neighboring languages (Kinkade 1982). For example, the Secwepemctsín lexical suffix meaning ‘earth, land’ is /-úl̕əxʷ/. In neighboring Northern Interior Salish languages, this suffix retains a nasal — e.g., in St’át’imcets /-úlm̓əxʷ/ and Nɬeʔkepmxcín /-úym̓xʷ/ (Kinkade 1982:261).	page 1
+§1	Julia Schillo	place	Splatsín	Splatsín, Enderby, the Eastern community earlier descriptions drew on
+§1	Julia Schillo	note	The Eastern Secwepemctsín synchronic nasal shift has been briefly described by Gibson (1973) and Kuipers (1983; 1989), however, a comprehensive and formal investigation of the process has not yet occurred. Additionally, all previous descriptions have presented language data from Secwepemctsín speakers from Splatsín (Enderby), while noting that variation exists in other Eastern dialect communities, but without elaborating on the nature or distribution of this variation. In this paper, I provide more details about nasal shift as it occurs in Eastern Secwepemctsín spoken in Salmon Arm, with the beginnings of a formal, Optimality Theory (OT) analysis (Prince & Smolensky 2004). The Eastern Secwepemctsín examples presented in this paper are the result of elicitation sessions with an L1 Secwepemctsín speaker from Salmon Arm beginning in May 2022. Some data from the Western Secwepemctsín dialect will also be presented in Section 2. These data were collected through fieldwork beginning in October 2020 with an L1 speaker from Skeetchestn. All elicitation sessions took place over Zoom video conferencing. Unless otherwise specified, all examples in this paper are from the fieldwork that I conducted.	page 2
+§1	Julia Schillo	note	In Section 2, I provide an overview of resonant syllabification in Secwepemctsín — a process that is necessary for understanding the Eastern Secwepemctsín nasal shift — with a preliminary OT analysis of the process in Section 2.1. Section 3 will then provide a description of Eastern Secwepemctsín nasal shift, with Section 3.1 presenting a preliminary OT analysis, and Section 3.2 describing the impact of nasal shift on Eastern Secwepemctsín morphophonology. Section 4 presents a preliminary description of nasal shift as it applies to the /-n/ yes/no interrogative suffix, which patterns differently from what is expected from nasal shift, and which differs from previous descriptions. Section 5 presents data with different resonant syllabification in nasal clusters when compared with the general patterns of resonant cluster syllabification in Secwepemctsín. Finally, Section 6 provides a discussion and conclusion.	page 2
+§2	Julia Schillo	heading	2 Resonant syllabification in Secwepemctsín	page 2
+§2	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§2	Julia Schillo	note	In Secwepemctsín — as in all Salish languages — long consonant clusters can arise as a result of affixation. Within such clusters, different behavior with regards to syllabification is expected for obstruents and resonants. While obstruents can occur at peripheral edges of onset and/or coda consonant clusters, or as extrasyllabic segments, resonants must surface immediately adjacent to a syllable nucleus or serve as the syllable nucleus themselves.	page 2
+§2	Julia Schillo	note	Disagreement exists surrounding whether the maximal syllable shape in Salish languages is a simple CVC syllable with unsyllabified obstruents (Bates & Carlson 1992; Czaykowska-Higgins & Willett 1997) or whether the maximal syllable shape allows for complex onsets and codas, but disallows sonority reversals and resonant plateaus within onsets and codas — i.e., *RC onsets and *CR codas are marked and never surface (in which R = resonant, and C = consonant, either obstruent or resonant) (Matthewson 1994). However, in both hypotheses, unsyllabified resonants never surface. For this paper, the maximal syllable shape is not particularly relevant as nasal consonants — which are resonants — never surface as extrasyllabic segments or at peripheral edges of onset/coda clusters in either hypothesis. I will assume that at least coda clusters are permitted in Secwepemctsín for the sake of notational simplicity.	page 2
+§2	Secwepemctsín	cited form	m̓	page 3
+§2	Secwepemctsín	cited form	n̓	page 3
+§2	Secwepemctsín	cited form	l̕	page 3
+§2	Secwepemctsín	cited form	ɣ	page 3
+§2	Secwepemctsín	cited form	ɣ̓	page 3
+§2	Secwepemctsín	cited form	ʕ	page 3
+§2	Secwepemctsín	cited form	ʕʷ	page 3
+§2	Secwepemctsín	cited form	ʕ̕	page 3
+§2	Secwepemctsín	cited form	ʕ̕ʷ	page 3
+§2	Secwepemctsín	cited form	y̓	page 3
+§2	Secwepemctsín	cited form	w̓	page 3
+§2	Secwepemctsín	cited form	ʔ	page 3
+§2	Julia Schillo	notation	əR	page 3
+§2	Julia Schillo	notation	R̩	page 3
+§2	Julia Schillo	note	The Secwepemctsín resonant inventory includes nasals [m m̓ n n̓], laterals [l l̕], approximants [ɣ ɣ̓ ʕ ʕʷ ʕ̕ ʕ̕ʷ], glides [y y̓ w w̓], and glottals [ʔ h].1 Syllabic resonants occur as a repair mechanism to prevent resonants which are not underlyingly adjacent to a vowel (which would serve as the surface syllable nucleus) from surfacing as unsyllabified segments or in marked onset *RC and coda *CR clusters. Syllabic resonants have two realizations (Kuipers 1989): (i) with an epenthetic schwa inserted directly preceding or following the resonant to serve as the syllable nucleus: [əR]; or (ii) with the resonant itself acting as the nucleus of a syllable: [R̩]. Examples of repairs using schwa epenthesis are provided in (1), and examples of nuclear resonants in (2), with the syllabic resonants bolded for easy identification. Transcriptions in the Western Secwepemctsín community orthography are provided in footnotes.	page 3
+(1) line 1	Julia Schillo	note	Input Output Gloss	page 3, the caption
+(1a) line 1	Secwepemctsín	phonemic	/meʕxn/	page 3, phonemic, in / /
+(1a) line 1	Secwepemctsín	phonemic	[méʕ.xən]	page 3, phonetic, in [ ]
+(1a) line 1	Julia Schillo	translation	‘moon’	page 3
+(1b) line 1	Secwepemctsín	phonemic	/mol-m/	page 3, phonemic, in / /
+(1b) line 1	Secwepemctsín	phonemic	[mó.ləm]	page 3, phonetic, in [ ]
+(1b) line 1	Julia Schillo	translation	‘put down’	page 3, carries footnote 2, written here without its digit
+(2) line 1	Julia Schillo	note	Input Output Gloss	page 3, the caption
+(2a) line 1	Secwepemctsín	phonemic	/c̓qʷuʔ-ətn/	page 3, phonemic, in / /
+(2a) line 1	Secwepemctsín	phonemic	[c̓qʷuʔ.tn̩]	page 3, phonetic, in [ ]
+(2a) line 1	Julia Schillo	translation	‘pipe’	page 3
+(2b) line 1	Secwepemctsín	phonemic	/t̕up-m/	page 3, phonemic, in / /
+(2b) line 1	Secwepemctsín	phonemic	[t̕u.pm̩]	page 3, phonetic, in [ ]
+(2b) line 1	Julia Schillo	translation	‘to wring’	page 3, carries footnote 3, written here without its digit
+§2	Secwepemctsín	cited form	c̓	page 3
+§2	Secwepemctsín	phonetic	č	page 3, the second realization of /c/ (Kuipers 1974:24)
+§2	Secwepemctsín	phonetic	č̓	page 3, the second realization of /c̓/ (Kuipers 1974:24)
+§2	Secwepemctsín	phonetic	š	page 3, the second realization of /s/ (Kuipers 1974:24)
+§2	Julia Schillo	note	In Western Secwepemctsín, syllabic nasals and laterals surface as nuclear when they are preceded by a homorganic consonant, and a schwa is epenthesized in all other cases (Kuipers 1989:13). Coronal consonants in Secwepemctsín are divided into two places of articulation: dental- laterals and dental-palatals (Kuipers 1974:20; 1989:11). These two places of articulation are principally motivated by the repair mechanisms observed when coronal syllabic resonants are preceded by coronal consonants. Syllabic [n n̓ l l̕] are nuclear when preceded by dental -laterals, indicating a shared place of articulation, but an epenthetic schwa appears when they are preceded by dental-palatals (Kuipers 1989:13). Dental-lateral and dental-palatal consonants are listed in Table 1, along with their associated class features. For the time being, I have left dental-palatals underspecified with regards to the [+/−anterior] feature, as there is likely variability. Consonants such as /y y̓/ are likely [−anterior], as they are articulated more in the palatal area than an alveolar place. However, consonants like /c c̓ s/ have been noted to have two realizations in Secwepemctsín:	page 3
+§2	Secwepemctsín	cited form	t̕	page 3
+§2	Secwepemctsín	cited form	ɬ	page 3
+footnote 1	Julia Schillo	note	1 Glottal consonants are grouped with resonants due to their patterns of schwa epenthesis. For further discussion, see Matthewson (1994) and Czaykowska-Higgins and Willet (1997).	page 3, footnote
+footnote 2	Julia Schillo	note	2 Community orthography transcriptions of example (1): (1a) mégcen; (1b) mólem.	page 3, footnote
+footnote 2	Secwepemctsín	practical orthography	mégcen	page 3, footnote 2, the community orthography of (1a)
+footnote 2	Secwepemctsín	practical orthography	mólem	page 3, footnote 2, the community orthography of (1b)
+footnote 3	Julia Schillo	note	3 Community orthography transcriptions of example (2): (2a) ts̓qú7eten; (2b) t̕úpem.	page 3, footnote
+footnote 3	Secwepemctsín	practical orthography	ts̓qú7eten	page 3, footnote 3, the community orthography of (2a)
+footnote 3	Secwepemctsín	practical orthography	t̕úpem	page 3, footnote 3, the community orthography of (2b)
+§2	Julia Schillo	note	of [+/−anterior], with realization (i) typically being associated with [+anterior] feature and realization (ii) with [−anterior], but an articulatory study is needed to clarify this.	page 3
+Table 1 line 1	Julia Schillo	note	Table 1: Dental-lateral and dental-palatal consonants Place of Articulation Phonemes Features Dental-lateral t, t̕, ɬ, n, n̓, l, l̕[CORONAL, +anterior, −distributed] Dental-palatal c, c̓, s, y, y̓ [CORONAL, +distributed]	page 3, the caption and rows of the table
+§2	Julia Schillo	note	When resonant clusters occur, the segment that is syllabified can be predicted, as described by the generalizations made by Kuipers (1989:13), and summarized in Table 2. 4 In Table 2, C = consonant — which may be either an obstruent, or the coda resonant of a preceding syllable, i.e., a resonant which is syllabified — R = resonant; and T = obstruent, resonant, or word boundary — e.g., /CRRT/ could mean /CRRC/, /CRRR/, or /CRR#/ where # = word boundary.	page 4
+Table 2 line 1	Julia Schillo	note	Syllabification of resonant clusters	page 4, the caption
+Table 2 line 2	Julia Schillo	note	Input Output	page 4, heads the rows below
+Table 2 line 3	Secwepemctsín	phonemic	/CRRT/	page 4, phonemic, in / /
+Table 2 line 3	Secwepemctsín	phonemic	[CRR̩T]	page 4, phonetic, in [ ]
+Table 2 line 4	Secwepemctsín	phonemic	/CRRRT/	page 4, phonemic, in / /
+Table 2 line 4	Secwepemctsín	phonemic	[CR̩RR̩T]	page 4, phonetic, in [ ]
+§2.1	Julia Schillo	heading	2.1 An OT analysis of resonant cluster syllabification	page 4
+§2.1	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§2.1	Julia Schillo	notation	CRR̩T	page 4
+§2.1	Julia Schillo	notation	CR̩RT	page 4
+§2.1	Julia Schillo	notation	*R̩	page 4
+§2.1	Julia Schillo	note	Onsetless syllables generally do not occur in Secwepemctsín (with the exception of some prefixes5), so an undominated ONSET constraint is needed to ensure that all syllables have an onset. The syllabification patterns described in Table 2 also indicate a preference for simple codas. For example, [CRR̩T] allows for a simple coda, while *[CR̩RT] does not if T is a consonant. Thus, a *COMPLEXCODA constraint is necessary. Finally, a *R̩constraint is included. These constraints are summarized in (3).	page 4
+(3a) line 1	Julia Schillo	note	ONSET: Assign a violation for every syllable that does not have an onset.	page 4, engine english
+(3b) line 1	Julia Schillo	note	*COMPLEXCODA: Assign a violation for every coda consonant cluster.	page 4, engine english
+(3c) line 1	Julia Schillo	note	*R̩: Assign a violation for every nuclear resonant.	page 4, engine residue
+§2.1	Julia Schillo	note	Tableaus (4) and (5) demonstrate the ranking and use of these constraints for /CRRC/ and /CRRRC/ clusters, respectively.	page 4
+(4) line 1	Julia Schillo	note	Syllabification of /CRRC/ clusters:	page 5, the title of the tableau
+(4) line 2	Julia Schillo	notation	/CRRC/	page 5, the input of the tableau
+(4) line 2	Julia Schillo	note	ONSET *COMPLEXCODA *R̩	page 5, the constraints heading the columns, in ranked order: ONSET, *COMPLEXCODA, *R̩
+(4a) line 1	Julia Schillo	phonemic	C.RR̩C	page 5, candidate a, the optimal candidate, marked ☞, violations: *R̩ *
+(4b) line 1	Julia Schillo	phonemic	CR̩RC	page 5, candidate b, violations: *COMPLEXCODA *!, *R̩ * (! marks a fatal violation)
+(4c) line 1	Julia Schillo	phonemic	CR̩.R̩C	page 5, candidate c, violations: ONSET *!, *R̩ ** (! marks a fatal violation)
+footnote 4	Julia Schillo	note	4 Kuipers (1989) makes further generalizations for word-initial resonant clusters, however, I have limited Table 2 to only summarizing word-internal and word-final clusters, as these are most relevant to the discussion in Section 5.	page 4, footnote
+footnote 5	Julia Schillo	note	5 This is seen in prefixes such as the locative prefix /n-/. Similar exceptions are seen in languages such as St’át’imcets (Matthewson 1994:384), however it has also been argued that Salish prefixes are extrasyllabic and are not missing an onset as they are unparsed (Matthewson 1994:384; Czaykowska-Higgins & Willett 1997:389).	page 4, footnote
+§2.1	Julia Schillo	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§2.1	Julia Schillo	note	In (4), (4c) is eliminated because it has an onsetless syllable. Candidate (4b) is eliminated because it has a complex coda: *[CR̩RC]. Thus, (4a) is the preferred candidate as it has both an onset and a simple coda. I left the syllabification of the first consonant in (4a) underspecified, but it could either be an extrasyllablic obstruent or the coda of another syllable not shown in the example.	page 5
+(5) line 1	Julia Schillo	note	Syllabification of /CRRRC/ clusters:	page 5, the title of the tableau
+(5) line 2	Julia Schillo	notation	/CRRRC/	page 5, the input of the tableau
+(5) line 2	Julia Schillo	note	ONSET *COMPLEXCODA *R̩	page 5, the constraints heading the columns, in ranked order: ONSET, *COMPLEXCODA, *R̩
+(5a) line 1	Julia Schillo	phonemic	CR̩.RR̩C	page 5, candidate a, the optimal candidate, marked ☞, violations: *R̩ **
+(5b) line 1	Julia Schillo	phonemic	C.RR̩RC	page 5, candidate b, violations: *COMPLEXCODA *!, *R̩ * (! marks a fatal violation)
+§2.1	Julia Schillo	note	In (5), (5b) is eliminated because it has a complex coda: [C.RR̩RC]. In comparison, all of the syllables in (5a) have an onset and either no coda or a simple coda, so no violations are incurred for those respective constraints, resulting in (5a) being the winner.	page 5, engine english
+§2.1	Julia Schillo	note	As a note, the analysis described in this section focuses on the syllabification of nuclear resonants, as opposed to resonants that are syllabified through schwa epenthesis. I focus on nuclear resonants as this is the most relevant to nasal shift. In order to expand the analysis to include resonants with epenthetic schwas, additional constraints are needed, such as constraints against any codas (including simple codas) and constraints against epenthesis.6	page 5
+§3	Julia Schillo	heading	3 Eastern Secwepemctsín nasal shift	page 5
+§3	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§3	Julia Schillo	note	Eastern Secwepemctsín exhibits a different repair mechanism for syllabic nasals than the Western dialect. In both dialects, syllabic nasals surface in nuclear position when preceded by a homorganic consonant. However, while Western Secwepemctsín epenthesizes a schwa to syllabify nasals preceded by a heterorganic consonant, Eastern Secwepemctsín instead lenites the nuclear nasal using nasal shift. The most comprehensive description of this nasal shift is given by Kuipers (1989:17–20), which I summarize below.	page 5
+§3	Secwepemctsín	cited form	m̓	page 5
+§3	Secwepemctsín	cited form	n̓	page 5
+footnote 6	Julia Schillo	note	6 For an example of a comprehensive analysis of syllabification in another Salish language — ʔayʔaǰuθəm (Sliammon) — see Blake (2000).	page 5, footnote
+§3	Julia Schillo	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Sliammon, a Central Salish language
+§3	Secwepemctsín	cited form	w̩	page 6
+§3	Secwepemctsín	cited form	w̩̓	page 6
+§3	Secwepemctsín	cited form	y̩	page 6
+§3	Secwepemctsín	cited form	y̩̓	page 6
+§3	Secwepemctsín	cited form	eʔ	page 6
+§3	Secwepemctsín	cited form	ʔ	page 6
+§3	Julia Schillo	note	Eastern Secwepemctsín syllabic nasal consonants remain nasals following homorganic consonants. Thus, syllabic /m m̓/ remain unchanged after bilabial consonants and syllabic /n n̓/ remain unchanged after dental-laterals. Syllabic nasal consonants shift to glides after heterorganic consonants which still possess the same monovalent class feature as the nasal — the class feature which is also shared by the glide to which the nasal shifts. Thus, syllabic /m m̓/ shift to [w̩ w̩̓]7 after labial — but not bilabial — consonants (such as rounded consonants), and syllabic /n n̓/ shift to [y̩ y̩̓] after dental-palatals which are still coronal consonants. Syllabic nasals shift to [e eʔ]8 in all other cases, meaning that syllabic /m m̓/ shift to [e eʔ] after any non-labial consonants (i.e., non-bilabial and non-rounded consonants), and syllabic /n n̓/ shift to [e e ʔ] after any non -coronal consonants (i.e., non-dental-lateral and non-dental-palatal consonants). The nasal shift process is summarized in the rules in (6) and (7).	page 5
+(6) line 1	Julia Schillo	note	Syllabic /m m̓/:	page 6, engine english
+(6a) line 1	Julia Schillo	rule	→ [m̩ m̩̓] / [−syllabic, LABIAL, −round]____	page 6, engine english
+(6b) line 1	Julia Schillo	rule	→ [w̩ w̩̓] / [−syllabic, LABIAL, +round]____	page 6, engine english
+(6c) line 1	Julia Schillo	rule	→ [e eʔ] / [−syllabic, −round]____	page 6, engine english
+(7) line 1	Julia Schillo	note	Syllabic /n n̓/:	page 6, engine english
+(7a) line 1	Julia Schillo	rule	→ [n̩ n̩̓] / [−syllabic, CORONAL, +anterior, −distributed]____	page 6, engine english
+(7b) line 1	Julia Schillo	rule	→ [y̩ y̩̓] / [−syllabic, CORONAL, +distributed]____	page 6, engine english
+(7c) line 1	Julia Schillo	rule	→ [e eʔ] / [−syllabic, −anterior, −distributed]____	page 6, engine english
+§3	Julia Schillo	note	Examples of nasal shift are provided in (8) and (9), with transcriptions in the Eastern Secwepemctsín community orthography provided in footnotes.	page 6
+(8) line 1	Julia Schillo	note	Nasal shift of syllabic /m m̓/:	page 6, the caption
+(8) line 2	Julia Schillo	note	Input Output Gloss	page 6, heads the rows below
+(8a) line 1	Secwepemctsín	phonemic	/t̕up-m/	page 6, phonemic, in / /
+(8a) line 1	Secwepemctsín	phonemic	[t̕u.pm̩]	page 6, phonetic, in [ ]
+(8a) line 1	Julia Schillo	translation	‘to twist’	page 6
+(8a) line 1	Julia Schillo	citation	(Kuipers 1989:17)	page 6
+(8b) line 1	Secwepemctsín	phonemic	/tew-m/	page 6, phonemic, in / /
+(8b) line 1	Secwepemctsín	phonemic	[té.ww̩]	page 6, phonetic, in [ ]
+(8b) line 1	Julia Schillo	translation	‘buy’	page 6
+(8c) line 1	Secwepemctsín	phonemic	/s-x̌ʷusm/	page 6, phonemic, in / /
+(8c) line 1	Secwepemctsín	phonemic	[sx̌ú.se]	page 6, phonetic, in [ ]
+(8c) line 1	Julia Schillo	translation	‘soapberries’	page 6, carries footnote 9, written here without its digit
+(9) line 1	Julia Schillo	note	Nasal shift of syllabic /n n̓/:	page 6, the caption
+(9) line 2	Julia Schillo	note	Input Output Gloss	page 6, heads the rows below
+(9a) line 1	Secwepemctsín	phonemic	/ʔiɬn/	page 6, phonemic, in / /
+(9a) line 1	Secwepemctsín	phonemic	[ʔí.ɬn̩]	page 6, phonetic, in [ ]
+(9a) line 1	Julia Schillo	translation	‘eat’	page 6
+(9b) line 1	Secwepemctsín	phonemic	/wik-c-n/	page 6, phonemic, in / /
+(9b) line 1	Secwepemctsín	phonemic	[wík.čy̩]	page 6, phonetic, in [ ]
+(9b) line 1	Julia Schillo	translation	‘I see you’	page 6
+(9c) line 1	Secwepemctsín	phonemic	/s-x-wen̓-wn/	page 6, phonemic, in / /
+(9c) line 1	Secwepemctsín	phonemic	[sxwén̓.we]	page 6, phonetic, in [ ]
+(9c) line 1	Julia Schillo	translation	‘morning’	page 6, carries footnote 10, written here without its digit
+footnote 7	Julia Schillo	note	7 I have chosen to represent syllabic glides as nuclear, following Kuipers’ (1989) analysis.	page 6, footnote
+footnote 8	Julia Schillo	note	8 An acoustic analysis of the vowel derived by nasal shift would be beneficial for clarifying its identity. Kuipers (1983:7–8) describes the vowel as [a], while Kuipers (1989:17) describes the vowel as [e]. Perceptually, the vowel is often closer to [ə], whose vowel space overlaps largely with an unstressed [e] in Secwepemctsín (Kamigaki-Baron 2021:138). However, the nasal shift derived vowel does not agree in rounding with following rounded consonants, as would be expected of [ə] (Kuipers 1974:26), indicating that the vowel is not schwa. Determining whether the vowel is an unstressed full vowel or a schwa is particularly important for understanding the prosodic structure of Eastern Secwepemctsín, as Salish schwas are generally non-moraic while unstressed full vowels are moraic (Blake 2000; Leonard 2019). For this paper, I will transcribe the vowel as [e] for consistency with Kuipers’ most recent publication on the topic (1989).	page 6, footnote
+§3	Secwepemctsín	cited form	ə	page 6
+footnote 9	Julia Schillo	note	9 Community orthography transcriptions of example (8): (8a) t̕úpem; (8b) téwu; (8c) sxúse.	page 6, footnote
+footnote 9	Secwepemctsín	practical orthography	t̕úpem	page 6, footnote 9, the community orthography of (8a)
+footnote 9	Secwepemctsín	practical orthography	téwu	page 6, footnote 9, the community orthography of (8b)
+footnote 9	Secwepemctsín	practical orthography	sxúse	page 6, footnote 9, the community orthography of (8c)
+footnote 10	Julia Schillo	note	10 Community orthography transcriptions of example (9): (9a) íllen; (9b) wíktsi; (9c) scwén̓we.	page 6, footnote
+footnote 10	Secwepemctsín	practical orthography	íllen	page 6, footnote 10, the community orthography of (9a)
+footnote 10	Secwepemctsín	practical orthography	wíktsi	page 6, footnote 10, the community orthography of (9b)
+footnote 10	Secwepemctsín	practical orthography	scwén̓we	page 6, footnote 10, the community orthography of (9c)
+§3.1	Julia Schillo	heading	3.1 An OT analysis of nasal shift lenition	page 7
+§3.1	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§3.1	Secwepemctsín	cited form	m̓	page 7
+§3.1	Secwepemctsín	cited form	w̩	page 7
+§3.1	Secwepemctsín	cited form	w̩̓	page 7
+§3.1	Secwepemctsín	cited form	n̓	page 7
+§3.1	Secwepemctsín	cited form	y̩	page 7
+§3.1	Secwepemctsín	cited form	y̩̓	page 7
+§3.1	Julia Schillo	note	The Eastern Secwepemctsín nasal shift can be described as a process of lenition seeking a more sonorous11 syllable nucleus than a nasal consonant. All dialects of Secwepemctsín demonstrate sonority-based constraints to syllable nuclei. While some Salish languages, such as Nuxalk (Bella Coola), allow [−sonorant] segments such as fricatives to serve as syllable nuclei (Mellesmoen 2021), in Secwepemctsín, only [+sonorant] nuclei occur. This indicates the need for an undominated constraint which restricts possible nucle i to sonorants: SONORANTNUCLEUS. Additional pressures for [+approximant] nuclei are seen in the syllabification patterns of nasals in both Eastern and Western Secwepemctsín. Eastern Secwepemctsín nasal shift lenites nuclear nasals to a more sonorous segment, while Western Secwepemctsín epenthesizes a schwa to serve as the nucleus in place of nasal consonants. Thus, a constraint against [−approximant] nuclei is needed: APPROXIMANTNUCLEUS. APPROXIMANTNUCLEUS serves to place pressure against nasal nuclei, while still allowing liquids, glides, and vowels to serve as nuclei without incurring a violation. However, both Eastern and Western Secwepemctsín allow nuclear nasals when the syllable onset matches the place of articulation of the nasal. Additionally, Eastern Secwepemctsín lenition is partially blocked in order to maintain agreement between onsets and nasal nuclei with regards to rounding (/m m̓/ → [w̩ w̩̓] shift) and coronal distribution (/n n̓/ → [y̩ y̩̓] shift). To account for these lenition blocking pressures, I will use feature preservation constraints12: CORONALPRESERVATION, LABIALPRESERVATION, DISTRIBUTEDPRESERVATION, and ROUNDPRESERVATION. Constraint descriptions are provided in (10).	page 7
+(10a) line 1	Julia Schillo	note	SONORANTNUCLEUS: Assign a violation for every [−sonorant] nuclear segment.	page 7, engine english
+(10b) line 1	Julia Schillo	note	APPROXIMANTNUCLEUS: Assign a violation for every [−approximant] nuclear segment.	page 7, engine english
+(10c) line 1	Julia Schillo	note	CORONALPRESERVATION: Assign a violation for every onset–nucleus sequence that do not match in [CORONAL] value.	page 7, engine english
+(10d) line 1	Julia Schillo	note	LABIALPRESERVATION: Assign a violation for every onset–nucleus sequence that do not match in [LABIAL] value.	page 7, engine english
+(10e) line 1	Julia Schillo	note	DISTRIBUTEDPRESERVATION: Assign a violation for every [+distributed] nucleus that follows a [−distributed] onset segment.	page 7, engine english
+(10f) line 1	Julia Schillo	note	ROUNDPRESERVATION: Assign a violation for every [+round] nucleus that follows a [−round] onset segment.	page 7, engine english
+§3.1	Julia Schillo	note	The constraint hierarchy is as follows:	page 7, engine english
+footnote 11	Julia Schillo	note	11 Based on the sonority scale of Clements (1990).	page 7, footnote
+footnote 12	Julia Schillo	note	12 These feature preservation constraints are based on the one used by Chong (2011) for stop lenition in Gaalpu. However, while Chong uses a sonority preserving constraint to motivate lenition, I use feature preservation constraints to block lenition.	page 7, footnote
+(11) line 1	Julia Schillo	notation	SONNUC >> CORPRES, LABPRES, DISTPRES, ROUNDPRES >> APPROXNUC	page 8, the constraint ranking
+§3.1	Julia Schillo	note	Tableaus demonstrating the constraints as used for /m/ nasal shift are provided in (12) to (14). Because SONNUC is undominated, I do not include it in the tableaus.	page 8
+(12) line 1	Julia Schillo	note	Nasal shift blocked by homorganic onset:	page 8, the title of the tableau
+(12) line 2	Secwepemctsín	phonemic	/pm/	page 8, the input of the tableau
+(12) line 2	Julia Schillo	note	LABPRES ROUNDPRES APPROXNUC	page 8, the constraints heading the columns, in ranked order: LABPRES, ROUNDPRES, APPROXNUC
+(12a) line 1	Secwepemctsín	phonemic	pm̩	page 8, candidate a, the optimal candidate, marked ☞, violations: APPROXNUC *
+(12b) line 1	Secwepemctsín	phonemic	pw̩	page 8, candidate b, violations: ROUNDPRES *! (! marks a fatal violation)
+(12c) line 1	Secwepemctsín	phonemic	pe	page 8, candidate c, violations: LABPRES *! (! marks a fatal violation)
+(13) line 1	Julia Schillo	note	Nasal shift partially blocked by heterorganic onset with shared monovalent feature:	page 8, the title of the tableau
+(13) line 2	Secwepemctsín	phonemic	/kʷm/	page 8, the input of the tableau
+(13) line 2	Julia Schillo	note	LABPRES ROUNDPRES APPROXNUC	page 8, the constraints heading the columns, in ranked order: LABPRES, ROUNDPRES, APPROXNUC
+(13a) line 1	Secwepemctsín	phonemic	kʷm̩	page 8, candidate a, violations: APPROXNUC *! (! marks a fatal violation)
+(13b) line 1	Secwepemctsín	phonemic	kʷw̩	page 8, candidate b, the optimal candidate, marked ☞, no violations
+(13c) line 1	Secwepemctsín	phonemic	kʷe	page 8, candidate c, violations: LABPRES *! (! marks a fatal violation)
+(14) line 1	Julia Schillo	note	Nasal shift not blocked:	page 8, the title of the tableau
+(14) line 2	Secwepemctsín	phonemic	/tm/	page 8, the input of the tableau
+(14) line 2	Julia Schillo	note	LABPRES ROUNDPRES APPROXNUC	page 8, the constraints heading the columns, in ranked order: LABPRES, ROUNDPRES, APPROXNUC
+(14a) line 1	Secwepemctsín	phonemic	tm̩	page 8, candidate a, violations: LABPRES *!, APPROXNUC * (! marks a fatal violation)
+(14b) line 1	Secwepemctsín	phonemic	tw̩	page 8, candidate b, violations: LABPRES *!, ROUNDPRES * (! marks a fatal violation)
+(14c) line 1	Secwepemctsín	phonemic	te	page 8, candidate c, the optimal candidate, marked ☞, no violations
+§3.2	Julia Schillo	heading	3.2 Nasal shift and morphology	page 8
+§3.2	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§3.2	Secwepemctsín	cited form	/-əxʷ/	page 8
+§3.2	Secwepemctsín	cited form	/-əs/	page 8
+§3.2	Secwepemctsín	cited form	/xʷ/	page 8
+§3.2	Secwepemctsín	cited form	w̩	page 8
+§3.2	Julia Schillo	note	Nasal shift greatly impacts the morphophonology of Eastern Secwepemctsín, as noted by Kuipers (1989:18). Many suffixes in Secwepemctsín — including many high-frequency suffixes — underlyingly contain nasal consonants. As a result, surface morphological structure in Eastern Secwepemctsín is significantly more opaque than it is in Western Secwepemctsín. To provide an example, compare subjunctive constructions in Eastern Secwepemctsín. The structure of subjunctive constructions is as follows: root-middle-subjunctive. The middle suffix is an underlying nasal consonant: /-m/. The 1st person subjunctive suffix is consonant-initial — /-wn/ — while the 2nd and 3rd person subjunctive suffixes are vowel-initial — /-əxʷ/ and /-əs/. As a result, the realization of the middle suffix is determined not only by the root-final consonant that comes directly before it, but also by the subjunctive suffix, which may be either consonant- or vowel- initial. Example derivations are provided in (15) for 1st, 2nd, and 3rd person subjunctive constructions with a root ending in /x / (a non-[LABIAL] consonant) and in (16) for a root ending in /xʷ/ (a [+round] consonant). For (15a) and (16a), the subjunctive suffix is consonant-initial, so the middle suffix surfaces as syllabic and is realized as [e] in (15a) and [w̩] in (16a) as a result of the root-final consonants that act as the syllable onsets. In the (15b–c) and (16b–c) examples, the subjunctive suffixes are vowel-initial, so the middle suffix surfaces as an onset, which is outside of the domain of nasal shift.13	page 8
+(15) line 1	Julia Schillo	note	Input Output Gloss	page 9, the caption
+(15) line 2	Julia Schillo	note	Interlinear Gloss	page 9, heads the rows below
+(15a) line 1	Secwepemctsín	phonemic	/pix̌-m-wn/	page 9, phonemic, in / /
+(15a) line 1	Secwepemctsín	phonemic	[pí.x̌e.wə]	page 9, phonetic, in [ ]
+(15a) line 1	Julia Schillo	translation	‘I am hunting’	page 9
+(15a) line 2	Secwepemctsín	gloss	hunt-MID-1SBJV	page 9, the morphemes of the row above
+(15b) line 1	Secwepemctsín	phonemic	/pix̌-m-əxʷ/	page 9, phonemic, in / /
+(15b) line 1	Secwepemctsín	phonemic	[píx̌.məxʷ]	page 9, phonetic, in [ ]
+(15b) line 1	Julia Schillo	translation	‘you are hunting’	page 9
+(15b) line 2	Secwepemctsín	gloss	hunt-MID-2SBJV	page 9, the morphemes of the row above
+(15c) line 1	Secwepemctsín	phonemic	/pix̌-m-əs/	page 9, phonemic, in / /
+(15c) line 1	Secwepemctsín	phonemic	[píx̌.məs]	page 9, phonetic, in [ ]
+(15c) line 1	Julia Schillo	translation	‘he is hunting’	page 9, carries footnote 14, written here without its digit
+(15c) line 2	Secwepemctsín	gloss	hunt-MID-3SBJV	page 9, the morphemes of the row above
+(16) line 1	Julia Schillo	note	Input Output Gloss	page 9, the caption
+(16) line 2	Julia Schillo	note	Interlinear Gloss	page 9, heads the rows below
+(16a) line 1	Secwepemctsín	phonemic	/sexʷ-m-wn/	page 9, phonemic, in / /
+(16a) line 1	Secwepemctsín	phonemic	[sé.xʷw̩.wə]	page 9, phonetic, in [ ]
+(16a) line 1	Julia Schillo	translation	‘I am taking a bath’	page 9
+(16a) line 2	Secwepemctsín	gloss	take.bath-MID-1SBJV	page 9, the morphemes of the row above
+(16b) line 1	Secwepemctsín	phonemic	/sexʷ-m-əxʷ/	page 9, phonemic, in / /
+(16b) line 1	Secwepemctsín	phonemic	[séxʷ.məxʷ]	page 9, phonetic, in [ ]
+(16b) line 1	Julia Schillo	translation	‘you are taking a bath’	page 9
+(16b) line 2	Secwepemctsín	gloss	take.bath-MID-2SBJV	page 9, the morphemes of the row above
+(16c) line 1	Secwepemctsín	phonemic	/sexʷ-m-əs/	page 9, phonemic, in / /
+(16c) line 1	Secwepemctsín	phonemic	[séxʷ.məs]	page 9, phonetic, in [ ]
+(16c) line 1	Julia Schillo	translation	‘he is taking a bath’	page 9, carries footnote 15, written here without its digit
+(16c) line 2	Secwepemctsín	gloss	take.bath-MID-3SBJV	page 9, the morphemes of the row above
+§3.2	Julia Schillo	note	As demonstrated in (15) and (16), nasal shift is predictable based on both the surface syllable position of a nasal — underlying nasals with an adjacent vowel surface as onsets or codas, and thus do not shift — as well as the preceding consonant for nuclear nasals.	page 9
+§3.2	Julia Schillo	note	However, nasal shift becomes considerably less predictable in nasal clusters. Although syllabic segments in resonant cluster can generally be predicted, as described in Table 2, nasal consonant clusters in Eastern Secwepemctsín do not always follow those generalizations. These exceptional syllabification examples will be presented in Section 5. However, first I discuss the /-n/ yes/no interrogative suffix in Section 4, for which nasal shift follows a strikingly different pattern from the one previously described. Additionally, some of the examples in Section 5 include the yes/no interrogative suffix, so the overview in Section 4 is helpful for contextualizing those examples.	page 9
+§4	Julia Schillo	heading	4 The /-n/ interrogative suffix and nasal shift	page 9
+§4	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§4	Secwepemctsín	cited form	-n̩	page 9
+§4	Secwepemctsín	cited form	-y̩	page 9
+footnote 13	Julia Schillo	note	13 The glosses used in this paper are as follows: 1: 1st person, 2: 2nd person, 3: 3rd person, CTR: control, DIM: diminutive, MID: middle, NMLZ: nominalizer, OBJ: object, Q: yes/no question, REDUP: reduplication, REL: relational, S: singular, SBJV: subjunctive, STAT: stative, TR: transitivizer.	page 9, footnote
+footnote 14	Julia Schillo	note	14 Community orthography transcriptions of example (15): (15a): píxewe; (15b) píxmuc; (15c) píxmes.	page 9, footnote
+footnote 14	Secwepemctsín	practical orthography	píxewe	page 9, footnote 14, the community orthography of (15a)
+footnote 14	Secwepemctsín	practical orthography	píxmuc	page 9, footnote 14, the community orthography of (15b)
+footnote 14	Secwepemctsín	practical orthography	píxmes	page 9, footnote 14, the community orthography of (15c)
+footnote 15	Julia Schillo	note	15 Community orthography transcriptions of example (16): (16a) sécwuwe; (16b) sécwmuc; (16c) sécwmes.	page 9, footnote
+footnote 15	Secwepemctsín	practical orthography	sécwuwe	page 9, footnote 15, the community orthography of (16a)
+footnote 15	Secwepemctsín	practical orthography	sécwmuc	page 9, footnote 15, the community orthography of (16b)
+footnote 15	Secwepemctsín	practical orthography	sécwmes	page 9, footnote 15, the community orthography of (16c)
+§4	Julia Schillo	note	Kuipers (1989:18) describes the yes/no interrogative suffix as having three surface forms in Eastern Secwepemctsín: [-n̩], [-y̩], and [-e]. The allomorph that surfaces is predictable ba sed on the place of articulation of the final consonant of the stem to which the suffix affixes. For stems ending in a dental-lateral consonant, the interrogative suffix surfaces as [-n̩], while for dental-palatal-final stems the suffix surfaces as [ -y̩], and [-e] in all other cases. However, the data I elicited present a very different pattern, of which I give a preliminary description below. The reason for the differences between the data presented in this paper and the generalizations described by Kuipers (1989) is not immediately apparent. It may be a dialectal difference, as Kuipers primarily worked with speakers from Enderby (Kuipers 1983:6), while I work with a speaker from Salmon Arm. Kuipers (1983:8) notes that dialect variation exists for the application of nasal shift, however, few details are given about the nature of this variation.	page 9
+§4	Julia Schillo	note	The data I elicited differ in a number of ways. First, and most notably, there is no *[-y̩] allomorph of the interrogative suffix. Second, the surface form of the suffix is not entirely predictable based on the preceding consonant, as both [-n̩] and [-e] have surfaced following the same consonant. To demonstrate these differences, (17) provides an example of two stems ending in /c/. /c/ is a dental -palatal consonants, so / -n/ would be expected to shift to *[ -y̩] in both cases. Instead, the interrogative suffix surfaces as [-n̩] in (17a) and as [-e] in (17b).	page 10
+(17) line 1	Julia Schillo	note	Input Output Gloss	page 10, the caption
+(17) line 2	Julia Schillo	note	Interlinear Gloss	page 10, heads the rows below
+(17a) line 1	Secwepemctsín	phonemic	/s-qepc-n/	page 10, phonemic, in / /
+(17a) line 1	Secwepemctsín	phonemic	[sqép.čən]	page 10, phonetic, in [ ], carries footnote 16, written here without its digit
+(17a) line 1	Julia Schillo	translation	‘springtime?’	page 10
+(17a) line 2	Secwepemctsín	gloss	NMLZ-spring-Q	page 10, the morphemes of the row above
+(17b) line 1	Secwepemctsín	phonemic	/sqʷyic-n/	page 10, phonemic, in / /
+(17b) line 1	Secwepemctsín	phonemic	[səqʷ.yí.če]	page 10, phonetic, in [ ]
+(17b) line 1	Julia Schillo	translation	‘rabbit?’	page 10, carries footnote 17, written here without its digit
+(17b) line 2	Secwepemctsín	gloss	rabbit-Q	page 10, the morphemes of the row above
+§4	Secwepemctsín	cited form	/n̓/	page 10
+§4	Secwepemctsín	cited form	/ɬ/	page 10
+§4	Julia Schillo	notation	CV́CVC	page 10
+§4	Julia Schillo	notation	CVCV́C	page 10
+§4	Julia Schillo	note	So far, both [-n̩] and [-e] have been attested for stems ending in /m/, /c/, /n̓/, /ɬ/, /l/, /k/, and /w/. Whether or not the two allomorphs are in free distribution is not yet clear. There is some correlation between stem shape and stress and the surface form of the interrogative suffix, which could indicate that foot structure plays a role in the selection of allomorphs. For example, among /ɬ/-final stems, the [-n̩] allomorph is used for CV́CVC stems, while the [-e] allomorph is used for CVCV́C stems, as demonstrated in (18).	page 10
+(18) line 1	Julia Schillo	note	Input Output Gloss	page 10, the caption
+(18) line 2	Julia Schillo	note	Interlinear Gloss	page 10, heads the rows below
+(18a) line 1	Secwepemctsín	phonemic	/pisəɬ-n/	page 10, phonemic, in / /
+(18a) line 1	Secwepemctsín	phonemic	[pí.səɬ.n̩]	page 10, phonetic, in [ ]
+(18a) line 1	Julia Schillo	translation	‘trout?’	page 10
+(18a) line 2	Secwepemctsín	gloss	trout-Q	page 10, the morphemes of the row above
+(18b) line 1	Secwepemctsín	phonemic	/təxʷ-t̕ixʷəɬ-n/	page 10, phonemic, in / /
+(18b) line 1	Secwepemctsín	phonemic	[təxʷ.t̕í.xʷəɬ.n̩]	page 10, phonetic, in [ ]
+(18b) line 1	Julia Schillo	translation	‘are they different?’	page 10
+(18b) line 2	Secwepemctsín	gloss	REDUP-different-Q	page 10, the morphemes of the row above
+(18c) line 1	Secwepemctsín	phonemic	/xʷəxʷweɬ-n/	page 10, phonemic, in / /
+(18c) line 1	Secwepemctsín	phonemic	[xʷə.xʷwé.ɬe]	page 10, phonetic, in [ ]
+(18c) line 1	Julia Schillo	translation	‘road?’	page 10, carries footnote 18, written here without its digit
+(18c) line 2	Secwepemctsín	gloss	road-Q	page 10, the morphemes of the row above
+footnote 16	Julia Schillo	note	16 Interestingly, a schwa is also realized preceding the [-n] suffix in this example.	page 10, footnote
+footnote 17	Julia Schillo	note	17 Community orthography transcriptions of example (17): (17a) sqepts n; (17b) sqwyits e.	page 10, footnote
+footnote 17	Secwepemctsín	practical orthography	sqepts n	page 10, footnote 17, the community orthography of (17a)
+footnote 17	Secwepemctsín	practical orthography	sqwyits e	page 10, footnote 17, the community orthography of (17b)
+footnote 18	Julia Schillo	note	18 Community orthography transcriptions of example (18): (18a) písell n; (18b) tuct̕ícwell n; (18c) cucwéll e.	page 10, footnote
+footnote 18	Secwepemctsín	practical orthography	písell n	page 10, footnote 18, the community orthography of (18a)
+footnote 18	Secwepemctsín	practical orthography	tuct̕ícwell n	page 10, footnote 18, the community orthography of (18b)
+footnote 18	Secwepemctsín	practical orthography	cucwéll e	page 10, footnote 18, the community orthography of (18c)
+§4	Julia Schillo	note	Interestingly, [-n̩] can surface with no onset, despite being in word-final position. This is particularly apparent in vowel-final stems, however it also occurs for consonant-final stems. Examples of this can be seen in (18a–b), and additional examples are provided in (19). It remains to be determined whether the requirement for [-e] to have an onset and the optionality of an onset for [-n̩] contribute to the selection of the surface form of the interrogative suffix.	page 10
+(19) line 1	Julia Schillo	note	Input Output Gloss	page 11, the caption
+(19) line 2	Julia Schillo	note	Interlinear Gloss	page 11, heads the rows below
+(19a) line 1	Secwepemctsín	phonemic	/wilə-n/	page 11, phonemic, in / /
+(19a) line 1	Secwepemctsín	phonemic	[wí.lə.n̩]	page 11, phonetic, in [ ]
+(19a) line 1	Julia Schillo	translation	‘lichen?’	page 11
+(19a) line 2	Secwepemctsín	gloss	lichen-Q	page 11, the morphemes of the row above
+(19b) line 1	Secwepemctsín	phonemic	/sic̓m-n/	page 11, phonemic, in / /
+(19b) line 1	Secwepemctsín	phonemic	[sí.č̓e.n̩]	page 11, phonetic, in [ ]
+(19b) line 1	Julia Schillo	translation	‘blanket?’	page 11
+(19b) line 2	Secwepemctsín	gloss	blanket-Q	page 11, the morphemes of the row above
+(19c) line 1	Secwepemctsín	phonemic	/lkəlet-n/	page 11, phonemic, in / /
+(19c) line 1	Secwepemctsín	phonemic	[lə.kə.lét.n̩]	page 11, phonetic, in [ ]
+(19c) line 1	Julia Schillo	translation	‘bread?’	page 11, carries footnote 19, written here without its digit
+(19c) line 2	Secwepemctsín	gloss	bread-Q	page 11, the morphemes of the row above
+§5	Julia Schillo	heading	5 Resonant syllabification and nasal shift in nasal clusters	page 11
+§5	Julia Schillo	notation	CRR̩T	page 11
+§5	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§5	Julia Schillo	note	Based on the generalizations about resonant syllabification in resonant clusters — summarized in Table 2 — the following syllabification is expected for word-medial and word-final resonant clusters: CRR̩T. Using this template, nasal clusters in Eastern Secwepemctsín are expected to have the following surface forms as a result of both syllabification predictions and nasal shift:	page 11
+Table 3 line 1	Julia Schillo	note	Expected syllabification and nasal shift in nasal clusters	page 11, the caption
+Table 3 line 2	Julia Schillo	note	Input Output	page 11, heads the rows below
+Table 3 line 3	Secwepemctsín	phonemic	/CmmT/	page 11, phonemic, in / /
+Table 3 line 3	Secwepemctsín	phonemic	[Cmm̩T]	page 11, phonetic, in [ ]
+Table 3 line 4	Secwepemctsín	phonemic	/CmnT/	page 11, phonemic, in / /
+Table 3 line 4	Secwepemctsín	phonemic	[CmeT]	page 11, phonetic, in [ ]
+Table 3 line 5	Secwepemctsín	phonemic	/CnmT/	page 11, phonemic, in / /
+Table 3 line 5	Secwepemctsín	phonemic	[CneT]	page 11, phonetic, in [ ]
+Table 3 line 6	Secwepemctsín	phonemic	/CnnT/	page 11, phonemic, in / /
+Table 3 line 6	Secwepemctsín	phonemic	[Cnn̩T]	page 11, phonetic, in [ ]
+§5	Julia Schillo	note	These expectations hold in many cases, as in example (20). The forms in (20a–b) both present examples of word-final CNNC clusters (N = nasal). In (20a), the cluster syllabifies and the nasal shifts as predicted — i.e., the second resonant in the cluster syllabifies, and since that nasal is an /n/ preceded by an /m/, the /n/ shifts to [e]. Example (20b) works similarly, but with an /nn/ cluster, resulting in the syllabic /n/ surfacing as a nuclear nasal. Example (20c) offers an example of a CNN# cluster, which syllabifies and shifts as in (20a), as predicted.	page 11
+(20) line 1	Julia Schillo	note	Input Output Gloss	page 11, the caption
+(20) line 2	Julia Schillo	note	Interlinear Gloss	page 11, heads the rows below
+(20a) line 1	Secwepemctsín	phonemic	/k̓ʷwet-m-n-k/	page 11, phonemic, in / /
+(20a) line 1	Secwepemctsín	phonemic	[k̓əw.wét.mek]	page 11, phonetic, in [ ]
+(20a) line 1	Julia Schillo	translation	‘Are you walking?’	page 11
+(20a) line 2	Secwepemctsín	gloss	walk-MID-Q-2S	page 11, the morphemes of the row above
+(20b) line 1	Secwepemctsín	phonemic	/ʔiɬn-n-k/	page 11, phonemic, in / /
+(20b) line 1	Secwepemctsín	phonemic	[ʔíɬ.nn̩k]	page 11, phonetic, in [ ]
+(20b) line 1	Julia Schillo	translation	‘Are you eating?’	page 11
+(20b) line 2	Secwepemctsín	gloss	eat-Q-2S	page 11, the morphemes of the row above
+(20c) line 1	Secwepemctsín	phonemic	/pix̌-m-n-Ø/	page 11, phonemic, in / /
+(20c) line 1	Secwepemctsín	phonemic	[píx̌.me]	page 11, phonetic, in [ ]
+(20c) line 1	Julia Schillo	translation	‘Is he hunting?’	page 11, carries footnote 20, written here without its digit
+(20c) line 2	Secwepemctsín	gloss	hunt-MID-Q-3S	page 11, the morphemes of the row above
+footnote 19	Julia Schillo	note	19 Community orthography transcriptions of example (19): (19a) wíle n; (19b) síts̓e n; (19c) lekelét n.	page 11, footnote
+footnote 19	Secwepemctsín	practical orthography	wíle n	page 11, footnote 19, the community orthography of (19a)
+footnote 19	Secwepemctsín	practical orthography	síts̓e n	page 11, footnote 19, the community orthography of (19b)
+footnote 19	Secwepemctsín	practical orthography	lekelét n	page 11, footnote 19, the community orthography of (19c)
+footnote 20	Julia Schillo	note	20 Community orthography transcriptions of example (20): (20a) k̓uwétmek; (20b) íllen n k; (20c) píxme.	page 11, footnote
+footnote 20	Secwepemctsín	practical orthography	k̓uwétmek	page 11, footnote 20, the community orthography of (20a)
+footnote 20	Secwepemctsín	practical orthography	íllen n k	page 11, footnote 20, the community orthography of (20b)
+footnote 20	Secwepemctsín	practical orthography	píxme	page 11, footnote 20, the community orthography of (20c)
+§5	Julia Schillo	notation	CN̩NT	page 12
+§5	Julia Schillo	notation	CNN̩T	page 12
+§5	Secwepemctsín	cited form	m̩	page 12
+§5	Secwepemctsín	cited form	túp.met	page 12
+§5	Secwepemctsín	cited form	-y̩	page 12
+§5	Secwepemctsín	cited form	y̩	page 12
+§5	Julia Schillo	note	However, in other cases, the segments in the nasal cluster syllabify differently than predicted, and in some cases nasal shift also applies differently than predicted. In some cases, the /CNNT/ cluster is syllabified [CN̩NT], as opposed to the predicted *[CNN̩T]. Examples of this are provided in (21). In (21a), the cluster /tup-mn-t/ (/CNNC/) surfaces with a nuclear [m̩] and the following [n] serving as a coda, as opposed to the predicted surface form *[túp.met] which would result from the /n/ syllabifying and shifting. In (21b), the word-final cluster /sew-n-t-c-n-n/ (/CNN#/) similarly surfaces with the first nasal in the cluster syllabifying (as opposed to the predicted second nasal). Additionally, the syllabic /-n/ in the cluster shifts to an [-e], as opposed to the *[-y̩] shift that would be predicted by the preceding dental-palatal /c/. Note also that in (21b), the syllabic /-n/ that surfaces as [-e], despite being preceded by a dental-palatal, is not the yes/no question suffix. Instead, it is the 1st person singular transitive pronoun, indicating that divergences in the /n/ to [y̩] shift described by Kuipers (1989) are not isolated to the yes/no question suffix.	page 12
+(21) line 1	Julia Schillo	note	Input Output Gloss	page 12, the caption
+(21) line 2	Julia Schillo	note	Interlinear Gloss	page 12, heads the rows below
+(21a) line 1	Secwepemctsín	phonemic	/tup-mn-t/	page 12, phonemic, in / /
+(21a) line 1	Secwepemctsín	phonemic	[tú.pm̩nt]	page 12, phonetic, in [ ]
+(21a) line 1	Julia Schillo	translation	‘(got) smashed’	page 12
+(21a) line 2	Secwepemctsín	gloss	smash-REL-TR	page 12, the morphemes of the row above
+(21b) line 1	Secwepemctsín	phonemic	/sew-n-t-c-n-n/	page 12, phonemic, in / /
+(21b) line 1	Secwepemctsín	phonemic	[séw.we.čen]	page 12, phonetic, in [ ], carries footnote 21, written here without its digit
+(21b) line 1	Julia Schillo	translation	‘Am I asking you?’	page 12, carries footnote 22, written here without its digit
+(21b) line 2	Secwepemctsín	gloss	ask-CTR-TR-2S.OBJ-1S.TR-Q	page 12, the morphemes of the row above
+§5	Julia Schillo	notation	CN̩.N̩T	page 12
+§5	Secwepemctsín	cited form	/sic̓m-n/	page 12
+§5	Secwepemctsín	cited form	n̩	page 12
+§5	Secwepemctsín	cited form	/s-təkcusm/	page 12
+§5	Secwepemctsín	cited form	w̩	page 12
+§5	Julia Schillo	note	In other cases, the /CNNT/ cluster is syllabified [CN̩.N̩T], with both nasals in the cluster syllabifying. Examples of this are provided in (22). In (22a), the word-final cluster /sic̓m-n/ (CNN#) surfaces with both the stem-final /m/ syllabified and shifted to [e], as well as a syllabic and onsetless /-n/ interrogative suffix: [n̩]. The same treatment is seen in (22b). For comparison, example (23) provides the surface form of the stem /s-təkcusm/ without the yes/no interrogative suffix. In (23), the stem-final /m/ predictably shifts to [e], and this shift seems to be maintained when the yes/no interrogative suffix is added in (22b). In (22c), the stem-final /m/ shifts to [w̩], as the preceding consonants is rounded, and the /-n/ interrogative suffix shifts to [-e], with a geminate [w] serving as an onset.23	page 12
+(22) line 1	Julia Schillo	note	Input Output Gloss	page 12, the caption
+(22) line 2	Julia Schillo	note	Interlinear Gloss	page 12, heads the rows below
+(22a) line 1	Secwepemctsín	phonemic	/sic̓m-n/	page 12, phonemic, in / /
+(22a) line 1	Secwepemctsín	phonemic	[sí.č̓e.n̩]	page 12, phonetic, in [ ]
+(22a) line 1	Julia Schillo	translation	‘blanket?’	page 12
+(22a) line 2	Secwepemctsín	gloss	blanket-Q	page 12, the morphemes of the row above
+(22b) line 1	Secwepemctsín	phonemic	/s-təkcusm-n/	page 12, phonemic, in / /
+(22b) line 1	Secwepemctsín	phonemic	[stək.čú.se.n̩]	page 12, phonetic, in [ ]
+(22b) line 1	Julia Schillo	translation	‘firewood?’	page 12
+(22b) line 2	Secwepemctsín	gloss	NMLZ-firewood-Q	page 12, the morphemes of the row above
+(22c) line 1	Secwepemctsín	phonemic	/c-qʷu<qʷ>m-n/	page 12, phonemic, in / /
+(22c) line 1	Secwepemctsín	phonemic	[čqʷú.qʷw̩.we]	page 12, phonetic, in [ ]
+(22c) line 1	Julia Schillo	translation	‘hill?’	page 12, carries footnote 24, written here without its digit
+(22c) line 2	Secwepemctsín	gloss	STAT-hill<DIM>-Q	page 12, the morphemes of the row above
+footnote 21	Julia Schillo	note	21 The /-t/ transitivizer does not surface as a consequence of a separate process.	page 12, footnote
+footnote 22	Julia Schillo	note	22 Community orthography transcriptions of example (21): (21a) tupmnt; (21b) séwetsn.	page 12, footnote
+footnote 22	Secwepemctsín	practical orthography	tupmnt	page 12, footnote 22, the community orthography of (21a)
+footnote 22	Secwepemctsín	practical orthography	séwetsn	page 12, footnote 22, the community orthography of (21b)
+footnote 23	Julia Schillo	note	23 I follow Blake (2000) in approaching these resonants as geminates as opposed to ambisyllabic.	page 12, footnote
+footnote 24	Julia Schillo	note	24 Community orthography transcriptions of example (22): (22a) síts̓e n; (22b) stektsúse n; (22c) tsqúqu we.	page 12, footnote
+footnote 24	Secwepemctsín	practical orthography	síts̓e n	page 12, footnote 24, the community orthography of (22a)
+footnote 24	Secwepemctsín	practical orthography	stektsúse n	page 12, footnote 24, the community orthography of (22b)
+footnote 24	Secwepemctsín	practical orthography	tsqúqu we	page 12, footnote 24, the community orthography of (22c)
+(23) line 1	Julia Schillo	note	Input Output Gloss	page 13, the caption
+(23) line 2	Julia Schillo	note	Interlinear Gloss	page 13, heads the rows below
+(23) line 3	Secwepemctsín	phonemic	/s-təkcusm/	page 13, phonemic, in / /
+(23) line 3	Secwepemctsín	phonemic	[stək.čú.se]	page 13, phonetic, in [ ]
+(23) line 3	Julia Schillo	translation	‘firewood’	page 13, carries footnote 25, written here without its digit
+(23) line 4	Secwepemctsín	gloss	NMLZ-firewood	page 13, the morphemes of the row above
+§5	Julia Schillo	notation	CN̩.N̩#	page 13
+§5	Secwepemctsín	cited form	/s-x̌ʷusm/	page 13
+§5	Julia Schillo	note	Example (24) provides an even more interesting surface form. Like the examples in (22), (24) demonstrates a /CNN#/ cluster that syllabifies both nasals in the cluster: [CN̩.N̩#]. The /-n/ yes/no interrogative suffix syllabifies and shifts to [-e]. Interestingly, the stem-final /-m/ syllabifies and shifts to [w̩], however, unlike in (22c), the preceding consonant in (24) is a non-[LABIAL], making the shift to a glide even less-expected. Example (25) provides the plain stem /s-x̌ʷusm/ for comparison, demonstrating that the stem-final /-m/ shifts to [-e] when not followed by the interrogative suffix.	page 13
+(24) line 1	Julia Schillo	note	Input Output Gloss	page 13, the caption
+(24) line 2	Julia Schillo	note	Interlinear Gloss	page 13, heads the rows below
+(24) line 3	Secwepemctsín	phonemic	/s-x̌ʷusm-n/	page 13, phonemic, in / /
+(24) line 3	Secwepemctsín	phonemic	[sx̌ú.sw̩.we]	page 13, phonetic, in [ ]
+(24) line 3	Julia Schillo	translation	‘soapberries?’	page 13, carries footnote 26, written here without its digit
+(24) line 4	Secwepemctsín	gloss	NMLZ-soapberries-Q	page 13, the morphemes of the row above
+(25) line 1	Julia Schillo	note	Input Output Gloss	page 13, the caption
+(25) line 2	Julia Schillo	note	Interlinear Gloss	page 13, heads the rows below
+(25) line 3	Secwepemctsín	phonemic	/s-x̌ʷusm/	page 13, phonemic, in / /
+(25) line 3	Secwepemctsín	phonemic	[sx̌ú.se]	page 13, phonetic, in [ ]
+(25) line 3	Julia Schillo	translation	‘soapberries’	page 13, carries footnote 27, written here without its digit
+(25) line 4	Secwepemctsín	gloss	NMLZ-soapberries	page 13, the morphemes of the row above
+§5	Julia Schillo	note	Additionally of note, the /-n/ yes/no interrogative suffix does not always surface in Eastern Secwepemctsín. I have elicited 18 words in which the interrogative suffix does not surface, of which nine are nasal-final stems, four are vowel-final stems, and the remaining five are stems ending in a different consonant. Examples of this are given in example (26). In (26a), the stem- final /m/ shifts to [w̩], making it clear that it is the interrogative suffix and not the middle suffix which does not surface (while it is more ambiguous in 26b). The form in (26c) provides an example of the interrogative suffix not surfacing when attached to a stem ending in a non-nasal consonant.	page 13
+(26) line 1	Julia Schillo	note	Input Output Gloss	page 13, the caption
+(26) line 2	Julia Schillo	note	Interlinear Gloss	page 13, heads the rows below
+(26a) line 1	Secwepemctsín	phonemic	/sexʷ-m-n-k/	page 13, phonemic, in / /
+(26a) line 1	Secwepemctsín	phonemic	[sé.xʷw̩k]	page 13, phonetic, in [ ]
+(26a) line 1	Julia Schillo	translation	‘Are you taking a bath?’	page 13
+(26a) line 2	Secwepemctsín	gloss	take.bath-MID-Q-2S	page 13, the morphemes of the row above
+(26b) line 1	Secwepemctsín	phonemic	/qit̕-m-n-k/	page 13, phonemic, in / /
+(26b) line 1	Secwepemctsín	phonemic	[qí.t̕ek]	page 13, phonetic, in [ ]
+(26b) line 1	Julia Schillo	translation	‘Are you fishing?’	page 13
+(26b) line 2	Secwepemctsín	gloss	fish-MID-Q-2S	page 13, the morphemes of the row above
+(26c) line 1	Secwepemctsín	phonemic	/t̕m-esl̕p̓-n-k/	page 13, phonemic, in / /
+(26c) line 1	Secwepemctsín	phonemic	[t̕mé.səlp.k]	page 13, phonetic, in [ ]
+(26c) line 1	Julia Schillo	translation	‘Are you chopping wood?’	page 13, carries footnote 28, written here without its digit
+(26c) line 2	Secwepemctsín	gloss	chop-wood-Q-2S	page 13, the morphemes of the row above
+footnote 25	Julia Schillo	note	25 Community orthography transcriptions of example (23): stektsúse.	page 13, footnote
+footnote 25	Secwepemctsín	practical orthography	stektsúse	page 13, footnote 25, the community orthography of (23)
+footnote 26	Julia Schillo	note	26 Community orthography transcriptions of example (24): sxúsu we.	page 13, footnote
+footnote 26	Secwepemctsín	practical orthography	sxúsu we	page 13, footnote 26, the community orthography of (24)
+footnote 27	Julia Schillo	note	27 Community orthography transcriptions of example (25): sxúse.	page 13, footnote
+footnote 27	Secwepemctsín	practical orthography	sxúse	page 13, footnote 27, the community orthography of (25)
+footnote 28	Julia Schillo	note	28 Community orthography transcriptions of example (26): (26a) sécwu k; (26b) qít̕e k; (26c) t̕méselp k.	page 13, footnote
+footnote 28	Secwepemctsín	practical orthography	sécwu k	page 13, footnote 28, the community orthography of (26a)
+footnote 28	Secwepemctsín	practical orthography	qít̕e k	page 13, footnote 28, the community orthography of (26b)
+footnote 28	Secwepemctsín	practical orthography	t̕méselp k	page 13, footnote 28, the community orthography of (26c)
+§6	Julia Schillo	heading	6 Discussion and conclusion	page 14
+§6	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§6	Julia Schillo	notation	CNN̩T	page 14
+§6	Julia Schillo	notation	CN̩NT	page 14
+§6	Julia Schillo	notation	CN̩.N̩T	page 14
+§6	Julia Schillo	note	Nasal consonant clusters in Eastern Secwepemctsín display much more variable syllabification patterns than in Western Secwepemctsín. Three general syllabification patterns for nasal clusters have been attested in Eastern Secwepemctsín: [CNN̩T], [CN̩NT], and [CN̩.N̩T]. More data are needed to determine the cause(s) of this variability, however, some notes can be made at this stage. First, there is a clear correlation between category and syllabification type. [CNN̩T] syllabification patterns are seen in verbs, in which nasal clusters can be derived from a consonant- final root with an /-m/ middle suffix and an /-n/ interrogative suffix, or from a nasal-final root with an affixed nasal (examples are repeated below in 27).	page 14
+(27) line 1	Julia Schillo	note	Input Output Gloss	page 14, the caption
+(27) line 2	Julia Schillo	note	Interlinear Gloss	page 14, heads the rows below
+(27a) line 1	Secwepemctsín	phonemic	/ʔiɬn-n-k/	page 14, phonemic, in / /
+(27a) line 1	Secwepemctsín	phonemic	[ʔíɬ.nn̩k]	page 14, phonetic, in [ ]
+(27a) line 1	Julia Schillo	translation	‘Are you eating?’	page 14
+(27a) line 2	Secwepemctsín	gloss	eat-Q-2S	page 14, the morphemes of the row above
+(27b) line 1	Secwepemctsín	phonemic	/pix̌-m-n-Ø/	page 14, phonemic, in / /
+(27b) line 1	Secwepemctsín	phonemic	[píx̌.me]	page 14, phonetic, in [ ]
+(27b) line 1	Julia Schillo	translation	‘Is he hunting?’	page 14, carries footnote 29, written here without its digit
+(27b) line 2	Secwepemctsín	gloss	hunt-MID-Q-3S	page 14, the morphemes of the row above
+§6	Secwepemctsín	cited form	/√x̌ʷus/	page 14
+§6	Secwepemctsín	cited form	/s-x̌ʷusm/	page 14
+§6	Secwepemctsín	cited form	/c-qʷum/	page 14, ‘hill’
+§6	Secwepemctsín	cited form	/c-qʷu<qʷ>m/	page 14
+§6	Julia Schillo	note	In contrast, [CN̩.N̩T] syllabification is attested for /m/-final noun stems which are not morphologically composed (examples repeated in 28). These nouns are composed of a root with an /-m/ suffix that has become lexicalized (i.e., it is no longer productive). For example, the word for soapberries (examples 24, 25, and 28c) is composed of a nominalizer prefix /s-/, the root meaning ‘foam’ /√x̌ʷus/, and a lexicalized /-m/ suffix, resulting in the stem /s-x̌ʷusm/. The only exception to this is the stem for ‘hill’ (22c and 28b), in which the unsyllabified /m/ is derived from diminutive C1 reduplication (Nakamura 2000) of the base /c-qʷum/ ‘hill’, in which the consonant preceding the stressed vowel is reduplicated to the right of the vowel (indicated by angle brackets): /c-qʷu<qʷ>m/.	page 14
+(28) line 1	Julia Schillo	note	Input Output Gloss	page 14, the caption
+(28) line 2	Julia Schillo	note	Interlinear Gloss	page 14, heads the rows below
+(28a) line 1	Secwepemctsín	phonemic	/s-təkcusm-n/	page 14, phonemic, in / /
+(28a) line 1	Secwepemctsín	phonemic	[stək.čú.se.n̩]	page 14, phonetic, in [ ]
+(28a) line 1	Julia Schillo	translation	‘firewood?’	page 14
+(28a) line 2	Secwepemctsín	gloss	NMLZ-firewood-Q	page 14, the morphemes of the row above
+(28b) line 1	Secwepemctsín	phonemic	/c-qʷu<qʷ>m-n/	page 14, phonemic, in / /
+(28b) line 1	Secwepemctsín	phonemic	[čqʷú.qʷw̩.we]	page 14, phonetic, in [ ]
+(28b) line 1	Julia Schillo	translation	‘hill?’	page 14
+(28b) line 2	Secwepemctsín	gloss	STAT-hill<DIM>-Q	page 14, the morphemes of the row above
+(28c) line 1	Secwepemctsín	phonemic	/s-x̌ʷusm-n/	page 14, phonemic, in / /
+(28c) line 1	Secwepemctsín	phonemic	[sx̌ú.sw̩.we]	page 14, phonetic, in [ ]
+(28c) line 1	Julia Schillo	translation	‘soapberries?’	page 14, carries footnote 30, written here without its digit
+(28c) line 2	Secwepemctsín	gloss	NMLZ-soapberries-Q	page 14, the morphemes of the row above
+§6	Julia Schillo	note	Thus, verbs, like those in (27), allow the stem-final nasal to serve as an onset to the following nasal, and hence the [CNN̩T] syllabification. Interestingly, this is allowed for stem-final nasals which are derived, as in the middle suffix in (27b), as well as for the root-final nasal in (27a). In contrast, nouns do not permit their stem-final nasals to serve as onsets, leading to the [CN̩.N̩T] syllabification pattern demonstrated in (28).	page 14
+footnote 29	Julia Schillo	note	29 Community orthography transcriptions of example (27): (27a) íllen n k; (27b) píxme.	page 14, footnote
+footnote 29	Secwepemctsín	practical orthography	íllen n k	page 14, footnote 29, the community orthography of (27a)
+footnote 29	Secwepemctsín	practical orthography	píxme	page 14, footnote 29, the community orthography of (27b)
+footnote 30	Julia Schillo	note	30 Community orthography transcriptions of example (28): (28a) stektsúse n; (28b) tsqúqu we; (28c) sxúsu we.	page 14, footnote
+footnote 30	Secwepemctsín	practical orthography	stektsúse n	page 14, footnote 30, the community orthography of (28a)
+footnote 30	Secwepemctsín	practical orthography	tsqúqu we	page 14, footnote 30, the community orthography of (28b)
+footnote 30	Secwepemctsín	practical orthography	sxúsu we	page 14, footnote 30, the community orthography of (28c)
+§6	Secwepemctsín	cited form	stək.čú.se.n̩	page 15
+§6	Secwepemctsín	cited form	w̩	page 15
+§6	Secwepemctsín	cited form	čqʷú.qʷw̩.we	page 15
+§6	Julia Schillo	note	The [CN̩.N̩T] syllabification in (28) presents some interesting data with regards to lenition. Example (28a) demonstrates lenition of the stem-final /m/ to [e], with the /-n/ interrogative suffix realized as an onsetless syllabic nasal: [stək.čú.se.n̩]. In contrast, the interrogative suffix in (28b) shifts to [-e], while the stem-final /m/ is preceded by a rounded consonant. Thus, the stem-final /m/ shifts to [w̩], which geminates to act as the nucleus of one syllable and the onset for the interrogative suffix: [čqʷú.qʷw̩.we].	page 15
+§6	Secwepemctsín	cited form	sx̌ú.sw̩.we	page 15
+§6	Secwepemctsín	cited form	sx̌ús.me	page 15
+§6	Secwepemctsín	cited form	sx̌ú.se.e	page 15
+§6	Secwepemctsín	cited form	sx̌ú.sm̩.me	page 15
+§6	Julia Schillo	note	However, the lenition pattern displayed in (28c) is particularly noteworthy. In (28c), the interrogative suffix shifts to [-e], while the stem-final /m/ shifts to [w̩] despite the preceding consonant being unrounded and non-[LABIAL]. This gives the surface form [sx̌ú.sw̩.we]. For comparison, here are other potential surface forms that are unattested with explanations for why: *[sx̌ús.me] does not surface, because this would require the stem-final /m/ to serve as an onset for the interrogative suffix, which is unattested for nouns. *[sx̌ú.se.e] does not surface because it would require the shifted interrogative suffix to syllabify without an onset, and onsetless vowel nuclei never surface in Secwepemctsín. Any repair to *[sx̌ú.se.e] would require a consonant to be epenthesized as the onset of the final syllable, however, epenthetic consonants are not a common repair mechanism in Secwepemctsín. Additionally, *[sx̌ú.sm̩.me] would be a highly marked realization, as it would require a nuclear nasal to surface that does not match its onset in [LABIAL] feature. Thus, the attested surface form [sx̌ú.sw̩.we] is preferred, as it avoids having a nuclear nasal which does not match the place of articulation of its onset, it avoids having an onsetless nuclear vowel, it avoids consonant epenthesis, and it avoids having the stem-final nasal of the noun serve as an onset. In order to develop a constraint to prevent stem-final nasals of nouns from serving as onsets, the reason for this pattern must first be identified. It could relate to constraints on the foot structure of nouns, or it could relate to some kind of syllable base-correspondence which would require a transderivation approach (Alderete 2001), among other approaches. More data are required to clarify this relationship.	page 15
+§6	Secwepemctsín	cited form	/s-təkcusm-n/	page 15
+§6	Secwepemctsín	cited form	/s-x̌ʷusm-n/	page 15
+§6	Julia Schillo	note	Many other aspects of nasal shift and syllabification of nasal clusters in Eastern Secwepemctsín also require further clarification. It remains to be determined whether the interrogative suffix undergoes the same process of nasal shift that is demonstrated in stems. It seems likely that the surface forms of the interrogative suffix either display some degree of free variation, or that other predictors of its surface realization must be identified. As described in Section 4, the consonant preceding the interrogative suffix is often not enough to predict the surface form of the suffix. To provide another example with even more similarity in the context surrounding the interrogative suffix, compare (28a) and (28c). The final four segments in both words are underlying exactly the same (bolded for easy identification): (28a) /s-təkcusm-n/; (28c) /s-x̌ʷusm-n/. However, still the surface form of the interrogative suffix is different for the two words: (28a) [stək.čú.se.n̩]; (28c) [sx̌ú.sw̩.we]. This indicates that the surface form of the interrogative suffix is likely determined through different means than nasal shift, and that the selected allomorph of the interrogative suffix impacts the surface realization of stem-final nasals, and not vice versa. However, more data are needed to determine the exact nature of this interaction.	page 15
+§6	Julia Schillo	note	The cause for [CN̩NT] syllabification patterns (described in 21) remains to be determined. However, there are so few examples of this so far that I have few insights on the pattern. Additionally, instances in which the interrogative suffix does not surface (described in 26) should be investigated to determine whether the deletion of the suffix is itself a form of lenition (Gordon 2016), or a separate process.	page 15
+§6	Julia Schillo	note	In this paper, I provided further details on the Eastern Secwepemctsín nasal shift. This included data that display key differences from prior descriptions of Eastern Secwepemctsín nasal shift, which may be the result of dialect variation between Eastern Secwepemctsín communities. I presented the beginnings of an OT analysis in Sections 2.1 and 3.1 to describe the general pattern of nasal shift. Data of the /-n/ interrogative suffix indicate that the alternation between the surface forms [-n] and [-e] may be a separate process from the nasal shift seen in stems. Further, I identified variation in the syllabification of nasal consonant clusters in verbs and nouns which requires additional constraints to address.	page 15
+references	Julia Schillo	heading	References	page 16
+references	Julia Schillo	reference	Alderete, John. 2001. Morphologically governed accent in Optimality Theory. New York, NY & London, UK: Routledge.	
+references	Julia Schillo	reference	Bates, Dawn & Barry F. Carlson. 1992. Simple syllables in Spokane Salish. Linguistic Inquiry 23(4):653–659.	
+references	Julia Schillo	reference	Blake, Susan Jane. 2000. On the distribution and representation of schwa in Sliammon (Salish): Descriptive and theoretical perspectives. Doctoral dissertation, University of British Columbia, Vancouver, BC.	
+references	Julia Schillo	reference	Carlson, Barry F. 1974. The n shift in Spokane Salish. Papers for ICSNL 9:12–38.	
+references	Julia Schillo	reference	Carlson, Barry F. 1997. Some thoughts on the cause of nasal to vowel shifts in Spokane. International Journal of American Linguistics 63(3):432–435.	
+references	Julia Schillo	reference	Chong, Adam J. 2011. Lenition in Gaalpu: An Optimality Theoretic analysis. Australian Journal of Linguistics 31(4):473–490.	
+references	Julia Schillo	reference	Clements, G. N. 1990. The role of the sonority cycle in core syllabification. In John Kingston, & Mary E. Beckman (eds), Papers in laboratory phonology I. Cambridge, UK: Cambridge University Press, 282–333.	
+references	Julia Schillo	language	Nxaˀamxcín	Nxaʔamxcín, as a reference title writes it
+references	Julia Schillo	reference	Czaykowska-Higgins, Ewa & Marie Louise Willett. 1997. Simple syllables in Nxaˀamxcín. International Journal of American Linguistics 63(3):385–411.	
+references	Julia Schillo	reference	Gibson, James A. 1973. Shuswap grammatical structure. Doctoral dissertation, University of Hawaiʻi, Manoa, HI.	
+references	Julia Schillo	reference	Gordon, Matthew K. 2016. Segmental processes. In Phonological typology. Oxford, UK: Oxford University Press, 123–174.	
+references	Julia Schillo	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+references	Julia Schillo	reference	Kamigaki-Baron, Michelle. 2021. Acoustic descriptions of Secwepemctsín vowels. Papers for ICSNL 56:134–153.	
+references	Julia Schillo	reference	Kinkade, M. Dale. 1982. Shifts of nasals to vowels in Interior Salish.	
+references	Julia Schillo	reference	Kuipers, Aert H. 1974. The Shuswap language: Grammar, texts, dictionary. The Hague, Netherlands: Mouton.	
+references	Julia Schillo	reference	Kuipers, Aert H. 1983. Shuswap–English dictionary. Leuven, Netherlands: Peeters.	
+references	Julia Schillo	reference	Kuipers, Aert H. 1989. A report on Shuswap: With a Squamish lexical appendix. Paris, France: Peeters/Selaf.	
+references	Julia Schillo	language	SENĆOŦEN	SENĆOŦEN, Saanich, in a reference title
+references	Julia Schillo	reference	Leonard, Janet. 2019. The phonological representation and distribution of vowels in SENĆOŦEN (Saanich). Doctoral dissertation, University of Victoria, Victoria, BC.	
+references	Julia Schillo	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+references	Julia Schillo	reference	Matthewson, Lisa. 1994. Syllable structure in St’át’imcets. In Proceedings of the Canadian Linguistics Association, 381–392.	
+references	Julia Schillo	reference	Mellesmoen, Gloria. 2021. Syllables and reduplication in Bella Coola (Nuxalk). Papers for ICSNL 56:226–243.	
+references	Julia Schillo	reference	Nakamura, Yumiko. 2000. Secwepemctsin (Shuswap) reduplication. Papers for ICSNL 35:171– 184.	
+references	Julia Schillo	reference	Prince, Alan & Paul Smolensky. 2004. Optimality Theory: Constraint interaction in generative grammar. Malden, MA: Blackwell Publishing.	
+references	Julia Schillo	language	Nxaʔamxcín	Nxaʔamxcín, Moses-Columbia, a Southern Interior Salish language
+references	Julia Schillo	reference	Willett, Marie Louise & Ewa Czaykowska-Higgins. 1995. Towards an analysis of syllable structure in Nxaʔamxcín. Papers for ICSNL 30:113–126.	

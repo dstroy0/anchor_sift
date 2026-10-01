@@ -1,0 +1,283 @@
+where	who	kind	form	gloss
+front	Olga Ikonnikova	title	The Southern Interior Salish Languages and the Problem of Origin of Nominals: Diachronic View	page 1
+front	Olga Ikonnikova	name	Olga Ikonnikova	author
+front	Olga Ikonnikova	note	Rostov Institute of Improving Teachers’ Qualification and Professional Retraining	page 1, under Olga Ikonnikova
+front	Olga Ikonnikova	note	Abstract: In the paper the author considers that the Interior Salish languages demonstrate the areal grammatical strategies relevant for reconstructing a diachronic process of the formation of nominals. Due to the material of the Interior Salish languages, one can trace that the nominals are former subordinate clauses attached to verbs. Interior Salish languages prove the fact that nominals are of verbal origin that could be characteristic of the ancient language.	page 1, the abstract
+front	Olga Ikonnikova	note	Keywords: Southern Interior Salish languages, nominal, verbal root, nominalizer, subordinate clause	page 1, the keywords
+front	Olga Ikonnikova	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Olga Ikonnikova	language	Southern Interior Salish	the branch the paper reads
+§1	Olga Ikonnikova	heading	1 Introduction	page 1
+§1	Olga Ikonnikova	note	The problem of diachrony of nominals is complicated. To this day, linguists have not been able to establish the relative chronology in the emergence of nominal and verbal categories with some degree of certainty, mainly because of the absence of sufficient diachronic evidence.	page 1
+§1	Olga Ikonnikova	note	To throw light on solving this problem, it is reasonable to study the languages which do not have nominals in the part-of-speech system or where the distinction between verbs and nouns is fuzzy. We consider the Salish languages of the Southern Interior branch to be able to throw light on the pre-grammatical stage of the language since they offer the varieties of linguistic form that are crucial to any general understanding of the phenomenon of language in its diachronic and typological perspective.	page 1
+§1	Olga Ikonnikova	language	Salish	the family
+§1	Olga Ikonnikova	note	The Salishists claim that all roots in Southern Interior Salish languages are intransitive and verb-like (Black 1996; Carlson 1972; A. Mattina 1973:73, N. Mattina 2006; Reichard 1938:527; Speck 1977:30). The proponents of the single-class hypothesis recognize a distinction between predicates and arguments in Salish, but they do not find independent evidence for the distinction between verbs and nouns (Czaykowska-Higgins & Kinkade 1998:35). The prefix s- (nominalizer) is singled out to derive nominal forms.	page 1
+§1	Salish	cited form	s-	page 1, in italics
+§1	Olga Ikonnikova	name	Carlson	Barry F. Carlson, A Grammar of Spokan (1972)
+§1	Olga Ikonnikova	name	Black	Deirdre J. Black, Spokane lexemes (1996)
+§1	Olga Ikonnikova	name	A. Mattina	Anthony Mattina, Colville grammatical structure (1973), The Golden Woman (1985)
+§1	Olga Ikonnikova	name	N. Mattina	Nancy Mattina, Moses-Columbia determiner phrases (2006)
+§1	Olga Ikonnikova	name	Reichard	Gladys A. Reichard, Coeur d’Alene (1938) and her texts
+§1	Olga Ikonnikova	name	Speck	Brenda J. Speck (1977)
+§1	Olga Ikonnikova	name	Czaykowska-Higgins	Eva Czaykowska-Higgins and M. Dale Kinkade (1998)
+§1	Olga Ikonnikova	language	Interior Salish	the division
+§1	Olga Ikonnikova	note	The aim of the research is a synchro-diachronic analysis of texts in Southern Interior Salish languages as far as the expressions of the nominals are concerned. The data presented in this paper come from the following sources: The Golden Woman: The Colville Narrative of Peter J. Seymour (A. Mattina 1985), Kalispel Texts by H. Vogt (Camp 2007), Margaret Sherwood’s Badger and Skunk. A Spokane Traditional Legend with Commentary (Egesdal 1991), 12 Upper Nicola Okanagan Texts (Lindley &Lyon 2013), and Gladys Reichard’s Coeur d’Alene Texts (Doak & Montler 2006). 2 Areal grammatical strategies of expressing nominals in the Southern Interior Salish	page 1
+§1	Olga Ikonnikova	name	Peter J. Seymour	the Colville narrator of The Golden Woman
+§1	Olga Ikonnikova	name	H. Vogt	Hans Vogt, Kalispel Texts
+§1	Olga Ikonnikova	name	Camp	Kelsi Camp, seven Kalispel texts (2007)
+§1	Olga Ikonnikova	name	Margaret Sherwood	the teller of Badger and Skunk
+§1	Olga Ikonnikova	name	Egesdal	Steven Egesdal (1991)
+§1	Olga Ikonnikova	name	Lindley	Lottie Lindley and John Lyon, 12 Upper Nicola Okanagan Texts
+§1	Olga Ikonnikova	name	Doak	Ivy Doak and Timothy Montler, Reichard's Coeur d’Alene texts (2006)
+§1	Olga Ikonnikova	language	Spokane	Kalispel-Spokane-Flathead
+§1	Olga Ikonnikova	language	Kalispel	Kalispel-Spokane-Flathead
+§1	Olga Ikonnikova	language	Coeur d’Alene	Southern Interior Salish
+§1	Olga Ikonnikova	language	Okanagan	Southern Interior Salish
+§1	Olga Ikonnikova	language	Colville	Colville-Okanagan
+§1	Olga Ikonnikova	language	Upper Nicola Okanagan	Okanagan
+§1	Olga Ikonnikova	note	languages in diachronic perspective In the Spokane grammar, Carlson states that adjuncts are added to the predicates by the particle ł ‘secondary in importance’ (1972:53), cf.:	page 1
+§1	Spokane	cited form	ł	page 1, in italics, ‘secondary in importance’
+(1) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:1	page 2, over the example
+footnote 1	Olga Ikonnikova	note	Abbreviations used in the paper: ACT = actual, ADJ = adjunct, ART = article, AUG = augmentative, CAUS = causative,CISL = cislocative, COMP = complementizer, COND = conditional, CONJ = conjunction, CONN = connective, CONT = continuative, CUST = customary, DEM = demonstrative, DET = determiner, DIR = directional, DUR = durative, EMPF = emphatic, ERG = ergative, EXAG = exaggeration, FUT = future, GEN = genitive, IMP = imperative, INSTR = instrumental, INTR = intransitive, IRR = irrealis, LOC = locative/instrumental, LS = lexical suffix, MDL = middle, MUT = mutative, CONTR = control, NEG = negative, NOM = nominalizer, OBL = oblique, PASS = passive, PL = plural, POSS = possessive, PROX = proximal, RECP = reciprocal, REL = relational, RFLX = reflexive, RES = resultative, SEQ = sequential/translocative, SG = single, SPEC = specifier, STAT = stative/actual, TR = transitive, UNR = unrealized, C = сonsonant, V = vowel, 1 = first person, 2 = second person, 3 = third person.	page 2, footnote 1
+(1) line 2	Kalispel-Spokane-Flathead	segmentation	xʷtils ł uɁ spiləyeɁ	page 2
+(1) line 3	Kalispel-Spokane-Flathead	gloss	he.gets.up secondary particular coyote	page 2
+(1) line 4	Olga Ikonnikova	translation	‘Coyotegot up’.	page 2
+(1) line 5	Olga Ikonnikova	citation	(Carlson 1972:54)	page 2, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	Speculating on such examples as (1), Carlson (1972) and Black (1996) consider them as a result of reanalysis of biclausal sentences, whose second clauses were nominalized predicates, as monoclausal. Kroeber suggested the possibility of dating back the particle ł to a clausal subordinator, having surveyed descriptive works on the Southern Interior language Okanagan as well as the Northern Interior languages Lillooet and Thompson that utilize a proclitic, particle, or determiner of the ł-form to introduce certain types of complement clauses. He argues that the form of sentences which comprise a main clause and a nominalized subordinate clause closely resembles the form of many compounds. Then he confirms the fact that there is a compound marker ł in Spokane that represents the relic of the clausal subordinator and goes back to Proto- Salish (Black 1996:110).	page 2
+§1	Olga Ikonnikova	name	Kroeber	Paul Kroeber, the clausal subordinator ł
+§1	Olga Ikonnikova	language	Lillooet	Northern Interior Salish
+§1	Olga Ikonnikova	language	Thompson	Northern Interior Salish
+§1	Olga Ikonnikova	note	In Coeur d’Alene and Moses-Columbian, we also observe ł as a connective in the formation of new words:	page 2
+§1	Olga Ikonnikova	language	Moses-Columbian	Southern Interior Salish, Nxa’amxcin
+(2) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 2, over the example
+(2) line 2	Coeur d’Alene	segmentation	s-xił-ł-yɁiłn	page 2
+(2) line 3	Coeur d’Alene	gloss	NOM-abandon-CONN-food	page 2
+(2) line 4	Olga Ikonnikova	translation	‘feast’	page 2
+(2) line 5	Olga Ikonnikova	note	(lit. ‘throwing food away’)	page 2, at the right of the translation
+(2) line 6	Olga Ikonnikova	citation	(Coeur d’Alene Language Online Resource Center 2009)	page 2, the tag or source at the right of the translation
+(3) line 1	Olga Ikonnikova	note	Moses-Columbian:	page 2, over the example
+(3) line 2	Moses-Columbian	segmentation	s-n-xəl-xəq’-ał-qʷisp-tn	page 2
+(3) line 3	Moses-Columbian	gloss	NOM-POSS-AUG-kill-CONN-cow-INSTR	page 2
+(3) line 4	Olga Ikonnikova	translation	‘slaughterhouse’	page 2
+(3) line 5	Olga Ikonnikova	citation	(Willet 2003:342)	page 2, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	There is an interesting fact that ł positioned between the stems is lost in the event that the second member of the compound begins with s-, cf. examples (4) and(5):	page 2
+(4) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 2, over the example
+(4a) line 1	Coeur d’Alene	segmentation	s-xił-s-yɂiłn	page 2
+(4a) line 2	Coeur d’Alene	gloss	NOM-give.away-NOM-food	page 2
+(4a) line 3	Olga Ikonnikova	translation	‘potlatch’	page 2
+(4a) line 4	Olga Ikonnikova	note	(lit. ‘giving away food’)	page 2, at the right of the translation
+(4a) line 5	Olga Ikonnikova	citation	(Coeur d’Alene Language Online Resource Center 2009)	page 2, under the translation
+(4b) line 1	Coeur d’Alene	segmentation	san-s-pax-cvc-t	page 3
+(4b) line 2	Coeur d’Alene	gloss	holy-NOM-wise-AUG-STAT	page 3
+(4b) line 3	Olga Ikonnikova	translation	‘Holy Ghost’	page 3
+(4b) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 3, the tag or source at the right of the translation
+(5) line 1	Olga Ikonnikova	note	Moses-Columbian:	page 3, over the example
+(5) line 2	Moses-Columbian	segmentation	kn haw’y a snccw’	page 3
+(5) line 3	Moses-Columbian	gloss	1SG make CONN creek	page 3
+(5) line 4	Olga Ikonnikova	translation	‘I made a ditch.’	page 3
+(5) line 5	Olga Ikonnikova	citation	(Willet 2003:339)	page 3, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In synchrony of Kalispel-Spokane-Flathead, the markers of the subordinate clauses are łuɁ and łiɁe, which are also used as definite articles. Carlson (1972) analyzes łiɁe into several morphemes: ł ‘secondary’, i (hi) ‘special’, Ɂe ‘this / these’. Similarly, he analyzes łuɁ into component morphemes: ł ‘secondary’, uɁ ‘particular’.	page 3
+§1	Spokane	cited form	łuɁ	page 3, in italics
+§1	Spokane	cited form	łiɁe	page 3, in italics
+§1	Spokane	cited form	Ɂe	page 3, in italics, ‘this / these’
+§1	Spokane	cited form	uɁ	page 3, in italics, ‘particular’
+§1	Olga Ikonnikova	language	Kalispel-Spokane-Flathead	Southern Interior Salish
+(6) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 3, over the example
+(6) line 2	Kalispel-Spokane-Flathead	segmentation	kʷem̓t łuɁ kʷkʷɁec łuɁ l es-xʷyxʷuy-i u čn čšin	page 3
+(6) line 3	Kalispel-Spokane-Flathead	gloss	and.then ART get.dark ART LOC CONT-go.PL-CONT and 1SG.INTR follow	page 3
+(6) line 4	Olga Ikonnikova	translation	‘When the night fell, I joined all the people who were going.’	page 3
+(6) line 5	Olga Ikonnikova	citation	(Camp 2007:19)	page 3, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (6), the lexeme kʷkʷɁec ‘night’ (lit. ‘get dark’) is expressed by a reduplicated verbal root and introduced by the article łuɁ.	page 3
+§1	Southern Interior Salish	cited form	kʷkʷɁec	page 3, in italics, ‘night’
+(7) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 3, over the example
+(7) line 2	Kalispel-Spokane-Flathead	segmentation	hoy čn lemt łuɁ wič-nt-n łiɁe citxʷ wis-šn	page 3
+(7) line 3	Kalispel-Spokane-Flathead	gloss	then 1SG.INTR glad ART see-TR-1SG.TR this house high-foot	page 3
+(7) line 4	Olga Ikonnikova	translation	‘I was glad when I saw this long house.’	page 3
+(7) line 5	Olga Ikonnikova	citation	(Camp 2007:20)	page 3, the tag or source at the right of the translation
+(8) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 3, over the example
+(8) line 2	Kalispel-Spokane-Flathead	segmentation	kʷu sew-nt-m łuɁ t hin-p̓x̌ʷp̓x̌ʷut	page 3
+(8) line 3	Kalispel-Spokane-Flathead	gloss	1SG.OBJ ask-TR-PASS ART OBL 1SG.POSS-parents	page 3
+(8) line 4	Olga Ikonnikova	translation	‘My parents asked me…’	page 3
+(8) line 5	Olga Ikonnikova	citation	(Camp 2007:24)	page 3, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (8), the lexeme p̓x̌ʷp̓x̌ʷut ‘parents’ (lit. ‘those who are old-old, wise-wise’) goes back to the reduplicated verbal root p̓x̌ʷut ‘old, wise’ and is introduced by the article łuɁ.	page 3
+§1	Southern Interior Salish	cited form	p̓x̌ʷp̓x̌ʷut	page 3, in italics, ‘parents’
+§1	Southern Interior Salish	cited form	p̓x̌ʷut	page 3, in italics, ‘old, wise’
+(9) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 3, over the example
+(9) line 2	Kalispel-Spokane-Flathead	segmentation	hoy łuɁ č̓luxʷ	page 3
+(9) line 3	Kalispel-Spokane-Flathead	gloss	then ART evening	page 3
+(9) line 4	Olga Ikonnikova	translation	‘When the evening came…’	page 3
+(9) line 5	Olga Ikonnikova	citation	(Camp 2007:25)	page 3, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (9), č̓luxʷ ‘evening’ (lit. ‘to disappear’) goes back to the verbal root and is introduced by the article łuɁ.	page 3
+§1	Southern Interior Salish	cited form	č̓luxʷ	page 3, in italics, ‘evening’
+(10) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 4, over the example
+(10) line 2	Kalispel-Spokane-Flathead	segmentation	cu-nt-s qeɁ qs-xʷuy łuɁ č̓ esyapqin̓i	page 4
+(10) line 3	Kalispel-Spokane-Flathead	gloss	say-TR-3TR 1PL.INTR FUT-go ART to powpow	page 4
+(10) line 4	Olga Ikonnikova	translation	‘He said: We’ll go to the pow-wow.’	page 4
+(10) line 5	Olga Ikonnikova	citation	(Camp 2007:43)	page 4, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (10), the lexeme esyapqin̓i ‘pow-pow’ (lit. ‘gather heads’) goes back to the verbal root ya ‘gather’, with the continuative prefix es-,the transitive suffix -p, and the lexical suffix -qin ‘head’ attached to it.	page 4
+§1	Southern Interior Salish	cited form	esyapqin̓i	page 4, in italics, ‘pow-pow’
+§1	Southern Interior Salish	cited form	es-	page 4, in italics
+§1	Southern Interior Salish	cited form	-p	page 4, in italics
+§1	Southern Interior Salish	cited form	-qin	page 4, in italics, ‘head’
+(11) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 4, over the example
+(11) line 2	Kalispel-Spokane-Flathead	segmentation	hoy łuɁ x̌alip u k̓ʷen̓čstmist	page 4
+(11) line 3	Kalispel-Spokane-Flathead	gloss	then ART morning and get.ready	page 4
+(11) line 4	Olga Ikonnikova	translation	‘The next morning he got ready…’	page 4
+(11) line 5	Olga Ikonnikova	citation	(Camp 2007:28)	page 4, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (11), the lexeme x̌alip ‘morning’ (lit. ‘be light’) goes back to the stative verb x̌al ‘be light, clear’ with the non-control affix-p attached to it.	page 4
+§1	Southern Interior Salish	cited form	x̌alip	page 4, in italics, ‘morning’
+§1	Southern Interior Salish	cited form	x̌al	page 4, in italics, ‘be light, clear’
+§1	Olga Ikonnikova	note	It should be noted that the marker ł is lost where there is a nominalizer s-:	page 4
+(12) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 4, over the example
+(12) line 2	Kalispel-Spokane-Flathead	segmentation	cu-nt-m xʷuy-š t qł-sqeɁem-s	page 4
+(12) line 3	Kalispel-Spokane-Flathead	gloss	say-TR-PASS go-SG.INTR.IMP OBL to.be-milk-POSS	page 4
+(12) line 4	Olga Ikonnikova	translation	‘She said to him: Go and get some milk for him’.	page 4
+(12) line 5	Olga Ikonnikova	citation	(Camp 2007:88)	page 4, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (12), the lexeme sqeɁem ‘milk’ (lit. ‘something that is sucked’) goes back to the verbal root qeɁe ‘to suck’ with the nominalizer s- and the middle suffix -m attached to it.	page 4
+§1	Southern Interior Salish	cited form	sqeɁem	page 4, in italics, ‘milk’
+§1	Southern Interior Salish	cited form	qeɁe	page 4, in italics, ‘to suck’
+(13) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 4, over the example
+(13) line 2	Kalispel-Spokane-Flathead	segmentation	čč̓iɁtmin-nt-m t snqcuł	page 4
+(13) line 3	Kalispel-Spokane-Flathead	gloss	go.near.to-TR-PASS OBL lynx	page 4
+(13) line 4	Olga Ikonnikova	translation	‘The lynx had come quite close to him already.’	page 4
+(13) line 5	Olga Ikonnikova	citation	(Camp 2007:71)	page 4, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (13), the lexeme snqcuł ‘lynx’ (lit. ‘which shrinks something’) goes back to the verbal root qc ‘shrink’ with the lexical suffix -uł ‘to the extreme’, the nominalizer s-, and the transitive prefix n- attached to it.	page 4
+§1	Southern Interior Salish	cited form	snqcuł	page 4, in italics, ‘lynx’
+§1	Southern Interior Salish	cited form	-uł	page 4, in italics, ‘to the extreme’
+§1	Olga Ikonnikova	note	In Coeur d’Alene, there are articles or demonstratives with the initial ł element: łuɁe ‘that’, łuɁ ‘there far from speaker and second person or not near anyone’, and the definite article łe ‘the there’.	page 4
+§1	Coeur d’Alene	cited form	łuɁe	page 4, in italics, ‘that’
+§1	Coeur d’Alene	cited form	łe	page 4, in italics, ‘the there’
+(14) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 4, over the example
+(14a) line 1	Coeur d’Alene	segmentation	hoy čic-xʷuy łe qixʷlš	page 4
+(14a) line 2	Coeur d’Alene	gloss	then CISL-come DET fish	page 4
+(14a) line 3	Olga Ikonnikova	translation	‘When they came the fish’	page 4
+(14a) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 4, the tag or source at the right of the translation
+(14b) line 1	Coeur d’Alene	segmentation	kʷum ła Ɂałqicenč lut he s-t-čen-mš	page 4
+(14b) line 2	Coeur d’Alene	gloss	and DET snake NEG SPEC NOM-LOC-hold-INTR	page 4
+(14b) line 3	Olga Ikonnikova	translation	‘Then snake did not take hold.’	page 4
+(14b) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 4, the tag or source at the right of the translation
+(14c) line 1	Coeur d’Alene	segmentation	kʷum ła laɁxʷł ła Ɂa hn-g-gaw.us ciɁ-ł Ɂec-t-gʷexʷ	page 5
+(14c) line 2	Coeur d’Alene	gloss	and DET morrow DET OBL LOC-DIM-broken.face CISL-CONN CUST-LOC-PL.hang	page 5
+(14c) line 3	Olga Ikonnikova	translation	‘And then morning on a stump’	page 5
+(14c) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 5, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (14b), the lexeme ‘snake’ goes back to q’ec ‘braide, intervine, knit, weave’ with the lexical suffix -enč ‘hollow, belly’ attached to it. There is a marker/complementizer ł, łaɁ in Colville-Okanagan. A. Mattina (1973:114) describes it as a ‘sequential complement particle’. Ł also functions as a clausal subordinator. Examples:	page 5
+§1	Southern Interior Salish	cited form	-enč	page 5, in italics, ‘hollow, belly’
+§1	Southern Interior Salish	cited form	łaɁ	page 5, in italics
+§1	Okanagan	cited form	Ł	page 5, in italics
+§1	Olga Ikonnikova	language	Colville-Okanagan	Southern Interior Salish
+(15) line 1	Olga Ikonnikova	note	Colville-Okanagan:	page 5, over the example
+(15a) line 1	Colville-Okanagan	segmentation	uł c-xʷuy-selx uł alaɁ l ťiḱʷt uł nťḱʷan-(n)t-iselx	page 5
+(15a) line 2	Colville-Okanagan	gloss	CONJ CISL-go-3PL.ERG CONJ DEM LOC lake CONJ place.in-DIR-3PL.ERG	page 5
+(15a) line 3	Colville-Okanagan	segmentation	iɁ l sťałəm	page 5
+(15a) line 4	Colville-Okanagan	gloss	DET LOC canoe	page 5
+(15a) line 5	Olga Ikonnikova	translation	‘And they brought him to a lake and placed him in a canoe.’	page 5
+(15a) line 6	Olga Ikonnikova	citation	(Lindley & Lyon 2012:176)	page 5, under the translation
+(15b) line 1	Colville-Okanagan	segmentation	t̓ḱʷḱʷyinaɁ łaɁ c-qʷsiɁ-am iɁ sqilxʷ	page 5
+(15b) line 2	Colville-Okanagan	gloss	EMPH few COMP CUST-child-MDL DET people	page 5
+(15b) line 3	Olga Ikonnikova	translation	‘They had a few children…’	page 5
+(15b) line 4	Olga Ikonnikova	citation	(Lindley & Lyon 2012:187)	page 5, the tag or source at the right of the translation
+(15c) line 1	Colville-Okanagan	segmentation	ḱliɁ mi p ac-t-Ɂx̌il-x łaɁ c-q̓ilt łaɁ x̌yałnəx̌ʷ	page 5
+(15c) line 2	Colville-Okanagan	gloss	DEM COMP.FUT 2PL.ABS CUST-TR-do.like-INTR COMP CUST-sick COMP time/moon	page 5
+(15c) line 3	Olga Ikonnikova	translation	‘There’s a place over there for you all, when a person has got their time.’	page 5
+(15c) line 4	Olga Ikonnikova	citation	(Lindley & Lyon 2012:186)	page 5, under the translation
+(15d) line 1	Colville-Okanagan	segmentation	uł ixiɁ kiɁ iliɁ n-x̌aɁx̌Ɂ-itkʷ ac-xʷylwis	page 5
+(15d) line 2	Colville-Okanagan	gloss	CONJ DEM COMP.OBL DEM n-monster-water CUST-travel	page 5
+(15d) line 3	Olga Ikonnikova	translation	‘And that’s where the monsters travelled.’	page 5
+(15d) line 4	Olga Ikonnikova	citation	(Lindley & Lyon 2012:233)	page 5, the tag or source at the right of the translation
+(15e) line 1	Colville-Okanagan	segmentation	ixiɁ iɁ s-captikʷł-c axaɁ alaɁ iɁ t̓iḱʷt	page 5
+(15e) line 2	Colville-Okanagan	gloss	DEM DET NOM-legend-3SG.POSS DEM DEM DET lake	page 5
+(15e) line 3	Olga Ikonnikova	translation	‘That is the legend of the lake here.’	page 5
+(15e) line 4	Olga Ikonnikova	citation	(Lindley & Lyon 2012:236)	page 5, the tag or source at the right of the translation
+(15f) line 1	Colville-Okanagan	segmentation	lkʷilx-əx atlaɁ sqilxʷ-ulaɁxʷ axaɁ	page 5
+(15f) line 2	Colville-Okanagan	gloss	leave-INTR DEM Indian-land DEM	page 5
+(15f) line 3	Olga Ikonnikova	translation	‘Go away from here, this is Indian land here.’	page 5
+(15f) line 4	Olga Ikonnikova	citation	(Lindley & Lyon 2012:240)	page 5, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	However, there are examples where we observe either the nominalizer s- or the demonstrative łuɁ, which indicates the morphological process of formation of nominals, cf.:	page 5
+(16) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead	page 5, over the example
+(16) line 2	Kalispel-Spokane-Flathead	segmentation	šeɁi łuɁ i kʷillqs łuɁ hin-qł-smɁem	page 5
+(16) line 3	Kalispel-Spokane-Flathead	gloss	that ART PART red.shirt ART 1SG.POSS-to.be-woman	page 5
+(16) line 4	Olga Ikonnikova	translation	‘The one with the red shirt is going to be my wife.’	page 5
+(16) line 5	Olga Ikonnikova	citation	(Camp 2007:29)	page 5, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (16), the lexeme smɁem ‘wife’ (lit. ‘the one who feeds’) means ‘woman’ and goes back to the verbal root Ɂem ‘feed’ with the nominalizers-and middle prefix m- attached to it.	page 6
+§1	Southern Interior Salish	cited form	smɁem	page 6, in italics, ‘wife’
+§1	Southern Interior Salish	cited form	Ɂem	page 6, in italics, ‘feed’
+§1	Southern Interior Salish	cited form	m-	page 6, in italics
+(17) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 6, over the example
+(17) line 2	Kalispel-Spokane-Flathead	segmentation	kʷem̓t k’ʷul̓-št-s t qł-scɁiłn-s łiɁe sčiccn-s	page 6
+(17) line 3	Kalispel-Spokane-Flathead	gloss	and.then work-TR-3TR OBL to.be-food-3POSS this guest-3POSS	page 6
+(17) line 4	Olga Ikonnikova	translation	‘He prepared some food for his guest.’	page 6
+(17) line 5	Olga Ikonnikova	citation	(Camp 2007:93)	page 6, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (17), the nominal ‘guest’ goes back to the verbal root čic ‘arrive’ with a nominalizer s- and the article łiɁe.	page 6
+§1	Southern Interior Salish	cited form	čic	page 6, in italics, ‘arrive’
+(18) line 1	Olga Ikonnikova	note	Kalispel-Spokane-Flathead:	page 6, over the example
+(18) line 2	Kalispel-Spokane-Flathead	segmentation	łiɁe s-m’em’iɁ x̣ʷl’ x̣ʷix̣ʷyutšn u x̣x̣stey’eɁ	page 6
+(18) line 3	Kalispel-Spokane-Flathead	gloss	ADJ NOM-story about badger and skunk	page 6
+(18) line 4	Olga Ikonnikova	translation	‘This story is about Badger and Skunk.’	page 6
+(18) line 5	Olga Ikonnikova	citation	(Egesdal 1991:100)	page 6, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (18), sm’em’iɁ ‘story’ goes back to the verbal stem m’em’iɁ ‘talk’ with a nominalizer s- attached to it.	page 6
+§1	Southern Interior Salish	cited form	sm’em’iɁ	page 6, in italics, ‘story’
+§1	Southern Interior Salish	cited form	m’em’iɁ	page 6, in italics, ‘talk’
+(19) line 1	Olga Ikonnikova	note	Okanagan:	page 6, over the example
+(19) line 2	Okanagan	segmentation	łiɁe kʷ i-s-l’ax̣-t	page 6
+(19) line 3	Okanagan	gloss	ADJ 2SG.SBJ 1SG.POSS-NOM-friendly-DUR	page 6
+(19) line 4	Olga Ikonnikova	translation	‘…you my friend.’	page 6
+(19) line 5	Olga Ikonnikova	citation	(Egesdal 1991:106)	page 6, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (19), the lexeme s-l’ax ‘friend’ goes back to the verbal root ‘share’ with the nominalizer s- attached to it (cf. Okanagan s-l’ax-t – ‘partner’ (NOM-share- STAT)). (Mattina 1972:74)	page 6
+(20) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 6, over the example
+(20a) line 1	Coeur d’Alene	segmentation	hoy łe s.park.alaqs hn-kʷiɁc-es	page 6
+(20a) line 2	Coeur d’Alene	gloss	then DET turtle LOC-night-COND	page 6
+(20a) line 3	Olga Ikonnikova	translation	‘Then Turtle when it was night…’	page 6
+(20a) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 6, the tag or source at the right of the translation
+(20b) line 1	Coeur d’Alene	segmentation	hoy kʷin-t-s łe sic-m-s	page 6
+(20b) line 2	Coeur d’Alene	gloss	then take-TR-3ERG DET cover-MDL-3SG	page 6
+(20b) line 3	Olga Ikonnikova	translation	‘Then he took it his blanket…’	page 6
+(20b) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 6, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	The lexeme sparkalaqs ‘turtle’ goes back to the verbal root ‘turned inside out’ with the lexical suffix -alaqs ‘end’ and the nominalizer s- attached to it. The lexeme sic ‘blanket’ goes back to the verbal root ‘cover’.	page 6
+(21) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 6, over the example
+(21a) line 1	Coeur d’Alene	segmentation	Ɂekʷun lut łe s-tariɁ-CVC-m pintč t-kʷel-s-gʷuł	page 6
+(21a) line 2	Coeur d’Alene	gloss	she/he said NEG DET NOM-thunder-AUG-MDL always LOC-about-NOM-dust	page 6
+(21a) line 3	Olga Ikonnikova	translation	‘She / he said is it not true that Thunder always travels about in dust.’	page 6
+(21a) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 6, under the translation
+(21b) line 1	Coeur d’Alene	segmentation	čm Ɂec-Ɂem-ut łe s-miyem	page 7
+(21b) line 2	Coeur d’Alene	gloss	dark CUST-sit-STAT DET NOM-woman	page 7
+(21b) line 3	Olga Ikonnikova	translation	‘Just staying home his wife.’	page 7
+(21b) line 4	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 7, the tag or source at the right of the translation
+(22) line 1	Olga Ikonnikova	note	Colville-Okanagan:	page 7, over the example
+(22) line 2	Colville-Okanagan	segmentation	łaɁ k-s-k-pəl-əl=ikst	page 7
+(22) line 3	Colville-Okanagan	gloss	when have-NOM-grow-CONN=branch	page 7
+(22) line 4	Olga Ikonnikova	translation	‘…when it has boughs…’	page 7
+(22) line 5	Olga Ikonnikova	citation	(Mattina 1985:6)	page 7, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	Having analyzed the texts, we have come to the conclusion that in the Southern Interior Salish languages, there is a process of morphological formation of nominals by means of reanalyzing syntactic structures of subordinate clauses into lexical ones (with the nominalizer s- )according to the model:	page 7
+(23) line 1	Olga Ikonnikova	note	[the subordinate clauses with the subordinate markers → prefixal morphological formation of the nominalized verbal predicates]	page 7, set as an example
+§1	Olga Ikonnikova	note	In fact, we observe the process of morphological formation of the former verbal predicates into nominals by means of the prefix s-, which indicates that a situation or state is to be viewed as an entity, cf.:	page 7
+(24) line 1	Olga Ikonnikova	note	Colville-Okanagan:	page 7, over the example
+(24a) line 1	Colville-Okanagan	segmentation	ɁaxaɁ yi s-tkʷ-tkʷəɂut-ən-s-əlx	page 7
+(24a) line 2	Colville-Okanagan	gloss	DEM DET NOM-walk-walk-INSTR-his-PL	page 7
+(24a) line 3	Olga Ikonnikova	translation	‘Here are their tracks…’	page 7
+(24a) line 4	Olga Ikonnikova	citation	(Mattina 1985:34)	page 7, the tag or source at the right of the translation
+(24b) line 1	Colville-Okanagan	segmentation	k-terq-iks-əs yi s-cəl-cal	page 7
+(24b) line 2	Colville-Okanagan	gloss	RES-kick-branch-his DET NOM-stand-stand	page 7
+(24b) line 3	Olga Ikonnikova	translation	‘He kicked the trees.’	page 7
+(24b) line 4	Olga Ikonnikova	citation	(Mattina 1985:42)	page 7, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	Due to the material of the Interior Salish languages, we can trace that the nominals are in fact former subordinate clauses attached to the verbs which can be proved by the polyfunctional prefix s- functioning as a lexical nominalizer and as an aspectual marker of a neutral aspect, cf.:	page 7
+(25) line 1	Olga Ikonnikova	note	Coeur d’Alene:	page 7, over the example
+(25) line 2	Coeur d’Alene	segmentation	s-Ɂel-min-t-sut-s	page 7
+(25) line 3	Coeur d’Alene	gloss	NOM-move.body-REL-TR-REFL-3SG	page 7
+(25) line 4	Olga Ikonnikova	translation	‘he moved (he did not even move)’	page 7
+(25) line 5	Olga Ikonnikova	note	(‘he died’)	page 7, at the right of the translation
+(25) line 6	Olga Ikonnikova	citation	(Doak & Montler 2006)	page 7, the tag or source at the right of the translation
+§1	Olga Ikonnikova	note	In (25) due to the syncretic nature of s- as a nominalizer and as a marker of a neutral mode the situation is viewed as stative, one should interpret it as though ‘he did not move’, i.e. ‘died’. 3 Conclusion We come to the conclusion that the Interior Salish languages demonstrate the areal grammatical strategies relevant for revealing the mechanisms of diachrony of nominals by transforming syntactic structures into lexical ones in the following way: [subordinate clauses with the subordinate markers → prefixal morphological formation of the nominalized verbal predicates]. So, the Interior Salish languages provide the evidence that nominals are of verbal origin that could be characteristic of the ancient language.	page 7
+references	Olga Ikonnikova	heading	References	page 8
+references	Olga Ikonnikova	reference	Black, Deirdre J. 1996. The Morphological and phonological structures of Spokane lexemes. M.A. Diss. Victoria: University of Victoria.	page 8
+references	Olga Ikonnikova	reference	Camp, Kelsi. 2007.An Interlinear analysis of seven Kalispel texts from Hans Vogt. M.A. Diss. Missoula: University of Montana.	page 8
+references	Olga Ikonnikova	reference	Carlson, Barry F. 1972. A Grammar of Spokan: A Salish language of Eastern Washington. Working Papers in Linguistics 4(4). Hawaii: University of Hawaii. Coeur’d Alene Language Online resource center. Lyon and Green-Wood’s root dictionary (http://lasrv01.ipfw.edu/COLRC/dictionary/) (Accessed: 2018-10-11.)	page 8
+references	Olga Ikonnikova	reference	Czaykowska-Higgins, Eva and M. Dale Kinkade. 1998. Salish languages and linguistics. In: Eva Czaykowska-Higgins and M. Dale Kinkade (eds.), Salish languages and linguistics: Theoretical and descriptive perspectives. Berlin/New York: Mouton, 1–70.	page 8
+references	Olga Ikonnikova	reference	Doak, Ivy, and Timothy Montler. 2006. Reichard’s Coeur d’Alene texts. Tales with historical elements. (http://ivydoak.com/Coeurd'Alene/ReichardTexts.htm) (Accessed: 2017-07-20).	page 8
+references	Olga Ikonnikova	reference	Egesdal, Steven. 1991. Margaret Sherwood’s Badger and Skunk. A Spokane traditional legend with commentary. Papers for ICSNL 26, 97–118.	page 8
+references	Olga Ikonnikova	reference	Willet, Marie. L. 2003. A Grammatical sketch of Nxa’amxcin (Moses-Columbia Salish). University of Victoria. (PhD Dissertation).	page 8
+references	Olga Ikonnikova	reference	Lindley, Lottie, and John Lyon. 2012. 12 Upper Nicola Okanagan Texts. In: John Lyon and Joel Dunham (eds.), Papers for ICSNL 47. Vancouver: UBCWPL, 22–91.	page 8
+references	Olga Ikonnikova	reference	Lyon, John. 2010. Nominal modification in Upper Nicola Okanagan. In: Joel Dunham and John M. Lyon (eds.), Papers for ICSNL 45. Vancouver: UBCWPL, 199–233.	page 8
+references	Olga Ikonnikova	reference	Mattina, Anthony. 1973. Colville grammatical structure. Working Papers in Linguistics 5(4). Hawaii: University of Hawaii.	page 8
+references	Olga Ikonnikova	reference	Mattina, Anthony (ed.). 1985. The Golden Woman. The Colville Narrative of Peter J. Seymour. Tucson: University of Arizona Press.	page 8
+references	Olga Ikonnikova	reference	Mattina, Nancy. 2006. Determiner phrases in Moses-Columbia Salish. International Journal of American Linguistics, 72(1):97–134.	page 8
+references	Olga Ikonnikova	reference	Reichard, Gladys A. 1938. Coeur d’Alene. In: Franz Boas (ed.), Handbook of American Indian Languages3.New York: J.J. Augustin, 517–707.	page 8
+references	Olga Ikonnikova	reference	Speck, Brenda. J. 1977. An Edition of Father Posts’s Kalispel grammar. M.A. Diss. Missoula: University of Montana.	page 8

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-1-004
 #
 # Re-encode an existing corpus into a percussive representation, for the universals test in
-# theory/workbooks/anchor_sift.
+# theory/workbooks/orior.
 #
 # Section 4.13 measures six alphabetic texts. All six are written in scripts where one mark is one
 # sound. A regularity found in all of them could belong to that script family instead of to

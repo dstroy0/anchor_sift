@@ -1,0 +1,571 @@
+where	who	kind	form	gloss
+front	Zara Khalaji Pirbaluti	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+front	Zara Khalaji Pirbaluti	notation	ə	schwa
+front	Zara Khalaji Pirbaluti	title	Vowel Variation in Nɬeʔkepmxcín: An Acoustic Study of Coarticulation*	page 1
+front	Zara Khalaji Pirbaluti	byline	Zara Khalaji Pirbaluti, University of British Columbia	page 1
+front	Zara Khalaji Pirbaluti	note	Abstract: Previous work on Nɬeʔkepmxcín, a Northern Interior Salish language, has impressionistically described the vowel system as consisting of four primary vowels /i e ə u/ but with several allophonic realizations (Thompson & Thompson 1992). The current study aims to test the descriptions of vowel variation by choosing three consonantal environments (pre-velar, post- velar, labial) in both prevocalic and postvocalic positions with six vowel realizations which are represented by letters in orthography (i, e, a, ə, o, u). Results of the acoustic study suggest the strength of coarticulation varies by vowel. The front vowel /i/ among all vowels is the least resistant to coarticulatory effects as it significantly retracts following post-velar consonants. Additionally, these findings suggest there is great overlap in the vowel space in terms of the height dimension (F1) in general, and the coarticulation effects seem to be causing stronger retraction effects (F2) than raising effects (F1). Overall, the findings of this study align with previous research on other Northern Interior Salish languages in terms of the asymmetry in directionality of retraction effects (anticipatory > carryover), and therefore contribute to the acoustic study of vowel variation across Salish languages.	page 1
+front	Zara Khalaji Pirbaluti	note	Keywords: Nɬeʔkepmxcín, Salish, vowel variation, coarticulation, retraction	page 1
+front	Zara Khalaji Pirbaluti	name	Zara Khalaji Pirbaluti	author, University of British Columbia
+§1	Zara Khalaji Pirbaluti	heading	1 Introduction	page 1
+§1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+footnote *	Zara Khalaji Pirbaluti	note	* I would like to acknowledge that this project would not have been possible without the work and help of our consultants Bev Phillips, Ḱʷəɬtèzetkʷu (Bernice Garcia), and C̓úʔsinek (Marty Aspinall). I am grateful for them sharing their valuable knowledge and time with us, néxʷm kʷukʷscéyp! Ḱʷəɬtèzetkʷu wishes it to be stated that she is a Kamloops Indian Residential School speaker, re-learning her language, she introduces herself as such:	page 1, footnote
+footnote *	Zara Khalaji Pirbaluti	name	Bev Phillips	a Nɬeʔkepmxcín consultant
+footnote *	Zara Khalaji Pirbaluti	name	Bernice Garcia	a Nɬeʔkepmxcín consultant, Ḱʷəɬtèzetkʷu
+footnote *	Zara Khalaji Pirbaluti	name	Marty Aspinall	a Nɬeʔkepmxcín consultant, C̓úʔsinek
+footnote *	Zara Khalaji Pirbaluti	name	Lisa Matthewson	thanked for advice and feedback
+footnote *	Zara Khalaji Pirbaluti	name	Amanda Cardoso	thanked for feedback
+footnote *	Zara Khalaji Pirbaluti	name	Michelle Kamigaki-Baron	thanked for feedback
+footnote *	Zara Khalaji Pirbaluti	name	Gloria Mellesmoen	thanked for feedback
+footnote *	Zara Khalaji Pirbaluti	name	Danica Reid	the author's elicitation partner
+footnote *	Bernice Garcia	running speech	“ʔes ʔúməcms kʷəɬtèzetkʷuʔ təw ɬe c̓əɬétkʷu wéʔe ncitxʷ. ƛ̓uʔ wéʔec ʔex netíyxs scwew̓xmx, ƛ̓uʔ tékm xéʔe ne nɬeʔkepmx e tmixʷs”	page 1, footnote, Bernice Garcia introduces herself
+footnote *	Bernice Garcia	translation	(‘My traditional name is kʷəɬtèzetkʷuʔ, my home is in Coldwater of ‘Nicola’ of Nlaka’pamux lands’).	page 1, footnote, her introduction in English
+footnote *	Zara Khalaji Pirbaluti	note	I would like to thank the members of the Northern Interior Salish working group, in particular Lisa Matthewson for her advice and feedback, also Amanda Cardoso, Michelle Kamigaki-Baron, and Gloria Mellesmoen on providing feedback on an earlier version of this paper. Finally, thanks to my elicitation partner Danica Reid for managing our elicitation time and her help with the wordlist material. All errors made in analysis and the transcription are mine. The funding for this project came from the UBC Linguistics department, and the Jacobs Research Fund.	page 1, footnote
+footnote *	Zara Khalaji Pirbaluti	name	Ḱʷəɬtèzetkʷu	page 1, Bernice Garcia's Nɬeʔkepmxcín name
+footnote *	Zara Khalaji Pirbaluti	name	C̓úʔsinek	page 1, Marty Aspinall's Nɬeʔkepmxcín name
+footnote *	Nɬeʔkepmxcín	cited form	néxʷm	page 1, in néxʷm kʷukʷscéyp, the author's thanks
+footnote *	Nɬeʔkepmxcín	cited form	kʷukʷscéyp	page 1, ‘thank you’
+footnote *	Zara Khalaji Pirbaluti	name	Nlaka’pamux	page 1, the Nlaka’pamux lands of Bernice Garcia's home
+§1	Zara Khalaji Pirbaluti	note	Salish languages typically have a small vowel inventory (n ≈ 5). Despite the small vowel inventory, complications could persist in various aspects. In Salish languages, it is common for vowels to be produced with a great deal of variability which results in significant variation and overlap between different vowels (Mellesmoen & Huijsmans 2019; Kamigaki-Baron 2021). Previous description and phonetic works on Nɬeʔkepmxcín thus far have been done either impressionistically through fieldwork (Thompson & Thompson 1992) or on higher prosodic structures (i.e., intonation and focus) (Koch 2007). This paper aims to provide a systematic description of vowel variation in Nɬeʔkepmxcín. In doing so, the focus is on the coarticulatory effects of adjacent consonants since the variation documented seems to be related to the predictable consonant environments. In addition to providing acoustic evidence with regards to the study of vowels both within Salish languages and cross-linguistically, such work could have implications for the community as it helps with creating tools for teaching or guides for pronunciation when there is no easy access to audio materials.	page 1
+§1	Zara Khalaji Pirbaluti	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§1	Zara Khalaji Pirbaluti	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm
+§1	Zara Khalaji Pirbaluti	language	SENĆOŦEN	SENĆOŦEN
+§1	Zara Khalaji Pirbaluti	note	Cross-linguistically, in acoustic studies, the first formant (F1) and the second formant (F2), as the correlates of dimensions of height (high/low) and position (back/front), respectively, are used as means of organizing the vowel systems (Becker-Kristal 2010; Ladefoged & Maddieson 1990). Vowel variation in Salish languages has been studied through different lenses, with a variety of acoustic measurements including F1 and F2. Bessell (1997) has studied the coarticulatory effects of consonants following and preceding vowels in St’át’imcets (Interior Salish) acoustically and found that vowels surrounded by phonologically retracted consonants (such as uvulars) in both directions are retracted. An ultrasound study conducted by Namdaran (2006) on non-low St’át’imcets vowels also supports this bidirectionality of retraction, although the retraction effect of uvulars on the preceding /i u/ vowels were larger than when they were followed by those vowels. Furthermore, Hudu’s (2007) follow-up ultrasound study on low vowels in St’át’imcets shows that phonologically low vowels are susceptible to retraction as well, and similar to Namdaran’s (2006) study, retraction in the leftward direction, that is when they are followed by retracted consonants, is more evident visually in the articulatory results of the ultrasound. Regarding other (Central) Salish languages, Nolan (2017) has studied the effect of stress and surrounding consonants on vowel variation in Lekwungen and discovered that uvular and glottal consonants have the most persistent effects on all vowels’ F1 and F2. Mellesmoen and Cardoso (2021) analyzed vowel contrast in ʔayʔaǰuθəm (Comox-Sliammon) using multiple acoustic measures and Principal Component Analysis (PCA). They found that although duration, voice quality, F1, and F2 explain variance in the data, it seems that vowels overlap significantly in F1 and F2 space, but there is much less overlap for allophones taking into consideration phonological environment conditions. Bird and Leonard’s (2009) study on SENĆOŦEN coarticulation gestural conflict of uvular consonants and the front vowel /i/ shows different individual strategies and variations in F1 and F2. In the next subsection an overview of the vowel system based on the previous fieldwork in Nɬeʔkepmxcín will be provided. In Section 2 theories of coarticulation relating to this study’s framework will be considered and, finally, in Sections 3 and 4 the methodology and results will be discussed before the conclusion in Section 5.	page 2
+§1.1	Zara Khalaji Pirbaluti	heading	1.1 Nɬeʔkepmxcín vowel system	page 2
+§1.1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§1.1	Zara Khalaji Pirbaluti	notation	ə/	schwa, in /i e ə u/
+§1.1	Zara Khalaji Pirbaluti	notation	qʷ	a post-velar consonant
+§1.1	Zara Khalaji Pirbaluti	notation	x̣	a post-velar consonant
+§1.1	Zara Khalaji Pirbaluti	notation	x̣ʷ	a post-velar consonant
+§1.1	Zara Khalaji Pirbaluti	notation	ʕ	a post-velar consonant
+§1.1	Zara Khalaji Pirbaluti	notation	ʕʷ	a post-velar consonant
+§1.1	Zara Khalaji Pirbaluti	notation	kʷ	a labialized velar
+§1.1	Zara Khalaji Pirbaluti	notation	xʷ	a labialized velar
+§1.1	Zara Khalaji Pirbaluti	notation	ɣ	a velar
+§1.1	Zara Khalaji Pirbaluti	note	Nɬeʔkepmxcín (exonym: Thompson River Salish) is a Northern Interior Salish language, spoken in south-central British Columbia along the Fraser, Thompson, Nicola and Coldwater rivers. According to FPCC's 2022 report1 the community has 105 fluent speakers and 312 semi-speakers with overall 417 total speakers. Thompson & Thompson's grammar (1992:11) has described the Nɬeʔkepmxcín vowel system as having 4 (primary) vowels /i, e, u, ə/ which are subject to various degrees of allophony due to “a complex interplay of free variation and conditioning in terms of surrounding consonants, syllable position and stress patterns”. A summary of Thompson and Thompson's (1992:11-21) description of allophonic relationships between vowels and their retracted counterparts with regards to contexts of post-velar (q, qʷ, x̣, x̣ʷ, ʕ, ʕʷ) and pre-velar (k, kʷ, x, xʷ, ɣ) are provided in the following points:	page 2
+footnote 1	Zara Khalaji Pirbaluti	note	1 First People's Cultural Council has 4 reports on the status of B.C.'s First Nations languages since 2010, the latest one being the 2022 version (which can be accessed from here: fpcc.ca/stories/status-of-languages).	page 2, footnote
+§1.1	Zara Khalaji Pirbaluti	notation	/ị/	the retracted /i/
+§1.1	Nɬeʔkepmxcín	cited form	sx̣íc	page 3, ‘wood’
+§1.1	Nɬeʔkepmxcín	cited form	qʷincút	page 3
+§1.1	Zara Khalaji Pirbaluti	note	• high front vowels: /i/ and /ị/ (retracted) o /i/ → [e] before and after a post-velar in the same syllable (sx̣íc ‘wood’, qʷincút ‘talk’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	l̓	the glottalized l
+§1.1	Nɬeʔkepmxcín	cited form	ṣịkm	page 3
+§1.1	Zara Khalaji Pirbaluti	note	o /ị/ is very rare , usually appearing before “l, l̓” (ṣịkm ‘making a piercing sharp whistle’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	æ	the IPA of a vowel realization
+§1.1	Nɬeʔkepmxcín	cited form	qéck	page 3, ‘elder brother’
+§1.1	Zara Khalaji Pirbaluti	note	• lower non-back vowels: /e/ and /a/2 (retracted) o Stressed /e/ lowers to [æ] following post-velars (qéck ‘elder brother’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	ʔ	the glottal stop
+§1.1	Zara Khalaji Pirbaluti	notation	ɛ	the IPA of a vowel realization
+§1.1	Nɬeʔkepmxcín	cited form	qemút	page 3, ‘hat’
+§1.1	Zara Khalaji Pirbaluti	note	o Unstressed /e/ except before “ʔ” turns into [ɛ] (qemút ‘hat’).	page 3
+§1.1	Zara Khalaji Pirbaluti	note	o Stressed /e/ lowers following pre-velars in closed syllables when the coda is post- velar but not when the coda is any other obstruent in closed syllables and not when the following syllable starts with a pre-velar.	page 3
+§1.1	Nɬeʔkepmxcín	cited form	cúkʷ	page 3, ‘it is finished’
+§1.1	Zara Khalaji Pirbaluti	note	• back rounded vowels: /u/ and /o/ (retracted)3 o [u] is heard before a rounded pre-velar (cúkʷ ‘it is finished’).	page 3
+§1.1	Nɬeʔkepmxcín	cited form	qʷúʔ	page 3
+§1.1	Nɬeʔkepmxcín	cited form	ʔú.qʷeʔ	page 3, ‘drink’
+§1.1	Zara Khalaji Pirbaluti	note	o [o] is heard after post-velars and in open syllables followed by post-velars (qʷúʔ ‘water’, ʔú.qʷeʔ ‘drink’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	ə	schwa
+§1.1	Nɬeʔkepmxcín	cited form	ʔesnk̓úxʷ	page 3
+§1.1	Zara Khalaji Pirbaluti	note	o After unrounded back consonants /u/ is preceded by a brief [ə] onglide (ʔesnk̓úxʷ ‘it is gouged out’).	page 3
+§1.1	Nɬeʔkepmxcín	cited form	ʕʷóy̓t	page 3, ‘sleep’
+§1.1	Nɬeʔkepmxcín	cited form	zóqʷ	page 3, ‘dead’
+§1.1	Zara Khalaji Pirbaluti	note	o /o/ is common in retracting environments (ʕʷóy̓t ‘sleep’, zóqʷ ‘dead’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	/ə/	the phoneme schwa
+§1.1	Zara Khalaji Pirbaluti	notation	/ə̣/	the retracted schwa
+§1.1	Nɬeʔkepmxcín	cited form	sk̓ə̣ɬt	page 3, ‘mud’
+§1.1	Zara Khalaji Pirbaluti	note	• lax vowels: /ə/ and /ə̣/ (retracted) o /ə̣/ could sometimes be just a retracted version of a [ə] in retracted environments, however it also appears elsewhere (sk̓ə̣ɬt ‘mud’).	page 3
+§1.1	Zara Khalaji Pirbaluti	note	o /ə/ is a lower high central vowel that has alternants that take the colorization of surrounding consonants.	page 3
+§1.1	Nɬeʔkepmxcín	cited form	qəscút	page 3, ‘scratch oneself’
+§1.1	Zara Khalaji Pirbaluti	note	o A retracted and lowered version of /ə/ appears adjacent to post-velars; however, if the environment is a mix of post-velars and alveopalatals, it could be more central and higher (qəscút ‘scratch oneself’).	page 3
+§1.1	Zara Khalaji Pirbaluti	notation	ị	the retracted i
+§1.1	Zara Khalaji Pirbaluti	notation	ə̣	the retracted schwa
+footnote 2	Zara Khalaji Pirbaluti	note	2 Thompson and Thompson (1992) do not consider [a] to be one of the primary phonemes in the beginning of their chapter, but in the later sections, having reported the large variability between [e] and [a] at various levels such as the lexicon, individual, and dialect which according to them could be due to diachronic reasons, they state that it is necessary to recognize them as two distinct phonemes since there are words in which [e] is never substituted by [a] (1992:12). They also state that, among the retracted vowels, /a/ is the most common one.	page 3, footnote
+footnote 3	Zara Khalaji Pirbaluti	note	3 Thompson and Thompson (1992:18–19) mention some conditioning environments for /u/ and /o/ but also state there is some free variation heard among these two vowels, possibly due to historical reasons.	page 3, footnote
+footnote 4	Zara Khalaji Pirbaluti	note	4 For clarification, there are, in total, 28 vowel symbols used for all the realizations observed in the production of the vowels by Thompson and Thompson. Only eight of them are used in the orthography (See Figure 2 in Thompson & Thompson 1992:11).	page 3, footnote
+§1.1	Zara Khalaji Pirbaluti	notation	ə̣o	the retracted schwa and o
+§1.1	Zara Khalaji Pirbaluti	note	Regardless of the phonological analysis of vowels provided by Thompson and Thompson (1992), eight vowels are used in total in the orthography of the dictionary, which is also the basis of data collection in this paper.4 Although it should be pointed out that “ị” and “ə̣” occur rarely and therefore are merged with their undotted forms for now in the current work. The following table containing the vowels is adapted from descriptions in Thompson and Thompson (1992): Table 1: Vowels used in the orthography of Nɬeʔkepmxcín based on Thompson and Thompson (1992) Front retracted Central retracted Back High i ị u Mid e ə ə̣o Low a Finally, it is worth noting that while the descriptions reported in the grammar are invaluable, issues regarding inconsistencies throughout the descriptions lead to the need for gathering data and further investigations of the interplay between phonetic variation and the phonemic status of the vowels.	page 3
+§2	Zara Khalaji Pirbaluti	heading	2 Background	page 4
+§2	Zara Khalaji Pirbaluti	note	Before moving on to the background on coarticulatory effects, the goals of the current research which this study was motivated by will be set forth here.	page 4
+§2.1	Zara Khalaji Pirbaluti	heading	2.1 Current research goals	page 4
+§2.1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§2.1	Zara Khalaji Pirbaluti	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§2.1	Zara Khalaji Pirbaluti	language	Secwepemctsín	Secwepemctsín, a Northern Interior Salish language
+§2.1	Zara Khalaji Pirbaluti	note	The current study aims to provide an acoustic analysis of Nɬeʔkepmxcín vowels which contributes to our understanding of the phonetic properties of Salish languages and specifically the Northern Interior subfamily (Nɬeʔkepmxcín, St’át’imcets, and Secwepemctsín). The goals of the study therefore are threefold:	page 4
+§2.1	Zara Khalaji Pirbaluti	note	i. to collect data on context-dependent vowel variation in Nɬeʔkepmxcín in terms of the coarticulatory effects to observe whether they align with the allophonic variation documented; ii. to study the bidirectional effects of adjacent consonants on vowels in terms of retraction and raising/lowering; iii. to compare the results of this study to previous acoustic studies on retraction in St’át’imcets as another Northern Interior Salish language.	page 4
+§2.2	Zara Khalaji Pirbaluti	heading	2.2 Coarticulatory effects	page 4
+§2.2	Zara Khalaji Pirbaluti	notation	/ə/	the phoneme schwa
+§2.2	Zara Khalaji Pirbaluti	note	Coarticulation as a phenomenon in speech production refers to co-production or overlap in articulatory gestures during speech which could lead to modifications of a given speech sound caused by another speech sound (henceforth “target” and “trigger”, respectively) (Browman & Goldstein 1992). Naturally, coarticulation can be viewed from different aspects; temporal effects (i.e., the time that the motivation happens in and the relative duration into the target) and spatial effects (i.e., what areas in the articulation of the target are modified and to what extent). The spatio- temporal effects depend on several factors such as articulatory structures of the gestures, and the changes can be measured through different acoustic properties such as F2 or duration. Coarticulatory effects of the trigger on the following segments (rightwards) are referred to as “carryover” effects, which might be more variable compared to the “anticipatory” effects on the preceding segments (leftwards) (Recasens 2018:2). The anticipatory effects mostly reflect speech planning (Whalen 1990). The difference in the effects between the two directions has been attributed to the motivation and the stage of the speech production process, among other factors. Recasens (2018) uses the terms coarticulatory “resistance” and “aggressiveness” to discuss degrees of coarticulation effects; the former is about the extent to which targets are susceptible to variation and the latter about the extent to which triggers are prone to cause change. In their model of coarticulation, Recasens et al. (1997) acknowledge the various levels of lingual coarticulatory resistance to coarticulatory effects depending on the degree of the primary lingual structure required during articulation. For example, in Vowel-to-Consonant effects, labial consonants are the least resistant to coarticulation from vowels since there is no gestural competition. In other words, the primary articulator in the production of labials is not involved in the production of vowels which use the tongue body. As for vowels, in Consonant-to-Vowel effects, schwa (/ə/) is the least resistant to coarticulation from adjacent consonants, and hence highly variable due to the “absence of any articulatory requirements upon the formation of a lingual constriction” (Recasens 1999:82). Investigations of Salish languages report that /ə/ exhibits the most variation depending on its environment (Central Salish: Mellesmoen & Huijsmans 2019, Interior Salish: Kamigaki-Baron 2021). Cross-linguistically, it is known that the front vowel /i/ is the most resistant to coarticulation effects from adjacent consonants, however, some studies have shown that when neighbored by a velarized consonant it undergoes dorsum lowering and retraction, that is the middle of the tongue is lowered and pulled back (Alfonso & Horiguchi 1987). The back vowel /a/ shows context- dependent variability such as raising effects when adjacent to velars (Recasens 1999:81–82) which is also reported in Salish languages (Bessell 1997, Shahin 2008).	page 4
+§2.2	Zara Khalaji Pirbaluti	language	SENĆOŦEN	SENĆOŦEN
+§2.2	Zara Khalaji Pirbaluti	notation	qəi	a sequence the prose names
+§2.2	Zara Khalaji Pirbaluti	note	From the spatial point of view, coarticulatory effects could arise due to conflicting demands on articulatory gestures. The conflict could be resolved by articulatory changes to the target sound. Gick and Wilson (2006) report on two other possible strategies: inserting a transitional element or fully deleting one of the sounds. Bird and Leonard (2009) have investigated these strategies in SENĆOŦEN in an acoustic study with two fluent speakers and found different strategies used by the speakers for the coarticulation of sequences of /qi/ and /iq/. Nevertheless, overall, three main strategies were implemented to resolve the conflict: vowel retraction, e.g., /qi/ to [qɪ]; transitional vowel, e.g., /qi/ to [qəi]; and transitional frication, e.g., /qi/ to [qxi].	page 5
+§2.2	Zara Khalaji Pirbaluti	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm
+§2.2	Zara Khalaji Pirbaluti	note	From the temporal point of view, as has been mentioned before, depending on the manner and articulatory gesture of the adjacent triggers, there is variability in terms of how far and in which direction the effects can exhibit in the acoustic signal. Relevant factors could be the articulatory distance between the target and the trigger, or the involvement of the lingual articulator, which means the closer and more involved the gestures are, the larger the onset of the coarticulation consecutively. Relatively, carryover effects have higher saliency compared to anticipatory effects which may be associated with the pre-planned nature of anticipatory effects versus the structural properties of the coarticulator. Mellesmoen and Huijsmans (2019) have taken the first two formant measurements for the vowel trajectory at seven time points in ʔayʔaǰuθəm. In their study, an interesting finding when comparing palatal and uvular environments is that palatal consonants seem to have a greater influence on the position dimension (F2), while uvular consonants’ influence is on the height dimension (F1).	page 5
+§3	Zara Khalaji Pirbaluti	heading	3 Methodology	page 5
+§3	Zara Khalaji Pirbaluti	note	In this section, the methodology of the study including the information about the speakers and the procedure of data collection and analysis will be provided.	page 5
+§3.1	Zara Khalaji Pirbaluti	heading	3.1 Consultants	page 6
+§3.1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§3.1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín-speaking	Nɬeʔkepmxcín, in Nɬeʔkepmxcín-speaking
+§3.1	Zara Khalaji Pirbaluti	note	This study features two fluent female speakers of Nɬeʔkepmxcín. B. P. is a speaker of the Lytton dialect spoken in Lytton Valley; she was raised with monolingual Nɬeʔkepmxcín-speaking parents. K. B. G. is a speaker of the Nicola Valley dialect and is a Kamloops Residential School survivor who is re-learning her language. All speech data, which consist of approximately 24 hours of recordings over various sessions, were recorded during fieldwork sessions with speakers from September 2022 to April 2023 remotely via the video conferencing software Zoom.	page 6
+§3.2	Zara Khalaji Pirbaluti	heading	3.2 Materials and procedure	page 6
+§3.2	Zara Khalaji Pirbaluti	notation	ə	schwa
+§3.2	Zara Khalaji Pirbaluti	notation	kʷ	a labialized velar
+§3.2	Zara Khalaji Pirbaluti	notation	xʷ	a labialized velar
+§3.2	Zara Khalaji Pirbaluti	notation	ɣ	a velar
+§3.2	Zara Khalaji Pirbaluti	notation	qʷ	a post-velar consonant
+§3.2	Zara Khalaji Pirbaluti	notation	x̣	a post-velar consonant
+§3.2	Zara Khalaji Pirbaluti	notation	x̣ʷ	a post-velar consonant
+§3.2	Zara Khalaji Pirbaluti	notation	ʕ	a post-velar consonant
+§3.2	Zara Khalaji Pirbaluti	notation	ʕʷ	a post-velar consonant
+§3.2	Zara Khalaji Pirbaluti	note	For this study, I compiled a word list (see Appendix) that met the required conditions in Table 2. The primary materials I consulted were the Thompson and Thompson (1996) dictionary, and FirstVoices.5 In order to control for stress, I tried to limit my options to those that had the target vowel in a stressed syllable as much as possible. Each item or token in the list was first checked with speakers and recorded during elicitation sessions through a translation task which was either accompanied by pictures or narration of a hypothetical story. Due to limitations of time, the majority of the tokens were pronounced in isolation (or rarely in small phrases), that is, without a fixed carrier phrase. Consultants were asked to repeat them two to four times if possible; all repetitions with sufficient acoustic quality for analysis (that is without any extra background noise) were analyzed. Since the materials I consulted were based on previous documentation, the vowels considered in this study were six common vowels indicated by orthography: “i, e, a, ə, o, u”. Based on the terminology and categorization from Thompson and Thompson (1992)’s description, the adjacent consonants were grouped into three conditions K, Q, and P (Table 2). The P condition only consists of the labial consonant /p/. It was chosen as the least resistant consonant to lingual coarticulation effects (where possible this condition provided a baseline control group). Table 2: Adjacent consonant conditions Description Condition Consonants Pre-Velars K k, kʷ, x, xʷ, ɣ Post-Velars Q q, qʷ, x̣, x̣ʷ, ʕ, ʕʷ Labial P p To recapitulate, carryover effects refer to the rightwards effects of pre-vocalic consonants (CV), and anticipatory effects refer to the leftwards effects of post-vocalic consonants (VC). Overall, 321 tokens (223 unique types) were considered in the analysis of the current study. Certain vowels were less common than others, and in fact some vowel and consonant sequences were difficult to find. For instance, the condition P with ‘o’ in the anticipatory direction seemed to be a rare sequence and remains without any representative token. The number of vowels in each condition is shown in the table below:	page 6
+footnote 5	Zara Khalaji Pirbaluti	note	5 firstvoices.com — An online resource initiated by the First Peoples’ Cultural Council to share and promote Indigenous languages in B.C.	page 6, footnote
+§3.2	Zara Khalaji Pirbaluti	note	Table 3: Token frequencies by condition Vowel Total n Carryover Effects Anticipatory Effects K Q P K Q P i 72 16 15 16 17 19 3 e 82 30 17 10 17 5 12 a 61 19 21 4 15 13 3 ə 44 15 16 2 8 7 3 u 37 13 11 3 13 4 3 o 25 6 2 3 2 12 - 321 99 82 38 72 60 24 Speech data recorded through Zoom in a .m4a format had to be converted to .wav for importing into Praat (Boersma & Weenink 2022). After transcribing the elicitation sessions, the target tokens were annotated manually in the long audio recordings (e.g., at word and phoneme level) by the researcher. The vowel boundaries were marked on the phoneme interval layer, and afterwards midpoint F1 and F2 measurements were automatically extracted with a Praat script. Due to the small size of the dataset and the number of speakers, and also the unequal sample size from each speaker, the raw acoustic measurements of all speakers together were used in the statistical analysis. Pairwise t-tests were used to measure significance in differences between mean values of F1 and F2 using R studio (R Core Team 2023; Ahlman-Eltze & Patil 2021).	page 7
+§3.3	Zara Khalaji Pirbaluti	heading	3.3 Research questions	page 7
+§3.3	Zara Khalaji Pirbaluti	note	Considering the goals of the current project and the background on coarticulatory effects in Salish languages, the specific research questions are outlined as follows:	page 7
+§3.3	Zara Khalaji Pirbaluti	note	• Q1: Are all vowels significantly retracted when they follow the post-velar (Q) and pre- velar (K) conditions compared to the labial (P) condition?	page 7
+§3.3	Zara Khalaji Pirbaluti	note	• Q2: Are all vowels significantly retracted when they precede the post-velar (Q) and pre-velar (K) conditions compared to the labial (P) condition?	page 7
+§3.3	Zara Khalaji Pirbaluti	note	• Q3: Are the front low vowel pairs represented with “e” and “a” in the orthography significantly different from each other (both in F1 and F2) when they are preceded or followed by the consonants in each condition?	page 7
+§3.3	Zara Khalaji Pirbaluti	note	• Q4: Are the back vowels pairs represented with “o” and “u” in the orthography significantly different from each other (both in F1 and F2) when they are preceded or followed by the consonants in each condition?	page 7
+§4	Zara Khalaji Pirbaluti	heading	4 Results	page 7
+§4.1	Zara Khalaji Pirbaluti	heading	4.1 Vowel space	page 7
+§4.1	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.1	Zara Khalaji Pirbaluti	notation	ə	schwa
+§4.1	Zara Khalaji Pirbaluti	note	At first, to observe the whole vowel space, we can look at the full vowel charts. The axes are reversed in vowel plots traditionally, so high F1 values correspond to a low tongue height, and high F2 values represent a front tongue position. Figures 1 and 2 show the full vowel chart including all the six vowels in Nɬeʔkepmxcín. The ellipses showing measurements of F1 and F2 are situated with 65% confidence. The points each represent a vowel token which are grouped by colors. The consonant conditions are grouped by shapes: dots (pre-velar K), triangles (labial P), and squares (post-velar Q). In these plots, at first glance, vowels show great variability and overlap in both carryover (see Figure 1) and anticipatory effects (see Figure 2) directions. The vowels “a, e, ə” seem to occupy the center of the vowel space showing more overlap than other vowels. Figure 1: Full vowel plot of the carryover effects Figure 2: Full vowel plot of the anticipatory effects In order to make the effect of the three conditions on each vowel more visible on the plots, Figures 3 for carryover and 4 for anticipatory effects show each vowel separately in a similar plot for the three conditions. Not all vowels have their F1 and F2 values moved in the same direction in the plot, so the effect of each consonant condition (colored) seems to vary in different vowels. Figure 3: Vowel plots of the carryover effects Figure 4: Vowel plots of the anticipatory effects	page 7
+§4.2	Zara Khalaji Pirbaluti	heading	4.2 Coarticulatory effects of consonants on vowels	page 10
+§4.2.1	Zara Khalaji Pirbaluti	heading	4.2.1 F1 (height)	page 10
+§4.2.1	Zara Khalaji Pirbaluti	note	In order to obtain a closer look at the coarticulatory effects from preceding or following consonants on each of the vowels in terms of F1, we can plot the variation of vowels individually. Figures 5 for carryover and 6 for anticipatory effects show to what extent the mean F1 of a vowel at midpoint is significantly different across conditions. The significance level is annotated throughout the plots with: NS, *, **, ***; NS being no significant differences and *** the highest level of significance. Figure 5: Carryover effects of consonants on F1 As can be seen in the plot above which includes the t-test results (Figure 5), the only vowels which show persistent coarticulatory effects of their preceding consonants are “a” and “e”; the rest of the vowels do not seem to show a significant difference when preceded by different consonant conditions. The vowel “a” has a significant difference of means between the Ka and Qa conditions, and between the Ka and Pa conditions. The vowels’ F1 value in the Ka condition seems to be lower than other “a”s. The same pattern can be observed in the vowel “e”, except with the difference that the vowel raising effect of K on “e” vs. P is stronger.	page 10
+§4.2.1	Zara Khalaji Pirbaluti	note	Figure 6: Anticipatory effects of consonants on F1 The anticipatory effects of the consonants which can been seen in the plot above (Figure 6) seem not to lead to persistent effects in any of the vowels except “a”. The Ka condition compared to the Qa condition seems to have a significant difference in the mean F1. This again results in a higher “a” in the K condition and lower “a” in the Q condition.	page 10
+§4.2.2	Zara Khalaji Pirbaluti	heading	4.2.2 F2 (retraction)	page 11
+§4.2.2	Zara Khalaji Pirbaluti	note	Moving on to F2, for obtaining a closer look at the coarticulatory effects from preceding or following consonants on each of the vowels, we can take a look at the plots of vowels individually. Figure 7 for carryover effects and 8 for anticipatory effects show to what extent the mean F2 of a vowel is significantly different across conditions.	page 11
+§4.2.2	Zara Khalaji Pirbaluti	note	Figure 7: Carryover effects of consonants on F2 As can be seen in the plot above (Figure 7), the t-test results reveal that the three vowels which show persistent coarticulatory effects of their preceding consonants are “a”, “e”, and “i”. The vowels “a” and “e” have a significant difference of means of F2 between the K and Q conditions. The vowel “i” also has a significant difference between F2 means of the Ki and Qi conditions, which compared to the other vowels this difference has a higher degree of significance (***). Figure 8: Anticipatory effects of consonants on F2 In the anticipatory effects of the consonants in the plot above (Figure 8), no significant difference between each conditions’ effect on the F2 means of vowels seem to be reported by the t-test results, except in the vowel “i”. Here the iQ condition shows a significant difference of means compared to the iP condition in terms of F2 or retraction, with iP being more retracted.	page 11
+§4.3	Zara Khalaji Pirbaluti	heading	4.3 Vowel overlaps within conditions	page 12
+§4.3.1	Zara Khalaji Pirbaluti	heading	4.3.1 F1 (height)	page 12
+§4.3.1	Zara Khalaji Pirbaluti	notation	ə	schwa
+§4.3.1	Zara Khalaji Pirbaluti	note	In order to look at the degree of overlap between the vowel categories in terms of F1, we can isolate the effect of the coarticulatory conditions. Figures 9 for carryover effects and 10 for anticipatory effects show to what extent the mean F1 of vowels at midpoint is significantly different within each condition. As these two plots show, vowel height measurements in these vowels (disregarding a few outliers) is situated in the center from 400–700 Hz. t-test comparisons are indicated in the plots only for the vowel pairs which are described in pairs previously, the back vowels “o” and “u”, and the front low vowels “e” and “a” plus “ə”, which seems to be located in the same area of the vowel plot.	page 12
+§4.3.1	Zara Khalaji Pirbaluti	note	Figure 9: Between-vowel variation of F1 across carryover effects As can be seen in the plot (Figure 9) and as the t-test comparisons indicate, when keeping the carryover effects constant, there is no significant difference between the vowels “a”, “e”, “ə” and “o”, “u” in terms of their F1. In addition, informally it could be observed that all vowel means in the KV condition are overall less variable in height and are confined to a smaller 400–550 Hz range approximately.	page 12
+§4.3.1	Zara Khalaji Pirbaluti	note	Figure 10: Between-vowel variation of F1 across anticipatory effects In the opposite direction (Figure 10), in particular in the VK condition, there seems to be more variance between vowels from the distribution of the box plots. Results of the t-tests show that in this condition there seems to be a difference in means of F1 statistically only between “a” and “e”, although the degree of significance is low (*). However, the other two conditions VP and VQ seem to follow a similar pattern to the previous plot. In addition, informally it could be observed that compared to others in the VQ condition, the F1 means of all vowels are confined to a smaller 500 to 650 Hz range approximately and have more overlap.	page 13
+§4.3.2	Zara Khalaji Pirbaluti	heading	4.3.2 F2 (retraction)	page 13
+§4.3.2	Zara Khalaji Pirbaluti	notation	ə	schwa
+§4.3.2	Zara Khalaji Pirbaluti	note	In order to look at the degree of overlap between the vowel categories in terms of F2, we can isolate the effect of the coarticulatory conditions. Figure 11 for carryover and 12 for anticipatory show to what extent the mean F2 of vowels is significantly different within each condition. Figure 11: Between vowel variation of F2 across carryover effects As can be seen in the plot (Figure 11), and as the t-test comparisons indicate, when keeping the carryover effects constant, in the conditions KV and PV there is a significant difference between the means of F2 between vowels “a” and “e”, and also between “a” and “ə” in the KV condition. In addition, informally it could be observed that all F2 means in the QV condition overall have less variation and are limited to a 1000–2000 Hz range approximately.	page 13
+§4.3.2	Zara Khalaji Pirbaluti	note	Figure 12: Between vowel variation of F2 across anticipatory effects As can be seen in the t-test comparisons in the plot (Figure 12), when keeping the anticipatory effects constant in conditions VK and VQ there is a significant difference between the means of F2 between vowels “a” and “e”, and also between “a” and “ə” in the KV condition.	page 14
+§4.4	Zara Khalaji Pirbaluti	heading	4.4 Discussion	page 14
+§4.4	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§4.4	Zara Khalaji Pirbaluti	note	The preliminary results obtained in this study regarding vowel variation in Nɬeʔkepmxcín show that the coarticulation from consonants (triggers) to vowels (target) does not produce the same effect in all vowels. Starting with raising or change in F1, the back vowels “o” and “u” do not seem take any effect from the adjacent consonants and are resistant to them. However, in both directions the Q condition causes lowering of the “i” vowel. In the carryover direction, the K condition causes raising of “a” and “e”. Although, the low values (or raising effect) of K on “e” reverts to a high value (not raising or lowering effect) in the anticipatory direction.	page 14
+§4.4	Zara Khalaji Pirbaluti	notation	ə	schwa
+§4.4	Zara Khalaji Pirbaluti	note	With regard to retraction or change in F2, as might be expected, the back vowels which are already produced with a low F2 do not undergo any significant retraction effect from the consonants. The most front vowel, “i”, is strongly affected by the Q consonants. The retraction effect of K and Q consonants differs on “a” and “e”. In the anticipatory direction, the K and Q conditions behave differently for different vowels. For “i”, the K and Q conditions retract the vowel but for the other three non-back vowels “a”, “e”, and “ə” it seems like this effect is not consistent; in fact, it seems like the P condition in “ə” is more retracted than other conditions. It is worth noting that talking about the bi-directionality of effects and comparing anticipatory vs. carryover effects might not be quite meaningful here at this stage since the data points in these two groups are unbalanced. More importantly, for a one-to-one comparison, there might be other cofounding variables which were not fully accounted for; as an example, in anticipatory effects (i.e., CVK) or the carryover effects (i.e., KVC), the effect of the other consonant C which is not controlled for might be a confounding variable.	page 14
+§4.4	Zara Khalaji Pirbaluti	note	Summarizing the results about the patterns in the overall vowel space, in terms of height, we could say that all the vowels seem to have a tendency to be in the mid position (F1 400–700 Hz) which leads to great overlap of vowel categories in that area of vowel space. We can see in the tongue-neutral coarticulatory position of the labial P, the relative height (F1) of the vowels in a continuum from high to low is: i > o, u > ə > e, a. In the Q condition compared to the K condition there seems to be an overall trend of pulling vowels into a lower tongue position or lowering effect. According to the measurements of F2, the parameter related to the degree of the backness of the vowels, there seems to be less overlap. The vowel /i/, being located in a non-overlapping space, is the most front vowel (above 2000 Hz). Considering the tongue-neutral P condition, the relative backness of other vowels is u, o > ə, a > e.	page 15
+§4.4	Zara Khalaji Pirbaluti	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+§4.4	Zara Khalaji Pirbaluti	note	The results from St’át’imcets point to a bidirectional effect of uvular consonants on the vowels “i” and “u” (Namdaran 2006) and anticipatory effects of the same consonants on the low vowel /a/ being stronger than the carryover effects (Hudu 2007). Bessell (1997) also looked at F1 as well as F2, and found lowering and backing effects following uvular consonants on “i, u, a, ə”. This study shows a similar trend of lowering “i, ə” more than other vowels in both directions when adjacent to Q (the post-velar condition). In terms of the bidirectionality of the retraction effects, the current study confirms the previous studies in St’át’imcets in that there seems to be an asymmetry of magnitude of effects (anticipatory > carryover) specifically in the low vowel “a” which does not seem to show any retraction effects in the carryover condition.	page 15
+§5	Zara Khalaji Pirbaluti	heading	5 Conclusion	page 15
+§5	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+§5	Zara Khalaji Pirbaluti	note	The contribution of this paper for the acoustic study of vowel variation and retraction in Salish languages could be summarized in a number of ways. First, the present study provided basic acoustic descriptions of the vowel system of Nɬeʔkepmxcín to evaluate impressionistic claims in previous fieldwork. In addition, the study focused on the coarticulatory effects of consonants on vowels grouped into 3*2 conditions (pre-velars, post-velars, labials)*(carryover, anticipatory), which makes it comparable with the findings on retraction across other Interior Salish languages. This was a first step to gather preliminary acoustic data on Nɬeʔkepmxcín vowels. To conclude, the results seem to suggest that the strength of coarticulation varies by vowel and that there is significant overlap among most vowels compared in this study, in particular in the height dimension (F1).	page 15
+§5	Zara Khalaji Pirbaluti	note	One delimitation of the scope of the current study is that the phonetic properties of vowels were measured only at the midpoint. Adding more temporal variables, and including different time intervals during the production of the vowel, would enable discussing the phonological environment leading to more persistent coarticulation effects vs. purely phonetic coarticulation effects. Furthermore, as it is known from the literature, the role of stress, syllable, and higher prosodic structure is important for acoustic analysis; therefore, in order to have a more robust analysis such variables need to be taken into consideration in future studies. One of the shortcomings of the current study is that restrictions of time did not allow for having equal samples from all speakers. Since speakers are female and roughly the same height, all measurements were treated as part of one group together which obscures individual variations. Moreover, since there are not enough data points in each condition to have balanced representation of the different conditions, other statistical analyses would not be reliable at this stage as they might not meet the statistical assumptions required. Future directions for this research could consist of comparing individual (or possibly inter-dialectal) variations, adding more consonantal environments and tokens as well as employing different statistical methods such as a Bayesian mixed effects model. As this study aims to contribute to community-based research, an understanding of vowel variation and production of vowels could also have implications for classroom teaching and creating materials for learners. Studying the context-dependent variation in vowels and isolating the effects of consonants systematically could potentially be helpful for teachers to help learners make generalizations about vowel behaviors when they are faced with new lexical items. For instance, it is beneficial for beginner learners to be taught explicitly what coarticulation strategies are available when there are competing demands from different articulatory gestures to produce certain combinations of phonemes.	page 15
+§5	Zara Khalaji Pirbaluti	note	Finally, this work could also shed light on the typology of vowel inventories and the phonology of vowels by providing acoustic evidence which could be useful for conceptions of features such as height and local retraction of vowels.	page 16
+references	Zara Khalaji Pirbaluti	heading	References	page 16
+references	Zara Khalaji Pirbaluti	reference	Ahlmann-Eltze, Constantin & Indrajeet Patil. 2021. “ggsignif: R Package for Displaying Significance Brackets for 'ggplot2'.” PsyArXiv. March 31.	
+references	Zara Khalaji Pirbaluti	notation	/əCVC/	a shape in the title of a reference
+references	Zara Khalaji Pirbaluti	reference	Alfonso, Peter J. & Satoshi Horiguchi. 1987. Vowel-related lingual articulation in /əCVC/ syllables as a function of stop consonants. Proceedings of the XIth International Congress of Phonetic Sciences 2:41–44.	
+references	Zara Khalaji Pirbaluti	reference	Becker-Kristal, Roy. 2010. Acoustic typology of vowel inventories and Dispersion Theory: Insights from a large cross-linguistic corpus. Ph.D. Dissertation, University of California, Los Angeles, CA.	
+references	Zara Khalaji Pirbaluti	language	St’át’imcets	St’át’imcets, a Northern Interior Salish language
+references	Zara Khalaji Pirbaluti	reference	Bessell, Nicola J. 1997. St’át’imcets vowels and consonants, a phonetic study. Papers for ICSNL 32.	
+references	Zara Khalaji Pirbaluti	reference	Bird, Sonya & Leonard, Janet. 2009. Universality of articulatory conflict resolution: Evidence from Salish languages. Northwest Journal of Linguistics 3(2):1–29.	
+references	Zara Khalaji Pirbaluti	reference	Boersma, Paul & David Weenink. 2022. Praat: Doing phonetics by computer (6.2.23). URL: http://www.praat.org/.	
+references	Zara Khalaji Pirbaluti	reference	Browman, Catherine P. & Louis Goldstein. 1992. Articulatory phonology: An overview. Phonetica 49:155–180.	
+references	Zara Khalaji Pirbaluti	reference	FPCC. 2022. Report on the status of B.C. First Nations languages. URL: http://www.fpcc.ca Gick, Brian, & Ian Wilson. 2006. Excrescent schwa and vowel laxing: Cross-linguistic responses to conflicting articulatory targets. In Lous Goldstein, D.H. Whalen, and Catherine T. Best (eds.), Laboratory phonology VIII. Berlin, Germany: Mouton de Gruyter, 635–659.	
+references	Zara Khalaji Pirbaluti	reference	Hudu, Fusheini. 2007. The low vowel and retraction in St’át’imcets. Papers for ICSNL 42:164– 175.	
+references	Zara Khalaji Pirbaluti	language	Secwepemctsín	Secwepemctsín, a Northern Interior Salish language
+references	Zara Khalaji Pirbaluti	reference	Kamigaki-Baron, Michelle. 2021. Acoustic description of Secwepemctsín vowels. Papers for ICSNL 56:134–153.	
+references	Zara Khalaji Pirbaluti	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish
+references	Zara Khalaji Pirbaluti	reference	Koch, Karsten. 2007. Intonation and focus in Nɬeʔkepmxcín. Ph.D. Dissertation, University of British Columbia, Vancouver, BC.	
+references	Zara Khalaji Pirbaluti	reference	Ladefoged, Peter & Ian Maddieson. 1990. Vowels of the world’s languages. Journal of Phonetics 18(2):93–122.	
+references	Zara Khalaji Pirbaluti	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm
+references	Zara Khalaji Pirbaluti	reference	Mellesmoen, Gloria & Amanda Cardoso. 2021. Investigating phonemic inventories without minimal pairs: Defining contrast in the vowel inventory of Comox-Sliammon (ʔayʔaǰuθəm). Paper read at 12th International Conference of Nordic and General Linguistics (ICNGL), Oslo, Norway, 16 June.	
+references	Zara Khalaji Pirbaluti	reference	Mellesmoen, Gloria. & Huijsmans, Marianne. 2019. The relationship between pronunciation and orthography: Using acoustic analysis as a practical illustration of Comox-Sliammon vowel quality. In Sasha Calhoun, Paola Escudero, Marija Tabain and Paul Warren (eds.), Proceedings of the 19th International Congress of Phonetic Sciences. Melbourne, Australia: ICPhS, 979– 983.	
+references	Zara Khalaji Pirbaluti	reference	Namdaran, Nahal. 2006. Retraction in St’át’imcets: An ultrasonic investigation. MA Thesis, University of British Columbia, Vancouver, BC.	
+references	Zara Khalaji Pirbaluti	reference	Nolan, Tess. 2017. A phonetic investigation of vowel variation in Lekwungen. MA Thesis, University of Victoria, Victoria, BC.	
+references	Zara Khalaji Pirbaluti	reference	R Core Team 2023. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. R-project.org.	
+references	Zara Khalaji Pirbaluti	reference	Recasens, Daniel. 1999. Lingual coarticulation. In William J. Hardcastle & Nigel Hewlett (eds.), Coarticulation: Theory, data and techniques. Cambridge, UK: Cambridge University Press, 80–104.	
+references	Zara Khalaji Pirbaluti	reference	Recasens, Daniel. 2018. Coarticulation. In Oxford Research Encyclopedia of Linguistics.	
+references	Zara Khalaji Pirbaluti	reference	Recasens, Daniel, Maria Dolores Pallarès, & Jordi Fontdevila. 1997. A model of lingual coarticulation based on articulatory constraints. Journal of the Acoustical Society of America 102:544–561.	
+references	Zara Khalaji Pirbaluti	reference	Shahin, Kimary. 2008. “Acoustic Testing for Phonologization”. Canadian Acoustics 36(4):48-49.	
+references	Zara Khalaji Pirbaluti	reference	Thompson, Laurence C. & M. Terry Thompson.1992. The Thompson Language. Missoula, MT: University of Montana Occasional Papers in Linguistics.	
+references	Zara Khalaji Pirbaluti	language	nɬeʔkepmxcín	Nɬeʔkepmxcín, in the title of a reference
+references	Zara Khalaji Pirbaluti	reference	Thompson, Laurence C. & M. Terry Thompson. 1996. Thompson River Salish dictionary: nɬeʔkepmxcín. Missoula, MT: University of Montana Occasional Papers in Linguistics. Whalen, Douglas. H. 1990. Coarticulation is largely planned. Journal of Phonetics 18:3–35.	
+appendix	Zara Khalaji Pirbaluti	heading	Appendix	page 18
+Table A1	Zara Khalaji Pirbaluti	note	Table A1: Selected Wordlist	page 18, the caption
+Table A1	Zara Khalaji Pirbaluti	note	Lexical Item Translation	page 18, heads the rows below
+Table A1 line 1	Nɬeʔkepmxcín	transcription	cáqcəqt	page 18, wordlist
+Table A1 line 1	Zara Khalaji Pirbaluti	translation	‘spruce hen’	page 18, wordlist
+Table A1 line 2	Nɬeʔkepmxcín	transcription	c̓əc̓óq̓ʷ	page 18, wordlist
+Table A1 line 2	Zara Khalaji Pirbaluti	translation	‘writing’	page 18, wordlist
+Table A1 line 3	Nɬeʔkepmxcín	transcription	cék	page 18, wordlist
+Table A1 line 3	Zara Khalaji Pirbaluti	translation	‘finished’	page 18, wordlist
+Table A1 line 4	Nɬeʔkepmxcín	transcription	cəqcéq	page 18, wordlist
+Table A1 line 4	Zara Khalaji Pirbaluti	translation	‘tamed’	page 18, wordlist
+Table A1 line 5	Nɬeʔkepmxcín	transcription	cəqém	page 18, wordlist
+Table A1 line 5	Zara Khalaji Pirbaluti	translation	‘recline your back’	page 18, wordlist
+Table A1 line 6	Nɬeʔkepmxcín	transcription	c̓eskíkiʔ	page 18, wordlist
+Table A1 line 6	Zara Khalaji Pirbaluti	translation	‘chickadee’	page 18, wordlist
+Table A1 line 7	Nɬeʔkepmxcín	transcription	cə́x̣	page 18, wordlist
+Table A1 line 7	Zara Khalaji Pirbaluti	translation	‘dripping’	page 18, wordlist
+Table A1 line 8	Nɬeʔkepmxcín	transcription	c̓ikwik	page 18, wordlist
+Table A1 line 8	Zara Khalaji Pirbaluti	translation	‘dregs at the bottom’	page 18, wordlist
+Table A1 line 9	Nɬeʔkepmxcín	transcription	c̓íp̓	page 18, wordlist
+Table A1 line 9	Zara Khalaji Pirbaluti	translation	‘pinched’	page 18, wordlist
+Table A1 line 10	Nɬeʔkepmxcín	transcription	cíqʷ	page 18, wordlist
+Table A1 line 10	Zara Khalaji Pirbaluti	translation	‘red’	page 18, wordlist
+Table A1 line 11	Nɬeʔkepmxcín	transcription	c̓lóx	page 18, wordlist
+Table A1 line 11	Zara Khalaji Pirbaluti	translation	‘warm’	page 18, wordlist
+Table A1 line 12	Nɬeʔkepmxcín	transcription	c̓mék	page 18, wordlist
+Table A1 line 12	Zara Khalaji Pirbaluti	translation	‘hole in shoe’	page 18, wordlist
+Table A1 line 13	Nɬeʔkepmxcín	transcription	cm̓éxt	page 18, wordlist
+Table A1 line 13	Zara Khalaji Pirbaluti	translation	‘delicious’	page 18, wordlist
+Table A1 line 14	Nɬeʔkepmxcín	transcription	cúkʷsne xʔe	page 18, wordlist
+Table A1 line 14	Zara Khalaji Pirbaluti	translation	‘I finished with that’	page 18, wordlist
+Table A1 line 15	Nɬeʔkepmxcín	transcription	cʔək	page 18, wordlist
+Table A1 line 15	Zara Khalaji Pirbaluti	translation	‘domesticated’	page 18, wordlist
+Table A1 line 16	Nɬeʔkepmxcín	transcription	ɣəkmíns	page 18, wordlist
+Table A1 line 16	Zara Khalaji Pirbaluti	translation	‘flooded’	page 18, wordlist
+Table A1 line 17	Nɬeʔkepmxcín	transcription	kazeʔúɬ	page 18, wordlist
+Table A1 line 17	Zara Khalaji Pirbaluti	translation	‘liar’	page 18, wordlist
+Table A1 line 18	Nɬeʔkepmxcín	transcription	kázeʔ	page 18, wordlist
+Table A1 line 18	Zara Khalaji Pirbaluti	translation	‘tell a lie’	page 18, wordlist
+Table A1 line 19	Nɬeʔkepmxcín	transcription	k̓əlk̓íles	page 18, wordlist
+Table A1 line 19	Zara Khalaji Pirbaluti	translation	‘cut into many pieces’	page 18, wordlist
+Table A1 line 20	Nɬeʔkepmxcín	transcription	k̓əl̓mín	page 18, wordlist
+Table A1 line 20	Zara Khalaji Pirbaluti	translation	‘scissors’	page 18, wordlist
+Table A1 line 21	Nɬeʔkepmxcín	transcription	kəɬstés	page 18, wordlist
+Table A1 line 21	Zara Khalaji Pirbaluti	translation	‘remove the cover’	page 18, wordlist
+Table A1 line 22	Nɬeʔkepmxcín	transcription	kə́st	page 18, wordlist
+Table A1 line 22	Zara Khalaji Pirbaluti	translation	‘bad’	page 18, wordlist
+Table A1 line 23	Nɬeʔkepmxcín	transcription	k̓əxʷ	page 18, wordlist
+Table A1 line 23	Zara Khalaji Pirbaluti	translation	‘dimples’	page 18, wordlist
+Table A1 line 24	Nɬeʔkepmxcín	transcription	k̓ík̓eʔt	page 18, wordlist
+Table A1 line 24	Zara Khalaji Pirbaluti	translation	‘near’	page 18, wordlist
+Table A1 line 25	Nɬeʔkepmxcín	transcription	kentemús	page 18, wordlist
+Table A1 line 25	Zara Khalaji Pirbaluti	translation	‘helper’	page 18, wordlist
+Table A1 line 26	Nɬeʔkepmxcín	transcription	kentéyt	page 18, wordlist
+Table A1 line 26	Zara Khalaji Pirbaluti	translation	‘helper’	page 18, wordlist
+Table A1 line 27	Nɬeʔkepmxcín	transcription	kʷəsó	page 18, wordlist
+Table A1 line 27	Zara Khalaji Pirbaluti	translation	‘domesticated pig’	page 18, wordlist
+Table A1 line 28	Nɬeʔkepmxcín	transcription	kʷáʔ	page 18, wordlist
+Table A1 line 28	Zara Khalaji Pirbaluti	translation	‘acting crazy’	page 18, wordlist
+Table A1 line 29	Nɬeʔkepmxcín	transcription	kʷəl	page 18, wordlist
+Table A1 line 29	Zara Khalaji Pirbaluti	translation	‘green’	page 18, wordlist
+Table A1 line 30	Nɬeʔkepmxcín	transcription	kʷl̕íqəq	page 18, wordlist
+Table A1 line 30	Zara Khalaji Pirbaluti	translation	‘robin’	page 18, wordlist
+Table A1 line 31	Nɬeʔkepmxcín	transcription	kʷúkʷpiʔ	page 18, wordlist
+Table A1 line 31	Zara Khalaji Pirbaluti	translation	‘chief’	page 18, wordlist
+Table A1 line 32	Nɬeʔkepmxcín	transcription	kʷúp	page 18, wordlist
+Table A1 line 32	Zara Khalaji Pirbaluti	translation	‘push something’	page 18, wordlist
+Table A1 line 33	Nɬeʔkepmxcín	transcription	kxʷékst	page 18, wordlist
+Table A1 line 33	Zara Khalaji Pirbaluti	translation	‘bruised on your hand’	page 18, wordlist
+Table A1 line 34	Nɬeʔkepmxcín	transcription	ƛ̓ek̓t	page 18, wordlist
+Table A1 line 34	Zara Khalaji Pirbaluti	translation	‘flood’	page 18, wordlist
+Table A1 line 35	Nɬeʔkepmxcín	transcription	ƛ̓éxix	page 18, wordlist
+Table A1 line 35	Zara Khalaji Pirbaluti	translation	‘joking around’	page 18, wordlist
+Table A1 line 36	Nɬeʔkepmxcín	transcription	ɬípsəm	page 18, wordlist
+Table A1 line 36	Zara Khalaji Pirbaluti	translation	‘blinking’	page 18, wordlist
+Table A1 line 37	Nɬeʔkepmxcín	transcription	ƛ̓íqt	page 18, wordlist
+Table A1 line 37	Zara Khalaji Pirbaluti	translation	‘sky’	page 18, wordlist
+Table A1 line 38	Nɬeʔkepmxcín	transcription	lisék	page 18, wordlist
+Table A1 line 38	Zara Khalaji Pirbaluti	translation	‘sack of grains’	page 18, wordlist
+Table A1 line 39	Nɬeʔkepmxcín	transcription	líx̣kst	page 18, wordlist
+Table A1 line 39	Zara Khalaji Pirbaluti	translation	‘finger’	page 18, wordlist
+Table A1 line 40	Nɬeʔkepmxcín	transcription	ɬképs	page 18, wordlist
+Table A1 line 40	Zara Khalaji Pirbaluti	translation	‘pot’	page 18, wordlist
+Table A1 line 41	Nɬeʔkepmxcín	transcription	ƛ̓lʔék	page 18, wordlist
+Table A1 line 41	Zara Khalaji Pirbaluti	translation	‘arrive’	page 18, wordlist
+Table A1 line 42	Nɬeʔkepmxcín	transcription	ɬmə́k	page 18, wordlist
+Table A1 line 42	Zara Khalaji Pirbaluti	translation	‘hole in socket’	page 18, wordlist
+Table A1 line 43	Nɬeʔkepmxcín	transcription	ɬp̓éw̓us	page 18, wordlist
+Table A1 line 43	Zara Khalaji Pirbaluti	translation	‘hang over a line’	page 18, wordlist
+Table A1 line 44	Nɬeʔkepmxcín	transcription	miʔxétxʷ	page 18, wordlist
+Table A1 line 44	Zara Khalaji Pirbaluti	translation	‘you kick him’	page 18, wordlist
+Table A1 line 45	Nɬeʔkepmxcín	transcription	múqʷe	page 18, wordlist
+Table A1 line 45	Zara Khalaji Pirbaluti	translation	‘blue heron’	page 18, wordlist
+Table A1 line 46	Nɬeʔkepmxcín	transcription	ncíqm	page 18, wordlist
+Table A1 line 46	Zara Khalaji Pirbaluti	translation	‘to dig’	page 18, wordlist
+Table A1 line 47	Nɬeʔkepmxcín	transcription	nemes qəɬmíns cníɬ	page 18, wordlist
+Table A1 line 47	Zara Khalaji Pirbaluti	translation	‘a very old woman’	page 18, wordlist
+Table A1 line 48	Nɬeʔkepmxcín	transcription	niɣpíkn̓	page 18, wordlist
+Table A1 line 48	Zara Khalaji Pirbaluti	translation	‘lunch’	page 18, wordlist
+Table A1 line 49	Nɬeʔkepmxcín	transcription	ník̓nik̓ənux	page 18, wordlist
+Table A1 line 49	Zara Khalaji Pirbaluti	translation	‘cut a little bit’	page 18, wordlist
+Table A1 line 50	Nɬeʔkepmxcín	transcription	ník̓sip̓	page 18, wordlist
+Table A1 line 50	Zara Khalaji Pirbaluti	translation	‘cut wood’	page 18, wordlist
+Table A1 line 51	Nɬeʔkepmxcín	transcription	nkəɬqín̓m	page 18, wordlist
+Table A1 line 51	Zara Khalaji Pirbaluti	translation	‘take the lid off’	page 18, wordlist
+Table A1 line 52	Nɬeʔkepmxcín	transcription	nɬóqʷs	page 18, wordlist
+Table A1 line 52	Zara Khalaji Pirbaluti	translation	‘boiling liquid’	page 18, wordlist
+Table A1 line 53	Nɬeʔkepmxcín	transcription	nƛ̓zéxetn	page 18, wordlist
+Table A1 line 53	Zara Khalaji Pirbaluti	translation	‘worn out’	page 18, wordlist
+Table A1 line 54	Nɬeʔkepmxcín	transcription	npéps	page 18, wordlist
+Table A1 line 54	Zara Khalaji Pirbaluti	translation	‘a little pond’	page 18, wordlist
+Table A1 line 55	Nɬeʔkepmxcín	transcription	np̓óles	page 18, wordlist
+Table A1 line 55	Zara Khalaji Pirbaluti	translation	‘making a hole’	page 18, wordlist
+Table A1 line 56	Nɬeʔkepmxcín	transcription	nq̓aq̓y̓m̓en	page 18, wordlist
+Table A1 line 56	Zara Khalaji Pirbaluti	translation	‘a person who shoots a lot’	page 18, wordlist
+Table A1 line 57	Nɬeʔkepmxcín	transcription	nsqáqx̣eʔ	page 18, wordlist
+Table A1 line 57	Zara Khalaji Pirbaluti	translation	‘dog’	page 18, wordlist
+Table A1 line 58	Nɬeʔkepmxcín	transcription	nsxʷákʷukʷ	page 18, wordlist
+Table A1 line 58	Zara Khalaji Pirbaluti	translation	‘the way I feel’	page 18, wordlist
+Table A1 line 59	Nɬeʔkepmxcín	transcription	nsx̣ʷóx̣ʷst	page 18, wordlist
+Table A1 line 59	Zara Khalaji Pirbaluti	translation	‘something I want’	page 18, wordlist
+Table A1 line 60	Nɬeʔkepmxcín	transcription	ntəkʷpə́n̓i	page 18, wordlist
+Table A1 line 60	Zara Khalaji Pirbaluti	translation	‘to become deaf’	page 18, wordlist
+Table A1 line 61	Nɬeʔkepmxcín	transcription	nx̣ət	page 18, wordlist
+Table A1 line 61	Zara Khalaji Pirbaluti	translation	‘hole’	page 18, wordlist
+Table A1 line 62	Nɬeʔkepmxcín	transcription	nʔáq̓	page 18, wordlist
+Table A1 line 62	Zara Khalaji Pirbaluti	translation	‘rotten’	page 18, wordlist
+Table A1 line 63	Nɬeʔkepmxcín	transcription	páqʷuʔkn	page 18, wordlist
+Table A1 line 63	Zara Khalaji Pirbaluti	translation	‘I am scared’	page 18, wordlist
+Table A1 line 64	Nɬeʔkepmxcín	transcription	nsx̣ʷóx̣ʷst	page 18, wordlist
+Table A1 line 64	Zara Khalaji Pirbaluti	translation	‘something I want’	page 18, wordlist
+Table A1 line 65	Nɬeʔkepmxcín	transcription	pén̓ete	page 18, wordlist
+Table A1 line 65	Zara Khalaji Pirbaluti	translation	‘fold something’	page 18, wordlist
+Table A1 line 66	Nɬeʔkepmxcín	transcription	pépiyeʔ	page 18, wordlist
+Table A1 line 66	Zara Khalaji Pirbaluti	translation	‘alone by itself’	page 18, wordlist
+Table A1 line 67	Nɬeʔkepmxcín	transcription	p̓áq̓ʷəɬ	page 18, wordlist
+Table A1 line 67	Zara Khalaji Pirbaluti	translation	‘platform for storing food’	page 18, wordlist
+Table A1 line 68	Nɬeʔkepmxcín	transcription	pétkʷetn	page 18, wordlist
+Table A1 line 68	Zara Khalaji Pirbaluti	translation	‘needle’	page 18, wordlist
+Table A1 line 69	Nɬeʔkepmxcín	transcription	pəxʷ	page 18, wordlist
+Table A1 line 69	Zara Khalaji Pirbaluti	translation	‘blow something with air’	page 18, wordlist
+Table A1 line 70	Nɬeʔkepmxcín	transcription	píx̣m̓	page 18, wordlist
+Table A1 line 70	Zara Khalaji Pirbaluti	translation	‘hunting’	page 18, wordlist
+Table A1 line 71	Nɬeʔkepmxcín	transcription	pix̣píx̣m̓úɬ	page 18, wordlist
+Table A1 line 71	Zara Khalaji Pirbaluti	translation	‘hunter’	page 18, wordlist
+Table A1 line 72	Nɬeʔkepmxcín	transcription	piʔéɬ	page 19, wordlist
+Table A1 line 72	Zara Khalaji Pirbaluti	translation	‘a room’	page 19, wordlist
+Table A1 line 73	Nɬeʔkepmxcín	transcription	piʔpstés	page 19, wordlist
+Table A1 line 73	Zara Khalaji Pirbaluti	translation	‘lose’	page 19, wordlist
+Table A1 line 74	Nɬeʔkepmxcín	transcription	poʕʷcínm	page 19, wordlist
+Table A1 line 74	Zara Khalaji Pirbaluti	translation	‘knocking on the door’	page 19, wordlist
+Table A1 line 75	Nɬeʔkepmxcín	transcription	ptekecéms	page 19, wordlist
+Table A1 line 75	Zara Khalaji Pirbaluti	translation	‘she overtakes me’	page 19, wordlist
+Table A1 line 76	Nɬeʔkepmxcín	transcription	pxʷə́p	page 19, wordlist
+Table A1 line 76	Zara Khalaji Pirbaluti	translation	‘inflate’	page 19, wordlist
+Table A1 line 77	Nɬeʔkepmxcín	transcription	q̓apúx	page 19, wordlist
+Table A1 line 77	Zara Khalaji Pirbaluti	translation	‘hazelnut’	page 19, wordlist
+Table A1 line 78	Nɬeʔkepmxcín	transcription	qáznə	page 19, wordlist
+Table A1 line 78	Zara Khalaji Pirbaluti	translation	‘wave at someone’	page 19, wordlist
+Table A1 line 79	Nɬeʔkepmxcín	transcription	qécks	page 19, wordlist
+Table A1 line 79	Zara Khalaji Pirbaluti	translation	‘older brother’	page 19, wordlist
+Table A1 line 80	Nɬeʔkepmxcín	transcription	qəmqémt	page 19, wordlist
+Table A1 line 80	Zara Khalaji Pirbaluti	translation	‘lukewarm’	page 19, wordlist
+Table A1 line 81	Nɬeʔkepmxcín	transcription	qemút	page 19, wordlist
+Table A1 line 81	Zara Khalaji Pirbaluti	translation	‘hat’	page 19, wordlist
+Table A1 line 82	Nɬeʔkepmxcín	transcription	qəpqép wiy̓x	page 19, wordlist
+Table A1 line 82	Zara Khalaji Pirbaluti	translation	‘it got softer’	page 19, wordlist
+Table A1 line 83	Nɬeʔkepmxcín	transcription	qəstés	page 19, wordlist
+Table A1 line 83	Zara Khalaji Pirbaluti	translation	‘scratch an itch’	page 19, wordlist
+Table A1 line 84	Nɬeʔkepmxcín	transcription	qeʔméyc	page 19, wordlist
+Table A1 line 84	Zara Khalaji Pirbaluti	translation	‘nursing a baby’	page 19, wordlist
+Table A1 line 85	Nɬeʔkepmxcín	transcription	qiqítn	page 19, wordlist
+Table A1 line 85	Zara Khalaji Pirbaluti	translation	‘summit of the mountain’	page 19, wordlist
+Table A1 line 86	Nɬeʔkepmxcín	transcription	qláq̓	page 19, wordlist
+Table A1 line 86	Zara Khalaji Pirbaluti	translation	‘disagreement’	page 19, wordlist
+Table A1 line 87	Nɬeʔkepmxcín	transcription	q̓ʷacés weʔa qʷu	page 19, wordlist
+Table A1 line 87	Zara Khalaji Pirbaluti	translation	‘it’s filled with water’	page 19, wordlist
+Table A1 line 88	Nɬeʔkepmxcín	transcription	qʷáx̣	page 19, wordlist
+Table A1 line 88	Zara Khalaji Pirbaluti	translation	‘confused’	page 19, wordlist
+Table A1 line 89	Nɬeʔkepmxcín	transcription	q̓ʷáxt	page 19, wordlist
+Table A1 line 89	Zara Khalaji Pirbaluti	translation	‘lost weight’	page 19, wordlist
+Table A1 line 90	Nɬeʔkepmxcín	transcription	qʷéc	page 19, wordlist
+Table A1 line 90	Zara Khalaji Pirbaluti	translation	‘a warm place’	page 19, wordlist
+Table A1 line 91	Nɬeʔkepmxcín	transcription	qʷəcqʷcíyx	page 19, wordlist
+Table A1 line 91	Zara Khalaji Pirbaluti	translation	‘to leave’	page 19, wordlist
+Table A1 line 92	Nɬeʔkepmxcín	transcription	qʷecúym̓xʷ	page 19, wordlist
+Table A1 line 92	Zara Khalaji Pirbaluti	translation	‘warm climate’	page 19, wordlist
+Table A1 line 93	Nɬeʔkepmxcín	transcription	qʷənqʷént	page 19, wordlist
+Table A1 line 93	Zara Khalaji Pirbaluti	translation	‘to be poor’	page 19, wordlist
+Table A1 line 94	Nɬeʔkepmxcín	transcription	qʷʔéz	page 19, wordlist
+Table A1 line 94	Zara Khalaji Pirbaluti	translation	‘get bruised’	page 19, wordlist
+Table A1 line 95	Nɬeʔkepmxcín	transcription	qʷincutúɬ	page 19, wordlist
+Table A1 line 95	Zara Khalaji Pirbaluti	translation	‘someone who speaks a lot’	page 19, wordlist
+Table A1 line 96	Nɬeʔkepmxcín	transcription	qʷintwáxʷ	page 19, wordlist
+Table A1 line 96	Zara Khalaji Pirbaluti	translation	‘argument’	page 19, wordlist
+Table A1 line 97	Nɬeʔkepmxcín	transcription	qʷíx̣ʷ	page 19, wordlist
+Table A1 line 97	Zara Khalaji Pirbaluti	translation	‘pitch wood’	page 19, wordlist
+Table A1 line 98	Nɬeʔkepmxcín	transcription	q̓íy	page 19, wordlist
+Table A1 line 98	Zara Khalaji Pirbaluti	translation	‘he cooks’	page 19, wordlist
+Table A1 line 99	Nɬeʔkepmxcín	transcription	qʷnóx̣ʷ	page 19, wordlist
+Table A1 line 99	Zara Khalaji Pirbaluti	translation	‘feeling poorly’	page 19, wordlist
+Table A1 line 100	Nɬeʔkepmxcín	transcription	q̓ʷostna	page 19, wordlist
+Table A1 line 100	Zara Khalaji Pirbaluti	translation	‘take away water’	page 19, wordlist
+Table A1 line 101	Nɬeʔkepmxcín	transcription	qʷúy’iʔ	page 19, wordlist
+Table A1 line 101	Zara Khalaji Pirbaluti	translation	‘cloudy’	page 19, wordlist
+Table A1 line 102	Nɬeʔkepmxcín	transcription	k̓ʷúxʷm	page 19, wordlist
+Table A1 line 102	Zara Khalaji Pirbaluti	translation	‘making a basket’	page 19, wordlist
+Table A1 line 103	Nɬeʔkepmxcín	transcription	səxséx	page 19, wordlist
+Table A1 line 103	Zara Khalaji Pirbaluti	translation	‘misbehaving, up to no good’	page 19, wordlist
+Table A1 line 104	Nɬeʔkepmxcín	transcription	séysik̓ʷ	page 19, wordlist
+Table A1 line 104	Zara Khalaji Pirbaluti	translation	‘broth’	page 19, wordlist
+Table A1 line 105	Nɬeʔkepmxcín	transcription	séʔaq	page 19, wordlist
+Table A1 line 105	Zara Khalaji Pirbaluti	translation	‘fern’	page 19, wordlist
+Table A1 line 106	Nɬeʔkepmxcín	transcription	sɣép	page 19, wordlist
+Table A1 line 106	Zara Khalaji Pirbaluti	translation	‘tree’	page 19, wordlist
+Table A1 line 107	Nɬeʔkepmxcín	transcription	sík̓mintem	page 19, wordlist
+Table A1 line 107	Zara Khalaji Pirbaluti	translation	‘somebody got hit’	page 19, wordlist
+Table A1 line 108	Nɬeʔkepmxcín	transcription	skə́kn̓	page 19, wordlist
+Table A1 line 108	Zara Khalaji Pirbaluti	translation	‘companion’	page 19, wordlist
+Table A1 line 109	Nɬeʔkepmxcín	transcription	sk̓ə̣l	page 19, wordlist
+Table A1 line 109	Zara Khalaji Pirbaluti	translation	‘leather’	page 19, wordlist
+Table A1 line 110	Nɬeʔkepmxcín	transcription	sk̓ə̣ɬt	page 19, wordlist
+Table A1 line 110	Zara Khalaji Pirbaluti	translation	‘mud’	page 19, wordlist
+Table A1 line 111	Nɬeʔkepmxcín	transcription	skiʔkíyeʔ	page 19, wordlist
+Table A1 line 111	Zara Khalaji Pirbaluti	translation	‘ancestor’	page 19, wordlist
+Table A1 line 112	Nɬeʔkepmxcín	transcription	sk̓ʷúk̓ʷmit	page 19, wordlist
+Table A1 line 112	Zara Khalaji Pirbaluti	translation	‘baby, child’	page 19, wordlist
+Table A1 line 113	Nɬeʔkepmxcín	transcription	?eskʷəɬ	page 19, wordlist
+Table A1 line 113	Zara Khalaji Pirbaluti	translation	‘brown’	page 19, wordlist
+Table A1 line 114	Nɬeʔkepmxcín	transcription	sk̓máx̣n	page 19, wordlist
+Table A1 line 114	Zara Khalaji Pirbaluti	translation	‘shoulders’	page 19, wordlist
+Table A1 line 115	Nɬeʔkepmxcín	transcription	skʷózeʔ	page 19, wordlist
+Table A1 line 115	Zara Khalaji Pirbaluti	translation	‘son or child’	page 19, wordlist
+Table A1 line 116	Nɬeʔkepmxcín	transcription	sɬaʔx̣áns	page 19, wordlist
+Table A1 line 116	Zara Khalaji Pirbaluti	translation	‘cucumber’	page 19, wordlist
+Table A1 line 117	Nɬeʔkepmxcín	transcription	spéps	page 19, wordlist
+Table A1 line 117	Zara Khalaji Pirbaluti	translation	‘a little bunch of water’	page 19, wordlist
+Table A1 line 118	Nɬeʔkepmxcín	transcription	spəták	page 19, wordlist
+Table A1 line 118	Zara Khalaji Pirbaluti	translation	‘potato’	page 19, wordlist
+Table A1 line 119	Nɬeʔkepmxcín	transcription	spíləx̣m	page 19, wordlist
+Table A1 line 119	Zara Khalaji Pirbaluti	translation	‘news or information’	page 19, wordlist
+Table A1 line 120	Nɬeʔkepmxcín	transcription	spúʔpúʔm	page 19, wordlist
+Table A1 line 120	Zara Khalaji Pirbaluti	translation	‘lungs’	page 19, wordlist
+Table A1 line 121	Nɬeʔkepmxcín	transcription	sq̓aq̓epeʔ	page 19, wordlist
+Table A1 line 121	Zara Khalaji Pirbaluti	translation	‘sandy’	page 19, wordlist
+Table A1 line 122	Nɬeʔkepmxcín	transcription	sq̓áwm	page 19, wordlist
+Table A1 line 122	Zara Khalaji Pirbaluti	translation	‘wolf’	page 19, wordlist
+Table A1 line 123	Nɬeʔkepmxcín	transcription	sq̓ʷoq̓ʷyéps	page 19, wordlist
+Table A1 line 123	Zara Khalaji Pirbaluti	translation	‘strawberry’	page 19, wordlist
+Table A1 line 124	Nɬeʔkepmxcín	transcription	sqʷoqʷyəc	page 19, wordlist
+Table A1 line 124	Zara Khalaji Pirbaluti	translation	‘rabbit’	page 19, wordlist
+Table A1 line 125	Nɬeʔkepmxcín	transcription	stakʷol̓ṣ	page 19, wordlist
+Table A1 line 125	Zara Khalaji Pirbaluti	translation	‘potato’	page 19, wordlist
+Table A1 line 126	Nɬeʔkepmxcín	transcription	stékɬ	page 19, wordlist
+Table A1 line 126	Zara Khalaji Pirbaluti	translation	‘rain’	page 19, wordlist
+Table A1 line 127	Nɬeʔkepmxcín	transcription	stpípq	page 19, wordlist
+Table A1 line 127	Zara Khalaji Pirbaluti	translation	‘weasel’	page 19, wordlist
+Table A1 line 128	Nɬeʔkepmxcín	transcription	stpíq	page 19, wordlist
+Table A1 line 128	Zara Khalaji Pirbaluti	translation	‘white’	page 19, wordlist
+Table A1 line 129	Nɬeʔkepmxcín	transcription	stx̣áɬp	page 19, wordlist
+Table A1 line 129	Zara Khalaji Pirbaluti	translation	‘diamond willow’	page 19, wordlist
+Table A1 line 130	Nɬeʔkepmxcín	transcription	súp̓mn	page 19, wordlist
+Table A1 line 130	Zara Khalaji Pirbaluti	translation	‘breath’	page 19, wordlist
+Table A1 line 131	Nɬeʔkepmxcín	transcription	swəl̕wl̕íqt	page 19, wordlist
+Table A1 line 131	Zara Khalaji Pirbaluti	translation	‘stinging nettle’	page 19, wordlist
+Table A1 line 132	Nɬeʔkepmxcín	transcription	sx̣áyqs	page 19, wordlist
+Table A1 line 132	Zara Khalaji Pirbaluti	translation	‘coho salmon’	page 19, wordlist
+Table A1 line 133	Nɬeʔkepmxcín	transcription	sx̣áy̓wih	page 19, wordlist
+Table A1 line 133	Zara Khalaji Pirbaluti	translation	‘husband’	page 19, wordlist
+Table A1 line 134	Nɬeʔkepmxcín	transcription	sx̣íc̓kn̓	page 19, wordlist
+Table A1 line 134	Zara Khalaji Pirbaluti	translation	‘back (body part)’	page 19, wordlist
+Table A1 line 135	Nɬeʔkepmxcín	transcription	sx̣íq	page 19, wordlist
+Table A1 line 135	Zara Khalaji Pirbaluti	translation	‘duck’	page 19, wordlist
+Table A1 line 136	Nɬeʔkepmxcín	transcription	sxʷákʷ	page 19, wordlist
+Table A1 line 136	Zara Khalaji Pirbaluti	translation	‘heart’	page 19, wordlist
+Table A1 line 137	Nɬeʔkepmxcín	transcription	sxʷákʷukʷ	page 19, wordlist
+Table A1 line 137	Zara Khalaji Pirbaluti	translation	‘decide (fix your mind)’	page 19, wordlist
+Table A1 line 138	Nɬeʔkepmxcín	transcription	sʕʷláps	page 19, wordlist
+Table A1 line 138	Zara Khalaji Pirbaluti	translation	‘big horn sheep’	page 19, wordlist
+Table A1 line 139	Nɬeʔkepmxcín	transcription	təx̣péʔ	page 19, wordlist
+Table A1 line 139	Zara Khalaji Pirbaluti	translation	‘dogwood willow’	page 19, wordlist
+Table A1 line 140	Nɬeʔkepmxcín	transcription	tóqʷt	page 19, wordlist
+Table A1 line 140	Zara Khalaji Pirbaluti	translation	‘fluffy’	page 19, wordlist
+Table A1 line 141	Nɬeʔkepmxcín	transcription	txíʔxeʔt	page 19, wordlist
+Table A1 line 141	Zara Khalaji Pirbaluti	translation	‘thin or narrow’	page 19, wordlist
+Table A1 line 142	Nɬeʔkepmxcín	transcription	sʕʷláps	page 19, wordlist
+Table A1 line 142	Zara Khalaji Pirbaluti	translation	‘big horn sheep’	page 19, wordlist
+Table A1 line 143	Nɬeʔkepmxcín	transcription	wlóqʷ	page 19, wordlist
+Table A1 line 143	Zara Khalaji Pirbaluti	translation	‘opening in the woods’	page 19, wordlist
+Table A1 line 144	Nɬeʔkepmxcín	transcription	x̣ák̓ʷt	page 19, wordlist
+Table A1 line 144	Zara Khalaji Pirbaluti	translation	‘crispy’	page 19, wordlist
+Table A1 line 145	Nɬeʔkepmxcín	transcription	xázes	page 19, wordlist
+Table A1 line 145	Zara Khalaji Pirbaluti	translation	‘hanging or suspending’	page 19, wordlist
+Table A1 line 146	Nɬeʔkepmxcín	transcription	x̣əcə́m	page 20, wordlist
+Table A1 line 146	Zara Khalaji Pirbaluti	translation	‘bet or gamble’	page 20, wordlist
+Table A1 line 147	Nɬeʔkepmxcín	transcription	xéłt	page 20, wordlist
+Table A1 line 147	Zara Khalaji Pirbaluti	translation	‘refreshed’	page 20, wordlist
+Table A1 line 148	Nɬeʔkepmxcín	transcription	x̣ətqə́m	page 20, wordlist
+Table A1 line 148	Zara Khalaji Pirbaluti	translation	‘making a hole’	page 20, wordlist
+Table A1 line 149	Nɬeʔkepmxcín	transcription	xetxít	page 20, wordlist
+Table A1 line 149	Zara Khalaji Pirbaluti	translation	‘carve or notch’	page 20, wordlist
+Table A1 line 150	Nɬeʔkepmxcín	transcription	x̣ətqx̣ətes	page 20, wordlist
+Table A1 line 150	Zara Khalaji Pirbaluti	translation	‘digging a hole’	page 20, wordlist
+Table A1 line 151	Nɬeʔkepmxcín	transcription	xíw̓	page 20, wordlist
+Table A1 line 151	Zara Khalaji Pirbaluti	translation	‘brush hair’	page 20, wordlist
+Table A1 line 152	Nɬeʔkepmxcín	transcription	x̣ítqəm	page 20, wordlist
+Table A1 line 152	Zara Khalaji Pirbaluti	translation	‘making a hole’	page 20, wordlist
+Table A1 line 153	Nɬeʔkepmxcín	transcription	xíy	page 20, wordlist
+Table A1 line 153	Zara Khalaji Pirbaluti	translation	‘to land ashore’	page 20, wordlist
+Table A1 line 154	Nɬeʔkepmxcín	transcription	xʷukʷxʷák kn	page 20, wordlist
+Table A1 line 154	Zara Khalaji Pirbaluti	translation	‘I’m lightweight’	page 20, wordlist
+Table A1 line 155	Nɬeʔkepmxcín	transcription	xʷaʔlscút	page 20, wordlist
+Table A1 line 155	Zara Khalaji Pirbaluti	translation	‘having lots of possession’	page 20, wordlist
+Table A1 line 156	Nɬeʔkepmxcín	transcription	ɬxʷáqsna	page 20, wordlist
+Table A1 line 156	Zara Khalaji Pirbaluti	translation	‘I hang something’	page 20, wordlist
+Table A1 line 157	Nɬeʔkepmxcín	transcription	xʷélna	page 20, wordlist
+Table A1 line 157	Zara Khalaji Pirbaluti	translation	‘I lift it’	page 20, wordlist
+Table A1 line 158	Nɬeʔkepmxcín	transcription	xʷíc̓ms	page 20, wordlist
+Table A1 line 158	Zara Khalaji Pirbaluti	translation	‘give away’	page 20, wordlist
+Table A1 line 159	Nɬeʔkepmxcín	transcription	xʷoq̓ʷtés	page 20, wordlist
+Table A1 line 159	Zara Khalaji Pirbaluti	translation	‘take away’	page 20, wordlist
+Table A1 line 160	Nɬeʔkepmxcín	transcription	xʷqʷáyx	page 20, wordlist
+Table A1 line 160	Zara Khalaji Pirbaluti	translation	‘losing weight’	page 20, wordlist
+Table A1 line 161	Nɬeʔkepmxcín	transcription	xʷúc̓	page 20, wordlist
+Table A1 line 161	Zara Khalaji Pirbaluti	translation	‘vomiting’	page 20, wordlist
+Table A1 line 162	Nɬeʔkepmxcín	transcription	xʷúp	page 20, wordlist
+Table A1 line 162	Zara Khalaji Pirbaluti	translation	‘push something’	page 20, wordlist
+Table A1 line 163	Nɬeʔkepmxcín	transcription	xʷʔúx	page 20, wordlist
+Table A1 line 163	Zara Khalaji Pirbaluti	translation	‘stinky and rotten’	page 20, wordlist
+Table A1 line 164	Nɬeʔkepmxcín	transcription	ýe uʔix	page 20, wordlist
+Table A1 line 164	Zara Khalaji Pirbaluti	translation	‘feel good’	page 20, wordlist
+Table A1 line 165	Nɬeʔkepmxcín	transcription	yéx̣m	page 20, wordlist
+Table A1 line 165	Zara Khalaji Pirbaluti	translation	‘to widen space between two things’	page 20, wordlist
+Table A1 line 166	Nɬeʔkepmxcín	transcription	yéx̣t	page 20, wordlist
+Table A1 line 166	Zara Khalaji Pirbaluti	translation	‘day before yesterday’	page 20, wordlist
+Table A1 line 167	Nɬeʔkepmxcín	transcription	zéxtes ʔot	page 20, wordlist
+Table A1 line 167	Zara Khalaji Pirbaluti	translation	‘one side is longer than the other’	page 20, wordlist
+Table A1 line 168	Nɬeʔkepmxcín	transcription	zíkes	page 20, wordlist
+Table A1 line 168	Zara Khalaji Pirbaluti	translation	‘knocking over something’	page 20, wordlist
+Table A1 line 169	Nɬeʔkepmxcín	transcription	ʔe skə̣l̓na píx̣mek ʔa ze	page 20, wordlist
+Table A1 line 169	Zara Khalaji Pirbaluti	translation	‘buckskin was hung on the branch’	page 20, wordlist
+Table A1 line 170	Nɬeʔkepmxcín	transcription	ʔe spéym	page 20, wordlist
+Table A1 line 170	Zara Khalaji Pirbaluti	translation	‘flat place’	page 20, wordlist
+Table A1 line 171	Nɬeʔkepmxcín	transcription	ʔe swlóqʷ	page 20, wordlist
+Table A1 line 171	Zara Khalaji Pirbaluti	translation	‘opening in the woods’	page 20, wordlist
+Table A1 line 172	Nɬeʔkepmxcín	transcription	ʔe széxts	page 20, wordlist
+Table A1 line 172	Zara Khalaji Pirbaluti	translation	‘waiting to join to something’	page 20, wordlist
+Table A1 line 173	Nɬeʔkepmxcín	transcription	ʔə̣l̕ṣíkʷ	page 20, wordlist
+Table A1 line 173	Zara Khalaji Pirbaluti	translation	‘turtle’	page 20, wordlist
+Table A1 line 174	Nɬeʔkepmxcín	transcription	ʔéq̓mn	page 20, wordlist
+Table A1 line 174	Zara Khalaji Pirbaluti	translation	‘button’	page 20, wordlist
+Table A1 line 175	Nɬeʔkepmxcín	transcription	ʔes páʕ̓ʷ	page 20, wordlist
+Table A1 line 175	Zara Khalaji Pirbaluti	translation	‘it’s frozen’	page 20, wordlist
+Table A1 line 176	Nɬeʔkepmxcín	transcription	ʔes qʷuyqʷuy̓iʔ	page 20, wordlist
+Table A1 line 176	Zara Khalaji Pirbaluti	translation	‘sky is cloudy’	page 20, wordlist
+Table A1 line 177	Nɬeʔkepmxcín	transcription	ʔes xʷóq̓ʷ	page 20, wordlist
+Table A1 line 177	Zara Khalaji Pirbaluti	translation	‘take away’	page 20, wordlist
+Table A1 line 178	Nɬeʔkepmxcín	transcription	ʔescáq	page 20, wordlist
+Table A1 line 178	Zara Khalaji Pirbaluti	translation	‘set or positioned’	page 20, wordlist
+Table A1 line 179	Nɬeʔkepmxcín	transcription	ʔescíqʷ	page 20, wordlist
+Table A1 line 179	Zara Khalaji Pirbaluti	translation	‘red’	page 20, wordlist
+Table A1 line 180	Nɬeʔkepmxcín	transcription	ʔesk̓ekn̓	page 20, wordlist
+Table A1 line 180	Zara Khalaji Pirbaluti	translation	‘companion’	page 20, wordlist
+Table A1 line 181	Nɬeʔkepmxcín	transcription	ʔeskəłxə́n	page 20, wordlist
+Table A1 line 181	Zara Khalaji Pirbaluti	translation	‘barefoot’	page 20, wordlist
+Table A1 line 182	Nɬeʔkepmxcín	transcription	ʔesk̓ʷúxʷ	page 20, wordlist
+Table A1 line 182	Zara Khalaji Pirbaluti	translation	‘something woven’	page 20, wordlist
+Table A1 line 183	Nɬeʔkepmxcín	transcription	ʔespás	page 20, wordlist
+Table A1 line 183	Zara Khalaji Pirbaluti	translation	‘color fading away’	page 20, wordlist
+Table A1 line 184	Nɬeʔkepmxcín	transcription	ʔesqʷoqʷyəc	page 20, wordlist
+Table A1 line 184	Zara Khalaji Pirbaluti	translation	‘rabbit’	page 20, wordlist
+Table A1 line 185	Nɬeʔkepmxcín	transcription	ʔestóqʷt	page 20, wordlist
+Table A1 line 185	Zara Khalaji Pirbaluti	translation	‘it’s fluffy’	page 20, wordlist
+Table A1 line 186	Nɬeʔkepmxcín	transcription	ʔesxʷʔúxʷ	page 20, wordlist
+Table A1 line 186	Zara Khalaji Pirbaluti	translation	‘smell’	page 20, wordlist
+Table A1 line 187	Nɬeʔkepmxcín	transcription	ʔesʔúqʷeʔ	page 20, wordlist
+Table A1 line 187	Zara Khalaji Pirbaluti	translation	‘to be drunk’	page 20, wordlist
+Table A1 line 188	Nɬeʔkepmxcín	transcription	ʔoqʷʔúqʷeʔ	page 20, wordlist
+Table A1 line 188	Zara Khalaji Pirbaluti	translation	‘to drink (PL)’	page 20, wordlist

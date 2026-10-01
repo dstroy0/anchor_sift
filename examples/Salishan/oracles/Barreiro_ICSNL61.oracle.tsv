@@ -1,0 +1,226 @@
+where	who	kind	form	gloss
+title	Elena Barreiro	title	To the discussion on tense in Hən̓q̓əmin̓əm̓	the paper's title, set in bold and carrying a footnote marked with a star
+title	Elena Barreiro	name	Elena Barreiro	Simon Fraser University. Footnote 1 gives her as Sessional Instructor, Indigenous Languages Program (INLP), Department of Linguistics
+footnote *	Elena Barreiro	note	The data for this project are drawn primarily from Musqueam Reference Grammar (Suttles, 2004), as well as from data provided by Donna B. Gerdts through many years of personal communication.	the footnote on the title, and the only place the paper says where its forms come from. It names no speaker
+footnote *	Elena Barreiro	name	Donna B. Gerdts	provided data through many years of personal communication. No example in the paper is marked as hers. The two examples on page 3 are cited to Gerdts and Werle 2014 and to Gerdts and Schneider 2023, and all twenty-nine numbered examples to Suttles 2004
+footnote *	Elena Barreiro	language	Musqueam	in the title of Suttles 2004, Musqueam Reference Grammar, set in italics. Every numbered example is cited to that book
+footer	Elena Barreiro	citation	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL.	the proceedings line at the foot of page 1, with Proceedings of ICSNL 61 in italics
+abstract	Elena Barreiro	note	In this paper, I argue that Hən̓q̓əmin̓əm̓ language is tensed, despite superficial evidence to the contrary. Even though Hən̓q̓əmin̓əm̓ is limited in overt tense morphology for present and past, every finite clause in the language contains some specific morphemes, which help to ground the utterance in space and time. These morphemes not only restrict the reference time to being non-future, but also illuminate specific temporal semantics of the utterances.	the abstract
+abstract	Elena Barreiro	language	Hən̓q̓əmin̓əm̓	the Downriver dialect of Halkomelem, as footnote 3 names it. Written with a raised comma over each n, over q and over the final m, and the paper spells it this way every time
+abstract	Elena Barreiro	note	Keywords: tense, tenseless languages, Hən̓q̓əmin̓əm̓ Salish, locative auxiliaries, temporal meaning	the keyword line under the abstract
+§1	Elena Barreiro	heading	1 Introduction
+§1	Elena Barreiro	citation	(Bar-el 2005; Currie 1996, 1997; Davis & Matthewson 2003; Matthewson 2003, 2005, 2005a, 2006, 2006a; Kroeber 1999; Ritter & Wiltschko 2005; Wiltschko 2003, among many others)	the papers the introduction names on whether Salish languages are tensed or tenseless
+§1	Elena Barreiro	citation	Ritter and Wiltschko (2009)	named as taking the tenseless stand, with a tenseless analysis of Halq'eméylem. The paper quotes them: “the substantive content of INFL varies: in English it is TENSE, in Halkomelem it is LOCATION” (2009, p. 3)
+§1	Elena Barreiro	citation	Matthewson (2005)	named with Davis and Matthewson 2009 as arguing that Salish languages are tensed, and carrying footnote 2
+§1	Elena Barreiro	citation	Davis and Matthewson (2009)	quoted on pages 1 and 2: Salish languages are tensed, despite superficial evidence to the contrary (p. 1097)
+§1	Elena Barreiro	language	Halq'eméylem	the Upriver or Sto:lo dialect of the Halkomelem language, as page 1 glosses it. The apostrophe is the straight ASCII one here and at every other appearance
+§1	Elena Barreiro	language	Sto:lo	the Upriver dialect, as the body of page 1 names it, with a colon. Footnote 3 on page 1 names it Stóō
+§1	Elena Barreiro	language	Halkomelem	the language whose three dialects footnote 3 names
+footnote 2	Matthewson 2005	note	“Th[is] paper […] constitutes the first fleshed-out defense of a tensed analysis for a superficially tenseless language” (Matthewson, 2005, p. 2)	the footnote ends with no period
+footnote 3	Elena Barreiro	note	Halkomelem is a Central Salish language spoken in British Columbia, Canada. It comprises three major dialects: Halq'eméylem (the Upriver or Stóō dialect), Hən̓q̓əmin̓əm̓ (the Downriver dialect), and Hul’q’umi’num’ (the Island dialect). Hən̓q̓əmin̓əm̓, the focus of the present study, is an endangered dialect spoken on the Lower Mainland of British Columbia, whereas Hul’q’umi’num’ is spoken on southeastern Vancouver Island and the adjacent Gulf Islands.	the paper's own account of which dialect is which
+footnote 3	Elena Barreiro	language	Stóō	the Upriver dialect, in parentheses after Halq'eméylem. An acute on the first o and a macron on the second. The body of the same page writes Sto:lo
+footnote 3	Elena Barreiro	language	Hul’q’umi’num’	the Island dialect, spoken on southeastern Vancouver Island and the adjacent Gulf Islands. Every apostrophe in it is the curly U+2019, where Halq'eméylem takes the straight one
+§1	Elena Barreiro	citation	(Davis, Matthewson, 2009, p. 1117)	the source of the quotation that runs from the foot of page 1 onto page 2, that Halkomelem INFL, instantiated by auxiliaries, encodes spatial (non-)coincidence with the utterance location
+§1	Hən̓q̓əmin̓əm̓	cited form	ceʔ	the future tense particle, which page 2 calls seemingly obligatory and uses to set the future aside from the paper. Section 5 calls it the future tense maker
+§1	Hən̓q̓əmin̓əm̓	cited affix	-əł	the overt past tense marker, which page 2 says conveys habitual past, relative past or counterfactual event
+§1	Elena Barreiro	citation	(Gerdts, 2014)	cited for the three meanings of -əł. The reference list holds no single-author Gerdts 2014, only Gerdts and Werle 2014
+§1	Hən̓q̓əmin̓əm̓	cited form	ni~niʔ nə~/ ʔi	the locative auxiliaries as page 2 prints them twice and the section 3 heading prints them once: a tilde, a space, nə, a tilde, a slash and a space before ʔi
+§1	Elena Barreiro	notation	ni~niʔ nə~/ ʔi	the paper writes the auxiliary set six ways, each recorded as printed and none regularized. This one on page 2 and in the section 3 heading. ni~niʔ~nə with ʔi named apart on pages 4 and 10. ʔi /ni~niʔ~nə in footnote 6. ni ~ ni ~ nə on page 6, with no glottal stop on the second ni. ni~`niʔ~`nə with two grave accents on page 9, in the body and again in footnote 13. ni niʔ nə/ʔi in section 5
+§1.1	Elena Barreiro	heading	1.1 Structure
+§2	Elena Barreiro	heading	2 Temporal meaning of the past tense marker -əł	-əł set in italics inside the bold heading
+§2	Elena Barreiro	note	Morphologically, Hən̓q̓əmin̓əm̓ possesses the overt past tense marker -əł, a particle, which is closely integrated into a preceding element, manifesting itself phonologically as a suffix	the sentence carries footnote 4, and the Gerdts and Werle 2014 cite after it carries footnote 5
+§2	Elena Barreiro	citation	(Gerdts & Werle, 2014)	cited for where the past tense marker appears: on introducer clitics, on verbs, and on nouns referring to items or people no longer present or living
+footnote 4	Suttles 2004	note	“But grammatically it is a particle in that it (usually) follows inflectional suffixes (but not altogether consistently). It has, it seems, unusual freedom in where it can occur. It can follow words of any type, including auxiliaries, adverbs, personal words, demonstratives, and others that take few if any other particles or suffixes” (Suttles, 2004, p. 368).	Suttles on -əł, quoted
+footnote 5	Elena Barreiro	note	Here and throughout this paper, the data provided by Gerdts and Werle, as well as Gerdts and Schneider, are drawn from Hul’q’umi’num’, the neighbouring to Hən̓q̓əmin̓əm̓ Island dialect of Halkomelem. Hul’q’umi’num’ exhibits grammatical features that are identical to those of Hən̓q̓əmin̓əm̓, making the data directly comparable.	THE TWO EXAMPLES ON PAGE 3 ARE HUL’Q’UMI’NUM’ AND NOT HƏN̓Q̓ƏMIN̓ƏM̓. This footnote is the only place the paper says so, and the who column of those rows follows it
+footnote 6	Elena Barreiro	note	Structurally, ʔi /ni~niʔ~nə are introducers, clitics that sit at the left edge of the clause, and host the second-position clitics (Gerdts, Werle, 2014).	the forms set in italics
+footnote 6	Hən̓q̓əmin̓əm̓	cited form	ʔi	an introducer, the proximal locative auxiliary. Page 4 glosses it be here
+footnote 6	Hən̓q̓əmin̓əm̓	cited form	ni~niʔ~nə	an introducer, the distal locative auxiliary with its three shapes. Page 4 glosses it be there
+§2 first unnumbered	Hul’q’umi’num’	segmentation	ʔiʔ nił-əł ʔəw̓ c̓ew-əθam̓š-əs-əł łə sil̓ə-s-əł.	CNJ 3SG.PRO-PST CN HELP-TR.1SG.OBJ-3SUB-PST DT grandparent-3POS-PST
+§2 first unnumbered	Gerdts and Werle 2014	translation	And that was how his late grandmother used to help me.	followed by (p. 257). The sentence before the example cites Gerdts and Werle 2014, and footnote 5 says their data are Hul’q’umi’num’. Each -əł is set in bold
+§2 first unnumbered	Elena Barreiro	notation	HELP-TR.1SG.OBJ-3SUB-PST	the gloss tier sets HELP in full capitals, where every other lexical gloss in the paper is lowercase and the same root is glossed help in (1) to (6). Recorded as printed
+§2	Gerdts and Schneider 2023	note	In this example, the past tense morpheme appears three times: first, on the introducer clitic (nił [3rd person pronoun-EB] signals emphatic focus), second, on the verb (√c̓ew ‘help’), and third, on the subject NP (sil̓ə-s his grandparent). The first occurrence has scope over the main clause, the second occurrence has scope over the subordinate clause, and the third has scope over just the DP łə sil̓ə-s ‘his grandmother’, expressing a decessive meaning. Thus tense on nouns differs from tense on verbs — when cliticised to the predicate, the tense morpheme takes scope over the entire event; when cliticised to an NP, it only has scope over that entity (p. 20).	a block quotation, introduced as Gerdts and Schneider (2023) explaining the example above. The bracket is Barreiro's, signed EB
+§2	Hul’q’umi’num’	cited form	nił	the introducer clitic, glossed 3rd person pronoun in Barreiro's bracket inside the quotation. It signals emphatic focus
+§2	Hul’q’umi’num’	root	c̓ew	help. The page prints it with a root sign, √c̓ew
+§2	Hul’q’umi’num’	cited form	sil̓ə-s	his grandparent, the subject NP
+§2	Hul’q’umi’num’	cited form	łə sil̓ə-s	his grandmother, the DP the third -əł has scope over
+§2 second unnumbered	Hul’q’umi’num’	transcription	nił kʷəʔeł nəw̓ šnex̌ən̓s ʔəl̓ kʷey̓ qeqəlʔəł məstiməxʷ.	the unbroken line, with ʔəł in qeqəlʔəł set in bold
+§2 second unnumbered	Hul’q’umi’num’	segmentation	nił kʷəʔeł nəw̓ šnex̌ən̓-s ʔəl̓ kʷey̓ qeqəlʔəł məstiməxʷ.	3FOC thus AUX.CN be.at.end-3POS just DM bad<PL>-PST people
+§2 second unnumbered	Gerdts and Schneider 2023	translation	And that’s as far as it goes about how it was with those evil people of the past.	(Gerdts & Schneider, 2023, p. 21). The paper sets it under an adjective, qeqəlʔəł, as the first host for the past tense marker
+§2 second unnumbered	Elena Barreiro	notation	qeqəlʔəł	the segmentation tier leaves this word whole where its gloss is bad<PL>-PST. The plural and the past the gloss names have no boundary in the form above them
+(1)	Hən̓q̓əmin̓əm̓	segmentation	c̓éwət-əł cən.	help-PST I. The page carries footnote 7 against -əł, written here without its digit. This example and (2) print one broken line and no unbroken one
+(1)	Suttles 2004	translation	I was going to help him.	(Suttles, 2004, p. 369). The translation carries footnote 8
+footnote 7	Elena Barreiro	note	Following a verb head in a predicate with no auxiliary, -əł indicates past intention (Suttles, 2004, p. 369).	why (1) and (2) are translated was going to and were going to
+footnote 8	Elena Barreiro	note	3rd person object is zero marked in Hən̓q̓əmin̓əm̓.	why him in the translations of (1), (2), (5), (6), (10) and (23) has nothing under it in the form
+(2)	Hən̓q̓əmin̓əm̓	segmentation	c̓éwət-əł ʔə čxʷ.	help-PST ROG you
+(2)	Suttles 2004	translation	Were you going to help him?	(Suttles, 2004, p. 369)
+(3)	Hən̓q̓əmin̓əm̓	transcription	k̓ʷécətəł cən nəcéləx i wəłst̕ət̕íq̓ʷ tə nəsnə́x̌cəs.	the unbroken line
+(3)	Hən̓q̓əmin̓əm̓	segmentation	k̓ʷéc-ət-əł cən nə-céləx ʔəy wəł-st̕ət̕íq̓ʷ tə nə-snə́x̌cəs	see-TR-PST I my-hand and already-cut.through ART my-finger. The broken line runs onto a second line at nə-snə́x̌cəs. ʔəy carries footnote 9, written here without its digit
+(3)	Suttles 2004	translation	I looked at my hand and my finger was already cut through.	(Suttles, 2004, p. 369)
+footnote 9	Elena Barreiro	note	Conjunction ʔəy is often realized as i.	why the unbroken line of (3) has i where the broken line has ʔəy
+footnote 9	Hən̓q̓əmin̓əm̓	cited form	ʔəy	the conjunction, often realized as i
+(4)	Hən̓q̓əmin̓əm̓	transcription	sáʔasəməł wəłk̓ʷə́cnəxʷəs...	the unbroken line, ending in three periods
+(4)	Hən̓q̓əmin̓əm̓	segmentation	séʔ-as-əm-əł wəł-k̓ʷéc-nəxʷ-əs	raise-head-INTR-past already-see-TR-3TR. The gloss sets past in lowercase where every other example sets PST in small capitals
+(4)	Suttles 2004	translation	He lifted his head and saw…	(Suttles, 2004, p. 369). The ellipsis here is the single character U+2026
+(4)	Elena Barreiro	notation	sáʔasəməł against séʔ-as-əm-əł	the unbroken line has á where the broken line has é, and wəłk̓ʷə́cnəxʷəs has ə́ where the broken line has é. Both recorded as each tier prints them
+§3	Elena Barreiro	heading	3 Temporal meaning of the locative auxiliaries ni~niʔ nə~/ ʔi
+§3	Hən̓q̓əmin̓əm̓	cited form	ʔi	be here, one of the locative pair functioning as auxiliaries
+§3	Hən̓q̓əmin̓əm̓	cited form	ni~niʔ~nə	be there, the other of the pair
+(5)	Hən̓q̓əmin̓əm̓	transcription	ʔi cən c̓éc̓əwət.	the unbroken line
+(5)	Hən̓q̓əmin̓əm̓	segmentation	ʔi cən c̓éc̓əw̓-ət	AUX.PROX I be.helping-TR
+(5)	Suttles 2004	translation	I am helping him.	(Suttles, 2004, p. 35)
+(5)	Elena Barreiro	notation	c̓éc̓əwət against c̓éc̓əw̓-ət	the unbroken line has a plain w and the broken line a glottalized one. Both recorded as printed. The text on page 5 names the CV reduplication on this predicate as progressive
+(6)	Hən̓q̓əmin̓əm̓	transcription	ni cən c̓éwət.	the unbroken line
+(6)	Hən̓q̓əmin̓əm̓	segmentation	niʔ cən c̓éw-ət	AUX.DIST I help-TR
+(6)	Suttles 2004	translation	I helped him.	(Suttles, 2004, p. 35)
+§3	Ritter and Wiltschko 2009	note	“In the context of first (and second) person subjects, the use of the distal auxiliary will result in a past interpretation” (p. 5).	quoted on page 5
+§3	Ritter and Wiltschko 2009	note	third person participants need not be at the utterance location, they can participate in an eventuality that occurs simultaneously with the utterance but at a distinct location. Consequently, we expect that with third person subjects [not marked in Hən̓q̓əmin̓əm̓ by means of a second-position subject clitic – EB], a sentence with a [+distal] locative auxiliary can receive a present and a past interpretation (p. 12).	a block quotation. The bracket is Barreiro's, signed EB
+(7)	Hən̓q̓əmin̓əm̓	transcription	ni níʔ ə təná·nə.	the unbroken line. The raised dot is U+00B7
+(7)	Hən̓q̓əmin̓əm̓	segmentation	niʔ níʔ ə təná·nə.	AUX.DIST be.there OBL that.over.there
+(7)	Suttles 2004	translation	He/She is over there.	(Suttles, 2004, p. 46)
+(8)	Hən̓q̓əmin̓əm̓	transcription	ni níʔ ƛ̓ st̕ᶿáməs kʷ´łə nəmə́n̓ə.	the unbroken line. kʷ´łə carries a spacing acute, U+00B4, between the raised w and ł, and the broken line has no mark there
+(8)	Hən̓q̓əmin̓əm̓	segmentation	niʔ níʔ [ʔə] ƛ̓ st̕ᶿáməs kʷłə nə-mə́n̓ə	AUX.DIST be.there [OBL] ART Victoria [Songhees] ART my-child. The bracketed ʔə and OBL are absent from the unbroken line
+(8)	Suttles 2004	translation	My daughter is in Victoria.	(Suttles, 2004, p. 46)
+(8)	Hən̓q̓əmin̓əm̓	place	st̕ᶿáməs	Victoria, glossed Victoria [Songhees]. A glottalized t with the comma set above right, U+0315, then a raised theta, U+1DBF
+(9)	Hən̓q̓əmin̓əm̓	transcription	ni sc̓əc̓éʔ tə nəwáč ʔə tə púk.	the unbroken line
+(9)	Hən̓q̓əmin̓əm̓	segmentation	niʔ sc̓əc̓éʔ tə nə-wáč ʔə tə púk [púkʷ]	AUX.DIST atop ART my-watch OBL ART book. The broken line gives púk with a bracketed variant púkʷ, and the unbroken line has púk alone
+(9)	Suttles 2004	translation	My watch is on top of the book.	(Suttles, 2004, p. 46)
+(10)	Hən̓q̓əmin̓əm̓	transcription	ni cən c̓éwət.	the unbroken line, the same sentence as (6)
+(10)	Hən̓q̓əmin̓əm̓	segmentation	niʔ cən c̓éw-ət	AUX.DIST I help-TR
+(10)	Suttles 2004	translation	I helped him.	(Suttles, 2004, p. 35). The paper repeats (6) here among the third-person examples
+(11)	Hən̓q̓əmin̓əm̓	transcription	ni nem̓ kʷənkʷə́n	the unbroken line, with no final period where the broken line has one
+(11)	Hən̓q̓əmin̓əm̓	segmentation	niʔ nem̓ kʷənkʷə́n.	AUX.DIST go be.captured
+(11)	Suttles 2004	translation	He was taken captive.	(Suttles, 2004, p. 37)
+(12)	Hən̓q̓əmin̓əm̓	transcription	ni nem̓ t̓ak̓ʷ ʔé·łtən.	the unbroken line. THE PAGE PRINTS A RAISED w IN t̓ak̓ʷ AND THE TEXT LAYER HOLDS A PLAIN w, U+0077, SET SUPERSCRIPT. Read at 600 dpi, where the w stands at the height of every ʷ on the page. Written ʷ, as the page prints it
+(12)	Hən̓q̓əmin̓əm̓	segmentation	niʔ nem̓ t̕ák̓ʷ ʔé·łtən.	AUX.DIST go return.home 3PL
+(12)	Suttles 2004	translation	They went home.	(Suttles, 2004, p. 37). Set at the top of page 6, apart from the rest of the example on page 5
+(12)	Elena Barreiro	symbol note	t̓ak̓ʷ against t̕ák̓ʷ	the unbroken line writes the t's comma as U+0313 COMBINING COMMA ABOVE and the broken line as U+0315 COMBINING COMMA ABOVE RIGHT, and has no acute where the broken line has one. At 600 dpi the page draws the two commas differently: the U+0313 comma centered over the top of the t, the U+0315 comma set against the right of its stem. The table keeps each as encoded. The paper writes glottalized t both ways across its examples: U+0315 in (3), (8), (12) and (22), U+0313 in (12) and (14)
+(13)	Hən̓q̓əmin̓əm̓	transcription	ni níʔ	the unbroken line, with no final period
+(13)	Hən̓q̓əmin̓əm̓	segmentation	niʔ níʔ.	AUX.DIST be.there
+(13)	Suttles 2004	translation	He’s there.	(Suttles, 2004, p. 38)
+§3	Suttles 2004	note	“the locative auxiliaries clearly refer to space and not to time, though perhaps more often than not the then is there and the now is here. The only true tense markers, however, are the particles -əł ‘past’ and ceʔ ‘future’” (2004, p. 36).	quoted on page 6
+§3	Elena Barreiro	notation	ni ~ ni ~ nə	the distal locative as page 6 names it, with spaces round the tildes and no glottal stop on the second ni. Recorded as printed
+§3	Elena Barreiro	notation	as in (13) to (16)	page 6 introduces the examples of predicates that override the distal auxiliary this way, and the four examples that follow are numbered (14) to (17). (13) is ni níʔ, which the paragraph before counts among (7) to (13)
+(14)	Hən̓q̓əmin̓əm̓	transcription	niʔ t̓ít̓ələm̓.	the unbroken line
+(14)	Hən̓q̓əmin̓əm̓	segmentation	niʔ t̓í<t̓ə>l-əm̓	AUX.DIST sing<PROGR>-INTR. The angle brackets hold the infix
+(14)	Suttles 2004	translation	There is someone singing.	(Suttles, 2004, p. 36)
+(15)	Hən̓q̓əmin̓əm̓	transcription	ni cən wəyáθ wəyhə́n̓əm̓.	the unbroken line
+(15)	Hən̓q̓əmin̓əm̓	segmentation	niʔ cən wə-yáθ wə-yə-hə́n̓əm̓	AUX.DIST I EST-always EST-along-be.going
+(15)	Suttles 2004	translation	Yes, I always do.	(Suttles, 2004, p. 424)
+(16)	Hən̓q̓əmin̓əm̓	transcription	ni ct yá·y̓əs xʷnem̓ ʔə ƛ̓ łwə́ləp.	the unbroken line
+(16)	Hən̓q̓əmin̓əm̓	segmentation	niʔ ct yá·y̓əs xʷnem̓ ʔə ƛ̓ łwə́ləp	AUX.DIST we be.working go.to OBL ART you(PL)
+(16)	Suttles 2004	translation	We are working for you.	(Suttles, 2004, p. 56)
+(17)	Hən̓q̓əmin̓əm̓	transcription	niʔ cən cá·kʷ xʷə-ʔə́y̓.	the unbroken line, which has niʔ where the broken line has ni. It is the only example whose broken line drops a glottal stop its unbroken line has: (14), (18) and (29) write niʔ in both, and every other example whose unbroken line has ni standing as a word has niʔ in its broken line. THE PAGE PRINTS A RAISED w IN cá·kʷ AND THE TEXT LAYER HOLDS A PLAIN w SET SUPERSCRIPT, as in (12). Written ʷ, as the page prints it
+(17)	Hən̓q̓əmin̓əm̓	segmentation	ni cən cá·kʷ xʷə-ʔə́y̓.	AUX.DIST I far become-good
+(17)	Suttles 2004	translation	I am far better.	(Suttles, 2004, p. 419)
+(18)	Hən̓q̓əmin̓əm̓	transcription	niʔ ə čxʷ łə́q̓əlləxʷ ....	the unbroken line, ending in a space and four periods. It has ə where the broken line has ʔə
+(18)	Hən̓q̓əmin̓əm̓	segmentation	niʔ ʔə čxʷ łə́q̓əl-ləxʷ …	AUX.DIST ROG you know-LCTR
+(18)	Suttles 2004	translation	Do you know…?	(Suttles, 2004, p. 407). Page 7 is blank but for its number, and (18) opens page 8
+§3	Elena Barreiro	citation	Currie (1996)	cited for the verb-clitic order with a stative predicate giving a present-tense interpretation in Squamish
+§3	Elena Barreiro	language	Sk̲wx̲wú7mesh	Squamish, named on page 8. THE PAGE UNDERLINES THE k AND THE x AND THE TEXT LAYER HOLDS BOTH PLAIN. Written with U+0332 COMBINING LOW LINE, the mark the page draws. Squamish's own orthography sets these letters with U+0331, and the reference list on page 12 spells the name with no underline at all
+§3	Matthewson 2006	note	The aspectual class of the predicate influences default interpretations. Thus, stative predicates […] strongly prefer present tense interpretations in out of the blue contexts, while accomplishments […] are by default interpreted in the past. Activities […] show no strong preference either way; achievements strongly prefer past interpretations (2006, p. 676).	a block quotation, carrying footnote 10
+footnote 10	Matthewson 2006	note	These interpretations agree with general tendencies noted for many languages, which have received analysis elsewhere in the literature (e.g., Bohnemeyer & Swift, 2004; Lin, 2003, 2006; Manfredi, 2006; Smith & Erbaugh, 2005; Smith et al., 2003, among many others) (Matthewson, 2006, p. 676).	the works named here are Matthewson's citations and none of them is in this paper's reference list
+list 1	Hən̓q̓əmin̓əm̓	cited form	yáθ	always, the first of nine temporal adverbs the paper lists
+list 2	Hən̓q̓əmin̓əm̓	cited form	łə́q̓	usually
+list 3	Hən̓q̓əmin̓əm̓	cited form	c̓əxʷléʔ	sometimes
+list 4	Hən̓q̓əmin̓əm̓	cited form	qx̌éł	often
+list 5	Hən̓q̓əmin̓əm̓	cited form	yeł	just now
+list 6	Hən̓q̓əmin̓əm̓	cited form	k̓ʷ cəléqəł ~ k̓ʷ cəláqəł	yesterday, the two variants joined by a tilde. The gloss carries footnote 11
+list 7	Hən̓q̓əmin̓əm̓	cited form	mə́k̓ʷ swéyəl	every day
+list 8	Hən̓q̓əmin̓əm̓	cited form	tən̓a wéyəl	today
+list 9	Hən̓q̓əmin̓əm̓	cited form	k̓ʷ xʷənéʔənt	last evening, followed by etc. on the page
+(19)	Hən̓q̓əmin̓əm̓	transcription	yáθ k̓ʷə nəsniw̓ yəłəʔé.	the unbroken line, with yáθ set in bold. It has nəsniw̓ where the broken line has nə-s-niʔ, and yəłəʔé where the broken line has wə-yə-łəʔé
+(19)	Hən̓q̓əmin̓əm̓	segmentation	yáθ k̓ʷə nə-s-niʔ wə-yə-łəʔé	always ART my-NOM-AUX.DIST EST-along-following
+(19)	Suttles 2004	translation	I always go the same way.	(Suttles, 2004, p. 424)
+footnote 11	Elena Barreiro	note	k̓ʷ cəléqəł is composed of the article k̓ʷ implying remote or absent status, and and unidentifiable now root, followed by what is probably a past tense suffix -əł. Other such terms are: k̓ʷən̓a łə́w̓əłneʔ ‘the day before yesterday’ (< k̓ʷən̓a ‘that absent’, possibly łéw̓ ‘escape’ + -əłneʔ ?), k̓ʷ yəw̓én̓əł snét ‘the night before last’ (Suttles, p. 510).	the forms set in italics
+footnote 11	Elena Barreiro	damage	and and unidentifiable	the footnote prints and twice. Transcribed as printed
+footnote 11	Hən̓q̓əmin̓əm̓	cited form	k̓ʷ cəléqəł	yesterday, which the footnote takes apart
+footnote 11	Hən̓q̓əmin̓əm̓	cited form	k̓ʷ	the article implying remote or absent status
+footnote 11	Hən̓q̓əmin̓əm̓	cited affix	-əł	what is probably a past tense suffix, at the end of k̓ʷ cəléqəł
+footnote 11	Hən̓q̓əmin̓əm̓	cited form	k̓ʷən̓a łə́w̓əłneʔ	the day before yesterday
+footnote 11	Hən̓q̓əmin̓əm̓	cited form	k̓ʷən̓a	that absent
+footnote 11	Hən̓q̓əmin̓əm̓	root	łéw̓	escape, marked possibly
+footnote 11	Hən̓q̓əmin̓əm̓	cited affix	-əłneʔ	followed on the page by a space and a question mark, the paper's own doubt about this segmentation
+footnote 11	Hən̓q̓əmin̓əm̓	cited form	k̓ʷ yəw̓én̓əł snét	the night before last
+footnote 11	Elena Barreiro	citation	(Suttles, p. 510)	the only cite of Suttles in the paper that gives no year
+(20)	Hən̓q̓əmin̓əm̓	transcription	łə́q̓ ni nə́c̓əqən lísek tə k̓ʷíʔxʷ.	the unbroken line, with łə́q̓ set in bold
+(20)	Hən̓q̓əmin̓əm̓	segmentation	łə́q̓ niʔ nə́c̓əqən lísek tə k̓ʷíʔxʷ.	usually AUX.DIST one.container sack ART pitch
+(20)	Suttles 2004	translation	‘It usually takes one sack of pitch.’ (lit. ‘The pitch is usually one sack.’)	(Suttles, 2004, p. 424), set on a line of its own under the translation. The quotation marks are kept here because the literal rendering sits inside the same line
+§3	Hən̓q̓əmin̓əm̓	cited affix	xʷə-	become, the aspectual inchoative prefix
+(21)	Hən̓q̓əmin̓əm̓	transcription	ni xʷənéc̓ x̌ʷtéʔ ƛ̓ łwə́ləp...	the unbroken line, with xʷə set in bold
+(21)	Hən̓q̓əmin̓əm̓	segmentation	niʔ xʷə-néc̓ x̌ʷtéʔ [ʔə] ƛ̓ łwə́ləp	AUX.DIST become-different head.toward OBL ART you(PL). The bracketed ʔə is absent from the unbroken line, and its gloss OBL carries no bracket
+(21)	Suttles 2004	translation	She is now different from you...	(Suttles, 2004, p. 57)
+§3	Hən̓q̓əmin̓əm̓	cited form	ƛ̓á	be third person, a pronoun. It carries footnote 12
+footnote 12	Elena Barreiro	note	“Personal word” in Suttles’s terminology (Suttles, 2004, p. 331).	what Suttles calls ƛ̓á
+§3	Hən̓q̓əmin̓əm̓	cited affix	wəł-	already, the nominalization ƛ̓á is followed by
+(22)	Hən̓q̓əmin̓əm̓	transcription	ƛ̓an səwł t̕íləm.	the unbroken line, with ƛ̓a set in bold. It has ƛ̓an səwł where the broken line has ƛ̓a nə-s-wəł
+(22)	Hən̓q̓əmin̓əm̓	segmentation	ƛ̓a nə-s-wəł-t̕íləm	be3P my-NOM-already-sing
+(22)	Suttles 2004	translation	I’m going to start to sing.	(Suttles, 2004, p. 100)
+§3	Elena Barreiro	notation	ni~`niʔ~`nə	page 9 writes the locative pair with a grave accent before niʔ and before nə, U+0060 in the text layer, in the body and again in footnote 13. Recorded as printed
+footnote 13	Elena Barreiro	note	For the reasons of space I will not look here at other possible restrictors distinguishing past and present tense in the sentences with their predicates anchored to the locative auxiliary pair ni~`niʔ~`nə	the footnote ends with no period
+§3	Davis and Matthewson 2009	note	While Ritter and Wiltschko do provide evidence that spatial notions play an important role in interpreting Halkomelem clauses, they do not provide any convincing evidence that tense information is absent. For example, Matthewson (2006b) argues that there are obligatory temporal shifting effects in St’át’imcets embedded clauses, which crucially derive from the presence of a tense morpheme in the matrix clause […]. For a tenseless analysis to be convincing, we would either have to see that such temporal shifting effects are absent in Halkomelem, or that they can be re-analyzed successfully within a location-based system.	a block quotation, introduced as Davis and Matthewson (2009, p. 1117). Matthewson 2006b is their citation and is not in this paper's reference list
+§3	Davis and Matthewson 2009	language	St’át’imcets	named inside the quotation on page 9
+§4	Elena Barreiro	heading	4 The past-tense marker on the locative auxiliaries
+footnote 14	Elena Barreiro	note	No such examples were found	the footnote on whether -əł produces the perfect tenses on ni~niʔ~nə but not on ʔi. It ends with no period
+(23)	Hən̓q̓əmin̓əm̓	transcription	niəł (~ ni·ł) cən c̓éwət.	the unbroken line, giving the variant ni·ł in parentheses
+(23)	Hən̓q̓əmin̓əm̓	segmentation	ni-əł cən c̓éw-ət	AUX-PST I help-TR
+(23)	Suttles 2004	translation	I had helped him.	(Suttles, 2004, p.369), with no space after p. here and in (24) and (25)
+(24)	Hən̓q̓əmin̓əm̓	transcription	ni·ł cən wəł(h)áy qʷáqʷəl̓ k̓ʷ xʷənéʔent...	the unbroken line. The parentheses round h are the paper's
+(24)	Hən̓q̓əmin̓əm̓	segmentation	ni-əł cən wəł-háy qʷáqʷəl̓ k̓ʷ xʷə-néʔent	AUX-PST I already-finish be.speaking ART become-being.night
+(24)	Suttles 2004	translation	I have already spoken to you last night...	(Suttles, 2004, p.369)
+(24)	Elena Barreiro	notation	xʷənéʔent against xʷənéʔənt	(24) writes being night with e in the last syllable in both its tiers, and item 9 of the adverb list on page 8 writes k̓ʷ xʷənéʔənt, last evening, with ə. Both recorded as printed
+(25)	Hən̓q̓əmin̓əm̓	transcription	kʷθə ni·ł c̓éwəθàmx	the unbroken line, with no final period
+(25)	Hən̓q̓əmin̓əm̓	segmentation	kʷθə ni-əł c̓éw-ət-θàmx	ART AUX.DIST-PST help-TR-me. θàmx carries footnote 15, written here without its digit. The gloss here is AUX.DIST-PST where (23) and (24) gloss the same ni-əł AUX-PST
+(25)	Suttles 2004	translation	The one who helped me.	(Suttles, 2004, p.370)
+footnote 15	Elena Barreiro	note	-θàmx ~ -θ ‘me’, first-person singular object suffix following -t ‘transitive’ is realized as /θ/	the forms set in italics. The footnote ends with no period
+footnote 15	Hən̓q̓əmin̓əm̓	cited affix	-θàmx ~ -θ	me, the first-person singular object suffix
+footnote 15	Hən̓q̓əmin̓əm̓	cited affix	-t	transitive
+footnote 15	Hən̓q̓əmin̓əm̓	underlying	/θ/	what the first-person singular object is realized as after -t, set in slashes
+(26)	Hən̓q̓əmin̓əm̓	transcription	ʔí·ł cən wəcnə́xʷəł.	the unbroken line, with ʔí·ł set in bold
+(26)	Hən̓q̓əmin̓əm̓	segmentation	ʔí-əł cən wə-c-nə́xʷəł	AUX-PST I EST-get-canoe
+(26)	Suttles 2004	translation	I had a canoe.	(Suttles, 2004, p. 371)
+(27)	Hən̓q̓əmin̓əm̓	transcription	ʔí cən wəcnə́xʷəł.	the unbroken line
+(27)	Hən̓q̓əmin̓əm̓	segmentation	ʔí cən wə-c-snə́xʷəł	AUX I EST-get-canoe
+(27)	Suttles 2004	translation	I have a canoe.	(Suttles, 2004, p. 371)
+(27)	Elena Barreiro	notation	wə-c-snə́xʷəł	the broken line of (27) has an s that its own unbroken line wəcnə́xʷəł does not, and that the broken line of (26), wə-c-nə́xʷəł, does not either. Both recorded as printed
+(28)	Hən̓q̓əmin̓əm̓	transcription	ʔi·ł yəxʷ cən m̓ə ʔíʔtət.	the unbroken line, with ʔi·ł set in bold
+(28)	Hən̓q̓əmin̓əm̓	segmentation	ʔi-əł yəxʷ cən m̓ə ʔíʔtət	AUX-PST INF I CERT be.sleeping
+(28)	Suttles 2004	translation	I must have been asleep.	(Suttles, 2004, p. 383)
+(29)	Hən̓q̓əmin̓əm̓	transcription	niʔ cən k̓ʷə́cnəxʷ kʷθə [ʔi·ł c̓éwəθàmx].	the unbroken line, with ʔi·ł set in bold. The square brackets are the paper's and set off the relative clause
+(29)	Hən̓q̓əmin̓əm̓	segmentation	niʔ cən k̓ʷéc-nəxʷ kʷθə ʔi-əł c̓éw-ət-θamx	AUX.DIST I look-TR ART AUX-PST help-TR-me. θamx has no grave accent here where the unbroken line above and (25) both write θàmx
+(29)	Suttles 2004	translation	I saw the one who helped me.	(Suttles, 2004, p. 79)
+§4	Hən̓q̓əmin̓əm̓	cited form	ʔí	the proximal locative auxiliary, written with an acute on page 11 where pages 3 to 10 write ʔi
+§5	Elena Barreiro	heading	5 Conclusion
+§5	Hən̓q̓əmin̓əm̓	cited form	ceʔ	the future tense marker, which section 5 prints as the future tense maker
+§5	Elena Barreiro	damage	The future tense maker ceʔ	maker, where page 2 and page 6 write marker. Transcribed as printed
+§5	Elena Barreiro	notation	ni niʔ nə/ʔi	the locative auxiliaries as section 5 names them, with no tildes. Recorded as printed
+references	Elena Barreiro	heading	References	sixteen entries, closing the paper on page 12
+references	Elena Barreiro	reference	Bar-el, L. (2005). Aspectual distinctions in Skwxwú7mesh. Ph.D. dissertation, University of British Columbia.
+references	Elena Barreiro	reference	Currie, Elizabeth. 1996. Five Sqwxwu7mish futures. Papers for the 31st International Conference on Salish and Neighboring Languages, 23–8. Vancouver, BC: University of British Columbia.	the page range is printed 23–8
+references	Elena Barreiro	reference	Currie, Elizabeth. 1997. Topic times: the syntax and semantics of SqwXwu7mish temporal adverbs. MA thesis, University of British Columbia, Vancouver, BC.
+references	Elena Barreiro	reference	Davis, H. & Matthewson, L. (2003). A note on remote: The temporal enclitic tu7 in St’át’imcets. In Papers for the 38th International Conference on Salish and Neighbouring Languages. University of British Columbia Working Papers in Linguistics, pp. 47-63.
+references	Elena Barreiro	reference	Davis, H. & Matthewson, L. (2009). Issues in Salish Syntax and Semantics, https://doi.org/10.1111/j.1749-818X.2009.00145.x
+references	Elena Barreiro	reference	Gerdts, D. & Schneider, L. (2023). Word Classes in Salish Languages in The Oxford Handbook of Word Classes, pp. 613-650.	The Oxford Handbook of Word Classes set in italics
+references	Elena Barreiro	reference	Gerdts, D. & Werle, A. (2014). Halkomelem clitic types. Morphology 24, pp. 245-281.	Morphology set in italics
+references	Elena Barreiro	reference	Kroeber P. (1999). The Salish language family: Reconstructing syntax. Lincoln and London, The University of Nebraska Press.
+references	Elena Barreiro	reference	Matthewson, L. (2003). An underspecified tense in St’á t’imcets. In Proceedings of WECOL 2002. University of British Columbia Working Papers in Linguistics and California State University, Fresno.
+references	Elena Barreiro	reference	Matthewson L. (2005a). On the absence of tense on determiners. Lingua 115(12): 1697-1735.
+references	Elena Barreiro	reference	Matthewson L. (2006). The perfect II. Class notes, University of British Columbia.
+references	Elena Barreiro	reference	Matthewson, L. (2006a). Temporal semantics in a superficially tenseless language. Linguistics & Philosophy 29, 673–713 https://doi.org/10.1007/s10988-006-9010-6
+references	Elena Barreiro	reference	Ritter, E., & Wiltschko, M. (2005). Anchoring events to utterances without tense. Proceedings of WCCFL, pp. 343-351.
+references	Elena Barreiro	reference	Ritter, E., & Wiltschko, M. (2009). Varieties of INFL: tense, location, and person http://doi: 10.1515/9783110217124.153
+references	Elena Barreiro	reference	Suttles, W. (2004). Musqueam Reference Grammar. UBC Press.	Musqueam Reference Grammar set in italics
+references	Elena Barreiro	reference	Wiltschko M. (2003). On the interpretability of tense on D and its consequences for case theory. Lingua 113: 659–696.
+references	Elena Barreiro	language	Skwxwú7mesh	Squamish, in the title of Bar-el 2005, with no underline. Page 8 underlines the k and the x in the same name
+references	Elena Barreiro	language	Sqwxwu7mish	Squamish, in the title of Currie 1996
+references	Elena Barreiro	language	SqwXwu7mish	Squamish, in the title of Currie 1997, with a capital X
+references	Elena Barreiro	language	St’át’imcets	in the title of Davis and Matthewson 2003
+references	Elena Barreiro	damage	St’á t’imcets	in the title of Matthewson 2003, with a space after the á. Transcribed as printed
+references	Elena Barreiro	notation	cited and not listed	Matthewson 2005, cited on page 1 and in footnote 2, and Gerdts 2014 alone, cited on page 2, are not in the reference list. The list has Matthewson 2005a and Gerdts and Werle 2014. Matthewson 2006b and the works in footnote 10 sit inside quotations and are the quoted authors' citations
+all	Elena Barreiro	symbol note	the lateral fricative	THIS PAPER WRITES THE LATERAL AS ł, U+0142, 91 TIMES IN ITS TEXT LAYER AND NEVER AS ɬ. The page draws an l with a stroke through its middle, the shape of U+0142, and the text layer agrees. This is Suttles's Musqueam orthography and the table follows it. Other tables in this corpus that write ɬ are writing other papers' orthographies
+all	Elena Barreiro	symbol note	marks drawn away from their letters	THE PAGE DRAWS SOME RAISED COMMAS AWAY FROM THE LETTER THAT CARRIES THEM, SOMETIMES ON THE LINE ABOVE. In (19) three commas are drawn where the text layer holds two, and the third hangs under the w of nəsniw̓, directly over the k̓ʷə of the broken line below, the letter it belongs to. In the adverb list the comma of mə́k̓ʷ in item 7 is drawn under the c of item 6. At the foot of page 8 commas are drawn over the 0 of 2003 and the m of Smith in footnote 10 and under the t of what in footnote 11, beside the k̓ʷ forms of footnote 11. In (29) a mark under the bracket before ʔi·ł sits over the k̓ʷéc of the broken line below. Each displaced mark examined was matched to a letter the text layer says carries a comma. The page was not audited for every mark on every line. A leftover mark elsewhere is not ruled out. Which letter a comma belongs to is read from the text layer. Whether a mark exists is read off the page
+all	Elena Barreiro	symbol note	a space after every combining mark	the text layer, extracted with its layout kept, puts a space after each combining comma, caron and acute. Hən̓q̓əmin̓əm̓ arrives as Hən̓ q̓ əmin̓ əm̓. The page has no such spaces and the forms here have none
+all	Elena Barreiro	notation	bold in the examples	the paper sets the element under discussion in bold inside an example: each -əł on page 3, ʔəł in qeqəlʔəł, yáθ in (19), łə́q̓ in (20), xʷə in (21), ƛ̓a in (22), ʔí·ł and ʔi-əł in (26), (28) and (29). The forms are recorded without it
+all	Elena Barreiro	notation	glosses in small capitals	the grammatical labels in the gloss column, such as AUX.DIST, PST, TR and ROG, are set in small capitals on the page and are transcribed here in ordinary capitals. A run of capitals in a gloss here is a grammatical label
+all	Elena Barreiro	notation	whose English	every numbered example is cited to Suttles 2004 by page, and the translations are written as Suttles's for that reason. The paper does not say whether the segmentation and gloss tiers are Suttles's or Barreiro's own, and this table does not guess
+page 7	Elena Barreiro	notation	page 7 is blank	it carries only its page number, 7. The text runs from (17) at the foot of page 6 to (18) at the head of page 8 with nothing between
+all	Elena Barreiro	notation	twelve pages, all read	every page was read off a 300 dpi render. Page 5's (8) and (12) and page 8's adverb list and (19) were read again on that render enlarged three times with nearest-neighbor scaling, which adds no detail, and the t marks of (12) on a 600 dpi render. Every form was then looked up verbatim in the text layer, and every word of the text layer carrying a mark outside ASCII was looked up in this table. The first lookup found five forms not in the layer: two with a footnote digit left out, the two raised w of (12) and (17), and the underlined Squamish name, each named in its row. The second found every marked word of the layer here, apart from the same footnote digits and the same two w. The two tiers of each example gave a second reading of every word. Where the tiers, the page or the text layer disagree the difference is named in its row

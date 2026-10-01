@@ -1,0 +1,348 @@
+where	who	kind	form	gloss
+front	Frances Sobolak	title	Parallels between Passive Allomorphy and Object Agreement in Montana Salish	page 1, carries footnote ∗
+front	Frances Sobolak	name	Frances Sobolak	author
+front	Frances Sobolak	note	Cornell University	page 1, under Frances Sobolak
+front	Frances Sobolak	note	Abstract: Many Salish languages have passive constructions with demoted or impersonal agents, but fail to fully promote the object. In place of subject agreement on the verb, there is a demotion suffix which, in many Interior Salish languages, shows allomorphy sensitive to the object. In this paper, I first show morphological evidence to support an asymmetrical distribution of the passive suffixes -em/-t in Montana Salish. Then, I outline a post-syntactic account that captures the important generalization that passive allomorphy distribution directly parallels the distribution of objects that have overt agreement on the verb. I show that relatively simple syntactic Agree operations paired with post-syntactic Impoverishment of features accounts for the morphological relationship between objects and passive allomorphy.	page 1, the abstract
+front	Frances Sobolak	note	Keywords: Agent demotion, passive, object agreement, Distributed Morphology	page 1, the keywords
+front	Frances Sobolak	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Frances Sobolak	language	Montana Salish	Southern Interior Salish; Montana, called Flathead
+footnote ∗	Frances Sobolak	note	I thank Sarah Thomason for making available her field notes and data, as well as her personal communica- tion on this topic. This paper would not be possible without the resources and help provided. I also thank the Salish Working Group for their feedback. All errors are my own. Author’s email: fes56@cornell.edu.	page 1, footnote ∗, on the title
+footnote ∗	Frances Sobolak	name	Sarah Thomason	field notes and texts of Montana Salish, thanked; Thomason (1992, 2014), Everett and Thomason (1993)
+§1	Frances Sobolak	heading	1 Introduction	page 1
+§1	Frances Sobolak	note	A well-known characteristic of Salish languages is that many have an ‘agent demotion’ (Kroeber 1999) or passive construction. These constructions either have a demoted or impersonal syntactic subject, but the object is not fully promoted to subjecthood. In many Interior Salish languages, the passive suffix, which appears in place of the subject suffix, shows allomorphy sensitive to the patient (Kroeber 1999). In Montana Salish, these constructions have been referred to as ‘backgrounded agent constructions’ (Everett and Thomason 1993).	page 1
+§1	Frances Sobolak	name	Kroeber	Paul Kroeber, reconstructing Salish syntax (1999)
+§1	Frances Sobolak	name	Everett	Daniel Everett, transitivity in Flathead, with Thomason (1993)
+§1	Frances Sobolak	note	In this paper, I show an interesting parallel between this asymmetrical distribution of the passive suffixes -em/-t and the distribution of overt object agreement on the verb. While there is a desig- nated object morpheme slot on the verb, only three objects utilize this morpheme slot: 1PL, 2SG, 2PL (henceforth, 1PL/2). These are exactly the objects which trigger the passive allomorph -t. In conjunction with other evidence that 1SG does not pattern as a participant in these constructions, I show that post-syntactic Impoverishment of features captures the morphological relationship be- tween 1PL/2 objects and the demotion suffix -t. Crucially, I show the reoccurring grouping of 1PL/2 can not cleanly be captured with syntactic mechanisms — post-syntactic (morphological) processes must be at play.	page 1
+§1	Frances Sobolak	note	The format of this paper is as follows: In Section 2, I briefly cover the basics of passive in Salish, and show morphological evidence that Montana Salish constructions with -em/-t are indeed passive. In Section 3, I walk through the distribution of passive allomorphs, -em/-t. In Section 3.1, I pay special attention to the -t allomorph, as it has previously been identified as a 1PL ergative marker. I show morphological evidence that this -t is simply the passive allomorph and there is a gap in the transitive paradigm for 1PL ergative subjects. In Section 4, I introduce the focal interest of this paper — the parallel between overt object suffixes and passive allomorphy. In Section 5, I outline my formal proposal for how we can capture these parallel patterns in the syntax and morphology (post-syntactic). I conclude in Section 6.	page 1
+§2	Frances Sobolak	heading	2 The Salish passive	page 2
+§2	Frances Sobolak	note	Before jumping into the main discussion, I will first give a brief overview of the discussion on pas- sive constructions in Salish. The modern Salish -em suffix is historically connected to Proto-Salish passive *-m (Kroeber 1999). Across many Salish languages, the reflexes of this *-m behave like a passive, by having a demoted or impersonal subject without fully promoting the object. There have been a handful of morphological and syntactic tests proposed in order to verify the status of objects and subjects in these constructions. For example, negated transitive constructions in Halkomelem have overt morphology for both the subject and object, and a negated passive construction shows the failure to promote the object. An expletive third person auxiliary is inserted to take the place of the absent subject in Halkomelem, shown below (Wiltschko 2001).1	page 2
+footnote 1	Frances Sobolak	note	The Halkomelem transcription in (1) follows that of Wiltschko 2001, while all Montana Salish transcriptions in this paper follow that of S. Thomason’s field notes/texts. Glossing abbreviations are as follows: NEG= Negation, AUX= Auxiliary, TRANS= Transitive suffix, OBJ= Object, SUBJ= Subject, SG= Singular, PL= Plural, PASS= Passive, ERG= Ergative, PART= Participant, SP= Speaker, 1= First person, 2= Second person, 3= Third person.	page 2, footnote 1
+§2	Frances Sobolak	name	Wiltschko	Martina Wiltschko, the passive in Halkomelem and Squamish (2001)
+§2	Frances Sobolak	language	Halkomelem	Central Salish; (1), from Wiltschko 2001
+(1) line 1	Montana Salish	transcription	éwe ís xwemékwathethàlem (Wiltschko 2001:321, ex 6)	page 2
+(1) line 2	Montana Salish	segmentation	éwe í-s xwemékwathe-th-àl-em	page 2
+(1) line 3	Montana Salish	gloss	NEG AUX-3SG.SUBJ kiss-TRANS-1SG.PASS-EM	page 2
+(1) line 4	Frances Sobolak	translation	‘Nobody kissed me.’ / ‘I wasn’t kissed.’	page 2
+§2	Frances Sobolak	note	Additional tests have been used to identify passive constructions, including the distribution of determiners used only with transitive subjects (Wiltschko 2001 shows this for tl’ in Halkomelem), the One Nominal Interpretation (Gerdts 1988), and raising construction restrictions (H. Davis 2018). Unfortunately, for a variety of reasons, these tests will not work for Montana Salish.	page 2
+§2	Frances Sobolak	name	Gerdts	Donna H. Gerdts, object and absolutive in Halkomelem (1988)
+§2	Frances Sobolak	name	H. Davis	Henry Davis, passive resistance in Salish (2018), p.c.
+§2	Frances Sobolak	note	First, Montana Salish does not have auxiliaries, which means there is no overt expletive sub- ject agreement to show failure to promote the object. Second, the transitive subject determiner in Montana Salish, the oblique t, is used to mark a variety of arguments/adjuncts, not just transitive subjects. In fact, this oblique t is still present in passive constructions (see below). Third, the One Nominal Interpretation rule doesn’t hold in Montana Salish — if there is one overt argument in a transitive clause, it does not have to be the object. The data needed to discuss syntactic behavior is set aside at present.	page 2
+§2	Frances Sobolak	note	How then do we confirm these -em/-t constructions in Montana Salish are indeed passive? There is morphological evidence to support this. As mentioned in the above paragraph, overt subjects separate from the verb are obligatorily marked oblique in regular transitive constructions, see (2). In passive constructions with an overt subject, the overt subject is still marked oblique, even though the subject is demoted on the verb, see (3). Relevant agreement suffixes are bolded.	page 2
+(2) line 1	Montana Salish	transcription	kʷu kʷ’eʔntés t smxe	page 2
+(2) line 2	Montana Salish	segmentation	kʷu kʷ’eʔ-nt-és t smxe	page 2
+(2) line 3	Montana Salish	gloss	1SG.OBJ bite-TRANS-3SUBJ OBL grizzly bear	page 2
+(2) line 4	Frances Sobolak	translation	‘The grizzly bear bit me.’	page 2
+(2) line 5	Frances Sobolak	note	(active; overt subject marked OBL)	page 2, at the right of the translation
+(3) line 1	Montana Salish	transcription	kʷu kʷ’eʔntém t smxe	page 3
+(3) line 2	Montana Salish	segmentation	kʷu kʷ’eʔ-nt-ém t smxe	page 3
+(3) line 3	Montana Salish	gloss	1SG.OBJ bite-TRANS-PASS OBL grizzly.bear	page 3
+(3) line 4	Frances Sobolak	translation	‘The grizzly bear bit me.’	page 3
+(3) line 5	Frances Sobolak	note	(passive; overt subject marked OBL)	page 3, at the right of the translation
+§2	Frances Sobolak	note	Additional evidence against full object promotion is found looking at 1SG behavior. 1SG objects are not marked on the verb, but with a preverbal clitic kʷu, see (2). As shown in (3), in a passive construction with a 1SG object, the person is still marked with the object clitic kʷu. While Montana Salish displays an ergative-absolutive pattern, the 1SG intransitive clitic (čn) is different from the 1SG transitive object clitic kʷu, so we can clearly see that the patient is remaining an object. The 1SG object is not being promoted in these passive constructions.	page 3
+§2	Frances Sobolak	note	A third piece of morphological evidence is found in considering agent ambiguity in these pas- sive constructions. Morphologically, to create a passive, the subject suffix is replaced with -em/-t. Below are two (near) minimal pairs. Note that in (2–3), the agent is present externally from the verb and thus remains unambiguous. In (4–5), however, when the agent is demoted with no exter- nal agent present, it becomes ambiguous across persons. Agreement suffixes of interest are bolded below.	page 3
+(4) line 1	Montana Salish	transcription	kʷu čɬpntés	page 3
+(4) line 2	Montana Salish	segmentation	kʷu čɬp-nt-és	page 3
+(4) line 3	Montana Salish	gloss	1SG.OBJ hunt-TRANS-3SUBJ	page 3
+(4) line 4	Frances Sobolak	translation	‘He/they hunted me.’	page 3
+(4) line 5	Frances Sobolak	note	(active)	page 3, at the right of the translation
+(5) line 1	Montana Salish	transcription	kʷu kʷ’eʔntém	page 3
+(5) line 2	Montana Salish	segmentation	kʷu kʷ’eʔ-nt-ém	page 3
+(5) line 3	Montana Salish	gloss	1SG.OBJ bite-TRANS-PASS	page 3
+(5) line 4	Frances Sobolak	translation	‘He/they/you(SG/PL) bit me.’	page 3
+(5) line 5	Frances Sobolak	note	(passive)	page 3, at the right of the translation
+§2	Frances Sobolak	note	The above examples show this agent ambiguity with the passive suffix -em. The same ambiguity arises when the -t allomorph is used, shown in (6–7). The parenthetical qe in (7) will be discussed in the next section.	page 3
+(6) line 1	Montana Salish	transcription	qe čɬpɬúllt	page 3
+(6) line 2	Montana Salish	segmentation	qe čɬp-ɬúl-l-t	page 3
+(6) line 3	Montana Salish	gloss	1PL hunt-TRANS-1PL.OBJ-PASS	page 3
+(6) line 4	Frances Sobolak	translation	‘You(SG/PL)/(s)he/they hunted us.’	page 3
+(7) line 1	Montana Salish	transcription	(qe) čɬpntcít	page 3
+(7) line 2	Montana Salish	segmentation	(qe) čɬp-nt-sí-t	page 3
+(7) line 3	Montana Salish	gloss	(1PL) hunt-TRANS-2SG.OBJ-PASS	page 3
+(7) line 4	Frances Sobolak	translation	’(S)he/they/we hunted you (SG).’	page 3
+§2	Frances Sobolak	note	Based off of these morphological patterns, I maintain that these -em/-t constructions in Montana Salish are agent demotion constructions — passive, with the understanding that there is not object promotion. In the next section, I identify the distribution of the passive morphemes.	page 3
+§3	Frances Sobolak	heading	3 The distribution of -em/-t	page 4
+§3	Frances Sobolak	note	The distribution of the two passive suffixes is shown below in Table 1. One interesting thing to note here is that 1SGsubjects cannot be demoted.2 This important gap in the system will become more relevant in later sections, when I show reoccurring groupings of 1PL/2.	page 4
+footnote 2	Frances Sobolak	note	In the literature on Montana Salish, this passive construction has been described mostly using its pragmatic and discourse effects — focusing the discourse on the object (Everett and Thomason 1993). S. Thomason (p.c.) noted a 1SG agent can never be "backgrounded" (demoted), presumably for pragmatic reasons. J. Lyon (p.c.) notes the same restriction in Okanagan. Speakers strongly disprefer 1SG demoted agents, and instead use a 1PL agent.	page 4, footnote 2
+footnote 2	Frances Sobolak	name	J. Lyon	John Lyon, p.c. on Okanagan
+Table 1 line 1	Frances Sobolak	note	Table 1: Distribution of Passive Suffixes	page 4, the caption
+Table 1 line 2	Frances Sobolak	note	O → 1SG 2SG 3SG 1PL 2PL 3PL	page 4, the line heading the columns, the object
+Table 1 line 3	Frances Sobolak	note	S ↓	page 4, the line heading the rows, the subject
+Table 1, 1SG	Frances Sobolak	note	1SG	page 4, the subject heading the row
+Table 1, 1SG on 2SG, 3SG, 2PL, 3PL	Frances Sobolak	note	∅ ∅ ∅ ∅	page 4, 1SG on 2SG and 3SG and 2PL and 3PL, no passive: 1SG is not demoted
+Table 1, 1SG on 1SG	Frances Sobolak	note	(RFLX)	page 4, 1SG on 1SG, the reflexive
+Table 1, 2SG	Frances Sobolak	note	2SG	page 4, the subject heading the row
+Table 1, 2SG on 1SG	Montana Salish	cited affix	-em	page 4, 2SG on 1SG, the passive suffix
+Table 1, 2SG on 2SG	Frances Sobolak	note	(RFLX)	page 4, 2SG on 2SG, the reflexive
+Table 1, 2SG on 3SG	Montana Salish	cited affix	-em	page 4, 2SG on 3SG, the passive suffix
+Table 1, 2SG on 1PL	Montana Salish	cited affix	-t	page 4, 2SG on 1PL, the passive suffix
+Table 1, 2SG on 3PL	Montana Salish	cited affix	-em	page 4, 2SG on 3PL, the passive suffix
+Table 1, 3SG	Frances Sobolak	note	3SG	page 4, the subject heading the row
+Table 1, 3SG on 1SG	Montana Salish	cited affix	-em	page 4, 3SG on 1SG, the passive suffix
+Table 1, 3SG on 2SG	Montana Salish	cited affix	-t	page 4, 3SG on 2SG, the passive suffix
+Table 1, 3SG on 3SG	Montana Salish	cited affix	-em	page 4, 3SG on 3SG, the passive suffix
+Table 1, 3SG on 1PL	Montana Salish	cited affix	-t	page 4, 3SG on 1PL, the passive suffix
+Table 1, 3SG on 2PL	Montana Salish	cited affix	-t	page 4, 3SG on 2PL, the passive suffix
+Table 1, 3SG on 3PL	Montana Salish	cited affix	-em	page 4, 3SG on 3PL, the passive suffix
+Table 1, 1PL	Frances Sobolak	note	1PL	page 4, the subject heading the row
+Table 1, 1PL on 2SG	Montana Salish	cited affix	-t	page 4, 1PL on 2SG, the passive suffix
+Table 1, 1PL on 3SG	Montana Salish	cited affix	-em	page 4, 1PL on 3SG, the passive suffix
+Table 1, 1PL on 1PL	Frances Sobolak	note	(RFLX)	page 4, 1PL on 1PL, the reflexive
+Table 1, 1PL on 2PL	Montana Salish	cited affix	-t	page 4, 1PL on 2PL, the passive suffix
+Table 1, 1PL on 3PL	Montana Salish	cited affix	-em	page 4, 1PL on 3PL, the passive suffix
+Table 1, 2PL	Frances Sobolak	note	2PL	page 4, the subject heading the row
+Table 1, 2PL on 1SG	Montana Salish	cited affix	-em	page 4, 2PL on 1SG, the passive suffix
+Table 1, 2PL on 3SG	Montana Salish	cited affix	-em	page 4, 2PL on 3SG, the passive suffix
+Table 1, 2PL on 1PL	Montana Salish	cited affix	-t	page 4, 2PL on 1PL, the passive suffix
+Table 1, 2PL on 2PL	Frances Sobolak	note	(RFLX)	page 4, 2PL on 2PL, the reflexive
+Table 1, 2PL on 3PL	Montana Salish	cited affix	-em	page 4, 2PL on 3PL, the passive suffix
+Table 1, 3PL	Frances Sobolak	note	3PL	page 4, the subject heading the row
+Table 1, 3PL on 1SG	Montana Salish	cited affix	-em	page 4, 3PL on 1SG, the passive suffix
+Table 1, 3PL on 2SG	Montana Salish	cited affix	-t	page 4, 3PL on 2SG, the passive suffix
+Table 1, 3PL on 3SG	Montana Salish	cited affix	-em	page 4, 3PL on 3SG, the passive suffix
+Table 1, 3PL on 1PL	Montana Salish	cited affix	-t	page 4, 3PL on 1PL, the passive suffix
+Table 1, 3PL on 2PL	Montana Salish	cited affix	-t	page 4, 3PL on 2PL, the passive suffix
+Table 1, 3PL on 3PL	Montana Salish	cited affix	-em	page 4, 3PL on 3PL, the passive suffix
+§3	Frances Sobolak	note	The distribution of -t presented in Table 1 deserves more discussion. Grammatical constructions with a 1PL subject must utilize a passive suffix. 1PL subject is marked with -em when the object is third person, and marked with -t when the object is second person.3 There has been debate, summarized below, about the status of 1PL ergative subjects. In Section 3.1, I show support for (i).	page 4
+footnote 3	Frances Sobolak	note	Brown, Koch, and Wiltschko (2005) looks at this -t across four Salish languages — Halkomelem, Thompson River Salish, Shuswap, and Spokane. They propose that -t is the regular 1PL subject suffix, and that -em is the indefinite agent suffix (passive) used for 1SG and 3rd person objects. They suggest a person hierarchy exists where 1PL > 3 is not allowed and the morphological combination of -∅-t must be avoided. Instead, -em is employed. They, however, fail to incorporate the other instances of passive -t into their analysis, when -t appears with second person objects.	page 4, footnote 3
+footnote 3	Frances Sobolak	name	Brown	Jason Brown, gaps in transitive paradigms, with Koch and Wiltschko (2005)
+footnote 3	Frances Sobolak	name	Koch	Karsten Koch, with Brown and Wiltschko (2005)
+footnote 3	Frances Sobolak	language	Spokane	Southern Interior Salish
+§3	Frances Sobolak	note	(i) There is no 1PL ergative subject suffix, and passive morphology is used instead.	page 4
+§3	Frances Sobolak	note	(ii) 1PL ergative subjects have a regular morpheme -em or -t, and it is simply impossible to mor- phologically tell apart active and passive forms. In Section 3.1 below, I argue that all instances of this -t are passives in Montana Salish, and	page 4
+§3	Frances Sobolak	note	there is a gap in the transitive paradigm for 1PL ergative subjects.	page 4
+§3.1	Frances Sobolak	heading	3.1 A discussion on -t	page 4
+§3.1	Frances Sobolak	note	All evidence I provide here is morphological. First, there are some clear instances of passive -t (8–9) because they create agent ambiguity just like with -em (10):	page 4
+(8) line 1	Montana Salish	transcription	qe čɬpɬúllt	page 5
+(8) line 2	Montana Salish	segmentation	qe čɬp-ɬúl-l-t	page 5
+(8) line 3	Montana Salish	gloss	1PL hunt-TRANS-1PL.OBJ-PASS	page 5
+(8) line 4	Frances Sobolak	translation	‘You(SG/PL)/(s)he/they hunted us.’	page 5
+(9) line 1	Montana Salish	transcription	čɬpntcít	page 5
+(9) line 2	Montana Salish	segmentation	čɬp-nt-sí-t	page 5
+(9) line 3	Montana Salish	gloss	hunt-TRANS-2SG.OBJ-PASS	page 5
+(9) line 4	Frances Sobolak	translation	‘(S)he/they hunted you (SG).’	page 5
+(10) line 1	Montana Salish	transcription	kʷu kʷ’eʔntém	page 5
+(10) line 2	Montana Salish	segmentation	kʷu kʷ’eʔ-nt-ém	page 5
+(10) line 3	Montana Salish	gloss	1SG.OBJ bite-TRANS-PASS	page 5
+(10) line 4	Frances Sobolak	translation	‘(S)he/they/you(SG/PL) bit me.’	page 5
+§3.1	Frances Sobolak	note	In 1PL over 2SG/PL constructions with -t, the agent is unambiguously 1PL because of the qe, see (11). But in fact there might be a bit of optionality of using qe, at least with 1PL over 2SG/PL constructions. Examples (12–13) lack qe, but were meant for a 1PL agent. Without the qe, the constructions become just as ambiguous as other passives. This optionality in the below examples is indicated with parentheses.	page 5
+(11) line 1	Montana Salish	transcription	qe čɬpntcít	page 5
+(11) line 2	Montana Salish	segmentation	qe čɬp-nt-sí-t	page 5
+(11) line 3	Montana Salish	gloss	1PL hunt-TRANS-2SG.OBJ-PASS	page 5
+(11) line 4	Frances Sobolak	translation	‘We hunted you (SG).’	page 5
+(12) line 1	Montana Salish	transcription	(qe) čɬpntcít	page 5
+(12) line 2	Montana Salish	segmentation	(qe) čɬp-nt-sí-t	page 5
+(12) line 3	Montana Salish	gloss	(1PL) hunt-TRANS-2SG.OBJ-PASS	page 5
+(12) line 4	Frances Sobolak	translation	‘(S)he/they/we hunted you (SG).’	page 5
+(13) line 1	Montana Salish	transcription	(qe) čɬpɬúləmt	page 5
+(13) line 2	Montana Salish	segmentation	(qe) čɬp-ɬúl-əm-t	page 5
+(13) line 3	Montana Salish	gloss	(1PL) hunt-TRANS-2PL.OBJ-PASS	page 5
+(13) line 4	Frances Sobolak	translation	‘(S)he/they/we hunted you (PL).’	page 5
+§3.1	Frances Sobolak	note	Note, however, that even with clear 1PL over 3 passives with -em (14), qe is still present so we cannot use the above as evidence against passive -t.4 Additionally, there is evidence of clear passive -t with qe with 3 over 1PL, see (15).	page 5
+footnote 4	Frances Sobolak	note	This present qe for 1PL agents in passive constructions is evidence for a demoted subject in Montana Salish, not an impersonal agent.	page 5, footnote 4
+(14) line 1	Montana Salish	transcription	qe čɬpntém	page 6
+(14) line 2	Montana Salish	segmentation	qe čɬp-nt-ém	page 6
+(14) line 3	Montana Salish	gloss	1PL hunt-TRANS-PASS	page 6
+(14) line 4	Frances Sobolak	translation	‘We hunted him/her/them.’	page 6
+(15) line 1	Montana Salish	transcription	qe qʷ’óm’ɬlt	page 6
+(15) line 2	Montana Salish	segmentation	qe qʷ’óm’-ɬúl-l-t	page 6
+(15) line 3	Montana Salish	gloss	1PL take.PL -TRANS-1PL.OBJ-PASS	page 6
+(15) line 4	Frances Sobolak	translation	‘We were taken (by him/her/them).’	page 6
+§3.1	Frances Sobolak	note	This morphological evidence points towards a gap in the transitive paradigm for 1PL erga- tive subjects. This gap in transitive paradigms is common across the Interior Salish branch. Lil- looet (Northern Interior) is missing all 1PL ergative subjects, and uses passive morphology instead. Okanagan (Southern Interior), Shuswap (Interior), and Thompson (Northern Interior) all ban 1PL ergative subjects with 2SG/PL objects and use passive morphology instead (H. Davis p.c.).	page 6
+§3.1	Frances Sobolak	language	Okanagan	Southern Interior Salish
+§3.1	Frances Sobolak	language	Shuswap	Northern Interior Salish
+§3.1	Frances Sobolak	language	Thompson	Northern Interior Salish
+§3.1	Frances Sobolak	note	What we see in Montana Salish, then, is consistent with paradigm gaps (or bans) across the Interior branch. There is a gap in the transitive paradigm with missing a 1PL ergative subject, and is circumvented by the use of passive suffixes -em/-t. Which passive suffix is used is dependant on the object, shown again below.	page 6
+Table 2 line 1	Frances Sobolak	note	Table 2: Distribution of Passive Suffixes	page 6, the caption
+Table 2 line 2	Frances Sobolak	note	O → 1SG 2SG 3SG 1PL 2PL 3PL	page 6, the line heading the columns, the object
+Table 2 line 3	Frances Sobolak	note	S ↓	page 6, the line heading the rows, the subject
+Table 2, 1SG	Frances Sobolak	note	1SG	page 6, the subject heading the row
+Table 2, 1SG on 2SG, 3SG, 2PL, 3PL	Frances Sobolak	note	∅ ∅ ∅ ∅	page 6, 1SG on 2SG and 3SG and 2PL and 3PL, no passive: 1SG is not demoted
+Table 2, 1SG on 1SG	Frances Sobolak	note	(RFLX)	page 6, 1SG on 1SG, the reflexive
+Table 2, 2SG	Frances Sobolak	note	2SG	page 6, the subject heading the row
+Table 2, 2SG on 1SG	Montana Salish	cited affix	-em	page 6, 2SG on 1SG, the passive suffix
+Table 2, 2SG on 2SG	Frances Sobolak	note	(RFLX)	page 6, 2SG on 2SG, the reflexive
+Table 2, 2SG on 3SG	Montana Salish	cited affix	-em	page 6, 2SG on 3SG, the passive suffix
+Table 2, 2SG on 1PL	Montana Salish	cited affix	-t	page 6, 2SG on 1PL, the passive suffix
+Table 2, 2SG on 3PL	Montana Salish	cited affix	-em	page 6, 2SG on 3PL, the passive suffix
+Table 2, 3SG	Frances Sobolak	note	3SG	page 6, the subject heading the row
+Table 2, 3SG on 1SG	Montana Salish	cited affix	-em	page 6, 3SG on 1SG, the passive suffix
+Table 2, 3SG on 2SG	Montana Salish	cited affix	-t	page 6, 3SG on 2SG, the passive suffix
+Table 2, 3SG on 3SG	Montana Salish	cited affix	-em	page 6, 3SG on 3SG, the passive suffix
+Table 2, 3SG on 1PL	Montana Salish	cited affix	-t	page 6, 3SG on 1PL, the passive suffix
+Table 2, 3SG on 2PL	Montana Salish	cited affix	-t	page 6, 3SG on 2PL, the passive suffix
+Table 2, 3SG on 3PL	Montana Salish	cited affix	-em	page 6, 3SG on 3PL, the passive suffix
+Table 2, 1PL	Frances Sobolak	note	1PL	page 6, the subject heading the row
+Table 2, 1PL on 2SG	Montana Salish	cited affix	-t	page 6, 1PL on 2SG, the passive suffix
+Table 2, 1PL on 3SG	Montana Salish	cited affix	-em	page 6, 1PL on 3SG, the passive suffix
+Table 2, 1PL on 1PL	Frances Sobolak	note	(RFLX)	page 6, 1PL on 1PL, the reflexive
+Table 2, 1PL on 2PL	Montana Salish	cited affix	-t	page 6, 1PL on 2PL, the passive suffix
+Table 2, 1PL on 3PL	Montana Salish	cited affix	-em	page 6, 1PL on 3PL, the passive suffix
+Table 2, 2PL	Frances Sobolak	note	2PL	page 6, the subject heading the row
+Table 2, 2PL on 1SG	Montana Salish	cited affix	-em	page 6, 2PL on 1SG, the passive suffix
+Table 2, 2PL on 3SG	Montana Salish	cited affix	-em	page 6, 2PL on 3SG, the passive suffix
+Table 2, 2PL on 1PL	Montana Salish	cited affix	-t	page 6, 2PL on 1PL, the passive suffix
+Table 2, 2PL on 2PL	Frances Sobolak	note	(RFLX)	page 6, 2PL on 2PL, the reflexive
+Table 2, 2PL on 3PL	Montana Salish	cited affix	-em	page 6, 2PL on 3PL, the passive suffix
+Table 2, 3PL	Frances Sobolak	note	3PL	page 6, the subject heading the row
+Table 2, 3PL on 1SG	Montana Salish	cited affix	-em	page 6, 3PL on 1SG, the passive suffix
+Table 2, 3PL on 2SG	Montana Salish	cited affix	-t	page 6, 3PL on 2SG, the passive suffix
+Table 2, 3PL on 3SG	Montana Salish	cited affix	-em	page 6, 3PL on 3SG, the passive suffix
+Table 2, 3PL on 1PL	Montana Salish	cited affix	-t	page 6, 3PL on 1PL, the passive suffix
+Table 2, 3PL on 2PL	Montana Salish	cited affix	-t	page 6, 3PL on 2PL, the passive suffix
+Table 2, 3PL on 3PL	Montana Salish	cited affix	-em	page 6, 3PL on 3PL, the passive suffix
+§4	Frances Sobolak	heading	4 The interesting parallel	page 6
+§4	Frances Sobolak	note	The goal of this paper is to capture the parallel between passive allomorphy distribution and overt object agreement on the verb. Now that the distribution of passive morphology has been clarified, we turn to object agreement morphology. Table 3 below shows the distribution of object marking on the Montana Salish verb. Crucially, only 1PL, 2SG, and 2PL objects have an overt agreement suffix.5 Third person objects are null (unmarked), but if plural, the plurality can optionally be marked by prefixed reduplication of the root. First person singular objects are marked as a clitic, kʷu.	page 6
+footnote 5	Frances Sobolak	note	1PL objects are doubly marked with qe and -l. This is a possible complication, though for now I leave that to future research.	page 6, footnote 5
+Table 3 line 1	Frances Sobolak	note	Table 3: Object Agreement on/around Montana Salish Verb	page 7, the caption
+Table 3 line 2	Frances Sobolak	note	CLITIC (REDUP-) VERB ROOT -TRANS -OBJ -SUBJ	page 7, the columns of the verb's template
+Table 3, CLITIC 1SG.OBJ	Frances Sobolak	note	1SG.OBJ	page 7, the object, in the CLITIC column
+Table 3, CLITIC 1SG.OBJ	Montana Salish	cited form	kʷu	page 7, 1SG.OBJ, its marker in the CLITIC column
+Table 3, CLITIC 1PL	Frances Sobolak	note	1PL	page 7, the object, in the CLITIC column
+Table 3, CLITIC 1PL	Montana Salish	cited form	qe	page 7, 1PL, its marker in the CLITIC column
+Table 3, -OBJ 1PL	Frances Sobolak	note	1PL	page 7, the object, in the -OBJ column
+Table 3, -OBJ 1PL	Montana Salish	cited affix	-l	page 7, 1PL, its marker in the -OBJ column
+Table 3, -OBJ 2SG	Frances Sobolak	note	2SG	page 7, the object, in the -OBJ column
+Table 3, -OBJ 2SG	Montana Salish	cited affix	-sí	page 7, 2SG, its marker in the -OBJ column
+Table 3, -OBJ 2PL	Frances Sobolak	note	2PL	page 7, the object, in the -OBJ column
+Table 3, -OBJ 2PL	Montana Salish	cited affix	-m	page 7, 2PL, its marker in the -OBJ column
+Table 3, (REDUP-)	Frances Sobolak	note	(3PL.OBJ CVC-)	page 7, the (REDUP-) column: a plural third person object, reduplicated optionally
+§4	Frances Sobolak	note	Now we see the parallel: -t occurs exactly where there is overt object suffix, -em occurs exactly where there is a zero/null object suffix. The below itemized facts lay out the foundation for the rest of the paper:	page 7
+§4	Frances Sobolak	note	(i) The distribution of passive morpheme -t is 1PL/2	page 7
+§4	Frances Sobolak	note	(ii) The distribution of overt object suffixes is 1PL/2	page 7
+§4	Frances Sobolak	note	(iii) The distribution of passive morpheme -t is 1SG/3	page 7
+§4	Frances Sobolak	note	(iv) The distribution of objects with null/unmarked object suffixes is 1SG/3	page 7
+Table 4 line 1	Frances Sobolak	note	Table 4: Distribution of Passive Suffixes	page 7, the caption
+Table 4, the object suffixes	Frances Sobolak	note	OBJ SUFF:	page 7, the line over the objects
+Table 4, the object suffix of 2SG	Montana Salish	cited affix	-sí	page 7, the overt object suffix of 2SG
+Table 4, the object suffix of 1PL	Montana Salish	cited affix	-l	page 7, the overt object suffix of 1PL
+Table 4, the object suffix of 2PL	Montana Salish	cited affix	-um	page 7, the overt object suffix of 2PL
+Table 4 line 2	Frances Sobolak	note	O → 1SG 2SG 3SG 1PL 2PL 3PL	page 7, the line heading the columns, the object
+Table 4 line 3	Frances Sobolak	note	S ↓	page 7, the line heading the rows, the subject
+Table 4, 1SG	Frances Sobolak	note	1SG	page 7, the subject heading the row
+Table 4, 1SG on 2SG, 3SG, 2PL, 3PL	Frances Sobolak	note	∅ ∅ ∅ ∅	page 7, 1SG on 2SG and 3SG and 2PL and 3PL, no passive: 1SG is not demoted
+Table 4, 1SG on 1SG	Frances Sobolak	note	(RFLX)	page 7, 1SG on 1SG, the reflexive
+Table 4, 2SG	Frances Sobolak	note	2SG	page 7, the subject heading the row
+Table 4, 2SG on 1SG	Montana Salish	cited affix	-em	page 7, 2SG on 1SG, the passive suffix
+Table 4, 2SG on 2SG	Frances Sobolak	note	(RFLX)	page 7, 2SG on 2SG, the reflexive
+Table 4, 2SG on 3SG	Montana Salish	cited affix	-em	page 7, 2SG on 3SG, the passive suffix
+Table 4, 2SG on 1PL	Montana Salish	cited affix	-t	page 7, 2SG on 1PL, the passive suffix
+Table 4, 2SG on 3PL	Montana Salish	cited affix	-em	page 7, 2SG on 3PL, the passive suffix
+Table 4, 3SG	Frances Sobolak	note	3SG	page 7, the subject heading the row
+Table 4, 3SG on 1SG	Montana Salish	cited affix	-em	page 7, 3SG on 1SG, the passive suffix
+Table 4, 3SG on 2SG	Montana Salish	cited affix	-t	page 7, 3SG on 2SG, the passive suffix
+Table 4, 3SG on 3SG	Montana Salish	cited affix	-em	page 7, 3SG on 3SG, the passive suffix
+Table 4, 3SG on 1PL	Montana Salish	cited affix	-t	page 7, 3SG on 1PL, the passive suffix
+Table 4, 3SG on 2PL	Montana Salish	cited affix	-t	page 7, 3SG on 2PL, the passive suffix
+Table 4, 3SG on 3PL	Montana Salish	cited affix	-em	page 7, 3SG on 3PL, the passive suffix
+Table 4, 1PL	Frances Sobolak	note	1PL	page 7, the subject heading the row
+Table 4, 1PL on 2SG	Montana Salish	cited affix	-t	page 7, 1PL on 2SG, the passive suffix
+Table 4, 1PL on 3SG	Montana Salish	cited affix	-em	page 7, 1PL on 3SG, the passive suffix
+Table 4, 1PL on 1PL	Frances Sobolak	note	(RFLX)	page 7, 1PL on 1PL, the reflexive
+Table 4, 1PL on 2PL	Montana Salish	cited affix	-t	page 7, 1PL on 2PL, the passive suffix
+Table 4, 1PL on 3PL	Montana Salish	cited affix	-em	page 7, 1PL on 3PL, the passive suffix
+Table 4, 2PL	Frances Sobolak	note	2PL	page 7, the subject heading the row
+Table 4, 2PL on 1SG	Montana Salish	cited affix	-em	page 7, 2PL on 1SG, the passive suffix
+Table 4, 2PL on 3SG	Montana Salish	cited affix	-em	page 7, 2PL on 3SG, the passive suffix
+Table 4, 2PL on 1PL	Montana Salish	cited affix	-t	page 7, 2PL on 1PL, the passive suffix
+Table 4, 2PL on 2PL	Frances Sobolak	note	(RFLX)	page 7, 2PL on 2PL, the reflexive
+Table 4, 2PL on 3PL	Montana Salish	cited affix	-em	page 7, 2PL on 3PL, the passive suffix
+Table 4, 3PL	Frances Sobolak	note	3PL	page 7, the subject heading the row
+Table 4, 3PL on 1SG	Montana Salish	cited affix	-em	page 7, 3PL on 1SG, the passive suffix
+Table 4, 3PL on 2SG	Montana Salish	cited affix	-t	page 7, 3PL on 2SG, the passive suffix
+Table 4, 3PL on 3SG	Montana Salish	cited affix	-em	page 7, 3PL on 3SG, the passive suffix
+Table 4, 3PL on 1PL	Montana Salish	cited affix	-t	page 7, 3PL on 1PL, the passive suffix
+Table 4, 3PL on 2PL	Montana Salish	cited affix	-t	page 7, 3PL on 2PL, the passive suffix
+Table 4, 3PL on 3PL	Montana Salish	cited affix	-em	page 7, 3PL on 3PL, the passive suffix
+§4	Frances Sobolak	note	Why do these two have parallel distributions? We know that objects are not fully promoted in passive constructions, yet we see object agreement with Voice. Additionally, this consistent grouping of 1PL/2 is curious. Why is 1PL patterning with second person instead of third person (which is more consistent with family behavior)? Or, why is 1SG not included to have a natural class of participants? There is a growing list of evidence that this group of persons form some natural grouping in the language, excluding 1SG.	page 7
+(16) line 1	Frances Sobolak	note	Evidence for a natural grouping of participants, excluding 1SG:	page 7, set as an example
+(16) line 2	Frances Sobolak	note	1. 1PL/2SG/2PL have overt object suffixes – 1SG objects do not (they have the particle kʷu)	page 7, set as an example
+(16) line 3	Frances Sobolak	note	2. 1PL/2SG/2PL objects occur with -t – 1SG objects do not (they occur with -em)	page 7, set as an example
+(16) line 4	Frances Sobolak	note	3. 1SG subjects are the only person that can not be demoted	page 8, set as an example
+§4	Frances Sobolak	note	Considering the above observations, we arrive at: formally, how do we get a natural feature grouping of 1PL/2? How do we get 1SG to not pattern with other participants? We now turn to the analysis, but it is important to consider what part of the process can capture this feature class/combination, as both syntactic Agree (probing) and post-syntactic (morphological) Vocabulary Insertion are built on feature combinations/classes, and as we will see 1PL/2 is a difficult feature class to capture.	page 8
+§5	Frances Sobolak	heading	5 Towards a formal analysis	page 8
+§5	Frances Sobolak	note	I assume a Distributed Morphology framework, which postpones much of morphology until after syntax (Embick and Noyer 2007). Vocabulary insertion matches features of abstract morphemes in syntax to their realizations, or vocabulary items. The mechanics of this framework is important because it requires features to play an important role in syntax and after syntax.	page 8
+§5	Frances Sobolak	name	Embick	David Embick, Distributed Morphology, with Noyer (2007)
+§5	Frances Sobolak	name	Noyer	Rolf Noyer, with Embick (2007)
+§5.1	Frances Sobolak	heading	5.1 Features	page 8
+§5.1	Frances Sobolak	note	We need to capture the person class of 1PL, 2SG, and 2PL. Since both syntactic Agree and post- syntactic Vocabulary Insertion are built on feature satisfaction and specification, it is important to consider where to capture this person grouping of 1PL/2. I assume a binary feature geometry, that allows us to capture person combinations by referring to feature classes (for example Harley and Ritter 2002).	page 8
+§5.1	Frances Sobolak	name	Harley	Heidi Harley, feature geometry of pronouns, with Ritter (2002)
+§5.1	Frances Sobolak	name	Ritter	Elizabeth Ritter, with Harley (2002)
+§5.1	Frances Sobolak	note	However, while it may seem intuitive that 1PL and 2nd person form some natural grouping of features, it is not very clean. When trying to capture this grouping of 1PL, 2SG, and 2PL, binary geometries will always either under- or over-generalize:6	page 8
+footnote 6	Frances Sobolak	note	An obvious possible feature solution is to assume that 1PL is an inclusive ‘we’, in which case there is a natural grouping that encompasses all three persons, [+ADD] (Addressee). However, there is not an inclu- sive/exclusive morphological distinction in the language, and I have not seen evidence for a purely inclusive ‘we’ system. There is some weight to this direction, from Shuswap (another Salish language) that does have an inclusive ‘we’, but at this point, I do not have the evidence to continue in that direction.	page 8, footnote 6
+(17) line 1	Frances Sobolak	note	[+PART] (1PL, 1PL, 2SG, 2PL)	page 8, set as an example
+(18) line 1	Frances Sobolak	note	[+PART+PL] (1PL, 2PL)	page 8, set as an example
+(19) line 1	Frances Sobolak	note	[+PART+PL] [+ADD] (disjunctive and overlapping)	page 8, set as an example
+§5.1	Frances Sobolak	note	Since both syntactic operations and (post-syntactic) morphological operations are built on fea- ture specifications/mappings, we have to restrict the feature class somewhere in the process. If we tried to restrict the feature class in syntax, it would result in disjunctive person features that overlap (diverging from the usual disjunctive probe, which is divided into person and number). A disjunc- tive probe here would be divided into [person and number] and [more specific person].7 Where then can we restrict features in order to get the right person distribution of object suffixes and the demotion suffix -t? In the next section, I argue for post-syntactic restriction of features with the morphological process Impoverishment.	page 8
+footnote 7	Frances Sobolak	note	If we tried to restrict the features at Vocabulary Insertion, we run into the above problem of not being able to match the person grouping perfectly without either over-/undergeneralizing or creating problems with the Subset Principle (Embick and Noyer 2007). -t ↔ [+PART+PL] [ADD] -em ↔ elsewhere	page 9, footnote 7
+§5.2	Frances Sobolak	heading	5.2 Post-syntactic restriction of features: Impoverishment	page 9
+§5.2	Frances Sobolak	note	A Distributed Morphology framework assumes the syntactic structure goes through post-syntactic operations like Impoverishment and then to Vocabulary Insertion where features are mapped to phonological realizations (the actual morphemes). Impoverishment has been used in order to ac- count for phenomena like suppletive allomorphy.	page 9
+§5.2	Frances Sobolak	note	"When Impoverishment occurs, a feature of a morpheme is deleted in a specific context;	page 9
+§5.2	Frances Sobolak	note	after deletion, the morpheme in question escapes the insertion of any vocabulary item re-	page 9
+§5.2	Frances Sobolak	note	quiring that feature. The effects of Impoverishment are usually seen when in some	page 9
+§5.2	Frances Sobolak	note	particular circumstance a category fails to exhibit the expected exponent but instead	page 9
+§5.2	Frances Sobolak	note	exhibits a default exponent." (Embick and Noyer 2007:311, bolded added). Seeing 1SG objects pattern with the -em is an example of Impoverishment. All other participants pattern with the -t suffix. 1SG objects are impoverished post-syntactically so they no longer can pair with the participant grouping.	page 9
+§5.2	Frances Sobolak	note	Before Impoverishment, however, is syntax. As demonstrated in the below syntactic tree, I as- sume object agreement is situated in little-v, and the syntactic subject sits in the specifier of little-v. I propose that there is an agreement probe on little-v which, in passive constructions, moves the object to the specifier of little-v. This agreement and movement will only occur with the objects that satisfy the probe — that is, with objects that are participants. This overspecification to participation is nec- essary because, as explained above, there is no clean way to specify the exact person combination that we want. I reserve correction of this overspecification to post-syntactic mechanisms.	page 9
+(20) line 1	Frances Sobolak	note	VoiceP	page 9, set as an example
+(20) line 2	Frances Sobolak	note	Voice’	page 9, set as an example
+(20) line 3	Frances Sobolak	note	Voice vP	page 9, set as an example
+(20) line 4	Frances Sobolak	note	v’	page 9, set as an example
+(20) line 5	Frances Sobolak	note	v VP	page 9, set as an example
+(20) line 6	Frances Sobolak	note	ϕ[PART___]	page 9, set as an example
+(20) line 7	Frances Sobolak	note	V DP	page 9, set as an example
+§5.2	Frances Sobolak	note	In regular transitive constructions, the Voice head will agree with the subject. In passive con- structions (23), since the subject is demoted, the Voice head continues to try and agree with local arguments. Since only objects which satisfy the [PART___] probe are raised, Voice will only agree with those raised objects. When Voice does not agree with an object, the default/elsewhere vocabu- lary item is inserted.	page 10
+§5.2	Frances Sobolak	note	Post-syntactically, we need to restrict features on Voice in order to get the correct vocabulary item for -t. In other words, we need to restrict the distribution of -t to exclude 1SG objects. Assuming a Distributed Morphology framework, we can do that with an Impoverishment rule that states the feature [SP] collected by probes [PART+SPEAKER], is deleted in the context of [+SG].	page 10
+(21) line 1	Frances Sobolak	note	[PART+SPEAKER] → ∅ / ___ [+SG]	page 10, set as an example
+§5.2	Frances Sobolak	note	This allows the syntactic Agree operations to be relatively simple (instead of trying to capture the agreement patterns with disjunctive or overlapping features on probes).8 When [PART+SPEAKER] is impoverished, the feature set can no longer pair with [+PART] at vocabulary insertion. This means it cannot be mapped to -t, and the elsewhere suffix -em is inserted instead, which is what we see in the data with -em appearing with 1SG objects.	page 10
+footnote 8	Frances Sobolak	note	Restricting features in syntax requires the use of a disjunctive Agreement probe with overlapping features, something like: [+PART +PL] [+ADDRESSEE]. It is not clean, or very informative why a disjunctive probe would split person (most proposed disjunctive probes are split between person and number (Coon & Bale 2014; Despić et al. 2018)).	page 10, footnote 8
+footnote 8	Frances Sobolak	name	Coon	Jessica Coon, person and number in Migmaq, with Bale (2014)
+footnote 8	Frances Sobolak	name	Bale	Alan Bale, with Coon (2014)
+footnote 8	Frances Sobolak	name	Despić	Miloje Despić, person and number in Cheyenne, with Hamilton and Murray (2019)
+(22) line 1	Frances Sobolak	note	Vocabulary items:	page 10, set as an example
+(22) line 2	Frances Sobolak	note	-t ↔ [+PART]	page 10, set as an example
+(22) line 3	Frances Sobolak	note	-em ↔ elsewhere	page 10, set as an example
+§5.3	Frances Sobolak	heading	5.3 Putting it all together	page 10
+§5.3	Frances Sobolak	note	First, consider a passive construction with a 1SG object, in (23). The syntactic tree in (27) shows the process. The object satisfies the agreement probe on little-v, and the object moves to the specifier of little-v. There, the agreement probe on Voice can view and agree with the raised object. Post-syntactically, then, the features collected by Voice will go through Impoverishment: [PART+SPEAKER] → ∅ / ___ [+SG].9 Consequently, the vocabulary item for Voice passive speci- fied for participants will not be inserted, and the default -em appears instead.	page 10
+footnote 9	Frances Sobolak	note	Features collected by little-v might also go through this impoverishment, resulting in a null/zero object suffix for 1SG objects, though this needs more development.	page 10, footnote 9
+(23) line 1	Montana Salish	transcription	kʷu kʷ’eʔntém	page 10
+(23) line 2	Montana Salish	segmentation	kʷu kʷ’eʔ-nt-ém	page 10
+(23) line 3	Montana Salish	gloss	1SG.OBJ bite-TRANS-PASS	page 10
+(23) line 4	Frances Sobolak	translation	‘(S)he/they/you(SG/PL) bit me.’	page 10
+(23) line 5	Frances Sobolak	note	(demoted)	page 10, at the right of the translation
+(24) line 1	Frances Sobolak	note	VoiceP	page 11, set as an example
+(24) line 2	Frances Sobolak	note	Voice’	page 11, set as an example
+(24) line 3	Frances Sobolak	note	Voice vP	page 11, set as an example
+(24) line 4	Frances Sobolak	note	v’	page 11, set as an example
+(24) line 5	Frances Sobolak	note	v VP	page 11, set as an example
+(24) line 6	Frances Sobolak	note	ϕ[PART___]	page 11, set as an example
+(24) line 7	Frances Sobolak	note	V 1SG	page 11, set as an example
+§5.3	Frances Sobolak	note	Next, consider a passive construction with a 1PL object, in (25). The syntactic tree in (29) shows the process. The object satisfies the agreement probe on little-v, and the object moves to the specifier of little-v. There, the agreement probe on Voice can view and agree with the raised objects. Post-syntactically, the features collected by Voice will not be affected by Impoverishment. Therefore, the vocabulary item for Voice passive specified for participants will be inserted, and the allomorph -t appears.	page 11
+(25) line 1	Montana Salish	transcription	qe čɬpɬúllt	page 11
+(25) line 2	Montana Salish	segmentation	qe čɬp-ɬúl-l-t	page 11
+(25) line 3	Montana Salish	gloss	1PL hunt-TRANS-1PL.OBJ-PASS	page 11
+(25) line 4	Frances Sobolak	translation	‘You(SG/PL)/(s)he/they hunted us.’	page 11
+(26) line 1	Frances Sobolak	note	VoiceP	page 11, set as an example
+(26) line 2	Frances Sobolak	note	Voice’	page 11, set as an example
+(26) line 3	Frances Sobolak	note	Voice vP	page 11, set as an example
+(26) line 4	Frances Sobolak	note	v’	page 11, set as an example
+(26) line 5	Frances Sobolak	note	v VP	page 11, set as an example
+(26) line 6	Frances Sobolak	note	ϕ[PART___]	page 11, set as an example
+(26) line 7	Frances Sobolak	note	V 1PL	page 11, set as an example
+§6	Frances Sobolak	heading	6 Conclusion	page 11
+§6	Frances Sobolak	note	The main generalization noted in this paper is that passive allomorphy distribution parallels the dis- tribution of objects that have overt (suffix) agreement on the verb. This parallel is one example of 1PL/2 forming a natural feature grouping in the language. Formally, however, this feature combi- nation cannot easily be captured, lending support for Impoverishment. Future research should note the behaviors of these morphemes across the Interior branch more thoroughly. Such investigations could reveal further evidence for 1SG Impoverishment both in Montana Salish and other Salish languages.	page 11
+§6	Frances Sobolak	note	More importantly, I hope that this investigation informs further inquiries that reveal more pat- terns, restrictions, etc., in the morphology that inform similarities and differences across the lan- guage family.	page 12
+references	Frances Sobolak	heading	References	page 12
+references	Frances Sobolak	reference	Brown, Jason, Karsten Koch, and Martina Wiltschko. 2005. On certain unexpected gaps in tran- sitive paradigms and their implication. J. Brown, M. Kiyota, T. Peterson (eds.), ICSNL 40:65–88.	page 12
+references	Frances Sobolak	reference	Vancouver, Canada.	page 12
+references	Frances Sobolak	reference	Carlson, Barry F. 1972. A grammar of Spokan: A Salish language of Eastern Washington. Univer- sity of Hawaii Working Papers in Linguistics 4(4). Honolulu: University of Hawaii dissertation.	page 12
+references	Frances Sobolak	reference	Coon, Jessica and Alan Bale. 2014. The interaction of person and number in Migmaq. NordLyd, Vol. 41(1):85–101. University of Tromsø.	page 12
+references	Frances Sobolak	reference	Davis, Henry. 2018. Overcoming passive resistance in Salish. Salish Working Group. February 2, 2018. ms.	page 12
+references	Frances Sobolak	reference	Despić, Miloje, Michael David Hamilton, and Sarah Murray. 2019. A Cyclic and Multiple Agree account: Person/number marking in Cheyenne. Natural Language and Linguistic Theory 37:5189.	page 12
+references	Frances Sobolak	reference	Embick, David and Rolf Noyer. 2007. Distributed Morphology and the SyntaxMorphology Inter- face. Ramchand, G., Reiss, C. (eds.), The Oxford Handbook of Linguistic Interfaces. 293–324. Oxford University Press.	page 12
+references	Frances Sobolak	reference	Everett, Daniel and Sarah Grey Thomason. 1993. Transitivity in Flathead. William Seaburg (ed.), ICSNL 28:317–43. Seattle: University of Washington Press.	page 12
+references	Frances Sobolak	reference	Gerdts, Donna H. 1988. Object and absolutive in Halkomelem Salish. Garland Publishing. New York.	page 12
+references	Frances Sobolak	reference	Harley, Heidi and Elizabeth Ritter. 2002. Person and Number in Pronouns: A Feature-Geometric Analysis. Language 78(3):482–526.	page 12
+references	Frances Sobolak	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	page 12
+references	Frances Sobolak	reference	Mattina, Anthony. 1982. The Colville-Okanagan Transitive System. International Journal of Amer- ican Linguistics 48(4):421–435. The University of Chicago Press.	page 12
+references	Frances Sobolak	reference	Thomason, Sarah. 1992. The Flathead word. ms. The University of Michigan.	page 12
+references	Frances Sobolak	reference	Thomason, Sarah. 2014. Some Montana Salish Paradigms. ms. The University of Michigan.	page 12
+references	Frances Sobolak	reference	Wiltschko, Martina. 2001. Passive in Halkomelem and Squamish Salish. ICSNL 36:319–45.	page 12

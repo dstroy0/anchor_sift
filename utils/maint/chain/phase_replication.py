@@ -2,7 +2,7 @@
 
 WHY THIS EXISTS
 
-`theory/workbooks/anchor_sift/version-rolling-signature.md` reports a daily cycle in block counts: 27.5 per cent peak to
+`theory/workbooks/orior/version-rolling-signature.md` reports a daily cycle in block counts: 27.5 per cent peak to
 trough, chi-square 36.62 on 23 degrees of freedom, p = 0.036 against a drawn multinomial null. That
 part is measured, drawn instead of derived, and stated as marginal, which is correct.
 

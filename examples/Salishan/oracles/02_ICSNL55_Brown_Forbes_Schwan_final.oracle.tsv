@@ -1,0 +1,822 @@
+where	who	kind	form	gloss
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	title	Clause-type, Transitivity, and the Transitive Vowel in Tsimshianic	page 1, carries footnote ∗
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Colin Brown Clarissa Forbes	author, University of California, Los Angeles University of Arizona
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	University of California, Los Angeles University of Arizona	page 1, the affiliation of Colin Brown Clarissa Forbes
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Michael David Schwan	author, University of British Columbia
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	University of British Columbia	page 1, the affiliation of Michael David Schwan
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Abstract: This paper demonstrates the existence of an underlying schwa (the ‘transitive vowel’) dif-	author, ferentiating verb stems of different clause types in both Interior and Maritime Tsimshianic. Using
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	ferentiating verb stems of different clause types in both Interior and Maritime Tsimshianic. Using	page 1, the affiliation of Abstract: This paper demonstrates the existence of an underlying schwa (the ‘transitive vowel’) dif-
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	novel data from fieldwork we clarify the distribution of ‘biargumental’ morphology and the ‘Inserted Vowel’ discussed in Sasama (2001), unifying a subset of both cases under a single analysis of the transitive vowel, and confirm the distribution of the transitive vowel suggested by Forbes (2018). We show that the transitive vowel is present if and only if ergative agreement takes place and is realized with the Series II agreement suffixes: in Independent-order clauses and object extraction. We review specific phonological and morphological processes that impact its realization in these contexts for both Interior and Maritime Tsimshianic, as well as processes that produce surface-identical vowels in contexts where it is not expected. The processes are generally similar but have some important differ- ences that have obscured recognition of the vowel in prior literature on Maritime Tsimshianic. This work therefore constitutes an important step in our understanding of Sm’algyax (Coast Tsimshian) morphology and phonology, informed by Tsimshianic-internal comparison.	page 1, the abstract
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Keywords: Tsimshianic, clause types, morphology, phonology, transitivity, ergativity	page 1, the keywords
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	language	Gitksan	Interior Tsimshianic (G)
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	language	Nisga’a	Interior Tsimshianic (N)
+front	Colin Brown, Clarissa Forbes, Michael David Schwan	language	Sm’algyax	Maritime Tsimshianic, Coast Tsimshian (CT)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	note	’Wii t’isim ha’miiyaa ’nuu’m to our Gitksan consultants, Barbara Sennott (BS), Vince Gogag (VG), Hector Hill (HH), and Jeanne Harris (JH), and ’ap luk’wil t’oyaxsmt ’nüüsm to our Sm’algyax consultants Velna Nelson (VN), Beatrice Robinson (BR), and Ellen Mason (EM). We also thank our peers and colleagues in the UBC Gitksan Research Lab, Margaret Anderson and Fumiko Sasama, as well as those who have provided feedback on previous works containing these ideas. This research has been supported by a SSHRC Doctoral Fellowship for the first author, SSHRC Doctoral and Postdoctoral Fellowships awarded to the second author, and a Joseph-Armand Bombardier Canada Graduate Scholarship, SSHRC Insight Grant 435-2015-1694 (PI Henry Davis), and Jacobs Research Fund grants for the third author. Authors are listed alphabetically by last name — author order does not reflect contributions. Contact info: colinjbrown @ucla.edu, forbesc @ email.arizona.edu,michael.schwan @ubc.ca	page 1, footnote ∗, on the title
+footnote ∗	Gitksan	cited form	’Wii t’isim ha’miiyaa ’nuu’m	page 1, in italics
+footnote ∗	Sm’algyax	cited form	’ap luk’wil t’oyaxsmt ’nüüsm	page 1, in italics
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Barbara Sennott	Gitksan consultant (BS)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Vince Gogag	Gitksan consultant (VG)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Hector Hill	Gitksan consultant (HH)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Jeanne Harris	Gitksan consultant (JH)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Velna Nelson	Sm'algyax consultant (VN)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Beatrice Robinson	Sm'algyax consultant (BR)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Ellen Mason	Sm'algyax consultant (EM)
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Margaret Anderson	of the UBC Gitksan Research Lab
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Fumiko Sasama	of the UBC Gitksan Research Lab; Sasama 2001
+footnote ∗	Colin Brown, Clarissa Forbes, Michael David Schwan	name	Henry Davis	PI of SSHRC Insight Grant 435-2015-1694
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	1 Introduction	page 1
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In Gitksan and Nisga’a (Interior Tsimshianic, henceforth IT), a suffixal vowel often appears at the end of transitive verb stems in the Independent order:1	page 1
+footnote 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	1 = first person, 2 = second person, 3 = third person, attr = attributive, ax = agent (transitive subject) ex- traction, caus = causative, cn = common noun connective, cntr = contrastive, dm = determinate noun con- nective, epis = epistemic, foc = focus, i = Series I clitic, ii = Series II suffix, iii = Series III pronoun, neg = negative, obl = oblique, pfv = perfective, pl = plural, pn = proper noun connective, prep = preposition, prog = progressive, prosp = prospective, q = question particle, sg = singular, sx = (intransitive) subject extraction, tr = transitive.	page 1, footnote 1
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	language	Tsimshianic	the family, Interior and Maritime branches
+(1a) line 1	Gitksan	transcription	Gi’namis Henryhl wineex as Aidan.	page 2
+(1a) line 2	Gitksan	segmentation	gi’nam-ə(-t)=s Henry=hl wineex a(-t)=s Aidan	page 2
+(1a) line 3	Gitksan	gloss	give-tr(-3.ii)=dm Henry=cn food obl(-3.ii)=dm Aidan	page 2
+(1a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Henry gave food to Aidan.’	page 2
+(1a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (Forbes 2018)	page 2, the tag or source at the right of the translation
+(1b) line 1	Gitksan	transcription	Hooyithl gangigyookst.	page 2
+(1b) line 2	Gitksan	segmentation	hoox-ə-t=hl gangigyooks-t	page 2
+(1b) line 3	Gitksan	gloss	wear-tr-3.ii=cn life.jacket-3.ii	page 2
+(1b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She wore her lifejacket.’	page 2
+(1b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	N (Tarpent 1987)	page 2, the tag or source at the right of the translation
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This suffix, referred to as ‘control’ in Tarpent (1987) and as a ‘transitive theme suffix’ in Rigsby (1986), has an established and well-defined distribution, and is referenced in the vast majority of the literature on Gitksan and Nisga’a. Although verb stems in Sm’algyax (Coast Tsimshian, CT), a closely related language from the Maritime Tsimshianic branch, also sometimes exhibit a suffixal vowel in the same location, existing descriptions in the literature do not provide a systematic account of its appearance. They furthermore make no reference to what we might expect: a potential cognate of the IT vowel.	page 2
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	language	Coast Tsimshian	Sm'algyax (CT)
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In this paper we demonstrate that by analyzing CT Independent order clauses as involving a cog- nate vowel, with almost exactly the same distribution as the one discussed in the IT literature, we can provide a principled account of the distribution of stem vowels in CT, while at the same time shedding light on predictable processes of epenthesis and deletion. We argue that in both branches of Tsimshi- anic, the vowel systematically occurs in transitive Independent order clauses and object-extraction constructions (including focus, relative clause and wh-constructions). However, phonological and morphophonological alternations obscure the presence of the vowel in both branches, in different ways, and the CT distribution is further obscured by agreement alternations in the Independent order not found in IT. We present a detailed discussion of the morphophonology of the transitive vowel in both branches of the Tsimshianic family, and give a comprehensive account of the distribution of this morpheme in CT. We conclude that the transitive vowel must be taken into account as part of the ba- sic inflectional marking of Independent-order transitive clauses and object-extraction constructions across Tsimshianic.	page 2
+§1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The layout of this paper is as follows: in Section 2 we present background on Tsimshianic mor- phosyntax and a review of prior literature on the transitive vowel, outline the distribution of the transitive suffix in Gitksan and Nisga’a, and introduce the basic agreement patterns and clause type distinction that affect the presence of the transitive vowel. We also discuss phonological processes in the interior branch that obscure this suffix’s presence. In Sections 3 and 4 we present detailed phonological and morphological conditions governing the realization of the transitive vowel, first for Gitksan (and Nisg̲a’a: IT) and second for Sm’algyax/Coast Tsimshian (CT). We show that the transitive vowel appears in CT as well, with a similar overall distribution as discussed for IT, and is similarly obscured by the phonology (albeit by different phonological rules, which we outline). In Section 5 we review agreement alternations in CT Independent clauses and demonstrate that the transitive vowel co-occurs only with an ergative Series II suffix. In this way, we clarify the distribu- tion of ‘biargumental’ morphology and the ‘Inserted Vowel’ discussed in Sasama (2001), unifying a subset of both cases under a single analysis of the transitive vowel, and confirm the distribution of the transitive vowel in CT suggested by Forbes (2018) based on patterns in IT. In Section 6 we con- clude by outlining the overall environments in which the transitive vowel appears in both branches, as well as similarities and differences in the phonological and morphological processes affecting its realization.	page 2
+§2	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	2 Background	page 3
+§2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The Tsimshianic languages are indigenous to northern British Columbia, Canada, and are located along the Skeena and Nass watersheds. The family is composed of two main branches and four recognized languages, as illustrated in (2).	page 3
+(2a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Maritime Tsimshianic: Sm’algyax/Coast Tsimshian (CT), Sgüüxs/Southern Tsimshian (ST)	page 3, set as an example
+(2b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Interior Tsimshianic (IT): Nisga’a (N), Gitksan (G)	page 3, set as an example
+§2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Discussion in this paper will review both branches of the family, with examples from Nisga’a and Gitksan from Interior Tsimshianic and CT from Maritime. Examples throughout are presented with a citation when taken from prior literature, and with the contributing speaker’s initials when from the authors’ primary fieldwork (on Gitksan and CT). In this section we present some background on Tsimshianic morphosyntax, and the transitive vowel identified in the Interior branch.	page 3
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	2.1 Tsimshianic morphosyntax	page 3
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The Tsimshianic languages are closely related and share many morphosyntactic features. The lan- guages are verb-initial, with most clauses exhibiting VSO order, as illustrated in (3) for the Interior and (4) for the Maritime branch.	page 3
+(3) line 1	Gitksan	transcription	Hlimooyis Tomhl nakst.	page 3
+(3) line 2	Gitksan	segmentation	hlimoo-ə(-t)=s Tom=hl naks-t	page 3
+(3) line 3	Gitksan	gloss	help-tr(-3.ii)=pn Tom=cn wife-3.ii	page 3
+(3) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Tom helped his wife.’	page 3
+(3) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (Rigsby 1986)	page 3, the tag or source at the right of the translation
+(4) line 1	Sm’algyax	transcription	Nah łimooms Meeli ’yuuta.	page 3
+(4) line 2	Sm’algyax	segmentation	nah łimoom(-ə-t)=s Meeli=a ’yuuta	page 3
+(4) line 3	Sm’algyax	gloss	pfv help(-tr-3.ii)=dm Mary=cn man	page 3
+(4) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Mary helped the man.’	page 3
+(4) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 3, the tag or source at the right of the translation
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Most importantly for the purposes of this paper, all Tsimshianic languages exhibit a major split in the inflection of two different clause types: what we will refer to as the Independent versus Dependent orders.2 There are a number of morphemes and morphosyntactic constructions which trigger this distinction, some of which are listed in Table 1.	page 3
+footnote 2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	These are referred to as ‘indicative’ and ‘subjunctive’ clauses by Boas (1911) and subsequent work on Sm’algyax, and ‘Independent’ and ‘dependent’ clauses by Rigsby (1986) and subsequent work on Gitksan. We adopt Rigsby’s terms ‘Independent’ and ‘dependent’ as they are the most descriptively accurate and theory- neutral. As Davis (2018) points out, this clause-type distinction is orthogonal to mood, and thus the terms indicative/subjunctive are misleading. Tarpent (1987) refers to these clause types as ‘predicate focused’ and ‘regular clauses’, respectively. The terminology used in Tarpent (1987) reflects a specific analysis in which the predicate undergoes topicalization in Independent clauses. We do not adopt this analysis here.	page 3, footnote 2
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The two clause types most obviously differ in terms of the agreement and pronominal marking used in each. Though the specific details differ across the Interior and Maritime branches, in general	page 3
+Table 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Table 1: Types of Dependent order triggers (Rigsby 1986; Tarpent 1987)	page 4, the table's caption
+Table 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Type Examples	page 4, the column heads
+Table 1 line 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Clausal Subordination	page 4, the type of trigger
+Table 1 line 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	G	page 4, the language tag, Gitksan
+Table 1 line 3	Gitksan	transcription	ii, wil/win, wila, needii, ji, gan, ts’i	page 4, clausal subordination triggers of the Dependent order
+Table 1 line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	CT	page 4, the language tag, Sm’algyax
+Table 1 line 4	Sm’algyax	transcription	ada, wil, wila/la, aka(dii)/ałga(dii), dzi, gan, ts’u	page 4, clausal subordination triggers of the Dependent order
+Table 1 line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Aspectual Markers	page 4, the type of trigger
+Table 1 line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	G	page 4, the language tag, Gitksan
+Table 1 line 5	Gitksan	transcription	yukw, hlaa, hlis	page 4, aspectual markers triggers of the Dependent order
+Table 1 line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	CT	page 4, the language tag, Sm’algyax
+Table 1 line 6	Sm’algyax	transcription	yagwa, ła	page 4, aspectual markers triggers of the Dependent order
+Table 1 line 7	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Temporal Morphemes	page 4, the type of trigger
+Table 1 line 7	Colin Brown, Clarissa Forbes, Michael David Schwan	note	G	page 4, the language tag, Gitksan
+Table 1 line 7	Gitksan	transcription	ganiwila, gaks, hlidaa	page 4, temporal morphemes triggers of the Dependent order
+Table 1 line 8	Colin Brown, Clarissa Forbes, Michael David Schwan	note	CT	page 4, the language tag, Sm’algyax
+Table 1 line 8	Sm’algyax	transcription	adigwil, dzida	page 4, temporal morphemes triggers of the Dependent order
+Table 1 line 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Syntactically Determined	page 4, the type of trigger
+Table 1 line 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	G+CT	page 4, the language tag, Gitksan and Sm’algyax
+Table 1 line 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	imperatives, discourse-dependent coordination, focus	page 4, syntactically determined triggers of the Dependent order
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Independent order clauses involve an ergative verbal suffix, as illustrated in (5). Dependent order clauses involve a preverbal ergative clitic, and an absolutive verbal suffix, as in (6).3	page 4
+footnote 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We gloss the preverbal clitics as Series I and the verbal suffixes as Series II, following Rigsby’s (1986) terminology. In the CT literature, these paradigms have respectively been referred to as subjective/objective (Dunn 1979) or ergative/absolutive (Anderson and Ignace 2008).	page 4, footnote 3
+(5a) line 1	Gitksan	transcription	T’isi’yt Henry.	page 4
+(5a) line 2	Gitksan	segmentation	t’is-ə-’y=t Henry	page 4
+(5a) line 3	Gitksan	gloss	hit-tr-1.ii=dm Henry	page 4
+(5a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I hit Henry.’	page 4
+(5a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 4, the tag or source at the right of the translation
+(5b) line 1	Gitksan	transcription	T’uusut Henry.	page 4
+(5b) line 2	Gitksan	segmentation	t’uus(-ə)-u=t Henry	page 4
+(5b) line 3	Gitksan	gloss	hit-tr-1.ii=pn Henry	page 4
+(5b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I hit Henry.’	page 4
+(5b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 4, the tag or source at the right of the translation
+(6a) line 1	Gitksan	transcription	Neediit t’isi’yt Henry.	page 4
+(6a) line 2	Gitksan	segmentation	nee=dii=t t’is-’y=t Henry	page 4
+(6a) line 3	Gitksan	gloss	neg=foc=3.i hit-1.ii=dm Henry	page 4
+(6a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Henry didn’t hit me.’	page 4
+(6a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 4, the tag or source at the right of the translation
+(6b) line 1	Gitksan	transcription	Akadit t’uusut Henry.	page 4
+(6b) line 2	Gitksan	segmentation	aka=di=t t’uus-u=t Henry	page 4
+(6b) line 3	Gitksan	gloss	neg=foc=3.i hit-1.ii=pn Henry	page 4
+(6b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Henry didn’t hit me.’	page 4
+(6b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 4, the tag or source at the right of the translation
+§2.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The two clause types also play a role in the morphosyntax of Ā-extraction and fronting, a system which again is near-identical across Tsimshianic. In the Tsimshianic Ā-extraction system, all clauses with some type of Ā-movement, including wh–questions, relative clauses, and clefts, have some distinguishing morphological features that provide a cue to the grammatical role of what has been extracted. The remnant clauses from which ergative subjects and obliques are extracted exhibit the Dependent order pattern of agreement, in which ergatives are marked by the preverbal clitic, while remnant clauses from which an object has been extracted must exhibit the Independent order pattern, in which ergatives are marked by the verbal suffix (Rigsby 1986; Tarpent 1987 on IT; Dunn 1979 and Forbes 2018:164 on CT).	page 4
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	2.2 Background on the transitive vowel	page 5
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	A second key diagnostic which distinguishes the two orders, at least in the literature on Interior Tsimshianic, is what we refer to in this paper as the transitive vowel (glossed tr). This is a vowel which appears on transitive verb stems in the Independent order (7a), but not the Dependent order (7b). The transitive vowel is also obligatory on the verb stems of object extraction constructions (7c).	page 5
+(7a) line 1	Gitksan	transcription	Jebis Cindyhl ha’niit’aa.	page 5
+(7a) line 2	Gitksan	segmentation	jep-ə(-t)=s Cindy=hl ha’niit’aa	page 5
+(7a) line 3	Gitksan	gloss	make-tr(-3.ii)=pn Cindy=cn chair	page 5
+(7a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Cindy made a chair.’	page 5
+(7b) line 1	Gitksan	transcription	Neediit jeps Cindyhl ha’niit’aa.	page 5
+(7b) line 2	Gitksan	segmentation	nee=dii=t jep(-t)=s Cindy=hl ha’niit’aa	page 5
+(7b) line 3	Gitksan	gloss	neg=foc=3.i make(-3.i)=pn Cindy=cn chair	page 5
+(7b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Cindy didn’t make a chair.’	page 5
+(7c) line 1	Gitksan	transcription	’Melhl jebis Aidan.	page 5
+(7c) line 2	Gitksan	segmentation	’mel=hl jep-ə(-t)=s Aidan	page 5
+(7c) line 3	Gitksan	gloss	canoe=cn make-tr(-3.ii)=pn Aidan	page 5
+(7c) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘A canoe is what Aidan made.’	page 5
+(7c) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 5, the tag or source at the right of the translation
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This morpheme was first identified as such by Tarpent (1987), who glossed it as a marker of ‘grammatical control (ctl)’, used specifically in clauses where the Series II agreement suffix on the verb referred to the ergative subject, rather than an absolutive argument.4 It was later glossed as a ‘transitive marker’ by Hunt (1993), who argued specifically that this vowel did not alternate with lexical or productive transitivizers, which appear consistently on verb stems regardless of the clause order, but rather co-occurred with these transitivizers in only the Independent order.	page 5
+footnote 4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This is an accurate description of the vowel’s distribution for Coast Tsimshian, but Hunt (1993) and Davis and Forbes (2015) demonstrate that there is an additional context in IT where suffixal agreement refers to the ergative subject but the transitive vowel does not appear: dependent clauses when the subject is a DP or third-plural pronoun. The emergence of this more innovative construction obscures what may have been the original conditioning factor for the transitive vowel (an ergative Series II suffix, discussed further in Section 5), instead presenting an alternative generalization for the Interior that the alternation is conditioned strictly by clause type.	page 5, footnote 4
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	To summarize, the vowel appears immediately preceding Series II suffixal agreement on the predicate, but following valency-related suffixes like transitivizers. Dependent-order clauses differ from Independent order and object-extraction clauses as illustrated in the following templates:	page 5
+(8a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Independent/O-extr: V [prefixes-Root-suffixes] -ə-Agr.IIERG	page 5, set as an example
+(8b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Dependent/A-extr: V [prefixes-Root-suffixes] -Agr.II	page 5, set as an example
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We propose the following cross-Tsimshianic generalization, following Tarpent (1987):	page 5
+(9) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Transitive vowel generalization: An underlying vowel is present on verb stems in the In- dependent order and in object extraction, immediately preceding a Series II agreement suffix referencing the ergative subject.	page 5, set as an example
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Crucially, the transitive vowel can only appear on transitive verbal predicates. Its absence in some apparently-transitive Independent clauses, such as (10), helps us identify that the predicate in question (here: hasak ‘want/desire’) is in fact a possessed noun.	page 6
+(10a) line 1	Gitksan	transcription	Hasakthl miyup.	page 6
+(10a) line 2	Gitksan	segmentation	hasakt=hl miyup	page 6
+(10a) line 3	Gitksan	gloss	want-3.ii=cn rice	page 6
+(10a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he wants (some) rice.’	page 6
+(10a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Lit: Her desire is rice.)	page 6, at the right of the translation
+(10b) line 1	Gitksan	transcription	* Hasagathl miyup.	page 6
+(10b) line 2	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (Rigsby 1986:286)	page 6, the tag or source at the right
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This can be confirmed via Ā-extraction: the apparent subject of hasak extracts like a nominal possessor in (11), using -ət ‘-sx’, rather than like an ergative subject, with an ‘ax’.	page 6
+§2.2	Gitksan	cited form	-ət	page 6, in italics, ‘-sx’
+(11a) line 1	Gitksan	transcription	Naahl hasagat dim yeet?	page 6
+(11a) line 2	Gitksan	segmentation	naa=hl hasak-ət dim yee-3.ii	page 6
+(11a) line 3	Gitksan	gloss	who=cn want-sx prosp go-3.ii	page 6
+(11a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Who wants to go?’	page 6
+(11b) line 1	Gitksan	transcription	* Naa ant hasakhl dim yeet?	page 6
+(11b) line 2	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 6, the tag or source at the right
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This provides additional basis for the relevance and importance of identifying the transitive vowel. It allows us to better categorize predicates on the basis of valence and category, proper- ties which affect the morphology of the predicate in Independent clauses, Dependent verb stems, and extraction contexts.	page 6
+§2.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Prior to Tarpent (1987), and in most of the Sm’algyax literature, the transitive vowel was ei- ther treated as epenthetic, or analyzed in conjunction with transitivizing morphology immediately preceding, and treated as a transitivizer or bi-argumental marker (Rigsby 1986; Sasama 2001). This was not without reason: surface identification of the transitive vowel in Independent order and object extraction clauses is not straightforward. In both Interior Tsimshianic and, as we argue, Maritime Tsimshianic, there are several phonological and morphophonological conditions which either delete the transitive vowel from the surface string in the expected contexts, or insert an identical vowel in other contexts, making the appearance of a stem-final vowel seem potentially arbitrary. As we will demonstrate, the conditions for stem-final vowels in both the Interior and Maritime branches are complex but crucially not random.	page 6
+§3	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	3 Distribution of the transitive vowel in IT	page 6
+§3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In Interior Tsimshianic, there are several factors which obscure the realization of the transitive vowel, leaving verb stems to be pronounced identically in both the Independent and Dependent orders. Recall, we propose that Independent-order verb stems bear an underlying vowel, and that Dependent-order verb stems do not bear this vowel. Independent-order verb stems which have no vowel must therefore be demonstrable instances of (morpho)phonologically-conditioned vowel dele- tion; Dependent-order verb stems which do contain a vowel must involve vowel epenthesis, or else the vowel must be traced to some other morpheme.	page 6
+§3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We here collect argumentation from various sources demonstrating that these predictions hold. A phonological or morphological source can be identified for every absent vowel in the Independent order and unexpected vowel in the Dependent order. We review three sources for opacity affect- ing the position between the verb stem and agreement suffix or connective: (morpho)phonological conditions on vowel epenthesis; morphophonological conditions on vowel deletion, including before third-plural agreement; and verb stems ending in what we refer to as ‘big T’5, a poorly-understood and partially-lexicalized transitivizer or applicative sometimes realized as a vowel. In the final sub- section we summarize the surface pattern of the transitive vowel across clause types based on these conditions.	page 6
+footnote 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Coined ‘big T’ after Tarpent (1986) where this morpheme is simply glossed with a capital (‘big’) T.	page 7, footnote 5
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	3.1 Epenthesis conditions (IT)	page 7
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	There are a number of epenthesis processes that apply to the area where the transitive vowel is found, where the predicate meets suffixal agreement. Specifically, vowel epenthesis commonly occurs be- tween the predicate stem and agreement/connective in Dependent order clauses, resulting in stems identical to their Independent order counterparts where the transitive vowel is underlying present. Epenthesis processes can significantly obscure the vowel’s presence for this reason; however, simply changing the agreement suffix or connective enclitic often makes the phonological environment for epenthesis vanish, and the predictable distinction reappear.	page 7
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The most common type of contrast-neutralizing vowel epenthesis occurs when the predicate stem ends in a consonant (either obstruent T, or sonorant R) and the following element begins with a sonorant (R) (Rigsby 1986:217). This is the case for agreement in the first-person (1sg: -’y, 1pl: -’m) and second-person singular (2sg: -n). This stem-final /...C-R/ sequence requires insertion of a vowel to be properly syllabified, resulting in [...CəR], identical to underlying /...C-ə-R/ involving the transitive vowel. Consequently, stem + affix combinations with these phonological properties look identical in Independent clauses and Dependent clauses: an obstruent-final stem is illustrated in (12) and a sonorant-final stem in (13).6	page 7
+footnote 6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	No observable difference in quality has been observed between the epenthetic vowel and the underlying transitive vowel; thus, both are represented as underlying underspecified vowel, represented as schwa, and their quality determined predictably through consonant-colouring rules (Brown, Davis, Schwan, and Sennott 2016; Rigsby 1986). Generally, adjacent to a uvular, vowel quality will be low e.g. within the range of [2] to [a]. Preceding labiovelars, or between two labials, vowel quality will be high back and rounded, e.g. [U] to [u]. Elsewhere, these vowels will be high front, around [I] and [i].	page 7, footnote 6
+(12) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent-final stem + sonorant-initial suffix/enclitic:	page 7, over the example
+(12a) line 1	Gitksan	transcription	Gubi’yhl smex.	page 7
+(12a) line 2	Gitksan	segmentation	gup-ə-’y=hl smex	page 7
+(12a) line 3	Gitksan	gloss	eat-tr-1.ii=cn bear	page 7
+(12a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I ate the bear.’	page 7
+(12a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 7, at the right of the translation
+(12b) line 1	Gitksan	transcription	Neediit gubi’yhl smex.	page 7
+(12b) line 2	Gitksan	segmentation	nee=dii=t gup-’y=hl smex	page 7
+(12b) line 3	Gitksan	gloss	neg=foc=3.ii eat-1.ii=cn bear	page 7
+(12b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘The bear didn’t eat me.’	page 7
+(12b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 7, at the right of the translation
+(12b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 7, the tag or source at the right of the translation
+(13) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem + sonorant-initial suffix/enclitic:	page 8, over the example
+(13a) line 1	Gitksan	transcription	Gini’y ’niin ahl anaax.	page 8
+(13a) line 2	Gitksan	segmentation	gin-ə-’y ’niin a=hl anaax	page 8
+(13a) line 3	Gitksan	gloss	feed-tr-1.ii=cn 2.iii prep=cn bread	page 8
+(13a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I fed you bread.’	page 8
+(13a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 8, at the right of the translation
+(13b) line 1	Gitksan	transcription	Neemdii gini’y ahl anaax.	page 8
+(13b) line 2	Gitksan	segmentation	nee=m=dii gin-’y a=hl anaax	page 8
+(13b) line 3	Gitksan	gloss	neg=2.ii=foc feed-1.ii prep=cn bread	page 8
+(13b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You didn’t feed me bread.’	page 8
+(13b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 8, at the right of the translation
+(13b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 8, the tag or source at the right of the translation
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	When instead a stem is suffixed with an obstruent-inital morpheme, there is no process of epenthesis (seen with agreement 2pl: -si’m, 3sg: -t, or connectives =t, =hl). A contrast can therefore be observed on the verb stem when these morphemes are appended. In (14) and (15), the Independent predicates in the (a) examples clearly differ from the Dependent predicates in the (b) examples. We attribute this to the presence of the transitive vowel in the Independent clauses: underlying /...C-ə-T/ is realized [...CəT], while Dependent /...C-T/ remains [...CT].	page 8
+(14) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent-final stem + obstruent-initial suffix/enclitic:	page 8, over the example
+(14a) line 1	Gitksan	transcription	Gubithl anaax.	page 8
+(14a) line 2	Gitksan	segmentation	gup-ə-t=hl anaax	page 8
+(14a) line 3	Gitksan	gloss	eat-tr-3ii=cn bread	page 8
+(14a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She ate the bread’	page 8
+(14a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 8, at the right of the translation
+(14b) line 1	Gitksan	transcription	Neediit gupt.	page 8
+(14b) line 2	Gitksan	segmentation	nee=dii=t gup-t	page 8
+(14b) line 3	Gitksan	gloss	neg=foc=3.i eat-3.ii	page 8
+(14b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She didn’t eat it.’	page 8
+(14b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 8, at the right of the translation
+(14b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 8, the tag or source at the right of the translation
+(15) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem + obstruent-initial suffix/enclitic:	page 8, over the example
+(15a) line 1	Gitksan	transcription	Ginit ’nit ahl anaax.	page 8
+(15a) line 2	Gitksan	segmentation	gin-ə-t ’nit a=hl anaax	page 8
+(15a) line 3	Gitksan	gloss	feed-tr-3.ii 3.iii prep=cn bread	page 8
+(15a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She fed him bread.	page 8
+(15a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 8, at the right of the translation
+(15b) line 1	Gitksan	transcription	Neediit gint ahl anaax.	page 8
+(15b) line 2	Gitksan	segmentation	nee=dii=t gin-t a=hl anaax	page 8
+(15b) line 3	Gitksan	gloss	neg=foc=3.i feed-3.ii prep=cn bread	page 8
+(15b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t feed her bread.’	page 8
+(15b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 8, at the right of the translation
+(15b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 8, the tag or source at the right of the translation
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This can be attributed to a general condition on the distribution of sonorants (Rigsby 1986:217). Sonorants added to a predicate with a consonant already in coda position are in violation of the Sonority Hierarchy, so a vowel must be added to properly license them.7 The same process also occurs regularly on stems to which the attributive suffix -m has been added.	page 8
+footnote 7	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Note that the addition of a second-position clitic such as =ima(’)a ‘epis’ to the verb stem does not affect the application of epenthesis. Second-position clitics therefore do not seem to be part of the prosodic unit where vowel epenthesis and/or syllabification takes place.	page 8, footnote 7
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	There is a second epenthesis process resulting in conflation of the surface forms of Independent and Dependent order predicates. When the stem ends in a sibilant consonant (s, ts, ts’) and the following element is the sibilant-initial second-person plural -si’m, then a vowel is typically inserted to resolve ‘hiatus’ between the two sibilants. Consequently, Independent and Dependent order stems in this specific context look identical, as illustrated in (16).	page 9
+(16) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sibilant-final stem + si’m:	page 9, over the example
+(16a) line 1	Gitksan	transcription	T’isisi’mt Henry.	page 9
+(16a) line 2	Gitksan	segmentation	t’is-ə-si’m=t Henry	page 9
+(16a) line 3	Gitksan	gloss	hit-tr-2pl.ii=pn Henry	page 9
+(16a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Y’all hit Henry.	page 9
+(16a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 9, at the right of the translation
+(16b) line 1	Gitksan	transcription	Neediit dist’isisi’m.	page 9
+(16b) line 2	Gitksan	segmentation	nee=dii=t dis∼t’is-si’m	page 9
+(16b) line 3	Gitksan	gloss	neg=foc=3.i pl∼hit-2pl.ii	page 9
+(16b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t hit you all.’	page 9
+(16b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 9, at the right of the translation
+(16b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 9, the tag or source at the right of the translation
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This type of epenthesis only occurs before the second-person plural. Sibilant-final stems fol- lowed by the sibilant connective s simply delete the connective (just as sequences of doubled lateral fricatives hl are also resolved by deletion). Epenthesis does not occur between sibilants joined across a compound (Tarpent 1987:875).	page 9
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	While epenthesis processes applying to consonant-final stems make the presence of the transitive vowel more opaque, vowel-final stems make its distribution clear. This is due to a process of glide epenthesis that occurs between the final vowel of the predicate and the following transitive vowel to resolve vowel hiatus. The presence of this glide distinguishes Independent and Dependent order clauses for any vowel-final stem, regardless of what else is suffixed or encliticized, as illustrated in (17).8	page 9
+footnote 8	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Glide insertion is not universally used to resolve vowel epenthesis. Certain vowel-initial morphemes such as the transitive vowel, epistemic clitic =ima(’)a, and question marker =aa resolve hiatus with epenthesis, while others such as the subject extraction marker -it resolve hiatus with vowel deletion. It is unclear whether this difference is best handled as a morphophonological difference in these morphemes themselves, or perhaps as a difference in the prosodic domain at which each of these morphemes attach; we do not discuss it further.	page 9, footnote 8
+(17) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel-final stem + suffix/enclitic:	page 9, over the example
+(17a) line 1	Gitksan	transcription	’Weyit ’nit.	page 9
+(17a) line 2	Gitksan	segmentation	’we-yə-t ’nit	page 9
+(17a) line 3	Gitksan	gloss	find-tr-3.ii 3.iii	page 9
+(17a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He found him.’	page 9
+(17a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 9, at the right of the translation
+(17b) line 1	Gitksan	transcription	Neediit ’wet.	page 9
+(17b) line 2	Gitksan	segmentation	nee=dii=t ’we-t	page 9
+(17b) line 3	Gitksan	gloss	neg=foc=3.i find-3.ii	page 9
+(17b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t find him.’	page 9
+(17b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 9, at the right of the translation
+(17b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 9, the tag or source at the right of the translation
+§3.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In summary, two processes of vowel epenthesis occur in Dependent order clauses: the first is between a stem’s coda and a sonorant-initial suffix, and the second is between a sibilant and -si’m. The outcome of these regular processes make such stem-suffix combinations indistinguishable from Independent order clauses which involve an underlying, non-epenthetic vowel (the transitive vowel). Vowel-final stems, by contrast, are made more distinct across the two orders by a process of glide epenthesis before the transitive vowel.	page 9
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	3.2 Deletion conditions: stress and third-plural -diit (IT)	page 10
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Two processes of vowel deletion can also be identified in the Independent order, identified by Tarpent (1987) for Nisga’a and Hunt (1993) for Gitksan. These processes remove the surface realization of the transitive vowel, leaving affected verb stems identical to their Dependent order counterparts where no transitive vowel is present.	page 10
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The first of these processes is a phonological deletion process when the stem ends in a sonorant. This process applies differently depending on the stress pattern of the stem. For monosyllabic and final-stress stems such as those in (18), the transitive vowel in Independent clauses is often reduced, but speakers are clearly aware of a contrast across clause types. The vowel seems to retain its syl- labic weight, and may either remain a separate vowel or trigger a lengthened preceding sonorant; in eliciting (18a), VG suggested a spelling ginnt to contrast with gint.9	page 10
+footnote 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	According to Tarpent (1987:628), the transitive vowel in Nisga’a is deleted after a glottalized sonorant, i.e. stems of the form CVR’ are non-contrastive with respect to the presence or absence of the transitive vowel. In our replication of these contexts, variants like gi’lt∼gi’lit for ‘He/she dug it up’ were both judged as acceptable, with the speaker noting that the first is easier to say. The speaker’s awareness of the difference and acceptance of both versions suggests not a phonological deletion process in Gitksan, but rather a more surface level of fast-speech reduction.	page 10, footnote 9
+footnote 9	Gitksan	cited form	gi’lt∼gi’lit	page 10, in italics
+(18) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem: monosyllabic:	page 10, over the example
+(18a) line 1	Gitksan	transcription	Ginit ’nit ahl anaax.	page 10
+(18a) line 2	Gitksan	segmentation	gin-ə-t ’nit a=hl anaax	page 10
+(18a) line 3	Gitksan	gloss	feed-tr-3.ii 3.iii prep=cn bread	page 10
+(18a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She fed him bread.’	page 10
+(18a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 10, at the right of the translation
+(18b) line 1	Gitksan	transcription	Neediit gint ahl anaax.	page 10
+(18b) line 2	Gitksan	segmentation	nee=dii=t gin-t a=hl anaax	page 10
+(18b) line 3	Gitksan	gloss	neg=foc=3.i feed-3.ii prep=cn bread	page 10
+(18b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t feed her bread.’	page 10
+(18b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 10, at the right of the translation
+(18b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 10, the tag or source at the right of the translation
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In contrast, verb stems with a final sonorant but non-final stress exhibit complete vowel deletion. There is no vowel in either order: the stems in (19) are identical.	page 10
+(19) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem: pre-final stress:	page 10, over the example
+(19a) line 1	Gitksan	transcription	Kw’esinthl wo’os.	page 10
+(19a) line 2	Gitksan	segmentation	kw’es-in-t=hl wo’os	page 10
+(19a) line 3	Gitksan	gloss	break-caus-3.ii=cn bowl	page 10
+(19a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He broke the bowl.’	page 10
+(19a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 10, at the right of the translation
+(19b) line 1	Gitksan	transcription	Neediit kw’esint.	page 10
+(19b) line 2	Gitksan	segmentation	nee=dii=t kw’es-in-t	page 10
+(19b) line 3	Gitksan	gloss	neg=foc=3.i break-caus-3.ii	page 10
+(19b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t break it.’	page 10
+(19b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 10, at the right of the translation
+(19b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 10, the tag or source at the right of the translation
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The major examples of this are transitive stems ending in the causative suffix -in, leading to the surface observation that -in and the transitive vowel are in complementary distribution. This forms the basis for Rigsby’s (1986) original conclusion that the transitive vowel is a type of transitivizer. However, Hunt (1993) notes that rare stems of the same phonological shape but lacking the causative, such as kw’oodil ‘lose sight of’, also lack the transitive vowel in the Independent order, suggesting a phonological rather than morphological motivation for the transitive vowel’s absence. She further remarks that the vowel in the intransitive subject extraction suffix -it deletes under the same condi- tions: following an unstressed syllable ending in a sonorant (Hunt 1993:233). In our reproduction of this claim, the speaker’s volunteered version never had a vowel after the stem-final sonorant, but judgements varied with regard to whether reinserting it was acceptable.10	page 11
+footnote 10	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Further elicitation on these points is certainly necessary; we have a few data points to suggest that the surface form of -ət ‘sx’ may differ in verbal extraction contexts (like (20)) versus relative clauses (aapxint∼aapxinit ‘the light one’).	page 11, footnote 10
+footnote 10	Gitksan	cited form	aapxint∼aapxinit	page 11, in italics, ‘the light one’
+(20a) line 1	Gitksan	transcription	Guhl gay aapxint? (??aapxinit)	page 11
+(20a) line 2	Gitksan	segmentation	gu=hl gay aapxin-ət	page 11
+(20a) line 3	Gitksan	gloss	what=cn cntr lightweight-sx	page 11
+(20a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Which one is light?’	page 11
+(20b) line 1	Gitksan	transcription	Naahl haahlxant tun? (??haahlxanit)	page 11
+(20b) line 2	Gitksan	segmentation	Naa=hl haahlxan-ət tun?	page 11
+(20b) line 3	Gitksan	gloss	who=cn wall-sx this	page 11
+(20b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Whose wall is this?’	page 11
+(20b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 11, the tag or source at the right of the translation
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This contrasts with the behavior of monosyllabic forms with stress-adjacent sonorants. Just as with the transitive vowel, the schwa in the subject extraction morpheme -it is merely reduced after such stems, but speakers retain it with no trouble (e.g. bant∼bannt∼banit ‘whose belly’).	page 11
+§3.2	Gitksan	cited form	bant∼bannt∼banit	page 11, in italics, ‘whose belly’
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Given that multiple schwa-containing morphemes undergo the same pattern, we see clear basis for a phonological process whereby a schwa is deleted following the sonorant coda of an unstressed syllable, at a deeper level than fast-speech reduction (Hunt 1993:231). This conclusion supports the idea that an underlying vowel is categorically present in Independent-order clauses. This vowel co-occurs (underlyingly) with the causative suffix -in, but they cannot be successfully syllabified together on the surface.	page 11
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The final deletion condition is a morphological one unique to the Interior Tsimshianic branch. The third-plural agreement suffix -diit, innovated after the divergence of the Interior and Maritime Tsimshianic branches, never co-occurs with the transitive vowel, no matter what phonological shape the stem has. The examples in (21–23) demonstrate that (a) utterances with the agreement marker -diit do not exhibit a vowel, though we have seen previously with other agreement markers that the vowel would be required; (b) insertion of the vowel is categorically unacceptable.	page 11
+(21a) line 1	Gitksan	transcription	T’isdiit ’nit.	page 11
+(21a) line 2	Gitksan	segmentation	t’is-diit ’nit	page 11
+(21a) line 3	Gitksan	gloss	hit-3.ii 3.iii	page 11
+(21a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘They hit him.’	page 11
+(21b) line 1	Gitksan	transcription	* T’isidiit ’nit.	page 11
+(22a) line 1	Gitksan	transcription	Gindiithl tk’ihlxum get ehl anaax.	page 12
+(22a) line 2	Gitksan	segmentation	gin-diit=hl tk’ihlxw-m get e=hl anaax	page 12
+(22a) line 3	Gitksan	gloss	feed-3.ii=cn child-attr man prep=cn bread	page 12
+(22a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘They fed the boy bread.’	page 12
+(22b) line 1	Gitksan	transcription	* Ginidiithl tk’ihlxum get ehl anaax.	page 12
+(23a) line 1	Gitksan	transcription	Hlimoodiithl us.	page 12
+(23a) line 2	Gitksan	segmentation	hlimoo-diit=hl us	page 12
+(23a) line 3	Gitksan	gloss	help-3.ii=cn dog	page 12
+(23a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘They helped the dog.’	page 12
+(23b) line 1	Gitksan	transcription	* Hlimooyidiithl us.	page 12
+§3.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	It is difficult to account for this deletion on phonological grounds; we take it to be morphologi- cally conditioned.11	page 12
+footnote 11	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Tarpent (1983, 1987) suggests that historically, third-plural -diit may have been composed of two elements which sandwiched the transitive vowel between them: a pluralizer *-deh and third-person agreement *-t. While plural -diit is now viewed as an atomic unit, not as something within which other morphemes are con- tained, this characteristic of its origin lingers on in its morphologically-conditioned deletion of the transitive vowel.	page 12, footnote 11
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	3.3 Morphological interaction between TR and big T (IT)	page 12
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Finally, there are certain verb stems which surface with a vowel in Dependent clauses, even between obstruents, in precisely the conditions that we have to this point suggested should have no vowel. Certain verbs such as mahl ‘tell’ and jakw ‘kill’ are examples of such stems. It turns out that these verbs, illustrated in (24), inflect somewhat differently in both Independent and Dependent clauses, compared to ‘standard’ verbs like gup ‘eat’ in (25).	page 12
+(24a) line 1	Gitksan	transcription	Mehldithl ant’imehlasxw ehl wekt.	page 12
+(24a) line 2	Gitksan	segmentation	mehl-T-ə-t=hl ant’imehlasxw e=hl wek-t	page 12
+(24a) line 3	Gitksan	gloss	mehl-T-tr-3.ii=cn story prep=cn brother-3.ii	page 12
+(24a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He told a story to his brother.’	page 12
+(24a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 12, the tag or source at the right of the translation
+(24b) line 1	Gitksan	transcription	Yukwt mehlit ehl wekt.	page 12
+(24b) line 2	Gitksan	segmentation	yukw=t mehl-T-t e=hl wek-t	page 12
+(24b) line 3	Gitksan	gloss	prog=3.i tell-T-3.ii prep=cn brother-3.ii	page 12
+(24b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He is telling it to his brother’	page 12
+(24b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 12, the tag or source at the right of the translation
+(25a) line 1	Gitksan	transcription	Gubithl anaax.	page 12
+(25a) line 2	Gitksan	segmentation	gup-ə-t=hl anaax	page 12
+(25a) line 3	Gitksan	gloss	eat-tr-3ii=cn bread	page 12
+(25a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She ate the bread.’	page 12
+(25a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 12, the tag or source at the right of the translation
+(25b) line 1	Gitksan	transcription	Neediit gupt.	page 12
+(25b) line 2	Gitksan	segmentation	nee=dii=t gup-t	page 12
+(25b) line 3	Gitksan	gloss	neg=foc=3.i eat-3.ii	page 12
+(25b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘She didn’t eat it.’	page 12
+(25b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 12, the tag or source at the right of the translation
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	While a regular verb stem taking third-person agreement will surface with -it in an Independent clause and plain -t in a Dependent clause, verbs like mahl ‘tell’ and jakw ‘kill’ will surface with -dit and -it, respectively, each time with a vowel.12 Descriptively, these verbs have a suffixed vowel in both clause types, and have an added [d] in Independent clauses.	page 13
+footnote 12	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Note that this pattern occurs consistently with all Series II pronominal suffixes except -diit, which deletes all but the base verb stem, producing e.g. mahldiit in either clause type. The only exception is with vowel-final stems, which may be suffixed with -tdiit.	page 13, footnote 12
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Further insight is provided by Tarpent (1987). She notes that Nisga’a exhibits both transitive and intransitive verb or adjective stems bearing some suffix which is sometimes realized as [t]/[d], and sometimes as a vowel. She refers to this suffix via the abstract form /-T/, and glosses it ‘definite medial’. A basic generalization for its realization is as follows: the suffix is realized as -t when it is the final element in the word, typically in isolation, as in (26a). The suffix is a vowel when it is followed by an agreement suffix, as in (26b) and (26c).13 Finally, the suffix is realized as [d] when it is followed by a vowel, as in (26d) where we predict the transitive vowel to occur.	page 13
+footnote 13	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Forbes 2019) was unable to replicate examples like (26b) in Gitksan, suggesting that there the morpheme and/or alternation may be eroding in intransitive contexts.	page 13, footnote 13
+(26a) line 1	Nisga’a	transcription	kw’ast	page 13
+(26a) line 2	Nisga’a	segmentation	kw’as-T	page 13
+(26a) line 3	Nisga’a	gloss	broken-T	page 13
+(26a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘be broken (into pieces); shattered’	page 13
+(26a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	N (Tarpent 1987:635)	page 13, the tag or source at the right of the translation
+(26b) line 1	Nisga’a	transcription	Hlaa kw’asit.	page 13
+(26b) line 2	Nisga’a	segmentation	hlaa kw’as-T-t	page 13
+(26b) line 3	Nisga’a	gloss	broken-T-3.ii	page 13
+(26b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Now it is broken.’	page 13
+(26b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	N (Tarpent 1987:637)	page 13, the tag or source at the right of the translation
+(26c) line 1	Nisga’a	transcription	Neediit mehlit.	page 13
+(26c) line 2	Nisga’a	segmentation	nee=dii=t mehl-T-t	page 13
+(26c) line 3	Nisga’a	gloss	neg=foc=3.i tell-T-3.ii	page 13
+(26c) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t tell it.’	page 13
+(26c) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 13, the tag or source at the right of the translation
+(26d) line 1	Nisga’a	transcription	Mehldit loo’y.	page 13
+(26d) line 2	Nisga’a	segmentation	mehl-T-ə-t loo-’y	page 13
+(26d) line 3	Nisga’a	gloss	tell-T-tr-3.ii obl-1.ii	page 13
+(26d) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He told it to me.’	page 13
+(26d) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	G (VG)	page 13, the tag or source at the right of the translation
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The surface form of the -T morpheme is further complicated when it follows a sonorant or vowel; we refer the reader to Tarpent (1987:634) for further details and reasoning regarding its appearance, but present a summary in the next section.	page 13
+§3.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Under the understanding that this morpheme (-T) can sometimes be realized as a consonant and sometimes a vowel, we are able to better understand the inflectional pattern of stems like mahl ‘tell’, and maintain a consistent view of where the transitive vowel appears. These marked stems bear a suffix in their transitive form which is realized as [d] when followed by the vowel in Independent transitive clauses, and as a vowel otherwise. Also note that ‘regular’ verb stems can productively shift to having this pattern (i.e. they may also receive the -T suffix) when combined with certain preverbals such as gun ‘make (s.o.)’, which trigger T-style inflection.	page 13
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	3.4 Contrastive and non-contrastive TR environments in IT	page 14
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In this section we have reviewed prior arguments establishing the presence of an underlying vowel between the verb stem and agreement suffix/connective in transitive Independent clauses (and ob- ject extraction). We have presented detailed examples demonstrating that phonological and mor- phophonological conditions sometimes insert a similar vowel in Dependent clauses; the precise con- ditions are as follows:	page 14
+(27a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	An inter-consonantal T-morpheme is realized as a schwa	page 14, set as an example
+(27b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert schwa between a sibilant and -si’m ‘2pl.ii’	page 14, set as an example
+(27c) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert schwa into a word-final cluster ending in a sonorant, including clusters formed by the addition of agreement suffixes -’y ‘1sg’, -’m ‘1pl’, -n ‘2sg’	page 14, set as an example
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We predict that any occurrences of a stem vowel in an intransitive or Dependent clause can be attributed to one or more of these factors. Changing the stem from a T-verb to a regular verb, or changing agreement to third-person agreement, should result in the vowel disappearing.	page 14
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The transitive vowel is also deleted in expected Independent-clause and object-extraction in ac- cordance with the following conditions:	page 14
+(28a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Delete schwa before -diit ‘3pl.ii’	page 14, set as an example
+(28b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Delete schwa after a sonorant-final unstressed syllable	page 14, set as an example
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We predict that any non-occurrence of the transitive vowel in Independent clauses or object extraction can be attributed to one of these factors. It is simply not visible after the causative -in, and changing agreement from third-plural -diit to any other suffix should allow the underlying vowel to reappear.	page 14
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	There are certain interactions with vowel-final stems that present more consistent surface con- trasts between Independent and Dependent. This is either due to the need for hiatus resolution in Independent clauses, or due to a contrast in the realization of the ‘big T’ morpheme, if one is present alongside the transitive vowel. The following rules summarize these interactions:	page 14
+(29a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert a glide /y/ between a stem-final vowel and transitive schwa	page 14, set as an example
+(29b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Realize big T in the coda of a CV stem before transitive schwa, no matter what the shape of the agreement suffix	page 14, set as an example
+§3.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The total space of possible stem shapes and suffix combinations is illustrated in Table 2; shad- owed cells mark those conditions where the particular stem/suffix combination has no surface con- trast between Independent and Dependent clauses. In short, the phonological form of the stem, along with the form of the following agreement and/or connective, interact in complex but ultimately pre- dictable ways, reflecting the underlying contrast between clause types in only a subset of situations.	page 14
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	4 Distribution of TR in CT	page 14
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Transitive predicates in CT also often appear with a vocalic suffix in Independent clauses (30a) that is absent in Dependent clauses (30b):	page 14
+Table 2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Table 2: Combinations of stems and affixes in IT across clause type	page 15, the table's caption; the page is turned a quarter round
+Table 2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent -si’m Sonorant -diit	page 15, the suffix heads
+Table 2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	I D I D I D I D	page 15, the clause-type heads, I Independent and D Dependent
+Table 2 line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent	page 15, the stem shape
+Table 2 line 4	Gitksan	transcription	gubit	page 15, stem shape Obstruent, column Obstruent, I, Independent
+Table 2 line 4	Gitksan	transcription	gupt	page 15, stem shape Obstruent, column Obstruent, D, Dependent
+Table 2 line 4	Gitksan	transcription	gubisi’m	page 15, stem shape Obstruent, column -si’m, I, Independent
+Table 2 line 4	Gitksan	transcription	gupsi’m	page 15, stem shape Obstruent, column -si’m, D, Dependent
+Table 2 line 4	Gitksan	transcription	gubin	page 15, stem shape Obstruent, column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 4	Gitksan	transcription	gupdiit	page 15, stem shape Obstruent, column -diit, I and D alike, no contrast (shaded)
+Table 2 line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sibilant	page 15, the stem shape
+Table 2 line 5	Gitksan	transcription	t’isit	page 15, stem shape Sibilant, column Obstruent, I, Independent
+Table 2 line 5	Gitksan	transcription	t’ist	page 15, stem shape Sibilant, column Obstruent, D, Dependent
+Table 2 line 5	Gitksan	transcription	t’isisi’m	page 15, stem shape Sibilant, column -si’m, I and D alike, no contrast (shaded)
+Table 2 line 5	Gitksan	transcription	t’isin	page 15, stem shape Sibilant, column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 5	Gitksan	transcription	t’isdiit	page 15, stem shape Sibilant, column -diit, I and D alike, no contrast (shaded)
+Table 2 line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant (stressed syl)	page 15, the stem shape
+Table 2 line 6	Gitksan	transcription	ginit	page 15, stem shape Sonorant (stressed syl), column Obstruent, I, Independent
+Table 2 line 6	Gitksan	transcription	gint	page 15, stem shape Sonorant (stressed syl), column Obstruent, D, Dependent
+Table 2 line 6	Gitksan	transcription	ginisi’m	page 15, stem shape Sonorant (stressed syl), column -si’m, I, Independent
+Table 2 line 6	Gitksan	transcription	ginsi’m	page 15, stem shape Sonorant (stressed syl), column -si’m, D, Dependent
+Table 2 line 6	Gitksan	transcription	ginin	page 15, stem shape Sonorant (stressed syl), column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 6	Gitksan	transcription	gindiit	page 15, stem shape Sonorant (stressed syl), column -diit, I and D alike, no contrast (shaded)
+Table 2 line 7	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant (unstressed syl)	page 15, the stem shape
+Table 2 line 7	Gitksan	transcription	kw’oodint	page 15, stem shape Sonorant (unstressed syl), column Obstruent, I and D alike, no contrast (shaded)
+Table 2 line 7	Gitksan	transcription	kw’oodinsi’m	page 15, stem shape Sonorant (unstressed syl), column -si’m, I and D alike, no contrast (shaded)
+Table 2 line 7	Gitksan	transcription	kw’oodinin	page 15, stem shape Sonorant (unstressed syl), column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 7	Gitksan	transcription	kw’oodindiit	page 15, stem shape Sonorant (unstressed syl), column -diit, I and D alike, no contrast (shaded)
+Table 2 line 8	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel	page 15, the stem shape
+Table 2 line 8	Gitksan	transcription	hlimooyit	page 15, stem shape Vowel, column Obstruent, I, Independent
+Table 2 line 8	Gitksan	transcription	hlimoot	page 15, stem shape Vowel, column Obstruent, D, Dependent
+Table 2 line 8	Gitksan	transcription	hlimooyisi’m	page 15, stem shape Vowel, column -si’m, I, Independent
+Table 2 line 8	Gitksan	transcription	hlimoosi’m	page 15, stem shape Vowel, column -si’m, D, Dependent
+Table 2 line 8	Gitksan	transcription	hlimooyin	page 15, stem shape Vowel, column Sonorant, I, Independent
+Table 2 line 8	Gitksan	transcription	hlimoon	page 15, stem shape Vowel, column Sonorant, D, Dependent
+Table 2 line 8	Gitksan	transcription	hlimoodiit	page 15, stem shape Vowel, column -diit, I and D alike, no contrast (shaded)
+Table 2 line 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent + T	page 15, the stem shape
+Table 2 line 9	Gitksan	transcription	jakwdit	page 15, stem shape Obstruent + T, column Obstruent, I, Independent
+Table 2 line 9	Gitksan	transcription	jagwit	page 15, stem shape Obstruent + T, column Obstruent, D, Dependent
+Table 2 line 9	Gitksan	transcription	jakwdisi’m	page 15, stem shape Obstruent + T, column -si’m, I, Independent
+Table 2 line 9	Gitksan	transcription	jagwisi’m	page 15, stem shape Obstruent + T, column -si’m, D, Dependent
+Table 2 line 9	Gitksan	transcription	jakwdin	page 15, stem shape Obstruent + T, column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 9	Gitksan	transcription	jakwdiit	page 15, stem shape Obstruent + T, column -diit, I and D alike, no contrast (shaded)
+Table 2 line 10	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant + T	page 15, the stem shape
+Table 2 line 10	Gitksan	transcription	wandit	page 15, stem shape Sonorant + T, column Obstruent, I and D alike, no contrast (shaded)
+Table 2 line 10	Gitksan	transcription	wandisi’m	page 15, stem shape Sonorant + T, column -si’m, I and D alike, no contrast (shaded)
+Table 2 line 10	Gitksan	transcription	wandin	page 15, stem shape Sonorant + T, column Sonorant, I and D alike, no contrast (shaded)
+Table 2 line 10	Gitksan	transcription	wandiit	page 15, stem shape Sonorant + T, column -diit, I and D alike, no contrast (shaded)
+Table 2 line 11	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel + T	page 15, the stem shape
+Table 2 line 11	Gitksan	transcription	siwatdit	page 15, stem shape Vowel + T, column Obstruent, I, Independent
+Table 2 line 11	Gitksan	transcription	siwadit	page 15, stem shape Vowel + T, column Obstruent, D, Dependent
+Table 2 line 11	Gitksan	transcription	siwatdisi’m	page 15, stem shape Vowel + T, column -si’m, I, Independent
+Table 2 line 11	Gitksan	transcription	siwadisi’m	page 15, stem shape Vowel + T, column -si’m, D, Dependent
+Table 2 line 11	Gitksan	transcription	siwatdin	page 15, stem shape Vowel + T, column Sonorant, I, Independent
+Table 2 line 11	Gitksan	transcription	siwadin	page 15, stem shape Vowel + T, column Sonorant, D, Dependent
+Table 2 line 11	Gitksan	transcription	siwatdiit	page 15, stem shape Vowel + T, column -diit, I, Independent
+Table 2 line 11	Gitksan	transcription	siwadiit	page 15, stem shape Vowel + T, column -diit, D, Dependent
+(30a) line 1	Sm’algyax	transcription	Gabit.	page 16
+(30a) line 2	Sm’algyax	segmentation	gap-ə-t	page 16
+(30a) line 3	Sm’algyax	gloss	eat-tr-3.ii	page 16
+(30a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she ate it.’	page 16
+(30a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 16, at the right of the translation
+(30b) line 1	Sm’algyax	transcription	Akadit gapt.	page 16
+(30b) line 2	Sm’algyax	segmentation	aka=di=t gap-t	page 16
+(30b) line 3	Sm’algyax	gloss	neg=foc=3.i eat-3.ii	page 16
+(30b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she didn’t eat it.’	page 16
+(30b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 16, at the right of the translation
+(30b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 16, the tag or source at the right of the translation
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The same vowel also appears in object extraction constructions, and is absent in agent extraction constructions:	page 16
+(31a) line 1	Sm’algyax	transcription	ts’ik’aawsa gabit	page 16
+(31a) line 2	Sm’algyax	segmentation	ts’ik’aaws=a gap-ə-t	page 16
+(31a) line 3	Sm’algyax	gloss	split.salmon=cn eat-tr-3	page 16
+(31a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘the split salmon s/he ate’	page 16
+(31a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(O-extr)	page 16, at the right of the translation
+(31b) line 1	Sm’algyax	transcription	gyeda int gapt	page 16
+(31b) line 2	Sm’algyax	segmentation	gyet=a in=t gap-t	page 16
+(31b) line 3	Sm’algyax	gloss	person=cn ax=3.i eat-tr-3	page 16
+(31b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘the person who ate it’	page 16
+(31b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(A-extr)	page 16, at the right of the translation
+(31b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 16, the tag or source at the right of the translation
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	These two syntactic environments are precisely where the transitive vowel is found in IT. In this section we extend the discussion in Section 3 to CT and show that the IT and CT vowels should be analyzed as direct cognates. We show that the distribution of this suffix in CT is identical to its presumed IT cognate: it appears in transitive Independent clauses, object extraction, and nowhere else.	page 16
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	As in IT, the distribution of the vowel suffix is obscured by a number of morphophonological processes which may result in the vowel being deleted where it is expected to appear, or an identical epenthetic vowel appearing where it is not expected to appear. This opaque surface distribution led Sasama (2001) to characterize what we call the transitive vowel as multiple separate phenomena, including a ‘bi-argumental’ or transitive suffix when it surfaces as a glide [-y] after vowel-final stems, or as an epenthetic or ‘inserted’ vowel when it surfaces as a vowel elsewhere. Building on discussion in Forbes (2018), we provide a clear description of where the transitive vowel is licensed in CT, and the phonological processes which condition its appearance.	page 16
+§4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	A note on orthography: the CT orthography represents a sequence of an underspecified vowel and a sonorant with a single letter representing the sonorant. For example, the Gitksan aspectual morpheme dim /dəm/ has a cognate dm /dəm/ in CT, which has an identical pronunciation. In order to adequately show the distribution of the transitive vowel, as well as discuss epenthesis processes, we have strayed slightly from the CT community orthography by overtly writing a vowel in the environment under discussion.	page 16
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	4.1 Epenthesis conditions (CT)	page 16
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	As observed in Section 3.1 for IT, sometimes Independent and Dependent verbal forms both contain a vowel. Just as in IT, we attribute this to vowel epenthesis processes which occur in Dependent clauses, producing a surface form similar to where the transitive vowel is underlying. We show that the contexts under which these epenthesis processes occur are completely predictable and closely correspond to what is observed in IT, and therefore that they can be safely factored out of our under- standing of the transitive vowel’s distribution.	page 16
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The epenthesis of an underspecified vowel, represented with a schwa, between a verb stem and an agreement suffix occurs in cases where the verb stem ends in a consonant (C) and the agree- ment suffix begins with a sonorant (R). The agreement suffixes which trigger this epenthesis are second-person singular (2sg: -n), first-person plural (1pl: -m), as well as all of the first and second- person suffixal pronouns (1sg ’nu, 2sg n, 1pl ’nm, and 2pl nsm). This epenthesis can be observed with an obstruent-final stem in (32a) and (32b) and a sonorant-final stem in (33a) and (33b) where we see identical verb forms across both Independent and Dependent clauses, despite the proposed underlying presence of the transitive vowel in (32a) and (33a) and its absence in (32b) and (33b).	page 17
+§4.1	Gitksan	cited form	-n	page 17, in italics
+§4.1	Gitksan	cited form	-m	page 17, in italics
+(32) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent-final stem + sonorant-initial suffix:	page 17, over the example
+(32a) line 1	Sm’algyax	transcription	Gabin.	page 17
+(32a) line 2	Sm’algyax	segmentation	gap-ə-n	page 17
+(32a) line 3	Sm’algyax	gloss	eat-tr-2.ii	page 17
+(32a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You ate it.’	page 17
+(32a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 17, at the right of the translation
+(32b) line 1	Sm’algyax	transcription	Akadit gabin.	page 17
+(32b) line 2	Sm’algyax	segmentation	aka=di=t gap-n	page 17
+(32b) line 3	Sm’algyax	gloss	neg=foc=3.i eat-3.ii	page 17
+(32b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘It didn’t eat you.’	page 17
+(32b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 17, at the right of the translation
+(32b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 17, the tag or source at the right of the translation
+(33) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem + sonorant-initial suffix:	page 17, over the example
+(33a) line 1	Sm’algyax	transcription	Łimoomin.	page 17
+(33a) line 2	Sm’algyax	segmentation	łimoom-ə-n	page 17
+(33a) line 3	Sm’algyax	gloss	help-tr-2.ii	page 17
+(33a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You helped him.’	page 17
+(33a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 17, at the right of the translation
+(33b) line 1	Sm’algyax	transcription	Akadit łimoomin.	page 17
+(33b) line 2	Sm’algyax	segmentation	aka=di=t łimoom-n	page 17
+(33b) line 3	Sm’algyax	gloss	neg=foc=3.i help-3.ii	page 17
+(33b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t help you.’	page 17
+(33b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 17, at the right of the translation
+(33b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 17, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The inter-sonorant environment for epenthesis is not active in cases where a sonorant-initial agreement suffix follows a vowel-final verb stem. Sequences of /V-ə-R/ trigger an epenthetic glide which appears between the verb stem and the transitive vowel, resulting in the surface form of [V- yə-R]. This process is identical to the glide formation process discussed in IT. Here we can see a contrast between Independent and Dependent clauses: Independent clauses with vowel-final verb stems clearly show the presence of the transitive vowel, which is absent in Dependent clauses:	page 17
+(34) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel-final stem + sonorant-initial suffix:	page 17, over the example
+(34a) line 1	Sm’algyax	transcription	’Nax’nuuyin.	page 17
+(34a) line 2	Sm’algyax	segmentation	’nax’nuu-ə-n	page 17
+(34a) line 3	Sm’algyax	gloss	hear-tr-2.ii	page 17
+(34a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You heard it.’	page 17
+(34a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 17, at the right of the translation
+(34b) line 1	Sm’algyax	transcription	Akadit ’nax’nuun.	page 18
+(34b) line 2	Sm’algyax	segmentation	aka=di=t ’nax’nuu-n	page 18
+(34b) line 3	Sm’algyax	gloss	neg=foc=3.i hear-2.ii	page 18
+(34b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she didn’t hear you.’	page 18
+(34b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 18, at the right of the translation
+(34b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 18, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Another environment which triggers the epenthesis of vowel of identical quality to the transitive suffix occurs when a sibilant (S) final stem is followed by the a sibilant-initial suffix -sm ‘2pl’:	page 18
+(35) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sibilant-final stem + suffix -sm:	page 18, over the example
+(35a) line 1	Sm’algyax	transcription	T’uusismt Henry.	page 18
+(35a) line 2	Sm’algyax	segmentation	t’uus-ə(-t)-sm=t Henry	page 18
+(35a) line 3	Sm’algyax	gloss	hit-tr-2pl.ii=pn Henry	page 18
+(35a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You all hit Henry.’	page 18
+(35a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 18, at the right of the translation
+(35a) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 18, the tag or source at the right of the translation
+(35b) line 1	Sm’algyax	transcription	Akadit t’uusism.	page 18
+(35b) line 2	Sm’algyax	segmentation	aka=di=t t’uus-sm	page 18
+(35b) line 3	Sm’algyax	gloss	neg=foc=3.i hit-2pl.ii	page 18
+(35b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she didn’t hit you all.’	page 18
+(35b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 18, at the right of the translation
+(35b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 18, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This sibilant epenthesis rule does not apply with the proper-noun connective =s. Here we see a contrastive environment: the sequence of sibilant-final stem, transitive vowel, and a proper-noun clitic =s will surface as [sis], while a sibilant-final stem followed immediately by =s surfaces as [s]:	page 18
+(36) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sibilant-final stem + connective =s:	page 18, over the example
+(36a) line 1	Sm’algyax	transcription	T’uusis Henryt Aidan.	page 18
+(36a) line 2	Sm’algyax	segmentation	t’uus-ə(-t)=s Henry=t Aidan	page 18
+(36a) line 3	Sm’algyax	gloss	hit–tr-3.ii Henry=pn Aidan	page 18
+(36a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Henry hit Aidan.’	page 18
+(36a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 18, at the right of the translation
+(36b) line 1	Sm’algyax	transcription	Akadit t’uus Henry.	page 18
+(36b) line 2	Sm’algyax	segmentation	aka=di=t t’uus(-t)=s Henry	page 18
+(36b) line 3	Sm’algyax	gloss	neg=foc=3.i hit-3.ii Henry	page 18
+(36b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she didn’t hit Henry.’	page 18
+(36b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 18, at the right of the translation
+(36b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 18, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	A final environment for vowel epenthesis is when a cluster consisting of an obstruent-stop se- quence in a verb’s coda position is followed by an obstruent suffix such as -t ‘3.ii’ or =s ‘pn’. This is observed in (37) where we see an epenthetic vowel separating the stem and the person agreement in the Dependent order:	page 18
+§4.1	Gitksan	cited form	-t	page 18, in italics, ‘3.ii’
+(37a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Stop-final cluster followed by third-person -t:	page 18, over the example
+(37a) line 2	Sm’algyax	transcription	Daaltgis Henry hana’a.	page 18
+(37a) line 3	Sm’algyax	segmentation	daaltk-ə(-t)=s Henry=a hana’a	page 18
+(37a) line 4	Sm’algyax	gloss	meet-tr-3.ii=pn Henry=cn woman	page 18
+(37a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Henry met the woman.’	page 18
+(37a) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 18, at the right of the translation
+(37b) line 1	Sm’algyax	transcription	Akadit daaltgit.	page 18
+(37b) line 2	Sm’algyax	segmentation	aka=di=t daaltk-t	page 18
+(37b) line 3	Sm’algyax	gloss	neg=foc=3.I meet-3.ii	page 18
+(37b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t meet her.’	page 18
+(37b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 18, at the right of the translation
+(37b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 18, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This epenthetic environment is restricted to stop-final complex codas as in (37) and does not occur with other types of complex coda such as the fricative-final cluster in (38).	page 19
+(38a) line 1	Sm’algyax	transcription	Ludamksida mak’ooxs.	page 19
+(38a) line 2	Sm’algyax	segmentation	lu=damks-ə-t=a mak’ooxs	page 19
+(38a) line 3	Sm’algyax	gloss	in=squeeze-tr-3.ii=cn salmonberries	page 19
+(38a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he squeezed the salmonberries.’	page 19
+(38a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 19, at the right of the translation
+(38b) line 1	Sm’algyax	transcription	Akadit ludamkst.	page 19
+(38b) line 2	Sm’algyax	segmentation	aka=di=t lu=damks-t	page 19
+(38b) line 3	Sm’algyax	gloss	neg=foc=3.i in=squeeze-3.ii	page 19
+(38b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he didn’t squeeze them.’	page 19
+(38b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 19, at the right of the translation
+(38b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 19, the tag or source at the right of the translation
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Given that transitive verbs with this shape of coda are quite rare in Sm’algyax, vowel epenthesis which results in a neutralizing of contrasts between the Independent and Dependent clause types occurs less frequently in this type of environment than the other two environments discussed in this section.	page 19
+§4.1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In sum, three morphophonological environments for vowel epenthesis, all of which occur be- tween the verb stem and suffixal agreement in CT, trigger identical surface forms for verbs in the Independent and Dependent orders, thus neutralizing surface contrasts between the two. Two of these conditions are identical to those discussed in IT in Section 3.1: sonorant-suffix conditioned epenthesis and epenthesis triggered by an S-initial suffix appearing after an S-final stem. The third condition appears to be unique to CT, and occurs when a stop-final complex coda is followed by an obstruent suffix/clitic. Let us now turn to deletion processes, which also obscure the distribution of the transitive vowel.	page 19
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	4.2 Deletion conditions (CT)	page 19
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In contrast to the identical epenthesis processes and environments that occur in both branches of the family discussed in Sections 3.1 and 4.1, the deletion processes and environments in CT are simpler, and apply more broadly than those in IT. Consequently, more often than not a proposed underlying transitive vowel will not actually surface in CT. There are two deletion environments that result in the underlying transitive vowel not surfacing in the Independent order in CT, yielding identical surface verb forms across both clause types.	page 19
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The first environment that triggers the deletion of an expected transitive vowel occurs when a verb stem has a sonorant coda. Unlike the sonorant conditioned deletion discussed in Section 3.2 for IT, this deletion environment is not sensitive to stress in CT, and is categorical. Any sequence of sonorant-final verb and a transitive vowel will result in the deletion of the vowel: /R-ə/ becomes [R]. This can be observed below with the sonorant-final verb łimoom ‘to help’. Despite the proposed underlying difference between the Independent and Dependent verbal complex, the verbs in (39a) and (39b) share an identical surface form due to this process of vowel deletion after a sonorant:	page 19
+§4.2	Gitksan	cited form	łimoom	page 19, in italics, ‘to help’
+(39) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant-final stem:	page 19, over the example
+(39a) line 1	Sm’algyax	transcription	Dm łimoomt.	page 19
+(39a) line 2	Sm’algyax	segmentation	dm łimoom-ə-t	page 19
+(39a) line 3	Sm’algyax	gloss	prosp help-tr-3.ii	page 19
+(39a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he will help him/her.’	page 19
+(39a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 19, at the right of the translation
+(39b) line 1	Sm’algyax	transcription	Akadit łimoomt.	page 20
+(39b) line 2	Sm’algyax	segmentation	aka=di=t łimoom-t.	page 20
+(39b) line 3	Sm’algyax	gloss	neg=foc=3.i help-3.ii	page 20
+(39b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He/she didn’t help him/her.’	page 20
+(39b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 20, at the right of the translation
+(39b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 20, the tag or source at the right of the translation
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This sonorant deletion rule not only targets the transitive vowel, but also the common-noun connective =a, which encliticizes to the predicate when a common noun follows it. Compare the obstruent-final stem gap ‘eat’ with the sonorant-final łimoom ‘help’ below:14	page 20
+footnote 14	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Note that in all examples in this paper, we follow Davis (2018) in assuming that third-person agreement (-t) co-occurs with DP arguments, but that the adjacent connective of the DP it agrees with will delete the -t. For common nouns, this results in hl (IT) and a (CT), rather than thl (IT) and da (CT). For proper nouns this process produces the connective s (IT/CT), rather than tt (IT) or dit (CT). For CT specifically, this results in a notably long string of deleted morphemes on the verb form in examples like (41).	page 20, footnote 14
+(40) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Connective =a surfaces after obstruent:	page 20, over the example
+(40) line 2	Sm’algyax	transcription	Gaba gyeda ts’ik’aaws.	page 20
+(40) line 3	Sm’algyax	segmentation	gap(-ə-t)=a gyet=a ts’ik’aaws	page 20
+(40) line 4	Sm’algyax	gloss	eat-tr-3=cn person=cn split.salmon	page 20
+(40) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘The people eat split dried salmon.’	page 20
+(40) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 20, the tag or source at the right of the translation
+(41) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Connective =a deletes after sonorant:	page 20, over the example
+(41) line 2	Sm’algyax	transcription	Łimoom sm’ooygida łguułgit.	page 20
+(41) line 3	Sm’algyax	segmentation	łimoom(-ə-t=a) sm’ooygit=a łguułk-t	page 20
+(41) line 4	Sm’algyax	gloss	help-tr-3=cn chief=cn child-3	page 20
+(41) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘The chief helped his child.’	page 20
+(41) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 20, the tag or source at the right of the translation
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	It is important to note that there is a potential conflict between the sonorant epenthesis rule provided in Section 4.1 and the sonorant deletion rule provided here. Recall that when a sonorant- final verb stem is proceeded by a sonorant suffix, an epenthetic vowel is inserted:	page 20
+(42) line 1	Sm’algyax	transcription	Akadit łimoomin.	page 20
+(42) line 2	Sm’algyax	segmentation	aka=di=t łimoom-n	page 20
+(42) line 3	Sm’algyax	gloss	neg=foc=3.i help-3.ii	page 20
+(42) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He didn’t help you.’	page 20
+(42) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 20, at the right of the translation
+(42) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 20, the tag or source at the right of the translation
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We suggest that epenthesis follows deletion. If epenthesis were to precede deletion, we would not expect surface forms such as (42) as the vowel that appears in this example via the epenthesis rule would be deleted. The inverse ordering of these rules — deletion before epenthesis — correctly predicts the surface form we find in (42) (as well as in its identical Independent-clause counterpart in (32b)).	page 20
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The second deletion environment is when the transitive vowel is followed by a vocalic suffix or clitic, such as the first-person suffix -u and the common-noun connective =a. This is observed in (43) where the vocalic person suffix -u triggers the deletion of the transitive vowel, resulting in identical surface forms across both clause types:	page 20
+§4.2	Gitksan	cited form	-u	page 20, in italics
+(43) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	TR deletion before first-person suffix -u:	page 21, over the example
+(43a) line 1	Sm’algyax	transcription	Gabu sami.	page 21
+(43a) line 2	Sm’algyax	segmentation	gap-ə-u=a sami	page 21
+(43a) line 3	Sm’algyax	gloss	eat-tr-1sg.ii=cn meat	page 21
+(43a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I ate meat.’	page 21
+(43a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 21, at the right of the translation
+(43b) line 1	Sm’algyax	transcription	Akadit gabu.	page 21
+(43b) line 2	Sm’algyax	segmentation	aka=di=t gap-u	page 21
+(43b) line 3	Sm’algyax	gloss	neg=foc=3.i eat-1sg.ii	page 21
+(43b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘It didn’t eat me.’	page 21
+(43b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 21, at the right of the translation
+(43b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 21, the tag or source at the right of the translation
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This deletion process is also observed in (44) where we see an Independent clause with a common- noun connective =a following the transitive vowel, and the transitive vowel does not surface, resulting in identical surface forms of the verb:	page 21
+(44) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	TR deletion before connective =a:	page 21, over the example
+(44a) line 1	Sm’algyax	transcription	Gaba gyeda ts’ik’aaws.	page 21
+(44a) line 2	Sm’algyax	segmentation	gap(-ə-t)=a gyet=a ts’ik’aaws	page 21
+(44a) line 3	Sm’algyax	gloss	eat-tr-3=cn person=cn split.salmon	page 21
+(44a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘The people eat split dried salmon.’	page 21
+(44a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 21, at the right of the translation
+(44b) line 1	Sm’algyax	transcription	Yagwat gaba ts’ik’aaws.	page 21
+(44b) line 2	Sm’algyax	segmentation	yagwa=t gap(-ə-t)=a ts’ik’aaws	page 21
+(44b) line 3	Sm’algyax	gloss	prog eat-tr-3=cn split.salmon	page 21
+(44b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he is eating split dried salmon.’	page 21
+(44b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 21, at the right of the translation
+(44b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 21, the tag or source at the right of the translation
+§4.2	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Having outlined the epenthesis and deletion environments which obscure the presence of an underlying transitive vowel in CT, we will turn to the interaction between the transitive vowel and ‘big T’.	page 21
+§4.3	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	4.3 Morphological interaction between TR and big T (CT)	page 21
+§4.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	As in IT, CT also has a special class of verbs which inflect with the abstract suffix -T, resulting in the appearance of a [-t]/[-d] suffix in Independent clauses and a vowel in Dependent clauses.15 This is observed in (45) where we see that a ‘T-verb’ such as mał ‘tell’ inflects differently from an ordinary verb such as gap ‘eat’ in (46):	page 21
+footnote 15	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This -T suffix in CT is briefly described in Sasama (2001:140) where it is referred to as a ‘bi-argumental’ marker. Sasama does not address the variable surface form of this suffix.	page 21, footnote 15
+§4.3	Gitksan	cited form	mał	page 21, in italics, ‘tell’
+(45a) line 1	Sm’algyax	transcription	Dm małdit da k’wan.	page 21
+(45a) line 2	Sm’algyax	segmentation	dm mał-T-ə-t da=a kw’an	page 21
+(45a) line 3	Sm’algyax	gloss	prosp tell-T-tr-3.ii prep=cn 2sg.obl	page 21
+(45a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he will tell it to you.’	page 21
+(45a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 21, at the right of the translation
+(45b) line 1	Sm’algyax	transcription	Yagwat małit da k’wan.	page 21
+(45b) line 2	Sm’algyax	segmentation	yagwa=t mał-T-t da=a kw’an	page 21
+(45b) line 3	Sm’algyax	gloss	prog=3.i tell-T-3.ii prep 2sg.obl	page 21
+(45b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he is telling it to you.’	page 21
+(45b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 21, at the right of the translation
+(45b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN, BR, EM)	page 21, the tag or source at the right of the translation
+(46a) line 1	Sm’algyax	transcription	Nah gabida hoon.	page 22
+(46a) line 2	Sm’algyax	segmentation	nah gap-ə-t=a hoon	page 22
+(46a) line 3	Sm’algyax	gloss	pfv eat-tr-3.Ii=cn fish	page 22
+(46a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he ate fish.’	page 22
+(46a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 22, at the right of the translation
+(46b) line 1	Sm’algyax	transcription	Akadit gapt.	page 22
+(46b) line 2	Sm’algyax	segmentation	aka=di=t gap-t	page 22
+(46b) line 3	Sm’algyax	gloss	neg=foc=3.I eat-3.ii	page 22
+(46b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he didn’t eat it.’	page 22
+(46b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 22, at the right of the translation
+(46b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN, BR, EM)	page 22, the tag or source at the right of the translation
+§4.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Other common T-verbs are sityaaw ‘change’, aa’pax ‘remember’, gwelk ‘burn’, gats ‘pour’, and gaa ‘take’. Furthermore, as in Gitksan and Nisga’a, certain grammatical processes can switch the inflectional class of a verb to that of a T-verb. For instance, a transitive predicate preceded by the causative gun will inflect with T:	page 22
+(47) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Gun causes T-inflection:	page 22, over the example
+(47a) line 1	Sm’algyax	transcription	Gun gapdida ’yens a łguwoomłk.	page 22
+(47a) line 2	Sm’algyax	segmentation	gun gap-T-ə-t=a ’yens a=a łguwoomłk	page 22
+(47a) line 3	Sm’algyax	gloss	caus eat-T-ə-3.ii=cn leaf prep=cn child	page 22
+(47a) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he made the child eat greens.’	page 22
+(47a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Independent)	page 22, at the right of the translation
+(47b) line 1	Sm’algyax	transcription	Akadit gun gabił ’yens a łguwoomłk.	page 22
+(47b) line 2	Sm’algyax	segmentation	aka=di=t gun gap-T(-t)=ł ’yens a=a łguwoomłk	page 22
+(47b) line 3	Sm’algyax	gloss	neg=foc=Third.I caus eat-T-3.ii=cn leaf prep=cn child	page 22
+(47b) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘S/he didn’t make the child eat greens.’	page 22
+(47b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	(Dependent)	page 22, at the right of the translation
+(47b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 22, the tag or source at the right of the translation
+§4.3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Understanding the distribution of this -T suffix is important as up until this point we have pre- dicted that, barring those cases exhibiting epenthesis, Dependent clauses should not have a vowel in this position in the verbal complex. As the above examples show, the basic distribution of -T in CT mirrors that of -T in IT: in Independent clauses -T appears before the transitive vowel, surfacing as [di] (or [ti] when following a sonorant-final stem (see Sasama 2001:140)), while in Dependent clauses there is no transitive vowel, but the -T suffix may surface as a vowel which is phonetically identical to the transitive vowel, but crucially differs with respect to its syntactic distribution. Ap- parent instances of a transitive vowel appearing in a Dependent clause can be either reduced to the epenthesis described in Section 4.1 or can be analyzed as the vocalic surface form of -T. A deeper look at the similarities and differences between this -T suffix across Tsimshianic is left as important future work.	page 22
+§4.4	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	4.4 Contrastive and non-contrastive TR environments in CT	page 22
+§4.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Following the argumentation and discussion in Section 3 we have shown that the transitive vowel in IT has a direct cognate in CT. This suffix, as in IT, appears in a verb-stem-adjacent position in clauses of the Independent order, including object-fronting constructions. This otherwise clear distribution is obscured by a number of phonological and morphological processes which either result in the deletion of the suffix in Independent clauses, or the epenthesis of an identical vowel in Dependent clauses. The processes which result in a (non-transitive) vowel appearing in this stem- adjacent position are as follows:	page 22
+(48a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	An inter-consonantal T-morpheme is realized as a schwa	page 23, set as an example
+(48b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert schwa between a sibilant and -sm ‘2pl.ii’	page 23, set as an example
+(48c) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert schwa into a word-final cluster ending in a sonorant, including clusters formed by the addition of agreement suffixes -n ‘2sg.ii’, -m ‘1pl.ii’ and the reduced pronouns ’nu ‘1sg’, n ‘2sg’, nm ‘1pl’, nsm ‘2pl’	page 23, set as an example
+(48d) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Insert schwa between an obstruent-stop cluster and a stop	page 23, set as an example
+§4.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The absence of an expected transitive vowel in an Independent clause can be attributed to the following deletion conditions:	page 23
+(49a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Delete schwa after a sonorant	page 23, set as an example
+(49b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Delete schwa before a vowel	page 23, set as an example
+§4.4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Table 3 illustrates the possible combinations of stems and suffixes across both clause types. Shadowed cells mark conditions where there is no contract between Independent and Dependent clauses.16	page 23
+footnote 16	Colin Brown, Clarissa Forbes, Michael David Schwan	note	This table does not reflect potential variability in the shape of the -T suffix in Dependent clauses. While, for instance, -T often surfaces as [t] or [d] before an epenthetic vowel triggered by a sonorant, as in Dependent dzakwdin, an attested variant of this is dzagwin, with the -T suffix appearing in its vowel form. Exploring this variability, and providing a detailed description and analysis of big T in CT is left as important future work.	page 23, footnote 16
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	5 Pinning down the transitive vowel environment: Splits in CT person-marking	page 23
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	CT notably demonstrates several distinct types of transitive agreement in Independent clauses, fur- ther influencing the distribution of the transitive vowel. Independent clauses in CT in which the object is third person contrast with Independent clauses where the object is a participant (first or second-person) (see Forbes 2018 for more in-depth discussion). We refer to the third-person object pattern, illustrated in (50a), as the unmarked pattern, as these clauses are the most frequent and are the only type seen in IT. The participant-object patterns are marked, and there are two of them: those with participant subjects (1/2-on-1/2, shown in (50b)) and those with third-person subjects (3-on-1/2 as in (50c)).	page 23
+(50a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Unmarked: Third-person object:	page 23, over the example
+(50a) line 2	Sm’algyax	transcription	Nah t’uusismt ’niit.	page 23
+(50a) line 3	Sm’algyax	segmentation	nah t’uus-ə-sm=t ’niit	page 23
+(50a) line 4	Sm’algyax	gloss	pfv hit-tr-2pl.ii=pn 3.iii	page 23
+(50a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You all hit him.’	page 23
+(50b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 1/2-on-1/2:	page 23, over the example
+(50b) line 2	Sm’algyax	transcription	Nam t’uusu.	page 23
+(50b) line 3	Sm’algyax	segmentation	nah=m t’uus-u	page 23
+(50b) line 4	Sm’algyax	gloss	pfv=2.i push-1.ii	page 23
+(50b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You hit me.’	page 23
+Table 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Table 3: Combinations of stems and affixes in CT across clause type	page 24, the table's caption; the page is turned a quarter round
+Table 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent -sm Sonorant Vowel	page 24, the suffix heads
+Table 3	Colin Brown, Clarissa Forbes, Michael David Schwan	note	I D I D I D I D	page 24, the clause-type heads, I Independent and D Dependent
+Table 3 line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent	page 24, the stem shape
+Table 3 line 4	Sm’algyax	transcription	gabit	page 24, stem shape Obstruent, column Obstruent, I, Independent
+Table 3 line 4	Sm’algyax	transcription	gapt	page 24, stem shape Obstruent, column Obstruent, D, Dependent
+Table 3 line 4	Sm’algyax	transcription	gabism	page 24, stem shape Obstruent, column -sm, I, Independent
+Table 3 line 4	Sm’algyax	transcription	gapsm	page 24, stem shape Obstruent, column -sm, D, Dependent
+Table 3 line 4	Sm’algyax	transcription	gabin	page 24, stem shape Obstruent, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 4	Sm’algyax	transcription	gabu	page 24, stem shape Obstruent, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obs-Stop	page 24, the stem shape
+Table 3 line 5	Sm’algyax	transcription	daaltgit	page 24, stem shape Obs-Stop, column Obstruent, I and D alike, no contrast (shaded)
+Table 3 line 5	Sm’algyax	transcription	daaltgism	page 24, stem shape Obs-Stop, column -sm, I and D alike, no contrast (shaded)
+Table 3 line 5	Sm’algyax	transcription	daaltgin	page 24, stem shape Obs-Stop, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 5	Sm’algyax	transcription	daaltgu	page 24, stem shape Obs-Stop, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	S-final	page 24, the stem shape
+Table 3 line 6	Sm’algyax	transcription	t’uusit	page 24, stem shape S-final, column Obstruent, I, Independent
+Table 3 line 6	Sm’algyax	transcription	t’uust	page 24, stem shape S-final, column Obstruent, D, Dependent
+Table 3 line 6	Sm’algyax	transcription	t’uusism	page 24, stem shape S-final, column -sm, I and D alike, no contrast (shaded)
+Table 3 line 6	Sm’algyax	transcription	t’uusin	page 24, stem shape S-final, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 6	Sm’algyax	transcription	t’uusu	page 24, stem shape S-final, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 7	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obs-Stop	page 24, the stem shape
+Table 3 line 7	Sm’algyax	transcription	daaltgit	page 24, stem shape Obs-Stop, column Obstruent, I and D alike, no contrast (shaded)
+Table 3 line 7	Sm’algyax	transcription	daaltgism	page 24, stem shape Obs-Stop, column -sm, I and D alike, no contrast (shaded)
+Table 3 line 7	Sm’algyax	transcription	daaltgin	page 24, stem shape Obs-Stop, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 7	Sm’algyax	transcription	daaltgu	page 24, stem shape Obs-Stop, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 8	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant	page 24, the stem shape
+Table 3 line 8	Sm’algyax	transcription	łimoomt	page 24, stem shape Sonorant, column Obstruent, I and D alike, no contrast (shaded)
+Table 3 line 8	Sm’algyax	transcription	łimoomsm	page 24, stem shape Sonorant, column -sm, I and D alike, no contrast (shaded)
+Table 3 line 8	Sm’algyax	transcription	łimoomin	page 24, stem shape Sonorant, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 8	Sm’algyax	transcription	łimoomu	page 24, stem shape Sonorant, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 9	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel	page 24, the stem shape
+Table 3 line 9	Sm’algyax	transcription	’nax’nuuyit	page 24, stem shape Vowel, column Obstruent, I, Independent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuut	page 24, stem shape Vowel, column Obstruent, D, Dependent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuuyism	page 24, stem shape Vowel, column -sm, I, Independent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuusm	page 24, stem shape Vowel, column -sm, D, Dependent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuuyin	page 24, stem shape Vowel, column Sonorant, I, Independent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuun	page 24, stem shape Vowel, column Sonorant, D, Dependent
+Table 3 line 9	Sm’algyax	transcription	’nax’nuuyu	page 24, stem shape Vowel, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 10	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Obstruent + T	page 24, the stem shape
+Table 3 line 10	Sm’algyax	transcription	dzakwdit	page 24, stem shape Obstruent + T, column Obstruent, I, Independent
+Table 3 line 10	Sm’algyax	transcription	dzagwit	page 24, stem shape Obstruent + T, column Obstruent, D, Dependent
+Table 3 line 10	Sm’algyax	transcription	dzakwdism	page 24, stem shape Obstruent + T, column -sm, I, Independent
+Table 3 line 10	Sm’algyax	transcription	dzagwism	page 24, stem shape Obstruent + T, column -sm, D, Dependent
+Table 3 line 10	Sm’algyax	transcription	dzakwdin	page 24, stem shape Obstruent + T, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 10	Sm’algyax	transcription	dzakwdu	page 24, stem shape Obstruent + T, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 11	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Sonorant + T	page 24, the stem shape
+Table 3 line 11	Sm’algyax	transcription	güültit	page 24, stem shape Sonorant + T, column Obstruent, I, Independent
+Table 3 line 11	Sm’algyax	transcription	güült	page 24, stem shape Sonorant + T, column Obstruent, D, Dependent
+Table 3 line 11	Sm’algyax	transcription	güültism	page 24, stem shape Sonorant + T, column -sm, I, Independent
+Table 3 line 11	Sm’algyax	transcription	güülsm	page 24, stem shape Sonorant + T, column -sm, D, Dependent
+Table 3 line 11	Sm’algyax	transcription	güültin	page 24, stem shape Sonorant + T, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 11	Sm’algyax	transcription	güültu	page 24, stem shape Sonorant + T, column Vowel, I and D alike, no contrast (shaded)
+Table 3 line 12	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Vowel + T	page 24, the stem shape
+Table 3 line 12	Sm’algyax	transcription	gaadit	page 24, stem shape Vowel + T, column Obstruent, I, Independent
+Table 3 line 12	Sm’algyax	transcription	gaat	page 24, stem shape Vowel + T, column Obstruent, D, Dependent
+Table 3 line 12	Sm’algyax	transcription	gaadism	page 24, stem shape Vowel + T, column -sm, I and D alike, no contrast (shaded)
+Table 3 line 12	Sm’algyax	transcription	gaadn	page 24, stem shape Vowel + T, column Sonorant, I and D alike, no contrast (shaded)
+Table 3 line 12	Sm’algyax	transcription	gaadu	page 24, stem shape Vowel + T, column Vowel, I and D alike, no contrast (shaded)
+(50c) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 3-on-1/2:	page 25, over the example
+(50c) line 2	Sm’algyax	transcription	Naht t’uusinsm.	page 25
+(50c) line 3	Sm’algyax	segmentation	nah=t t’uus-nsm	page 25
+(50c) line 4	Sm’algyax	gloss	pfv=3.i hit-tr-2pl.iii	page 25
+(50c) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘He hit you all.’	page 25
+(50c) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN, BR, EM)	page 25, the tag or source at the right of the translation
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In the unmarked (50a) we see a second-person agent and a third-person object. The agent is marked by a series II verbal suffix, which is consistent with transitive Independent clauses across Tsimshianic. In the marked 1/2-on-1/2 sentence in (50b) the agent is marked with a pre-predicative series I clitic, while the object is marked with the series II suffix, as is usually the case in Dependent clauses. In the marked 3-on-1/2 sentence in (50c) the agent is marked by a pre-predicative series I clitic, while the object is marked by a series III suffixal pronoun. This AI OIII pattern is distinct from both canonical Independent marking (AII OIII) and Dependent marking (AI OII).17	page 25
+footnote 17	Colin Brown, Clarissa Forbes, Michael David Schwan	note	There are occasional deviations from this pattern noted in the literature; for instance, the following 1/2-on- 1/2 example in (i) uses the expected 3-on-1/2 marking:	page 25, footnote 17
+footnote 17 (i) line 1	Sm’algyax	transcription	M ’waayi’nu.	page 25
+footnote 17 (i) line 2	Sm’algyax	segmentation	m= ’waa-’nu	page 25
+footnote 17 (i) line 3	Sm’algyax	gloss	2sg.ii= find-1sg.iii	page 25
+footnote 17 (i) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You found me.’	page 25
+footnote 17 (i) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT Boas (1911:385), cited in Mulder (1989) (glosses our own)	page 25, the tag or source at the right of the translation
+footnote 17	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The unmarked person-marking configuration is also broadly acceptable in Independent clauses even when the object is not third-person. This is exemplified in the two acceptable sentences below, one exhibiting the marked 1/2-on-1/2 pattern AI OII, the other the unmarked pattern AII OIII:	page 25, footnote 17
+footnote 17 (iia) line 1	Sm’algyax	transcription	Nt’oyaxsn.	page 25
+footnote 17 (iia) line 2	Sm’algyax	segmentation	n=t’oyaxs-n	page 25
+footnote 17 (iia) line 3	Sm’algyax	gloss	1sg.i=thank-2sg.ii	page 25
+footnote 17 (iia) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I thank you.’	page 25
+footnote 17 (iib) line 1	Sm’algyax	transcription	T’oyaxsut ’nüün.	page 25
+footnote 17 (iib) line 2	Sm’algyax	segmentation	t’oyaxs-u=t ’nüün	page 25
+footnote 17 (iib) line 3	Sm’algyax	gloss	thank-1sg.ii=pn 2sg.iii	page 25
+footnote 17 (iib) line 4	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I thank you.’	page 25
+footnote 17 (iib) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (VN)	page 25, the tag or source at the right of the translation
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	IT exhibits neither of the marked patterns in Independent clauses. We therefore have no com- parative basis on which to predict whether or not the transitive vowel should appear in the marked- agreement clauses. We might entertain two opposing hypotheses:	page 25
+(51a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Conditioned by clause type: The transitive vowel is present in all transitive Independent clauses, regardless of what person markers are used.	page 25, set as an example
+(51b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Conditioned by agreement: The transitive vowel is present only in the unmarked con- dition where the series II suffix marks an agent. (Tarpent 1987)	page 25, set as an example
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The sonorant-initial nature of most participant-referring person markers used in these contexts means it is usually difficult to tell whether or not the transitive vowel is present in these clauses; vowel epenthesis as discussed in Section 4.1 means these contexts are typically non-contrastive. However, we can rely on the similarly predictable process of glide epenthesis to detect the transitive vowel after a vowel-final verb, even when a sonorant is suffixed. The examples in (52) and (53) clearly demonstrate that while the transitive vowel appears as predicted in the Unmarked sentences (a), it appears in neither of the Marked ones (b,c):	page 25
+(52a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Unmarked: Third-person object:	page 26, over the example
+(52a) line 2	Sm’algyax	transcription	’Nax’nuuyinit Tiffany?	page 26
+(52a) line 3	Sm’algyax	segmentation	’nax’nuu-ə-n=i=t Tiffany	page 26
+(52a) line 4	Sm’algyax	gloss	hear-tr-2sg.ii=q=dm Tiffany	page 26
+(52a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Did you hear Tiffany?’	page 26
+(52a) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	(Sasama 2001)	page 26, the tag or source at the right of the translation
+(52b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 1/2-on-1/2:	page 26, over the example
+(52b) line 2	Sm’algyax	transcription	Nan ’nax’nuuni?	page 26
+(52b) line 3	Sm’algyax	segmentation	nah=n ’nax’nuu-n=i	page 26
+(52b) line 4	Sm’algyax	gloss	pfv=1.i hear-2.ii=q	page 26
+(52b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Did I hear you?’	page 26
+(52b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	(VN)	page 26, the tag or source at the right of the translation
+(52c) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 3-on-1/2:	page 26, over the example
+(52c) line 2	Sm’algyax	transcription	’Nax’nuunit Tiffany?	page 26
+(52c) line 3	Sm’algyax	segmentation	’nax’nuu-n=i=t Tiffany	page 26
+(52c) line 4	Sm’algyax	gloss	hear-2sg.iii=q=dm Tiffany	page 26
+(52c) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Did Tiffany hear you?’	page 26
+(52c) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (Sasama 2001)	page 26, the tag or source at the right of the translation
+(53a) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Unmarked: Third-person object:	page 26, over the example
+(53a) line 2	Sm’algyax	transcription	T’aayint Kayla.	page 26
+(53a) line 3	Sm’algyax	segmentation	t’aa-ə-n=t Kayla	page 26
+(53a) line 4	Sm’algyax	gloss	hit-tr-2sg.ii=pn Kayla	page 26
+(53a) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘You slapped Kayla.’	page 26
+(53a) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	(Sasama 2001)	page 26, the tag or source at the right of the translation
+(53b) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 1/2-on-1/2:	page 26, over the example
+(53b) line 2	Sm’algyax	transcription	Nan t’aan.	page 26
+(53b) line 3	Sm’algyax	segmentation	Nah=n t’aa-n	page 26
+(53b) line 4	Sm’algyax	gloss	pfv=1.i slap-2.ii	page 26
+(53b) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘I slapped you.’	page 26
+(53b) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	(VN)	page 26, the tag or source at the right of the translation
+(53c) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Marked: 3-on-1/2:	page 26, over the example
+(53c) line 2	Sm’algyax	transcription	T’aant Kayla.	page 26
+(53c) line 3	Sm’algyax	segmentation	t’aa-n=t Kayla	page 26
+(53c) line 4	Sm’algyax	gloss	hit-2sg.iii=dm Kayla	page 26
+(53c) line 5	Colin Brown, Clarissa Forbes, Michael David Schwan	translation	‘Kayla slapped you.’	page 26
+(53c) line 6	Colin Brown, Clarissa Forbes, Michael David Schwan	citation	CT (Sasama 2001)	page 26, the tag or source at the right of the translation
+§5	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The predictable phonological processes we have pinned down for CT therefore provide us with clear confirmation of the second hypothesis: the transitive vowel is not conditioned by the clause type specifically, but rather by the function of agreement. If the verb has a Series II suffix referencing an ergative agent, it also has an underlying transitive vowel (a generalization originally presented by Tarpent 1987 for Nisga’a.) Because the transitive vowel is conditioned only by an ergative Series II suffix, it categorically fails to appear alongside the other option for ergative agreement, the Series I clitics. The proper conditions for its appearance occur in unmarked Independent clauses as well as object extraction, but not marked Independent clauses, Dependent clauses, or any other types of extraction.	page 26
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	6 Conclusion and final comparisons	page 27
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In Sections 3 and 4 we have demonstrated a predictable difference in the shapes of Independent versus Dependent transitive verb stems, in both Interior Tsimshianic (Gitksan) and Maritime Tsimshianic (Coast Tsimshian). In both cases, the difference is broadly in the presence or absence of what we refer to as the transitive vowel. Though there are subtle factors obscuring its appearance in both branches, we can clearly conclude that the transitive vowel is part of the underlying representation of verb stems where the Series II suffixes (e.g. -’y/-u, -n, -t) are exclusively responsible for ergative agreement, as in (54) (repeated from (9)).	page 27
+(54) line 1	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Transitive vowel generalization: An underlying vowel is present on transitive verb stems in the Independent order and in object extraction, immediately preceding a Series II agreement suffix referencing the ergative subject.	page 27, set as an example
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Here we briefly summarize the similarities and differences in how this cross-Tsimshianic general- ization surfaces in each branch, before concluding.	page 27
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The majority of the differences in transitive-vowel realization between the two branches follow from branch-particular phonological conditions. In particular, CT has a strict rule of vowel deletion after a sonorant, which affects not only the transitive vowel but also the vocalic connective =a. In the Interior, deletion of a vowel after a sonorant is only obligatory when the sonorant is the coda of an unstressed syllable — a condition largely (but not exclusively) restricted to contexts with the causative suffix -(d)in (Hunt 1993). In addition, the transitive vowel in CT is deleted when followed by either of the two vocalic elements -u ‘1sg.ii’ or =a ‘cn’. In IT, the cognate morphemes are not vocalic, and there are no other candidate vowel-initial morphemes that would attach in the relevant position to delete the transitive vowel.	page 27
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Save for vowel epenthesis in stop-final clusters that is restricted to CT, all other phonologi- cal processes that occur in the relevant environment — vowel epenthesis into a sonorant-final con- sonant cluster, vowel epenthesis between adjacent sibilants in the verb stem and agreement, and glide epenthesis between a stem-final vowel and the transitive vowel — are identical between the branches.18 In both branches, the difference between Independent and Dependent inflection is most clear when the stem ends in an obstruent and the following agreement or connective is third-person -t or the connective =s, where none of these processes apply.	page 27
+footnote 18	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The latter in particular distinguishes the behavior of the transitive vowel -(y)i, which resolves vowel hiatus with insertion of a glide, from that of the intransitive subject extraction morpheme -(i)t, which resolves hiatus via deletion. We have no ready explanation of this difference in behavior other to say that morphological factors must be at play somehow; but it is notable that the branches have identical behavior with respect to these cognates, among their other similarities.	page 27, footnote 18
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	The transitive vowel’s interactions with other morphemes vary only minimally across the two Tsimshianic branches. The Interior branch alone has a third-person plural suffix -diit, which always deletes the preceding transitive vowel; the Maritime branch has no such suffix and therefore has no environment for morphologically-conditioned deletion. The abstract morpheme -T can be identified in both branches, appearing on cognate verbs, and demonstrates near-identical behavior of realization as either a consonant /t/ or a schwa. Explanations of its behavior in IT such as Tarpent (1987), while complex, can be used with few modifications in analysis of CT. Vowels between a verb stem and its agreement suffixes can always be attributed to either this morpheme -T, the transitive vowel, or predictable phonologically-conditioned epenthesis.	page 27
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	Finally, there are differences in Independent clause agreement in IT versus CT. Not all CT In- dependent clauses have an ergative Series II suffix. We demonstrate in Section 5 that only when the suffix is ergative — contexts with a third-person object — does the transitive vowel appear on the verb stem. This contrasts with IT Independent clauses, where the Series II suffix is always ergative and the transitive vowel always appears. Ergative Series II agreement is also a feature of clauses from which an object has extracted. There is consequently an absolute correspondence between the erga- tive behavior of the Series II suffix and the underlying presence of the transitive vowel (see Forbes 2018 for further discussion).	page 28
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	In both branches, the restriction of the transitive vowel to specific clause-level contexts (Indepen- dent clauses and object extraction clauses, which have the proper agreement properties) distinguish it from explicit transitivizers and bi-argumental morphology which surface freely in both clause types. This includes morphemes like the abstract -T morpheme and causatives like -(d)in/-’in.	page 28
+§6	Colin Brown, Clarissa Forbes, Michael David Schwan	note	We conclude by reiterating that recognition of the transitive vowel in both branches of the Tsimshianic family is a crucial part of understanding their inflectional morphology. We hope that the phonological, morphological, and syntactic rules we have discussed can be of use to future cross- Tsimshianic work, and in particular to analytical and pedagogical work on Maritime Tsimshianic, where the presence of the transitive vowel has not previously been recognized.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	heading	References	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Anderson, Margaret, and Marianne Ignace. 2008. Visible grammar: Twenty user friendly grammar modules for Sm’algyax. Prince Rupert, BC: Wap Sigatgyet, School District 52.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Boas, Franz. 1911. Tsimshian grammar. In Handbook of American Indian languages. Washington: Government Print Office. Bulletin 40, volume 1.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Brown, Jason, Henry Davis, Michael Schwan, and Barbara Sennott. 2016. Gitksan. Journal of the International Phonetic Association 46:367–378.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Davis, Henry. 2018. Only connect! determiners, case and agreement in Tsimshianic. International Journal of American Linguistics 84:471–511.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Davis, Henry, and Clarissa Forbes. 2015. Connect four! The morphosyntax of argument marking in Tsimshianic. In Papers for the 50th International Conference on Salish and Neighbouring Languages. UBCWPL.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Dunn, John Asher. 1979. A reference grammar for the Coast Tsimshian language. Canadian Eth- nology Service paper 55, Ottawa, ON.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Forbes, Clarissa. 2018. Persistent ergativity: Agreement and splits in Tsimshianic. Doctoral Disser- tation, University of Toronto, Toronto, ON.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Forbes, Clarissa. 2019. The structure of transitivity in Gitksan. In Proceedings of the 54th Interna- tional Conference on Salish and Neighbouring Languages, 63–85. UBCWPL.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Hunt, Katharine. 1993. Clause structure, agreement and case in Gitksan. Doctoral Dissertation, University of British Columbia.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Mulder, Jean. 1989. Syntactic ergativity in Coast Tsimshian Sm’algyax. Studies in Linguistics.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Rigsby, Bruce. 1986. Gitxsan grammar. Ms., University of Queensland, Australia.	page 28
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Sasama, Fumiko. 2001. A descriptive study of the Coast Tsimshian morphology. Doctoral Disser- tation, Kyoto University.	page 29
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Tarpent, Marie-Lucie. 1983. The evolution of the Nisgha counting system: A window on cultural change. In Working papers of the Linguistics Circle, volume 3. University of Victoria.	page 29
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Tarpent, Marie-Lucie. 1986. Nisgha possessives. In Papers for the International Conference on Salish and Neighbouring Languages 21, 18–34.	page 29
+references	Colin Brown, Clarissa Forbes, Michael David Schwan	reference	Tarpent, Marie-Lucie. 1987. A grammar of the Nisgha language. Doctoral Dissertation, University of Victoria.	page 29

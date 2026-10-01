@@ -1,0 +1,429 @@
+where	who	kind	form	gloss
+front	Lauren Schneider	title	Classifying Multi-Verb Constructions in Hul’q’umi’num’ Salish	page 1, carries footnote *
+front	Lauren Schneider	name	Lauren Schneider	author, Simon Fraser University
+front	Lauren Schneider	note	Simon Fraser University	page 1, the author's affiliation
+front	Lauren Schneider	note	Simon Fraser University Abstract: This paper explores multi-verb constructions (MVCs) in Hul’q’umi’num’, the Island dialect of Halkomelem Salish. Hul’q’umi’num’ exhibits at least three MVC types: auxiliary verb constructions (AVCs), serial verb constructions (SVCs), and verb chain constructions (VCCs). All three consist of two or more verbs and lack any linking element between the verb components. The verb components in AVCs and SVCs must share a subject argument, while component verbs of a VCC need not share. In SVCs and VCCs, a shared subject NP may occur after the first verbal element, but a subject NP may not occur immediately after an auxiliary verb. Typologically, SVC component verbs must match in terms of clausal categories (e.g. tense and aspect), while transitivity matching of verb components is language-specific (cf. Aikhenvald 2018). Hul’q’umi’num’ SVCs exhibit the expected aspect matching but do not require transitivity matching. Constructions with mismatched component verb aspect are categorized here as VCCs.	page 1, the abstract
+front	Lauren Schneider	note	Keywords: Hul’q’umi’num’, Halkomelem, Salish, multi-verb construction, serial verb construction	page 1, the keywords
+front	Lauren Schneider	note	Papers for the International Conference on Salish and Neighboring Languages 56. D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey	page 1, the volume's header, over the title
+front	Lauren Schneider	language	Hul’q’umi’num’	the Island dialect of Halkomelem Salish, ISO 639-3 hur
+front	Lauren Schneider	language	English	compared in (4)
+front	Lauren Schneider	language	Klallam	ISO 639-3 clm, in (30b)
+front	Lauren Schneider	language	Squamish	in (30c)
+front	Lauren Schneider	language	Fante-Akan	ISO 639-3 fat, where the term serial verbs first appeared in print
+front	Lauren Schneider	language	Twi	ISO 639-3 twi
+footnote *	Hul’q’umi’num’	cited form	Sti’tum’at	page 1
+footnote *	Lauren Schneider	note	* Acknowledgements: Thank you to Dr. Donna Gerdts for her support and advice on this paper. Thank you to Dr. Nancy Hedberg for all of her excellent feedback. All errors are my own. This research was completed with funding from SFU, the Jacobs Research Fund, and the American Philosophical Society. I also offer thanks to the numerous Elders who laid down their voices on tape to create our text corpus. The collection and compilation of texts was funded by SSHRC, SFU, and Jacobs Research Fund. The corpus consists of over 17,000 lines of Hul’q’umi’num’ text. The authors cited here include Andrew Misheal (AM), Mrs. Jimmy Joe (MJJ), Wilfred Sampson (WS), and Manson George (MG). Elicited data comes from the late Dr. Ruby Peter, Sti’tum’at (RP). I express my deep appreciation for her decades of research, and I hope that this work helps contribute to the mission she instilled in all of us to honor and strengthen the Hul’q’umi’num’ language.	page 1, footnote
+footnote *	Lauren Schneider	name	Donna Gerdts	thanked for support and advice
+footnote *	Lauren Schneider	name	Nancy Hedberg	thanked for feedback
+footnote *	Lauren Schneider	name	Andrew Misheal	an author of the text corpus, AM
+footnote *	Lauren Schneider	name	Mrs. Jimmy Joe	an author of the text corpus, MJJ
+footnote *	Lauren Schneider	name	Wilfred Sampson	an author of the text corpus, WS
+footnote *	Lauren Schneider	name	Manson George	an author of the text corpus, MG
+footnote *	Lauren Schneider	name	Ruby Peter	the source of the elicited data, RP
+§1	Lauren Schneider	heading	1 Introduction	page 1
+§1	Lauren Schneider	note	This paper explores multi-verb construction types in Hul’q’umi’num’, the dialect of Halkomelem Salish (ISO 639-3: hur) spoken on Vancouver Island. This work is accomplished through examination of data from dictionaries, a text corpus, and elicitation. Today only around sixty fluent speakers remain, mostly over the age of seventy, but the language is also spoken by around two hundred second-language speakers. One objective of our research is the in-depth study of aspects of Hul’q’umi’num’ that differ significantly from those of English and are thus difficult to translate and are subject to loss through interference. For example, Hul’q’umi’num’, like other Salish languages, is a predicate-initial language (Gerdts & Hukari 2008:1). The verb may be preceded by an auxiliary, linking element, adverb, or certain clitics (Gerdts & Werle 2014:263). The example in (1) below illustrates the basic word order.1	page 1
+footnote 1	Lauren Schneider	note	1 Abbreviations used in the paper: 1 = first person, 2 = second person, 3 = third person, AP = applicative, AUX = auxiliary, CN = connective element, CNJ = conjunction, CS = causative, DT = determiner, DYN = dynamic, FUT = future, HS = hearsay particle, INCH = inchoative, IPFV = imperfective, LC = limited control, LEX = lexical verb, MD = middle, MIR = mirative, N = nominalizer, OBL = oblique, OBJ = object, PAS = passive, PRO.DT = pro-determiner, PROX = proximal, PST = past, PL = plural, POS = possessive, Q = question particle, REC = reciprocal, RL = rhetorical lengthening, SG = singular, SUB = subject, TAM = tense, aspect, mood, TR = transitive, V1 = first verb, V2 = second verb, VCC = verb chain (construction).	page 1, footnote
+(1) line 1	Hul’q’umi’num’	transcription	ni’ tsun qw’aqwut tthu spe’uth.	page 2, the practical orthography
+(1) line 2	Hul’q’umi’num’	segmentation	niʔ cən q̓ʷaqʷ-ət tθǝ speʔəθ	page 2, the underlying line
+(1) line 3	Lauren Schneider	gloss	AUX 1SG.SUB club-TR DT bear	page 2
+(1) line 4	Lauren Schneider	translation	‘I clubbed the bear.’	page 2
+(1) line 5	Lauren Schneider	citation	(Gerdts 2010a:575)	page 2, the source
+§1	Lauren Schneider	note	This example consists of an auxiliary introducer clitic and a second-position subject clitic preceding a transitive verb, and this verb complex is followed by the object NP. Canonically, as demonstrated here, noun phrases appear post-verbally (cf. Gerdts 1988).	page 2
+§1	Lauren Schneider	note	This project began as an investigation into serial verb constructions (SVCs) in Hul’q’umi’num’ and that research revealed that the language utilizes a variety of multi-verb constructions. I will begin here by defining the terminology that I will be using throughout the paper since their usage varies in the literature. The label multi-verb construction (MVC) is a broad term encompassing a variety of constructions consisting of multiple verbal elements. MVCs are often made up of an inflected main verb, and another verb marked as dependent to it (Aikhenvald 2011:12). The terminology for the dependent verb varies in the literature, including terms such as infinitive, participle, gerund, and converb.	page 2
+§1	Lauren Schneider	note	In the literature, the label serial verb has been used fairly freely to describe a variety of MVCs. The label ‘MVC’ broadly encompasses both multi- and mono-clausal constructions that may involve a linking element between the verb components. In contrast, an SVC is understood as a monoclausal construction consisting of multiple independent verbs with no element linking them (cf. Cleary-Kemp 2015; Haspelmath 2016).	page 2
+(2) line 1	Hul’q’umi’num’	transcription	’i tsun huye’ ’imush.	page 2, the practical orthography
+(2) line 2	Hul’q’umi’num’	segmentation	ʔi cən həyeʔ ʔiməš	page 2, the underlying line
+(2) line 3	Lauren Schneider	gloss	AUX.PROX 1SG.SUB leave walk	page 2
+(2) line 4	Lauren Schneider	translation	‘I’m going for a walk.’	page 2
+(2) line 5	Lauren Schneider	citation	(RP 13.09.19)	page 2, the source
+§1	Lauren Schneider	note	In (2) the predicate consists of two verbs huye’ ‘leave’ and ’imush ‘walk’. The definition of SVC being used here excludes MVCs consisting of an independent and a dependent verb, auxiliary verb constructions (AVCs), constructions consisting of coordinated or subordinated clauses, and constructions with coordinated (linked) verbs.	page 2
+§1	Lauren Schneider	note	Verb serialization was first identified for languages with analytic and isolating profiles, such as the languages of Southeast Asia and West Africa (Aikhenvald 2018:185–186). They have since been described in languages with more synthetic profiles such as the languages of Amazonia and in polysynthetic languages such as Algonquian (Aikhenvald 2018:186–187). Hul’q’umi’num’, like other Salish languages, is considered polysynthetic, and the use of MVCs in this language will be discussed in the next section. Section 2 of the paper will introduce the types of MVCs found in Hul’q’umi’num’, which include AVCs, SVCs, and verb chains. In Section 3, I will go into more detail on the differences between SVCs and verb chains.	page 2
+footnote 2	Lauren Schneider	note	2 Historically, there is a debate in Salish linguistics as to whether the classical noun, verb, and adjective word classes apply to Salish languages. Authors such as Kinkade (1983) and Kuipers (1968) have argued rather that Salish and neighboring languages (i.e., Wakashan and Chemakuan) have only two kinds of words: predicates and particles (Kinkade 1983:25). Particles are defined by Kinkade as uninflectable elements expressing temporal, aspectual, modal, or deictic notions, while ‘full words’ are everything else. Kinkade (1983:27) argues that any full word may constitute the main predicate of a Salishan sentence. Koch and Matthewson (2009:126) note that in Salish “it is now generally accepted that noun and verb are distinguished by both morphology and syntax, albeit much more subtly than in languages like English”. For the present work, it will be assumed that noun and verb are meaningful categories in Hul’q’umi’num’.	page 2, footnote
+§2	Lauren Schneider	heading	2 Multi-verb construction types	page 2
+§2	Hul’q’umi’num’	cited form	t’akw’	page 3, ‘go home’
+§2	Hul’q’umi’num’	cited form	qwus	page 3
+§2	Lauren Schneider	note	This section examines different kinds of MVCs found in Hul’q’umi’num’.2 The language has as a single oblique marker ’u and so meanings often expressed by prepositions in English are expressed by verbs in Hul’q’umi’num’. An example of this are verbs like t’akw’ ‘go home’ and qwus ‘go into the water’, which encode both motion and direction of motion or endpoint. The language also utilizes MVCs to avoid having two argument NPs in a row, preferring an alternating pattern of Vs and NP (cf. Gerdts & Hukari 2003, 2008).	page 2
+(3) line 1	Hul’q’umi’num’	transcription	huye’ tthuw’nilh ’es-hw nem’ qwsuthut tus ’u tthu qa’.	page 3, the practical orthography
+(3) line 2	Hul’q’umi’num’	segmentation	hǝyeʔ tθǝw̓nił ʔesxʷ nem̓ qʷsǝθǝt tǝs ʔǝ tθǝ qaʔ	page 3, the underlying line
+(3) line 3	Lauren Schneider	gloss	leave PRO.DT seal go go.into.water get.there OBL DT water	page 3
+(3) line 4	Lauren Schneider	translation	‘And the seal left, going into the water.’	page 3
+(3) line 5	Lauren Schneider	citation	(Gerdts & Hukari 2008:7)	page 3, the source
+§2	Lauren Schneider	note	Serialization and verb chaining are used as a means distributing NPs through a sentence so that each verb has at most one post-verbal NP. I will begin by discussing auxiliary verb constructions (AVCs) in Hul’q’umi’num’ (§2.1). Next, I will talk about SVCs (§2.2) and then distinguish them from ‘verb chains’ (§2.3). The next section begins by introducing a typology for AVCs.	page 3
+§2.1	Lauren Schneider	heading	2.1 Auxiliary verb constructions	page 3
+§2.1	Lauren Schneider	note	An auxiliary verb is understood here as an element that forms a monoclausal verb phrase in combination with a lexical verb; the auxiliary component exhibits semantic bleaching and performs some grammatical function (Anderson 2006:4). Anderson (2006) defines five types of AVCs in terms of syntactic, semantic, and morphosyntactic head-ship, two of which are shown in Table 1 below.	page 3
+Table 1 line 1	Lauren Schneider	note	Table 1: Typology of AVCs (Anderson 2006:24)	page 3, the caption
+Table 1 line 2	Lauren Schneider	note	AUX-headed LV AV LEX-headed LV AV	page 3, the header, two patterns each over LV and AV
+Table 1 line 3	Lauren Schneider	note	AUX-headed → syntactic LV ‒ AV +	page 3, a row, the head marked +
+Table 1 line 4	Lauren Schneider	note	AUX-headed → semantic LV + AV ‒	page 3, a row, the head marked +
+Table 1 line 5	Lauren Schneider	note	AUX-headed → morphosyntactic LV ‒ AV +	page 3, a row, the head marked +
+Table 1 line 6	Lauren Schneider	note	LEX-headed → syntactic LV ‒ AV +	page 3, a row, the head marked +
+Table 1 line 7	Lauren Schneider	note	LEX-headed → semantic LV + AV ‒	page 3, a row, the head marked +
+Table 1 line 8	Lauren Schneider	note	LEX-headed → morphosyntactic LV + AV ‒	page 3, a row, the head marked +
+§2.1	Lauren Schneider	note	In an AVC, the auxiliary verb is always the syntactic head, while the lexical verb is always the semantic head. The differentiating factor is the morphosyntactic (inflectional) headship; the morphosyntactic head is where the primary verbal participants and functional categories are encoded (Anderson 2006:22). In the AUX-headed pattern, the inflectional head is the auxiliary, and in the LEX-headed pattern, it is the lexical verb. English follows the AUX-headed pattern:	page 3
+(4a) line 1	English	note	She is swimming.	page 4, the left column
+(4c) line 1	English	note	I was dreaming.	page 4, the right column
+(4b) line 1	English	note	I am eating.	page 4, the left column
+(4d) line 1	English	note	They were running.	page 4, the right column
+§2.1	Lauren Schneider	note	In this example, the tense (and person) inflection is marked on the auxiliary, while the lexical verb is in a non-finite form. Hul’q’umi’num’, on the other hand, follows the LEX-headed pattern. This pattern consists of an uninflected or fixed form of an auxiliary and a lexical verb with all of the obligatory inflectional morphology characteristic of finite clauses lacking auxiliaries (Anderson 2006:116). This is demonstrated by example (5) below.	page 4
+(5) line 1	Hul’q’umi’num’	transcription	nem’ tst suw’q’t kw’un’a ts’usqun’.	page 4, the practical orthography
+(5) line 2	Hul’q’umi’num’	segmentation	nem̓ ct səw̓q̓-t k̓ʷən̓a c̓əsqən̓	page 4, the underlying line
+(5) line 3	Lauren Schneider	gloss	go.AUX 1PL.SUB search.IPFV-TR DT golden.eagle	page 4
+(5) line 4	Lauren Schneider	translation	‘We will go looking for the golden eagle.’	page 4
+(5) line 5	Lauren Schneider	citation	(WS 1977: line 25)	page 4, the source
+§2.1	Lauren Schneider	note	Here, the auxiliary appears in its fixed form and the lexical verb is marked with both imperfective aspect and a transitive suffix.	page 4
+§2.1	Hul’q’umi’num’	cited form	m’i	page 4, ‘come’
+§2.1	Lauren Schneider	note	There are four auxiliaries in Hul’q’umi’num’ (Gerdts 1988). The auxiliaries ni’ (distal) and ’i (proximal) situate the clause in time and space. The auxiliary nem’ ‘go’ is used to indicate motion away from the place the speaker is located or movement forward in time, and m’i ‘come’ is used to indicate motion towards the speaker’s location or events just now taking place. Example (6) below illustrates each of the auxiliaries.	page 4
+(6a) line 1	Hul’q’umi’num’	transcription	ni’ ’imush.	page 4, the left column
+(6a) line 2	Hul’q’umi’num’	segmentation	niʔ ʔimǝš	page 4, the left column
+(6a) line 3	Lauren Schneider	gloss	AUX.DIST walk	page 4, the left column
+(6a) line 4	Lauren Schneider	translation	‘He walked.’	page 4, the left column
+(6c) line 1	Hul’q’umi’num’	transcription	nem’ ’imush.	page 4, the right column
+(6c) line 2	Hul’q’umi’num’	segmentation	nem̓ ʔimǝš	page 4, the right column
+(6c) line 3	Lauren Schneider	gloss	go walk	page 4, the right column
+(6c) line 4	Lauren Schneider	translation	‘He went and walked.’	page 4, the right column
+(6b) line 1	Hul’q’umi’num’	transcription	’i ’i’mush.	page 4, the left column
+(6b) line 2	Hul’q’umi’num’	segmentation	ʔi ʔim̓ǝš	page 4, the left column
+(6b) line 3	Lauren Schneider	gloss	AUX.PROX walk.IPFV	page 4, the left column
+(6b) line 4	Lauren Schneider	translation	‘He’s walking.’	page 4, the left column
+(6d) line 1	Hul’q’umi’num’	transcription	m’i ’ewu.	page 4, the right column
+(6d) line 2	Hul’q’umi’num’	segmentation	m̓i ʔewǝ	page 4, the right column
+(6d) line 3	Lauren Schneider	gloss	come come.here	page 4, the right column
+(6d) line 4	Lauren Schneider	translation	‘Come here.’	page 4, the right column
+(6d) line 5	Lauren Schneider	citation	(Gerdts 1988:23)	page 4, the source of the four
+§2.1	Lauren Schneider	note	The space-time auxiliaries ni’ and ’i are analyzed as introducer clitics that introduce the verb phrase (Gerdts & Werle 2014:249).	page 4
+§2.1	Lauren Schneider	note	Interestingly, Hul’q’umi’num’ auxiliaries can occur as full verbs. Hul’q’umi’num’ auxiliaries never take verbal morphology unless they are acting as a full verb. The contrast between the auxiliary and full verb functions of nem’ can be seen when they co-occur, such as in (7) and (8) below.	page 4
+(7) line 1	Hul’q’umi’num’	transcription	’a nem’ ch nemustuhw ’u kwu’i s’e’tl’q.	page 4, the practical orthography
+(7) line 2	Hul’q’umi’num’	segmentation	ʔa nem̓ č nemǝstǝxʷ ʔǝ kwu’i s̓eʔƛ̓q	page 4, the underlying line
+(7) line 3	Lauren Schneider	gloss	Ah AUX 2SG go.CS OBL DT outside	page 4
+(7) line 4	Lauren Schneider	translation	‘Ah, take it outside.’	page 4
+(7) line 5	Lauren Schneider	citation	(AM 4159)	page 4, the source, carries footnote 3
+footnote 3	Hul’q’umi’num’	cited form	Spaal’	page 4, a name in the title of a text
+footnote 3	Lauren Schneider	note	3 Text corpus: Spaal’ Copies His Siblings by Andrew Misheal.	page 4, footnote
+(8) line 1	Hul’q’umi’num’	transcription	nem’ ch nemustuhw ’u kwu’i tuywut kwu mustimuhw.	page 5, the practical orthography
+(8) line 2	Hul’q’umi’num’	segmentation	nem̓ č nemǝstǝxʷ ʔǝ kwu’i təywət kʷə məstiməxʷ	page 5, the underlying line
+(8) line 3	Lauren Schneider	gloss	AUX 2SG go.CS OBL DT north DT people	page 5
+(8) line 4	Lauren Schneider	translation	‘You will take them to the northern people.’	page 5
+(8) line 5	Lauren Schneider	citation	(WS 65)	page 5, the source, carries footnote 4
+footnote 4	Hul’q’umi’num’	cited form	s’eluhw ’i’ tthu shes	page 5, the title of a text, The Elder and the Sealion
+footnote 4	Lauren Schneider	note	4 Text corpus: s’eluhw ’i’ tthu shes | The Elder and the Sealion by Wilfred Sampson.	page 5, footnote
+§2.1	Lauren Schneider	note	Looking at the data presented above, nem’ clearly exists as an auxiliary and a full verb. This type of construction resembles a similar English construction such as you are going to go outside. Go in both languages has lost some of its semantic weight in these contexts and taken on a grammatical function.	page 5
+§2.1	Lauren Schneider	note	The main structural feature that SVCs and AVCs have in common is that they are both monoclausal (Anderson 2006:304). Additionally, they both lack any sort of linking element between the verbal elements, such as a coordinator or subordinator. Since Hul’q’umi’num’ follows the LEX-headed pattern, any obligatory inflectional morphology will appear on the main verb rather than the auxiliary. So, inflectional morphology (affixes and reduplication) can be used as a language-specific differentiating factor between auxiliary and lexical verbs as well. The difference between AVCs and SVCs can also be seen in the placement of NP subjects. In (9) below, a subject NP may occur at the end of the verb phrase (9a) and intervening between the two main verbs (9b), but not directly following the auxiliary (9c).	page 5
+(9a) line 1	Hul’q’umi’num’	transcription	ni’ huye’ ’imush tthu swiw’lus.	page 5, the practical orthography
+(9a) line 2	Hul’q’umi’num’	segmentation	niʔ hǝyeʔ ʔimǝš tθǝ swiw̓lǝs	page 5, the underlying line
+(9a) line 3	Lauren Schneider	gloss	AUX.DIST leave walk DT boy	page 5
+(9a) line 4	Lauren Schneider	translation	‘The boy left, walked.’	page 5
+(9b) line 1	Hul’q’umi’num’	phonemic	niʔ hǝyeʔ tθǝ swiw̓lǝs ʔimǝš	page 5, the underlying line, no gloss under it
+(9b) line 2	Lauren Schneider	translation	‘The boy left, walked.’	page 5
+(9c) line 1	Hul’q’umi’num’	phonemic	niʔ tθǝ swiw̓lǝs hǝyeʔ ʔimǝš	page 5, the underlying line, no gloss under it, judged ungrammatical, marked *
+(9c) line 2	Lauren Schneider	citation	(RP 04.10.19)	page 5, the source
+§2.1	Lauren Schneider	note	The primary differentiating factor cross-linguistically is that AVCs involve semantic bleaching of one of the verbal elements, while SVCs involve the use of two or more full lexical verbs (cf. Anderson 2006; Cleary-Kemp 2015; Haspelmath 2016; Lord 1993). Thus, the distinguishing factor between SVCs and AVCs typologically is based on the relationship between the component verbs and the resulting meaning of the construction as a whole. If the meaning of the construction is concatenative or combinatorial, then the construction can be considered an SVC; if one of the verbal elements expresses a semantic or functional modification of the other, then the structure is an AVC (Anderson 2011:810). This generalization plus the language-specific criteria discussed above can be used to draw a clear line between AVCs and SVCs in Hul’q’umi’num’.	page 5
+§2.2	Lauren Schneider	heading	2.2 Serial verb constructions	page 5
+§2.2	Lauren Schneider	note	The term ‘serial verbs’ first appeared in print (in English) in Balmer and Grant (1929)’s grammar of Fante-Akan (ISO 639-3: fat), and Stewart (1963)’s analysis of Twi (Akan) (ISO 639-3: twi) used the term “serial verbs construction” (Lovestrand 2018:7). Since it was coined, the term serial verb construction has been used fairly freely to describe a variety of MVCs and more recently authors have made attempts to restrict the included constructions. Haspelmath (2016:296) provides the following definition: “A serial verb construction is a monoclausal construction consisting of multiple independent verbs with no element linking them and with no predicate-argument relation between the verbs.” The key components of this definition that will be focused on in this paper are that it is a productive monoclausal construction consisting of independent, lexical verbs, and that the construction lacks any sort of linking element between the verb components (cf. Cleary-Kemp 2015).	page 5
+§2.2	Lauren Schneider	note	Serial verbs are mentioned in the Hul’q’umi’num’ and Salish literature, but with the exception of Montler’s (2008) work on Klallam (ISO 639-3: clm) SVCs, the topic is largely understudied. For example, Kroeber (1999:170) mentions a “serial-verb-like construction” in a footnote and Jelinek (2000:219–220) mentions “serial predicates” as support for her predicate raising analysis. Serial verbs in Halkomelem are mentioned in passing by Gerdts (2010b), Gerdts and Hukari (2003, 2011), and Kiyosawa and Gerdts (2010).	page 6
+§2.2	Lauren Schneider	note	Hul’q’umi’num’ SVC verb components exhibit the ability to function as an independent predicate. This is demonstrated by the data in (10) below.	page 6
+(10a) line 1	Hul’q’umi’num’	transcription	ni’ tsun huye’.	page 6, the practical orthography
+(10a) line 2	Hul’q’umi’num’	segmentation	niʔ cǝn hǝyeʔ	page 6, the underlying line
+(10a) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB leave	page 6
+(10a) line 4	Lauren Schneider	translation	‘I left.’	page 6
+(10b) line 1	Hul’q’umi’num’	transcription	ni’ tsun shaqwul.	page 6, the practical orthography
+(10b) line 2	Hul’q’umi’num’	segmentation	niʔ cǝn šaqʷǝl	page 6, the underlying line
+(10b) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB cross.over	page 6
+(10b) line 4	Lauren Schneider	translation	‘I crossed over.’	page 6
+(10c) line 1	Hul’q’umi’num’	transcription	ni’ tsun huye’ shaqwul.	page 6, the practical orthography
+(10c) line 2	Hul’q’umi’num’	segmentation	niʔ cǝn hǝyeʔ šaqʷǝl	page 6, the underlying line
+(10c) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB leave cross	page 6
+(10c) line 4	Lauren Schneider	translation	‘I left, crossed over.’	page 6
+(10c) line 5	Lauren Schneider	citation	(RP 20.06.19)	page 6, the source
+§2.2	Lauren Schneider	note	In (10a) and (10b), the verb complex consists of an auxiliary introducer clitic, a first-person subject second-position clitic, and an intransitive verb. In (10c), there are two verbs. This shows that each of the component verbs can both stand alone as main verbs in a mono-verbal clause and can also occur in series with one another. It should also be noted that the verbs are not connected via any sort of linking element.	page 6
+§2.2	Hul’q’umi’num’	cited form	tsam	page 6
+§2.2	Lauren Schneider	note	In (11) below, the three verbs huye’ ‘leave’, ’imush ‘walk’, and tsam ‘go uphill, away from water’ can be reordered without any significant change to the overall meaning of the phrase.	page 6
+(11a) line 1	Hul’q’umi’num’	transcription	hwun’ netulh ni’ tsun huye’ ’imush tsam.	page 6, the practical orthography
+(11a) line 2	Hul’q’umi’num’	segmentation	xʷən̓ netǝɬ niʔ cǝn hǝyeʔ ʔimǝš cam	page 6, the underlying line
+(11a) line 3	Lauren Schneider	gloss	early morning AUX.DIST 1SG.SUB leave walk go.uphill	page 6
+(11a) line 4	Lauren Schneider	translation	‘Early in the morning I left, walked, went uphill.	page 6
+(11b) line 1	Hul’q’umi’num’	transcription	hwun’ netulh ni’ tsun huye’ tsam ’imush.	page 6, the practical orthography
+(11b) line 2	Hul’q’umi’num’	segmentation	xʷən̓ netǝɬ niʔ cǝn hǝyeʔ cam ʔimǝš	page 6, the underlying line
+(11b) line 3	Lauren Schneider	gloss	early morning AUX.DIST 1SG.SUB leave go.uphill walk	page 6
+(11b) line 4	Lauren Schneider	translation	‘Early in the morning I left, went uphill, walked.’	page 6
+(11c) line 1	Hul’q’umi’num’	transcription	hwun’ netulh ni’ tsun ’imush huye’ tsam.	page 7, the practical orthography
+(11c) line 2	Hul’q’umi’num’	segmentation	xʷən̓ netǝɬ niʔ cǝn ʔimǝš hǝyeʔ cam	page 7, the underlying line
+(11c) line 3	Lauren Schneider	gloss	early morning AUX.DIST 1SG.SUB walk leave go.uphill	page 7
+(11c) line 4	Lauren Schneider	translation	‘Early in the morning I walked, left, went uphill.’	page 7
+(11c) line 5	Lauren Schneider	citation	(RP 20.06.19)	page 7, the source
+§2.2	Lauren Schneider	note	Verb serialization is very common in motion constructions such as these typologically and in Hul’q’umi’num’. Often, one verb contributes the direction of motion, and another contributes the manner of motion. In the examples in (11) above, huye’ ‘leave’ indicates the starting direction, ’imush ‘walk’ indicates the manner of motion, and tsam ‘go uphill’ contributes the goal or endpoint.	page 7
+§2.2	Lauren Schneider	note	Across the world’s languages, different classes of verbs differ in how likely they are to occur in an SVC. A hierarchy is provided in Table 2 below.	page 7
+Table 2 line 1	Lauren Schneider	note	Table 2: Verbs most likely to occur in SVCs (Aikhenvald 2018:244)	page 7, the caption
+Table 2 line 2	Lauren Schneider	note	basic motion verbs (e.g. ‘come’, ‘go’)	page 7, a class, most likely first
+Table 2 line 3	Lauren Schneider	note	< other active intransitive verbs (e.g. ‘arrive’, ‘wander’, ‘crawl’)	page 7, a class, most likely first
+Table 2 line 4	Lauren Schneider	note	< posture verbs (e.g. ‘sit’, ‘stand’, ‘lie’)	page 7, a class, most likely first
+Table 2 line 5	Lauren Schneider	note	< verbs of transfer or causation (e.g. ‘give’, ‘make’)	page 7, a class, most likely first
+Table 2 line 6	Lauren Schneider	note	< further transitive verbs (e.g. ‘pass’, verbs of speech)	page 7, a class, most likely first
+Table 2 line 7	Lauren Schneider	note	< stative verbs	page 7, a class, most likely first
+§2.2	Lauren Schneider	note	As is shown in the table above, intransitive verbs are more common in SVCs than transitive verbs in the world’s languages. In order to see if this generalization holds for Hul’q’umi’num’, I conducted a survey of a 960 -line text.5 I found that SVCs consisting of two or more intransitive verbs are by far the most common type occurring in Hul’q’umi’num’. There were about 81 SVCs total and of those, 59 consist of two or more syntactically intransitive verbs.	page 7
+footnote 5	Hul’q’umi’num’	cited form	ts’usqun’	page 7
+footnote 5	Lauren Schneider	note	5 Text corpus: ts’usqun’ | Golden Eagle by Wilfred Sampson. Recorded on August 5, 1977, by Tom Hukari. Transcription by Ruby Peter. Typed by Tom Hukari, Sarah Kell, and Donna Gerdts.	page 7, footnote
+(12) line 1	Hul’q’umi’num’	transcription	suw’ huye’s tsam tuw’nilh swiw’lus.	page 7, the practical orthography, carries footnote 6
+(12) line 2	Hul’q’umi’num’	segmentation	səw̓ həyeʔ-s cam təw̓niɬ swiw̓ləs	page 7, the underlying line
+(12) line 3	Lauren Schneider	gloss	N.CN leave-N go.uphill PRO.DT young.man	page 7
+(12) line 4	Lauren Schneider	translation	So that young man went up the hills (into the forest).	page 7, printed without quotes
+(12) line 5	Lauren Schneider	citation	(WS 1977: line 28)	page 7, the source
+footnote 6	Lauren Schneider	note	6 The linker suw’ triggers agreement because it is a nominalization. The scope of the agreement extends only to V1 in (12).	page 7, footnote
+§2.2	Lauren Schneider	note	This observation aligns with typological expectations about the transitivity of SVC verb components. An SVC has an overall transitivity, which depends on the transitivity of the component verbs (Aikhenvald 2018:4). Cross-linguistically, languages differ in their conditions on transitivity in SVCs. Some languages allow only intransitive serial verbs, others allow both intransitive and transitive serial verbs, and a subset of those that allow transitive verbs require transitivity matching (Aikhenvald 2018: §4.5).	page 7
+§2.2	Lauren Schneider	note	Hul’q’umi’num’ SVCs do not require transitivity matching across the verb components. The next most common pattern (17 of 81 SVCs) involve both an intransitive verb and a transitive verb.	page 7
+(13) line 1	Hul’q’umi’num’	transcription	suw’ qul’e.e.et nem’ tl’pil hwunin’sus.	page 8, the practical orthography
+(13) line 2	Hul’q’umi’num’	segmentation	səw̓ qəl̓et nem̓ ƛ̓pil xʷənin̓s-əs	page 8, the underlying line
+(13) line 3	Lauren Schneider	gloss	N.CN again(RL) go go.down arrive.TR-3SUB	page 8
+(13) line 4	Lauren Schneider	translation	‘So they again went down, and they got there to them.’	page 8
+(13) line 5	Lauren Schneider	citation	(WS 1977: line 81)	page 8, the source
+§2.2	Lauren Schneider	note	The effect of the transitive verb in this example is to introduce an object into the argument structure. Like the example above, most often, when the verbs within an SVC vary in terms of transitivity, the intransitive verb occurs first, and the transitive verb occurs second (14 of 17 mismatches).	page 8
+§2.2	Lauren Schneider	note	The last type to be discussed here is SVCs consisting entirely of transitive verbs. There were only two cases of this in the text surveyed. They are provided below in (14) and (15).	page 8
+(14) line 1	Hul’q’umi’num’	transcription	suw’ kwunut-s ’i’wustus tu st’e ’u tu’inulh stth’am’, tl’e’luqt.	page 8, the practical orthography
+(14) line 2	Hul’q’umi’num’	segmentation	səw̓ kʷǝn-ǝt-s ʔw̓əs-t-əs tə st̓e ʔə təʔinəɬ st̓θam̓ ƛ̓el̓əqt	page 8, the underlying line
+(14) line 3	Lauren Schneider	gloss	N.CN take-TR-3POS show-TR-3SUB DT like OBL DT bone long.PL	page 8
+(14) line 4	Lauren Schneider	translation	‘So he pointed to a bone, a long bone, that was on this side.’	page 8
+(14) line 5	Lauren Schneider	citation	(WS 1977: line 474)	page 8, the source
+§2.2	Lauren Schneider	note	In (14), the two transitive verbs share the same subject and the same object, and the object occurs after the sequence of verbs. The example below involves three transitive verbs.	page 8
+(15) line 1	Hul’q’umi’num’	transcription	suw’ q’uynuhw tey’ smuyuth, tsum’utus t’ukw’stuhwus.	page 8, the practical orthography
+(15) line 2	Hul’q’umi’num’	segmentation	səw̓ q̓əy-nəxʷ tey̓ sməyəθ cəm̓-ət-əs t̓ək̓ʷ-stəxʷ-əs	page 8, the underlying line
+(15) line 3	Lauren Schneider	gloss	N.CN kill-LCTR DT deer pack.on.back-TR-3SUB go.home-CS-3SUB	page 8
+(15) line 4	Lauren Schneider	translation	‘He killed that deer, put it on his back and took it home.’	page 8
+(15) line 5	Lauren Schneider	citation	(WS 1977: line 346)	page 8, the source
+§2.2	Hul’q’umi’num’	cited form	q’uynuhw	page 8, ‘manage to kill it,’
+§2.2	Hul’q’umi’num’	cited form	tsum’ut	page 8, ‘pack it on one’
+§2.2	Hul’q’umi’num’	cited form	t’ukw’stuhw	page 8, ‘take it home’
+§2.2	Lauren Schneider	note	In (15), all three transitive verbs — q’uynuhw ‘manage to kill it,’ tsum’ut ‘pack it on one’s back,’ and t’ukw’stuhw ‘take it home’ — share the same subject and the same object. Interestingly, the shared object occurs between V1 and V2. Hul’q’umi’num’ SVCs allow argument NPs to intervene between the verb components. Pro-determiners (Gerdts & Hedberg 2018) can also intervene between the verb components:	page 8
+(16) line 1	Hul’q’umi’num’	transcription	nilh ts’u suw’ qwasthut-s tthuw’nilh kw’ulhusum.	page 8, the practical orthography
+(16) line 2	Hul’q’umi’num’	segmentation	niɬ c̓ə səw̓ qʷas-θət-s tᶿəw̓niɬ k̓ʷəɬəs-əm	page 8, the underlying line
+(16) line 3	Lauren Schneider	gloss	3FOC HS N.CN submerge-RFLX-3POS PRO.DT splash.face-MD	page 8
+(16) line 4	Lauren Schneider	translation	He submerged and splashed himself.	page 8, printed without quotes
+(16) line 5	Lauren Schneider	citation	(MJJ 1962: line 31)	page 8, the source, carries footnote 7
+footnote 7	Hul’q’umi’num’	cited form	chumux qwul’ilh	page 8, the title of a text, Pitchy Log Man
+footnote 7	Lauren Schneider	note	7 Text corpus: chumux qwul’ilh | Pitchy Log Man by Mrs. Jimmy Joe. Recorded March 30, 1962, by Wayne Suttles. Translated by Theresa Thorne, 1996. Transcribed by Ruby Peter, July 2007.	page 8, footnote
+§2.2	Lauren Schneider	note	Here the syntactically intransitive verbs share a single subject argument, marked by the pro- determiner, which occurs between the verbs. Gerdts and Hukari (2008) and Gerdts and Schneider (2021) observe that verb serialization is one of the strategies used to spread argument NPs out. This permits the speaker to conform to the claim of Gerdts and Hukari (2003, 2008) that there is a strong tendency in Hul’q’umi’num’ to avoid having two argument NPs in a row. Hul’q’umi’num’ has other methods for achieving this balance, in addition to SVCs. In the next section I will discuss another type of MVC that is used to accomplish this balance: verb chains.	page 8
+§2.3	Lauren Schneider	heading	2.3 Verb chains & polyptoton	page 9
+§2.3	Lauren Schneider	note	Gerdts and Hukari (2003, 2008) use the term verb chain to describe a construction in which several verbs in a row share a single subject. I will use the label verb chain as a less restricted category of MVC, currently a catch-all for constructions that do not qualify as SVCs. An example of a feature that would exclude a construction from inclusion in the SVC category would be if the aspect does not match across the component verbs. While requirements for transitivity matching discussed above are language-specific, cross-linguistically, serialized verbs are expected to match in terms of clausal categories such as tense, aspect, mood, and modality (Aikhenvald 2018:1). This is a feature that I will use to set SVCs apart from verb chain constructions (VCCs). While the aspect across verb components of an SVC should match, this is not necessary for VCCs, such as the one below.	page 9
+(17) line 1	Hul’q’umi’num’	transcription	’i’ wulh m’i wil’ tey’ s’eluhw yu ’i’mush.	page 9, the practical orthography
+(17) line 2	Hul’q’umi’num’	segmentation	ʔiʔ wəɬ m̓i wil̓ tey̓ sʔeləxʷ yə=ʔim̓əš	page 9, the underlying line
+(17) line 3	Lauren Schneider	gloss	CNJ PERF come appear(PFV) DT elder DYN=walk.IPFV	page 9
+(17) line 4	Lauren Schneider	translation	‘and then the elder appeared, walking.’	page 9
+(17) line 5	Lauren Schneider	citation	(WS 1977: line 883)	page 9, the source
+§2.3	Lauren Schneider	note	Here the first verb is in the plain perfective form and the second verb has imperfective aspect. Since SVCs are monoclausal, grammatical categories such as aspect are expected to have the complete SVC in their scope (Aikhenvald 2018:4). Typologically, verbal categories (e.g. mood, reality status, evidentiality, tense and aspect, and negation) may be marked once per SVC or may be marked on every component verb; the entire construction has just one tense, aspect, mood, and modality value (Aikhenvald 2018:106). Examples such as (17) would not be cases of single-marking where the aspect has scope over the entire SVC because the ‘appear’ action is not interpreted as continuing along like the ‘walk’ action is.	page 9
+§2.3	Lauren Schneider	note	Another type of construction that falls under the VCC category are polyptotonic MVCs. Polyptoton is defined as the repetition of words derived from the same root (cf. Axelrod & Gómez de García 2007). This type of repetition is very common in Hul’q’umi’num’ texts and the function is typically to intensify or provide further semantic specification, such as in example (18) below (cf. Gerdts 2018).	page 9
+(18) line 1	Hul’q’umi’num’	transcription	suw’ kwulushs tthu sa’si.i.iqwt kwulushtum tun’a skweyul.	page 9, the practical orthography
+(18) line 2	Hul’q’umi’num’	segmentation	səw̓ kʷələš-s tᶿə saʔsi:qʷt kʷələš-t-əm tən̓a skʷeyəl	page 9, the underlying line
+(18) line 3	Lauren Schneider	gloss	N.CN shoot-POS DT younger.sibling(RL) shoot-TR-PAS DT day	page 9
+(18) line 4	Lauren Schneider	translation	‘Now the younger brother started shooting into the air.’	page 9
+(18) line 5	Lauren Schneider	citation	(MJJ 1962: line 77)	page 9, the source
+§2.3	Lauren Schneider	note	Aikhenvald (2018:79) notes that SVCs with synonymous or nearly synonymous verbs are found in few productively serializing languages. This is one reason to exclude this type of construction from the SVC category. Another rationale for these being excluded from classification as SVCs is that repetitions often exhibit aspect mismatch.	page 9
+(19a) line 1	Hul’q’umi’num’	transcription	suw’ thu.u.uytus ’imush, ’i’mush, ’i.i.i’mush.	page 9, the practical orthography
+(19a) line 2	Hul’q’umi’num’	segmentation	səw̓ θə:y-t-əs ʔiməš ʔim̓əš ʔi:m̓əš	page 9, the underlying line
+(19a) line 3	Lauren Schneider	gloss	N.CN ready-TR-3SUB(RL) walk walk.IPFV walk.IPFV(RL)	page 9
+(19a) line 4	Lauren Schneider	translation	‘So they got everything ready to walk and walked and walked.’	page 9
+(19b) line 1	Hul’q’umi’num’	transcription	yuse’lu skweyul kws ’i’mushs tuw’ne’lulh …	page 10, the practical orthography
+(19b) line 2	Hul’q’umi’num’	segmentation	yəsel̓ə skʷeyəl kʷs ʔim̓əš-s təw̓nel̓əɬ	page 10, the underlying line
+(19b) line 3	Lauren Schneider	gloss	two day DT walk-3SUB PRO.DT	page 10
+(19b) line 4	Lauren Schneider	translation	‘They walked for two days…’	page 10
+(19b) line 5	Lauren Schneider	citation	(WS 1977: line 51–52)	page 10, the source
+§2.3	Lauren Schneider	note	The first two instances of ’imush ‘walk’ are perfective and the second two are imperfective. This example is especially interesting because there is a pair of verbs at the beginning thuytus ’imush ‘they got everything ready to walk’ and then the second verb is repeated three more times (‘they walked and walked and walked’), indicating this second event went on for a lengthy period of time.	page 10
+§2.3	Lauren Schneider	note	Polyptoton can also involve the use of the same root in a mix of verbs and nouns.	page 10
+(20a) line 1	Hul’q’umi’num’	transcription	suw’q’s ’u tu ’uy’ smeent xut’ustum’ yuq’ustun.	page 10, the practical orthography
+(20a) line 2	Hul’q’umi’num’	segmentation	səw̓q̓-s ʔə tə ʔəy̓ sme:nt x̌ət̓ə-stəm̓ yəq̓-əs-tən	page 10, the underlying line
+(20a) line 3	Lauren Schneider	gloss	seek-3POS OBL DT good rock call-PAS rub-round.OBJ-INST	page 10
+(20a) line 4	Lauren Schneider	translation	‘He looked for the stone called the sharpener.’	page 10
+(20b) line 1	Hul’q’umi’num’	transcription	yuq’utus tu smee.e.ent, yuq’talust-hwus tu smeent.	page 10, the practical orthography
+(20b) line 2	Hul’q’umi’num’	segmentation	yəq̓-ət-əs tə smee:nt, yəq̓-tal-əstxʷ-əs tə sme:nt	page 10, the underlying line
+(20b) line 3	Lauren Schneider	gloss	rub-TR-3SUB DT rock(RL) rub-REC-CS-3SUB DT rock	page 10
+(20b) line 4	Lauren Schneider	translation	‘He started rubbing the rocks, rubbing them together.’	page 10
+(20b) line 5	Lauren Schneider	citation	(WS 1977: line 347–348)	page 10, the source
+§2.3	Hul’q’umi’num’	cited form	smeent	page 10
+§2.3	Lauren Schneider	note	In these two lines, the root yuq’ ‘rub, scrape against’ is used three times. It appears once in the first line as a noun, and twice in the second line as verbs. The object of all of the verbs is tu smeent ‘the rock’, which is also repeated three times in the two lines.	page 10
+§2.3	Lauren Schneider	note	In sum, the component verbs of an SVC are expected to match in terms of clausal categories, while requirements on transitivity matching are languagespecific. The component verbs of Hul’q’umi’num’ SVCs exhibit the expected aspect matching but do not require transitivity matching. Constructions with aspect mismatches on the verb components have been classified as VCCs. The next section will elaborate on some of these differences between SVCs and VCCs in Hul’q’umi’num’ as well as discuss (mis)matched voice morphology.	page 10
+§3	Lauren Schneider	heading	3 More on (mis)matching morphology in multi-verb constructions	page 10
+§3	Lauren Schneider	note	As was mentioned above, cross-linguistically, the component verbs of an SVC are expected to share clausal categories, such as aspect. The count of SVCs in the text mentioned above reveals that a large majority of serialized verbs have plain perfective morphology (~88%). Just under ten percent are imperfective. In SVCs, imperfective aspect is used to indicate two continuing actions happening simultaneously, such as (21) below.	page 10
+(21) line 1	Hul’q’umi’num’	transcription	yuse’lu skweyul kwus nem’ ’i’mush yu tl’upul’.	page 10, the practical orthography
+(21) line 2	Hul’q’umi’num’	segmentation	yəsel̓ə skʷeyəl kʷəs nem̓ ʔim̓əš yə=ƛ̓əpəl̓	page 10, the underlying line
+(21) line 3	Lauren Schneider	gloss	two day DT.N go walk.IPFV DYN=going.down.IPFV	page 10
+(21) line 4	Lauren Schneider	translation	‘It took him two days coming down from the mountains.’	page 10
+(21) line 5	Lauren Schneider	citation	(WS 1977: line 298)	page 10, the source
+§3	Lauren Schneider	note	As expected, the aspect of both of the component verbs in this example match. Elicited data also show cases of two imperfective verbs in example (22).	page 10
+(22) line 1	Hul’q’umi’num’	transcription	ni’ tsun yu ’i’mush yu t’it’ulum’.	page 11, the practical orthography
+(22) line 2	Hul’q’umi’num’	segmentation	niʔ cən yə=ʔim̓əš yə=t̓it̓ələm̓	page 11, the underlying line
+(22) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB DYN=walk.IPFV DYN=sing.IPFV	page 11
+(22) line 4	Lauren Schneider	translation	‘I walked along singing (as I went).’	page 11
+(22) line 5	Lauren Schneider	citation	(RP 28.06.19)	page 11, the source
+§3	Hul’q’umi’num’	cited form	t’ilum	page 11, ‘sing’
+§3	Lauren Schneider	note	But the data also reveal a puzzle that some verbs cannot be serialized unless they are imperfective, for example, the activity verb t’ilum ‘sing’ in (23).	page 11
+(23a) line 1	Hul’q’umi’num’	transcription	ni’ tsun ’imush yu t’it’ulum’.	page 11, the practical orthography
+(23a) line 2	Hul’q’umi’num’	segmentation	niʔ cən ʔiməš yə=t̓it̓ələm̓	page 11, the underlying line
+(23a) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB walk DYN=sing.IPFV	page 11
+(23a) line 4	Lauren Schneider	translation	‘I walked along singing (as I went).’	page 11
+(23b) line 1	Hul’q’umi’num’	transcription	ni’ tsun ’imush t’ilum.	page 11, the practical orthography, judged ungrammatical, marked *
+(23b) line 2	Hul’q’umi’num’	segmentation	niʔ cən ʔiməš t̓iləm	page 11, the underlying line
+(23b) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB walk sing	page 11
+(23b) line 4	Lauren Schneider	citation	(RP 28.06.19)	page 11, the source
+§3	Lauren Schneider	note	The speaker rejected examples like (23) even though serialization of two perfective verbs is the most frequent type of SVC. Either the aspect matching condition on SVCs is too strong, or constructions with mismatched aspect need to be analyzed not as SVCs but rather as VCCs.	page 11
+§3	Lauren Schneider	note	It should also be noted that mismatches where V1 is imperfective and V2 is perfective were always marked ungrammatical.	page 11
+(24) line 1	Hul’q’umi’num’	transcription	ni’ tsun yu t’it’ulum’ ’imush.	page 11, the practical orthography, judged ungrammatical, marked *
+(24) line 2	Hul’q’umi’num’	segmentation	niʔ cən yə=t̓it̓ələm̓ ʔiməš	page 11, the underlying line
+(24) line 3	Lauren Schneider	gloss	AUX.DIST 1SG.SUB DYN=sing.IPFV walk	page 11
+(24) line 4	Lauren Schneider	citation	(RP 28.06.19)	page 11, the source
+§3	Hul’q’umi’num’	cited form	t’it’ulum’	page 11
+§3	Hul’q’umi’num’	cited form	’i’mush	page 11
+§3	Lauren Schneider	note	This judgement is not due to verb order, as reversing the order found in (22) to yu t’it’ulum’ yu ’i’mush would also be perfectly acceptable and would have the same meaning.	page 11
+§3	Lauren Schneider	note	In order to investigate this further, a more in-depth study of prosody would be extremely useful but was beyond the scope of this study. Like single-verb clauses, SVCs are expected to be pronounced with a single intonation contour (Aikhenvald 2006; Haspelmath 2016). Like other Salish languages, Hul’q’umi’num’ intonation starts high at the beginning of an oral paragraph and gradually drops (Beck & Bennett 2007; Gilkison 2020). Both single-verb and multi-verb clauses should have the same overall intonation contour, which would demonstrate that the verbs belong to a single prosodic unit. Greater pauses would also be expected between verb components of a VCC than between components of an SVC. If confirmed, these patterns would provide more support for the analysis that MVCs with mismatched aspect are not SVCs. In addition to aspect, most often, SVCs match in terms of voice as well.	page 11
+(25) line 1	Hul’q’umi’num’	transcription	hwunin’sus tus tuw’ne’lulh ’i’ hwi’ skw’ey kws tl’pils.	page 11, the practical orthography
+(25) line 2	Hul’q’umi’num’	segmentation	xʷənin̓s-əs təs təw̓nel̓əɬ ’i’ xʷiʔ sk̓ʷey kʷs ƛ̓pils	page 11, the underlying line
+(25) line 3	Lauren Schneider	gloss	arrive.TR-3SUB get.there PRO.DT CNJ MIR unable.to DT.N go.down	page 11
+(25) line 4	Lauren Schneider	translation	‘When they got to them, they got there but they could not get down to them.’	page 11
+(25) line 5	Lauren Schneider	citation	(WS 1977: line 84)	page 11, the source
+(26) line 1	Hul’q’umi’num’	transcription	ts’alusum tuw’nilh swiw’lus suw’ pasutum kwulushtum tu ni’ ’a’mut.	page 12, the practical orthography
+(26) line 2	Hul’q’umi’num’	segmentation	c̓aləsəm təw̓niɬ swiw̓ləs səw̓ pas-ət-əm kʷələš-t-əm tə niʔ ʔam̓ət	page 12, the underlying line
+(26) line 3	Lauren Schneider	gloss	turn.around DT young.man N.CN hit-TR-PAS shoot-TR-PAS DT AUX sit.IPFV	page 12
+(26) line 4	Lauren Schneider	translation	‘The young man turned around and the one who was sitting was hit, was shot.’	page 12
+(26) line 5	Lauren Schneider	citation	(WS 1977: line 842)	page 12, the source
+§3	Hul’q’umi’num’	cited form	’a’mut	page 12
+§3	Lauren Schneider	note	In example (25) above, both verbs in the first clause are active, and in example (26), both verbs of the second clause are passive. In (26), the verbs share a single argument: tu ni’ ’a’mut ‘the one who was sitting’.	page 12
+§3	Lauren Schneider	note	It is not always the case that a voice mismatch on the verb components results in different subject arguments. The following example demonstrates how a mismatch in voice marking may not necessarily result in different subjects for the component verbs.	page 12
+(27) line 1	Hul’q’umi’num’	transcription	sis ’uw’ qw’im ’aalhstum ’u tthu snuhwulh kwis wulh p’ukw.	page 12, the practical orthography
+(27) line 2	Hul’q’umi’num’	segmentation	sis ʔəw̓ q̓ʷim ʔa:ɬ-stə-m ʔə tθǝ snəxʷəɬ kʷis wəɬ	page 12, the underlying line
+(27) line 3	Lauren Schneider	gloss	and CN get.out.of.water get.on-CS-PAS OBL DT canoe DT.N PERF	page 12
+(27) line 4	Hul’q’umi’num’	segmentation	p̓əkʷ	page 12, the underlying line
+(27) line 5	Lauren Schneider	gloss	rise.to.surface	page 12
+(27) line 6	Lauren Schneider	translation	‘And they took him from the water and put him on the canoe, the one who had surfaced.’	page 12
+(27) line 7	Lauren Schneider	citation	(MG 1346)	page 12, the source, carries footnote 8
+footnote 8	Lauren Schneider	note	8 Text corpus line 1346: Clallam Story 1: Whale hunter by Manson George.	page 12, footnote
+§3	Hul’q’umi’num’	cited form	qw’im	page 12
+§3	Lauren Schneider	note	The SVC qw’im ’aalhstum could be translated ‘get out of the water and was caused to be aboard’. The verb ’aalhstum is marked with both causative and passive morphology (cf. Gerdts 1998; Gerdts & Hukari 1998, 2011). This makes both verbs in the SVC syntactically intransitive, sharing a single argument. Table 3 below demonstrates how the semantic roles and syntactic functions are impacted by Hul’q’umi’num’ verbal morphology.	page 12
+Table 3 line 1	Lauren Schneider	note	Table 3: Argument structure: intransitive + derived intransitive	page 12, the caption
+Table 3 line 2	Lauren Schneider	note	Verb Structure	page 12, the header
+Table 3 line 3	Hul’q’umi’num’	cited form	qw’im	page 12, V1, the verb of the row
+Table 3 line 4	Lauren Schneider	note	SUB / agent i	page 12, its functions over the roles they link to
+Table 3 line 5	Hul’q’umi’num’	cited form	’aalh	page 12, the verb of the row
+Table 3 line 6	Lauren Schneider	note	SUB — OBL / agent vehicle	page 12, its functions over the roles they link to
+Table 3 line 7	Hul’q’umi’num’	cited form	’aalhstuhw	page 12, the verb of the row
+Table 3 line 8	Lauren Schneider	note	SUB — OBJ OBL / causer causee i vehicle	page 12, its functions over the roles they link to
+Table 3 line 9	Hul’q’umi’num’	cited form	’aalhstum	page 12, V2, the verb of the row
+Table 3 line 10	Lauren Schneider	note	SUB — OBL / causee i vehicle	page 12, its functions over the roles they link to
+§3	Lauren Schneider	note	The causative suffix -stuhw introduces that argument, the causee. Next, the passive suffix -m promotes the causee into subject position resulting in the SVCs having the same subject. V1 conveys a MOTION + SOURCE meaning, while V2 conveys a MOTION + GOAL/LOCATION meaning. This example illustrates that a voice mismatch may not be not enough to exclude a construction from consideration as an SVC. If the verbs share the same subject and are marked with the same aspect inflection, there is no reason to exclude them.	page 12
+§3	Lauren Schneider	note	Some additional examples with voice mismatch are given in (28) and (29) below. These constructions utilize polyptoton and their verbs have different subject arguments.	page 13
+(28) line 1	Hul’q’umi’num’	transcription	xut’e ’u tey’ ’i’ wulh nem’ kwunutus, kwunutum thu sta’lusthulh,	page 13, the practical orthography
+(28) line 2	Hul’q’umi’num’	segmentation	x̌ət̓e ʔə tey̓ ’i’ wəɬ nem̓ kʷǝn-ǝt-əs kʷǝn-ǝt-əm θə stal̓əsθəɬ	page 13, the underlying line
+(28) line 3	Lauren Schneider	gloss	do.IPFV OBL DT CNJ PERF go.AUX take-TR-3SUB take-TR-PAS DT wife.PST	page 13
+(28) line 4	Lauren Schneider	translation	‘While he was doing this, he took up with the wife (of his friend),’	page 13
+(28) line 5	Lauren Schneider	citation	(WS 1977: line 199)	page 13, the source
+§3	Hul’q’umi’num’	cited form	sta’lusthulh	page 13, ‘the wife (past)’
+§3	Lauren Schneider	note	These repetitions are used to back up and state the verb again, often adding another argument. The voice mismatch in these examples results in the verbs having different subjects. In (28), the object of the first verb is the subject of the second verb, thu sta’lusthulh ‘the wife (past)’. That V1 and V2 have different subjects does not provide evidence for preferring a VCC versus an SVC analysis. The most common type of SVCs cross-linguistically are same-subject SVCs, but some languages allow different-subject SVCs. In this case, the V2 is always intransitive (Aikhenvald 2006, Haspelmath 2016). Based on this, then, (28) could be an SVC, as V2 is intransitive (i.e. passive).	page 13
+§3	Lauren Schneider	note	However, we find exceptions to the generalization that V2 should be intransitive. In the next example, the passive verb comes first and the transitive verb second.	page 13
+(29) line 1	Hul’q’umi’num’	transcription	suw’ tth’asutum, tth’asutus tuw’nilh.	page 13, the practical orthography
+(29) line 2	Hul’q’umi’num’	segmentation	səw̓ t̓θas-ət-əm t̓θas-ət-əs təw̓niɬ	page 13, the underlying line
+(29) line 3	Lauren Schneider	gloss	N.CN pound-TR-PAS pound-TR-3SUB PRO.DT	page 13
+(29) line 4	Lauren Schneider	translation	‘It was cut in lengths and pounded (by that young man).’	page 13
+(29) line 5	Lauren Schneider	citation	(WS 1977: line 30)	page 13, the source
+§3	Hul’q’umi’num’	cited form	tth’asutum	page 13, ‘it was pounded’
+§3	Hul’q’umi’num’	cited form	tth’asutus	page 13, ‘he pounded it’
+§3	Lauren Schneider	note	Here, the subject of the intransitive V1 tth’asutum ‘it was pounded’ is the object of the transitive V2 tth’asutus ‘he pounded it’. This type of construction is best treated as a VCC rather than an SVC because they do not share a subject. This example lends evidence to the analysis of this type of polyptotonic construction as something other than SVCs. When the voice mismatch results in different subjects, the construction is excluded from classification as a Hul’q’umi’num’ SVC.	page 13
+§3	Lauren Schneider	note	At this stage, polyptoton has been generally excluded from SVC because constructions consisting of identical and synonymous verbs are excluded from this category in the literature. That being said, this may not be the best way to approach Hul’q’umi’num’. In future work, it may be necessary to delineate polyptotonic SVCs, VCCs, and linked clauses.	page 13
+§4	Lauren Schneider	heading	4 Conclusion	page 13
+§4	Lauren Schneider	note	Hul’q’umi’num’ exhibits at least three kinds of multi-verb constructions: auxiliary verb constructions, serial verb constructions, and verb chain constructions. These constructions all consist of multiple verbs with no linking element between the verb components. The findings are summarized in the table below.	page 13
+Table 4 line 1	Lauren Schneider	note	Table 4: Hul’q’umi’num’ multi-verb constructions	page 14, the caption
+Table 4 line 2	Lauren Schneider	note	Auxiliary verb construction / Serial verb construction / Verb chain construction	page 14, the column heads, each over two lines
+Table 4 line 3	Lauren Schneider	note	All components are independent lexical Vs + + +	page 14, a row, then its value in each column
+Table 4 line 4	Lauren Schneider	note	V components share subject + + ±	page 14, a row, then its value in each column
+Table 4 line 5	Lauren Schneider	note	Subject NP comes after first verbal element - + +	page 14, a row, then its value in each column
+Table 4 line 6	Lauren Schneider	note	Aspect mismatch allowed n/a - +	page 14, a row, then its value in each column
+§4	Lauren Schneider	note	The two verb components in these constructions exhibit varying degrees of what I am going to refer to as boundness, the relative connectedness of the aggregate verbal elements .9 The cline of boundness is provided in the table below.	page 14
+footnote 9	Lauren Schneider	note	9 I will use boundness for now as I search for a better label.	page 14, footnote
+Table 5 line 1	Lauren Schneider	note	Table 5: Cline of boundness of verb components	page 14, the caption
+Table 5 line 2	Lauren Schneider	note	Most bound Least bound	page 14
+Table 5 line 3	Lauren Schneider	note	Auxiliary verb constructions > Serial verb constructions > Verb chain constructions	page 14
+§4	Lauren Schneider	note	AVCs are the most bound, consisting of an auxiliary and a lexical verb. A variety of elements can occur between component verbs of SVCs and VCCs, including subject NPs. In contrast, subject NPs may not occur directly after an auxiliary, occurring instead after the first full verb, cf. (9). Another differentiating factor between auxiliaries and lexical verbs in this language is that any obligatory inflectional morphology (affixes and reduplication) will appear on the main verb rather than an auxiliary since Hul’q’umi’num’ follows the LEX-headed pattern. SVCs exhibit a medium degree of boundness, being defined as MVCs that consist of two or more verbs that (i) can function as independent lexical verbs, (ii) share a subject, (iii) have matching aspect, and (iv) are not connected by any sort of linking element. VCCs are the least bound because the verb components are more independent of one another. This is shown by the fact that the verb components need not share a subject and may have aspect mismatch.	page 14
+§4	Lauren Schneider	note	Now that I have established a preliminary analysis of MVCs in Hul’q’umi’num’, I am going to end by outlining a number of remaining issues as there remains much work on this topic. First, there is much to be done on the semantic and discourse functions of SVCs, and possibly MVCs more broadly. It is evident from the discussion above that concepts of motion and direction are commonly expressed by Hul’q’umi’num’ SVCs. Typologically, it is also common for SVCs to be used to express posture, state, resultative, or comparative meanings (cf. Lovestrand 2018).	page 14
+§4	Lauren Schneider	note	An example of a construction of future interest would be the locative construction illustrated below.	page 14
+(30) line 1	Lauren Schneider	note	Locative constructions in three Salish languages	page 14, the example's heading
+(30a) line 1	Lauren Schneider	language	Hul’q’umi’num’	page 14, the language of the example
+(30a) line 2	Hul’q’umi’num’	segmentation	niʔ cən ʔəšəl nem̓ ʔə-ƛ snəneyməxʷ.	page 14
+(30a) line 3	Lauren Schneider	gloss	AUX 1SG.SUB paddle go OBL-DT Nanaimo	page 14
+(30a) line 4	Lauren Schneider	translation	‘I paddled to Nanaimo.’	page 14
+(30a) line 5	Lauren Schneider	citation	(Gerdts 2010b:4)	page 14, the source
+(30b) line 1	Lauren Schneider	language	Klallam	page 15, the language of the example
+(30b) line 2	Klallam	transcription	štəŋ hiyaʔ ʔux̣ʷ ʔaʔ tə sp̓uqʷs.	page 15
+(30b) line 3	Lauren Schneider	gloss	walk go go.to OBL DT bluff	page 15
+(30b) line 4	Lauren Schneider	translation	‘He walked over to the bluff.’	page 15
+(30b) line 5	Lauren Schneider	citation	(Montler 2008:10)	page 15, the source
+(30c) line 1	Lauren Schneider	language	Squamish	page 15, the language of the example
+(30c) line 2	Squamish	segmentation	ƛəč-t-as θu ʔ=tə=qaʔya	page 15
+(30c) line 3	Lauren Schneider	gloss	push-TR-3.TR.SUB go OBL=ART=water	page 15
+(30c) line 4	Lauren Schneider	translation	‘He pushed it into the water’	page 15
+(30c) line 5	Lauren Schneider	citation	(Kroeber 1999:46)	page 15, the source
+§4	Lauren Schneider	note	Each of these examples consists of two or more verbs followed by an oblique phrase. The verb immediately preceding the oblique has the meaning go and the oblique phrase indicates the goal or endpoint. This construction is of interest first because it has multiple verbs and second because it appears across Salish languages.10	page 15
+footnote 10	Lauren Schneider	note	10 Constructions like these have been described as verb serialization in the literature (Gerdts 2010b; Davis & Mellesmoen 2019; Montler 2008), but I have not yet determined whether to include them under the definition of SVC being used here.	page 15, footnote
+§4	Lauren Schneider	note	Another topic of future work is to compare MVCs with VP coordinate constructions. All three MVCs discussed above lack any kind of linking element between the verb components, which makes them distinct from coordination (31), and subordination (31).11	page 15
+footnote 11	Lauren Schneider	note	11 Bätscher (2014) provides a treatment of linking elements in Hul’q’umi’num’.	page 15, footnote
+(31a) line 1	Hul’q’umi’num’	transcription	ni’ q’uwutum ’i’ t’ilum kwthu slhunlheni’.	page 15, the practical orthography
+(31a) line 2	Hul’q’umi’num’	segmentation	niʔ q̓ǝwǝtǝm ʔiʔ t̓ilǝm kʷθǝ sɬǝnɬeniʔ	page 15, the underlying line
+(31a) line 3	Lauren Schneider	gloss	AUX drum CNJ sing DT women	page 15
+(31a) line 4	Lauren Schneider	translation	‘The women drummed and sang.’	page 15
+(31a) line 5	Lauren Schneider	note	(at the same time)	page 15, after the translation
+(31b) line 1	Hul’q’umi’num’	transcription	ni’ t’ilum kwthu slhunlheni’ suw’ qw’uyilushs.	page 15, the practical orthography
+(31b) line 2	Hul’q’umi’num’	segmentation	niʔ t̓ilǝm kʷθǝ sɬǝnɬeniʔ sǝw̓ q̓ʷǝyilǝš-s	page 15, the underlying line
+(31b) line 3	Lauren Schneider	gloss	AUX sing DT women N.CN dance-3POS	page 15
+(31b) line 4	Lauren Schneider	translation	‘The women sang and then danced.’	page 15
+(31b) line 5	Lauren Schneider	citation	(Gerdts 2016: 1)	page 15, the source
+§4	Lauren Schneider	note	Gerdts and Gilkison (2018) address NP coordination and lists, including paratactic coordination, where there is no explicit coordinator between the members of the list. Since the language allows coordination without a linking element, it will be important to distinguish MVCs from lists of verbs lacking a coordinating element. The cline of boundness introduced above could be applied to verbs in this sort of construction as well. In this case, verb coordination with an explicit coordinator would be considered less bound, while verb parataxis would be considered more bound.	page 15
+§4	Lauren Schneider	note	Coordinated clauses and verbs (including parataxis) are multiclausal. For now, a detailed treatment of the monoclausality versus multiclausality of MVCs has been set aside. AVCs and SVCs are asserted as monoclausal in the literature, but more work is needed to classify VCCs.	page 15
+§4	Lauren Schneider	note	Finally, to illustrate the complexity of how multiple VPs can stack in one long sentence, consider the following example.	page 15
+(32) line 1	Hul’q’umi’num’	transcription	suw’ kwunutewut tthu swakwun, yu ’i’mush tthu swakwun,	page 16, the practical orthography
+(32) line 2	Hul’q’umi’num’	transcription	suw’ hwu kwun’et-s tthuw’nilh tthu swakwun.	page 16, the practical orthography
+(32) line 3	Hul’q’umi’num’	segmentation	səw̓ kʷən-ət-ewət tᶿə swakʷən yə=ʔim̓əš tᶿə swakʷən	page 16, the underlying line
+(32) line 4	Lauren Schneider	gloss	N.CN take-TR-3SUB DT loon DYN=walk.IPFV DT loon	page 16
+(32) line 5	Hul’q’umi’num’	segmentation	səw̓ xʷə=kʷən̓et-s tθǝw̓nił tᶿə swakʷən	page 16, the underlying line
+(32) line 6	Lauren Schneider	gloss	N.CN INCH=take.ST-3POS PRO.DT DT loon	page 16
+(32) line 7	Lauren Schneider	translation	‘And then they captured a loon, that was walking by, and they captured it.’	page 16
+(32) line 8	Lauren Schneider	citation	(MJJ 1962: line 15)	page 16, the source
+§4	Lauren Schneider	note	In this example there are three verbs:	page 16
+§4	Hul’q’umi’num’	cited form	suw’ kwunutewut tthu swakwun	page 16, a verb of (32), in the list under it
+§4	Lauren Schneider	translation	‘they took the loon’	page 16
+§4	Hul’q’umi’num’	cited form	yu ’i’mush tthu swakwun	page 16, a verb of (32), in the list under it
+§4	Lauren Schneider	translation	‘the loon was walking along’	page 16
+§4	Hul’q’umi’num’	cited form	hwu kwun’et-s tthuw’nilh tthu swakwun	page 16, a verb of (32), in the list under it
+§4	Lauren Schneider	translation	‘they took possession of that loon’	page 16
+§4	Lauren Schneider	note	Each verb in this example has its own arguments. The first and third verbs are transitive and mirror one another, having the same third-person subject and ‘the loon’ as their object. The middle verb is an intransitive motion verb with ‘the loon’ as its subject. All three verbs share the referent ‘the loon’. It is not certain that the VCC label should be stretched to accommodate this kind of example.12	page 16
+footnote 12	Lauren Schneider	note	12 Donna Gerdts (p.c.) suggests that the middle clause may be a parenthetical and the third clause may be a restart, but there are other examples of stacked VPs that seem more closely bound.	page 16, footnote
+§4	Lauren Schneider	note	Though this project began as an investigation into Hul’q’umi’num’ SVCs, my research has revealed that the language exhibits a diverse variety of MVCs. Future work will delve further into the meanings and uses of these constructions in order to gain a more thorough understanding of when and why L1 speakers rely on MVCs to artfully express events in stories.	page 16
+references	Lauren Schneider	heading	References	page 16
+references	Lauren Schneider	reference	Aikhenvald, Alexandra Y. 2018. Serial verbs. Oxford: Oxford University Press.	page 16
+references	Lauren Schneider	reference	Aikhenvald, Alexandra Y. 2011. Multi-verb constructions: setting the scene. In Alexandra Y. Aikhenvald & Pieter C. Muysken (eds.), Multi-verb constructions: A view from the Americas. Leiden: Brill, 1–26.	page 16
+references	Lauren Schneider	reference	Aikhenvald, Alexandra Y. 2006. Serial verb constructions in typological perspective. In Alexandra Y. Aikhenvald & R. M. W. Dixon (eds.), Serial verb constructions: A cross-linguistic typology. Oxford & New York: Oxford University Press, 1–68.	page 16
+references	Lauren Schneider	reference	Anderson, Gregory D. S. 2011. Auxiliary verb constructions (and other complex predicate types): a functional-constructional overview. Language and Linguistics Compass 5(11):795–828.	page 16
+references	Lauren Schneider	reference	Anderson, Gregory D. S. 2006. Auxiliary verb constructions. Oxford: Oxford University Press.	page 16
+references	Lauren Schneider	reference	Axelrod, Melissa, & Jule Gómez de García, J. 2007. Repetition in Apachean narrative discourse: From discourse structure to language learning in morphologically complex languages. Language, Meaning, and Society 1:107–142.	page 16
+references	Lauren Schneider	reference	Balmer, William T. & F. C. F. Grant. 1929. A grammar of the Fante-Akan language. Atlantis Press, London.	page 17
+references	Lauren Schneider	reference	Bätscher, Kevin. 2014. Interclausal and intraclausal linking elements in Hul’q’umi’num’ Salish. MA thesis. Simon Fraser University.	page 17
+references	Lauren Schneider	reference	Beck, David & David Bennett. 2007. Extending the prosodic hierarchy: Evidence from Lushootseed narrative. Northwest Journal of Linguistics 1:1–34.	page 17
+references	Lauren Schneider	reference	Cleary-Kemp, Jessica. 2015. Serial verb constructions revisited: A case study from Koro. PhD thesis. University of California Berkeley.	page 17
+references	Lauren Schneider	reference	Davis, Henry & Gloria Mellesmoen. 2019. Degree constructions in two Salish languages. Papers for the 54th International Conference on Salish and Neighboring Languages. Vancouver: UBCWPL, 24–52.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 2018. Classifying rhetorical repetitions in Hul’q’umi’num’ narratives. Paper presented at The Workshop on Structure and Constituency in Languages of the Americas 23. University of Ottawa.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 2016. In-subordination and un-coordination in Hul’q’umi’num’ (with some special attention to temporal adverbials). Paper presented at Syntax of World Languages VII, Mexico City, Mexico.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 2010a. Ditransitive constructions in Halkomelem Salish: a direct object/oblique object language, in A. Malchukov & M. Haspelmath & B. Comrie (eds.), Studies in ditransitive constructions: a comparative handbook. Berlin: De Gruyter, 563–610.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 2010b. Semantic effects in Halkomelem directional applicatives. Northwest Journal of Linguistics 4(3):1–17.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 1998. Mapping Halkomelem voice. In Ewa Czaykowska-Higgins & M. Dale Kinkade (eds.), Salish languages and linguistics: Theoretical and descriptive perspective. Berlin: Mouton de Gruyter, 305–323.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. 1988. Object and absolutive in Halkomelem Salish. New York: Routledge.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Zachary Gilkison. 2018. NP coordination, lists, etc. in Hul’q’umi’num’ Salish. Presented at the annual winter meeting for the Society for the Study of the Indigenous Languages of the Americas. Salt Lake City, Utah.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Nancy Hedberg. 2018. Deixis meets discourse: An analysis of the Halkomelem determiner system. Presented at Demonstratives Workshop, Oslo, Norway.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Thomas E. Hukari. 2011. The dual structure of Halkomelem motion verbs. Northwest Journal of Linguistics 5(4):1–20.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Thomas E. Hukari. 2008. The expressions of noun phrases in Halkomelem texts. Anthropological Linguistics 50 (3–4):1–41.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Thomas E. Hukari. 2003. The expressions of NPs in Halkomelem texts. Papers for the 38th International Conference on Salish and Neighboring Languages. Vancouver: UBCWPL, 91–126.	page 17
+references	Lauren Schneider	reference	Gerdts, Donna B. & Thomas E. Hukari. 1998. Inside and outside the middle. Papers for the 33rd International Conference on Salish and Neighboring Languages. Vancouver: UBCWPL, 166– 220.	page 18
+references	Lauren Schneider	reference	Gerdts, Donna B. & Lauren Schneider. 2021. Balancing act: A case study of the distribution of NPs and Vs in Hul’q’umi’num’ texts. Presented at the 23rd Annual Workshop on American Indigenous Languages, hosted online by UC Santa Barbara.	page 18
+references	Lauren Schneider	reference	Gilkison, Zachary. 2020. How what was said was said: Quotation in Hul’q’umi’num’ narrative performance. MA Thesis. Simon Fraser University.	page 18
+references	Lauren Schneider	reference	Haspelmath, Martin. 2016. The serial verb construction: Comparative concept and cross-linguistic generalization. Language and Linguistics 17(3):291–319.	page 18
+references	Lauren Schneider	reference	Jelinek, Eloise. 2000. Predicate Raising in Lummi, Straits Salish. In Andrew Carnie & Eithne Guilfoyle (eds.), The Syntax of Verb Initial Languages. Oxford University Press, 213–233.	page 18
+references	Lauren Schneider	reference	Kinkade, Dale M. 1983. Salish evidence against the universality of ‘noun’ and ‘verb’. Lingua 60: 25–40.	page 18
+references	Lauren Schneider	reference	Kiyosawa, Kaoru & Donna B. Gerdts. 2010. Benefactive and malefactive uses of Salish applicatives. In F. Zúñiga & S. Kittilä (eds.), Benefactives and Malefactives: Typological perspectives and case studies. John Benjamins Publishing Company, 147–184.	page 18
+references	Lauren Schneider	reference	Koch, Karsten & Lisa Matthewson. 2009. The lexical category debate in Salish and its relevance for Tagalog. Theoretical Linguistics 35(1):125–137.	page 18
+references	Lauren Schneider	reference	Kroeber, Paul D. 1999. The Salish language family: reconstructing syntax. University of Nebraska Press.	page 18
+references	Lauren Schneider	reference	Kuipers, Aert H. 1968. The categories of verb-noun and transitive-intransitive in English and Squamish. Lingua 21:610–626.	page 18
+references	Lauren Schneider	reference	Lord, Carol. 1993. Historical change in serial verb constructions, vol. 26 of Typological studies in language. John Benjamins, Amsterdam/Philadelphia.	page 18
+references	Lauren Schneider	reference	Lovestrand, Joseph. 2018. Serial verb constructions in Barayin: Typology, Description and Lexical-Functional Grammar. PhD thesis. University of Oxford.	page 18
+references	Lauren Schneider	reference	Montler, Timothy. 2008. Serial verbs and complex paths in Klallam. Northwest Journal of Linguistics 2(2):1–26.	page 18
+references	Lauren Schneider	reference	Stewart, John M. 1963. Some restrictions on objects in Twi. Journal of African Languages 2(2):145–149.	page 18

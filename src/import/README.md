@@ -89,12 +89,12 @@ three proofs into here and being refused by the ignore rule.
 | `book/build_theory.sh`         | Every theory book, two passes of LuaLaTeX, into `build/theory/`          |
 | `chain/fetch_blocks.py`        | Recent block headers from a public explorer, as a corpus                 |
 
-`docs_check.py` and `build_theory.sh` are symbolic links into `anchor_sift`. One banned table and
+`docs_check.py` and `build_theory.sh` are symbolic links into `orior`. One banned table and
 one build script serve both trees. **`build_theory.sh` currently dangles**, because `maint/book/`
 there became `maint/tex_book/`. Repairing it needs elevation and touches two repositories.
 
 **Do not reach around that dangling link to the script at its own path.** It sets
-`ROOT=$(dirname "$0")/../..`, and running it there builds `anchor_sift`'s theory tree and reports a
+`ROOT=$(dirname "$0")/../..`, and running it there builds `orior`'s theory tree and reports a
 plausible byte count while touching nothing here. Compile this tree by calling `lualatex` directly
 from the book's own directory with `-output-directory` pointed at `build/theory/<book>`.
 
@@ -114,7 +114,7 @@ run and saying in its output that it did. The third is open: `printed_check.py` 
 find the literals handed to `say`, `print` and `stdout.write`, and nothing yet reads the arguments of
 `std::printf`.
 
-All three belong upstream in `anchor_sift/maint/prose/docs_check.py`, where one line serves every
+All three belong upstream in `orior/maint/prose/docs_check.py`, where one line serves every
 tree at once, and `gate.py` is the local stand-in until that lands.
 
 ## Running Every Gate

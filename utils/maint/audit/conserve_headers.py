@@ -1,7 +1,7 @@
 """Checks whether the deficit measurements conserve across headers.
 
 Every number in this workbook has been taken on block 125552. One header is one corpus, and the
-conservation posit in anchor_sift is explicit about what that means: state what a measure must be
+conservation posit in orior is explicit about what that means: state what a measure must be
 invariant to and check each, without inferring the rule from the case that suggested it. Being
 invariant to which header is the row that has never been checked.
 

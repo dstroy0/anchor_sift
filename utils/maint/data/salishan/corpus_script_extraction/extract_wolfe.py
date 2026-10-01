@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Extract the Central Salish lexical suffixes Julie Wolfe compares in ICSNL 60.
@@ -16,7 +16,7 @@
 # Every other reader writes a .pure.txt holding one language. Pouring these forms into one file
 # would build a corpus of Sliammon, Sechelt, Squamish, three kinds of Halkomelem, three kinds of
 # Straits, Klallam, Lushootseed, Twana, Tillamook, Quinault and two Tsamosan languages together,
-# which is a corpus of no language at all. The language is what the anchor sift is trying to measure.
+# which is a corpus of no language at all. The language is what the orior is trying to measure.
 # Mixing eighteen of them into the thing it measures against is the mistake that cannot be
 # recovered from downstream.
 #

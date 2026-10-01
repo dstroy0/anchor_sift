@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Assemble one self-contained submission per research paper, in whatever shape the venue asks for.
@@ -186,7 +186,7 @@ ARCHIVES = ("tar.gz", "zip", "none")
 # main.log, main.aux, main.toc, a .aux per included chapter, and a synctex index larger than the
 # whole rest of the research paper. Copying a research paper directory wholesale ships all of it.
 #
-# Measured once: theory/workbooks/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same research paper
+# Measured once: theory/workbooks/orior packaged at 1,269,699 bytes against 73,201 for the same research paper
 # clean, and 705,688 of that was one synctex file. It would have been accepted.
 LEAVINGS = (".aux", ".log", ".toc", ".lof", ".lot", ".out", ".bbl", ".blg", ".idx", ".ilg",
             ".ind", ".nav", ".snm", ".vrb", ".fls", ".fdb_latexmk", ".synctex", ".synctex.gz")

@@ -1,0 +1,187 @@
+where	who	kind	form	gloss
+front	Andrew Matheson	title	Universal and existential quantification as evidence for asymmetrical treatment of subjects and objects in Ktunaxa	page 1
+front	Andrew Matheson	name	Andrew Matheson	author
+front	Andrew Matheson	note	University of British Columbia	page 1, under Andrew Matheson
+front	Andrew Matheson	note	Ktunaxa is an isolate language spoken in the Kootenay Mountains in interior British Columbia that is sandwiched between the Salish family to the west and the Algonquian family to the east. This paper explains Ktunaxa’s methods for using universal and existential quantifiers, and what that means for the syntactic structure of Ktunaxa. There are two methods of quantification: modification of a noun phrase and modification of a verb phrase. After showing the difference, bare trees and a comparison of grammatical and ungrammatical utterances will be shown, which will give evidence of asymmetrical treatment of subjects and objects. It will be shown that preverbs, a class of words that modify verbs, have their own syntactic projection and that the entire VP adjunct is optionally moved to Spec of IP. This syntactic analysis is mirrored in a thesis by Glougie (2000) on Blackfoot quantification, which will be discussed at the paper’s end.	page 1, the abstract
+front	Andrew Matheson	language	Ktunaxa	a language isolate of the Kootenay Mountains, British Columbia
+§1	Andrew Matheson	heading	1 Preliminary investigation	page 1
+§1.1	Andrew Matheson	heading	1.1 Introduction to Ktunaxa quantifiers	page 1
+§1.1	Andrew Matheson	note	In our investigation of Ktunaxa, we will begin with an explanation on the lexical inventory of the different paradigms. As far as general quantifiers go, most of the quantifiers precede and modify nouns, but most existential and universal quantifiers have a verb-modifying counterpart. The quantifier paradigms divide into phonologically different verbal and nominal formations, and lexical mass versus count categories.	page 1
+§1.2	Andrew Matheson	heading	1.2 Inventory of Ktunaxa quantifiers	page 1
+§1.2.1	Andrew Matheson	heading	1.2.1 Modification of the NP	page 1
+§1.2.1	Andrew Matheson	note	According to Dryer (2002), the most commonly elicited forms of quantification are grammatically within the NP. I found this true of my elicitations only when the noun was the Subject NP. Such are the nominal modifications seen below:	page 1
+§1.2.1	Andrew Matheson	name	Dryer	Matthew Dryer, preverbs in Kutenai and Algonquian (2002)
+(1) line 1	Ktunaxa	transcription	maʔ-is qaqiks-i ʔatwiɬkani wuʔu	page 2
+(1) line 2	Ktunaxa	gloss	mother-POSS say-INDIC a lot (MASS) water	page 2
+(1) line 3	Ktunaxa	transcription	na-s aquknuk-s	page 2
+(1) line 4	Ktunaxa	gloss	this-OBV lake-OBV	page 2
+(1) line 5	Andrew Matheson	translation	‘His mother says, “there is a lot of water in this lake.”’	page 2
+(2) line 1	Ktunaxa	transcription	maʔ-is qaqɬaps-i waha ɬuʔni ʔakitʔɬaʔ-nam	page 2
+(2) line 2	Ktunaxa	gloss	mother-POSS answer-IND no NEG house-INDEF	page 2
+(2) line 3	Andrew Matheson	translation	‘His mother answers, “there are no houses (in this forest).”’	page 2
+§1.2.1	Andrew Matheson	note	The above examples are typical of the quantifier modifying the subject NP. Such a modification most likely manifests itself as an adjunct to the subject DP.	page 2
+§1.3	Andrew Matheson	heading	1.3 Existential and universal quantifiers	page 2
+Table A	Andrew Matheson	note	Table A	page 2, the table's caption
+Table A	Andrew Matheson	note	Ktunaxa gloss	page 2, the table's header
+Table A	Ktunaxa	cited form	q’api	page 2, Ktunaxa, all
+Table A	Andrew Matheson	note	all	page 2, the English of the row
+Table A	Ktunaxa	cited form	ɬu:ni	page 2, Ktunaxa, none
+Table A	Andrew Matheson	note	none	page 2, the English of the row
+Table A	Ktunaxa	cited form	wiɬiɬ	page 2, Ktunaxa, a great deal
+Table A	Andrew Matheson	note	a great deal	page 2, the English of the row
+Table A	Ktunaxa	cited form	xaȼniɬ	page 2, Ktunaxa, both
+Table A	Andrew Matheson	note	both	page 2, the English of the row
+Table A	Ktunaxa	cited form	ʔatwiɬka:ni	page 2, Ktunaxa, a lot
+Table A	Andrew Matheson	note	a lot	page 2, the English of the row
+Table A	Ktunaxa	cited form	yunakaʔni	page 2, Ktunaxa, many
+Table A	Andrew Matheson	note	many	page 2, the English of the row
+Table A	Ktunaxa	cited form	ȼ̓amnani	page 2, Ktunaxa, a little
+Table A	Andrew Matheson	note	a little	page 2, the English of the row
+§1.3	Andrew Matheson	note	The paradigm above was assembled partially from Dryer (2002), and partially from my own elicitation. The first two, all and none are the universals, and the rest are existentials. Ktunaxa appears to have no specific counterpart to the English some, the quantifiers instead have a specific lexical take. Some of these words can only modify nouns, some can only modify verbs, and some can do both with the help of a preverb marker /-iɬ/.	page 2
+§1.3	Andrew Matheson	language	English	a mass and count distinction like Ktunaxa's
+(3) line 1	Ktunaxa	transcription	taxa-s q’api-ɬ ʔuniɬ-iɬ-ni	page 2
+(3) line 2	Ktunaxa	gloss	then-OBV all-PRVB fear-PASSIVE-INDIC	page 2
+(3) line 3	Andrew Matheson	translation	‘Then everyone was afraid of him.’	page 2
+(3) line 4	Andrew Matheson	citation	(Dryer 2002)	page 2, the tag or source at the right of the translation
+(4) line 1	Ktunaxa	transcription	qakiɬ-ni q’apiʔ-s watak-s	page 2
+(4) line 2	Ktunaxa	gloss	say-INDIC all-OBV frog-OBV	page 2
+(4) line 3	Andrew Matheson	translation	‘He said to all the frogs.’	page 2
+(4) line 4	Andrew Matheson	citation	(Dryer 2002)	page 2, the tag or source at the right of the translation
+(5) line 1	Ktunaxa	transcription	ȼ̓amnani wuʔu in-s aȼu-nana-s	page 2
+(5) line 2	Ktunaxa	gloss	a little water DEM-OBV dish-DIM-OBV	page 2
+(5) line 3	Andrew Matheson	translation	‘There is a little water in this cup.’	page 2
+§1.3	Andrew Matheson	note	The above examples are from Dryer and myself, and they are examples of the use of the quantifiers, which always precede the given phrase. The first example is a VP modification, and the second two are examples of the DP modification. (Note that the second example in this set is modifying an indirect object as opposed to a direct object).	page 3
+§1.4	Andrew Matheson	heading	1.4 Numerals	page 3
+Table B	Andrew Matheson	note	Table B	page 3, the table's caption
+Table B	Andrew Matheson	note	Ktunaxa gloss	page 3, the table's header
+Table B	Ktunaxa	cited form	u’ki	page 3, Ktunaxa, One
+Table B	Andrew Matheson	note	One	page 3, the English of the row
+Table B	Ktunaxa	cited form	Asni	page 3, Ktunaxa, Two
+Table B	Andrew Matheson	note	Two	page 3, the English of the row
+Table B	Ktunaxa	cited form	qaɬsa	page 3, Ktunaxa, three
+Table B	Andrew Matheson	note	three	page 3, the English of the row
+Table B	Ktunaxa	cited form	xaȼa	page 3, Ktunaxa, four
+Table B	Andrew Matheson	note	four	page 3, the English of the row
+Table B	Ktunaxa	cited form	Yiku	page 3, Ktunaxa, Five
+Table B	Andrew Matheson	note	Five	page 3, the English of the row
+Table B	Ktunaxa	cited form	‘inmisa	page 3, Ktunaxa, Six
+Table B	Andrew Matheson	note	Six	page 3, the English of the row
+Table B	Ktunaxa	cited form	wist’aɬa	page 3, Ktunaxa, seven
+Table B	Andrew Matheson	note	seven	page 3, the English of the row
+Table B	Ktunaxa	cited form	wuxaȼa	page 3, Ktunaxa, eight
+Table B	Andrew Matheson	note	eight	page 3, the English of the row
+Table B	Ktunaxa	cited form	qaykitwu	page 3, Ktunaxa, nine
+Table B	Andrew Matheson	note	nine	page 3, the English of the row
+Table B	Ktunaxa	cited form	‘itwu	page 3, Ktunaxa, Ten
+Table B	Andrew Matheson	note	Ten	page 3, the English of the row
+§1.4	Andrew Matheson	note	The above are the numerals of Ktunaxa, which can precede DPs to give them a quantificational number. These can productively take the preverbal suffix in order to create numerals, which can precede the VP.	page 3
+§1.5	Andrew Matheson	heading	1.5 Mass versus count distinction	page 3
+§1.5	Andrew Matheson	note	Ktunaxa, like English, makes a distinction between countable nouns like people and dogs and mass nouns like water and snow.	page 3
+Table C	Andrew Matheson	note	Table C	page 3, the table's caption
+Table C	Andrew Matheson	note	Mass Count	page 3, the table's header
+Table C	Andrew Matheson	note	a little a lot none Many few nothing	page 3, the English of each column
+Table C	Ktunaxa	cited form	ȼ̓amnani	page 3, Mass, a little
+Table C	Ktunaxa	cited form	ʔatwiɬka:ni	page 3, Mass, a lot
+Table C	Ktunaxa	cited form	ɬu:ʔni	page 3, Mass, none
+Table C	Ktunaxa	cited form	yunakaʔni	page 3, Count, Many
+Table C	Ktunaxa	cited form	ȼ̓amnani	page 3, Count, few
+Table C	Ktunaxa	cited form	ɬu:ʔni	page 3, Count, nothing
+§1.5	Andrew Matheson	note	This table was created from a story elicited about various countable and uncountable nouns that exist in a forest. The above words are in the form in which they modify a subject DP.	page 3
+(6)	Andrew Matheson	note	Mass	page 4, the caption
+(6) line 1	Ktunaxa	transcription	maʔ-is kaqiks-I waha ɬu:ʔni ʔaːkɬu	page 4
+(6) line 2	Ktunaxa	gloss	mother-POSS say-IND no NEG snow	page 4
+(6) line 3	Andrew Matheson	translation	‘His mother says “no, there is no snow (in this forest).”’	page 4
+(7)	Andrew Matheson	note	Count	page 4, the caption
+(7) line 1	Ktunaxa	transcription	Ka ma k-in ʔupχa χma k-yunaka	page 4
+(7) line 2	Ktunaxa	gloss	my mom NOM-be know MOD SUB-many	page 4
+(7) line 3	Ktunaxa	transcription	kt'uqȼ̓qamna na-s ʔakits'ɬaʔin-s	page 4
+(7) line 4	Ktunaxa	gloss	bird this-OBV tree-OBV	page 4
+(7) line 5	Andrew Matheson	translation	‘Mommy, do you know if there might be many birds in this tree?’	page 4
+§1.5	Andrew Matheson	note	The above examples are a pair that directly contrasts the lexical use of a mass noun with a count noun. There is a distinction on both the level of the DP and the VP, depending on what is supposed to be quantified.	page 4
+§1.6	Andrew Matheson	heading	1.6 The distribution of quantifiers in Ktunaxa	page 4
+§1.6	Andrew Matheson	note	As stated previously, to use existential and universal quantifiers, there are two methods. One can employ nominal modification, or verbal modification. Ktunaxa uses a class of word that Dryer (2002) calls ‘preverbs,’ which are similar to the preverbs in Algonquian. To put it simply, this class of words contains sundry lexical and grammatical information. Universal and existential quantifiers are one of the things that can appear as a preverb. Below is a table of the two types of quantifiers.	page 4
+§1.6	Andrew Matheson	language	Algonquian	the family east of Ktunaxa
+Table D	Andrew Matheson	note	Table D	page 4, the table's caption
+Table D	Andrew Matheson	note	VERBAL MOD NOMINAL MOD gloss	page 4, the table's header
+Table D	Ktunaxa	cited form	q’apiɬ	page 4, VERBAL MOD, all
+Table D	Ktunaxa	cited form	q’api	page 4, NOMINAL MOD, all
+Table D	Andrew Matheson	note	all	page 4, the English of the row
+Table D	Ktunaxa	cited form	ɬitiɬ	page 4, VERBAL MOD, no/none
+Table D	Ktunaxa	cited form	ɬu:ʔni	page 4, NOMINAL MOD, no/none
+Table D	Andrew Matheson	note	no/none	page 4, the English of the row
+Table D	Ktunaxa	cited form	wiɬiɬ	page 4, VERBAL MOD, a great deal
+Table D	Ktunaxa	cited form	yunakaʔni	page 4, NOMINAL MOD, a great deal
+Table D	Andrew Matheson	note	a great deal	page 4, the English of the row
+Table D	Ktunaxa	cited form	u’kiɬ	page 4, VERBAL MOD, one
+Table D	Ktunaxa	cited form	u’ki	page 4, NOMINAL MOD, one
+Table D	Andrew Matheson	note	one	page 4, the English of the row
+Table D	Ktunaxa	cited form	asniɬ	page 4, VERBAL MOD, two
+Table D	Ktunaxa	cited form	xaȼniɬ	page 4, VERBAL MOD, (both), set in parentheses
+Table D	Ktunaxa	cited form	asni	page 4, NOMINAL MOD, two (both)
+Table D	Andrew Matheson	note	two (both)	page 4, the English of the row
+Table D	Ktunaxa	cited form	qaɬsaɬ	page 4, VERBAL MOD, three
+Table D	Ktunaxa	cited form	qaɬsa	page 4, NOMINAL MOD, three
+Table D	Andrew Matheson	note	three	page 4, the English of the row
+§1.6	Andrew Matheson	note	Dryer (2002) also discusses the preverbal marker /-iɬ/. Though this does not seem to be productive with every quantifier, it does seem to be productive among the numerals.	page 4
+§1.6.1	Andrew Matheson	heading	1.6.1 Nominal quantification	page 4
+§1.6.1	Andrew Matheson	note	Nouns in Ktunaxa can take any of the above noun-related constructions, but only in subject position. The quantifier always precedes the noun.	page 4
+(8) line 1	Ktunaxa	transcription	q’api niʔi pu:s ik-ni niʔi-s q’uniɬnakiniɬ-s	page 5
+(8) line 2	Ktunaxa	gloss	all DEM cats eat-INDIC DEM-OBV bread-OBV	page 5
+(8) line 3	Andrew Matheson	translation	‘All the cats ate the bread.’	page 5
+(9) line 1	Ktunaxa	transcription	*niʔi pu:s ik-ni q’api-s niʔi-s q’uniɬnakiniɬ-s	page 5
+(9) line 2	Ktunaxa	gloss	DEM cat eat-INDIC all-OBV DEM-OBV bread-OBV	page 5
+(9) line 3	Andrew Matheson	translation	Intended: ‘The cats ate all the bread.’	page 5
+§1.6.1	Andrew Matheson	note	Example (8) is the only distribution in which one finds the nominal modifiers acceptable. Nominal modifiers were rejected by native speaker intuition in the object position.	page 5
+§1.7	Andrew Matheson	heading	1.7 Preverbal quantification	page 5
+§1.7	Andrew Matheson	note	In order to quantify the object of a sentence in Ktunaxa, one must go via the verb. A preverb precedes the verb stem.	page 5
+(10) line 1	Ktunaxa	transcription	q’api-ɬ ik-ʔni niʔi-s q’uniɬnakiniɬ-s niʔi pu:s	page 5
+(10) line 2	Ktunaxa	gloss	all-PRVB eat-INDIC DEM-OBV bread-OBV DEM cat	page 5
+(10) line 3	Andrew Matheson	translation	‘The cats ate all of the bread.’	page 5
+(11) line 1	Ktunaxa	transcription	*ik-ʔni q’api-s niʔi-s q’uniɬnakiniɬ-s niʔi pu:s	page 5
+(11) line 2	Ktunaxa	gloss	eat-INDIC all-OBV DEM-OBV bread-OBV DEM cat	page 5
+(11) line 3	Andrew Matheson	translation	Intended: ‘The cats ate all of the bread.’	page 5
+§1.7	Andrew Matheson	note	The preverb ends up taking scope over the entire VP and the patient DP. The subject of the sentence comes at the end of the sentence here. Following speaker intuition, the subject of the sentence can come at the front of the sentence if the context is not salient, in order to highlight the involved subject. But if the subject is obvious, the focus is placed on the preverb and verb.	page 5
+§2	Andrew Matheson	heading	2 A syntactic analysis	page 5
+§2.1	Andrew Matheson	heading	2.1 The nominal modifier	page 5
+§2.1	Andrew Matheson	note	A quantificational modifier on a subject of a sentence in Ktunaxa is an adjunct to its DP. It is in a constituent with the DP. The subject of the language is generated in the Spec of VP, and then moved to Spec of TP.	page 5
+Tree A	Andrew Matheson	note	Tree A	page 6, the caption of a tree drawn as a picture
+§2.1	Andrew Matheson	note	In Tree A, the Q appears as simply an adjunct. The entire DP is transformed to the Spec of TP, which is how the SVO word order of Ktunaxa is created. This transformation of the subject does appear to be optional, depending on different focus domains.	page 6
+§2.2	Andrew Matheson	heading	2.2 The quantifier preverb	page 6
+§2.2	Andrew Matheson	note	It is first to be posited that the preverb quantifier in Ktunaxa has its own syntactic projection, of which it is the head. Thus the VP and patient DP that follow are its adjunct. This entire adjunct transforms to the Spec of IP. If the subject does not move, it comes with the adjunct and stays at the left edge of the sentence. If the subject does have to move out of Spec of VP, it appears at the end of the sentence as in example (3) in section 1. Below is tree B, a preverbal structure.	page 6
+Tree B	Andrew Matheson	note	Tree B	page 6, the caption of a tree drawn as a picture
+§2.2	Andrew Matheson	note	Tree B shows what would happen if the subject did come at the end. The object is a syntactic constituent that is very closely related to the verb in Ktunaxa, so much so that it does not seem to be able to easily separate from the verb. Tree A and B show, however, that the subject DP is an independent constituent that has fairly free movement depending on context.	page 7
+§3	Andrew Matheson	heading	3 Discussion and other evidence	page 7
+§3.1	Andrew Matheson	heading	3.1 Potential scrambling and focus domains	page 7
+§3.1	Andrew Matheson	note	The flexible movement of the subject DP exposes an unanswered query. When I asked the consultant for her judgments on the subject coming at the end of a sentence, it was stated that the context determines whether it is happening at the place of the utterance, or elsewhere. For the subject to come at the end of the sentence, it must be salient. If it is elsewhere, the subject must be highlighted, and must be at the front. When it comes at the back, it seems to feature deaccenting (Ladd 2008). This question requires a significant amount of further investigation.	page 7
+§3.1	Andrew Matheson	name	Ladd	Robert D. Ladd (2008)
+§3.2	Andrew Matheson	heading	3.2 Algonquian support for the preverbal analysis	page 7
+§3.2	Andrew Matheson	note	Glougie (2000) proposes a similar structure to that of my own in Ktunaxa. She proposes there is a projection for the preverbal quantifier in Blackfoot as well, and that it is “superior” to the VP and the object DP, resulting in the same sort of adjunct formation. Below are data from her 2000 thesis.	page 7
+§3.2	Andrew Matheson	name	Glougie	Jennifer R. S. Glougie, Blackfoot quantifiers (2000)
+§3.2	Andrew Matheson	language	Blackfoot	Algonquian, Glougie's preverbal quantifiers
+(12) line 1	Blackfoot	transcription	ann-a ak-hkan-ohpoma-ts-i om-iksi poos-iiks	page 7
+(12) line 2	Blackfoot	gloss	DEM-3 fut-all-buy-tr-3 DEM-an.pl cat-an.pl	page 7
+(12) line 3	Andrew Matheson	translation	‘He will buy all those cats.’	page 7
+(12) line 4	Andrew Matheson	citation	(Glougie 2000)	page 7, the tag or source at the right of the translation
+(13) line 1	Blackfoot	transcription	*ann-a ohkan-ak-ohpoma-ts-i om-iksi poos-iiks	page 7
+(13) line 2	Blackfoot	gloss	DEM-3 all-fut-buy-tr-3 DEM-an.pl cat-an.pl	page 7
+(13) line 3	Andrew Matheson	translation	Intended: ‘He will buy all those cats.’	page 7
+(13) line 4	Andrew Matheson	citation	(Glougie 2000)	page 7, the tag or source at the right of the translation
+§3.2	Andrew Matheson	note	These data exemplify the superiority of the preverbal quantifier, thus supporting its need for superiority over the rest of the sentence. If a subject comes first in a sentence in Ktunaxa, which has a preverbal quantifier, it almost mirrors this perfectly. See below.	page 7
+(14) line 1	Ktunaxa	transcription	niʔi pu:s q’api-ɬ ik-ʔni niʔi-s q’uniɬnakiniɬ-s	page 7
+(14) line 2	Ktunaxa	gloss	DEM cat all-PRVB eat-INDIC DEM-OBV bread-OBV	page 7
+(14) line 3	Andrew Matheson	translation	‘The cats ate all of the bread.’	page 7
+§3.2	Andrew Matheson	note	The data in comparison with Blackfoot show a trend of asymmetrical treatment of subjects and objects. The data below this even further support it. When I asked for a judgment on this sentence, my consultant said it was semantically comical, but grammatically acceptable:	page 7
+(15) line 1	Ktunaxa	transcription	qaɬsa pu:s qaɬsa-ɬ ik-ʔni niʔi-s q’uniɬnakiniɬ-s	page 8
+(15) line 2	Ktunaxa	gloss	three cat three-PRVB eat-INDIC DEM-OBV bread-OBV	page 8
+(15) line 3	Andrew Matheson	translation	‘Three cats ate three pieces of bread (each cat has their own piece).’	page 8
+§3.2	Andrew Matheson	note	The two quantifiers in (15) show in one piece of data the necessity for asymmetrical structure.	page 8
+§4	Andrew Matheson	heading	4 Conclusion	page 8
+§4	Andrew Matheson	note	Asymmetrical treatment of subjects and objects is not an uncommon phenomenon in the languages of the world. Ktunaxa, like Blackfoot, carries a projection for the preverb or quantifier itself, of which it is the head. Then the VP and object DP are adjuncts to it, and this adjunct moves to Spec of IP. The optional movement of the subject out of Spec of VP raises questions about focus and scrambling in the language. How much flexibility of word order is there in Ktunaxa? Interesting speaker comments were collected in terms of context and word order, which could lead to an analysis and motivation for scrambling in Ktunaxa, which I hypothesize would be syntactically and semantically driven.	page 8
+§4.1	Andrew Matheson	heading	4.1 Special thanks	page 8
+§4.1	Andrew Matheson	note	Thank you to Vi Birdstone for being an amazing language consultant, providing data, and teaching her language. Also a large thanks to Martina Wiltschko for guidance and support.	page 8
+§4.1	Andrew Matheson	name	Vi Birdstone	the author's consultant
+§4.1	Andrew Matheson	name	Martina Wiltschko	thanked for guidance and support
+references	Andrew Matheson	heading	References	page 8
+references	Andrew Matheson	reference	Dryer, Matthew. "A Comparison of Preverbs in Kutenai and Algonquian." Proceedings of the Twenty-Ninth Algonquian Conference. Winnipeg: University of Manitoba, (2002). 1-27.	page 8
+references	Andrew Matheson	reference	Glougie, Jennifer R.S. "Topics in the Syntax and Semantics of Blackfoot Quantifiers and Nominals." UBC Master's Thesis, (2000): 1-37.	page 8
+references	Andrew Matheson	reference	Ladd, Robert D. Intonational Phonology (2nd edition) Cambridge, CUP. (2008).	page 8

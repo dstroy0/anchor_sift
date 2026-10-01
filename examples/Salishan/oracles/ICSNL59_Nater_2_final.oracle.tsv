@@ -1,0 +1,672 @@
+where	who	kind	form	gloss
+title	Hank Nater	title	Voiceless Words in Bella Coola: Fact vs. Fiction	the paper's title
+title	Hank Nater	name	Hank Nater	the author
+title	Hank Nater	place	Independent Linguist	the author's affiliation
+abstract	Nuxalk	language	Nuχalk	the paper's own name for Bella Coola
+abstract	Hank Nater	language	Bella Coola	the language the paper is about
+abstract	Oowekyala	language	Oowekyala	the North Wakashan language of Rivers Inlet whose clustering is shared
+abstract	Hank Nater	name	Gloria Mellesmoen	whose 2021 assertions the paper disputes
+abstract	Hank Nater	name	Newman	whose 1947 position on non-syllabicity the paper agrees with
+keywords	Hank Nater	heading	Bella Coola, syllabicity, Good Enough Nucleus Hypothesis, diachrony, areal features	the paper's keywords
+§1	Hank Nater	heading	Introduction	section 1
+§1	Nuxalk	language	Nuχalk	the language's own name, in the introduction
+§1	Hank Nater	name	Alexander Mackenzie	who logged 22 native words in July 1793
+§1	Nuxalk	variant spelling	<Zimilk>	Mackenzie's rendering of smłk
+§1	Nuxalk	cited form	smłk	'fish'
+§1	Nuxalk	variant spelling	<Kietis>	Mackenzie's rendering of χic’
+§1	Nuxalk	cited form	χic’	'axe'
+§1	Nuxalk	variant spelling	<Clougus>	Mackenzie's rendering of qluq’s
+§1	Nuxalk	cited form	qluq’s	'eye'
+§1	Nuxalk	variant spelling	<Dichts>	Mackenzie's rendering of t’χts
+§1	Nuxalk	cited form	t’χts	'(it is a) stone'
+§1	Hank Nater	name	Franz Boas	who cited two forms in 1886 and submitted a paper on voiceless words
+§1	Nuxalk	variant spelling	<t’χt>	Boas's rendering of t’χt
+§1	Nuxalk	cited form	t’χt	'stone'
+§1	Nuxalk	cited form	łkʷ’	'big'
+§1	Hank Nater	name	Hockett	quoted on the rejection of Boas's paper
+§1	Hank Nater	name	Bagemihl	one of the scholars the clusters continued to challenge
+§1	Hank Nater	name	Cook	one of the scholars the clusters continued to challenge
+§1	Hank Nater	notation	GENH	the Good Enough Nucleus Hypothesis, as the paper abbreviates it
+fn contact	Hank Nater	reference	hanknater@gmail.com	the author's contact address
+§2	Hank Nater	heading	Phonemes and phonotactics	section 2
+§2	Nuxalk	notation	/p’, t’, q’, etc./	the ejective notation this paper uses
+§2	Nuxalk	notation	/p̓, t̓, q̓, etc./	the equivalent notation with the mark over the letter
+§2	Nuxalk	notation	/kʷ’, qʷ’/	the rounded ejective notation this paper uses
+§2	Nuxalk	notation	/k̓ʷ, q̓ʷ/	the equivalent notation with the mark over the letter
+§2	Nuxalk	notation	#’R	a glottal stop before a sonorant at a boundary
+§2	Nuxalk	notation	#ʔR	the same sequence written with ʔ
+§2	Nuxalk	notation	/ł/	this paper's lateral fricative
+§2	Nuxalk	notation	/ɬ/	the same phoneme in the shared orthography
+§2	Nuxalk	notation	/χ/	this paper's uvular fricative
+§2	Nuxalk	notation	/x̌/	the same phoneme in the shared orthography
+§2	Nuxalk	notation	/χʷ/	this paper's rounded uvular fricative
+§2	Nuxalk	notation	/x̌ʷ/	the same phoneme in the shared orthography
+§2	Nuxalk	notation	/ə/	the schwa Mellesmoen adds and the paper says is not distinctive
+§2	Nuxalk	notation	XN̩X	an environment schwa appears in predictably
+§2	Nuxalk	notation	PNV	an environment schwa appears in marginally
+§2	Nuxalk	notation	SNV	an environment schwa never appears in
+§2	Nuxalk	cited form	/pk̓əmk̓əmi/	'mosquito (DIM)', the form whose PNV sequence is underlined
+§2	Nuxalk	phonetic	[…c’ʔ͡me̝]	what one hears in that sequence
+§2	Nuxalk	phonetic	*[…c’ɪ̆me̝]	what one does not hear there
+Table 1	Hank Nater	heading	Bella Coola phoneme inventory	the caption of Table 1
+Table 1	Nuxalk	notation	/p/	the labial plain plosive, 2.68 percent of the morpheme inventory
+Table 1	Nuxalk	notation	/p’/	the labial ejective plosive, 0.56 percent
+Table 1	Nuxalk	notation	/m/	the labial consonantal sonorant, 3.18 percent
+Table 1	Nuxalk	notation	/m̩/	the labial vocalic sonorant, 1.81 percent
+Table 1	Nuxalk	notation	/t/	the dental plain plosive, 4.75 percent
+Table 1	Nuxalk	notation	/t’/	the dental ejective plosive, 1.04 percent
+Table 1	Nuxalk	notation	/n/	the dental consonantal sonorant, 3.99 percent
+Table 1	Nuxalk	notation	/n̩/	the dental vocalic sonorant, 0.92 percent
+Table 1	Nuxalk	notation	/c/	the alveolar plain plosive, 3.01 percent
+Table 1	Nuxalk	notation	/c’/	the alveolar ejective plosive, 1.78 percent
+Table 1	Nuxalk	notation	/s/	the alveolar fricative, 8.13 percent
+Table 1	Nuxalk	notation	/ƛ’/	the lateral ejective plosive, 0.95 percent
+Table 1	Nuxalk	notation	/ł/	the lateral fricative, 4.75 percent
+Table 1	Nuxalk	notation	/l/	the lateral consonantal sonorant, 3.97 percent
+Table 1	Nuxalk	notation	/l̩/	the lateral vocalic sonorant, 0.85 percent
+Table 1	Nuxalk	notation	/k/	the palatal plain plosive, 2.39 percent
+Table 1	Nuxalk	notation	/k’/	the palatal ejective plosive, 1.48 percent
+Table 1	Nuxalk	notation	/x/	the palatal fricative, 1.65 percent
+Table 1	Nuxalk	notation	/y/	the palatal consonantal sonorant, 2.45 percent
+Table 1	Nuxalk	notation	/i/	the palatal vocalic sonorant, 8.12 percent
+Table 1	Nuxalk	notation	/q/	the uvular plain plosive, 1.61 percent
+Table 1	Nuxalk	notation	/q’/	the uvular ejective plosive, 1.38 percent
+Table 1	Nuxalk	notation	/χ/	the uvular fricative, 2.58 percent
+Table 1	Nuxalk	notation	/kʷ/	the velar rounded plain plosive, 1.67 percent
+Table 1	Nuxalk	notation	/kʷ’/	the velar rounded ejective plosive, 0.86 percent
+Table 1	Nuxalk	notation	/xʷ/	the velar rounded fricative, 1.17 percent
+Table 1	Nuxalk	notation	/w/	the rounded consonantal sonorant, 1.86 percent
+Table 1	Nuxalk	notation	/u/	the rounded vocalic sonorant, 6.49 percent
+Table 1	Nuxalk	notation	/qʷ/	the uvular rounded plain plosive, 1.24 percent
+Table 1	Nuxalk	notation	/qʷ’/	the uvular rounded ejective plosive, 1.02 percent
+Table 1	Nuxalk	notation	/χʷ/	the uvular rounded fricative, 1.44 percent
+Table 1	Nuxalk	notation	/’/	the laryngal plosive, 4.20 percent
+Table 1	Nuxalk	phonetic	[ʔ]	the phonetic value of /’/
+Table 1	Nuxalk	notation	/h/	the laryngal fricative, 0.16 percent
+Table 1	Nuxalk	phonetic	[ɦ]	the phonetic value of /h/
+Table 1	Nuxalk	notation	/a/	the laryngal vocalic sonorant, 15.84 percent
+Figure 1	Nuxalk	cited form	pk’m̩k’mi	'small mosquito', the form the spectrogram shows
+Figure 1	Nuxalk	phonetic	[phc’ɪmc’ʔ͡me̝]	the phonetic reading of pk’m̩k’mi
+Figure 1	Hank Nater	reference	FirstVoices, Audiotonic	the source of the recording behind Figure 1
+fn1	Hank Nater	notation	P	any stop but /c/
+fn1	Hank Nater	notation	N	front sonorant
+fn1	Hank Nater	notation	S	/c/ or fricative
+fn1	Hank Nater	notation	V	vocalic R
+fn1	Hank Nater	notation	X	obstruent or word boundary
+§1	Nuxalk	damage	<χ́	the head of Boas's <χ́q>, which the extraction splits after the acute because closed_spaces leaves a stress accent alone
+Figure 1	Nuxalk	phonetic	ʔ͡m	a segment label under the spectrogram, the glottal release tied to the m
+Figure 1	Nuxalk	phonetic	ac’	a segment label under the spectrogram
+§2	Hank Nater	notation	____	how the charts mark unpredictable absence
+§2	Hank Nater	notation	*	what precedes a cluster found only in words containing vocalic sonorants
+Table 2	Hank Nater	heading	Front+front voiceless clusters	the caption of Table 2
+Table 2	Nuxalk	notation	–p	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–p’	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–t	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–t’	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–c	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–c’	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–s	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–ƛ’	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	–ł	a column head of Tables 2 and 3
+Table 2	Nuxalk	notation	p–	a row label of Table 2
+Table 2	Nuxalk	notation	p’–	a row label of Table 2
+Table 2	Nuxalk	notation	t–	a row label of Table 2
+Table 2	Nuxalk	notation	t’–	a row label of Table 2
+Table 2	Nuxalk	notation	c–	a row label of Table 2
+Table 2	Nuxalk	notation	c’–	a row label of Table 2
+Table 2	Nuxalk	notation	s–	a row label of Table 2
+Table 2	Nuxalk	notation	ƛ’–	a row label of Table 2
+Table 2	Nuxalk	notation	ł–	a row label of Table 2
+Table 2	Nuxalk	cluster	pt	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*pc	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	ps	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	pł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*p’t	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	p’c	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	p’s	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	p’ł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	tp	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	tc	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*ts	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	tł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*t’p	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	t’c	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	t’s	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	cp	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	ct	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	cs	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	cł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	c’p	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*c’t	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	c’s	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	c’ł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*sp	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	sp’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	st	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*st’	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	sc	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	sc’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*ss	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	sƛ’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	sł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	ƛ’p	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*ƛ’t	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	*ƛ’s	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	ƛ’ł	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	łp	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	łp’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	łt	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	łt’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	*łc	a front+front cluster found only with a vocalic sonorant
+Table 2	Nuxalk	cluster	łc’	a front+front voiceless cluster
+Table 2	Nuxalk	cluster	łł	a front+front voiceless cluster
+Table 3	Hank Nater	heading	Back+front voiceless clusters	the caption of Table 3
+Table 3	Nuxalk	notation	k–	a row label of Table 3
+Table 3	Nuxalk	notation	k’–	a row label of Table 3
+Table 3	Nuxalk	notation	x–	a row label of Table 3
+Table 3	Nuxalk	notation	q–	a row label of Table 3
+Table 3	Nuxalk	notation	q’–	a row label of Table 3
+Table 3	Nuxalk	notation	χ–	a row label of Table 3
+Table 3	Nuxalk	notation	kʷ–	a row label of Table 3
+Table 3	Nuxalk	notation	kʷ’–	a row label of Table 3
+Table 3	Nuxalk	notation	xʷ–	a row label of Table 3
+Table 3	Nuxalk	notation	qʷ–	a row label of Table 3
+Table 3	Nuxalk	notation	qʷ’–	a row label of Table 3
+Table 3	Nuxalk	notation	χʷ–	a row label of Table 3
+Table 3	Nuxalk	cluster	kp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	kt	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*kc	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	ks	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*kƛ’	a boxed exceptional cluster, found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	kł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*k’p	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*k’t	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	k’c	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	k’s	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	k’ł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*xt	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*xc	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*xc’	a boxed exceptional cluster, found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	xs	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*qp’	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*qt	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	qt’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qc	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qc’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*qs	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	qƛ’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	q’p	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*q’t	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*q’c	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	q’s	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	q’ł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χp’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χt	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*χt’	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	χc	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*χc’	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	χs	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χƛ’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	kʷp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*kʷt	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	*kʷc	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	kʷc’	a boxed exceptional cluster
+Table 3	Nuxalk	cluster	kʷs	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	kʷƛ’	a boxed exceptional cluster
+Table 3	Nuxalk	cluster	kʷł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	kʷ’p	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*kʷ’t	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	kʷ’s	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	kʷ’ł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xʷp	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xʷp’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*xʷt	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	xʷt’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xʷc	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	xʷc’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*xʷs	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	xʷƛ’	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*xʷł	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	qʷt	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*qʷc	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	qʷs	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qʷł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qʷ’p	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qʷ’s	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	qʷ’ł	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χʷt	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	*χʷc	a back+front cluster found only with a vocalic sonorant
+Table 3	Nuxalk	cluster	χʷs	a back+front voiceless cluster
+Table 3	Nuxalk	cluster	χʷł	a back+front voiceless cluster
+fn2	Nuxalk	cited form	kƛ’i	'short', one of the four words the boxed clusters are found in
+fn2	Nuxalk	cited form	’Ayxc’mqa	'a woman's name', one of the four words the boxed clusters are found in
+fn2	Nuxalk	cited form	skʷc’	'wrinkled', one of the four words the boxed clusters are found in
+fn2	Nuxalk	cited form	kʷƛ’	'put in place', transitive, one of the four words the boxed clusters are found in
+Table 4	Hank Nater	heading	Front+back voiceless clusters	the caption of Table 4
+Table 4	Nuxalk	notation	–k	a column head of Table 4
+Table 4	Nuxalk	notation	–k’	a column head of Table 4
+Table 4	Nuxalk	notation	–x	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–q	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–q’	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–χ	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–kʷ	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–kʷ’	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–xʷ	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–qʷ	a column head of Tables 4 and 5
+Table 4	Nuxalk	notation	–qʷ’	a column head of Table 4
+Table 4	Nuxalk	notation	–χʷ	a column head of Tables 4 and 5
+Table 4	Nuxalk	cluster	*pk	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*pk’	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	px	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*pq	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*pq’	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*pχ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*pkʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*pxʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	pqʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	p’x	a boxed exceptional cluster, one of the two /p’/ + back obstruent clusters not avoided
+Table 4	Nuxalk	cluster	p’χʷ	a boxed exceptional cluster, one of the two /p’/ + back obstruent clusters not avoided
+Table 4	Nuxalk	cluster	*tk	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	tk’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tx	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*tq	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	tq’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tχ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tkʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tkʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	txʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tqʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	tqʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*tχʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*t’k	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	t’q	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	t’χ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	t’kʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	t’xʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*t’qʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*t’χʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*ck	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	ck’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*cx	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	cq	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	cq’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	cχ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	ckʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*ckʷ’	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	cxʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	cqʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*cχʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	c’k	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*c’x	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	c’q	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	c’χ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*c’kʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*c’xʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*c’qʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	c’χʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sk	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sk’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sx	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sq	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sq’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sχ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	skʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	skʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sxʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sqʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	sqʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*sχʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*ƛ’k	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	ƛ’q	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	ƛ’χ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	ƛ’kʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	ƛ’xʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*ƛ’χʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	*łk	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	łk’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łx	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łq	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łq’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łχ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łkʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łkʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łxʷ	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	*łqʷ	a front+back cluster found only with a vocalic sonorant
+Table 4	Nuxalk	cluster	łqʷ’	a front+back voiceless cluster
+Table 4	Nuxalk	cluster	łχʷ	a front+back voiceless cluster
+Table 5	Hank Nater	heading	Back + back voiceless clusters	the caption of Table 5
+Table 5	Nuxalk	cluster	kx	a back+back voiceless cluster
+Table 5	Nuxalk	cluster	k’x	a back+back voiceless cluster
+Table 5	Nuxalk	cluster	*xkʷ’	a boxed unique cluster, found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*qχ	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	q’χ	a back+back voiceless cluster
+Table 5	Nuxalk	cluster	*χq	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*χq’	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*χχ	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*χkʷ	a boxed unique cluster, found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*χqʷ	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	*χχʷ	a back+back cluster found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	kʷxʷ	a back+back voiceless cluster
+Table 5	Nuxalk	cluster	kʷ’xʷ	a back+back voiceless cluster
+Table 5	Nuxalk	cluster	*kʷ’qʷ	a boxed unique cluster, found only with a vocalic sonorant
+Table 5	Nuxalk	cluster	qʷ’χʷ	a back+back voiceless cluster
+fn3	Nuxalk	cited form	p’x	'crabapple', one of the two exceptions, with no known etymology
+fn3	Nuxalk	cited form	p’χʷłt	'bunchberry', the other exception
+fn3	Nuxalk	underlying	*/p’χʷ-łp/	the dissimilated source proposed for p’χʷłt
+fn3	PS	cited form	*p’uqʷ(ay)	'a shrub', from Kuipers 2002:81
+fn3	Kwak̓wala	cited form	√p̓qʷ	'to be flat on s.th.', North Wakashan, from Lincoln and Rath 1980:69
+fn3	Heiltsuk	cited form	√p̓h̓x̌ʷ	'to change colours (in the fall)', North Wakashan, from Lincoln and Rath 1980:70
+fn4	Nuxalk	cluster	xkʷ’	one of the three unique back+back clusters
+fn4	Nuxalk	cluster	χkʷ	one of the three unique back+back clusters
+fn4	Nuxalk	cluster	kʷ’qʷ	one of the three unique back+back clusters
+fn4	Nuxalk	cited form	s’ixkʷ’xʷ	'bushtail rat', where xkʷ’ is found
+fn4	Nuxalk	cited form	’awanaaχkʷ	'raft', where χkʷ is found
+fn4	Nuxalk	cited form	Kʷ’qʷla	'Clayton Falls', where kʷ’qʷ is found
+fn4	PS	cited form	*k’ʷaxʷ	'rat, mouse', Proto-Salish, from Kuipers 2002:51
+fn4	Haisla	cited form	hawanàqi̓akʷ	'loaded on top (said of the canoes covered with boards)', North Wakashan, from Lincoln and Rath 1986:121
+fn4	Heiltsuk	cited form	√k̓ʷh̓qʷ	'?', North Wakashan, from Lincoln and Rath 1980:292
+fn4	Heiltsuk	cited form	k̓ʷík̓ʷáqʷx̌ƛawa	'lichen', North Wakashan, where √k̓ʷh̓qʷ is found
+fn3	Kwak̓wala	language	Kwak̓wala	the North Wakashan language √p̓qʷ is cited from
+§3	Hank Nater	heading	Supporting data	section 3
+§3	Nuxalk	notation	ts	the practical orthography of Nater 1990 for /c/
+§3	Nuxalk	notation	ts’	the practical orthography of Nater 1990 for /c’/
+§3	Nuxalk	notation	lh	the practical orthography of Nater 1990 for /ł/
+§3	Nuxalk	notation	tl’	the practical orthography of Nater 1990 for /ƛ’/
+§3	Nuxalk	notation	c	the practical orthography of Nater 1990 for /x/
+§3	Nuxalk	notation	cw	the practical orthography of Nater 1990 for /xʷ/
+§3	Nuxalk	notation	x	the practical orthography of Nater 1990 for /χ/
+§3	Nuxalk	notation	xw	the practical orthography of Nater 1990 for /χʷ/
+§3	Nuxalk	notation	7	the practical orthography of Nater 1990 for /’/
+§3	Hank Nater	notation	tr.	transitive verb, throughout sections 3.1 to 3.3
+§3.1	Hank Nater	heading	Words and roots containing stops only	section 3.1
+§3.1	Nuxalk	cited form	√tp	'spotted', the one all-stop root Mellesmoen claims
+Mellesmoen Table 1	Hank Nater	heading	Count of OBSTRUENT-ONLY words on FirstVoices	the caption of Mellesmoen's Table 1, quoted
+Mellesmoen Table 1	Hank Nater	notation	Do Not Meet Criteria	1455 words
+Mellesmoen Table 1	Hank Nater	notation	Meet the Criteria	the 51 words that fit the definition
+Mellesmoen Table 1	Hank Nater	notation	Have a Fricative or an Affricate	45 words
+Mellesmoen Table 1	Hank Nater	notation	Only Stops	1 word
+Mellesmoen Table 1	Hank Nater	notation	Other	5 words
+§3.1	Nuxalk	notation	/c/	one of the three affricates entries in boldface contain none of
+§3.1	Nuxalk	notation	/c’/	one of the three affricates entries in boldface contain none of
+§3.1	Nuxalk	notation	/ƛ’/	one of the three affricates entries in boldface contain none of
+(1)	Nuxalk	cited form	ckʷ	'heavy'
+(2)	Nuxalk	cited form	cp	'wipe', transitive
+(3)	Nuxalk	cited form	cq	'pierce', transitive
+(4)	Nuxalk	cited form	cq’	'grab, pull, tear', transitive
+(5)	Nuxalk	cited form	cqʷ	'start on something', transitive
+(6)	Nuxalk	cited form	c’k	'fix, prepare', transitive
+(7)	Nuxalk	cited form	c’kt	'arrive'
+(8)	Nuxalk	cited form	c’p	'stuck, blocked'
+(9)	Nuxalk	cited form	kp	'each, all, every'
+(10)	Nuxalk	cited form	k’c	'chop, cut with axe', transitive
+(11)	Nuxalk	cited form	kʷƛ’	'put in place', transitive
+(12)	Nuxalk	cited form	kʷ’p	'straight, right'
+(13)	Nuxalk	cited form	kʷ’pt	'become waterlogged'
+(14)	Nuxalk	cited form	ƛ’kʷ	'gather (tiny objects)', transitive
+(15)	Nuxalk	cited form	√ƛ’q	'protrude'
+(16)	Nuxalk	cited form	p’c	'hold underwater', transitive
+(17)	Nuxalk	cited form	qc	'pass on, transmit', transitive
+(18)	Nuxalk	cited form	qƛ’	'trip, stumble'
+(19)	Nuxalk	cited form	√q’p	'dull'
+(20)	Nuxalk	cited form	qʷt	'crooked'
+(21)	Nuxalk	cited form	qʷ’p	'bare, empty'
+(22a)	Nuxalk	cited form	√tp	'spread, stretch', transitive
+(22b)	Nuxalk	cited form	√tp	'spotted'
+(23)	Nuxalk	cited form	tk’	'sticky'
+(24)	Nuxalk	cited form	tkʷ	'dirty'
+(25)	Nuxalk	cited form	tkʷ’	'dig up', transitive
+(26)	Nuxalk	cited form	tq’	'arrive by boat, land'
+(27)	Nuxalk	cited form	tqʷ’	'remove fur from hide', transitive
+(28)	Nuxalk	cited form	t’c	'knock, strike, shatter', transitive
+(29)	Nuxalk	cited form	t’kʷ	'bleed'
+(30)	Nuxalk	cited form	t’q	'spread on surface', transitive
+§3.2	Hank Nater	heading	Words and roots containing stop(s) and fricative(s)	section 3.2
+(31)	Nuxalk	cited form	cł	'pull, pluck', transitive
+(32)	Nuxalk	cited form	cxʷ	'dark'
+(33)	Nuxalk	cited form	cχ	'drip on', transitive
+(34)	Nuxalk	cited form	c’ł	'cover, shelter', transitive
+(35)	Nuxalk	cited form	c’s	'loud'
+(36)	Nuxalk	cited form	√c’χ	'true'
+(37)	Nuxalk	cited form	c’χʷ	'white'
+(38)	Nuxalk	cited form	kł	'fall, drop', transitive and intransitive
+(39)	Nuxalk	cited form	kłx	'awake'
+(40)	Nuxalk	cited form	ks	'pull', transitive
+(41)	Nuxalk	cited form	kx	'draw a line on something', transitive
+(42)	Nuxalk	cited form	k’łt	'brace, support', transitive
+(43)	Nuxalk	cited form	k’x	'see, look at', transitive and intransitive
+(44)	Nuxalk	cited form	kʷł	'crack, split', transitive
+(45)	Nuxalk	cited form	kʷs	'rough'
+(46)	Nuxalk	cited form	kʷst	'body surface'
+(47)	Nuxalk	cited form	kʷxʷ	'fit, match', transitive
+(48)	Nuxalk	cited form	kʷ’ł	'pour out, fill with water', transitive
+(49)	Nuxalk	cited form	kʷ’s	'engaged, be dating'
+(50)	Nuxalk	cited form	ƛ’ł	'dry'
+(51)	Nuxalk	cited form	√ƛ’χ	'rattle, crackle, sparkle'
+(52)	Nuxalk	cited form	łc’	'hold or press down', transitive
+(53)	Nuxalk	cited form	łk’	'pull off', transitive
+(54)	Nuxalk	cited form	łkʷ	'pass one's hand through sth.', transitive
+(55)	Nuxalk	cited form	łkʷ’	'big'
+(56)	Nuxalk	cited form	łp	'fill up', transitive
+(57)	Nuxalk	cited form	łq	'wet'
+(58)	Nuxalk	cited form	łq’	'slap', transitive
+(59a)	Nuxalk	cited form	łqʷ’	'dig up, uproot', transitive
+(59b)	Nuxalk	cited form	łqʷ’	'fade'
+(59c)	Nuxalk	cited form	√łqʷ’	'sob'
+(60)	Nuxalk	cited form	√łt’	'pry off, pull with hook', transitive
+(61)	Nuxalk	cited form	łχʷt	'go through a passage'
+(62)	Nuxalk	cited form	płt	'thick'
+(63)	Nuxalk	cited form	ps	'shape. mold', transitive
+(64)	Nuxalk	cited form	psx	'train, educate', transitive
+(65)	Nuxalk	cited form	px	'squeeze water out of string', transitive
+(66)	Nuxalk	cited form	p’łt	'warm'
+(67)	Nuxalk	cited form	p’s	'bend', transitive
+(68)	Nuxalk	cited form	p’x	'crabapple'
+(69)	Nuxalk	cited form	p’χʷłt	'bunchberries'
+(70)	Nuxalk	cited form	qł	'cause pain to', transitive
+(71)	Nuxalk	cited form	q’łkʷ	'fix up', transitive
+(72)	Nuxalk	cited form	q’łp	'balsam fir'
+(73)	Nuxalk	cited form	q’pst	'taste, sample', transitive
+(74)	Nuxalk	cited form	q’s	'tight, intense'
+(75a)	Nuxalk	cited form	q’χ	'rank, rancid'
+(75b)	Nuxalk	cited form	q’χ	'carve', transitive
+(76)	Nuxalk	cited form	√qʷsk	'wind string on spool', transitive
+(77)	Nuxalk	cited form	qʷ’ł	'laugh'
+(78)	Nuxalk	cited form	√qʷ’s	'leak, ooze'
+(79)	Nuxalk	cited form	qʷ’χʷ	'move', transitive
+(80)	Nuxalk	cited form	sc’	'disperse, scatter'
+(81)	Nuxalk	cited form	sc’q	'animal fat'
+(82)	Nuxalk	cited form	scł	'frost'
+(83)	Nuxalk	cited form	sk’	'scrape, rake, comb', transitive
+(84)	Nuxalk	cited form	sk’st	'charcoal'
+(85)	Nuxalk	cited form	sk’x	'black'
+(86)	Nuxalk	cited form	skʷ’	'undo, untie', transitive
+(87)	Nuxalk	cited form	skʷc’	'wrinkled'
+(88)	Nuxalk	cited form	skʷp	'wet, moisten', transitive
+(89)	Nuxalk	cited form	sƛ’kʷ	'wart'
+(90)	Nuxalk	cited form	słq’	'dried barbecued salmon'
+(91)	Nuxalk	cited form	sp’	'hit with a stick', transitive
+(92)	Nuxalk	cited form	sq’	'cut, tear', transitive
+(93)	Nuxalk	cited form	sq’sk	'saskatoon berry'
+(94)	Nuxalk	cited form	sqc’	'sand, gravel'
+(95)	Nuxalk	cited form	sqʷ’	'fly, jump'
+(96)	Nuxalk	cited form	sqʷł	'fishbone'
+(97)	Nuxalk	cited form	stqʷ	'mud'
+(98)	Nuxalk	cited form	stxʷc’	'cottonwood buds'
+(99)	Nuxalk	cited form	√sxʷƛ’	'inadequate'
+(100)	Nuxalk	cited form	sχc	'berry sprouts'
+(101)	Nuxalk	cited form	sχp	'tie up', transitive
+(102)	Nuxalk	cited form	tł	'strong'
+(103)	Nuxalk	cited form	tx	'cut with a blade', transitive
+(104)	Nuxalk	cited form	tχ	'carve', transitive
+(105)	Nuxalk	cited form	t’s	'salty'
+(106)	Nuxalk	cited form	t’xʷ	'brush, sweep', transitive
+(107)	Nuxalk	cited form	t’χt	'stone, rock'
+(108)	Nuxalk	cited form	xp	the same word as px
+(109)	Nuxalk	cited form	xʷc	'discharge, remove, unpart', transitive
+(110)	Nuxalk	cited form	xʷp	'untangle, try to free', transitive
+(111)	Nuxalk	cited form	xʷp’	'unhook', transitive
+(112)	Nuxalk	cited form	xʷt’	'collapse'
+(113)	Nuxalk	cited form	χt	'brittle'
+(114)	Nuxalk	cited form	√χƛ’	'incomplete'
+(115)	Nuxalk	cited form	√χp’	'permeate, penetrate', transitive
+§3.2	Nuxalk	notation	/ps̩x/	one of the two parses the paper asks Mellesmoen to choose between for psx
+§3.2	Nuxalk	notation	/psx̩/	the other parse the paper asks Mellesmoen to choose between for psx
+§3.3	Hank Nater	heading	Words and roots containing fricatives only	section 3.3
+(116)	Nuxalk	cited form	łxʷ	'spur, incite', transitive
+(117)	Nuxalk	cited form	√łχ	'negative, opposed'
+(118)	Nuxalk	cited form	√łχʷ	'energetic, enthused'
+(119)	Nuxalk	cited form	sx	'bad'
+(120)	Nuxalk	cited form	sxłł	'afterbirth'
+(121)	Nuxalk	cited form	sxʷ	'burn, set on fire', transitive
+(122)	Nuxalk	cited form	sχ	'scrape, plane', transitive
+(123)	Nuxalk	cited form	√xs	'all, whole, entire'
+(124)	Nuxalk	cited form	χs	'fat, fatty'
+(125)	Nuxalk	cited form	√χł	'lack, be deprived of'
+(126)	Nuxalk	cited form	√χʷł	'surpass, exceed', transitive
+(127)	Nuxalk	cited form	χʷs	'oil, grease', transitive
+§3.3	Nuxalk	notation	/s̩xłł/	one of the four parses the paper asks Mellesmoen to choose between for sxłł
+§3.3	Nuxalk	notation	/sx̩łł/	one of the four parses the paper asks Mellesmoen to choose between for sxłł
+§3.3	Nuxalk	notation	/sxł̩ł̩/	one of the four parses the paper asks Mellesmoen to choose between for sxłł
+§3.3	Nuxalk	notation	/s̩xł̩ł̩/	one of the four parses the paper asks Mellesmoen to choose between for sxłł
+§4	Hank Nater	heading	Area and diachrony	section 4
+§4	Heiltsuk	language	Heiltsuk	a North Wakashan subdialect geographically close to Bella Coola
+§4	Heiltsuk	place	Bella Bella	the English name of the Heiltsuk community
+§4	Heiltsuk	place	Wáglísla	the Heiltsuk name of the community
+§4	Oowekyala	place	Rivers Inlet	where Oowekyala is spoken
+(128)	Heiltsuk	cited form	txtxní	'owl', North Wakashan, from Kortlandt 1975:32
+(129)	Heiltsuk	cited form	ttxstú	'bulging eyes', North Wakashan, from Kortlandt 1975:32
+(130)	Heiltsuk	cited form	txʷsx̌ƛáqà	'to jump over s.th.', North Wakashan, from Kortlandt 1975:32
+(131)	Heiltsuk	cited form	tpkʷ	'flashlight', North Wakashan, from Kortlandt 1975:32
+(132)	Heiltsuk	cited form	qqs	'eye', North Wakashan, from Kortlandt 1975:32
+(133)	Heiltsuk	cited form	ƛxx̌s	'cross-piece of a canoe', North Wakashan, from Kortlandt 1975:32
+Figure 2	Hank Nater	heading	Bella Coola and North Wakashan	the caption of Figure 2, from Lincoln and Rath 1980:3
+Figure 2	Haisla	language	Haisla	a North Wakashan language named on the map
+§4	Hank Nater	name	Howe	quoted on contact between the Oowekeeno and the Nuxalk
+§4	Hank Nater	place	Owikeno Lake	where the Oowekeeno had regular contact with the Nuxalk
+§4	Hank Nater	place	South Bentick Arm	the Nuxalk side of that contact, as Howe spells it
+§4	Hank Nater	place	South Bentinck	the same place, as Boas 1886:203 spells it
+Table 6	Hank Nater	heading	Voiceless words copied from Oowekyala	the caption of Table 6, from Lincoln and Rath 1980
+Table 6	Oowekyala	cited form	√t̓s	'to hit with a stone', North Wakashan, the source of Bella Coola t’c
+Table 6	Oowekyala	cited form	√ks	'to push or motion away with the arm', North Wakashan, the source of Bella Coola ks
+Table 6	Oowekyala	cited form	√kʷł	'to collapse, become separated, disintegrate', North Wakashan, the source of Bella Coola kʷł
+Table 6	Oowekyala	cited form	√p̓s	'dented, to bend, to flatten', North Wakashan, the source of Bella Coola p’s
+Table 6	Oowekyala	cited form	√p̓q	'to taste', North Wakashan, the source of Bella Coola q’pst
+Table 6	Nuxalk	underlying	*/q’p-st/	the underlying form the paper gives for q’pst
+Table 6	Oowekyala	cited form	√q̓ʷs	'to drizzle', North Wakashan, the source of Bella Coola √qʷ’s
+Table 6	Oowekyala	cited form	√tqʷ	'covered with dirt, dust, soil', North Wakashan, the source of Bella Coola stqʷ
+§4	Hank Nater	notation	**C1VC2	the source shape other voiceless words derive from
+§4	Hank Nater	notation	*C1V̥C2	the intermediate shape, with the vowel devoiced
+§4	Hank Nater	notation	C1C2	the resulting shape, with the vowel gone
+§4	Kwak̓wala	language	Kwak̓wala	what Kw abbreviates
+§4	Lillooet	language	Lillooet	what Li abbreviates
+§4	Hank Nater	language	North Wakashan	what NW abbreviates
+§4	PS	language	proto-Salish	what PS abbreviates
+§4	PCS	language	proto-Central Salish	what PCS abbreviates
+§4	PIS	language	proto-Interior Salish	what PIS abbreviates
+§4	Sechelt	language	Sechelt	what Se abbreviates
+§4	Tsimshianic	language	Tsimshianic	what Ts abbreviates, not a Salish family
+§4	Upper Chehalis	language	Upper Chehalis	what UCh abbreviates
+fn5	Oowekyala	notation	/λ/	one of the two laterals North Wakashan has in addition
+fn5	Oowekyala	notation	/ƛ/	the other of the two laterals North Wakashan has in addition
+fn6	Nuxalk	place	Talyu	the Nuxalk name of South Bentinck Arm
+fn7	Oowekyala	cited form	√p̓q	the Oowekyala root behind the Bella Coola metathesis
+fn7	Nuxalk	cited form	√q’p	'dull', the form the metathesis may be associated with
+fn7	Nuxalk	notation	*/p’q/	the cluster whose avoidance may explain the metathesis
+Table 7	Hank Nater	heading	Salish and areal origins	the caption of Table 7
+Table 7	PS	cited form	*cəkʷ	'to pull (out), drag', the origin of ckʷ
+Table 7	PS	cited form	*ciq	'to dig, stab', the origin of cq
+Table 7	PCS	cited form	*c’ap	'to derange, interrupt', the origin of c’p
+Table 7	PS	cited form	*k’ʷəp	'straight', the origin of kʷ’p
+Table 7	Upper Chehalis	cited form	√ƛ’ək’ʷ	'to pick (up), peck', the cognate of ƛ’kʷ
+Table 7	PS	cited form	*ƛ’aq	'to protrude', the origin of √ƛ’q
+Table 7	Nuxalk	underlying	*tu̥p	the intermediate form between Kw √tup and √tp
+Table 7	Kwak̓wala	cited form	√tup	'speck, dot', North Wakashan, the origin of √tp
+Table 7	PS	cited form	*t’aq’	'to cross over', the origin of tq’
+Table 7	Tsimshianic	cited form	t’Aq	'flatten', a cognate of t’q
+Table 7	PIS	cited form	*t’əq	'put down, pile', a cognate of t’q
+Table 7	North Wakashan	cited form	√t̓aq	'spread', a cognate of t’q
+Table 7	PS	cited form	*c’il	'shade, shadow, shelter etc.', the origin of c’ł
+Table 7	PS	cited form	*c’al	'shade, shadow, shelter etc.', the variant origin of c’ł
+Table 7	PS	cited form	*c’ə̣s	'to rattle, hit', the origin of c’s
+Table 7	Sechelt	variant spelling	<ts’exw>	the practical spelling of the Sechelt cognate of c’χʷ
+Table 7	Sechelt	cited form	/c’əx̌ʷ/	'get clean/washed', the cognate of c’χʷ
+Table 7	PS	cited form	*kəł	'to be detached, come off/apart', the origin of kł
+Table 7	PCS	cited form	*k’ʷəl	'to spill', the origin of kʷ’ł
+Table 7	PS	cited form	*łik’	'to cut, sever', the origin of łk’
+Table 7	Sechelt	variant spelling	<lhakw’>	the practical spelling of the Sechelt cognate of łkʷ’
+Table 7	Sechelt	cited form	/łak’ʷ/	'swell, get swollen', the cognate of łkʷ’
+Table 7	Upper Chehalis	cited form	√łəq’ʷ	'break, pull apart', the cognate of łqʷ’
+Table 7	PS	cited form	*łət’	'to catch fish with hook and line', the origin of √łt’
+Table 7	PS	cited form	*łəx̌ʷ	'to pass through a hole', the origin of łχʷt
+Table 7	PS	cited form	*pəł	'thick', the origin of płt
+Table 7	PIS	cited form	*c’q’-ałp	'fir', the origin of q’łp
+Table 7	PS	cited form	*q’əs	'to be of (too) long duration', the origin of q’s
+Table 7	PIS	cited form	*q’ix̌	'strong, hard, tight, etc.', the origin of q’χ
+Table 7	PS	cited form	*səp’	'to hit, club, whip', the origin of sp’
+Table 7	Tsimshianic	cited form	saq’	'split', a cognate of sq’
+Table 7	PS	cited form	*səq’	'split', the origin of sq’
+Table 7	PS	cited form	*saq’ʷ	'to fly, jump', the origin of sqʷ’
+Table 7	PCS	cited form	*t’əxʷ	'id.', the origin of t’xʷ
+Table 7	Tsimshianic	cited form	t’axʷ	'id.', a cognate of t’xʷ
+Table 7	Lillooet	cited form	√səx	'to degenerate', a cognate of sx
+Table 7	Lillooet	cited form	√sax	'to degenerate', a cognate of sx
+Table 7	PS	cited form	*sax̌	'to scrape', the origin of sχ
+Table 7	PCS	cited form	*x̌ʷəs	'to oil, grease', the origin of χʷs
+fn8	Kwakwala	cited form	√tup	'speck, dot', North Wakashan, which also underlies two other Bella Coola forms
+fn8	Nuxalk	cited form	√tup	'foam, bubbles, specks'
+fn8	Nuxalk	cited form	tutup	'trout'
+§5	Hank Nater	heading	Conclusions	section 5
+Table 8	Hank Nater	heading	Counter-GENH words and roots	the caption of Table 8
+Table 8	Hank Nater	notation	T	stop, in the Structure column of Table 8
+Table 8	Hank Nater	notation	F	fricative, in the Structure column of Table 8
+Table 8	Hank Nater	notation	TT	the structure of kp, kʷ’p, √q’p, qʷt, qʷ’p, √tp, tk’, tkʷ, tkʷ’, tq’, tqʷ’, t’kʷ and t’q
+Table 8	Hank Nater	notation	TTT	the structure of kʷ’pt
+Table 8	Hank Nater	notation	TFF	the structure of kłx and psx
+Table 8	Hank Nater	notation	FFT	the structure of łχʷt, słq’, √sxʷƛ’, sχc and sχp
+Table 8	Hank Nater	notation	TFFT	the structure of p’χʷłt
+Table 8	Hank Nater	notation	FF	the structure of łxʷ, √łχ, √łχʷ, sx, sxʷ, sχ, √xs, χs, √χł, √χʷł and χʷs
+Table 8	Hank Nater	notation	FFFF	the structure of sxłł
+§5	Hank Nater	notation	FF(F(F))	the cluster shape whose nuclearity is difficult to determine
+fn10	Nuxalk	notation	/m : m̩/	one of the six consonantal and vocalic sonorant pairs
+fn10	Nuxalk	notation	/n : n̩/	one of the six consonantal and vocalic sonorant pairs
+fn10	Nuxalk	notation	/l : l̩/	one of the six consonantal and vocalic sonorant pairs
+fn10	Nuxalk	notation	/y : i/	one of the six consonantal and vocalic sonorant pairs
+fn10	Nuxalk	notation	/w : u/	one of the six consonantal and vocalic sonorant pairs
+fn10	Nuxalk	notation	/h : a/	one of the six consonantal and vocalic sonorant pairs
+§5	Nuxalk	notation	/q’/	one of the three fortis stops with more acoustic strength than a fricative
+§5	Nuxalk	notation	/k’/	one of the three fortis stops with more acoustic strength than a fricative
+§5	Nuxalk	notation	/ƛ’/	one of the three fortis stops with more acoustic strength than a fricative
+Figure 3	Nuxalk	cited form	q’pst	'taste', transitive, the form the spectrogram shows
+Figure 3	Nuxalk	phonetic	[q’ʔ͡psth]	the phonetic reading of q’pst
+Figure 3	Nuxalk	phonetic	ʔ͡p	a segment label under the Figure 3 spectrogram
+Figure 3	Nuxalk	phonetic	th	a segment label under the Figure 3 spectrogram
+Figure 4	Nuxalk	cited form	√sxʷƛ’	'inadequate', the form the spectrogram shows
+Figure 4	Nuxalk	phonetic	[sxʷt͡ɬ’]	the phonetic reading of √sxʷƛ’
+Figure 4	Nuxalk	phonetic	t͡ɬ’ʔ	a segment label under the Figure 4 spectrogram
+References	Hank Nater	heading	References	the paper's bibliography
+References	Hank Nater	reference	Bagemihl, Bruce. 1991. Syllable Structure in Bella Coola. Linguistic Inquiry, Vol. 22, Number 4 (pp. 589–646). The MIT Press.	cited on syllable structure
+References	Hank Nater	reference	Bagemihl, Bruce. 2011. Maximality in Bella Coola (Nuxalk). Salish Languages and Linguistics (pp. 71–98). De Gruyter Mouton.	cited on maximality
+References	Hank Nater	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. Sechelt, B.C. Sechelt Indian Band.	the source of the Sechelt data
+References	Hank Nater	reference	Boas, Franz. 1886. Sprache der Bella-Coola-Indianer. Verhandlungen der Berliner anthropologischen Gesellschaft (pp. 202–206).	the source of the two 1886 forms
+References	Hank Nater	reference	Cook, Eung-Do. 1994. Against moraic licensing in Bella Coola. Linguistic Inquiry, Vol. 25, Number 2 (pp. 309–326). The MIT Press.	cited on the term mora
+References	Hank Nater	reference	Hockett, Charles F. 1955. Manual of Phonology. Baltimore.	the source of the quotation about Boas's rejected paper
+References	Hank Nater	reference	Howe, Darin M. 2000. Oowekyala Segmental Phonology. PhD thesis. UBC.	the source of the Oowekyala phonology and the contact quotation
+References	Hank Nater	reference	Kinkade, M. Dale. 1991. Upper Chehalis Dictionary. UMOPL No. 7.	the source of the Upper Chehalis data
+References	Hank Nater	reference	Kortlandt, F. H. H. 1975. Tones in Wakashan. Linguistics 146 (pp. 31–34).	the source of the Heiltsuk voiceless clusters
+References	Hank Nater	reference	Kuipers, Aert H. 2002. Salish Etymological Dictionary. UMOPL No. 16.	the source of the Salish etymologies
+References	Hank Nater	reference	Lincoln, Neville J. and John C. Rath. 1980. North Wakashan Comparative Root List. National Museum of Man Mercury Series. Canadian Ethnology Service Paper No. 68.	the source of the Oowekyala, Kwak̓wala and Heiltsuk roots
+References	Hank Nater	reference	Lincoln, Neville J. and John C. Rath. 1986. Phonology, Dictionary and Listing of Roots and Lexical Derivates of the Haisla Language of Kitlope and Kitimaat, B.C. Volume One. Canadian Museum of Civilization Mercury Series Paper No. 103.	the source of the Haisla form
+References	Hank Nater	reference	Mackenzie, Alexander. 1801. Voyages from Montreal, on the River St. Laurence, through the Continent of North America, to the Frozen and Pacific Oceans; in the Years 1789 and 1793. With a Preliminary Account of the Rise, Progress, and Present State of the Fur Trade of that Country. R. Noble (London).	the source of the 22 words logged in 1793
+References	Hank Nater	reference	Mellesmoen, Gloria. 2021. Syllables and Reduplication in Bella Coola (Nuxalk). Papers for ICSNL 56.	the paper this one disputes
+References	Hank Nater	reference	Nater, H. F. 1984. The Bella Coola Language. Canadian Ethnology Service Paper No. 92. National Museums of Canada.	the source of the phoneme inventory and the cluster charts
+References	Hank Nater	reference	Nater, H. F. 1990. A Concise Nuxalk-English Dictionary. Canadian Ethnology Service Mercury Series Paper 115. Canadian Museum of Civilization.	the source of the practical orthography and the entry lists
+References	Hank Nater	reference	Nater, Hank. 2018. Vestiges of Tsimshianic and other Penutian in Bella Coola. Papers for ICSNL 53.	the source of the areal data
+References	Hank Nater	reference	Nater, Hank. 2020. Old Records of Three Contiguous Pacific Northwest Languages: Bella Coola, Carrier, Shuswap. Anthropological Linguistics Vol. 62, Number 2 (pp. 183–191).	where Mackenzie's 22 words are identified
+References	Hank Nater	reference	Newman, Stanley. 1947. Bella Coola I: Phonology. IJAL 13, Number 3 (pp. 129–134).	the source of the quotation the paper concurs with
+References	Hank Nater	reference	Van Eijk, Jan P. 2013. Lillooet-English Dictionary. UBCOPL Vol. 2.	the source of the Lillooet data

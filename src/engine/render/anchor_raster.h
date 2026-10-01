@@ -1,4 +1,4 @@
-/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -155,7 +155,7 @@ extern "C"
 #define ANCHOR_RASTER_CHANNELS 5u
 
     /**
-     * @brief One probe as the rasterizer needs it, matching AnchorProbe in anchor_sift.h.
+     * @brief One probe as the rasterizer needs it, matching AnchorProbe in orior.h.
      *
      * @note Declared here instead of including the engine header so the device translation unit
      *       compiles without pulling in the limb library it does not use. The two layouts are identical

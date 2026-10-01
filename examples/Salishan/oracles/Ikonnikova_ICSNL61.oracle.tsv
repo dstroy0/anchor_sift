@@ -1,0 +1,236 @@
+where	who	kind	form	gloss
+title	Olga Ikonnikova	title	Specific Features of Salish Toponyms	the paper's title, set in bold
+title	Olga Ikonnikova	name	Olga Ikonnikova	Taganrog Institute of Management and Economics. The only author
+footer	Olga Ikonnikova	citation	In Proceedings of ICSNL 61, Ella Hannon, Laura Griffin, Brent Hall, Bruce Oliver, Danica Reid, Julia Schillo, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL.	the proceedings line at the foot of page 1, with Proceedings of ICSNL 61 in italics. The text layer holds it ahead of the title
+abstract	Olga Ikonnikova	note	Abstract: The article covers the specific features of Salish toponyms, namely the main toponymic groups of oronymes, hydronymes and oikonymes represented in the dictionaries of Salish languages. A typological feature of the Salish language toponymic system is the presence of microtoponyms, that is, individual names of small objects. The author distinguishes a distinct type of mythologized toponyms, the majority of which are mythologized oronyms - specific mountain peaks, localities, individual rocks, and hills associated with Salish geomyths. The specificity of the Salish toponymic system is represented in context of the theory nominative types of the Russian linguist E. Berezovich. Unlike the oronyms and oikonyms of the Salish languages, which demonstrate predominantly ancient models of nomination of situational and combinatorial nominative types, the semantic system of hydronyms is mostly taxonomic and gradational.	the abstract. It writes oronymes, hydronymes and oikonymes in its first sentence and oronyms, hydronyms and oikonyms after it
+abstract	Olga Ikonnikova	note	Keywords: Salish languages, Salish toponyms, toponymic systems, microtoponyms, myth, oikonyms, hydronyms, oronyms, nominative type, nomination.	the keyword line under the abstract
+§1	Olga Ikonnikova	heading	1 Introduction
+§1	Olga Ikonnikova	note	Extralinguistic factors, along with intralinguistic ones, determine the uniqueness of the ancient Salish toponymic system, which may be one of the keys to unlocking the secrets of how ancient humans understood the world. After all, according to the Russian linguist A. Superanskaya, the specialist whose research interests were toponymic systems in the theory of the language, “any name doesn't just appear out of nowhere, but only when a pressing need for naming an object arises” (Superanskaya 1973).	the first paragraph of §1. The words in double quotes are quoted from Superanskaya 1973, a work in Russian
+§1	Olga Ikonnikova	name	A. Superanskaya	the Russian linguist quoted in §1, listed as Superanskaya, Alexandra V.
+§1	Olga Ikonnikova	citation	(Superanskaya 1973)	for the quotation on naming
+§1	Olga Ikonnikova	note	In the context of our series of works devoted to the toponymic system of the Salish languages (Ikonnikova 2025), the goal of this work is to represent the specificity of the toponyms of the Salish languages.	a paragraph of §1
+§1	Olga Ikonnikova	citation	(Ikonnikova 2025)	for the series of works on the Salish toponymic system
+§1	Olga Ikonnikova	note	A typological feature of the Salish language toponymic system is the presence of microtoponyms, that is, individual names of small objects. Among these microtoponyms, we distinguish a distinct type of mythologized toponyms, the majority of which are mythologized oronyms — specific mountain peaks, localities, individual rocks, and hills associated with the legends and myths of Salish tribes.	a paragraph of §1. The dash is an em dash, U+2014
+§1	Olga Ikonnikova	note	Most of the toponyms presented in Salish language dictionaries are oronyms, hydronyms, and oikonyms that is why we have focused on these three toponymic groups in our research.	a paragraph of §1, set flush left with no indent
+§1	Olga Ikonnikova	note	In the present paper, we consider and analyze the specific features of the Salish toponyms, namely the main toponymic groups of oronyms, hydronyms and oikonyms. The Salish examples are drawn and analyzed from the following sources on the Salish languages: Lillooet (van Eijk 1997, 2013), Halkomelem (Galloway 1993), Coeur d’Alene (Reichard 1934), Lushootseed (Bates et al. 1994), Northern Straits (Lummi) (Gibbs 1863), Shuswap (Kuipers 1974), Thompson (Thompson & Thompson 1996).	THE SOURCES OF THE EXAMPLES: each language named here with the work its examples are drawn from. Colville-Okanagan, the language of (1) and (10), is not in the list
+§1	Olga Ikonnikova	language	Lillooet	named as a source language, for van Eijk 1997, 2013. No example is in Lillooet
+§1	Olga Ikonnikova	language	Halkomelem	the language of (2), (8) and (9), drawn from Galloway 1993
+§1	Olga Ikonnikova	language	Coeur d’Alene	the language of (3), drawn from Reichard 1934. The apostrophe is the curly U+2019
+§1	Olga Ikonnikova	language	Lushootseed	the language of (6) and (13), drawn from Bates et al. 1994
+§1	Olga Ikonnikova	language	Northern Straits (Lummi)	the language of (7), drawn from Gibbs 1863
+§1	Olga Ikonnikova	language	Shuswap	the language of (4) and (11), drawn from Kuipers 1974
+§1	Olga Ikonnikova	language	Thompson	the language of (5) and (12), drawn from Thompson & Thompson 1996
+§1	Olga Ikonnikova	citation	(van Eijk 1997, 2013)	for Lillooet. The reference list has one van Eijk entry, with no year, and 2013 in its series
+§1	Olga Ikonnikova	citation	(Galloway 1993)	for Halkomelem. The reference list has Galloway 2009
+§1	Olga Ikonnikova	citation	(Reichard 1934)	for Coeur d’Alene. The reference list has Reichard 1933-1938
+§1	Olga Ikonnikova	citation	(Bates et al. 1994)	for Lushootseed. The reference list has no Bates entry
+§1	Olga Ikonnikova	citation	(Gibbs 1863)	for Northern Straits (Lummi)
+§1	Olga Ikonnikova	citation	(Kuipers 1974)	for Shuswap
+§1	Olga Ikonnikova	citation	(Thompson & Thompson 1996)	for Thompson
+§1	Olga Ikonnikova	note	It should be noted that A. Matveyev, the prominent Russian linguist who studied toponyms, considered oronyms to be the most archaic in the linguistic picture of the world; they routed the map - that is, the objects of places that were important to ancient people, and, thus, performed an aesthetic, mythological-religious function, they were kind of a memorization technique, helped with orientation, served as the most important sources of information: “The man is characterized by anthropocentrism, therefore, for him, the point of reference is the man himself, at the heart of everything is a comparison with the man. If a complex of objects was immediately in the field of view, as, for example, usually happens in the mountains, the comparison was made with an entire group of people, which could also include animals (or vice versa). Consequently, orography is most favorable for the implementation of the name-creation; on the contrary, it is usually not possible to keep a complex of hydro objects in the field of view” (Matveev 1987).	the last paragraph of §1. The words in double quotes are quoted from Matveev 1987, a work in Russian
+§1	Olga Ikonnikova	name	A. Matveyev	the Russian linguist of §1 and §2, written Matveyev A.K. in §2. The citation and the reference list write Matveev
+§1	Olga Ikonnikova	citation	(Matveev 1987)	for the quotation on oronyms
+§2	Olga Ikonnikova	heading	2 Specific features of Salish toponyms
+§2	Olga Ikonnikova	note	One of the characteristic features of the toponyms of the Salish languages is the ‘rare’ situational nominative type (according to the terminology of Berezovich E.L.) (Berezovich 1998), that is, the toponym reflects the situation or the event associated with the object. Such a type is characteristic of the Salish oronyms and oikonyms.	the first paragraph of §2, introducing (1) to (6)
+§2	Olga Ikonnikova	name	Berezovich E.L.	the Russian linguist whose nominative types the paper follows. The abstract writes E. Berezovich, §2 E.L. Berezovich, and the reference list Berezovich, Elena L.
+§2	Olga Ikonnikova	citation	(Berezovich 1998)	for the situational nominative type, and again for the quotation in the paragraph after (6)
+(1)	Olga Ikonnikova	language	Colville-Okanagan	the label of (1), with a hyphen. (10) writes Colville Okanagan. §1 names no source for it
+(1a)	Colville-Okanagan	place	s-yxʷms=ulaɂxʷ	inundated area south of the mouth of Hall Creek, lit. north wind land. The glottal stop is the small ɂ, U+0242, drawn at x-height, where every other example has ʔ, U+0294
+(1a)	Olga Ikonnikova	translation	inundated area south of the mouth of Hall Creek (lit. ‘north wind land’)	the English of (1a), between single quotes, with the literal meaning in quotes inside. The paper names no source for its Colville-Okanagan examples
+(1a)	Olga Ikonnikova	note	(so called for the exposure to the land)	after the English of (1a)
+(1a)	Olga Ikonnikova	place	Hall Creek	in the English of (1a)
+(1b)	Colville-Okanagan	place	k-c’l=qin	Rickey Rapids, Thompson Rapids. The apostrophe of c’ is the curly U+2019
+(1b)	Olga Ikonnikova	translation	Rickey Rapids, Thompson Rapids	the English of (1b)
+(1b)	Olga Ikonnikova	translation	water standing up on top	the literal meaning of (1b), after lit.
+(1b)	Colville-Okanagan	cited form	c’l	stand upright
+(1b)	Colville-Okanagan	cited affix	=qin	head, top
+(1b)	Olga Ikonnikova	place	Rickey Rapids	the English of (1b)
+(1b)	Olga Ikonnikova	place	Thompson Rapids	the English of (1b)
+(1c)	Colville-Okanagan	place	s-n-manxʷ=tn	pipe, a place named after the soft rock from which smoking pipe bowls were made
+(1c)	Olga Ikonnikova	translation	pipe	the English of (1c)
+(1c)	Olga Ikonnikova	note	(place named after the soft rock from which smoking pipe bowls were made)	after the English of (1c)
+(1c)	Colville-Okanagan	cited form	s-manxʷ=tn	pipe
+(1c)	Colville-Okanagan	cited form	manxʷ	smoke tobacco
+(2)	Olga Ikonnikova	language	Halkomelem	the label of (2)
+(2a)	Halkomelem	place	Qaleliktel	village on east bank of Frazer River below Siwash Creek, named for a big rock the trail had to pass
+(2a)	Galloway 1993	translation	village on east bank of Frazer River below Siwash Creek named because of a big rock in the area that the trail had to pass	the English of (2a). §1 draws the Halkomelem examples from Galloway 1993
+(2a)	Halkomelem	cited form	qal	go over or around
+(2a)	Halkomelem	cited affix	=elik	creative activity. The page sets the opening quote of the gloss against =elik with no space
+(2a)	Halkomelem	cited affix	=tel	device
+(2a)	Galloway 1993	place	Frazer River	in the English of (2a), and of (2b), (8b), (8c), (9a) and (9c), with z. (5a) and (12b) write Fraser
+(2a)	Galloway 1993	place	Siwash Creek	in the English of (2a)
+(2b)	Halkomelem	place	Xwth'kw'em	medicine spring on the Frazer River beach. Both apostrophes are the straight U+0027
+(2b)	Galloway 1993	translation	medicine spring on the Frazer River beach	the English of (2b). The page sets a space after the opening quote
+(2b)	Galloway 1993	note	(so named because bathing in the creek cured sores)	after the English of (2b). The page sets the word the on a line of its own, with creek cured sores on the next line
+(2b)	Halkomelem	cited form	th’ekw’	sore pain from an open sore. Both apostrophes are the curly U+2019
+(2b)	Halkomelem	cited affix	=em	place for
+(3)	Olga Ikonnikova	language	Coeur d’Alene	the label of (3)
+(3a)	Coeur d’Alene	place	s-t’um-t’um-um	breasts, the name of two hills between Tekoa and Farmington
+(3a)	Reichard 1934	translation	breasts	the first English of (3a)
+(3a)	Reichard 1934	translation	name of two hills between Tekoa and Farmington Whashington which look like breasts	the second English of (3a). Its opening quote has no closing one
+(3a)	Reichard 1934	damage	Whashington	Whashington, for Washington. Transcribed as printed
+(3a)	Coeur d’Alene	cited form	s-t’um-um	breast, milk
+(3a)	Reichard 1934	place	Tekoa	in the English of (3a)
+(3a)	Reichard 1934	place	Farmington	in the English of (3a)
+(4)	Olga Ikonnikova	language	Shuswap	the label of (4)
+(4a)	Shuswap	place	s-qǝqʔeʔm	a mountainside near Kamloops. The schwa is ǝ, U+01DD
+(4a)	Kuipers 1974	translation	a mountainside near Kamloops	the English of (4a)
+(4a)	Shuswap	cited form	qʔem	to suck, take the breast
+(4a)	Kuipers 1974	place	Kamloops	in the English of (4a)
+(5)	Olga Ikonnikova	language	Thompson	the label of (5)
+(5a)	Thompson	place	lwuʔ-p	a place below Spuzzum just downriver from Sailor Bar tunnel on west side of Fraser River
+(5a)	Thompson & Thompson 1996	translation	a place below Spuzzum just downriver from Sailor Bar tunnel on west side of Fraser River	the English of (5a)
+(5a)	Thompson	cited form	lǝw	rumble. The schwa is ǝ, U+01DD. The line ends in a closing quote after the closing parenthesis, with no opening quote to match it
+(5a)	Thompson & Thompson 1996	place	Spuzzum	in the English of (5a)
+(5a)	Thompson & Thompson 1996	place	Sailor Bar	in the English of (5a)
+(5a)	Thompson & Thompson 1996	place	Fraser River	in the English of (5a), with s. The Halkomelem examples write Frazer
+(5b)	Thompson	place	n-micaʔq=tn	resting place on Broadback Mountain trail
+(5b)	Thompson & Thompson 1996	translation	resting place on Broadback Mountain trail	the English of (5b)
+(5b)	Thompson	cited form	miceʔq	sit. The line ends ;’ with a closing quote and no opening quote to match it
+(5b)	Thompson & Thompson 1996	place	Broadback Mountain	in the English of (5b)
+(5b)	Olga Ikonnikova	notation	micaʔq against miceʔq	the form of (5b) has a before ʔ, and the word it comes from has e. Both recorded as printed
+(6)	Olga Ikonnikova	language	Lushootseed	the label of (6)
+(6a)	Lushootseed	place	dxʷ-ʔey-ǝb	a village on the South Fork of the Nooksack River, lit. clear water. The schwa is ǝ, U+01DD
+(6a)	Bates et al. 1994	translation	a village on the South Fork of the Nooksack River (It was famous as a place for spear fishing because it was so easy to see the fish there),	the English of (6a), with a comma before the closing quote
+(6a)	Bates et al. 1994	translation	clear water	the literal meaning of (6a), after lit.
+(6a)	Bates et al. 1994	place	Nooksack River	in the English of (6a)
+§2	Olga Ikonnikova	note	Berezovich E.L., the prominent Russian linguist who has been studying the toponymic systems, following Matveyev A.K., notes that the distribution of situational names in the toponymy of various peoples, such as Finno-Ugric, Caucasian, Turkic, is natural. Such names are associated to a greater extent with nomadic life than with agricultural life: “these names are much more widely represented in those toponymic systems for which verb (participial) constructions are characteristic” (Berezovich 1998). And further Matveyev indicates that there is reason to believe that the first toponyms arose from descriptive constructions such as ‘The mountain on which there are bears’ (= ‘Bear Mountain’). The Salish languages of nomadic North American hunter-fishermen represent such a diachronic stage since such structures were likely primary in the language's diachrony. Hence it can be assumed that the type of the Salish situational toponyms is the most ancient.	the paragraph after (6). The words in double quotes are quoted from Berezovich 1998
+§2	Olga Ikonnikova	note	However, along with situational names, we also distinguish a large group of microtoponyms associated with the legends and myths of Salish tribes, supernatural beings believed to have inhabited these places. We call such toponyms mythologized, that is, based on geomyths (Ikonnikova, Zaikin 2017). These are predominantly Salish oronyms:	the paragraph opening page 3
+§2	Olga Ikonnikova	citation	(Ikonnikova, Zaikin 2017)	for mythologized toponyms
+§2	Olga Ikonnikova	note	Mythologized oronyms are singled out in the group of microtoponyms, namely the place names of specific mountain peaks, localities, individual rocks, hills, boulders, caves associated with the legends and myths of the Salish tribes.	the paragraph introducing (7) and (8)
+(7)	Olga Ikonnikova	language	Northern Straits (Lummi)	the label of (7)
+(7a)	Northern Straits (Lummi)	place	Chin-chin-tse-liing	a rock on the eastern shore of the bay, a demon turned into stone, as the English of (7a) gives it
+(7a)	Gibbs 1863	translation	a rock on the eastern shore of the bay. It was another demon — a woman who committed adultery with everyone. She was turned into stone by Ha-als, but her spirit remains. She used to live at that place in summer, but went up the bay in the winter.	the English of (7a), ending in a period inside the closing quote. The dash is an em dash, U+2014
+(7a)	Northern Straits (Lummi)	name	Ha-als	who turned the woman of (7a) into stone, set in roman
+(7b)	Northern Straits (Lummi)	place	Skwek-sen	a rock on the eastern side of do., another demon
+(7b)	Gibbs 1863	translation	a rock on the eastern side of do. This was another demon	the English of (7b), with the period after the closing quote. do. is the ditto abbreviation, pointing to the bay of (7a)
+(8)	Olga Ikonnikova	language	Halkomelem	the label of (8)
+(8a)	Halkomelem	place	Sasqets	Sasquatch Rock
+(8a)	Galloway 1993	translation	Sasquatch Rock	the English of (8a)
+(8a)	Halkomelem	cited form	sasqets	a stlaleqem creature resembling a wild hairy man
+(8a)	Halkomelem	cited form	stlaleqem	set in roman inside the English for sasqets, with no English of its own
+(8a)	Halkomelem	cited form	seq	split, crack
+(8a)	Halkomelem	cited affix	=ets	on the back
+(8a)	Halkomelem	place	Sasqetstel	Prettys’ Bay on Harrison River, sasquatch place, after cf.
+(8a)	Galloway 1993	translation	Prettys’ Bay on Harrison River	the English of Sasqetstel. The apostrophe of Prettys’ is the curly U+2019
+(8a)	Galloway 1993	translation	sasquatch place	the second English of Sasqetstel
+(8a)	Halkomelem	cited affix	=tel	something for, trap. (2a) glosses =tel device
+(8a)	Galloway 1993	place	Prettys’ Bay	in the English of Sasqetstel
+(8a)	Galloway 1993	place	Harrison River	in the English of Sasqetstel
+(8b)	Halkomelem	place	Tewit	a hunter turned to stone by the Transformer, lit. expert hunter
+(8b)	Galloway 1993	translation	a hunter turned to stone by the Transformer, now located below Hemhemetheqw near Hill’s bar on the east bank of the Frazer River	the English of (8b)
+(8b)	Galloway 1993	translation	expert hunter	the literal meaning of (8b), after lit.
+(8b)	Halkomelem	place	Hemhemetheqw	in the English of (8b), set in roman
+(8b)	Galloway 1993	place	Hill’s bar	in the English of (8b), with bar in lowercase
+(8c)	Halkomelem	place	Slhelets	four rocks in the Frazer River
+(8c)	Galloway 1993	translation	four rocks in the Frazer River that are shaped like rimps	the English of (8c), set after an en dash, U+2013, with no quotation marks. rimps as printed
+(8c)	Galloway 1993	note	(the Transformer Xexeyls changed four boys into rocks: they were diving for slhelqi (rehydrated or soaked dried fish)	after the English of (8c). The first parenthesis is not closed
+(8c)	Halkomelem	name	Xexeyls	the Transformer of (8c), set in roman
+(8c)	Halkomelem	cited form	slhelqi	rehydrated or soaked dried fish, set in roman
+(8c)	Halkomelem	cited form	lhel	hang folded over, with an en dash between the word and its English
+§2	Olga Ikonnikova	note	Furthermore, we have come across several oronyms in Halkomelem that could be combined into the constituents of the plot of the myth about the Cheam Mountains, whose peaks and individual locations are traced back to geomythic heroes, namely, a woman who was married to Mr. Baker, had her three daughters, sisters, and a dog. The woman, her three daughters, and her dog were transformed into mountains by the Creator Xa:ls. These are the following mythologized oronyms from a geomyth:	THE CHEAM MOUNTAINS: the paragraph introducing (9a) to (9g), a set of peaks the paper reads as one story
+§2	Olga Ikonnikova	place	Cheam Mountains	the peaks of (9a) to (9g)
+§2	Halkomelem	name	Xa:ls	the Creator, who transformed the woman, her daughters and her dog into mountains. Set in roman
+(9)	Olga Ikonnikova	language	Halkomelem	the label of (9)
+(9a)	Halkomelem	place	Lhilheqey	Mt Cheam, lit. glacier, the woman of the story
+(9a)	Galloway 1993	translation	Mt Cheam	the English of (9a)
+(9a)	Galloway 1993	translation	glacier	the literal meaning of (9a), after lit.
+(9a)	Galloway 1993	note	(name of a woman in a story who was the wife of Mt Baker and had three daughters and a dog; they quarreled and she left him to come to the banks of the Frazer River with her daughters and her dog; all were transformed into mountains)	after the English of (9a)
+(9a)	Galloway 1993	note	(root meaning uncertain, =ey ‘covering of snow’)	the etymology of (9a)
+(9a)	Halkomelem	cited affix	=ey	covering of snow. The root of (9a) is given as uncertain
+(9a)	Galloway 1993	place	Mt Cheam	in the English of (9a), with no period after Mt. (9c) and (9e) write Mount Cheam, and (9d) Mt. Cheam
+(9a)	Galloway 1993	place	Mt Baker	in the English of (9a). The paragraph before (9) writes Mr. Baker
+(9b)	Halkomelem	place	Smimkw	mountain in back of Restmore Lodge
+(9b)	Galloway 1993	translation	mountain in back of Restmore Lodge	the English of (9b)
+(9b)	Galloway 1993	note	(has large rocks there like bowling balls, thunderbird is there, this mountain threw rocks back and forth at Lhilheqey because she called Smimkw an illegitimate half-sister, but smimkw said she was a full sister)	after the English of (9b). Smimkw and smimkw are set in roman, the second in lowercase
+(9b)	Halkomelem	cited form	mekw	find, pick up
+(9b)	Galloway 1993	place	Restmore Lodge	in the English of (9b)
+(9c)	Halkomelem	place	Xemo:thiya	small peak next to Mount Cheam, youngest sister of Lhilheqey, that cries
+(9c)	Galloway 1993	translation	small peak next to Mount Cheam, youngest sister of Lhillheqey (Mount Cheam) that cries	the English of (9c), with Lhillheqey spelled with a double l
+(9c)	Galloway 1993	note	(so named because she cries and can’t see the Frazer River, a lot of creeks run together down her, esp. when it rains)	after the English of (9c)
+(9c)	Halkomelem	cited form	xam	cry
+(9c)	Halkomelem	cited affix	=o:th	small portion
+(9c)	Halkomelem	cited affix	=iya	DIM, female name ending. The gloss carries footnote 1, written here without its digit
+footnote 1	Olga Ikonnikova	note	Glossing abbreviations used in this paper: DIM = diminutive reduplication, INSTR = instrumental, NMLZ = nominalizer, PART = particle.	the footnote on (9c). The abbreviations are set in small capitals
+(9d)	Halkomelem	place	Qlo:xwelwet	a mountain facing Chilliwack, the oldest sister of Lhilheqey
+(9d)	Galloway 1993	translation	a mountain facing Chilliwack and adjacent to Mt. Cheam, the oldest sister of Lhilheqey (Mount Cheam)	the English of (9d)
+(9d)	Halkomelem	cited form	o:l	wrap up
+(9d)	Halkomelem	cited affix	elwet	female name ending, printed with no equals sign
+(9d)	Galloway 1993	place	Chilliwack	in the English of (9d)
+(9e)	Halkomelem	place	Qyewot	smallest peak just below Mount Cheam, Lhilheqey’s baby
+(9e)	Galloway 1993	translation	smallest peak just below Mount Cheam, Lhilheqey’s baby	the English of (9e)
+(9e)	Galloway 1993	note	(Lhilheqey is holding this baby in her hand)	after the English of (9e)
+(9e)	Halkomelem	cited affix	=ewot	female name ending
+(9e)	Halkomelem	cited form	ey	good
+(9f)	Halkomelem	place	Ts'simtelo:t	other sister of Lhilheqey or Mount Cheam. The apostrophe is the straight U+0027
+(9f)	Galloway 1993	translation	other sister of Lhilheqey or Mount Cheam	the English of (9f)
+(9f)	Galloway 1993	note	(the other sisters of Mt Cheam all turned to stone with her are Oloxwelwet and Xemoth’iyetel)	after the English of (9f)
+(9f)	Halkomelem	place	Oloxwelwet	a sister of Mt Cheam, set in roman, with O. (9d) writes Qlo:xwelwet, with Q and a colon
+(9f)	Halkomelem	place	Xemoth’iyetel	a sister of Mt Cheam, set in roman. (9c) writes Xemo:thiya
+(9f)	Halkomelem	cited affix	=tel	name ending
+(9f)	Halkomelem	cited affix	=elo:t	female name ending
+(9f)	Halkomelem	cited form	ts’isem	grow. The apostrophe is the curly U+2019
+(9g)	Halkomelem	place	S'oyewot	another small peak just to the right of the Mount Cheam. The apostrophe is the straight U+0027
+(9g)	Galloway 1993	translation	another small peak just to the right of the Mount Cheam, she is another daughter of Lhilheqey	the English of (9g). It opens with a quote and closes with a parenthesis, with no closing quote
+§2	Olga Ikonnikova	note	The presented semantic complex in (9a-g) can be combined into a single plot and thematic group, and attributed to the most ancient combinatorial type of nomination (the combination of objects, perceiving them as a single whole) according to the typology of E.L. Berezovich. As E.L. Berezovich notes, such complexes have a very ancient origin and represent a transformation of the mythological approach to reality: ‘When perceiving an object, ancient people relied on myth, and for them, the similarity of the object's outline to the image embedded in the name was not essential. Modern people rely on the external appearance of objects’ (Berezovich 1991).	the paragraph after (9). The words in single quotes are quoted from Berezovich 1991
+§2	Olga Ikonnikova	citation	(Berezovich 1991)	for the quotation on the mythological approach, and again in the next paragraph for the classification of hydronyms
+§2	Olga Ikonnikova	note	While the Salish oronyms and oikonyms are microtoponyms which are local and belong to the most ancient situational and combinatorial nominative types, hydronyms make up the majority of place names in the Salish languages, as the rivers that provided food — salmon and other fish — played a vital role in the Salish people's economic life. Unlike the oronyms and oikonyms of the Salish languages, the semantic system of hydronyms is mostly taxonomic and gradational (according to the classification of E.L. Berezovich (Berezovich 1991), that is, toponyms are differentiated by the names of the fish living in them and by the economic value of the object, fishing places significant for the Salish tribes:	the paragraph introducing (10) to (13), the hydronyms. The parenthesis before according is not closed
+(10)	Olga Ikonnikova	language	Colville Okanagan	the label of (10), with no hyphen. (1) writes Colville-Okanagan
+(10a)	Colville-Okanagan	place	s-n-c’mt=us=tn	large eddy, once a sturgeon fishing site, lit. sturgeon place
+(10a)	Olga Ikonnikova	translation	large eddy, now inundated, once a well-known sturgeon fishing site just south from where Barnaby Creek entered the Columbia	the English of (10a)
+(10a)	Olga Ikonnikova	translation	sturgeon place	the literal meaning of (10a), after lit.
+(10a)	Colville-Okanagan	cited affix	s-	NMLZ. The page sets s- at the end of a line and NMLZ on the next
+(10a)	Colville-Okanagan	cited affix	n-	PART
+(10a)	Colville-Okanagan	cited form	c’mt-us	sturgeon, with a hyphen where the form of (10a) has c’mt=us
+(10a)	Colville-Okanagan	cited affix	=tn	instrument
+(10a)	Olga Ikonnikova	place	Barnaby Creek	in the English of (10a)
+(10a)	Olga Ikonnikova	place	Columbia	in the English of (10a), the river
+(10b)	Colville-Okanagan	place	s-n-mus-ks=tn	a fishing station just below the Kettle Falls bridge, etym. feeling for fish place
+(10b)	Olga Ikonnikova	translation	name of a specific fishing station on the shore of a small cave just below the east side of the Kettle Falls bridge	the English of (10b). Its opening quote has no closing one
+(10b)	Olga Ikonnikova	translation	feeling for fish place	the etymology of (10b), after etym.
+(10b)	Colville-Okanagan	cited form	ms-mus-m	feel with hands
+(10b)	Olga Ikonnikova	place	Kettle Falls	in the English of (10b)
+(11)	Olga Ikonnikova	language	Shuswap	the label of (11)
+(11a)	Shuswap	place	x-kəknenx-tn	Kokanee bay. The schwa is ə, U+0259
+(11a)	Kuipers 1974	translation	Kokanee bay	the English of (11a)
+(11a)	Shuswap	cited form	kəknex	kokanee
+(11a)	Shuswap	cited affix	=tn	INSTR, in small capitals. The form of (11a) ends in -tn with a hyphen
+(12)	Olga Ikonnikova	language	Thompson	the label of (12)
+(12b)	Thompson	place	qʷuʔ-ʔuy	Fraser river. The only item of (12) is lettered b
+(12b)	Thompson & Thompson 1996	translation	Fraser river	the English of (12b), with river in lowercase
+(12b)	Thompson	cited form	qʷuʔ	water
+(12b)	Thompson	cited form	qʷuʔ-m	to water, irrigate
+(13)	Olga Ikonnikova	language	Lushootseed	the label of (13)
+(13c)	Lushootseed	place	dugʷač	Neokachamp river. The only item of (13) is lettered c
+(13c)	Bates et al. 1994	translation	Neokachamp river	the English of (13c)
+(13c)	Bates et al. 1994	note	(name of the river that flows into Clear Lake where whitefish used to spawn)	after the English of (13c). The page closes it with two parentheses and a semicolon
+(13c)	Bates et al. 1994	place	Clear Lake	in the English of (13c)
+§3	Olga Ikonnikova	heading	3 Conclusion
+§3	Olga Ikonnikova	note	We come to the conclusions:	the line introducing three bullet points
+§3	Olga Ikonnikova	note	The typological feature of the Salish language toponymic system is the presence of microtoponyms that is, individual names of small objects.	a bullet point
+§3	Olga Ikonnikova	note	We distinguish a distinct type of mythologized toponym, the majority of which are mythologized oronyms — specific mountain peaks, localities, individual rocks, and hills associated with the legends and myths of Salish tribes. The nomination of mythologized oronyms is associated with the plot of the geomyth.	a bullet point, running from page 4 onto page 5 after and hills. The text layer sets the page number 168 inside it. Joined here
+§3	Olga Ikonnikova	note	Most of the toponyms presented in the dictionaries of Salish languages are oronyms, hydronyms, and oikonyms. Unlike the oronyms and oikonyms of the Salish languages, which demonstrate predominantly the most ancient models of nomination of situational and combinatorial nominative types, the semantic system of hydronyms is mostly taxonomic and gradational.	a bullet point
+references	Olga Ikonnikova	heading	References	twelve entries, on page 5
+references	Olga Ikonnikova	reference	Berezovich, Elena L. 1998. Semanticheskaya tipologiya russkih toponimov: problemy, vozmozhnosti, perspektivy [Semantic typology of Russian toponyms: problems, possibilities, prospects]. In Onomastics and dialectal vocabulary, 2. Ekaterinburg: Ural State University.	Onomastics and dialectal vocabulary is set in italics. Listed ahead of Berezovich 1991
+references	Olga Ikonnikova	reference	Berezovich, Elena L. 1991. Semanticheskie mikrosistemy toponimov kak fakt nominacii [Semantic microsystems of toponyms as a fact of nomination]. In Nomination in Onomastics. Sverdlovsk: Ural State University.	Nomination in Onomastics is set in italics
+references	Olga Ikonnikova	reference	van Eijk, Jan. Lillooet-English Dictionary. Roots and Derivations. The University of British Columbia Occasional Papers in Linguistics 2013, 2.	the entry has no year after the name. The series from The University to the end is set in italics. §1 cites van Eijk 1997, 2013
+references	Olga Ikonnikova	reference	Galloway, Brent D. 2009. A Dictionary of Upriver Halkomelem. In University of California Publications in Linguistics, 141.	the series is set in italics. §1 cites Galloway 1993
+references	Olga Ikonnikova	reference	Gibbs, George. 1863. Alphabetical vocabularies of Clallam and Lummi. New York: Cramoisy Press.	set in roman
+references	Olga Ikonnikova	reference	Ikonnikova, Olga N., Zaikin, Alexander.A. 2017. Reprezentaciya geomifologii posredstvom mifologizirovannyh toponimov nositelyami salishskih yazykov [Representation of Geomythology through Mythologized Place Names by Speakers of Salish Languages]. In All-Russian Conference on Cognitive Linguistics-2017. Kazan: Kazan Federal University.	the conference name is set in italics. Alexander.A. has a period and no space before A. All-Russian breaks across a line at its hyphen
+references	Olga Ikonnikova	reference	Ikonnikova, Olga N. 2025. Oronimy v salishskom yazyke Halkomelem [Oronyms in the Salish Language Halkomelem]. In Herald of Dagestan State University, 40 (1).	the journal is set in italics
+references	Olga Ikonnikova	reference	Kuipers, Aert H. 1974. The Shuswap language: Grammar, Texts, Dictionary. The Hague – Paris: Mouton.	the title is set in italics. The dash is an en dash, U+2013
+references	Olga Ikonnikova	reference	Matveev, Alexander K. 1987. Toponimicheskie drevnosti [Toponymic Antiquities]. In Problems of Onomastics, 18. Sverdlovsk: Ural State University.	the series is set in italics. The prose of §1 and §2 writes Matveyev
+references	Olga Ikonnikova	reference	Reichard, Gladys. 1933-1938. Coeur d’Alene. In Boas, F. (ed.), Handbook of American Languages, 3. Hamburg-New York: Columbia University Press.	the handbook is set in italics. §1 cites Reichard 1934
+references	Olga Ikonnikova	reference	Superanskaya, Alexandra V. 1973. Obshchaya teoriya imeni sobstvennogo [General Theory of Proper Names]. Moscow: Nauka.	set in roman
+references	Olga Ikonnikova	reference	Thompson, Laurence C., and Thompson, M.T. 1996. Thompson Dictionary. In University of Montana Occasional Papers in Linguistics.	the series is set in italics
+references	Olga Ikonnikova	notation	cited and listed under another year	§1 cites Galloway 1993 and Reichard 1934, and the reference list has Galloway 2009 and Reichard 1933-1938. §1 cites van Eijk 1997, 2013, and the van Eijk entry has no year. Each recorded as printed
+references	Olga Ikonnikova	notation	cited and not listed	Bates et al. 1994, the source §1 names for Lushootseed, has no entry in the reference list
+references	Olga Ikonnikova	notation	Matveyev against Matveev	the prose of §1 and §2 writes A. Matveyev and Matveyev A.K., and the citation and the reference list write Matveev. Both recorded as printed
+all	Olga Ikonnikova	notation	Frazer against Fraser	the Halkomelem examples write Frazer River, six times, and (5a) and (12b) write Fraser. Both recorded as printed
+all	Olga Ikonnikova	notation	the Cheam sisters spelled two ways	(9d) writes Qlo:xwelwet and (9f) Oloxwelwet. (9c) writes Xemo:thiya and (9f) Xemoth’iyetel. The English of (9c) writes Lhillheqey and every other place Lhilheqey. Each recorded as printed
+all	Olga Ikonnikova	notation	examples set in italics	each place name that heads an example is set in italics, and so is each word or affix its etymology cites. stlaleqem, Hemhemetheqw, Xexeyls, slhelqi, Smimkw, Oloxwelwet, Xemoth’iyetel, Ha-als and Xa:ls are set in roman inside the English
+all	Olga Ikonnikova	symbol note	two glottal stops	(1a) writes the glottal stop as ɂ, U+0242 LATIN SMALL LETTER GLOTTAL STOP, drawn at x-height. Every other example writes ʔ, U+0294, which rises above it. Read at 1200 dpi. The table keeps each
+all	Olga Ikonnikova	symbol note	two schwas	(4a), (5a) and (6a) write the schwa as ǝ, U+01DD LATIN SMALL LETTER TURNED E, and (11a) as ə, U+0259 LATIN SMALL LETTER SCHWA. The page draws them the same. The table follows the text layer
+all	Olga Ikonnikova	symbol note	apostrophes	the glottalized consonants of c’l, t’um, th’ekw’, ts’isem and c’mt carry the curly U+2019, and Xwth'kw'em, Ts'simtelo:t and S'oyewot carry the straight U+0027. The table keeps each as printed
+all	Olga Ikonnikova	symbol note	raised w	the page raises the w of xʷ, qʷ and gʷ in the Colville-Okanagan, Thompson and Lushootseed forms, and the text layer holds each as the modifier letter ʷ, U+02B7. The Halkomelem forms write kw and xw on the line, as in Xwth'kw'em and Smimkw
+all	Olga Ikonnikova	notation	page numbers	pages 2 to 5 carry the proceedings page numbers 165 to 168. The text layer has no number on page 1, and the page prints none

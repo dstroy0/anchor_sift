@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Reach the languages the book catalog does not carry, for Section 4.13 of theory/workbooks/anchor_sift.
+# Reach the languages the book catalog does not carry, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/fetch_wikipedia_languages.py
 #
@@ -34,7 +34,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 WANTED_CHARACTERS = 220000
 PER_REQUEST = 20

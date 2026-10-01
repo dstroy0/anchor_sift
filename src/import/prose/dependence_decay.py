@@ -180,7 +180,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def _trees(start):
-    """Walk up until a directory holding anchor_sift is found, rather than counting parents.
+    """Walk up until a directory holding orior is found, rather than counting parents.
 
     A fixed number of dirname calls encodes how deep this file happens to sit, and this tree has
     already lost a day to a path that was written down and then moved. Searching upward for the
@@ -188,14 +188,14 @@ def _trees(start):
     """
     at = start
     while at != os.path.dirname(at):
-        if os.path.isdir(os.path.join(at, "anchor_sift")):
+        if os.path.isdir(os.path.join(at, "orior")):
             return at
         at = os.path.dirname(at)
     return start
 
 
 TREES = _trees(HERE)
-ANCHOR = os.path.join(TREES, "anchor_sift")
+ANCHOR = os.path.join(TREES, "orior")
 PAPERS = os.path.join(ANCHOR, "build", "papers")
 SESSION = os.path.join(ANCHOR, "build", "corpora", "session_prose.txt")
 

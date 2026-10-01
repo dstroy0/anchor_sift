@@ -49,8 +49,8 @@ That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` an
 The search kernel builds with no build system at all, if that is all you want. It is four portable sources and two include paths:
 
 ```sh
-gcc -std=c11 -Isrc/engine/nbody/anchor_sift -Isrc/engine/arithmetic/no_rounding your_program.c \
-    src/engine/nbody/anchor_sift/anchor_sift_*.c src/engine/nbody/anchor_sift/scan_portable.c \
+gcc -std=c11 -Isrc/engine/nbody/orior -Isrc/engine/arithmetic/no_rounding your_program.c \
+    src/engine/nbody/orior/orior_*.c src/engine/nbody/orior/scan_portable.c \
     src/engine/arithmetic/no_rounding/exact_integer_*.c src/engine/arithmetic/no_rounding/arm_portable.c
 ```
 
@@ -97,7 +97,7 @@ The Salishan papers come from the ICSNL archive:
 python utils/maint/data/salishan/get_papers.py
 ```
 
-The hand extractions are not fetchable. They are transcribed out of published papers and live in a closed repository, described in the README under [What is not here](https://github.com/dstroy0/anchor_sift#what-is-not-here). Everything that does not read a paper or a table runs without them.
+The hand extractions are not fetchable. They are transcribed out of published papers and live in a closed repository, described in the README under [What is not here](https://github.com/dstroy0/orior#what-is-not-here). Everything that does not read a paper or a table runs without them.
 
 ## Checks
 
@@ -108,7 +108,7 @@ python utils/maint/catalog/catalog_verify.py        where an example's descripti
 python utils/maint/tree/write_survey.py          every file write in the tree, and where it lands
 ```
 
-Four more gates run against the two closed repositories and say and stop without them: `utils/maint/corpus/corpus_manifest.py`, `utils/maint/corpus/verify_private_sync.py`, `utils/maint/corpus/speech_gate.py` and `utils/maint/citations/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
+Four more gates run against the two closed repositories and say and stop without them: `utils/maint/corpus/corpus_manifest.py`, `utils/maint/corpus/verify_private_sync.py`, `utils/maint/corpus/speech_gate.py` and `utils/maint/citations/citations.py`. Each takes `--bypass`, and `ORIOR_BYPASS=1` carries that into a commit hook.
 
 `.githooks/pre-commit` runs the first of these. Turn it on once per clone:
 

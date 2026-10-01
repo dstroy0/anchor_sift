@@ -1,0 +1,522 @@
+where	who	kind	form	gloss
+front	Henry Davis	title	Infinitives and Raising in St’át’imcets	page 1, carries footnote *
+front	Henry Davis	name	Henry Davis	author
+front	Henry Davis	note	University of British Columbia	page 1, under Henry Davis
+front	Henry Davis	note	Abstract: Only two out of 23 Salish languages, St’át’imcets (Lillooet) and Nɬeʔkepmxcín (Thompson River Salish), both of the Northern Interior branch, have genuine infinitives. In this paper, I take a closer look at one class of non-finite clauses in St’át’imcets: those involving the raising predicate c̓íla ‘like, sort of’. I show that the infinitival complements of c̓íla closely resemble finite (nominalized) complement clauses, differing only in lacking the nominalizer and associated possessive subject clitics, but allowing suffixal subject agreement, lexical (DP) subjects, and a full range of tense marking. I then examine subject-to-subject raising with c̓íla, which takes the form of movement-type raising in infinitives, but also surfaces in nominalized finite clauses in the form of copy raising. The latter turns out to have a broader distribution both in St’át’imcets and more widely in the Salish family, since it is not dependent on the presence of an infinitival complement. Nevertheless, it must still be lexically specified for individual predicates.	page 1, the abstract
+front	Henry Davis	note	Keywords: St’át’imcets, Salish, infinitives, raising, copy raising	page 1, the keywords
+front	Henry Davis	note	Papers for the International Conference on Salish and Neighboring Languages 55. D. K. E. Reisinger, Hannah Green, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2020.	page 1, the volume's header
+front	Henry Davis	language	St’át’imcets	Northern Interior Salish (Lillooet), ISO 639-3 lil
+front	Henry Davis	language	Nɬeʔkepmxcín	Northern Interior Salish (Thompson River Salish)
+footnote *	Henry Davis	note	As ever, my deepest debt is to the St’át’imcets speakers, past and present, whose insights and wisdom pervade this work. For this paper, I am particularly grateful to Carl Alexander (Qway7án’ak) for his years of dedication to the documentation of his first language. I would also like to thank the members of the Salish Working Group and audiences at WECOL 2018 at CSU Fresno and the Memorial Workshop in Honour of Michael Rochemont at UBC. This work has been supported by SSHRC Insight grant #435-2015-1694 to the author. Author’s e-mail: henry.davis@ubc.ca.	page 1, footnote *, on the title
+footnote *	Henry Davis	name	Carl Alexander	Qway7án’ak, St'át'imcets speaker thanked on the title
+footnote *	Henry Davis	name	Michael Rochemont	honored by the Memorial Workshop at UBC
+§1	Henry Davis	heading	1 Introduction	page 1
+§1	Henry Davis	note	I had originally intended this paper to cover the full range of infinitival structures in St’át’imcets (a.k.a. Lillooet; ISO 639-3: lil), which are rare and understudied in Salish. However, in the process of writing the paper, I have come to two conclusions which have made me shift its focus:	page 1
+§1	Henry Davis	note	(i) There is variation in the structure as well as the interpretation of infinitival complements.	page 1
+§1	Henry Davis	note	(ii) (Subject-to-subject) raising in St’át’imcets is not confined to infinitives.	page 1
+§1	Henry Davis	note	Accordingly, I have decided to limit the current paper to a discussion of raising infinitives in St’át’imcets, leaving a broader treatment of the other types of infinitive for another occasion.	page 1
+§1	Henry Davis	note	Happily, this enables me to do more justice to another understudied phenomenon in Salish, but this time, one that is not necessarily confined to one or two languages, since it is not dependent on infinitival syntax. The putative existence of ‘copy raising’ constructions in Salish has been noted in passing before: for example, Kroeber (1999:170), citing Kuipers (1967:184), gives the following Squamish example involving the predicate ʔəsk̓ʷay ‘impossible’.	page 1
+§1	St’át’imcets	cited form	ʔəsk̓ʷay	page 1, in italics, ‘impossible’
+§1	Henry Davis	language	Squamish	Central Salish, Kroeber's example (1)
+(1) line 1	Squamish	segmentation	čn ʔəsk̓ʷáy kʷ=n=s=tə́lʔ-nəxʷ-an.	page 1
+(1) line 2	Squamish	gloss	1SG.SUBJ impossible C/D=1SG.POSS=NMLZ=know-LCT-1SG.ERG	page 1
+(1) line 3	Henry Davis	translation	‘I cannot figure it out.’1	page 1
+footnote 1	Henry Davis	note	This particular example is complicated by the fact that aside from the copy-raising construction, which copies a pronominal from the subordinate clause onto the matrix predicate, there is also copying within the subordinate clause. The latter is a peculiarity of subject inflection in nominalized subordinate clauses in Squamish and is unconnected to copy-raising: see Davis (1999, 2000).	page 1, footnote 1
+§1	Henry Davis	note	Here the subject clitic in the matrix clause bears no thematic relation to the matrix predicate, but instead appears to have been copied from the complement clause: the structure thus partially resembles ‘classic’ subject-to-subject raising, but differs in two ways: first, the subordinate clause is finite, and second, rather than movement (copy-and-delete), the configuration involves copying without deletion.	page 2
+§1	Henry Davis	note	In this paper, I examine both movement raising and copy raising in St’át’imcets. The former is confined to infinitives, as in English, and has a very restricted distribution, being limited to the infinitival complements of a single (though extremely common) predicate, c̓íla ‘like, be alike, resemble’. The latter has a broader distribution, being possible with a number of impersonal predicates which take nominalized complement clauses, though copy raising must still be listed as a lexical property of particular predicates.	page 2
+§1	St’át’imcets	cited form	c̓íla	page 2, in italics, ‘like, be alike, resemble’
+§1	Henry Davis	language	English	compared for raising and like
+§1	Henry Davis	note	The paper is structured as follows. I begin in Section 2 by reviewing arguments for the existence of a distinctive class of infinitival clauses in St’át’imcets, and then provide a brief survey of the three major classes of infinitive-selecting predicate in the language. In Section 3, I give some background on the raising predicate c̓íla, before turning in Section 4 to examining the structure of raising-type infinitives in more detail. Section 5 gives the core data on movement raising in infinitives and its copy raising analogue in finite (nominalized) complement clauses. Section 6 concludes.	page 2
+§2	Henry Davis	heading	2 An overview of infinitives in St’át’imcets	page 2
+§2	Henry Davis	note	Infinitives are rare in Salish: in fact, as far as we know, only two languages, nɬeʔkepmxcín (Thompson) and St’át’imcets (Lillooet), close relatives in the Northern Interior sub-branch of the family, possess ‘infinitive-like’ constructions (the term is from Kroeber 1999). To my knowledge, the brief remarks in Kroeber (1999:220–221) constitute the only published report of infinitives in nɬeʔkepmxcín. The situation is slightly better for St’át’imcets: following up on Davis and Matthewson (1996), where infinitives were first identified, Matthewson (2005b) discusses non- finite clauses as part of her argument for the existence of syntactically represented Tense (and associated nominative Case) in the language.	page 2
+§2	Henry Davis	language	nɬeʔkepmxcín	Thompson, as printed in lowercase
+§2	Henry Davis	note	In this section, I review the evidence that St’át’imcets has genuine infinitives by comparing them with the two principal types of (non-relative) finite subordinate clause in the language (subjunctive and nominalized). I show that infinitives form a distinct third type, related to and probably derived from nominalized complement clauses, but crucially lacking the two crucial ingredients of finiteness: the nominalizer and an associated possessive subject clitic.	page 2
+§2.1	Henry Davis	heading	2.1 Finite subordinate clauses	page 2
+§2.1	Henry Davis	note	There are two main types of non-relative finite subordinate clause in St’át’imcets. Subjunctive clauses occur as interrogative complements and as conditional, temporal, and locative adjuncts. They are generally introduced by the complementizers ɬ= or (in past tense temporal adjuncts only) ʔi=, though they may also occur as main clauses with the force of weak imperatives, with or without an accompanying circumstantial modal (see Matthewson 2010).	page 2
+§2.1	St’át’imcets	cited form	ɬ=	page 2, in italics
+§2.1	St’át’imcets	cited form	ʔi=	page 2, in italics
+§2.1	Henry Davis	note	As their name suggests, subjunctive clauses are characterized by subjunctive (a.k.a. ‘conjunctive’) inflection, realized as subject enclitics that attach immediately after the first prosodic word in the clause, which may either be an auxiliary (if one or more are present) or the main predicate (if not). Typical examples are given in (2–4):2	page 3
+footnote 2	Henry Davis	note	Examples are given in the NAPA as employed in the Salish literature. All unattributed examples are from original fieldwork by the author. Unless explicitly mentioned, all examples are from the Upper (Northern) dialect of the language. Glossing abbreviations are as follows: ABSN = absent, ACT = active intransitive, AUT = autonomous intransitive (lexical reflexive), CAUS = causative transitivizer, CHA = characteristic, COMP = complementizer, CON = compound connective, COP = (equational) copula, CRED = consonant (CV́) reduplication, D/C = determiner-complementizer, DEM = demonstrative, DET = determiner, DIR = directive transitivizer, EPIS = epistemic modal, ERG = ergative (transitive subject suffix), EXCL = exclusive, EXIS = existential enclitic, FRED = final (V́C) reduplication, INCH = inchoative, INS = instrument, INTS = intensifier, IPFV = imperfective, IRR = irrealis modal, LCT = linited control, LOC = locative, MID = middle, NEG = negation, NMLZ = nominalizer, NTS = non-topical subject marker, OBJ = object suffix, PASS = passive, PL = plural, POSS = possessive, PROS = prospective aspect, QUOT = quotative, RDR = redirective (applicative) transitivizer, REM = remote in time, RLT = relational (applicative) transitivizer, SJV = subjunctive (‘conjunctive’) subject clitic, SUBJ = indicative subject clitic, TRED = total (CVC) reduplication. An affix is marked with a hyphen (-), a clitic with an equal sign (=), an infix with angled brackets < >, a reduplicant with a bullet (•), and unsegmentable morpheme combinations with a plus sign (+).	page 3, footnote 2
+(2) line 1	St’át’imcets	segmentation	saw-ən-cál-itas [(ɬ=)nkáʔ=as [ɬ=wáʔ=an skʷul]].	page 3
+(2) line 2	St’át’imcets	gloss	ask-DIR-1SG.OBJ-3PL.ERG [(COMP=)where=3SJV [COMP=IPFV=1SG.SJV go.to.school]]	page 3
+(2) line 3	Henry Davis	translation	‘They asked me where I went to school.’	page 3
+(2) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 3, the tag or source at the right of the translation
+(3) line 1	St’át’imcets	segmentation	ʔáma=ka [ɬ=k̓ih=ás ta=sk̓ʷúk̓ʷmiʔt=a], plan waʔ ʔílal.	page 3
+(3) line 2	St’át’imcets	gloss	good=IRR [COMP=get.put.on.lap=3SJV DET=child=EXIS] already IPFV cry	page 3
+(3) line 3	Henry Davis	translation	‘It would be good if the baby was picked up and put on somebody’s lap, it’s crying.’	page 3
+(3) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 3, under the translation
+(4) line 1	St’át’imcets	segmentation	x̌əp-xál=ɬkaxʷ [ɬ=cúkʷ-al̕c=axʷ].	page 3
+(4) line 2	St’át’imcets	gloss	stack-ACT=2SG.SUBJ [COMP=finish-food=2SG.SJV]	page 3
+(4) line 3	Henry Davis	translation	‘Stack the dishes when you finish eating.’	page 3
+(4) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 3, the tag or source at the right of the translation
+§2.1	Henry Davis	note	In (2), we see a subjunctive interrogative complement to the verb sáwən ‘ask’, optionally introduced by the complementizer ɬ=; the embedded WH-predicate nkaʔ ‘(be) where’ in turn takes another subjunctive complement, again headed by ɬ=, with the subjunctive subject enclitic attaching to the pre-predicative imperfective auxiliary waʔ. The example in (3) involves a subjunctive conditional ɬ= clause subordinated to the modalized adjective ʔáma=ka ‘it would be good’, and the example in (4) features a subjunctive temporal adjunct, again introduced by ɬ=.	page 3
+§2.1	St’át’imcets	cited form	sáwən	page 3, in italics, ‘ask’
+§2.1	St’át’imcets	cited form	nkaʔ	page 3, in italics, ‘(be) where’
+§2.1	St’át’imcets	cited form	waʔ	page 3, in italics
+§2.1	St’át’imcets	cited form	ʔáma=ka	page 3, in italics, ‘it would be good’
+§2.1	Henry Davis	note	Nominalized clauses, introduced by the proclitic nominalizer s=, occur exclusively in subordinate environments. Most types of complement clause are nominalized, as are certain kinds of clausal adjunct, including purpose and rationale clauses. In both argument and adjunct positions, nominalized clauses are usually introduced by the complementizer-like elements kʷ(u) = and t(a) = (the latter in factive contexts).3 These elements are diachronically related to but probably synchronically distinct from the homophonous determiners kʷu= and ta=/ti=; I have labeled them D/C here.4 Nominalized clauses are also common without D/C elements in ‘clause chaining’ contexts, where they are introduced by the equational copula niɬ; clause chaining creates sequences of temporally or logically ordered clauses across a discourse, and is particular common in narratives.	page 3
+footnote 3	Henry Davis	note	Immediately preceding the clausal nominalizer s=, kʷu= usually reduces to kʷ= and ta= to t= (Davis & Matthewson 1996).	page 3, footnote 3
+footnote 3	St’át’imcets	cited form	kʷ=	page 3, in italics
+footnote 4	Henry Davis	note	Though it is tempting to treat D/C elements as ‘clausal determiners’, as in Davis and Matthewson (1996) and Arregui and Matthewson (2001), there are by now reasonably strong arguments that they should be classed as a separate functional category. These come from two sources. First, the range of determiner-like elements which introduce clauses is restricted in a way that cannot be entirely explained by the semantic differences between clauses and noun phrases: for example, it is unclear why ‘absent’ determiners, which assert the existence of a referent no longer present in the speech situation, cannot apply to events/situations as well as entities: see Kroeber (1999:126–127) for arguments along these lines. Second, the external distribution of DPs is different from that of D/CPs; for example, as Thompson (2012:163–164) points out, CPs in Salish (including D/CPs) can never occupy transitive subject positions, unlike DPs (in St’at’imcets, including those referring to events/situations).	page 4, footnote 4
+§2.1	St’át’imcets	cited form	kʷu=	page 3, in italics
+§2.1	St’át’imcets	cited form	niɬ	page 4, in italics
+§2.1	Henry Davis	note	In intransitive nominalized clauses, subject agreement takes the form of possessive clitics; in transitive nominalized clauses, possessive clitics alternate with and sometimes co-occur with transitive subject suffixes, depending on the presence of an auxiliary and the person features of the clitic (see Section 4.1 below). The nominalizer and its associated possessive subject very frequently fuse with the imperfective auxiliary waʔ to yield special contracted forms whose components are not readily separable: see Kroeber 1999:115). Typical examples of nominalized clauses are given below:	page 4
+(5) line 1	St’át’imcets	segmentation	ʔạ́•ʔ•z̓-áɬ=ƛ̓uʔ [kʷ=n=s=zəwát-ən kʷu=sámʔ-ac	page 4
+(5) line 2	St’át’imcets	gloss	NEG•CRED-INTS=EXCL [D/C=1SG.POSS=NMLZ=know-DIR DET=white.person-mouth	page 4
+(5) line 3	St’át’imcets	segmentation	pinániʔ], niɬ [səs ʔaw̓t-əc-xi[t]-cal-ítas].	page 4
+(5) line 4	St’át’imcets	gloss	then] COP [NMLZ+IPFV+3POSS behind-mouth-RDR-1SG.OBJ-3PL.ERG]	page 4
+(5) line 5	Henry Davis	translation	‘I didn’t know any English at all in those days, so they interpreted for me.’	page 4
+(5) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 4, under the translation
+(6) line 1	St’át’imcets	segmentation	q̓il̕-q-ám̓=ɬkan [kʷ=n=s=xʷuz̓ ʔíɬən].	page 4
+(6) line 2	St’át’imcets	gloss	set.down-bottom-MID=1SG.SUBJ [D/C=1SG.POSS=NMLZ=PROS eat]	page 4
+(6) line 3	Henry Davis	translation	‘I sat down to eat.’	page 4
+(6) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 4, the tag or source at the right of the translation
+(7) line 1	St’át’imcets	segmentation	wáʔ=ɬkaɬ x̌áƛ̓-min̓-əm [kʷəɬkáɬ n-kál-s-tum̓	page 4
+(7) line 2	St’át’imcets	gloss	IPFV=1PL.SUBJ want-RLT-PASS [D/C+NMLZ+IPFV+1PL.POSS LOC-follow-CAUS-PASS	page 4
+(7) line 3	St’át’imcets	segmentation	ta=ƛ̓ák-mən-s=a ʔi=s-kəl•kəlaʔ-ɬkáɬ=a].	page 4
+(7) line 4	St’át’imcets	gloss	DET=go-INS-3POSS=EXIS PL.DET=NMLZ-TRED•first-1PL.POSS=EXIS]	page 4
+(7) line 5	Henry Davis	translation	‘We want to follow the path of our ancestors.’5	page 4
+footnote 5	Henry Davis	note	Passive morphology is used for first person plural transitive subjects in St’át’imcets, as in most other Interior Salish languages; however, it is possible to disambiguate passive from first person plural when an auxiliary is present by adding a first person plural subject clitic, as here.	page 4, footnote 5
+(7) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 4, the tag or source at the right of the translation
+§2.1	Henry Davis	note	In (5), a negative predicate ((xʷ)ʔạ́ʔaz̓aɬ) takes a nominalized subordinate clause containing a transitive predicate marked by the first person possessive proclitic subject n=; this is followed by another nominalized clause, this time introduced by the copula niɬ, containing a contracted combination of nominalizer, imperfective auxiliary, and third person possessive subject (səs), doubling third person plural ergative marking (-itas) on the embedded main verb. In (6), we see a nominalized purpose clause with the auxiliary xʷuz̓ hosting the nominalizer and associated proclitic possessive subject, while (7) contains a nominalized clause acting as complement to the verb x̌áƛ̓min̓ ‘want’, again containing a contracted nominalizer+auxiliary+possessive clitic combination (k̓wəɬkáɬ).	page 4
+§2.1	St’át’imcets	cited form	(xʷ)ʔạ́ʔaz̓aɬ	page 4, in italics
+§2.1	St’át’imcets	cited form	səs	page 4, in italics
+§2.1	St’át’imcets	cited form	-itas	page 4, in italics
+§2.1	St’át’imcets	cited form	xʷuz̓	page 5, in italics
+§2.1	St’át’imcets	cited form	x̌áƛ̓min̓	page 5, in italics, ‘want’
+§2.1	St’át’imcets	cited form	k̓wəɬkáɬ	page 5, in italics
+§2.2	Henry Davis	heading	2.2 Introducing infinitives	page 5
+§2.2	Henry Davis	note	Now that we have had a quick look at how finite subordinate clauses work, we can contrast them directly with infinitives. In form, infinitives resemble nominalized clauses quite closely, with one crucial difference: they obligatorily lack a clausal nominalizer and associated possessive subject morphology.	page 5
+(8) line 1	St’át’imcets	segmentation	lák=k̓a ʔi=q̓əm̓p-wi-palʔ-as-zánuxʷ=an ʔi=kəlʔ=án	page 5
+(8) line 2	St’át’imcets	gloss	be.there=EPIS when.PAST=ten-plus-one-CON-year=1SG.SJV when.PAST=first=1SG.SJV	page 5
+(8) line 3	St’át’imcets	segmentation	zəwát•ət-s [kʷu=wáʔ suq̓ʷ].	page 5
+(8) line 4	St’át’imcets	gloss	know•FRED-CAUS [D/C=IPFV skin.and.bone]	page 5
+(8) line 5	Henry Davis	translation	‘It must’ve been when I was about eleven years old when I first learned how to skin and bone a deer.’	page 5
+(8) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 5, the tag or source at the right of the translation
+(9) line 1	St’át’imcets	segmentation	“well, c̓íla [kʷu=ƛ̓úp-ləx n-ʕʷəlín=a]” cún=ɬkan.	page 5
+(9) line 2	St’át’imcets	gloss	well like [D/C=get.twisted-AUT 1SG.POSS-stomach=EXIS] say+DIR=1SG.SUBJ	page 5
+§2.2	Henry Davis	note	“Well, my stomach is kind of twisting,” I told him. (Mitchell in prep.)	page 5
+(10) line 1	St’át’imcets	segmentation	xʷuz̓ x̌aƛ̓ [kʷu=wáʔ záxən tákəm ʔiz̓ ʔi=sc̓úqʷaz̓ =a].	page 5
+(10) line 2	St’át’imcets	gloss	PROS hard [D/C=IPFV get.carried all those PL.DET=fish=EXIS]	page 5
+(10) line 3	Henry Davis	translation	‘It’s going to be hard to pack all those fish.’	page 5
+(10) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 5, the tag or source at the right of the translation
+(11) line 1	St’át’imcets	segmentation	k̓ín•k̓n-ət [kʷa ɬum-un-táli kʷu=lakʷá	page 5
+(11) line 2	St’át’imcets	gloss	dangerous•TRED-CHA [D/C+IPFV install-DIR-NTS DET=crucifix	page 5
+(11) line 3	St’át’imcets	segmentation	l=ki=lam-xal-áɬxʷ=a], ʔalas-ʔúl c̓míxʷ-laqin!	page 5
+(11) line 4	St’át’imcets	gloss	on=PL.DET=pray-ACT-place=EXIS] really-too.much peaked-top	page 5
+(11) line 5	Henry Davis	translation	‘It’s dangerous to install crucifixes on churches: their roofs are too steep!’	page 5
+(11) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 5, under the translation
+§2.2	Henry Davis	note	As shown in (8–11), infinitives are invariably introduced by the D/C element kʷ(u) =, which often fuses with a following imperfective auxiliary to yield the contracted form kʷa, as in (11).6 I assume this introductory element is identical to the D/C kʷ(u) = which introduces finite (nominalized) clauses. This means that infinitival clauses are CPs, though defective in the sense that they invariably lack nominalization and associated subject clitics.	page 5
+footnote 6	Henry Davis	note	In contrast to St’át’imcets, infinitives in nɬeʔkepmxcín may be introduced either by a D/C element homophonous with the referential determiner (h)e= or one homophonous with the non-referential determiner k=, with the former occurring in “realis” and the latter in “irrealis” environments (Kroeber 1999:221).	page 5, footnote 6
+§2.2	St’át’imcets	cited form	kʷa	page 5, in italics
+§2.3	Henry Davis	heading	2.3 The distribution of infinitives	page 6
+§2.3	Henry Davis	note	In this subsection, I give a brief overview of the inventory of infinitival clauses in St’át’imcets, before turning more specifically to raising-type infinitives.	page 6
+§2.3	Henry Davis	note	Infinitives in St’át’imcets are confined to complement positions; there are no infinitival adjunct clauses. Furthermore, all predicates which take infinitival clauses also take finite (nominalized) complement clauses. Both of these points likely relate to the fact that infinitives are a comparatively recent development in St’át’imcets (and Salish overall, as observed by Kroeber 1999:221).	page 6
+§2.3	Henry Davis	note	The overwhelming majority of infinitival clauses appear as complements to three types of predicate:	page 6
+§2.3	Henry Davis	note	(i) Epistemic predicates (‘know’, ‘learn’, ‘teach’, ‘instruct’, ‘remember’, ‘forget’)	page 6
+§2.3	Henry Davis	note	(ii) Evaluative predicates (‘good’, ‘bad’, ‘hard’, ‘easy’, ‘fun’, ‘dangerous’; ‘like’, ‘dislike’, ‘enjoy’, ‘have a hard time with’); this class also includes complex nominal predicates with an evaluative component (‘easy/hard work’, ‘(take) a lot of thought’)	page 6
+§2.3	Henry Davis	note	(iii) Approximative predicates (‘like/kind of’)	page 6
+§2.3	Henry Davis	note	Examples of each of these types are given in (12–23):	page 6
+§2.3	Henry Davis	note	(i) Epistemic predicates:	page 6
+(12) line 1	St’át’imcets	segmentation	lan ʔayɬ waʔ zəwát-ən-əm [kʷa kʷukʷ].	page 6
+(12) line 2	St’át’imcets	gloss	already then IPFV be.known-DIR-PASS [D/C+IPFV cook]	page 6
+(12) line 3	Henry Davis	translation	‘We already knew how to cook.’	page 6
+(12) line 4	Henry Davis	citation	(Matthewson 2005a:479)	page 6, the tag or source at the right of the translation
+(13) line 1	St’át’imcets	segmentation	zəwát•ət-s-as [kʷa píx̌əm̓].	page 6
+(13) line 2	St’át’imcets	gloss	be.known•FRED-CAUS-3ERG [D/C+IPFV hunt]	page 6
+(13) line 3	Henry Davis	translation	‘He has learned how to hunt.’	page 6
+(13) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 6, the tag or source at the right of the translation
+(14) line 1	St’át’imcets	segmentation	xʷúz̓=ɬkan zəwát•ət-xal [kʷa c̓áw̓-xal kʷu=sqláw̓].	page 6
+(14) line 2	St’át’imcets	gloss	PROS=1SG.SUBJ be.known•FRED-ACT [D/C+IPFV wash-ACT DET=gold]	page 6
+(14) line 3	Henry Davis	translation	‘I’m going to learn how to pan for gold.’	page 6
+(14) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 6, the tag or source at the right of the translation
+(15) line 1	St’át’imcets	segmentation	plán=ƛ̓uʔ ʔạz kʷas zəwát [kʷa	page 6
+(15) line 2	St’át’imcets	gloss	already=EXCL NEG D/C+NMLZ+IPFV+3POSS be.known [D/C+IPFV	page 6
+(15) line 3	St’át’imcets	segmentation	mays-ən-táli ʔi=sqʷl̕íp=a].	page 6
+(15) line 4	St’át’imcets	gloss	fix-DIR-NTS PL.DET=black.tree.moss=EXIS]	page 6
+(15) line 5	Henry Davis	translation	‘It’s no longer known how to prepare black tree moss.’	page 6
+§2.3	Henry Davis	note	(ii) Evaluative predicates:	page 6
+(16) line 1	St’át’imcets	segmentation	x̌aƛ̓ [kʷa qʷəz-ən-táli kʷu=k̓əƛ̓h-áɬc̓aʔ	page 6
+(16) line 2	St’át’imcets	gloss	hard [D/C+IPFV use-DIR-NTS DET=rock-flesh	page 6
+(16) line 3	St’át’imcets	segmentation	l=ki=ʔats-ank-áɬxʷ=a].	page 6
+(16) line 4	St’át’imcets	gloss	on=PL.DET=attached-lower.surface-place=EXIS	page 6
+(16) line 5	Henry Davis	translation	‘It’s hard to use gyprock on the ceiling.’	page 6
+(16) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 6, the tag or source at the right of the translation
+(17) line 1	St’át’imcets	segmentation	x̌aƛ̓ [kʷu=máys ʔi=k̓ec̓-aɬwíɬ-tən=a].	page 7
+(17) line 2	St’át’imcets	gloss	hard [D/C=get.fixed PL.DET=cross-vessel-thing=EXIS]	page 7
+(17) line 3	Henry Davis	translation	‘The cross-pieces are hard to fix’	page 7
+(17) line 4	Henry Davis	note	(literally: ‘get fixed’).	page 7, at the right of the translation
+(17) line 5	Henry Davis	citation	(Alexander et al. in prep.)	page 7, the tag or source at the right of the translation
+(18) line 1	St’át’imcets	segmentation	x̌áƛ̓-s=kan [kʷu=záʔzəw̓], kan qʷál̕-ax̌an.	page 7
+(18) line 2	St’át’imcets	gloss	hard-CAUS=1SG.SUBJ [D/C=dip.net] 1SG.SUBJ ache-arm	page 7
+(18) line 3	Henry Davis	translation	‘I have a hard time dip-netting, my arm hurts.’	page 7
+(18) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 7, the tag or source at the right of the translation
+(19) line 1	St’át’imcets	segmentation	xʷʔit sʔalkst [kʷa q̓ʷəlaw̓-ən-táli ʔi=q̓áp̓x̌ʷ=a].	page 7
+(19) line 2	St’át’imcets	gloss	much work [D/C+IPFV pick-DIR-NTS PL.DET=hazelnut=EXIS]	page 7
+(19) line 3	Henry Davis	translation	‘Picking hazelnuts is a lot of work.’	page 7
+(19) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 7, the tag or source at the right of the translation
+§2.3	Henry Davis	note	(iii) Approximative predicates:	page 7
+(20) line 1	St’át’imcets	segmentation	c̓ila=ɬkán=ƛ̓uʔ [kʷa ƛ̓ak ka-n-zə́xʷ-xn-a	page 7
+(20) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C+IPFV continue CIRC-LOC-stumble-foot-CIRC	page 7
+(20) line 3	St’át’imcets	segmentation	l=kʷəɬ=s-x̌ə́t•x̌ətəq] ʔi=xʷəl̕aɬp-an-cáləm=as.	page 7
+(20) line 4	St’át’imcets	gloss	in=PL.INV.DET=NMLZ-hole•TRED] when.PAST =ghost-DIR-1SG.PASS=3SJV	page 7
+(20) line 5	Henry Davis	translation	‘It felt like I kept stepping into holes when I got ghosted.’	page 7
+(20) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 7, the tag or source at the right of the translation
+(21) line 1	St’át’imcets	segmentation	ƛ̓ák=kan matq, niɬ s=c̓íla=s [kʷu=s-x̌ʷəl•x̌ʷúl	page 7
+(21) line 2	St’át’imcets	gloss	continue=1SG.SUBJ walk COP NMLZ=like=3POSS [D/C=STA-rut•TRED	page 7
+(21) line 3	St’át’imcets	segmentation	ta=tmíxʷ=a].	page 7
+(21) line 4	St’át’imcets	gloss	DET=ground=EXIS]	page 7
+(21) line 5	Henry Davis	translation	‘I kept walking, and then it was like the ground was rutted.’	page 7
+(21) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 7, under the translation
+(22) line 1	St’át’imcets	segmentation	c̓íla [kʷu=ka-q̓áy-ləx-a ta=n-sqʷə́qʷəl̕=a], ƛ̓uʔ	page 7
+(22) line 2	St’át’imcets	gloss	like [D/C=CIRC-jump-AUT-CIRC DET=1SG.POSS-story=EXIS but	page 7
+(22) line 3	St’át’imcets	segmentation	xʷúy̓=ɬkan=ƛ̓uʔ p̓an̓t.	page 7
+(22) line 4	St’át’imcets	gloss	PROS=1SG.SUBJ=EXCL return	page 7
+(22) line 5	Henry Davis	translation	‘My story has kind of run away, but I’ll get back to it.’	page 7
+(22) line 6	Henry Davis	citation	(Jackson in prep.)	page 7, the tag or source at the right of the translation
+(23) line 1	St’át’imcets	segmentation	waʔ qʷc•ə́c-l̕əc c̓íla [kʷu=cwás-əm] ʔi=w•əwp-l̕íc̓ʔ=a.	page 7
+(23) line 2	St’át’imcets	gloss	IPFV move•CRED-AUT like [D/C=measure-MID] PL.DET=hairy•CRED-skin=EXIS	page 7
+(23) line 3	Henry Davis	translation	‘Caterpillars wriggle around like they’re measuring something.’	page 7
+(23) line 4	Henry Davis	citation	(Alexander et al. in prep)	page 7, under the translation
+§2.3	Henry Davis	note	While the infinitival complements to these three classes of predicate all share the same basic design (they are all introduced by kʷu= and all obligatorily lack a nominalizer and subject clitic morphology), they otherwise differ both syntactically and semantically. At this point, I set aside the first two classes to focus on the third, which contains the single ‘approximative’ predicate c̓íla ‘like, kind of, sort of’. Before returning specifically to infinitives, however, I take a slight detour to provide some general background on c̓ila.	page 7
+§2.3	St’át’imcets	cited form	c̓ila	page 7, in italics
+§3	Henry Davis	heading	3 The approximative predicate c̓íla	page 8
+§3	Henry Davis	note	In both its semantic flexibility and syntactic versatility, c̓íla resembles English ‘like’. Its core meaning is ‘be alike, be the same as’, as shown in (24–25). In this function, it is syntactically intransitive, but requires two semantic arguments: its semantic requirement may be satisfied either by a plural subject, which typically induces (CVC plural) reduplication on the predicate, as in (24), or by a subject and an overt (but non-agreeing) object, as in (25).	page 8
+(24) line 1	St’át’imcets	segmentation	c̓əl•c̓ila=ɬkáɬ=ƛ̓uʔ.	page 8
+(24) line 2	St’át’imcets	gloss	TRED•like=1PL.SUBJ=EXCL	page 8
+(24) line 3	Henry Davis	translation	‘We are alike.’	page 8
+(24) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 8, the tag or source at the right of the translation
+(25) line 1	St’át’imcets	segmentation	c̓ila=ɬkán=ƛ̓uʔ ta=n-sqácəzʔ=a.	page 8
+(25) line 2	St’át’imcets	gloss	like=1SG.SUBJ=EXCL DET=1SG.POSS-father=EXIS	page 8
+(25) line 3	Henry Davis	translation	‘I am just like my father.’	page 8
+(25) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 8, the tag or source at the right of the translation
+§3	Henry Davis	note	In addition, c̓íla is often employed as a quasi-prepositional element, as in (26). In this role, it acts as an adjunct predicate, and signals a relation of approximate semantic equivalence between its argument and the subject of the main predicate.	page 8
+(26) line 1	St’át’imcets	segmentation	waʔ látiʔ s-ɬə̣k l=ta=n-ʕʷúy̓t-tən-s=a c̓́íla	page 8
+(26) line 2	St’át’imcets	gloss	IPFV there STAT-flop.down on=DET=LOC-sleep-INS-3POSS=EXIS like	page 8
+(26) line 3	St’át’imcets	segmentation	kʷu=ɬə̣́nkaya.	page 8
+(26) line 4	St’át’imcets	gloss	DET=cast.iron.pot	page 8
+(26) line 5	Henry Davis	translation	‘He’s lying in his bed motionless, like a cast-iron pot!’	page 8
+(26) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 8, the tag or source at the right of the translation
+§3	Henry Davis	note	Again, like English ‘like’, c̓íla is also very frequently employed as an adverbial qualifier with the meaning ‘sort of, kind of’.	page 8
+(27) line 1	St’át’imcets	segmentation	kəɬ-q c̓́íla ʔi=síkil-s=a níɬ=ƛ̓uʔ səs	page 8
+(27) line 2	St’át’imcets	gloss	come.off-bottom like PL.DET=bark-3POSS=EXIS COP=EXCL NMLZ+IPFV+3POSS	page 8
+(27) line 3	St’át’imcets	segmentation	k̓iʔ-ən-ás.	page 8
+(27) line 4	St’át’imcets	gloss	peel-DIR-3ERG	page 8
+(27) line 5	Henry Davis	translation	‘The bark sort of came off at the bottom and then she peeled them (the hemp stalks).’	page 8
+(27) line 6	Henry Davis	citation	(Mitchell in prep.)	page 8, under the translation
+(28) line 1	St’át’imcets	segmentation	kaɬás s=q̓əm̓p=s wi=cúɬakaʔ máqaʔ kʷənswá kʷúkʷpiʔ,	page 8
+(28) line 2	St’át’imcets	gloss	Three NMLZ=ten=3POSS plus=seven snow D/C+1SG.POSS+NMLZ+IPFV chief	page 8
+(28) line 3	St’át’imcets	segmentation	plán=ɬkan qa<ʔ>əz̓ -mín c̓́íla.	page 8
+(28) line 4	St’át’imcets	gloss	already=1SG.SUBJ tired<INCH>-RLT like	page 8
+(28) line 5	Henry Davis	translation	‘I was chief for thirty-seven years, and then I got tired of it, sort of.’	page 8
+(28) line 6	Henry Davis	citation	(Edwards et al. in prep.)	page 8, under the translation
+§3	Henry Davis	note	Of most direct interest to us, however, c̓íla often appears with clausal complements. To start with, it is standardly used in equative constructions, where its direct argument is a nominalized clause denoting the target of comparison, and its oblique argument (introduced by the preposition ʔə=) denotes the standard of comparison (see Davis & Mellesmoen 2019 on comparative syntax and semantics in St’át’imcets).	page 8
+§3	St’át’imcets	cited form	ʔə=	page 8, in italics
+(29) line 1	St’át’imcets	segmentation	c̓́íla=ƛ̓uʔ [s=záx-al̕qʷəm̓=s s-Bill] ʔə=s-Mary.	page 9
+(29) line 2	St’át’imcets	gloss	like=EXCL [NMLZ=tall-appearance=3POSS NMLZ-Bill] to=NMLZ-Mary	page 9
+(29) line 3	Henry Davis	translation	‘Bill is as tall as Mary.’	page 9
+(29) line 4	Henry Davis	note	(‘the degree to which Bill is tall is the same as Mary’)	page 9, at the right of the translation
+(29) line 5	Henry Davis	citation	(Alexander et al. in prep.)	page 9, under the translation
+§3	Henry Davis	note	Just as with individual arguments (29), both semantic degree arguments can be represented by the same (plural) syntactic argument, as in (30).	page 9
+(30) line 1	St’át’imcets	segmentation	c̓əl•c̓ila=k̓á=wiʔ=ƛ̓uʔ [kʷ=s=pạ́ḷ•pə̣ḷ-t=kaɬ].	page 9
+(30) line 2	St’át’imcets	gloss	TRED•like=EPIS=EMPH=EXCL [D/C=NMLZ=stubborn•TRED-CHA=1PL.SUBJ]	page 9
+(30) line 3	Henry Davis	translation	‘We must have been just as stubborn as each other.’	page 9
+(30) line 4	Henry Davis	note	(‘the degree to which we were stubborn was the same’)	page 9, at the right of the translation
+(30) line 5	Henry Davis	citation	(Edwards et al. 2017:48)	page 9, under the translation
+§3	Henry Davis	note	Aside from equatives, c̓íla also takes a nominalized clausal complement when acting as an impersonal main predicate with an approximative meaning close to that of its adverbial usage:	page 9
+(31) line 1	St’át’imcets	segmentation	c̓́íla=ƛ̓uʔ [kʷu=s=ptinus-mín-an=ʔiz̓ ta=s=wáʔ=s=a=ƛ̓uʔ	page 9
+(31) line 2	St’át’imcets	gloss	like=EXCL [D/C=NMLZ=think-RLT-1SG.ERG=those DET=NMLZ=IPFV=3POSS=EXIS=EXCL	page 9
+(31) line 3	St’át’imcets	segmentation	s-ʔúll̕us ʔi=ʔuxʷalmíxʷ=a sk̓ʷəm•k̓ʷúk̓ʷmiʔt].	page 9
+(31) line 4	St’át’imcets	gloss	STAT-gather PL.DET=indigenous.person=EXIS TRED•child]	page 9
+(31) line 5	Henry Davis	translation	‘I kind of think of them as places where Indian children were gathered together.’	page 9
+(31) line 6	Henry Davis	citation	(Matthewson 2005a:366)	page 9, under the translation
+(32) line 1	St’át’imcets	segmentation	c̓́ila=kʷúʔ=ƛ̓uʔ [ta=s=plán=s=a=tuʔ ɬəl=cʔá waʔ ʔayɬám̓]	page 9
+(32) line 2	St’át’imcets	gloss	like=QUOT=EXCL [D/C=NMLZ=already=3POSS=EXIS=REM from=here IPFV recently]	page 9
+(32) line 3	St’át’imcets	segmentation	pix̌əm̓=kʷúʔ=tiʔ ta=twít=a.	page 9
+(32) line 4	St’át’imcets	gloss	hunt=QUOT=that DET=professional.hunter=EXIS	page 9
+(32) line 5	Henry Davis	translation	‘Kind of not too long after this, this professional hunter went out hunting.’	page 9
+(32) line 6	Henry Davis	citation	(Mitchell in prep.)	page 9, under the translation
+§3	Henry Davis	note	The use of c̓íla with nominalized complement clauses is very close if not identical in meaning to its use with infinitival complements. Syntactically, however the two differ in a now familiar fashion: as shown in (20–23) above, and (33–34) below, infinitives lack the nominalizer and associated possessive subject clitics.	page 9
+(33) line 1	St’át’imcets	segmentation	c̓́ila [kʷu=ʔús-[c]-tum̓] na=n-kʷúkʷ=a	page 9
+(33) line 2	St’át’imcets	gloss	like [D/C=get.thrown.out-[CAUS]-PASS ABSN.DET=1SG.POSS-grandmother=EXIS	page 9
+(33) line 3	St’át’imcets	segmentation	ki=nk̓sáytkən-s=a na=n-spápəzʔ=a	page 9
+(33) line 4	St’át’imcets	gloss	PL.DET=relative-3POSS=EXIS ABSN.DET=1SG.POSS-grandfather=EXIS	page 9
+(33) line 5	St’át’imcets	segmentation	ʔi=zúqʷ=as=tuʔ].	page 9
+(33) line 6	St’át’imcets	gloss	when.PAST=die=3SJV=REM]	page 9
+(33) line 7	Henry Davis	translation	‘My grandmother was sort of thrown out by my grandfather’s relatives when he died.’	page 9
+(33) line 8	Henry Davis	citation	(Matthewson 2005a:393)	page 9, under the translation
+(34) line 1	St’át’imcets	segmentation	c̓́íla=ƛ̓uʔ [kʷu=q̓íx̌-al̕us ʔi=s-ník̓-xal-sw=a sp̓ams].	page 10
+(34) line 2	St’át’imcets	gloss	like=EXCL [D/C=hard-material PL.DET=NMLZ-cut-ACT-2SG.POSS=EXIS firewood]	page 10
+(34) line 3	Henry Davis	translation	‘That firewood you cut looks like it’s hard to split.’	page 10
+(34) line 4	Henry Davis	citation	(Alexander et al. in prep.)	page 10, the tag or source at the right of the translation
+§3	Henry Davis	note	Infinitives with c̓íla test systematically as raising rather than control structures, as I will show in Section 5 below. However, they also show a number of correlated differences in the specification of tense and agreement features, which indicate that they may be syntactically ‘larger’ than the other two types of infinitive. I address these in the next section.	page 10
+§4	Henry Davis	heading	4 The structure of infinitives with c̓́íla	page 10
+§4	Henry Davis	note	In this section, I examine the structure of c̓íla infinitives in more detail. I show that the only way in which they are defective is in missing nominalization and associated subject marking: otherwise they may be fully specified for agreement (Section 4.1) and tense (Section 4.2). I give a tentative structure for c̓íla infinitives in Section 4.3.	page 10
+§4.1	Henry Davis	heading	4.1 Subjects in c̓íla-type infinitives	page 10
+§4.1	Henry Davis	note	We have already seen that subject clitics are systematically absent in infinitives. However, it has been known since Davis (1999, 2000) and Kroeber (1999) that there are two subject agreement positions in St’át’imcets (as in most other Salish languages from the Central and Northern Interior branches of the family). The higher ‘outer’ subject is the one represented by the three series of subject clitics; the lower ‘inner’ position is confined to transitive clauses, and represented by ergative subject suffixes.	page 10
+§4.1	Henry Davis	note	In transitive clauses with an auxiliary, a subject clitic (null in the indicative) may co-occur with a subject suffix, as shown in the subjunctive clause in (35) and the nominalized clause in (36).7	page 10
+footnote 7	Henry Davis	note	If no auxiliary is present, either the subject clitic or the subject suffix is realized on the main predicate, but not both. As a rule, the subject suffix takes precedence over the subject clitic, except in the first person singular of nominalized clauses, where the possessive proclitic n= may be used as an alternative to suffixal -an.	page 10, footnote 7
+footnote 7	St’át’imcets	cited form	-an	page 10, in italics
+(35) line 1	St’át’imcets	segmentation	waʔ qiʔ-sút-min̓-c-as ta=n-máw=a ɬ=wáʔ=as	page 10
+(35) line 2	St’át’imcets	gloss	IPFV suck.up-OOC-RLT-1SG.OBJ-3ERG DET=1SG.POSS-cat=EXIS COMP=IPFV=3SJV	page 10
+(35) line 3	St’át’imcets	segmentation	x̌áƛ̓-min̓-as kʷ=n=s=ʔám̓-c-an̓.	page 10
+(35) line 4	St’át’imcets	gloss	want- RLT-3ERG D/C=1SG.POSS=NMLZ=feed-mouth-DIR	page 10
+(35) line 5	Henry Davis	translation	‘My cat sucks up to me when he wants me to feed him.’	page 10
+(35) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 10, the tag or source at the right of the translation
+(36) line 1	St’át’imcets	segmentation	cáma=ƛ̓uʔ niɬ=ƛ̓uʔ [s=xʷuy̓=s ƛ̓xʷun-xi[t]-túmuɬ-as	page 10
+(36) line 2	St’át’imcets	gloss	after.a.while=EXCL COP=EXCL [NMLZ=PROS=3POSS win-RDR-1PL.OBJ-3ERG	page 10
+(36) line 3	St’át’imcets	segmentation	ʔi=sámʔ=a ʔi=n-qʷal̕ut-tən=ɬkáɬ=a].	page 10
+(36) line 4	St’át’imcets	gloss	PL.DET=white.person=EXIS PL.DET=LOC-speak-INS-1PL.POSS=EXIS]	page 10
+(36) line 5	Henry Davis	translation	‘After a while the white people began to suppress (literally, ‘conquer’) our languages.’	page 10
+(36) line 6	Henry Davis	citation	(Edwards et al. in prep.)	page 10, under the translation
+§4.1	Henry Davis	note	These cases both involve third person subjects; with first or second persons, subject clitics usually supplant rather than supplement subject suffixes in subjunctive and nominalized subordinate clauses with auxiliaries.8	page 11
+footnote 8	Henry Davis	note	In a relic pattern more characteristic of neighbouring nɬeʔkepmxcín, a first or second person subject suffix in a nominalized clause also sometimes co-occurs with a third person (‘expletive’) possessive clitic on a pre- predicative auxiliary (Davis 1999, 2000).	page 11, footnote 8
+§4.1	Henry Davis	note	Returning now to infinitives, it turns out that while subject clitics are systematically missing in c̓íla infinitives, subject suffixes are not. In transitive infinitives, third person -as (37), third person plural -itas/-twitas (38), passive -əm (39), and first/second person subject suffixes (40) are all permitted:	page 11
+§4.1	St’át’imcets	cited form	-as	page 11, in italics
+§4.1	St’át’imcets	cited form	-itas/-twitas	page 11, in italics
+§4.1	St’át’imcets	cited form	-əm	page 11, in italics
+(37) line 1	St’át’imcets	segmentation	niɬ n-p̓an̓t-ús-min̓-c-as, c̓íla=ƛ̓uʔ	page 11
+(37) line 2	St’át’imcets	gloss	COP LOC=return-face-RLT-1SG.OBJ-3ERG like=EXCL	page 11
+(37) line 3	Henry Davis	citation	[kʷa n-q̓s-an̓k-mín-c-as].	page 11, where the translation stands
+(37) line 4	Henry Davis	citation	[D/C+IPFV LOC-laugh-belly-RLT-1SG.OBJ-3ERG]	page 11, under the translation
+(37) line 5	Henry Davis	translation	‘Then he turned around to face me, as if he was laughing at me.’	page 11
+(37) line 6	Henry Davis	citation	(Matthewson 2005a:158)	page 11, the tag or source at the right of the translation
+(38) line 1	St’át’imcets	segmentation	waʔ nuk̓ʷʔ-an-tánemwit ʔə=ki=ʔuxʷalmíxʷ=a kʷ=s=c̓íla=s	page 11
+(38) line 2	St’át’imcets	gloss	IPFV help-DIR-3PL.PASS by=PL.DET=indigenous.person=EXIS D/C=NMLZ=like=3POSS	page 11
+(38) line 3	St’át’imcets	segmentation	[kʷu=x̌lipt-s-twítas ta=ƛ̓láz-i=ha ptak	page 11
+(38) line 4	St’át’imcets	gloss	[D/C=go.over.hill-CAUS-3PL.ERG DET=canoe-3PL.POSS=EXIS past	page 11
+(38) line 5	St’át’imcets	segmentation	ɬ=látiʔ ɬəl=ta=waʔ pəɬ•púɬ•əɬ].	page 11
+(38) line 6	St’át’imcets	gloss	from=there from=DET=IPFV TRED•boil•CRED]	page 11
+(38) line 7	Henry Davis	translation	‘They were helped by the people to kind of carry their canoe over to past where the rapids were.’	page 11
+(38) line 8	Henry Davis	citation	(Mitchell in prep.)	page 11, the tag or source at the right of the translation
+(39) line 1	St’át’imcets	segmentation	níɬ=ƛ̓uʔ (s=)sniɬh-c ta=lum-ən-ə́m=a, ƛ̓uʔ	page 11
+(39) line 2	St’át’imcets	gloss	COP=EXCL (NMLZ=)3SG.INDP=3POSS DET=accuse-DIR-PASS=EXIS but	page 11
+(39) line 3	St’át’imcets	segmentation	ta=ʔáw̓t=a ta=waʔ n-s-qan̓ím kʷas	page 11
+(39) line 4	St’át’imcets	gloss	DET=last=EXIS DET=IPFV 1SG.POSS-NMLZ-hear D/C+NMLZ+IPFV+3POSS	page 11
+(39) line 5	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷa lum-sút-ən-əm	page 11
+(39) line 6	St’át’imcets	gloss	like=EXCL [D/C+IPFV accuse-OOC-DIR-PASS	page 11
+(39) line 7	St’át’imcets	segmentation	tswása ʔúxʷalmixʷ].	page 11
+(39) line 8	St’át’imcets	gloss	D/C+NMLZ+IPFV+3POSS+EXIS indigenous.person]	page 11
+(39) line 9	Henry Davis	translation	‘So he was the one that was accused, but last I heard, it was like he was falsely accused just because he was an Indian.’	page 11
+(39) line 10	Henry Davis	citation	(Edwards et al. 2017:168)	page 11, the tag or source at the right of the translation
+(40) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷa ʔixʷɬ-əm-nún-al̕ap	page 11
+(40) line 2	St’át’imcets	gloss	like=EXCL [D/C+IPFV different-MID-DIR-2PL.ERG	page 11
+(40) line 3	St’át’imcets	segmentation	ta=səsq̓ʷəz̓-láp=a].	page 11
+(40) line 4	St’át’imcets	gloss	DET=younger.sibling-2PL.POSS=EXIS]	page 11
+(40) line 5	Henry Davis	translation	‘It’s like you’re treating your younger sibling as a stranger.’	page 11
+§4.1	Henry Davis	note	The most important point about the presence of subject suffixes in c̓íla infinitives is that there is nothing incompatible between infinitives and subject agreement per se: it is only subject clitics which are systematically absent. This indicates that c̓íla infinitives are missing particular subject agreement features or their projections, rather than being radically subject-less.	page 11
+§4.1	Henry Davis	note	This in turn raises the question of whether overt DP subjects are also permitted in c̓ila infinitives, on the general assumption that agreement is responsible for licensing argument DPs. The answer is yes, as shown in (41–42):	page 12
+(41) line 1	St’át’imcets	segmentation	c̓íla [kʷa ɬap-en-ítas n-snək̓ʷ•núk̓ʷʔ=a	page 12
+(41) line 2	St’át’imcets	gloss	like [D/C+IPFV get.forgotten-DIR-3PL.ERG 1SG.POSS-TRED•friend=EXIS	page 12
+(41) line 3	St’át’imcets	segmentation	ta=cuwʔ-í=ha n-qʷal̕út-tən].	page 12
+(41) line 4	St’át’imcets	gloss	DET=own-3PL.POSS=EXIS LOC-speak-INS]	page 12
+(41) line 5	Henry Davis	translation	‘It’s like my friends have forgotten their own language.’	page 12
+(42) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷu=pápt waʔ xík̓-ən-as kʷ=s-Bill	page 12
+(42) line 2	St’át’imcets	gloss	like=EXCL [D/C=always IPFV miss-DIR-3ERG DET=NMLZ-Bill	page 12
+(42) line 3	St’át’imcets	segmentation	ʔi=c̓íʔ=a waʔ qʷús-xi-tas].	page 12
+(42) line 4	St’át’imcets	gloss	PL.DET=deer=EXIS IPFV shoot-RDR-3ERG]	page 12
+(42) line 5	Henry Davis	translation	‘It’s like Bill always misses the deer he shoots at.’	page 12
+§4.1	Henry Davis	note	In these examples, the subject of the infinitival is trapped inside the embedded clause by the object, precluding an alternative analysis where it can be construed as a main clause subject. This reinforces the conclusion we have reached on the basis of agreement: nothing is missing in c̓íla infinitives except nominalization and outer (clitic) subject agreement. 4.3 Tense marking in c̓íla infinitives Cross-linguistically, infinitives are often associated with missing or defective tense; and indeed, Matthewson (2005b:34) specifically claims that St’át’imcets infinitives cannot bear independent tense marking. However, she did not consider c̓íla infinitives, which, it turns out, are fully specified for tense features.	page 12
+§4.1	Henry Davis	note	The most reliable place to find tense marking in St’át’imcets is in the future, since the language has unmarked present/past tense, but is obligatorily marked for future tense (Matthewson 2006). Future may be marked by the modal enclitic =kəɬ, the prospective auxiliary xʷuz̓, or both. The following examples show c̓íla infinitives with the full range of future tense marking. (Note also the first person subject suffixes in 44.)	page 12
+§4.1	St’át’imcets	cited form	=kəɬ	page 12, in italics
+(43a) line 1	St’át’imcets	segmentation	k̓ʷạ́•k̓ʷḷ-ạm̓, c̓íla [kʷu=xʷúz̓ kʷis].	page 12
+(43a) line 2	St’át’imcets	gloss	stagger•CRED-MID like [D/C=PROS fall]	page 12
+(43a) line 3	Henry Davis	translation	‘He staggered, like he was going to fall.’	page 12
+(43b) line 1	St’át’imcets	segmentation	k̓ʷạ́•k̓ʷḷ-ạm̓, c̓íla [kʷu=kʷís=kəɬ].	page 12
+(43b) line 2	St’át’imcets	gloss	stagger•CRED-MID like [D/C=fall=FUT]	page 12
+(43b) line 3	Henry Davis	note	(same)	page 12, where the translation stands
+(43c) line 1	St’át’imcets	segmentation	k̓ʷạ́•k̓ʷḷ-ạm̓, c̓íla [kʷu=xʷúz̓=kəɬ kʷis].	page 12
+(43c) line 2	St’át’imcets	gloss	stagger•CRED-MID like [D/C=PROS=FUT fall]	page 12
+(43c) line 3	Henry Davis	note	(same)	page 12, where the translation stands
+(44a) line 1	St’át’imcets	segmentation	ka-qʷə́y̓-a ta=sqáx̌ʔ=a, c̓íla=ƛ̓uʔ [kʷu=xʷúz̓ cəw̓-q-án̓-an].	page 13
+(44a) line 2	St’át’imcets	gloss	CIRC-yelp-CIRC DET=dog=EXIS like=EXCL [D/C=PROS kick-bottom-DIR-1SG.ERG]	page 13
+(44a) line 3	Henry Davis	translation	‘The dog yelped, like I was going to kick it in the butt.’	page 13
+(44b) line 1	St’át’imcets	segmentation	ka-qʷə́y̓-a ta=sqáx̌ʔ=a, c̓íla=ƛ̓uʔ [kʷu=cəw̓-q-án̓-an=kəɬ].	page 13
+(44b) line 2	St’át’imcets	gloss	CIRC-yelp-CIRC DET=dog=EXIS like=EXCL [D/C=kick-bottom-DIR-1SG.ERG=FUT]	page 13
+(44b) line 3	Henry Davis	note	(same)	page 13, where the translation stands
+(44c) line 1	St’át’imcets	segmentation	ka-qʷə́y̓-a ta=sqáx̌ʔ=a, c̓íla=ƛ̓uʔ [kʷu=xʷúz̓=kəɬ	page 13
+(44c) line 2	St’át’imcets	gloss	CIRC-yelp-CIRC DET=dog=EXIS like=EXCL [D/C=PROS=FUT	page 13
+(44c) line 3	St’át’imcets	segmentation	cəw̓-q-án̓-an].	page 13
+(44c) line 4	St’át’imcets	gloss	kick-bottom-DIR-1SG.ERG]	page 13
+(44c) line 5	Henry Davis	note	(same)	page 13, where the translation stands
+§4.1	Henry Davis	note	The existence of both tense and inner subject agreement marking in c̓íla infinitives provide important clues as to their structure, to which we turn next. 4.4 A structure for c̓íla infinitives The easiest way to approach the structure of c̓íla infinitives is to compare them directly to their closest finite analogues, nominalized subordinate clauses. Accordingly, I will begin by sketching a picture of the latter.	page 13
+§4.1	Henry Davis	note	First of all, I assume that the D/C elements which introduce nominalized clauses are the head of a projection in the outermost layer of the C-domain. Next, I situate the clausal nominalizer s= in a Finiteness Phrase (FP) lower down in the C-domain (Rizzi 1997). I further assume that FP is selected by D/C, which for nominalized clauses is specified by the matrix predicate as [+Fin]. As we have seen, the presence of s= is correlated with the presence of outer subject agreement, in the form of possessive subject clitics. I assume the latter are generated as sets of phi-features on the [+Fin] head of FP, with post-syntactic morphological adjustments to derive their surface positions.	page 13
+§4.1	Henry Davis	note	I further assume F selects for T, and that T in turn licenses an overt DP or pro subject in its specifier.	page 13
+§4.1	Henry Davis	note	Below T, we find at least one and up to three aspectual projections, headed by aspectual auxiliaries, occupying the zone between T and Voice (the Asp* notation below is meant to express the variable number of aspect phrases). Following previous work (see, e.g., Davis 2019), I locate inner (suffixal) subject agreement in Voice. I assume that passive object agreement (in complementary distribution with suffixal subject agreement) is also generated in the Voice head; this means that in St’át’imcets, passive involves ‘partial’ promotion to Voice, but not to T.	page 13
+§4.1	Henry Davis	note	This results in the following structure for a finite (nominalized) clause:	page 13
+(45) line 1	Henry Davis	note	Finite (nominalized) subordinate clause:	page 14, set as an example
+(45) line 2	Henry Davis	note	C/DP[+Fin]	page 14, set as an example
+(45) line 3	Henry Davis	note	C/D [+Fin] FP [+Fin]	page 14, set as an example
+(45) line 4	Henry Davis	note	kʷ(u) = 5	page 14, set as an example
+(45) line 5	Henry Davis	note	t(a)= F' [+Fin] TP	page 14, set as an example
+(45) line 6	Henry Davis	note	3 4	page 14, set as an example
+(45) line 7	Henry Davis	note	possessive clitic F [+Fin] T' DP	page 14, set as an example
+(45) line 8	Henry Davis	note	agreement s= 4	page 14, set as an example
+(45) line 9	Henry Davis	note	T AspP*	page 14, set as an example
+(45) line 10	Henry Davis	note	Asp VoiceP	page 14, set as an example
+(45) line 11	Henry Davis	note	Voice vP	page 14, set as an example
+(45) line 12	Henry Davis	note	suffixal agreement 4	page 14, set as an example
+(45) line 13	Henry Davis	note	....	page 14, set as an example
+§4.1	Henry Davis	note	Now, let us turn to c̓íla infinitives. As we have already seen, these differ very minimally from finite nominalized clauses: to be precise, they lack the nominalizer and possessive subject agreement, but are otherwise fully specified for tense and agreement. This strongly suggests that the difference between the clause types should be located in FP. There are two options for infinitives: we could generate FP with the value [-Fin], or we could leave it out altogether. I choose the first option here for c̓íla infinitives, mainly to distinguish them from the other two types of infinitival clause (see Section 2.3), which are more restricted in their tense and agreement possibilities, and importantly, do not allow overt DP subjects. If we assume F selects for TP, and DP subjects are licensed by T, then it follows that FP is present in c̓íla infinitives, leading to the structure in (46).	page 14
+(46) line 1	Henry Davis	note	c̓íla-type infinitival clause:	page 14, set as an example
+(46) line 2	Henry Davis	note	C/DP[-Fin]	page 14, set as an example
+(46) line 3	Henry Davis	note	C/D [-Fin] FP [-Fin]	page 14, set as an example
+(46) line 4	Henry Davis	note	kʷ(u)= 5	page 14, set as an example
+(46) line 5	Henry Davis	note	F' [-Fin] TP	page 14, set as an example
+(46) line 6	Henry Davis	note	T' DP	page 14, set as an example
+(46) line 7	Henry Davis	note	T AspP*	page 14, set as an example
+(46) line 8	Henry Davis	note	Asp VoiceP	page 14, set as an example
+(46) line 9	Henry Davis	note	Voice vP	page 14, set as an example
+(46) line 10	Henry Davis	note	suffixal agreement 4	page 14, set as an example
+(46) line 11	Henry Davis	note	....	page 14, set as an example
+(46) line 12	Henry Davis	note	.	page 14, set as an example
+§4.1	Henry Davis	note	The main claim embodied in (46) is that c̓íla infinitivals are almost identical in structure to finite nominalized clauses: the only differences spring from the feature value of [±Fin].	page 14
+§5	Henry Davis	heading	5 Raising	page 15
+§5	Henry Davis	note	Classic subject raising predicates like ‘seem’ and ‘likely’ are mostly absent in St’át’imcets; their meaning is covered by modal adverbs (e.g., sx̌ək ‘maybe’) and second-position clitics (e.g., =k̓a ‘possibly, apparently’): see Rullmann et al. (2008). However, c̓íla is an exception: it allows both classic (‘movement’) raising out of an infinitival complement (Section 5.1) and ‘copy raising’ in finite complements (Section 5.2).	page 15
+§5	St’át’imcets	cited form	sx̌ək	page 15, in italics, ‘maybe’
+§5	St’át’imcets	cited form	=k̓a	page 15, in italics, ‘possibly, apparently’
+§5.1	Henry Davis	heading	5.1 Movement raising with c̓íla	page 15
+§5.1	Henry Davis	note	In the infinitives below, either a full DP subject (47–48) or a pronoun subject (49–50) appears in a position adjacent to c̓íla, outside the infinitive clause where it is thematically selected and whose boundary is delimited by the D/C element.	page 15
+(47) line 1	St’át’imcets	segmentation	níɬ=ƛ̓uʔ s=c̓íla=s ta=kʷúkʷpiʔ=a [kʷu=c̓á<ʔ>x].	page 15
+(47) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=like=3POSS DET=chief=EXIS [D/C=ashamed<INCH>]	page 15
+(47) line 3	Henry Davis	translation	‘Then the chief got kind of ashamed.’	page 15
+(47) line 4	Henry Davis	citation	(Jackson in prep.)	page 15, the tag or source at the right of the translation
+(48) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ kʷu=n-məzác=a [kʷu=qʷə́ts-p].	page 15
+(48) line 2	St’át’imcets	gloss	like=EXCL DET=1SG.POSS-body=EXIS [D/C=shake-INCH]	page 15
+(48) line 3	Henry Davis	translation	‘My body felt like it was shaking.’	page 15
+(48) line 4	Henry Davis	citation	(Mitchell in prep.)	page 15, the tag or source at the right of the translation
+(49) line 1	St’át’imcets	segmentation	c̓ila=ɬkán=ƛ̓uʔ [kʷa matq l=kʷu=sx̌ə́t•x̌ətq x.waɬ].	page 15
+(49) line 2	St’át’imcets	gloss	like=1SG.SUBJ=EXCL [D/C+IPFV walk on=DET=hole•TRED road]	page 15
+(49) line 3	Henry Davis	translation	‘It was like I was walking along a road full of potholes’.	page 15
+(49) line 4	Henry Davis	citation	(Alexander at al. in prep.)	page 15, the tag or source at the right of the translation
+(50) line 1	St’át’imcets	segmentation	níɬ=ƛ̓uʔ ʔayɬ n=s=qʷacác, x̌ʷəm-ən-cút, c̓íla=ɬkan	page 15
+(50) line 2	St’át’imcets	gloss	COP=EXCL then 1SG.POSS=NMLZ=leave fast-DIR-RFLX like=1SG.SUBJ	page 15
+(50) line 3	Henry Davis	citation	[kʷu=xʷúləl-min].	page 15, where the translation stands
+(50) line 4	Henry Davis	citation	[D/C=run.away-RDR]	page 15, under the translation
+(50) line 5	Henry Davis	translation	‘Then I left, in a hurry, I was kind of running away from it.’	page 15
+(50) line 6	Henry Davis	citation	(Mitchell in prep.)	page 15, the tag or source at the right of the translation
+§5.1	Henry Davis	note	These examples appear to be clear cases of (subject-to-subject) raising, directly parallel to raising in English with predicates such as ‘seem’ or ‘be likely’. However, there are a number of respects in which the constructions differ. Most obviously, raising in St’át’imcets takes place over a subordinating element (the C/D kʷu=); of course, subject-to-subject raising cases in English (and putatively, universally: see Landau 2013) never take place over a complementizer.	page 15
+§5.1	Henry Davis	note	Second, and equally strikingly, raising in St’át’imcets infinitivals is optional, since as we have seen it is quite possible for subjects to remain inside the infinitival complements to c̓íla (see, e.g., 41–42 above). In this respect, St’át’imcets raising bears some resemblance to (A-type) scrambling, though unlike the latter, but like classic raising, it is sensitive to lexical properties of the raising predicate. A minimal pair with and without raising (equally grammatical, and with identical meaning) is given in (51a–b). In contrast, raised and non-raised subjects cannot both be present at once, as shown in (51c): i.e., copy raising is blocked.	page 15
+(51a) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷa kam̓-án-axʷ ta=n-s-kʷúkʷ=a].	page 16
+(51a) line 2	St’át’imcets	gloss	like=EXCL [D/C+IPFV despise-DIR-2SG.ERG DET=1SG.POSS-NMLZ-cook=EXIS	page 16
+(51a) line 3	Henry Davis	translation	‘It’s like you despise my cooking.’	page 16
+(51b) line 1	St’át’imcets	segmentation	c̓ila=ɬkáxʷ=ƛ̓uʔ [kʷa kam̓-án ta=n-s-kʷúkʷ=a].	page 16
+(51b) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C+IPFV despise-DIR DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(51b) line 3	Henry Davis	note	(same)	page 16, where the translation stands
+(51c) line 1	St’át’imcets	segmentation	* c̓ila=ɬkáxʷ=ƛ̓uʔ [kʷa kam̓-án-axʷ	page 16
+(51c) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C+IPFV despise-DIR-2SG.ERG	page 16
+(51c) line 3	St’át’imcets	gloss	DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(51c) line 4	St’át’imcets	segmentation	ta=n-s-kʷúkʷ=a].	page 16
+§5.1	Henry Davis	note	However, it turns out that copy raising is possible with c̓íla — just not in infinitives. We turn to this pattern next.	page 16
+§5.2	Henry Davis	heading	5.2 Copy raising with c̓íla	page 16
+§5.2	Henry Davis	note	Recall that every predicate in St’át’imcets which takes an infinitival complement also takes a finite (nominalized) complement clause; c̓íla is no exception (see 31–32 above). Its finite complement shows an almost inverse pattern of raising to that which characterizes its infinitival complement: movement raising is forbidden, while copy raising is permitted. Relevant examples are given in (52); note that I give two versions of each finite clause, one with a possessive subject clitic attached to an imperfective auxiliary, the other with a subject suffix attached to the main verb.	page 16
+(52a) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷásu kam̓-án	page 16
+(52a) line 2	St’át’imcets	gloss	like=EXCL [D/C+NMLZ+IPFV+2SG.POSS despise-DIR	page 16
+(52a) line 3	St’át’imcets	segmentation	ta=n-s-kʷúkʷ=a].	page 16
+(52a) line 4	St’át’imcets	gloss	DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(52a) line 5	Henry Davis	translation	‘It’s like you despise my cooking.’	page 16
+(52b) line 1	St’át’imcets	segmentation	c̓íla=ƛ̓uʔ [kʷ=s=kam̓-án-axʷ ta=n-s-kʷúkʷ=a].	page 16
+(52b) line 2	St’át’imcets	gloss	like=EXCL [D/C=NMLZ=despise-DIR-2SG.ERG DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(52b) line 3	Henry Davis	note	(same)	page 16, where the translation stands
+(52c) line 1	St’át’imcets	segmentation	c̓ila=ɬkáxʷ=ƛ̓uʔ [kʷásu kam̓-án	page 16
+(52c) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C+NMLZ+IPFV+2SG.POSS despise-DIR	page 16
+(52c) line 3	St’át’imcets	segmentation	ta=n-s-kʷúkʷ=a].	page 16
+(52c) line 4	St’át’imcets	gloss	DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(52c) line 5	Henry Davis	note	(same)	page 16, where the translation stands
+(52d) line 1	St’át’imcets	segmentation	c̓ila=ɬkáxʷ=ƛ̓uʔ [kʷ=s=kam̓-án-axʷ	page 16
+(52d) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C=NMLZ=despise-DIR-2SG.ERG	page 16
+(52d) line 3	St’át’imcets	segmentation	ta=n-s-kʷúkʷ=a].	page 16
+(52d) line 4	St’át’imcets	gloss	DET=1SG.POSS-NMLZ-cook=EXIS]	page 16
+(52d) line 5	Henry Davis	note	(same)	page 16, where the translation stands
+(52e) line 1	St’át’imcets	segmentation	* c̓ila=ɬkáxʷ=ƛ̓uʔ [kʷ=s=kam̓-án	page 17
+(52e) line 2	St’át’imcets	gloss	like=2SG.SUBJ=EXCL [D/C=NMLZ=look.down.on-DIR	page 17
+(52e) line 3	St’át’imcets	segmentation	ta=n-s-kʷúkʷ=a].	page 17
+(52e) line 4	St’át’imcets	gloss	DET=1SG.POSS-NMLZ-cook=EXIS	page 17
+§5.2	Henry Davis	note	The table below compares the movement raising and copy raising patterns with c̓íla: note that a non-raising (‘expletive’) pattern is grammatical with both finite and non-finite complements.9	page 17
+footnote 9	Henry Davis	note	The expletive subject is overtly realized when c̓íla is embedded in a nominalized or subjunctive clause, since in these environments third person intransitive subjects are realized as =s or =as, respectively, rather than Ø, as in indicative environments. A nominalized case is shown in (i); another is in (38) above.	page 17, footnote 9
+footnote 9 (i) line 1	St’át’imcets	segmentation	níɬ=ƛ̓uʔ s=c̓íla=s [kʷu=ti<ʔ>əʕ̕ʷ=wít].	page 17
+footnote 9 (i) line 2	St’át’imcets	gloss	COP=EXCL NMLZ=like=3POSS [D/C=free<INCH>=3PL]	page 17
+footnote 9 (i) line 3	Henry Davis	translation	‘Then they kind of got free.’	page 17
+footnote 9 (i) line 4	Henry Davis	citation	(Mitchell in prep.)	page 17, the tag or source at the right of the translation
+Table 1	Henry Davis	note	Table 1: Patterns of raising with c̓íla	page 17, the table's caption
+Table 1 line 2	Henry Davis	note	non-raising copy raising movement raising	page 17, the column heads
+Table 1 line 3	Henry Davis	note	finite yes yes no	page 17, finite complements: non-raising, copy raising, movement raising
+Table 1 line 4	Henry Davis	note	infinitival yes no yes	page 17, infinitival complements: non-raising, copy raising, movement raising
+§5.3	Henry Davis	heading	5.3 More on copy raising	page 17
+§5.3	Henry Davis	note	While, as we have seen, movement raising in St’át’imcets is confined to c̓íla, it turns out that copy raising is not. Interestingly, it occurs with predicates that do not normally take infinitival complements. One such predicate is cukʷ ‘stop, finish, quit’, as exemplified in (53):	page 17
+§5.3	St’át’imcets	cited form	cukʷ	page 17, in italics, ‘stop, finish, quit’
+(53a) line 1	St’át’imcets	segmentation	cukʷ [kʷ=n=s=mə́c-ən tiʔ kʷu=púkʷ].	page 17
+(53a) line 2	St’át’imcets	gloss	finished [D/C=1SG.POSS=NMLZ=write-DIR that DET=book]	page 17
+(53a) line 3	Henry Davis	translation	‘I’ve finished writing that book.’	page 17
+(53b) line 1	St’át’imcets	segmentation	cukʷ [kʷ=s=məc-ən-án tiʔ kʷu=púkʷ].	page 17
+(53b) line 2	St’át’imcets	gloss	finished [D/C=NMLZ=write-DIR-1SG.ERG that DET=book]	page 17
+(53b) line 3	Henry Davis	note	(same)	page 17, where the translation stands
+(53c) line 1	St’át’imcets	segmentation	cúkʷ=kan [kʷ=n=s=mə́c-ən tiʔ kʷu=púkʷ].	page 17
+(53c) line 2	St’át’imcets	gloss	finished=1SG.SUBJ [D/C=1SG.POSS=NMLZ=write-DIR that DET=book]	page 17
+(53c) line 3	Henry Davis	note	(same)	page 17, where the translation stands
+(53d) line 1	St’át’imcets	segmentation	cúkʷ=kan [kʷ=s=məc-ən-án tiʔ kʷu=púkʷ].	page 17
+(53d) line 2	St’át’imcets	gloss	finished=1SG.SUBJ [D/C=NMLZ=write-DIR-1SG.ERG that DET=book]	page 17
+(53d) line 3	Henry Davis	note	(same)	page 17, where the translation stands
+(53e) line 1	St’át’imcets	segmentation	* cúkʷ=kan [kʷ=s=məc-ən tiʔ kʷu=púkʷ].	page 17
+(53e) line 2	St’át’imcets	gloss	finished=1SG.SUBJ [D/C=NMLZ=write-DIR that DET=book]	page 17
+§5.3	Henry Davis	note	Copy raising with cukʷ is identical to copy-raising with c̓íla: it is optional, occurs with either a possessive subject clitic or a subject in its clausal complement, and is ungrammatical with no subject in the subordinate clause.	page 18
+§5.3	Henry Davis	note	However, not all potential raising predicates allow copy raising: the adjective ʔíʔəz̓ ‘enough’, for example, meets the semantic criteria for a raising predicate (it selects a clausal complement and lacks an external argument) but is rejected in copy raising contexts (and less surprisingly, in movement raising contexts as well):	page 18
+§5.3	St’át’imcets	cited form	ʔíʔəz̓	page 18, in italics, ‘enough’
+(54a) line 1	St’át’imcets	segmentation	ʔíʔəz̓ [kʷásu ʔəs-páqʷ-s ta=TV=ha].	page 18
+(54a) line 2	St’át’imcets	gloss	enough [D/C+NMLZ+IPFV+2SG.POSS STAT-watch-CAUS DET=TV=EXIS]	page 18
+(54a) line 3	Henry Davis	translation	‘You’ve watched enough TV.’	page 18
+(54b) line 1	St’át’imcets	segmentation	ʔíʔəz̓ [kʷ=s=ʔəs-páqʷ-s-axʷ ta=TV=ha].	page 18
+(54b) line 2	St’át’imcets	gloss	enough [D/C=NMLZ=STAT-watch-CAUS-2SG.ERG DET=TV=EXIS]	page 18
+(54b) line 3	Henry Davis	note	(same)	page 18, where the translation stands
+(54c) line 1	St’át’imcets	segmentation	* ʔíʔəz̓=ɬkaxʷ [kʷásu ʔəs-páqʷ-s ta=TV=ha].	page 18
+(54c) line 2	St’át’imcets	gloss	enough=2SG.SUBJ [D/C+NMLZ+IPFV+2SG.POSS STAT-watch-CAUS DET=TV=EXIS]	page 18
+(54d) line 1	St’át’imcets	segmentation	* ʔíʔəz̓=ɬkaxʷ [kʷ=s=ʔəs-páqʷ-s-axʷ ta=TV=ha].	page 18
+(54d) line 2	St’át’imcets	gloss	enough=2SG.SUBJ [D/C=NMLZ=STAT-watch-CAUS-2SG.ERG DET=TV=EXIS]	page 18
+(54e) line 1	St’át’imcets	segmentation	* ʔíʔəz̓=ɬkaxʷ [kʷ=s=ʔəs-páqʷ-s ta=TV=ha].	page 18
+(54e) line 2	St’át’imcets	gloss	enough=2SG.SUBJ [D/C=NMLZ=STAT-watch-CAUS DET=TV=EXIS]	page 18
+§5.3	Henry Davis	note	In other words, there is an irreducible lexical component to copy-raising in St’át’imcets, as has often been pointed out with respect to raising more generally.10	page 18
+footnote 10	Henry Davis	note	It is worth mentioning that though it is lexically restricted, copy raising in St’át’imcets is nevertheless more freely available than its English counterpart, which only occurs with predicates which take finite clausal complements introduced by like or as if/as though, as in (i). The direct English equivalent of St’át’imcets copy-raising is ungrammatical, as shown in (ii):	page 18, footnote 10
+footnote 10 (i) line 1	Henry Davis	segmentation	You seem like/as if you have seen a ghost.	page 18
+footnote 10 (ii) line 1	Henry Davis	segmentation	*You seem (that) you have seen a ghost.	page 18
+§5.3	Henry Davis	note	Summarizing, we can deduce the following one-way implications:	page 18
+§5.3	Henry Davis	note	(i) If a predicate allows copy-raising, it selects for a clausal complement and occurs with an expletive subject (e.g., cukʷ). However, not all predicates with these selectional properties allow copy-raising (e.g., ʔíʔəz̓).	page 18
+§5.3	Henry Davis	note	(ii) If a predicate allows movement raising in infinitives, it also allows copy raising in finite	page 18
+§5.3	Henry Davis	note	clauses (c̓íla). However, not all predicates allow copy-raising occur in infinitivals (e.g.,	page 18
+§5.3	Henry Davis	note	cukʷ).	page 18
+§5.4	Henry Davis	heading	5.4 Implications	page 19
+§5.4	Henry Davis	note	I have now outlined the basic properties of subject-to-subject raising in both infinitival and finite complements in St’át’imcets. Obviously, there is a great deal more to do: for example, well-known syntactic characteristics of raising in better-studied languages, including reconstruction for scope and binding, as well as locality effects such as the (im)possibility of ‘super-raising’ constructions, have yet to be investigated.11	page 19
+footnote 11	Henry Davis	note	The difficulty of applying these tests in St’át’imcets should not be under-estimated. The absence of generalized quantifiers makes scope-based tests particularly challenging (see Davis 2010), and binding reconstruction is hampered by the fact that Condition C does not hold across clauses (Davis 2009). In addition, St’át’imcets lacks idioms of the type standardly used to motivate reconstruction in languages like English.	page 19, footnote 11
+§5.4	Henry Davis	note	Nevertheless, there are lessons we can draw from the raising patterns identified here. The first is that raising is not a property of infinitives per se: rather, it is a general property of predicates which select a clausal complement but not an external argument, including both finite and infinitival clauses.	page 19
+§5.4	Henry Davis	note	The second is that not all predicates which meet the preconditions for raising actually undergo it. As has often been observed for better-studied languages, raising is partly a lexically-specified property of individual predicates. Within the Salish family, where copy raising has been reported sporadically in a number of languages, this is almost certainly also true, and should act as a stimulus for a more systematic investigation of potential raising predicates in individual languages.	page 19
+§5.4	Henry Davis	note	Third, the crucial factor in St’át’imcets which distinguishes finite from infinitival clauses, and therefore triggers the difference between movement raising and copy raising, is neither the initial D/C element (which is identical in both) nor features of T (which are as fully specified in c̓íla infinitives as they are in finite clauses), but specifically a functional head which encodes finiteness features, and is responsible for licensing outer (clitic) subjects.12 It is the [+Fin] specification of this head which blocks movement raising, and forces copy raising to take place instead.	page 19
+footnote 12	Henry Davis	note	It is unclear to me what the semantic contribution of finiteness (in the form of the clausal nominalizer s=) actually is, or indeed if it has any. See Arregui and Matthewson (2001) for the proposal that s= is a ‘situation minimizer’, though their account is limited to factive nominalized clauses introduced by the D/C element ta=, and does not obviously extend to nominalized clauses introduced by kʷu=. Another possibility — motivated by the role of the nominalizer in cases of predicate nominalization, where it is a prefix, not a proclitic — is that s= does not head a functional projection but is a marker of abstraction over a semantic argument. The problem here is it is unclear which argument is being abstracted over in a nominalized complement clause. I leave this issue open here.	page 19, footnote 12
+§5.4	Henry Davis	note	Fourth, there is nothing intrinsic to the structure of infinitives which forces movement raising in St’át’imcets: the process is optional. This is a challenge to older GB-style theories of NP- movement, which essentially appeal to a conspiracy between (abstract) Case (which forces an argument to move out of a Caseless subject position) and the Theta Criterion (which allows it to move into a non-thematic subject position). However, at least in principle, contemporary Agree- based theories allow for the possibility of optional raising; since they are based on feature matching mediated by the Probe-Goal mechanism, it is always possible simply not to generate a feature on the Probe, thereby obviating the need to move.13	page 19
+footnote 13	Henry Davis	note	Of course, this entails that an expletive subject is allowed to satisfy the EPP even when movement is a possibility; I leave the technical details aside here.	page 19, footnote 13
+§6	Henry Davis	heading	6 Conclusion	page 20
+§6	Henry Davis	note	As I mentioned at the outset of this paper, I had originally hoped it would cover the entire spectrum of infinitive constructions in St’át’imcets. I have ended up, I discover, hardly covering one of them.	page 20
+§6	Henry Davis	note	This is both intriguing and alarming. Intriguing, because what appeared at first to be an obscure corner of the grammar of St’át’imcets turns to out to be a larger and more important space than I had imagined, and – like infinitives in better known languages – has the potential to shed some crucial light on clause structure. Alarming, because, frankly, we’re running out of time to do the necessary fieldwork, and this is only one of many apparently obscure areas to investigate in Salish grammar, any or all of which could prove just as fruitful.	page 20
+§6	Henry Davis	note	In terms of the next steps to take in the investigation of infinitives specifically, a thorough examination of the other two major classes of infinitival complement is a priority. Of particular pertinence to the current paper, evaluative predicates (the equivalents of ‘good’, ‘difficult’, ‘funny’, etc.: see 2.3 above) exhibit another type of raising, which is the functional equivalent of English tough-movement, but targets unaccusative and passive patients rather than objects. In addition, control in St’át’imcets infinitives needs to be looked at more closely: preliminary findings indicate that obligatory control is missing entirely, and all control relations are therefore non-obligatory. I look forward to reporting on these questions in the near future.	page 20
+references	Henry Davis	heading	References	page 20
+references	Henry Davis	reference	Alexander, Carl, Henry Davis, Beverley Frank, Gertrude Ned, Desmond Peters Sr., Linda Redan, Rose Whitley. In preparation. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Ms., Lillooet, BC.	page 20
+references	Henry Davis	reference	Arregui, Ana, and Lisa Matthewson. 2001. A cross-linguistic perspective on the expression of manner. Proceedings of Semantics and Linguistics Theory X. Ithaca, NY: Cornell Linguistics Publications.	page 20
+references	Henry Davis	reference	Davis, Henry. 1999. Subject inflection in Salish. Current Research on Language and Linguistics, Vancouver, BC: UBCWPL, 181–239.	page 20
+references	Henry Davis	reference	Davis, Henry. 2000. Remarks on Proto-Salish subject inflection. International Journal of American Linguistics 66.499–520.	page 20
+references	Henry Davis	reference	Davis, Henry. 2009. Cross-linguistic variation in anaphoric dependencies: evidence from the Pacific Northwest. Natural Language & Linguistic Theory 27.1–43.	page 20
+references	Henry Davis	reference	Davis, Henry. 2010. Salish languages lack generalized quantifiers after all! Paper given at Semantics and Linguistic Theory 20, Vancouver, BC.	page 20
+references	Henry Davis	reference	Davis, Henry, 2019. St’át’imcets and the non-existence of T-S-V-O languages. Ms., UBC.	page 20
+references	Henry Davis	reference	Davis, Henry, and Lisa Matthewson. 1996. Subordinate clauses and functional projections in St’át’imcets. Papers for ICSNL 31. Vancouver, BC: University of British Columbia, 59–73	page 20
+references	Henry Davis	reference	Davis, Henry, and Gloria Mellesmoen. 2019. Degree constructions in two Salish languages. In: D. K. E. Reisinger and Gloria Mellesmoen (eds.), Papers for ICSNL 54. Vancouver, BC: UBCWPL, 24–52.	page 20
+references	Henry Davis	reference	Edwards, Ann, Francis Edwards, Paul Hickson, and Ray C. Tom. In preparation. Upper St’át’imc Stories. Recorded by Randy Bouchard, transcribed and translated by John Lyon and Henry Davis.	page 21
+references	Henry Davis	reference	Edwards, Bill, Sam Mitchell, and Martina LaRochelle. 2017. Sqwéqwel’s nelh Skelkekla7lhálha (‘Tales of our Elders’), edited, transcribed and translated by Henry Davis John Lyon, Jan van Eijk and Rose Whitley. Vancouver, BC: UBCOPL.	page 21
+references	Henry Davis	reference	Jackson, Slim. In preparation. Stories by Slim Jackson. Recorded by Randy Bouchard, transcribed and translated by John Lyon and Henry Davis.	page 21
+references	Henry Davis	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	page 21
+references	Henry Davis	reference	Kuipers, Aert. 1967. The Squamish Language: Grammar, Texts, Dictionary. The Hague: Mouton.	page 21
+references	Henry Davis	reference	Landau, Idan, 2013. Control in Generative Grammar. Cambridge: Cambridge University Press.	page 21
+references	Henry Davis	reference	Matthewson, Lisa. 2005a. Iwan Kwikws (‘When I was Small’). Vancouver, BC: University of British Columbia Press.	page 21
+references	Henry Davis	reference	Matthewson, Lisa. 2005b. On the absence of tense on determiners. Lingua 115(12):1697–1735.	page 21
+references	Henry Davis	reference	Matthewson, Lisa. 2006. Temporal semantics in a supposedly tenseless language. Linguistics and Philosophy 29.673–713.	page 21
+references	Henry Davis	reference	Matthewson, Lisa. 2010. Crosslinguistic variation in modality systems: the role of mood. Semantics and Pragmatics 3.1–74.	page 21
+references	Henry Davis	reference	Mitchell, Sam. In preparation. Wa7 Sqwéqwel’ kw sSam: Sam Tells Stories. Recorded by Randy Bouchard, transcribed and translated by John Lyon and Henry Davis.	page 21
+references	Henry Davis	reference	Rizzi, Luigi. 1997. The fine structure of the left periphery. In: Liliane Haegemann (ed.), Elements of Grammar. Kluwer International Handbooks of Linguistics. Dordrecht: Springer, 281–337.	page 21
+references	Henry Davis	reference	Rullmann, Hotze, Lisa Matthewson, and Henry Davis. 2008. Modals as distributive indefinites. Natural Language Semantics 16:317–357.	page 21
+references	Henry Davis	reference	Thompson, James. 2012. Syntactic nominalization in Halkomelem Salish. Ph.D. dissertation, UBC.	page 21

@@ -1,0 +1,439 @@
+where	who	kind	form	gloss
+front	Henry Davis and Bailey Trotter	note	Papers for the International Conference on Salish and Neighbouring Languages 58. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Julia Schillo, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2023.	page 1
+front	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+front	Henry Davis and Bailey Trotter	title	Root Clusters in St’át’imcets and the Organization of the Mental Lexicon*	page 1
+front	Henry Davis and Bailey Trotter	byline	Henry Davis, University of British Columbia, Bailey Trotter, University of British Columbia	page 1
+front	Henry Davis and Bailey Trotter	note	Abstract: This paper constitutes the first investigation of root clusters in a Salish language, where a root cluster is defined as a set of derivationally distinct roots which are nevertheless related by systematic associations between sound and meaning. We explore both the phonology and semantics of root clusters in St’át’imcets (Lillooet Salish), before going on to investigate the diachronic relations between root clusters in St’át’imcets and their counterparts in Proto-Salish. Keywords: St’át’imcets, Proto-Salish, roots, lexicon, phonaesthesia, dictionaries	page 1
+front	Henry Davis and Bailey Trotter	name	Henry Davis	author, University of British Columbia
+front	Henry Davis and Bailey Trotter	name	Bailey Trotter	author, University of British Columbia
+§1	Henry Davis and Bailey Trotter	heading	1 Introduction	page 1
+§1	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§1	Henry Davis and Bailey Trotter	note	In this paper we investigate a phenomenon in St’át’imcets (a.k.a. Lillooet Salish: ISO 639-3: lil) that as far as we know has never systematically been examined in Salish before: the existence of root clusters, by which we mean sets of derivationally distinct roots which are nonetheless related by both sound and meaning, with an identifiable common phonological substring and a common lexical-conceptual core.	page 1
+§1	Henry Davis and Bailey Trotter	name	St’át’imc	the Upper St’át’imc Language, Culture and Education Society
+§1	Henry Davis and Bailey Trotter	note	The immediate motivation for our investigation is work we have been doing on the St’át’imcets-English index to an English-Upper St’át’imcets dictionary we have been compiling in collaboration with the Upper St’át’imc Language, Culture and Education Society (Davis et al. in prep.). Unlike the main English-St’át’imcets part of the dictionary, the index is root-based; during the process of compiling it, we were struck over and over again by what we now recognize as root clusters. However, we were unsure of whether and how to incorporate them into the dictionary. This led to wider questions of what defines a root cluster, why they exist, and what purposes they might serve in the mental lexicon. This paper is a preliminary attempt to tackle these questions.	page 1
+§2	Henry Davis and Bailey Trotter	heading	2 Background	page 1
+§2	Greek	cited form	φωνή	phone, ‘sound’
+§2	Greek	cited form	αἴσθημα	aisthema, ‘perception’
+§2	Greek	cited form	αίσθάνομαι	aisthanomai, ‘I perceive’
+§2	Greek	cited form	aisthanomai	αίσθάνομαι in Latin letters, ‘I perceive’
+§2	Henry Davis and Bailey Trotter	note	Root clusters exemplify the phenomenon of phon(a)esthesia, a term first coined by the British linguist J. R. Firth in 1930 from the Greek φωνή phone, ‘sound’, and αἴσθημα aisthema, ‘perception’ (from αίσθάνομαι aisthanomai, ‘I perceive’) to label the systematic pairing of form and meaning in a language. Here’s a better description, from a 1998 Linguist List post by Philip Grew:	page 1
+footnote *	Henry Davis and Bailey Trotter	note	* Acknowledgements. We thank all the speakers of St’át’imcets, past and present, who have contributed to ongoing dictionary compilation on their language, to the Upper St’át’imc Language, Culture and Education Society, sponsor of the English-Upper St’át’imcets dictionary that has provided much of the empirical foundation for this research, and to members of the Salish Working Group, who contributed many useful comments at an earlier presentation of this work. Research on St’át’imcets has been supported by SSHRC Insight Grant 435-2020-1293 to the first author. Authors’ e-mails: henry.davis@ubc.ca, bailey.trotter@gmail.com	page 1, footnote
+§2	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§2	Henry Davis and Bailey Trotter	name	St’át’imc	the Upper St’át’imc Language, Culture and Education Society
+§2	Henry Davis and Bailey Trotter	note	Clusters of similar-sounding words with semantic affinities are the basis of phonaesthesia. In this phenomenon, associations arise among groups of words, which may have close, distant or no etymological relations. These associations may then transfer to a sequence of phonemes shared by the words with some perceived common element of meaning, creating phonaesthemes. The presence of that same string of phonemes may then in turn lend a shade of the meaning felt to characterize the phonaestheme to another expression, simply because the latter contains that string. (Grew 1998) However, even if you have never heard the term before, you have almost certainly wondered about the similarity between the members of the following sets of English words, whose bolded substrings are phonaesthemes (there are others, but these are amongst the best-known):	page 1
+§2	Proto-Indo-European	root	ǵhley	*ǵhley, the root of glisten, glint, glitter, gleam and glimmer
+§2	Proto-Indo-European	root	ǵʰelh	*ǵʰelh, the root of glow, glass, glare, gloss, gold and yellow
+§2	Henry Davis and Bailey Trotter	note	(1) a. glass glisten glow glare glaze glint glitter gleam glimmer gloss glamour glabrous b. snout snot sneeze sniff snuffle snort snub snooty snore snooze snivel snob sneer c. clash crash smash bash mash hash gash gnash slash splash It is important to emphasize a couple of points before we go further. First, as noted by Grew, words in a phonaesthetic relationship are not necessarily diachronically related, though a set of phonaesthemes often contains a core of etymologically connected forms. For example, amongst the set of gl- words above, glisten, glint, glitter, gleam, and glimmer all derive from the Proto Indo- European (PIE) root *ǵhley, but glow, glass, glare, and gloss come from *ǵʰelh (also the root for gold and yellow). Of course, these two PIE roots are also close in both sound and meaning, suggesting that phonaesthetic relations themselves may well be inherited diachronically: we return to this question in a Salish context in Section 6 below.	page 2
+§2	Henry Davis and Bailey Trotter	note	Second, it is necessary to draw a distinction between phonaesthesia and the more general term sound symbolism. The latter is used for a much wider range of sound-meaning correspondences: for example, Hinton et al. (1994:5) describe sound symbolism very broadly as “the direct linkage between sound and meaning”. Much of the literature on the topic is — not coincidentally — devoted to establishing a typology that attempts to draw principled distinctions between different kinds of sound symbolism. A basic distinction that emerges is between iconic and non-iconic (conventional) types.	page 2
+footnote 3	Henry Davis and Bailey Trotter	note	3 There is little doubt that onomatopoeia plays a similar role in Salish to English. Here are some iconic (non- arbitrary) sound-symbolic correspondences between English and St’át’imcets words describing particular noises: SOUND ST’ÁT’IMCETS ENGLISH	page 2, footnote
+footnote 3	Henry Davis and Bailey Trotter	note	SOUND ST’ÁT’IMCETS ENGLISH	page 2, heads the rows below
+footnote 3 (i) line 1	Henry Davis and Bailey Trotter	note	floorboards, stairs	page 2, the sound
+footnote 3 (i) line 1	St’át’imcets	root	√ʕik̓	page 2
+footnote 3 (i) line 1	St’át’imcets	root	√k̓ik̓	page 2
+footnote 3 (i) line 1	St’át’imcets	root	√k̓iƛ̓	page 2
+footnote 3 (i) line 1	English	translation	creak, squeak	page 2, the English words for the sound
+footnote 3 (ii) line 1	Henry Davis and Bailey Trotter	note	whistling (e.g., wind)	page 2, the sound
+footnote 3 (ii) line 1	St’át’imcets	root	√xʷit	page 2
+footnote 3 (ii) line 1	English	translation	whistle	page 2, the English word for the sound
+footnote 3 (iii) line 1	Henry Davis and Bailey Trotter	note	thunder	page 2, the sound
+footnote 3 (iii) line 1	St’át’imcets	root	√knap	page 2
+footnote 3 (iii) line 1	English	translation	thunderclap	page 2, the English word for the sound
+footnote 3 (iv) line 1	Henry Davis and Bailey Trotter	note	rumbling (herd of cattle, big truck)	page 2, the sound
+footnote 3 (iv) line 1	St’át’imcets	root	√ʕəm-p	page 2
+footnote 3 (iv) line 1	English	translation	rumble	page 2, the English word for the sound
+footnote 3 (v) line 1	Henry Davis and Bailey Trotter	note	rustling (leaves, creek)	page 2, the sound
+footnote 3 (v) line 1	St’át’imcets	root	√ʕəx	page 2
+footnote 3 (v) line 1	St’át’imcets	root	ʕəxʷ	page 2
+footnote 3 (v) line 1	English	translation	rustle	page 2, the English word for the sound
+footnote 3 (vi) line 1	Henry Davis and Bailey Trotter	note	snuffling noise	page 2, the sound
+footnote 3 (vi) line 1	St’át’imcets	root	√x̌nụƛ̓	page 2
+footnote 3 (vi) line 1	English	translation	snuffle	page 2, the English word for the sound
+§2	Henry Davis and Bailey Trotter	language	ST’ÁT’IMCETS	St’át’imcets, the head of footnote 3's table
+§2	Henry Davis and Bailey Trotter	note	Iconic types involve a non-arbitrary relation between particular sounds and real-world referents. They include: (i) imitative sound symbolism (i.e., onomatopoeia), including animal noises (‘woof’, ‘bowwow’, ‘grrr’ (cf. ‘growl’)) as well as more general sounds (‘squeak’, ‘creak’, ‘crack’, ‘boom’, ‘whistle’);3 (ii) vocal gestures (e.g., paralinguistic exclamations of surprise, fear, pain,	page 2
+§2	Henry Davis and Bailey Trotter	note	etc.); (iii) diagrammatic sound symbolism, including gestalt iconicity, where features of the utterance directly reflect properties of the intended meaning (e.g., reduplication for event repetition or plurality, vowel lengthening for increased time or distance); and relational (synesthetic) iconicity, where for example languages employ high vowels for small things and low vowels for large things, reflecting the size of the vocal tract aperture or the frequency of the resulting acoustic signal.4 Non-iconic or conventional sound symbolism, on the other hand, involves associations between arbitrary (sets of) sounds and (sets of) meanings. Hinton et al. (1994:5) define it as “the analogical association of certain phonemes and clusters with certain meanings”; Johansson et al. (2020) define it as “complex (associative) … language-internal mappings which emerge through analogy”; and most eloquently, Bloomfield (1914/1983:410, cited in Hinton et al. 1994) captures it as follows: “The signification of any word is arbitrarily attached to some sound contained in it, and then co- generic names are created by means of this infused or one might say irradiated or inspired element.” It is this second, non-iconic type of sound symbolism which covers phonaesthesia, and which concerns us here.	page 3
+§3	Henry Davis and Bailey Trotter	heading	3 Phonaesthetic patterns in St’át’imcets	page 3
+§3	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§3	Henry Davis and Bailey Trotter	note	As mentioned in the introduction, our investigation of phonaesthesia in St’át’imcets was prompted by our discovery of root clusters during dictionary compilation. By hypothesis, these clusters exemplify phonaesthetic relations, meaning that they involve non-derivational correspondences between sets of phonologically and semantically related roots. Accordingly, we now turn directly to an examination of their properties.	page 3
+§3	Henry Davis and Bailey Trotter	note	We begin with an obvious question: How do we know when a set of roots form a root cluster? There are two parts to the question, one based on sound and one on meaning:	page 3
+§3	Henry Davis and Bailey Trotter	note	(i) When do roots count as phonologically close enough to count as a cluster?	page 3
+§3	Henry Davis and Bailey Trotter	note	(ii) When do roots count as semantically close enough to count as a cluster?	page 3
+§3	Henry Davis and Bailey Trotter	note	We address these sub-questions in Sections 4 and 5, respectively.	page 3
+§4	Henry Davis and Bailey Trotter	heading	4 The phonology of root clusters	page 3
+§4	Henry Davis and Bailey Trotter	note	At least at first glance, the phonological sub-question might appear to be more tractable than the semantic one. After all, it is possible to devise metrics for phonological closeness based on the number of phonemes/features shared by a given set of roots.	page 3
+§4	Henry Davis and Bailey Trotter	note	We begin with a simple case, which we will refer to as the Stop-Still cluster.	page 3
+§4	Henry Davis and Bailey Trotter	note	Linguistically, however, these are less interesting for us than cases where there isn’t an iconic correspondence, so we set them aside here: see Thomason (1999) on Montana Salish for more on iconic sound symbolism in Salish.	page 3
+footnote 4	Henry Davis and Bailey Trotter	note	4 The latter also relates to a strand of psycholinguistic research around the Bouba-Kiki effect: the basic idea is that certain sounds (labials and back vowels) are associated universally with soft, round objects, and others (coronals, dorsals, and short high vowels) with spiky, angular objects.	page 3, footnote
+(2a) line 1	St’át’imcets	root	√ƛ̓al	page 4, roots
+(2a) line 1	Henry Davis and Bailey Trotter	translation	‘stop’	page 4, roots
+(2a) line 2	St’át’imcets	segmentation	ƛ̓ál-ləx	page 4, roots, the word the root is found in
+(2a) line 2	Henry Davis and Bailey Trotter	translation	‘stop (oneself)’	page 4, roots
+(2b) line 1	St’át’imcets	root	√ƛ̓əl	page 4, roots
+(2b) line 1	Henry Davis and Bailey Trotter	translation	‘still’	page 4, roots
+(2b) line 2	St’át’imcets	segmentation	ƛ̓ə́ l-p	page 4, roots, the word the root is found in
+(2b) line 2	Henry Davis and Bailey Trotter	translation	‘settle down’	page 4, roots
+(2c) line 1	St’át’imcets	root	√ƛ̓il	page 4, roots
+(2c) line 1	Henry Davis and Bailey Trotter	translation	‘calm, still’	page 4, roots
+(2c) line 2	St’át’imcets	segmentation	ka-ƛ̓íl-a	page 4, roots, the word the root is found in
+(2c) line 2	Henry Davis and Bailey Trotter	translation	‘calm down’	page 4, roots
+(2d) line 1	St’át’imcets	root	√ƛ̓ul̕	page 4, roots
+(2d) line 1	Henry Davis and Bailey Trotter	translation	‘calm’	page 4, roots
+(2d) line 2	St’át’imcets	segmentation	ƛ̓əl̕-ƛ̓úl̕	page 4, roots, the word the root is found in
+(2d) line 2	Henry Davis and Bailey Trotter	translation	‘calm, of water’	page 4, roots
+(1a) line 1	English	transcription	glass glisten glow glare glaze glint glitter gleam glimmer gloss glamour glabrous	page 2, English
+(1b) line 1	English	transcription	snout snot sneeze sniff snuffle snort snub snooty snore snooze snivel snob sneer	page 2, English
+(1c) line 1	English	transcription	clash crash smash bash mash hash gash gnash slash splash	page 2, English
+§4	Henry Davis and Bailey Trotter	note	These four roots count as a phonological cluster on the following basis:	page 4
+§4	Henry Davis and Bailey Trotter	note	(i) They are not derivationally related. There is no systematic synchronic (nor, for that matter, diachronic) process of ablaut/apophony which could lead to any of them being derived from the others.	page 4
+§4	Henry Davis and Bailey Trotter	notation	ƛ̓__l/l̕	the consonantal skeleton the Stop-Still roots share
+§4	Henry Davis and Bailey Trotter	note	(ii) They share common phonological content: in this case, the consonantal skeleton ƛ̓__l/l̕. (iii) They differ along some phonologically identifiable parameter: in this case, the vowel melody.	page 4
+§4	Henry Davis and Bailey Trotter	note	Things get more complicated when we consider what we might call cluster continua. Consider the following Rumble-Rustle cluster:	page 4
+(3a) line 1	St’át’imcets	root	√mə̣m	page 4, roots
+(3a) line 1	St’át’imcets	root	√məm	page 4, roots
+(3a) line 1	Henry Davis and Bailey Trotter	translation	‘sound of tires on a road’	page 4, roots
+(3b) line 1	St’át’imcets	root	√ʕəm	page 4, roots
+(3b) line 1	Henry Davis and Bailey Trotter	translation	‘make a rumbling noise (like a herd of animals or a rockslide)’	page 4, roots
+(3c) line 1	St’át’imcets	root	√ʕəx	page 4, roots
+(3c) line 1	St’át’imcets	root	√ʕəxʷ	page 4, roots
+(3c) line 1	Henry Davis and Bailey Trotter	translation	‘make a rustling noise (like a creek)’	page 4, roots
+(3d) line 1	St’át’imcets	root	√ʕəl̕xʷ	page 4, roots
+(3d) line 1	Henry Davis and Bailey Trotter	translation	‘make a noise (not human or animal)’	page 4, roots
+(3e) line 1	St’át’imcets	root	√qəl̕xʷ	page 4, roots
+(3e) line 1	Henry Davis and Bailey Trotter	translation	‘make a lot of noise’	page 4, roots
+(3f) line 1	St’át’imcets	root	√q̓əl̕xʷ	page 4, roots
+(3f) line 1	St’át’imcets	root	√q̓ʷəl̕xʷ	page 4, roots
+(3f) line 1	Henry Davis and Bailey Trotter	translation	‘make a rumbling noise (like stomach)’	page 4, roots
+§4	Henry Davis and Bailey Trotter	note	Notice that aside from the schwa, there is no phonological correspondence between the root in (3a), √mə̣m, √məm and that in ( 3f), √q̓əl̕xʷ, √q̓ʷəl̕xʷ. Yet each root in between shares at least one consonant with the preceding and following roots, forming a continuum that links the peripheries of the cluster.	page 4
+§4	St’át’imcets	root	√kʷḷ	page 4
+§4	Henry Davis and Bailey Trotter	note	Still more complex examples exist in which two or more clusters overlap, forming “macro- clusters”. Take for example the Yellow-Green cluster in (4), based around the retracted root √kʷḷ ‘yellow(ish), green(ish)’:	page 4
+(4a) line 1	St’át’imcets	root	√kʷḷ	page 4, roots
+(4a) line 1	Henry Davis and Bailey Trotter	translation	‘yellowish, greenish’	page 4, roots
+(4b) line 1	St’át’imcets	root	√kʷḷịʔ	page 4, roots
+(4b) line 1	Henry Davis and Bailey Trotter	translation	‘yellow, green’	page 4, roots
+(4c) line 1	St’át’imcets	root	√kʷḷịt	page 4, roots
+(4c) line 1	Henry Davis and Bailey Trotter	translation	‘brass, pig iron’	page 4, roots
+(4d) line 1	St’át’imcets	root	√kʷḷim	page 4, roots
+(4d) line 1	Henry Davis and Bailey Trotter	translation	‘pus under skin’	page 4, roots
+(4e) line 1	St’át’imcets	root	√kʷə̣́ḷən̓	page 4, roots
+(4e) line 1	Henry Davis and Bailey Trotter	translation	‘gall bladder’	page 4, roots
+(4f) line 1	St’át’imcets	root	√nakʷụ́ḷ	page 4, roots
+(4f) line 1	Henry Davis and Bailey Trotter	translation	‘butterfly (coloured)’	page 4, roots, carries footnote 5
+footnote 5	Henry Davis and Bailey Trotter	note	5 Van Eijk (2013:235) groups (4a), (4b), (4c), (4e), and (4f) under the same root, √kʷə̣ḷ. While historically this is surely the case (see Kuipers 2002:44), synchronically it depends on positing a number of otherwise unmotivated affixes (-iʔ, -it, -ən̓, na-) which van Eijk labels simply as “formatives”. We prefer to treat these cases as involving closely related roots with a common diachronic source, though this cluster, unlike those in (2) and (3), clearly does contain a core root (√kʷ(ə̣)ḷ), extended by various pieces of fossilized morphology. There are a number of other related stems (e.g., kʷḷ-m-ạkst ‘wolf lichen, yellow tree moss’, s-kʷḷ-ạḷṣt ‘jade’) which we have treated as synchronically derived from √kʷ(ə̣)ḷ, but which could also be treated as lexicalized	page 4, footnote
+§4	St’át’imcets	root	√kʷə̣ḷ	page 4
+§4	St’át’imcets	cited affix	-iʔ	page 4
+§4	St’át’imcets	cited affix	-ən̓	a formative van Eijk posits, as in √kʷə̣́ḷən̓
+§4	St’át’imcets	root	√kʷ(ə̣)ḷ	page 4
+§4	St’át’imcets	cited form	kʷḷ-m-ạkst	page 4, ‘wolf lichen, yellow tree moss’
+§4	St’át’imcets	cited form	s-kʷḷ-ạḷṣt	page 4, ‘jade’
+§4	St’át’imcets	root	√kʷəl(’)	page 5, carries footnote 6
+§4	Henry Davis and Bailey Trotter	note	This cluster overlaps with the Sunshine cluster, (loosely) based around the non-retracted root √kʷəl(’).6	page 5
+(5a) line 1	St’át’imcets	root	√kʷəl̕	page 5, roots
+(5a) line 1	Henry Davis and Bailey Trotter	translation	‘sunshine’	page 5, roots
+(5b) line 1	St’át’imcets	root	√kʷəl(’)tapís	page 5, roots
+(5b) line 1	Henry Davis and Bailey Trotter	translation	‘palomino horse’	page 5, roots
+(5c) line 1	St’át’imcets	root	√kʷluʔ	page 5, roots
+(5c) line 1	Henry Davis and Bailey Trotter	translation	‘red alder’	page 5, roots, carries footnote 7
+(5d) line 1	St’át’imcets	root	√kʷal̕á	page 5, roots
+(5d) line 1	Henry Davis and Bailey Trotter	translation	‘dark brown horse’	page 5, roots
+§4	Henry Davis and Bailey Trotter	note	This is in turn overlaps with a Ripen-Cook-Blacken cluster centred around the root √q̓ʷəl ‘cook, ripen’:	page 5
+(6a) line 1	St’át’imcets	root	√kʷəl	page 5, roots
+(6a) line 1	Henry Davis and Bailey Trotter	translation	‘cook on an open fire’	page 5, roots
+(6b) line 1	St’át’imcets	root	√q̓ʷəl	page 5, roots
+(6b) line 1	Henry Davis and Bailey Trotter	translation	‘cook, ripen’	page 5, roots
+(6c) line 1	St’át’imcets	root	√q̓ʷəɬ	page 5, roots
+(6c) line 1	Henry Davis and Bailey Trotter	translation	‘scald, burn’	page 5, roots
+(6d) line 1	St’át’imcets	root	√q̓ʷuɬ	page 5, roots
+(6d) line 1	Henry Davis and Bailey Trotter	translation	‘burn’	page 5, roots
+(6e) line 1	St’át’imcets	root	√q̓ʷaz	page 5, roots
+(6e) line 1	St’át’imcets	root	q̓ʷəz	page 5, roots
+(6e) line 1	Henry Davis and Bailey Trotter	translation	‘burnt, blackened, painted’	page 5, roots
+(6f) line 1	St’át’imcets	root	√q̓aɬ	page 5, roots
+(6f) line 1	Henry Davis and Bailey Trotter	translation	‘soot, heat’	page 5, roots
+(6g) line 1	St’át’imcets	root	√qʷuɬ	page 5, roots
+(6g) line 1	Henry Davis and Bailey Trotter	translation	‘blistered (from heat)’	page 5, roots
+§4	St’át’imcets	root	√ʕʷəl	page 5, ‘burn’
+§4	Henry Davis and Bailey Trotter	note	And this in turn overlaps with a Burn-Shine cluster centred around √ʕʷəl ‘burn’ (7):	page 5
+(7a) line 1	St’át’imcets	root	√ʕʷəl	page 5, roots
+(7a) line 1	Henry Davis and Bailey Trotter	translation	‘burn’	page 5, roots
+(7b) line 1	St’át’imcets	root	√ʕʷə́y̓əp	page 5, roots
+(7b) line 1	Henry Davis and Bailey Trotter	translation	‘northern lights’	page 5, roots
+(7c) line 1	St’át’imcets	root	√wə̣ḷ	page 5, roots
+(7c) line 1	Henry Davis and Bailey Trotter	translation	‘shine	page 5, roots
+(7d) line 1	St’át’imcets	root	√wəl	page 5, roots
+(7d) line 1	Henry Davis and Bailey Trotter	translation	‘flash’	page 5, roots
+(7e) line 1	St’át’imcets	root	√wəq̓	page 5, roots
+(7e) line 1	Henry Davis and Bailey Trotter	translation	‘shine’	page 5, roots
+§4	Henry Davis and Bailey Trotter	note	In view of the data above, let us now re-assess the three criteria we hypothesized above for two or more roots to count as a cluster.	page 5
+§4	Henry Davis and Bailey Trotter	note	(i) They are not derivationally related.	page 5
+§4	Henry Davis and Bailey Trotter	note	This is trivially true in order for a root cluster to exist in the first place (otherwise we’d have a single root), but it is not true diachronically, since root clusters can certainly contain roots with a common core, differentiated by fossilized morphology: see (4) above for a case in point. (ii) They share common phonological content.	page 5
+§4	Henry Davis and Bailey Trotter	note	and therefore as part of the root cluster in (4); obviously, which of these stems to treat as derived and which as roots is to a certain extent a judgment call.	page 5
+footnote 6	Henry Davis and Bailey Trotter	note	6 Following Kuipers (2002), we ignore glottalization on resonants for the purposes of root-to-root comparison, since it is unreliable diachronically and variable synchronically. Likewise, the presence of schwa in a root is generally linked to syllable structure and doesn’t tell us anything about the underlying representation (which is probably schwa-less: see Matthewson 1994).	page 5, footnote
+footnote 7	Henry Davis and Bailey Trotter	note	7 The semantic connection here is probably to the orange inner bark of the red alder (see Kuipers 2002:44).	page 5, footnote
+§4	Henry Davis and Bailey Trotter	note	This is clearly not true for all members of root cluster continua, since as observed above, forms at opposite edges of a continuum need not share any common phonological content. However, differences are clinal, in the sense that each member of the continuum must share phonological content with at least one other adjacent member.	page 6
+§4	Henry Davis and Bailey Trotter	note	(iii) They differ along some phonologically identifiable parameter.	page 6
+§4	Henry Davis and Bailey Trotter	note	As with (ii), each pair of adjacent forms in a continuum differ on one parameter, but non- adjacent forms may differ along multiple parameters, as long as the differences are connected step- wise.	page 6
+§4	Henry Davis and Bailey Trotter	note	What this indicates is that root clusters are not simply sets, but structured continua with edges shared by other clusters. In this sense, they can be thought of in terms of associative networks, rather than discrete categories. It remains to be determined, however, whether they form simple chains of adjacent related pairs, or (we suspect more likely) “clouds” with core and peripheral members (or possibly both types). This is a direction for future research; see Section 6 below for a first attempt at a graphic representation of relations within and between clusters. We now turn to a different phonological question, namely: To what extent do the phonological differences between members of root clusters mirror synchronic and/or diachronic phonological alternations?	page 6
+§4	Henry Davis and Bailey Trotter	note	In terms of synchronic phonological processes, the answer is: surprisingly little. The commonest phonological differences between members of root clusters are the following (not in order of frequency):	page 6
+(8) line 1	Henry Davis and Bailey Trotter	note	Ejective vs. plain stops:	page 6, the caption
+(8a) line 1	St’át’imcets	root	√qəl̕xʷ	page 6, roots
+(8a) line 1	Henry Davis and Bailey Trotter	translation	‘make a lot of noise’	page 6, roots
+(8a) line 2	St’át’imcets	root	√q̓əl̕xʷ	page 6, roots
+(8a) line 2	St’át’imcets	root	q̓ʷəl̕xʷ	page 6, roots
+(8a) line 2	Henry Davis and Bailey Trotter	translation	‘make a rumbling noise (like stomach)’	page 6, roots
+(8b) line 1	St’át’imcets	root	√x̌əkʷ	page 6, roots
+(8b) line 1	Henry Davis and Bailey Trotter	translation	‘get jammed into something.’	page 6, roots
+(8b) line 2	St’át’imcets	root	√x̌ək̓ʷ	page 6, roots
+(8b) line 2	Henry Davis and Bailey Trotter	translation	‘get stuck onto something’	page 6, roots
+(8c) line 1	St’át’imcets	root	√səq	page 6, roots
+(8c) line 1	Henry Davis and Bailey Trotter	translation	‘split’	page 6, roots
+(8c) line 2	St’át’imcets	root	√səq̓	page 6, roots
+(8c) line 2	Henry Davis and Bailey Trotter	translation	‘crack’	page 6, roots
+(8d) line 1	St’át’imcets	root	√pək	page 6, roots
+(8d) line 1	Henry Davis and Bailey Trotter	translation	‘get partially flattened’	page 6, roots
+(8d) line 2	St’át’imcets	root	√p̓ək	page 6, roots
+(8d) line 2	Henry Davis and Bailey Trotter	translation	‘get flattened or dented’	page 6, roots
+(9) line 1	Henry Davis and Bailey Trotter	note	Velar vs. uvular stops:	page 6, the caption
+(9a) line 1	St’át’imcets	root	√p̓ək̓	page 6, roots
+(9a) line 1	Henry Davis and Bailey Trotter	translation	‘get flattened or dented’	page 6, roots
+(9a) line 2	St’át’imcets	root	√p̓əq̓	page 6, roots
+(9a) line 2	Henry Davis and Bailey Trotter	translation	‘get flattened completely’	page 6, roots
+(9b) line 1	St’át’imcets	root	√ƛ̓ikʷ	page 6, roots
+(9b) line 1	Henry Davis and Bailey Trotter	translation	‘popping sensation’	page 6, roots
+(9b) line 2	St’át’imcets	root	√ƛ̓iqʷ	page 6, roots
+(9b) line 2	Henry Davis and Bailey Trotter	translation	‘cracking or crackling sound’	page 6, roots
+(9c) line 1	St’át’imcets	root	√ɬukʷ	page 6, roots
+(9c) line 1	Henry Davis and Bailey Trotter	translation	‘bail a boat’	page 6, roots
+(9c) line 2	St’át’imcets	root	√ɬuqʷ	page 6, roots
+(9c) line 2	Henry Davis and Bailey Trotter	translation	‘scoop, ladle, bail’	page 6, roots
+(10) line 1	Henry Davis and Bailey Trotter	note	Lateral resonant vs. lateral fricative:	page 7, the caption
+(10a) line 1	St’át’imcets	root	√luq̓ʷ	page 7, roots
+(10a) line 1	Henry Davis and Bailey Trotter	translation	‘bark gets peeled’	page 7, roots
+(10a) line 2	St’át’imcets	root	√ɬuq̓ʷ	page 7, roots
+(10a) line 2	Henry Davis and Bailey Trotter	translation	‘get taken of, stripped’	page 7, roots
+(10b) line 1	St’át’imcets	root	√lə̣s	page 7, roots
+(10b) line 1	Henry Davis and Bailey Trotter	translation	‘cave in’	page 7, roots
+(10b) line 2	St’át’imcets	root	√ɬə̣c̓	page 7, roots
+(10b) line 2	Henry Davis and Bailey Trotter	translation	‘collapse’	page 7, roots
+(10c) line 1	St’át’imcets	root	√q̓ʷəl	page 7, roots
+(10c) line 1	Henry Davis and Bailey Trotter	translation	‘cooked, ripe’	page 7, roots
+(10c) line 2	St’át’imcets	root	√q̓ʷəɬ	page 7, roots
+(10c) line 2	Henry Davis and Bailey Trotter	translation	‘burned, scalded’	page 7, roots
+(11) line 1	Henry Davis and Bailey Trotter	note	Ablaut/apophony (cf. (2) above):	page 7, the caption
+(11a) line 1	St’át’imcets	root	√ɬam̓	page 7, roots
+(11a) line 1	Henry Davis and Bailey Trotter	translation	‘get put in’	page 7, roots
+(11a) line 2	St’át’imcets	root	√ɬum(’)	page 7, roots
+(11a) line 2	Henry Davis and Bailey Trotter	translation	‘get put on, attached’	page 7, roots
+(11b) line 1	St’át’imcets	root	√ɬəxʷ	page 7, roots
+(11b) line 1	Henry Davis and Bailey Trotter	translation	‘get put on (e.g. clothes)’	page 7, roots
+(11b) line 2	St’át’imcets	root	√ɬuxʷ	page 7, roots
+(11b) line 2	Henry Davis and Bailey Trotter	translation	‘get inserted into something hollow’	page 7, roots
+(11c) line 1	St’át’imcets	root	√ɣəp	page 7, roots
+(11c) line 1	Henry Davis and Bailey Trotter	translation	‘upright’	page 7, roots
+(11c) line 2	St’át’imcets	root	√ɣap	page 7, roots
+(11c) line 2	Henry Davis and Bailey Trotter	translation	‘tree’	page 7, roots
+(11c) line 3	St’át’imcets	root	√ɣip	page 7, roots
+(11c) line 3	Henry Davis and Bailey Trotter	translation	‘grow’	page 7, roots
+(12) line 1	Henry Davis and Bailey Trotter	note	Retracted vs. non-retracted root:	page 7, the caption
+(12a) line 1	St’át’imcets	root	√kʷə̣ḷ	page 7, roots
+(12a) line 1	Henry Davis and Bailey Trotter	translation	‘yellowish’	page 7, roots
+(12a) line 2	St’át’imcets	root	√kʷəl̕	page 7, roots
+(12a) line 2	Henry Davis and Bailey Trotter	translation	‘sunshine’	page 7, roots
+(12b) line 1	St’át’imcets	root	√ɬə̣k	page 7, roots
+(12b) line 1	Henry Davis and Bailey Trotter	translation	‘plop or flop down’	page 7, roots
+(12b) line 2	St’át’imcets	root	√ɬək	page 7, roots
+(12b) line 2	Henry Davis and Bailey Trotter	translation	‘deflate’	page 7, roots
+(12c) line 1	St’át’imcets	root	√pə̣ḷxʷ	page 7, roots
+(12c) line 1	Henry Davis and Bailey Trotter	translation	‘pop up’	page 7, roots
+(12c) line 2	St’át’imcets	root	√pəl̕xʷ	page 7, roots
+(12c) line 2	Henry Davis and Bailey Trotter	translation	‘appear all of a sudden’	page 7, roots
+(12d) line 1	St’át’imcets	root	√ɬụƛ̓	page 7, roots
+(12d) line 1	Henry Davis and Bailey Trotter	translation	‘slurp, sip’	page 7, roots
+(12d) line 2	St’át’imcets	root	√ɬuƛ̓	page 7, roots
+(12d) line 2	Henry Davis and Bailey Trotter	translation	‘sip or swallow something whole’	page 7, roots
+§4	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§4	Henry Davis and Bailey Trotter	note	None of these alternations have any synchronic reflex in St’át’imcets.	page 7
+§4	Henry Davis and Bailey Trotter	note	However, though less easy to pinpoint, it does seem that most of them have historical reflexes: at least (10) to (12) show up quite frequently in diachronic changes (Kuipers 2002), though this question merits a great deal more attention, preferably on the basis of more detailed comparison of the entire set of roots of multiple languages.	page 7
+§4	Henry Davis and Bailey Trotter	note	It is also worth pointing out that some processes which are likely important historically don’t show up (at least, with any regularity) in St’át’imcets root clusters. Prominent amongst these (though it is always possible we’ve missed some cases) is metathesis (which Kuipers 2002 refers to as inversion). So far, we have only found, one case which probably actually involves dialect variations of the same root:	page 7
+(13) line 1	St’át’imcets	root	√kʷəm	page 7, roots
+(13) line 1	Henry Davis and Bailey Trotter	translation	‘blunt, dull’	page 7, roots, “west side” dialect
+(13) line 2	St’át’imcets	root	√makʷ	page 7, roots
+(13) line 2	Henry Davis and Bailey Trotter	translation	‘blunt, dull’	page 7, roots, “east side” dialect
+§5	Henry Davis and Bailey Trotter	heading	5 What about the semantics of root clusters?	page 8
+§5	Henry Davis and Bailey Trotter	note	We now turn to the lexical semantics of root clusters. So far, we have been making a tacit appeal to what we might call trans-lexical semantic similarity, referring to resemblances that hold between independent lexical entries. But what can we say explicitly about these relations? As perhaps might be expected, what we find is that root clusters correspond to lexical semantic fields organized around common conceptual cores. Here are some prominent cases.	page 8
+(i) line 1	Henry Davis and Bailey Trotter	note	Colours. See (4) above for the Yellow-Green cluster, but ‘white’, ‘red’, and ‘black’ also form	page 8, the caption
+(i) line 2	Henry Davis and Bailey Trotter	note	clusters. Here’s the Red-Bleed cluster:	page 8, heads the rows below
+(14a) line 1	St’át’imcets	root	√ciqʷ	page 8, roots
+(14a) line 1	Henry Davis and Bailey Trotter	translation	‘red’	page 8, roots
+(14b) line 1	St’át’imcets	root	√ciʕʷ	page 8, roots
+(14b) line 1	Henry Davis and Bailey Trotter	translation	‘bleed’	page 8, roots
+(14c) line 1	St’át’imcets	root	√cáqʷəm	page 8, roots
+(14c) line 1	Henry Davis and Bailey Trotter	translation	‘saskatoon berry’	page 8, roots
+(14d) line 1	St’át’imcets	root	√cəqʷlím̓	page 8, roots
+(14d) line 1	Henry Davis and Bailey Trotter	translation	‘chestnut horse’	page 8, roots
+§5	Henry Davis and Bailey Trotter	note	And here’s the White-Faded cluster:	page 8
+(15a) line 1	St’át’imcets	root	√pəq	page 8, roots
+(15a) line 1	St’át’imcets	root	paq	page 8, roots
+(15a) line 1	Henry Davis and Bailey Trotter	translation	‘white’	page 8, roots
+(15b) line 1	St’át’imcets	root	√p̓aqm	page 8, roots
+(15b) line 1	Henry Davis and Bailey Trotter	translation	‘flower’	page 8, roots
+(15c) line 1	St’át’imcets	root	√p̓aʔkʷz	page 8, roots
+(15c) line 1	Henry Davis and Bailey Trotter	translation	‘white moss’	page 8, roots
+(15d) line 1	St’át’imcets	root	√páqəm	page 8, roots
+(15d) line 1	Henry Davis and Bailey Trotter	translation	‘mouldy’	page 8, roots
+(15e) line 1	St’át’imcets	root	√pəʕ	page 8, roots
+(15e) line 1	St’át’imcets	root	paʕ	page 8, roots
+(15e) line 1	Henry Davis and Bailey Trotter	translation	‘faded, pale, greyish’	page 8, roots
+(ii) line 1	Henry Davis and Bailey Trotter	note	Manners of motion. One of the larger clusters we have identified involves circular motion:	page 8, the caption
+(ii) line 2	Henry Davis and Bailey Trotter	note	we call it the Circle-Spiral cluster:	page 8, heads the rows below
+(16a) line 1	St’át’imcets	root	√zal	page 8, roots
+(16a) line 1	Henry Davis and Bailey Trotter	translation	‘twist, whirl’	page 8, roots
+(16b) line 1	St’át’imcets	root	√zalk̓ʷ	page 8, roots
+(16b) line 1	Henry Davis and Bailey Trotter	translation	‘wrap around’	page 8, roots
+(16c) line 1	St’át’imcets	root	√zulkʷ	page 8, roots
+(16c) line 1	Henry Davis and Bailey Trotter	translation	‘knead, rub, or massage’	page 8, roots, carries footnote 8
+(16d) line 1	St’át’imcets	root	√zəl	page 8, roots
+(16d) line 1	Henry Davis and Bailey Trotter	translation	‘ripple’	page 8, roots
+(16e) line 1	St’át’imcets	root	√zaw	page 8, roots
+(16e) line 1	Henry Davis and Bailey Trotter	translation	‘swerve around’	page 8, roots
+(16f) line 1	St’át’imcets	root	√zánm	page 8, roots
+(16f) line 1	Henry Davis and Bailey Trotter	translation	‘go around’	page 8, roots
+(16g) line 1	St’át’imcets	root	√zənk	page 8, roots
+(16g) line 1	Henry Davis and Bailey Trotter	translation	‘circle’	page 8, roots
+(16h) line 1	St’át’imcets	root	√zánuxʷ	page 8, roots
+(16h) line 1	Henry Davis and Bailey Trotter	translation	‘year’	page 8, roots
+(16i) line 1	St’át’imcets	root	√zənp̓	page 8, roots
+(16i) line 1	Henry Davis and Bailey Trotter	translation	‘wind around’	page 8, roots
+§5	Henry Davis and Bailey Trotter	note	A related cluster involves rotation, including movement through the air: we call it the Drill- Whirl cluster.	page 8
+footnote 8	Henry Davis and Bailey Trotter	note	8 Several roots involving circular motion (including √zalk̓ʷ, √zulkʷ, √xʷulk̓ʷ, √xʷəlákʷəm, and also √məlk̓ʷ ‘wrap or roll up’) have an accretion consisting of -k̓ʷ ~ -kʷ. Van Eijk (2013:480) treats -k̓ʷ as a suffix, but it is not productive, nor does it fall into any existing class of suffixes in the language: it does not show the behavior of a lexical suffix, for example, though it has a lexical rather than a functional meaning. In fact, it looks rather like a classical ‘phonaestheme’ — a stretch of phonological material with a semantic value but no morphological status, like the sequence gl- in ‘gleam’, ‘glow’, etc.: see (1).	page 8, footnote
+footnote 8	St’át’imcets	root	√zalk̓ʷ	page 8
+footnote 8	St’át’imcets	root	√zulkʷ	page 8
+footnote 8	St’át’imcets	root	√xʷulk̓ʷ	page 8
+footnote 8	St’át’imcets	root	√xʷəlákʷəm	page 8
+footnote 8	St’át’imcets	root	√məlk̓ʷ	page 8
+footnote 8	St’át’imcets	cited affix	-k̓ʷ	page 8
+footnote 8	St’át’imcets	cited affix	-kʷ	page 8
+(17a) line 1	St’át’imcets	root	√xʷəlp	page 9, roots
+(17a) line 1	Henry Davis and Bailey Trotter	translation	‘turn, spin’	page 9, roots
+(17b) line 1	St’át’imcets	root	√xʷul	page 9, roots
+(17b) line 1	Henry Davis and Bailey Trotter	translation	‘drill or bore’	page 9, roots
+(17c) line 1	St’át’imcets	root	√xʷulk̓ʷ	page 9, roots
+(17c) line 1	Henry Davis and Bailey Trotter	translation	‘roll (e.g., a cigarette)’	page 9, roots
+(17d) line 1	St’át’imcets	root	√xʷəlákʷəm	page 9, roots
+(17d) line 1	Henry Davis and Bailey Trotter	translation	‘gust, whirlwind’	page 9, roots
+(17e) line 1	St’át’imcets	root	√xʷə̣ḷ	page 9, roots
+(17e) line 1	Henry Davis and Bailey Trotter	translation	‘breeze, draft’	page 9, roots
+(17f) line 1	St’át’imcets	root	√xʷəlátən	page 9, roots
+(17f) line 1	Henry Davis and Bailey Trotter	translation	‘flying squirrel’	page 9, roots
+(17g) line 1	St’át’imcets	root	√xʷálap̓	page 9, roots
+(17g) line 1	Henry Davis and Bailey Trotter	translation	‘fan’	page 9, roots
+§5	Henry Davis and Bailey Trotter	note	Another large cluster (or more likely, cluster complex) involves peeling, stripping, skinning, splitting, and cracking: we call it the Peel-Strip-Crack complex.	page 9
+(18a) line 1	St’át’imcets	root	√siʕʷ	page 9, roots
+(18a) line 1	Henry Davis and Bailey Trotter	translation	‘loosen’	page 9, roots
+(18b) line 1	St’át’imcets	root	√səʕʷ	page 9, roots
+(18b) line 1	Henry Davis and Bailey Trotter	translation	‘peel’	page 9, roots
+(18c) line 1	St’át’imcets	root	√səx̌ʷ	page 9, roots
+(18c) line 1	Henry Davis and Bailey Trotter	translation	‘peel, split’	page 9, roots
+(18d) line 1	St’át’imcets	root	√sux̌ʷ	page 9, roots
+(18d) line 1	Henry Davis and Bailey Trotter	translation	‘strip’	page 9, roots
+(18e) line 1	St’át’imcets	root	√suq̓ʷ	page 9, roots
+(18e) line 1	Henry Davis and Bailey Trotter	translation	‘skin (e.g., an animal)’	page 9, roots
+(18f) line 1	St’át’imcets	root	√sáq̓ʷuɬ	page 9, roots
+(18f) line 1	Henry Davis and Bailey Trotter	translation	‘(split in) half’	page 9, roots
+(18g) line 1	St’át’imcets	root	√səq	page 9, roots
+(18g) line 1	Henry Davis and Bailey Trotter	translation	‘split’	page 9, roots
+(18h) line 1	St’át’imcets	root	√səq̓	page 9, roots
+(18h) line 1	Henry Davis and Bailey Trotter	translation	‘crack’	page 9, roots
+§5	Henry Davis and Bailey Trotter	note	(iii) Spatial configuration. The clusters under this heading are related to manner-of-motion clusters and could possibly be either assimilated to them or grouped together with them as macro-clusters. They include the Bent-Crooked cluster in (19) and the Stretch-Stand cluster in (20).	page 9
+(19a) line 1	St’át’imcets	root	√k̓ʷə̣lc̓	page 9, roots
+(19a) line 1	Henry Davis and Bailey Trotter	translation	‘bend (road or river)’	page 9, roots
+(19b) line 1	St’át’imcets	root	√k̓ʷə̣ḷ	page 9, roots
+(19b) line 1	Henry Davis and Bailey Trotter	translation	‘hooked (beak)’	page 9, roots
+(19c) line 1	St’át’imcets	root	√k̓ʷuc̓	page 9, roots
+(19c) line 1	Henry Davis and Bailey Trotter	translation	‘crooked’	page 9, roots
+(19d) line 1	St’át’imcets	root	√k̓ʷult	page 9, roots
+(19d) line 1	St’át’imcets	root	k̓ʷəlt	page 9, roots
+(19d) line 1	Henry Davis and Bailey Trotter	translation	‘go downhill diagonally’	page 9, roots
+(20a) line 1	St’át’imcets	root	√taɬ	page 9, roots
+(20a) line 1	Henry Davis and Bailey Trotter	translation	‘stand’	page 9, roots
+(20b) line 1	St’át’imcets	root	√taɬáʔ	page 9, roots
+(20b) line 1	Henry Davis and Bailey Trotter	translation	‘other side’	page 9, roots
+(20c) line 1	St’át’imcets	root	√təɬ	page 9, roots
+(20c) line 1	Henry Davis and Bailey Trotter	translation	‘stretch, extend’	page 9, roots
+(20d) line 1	St’át’imcets	root	√tə̣ɬ	page 9, roots
+(20d) line 1	Henry Davis and Bailey Trotter	translation	‘over-exert’	page 9, roots
+(20e) line 1	St’át’imcets	root	√tə̣ḷ	page 9, roots
+(20e) line 1	Henry Davis and Bailey Trotter	translation	‘unwind (of string or thread)’	page 9, roots
+§5	Henry Davis and Bailey Trotter	note	(iv) Sound: see (3).	page 9
+§5	Henry Davis and Bailey Trotter	note	(v) Light: see (7).	page 9
+§5	Henry Davis and Bailey Trotter	note	Heat: see (6). These last three categories possibly fall under a larger macro-category of sensation. It is important to emphasize that, just as with the phonological resemblances that characterize root clusters, the semantic associations outlined above do not define discrete and mutually exclusive clusters, but rather a network of associations centered around one or more conceptual	page 9, engine english
+§5	Henry Davis and Bailey Trotter	note	“nuclei”. This is most obvious when we consider macro-clusters such as that described in (4) to (7)	page 9, engine english
+§5	Henry Davis and Bailey Trotter	note	above, for example: note the associative links that take us from the colour ‘yellow’ to the colour ‘black’: yellow  sunshine  heat  cook  burn  black(en). Here, we are clearly not dealing with a set of isolated clusters, but rather a network of connected nuclei. It is even possible that the entire lexicon can be defined as a single network, with all conceptual nuclei connected in this way via associative links.	page 10
+§5	Henry Davis and Bailey Trotter	note	Big questions arise as to the universality of these trans-lexical conceptual relations (and potentially, their basis in primitives of human cognition and/or culture). These questions cannot be answered on the basis of a single language family, let alone a single language. Rather, they set a research agenda which begins with individual languages, then looks at the proto-languages from which they descend, and then compares root clusters across unrelated families.	page 10
+§5	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§5	Henry Davis and Bailey Trotter	note	In the following section, we take a tentative step towards addressing the second (historical) part of this agenda, by comparing the root clusters we have discovered in St’át’imcets with those we have been able to detect in Proto-Salish (or in some cases, Proto-Interior Salish), based on the reconstructions in Kuipers (2002).	page 10
+§6	Henry Davis and Bailey Trotter	heading	6 Representing Salish root clusters across time	page 10
+§6	Henry Davis and Bailey Trotter	note	Each point of root cluster comparison between Proto-Salish and its daughter languages has three potential outcomes. First, a root cluster in a daughter language could be directly inherited from the proto-language, in which case all (or at least, most) of its members will have counterparts in Proto- Salish. Second, a cluster in a daughter language could have no (or very few) counterparts in the proto-language, in which case we would have to conclude it was an innovation. And third, a Proto- Salish cluster could have no or few counterparts in a daughter language, which would constitute a case of cluster loss.	page 10
+§6	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+§6	Henry Davis and Bailey Trotter	note	Here we confine ourselves mostly to the first two possibilities, for practical reasons: in order to properly investigate the third, we would have to identify all the root clusters in Proto-Salish, and then check whether each one corresponded to a cluster in St’át’imcets. While beyond the scope of this preliminary inquiry, that is certainly a feasible project, and would furthermore be useful for a parallel exercise involving any of the other 22 daughter languages in the Salish family. As suggested above, we think the best way to represent root clusters is as associative networks: we have therefore begun to explore these relations graphically. In the diagrams that follow, we represent associations at the synchronic level by horizontal lines and historical connections by vertical lines. This allows for several kinds of diachronic relation: one-to-one correspondences, in which each member of cluster in a daughter language is directly inherited from a cognate of the same cluster in the mother language; one-to-many correspondences, in which a daughter expands a cluster inherited from the mother language; many-to-one correspondences, in which not all members of a cluster in the mother language are inherited by the daughter language; and non- correspondences, where either a root cluster in the mother language has no correspondents in the daughter language, or vice versa. Note that we do not deal here with many-to-many correspondences: however, we suspect that a more accurate picture of root clusters both in the synchronic and diachronic dimensions might well involve such correspondences, which would require a more sophisticated multi-dimensional graphic representation.	page 10
+§6	St’át’imcets	root	√ƛ̓ul̕	page 11
+§6	St’át’imcets	root	√k̓ʷult	page 11
+§6	Henry Davis and Bailey Trotter	note	We begin with a relatively simple case: the Still-Stop cluster featured in (2) above. Figure 1: The Still-Stop cluster9 The diagram shows that all except one of the members of the St’át’imcets cluster are inherited from Proto-Salish, as indicated by the vertical lines. The odd member out is √ƛ̓ul̕, which appears to be a St’át’imcets innovation; we mark non-corresponding cluster members in grey. In the large box, we have provided more detailed evidence from Kuipers (2002) for the Proto-Salish reconstruction; language abbreviations are the standard ones used in Salish historical linguistics. In Figure 2, we give the cluster centered around the conceptual core ‘bent, crooked’: see (19). Figure 2: The Bent-Crooked Cluster Once again, three members out of the four roots in the St’át’imcets cluster are inherited. The fourth, √k̓ʷult, differs from the other three in that (i) it is not retracted, and (ii) it has a frozen version of the “immediate” suffix -t attached to it (-t is not productive in St’át’imcets, but appears on a number of adjectives and intransitive verbs.) Figure 3 features the cluster centered around the colour ‘red’ (see 14).	page 10
+footnote 9	Henry Davis and Bailey Trotter	note	9 The page numbers included in figures refer to Kuipers (2002).	page 11, footnote
+§6	Proto-Salish	root	√cay	page 12, ‘blood’
+§6	St’át’imcets	root	√ptə́laʔ	page 12, ‘blood’ in St’át’imcets
+§6	Henry Davis and Bailey Trotter	note	Figure 3: The Red-Bleed Cluster Here, we see the inverse situation from the first two clusters: every member of the St’át’imcets cluster has a Proto-Salish counterpart, but not every member of the Proto-Salish cluster has a counterpart in St’át’imcets. In particular, the Proto-Salish root √cay ‘blood’ has no reflex in St’át’imcets (which uses √ptə́ laʔ for ‘blood’); the same appears to be true more generally of Interior Salish (Kuipers 2002:26), suggesting the form was lost in the descent from Proto-Salish to Proto- Interior Salish. The non-descending member of the Proto-Salish cluster is marked in grey. Figure 4 has ‘white’ as its semantic core: see (15) above.	page 12
+§6	Proto-Interior Salish	root	*√paʕ	page 13
+§6	Proto-Salish	root	*√pəq	page 13
+§6	Henry Davis and Bailey Trotter	note	Figure 4: The White-Faded Cluster This is a more complex case, consisting of at least two sub-clusters, one dating back to Proto- Salish and centered around ‘white’ and ‘flower’, the other confined to Interior Salish and centered around ‘grey’ and ‘faded’. Note that the Proto-Interior Salish root *√paʕ features a pharyngeal; pharyngeals are absent elsewhere in the family, though Kuipers (2002:3) claims that they have uvular reflexes in Coast Salish languages, thus accounting for the possible historical link between *√paʕ and *√pəq.	page 12
+§6	Henry Davis and Bailey Trotter	note	Figure 5 features the Peel-Split-Crack complex in (18).	page 13
+§6	Proto-Salish	root	√suq̓ʷ	page 13, ‘strip, peel, skin’
+§6	Proto-Salish	root	√səq̓	page 13, ‘split, crack’
+§6	St’át’imcets	root	√səq	page 13, ‘split’
+§6	St’át’imcets	root	√səʕʷ	page 13, ‘peel’
+§6	Henry Davis and Bailey Trotter	note	Figure 5: The Peel-Split-Crack complex There are clearly two clusters here, one linked to PS √suq̓ʷ ‘strip, peel, skin’, the other to PS √səq̓ ‘split, crack’. The connection between them is more robust in St’át’imcets than in PS, as evidenced particularly by √səq ‘split’ and √səʕʷ ‘peel’. Overall, this complex shows more diversity in the daughter language than in the proto-language, a situation which is more common than the converse, and we suspect may be more an artifact of reconstruction than a reflection of the languages themselves (it is easier to reconstruct multiple forms in a daughter language to a single proto-form than vice-versa).	page 13
+§6	Henry Davis and Bailey Trotter	notation	xʷ	[xʷ], the onset of the Drill-Whirl cluster
+§6	St’át’imcets	cited affix	-k̓ʷ	page 14
+§6	St’át’imcets	cited affix	-kʷ	page 14
+§6	Henry Davis and Bailey Trotter	note	Figure 6 features a macro-cluster including the Circle-Spiral and Drill-Whirl clusters, as shown in (16) and (17) above, respectively. We refer to it as the Rotation complex. Figure 6: The Rotation complex The two clusters in this complex (Circle-Spiral and Drill-Whirl) are semantically close but differ phonologically in their onset consonant ([z] < PS *[y] versus [xʷ]); however, they are phonologically linked by an [l] in their codas, as well as by the -k̓ʷ ~ -kʷ increment which appears on members of both clusters: see footnote 12. There has been considerable expansion of this complex in St’át’imcets, as shown by the number of grey boxes at the bottom of the diagram. Figure 7 also features a complex of two related clusters, the Yellow-Green cluster in (4) and the Sunshine cluster in (5).	page 13
+§6	Proto-Salish	root	*√kʷə̣l	page 15, the retracted root Kuipers reconstructs to Proto-Salish
+§6	St’át’imcets	root	√kʷluʔ	page 15, ‘(red) alder’
+§6	Proto-Salish	root	*√q̓ʷəl	page 15
+§6	Proto-Salish	root	*√q̓ʷal/y	page 15, ‘scorch, (burn to) ashes, black’
+§6	St’át’imcets	root	√ʕʷəl	page 16
+§6	Henry Davis and Bailey Trotter	note	Figure 7: The Yellow-Sunshine Complex Diachronic relations in this complex are complicated by the fact that the core root for ‘yellow/green’ in PIS contains a lexically retracted vowel, but retracted vowels are absent in other branches of the family. Kuipers (2002:44) reconstructs the retracted root *√kʷə̣l back to Proto- Salish, but St’át’imcets must have inherited it via PIS. On the other hand, non-retracted variants could have two sources: they could have either been inherited from PIS and subsequently lost their retraction, or been borrowed from a Central Salish language (as is likely for √kʷluʔ ‘(red) alder’, whose distribution is largely coastal and which has cognates in many Central Salish languages). The Yellow-Sunshine complex is likely related to the next complex, the Ripen-Cook-Blacken complex, via the associations ‘sunshine’  ‘ripen’  ‘cooked’  ‘burn’  ‘blacken’. Figure 8: The Ripen-Cook-Blacken Complex The nucleus of this complex is the root *√q̓ʷəl, which is very widely attested across Salish with the two associated meanings ‘ripen’ and ‘cook’. In Kuipers (2002:95), this root is included under *√q̓ʷal/y ‘scorch, (burn to) ashes, black’, but we have separated the two roots here: we believe that they represent an instance of a Proto-Salish root cluster, with closely related but distinct phonological and semantic lexical entries. The two meanings of *√q̓ʷəl are extended to ‘ripen, heat, sun’ on the one hand, which links to the Sunshine-Yellow complex in Figure 7 above, and to ‘burn, char, blacken’ on the other, which links to the Burn-Shine complex featured in Figure 9 below. Figure 9: The Burn-Shine Complex This is an interesting complex because it is more closely linked at the level of PS than in St’át’imcets, where it is split into three closely related clusters, one centered around ‘burn’, one around ‘metal’, and one around ‘flash, shine, spark’. The whole complex links to the Ripen-Cook- Blacken complex via the association *√q̓ʷal/y  *√ʕʷəl at the PS level and √q̓ʷəl  √ʕʷəl at the daughter language level.	page 14
+§6	Henry Davis and Bailey Trotter	note	What can we conclude from this preliminary investigation of the diachrony of root clusters? First of all, that there is a strong tendency for clusters to be inherited: all of the root clusters we have independently identified in St’át’imcets at least have cluster counterparts in Proto-Interior Salish, and most of them go back to Proto-Salish. This speaks to the putative universality of the clusters and associative networks that connect them.	page 16
+§6	Henry Davis and Bailey Trotter	note	Second, and complementary to the first point, there is considerable innovation in the daughter languages (at least, judging from St’át’imcets). This is significant, in that it potentially identifies a different diachronic mechanism than the classic Neo-Grammarian model of conditioned and unconditioned sound changes. More specifically, it provides for a type of associative change that comes about through the creation of new lexical items, rather than through changes in existing ones; this both complicates reconstruction and potentially provides a new way of investigating perceived irregularities in standard diachronic accounts.	page 16
+§7	Henry Davis and Bailey Trotter	heading	7 Why do root clusters exist?	page 16
+§7	Henry Davis and Bailey Trotter	note	Assuming we have identified a real phenomenon and not just an epiphenomenon, let us briefly consider the question of why roots cluster in the way they do. (One way of thinking about this is to ask why lexical distribution is “lumpy” rather than “smooth”.) There are a number of ways to answer this question, not all of them mutually exclusive. Perhaps the most obvious is to appeal to mechanisms of lexical innovation. When a language needs to coin new words at the root level, one option is to extend its existing vocabulary by modifying the phonology of semantically related roots. This process can be conscious, as in, e.g., Lewis Carroll’s famous poem ‘The Jabberwocky’, which makes explicit use of blends (‘lithe’ and ‘slimy’ → slithy, ‘miserable’ and ‘flimsy’ → mimsy), archaisms (both ‘gyre’ and ‘beamish’ were obsolescent words rescued by Carroll), and sound symbolism (snicker-snacker mimics the sound of cutting).10 However, these are not the same mechanisms we see operating in root clusters, suggesting that conscious coining of neologisms does not operate on the same principles as root cluster extension. An appeal to earlier and less conscious stages of neologism formation might be more illuminating. Under such an account, mis-learning in language acquisition drives the formation of root clusters: learners innovate roots by misperceiving existing forms, and rather than eliminating earlier errors when the target roots are acquired, then add them to their lexicon along with the original roots (presumably, as long as the innovated roots fill a useful function in their expanded lexicon). This account makes the prediction that the types of phonological relation instantiated in clusters (see Section 4) mirror errors in lexical acquisition, a hypothesis that is certainly in principle testable.	page 16
+§7	Henry Davis and Bailey Trotter	note	An alternative type of explanation might appeal to lexical retrieval. The idea here is that lexical access is facilitated by clustering roots in the same phonological and semantic space. For example, the Still-Stop cluster in (2) could be accessed all at once, narrowing the lexical choices necessary for production and perception purposes. Again, this type of hypothesis is at least in principle testable, perhaps via artificial language learning.	page 17
+§7	Henry Davis and Bailey Trotter	note	There might also be a connection between phonaesthesia and cases of language loss such as Wernicke’s (receptive) aphasia, which is characterized by extreme difficulty in lexical retrieval, often involving phonological and semantic paraphasia, as defined below:	page 17
+(21a) line 1	Wikipedia 2023	note	Phonemic (literal) paraphasias: involves the substitution, addition, or rearrangement of sounds so that an error can be defined as sounding like the target word. Often, half of the word is still intact which allows for easy comparison to the appropriate, original word: e.g. ‘bap’ for ‘map’.	page 17, engine english
+footnote 10	Henry Davis and Bailey Trotter	note	10 It is worth noting, however, that Lewis Carrol’s neologism formation wasn’t entirely conscious. In fact, a lot of his etymology may have been post-hoc, as he indicates in an 1877 letter to Maud Stanton: I am afraid I can’t explain ‘vorpal blade’ for you — nor yet ‘tulgey wood’, but I did make an explanation once for ‘uffish thought’! It seemed to suggest a state of mind when the voice is gruffish, the manner roughish, and the temper huffish. Then again, as to ‘burble’, if you take the three verbs ‘bleat, murmer, and warble’, then select the bits I have underlined, it certainly makes ‘burble’, though I am afraid I can’t distinctly remember having made it in that way. (Graham 1981) He also hints broadly at the same point in Humpty Dumpty’s exposition of Jabberwocky to Alice in Alice Through the Looking Glass (Carroll 1882:126–127). The exposition begins very reasonably with Humpty Dumpty giving a lucid explanation of a linguistic blend (or “portmanteau”, as he terms it), but then becomes increasingly ludicrous, veering into elaborate and evidence-free etymologies that perhaps constitute a dig at the excesses of the historical linguistics of the era:	page 17, engine english
+footnote 10	Henry Davis and Bailey Trotter	note	“I see it now”, Alice remarked thoughtfully: “and what are ‘toves’?”	page 17, engine english
+footnote 10	Henry Davis and Bailey Trotter	note	“Well, ‘toves’ are something like badgers — they’re something like lizards — and they’re something like corkscrews.” “They must be very curious creatures.” “They are that”, said Humpty Dumpty: “also they make their nests under sun-dials — also they live on cheese.”	page 17
+(21b) line 1	Wikipedia 2023	note	Semantic (verbal) paraphasias: saying a word that is related to the target word in meaning or category; frequently observed in Wernicke’s aphasia: e.g., ‘jet’ for	page 18, engine english
+(21b) line 2	Wikipedia 2023	note	‘airplane’ or ‘knife’ for ‘fork’.	page 18, engine english, cited Wikipedia 2023: “Receptive aphasia”
+(21b) line 3	Henry Davis and Bailey Trotter	citation	(Wikipedia 2023: “Receptive aphasia”)	page 18, engine english
+§7	Henry Davis and Bailey Trotter	note	If paraphasias involve the kinds of associative networks we have identified here, we would have further evidence for a cluster-based lexical architecture.	page 18
+§7	Henry Davis and Bailey Trotter	note	These two types of explanation are not incompatible. One accounts for the formation of root clusters via language acquisition, the other for the persistence of clusters across time as a means of facilitating lexical access. Together, they suggest that root clusters provide a clue to something rather fundamental about the architecture of the mental lexicon.	page 18
+§7	Henry Davis and Bailey Trotter	note	Is there a practical application for this kind of model? Again, in principle, yes. Orthodox dictionaries of Salish languages (and, in fact, of virtually all languages) are based on one of two sets of organizing principles: standard alphabetical order, or some kind of thematic approach (as in, e.g., the Classified Word Lists originally devised by Swadesh to elicit basic vocabulary for glottochronological reasons (Swadesh 1971), and which became standard for fieldworkers on Salish from the 1960s on. But suppose we were to design a dictionary instead as an associative network based on root clusters?	page 18
+§7	Henry Davis and Bailey Trotter	note	There would be practical challenges, not least because dictionaries in book form are organized linearly, but networks are not. However, electronic dictionaries are not subject to these kinds of constraints, and in principle could allow a cluster-based dictionary to be constructed where any root would be associated with multiple neighboring members of its root cluster, following the same principles of phonological and semantic distance which we have outlined above.	page 18
+§7	Proto-Salish	root	√*ca/i/qʷ	page 18, ‘red’
+§7	Proto-Indo-European	root	*√H₁reudʰ-	page 18, ‘red’
+§7	Henry Davis and Bailey Trotter	note	Of course, the question then arises as to whether such a dictionary would serve any practical purpose. Again, the answer in principle could be yes: if such a dictionary mimicked human cognitive architecture more closely, it would by hypothesis be easier to use — and enable learners to acquire new lexical items more easily. Again, this is testable, particularly via artificial language experiments: would an artificial language with a “lumpy” lexical distribution be more easily learnable than one with a “smooth” distribution, and would a teaching strategy for vocabulary that exploited clusters be more effective than a conventional one? We leave these questions open here. Finally, let us return briefly to the issue of iconicity with which we began this paper. Recall that phonaesthesia involves a systematic pairing of sound and meaning which, as Grew (1998) put it “…has been given short shrift because of the heretical nature of any investigation pairing phonological parallels with semantic affinities”. We do not think we are guilty of heresy here, however. The reason is that the heresy invoked by Grew is a rejection of the arbitrariness of the sign, as in iconic sound symbolism, which, involves a “natural” affinity between a linguistic sign and its referent. But as we have emphasized, phonaesthetic affinities are arbitrary: there is no reason why, for example, ‘red’ should be associated with the Proto-Salish root √*ca/i/qʷ, but with the Proto-Indo-European root *√H₁reudʰ-. What is non-arbitrary is the semantic network that connects each root to its cluster members, which by hypothesis exploits a universal set of conceptual associations, and the principles of phonological resemble which enable those clusters to be linked via sound as well as via meaning.	page 18
+references	Henry Davis and Bailey Trotter	heading	References	page 19
+references	Henry Davis and Bailey Trotter	reference	Bloomfield, Leonard. 1914 [1983]. An Introduction to the Study of Language. Philadelphia, PA: John Benjamins.	
+references	Henry Davis and Bailey Trotter	reference	Carroll, Lewis. 1882. Through the Looking Glass: And What Alice Found There. (Second Edition). London, UK: MacMillan.	
+references	Henry Davis and Bailey Trotter	name	St’át’imc	the Upper St’át’imc Language, Culture and Education Society
+references	St’át’imcets	cited form	Nqwal’uttenlhkálha	page 19
+references	Henry Davis and Bailey Trotter	language	St’át’imcets	St’át’imcets, Lillooet Salish
+references	Henry Davis and Bailey Trotter	reference	Davis, Henry, Beverley Frank, Rose Whitley, & the Upper St’át’imc Language Authority. [in preparation]. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Lillooet, BC & Vancouver, BC: The Upper St’át’imc Language, Culture and Education Society and PNWLL Press.	
+references	Henry Davis and Bailey Trotter	reference	Firth, John R., 1930. Speech. (Reprinted in The Tongues of Men & Speech, 1964). London, UK: Oxford University Press.	
+references	Henry Davis and Bailey Trotter	reference	Graham, Eleanor. 1981. Lewis Carroll and the Writing of Through The Looking Glass. (Introduction to Through The Looking Glass). In: Alice’s Adventures in Wonderland / Through The Looking Glass: London, UK: Puffin Books.	
+references	Henry Davis and Bailey Trotter	reference	Grew, Philip. 1998. Re: phonological clusters of semantically similar words. Posted on Linguist List, 05-08-1998, retrieved 19-01-2023 from https://linguistlist.org/issues/9/9-1106/	
+references	Henry Davis and Bailey Trotter	reference	Hinton, Leanne, Johanna Nichols, & John Ohala. 1994. Introduction. In Leanne Hinton, Johanna Nichols, & John Ohala (eds.), Sound Symbolism: Cambridge: Cambridge University Press, 1– 11.	
+references	Henry Davis and Bailey Trotter	reference	Johansson, Niklas Erben, Andrey Anikin, Gerd Carling, & Arthur Holmer. 2020. The typology of sound symbolism: Defining macro-concepts via their semantic and phonetic features. Linguistic Typology 24(2).	
+references	Henry Davis and Bailey Trotter	reference	Kuipers, Aert. 2002. Salish Etymological Dictionary. Missoula, MN: UMOPL.	
+references	Henry Davis and Bailey Trotter	reference	Matthewson, Lisa. 1994. Syllable structure in St’át’imcets. Proceedings of the Canadian Linguistics Association.	
+references	Henry Davis and Bailey Trotter	reference	Swadesh, Morris. 1971. The Origin and Diversification of Language. Chicago, IL: Aldine.	
+references	Henry Davis and Bailey Trotter	reference	Thomason, Sarah. 1999. Crackle, pop, twinkle: Sound symbolic words in Montana Salish. Papers for ICSNL 29: 251–266. Kamloops, BC: Simon Fraser University.	
+references	Henry Davis and Bailey Trotter	reference	van Eijk, Jan. 2013 [in prep]. A Dictionary of the Lillooet Language. Vancouver: UBCOPL and PNWLL Press.	

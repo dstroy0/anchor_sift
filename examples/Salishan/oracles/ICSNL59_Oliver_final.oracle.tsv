@@ -1,0 +1,996 @@
+where	who	kind	form	gloss
+front	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+front	Bruce Oliver	title	Not Just Saying: A Modal Analysis of tsut in Secwepemctsín*	page 1
+front	Bruce Oliver	byline	Bruce Oliver, University of British Columbia	page 1
+front	Bruce Oliver	note	Abstract: This paper presents a semantic analysis of the predicate tsut in Secwepemctsín, which can be used to mean ‘say’, ‘think’, ‘going to’, ‘thinking of’, ‘intend’, ‘want’, and more. I investigate its uses with and without the goal-directed complementizer e=, and propose a compositional analysis in which tsut introduces a modal claim and the complementizer e= introduces prospective aspect, accounting for all of the meanings described so far.	page 1
+front	Bruce Oliver	note	Keywords: modality, attitude verbs, semantics, future, modal orientation, Secwepemctsín, Salish	page 1
+front	Bruce Oliver	name	Bruce Oliver	author, University of British Columbia
+§1	Bruce Oliver	heading	1 Introduction	page 1
+§1	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§1	Bruce Oliver	note	If you read a narrative in Secwepemctsín, you will encounter the word tsut very frequently.1	page 1
+(1) line 1	Secwepemctsín	transcription	tsut re núxwenxw: “nhé7en wes k mútecw?”	page 1, pairs
+(1) line 2	Secwepemctsín	segmentation	tsut	page 1, pairs
+(1) line 3	Secwepemctsín	gloss	tsut	page 1, pairs
+(1) line 4	Secwepemctsín	segmentation	re=núxwenxw	page 1, pairs
+(1) line 5	Secwepemctsín	gloss	DET=woman	page 1, pairs
+(1) line 6	Secwepemctsín	segmentation	n-hé7en	page 1, pairs
+(1) line 7	Secwepemctsín	gloss	LOC-Q	page 1, pairs
+(1) line 8	Secwepemctsín	segmentation	[w7ec]=wes	page 1, pairs
+(1) line 9	Secwepemctsín	gloss	[IPFV]=3.SBJV	page 1, pairs
+(1) line 10	Secwepemctsín	segmentation	k=mút=ecw	page 1, pairs
+(1) line 11	Secwepemctsín	gloss	DC.IRR=live.somewhere=2SG.SBJV	page 1, pairs
+(1) line 12	Kuipers 1974:117	translation	‘The girl said: “where do you live?”’	page 1, pairs, cited Kuipers 1974:117
+(1) line 12	Bruce Oliver	citation	Kuipers (1974:117)	the tag or source at the right of the translation
+(2) line 1	Secwepemctsín	transcription	yerí7re stsut.s t̓7éne: “cuy̓exték yem me7 tgwéy̓estsen, skú7pecen!”	page 1, pairs
+(2) line 2	Secwepemctsín	segmentation	yerí7	page 1, pairs
+(2) line 3	Secwepemctsín	gloss	there.DEM.VIS	page 1, pairs
+(2) line 4	Secwepemctsín	segmentation	re=s-tsut-s	page 1, pairs
+(2) line 5	Secwepemctsín	gloss	DC=NMLZ-tsut-3.POSS	page 1, pairs
+(2) line 6	Secwepemctsín	segmentation	t̓7éne	page 1, pairs
+(2) line 7	Secwepemctsín	gloss	this.MNNR	page 1, pairs
+(2) line 8	Secwepemctsín	segmentation	cuy̓	page 1, pairs
+(2) line 9	Secwepemctsín	gloss	ADH	page 1, pairs
+(2) line 10	Secwepemctsín	segmentation	exték	page 1, pairs
+(2) line 11	Secwepemctsín	gloss	right	page 1, pairs
+(2) line 12	Secwepemctsín	segmentation	yem	page 1, pairs
+(2) line 13	Secwepemctsín	gloss	PRT	page 1, pairs
+(2) line 14	Secwepemctsín	segmentation	me7	page 1, pairs
+(2) line 15	Secwepemctsín	gloss	CIRC.NEC	page 1, pairs
+(2) line 16	Secwepemctsín	segmentation	tgwéy̓e-s[-t]-ts-en	page 1, pairs
+(2) line 17	Secwepemctsín	gloss	footrace-CAUS[-TR]-2SG.OBJ-1SG.ERG	page 1, pairs
+(2) line 18	Secwepemctsín	segmentation	skú7pecen	page 1, pairs
+(2) line 19	Secwepemctsín	gloss	porcupine	page 1, pairs
+(2) line 20	Kuipers 1974:104	translation	‘Then he said: “Right, I’ll run against you, Porcupine!”’	page 1, pairs, cited Kuipers 1974:104
+(2) line 20	Bruce Oliver	citation	Kuipers (1974:104)	the tag or source at the right of the translation
+footnote *	Bruce Oliver	note	* I am very grateful to Garlene Dodson, Ron Ignace, Julie Antoine, Leona Calhoun, and the late Daniel Calhoun and Mona Jules for sharing their language with me and making this work possible — kukwstsétselp! I would also like to thank Lisa Matthewson, Ryan Bochnak, Henry Davis, Sander Nederveen, Ella Hannon, and the Secwepemctsín Working Group for their feedback and support. This research was funded by two Jacobs Research Fund group grants: Secwepemctsín Grammar and Use (Nederveen, PI) and Secwepemctsín Structure and Sound (Baron, PI). All errors are mine.	page 1, footnote
+footnote *	Bruce Oliver	name	Garlene Dodson	a Secwepemctsín consultant, GD
+footnote *	Bruce Oliver	name	Ron Ignace	a Secwepemctsín consultant, RI
+footnote *	Bruce Oliver	name	Julie Antoine	a Secwepemctsín consultant, JA
+footnote *	Bruce Oliver	name	Leona Calhoun	a Secwepemctsín consultant
+footnote *	Bruce Oliver	name	Daniel Calhoun	a Secwepemctsín consultant, late
+footnote *	Bruce Oliver	name	Mona Jules	a Secwepemctsín consultant, late, MJ
+footnote *	Secwepemctsín	cited form	kukwstsétselp	page 1, ‘thank you all’
+footnote 1	Bruce Oliver	note	1 Glosses used: ADH = adhortative, BEN = benefactive, CAUS = causative, CIRC = circumstantial modal, COMP = complementizer, COND = conditional, COP = copula, CSL = cislocative, CTR = control, CUST = customary, DC = determiner/complementizer, DEIC = deictic, DEM = demonstrative, DET = determiner, DIM = diminutive, EMPH = emphatic, ERG = ergative, EXCL = exclusive, IMP = imperative, INCH = inchoative, INCL = inclusive, IPFV = imperfective, IRR = irrealis, LC = limited control, LOC = locative, MID = middle, MNNR = manner, NEC = necessity, NEG = negative, NMLZ = nominalizer, OBJ = object, OBL = oblique, PASS = passive, PL = plural, POSS = possessive, PREF = prefix, PRN = pronoun, PRT = particle, PST = past, Q = question particle, REFL = reflexive, REM = remote, RPRT = reportative, SBJ = subject, SBJV = subjunctive, SG = singular, STAT = stative, TR = transi- tive, VIS = visible. In Proceedings of the International Conference on Salish and Neighbouring Languages 59, D. K. E. Reisinger, Laura Griffin, Ella Hannon, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, Julia Schillo, Lauren Schneider, Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2024.	page 1, footnote
+(3) line 1	Secwepemctsín	transcription	tsut len xpé7e, tsut: “me7 k̓úlem-ken tek t̓esllpél̓tcw”.	page 2, pairs
+(3) line 2	Secwepemctsín	segmentation	tsut	page 2, pairs
+(3) line 3	Secwepemctsín	gloss	tsut	page 2, pairs
+(3) line 4	Secwepemctsín	segmentation	le=n-xpé7e	page 2, pairs
+(3) line 5	Secwepemctsín	gloss	DET.REM=1SG.POSS-grandfather	page 2, pairs
+(3) line 6	Secwepemctsín	segmentation	tsut	page 2, pairs
+(3) line 7	Secwepemctsín	gloss	tsut	page 2, pairs
+(3) line 8	Secwepemctsín	segmentation	me7	page 2, pairs
+(3) line 9	Secwepemctsín	gloss	CIRC.NEC	page 2, pairs
+(3) line 10	Secwepemctsín	segmentation	k̓úl-m=ken	page 2, pairs
+(3) line 11	Secwepemctsín	gloss	prepare-MID=1SG.SBJ	page 2, pairs
+(3) line 12	Secwepemctsín	segmentation	tek=t̓esllp-él̓tcw	page 2, pairs
+(3) line 13	Secwepemctsín	gloss	DET.OBL.IRR=spruce-sheet	page 2, pairs
+(3) line 14	Kuipers 1974:106	translation	‘My grandfather said: “I’ll prepare some spruce-bark”.’	page 2, pairs, cited Kuipers 1974:106
+(3) line 14	Bruce Oliver	citation	Kuipers (1974:106)	the tag or source at the right of the translation
+(4) line 1	Secwepemctsín	transcription	“qwestsétsecw t̓ri7 núne”, tsut, “e e7llq-kt t̓ek scwicw es íllen-kt e r7áles”, tsut, “me7 k̓úlctls me7 q̓elstcítls re nexwnúxwnexw”.	page 2, pairs
+(4) line 2	Secwepemctsín	segmentation	qwetséts=ecw	page 2, pairs
+(4) line 3	Secwepemctsín	gloss	leave=2SG.SBJV	page 2, pairs
+(4) line 4	Secwepemctsín	segmentation	t̓ri7	page 2, pairs
+(4) line 5	Secwepemctsín	gloss	there.MNNR	page 2, pairs
+(4) line 6	Secwepemctsín	segmentation	núne	page 2, pairs
+(4) line 7	Secwepemctsín	gloss	over.there.LOC	page 2, pairs
+(4) line 8	Secwepemctsín	segmentation	tsut	page 2, pairs
+(4) line 9	Secwepemctsín	gloss	tsut	page 2, pairs
+(4) line 10	Secwepemctsín	segmentation	e=e7llq=kt	page 2, pairs
+(4) line 11	Secwepemctsín	gloss	COMP.IRR=dig.roots=1SG.PL	page 2, pairs
+(4) line 12	Secwepemctsín	segmentation	t̓ek=scwicw	page 2, pairs
+(4) line 13	Secwepemctsín	gloss	DET.OBL.IRR=wild.carrot	page 2, pairs
+(4) line 14	Secwepemctsín	segmentation	e=s-7íllen=kt	page 2, pairs
+(4) line 15	Secwepemctsín	gloss	COMP.IRR=NMLZ-eat.MID-1INCL.POSS	page 2, pairs
+(4) line 16	Secwepemctsín	segmentation	e=r7ál=es	page 2, pairs
+(4) line 17	Secwepemctsín	gloss	COMP=evening=3.SBJV	page 2, pairs
+(4) line 18	Secwepemctsín	segmentation	tsut	page 2, pairs
+(4) line 19	Secwepemctsín	gloss	tsut	page 2, pairs
+(4) line 20	Secwepemctsín	segmentation	me7	page 2, pairs
+(4) line 21	Secwepemctsín	gloss	CIRC.NEC	page 2, pairs
+(4) line 22	Secwepemctsín	segmentation	k̓úl-c-t-l-s	page 2, pairs
+(4) line 23	Secwepemctsín	gloss	prepare-BEN-TR-1INCL.OBJ-3.ERG	page 2, pairs
+(4) line 24	Secwepemctsín	segmentation	me7	page 2, pairs
+(4) line 25	Secwepemctsín	gloss	CIRC.NEC	page 2, pairs
+(4) line 26	Secwepemctsín	segmentation	q̓elst-cí-t-l-s	page 2, pairs
+(4) line 27	Secwepemctsín	gloss	steam.cook-BEN-TR-1INCL.OBJ-3.ERG	page 2, pairs
+(4) line 28	Secwepemctsín	segmentation	re=nexw∼núxwnexw	page 2, pairs
+(4) line 29	Secwepemctsín	gloss	DET=PL∼woman	page 2, pairs
+(4) line 30	Kuipers 1974:107	translation	“‘Go over there”, they said, “let’s dig up some wild carrots to eat tonight”, they said, “the women will prepare them and steam-cook them for us”.’	page 2, pairs, cited Kuipers 1974:107
+(4) line 30	Bruce Oliver	citation	Kuipers (1974:107)	the tag or source at the right of the translation
+§1	Bruce Oliver	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson
+§1	Bruce Oliver	language	St’át’imcets	St’át’imcets, Lillooet
+§1	Bruce Oliver	note	In all of the above examples, tsut is used to convey ‘say.’ Its cognates in Nɬeʔkepmxcín (Thomp- son and Thompson 1996) and St’át’imcets (Van Eijk 2013) share this usage. However, in Secwepem- ctsín, tsut also has a variety of uses marking intention or desire:	page 2
+(5) line 1	Secwepemctsín	transcription	tsútst-ken ens qwetséts.	page 2, pairs
+(5) line 2	Secwepemctsín	segmentation	tsú<ts>t=ken2	page 2, pairs
+(5) line 3	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 2, pairs
+(5) line 4	Secwepemctsín	segmentation	e=n-s-qwetséts	page 2, pairs
+(5) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-set.out	page 2, pairs
+(5) line 6	Ron Ignace	translation	‘I’m of the mind to leave.’	page 2, pairs
+(5) line 6	Bruce Oliver	citation	(sf, vt | RI | 11.21.2023)	the tag or source at the right of the translation
+(6) line 1	Secwepemctsín	transcription	cuy̓, púmce, tsut kucw es t̓eys!	page 2, pairs
+(6) line 2	Secwepemctsín	segmentation	cuy̓	page 2, pairs
+(6) line 3	Secwepemctsín	gloss	ADH	page 2, pairs
+(6) line 4	Secwepemctsín	segmentation	pú-m-ce	page 2, pairs
+(6) line 5	Secwepemctsín	gloss	drum-MID-IMP	page 2, pairs
+(6) line 6	Secwepemctsín	segmentation	tsut	page 2, pairs
+(6) line 7	Secwepemctsín	gloss	tsut	page 2, pairs
+(6) line 8	Secwepemctsín	segmentation	kucw	page 2, pairs
+(6) line 9	Secwepemctsín	gloss	1PL.EXCL	page 2, pairs
+(6) line 10	Secwepemctsín	segmentation	e=s-t̓ey-s	page 2, pairs
+(6) line 11	Secwepemctsín	gloss	COMP=NMLZ-traditional.dance-3.POSS	page 2, pairs
+(6) line 12	Kuipers 1974:232	translation	‘Come on, play the drum, we want to dance!’	page 2, pairs, cited Kuipers 1974:232
+(6) line 12	Bruce Oliver	citation	Kuipers (1974:232)	the tag or source at the right of the translation
+footnote 2	Bruce Oliver	note	2 First-person forms (including possessed objects) take diminutive reduplication in several dialects of Secwepemctsín.	page 2, footnote
+§1	Bruce Oliver	note	In this paper, I will explore the uses of tsut and propose a semantic analysis. I argue that tsut is a necessity modal compatible with doxastic (relative to beliefs) and circumstantial (relative to ways the world could be) modal bases. The analysis will include a partial semantics for the e= ‘goal-directed’ complementizer, which I argue composes with tsut to provide future orientation to the modal claim, similar to Matthewson (2012)’s analysis.	page 2
+§1	Bruce Oliver	note	The structure of the paper is as follows. Section 2 gives details about the language of investi- gation, Secwepemctsín, and the methodology used. In Section 3, I discuss the unembedded uses of tsut and what it can mean when it appears as the main predicate of the sentence. Section 4 goes over the use of tsut in conditionals, where some of its more unexpected meanings appear. In Section 5, I present a preliminary analysis of tsut that unifies the uses discussed. In Section 6, I discuss some remaining unanswered questions about tsut and conclude.	page 3
+§2	Bruce Oliver	heading	2 Language and methodology	page 3
+§2	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§2	Bruce Oliver	note	The language of study in this paper is Secwepemctsín, a Northern Interior Salish language. Spoken by communities in the Central and Southern Interior of British Columbia between the Fraser River and the Rocky Mountains, Secwepemctsín was estimated to have at most 160 first-language speakers by Ignace and Ignace (2017) and Gessner et al. (2022), but this number has shrunk since then, and the language is critically endangered. The primary dialects are Western and Eastern (Ignace and Ignace 2017; Kuipers 1974); the original data in this paper come from speakers of the Western dialect. Where no citation is given, the Secwepemctsín data come from my own fieldwork. The paren- thetical on the right side of original data gives some information about how the data was collected. The abbreviation ‘vf’ stands for ‘volunteered form,’ indicating that the Secwepemctsín sentence was volunteered by the consultant; ‘sf’ stands for ‘suggested form,’ indicating that I proffered the Secwepemctsín form and asked for the consultant̓s judgment and/or translation. ‘vt’ stands for ‘vol- unteered translation’, indicating that the consultant was given the Secwepemctsín form and asked to translate it into English. These abbreviations are followed by the consultant’s initials and the date that the datum was recorded. Elicitations took place either virtually over Zoom or in-person. Standard semantic fieldwork methodologies, following Matthewson (2004) and Bochnak and Matthewson (2020), were employed. In short, this means that sentences were almost always provided with a context of use to ensure that the researcher and consultant have the same situation in mind: these contexts are provided above the data where relevant.	page 3
+§2	Bruce Oliver	notation	<t̓>	page 3
+§2	Bruce Oliver	notation	ƛ̓	page 3
+§2	Bruce Oliver	notation	č	page 3
+§2	Bruce Oliver	notation	<ts̓>	page 3
+§2	Bruce Oliver	notation	c̓	page 3
+§2	Bruce Oliver	notation	ł/ɬ	page 3
+§2	Bruce Oliver	notation	ɣ	page 3
+§2	Bruce Oliver	notation	x̌/χ	page 3
+§2	Bruce Oliver	notation	ʕ	page 3
+§2	Bruce Oliver	notation	ʔ	page 3
+§2	Bruce Oliver	notation	kʷ	page 3
+§2	Bruce Oliver	notation	<7>/[ʔ]	page 3
+§2	Bruce Oliver	notation	ә	page 3
+§2	Bruce Oliver	notation	ʔe	page 3
+§2	Bruce Oliver	notation	ʔә	page 3
+§2	Bruce Oliver	note	Secwepemctsín sentences are written in the community orthography, which was developed to require no special characters when typing. Notable differences between <orthography> and [NAPA] include: <t̓> = [ƛ̓], <ts> = [č], <ts̓> = [c̓], <ll> = [ł/ɬ], <c> = [x], <r> = [ɣ], <x> = [x̌/χ], <g> = [ ʕ], <7> = [ʔ]. Labialization is indicated by a following w (kw), rather than a superscript w (kʷ). Words written with initial vowels in the orthography actually begin with a glottal stop (<7>/[ʔ]): words cannot begin with a vowel in Secwepemctsín, so the glottal stop is implied and not written. Both [ә] and [e] are rendered as <e>, generally distinguished by stress, but not always: notably for this paper, the e= complementizer is pronounced [ʔe], not [ʔә]. Sequences of letters that could be interpreted as digraphs are disambiguated using a period: for example, <t.s> indicates a sequence of [t] followed by [s], and is pronounced [ts] rather than [č].	page 3
+§3	Bruce Oliver	heading	3 Unembedded uses of tsut	page 3
+§3	Bruce Oliver	note	I divide the following section into three parts based on three fairly distinct uses of tsut: tsut without the e= complementizer, tsut with the e= complementizer, and the transitive form of tsut, tsun.	page 3
+§3.1	Bruce Oliver	heading	3.1 tsut without e=	page 4
+§3.1	Bruce Oliver	note	As the initial examples showed, tsut can be used to mean ‘say’, with an embedded quote following it. I have not found any ‘say’ uses of tsut followed by the e= complementizer, although I have not had a chance to confirm whether this is impossible or just due to a lack of data. What follows tsut in ‘say’-contexts can either be a direct quote or an indirect quote. Although quotation marks are a (Western) orthographic invention, we can tell when tsut embeds a direct quote by the person agreement in the embedded clause.	page 4
+(7) line 1	Secwepemctsín	transcription	tsut len xpé7e, tsut: “me7 k̓úlem-ken tek t̓esllpél̓tcw”.	page 4, pairs
+(7) line 2	Secwepemctsín	segmentation	tsut	page 4, pairs
+(7) line 3	Secwepemctsín	gloss	tsut	page 4, pairs
+(7) line 4	Secwepemctsín	segmentation	le=n-xpé7e	page 4, pairs
+(7) line 5	Secwepemctsín	gloss	DET.REM=1SG.POSS-grandfather	page 4, pairs
+(7) line 6	Secwepemctsín	segmentation	tsut	page 4, pairs
+(7) line 7	Secwepemctsín	gloss	tsut	page 4, pairs
+(7) line 8	Secwepemctsín	segmentation	me7	page 4, pairs
+(7) line 9	Secwepemctsín	gloss	CIRC.NEC	page 4, pairs
+(7) line 10	Secwepemctsín	segmentation	k̓úl-m=ken	page 4, pairs
+(7) line 11	Secwepemctsín	gloss	prepare-MID=1SG.SBJ	page 4, pairs
+(7) line 12	Secwepemctsín	segmentation	tek=t̓esllp-él̓tcw	page 4, pairs
+(7) line 13	Secwepemctsín	gloss	DET.OBL.IRR=spruce-sheet	page 4, pairs
+(7) line 14	Kuipers 1974:106	translation	‘My grandfather said: “I’ll prepare some spruce-bark”.’	page 4, pairs, cited Kuipers 1974:106
+(7) line 14	Bruce Oliver	citation	Kuipers (1974:106)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	In (7), repeated from above, k̓úl-m=ken (prepare-MID=1SG.SBJ) has first person agreement, but does not refer to the storyteller’s actions, but rather the subject of tsut (the speaker’s grandfather). Compare to the below example:	page 4
+(8) line 1	Secwepemctsín	transcription	re Sander tsut-ekwe xwent rí7 es cwent és re xyum te stsk̓uy te tsrep.	page 4, pairs
+(8) line 2	Secwepemctsín	segmentation	re=Sander	page 4, pairs
+(8) line 3	Secwepemctsín	gloss	DET=Sander	page 4, pairs
+(8) line 4	Secwepemctsín	segmentation	tsut=ekwe	page 4, pairs
+(8) line 5	Secwepemctsín	gloss	tsut=RPRT	page 4, pairs
+(8) line 6	Secwepemctsín	segmentation	xwent	page 4, pairs
+(8) line 7	Secwepemctsín	gloss	CIRC	page 4, pairs
+(8) line 8	Secwepemctsín	segmentation	rí7	page 4, pairs
+(8) line 9	Secwepemctsín	gloss	EMPH	page 4, pairs
+(8) line 10	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 4, pairs
+(8) line 11	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3.ERG	page 4, pairs
+(8) line 12	Secwepemctsín	segmentation	re=xyum	page 4, pairs
+(8) line 13	Secwepemctsín	gloss	DET=big	page 4, pairs
+(8) line 14	Secwepemctsín	segmentation	te=s-ts-k̓uy	page 4, pairs
+(8) line 15	Secwepemctsín	gloss	DET.OBL=NMLZ-STAT-lie(long.object)	page 4, pairs
+(8) line 16	Secwepemctsín	segmentation	te=tsrep	page 4, pairs
+(8) line 17	Secwepemctsín	gloss	DET.OBL=tree	page 4, pairs
+(8) line 18	Garlene Dodson	translation	‘Sander said he can lift the big fallen tree.’	page 4, pairs
+(8) line 18	Bruce Oliver	citation	(vf | GD | 10.31.2023)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	In (8), the embedded clause is an indirect quote, as it has third-person agreement even though its subject is the person who uttered the embedded report. As Sander is talking about his own abilities in (8), we would see first-person agreement if it was a direct quote.	page 4
+§3.1	Bruce Oliver	note	Another use of tsut is to express the thoughts of the speaker, as in (9) and (10).	page 4
+(9) line 1	Bruce Oliver	note	Context: Your friend is looking for someone to take her nephew to Kamloops. But you know that that friend has a car and a day off tomorrow.	page 4, pairs
+(9) line 2	Secwepemctsín	transcription	tsútst-ken héqen enwí7 me7 kwenc.	page 4, pairs
+(9) line 3	Secwepemctsín	segmentation	tsú<ts>t=ken	page 4, pairs
+(9) line 4	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 4, pairs
+(9) line 5	Secwepemctsín	segmentation	héqen	page 4, pairs
+(9) line 6	Secwepemctsín	gloss	maybe	page 4, pairs
+(9) line 7	Secwepemctsín	segmentation	7-enwí7	page 4, pairs
+(9) line 8	Secwepemctsín	gloss	2SG.POSS-EMPH.PRN	page 4, pairs
+(9) line 9	Secwepemctsín	segmentation	me7	page 4, pairs
+(9) line 10	Secwepemctsín	gloss	CIRC.NEC	page 4, pairs
+(9) line 11	Secwepemctsín	segmentation	kwen[-n-t]-c	page 4, pairs
+(9) line 12	Secwepemctsín	gloss	take[-CTR-TR]-2SG.ERG	page 4, pairs
+(9) line 13	Mona Jules	translation	‘I thought you could take him.’	page 4, pairs
+(9) line 13	Bruce Oliver	citation	(vf | MJ | 6.15.2022)	the tag or source at the right of the translation
+(10) line 1	Secwepemctsín	transcription	tsut-ken t̓ek snek̓u7s cú7tsem t̓ek skem̓cís t̓k7éne k st̓7ek, wel yeske le Moses, Moses Dixon st̓7ek...	page 5, pairs
+(10) line 2	Secwepemctsín	segmentation	tsut=ken	page 5, pairs
+(10) line 3	Secwepemctsín	gloss	tsut=1SG.SBJ	page 5, pairs
+(10) line 4	Secwepemctsín	segmentation	t̓ek=s-nek̓u7-s	page 5, pairs
+(10) line 5	Secwepemctsín	gloss	DET.OBL.IRR=NMLZ-one-3.POSS	page 5, pairs
+(10) line 6	Secwepemctsín	segmentation	cú7tsem	page 5, pairs
+(10) line 7	Secwepemctsín	gloss	again	page 5, pairs
+(10) line 8	Secwepemctsín	segmentation	t̓ek=skem̓cís	page 5, pairs
+(10) line 9	Secwepemctsín	gloss	DET.OBL.IRR=grizzly.bear	page 5, pairs
+(10) line 10	Secwepemctsín	segmentation	t̓k7éne	page 5, pairs
+(10) line 11	Secwepemctsín	gloss	this.way.DEIC	page 5, pairs
+(10) line 12	Secwepemctsín	segmentation	k=s-t̓7ek	page 5, pairs
+(10) line 13	Secwepemctsín	gloss	DC.IRR=NMLZ-go.along	page 5, pairs
+(10) line 14	Secwepemctsín	segmentation	wel	page 5, pairs
+(10) line 15	Secwepemctsín	gloss	until/so	page 5, pairs
+(10) line 16	Secwepemctsín	segmentation	ye=ske	page 5, pairs
+(10) line 17	Secwepemctsín	gloss	COP=COND	page 5, pairs
+(10) line 18	Secwepemctsín	segmentation	le=Moses	page 5, pairs
+(10) line 19	Secwepemctsín	gloss	DET.REM=Moses	page 5, pairs
+(10) line 20	Secwepemctsín	segmentation	Moses	page 5, pairs
+(10) line 21	Secwepemctsín	gloss	Moses	page 5, pairs
+(10) line 22	Secwepemctsín	segmentation	Dixon	page 5, pairs
+(10) line 23	Secwepemctsín	gloss	Dixon	page 5, pairs
+(10) line 24	Secwepemctsín	segmentation	s-t̓7ek	page 5, pairs
+(10) line 25	Secwepemctsín	gloss	NMLZ-go.along	page 5, pairs
+(10) line 26	Kuipers 1974:108	translation	‘I thought, there’s yet another grizzly coming up there, but it was Moses, Moses Dixon coming...’	page 5, pairs, cited Kuipers 1974:108
+(10) line 26	Bruce Oliver	citation	(Kuipers 1974:108)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	Thoughts are also commonly expressed with a nominalized and possessed form of tsut, shown in (11). I will not analyze the nominalized form of tsut in this paper, but I do discuss it futher in Section 6.	page 5
+(11) line 1	Secwepemctsín	transcription	ren stsutst w7ec re séysus re Ruby.	page 5, pairs
+(11) line 2	Secwepemctsín	segmentation	re=n-s-tsu<ts>t	page 5, pairs
+(11) line 3	Secwepemctsín	gloss	DET=1SG.POSS-NMLZ-tsut<DIM>	page 5, pairs
+(11) line 4	Secwepemctsín	segmentation	w7ec	page 5, pairs
+(11) line 5	Secwepemctsín	gloss	IPFV	page 5, pairs
+(11) line 6	Secwepemctsín	segmentation	re=séyse=us	page 5, pairs
+(11) line 7	Secwepemctsín	gloss	DC=play=3.SBJV	page 5, pairs
+(11) line 8	Secwepemctsín	segmentation	re=Ruby	page 5, pairs
+(11) line 9	Secwepemctsín	gloss	DET=Ruby	page 5, pairs
+(11) line 10	Ron Ignace	translation	‘I think Ruby is playing.’	page 5, pairs
+(11) line 10	Bruce Oliver	citation	(vf | RI | 11.21.2023)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	Finally, there does not need to be any quoted material, direct or indirect, after tsut for it to mean ‘say’: it can also have an anaphoric quote, as the below example shows.	page 5
+(12) line 1	Secwepemctsín	transcription	kénem wel tsut t̓ri7?	page 5, pairs
+(12) line 2	Secwepemctsín	segmentation	kénem	page 5, pairs
+(12) line 3	Secwepemctsín	gloss	Q	page 5, pairs
+(12) line 4	Secwepemctsín	segmentation	wel	page 5, pairs
+(12) line 5	Secwepemctsín	gloss	until/so	page 5, pairs
+(12) line 6	Secwepemctsín	segmentation	tsut t̓ri7	page 5, pairs
+(12) line 7	Secwepemctsín	gloss	tsut	page 5, pairs
+(12) line 8	Mona Jules	translation	‘Why did she say that?’	page 5, pairs
+(12) line 8	Bruce Oliver	citation	(MJ, First Voices)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	In the examples in this section, there has been no complementizer following tsut. Other pred- icates that embed beliefs have an optional te= complementizer: see (13) below, with parentheses indicating optionality.	page 5
+(13) line 1	Secwepemctsín	transcription	tslexemstéten te m-wíkt.s.	page 5, pairs
+(13) line 2	Secwepemctsín	segmentation	ts-lexem-s-té<t>-n	page 5, pairs
+(13) line 3	Secwepemctsín	gloss	CUST-know-CAUS-TR<DIM>-1SG.ERG	page 5, pairs
+(13) line 4	Secwepemctsín	segmentation	(te=)m=wík[-n]-t-s	page 5, pairs
+(13) line 5	Secwepemctsín	gloss	(DC.OBL=)PST-see[-CTR]-TR-3.ERG	page 5, pairs
+(13) line 6	Kuipers 1974:203	translation	‘I know that he saw him.’	page 5, pairs, cited Kuipers 1974:203
+(13) line 6	Bruce Oliver	citation	(Kuipers 1974:203)	the tag or source at the right of the translation
+§3.1	Bruce Oliver	note	There may therefore be a te= complementizer that has been deleted in the preceding tsut cases as well, but I have not yet had a chance to elicit tsut with te= following it.	page 5
+§3.2	Bruce Oliver	heading	3.2 tsut with e=	page 5
+§3.2	Bruce Oliver	note	Frequently, tsut appears with a particular complementizer, e=, and a nominalized clause following it. These uses have distinct meanings compared the ‘say’ and ‘believe’ uses in the previous section.	page 5
+(14) line 1	Secwepemctsín	transcription	tsut kucw es k̓úlems tek st̓ek.	page 6, pairs
+(14) line 2	Secwepemctsín	segmentation	tsut	page 6, pairs
+(14) line 3	Secwepemctsín	gloss	tsut	page 6, pairs
+(14) line 4	Secwepemctsín	segmentation	kucw	page 6, pairs
+(14) line 5	Secwepemctsín	gloss	1PL.EXCL	page 6, pairs
+(14) line 6	Secwepemctsín	segmentation	e=s-k̓úl-em-s	page 6, pairs
+(14) line 7	Secwepemctsín	gloss	COMP=NMLZ-make-MID-3.POSS	page 6, pairs
+(14) line 8	Secwepemctsín	segmentation	tek=st̓ek	page 6, pairs
+(14) line 9	Secwepemctsín	gloss	DET.OBL.IRR=fishing.platform	page 6, pairs
+(14) line 10	Kuipers 1974:168	translation	‘We’re going to make a fishing platform.’	page 6, pairs, cited Kuipers 1974:168
+(14) line 10	Bruce Oliver	citation	(Kuipers 1974:168)	the tag or source at the right of the translation
+§3.2	Secwepemctsín	cited form	xelnwén̓/xelnwélln̓	page 6
+§3.2	Bruce Oliver	note	The e= complementizer is called the ‘goal-directed’ complementizer when it embeds a nomi- nalized clause.3 e= + nominalization (shortened toe=s) is also used to convey purposives (as in (15)), as the complementizer for modals like xelnwén̓/xelnwélln̓ (able to) (as in (16)), and for many other embedded clauses translated with infinitives in English (as in (17), (18), and (19)). Its uses have not been exhaustively studied.	page 6
+(15) line 1	Secwepemctsín	transcription	nens-ken te skul es xepqenwéw̓en ens tswewllcw tek tsitcw.	page 6, pairs
+(15) line 2	Secwepemctsín	segmentation	ne<n>s=ken	page 6, pairs
+(15) line 3	Secwepemctsín	gloss	go<DIM>=1SG.SBJV	page 6, pairs
+(15) line 4	Secwepemctsín	segmentation	te=skul	page 6, pairs
+(15) line 5	Secwepemctsín	gloss	DET.OBL=school	page 6, pairs
+(15) line 6	Secwepemctsín	segmentation	e=s-xepqe-nwé<w̓>en[-n]	page 6, pairs
+(15) line 7	Secwepemctsín	gloss	COMP=NMLZ-learn-LC.TR<DIM>[-1SG.ERG]	page 6, pairs
+(15) line 8	Secwepemctsín	segmentation	e=n-s-tswe<w>-llcw	page 6, pairs
+(15) line 9	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-build<DIM>-house	page 6, pairs
+(15) line 10	Secwepemctsín	segmentation	tek=tsitcw	page 6, pairs
+(15) line 11	Secwepemctsín	gloss	DET.OBL.IRR=house	page 6, pairs
+(15) line 12	Lyon and Ignace 2021:217	translation	‘I’m going to school to learn how to build a house.’	page 6, pairs, cited Lyon and Ignace 2021:217
+(15) line 12	Bruce Oliver	citation	(Lyon and Ignace 2021:217)	the tag or source at the right of the translation
+(16) line 1	Secwepemctsín	transcription	ta7 k sxenwén̓s es cwentés.	page 6, pairs
+(16) line 2	Secwepemctsín	segmentation	ta7	page 6, pairs
+(16) line 3	Secwepemctsín	gloss	NEG	page 6, pairs
+(16) line 4	Secwepemctsín	segmentation	k=s-xe[l]-nwén̓-s	page 6, pairs
+(16) line 5	Secwepemctsín	gloss	DC.IRR=NMLZ-able-LC.TR-3.ERG	page 6, pairs
+(16) line 6	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 6, pairs
+(16) line 7	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3.ERG	page 6, pairs
+(16) line 8	Mona Jules	translation	‘He is unable to lift it.’	page 6, pairs
+(16) line 8	Bruce Oliver	citation	(sf | MJ | 2.16.2022)	the tag or source at the right of the translation
+(17) line 1	Secwepemctsín	transcription	me7 kwék̓wenelc-ken ens rérpelc me7 mestentsútstwen ens pelqíq̓elc.	page 6, pairs
+(17) line 2	Secwepemctsín	segmentation	me7	page 6, pairs
+(17) line 3	Secwepemctsín	gloss	CIRC.NEC	page 6, pairs
+(17) line 4	Secwepemctsín	segmentation	kwé<k̓w>enelc=ken	page 6, pairs
+(17) line 5	Secwepemctsín	gloss	try.physically<DIM>=1SG.SBJ	page 6, pairs
+(17) line 6	Secwepemctsín	segmentation	e=n-s-ré<r>pelc	page 6, pairs
+(17) line 7	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-climb<DIM>	page 6, pairs
+(17) line 8	Secwepemctsín	segmentation	me7	page 6, pairs
+(17) line 9	Secwepemctsín	gloss	CIRC.NEC	page 6, pairs
+(17) line 10	Secwepemctsín	segmentation	mesten-tsú<ts>t=wen	page 6, pairs
+(17) line 11	Secwepemctsín	gloss	try.out-REFL<DIM>=1SG.SBJV	page 6, pairs
+(17) line 12	Secwepemctsín	segmentation	e=n-s-pelqí<q̓>elc	page 6, pairs
+(17) line 13	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-return<DIM>	page 6, pairs
+(17) line 14	Kuipers 1974:86	translation	‘I’ll try to go up there and do my best to return.’	page 6, pairs, cited Kuipers 1974:86
+(17) line 14	Bruce Oliver	citation	(Kuipers 1974:86)	the tag or source at the right of the translation
+(18) line 1	Secwepemctsín	transcription	cetcét ri7 es élkst.s.	page 6, pairs
+(18) line 2	Secwepemctsín	segmentation	cetcét	page 6, pairs
+(18) line 3	Secwepemctsín	gloss	lively/energetic	page 6, pairs
+(18) line 4	Secwepemctsín	segmentation	ri7	page 6, pairs
+(18) line 5	Secwepemctsín	gloss	EMPH	page 6, pairs
+(18) line 6	Secwepemctsín	segmentation	e=s-7élkst-s	page 6, pairs
+(18) line 7	Secwepemctsín	gloss	COMP=NMLZ-work-3.POSS	page 6, pairs
+(18) line 8	Kuipers 1974:86	translation	‘He’s always willing to work.’	page 6, pairs, cited Kuipers 1974:86
+(18) line 8	Bruce Oliver	citation	(Kuipers 1974:86)	the tag or source at the right of the translation
+footnote 3	Bruce Oliver	note	3 Goal-directed e= is homophonous with the conditional e ‘if’, but the former is always followed by a nomi- nalized clause, and the latter never is.	page 6, footnote
+(19) line 1	Secwepemctsín	transcription	cw7ús-k te7 sqwetséts.	page 7, pairs
+(19) line 2	Secwepemctsín	segmentation	cw7ús=k	page 7, pairs
+(19) line 3	Secwepemctsín	gloss	eager=2SG.SBJV	page 7, pairs
+(19) line 4	Secwepemctsín	segmentation	te=7-s-qwetséts4	page 7, pairs
+(19) line 5	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-set.out	page 7, pairs
+(19) line 6	Kuipers 1974:86	translation	‘You’re eager to go.’	page 7, pairs, cited Kuipers 1974:86
+(19) line 6	Bruce Oliver	citation	(Kuipers 1974:86)	the tag or source at the right of the translation
+§3.2	Bruce Oliver	note	Whereas tsut with no e= clause is only translated as ‘say’ or ‘think’, tsut with an embedded e= clause is translated as ‘going to’, ‘thinking of’, ‘intend’, or ‘want’. I have not had a chance to determine whether tsut e= can mean something along the lines of ‘X says X is going to...’, but the most salient readings for speakers appear to be of the ‘intend/want’ type.	page 7
+(20) line 1	Secwepemctsín	transcription	tsut es nes te Tk̓emlúps re Sander.	page 7, pairs
+(20) line 2	Secwepemctsín	segmentation	tsut	page 7, pairs
+(20) line 3	Secwepemctsín	gloss	tsut	page 7, pairs
+(20) line 4	Secwepemctsín	segmentation	e=s-nes[-s]	page 7, pairs
+(20) line 5	Secwepemctsín	gloss	COMP=NMLZ-go[-3.POSS]	page 7, pairs
+(20) line 6	Secwepemctsín	segmentation	te=tk̓emlúps	page 7, pairs
+(20) line 7	Secwepemctsín	gloss	DET.OBL=Kamloops	page 7, pairs
+(20) line 8	Secwepemctsín	segmentation	re=Sander	page 7, pairs
+(20) line 9	Secwepemctsín	gloss	DET=Sander	page 7, pairs
+(20) line 10	Julie Antoine	translation	‘Sander is thinking of going to Kamloops.’	page 7, pairs
+(20) line 10	Bruce Oliver	citation	(sf | JA | 10.4.2023)	the tag or source at the right of the translation
+§3.2	Secwepemctsín	cited form	qwetséts	page 7
+§3.2	Bruce Oliver	note	(21) tsut es qwetséts re Sander.	page 7
+§3.2	Secwepemctsín	cited form	e=s-qwetséts[-s]	page 7
+(21) line 1	Secwepemctsín	transcription	tsut es qwetséts re Sander.	page 7, pairs
+(21) line 2	Secwepemctsín	segmentation	tsut	page 7, pairs
+(21) line 3	Secwepemctsín	gloss	tsut	page 7, pairs
+(21) line 4	Secwepemctsín	segmentation	e=s-qwetséts[-s]	page 7, pairs
+(21) line 5	Secwepemctsín	gloss	COMP=NMLZ-set.out[-3.POSS]	page 7, pairs
+(21) line 6	Secwepemctsín	segmentation	re=Sander	page 7, pairs
+(21) line 7	Secwepemctsín	gloss	DET=Sander	page 7, pairs
+(21) line 8	Ron Ignace	translation	‘Sander intends to go.’	page 7, pairs
+(21) line 8	Bruce Oliver	citation	(sf | RI | 11.21.2023)	the tag or source at the right of the translation
+(22) line 1	Secwepemctsín	transcription	tsútst-ken ens íllen.	page 7, pairs
+(22) line 2	Secwepemctsín	segmentation	tsú<ts>t=ken	page 7, pairs
+(22) line 3	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 7, pairs
+(22) line 4	Secwepemctsín	segmentation	e=n-s-7íllen	page 7, pairs
+(22) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-eat	page 7, pairs
+(22) line 6	Kuipers 1974:79	translation	‘I want to eat.’	page 7, pairs, cited Kuipers 1974:79
+(22) line 6	Bruce Oliver	citation	(Kuipers 1974:79)	the tag or source at the right of the translation
+§3.2	Bruce Oliver	note	Broadly speaking, the meanings in (14) and (20) to (22) have a goal-oriented flavour: the em- bedded clause indicates some goal of the subject. One might wonder whether the basic meaning of tsut is just ‘intend’, and is only translated as ‘want’in contexts where someone’s desires are consis- tent with their intentions (or vice versa). The following data show that tsut e= is compatible with intending to do something without wanting to, as well as wanting to do something without intending to.	page 7
+(23) line 1	Bruce Oliver	note	Context: Someone asks me about all the manure scattered about my property.	page 7, pairs
+(23) line 2	Secwepemctsín	transcription	tsútst-ken ens sísxem, k̓émell ta7 ken sqwnén.	page 7, pairs
+(23) line 3	Secwepemctsín	segmentation	tsú<ts>t=ken	page 7, pairs
+(23) line 4	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 7, pairs
+(23) line 5	Secwepemctsín	segmentation	e=n-[s-]sí<s>x-em	page 7, pairs
+(23) line 6	Secwepemctsín	gloss	COMP=1SG.POSS-[NMLZ-]move<DIM>-MID	page 7, pairs
+(23) line 7	Secwepemctsín	segmentation	k̓émell	page 7, pairs
+(23) line 8	Secwepemctsín	gloss	but	page 7, pairs
+(23) line 9	Secwepemctsín	segmentation	ta7	page 7, pairs
+(23) line 10	Secwepemctsín	gloss	NEG	page 7, pairs
+(23) line 11	Secwepemctsín	segmentation	k=n-s-qwnén	page 7, pairs
+(23) line 12	Secwepemctsín	gloss	DC.IRR=1SG.POSS-NMLZ-want	page 7, pairs
+(23) line 13	Ron Ignace	translation	‘I intend to move it, but I don’t want to.’	page 7, pairs
+(23) line 13	Bruce Oliver	citation	(vf | RI | 4.4.2024)	the tag or source at the right of the translation
+footnote 4	Bruce Oliver	note	4 When the clause that follows it has second-person possessive marking (7-), goal-directed e= becomes te=.	page 7, footnote
+(24) line 1	Secwepemctsín	transcription	tsutst-ken ens qwetséts k̓émell ta7 ken sxenwéw’lln es qwetséts.	page 8, pairs
+(24) line 2	Secwepemctsín	segmentation	tsu<ts>t=ken	page 8, pairs
+(24) line 3	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 8, pairs
+(24) line 4	Secwepemctsín	segmentation	e=n-s-qwetséts	page 8, pairs
+(24) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-set.out	page 8, pairs
+(24) line 6	Secwepemctsín	segmentation	k̓émell	page 8, pairs
+(24) line 7	Secwepemctsín	gloss	but	page 8, pairs
+(24) line 8	Secwepemctsín	segmentation	ta7	page 8, pairs
+(24) line 9	Secwepemctsín	gloss	NEG	page 8, pairs
+(24) line 10	Secwepemctsín	segmentation	k=n-s-xenwé<w>’lln	page 8, pairs
+(24) line 11	Secwepemctsín	gloss	DC.IRR=1SG.POSS-NMLZ-able<DIM>.LC.MID	page 8, pairs
+(24) line 12	Secwepemctsín	segmentation	e=s-qwetséts[-s]	page 8, pairs
+(24) line 13	Secwepemctsín	gloss	COMP=NMLZ-set.out[-3.POSS]	page 8, pairs
+(24) line 14	Ron Ignace	translation	‘I would like to go now, but I’m not capable of leaving.’	page 8, pairs
+(24) line 14	Bruce Oliver	citation	(sf, vt | RI | 11.21.2023)	the tag or source at the right of the translation
+§3.2	Bruce Oliver	note	As these data show, tsut e= is ambiguous (or underspecified) between indicating intention and desire.	page 8
+§3.2	Bruce Oliver	note	Finally, it should come as no surprise that, as tsut e= seems to indicate the intention or desire of its subject, it is infelicitous when its embedded clause describes an action the subject neither intends nor wants to happen. This is illustrated in the example below.	page 8
+(25) line 1	Bruce Oliver	note	Context: Gloria is swimming in an ice-cold lake in December.	page 8, pairs
+(25) line 2	Secwepemctsín	transcription	#tsut es k7eps.	page 8, pairs
+(25) line 3	Secwepemctsín	segmentation	tsut	page 8, pairs
+(25) line 4	Secwepemctsín	gloss	tsut	page 8, pairs
+(25) line 5	Secwepemctsín	segmentation	e=s-k<7>ep-s	page 8, pairs
+(25) line 6	Secwepemctsín	gloss	COMP=NMLZ-sick<INCH>-3.POSS	page 8, pairs
+(25) line 7	Ron Ignace	translation	Intended: ‘She’s going to get sick.’	page 8, pairs
+(25) line 8	Ron Ignace	speaker comment	Consultant’s comment: “No, unless you were intentionally swimming to get sick.”	page 8, pairs
+(25) line 9	Bruce Oliver	citation	(sf | RI | 11.21.2023)	page 8, pairs
+§3.2	Bruce Oliver	note	To express these sorts of general future statements, speakers use me7, a general-purpose circum- stantial necessity modal used for future statements, obligation, and other future-oriented circumstan- tial modal claims (Oliver 2023).	page 8
+(26) line 1	Bruce Oliver	note	Context: Gloria is swimming in an ice-cold lake in December.	page 8, pairs
+(26) line 2	Secwepemctsín	transcription	me7 k7ep re Gloria.	page 8, pairs
+(26) line 3	Secwepemctsín	segmentation	me7	page 8, pairs
+(26) line 4	Secwepemctsín	gloss	CIRC.NEC	page 8, pairs
+(26) line 5	Secwepemctsín	segmentation	k7ep	page 8, pairs
+(26) line 6	Secwepemctsín	gloss	sick<INCH>	page 8, pairs
+(26) line 7	Secwepemctsín	segmentation	re=Gloria	page 8, pairs
+(26) line 8	Secwepemctsín	gloss	DET=Gloria	page 8, pairs
+(26) line 9	Julie Antoine	translation	‘Gloria will get sick.’	page 8, pairs
+(26) line 9	Bruce Oliver	citation	(sf | JA | 10.4.2023)	the tag or source at the right of the translation
+§3.3	Bruce Oliver	heading	3.3 Transitive tsun	page 8
+§3.3	Bruce Oliver	note	There is also a transitive form of tsut, tsun. 5 Sofar, tsun seems to cover the same uses as tsut, with the addition of a direct object. In all cases I have seen, when an e=s clause follows tsun, the subject of the embedded clause is the direct object of the matrix clause.	page 8
+footnote 5	Bruce Oliver	note	5 These roots are clearly related, but the normal Salishan decomposition into root + (in)transitivizer is difficult to justify: decomposing tsun into √tsu + the -n[-t] control+transitivizer implies the same can be done with tsut → √tsu + -t, which is problematic. Where the -t suffix appears on roots, it does so on statives (e.g. xew-t ‘dry’ vs. xuw-úm ‘to dry s.t.’) and rarely unaccusatives (e.g. k̓ul-t ‘get made’ vs. k̓ul-em ‘to make s.t.’), neither of which characterize tsut. Given this problem and the rarity of CV roots in Secwepemctsín, the simplest analysis (and the one that I adopt in this paper) is that the control+transitivizer cluster -n[-t] has fused with the root in tsun.	page 8, footnote
+§3.3	Secwepemctsín	root	√tsu	page 8
+§3.3	Secwepemctsín	cited form	xew-t	page 8, ‘dry’
+§3.3	Secwepemctsín	cited form	xuw-úm	page 8, ‘to dry s.t.’
+§3.3	Secwepemctsín	cited form	k̓ul-t	page 8, ‘get made’
+§3.3	Secwepemctsín	cited form	k̓ul-em	page 8, ‘to make s.t.’
+§3.3	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§3.3	Bruce Oliver	note	Like tsut, tsun can be used to mean ‘say’ when followed by a quote; as it is transitive, tsun is more similar to ‘tell’. The object is whoever is being told.	page 9
+(27) line 1	Secwepemctsín	transcription	tsuns re skú7pecen re úqwi7s: “t̓ucw e wíktc yi7éne tke7 st̓7ek re xwgwélemc me7 tq̓wmútecw n7éne ne tsk̓uy.”	page 9, pairs
+(27) line 2	Secwepemctsín	segmentation	tsun-s	page 9, pairs
+(27) line 3	Secwepemctsín	gloss	tsut.TR-3.ERG	page 9, pairs
+(27) line 4	Secwepemctsín	segmentation	re=skú7pecen	page 9, pairs
+(27) line 5	Secwepemctsín	gloss	DET=porcupine	page 9, pairs
+(27) line 6	Secwepemctsín	segmentation	re=úqwi7-s	page 9, pairs
+(27) line 7	Secwepemctsín	gloss	DET=same.sex.sibling-3.POSS	page 9, pairs
+(27) line 8	Secwepemctsín	segmentation	t̓ucw	page 9, pairs
+(27) line 9	Secwepemctsín	gloss	just	page 9, pairs
+(27) line 10	Secwepemctsín	segmentation	e	page 9, pairs
+(27) line 11	Secwepemctsín	gloss	if	page 9, pairs
+(27) line 12	Secwepemctsín	segmentation	wík[-n]-t-c	page 9, pairs
+(27) line 13	Secwepemctsín	gloss	see[-CTR]-TR-2SG.ERG	page 9, pairs
+(27) line 14	Secwepemctsín	segmentation	y7éne	page 9, pairs
+(27) line 15	Secwepemctsín	gloss	this.DEM	page 9, pairs
+(27) line 16	Secwepemctsín	segmentation	tke7=s-t̓7ek	page 9, pairs
+(27) line 17	Secwepemctsín	gloss	DET.OBL.IRR=Nmlz-go.along	page 9, pairs
+(27) line 18	Secwepemctsín	segmentation	re=xwgwélemc	page 9, pairs
+(27) line 19	Secwepemctsín	gloss	DET=fox	page 9, pairs
+(27) line 20	Secwepemctsín	segmentation	me7	page 9, pairs
+(27) line 21	Secwepemctsín	gloss	CIRC.NEC	page 9, pairs
+(27) line 22	Secwepemctsín	segmentation	tq̓wmút=ecw	page 9, pairs
+(27) line 23	Secwepemctsín	gloss	climb=2SG.SBJV	page 9, pairs
+(27) line 24	Secwepemctsín	segmentation	n7éne	page 9, pairs
+(27) line 25	Secwepemctsín	gloss	there.LOC	page 9, pairs
+(27) line 26	Secwepemctsín	segmentation	n=ts-k̓uy	page 9, pairs
+(27) line 27	Secwepemctsín	gloss	LOC=STAT-lie(long.object)	page 9, pairs
+(27) line 28	Kuipers 1974:104	translation	‘Porcupine had told his brother: “As soon as you see Fox coming, you’ll climb on that log.”’	page 9, pairs, cited Kuipers 1974:104
+(27) line 29	Bruce Oliver	citation	Kuipers (1974:104)	page 9, pairs
+(28) line 1	Secwepemctsín	transcription	m- tsúntsems: “cuy̓, tsq̓élente re7 enwí7!”	page 9, pairs
+(28) line 2	Secwepemctsín	segmentation	m-tsún-tsem-s	page 9, pairs
+(28) line 3	Secwepemctsín	gloss	PST-tsut.TR-1SG.OBJ-3.ERG	page 9, pairs
+(28) line 4	Secwepemctsín	segmentation	cuy̓	page 9, pairs
+(28) line 5	Secwepemctsín	gloss	ADH	page 9, pairs
+(28) line 6	Secwepemctsín	segmentation	tsq̓él-n-t-e	page 9, pairs
+(28) line 7	Secwepemctsín	gloss	shoot-CTR-TR-IMP	page 9, pairs
+(28) line 8	Secwepemctsín	segmentation	re=7-enwí7	page 9, pairs
+(28) line 9	Secwepemctsín	gloss	DET=2SG.POSS-EMPH.PRN	page 9, pairs
+(28) line 10	Kuipers 1974:109	translation	‘He told me: “Come on, you shoot it!”’	page 9, pairs, cited Kuipers 1974:109
+(28) line 10	Bruce Oliver	citation	Kuipers (1974:109)	the tag or source at the right of the translation
+§3.3	Bruce Oliver	note	Transitive tsun can also reflect the thoughts of the subject, with the object in this case being the thing that the subject is thinking about. In (29), Coyote was tricked by Fox into jumping into a well for some skimmings, which were actually just the reflection of the moon; the object of tsun, therefore, is the reflection of the moon.	page 9
+(29) line 1	Secwepemctsín	transcription	m- tsúnses ri7 t̓ek styéwllkwle.	page 9, pairs
+(29) line 2	Secwepemctsín	segmentation	m-tsún-s=es	page 9, pairs
+(29) line 3	Secwepemctsín	gloss	PST-tsut.TR-3.ERG=3.SBJV	page 9, pairs
+(29) line 4	Secwepemctsín	segmentation	ri7	page 9, pairs
+(29) line 5	Secwepemctsín	gloss	EMPH	page 9, pairs
+(29) line 6	Secwepemctsín	segmentation	t̓ek=styéwllkwle	page 9, pairs
+(29) line 7	Secwepemctsín	gloss	DET.OBL.IRR=skimmings.dish	page 9, pairs
+(29) line 8	Kuipers 1974:92	translation	‘He thought it [the reflection of the moon] was skimmings.’	page 9, pairs, cited Kuipers 1974:92
+(29) line 8	Bruce Oliver	citation	Kuipers (1974:92)	the tag or source at the right of the translation
+§3.3	Bruce Oliver	note	Finally, like tsut, tsun can be followed by the e= complementizer. We once again see the meaning of intention or desire emerge.	page 9
+(30) line 1	Secwepemctsín	transcription	tsútsen tsem es cp7ers.	page 9, pairs
+(30) line 2	Secwepemctsín	segmentation	tsú<ts>en[-n]	page 9, pairs
+(30) line 3	Secwepemctsín	gloss	tsut.TR<DIM>[-1SG.ERG]	page 9, pairs
+(30) line 4	Secwepemctsín	segmentation	tsem	page 9, pairs
+(30) line 5	Secwepemctsín	gloss	first	page 9, pairs
+(30) line 6	Secwepemctsín	segmentation	e=s-cp<7>er-s	page 9, pairs
+(30) line 7	Secwepemctsín	gloss	COMP=NMLZ-cool.off<INCH>-3.POSS	page 9, pairs
+(30) line 8	Kuipers 1974:169	translation	‘I want it to cool off first.’	page 9, pairs, cited Kuipers 1974:169
+(30) line 8	Bruce Oliver	citation	Kuipers (1974:169)	the tag or source at the right of the translation
+(31) line 1	Secwepemctsín	transcription	m- tsúntsen te7 s qwetséts.	page 9, pairs
+(31) line 2	Secwepemctsín	segmentation	m-tsún-ts-n	page 9, pairs
+(31) line 3	Secwepemctsín	gloss	PST-tsut.TR-2SG.OBJ-1SG.ERG	page 9, pairs
+(31) line 4	Secwepemctsín	segmentation	te=7-s-qwetséts	page 9, pairs
+(31) line 5	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-set.out	page 9, pairs
+(31) line 6	Kuipers 1974:169	translation	‘I told you to go.’	page 9, pairs, cited Kuipers 1974:169
+(31) line 6	Bruce Oliver	citation	Kuipers (1974:169)	the tag or source at the right of the translation
+§3.3	Secwepemctsín	cited form	tsútsentsems	page 10
+§3.3	Bruce Oliver	note	(32) tsútsentsems ens tsnens.	page 10
+§3.3	Secwepemctsín	cited form	tsú<ts>n-tsem-s	page 10
+(32) line 1	Secwepemctsín	transcription	tsútsentsems ens tsnens.	page 10, pairs
+(32) line 2	Secwepemctsín	segmentation	tsú<ts>n-tsem-s	page 10, pairs
+(32) line 3	Secwepemctsín	gloss	tsut.TR<DIM>-1SG.OBJ-3.ERG	page 10, pairs
+(32) line 4	Secwepemctsín	segmentation	e=n-s-ts-ne<n>s	page 10, pairs
+(32) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-CSL-go<DIM>	page 10, pairs
+(32) line 6	Kuipers 1974:169	translation	‘He asked me to come.’	page 10, pairs, cited Kuipers 1974:169
+(32) line 6	Bruce Oliver	citation	Kuipers (1974:169)	the tag or source at the right of the translation
+§3.3	Bruce Oliver	note	The uses of tsun e=, unlike tsut e=, also include meanings of saying, as in (31) and (32). These ‘say’ uses of tsun e= still indicate a desire or intent on the subject’s part for the object to take the action in the embedded clause. Accordingly, the person marking on the embedded clause agrees with the object agreement on tsun.	page 10
+(33) line 1	Secwepemctsín	transcription	tsútsen tsems ens tsnens.	page 10, pairs
+(33) line 2	Secwepemctsín	segmentation	tsú<ts>n-tsem-s	page 10, pairs
+(33) line 3	Secwepemctsín	gloss	tsut.TR<DIM>-1SG.OBJ-3.ERG	page 10, pairs
+(33) line 4	Secwepemctsín	segmentation	e=n-s-ts-ne<n>s	page 10, pairs
+(33) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-CSL-go<DIM>	page 10, pairs
+(33) line 6	Kuipers 1974:169	translation	‘He asked me to come.’	page 10, pairs, cited Kuipers 1974:169
+(33) line 6	Bruce Oliver	citation	Kuipers (1974:169)	the tag or source at the right of the translation
+(34) line 1	Secwepemctsín	transcription	m-tsún tsen te7 sqwetséts.	page 10, pairs
+(34) line 2	Secwepemctsín	segmentation	m-tsún-ts-n	page 10, pairs
+(34) line 3	Secwepemctsín	gloss	PST-tsut.TR-2SG.OBJ-1SG.ERG	page 10, pairs
+(34) line 4	Secwepemctsín	segmentation	te=7-s-qwetséts	page 10, pairs
+(34) line 5	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-set.out	page 10, pairs
+(34) line 6	Kuipers 1974:169	translation	‘I told you to go.’	page 10, pairs, cited Kuipers 1974:169
+(34) line 6	Bruce Oliver	citation	Kuipers (1974:169)	the tag or source at the right of the translation
+§3.3	Secwepemctsín	cited form	tsú<ts>-n-tsem-s	page 10
+§3.3	Secwepemctsín	cited form	e=s-wéwl-em-s	page 10
+§3.3	Bruce Oliver	note	I have not yet had a chance to elicit a sentence like tsú<ts>-n-tsem-s e=s-wéwl-em-s (tsut<DIM>- TR-1SG.OBJ-3.ERG COMP=NMLZ-fish-MID-3.POSS), where the subject of the embedded clause is the subject of the matrix clause, so I do not yet know whether such a configuration is possible and, if possible, what it would mean.	page 10
+§3.3	Bruce Oliver	note	I will not directly account for transitive tsun in my analysis, but I predict that its semantics will fall out fairly straightforwardly from adding a direct object to the semantics of tsut.	page 10
+§4	Bruce Oliver	heading	4 tsut in conditionals	page 10
+§4	Bruce Oliver	note	tsut appears frequently in the antecedent of a conditional, often with similar meanings to its unem- bedded uses.	page 10
+(35) line 1	Secwepemctsín	transcription	e tsútes es píxems pexyéwt, yewske es nes es etícs pyin.	page 10, pairs
+(35) line 2	Secwepemctsín	segmentation	e	page 10, pairs
+(35) line 3	Secwepemctsín	gloss	if	page 10, pairs
+(35) line 4	Secwepemctsín	segmentation	tsut-es	page 10, pairs
+(35) line 5	Secwepemctsín	gloss	tsut-3.SBJV	page 10, pairs
+(35) line 6	Secwepemctsín	segmentation	e=s-píx-em-s	page 10, pairs
+(35) line 7	Secwepemctsín	gloss	COMP=NMLZ-hunt-MID-3.POSS	page 10, pairs
+(35) line 8	Secwepemctsín	segmentation	pexyéwt	page 10, pairs
+(35) line 9	Secwepemctsín	gloss	day.removed	page 10, pairs
+(35) line 10	Secwepemctsín	segmentation	ye-ws=ske	page 10, pairs
+(35) line 11	Secwepemctsín	gloss	COP-3.SBJV=should	page 10, pairs
+(35) line 12	Secwepemctsín	segmentation	e=s-nes[-s]	page 10, pairs
+(35) line 13	Secwepemctsín	gloss	COMP=NMLZ-go[-3.POSS]	page 10, pairs
+(35) line 14	Secwepemctsín	segmentation	e=s-7etíc-s	page 10, pairs
+(35) line 15	Secwepemctsín	gloss	COMP=NMLZ-sleep-3.POSS	page 10, pairs
+(35) line 16	Secwepemctsín	segmentation	pyin	page 10, pairs
+(35) line 17	Secwepemctsín	gloss	now	page 10, pairs
+(35) line 18	Garlene Dodson	translation	‘If he is going hunting tomorrow, he should go to sleep now.’	page 10, pairs
+(35) line 18	Bruce Oliver	citation	(vf | GD | 2.10.2023)	the tag or source at the right of the translation
+§4	Bruce Oliver	note	However, in some conditional contexts, tsut seems not to mark intention or desire at all.	page 10
+(36) line 1	Secwepemctsín	transcription	e tsútecw e7 s7ápse, me7 ápse-k ne c7ép’qsten’.	page 11, pairs
+(36) line 2	Secwepemctsín	segmentation	e	page 11, pairs
+(36) line 3	Secwepemctsín	gloss	if	page 11, pairs
+(36) line 4	Secwepemctsín	segmentation	tsút=ecw	page 11, pairs
+(36) line 5	Secwepemctsín	gloss	tsut=2SG.SBJV	page 11, pairs
+(36) line 6	Secwepemctsín	segmentation	e=7-s-7ápse	page 11, pairs
+(36) line 7	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-sneeze	page 11, pairs
+(36) line 8	Secwepemctsín	segmentation	me7	page 11, pairs
+(36) line 9	Secwepemctsín	gloss	CIRC.NEC	page 11, pairs
+(36) line 10	Secwepemctsín	segmentation	ápse=k	page 11, pairs
+(36) line 11	Secwepemctsín	gloss	sneeze=2SG.SBJ	page 11, pairs
+(36) line 12	Secwepemctsín	segmentation	n=c7ép’qsten’	page 11, pairs
+(36) line 13	Secwepemctsín	gloss	LOC=handkerchief	page 11, pairs
+(36) line 14	Garlene Dodson	translation	‘If you have to sneeze, sneeze in a handkerchief.’	page 11, pairs
+(36) line 14	Bruce Oliver	citation	(vf | GD | 2.10.2023)	the tag or source at the right of the translation
+(37) line 1	Secwepemctsín	transcription	e tsútes k splek̓s re xyum te scenc ne tqeltqs re sqeltús, ta7 ri7 k tqelcíts̓e ri7 me7 estcistés.	page 11, pairs
+(37) line 2	Secwepemctsín	segmentation	e	page 11, pairs
+(37) line 3	Secwepemctsín	gloss	if	page 11, pairs
+(37) line 4	Secwepemctsín	segmentation	tsút=es	page 11, pairs
+(37) line 5	Secwepemctsín	gloss	tsut=3.SBJV	page 11, pairs
+(37) line 6	Secwepemctsín	segmentation	k=s-plek̓-s	page 11, pairs
+(37) line 7	Secwepemctsín	gloss	DC.IRR=NMLZ-fall-3.POSS	page 11, pairs
+(37) line 8	Secwepemctsín	segmentation	re=xyum	page 11, pairs
+(37) line 9	Secwepemctsín	gloss	DET=big	page 11, pairs
+(37) line 10	Secwepemctsín	segmentation	te=scenc	page 11, pairs
+(37) line 11	Secwepemctsín	gloss	DET.OBL=rock	page 11, pairs
+(37) line 12	Secwepemctsín	segmentation	ne=tqeltq-s	page 11, pairs
+(37) line 13	Secwepemctsín	gloss	LOC=high-3.POSS	page 11, pairs
+(37) line 14	Secwepemctsín	segmentation	re=sqeltús	page 11, pairs
+(37) line 15	Secwepemctsín	gloss	DET=mountain	page 11, pairs
+(37) line 16	Secwepemctsín	segmentation	ta7	page 11, pairs
+(37) line 17	Secwepemctsín	gloss	NEG	page 11, pairs
+(37) line 18	Secwepemctsín	segmentation	ri7	page 11, pairs
+(37) line 19	Secwepemctsín	gloss	EMPH	page 11, pairs
+(37) line 20	Secwepemctsín	segmentation	k=tqelcíts̓e	page 11, pairs
+(37) line 21	Secwepemctsín	gloss	DC.IRR=fence	page 11, pairs
+(37) line 22	Secwepemctsín	segmentation	ri7	page 11, pairs
+(37) line 23	Secwepemctsín	gloss	EMPH	page 11, pairs
+(37) line 24	Secwepemctsín	segmentation	me7	page 11, pairs
+(37) line 25	Secwepemctsín	gloss	CIRC.NEC	page 11, pairs
+(37) line 26	Secwepemctsín	segmentation	estcey-s-t-és	page 11, pairs
+(37) line 27	Secwepemctsín	gloss	stop-CAUS-TR-3.ERG	page 11, pairs
+(37) line 28	Ron Ignace	translation	‘If the big rock on the mountain is going to fall, there’s no fence that will stop it.’	page 11, pairs
+(37) line 29	Bruce Oliver	citation	(vf | RI | 6.30.2023)	page 11, pairs
+§4	Bruce Oliver	note	In the preceding two examples, no intention is referred to by tsut: they refer to an involuntary future occurrence. In the first case, sneezing is not an intentional act, and in the second case, the rock does not have any intentions.6 Recall that, in unembedded contexts, tsut was judged to be bad if the embedded clause was neither an intention nor a desire of the subject, and that me7 was used instead in this case.	page 11
+(38a) line 1	Bruce Oliver	note	Context: Gloria is swimming in an ice-cold lake in December.	page 11, pairs
+(38a) line 2	Secwepemctsín	transcription	#tsut es k7eps.	page 11, pairs
+(38a) line 3	Secwepemctsín	segmentation	tsut	page 11, pairs
+(38a) line 4	Secwepemctsín	gloss	tsut	page 11, pairs
+(38a) line 5	Secwepemctsín	segmentation	e=s-k<7>ep-s	page 11, pairs
+(38a) line 6	Secwepemctsín	gloss	COMP=NMLZ-sick<INCH>-3.POSS	page 11, pairs
+(38a) line 7	Ron Ignace	translation	Intended: ‘She’s going to get sick.’	page 11, pairs
+(38a) line 8	Ron Ignace	speaker comment	Consultant’s comment: “No, unless you were intentionally swimming to get sick.”	page 11, pairs
+(38a) line 9	Bruce Oliver	citation	(sf | RI | 11.21.2023)	page 11, pairs
+(38b) line 1	Bruce Oliver	note	Context: Gloria is swimming in an ice-cold lake in December.	page 11, pairs
+(38b) line 2	Secwepemctsín	transcription	me7 k7ep re Gloria.	page 11, pairs
+(38b) line 3	Secwepemctsín	segmentation	me7	page 11, pairs
+(38b) line 4	Secwepemctsín	gloss	CIRC.NEC	page 11, pairs
+(38b) line 5	Secwepemctsín	segmentation	k<7>ep	page 11, pairs
+(38b) line 6	Secwepemctsín	gloss	sick<INCH>	page 11, pairs
+(38b) line 7	Secwepemctsín	segmentation	re=Gloria.	page 11, pairs
+(38b) line 8	Secwepemctsín	gloss	DET=Gloria	page 11, pairs
+(38b) line 9	Julie Antoine	translation	‘Gloria will get sick.’	page 11, pairs
+(38b) line 9	Bruce Oliver	citation	(sf | JA | 10.4.2023)	the tag or source at the right of the translation
+§4	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§4	Bruce Oliver	note	It is, in fact, impossible to use me7 in the antecedent of a conditional in Secwepemctsín: tsut must be used instead.	page 11
+footnote 6	Bruce Oliver	note	6 Readers may be curious as to whether the rock is being ascribed intentions or animacy in this case. I followed up by asking my consultant whether I could say e xenwelln̓es es plek̓s re xyum te scenc... ‘if the rock is able to fall...’ instead, and he replied that this would be strange as it would ‘give the rock the will to roll or not to roll.’ I take this comment to mean that the rock cannot be interpreted as having intentions in this context.	page 11, footnote
+§4	Secwepemctsín	cited form	xenwelln̓es	page 11
+§4	Secwepemctsín	cited form	plek̓s	page 11
+(39a) line 1	Secwepemctsín	transcription	* e me7 píxems pexyéwt, yewske es nes es etí7cs pyin.	page 12, pairs
+(39a) line 2	Secwepemctsín	segmentation	e	page 12, pairs
+(39a) line 3	Secwepemctsín	gloss	if	page 12, pairs
+(39a) line 4	Secwepemctsín	segmentation	me7	page 12, pairs
+(39a) line 5	Secwepemctsín	gloss	CIRC.NEC	page 12, pairs
+(39a) line 6	Secwepemctsín	segmentation	píx-em-s	page 12, pairs
+(39a) line 7	Secwepemctsín	gloss	hunt-MID-3.POSS	page 12, pairs
+(39a) line 8	Secwepemctsín	segmentation	pexyéwt	page 12, pairs
+(39a) line 9	Secwepemctsín	gloss	tomorrow	page 12, pairs
+(39a) line 10	Secwepemctsín	segmentation	yé=ws=ske	page 12, pairs
+(39a) line 11	Secwepemctsín	gloss	COP=3.SBJV=COND	page 12, pairs
+(39a) line 12	Secwepemctsín	segmentation	e=s-nes[-s]	page 12, pairs
+(39a) line 13	Secwepemctsín	gloss	COMP=NMLZ-go[-3.POSS]	page 12, pairs
+(39a) line 14	Secwepemctsín	segmentation	e=s-7etíc-s	page 12, pairs
+(39a) line 15	Secwepemctsín	gloss	COMP=NMLZ-sleep-3.POSS	page 12, pairs
+(39a) line 16	Secwepemctsín	segmentation	pyin	page 12, pairs
+(39a) line 17	Secwepemctsín	gloss	now	page 12, pairs
+(39a) line 18	Garlene Dodson	translation	Intended: ‘If he is going hunting tomorrow, he should go to sleep now.’	page 12, pairs
+(39a) line 19	Garlene Dodson	speaker comment	Consultant’s comment: “I never heard anyone say it that way.”	page 12, pairs
+(39a) line 19	Bruce Oliver	citation	(sf | GD | 2.10.2023)	the tag or source at the right of the comment
+(39b) line 1	Secwepemctsín	transcription	e tsútes es píxems pexyéwt, yéwske es nes es etícs pyin.	page 12, pairs
+(39b) line 2	Secwepemctsín	segmentation	e	page 12, pairs
+(39b) line 3	Secwepemctsín	gloss	if	page 12, pairs
+(39b) line 4	Secwepemctsín	segmentation	tsút=es	page 12, pairs
+(39b) line 5	Secwepemctsín	gloss	tsut=3.SBJV	page 12, pairs
+(39b) line 6	Secwepemctsín	segmentation	e=s-píx-em-s	page 12, pairs
+(39b) line 7	Secwepemctsín	gloss	COMP=NMLZ-hunt-MID-3.POSS	page 12, pairs
+(39b) line 8	Secwepemctsín	segmentation	pexyéwt	page 12, pairs
+(39b) line 9	Secwepemctsín	gloss	tomorrow	page 12, pairs
+(39b) line 10	Secwepemctsín	segmentation	yé=ws=ske	page 12, pairs
+(39b) line 11	Secwepemctsín	gloss	COP=3.SBJV=COND	page 12, pairs
+(39b) line 12	Secwepemctsín	segmentation	e=s-nes[-s]	page 12, pairs
+(39b) line 13	Secwepemctsín	gloss	COMP=NMLZ-go[-3.POSS]	page 12, pairs
+(39b) line 14	Secwepemctsín	segmentation	e=s-7etíc-s	page 12, pairs
+(39b) line 15	Secwepemctsín	gloss	COMP=NMLZ-sleep-3.POSS	page 12, pairs
+(39b) line 16	Secwepemctsín	segmentation	pyin	page 12, pairs
+(39b) line 17	Secwepemctsín	gloss	now	page 12, pairs
+(39b) line 18	Garlene Dodson	translation	‘If he is going hunting tomorrow, he should go to sleep now.’	page 12, pairs
+(39b) line 18	Bruce Oliver	citation	(vf | GD | 2.10.2023)	the tag or source at the right of the translation
+§4	Bruce Oliver	note	The lack of intention or desire in these environments extends to weather, as well, although this is not uncommon cross-linguistically:7	page 12
+(40) line 1	Bruce Oliver	note	Context: Sander is talking about going to the store, and he mentions to me that snow is on the forecast.	page 12, pairs
+(40) line 2	Secwepemctsín	transcription	e tsútes es wucwt.s, yewske ri7 ke7 stéwem tek lepél.	page 12, pairs
+(40) line 3	Secwepemctsín	segmentation	e	page 12, pairs
+(40) line 4	Secwepemctsín	gloss	if	page 12, pairs
+(40) line 5	Secwepemctsín	segmentation	tsút=es	page 12, pairs
+(40) line 6	Secwepemctsín	gloss	tsut=3.SBJV	page 12, pairs
+(40) line 7	Secwepemctsín	segmentation	e=s-wucwt-s	page 12, pairs
+(40) line 8	Secwepemctsín	gloss	COMP=NMLZ-snow-3.POSS	page 12, pairs
+(40) line 9	Secwepemctsín	segmentation	ye=w=ske	page 12, pairs
+(40) line 10	Secwepemctsín	gloss	COP=3.SBJV=should	page 12, pairs
+(40) line 11	Secwepemctsín	segmentation	ri7	page 12, pairs
+(40) line 12	Secwepemctsín	gloss	EMPH	page 12, pairs
+(40) line 13	Secwepemctsín	segmentation	k=e7-s-téw-em	page 12, pairs
+(40) line 14	Secwepemctsín	gloss	DC.IRR=2SG.POSS-NMLZ-buy-MID	page 12, pairs
+(40) line 15	Secwepemctsín	segmentation	tek=lepél	page 12, pairs
+(40) line 16	Secwepemctsín	gloss	DET.OBL.IRR=shovel	page 12, pairs
+(40) line 17	Ron Ignace	translation	‘If it’s going to snow, you should buy a shovel.’	page 12, pairs
+(40) line 17	Bruce Oliver	citation	(vf | RI | 4.4.2024)	the tag or source at the right of the translation
+§4	Bruce Oliver	note	These uses of tsut in conditionals, which seem not to reflect their subject’s intention or desire, are an indication that the range of meanings of tsut is broader than it may have seemed from the unembedded uses of tsut.	page 12
+§5	Bruce Oliver	heading	5 Analysis	page 12
+§5	Bruce Oliver	note	I will make two primary arguments in this section. First: the e= complementizer contributes prospec- tive aspect, and is responsible for the difference in meanings of tsut with and without e=. Second: the basic semantics of tsut is of a variable base modal: it can take either a doxastic modal base, which reflects the beliefs of the subject; or a circumstantial modal base, which reflects the different ways the world could take shape. These two parts together account for the semantics of tsut as a whole and all of its uses described so far.	page 12
+§5.1	Bruce Oliver	heading	5.1 The contribution of the e= complementizer	page 12
+§5.1	Bruce Oliver	note	What do the uses of tsut with the e= complementizer have in common? The meanings we have seen are:	page 12
+footnote 7	Bruce Oliver	note	7 Cf. English ‘it wants to rain’.	page 12, footnote
+§5.1	Bruce Oliver	note	• ‘going to’ • ‘want’ • ‘intend’ • ‘thinking of’ • ‘would like to’ • ‘have to’ One important commonality of all these meanings it that the time of the embedded proposition is placed after the reference time of the sentence. This is very clear in examples like (14) (repeated below as (41)), where the making of the fishing platform follows the reference time (in (41), the reference time is the time of utterance).	page 13
+(41) line 1	Secwepemctsín	transcription	tsut kucw es k̓úlems tek st̓ek.	page 13, pairs
+(41) line 2	Secwepemctsín	segmentation	tsut	page 13, pairs
+(41) line 3	Secwepemctsín	gloss	tsut	page 13, pairs
+(41) line 4	Secwepemctsín	segmentation	kucw	page 13, pairs
+(41) line 5	Secwepemctsín	gloss	1PL.EXCL	page 13, pairs
+(41) line 6	Secwepemctsín	segmentation	e=s-k̓úl-em-s	page 13, pairs
+(41) line 7	Secwepemctsín	gloss	COMP=NMLZ-make-MID-3.POSS	page 13, pairs
+(41) line 8	Secwepemctsín	segmentation	tek=st̓ek	page 13, pairs
+(41) line 9	Secwepemctsín	gloss	DET.OBL.IRR=fishing.platform	page 13, pairs
+(41) line 10	Kuipers 1974:168	translation	‘We’re going to make a fishing platform.’	page 13, pairs, cited Kuipers 1974:168
+(41) line 10	Bruce Oliver	citation	(Kuipers 1974:168)	the tag or source at the right of the translation
+§5.1	Bruce Oliver	note	Similarly, in cases like (22), repeated below as (42), the time of the embedded proposition (eat- ing) is after the reference time (when the desire is expressed).	page 13
+(42) line 1	Secwepemctsín	transcription	tsútst-ken ens íllen.	page 13, pairs
+(42) line 2	Secwepemctsín	segmentation	tsu<ts>t=ken	page 13, pairs
+(42) line 3	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 13, pairs
+(42) line 4	Secwepemctsín	segmentation	e=n-s-7íllen	page 13, pairs
+(42) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-eat	page 13, pairs
+(42) line 6	Kuipers 1974:79	translation	‘I want to eat.’	page 13, pairs, cited Kuipers 1974:79
+(42) line 6	Bruce Oliver	citation	(Kuipers 1974:79)	the tag or source at the right of the translation
+§5.1	Bruce Oliver	note	Note that this future orientation is not the same thing as future tense. Future tense would require the event to be in the future of the utterance time, but the embedded clause of tsut e= can be in the future of some past time. In (43), the embedded proposition, killing a child, was a possible future at the past time when the cougar’s intent was expressed.	page 13
+(43) line 1	Bruce Oliver	note	Context: One of your neighbors has just shot a cougar. You ask why: he answers that the cougar was on a rampage, killing cats and raccoons, and it has just cornered a child and was growling at it before it was shot. (Adapted from Rullmann et al. 2008)	page 13, pairs
+(43) line 2	Secwepemctsín	segmentation	re=smuwe7	page 13, pairs
+(43) line 3	Secwepemctsín	gloss	DET=cougar	page 13, pairs
+(43) line 4	Secwepemctsín	segmentation	tsut	page 13, pairs
+(43) line 5	Secwepemctsín	gloss	tsut	page 13, pairs
+(43) line 6	Secwepemctsín	segmentation	e=s-pul-s-t-s	page 13, pairs
+(43) line 7	Secwepemctsín	gloss	COMP=NMLZ-lie.down-CAUS-TR-3.ERG	page 13, pairs
+(43) line 8	Secwepemctsín	segmentation	re=sqwimé7melt	page 13, pairs
+(43) line 9	Secwepemctsín	gloss	DET=child	page 13, pairs
+(43) line 10	Secwepemctsín	segmentation	e	page 13, pairs
+(43) line 11	Secwepemctsín	gloss	if	page 13, pairs
+(43) line 12	Secwepemctsín	segmentation	ta7=wes	page 13, pairs
+(43) line 13	Secwepemctsín	gloss	NEG=3.SBJV	page 13, pairs
+(43) line 14	Secwepemctsín	segmentation	e=s-qe<q̓>l-n[-t-n]	page 13, pairs
+(43) line 15	Secwepemctsín	gloss	COMP=NMLZ-shoot<DIM>-CTR[-TR-1SG.ERG]	page 13, pairs
+(43) line 16	Ron Ignace	translation	‘The cougar would have killed a child if I hadn’t shot it.’	page 13, pairs
+(43) line 16	Bruce Oliver	citation	(vf | RI | 3.29.2021)	the tag or source at the right of the translation
+§5.1	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§5.1	Secwepemctsín	cited form	xil/xelnwén̓/xelnwélln̓	page 13
+§5.1	Bruce Oliver	note	As mentioned earlier, clauses introduced by e=s appear in numerous places in Secwepemctsín: as purposive clauses, and as the complement of other future-oriented claims such as ability (after xil/xelnwén̓/xelnwélln̓), and other infinitival uses. These uses all have future orientation in common.	page 13
+(44) line 1	Secwepemctsín	transcription	nens-ken te skul es xepqenwéw̓en ens tswewllcw tek tsitcw.	page 14, pairs
+(44) line 2	Secwepemctsín	segmentation	ne<n>s=ken	page 14, pairs
+(44) line 3	Secwepemctsín	gloss	go<DIM>=1SG.SBJV	page 14, pairs
+(44) line 4	Secwepemctsín	segmentation	te=skul	page 14, pairs
+(44) line 5	Secwepemctsín	gloss	DET.OBL=school	page 14, pairs
+(44) line 6	Secwepemctsín	segmentation	e=s-xepqe-nwé<w̓>en[-n]	page 14, pairs
+(44) line 7	Secwepemctsín	gloss	COMP=NMLZ-learn-LC.TR<DIM>[-1SG.ERG]	page 14, pairs
+(44) line 8	Secwepemctsín	segmentation	e=n-s-tswe<w>-llcw	page 14, pairs
+(44) line 9	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-build<DIM>-house	page 14, pairs
+(44) line 10	Secwepemctsín	segmentation	tek=tsitcw	page 14, pairs
+(44) line 11	Secwepemctsín	gloss	DET.OBL.IRR=house	page 14, pairs
+(44) line 12	Lyon and Ignace 2021:217	translation	‘I’m going to school to learn how to build a house.’	page 14, pairs, cited Lyon and Ignace 2021:217
+(44) line 12	Bruce Oliver	citation	(Lyon and Ignace 2021:217)	the tag or source at the right of the translation
+(45) line 1	Secwepemctsín	transcription	ta7 k sxenwén̓s es cwentés.	page 14, pairs
+(45) line 2	Secwepemctsín	segmentation	ta7	page 14, pairs
+(45) line 3	Secwepemctsín	gloss	NEG	page 14, pairs
+(45) line 4	Secwepemctsín	segmentation	k=s-xe[l]-nwén̓-s	page 14, pairs
+(45) line 5	Secwepemctsín	gloss	DC.IRR=NMLZ-able-LC.TR-3.ERG	page 14, pairs
+(45) line 6	Secwepemctsín	segmentation	e=s-cwe-n-t-és	page 14, pairs
+(45) line 7	Secwepemctsín	gloss	COMP=NMLZ-lift-CTR-TR-3.ERG	page 14, pairs
+(45) line 8	Mona Jules	translation	‘He is unable to lift it.’	page 14, pairs
+(45) line 8	Bruce Oliver	citation	(sf | MJ | 2.16.2022)	the tag or source at the right of the translation
+(46) line 1	Secwepemctsín	transcription	cw7ús-k te7 sqwetséts.	page 14, pairs
+(46) line 2	Secwepemctsín	segmentation	cw7ús=k	page 14, pairs
+(46) line 3	Secwepemctsín	gloss	eager=2SG.SBJV	page 14, pairs
+(46) line 4	Secwepemctsín	segmentation	te=7-s-qwetséts	page 14, pairs
+(46) line 5	Secwepemctsín	gloss	COMP=2SG.POSS-NMLZ-set.out	page 14, pairs
+(46) line 6	Kuipers 1974:86	translation	‘You’re eager to go.’	page 14, pairs, cited Kuipers 1974:86
+(46) line 6	Bruce Oliver	citation	(Kuipers 1974:86)	the tag or source at the right of the translation
+§5.1	Bruce Oliver	note	We can see this especially clearly in the following two examples, where the same predicate has a future-oriented complement with an e=s clause and a past-oriented complement with a te= relative clause.	page 14
+(47a) line 1	Secwepemctsín	transcription	tslexemstés es p̓íxems tek ú7se.	page 14, pairs
+(47a) line 2	Secwepemctsín	segmentation	ts-lexem-s-t-és	page 14, pairs
+(47a) line 3	Secwepemctsín	gloss	CUST-know-CAUS-TR-3.ERG	page 14, pairs
+(47a) line 4	Secwepemctsín	segmentation	e=s-p̓íx-em-s	page 14, pairs
+(47a) line 5	Secwepemctsín	gloss	COMP=NMLZ-fry-MID-3.POSS	page 14, pairs
+(47a) line 6	Secwepemctsín	segmentation	tek=7ú7se	page 14, pairs
+(47a) line 7	Secwepemctsín	gloss	DET.OBL.IRR=egg	page 14, pairs
+(47a) line 8	Lyon and Ignace unpublished	translation	‘She knows how to fry eggs.’	page 14, pairs, cited Lyon and Ignace unpublished
+(47a) line 8	Bruce Oliver	citation	(Lyon and Ignace unpublished)	the tag or source at the right of the translation
+(47b) line 1	Secwepemctsín	transcription	tslexemstés te m-tskíktsc-ken.	page 14, pairs
+(47b) line 2	Secwepemctsín	segmentation	ts-lexem-s-t-és	page 14, pairs
+(47b) line 3	Secwepemctsín	gloss	CUST-know-CAUS-TR-3.ERG	page 14, pairs
+(47b) line 4	Secwepemctsín	segmentation	te=m-ts-kí<k>tsc=ken	page 14, pairs
+(47b) line 5	Secwepemctsín	gloss	DC.OBL=PST-CSL-arrive<DIM>=1SG.SBJV	page 14, pairs
+(47b) line 6	Lyon and Ignace unpublished	translation	‘He knows that I’ve arrived.’	page 14, pairs, cited Lyon and Ignace unpublished
+(47b) line 6	Bruce Oliver	citation	(Lyon and Ignace unpublished)	the tag or source at the right of the translation
+§5.1	Bruce Oliver	note	In light of the behaviour of e=s clauses, I propose that the e= complementizer introduces prospec- tive aspect, which places the time of the embedded proposition in the future of a contextually spec- ified reference time.	page 14
+(48) line 1	Bruce Oliver	rule	J PROSP K = λ pλ wλt∃t[t ∈ [t, ∞) ∧ p(w) (t)]	page 14, engine residue
+(48) line 1	Bruce Oliver	citation	(Mari 2016)	page 14, engine residue
+§5.1	Bruce Oliver	note	I set aside the other necessary semantic elements of e= for now — particularly, its semantics as a complementizer that takes a nominalized clause — as the prospective aspect is the only crucial element for my analysis.	page 14
+§5.2	Bruce Oliver	heading	5.2 The semantics of tsut	page 15
+§5.2	Bruce Oliver	note	Now that we have established that the e= complementizer contributes prospective aspect, what is the semantic contribution of tsut? I will argue that it is a necessity modal — something that says ‘in all possible worlds of a particular sort, my embedded proposition is true’. The ‘particular sort’ of possible worlds is specified by the modal base, and different modal bases will yield the different meanings of tsut.	page 15
+§5.2	Bruce Oliver	note	Without an embedded e=s clause, tsut means ‘say’ or ‘believe’. I propose to capture this with a doxastic modal base, which yields the set of all worlds consistent with the beliefs of the subject. 8 I use a standard modal analysis of attitude verbs to capture this (cf. Heim 1992; Kratzer 1991).	page 15
+(49) line 1	Bruce Oliver	rule	Jtsut Kc,g is only defined if c provides a doxastic modal base.	page 15
+(49) line 2	Bruce Oliver	rule	Jtsut Kc,g = λ p⟨i,st⟩λ xλtλ w.∀w′[w′ ∈ (MB(w)(x)(t)) → p(w′)]	page 15
+§5.2	Bruce Oliver	note	As these uses lack the e=s clause and its prospective aspect, the embedded proposition of dox- astic tsut can be in the past of the event time, as it is simply a reported belief or statement. This is shown in (50) below.	page 15
+(50) line 1	Secwepemctsín	transcription	“mé7e!” tsut, “m-tít̓qwen lu7, m-tít̓qwen lu7.”	page 15, pairs
+(50) line 2	Secwepemctsín	segmentation	mé7e	page 15, pairs
+(50) line 3	Secwepemctsín	gloss	yes	page 15, pairs
+(50) line 4	Secwepemctsín	segmentation	tsut	page 15, pairs
+(50) line 5	Secwepemctsín	gloss	tsut	page 15, pairs
+(50) line 6	Secwepemctsín	segmentation	m-tí<t̓>qw-n[-t-n]	page 15, pairs
+(50) line 7	Secwepemctsín	gloss	PST-kill<DIM>-CTR-TR-1SG.ERG	page 15, pairs
+(50) line 8	Secwepemctsín	segmentation	lu7	page 15, pairs
+(50) line 9	Secwepemctsín	gloss	REM	page 15, pairs
+(50) line 10	Secwepemctsín	segmentation	m-tí<t̓>qw-n[-t-n]	page 15, pairs
+(50) line 11	Secwepemctsín	gloss	PST-kill<DIM>-CTR-TR-1SG.ERG	page 15, pairs
+(50) line 12	Secwepemctsín	segmentation	lu7	page 15, pairs
+(50) line 13	Secwepemctsín	gloss	REM	page 15, pairs
+(50) line 14	Kuipers 1974:103	translation	“Yes!” he said, “I killed them, I killed them.”	page 15, pairs, cited Kuipers 1974:103
+(50) line 14	Bruce Oliver	citation	(Kuipers 1974:103)	the tag or source at the right of the translation
+§5.2	Bruce Oliver	note	When tsut takes an embedded clause with the e= complementizer, it frequently indicates an intent or a desire, as in (21) and (22) (repeated as (51) and (52) below).	page 15
+(51) line 1	Secwepemctsín	transcription	tsut es qwetséts re Sander.	page 15, pairs
+(51) line 2	Secwepemctsín	segmentation	tsut	page 15, pairs
+(51) line 3	Secwepemctsín	gloss	tsut	page 15, pairs
+(51) line 4	Secwepemctsín	segmentation	e=s-qwetséts[-s]	page 15, pairs
+(51) line 5	Secwepemctsín	gloss	COMP=NMLZ-set.out[-3.POSS]	page 15, pairs
+(51) line 6	Secwepemctsín	segmentation	re=Sander	page 15, pairs
+(51) line 7	Secwepemctsín	gloss	DET=Sander	page 15, pairs
+(51) line 8	Ron Ignace	translation	‘Sander intends to go.’	page 15, pairs
+(51) line 8	Bruce Oliver	citation	(sf | RI | 11.21.2023)	the tag or source at the right of the translation
+(52) line 1	Secwepemctsín	transcription	tsútst-ken ens íllen.	page 15, pairs
+(52) line 2	Secwepemctsín	segmentation	tsu<ts>t=ken	page 15, pairs
+(52) line 3	Secwepemctsín	gloss	tsut<DIM>=1SG.SBJ	page 15, pairs
+(52) line 4	Secwepemctsín	segmentation	e=n-s-7íllen	page 15, pairs
+(52) line 5	Secwepemctsín	gloss	COMP=1SG.POSS-NMLZ-eat	page 15, pairs
+(52) line 6	Kuipers 1974:79	translation	‘I want to eat.’	page 15, pairs, cited Kuipers 1974:79
+(52) line 6	Bruce Oliver	citation	(Kuipers 1974:79)	the tag or source at the right of the translation
+footnote 8	Bruce Oliver	note	8 Technically, a doxastic modal base only covers beliefs, not statements or said things. This is because speak- ers can say things which they do not themselves believe. I do not address this issue in this paper, using a doxastic base to cover both believing and saying, but a more accurate account of this modal base deserves further research.	page 15, footnote
+§5.2	Bruce Oliver	note	I propose to capture these uses with a simple compositional approach: tsut remains a doxastic necessity modal, and the e= clause introduces prospective aspect. This places the time of the em- bedded proposition in the future of the time of the modal claim, meaning we now get a meaning like ‘in all of x’s belief worlds at t, p occurs some time after t.’	page 15
+(53) line 1	Bruce Oliver	rule	J tsut PROSP Kc,g = λ p⟨i,st⟩λ xλtλ w.∀w′[w′ ∈ MB(w)(x)(t) → ∃t[t ∈ [t, ∞) ∧ p(w′)(t)]]	page 16, engine english
+§5.2	Bruce Oliver	note	This denotation doesn’t quite capture the elements of intention or desire, though; it merely ex- presses a belief that some event will occur in the future. To capture this, we need to introduce an ordering source, which orders the worlds in the modal base according to some metric. In our case, these will be a bouletic ordering source, which orders worlds based on how well they fulfill the subject’s desires, and a similar teleological ordering source, which order worlds based on how well they fulfill the subject’s goals. I will not go into the details of their implementation, but see Portner (1997) for the implementation of bouletic modality and Kratzer (1991) for the implementaiton of ordering sources.	page 16
+§5.2	Bruce Oliver	note	Following Portner (2009), I also define a ‘best’ function that uses an ordering source to yield only the highest-ranked worlds from the modal base.	page 16
+(54) line 1	Bruce Oliver	rule	BESTOS(MB) = {w : w ∈ MB ∧ ¬∃w′ ∈ MB s.t. w′ ≤OS w}	page 16
+(54) line 1	Bruce Oliver	citation	(Adapted from Portner 2009)	page 16
+§5.2	Bruce Oliver	note	In other words, the best worlds in the modal base according to the ordering source are all worlds from the modal base that don’t have any worlds better-ranked than them.9	page 16
+§5.2	Bruce Oliver	note	Putting it all together, we have:	page 16
+(55) line 1	Bruce Oliver	rule	Jtsut PROSP Kc,g = λ p⟨i,st⟩λ xλtλ w.∀w′[w′ ∈ BESTOS(w)(x)(t) (MB(w)(x)(t)) → ∃t[t ∈ [t, ∞) ∧	page 16, engine english
+(55) line 2	Bruce Oliver	rule	p(w′)(t)]]	page 16, engine residue
+§5.2	Bruce Oliver	note	The fact that tsut e=s... yields readings of intention or desire, rather than simply a belief about a future event, likely derives from the fact that the subject of the embedded clause is, in all cases I have seen, the same as the subject of tsut. If John has a belief about what he himself will do in the future, this is most logically interpreted as a plan or a desire, as John would generally be assumed to have control over his future actions. I have not had a chance to elicit whether this match in subjecthood is a requirement of tsut e=s... constructions, or simply the most common occurrence of them. If different subjecthood is possible, I anticipate tsut e=s... could refer to a belief about a future event. Finally, we must account for the use in (36), (37), and (40) (repeated below as (56)), which do not involve the volition of a subject, but rather a natural progression of events.	page 16
+(56) line 1	Bruce Oliver	note	Context: Sander is talking about going to the store, and he mentions to me that snow is on the forecast.	page 16, pairs
+(56) line 2	Secwepemctsín	transcription	e tsútes es wucwt.s, yewske ri7 ke7 stéwem tek lepél.	page 16, pairs
+(56) line 3	Secwepemctsín	segmentation	e	page 16, pairs
+(56) line 4	Secwepemctsín	gloss	if	page 16, pairs
+(56) line 5	Secwepemctsín	segmentation	tsút=es	page 16, pairs
+(56) line 6	Secwepemctsín	gloss	tsut=3.SBJV	page 16, pairs
+(56) line 7	Secwepemctsín	segmentation	e=s-wucwt-s	page 16, pairs
+(56) line 8	Secwepemctsín	gloss	COMP=NMLZ-snow-3.POSS	page 16, pairs
+(56) line 9	Secwepemctsín	segmentation	ye=w=ske	page 16, pairs
+(56) line 10	Secwepemctsín	gloss	COP=3.SBJV=should	page 16, pairs
+(56) line 11	Secwepemctsín	segmentation	ri7	page 16, pairs
+(56) line 12	Secwepemctsín	gloss	EMPH	page 16, pairs
+(56) line 13	Secwepemctsín	segmentation	k=e7-s-téw-em	page 16, pairs
+(56) line 14	Secwepemctsín	gloss	DC.IRR=2SG.POSS-NMLZ-buy-MID	page 16, pairs
+(56) line 15	Secwepemctsín	segmentation	tek=lepél	page 16, pairs
+(56) line 16	Secwepemctsín	gloss	DET.OBL.IRR=shovel	page 16, pairs
+(56) line 17	Ron Ignace	translation	‘If it’s going to snow, you should buy a shovel.’	page 16, pairs
+(56) line 17	Bruce Oliver	citation	(vf | RI | 4.4.2024)	the tag or source at the right of the translation
+footnote 9	Bruce Oliver	note	9 w1 ≤OS w2 iff for all propositions p in OS, if w2 ∈ p, then w1 ∈ p; so w1 is better than w2 if w1 ≤OS w2.	page 16, footnote
+§5.2	Bruce Oliver	note	From a purely semantic point of view, this use of tsut e=s... is incompatible with the doxastic modal base, which sources possible worlds from a subject’s beliefs. Instead, I propose that these uses come from an alternative modal base: the circumstantial (or metaphysical) modal base. Broadly speaking, a circumstantial modal base contains possible worlds which reflect the ways the world might develop given its state at some time. Paired with this circumstantial modal base, the ordering source would be stereotypical, which ranks worlds higher the more closely they follow the normal proceeding of events. The denotation will look exactly the same as before, but with a circumstantial modal base and stereotypical ordering source provided by the context.10	page 16
+§5.3	Bruce Oliver	heading	5.3 Putting it all together	page 17
+§5.3	Bruce Oliver	note	Our final denotations are as follows. Without the e= complementizer, we have the denotation in (57); with the e= complementizer, we have the denotation in (58).	page 17
+(57) line 1	Bruce Oliver	rule	Jtsut K c,g is only defined when the context provides a circumstantial or doxastic modal base, and a bouletic, teleological, or stereotypical ordering source.	page 17
+(57) line 2	Bruce Oliver	rule	Jtsut Kc,g = λ p⟨i,st⟩λ xλtλ w.∀w′[w′ ∈ BESTOS(w)(x)(t) (MB(w)(x)(t)) → p(w′)]	page 17
+(58) line 1	Bruce Oliver	rule	Jtsut K c,g is only defined when the context provides a circumstantial or doxastic modal base, and a bouletic, teleological, or stereotypical ordering source.	page 17
+(58) line 2	Bruce Oliver	rule	Jtsute= Kc,g= J tsut PROSP Kc,g= λ p⟨i,st⟩λ xλtλ w.∀w′[w′ ∈ BESTOS(w)(x)(t) (MB(w)(x)(t)) → ∃t[t ∈ [t, ∞) ∧ p(w′)(t)]]	page 17
+§5.3	Bruce Oliver	note	These denotations account for the attested meanings of tsut in the following ways.	page 17
+§5.3	Bruce Oliver	note	1. Saying/thinking a statement/belief: tsut has a doxastic modal base and a stereotypical ordering source, so the embedded proposition is true in the most stereotypical of the subject’s belief worlds.	page 17
+§5.3	Bruce Oliver	note	2. Intending to do something: tsut has a doxastic modal base, a teleological ordering source, and prospective aspect, meaning the embedded proposition is true in the future of all of subject’s belief worlds which most closely correspond to achieving the subject’s goals.	page 17
+§5.3	Bruce Oliver	note	3. Wanting to do something: tsut has a doxastic modal base, a bouletic ordering source, and prospective aspect, meaning the embedded proposition is true in the future of all of subject’s belief worlds which most closely correspond to achieving the subject’s desires.	page 17
+§5.3	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§5.3	Bruce Oliver	note	4. Something will happen (in the antecedent of a conditional): tsut has a circumstantial modal base, a stereotypical ordering source, and prospective aspect, meaning the embedded propo- sition is true in all possible developments of the world which are most stereotypically likely. This analysis is inspired by Matthewson (2012) and Rullmann and Matthewson (2018), who incorporate prospective aspect as the source of future orientation for modals in general; the e= complementizer in Secwepemctsín is particularly reminiscent of Gitksan dim as an overt marker of prospective aspect (Matthewson 2012).	page 17
+footnote 10	Bruce Oliver	note	10 A small semantic issue is that a doxastic modal base takes an individual argument (the entity whose belief worlds we are interested in), whereas a circumstantial modal base does not. Adjusting the semantics to get this to work is a topic of future research.	page 17, footnote
+§5.3	Bruce Oliver	note	Without an e=s clause, no prospective aspect is present, and the subordinate clause of tsut is evaluated at the same time as tsut (or before, if a past tense is present in the subordinate clause). Following Matthewson (2006), I assume a null nonfuture tense on non-future-marked clauses, so the time of evaluation of tsut and its embedded clause would be a present or past time (depending on context). Following Condoravdi (2002), I propose that a circumstantial modal base must satisfy the Diversity Condition, which essentially states that the modal base must include p-worlds and not-p-worlds.	page 18
+(59) line 1	Bruce Oliver	note	Diversity Condition:	page 18
+(59) line 2	Bruce Oliver	rule	There is w in the common ground and w′, w′′ ∈ MB(w)(t) such that p(w ′ )(t) and ¬p(w′′)(t).	page 18
+(59) line 2	Bruce Oliver	citation	(Adapted from Condoravdi 2002)	page 18
+§5.3	Bruce Oliver	note	At a present or past time, the truth of p (the embedded proposition) is settled, so the Diversity Condition cannot be fulfilled. The Diversity Condition also applies to teleological and bouletic or- dering sources: to claim one desires or intends to p, p cannot already be settled. Therefore, the modal base of tsut cannot be circumstantial, and its ordering source cannot be teleological or bouletic: its only remaining option is a doxastic modal base with a stereotypical ordering source. In this way, I derive that the only reading of tsut when it does not embed an e=s clause is the doxastic (say/think) reading.	page 18
+§5.3	Bruce Oliver	note	Finally, why does tsut not appear with a circumstantial modal base outside of the limited context of the antecedent of a conditional? I posit that this may be due to competition effects with me7. Oliver (2023) analyzes me7 as a circumstantial modal, whereas tsut is a doxastic or circumstantial modal. In a context where a circumstantial modal is warranted, me7 is the more specific option, as it is compatible with a proper subset of the modal bases that tsut is compatible with. Gricean pragmatic reasoning leads conversational participants to choose (and assume) the most informative option (Grice 1975). Using this reasoning, a listener hearing tsut would assume that the speaker could not be making a circumstantial modal claim, as they would have chosen the more specific option, me7. Therefore, tsut is pragmatically favored to have a doxastic interpretation where me7 is available as an alternative. In the antecedent of a conditional, however, me7 is unavailable, so tsut is the only option for circumstantial modal claims and there is no pragmatic dispreference for circumstantial tsut.	page 18
+§6	Bruce Oliver	heading	6 Further questions	page 18
+§6	Bruce Oliver	note	Beyond the previous things I mentioned needing further elicitation and investigation, there are sev- eral unanswered questions pertaining to the semantics of tsut.	page 18
+§6	Bruce Oliver	note	First, it appears that tsut is preferred (or necessary) for future-in-the-past or counterfactual read- ings, and me7 is likewise dispreferred (or impossible).	page 18
+(60a) line 1	Secwepemctsín	transcription	re sqéxe tsut es ste7 tek séwllkwe k̓émell m-nexéll te m-t̓ek7ílc.	page 18, pairs
+(60a) line 2	Secwepemctsín	segmentation	re=sqéxe	page 18, pairs
+(60a) line 3	Secwepemctsín	gloss	DET=dog	page 18, pairs
+(60a) line 4	Secwepemctsín	segmentation	tsut	page 18, pairs
+(60a) line 5	Secwepemctsín	gloss	tsut	page 18, pairs
+(60a) line 6	Secwepemctsín	segmentation	e=s-ste7-s	page 18, pairs
+(60a) line 7	Secwepemctsín	gloss	COMP=[NMLZ-]drink-3.POSS	page 18, pairs
+(60a) line 8	Secwepemctsín	segmentation	k̓émell	page 18, pairs
+(60a) line 9	Secwepemctsín	gloss	but	page 18, pairs
+(60a) line 10	Secwepemctsín	segmentation	m-nexéll	page 18, pairs
+(60a) line 11	Secwepemctsín	gloss	PST-afraid	page 18, pairs
+(60a) line 12	Secwepemctsín	segmentation	te=m-t̓ek7ílc	page 18, pairs
+(60a) line 13	Secwepemctsín	gloss	DC.OBL=PST-run.away	page 18, pairs
+(60a) line 14	Lyon and Ignace 2021:222	translation	‘The dog was going to drink, but then it got scared and ran away.	page 18, pairs, cited Lyon and Ignace 2021:222
+(60a) line 14	Bruce Oliver	citation	(Lyon and Ignace 2021:222)	the tag or source at the right of the translation
+(60b) line 1	Secwepemctsín	transcription	# re sqéxe me7 ste7 tek séwllkwe k̓émell m-nexéll te m-t̓ek7ílc.	page 19, pairs
+(60b) line 2	Secwepemctsín	segmentation	re=sqéxe	page 19, pairs
+(60b) line 3	Secwepemctsín	gloss	DET=dog	page 19, pairs
+(60b) line 4	Secwepemctsín	segmentation	me7	page 19, pairs
+(60b) line 5	Secwepemctsín	gloss	CIRC.NEC	page 19, pairs
+(60b) line 6	Secwepemctsín	segmentation	ste7	page 19, pairs
+(60b) line 7	Secwepemctsín	gloss	drink	page 19, pairs
+(60b) line 8	Secwepemctsín	segmentation	tek=séwllkwe	page 19, pairs
+(60b) line 9	Secwepemctsín	gloss	DET.OBL.IRR=water	page 19, pairs
+(60b) line 10	Secwepemctsín	segmentation	k̓émell	page 19, pairs
+(60b) line 11	Secwepemctsín	gloss	but	page 19, pairs
+(60b) line 12	Secwepemctsín	segmentation	m-nexéll	page 19, pairs
+(60b) line 13	Secwepemctsín	gloss	PST-afraid	page 19, pairs
+(60b) line 14	Secwepemctsín	segmentation	te=m-t̓ek7ílc	page 19, pairs
+(60b) line 15	Secwepemctsín	gloss	DC.OBL=PST-run.away	page 19, pairs
+(60b) line 16	Lyon and Ignace 2021:222	translation	Intended: ‘The dog was going to drink, but then it got scared and ran away.’	page 19, pairs, cited Lyon and Ignace 2021:222
+(60b) line 17	Bruce Oliver	note	(The speaker indicated that re sqéxe me7 ste7 tek séwllkwe can only mean ‘the dog is going to drink water, not ‘the dog was going to drink water’.)	page 19, pairs
+(60b) line 18	Bruce Oliver	citation	(Lyon and Ignace 2021:222)	page 19, pairs
+§6	Bruce Oliver	note	This pattern is similar to that found in the antecedent of a conditional, where me7 is ruled out and tsut is the only option. It is not clear whether tsut can indicate circumstantial modality in these environments, like it can in the antecedent of a conditional. More study is needed of the future-in- the-past uses of tsut and the apparent lack thereof for me7. Does this hold throughout all uses of me7, or can me7 be used for future-in-the-past in certain contexts (e.g., a narrative set in the past)? How do the semantics of tsut and me7 reflect this difference?	page 19
+§6	Bruce Oliver	note	Second, (37) (repeated below as (61)) follows tsut with a k= clause (often called ‘irrealis’, and associated with negation, questions, conditionals, and some future uses (Kuipers 1974:57)) rather than an e=s clause.	page 19
+(61) line 1	Secwepemctsín	transcription	e tsútes k splek̓s re xyum te scenc ne tqeltqs re sqeltús, ta7 ri7 k tqelcíts̓e ri7 me7 estcistés.	page 19, pairs
+(61) line 2	Secwepemctsín	segmentation	e	page 19, pairs
+(61) line 3	Secwepemctsín	gloss	if	page 19, pairs
+(61) line 4	Secwepemctsín	segmentation	tsut=es	page 19, pairs
+(61) line 5	Secwepemctsín	gloss	tsut=3.SBJV	page 19, pairs
+(61) line 6	Secwepemctsín	segmentation	k=s-plek̓-s	page 19, pairs
+(61) line 7	Secwepemctsín	gloss	DC.IRR=NMLZ-fall-3.POSS	page 19, pairs
+(61) line 8	Secwepemctsín	segmentation	re=xyum	page 19, pairs
+(61) line 9	Secwepemctsín	gloss	DET=big	page 19, pairs
+(61) line 10	Secwepemctsín	segmentation	te=scenc	page 19, pairs
+(61) line 11	Secwepemctsín	gloss	DET.OBL=rock	page 19, pairs
+(61) line 12	Secwepemctsín	segmentation	ne=tqeltq-s	page 19, pairs
+(61) line 13	Secwepemctsín	gloss	LOC=high-3.POSS	page 19, pairs
+(61) line 14	Secwepemctsín	segmentation	re=sqeltús	page 19, pairs
+(61) line 15	Secwepemctsín	gloss	DET=mountain	page 19, pairs
+(61) line 16	Secwepemctsín	segmentation	ta7	page 19, pairs
+(61) line 17	Secwepemctsín	gloss	NEG	page 19, pairs
+(61) line 18	Secwepemctsín	segmentation	ri7	page 19, pairs
+(61) line 19	Secwepemctsín	gloss	EMPH	page 19, pairs
+(61) line 20	Secwepemctsín	segmentation	k=tqelcíts̓e	page 19, pairs
+(61) line 21	Secwepemctsín	gloss	DC.IRR=fence	page 19, pairs
+(61) line 22	Secwepemctsín	segmentation	ri7	page 19, pairs
+(61) line 23	Secwepemctsín	gloss	EMPH	page 19, pairs
+(61) line 24	Secwepemctsín	segmentation	me7	page 19, pairs
+(61) line 25	Secwepemctsín	gloss	CIRC.NEC	page 19, pairs
+(61) line 26	Secwepemctsín	segmentation	estcey-s-t-és	page 19, pairs
+(61) line 27	Secwepemctsín	gloss	stop-CAUS-TR-3.ERG	page 19, pairs
+(61) line 28	Ron Ignace	translation	‘If the big rock on the mountain is going to fall, there’s no fence that will stop it.’	page 19, pairs
+(61) line 29	Bruce Oliver	citation	(vf | RI | 6.30.2023)	page 19, pairs
+§6	Bruce Oliver	note	This complicates the compositional account of tsut with its complement clause, as although k= clauses are sometimes associated with a prospective aspect, this is not always the case, as in the case of negation and after question words. In (62), the k= complementizer embeds a state which holds at the time of utterance, and in (63), it embeds a past event.	page 19
+(62) line 1	Secwepemctsín	transcription	ta7 put k sle7s.	page 19, pairs
+(62) line 2	Secwepemctsín	segmentation	ta7	page 19, pairs
+(62) line 3	Secwepemctsín	gloss	NEG	page 19, pairs
+(62) line 4	Secwepemctsín	segmentation	put	page 19, pairs
+(62) line 5	Secwepemctsín	gloss	EMPH	page 19, pairs
+(62) line 6	Secwepemctsín	segmentation	k=s-le7-s	page 19, pairs
+(62) line 7	Secwepemctsín	gloss	DC.IRR=NMLZ-good-3.POSS	page 19, pairs
+(62) line 8	Kuipers 1974:81	translation	‘It’s not very good.’	page 19, pairs, cited Kuipers 1974:81
+(62) line 8	Bruce Oliver	citation	(Kuipers 1974:81)	the tag or source at the right of the translation
+(63) line 1	Secwepemctsín	transcription	stém̓i k stsk̓ulemétentst?	page 19, pairs
+(63) line 2	Secwepemctsín	segmentation	stém̓i	page 19, pairs
+(63) line 3	Secwepemctsín	gloss	what	page 19, pairs
+(63) line 4	Secwepemctsín	segmentation	k=s-tsk̓ulemét-n[-t]-ts-t	page 19, pairs
+(63) line 5	Secwepemctsín	gloss	DC.IRR=NMLZ-send.person-CTR[-TR]-2SG.OBJ-PASS	page 19, pairs
+(63) line 6	Kuipers 1974:222	translation	‘What were you sent for?’	page 19, pairs, cited Kuipers 1974:222
+(63) line 6	Bruce Oliver	citation	(Kuipers 1974:222)	the tag or source at the right of the translation
+§6	Bruce Oliver	note	Finally, a more in-depth analysis is needed of the nominalized and possessed form of tsut, which is seemingly only used to report someone’s opinions.	page 19
+(64) line 1	Secwepemctsín	transcription	ren stsutst w7ec re séysus re Ruby.	page 20, pairs
+(64) line 2	Secwepemctsín	segmentation	re=n-s-tsu<ts>t	page 20, pairs
+(64) line 3	Secwepemctsín	gloss	DET=1SG.POSS-NMLZ-tsut<DIM>	page 20, pairs
+(64) line 4	Secwepemctsín	segmentation	w7ec	page 20, pairs
+(64) line 5	Secwepemctsín	gloss	IPFV	page 20, pairs
+(64) line 6	Secwepemctsín	segmentation	re=séyse=us	page 20, pairs
+(64) line 7	Secwepemctsín	gloss	DC=play=3.SBJV	page 20, pairs
+(64) line 8	Secwepemctsín	segmentation	re=Ruby	page 20, pairs
+(64) line 9	Secwepemctsín	gloss	DET=Ruby	page 20, pairs
+(64) line 10	Ron Ignace	translation	‘I think Ruby is playing.’	page 20, pairs
+(64) line 10	Bruce Oliver	citation	(vf | RI | 11.21.2023)	the tag or source at the right of the translation
+§6	Bruce Oliver	note	It appears as though these constructions do not take e=s clauses to indicate future orientation, instead using me7. Unfortunately, me7 cannot appear alongside a determiner or complementizer (even if the determiner/complementizer is syntactically required, me7 ‘replaces’ it), so we cannot tell what complementizer is being used, but there is no nominalizer on the following predicate, so the syntactic configuration of the subordinate clause is definitely not the same as an e=s clause (which requires a nominalizer).	page 20
+(65) line 1	Secwepemctsín	transcription	te stsut.s me7 tscpelq̓ílc-ekwe.	page 20, pairs
+(65) line 2	Secwepemctsín	segmentation	te=s-tsut-s	page 20, pairs
+(65) line 3	Secwepemctsín	gloss	DET.OBL=NMLZ-tsut-3.POSS	page 20, pairs
+(65) line 4	Secwepemctsín	segmentation	me7	page 20, pairs
+(65) line 5	Secwepemctsín	gloss	CIRC.NEC	page 20, pairs
+(65) line 6	Secwepemctsín	segmentation	ts-c-pelq̓ílc=ekwe	page 20, pairs
+(65) line 7	Secwepemctsín	gloss	CSL-PREF-return=RPRT	page 20, pairs
+(65) line 8	Kuipers 1974:168	translation	‘He said he was coming back.’	page 20, pairs, cited Kuipers 1974:168
+(65) line 8	Bruce Oliver	citation	(Kuipers 1974:168)	the tag or source at the right of the translation
+(66) line 1	Secwepemctsín	transcription	ten stsutst me7 qwetséts-ken.	page 20, pairs
+(66) line 2	Secwepemctsín	segmentation	te=n-s-tsu<ts>t	page 20, pairs
+(66) line 3	Secwepemctsín	gloss	DET.OBL=1SG.POSS-NMLZ-tsut<DIM>	page 20, pairs
+(66) line 4	Secwepemctsín	segmentation	me7	page 20, pairs
+(66) line 5	Secwepemctsín	gloss	CIRC.NEC	page 20, pairs
+(66) line 6	Secwepemctsín	segmentation	qwetséts=ken	page 20, pairs
+(66) line 7	Secwepemctsín	gloss	leave=1SG.SBJV	page 20, pairs
+(66) line 8	Kuipers 1974:168	translation	‘I think I might be going.’	page 20, pairs, cited Kuipers 1974:168
+(66) line 8	Bruce Oliver	citation	(Kuipers 1974:168)	the tag or source at the right of the translation
+§6	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+§6	Bruce Oliver	language	St’át’imcets	St’át’imcets, Lillooet
+§6	Bruce Oliver	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson
+§6	Bruce Oliver	note	Much more remains to be investigated about tsut, but this paper represents a first hypothesis: I am excited to see whether it is disproven or supported by future discoveries. This paper represents another piece of the analysis of the modal system of Secwepemctsín, and reveals an interesting divergence from its neighboring Norther Interior Salish languages, St’át’imcets and Nɬeʔkepmxcín: tsut’s cognates in these language do not share the future-oriented modal uses. The contribution of the e= complementizer also represents a promising avenue for further investigation. The e= complementizer may have wider implications for modal interpretations in Secwepemctsín, and if my hypothesis that it contributes prospective aspect is on the right track, it provides further evidence for a separate prospective aspect being involved in future-oriented modality, advancing a discussion beginning with Condoravdi (2002).	page 20
+references	Bruce Oliver	heading	References	page 20
+references	Bruce Oliver	reference	Bochnak, M. Ryan, and Lisa Matthewson. 2020. Techniques in complex semantic fieldwork. Annual Review of Linguistics 6:261–283.	
+references	Bruce Oliver	reference	Condoravdi, Cleo. 2002. Temporal interpretation of modals: Modals for the present and for the past. In The construction of meaning, ed. David I. Beaver, Luis D. Casillas Martínez, Brady Z. Clark, and Stefan Kaufmann, volume 5987, 59–88. Standford, CA: CSLI.	
+references	Bruce Oliver	name	Secwépemc	the Secwépemc people, in the title of a reference
+references	Bruce Oliver	reference	First Voices. 2024. First Voices: Secwépemc. Online.	
+references	Bruce Oliver	reference	Gessner, Suzanne, Tracey Herbert, and Aliana Parker. 2022. Report on the status of B. C. First Nations languages. First Peoples’ Cultural Council.	
+references	Bruce Oliver	reference	Grice, Herbert P. 1975. Logic and conversation. In Speech acts, 41–58. Brill.	
+references	Bruce Oliver	reference	Heim, Irene. 1992. Presupposition projection and the semantics of attitude verbs. Journal of seman- tics 9:183–221.	
+references	Secwepemctsín	cited form	Yerí7	page 21
+references	Bruce Oliver	reference	Ignace, Marianne, and Ronald Ignace. 2017. Secwépemc people, land, and laws: Yerí7 re stsq’ey’s- kucw, volume 90. McGill-Queen’s UP.	
+references	Bruce Oliver	reference	Kratzer, Angelika. 1991. Modality. In Semantics: An international handbook of contemporary research, ed. Arnim von Stechow and Dieter Wunderlich, 639–650. de Gruyter, Berlin. Kuipers, Aert Hendrik. 1974. The Shuswap language. Moulton.	
+references	Bruce Oliver	reference	Lyon, John, and Marianne Ignace. 2021. Comparing futures: Nsyilxcen mi and Secwepemctsin me7. In Papers for the International Conference on Salish and Neighboring Languages 56, ed. Daniel Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, and Bailey Trotter, 167–225. Vancouver, BC: University of British Columbia: UBCWPL.	
+references	Bruce Oliver	language	Secwepemctsín	Secwepemctsín, Shuswap
+references	Bruce Oliver	reference	Lyon, John, and Marianne Ignace. unpublished. A teaching grammar of Secwepemctsín.	
+references	Bruce Oliver	reference	Mari, Alda. 2016. Actuality entailments: when the modality is in the presupposition. In Logical Aspects of Computational Linguistics. Celebrating 20 Years of LACL (1996–2016) 9th Interna- tional Conference, LACL 2016, Nancy, France, December 5-7, 2016, Proceedings 9, 191–210. Springer.	
+references	Bruce Oliver	reference	Matthewson, Lisa. 2004. On the methodology of semantic fieldwork. International Journal of American Linguistics 70:369–415.	
+references	Bruce Oliver	reference	Matthewson, Lisa. 2006. Temporal semantics in a superficially tenseless language. Linguistics and Philosophy 29:673–714.	
+references	Bruce Oliver	reference	Matthewson, Lisa. 2012. On the (non-)future orientation of modals. In Proceedings of Sinn und Bedeutung, volume 16, 431–446.	
+references	Bruce Oliver	reference	Oliver, Bruce. 2023. An analysis of circumstantial xwent in Secwepemctsín. In UBC Qualifying Papers.	
+references	Bruce Oliver	reference	Portner, Paul. 1997. The semantics of mood, complementation, and conversational force. Natural language semantics 5:167–212.	
+references	Bruce Oliver	reference	Portner, Paul. 2009. Modality, volume 1. Oxford University Press.	
+references	Bruce Oliver	reference	Rullmann, Hotze, and Lisa Matthewson. 2018. Towards a theory of modal-temporal interaction. Language 94:281–331.	
+references	Bruce Oliver	reference	Rullmann, Hotze, Lisa Matthewson, and Henry Davis. 2008. Modals as distributive indefinites. Natural Language Semantics 16:317–357.	
+references	Bruce Oliver	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson
+references	Bruce Oliver	reference	Thompson, Lawrence C., and M. Terry Thompson. 1996. Thompson River Salish dictionary: Nɬeʔkepmxcín. UMOPL.	
+references	Bruce Oliver	reference	Van Eijk, Jan. 2013. Lillooet-English dictionary. University of British Columbia Occasional Papers in Linguistics.	

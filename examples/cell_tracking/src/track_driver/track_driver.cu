@@ -712,7 +712,7 @@ static int run_fingerprint(const RunInputs *inputs)
     }
     if (ported)
     {
-        printf("  fingerprint on the host, anchor_sift's exact integer: %llu us; %llu of %llu prints differ from the "
+        printf("  fingerprint on the host, orior's exact integer: %llu us; %llu of %llu prints differ from the "
                "device\n",
                host_elapsed, differ, flattened.bodies);
     }

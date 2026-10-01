@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Retrieve the prior art this work cites, from the archives that publish it openly.
@@ -50,8 +50,8 @@ INTO = os.path.join(ROOT, "build", "prior_art")
 
 # Named, with a contact address. An archive operator can see who is asking and reach a person.
 AGENT = {
-    "User-Agent": "anchor-sift-research/1.0 "
-    "(https://github.com/dstroy0/anchor_sift; dquigg123@gmail.com)"
+    "User-Agent": "orior-research/1.0 "
+    "(https://github.com/dstroy0/orior; dquigg123@gmail.com)"
 }
 
 # Seconds between requests that reach a host. Longer than any limit these archives publish.

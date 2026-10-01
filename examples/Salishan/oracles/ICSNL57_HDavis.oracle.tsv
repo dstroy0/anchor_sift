@@ -1,0 +1,1005 @@
+where	who	kind	form	gloss
+front	Henry Davis	note	Papers for the International Conference on Salish and Neighboring Languages 57. D. K. E. Reisinger, Laura Griffin, Gloria Mellesmoen, Sander Nederveen, Bruce Oliver, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2022.	page 1
+front	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+front	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+front	Henry Davis	title	Are Pronouns Ever Predicative in Salish?*	page 1
+front	Henry Davis	byline	Henry Davis, University of British Columbia	page 1
+front	Henry Davis	note	Abstract: Salish languages are well-known for what might be termed “the primacy of the predicate”: the claim that the core function of lexical items of any grammatical class is predicative. One of the most striking examples of this phenomenon is the appearance of pronouns (along with proper names, the most referential and therefore argument-related of categories) in canonical predicate position: that is, clause initially, without an introductory determiner. In the first part of this paper, I show that in St’át’imcets (Lillooet), this appearance is deceptive: in fact, “predicative” pronouns are DPs, and occupy the focus position of a covert cleft. In the second part of the paper, I investigate the structure of clefts more closely, considering particularly the status of the determiner which introduces the remnant (non-focused) constituent. I argue that St’át’imcets has two types of cleft, equational and “bare CP”: the former involves an identity relation between two referential arguments, while the latter involves a relation between a referential DP in focus position and a predicative remnant. In the last part of the paper, I consider the St’át’imcets facts in a cross-Salish context. I identify two major types of independent pronoun system: invariant systems, where pronouns do not vary according to syntactic position, and alternating systems, where they appear with determiners in argument positions, but without them in predicative positions. I examine one language representing each type in more detail: Secwepemctsín (Shuswap) for the invariant type and Northern Straits Salish for the alternating type. Secwepemctsín provides extra evidence for the concealed cleft analysis, since its independent pronouns are invariably introduced by D, whichever position they occupy. Northern Straits, though at first sight amenable to an analysis where clause- initial pronouns are predicative, turns out to support a rather different analysis, in which independent pronouns are special types of clefting predicates, as originally proposed by Shank (2003).	page 1
+front	Henry Davis	note	Keywords: Salish, St’át’imcets, Secwepemctsín, Northern Straits Salish, independent pronouns, predication, clefts, determiners, equational sentences	page 1
+front	Henry Davis	name	Henry Davis	author, University of British Columbia
+§1	Henry Davis	heading	1 Introduction	page 1
+footnote *	Henry Davis	note	*As ever, my deepest debt is to the St’át’imcets speakers, past and present, whose insights and wisdom pervade this work. For this paper, I am particularly grateful to Carl Alexander (Qway7án’ak) who now almost single-handedly makes ongoing research on Upper St’át’imcets possible. I would also like to thank the members of the Salish Working Group, and particularly Lisa Matthewson for helpful comments. Finally, according to my calculations, this paper is my 40th submission to the ICSNL, which equals the number of contributions by the late M. Dale Kinkade. The fact that I am still engaged in a conversation about Salish with Dale nearly twenty years after his own final submission points to his fundamental and enduring influence on the field. This work has been supported by SSHRC Insight grant #435-2020-1293 to the author. Author’s e-mail: henry.davis@ubc.ca.	page 1, footnote
+§1	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§1	Henry Davis	name	Qway7án’ak	Carl Alexander's St’át’imcets name
+§1	Henry Davis	note	It is common in the descriptive literature on Salish languages to come across the claim that all words (with the exception of a closed class of “grammatical particles”) are primarily predicative. All words, except for a limited number of grammatical particles, have primarily predicative functions, and are only secondarily adapted for uses as subjects, objects, or instruments. (Thompson and Kinkade 1990:33) All words except the numerous particles have a primarily predicative function… (Kinkade et al. 1998:53) One particularly striking potential piece of evidence for what might be termed “the primacy of the predicate” in Salish comes from full word pronouns. (These are usually referred to as emphatic or independent in the Salish literature: I will use the latter term here.) Pronouns are generally taken to have an irreducibly referential core, and via standard assumptions about the syntax-semantics mapping, should therefore be confined to — or at least found primarily in — argument positions. But in Salish, independent pronouns are claimed to be primarily predicative in function, like nouns and other lexical categories; for example, Kinkade (1983:29) asserts that “…utterances that correspond to nouns or pronouns in English are also predicative, and often overtly so, with subject and/or object markers attached.” As far as nouns are concerned, Kinkade is undoubtedly correct: nominal predication is widely and robustly attested across Salish. (In fact, nominal predicates are generally more common than in English, since they are often used as a focusing device in the absence of intonational marking for information structure: see Koch 2008a.) Since independent pronouns apparently show the same alternation between predicate and argument positions as common noun phrases (and are also used as a focusing device in initial position), it is then natural to assume with Kinkade that they share the same syntax.	page 1
+§1	Henry Davis	note	Van Eijk (1997) makes precisely this assumption for “personal” (i.e., independent) pronouns in St’át’imcets (a.k.a. Lillooet, Northern Interior Salish; ISO 639-3: lil), the language which will be the main topic of investigation here.	page 2
+§1	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§1	Henry Davis	note	In the first place, personal pronouns may occur as predicates, i.e. with a 3S intransitive subject marker of the indicative, subjunctive, or factual paradigm. Such predicates express ‘it is me, you, him, us, etc.’ (or ‘I am, you are, etc. the one [who]...’) (Van Eijk 1997:163) In the first part of this paper, I take issue with this claim for St’át’imcets, following up on earlier work by Thoma (2007). After giving an overview of the distribution of independent pronouns, I go on to show that in clause-initial position, they behave just like clefted DPs, and crucially unlike predicative NPs. I provide evidence for this claim from the distribution of determiners: in the remnant clauses of clefts and independent pronouns, determiners show a striking pattern of number neutralization which is absent in the arguments to nominal predicates. In the second part of the paper, I further explore the implications of this pattern for the grammar of nominal predicates and clefts in St’át’imcets. I argue that the distribution of number neutralization on determiners can be explained if their source is examined more closely: in particular, whereas the determiner introducing the argument to a nominal predicate is base- generated externally to NP, the determiner on the second (non-focused) argument of a cleft may be moved (like a relative pronoun) from inside a clausal remnant. This indicates that, whereas the argument to a nominal predicate is always a DP, the cleft remnant can be a bare CP, as previously claimed for Nɬeʔkepmxcín by Koch (2008b) and Koch and Zimmermann (2009). I further argue that clefts come in two varieties in St’át’imcets: DP DP clefts, and DP CP clefts. DP DP clefts have the structure of equational sentences: they are reversible and permit a full (headed) relative clause in the second (remnant) constituent. DP CP clefts are non-reversible and do not permit a headed relative clause on the remnant. Number neutralization in clefts (and by extension, with independent pronouns) falls out from the availability of both types of cleft: whereas the DPs in DP DP clefts agree in number, CPs are never number-marked, and therefore there is no number agreement in DP CP clefts.	page 2
+§1	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§1	Henry Davis	note	In the last part of the paper, I turn to the issue of variation in the grammar of independent pronouns across Salish. It turns out there are two principal types of system: invariant systems, like in St’át’imcets, where the form of independent pronouns is the same in predicate and argument position; and alternating systems, such as those found in many Central Salish languages, where independent pronouns occur with an initial determiner in argument position which is absent in predicate position. The alternating type occurs in a geographically contiguous set of Central Salish languages, whereas invariant pronoun systems seem to be more widespread across the family. Rather than attempting a comprehensive overview of the whole family, I concentrate on two languages whose independent pronoun systems have been previously analyzed in some detail: Secwepemctsín (a.k.a. Shuswap, Northern Interior; ISO 639-3: shs) representing the invariant type, and Northern Straits Salish (Central Salish; ISO 639-3: str), representing the alternating type.	page 3
+§2	Henry Davis	heading	2 An Overview of Independent Pronouns in St’át’imcets	page 3
+§2	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§2	Henry Davis	note	The St’át’imcets independent pronoun paradigm is given in Table 1:	page 3
+Table 1 line 1	Henry Davis	note	Table 1: Independent pronouns in St’át’imcets	page 3, the caption
+Table 1 line 2	Henry Davis	note	Singular Plural	page 3, heads the columns below
+Table 1 line 3	St’át’imcets	transcription	sʔənc(a)	page 3, first person singular
+Table 1 line 3	St’át’imcets	transcription	sʔíʔənc	page 3, first person singular
+Table 1 line 3	St’át’imcets	transcription	(wi=)snímuɬ	page 3, first person plural
+Table 1 line 4	St’át’imcets	transcription	snúwa	page 3, second person singular
+Table 1 line 4	St’át’imcets	transcription	snu	page 3, second person singular
+Table 1 line 4	St’át’imcets	transcription	(wi=)snuláp	page 3, second person plural
+Table 1 line 5	St’át’imcets	transcription	sniɬ	page 3, third person singular
+Table 1 line 5	St’át’imcets	transcription	wi=sníɬ	page 3, third person plural
+§2	St’át’imcets	cited form	sniɬ	page 3
+§2	Proto-Salish	cited form	*cəniɬ	page 3, the Proto-Salish third person independent pronoun (Newman 1977), footnote 1
+§2	Henry Davis	note	The paradigm contains five stems, all reconstructible to Proto-Salish (Newman 1977:305). The initial s, however, is not: it is an analogical extension from third person sniɬ, which is itself derived via spirantization from Proto -Salish *cəniɬ.1 There is no third person plural stem, as is typical in Salish: the proclitic wi= found on the plural pronouns is an associative plural marker, also found with proper names and as an additive (+) operator with numbers: see Davis (2019). In terms of the distinction between invariant and alternating pronoun systems introduced above, St’át’imcets has an invariant system: in other words, independent pronouns never occur with determiners, irrespective of syntactic position.	page 3
+§2	Henry Davis	note	Independent pronouns occur in six environments in St’át’imcets, as described below in (i–vi). Though I will mainly be concerned here with (i) and (ii), I give an overview of the other cases for completeness.	page 3
+§2	Henry Davis	note	(i) In initial (“predicate”) position. Independent pronouns are common in initial position with a focus interpretation (‘It’s me/you/she who…’ or perhaps more accurately “I/you/s/he am/are/is the one who…’).	page 3
+footnote 1	Henry Davis	note	1 The presence of initial s- suggests that all independent pronouns in St’át’imcets are nominalized. However, the nominalizer is invariably present, irrespective of the syntactic position of the pronoun: in this respect, independent pronouns behave like nominalized common nouns rather than proper nouns, where the nominalizer is syntactically active (Davis 2019).	page 3, footnote
+(1) line 1	St’át’imcets	segmentation	sʔə́nc=kəɬ kʷu=nəm̓-xál, snúwa kʷu=ʔúcəz̓-q-am̓.	page 4, engine language
+(1) line 2	St’át’imcets	gloss	1SG.IND=FUT DET=paddle-ACT 2SG.IND DET=get.straightened-bottom-MID	page 4, engine english, carries footnote 2, written here without its digit
+(1) line 3	Henry Davis	translation	‘I’ll paddle, you steer.’	page 4, engine english
+(1) line 3	Henry Davis	citation	(Alexander et al. in prep)	the tag or source at the right of the translation
+(2) line 1	St’át’imcets	segmentation	sniɬ ʔayɬ ƛ̓it ta=waʔ núk̓ʷʔ-an-c-as.	page 4, engine language
+(2) line 2	St’át’imcets	gloss	3IND then also DET=IPFV help-DIR-1SG.OBJ-3ERG	page 4, engine english
+(2) line 3	Henry Davis	translation	‘So then he was helping me, too.’	page 4, engine english
+(3) line 1	St’át’imcets	segmentation	wi=snímuɬ kʷu=xʷúz̓ mays-ən-táli.	page 4, engine language
+(3) line 2	St’át’imcets	gloss	ASSOC=1PL.IND DET=PROS fix-DIR-NTS	page 4, engine english
+(3) line 3	Henry Davis	translation	‘We are the ones who are going to fix it.’	page 4, engine english
+(4) line 1	St’át’imcets	segmentation	snuláp=as kʷu= núk̓ʷʔ-áy̓ɬ.	page 4, engine language
+(4) line 2	St’át’imcets	gloss	2PL.IND=3SJV DET=help-people	page 4, engine english
+(4) line 3	Henry Davis	translation	‘You folks better help out.’ (More literally: ‘May it be you folks who help out.’)	page 4, engine english
+§2	Henry Davis	note	Clause-initial independent pronouns in St’át’imcets are never doubled by agreement morphology on their clausal remnant.3	page 4
+(5) line 1	St’át’imcets	segmentation	snuláp [ta=ʔac̓x̌-ən(*-tumuɬ)-án=a].	page 4, engine language
+(5) line 2	St’át’imcets	gloss	2PL.IND [DET=see-DIR(*-2PL.OBJ)-1SG.ERG=EXIS]	page 4, engine english
+(5) line 3	Henry Davis	translation	‘You folks were the ones I saw.’	page 4, engine english
+footnote 2	Henry Davis	note	2 Examples are given in the North American Phonetic Alphabet as commonly employed by Salishanists. Glossing abbreviations are as follows: ABSN = absent, ACT = active intransitive, ASSOC = associative plural, AUT = autonomous intransitive (lexical reflexive), AX = agent extraction marker, CAUS = causative transitivizer, CIRC = circumstantial modal, CLF = cleft marker, COMP = complementizer, CTR = control transitivizer, COP = copula/clefting predicate, CT = control, D/C = determiner/complementizer, DEM = demonstrative, DET = determiner, DIM = diminutive, DIR = directive (control) transitivizer, ERG = ergative (transitive subject) suffix, EVID = evidential enclitic, EXCL = exclusive enclitic, EXIS = existential enclitic, FUT = future modal, HAB = habitual, IND = independent (emphatic) pronoun, INFORM = informative enclitic, INST = instrument, IPFV = imperfective, IRR = irrealis modal, LINK = ‘linking” particle, MID = middle, NMLZ = nominalizer, NTS = non-topical subject marker, OBJ = object suffix, PL = plural, POSS = possessive, PROG = progressive, PROS = prospective aspect, Q = yes-no question marker, RDP = reduplicative morpheme, RDR = redirective (applicative) transitivizer, REIN = “reinforcer”, RLT = relational (applicative) transitivizer, SBD = subordinate subject, SJV = subjunctive (“conjunctive”) subject clitic, STAT = stative, SUBJ = indicative subject clitic, SUP = superlative, TR = transitivizer. An affix is marked with a hyphen (-), a clitic with an equal sign (=), an infix with <…>, material deleted by a regular phonological rule by {…}, and unsegmentable morpheme combinations with a plus sign (+). All unattributed examples are elicited by the author.	page 4, footnote
+footnote 3	Henry Davis	note	3 This is one area where the grammar of independent pronouns is known to vary across (and apparently also within) Salish languages: co-occurrence of object agreement with a clause-initial independent pronouns has been reported in the Hul’q’umin’um (Island) dialect of Halkomelem (Gerdts 1988:83), ʔayʔaǰuθəm (Comox- Sliammon: Watanabe 2003:157), the Samish dialect of Northern Straits Salish (Shank 2003), Upper Chehalis (Kroeber 1999:284), Nɬeʔkepmxcín (Thompson River Salish: Kroeber 1999:295), and Secwepemctsín (Gardiner 1993; Lyon and Ignace 2021). In Southern Interior Salish, doubling of fronted independent pronouns by agreement is routine for all grammatical functions (Kroeber 1999:303–306; see also Lyon and Ignace 2021).	page 4, footnote
+§2	Henry Davis	language	Hul’q’umin’um	Hul’q’umin’um, the Island dialect of Halkomelem, a Central Salish language
+§2	Henry Davis	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, a Central Salish language
+§2	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§2	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+(6) line 1	St’át’imcets	segmentation	wi=sníɬ [ʔi=ƛ̓íq(*=wit)=a].	page 5, engine language
+(6) line 2	St’át’imcets	gloss	ASSOC=3IND [PL.DET=get.here(*=3PL)=EXIS]	page 5, engine english
+(6) line 3	Henry Davis	translation	‘They are the ones who arrived.’	page 5, engine english
+§2	Henry Davis	note	(ii) In the focus position of a cleft. There are two subcases to consider here.	page 5
+§2	St’át’imcets	cited form	niɬ	page 5
+§2	Henry Davis	note	(a) Following the clefting predicate/copula niɬ. As far as I can see, the interpretation of these cases is identical to that of (i) — and in fact, speakers tend to regard niɬ as redundant with independent pronouns. Nevertheless, they accept such cases as grammatical, and occasionally produce them spontaneously.	page 5
+(7) line 1	St’át’imcets	segmentation	niɬ sʔənc ta=cixʷ-s-twítas=a ʔə=ta=n-skíxəzʔ=a.	page 5, engine language
+(7) line 2	St’át’imcets	gloss	COP 1SG.IND DET=get.there-CAUS-3PL.ERG=EXIS to=DET=1SG.POSS-mother=EXIS	page 5, engine english
+(7) line 3	Henry Davis	translation	‘It was me that they brought to my mother.’	page 5, engine english
+(7) line 3	Henry Davis	citation	(volunteered form: Carl Alexander)	the tag or source at the right of the translation
+(8) line 1	St’át’imcets	segmentation	(niɬ) snúwa ti=waʔ ʔíƛ̓-əm.	page 5, engine language
+(8) line 2	St’át’imcets	gloss	(COP) 2SG.IND DET=IPFV sing-MID	page 5, engine english
+(8) line 3	Thoma 2007:116	translation	‘YOU are singing.’ / It’s you who is singing.’	page 5, engine english, cited Thoma 2007:116
+(8) line 3	Henry Davis	citation	(Thoma 2007:116)	the tag or source at the right of the translation, carries footnote 4
+§2	St’át’imcets	cited form	cukʷ(=ƛ̓uʔ	page 5, ‘only’
+§2	St’át’imcets	cited form	ʔíʔwaʔ	page 5, ‘even’
+§2	Henry Davis	note	(b) Following the focusing predicates cukʷ(=ƛ̓uʔ) ‘only’ and ʔíʔwaʔ ‘even’ (the latter in the Lower dialect only). Here the focusing predicate is obligatory (as might be expected, since it has non-recoverable semantic content).	page 5
+(9) line 1	St’át’imcets	segmentation	cúkʷ=ƛ̓uʔ sniɬ mútaʔ na=skʷúzaʔ-s=a wi=s-Pipayán	page 5, engine language
+(9) line 2	St’át’imcets	gloss	only=EXCL 3IND and ABSN.DET=offspring-3POSS=EXIS ASSOC=NMLZ-Pipayán	page 5, engine english
+(9) line 3	St’át’imcets	segmentation	nəɬ=waʔ waʔ látiʔ kʷu=cítxʷ.	page 5, engine language
+(9) line 4	St’át’imcets	gloss	PL.ABSN.DET=IPFV be there DET=house	page 5, engine english
+(9) line 5	Matthewson 2005:358	translation	‘Only she and her daughter Pipayán lived in that house.’	page 5, engine english, cited Matthewson 2005:358
+(9) line 5	Henry Davis	citation	(Matthewson 2005:358)	the tag or source at the right of the translation
+(10) line 1	St’át’imcets	segmentation	ʔíʔwaʔ sʔənc ti=cúkʷ=a.	page 5, engine language
+(10) line 2	St’át’imcets	gloss	even 1SG.IND DET=finish=EXIS	page 5, engine english
+(10) line 3	Van Eijk 1997:242	translation	‘Even I quit.’	page 5, engine english, cited Van Eijk 1997:242
+(10) line 3	Henry Davis	citation	(Van Eijk 1997:242)	the tag or source at the right of the translation
+§2	Henry Davis	note	(iii) In argument position. Here the independent pronoun appears in an argument position, cross- registered with agreement morphology on the predicate, and either with or (more often) without an immediately following nominal restriction. With a restriction, a determiner is possible (11) but is usually absent (12).	page 5
+(11) line 1	St’át’imcets	segmentation	niɬ ʔi=ṣə̣́ṣth=a waʔ cunam̓-ən-túmuɬ-as snímuɬ	page 5, engine language
+(11) line 2	St’át’imcets	gloss	COP PL.DET=nun=EXIS IPFV teach-DIR-1PL.OBJ-3ERG 1PL.IND	page 5, engine english
+(11) line 3	St’át’imcets	segmentation	ʔi=sməɬ-mə́<m̓>ɬac=a.	page 5, engine language
+(11) line 4	St’át’imcets	gloss	PL.DET=PL.RDP-woman<DIM.RDP>=EXIS	page 5, engine english
+(11) line 5	Matthewson 2005:449	translation	‘It was the nuns who taught us girls.’	page 5, engine english, cited Matthewson 2005:449
+(11) line 5	Henry Davis	citation	(Matthewson 2005:449)	the tag or source at the right of the translation
+footnote 4	Henry Davis	note	4 Thoma (2007:116) remarks that: “The consultant offers both forms [with and without niɬ] and both translations on different occasions. This task was repeated over the course of several weeks, and both forms were consistently treated as identical.”	page 5, footnote
+(12) line 1	St’át’imcets	segmentation	wənáxʷ=kaɬ=ƛ̓uʔ sxə́<x>əm̓’ wi=snímuɬ ʔaw̓t ʔúxʷalmixʷ.	page 6, engine language
+(12) line 2	St’át’imcets	gloss	true=1PL.POSS=EXCL foolish<DIM.RDP> ASSOC=1PL.IND after person	page 6, engine english
+(12) line 3	Henry Davis	translation	‘We’re truly foolish, we people who came afterwards.’	page 6, engine english
+(12) line 3	Henry Davis	citation	(Edwards et al. in prep)	the tag or source at the right of the translation
+(13) line 1	St’át’imcets	segmentation	qʷuqʷtaʔ-s=kán=ƛ̓uʔ sʔənc.	page 6, engine language
+(13) line 2	St’át’imcets	gloss	nothing-CAUS=1SG.SUBJ=EXCL 1SG.IND	page 6, engine english
+(13) line 3	Henry Davis	translation	‘I don’t give a damn about it.’	page 6, engine english
+(14) line 1	St’át’imcets	segmentation	swát=kaxʷ snúwa?	page 6, engine language
+(14) line 2	St’át’imcets	gloss	who=2SG.SUBJ 2SG.IND	page 6, engine english
+(14) line 3	Henry Davis	translation	‘Who are you?”	page 6, engine english
+(15) line 1	St’át’imcets	segmentation	xʷáʔxʷʔak(=Ø) sniɬ, qʷacác=kaɬ mútaʔ.	page 6, engine language, carries footnote 5, written here without its digit
+(15) line 2	St’át’imcets	gloss	awake(=3SUBJ) 3IND leave=1PL.SUBJ again	page 6, engine english
+(15) line 3	Edwards et al. 2017:49	translation	‘He was awake, so we set off again.’	page 6, engine english, cited Edwards et al. 2017:49
+(15) line 3	Henry Davis	citation	(Edwards et al. 2017:49)	the tag or source at the right of the translation
+§2	Henry Davis	note	I also include here cases of “pronoun-headed relative clauses” (Davis 2003a), where the restriction consists of a headless relative clause rather than a nominal, again either with an introductory determiner, as in (16), or (more frequently) without, as in (17)–(18).	page 6
+(16) line 1	St’át’imcets	segmentation	ɬáx̌ʷ=kan ʔayɬ [sʔə́nca [ti=waʔ qʷənúx̌ʷ]].	page 6, engine language
+(16) line 2	St’át’imcets	gloss	heal=1SG.SUBJ now [1SG.IND [DET=IPFV sick]]	page 6, engine english
+(16) line 3	Davis 2003a	translation	‘I who was sick am better now.’	page 6, engine english, cited Davis 2003a
+(16) line 3	Henry Davis	citation	(Davis 2003a)	the tag or source at the right of the translation
+(17) line 1	St’át’imcets	segmentation	páq=kaxʷ ʔayɬ [snúwa [waʔ naq̓ʷ-c-xí{t}-c-as	page 6, engine language
+(17) line 2	St’át’imcets	gloss	get.caught=2SG.SUBJ now [2SG.IND [IPFV steal-mouth-RDR-1SG.OBJ-3ERG	page 6, engine english
+(17) line 3	St’át’imcets	segmentation	nəɬ=n-stƛ̓ák̓əl̕=a]]!	page 6, engine language
+(17) line 4	St’át’imcets	gloss	PL.ABSN.DET=1SG.POSS-lunch=EXIS]]	page 6, engine english
+(17) line 5	Davis 2003a	translation	‘You’re sorry now, you who were stealing my lunch off me!’	page 6, engine english, cited Davis 2003a
+(17) line 5	Henry Davis	citation	(Davis 2003a)	the tag or source at the right of the translation
+(18) line 1	St’át’imcets	segmentation	tákəm ʔi=n-snək̓ʷ-núk̓ʷʔ=a qlil-min̓-c-álitas	page 6, engine language
+(18) line 2	St’át’imcets	gloss	all PL DET=1SG.POSS-PL.RDP-friend=EXIS angry-RLT-1SG.OBJ-3PL.ERG	page 6, engine english
+(18) line 3	St’át’imcets	segmentation	[sʔə́nca [waʔ kakzaʔ-min-tanemwítas]].	page 6, engine language
+(18) line 4	St’át’imcets	gloss	[1SG.IND [IPFV lie-RLT-PL.NTS]]	page 6, engine english
+(18) line 5	Henry Davis	translation	‘All my friends were angry at me for lying about them.’ (More literally ‘All my friends were angry at me who was lying about them.’)	page 6, engine english
+(18) line 5	Henry Davis	citation	(Davis 2003a)	the tag or source at the right of the translation
+footnote 5	Henry Davis	note	5 I have marked the null third person subject clitic =Ø here to emphasize that this case also involves doubling of agreement by an independent pronoun, just as in first and second person cases.	page 6, footnote
+§2	St’át’imcets	cited form	=Ø	page 6
+§2	Henry Davis	note	Given that the restriction can be introduced by a determiner, as in (11) and (16), I assume it must be a DP. And given that an independent pronoun cross-referenced by agreement can certainly appear without a restriction, but a restriction cannot appear without the independent pronoun, I further assume that the argument position is occupied by the pronoun, with the restriction adjoined, as in (19).6	page 6
+(19) line 1	Henry Davis	notation	DP	page 7, a tree, the nodes and types on its line 1 read left to right
+(19) line 2	Henry Davis	notation	DPhead DPadjunct	page 7, a tree, the nodes and types on its line 2 read left to right
+(19) line 3	Henry Davis	notation	IND (D) NP	page 7, a tree, the nodes and types on its line 3 read left to right
+§2	Henry Davis	note	This is close to the analysis of Lai (1998) for equivalent cases in Secwepemctsín. However, Lai assumes that the independent pronoun is an adjunct to a (sometimes covert) nominal in these cases, rather than the reverse: this means that for her, independent pronouns never occupy argument positions directly.	page 7
+§2	Henry Davis	note	Lai’s evidence for this assumption comes from binding. She claims that in Secwepemctsín, independent pronouns take on the binding properties of whatever element they adjoin to: they show Condition C effects when attached to referential DPs, and Condition B effects when attached to pronouns (i.e., pro): see Lai (1998:31).7 However, this evidence is unavailable in St’át’imcets, where Condition C is routinely violated (Davis 2009): see (20). Independent pronouns can be coreferential with referential antecedents with or without nominal restrictions, as shown in (21)– (22).8	page 7
+(20) line 1	St’át’imcets	segmentation	cut ʔinátxʷas [kʷ=s=xʷuz̓ =s qʷacác ta=n-səmʔám=a	page 7, engine language
+(20) line 2	St’át’imcets	gloss	say yesterday [D/C=NMLZ=PROS=3POSS leave DET=1SG.POSS-wife=EXIS	page 7, engine english
+(20) line 3	St’át’imcets	segmentation	natxʷ].	page 7, engine language
+(20) line 4	St’át’imcets	gloss	tomorrow]	page 7, engine english
+(20) line 5	Henry Davis	translation	‘[My wife]i said yesterday shei was going to leave tomorrow.’ (More literally: ‘Shei said yesterday that [my wife]i was going to leave tomorrow.’)	page 7, engine english
+(21) line 1	St’át’imcets	segmentation	cut ʔinátxʷas [kʷ=s=xʷuz̓ =s qʷacác sniɬ n-snúk̓ʷʔ=a	page 7, engine language
+(21) line 2	St’át’imcets	gloss	say yesterday [D/C=NMLZ=PROS=3POSS leave 3IND 1SG.POSS-friend=EXIS	page 7, engine english
+(21) line 3	St’át’imcets	segmentation	natxʷ].	page 7, engine language
+(21) line 4	St’át’imcets	gloss	tomorrow]	page 7, engine english
+(21) line 5	Henry Davis	translation	‘[My friend]i said yesterday shei was going to leave tomorrow.’ (More literally: ‘Shei said yesterday that [she my friend]i was going to leave tomorrow.’)	page 7, engine english
+footnote 6	Henry Davis	note	6 There is a technical issue here with respect to how to distinguish the adjunct from the adjunction site, since they are of the same category. For present purposes, I have circumvented it with arbitrary subscripts: the reader should feel free to choose their favourite labeling algorithm instead.	page 7, footnote
+footnote 7	Henry Davis	note	7 Lai’s arguments rest on the assumption that referential DPs show standard Condition C effects in Secwepemctsín, as originally claimed by Matthewson et al. (1993) and Gardiner (1993). Given that all neighbouring languages show Condition C violations (see Davis 2009 on St’át’imcets; Koch 2006 on Nɬeʔkepmxcín; Lyon 2013 on Nsyílxcen), this assumption merits further investigation.	page 7, footnote
+§2	Henry Davis	language	Nsyílxcen	Nsyílxcen, Okanagan, a Southern Interior Salish language
+footnote 8	Henry Davis	note	8 In these examples, temporal adverbs are used to “trap” the Condition C -violating R-expression inside the subordinate clause. Without this safeguard, the R-expression could be construed as the matrix clause subject, a problem that affects many Condition C-related examples in the literature, including those in Gardiner, Lai (1998), and Wiltschko (2002).	page 7, footnote
+(22) line 1	St’át’imcets	segmentation	cut ʔinátxʷas [kʷ=s=xʷuz̓ =s qʷacác sniɬ natxʷ].	page 8, engine language
+(22) line 2	St’át’imcets	gloss	say yesterday [D/C=NMLZ=PROS=3POSS leave 3IND tomorrow]	page 8, engine english
+(22) line 3	Henry Davis	translation	‘S/he said yesterday she was going to leave tomorrow.’	page 8, engine english
+(22) line 4	Henry Davis	speaker comment	Consultant’s comment: “Yeah, that’s the same person that’s talking and leaving.”	page 8, engine english
+§2	Henry Davis	note	Given these facts, Condition C cannot be used straightforwardly to distinguish independent pronouns from referential DPs, and therefore Lai’s arguments cannot be extended to St’át’imcets. I will therefore continue to assume that independent pronouns may directly occupy argument position, rather than always being adjoined to a (possibly null) argument DP.	page 8
+§2	Henry Davis	note	(iv) As a dislocated adjunct. Both left-dislocation and right-dislocation of independent pronouns are attested, with or without an accompanying nominal. In both cases, the independent pronoun is doubled by a pronominal clitic or affix on the predicate.	page 8
+(23) line 1	St’át’imcets	segmentation	xʷúz̓ =ɬkan=ƛ̓uʔ k̓ʷáɬ-xal kʷu=lawyer, sʔənc.	page 8, engine language
+(23) line 2	St’át’imcets	gloss	PROS=1SG.SUBJ=EXCL hire-ACT DET=lawyer 1SG.IND	page 8, engine english
+(23) line 3	Henry Davis	translation	‘I’m going to hire a lawyer, me.’	page 8, engine english
+(23) line 3	Henry Davis	citation	(Mitchell in press)	the tag or source at the right of the translation
+(24) line 1	St’át’imcets	segmentation	sʔənc mútaʔ cʔá-wna s-Forrest, xʷúz̓=ɬkaɬ cʔa nʔíʔəz̓k=a	page 8, engine language
+(24) line 2	St’át’imcets	gloss	1SG.IND and this-precise NMLZ-Forrest PROS=1PL.SUBJ this middle=EXIS	page 8, engine english
+(24) line 3	Henry Davis	translation	‘Me and this fellow Forrest, we were going to go in the middle.’	page 8, engine english
+(24) line 3	Henry Davis	citation	(Mitchell in press)	the tag or source at the right of the translation
+(25) line 1	St’át’imcets	segmentation	k̓ámaɬa snuláp sməlh-múɬač, ʔíxʷaʔ ʔəs={s}wəlmín̓k látiʔ	page 8, engine language
+(25) line 2	St’át’imcets	gloss	however 2PL.IND PL.RDP-woman without have=rifle there	page 8, engine english
+(25) line 3	St’át’imcets	segmentation	məs=kál̕ap=ƛ̓uʔ zúqʷ-nuxʷ ta=sƛ̓aɬáləm=a!	page 8, engine language
+(25) line 4	St’át’imcets	gloss	but=2PL.SUBJ=EXCL kill-game DET=grizzly=EXIS	page 8, engine english
+(25) line 5	Alexander 2016:78	translation	‘But you women, without even a rifle, you killed a grizzly!’	page 8, engine english, cited Alexander 2016:78
+(25) line 5	Henry Davis	citation	(Alexander 2016:78)	the tag or source at the right of the translation
+§2	Henry Davis	note	(v) As the object of a preposition. Since clitics and affixes cannot attach to prepositions (which are themselves proclitics), the only way for a pronoun to serve as the object of a preposition is in the form of an independent pronoun.	page 8
+(26) line 1	St’át’imcets	segmentation	swat kʷu=c̓ilh-ál̕qʷəm̓ ʔə=snúwa?	page 8, engine language
+(26) line 2	St’át’imcets	gloss	who DET=like-appearance to=2SG.IND	page 8, engine english
+(26) line 3	Henry Davis	translation	‘Who looks like you?’	page 8, engine english
+(27) line 1	St’át’imcets	segmentation	waʔ kátiʔ ʔi=núkʷ=a ɬəl=wi=snímulh waʔ	page 8, engine language
+(27) line 2	St’át’imcets	gloss	IPFV around.there PL.DET=other=EXIS from=ASSOC=1PL.IND IPFV	page 8, engine english
+(27) line 3	St’át’imcets	segmentation	ka-qan̓im-əns-twítas-a ʔi=sámʔ=a	page 8, engine language
+(27) line 4	St’át’imcets	gloss	CIRC-hear-DIR-3PL.ERG-CIRC PL.DET=white.people=EXIS	page 8, engine english
+(27) line 5	St’át’imcets	segmentation	ɬas qʷəl̕-qʷal̕ə́<l̕>t.	page 8, engine language
+(27) line 6	St’át’imcets	gloss	COMP+IPFV+3SJV PL.RDP-speak<DIM.RDP>	page 8, engine english
+(27) line 7	Henry Davis	translation	‘Some of us around there could understand the white people when they talked.’	page 8, engine english
+(27) line 7	Henry Davis	citation	(Mitchell in press)	the tag or source at the right of the translation
+(28) line 1	St’át’imcets	segmentation	kə́laʔ kʷ=s=xʷák=i ɬəl=wi=snuláp.	page 9, engine language
+(28) line 2	St’át’imcets	gloss	first D/C=NMLZ=wake=3PL.POSS from=ASSOC=1PL.IND	page 9, engine english
+(28) line 3	Alexander et al. in prep.	translation	‘They woke up before you folks.’	page 9, engine english, cited Alexander et al. in prep.
+(28) line 3	Henry Davis	citation	(Alexander et al. in prep.)	the tag or source at the right of the translation
+§2	Henry Davis	note	(vi) In coordinate structures. When a pronoun needs to be coordinated either with another pronoun or with a full DP in an argument position, independent forms are employed. The independent pronoun in these cases doubles a clitic or affix on the predicate.9	page 9
+(29) line 1	St’át’imcets	segmentation	cíxʷ=kaɬ ʔákʷuʔ pankʷúph=a sʔənc mútaʔ	page 9, engine language
+(29) line 2	St’át’imcets	gloss	get.there=1PL.SUBJ to.there Vancouver=EXIS 1SG.IND and	page 9, engine english
+(29) line 3	St’át’imcets	segmentation	ta=n-snúk̓ʷʔ=a.	page 9, engine language
+(29) line 4	St’át’imcets	gloss	DET=1SG.POSS-friend=EXIS	page 9, engine english
+(29) line 5	Henry Davis	translation	‘I went to Vancouver with my friend.’	page 9, engine english
+(30) line 1	St’át’imcets	segmentation	stə́x̌ʷ=ƛ̓uʔ waʔ ɬəm̓-c-ám̓ s-pə́plaʔ ɬwan	page 9, engine language
+(30) line 2	St’át’imcets	gloss	really=EXCL IPFV stingy-mouth-MID NMLZ-Pépla COMP+IPFV+1SG.SJV	page 9, engine english, carries footnote 7, written here without its digit
+(30) line 3	St’át’imcets	segmentation	ʔam̓-c-án̓-wit sniɬ mútaʔ ta=máw=a.	page 9, engine language
+(30) line 4	St’át’imcets	gloss	get.fed-mouth-DIR-3PL.OBJ 3IND and DET=cat=EXIS	page 9, engine english
+(30) line 5	Alexander et al. in prep.	translation	‘Pépla7 (name of a dog) is really stingy with food when I feed him and the cat together.’	page 9, engine english, cited Alexander et al. in prep.
+(30) line 6	Henry Davis	citation	(Alexander et al. in prep.)	page 9, engine english
+§2	Henry Davis	note	Before going to look in more detail at the predicative cases in (i) and (ii), a couple of more general conclusions can be drawn from the distribution and interpretation of independent pronouns in St’át’imcets.	page 9
+§2	Henry Davis	note	First, though they are often used for focus, this is by no means always the case. Overall, it is best to regard their distribution negatively: they occur wherever pronominal clitics or affixes either cannot occur (e.g., when coordinated with a DP) or cannot yield a particular interpretation (e.g., when focused).	page 9
+§2	Henry Davis	note	Second, in argument positions they behave very much like other DPs, in spite of lacking determiners. They co-occur obligatorily with agreement morphology, may be coordinated with other DPs, and act as the objects of prepositions — all characteristic properties of DP. With this in mind, I now take a closer look at the “predicative” cases introduced in (i) and (ii) above.	page 9
+§3	Henry Davis	heading	3 Predicative Pronouns as Disguised Clefts	page 9
+§3	St’át’imcets	cited form	niɬ	page 9
+§3	Henry Davis	note	The question I’m going to consider in this section is quite simple: given that “predicative” independent pronouns appear to alternate freely with clefted independent pronouns, as shown in (i) and (ii) in Section 2, should we treat the two structures as separate, or derive (i) from (ii) by optional deletion/non-pronunciation of the clefting predicate/copula niɬ?	page 9
+footnote 9	Henry Davis	note	9 As a rule, the agreement morphology in these structures is plural even when the independent pronoun in the coordinate structure is singular, thus matching the number of the whole coordinated DP rather than that of the individual conjuncts; however, some speakers also allow singular agreement when the coordinate structure contains a singular pronoun.	page 9, footnote
+§3	Henry Davis	note	I argue here for the second option, based on the following line of reasoning (see Thoma 2007 for an earlier version of this hypothesis, based on partially different evidence). If the structures in	page 9
+§3	Henry Davis	note	(i) involve predicative pronouns, then they must be of category NP, not DP, since whereas NP predicates are well attested in Salish, DPs, being saturated, can never act as predicates: this means that independent pronouns in predicate positions should test as NPs. If on the other hand the structures in (i) are disguised clefts, then independent pronouns in clause-initial position should act like DPs, since the focus of a cleft is a DP rather than an NP (and more generally, the relevant structures should show the diagnostic properties of clefts).	page 10
+§3	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§3	Henry Davis	note	It turns out that independent pronouns in clause-initial position in St’át’imcets test systematically as DPs. The principal evidence presented here for this conclusion involves a pattern of number neutralization on the determiner which introduces the remnant clause following the clause-initial independent pronoun. I show that number neutralization is tolerated with clefts and (plural) independent pronouns, but not with nominal predicates.	page 10
+§3.1	Henry Davis	heading	3.1 Number Neutralization on Determiners	page 10
+§3.1	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§3.1	Henry Davis	note	St’át’imcets is one of only two Salish languages to systematically mark number in its determiner system.10 The system is given below in Table 2.	page 10
+Table 2 line 1	Henry Davis	note	Table 2: St’át’imcets determiners	page 10, the caption
+Table 2 line 2	Henry Davis	note	assertion-of-existence (a-o-e) ¬ a-o-e	page 10, heads the columns below
+Table 2 line 3	Henry Davis	note	present absent invisible	page 10, the columns under a-o-e
+Table 2 line 4	St’át’imcets	transcription	ta/ti=…=a	page 10, − plural, common, a-o-e, present
+Table 2 line 4	St’át’imcets	transcription	na/ni=…=a	page 10, − plural, common, a-o-e, absent
+Table 2 line 4	St’át’imcets	transcription	kʷu=…=a	page 10, − plural, common, a-o-e, invisible
+Table 2 line 4	St’át’imcets	transcription	kʷu=	page 10, − plural, common, ¬ a-o-e
+Table 2 line 5	St’át’imcets	transcription	kʷ=	page 10, − plural, proper, the only form in its row
+Table 2 line 6	St’át’imcets	transcription	ʔi=…=a	page 10, + plural, − collective, a-o-e, present
+Table 2 line 6	St’át’imcets	transcription	nəɬ=…=a	page 10, + plural, − collective, a-o-e, absent
+Table 2 line 6	St’át’imcets	transcription	kʷəɬ=…=a	page 10, + plural, − collective, a-o-e, invisible
+Table 2 line 6	St’át’imcets	transcription	(kʷəɬ=)	page 10, + plural, − collective, ¬ a-o-e
+Table 2 line 7	St’át’imcets	transcription	ki=…=a	page 10, + plural, + collective, the only form in its row
+§3.1	Henry Davis	note	Plural marking on determiners is obligatory: count nouns in argument positions can only be interpreted as singular with singular determiners (31a), and only as plural with plural determiners (31b).11	page 10
+(31a) line 1	St’át’imcets	segmentation	waʔ wáz̓-am ta=sqáx̌ʔ=a.	page 10, engine language
+(31a) line 2	St’át’imcets	gloss	IPFV bark-MID SG.DET=dog=EXIS	page 10, engine english
+(31a) line 3	Henry Davis	translation	‘A dog is barking.’	page 10, engine english
+(31a) line 4	Henry Davis	translation	≠ ‘Some dogs are barking.’	page 10, engine english
+(31b) line 1	St’át’imcets	segmentation	waʔ wáz̓-am ʔi=sqáx̌ʔ=a.	page 10, engine language
+(31b) line 2	St’át’imcets	gloss	IPFV bark-MID PL.DET=dog=EXIS	page 10, engine english
+(31b) line 3	Henry Davis	translation	‘Some dogs are barking.’	page 10, engine english
+(31b) line 4	Henry Davis	translation	≠ ‘A dog is barking.’	page 10, engine english
+§3.1	Henry Davis	note	Furthermore, count nouns in argument positions pluralized by reduplication or modified by numerals or plural quantifiers obligatory take plural determiners.	page 10
+footnote 10	Henry Davis	note	10 The other is Nuxalk/Bella Coola. Halkomelem and Squamish have an optional plural determiner confined to animate (usually human) referents.	page 10, footnote
+footnote 11	Henry Davis	note	11 Number is neutralized on mass nouns: see Davis (2014).	page 10, footnote
+(32a) line 1	St’át’imcets	segmentation	ƛ̓iq ʔi=sməɬ-múɬac=a.	page 11, engine language
+(32a) line 2	St’át’imcets	gloss	arrive.here PL.DET=PL.RDP-woman=EXIS	page 11, engine english
+(32a) line 3	Henry Davis	translation	‘Some women arrived.’	page 11, engine english
+(32b) line 1	St’át’imcets	segmentation	* ƛ̓iq ta=sməɬ-múɬac=a.	page 11, engine language
+(32b) line 2	St’át’imcets	gloss	arrive.here SG.DET=PL.RDP-woman=EXIS	page 11, engine english
+(33a) line 1	St’át’imcets	segmentation	xʷʔit ʔi=sməɬ-múɬac=a.	page 11, engine language
+(33a) line 2	St’át’imcets	gloss	many PL.DET=PL.RDP-woman=EXIS	page 11, engine english
+(33a) line 3	Henry Davis	translation	‘There are many women.’	page 11, engine english
+(33b) line 1	St’át’imcets	segmentation	* xʷʔit ta=sməɬ-múɬac=a.	page 11, engine language
+(33b) line 2	St’át’imcets	gloss	many SG.DET=PL.RDP-woman=EXIS	page 11, engine english
+§3.1	Henry Davis	note	Conversely, only plural determiners can be used to introduce the arguments of pluralized predicates:	page 11
+(34a) line 1	St’át’imcets	segmentation	sməɬ-múɬac ʔi=ƛ̓íq=a.	page 11, engine language
+(34a) line 2	St’át’imcets	gloss	PL.RDP-woman PL.DET=arrive.here=EXIS	page 11, engine english
+(34a) line 3	Henry Davis	translation	‘The ones who arrived are woman.’	page 11, engine english
+(34b) line 1	St’át’imcets	segmentation	* sməɬ-múɬac ta=ƛ̓íq=a.	page 11, engine language
+(34b) line 2	St’át’imcets	gloss	PL.RDP-woman SG.DET=arrive.here=EXIS	page 11, engine english
+§3.1	Henry Davis	note	This also includes plural complex nominal predicates (CNPs) in which a predicative NP is modified by an individual-level AP or NP:	page 11
+(35a) line 1	St’át’imcets	segmentation	nx̌ʷəx̌ʷʔúcin sk̓ʷúk̓ʷmiʔt ʔi=waʔ ʕíc̓-ləx.	page 11, engine language
+(35a) line 2	St’át’imcets	gloss	four.HUM child PL.DET=IPFV make.noise-AUT	page 11, engine english
+(35a) line 3	Henry Davis	translation	‘The ones making noise were four children.’	page 11, engine english
+(35b) line 1	St’át’imcets	segmentation	* nx̌ʷəx̌ʷʔúcin sk̓ʷúk̓ʷmiʔt ta=waʔ ʕíc̓-ləx.	page 11, engine language
+(35b) line 2	St’át’imcets	gloss	four.HUM child SG.DET=IPFV make.noise-AUT	page 11, engine english
+(35b) line 3	Henry Davis	speaker comment	Consultant’s comment: “Nah, that ta makes it out.”	page 11, engine english
+(35c) line 1	St’át’imcets	segmentation	nx̌ʷəx̌ʷʔúcin sk̓ʷəm-k̓ʷúk̓ʷmiʔt ʔi=waʔ ʕíc̓-ləx.	page 11, engine language
+(35c) line 2	St’át’imcets	gloss	four.HUM PL.RDP-child PL.DET=IPFV make.noise-AUT	page 11, engine english
+(35c) line 3	Henry Davis	translation	‘The ones making noise were four children.’	page 11, engine english
+(35d) line 1	St’át’imcets	segmentation	* nx̌ʷəx̌ʷʔúcin sk̓ʷəm-k̓ʷúk̓ʷmiʔt ta=waʔ ʕíc̓-ləx.	page 11, engine language
+(35d) line 2	St’át’imcets	gloss	four.HUM PL.RDP-child DET=IPFV make.noise-AUT	page 11, engine english
+(35d) line 3	Henry Davis	speaker comment	Consultant’s comment: “That ta makes it out.”	page 11, engine english
+footnote 12	Henry Davis	note	12 Example (58) in Davis (2003b), with number neutralization on the determiner introducing the argument of a CNP, contradicts this generalization. Having subsequently elicited multiple parallel examples, none of which permit number neutralization, I now believe that that example is an anomalous case. I stand self- corrected.	page 11, footnote
+§3.2	Henry Davis	heading	3.2 Number Marking with “Predicative” Pronouns	page 12
+§3.2	Henry Davis	note	It turns out that in contrast to nominal predicates, number is systematically neutralized on the constituent following a clause-initial plural independent pronoun: either plural or singular determiners are permitted. This was first mentioned by van Eijk (1997:241), and first exemplified in Davis (2003b).	page 12
+(36) line 1	St’át’imcets	segmentation	wi=sniɬ ta=ɬum-un̓-tálih=a ta=nq̓íx̌ctən=a waʔ ʔəs-lạ́k.	page 12, engine language
+(36) line 2	St’át’imcets	gloss	ASSOC=3PL.IND SG.DET=install-DIR-NTS=EXIS DET=gate=EXIS IPFV STAT-lock	page 12, engine english
+(36) line 3	Alexander in prep.	translation	‘It was they who installed the locked gate.’	page 12, engine english, cited Alexander in prep.
+(36) line 3	Henry Davis	citation	(Alexander in prep.)	the tag or source at the right of the translation
+(37) line 1	St’át’imcets	segmentation	snuláp=ha na=/nəɬ=ʔac̓x̌-ən-c-ás=a?	page 12, engine language
+(37) line 2	St’át’imcets	gloss	2PL.IND=Q SG.ABSN.DET=/PL.ABSN.DET=see-DIR-1SG.OBJ-3ERG=EXIS	page 12, engine english
+(37) line 3	Davis 2003b	translation	‘Was it you folks who saw me?’	page 12, engine english, cited Davis 2003b
+(37) line 3	Henry Davis	citation	(Davis 2003b)	the tag or source at the right of the translation
+(38) line 1	St’át’imcets	segmentation	wi=smímuɬ na=/nəɬ=qlíl=a.	page 12, engine language
+(38) line 2	St’át’imcets	gloss	ASSOC=1PL.IND SG.ABSN.DET=/PL.ABSN.DET=angry=EXIS	page 12, engine english
+(38) line 3	Davis 2003b	translation	‘We are the ones that got angry.’	page 12, engine english, cited Davis 2003b
+(38) line 3	Henry Davis	citation	(Davis 2003b)	the tag or source at the right of the translation
+(39) line 1	St’át’imcets	segmentation	wi=sniɬ ta=/ʔi=waʔ c̓úqʷaz̓-am.	page 12, engine language
+(39) line 2	St’át’imcets	gloss	ASSOC=3IND SG.DET=/PL.DET=IPFV fish-MID	page 12, engine english
+(39) line 3	Henry Davis	translation	‘It was them that went fishing.’	page 12, engine english
+§3.3	Henry Davis	heading	3.3 Number Marking in Clefts	page 12
+§3.3	Henry Davis	note	It is difficult to test number neutralization with clefted DPs based on common nouns, because as a rule clefts tolerate only a single determiner across both focus and remnant constituents. This means that when a DP is clefted, there is normally no determiner on the remnant constituent, and therefore no opportunity to check for number neutralization.13	page 12
+(40) line 1	St’át’imcets	segmentation	niɬ ʔi=naplít=a mútaʔ ʔi=ṣə̣́ṣth=a [waʔ kʷúkʷ-xit-an].	page 12, engine language
+(40) line 2	St’át’imcets	gloss	COP PL.DET=priest=EXIS and PL.DET=nun=EXIS [IPFV cook-RDR-1SG.ERG]	page 12, engine english
+(40) line 3	Matthewson 2005:479	translation	‘I cooked for the priests and nuns.’	page 12, engine english, cited Matthewson 2005:479
+(40) line 3	Henry Davis	citation	(Matthewson 2005:479)	the tag or source at the right of the translation
+(41) line 1	St’át’imcets	segmentation	niɬ ʔi=x̌zúm=a ƛ̓áq̓ʷ-mən [waʔ qʷəz-ən-án].	page 12, engine language
+(41) line 2	St’át’imcets	gloss	COP PL.DET=big=EXIS nail-INST [IPFV use-DIR-1SG.ERG]	page 12, engine english
+(41) line 3	Henry Davis	translation	‘I used big nails.’	page 12, engine english
+(41) line 3	Henry Davis	citation	(Alexander et al. in prep)	the tag or source at the right of the translation
+(42) line 1	St’át’imcets	segmentation	niɬ ʔi=sx̌ʷáʔs=a [waʔ ʔáma kʷu=sc̓wán].	page 12, engine language
+(42) line 2	St’át’imcets	gloss	COP PL.DET=sockeye=EXIS [IPFV good DET=dried.salmon]	page 12, engine english
+(42) line 3	Henry Davis	translation	‘Sockeyes make good dried salmon.’	page 12, engine english
+(42) line 3	Henry Davis	citation	(Alexander et al. in prep)	the tag or source at the right of the translation
+footnote 13	Henry Davis	note	13 Exactly why this should be the case remains a puzzle. I am inclined to believe that it is due to a surface filter, related to the “Double Determiner Filter” of Davis (2010), which prevents two adjacent determiners from surfacing in relative clauses. The reasons are: (a) its effects are variable (speakers will accept cases with determiners on both focus and remnant, though they seldom if ever produce them); (b) it seems to be at least partially a linear effect (except in the case of proper nouns, it is always the first D which is retained, and the second deleted); (c) it is difficult to see how the difference between clefted common nouns and proper nouns would follow from deeper principles.	page 12, footnote
+§3.3	St’át’imcets	cited form	kʷ=	page 13
+§3.3	Henry Davis	note	However, this pattern is reversed when proper nouns are clefted: they lose their proprial determiner kʷ=, and the cleft remnant is then introduced by a determiner.14	page 13
+(43) line 1	St’át’imcets	segmentation	niɬ ʔayɬ lcʔa s-máma [ti=húz̓=a	page 13, engine language
+(43) line 2	St’át’imcets	gloss	COP now here NMLZ-Máma [DET=PROS=EXIS	page 13, engine english
+(43) line 3	St’át’imcets	segmentation	qʷəl̕-qʷal̕ə<l̕>t-mín-an]	page 13, engine language
+(43) line 4	St’át’imcets	gloss	speak-PL.RDP<DIM.RDP>-RLT-1SG.ERG]	page 13, engine english
+(43) line 5	Van Eijk 1997:245	translation	‘Now I’m going to talk about Mama.’	page 13, engine english, cited Van Eijk 1997:245
+(43) line 5	Henry Davis	citation	(Van Eijk 1997:245)	the tag or source at the right of the translation
+(44) line 1	St’át’imcets	segmentation	niɬ s-c̓ayúʔma [na=waʔ cʕʷay̓-am̓-úɬ].	page 13, engine language
+(44) line 2	St’át’imcets	gloss	COP NMLZ-Ts’ayú7ma [ABSN.DET=IPFV joke-MID-HAB]	page 13, engine english
+(44) line 3	Henry Davis	translation	‘Ts’ayú7ma was always teasing and making jokes.’	page 13, engine english
+(44) line 3	Henry Davis	citation	(Alexander et al. in prep)	the tag or source at the right of the translation
+(45) line 1	St’át’imcets	segmentation	niɬ s-xḷạʔ [ta=kəlʔáqstən-s=a ta=n-cítxʷ-tən=a].	page 13, engine language
+(45) line 2	St’át’imcets	gloss	COP NMLZ-Raven [DET=leader-3POSS=EXIS DET=LOC-house-INS=EXIS]	page 13, engine english
+(45) line 3	Henry Davis	translation	‘Raven was the leader of the village.’	page 13, engine english
+(45) line 3	Henry Davis	citation	(Alexander et al. in prep)	the tag or source at the right of the translation
+§3.3	Henry Davis	note	If we then coordinate two or more proper nouns in a cleft, number is neutralized on the determiner introducing the remnant:	page 13
+(46) line 1	St’át’imcets	segmentation	niɬ=ha s-Mary mútaʔ s-John [ti=/ʔi=x̌lit-ən-áxʷ=a]?	page 13, engine language
+(46) line 2	St’át’imcets	gloss	COP=Q NMLZ-Mary and NMLZ-John [SG.DET=/PL.DET=invite-DIR-2SG.ERG=EXIS]	page 13, engine english
+(46) line 3	Davis 2003b	translation	‘Was it Mary and John you invited?’	page 13, engine english, cited Davis 2003b
+(46) line 3	Henry Davis	citation	(Davis 2003b)	the tag or source at the right of the translation
+(47) line 1	St’át’imcets	segmentation	niɬ s-John mútaʔ s-Madeleine	page 13, engine residue
+(47) line 2	St’át’imcets	gloss	COP NMLZ-John and NMLZ-Madeleine	page 13, engine english
+(47) line 3	St’át’imcets	segmentation	[na=/nəɬ=ɣip-in̓-c-ás=a].	page 13, engine language
+(47) line 4	St’át’imcets	gloss	[SG.ABSN.DET=/PL.ABSN.DET=raise-DIR-1SG.OBJ-3ERG=EXIS]	page 13, engine english
+(47) line 5	Henry Davis	translation	‘It’s John and Madeleine who raised me.’	page 13, engine english
+§3.3	Henry Davis	note	In other words, number neutralization groups clause-initial independent pronouns with clefts, not with nominal predicates.	page 13
+§3.4	Henry Davis	heading	3.4 Coordination	page 13
+footnote 14	Henry Davis	note	14 I do not know why the proprial determiner obligatorily drops in this environment; it also does so when proper nouns act as NP possessors and when they are the objects of prepositions, for equally obscure reasons.	page 13, footnote
+footnote 15	Henry Davis	note	15 This suggests that “predicative” proper nouns might also be reduced clefts: see Davis (2019) for a different view.	page 13, footnote
+§3.4	Henry Davis	note	Further evidence for the same conclusion can be adduced from coordination (see Thoma 2007:115 for parallel examples). Since under the disguised cleft analysis, predicative pronouns are DPs, not NPs, we expect them to coordinate with other DPs in clefts, and the resulting coordinate structures to allow number neutralization. This is indeed the case, as shown with proper nouns in (48) and DPs based on common nouns in (49).15	page 13
+(48) line 1	St’át’imcets	segmentation	niɬ s-lə́myaʔ mútaʔ sʔənc [ta=/ʔi=waʔ cunám̓-c-xal].	page 14, engine language
+(48) line 2	St’át’imcets	gloss	COP NMLZ-Lémya and 1SG.IND [SG.DET=/PL.DET=IPFV teach-mouth-ACT]	page 14, engine english, carries footnote 7, written here without its digit
+(48) line 3	Henry Davis	translation	‘Lémya7 and I are teaching language.’	page 14, engine english
+(49) line 1	St’át’imcets	segmentation	niɬ ta=sqáczaʔ-s=a múta sniɬ [ta=/ʔi=cíxʷ=a píx̌əm̓].	page 14, engine language, carries footnote 7, written here without its digit
+(49) line 2	St’át’imcets	gloss	COP DET=father-3POSS=EXIS and 3IND [SG.DET=/PL.DET=get.there=EXIS hunt]	page 14, engine english
+(49) line 3	Henry Davis	translation	‘It was his father and him who went hunting.’	page 14, engine english
+§3.4	St’át’imcets	cited form	niɬ	page 14
+§3.4	Henry Davis	note	Furthermore, in these cases the copula/clefting predicate niɬ can be omitted, with no loss of grammaticality or change in meaning:	page 14
+(50) line 1	St’át’imcets	segmentation	s-lə́myaʔ mútaʔ sʔənc [ta=/ʔi=waʔ cunám̓-c-xal].	page 14, engine language
+(50) line 2	St’át’imcets	gloss	NMLZ-Lémya and 1SG.IND [SG.DET=/PL.DET=IPFV teach-mouth-ACT]	page 14, engine english, carries footnote 7, written here without its digit
+(50) line 3	Henry Davis	translation	‘Lémya7 and I are teaching language.’	page 14, engine english
+(51) line 1	St’át’imcets	segmentation	sniɬ mútaʔ ta=sqáczaʔ-s=a [ta=/ʔi=cíxʷ=a píx̌əm̓].	page 14, engine language
+(51) line 2	St’át’imcets	gloss	3IND and DET=father-3POSS=EXIS [SG.DET=/PL.DET=get.there=EXIS hunt]	page 14, engine english
+(51) line 3	Henry Davis	translation	‘It was his father and him who went hunting.’	page 14, carries footnote 16
+§3.4	Henry Davis	note	I conclude that there is strong evidence in favour of the following claim:	page 14
+§3.4	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§3.4	Henry Davis	note	(52) Independent pronouns in clause-initial (“predicative”) position in St’át’imcets are not bare predicates: they are disguised clefts.17 More specifically, I propose that the clefting predicate/copula niɬ plus its first argument (a focused DP) form a predicative category CopP, and independent pronouns license a null version of the copula:	page 14
+footnote 16	Henry Davis	note	16 The order of the conjuncts has been switched here to avoid the awkward sequence niɬ sniɬ…; other than this, the order of conjuncts makes no difference to grammaticality or meaning.	page 14, footnote
+§3.4	St’át’imcets	cited form	sniɬ…	page 14
+footnote 17	Henry Davis	note	17 Thoma (2007:118) presents an additional semantic argument for the disguised cleft hypothesis based on the claim that clefts and independent pronouns but not nominal predicates can be used in contrastive focus contexts. However, examples such as (i) show that nominal predicates can readily be used for contrastive focus:	page 14, footnote
+footnote 17 (i) line 1	Henry Davis	note	Context: You think you saw a coyote outside. Someone says:	page 14, engine english
+footnote 17 (i) line 2	St’át’imcets	segmentation	sqáx̌aʔ na=ʔac̓x̌-ən-áxʷ=a, xʷʔạz kʷ=[s=]snk̓yap!	page 14, engine language
+footnote 17 (i) line 3	St’át’imcets	gloss	dog ABSN.DET=see-DIR-2SG.ERG=EXIS NEG D/C=[NMLZ=]coyote	page 14, engine english
+footnote 17 (i) line 4	Henry Davis	translation	‘What you saw was a DOG, it wasn’t a coyote!’	page 14, engine english
+footnote 17	Henry Davis	note	What Thoma actually identifies is a difference between the use of nominal predicates and clefts in contexts where focus is used to pick out a particular individual. Nominal predicates usually can’t do that, because they denote sets, but clefted DPs can. However, independent pronouns can pick out individuals irrespective of whether they are syntactically represented as clefted DPs or NP predicates, because in both cases they refer to a unique individual, either directly, as entities (DP), or indirectly, as single-membered sets (NP).	page 14
+(53) line 1	Henry Davis	notation	a. CopP b. CopP	page 15, trees a. and b. side by side, the nodes and types on their line 1 read left to right
+(53) line 2	Henry Davis	notation	Cop DP Cop DPind pro	page 15, trees a. and b. side by side, the nodes and types on their line 2 read left to right
+(53) line 3	Henry Davis	notation	niɬ Ø	page 15, trees a. and b. side by side, the nodes and types on their line 3 read left to right
+(53)	St’át’imcets	cited form	Ø	page 15, the null copula of tree (53b)
+§3.4	Henry Davis	note	There is independent evidence for the constituency of CopP: fragment answers to questions with clefts typically consist of the copula plus the focused DP, excluding the remnant, as in answer A1 in (54); answer A2, with the cleft predicate plus the remnant, is infelicitous in this context.	page 15
+(54) line 1	St’át’imcets	segmentation	Q: níɬ=ha s-Bill ta=ƛ̓íq=a?	page 15, engine language
+(54) line 2	St’át’imcets	gloss	COP=Q NMLZ-Bill DET=arrive=EXIS	page 15, engine english
+(54) line 3	Henry Davis	translation	‘Is Bill the one who arrived?’	page 15, engine english
+(54) line 4	St’át’imcets	transcription	A1: ʔiy, niɬ s-Bill.	page 15, engine residue
+(54) line 5	St’át’imcets	gloss	yes COP NMLZ-Bill	page 15, engine english
+(54) line 6	Henry Davis	translation	‘Yes, it’s Bill.’	page 15, engine english
+(54) line 7	St’át’imcets	transcription	A2: # ʔiy, niɬ ta=ƛ̓íq=a.	page 15, engine language
+(54) line 8	St’át’imcets	gloss	yes COP DET=arrive=EXIS	page 15, engine english
+(54) line 9	Henry Davis	translation	‘Yes, it’s the one who arrived.’	page 15, engine english
+§3.4	Henry Davis	note	(Unsurprisingly, with an independent pronoun, CopP fragments will consist of just the pronoun itself.)	page 15
+§3.5	Henry Davis	heading	3.5 A Possible Counter-Argument	page 15
+§3.5	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§3.5	Henry Davis	note	In his morphosyntactic examination of fronting constructions across Salish, Kroeber (1999:264– 268) points out that in Central and Northern Interior Salish, when nominal predicates (his “clefts”) are subordinated, subordinate subject clitics are attached to the predicate. This is true of St’át’imcets, as exemplified here with subjunctive clitics:	page 15
+(55) line 1	St’át’imcets	segmentation	xʷʔạz kʷənswá zəwát-ən [ɬ=xʷəláɬp=as	page 15, engine language
+(55) line 2	St’át’imcets	gloss	NEG D/C+1SG.POSS+NMLZ+IPFV know-DIR [COMP=ghost=3SJV	page 15, engine english
+(55) line 3	St’át’imcets	segmentation	[na=ʔac̓x̌-ən-án=a]].	page 15, engine language
+(55) line 4	St’át’imcets	gloss	[ABSN.DET=see-DIR-1SG.ERG=EXIS]]	page 15, engine english
+(55) line 5	Henry Davis	translation	‘I don’t know if it was a ghost I saw.’	page 15, engine english
+§3.5	Henry Davis	note	When a clause-initial independent pronoun is subordinated in the same environments, it similarly hosts subjunctive subject clitics:	page 15
+(56) line 1	St’át’imcets	segmentation	xʷʔạz kʷənswa zəwát-ən [ɬ=snuh=ás	page 15, engine language
+(56) line 2	St’át’imcets	gloss	NEG D/C+1SG.POSS+NMLZ+IPFV know-DIR [COMP=2SG.IND=3SJV	page 15, engine english
+(56) line 3	St’át’imcets	segmentation	na=ʔac̓x̌-ən-án=a].	page 15, engine language
+(56) line 4	St’át’imcets	gloss	ABSN.DET=see-DIR-1SG.ERG=EXIS]	page 15, engine english
+(56) line 5	Henry Davis	translation	‘I don’t know if it was you I saw.’	page 15, engine english
+§3.5	Henry Davis	note	Furthermore, it is also possible, given an appropriate context, to find first and second person subjunctive subjects on subordinated independent pronouns:18	page 16
+(57) line 1	St’át’imcets	segmentation	ɬ=snuwh=án(=ka), ʔạ́z=ka kʷ=n=s=nas ʔátaʔ.	page 16, engine language
+(57) line 2	St’át’imcets	gloss	COMP=2SG.IND=1SG.SJV(=IRR) NEG=IRR D/C=1SG.POSS=NMLZ=go to.there	page 16, engine english
+(57) line 3	Henry Davis	translation	‘If I were you, I wouldn’t go there.’	page 16, engine english
+(58) line 1	St’át’imcets	segmentation	ɬ=ʔənch=áxʷ(=ka), kán=ka kʷ=s=nás=cu ʔátaʔ?	page 16, engine language
+(58) line 2	St’át’imcets	gloss	COMP=1SG.IND=2SG.SJV(=IRR) is.it.the.case=IRR D/C=NMLZ=go=2SG.POSS to.there	page 16, engine english
+(58) line 3	Henry Davis	translation	‘If you were me, would you go there?’	page 16, engine english
+§3.5	St’át’imcets	cited form	niɬ	page 16
+§3.5	Henry Davis	note	The clefting predicate/copula niɬ may also host subordinate subject clitics, including first and second person subjects:	page 16
+(59) line 1	St’át’imcets	segmentation	xʷʔạz kʷənswa zəwát-ən [ɬ=níɬ=as snúwa	page 16, engine language
+(59) line 2	St’át’imcets	gloss	NEG D/C+1SG.POSS+NMLZ+IPFV know-DIR [COMP=COP=3SJV 2SG.IND	page 16, engine english
+(59) line 3	St’át’imcets	segmentation	na=ʔac̓x̌-ən-án=a].	page 16, engine language
+(59) line 4	St’át’imcets	gloss	ABSN.DET=see-DIR-1SG.ERG=EXIS]	page 16, engine english
+(59) line 5	Henry Davis	translation	‘I don’t know if it was you I saw.’	page 16, engine english
+(60) line 1	St’át’imcets	segmentation	[ɬ=níɬ=an=ka snúwa] ʔạ́z=ka kʷ=n=s=nas ʔátaʔ.	page 16, engine language
+(60) line 2	St’át’imcets	gloss	[COMP=COP=1SG.SJV=IRR 2SG.IND] NEG=IRR D/C=1SG.POSS=NMLZ=go to.there	page 16, engine english
+(60) line 3	Henry Davis	translation	‘If I were you, I wouldn’t go there.’	page 16, engine english
+(61) line 1	St’át’imcets	segmentation	[ɬ=níɬ=axʷ=ka sʔənc] kán=ka kʷ=s=nás=cu ʔátaʔ?	page 16, engine language
+(61) line 2	St’át’imcets	gloss	[COMP=COP=2SG.SJV=IRR 1SG.IND] is.it.the.case=IRR D/C=NMLZ=go=2SG.POSS to.there	page 16, engine english
+(61) line 3	Henry Davis	translation	‘If you were me, would you go there?’	page 16, engine english
+footnote 18	Henry Davis	note	18 Examples like this have not been recorded previously. They are accepted as alternatives to the more common construction exemplified in (i) and (ii), with two independent pronouns:	page 16, footnote
+§3.5	Henry Davis	note	The generalization here appears to be that whichever predicative element is leftmost in the clausal domain acts as the host for subjunctive subject clitics. This generalization groups	page 16
+footnote 18 (i) line 1	St’át’imcets	segmentation	ɬ=snuwh=ás(=ka) sʔə́nca, ʔạ́z=ka kʷ=n=s=nas ʔátaʔ?	page 16, engine language
+footnote 18 (i) line 2	St’át’imcets	gloss	COMP=2SG.IND=3SJV(=IRR) 1SG.IND NEG=IRR D/C=1SG.POSS=NMLZ=go to.there	page 16, engine english
+footnote 18 (i) line 3	Henry Davis	translation	‘If I were you, I wouldn’t go there.’	page 16, engine english
+footnote 18 (ii) line 1	St’át’imcets	segmentation	ɬ=ʔənch=ás(=ka) snúwa, kán=ka kʷ=s=nás=cu ʔátaʔ?	page 16, engine language
+footnote 18 (ii) line 2	St’át’imcets	gloss	COMP=1SG.IND=3SJV(=IRR) 2SG.IND is.it.the.case=IRR D/C=NMLZ=go=2SG.POSS to.there	page 16, engine english
+footnote 18 (ii) line 3	Henry Davis	translation	‘If you were me, would you go there?’	page 16, engine english
+footnote 18	Henry Davis	language	Nsyílxcen	Nsyílxcen, Okanagan, a Southern Interior Salish language
+footnote 18	Henry Davis	note	This construction is itself of some interest, because the antecedent clauses in (i) and (ii) are clearly truth- conditionally distinct. This means that what appears to be an equational structure cannot simply involve an identity relation, because otherwise the two independent pronouns would be interchangeable. The difference between them appears to be that the first argument is intensional (involving covert quantification over possible worlds) while the second is extensional (involving reference to the world of evaluation. This supports the view of Lyon (2013), who argues following Romero (2005) that the first argument of an equational structure in Nsyílxcen is intensional and the second extensional: see footnotes 20 and 22. independent pronouns together with NP predicates (and the copula niɬ), contrary to the analysis I have been pursuing, where independent pronouns are DPs in the focus position of a null copula/clefting predicate.	page 16
+§3.5	Henry Davis	note	The solution I provisionally adopt here is to assume that subject clitics attach to the leftmost word in the clause, and are therefore insensitive to syntactic distinctions. There is independent evidence for this move from complex nominal predicates (CNPs). Subject and other clitics attach to the first element of a CNP, irrespective of syntactic constituency.	page 17
+(62a) line 1	St’át’imcets	segmentation	sxʷənaʔəm=ɬkáxʷ=ha?	page 17, engine language
+(62a) line 2	St’át’imcets	gloss	Indian.doctor=2SG.SUBJ=Q	page 17, engine english
+(62a) line 3	Henry Davis	translation	‘Are you an Indian doctor?’	page 17, engine english
+(62b) line 1	St’át’imcets	segmentation	ʔaʔx̌aʔ=ɬkáxʷ=ha (kʷu=)sxʷənáʔəm?	page 17, engine language
+(62b) line 2	St’át’imcets	gloss	powerful=2SG.SUBJ=Q (DET=)indian.doctor	page 17, engine english
+(62b) line 3	Henry Davis	translation	‘Are you a powerful Indian doctor?’	page 17, engine english
+(62c) line 1	St’át’imcets	segmentation	ləx̌ləx̌=káxʷ=ha (kʷu=)ʔáʔx̌aʔ sxʷənáʔəm?	page 17, engine language
+(62c) line 2	St’át’imcets	gloss	smart=2SG.SUBJ=Q (DET=)powerful indian.doctor	page 17, engine english
+(62c) line 3	Henry Davis	translation	‘Are you a smart, powerful Indian doctor?’	page 17, engine english
+§3.5	Henry Davis	note	Clitic placement, in other words, does not necessarily provide a counter-argument to the claim that clause-initial independent pronouns are DPs generated in the focus position of a cleft.19	page 17
+§4	Henry Davis	heading	4 Number Agreement and the Structure of Clefts	page 17
+§4	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§4	Henry Davis	note	While I hope I have now established that “predicative” independent pronouns in St’át’imcets are actually DPs which occupy the focus position of disguised clefts, I have also left some important questions unanswered. In particular, what is it about clefts — as opposed to nominal predicates — which allows number neutralization on the determiner introducing their remnant? And what does this tell us about the structure of clefts more generally?	page 17
+footnote 19	Henry Davis	note	19 There is (much) more to say here, since clitic placement is clearly not purely prosodic, in the sense that it must access certain kinds of syntactic information. For example, in the model of Davis and Huijsmans (to appear), clitics linearize relative to a span, which is a sequence of heads in a complement relation. Specifiers and adjuncts are excluded from spans: in the present case, this would mean that a DP independent pronoun would not constitute a valid host for clitic placement. I leave this issue for further investigation.	page 17, footnote
+§4	Henry Davis	note	Let us turn the first question on its head and begin by considering number agreement on nominal predicates, as illustrated in (31)–(35) in Section 3.1 above. The pattern can be summarized as follows: if a nominal predicate is marked plural by, e.g., reduplication, its argument must be introduced by a plural D; if on the other hand it is unmarked for number, it will be interpreted as plural with a plural D on its argument, and singular with a singular D on its argument. This pattern can be readily explained on the assumption that a nominal predicate denotes both plural and singular individuals, as in Link-style analyses of plurality (Link 1983), and the operation of pluralization involves removing the atomic individuals from its denotation, leaving only plural individuals (see, e.g., Beck and Sauerland 2000). An unmarked predicate will be able to compose with both singular and plural arguments, since it will contain both singular and plural individuals, but a pluralized predicate will only be able to compose with a plural argument, since it only contains plural individuals. Plural “agreement” for nominal predicates thus falls out simply as a consequence of basic rules of semantic composition.	page 17
+§4	St’át’imcets	cited form	niɬ	page 18
+§4	Henry Davis	note	Now, let us turn to clefts. Two main proposals have been put forward for the constituency of the remnant clause in a Salish cleft. According to the first, the remnant is a DP — that is, a pro- headed relative clause; according to the second, the remnant is a bare CP — that is, a relative clause with no DP superstructure. These possibilities are given in (63a) and (63b), respectively, where Cop represents the clefting predicate niɬ. Note that in both cases, by hypothesis, an independent pronoun will occupy DPfoc, with the copula optionally unpronounced.	page 18
+(63) line 1	Henry Davis	notation	a. CopP b. CopP	page 18, trees a. and b. side by side, the nodes and types on their line 1 read left to right
+(63) line 2	Henry Davis	notation	t t	page 18, trees a. and b. side by side, the nodes and types on their line 2 read left to right
+(63) line 3	Henry Davis	notation	CopP DPrem CopP CPrem	page 18, trees a. and b. side by side, the nodes and types on their line 3 read left to right
+(63) line 4	Henry Davis	notation	<et> e <<et>,t> <et>	page 18, trees a. and b. side by side, the nodes and types on their line 4 read left to right
+(63) line 5	Henry Davis	notation	Cop DPfoc D NP Cop DPfoc	page 18, trees a. and b. side by side, the nodes and types on their line 5 read left to right
+(63) line 6	Henry Davis	notation	niɬ e <<et>,e> <et> niɬ e	page 18, trees a. and b. side by side, the nodes and types on their line 6 read left to right
+(63) line 7	Henry Davis	notation	<e,<et>> <e,<<et>,t>>	page 18, trees a. and b. side by side, the nodes and types on their line 7 read left to right
+(63) line 8	Henry Davis	notation	pro CP	page 18, trees a. and b. side by side, the nodes and types on their line 8 read left to right
+(63) line 9	Henry Davis	notation	<et> <et>	page 18, trees a. and b. side by side, the nodes and types on their line 9 read left to right
+§4	Henry Davis	language	Nsyílxcən	Nsyílxcən, Okanagan, a Southern Interior Salish language
+§4	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4	Henry Davis	note	The structure in (63a) is equational: the clefting predicate is a copula which relates two referential arguments of type e. See Lyon (2013) for an analysis along these lines for clefts in Nsyílxcən (Okanagan).20 In the structure in (63b), on the other hand, the clefting predicate together with its first (referential) argument creates a second-order predicate which then takes a bare CP of type <et>, derived by lambda abstraction over one of its arguments: see Koch (2008), Koch and Zimmermann (2009) for an analysis along these lines for Nɬeʔkepmxcín (Thompson River Salish). Two questions now arise. First of all, which of these structures — if either — best represents the structure of clefts in St’át’imcets? And second, does either of them account naturally for number neutralization?	page 18
+§4	Henry Davis	note	I will approach these questions simultaneously, examining each structure in turn, beginning with (63a), which I will refer to as an equational cleft. I will then turn to (63b), which I will refer to as a bare CP cleft.	page 18
+§4.1	Henry Davis	heading	4.1 Equational Clefts and Number Neutralization	page 18
+§4.1	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§4.1	Henry Davis	note	The structure in (63a) makes a series of readily testable structural predictions. First of all, since it involves an equational structure with its second DP argument expanded into a pro-headed relative clause, we predict that if this structure is possible in St’át’imcets, we should also find simple equational structures with an ordinary DP as second argument. We do:	page 18
+footnote 20	Henry Davis	note	20 Lyon’s analysis is actually more sophisticated, since he builds an asymmetry between an intensional argument (of type <se>) and an extensional one (of type e) into the lexical entry of the equational copula: see footnotes 18 and 22.	page 18, footnote
+(64) line 1	St’át’imcets	gloss	niɬ [DPFOC s-Bill] [DPREM ta=kúkwpiʔ=a].	page 19, engine residue
+(64) line 2	Henry Davis	word gloss	COP [DPFOC NMLZ-Bill] [DPREM DET=chief=EXIS]	page 19, engine english
+(64) line 3	Henry Davis	translation	‘The chief is Bill.’	page 19, engine english
+(65) line 1	St’át’imcets	segmentation	niɬ [DPFOC ta=s-ʕə́lʕəl-tən-s=a nəɬ=sxʷənáʔm=a]	page 19, engine language
+(65) line 2	St’át’imcets	gloss	COP [DPFOC DET=NMLZ-strong-SUP-3POSS=EXIS PL.ABSN.DET=Indian.doctor=EXIS]	page 19, engine english
+(65) line 3	St’át’imcets	gloss	[DPREM s-c̓wáɬtəqʷ].	page 19, engine language
+(65) line 4	St’át’imcets	gloss	[DPREM NMLZ-Ts’wálhteqw	page 19, engine english
+(65) line 5	Henry Davis	translation	‘Ts’wálhteqw was the strongest of the Indian doctors.’	page 19, engine english
+§4.1	Henry Davis	note	Furthermore, as we might expect with equational structures, the two arguments in (64) and (65) are reversible, as shown in (66) and (67), respectively:	page 19
+(66) line 1	St’át’imcets	gloss	niɬ [DPFOC ta=kúkwpiʔ=a] [DPREM s-Bill].	page 19, engine residue
+(66) line 2	Henry Davis	word gloss	COP [DPFOC DET=chief=EXIS] [DPREM NMLZ-Bill]	page 19, engine english
+(66) line 3	Henry Davis	translation	‘Bill is the chief.’	page 19, engine english
+(67) line 1	St’át’imcets	segmentation	niɬ [DPFOC s-c̓wáɬtəqʷ] [DPFOC ta=s-ʕə́lʕəl-tən-s=a	page 19, engine language
+(67) line 2	St’át’imcets	gloss	COP [DPREM NMLZ-Ts’wálhteqw] [DPFOC DET=NMLZ-strong-SUP-3POSS=EXIS	page 19, engine english
+(67) line 3	St’át’imcets	segmentation	nəɬ=sxʷənáʔm=a].	page 19, engine language
+(67) line 4	St’át’imcets	gloss	PL.ABSN.DET=Indian.doctor=EXIS]	page 19, engine english
+(67) line 5	Henry Davis	translation	‘The strongest of the Indian doctors was Ts’wálhteqw.’	page 19, engine english
+§4.1	Henry Davis	note	Crucially, however, such structures do not permit number mismatch with a plural DP foc. This follows if number agreement is obligatory in DP DP clefts, but also suggests that not all clefts can be assimilated to equational structures.	page 19
+(68) line 1	St’át’imcets	segmentation	niɬ [s-Bill mútaʔ s-Fred] [*ta=/ʔi=kʷúkʷpiʔ=a].	page 19, engine language
+(68) line 2	St’át’imcets	gloss	COP [NMLZ-Bill and NMLZ-Fred] [*SG.DET=/PL.DET=chief=EXIS]	page 19, engine english
+(68) line 3	Henry Davis	translation	‘Bill and Fred are the chiefs.’	page 19, engine english
+(68) line 4	Consultant	speaker comment	Consultant: “Change the ta to ʔi.”	page 19, engine english
+(68)	St’át’imcets	cited form	ʔi	in the speaker comment, page 19
+(69) line 1	St’át’imcets	segmentation	niɬ [s-c̓wáɬtəqʷ mútaʔ s-qʷínuc]	page 19, engine language
+(69) line 2	St’át’imcets	gloss	COP [NMLZ-Ts’wálhteqw and NMLZ-Qwínuts]	page 19, engine english
+(69) line 3	St’át’imcets	segmentation	[*na=/nəɬ=ʔáʔx̌ʔ=a sxʷənáʔəm].	page 19, engine language
+(69) line 4	St’át’imcets	gloss	[*SG.ABSN.DET=/ PL.ABSN.DET=powerful=EXIS Indian.doctor]	page 19, engine english
+(69) line 5	Henry Davis	translation	‘Ts’wálhteqw and Qwínuts were powerful Indian doctors.’	page 19, engine english
+footnote 21	Henry Davis	note	21 This finding is partially at odds with an earlier claim in Davis et al. (2004:104) that while prenominal headed relatives are possible in the remnant of St’át’imcets clefts, postposed relatives are out (they did not	page 19, footnote
+§4.1	Henry Davis	note	Furthermore, DP remnants consisting of headed relative clauses are also permitted in equational clefts — and they don’t allow number neutralization on the determiner introducing the head, either. In (70)–(72), I illustrate this with prenominal, postposed, and postnominal headed relatives (for this taxonomy of relative clauses, see Davis 2010).21	page 19
+(70) line 1	St’át’imcets	segmentation	niɬ [s-Bill mútaʔ s-Fred]	page 20, engine english
+(70) line 2	St’át’imcets	gloss	COP [NMLZ-Bill and NMLZ-Fred]	page 20, engine english
+(70) line 3	St’át’imcets	segmentation	[[*ta=/ʔi=suxʷt-ən-án=a] kʷúkʷpiʔ].	page 20, engine language
+(70) line 4	St’át’imcets	gloss	[[*SG.DET=/PL.DET=recognize-DIR-1SG.ERG=EXIS] chief]	page 20, engine english
+(70) line 5	Henry Davis	translation	‘Bill and Fred are the chiefs I recognized.’	page 20, engine english
+(70) line 6	Henry Davis	speaker comment	Consultant’s comment: “ʔi suxʷtənána, ’cause there’s two of them.”	page 20, engine residue
+(70)	St’át’imcets	cited form	ʔi	in the speaker comment, page 20
+(70)	St’át’imcets	cited form	suxʷtənána	in the speaker comment, page 20
+(71) line 1	St’át’imcets	segmentation	niɬ [s-Bill mútaʔ s-Fred] [*ta=/ʔi=kʷúkʷpiʔ=a	page 20, engine language
+(71) line 2	St’át’imcets	gloss	COP [NMLZ-Bill and NMLZ-Fred] [*SG.DET=/PL.DET=chief=EXIS	page 20, engine english
+(71) line 3	St’át’imcets	segmentation	[súxʷt-ən-an]].	page 20, engine language
+(71) line 4	St’át’imcets	gloss	[recognize-DIR-1SG.ERG]]	page 20, engine english
+(71) line 5	Henry Davis	translation	‘Bill and Fred are the chiefs I recognized.’	page 20, engine english
+(72) line 1	St’át’imcets	segmentation	niɬ [s-Bill mútaʔ s-Fred] [*ta=/ʔi=kʷúkʷpiʔ=a	page 20, engine language
+(72) line 2	St’át’imcets	gloss	COP [NMLZ-Bill and NMLZ-Fred] [*SG.DET=/PL.DET=chief=EXIS	page 20, engine english
+(72) line 3	St’át’imcets	segmentation	[*ta=/ʔi=suxʷt-ən-án=a]].	page 20, engine language
+(72) line 4	St’át’imcets	gloss	[*SG.DET=/PL.DET=recognize-DIR-1SG.ERG=EXIS]]	page 20, engine english
+(72) line 5	Henry Davis	translation	‘Bill and Fred are the chiefs I recognized.’	page 20, engine english
+§4.1	Henry Davis	note	To summarize: (i) equational clefts as in (63a) are well-instantiated in St’át’imcets, and (ii) they do not permit number neutralization. The latter finding follows from the reasonable assumption that the relation ‘=’ which equates two entities in equational structures requires identity in number.22 However, it also entails that cases with number neutralization cannot have the structure check postnominal cases). I re-checked (slightly simplified versions of) their examples, and found both the postposed case in (i) and the prenominal case in (ii) to be grammatical.	page 20
+footnote 21 (i) line 1	St’át’imcets	segmentation	niɬ [ʔi=qəɬmə́<m>ən̓=a] [nəɬ=sxʷápməx=a	page 20, engine language
+footnote 21 (i) line 2	St’át’imcets	gloss	COP [PL.DET=old<DIM.RDUP>=EXIS] [PL.ABSN.DET=secwépemc=EXIS	page 20, engine english
+footnote 21 (i) line 3	St’át’imcets	segmentation	qʷəl̕-qʷal̕ə<l̕>t-s-án].	page 20, engine language
+footnote 21 (i) line 4	St’át’imcets	gloss	PL.RDP-speak<DIM.RDUP>-CAUS-1SG.ERG]	page 20, engine english
+footnote 21 (i) line 5	Henry Davis	translation	‘The Secwépemc (Shuswap) I spoke to were old people.’	page 20, engine english
+footnote 21 (ii) line 1	St’át’imcets	segmentation	niɬ [ʔi=qəɬmə́<m>ən̓=a] [nəɬ=qʷəl̕-qʷal̕ə<l̕>t-s-án=a	page 20, engine language
+footnote 21 (ii) line 2	St’át’imcets	gloss	COP [PL.DET=old<DIM.RDUP>=EXIS] [PL.ABSN.DET=PL.RDP-speak<DIM.RDUP>-CAUS-1SG.ERG=EXIS	page 20, engine english
+footnote 21 (ii) line 3	St’át’imcets	segmentation	sxʷápməx].	page 20, engine language
+footnote 21 (ii) line 4	St’át’imcets	gloss	secwépemc]	page 20, engine residue
+footnote 21 (ii) line 5	Henry Davis	translation	‘The Secwépemc (Shuswap) I spoke to were old people.’	page 20, engine english
+footnote 22	Henry Davis	note	22 Obviously, there is more to be said about the nature of the identity relation in equational structures. Lyon He argues, following Romero (2005), that equational structures are semantically asymmetrical, since the inner argument of the (null) identificational copula in Nsyílxcen must be intensional, and its outer argument extensional, and furthermore that this asymmetry is reflected in information structure, with the outer (extensional) argument of the copula lexically associated with a focus feature. A focus alignment constraint in the style of Koch (2008b) then places the outer (focused) argument on the left periphery, leading to a linear asymmetry. Lyon extends this analysis to clefts in Nsyílxcən, which he analyzes as equational structures.	page 20, footnote
+§4.1	Henry Davis	language	Nsyílxcen	Nsyílxcen, Okanagan, a Southern Interior Salish language
+§4.1	Henry Davis	language	Nsyílxcən	Nsyílxcən, Okanagan, a Southern Interior Salish language
+§4.1	Henry Davis	note	My interpretation of these findings, contra Davis et al. (2004), is that there is nothing inherently ungrammatical about headed relative clauses in equational clefts, with variation in acceptability due to other factors (e.g., a general dispreference for multiple determiners in clefts: see footnote 13). (2013) on Nsyílxcen (Okanagan) includes the most detailed exploration of this issue in the Salish literature. in (63a). This leads us to explore the second structural option given in (63): bare CP clefts, as in (63b).	page 20
+§4.2	Henry Davis	heading	4.2 Bare CP Clefts and Number Neutralization	page 21
+§4.2	Henry Davis	note	In contrast to equational clefts, the clausal remnant in a bare CP cleft is not a DP, but a CP of type <et>. This seems promising for number neutralization on the introductory determiner, in that CPs do not have inherent number, but it immediately raises another question: why should bare CPs ever be introduced by a determiner in the first place?	page 21
+§4.2	Henry Davis	note	The analysis of relative clauses in Davis (2010) provides an answer. There are two crucial components to that analysis: first, the second (“internal”) determiner in postnominal “double determiner” relative clauses (e.g., (72)) is equivalent to a relative pronoun moved from inside the clause; and second, in prenominal (70), postposed (71), and headless relative clauses, all of which have a single determiner, the source of that determiner can either be external — introducing the whole DP constituent — or internal — moved from inside the clause — with a Double Determiner Filter (DDF) responsible for deleting one of two adjacent determiners at PF. The trees in (73a) and (73b) illustrate this analysis for a postnominal and a prenominal relative, respectively, with D EX representing the external determiner and D IN the internal one: the latter has undergone movement from a clause-internal position to [Spec, CP], leaving a deleted copy. Note that in the prenominal case in (73b) the two determiners are adjacent, so one will need to delete at PF in order to satisfy the DDF.	page 21
+(73) line 1	Henry Davis	notation	a. DP b. DP	page 21, trees a. and b. side by side, the nodes and types on their line 1 read left to right
+(73) line 2	Henry Davis	notation	DEX NP DEX NP	page 21, trees a. and b. side by side, the nodes and types on their line 2 read left to right
+(73) line 3	Henry Davis	notation	NP CP CP NP	page 21, trees a. and b. side by side, the nodes and types on their line 3 read left to right
+(73) line 4	Henry Davis	notation	DIN C’ DIN C’	page 21, trees a. and b. side by side, the nodes and types on their line 4 read left to right
+(73) line 5	Henry Davis	notation	DIN DIN	page 21, trees a. and b. side by side, the nodes and types on their line 5 read left to right
+footnote 23	Henry Davis	note	23 It is important to note that Koch (2008a,b), who develops the most explicit previous bare CP account of clefts in Salish, explicitly rejects an internal D account for the initial element in the remnant of Nɬeʔkepmxcín clefts. He gives two main reasons. First, the clausal portion of relative clauses in Nɬeʔkepmxcín is introduced by the oblique marker t=, whereas there is never an oblique marker in the remnant of a cleft; and second, the remote determiner ɬ(e)=, which is available in the clausal part of a relative clause, is unavailable in cleft residues. As far as the first reason is concerned, there is an obvious structural difference between the clausal portion of a relative clause, which (on a standard analysis) is an adjunct to the NP head, and the clausal residue of a cleft, which is an argument of the copula/clefting predicate: it is reasonable to expect oblique marking in the former, but not the latter. The difference in the distribution of determiners is more puzzling, but it should be noted that the cleft pattern doesn’t match that of complement clauses, either: the direct h(e)= determiner — the most frequent in clefts — is not usually used as a complementizer (the cases cited by Koch 2008a:101–102 clearly involve the partially homophonous ‘hypothetical’ complementizer (ʔ)e: see Kroeber 1999:265). Thus, though there are unexplained restrictions on determiners in cleft residues, they do not argue for an alternative complement clause analysis.	page 21, footnote
+§4.2	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§4.2	St’át’imcets	cited form	ɬ(e)=	page 21
+§4.2	Henry Davis	note	For our purposes, the crucial aspect of the structures in (73) is that the clausal (CP) part in both cases contains a determiner: to be precise, the moved internal one. This immediately accounts for the apparently paradoxical presence of a D in a bare CP cleft even in the absence of a containing DP, as shown in (74).23	page 21
+(74) line 1	Henry Davis	notation	CopP	page 22, a tree, the nodes and types on its line 1 read left to right
+(74) line 2	Henry Davis	notation	Cop’ CPrem	page 22, a tree, the nodes and types on its line 2 read left to right
+(74) line 3	Henry Davis	notation	Cop DPfoc DIN C’	page 22, a tree, the nodes and types on its line 3 read left to right
+(74) line 4	Henry Davis	notation	niɬ	page 22, a tree, the nodes and types on its line 4 read left to right
+(74) line 5	Henry Davis	notation	DIN	page 22, a tree, the nodes and types on its line 5 read left to right
+§4.2	Henry Davis	note	It also provides a potential account for the fact that in CP clefts, determiners are usually absent on the CP remnant when DP foc is introduced by a determiner (see (40)–(42) above). Since moved internal determiners are equivalent to relative pronouns in English, their main role is as a vehicle for lambda abstraction over the CP remnant, which allows the latter to compose with the constituent consisting of the clefting predicate plus its internal argument. We can therefore hypothesize that like relative pronouns, internal determiners are dispensable once they have moved. There are complications, however: as mentioned in footnote 13, deletion of the DIN is usually blocked when there is no overt determiner on DP foc (as with focused proper names and independent pronouns), and it is not obvious how to capture this generalization given the structure in (74). Returning now to number neutralization, note that there is no motivation for the moved DIN in (74) to agree with the number of DPfoc, since they are neither in an inclusion relation, as in cases of nominal predication, nor in an identity relation, as in equational structures. We thus account for the failure of number agreement in clefts.	page 22
+§4.2	Henry Davis	note	However, we still have to account for the fact that number agreement is also permitted in clefts. The solution here is to invoke the equational structure in (63a). We have already seen evidence for equational clefts with headed relative clause remnants, and therefore ceteris paribus, we also predict parallel structures with headless (pro-headed) remnants, as in (75).	page 22
+(75) line 1	Henry Davis	notation	CopP	page 22, a tree, the nodes and types on its line 1 read left to right
+(75) line 2	Henry Davis	notation	Cop’ DPrem	page 22, a tree, the nodes and types on its line 2 read left to right
+(75) line 3	Henry Davis	notation	Cop DPfoc DEX NP	page 22, a tree, the nodes and types on its line 3 read left to right
+(75) line 4	Henry Davis	notation	niɬ	page 22, a tree, the nodes and types on its line 4 read left to right
+(75) line 5	Henry Davis	notation	NP CP	page 22, a tree, the nodes and types on its line 5 read left to right
+(75) line 6	Henry Davis	notation	pro	page 22, a tree, the nodes and types on its line 6 read left to right
+§4.2	St’át’imcets	cited form	niɬ	page 22
+§4.2	Henry Davis	note	Since number agreement between DPs in equational structures is obligatory, whereas it is absent in bare CP clefts, we can account for number neutralization by invoking both equational and bare CP structures. This entails that the equational copula/clefting predicate niɬ is ambiguous: in its equational guise, it will take two individual arguments of type e, while when it takes a bare CP argument, it will be a function of type <e, <<et>, t>>.	page 22
+footnote 23	Nɬeʔkepmxcín	cited form	(ʔ)e	page 22, the partially homophonous ‘hypothetical’ complementizer (Kroeber 1999)
+§4.2	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§4.2	Henry Davis	note	To summarize: niɬ clefts in St’át’imcets instantiate both of the two major structures proposed for clefts in the Salish literature. The first involves two DPs in an equational structure (63a; 75). Equational clefts have the following properties:	page 23
+§4.2	Henry Davis	note	(i) They show number agreement between the DP in focus position and the DP remnant.	page 23
+§4.2	Henry Davis	note	(ii) They allow simple (non-relative) DP remnants.	page 23, engine english
+§4.2	Henry Davis	note	(iii) They allow remnants to consist of headed relative clauses.	page 23
+§4.2	Henry Davis	note	(iv) They do not permit deletion of the determiner introducing the DP remnant.	page 23
+§4.2	Henry Davis	note	The second involves a focused DP and a predicative (bare) CP (63b; 74). Bare CP clefts show the opposite pattern to equational clefts:	page 23
+§4.2	Henry Davis	note	(i) They show no number agreement between the DP in focus position and the CP remnant.	page 23
+§4.2	Henry Davis	note	(ii) They do not permit non-clausal (DP) remnants.	page 23, engine english
+§4.2	Henry Davis	note	(iii) They do not permit remnants consisting of headed relative clauses.	page 23
+§4.2	Henry Davis	note	(iv) They allow deletion of the determiner at the left periphery of the CP remnant. By invoking both structures, we account for the full range of properties shown by cleft constructions in St’át’imcets.	page 23
+§5	Henry Davis	heading	5 Are All Predicative Pronouns in Salish Disguised Clefts?	page 23
+§5	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§5	Henry Davis	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, a Central Salish language
+§5	Henry Davis	language	Skwxwú7mesh	Skwxwú7mesh, Squamish, a Central Salish language
+§5	Henry Davis	language	hən̓q̓əmin̓əm̓	hən̓q̓əmin̓əm̓, the Downriver dialect of Halkomelem, a Central Salish language
+§5	Henry Davis	language	Halq’eméylem	Halq’eméylem, the Upriver dialect of Halkomelem, a Central Salish language
+§5	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+footnote 24	Henry Davis	note	24 At least according to Montler (2015:81), Klallam is unusual in that it fails to allow independent pronouns in argument positions at all.	page 23, footnote
+§5	Henry Davis	note	I now return to the analysis of independent pronouns, and more specifically, to the question of whether the disguised cleft analysis I have given for St’át’imcets predicative pronouns can be extended to independent pronouns elsewhere in the family. As soon as we survey the syntax of independent pronouns across Salish, a major division becomes apparent. On the one hand, there are systems like that of St’át’imcets, in which the form of pronouns is invariant across argument and predicate positions. These include all of the Interior Salish systems, as well as that of ʔayʔaǰuθəm (Comox-Sliammon) from Central Salish (Watanabe 2003:63–64). On the other hand, there are alternating systems in which independent pronouns in argument and oblique positions show up with a determiner which is missing in predicate position: in this respect, these pronouns resemble ordinary NPs, rather than invariant DPs. Systems of this type include a swath of Central Salish languages, including at least shashishalhem (Sechelt; see Beaumont 2011, e.g., 542), Skwxwú7mesh (Squamish; see Kuipers 1967:142–143), the Halkomelem dialect complex (see, e.g., Suttles 2004:331–336 on hən̓q̓əmin̓əm̓ / Musqueam, Wiltschko 2002 on Halq’eméylem / Upriver), the Northern Straits Salish dialect complex (see, e.g., Shank 2003), and Lhechalosem (Nooksack; see Galloway in prep).24 Rather than attempt to survey all these pronoun systems in detail, a task well beyond the scope of this paper, in the following two sections I examine one representative from each of the two types: Secwepemctsín (Shuswap) representing an invariant system, and Northern Straits Salish (NSS) representing an alternating system. The reasoning behind these choices is largely practical: their pronoun systems have already been the subject of targeted investigation (Lai 1998 for Secwepemctsín, Shank 2003 for NSS), so both data and previous analyses are available for further examination.	page 23
+§5.1	Henry Davis	heading	5.1 Secwepemctsín: Another Invariant Pronoun System	page 24
+§5.1	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§5.1	Henry Davis	note	The Secwepemctsín independent pronouns are given below, based on Kuipers (1974:59).	page 24
+Table 3 line 1	Henry Davis	note	Table 3: Independent pronouns in Secwepemctsín	page 24, the caption, footnote 25 on Plural
+Table 3 line 2	Henry Davis	note	Singular Plural25	page 24, heads the columns below
+Table 3 line 3	Secwepemctsín	transcription	ncéwe(ʔ)	page 24, first person singular
+Table 3 line 3	Secwepemctsín	transcription	ncécwe(ʔ)	page 24, first person singular
+Table 3 line 3	Secwepemctsín	transcription	wəɬ nwíʔkt	page 24, first person plural inclusive
+Table 3 line 3	Secwepemctsín	transcription	wəɬ nwíʔs kʷuxʷ	page 24, first person plural exclusive, footnote 26
+Table 3 line 4	Secwepemctsín	transcription	ʔənwíʔ	page 24, second person singular
+Table 3 line 4	Secwepemctsín	transcription	wəɬ nwíʔəmp	page 24, second person plural
+Table 3 line 5	Secwepemctsín	transcription	n(ə)wíʔs	page 24, third person singular
+Table 3 line 5	Secwepemctsín	transcription	wəɬ n(ə)wíʔs	page 24, third person plural
+§5.1	Secwepemctsín	root	√ncewe(ʔ)	page 24, the first person singular root
+§5.1	Proto-Salish	root	*√ʔənca	page 24, the Proto-Salish first person singular root (Newman 1977)
+§5.1	Secwepemctsín	cited affix	-we(ʔ)	page 24, an unexplained accretion, footnote 27
+§5.1	Secwepemctsín	root	√nwiʔ	page 24, the second person root
+§5.1	Proto-Salish	root	*√nəwí	page 24, the Proto-Salish second person singular root (Newman 1977)
+§5.1	Henry Davis	note	As Lai (1998) points out, the form of this system is unusual in a cross-Salishan context. It is based on just two roots, rather than the five-root system reconstructed by Newman (1977) for Proto- Salish: √ncewe(ʔ) for first person singular, reconstructed by Newman to the Proto-Salish first person singular root *√ʔənca, with an unexplained accretion -we(ʔ);27 and √nwiʔ, reconstructed by Newman to the Proto-Salish second person singular root *√nəwí. These roots are supplemented with possessive affixes to yield the paradigm in Table 3.	page 24
+§5.1	Henry Davis	note	There is evidently some variation as to whether independent pronouns in Secwepemctsín take determiners. Lai (1998) reports that her principal consultant (a western dialect speaker originally from the community of Skeetchestn) produced no determiners on pronouns in either predicate or argument position (76a and b, respectively) except in first person singular cases, where determiners appeared on both (77a and b, respectively).28 Lai also reports that her consultant had strong intuitions that where determiners were missing, they were absent rather than just phonologically elided.29	page 24
+(76a) line 1	Secwepemctsín	segmentation	(*ɣə=)nəwíʔs ɣə=wík-t-əməs.	page 24, engine language
+(76a) line 2	Secwepemctsín	gloss	(*DET=)3IND DET=see-TR-AX	page 24, engine english
+(76a) line 3	Lai 1998:28-29	translation	‘It was HIM that saw him/her.’	page 24, engine english, cited Lai 1998:28-29
+(76a) line 3	Henry Davis	citation	(Lai 1998:28-29)	the tag or source at the right of the translation
+footnote 25	Henry Davis	note	25 The particle wəɬ (frequently pronounced uɬ) which precedes plural independent pronouns is used more broadly to pluralize DPs, in which case it precedes determiners and demonstratives at the left edge of the DP.	page 24, footnote
+§5.1	Secwepemctsín	cited form	uɬ	page 24
+footnote 26	Henry Davis	note	26 Secwepemctsín is unique amongst Salish languages in systematically distinguishing inclusive from exclusive first person plural: throughout the system, exclusive pronouns are constructed from third person forms plus the particle kʷuxʷ.	page 24, footnote
+footnote 27	Henry Davis	note	27 In St’át’imcets, the root √cúwaʔ is used with possessive suffixes to mean ‘(one’s) own’, which is likely related to forms with the same meaning in several Central Salish languages (Davis et al. 2020): this suggests a different potential historical source for ncécwe(ʔ) (which is also found as the first person independent pronoun in Nɬeʔkepmxcín).	page 24, footnote
+§5.1	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§5.1	St’át’imcets	root	√cúwaʔ	page 24
+§5.1	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+footnote 28	Henry Davis	note	28 The presence of a determiner on the remnant, plus distinctive extraction morphology, distinguishes “predicative” cases such as (76a) and (77a) from cases of argument fronting, as in (76b) and (77b).	page 24, footnote
+footnote 29	Henry Davis	note	29 This is disputed by Lyon and Ignace (2021:179, fn. 25), who remark that “we have found that Elders such as Mona Jules from Skeetchestn restore determiners [on independent pronouns] in careful speech”.	page 24, footnote
+(76b) line 1	Secwepemctsín	segmentation	(*ɣə=)nəwíʔs wík-t-s John.	page 25, engine language
+(76b) line 2	Secwepemctsín	gloss	(*DET=)3IND see-TR-3ERG JOHN	page 25, engine english
+(76b) line 3	Lai 1998:44	translation	‘HE saw John.’	page 25, engine english, cited Lai 1998:44
+(76b) line 3	Henry Davis	citation	(Lai 1998:44)	the tag or source at the right of the translation
+(77a) line 1	Secwepemctsín	segmentation	ɣə=ncécweʔ ɣə=wík-t-əməs.	page 25, engine language
+(77a) line 2	Secwepemctsín	gloss	DET=1SG.IND DET=see-TR-AX	page 25, engine english
+(77a) line 3	Lai 1998:44	translation	‘I am the one who saw him.’	page 25, engine english, cited Lai 1998:44
+(77a) line 3	Henry Davis	citation	(Lai 1998:44)	the tag or source at the right of the translation
+(77b) line 1	Secwepemctsín	segmentation	ɣə=ncécweʔ wí<w>k-t-ən.	page 25, engine language
+(77b) line 2	Secwepemctsín	gloss	DET=1SG.IND see<DIM.RDUP>-TR-1SG.ERG	page 25, engine english
+(77b) line 3	Lai 1998:44	translation	‘I saw him.’	page 25, engine residue, cited Lai 1998:44
+(77b) line 3	Henry Davis	citation	(Lai 1998:44)	the tag or source at the right of the translation
+§5.1	Henry Davis	name	Secwépemc	the Secwépemc, the Shuswap people
+§5.1	Henry Davis	note	This pattern is replicated in examples of independent pronouns from the Secwépemc portal of the First Voices website:	page 25
+(78) line 1	Secwepemctsín	segmentation	ʔənwíʔ meʔ qéy-əm.	page 25, engine language, carries footnote 30, written here without its digit
+(78) line 2	Secwepemctsín	gloss	2SG.IND FUT drive-MID	page 25, engine english
+(78) line 3	Henry Davis	translation	‘You do the driving.’	page 25, engine english
+(78) line 3	Henry Davis	citation	(First Voices: Secwépemc Portal)	the tag or source at the right of the translation
+(79) line 1	Secwepemctsín	segmentation	ɣə=ncécweʔ meʔ k̓ʷəl-c{-t}-ən-cút.	page 25, engine language, carries footnote 31, written here without its digit
+(79) line 2	Secwepemctsín	gloss	DET=1SG.IND FUT cook-food-CT{-TR}-REFL	page 25, engine english
+(79) line 3	Henry Davis	translation	‘I will do the cooking.’	page 25, engine english
+(79) line 3	Henry Davis	citation	(First Voices: Secwépemc Portal)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	In contrast, in Kuipers (1974), determiners consistently introduce independent pronouns on all persons in both predicate and argument positions:	page 25
+(80) line 1	Secwepemctsín	segmentation	ɣə=ncécwe l=wəx-s-t-éx.	page 25, engine language
+(80) line 2	Secwepemctsín	gloss	DET=1SG.IND ABSN.DET=inform-CAUS-TR-2SG.ERG	page 25, engine english
+(80) line 3	Kuipers 1974:117, line 39	translation	‘I am the one you mentioned.’	page 25, engine english, cited Kuipers 1974:117, line 39
+(80) line 3	Henry Davis	citation	(Kuipers 1974:117, line 39)	the tag or source at the right of the translation
+(81) line 1	Secwepemctsín	segmentation	ɣə=nwíʔs meʔ ʔey-n{-t}-s.	page 25, engine language
+(81) line 2	Secwepemctsín	gloss	DET=3IND FUT pay-CT{-TR}-3ERG	page 25, engine english
+(81) line 3	Kuipers 1974:194	translation	‘He’ll (be the one to) pay.’	page 25, engine english, cited Kuipers 1974:194
+(81) line 3	Henry Davis	citation	(Kuipers 1974:194)	the tag or source at the right of the translation
+(82) line 1	Secwepemctsín	segmentation	ɬép-n{-t}-əx ɣə=ʔənwíʔ.	page 25, engine language
+(82) line 2	Secwepemctsín	gloss	forget-CT{-TR}-2SG.ERG DET=2SG.IND	page 25, engine english
+(82) line 3	Kuipers 1974:194	translation	‘You forgot it yourself.’	page 25, engine english, cited Kuipers 1974:194
+(82) line 3	Henry Davis	citation	(Kuipers 1974:194)	the tag or source at the right of the translation
+footnote 30	Henry Davis	note	30 The future particle meʔ replaces all determiners in pre-predicative position, which is why they are missing in (78)–(79): see Lyon and Ignace (2021).	page 25, footnote
+§5.1	Secwepemctsín	cited form	meʔ	page 25
+footnote 31	Henry Davis	note	31 In Secwepemctsín (and Nɬeʔkepmxcín), unlike in the rest of the family, the general-purpose transitivizer -t (-TR) is separated from the (full) control marker -n- (-CT-) and the causative marker -s- (-CAUS-); the latter thus count as pre-transitivizers rather than transitivizers, parallel to e.g., the redirective and relational applicative markers.	page 25, footnote
+(83) line 1	Secwepemctsín	segmentation	ƛ̓inúxʷ-n{-t}-s ɣə=nwiʔs ʔəs-cq̓elən-əm-s.	page 26, engine language
+(83) line 2	Secwepemctsín	gloss	desire-CT{-TR}-3ERG DET=3IND GOAL-shoot-MID-3POSS	page 26, engine english
+(83) line 3	Kuipers 1974:166	translation	‘He wants to shoot.’	page 26, engine english, cited Kuipers 1974:166
+(83) line 3	Henry Davis	citation	(Kuipers 1974:166)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	Gardiner (1993) also gives cases with determiners on non-first person forms of independent pronouns, again in both predicate (84) and argument positions (85), though Lai (1998:45) reports that her consultant rejected these forms.	page 26
+(84) line 1	Secwepemctsín	segmentation	ɣə=ʔənwíʔ ɣə=m-k̓ʷúl-ən{-t}-x ɣ=mim̓x.	page 26, engine language
+(84) line 2	Secwepemctsín	gloss	DET=2SG.IND DET=PRF-make-CTR{-TR}-2SG.ERG DET=basket	page 26, engine english
+(84) line 3	Gardiner 1993:36	translation	‘You’re the one who made the basket.’32	page 26, engine english, cited Gardiner 1993:36
+(84) line 3	Henry Davis	citation	(Gardiner 1993:36)	the tag or source at the right of the translation
+(85) line 1	Secwepemctsín	segmentation	meʔ-k̓úl-ən{-t}-s ɣə=məx̌éx̌yeʔ ɣə=nwiʔs.	page 26, engine language
+(85) line 2	Secwepemctsín	gloss	FUT-make-CTR{-TR}-3ERG DET=basket DET=3IND	page 26, engine english
+(85) line 3	Gardiner 1993:46	translation	‘He’ll make the basket himself.’	page 26, engine english, cited Gardiner 1993:46
+(85) line 3	Henry Davis	citation	(Gardiner 1993:46)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	Gardiner also gives cases of independent pronouns in predicate position introduced by the oblique determiner (86) and a preposition (87) (again, rejected by Lai’s consultant):	page 26
+(86) line 1	Secwepemctsín	segmentation	tə=ncécweʔ ɣə=wík-t-məs.	page 26, engine language
+(86) line 2	Secwepemctsín	gloss	OBL.DET=1SG.IND DET=see-TR-AX	page 26, engine english
+(86) line 3	Gardiner 1993:46	translation	‘I’m the one who saw him’. (More literally: ‘It was me by whom he was seen.’)	page 26, engine english, cited Gardiner 1993:46
+(86) line 4	Henry Davis	citation	(Gardiner 1993:46)	page 26, engine residue
+(87) line 1	Secwepemctsín	segmentation	təl=ncécweʔ ɣə=k̓ʷét-m=əs.	page 26, engine language
+(87) line 2	Secwepemctsín	gloss	to=1SG.IND DET=step-MID=3SJV	page 26, engine english
+(87) line 3	Henry Davis	translation	‘She walked towards me. (More literally: ‘It was towards me that he walked.’)	page 26, engine english
+(87) line 3	Henry Davis	citation	(Gardiner 1993:47)	the tag or source at the right of the translation
+§5.1	Henry Davis	name	Esk̓et	Esk̓et, a Secwepemc community whose speakers the paper cites
+§5.1	Henry Davis	note	The same pattern, with determiners before independent pronouns of all persons in both predicate and argument positions, is also shown by speakers from Williams Lake and Esk̓et in the northern part of Secwépemc territory, as reported by M. Ignace to Lai (see also Lyon and Ignace 2021:179, fn. 25). Given that determiners are consistently present in older sources (e.g., Kuipers 1974) and apparently more conservative dialects (e.g., the northern varieties), the innovative pattern of determiner loss in the western dialect is likely either due to phonological reduction or a change in progress (or both).	page 26
+§5.1	Henry Davis	note	Nevertheless, the observed variation is actually quite telling because of what does not vary. Either speakers employ determiners on independent pronouns in both predicate and argument positions, or in neither: there are no reports of speakers using determiners on pronouns in argument but not in predicate position. In other words, in spite of the variation, Secwepemctsín consistently shows the profile of an invariant pronoun system.	page 26
+footnote 32	Henry Davis	note	32 The clause-initial second person singular independent pronoun is doubled here by a second person singular ergative suffix on the verb, in contrast to St’át’imcets, where independent pronouns always behave like third persons for the purposes of agreement. See footnote 3; also Lyon and Ignace (2021) for extensive discussion of agreement doubling in cleft residues in Secwepemctsín.	page 26, footnote
+§5.1	Henry Davis	note	Furthermore, the presence of determiners on pronouns in “predicate” positions gives us straightforward evidence that we are dealing here with disguised clefts: DPs cannot be predicates in Secwepemctsín, any more than in any other Salish language, but they can, of course, occupy the focus position of a cleft. As for the innovative Secwepemctsín speakers who do not produce determiners on pronouns, if they have genuinely lost them, we can assume their grammars resemble that of St’át’imcets, which as we have seen never shows determiners on independent pronouns, but nevertheless treats them unambiguously as DPs.	page 27
+§5.1	Secwepemctsín	cited form	ye~yə	page 27
+§5.1	Secwepemctsín	cited form	yəɣíʔ	page 27
+§5.1	Secwepemctsín	root	√ye	page 27
+§5.1	Henry Davis	note	Next, notice that if the disguised cleft analysis is on the right track for Secwepemctsín, we might expect to find independent pronouns in overt clefts as well. It turns out that we do. While it is not as easy to identify copulas/clefting predicates in Secwepemctsín as in its Northern Interior relatives St’át’imcets and Nɬeʔkepmxcín, there is a group of elements, all beginning with ye~yə, which seem to fulfill this function. They include yəɣíʔ, derivations of the root √ye, and yex.	page 27
+§5.1	Secwepemctsín	cited form	niɬ	page 27
+§5.1	Secwepemctsín	cited affix	yə-	page 27
+§5.1	Secwepemctsín	cited form	ɣiʔ	page 27
+§5.1	Henry Davis	note	Kuipers (1974:57–58) treats yəɣíʔ as part of the demonstrative system, conveying “general deixis” with the meaning of ‘this (near speaker)’, but it also behaves like St’át’imcets niɬ: in particular, unlike other demonstratives, it frequently functions as a predicate in discourse conjunction / clause-chaining contexts (see Kroeber 1999:218). It is probably best treated as a “predicative demonstrative”, with the yə- component acting as a copula and the ɣiʔ component as a demonstrative. The independent existence of both elements argues in favour of a compositional treatment: see Kuipers (1974:82) on √ye and Kuipers (1974:232) on ɣiʔ.	page 27
+§5.1	Henry Davis	note	As reported by Gardiner (1993), yəɣíʔ is optionally present as an introductory element in clefts.33	page 27
+(88) line 1	Secwepemctsín	segmentation	(yəɣíʔ) ɣ=sqélməxʷ ɣ=wík-t-məs.	page 27, engine language
+(88) line 2	Secwepemctsín	gloss	(COP) DET=man DET=see-TR-AX	page 27, engine english
+(88) line 3	Gardiner 1993:78	translation	‘It’s the man that saw him/her.’	page 27, engine english, cited Gardiner 1993:78
+(88) line 3	Henry Davis	citation	(Gardiner 1993:78)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	Lyon and Ignace (2021) provide further examples:	page 27
+footnote 33	Henry Davis	note	33 Gardiner (1996:181) claims that “demonstratives cannot occur as predicates”. Examples like (88) appear to be prima facie counterexamples to this claim, since if the demonstrative yəɣíʔ were not functioning as a copula, the clause would consist only of two DPs, and DP DP predications are ungrammatical in Secwepemctsín. It is possible that Gardiner is assuming an alternative analysis of (88) where yəɣíʔ and sqélməxʷ ‘man’ form a constituent (‘this man’) which is then linked to the cleft remnant by a null copula (see Lyon 2013 for an analysis of DP DP clauses in Nsyílxcen along these lines); such an analysis doesn’t argue against a cleft analysis per se, but it does challenge the idea that yəɣíʔ is a copula/clefting predicate. There are, however, cases where yəɣíʔ must be a copula:	page 27, footnote
+§5.1	Secwepemctsín	cited form	sqélməxʷ	page 27, ‘man’
+§5.1	Henry Davis	language	Nsyílxcen	Nsyílxcen, Okanagan, a Southern Interior Salish language
+footnote 33 (i) line 1	Secwepemctsín	segmentation	yəɣiʔ ɣə=sʔéctəm-s.	page 27, engine language
+footnote 33 (i) line 2	Secwepemctsín	gloss	COP DET=daughter.in.law-3POSS	page 27, engine english
+footnote 33 (i) line 3	Henry Davis	translation	‘This is his daughter-in-law.’	page 27, engine english
+footnote 33 (i) line 3	Henry Davis	citation	(First Voices: Secwépemc Portal)	the tag or source at the right of the translation
+footnote 33	Secwepemctsín	cited form	ɣə	page 27
+footnote 33	Secwepemctsín	cited form	sʔéctəms	page 27, ‘his daughter in law’
+footnote 33	Henry Davis	note	This is not a cleft, but an identificational sentence. Clearly, here there is no question of yəɣíʔ forming a constituent with the following DP: if it did, we would end up with the meaning ‘this daughter-in-law of his’, parallel to a simple DP such ɣə sʔéctəms ‘his daughter in law’, which cannot be interpreted as a clause. If yəɣíʔ must be a copula in these cases (or license a null copula, which amounts to the same thing), then I conclude that it can (and should) also be analyzed as a copula in (88).	page 27
+(89) line 1	Secwepemctsín	segmentation	(yəɣíʔ) ɣə=nəx̌ʷúləxʷ luʔ ɣə=cəx-ən-t-és ɣə=Hannah	page 28, engine language
+(89) line 2	Secwepemctsín	gloss	(COP) DET=car ABSN.DEM DET=fix-CT-TR-3ERG DET=Hannah	page 28, engine english
+(89) line 3	Secwepemctsín	segmentation	taʔ k=s-yex-s ɣə=səlxén̓.	page 28, engine language
+(89) line 4	Secwepemctsín	gloss	NEG DET=NMLZ-COP-3POSS DET=bicycle	page 28, engine english
+(89) line 5	Lyon and Ignace 2021:205	translation	‘It’s the car Hannah fixed, not the bicycle.’	page 28, engine english, cited Lyon and Ignace 2021:205
+(89) line 5	Henry Davis	citation	(Lyon and Ignace 2021:205)	the tag or source at the right of the translation
+§5.1	Secwepemctsín	cited form	=w(ə)s	page 28
+§5.1	Secwepemctsín	cited form	=əkʷe	page 28
+§5.1	Secwepemctsín	cited form	yé=ws	page 28
+§5.1	Henry Davis	note	The root √ye occurs in combination with a number of enclitics, including (very commonly) the third person subjunctive =w(ə)s as well as the question enclitic =n, reportative =əkʷe, and evidential =nke. Kuipers (1974:82) points out that these forms, like yəɣíʔ, can be used either in clause-chaining contexts (particularly yé=ws) or as clefting predicates; with respect to the latter function, he notes that “In these cases ye- corresponds to English it is (this, that one)”.	page 28
+(90) line 1	Secwepemctsín	segmentation	yé=əkʷe yəɣéy ʔex k=nq̓ʷum=əs.	page 28, engine language
+(90) line 2	Secwepemctsín	gloss	COP=RPRT DEM PROG DET=steal=3SJV	page 28, engine english
+(90) line 3	Kuipers 1974:82	translation	‘He’s the one that steals.’	page 28, engine english, cited Kuipers 1974:82
+(90) line 3	Henry Davis	citation	(Kuipers 1974:82)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	The copula yex is likely related at least diachronically to √ye. Kuipers (1974:92) defines it as “the one (meant, destined, etc.)”; it is unclear to me exactly how it differs from the other copula- like elements described here, though I have found no instances of it being used in clause-chaining contexts.	page 28
+(91) line 1	Secwepemctsín	segmentation	k̓éməɬ xʷum weʔ yex ɣ=scik̓t-s ɣ=méʕxən	page 28, engine language
+(91) line 2	Secwepemctsín	gloss	but REIN just COP DET=reflection-3POSS DET=moon	page 28, engine english
+(91) line 3	Secwepemctsín	segmentation	ƛ̓əkɬúʔ ɣə=wəywéy.	page 28, engine language
+(91) line 4	Secwepemctsín	gloss	from.there DET=visible	page 28, engine english
+(91) line 5	Kuipers 1974:92, line 5	translation	‘But it was really the reflection of the moon that was visible there.’	page 28, engine english, cited Kuipers 1974:92, line 5
+(91) line 5	Henry Davis	citation	(Kuipers 1974:92, line 5)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	Significantly, all three of these copula-like elements occur with clefted independent pronouns (introduced by determiners) as shown in (92)–(94) below:	page 28
+(92) line 1	Secwepemctsín	segmentation	yəɣiʔ ɣə=ncécweʔ, yəɣíʔ xʷum méʔe, yəɣíʔ xʷum méʔe	page 28, engine language
+(92) line 2	Secwepemctsín	gloss	COP DET=1SG.IND COP REIN FUT COP REIN FUT	page 28, engine english
+(92) line 3	Secwepemctsín	segmentation	qém-ən-t-məs, yəɣíʔ ɣə=kʷúkʷpəy ɣə=sƛ̓əmkélt-s meʔ n-səmʔéʔm.	page 28, engine language
+(92) line 4	Secwepemctsín	gloss	hit-CT-TR-AX COP DET=chief DET=daughter-3POSS FUT 1SG.POSS-wife	page 28, engine english
+(92) line 5	Henry Davis	translation	‘It’s going to be me, I’ll hit it, the chief’s daughter will be my wife.’	page 28, engine english
+(92) line 5	Henry Davis	citation	(Kuipers 1974:122, line 177)	the tag or source at the right of the translation
+(93) line 1	Secwepemctsín	segmentation	yews ɣə=nwíʔs k=ʔéy-n-t-məs.	page 28, engine language
+(93) line 2	Secwepemctsín	gloss	COP DET=3SG.IND DET=pay-CT-TR-AX	page 28, engine english
+(93) line 3	Kuipers 1974:194	translation	‘He’s the one that’s paying.’	page 28, engine english, cited Kuipers 1974:194
+(93) line 3	Henry Davis	citation	(Kuipers 1974:194)	the tag or source at the right of the translation
+(94) line 1	Secwepemctsín	segmentation	taʔ ƛ̓əɣíʔ k=s-yex-s ɣə=ncécweʔ k=ʔə-sx̌élwe.	page 28, engine language
+(94) line 2	Secwepemctsín	gloss	NEG DEM D/C=NMLZ-COP-3POSS DET=1SG.IND DET=2SG.POSS-husband	page 28, engine english
+(94) line 3	Kuipers 1974:194	translation	‘I am not your husband.’	page 28, engine english, cited Kuipers 1974:194
+(94) line 3	Henry Davis	citation	(Kuipers 1974:194)	the tag or source at the right of the translation
+§5.1	Henry Davis	note	The existence of independent pronouns in the focus position of overt clefts constitutes important corroborating evidence for the disguised cleft analysis of “predicative” independent pronouns in Secwepemcts ín.34Before concluding this discussion of Secwepemcts ín, it’s worth making one more point. While I have highlighted the variable presence of a determiner on the independent pronoun itself, I have said nothing about the cleft remnant. I haven’t needed to, because there is no variation: in contrast to St’át’imcets and Nɬeʔkepmxcín, a determiner is virtually always present on the remnant in Secwepemctsín. This suggests that clefts in Secwepemctsín are always of the equational type (63a) rather than being ambiguous between equational and bare CP types (63b).35 Interestingly, the same claim is made for Nsyílxcen by Lyon (2013). Furthermore, there is another way in which Secwepemctsín and Nsyílxcen clefts resemble each other, but differ from those in St’át’imcets and Nɬeʔkepmxcín: both use demonstrative pronouns as clefting predicates. This suggests that in this area of the grammar, Secwepemctsín shows closer affinities with its Southern Interior neighbor than with its closer Northern Interior relatives.	page 28
+§5.2	Henry Davis	heading	5.2 Northern Straits Salish: An Alternating Pronoun System	page 29
+§5.2	Henry Davis	language	Halq’eméylem	Halq’eméylem, the Upriver dialect of Halkomelem, a Central Salish language
+§5.2	Henry Davis	language	SENĆOTEN	SENĆOTEN, the Saanich dialect of Northern Straits Salish, a Central Salish language
+§5.2	Henry Davis	note	Alternating pronoun systems have received slightly more attention in the Salish literature than invariant ones. They have been examined in some depth in two Central Salish languages: the Halq’eméylem (Upriver) dialect of Halkomelem (ISO 639-3: hur) (Wiltschko 2002), and in Northern Straits Salish (ISO 369-3: str) (Shank 2003). I will focus here on the latter, since Shank provides a semantics for independent pronouns in Northern Straits Salish (NSS) which is explicitly designed to capture their alternating behaviour. NSS comprises a set of distinct but mutually intelligible dialects. Data here are from the Lummi, Samish, and SENĆOTEN (Saanich) dialects. As far as I can tell, though the form of independent pronouns varies slightly between dialects, their grammar does not. The NSS independent pronouns are given in Table 4.	page 29
+Table 4 line 1	Henry Davis	note	Table 4: Independent pronouns in Northern Straits Salish	page 29, the caption, footnote 36 on the caption
+Table 4 line 2	Henry Davis	note	Singular Plural	page 29, heads the columns below
+Table 4 line 3	Northern Straits Salish	transcription	ʔə́s(ə)	page 29, first person singular
+Table 4 line 3	Northern Straits Salish	transcription	ʔə́θə	page 29, first person singular
+Table 4 line 3	Northern Straits Salish	transcription	ɬníŋəɬ	page 29, first person plural
+Table 4 line 4	Northern Straits Salish	transcription	nə́kʷ(ə)	page 29, second person singular
+Table 4 line 4	Northern Straits Salish	transcription	nəkʷíl̕iyəʔ	page 29, second person plural
+Table 4 line 4	Northern Straits Salish	transcription	nəkʷíliʔyəʔ	page 29, second person plural
+Table 4 line 5	Northern Straits Salish	transcription	níɬ	page 29, third person singular
+Table 4 line 5	Northern Straits Salish	transcription	nən̓íʔɬiyəʔ	page 29, third person plural
+Table 4 line 5	Northern Straits Salish	transcription	nəníʔɬiyəʔ	page 29, third person plural
+§5.2	Henry Davis	note	The paradigm includes forms derived from four out of the five Proto-Salish independent pronoun stems (the second person plural form has been lost and replaced by a pluralized version of the second person singular form).	page 29
+§5.2	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§5.2	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§5.2	Henry Davis	note	In syntactic behavior, NSS independent pronouns show the characteristic profile of an alternating system: in argument (95)–(96) and oblique positions (97)–(98), the pronouns are introduced by determiners, but in predicative (clause-initial) position (99)–(101), they lack them. 34 This is not what Lai (1998) concludes. She considers the DP possibility (Lai 1998:44, footnote 29), but rejects it on the assumption that “bare” independent pronouns are necessarily predicative: precisely the assumption, in fact, that I have argued against here. Once this assumption is abandoned, there is no reason not to adopt an analysis for Secwepemctsín focused pronouns along the lines which I have proposed for St’át’imcets, with a null clefting predicate and a DP independent pronoun.	page 29
+footnote 35	Henry Davis	note	35 This predicts that headed relative clauses should be fine in cleft remnants in Secwepemctsín, and that the two arguments of a cleft should be reversible. I have not yet been able to check either of these predictions.	page 29, footnote
+footnote 36	Henry Davis	note	36 The table is based on Galloway (1990) (Samish) and Montler (2018) (SENĆOTEN).	page 29, footnote
+(95) line 1	Northern Straits Salish	segmentation	k̓ʷə́n-ət=kʷəʔ tθə=nəkʷíləyəʔ.	page 30, engine language
+(95) line 2	Northern Straits Salish	gloss	see-CTR=INFORM DET=2PL.IND	page 30, engine english
+(95) line 3	SENĆOTEN: Montler 2018:357	translation	‘Look at you!’ (i.e., ‘You folks are like that too.)’	page 30, engine english, cited SENĆOTEN: Montler 2018:357
+(95) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:357)	the tag or source at the right of the translation
+(96) line 1	Northern Straits Salish	segmentation	lə́ŋ-t=ləʔ=sən cə=nə́kʷ.	page 30, engine language
+(96) line 2	Northern Straits Salish	gloss	see-CTR=PAST=1SG.SUBJ DET=2SG.IND	page 30, engine english
+(96) line 3	Lummi: Jelinek and Demers 1994:715	translation	‘I saw the one that was you.’	page 30, engine english, cited Lummi: Jelinek and Demers 1994:715
+(96) line 3	Henry Davis	citation	(Lummi: Jelinek and Demers 1994:715)	the tag or source at the right of the translation
+(97) line 1	Northern Straits Salish	segmentation	x̌čí-t-əŋ cə=swə́yʔqəʔ ʔə=tiʔə=ʔəs.	page 30, engine language
+(97) line 2	Northern Straits Salish	gloss	know-CTR-PASS DET=man OBL=DET=1SG.IND	page 30, engine english
+(97) line 3	Lummi: Jelinek and Demers 1983:173	translation	‘The man is known by me.’	page 30, engine english, cited Lummi: Jelinek and Demers 1983:173
+(97) line 3	Henry Davis	citation	(Lummi: Jelinek and Demers 1983:173)	the tag or source at the right of the translation
+(98) line 1	Northern Straits Salish	segmentation	ƛ̓íw̓=č̓əʔ ʔə=tɬ=nə́kʷə.	page 30, engine language
+(98) line 2	Northern Straits Salish	gloss	run.away=EVID OBL=DET=2SG.IND	page 30, engine english
+(98) line 3	SENĆOTEN: Montler 2018:384	translation	‘He ran away from you.’	page 30, engine english, cited SENĆOTEN: Montler 2018:384
+(98) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:384)	the tag or source at the right of the translation
+(99) line 1	Northern Straits Salish	segmentation	nə́kʷ=ləʔ cə=lə́ŋ-t-ən.	page 30, engine language
+(99) line 2	Northern Straits Salish	gloss	2SG.IND=PAST DET=see-CTR-1SG.SBD	page 30, engine english
+(99) line 3	Lummi: Jelinek and Demers 1994:715	translation	‘It was you that I saw.’	page 30, engine english, cited Lummi: Jelinek and Demers 1994:715
+(99) line 3	Henry Davis	citation	(Lummi: Jelinek and Demers 1994:715)	the tag or source at the right of the translation
+(100) line 1	Northern Straits Salish	segmentation	nə́kʷə=ləʔ k̓ʷə́n-n-əŋ.	page 30, engine language
+(100) line 2	Northern Straits Salish	gloss	2SG.IND=PAST see-NCT-PASS	page 30, engine english
+(100) line 3	SENĆOTEN: Montler 2018:384	translation	‘It was you that was seen.’	page 30, engine english, cited SENĆOTEN: Montler 2018:384
+(100) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:384)	the tag or source at the right of the translation
+(101) line 1	Northern Straits Salish	segmentation	ʔə́sə=səʔ ʔix̌ʷ-ət.	page 30, engine language
+(101) line 2	Northern Straits Salish	gloss	1SG.IND=FUT sweep-CTR	page 30, engine english
+(101) line 3	SENĆOTEN: Montler 2018:170	translation	‘I’ll sweep it up.’	page 30, engine english, cited SENĆOTEN: Montler 2018:170
+(101) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:170)	the tag or source at the right of the translation
+§5.2	Northern Straits Salish	cited form	niɬ	page 30
+§5.2	Henry Davis	note	In this respect, NSS independent pronouns resemble common noun phrases rather than DPs, raising the possibility that they are genuinely predicative in initial position, as opposed to occupying the focus position of a disguised cleft. This possibility predicts that they will pattern like predicative NPs, and unlike clefted DPs: more specifically, we should find that they will take a DP argument obligatorily introduced by a determiner, like other NP predicates. This prediction is not borne out: though determiners are sometimes found on the arguments of independent pronouns, as in (99), more often than not they are missing, as in (100)–(101). In this respect, these cases resemble overt clefts, which are introduced in NSS by the clefting predicate niɬ (identical in form to its St’át’imcets counterpart), and also usually lack a determiner on the remnant. Shank (2003:219) observes that “In Straits, although using a determiner on the cleft clause is fully grammatical, the overwhelming tendency is to leave the determiner off.” Shank further points out that this contrasts with the status of determiners on ordinary DPs, which are never omitted: “This is really remarkable, because arguments in Straits must have determiners. Even proper names must take a determiner in order to function as an argument” (Shank 2003:220).	page 30
+§5.2	Henry Davis	note	Examples of overt clefts are given in (102)–(104): while (102) has a determiner on the remnant,	page 30
+(103) line 1	Northern Straits Salish	transcription	and (104) do not.	page 30, engine residue
+(102) line 1	Northern Straits Salish	segmentation	niɫ kʷsə=Richard kʷsə=c̓ə-t kʷsə=laʔsn.	page 31, engine language
+(102) line 2	Northern Straits Salish	gloss	COP DET=Richard D/C=break-CTR DET=plate	page 31, engine english
+(102) line 3	Samish: Shank 2003:219	translation	‘It was Richard that broke the plate.’	page 31, engine english, cited Samish: Shank 2003:219
+(102) line 3	Henry Davis	citation	(Samish: Shank 2003:219)	the tag or source at the right of the translation
+(103) line 1	Northern Straits Salish	segmentation	niɬ tə=sɬən-ɬeńiʔ k̓ʷəy̓k̓ʷiʔ.	page 31, engine language
+(103) line 2	Northern Straits Salish	gloss	COP DET=PL.RDP-woman hungy	page 31, engine english
+(103) line 3	Samish: Shank 2003:224	translation	‘It’s the women that are hungry.’	page 31, engine english, cited Samish: Shank 2003:224
+(103) line 3	Henry Davis	citation	(Samish: Shank 2003:224)	the tag or source at the right of the translation
+(104) line 1	Northern Straits Salish	segmentation	ʔə́wə s níɬ tθə=swə́yqəʔ nə-siʔém; níɬ θə=sɬéniʔ.	page 31, engine language, carries footnote 37, written here without its digit
+(104) line 2	Northern Straits Salish	gloss	NEG IRR COP DET=man 1SG.POSS-boss COP FEM.DET=woman	page 31, engine english
+(104) line 3	SENĆOTEN: Montler 2018:402	translation	‘It’s not the man that’s my boss; it’s the woman.’	page 31, engine english, cited SENĆOTEN: Montler 2018:402
+(104) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:402)	the tag or source at the right of the translation
+§5.2	Henry Davis	note	This suggests that both clefts and independent pronouns in NSS have the bare CP structure given in (63b) above rather than the equational structure in (63a): indeed, this is the conclusion that Shank himself comes to. In fact, unlike St’át’imcets, which has both types, and Secwepemctsín, which only has equational clefts, NSS seems to lack equational clefts entirely. Determiners are optional even in simple equational sentences (i.e., those which equate two individuals), as can be seen in (105)–(109), the first two with a determiner on the remnant, the next two without, and the last (elicited) example with the determiner optionally present.	page 31
+(105) line 1	Northern Straits Salish	segmentation	níɬ [tsə=swə́y̓qəʔ] [tsə=siʔəm].	page 31, engine language
+(105) line 2	Northern Straits Salish	gloss	COP [DET=man] [DET=chief]	page 31, engine english
+(105) line 3	Lummi: Jelinek and Demers 1994:711	translation	‘The man is the chief.’	page 31, engine english, cited Lummi: Jelinek and Demers 1994:711
+(105) line 3	Henry Davis	citation	(Lummi: Jelinek and Demers 1994:711)	the tag or source at the right of the translation
+(106) line 1	Northern Straits Salish	segmentation	níɬ=č̕ə [s-kʷéʔ-s tθə=st̕ᶿéʔəw̓txʷ sqéwθ-s] [tθə=qʷɬáʔəl].	page 31, engine language
+(106) line 2	Northern Straits Salish	gloss	COP=EVID [NMLZ-own-3POSS DET=Tsawout potato-3POSS] [DET=camas]	page 31, engine english
+(106) line 3	SENĆOTEN: Montler 2018:160	translation	‘The camas is the Tsawout’s own potato.’	page 31, engine english, cited SENĆOTEN: Montler 2018:160
+(106) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:160)	the tag or source at the right of the translation
+(107) line 1	Northern Straits Salish	segmentation	níɬ kʷəče [tén-s kʷsə=ʔəm-ʔímən=ləʔ kʷə́nt̕{-t}-əs=ləʔ].	page 31, engine language, carries footnote 38, written here without its digit
+(107) line 2	Northern Straits Salish	gloss	COP therefore [mother-3POSS DET=PL.RDP-small=PAST look.after{-CTR}-3SBD=PAST]	page 31, engine english
+(107) line 3	SENĆOTEN: Montler 2018:462	translation	‘She was the mother of the little ones he looked after.’	page 31, engine english, cited SENĆOTEN: Montler 2018:462
+(107) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:462)	the tag or source at the right of the translation
+(108) line 1	Northern Straits Salish	segmentation	níɬ=ləʔ [st̕ᶿéʔəw̓txʷ] [ʔéʔləŋ-s tθə=t̕ᶿətθə́mq̓ən].	page 31, engine language
+(108) line 2	Northern Straits Salish	gloss	COP=PAST [Tsawout] [home-3POSS DET=name]	page 31, engine english
+(108) line 3	SENĆOTEN: Montler 2018:620	translation	‘Tsawout was the home of Philip Pelkey.’	page 31, engine english, cited SENĆOTEN: Montler 2018:620
+(108) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:620)	the tag or source at the right of the translation
+(109) line 1	Northern Straits Salish	segmentation	níɬ [kʷsə=James] [(kʷsə=)Jimmy].	page 31, engine language
+(109) line 2	Northern Straits Salish	gloss	COP [DET=James] [(DET=)Jimmy]	page 31, engine english
+(109) line 3	Samish: Shank 2003:218	translation	‘James is Jimmy.’	page 31, engine english, cited Samish: Shank 2003:218
+(109) line 3	Henry Davis	citation	(Samish: Shank 2003:218)	the tag or source at the right of the translation
+footnote 37	Henry Davis	note	37 This example features ellipsis of the CP remnant in its second clause, just as in corresponding cases in St’át’imcets: see (54) above. This is potentially problematic for an analysis in which the remnant is the first argument of the clefting predicate, as in Shank (2003): under that analysis, we expect the second, referential argument to elide instead. There are ways around this problem, however: one is to assume that the CP argument is extraposed from its base position (following the analysis of English clefts by Percus 1997 and Hedberg 2000), and that it is elided once extraposed.	page 31, footnote
+footnote 38	Henry Davis	note	38 The focus of the cleft sentence in this case is null (i.e., pro).	page 31, footnote
+§5.2	Henry Davis	language	St’at’imcets	St’át’imcets, Lillooet, printed here without its first acute
+§5.2	Henry Davis	note	Furthermore, unlike in St’at’imcets, the remnant to a cleft cannot consist of a headed relative clause (110); if the remnant were a DP, as in an equational cleft, there would be no way to rule this out.	page 32
+(110) line 1	Northern Straits Salish	segmentation	* niɫ kʷsə=xʷənítəm [kʷsə=sɬéniʔ ləŋ-n-ən].	page 32, engine language
+(110) line 2	Northern Straits Salish	gloss	COP DET=white.person [DET=woman see-NCT-1SG.SBD]	page 32, engine english
+§5.2	Henry Davis	note	Attempted interpretation: ‘The woman that I saw was a white person.’ (Samish: Davis et al. 2004:103) NSS thus appears to lack equational clefts altogether. Significantly, independent pronouns show the same behavior in “equational” sentences: determiners are routinely missing on the remnant, as shown in (111)–(113):39	page 32
+(111) line 1	Northern Straits Salish	segmentation	ʔə́sə ʔən̓-mén.	page 32, engine language
+(111) line 2	Northern Straits Salish	gloss	1SG.IND 2SG.POSS-father	page 32, engine english
+(111) line 3	SENĆOTEN: Montler 2018:170	translation	‘I am your father.’	page 32, engine english, cited SENĆOTEN: Montler 2018:170
+(111) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:170)	the tag or source at the right of the translation
+(112) line 1	Northern Straits Salish	segmentation	ʔə́sə=kʷəʔ Elsie.	page 32, engine language
+(112) line 2	Northern Straits Salish	gloss	1SG.IND=INFORM Elsie	page 32, engine english
+(112) line 3	SENĆOTEN: Montler 2018:170	translation	‘I am Elsie.’	page 32, engine english, cited SENĆOTEN: Montler 2018:170
+(112) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:170)	the tag or source at the right of the translation
+(113) line 1	Northern Straits Salish	segmentation	ɬníŋəɬ ŋə́nəʔ ʔə=tɬ=smák̓ʷəč.	page 32, engine language
+(113) line 2	Northern Straits Salish	gloss	1PL.IND child OBL=DET=SMOQEĆ	page 32, engine english
+(113) line 3	SENĆOTEN: Montler 2018:170	translation	‘We are the daughters of SMOQEĆ.’	page 32, engine english, cited SENĆOTEN: Montler 2018:170
+(113) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:170)	the tag or source at the right of the translation
+§5.2	Henry Davis	note	In fact, I have failed to find any cases where determiners are present on the remnant to a clause- initial first or second person independent pronoun in NSS. This fairly conclusively rules out a predicative (NP) analysis, which leads to the larger conclusion — assuming that NSS is typical of alternating pronoun systems — that independent pronouns are never directly predicative in Salish. This is a significant finding, given that it directly contradicts the popular wisdom about Salish as articulated by, e.g., Kinkade (1983) that all words except particles have a primarily predicative function.	page 32
+§5.2	Henry Davis	note	It also, however, raises the question as to how independent pronouns are to be analyzed in alternating systems like NSS. The obvious move — to try to extend the concealed cleft analysis I have proposed for St’át’imcets and Secwepemctsín — runs into immediate trouble, because it is based on the premise — accurate for Interior Salish — that independent pronouns are always DPs, with “predicative” cases accounted for by a null clefting predicate. If we try to treat NSS independent pronouns in clause-initial positions similarly by, e.g., assuming a null D in clause- initial cases, we have no way of accounting for why they obligatorily get an overt D just in case they are in argument position. Furthermore, in the cases I’ve been able to find with a clefted independent pronoun and an overt copula/clefting predicate, the independent pronoun does have a determiner (and in (115) below, is also coordinated with another DP).	page 32
+footnote 39	Henry Davis	note	39 According to Shank (2003), these are not equational sentences at all, but clefts with a predicative remnant: see below for details.	page 32, footnote
+(114) line 1	Northern Straits Salish	segmentation	níɬ [tθə=ʔə́sə] sə́lč̕ ʔə=tθə=sqəlélŋəxʷ.	page 33, engine language
+(114) line 2	Northern Straits Salish	gloss	COP [DET=1SG.IND] go.around OBL=DET=tree	page 33, engine english
+(114) line 3	SENĆOTEN: Montler 2018:401	translation	‘It is me that’s going around the tree.’	page 33, engine english, cited SENĆOTEN: Montler 2018:401
+(114) line 3	Henry Davis	citation	(SENĆOTEN: Montler 2018:401)	the tag or source at the right of the translation
+(115) line 1	Northern Straits Salish	segmentation	ʔén̓ ʔəw̓ x̌əč-t-ís kʷ=s=ʔə́wə=s čɬ-níɬ	page 33, engine language
+(115) line 2	Northern Straits Salish	gloss	really LINK know-CTR-3ERG D/C=NMLZ=NEG=3POSS INFORM-COP	page 33, engine english
+(115) line 3	Northern Straits Salish	segmentation	[tθə=nə-mén ʔiʔ tíʔə=ʔə́sə].	page 33, engine language
+(115) line 4	Northern Straits Salish	gloss	[DET=1SG.POSS-father and DET=1SG.IND]	page 33, engine english
+(115) line 5	Henry Davis	translation	‘It really knew that it was not my father and me [that did it to him].’	page 33, engine english
+(115) line 5	Henry Davis	citation	(SENĆOTEN: Montler 2018:206)	the tag or source at the right of the translation
+§5.2	Henry Davis	note	Clearly, then, we need another solution. Here I will follow Shank (2003), whose fundamental insight (though he doesn’t quite frame it this way) is that determiner-less independent pronouns in initial position are not in the focus position of a clefting predicate: they are clefting predicates. Shank only develops this idea in detail for third person niɬ (with the goal of uniting its function as an independent pronoun with its function as a clefting predicate, since the two are near- homophonous in NSS).40 His formula is given below in (116):	page 33
+(116) line 1	Henry Davis	rule	⟦niɬ⟧ = λP λx . x ≤ y & y = ιz P(z)	page 33, engine residue
+(116) line 1	Henry Davis	citation	(Shank 2003:225)	the tag or source at the right of the formula
+§5.2	Henry Davis	note	Here, niɬ takes a predicative argument P (which Shank identifies as the remnant clause in a cleft) and an individual x, where x is a subpart of a plural individual y, and y is the unique (and therefore maximal) argument of P. This makes it of type <<et>,<et>>. The Logical Form for a sentence such as (102) above will then be as in (117):	page 33
+(117) line 1	Northern Straits Salish	segmentation	niɫ kʷsə=Richard (kʷsə=)c̓ə-t kʷsə=laʔsn.	page 33, engine language
+(117) line 2	Northern Straits Salish	gloss	COP DET=Richard (D/C=)break-CTR DET=plate	page 33, engine english
+(117) line 3	Samish: adapted from Shank 2003:226	translation	‘It was Richard that broke the plate.’	page 33, engine english, cited Samish: adapted from Shank 2003:226
+(117) line 3	Henry Davis	citation	(Samish: adapted from Shank 2003:226)	the tag or source at the right of the translation
+(117) tree line 1	Henry Davis	notation	IP	page 33, a tree, the nodes and types on its line 1 read left to right
+(117) tree line 2	Henry Davis	notation	niɬ CopP	page 33, a tree, the nodes and types on its line 2 read left to right
+(117) tree line 3	Henry Davis	notation	t	page 33, a tree, the nodes and types on its line 3 read left to right
+(117) tree line 4	Henry Davis	notation	DP Cop	page 33, a tree, the nodes and types on its line 4 read left to right
+(117) tree line 5	Henry Davis	notation	kʷsə=Richard <et>	page 33, a tree, the nodes and types on its line 5 read left to right
+(117) tree line 6	Henry Davis	notation	e	page 33, a tree, the nodes and types on its line 6 read left to right
+(117) tree line 7	Henry Davis	notation	Cop CP	page 33, a tree, the nodes and types on its line 7 read left to right
+(117) tree line 8	Henry Davis	notation	niɬ (kʷsə=)c̓ət kʷsə=laʔsn	page 33, a tree, the nodes and types on its line 8 read left to right
+(117) tree line 9	Henry Davis	notation	<<et>,<et>> <e,t>	page 33, a tree, the nodes and types on its line 9 read left to right
+(117)	Northern Straits Salish	cited form	(kʷsə=)c̓ət	page 33, the verb of the CP in the tree of (117)
+footnote 40	Henry Davis	note	40 But not quite: third person independent pronouns in NSS typically consist of three components: a determiner, the “linking” particle əw̓-, and níɬ. The latter two together yield the “clefting pronoun” ʔəw̓-niɬ (often found together with the limiting particle ʔal̕); determiners are then added to yield argumental third person pronouns such as ts-əw̓-niɬ ~ tθ-əw̓-niɬ, θ-əw̓-niɬ, kʷs-əw̓-niɬ, etc. Shank (2003) ignores this extra complication, and I will do likewise, but it clearly demands an explanation, particularly since the same structure characterizes third person independent pronouns in neighbouring Halkomelem (Wiltschko 2002).	page 33, footnote
+§5.2	Northern Straits Salish	cited affix	əw̓-	page 33
+§5.2	Northern Straits Salish	cited form	ʔəw̓-niɬ	page 33
+§5.2	Northern Straits Salish	cited form	ʔal̕	page 33
+§5.2	Northern Straits Salish	cited form	ts-əw̓-niɬ	page 33
+§5.2	Northern Straits Salish	cited form	tθ-əw̓-niɬ	page 33
+§5.2	Northern Straits Salish	cited form	θ-əw̓-niɬ	page 33
+§5.2	Northern Straits Salish	cited form	kʷs-əw̓-niɬ	page 33
+§5.2	Henry Davis	note	Note that Shank assumes lowering of niɬ at LF in order to allow it to compose with its internal (predicative) argument before its external (individual) argument.	page 33
+§5.2	Henry Davis	note	We can now extend Shank’s analysis to first and second person independent pronouns, which according to his analysis are also clefting predicates, taking a null DP restriction (pro) and a bare CP remnant. We do so by adding a presupposition to the effect that first and second person independent pronouns will only be defined if their denotation is restricted to speaker (118) or hearer (119).41	page 34
+(118) line 1	Henry Davis	rule	⟦ʔəsə⟧g,c = λP λx . x ≤ y & y = ιz P(z)	page 34, engine residue
+§5.2	Henry Davis	note	only defined if x = [+speech act participant, +speaker] under g in c	page 34
+(119) line 1	Henry Davis	rule	⟦nəkʷə⟧g,c = λP λx . x ≤ y & y = ιz P(z)	page 34, engine language
+§5.2	Henry Davis	note	only defined if x = [+speech act participant, -speaker] under g in c One of the advantages of this approach is that it also allows Shank to compose independent pronouns with determiners to yield DPs in argument and adjunct positions. Adopting the choice function approach to determiners from Matthewson (1999), whereby they are of type <<et>,e>, Shank allows the determiner to attach to an independent pronoun after it has composed with its internal (predicative) argument but before it composes with its external (individual) argument:	page 34
+(120) line 1	Northern Straits Salish	segmentation	ts=əw̓-niɬ sp̓aal̕	page 34, engine language
+(120) line 2	Northern Straits Salish	gloss	DET=LINK-COP raven	page 34, engine english
+(120) line 3	Samish; adapted from Shank 2003:230	translation	‘he who was raven’	page 34, engine english, cited Samish; adapted from Shank 2003:230
+(120) line 3	Henry Davis	citation	(Samish; adapted from Shank 2003:230)	the tag or source at the right of the translation
+(120) tree line 1	Henry Davis	notation	DP	page 34, a tree, the nodes and types on its line 1 read left to right
+(120) tree line 2	Henry Davis	notation	e	page 34, a tree, the nodes and types on its line 2 read left to right
+(120) tree line 3	Henry Davis	notation	D Cop	page 34, a tree, the nodes and types on its line 3 read left to right
+(120) tree line 4	Henry Davis	notation	ts=(əw̓-) <et>	page 34, a tree, the nodes and types on its line 4 read left to right
+(120) tree line 5	Henry Davis	notation	<<et>, e>	page 34, a tree, the nodes and types on its line 5 read left to right
+(120) tree line 6	Henry Davis	notation	Cop CP	page 34, a tree, the nodes and types on its line 6 read left to right, footnote 42 on the CP
+(120) tree line 7	Henry Davis	notation	niɬ sp̓aal̕	page 34, a tree, the nodes and types on its line 7 read left to right
+(120) tree line 8	Henry Davis	notation	<<et>,<et>> <et>	page 34, a tree, the nodes and types on its line 8 read left to right
+(120)	Northern Straits Salish	cited form	ts=(əw̓-)	page 34, the determiner and link of the DP in the tree of (120)
+§5.2	Henry Davis	note	Notice that this is the reverse order of composition from that which I have proposed for St’át’imcets, where the individual (focused) argument is composed with the copula before the predicative (remnant) argument. Keeping the rest of Shank’s formula intact, the lexical entry for the St’át’imcets clefting predicate niɬ looks like that in (121).	page 34
+(121) line 1	Henry Davis	rule	⟦niɬ⟧ = λx λP. x ≤ y & y = ιz P(z) (St’át’imcets)	page 34, engine english
+footnote 41	Henry Davis	note	41 Plural pronouns add extra complications, which I set aside here.	page 34, footnote
+footnote 42	Henry Davis	note	42 I treat the predicative remnant as a full clause here in order to accommodate an optional (though dispreferred) determiner, which could not be generated were the remnant to consist simply of a predicative NP. I remain neutral on the source of the determiner: according to Shank, it is a determiner-complementizer, as in Koch’s (2008a) analysis of Nɬeʔkepmxcín, but the possibility also arises that it is a moved internal determiner, as I have proposed for St’át’imcets.	page 34, footnote
+§5.2	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§5.2	Henry Davis	note	Under this analysis, St’át’imcets niɬ is of type <e,<<et>,t>>, as proposed for bare CP clefts in (63b) above. This predicts that a determiner will not be able to add to the clefting predicate to derive a DP — which, of course, is true.	page 35
+§5.2	Henry Davis	note	In other words, in spite of the fact that the form of their clefting predicates is identical and they both employ variants of the bare CP analysis, the structure of cleft sentences and their relation to independent pronouns is very different in St’át’imcets and NSS. In St’át’imcets, independent pronouns are standard pronouns of type e, and are not derivationally related to the clefting predicate, which is of type <e,<<et>,t>>. In contrast, in NSS, independent pronouns are clefting predicates of type <<et>,<et>>, and argument pronouns are derived from them by applying a choice function determiner to the cleft predicate plus its internal (predicative) argument.	page 35
+§6	Henry Davis	heading	6 Conclusion and Further Extensions	page 35
+§6	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+§6	St’át’imcets	cited form	niɬ	page 35
+§6	Henry Davis	note	I began this paper by arguing in detail that independent pronouns in St’át’imcets are invariably DPs, of type e, and that apparent “predicative” uses are actually clefts with a null clefting predicate/copula. Taking a closer look at the structure of clefts, I then proposed that St’át’imcets instantiates both an equational structure with two individual arguments of type e, and a bare CP structure with a predicative argument of type <et> and an individual argument of type e. This in turn entails that the clefting predicate/copula niɬ is ambiguous between types <e,<et>> and <e,<<et>,t>>.	page 35
+§6	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+§6	Henry Davis	note	I then turned to an investigation of the distribution and interpretation of independent pronouns across Salish. After identifying a major split between invariant systems, where the form of pronouns does not vary between syntactic positions, and alternating systems, where determiners introduce pronouns in argument but not in predicate positions, I focused on a detailed examination of two languages, Secwepemctsín representing the invariant type, and Northern Straits Salish representing the alternating type. I concluded that Secwepemctsín resembles St’át’imcets in its treatment of independent pronouns as DPs of type e (in fact, providing extra evidence for that hypothesis in the form of overt determiners on pronouns in both “predicate” and argument positions) but differs in that it only has equational clefts, as opposed to both equational and bare CP clefts, as found in the other Northern Interior languages. Taking Northern Straits as representative of an alternating system, I then pursued the hypothesis that in such systems, independent pronouns in clause-initial position are genuinely predicative (of type <et>), with determiners added in argument position to yield pronouns of type e. However, it turns out that this hypothesis is not supported in Northern Straits. Clause-initial pronouns without a determiner test neither as predicates nor as arguments, but instead as a special type of clefting predicate/copula. Following Shank (2003), I proposed that they take a predicative argument (a bare CP remnant) and an individual argument (a DP) to yield cleft sentences, and can be converted into argumental DPs by replacing the individual (external) argument with a determiner. Equational clefts appear to be missing altogether in Northern Straits.	page 35
+§6	Henry Davis	language	+Nsyílxcen	Nsyílxcen, Okanagan, grouped with Secwepemctsín in the head of Table 5
+§6	Henry Davis	language	+Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, grouped with St’át’imcets in the head of Table 5
+§6	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+§6	Henry Davis	note	Piecing these parts together, we end up with the following (very provisional) picture of cross- linguistic variation in the independent pronoun and cleft systems of Salish languages.	page 35
+Table 5 line 1	Henry Davis	note	Table 5: Independent pronouns and clefts across Salish	page 35, the caption
+Table 5 line 2	Henry Davis	note	Secwepemctsín (+Nsyílxcen) St’át’imcets (+Nɬeʔkepmxcín) Northern Straits (+Halkomelem)	page 35, heads the three columns
+Table 5 line 3	Henry Davis	note	Pronouns invariant invariant alternating	page 35, the pronoun system of each column
+Table 5 line 4	Henry Davis	note	Clefts equational equational and bare CP bare CP	page 35, the clefts of each column
+§6	Henry Davis	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, a Central Salish language
+§6	Henry Davis	note	As briefly mentioned earlier, however, the picture is complicated by the fact that there are also invariant independent pronoun systems in Central Salish, in particular, that of ʔayʔaǰuθəm (Comox-Sliammon) in the northwest corner of Coast Salish territory.	page 36
+§6	ʔayʔaǰuθəm	cited form	hiɬ	page 36
+§6	ʔayʔaǰuθəm	cited form	ʔə=	page 36
+§6	Henry Davis	note	Watanabe (2003:154–158) gives ʔayʔaǰuθəm data which groups clause-initial independent pronouns together with overt clefts introduced by the clefting predicate/copula hiɬ; in particular, the clausal remnant in both cases is introduced by a proclitic ʔə= homophonous with the oblique marker, and not by a determiner:	page 36
+(122) line 1	ʔayʔaǰuθəm	segmentation	nəgi=səm ʔə=hi-hiwčis-ma.	page 36, engine language
+(122) line 2	ʔayʔaǰuθəm	gloss	2SG.IND=FUT CLF=PROG.RDP-paddle-MEANS	page 36, engine english
+(122) line 3	Henry Davis	translation	‘You are the one who is going to be paddling.’	page 36, engine english
+(122) line 3	Henry Davis	citation	(ʔayʔaǰuθəm: Watanabe 2003:154)	the tag or source at the right of the translation
+(123) line 1	ʔayʔaǰuθəm	segmentation	čəniɬ ʔə=x̌əna-θ-as-uɬ.	page 36, engine language, carries footnote 43, written here without its digit
+(123) line 2	ʔayʔaǰuθəm	gloss	1SG.IND CLF=give-CTR+1SG.OBJ-3ERG-PAST	page 36, engine english
+(123) line 3	Henry Davis	translation	‘I am the one to whom he gave (it).’	page 36, engine english
+(123) line 3	Henry Davis	citation	(ʔayʔaǰuθəm: Watanabe 2003:157)	the tag or source at the right of the translation
+§6	Henry Davis	note	This indicates that the ʔayʔaǰuθəm system is close to that of St’át’imcets, with independent pronouns occupying the focus position of concealed clefts when fronted, and clefts being of the bare CP type.	page 36
+§6	Henry Davis	note	A change seems to be in progress, however. More recent work by Xu (2019) on ʔayʔaǰuθəm clefts indicates that the cleft proclitic is being lost, and replaced by an obligatory determiner introducing the remnant. Xu shows not only that any determiner can introduce the remnant (124), but also that it can consist of a headed relative clause — a diagnostic for an equational cleft (125).44	page 36
+(124) line 1	ʔayʔaǰuθəm	segmentation	hiɬ [saɬtxʷ] [tə=/kʷ=/šə=kʷən-əxʷ-an-uɬ ti-tiwš-am-stu	page 36, engine language
+(124) line 2	ʔayʔaǰuθəm	gloss	COP [woman] [DET=/DET=/DET=see-NCT-1SG.ERG-PAST] PROG.RDP-teach-MID-CAUS	page 36, engine english
+(124) line 3	ʔayʔaǰuθəm	segmentation	čičuy snanatuɬ].	page 36, engine language
+(124) line 4	ʔayʔaǰuθəm	gloss	children last.night]	page 36, engine english
+(124) line 5	Henry Davis	translation	‘It was a girl I saw last night teaching kids.’	page 36, engine english
+(124) line 5	Henry Davis	citation	(ʔayʔaǰuθəm; Xu 2019)	the tag or source at the right of the translation
+footnote 43	Henry Davis	note	43 The form of the ʔayʔaǰuθəm first person singular independent pronoun čəniɬ is unusual, in that it seems to be derived from the Proto-Salish third person form *cəniɬ, rather than the Proto-Salish first person singular form *ʔəncá. Like several other Central Salish languages (e.g., Halkomelem), ʔayʔaǰuθəm has replaced its independent third person form with demonstrative pronouns, so a restructuring of the system seems to have taken place. Note also that the clause-initial independent pronoun in this example is doubled by agreement on the predicate; ʔayʔaǰuθəm is one of the many Salish languages which permits this option (see footnote 3).	page 36, footnote
+§6	ʔayʔaǰuθəm	cited form	čəniɬ	page 36
+§6	ʔayʔaǰuθəm	cited form	cəniɬ	page 36
+§6	ʔayʔaǰuθəm	cited form	ʔəncá	page 36
+footnote 44	Henry Davis	note	44 Notably, however, only one of Xu’s two consultants accepted clefts with a headed relative clause. This is likely indicative of a system in transition.	page 36, footnote
+(125) line 1	ʔayʔaǰuθəm	segmentation	hiɬ [ƛax̌ay̓] [tə=saɬtxʷ [k̓ʷən-əxʷ-an-uɬ snanatuɬ]].	page 37, engine language
+(125) line 2	ʔayʔaǰuθəm	gloss	COP [elderly.lady] [DET=woman [see-NCT-1SG.ERG-PAST last.night]]	page 37, engine english
+(125) line 3	Henry Davis	translation	‘The woman I saw last night was an old lady.’	page 37, engine english
+(125) line 3	Henry Davis	citation	(ʔayʔaǰuθəm; Xu 2019)	the tag or source at the right of the translation
+§6	Henry Davis	note	This system more closely resembles that of Secwepemctsín, which has invariant independent pronouns but only allows equational clefts. Note that since both bare CP clefts and equational clefts are independently attested in invariant pronoun systems, the change in progress in ʔayʔaǰuθəm is still within the range of expected variation for an invariant system. However, the existence of an invariant outlier on the periphery of a block of alternating pronoun systems is significant in historical terms: it strongly suggests that the alternating systems are an innovation which has arisen fairly recently in Central Salish.	page 37
+§6	Henry Davis	note	Finally, let us return to our original question: are pronouns ever predicative in Salish? At least on the basis of the language sample I have examined in this paper, the answer is unequivocally — and perhaps surprisingly — no. It is worth emphasizing that this conclusion does not follow from any deep semantic principles. There is nothing to stop a pronoun from being predicative (of type <et>), and even if we were to assume that pronouns always start off as type e for conceptual reasons, there is nothing to stop a pronoun from subsequently being type-shifted from e to <et> using Ident, one of the core type-shifting operations in Partee (1986):	page 37
+(126) line 1	Henry Davis	rule	Ident: j → λx [x = j]	page 37, engine english
+§6	Henry Davis	note	This operation allows a directly referential element j to be converted into a predicate whose argument is equal to j. However, in spite of superficial appearances, this is precisely what the Salish languages we have examined do not do. This in turn suggests that not only type-shifting does not come for free, but that the mapping of syntactic categories to syntactic types in Salish is more rigid than we might have imagined, even in a language family which at least superficially appears to show a great deal of flexibility between predicates and arguments.	page 37
+references	Henry Davis	heading	References	page 37
+references	St’át’imcets	cited form	Sqwéqwel	page 37
+references	St’át’imcets	cited form	Múta7	page 37
+references	Henry Davis	language	St’át’imcets	St’át’imcets, Lillooet, a Northern Interior Salish language
+references	St’át’imcets	cited form	Qwa7yán’ak	page 37
+references	Henry Davis	reference	Alexander, Carl. 2016. Sqwéqwel’ Múta7 Sptakwlh: St’át’imcets Narratives by Qwa7yán’ak (Carl Alexander). Vancouver/Lillooet, BC: UBCOPL/USLCES.	
+references	St’át’imcets	cited form	sQway7án’ak	page 37
+references	Henry Davis	reference	Alexander, Carl. In preparation. Sqwéqwel’ Múta7 kw sQway7án’ak: More St’át’imcets Narratives by Carl Alexander. PNWLL Press/USLCES.	
+references	St’át’imcets	cited form	Nqwal’uttenlhkálha	page 37
+references	Henry Davis	reference	Alexander, Carl, Henry Davis, Beverley Frank, Gertrude Ned, Desmond Peters Sr., Linda Redan, Rose Whitley. In preparation. Nqwal’uttenlhkálha: An English-Upper St’át’imcets Dictionary. Vancouver/Lillooet: PNWLL Press/USLCES.	
+references	Henry Davis	reference	Beaumont, Ronald C. 2011. Sechelt Dictionary. Sechelt, BC.: Sechelt Indian Band.	
+references	Henry Davis	reference	Beck, Sigrid, and Uli Sauerland. 2000. Cumulativity is Needed: A Reply to Winter (2000). Natural Language Semantics 8:349–371.	
+references	Henry Davis	reference	Davis, Henry. 2003a. Strange Relatives in St’át’imcets. Talk given at Victoria Workshop on Grammatical Structures in Indigenous Languages of the North/West. University of Victoria, February 2003.	
+references	Henry Davis	reference	Davis, Henry. 2003b. Mind the Gap: Plural Agreement and A’-Extraction in St’át’imcets (Lillooet Salish). Papers for the 38th International Conference on Salish and Neighbouring Languages, 23–46. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Davis, Henry. 2009. Cross-Linguistic Variation in Anaphoric Dependencies: Evidence from the Pacific Northwest. Natural Language and Linguistic Theory 27:1–43.	
+references	Henry Davis	reference	Davis, Henry. 2010. A Unified Analysis of Relative Clauses in St’át’imcets. Northwest Journal of Linguistics 4.1:1–43.	
+references	Henry Davis	reference	Davis, Henry. 2014. The Count-Mass Distinction in St’át’imcets (and Beyond). Papers for the 49th International Conference on Salish and Neighboring Languages, 155–181.Vancouver, BC: UBC Working Papers in Linguistics 37.	
+references	Henry Davis	reference	Davis, Henry. 2019. On Proper Names in St’át’imcets. Papers for the 54th International Conference on Salish and Neighboring Languages, 1–23. Vancouver, BC: UBCWPL.	
+references	Henry Davis	language	ʔayʔaǰuθəm	ʔayʔaǰuθəm, Comox-Sliammon, a Central Salish language
+references	Henry Davis	reference	Davis, Henry, Laura Griffin, Marianne Huijsmans and Gloria Mellesmoen. 2020. Extracting Possessors in ʔayʔaǰuθəm (and Beyond). Papers for the 55th International Conference on Salish and Neighboring Languages, 87–106. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Davis, Henry, and Marianne Huijsmans. To appear. Clitics and Coordination in Two Salish Languages. Proceedings of the West Coast Conference on Formal Linguistics 39. Somerville, MD: Cascadilla Press.	
+references	Henry Davis	reference	Davis, Henry, Lisa Matthewson, and Scott Shank. 2004. Clefts versus Nominal Predicates in Two Salish Languages. In Donna Gerdts and Lisa Matthewson (eds.), Studies in Salish Linguistics in Honor of M. Dale Kinkade. Missoula, MN: University of Montana Occasional Papers in Linguistics.	
+references	Henry Davis	name	St’át’imc	the St’át’imc, the Lillooet people
+references	Henry Davis	reference	Edwards, Ann, Francis Edwards, Paul Hickson, and Ray C. Tom. In preparation. Upper St’át’imc Stories. Recorded by Randy Bouchard, transcribed and translated by John Lyon and Henry Davis.	
+references	St’át’imcets	cited form	Sqwéqwel’s	page 38
+references	St’át’imcets	cited form	Skelkekla7lhálha	page 38
+references	Henry Davis	reference	Edwards, Bill, Sam Mitchell, and Martina LaRochelle. 2017. Sqwéqwel’s nelh Skelkekla7lhálha (‘Tales of our Elders’), edited, transcribed and translated by Henry Davis John Lyon, Jan van Eijk and Rose Whitley. Vancouver/Lillooet, BC: UBCOPL/USLCES.	
+references	Henry Davis	name	Secwépemc	the Secwépemc, the Shuswap people
+references	Henry Davis	reference	First Voices (Secwépemc Portal). Retrieved 07-2022 from: <https://www.firstvoices.com/explore/FV/Workspaces/Data/Secwepemc/Secwepemctsin/Sec wepemc> Galloway, Brent. 1990. A Phonology, Morphology, and Classified Word List for the Samish Dialect of Straits Salish. Canadian Ethnology Service Mercury Series paper 116. Hull, QC: Canadian Museum of Civilization.	
+references	Henry Davis	reference	Galloway, Brent, In preparation. Nooksack Grammar, edited by Strang Burton and Henry Davis.	
+references	Henry Davis	reference	Gardiner, Dwight. 1993. Structural Asymmetries and Preverbal Positions in Shuswap. Ph.D. dissertation, SFU.	
+references	Henry Davis	language	Secwepemctsín	Secwepemctsín, Shuswap, a Northern Interior Salish language
+references	Henry Davis	reference	Gardiner, Dwight. 1996. Determiner Phrases in Secwepemctsín (Shuswap). Papers for the 43rd International Conference on Salish and Neighbouring Languages,175–184. Vancouver, BC. UBCWPL.	
+references	Henry Davis	reference	Gerdts, Donna B. 1988. Object and Absolutive in Halkomelem Salish. New York: Garland.	
+references	Henry Davis	reference	Hedberg, Nancy. 2000. The Referential Status of Clefts. Language 76(4):891–920.	
+references	Henry Davis	reference	Jelinek, Eloise, and Richard A. Demers. 1983. The Agent Hierarchy and Voice in some Coast Salish Languages. International Journal of American Linguistics 49:167−185.	
+references	Henry Davis	reference	Jelinek, Eloise, and Richard A. Demers. 1994. Predicates and Pronominal Arguments in Straits Salish. Language 70(4):697–736.	
+references	Henry Davis	reference	Kinkade, M. Dale. 1983. Salish Evidence Against the Universality of ‘Noun’ and ‘Verb.’ Lingua 60:25–39.	
+references	Henry Davis	reference	Kinkade, M. Dale, William W. Elmendorf, Bruce Rigsby, and Haruo Aoki. 1998. Languages. In Dewald E. Walker Jr., (ed.), Handbook of North American Indians, Volume 12: Plateau. Washington, DC: Smithsonian Institution, 49–72.	
+references	Henry Davis	language	Nɬeʔkepmxcín	Nɬeʔkepmxcín, Thompson River Salish, a Northern Interior Salish language
+references	Henry Davis	reference	Koch, Karsten 2006. Transitive Word Order in Nɬeʔkepmxcín (Thompson River Salish). Papers for the 41st International Conference on Salish and Neighbouring Languages, 192–220. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Koch, Karsten 2008a. Intonation and Focus in Nɬeʔkepmxcín (Thompson River Salish). Ph.D. dissertation, UBC.	
+references	Henry Davis	reference	Koch, Karsten 2008b. Some Issues in the Structure and Interpretation of Clefts in Nɬeʔkepmxcín (Thompson River Salish). Papers for the 43rd International Conference on Salish and Neighbouring Languages, 97–120. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Koch, Karsten and Malte Zimmermann. 2009. Focus-Sensitive Operators in Nɬeʔkepmxcín (Thompson River Salish). In M. Prinzhorn, V. Schmitt and S. Zobel (eds.), Proceeding of Sinn und Bedeutung 14, 237–255. Vienna, Austria.	
+references	Henry Davis	reference	Kroeber, Paul. 1999. The Salish Language Family: Reconstructing Syntax. Lincoln, NE: University of Nebraska Press.	
+references	Henry Davis	reference	Kuipers, Aert. 1967. The Squamish Language: Grammar, Texts, Dictionary. The Hague: Mouton.	
+references	Henry Davis	reference	Kuipers, Aert. 1974. The Shuswap Language: Grammar, Texts, Dictionary. The Hague: Mouton. Lai, I-Ju Sandra. 1998. The Grammar and Acquisition of Secwepemctsín Independent Pronouns. MA Thesis, UBC.	
+references	Henry Davis	reference	Link, Godehard. 1983. The Logical Analysis of Plurals and Mass Terms. In R. Bauerle, C. Schwarze, and A. von Stechow (eds.), Meaning, Use, and Interpretation of Language, 302– 323. Berlin: de Gruyter.	
+references	Henry Davis	reference	Lyon, John. 2013. Predication and Equation in Okanagan Salish: The Syntax and Semantics of Determiner Phrases. Ph.D. dissertation, UBC.	
+references	Henry Davis	reference	Lyon, John, and Marianne Ignace. 2021. Competing Futures: Nsyilxcn mi and Secwepemctsin me7. Papers for the 56th International Conference on Salish and Neighbouring Languages, 167–225. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Matthewson, Lisa. 1999. On the interpretation of wide scope indefinites. Natural Language Semantics 7:79–134.	
+references	Henry Davis	reference	Matthewson, Lisa. 2005. Iwan Kwikws (‘When I was Small’). Vancouver, BC: University of British Columbia Press.	
+references	Henry Davis	reference	Matthewson, Lisa, Henry Davis, and Dwight Gardiner. 1993. Coreference in Northern Interior Salish. Papers for the 28th International Conference on Salish and Neighboring Languages, 217–230. Seattle: University of Washington.	
+references	Henry Davis	reference	Mitchell, Sam. To appear. Wa7 Sqwéqwel’ sSam: Sam Tells Stories. Recorded by Randy Bouchard, transcribed and translated by John Lyon and Henry Davis.	
+references	Henry Davis	language	SENĆOTEN	SENĆOTEN, the Saanich dialect of Northern Straits Salish, a Central Salish language
+references	Henry Davis	reference	Montler, Timothy. 2015. Klallam Grammar. Seattle, WA: University of Washington Press.	
+references	Henry Davis	reference	Montler, Timothy. 2018. SENĆOTEN: A Dictionary of the Saanich Language. Seattle, WA: University of Washington Press.	
+references	Henry Davis	reference	Newman, Stanley. 1977. The Salish Independent Pronoun System. International Journal of American Linguistics 43(4):302–314.	
+references	Henry Davis	reference	Partee, Barbara. 1986. Noun-Phrase Interpretation and Type-Shifting Principle. In J. Groenendijk, D. de Jong, and M. Stokhof (eds.), Studies in Discourse Representation Theory and the Theory of Generalized Quantifiers. Dordrecht: Foris, 115–143.	
+references	Henry Davis	reference	Percus, Orin. 1997. Prying open the cleft. In Proceedings of the 27th Annual Meeting of the North East Linguistic Society: 337–351. Graduate Linguistic Student Association, University of Massachusetts, Amherst Romero, Maribel. 2005. Concealed Questions and Specificational Subjects. Linguistics and Philosophy 28:687–737.	
+references	Henry Davis	reference	Shank, Scott. 2003. A Preliminary Semantics for Pronominal Predicates. Papers for the 38th International Conference on Salish and Neighbouring Languages, 215–237. Vancouver, BC: UBCWPL.	
+references	Henry Davis	reference	Suttles, Wayne. 2004. Musqueam Reference Grammar. Vancouver, BC: UBC Press.	
+references	Henry Davis	reference	Thoma, Sonja. 2007. St’át’imcets Independent Pronouns; the Invisible Cleft. Proceedings of the Northwest Linguistics Conference 23: 109–124. Victoria, BC: University of Victoria Linguistics Circle.	
+references	Henry Davis	reference	Thompson, Laurence C., and M. Dale Kinkade. 1990. Languages. In Wayne Suttles (ed.), Handbook of North American Indians, Volume 7: Northwest Coast. Washington, D.C.: Smithsonian Institution, 30–51.	
+references	Henry Davis	reference	Van Eijk, Jan. 1997. The Lillooet Language: Phonology, Morphology, Syntax. Vancouver: UBC Press.	
+references	St’át’imcets	cited form	Honoré	page 40
+references	Henry Davis	reference	Watanabe, Honoré. 2003. A Morphological Description of Sliammon, Mainland Comox Salish: With a Sketch of Syntax. Osaka, Japan: ELPR.	
+references	Henry Davis	reference	Wiltschko, Martina. 2002. The Syntax of Pronouns: Evidence from Halkomelem Salish. Natural Language and Linguistic Theory 20: 157–195.	
+references	Henry Davis	reference	Xu, Kaining. 2019. A Preliminary Investigation of ʔayʔaǰuθəm Clefts. Ms., UBC.	

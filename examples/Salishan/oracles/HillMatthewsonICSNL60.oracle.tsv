@@ -1,0 +1,592 @@
+where	who	kind	form	gloss
+front	Hector Hill and Lisa Matthewson	note	In Proceedings of the International Conference on Salish and Neighbouring Languages 60, Ella Hannon, Brian Diep, Laura Griffin, Mila Loginova, Bruce Oliver, Lauren Schneider, Reed Steiner, and Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2025.	page 1
+front	Hector Hill and Lisa Matthewson	note	Abstract: This paper is about asking and answering polar questions in Gitksan. We hope that the paper will be useful for Gitksan community members who are (re-)learning their language. There are several different ways to ask a polar question like ‘Is it raining?’ in Gitksan, and the best way to use depends on the context of the conversation you are in. We show that how you ask a question matters, how you answer it matters, and who you are talking to matters.	page 1
+front	Hector Hill	transcription	Hlisima halaaxdis	page 1, under the abstract
+front	Hector Hill	translation	You already know this.	page 1, its English after a dash
+front	Hector Hill and Lisa Matthewson	note	Keywords: Gitksan, polar questions, negation	page 1
+§1	Hector Hill and Lisa Matthewson	heading	1 Introduction	page 1
+§1.1	Hector Hill and Lisa Matthewson	heading	1.1 Goal of the paper	page 1
+§1.1	Hector Hill and Lisa Matthewson	note	This paper is about how to ask and answer polar questions in Gitksan. We hope that the paper will be useful for Gitksan community members who are (re-)learning their language.1 A polar question is a question that can in principle be answered with a confirmation or a denial. An example is given in (1).2 The person answering this question could either say that Louise is awake or that she isn’t. Note that our example sentences are written first in in the orthography used by many community members (see Hindle and Rigsby 1973), and below that we break the sentence down into smaller parts. For each example we give the initials of the speaker(s) who gave or judged the sentence. We write ‘volunteered’ when the speaker gave the sentence themselves. If there is no ‘volunteered’ next to the speaker initials, that means the speaker listened to the sentence and said whether it sounded good or not.	page 1
+(1) line 1	Gitksan	transcription	Gyukst Louise aa?	page 1, engine english
+(1) line 2	Gitksan	segmentation	Gyuks=t Louise=aa?	page 1, engine residue
+footnote *	Hector Hill and Lisa Matthewson	note	* Lisa is very grateful to the Gitksan fluent speakers she has worked with for this project: Vincent Gogag, Jeannie Harris, Hector Hill, Ray Jones and Barbara Sennott. Ha'miyaa! Special thanks to Hector for all the wise and gentle teaching. Thanks to the members of the Q-Lab at UBC and the Gitksan Research Lab at UBC (especially Colin Brown, Henry Davis and Michael Schwan) for helpful discussion, and to audiences at Cornell University, the University of Chicago and the University of Texas at Austin. This research was funded by SSHRC and by the Jacobs Research Funds. Thanks to Henry Davis for commenting on a previous draft of this paper.	page 1, footnote
+footnote *	Hector Hill and Lisa Matthewson	name	Vincent Gogag	a speaker, VG in the tags, from Git-anyaaw (Gitanyow), speaks Giyaanimx
+footnote *	Hector Hill and Lisa Matthewson	name	Jeanne Harris	a speaker, JH in the tags, from Ansba'yaxw (Kispiox), speaks Gitxsanimx; Jeannie Harris in footnote *
+footnote *	Hector Hill and Lisa Matthewson	name	Ray Jones	a speaker, RJ in the tags, from Gijigyukwhla (Gitsegukla), speaks Gitsenimux
+footnote *	Hector Hill and Lisa Matthewson	name	Barbara Sennott	a speaker, BS in the tags, from Ansba'yaxw (Kispiox), speaks Gitxsanimx
+footnote *	Hector Hill and Lisa Matthewson	name	Colin Brown	of the Gitksan Research Lab at UBC, thanked for discussion
+footnote *	Hector Hill and Lisa Matthewson	name	Henry Davis	of the Gitksan Research Lab at UBC, thanked for discussion and for comments on a draft
+footnote *	Hector Hill and Lisa Matthewson	name	Michael Schwan	of the Gitksan Research Lab at UBC, thanked for discussion
+footnote *	Hector Hill and Lisa Matthewson	cited form	Ha'miyaa!	‘thank you’, Gitksan, in footnote *
+footnote 1	Hector Hill and Lisa Matthewson	note	1 For a more formal discussion of Gitksan polar questions, see Matthewson (2025).	page 1, footnote
+footnote 2	Hector Hill and Lisa Matthewson	note	2 Abbreviations: 1/2/3 = first/second/third person, I/II/III = I/II/III series pronoun, ATT = attributive, CN = common noun connective, DEM = demonstrative, FOC = focus, INS = instrumental, LOC = locative, NEG = negative, PFV = perfective, PL = plural, PN = proper noun, PREP = preposition, PROG = progressive, PROSP = prospective, PRX = proximate, Q = polar question, SG = singular, TR = transitive, VAL = valency adjuster.	page 1, footnote
+(1) line 3	Gitksan	gloss	wake=PN Louise=Q	page 2, engine english
+(1) line 4	Hector Hill and Lisa Matthewson	translation	‘Is Louise awake?’	page 2, engine english
+(1) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+§1.1	Hector Hill and Lisa Matthewson	note	This paper is not about content questions, which require different kinds of answers, such as ‘I helped Louise’ in example (2).	page 2
+(2) line 1	Gitksan	transcription	Naahl hlimooyin?	page 2, engine english
+(2) line 2	Gitksan	segmentation	Naa=hl hlimoo-yi-n?	page 2, engine residue
+(2) line 3	Gitksan	gloss	who=CN help-TR-2SG.II	page 2, engine english
+(2) line 4	Rigsby 1986:303	translation	‘Who did you help?’	page 2, engine english, cited Rigsby 1986:303
+(2) line 4	Hector Hill and Lisa Matthewson	citation	(Rigsby 1986:303)	the tag or source at the right of the translation
+§1.1	Hector Hill and Lisa Matthewson	note	There are a few different ways to ask polar questions in Gitksan, which we will talk about below. All polar questions have the marker aa at the end of the sentence, as you can see in (1). Aa only appears in polar questions; there can be no aa in questions like (2). The marker aa is pronounced with a rising tone on it (Shamei 2018).	page 2
+§1.1	Hector Hill and Lisa Matthewson	note	The different ways to ask polar questions in Gitksan have slightly different meanings, and are appropriate in different situations. We will explain these different types of polar question and when it is best to use each type (Section 2). We will also discuss social information related to asking and answering questions in a Gitksan cultural context (Section 3). Before we get to that we will first introduce ourselves, the language, and our different perspectives on the work we do together (Sections 1.2–1.4).	page 2
+§1.1	Gitksan	cited form	aa	page 2, italic in the prose
+§1.2	Hector Hill and Lisa Matthewson	heading	1.2 Who we are	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	Hector: My name is Hector Hill. I’m 72 years old. I am Gitxsan on my mom’s side, and Tsimshian on my dad’s side. I’m from our village of Gitsegukla, British Columbia, Canada. I am from the House of WiiSeeks. My hereditary name is Gy'ax (Earthquake/Earth Tremor: It says that I move the earth you walk on).	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	I learned how to read and write English when I was 45 years old (1995/6) at Vancouver BC, Street Church. I graduated my Two year Diploma in Theology and Missions, and my Three Year Diploma in Pastoral Training in 2001, through First Nations Bible College, Vancouver BC. After, I was an assistant pastor to Randy Barnetson for a few years and I went and did my upgrading at NEC (Native Education College). Through NEC I went to NVIT for the Chemical Addiction Worker Advanced Diploma, and I graduated from there in 2012.	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	I graduated my Bachelor of General Studies at the University of the Fraser Valley, 2013. I received my Masters of Education in Educational Administration and Leadership, University of British Columbia, 2021.	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	I worked as a Christian counsellor at Street Church and helped people who can’t read and write English. Through my education and training as a counsellor I was hired as an Addictions Counsellor at Native Courtworker and Counselling Association. I also worked at a Treatment Centre in Kitwangax, BC, Wilp Si'Satxw, Community Healing Centre.	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	At present I work with University of British Columbia, Linguistics. We are working on preserving the Gitxsan language, our Gitsenimuxw. I retired in 2018, but I’m still working with UBC Linguistics doing Elicitation.	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	T'oyaksi'y 'Nisi'm (I Thank You All), Gy'ax Hector Hill.	page 2
+§1.2	Hector Hill	transcription	T'oyaksi'y 'Nisi'm	page 2, how Hector Hill closes his introduction
+§1.2	Hector Hill	translation	I Thank You All	page 2, its English in parentheses
+§1.2	Hector Hill and Lisa Matthewson	note	Lisa: I am a sixth-generation New Zealander and a first-generation Canadian. My ancestors were mostly from Scotland and England. I am a linguist who is interested in how languages express meaning. I have been fortunate enough to work with Gitksan speakers since 2010. Apart from Hector, the speakers I regularly work with in Vancouver are Barbara Sennott, Vincent Gogag and Jeanne Harris. I have also worked with speakers in Gitksan territory including Myrna Aksidan, Frank Benson, Rena Benson, Thelma Blackstock, Perrine Campbell, Phyllis Haizimsque, Herb Russell, Frances Sampson, Jane Smith, Fern Weget, Louise Wilson, and especially Ray Jones. Two perspectives: Lisa has been researching polar questions in Gitksan for a few years. She asked Hector if he would like to co-author a paper on this topic because he had given her so many insightful comments that had helped her understand the meanings of the different polar question types. While writing this paper, Lisa discovered she had much more to learn – including about things she had never before asked about or thought about.	page 2
+§1.2	Hector Hill and Lisa Matthewson	note	In this paper we are trying something that is new for both of us, and we know we won’t do a perfect job. When we present our perspectives as a speaker of Gitksan and a linguist, we don’t speak for anybody else. We welcome any feedback about how material like this can be made more useful for community members.	page 3
+§1.2	Hector Hill and Lisa Matthewson	place	Gitsegukla	Hector Hill's village, Gijigyukwhla in Gitksan, British Columbia
+§1.2	Hector Hill and Lisa Matthewson	name	WiiSeeks	Hector Hill's House
+§1.2	Hector Hill and Lisa Matthewson	name	Gy'ax	Hector Hill's hereditary name, Earthquake/Earth Tremor
+§1.2	Hector Hill and Lisa Matthewson	place	Kitwangax	where Hector Hill worked at a treatment centre
+§1.2	Hector Hill and Lisa Matthewson	name	Wilp Si'Satxw	the Community Healing Centre at Kitwangax
+§1.2	Hector Hill and Lisa Matthewson	language	Gitsenimuxw	Hector Hill's word for the language, ‘our Gitsenimuxw’
+§1.2	Hector Hill and Lisa Matthewson	name	Randy Barnetson	the pastor Hector Hill assisted
+§1.2	Hector Hill and Lisa Matthewson	name	Myrna Aksidan	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Frank Benson	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Rena Benson	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Thelma Blackstock	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Perrine Campbell	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Phyllis Haizimsque	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Herb Russell	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Frances Sampson	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Jane Smith	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Fern Weget	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.2	Hector Hill and Lisa Matthewson	name	Louise Wilson	a speaker Lisa Matthewson has worked with in Gitksan territory
+§1.3	Hector Hill and Lisa Matthewson	heading	1.3 The language	page 3
+§1.3	Hector Hill and Lisa Matthewson	note	One thing we learned when co-writing this paper is how different our two ways to introduce the Gitksan language are. Lisa would write something like:	page 3
+§1.3	Hector Hill and Lisa Matthewson	language	Nisga’a	the other Interior Tsimshianic language, mutually intelligible with Gitksan
+§1.3	Hector Hill and Lisa Matthewson	language	Sm’algyax	for Hector ‘original language’, which can include Gitksan; the language of Brown 2024
+§1.3	Hector Hill and Lisa Matthewson	note	“Gitksan” (ISO 639-3 git) is the English name for a continuum of Interior Tsimshianic dialects spoken in the northwest Interior of British Columbia, Canada. There is no endonym for the entire language; instead, each dialect has its own name. A map of Gitksan traditional territory is at https://native-land.ca/maps/territories/gitxsan/. Gitksan is closely related to, and mutually intelligible with, Nisga’a, the other Interior Tsimshianic language. In Hector’s language, however, there is no word for the group of languages that linguists call the Tsimshianic language family, and for Hector the word ‘Tsimshianic’ does not pick out this group of languages. The word Ts'imtsenimx refers to the people on the Coast. The term Sm’algyax, which is how many people refer to another one of the related languages, for Hector means ‘original language’ and can include Gitksan or any other Indigenous language. Hector states, “The sm'algyax I use is Gitsegukla.”	page 3
+§1.3	Hector Hill and Lisa Matthewson	language	Gitksan	ISO 639-3 git, a continuum of Interior Tsimshianic dialects of the northwest Interior of British Columbia
+§1.3	Hector Hill and Lisa Matthewson	language	Interior Tsimshianic	the branch Gitksan and Nisga’a belong to
+§1.3	Hector Hill and Lisa Matthewson	language	Tsimshianic	the family; Hector's language has no word for it
+§1.3	Hector Hill and Lisa Matthewson	name	Ts'imtsenimx	the people on the Coast
+§1.3	Gitksan	cited form	Ts'imtsenimx	page 3, italic in the prose
+§1.4	Hector Hill and Lisa Matthewson	heading	1.4 Two perspectives on fieldwork	page 3
+footnote 3	Hector Hill and Lisa Matthewson	note	3 See Burton and Matthewson (2015) on the storyboard fieldwork technique.	page 3, footnote
+§1.4	Hector Hill and Lisa Matthewson	note	When linguists are trying to find out details about a language – how it is pronounced, how words are built, how sentences are formed, and what things mean – they often do fieldwork. Fieldwork usually consists of asking a fluent speaker of the language questions about how to say things, how to translate things, or whether sentences sound good or not in particular imaginary contexts. Often, to make the contexts more real, the linguist shows pictures that tell a story, so that the speaker can more easily imagine being in that context and what they would say in such a context. We will show examples of these visual stories (called ‘storyboards’) below.3 The linguist’s goal is to record, document and analyze the language. As well as recording what speakers spontaneously produce, it is sometimes also important to know what does not sound good in the language. So often, the linguist asks questions that can sound strange. From all the information collected, we make generalizations about what does and does not make a good sentence in the language. The results are used in linguistic papers but also, ideally, we produce results that can be useful for learners of the language.	page 3
+§1.4	Hector Hill and Lisa Matthewson	note	While writing this paper, we discovered that we have slightly different perspectives on the fieldwork process.	page 4
+§1.4	Hector Hill and Lisa Matthewson	note	From Lisa’s perspective, the work with Hector is always fun and interesting. In the fieldwork sessions, Lisa is the one who is learning. Hector is the expert on the language and he has much knowledge that she does not. The linguist could never know more than the speaker about the language, because the speaker has knowledge that they gained through hearing the language when they were a child. Even if some previous linguist wrote something different, that never means that the current speaker is wrong. Maybe the earlier linguist made a mistake, or the earlier information was about a different dialect, or maybe the language has changed over the years, or perhaps there is simply more than one way to say it.4 From Hector’s perspective, when Lisa asks Hector things, he has to answer because Lisa is higher in education and knowledge. This is like when a mother asks a child a question, the child has to listen because the mother is the teacher in the family. (The father, aunts and uncles are grouped together as secondary family.) Hector notices that linguists repeat sentences and they try to take out certain words or add something to them. He says, “In my mind and heart I was given the answer a long time ago and now I have to dig around and go back to my Gitxsan thinking before it comes out as English. Would it line up with the answer you have, what I’m giving?” The feeling Hector has that academic people are ‘higher’ comes from a lifetime of being ‘taught’ by k'amksiwaa (white people). For example, when Hector went to the Carnegie Centre to learn to write, he was told that the teacher was right, he was wrong, and he knew nothing. A totally different and much more encouraging message came from one of the Elders. The Elder told Hector, “You know this already. Now you need to see what it is that you know. So I’m gonna show you.” Hector’s message to learners of Gitxsan is that you are right. We are not experts, and you are not wrong. Believe in yourself and follow the ways of your people. Memories of good, bad, ugly, and trauma will all come into play for a survivor. But remember the physical, emotional, mental and spiritual aspect of what you are doing. Hlisima halaaxdis – you already know this.	page 4
+§1.4	Gitksan	cited form	k'amksiwaa	page 4, italic in the prose
+§1.4	Gitksan	cited form	Hlisima halaaxdis	page 4, italic in the prose
+§2	Hector Hill and Lisa Matthewson	heading	2 The different types of polar questions	page 4
+§2.1	Hector Hill and Lisa Matthewson	heading	2.1 Overview	page 4
+footnote 4	Hector Hill and Lisa Matthewson	note	4 Speaking of earlier linguists, Bruce Rigsby studied the Gitksan language extensively and wrote a useful grammar (Rigsby 1986). Basic information about Gitksan questions is discussed in Rigsby’s grammar (e.g., p. 296). He did not look deeply into the meaning differences between the different question types, however. Relevant useful information can also be found in Marie-Lucie Tarpent’s grammar on Nisga’a (Tarpent 1987; e.g., p. 362), and in Colin Brown’s (2024) dissertation on Sm’algyax.	page 4, footnote
+footnote 4	Hector Hill and Lisa Matthewson	name	Bruce Rigsby	the author of a Gitksan grammar, Rigsby 1986
+footnote 4	Hector Hill and Lisa Matthewson	name	Marie-Lucie Tarpent	the author of a grammar of Nisga’a, Tarpent 1987
+§2.1	Hector Hill and Lisa Matthewson	language	Nisga’a	the other Interior Tsimshianic language, mutually intelligible with Gitksan
+§2.1	Hector Hill and Lisa Matthewson	language	Sm’algyax	for Hector ‘original language’, which can include Gitksan; the language of Brown 2024
+footnote 5	Hector Hill and Lisa Matthewson	note	5 In statements (non-questions), the way to negate something is to use nee dii rather than just nee alone. Very rarely, just nee can be used, but 99% of the time, dii is there as well, as in (i).	page 4, footnote
+footnote 5	Gitksan	cited form	nee	page 4, italic in the prose
+footnote 5	Gitksan	cited form	dii	page 4, italic in the prose
+footnote 5	Gitksan	cited form	nee dii	page 4, italic in the prose
+§2.1	Hector Hill and Lisa Matthewson	note	In (1) above we showed one way to ask a polar question in Gitksan, but there are actually three common ways. Look at the different ways to ask whether it’s raining in (3)–(5). All the questions end with aa. In (4) the question starts with the negative marker nee, and in (5) there is not only nee but also the focus marker dii.5	page 4
+(3) line 1	Gitksan	transcription	Yukwhl wis aa?	page 5, engine english
+(3) line 2	Gitksan	segmentation	Yukw=hl wis=aa?	page 5, engine language
+(3) line 3	Gitksan	gloss	PROG=CN rain=Q	page 5, engine english
+(3) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it raining? / It’s raining?’	page 5, engine english
+(3) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(4) line 1	Gitksan	transcription	Neehl yukwhl wis aa?	page 5, engine english
+(4) line 2	Gitksan	segmentation	Nee=hl yukw=hl wis=aa?	page 5, engine language
+(4) line 3	Gitksan	gloss	NEG=CN PROG=CN rain=Q	page 5, engine english
+(4) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it raining? / Isn’t it raining?’	page 5, engine english
+(4) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered RJ)	the tag or source at the right of the translation
+(5) line 1	Gitksan	transcription	Nee dii yukwhl wis aa?	page 5, engine english
+(5) line 2	Gitksan	segmentation	Nee=dii yukw=hl wis=aa?	page 5, engine language
+(5) line 3	Gitksan	gloss	NEG=FOC PROG=CN rain=Q	page 5, engine english
+(5) line 4	Hector Hill and Lisa Matthewson	translation	‘It’s not raining? / Is it not raining?’	page 5, engine english
+(5) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered VG)	the tag or source at the right of the translation
+§2.1	Hector Hill and Lisa Matthewson	note	These different questions mean slightly different things. Lisa’s main research question is when, exactly, you can appropriately use each one, and we will try to explain that below. From Hector’s perspective, a better way to teach someone about how to ask questions would be to take the person outside and ask them what they want to know. He would use the different question forms outside, in the natural way of being, and the learner would learn that way. The linguistic way of talking about these issues is not the natural way of life, not the original way to learn.	page 5
+§2.1	Hector Hill and Lisa Matthewson	note	However, given that the natural Gitksan way of life and the original way of learning has been damaged or even destroyed by white people, Hector agrees that there is a role for a paper like this that tries to convey the information for learners.	page 5
+§2.1	Hector Hill and Lisa Matthewson	note	We believe that the differences between the different question-types have to do with what the questioner thinks the answerer will likely say. Does the questioner believe the answer to the question will be positive? Or do they have no idea what the answer is? Or, did they expect a negative answer but something has happened to make them doubt that?	page 5
+§2.1	Hector Hill and Lisa Matthewson	note	Before we start showing examples of questions that are appropriate and not appropriate, it’s important to know that the symbol # in front of a sentence means that the fluent speaker does not accept the sentence in the given context. The symbol ? before a sentence means that the sentence isn’t perfect, but it’s not totally wrong. And ?? is in between # and ?: it means the sentence sounds pretty bad.	page 5
+§2.1	Hector Hill and Lisa Matthewson	note	We also want to make clear that people from different areas often say things slightly differently. We will give some different versions below so you can see examples from a few areas. (Sometimes, even speakers from the same community can say things differently, depending on who raised them, where they grew up and which house they belong to.) The example sentences have been given by five fluent Gitksan speakers. Vincent Gogag is from Git-anyaaw (Gitanyow) and speaks Giyaanimx. Hector Hill and Ray Jones are from Gijigyukwhla (Gitsegukla) and speak Gitsenimux. Jeanne Harris and Barbara Sennott are from Ansba'yaxw (Kispiox) and speak Gitxsanimx.	page 5
+footnote 5 (i) line 1	Gitksan	transcription	Nee dii yee'y.	page 4, footnote 5, whose example closes at the foot of page 5
+§2.1	Hector Hill and Lisa Matthewson	language	Giyaanimx	the dialect of Git-anyaaw (Gitanyow), Vincent Gogag's
+§2.1	Hector Hill and Lisa Matthewson	language	Gitsenimux	the dialect of Gijigyukwhla (Gitsegukla), Hector Hill's and Ray Jones's
+§2.1	Hector Hill and Lisa Matthewson	language	Gitxsanimx	the dialect of Ansba'yaxw (Kispiox), Jeanne Harris's and Barbara Sennott's
+§2.1	Hector Hill and Lisa Matthewson	place	Git-anyaaw	Gitanyow
+§2.1	Hector Hill and Lisa Matthewson	place	Gijigyukwhla	Gitsegukla
+§2.1	Hector Hill and Lisa Matthewson	place	Ansba'yaxw	Kispiox
+§2.1	Gitksan	cited form	aa	page 4, italic in the prose
+footnote 5 (i) line 2	Gitksan	segmentation	Nee=dii yee-'y.	page 5, footnote 5
+footnote 5 (i) line 3	Gitksan	gloss	NEG=FOC go-1SG.II	page 5, footnote 5
+footnote 5 (i) line 4	Rigsby 1986:200	translation	‘I didn’t go.’	page 5, footnote 5
+footnote 5 (i) line 4	Hector Hill and Lisa Matthewson	citation	(Rigsby 1986:200)	the source of the example
+§2.2	Hector Hill and Lisa Matthewson	heading	2.2 Questions with just aa	page 6
+§2.2	Hector Hill and Lisa Matthewson	note	When the questioner believes the answerer will confirm the sentence being asked about, fluent speakers are most likely to use just aa and not nee or nee dii. An example is shown in the storyboard in Figure 1. Rose sees Bob coming in wearing raingear and holding an umbrella, so she is pretty sure he’s going to confirm that it’s raining.	page 6
+§2.2	Hector Hill and Lisa Matthewson	note	Figure 1: Raingear storyboard (adapted from Gunlogson 2008:104) When Gitksan fluent speakers were shown this context, they translated Rose’s question using just aa, as shown in (6). Most of the speakers did not like to use nee in this context, as shown in (6) and by the comments they gave. It’s also not good to use nee dii here, as shown in (6).	page 6
+(6) line 1	Hector Hill and Lisa Matthewson	note	Context: Raingear storyboard	page 6, engine english
+(6a) line 1	Gitksan	transcription	Yukwhl wis aa?	page 7, engine english
+(6a) line 2	Gitksan	segmentation	Yukw=hl wis=aa?	page 7, engine language
+(6a) line 3	Gitksan	gloss	PROG=CN rain=Q	page 7, engine english
+(6a) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it raining?’	page 7, engine english
+(6a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH, RJ, VG)	the tag or source at the right of the translation
+(6b) line 1	Gitksan	transcription	#Neehl wis aa?	page 7, engine english
+(6b) line 2	Gitksan	segmentation	#Nee=hl wis=aa?	page 7, engine english
+(6b) line 3	Gitksan	gloss	NEG=CN rain=Q	page 7, engine english
+(6b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it raining?’	page 7, engine english
+(6b) line 4	Hector Hill and Lisa Matthewson	citation	(BS, HH, RJ)	the tag or source at the right of the translation
+(6b) line 5	Barbara Sennott, Hector Hill and Ray Jones	speaker comment	Comments on versions of (6): “I wouldn’t say that. You don’t need the neehl. [(6)] is good, perfect.” (BS) “No. If he didn’t have the raingear the question would be ok.” “If he walks in with an umbrella and rain clothes, that would be a silly question.” (HH) “I’m laughing. Unless you had a shower in your clothes ... Neehl is ‘Is it?’” (HH) “It’d be weird.” (RJ)	page 7, engine english
+(6c) line 1	Gitksan	transcription	# Nee dii wis aa?	page 7, engine english
+(6c) line 2	Gitksan	segmentation	#Nee=dii wis=aa?	page 7, engine english
+(6c) line 3	Gitksan	gloss	NEG=FOC rain=Q	page 7, engine english
+(6c) line 4	Hector Hill and Lisa Matthewson	translation	‘Isn’t it raining?’	page 7, engine english
+(6c) line 4	Hector Hill and Lisa Matthewson	citation	(BS, JH, HH)	the tag or source at the right of the translation
+(6c) line 5	Hector Hill	speaker comment	Comment on (6): “If he comes in soaked and with an umbrella then it’s an improper question.” (HH)	page 7, engine english
+§2.2	Hector Hill and Lisa Matthewson	note	Here is another context where the questioner is pretty sure the answerer is going to confirm their idea. In the storyboard in Figure 2, Bob believes that Mary has had a haircut because he notices her hair is shorter than usual.	page 7
+§2.2	Hector Hill and Lisa Matthewson	note	Figure 2: Haircut storyboard (adapted from Gunlogson 2008:104) Speakers usually prefer to use a question just with aa in the haircut scenario. In (7) we show two ways to ask the question just with aa. (Remember that often, speakers from different areas have slightly different ways to say things. It doesn’t mean that one way is wrong and one way is right.) Examples (7) show that adding nee to the questions makes them worse in this context. And (7) shows that using nee dii is not appropriate.	page 8
+(7) line 1	Hector Hill and Lisa Matthewson	note	Context: Haircut storyboard	page 8, engine english
+(7a) line 1	Gitksan	transcription	K'ojinhl gesin aa?	page 8, engine english
+(7a) line 2	Gitksan	segmentation	K'oj-in=hl ges-in=aa?	page 8, engine english
+(7a) line 3	Gitksan	gloss	cut-2SG.II=CN hair-SG.II=Q	page 8, engine english
+(7a) line 4	Hector Hill and Lisa Matthewson	translation	‘You cut your hair?’	page 8, engine english
+(7a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(7b) line 1	Gitksan	transcription	(Oo,) k'otshl ges 'niin aa?	page 8, engine english
+(7b) line 2	Gitksan	segmentation	(Oo,) k'ots=hl ges 'niin=aa?	page 8, engine english
+(7b) line 3	Gitksan	gloss	oh cut=CN hair 2SG.III=Q	page 8, engine english
+(7b) line 4	Hector Hill and Lisa Matthewson	translation	‘You cut your hair?’	page 8, engine english
+(7b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, JH)	the tag or source at the right of the translation
+(7c) line 1	Gitksan	transcription	# Neehl k'ojinhl gesinaa?	page 8, engine english
+(7c) line 2	Gitksan	segmentation	# Nee=hl k'oj-in=hl ges-in=aa?	page 8, engine english
+(7c) line 3	Gitksan	gloss	NEG=CN cut-2SG.II=CN hair-SG.II=Q	page 8, engine english
+(7c) line 4	Hector Hill and Lisa Matthewson	translation	‘Did you cut your hair?’	page 8, engine english
+(7c) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(7d) line 1	Gitksan	transcription	?Neehl k'otshl gesxwin aa?	page 8, engine english
+(7d) line 2	Gitksan	segmentation	? Nee=hl k'ots=hl ges-xw-in=aa?	page 8, engine residue
+(7d) line 3	Gitksan	gloss	NEG=CN cut=CN hair-VAL-SG.II=Q	page 8, engine english
+(7d) line 4	Hector Hill and Lisa Matthewson	translation	‘Did you cut your hair?’	page 8, engine english
+(7d) line 4	Hector Hill and Lisa Matthewson	citation	(BS, JH)	the tag or source at the right of the translation
+(7d) line 5	Barbara Sennott	speaker comment	Comment on (7): “Yeah, he could say that. But he doesn’t have to say neehl.” [corrects to (7)] (BS)	page 9, engine english
+(7e) line 1	Gitksan	transcription	# Nee dii k'otshl gesxwin aa?	page 9, engine english
+(7e) line 2	Gitksan	segmentation	# Nee=dii k'ots=hl ges-xw-in=aa?	page 9, engine residue
+(7e) line 3	Gitksan	gloss	NEG=FOC cut=CN hair-VAL-SG.II=Q	page 9, engine english
+(7e) line 4	Hector Hill and Lisa Matthewson	translation	‘Did you not have a haircut?’	page 9, engine english
+(7e) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered in different context BS, JH)	the tag or source at the right of the translation
+(7e) line 5	Barbara Sennott	speaker comment	Comment on (7): “No, I wouldn’t say that. Nee dii is no.” [corrects to (7)] (BS)	page 9, engine english
+§2.2	Hector Hill and Lisa Matthewson	note	So far we have been looking at contexts where the questioner expects the answerer to answer with a confirmation. Another feature of the contexts so far is that the questioner themselves was fairly neutral until just before they asked the question. In the raining case for example, Rose was in an office without windows and she had no clue about the weather until she saw Bob in his raingear. Next we will look at what happens if the questioner expects the answerer to confirm, but the questioner is also surprised because they had thought the answer was going to be ‘no’. In this case, fluent speakers still use aa and no nee or nee dii, but they tend to add the marker k'ap or ap, which is an emphasis word meaning something like ‘really’ (called ‘verum’ by linguists; see Matthewson 2021). (Whether a speaker uses k'ap or ap depends on the dialect. Gyeets (west/downstream) speakers tend to use k'ap and Gigeenix (east/upstream) speakers tend to use ap.) Hector says that when the person asking a question uses k'ap/ap, that tells the other person that she or he knows the answer already. Sometimes a question with k'ap/ap is used to see if the other person was looking at what she or he was saying.	page 9
+§2.2	Hector Hill and Lisa Matthewson	note	A scenario where k'ap/ap is appropriate is shown in Figure 3 When Bob asks his question, Rose has already basically given him the answer: she’s going to the party. But previously Rose had made it seem like she wouldn’t be going, so in his question he expresses his surprise. Figure 3: Olivia’s party – really? storyboard	page 9
+(8) line 1	Hector Hill and Lisa Matthewson	note	Context: Olivia’s party – really? storyboard	page 11, engine english
+(8a) line 1	Gitksan	transcription	Dim k'ap hukws 'niin go'ohl liligets Olivia haa?	page 11, engine english
+(8a) line 2	Gitksan	segmentation	Dim k'ap hukws 'niin go'o=hl liliget-s Olivia=haa?	page 11, engine english, carries footnote 6, written here without its digit
+(8a) line 3	Gitksan	gloss	PROSP VERUM go 2SG.III LOC=CN feast-3.II Olivia=Q	page 11, engine english
+(8a) line 4	Hector Hill and Lisa Matthewson	translation	‘Are you really going to Olivia’s party?’	page 11, engine english
+(8a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered VG)	the tag or source at the right of the translation
+footnote 6	Hector Hill and Lisa Matthewson	note	6 The question marker aa is sometimes pronounced haa, yaa or naa when the word before it ends in a vowel.	page 11, footnote
+footnote 6	Gitksan	cited form	haa	page 11, footnote 6, a form of aa after a vowel
+footnote 6	Gitksan	cited form	yaa	page 11, footnote 6, a form of aa after a vowel
+footnote 6	Gitksan	cited form	naa	page 11, footnote 6, a form of aa after a vowel
+footnote 6	Gitksan	cited form	aa	page 11, italic in the prose
+footnote 6	Gitksan	cited form	naa	page 11, italic in the prose
+(8b) line 1	Gitksan	transcription	Oo, dim ap yee 'niin goohl paatiis Olivia aa?	page 12, engine english
+(8b) line 2	Gitksan	segmentation	Oo, dim ap yee 'niin goo=hl paatii=s Olivia=aa?	page 12, engine english
+(8b) line 3	Gitksan	gloss	oh PROSP VERUM go 2SG.III LOC=CN party[-3.II]=PN Olivia=Q	page 12, engine english, carries footnote 7, written here without its digit
+(8b) line 4	Hector Hill and Lisa Matthewson	translation	‘Are you really going to Olivia’s party?’	page 12, engine english
+(8b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS)	the tag or source at the right of the translation
+(8c) line 1	Gitksan	transcription	# Oo, ap nem dii yeen goohl paatiis Olivia aa?	page 12, engine english
+(8c) line 2	Gitksan	segmentation	# Oo, ap nem=dii yee-n goo=hl paatii=s Olivia=aa?	page 12, engine english
+(8c) line 3	Gitksan	gloss	oh VERUM NEG+PROSP=FOC go-2SG.II LOC=CN party[-3.II]=PN Olivia=Q	page 12, engine english
+(8c) line 4	Hector Hill and Lisa Matthewson	translation	‘Are you really not going to Olivia’s party?’	page 12, engine english
+(8c) line 4	Hector Hill and Lisa Matthewson	citation	(BS)	the tag or source at the right of the translation
+(8c) line 5	Barbara Sennott	speaker comment	Comment on (8): “No no, ap nem dii, that means not going … Are you not going?” (BS)	page 12, engine english
+§2.2	Hector Hill and Lisa Matthewson	note	Another example is given in (9). A good way to ask the question is to use aa and k'ap/ap. It’s not good to use nee or nee dii.	page 12
+(9) line 1	Hector Hill and Lisa Matthewson	note	Context: Betty is talking to her husband Adam about their mutual friend Charlie. Charlie is known to sometimes pretend to be sick to get out of working.	page 12, engine english
+(9) line 2	Gitksan	transcription	B: Siipxwt Charlie.	page 12, engine english
+(9) line 3	Gitksan	segmentation	Siipxw=t Charlie.	page 12, engine english
+(9) line 4	Gitksan	gloss	sick=PN Charlie	page 12, engine english
+(9) line 5	Hector Hill and Lisa Matthewson	translation	‘Charlie is sick.’	page 12, engine english
+(9A1) line 1	Gitksan	transcription	(Oo,) k'ap/ap siipxw 'nid aa?	page 12, Adam's first answer, carries footnote 8, written here without its digit
+(9A1) line 2	Gitksan	segmentation	(Oo,) k'ap/ap siipxw 'nid=aa?	page 12
+(9A1) line 3	Gitksan	gloss	(oh) VERUM sick 3.III=Q	page 12
+(9A1) line 4	Hector Hill and Lisa Matthewson	translation	‘Is he really sick?’	page 12
+(9A1) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS; accepted HH)	the tag at the right of the translation
+(9A2) line 1	Gitksan	transcription	# K'ap neehl siipxwd aa?	page 12, Adam's second answer
+(9A2) line 2	Gitksan	segmentation	# K'ap nee=hl siipxw-d=aa?	page 12
+(9A2) line 3	Gitksan	gloss	VERUM NEG=CN sick-3.II=Q	page 12
+(9A2) line 4	Hector Hill and Lisa Matthewson	translation	‘Is he really sick?’	page 12
+(9A2) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag at the right of the translation
+(9A3) line 1	Gitksan	transcription	#/? (Oo,) k'ap/ap nee dii siipxwd aa?	page 12, Adam's third answer
+(9A3) line 2	Gitksan	segmentation	#/? (Oo,) k'ap/ap nee=dii siipxw-d=aa?	page 12
+(9A3) line 3	Gitksan	gloss	(oh) VERUM NEG=FOC sick-3.II=Q	page 12
+(9A3) line 4	Hector Hill and Lisa Matthewson	translation	‘Is he really not sick?’	page 12
+(9A3) line 4	Hector Hill and Lisa Matthewson	citation	(BS, HH, JH)	the tag at the right of the translation
+(9A3) line 5	Barbara Sennott	speaker comment	Comment on (9)A3: “No. You would say that if she said he’s not sick.” (BS)	page 12
+footnote 7	Hector Hill and Lisa Matthewson	note	7 The 3.II pronoun is often elided; these elided pronouns are marked inside square brackets only on the gloss line.	page 12, footnote
+footnote 8	Hector Hill and Lisa Matthewson	note	8 When different speakers used different words, we use the symbol ‘/’ to indicate the options.	page 12, footnote
+(10) line 1	Hector Hill and Lisa Matthewson	note	Another set of cases for questions with just aa (this time without k'ap/ap) is when the speaker is beyond surprised – they outright disbelieve the positive answer – but they still think the answerer will answer positively. In (10), for example, the mother is not even asking whether the floor is clean; she knows it’s not. But she thinks the child will say the floor is clean, since he already stated that.	page 12, the paragraph the page sets after the number of (10)
+(10) line 2	Hector Hill and Lisa Matthewson	note	Context: A mother asks her child to clean the floor, and he does a really bad job before announcing himself to be done. The mother says to the child:	page 13, carries footnote 9, written here without its digit
+(10) line 3	Gitksan	transcription	Saksxwhl ha'niiwan/ha'niiwen tun aa?	page 13
+(10) line 4	Gitksan	segmentation	Saks-xw=hl ha-'nii-wan/ ha-'nii-wen tun=aa?	page 13
+(10) line 5	Gitksan	gloss	clean-VAL=CN INS-on-sit.PL/INS-on-sit.PL DEM.PRX=Q	page 13
+(10) line 6	Hector Hill and Lisa Matthewson	translation	‘This floor is clean?’	page 13
+(10) line 6	Hector Hill and Lisa Matthewson	citation	(volunteered HH, VG)	the tag at the right of the translation
+§2.2	Hector Hill and Lisa Matthewson	note	There is one last type of context where questions are made with just aa, no nee or nee dii. This context seems quite different from the other ones we showed so far: it’s when the questioner knows for sure that the statement contained in the question is true, and they also know that the answerer does not know the answer to the question, and they are implicitly asking a slightly different question. This might sound complicated, but an example will hopefully make it clear. Look at the scenario in Figure 4.	page 13
+footnote 9	Hector Hill and Lisa Matthewson	note	9 Adapted from Farkas and Roelofsen (2017:276).	page 13, footnote
+§2.2	Hector Hill and Lisa Matthewson	note	Figure 4: She’s five? storyboard (adapted from Goodhue 2024:955) In this scenario, the questioner knows perfectly well that his daughter is five, and the person he is talking to has no idea how old she is, so he is definitely not asking her whether it’s true that his daughter is five. In English, we would raise the intonation of our voice here to make it sound like a question. By the rising intonation, the father gets across his uncertainty about whether there will be room for his daughter in swimming class, given that she is five.	page 14
+§2.2	Hector Hill and Lisa Matthewson	note	In contexts like this, you can use a question with aa, as shown in (11). If nee is added, it will be interpreted as the father asking the pool worker whether his daughter is five – so it is no longer appropriate in this context.	page 14
+§2.2	Gitksan	cited form	aa	page 6, italic in the prose
+§2.2	Gitksan	cited form	nee	page 6, italic in the prose
+§2.2	Gitksan	cited form	nee dii	page 6, italic in the prose
+§2.2	Gitksan	cited form	k'ap	page 9, italic in the prose
+§2.2	Gitksan	cited form	ap	page 9, italic in the prose
+§2.2	Gitksan	cited form	k'ap/ap	page 9, italic in the prose
+(11) line 1	Hector Hill and Lisa Matthewson	note	Context: She’s five? storyboard	page 14, engine english
+(11a) line 1	Gitksan	transcription	Xwsdinshlguuhlxwd aa?	page 14, engine english
+(11a) line 2	Gitksan	segmentation	Xwsdins-hlguuhlxw-d=aa?	page 14, engine residue
+(11a) line 3	Gitksan	gloss	five-child-3.II=Q	page 14, engine english
+(11a) line 4	Hector Hill and Lisa Matthewson	translation	‘She’s five?’	page 14, engine english
+(11a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(11a) line 5	Hector Hill	speaker comment	Comment about (11): “You know it, and you’re saying it out loud.” (HH)	page 14, engine english
+(11b) line 1	Gitksan	transcription	# Neehl xwdinshlguuhlxwd aa?	page 14, engine english
+(11b) line 2	Gitksan	segmentation	# Nee=hl xwdins-hlguuhlxw-d=aa?	page 14, engine residue
+(11b) line 3	Gitksan	gloss	NEG=CN five-child-3.II=Q	page 14, engine english
+(11b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is she five?’	page 14, engine english
+(11b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered not in this context; HH)	the tag or source at the right of the translation
+(11b) line 5	Lisa Matthewson	speaker comment	Lisa: “Can you start it with nee in this context?”	page 14, engine english
+(11b) line 6	Hector Hill	speaker comment	Hector: “No, no. That means he doesn’t know anything about his daughter.”	page 14, engine english
+§2.3	Hector Hill and Lisa Matthewson	heading	2.3 Questions with nee and aa	page 14
+§2.3	Hector Hill and Lisa Matthewson	name	Büring	Daniel Büring, Büring and Gunlogson 2000
+§2.3	Hector Hill and Lisa Matthewson	note	When do fluent speakers use nee in polar questions? There are a couple of types of scenario. The first scenario where questions with nee are a good choice is when the questioner has no prior belief about whether the answer will be positive or negative, and there is also no evidence in the context about what the answer will be. In other words, these are very neutral contexts. In the storyboard in Figure 5, the questioner probably has no idea what the weather is like in her friend’s town, and he also hasn’t given her any clues because they just started the conversation. The most usual way for the speakers to make the question is to start it with nee, as shown in (12). Figure 5: Phone sunny storyboard (Büring and Gunlogson 2000:8)	page 14
+(12) line 1	Hector Hill and Lisa Matthewson	note	Context: Phone sunny storyboard	page 15, engine english
+(12a) line 1	Gitksan	transcription	Neehl goymaxhl hloxws aa?	page 15, engine english
+(12a) line 2	Gitksan	segmentation	Nee=hl goymax=hl hloxws=aa?	page 15, engine residue
+(12a) line 3	Gitksan	gloss	NEG=CN bright[-3.II]=CN sun=Q	page 15, engine english
+(12a) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it sunny?’	page 15, engine english
+(12a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered RJ)	the tag or source at the right of the translation
+(12b) line 1	Gitksan	transcription	Neehl ts'atxwhl hloxs go'on aa?	page 16, engine english
+(12b) line 2	Gitksan	segmentation	Nee=hl ts'atxw=hl hloxs go'o-n=aa?	page 16, engine english
+(12b) line 3	Gitksan	gloss	NEG=CN shine[-3.II]=CN sun LOC-2SG.II=Q	page 16, engine english
+(12b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it sunny where you are?’	page 16, engine english
+(12b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS)	the tag or source at the right of the translation
+(12c) line 1	Gitksan	transcription	#? Ts'atxwhl hloxs go'on aa?	page 16, engine english
+(12c) line 2	Gitksan	segmentation	#? Ts'atxw=hl hloxs go'o-n=aa?	page 16, engine residue
+(12c) line 3	Gitksan	gloss	shine=CN sun LOC-2SG.II=Q	page 16, engine english
+(12c) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it sunny where you are?’	page 16, engine english
+(12c) line 4	Hector Hill and Lisa Matthewson	citation	(BS, JH)	the tag or source at the right of the translation
+(12c) line 5	Barbara Sennott and Jeanne Harris	speaker comment	Comments on (12): “She could, but it wouldn’t be proper or correct … It’s alright, but it’s not correct.” (BS) “Like a half sentence, but I think it’s ok.” (JH)	page 16, engine english
+(12d) line 1	Gitksan	transcription	# Nee dii ts'atxwhl hloxs aa?	page 16, engine english
+(12d) line 2	Gitksan	segmentation	# Nee=dii ts'atxw=hl hloxs=aa?	page 16, engine english
+(12d) line 3	Gitksan	gloss	NEG=FOC shine=CN sun=Q	page 16, engine english
+(12d) line 4	Hector Hill and Lisa Matthewson	translation	‘Is the sun not shining?’	page 16, engine english
+(12d) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS in different context; rejected in this context)	the tag or source at the right of the translation
+(12d) line 5	Barbara Sennott	speaker comment	Comment on (12): “It’s negative, is the sun not shining?” (BS)	page 16, engine english
+§2.3	Hector Hill and Lisa Matthewson	note	Another neutral context is given in (13). Note that we are calling this context ‘neutral’ even though the teacher who is asking the question knows the answer. The point is that when making test questions, the questioner tries to convey no bias one way or the other (i.e., no clues to the students about what the answer might be). So they use a form that is totally open about what the answer is. Here we see that it is fine to start the question with nee, as in (13). It’s also okay to just use aa, as in (13). It’s not appropriate to use nee dii, as in (13), because that changes the meaning.	page 16
+(13) line 1	Hector Hill and Lisa Matthewson	note	Context: Question on a test in school.10	page 16, engine english
+(13a) line 1	Gitksan	transcription	Neet/Neehl guphl smaxhl suusiid/gwisiid aa?	page 16, engine english
+(13a) line 2	Gitksan	segmentation	Nee=t/hl gup=hl smax=hl suusiid/gwisiid=aa?	page 16, engine english
+(13a) line 3	Gitksan	gloss	NEG=3.I/CN eat[-3.II]=CN bear=CN potato=Q	page 16, engine english
+(13a) line 4	Hector Hill and Lisa Matthewson	translation	‘Do bears eat potatoes?’	page 16, engine english
+(13a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH, JH, RJ)	the tag or source at the right of the translation
+(13b) line 1	Gitksan	transcription	(Oo,) gubihl smaxhl suusiid/gwisiid/sgusiid aa?	page 16, engine english
+(13b) line 2	Gitksan	segmentation	(Oo,) gub-i=hl smax=hl suusiid/gwisiid/sgusiid=aa?	page 16, engine english
+(13b) line 3	Gitksan	gloss	(oh) eat-TR[-3.II]=CN bear=CN potato=Q	page 16, engine english
+(13b) line 4	Hector Hill and Lisa Matthewson	translation	‘Do bears eat potatoes?’	page 16, engine english
+(13b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH, VG)	the tag or source at the right of the translation
+(13c) line 1	Gitksan	transcription	# Nee dii(t) guphl smaxhl gwisiid aa?	page 16, engine english
+(13c) line 2	Gitksan	segmentation	#Nee=dii(=t) gup=hl smax=hl gwisiid=aa?	page 16, engine english
+(13c) line 3	Gitksan	gloss	NEG=FOC(=3.I) eat[-3.II]=CN bear=CN potato=Q	page 16, engine english
+(13c) line 4	Hector Hill and Lisa Matthewson	translation	‘Don’t bears eat potatoes?’	page 16, engine english
+(13c) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+footnote 10	Hector Hill and Lisa Matthewson	note	10 Adapted from AnderBois (2019:124).	page 16, footnote
+(13c) line 5	Hector Hill	speaker comment	Comment on (13): “Right now there’s food for the bear: fish, berries, potatoes and other food. The only thing that the bear’s eating now is the fish and then everybody looks and says “Oo, [(13)].” They’re curious; he’s not eating the potatoes. In that context that would work.” (HH)	page 17, engine english
+§2.3	Hector Hill and Lisa Matthewson	note	Another example of a neutral context is bureaucratic forms. Example (14) shows that the most preferred form of the question contains nee but not dii. A question with just aa is also acceptable, but the speaker’s comment in (14) suggests that when you ask it this way, the question isn’t completely neutral about the answer. (The question mark in brackets means that the sentence is sometimes accepted and sometimes judged as not very good in this context.)	page 17
+(14) line 1	Hector Hill and Lisa Matthewson	note	Context: On a health insurance form11	page 17, engine english
+(14a) line 1	Gitksan	transcription	(?) Naks/neks 'niin aa?	page 17, engine english
+(14a) line 2	Gitksan	segmentation	(?) Naks/neks 'niin=aa?	page 17, engine english
+(14a) line 3	Gitksan	gloss	spouse 2SG.III=Q	page 17, engine english
+(14a) line 4	Hector Hill and Lisa Matthewson	translation	‘Are you married?’	page 17, engine english
+(14a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH; accepted BS, JH)	the tag or source at the right of the translation
+(14a) line 5	Hector Hill	speaker comment	Comment on (14)a: “That gives him or her the opportunity to say, “Yeah, I’m married to …” and then the name … It opens the door to say yes or no, even though you know they’re married.” (HH)	page 17, engine english
+(14b) line 1	Gitksan	segmentation	Nee=hl naks-in=aa?	page 17, (14b) has no line in the orthography
+(14b) line 2	Gitksan	gloss	NEG=CN spouse-2SG.II=Q	page 17, engine english
+(14b) line 3	Hector Hill and Lisa Matthewson	translation	‘Are you married?’	page 17, engine english
+(14b) line 3	Hector Hill and Lisa Matthewson	citation	(volunteered JH, VG; accepted, BS, HH)	the tag or source at the right of the translation
+(14b) line 4	Lisa Matthewson	speaker comment	Lisa: “Does [(14)] assume they’re married?”	page 17, engine english
+(14b) line 5	Hector Hill	speaker comment	Hector: “No. That question is asking about, you don’t know if he is.”	page 17, engine english
+(14c) line 1	Gitksan	segmentation	# Nee=dii naks-in=aa?	page 17, (14c) has no line in the orthography
+(14c) line 2	Gitksan	gloss	NEG=EXH spouse-2SG.II=Q	page 17
+(14c) line 3	Hector Hill and Lisa Matthewson	translation	‘Are you not married?’	page 17
+(14c) line 3	Hector Hill and Lisa Matthewson	citation	(BS, VG)	the tag at the right of the translation
+(14c) line 4	Vincent Gogag and Barbara Sennott	speaker comment	Comments on (14)c: “Couldn’t use that, no.” (VG) “If the question is ‘Are you not married?’” (BS)	page 17
+§2.3	Hector Hill and Lisa Matthewson	note	Another type of scenario where nee can be in the question is when the questioner thought beforehand that the answer to the question was positive, but they don’t have evidence at the time they are asking the question that the answerer will necessarily give a positive answer. An example is given in Figure 6. Before Bob asks Mary where they should go to eat, Mary thought there was a good Chinese restaurant in the area. But she isn’t sure whether Bob agrees with her. In this context, all the five speakers who were consulted offered questions that started with nee; two versions are given in (15). The version just with aa is not very good (15), and nee dii is also not good (15).	page 17
+footnote 11	Hector Hill and Lisa Matthewson	note	11 Adapted from Gunlogson (2003:15), as used by Šafářová (2005:359-360).	page 17, footnote
+§2.3	Hector Hill and Lisa Matthewson	name	Šafářová	Marie Šafářová, 2005, footnote 11
+§2.3	Hector Hill and Lisa Matthewson	note	Figure 6: Isn’t there a good Chinese restaurant? storyboard (adapted from Ladd 1981:164)	page 18
+(15) line 1	Hector Hill and Lisa Matthewson	note	Context: Isn’t there a good Chinese restaurant? storyboard	page 18, engine english
+(15a) line 1	Gitksan	transcription	Neehl t'aahl ama jeynem wilp txookxw ga'asun aa?	page 18, engine english
+(15a) line 2	Gitksan	segmentation	Nee=hl t'aa=hl am-a jeyn-em wilp txook-xw ga'a-sun=aa?	page 18, engine english
+(15a) line 3	Gitksan	gloss	NEG=CN sit[-3.II]=CN good-ATT Chinese-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 18, engine english
+(15a) line 4	Hector Hill and Lisa Matthewson	translation	‘Isn’t there a good Chinese restaurant here?’	page 18, engine english
+(15a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(15b) line 1	Gitksan	transcription	Neehl wanhl ama wilp txookxw jeyn goosun aa?	page 18, engine english
+(15b) line 2	Gitksan	segmentation	Nee=hl wan=hl am-a wilp txook-xw jeyn goo-sun=aa?	page 18, engine english
+(15b) line 3	Gitksan	gloss	NEG=CN sit.PL[-3.II]=CN good-ATT house eat.PL-VAL Chinese LOC-DEM.PRX=Q	page 18, engine english
+(15b) line 4	Hector Hill and Lisa Matthewson	translation	‘Aren’t there some good Chinese restaurants here?’	page 18, engine english
+(15b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered VG)	the tag or source at the right of the translation
+(15c) line 1	Gitksan	transcription	?? T'aahl ama jeynem wilp txookxw ga'asun aa?	page 19, engine english
+(15c) line 2	Gitksan	segmentation	?? T'aa=hl am-a jeyn-em wilp txook-xw ga'a-sun=aa?	page 19, engine residue
+(15c) line 3	Gitksan	gloss	sit=CN good-ATT Chinese-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 19, engine english
+(15c) line 4	Hector Hill and Lisa Matthewson	translation	‘Is there a good Chinese restaurant here?’	page 19, engine english
+(15c) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(15d) line 1	Gitksan	transcription	# Nee dii wanhl ama wilp txookxw jeyn goosun aa?	page 19, engine english
+(15d) line 2	Gitksan	segmentation	# Nee=dii wan=hl am-a wilp txook-xw jeyn goo-sun=aa?	page 19, engine english
+(15d) line 3	Gitksan	gloss	NEG=FOC sit.PL[-3.II]=CN good-ATT house eat.PL-VAL Chinese LOC-DEM.PRX=Q	page 19, engine english
+(15d) line 4	Hector Hill and Lisa Matthewson	translation	‘Are there no good Chinese restaurants here?’	page 19, engine english
+(15d) line 4	Hector Hill and Lisa Matthewson	citation	(VG)	the tag or source at the right of the translation
+(15d) line 5	Vincent Gogag and Barbara Sennott	speaker comment	Comments on versions of (15): “Are there no? … Slightly different.” (VG) “It’s saying “Oh, is there no good restaurant here?” (BS)	page 19, engine english
+§2.3	Hector Hill and Lisa Matthewson	note	Another example is given in (16). The questioner believed beforehand that there is a bus in the morning. They are not sure if the agent will confirm this though, and nee is the best way to start the question.	page 19
+(16) line 1	Hector Hill and Lisa Matthewson	note	Context: Tomorrow you need to go from Vancouver to Seattle as early as possible. Michael goes there a lot and he told you he thinks there is a bus in the morning. You go to the ticket office and ask for a bus ticket for the next morning. The agent says ‘When do you want to go?’ You reply:12	page 19, engine english
+(16a) line 1	Gitksan	transcription	Neehl baxhl bus ahl hiihluxw aa?	page 19, engine english
+(16a) line 2	Gitksan	segmentation	Nee=hl bax=hl bus a=hl hiihluxw=aa?	page 19, engine english
+(16a) line 3	Gitksan	gloss	NEG=CN run=CN bus PREP[-3.II]=CN morning=Q	page 19, engine english
+(16a) line 4	Hector Hill and Lisa Matthewson	translation	‘Isn’t there a bus in the morning?’	page 19, engine english
+(16a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS)	the tag or source at the right of the translation
+(16b) line 1	Gitksan	transcription	?? Baxhl jikjik a'niidokxwhl get ahl hiihluxw aa?	page 19, engine english
+(16b) line 2	Gitksan	segmentation	?? Bax=hl jikjik a-'nii-dok-xw=hl get a=hl hiihluxw=aa?	page 19, engine residue
+(16b) line 3	Gitksan	gloss	run=CN vehicle INS-on-take-VAL=CN person PREP[-3.II]=CN morning=Q	page 19, engine english
+(16b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is there a bus [literally: vehicle that takes people] in the morning?’	page 19, engine english
+(16b) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(16b) line 5	Hector Hill	speaker comment	Comment on (16): “When you don’t use the neehl, it’s like louder than normal … Some of the questioning can be done in that way, but not all. Neehl is questioning. That would complete the sentence. Starting with baxhl is not quite complete.” (HH)	page 19, engine english
+footnote 12	Hector Hill and Lisa Matthewson	note	12 Adapted from Domaneschi et al. (2017:14).	page 19, footnote
+§2.3	Hector Hill and Lisa Matthewson	note	A similar type of case is when the questioner believed beforehand that the answer would be positive, but something in the context makes them think the answer might be negative after all. Using nee is better than not using nee in this type of context. For example, in (17) the questioner thought earlier that it was sunny, but now they’re not sure any more because they see wet raingear.	page 19
+(17) line 1	Hector Hill and Lisa Matthewson	note	Context: When you arrived at UBC it was sunny. You go into a windowless room and when I arrive, I am wearing a dripping wet raincoat. You ask:	page 20, engine english
+(17a) line 1	Gitksan	transcription	Neehl ts'etxwhl hloxs aa?	page 20, engine english
+(17a) line 2	Gitksan	segmentation	Nee=hl ts'etxw=hl hloxs=aa?	page 20, engine residue
+(17a) line 3	Gitksan	gloss	NEG=CN shine[-3.II]=CN sun=Q	page 20, engine english
+(17a) line 4	Hector Hill and Lisa Matthewson	translation	‘Isn’t it sunny?’	page 20, engine english
+(17a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(17b) line 1	Gitksan	transcription	# Ts'etxwhl hloxs aa?	page 20, engine english
+(17b) line 2	Gitksan	segmentation	# Ts'etxw=hl hloxs=aa?	page 20, engine residue
+(17b) line 3	Gitksan	gloss	shine=CN sun=Q	page 20, engine english
+(17b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is it sunny?’	page 20, engine english
+(17b) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+§2.3	Hector Hill and Lisa Matthewson	note	Another case like this is in (18). All the five speakers who were shown this context offered questions that began with nee; one example is given in (18a). Using just aa is not appropriate, as shown in (18b), and nee dii can be okay, as in (18).	page 20
+§2.3	Gitksan	cited form	nee	page 16, italic in the prose
+§2.3	Gitksan	cited form	aa	page 16, italic in the prose
+§2.3	Gitksan	cited form	nee dii	page 16, italic in the prose
+§2.3	Gitksan	cited form	dii	page 17, italic in the prose
+§2.3	Gitksan	cited form	bus	page 19, italic in the prose
+(18) line 1	Hector Hill and Lisa Matthewson	note	Context: A thinks there is a Chinese restaurant near here. A says ‘I’m hungry. Let’s go eat.’ B says ‘But there aren’t any restaurants around here.’ A replies:	page 20, engine english
+(18a) line 1	Gitksan	transcription	Oo, neehl t'aahl wilp txookxw jeyn goosun aa?	page 20, engine english
+(18a) line 2	Gitksan	segmentation	Oo, nee=hl t'aa=hl wilp txook-xw jeyn goo-sun=aa?	page 20, engine english
+(18a) line 3	Gitksan	gloss	oh NEG=CN sit=CN house eat.PL-VAL Chinese LOC=DEM.PRX=Q	page 20, engine english
+(18a) line 4	Hector Hill and Lisa Matthewson	translation	‘Oh, isn’t there a Chinese restaurant around here?	page 20, engine english
+(18a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS)	the tag or source at the right of the translation
+(18b) line 1	Gitksan	transcription	# Oo, t'aahl wilp txookxwim jeyn ga'asun aa?	page 20, engine english
+(18b) line 2	Gitksan	segmentation	# Oo, t'aa=hl wilp txook-xw-im jeyn ga'a-sun=aa?	page 20, engine english
+(18b) line 3	Gitksan	gloss	oh sit=CN house eat.PL-VAL-ATT Chinese LOC=DEM.PRX=Q	page 20, engine english
+(18b) line 4	Hector Hill and Lisa Matthewson	translation	‘Oh, is there a Chinese restaurant around here?’	page 20, engine english
+(18b) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(18c) line 1	Gitksan	transcription	Oo, nee dii taahl wilp txookxw jeyn goosun aa?	page 20, engine english
+(18c) line 2	Gitksan	segmentation	Oo, nee=dii t'aa=hl wilp txook-xw jeyn goo-sun=aa?	page 20, engine english
+(18c) line 3	Gitksan	gloss	oh NEG=FOC sit=CN house eat.PL-VAL Chinese LOC=DEM.PRX=Q	page 20, engine english
+(18c) line 4	Hector Hill and Lisa Matthewson	translation	‘Oh, isn’t there a Chinese restaurant around here?’	page 20, engine english
+(18c) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered JH; accepted BS)	the tag or source at the right of the translation
+§2.4	Hector Hill and Lisa Matthewson	heading	2.4 Questions with nee dii and aa	page 20
+§2.4	Hector Hill and Lisa Matthewson	note	Now we will show the type of situations where it’s best to use nee dii in the question. The first case is when the questioner previously had no idea what the answer was, but just before they ask the question, they get some evidence that the answer is negative.	page 20
+§2.4	Hector Hill and Lisa Matthewson	note	In Figure 7, the questioner previously had no clue about the answer, but right before she asks the question, she gets evidence that the answer is going to be ‘no’. Examples (19) show that nee dii is a good way to ask the question in this context. Just nee is also okay (19), but a plain question with only aa isn’t a good choice (19).	page 20
+§2.4	Hector Hill and Lisa Matthewson	note	Figure 7: Greasy burgers storyboard	page 21
+(19) line 1	Hector Hill and Lisa Matthewson	note	Context: Greasy burgers storyboard	page 21, engine english
+(19a) line 1	Gitksan	transcription	Oo, nee dii t'aahl ama wilp txookxw ga'asun aa?	page 21, engine english
+(19a) line 2	Gitksan	segmentation	Oo, nee=dii t'aa=hl am-a wilp txook-xw ga'a-sun=aa?	page 21, engine english
+(19a) line 3	Gitksan	gloss	oh NEG=FOC sit=CN good-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 21, engine english
+(19a) line 4	Hector Hill and Lisa Matthewson	translation	‘Is there no good restaurant here?’	page 21, engine english
+(19a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(19b) line 1	Gitksan	transcription	Nee dii wanhl ama wilp txookxw goosun aa?	page 21, engine english
+(19b) line 2	Gitksan	segmentation	Nee=dii wan=hl am-a wilp txook-xw goo-sun=aa?	page 21, engine residue
+(19b) line 3	Gitksan	gloss	NEG=FOC sit.PL=CN good-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 21, engine english
+(19b) line 4	Hector Hill and Lisa Matthewson	translation	‘Are there no good restaurants here?’	page 21, engine english
+(19b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered VG)	the tag or source at the right of the translation
+(19c) line 1	Gitksan	transcription	Oo, neehl t'aahl ama wilp txookxw goo/ga'a-sun aa?	page 22, engine english
+(19c) line 2	Gitksan	segmentation	Oo, nee=hl t'aa=hl am-a wilp txook-xw goo/ga'a-sun=aa?	page 22, engine english
+(19c) line 3	Gitksan	gloss	oh NEG=CN sit=CN good-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 22, engine english
+(19c) line 4	Hector Hill and Lisa Matthewson	translation	‘Is there no good restaurant here?’	page 22, engine english
+(19c) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH, VG)	the tag or source at the right of the translation
+(19d) line 1	Gitksan	transcription	# Oo, t'aahl ama wilp txookxw ga'asun aa?	page 22, engine english
+(19d) line 2	Gitksan	segmentation	# Oo, t'aa=hl am-a wilp txook-xw ga'a-sun=aa?	page 22, engine english
+(19d) line 3	Gitksan	gloss	oh sit=CN good-ATT house eat.PL-VAL LOC-DEM.PRX=Q	page 22, engine english
+(19d) line 4	Hector Hill and Lisa Matthewson	translation	‘Is there a good restaurant here?’	page 22, engine english
+(19d) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(19d) line 5	Hector Hill	speaker comment	Comment on (19): “No, when you say [(19)] it’s literally telling him that there’s a good restaurant here. Because there’s no nee dii or neehl.” (HH)	page 22, engine english
+§2.4	Hector Hill and Lisa Matthewson	note	Another case where the questioner was neutral before, but now expects the person to answer negatively, is shown in (20).	page 22
+(20) line 1	Hector Hill and Lisa Matthewson	note	Context: Tomorrow you need to go from Vancouver to Seattle as early as possible. You have no idea what time the buses might go. You go to the ticket office and ask for a bus ticket for the next morning. The agent says ‘The only bus is at 1 o’clock.’ You say:13	page 22, engine english
+(20a) line 1	Gitksan	transcription	(Oo,) nee dii baxhl/golhl jikjik/bus ahl hiihluxw aa?	page 22, engine english
+(20a) line 2	Gitksan	segmentation	(Oo,) nee=dii bax/gol=hl jikjik/bus a=hl hiihluxw=aa?	page 22, engine residue
+(20a) line 3	Gitksan	gloss	(oh) NEG=FOC run/run.PL[-3.II]=CN vehicle/bus PREP[-3.II]=CN morning=Q	page 22, engine english
+(20a) line 4	Hector Hill and Lisa Matthewson	translation	‘Are no buses running in the morning?’	page 22, engine english
+(20a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, RJ, VG)	the tag or source at the right of the translation
+(20b) line 1	Gitksan	transcription	Oo, neehl baxhl jikjikhl hiihluxw aa?	page 22, engine english
+(20b) line 2	Gitksan	segmentation	Oo, nee=hl bax=hl jikjik=hl hiihluxw=aa?	page 22, engine residue
+(20b) line 3	Gitksan	gloss	oh NEG=CN run[-3.II]=CN vehicle=CN morning=Q	page 22, engine english
+(20b) line 4	Hector Hill and Lisa Matthewson	translation	‘Is no bus running in the morning?	page 22, engine english
+(20b) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered HH)	the tag or source at the right of the translation
+(20c) line 1	Gitksan	transcription	? Baxhl jikjikhl hiihluxw aa?	page 22, engine english
+(20c) line 2	Gitksan	segmentation	? Bax=hl jikjik=hl hiihluxw=aa?	page 22, engine residue
+(20c) line 3	Gitksan	gloss	run=CN vehicle=CN morning=Q	page 22, engine english
+(20c) line 4	Hector Hill and Lisa Matthewson	translation	‘Is a bus running in the morning?’	page 22, engine english
+(20c) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(20c) line 5	Hector Hill	speaker comment	Comment on (20): “Usually when people ask a question they wanna know the answer. When you say [(20)] it’s pretty hard to say yes or no. Because it’s almost like a direct answer to the question in answering. It’s kind of direct, putting it right back to the individual.” [Judges (20) as “much worse” than (20).] (HH)	page 22, engine english
+§2.4	Hector Hill and Lisa Matthewson	note	The second main case where nee dii is used is a pretty uncommon type of context. It’s when the questioner thought before that the answer to the question was ‘no’, but the person they are asking seems to be neutral about the answer. So the questioner is double-checking the negative answer. An example is given in (21). The speakers always volunteer nee dii in this type of context (21), and other versions are not accepted (21).	page 22
+footnote 13	Hector Hill and Lisa Matthewson	note	13 Adapted from Domaneschi et al. (2017:14).	page 22, footnote
+(21) line 1	Hector Hill and Lisa Matthewson	note	Context: A is learning to become a Gitksan teacher and wants some practice at teaching beginners. B knows that Charlie has never learnt the language. B says:14	page 23, engine english
+(21a) line 1	Gitksan	transcription	Oo, (ap) nee diit halaaxs/wilaaxs Charliehl Gitxsanimx/Gitsenimux/Giyaanimx aa?	page 23, engine english
+(21a) line 2	Gitksan	segmentation	Oo, (ap) nee=dii=t halaax/wilaax=s Charlie=hl	page 23, engine english
+(21a) line 3	Gitksan	gloss	oh (VERUM) NEG=FOC=3.II know[-3.II]=PN Charlie=CN	page 23, engine english
+(21a) line 4	Gitksan	segmentation	Gitxsanimx/Gitsenimux/Giyaanimx=aa?	page 23, the segmentation goes on to a second line
+(21a) line 5	Gitksan	gloss	Gitxsanimx/Gitsenimux/Giyaanimx=Q	page 23, the glosses go on to a second line
+(21a) line 6	Hector Hill and Lisa Matthewson	translation	‘Doesn’t Charlie not know how to speak Gitxsanimx/Gitsenimux/Giyaanimx?’	page 23
+(21a) line 6	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH, JH)	the tag at the right of the translation
+(21b) line 1	Gitksan	transcription	# Oo, neehl wilaaxt Charliehl Giyanimx aa?	page 23, engine english
+(21b) line 2	Gitksan	segmentation	# Oo, nee=hl wilaax-t Charlie=hl Giyanimx=aa?	page 23, engine english
+(21b) line 3	Gitksan	gloss	oh NEG=CN know[-3.II]=PN Charlie=CN Giyaanimx=Q	page 23, engine english
+(21b) line 4	Hector Hill and Lisa Matthewson	translation	Intended: ‘Doesn’t Charlie not know how to speak Giyaanimx?’	page 23, engine english
+(21b) line 4	Hector Hill and Lisa Matthewson	citation	(VG)	the tag or source at the right of the translation
+(21b) line 5	Vincent Gogag	speaker comment	Comment on (21): “More and more you hear Neehl wilaaxd aa?. The Elders would say Nee diit wilaaxd aa?.” (VG)	page 23, engine english
+(21c) line 1	Gitksan	transcription	# Oo, wilaaxt Charliehl Gitxsanimx aa?	page 23, engine english
+(21c) line 2	Gitksan	segmentation	# Oo, wilaax=t Charlie=hl Gitxsanimx=aa?	page 23, engine english
+(21c) line 3	Gitksan	gloss	oh know[-3.II]=PN Charlie=CN Gitxsanimx=Q	page 23, engine english
+(21c) line 4	Hector Hill and Lisa Matthewson	translation	‘Oh, does Charlie know Gitxsanimx?’	page 23, engine english
+(21c) line 4	Hector Hill and Lisa Matthewson	citation	(BS, JH)	the tag or source at the right of the translation
+(21c) line 5	Barbara Sennott	speaker comment	Comment on (21): “No. You’re saying ‘Oh, does Charlie know Gitxsanimx?’ You wanna say does Charlie not know, right? Oo, ap nee diit wilaaxs Charliehl Gitxsanimx aa? Different.” (BS)	page 23, engine english
+§2.4	Hector Hill and Lisa Matthewson	note	Nee dii is also used in the negative counterparts of the surprise and ‘beyond surprise’ (disbelieving) contexts we saw earlier in (8)–(10). In other words, nee dii is a good choice when you expect the answer to be negative, including when you are surprised that the answer is negative (along with the emphasis marker k'ap/ap, as in (22)), and also when you disbelieve a negative statement but you think the answerer will confirm the negative statement (as in (23)).	page 23
+§2.4	Gitksan	cited form	nee dii	page 22, italic in the prose
+§2.4	Gitksan	cited form	k'ap/ap	page 23, italic in the prose
+(22) line 1	Hector Hill and Lisa Matthewson	note	Context: Our friend Charlie has been sick for a while. I tell you that Charlie is coming to my party today and you are surprised, so I say ‘It’s ok, he’s not sick.’ You are skeptical and you reply:	page 23, engine english
+(22) line 2	Gitksan	transcription	Oo, k'ap/ap nee dii siipxwd aa?	page 23, engine english
+(22) line 3	Gitksan	segmentation	Oo, k'ap/ap nee=dii siipxw-d=aa?	page 23, engine english
+(22) line 4	Gitksan	gloss	oh VERUM NEG=FOC sick-3.II=Q	page 23, engine english
+(22) line 5	Hector Hill and Lisa Matthewson	translation	‘Is he really not sick?’	page 23, engine english
+(22) line 5	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH)	the tag or source at the right of the translation
+footnote 14	Hector Hill and Lisa Matthewson	note	14 Adapted from Romero and Han (2004:28).	page 23, footnote
+(23) line 1	Hector Hill and Lisa Matthewson	note	Context: You cleaned the house thoroughly before your sister came to visit, but when she arrives, she says ‘You could have cleaned the floor.’ You say:	page 24, engine english
+(23a) line 1	Gitksan	transcription	(Oo,) nee dii saks/seksxwhl ha'niiwan (tun) aa?	page 24, engine english
+(23a) line 2	Gitksan	segmentation	(Oo,) nee=dii saks/seks-xw=hl ha'nii-wan (tun)=aa?	page 24, engine english
+(23a) line 3	Gitksan	gloss	(oh) NEG=FOC clean-VAL[-3.II]=CN INS-on-sit.PL (DEM.PRX)=Q	page 24, engine english
+(23a) line 4	Hector Hill and Lisa Matthewson	translation	‘This floor isn’t clean?’	page 24, engine english
+(23a) line 4	Hector Hill and Lisa Matthewson	citation	(volunteered BS, HH, VG)	the tag or source at the right of the translation
+(23b) line 1	Gitksan	transcription	# Neehl saksxwhl ha'niiwan (tun) aa?	page 24, engine english
+(23b) line 2	Gitksan	segmentation	# Nee=hl saks-xw=hl ha'nii-wan (tun)=aa?	page 24, engine residue
+(23b) line 3	Gitksan	gloss	NEG clean-VAL[-3.II]=CN INS-on-sit.PL (DEM.PRX)=Q	page 24, engine english
+(23b) line 4	Hector Hill and Lisa Matthewson	translation	Intended: ‘This floor isn’t clean?’	page 24, engine english
+(23b) line 4	Hector Hill and Lisa Matthewson	citation	(VG)	the tag or source at the right of the translation
+(23b) line 5	Vincent Gogag	speaker comment	Comment on (23): “In that context I would have said [(23)].” (VG)	page 24, engine english
+§2.5	Hector Hill and Lisa Matthewson	heading	2.5 Always use aa	page 24
+§2.5	Hector Hill and Lisa Matthewson	note	The last thing we want to say about making polar questions in Gitksan is that speakers don’t usually accept it when the aa is missing. This is different from in English, which has a construction called a ‘declarative question’, which is when you ask a question without doing anything except raising your tone. This is shown in 0. In 0, the declarative question has the same words in the same order as an ordinary statement, but if the tone rises it is interpreted as a question (request for confirmation).	page 24
+(24) line 1	Hector Hill and Lisa Matthewson	note	Context: Raingear storyboard (see Figure 1)	page 24, engine english
+(24a) line 1	Hector Hill and Lisa Matthewson	note	Is it raining? ORDINARY QUESTION	page 24, an English question and the type the page names beside it
+(24b) line 1	Hector Hill and Lisa Matthewson	note	It’s raining? DECLARATIVE QUESTION	page 24, an English question and the type the page names beside it
+§2.5	Hector Hill and Lisa Matthewson	note	In Gitksan, speakers usually don’t accept declarative questions. For example in 0 and 0, the speakers say that the question needs to have aa; you can’t do it just by raising the tone.	page 24
+§2.5	Gitksan	cited form	aa	page 24, italic in the prose
+(25) line 1	Hector Hill and Lisa Matthewson	note	Context: Raingear storyboard (see Figure 1)	page 24, engine english
+(25) line 1	Gitksan	transcription	# Yukwhl wis? [pronounced with rising intonation]	page 24, with the note in brackets the page sets beside it
+(25) line 2	Gitksan	segmentation	# Yukw=hl wis?	page 24, engine residue
+(25) line 3	Gitksan	gloss	PROG=CN rain	page 24, engine english
+(25) line 4	Hector Hill and Lisa Matthewson	translation	Intended: ‘It’s raining?’	page 24, engine english
+(25) line 4	Hector Hill and Lisa Matthewson	citation	(HH)	the tag or source at the right of the translation
+(25) line 5	Hector Hill	speaker comment	Comment: “No. You need the aa.” (HH)	page 24, engine english
+(26) line 1	Hector Hill and Lisa Matthewson	note	Context: At Katie’s graduation; Katie is standing next to an older woman. You ask the older woman:	page 25, carries footnote 15, written here without its digit
+(26) line 1	Gitksan	transcription	# Noxs Katie 'niin?	page 25
+(26) line 1	Gitksan	segmentation	# Nox-s Katie 'niin? [pronounced with rising intonation]	page 25, with the note in brackets the page sets beside it
+(26) line 1	Gitksan	gloss	mother[-3.II]=PN Katie 2SG.III	page 25
+(26) line 2	Hector Hill and Lisa Matthewson	translation	‘You’re Katie’s mother?’	page 25, engine english
+(26) line 2	Hector Hill and Lisa Matthewson	citation	(VG)	the tag or source at the right of the translation
+(26) line 3	Vincent Gogag	speaker comment	Comment: “I guess nowadays, but not really, no. We’re of the old school. My father would say it’s English.” (VG)	page 25, engine english
+§3	Hector Hill and Lisa Matthewson	heading	3 How to ask and answer polar questions in the Gitksan way	page 25
+§3	Hector Hill and Lisa Matthewson	note	In this section we offer some of Hector’s thoughts about asking and answering polar questions in a Gitksan cultural context.	page 25
+§3	Hector Hill and Lisa Matthewson	note	One thing to be aware of is that asking a question is not always appropriate; in certain conversations we try to avoid asking questions. We might say Hasaga'y dimin gidaxin (‘I wanna ask you.’) If the other person says Guuhl hasagan dim halaayin? ‘What do you wanna know?’, then you can ask.	page 25
+§3	Hector Hill and Lisa Matthewson	note	Also, we don’t ever talk back to Elders. After an Elder says something, you never question it. Hector’s Mum taught him that when you question things, it means you’re talking back to them. Here is an example about questioning back to a parent. Hector’s Dad would often say Gidaxin noxi'm aa? ‘Did you ask our Mum?’. In this wording he was including himself in the question. This would be when he knew that Hector had already asked Mum if he could go along, and Dad wanted to verify that Mum had okayed it. If Hector answered back with Guu? ‘What?’, his Dad would reply Gidaxin noxin aa? ‘Did you ask your mother?’ The first time it was asked calmly with no loudness, and the second time it was direct and loud and Dad no longer included himself in the question. The responsibility was on Hector alone, and the responsibility didn’t come on Hector until he questioned his Dad.	page 25
+§3	Hector Hill and Lisa Matthewson	note	Another thing to know is that sometimes a question is not to be answered. It is a guide. When you don’t answer a question, you’re inviting the person to figure it out. And if you can’t answer a question, and if you’re stressed about that because you are full of the Western society ways, just breathe it out a few times and relax.	page 25
+§3	Hector Hill and Lisa Matthewson	note	Sometimes people asking a question already have the answer. They’re just trying to figure out if you know what they know. If you know what they know, they’ll agree with you. Questioning can mean you have something but you’re not sure of it, so the question in a way becomes the answer. We were taught about questions that the person may already know the answer and they are trying to get verification. Is it the right question? How can I ask the question without saying that I don’t know? Hector’s Mum told him once that when the teacher asks you a question, you should look at how she or he is. What are they doing – arms crossed? hand to their face? Looking at their gestures can tell you whether someone knows the answer or not.	page 25
+§3	Hector Hill and Lisa Matthewson	note	If I don’t answer a question, that means you know and I know. We don’t have to verbalize it. Our gestures and body language may also answer the question already. Tone and facial expression and body language are very important in our language.	page 25
+footnote 15	Hector Hill and Lisa Matthewson	note	15 Adapted from Poschmann (2008:257).	page 25, footnote
+§3	Hector Hill and Lisa Matthewson	note	When you answer a question with words, usually the answer will not be just the one word ee ‘yes’ or nee ‘no’. When you answer, you should paint a picture so the questioner will know.16 It also depends who is asking, and who is answering. How you answer a question depends on who you are talking to.	page 25
+§3	Gitksan	cited form	sigweyn	page 26, in Dim lipk sigweyn ‘You will find out.’
+§3	Hector Hill and Lisa Matthewson	note	For example, if a child asks you if they can play with a knife, you would say nee and then show them why, and show them the severity of the danger of it. If a teenager asks the same question, you could answer simply k'ap (an emphasis word, discussed above). Then if they pick up the knife you say Dim lipk sigweyn, ‘You will find out.’ If an Elder asks you a question, you have to sit down for a while. You don’t answer with what you know. You might say Ha'niigoodi'y … ‘I think …’ If your parent asks you Halaayin aa? (‘Do you know it?’), answering with either nee or ee could get you in trouble. If you say nee, that means you didn’t listen. If you say ee, that means you think you know everything. A better answer wouldn’t even contain nee or ee; it would be to say Dim mehldin loo'y (‘You will tell me.’) or Mehlihl loo'y (‘Tell me.’) How you ask a question matters. Here is an example. One time when Hector’s mother was pulling a big fish out of the Skeena with her rod, he asked Am jin hlimoon aa? ‘Can I help you?’ (literally: ‘Is it good if I help you?’). She answered Nee, amhl wildis, meaning ‘No, it’s ok the way it is. The fish is doing ok.’ To get a different answer, he should have asked Amhl win aa? ‘Are you good?’. Then, Mum could have said either Nee, hlimoo'y ‘No, help me,’ or Nee, amhl wil'y ‘No, I’m good.’ Here is another example showing that the way you ask a question makes a difference. If Hector’s father asked him Ndehl win? (‘What’s wrong?’), Hector would answer Nee dii guut (‘Nothing.’) In the same situation, his Mum would probably ask Googan wilhl gitxwhl goodin? ‘Why does your heart hurt?’, and then Hector would be more likely to open up.	page 26
+§3	Gitksan	cited form	Hasaga'y dimin gidaxin	page 25, italic in the prose, ‘I wanna ask you.’
+§3	Gitksan	cited form	Guuhl hasagan dim halaayin	page 25, italic in the prose, ‘What do you wanna know?’
+§3	Gitksan	cited form	Gidaxin noxi'm aa	page 25, italic in the prose, ‘Did you ask our Mum?’
+§3	Gitksan	cited form	Guu	page 25, italic in the prose, ‘What?’
+§3	Gitksan	cited form	Gidaxin noxin aa	page 25, italic in the prose, ‘Did you ask your mother?’
+§3	Gitksan	cited form	ee	page 25, italic in the prose, ‘yes’
+§3	Gitksan	cited form	nee	page 26, italic in the prose
+§3	Gitksan	cited form	k'ap	page 26, italic in the prose
+§3	Gitksan	cited form	Dim lipk sigweyn	page 26, italic in the prose
+§3	Gitksan	cited form	Ha'niigoodi'y	page 26, italic in the prose
+§3	Gitksan	cited form	Halaayin aa	page 26, italic in the prose, ‘Do you know it?’
+§3	Gitksan	cited form	Dim mehldin loo'y	page 26, italic in the prose, ‘You will tell me.’
+§3	Gitksan	cited form	Mehlihl loo'y	page 26, italic in the prose, ‘Tell me.’
+§3	Gitksan	cited form	Am jin hlimoon aa	page 26, italic in the prose, ‘Can I help you?’
+§3	Gitksan	cited form	Nee, amhl wildis	page 26, italic in the prose
+§3	Gitksan	cited form	Amhl win aa	page 26, italic in the prose, ‘Are you good?’
+§3	Gitksan	cited form	Nee, hlimoo'y	page 26, italic in the prose, ‘No, help me,’
+§3	Gitksan	cited form	Nee, amhl wil'y	page 26, italic in the prose, ‘No, I’m good.’
+§3	Gitksan	cited form	Ndehl win	page 26, italic in the prose, ‘What’s wrong?’
+§3	Gitksan	cited form	Nee dii guut	page 26, italic in the prose, ‘Nothing.’
+§3	Gitksan	cited form	Googan wilhl gitxwhl goodin	page 26, italic in the prose, ‘Why does your heart hurt?’
+§4	Hector Hill and Lisa Matthewson	heading	4 Conclusion	page 26
+§4.1	Hector Hill and Lisa Matthewson	heading	4.1 Summary	page 26
+§4.1	Hector Hill and Lisa Matthewson	note	To ask and answer polar questions in a really fluent way in Gitksan, it’s important to understand cultural aspects about when to ask, when to answer, and how to adapt your questions and answers depending on who you are talking to. To ask and answer questions like a fluent speaker it’s also good to understand when you should use just aa, when you should use nee as well as aa, when it’s best to use nee dii, and when you should add k'ap/ap.	page 26
+§4.1	Hector Hill and Lisa Matthewson	note	As we mentioned earlier, the best way to absorb the information is to talk to fluent speakers and listen to how they ask and answer questions. The more you listen and the more you practice, the more you will naturally be able to use the questions in the most authentic way. In 0 we summarize some of the main ideas we have presented about the different ways to make a question in Gitksan.	page 26
+footnote 16	Hector Hill and Lisa Matthewson	note	16 This matches what Rigsby says about answering (1986:296): ‘[Polar] questions can be answered minimally with the particles Ee'e. /ʔe•ʔ/ Yes. or Nee. /ne•/ No., as in English, but good speakers say that it is better to frame fuller answers or replies in terms of the predicate and nominal adjuncts of the question sentence.’	page 26, footnote
+footnote 16	Rigsby 1986:296	cited form	Ee'e.	page 26, footnote 16, ‘Yes.’
+footnote 16	Rigsby 1986:296	cited form	Nee.	page 26, footnote 16, ‘No.’
+footnote 16	Rigsby 1986:296	cited form	/ne•/	page 26, footnote 16, ‘no’, Nee. in Rigsby's phonemic writing
+§4.1	Rigsby 1986:296	cited form	/ʔe•ʔ/	page 26, footnote 16, ‘yes’, Ee'e. in Rigsby's phonemic writing
+(27a)	Hector Hill and Lisa Matthewson	note	(27) a. If you believe the answerer is going to confirm the statement in the question, using just aa is a good choice. (This works both if you also believe the statement, and if you are skeptical.)	page 26, the summary of the paper
+(27b)	Hector Hill and Lisa Matthewson	note	b. If you believe the answerer is going to confirm the statement but you are surprised that this is the right answer, you can still use aa without nee, but add k'ap/ap.	page 27
+(27c)	Hector Hill and Lisa Matthewson	note	c. If the context is very neutral (you have no idea what the answer is going to be, or you don’t want to give a clue about the answer), nee is appropriate.	page 27
+(27d)	Hector Hill and Lisa Matthewson	note	d. Using nee is also good when you thought beforehand that the answer would be positive, but now in the context you are not sure what the answerer is going to say.	page 27
+(27e)	Hector Hill and Lisa Matthewson	note	e. Nee dii is the best choice when you expect the answer to be negative. (This includes if you are surprised that the answer is negative, in which case you add k'ap/ap.)	page 27
+§4.1	Gitksan	cited form	aa	page 26, italic in the prose
+§4.1	Gitksan	cited form	nee dii	page 26, italic in the prose
+§4.1	Gitksan	cited form	k'ap/ap	page 26, italic in the prose
+§4.1	Gitksan	cited form	nee	page 27, italic in the prose
+§4.2	Hector Hill and Lisa Matthewson	heading	4.2 Some final words from Hector about questions	page 27
+§4.2	Hector Hill	transcription	Guut gan wil ma gidaxt?	page 27
+§4.2	Hector Hill	translation	Why did you ask that?	page 27
+§4.2	Hector Hill	transcription	Oo guuhl dii halaa'an?	page 27
+§4.2	Hector Hill	translation	What do you know?	page 27
+§4.2	Hector Hill	transcription	K'am ha'nii goodi'y na halaaxt.	page 27
+§4.2	Hector Hill	translation	I think I know it.	page 27
+§4.2	Hector Hill and Lisa Matthewson	note	This, k'am ha'nii goodi'y na halaaxt (I think I know it), always gets me in trouble because we were taught to know what we were asked to do or know.	page 27
+§4.2	Gitksan	cited form	k'am ha'nii goodi'y na halaaxt	page 27, italic in the prose
+references	Hector Hill and Lisa Matthewson	heading	References	page 27
+references	Hector Hill and Lisa Matthewson	reference	AnderBois, Scott. 2019. Negation, alternatives, and negative polar questions in American English. In Klaus von Heusinger, Edgar Onea and Malte Zimmerman (eds.), Questions in discourse. Leiden: Brill, 118–171.	
+references	Hector Hill and Lisa Matthewson	reference	Brown, Colin. 2024. The form and function of interrogatives in Sm’algyax. PhD dissertation, University of California, Los Angeles.	
+references	Hector Hill and Lisa Matthewson	name	Büring	Daniel Büring, Büring and Gunlogson 2000
+references	Hector Hill and Lisa Matthewson	reference	Büring, Daniel and Christine Gunlogson. 2000. Aren’t positive and negative polar questions the same? Ms., University of California, Los Angeles, and University of California, Santa Cruz.	
+references	Hector Hill and Lisa Matthewson	reference	Burton, Strang and Lisa Matthewson. 2015. Targeted construction storyboards in semantic fieldwork. In M. Ryan Bochnak and Lisa Matthewson (eds.), Methodologies in Semantic Fieldwork. Oxford: Oxford University Press, 135–156.	
+references	Hector Hill and Lisa Matthewson	reference	Domaneschi, Filippo, Maribel Romero and Bettina Braun. 2017. Bias in polar questions: Evidence from English and German production experiments. Glossa 23:1–28.	
+references	Hector Hill and Lisa Matthewson	reference	Farkas, Donka and Floris Roelofsen. 2017. Division of labor in the interpretation of declaratives and interrogatives. Journal of Semantics 34:237–289.	
+references	Hector Hill and Lisa Matthewson	reference	Goodhue, Daniel. 2024. Biased questions. Ms., Leibniz-Zentrum Allgemeine Sprachwissenschaft.	
+references	Hector Hill and Lisa Matthewson	reference	Gunlogson, Christine. 2003. True to form: rising and falling declaratives as questions in English. New York, NY: Routledge.	
+references	Hector Hill and Lisa Matthewson	reference	Gunlogson, Christine. 2008. A question of commitment. Belgian Journal of Linguistics 22:101– 136.	
+references	Hector Hill and Lisa Matthewson	reference	Hindle, Lonnie and Bruce Rigsby. 1973. A short practical dictionary of the Gitksan Language. Northwest Anthropological Research Notes Vol. 7, No. 1:1–60.	
+references	Hector Hill and Lisa Matthewson	reference	Ladd, D. Robert. 1981. A first look at the semantics and pragmatics of negative questions and tag questions. Proceedings of CLS 17:164–171.	
+references	Hector Hill and Lisa Matthewson	reference	Matthewson, Lisa. 2021. Verum in Gitksan. Canadian Journal of Linguistics/Revue canadienne de linguistique 66(1):60–90.	
+references	Hector Hill and Lisa Matthewson	reference	Matthewson, Lisa. 2025. Aren’t Gitksan negative polar questions biased? Ms., University of British Columbia.	
+references	Hector Hill and Lisa Matthewson	reference	Poschmann, Claudia. 2008. All declarative questions are attributive? Belgian Journal of Linguistics 23:247–269.	
+references	Hector Hill and Lisa Matthewson	reference	Rigsby, Bruce. 1986. Gitksan Grammar. Ms., University of Queensland, Australia.	
+references	Hector Hill and Lisa Matthewson	reference	Romero, Maribel and Chung-hye Han. 2004. On negative yes/no questions. Linguistics and Philosophy 27:609–658.	
+references	Hector Hill and Lisa Matthewson	name	Šafářová	Marie Šafářová, 2005, footnote 11
+references	Hector Hill and Lisa Matthewson	reference	Šafářová, Marie. 2005. The semantics of rising intonation in interrogatives and declaratives. In Emar Maier, Corien Bary and Janneke Huitink (eds.), Proceedings of Sinn und Bedeutung 9:355–369.	
+references	Hector Hill and Lisa Matthewson	reference	Shamei, Arian. 2018. A pitchin’ acoustic analysis of prosody in Gitxsan. Ms., University of British Columbia.	
+references	Hector Hill and Lisa Matthewson	reference	Tarpent, Marie-Lucie. 1987. A Grammar of the Nisgha Language. PhD dissertation, University of Victoria.	
+title	Hector Hill and Lisa Matthewson	title	Gidaxan aa? Yagayt halaayin	the paper's title, in Gitksan
+title	Hector Hill and Lisa Matthewson	title	You asked a question? You already know it	the English of the title, which carries footnote *
+title	Hector Hill and Lisa Matthewson	name	Hector Hill	an author, Gitsegukla Nation, HH in the tags, Gy'ax
+title	Hector Hill and Lisa Matthewson	name	Lisa Matthewson	an author, University of British Columbia
+all	Hector Hill and Lisa Matthewson	symbol note	#	marks a sentence the speakers judged infelicitous in its context
+all	Hector Hill and Lisa Matthewson	symbol note	?	marks a sentence the speakers found not very good; (?) one sometimes accepted, ?? one worse
+all	Hector Hill and Lisa Matthewson	symbol note	/	between two forms different speakers used, footnote 8
+all	Hector Hill and Lisa Matthewson	symbol note	[ ]	in a gloss, the 3.II pronoun the form elides, footnote 7
+all	Hector Hill and Lisa Matthewson	notation	(volunteered XX)	the tag of an example: the initials of the speakers who gave or judged it, volunteered where they gave it themselves

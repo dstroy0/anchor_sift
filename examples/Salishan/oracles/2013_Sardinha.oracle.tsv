@@ -1,0 +1,856 @@
+where	who	kind	form	gloss
+front	Katie Sardinha	title	Nominal, verbal, and idiomatic uses of –nukʷ in Kwak’wala	page 1, carries footnote *
+front	Katie Sardinha	name	Katie Sardinha	author
+front	Katie Sardinha	note	University of California, Berkeley	page 1, under Katie Sardinha
+front	Katie Sardinha	note	The suffix –nukʷ has a curious synchronic distribution in Kwak’wala. In addition to its productive use in nominal possession constructions, it can be used on verbal stems along with passive suffixes to form indefinite object constructions with agentive subjects. These agentive subjects are puzzling given the presence of passive morphology on the verb. In this paper I document the syntactic and semantic properties of –nukʷ constructions in the synchronic domain and discuss some changes that have occurred in the distribution of this suffix since the generation of speakers consulted by Boas.	page 1, the abstract
+front	Katie Sardinha	language	Kwak’wala	Northern Wakashan
+footnote *	Katie Sardinha	note	I would like to give a walas thank-you to my consultant RDC for all her hard work and patience teaching me Kwak’wala. I also owe a lot of thanks to Jen Abel for her help eliciting data on –nukʷ, to the Kwak’wala field methods 2009-2010 cohort at UBC for their ongoing help and collaboration, and to Henry Davis and Gary Holland for commenting on earlier drafts of this work. Support for fieldwork has come from the Jacobs Research Fund.	page 1, footnote *, on the title
+footnote *	Kwak’wala	cited form	–nukʷ	page 1, in italics
+footnote *	Katie Sardinha	name	RDC	the author's consultant, thanked in the note on the title
+footnote *	Katie Sardinha	name	Jen Abel	thanked for help eliciting data on -nukʷ
+footnote *	Katie Sardinha	name	Henry Davis	thanked for comments
+footnote *	Katie Sardinha	name	Gary Holland	thanked for comments
+§1	Katie Sardinha	heading	1 Introduction	page 1
+§1	Katie Sardinha	note	This paper explores the curious distribution of the suffix –nukʷ in Kwak’wala. In addition to being a ‘fossilized’ component of certain frequent lexical items (e.g. gigəʔoɬnukʷ ‘parents’), –nukʷ is productively applied to nominal stems to produce ‘possessor of’ nominals (e.g. wa ‘river’; wanukʷ ‘owner of a river’). When suffixed to nominal stems and used as a predicate, the suffix –nukʷ means ‘to have x’ where ‘x’ is a member of the set denoted by the nominal stem, as shown in (1). These constructions involve asserting both possession over and existence of something:	page 1
+(1) line 1	Katie Sardinha	note	Nominal predicates with –nukʷ mean ‘to have x’:	page 1, over the example
+(1a) line 1	Kwak’wala	transcription	ʔabəls-nukʷ=ənoχʷ	page 1
+(1a) line 2	Kwak’wala	gloss	apple(s)-nukʷ=1.PL.EXCL	page 1
+(1a) line 3	Katie Sardinha	translation	‘We [EXCL] have apples.’	page 1
+(1a) line 4	Katie Sardinha	citation	(VF)	page 1, the tag at the right of the translation
+(1b) line 1	Kwak’wala	transcription	k’atəmeʔ-nukʷ=i=da c’ədaq	page 1
+(1b) line 2	Kwak’wala	gloss	picture-nukʷ=D3=DET woman	page 1
+(1b) line 3	Katie Sardinha	translation	‘The woman has a picture.’	page 1
+(1b) line 4	Katie Sardinha	citation	(VF)1	page 1, the tag at the right of the translation
+footnote 1	Katie Sardinha	note	The glossing conventions used in this paper include the following: 1 - first-person subject; 1.OBJ - first-person object; 2 - second-person subject; 2.OBJ - second-person object; 1.POSS - first-person possessor; 2.POSS- second-person possessor; 3.POSS - third-person possessor (not coreferent with subject); 3.CO.POSS – (coreferent with subject); AUX - auxiliary verb; ACC - =χ case marker (accusative); OBL - =s case marker (genitive, instrumental, agentive by-phrases); be.D1 - copula, here near speaker; be.D2 - copula, around speaker; be.D3 - copula, not around speaker; BEC – become/ inchoative aspect; CAUS - causative; COMPL - completive suffix; D1 - (he/she/they/it) here; D2 - (he/she/they/it) around; D3 - (he/she/they/it) not around; DET - ostensive marker; EMPH - emphatic suffix; empty.root - referential root (semantically-null); FUT - future tense; INVIS - invisibility clitic; JF - judged form in elicitation; OI – Old information; O.PASS - object passive suffix; I.PASS - instrumental passive suffix; INTR – interrogative; INST - instrumental preposition; L.PASS - locative passive suffix; NM – nominalizing suffix; pro - little pro; PST - past tense; PREP - preposition; R.PST - recent past tense; T.ADJ – temporal adjunct introducer; TF - translated form in elicitation; VIS - visibility clitic; VF - volunteered form in elicitation; ~ - reduplication.	page 2, footnote 1
+§1	Katie Sardinha	note	When used with transitive verbal predictes, -nukʷ co-occurs with a passive suffix to form a construction that asserts the existence of an indefinite object. The puzzling thing about these ‘indefinite object constructions’ is that their grammatical subjects are semantically AGENTS: yet given the presence of the passive suffix and the behaviour of passive suffixes elsewhere in the language, we would expect the AGENT in these sentences to be demoted and potentially omitted altogether. The examples in (2)-(5) provide an illustration: (2) shows a regular transitive verb təpa ‘to break’ together with an accusative-marked object; (3) shows that when the passive suffix –suʔ is present on the predicate, the object is promoted to subject position, in which case the subject is demoted though optionally expressed in an agentive by-phrase; (4) shows an indefinite object construction, where a passive suffix and –nukʷ are present and the AGENT subject remains, showing no sign of being demoted; finally (5) confirms that the subject is being interpreted as an AGENT by showing that this interpretation is not easily overcome by real-world knowledge when an inanimate object is placed in subject position:	page 2
+(2) line 1	Katie Sardinha	note	A basic transitive sentence:	page 2, over the example
+(2) line 2	Kwak’wala	transcription	təp-ʔid=oχ babaǧʷəm=eχ=χ=is qʷəʔsta	page 2
+(2) line 3	Kwak’wala	gloss	break-BEC=D2 little.boy=VIS=ACC=3.CO.POSS cup	page 2
+(2) line 4	Katie Sardinha	translation	‘The little boy broke his cup.’	page 2
+(2) line 5	Katie Sardinha	citation	(VF)	page 2, the tag at the right of the translation
+(3) line 1	Katie Sardinha	note	A transitive sentence with passive suffix, ‘promoted’ object, and ‘demoted’ agent:	page 2, over the example
+(3) line 2	Kwak’wala	transcription	təp-ʔid-suʔ=i=da qʷəʔsta (=sa babaǧʷəm)	page 2
+(3) line 3	Kwak’wala	gloss	break-BEC=O.PASS=D3=DET cup (=OBL little.boy)	page 2
+(3) line 4	Katie Sardinha	translation	‘The cup was broken (optional: by the boy).’	page 2
+(3) line 5	Katie Sardinha	citation	(VF)	page 2, the tag at the right of the translation
+(4) line 1	Katie Sardinha	note	An indefinite object construction:	page 3, over the example
+(4) line 2	Kwak’wala	transcription	təp-ʔid-suʔ-nukʷ=i=da babaǧʷəm	page 3
+(4) line 3	Kwak’wala	gloss	break-BEC=O.PASS-nukʷ=D3=DET little.boy	page 3
+(4) line 4	Katie Sardinha	translation	‘The boy broke something.’	page 3
+(4) line 5	Katie Sardinha	citation	(VF)	page 3, the tag at the right of the translation
+(5) line 1	Katie Sardinha	note	Strong reading of the subject as an AGENT:	page 3, over the example
+(5) line 2	Kwak’wala	transcription	# təp-ʔid-suʔ-nukʷ=i=da qʷəʔsta	page 3
+(5) line 3	Kwak’wala	gloss	break-BEC=O.PASS-nukʷ=D3=DET cup	page 3
+(5) line 4	Katie Sardinha	translation	Translation: # ‘The cup broke something’	page 3
+(5) line 5	Katie Sardinha	citation	(TR)	page 3, the tag at the right of the translation
+§1	Katie Sardinha	note	In this paper is I document the synchronic properties of –nukʷ constructions and discuss historical changes in the distribution of –nukʷ that have occurred since the generation of speakers represented in Boas’ (1911, 1947) grammars and the Boas and Hunt’s (1902) Kwakiutl Texts.	page 3
+§1	Katie Sardinha	name	Boas	Franz Boas (1911, 1947), the grammars the paper compares with
+§1	Katie Sardinha	name	Hunt	George Hunt, Boas and Hunt's (1902) Kwakiutl Texts
+§1	Katie Sardinha	note	Section 2 introduces the Kwak’wala language and major features of its grammar that will be important to know in order to understand later sections. Then in Section 3 I document the synchronic uses of –nukʷ in three domains: on nominal stems, in idiomatic constructions, and on verbal stems. I will also discuss historical changes that have occurred involving –nukʷ. Section 4 concludes.	page 3
+§2	Katie Sardinha	heading	2 Kwak’wala Language Overview	page 3
+§2	Katie Sardinha	note	Kwak’wala is a Wakashan language spoken on the central coast of British Columbia, Canada, by members of the Kwakwaka’wakw nation. Though the language is spoken today as a first language by less than 200 speakers, there is growing community interest and involvement in its revitalization. There are at least five dialect areas of Kwa’wala (Anonby 1997): the field data cited in this paper is from a speaker from Gwai (Kingcome Inlet).	page 3
+§2	Katie Sardinha	name	Anonby	Stan J. Anonby (1997), the dialect areas
+§2	Katie Sardinha	language	Wakashan	the family
+§2	Katie Sardinha	note	Kwak’wala is a member of the Wakashan language family which consists of seven languages split into two branches, Northern and Southern. While the two branches are clearly reconstructable in the domain of derivational morphology, they have undergone significant changes relative to each other. In the Northern Branch, such changes include the development of inflectional clitics (Fortescue 2006) as well as prepositions and morphological case-markers (Sardinha 2011). The Northern Branch includes Haisla, Heiltsuk, Oowekyala and Kwak’wala, and the Southern Branch includes Nuu-Chah- Nulth, Ditidaht, and Makah. The language family is summarized below:	page 3
+§2	Katie Sardinha	name	Fortescue	Michael Fortescue (2006), the grammaticalization divide in Wakashan
+§2	Katie Sardinha	language	Haisla	Northern Wakashan
+§2	Katie Sardinha	language	Heiltsuk	Northern Wakashan
+§2	Katie Sardinha	language	Oowekyala	Northern Wakashan
+§2	Katie Sardinha	language	Ditidaht	Southern Wakashan
+§2	Katie Sardinha	language	Makah	Southern Wakashan
+§2	Katie Sardinha	note	The Wakashan Language family	page 3, the title over the family's branches
+§2	Katie Sardinha	note	Northern	page 3, a branch's head
+§2	Katie Sardinha	note	Haisla	page 3, under Northern
+§2	Katie Sardinha	note	Heiltsuk	page 3, under Northern
+§2	Katie Sardinha	note	Oowekyala	page 3, under Northern
+§2	Katie Sardinha	note	Kwak’wala	page 3, under Northern
+§2	Katie Sardinha	note	Southern	page 3, a branch's head
+§2	Katie Sardinha	note	Nuu-Cha-Nulth	page 3, under Southern
+§2	Katie Sardinha	note	Ditidaht	page 3, under Southern
+§2	Katie Sardinha	note	Makah	page 3, under Southern
+§2	Katie Sardinha	language	Nuu-Cha-Nulth	Southern Wakashan
+§2	Katie Sardinha	note	Kwak’wala has been the focus of a number of descriptive and theoretical studies (e.g. Boas 1911, Boas et al. 1947, Grubb 1997, Levine 1980, 1984, Anderson 1984, Chung 2007, Nicholson and Werle 2009). However, many aspects of its syntax and semantics await comprehensive study.	page 4
+§2	Katie Sardinha	name	Levine	Robert D. Levine (1980, 1984), a lexical analysis of the passive
+§2	Katie Sardinha	name	Grubb	David McC. Grubb (1977), a practical writing system and dictionary
+§2	Katie Sardinha	name	Anderson	Stephen R. Anderson (1984), Kwakwala syntax
+§2	Katie Sardinha	name	Chung	Yunhee Chung (2007), the Kwak’wala nominal domain
+§2	Katie Sardinha	name	Nicholson	Marianne Nicolson (2009, with Adam Werle), the determiner systems
+§2	Katie Sardinha	name	Werle	Adam Werle (2009, with Marianne Nicolson), the determiner systems
+§2	Katie Sardinha	note	Basic word order in Kwak’wala is VSO, though main predicates may be preceded by auxiliaries, in which case the subject may also move to the left of the main predicate. Kwak’wala has a complex system of inflection involving many enclitic determiners. Subject agreement is marked by a set of second-position enclitics, with first and second person subjects =ən ‘1’, =əns ‘1.PL.INCL’, =ənoχʷ ‘1.PL.EXCL’ and =as ‘2’; third-person subjects, whether expressed as overt NPs or omitted, are marked by a locative deictic clitic which encodes a three-way distinction of PROXIMAL, MEDIAL and DISTAL. The ‘distance’ meaning of these deictic clitics encodes both concrete and abstract distance relative to the speaker (Nicholson & Werle 2009). In what follows I adopt the convention of Nicholson & Werle (ibid.) in glossing these determiners as D1, D2 and D3 respectively. Third-person nominal arguments are placed within by complex strings of enclitic determiners marking case, deictic status, definiteness, and visibility (Chung 2007, Nicholsen & Werle 2009). In particular the catgories of case, location, and definiteness are encoded by enclitics which prosodically attach to an element preceding the NP, while clitics indicating an NP’s visibility attach to its left edge. Case-markers precede the arguments they introduce and include zero-marked nominative case, =χ accusative case (‘ACC’) and =s oblique case (‘OBL’).	page 4
+§2	Katie Sardinha	note	The following examples illustrate basic sentences with nominal (6), adjectival (7) and verbal (8) predicates. These sentences contain a third- person, second-person possessor, and first-person subject, respectively:	page 4
+(6) line 1	Kwak’wala	transcription	c’əqʷan=oχ=da ɬə=eχ	page 4
+(6) line 2	Kwak’wala	gloss	bird=D2=DET dead.thing=VIS	page 4
+(6) line 3	Katie Sardinha	translation	‘That dead thing is a bird’	page 4
+(6) line 4	Katie Sardinha	citation	(VF)	page 4, the tag at the right of the translation
+(7) line 1	Kwak’wala	transcription	t’exstuw=us ǧəaǧəs	page 4
+(7) line 2	Kwak’wala	gloss	brown=2.POSS eye	page 4
+(7) line 3	Katie Sardinha	translation	‘Your eyes are brown.’	page 4
+(7) line 4	Katie Sardinha	citation	(VF)	page 4, the tag at the right of the translation
+(8) line 1	Kwak’wala	transcription	mənxʷ=ən	page 4
+(8) line 2	Kwak’wala	gloss	smile=1	page 4
+(8) line 3	Katie Sardinha	translation	‘I am smiling.’	page 4
+(8) line 4	Katie Sardinha	citation	(VF)	page 4, the tag at the right of the translation
+§2	Katie Sardinha	note	Example (9) illustrates how a complex sentence with two expressed arguments is formed. The predicate c’əw ‘to give’ marks its first object with oblique =s and places its second argument in a prepositional phrase where it is accusative- marked with =χ. Temporal adjuncts, if present, typically occur at the right edge of the sentence.	page 4
+(9) line 1	Kwak’wala	transcription	c’əw=i=da cədaq=sa ƛatəmɬ la=χa bəgʷanəm (χa nala)	page 5
+(9) line 2	Kwak’wala	gloss	give=D3=DEF woman=OBL hat PREP=ACC man (T.ADJ day)	page 5
+(9) line 3	Katie Sardinha	translation	‘The woman is giving a hat to the man (today).’	page 5
+(9) line 4	Katie Sardinha	citation	(VF)	page 5, the tag at the right of the translation
+§2	Katie Sardinha	note	Though there is considerable flexibility in the use of stems as either predicates or arguments, the claim that the language lacks categories of noun and verb is too strong. In what follows we will see that the suffix –nukʷ behaves differently when attached to what we might want to refer to ‘nominal’ versus ‘verbal’ stems; therefore, I will be using these category labels in my discussion.	page 5
+§3	Katie Sardinha	heading	3 The synchronic distribution of –nukʷ in the modern language	page 5
+§3	Katie Sardinha	note	In this section I provide an overview of the synchronic uses of the suffix –nukʷ. Broadly, this suffix occurs in three grammatical domains: • In the nominal domain both as a fossilized component of some ‘possessor-	page 5
+§3	Katie Sardinha	note	of-x’ nouns and kin terms and productively suffixed to nominal stems to	page 5
+§3	Katie Sardinha	note	form ‘possessor-of-x’ constructions; when used as predicates, these	page 5
+§3	Katie Sardinha	note	constructions are translated as ‘to have x’; • As a component of idiomatic constructions expressing emotions and	page 5
+§3	Katie Sardinha	note	psychological states; • Productively suffixed to transitive verbal stems, along with passive	page 5
+§3	Katie Sardinha	note	suffixes, to form indefinite object constructions. The following sections 3.1 – 3.3 will document the major features of –nukʷ in each of these grammatical domains.	page 5
+§3.1	Katie Sardinha	heading	3.1 Uses of -nukʷ with nominal stems	page 5
+§3.1	Katie Sardinha	note	The suffix –nukʷ attaches freely to most nominal stems in the language. There is also a small set of lexical items where –nukʷ has apparently become reanalyzed as a permanent part of the stem; a few examples are given in (10). The words in (11) are similar-sounding but probably contain the numeral classifier –ukʷ ‘person’ (Boas 1947: 280).	page 5
+(10)	Katie Sardinha	note	Examples of lexical items containing –nukʷ:	page 5, over the example
+(10a) line 1	Kwak’wala	transcription	xʷənukʷ	page 5
+(10a) line 2	Katie Sardinha	translation	‘child’	page 5
+(10b) line 1	Kwak’wala	transcription	gigəʔoɬnukʷ	page 5
+(10b) line 2	Katie Sardinha	translation	‘parents’	page 5
+(10c) line 1	Kwak’wala	transcription	wanukʷ	page 5
+(10c) line 2	Katie Sardinha	translation	‘owner of a river’	page 5
+(10d) line 1	Kwak’wala	transcription	kanukʷ	page 5
+(10d) line 2	Katie Sardinha	translation	‘owner of a car’	page 5
+(10e) line 1	Kwak’wala	transcription	mameχəlamasnukʷ	page 5
+(10e) line 2	Katie Sardinha	translation	‘sleeping pill’	page 5
+(11)	Katie Sardinha	note	Similar-sounding lexical items with –ukʷ ‘person’ (classifier)	page 5, over the example
+(11f) line 1	Kwak’wala	transcription	nəmukʷ	page 5
+(11f) line 2	Katie Sardinha	translation	‘friend; other’	page 5
+(11g) line 1	Kwak’wala	transcription	wəʔokʷ	page 5
+(11g) line 2	Katie Sardinha	translation	‘follower, friend, companion’	page 5
+(11h) line 1	Kwak’wala	transcription	ʔiksukʷ	page 5
+(11h) line 2	Katie Sardinha	translation	‘beautiful, attractive’	page 5
+§3.1	Katie Sardinha	note	The degree to which words like those in (10) are ‘fossilized’ as independent words, as well as how many words belong to this class, probably varies across different speakers and is not predictable.	page 6
+§3.1	Katie Sardinha	note	In its productive use, -nukʷ can be suffixed to any nominal stem. When it attaches to a nominal stem, it takes the meaning ‘possessor-of-x’ where ‘x’ stands for a member of the set denoted by the nominal stem. In general, nominal stems in Kwak’wala may be used as either predicates or arguments depending on their syntactic position; this generalization applies also to nominal stems hosting –nukʷ. Thus when a nominal stem with –nukʷ occurs in argument position, it serves syntactically as a noun or a relative clause. The example words in (10), for instance, can occur in argument position as illustrated in (12-b) with the nominal+nukʷ stem shown in (12-a):	page 6
+(12) line 1	Katie Sardinha	note	Nominal stems with –nukʷ can be used in argument position:	page 6, over the example
+(12a) line 1	Kwak’wala	transcription	ma~meχəla-mas-nukʷ	page 6
+(12a) line 2	Kwak’wala	gloss	RED~sleep-CAUS-nukʷ	page 6
+(12a) line 3	Katie Sardinha	translation	‘sleeping pill’	page 6
+(12a) line 4	Katie Sardinha	citation	(VF)	page 6, the tag at the right of the translation
+(12a) line 5	Katie Sardinha	note	[lit. “the one that makes you sleep”]	page 6, in brackets under the example
+(12b) line 1	Kwak’wala	transcription	meχ-ʔid-amas=oχ=da ʔəbəmp=eχ=χ=is xʷənukʷ=sa	page 6
+(12b) line 2	Kwak’wala	gloss	sleep-BEC-CAUS=D2=DET mother=VIS=ACC=1.POSS child=OBL	page 6
+(12b) line 3	Kwak’wala	transcription	mameχəlamasnukʷ	page 6
+(12b) line 4	Kwak’wala	gloss	sleeping.pill	page 6
+(12b) line 5	Katie Sardinha	translation	‘The mother made her kid sleep with a sleeping pill.’	page 6
+(12b) line 6	Katie Sardinha	citation	(VF)	page 6, the tag at the right of the translation
+§3.1	Katie Sardinha	note	When a nominal stem with –nukʷ occurs in predicate position, the resulting construction is usually translated into English as ‘to have a(n) x’ where ‘x’ is a member of the set denoted by the nominal stem. Examples (13)-(15) illustrate these basic have–nukʷ constructions:	page 6
+§3.1	Katie Sardinha	language	English	the translations
+(13) line 1	Kwak’wala	transcription	gukʷ-nukʷ=oχ Connor	page 6
+(13) line 2	Kwak’wala	gloss	house-nukʷ=D2 Connor	page 6
+(13) line 3	Katie Sardinha	translation	‘Connor has/owns a house.’	page 6
+(13) line 4	Katie Sardinha	citation	(VF)	page 6, the tag at the right of the translation
+(14) line 1	Kwak’wala	transcription	hənλəm-nukʷ=as	page 6
+(14) line 2	Kwak’wala	gloss	gun-nukʷ=2	page 6
+(14) line 3	Katie Sardinha	translation	‘You have a gun.’	page 6
+(14) line 4	Katie Sardinha	citation	(VF)	page 6, the tag at the right of the translation
+(15) line 1	Kwak’wala	transcription	(nugʷaʔəm) ka-nukʷ=ən	page 6
+(15) line 2	Kwak’wala	gloss	(it.is.I) car-nukʷ=1	page 6
+(15) line 3	Katie Sardinha	translation	‘I have a car.’	page 6
+(15) line 4	Katie Sardinha	citation	(VF)	page 6, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The semantics of have-nukʷ constructions is fairly specific: used declaratively, these constructions are used to simultaneously assert both possession of and existence of an individual or set of individuals denoted by the nominal predicate. A basic sentence with a nominal predicate plus –nukʷ therefore means the following: Y exists and X has Y, where X denotes a possessor subject and Y denotes a non-specific member (or members) of the set denoted by the nominal predicate. Because these have-nukʷ constructions always assert existence of some possessed object or objects, they always involve the introduction of a referent into the discourse.2 The contextualized examples in (16)-(18) illustrate how the semantics of these constructions involve both an assertion of possession and an assertion of existence:	page 6
+footnote 2	Katie Sardinha	note	A plural possessum may be indicated by reduplication on the nominal predicate, as in the example iac’inukʷoχda bibibəgʷanəm ‘They have dogs’ (VF) where both the initial predicate and the nominal subject shows reduplication. Plurality is often left unmarked in Kwak’wala, and thus plural reduplication is often optional in the language; this seems to be the case for –nukʷ constructions as well (e.g. see (1-a)) but I have not investigated this systematically.	page 7, footnote 2
+(16) line 1	Katie Sardinha	note	Context: Answering the question - Do you have any siblings?	page 7, the context over the example
+(16) line 2	Kwak’wala	transcription	c’aa-nukʷ=ən	page 7
+(16) line 3	Kwak’wala	gloss	younger.sibling-nukʷ=1	page 7
+(16) line 4	Katie Sardinha	translation	‘I have a younger brother.’3	page 7
+footnote 3	Katie Sardinha	note	This sentence can also mean ‘I have a younger sister.’	page 7, footnote 3
+(16) line 5	Katie Sardinha	citation	(VF)	page 7, the tag at the right of the translation
+(17) line 1	Katie Sardinha	note	Context: A little girl is trying to trick her mom into buying her candy. She tells her mom that they should stop in at a grocery to get some food, but her mom replies…	page 7, the context over the example
+(17) line 2	Kwak’wala	transcription	həeʔ-e-nuxʷ-=əns	page 7
+(17) line 3	Kwak’wala	gloss	food-but-nukʷ-OI=1.PL.INCL	page 7
+(17) line 4	Katie Sardinha	translation	‘No, we have food.’	page 7
+(17) line 5	Katie Sardinha	citation	(VF)	page 7, the tag at the right of the translation
+(18) line 1	Katie Sardinha	note	Context: You don’t own a car, but you’re borrowing your brother’s car to drive to the grocery store.	page 7, the context over the example
+(18) line 2	Kwak’wala	transcription	ka-nukʷ=ən χʷa nala=χ	page 7
+(18) line 3	Kwak’wala	gloss	car-nukʷ=1 T.ADJ day=VIS	page 7
+(18) line 4	Katie Sardinha	translation	‘I have a car today.’	page 7
+(18) line 5	Katie Sardinha	citation	(VF)	page 7, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The suffix –nukʷ is also volunteered in positive questions about whether something both exists and is possessed, as illustrated in (19)-(20):	page 7
+(19) line 1	Katie Sardinha	note	Context: A border guard is questioning you about what you have.	page 7, the context over the example
+(19) line 2	Kwak’wala	transcription	həeʔ-nukʷ-mas-e	page 7
+(19) line 3	Kwak’wala	gloss	food-nukʷ-Q-INTR	page 7
+(19) line 4	Katie Sardinha	translation	‘Do you have any food?’	page 7
+(19) line 5	Katie Sardinha	citation	(VF)	page 7, the tag at the right of the translation
+(20)	Katie Sardinha	note	Context: Asking someone questions about themself.	page 8, the context over the example
+(20a) line 1	Kwak’wala	transcription	wac’i-nukʷ-mas-e	page 8
+(20a) line 2	Kwak’wala	gloss	dog-nukʷ-Q-INTR	page 8
+(20a) line 3	Katie Sardinha	translation	Do you have a dog?	page 8, printed without quotes
+(20a) line 4	Katie Sardinha	citation	(VF)	page 8, the tag at the right of the translation
+(20b)	Katie Sardinha	note	Possible responses:	page 8, over the responses
+(20bi) line 1	Kwak’wala	transcription	k’iyos=ən wac’i	page 8, response i., on the left
+(20bi) line 2	Kwak’wala	gloss	NEG=1.POSS dog	page 8, response i., on the left
+(20bi) line 3	Katie Sardinha	translation	‘I don’t have a dog.’	page 8, response i., on the left
+(20bi) line 4	Katie Sardinha	citation	(VF)	page 8, response i., on the left, the tag at the right of the translation
+(20bii) line 1	Kwak’wala	transcription	wac’i-nukʷ=ən	page 8, response ii., on the right
+(20bii) line 2	Kwak’wala	gloss	dog-nukʷ=1	page 8, response ii., on the right
+(20bii) line 3	Katie Sardinha	translation	‘I have a dog.’	page 8, response ii., on the right
+(20bii) line 4	Katie Sardinha	citation	(VF)	page 8, response ii., on the right, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The suffix –nukʷ is not used when asserting that something either exists or does not exist when that thing is not possessed. The following pair of sentences illustrates a different possible construction for asserting existence (21-a) or non-existence (21-b) of a non-possessed entity:	page 8
+(21) line 1	Katie Sardinha	note	-nukʷ is not used to assert simple existence or non-existence:	page 8, over the example
+(21a) line 1	Kwak’wala	transcription	gudan=oχ=da ʔəχ=eʔ=χ la=χ=əns haiksilaʔas	page 8
+(21a) line 2	Kwak’wala	gloss	horse=D2=DET empty.stem=NM=VIS PREP=ACC=1.PL.INCL.POSS kitchen	page 8
+(21a) line 3	Katie Sardinha	translation	‘There is a horse in our kitchen!’	page 8
+(21a) line 4	Katie Sardinha	citation	(VF)	page 8, the tag at the right of the translation
+(21b) line 1	Kwak’wala	transcription	ǧaǧas, nuɬəmaɬ=əʔ=as. k’iyos gudan la=χʷa haiksilaʔas	page 8
+(21b) line 2	Kwak’wala	gloss	grandma crazy=NM=2 NEG horse PREP=ACC kitchen	page 8
+(21b) line 3	Katie Sardinha	translation	‘Grandma, you’re crazy. There isn’t a horse in the kitchen.’	page 8
+(21b) line 4	Katie Sardinha	citation	(VF)	page 8, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The suffix –nukʷ is also not used to assert that something is possessed when that thing is presupposed to exist or has a definite referent in context. In these situations other possessive constructions are used. Since possession is a very large topic on its own right, I will only show examples of two possible constructions which may be used in these instances – constructions with possessive enclitics (22), and constructions involving independent possessive predicates (23):	page 8
+(22) line 1	Katie Sardinha	note	Possessive enclitics	page 8, over the example
+(22a) line 1	Kwak’wala	transcription	ƛ’aχʷstu=oχ t’ibayu=sa c’ədaq	page 8
+(22a) line 2	Kwak’wala	gloss	red=D2 shoe=3.POSS lady	page 8
+(22a) line 3	Katie Sardinha	translation	‘The lady’s shoes are red.’	page 8
+(22a) line 4	Katie Sardinha	citation	(VF)	page 8, the tag at the right of the translation
+(22b) line 1	Kwak’wala	transcription	ʔəχ-ʔalas=i=χ=ən dzəmba	page 8
+(22b) line 2	Kwak’wala	gloss	empty.stem-use=D3=ACC=1.POSS pants	page 8
+(22b) line 3	Katie Sardinha	translation	‘He’s wearing my pants.’	page 8
+(22b) line 4	Katie Sardinha	citation	(VF)	page 8, the tag at the right of the translation
+(23) line 1	Katie Sardinha	note	Independent possessive predicates	page 9, over the example
+(23a) line 1	Kwak’wala	transcription	nus=oχ=(da)	page 9
+(23a) line 2	Kwak’wala	gloss	mine=D2=(DET)	page 9
+(23a) line 3	Katie Sardinha	translation	‘It’s mine.’	page 9
+(23a) line 4	Katie Sardinha	note	(pointed to)	page 9, at the right of the translation
+(23a) line 5	Katie Sardinha	citation	(VF)	page 9, the tag at the right of the translation
+(23b) line 1	Kwak’wala	transcription	qus-ƛ=oχ=da kacənaq	page 9
+(23b) line 2	Kwak’wala	gloss	yours-FUT=D2=DET spoon	page 9
+(23b) line 3	Katie Sardinha	translation	‘This spoon will be yours.’	page 9
+(23b) line 4	Katie Sardinha	citation	(VF)	page 9, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The suffix -nukʷ is not used to simultaneously assert absence and lack of possession, as we see in (24). This is also evident in example (21-b) above.	page 9
+(24) line 1	Katie Sardinha	note	Context: You’re being asked at a border crossing if you’re carrying any weapons.	page 9, the context over the example
+(24) line 2	Kwak’wala	transcription	k’i…k’iyos=ən k’awayu	page 9
+(24) line 3	Kwak’wala	gloss	no NEG=1 knife	page 9
+(24) line 4	Katie Sardinha	translation	‘No, I don’t have knives.’	page 9
+(24) line 5	Katie Sardinha	citation	(VF)	page 9, the tag at the right of the translation
+§3.1	Katie Sardinha	note	Because have-nukʷ constructions assert both existence and possession, they are rarely used with inalienable items such as body parts which almost always exist and are inherently possessed; nonetheless, exceptions may be coerced, such as in (25) with səya ‘hair’:	page 9
+(25) line 1	Kwak’wala	transcription	səya-nukʷ=ən. k’iyos=da səya=sa bəgʷanəm	page 9
+(25) line 2	Kwak’wala	gloss	hair-nukʷ=1 NEG=DET hair=OBL man	page 9
+(25) line 3	Katie Sardinha	translation	‘I have hair. That man doesn’t have hair.’	page 9
+(25) line 4	Katie Sardinha	citation	(VF)	page 9, the tag at the right of the translation
+§3.1	Katie Sardinha	note	The suffix –nukʷ may also occur on adjectival stems. This is possible if one is asserting that something exists and is owned when that something is only identifiable by a property:	page 9
+(26) line 1	Kwak’wala	transcription	w’alas-dzi-nukʷ=ən	page 9
+(26) line 2	Kwak’wala	gloss	big-large-nukʷ=1	page 9
+(26) line 3	Katie Sardinha	translation	‘I have a big thing.’ / ‘I have something big.’	page 9
+(26) line 4	Katie Sardinha	citation	(VF)	page 9, the tag at the right of the translation
+§3.1	Katie Sardinha	note	Since adjectives are usually used to ascribe a property to something that is already known to exist, –nukʷ does not occur in most instances of adjectival predication.	page 9
+§3.1	Katie Sardinha	note	The semantic features of –nukʷ in have-nukʷ constructions are summarized in (27):	page 9
+(27)	Katie Sardinha	note	Semantic features of –nukʷ in nominal constructions	page 10, over the example
+(27)	Katie Sardinha	note	nominal stem + -nukʷ:	page 10, a column's head
+(27)	Katie Sardinha	note	Context	page 10, a column's head
+(27)	Katie Sardinha	note	-nukʷ	page 10, a column's head
+(27)	Katie Sardinha	note	Y exists and X has Y, where X denotes a possessor subject and Y denotes a non-specific member of the set denoted by the nominal predicate.	page 10, under nominal stem + -nukʷ:, the meaning beside every row
+(27)	Katie Sardinha	note	assert existence & assert possession; question existence & possession	page 10, under Context
+(27)	Katie Sardinha	note	Yes	page 10, under -nukʷ, for assert existence & assert possession; question existence & possession
+(27)	Katie Sardinha	note	assert existence; not possession	page 10, under Context
+(27)	Katie Sardinha	note	No	page 10, under -nukʷ, for assert existence; not possession
+(27)	Katie Sardinha	note	assert possession; not existence	page 10, under Context
+(27)	Katie Sardinha	note	No	page 10, under -nukʷ, for assert possession; not existence
+(27)	Katie Sardinha	note	assert absence and/or non-possession	page 10, under Context
+(27)	Katie Sardinha	note	No	page 10, under -nukʷ, for assert absence and/or non-possession
+§3.1	Katie Sardinha	note	In its productive use, the suffix –nukʷ is subject to a number of morphological and phonological constraints, though these constraints appear to have undergone recent changes in the modern language. In order to understand the morpho-phonological distribution of –nukʷ we will need to consider it along with another suffix it interacts with: the suffix –ad, which is glossed in Boas (1911, 1947) with the same meaning, ‘having’. Boas could not find a difference in meaning between the two suffixes, though he cited different phonological and morphological constraints on their distribution. We will also see below that the distribution reported in Boas’ grammars has changed somewhat in the modern language.	page 10
+§3.1	Katie Sardinha	note	Regarding morphological distribution, Boas classified the suffix –nukʷ as a ‘word suffix’ which attaches to the right of ‘formal, completive’ endings, including derivational suffixes’ (1911). For example, -nukʷ attaches to nouns containing the nominalizing suffix –iʔ/-eʔ. The suffix –ad on the other hand he classified as a ‘stem suffix’: it attaches directly to the right edge of word stems without ‘formal, completive endings’ (1911: 446).	page 10
+§3.1	Katie Sardinha	note	Boas also characterized these suffixes as having different phonological effects on the base to which they attach. The suffix -ad belongs to the class of ‘weakening’ suffixes which result in lenition of certain preceding consonants. For example, the stem for ‘child’ is xʷənkʷ- which becomes xʷəngʷad ‘to have a child’ (c.f (10-a), xʷənukʷ). The suffix –nukʷ on the other hand is classified as ‘indifferent’ – that is, as having no effect on the base to which it attaches.	page 10
+§3.1	Katie Sardinha	note	In terms of phonological distribution, Boas noted that –ad is not added to stems ending in m, n, l. In these cases, -nukʷ is added instead (e.g. gilnukʷ ‘ancestors’). The suffix –nukʷ occurs freely in all phonological environments.	page 10
+§3.1	Katie Sardinha	note	The phonological and morphological distributional differences between the two suffixes as reported in Boas (1911, 1947) are summarized in Table 1:	page 10
+Table 1	Katie Sardinha	note	Table 1: Distributional differences between –ad and –nukʷ reported in Boas (1911, 1947):	page 11, the table's caption
+Table 1	Katie Sardinha	note	-ad	page 11, a column's head
+Table 1	Katie Sardinha	note	-nukʷ	page 11, a column's head
+Table 1	Katie Sardinha	note	Morphological distribution	page 11, the row's head
+Table 1	Katie Sardinha	note	‘Stem suffix’: attaches to the right edge of word stems without their ‘formal, completive endings’	page 11, Morphological distribution, under -ad
+Table 1	Katie Sardinha	note	‘Word’ suffix’: attaches to the right of ‘formal, completive’ endings, including derivational suffixes.’	page 11, Morphological distribution, under -nukʷ
+Table 1	Katie Sardinha	note	Phonological restrictions	page 11, the row's head
+Table 1	Katie Sardinha	note	Not added to stems ending in m, n, l. In these cases, -nukʷ is added instead.	page 11, Phonological restrictions, under -ad
+Table 1	Katie Sardinha	note	None	page 11, Phonological restrictions, under -nukʷ
+Table 1	Katie Sardinha	note	Phonological effects on the base	page 11, the row's head
+Table 1	Katie Sardinha	note	‘Weakening’ suffix: results in lenition of certain preceding consonants.	page 11, Phonological effects on the base, under -ad
+Table 1	Katie Sardinha	note	None	page 11, Phonological effects on the base, under -nukʷ
+§3.1	Katie Sardinha	note	Some notable changes to the generalizations in Table 1 have occurred in the modern language. First, the suffix –nukʷ has been extended to new potential bases – thus it freely attaches to stems regardless of whether or not the stems have ‘completive or formal’ endings, and as such takes over much of the productive function that was once the domain of –ad.	page 11
+§3.1	Katie Sardinha	note	Second, the use of –nukʷ is phonologically conditioned in what may or may not be a new way. Namely, it appears to be subject to a tendency in the language to avoid sequences of identical syllable such as (n)ukʷnukʷ. This haplology effect becomes evident with words where –nukʷ appears to have fossilized, such as gigəʔoɬnukʷ ‘parents’, and indeed with any word ending in –ukʷ, such as nəmukʷ ‘friend’. Thus example (28-a) shows us that when nəmukʷ is used predicatively as a possessed nominal, it occurs with –ad instead of –nukʷ. The form with –nukʷ is judged as meaning the same thing, but is not the preferred or readily-volunteered form.	page 11
+(28) line 1	Katie Sardinha	note	With the word nəmukʷ ‘friend’:	page 11, over the example
+(28a) line 1	Kwak’wala	transcription	nəmugʷ-ad=ən. hed=i le Bankuba	page 11
+(28a) line 2	Kwak’wala	gloss	friend-ad=1 be.D3=D3 AUX Vancouver	page 11
+(28a) line 3	Katie Sardinha	translation	‘I have a friend. She is in Vancouver.’	page 11
+(28a) line 4	Katie Sardinha	citation	(VF)	page 11, the tag at the right of the translation
+(28b) line 1	Kwak’wala	transcription	nəmukʷ-nukʷ=ən. hed=i le Bankuba	page 11
+(28b) line 2	Kwak’wala	gloss	friend-nukʷ=1 be.D3=D3 AUX Vancouver	page 11
+(28b) line 3	Katie Sardinha	translation	‘I have a friend. She’s in Vancouver.’	page 11
+(28b) line 4	Katie Sardinha	citation	(JF)	page 11, the tag at the right of the translation
+(28b) line 5	Katie Sardinha	speaker comment	Speaker: “Yeah you can say that too…”	page 11, the speaker's comment
+§3.1	Katie Sardinha	note	It is not always case, however, that –ad is used in place of –nukʷ as the preferred haplology-driven repair strategy. Another strategy for avoiding sequences of –(n)ukʷnukʷ is simply to let the existing –nukʷ assume the meaning of have. This is realized in example (29) with gigəʔoɬnukʷ ‘parents’. In (29-a), –nukʷ seems to do ‘double work’ as the ending of the word for gigəʔołnukʷ ‘parents’ and in meaning have; (29-b) shows us that a construction with –ad is possible, whereas (29-c) shows us that a construction with a sequence of similar syllables ‘sounds funny’:	page 11
+(29) line 1	Katie Sardinha	note	With the word gigəʔoɬnukʷ ‘parents’	page 12, over the example
+(29a) line 1	Kwak’wala	transcription	gigəʔoɬ-nuxʷ-=ən	page 12
+(29a) line 2	Kwak’wala	gloss	parents-nukʷ-OI=1	page 12
+(29a) line 3	Katie Sardinha	translation	‘I have parents.’	page 12
+(29a) line 4	Katie Sardinha	citation	(VF)	page 12, the tag at the right of the translation
+(29b) line 1	Kwak’wala	transcription	gigəʔoɬnugʷ-ad=ən	page 12
+(29b) line 2	Katie Sardinha	translation	‘I have parents.’	page 12
+(29b) line 3	Katie Sardinha	citation	(JF)	page 12, the tag at the right of the translation
+(29b) line 4	Katie Sardinha	speaker comment	Speaker: “Yeah, you could say that.”	page 12, the speaker's comment
+(29c) line 1	Katie Sardinha	note	Katie: Could you ever say…	page 12, the author's question to the speaker
+(29c) line 2	Kwak’wala	transcription	? gigəʔoɬnukʷnuxʷən	page 12
+(29c) line 3	Katie Sardinha	citation	(JF)	page 12, the tag at the right of the line
+(29c) line 4	Katie Sardinha	speaker comment	Speaker: “Yeah. Sounds funny though, nuxʷnuxʷ [laughter].”	page 12, the speaker's comment
+§3.1	Katie Sardinha	note	Another frequently encountered example is the word xʷənukʷ ‘child’. The examples in (30) show this form taking –ad:	page 12
+(30) line 1	Katie Sardinha	note	With the word xʷənukʷ:	page 12, over the example
+(30a) line 1	Kwak’wala	transcription	χʷənugʷ-ad=oχ Sid	page 12
+(30a) line 2	Kwak’wala	gloss	child-ad=D2 Sid	page 12
+(30a) line 3	Katie Sardinha	translation	‘Sid has a kid.’	page 12
+(30a) line 4	Katie Sardinha	citation	(VF)	page 12, the tag at the right of the translation
+(30b) line 1	Kwak’wala	transcription	xʷənugʷ-ad=ən nəmukʷ	page 12
+(30b) line 2	Kwak’wala	gloss	child-ad=1.POSS friend	page 12
+(30b) line 3	Katie Sardinha	translation	‘My friend has a kid.’	page 12
+(30b) line 4	Katie Sardinha	citation	(VF)	page 12, the tag at the right of the translation
+§3.1	Katie Sardinha	note	It is not clear whether particular lexical items involve consistent repair strategies (i.e. using –ad versus letting –nukʷ do ‘double-work’), though I find it more likely that variation occurs. In any case, these constructions appear to be a locus of variation and change in the modern language. Sentences like (29-a), for example, are a potential site for re-analysis of –nukʷ as part of the stem in words like gigəʔoɬnukʷ.	page 12
+§3.1	Katie Sardinha	note	The morpho-phonological constraints on –nukʷ in the modern language are summarized in Table 2. We can see that in general, the distribution of –nukʷ has been extended.	page 12
+Table 2	Katie Sardinha	note	Table 2: Distributional of –nukʷ on nominal stems in the modern language	page 13, the table's caption
+Table 2	Katie Sardinha	note	-nukʷ	page 13, a column's head
+Table 2	Katie Sardinha	note	Morphological distribution	page 13, the row's head
+Table 2	Katie Sardinha	note	Not constrained: attaches directly to stems or to stems with ‘completive’ endings.	page 13, Morphological distribution, under -nukʷ
+Table 2	Katie Sardinha	note	Phonological restrictions	page 13, the row's head
+Table 2	Katie Sardinha	note	Tends to not attach to stems ending in –(n)ukʷ (haplology constraint)	page 13, Phonological restrictions, under -nukʷ
+Table 2	Katie Sardinha	note	Phonological effects on the base	page 13, the row's head
+Table 2	Katie Sardinha	note	None	page 13, Phonological effects on the base, under -nukʷ
+§3.1	Katie Sardinha	note	Word lists containing examples with –nukʷ and –ad are included in an Appendix to this paper.	page 13
+§3.1	Katie Sardinha	note	There is an interesting gap in the use of –nukʷ on nominal predicates. In all of the have-nukʷ constructions we have seen thus far the possessum has been indefinite. Nonetheless, the nominal stem has served to restrict the reference of the possessum by ascribing a property to it. In fact it is impossible to use a simple have-nukʷ construction to assert existence and possession of a totally indefinite object – that is, to say a sentence like ‘X owns something’. In order to form this construction using –nukʷ it is necessary to use the form ʔəχ(ə)nugʷad ‘to be an owner’ which involves both –nukʷ and –ad. As noted in Boas (1947), this is the only instance of both suffixes occuring in the same word. Examples of constructions involving ʔəχ(ə)nugʷad are given in (31)-(33):	page 13
+(31) line 1	Kwak’wala	transcription	ʔəχ-nugʷad=ən	page 13
+(31) line 2	Kwak’wala	gloss	empty.stem-own=1	page 13
+(31) line 3	Katie Sardinha	translation	‘I have something.’ / ‘I am an owner.’	page 13
+(31) line 4	Katie Sardinha	citation	(VF)	page 13, the tag at the right of the translation
+(32) line 1	Kwak’wala	transcription	ʔəχ-ə-nugʷad=ən χa ka	page 13
+(32) line 2	Kwak’wala	gloss	empty.stem-?-own=1 ACC car	page 13
+(32) line 3	Katie Sardinha	translation	‘I own a car.’	page 13
+(32) line 4	Katie Sardinha	citation	(JF/TR)	page 13, the tag at the right of the translation
+(33) line 1	Kwak’wala	transcription	ʔəngʷ=i=da ʔəχ-ə-nugʷad=e=s=ge ka	page 13
+(33) line 2	Kwak’wala	gloss	be.who=D3=DET empty.stem=?-own=INVIS=OBL=D1 car	page 13
+(33) line 3	Katie Sardinha	translation	‘Who is the owner of this [here] car?’	page 13
+(33) line 4	Katie Sardinha	citation	(VF)	page 13, the tag at the right of the translation
+§3.1	Katie Sardinha	note	Compare the following sentences, in which –nukʷ occurs without –ad and ungrammaticality results:	page 13
+(34) line 1	Kwak’wala	transcription	*ʔəχ-nukʷ=ən	page 13
+(34) line 2	Kwak’wala	gloss	empty.stem-nukʷ=1	page 13
+(34) line 3	Katie Sardinha	citation	(JF)	page 13, the tag at the right of the line
+(34) line 4	Katie Sardinha	note	[intended: I own something.]	page 13, in brackets under the example
+(35) line 1	Kwak’wala	transcription	*ʔəχ-nukʷ=ən=sa kac’ənaq	page 13
+(35) line 2	Kwak’wala	gloss	empty.stem=nukʷ=1=OBL spoon	page 13
+(35) line 3	Katie Sardinha	citation	(JF)	page 13, the tag at the right of the line
+(35) line 4	Katie Sardinha	note	[intended: I own a spoon.]	page 13, in brackets under the example
+§3.1	Katie Sardinha	note	In the examples above we have seen use of the ‘empty’ stem ʔəχ-. This stem can be used with a nominal ending ʔəχeʔ to mean ‘thing, someone’ (36).4 Oftentimes ʔəχ- can alternate with an incorporated object, as we can see in (37) with the lexical affix –[g]ila ‘to do, make’:	page 14
+footnote 4	Katie Sardinha	note	Though the word ʔəχʔeʔ can be the subject of a sentence, it is never used to mean ‘something’ or ‘someone’ in constructions containing an indefinite object.	page 14, footnote 4
+(36) line 1	Kwak’wala	transcription	meχ=oχ ʔəχ=eʔ=χ la=χ qʷaʔlas=əs Nancy	page 14
+(36) line 2	Kwak’wala	gloss	sleep=D2 empty.stem=NM=VIS PREP=ACC bed=3.POSS Nancy	page 14
+(36) line 3	Katie Sardinha	translation	‘Someone is sleeping in Nancy’s bed.’	page 14
+(36) line 4	Katie Sardinha	citation	(VF)	page 14, the tag at the right of the translation
+(36) line 5	Katie Sardinha	speaker comment	Speaker: “We don’t know who it is.”	page 14, the speaker's comment
+(37) line 1	Katie Sardinha	note	The empty stem ʔəχ- alternates with an incorporated object:	page 14, over the example
+(37a) line 1	Kwak’wala	transcription	qʷəʔsta-gil=oχ=da c’ədaq	page 14
+(37a) line 2	Kwak’wala	gloss	cup-make=D2=DET woman	page 14
+(37a) line 3	Katie Sardinha	translation	‘The woman was making a cup’	page 14
+(37a) line 4	Katie Sardinha	citation	(VF)	page 14, the tag at the right of the translation
+(37b) line 1	Kwak’wala	transcription	ʔəx-ʔil=oχ=da c’ədaq=eχ=χʷa qʷəʔsta	page 14
+(37b) line 2	Kwak’wala	gloss	empty.stem-make=D2=DET woman=VIS=ACC cup	page 14
+(37b) line 3	Katie Sardinha	translation	‘The woman made a cup’	page 14
+(37b) line 4	Katie Sardinha	citation	(VF)	page 14, the tag at the right of the translation
+§3.1	Katie Sardinha	note	However, ʔəχnugʷad cannot incorporate an object:	page 14
+(38) line 1	Kwak’wala	transcription	*ka-nugʷad=ən	page 14
+(38) line 2	Kwak’wala	gloss	car-own=1	page 14
+(38) line 3	Katie Sardinha	citation	(JF)	page 14, the tag at the right of the line
+(38) line 4	Katie Sardinha	note	[Intended: ‘I own a car.’]	page 14, in brackets under the example
+§3.1	Katie Sardinha	note	To summarize, we have seen that -nukʷ in the nominal domain is used productively to form ‘possessor of x’ constructions which may be used as nominal arguments or predicatively. We have also seen that the semantics of have-nukʷ constructions involves asserting existence of and possession over a possessum, where the possessum in these constructions is restricted to being a member of the set denoted by the predicate. The suffix –nukʷ cannot be added to the semantically-empty stem ʔəχ- to assert possession and existence of a completely ‘indefinite’ possessum – for that we must use the complex form ʔəχənugʷad ‘to be an owner’. We will see below that there are many similarities between the semantics of –nukʷ in the nominal and the verbal domain; but first, we will consider a few idiomatic uses of –nukʷ.	page 14
+§3.2	Katie Sardinha	heading	3.2 Idiomatic uses of –nukʷ	page 14
+§3.2	Katie Sardinha	note	The suffix –nukʷ is used idiomatically with a few predicates, many of which relate to emotions and psychological states. The examples in this section are not meant to be exhaustive, but are meant to illustrate the propensity of this suffix to be used idiomatically.	page 14
+§3.2	Katie Sardinha	note	The following sentence with –nukʷ is used to express a meaning of being afraid of something; this constructions involves a nominal stem, kələm ‘fear; to be a scary thing’. Together with –nukʷ, this constructions mean ‘to have a fear’ or ‘to be afraid’ (to express that one is afraid of something in particular, the predicate kəɬəla is typically used):	page 15
+(39) line 1	Kwak’wala	transcription	kələm-nukʷ=i=da c’ədaq	page 15
+(39) line 2	Kwak’wala	gloss	be.scary-nukʷ=D3=DET lady	page 15
+(39) line 3	Katie Sardinha	translation	“The lady’s scared of something.”	page 15
+(39) line 4	Katie Sardinha	citation	(JF/TR)	page 15, the tag at the right of the translation
+(39) line 5	Katie Sardinha	note	[lit. ‘The lady has a fear.’]	page 15, in brackets under the example
+§3.2	Katie Sardinha	note	One way of expressing pain or sadness is with the complex predicate c’əxəlanukʷ:	page 15
+(40) line 1	Kwak’wala	transcription	c’əxəlaχ-nukʷ=i=da c’ədaq lə-is qʷ’asa	page 15
+(40) line 2	Kwak’wala	gloss	in.pain-nukʷ=D3=DET woman AUX-and.so cry	page 15
+(40) line 3	Katie Sardinha	translation	‘The woman’s feeling sad so she’s crying.’	page 15
+(40) line 4	Katie Sardinha	citation	(VF)	page 15, the tag at the right of the translation
+§3.2	Katie Sardinha	note	The predicate c’əxəla on its own means ‘to be aching, to be in pain’ and is often used to express a state of enduring aches and pains (e.g. c’əxc’ola ‘to have a headache’).	page 15
+§3.2	Katie Sardinha	note	While the canonical verb meaning ‘to love’ is ɬakʷəla, this concept may also be expressed with the complex prediate lakʷəlanukʷ. This is the only case I have seen of –nukʷ occuring on an apparently verbal stem without a passive suffix:	page 15
+(41) line 1	Kwak’wala	transcription	ɬakʷəla-nukʷ=ən=χ=us	page 15
+(41) line 2	Kwak’wala	gloss	love-nukʷ=1=ACC=2.POSS	page 15
+(41) line 3	Katie Sardinha	translation	‘I love you.’	page 15
+(41) line 4	Katie Sardinha	citation	(VF)	page 15, the tag at the right of the translation
+(42) line 1	Kwak’wala	transcription	ɬakʷəla-nukʷ=ən χa=χ=ən wac’i	page 15
+(42) line 2	Kwak’wala	gloss	love-nukʷ=1 OBJ.PHR=ACC=1.POSS dog	page 15
+(42) line 3	Katie Sardinha	translation	‘I love my dog.’	page 15
+(42) line 4	Katie Sardinha	citation	(VF)	page 15, the tag at the right of the translation
+(42) line 5	Katie Sardinha	note	[The sentence is also okay with the oblique case: ɬakʷəlanukʷən χasən wac’i.]	page 15, in brackets under the example
+§3.2	Katie Sardinha	note	Nonetheless, this complex predicates behaves in a verbal fashion with regards to indefinite object constructions: in order to refer to an indefinite loved one in the sentence, the passive appears on the predicate:	page 15
+(43) line 1	Kwak’wala	transcription	ɬakʷəla-suʔ-nukʷ=oχ=da bəgʷanəm	page 15
+(43) line 2	Kwak’wala	gloss	love-O.PASS-nukʷ=D2=DET man	page 15
+(43) line 3	Katie Sardinha	translation	‘The man loves someone.’ / ‘The man has someone to love.’	page 15
+(43) line 4	Katie Sardinha	citation	(VF)	page 15, the tag at the right of the translation
+§3.2	Katie Sardinha	note	Usage of –nukʷ is not fully productive with psych/emotion predicates, however. For example, the predicate ɬawis ‘to be angry (at x)’ does not involve it.	page 16
+(44) line 1	Kwak’wala	transcription	*ɬawis-nukʷ=i=da c’ədaq	page 16
+(44) line 2	Kwak’wala	gloss	angry-nukʷ=D3=DET lady	page 16
+(44) line 3	Katie Sardinha	note	Context: out-of-the-blue.	page 16, the context under the example
+(44) line 4	Katie Sardinha	citation	(JF)	page 16, the tag at the right of the context
+§3.2	Katie Sardinha	note	Rather, this verb behaves just like an transitive verb with an optional goal argument:	page 16
+(45) line 1	Katie Sardinha	note	A transitive verb ɬawis ‘to be angry at’:	page 16, over the example
+(45a) line 1	Kwak’wala	transcription	ɬawis=i=da c’ədaq lə-is tə=i=χa qʷəʔsta	page 16
+(45a) line 2	Kwak’wala	gloss	angry=D3=DET woman AUX-and.so break=D3=ACC cup	page 16
+(45a) line 3	Katie Sardinha	translation	‘The woman was mad and broke the cup.’	page 16
+(45a) line 4	Katie Sardinha	citation	(VF)	page 16, the tag at the right of the translation
+(45b) line 1	Kwak’wala	transcription	ɬawis=i=da bəgʷanəm=eχ=χa c’ədaq	page 16
+(45b) line 2	Kwak’wala	gloss	angry=D3=DET man=VIS=ACC woman	page 16
+(45b) line 3	Katie Sardinha	translation	‘The man is angry at the woman.’	page 16
+(45b) line 4	Katie Sardinha	citation	(JF/TF)	page 16, the tag at the right of the translation
+(45c) line 1	Kwak’wala	transcription	ɬawis-ʔid-suʔ-nukʷ=oχ=da c’ədaq	page 16
+(45c) line 2	Kwak’wala	gloss	angry-BEC-O.PASS-nukʷ=D2=DET lady	page 16
+(45c) line 3	Katie Sardinha	translation	‘The lady’s mad at something.’	page 16
+(45c) line 4	Katie Sardinha	citation	(VF)	page 16, the tag at the right of the translation
+§3.2	Katie Sardinha	note	These and other idiomatic uses of –nukʷ are probably marginally productive in the language.	page 16
+§3.3	Katie Sardinha	heading	3.3 Indefinite object constructions	page 16
+§3.3	Katie Sardinha	note	In the verbal domain the suffix –nukʷ can be attached to transitive verbal stems to productively form ‘indefinite object constructions’. In such instances, a passive suffix must also be present. Kwak’wala has a set of passive suffixes which enable the promotion of non-subject arguments to subject position; when a passive suffix is present, the original AGENT of the sentence can be expressed optionally in an agentive by-phrase. Different passive suffixes are used to promote constituents depending on their semantic role. The three most commonly-occuring passive suffixes are illustrated in (46) below.5 These include the ‘object passive’ –suʔ which promotes THEMES/PATIENTS, GOALS, and some SOURCES; the ‘instrumental passive’ –ayu which promotes INSTRUMENTS, and the ‘locative passive’ -ʔas which promotes LOCATIONS and some SOURCES.	page 16
+footnote 5	Katie Sardinha	note	Other passive suffixes include the ‘experiencer passive’ -ɬ occuring on psych predicates, another instrumental passive -əm, and –kʷ, used in the formation of certain participles. See Levine (1980, 1984) for discussion of a lexical analysis of the passive in Kwak’wala.	page 16, footnote 5
+(46) line 1	Katie Sardinha	note	Promotion of arguments with passive suffixes:	page 17, over the example
+(46) line 2	Katie Sardinha	note	-suʔ passivizes themes/patients and goals:	page 17, over the parts under it
+(46a) line 1	Kwak’wala	transcription	kəlxʷa-suʔ=oχ=da ƛətəmɬ=e=sa dagʷada=s=is ayas	page 17
+(46a) line 2	Kwak’wala	gloss	buy-O.PASS=D2=DET hat=INVIS=OBL doctor=OBL=1.CO.POSS sweetheart	page 17
+(46a) line 3	Katie Sardinha	translation	‘The doctor’s hat was bought by his sweetheart.’	page 17
+(46a) line 4	Katie Sardinha	citation	(VF)	page 17, the tag at the right of the translation
+(46b) line 1	Kwak’wala	transcription	dəɬ-ʔid-suʔ=oχ=da dagʷada	page 17
+(46b) line 2	Kwak’wala	gloss	laugh-BEC-O.PASS=D2=DET doctor	page 17
+(46b) line 3	Katie Sardinha	translation	‘The doctor was laughed at.’	page 17
+(46b) line 4	Katie Sardinha	citation	(JF)	page 17, the tag at the right of the translation
+(46) line 3	Katie Sardinha	note	-ayu passivizes instruments:	page 17, over the parts under it
+(46c) line 1	Kwak’wala	transcription	hed=i=da ƛ’ia ǧəls-ayu=sa c’ədaq	page 17
+(46c) line 2	Kwak’wala	gloss	be.D3=D3=DEF grease paint-I.PASS=OBL woman	page 17
+(46c) line 3	Katie Sardinha	translation	‘It was (eulachon) grease that she was using for paint.’	page 17
+(46c) line 4	Katie Sardinha	citation	(JF/TF)	page 17, the tag at the right of the translation
+(46) line 4	Katie Sardinha	note	-ʔas passivizes sources and ambient locations:	page 17, over the parts under it
+(46d) line 1	Kwak’wala	transcription	hed=i=da dalaʔelas gəluɬ-ʔid-ʔas-s=oχ (Bill)	page 17
+(46d) line 2	Kwak’wala	gloss	be.D3=D3=DET bank steal-BEC=L.PASS=OBL=D2 (Bill)	page 17
+(46d) line 3	Katie Sardinha	translation	‘It was the bank that he (Bill) stole from.’	page 17
+(46d) line 4	Katie Sardinha	citation	(VF)	page 17, the tag at the right of the translation
+(46d) line 5	Katie Sardinha	note	[lit. ‘It’s the bank that’s the stolen-from place of Bill.’]	page 17, in brackets under the example
+(46e) line 1	Kwak’wala	transcription	ƛ’isala-ʔas=oχ=da Bankuba	page 17
+(46e) line 2	Kwak’wala	gloss	sun.shine-O.PASS=D2=DET Vancouver	page 17
+(46e) line 3	Katie Sardinha	translation	‘It’s sunny in Vancouver.’	page 17
+(46e) line 4	Katie Sardinha	citation	(JF)	page 17, the tag at the right of the translation
+(46e) line 5	Katie Sardinha	note	[lit. ‘Vancouver is the sun-shined-on place.’]	page 17, in brackets under the example
+§3.3	Katie Sardinha	note	When –nukʷ is added to these same passivized verbs and the object is made indefinite, the result is an indefinite object construction where the object is ‘absorbed’ and the agent subject remains:	page 17
+(47) line 1	Katie Sardinha	note	Indefinite object constructions:	page 17, over the example
+(47) line 2	Katie Sardinha	note	-suʔnukʷ absorbs themes/patients and goals:	page 17, over the parts under it
+(47a) line 1	Kwak’wala	transcription	kəlxʷa-suʔ-nukʷ=i=da babaǧʷəm qe=ʔes ʔəbəmp	page 17
+(47a) line 2	Kwak’wala	gloss	buy-O.PASS-nukʷ=D3=DET little.boy BEN=3.CO.POSS mother	page 17
+(47a) line 3	Katie Sardinha	translation	‘The boy bought something for his mother’	page 17
+(47a) line 4	Katie Sardinha	citation	(VF)	page 17, the tag at the right of the translation
+(47b) line 1	Kwak’wala	transcription	dəɬəla-suʔ-nukʷ=oχ=da babaǧʷəm=χ	page 18
+(47b) line 2	Kwak’wala	gloss	laugh-O.PASS-nukʷ=D2=DET little.boy=VIS	page 18
+(47b) line 3	Katie Sardinha	translation	‘The little boy is laughing at something/someone.’	page 18
+(47b) line 4	Katie Sardinha	citation	(VF)	page 18, the tag at the right of the translation
+(47) line 3	Katie Sardinha	note	-ayunukʷ absorbs instruments:	page 18, over the parts under it
+(47c) line 1	Kwak’wala	transcription	ǧəls-ʔid-ayu-nukʷ=ən	page 18
+(47c) line 2	Kwak’wala	gloss	paint-BEC-I.PASS-nukʷ=1	page 18
+(47c) line 3	Katie Sardinha	translation	‘I painted with something.’	page 18
+(47c) line 4	Katie Sardinha	citation	(VF)	page 18, the tag at the right of the translation
+(47) line 4	Katie Sardinha	note	-ʔasnukʷ absorbs sources and ambient locations:	page 18, over the parts under it
+(47d) line 1	Kwak’wala	transcription	gəluɬ-ʔid-ə-ʔas-nukʷ=i Bill=eχ=χa dala	page 18
+(47d) line 2	Kwak’wala	gloss	steal-BEC-?-O.PASS-nukʷ=D3 Bill=VIS=ACC money	page 18
+(47d) line 3	Katie Sardinha	translation	‘Bill stole money from somewhere.’	page 18
+(47d) line 4	Katie Sardinha	citation	(VF)	page 18, the tag at the right of the translation
+(47e) line 1	Kwak’wala	transcription	ƛ’isala-ʔas-nukʷ=oχ	page 18
+(47e) line 2	Kwak’wala	gloss	sun.shine-O.PASS-nukʷ=D2	page 18
+(47e) line 3	Katie Sardinha	translation	‘It’s sunny somewhere.’	page 18
+(47e) line 4	Katie Sardinha	citation	(VF)	page 18, the tag at the right of the translation
+§3.3	Katie Sardinha	note	This is a puzzling pattern. Passive suffixes on predicates usually demote the agent, but in the constructions in (47) the agent remains as subject. Indeed, the suffix –nukʷ cannot occur on verbal stems if a passive suffix is not also present:	page 18
+(48) line 1	Kwak’wala	transcription	*hə-xʔid-nukʷ=oχ=da bəgʷanəm	page 18
+(48) line 2	Kwak’wala	gloss	eat-BEC-nukʷ=D2=DET man	page 18
+(48) line 3	Katie Sardinha	speaker comment	Speaker’s note: Need to have the ‘suʔ’ in there.	page 18, the speaker's comment
+(48) line 4	Katie Sardinha	citation	(JF)	page 18, the tag at the right of the comment
+§3.3	Katie Sardinha	note	Since –nukʷ must co-occur with a passive suffix, its distribution on verbal predicates is constrained. More generally, the distribution of –nukʷ appears to mirror the distribution of passive suffixes exactly in that it can be used to absorb any and only those constituents that can be passivized. It follows that verbs that do not take arguments and thus do not co-occur with passive suffxies, such as unaccusatives, cannot be used to form indefinite object constructions. An illustration is given in (49)-(51) with the verb meχa ‘to sleep’; (49) shows a basic sentence with this predicate and (50) shows that the predicate is ungrammatical with a passive suffix. In (51) a sentence with a passive suffix and –nukʷ is also ungrammatical.	page 18
+(49) line 1	Kwak’wala	transcription	meχ-ʔid=oχ busi	page 18
+(49) line 2	Kwak’wala	gloss	sleep-BEC=D2 cat	page 18
+(49) line 3	Katie Sardinha	translation	‘The cat fell asleep.’	page 18
+(49) line 4	Katie Sardinha	citation	(VF)	page 18, the tag at the right of the translation
+(50) line 1	Kwak’wala	transcription	*meχ-ʔid-suʔ=oχ busi	page 18
+(50) line 2	Katie Sardinha	note	[lit. The cat was slept.]	page 18, in brackets under the example
+(50) line 3	Katie Sardinha	citation	(JF)	page 18, the tag at the right of the note
+(51) line 1	Katie Sardinha	note	Context: Nancy is a new nurse, and it’s her first day working in the hospital. What did she do?	page 19, the context over the example
+(51a) line 1	Kwak’wala	transcription	*meχ-ʔid-suʔ-nukʷ=oχ Nancy	page 19
+(51a) line 2	Kwak’wala	gloss	sleep-BEC-O.PASS-nukʷ=D2 Nancy	page 19
+(51a) line 3	Katie Sardinha	citation	(JF)	page 19, the tag at the right of the line
+(51a) line 4	Katie Sardinha	note	[lit. ‘Nancy slept someone.’]	page 19, in brackets under the example
+§3.3	Katie Sardinha	note	It should also be noted that passivization and absorption by indefinite object constructions in Kwak’wala is a symmetrical process: either constituent in a ditransitive may be passivized (52) or absorbed (53), with any resulting ambiguities in interpretation being resolved by context and real world knowledge:	page 19
+(52) line 1	Katie Sardinha	note	Symmetrical passivization of objects:	page 19, over the example
+(52a) line 1	Kwak’wala	transcription	k’ak’adoxsila-suʔ=oχ=da bukʷ	page 19
+(52a) line 2	Kwak’wala	gloss	read-O.PASS=D2=DET book	page 19
+(52a) line 3	Katie Sardinha	translation	‘A book is being read.’	page 19
+(52a) line 4	Katie Sardinha	citation	(VF)	page 19, the tag at the right of the translation
+(52b) line 1	Kwak’wala	transcription	k’ak’adoxsila-suʔ=oχ=da gənanəm=χ	page 19
+(52b) line 2	Kwak’wala	gloss	read-O.PASS=D2=DET kid=VIS	page 19
+(52b) line 3	Katie Sardinha	translation	‘The little kid is being read to.’	page 19
+(52b) line 4	Katie Sardinha	citation	(VF)	page 19, the tag at the right of the translation
+(53) line 1	Katie Sardinha	note	Symmetrical absorption of objects:	page 19, over the example
+(53a) line 1	Kwak’wala	transcription	k’ak’adoxsila-suʔ-nukʷ=oχ=da bəgʷanəm qoʔ=oχ=da gənanəm=χ	page 19
+(53a) line 2	Kwak’wala	gloss	read-O.PASS-nukʷ=D2=DET man BEN=D2=DET kid=VIS	page 19
+(53a) line 3	Katie Sardinha	translation	‘The man is reading something to his kid.’	page 19
+(53a) line 4	Katie Sardinha	citation	(VF)	page 19, the tag at the right of the translation
+(53b) line 1	Kwak’wala	transcription	k’ak’adoxsila-suʔ-nukʷ=i Bill=ə=sa bukʷ	page 19
+(53b) line 2	Kwak’wala	gloss	read-O.PASS-nukʷ=D3 Bill=INVIS=OBL book	page 19
+(53b) line 3	Katie Sardinha	translation	‘Bill is reading a book to someone.’	page 19
+(53b) line 4	Katie Sardinha	citation	(JF)	page 19, the tag at the right of the translation
+§3.3	Katie Sardinha	note	Note that the constituents promoted by passive suffixes and absorbed in indefinite object constructions are not necessarily subcategorized ‘arguments’ of a verb in the lexical semantics sense: the promoted location arguments in (46-e) and (47-e) are clear examples of non-core constituents. Therefore indefinite object constructions cannot be used to distinguish subcategorized arguments from adjuncts.	page 19
+§3.3	Katie Sardinha	note	Significantly, the fact that indefinite object constructions and passive constructions mirror each other in this way suggests that synchronically these constructions are related. Yet whereas passive suffixes usually result in the demotion of agent subjects, indefinite object constructions maintain the agent subject, even though passive suffixes are present.	page 19
+§3.3	Katie Sardinha	note	Turning now to some more fine-grained properties of indefinite object constructions, examples (54)-(55) show that the ‘absorbed’ argument cannot also be overtly expressed:	page 20
+(54) line 1	Kwak’wala	transcription	*hə-xʔid-suʔ-nukʷ=ən=χa ʔabəls	page 20
+(54) line 2	Kwak’wala	gloss	eat-BEC-O.PASS-nukʷ=1=ACC apple	page 20
+(54) line 3	Katie Sardinha	citation	(JF)	page 20, the tag at the right of the line
+(54) line 4	Katie Sardinha	note	[lit. ‘I ate something (an) apple.’]	page 20, in brackets under the example
+(54) line 5	Katie Sardinha	speaker comment	Speaker: “You’djust say ham’xʔidən χa ʔabəls – I ate an apple”	page 20, the speaker's comment
+(55) line 1	Kwak’wala	transcription	*laχala-suʔ-nukʷ=i=da bəgʷanəm=e=sa t’əmyayu	page 20
+(55) line 2	Kwak’wala	gloss	sell-O.PASS-nukʷ=D3=DET man=INVIS=OBL phone	page 20
+(55) line 3	Katie Sardinha	note	[lit. ‘The man is selling something phones.’]	page 20, in brackets under the example
+(55) line 4	Katie Sardinha	citation	(JF)	page 20, the tag at the right of the note
+(55) line 5	Katie Sardinha	speaker comment	Speaker: “No…because we know that it’s phones that he’s selling.”	page 20, the speaker's comment
+§3.3	Katie Sardinha	note	Noticing that these predicates appear to lack an internal theta-role, Levine (1984) argued that indefinite object constructions, which he labelled as instances of ‘pseudoincorporation’, are derived by a process in the lexicon which renders the base predicates intransitive. Whether or not we adopt Levine’s lexical analysis, what the data in (49)-(50) do clearly show is that indefinite object constructions are not a type of anti-passive construction.	page 20
+§3.3	Katie Sardinha	note	While indefinite object constructions cannot co-occur with an overt expressed argument, they do in fact introduce a referent into the discouse which can be referred back to by a pronoun later in the discourse. This is shown by the examples (56) and (57) below, where the pronoun in the second sentence (=s in (56), =oχ in (57)), refers to the indefinite object introduced by the first clause.	page 20
+(56) line 1	Kwak’wala	transcription	dala-suʔ-nukʷ=oχ=da c’ədaq	page 20
+(56) line 2	Kwak’wala	gloss	carry-O.PASS-nukʷ=D2=DET woman	page 20
+(56) line 3	Kwak’wala	transcription	lə-is c’əw=s la=χ=is xʷənukʷ	page 20
+(56) line 4	Kwak’wala	gloss	AUX-and.then give=OBL PREP=ACC=3.CO.POSS child	page 20
+(56) line 5	Katie Sardinha	translation	‘The woman carried something. Then she gave it to her kid.’	page 20
+(56) line 6	Katie Sardinha	citation	(VF)	page 20, the tag at the right of the translation
+(57) line 1	Kwak’wala	transcription	quta-suʔ-nukʷ=oχ=da ləχeʔ. Walas=oχ.	page 20
+(57) line 2	Kwak’wala	gloss	full-O.PASS-nukʷ=D2=DET basket big=D2	page 20
+(57) line 3	Katie Sardinha	translation	‘The basket is full. It’s big.’	page 20
+(57) line 4	Katie Sardinha	citation	(JF/TR)	page 20, the tag at the right of the translation
+(57) line 5	Katie Sardinha	speaker comment	Speaker: “Whatever it is. Is it a big rock?”	page 20, the speaker's comment
+(57) line 6	Katie Sardinha	note	Katie: “It’s big, does that mean that the basket is big… or that the thing inside of it is big?”	page 20, the author's question to the speaker
+(57) line 7	Katie Sardinha	speaker comment	Speaker: “The thing inside of it is big. When you say walasoχ, whatever is inside it is big.”	page 20, the speaker's comment
+§3.3	Katie Sardinha	note	The semantic properties of indefinite object constructions are similar (though not identical) to those outlined above for nominal have-nukʷ constructions, suggesting that a unified analysis of –nukʷ constructions may be warranted. Indefinite object constructions are volunteered just in those contexts where an object is known to exist, but its nature is unknown to the speaker. Just like have constructions formed from –nukʷ on nominal stems, then, indefinite object constructions involve the assertion of existence of an indefinite object. The following examples in (58)-(60) illustrate these constructions in context:	page 20
+(58) line 1	Katie Sardinha	note	Context: You can hear one of your neighbours a few apartments over singing a love song to someone, but you don’t know who is being sung to.	page 21, the context over the example
+(58) line 2	Kwak’wala	transcription	dənχala-suʔ-nukʷ=oχ=da bəgʷanəm=sa saləm	page 21
+(58) line 3	Kwak’wala	gloss	sing-O.PASS-nukʷ=D2=DET man=OBL love.song	page 21
+(58) line 4	Katie Sardinha	translation	‘The man is singing a love song to someone.’	page 21
+(58) line 5	Katie Sardinha	citation	(JF)	page 21, the tag at the right of the translation
+(59) line 1	Katie Sardinha	note	Context: You come in looking a little green in the face and have to explain yourself.	page 21, the context over the example
+(59) line 2	Kwak’wala	transcription	hə-xʔid-suʔ-nukʷ=ən. lə=is=ən c’əq’a-xʔid=aʔ	page 21
+(59) line 3	Kwak’wala	gloss	eat-BEC-O.PASS-nukʷ=1 AUX-and.so=1 sick-BEC=VIS	page 21
+(59) line 4	Katie Sardinha	translation	‘I ate something and now I feel sick.’	page 21
+(59) line 5	Katie Sardinha	citation	(VF)	page 21, the tag at the right of the translation
+(60) line 1	Kwak’wala	transcription	kəlxʷa-suʔ-nukʷ-xənt=i la=χ Ted	page 21
+(60) line 2	Kwak’wala	gloss	buy-O.PASS-nukʷ-must=D3 PREP=ACC Ted	page 21
+(60) line 3	Katie Sardinha	translation	‘He must have bought something from Ted.’	page 21
+(60) line 4	Katie Sardinha	citation	(VF)	page 21, the tag at the right of the translation
+§3.3	Katie Sardinha	note	Indefinite object constructions can’t be used when the nature of the object is known to the speaker. If the nature of the object is known, it may either be overtly expressed or indicated pronominally by the presence of an appropriate case-marker. The example in (61) demonstrates that this construction cannot be used to comment on an object when the object is apparent:	page 21
+(61) line 1	Katie Sardinha	note	Context: We look out the window and see Alexis. We can see she’s eating an apple.	page 21, the context over the example
+(61) line 2	Kwak’wala	transcription	*həa-suʔ-nukʷ=oχ Alexis	page 21
+(61) line 3	Kwak’wala	gloss	eat-O.PASS-nukʷ=D2 Alexis	page 21
+(61) line 4	Katie Sardinha	speaker comment	Speaker: “We gotta say the apple. hama=oχʷ=χa ʔabəls.”	page 21, the speaker's comment
+(61) line 5	Katie Sardinha	citation	(JF)	page 21, the tag at the right of the comment
+§3.3	Katie Sardinha	note	Rather than merely encoding the presence of an indefinite object per se, indefinite object constructions are most readily volunteered when the existence of the indefinite object in particular is what is being discussed. In the following example, the speaker is expressing the fact that she is not hungry because she already ate (something) at home. What is salient is not the fact that the speaker ate something, but rather that eating already occurred. In this context, it is odd to use an indefinite object construction with –nukʷ, as shown in (62):	page 21
+(62) line 1	Katie Sardinha	note	Context: You come to my house and I ask if you’re hungry, but you already ate at home before you came.	page 22, the context over the example
+(62a) line 1	Kwak’wala	transcription	k’is=ən pusqa. la-ʔəmd=ən hə=xʔid la=χa gukʷ	page 22
+(62a) line 2	Kwak’wala	gloss	NEG=1 hungry AUX-DISC=1 eat-BEC PREP=ACC house	page 22
+(62a) line 3	Katie Sardinha	translation	‘I’m not hungry. I had something to eat at home.’	page 22
+(62a) line 4	Katie Sardinha	note	[ate at home]	page 22, at the right of the translation
+(62a) line 5	Katie Sardinha	citation	(VF)	page 22, the tag at the right of the translation
+(62b) line 1	Kwak’wala	transcription	# hə-xʔid-suʔ-nukʷ=ən	page 22
+(62b) line 2	Kwak’wala	gloss	eat-bec-o.pass-nukʷ=1	page 22
+(62b) line 3	Katie Sardinha	note	[lit. ‘I ate something.’]	page 22, in brackets under the example
+§3.3	Katie Sardinha	note	It is possible, however, that this effect of marking the salience of the indefinite object is present only with predicates like həxʔid ‘to eat’ which are optionally transitive. With strongly transitive predicates that require the overt expression of an object, objects that can’t be named somehow must be expressed using an indefinite object construction. It is not clear whether these cases also express salience of the indefinite object, given that syntactic expression of the object is obligatory. An example of a strongly transitive predicate is təpa ‘to break’, as shown in (63):	page 22
+(63) line 1	Katie Sardinha	note	Strongly transitive predicate təpa ‘to break’	page 22, over the example
+(63a) line 1	Katie Sardinha	note	Ungrammatical without any expression of the object:	page 22, over the part
+(63a) line 2	Kwak’wala	transcription	* təp-ʔid=i=da babaǧʷəm=eχ	page 22
+(63a) line 3	Kwak’wala	gloss	break-BEC=D3=DET little.boy=VIS	page 22
+(63a) line 4	Katie Sardinha	citation	(JF)	page 22, the tag at the right of the line
+(63a) line 5	Katie Sardinha	speaker comment	Speaker: ‘Need to know what he broke.’	page 22, the speaker's comment
+(63b) line 1	Katie Sardinha	note	Grammatical with omitted object, if object is known or pointed to:	page 22, over the part
+(63b) line 2	Kwak’wala	transcription	təp-ʔid=i=da babaǧʷəm=eχ=χ=oχ	page 22
+(63b) line 3	Kwak’wala	gloss	break-BEC=D3=DET little.boy=VIS=ACC=D2	page 22
+(63b) line 4	Katie Sardinha	citation	(JF)	page 22, the tag at the right of the line
+(63b) line 5	Katie Sardinha	translation	‘The boy broke it.’	page 22
+(63b) line 6	Katie Sardinha	note	[object is known or pointed to]	page 22, at the right of the translation
+(63c) line 1	Katie Sardinha	note	Unknown objects require indefinite object constructions:	page 22, over the part
+(63c) line 2	Kwak’wala	transcription	təp-ʔid-suʔ-nukʷ=i=da babaǧʷəm	page 22
+(63c) line 3	Kwak’wala	gloss	break-BEC=O.PASS-nukʷ=D3=DET little.boy	page 22
+(63c) line 4	Katie Sardinha	translation	‘The boy broke something.’	page 22
+(63c) line 5	Katie Sardinha	citation	(VF)	page 22, the tag at the right of the translation
+§3.3	Katie Sardinha	note	Recall that in addition to asserting existence, nominal have-nukʷ constructions involve an assertion of possession over an indefinite object. Indefinite object constructions do not involve an assertion that the indefinite object is owned by the subject. Subjects are, rather, simply AGENTS and EXPERIENCERS. This is shown in the examples below. In (64), the subject ‘Katie’ is afraid of something, but she need not be afraid of something she owns – she could be afraid of ghosts. In (65) the subject ‘Katie’ smells something, but similarly, this need not be something in her possession. Similarly in (66), it clearly cannot be the case that an expletive subject ‘owns’ a place. In these examples, there is no entailment that the subject possesses the indefinite object.	page 22
+(64) line 1	Kwak’wala	transcription	kəɬəla-suʔ-nukʷ=oχ Katie=yəχ	page 23
+(64) line 2	Kwak’wala	gloss	scared-O.PASS-nukʷ=D2 Katie=VIS	page 23
+(64) line 3	Katie Sardinha	translation	‘Katie’s afraid of something.’	page 23
+(64) line 4	Katie Sardinha	citation	(VF)	page 23, the tag at the right of the translation
+(65) line 1	Kwak’wala	transcription	misala-suʔ-nukʷ=i Katie	page 23
+(65) line 2	Kwak’wala	gloss	smell-O.PASS-nukʷ=D3 Katie	page 23
+(65) line 3	Katie Sardinha	translation	‘Katie smells something.’	page 23
+(65) line 4	Katie Sardinha	citation	(VF)	page 23, the tag at the right of the translation
+(66) line 1	Kwak’wala	transcription	yugʷa-ʔas-nukʷ=oχ	page 23
+(66) line 2	Kwak’wala	gloss	rain-L.PASS-nukʷ=D2	page 23
+(66) line 3	Katie Sardinha	translation	‘It’s raining somewhere.’	page 23
+(66) line 4	Katie Sardinha	citation	(JF/TR)	page 23, the tag at the right of the translation
+§3.3	Katie Sardinha	note	It is possible that historically a relationship of possession did hold between the agent subject of these sentences and the indefinite object – that is, that these constructions were originally ‘indefinite possessed object constructions’. Consider a sentence like c’əwinuxʷƛənƛoƛ ‘I’ll give you something.’ (stem: c’əwiʔ) which was cited in Boas (1947: 368) and is represented below in (67). The predicate in (67) involves the word c’əwiʔ which contains a nominalizer –iʔ signaling that it is a noun. This construction therefore is not built on a verbal stem at all; this sentence is, rather, structured just like any nominal have-nukʷ construction, with –nukʷ suffixed to a nominal predicate meaning something like ‘giving’. Literally, the sentence in (67) must mean something like: ‘There is in my possession a future giving to you.’ Note that in this sentence both an assertion of existence and an assertion of possession are part of the meaning of the utterance, just as we have seen in relation to have-nukʷ constructions generally. The assertion of possession in this instance is overdetermined, however, by also being inherent to the change-of-possession meaning of the predicate ‘give’ itself.	page 23
+(67)	Katie Sardinha	note	A have-nukʷ construction with ‘to give’ (Boas 1947: 368)	page 23, over the example
+(67a) line 1	Kwak’wala	transcription	c’əwinuxʷƛənƛoƛ	page 23, on the left
+(67a) line 2	Kwak’wala	segmentation	c’əw-iʔ-nukʷ-ƛ=ən=ƛoƛ	page 23, on the left
+(67a) line 3	Kwak’wala	gloss	give-NM-nukʷ=FUT=1=2	page 23, on the left
+(67a) line 4	Katie Sardinha	translation	‘I’ll give you something.’	page 23, on the left
+(67b) line 1	Kwak’wala	transcription	c’əw-iʔ	page 23, on the right
+(67b) line 2	Kwak’wala	gloss	give.NM	page 23, on the right
+(67b) line 3	Katie Sardinha	translation	‘giving (N)’	page 23, on the right
+§3.3	Katie Sardinha	note	In a sentence like (67-a), then, a possessor-relation between the subject and the indefinite object is simultaneously indicated by the suffix –nukʷ and by an entailment of the verb ‘give’ as a change-of-possession verb. The presence of ambiguity about where to attribute the ‘possessive’ meaning in these sentences makes them a possible locus of reanalysis. Imagine the following scenario: speakers, hearing a sentence like (67-a), could have attributed the possession entailment between the subject and the indefinite object entirely to the verb, thereby allowing the suffix –nukʷ to be bleached of it possessive meaning in these sentences and left with only its other entailment, namely its assertion of existence of an indefinite object. Following this reanalysis, the use of –nukʷ to assert the existence of an indefinite object was extended to verbal predicates other than change-of-possession verbs to form indefinite object constructions. In other words, ‘indefinite possessed object constructions’ became simply ‘indefinite object constructions’ in two steps: first, the possessive meaning of –nukʷ on change-of-possession verbs was reanalyzed as solely attributable to the verbal semantics of the host verbs, thereby bleaching the suffix of its possessive meaning in these contexts; next, the use of –nukʷ to signal the existence of an indefinite object was extended to verbs other than those entailing a change of possession, becoming a fully generalized and productive verbal construction.	page 23
+§3.3	Katie Sardinha	note	To make this hypothesis about semantic change seem a little more familiar, we can compare it to the grammaticalization of have in English past participle constructions. The verb have is still used as a contentful verb to assert possession in English, as in sentences like ‘I have a dog and three cats’. Nonetheless, have has lost its possessive entailments in constructions where this verb has grammaticalized as an auxiliary, such as in sentences like “Gill has broken her mother’s vase.” In this example Gill broke a vase, but it was not hers – it was her mothers. Readings of metaphorical ‘closeness’ between Gill and the vase aside, a possessive meaning is not entailed by the verb have when it is used as an element of a participle, just as the subject of indefinite object constructions in Kwak’wala is not entailed to be a ‘possessor’ of the indefinite object. Nonetheless, in the early stages of this construction, these entailments may have been present.	page 24
+§3.3	Katie Sardinha	note	Data from an earlier stage in the language show that indefinite object constructions have become generalized, productive constructions relatively recently. Thus in his 1911 and 1947 grammars, Boas provides us with a few examples of words and sentences containing –nukʷ which resemble indefinite object constructions. Unlike the indefinite object constructions we see today however, these constructions did not consistently contain passive suffixes, suggesting that the construction had not fully generalized. Boas describes these examples as being ‘idiomatic’. He comments:	page 24
+§3.3	Katie Sardinha	note	“-nukʷ is used idiomatically to mean ‘something’ or ‘someone’. In such cases	page 24
+§3.3	Katie Sardinha	note	it is frequently, but not always, added to a verbal form: ʔəχidnukʷ ‘someone	page 24
+§3.3	Katie Sardinha	note	takes’; ʔiʔaχəlanukʷ ‘one of them is working’; doχaλəɬnukʷ ‘something that	page 24
+§3.3	Katie Sardinha	note	has been discovered’; gaχəwəlsnukʷ ‘some came out’; c’əwinuxʷƛənƛoƛ ‘I’ll	page 24
+§3.3	Katie Sardinha	note	give you something.’ (c’əwiʔ).” (1947: 348). Some, but not all of the examples Boas provides do contain passive suffixes. Of the examples given in the cited passage, the form doχaλəɬnukʷ ‘something that has been discovered’ includes the experiencer passive suffix -ɬ. Elsewhere he gives examples which apparently involve the locative passive -ʔas and the instrumental passive –ayu, as shown in examples (68) and (69) below. The presence of examples likes these suggests that passive suffixes were a possible, though not obligatory, occurrence in indefinite object constructions at this stage in the language:	page 24
+(68) line 1	Kwak’wala	transcription	laasnukʷ	page 25
+(68) line 2	Kwak’wala	segmentation	la-ʔas-nukʷ	page 25
+(68) line 3	Kwak’wala	gloss	go-L.PASS-nukʷ	page 25
+(68) line 4	Katie Sardinha	translation	‘being gone somewhere (having a going place)’	page 25
+(68) line 5	Katie Sardinha	citation	(Boas 1947: 348)	page 25, the source under the translation
+(69) line 1	Kwak’wala	transcription	aunuxʷƛasicoχ	page 25
+(69) line 2	Kwak’wala	segmentation	as-ayu-nukʷ-ƛ=as ʔis=s=oχ	page 25
+(69) line 3	Kwak’wala	gloss	what-I.PASS-nukʷ-FUT=2 with=OBL=D2	page 25
+(69) line 4	Katie Sardinha	translation	‘What are you going to do with it?’	page 25
+(69) line 5	Katie Sardinha	citation	(Boas 1947: 348)	page 25, the tag at the right of the translation
+§3.3	Katie Sardinha	note	In the modern language, the predicates cited by Boas in the passage above cannot occur alone with –nukʷ like we see in those examples – they require a passive suffix. Examples of indefinite object constructions as they constructed today are given in (70)-(71) for c’əw ‘to give’, and ʔiʔaχəla ‘to work’; both examples contain passive suffixes on the verb.	page 25
+(70) line 1	Kwak’wala	transcription	c’əw-suʔ-nukʷ=oχ=da c’ədaq la=χ=is nəmukʷ	page 25
+(70) line 2	Kwak’wala	gloss	give-O.PASS-nukʷ=D2=DET woman PREP=ACC=3.POSS friend	page 25
+(70) line 3	Katie Sardinha	translation	‘The woman gave something to her friend.’	page 25
+(70) line 4	Katie Sardinha	citation	(JF/VF)	page 25, the tag at the right of the translation
+(71) line 1	Kwak’wala	transcription	ʔiʔaχəlaʔsunukʷən	page 25
+(71) line 2	Kwak’wala	gloss	work-O.PASS-nukʷ=1	page 25
+(71) line 3	Katie Sardinha	translation	‘I’m working on something’	page 25
+(71) line 4	Katie Sardinha	citation	(VF)	page 25, the tag at the right of the translation
+§3.3	Katie Sardinha	note	In (72) the sentence we saw earlier from Boas’ generation (72-a) is compared to the form of this sentence that would be used today (72-b). The sentence in (72-b) has lost the nominal ending on the stem and contains a passive suffix in its place:	page 25
+(72)	Katie Sardinha	note	Comparison of a sentence from Boas (1947) (a) and its modern expression (b)	page 25, over the example
+(72a) line 1	Kwak’wala	transcription	c’əwinuxʷƛənƛoƛ	page 25, on the left
+(72a) line 2	Kwak’wala	segmentation	c’əw-iʔ-nukʷ-ƛ=ən=ƛoƛ	page 25, on the left
+(72a) line 3	Kwak’wala	gloss	give-NM-nukʷ=FUT=1=2	page 25, on the left
+(72a) line 4	Katie Sardinha	translation	‘I’ll give you something.’	page 25, on the left
+(72b) line 1	Kwak’wala	transcription	c’əwsuʔnukʷƛənloɬ	page 25, on the right
+(72b) line 2	Kwak’wala	segmentation	c’əw-suʔ-nukʷ-ƛ=ən=loɬ	page 25, on the right
+(72b) line 3	Kwak’wala	gloss	give-O.PASS-nukʷ-FUT=1=2	page 25, on the right
+(72b) line 4	Katie Sardinha	translation	‘I’ll give you something’	page 25, on the right
+§3.3	Katie Sardinha	note	The differences between the examples given in Boas’ grammars and data obtained from recent fieldwork therefore suggests that the generalized form of indefinite object constructions, including the obligatory use of passive suffixes on verbal stems, is a relatively recent development.	page 25
+§3.3	Katie Sardinha	note	We have already seen in section 3.1 that sometime after the generation of speakers consulted by Boas,6 the distribution of –nukʷ widened so that this morpheme was no longer constrained to attach solely to ‘words’ with completive endings but could also attach directly to stems, thereby taking over much of the former function of the synonymous suffix –ad. We have also already encountered a potential clue about what drove this change. In particular, Boas’ observation that -nukʷ attaches to stems ending in m, n, l (where –ad fails to apply) means that the stem/word generalization was not consistent in the language. When used in have-nukʷ constructions, words such as sasəm ‘children’ appear as sasəm-nukʷ rather than *sasəm-ad. This phonological constraint on –ad may itself have resulted from a sound change, or it could have been stable in the language for a long time. In any case, such conditioning could have had very significant repercussions for the status of – nukʷ in the language. Hearing words like sasəmnukʷ, speakers learning the language would have learned a pattern whereby –nukʷ attached to both ‘words’ and ‘stems’, thus removing the former constrains on this suffix and paving its path for possible generalization to other stems. To the extent that the frequency of constructions in Boas and Hunt’s (1902) Kwakiutl Tales are any indication of the frequency of constructions in everyday use, assertions of possession over kin are indeed one of the most common uses of have constructions; forms such as sasəmnukʷ ‘having children’ may therefore have had a significant effect on learners’ reanalysis of –nukʷ as a potential ‘stem’ suffix. However it began, the result of the historical reanalysis of –nukʷ is a grammar in which –nukʷ can be applied to stems – including, potentially, verbal ones, which today always co-occur with passive suffixes where nominalizing suffixes were present historically.	page 26
+footnote 6	Katie Sardinha	note	The speakers consulted by Levine (1980, 1984) also appear to construct indefinite object constructions in the ‘modern’ sense discussed in this paper, indicating that the changes under discussion also occurred before this time.	page 26, footnote 6
+§3.3	Katie Sardinha	note	To summarize, we have seen that –nukʷ is used in the verbal domain along with passive suffixes to form indefinite object constructions which assert the existence of an indefinite object. The properties of modern indefinite object constructions have become regular and generalized relatively recently in history and have been conditioned by the argument structure and the semantics of –nukʷ. Relevant to the genesis and of these constructions is the historical reanalysis of –nukʷ as a suffix which may attach directly to stems, as well as generalization of constructions with indefinite possessed objects to predicates other than change-of-possession verbs, involving a loss of ‘possessor’ entailments. Passive suffixes occur where nominalizing suffixes were present historically, and the particular passive suffix used to ‘absorb’ a given indefinite argument is the same passive suffix that would be used to promote that argument to subject were it not indefinite. In terms of the timing of these changes, the reanalysis of the suffix –nukʷ as a stem suffix and subsequent extension to apply directly to new stems must have occurred sometime between the generation of speakers consulted by Boas and today’s speakers.	page 26
+§5	Katie Sardinha	heading	5 Conclusion	page 27
+§5	Katie Sardinha	note	This paper has explored the curious synchronic distribution of the suffix –nukʷ in Kwak’wala and has discussed this how this distribution relates to historical changes that have taken place after the generation of speakers consulted by Boas. The syntactic and semantic features of –nukʷ was discussed in three domains: in the nominal domain occuring in both fossilized words and in productive ‘have’ constructions; in idiomatic constructions relating to psychological states; and in the verbal domain where it attaches to verbal stems with passive suffixes to form indefinite object constructions. These indefinite object constructions are particularly interesting from a synchronic point of view given the co-occurrence of passive suffixes and agentive subjects. A unified synchronic analysis of –nukʷ must account for the syntactic and semantic features documented in this paper.	page 27
+§5	Katie Sardinha	note	A synchronic analysis of –nukʷ constructions will require one more ingredient that is generally lacking in most analyses of Kwak’wala – namely, an assumption of lexical categories. Throughout this paper we have seen that the suffix –nukʷ consistently differentiates between stems which denote a set and stems which denote an event/function – i.e. between nominal (and adjectival) versus verbal stems. While the language has ample derivational resources for deriving nouns from verbs, and while it is capable of using nouns and adjectives predicatively, it does not seem to be the case that all stems are considered equal from the perspective of the syntax. The data in this paper should therefore be taken as evidence that Kwak’wala does not in fact lack a category distinction between nouns and verbs.	page 27
+§Appendix	Katie Sardinha	heading	Appendix: Word Lists	page 27
+§Appendix	Katie Sardinha	note	Below are lists of words containing the suffixes –nukʷ and –ad from two external. sources. The first two word lists are from the First Voices online database (http://www.firstvoices.ca/), accessed May 2013; the list presented here has been transliterated into APA orthography and only includes lexical items we can be fairly sure contain the suffixes in question. The remaining word lists include examples combined from Boas’ two grammars (1911, 1947).	page 27
+§Appendix	Katie Sardinha	note	Words containing –nukʷ (First Voices)	page 27, a word list's title
+§Appendix	Kwak’wala	transcription	dalanukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘money, has or to have’	page 27
+§Appendix	Kwak’wala	transcription	gənukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘how many persons’	page 27
+§Appendix	Kwak’wala	transcription	gigəʔoɬʔnukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘parents’	page 27
+§Appendix	Kwak’wala	transcription	həeʔnukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘has food to eat’	page 27
+§Appendix	Kwak’wala	transcription	kanukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘owns a car’	page 27
+§Appendix	Kwak’wala	transcription	k’adayunukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘pencil or pen, owns/has a’	page 27
+§Appendix	Kwak’wala	transcription	k’awayunukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘knife, owns or has a’	page 27
+§Appendix	Kwak’wala	transcription	k’əbayunukʷ	page 27
+§Appendix	Katie Sardinha	translation	‘scissors, has’	page 27
+§Appendix	Kwak’wala	transcription	kʷ’ədayunukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘glue/tape/bandaids, has’	page 28
+§Appendix	Kwak’wala	transcription	ləʔasʔnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘went somewhere or had somewhere to go’	page 28
+§Appendix	Kwak’wala	transcription	nanukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘worried about someone who hasn’t arrived’	page 28
+§Appendix	Kwak’wala	transcription	iəλəmnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘angel’	page 28
+§Appendix	Kwak’wala	transcription	sasəmnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘having children’	page 28
+§Appendix	Kwak’wala	transcription	siχʷsoʔlasʔnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘to have a place to paddle through’	page 28
+§Appendix	Kwak’wala	transcription	c’aanukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘female has a younger sister, male has a younger brother’	page 28
+§Appendix	Kwak’wala	transcription	c’ədzisʔnukʷəmeʔ	page 28
+§Appendix	Katie Sardinha	translation	‘New Vancouver’	page 28
+§Appendix	Kwak’wala	transcription	waqʷ’anukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘older/younger sibling of the opposite sex, to have an’	page 28
+§Appendix	Kwak’wala	transcription	χʷənukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘child, (your)’	page 28
+§Appendix	Kwak’wala	transcription	ulanukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘female has older sister, male has older brother’	page 28
+§Appendix	Kwak’wala	transcription	qʷənagaʔɬnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘awaken by crying’	page 28
+§Appendix	Katie Sardinha	note	Words containing –ad (First Voices)	page 28, a word list's title
+§Appendix	Kwak’wala	transcription	ʔəbayad	page 28
+§Appendix	Katie Sardinha	translation	‘mother, has a’	page 28
+§Appendix	Kwak’wala	transcription	λiǧad	page 28
+§Appendix	Katie Sardinha	translation	‘name, having a’	page 28
+§Appendix	Kwak’wala	transcription	dzawadəʔenuχʷ	page 28
+§Appendix	Katie Sardinha	translation	‘Kingcome Inlet, person or people from’	page 28
+§Appendix	Katie Sardinha	note	[c.f. dzaxʷən ‘oolichan’]	page 28, after the meaning
+§Appendix	Kwak’wala	transcription	dzawadi	page 28
+§Appendix	Katie Sardinha	translation	‘Knight Inlet’	page 28
+§Appendix	Katie Sardinha	note	[c.f. dzaxʷən ‘oolichan’]	page 28, after the meaning
+§Appendix	Kwak’wala	transcription	eǧayad	page 28
+§Appendix	Katie Sardinha	translation	‘female friend, female has a’	page 28
+§Appendix	Kwak’wala	transcription	gəəlad	page 28
+§Appendix	Katie Sardinha	translation	‘has a lunch or provisions (e.g. for a journey)’	page 28
+§Appendix	Kwak’wala	transcription	giǧad	page 28
+§Appendix	Katie Sardinha	translation	‘chief, those who have a’	page 28
+§Appendix	Kwak’wala	transcription	gugʷad	page 28
+§Appendix	Katie Sardinha	translation	‘house, owns a house’	page 28
+§Appendix	Kwak’wala	transcription	ǧəgad	page 28
+§Appendix	Katie Sardinha	translation	‘wife, has a’	page 28
+§Appendix	Kwak’wala	transcription	ǧəgadəxʔid	page 28
+§Appendix	Katie Sardinha	translation	‘get a wife, man gets married’	page 28
+§Appendix	Kwak’wala	transcription	ɬawadəxʔid	page 28
+§Appendix	Katie Sardinha	translation	‘to get a husband’	page 28
+§Appendix	Kwak’wala	transcription	noǧad	page 28
+§Appendix	Katie Sardinha	translation	‘wise, having wisdom’	page 28
+§Appendix	Kwak’wala	transcription	χʷəngʷad	page 28
+§Appendix	Katie Sardinha	translation	‘child, (someone) has a’	page 28
+§Appendix	Kwak’wala	transcription	əmugʷad	page 28
+§Appendix	Katie Sardinha	translation	‘friend, someone has a’	page 28
+§Appendix	Katie Sardinha	note	Words containing –nukʷ (Boas 1911: 506, 1947: 348)	page 28, a word list's title
+§Appendix	Kwak’wala	transcription	sasəmnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘having children’	page 28
+§Appendix	Kwak’wala	transcription	wəɬdəmnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘to have a word, i.e. to talk to’	page 28
+§Appendix	Kwak’wala	transcription	doχaλəɬnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘one who has seen things’	page 28
+§Appendix	Kwak’wala	transcription	gilnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘belonging to ancient times, ancestors’	page 28
+§Appendix	Kwak’wala	transcription	ɬə’lnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘to have a dead one (i.e. one of a number dies)’	page 28
+§Appendix	Kwak’wala	transcription	wanukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘having a river’	page 28
+§Appendix	Kwak’wala	transcription	ʔəχiʔnukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘creator’	page 28
+§Appendix	Kwak’wala	transcription	bəkʷilinukʷ	page 28
+§Appendix	Katie Sardinha	translation	‘creator’	page 28
+§Appendix	Katie Sardinha	note	(someone who made human beings)	page 28, after the meaning
+§Appendix	Kwak’wala	transcription	λaxʷiʔnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘seat owner’	page 29
+§Appendix	Kwak’wala	transcription	q’uliʔnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘one who has an uncle’	page 29
+§Appendix	Kwak’wala	transcription	k’isʔonukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘crest owner’	page 29
+§Appendix	Kwak’wala	transcription	laasnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘being gone somewhere (having a going place)’	page 29
+§Appendix	Kwak’wala	transcription	yeinəmnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘having a reason for giving a winter ceremonial’	page 29
+§Appendix	Kwak’wala	transcription	ƛ’asabalanukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘owner of southwest wind’	page 29
+§Appendix	Kwak’wala	transcription	ugʷalanukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘owner of rain wind’.	page 29
+§Appendix	Kwak’wala	transcription	ʔəχidnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘someone takes’	page 29
+§Appendix	Kwak’wala	transcription	ʔiʔaχəlanukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘one of them is working’	page 29
+§Appendix	Kwak’wala	transcription	doχaλəɬnukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘something that has been discovered’	page 29
+§Appendix	Kwak’wala	transcription	ƛaqanukʷ	page 29
+§Appendix	Katie Sardinha	translation	‘overhanging (ƛaχʔid ‘to turn over a flat thing’)’	page 29
+§Appendix	Katie Sardinha	note	Words containing –ad (Boas 1911: 506, 1947: 316)	page 29, a word list's title
+§Appendix	Kwak’wala	transcription	k’əlad	page 29
+§Appendix	Katie Sardinha	translation	‘place for shaking off huckleberries’	page 29
+§Appendix	Kwak’wala	transcription	q’iq’ed	page 29, one of the forms set together, q’iq’ed ~ q’iq’iad
+§Appendix	Kwak’wala	transcription	q’iq’iad	page 29, one of the forms set together, q’iq’ed ~ q’iq’iad
+§Appendix	Katie Sardinha	translation	‘having	page 29
+§Appendix	Kwak’wala	transcription	yagʷad	page 29
+§Appendix	Katie Sardinha	translation	‘to have a gift’	page 29
+§Appendix	Kwak’wala	transcription	q’əmdad	page 29
+§Appendix	Katie Sardinha	translation	‘having a song’	page 29
+§Appendix	Kwak’wala	transcription	noǧad	page 29
+§Appendix	Katie Sardinha	translation	‘song leader’	page 29
+§Appendix	Kwak’wala	transcription	səmyad	page 29
+§Appendix	Katie Sardinha	translation	‘having a mouth’	page 29
+§Appendix	Kwak’wala	transcription	ʔawaad	page 29
+§Appendix	Katie Sardinha	translation	‘having large ones’	page 29
+§Appendix	Kwak’wala	transcription	nawalagʷad	page 29
+§Appendix	Katie Sardinha	translation	‘having supernatural	page 29
+§Appendix	Kwak’wala	transcription	λəǧad	page 29
+§Appendix	Katie Sardinha	translation	‘having a name’	page 29
+§Appendix	Kwak’wala	transcription	qayadzad	page 29
+§Appendix	Katie Sardinha	translation	‘having a walking place’	page 29
+§Appendix	Katie Sardinha	note	(i.e. song words)	page 29, after the meaning
+§Appendix	Kwak’wala	transcription	dzawad	page 29
+§Appendix	Katie Sardinha	translation	‘having olachen (Knights Inlet)	page 29
+§Appendix	Kwak’wala	transcription	cəlwad	page 29
+§Appendix	Katie Sardinha	translation	‘having crabapples	page 29
+§Appendix	Kwak’wala	transcription	ʔoyad	page 29
+§Appendix	Katie Sardinha	translation	‘having a father’	page 29
+§Appendix	Kwak’wala	transcription	ʔabayad	page 29
+§Appendix	Katie Sardinha	translation	‘having a mother’	page 29
+§Appendix	Kwak’wala	transcription	nəǧʷəmbad	page 29, one of the forms set together, nəǧʷəmbad or nəǧʷayad
+§Appendix	Kwak’wala	transcription	nəǧʷayad	page 29, one of the forms set together, nəǧʷəmbad or nəǧʷayad
+§Appendix	Katie Sardinha	translation	‘having parents-in-law’	page 29
+§Appendix	Kwak’wala	transcription	xʷəngʷad	page 29
+§Appendix	Katie Sardinha	translation	‘having a child’	page 29
+§Appendix	Kwak’wala	transcription	ɬawad	page 29
+§Appendix	Katie Sardinha	translation	‘having a husband’	page 29
+§Appendix	Kwak’wala	transcription	k’idad	page 29
+§Appendix	Katie Sardinha	translation	‘to have a chief’s daughter’	page 29
+§Appendix	Kwak’wala	transcription	xungʷadəxʔid	page 29
+§Appendix	Katie Sardinha	translation	‘to become possessed of a child’	page 29
+§Appendix	Kwak’wala	transcription	abayad	page 29
+§Appendix	Katie Sardinha	translation	‘havinga mother’	page 29
+§Appendix	Kwak’wala	transcription	ǧigad	page 29
+§Appendix	Katie Sardinha	translation	‘having a wife’	page 29
+§Appendix	Kwak’wala	transcription	caxmodad	page 29
+§Appendix	Katie Sardinha	translation	‘having sea-egg shells’	page 29
+§Appendix	Kwak’wala	transcription	məmxcaladzad	page 29
+§Appendix	Katie Sardinha	translation	‘to have shame’	page 29
+§Appendix	Kwak’wala	transcription	mədzidzad	page 29
+§Appendix	Katie Sardinha	translation	‘having whistles’	page 29
+§Appendix	Kwak’wala	transcription	qayadzad	page 29
+§Appendix	Katie Sardinha	translation	‘having a walking place, words of a song’	page 29
+§Appendix	Kwak’wala	transcription	qʷ’əled	page 29
+§Appendix	Katie Sardinha	translation	‘life owner (saver)’	page 29
+§Appendix	Kwak’wala	transcription	c’ayawad	page 29
+§Appendix	Katie Sardinha	translation	‘ready to make up mind’	page 29
+§Appendix	Katie Sardinha	note	Words containing –id instead of –ad: “This suffix [-ad] has a secondary form in –id which seems to be more nominal in character than the form –ad. It is used in forms of address.”	page 30, a word list's title
+§Appendix	Katie Sardinha	citation	(Boas 1911: 507)	page 30, the source of the quotation in the title
+§Appendix	Kwak’wala	transcription	q’agʷid	page 30
+§Appendix	Katie Sardinha	translation	‘slave-owner’	page 30
+§Appendix	Katie Sardinha	note	(i.e. O master!)	page 30, after the meaning
+§Appendix	Kwak’wala	transcription	adzid	page 30
+§Appendix	Katie Sardinha	translation	‘dog-owner’	page 30
+§Appendix	Katie Sardinha	note	(i.e. O master! [who has me for a dog]).	page 30, after the meaning
+§Appendix	Kwak’wala	transcription	Hamdzid	page 30
+§Appendix	Katie Sardinha	translation	‘food-owner’	page 30
+§Appendix	Katie Sardinha	note	(Name)	page 30, after the meaning
+§Appendix	Katie Sardinha	note	Synonyms containing either suffix:	page 30, a word list's title
+§Appendix	Kwak’wala	transcription	ɬiwad	page 30, one of the forms set together, ɬiwad, ɬiwiʔnukʷ
+§Appendix	Kwak’wala	transcription	ɬiwiʔnukʷ	page 30, one of the forms set together, ɬiwad, ɬiwiʔnukʷ
+§Appendix	Katie Sardinha	translation	‘to have a mat’	page 30
+§Appendix	Katie Sardinha	note	(ɬixʷ-)	page 30, after the meaning
+§Appendix	Kwak’wala	transcription	q’agʷad	page 30, one of the forms set together, q’agʷad, q’akonukʷ
+§Appendix	Kwak’wala	transcription	q’akonukʷ	page 30, one of the forms set together, q’agʷad, q’akonukʷ
+§Appendix	Katie Sardinha	translation	‘to have a slave’	page 30
+§Appendix	Katie Sardinha	note	(q’akʷ-)	page 30, after the meaning
+§Appendix	Kwak’wala	transcription	dəxəmlad	page 30, one of the forms set together, dəxəmlad, dəxəmɬnukʷ
+§Appendix	Kwak’wala	transcription	dəxəmɬnukʷ	page 30, one of the forms set together, dəxəmlad, dəxəmɬnukʷ
+§Appendix	Katie Sardinha	translation	‘to have owl mask’	page 30
+§Appendix	Katie Sardinha	note	Both suffixes together in a single word:	page 30, a word list's title
+§Appendix	Kwak’wala	transcription	ʔəχnugʷad	page 30
+§Appendix	Katie Sardinha	translation	‘owner’	page 30
+references	Katie Sardinha	heading	References	page 30
+references	Katie Sardinha	reference	Anderson, Stephen R. 1984. Kwakwala Syntax and the Government-Binding Theory. Eung-Do Cook and Donna B. Gerdts, eds. Syntax and Semantics, vol. 16: The Syntax of Native American Languages. Orlando, FL: Academic Press. 21-75.	page 30
+references	Katie Sardinha	reference	Anonby, Stan J. 1997. Reversing Language Shift: Can Kwak'wala be Revived? University of North Dakota MA thesis.	page 30
+references	Katie Sardinha	reference	Boas, Franz. 1911. Kwakiutl. Handbook of American Indian Languages I.423-557. Bureau of American Ethnology-Bulletin 40.	page 30
+references	Katie Sardinha	reference	Boas, Franz and George Hunt. 1902. Kwakiutl Texts (two volumes). Memoirs of the American Museum of Natural History 5. 1-270, 271-402.	page 30
+references	Katie Sardinha	reference	Boas, Franz (Helene Boas Yampolsky, ed.). 1947. Kwakiutl Grammar with a Glossary of the Suffixes. Transactions of the American Philosophical Society 37. 202-377. Republished 1976. New York, NY: AMS Press Inc.	page 30
+references	Katie Sardinha	reference	Chung, Yunhee. 2007. The internal structure of the Kwak'wala nominal domain. Kristín M. Johannsdóttir and Martin A. Oberg, eds. Papers for the 42nd International Conference on Salish and Neighbouring Languages. Vancouver, BC: University of British Columbia Working Papers in Linguistics. 101-118.	page 30
+references	Katie Sardinha	reference	Fortescue, Michael. 2006. Drift and the Grammaticalization Divide Between Northern and Southern Wakashan. International Journal of American Linguistics 72(3): 295 – 324.	page 30
+references	Katie Sardinha	reference	First Voices, Kwak’wala online wordlist. Accessed May 2013. <http://www. firstvoices.ca/en/Kwakwala/words>.	page 30
+references	Katie Sardinha	reference	Grubb, David McC. 1977. A Practical Writing System and Short Dictionary of Kwakw'ala (Kwakiutl). Canadian Ethnology Service Paper 34. Ottawa, ON: National Museums of Canada.	page 30
+references	Katie Sardinha	reference	Levine, Robert D. 1980. On the Lexical Origin of the Kwakwala Passive. International Journal of American Linguistics 46:4. 240-258.	page 31
+references	Katie Sardinha	reference	Levine, Robert D. 1984. Empty Categories, Rules of Grammar, and Kwakwala Complementation. Eung-Do Cook and Donna B. Gerdts, eds. The Syntax of Native American Languages. Orlando, FL: Academic Press. 215-245.	page 31
+references	Katie Sardinha	reference	Nicolson, Marianne and Adam Werle. 2009. An investigation of modern Kwak'wala determiner systems. University of Victoria ms.	page 31
+references	Katie Sardinha	reference	Sardinha, Katie. 2011. Prepositional *his and the development of morphological case in Northern Wakashan. Papers for the 46th International Conference on Salish and Neighbouring Languages. Vancouver, BC: University of British Columbia Working Papers in Linguistics.	page 31
+end	Katie Sardinha	note	Katie Sardinha katie.sardinha@berkeley.edu	page 31, the author's name and e-mail address

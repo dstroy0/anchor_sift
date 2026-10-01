@@ -23,7 +23,7 @@ One subject's pipeline, from the archive to a checked corpus. This is the larges
 | `pdf2png.py`, `draft_page_text.py` | a page as an image, and as a first draft, for the papers whose extracted text is not what the page prints |
 | `hand_extraction/` | the control. Forms read off a page by a person, and the checks that grade a reader against them |
 | `corpus_script_extraction/` | the readers, one per paper |
-| `anchor_sift_algorithmic_extraction/` | the sift applied to the same papers |
+| `orior_algorithmic_extraction/` | the sift applied to the same papers |
 | `corpus_derivation.py` | how wrong the corpus could be, from what the checks have seen |
 
 The papers and the hand extractions are not here. They are somebody else's copyright and somebody else's language, they live in a closed repository, and `build/papers` and `build/oracles` reach them. `maint/corpus/verify_private_sync.py` checks that what `build/` reaches is what the signature covers.

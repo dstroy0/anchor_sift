@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Get real dates for the cookery books, for Section 4.13 of theory/workbooks/anchor_sift.
+# Get real dates for the cookery books, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/recipe_dates.py
 #
@@ -31,7 +31,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 TARGET = os.path.join(ROOT, "build", "recipe_dates.csv")
-AGENT = {"User-Agent": "anchor-sift-research/1.0 (linguistic invariance study)"}
+AGENT = {"User-Agent": "orior-research/1.0 (linguistic invariance study)"}
 
 CATALOG = "https://gutendex.com/books/"
 PAUSE = 0.3

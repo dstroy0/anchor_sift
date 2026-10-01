@@ -1,0 +1,2245 @@
+where	who	kind	form	gloss
+front	Noel Rude	title	Reconstructing Proto-Sahaptian Sounds	page 1
+front	Noel Rude	name	Noel Rude	author
+front	Noel Rude	note	Confederated Tribes of the Umatilla Indian Reservation	page 1, under Noel Rude
+front	Noel Rude	note	Sahaptin and the mutually unintelligible Nez Perce comprise the Sahaptian language family. This paper attempts to reconstruct the sound system of the parent language of that family. There is little dialect variation in the available data for Nez Perce, whereas Sahaptin divides into three definable dialect clusters: Columbia River (Umatilla, Tenino, Celilo, etc.); Northwest (Klickitat, Upper Cowlitz, Yakima, etc.); Northeast (Priest Rapids, Walla Walla, Palouse, etc.). Various features distinguish the dialects, e.g., long vowels derived from certain VCV sequences are more common in the Northern dialects and in Nez Perce, the Northeast dialects and Nez Perce are more likely to preserve the glottal stop, and the palatalization of *k is most extensive in the Columbia River dialects. The reconstructions proposed here are, as always, more or less tentative. Unless otherwise indicated the examples labeled Sahaptin (S) are from Umatilla.1	page 1, the abstract, set under the affiliation with no label
+front	Noel Rude	language	Tenino	Columbia River Sahaptin
+front	Noel Rude	language	Celilo	Columbia River Sahaptin
+front	Noel Rude	language	Klickitat	Northwest Sahaptin
+front	Noel Rude	language	Upper Cowlitz	Northwest Sahaptin
+front	Noel Rude	language	Priest Rapids	Northeast Sahaptin
+front	Noel Rude	language	Palouse	Northeast Sahaptin
+footnote 1	Noel Rude	note	For the connection between Sahaptin and Nez Perce, see Aoki (1962), Rigsby (1965), Rigsby and Silverstein (1969), and Rude (1996, 2006). For the relationship with Plateau Penutian, see Aoki (1963), Rude (1987), and Pharis (2006). For a possible relationship within the broader Penutian macro-family, see DeLancey & Golla (1979) and Mithun (1999), also Rude (2000) for a possible connection with Uto-Aztecan. For Sahaptin grammars, see Jacobs (1931), Millstein (ca. 1990a), Rigsby and Rude (1996), Rude (2009), and for published NW Sahaptin texts, see Jacobs (1929, 1934, 1937). Beavert and Hargus (2010) provide a dictionary of Yakima Sahaptin, Millstein (ca. 1990b) an unpublished dictionary of Warm Springs Sahaptin, and Aoki (1994) a dictionary of Nez Perce. I wish to thank Inez Spino Reves, a Umatilla speaker, for the Columbia River (CR) examples, and Elizabeth Wocatsie Jones, a Walla Walla speaker, for the Northeast (NE) examples. Thanks also are due to Sharon Hargus for reading and commenting on this paper. Abbreviations are as follows: CR: Columbia River Sahaptin, K: Klikitat, N: Northern Sahaptin, NE: Northeast Sahaptin, NP: Nez Perce, NW: Northwest Sahaptin, PS: Proto-Sahaptian, S: Sahaptin, WS: Warm Springs, Y: Yakima.	page 1, footnote 1
+footnote 1	Noel Rude	name	Pharis	Nicholas J. Pharris (2006), Molalla and Nez Perce, spelled Pharis in note 1
+footnote 1	Noel Rude	name	DeLancey	Scott DeLancey (1997, with Victor Golla), the Penutian hypothesis
+footnote 1	Noel Rude	name	Golla	Victor Golla (1997, with Scott DeLancey), the Penutian hypothesis
+footnote 1	Noel Rude	name	Mithun	Marianne Mithun (1999), the languages of native North America
+footnote 1	Noel Rude	name	Jacobs	Melville Jacobs (1929, 1931, 1934, 1937), Northern Sahaptin grammar and texts
+footnote 1	Noel Rude	name	Millstein	Henry Millstein (ca. 1990a, 1990b), Warm Springs Sahaptin
+footnote 1	Noel Rude	name	Elizabeth Wocatsie Jones	a Walla Walla speaker, the author's source for the Northeast examples
+footnote 1	Noel Rude	language	Yakima	Northwest Sahaptin
+footnote 1	Noel Rude	language	Walla Walla	Northeast Sahaptin
+footnote 1	Noel Rude	language	Plateau Penutian	the stock
+footnote 1	Noel Rude	language	Penutian	the macro-family
+footnote 1	Noel Rude	language	Uto-Aztecan	a family the paper links Sahaptian with
+Figure 1	Noel Rude	note	Figure 1. The Sahaptian language family	page 1, the figure's caption
+Figure 1	Noel Rude	note	Proto-Sahaptian	page 1, a node of the tree, its root
+Figure 1	Noel Rude	note	Nez Perce	page 1, a node of the tree, under Proto-Sahaptian
+Figure 1	Noel Rude	note	Sahaptin	page 1, a node of the tree, under Proto-Sahaptian
+Figure 1	Noel Rude	note	Columbia River	page 1, a node of the tree, under Sahaptin
+Figure 1	Noel Rude	note	Northern	page 1, a node of the tree, under Sahaptin
+Figure 1	Noel Rude	note	Northwest	page 1, a node of the tree, under Northern
+Figure 1	Noel Rude	note	Northeast	page 1, a node of the tree, under Northern
+front	Noel Rude	language	Sahaptin	Sahaptian
+§1	Noel Rude	heading	1 Vowels	page 2
+§1.1	Noel Rude	heading	1.1 Basic vowel inventory	page 2
+§1.1	Noel Rude	note	Proto-Sahaptian *i and *u survive intact in both Nez Perce and Sahaptin. Stressed vowels are lengthened in Nez Perce (though with some phonological caveats). Because of the complexity of Nez Perce phonology Nez Perce examples will be provided in underlying form between slashes.	page 2
+§1.1	Proto-Sahaptian	cited form	*i	page 2, set upright
+§1.1	Proto-Sahaptian	cited form	*u	page 2, set upright
+Table 1	Noel Rude	note	Table 1. Proto-Sahaptian vowels	page 2, the table's caption, set beside the paragraph
+Table 1	Noel Rude	note	Front	page 2, a column's head
+Table 1	Noel Rude	note	Central	page 2, a column's head
+Table 1	Noel Rude	note	Back	page 2, a column's head
+Table 1	Noel Rude	note	High	page 2, the row's head
+Table 1	Proto-Sahaptian	cited form	i	page 2, high front
+Table 1	Proto-Sahaptian	cited form	ɨ	page 2, high central, set as a Times i with a bar the text layer loses
+Table 1	Proto-Sahaptian	cited form	u	page 2, high back
+Table 1	Noel Rude	note	Mid	page 2, the row's head
+Table 1	Proto-Sahaptian	cited form	o	page 2, mid back
+Table 1	Noel Rude	note	Low	page 2, the row's head
+Table 1	Proto-Sahaptian	cited form	æ	page 2, low front
+Table 1	Proto-Sahaptian	cited form	α	page 2, low back
+(1)	Noel Rude	note	NP kíi /kí/ ‘this’; S čí; PS *kí	page 2, the example as printed
+(1)	Nez Perce	cited form	kíi	page 2, example (1), ‘this’
+(1)	Nez Perce	phonemic	/kí/	page 2, example (1), ‘this’
+(1)	Sahaptin	cited form	čí	page 2, example (1)
+(1)	Proto-Sahaptian	cited form	*kí	page 2, example (1)
+(2)	Noel Rude	note	NP kúut /kut/ ‘going, doing’; S kút; PS *kút	page 2, the example as printed
+(2)	Nez Perce	cited form	kúut	page 2, example (2), ‘going, doing’
+(2)	Nez Perce	phonemic	/kut/	page 2, example (2), ‘going, doing’
+(2)	Sahaptin	cited form	kút	page 2, example (2)
+(2)	Proto-Sahaptian	cited form	*kút	page 2, example (2)
+§1.1	Noel Rude	note	Nez Perce contrasts two low vowels, /æ/ and /α/, represented orthographically as /e/ and /a/.	page 2
+§1.1	Nez Perce	phonemic	/æ/	page 2, set upright
+§1.1	Nez Perce	phonemic	/α/	page 2, set upright
+§1.1	Nez Perce	phonemic	/e/	page 2, set upright
+§1.1	Nez Perce	phonemic	/a/	page 2, set upright
+§1.1	Noel Rude	language	Nez Perce	Sahaptian
+(3)	Noel Rude	note	NP táhay /tahay/ ‘hardened snow’	page 2, the example as printed
+(3)	Nez Perce	cited form	táhay	page 2, example (3), ‘hardened snow’
+(3)	Nez Perce	phonemic	/tahay/	page 2, example (3), ‘hardened snow’, underlined, a strong morpheme
+(4)	Noel Rude	note	NP téhey /tehey/ ‘fur’	page 2, the example as printed
+(4)	Nez Perce	cited form	téhey	page 2, example (4), ‘fur’
+(4)	Nez Perce	phonemic	/tehey/	page 2, example (4), ‘fur’
+§1.1	Noel Rude	note	Sahaptin blurs the /æ/ - /α/ contrast with one low vowel, /a/. Evidence for the contrast in Proto-Sahaptian is supplied by palatalization in Sahaptin (see §3.1).	page 2
+§1.1	Noel Rude	language	Sahaptian	the family
+§1.1	Noel Rude	language	Proto-Sahaptian	the reconstructed parent
+(5)	Noel Rude	note	S pčá ‘mother’; NP píke /pke/; PS *pké	page 2, the example as printed
+(5)	Sahaptin	cited form	pčá	page 2, example (5), ‘mother’
+(5)	Nez Perce	cited form	píke	page 2, example (5)
+(5)	Nez Perce	phonemic	/pke/	page 2, example (5)
+(5)	Proto-Sahaptian	cited form	*pké	page 2, example (5)
+(6)	Noel Rude	note	S skáwn ‘fear’; NP cikáawn /ckáwn/; PS *skáwn	page 2, the example as printed
+(6)	Sahaptin	cited form	skáwn	page 2, example (6), ‘fear’
+(6)	Nez Perce	cited form	cikáawn	page 2, example (6)
+(6)	Nez Perce	phonemic	/ckáwn/	page 2, example (6), underlined, a strong morpheme
+(6)	Proto-Sahaptian	cited form	*skáwn	page 2, example (6)
+§1.1	Noel Rude	note	Nez Perce contrasts /u/ and /o/. There may be no test, however, that could prove that this distinction obtained (or didn’t obtain) in Proto-Sahaptian. The reconstructions given in this paper assume that it did.	page 2
+§1.1	Nez Perce	phonemic	/u/	page 2, set upright
+§1.1	Nez Perce	phonemic	/o/	page 2, set upright
+(7)	Noel Rude	note	NP póhos, pohós- /pohos/ ‘mountain mahogany, Cercocarpus ledifolius’; S púuš ‘juniper, Juniperus occidentalis’; NE puʔúš; PS *pohóš	page 2, the example as printed
+(7)	Nez Perce	cited form	póhos	page 2, example (7), ‘mountain mahogany, Cercocarpus ledifolius’
+(7)	Nez Perce	cited form	pohós-	page 2, example (7), ‘mountain mahogany, Cercocarpus ledifolius’
+(7)	Nez Perce	phonemic	/pohos/	page 2, example (7), ‘mountain mahogany, Cercocarpus ledifolius’, underlined, a strong morpheme
+(7)	Sahaptin	cited form	púuš	page 2, example (7), ‘juniper, Juniperus occidentalis’
+(7)	Northeast Sahaptin	cited form	puʔúš	page 2, example (7)
+(7)	Proto-Sahaptian	cited form	*pohóš	page 2, example (7)
+(8)	Noel Rude	note	NP púhs, puhús- /puhs/ ‘inner side of hide’; S púuš; NE puʔúš; PS *puhúš	page 2, the example as printed
+(8)	Nez Perce	cited form	púhs	page 2, example (8), ‘inner side of hide’
+(8)	Nez Perce	cited form	puhús-	page 2, example (8), ‘inner side of hide’
+(8)	Nez Perce	phonemic	/puhs/	page 2, example (8), ‘inner side of hide’
+(8)	Sahaptin	cited form	púuš	page 2, example (8)
+(8)	Northeast Sahaptin	cited form	puʔúš	page 2, example (8)
+(8)	Proto-Sahaptian	cited form	*puhúš	page 2, example (8)
+§1.1	Noel Rude	note	PS *i is assumed to have been epenthetic (see §1.4).	page 2
+§1.2	Noel Rude	heading	1.2 Long vowels	page 3
+§1.2.1	Noel Rude	heading	1.2.1 Lengthening under stress	page 3
+§1.2.1	Noel Rude	note	Stressed vowels are lengthened in Nez Perce.	page 3
+(9)	Noel Rude	note	NP núusnu, nusnúu- /nusnu/ ‘nose’; S núšnu; PS *núšnu	page 3, the example as printed
+(9)	Nez Perce	cited form	núusnu	page 3, example (9), ‘nose’
+(9)	Nez Perce	cited form	nusnúu-	page 3, example (9), ‘nose’
+(9)	Nez Perce	phonemic	/nusnu/	page 3, example (9), ‘nose’
+(9)	Sahaptin	cited form	núšnu	page 3, example (9)
+(9)	Proto-Sahaptian	cited form	*núšnu	page 3, example (9)
+(10)	Noel Rude	note	NP táam̓am, tam̓áam- /tam̓am/ ‘egg’; S tamám; PS *tam̓ám	page 3, the example as printed
+(10)	Nez Perce	cited form	táam̓am	page 3, example (10), ‘egg’
+(10)	Nez Perce	cited form	tam̓áam-	page 3, example (10), ‘egg’
+(10)	Nez Perce	phonemic	/tam̓am/	page 3, example (10), ‘egg’, underlined, a strong morpheme
+(10)	Sahaptin	cited form	tamám	page 3, example (10)
+(10)	Proto-Sahaptian	cited form	*tam̓ám	page 3, example (10)
+§1.2.1	Noel Rude	note	Lengthening does not occur in the environment /VʔV/ or /VhV/ (V = vowel).	page 3
+§1.2.1	Nez Perce	phonemic	/VʔV/	page 3, set upright
+§1.2.1	Nez Perce	phonemic	/VhV/	page 3, set upright
+(11)	Noel Rude	note	NP súʔum, suʔúm- /suʔum/ ‘master, pet’	page 3, the example as printed
+(11)	Nez Perce	cited form	súʔum	page 3, example (11), ‘master, pet’
+(11)	Nez Perce	cited form	suʔúm-	page 3, example (11), ‘master, pet’
+(11)	Nez Perce	phonemic	/suʔum/	page 3, example (11), ‘master, pet’
+(12)	Noel Rude	note	NP tóhon, tohón- /tohon/ ‘leggings’	page 3, the example as printed
+(12)	Nez Perce	cited form	tóhon	page 3, example (12), ‘leggings’
+(12)	Nez Perce	cited form	tohón-	page 3, example (12), ‘leggings’
+(12)	Nez Perce	phonemic	/tohon/	page 3, example (12), ‘leggings’
+§1.2.1	Noel Rude	note	High vowels (/i/ and /u/) do not lengthen before a morpheme boundary plus /y/ (or [y]).	page 3
+§1.2.1	Nez Perce	phonemic	/i/	page 3, set upright
+§1.2.1	Nez Perce	phonemic	/y/	page 3, set upright
+§1.2.1	Nez Perce	cited form	[y]	page 3, set upright
+(13)	Noel Rude	note	NP kúy /ku-y/ ‘go!’ or ‘do!’; cf. kúuse /ku-sen-s/ ‘I am going’	page 3, the example as printed
+(13)	Nez Perce	cited form	kúy	page 3, example (13), ‘go!’, ‘do!’
+(13)	Nez Perce	phonemic	/ku-y/	page 3, example (13), ‘go!’, ‘do!’
+(13)	Nez Perce	cited form	kúuse	page 3, example (13), ‘I am going’
+(13)	Nez Perce	phonemic	/ku-sen-s/	page 3, example (13), ‘I am going’
+(14)	Noel Rude	note	NP hiʔníye /hi-ʔni-e/ ‘he gave’; cf. ʔiníise /ʔni-sen-s/ ‘I am giving’	page 3, the example as printed
+(14)	Nez Perce	cited form	hiʔníye	page 3, example (14), ‘he gave’
+(14)	Nez Perce	phonemic	/hi-ʔni-e/	page 3, example (14), ‘he gave’
+(14)	Nez Perce	cited form	ʔiníise	page 3, example (14), ‘I am giving’
+(14)	Nez Perce	phonemic	/ʔni-sen-s/	page 3, example (14), ‘I am giving’
+§1.2.2	Noel Rude	heading	1.2.2 Compensatory lengthening	page 3
+§1.2.2	Noel Rude	note	An unstressed vowel lengthens in Nez Perce when a deleted /h/ follows after a morpheme boundary.	page 3
+§1.2.2	Nez Perce	phonemic	/h/	page 3, set upright
+(15)	Noel Rude	note	NP hiinúʔ /hi-hn-úʔ/ ‘he will say’	page 3, the example as printed
+(15)	Nez Perce	cited form	hiinúʔ	page 3, example (15), ‘he will say’
+(15)	Nez Perce	phonemic	/hi-hn-úʔ/	page 3, example (15), ‘he will say’
+(16)	Noel Rude	note	NP peepúʔ /pe-hp-úʔ/ ‘we shall eat’	page 3, the example as printed
+(16)	Nez Perce	cited form	peepúʔ	page 3, example (16), ‘we shall eat’
+(16)	Nez Perce	phonemic	/pe-hp-úʔ/	page 3, example (16), ‘we shall eat’
+§1.2.3	Noel Rude	heading	1.2.3 Loss of medial consonant	page 3
+§1.2.3	Noel Rude	note	Proto-Sahaptian *ewe becomes /uu/ in NP and sporadically so in Sahaptin (least common in CR and most commonly in NE). In Nez Perce *awa becomes /oo/.	page 3
+§1.2.3	Proto-Sahaptian	cited form	*ewe	page 3, set upright
+§1.2.3	Nez Perce	phonemic	/uu/	page 3, set upright
+§1.2.3	Proto-Sahaptian	cited form	*awa	page 3, set upright
+§1.2.3	Nez Perce	phonemic	/oo/	page 3, set upright
+(17)	Noel Rude	note	NP kúus ‘water’; NE & CR čúuš; K čáwaš; PS *kéweš	page 3, the example as printed
+(17)	Nez Perce	cited form	kúus	page 3, example (17), ‘water’
+(17)	Northeast Sahaptin	cited form	čúuš	page 3, example (17)
+(17)	Columbia River Sahaptin	cited form	čúuš	page 3, example (17)
+(17)	Klikitat	cited form	čáwaš	page 3, example (17)
+(17)	Proto-Sahaptian	cited form	*kéweš	page 3, example (17)
+(18)	Noel Rude	note	NP miyóox̣at ‘chief’; NE & CR miyúux̣; NW miyáwax̣; PS *miyáwax̣(ato)	page 3, the example as printed
+(18)	Nez Perce	cited form	miyóox̣at	page 3, example (18), ‘chief’
+(18)	Northeast Sahaptin	cited form	miyúux̣	page 3, example (18)
+(18)	Columbia River Sahaptin	cited form	miyúux̣	page 3, example (18)
+(18)	Northwest Sahaptin	cited form	miyáwax̣	page 3, example (18)
+(18)	Proto-Sahaptian	cited form	*miyáwax̣(ato)	page 3, example (18)
+§1.2.3	Noel Rude	note	Proto-Sahaptian *ene/*ele and *ana/*ala variously mutate to /aa/ in the Sahaptin dialects.	page 3
+§1.2.3	Proto-Sahaptian	cited form	*ene/*ele	page 3, set upright
+§1.2.3	Proto-Sahaptian	cited form	*ana/*ala	page 3, set upright
+§1.2.3	Sahaptin	phonemic	/aa/	page 3, set upright
+(19)	Noel Rude	note	NW k̓ʷaalí ‘dangerous being’; CR k̓ʷalalí; PS *k̓ʷalalí	page 4, the example as printed
+(19)	Northwest Sahaptin	cited form	k̓ʷaalí	page 4, example (19), ‘dangerous being’
+(19)	Columbia River Sahaptin	cited form	k̓ʷalalí	page 4, example (19)
+(19)	Proto-Sahaptian	cited form	*k̓ʷalalí	page 4, example (19)
+(20)	Noel Rude	note	NE -twaa; CR -twana ‘together with’; PS *-twenen	page 4, the example as printed
+(20)	Northeast Sahaptin	cited form	-twaa	page 4, example (20), ‘together with’
+(20)	Columbia River Sahaptin	cited form	-twana	page 4, example (20), ‘together with’
+(20)	Proto-Sahaptian	cited form	*-twenen	page 4, example (20)
+§1.2.3	Noel Rude	note	The sequence *eye or *aya variously simplifies to /aa/ in the Sahaptin dialects, and regularly to [ee] or [aa] in Nez Perce when unstressed.	page 4
+§1.2.3	Proto-Sahaptian	cited form	*eye	page 4, set upright
+§1.2.3	Proto-Sahaptian	cited form	*aya	page 4, set upright
+§1.2.3	Nez Perce	cited form	[ee]	page 4, set upright
+§1.2.3	Nez Perce	cited form	[aa]	page 4, set upright
+(21)	Noel Rude	note	S ččáa ‘serviceberry’; Y ččáya; NP kikéeye /kkeye/; PS *kkéye	page 4, the example as printed
+(21)	Sahaptin	cited form	ččáa	page 4, example (21), ‘serviceberry’
+(21)	Yakima	cited form	ččáya	page 4, example (21)
+(21)	Nez Perce	cited form	kikéeye	page 4, example (21)
+(21)	Nez Perce	phonemic	/kkeye/	page 4, example (21)
+(21)	Proto-Sahaptian	cited form	*kkéye	page 4, example (21)
+(22)	Noel Rude	note	CR x̣ʷaamá ‘golden eagle’; WS & N x̣ʷayamá; PS *x̣ʷayamá	page 4, the example as printed
+(22)	Columbia River Sahaptin	cited form	x̣ʷaamá	page 4, example (22), ‘golden eagle’
+(22)	Warm Springs	cited form	x̣ʷayamá	page 4, example (22)
+(22)	Northern Sahaptin	cited form	x̣ʷayamá	page 4, example (22)
+(22)	Proto-Sahaptian	cited form	*x̣ʷayamá	page 4, example (22)
+(23)	Noel Rude	note	NP weecéeye /weyece-e/ ‘I danced’; weyéeces /weyece-s/ ‘I have danced’	page 4, the example as printed
+(23)	Nez Perce	cited form	weecéeye	page 4, example (23), ‘I danced’
+(23)	Nez Perce	phonemic	/weyece-e/	page 4, example (23), ‘I danced’
+(23)	Nez Perce	cited form	weyéeces	page 4, example (23), ‘I have danced’
+(23)	Nez Perce	phonemic	/weyece-s/	page 4, example (23), ‘I have danced’
+§1.2.3	Noel Rude	note	A medial glottal stop variously deletes in Sahaptin depending on position and dialect.	page 4
+(24)	Noel Rude	note	CR náamn ‘wear out, fade away’; NE naʔámn; NP /laʔámn/; PS *naʔámn	page 4, the example as printed
+(24)	Columbia River Sahaptin	cited form	náamn	page 4, example (24), ‘wear out, fade away’
+(24)	Northeast Sahaptin	cited form	naʔámn	page 4, example (24)
+(24)	Nez Perce	phonemic	/laʔámn/	page 4, example (24), underlined, a strong morpheme
+(24)	Proto-Sahaptian	cited form	*naʔámn	page 4, example (24)
+(25)	Noel Rude	note	CR kúuš ‘thusly’; NE kuʔúš; NP kuʔús /kuʔús/; PS *kuʔúš	page 4, the example as printed
+(25)	Columbia River Sahaptin	cited form	kúuš	page 4, example (25), ‘thusly’
+(25)	Northeast Sahaptin	cited form	kuʔúš	page 4, example (25)
+(25)	Nez Perce	cited form	kuʔús	page 4, example (25)
+(25)	Nez Perce	phonemic	/kuʔús/	page 4, example (25)
+(25)	Proto-Sahaptian	cited form	*kuʔúš	page 4, example (25)
+(26)	Noel Rude	note	S yáamaš ‘mule deer doe’; NP yeʔémes /yeʔemes/ ‘black-tailed doe’; PS *yeʔémeš	page 4, the example as printed
+(26)	Sahaptin	cited form	yáamaš	page 4, example (26), ‘mule deer doe’
+(26)	Nez Perce	cited form	yeʔémes	page 4, example (26), ‘black-tailed doe’
+(26)	Nez Perce	phonemic	/yeʔemes/	page 4, example (26), ‘black-tailed doe’
+(26)	Proto-Sahaptian	cited form	*yeʔémeš	page 4, example (26)
+§1.2.3	Noel Rude	note	A medial /h/ regularly deletes in Nez Perce when both vowels are unstressed.	page 4
+(27)	Noel Rude	note	NP ʔeexnúʔ /ʔe-hekn-úʔ/ ‘I will see it’; ʔehékin /ʔe-hekn-s/ ‘I have seen it’	page 4, the example as printed
+(27)	Nez Perce	cited form	ʔeexnúʔ	page 4, example (27), ‘I will see it’
+(27)	Nez Perce	phonemic	/ʔe-hekn-úʔ/	page 4, example (27), ‘I will see it’
+(27)	Nez Perce	cited form	ʔehékin	page 4, example (27), ‘I have seen it’
+(27)	Nez Perce	phonemic	/ʔe-hekn-s/	page 4, example (27), ‘I have seen it’
+(28)	Noel Rude	note	NP hitoosíca /hi-tohosn-sen-s/ ‘the fire is dying down’; hitohósin /hi-tohosn-s/ ‘the fire has died down’	page 4, the example as printed
+(28)	Nez Perce	cited form	hitoosíca	page 4, example (28), ‘the fire is dying down’
+(28)	Nez Perce	phonemic	/hi-tohosn-sen-s/	page 4, example (28), ‘the fire is dying down’, tohosn underlined, a strong morpheme
+(28)	Nez Perce	cited form	hitohósin	page 4, example (28), ‘the fire has died down’
+(28)	Nez Perce	phonemic	/hi-tohosn-s/	page 4, example (28), ‘the fire has died down’, tohosn underlined, a strong morpheme
+§1.2.3	Noel Rude	note	Proto-Sahaptian *VhV typically shortens to V (V = vowel) in Sahaptin (see §3.7).	page 4
+§1.2.3	Proto-Sahaptian	cited form	*VhV	page 4, set upright
+(29)	Noel Rude	note	S páp ‘man’s daughter’; NP páhap /pahap/; PS *páhap	page 4, the example as printed
+(29)	Sahaptin	cited form	páp	page 4, example (29), ‘man’s daughter’
+(29)	Nez Perce	cited form	páhap	page 4, example (29)
+(29)	Nez Perce	phonemic	/pahap/	page 4, example (29), underlined, a strong morpheme
+(29)	Proto-Sahaptian	cited form	*páhap	page 4, example (29)
+(30)	Noel Rude	note	S pínapam ‘four times’; NP pilepéhem /pilepehem/; PS *pínepehem	page 4, the example as printed
+(30)	Sahaptin	cited form	pínapam	page 4, example (30), ‘four times’
+(30)	Nez Perce	cited form	pilepéhem	page 4, example (30)
+(30)	Nez Perce	phonemic	/pilepehem/	page 4, example (30)
+(30)	Proto-Sahaptian	cited form	*pínepehem	page 4, example (30)
+§1.2.3	Noel Rude	note	In the NW dialects Proto-Sahaptian *eRe (R = resonant or glottal) variously becomes /ii/.	page 4
+§1.2.3	Proto-Sahaptian	cited form	*eRe	page 4, set upright
+§1.2.3	Northwest Sahaptin	phonemic	/ii/	page 4, set upright
+(31)	Noel Rude	note	NW tíin ‘person’; CR tanán; PS *tenén	page 5, the example as printed
+(31)	Northwest Sahaptin	cited form	tíin	page 5, example (31), ‘person’
+(31)	Columbia River Sahaptin	cited form	tanán	page 5, example (31)
+(31)	Proto-Sahaptian	cited form	*tenén	page 5, example (31)
+(32)	Noel Rude	note	Y číiš ‘water’; K čáwaš; PS *kéweš	page 5, the example as printed
+(32)	Yakima	cited form	číiš	page 5, example (32), ‘water’
+(32)	Klikitat	cited form	čáwaš	page 5, example (32)
+(32)	Proto-Sahaptian	cited form	*kéweš	page 5, example (32)
+(33)	Noel Rude	note	NW x̣ʷíimi ‘up, above, high, up high’; CR x̣ʷáami; NE also x̣ʷayám; PS *x̣ʷeyémi	page 5, the example as printed
+(33)	Northwest Sahaptin	cited form	x̣ʷíimi	page 5, example (33), ‘up, above, high, up high’
+(33)	Columbia River Sahaptin	cited form	x̣ʷáami	page 5, example (33)
+(33)	Northeast Sahaptin	cited form	x̣ʷayám	page 5, example (33)
+(33)	Proto-Sahaptian	cited form	*x̣ʷeyémi	page 5, example (33)
+(34)	Noel Rude	note	Y wásiis ‘canoe’; CR wásas; PS *wéseʔes (< *wése ‘ride’ + purpose nominalizer *-ʔes)	page 5, the example as printed
+(34)	Yakima	cited form	wásiis	page 5, example (34), ‘canoe’
+(34)	Columbia River Sahaptin	cited form	wásas	page 5, example (34)
+(34)	Proto-Sahaptian	cited form	*wéseʔes	page 5, example (34)
+(34)	Proto-Sahaptian	cited form	*wése	page 5, example (34), ‘ride’
+(34)	Proto-Sahaptian	cited form	*-ʔes	page 5, example (34)
+Table 2	Noel Rude	note	Table 2. Ablaut in Sahaptin	page 5, the table's caption
+Table 2	Noel Rude	note	Zero	page 5, a column's head
+Table 2	Noel Rude	note	Long Vowel	page 5, a column's head
+Table 2	Noel Rude	note	aa-ablaut	page 5, the heading of the rows under it
+Table 2	Sahaptin	cited form	ɨwátn	page 5, aa-ablaut, the zero column, ‘vanish’
+Table 2	Sahaptin	cited form	áawat	page 5, aa-ablaut, the long vowel column, ‘vanished’
+Table 2	Sahaptin	cited form	p̓ɨ́x̣n	page 5, aa-ablaut, the zero column, ‘remember’
+Table 2	Sahaptin	cited form	p̓áax̣	page 5, aa-ablaut, the long vowel column, ‘remembered’
+Table 2	Sahaptin	cited form	sc̓át	page 5, aa-ablaut, the zero column, ‘night’
+Table 2	Sahaptin	cited form	sáac̓at	page 5, aa-ablaut, the long vowel column, ‘very dark’
+Table 2	Noel Rude	note	ii-ablaut	page 5, the heading of the rows under it
+Table 2	Sahaptin	cited form	k̓pɨ́t	page 5, ii-ablaut, the zero column, ‘bead’
+Table 2	Sahaptin	cited form	k̓píit	page 5, ii-ablaut, the long vowel column, ‘ball’
+Table 2	Sahaptin	cited form	łk̓ʷí	page 5, ii-ablaut, the zero column, ‘day’
+Table 2	Sahaptin	cited form	łíik̓ʷi	page 5, ii-ablaut, the long vowel column, ‘all day’
+Table 2	Sahaptin	cited form	p̓ɨ́x̣n	page 5, ii-ablaut, the zero column, ‘remember’
+Table 2	Sahaptin	cited form	p̓íix̣	page 5, ii-ablaut, the long vowel column, ‘sober’
+Table 2	Noel Rude	note	uu-ablaut	page 5, the heading of the rows under it
+Table 2	Sahaptin	cited form	kʷɨ́ł	page 5, uu-ablaut, the zero column, ‘that many/much’
+Table 2	Sahaptin	cited form	kúułn	page 5, uu-ablaut, the long vowel column, ‘be full, satiated’
+Table 2	Sahaptin	cited form	k̓ʷɨ́ln	page 5, uu-ablaut, the zero column, ‘be soft’
+Table 2	Sahaptin	cited form	k̓úul	page 5, uu-ablaut, the long vowel column, ‘pounded fine’
+Table 2	Sahaptin	cited form	mɨ́ł	page 5, uu-ablaut, the zero column, ‘how many/much?’
+Table 2	Sahaptin	cited form	múuł	page 5, uu-ablaut, the long vowel column, ‘a little, a few’
+§1.2.4	Noel Rude	heading	1.2.4 Ablaut	page 5
+§1.2.4	Noel Rude	note	A long vowel might be inserted between consonants (or in substitution for *i) as a derivational process. In Sahaptin the long vowel is /aa/, /ii/, or /uu/, as in Table 2. The process is fairly productive, the rarest being the uu-ablaut and probably the most frequent the aa-ablaut. The uu-ablaut seems to occur only next to a labiovelar or /m/. Often the zero form is a verb and the ablaut form has an adverbial or adjectival force. There are instances, however, where verbs are derived by ablaut (such as kúułn ‘be full, satiated’). The oblique forms of the independent pronouns variously fit these ablaut patterns—see Table 4 for examples with the distal demonstrative (the absolute singular is a suppletive k̓ʷá ‘that’). An earlier *úk has been reanalyzed as /ɨ́kʷ/ in order to derive the first example below (see §3.4). The second example provides an instance where /á/ has been reconceived as /í/.	page 5
+§1.2.4	Sahaptin	phonemic	/m/	page 5, set upright
+§1.2.4	Sahaptin	cited form	kúułn	page 5, set upright, ‘be full, satiated’
+§1.2.4	Sahaptin	cited form	k̓ʷá	page 5, set upright, ‘that’
+§1.2.4	Proto-Sahaptian	cited form	*úk	page 5, set upright
+§1.2.4	Sahaptin	phonemic	/ɨ́kʷ/	page 5, set upright
+§1.2.4	Sahaptin	phonemic	/á/	page 5, set upright
+§1.2.4	Sahaptin	phonemic	/í/	page 5, set upright
+(35)	Noel Rude	note	S čmáakʷ ‘very black’ (čmɨ́kʷ < čmúk ‘black’); cf. NP símux /smuk/ ‘charcoal’	page 5, the example as printed
+(35)	Sahaptin	cited form	čmáakʷ	page 5, example (35), ‘very black’
+(35)	Sahaptin	cited form	čmɨ́kʷ	page 5, example (35), ‘black’
+(35)	Sahaptin	cited form	čmúk	page 5, example (35), ‘black’
+(35)	Nez Perce	cited form	símux	page 5, example (35), ‘charcoal’
+(35)	Nez Perce	phonemic	/smuk/	page 5, example (35), ‘charcoal’
+(36)	Noel Rude	note	S šáatɨm ‘all summer’ (šɨ́tɨm < šátɨm ‘summer’)	page 6, the example as printed
+(36)	Sahaptin	cited form	šáatɨm	page 6, example (36), ‘all summer’
+(36)	Sahaptin	cited form	šɨ́tɨm	page 6, example (36), ‘summer’
+(36)	Sahaptin	cited form	šátɨm	page 6, example (36), ‘summer’
+Table 3	Noel Rude	note	Table 3. Ablaut in Nez Perce	page 6, the table's caption
+Table 3	Noel Rude	note	Zero	page 6, a column's head
+Table 3	Noel Rude	note	Long Vowel	page 6, a column's head
+Table 3	Noel Rude	note	aa-ablaut	page 6, the heading of the rows under it
+Table 3	Noel Rude	note	/c̓´kn/ ‘be split, cut’ (Aoki 1994:58); cf. S č̓ɨ́x̣n ‘be cut, cracked, split’	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/c̓´kn/	page 6, aa-ablaut, zero, ‘be split, cut’, underlined, a strong morpheme
+Table 3	Sahaptin	cited form	č̓ɨ́x̣n	page 6, aa-ablaut, zero, ‘be cut, cracked, split’
+Table 3	Noel Rude	note	hic̓áax̣ca /hi-c̓áax̣n-sen-s/ ‘it is splitting’ (Aoki 1994:61)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	hic̓áax̣ca	page 6, aa-ablaut, long vowel, ‘it is splitting’
+Table 3	Nez Perce	phonemic	/hi-c̓áax̣n-sen-s/	page 6, aa-ablaut, long vowel, ‘it is splitting’, c̓áax̣n underlined, a strong morpheme
+Table 3	Noel Rude	note	/k̓ppn/ ‘be round’ (Aoki 1994:266)	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/k̓ppn/	page 6, aa-ablaut, zero, ‘be round’, underlined, a strong morpheme
+Table 3	Noel Rude	note	k̓apáap ‘in a round manner’ (Aoki 1994:265)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	k̓apáap	page 6, aa-ablaut, long vowel, ‘in a round manner’
+Table 3	Noel Rude	note	táyam /t´yam/ ‘summer’ (Aoki 1994:697)	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	cited form	táyam	page 6, aa-ablaut, zero, ‘summer’
+Table 3	Nez Perce	phonemic	/t´yam/	page 6, aa-ablaut, zero, ‘summer’, underlined, a strong morpheme
+Table 3	Noel Rude	note	táayamima /táayamima/ ‘from in the summer’ (Aoki 1994:697)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	táayamima	page 6, aa-ablaut, long vowel, ‘from in the summer’
+Table 3	Nez Perce	phonemic	/táayamima/	page 6, aa-ablaut, long vowel, ‘from in the summer’, underlined, a strong morpheme
+Table 3	Noel Rude	note	t̓átnin̓ /t̓´tniʔns/ ‘torn’ (Aoki 1994:809)	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	cited form	t̓átnin̓	page 6, aa-ablaut, zero, ‘torn’
+Table 3	Nez Perce	phonemic	/t̓´tniʔns/	page 6, aa-ablaut, zero, ‘torn’, underlined, a strong morpheme
+Table 3	Noel Rude	note	t̓áat /t̓áat/ ‘torn’ (Aoki 1994:810)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	t̓áat	page 6, aa-ablaut, long vowel, ‘torn’
+Table 3	Nez Perce	phonemic	/t̓áat/	page 6, aa-ablaut, long vowel, ‘torn’, underlined, a strong morpheme
+Table 3	Noel Rude	note	/waqlp/ ‘put the arms around’ (Aoki 1994:384)	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/waqlp/	page 6, aa-ablaut, zero, ‘put the arms around’, underlined, a strong morpheme
+Table 3	Noel Rude	note	/waqláaptan/ ‘hold in arms’ (Aoki 1994:343)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	phonemic	/waqláaptan/	page 6, aa-ablaut, long vowel, ‘hold in arms’, underlined, a strong morpheme
+Table 3	Noel Rude	note	wáy̓at /wy̓at/ ‘far’ (Aoki 1994:839); cf. S wíyat	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	cited form	wáy̓at	page 6, aa-ablaut, zero, ‘far’
+Table 3	Nez Perce	phonemic	/wy̓at/	page 6, aa-ablaut, zero, ‘far’, underlined, a strong morpheme
+Table 3	Sahaptin	cited form	wíyat	page 6, aa-ablaut, zero
+Table 3	Noel Rude	note	/wáay̓atn/ ‘go on guardian spirit quest’ (Aoki 1994:839)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	phonemic	/wáay̓atn/	page 6, aa-ablaut, long vowel, ‘go on guardian spirit quest’, underlined, a strong morpheme
+Table 3	Noel Rude	note	/x̣l´p/ ‘open’ (Aoki 1994:914); cf. S x̣lɨ́p ‘open’ (vi.)	page 6, aa-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/x̣l´p/	page 6, aa-ablaut, zero, ‘open’, underlined, a strong morpheme
+Table 3	Sahaptin	cited form	x̣lɨ́p	page 6, aa-ablaut, zero, ‘open’
+Table 3	Noel Rude	note	x̣aláap /x̣láap/ ‘slowly opened’ (Aoki 1994:914)	page 6, aa-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	x̣aláap	page 6, aa-ablaut, long vowel, ‘slowly opened’
+Table 3	Nez Perce	phonemic	/x̣láap/	page 6, aa-ablaut, long vowel, ‘slowly opened’, underlined, a strong morpheme
+Table 3	Noel Rude	note	ee-ablaut	page 6, the heading of the rows under it
+Table 3	Noel Rude	note	/ʔnp/ ‘get, take, hold’ (Aoki 1994:1045); cf. S nɨ́p (bound)	page 6, ee-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/ʔnp/	page 6, ee-ablaut, zero, ‘get, take, hold’
+Table 3	Sahaptin	cited form	nɨ́p	page 6, ee-ablaut, zero
+Table 3	Noel Rude	note	/ʔnéepten/ ‘hold, keep, dominate’ (Aoki 1994:1032)	page 6, ee-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	phonemic	/ʔnéepten/	page 6, ee-ablaut, long vowel, ‘hold, keep, dominate’
+Table 3	Noel Rude	note	ii-ablaut	page 6, the heading of the rows under it
+Table 3	Noel Rude	note	/tlqn/ ‘stop’ (Aoki 1994:673) (Aoki 1994:673)	page 6, ii-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/tlqn/	page 6, ii-ablaut, zero, ‘stop’, underlined, a strong morpheme
+Table 3	Noel Rude	note	talíix̣ /tlíiq/ ‘still, quiet’ (Aoki 1994:677)	page 6, ii-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	talíix̣	page 6, ii-ablaut, long vowel, ‘still, quiet’
+Table 3	Nez Perce	phonemic	/tlíiq/	page 6, ii-ablaut, long vowel, ‘still, quiet’, underlined, a strong morpheme
+Table 3	Noel Rude	note	/tpípi/ ‘foam, be sudsy’ (Aoki 1994:753)	page 6, ii-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/tpípi/	page 6, ii-ablaut, zero, ‘foam, be sudsy’
+Table 3	Noel Rude	note	tíipip /tíipip/ ‘foam’ (Aoki 1994:753)	page 6, ii-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	tíipip	page 6, ii-ablaut, long vowel, ‘foam’
+Table 3	Nez Perce	phonemic	/tíipip/	page 6, ii-ablaut, long vowel, ‘foam’
+Table 3	Noel Rude	note	oo-ablaut	page 6, the heading of the rows under it
+Table 3	Noel Rude	note	/q̓ʷł/ bound in /nkáq̓ʷłk/ ‘remove’ (Aoki 1994:611)	page 6, oo-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/q̓ʷł/	page 6, oo-ablaut, zero, ‘remove’, underlined, a strong morpheme
+Table 3	Nez Perce	phonemic	/nkáq̓ʷłk/	page 6, oo-ablaut, zero, ‘remove’, underlined, a strong morpheme
+Table 3	Noel Rude	note	q̓óoł /q̓óoł/ ‘slippingly’ (Aoki 1994:611)	page 6, oo-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	q̓óoł	page 6, oo-ablaut, long vowel, ‘slippingly’
+Table 3	Nez Perce	phonemic	/q̓óoł/	page 6, oo-ablaut, long vowel, ‘slippingly’, underlined, a strong morpheme
+Table 3	Noel Rude	note	uu-ablaut	page 6, the heading of the rows under it
+Table 3	Noel Rude	note	/p´qʷn/ ‘go separate ways’ (Aoki 1994:560)	page 6, uu-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/p´qʷn/	page 6, uu-ablaut, zero, ‘go separate ways’
+Table 3	Noel Rude	note	púux̣ /púuq/ ‘scatteringly’ (Aoki 1994:560)	page 6, uu-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	púux̣	page 6, uu-ablaut, long vowel, ‘scatteringly’
+Table 3	Nez Perce	phonemic	/púuq/	page 6, uu-ablaut, long vowel, ‘scatteringly’
+Table 3	Noel Rude	note	qúx̣ /qʷ´q/ ‘loose dirt’ (Aoki 1994:598)	page 6, uu-ablaut, zero, the cell as printed
+Table 3	Nez Perce	cited form	qúx̣	page 6, uu-ablaut, zero, ‘loose dirt’
+Table 3	Nez Perce	phonemic	/qʷ´q/	page 6, uu-ablaut, zero, ‘loose dirt’
+Table 3	Noel Rude	note	qúux̣ /qúuq/ ‘powdery’ (Aoki 1994:598)	page 6, uu-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	cited form	qúux̣	page 6, uu-ablaut, long vowel, ‘powdery’
+Table 3	Nez Perce	phonemic	/qúuq/	page 6, uu-ablaut, long vowel, ‘powdery’
+Table 3	Noel Rude	note	/qʷ´qn/ ‘raise dust, powdery snow’ (Aoki 1994:598)	page 6, uu-ablaut, zero, the cell as printed
+Table 3	Nez Perce	phonemic	/qʷ´qn/	page 6, uu-ablaut, zero, ‘raise dust, powdery snow’
+Table 3	Noel Rude	note	/qúux̣n/ ‘be gray (of cloud)’ (Aoki 1994:598)	page 6, uu-ablaut, long vowel, the cell as printed
+Table 3	Nez Perce	phonemic	/qúux̣n/	page 6, uu-ablaut, long vowel, ‘be gray (of cloud)’
+§1.2.4	Noel Rude	note	The process is rarer in Nez Perce and harder to detect because vowels are lengthened under stress in that language. Included in the process are at least the examples in Table 3. There are also examples in Nez Perce where the second vowel in the sequence VhV is lengthened.	page 6
+(37)	Noel Rude	note	NP tehéem ‘dark, empty (of a house)’; cf. /tehémn/ ‘be dark (from smoke, fog)’	page 6, the example as printed
+(37)	Nez Perce	cited form	tehéem	page 6, example (37), ‘dark, empty (of a house)’
+(37)	Nez Perce	phonemic	/tehémn/	page 6, example (37), ‘be dark (from smoke, fog)’
+(38)	Noel Rude	note	NP tohóos ‘dim, dimming (of fire)’; cf. /tohosn/ ‘be extinguished (of fire)’	page 6, the example as printed
+(38)	Nez Perce	cited form	tohóos	page 6, example (38), ‘dim, dimming (of fire)’
+(38)	Nez Perce	phonemic	/tohosn/	page 6, example (38), ‘be extinguished (of fire)’, underlined, a strong morpheme
+§1.2.4	Noel Rude	note	A similar process lengthens a vowel in the sequence VʔV or VhV:	page 7
+§1.2.4	Sahaptian	cited form	VʔV	page 7, set upright
+§1.2.4	Sahaptian	cited form	VhV	page 7, set upright
+(39)	Noel Rude	note	S qaʔáan (NP /qaʔán̓is/) ‘respectful, well behaved’; cf. S qaʔánn (NP /qaʔánn/) ‘respect, treat respectfully’	page 7, the example as printed
+(39)	Sahaptin	cited form	qaʔáan	page 7, example (39), ‘respectful, well behaved’
+(39)	Nez Perce	phonemic	/qaʔán̓is/	page 7, example (39), ‘respectful, well behaved’, underlined, a strong morpheme
+(39)	Sahaptin	cited form	qaʔánn	page 7, example (39), ‘respect, treat respectfully’
+(39)	Nez Perce	phonemic	/qaʔánn/	page 7, example (39), ‘respect, treat respectfully’, underlined, a strong morpheme
+(40)	Noel Rude	note	NP /tehéem/ ‘dark, empty (of a house)’; cf. NP /tehémn/ ‘be cloudy’.	page 7, the example as printed
+(40)	Nez Perce	phonemic	/tehéem/	page 7, example (40), ‘dark, empty (of a house)’
+(40)	Nez Perce	phonemic	/tehémn/	page 7, example (40), ‘be cloudy’
+(41)	Noel Rude	note	S x̣ʷiʔíił ‘slippery’; cf. S x̣ʷíiłn (NE x̣ʷiʔíłn) ‘slip on the ice’; NP x̣uysx̣úys /x̣ʷysx̣ʷ´ys/ ‘slippery’; NP /x̣ʷysn/ ‘slip on the ice’	page 7, the example as printed
+(41)	Sahaptin	cited form	x̣ʷiʔíił	page 7, example (41), ‘slippery’
+(41)	Sahaptin	cited form	x̣ʷíiłn	page 7, example (41), ‘slip on the ice’
+(41)	Northeast Sahaptin	cited form	x̣ʷiʔíłn	page 7, example (41), ‘slip on the ice’
+(41)	Nez Perce	cited form	x̣uysx̣úys	page 7, example (41), ‘slippery’
+(41)	Nez Perce	phonemic	/x̣ʷysx̣ʷ´ys/	page 7, example (41), ‘slippery’
+(41)	Nez Perce	phonemic	/x̣ʷysn/	page 7, example (41), ‘slip on the ice’
+(42)	Noel Rude	note	NP /tohóos/ ‘dim’; cf. NP /tohosn/ ‘die out (of fire)’.	page 7, the example as printed
+(42)	Nez Perce	phonemic	/tohóos/	page 7, example (42), ‘dim’, underlined, a strong morpheme
+(42)	Nez Perce	phonemic	/tohosn/	page 7, example (42), ‘die out (of fire)’, underlined, a strong morpheme
+(43)	Noel Rude	note	S puʔúuł ‘blind’; cf. S púułn (NE puʔúłn) ‘be blind’	page 7, the example as printed
+(43)	Sahaptin	cited form	puʔúuł	page 7, example (43), ‘blind’
+(43)	Sahaptin	cited form	púułn	page 7, example (43), ‘be blind’
+(43)	Northeast Sahaptin	cited form	puʔúłn	page 7, example (43), ‘be blind’
+§1.2.4	Noel Rude	note	For some words, such as Sahaptin tílaaki ‘woman’ and Nez Perce x̣áx̣aac ‘grizzly bear’, though the reason for the long vowel may not be clear, it is likely the result of one of the above four sources for long vowels. If, for example, x̣áx̣aac /x̣´x̣aac/ is related to x̣éx̣es /x̣´x̣es/ ‘greedy, grabby’, it is likely the result of diminutive sound symbolism and ablaut (cf. S x̣áaš ‘greedy’). Compare Crook (1996).	page 7
+§1.2.4	Sahaptin	cited form	tílaaki	page 7, set upright, ‘woman’
+§1.2.4	Nez Perce	cited form	x̣áx̣aac	page 7, set upright, ‘grizzly bear’
+§1.2.4	Nez Perce	phonemic	/x̣´x̣aac/	page 7, set upright, underlined, a strong morpheme
+§1.2.4	Nez Perce	cited form	x̣éx̣es	page 7, set upright
+§1.2.4	Nez Perce	phonemic	/x̣´x̣es/	page 7, set upright, ‘greedy, grabby’
+§1.2.4	Sahaptin	cited form	x̣áaš	page 7, set upright, ‘greedy’
+§1.2.4	Noel Rude	name	Crook	Harold D. Crook (1996), Nez Perce nouns with irregular metrical behavior
+Table 4	Noel Rude	note	Table 4. Ablaut patterns in the distal demonstrative	page 7, the table's caption
+Table 4	Noel Rude	note	zero-ablaut	page 7, a column's head
+Table 4	Noel Rude	note	aa-ablaut	page 7, a column's head
+Table 4	Noel Rude	note	ii-ablaut	page 7, a column's head
+Table 4	Noel Rude	note	uu-ablaut	page 7, a column's head
+Table 4	Noel Rude	note	Absolute	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨ́ma ‘those’	page 7, Absolute, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷɨ́ma	page 7, absolute, zero-ablaut, ‘those’
+Table 4	Noel Rude	note	kʷiiní ‘those two’	page 7, Absolute, ii-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷiiní	page 7, absolute, ii-ablaut, ‘those two’
+Table 4	Noel Rude	note	Accusative	page 7, the row's head
+Table 4	Noel Rude	note	kʷaaná ‘that’ kʷaamanáy ‘those’	page 7, Accusative, aa-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷaaná	page 7, accusative, aa-ablaut, ‘that’
+Table 4	Sahaptin	cited form	kʷaamanáy	page 7, accusative, aa-ablaut, ‘those’
+Table 4	Noel Rude	note	kʷíinaman ‘those two’	page 7, Accusative, ii-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷíinaman	page 7, accusative, ii-ablaut, ‘those two’
+Table 4	Noel Rude	note	NW kuunák ‘that’ NW kuumanák ‘those’	page 7, Accusative, uu-ablaut, the cell as printed, NW in small capitals
+Table 4	Northwest Sahaptin	cited form	kuunák	page 7, accusative, uu-ablaut, ‘that’
+Table 4	Northwest Sahaptin	cited form	kuumanák	page 7, accusative, uu-ablaut, ‘those’
+Table 4	Noel Rude	note	Genitive	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨnmí ‘of that’	page 7, Genitive, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷɨnmí	page 7, genitive, zero-ablaut, ‘of that’
+Table 4	Noel Rude	note	kʷaamíin ‘of those’	page 7, Genitive, aa-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷaamíin	page 7, genitive, aa-ablaut, ‘of those’
+Table 4	Noel Rude	note	kʷiinamí ‘of those two’	page 7, Genitive, ii-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷiinamí	page 7, genitive, ii-ablaut, ‘of those two’
+Table 4	Noel Rude	note	NW kuumínk ‘of those’	page 7, Genitive, uu-ablaut, the cell as printed, NW in small capitals
+Table 4	Northwest Sahaptin	cited form	kuumínk	page 7, genitive, uu-ablaut, ‘of those’
+Table 4	Noel Rude	note	Ergative	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨ́nɨm ‘that’	page 7, Ergative, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷɨ́nɨm	page 7, ergative, zero-ablaut, ‘that’
+Table 4	Noel Rude	note	Allative	page 7, the row's head
+Table 4	Noel Rude	note	íkʷɨn ‘to that’	page 7, Allative, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	íkʷɨn	page 7, allative, zero-ablaut, ‘to that’
+Table 4	Noel Rude	note	Versative	page 7, the row's head
+Table 4	Noel Rude	note	kʷáan ‘toward that’	page 7, Versative, aa-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷáan	page 7, versative, aa-ablaut, ‘toward that’
+Table 4	Noel Rude	note	NW kuuník ‘toward that’	page 7, Versative, uu-ablaut, the cell as printed, NW in small capitals
+Table 4	Northwest Sahaptin	cited form	kuuník	page 7, versative, uu-ablaut, ‘toward that’
+Table 4	Noel Rude	note	Ablative	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨ́ni ‘from that’	page 7, Ablative, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷɨ́ni	page 7, ablative, zero-ablaut, ‘from that’
+Table 4	Noel Rude	note	Locative	page 7, the row's head
+Table 4	Noel Rude	note	kʷná ‘in that’	page 7, Locative, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷná	page 7, locative, zero-ablaut, ‘in that’
+Table 4	Noel Rude	note	Instrumental	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨ́nki ‘with that’	page 7, Instrumental, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷɨ́nki	page 7, instrumental, zero-ablaut, ‘with that’
+Table 4	Noel Rude	note	Distance	page 7, the row's head
+Table 4	Noel Rude	note	kʷáal ‘that long/far’	page 7, Distance, aa-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷáal	page 7, distance, aa-ablaut, ‘that long/far’
+Table 4	Noel Rude	note	Quantity	page 7, the row's head
+Table 4	Noel Rude	note	kʷɨ́ł ‘that many/much’	page 7, Quantity, zero-ablaut, the cell as printed, the line broken after the slash with a hyphen
+Table 4	Sahaptin	cited form	kʷɨ́ł	page 7, quantity, zero-ablaut, ‘that many/much’
+Table 4	Noel Rude	note	Lateral	page 7, the row's head
+Table 4	Noel Rude	note	kʷníin ‘on that side’	page 7, Lateral, zero-ablaut, the cell as printed
+Table 4	Sahaptin	cited form	kʷníin	page 7, lateral, zero-ablaut, ‘on that side’
+§1.3	Noel Rude	heading	1.3 Vowel harmony	page 8
+§1.3	Noel Rude	note	Though only Nez Perce has vowel harmony, there is evidence that the phenomenon existed in Proto-Sahaptian. There are in Nez Perce two sets of vowels, a weak set and a strong set, as in Table 5. The vowel /i/ occurs in both sets. Morphemes are inherently weak or strong (in this paper the underlying forms of Nez Perce strong morphemes are underlined). The process works forward and backward—any morpheme inherently strong causes all other morphemes in a word to be strong. See Aoki (1966), Rigsby & Silverstein (1969), and Rude (1996, 2006).	page 8
+§1.3	Noel Rude	name	Aoki	Haruo Aoki (1962, 1963, 1966, 1994), Nez Perce and Northern Sahaptin, the Nez Perce dictionary
+§1.3	Noel Rude	name	Rigsby	Bruce Rigsby (1965, 1969 with Michael Silverstein, 1996 with Noel Rude), Sahaptian vowels
+§1.3	Noel Rude	name	Silverstein	Michael Silverstein (1969, with Bruce Rigsby), Nez Perce vowels
+Table 5	Noel Rude	note	Table 5. Vowel Harmony Sets	page 8, the table's caption, set beside the paragraph
+Table 5	Noel Rude	note	Weak	page 8, a column's head
+Table 5	Nez Perce	cited form	i	page 8, the weak set
+Table 5	Nez Perce	cited form	u	page 8, the weak set
+Table 5	Nez Perce	cited form	e	page 8, the weak set
+Table 5	Noel Rude	note	Strong	page 8, a column's head
+Table 5	Nez Perce	cited form	i	page 8, the strong set, the i of the strong set underlined
+Table 5	Nez Perce	cited form	o	page 8, the strong set, underlined
+Table 5	Nez Perce	cited form	a	page 8, the strong set, underlined
+(44)	Noel Rude	note	NP péeʔniye /pé-ʔni-e/ ‘he gave it to him’; hiʔníyuʔ /hi-ʔni-uʔ/ ‘he will give it’	page 8, the example as printed
+(44)	Nez Perce	cited form	péeʔniye	page 8, example (44), ‘he gave it to him’
+(44)	Nez Perce	phonemic	/pé-ʔni-e/	page 8, example (44), ‘he gave it to him’
+(44)	Nez Perce	cited form	hiʔníyuʔ	page 8, example (44), ‘he will give it’
+(44)	Nez Perce	phonemic	/hi-ʔni-uʔ/	page 8, example (44), ‘he will give it’
+(45)	Noel Rude	note	NP páamc̓iya /pé-mc̓i-e/ ‘he heard him’; himc̓íyoʔ /hi-mc̓i-uʔ/ ‘he will hear’	page 8, the example as printed
+(45)	Nez Perce	cited form	páamc̓iya	page 8, example (45), ‘he heard him’
+(45)	Nez Perce	phonemic	/pé-mc̓i-e/	page 8, example (45), ‘he heard him’, mc̓i underlined, a strong morpheme
+(45)	Nez Perce	cited form	himc̓íyoʔ	page 8, example (45), ‘he will hear’
+(45)	Nez Perce	phonemic	/hi-mc̓i-uʔ/	page 8, example (45), ‘he will hear’, mc̓i underlined, a strong morpheme
+§1.3	Noel Rude	note	Vowel harmony is related to the sound symbolism common to both languages. The following two examples share the same sounds except for the palatalization in the one and the switch of /n/ to /l/ the other. The one where palatalization was blocked is an example of diminutive sound symbolism.2	page 8
+footnote 2	Noel Rude	note	The Sahaptian m ~ w contrast is not very productive. Most examples are cross dialectal, e.g., CR & NW ámtk̓ʷin ‘overtake’ versus NE áwtk̓ʷin and NP /hewtk̓ʷi/ (Aoki 1994:123); WS & Y tamaláw ‘gravel’ over against U & NE tamalám (NP /tamalam/) ‘rocky bar in river’; Nez Perce méeywi ~ méeymi ‘morning’ and wéetmet ~ méetmet ‘do not’; NP wíitel̓uu and NE mítalu ‘mourning dove, Zenaida macroura’; NP cemíitx ‘huckleberry, Vaccinium membranaceum’ and the NP diminutive cawíitx ‘Indian carrot, Perideridia gairdneri’. The NP cognate of S amúyn ‘wave’ is /héw̓yn/ (hehéw̓iine ‘it was a wave’ - Aoki 1994:124), cf. also NP ham̓óoyham̓oy ‘flexible’ (Aoki 1994:95). And then there is the Nez Perce exclusive núun ‘we’ which suggests *newen < *nemen (cf. CR & NE náma; NW namák). The Nez Perce gentilic -puu suggests earlier *-pewe < *-peme (cf. N -pam).	page 8, footnote 2
+footnote 2	Sahaptian	cited form	m	page 8, set upright
+footnote 2	Sahaptian	cited form	w	page 8, set upright
+footnote 2	Columbia River Sahaptin	cited form	ámtk̓ʷin	page 8, set upright, ‘overtake’
+footnote 2	Northwest Sahaptin	cited form	ámtk̓ʷin	page 8, set upright, ‘overtake’
+footnote 2	Northeast Sahaptin	cited form	áwtk̓ʷin	page 8, set upright
+footnote 2	Nez Perce	phonemic	/hewtk̓ʷi/	page 8, set upright
+footnote 2	Warm Springs	cited form	tamaláw	page 8, set upright, ‘gravel’
+footnote 2	Yakima	cited form	tamaláw	page 8, set upright, ‘gravel’
+footnote 2	Umatilla	cited form	tamalám	page 8, set upright
+footnote 2	Northeast Sahaptin	cited form	tamalám	page 8, set upright
+footnote 2	Nez Perce	phonemic	/tamalam/	page 8, set upright, underlined, a strong morpheme
+footnote 2	Nez Perce	cited form	méeywi	page 8, set upright
+footnote 2	Nez Perce	cited form	méeymi	page 8, set upright, ‘morning’
+footnote 2	Nez Perce	cited form	wéetmet	page 8, set upright
+footnote 2	Nez Perce	cited form	méetmet	page 8, set upright, ‘do not’
+footnote 2	Nez Perce	cited form	wíitel̓uu	page 8, set upright
+footnote 2	Northeast Sahaptin	cited form	mítalu	page 8, set upright, ‘mourning dove, Zenaida macroura’
+footnote 2	Nez Perce	cited form	cemíitx	page 8, set upright, ‘huckleberry, Vaccinium membranaceum’
+footnote 2	Nez Perce	cited form	cawíitx	page 8, set upright, ‘Indian carrot, Perideridia gairdneri’
+footnote 2	Sahaptin	cited form	amúyn	page 8, set upright, ‘wave’
+footnote 2	Nez Perce	phonemic	/héw̓yn/	page 8, set upright
+footnote 2	Nez Perce	cited form	hehéw̓iine	page 8, set upright, ‘it was a wave’
+footnote 2	Nez Perce	cited form	ham̓óoyham̓oy	page 8, set upright, ‘flexible’
+footnote 2	Nez Perce	cited form	núun	page 8, set upright, ‘we’
+footnote 2	Proto-Sahaptian	cited form	*newen	page 8, set upright
+footnote 2	Proto-Sahaptian	cited form	*nemen	page 8, set upright
+footnote 2	Columbia River Sahaptin	cited form	náma	page 8, set upright
+footnote 2	Northeast Sahaptin	cited form	náma	page 8, set upright
+footnote 2	Northwest Sahaptin	cited form	namák	page 8, set upright
+footnote 2	Nez Perce	cited form	-puu	page 8, set upright
+footnote 2	Proto-Sahaptian	cited form	*-pewe	page 8, set upright
+footnote 2	Proto-Sahaptian	cited form	*-peme	page 8, set upright
+footnote 2	Northern Sahaptin	cited form	-pam	page 8, set upright
+§1.3	Sahaptian	phonemic	/n/	page 8, set upright
+§1.3	Sahaptian	phonemic	/l/	page 8, set upright
+(46)	Noel Rude	note	S wáaličanwi ‘run downhill’ < *weyélikenwi	page 8, the example as printed
+(46)	Sahaptin	cited form	wáaličanwi	page 8, example (46), ‘run downhill’
+(46)	Proto-Sahaptian	cited form	*weyélikenwi	page 8, example (46)
+(47)	Noel Rude	note	S wáalikalwi ‘sled downhill’ < *wayálikanwi	page 8, the example as printed
+(47)	Sahaptin	cited form	wáalikalwi	page 8, example (47), ‘sled downhill’
+(47)	Proto-Sahaptian	cited form	*wayálikanwi	page 8, example (47)
+Table 6	Noel Rude	note	Table 6. Sahaptian Sound Symbolism	page 9, the table's caption
+Table 6	Noel Rude	note	Nez Perce	page 9, the head over its language's columns
+Table 6	Noel Rude	note	Sahaptin	page 9, the head over its language's columns
+Table 6	Noel Rude	note	Plain	page 9, a column's head under Nez Perce, in small italics
+Table 6	Noel Rude	note	Diminutive	page 9, a column's head under Nez Perce, in small italics
+Table 6	Noel Rude	note	Plain	page 9, a column's head under Sahaptin, in small italics
+Table 6	Noel Rude	note	Diminutive	page 9, a column's head under Sahaptin, in small italics
+Table 6	Noel Rude	note	Augmentative	page 9, a column's head under Sahaptin, in small italics
+Table 6	Nez Perce	cited form	m	page 9, row 1, plain
+Table 6	Nez Perce	cited form	w	page 9, row 1, diminutive
+Table 6	Sahaptin	cited form	m	page 9, row 1, plain
+Table 6	Sahaptin	cited form	w	page 9, row 1, diminutive
+Table 6	Nez Perce	cited form	n	page 9, row 2, plain
+Table 6	Nez Perce	cited form	l	page 9, row 2, diminutive
+Table 6	Sahaptin	cited form	n	page 9, row 2, plain
+Table 6	Sahaptin	cited form	l	page 9, row 2, diminutive
+Table 6	Nez Perce	cited form	s	page 9, row 3, plain
+Table 6	Nez Perce	cited form	c	page 9, row 3, diminutive
+Table 6	Sahaptin	cited form	š	page 9, row 3, plain
+Table 6	Sahaptin	cited form	s	page 9, row 3, diminutive
+Table 6	Sahaptin	cited form	ł	page 9, row 3, augmentative
+Table 6	Sahaptin	cited form	č	page 9, row 4, plain
+Table 6	Sahaptin	cited form	c	page 9, row 4, diminutive
+Table 6	Sahaptin	cited form	ƛ	page 9, row 4, augmentative
+Table 6	Nez Perce	cited form	k	page 9, row 5, plain
+Table 6	Nez Perce	cited form	q	page 9, row 5, diminutive
+Table 6	Sahaptin	cited form	q	page 9, row 5, plain
+Table 6	Sahaptin	cited form	k	page 9, row 5, diminutive
+Table 6	Nez Perce	cited form	x	page 9, row 6, plain
+Table 6	Nez Perce	cited form	x̣	page 9, row 6, diminutive
+Table 6	Sahaptin	cited form	x̣	page 9, row 6, plain
+Table 6	Sahaptin	cited form	x	page 9, row 6, diminutive
+Table 6	Nez Perce	cited form	C	page 9, row 7, plain, C a consonant
+Table 6	Nez Perce	cited form	C̓	page 9, row 7, diminutive, C a consonant
+Table 6	Sahaptin	cited form	C	page 9, row 7, plain, C a consonant
+Table 6	Sahaptin	cited form	C̓	page 9, row 7, diminutive, C a consonant
+Table 6	Nez Perce	cited form	e	page 9, row 8, plain
+Table 6	Nez Perce	cited form	a	page 9, row 8, diminutive
+Table 6	Nez Perce	cited form	u	page 9, row 9, plain
+Table 6	Nez Perce	cited form	o	page 9, row 9, diminutive
+Table 6	Noel Rude	note	Note that C = consonant	page 9, under the Sahaptin columns
+§1.4	Noel Rude	heading	1.4 Epenthetic vowels	page 9
+§1.4	Noel Rude	note	Barred i is epenthetic in Sahaptin—see Hargus & Beavert (2002a; 2002b; 2005). Unlike the other Sahaptin vowels, it does not have a long equivalent, occurs variously in the dialects (almost missing in Warm Springs) and is more or less predictable. It might carry morpheme inherent stress, but unlike the regular vowels it will delete when the stress comes off.	page 9
+§1.4	Noel Rude	name	Beavert	Virginia Beavert (2002a, 2002b, 2005, 2009, with Sharon Hargus), Yakima Sahaptin
+§1.4	Noel Rude	name	Hargus	Sharon Hargus, who read the paper and heard the Nez Perce recording; Yakima Sahaptin
+§1.4	Noel Rude	language	Warm Springs	Sahaptin
+(48)	Noel Rude	note	CR & NW łamtɨ́x̣ ‘head’; łamtx̣mí ‘of the head’	page 9, the example as printed
+(48)	Columbia River Sahaptin	cited form	łamtɨ́x̣	page 9, example (48), ‘head’
+(48)	Northwest Sahaptin	cited form	łamtɨ́x̣	page 9, example (48), ‘head’
+(48)	Columbia River Sahaptin	cited form	łamtx̣mí	page 9, example (48), ‘of the head’
+(48)	Northwest Sahaptin	cited form	łamtx̣mí	page 9, example (48), ‘of the head’
+(49)	Noel Rude	note	NE ʔɨníkaaš ‘I put it away’; paʔníka ‘they put it away’	page 9, the example as printed
+(49)	Northeast Sahaptin	cited form	ʔɨníkaaš	page 9, example (49), ‘I put it away’
+(49)	Northeast Sahaptin	cited form	paʔníka	page 9, example (49), ‘they put it away’
+§1.4	Noel Rude	note	In Nez Perce the epenthetic vowel is phonetically [i]. Word initial consonant clusters are disallowed, and a vowel [i] which does not lengthen under stress is inserted.	page 9
+§1.4	Nez Perce	cited form	[i]	page 9, set upright
+(50)	Noel Rude	note	NP píley /pley/ ‘pestle’; S pnáy; PS *pnéy	page 9, the example as printed
+(50)	Nez Perce	cited form	píley	page 9, example (50), ‘pestle’
+(50)	Nez Perce	phonemic	/pley/	page 9, example (50), ‘pestle’
+(50)	Sahaptin	cited form	pnáy	page 9, example (50)
+(50)	Proto-Sahaptian	cited form	*pnéy	page 9, example (50)
+(51)	Noel Rude	note	NP síwe /swe/ ‘forehead’; S šwá; PS *šwé	page 9, the example as printed
+(51)	Nez Perce	cited form	síwe	page 9, example (51), ‘forehead’
+(51)	Nez Perce	phonemic	/swe/	page 9, example (51), ‘forehead’
+(51)	Sahaptin	cited form	šwá	page 9, example (51)
+(51)	Proto-Sahaptian	cited form	*šwé	page 9, example (51)
+§1.4	Noel Rude	note	In words marked for strong vowel harmony the epenthetic vowel is [a]:	page 9
+§1.4	Nez Perce	cited form	[a]	page 9, set upright
+(52)	Noel Rude	note	NP ʔáma /ʔma/ ‘island’; S ɨmá; PS *ʔɨmá	page 9, the example as printed
+(52)	Nez Perce	cited form	ʔáma	page 9, example (52), ‘island’
+(52)	Nez Perce	phonemic	/ʔma/	page 9, example (52), ‘island’, underlined, a strong morpheme
+(52)	Sahaptin	cited form	ɨmá	page 9, example (52)
+(52)	Proto-Sahaptian	cited form	*ʔɨmá	page 9, example (52)
+(53)	Noel Rude	note	NP páyos /pyos/ ‘snake’; S pyúš; PS *pyóš	page 9, the example as printed
+(53)	Nez Perce	cited form	páyos	page 9, example (53), ‘snake’
+(53)	Nez Perce	phonemic	/pyos/	page 9, example (53), ‘snake’, underlined, a strong morpheme
+(53)	Sahaptin	cited form	pyúš	page 9, example (53)
+(53)	Proto-Sahaptian	cited form	*pyóš	page 9, example (53)
+§1.4	Noel Rude	note	Next to a uvular consonant the vowel is [e] ([a] if marked for strong vowels).	page 9
+§1.4	Nez Perce	cited form	[e]	page 9, set upright
+(54)	Noel Rude	note	NP méqeʔ /mqeʔ/ ‘paternal uncle!’; S mɨ́x̣a; NE mɨ́x̣aʔ; PS *mɨ́qeʔ	page 9, the example as printed
+(54)	Nez Perce	cited form	méqeʔ	page 9, example (54), ‘paternal uncle!’
+(54)	Nez Perce	phonemic	/mqeʔ/	page 9, example (54), ‘paternal uncle!’
+(54)	Sahaptin	cited form	mɨ́x̣a	page 9, example (54)
+(54)	Northeast Sahaptin	cited form	mɨ́x̣aʔ	page 9, example (54)
+(54)	Proto-Sahaptian	cited form	*mɨ́qeʔ	page 9, example (54)
+(55)	Noel Rude	note	NP qápqap /qpqp/ ‘cottonwood’; S x̣px̣ɨ́p; PS *qɨpqɨ́p	page 10, the example as printed
+(55)	Nez Perce	cited form	qápqap	page 10, example (55), ‘cottonwood’
+(55)	Nez Perce	phonemic	/qpqp/	page 10, example (55), ‘cottonwood’, underlined, a strong morpheme
+(55)	Sahaptin	cited form	x̣px̣ɨ́p	page 10, example (55)
+(55)	Proto-Sahaptian	cited form	*qɨpqɨ́p	page 10, example (55)
+§1.4	Noel Rude	note	Next to an underlying labio-velar or labio-uvular the epenthetic vowel is [u] (or [o] if marked for strong vowels).	page 10
+§1.4	Nez Perce	cited form	[u]	page 10, set upright
+§1.4	Nez Perce	cited form	[o]	page 10, set upright
+(56)	Noel Rude	note	NP núkt /nkʷt/ ‘meat’; S nɨkʷɨ́t	page 10, the example as printed
+(56)	Nez Perce	cited form	núkt	page 10, example (56), ‘meat’
+(56)	Nez Perce	phonemic	/nkʷt/	page 10, example (56), ‘meat’
+(56)	Sahaptin	cited form	nɨkʷɨ́t	page 10, example (56)
+(57)	Noel Rude	note	NP súqu /squ/ ‘river bank’; S šx̣ú	page 10, the example as printed
+(57)	Nez Perce	cited form	súqu	page 10, example (57), ‘river bank’
+(57)	Nez Perce	phonemic	/squ/	page 10, example (57), ‘river bank’
+(57)	Sahaptin	cited form	šx̣ú	page 10, example (57)
+(58)	Noel Rude	note	NP k̓ócac /k̓ʷcc/ ‘pointed’; S k̓ʷsɨ́s	page 10, the example as printed
+(58)	Nez Perce	cited form	k̓ócac	page 10, example (58), ‘pointed’
+(58)	Nez Perce	phonemic	/k̓ʷcc/	page 10, example (58), ‘pointed’, underlined, a strong morpheme
+(58)	Sahaptin	cited form	k̓ʷsɨ́s	page 10, example (58)
+(59)	Noel Rude	note	NP tók̓o /tk̓o/ ‘tule’; S tk̓ú	page 10, the example as printed
+(59)	Nez Perce	cited form	tók̓o	page 10, example (59), ‘tule’
+(59)	Nez Perce	phonemic	/tk̓o/	page 10, example (59), ‘tule’, underlined, a strong morpheme
+(59)	Sahaptin	cited form	tk̓ú	page 10, example (59)
+Table 7	Noel Rude	note	Table 7. Nez Perce diphthongs	page 10, the table's caption
+Table 7	Noel Rude	note	Weak Vowel Harmony	page 10, a column's head
+Table 7	Noel Rude	note	Strong Vowel Harmony	page 10, a column's head
+Table 7	Nez Perce	cited form	péews	page 10, weak vowel harmony, ‘tongue’
+Table 7	Nez Perce	phonemic	/pews/	page 10, weak vowel harmony, ‘tongue’
+Table 7	Nez Perce	cited form	háawn	page 10, strong vowel harmony, ‘rapids’
+Table 7	Nez Perce	phonemic	/háwn/	page 10, strong vowel harmony, ‘rapids’, underlined, a strong morpheme
+Table 7	Nez Perce	cited form	péeykt	page 10, weak vowel harmony, ‘pipe stem’
+Table 7	Nez Perce	phonemic	/péykt/	page 10, weak vowel harmony, ‘pipe stem’
+Table 7	Nez Perce	cited form	máayx	page 10, strong vowel harmony, ‘sand’
+Table 7	Nez Perce	phonemic	/mayk/	page 10, strong vowel harmony, ‘sand’, underlined, a strong morpheme
+Table 7	Nez Perce	cited form	qíiwn	page 10, weak vowel harmony, ‘old man’
+Table 7	Nez Perce	phonemic	/qíwn/	page 10, weak vowel harmony, ‘old man’
+Table 7	Nez Perce	cited form	múuyn	page 10, weak vowel harmony, ‘steam, vapor’
+Table 7	Nez Perce	phonemic	/múyn/	page 10, weak vowel harmony, ‘steam, vapor’
+Table 7	Nez Perce	cited form	póoy	page 10, strong vowel harmony, ‘niece!’
+Table 7	Nez Perce	phonemic	/póoy/	page 10, strong vowel harmony, ‘niece!’, underlined, a strong morpheme
+§1.5	Noel Rude	heading	1.5 Diphthongs	page 10
+§1.5	Noel Rude	note	Sahaptin has four diphthongs: /aw/, /ay/, /iw/, /uy/. Nez Perce has the seven diphthongs illustrated in Table 7 which can be viewed as representative of Proto-Sahaptian.	page 10
+§1.5	Sahaptin	phonemic	/aw/	page 10, set upright
+§1.5	Sahaptin	phonemic	/ay/	page 10, set upright
+§1.5	Sahaptin	phonemic	/iw/	page 10, set upright
+§1.5	Sahaptin	phonemic	/uy/	page 10, set upright
+(60)	Noel Rude	note	PS *skáwn ‘fear, be afraid’; S skáwn; NP cikáawn /ckáwn/	page 10, the example as printed
+(60)	Proto-Sahaptian	cited form	*skáwn	page 10, example (60), ‘fear, be afraid’
+(60)	Sahaptin	cited form	skáwn	page 10, example (60)
+(60)	Nez Perce	cited form	cikáawn	page 10, example (60)
+(60)	Nez Perce	phonemic	/ckáwn/	page 10, example (60), underlined, a strong morpheme
+(61)	Noel Rude	note	PS *ky̓éwnu ‘gill, salmon gill’; S čyáwnu; NP kiy̓éewnu /ky̓ewnu/	page 10, the example as printed
+(61)	Proto-Sahaptian	cited form	*ky̓éwnu	page 10, example (61), ‘gill, salmon gill’
+(61)	Sahaptin	cited form	čyáwnu	page 10, example (61)
+(61)	Nez Perce	cited form	kiy̓éewnu	page 10, example (61)
+(61)	Nez Perce	phonemic	/ky̓ewnu/	page 10, example (61)
+(62)	Noel Rude	note	PS *pawáy ‘niece!’ (‘woman’s brother’s daughter’); S pawáy; NP póoy /póoy/	page 10, the example as printed
+(62)	Proto-Sahaptian	cited form	*pawáy	page 10, example (62), ‘niece!’, (‘woman’s brother’s daughter’)
+(62)	Sahaptin	cited form	pawáy	page 10, example (62)
+(62)	Nez Perce	cited form	póoy	page 10, example (62)
+(62)	Nez Perce	phonemic	/póoy/	page 10, example (62), underlined, a strong morpheme
+(63)	Noel Rude	note	PS *ʔéyq ‘white salmon’; NE áyx̣; NP ʔéeyx̣ /ʔeyq/	page 10, the example as printed
+(63)	Proto-Sahaptian	cited form	*ʔéyq	page 10, example (63), ‘white salmon’
+(63)	Northeast Sahaptin	cited form	áyx̣	page 10, example (63)
+(63)	Nez Perce	cited form	ʔéeyx̣	page 10, example (63)
+(63)	Nez Perce	phonemic	/ʔeyq/	page 10, example (63)
+(64)	Noel Rude	note	PS *ʔíwš ‘urine’; S íwš; NP ʔíiws /ʔíws/	page 10, the example as printed
+(64)	Proto-Sahaptian	cited form	*ʔíwš	page 10, example (64), ‘urine’
+(64)	Sahaptin	cited form	íwš	page 10, example (64)
+(64)	Nez Perce	cited form	ʔíiws	page 10, example (64)
+(64)	Nez Perce	phonemic	/ʔíws/	page 10, example (64)
+(65)	Noel Rude	note	PS *tɨmšóy/*tamšóy ‘ant’; S tamšúy; NP támsoy, tamsóoy- /tmsoy/	page 10, the example as printed
+(65)	Proto-Sahaptian	cited form	*tɨmšóy/*tamšóy	page 10, example (65), ‘ant’
+(65)	Sahaptin	cited form	tamšúy	page 10, example (65)
+(65)	Nez Perce	cited form	támsoy	page 10, example (65)
+(65)	Nez Perce	cited form	tamsóoy-	page 10, example (65)
+(65)	Nez Perce	phonemic	/tmsoy/	page 10, example (65), underlined, a strong morpheme
+(66)	Noel Rude	note	PS *ʔúykn̓ik ‘further, yet more’; N úyknik; CR úykni; NP ʔúykin̓ix /ʔúykn̓ik/	page 10, the example as printed
+(66)	Proto-Sahaptian	cited form	*ʔúykn̓ik	page 10, example (66), ‘further, yet more’
+(66)	Northern Sahaptin	cited form	úyknik	page 10, example (66)
+(66)	Columbia River Sahaptin	cited form	úykni	page 10, example (66)
+(66)	Nez Perce	cited form	ʔúykin̓ix	page 10, example (66)
+(66)	Nez Perce	phonemic	/ʔúykn̓ik/	page 10, example (66)
+§1.6	Noel Rude	heading	1.6 Breaking	page 11
+§1.6	Noel Rude	note	There are some diphthongs in Nez Perce that do not lengthen under stress as expected, and which are reflected in Sahaptin cognates by a simple vowel. These Nez Perce diphthongs are assumed to reflect a vowel breaking, e.g., *u/*i to *iu/*ii to *iw/*iy to [iw]/[iy] and [aw]/[ay]. They are here represented underlyingly as /w/ and /y/ between consonants (or between a consonant and the end of a word). Some examples are provided in Table 8. Note that yik̓íwn / ičún and t̓áwn / ƛ̓ún are imperfect matches, perhaps due to sound symbolic changes. Also NP laymíwt is marked for strong vowels yet has [iw] and not [aw].	page 11
+§1.6	Proto-Sahaptian	cited form	*u/*i	page 11, set upright
+§1.6	Proto-Sahaptian	cited form	*iu/*ii	page 11, set upright
+§1.6	Proto-Sahaptian	cited form	*iw/*iy	page 11, set upright
+§1.6	Nez Perce	cited form	[iw]/[iy]	page 11, set upright
+§1.6	Nez Perce	cited form	[aw]/[ay]	page 11, set upright
+§1.6	Nez Perce	phonemic	/w/	page 11, set upright
+§1.6	Nez Perce	cited form	yik̓íwn	page 11, set upright
+§1.6	Sahaptin	cited form	ičún	page 11, set upright
+§1.6	Nez Perce	cited form	t̓áwn	page 11, set upright
+§1.6	Sahaptin	cited form	ƛ̓ún	page 11, set upright
+§1.6	Nez Perce	cited form	laymíwt	page 11, set in italics
+§1.6	Nez Perce	cited form	[iw]	page 11, set upright
+§1.6	Nez Perce	cited form	[aw]	page 11, set upright
+Table 8	Noel Rude	note	Table 8. Breaking in Nez Perce	page 11, the table's caption
+Table 8	Noel Rude	note	Nez Perce	page 11, a column's head
+Table 8	Noel Rude	note	Sahaptin	page 11, a column's head
+Table 8	Noel Rude	note	ɨw ~ u	page 11, the head of the group beside it
+Table 8	Nez Perce	cited form	líwn	page 11, ɨw ~ u, the Nez Perce column, ‘burn’
+Table 8	Sahaptin	cited form	lún	page 11, ɨw ~ u, the Sahaptin column, ‘burn’
+Table 8	Nez Perce	cited form	k̓íwn	page 11, ɨw ~ u, the Nez Perce column, ‘split apart’
+Table 8	Sahaptin	cited form	k̓ún	page 11, ɨw ~ u, the Sahaptin column, ‘be gathered’
+Table 8	Nez Perce	cited form	yik̓íwn	page 11, ɨw ~ u, the Nez Perce column, ‘shine (sun)’
+Table 8	Sahaptin	cited form	ičún	page 11, ɨw ~ u, the Sahaptin column, ‘shine (sun)’
+Table 8	Nez Perce	cited form	laymíwt	page 11, ɨw ~ u, the Nez Perce column, ‘youngest’
+Table 8	Sahaptin	cited form	láymut	page 11, ɨw ~ u, the Sahaptin column, ‘youngest’
+Table 8	Noel Rude	note	ɨw ~ u	page 11, the head of the group beside it, its ɨw underlined, strong
+Table 8	Nez Perce	cited form	q̓ílawn	page 11, ɨw ~ u, the Nez Perce column, ‘turn head, look back’
+Table 8	Sahaptin	cited form	q̓ínun	page 11, ɨw ~ u, the Sahaptin column, ‘see’
+Table 8	Nez Perce	cited form	q̓aláwn	page 11, ɨw ~ u, the Nez Perce column, ‘bead’
+Table 8	Sahaptin	cited form	q̓lún	page 11, ɨw ~ u, the Sahaptin column, ‘be bald’
+Table 8	Nez Perce	cited form	sáwn	page 11, ɨw ~ u, the Nez Perce column, ‘be quiet’
+Table 8	Sahaptin	cited form	súsun	page 11, ɨw ~ u, the Sahaptin column, ‘whisper’
+Table 8	Nez Perce	cited form	t̓áwn	page 11, ɨw ~ u, the Nez Perce column, ‘guess in stick game’
+Table 8	Sahaptin	cited form	ƛ̓ún	page 11, ɨw ~ u, the Sahaptin column, ‘guess in stick game’
+Table 8	Noel Rude	note	ɨy ~ i	page 11, the head of the group beside it
+Table 8	Nez Perce	cited form	ciklíyn	page 11, ɨy ~ i, the Nez Perce column, ‘turn over, turn back’
+Table 8	Sahaptin	cited form	sklín	page 11, ɨy ~ i, the Sahaptin column, ‘turn over, turn back’
+Table 8	Nez Perce	cited form	liklíyn	page 11, ɨy ~ i, the Nez Perce column, ‘go around’
+Table 8	Sahaptin	cited form	nknín	page 11, ɨy ~ i, the Sahaptin column, ‘go around’
+Table 8	Nez Perce	cited form	k̓illíyn	page 11, ɨy ~ i, the Nez Perce column, ‘be bent, bend’
+Table 8	Sahaptin	cited form	k̓lín	page 11, ɨy ~ i, the Sahaptin column, ‘bend (elbow, knee)’
+Table 8	Noel Rude	note	ɨy ~ i	page 11, the head of the group beside it, its ɨy underlined, strong
+Table 8	Nez Perce	cited form	tak̓áyn	page 11, ɨy ~ i, the Nez Perce column, ‘watch’
+Table 8	Sahaptin	cited form	tk̓ín	page 11, ɨy ~ i, the Sahaptin column, ‘watch’
+Table 8	Nez Perce	cited form	takláyn	page 11, ɨy ~ i, the Nez Perce column, ‘exchange’
+Table 8	Sahaptin	cited form	tknín	page 11, ɨy ~ i, the Sahaptin column, ‘twist (dogbane)’
+Table 8	Nez Perce	cited form	k̓assáyno	page 11, ɨy ~ i, the Nez Perce column, ‘elbow’
+Table 8	Sahaptin	cited form	k̓ášinu	page 11, ɨy ~ i, the Sahaptin column, ‘elbow’
+Table 8	Nez Perce	cited form	toláyn	page 11, ɨy ~ i, the Nez Perce column, ‘go upstream’
+Table 8	Sahaptin	cited form	tunín	page 11, ɨy ~ i, the Sahaptin column, ‘go upstream’
+Table 8	Nez Perce	cited form	p̓áyn	page 11, ɨy ~ i, the Nez Perce column, ‘drain, ooze’
+Table 8	Sahaptin	cited form	p̓ín	page 11, ɨy ~ i, the Sahaptin column, ‘drain, ooze’
+Table 8	Nez Perce	cited form	ʔástay	page 11, ɨy ~ i, the Nez Perce column, ‘needle, awl, metal’
+Table 8	Sahaptin	cited form	ɨstí	page 11, ɨy ~ i, the Sahaptin column, ‘needle, awl, metal’
+Table 8	Nez Perce	cited form	ʔáys	page 11, ɨy ~ i, the Nez Perce column, ‘cow-parsnip’
+Table 8	Sahaptin	cited form	íiš	page 11, ɨy ~ i, the Sahaptin column, ‘cow-parsnip’
+Table 8	Nez Perce	cited form	ʔayq	page 11, ɨy ~ i, the Nez Perce column, ‘wash’
+Table 8	Sahaptin	cited form	íix̣n	page 11, ɨy ~ i, the Sahaptin column, ‘wash’
+Table 8	Nez Perce	cited form	sáyxsayx	page 11, ɨy ~ i, the Nez Perce column, ‘Equisetum spp.’
+Table 8	Sahaptin	cited form	siikʷsíikʷ	page 11, ɨy ~ i, the Sahaptin column, ‘Equisetum spp.’
+§2	Noel Rude	heading	2 Stress	page 11
+§2	Noel Rude	note	Nez Perce and Sahaptin are syllable timed languages with three levels of stress. The orthographic traditions of both languages mark only primary stress with a secondary stress being considered more or less predictable. In Sahaptin all lexical morphemes have morpheme inherent stress. Some Nez Perce words also have morpheme inherent stress, which generally is the same as for the Sahaptin cognate.	page 11
+(67)	Noel Rude	note	NP tuy̓é, tuy̓ée- /tuy̓é/ ‘blue grouse, Dendragapus obscurus’; CR & NE tuyá; PS *tuy̓é	page 12, the example as printed
+(67)	Nez Perce	cited form	tuy̓é	page 12, example (67), ‘blue grouse, Dendragapus obscurus’
+(67)	Nez Perce	cited form	tuy̓ée-	page 12, example (67), ‘blue grouse, Dendragapus obscurus’
+(67)	Nez Perce	phonemic	/tuy̓é/	page 12, example (67), ‘blue grouse, Dendragapus obscurus’
+(67)	Columbia River Sahaptin	cited form	tuyá	page 12, example (67)
+(67)	Northeast Sahaptin	cited form	tuyá	page 12, example (67)
+(67)	Proto-Sahaptian	cited form	*tuy̓é	page 12, example (67)
+(68)	Noel Rude	note	NP yáakaʔ, yáakaʔ- /yákaʔ/ ‘black bear, Ursus americanus’; S yáka; PS *yákaʔ	page 12, the example as printed
+(68)	Nez Perce	cited form	yáakaʔ	page 12, example (68), ‘black bear, Ursus americanus’
+(68)	Nez Perce	cited form	yáakaʔ-	page 12, example (68), ‘black bear, Ursus americanus’
+(68)	Nez Perce	phonemic	/yákaʔ/	page 12, example (68), ‘black bear, Ursus americanus’, underlined, a strong morpheme
+(68)	Sahaptin	cited form	yáka	page 12, example (68)
+(68)	Proto-Sahaptian	cited form	*yákaʔ	page 12, example (68)
+§2	Noel Rude	note	For Nez Perce words without inherent stress, the stress is on the penultimate vowel if the word ends in a vowel or single consonant.	page 12
+(69)	Noel Rude	note	NP núusnu, nusnúu- /nusnu/ ‘nose’; S núšnu; PS *núšnu	page 12, the example as printed
+(69)	Nez Perce	cited form	núusnu	page 12, example (69), ‘nose’
+(69)	Nez Perce	cited form	nusnúu-	page 12, example (69), ‘nose’
+(69)	Nez Perce	phonemic	/nusnu/	page 12, example (69), ‘nose’
+(69)	Sahaptin	cited form	núšnu	page 12, example (69)
+(69)	Proto-Sahaptian	cited form	*núšnu	page 12, example (69)
+(70)	Noel Rude	note	NP táam̓am, tam̓áam- /tam̓am/ ‘egg’; S tamám; PS *tam̓ám	page 12, the example as printed
+(70)	Nez Perce	cited form	táam̓am	page 12, example (70), ‘egg’
+(70)	Nez Perce	cited form	tam̓áam-	page 12, example (70), ‘egg’
+(70)	Nez Perce	phonemic	/tam̓am/	page 12, example (70), ‘egg’, underlined, a strong morpheme
+(70)	Sahaptin	cited form	tamám	page 12, example (70)
+(70)	Proto-Sahaptian	cited form	*tam̓ám	page 12, example (70)
+§2	Noel Rude	note	Nez Perce penultimate stress can be borne by an epenthetic vowel. This might be the vowel that breaks up word initial consonant clusters.	page 12
+(71)	Noel Rude	note	NP páyos, payóos- /pyos/ ‘snake’; S pyúš; PS *pyóš	page 12, the example as printed
+(71)	Nez Perce	cited form	páyos	page 12, example (71), ‘snake’
+(71)	Nez Perce	cited form	payóos-	page 12, example (71), ‘snake’
+(71)	Nez Perce	phonemic	/pyos/	page 12, example (71), ‘snake’, underlined, a strong morpheme
+(71)	Sahaptin	cited form	pyúš	page 12, example (71)
+(71)	Proto-Sahaptian	cited form	*pyóš	page 12, example (71)
+(72)	Noel Rude	note	NP x̣éx̣us, x̣ex̣úus- /x̣x̣us/ ‘green’; S x̣ɨ́x̣uš; PS *x̣ɨ́x̣uš	page 12, the example as printed
+(72)	Nez Perce	cited form	x̣éx̣us	page 12, example (72), ‘green’
+(72)	Nez Perce	cited form	x̣ex̣úus-	page 12, example (72), ‘green’
+(72)	Nez Perce	phonemic	/x̣x̣us/	page 12, example (72), ‘green’
+(72)	Sahaptin	cited form	x̣ɨ́x̣uš	page 12, example (72)
+(72)	Proto-Sahaptian	cited form	*x̣ɨ́x̣uš	page 12, example (72)
+(73)	Noel Rude	note	NP tíwe, tiwée- /twe/ ‘tepee pole’; S twá; PS *twé	page 12, the example as printed
+(73)	Nez Perce	cited form	tíwe	page 12, example (73), ‘tepee pole’
+(73)	Nez Perce	cited form	tiwée-	page 12, example (73), ‘tepee pole’
+(73)	Nez Perce	phonemic	/twe/	page 12, example (73), ‘tepee pole’
+(73)	Sahaptin	cited form	twá	page 12, example (73)
+(73)	Proto-Sahaptian	cited form	*twé	page 12, example (73)
+(74)	Noel Rude	note	NP tók̓o, tok̓óo- /tk̓o/ ‘tule, Schoenoplectus acutus’; S tk̓ú; PS *tk̓ó	page 12, the example as printed
+(74)	Nez Perce	cited form	tók̓o	page 12, example (74), ‘tule, Schoenoplectus acutus’
+(74)	Nez Perce	cited form	tok̓óo-	page 12, example (74), ‘tule, Schoenoplectus acutus’
+(74)	Nez Perce	phonemic	/tk̓o/	page 12, example (74), ‘tule, Schoenoplectus acutus’, underlined, a strong morpheme
+(74)	Sahaptin	cited form	tk̓ú	page 12, example (74)
+(74)	Proto-Sahaptian	cited form	*tk̓ó	page 12, example (74)
+(75)	Noel Rude	note	NP súqu, suqúu- /squ/ ‘river bank’; S šx̣ú; PS *šqú	page 12, the example as printed
+(75)	Nez Perce	cited form	súqu	page 12, example (75), ‘river bank’
+(75)	Nez Perce	cited form	suqúu-	page 12, example (75), ‘river bank’
+(75)	Nez Perce	phonemic	/squ/	page 12, example (75), ‘river bank’
+(75)	Sahaptin	cited form	šx̣ú	page 12, example (75)
+(75)	Proto-Sahaptian	cited form	*šqú	page 12, example (75)
+§2	Noel Rude	note	Penultimate stress might also be born by an epenthetic vowel in a medial cluster of sonorant and/or ejective obstruents.	page 12
+(76)	Noel Rude	note	NP ʔaláwa, ʔalwáa- /ʔalwa/ ‘bison yearling’	page 12, the example as printed
+(76)	Nez Perce	cited form	ʔaláwa	page 12, example (76), ‘bison yearling’
+(76)	Nez Perce	cited form	ʔalwáa-	page 12, example (76), ‘bison yearling’
+(76)	Nez Perce	phonemic	/ʔalwa/	page 12, example (76), ‘bison yearling’, underlined, a strong morpheme
+(77)	Noel Rude	note	NP siléq̓is, silq̓íis- /silq̓is/ ‘wet’	page 12, the example as printed
+(77)	Nez Perce	cited form	siléq̓is	page 12, example (77), ‘wet’
+(77)	Nez Perce	cited form	silq̓íis-	page 12, example (77), ‘wet’
+(77)	Nez Perce	phonemic	/silq̓is/	page 12, example (77), ‘wet’
+(78)	Noel Rude	note	NP himíyu, himyúu- /himyu/ ‘relative’	page 12, the example as printed
+(78)	Nez Perce	cited form	himíyu	page 12, example (78), ‘relative’
+(78)	Nez Perce	cited form	himyúu-	page 12, example (78), ‘relative’
+(78)	Nez Perce	phonemic	/himyu/	page 12, example (78), ‘relative’
+(79)	Noel Rude	note	NP hatók̓ic, hatk̓íic- /hatk̓ʷic/ ‘difficult’; S at̓úk; PS *hat̓ɨ́kʷ(-ʔic)	page 12, the example as printed
+(79)	Nez Perce	cited form	hatók̓ic	page 12, example (79), ‘difficult’
+(79)	Nez Perce	cited form	hatk̓íic-	page 12, example (79), ‘difficult’
+(79)	Nez Perce	phonemic	/hatk̓ʷic/	page 12, example (79), ‘difficult’, underlined, a strong morpheme
+(79)	Sahaptin	cited form	at̓úk	page 12, example (79)
+(79)	Proto-Sahaptian	cited form	*hat̓ɨ́kʷ(-ʔic)	page 12, example (79)
+(80)	Noel Rude	note	NP ʔistúk̓es, ʔistuk̓ées- /ʔistk̓ʷes/ ‘guest, visitor’	page 12, the example as printed
+(80)	Nez Perce	cited form	ʔistúk̓es	page 12, example (80), ‘guest, visitor’
+(80)	Nez Perce	cited form	ʔistuk̓ées-	page 12, example (80), ‘guest, visitor’
+(80)	Nez Perce	phonemic	/ʔistk̓ʷes/	page 12, example (80), ‘guest, visitor’
+§2	Noel Rude	note	There is no epenthesis with /ʔ + n/ or with a sonorant and /s/.	page 12
+§2	Nez Perce	phonemic	/ʔ + n/	page 12, set upright
+§2	Nez Perce	phonemic	/s/	page 12, set upright
+(81)	Noel Rude	note	NP qúʔnes, quʔnées- /quʔnes/ ‘condor’	page 13, the example as printed
+(81)	Nez Perce	cited form	qúʔnes	page 13, example (81), ‘condor’
+(81)	Nez Perce	cited form	quʔnées-	page 13, example (81), ‘condor’
+(81)	Nez Perce	phonemic	/quʔnes/	page 13, example (81), ‘condor’
+(82)	Noel Rude	note	NP háaslam, hasláam- /haslam/ ‘flea’	page 13, the example as printed
+(82)	Nez Perce	cited form	háaslam	page 13, example (82), ‘flea’
+(82)	Nez Perce	cited form	hasláam-	page 13, example (82), ‘flea’
+(82)	Nez Perce	phonemic	/haslam/	page 13, example (82), ‘flea’, underlined, a strong morpheme
+§2	Noel Rude	note	Stem final clusters are likewise broken up to carry penultimate stress.	page 13
+(83)	Noel Rude	note	NP páaps, papás- /paps/ ‘Douglas fir’; S pápš; PS *pápš	page 13, the example as printed
+(83)	Nez Perce	cited form	páaps	page 13, example (83), ‘Douglas fir’
+(83)	Nez Perce	cited form	papás-	page 13, example (83), ‘Douglas fir’
+(83)	Nez Perce	phonemic	/paps/	page 13, example (83), ‘Douglas fir’, underlined, a strong morpheme
+(83)	Sahaptin	cited form	pápš	page 13, example (83)
+(83)	Proto-Sahaptian	cited form	*pápš	page 13, example (83)
+(84)	Noel Rude	note	NP téeqt, teqét- /teqt/ ‘northern flicker’; S táx̣t; PS *téqt	page 13, the example as printed
+(84)	Nez Perce	cited form	téeqt	page 13, example (84), ‘northern flicker’
+(84)	Nez Perce	cited form	teqét-	page 13, example (84), ‘northern flicker’
+(84)	Nez Perce	phonemic	/teqt/	page 13, example (84), ‘northern flicker’
+(84)	Sahaptin	cited form	táx̣t	page 13, example (84)
+(84)	Proto-Sahaptian	cited form	*téqt	page 13, example (84)
+(85)	Noel Rude	note	NP píips, pipís- /pips/ ‘bone’; S pípš; PS *pípš	page 13, the example as printed
+(85)	Nez Perce	cited form	píips	page 13, example (85), ‘bone’
+(85)	Nez Perce	cited form	pipís-	page 13, example (85), ‘bone’
+(85)	Nez Perce	phonemic	/pips/	page 13, example (85), ‘bone’
+(85)	Sahaptin	cited form	pípš	page 13, example (85)
+(85)	Proto-Sahaptian	cited form	*pípš	page 13, example (85)
+(86)	Noel Rude	note	NP tátx, tatóx- /ttkʷ/ ‘spotted fawn’	page 13, the example as printed
+(86)	Nez Perce	cited form	tátx	page 13, example (86), ‘spotted fawn’
+(86)	Nez Perce	cited form	tatóx-	page 13, example (86), ‘spotted fawn’
+(86)	Nez Perce	phonemic	/ttkʷ/	page 13, example (86), ‘spotted fawn’, underlined, a strong morpheme
+(87)	Noel Rude	note	NP púhs, puhús- /puhs/ ‘meaty side of hide’; S púuš; NE puʔúš; PS *puhúš	page 13, the example as printed
+(87)	Nez Perce	cited form	púhs	page 13, example (87), ‘meaty side of hide’
+(87)	Nez Perce	cited form	puhús-	page 13, example (87), ‘meaty side of hide’
+(87)	Nez Perce	phonemic	/puhs/	page 13, example (87), ‘meaty side of hide’
+(87)	Sahaptin	cited form	púuš	page 13, example (87)
+(87)	Northeast Sahaptin	cited form	puʔúš	page 13, example (87)
+(87)	Proto-Sahaptian	cited form	*puhúš	page 13, example (87)
+§2	Noel Rude	note	Words without inherent stress that end in a consonant cluster stress the final vowel.	page 13
+(88)	Noel Rude	note	NP qiláasx̣, qilasáx̣- /qilasq/ ‘otter’	page 13, the example as printed
+(88)	Nez Perce	cited form	qiláasx̣	page 13, example (88), ‘otter’
+(88)	Nez Perce	cited form	qilasáx̣-	page 13, example (88), ‘otter’
+(88)	Nez Perce	phonemic	/qilasq/	page 13, example (88), ‘otter’, underlined, a strong morpheme
+(89)	Noel Rude	note	NP kikéʔt, kikeʔét- /kikeʔt/ ‘blood’	page 13, the example as printed
+(89)	Nez Perce	cited form	kikéʔt	page 13, example (89), ‘blood’
+(89)	Nez Perce	cited form	kikeʔét-	page 13, example (89), ‘blood’
+(89)	Nez Perce	phonemic	/kikeʔt/	page 13, example (89), ‘blood’
+(90)	Noel Rude	note	NP tewlíikt, tewlikít- /tewlikt/ ‘tree’	page 13, the example as printed
+(90)	Nez Perce	cited form	tewlíikt	page 13, example (90), ‘tree’
+(90)	Nez Perce	cited form	tewlikít-	page 13, example (90), ‘tree’
+(90)	Nez Perce	phonemic	/tewlikt/	page 13, example (90), ‘tree’
+(91)	Noel Rude	note	NP nacóʔx̣, nacoʔóx̣- /nacoʔq/ ‘salmon’	page 13, the example as printed
+(91)	Nez Perce	cited form	nacóʔx̣	page 13, example (91), ‘salmon’
+(91)	Nez Perce	cited form	nacoʔóx̣-	page 13, example (91), ‘salmon’
+(91)	Nez Perce	phonemic	/nacoʔq/	page 13, example (91), ‘salmon’, underlined, a strong morpheme
+(92)	Noel Rude	note	NP silúuqs, siluqús- /siluqs/ ‘saliva’	page 13, the example as printed
+(92)	Nez Perce	cited form	silúuqs	page 13, example (92), ‘saliva’
+(92)	Nez Perce	cited form	siluqús-	page 13, example (92), ‘saliva’
+(92)	Nez Perce	phonemic	/siluqs/	page 13, example (92), ‘saliva’
+§2	Noel Rude	note	Morphemes with inherent stress follow a stress hierarchy (suffix ⊂ prefix ⊂ root):	page 13
+(93)	Noel Rude	note	S itkʷáta /i-tkʷáta/ ‘he has eaten’	page 13, the example as printed
+(93)	Sahaptin	cited form	itkʷáta	page 13, example (93), ‘he has eaten’
+(93)	Sahaptin	phonemic	/i-tkʷáta/	page 13, example (93), ‘he has eaten’
+(94)	Noel Rude	note	S pátkʷata /pá-tkʷáta/ ‘he has eaten it’	page 13, the example as printed
+(94)	Sahaptin	cited form	pátkʷata	page 13, example (94), ‘he has eaten it’
+(94)	Sahaptin	phonemic	/pá-tkʷáta/	page 13, example (94), ‘he has eaten it’
+(95)	Noel Rude	note	S patkʷatałá /pá-tkʷáta-łá/ ‘cannibal’	page 13, the example as printed
+(95)	Sahaptin	cited form	patkʷatałá	page 13, example (95), ‘cannibal’
+(95)	Sahaptin	phonemic	/pá-tkʷáta-łá/	page 13, example (95), ‘cannibal’
+(96)	Noel Rude	note	NP hipáayna /hi-páyn-e/ ‘he arrived’	page 13, the example as printed
+(96)	Nez Perce	cited form	hipáayna	page 13, example (96), ‘he arrived’
+(96)	Nez Perce	phonemic	/hi-páyn-e/	page 13, example (96), ‘he arrived’, páyn underlined, a strong morpheme
+(97)	Noel Rude	note	NP hiʔnáhpayka /hi-ʔnék-páy-k-e/ ‘he brought (it)’	page 13, the example as printed
+(97)	Nez Perce	cited form	hiʔnáhpayka	page 13, example (97), ‘he brought (it)’
+(97)	Nez Perce	phonemic	/hi-ʔnék-páy-k-e/	page 13, example (97), ‘he brought (it)’, páy underlined, a strong morpheme
+(98)	Noel Rude	note	NP paʔnahpaykóoya /pé-ʔnék-páy-k-úu-e/ ‘he brought it to him’	page 13, the example as printed
+(98)	Nez Perce	cited form	paʔnahpaykóoya	page 13, example (98), ‘he brought it to him’
+(98)	Nez Perce	phonemic	/pé-ʔnék-páy-k-úu-e/	page 13, example (98), ‘he brought it to him’, páy underlined, a strong morpheme
+§2	Noel Rude	note	Many Nez Perce verbs lack morpheme inherent stress, though probably not as large a percentage as nouns. An epenthetic vowel may carry penultimate stress. This may be the vowel that breaks up an initial consonant cluster.	page 14
+(99)	Noel Rude	note	NP mác̓is /mc̓i-s/ ‘I have heard’; himc̓íya /hi-mc̓i-e/ ‘he heard’	page 14, the example as printed
+(99)	Nez Perce	cited form	mác̓is	page 14, example (99), ‘I have heard’
+(99)	Nez Perce	phonemic	/mc̓i-s/	page 14, example (99), ‘I have heard’, mc̓i underlined, a strong morpheme
+(99)	Nez Perce	cited form	himc̓íya	page 14, example (99), ‘he heard’
+(99)	Nez Perce	phonemic	/hi-mc̓i-e/	page 14, example (99), ‘he heard’, mc̓i underlined, a strong morpheme
+(100)	Noel Rude	note	NP wíc̓es /wc̓e-s/ ‘I have become’; hiwc̓éeye /hi-wc̓e-e/ ‘he became’	page 14, the example as printed
+(100)	Nez Perce	cited form	wíc̓es	page 14, example (100), ‘I have become’
+(100)	Nez Perce	phonemic	/wc̓e-s/	page 14, example (100), ‘I have become’
+(100)	Nez Perce	cited form	hiwc̓éeye	page 14, example (100), ‘he became’
+(100)	Nez Perce	phonemic	/hi-wc̓e-e/	page 14, example (100), ‘he became’
+§2	Noel Rude	note	It may be word internal.	page 14
+(101)	Noel Rude	note	NP lamális /lamli-s/ ‘it (snow) has melted’; lamlíisa /lamli-sen-s/ ‘it (snow) is melting’	page 14, the example as printed
+(101)	Nez Perce	cited form	lamális	page 14, example (101), ‘it (snow) has melted’
+(101)	Nez Perce	phonemic	/lamli-s/	page 14, example (101), ‘it (snow) has melted’, lamli underlined, a strong morpheme
+(101)	Nez Perce	cited form	lamlíisa	page 14, example (101), ‘it (snow) is melting’
+(101)	Nez Perce	phonemic	/lamli-sen-s/	page 14, example (101), ‘it (snow) is melting’, lamli underlined, a strong morpheme
+(102)	Noel Rude	note	NP ten̓íwes /ten̓we-s/ ‘I have spoken’; ten̓wéese /ten̓we-sen-s/ ‘I am speaking’	page 14, the example as printed
+(102)	Nez Perce	cited form	ten̓íwes	page 14, example (102), ‘I have spoken’
+(102)	Nez Perce	phonemic	/ten̓we-s/	page 14, example (102), ‘I have spoken’
+(102)	Nez Perce	cited form	ten̓wéese	page 14, example (102), ‘I am speaking’
+(102)	Nez Perce	phonemic	/ten̓we-sen-s/	page 14, example (102), ‘I am speaking’
+(103)	Noel Rude	note	NP hewtúk̓is /hewtk̓ʷi-s/ ‘I have overtaken’; hewtuk̓íise /hewtk̓ʷi-sen-s/ ‘I am overtaking’	page 14, the example as printed
+(103)	Nez Perce	cited form	hewtúk̓is	page 14, example (103), ‘I have overtaken’
+(103)	Nez Perce	phonemic	/hewtk̓ʷi-s/	page 14, example (103), ‘I have overtaken’
+(103)	Nez Perce	cited form	hewtuk̓íise	page 14, example (103), ‘I am overtaking’
+(103)	Nez Perce	phonemic	/hewtk̓ʷi-sen-s/	page 14, example (103), ‘I am overtaking’
+§2	Noel Rude	note	With nouns (as we have seen above) stem final penultimate epenthesis occurs in the environment C_C+CV; with verbs it is in the environment C_+CV.	page 14
+§2	Nez Perce	cited form	C_C+CV	page 14, set upright
+§2	Nez Perce	cited form	C_+CV	page 14, set upright
+(104)	Noel Rude	note	NP nekíse /nek-sen-s/ ‘I am thinking’; néeke /nek-e/ ‘I thought’	page 14, the example as printed
+(104)	Nez Perce	cited form	nekíse	page 14, example (104), ‘I am thinking’
+(104)	Nez Perce	phonemic	/nek-sen-s/	page 14, example (104), ‘I am thinking’
+(104)	Nez Perce	cited form	néeke	page 14, example (104), ‘I thought’
+(104)	Nez Perce	phonemic	/nek-e/	page 14, example (104), ‘I thought’
+(105)	Noel Rude	note	NP misemíse /msem-sen-s/ ‘I am lying’; miséeme /msem-e/ ‘I lied’	page 14, the example as printed
+(105)	Nez Perce	cited form	misemíse	page 14, example (105), ‘I am lying’
+(105)	Nez Perce	phonemic	/msem-sen-s/	page 14, example (105), ‘I am lying’
+(105)	Nez Perce	cited form	miséeme	page 14, example (105), ‘I lied’
+(105)	Nez Perce	phonemic	/msem-e/	page 14, example (105), ‘I lied’
+§2	Noel Rude	note	Unlike with nouns, verb stem final penultimate epenthesis is never with [a], nor is an unstressed epenthetic vowel that breaks up an initial consonant cluster ever [a].	page 14
+(106)	Noel Rude	note	NP watikíse /watik-sen-s/ ‘I am stepping’; watíika /watik-e/ ‘I stepped’	page 14, the example as printed
+(106)	Nez Perce	cited form	watikíse	page 14, example (106), ‘I am stepping’
+(106)	Nez Perce	phonemic	/watik-sen-s/	page 14, example (106), ‘I am stepping’, watik underlined, a strong morpheme
+(106)	Nez Perce	cited form	watíika	page 14, example (106), ‘I stepped’
+(106)	Nez Perce	phonemic	/watik-e/	page 14, example (106), ‘I stepped’, watik underlined, a strong morpheme
+(107)	Noel Rude	note	NP mic̓íise /mc̓i-sen-s/ ‘I hear’; cf. mác̓is /mc̓i-s/ ‘I have heard’	page 14, the example as printed
+(107)	Nez Perce	cited form	mic̓íise	page 14, example (107), ‘I hear’
+(107)	Nez Perce	phonemic	/mc̓i-sen-s/	page 14, example (107), ‘I hear’, mc̓i underlined, a strong morpheme
+(107)	Nez Perce	cited form	mác̓is	page 14, example (107), ‘I have heard’
+(107)	Nez Perce	phonemic	/mc̓i-s/	page 14, example (107), ‘I have heard’, mc̓i underlined, a strong morpheme
+§3	Noel Rude	heading	3 Consonants	page 14
+§3	Noel Rude	note	The consonants in Table 9 are phonemic either in Nez Perce or in Sahaptin and (perhaps with the exception of the glottalized resonants m̓, n̓, l̓, w̓, y̓ and perhaps the č – c distinction) represent the consonant system of Proto- Sahaptian.	page 14
+§3	Sahaptian	cited form	m̓	page 14, set upright
+§3	Sahaptian	cited form	n̓	page 14, set upright
+§3	Sahaptian	cited form	l̓	page 14, set upright
+§3	Sahaptian	cited form	w̓	page 14, set upright
+§3	Sahaptian	cited form	y̓	page 14, set upright
+§3	Sahaptian	cited form	č	page 14, set upright
+§3	Sahaptian	cited form	c	page 14, set upright
+Table 9	Noel Rude	note	Table 9. Sahaptian consonants	page 15, the table's caption
+Table 9	Proto-Sahaptian	cited form	p	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	t	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	ƛ	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	c	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	č	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	k	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	kʷ	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	q	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	qʷ	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	ʔ	page 15, row 1, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	p̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	t̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	ƛ̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	c̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	č̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	k̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	k̓ʷ	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	q̓	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	q̓ʷ	page 15, row 2, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	ł	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	s	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	š	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	x	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	xʷ	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	x̣	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	x̣ʷ	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	h	page 15, row 3, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	m	page 15, row 4, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	n	page 15, row 4, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	l	page 15, row 4, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	m̓	page 15, row 5, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	n̓	page 15, row 5, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	l̓	page 15, row 5, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	w	page 15, row 6, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	y	page 15, row 6, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	w̓	page 15, row 7, a consonant of Nez Perce or Sahaptin
+Table 9	Proto-Sahaptian	cited form	y̓	page 15, row 7, a consonant of Nez Perce or Sahaptin
+§3.1	Noel Rude	heading	3.1 Palatalization	page 15
+§3.1	Noel Rude	note	In Sahaptin, PS *k and *k̓ are palatalized before a front vowel. The front vowel may be obscured by further sound changes.	page 15
+§3.1	Proto-Sahaptian	cited form	*k	page 15, set upright
+§3.1	Proto-Sahaptian	cited form	*k̓	page 15, set upright
+(108)	Noel Rude	note	S čí ‘this’; NP kíi /kí/; PS *kí	page 15, the example as printed
+(108)	Sahaptin	cited form	čí	page 15, example (108), ‘this’
+(108)	Nez Perce	cited form	kíi	page 15, example (108)
+(108)	Nez Perce	phonemic	/kí/	page 15, example (108)
+(108)	Proto-Sahaptian	cited form	*kí	page 15, example (108)
+(109)	Noel Rude	note	S pčá ‘mother’; NP píke /pke/; PS *pɨké	page 15, the example as printed
+(109)	Sahaptin	cited form	pčá	page 15, example (109), ‘mother’
+(109)	Nez Perce	cited form	píke	page 15, example (109)
+(109)	Nez Perce	phonemic	/pke/	page 15, example (109)
+(109)	Proto-Sahaptian	cited form	*pɨké	page 15, example (109)
+(110)	Noel Rude	note	S ččáa ‘serviceberry, Amelanchier utahensis’; Y ččáya; NP kikéeye /kkeye/; PS *kkéye	page 15, the example as printed
+(110)	Sahaptin	cited form	ččáa	page 15, example (110), ‘serviceberry, Amelanchier utahensis’
+(110)	Yakima	cited form	ččáya	page 15, example (110)
+(110)	Nez Perce	cited form	kikéeye	page 15, example (110)
+(110)	Nez Perce	phonemic	/kkeye/	page 15, example (110)
+(110)	Proto-Sahaptian	cited form	*kkéye	page 15, example (110)
+(111)	Noel Rude	note	S čanúwit ‘weaving’; NP ken̓íwit /ken̓wit/; PS *ken̓ɨ́wit	page 15, the example as printed
+(111)	Sahaptin	cited form	čanúwit	page 15, example (111), ‘weaving’
+(111)	Nez Perce	cited form	ken̓íwit	page 15, example (111)
+(111)	Nez Perce	phonemic	/ken̓wit/	page 15, example (111)
+(111)	Proto-Sahaptian	cited form	*ken̓ɨ́wit	page 15, example (111)
+(112)	Noel Rude	note	S čúuš ‘water’; K čáwaš; Y číiš; NP kúus /kúus/; PS *kéweš	page 15, the example as printed
+(112)	Sahaptin	cited form	čúuš	page 15, example (112), ‘water’
+(112)	Klikitat	cited form	čáwaš	page 15, example (112)
+(112)	Yakima	cited form	číiš	page 15, example (112)
+(112)	Nez Perce	cited form	kúus	page 15, example (112)
+(112)	Nez Perce	phonemic	/kúus/	page 15, example (112)
+(112)	Proto-Sahaptian	cited form	*kéweš	page 15, example (112)
+(113)	Noel Rude	note	S ánč̓a ‘again’; NW ánač̓a; NP héenek̓e /hének̓e/; PS *hének̓e	page 15, the example as printed
+(113)	Sahaptin	cited form	ánč̓a	page 15, example (113), ‘again’
+(113)	Northwest Sahaptin	cited form	ánač̓a	page 15, example (113)
+(113)	Nez Perce	cited form	héenek̓e	page 15, example (113)
+(113)	Nez Perce	phonemic	/hének̓e/	page 15, example (113)
+(113)	Proto-Sahaptian	cited form	*hének̓e	page 15, example (113)
+(114)	Noel Rude	note	S łč̓ápa ‘rose hip’; cf. S šk̓apášway ‘rose bush’ (PS *łk̓épe; *šk̓apášway)	page 15, the example as printed
+(114)	Sahaptin	cited form	łč̓ápa	page 15, example (114), ‘rose hip’
+(114)	Sahaptin	cited form	šk̓apášway	page 15, example (114), ‘rose bush’
+(114)	Proto-Sahaptian	cited form	*łk̓épe	page 15, example (114)
+(114)	Proto-Sahaptian	cited form	*šk̓apášway	page 15, example (114)
+§3.1	Noel Rude	note	In some Sahaptin examples there is both palatalization and diminutive sound symbolism.	page 15
+(115)	Noel Rude	note	S sc̓átn ‘be dark, be night’; NP cik̓éetin /ck̓étn/; PS *sk̓étn	page 15, the example as printed
+(115)	Sahaptin	cited form	sc̓átn	page 15, example (115), ‘be dark, be night’
+(115)	Nez Perce	cited form	cik̓éetin	page 15, example (115)
+(115)	Nez Perce	phonemic	/ck̓étn/	page 15, example (115)
+(115)	Proto-Sahaptian	cited form	*sk̓étn	page 15, example (115)
+(116)	Noel Rude	note	S c̓swín ‘curve around, turn back’; NP k̓icwíin /k̓cwín/; PS *k̓ɨswín	page 15, the example as printed
+(116)	Sahaptin	cited form	c̓swín	page 15, example (116), ‘curve around, turn back’
+(116)	Nez Perce	cited form	k̓icwíin	page 15, example (116)
+(116)	Nez Perce	phonemic	/k̓cwín/	page 15, example (116)
+(116)	Proto-Sahaptian	cited form	*k̓ɨswín	page 15, example (116)
+§3.1	Noel Rude	note	It is possible that the following does not indicate the recent inception of palatalization, but rather represents an analogical change based on čá- ‘with the teeth, etc.’	page 15
+§3.1	Sahaptin	cited form	čá-	page 15, set upright, ‘with the teeth, etc.’
+(117)	Noel Rude	note	S čalámat ‘pipe’ (from Canadian French calumet); NP keléemet /kelemet/	page 15, the example as printed
+(117)	Sahaptin	cited form	čalámat	page 15, example (117), ‘pipe’
+(117)	Nez Perce	cited form	keléemet	page 15, example (117)
+(117)	Nez Perce	phonemic	/kelemet/	page 15, example (117)
+§3.1	Noel Rude	note	PS *k and *k̓ are preserved before a back vowel.	page 16
+(118)	Noel Rude	note	S yáka ‘bear’; NP yáakaʔ /yákaʔ/; PS *yákaʔ	page 16, the example as printed
+(118)	Sahaptin	cited form	yáka	page 16, example (118), ‘bear’
+(118)	Nez Perce	cited form	yáakaʔ	page 16, example (118)
+(118)	Nez Perce	phonemic	/yákaʔ/	page 16, example (118), underlined, a strong morpheme
+(118)	Proto-Sahaptian	cited form	*yákaʔ	page 16, example (118)
+(119)	Noel Rude	note	S kúmkum ‘salmon head or jaw cartilage’; NP kúumkum /kumkum/	page 16, the example as printed
+(119)	Sahaptin	cited form	kúmkum	page 16, example (119), ‘salmon head or jaw cartilage’
+(119)	Nez Perce	cited form	kúumkum	page 16, example (119)
+(119)	Nez Perce	phonemic	/kumkum/	page 16, example (119)
+(120)	Noel Rude	note	S k̓ášinu ‘elbow’; NP k̓assáyno /k̓assyno/; PS *k̓áššɨyno	page 16, the example as printed
+(120)	Sahaptin	cited form	k̓ášinu	page 16, example (120), ‘elbow’
+(120)	Nez Perce	cited form	k̓assáyno	page 16, example (120)
+(120)	Nez Perce	phonemic	/k̓assyno/	page 16, example (120), underlined, a strong morpheme
+(120)	Proto-Sahaptian	cited form	*k̓áššɨyno	page 16, example (120)
+(121)	Noel Rude	note	S k̓uštáyn ‘guess wrong (in bone game)’; NP k̓úuxsteyn /k̓úxsteyn/; PS *k̓úxsteyn	page 16, the example as printed
+(121)	Sahaptin	cited form	k̓uštáyn	page 16, example (121), ‘guess wrong (in bone game)’
+(121)	Nez Perce	cited form	k̓úuxsteyn	page 16, example (121)
+(121)	Nez Perce	phonemic	/k̓úxsteyn/	page 16, example (121)
+(121)	Proto-Sahaptian	cited form	*k̓úxsteyn	page 16, example (121)
+§3.1	Noel Rude	note	Progressive palatalization occurs in the CR dialects.	page 16
+(122)	Noel Rude	note	CR anwíčt ‘year’; N anwíkt	page 16, the example as printed
+(122)	Columbia River Sahaptin	cited form	anwíčt	page 16, example (122), ‘year’
+(122)	Northern Sahaptin	cited form	anwíkt	page 16, example (122)
+(123)	Noel Rude	note	CR ɨwíč ‘cut up for drying’; N ɨwík; NP /hwik/	page 16, the example as printed
+(123)	Columbia River Sahaptin	cited form	ɨwíč	page 16, example (123), ‘cut up for drying’
+(123)	Northern Sahaptin	cited form	ɨwík	page 16, example (123)
+(123)	Nez Perce	phonemic	/hwik/	page 16, example (123)
+(124)	Noel Rude	note	CR tináynačt ‘sunset, moonset’; N tináynakt; NP tin̓eynéekt /tin̓eynékt/	page 16, the example as printed
+(124)	Columbia River Sahaptin	cited form	tináynačt	page 16, example (124), ‘sunset, moonset’
+(124)	Northern Sahaptin	cited form	tináynakt	page 16, example (124)
+(124)	Nez Perce	cited form	tin̓eynéekt	page 16, example (124)
+(124)	Nez Perce	phonemic	/tin̓eynékt/	page 16, example (124)
+(125)	Noel Rude	note	CR waníčt ‘name’; N waníkt; NP weʔníikt /weʔnikt/	page 16, the example as printed
+(125)	Columbia River Sahaptin	cited form	waníčt	page 16, example (125), ‘name’
+(125)	Northern Sahaptin	cited form	waníkt	page 16, example (125)
+(125)	Nez Perce	cited form	weʔníikt	page 16, example (125)
+(125)	Nez Perce	phonemic	/weʔnikt/	page 16, example (125)
+(126)	Noel Rude	note	CR wáyč ‘cross’; N wáyk; NP /wéyik/	page 16, the example as printed
+(126)	Columbia River Sahaptin	cited form	wáyč	page 16, example (126), ‘cross’
+(126)	Northern Sahaptin	cited form	wáyk	page 16, example (126)
+(126)	Nez Perce	phonemic	/wéyik/	page 16, example (126)
+(127)	Noel Rude	note	CR wapsíc ‘braid (rope)’; Y wapsík	page 16, the example as printed
+(127)	Columbia River Sahaptin	cited form	wapsíc	page 16, example (127), ‘braid (rope)’
+(127)	Yakima	cited form	wapsík	page 16, example (127)
+§3.1	Noel Rude	note	There is palatalization before the epenthetic vowel except when the morpheme is marked for strong vowel harmony (as indicated in Nez Perce cognates).	page 16
+(128)	Noel Rude	note	S čɨ́mti ‘new’; NP kímti /kmti/; PS *kɨ́mti	page 16, the example as printed
+(128)	Sahaptin	cited form	čɨ́mti	page 16, example (128), ‘new’
+(128)	Nez Perce	cited form	kímti	page 16, example (128)
+(128)	Nez Perce	phonemic	/kmti/	page 16, example (128)
+(128)	Proto-Sahaptian	cited form	*kɨ́mti	page 16, example (128)
+(129)	Noel Rude	note	S ɨščɨ́t ‘trail, road’; NP ʔískit /ʔskt/; PS *ʔɨškɨ́t	page 16, the example as printed
+(129)	Sahaptin	cited form	ɨščɨ́t	page 16, example (129), ‘trail, road’
+(129)	Nez Perce	cited form	ʔískit	page 16, example (129)
+(129)	Nez Perce	phonemic	/ʔskt/	page 16, example (129)
+(129)	Proto-Sahaptian	cited form	*ʔɨškɨ́t	page 16, example (129)
+(130)	Noel Rude	note	S kkɨ́m ‘full’; NP kakmám /kkm´m/; PS *kɨkɨ́m, *kɨkmɨ́m	page 16, the example as printed
+(130)	Sahaptin	cited form	kkɨ́m	page 16, example (130), ‘full’
+(130)	Nez Perce	cited form	kakmám	page 16, example (130)
+(130)	Nez Perce	phonemic	/kkm´m/	page 16, example (130), underlined, a strong morpheme
+(130)	Proto-Sahaptian	cited form	*kɨkɨ́m	page 16, example (130)
+(130)	Proto-Sahaptian	cited form	*kɨkmɨ́m	page 16, example (130)
+(131)	Noel Rude	note	S k̓ɨ́plač ‘war club’; NP k̓áplac /k̓plac/; PS *k̓ɨ́plač	page 16, the example as printed
+(131)	Sahaptin	cited form	k̓ɨ́plač	page 16, example (131), ‘war club’
+(131)	Nez Perce	cited form	k̓áplac	page 16, example (131)
+(131)	Nez Perce	phonemic	/k̓plac/	page 16, example (131), underlined, a strong morpheme
+(131)	Proto-Sahaptian	cited form	*k̓ɨ́plač	page 16, example (131)
+§3.2	Noel Rude	heading	3.2 Palatals and sibilants	page 16
+§3.2	Noel Rude	note	Though most examples of Sahaptin č results from palatalization, PS *č seems to have survived in a few Sahaptin words where it was weakened to /s/ in Nez Perce.	page 16
+§3.2	Proto-Sahaptian	cited form	*č	page 16, set upright
+(132)	Noel Rude	note	S čmúk ‘black’; NP símux /smuk/ ‘charcoal’; PS *čmúk ‘charcoal’	page 16, the example as printed
+(132)	Sahaptin	cited form	čmúk	page 16, example (132), ‘black’
+(132)	Nez Perce	cited form	símux	page 16, example (132), ‘charcoal’
+(132)	Nez Perce	phonemic	/smuk/	page 16, example (132), ‘charcoal’
+(132)	Proto-Sahaptian	cited form	*čmúk	page 16, example (132), ‘charcoal’
+(133)	Noel Rude	note	S qčáqn ‘open the mouth’; NP /qseqn/; PS *qčéqn	page 17, the example as printed
+(133)	Sahaptin	cited form	qčáqn	page 17, example (133), ‘open the mouth’
+(133)	Nez Perce	phonemic	/qseqn/	page 17, example (133)
+(133)	Proto-Sahaptian	cited form	*qčéqn	page 17, example (133)
+(134)	Noel Rude	note	S ččúu ‘quiet, still’; NP /s´wn/ ‘be silent, absent’; PS *(č)čɨ́w(n)	page 17, the example as printed
+(134)	Sahaptin	cited form	ččúu	page 17, example (134), ‘quiet, still’
+(134)	Nez Perce	phonemic	/s´wn/	page 17, example (134), ‘be silent, absent’, underlined, a strong morpheme
+(134)	Proto-Sahaptian	cited form	*(č)čɨ́w(n)	page 17, example (134)
+§3.2	Noel Rude	note	There are also a few examples where Sahaptin č̓ corresponds to Nez Perce c̓.	page 17
+§3.2	Sahaptin	cited form	č̓	page 17, set upright
+§3.2	Nez Perce	cited form	c̓	page 17, set upright
+(135)	Noel Rude	note	S čč̓áal ‘noisy’; NP c̓ic̓ál /c̓c̓´l/; PS *č̓č̓ɨ́l/*č̓č̓áal	page 17, the example as printed
+(135)	Sahaptin	cited form	čč̓áal	page 17, example (135), ‘noisy’
+(135)	Nez Perce	cited form	c̓ic̓ál	page 17, example (135)
+(135)	Nez Perce	phonemic	/c̓c̓´l/	page 17, example (135), underlined, a strong morpheme
+(135)	Proto-Sahaptian	cited form	*č̓č̓ɨ́l/*č̓č̓áal	page 17, example (135)
+Table 10	Noel Rude	note	Table 10. Sahaptian sibilants	page 17, the table's caption, set beside (133) to (135)
+Table 10	Noel Rude	note	Nez Perce	page 17, a column's head, broken over two lines
+Table 10	Noel Rude	note	Sahaptin	page 17, a column's head
+Table 10	Noel Rude	note	Proto-Sahaptian	page 17, a column's head, broken over two lines
+Table 10	Nez Perce	cited form	s	page 17, row 1
+Table 10	Sahaptin	cited form	č	page 17, row 1
+Table 10	Proto-Sahaptian	cited form	*č	page 17, row 1
+Table 10	Nez Perce	cited form	c̓	page 17, row 2
+Table 10	Sahaptin	cited form	č̓	page 17, row 2
+Table 10	Proto-Sahaptian	cited form	*č̓	page 17, row 2
+Table 10	Nez Perce	cited form	s	page 17, row 3
+Table 10	Sahaptin	cited form	š	page 17, row 3
+Table 10	Proto-Sahaptian	cited form	*š	page 17, row 3
+Table 10	Nez Perce	cited form	c	page 17, row 4
+Table 10	Sahaptin	cited form	s	page 17, row 4
+Table 10	Proto-Sahaptian	cited form	*s	page 17, row 4
+Table 10	Nez Perce	cited form	s	page 17, row 5
+Table 10	Sahaptin	cited form	ƛ	page 17, row 5
+Table 10	Proto-Sahaptian	cited form	*ƛ	page 17, row 5
+Table 10	Nez Perce	cited form	c̓	page 17, row 6
+Table 10	Sahaptin	cited form	ƛ̓	page 17, row 6
+Table 10	Proto-Sahaptian	cited form	*ƛ̓	page 17, row 6
+Table 10	Nez Perce	cited form	s	page 17, row 7
+Table 10	Sahaptin	cited form	ł	page 17, row 7
+Table 10	Proto-Sahaptian	cited form	*ł	page 17, row 7
+(136)	Noel Rude	note	NE č̓áyn ‘jump’; NP /weyec̓éyn/; PS *č̓éyn	page 17, the example as printed
+(136)	Northeast Sahaptin	cited form	č̓áyn	page 17, example (136), ‘jump’
+(136)	Nez Perce	phonemic	/weyec̓éyn/	page 17, example (136)
+(136)	Proto-Sahaptian	cited form	*č̓éyn	page 17, example (136)
+(137)	Noel Rude	note	S č̓x̣íix̣ ‘curly, kinki’; NP c̓ax̣ax̣c̓áx̣ax̣ /c̓x̣x̣c̓´x̣x̣/; PS *č̓ɨ́x̣ɨx̣/*č̓x̣íix̣	page 17, the example as printed
+(137)	Sahaptin	cited form	č̓x̣íix̣	page 17, example (137), ‘curly, kinki’
+(137)	Nez Perce	cited form	c̓ax̣ax̣c̓áx̣ax̣	page 17, example (137)
+(137)	Nez Perce	phonemic	/c̓x̣x̣c̓´x̣x̣/	page 17, example (137), underlined, a strong morpheme
+(137)	Proto-Sahaptian	cited form	*č̓ɨ́x̣ɨx̣/*č̓x̣íix̣	page 17, example (137)
+§3.2	Noel Rude	note	The diminutive of /č/ is /c/ in Sahaptin, whereas in Nez Perce /c/ is the diminutive of /s/.	page 17
+§3.2	Sahaptin	phonemic	/č/	page 17, set upright
+§3.2	Sahaptin	phonemic	/c/	page 17, set upright
+(138)	Noel Rude	note	S cɨ́mti ‘brand new’; cf. čɨ́mti ‘new’	page 17, the example as printed
+(138)	Sahaptin	cited form	cɨ́mti	page 17, example (138), ‘brand new’
+(138)	Sahaptin	cited form	čɨ́mti	page 17, example (138), ‘new’
+(139)	Noel Rude	note	NP cimúuxcimux /cmuk-cmuk/ ‘black’; cf. símux /smuk/ ‘charcoal’	page 17, the example as printed
+(139)	Nez Perce	cited form	cimúuxcimux	page 17, example (139), ‘black’
+(139)	Nez Perce	phonemic	/cmuk-cmuk/	page 17, example (139), ‘black’
+(139)	Nez Perce	cited form	símux	page 17, example (139), ‘charcoal’
+(139)	Nez Perce	phonemic	/smuk/	page 17, example (139), ‘charcoal’
+§3.2	Noel Rude	note	Nez Perce does not distinguish /š/ from /s/ (rather the upriver dialect has only /s/ and the downriver dialect has only /š/). The following examples point to PS *š.	page 17
+§3.2	Nez Perce	phonemic	/š/	page 17, set upright
+§3.2	Proto-Sahaptian	cited form	*š	page 17, set upright
+(140)	Noel Rude	note	S šíš ‘mush’; NP síis /sís/; PS *šíš	page 17, the example as printed
+(140)	Sahaptin	cited form	šíš	page 17, example (140), ‘mush’
+(140)	Nez Perce	cited form	síis	page 17, example (140)
+(140)	Nez Perce	phonemic	/sís/	page 17, example (140)
+(140)	Proto-Sahaptian	cited form	*šíš	page 17, example (140)
+(141)	Noel Rude	note	S šɨ́šaa ‘freeze’; NP /s´c̓e/; PS *šɨ́šeʔe	page 17, the example as printed
+(141)	Sahaptin	cited form	šɨ́šaa	page 17, example (141), ‘freeze’
+(141)	Nez Perce	phonemic	/s´c̓e/	page 17, example (141)
+(141)	Proto-Sahaptian	cited form	*šɨ́šeʔe	page 17, example (141)
+(142)	Noel Rude	note	S šɨ́šaaš ‘porcupine, Erethizon dorsatum’; NP sác̓as /sc̓as/; PS *šɨ́šaʔaš	page 17, the example as printed
+(142)	Sahaptin	cited form	šɨ́šaaš	page 17, example (142), ‘porcupine, Erethizon dorsatum’
+(142)	Nez Perce	cited form	sác̓as	page 17, example (142)
+(142)	Nez Perce	phonemic	/sc̓as/	page 17, example (142), underlined, a strong morpheme
+(142)	Proto-Sahaptian	cited form	*šɨ́šaʔaš	page 17, example (142)
+(143)	Noel Rude	note	S šíki ‘badger, Taxidea taxus’; NP síikiʔ /síkiʔ/; PS *šíkiʔ	page 17, the example as printed
+(143)	Sahaptin	cited form	šíki	page 17, example (143), ‘badger, Taxidea taxus’
+(143)	Nez Perce	cited form	síikiʔ	page 17, example (143)
+(143)	Nez Perce	phonemic	/síkiʔ/	page 17, example (143)
+(143)	Proto-Sahaptian	cited form	*šíkiʔ	page 17, example (143)
+(144)	Noel Rude	note	S šq̓íiš ‘shade’; NP sáq̓is /sq̓is/; PS *šq̓íš/*šq̓íiš	page 17, the example as printed
+(144)	Sahaptin	cited form	šq̓íiš	page 17, example (144), ‘shade’
+(144)	Nez Perce	cited form	sáq̓is	page 17, example (144)
+(144)	Nez Perce	phonemic	/sq̓is/	page 17, example (144), underlined, a strong morpheme
+(144)	Proto-Sahaptian	cited form	*šq̓íš/*šq̓íiš	page 17, example (144)
+(145)	Noel Rude	note	S šwá ‘forehead’; NP síwe /swe/; PS *šɨ́šeʔe	page 17, the example as printed
+(145)	Sahaptin	cited form	šwá	page 17, example (145), ‘forehead’
+(145)	Nez Perce	cited form	síwe	page 17, example (145)
+(145)	Nez Perce	phonemic	/swe/	page 17, example (145)
+(145)	Proto-Sahaptian	cited form	*šɨ́šeʔe	page 17, example (145)
+(146)	Noel Rude	note	S šwát̓aš ‘cloud’; NP siw̓éetsiw̓et /sw̓étsw̓et/ ‘dark, twilight’; PS *šw̓ét-	page 17, the example as printed
+(146)	Sahaptin	cited form	šwát̓aš	page 17, example (146), ‘cloud’
+(146)	Nez Perce	cited form	siw̓éetsiw̓et	page 17, example (146), ‘dark, twilight’
+(146)	Nez Perce	phonemic	/sw̓étsw̓et/	page 17, example (146), ‘dark, twilight’
+(146)	Proto-Sahaptian	cited form	*šw̓ét-	page 17, example (146)
+§3.2	Noel Rude	note	In some instances Sahaptin /š/ corresponds to Nez Perce /c/. Diminutive sound symbolism may be involved in Nez Perce.	page 17
+(147)	Noel Rude	note	S šúkʷa ‘know’; NP /cúkwen/; PS *šúkwen (cf. S šúk & NP /suk/ ‘recognize’)	page 18, the example as printed
+(147)	Sahaptin	cited form	šúkʷa	page 18, example (147), ‘know’
+(147)	Nez Perce	phonemic	/cúkwen/	page 18, example (147)
+(147)	Proto-Sahaptian	cited form	*šúkwen	page 18, example (147)
+(147)	Sahaptin	cited form	šúk	page 18, example (147), ‘recognize’
+(147)	Nez Perce	phonemic	/suk/	page 18, example (147), ‘recognize’
+(148)	Noel Rude	note	S šwáx̣ ‘opposite sex cross-generational in-law’; NP ciwáaqo /cwáqo/; PS *šwáqo	page 18, the example as printed
+(148)	Sahaptin	cited form	šwáx̣	page 18, example (148), ‘opposite sex cross-generational in-law’
+(148)	Nez Perce	cited form	ciwáaqo	page 18, example (148)
+(148)	Nez Perce	phonemic	/cwáqo/	page 18, example (148), underlined, a strong morpheme
+(148)	Proto-Sahaptian	cited form	*šwáqo	page 18, example (148)
+(149)	Noel Rude	note	S áš ‘enter’; NP /ʔác/; PS *ʔáš	page 18, the example as printed
+(149)	Sahaptin	cited form	áš	page 18, example (149), ‘enter’
+(149)	Nez Perce	phonemic	/ʔác/	page 18, example (149)
+(149)	Proto-Sahaptian	cited form	*ʔáš	page 18, example (149)
+§3.2	Noel Rude	note	Mostly Sahaptin /s/ corresponds to Nez Perce /c/.	page 18
+(150)	Noel Rude	note	S sawítk ‘yampah, Perideridia gairdneri’; NP cawíitx /cawitk/; PS *sawítk	page 18, the example as printed
+(150)	Sahaptin	cited form	sawítk	page 18, example (150), ‘yampah, Perideridia gairdneri’
+(150)	Nez Perce	cited form	cawíitx	page 18, example (150)
+(150)	Nez Perce	phonemic	/cawitk/	page 18, example (150), underlined, a strong morpheme
+(150)	Proto-Sahaptian	cited form	*sawítk	page 18, example (150)
+(151)	Noel Rude	note	S síwsiw ‘Lewis’ woodpecker, Melanerpes lewis’; NP cíiwciw /ciwciw/; PS *síwsiw	page 18, the example as printed
+(151)	Sahaptin	cited form	síwsiw	page 18, example (151), ‘Lewis’ woodpecker, Melanerpes lewis’
+(151)	Nez Perce	cited form	cíiwciw	page 18, example (151)
+(151)	Nez Perce	phonemic	/ciwciw/	page 18, example (151)
+(151)	Proto-Sahaptian	cited form	*síwsiw	page 18, example (151)
+(152)	Noel Rude	note	S sɨ́may ‘whitefish, Prosopium williamsoni’; NP címey /cmey/; PS *sɨ́mey	page 18, the example as printed
+(152)	Sahaptin	cited form	sɨ́may	page 18, example (152), ‘whitefish, Prosopium williamsoni’
+(152)	Nez Perce	cited form	címey	page 18, example (152)
+(152)	Nez Perce	phonemic	/cmey/	page 18, example (152)
+(152)	Proto-Sahaptian	cited form	*sɨ́mey	page 18, example (152)
+(153)	Noel Rude	note	S sc̓át ‘night’; NP cik̓éetin /ck̓étn/; PS *sk̓ét-	page 18, the example as printed
+(153)	Sahaptin	cited form	sc̓át	page 18, example (153), ‘night’
+(153)	Nez Perce	cited form	cik̓éetin	page 18, example (153)
+(153)	Nez Perce	phonemic	/ck̓étn/	page 18, example (153)
+(153)	Proto-Sahaptian	cited form	*sk̓ét-	page 18, example (153)
+(154)	Noel Rude	note	S skáwn ‘fear’; NP /ckáwn/; PS *skáwn	page 18, the example as printed
+(154)	Sahaptin	cited form	skáwn	page 18, example (154), ‘fear’
+(154)	Nez Perce	phonemic	/ckáwn/	page 18, example (154), underlined, a strong morpheme
+(154)	Proto-Sahaptian	cited form	*skáwn	page 18, example (154)
+(155)	Noel Rude	note	S sklín ‘turn, return’; NE sclín; NP /ckl´yn/; PS *sklín	page 18, the example as printed
+(155)	Sahaptin	cited form	sklín	page 18, example (155), ‘turn, return’
+(155)	Northeast Sahaptin	cited form	sclín	page 18, example (155)
+(155)	Nez Perce	phonemic	/ckl´yn/	page 18, example (155)
+(155)	Proto-Sahaptian	cited form	*sklín	page 18, example (155)
+§3.2	Noel Rude	note	Sahaptin /ł/ corresponds to Nez Perce /s/. This may represent a Proto- Sahaptian *ł.	page 18
+§3.2	Sahaptin	phonemic	/ł/	page 18, set upright
+§3.2	Proto-Sahaptian	cited form	*ł	page 18, set upright
+(156)	Noel Rude	note	S łayłáy ‘impetigo, boil’; NP sáhay /sahay/ ‘sore, measles’; PS *łáhay	page 18, the example as printed
+(156)	Sahaptin	cited form	łayłáy	page 18, example (156), ‘impetigo, boil’
+(156)	Nez Perce	cited form	sáhay	page 18, example (156), ‘sore, measles’
+(156)	Nez Perce	phonemic	/sahay/	page 18, example (156), ‘sore, measles’, underlined, a strong morpheme
+(156)	Proto-Sahaptian	cited form	*łáhay	page 18, example (156)
+(157)	Noel Rude	note	S łíitk ‘nasal mucus’; NE łiʔítk; Y łíit̓k; NP síit /síit/; PS *łiʔítk	page 18, the example as printed
+(157)	Sahaptin	cited form	łíitk	page 18, example (157), ‘nasal mucus’
+(157)	Northeast Sahaptin	cited form	łiʔítk	page 18, example (157)
+(157)	Yakima	cited form	łíit̓k	page 18, example (157)
+(157)	Nez Perce	cited form	síit	page 18, example (157)
+(157)	Nez Perce	phonemic	/síit/	page 18, example (157)
+(157)	Proto-Sahaptian	cited form	*łiʔítk	page 18, example (157)
+(158)	Noel Rude	note	S łłáwn ‘leak, srip’; NP /sséwn/; PS *łłéwn	page 18, the example as printed
+(158)	Sahaptin	cited form	łłáwn	page 18, example (158), ‘leak, srip’
+(158)	Nez Perce	phonemic	/sséwn/	page 18, example (158)
+(158)	Proto-Sahaptian	cited form	*łłéwn	page 18, example (158)
+(159)	Noel Rude	note	S łp̓úł ‘tears’; NP síp̓us /sp̓us/; PS *łp̓úł	page 18, the example as printed
+(159)	Sahaptin	cited form	łp̓úł	page 18, example (159), ‘tears’
+(159)	Nez Perce	cited form	síp̓us	page 18, example (159)
+(159)	Nez Perce	phonemic	/sp̓us/	page 18, example (159)
+(159)	Proto-Sahaptian	cited form	*łp̓úł	page 18, example (159)
+(160)	Noel Rude	note	NE íł ‘your mother’; NP ʔim̓íis /ʔm̓-ʔís/; PS *ʔɨm̓ʔíł	page 18, the example as printed
+(160)	Northeast Sahaptin	cited form	íł	page 18, example (160), ‘your mother’
+(160)	Nez Perce	cited form	ʔim̓íis	page 18, example (160)
+(160)	Nez Perce	phonemic	/ʔm̓-ʔís/	page 18, example (160)
+(160)	Proto-Sahaptian	cited form	*ʔɨm̓ʔíł	page 18, example (160)
+(161)	Noel Rude	note	S -wáakuł ‘similar to’; NP -wéekuʔs /-wéekuʔs/; PS *-wéekuʔł	page 18, the example as printed
+(161)	Sahaptin	cited form	-wáakuł	page 18, example (161), ‘similar to’
+(161)	Nez Perce	cited form	-wéekuʔs	page 18, example (161)
+(161)	Nez Perce	phonemic	/-wéekuʔs/	page 18, example (161)
+(161)	Proto-Sahaptian	cited form	*-wéekuʔł	page 18, example (161)
+(162)	Noel Rude	note	S łáyłayit ‘sores, measles, pox, small pox’; NP saháywit /saháywit/ ‘smallpox’	page 18, the example as printed
+(162)	Sahaptin	cited form	łáyłayit	page 18, example (162), ‘sores, measles, pox, small pox’
+(162)	Nez Perce	cited form	saháywit	page 18, example (162), ‘smallpox’
+(162)	Nez Perce	phonemic	/saháywit/	page 18, example (162), ‘smallpox’, underlined, a strong morpheme
+§3.2	Noel Rude	note	Sometimes Sahaptin /ł/ corresponds to a Nez Perce diminutive /c/.	page 18
+(163)	Noel Rude	note	S łayłáy ‘impetigo, boil’; NP cahaycáhay /cahaycáhay/ ‘measles’; PS *łahayłáhay	page 19, the example as printed
+(163)	Sahaptin	cited form	łayłáy	page 19, example (163), ‘impetigo, boil’
+(163)	Nez Perce	cited form	cahaycáhay	page 19, example (163), ‘measles’
+(163)	Nez Perce	phonemic	/cahaycáhay/	page 19, example (163), ‘measles’, underlined, a strong morpheme
+(163)	Proto-Sahaptian	cited form	*łahayłáhay	page 19, example (163)
+(164)	Noel Rude	note	S mɨ́ł ‘how many/much?’; NP mác /m´c/; PS *mɨ́ł	page 19, the example as printed
+(164)	Sahaptin	cited form	mɨ́ł	page 19, example (164), ‘how many/much?’
+(164)	Nez Perce	cited form	mác	page 19, example (164)
+(164)	Nez Perce	phonemic	/m´c/	page 19, example (164), underlined, a strong morpheme
+(164)	Proto-Sahaptian	cited form	*mɨ́ł	page 19, example (164)
+(165)	Noel Rude	note	S x̣ʷɨ́łx̣ʷł ‘meadowlark, Sturnella neglecta’; NP qócqoc /qʷcqʷc/; PS *qʷɨłqʷɨ́ł	page 19, the example as printed
+(165)	Sahaptin	cited form	x̣ʷɨ́łx̣ʷł	page 19, example (165), ‘meadowlark, Sturnella neglecta’
+(165)	Nez Perce	cited form	qócqoc	page 19, example (165)
+(165)	Nez Perce	phonemic	/qʷcqʷc/	page 19, example (165), underlined, a strong morpheme
+(165)	Proto-Sahaptian	cited form	*qʷɨłqʷɨ́ł	page 19, example (165)
+(166)	Noel Rude	note	S łk̓ʷí ‘day’; NP /ck̓w/ ‘day or night’ (bound); PS *łk̓íw/*łk̓ʷí	page 19, the example as printed
+(166)	Sahaptin	cited form	łk̓ʷí	page 19, example (166), ‘day’
+(166)	Nez Perce	phonemic	/ck̓w/	page 19, example (166), ‘day or night’
+(166)	Proto-Sahaptian	cited form	*łk̓íw/*łk̓ʷí	page 19, example (166)
+(167)	Noel Rude	note	S łq̓úp ‘move about, wriggle’ (Jacobs 1937:31.32.3, pg. 77); NP /c´q̓op/ ‘cling’ (Aoki 1994:51); PS *łq̓óp	page 19, the example as printed
+(167)	Sahaptin	cited form	łq̓úp	page 19, example (167), ‘move about, wriggle’
+(167)	Nez Perce	phonemic	/c´q̓op/	page 19, example (167), ‘cling’, underlined, a strong morpheme
+(167)	Proto-Sahaptian	cited form	*łq̓óp	page 19, example (167)
+(168)	Noel Rude	note	NE íłaʔ ‘mother!’; NP ʔíiceʔ /ʔíceʔ/; PS *ʔíłeʔ	page 19, the example as printed
+(168)	Northeast Sahaptin	cited form	íłaʔ	page 19, example (168), ‘mother!’
+(168)	Nez Perce	cited form	ʔíiceʔ	page 19, example (168)
+(168)	Nez Perce	phonemic	/ʔíceʔ/	page 19, example (168)
+(168)	Proto-Sahaptian	cited form	*ʔíłeʔ	page 19, example (168)
+§3.2	Noel Rude	note	Nez Perce /ł/ is somewhat rare. It is possible that PS *ł disappeared in Nez Perce only to be borrowed back.	page 19
+(169)	Noel Rude	note	NP łéepłep /łepłep/ ‘butterfly’	page 19, the example as printed
+(169)	Nez Perce	cited form	łéepłep	page 19, example (169), ‘butterfly’
+(169)	Nez Perce	phonemic	/łepłep/	page 19, example (169), ‘butterfly’
+(170)	Noel Rude	note	NP łíik̓is /łik̓is/ ‘dirty’	page 19, the example as printed
+(170)	Nez Perce	cited form	łíik̓is	page 19, example (170), ‘dirty’
+(170)	Nez Perce	phonemic	/łik̓is/	page 19, example (170), ‘dirty’
+(171)	Noel Rude	note	NP łit̓áan ‘bitterroot, Lewisia rediviva’	page 19, the example as printed
+(171)	Nez Perce	cited form	łit̓áan	page 19, example (171), ‘bitterroot, Lewisia rediviva’
+(172)	Noel Rude	note	NP łit̓eʔłít̓eʔ /łt̓eʔł´t̓eʔ/ ‘flat’	page 19, the example as printed
+(172)	Nez Perce	cited form	łit̓eʔłít̓eʔ	page 19, example (172), ‘flat’
+(172)	Nez Perce	phonemic	/łt̓eʔł´t̓eʔ/	page 19, example (172), ‘flat’
+(173)	Noel Rude	note	NP łiłípłiłip /łił´płiłp/ ‘ribbon’; U łiłípłiłip	page 19, the example as printed
+(173)	Nez Perce	cited form	łiłípłiłip	page 19, example (173), ‘ribbon’
+(173)	Nez Perce	phonemic	/łił´płiłp/	page 19, example (173), ‘ribbon’
+(173)	Umatilla	cited form	łiłípłiłip	page 19, example (173)
+(174)	Noel Rude	note	NP q̓ełq̓éł /q̓łq̓´ł/; k̓ałk̓áł /k̓łk̓´ł/; S q̓ɨłq̓ɨ́ł ‘crackers’	page 19, the example as printed
+(174)	Nez Perce	cited form	q̓ełq̓éł	page 19, example (174), ‘crackers’
+(174)	Nez Perce	phonemic	/q̓łq̓´ł/	page 19, example (174), ‘crackers’
+(174)	Nez Perce	cited form	k̓ałk̓áł	page 19, example (174), ‘crackers’
+(174)	Nez Perce	phonemic	/k̓łk̓´ł/	page 19, example (174), ‘crackers’, underlined, a strong morpheme
+(174)	Sahaptin	cited form	q̓ɨłq̓ɨ́ł	page 19, example (174), ‘crackers’
+(175)	Noel Rude	note	NP táaqmaał /táqmaał/; S táqmaał ‘hat’; Klamath daqmil (Barker 1963); from Jargon	page 19, the example as printed
+(175)	Nez Perce	cited form	táaqmaał	page 19, example (175), ‘hat’
+(175)	Nez Perce	phonemic	/táqmaał/	page 19, example (175), ‘hat’
+(175)	Sahaptin	cited form	táqmaał	page 19, example (175), ‘hat’
+(175)	Klamath	cited form	daqmil	page 19, example (175)
+§3.2	Noel Rude	note	The lateral affricate /ƛ/ does not occur in Nez Perce and is rare (as a nonejective) in Sahaptin. It is found word initially in ƛqʷɨ́tn ‘catch, grab’, ƛúpn ‘jump’, ƛx̣áat ‘tame, domesticated’, and in a few more examples. Sahaptin /ƛ/ and /ł/ are augmentative variants of the Sahaptin palatals and might also substitute for one another.	page 19
+§3.2	Sahaptin	phonemic	/ƛ/	page 19, set upright
+§3.2	Sahaptin	cited form	ƛqʷɨ́tn	page 19, set upright, ‘catch, grab’
+§3.2	Sahaptin	cited form	ƛúpn	page 19, set upright, ‘jump’
+§3.2	Sahaptin	cited form	ƛx̣áat	page 19, set upright, ‘tame, domesticated’
+(176)	Noel Rude	note	S pƛɨ́k ‘spicy, hot’; płɨ́x̣ ‘medicine’; p̓ísx ‘sour’; NP pisák̓is /psk̓is/ ‘spicy, hot’; písqu /psqu/ ‘leaf’; písx̣ /psq/ ‘deer tick’	page 19, the example as printed
+(176)	Sahaptin	cited form	pƛɨ́k	page 19, example (176), ‘spicy, hot’
+(176)	Sahaptin	cited form	płɨ́x̣	page 19, example (176), ‘medicine’
+(176)	Sahaptin	cited form	p̓ísx	page 19, example (176), ‘sour’
+(176)	Nez Perce	cited form	pisák̓is	page 19, example (176), ‘spicy, hot’
+(176)	Nez Perce	phonemic	/psk̓is/	page 19, example (176), ‘spicy, hot’, underlined, a strong morpheme
+(176)	Nez Perce	cited form	písqu	page 19, example (176), ‘leaf’
+(176)	Nez Perce	phonemic	/psqu/	page 19, example (176), ‘leaf’
+(176)	Nez Perce	cited form	písx̣	page 19, example (176), ‘deer tick’
+(176)	Nez Perce	phonemic	/psq/	page 19, example (176), ‘deer tick’
+(177)	Noel Rude	note	S ƛayƛáy ‘jingling, ringing’; cáycay (sound of rattlesnake); NP caycayál̓as /caycayl̓as/ ‘rattlesnake rattles’	page 20, the example as printed
+(177)	Sahaptin	cited form	ƛayƛáy	page 20, example (177), ‘jingling, ringing’
+(177)	Sahaptin	cited form	cáycay	page 20, example (177), (sound of rattlesnake)
+(177)	Nez Perce	cited form	caycayál̓as	page 20, example (177), ‘rattlesnake rattles’
+(177)	Nez Perce	phonemic	/caycayl̓as/	page 20, example (177), ‘rattlesnake rattles’, underlined, a strong morpheme
+(178)	Noel Rude	note	S łmáma ‘old woman’; NE šmaawíš; asmaawitúma (plural)	page 20, the example as printed
+(178)	Sahaptin	cited form	łmáma	page 20, example (178), ‘old woman’
+(178)	Northeast Sahaptin	cited form	šmaawíš	page 20, example (178)
+(178)	Northeast Sahaptin	cited form	asmaawitúma	page 20, example (178)
+(179)	Noel Rude	note	S q̓úx̣ł ‘knee’; k̓uxsk̓úxs ‘ankle’	page 20, the example as printed
+(179)	Sahaptin	cited form	q̓úx̣ł	page 20, example (179), ‘knee’
+(179)	Sahaptin	cited form	k̓uxsk̓úxs	page 20, example (179), ‘ankle’
+(180)	Noel Rude	note	S ƛamáy ‘hidden, covert’ (Jacobs 1937:16.9.4, pg. 30); łáamay ‘lost, disappeared, vanished’; łamáyn ‘be lost, disappear’	page 20, the example as printed
+(180)	Sahaptin	cited form	ƛamáy	page 20, example (180), ‘hidden, covert’
+(180)	Sahaptin	cited form	łáamay	page 20, example (180), ‘lost, disappeared, vanished’
+(180)	Sahaptin	cited form	łamáyn	page 20, example (180), ‘be lost, disappear’
+§3.2	Noel Rude	note	Sahaptin /ƛ̓/ is not as rare as /ƛ/. In a few examples it corresponds to Nez Perce /c̓/ (there are not as many cognates as might be expected).	page 20
+§3.2	Sahaptin	phonemic	/ƛ̓/	page 20, set upright
+§3.2	Nez Perce	phonemic	/c̓/	page 20, set upright
+(181)	Noel Rude	note	S ƛ̓ɨ́kn ‘be cut, split, cracked’; NP /c̓´kn/ (Aoki 1994:58); PS *ƛ̓ɨ́kn	page 20, the example as printed
+(181)	Sahaptin	cited form	ƛ̓ɨ́kn	page 20, example (181), ‘be cut, split, cracked’
+(181)	Nez Perce	phonemic	/c̓´kn/	page 20, example (181), underlined, a strong morpheme
+(181)	Proto-Sahaptian	cited form	*ƛ̓ɨ́kn	page 20, example (181)
+(182)	Noel Rude	note	S ƛ̓wáyn ‘be stiff, rigid’; NP /c̓wéyn/ (Aoki 1994:75); PS *ƛ̓wéyn	page 20, the example as printed
+(182)	Sahaptin	cited form	ƛ̓wáyn	page 20, example (182), ‘be stiff, rigid’
+(182)	Nez Perce	phonemic	/c̓wéyn/	page 20, example (182)
+(182)	Proto-Sahaptian	cited form	*ƛ̓wéyn	page 20, example (182)
+(183)	Noel Rude	note	S ƛ̓ín ‘fall dead or unconscious’; NP /c̓ill´yn/; PS *ƛ̓ín	page 20, the example as printed
+(183)	Sahaptin	cited form	ƛ̓ín	page 20, example (183), ‘fall dead or unconscious’
+(183)	Nez Perce	phonemic	/c̓ill´yn/	page 20, example (183)
+(183)	Proto-Sahaptian	cited form	*ƛ̓ín	page 20, example (183)
+§3.2	Noel Rude	note	Sahaptin /ƛ̓/ appears to result from /ƛ + ʔ/ in the following.	page 20
+§3.2	Sahaptin	phonemic	/ƛ + ʔ/	page 20, set upright
+(184)	Noel Rude	note	S ƛ̓iyáwi ‘die’; NP /caʔyáwi/ ‘die’ (Aoki 1994:13); PS *ƛaʔyáwi/*ƛʔayáwi	page 20, the example as printed
+(184)	Sahaptin	cited form	ƛ̓iyáwi	page 20, example (184), ‘die’
+(184)	Nez Perce	phonemic	/caʔyáwi/	page 20, example (184), ‘die’, underlined, a strong morpheme
+(184)	Proto-Sahaptian	cited form	*ƛaʔyáwi/*ƛʔayáwi	page 20, example (184)
+§3.2	Noel Rude	note	In at least one instance Sahaptin /ƛ̓/ corresponds to Nez Perce /t̓/.	page 20
+§3.2	Nez Perce	phonemic	/t̓/	page 20, set upright
+(185)	Noel Rude	note	S ƛ̓ún ‘guess right in stick game’; NP /t̓´wn/	page 20, the example as printed
+(185)	Sahaptin	cited form	ƛ̓ún	page 20, example (185), ‘guess right in stick game’
+(185)	Nez Perce	phonemic	/t̓´wn/	page 20, example (185), underlined, a strong morpheme
+§3.3	Noel Rude	heading	3.3 The velar-uvular distinction	page 20
+§3.3	Noel Rude	note	Both languages distinguish /k/ from /q/, the latter being more common in Nez Perce than in Sahaptin.	page 20
+§3.3	Nez Perce	phonemic	/k/	page 20, set upright
+§3.3	Sahaptin	phonemic	/k/	page 20, set upright
+§3.3	Nez Perce	phonemic	/q/	page 20, set upright
+§3.3	Sahaptin	phonemic	/q/	page 20, set upright
+(186)	Noel Rude	note	S kú ‘do’; cf. S qú ‘heavy’	page 20, the example as printed
+(186)	Sahaptin	cited form	kú	page 20, example (186), ‘do’
+(186)	Sahaptin	cited form	qú	page 20, example (186), ‘heavy’
+(187)	Noel Rude	note	NP kikéʔt /kkeʔt/ ‘blood’; cf. NP qeqéʔt /qqeʔt/ ‘comb’	page 20, the example as printed
+(187)	Nez Perce	cited form	kikéʔt	page 20, example (187), ‘blood’
+(187)	Nez Perce	phonemic	/kkeʔt/	page 20, example (187), ‘blood’
+(187)	Nez Perce	cited form	qeqéʔt	page 20, example (187), ‘comb’
+(187)	Nez Perce	phonemic	/qqeʔt/	page 20, example (187), ‘comb’
+(188)	Noel Rude	note	NP kahál /kahál/ ‘that long’; cf. NP qáhas /qahas/ ‘milk’	page 20, the example as printed
+(188)	Nez Perce	cited form	kahál	page 20, example (188), ‘that long’
+(188)	Nez Perce	phonemic	/kahál/	page 20, example (188), ‘that long’, underlined, a strong morpheme
+(188)	Nez Perce	cited form	qáhas	page 20, example (188), ‘milk’
+(188)	Nez Perce	phonemic	/qahas/	page 20, example (188), ‘milk’, underlined, a strong morpheme
+(189)	Noel Rude	note	NP kéetis /ketis/ ‘leister spear’; cf. NP qéetqet /qetqet/ ‘duck’	page 20, the example as printed
+(189)	Nez Perce	cited form	kéetis	page 20, example (189), ‘leister spear’
+(189)	Nez Perce	phonemic	/ketis/	page 20, example (189), ‘leister spear’
+(189)	Nez Perce	cited form	qéetqet	page 20, example (189), ‘duck’
+(189)	Nez Perce	phonemic	/qetqet/	page 20, example (189), ‘duck’
+(190)	Noel Rude	note	NP kíi /kí/ ‘this’; cf. NP qíiwn /qíiwn/ ‘old man’	page 20, the example as printed
+(190)	Nez Perce	cited form	kíi	page 20, example (190), ‘this’
+(190)	Nez Perce	phonemic	/kí/	page 20, example (190), ‘this’
+(190)	Nez Perce	cited form	qíiwn	page 20, example (190), ‘old man’
+(190)	Nez Perce	phonemic	/qíiwn/	page 20, example (190), ‘old man’
+(191)	Noel Rude	note	NP kóox̣ /ku-qa/ ‘I do’; cf. NP qóotqot /qotqot/ ‘short feather, down’	page 20, the example as printed
+(191)	Nez Perce	cited form	kóox̣	page 20, example (191), ‘I do’
+(191)	Nez Perce	phonemic	/ku-qa/	page 20, example (191), ‘I do’, qa underlined, a strong morpheme
+(191)	Nez Perce	cited form	qóotqot	page 20, example (191), ‘short feather, down’
+(191)	Nez Perce	phonemic	/qotqot/	page 20, example (191), ‘short feather, down’, underlined, a strong morpheme
+(192)	Noel Rude	note	NP kúus /kúus/ ‘water’; cf. NP quusqúus /quusqúus/ ‘blue gray’	page 21, the example as printed
+(192)	Nez Perce	cited form	kúus	page 21, example (192), ‘water’
+(192)	Nez Perce	phonemic	/kúus/	page 21, example (192), ‘water’
+(192)	Nez Perce	cited form	quusqúus	page 21, example (192), ‘blue gray’
+(192)	Nez Perce	phonemic	/quusqúus/	page 21, example (192), ‘blue gray’
+§3.3	Noel Rude	note	Word final *k was spirantized in Nez Perce.	page 21
+(193)	Noel Rude	note	NP símux /smuk/ ‘charcoal’; S čmúk ‘black’; PS *čmúk	page 21, the example as printed
+(193)	Nez Perce	cited form	símux	page 21, example (193), ‘charcoal’
+(193)	Nez Perce	phonemic	/smuk/	page 21, example (193), ‘charcoal’
+(193)	Sahaptin	cited form	čmúk	page 21, example (193), ‘black’
+(193)	Proto-Sahaptian	cited form	*čmúk	page 21, example (193)
+(194)	Noel Rude	note	NP ʔíitx /ʔítk/ ‘woman’s sister’s son’; N ítk; CR ítt; PS *ʔítk	page 21, the example as printed
+(194)	Nez Perce	cited form	ʔíitx	page 21, example (194), ‘woman’s sister’s son’
+(194)	Nez Perce	phonemic	/ʔítk/	page 21, example (194), ‘woman’s sister’s son’
+(194)	Northern Sahaptin	cited form	ítk	page 21, example (194)
+(194)	Columbia River Sahaptin	cited form	ítt	page 21, example (194)
+(194)	Proto-Sahaptian	cited form	*ʔítk	page 21, example (194)
+§3.3	Noel Rude	note	Word final *q and *x̣ were merged in both Nez Perce and Sahaptin and it is thus mostly impossible to determine where they may have contrasted.	page 21
+§3.3	Proto-Sahaptian	cited form	*q	page 21, set upright
+§3.3	Proto-Sahaptian	cited form	*x̣	page 21, set upright
+(195)	Noel Rude	note	NP ʔéeyx̣ /ʔeyq/ ‘chum, dog or white salmon, Oncorhynchus keta; post- spawning salmon’ (cf. NP ʔeyqíin /ʔeyq-iins/ ‘having chum salmon’); NE áyx̣; PS *ʔéyq ~ *ʔéyx̣	page 21, the example as printed
+(195)	Nez Perce	cited form	ʔéeyx̣	page 21, example (195), ‘chum, dog or white salmon, Oncorhynchus keta; post- spawning salmon’
+(195)	Nez Perce	phonemic	/ʔeyq/	page 21, example (195), ‘chum, dog or white salmon, Oncorhynchus keta; post- spawning salmon’
+(195)	Nez Perce	cited form	ʔeyqíin	page 21, example (195), ‘having chum salmon’
+(195)	Nez Perce	phonemic	/ʔeyq-iins/	page 21, example (195), ‘having chum salmon’
+(195)	Northeast Sahaptin	cited form	áyx̣	page 21, example (195)
+(195)	Proto-Sahaptian	cited form	*ʔéyq	page 21, example (195)
+(195)	Proto-Sahaptian	cited form	*ʔéyx̣	page 21, example (195)
+(196)	Noel Rude	note	NP sám̓x̣ /sm̓q/ ‘shirt, clothing’ (cf. NP sam̓qíin /sm̓q-iins/ ‘having a shirt’); S šɨ́mx̣ ‘shirt, shell dress, buckskin dress’; PS *šɨ́m̓q ~ *šɨ́m̓x̣	page 21, the example as printed
+(196)	Nez Perce	cited form	sám̓x̣	page 21, example (196), ‘shirt, clothing’
+(196)	Nez Perce	phonemic	/sm̓q/	page 21, example (196), ‘shirt, clothing’, underlined, a strong morpheme
+(196)	Nez Perce	cited form	sam̓qíin	page 21, example (196), ‘having a shirt’
+(196)	Nez Perce	phonemic	/sm̓q-iins/	page 21, example (196), ‘having a shirt’, sm̓q underlined, a strong morpheme
+(196)	Sahaptin	cited form	šɨ́mx̣	page 21, example (196), ‘shirt, shell dress, buckskin dress’
+(196)	Proto-Sahaptian	cited form	*šɨ́m̓q	page 21, example (196)
+(196)	Proto-Sahaptian	cited form	*šɨ́m̓x̣	page 21, example (196)
+§3.3	Noel Rude	note	Spirantization also occurs before a resonant.	page 21
+(197)	Noel Rude	note	NP héexne /hekn-e/ ‘I saw’; héekin /hekn-s/ ‘I have seen’	page 21, the example as printed
+(197)	Nez Perce	cited form	héexne	page 21, example (197), ‘I saw’
+(197)	Nez Perce	phonemic	/hekn-e/	page 21, example (197), ‘I saw’
+(197)	Nez Perce	cited form	héekin	page 21, example (197), ‘I have seen’
+(197)	Nez Perce	phonemic	/hekn-s/	page 21, example (197), ‘I have seen’
+(198)	Noel Rude	note	NP c̓íix̣ne /c̓íqn-e/ ‘I spoke’; c̓íiqin /c̓íqn-s/ ‘I have spoken’	page 21, the example as printed
+(198)	Nez Perce	cited form	c̓íix̣ne	page 21, example (198), ‘I spoke’
+(198)	Nez Perce	phonemic	/c̓íqn-e/	page 21, example (198), ‘I spoke’
+(198)	Nez Perce	cited form	c̓íiqin	page 21, example (198), ‘I have spoken’
+(198)	Nez Perce	phonemic	/c̓íqn-s/	page 21, example (198), ‘I have spoken’
+§3.3	Noel Rude	note	Nez Perce /q/ can be assumed to represent PS *q, which was mostly merged with /x̣/ in Sahaptin.	page 21
+§3.3	Sahaptin	phonemic	/x̣/	page 21, set upright
+(199)	Noel Rude	note	NP qéetqet /qetqet/ ‘generic duck, mallard, Anas platyrhynchos’; S x̣átx̣at; PS *qétqet	page 21, the example as printed
+(199)	Nez Perce	cited form	qéetqet	page 21, example (199), ‘generic duck, mallard, Anas platyrhynchos’
+(199)	Nez Perce	phonemic	/qetqet/	page 21, example (199), ‘generic duck, mallard, Anas platyrhynchos’
+(199)	Sahaptin	cited form	x̣átx̣at	page 21, example (199)
+(199)	Proto-Sahaptian	cited form	*qétqet	page 21, example (199)
+(200)	Noel Rude	note	NP qóoqox̣ /qoqoq/ ‘raven, Corvus corax’; S x̣úx̣ux̣; PS qóqoq	page 21, the example as printed
+(200)	Nez Perce	cited form	qóoqox̣	page 21, example (200), ‘raven, Corvus corax’
+(200)	Nez Perce	phonemic	/qoqoq/	page 21, example (200), ‘raven, Corvus corax’, underlined, a strong morpheme
+(200)	Sahaptin	cited form	x̣úx̣ux̣	page 21, example (200)
+(200)	Proto-Sahaptian	cited form	qóqoq	page 21, example (200)
+(201)	Noel Rude	note	NP ʔísqi /ʔsqi/ ‘pine pitch’; S ɨšx̣í; PS *ʔɨšqí	page 21, the example as printed
+(201)	Nez Perce	cited form	ʔísqi	page 21, example (201), ‘pine pitch’
+(201)	Nez Perce	phonemic	/ʔsqi/	page 21, example (201), ‘pine pitch’
+(201)	Sahaptin	cited form	ɨšx̣í	page 21, example (201)
+(201)	Proto-Sahaptian	cited form	*ʔɨšqí	page 21, example (201)
+(202)	Noel Rude	note	NP súqu /squ/ ‘river bank’; S šx̣ú; PS *šqú	page 21, the example as printed
+(202)	Nez Perce	cited form	súqu	page 21, example (202), ‘river bank’
+(202)	Nez Perce	phonemic	/squ/	page 21, example (202), ‘river bank’
+(202)	Sahaptin	cited form	šx̣ú	page 21, example (202)
+(202)	Proto-Sahaptian	cited form	*šqú	page 21, example (202)
+§3.3	Noel Rude	note	Proto-Sahaptian *x̣, though less common than *q, seems to be preserved in the following.	page 21
+(203)	Noel Rude	note	NP x̣aláp /x̣l´p/ ‘open’; S x̣lɨ́p; PS *x̣lɨ́p	page 21, the example as printed
+(203)	Nez Perce	cited form	x̣aláp	page 21, example (203), ‘open’
+(203)	Nez Perce	phonemic	/x̣l´p/	page 21, example (203), ‘open’, underlined, a strong morpheme
+(203)	Sahaptin	cited form	x̣lɨ́p	page 21, example (203)
+(203)	Proto-Sahaptian	cited form	*x̣lɨ́p	page 21, example (203)
+(204)	Noel Rude	note	NP x̣éx̣us /x̣x̣us/ ‘green’; S x̣ɨ́x̣uš; PS *x̣ɨ́x̣uš	page 21, the example as printed
+(204)	Nez Perce	cited form	x̣éx̣us	page 21, example (204), ‘green’
+(204)	Nez Perce	phonemic	/x̣x̣us/	page 21, example (204), ‘green’
+(204)	Sahaptin	cited form	x̣ɨ́x̣uš	page 21, example (204)
+(204)	Proto-Sahaptian	cited form	*x̣ɨ́x̣uš	page 21, example (204)
+(205)	Noel Rude	note	NP x̣éx̣es /x̣´x̣es/ ‘greedy’; S x̣áaš; PS *x̣ɨ́x̣eš/*x̣éeš (perhaps these relate to one another via ablaut and reanalysis)	page 22, the example as printed
+(205)	Nez Perce	cited form	x̣éx̣es	page 22, example (205), ‘greedy’
+(205)	Nez Perce	phonemic	/x̣´x̣es/	page 22, example (205), ‘greedy’
+(205)	Sahaptin	cited form	x̣áaš	page 22, example (205)
+(205)	Proto-Sahaptian	cited form	*x̣ɨ́x̣eš/*x̣éeš	page 22, example (205)
+(206)	Noel Rude	note	NP x̣émt̓uy /x̣mt̓uy/ ‘caddisfly larva (Trichoptera)’; S x̣ɨmt̓úy; PS *x̣ɨmt̓úy	page 22, the example as printed
+(206)	Nez Perce	cited form	x̣émt̓uy	page 22, example (206), ‘caddisfly larva (Trichoptera)’
+(206)	Nez Perce	phonemic	/x̣mt̓uy/	page 22, example (206), ‘caddisfly larva (Trichoptera)’
+(206)	Sahaptin	cited form	x̣ɨmt̓úy	page 22, example (206)
+(206)	Proto-Sahaptian	cited form	*x̣ɨmt̓úy	page 22, example (206)
+(207)	Noel Rude	note	NP wéex̣pus /wex̣pus/ ‘rattlesnake’; S wáx̣puš; PS *wéx̣puš	page 22, the example as printed
+(207)	Nez Perce	cited form	wéex̣pus	page 22, example (207), ‘rattlesnake’
+(207)	Nez Perce	phonemic	/wex̣pus/	page 22, example (207), ‘rattlesnake’
+(207)	Sahaptin	cited form	wáx̣puš	page 22, example (207)
+(207)	Proto-Sahaptian	cited form	*wéx̣puš	page 22, example (207)
+(208)	Noel Rude	note	NP páax̣at /páx̣at/ ‘five’ (cf. NP paqáham /paqáham/ ‘five times’); S páx̣at; PS *páx̣at	page 22, the example as printed
+(208)	Nez Perce	cited form	páax̣at	page 22, example (208), ‘five’
+(208)	Nez Perce	phonemic	/páx̣at/	page 22, example (208), ‘five’, underlined, a strong morpheme
+(208)	Nez Perce	cited form	paqáham	page 22, example (208), ‘five times’
+(208)	Nez Perce	phonemic	/paqáham/	page 22, example (208), ‘five times’, underlined, a strong morpheme
+(208)	Sahaptin	cited form	páx̣at	page 22, example (208)
+(208)	Proto-Sahaptian	cited form	*páx̣at	page 22, example (208)
+§3.3	Noel Rude	note	Exceptions are likely due to borrowing—e.g., the following appear to have been borrowed into Sahaptin.	page 22
+(209)	Noel Rude	note	S qaʔánn ‘respect’; cf. NP /qaʔánn/	page 22, the example as printed
+(209)	Sahaptin	cited form	qaʔánn	page 22, example (209), ‘respect’
+(209)	Nez Perce	phonemic	/qaʔánn/	page 22, example (209), underlined, a strong morpheme
+(210)	Noel Rude	note	S qaʔáx̣n ‘have a sore throat, laryngitis’; cf. NP /qaʔáqn/	page 22, the example as printed
+(210)	Sahaptin	cited form	qaʔáx̣n	page 22, example (210), ‘have a sore throat, laryngitis’
+(210)	Nez Perce	phonemic	/qaʔáqn/	page 22, example (210), underlined, a strong morpheme
+(211)	Noel Rude	note	S qalámqalam ‘lodgepole pine, Pinus contorta’; cf. NP qalámqalam /ql´mqlm/	page 22, the example as printed
+(211)	Sahaptin	cited form	qalámqalam	page 22, example (211), ‘lodgepole pine, Pinus contorta’
+(211)	Nez Perce	cited form	qalámqalam	page 22, example (211)
+(211)	Nez Perce	phonemic	/ql´mqlm/	page 22, example (211), underlined, a strong morpheme
+(212)	Noel Rude	note	NE qáap ‘wild cat, bobcat, Lynx rufus’; cf. NP qéhep /qehep/	page 22, the example as printed
+(212)	Northeast Sahaptin	cited form	qáap	page 22, example (212), ‘wild cat, bobcat, Lynx rufus’
+(212)	Nez Perce	cited form	qéhep	page 22, example (212)
+(212)	Nez Perce	phonemic	/qehep/	page 22, example (212)
+(213)	Noel Rude	note	U qúʔiš ‘wealthy’; cf. NP qúuy̓s /qúʔis/	page 22, the example as printed
+(213)	Umatilla	cited form	qúʔiš	page 22, example (213), ‘wealthy’
+(213)	Nez Perce	cited form	qúuy̓s	page 22, example (213)
+(213)	Nez Perce	phonemic	/qúʔis/	page 22, example (213)
+§3.3	Noel Rude	note	In sound symbolism (see Table 6), Sahaptin /k/ and /k̓/ are diminutive variants of /q/ and /q̓/, whereas in Nez Perce /q/ and /q̓/ are diminutive variants of /k/ and /k̓/.	page 22
+§3.3	Sahaptin	phonemic	/k̓/	page 22, set upright
+§3.3	Sahaptin	phonemic	/q̓/	page 22, set upright
+(214)	Noel Rude	note	S káł ‘maternal grandmother’; cf. NP /qác/	page 22, the example as printed
+(214)	Sahaptin	cited form	káł	page 22, example (214), ‘maternal grandmother’
+(214)	Nez Perce	phonemic	/qác/	page 22, example (214), underlined, a strong morpheme
+(215)	Noel Rude	note	S lákas ‘mouse’; cf. NP láaqac /laqac/	page 22, the example as printed
+(215)	Sahaptin	cited form	lákas	page 22, example (215), ‘mouse’
+(215)	Nez Perce	cited form	láaqac	page 22, example (215)
+(215)	Nez Perce	phonemic	/laqac/	page 22, example (215), underlined, a strong morpheme
+(216)	Noel Rude	note	S lak̓isá ‘out on the end’; cf. S náq̓i ‘finish, complete’ (bound root)	page 22, the example as printed
+(216)	Sahaptin	cited form	lak̓isá	page 22, example (216), ‘out on the end’
+(216)	Sahaptin	cited form	náq̓i	page 22, example (216), ‘finish, complete’
+(217)	Noel Rude	note	NP ciq̓áamqal /cq̓ám-qal/ ‘dog’; cf. NP sík̓em /sk̓em/ ‘horse’	page 22, the example as printed
+(217)	Nez Perce	cited form	ciq̓áamqal	page 22, example (217), ‘dog’
+(217)	Nez Perce	phonemic	/cq̓ám-qal/	page 22, example (217), ‘dog’, underlined, a strong morpheme
+(217)	Nez Perce	cited form	sík̓em	page 22, example (217), ‘horse’
+(217)	Nez Perce	phonemic	/sk̓em/	page 22, example (217), ‘horse’
+§3.3	Noel Rude	note	The velar [x] (as opposed to the uvular [x̣]) is rare in Sahaptian; that is, except for the spirantization of /k/ in Nez Perce (see above). The velar spirant as a diminutive equivalent of the uvular was more or less productive in the speech of Inez Spino Reves, primary Umatilla informant of the author. Perhaps the same could be said for Y xyáaw ‘dry’ (Beavert and Hargus 2009).	page 22
+§3.3	Sahaptian	cited form	[x]	page 22, set upright
+§3.3	Sahaptian	cited form	[x̣]	page 22, set upright
+§3.3	Yakima	cited form	xyáaw	page 22, set upright, ‘dry’
+§3.3	Noel Rude	name	Inez Spino Reves	a Umatilla speaker, the author's source for the Columbia River examples
+§3.3	Noel Rude	language	Umatilla	Columbia River Sahaptin
+§3.4	Noel Rude	heading	3.4 Laviovelars/uvulars	page 23
+§3.4	Noel Rude	note	Sahaptin has a full set of labiovelar/uvular obstruents, namely: kʷ, qʷ, k̓ʷ, q̓ʷ, xʷ, x̣ʷ.	page 23
+§3.4	Sahaptin	cited form	kʷ	page 23, set upright
+§3.4	Sahaptin	cited form	qʷ	page 23, set upright
+§3.4	Sahaptin	cited form	k̓ʷ	page 23, set upright
+§3.4	Sahaptin	cited form	q̓ʷ	page 23, set upright
+§3.4	Sahaptin	cited form	xʷ	page 23, set upright
+§3.4	Sahaptin	cited form	x̣ʷ	page 23, set upright
+(218)	Noel Rude	note	S kʷáy ‘in that direction’	page 23, the example as printed
+(218)	Sahaptin	cited form	kʷáy	page 23, example (218), ‘in that direction’
+(219)	Noel Rude	note	CR k̓ʷáy ‘that’	page 23, the example as printed
+(219)	Columbia River Sahaptin	cited form	k̓ʷáy	page 23, example (219), ‘that’
+(220)	Noel Rude	note	S qʷɨ́tni ‘stuck’	page 23, the example as printed
+(220)	Sahaptin	cited form	qʷɨ́tni	page 23, example (220), ‘stuck’
+(221)	Noel Rude	note	S q̓ʷáaš ‘obstinate, bull headed’	page 23, the example as printed
+(221)	Sahaptin	cited form	q̓ʷáaš	page 23, example (221), ‘obstinate, bull headed’
+(222)	Noel Rude	note	S xʷɨ́saat ‘old man’	page 23, the example as printed
+(222)	Sahaptin	cited form	xʷɨ́saat	page 23, example (222), ‘old man’
+(223)	Noel Rude	note	S x̣ʷáami ‘above’	page 23, the example as printed
+(223)	Sahaptin	cited form	x̣ʷáami	page 23, example (223), ‘above’
+§3.4	Noel Rude	note	These might also stand before another consonant or at the end of a word.	page 23
+(224)	Noel Rude	note	S sayáykʷ ‘sand’	page 23, the example as printed
+(224)	Sahaptin	cited form	sayáykʷ	page 23, example (224), ‘sand’
+(225)	Noel Rude	note	S k̓ʷmɨ́l ‘too late’	page 23, the example as printed
+(225)	Sahaptin	cited form	k̓ʷmɨ́l	page 23, example (225), ‘too late’
+(226)	Noel Rude	note	S qʷninqʷninłá ‘peddler’	page 23, the example as printed
+(226)	Sahaptin	cited form	qʷninqʷninłá	page 23, example (226), ‘peddler’
+(227)	Noel Rude	note	S q̓ʷłtɨ́p ‘strong’	page 23, the example as printed
+(227)	Sahaptin	cited form	q̓ʷłtɨ́p	page 23, example (227), ‘strong’
+(228)	Noel Rude	note	S sɨ́t̓xʷs ‘wild hyacinth, Triteleia hyacinthina’	page 23, the example as printed
+(228)	Sahaptin	cited form	sɨ́t̓xʷs	page 23, example (228), ‘wild hyacinth, Triteleia hyacinthina’
+(229)	Noel Rude	note	S ƛ̓áax̣ʷ ‘all’	page 23, the example as printed
+(229)	Sahaptin	cited form	ƛ̓áax̣ʷ	page 23, example (229), ‘all’
+§3.4	Noel Rude	note	There are no surface labiovelar/uvulars in most Nez Perce dialects. But that they are there underlyingly or were there historically is evident in the following contrasts.	page 23
+(230)	Noel Rude	note	NP tukelíixne /tkʷelíkn-e/ ‘I hunted (big game)’; hitkulíixne /hi-tkʷelíkn-e/ ‘he hunted’	page 23, the example as printed
+(230)	Nez Perce	cited form	tukelíixne	page 23, example (230), ‘I hunted (big game)’
+(230)	Nez Perce	phonemic	/tkʷelíkn-e/	page 23, example (230), ‘I hunted (big game)’
+(230)	Nez Perce	cited form	hitkulíixne	page 23, example (230), ‘he hunted’
+(230)	Nez Perce	phonemic	/hi-tkʷelíkn-e/	page 23, example (230), ‘he hunted’
+(231)	Noel Rude	note	NP tukéeyiye /tkʷéyi-e/ ‘mine lay there’; hitkúuyiye /hi-tkʷéyi-e/ ‘it lay there’; S tkʷáyi	page 23, the example as printed
+(231)	Nez Perce	cited form	tukéeyiye	page 23, example (231), ‘mine lay there’
+(231)	Nez Perce	phonemic	/tkʷéyi-e/	page 23, example (231), ‘mine lay there’
+(231)	Nez Perce	cited form	hitkúuyiye	page 23, example (231), ‘it lay there’
+(231)	Nez Perce	phonemic	/hi-tkʷéyi-e/	page 23, example (231), ‘it lay there’
+(231)	Sahaptin	cited form	tkʷáyi	page 23, example (231)
+(232)	Noel Rude	note	NP tukepelikéeceye /tkʷepelikéce-e/ ‘I signed/voted’; hitkupelikéeceye /hi-tkʷepelikéce-e/ ‘he signed/voted’; S tkʷapaničáša	page 23, the example as printed
+(232)	Nez Perce	cited form	tukepelikéeceye	page 23, example (232), ‘I signed/voted’
+(232)	Nez Perce	phonemic	/tkʷepelikéce-e/	page 23, example (232), ‘I signed/voted’
+(232)	Nez Perce	cited form	hitkupelikéeceye	page 23, example (232), ‘he signed/voted’
+(232)	Nez Perce	phonemic	/hi-tkʷepelikéce-e/	page 23, example (232), ‘he signed/voted’
+(232)	Sahaptin	cited form	tkʷapaničáša	page 23, example (232)
+(233)	Noel Rude	note	NP tuk̓méene /tk̓ʷmén-e/ ‘mine lay inert’; hitk̓uméene /hi-tk̓ʷmén-e/ ‘it lay inert’	page 24, the example as printed
+(233)	Nez Perce	cited form	tuk̓méene	page 24, example (233), ‘mine lay inert’
+(233)	Nez Perce	phonemic	/tk̓ʷmén-e/	page 24, example (233), ‘mine lay inert’
+(233)	Nez Perce	cited form	hitk̓uméene	page 24, example (233), ‘it lay inert’
+(233)	Nez Perce	phonemic	/hi-tk̓ʷmén-e/	page 24, example (233), ‘it lay inert’
+(234)	Noel Rude	note	NP ʔiyóox̣oʔya /ʔyáx̣ʷaʔa-e/ ‘I waited’; náac̓yax̣oʔya /nés-ʔyáx̣ʷaʔa-e/ ‘I waited for you (plural)’; CR yáx̣ʷa; NE iyáx̣ʷa	page 24, the example as printed
+(234)	Nez Perce	cited form	ʔiyóox̣oʔya	page 24, example (234), ‘I waited’
+(234)	Nez Perce	phonemic	/ʔyáx̣ʷaʔa-e/	page 24, example (234), ‘I waited’, ʔyáx̣ʷaʔa underlined, a strong morpheme
+(234)	Nez Perce	cited form	náac̓yax̣oʔya	page 24, example (234), ‘I waited for you (plural)’
+(234)	Nez Perce	phonemic	/nés-ʔyáx̣ʷaʔa-e/	page 24, example (234), ‘I waited for you (plural)’, ʔyáx̣ʷaʔa underlined, a strong morpheme
+(234)	Columbia River Sahaptin	cited form	yáx̣ʷa	page 24, example (234)
+(234)	Northeast Sahaptin	cited form	iyáx̣ʷa	page 24, example (234)
+(235)	Noel Rude	note	NP cam̓óqam /cam̓qʷam/ ‘corner’; cam̓oqáampa /cam̓qʷam-pe/ ‘in the corner’	page 24, the example as printed
+(235)	Nez Perce	cited form	cam̓óqam	page 24, example (235), ‘corner’
+(235)	Nez Perce	phonemic	/cam̓qʷam/	page 24, example (235), ‘corner’, underlined, a strong morpheme
+(235)	Nez Perce	cited form	cam̓oqáampa	page 24, example (235), ‘in the corner’
+(235)	Nez Perce	phonemic	/cam̓qʷam-pe/	page 24, example (235), ‘in the corner’, cam̓qʷam underlined, a strong morpheme
+(236)	Noel Rude	note	NP tin̓úxne /tn̓kʷn-e/ ‘I died’; tin̓kíce /tn̓kʷn-sen-s/ ‘I am dying’	page 24, the example as printed
+(236)	Nez Perce	cited form	tin̓úxne	page 24, example (236), ‘I died’
+(236)	Nez Perce	phonemic	/tn̓kʷn-e/	page 24, example (236), ‘I died’
+(236)	Nez Perce	cited form	tin̓kíce	page 24, example (236), ‘I am dying’
+(236)	Nez Perce	phonemic	/tn̓kʷn-sen-s/	page 24, example (236), ‘I am dying’
+§3.4	Noel Rude	note	Next to an underlying labiovelar/uvular the epenthetic vowel is [u] (or [o] if marked for strong vowels—see §1.3) in Nez Perce.	page 24
+(237)	Noel Rude	note	NP súqt, suqút- /sqʷt/ ‘stump’	page 24, the example as printed
+(237)	Nez Perce	cited form	súqt	page 24, example (237), ‘stump’
+(237)	Nez Perce	cited form	suqút-	page 24, example (237), ‘stump’
+(237)	Nez Perce	phonemic	/sqʷt/	page 24, example (237), ‘stump’
+(238)	Noel Rude	note	NP tátx, tatóx- /ttkʷ/ ‘spotted fawn’	page 24, the example as printed
+(238)	Nez Perce	cited form	tátx	page 24, example (238), ‘spotted fawn’
+(238)	Nez Perce	cited form	tatóx-	page 24, example (238), ‘spotted fawn’
+(238)	Nez Perce	phonemic	/ttkʷ/	page 24, example (238), ‘spotted fawn’, underlined, a strong morpheme
+§3.4	Noel Rude	note	Next to a labiovelar/uvular the diphthong *iy is realized as [uy] ([oy] with strong vowels). See §1.3 above.	page 24
+§3.4	Proto-Sahaptian	cited form	*iy	page 24, set upright
+§3.4	Nez Perce	cited form	[uy]	page 24, set upright
+§3.4	Nez Perce	cited form	[oy]	page 24, set upright
+(239)	Noel Rude	note	NP suk̓úysuk̓uy /sk̓ʷ´ysk̓ʷy/ ‘dark complexioned, dark horse’; S šk̓ʷíšk̓ʷi	page 24, the example as printed
+(239)	Nez Perce	cited form	suk̓úysuk̓uy	page 24, example (239), ‘dark complexioned, dark horse’
+(239)	Nez Perce	phonemic	/sk̓ʷ´ysk̓ʷy/	page 24, example (239), ‘dark complexioned, dark horse’
+(239)	Sahaptin	cited form	šk̓ʷíšk̓ʷi	page 24, example (239)
+(240)	Noel Rude	note	NP cóqoy, coqóy- /cqʷy/ ‘tepee top’	page 24, the example as printed
+(240)	Nez Perce	cited form	cóqoy	page 24, example (240), ‘tepee top’
+(240)	Nez Perce	cited form	coqóy-	page 24, example (240), ‘tepee top’
+(240)	Nez Perce	phonemic	/cqʷy/	page 24, example (240), ‘tepee top’, underlined, a strong morpheme
+(241)	Noel Rude	note	NP q̓óyn /q̓ʷ´yn/ ‘have diarrhea’; S q̓úy ‘colon’	page 24, the example as printed
+(241)	Nez Perce	cited form	q̓óyn	page 24, example (241), ‘have diarrhea’
+(241)	Nez Perce	phonemic	/q̓ʷ´yn/	page 24, example (241), ‘have diarrhea’, underlined, a strong morpheme
+(241)	Sahaptin	cited form	q̓úy	page 24, example (241), ‘colon’
+(242)	Noel Rude	note	NP xuysxúys /xʷysxʷ´ys/ ‘slippery’	page 24, the example as printed
+(242)	Nez Perce	cited form	xuysxúys	page 24, example (242), ‘slippery’
+(242)	Nez Perce	phonemic	/xʷysxʷ´ys/	page 24, example (242), ‘slippery’
+§3.4	Noel Rude	note	There seems to be no phonemic distinction in Sahaptin between [i] or [u] in the environment of a labiovelar (or labiouvular).	page 24
+(243)	Noel Rude	note	S kʷɨ́ma ~ kúma ‘those’	page 24, the example as printed
+(243)	Sahaptin	cited form	kʷɨ́ma	page 24, example (243), ‘those’
+(243)	Sahaptin	cited form	kúma	page 24, example (243), ‘those’
+(244)	Noel Rude	note	S k̓ʷɨ́nč ~ k̓únč ‘black pine lichen’	page 24, the example as printed
+(244)	Sahaptin	cited form	k̓ʷɨ́nč	page 24, example (244), ‘black pine lichen’
+(244)	Sahaptin	cited form	k̓únč	page 24, example (244), ‘black pine lichen’
+(245)	Noel Rude	note	NW qʷɨ́- ~ qú- ‘with a pack’ (Jacobs 1931:169)	page 24, the example as printed
+(245)	Northwest Sahaptin	cited form	qʷɨ́-	page 24, example (245), ‘with a pack’
+(245)	Northwest Sahaptin	cited form	qú-	page 24, example (245), ‘with a pack’
+(246)	Noel Rude	note	S taxʷɨ́s ~ taxús ‘dogbane’	page 24, the example as printed
+(246)	Sahaptin	cited form	taxʷɨ́s	page 24, example (246), ‘dogbane’
+(246)	Sahaptin	cited form	taxús	page 24, example (246), ‘dogbane’
+(247)	Noel Rude	note	S x̣ʷɨ́tutay ~ x̣útutay ‘pillow’	page 24, the example as printed
+(247)	Sahaptin	cited form	x̣ʷɨ́tutay	page 24, example (247), ‘pillow’
+(247)	Sahaptin	cited form	x̣útutay	page 24, example (247), ‘pillow’
+§3.4	Noel Rude	note	That the contrast was phonemic in Proto-Sahaptian is suggested by Nez Perce cognates where the vowel does not lengthen when the vowel was epenthetic.	page 25
+(248)	Noel Rude	note	S čɨ́kʷš ~ čúkš ‘obsidian’; NP súxs /s´kʷs/; PS *čɨ́kʷš	page 25, the example as printed
+(248)	Sahaptin	cited form	čɨ́kʷš	page 25, example (248), ‘obsidian’
+(248)	Sahaptin	cited form	čúkš	page 25, example (248), ‘obsidian’
+(248)	Nez Perce	cited form	súxs	page 25, example (248)
+(248)	Nez Perce	phonemic	/s´kʷs/	page 25, example (248)
+(248)	Proto-Sahaptian	cited form	*čɨ́kʷš	page 25, example (248)
+(249)	Noel Rude	note	S k̓ʷsɨ́s ~ k̓usɨ́s ‘pointed’; k̓ócac /k̓ʷcc/ ‘pointed’; S k̓ʷsɨ́s	page 25, the example as printed
+(249)	Sahaptin	cited form	k̓ʷsɨ́s	page 25, example (249), ‘pointed’
+(249)	Sahaptin	cited form	k̓usɨ́s	page 25, example (249), ‘pointed’
+(249)	Nez Perce	cited form	k̓ócac	page 25, example (249), ‘pointed’, printed with no tag, the Nez Perce form of (58)
+(249)	Nez Perce	phonemic	/k̓ʷcc/	page 25, example (249), ‘pointed’, printed with no tag, the Nez Perce form of (58), underlined, a strong morpheme
+(249)	Sahaptin	cited form	k̓ʷsɨ́s	page 25, example (249)
+(250)	Noel Rude	note	NE xʷɨ́sanat ~ xúsanat ‘old man’; NP qósalat /qʷ´salat/ ‘male mountain goat’; PS *qʷɨ́salat	page 25, the example as printed
+(250)	Northeast Sahaptin	cited form	xʷɨ́sanat	page 25, example (250), ‘old man’
+(250)	Northeast Sahaptin	cited form	xúsanat	page 25, example (250), ‘old man’
+(250)	Nez Perce	cited form	qósalat	page 25, example (250), ‘male mountain goat’
+(250)	Nez Perce	phonemic	/qʷ´salat/	page 25, example (250), ‘male mountain goat’, underlined, a strong morpheme
+(250)	Proto-Sahaptian	cited form	*qʷɨ́salat	page 25, example (250)
+(251)	Noel Rude	note	S x̣ʷɨ́łx̣ʷł ~ x̣úłx̣uł ‘meadowlark, Sturnella neglecta’; NP qócqoc, qocqóc- /qʷcqʷc/; PS *qʷɨ́łqʷł	page 25, the example as printed
+(251)	Sahaptin	cited form	x̣ʷɨ́łx̣ʷł	page 25, example (251), ‘meadowlark, Sturnella neglecta’
+(251)	Sahaptin	cited form	x̣úłx̣uł	page 25, example (251), ‘meadowlark, Sturnella neglecta’
+(251)	Nez Perce	cited form	qócqoc	page 25, example (251)
+(251)	Nez Perce	cited form	qocqóc-	page 25, example (251)
+(251)	Nez Perce	phonemic	/qʷcqʷc/	page 25, example (251), underlined, a strong morpheme
+(251)	Proto-Sahaptian	cited form	*qʷɨ́łqʷł	page 25, example (251)
+§3.4	Noel Rude	note	The Nez Perce vowel does lengthen when it is an underlying /u/.	page 25
+(252)	Noel Rude	note	S áykʷs ~ áyuks ‘cottontail rabbit’; NP héey̓uxc, hey̓úuxc- /hey̓uxc/; PS *héy̓uks	page 25, the example as printed
+(252)	Sahaptin	cited form	áykʷs	page 25, example (252), ‘cottontail rabbit’
+(252)	Sahaptin	cited form	áyuks	page 25, example (252), ‘cottontail rabbit’
+(252)	Nez Perce	cited form	héey̓uxc	page 25, example (252)
+(252)	Nez Perce	cited form	hey̓úuxc-	page 25, example (252)
+(252)	Nez Perce	phonemic	/hey̓uxc/	page 25, example (252)
+(252)	Proto-Sahaptian	cited form	*héy̓uks	page 25, example (252)
+(253)	Noel Rude	note	S čmɨ́kʷ ~ čmúk ‘black’; NP símux, simúux- /smuk/; PS *čmúk	page 25, the example as printed
+(253)	Sahaptin	cited form	čmɨ́kʷ	page 25, example (253), ‘black’
+(253)	Sahaptin	cited form	čmúk	page 25, example (253), ‘black’
+(253)	Nez Perce	cited form	símux	page 25, example (253)
+(253)	Nez Perce	cited form	simúux-	page 25, example (253)
+(253)	Nez Perce	phonemic	/smuk/	page 25, example (253)
+(253)	Proto-Sahaptian	cited form	*čmúk	page 25, example (253)
+(254)	Noel Rude	note	S k̓ʷštáyn ~ k̓uštáyn ‘guess wrong (in stick game)’; NP k̓úuxsteyn /k̓úxsteyn/; PS *k̓úxsteyn	page 25, the example as printed
+(254)	Sahaptin	cited form	k̓ʷštáyn	page 25, example (254), ‘guess wrong (in stick game)’
+(254)	Sahaptin	cited form	k̓uštáyn	page 25, example (254), ‘guess wrong (in stick game)’
+(254)	Nez Perce	cited form	k̓úuxsteyn	page 25, example (254)
+(254)	Nez Perce	phonemic	/k̓úxsteyn/	page 25, example (254)
+(254)	Proto-Sahaptian	cited form	*k̓úxsteyn	page 25, example (254)
+(255)	Noel Rude	note	S šáqʷɨnkt ~ šáqunkt ‘decapitating’; NP ʔiseqúulkt /ʔseqúlkt/; PS *(ʔɨ)šéqunkt	page 25, the example as printed
+(255)	Sahaptin	cited form	šáqʷɨnkt	page 25, example (255), ‘decapitating’
+(255)	Sahaptin	cited form	šáqunkt	page 25, example (255), ‘decapitating’
+(255)	Nez Perce	cited form	ʔiseqúulkt	page 25, example (255)
+(255)	Nez Perce	phonemic	/ʔseqúlkt/	page 25, example (255)
+(255)	Proto-Sahaptian	cited form	*(ʔɨ)šéqunkt	page 25, example (255)
+§3.5	Noel Rude	heading	3.5 Ejectives and glottalization	page 25
+§3.5	Noel Rude	note	Both Sahaptian languages contrast a plain and an ejective series of stops—though not word finally (which suggests an origin /C + ʔ/). In Nez Perce an obstruent plus glottal stop becomes an ejective. Note that /s + ʔ/ becomes [c̓].	page 25
+§3.5	Sahaptian	phonemic	/C + ʔ/	page 25, set upright
+§3.5	Nez Perce	phonemic	/s + ʔ/	page 25, set upright
+§3.5	Nez Perce	cited form	[c̓]	page 25, set upright
+(256)	Noel Rude	note	NP ʔéek̓ex /ʔek̓ek/ ‘magpie, Pica pica’; N áč̓ak; CR áč̓ay; PS *ʔék̓ek < ʔek-ʔek	page 25, the example as printed
+(256)	Nez Perce	cited form	ʔéek̓ex	page 25, example (256), ‘magpie, Pica pica’
+(256)	Nez Perce	phonemic	/ʔek̓ek/	page 25, example (256), ‘magpie, Pica pica’
+(256)	Northern Sahaptin	cited form	áč̓ak	page 25, example (256)
+(256)	Columbia River Sahaptin	cited form	áč̓ay	page 25, example (256)
+(256)	Proto-Sahaptian	cited form	*ʔék̓ek	page 25, example (256)
+(256)	Proto-Sahaptian	cited form	ʔek-ʔek	page 25, example (256)
+(257)	Noel Rude	note	NP /s´c̓e/ ‘freeze’; S šɨ́šaa; PS *šɨ́šeʔe	page 25, the example as printed
+(257)	Nez Perce	phonemic	/s´c̓e/	page 25, example (257), ‘freeze’
+(257)	Sahaptin	cited form	šɨ́šaa	page 25, example (257)
+(257)	Proto-Sahaptian	cited form	*šɨ́šeʔe	page 25, example (257)
+(258)	Noel Rude	note	NP téep̓es /tep̓es/ < /tep-ʔes/ ‘night fishing torch’; S táp̓aš ‘Ponderosa pine’; cf. NP /tep/ & S táp ‘spear fish by torchlight’ (purpose nominalizer is *-ʔeš)	page 25, the example as printed
+(258)	Nez Perce	cited form	téep̓es	page 25, example (258), ‘night fishing torch’
+(258)	Nez Perce	phonemic	/tep̓es/	page 25, example (258), ‘night fishing torch’
+(258)	Nez Perce	phonemic	/tep-ʔes/	page 25, example (258), ‘night fishing torch’
+(258)	Sahaptin	cited form	táp̓aš	page 25, example (258), ‘Ponderosa pine’
+(258)	Nez Perce	phonemic	/tep/	page 25, example (258), ‘spear fish by torchlight’
+(258)	Sahaptin	cited form	táp	page 25, example (258), ‘spear fish by torchlight’
+(258)	Proto-Sahaptian	cited form	*-ʔeš	page 25, example (258)
+§3.5	Noel Rude	note	The process is productive in Nez Perce.	page 25
+(259)	Noel Rude	note	NP ʔenéec̓niye /ʔe-nés-ʔni-e/ ‘I gave it to them’; cf. NP /ʔni/ ‘give’	page 25, the example as printed
+(259)	Nez Perce	cited form	ʔenéec̓niye	page 25, example (259), ‘I gave it to them’
+(259)	Nez Perce	phonemic	/ʔe-nés-ʔni-e/	page 25, example (259), ‘I gave it to them’
+(259)	Nez Perce	phonemic	/ʔni/	page 25, example (259), ‘give’
+(260)	Noel Rude	note	NP qoq̓áalq̓ayn /qoq̓álq-ʔayn/ ‘for bison’ (Aoki 1994:595); cf.	page 26, the example as printed
+(260)	Nez Perce	cited form	qoq̓áalq̓ayn	page 26, example (260), ‘for bison’
+(260)	Nez Perce	phonemic	/qoq̓álq-ʔayn/	page 26, example (260), ‘for bison’, qoq̓álq and ʔayn underlined, strong morphemes
+§3.5	Noel Rude	note	NP qoq̓áalx̣ /qoq̓álq/ ‘bison’ Glottalization across word boundaries sometimes occurs in rapid speech.	page 26
+§3.5	Nez Perce	cited form	qoq̓áalx̣	page 26, set upright
+§3.5	Nez Perce	phonemic	/qoq̓álq/	page 26, set upright, ‘bison’, underlined, a strong morpheme
+(261)	Noel Rude	note	NP kex ʔíin ~ kek̓íin /ke-k ʔín/ ‘I who …’	page 26, the example as printed
+(261)	Nez Perce	cited form	kex ʔíin	page 26, example (261), ‘I who …’
+(261)	Nez Perce	cited form	kek̓íin	page 26, example (261), ‘I who …’
+(261)	Nez Perce	phonemic	/ke-k ʔín/	page 26, example (261), ‘I who …’
+§3.5	Noel Rude	note	Glottalization is generally not productive in Sahaptin. In the following, however, the sequence /q + ʔ/ leads historically to an ejective in Sahaptin.	page 26
+§3.5	Sahaptin	phonemic	/q + ʔ/	page 26, set upright
+(262)	Noel Rude	note	S q̓ayík ‘calf, elk calf, colt’; cf. NP qeʔéyix /qeʔeyik/; PS *qeʔeyík	page 26, the example as printed
+(262)	Sahaptin	cited form	q̓ayík	page 26, example (262), ‘calf, elk calf, colt’
+(262)	Nez Perce	cited form	qeʔéyix	page 26, example (262)
+(262)	Nez Perce	phonemic	/qeʔeyik/	page 26, example (262)
+(262)	Proto-Sahaptian	cited form	*qeʔeyík	page 26, example (262)
+(263)	Noel Rude	note	S áq̓paš ‘stomach, tripe’; cf. NP qoʔópas /qoʔopas/; PS *(ʔá/há)qoʔopaš	page 26, the example as printed
+(263)	Sahaptin	cited form	áq̓paš	page 26, example (263), ‘stomach, tripe’
+(263)	Nez Perce	cited form	qoʔópas	page 26, example (263)
+(263)	Nez Perce	phonemic	/qoʔopas/	page 26, example (263), underlined, a strong morpheme
+(263)	Proto-Sahaptian	cited form	*(ʔá/há)qoʔopaš	page 26, example (263)
+§3.5	Noel Rude	note	In the following the process appears to have occurred in Nez Perce but not in Sahaptin.	page 26
+(264)	Noel Rude	note	NP /k̓ésn/ ‘admire, envy’; cf. NE čaʔášwi ‘flirt’; PS *keʔéšn/*keʔéšwi	page 26, the example as printed
+(264)	Nez Perce	phonemic	/k̓ésn/	page 26, example (264), ‘admire, envy’
+(264)	Northeast Sahaptin	cited form	čaʔášwi	page 26, example (264), ‘flirt’
+(264)	Proto-Sahaptian	cited form	*keʔéšn/*keʔéšwi	page 26, example (264)
+§3.5	Noel Rude	note	Nez Perce has glottalized resonants (l̓, m̓, n̓, w̓, y̓) which never occur word initially.3	page 26
+footnote 3	Noel Rude	note	A recording by native speaker Eugene John of Nez Perce words with glottalized resonants was sent to phonologist Sharon Hargus. She reported (personal communication) that Nez Perce has true glottalized resonants.	page 26, footnote 3
+footnote 3	Noel Rude	name	Eugene John	a native speaker of Nez Perce, who recorded words with glottalized resonants
+(265)	Noel Rude	note	NP héwsil̓iks /héwsl̓iks/ ‘throw down mat or bedding’; N áwšnikš; PS *héwšl̓ikš	page 26, the example as printed
+(265)	Nez Perce	cited form	héwsil̓iks	page 26, example (265), ‘throw down mat or bedding’
+(265)	Nez Perce	phonemic	/héwsl̓iks/	page 26, example (265), ‘throw down mat or bedding’
+(265)	Northern Sahaptin	cited form	áwšnikš	page 26, example (265)
+(265)	Proto-Sahaptian	cited form	*héwšl̓ikš	page 26, example (265)
+(266)	Noel Rude	note	NP tim̓íne /tm̓ne/ ‘heart, seed’; S tɨmná; PS *tɨm̓né	page 26, the example as printed
+(266)	Nez Perce	cited form	tim̓íne	page 26, example (266), ‘heart, seed’
+(266)	Nez Perce	phonemic	/tm̓ne/	page 26, example (266), ‘heart, seed’
+(266)	Sahaptin	cited form	tɨmná	page 26, example (266)
+(266)	Proto-Sahaptian	cited form	*tɨm̓né	page 26, example (266)
+(267)	Noel Rude	note	NP ken̓íwit /ken̓wit/ ‘weaving’; NE čanúwit; PS *ken̓ɨ́wit	page 26, the example as printed
+(267)	Nez Perce	cited form	ken̓íwit	page 26, example (267), ‘weaving’
+(267)	Nez Perce	phonemic	/ken̓wit/	page 26, example (267), ‘weaving’
+(267)	Northeast Sahaptin	cited form	čanúwit	page 26, example (267)
+(267)	Proto-Sahaptian	cited form	*ken̓ɨ́wit	page 26, example (267)
+(268)	Noel Rude	note	NP waw̓áałam /waw̓ałam/ ‘cutthroat trout’; S wawałám ‘rainbow trout’; PS *waw̓ałám	page 26, the example as printed
+(268)	Nez Perce	cited form	waw̓áałam	page 26, example (268), ‘cutthroat trout’
+(268)	Nez Perce	phonemic	/waw̓ałam/	page 26, example (268), ‘cutthroat trout’
+(268)	Sahaptin	cited form	wawałám	page 26, example (268), ‘rainbow trout’
+(268)	Proto-Sahaptian	cited form	*waw̓ałám	page 26, example (268)
+(269)	Noel Rude	note	NP tiy̓é /tiy̓é/ ‘blue grouse, Dendragapus obscurus’; NE tuyá; PS *tuy̓é	page 26, the example as printed
+(269)	Nez Perce	cited form	tiy̓é	page 26, example (269), ‘blue grouse, Dendragapus obscurus’
+(269)	Nez Perce	phonemic	/tiy̓é/	page 26, example (269), ‘blue grouse, Dendragapus obscurus’
+(269)	Northeast Sahaptin	cited form	tuyá	page 26, example (269)
+(269)	Proto-Sahaptian	cited form	*tuy̓é	page 26, example (269)
+§3.5	Noel Rude	note	Glottalization may result from a resonant plus glottal stop /R + ʔ/.	page 26
+§3.5	Sahaptian	phonemic	/R + ʔ/	page 26, set upright
+(270)	Noel Rude	note	NP /kál̓amk/ < /ké-laʔámn-k/ ‘eat up, devour’; /ké-/ ‘in eating’; /laʔámn/ ‘be used up’	page 26, the example as printed
+(270)	Nez Perce	phonemic	/kál̓amk/	page 26, example (270), ‘eat up, devour’, underlined, a strong morpheme
+(270)	Nez Perce	phonemic	/ké-laʔámn-k/	page 26, example (270), ‘eat up, devour’, laʔámn underlined, a strong morpheme
+(270)	Nez Perce	phonemic	/ké-/	page 26, example (270), ‘in eating’
+(270)	Nez Perce	phonemic	/laʔámn/	page 26, example (270), ‘be used up’, underlined, a strong morpheme
+(271)	Noel Rude	note	NP qém̓es /qm̓es/ ‘camas, Camassia quamash’; S x̣máaš; PS *qmeʔeš	page 27, the example as printed
+(271)	Nez Perce	cited form	qém̓es	page 27, example (271), ‘camas, Camassia quamash’
+(271)	Nez Perce	phonemic	/qm̓es/	page 27, example (271), ‘camas, Camassia quamash’
+(271)	Sahaptin	cited form	x̣máaš	page 27, example (271)
+(271)	Proto-Sahaptian	cited form	*qmeʔeš	page 27, example (271)
+(272)	Noel Rude	note	NP tin̓úun, tin̓unín- /tn̓unn/ ‘male bighorn, Ovis canadensis’; S tnúun ‘bighorn sheep’; PS *tnuʔunn	page 27, the example as printed
+(272)	Nez Perce	cited form	tin̓úun	page 27, example (272), ‘male bighorn, Ovis canadensis’
+(272)	Nez Perce	cited form	tin̓unín-	page 27, example (272), ‘male bighorn, Ovis canadensis’
+(272)	Nez Perce	phonemic	/tn̓unn/	page 27, example (272), ‘male bighorn, Ovis canadensis’
+(272)	Sahaptin	cited form	tnúun	page 27, example (272), ‘bighorn sheep’
+(272)	Proto-Sahaptian	cited form	*tnuʔunn	page 27, example (272)
+(273)	Noel Rude	note	NP ʔew̓níy /ʔew-ʔni-i/ ‘give it to him’; NP /ʔew-/ ‘him’; /ʔni/ ‘give’; /-i/ imperative	page 27, the example as printed
+(273)	Nez Perce	cited form	ʔew̓níy	page 27, example (273), ‘give it to him’
+(273)	Nez Perce	phonemic	/ʔew-ʔni-i/	page 27, example (273), ‘give it to him’
+(273)	Nez Perce	phonemic	/ʔew-/	page 27, example (273), ‘him’
+(273)	Nez Perce	phonemic	/ʔni/	page 27, example (273), ‘give’
+(273)	Nez Perce	phonemic	/-i/	page 27, example (273)
+(274)	Noel Rude	note	NP mamáy̓ac /m-myaʔac/ ‘children’; cf. NP miyáʔc /myaʔac/ ‘child’	page 27, the example as printed
+(274)	Nez Perce	cited form	mamáy̓ac	page 27, example (274), ‘children’
+(274)	Nez Perce	phonemic	/m-myaʔac/	page 27, example (274), ‘children’, m and myaʔac underlined, strong morphemes
+(274)	Nez Perce	cited form	miyáʔc	page 27, example (274), ‘child’
+(274)	Nez Perce	phonemic	/myaʔac/	page 27, example (274), ‘child’, underlined, a strong morpheme
+(275)	Noel Rude	note	NP /qy̓áwn/ ‘be dry’ (Aoki 1994:591); cf. /qʔyáwn/ ‘be thirsty’ (Aoki 1994:593); Y xyáaw ‘dry’ (reflecting an earlier *qyáʔaw; NP /qy̓áwn/ < /qʔyáwn/ < /qyáʔawn/)	page 27, the example as printed
+(275)	Nez Perce	phonemic	/qy̓áwn/	page 27, example (275), ‘be dry’, underlined, a strong morpheme
+(275)	Nez Perce	phonemic	/qʔyáwn/	page 27, example (275), ‘be thirsty’, underlined, a strong morpheme
+(275)	Yakima	cited form	xyáaw	page 27, example (275), ‘dry’
+(275)	Proto-Sahaptian	cited form	*qyáʔaw	page 27, example (275)
+(275)	Nez Perce	phonemic	/qy̓áwn/	page 27, example (275), underlined, a strong morpheme
+(275)	Nez Perce	phonemic	/qʔyáwn/	page 27, example (275), underlined, a strong morpheme
+(275)	Nez Perce	phonemic	/qyáʔawn/	page 27, example (275), underlined, a strong morpheme
+§3.5	Noel Rude	note	The adverbial /-ʔ/ and attributives /-ʔew/ and /-ʔis/ glottalize a preceding sonorant. The verbalizer /-n/ is in complementary distribution with these suffixes.	page 27
+§3.5	Nez Perce	phonemic	/-ʔ/	page 27, set upright
+§3.5	Nez Perce	phonemic	/-ʔew/	page 27, set upright
+§3.5	Nez Perce	phonemic	/-ʔis/	page 27, set upright
+§3.5	Nez Perce	phonemic	/-n/	page 27, set upright
+(276)	Noel Rude	note	NP lamt̓áy̓ /lamt̓´y-ʔ/ ‘last, final’; cf. /lamt̓´yn/ ‘be the last’	page 27, the example as printed
+(276)	Nez Perce	cited form	lamt̓áy̓	page 27, example (276), ‘last, final’
+(276)	Nez Perce	phonemic	/lamt̓´y-ʔ/	page 27, example (276), ‘last, final’, lamt̓´y underlined, a strong morpheme
+(276)	Nez Perce	phonemic	/lamt̓´yn/	page 27, example (276), ‘be the last’, underlined, a strong morpheme
+(277)	Noel Rude	note	NP ʔikúuytim̓ew /ʔikúuytm-ʔew/ ‘truthful, honest’; cf. /ʔkúuytm/ ‘speak the truth’	page 27, the example as printed
+(277)	Nez Perce	cited form	ʔikúuytim̓ew	page 27, example (277), ‘truthful, honest’
+(277)	Nez Perce	phonemic	/ʔikúuytm-ʔew/	page 27, example (277), ‘truthful, honest’
+(277)	Nez Perce	phonemic	/ʔkúuytm/	page 27, example (277), ‘speak the truth’
+(278)	Noel Rude	note	NP cikáaw̓aw /ckáw-ʔew/ ‘easily scared’; cf. /ckáwn/ ‘fear’	page 27, the example as printed
+(278)	Nez Perce	cited form	cikáaw̓aw	page 27, example (278), ‘easily scared’
+(278)	Nez Perce	phonemic	/ckáw-ʔew/	page 27, example (278), ‘easily scared’, ckáw underlined, a strong morpheme
+(278)	Nez Perce	phonemic	/ckáwn/	page 27, example (278), ‘fear’, underlined, a strong morpheme
+(279)	Noel Rude	note	NP cikáaw̓is /ckáw-ʔis/ ‘fierce, ferocious’; cf. /ckáwn/ ‘fear’	page 27, the example as printed
+(279)	Nez Perce	cited form	cikáaw̓is	page 27, example (279), ‘fierce, ferocious’
+(279)	Nez Perce	phonemic	/ckáw-ʔis/	page 27, example (279), ‘fierce, ferocious’, ckáw underlined, a strong morpheme
+(279)	Nez Perce	phonemic	/ckáwn/	page 27, example (279), ‘fear’, underlined, a strong morpheme
+(280)	Noel Rude	note	NP hamóol̓ic /hamol-ʔic/ ‘cute’; cf. /hamóln/ ‘consider cute (such as a baby)’	page 27, the example as printed
+(280)	Nez Perce	cited form	hamóol̓ic	page 27, example (280), ‘cute’
+(280)	Nez Perce	phonemic	/hamol-ʔic/	page 27, example (280), ‘cute’, hamol underlined, a strong morpheme
+(280)	Nez Perce	phonemic	/hamóln/	page 27, example (280), ‘consider cute (such as a baby)’, underlined, a strong morpheme
+(281)	Noel Rude	note	NP qaʔán̓is /qaʔán-ʔis/ ‘modest, respectable’; cf. /qaʔánn/ ‘honor, respect’	page 27, the example as printed
+(281)	Nez Perce	cited form	qaʔán̓is	page 27, example (281), ‘modest, respectable’
+(281)	Nez Perce	phonemic	/qaʔán-ʔis/	page 27, example (281), ‘modest, respectable’, qaʔán underlined, a strong morpheme
+(281)	Nez Perce	phonemic	/qaʔánn/	page 27, example (281), ‘honor, respect’, underlined, a strong morpheme
+§3.5	Noel Rude	note	The resonant is preserved before /-ʔál/ ‘season of’ and the purpose nominalizer /-ʔes/.	page 27
+§3.5	Nez Perce	phonemic	/-ʔál/	page 27, set upright, ‘season of’, ʔál underlined, a strong morpheme
+§3.5	Nez Perce	phonemic	/-ʔes/	page 27, set upright
+(282)	Noel Rude	note	NP hóopl̓al /hópl̓al/ ‘October’; /húpn/ ‘fall (of conifer needles)’	page 27, the example as printed
+(282)	Nez Perce	cited form	hóopl̓al	page 27, example (282), ‘October’
+(282)	Nez Perce	phonemic	/hópl̓al/	page 27, example (282), ‘October’, underlined, a strong morpheme
+(282)	Nez Perce	phonemic	/húpn/	page 27, example (282), ‘fall (of conifer needles)’
+(283)	Noel Rude	note	NP hekín̓es /hekn-t-ʔes/ ‘in order to see’; /hekn/ ‘see’	page 27, the example as printed
+(283)	Nez Perce	cited form	hekín̓es	page 27, example (283), ‘in order to see’
+(283)	Nez Perce	phonemic	/hekn-t-ʔes/	page 27, example (283), ‘in order to see’
+(283)	Nez Perce	phonemic	/hekn/	page 27, example (283), ‘see’
+§3.5	Noel Rude	note	The past participle /-iʔins/ provides some examples of progressive glottalization. On an unstressed root it is pronounced -íin (-íis- before another suffix).	page 27
+§3.5	Nez Perce	phonemic	/-iʔins/	page 27, set upright
+§3.5	Nez Perce	cited form	-íin	page 27, set upright
+§3.5	Nez Perce	cited form	-íis-	page 27, set upright
+(284)	Noel Rude	note	NP hanyíin, hanyíis- /hani-iʔins/ ‘made’	page 28, the example as printed
+(284)	Nez Perce	cited form	hanyíin	page 28, example (284), ‘made’
+(284)	Nez Perce	cited form	hanyíis-	page 28, example (284), ‘made’
+(284)	Nez Perce	phonemic	/hani-iʔins/	page 28, example (284), ‘made’, hani underlined, a strong morpheme
+§3.5	Noel Rude	note	On a stressed root /-iʔins/ is pronounced -in̓ (-iʔs- before another suffix).	page 28
+§3.5	Nez Perce	cited form	-in̓	page 28, set upright
+§3.5	Nez Perce	cited form	-iʔs-	page 28, set upright
+(285)	Noel Rude	note	NP cúukwenin̓, cúukweniʔs- /cúkwen-iʔins/ ‘known, spirited’	page 28, the example as printed
+(285)	Nez Perce	cited form	cúukwenin̓	page 28, example (285), ‘known, spirited’
+(285)	Nez Perce	cited form	cúukweniʔs-	page 28, example (285), ‘known, spirited’
+(285)	Nez Perce	phonemic	/cúkwen-iʔins/	page 28, example (285), ‘known, spirited’
+§3.5	Noel Rude	note	Glottalization likely has two sources in Sahaptian, the most common being a resonant plus glottal stop, the other being diminutive sound symbolism. The following appear to be examples of the latter.	page 28
+(286)	Noel Rude	note	NP k̓oy̓am̓á /k̓ʷay̓am̓á/ ‘cougar, Felix concolor’; CR & NW k̓ʷayawí; NE k̓ʷayamá	page 28, the example as printed
+(286)	Nez Perce	cited form	k̓oy̓am̓á	page 28, example (286), ‘cougar, Felix concolor’
+(286)	Nez Perce	phonemic	/k̓ʷay̓am̓á/	page 28, example (286), ‘cougar, Felix concolor’, underlined, a strong morpheme
+(286)	Columbia River Sahaptin	cited form	k̓ʷayawí	page 28, example (286)
+(286)	Northwest Sahaptin	cited form	k̓ʷayawí	page 28, example (286)
+(286)	Northeast Sahaptin	cited form	k̓ʷayamá	page 28, example (286)
+(287)	Noel Rude	note	NP tim̓áay̓ /tm̓áy̓/ ‘maiden’; S tmáy	page 28, the example as printed
+(287)	Nez Perce	cited form	tim̓áay̓	page 28, example (287), ‘maiden’
+(287)	Nez Perce	phonemic	/tm̓áy̓/	page 28, example (287), ‘maiden’, underlined, a strong morpheme
+(287)	Sahaptin	cited form	tmáy	page 28, example (287)
+§3.5	Noel Rude	note	Ejectives too might be derived via diminutive sound symbolism.	page 28
+(288)	Noel Rude	note	S p̓ísx ‘sour’; cf. pƛɨ́k ‘spicy, hot’; płɨ́x̣ ‘medicine’	page 28, the example as printed
+(288)	Sahaptin	cited form	p̓ísx	page 28, example (288), ‘sour’
+(288)	Sahaptin	cited form	pƛɨ́k	page 28, example (288), ‘spicy, hot’
+(288)	Sahaptin	cited form	płɨ́x̣	page 28, example (288), ‘medicine’
+(289)	Noel Rude	note	NP q̓im̓úuyn /q̓m̓úyn-t/ ‘copulating’; cf. kim̓úuynin̓ /km̓úyn-iʔns/ ‘humped’	page 28, the example as printed
+(289)	Nez Perce	cited form	q̓im̓úuyn	page 28, example (289), ‘copulating’
+(289)	Nez Perce	phonemic	/q̓m̓úyn-t/	page 28, example (289), ‘copulating’
+(289)	Nez Perce	cited form	kim̓úuynin̓	page 28, example (289), ‘humped’
+(289)	Nez Perce	phonemic	/km̓úyn-iʔns/	page 28, example (289), ‘humped’
+§3.6	Noel Rude	heading	3.6 The glottal stop	page 28
+§3.6	Noel Rude	note	Nez Perce and NE Sahaptin are more likely to preserve the glottal stop. Convention dictates an orthographic /ʔ/ word initially in Nez Perce but not in Sahaptin.	page 28
+§3.6	Nez Perce	phonemic	/ʔ/	page 28, set upright
+(290)	Noel Rude	note	NP ʔáawit /ʔawit/ ‘levirate in-law after relating kin is dead’; S awít; PS *ʔawít	page 28, the example as printed
+(290)	Nez Perce	cited form	ʔáawit	page 28, example (290), ‘levirate in-law after relating kin is dead’
+(290)	Nez Perce	phonemic	/ʔawit/	page 28, example (290), ‘levirate in-law after relating kin is dead’, underlined, a strong morpheme
+(290)	Sahaptin	cited form	awít	page 28, example (290)
+(290)	Proto-Sahaptian	cited form	*ʔawít	page 28, example (290)
+(291)	Noel Rude	note	NP ʔíitx /ʔítk/ ‘woman’s sister’s son’; N ítk; CR ítt; PS *ʔítk	page 28, the example as printed
+(291)	Nez Perce	cited form	ʔíitx	page 28, example (291), ‘woman’s sister’s son’
+(291)	Nez Perce	phonemic	/ʔítk/	page 28, example (291), ‘woman’s sister’s son’
+(291)	Northern Sahaptin	cited form	ítk	page 28, example (291)
+(291)	Columbia River Sahaptin	cited form	ítt	page 28, example (291)
+(291)	Proto-Sahaptian	cited form	*ʔítk	page 28, example (291)
+(292)	Noel Rude	note	NP ʔískit /ʔskt/ ‘road, path’; S ɨščɨ́t; PS *ʔɨškɨ́t	page 28, the example as printed
+(292)	Nez Perce	cited form	ʔískit	page 28, example (292), ‘road, path’
+(292)	Nez Perce	phonemic	/ʔskt/	page 28, example (292), ‘road, path’
+(292)	Sahaptin	cited form	ɨščɨ́t	page 28, example (292)
+(292)	Proto-Sahaptian	cited form	*ʔɨškɨ́t	page 28, example (292)
+(293)	Noel Rude	note	NP ʔúyit /ʔúyit/ ‘beginning, first’; S úyit; PS *ʔúyit	page 28, the example as printed
+(293)	Nez Perce	cited form	ʔúyit	page 28, example (293), ‘beginning, first’
+(293)	Nez Perce	phonemic	/ʔúyit/	page 28, example (293), ‘beginning, first’
+(293)	Sahaptin	cited form	úyit	page 28, example (293)
+(293)	Proto-Sahaptian	cited form	*ʔúyit	page 28, example (293)
+§3.6	Noel Rude	note	The root initial glottal stop is written when not word initial.	page 28
+(294)	Noel Rude	note	S ášša ‘he is entering’; paʔášša ‘they are entering’; NP /ʔac/ ‘enter’	page 28, the example as printed
+(294)	Sahaptin	cited form	ášša	page 28, example (294), ‘he is entering’
+(294)	Sahaptin	cited form	paʔášša	page 28, example (294), ‘they are entering’
+(294)	Nez Perce	phonemic	/ʔac/	page 28, example (294), ‘enter’, underlined, a strong morpheme
+§3.6	Noel Rude	note	A root medial /ʔ/ variously survives depending on position and dialect—mostly in the sequence VʔV when the second vowel is stressed.	page 28
+(295)	Noel Rude	note	NE naʔámn; ‘wear out, fade away’; CR náamn; NP /laʔámn/; PS *naʔámn	page 29, the example as printed
+(295)	Northeast Sahaptin	cited form	naʔámn	page 29, example (295), ‘wear out, fade away’
+(295)	Columbia River Sahaptin	cited form	náamn	page 29, example (295)
+(295)	Nez Perce	phonemic	/laʔámn/	page 29, example (295), underlined, a strong morpheme
+(295)	Proto-Sahaptian	cited form	*naʔámn	page 29, example (295)
+(296)	Noel Rude	note	NE kuʔúš ‘thusly’; CR kúuš; NP kuʔús /kuʔús/; PS *kuʔúš	page 29, the example as printed
+(296)	Northeast Sahaptin	cited form	kuʔúš	page 29, example (296), ‘thusly’
+(296)	Columbia River Sahaptin	cited form	kúuš	page 29, example (296)
+(296)	Nez Perce	cited form	kuʔús	page 29, example (296)
+(296)	Nez Perce	phonemic	/kuʔús/	page 29, example (296)
+(296)	Proto-Sahaptian	cited form	*kuʔúš	page 29, example (296)
+§3.6	Noel Rude	note	A word final *ʔ was lost in Sahaptin	page 29
+§3.6	Proto-Sahaptian	cited form	*ʔ	page 29, set upright
+(297)	Noel Rude	note	S šíki ‘badger’; NP síikiʔ /síkiʔ/	page 29, the example as printed
+(297)	Sahaptin	cited form	šíki	page 29, example (297), ‘badger’
+(297)	Nez Perce	cited form	síikiʔ	page 29, example (297)
+(297)	Nez Perce	phonemic	/síkiʔ/	page 29, example (297)
+(298)	Noel Rude	note	S tlɨ́pa ‘fox’; NP tilípeʔ /tl´peʔ/	page 29, the example as printed
+(298)	Sahaptin	cited form	tlɨ́pa	page 29, example (298), ‘fox’
+(298)	Nez Perce	cited form	tilípeʔ	page 29, example (298)
+(298)	Nez Perce	phonemic	/tl´peʔ/	page 29, example (298)
+(299)	Noel Rude	note	S x̣ɨ́pa ‘cornhusk storage bag’; NP qeqépeʔ /qq´peʔ/	page 29, the example as printed
+(299)	Sahaptin	cited form	x̣ɨ́pa	page 29, example (299), ‘cornhusk storage bag’
+(299)	Nez Perce	cited form	qeqépeʔ	page 29, example (299)
+(299)	Nez Perce	phonemic	/qq´peʔ/	page 29, example (299)
+(300)	Noel Rude	note	S yáka ‘bear’; NP yáakaʔ /yákaʔ/	page 29, the example as printed
+(300)	Sahaptin	cited form	yáka	page 29, example (300), ‘bear’
+(300)	Nez Perce	cited form	yáakaʔ	page 29, example (300)
+(300)	Nez Perce	phonemic	/yákaʔ/	page 29, example (300), underlined, a strong morpheme
+§3.6	Noel Rude	note	Exceptions are the clause final interrogative enclitic -ʔ and the senior vocative -aʔ in the NE dialects.	page 29
+§3.6	Sahaptin	cited form	-ʔ	page 29, set upright
+§3.6	Northeast Sahaptin	cited form	-aʔ	page 29, set upright
+(301)	Noel Rude	note	S čná iwačáʔ ‘was he here?’	page 29, the example as printed
+(301)	Sahaptin	cited form	čná iwačáʔ	page 29, example (301), ‘was he here?’
+(302)	Noel Rude	note	NE tútaʔ ‘father!’ (vocative); S túta; NP tóotaʔ /tótaʔ/	page 29, the example as printed
+(302)	Northeast Sahaptin	cited form	tútaʔ	page 29, example (302), ‘father!’
+(302)	Sahaptin	cited form	túta	page 29, example (302)
+(302)	Nez Perce	cited form	tóotaʔ	page 29, example (302)
+(302)	Nez Perce	phonemic	/tótaʔ/	page 29, example (302), underlined, a strong morpheme
+§3.7	Noel Rude	heading	3.7 Loss of PS *h	page 29
+§3.7	Noel Rude	note	Proto-Sahaptian *h was retained in Nez Perce and generally lost in Sahaptin. Word initially *h merged with *ʔ (though not represented in the orthography), as indicated in the cognate sets in Table 11. In NE Sahaptin *h survives between vowels as ʔ when the second vowel is stressed.	page 29
+§3.7	Proto-Sahaptian	cited form	*h	page 29, set upright
+§3.7	Northeast Sahaptin	cited form	ʔ	page 29, set upright
+(303)	Noel Rude	note	NE maʔál ‘how long? how tall?’; S máal; NP mahál /mahál/; PS *mahál	page 29, the example as printed
+(303)	Northeast Sahaptin	cited form	maʔál	page 29, example (303), ‘how long? how tall?’
+(303)	Sahaptin	cited form	máal	page 29, example (303)
+(303)	Nez Perce	cited form	mahál	page 29, example (303)
+(303)	Nez Perce	phonemic	/mahál/	page 29, example (303), underlined, a strong morpheme
+(303)	Proto-Sahaptian	cited form	*mahál	page 29, example (303)
+(304)	Noel Rude	note	NE puʔúy; S púuy ‘snow’; NP póhoy /pohoy/ ‘fine snow’; PS *pohóy	page 29, the example as printed
+(304)	Northeast Sahaptin	cited form	puʔúy	page 29, example (304), ‘snow’
+(304)	Sahaptin	cited form	púuy	page 29, example (304), ‘snow’
+(304)	Nez Perce	cited form	póhoy	page 29, example (304), ‘fine snow’
+(304)	Nez Perce	phonemic	/pohoy/	page 29, example (304), ‘fine snow’, underlined, a strong morpheme
+(304)	Proto-Sahaptian	cited form	*pohóy	page 29, example (304)
+§3.7	Noel Rude	note	Otherwise PS *VhV shortens to V and *VhC to VC in Sahaptin.	page 29
+§3.7	Proto-Sahaptian	cited form	*VhC	page 29, set upright
+(305)	Noel Rude	note	S páp ‘man’s daughter’; NP páhap /pahap/; PS *páhap	page 29, the example as printed
+(305)	Sahaptin	cited form	páp	page 29, example (305), ‘man’s daughter’
+(305)	Nez Perce	cited form	páhap	page 29, example (305)
+(305)	Nez Perce	phonemic	/pahap/	page 29, example (305), underlined, a strong morpheme
+(305)	Proto-Sahaptian	cited form	*páhap	page 29, example (305)
+(306)	Noel Rude	note	S saysáy ‘worms, maggots’; NP cahaycáhay /cahaycáhay/; PS *sahaysáhay	page 29, the example as printed
+(306)	Sahaptin	cited form	saysáy	page 29, example (306), ‘worms, maggots’
+(306)	Nez Perce	cited form	cahaycáhay	page 29, example (306)
+(306)	Nez Perce	phonemic	/cahaycáhay/	page 29, example (306), underlined, a strong morpheme
+(306)	Proto-Sahaptian	cited form	*sahaysáhay	page 29, example (306)
+(307)	Noel Rude	note	S wína ‘go’; NP /wíhnen/; PS *wíhnen	page 29, the example as printed
+(307)	Sahaptin	cited form	wína	page 29, example (307), ‘go’
+(307)	Nez Perce	phonemic	/wíhnen/	page 29, example (307)
+(307)	Proto-Sahaptian	cited form	*wíhnen	page 29, example (307)
+Table 11	Noel Rude	note	Table 11. Some examples of word initial *h	page 30, the table's caption
+Table 11	Noel Rude	note	Nez Perce	page 30, a column's head
+Table 11	Noel Rude	note	Sahaptin	page 30, a column's head
+Table 11	Nez Perce	phonemic	/helqhelq/	page 30, the row of ‘wing’, ‘wing’
+Table 11	Sahaptin	cited form	alɨ́xalx	page 30, the row of ‘wing’, ‘wing’
+Table 11	Nez Perce	phonemic	/hélek/	page 30, the row of ‘back’, ‘back’
+Table 11	Northern Sahaptin	cited form	ának	page 30, the row of ‘back’, ‘back’
+Table 11	Nez Perce	phonemic	/hasas/	page 30, the row of ‘nit, louse egg’, ‘nit, louse egg’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	asás	page 30, the row of ‘nit, louse egg’, ‘nit, louse egg’
+Table 11	Nez Perce	phonemic	/hácwal/	page 30, the row of ‘boy’, ‘boy’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	áswan	page 30, the row of ‘boy’, ‘boy’
+Table 11	Nez Perce	phonemic	/haslam/	page 30, the row of ‘flea’, ‘flea’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	ášnam	page 30, the row of ‘flea’, ‘flea’
+Table 11	Nez Perce	phonemic	/haswal´ya/	page 30, the row of ‘slave’, ‘slave’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	ašwaníya	page 30, the row of ‘slave’, ‘slave’
+Table 11	Nez Perce	phonemic	/hesl´ps/	page 30, the row of ‘bitter cherry’, ‘bitter cherry’
+Table 11	Sahaptin	cited form	ašnɨ́pš	page 30, the row of ‘bitter cherry’, ‘bitter cherry’
+Table 11	Nez Perce	phonemic	/hetéʔew/	page 30, the row of ‘valuable’, ‘valuable’
+Table 11	Sahaptin	cited form	átaw	page 30, the row of ‘valuable’, ‘valuable’
+Table 11	Nez Perce	phonemic	/heyey/	page 30, the row of ‘rainbow trout’, ‘rainbow trout’
+Table 11	Sahaptin	cited form	ayáy	page 30, the row of ‘rainbow trout’, ‘rainbow trout’
+Table 11	Nez Perce	phonemic	/hey̓uxc/	page 30, the row of ‘cottontail’, ‘cottontail’
+Table 11	Sahaptin	cited form	áykʷs	page 30, the row of ‘cottontail’, ‘cottontail’
+Table 11	Nez Perce	phonemic	/hqs/	page 30, the row of ‘eye matter’, ‘eye matter’
+Table 11	Sahaptin	cited form	ɨqɨ́š	page 30, the row of ‘eye matter’, ‘eye matter’
+Table 11	Nez Perce	phonemic	/hni/	page 30, the row of ‘chest’, ‘chest’
+Table 11	Sahaptin	cited form	ɨní	page 30, the row of ‘chest’, ‘chest’
+Table 11	Nez Perce	phonemic	/hm̓/	page 30, the row of ‘mouth’, ‘mouth’
+Table 11	Sahaptin	cited form	ɨ́m	page 30, the row of ‘mouth’, ‘mouth’
+Table 11	Nez Perce	phonemic	/hiyék/	page 30, the row of ‘pregnant’, ‘pregnant’
+Table 11	Northern Sahaptin	cited form	iyák	page 30, the row of ‘pregnant’, ‘pregnant’
+Table 11	Nez Perce	phonemic	/hani/	page 30, the row of ‘make’, ‘make’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	aní	page 30, the row of ‘make’, ‘make’
+Table 11	Nez Perce	phonemic	/haykáatn/	page 30, the row of ‘be clear’, ‘be clear’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	aykáatn	page 30, the row of ‘be clear’, ‘be clear’
+Table 11	Nez Perce	phonemic	/háy̓a/	page 30, the row of ‘scratch’, ‘scratch’, underlined, a strong morpheme
+Table 11	Sahaptin	cited form	áya	page 30, the row of ‘scratch’, ‘scratch’
+Table 11	Nez Perce	phonemic	/héy̓e/	page 30, the row of ‘spawn’, ‘spawn’
+Table 11	Sahaptin	cited form	áya	page 30, the row of ‘spawn’, ‘spawn’
+Table 11	Nez Perce	phonemic	/hísn/	page 30, the row of ‘win’, ‘win’
+Table 11	Sahaptin	cited form	íšn	page 30, the row of ‘win’, ‘win’
+Table 11	Nez Perce	phonemic	/hwékt/	page 30, the row of ‘dream’, ‘dream’
+Table 11	Northwest Sahaptin	cited form	ɨwákt	page 30, the row of ‘dream’, ‘dream’
+Table 11	Nez Perce	phonemic	/hn/	page 30, the row of ‘say, tell’, ‘say, tell’
+Table 11	Sahaptin	cited form	ɨ́nn	page 30, the row of ‘say, tell’, ‘say, tell’
+§3.7	Noel Rude	note	Nez Perce /h/ disappears after a consonant.	page 30
+(308)	Noel Rude	note	NP héeyey, heyéey- /hey-hey/ ‘rainbow trout’	page 30, the example as printed
+(308)	Nez Perce	cited form	héeyey	page 30, example (308), ‘rainbow trout’
+(308)	Nez Perce	cited form	heyéey-	page 30, example (308), ‘rainbow trout’
+(308)	Nez Perce	phonemic	/hey-hey/	page 30, example (308), ‘rainbow trout’
+(309)	Noel Rude	note	NP hóopop, hopóop- /hop-hop/ ‘edible pine lichen, Bryoria fremontii’	page 30, the example as printed
+(309)	Nez Perce	cited form	hóopop	page 30, example (309), ‘edible pine lichen, Bryoria fremontii’
+(309)	Nez Perce	cited form	hopóop-	page 30, example (309), ‘edible pine lichen, Bryoria fremontii’
+(309)	Nez Perce	phonemic	/hop-hop/	page 30, example (309), ‘edible pine lichen, Bryoria fremontii’
+§3.7	Noel Rude	note	In those instances where Sahaptin has /h/, it can be assumed that these represent borrowing.	page 30
+(310)	Noel Rude	note	S háašn ‘breathe’; NE haʔášn; NP /hésn/; S may be a reduplication borrowed from NP (e.g., /hehéšn/)	page 30, the example as printed
+(310)	Sahaptin	cited form	háašn	page 30, example (310), ‘breathe’
+(310)	Northeast Sahaptin	cited form	haʔášn	page 30, example (310)
+(310)	Nez Perce	phonemic	/hésn/	page 30, example (310)
+(310)	Nez Perce	phonemic	/hehéšn/	page 30, example (310)
+(311)	Noel Rude	note	S hahán ‘root top’; NP héhen /héhen/	page 30, the example as printed
+(311)	Sahaptin	cited form	hahán	page 30, example (311), ‘root top’
+(311)	Nez Perce	cited form	héhen	page 30, example (311)
+(311)	Nez Perce	phonemic	/héhen/	page 30, example (311)
+(312)	Noel Rude	note	S hawláak ‘invisibility, empty space, the spirit realm, air, thin air’; NP /héwlekn/	page 30, the example as printed
+(312)	Sahaptin	cited form	hawláak	page 30, example (312), ‘invisibility, empty space, the spirit realm, air, thin air’
+(312)	Nez Perce	phonemic	/héwlekn/	page 30, example (312)
+(313)	Noel Rude	note	S hawlɨpáwlɨp ‘energetic, spry, lively, willing, eager’; NP hawlapáwlap /hawlph´wlap/	page 31, the example as printed
+(313)	Sahaptin	cited form	hawlɨpáwlɨp	page 31, example (313), ‘energetic, spry, lively, willing, eager’
+(313)	Nez Perce	cited form	hawlapáwlap	page 31, example (313)
+(313)	Nez Perce	phonemic	/hawlph´wlap/	page 31, example (313), underlined, a strong morpheme
+(314)	Noel Rude	note	S hawɨ́liš ‘mean, ornery’; NP hawál̓is /hawl̓is/ < /hawl + -ʔis/	page 31, the example as printed
+(314)	Sahaptin	cited form	hawɨ́liš	page 31, example (314), ‘mean, ornery’
+(314)	Nez Perce	cited form	hawál̓is	page 31, example (314)
+(314)	Nez Perce	phonemic	/hawl̓is/	page 31, example (314), underlined, a strong morpheme
+(314)	Nez Perce	phonemic	/hawl + -ʔis/	page 31, example (314), hawl underlined, a strong morpheme
+(315)	Noel Rude	note	S háwtn ‘be a landslide’; NP /héwtn/	page 31, the example as printed
+(315)	Sahaptin	cited form	háwtn	page 31, example (315), ‘be a landslide’
+(315)	Nez Perce	phonemic	/héwtn/	page 31, example (315)
+(316)	Noel Rude	note	S haywáni ‘peaceful’; NP haywáanin̓ /haywániʔns/	page 31, the example as printed
+(316)	Sahaptin	cited form	haywáni	page 31, example (316), ‘peaceful’
+(316)	Nez Perce	cited form	haywáanin̓	page 31, example (316)
+(316)	Nez Perce	phonemic	/haywániʔns/	page 31, example (316), underlined, a strong morpheme
+(317)	Noel Rude	note	S hutuhútu ‘kinnikinnick, Arctostaphylos nevadensis’; NP hotóoto /hotohoto/	page 31, the example as printed
+(317)	Sahaptin	cited form	hutuhútu	page 31, example (317), ‘kinnikinnick, Arctostaphylos nevadensis’
+(317)	Nez Perce	cited form	hotóoto	page 31, example (317)
+(317)	Nez Perce	phonemic	/hotohoto/	page 31, example (317), underlined, a strong morpheme
+(318)	Noel Rude	note	S ɨst̓iyahá ‘Sasquatch’; NP ʔict̓iyehé /ʔct̓iyehé/	page 31, the example as printed
+(318)	Sahaptin	cited form	ɨst̓iyahá	page 31, example (318), ‘Sasquatch’
+(318)	Nez Perce	cited form	ʔict̓iyehé	page 31, example (318)
+(318)	Nez Perce	phonemic	/ʔct̓iyehé/	page 31, example (318)
+references	Noel Rude	heading	References	page 31
+references	Noel Rude	reference	Aoki, Haruo. 1962. Nez Perce and Northern Sahaptin: a binary comparison. International Journal of American Linguistics 28:172-182.	page 31
+references	Noel Rude	reference	Aoki, Haruo. 1963. On Sahaptian-Klamath linguistic affiliations. International Journal of American Linguistics 29:107-112.	page 31
+references	Noel Rude	reference	Aoki, Haruo. 1966. Nez Perce vowel harmony and Proto-Sahaptian vowels. Language 42:759-767.	page 31
+references	Noel Rude	reference	Aoki, Haruo. 1994. Nez Perce Dictionary. University of California Publications in Linguistics, Vol 122. Berkeley and Los Angeles: University of California Press.	page 31
+references	Noel Rude	reference	Barker, M. A. R. 1963. Klamath Dictionary. University of California Publications in Linguistics 31. Berkeley and Los Angeles: University of California Press.	page 31
+references	Noel Rude	reference	Beavert, Virginia, and Sharon Hargus. 2009. Ichishkiin Sínwit Yakama/Yakima Sahaptin Dictionary. Toppenish and Seattle: Heritage University and University of Washington Press.	page 31
+references	Noel Rude	reference	Crook, Harold D. 1996. On Nez Perce Nouns with Irregular Metrical Behavior or “Why ‘Grizzly Bear’ Has Horrible Stress”. Proceedings of the Hokan-Penutian Workshop, July 8-9, 1994 (University of Oregon, Eugene) and July 5-6, 1995 (University of New Mexico, Albuquerque), ed. Victor Golla, pp. 1-14. Survey of California and Other Indian Languages, Report 9. Leanne Hinton, series editor.	page 31
+references	Noel Rude	reference	DeLancey, Scott, and Victor Golla. 1997. The Penutian hypothesis: Retrospect and prospect. International Journal of American Linguistics 63:171-202.	page 31
+references	Noel Rude	reference	Hargus, Sharon, and Virginia Beavert. 2002a. Yakima Sahaptin clusters and epenthetic [ɨ]. Anthropological Linguistics, 44.1-47.	page 31
+references	Noel Rude	reference	Hargus, Sharon, and Virginia Beavert. 2002b. Predictable vs. underlying vocalism in Yakima Sahaptin. International Journal of American Linguistics, 68.316-340.	page 32
+references	Noel Rude	reference	Hargus, Sharon, and Virginia Beavert. 2005. A note on the phonetic correlates of stress in Yakima Sahaptin. University of Washington Working Papers in Linguistics, ed. by Daniel J. Jinguji and Steven Moran, 24:64-95.	page 32
+references	Noel Rude	reference	Jacobs, Melville. 1929. Northwest Sahaptin Texts, 1. University of Washington Publications in Anthropology 2:6:175-244. Seattle: University of Washington Press.	page 32
+references	Noel Rude	reference	Jacobs, Melville. 1931. A Sketch of Northern Sahaptin Grammar. University of Washington Publications in Anthropology 4:2:85-292. Seattle: University of Washington Press.	page 32
+references	Noel Rude	reference	Jacobs, Melville. 1934. Northwest Sahaptin Texts. English language only. Columbia University Contributions to Anthropology 19, Part 1. New York: Columbia University Press.	page 32
+references	Noel Rude	reference	Jacobs, Melville. 1937. Northwest Sahaptin Texts. Sahaptin language only. Columbia University Contributions to Anthropology 19, Part 2. New York: Columbia University Press.	page 32
+references	Noel Rude	reference	Millstein, Henry. ca. 1990a. Warm Springs Sahaptin: How the Warm Springs Language Works. Undated manuscript in possession of the Confederated Tribes of the Warm Springs. Warm Springs, Oregon.	page 32
+references	Noel Rude	reference	Millstein, Henry. ca. 1990b. Warm Springs Sahaptin Dictionary. Undated manuscript in possession of the Confederated Tribes of the Warm Springs. Warm Springs, Oregon.	page 32
+references	Noel Rude	reference	Mithun, Marianne. 1999. The languages of native North America. Cambridge: Cambridge University Press.	page 32
+references	Noel Rude	reference	Pharris, Nicholas J. 2006. A Comparison of Molalla and Nez Perce, with Preliminary Proto-Molalla-Sahaptian Reconstructions. Unpublished manuscript.	page 32
+references	Noel Rude	reference	Rigsby, Bruce. 1965. Continuity and change in Sahaptian vowel systems. International Journal of American Linguistics 31:306-311.	page 32
+references	Noel Rude	reference	Rigsby, Bruce, and Michael Silverstein. 1969. Nez Perce vowels and Proto-Sahaptian vowel harmony. Language 45:45-59.	page 32
+references	Noel Rude	reference	Rigsby, Bruce, and Noel Rude. 1996. Sketch of Sahaptin, a Sahaptian Language. In Languages, ed. by Ives Goddard, pp. 666-692. Washington, D.C.: Smithsonian Institution.	page 32
+references	Noel Rude	reference	Rude, Noel. 1987. Some Sahaptian-Klamath grammatical correspondences. Kansas Working Papers in Linguistics, 12:67-83.	page 32
+references	Noel Rude	reference	Rude, Noel. 1996. The Sahaptian inflectional suffix complex. Proceedings of the Hokan-Penutian Workshop, edited by Victor Golla, pp. 51-89. Survey of California and Other Indian Languages 9. Series editor Leanne Hinton. Berkeley: University of California, Department of Linguistics.	page 32
+references	Noel Rude	reference	Rude, Noel. 2000. Some Uto-Aztecan-Plateau Grammatical Comparisons. In Uto-Aztecan: Structural, Temporal, and Geographic Perspectives: Papers in Memory of Wick R. Miller by the Friends of Uto-Aztecan, edited by Eugene H. Casad and Thomas L. Willet, pp. 309-318. Hermosillo, Sonora, México: Editorial UniSon.	page 33
+references	Noel Rude	reference	Rude, Noel. 2006. Proto-Sahaptian vocalism. University of British Columbia Working Papers in Linguistics, Vol. 18, pp. 264-277. Papers for the Forty-first International Conference on Salish and Neighbouring Languages, July 2006, edited by Masaru Kiyota, James J. Thompson, and Noriko Yamane-Tanaka.	page 33
+references	Noel Rude	reference	Rude, Noel. 2009. Transitivity in Sahaptin. Northwest Journal of Linguistics, Vol. 3, Issue 3, pp. 1-37. Online journal accessable at http://www.sfu.ca/nwjl/index.html.	page 33
+end	Noel Rude	note	Noel Rude NoelRude@CTUIR.com	page 33, the author's name and e-mail address

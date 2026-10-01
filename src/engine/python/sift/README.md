@@ -1,7 +1,7 @@
 # Sift
 
 **Purpose:** Discard candidates without ever losing a true occurrence, and understand why the selection rule is free.
-**Scope:** `src/engine/python/sift/`, and `src/engine/nbody/anchor_sift/` for the C kernel
+**Scope:** `src/engine/python/sift/`, and `src/engine/nbody/orior/` for the C kernel
 
 | module                   | what it holds                                                                                                                                                                                                                                                                                                                            |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,9 +37,9 @@ Neither of the first two dominates, and which is right depends on a term not yet
 
 ## The kernel's form
 
-`src/engine/nbody/anchor_sift/anchor_sift_*.c` places one anchor in each of four evenly sized cells at `(slot * 7)` mod the cell, orders the anchors rarest first by the corpus census, and dispatches between a short circuiting engine and a free order engine by one exact integer comparison. The functions under the kernel's names in `anchors.py` are its Python route. The two share no code. `utils/test/python/sift_test.py` grades them against the kernel built alone as a shared library with `ANCHOR_SIFT_COUNT_READS=1` (on Windows with `utils/test/python/anchor_sift_probe.def`), comparing the census, the dispatch, every engine's count with its probe reads and exact compares, the steered and unsteered counts with their reads, the rarity order, caller probes and whether probes fit:
+`src/engine/nbody/orior/orior_*.c` places one anchor in each of four evenly sized cells at `(slot * 7)` mod the cell, orders the anchors rarest first by the corpus census, and dispatches between a short circuiting engine and a free order engine by one exact integer comparison. The functions under the kernel's names in `anchors.py` are its Python route. The two share no code. `utils/test/python/sift_test.py` grades them against the kernel built alone as a shared library with `ORIOR_COUNT_READS=1` (on Windows with `utils/test/python/orior_probe.def`), comparing the census, the dispatch, every engine's count with its probe reads and exact compares, the steered and unsteered counts with their reads, the rarity order, caller probes and whether probes fit:
 
-    ANCHOR_SIFT_LIB=<path to anchor_sift_host.dll or .so> python utils/test/python/sift_test.py
+    ORIOR_LIB=<path to orior_host.dll or .so> python utils/test/python/sift_test.py
 
 The kernel's descents, its probe sweep and its field projections have no Python route here.
 

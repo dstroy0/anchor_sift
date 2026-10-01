@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, you MUST cite the speakers whose languages the corpus holds."
-title: anchor_sift
+title: orior
 abstract: >-
   A method that measures how far an object sits from the most disordered arrangement
   of its own parts. The reference is built by maximizing entropy under constraints the
@@ -16,8 +16,8 @@ authors:
     family-names: Quigg
     email: dquigg123@gmail.com
     alias: dstroy0
-repository-code: "https://github.com/dstroy0/anchor_sift"
-url: "https://github.com/dstroy0/anchor_sift"
+repository-code: "https://github.com/dstroy0/orior"
+url: "https://github.com/dstroy0/orior"
 license: AGPL-3.0-or-later
 version: 1.5.0
 date-released: "2026-09-17"

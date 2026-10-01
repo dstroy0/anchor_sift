@@ -1,0 +1,207 @@
+where	who	kind	form	gloss
+front	Bruce Oliver	title	A Preliminary Account of Circumstantial xwent in Secwepemctsín	page 1
+front	Bruce Oliver	byline	Bruce Oliver University of British Columbia	page 1, the author over his university
+front	Bruce Oliver	name	Bruce Oliver	author, University of British Columbia
+front	Bruce Oliver	note	Abstract: This paper provides a preliminary account of the modal uses of the predicate xwent, which otherwise means ‘fast’, in Secwepemctsín (Shuswap). Using original Secwepemctsín data, I show that xwent can be used broadly as a circumstantial modal, in pure circumstantial, ability, and deontic contexts. I also show that it can interact with the past tense marker lu7 to create past temporal per- spectives. Finally, I show that, at least in pure circumstantial cases, xwent has variable modal force, supporting existential and universal readings. I provide a provisional semantic analysis for xwent as an underlyingly universal modal with two ordering sources, the primary ordering source determining the modal flavor and the secondary ordering source optionally weakening the universal force to exis- tential. Much more testing is required to develop a complete account of xwent, but this is an important first step in characterizing the system of circumstantial modality in Secwepemctsín.	page 1, the abstract
+front	Bruce Oliver	note	Keywords: Salish, Shuswap, modality, circumstantial, ability, deontic	page 1, the keywords
+front	Bruce Oliver	note	Papers of the International Conference on Salish and Neighbouring Languages 56, D. K. E. Reisinger, Hannah Green, Laura Griffin, Marianne Huijsmans, Gloria Mellesmoen, & Bailey Trotter (eds.). Vancouver, BC: UBCWPL, 2021.	page 1, the volume's header, at the foot of the page
+front	Bruce Oliver	language	Secwepemctsín	Shuswap, Northern Interior Salish
+front	Bruce Oliver	language	St’át’imcets	Lillooet, compared in §2.2
+front	Bruce Oliver	language	Nsyilxcen	Okanagan, compared in §2.2
+§1	Bruce Oliver	heading	1 Introduction	page 1
+§1	Secwepemctsín	cited form	Secwepemctsín	page 1
+§1	Secwepemctsín	cited form	Secwepemctsín	page 1
+§1	Secwepemctsín	cited form	ctsín	page 1
+§1	Bruce Oliver	note	This paper aims to provide a preliminary account of the distribution and semantics of circumstantial xwent in Secwepemctsín (Shuswap). Secwepemctsín is a Northern Interior Salish language spoken in the interior of British Columbia, with fewer than 50 living first-language speakers (Marianne Ignace, pers. comm.). The Secwepemctsín dictionary indicates that xwent means ‘fast’ (Kuipers 1983). However, xwent also sees use as a robust circumstantial modal, used in deontic and ability contexts in addition to pure circumstantial contexts. In this paper, I will present original Secwepem- ctsín data to characterize the modal predicate xwent as a variable strength circumstantial modal which supports deontic and stereotypical ordering sources.1	page 1
+footnote 1	Bruce Oliver	note	1 I would like to express my deep gratitude and thanks to my consultants Ron Ignace (RI), Bernadette Dodson (BD), and Louella Jules (LJ) for sharing their language with me. Kukwstsétselp! Additionally, I would like to thank Henry Davis, Lisa Matthewson, John Lyon, Marianne Huijsmans, and members of the Secwepemctsín Working Group and Salish Working Group at UBC for their support and invaluable feedback.	page 1, footnote
+footnote 1	Bruce Oliver	name	Ron Ignace	a consultant, RI in the examples
+footnote 1	Bruce Oliver	name	Bernadette Dodson	a consultant, BD in the examples
+footnote 1	Bruce Oliver	name	Louella Jules	a consultant, LJ in the examples
+§1	Bruce Oliver	note	The paper is organized as follows. In Section 2, I provide a short background on modality and briefly discuss circumstantial modality in other Salish languages. In Section 3, I present original Secwepemctsín data illustrating various characteristics of modal xwent. In Section 4, I provide a sketch of a semantic analysis for modal xwent. Section 5 concludes the paper.	page 1
+§2	Bruce Oliver	heading	2 Circumstantial modality	page 1
+§2.1	Bruce Oliver	heading	2.1 Modality background	page 1
+§2.1	Bruce Oliver	note	Modality is the expression of the possibility or necessity of propositions with respect to knowl- edge/evidence or with respect to certain facts. Modality with respect to knowledge/evidence is known as epistemic modality, and modality with respect to certain facts is known as circumstantial modality. Under a Kratzerian (1977) model, a modal claim consists of quantification over possible worlds.	page 1
+§2.1	Bruce Oliver	note	There are two fundamental parts to any modal: the strength of the quantification, and which worlds we’re quantifying over. These are referred to as modal strength and modal base, respectively. In most Indo-European languages, modal items have a fixed modal strength, and the modal base varies with context.	page 2
+(1a) line 1	Bruce Oliver	note	Alfred must be the killer (in light of what we know).	page 2, an English sentence
+(1b) line 1	Bruce Oliver	note	Alfred must go to prison (in light of the laws).	page 2, an English sentence
+§2.1	Bruce Oliver	note	In English, the lexical item must can be used to express both epistemic and circumstantial (de- ontic, in this case) modality, as demonstrated in (1), but it can only ever express strong modal force, i.e., universal quantification over possible worlds. This organization need not be the case for all systems of modality, and Salish languages in particular deviate from this model to a greater or lesser extent.	page 2
+§2.2	Bruce Oliver	heading	2.2 Circumstantial modality in Salish	page 2
+§2.2	Secwepemctsín	cited form	St’át’imcets	page 2
+§2.2	Bruce Oliver	note	Many modal constructions in Salish languages have a fixed modal base and contextually-determined modal force, the opposite of English and many other Indo-European languages. This is the case for all St’át’imcets modals (Rullmann, Matthewson, and Davis 2008), as well as one of Nsyilxcen’s epistemic modals, mat (Menzies 2013).	page 2
+§2.2	Bruce Oliver	note	Although a cross-Salish survey is outside the scope of this paper, it is worth noting that ability modals (another type of circumstantial modal) are not generally present across the family of Salish languages. One exception is St’át’imcets (Lillooet) ka-…-a, a circumstantial modal which has both ability and no-choice readings depending on its (contextually-specified) strength (Davis, Matthew- son, and Rullmann 2007).	page 2
+(2) line 1	St’át’imcets	segmentation	wa7 xíl-em=wit ets7á kw=s=zwat-en-ítas swát=as ku=wá7 ka-xilh-tal’í-ha ku=xwém	page 2, a word to a line in the text layer, each over its gloss, the gloss det=fast carries footnote 3
+(2) line 2	St’át’imcets	gloss	impf do-mid=3pl this det=nmlz=know-dir-3pl.erg who=3conj det=impf circ-do(caus)-top-circ det=fast	page 2
+(2) line 3	Bruce Oliver	translation	‘They did that to see who could do it the fastest.’	page 2
+(2) line 4	Bruce Oliver	citation	(Davis et al. 2007:140)	page 2, the source
+footnote 3	Bruce Oliver	note	3 Abbreviations used: 1 = first person, 2 = second person, 3 = third person, abs = absolutive, boul = bouletic, caus = causative, cd = complementizer/determiner, circ = circumstantial, comp = complementizer, cond = con- ditional, conj = conjunctive (subjunctive) subject, cop = copula, ctrl = control, cust = customary, dem = demonstrative, deon = deontic, der = derivative, det = determiner, dim = diminutive, dir = directive, emph = emphatic, erg = ergative, impf = imperfective, irr = irrealis, lc = limited control, lex = lexical, loc = locative, mid = middle, neg = negative, nmlz = nominalizer, obj = object, obl = oblique, pl = plural, poss = possessive, pst = past, q = question particle, sbj = subject, sbjv = subjunctive, sbrd = subordinator, sg = singular, top = topic, tr = transitive.	page 2, footnote
+§2.2	Bruce Oliver	note	St’át’imcets has a separate circumstantial modal, ka, which is used in deontic and irrealis con- texts (Rullmann et al. 2008).	page 2
+(3) line 1	St’át’imcets	segmentation	lán-lhkacw ka áts’x-en ti kwtámts-sw-a	page 3, a word to a line in the text layer, each over its gloss
+(3) line 2	St’át’imcets	gloss	already-2sg.sbj deon see-dir det husband-2sg.poss-det	page 3
+(3) line 3	Bruce Oliver	translation	‘You must / can / may see your husband now.’	page 3
+(3) line 4	Bruce Oliver	citation	(Rullmann et al. 2008:328)	page 3, the source
+(4) line 1	Bruce Oliver	note	Context 1: You are saying that the tree needs to be chopped down because it’s a danger; it’s gonna fall in the first strong wind; it would fall.	page 3, the context
+(4) line 2	Bruce Oliver	note	Context 2: You are the paranoid type who doesn’t put things on high shelves in case of earth- quakes, doesn’t drive behind logging trucks in case a tree falls off the back, etc., and you don’t want to pitch your tent underneath a tree because the tree could fall if the wind got strong. (I.e., it’s not that the tree looks particularly weak.)	page 3, the context
+(4) line 3	St’át’imcets	segmentation	zikt ka láti7 ku srap lh-gelgel-ás ta sk’éxem-a	page 3, a word to a line in the text layer, each over its gloss
+(4) line 4	St’át’imcets	gloss	fall irr dem det tree comp-strong-3conj det wind-det	page 3
+(4) line 5	Bruce Oliver	translation	‘That tree would / could fall, if the wind got strong.’	page 3
+(4) line 6	Bruce Oliver	citation	(Rullmann et al. 2008:331)	page 3, the source
+§2.2	Secwepemctsín	cited form	cakʷ	page 3
+§2.2	Bruce Oliver	note	This is in contrast to a language like Nsyilxcen (Okanagan), which has the bouletic cakʷ as its only dedicated circumstantial modal and uses the bare predicate and irrealis or imperative marking to express ability and deontic/teleological modality (Menzies 2013).	page 3
+(5) line 1	Bruce Oliver	note	Context: We are running low on meat supplies and need to get more so we can make it through the winter. You say that John should go hunting.	page 3, the context
+(5) line 2	Nsyilxcen	segmentation	cakʷ ac-pix̌-m	page 3, a word to a line in the text layer, each over its gloss
+(5) line 3	Nsyilxcen	gloss	boul cust-hunt-mid	page 3
+(5) line 4	Bruce Oliver	translation	‘He should go hunting.’	page 3
+(5) line 5	Bruce Oliver	citation	(Menzies 2013:30)	page 3, the source
+(6) line 1	Bruce Oliver	note	Context: I am physically strong enough to lift the big rock.	page 3, the context
+(6) line 2	Nsyilxcen	segmentation	tali kn=k’wəck’wáct n-wis-lx-st-n iP xňut	page 3, a word to a line in the text layer, each over its gloss
+(6) line 3	Nsyilxcen	gloss	very 1sg.abs-strong der-lift-lex-tr det rock	page 3
+(6) line 4	Bruce Oliver	translation	‘I am very strong. I lift the rock.’	page 3
+(6) line 5	Bruce Oliver	citation	(Menzies 2013:37)	page 3, the source
+§3	Bruce Oliver	heading	3 Secwepemctsín xwent	page 3
+§3.1	Bruce Oliver	heading	3.1 Existing work	page 3
+§3.1	Secwepemctsín	cited form	Secwepemctsín	page 3
+§3.1	Secwepemctsín	cited form	k’ul-em-se-ken	page 3
+§3.1	Secwepemctsín	cited form	Secwepemctsín	page 4
+§3.1	Bruce Oliver	note	Very little prior work on Secwepemctsín modality exists. Kuipers (1976) briefly mentions the for- mation of conditionals with the suffix -se/-ske, giving the example (transliterated to the practical or- thography) k’ul-em-se-ken (make-mid-cond-1sg.sbj) ‘I would make/I would have made’. Although RI accepted and translated forms with the -ske ending in would/should contexts, he never volun- teered it in free translation, even for very similar contexts. Kuipers does not mention the modal interpretation of xwent.	page 3
+§3.2	Bruce Oliver	heading	3.2 Pure circumstantial/stereotypical	page 4
+§3.2	Bruce Oliver	note	Modal xwent, like its homonym meaning ‘fast’, is a predicate, taking its prejacent as a relative clause. The most common word order in Secwepemctsín is VSO, meaning xwent will almost always appear first in a sentence.	page 4
+(7) line 1	Bruce Oliver	note	Context: Talking about a rock-lifting competition, commenting on the ability of the current competitor faced with a particular rock.	page 4, the context
+(7) line 2	Secwepemctsín	segmentation	Xwent k s-cwent-és.	page 4, a word to a line in the text layer, each over its gloss
+(7) line 3	Secwepemctsín	gloss	circ cd nmlz-lift-3.sbjv	page 4
+(7) line 4	Bruce Oliver	translation	‘He can lift it.’	page 4
+(7) line 5	Bruce Oliver	citation	(RI)	page 4, the consultant Ron Ignace
+§3.2	Bruce Oliver	note	Xwent need not only relate to personal ability, but can also be used in pure circumstantial cases, such as whether it is possible for plants to grow in a certain climate.	page 4
+(8) line 1	Bruce Oliver	note	Context: Asking someone who knows about the climate of California if a soapberry bush could grow there.	page 4, the context
+(8a) line 1	Secwepemctsín	segmentation	Xwént-en k s-k’ult-s re= sxúsem ne California?	page 4, a word to a line in the text layer, each over its gloss
+(8a) line 2	Secwepemctsín	gloss	circ-q cd nmlz-grow-3.poss det soapberry loc California	page 4
+(8a) line 3	Bruce Oliver	translation	‘Can soapberry grow in California?’	page 4
+(8a) line 4	Bruce Oliver	citation	(RI)	page 4, the consultant Ron Ignace
+(8b) line 1	Secwepemctsín	segmentation	Ma7a, xwent yeri7 k s-k’ult-s.	page 4, a word to a line in the text layer, each over its gloss
+(8b) line 2	Secwepemctsín	gloss	yes circ dem cd nmlz-grow-3.poss	page 4
+(8b) line 3	Bruce Oliver	translation	‘Yes, it can grow there.’	page 4
+(8b) line 4	Bruce Oliver	citation	(RI)	page 4, the consultant Ron Ignace
+§3.2	Bruce Oliver	note	Xwent can also combine with the past tense morpheme lu7, allowing the expression of a past temporal perspective with a future temporal orientation in counterfactuals (i.e., sentences where the prejacent is not true).	page 4
+(9) line 1	Bruce Oliver	note	Context: You are trying to cook a meal over the fire, but some rain leaks through your firewood covering and gets it wet. It takes a long time to dry the firewood and it’s long past dinner time by the time you get a fire going. If it hadn’t rained, dinner would already be ready by now.	page 4, the context
+(9) line 2	Secwepemctsín	segmentation	Xwent lu7 mell ke n-s-qw’lé<l>-em-es e tá7-wes lu7 k s-kllékst-em-s.	page 4, a word to a line in the text layer, each over its gloss
+(9) line 3	Secwepemctsín	gloss	circ pst already cd 1sg.poss-nmlz-cook<dim>-mid-3.sbjv cond neg-3.sbjv pst cd nmlz-let.go-mid-3.poss	page 4
+(9) line 4	Bruce Oliver	translation	‘I could/would have cooked it already, if it hadn’t rained.’	page 4
+(9) line 5	Bruce Oliver	citation	(RI)	page 4, the consultant Ron Ignace
+§3.2	Secwepemctsín	cited form	St’át’imcets	page 4
+§3.2	Bruce Oliver	note	As previously mentioned, many Salish modals, including those of St’át’imcets (Rullmann et al. 2008) and Nsyilxcen (Menzies 2013), have variable modal force, determined by context. This is unlike most Indo-European languages, whose modals are specified for force. Modal force, simply put, is the difference between necessity and possibility. Many English modals are only felicitous in a situation of necessity, whereas others are only felicitous in a situation of possibility. Consider the following situation of necessity, inspired by a context from Rullmann et al. (2008).	page 4
+(10) line 1	Bruce Oliver	note	Context: There is an old, rotting tree near someone’s house. It will surely fall as soon as a strong wind comes along, so you are arguing that it needs to be chopped down, as it could fall on the house and hurt someone.	page 5, the context
+(10a) line 1	Bruce Oliver	note	That tree would fall if the wind got strong.	page 5, an English sentence
+(10b) line 1	Bruce Oliver	note	#That tree could fall if the wind got strong.	page 5, an English sentence, judged #
+§3.2	Bruce Oliver	note	The English strong modal would is felicitous in this scenario, but not the weak modal could.	page 5
+§3.2	Bruce Oliver	note	Contrast the preceding example to the following context, expressing possibility.	page 5
+(11) line 1	Bruce Oliver	note	Context: You are a very paranoid person who never puts things on high shelves in case of an earthquake, doesn’t walk by cliffs when it’s raining in case there is a mudslide… You’re so paranoid that you won’t ever pitch your tent below a tree on the off-chance that it falls, even if the tree looks perfectly sturdy and healthy.	page 5, the context
+(11a) line 1	Bruce Oliver	note	#That tree would fall if the wind got strong.	page 5, an English sentence, judged #
+(11b) line 1	Bruce Oliver	note	That tree could fall if the wind got strong.	page 5, an English sentence
+§3.2	Bruce Oliver	note	In this context, the opposite is true: only the weak could is felicitous and the strong would is infelicitous. Pairs of contexts such as these were provided during elicitation to determine the modal force of xwent. Consider the following data, which show that the same sentence with xwent is felicitous in both a context representing necessity and a context representing possibility.	page 5
+(12) line 1	Bruce Oliver	note	Context 1: There is an old, rotting tree near someone’s house. It will surely fall as soon as a strong wind comes along, so you are arguing that it needs to be chopped down, as it could fall on the house and hurt someone.	page 5, the context
+(12) line 2	Bruce Oliver	note	Context 2: You are a very paranoid person who never puts things on high shelves in case of an earthquake, doesn’t walk by cliffs when it’s raining in case there is a mudslide… You’re so paranoid that you won’t ever pitch your tent below a tree on the off-chance that it falls, even if the tree looks perfectly sturdy and healthy.	page 5, the context
+(12) line 3	Secwepemctsín	segmentation	Yiréy te= tsrep xwent k s-yikt-s e xexe7-es re= s-newt.	page 5, a word to a line in the text layer, each over its gloss
+(12) line 4	Secwepemctsín	gloss	dem det.obl tree circ cd nmlz-tree.fall-3.poss cond strong-3.sbjv det nmlz-wind	page 5
+(12) line 5	Bruce Oliver	translation	‘That tree would/could fall if the wind got strong.’	page 5
+(12) line 6	Bruce Oliver	citation	(RI)	page 5, the consultant Ron Ignace
+(13) line 1	Bruce Oliver	note	Context 1: One of your neighbors has just shot a cougar. You ask why. He answers that the cougar was on a rampage, killing cats and raccoons, and it has just cornered a child and was growling at it before it was shot. It sounds like it would have definitely killed the child if it hadn’t been shot.	page 6, the context
+(13) line 2	Bruce Oliver	note	Context 2: A cougar was shot near where you live; you are explaining to someone that cougars sometimes roam into built-up areas and sometimes kill children when they do.	page 6, the context
+(13) line 3	Secwepemctsín	segmentation	Yiréy te= smúwe7 xwent lu7 k s-pul-s te= sk’wimém’elt, e tá7-wes lu7 k s-q’él-en[-t]-s.	page 6, a word to a line in the text layer, each over its gloss
+(13) line 4	Secwepemctsín	gloss	dem det.obl cougar circ pst cd nmlz-kill-3.poss det.obl child cond neg-3.sbjv pst cd nmlz-shoot-ctrl[-tr]-3.poss	page 6
+(13) line 5	Bruce Oliver	translation	‘That cougar would/could have killed a child, if they hadn’t shot it.’	page 6
+(13) line 6	Bruce Oliver	citation	(RI)	page 6, the consultant Ron Ignace
+§3.2	Bruce Oliver	note	The generalization based on these data is that xwent has variable strength, being permitted in both necessity and possibility contexts.	page 6
+§3.3	Bruce Oliver	heading	3.3 Deontic/teleological	page 6
+§3.3	Bruce Oliver	note	The prior data have shown modal xwent having circumstantial base with a stereotypical ordering source, i.e., an expression of necessity/possibility with respect to the expected or most common continuation of events. This is not the only ordering source that xwent supports. The following data show deontic usage of xwent, in which the worlds in the modal base are ranked based on the fulfillment of good behavior with respect to laws, customs, etc. Specifically, the following example is a weak deontic, expressing permission rather than obligation.	page 6
+(14) line 1	Bruce Oliver	note	Context: You are at a party, and you notice a small child looking nervously at a plate of sxusem (soapberries). It seems as though he really wants to eat some, but he doesn’t know if he’s allowed to. You laugh and say to him:	page 6, the context
+(14) line 2	Secwepemctsín	segmentation	Xwent yeri7 e s-7íllen.	page 6, a word to a line in the text layer, each over its gloss
+(14) line 3	Secwepemctsín	gloss	circ dem sbrd nmlz-eat	page 6
+(14) line 4	Bruce Oliver	translation	‘It’s okay to eat it.’	page 6
+(14) line 5	Bruce Oliver	citation	(BD)	page 6, the consultant Bernadette Dodson
+§3.3	Bruce Oliver	note	Additionally, xwent can be used with a teleological ordering source, which is similar to a deontic ordering source but relates instead to accomplishing goals. The following example is one such case.	page 6
+(15) line 1	Bruce Oliver	note	Context: You are being asked to prove your physical fitness. They give you two options, both of which will be accepted: to climb up a nearby mountain in under one hour, or to swim across a lake in under five minutes.	page 6, the context
+(15) line 2	Secwepemctsín	segmentation	Xwent ke 7-s-trepelcús, e ye-ws ke 7-s-t’qwéscn-em te= tkenú7s re= pésellkwe.	page 6, a word to a line in the text layer, each over its gloss
+(15) line 3	Secwepemctsín	gloss	circ cd 2sg.poss-nmlz-climb.hill cond cop-3.sbjv cd 2sg.poss-nmlz-swim-mid det.obl across det lake	page 6
+(15) line 4	Bruce Oliver	translation	‘You can climb [the mountain] or swim across the lake.’	page 6
+(15) line 5	Bruce Oliver	citation	(RI)	page 6, the consultant Ron Ignace
+§3.3	Bruce Oliver	note	One test of weak modal force is coordinating a modal claim with its negation. With a weak modal, this is perfectly acceptable, but with a strong modal, this creates a contradiction. Cf. English:	page 7
+(16a) line 1	Bruce Oliver	note	#You must take your backpack with you, or you must leave it here.	page 7, an English sentence, judged #
+(16b) line 1	Bruce Oliver	note	You may take your backpack with you, or you may leave it here.	page 7, an English sentence
+§3.3	Secwepemctsín	cited form	Secwepemctsín	page 7
+§3.3	Bruce Oliver	note	Now consider the Secwepemctsín using xwent as the modal, demonstrating that xwent indeed has weak modal force.	page 7
+(17) line 1	Bruce Oliver	note	Context: You are going for a job interview and you are not sure what to do with your bag. The receptionist outside the office tells you that it is fine to take your bag into the interview with you, but you can also leave it in the waiting room.	page 7, the context
+(17) line 2	Secwepemctsín	segmentation	Xwent k s-kwen[-n-t]-Ø-c re= 7-ctécken’ten, ell xwent k s-llwél-en[-t]-Ø-c ne7élye.	page 7, a word to a line in the text layer, each over its gloss
+(17) line 3	Secwepemctsín	gloss	circ cd nmlz-take[-ctrl-tr]-3.obj-2sg.erg det 2sg.poss-backpack and circ cd nmlz-leave.behind-ctrl[-tr]-3.obj-2sg.erg here	page 7
+(17) line 4	Bruce Oliver	translation	‘You can take your backpack, or you can leave it here.’	page 7
+(17) line 5	Bruce Oliver	citation	(RI)	page 7, the consultant Ron Ignace
+§3.3	Bruce Oliver	note	Below is another test of deontic xwent with its negation. Although xwent does not appear in the negation, it is highly unlikely that xwent would mean must in this context, as the sentence you must wash it or not is trivially true and not felicitous in the context of asking for advice, as it contributes no useful information.	page 7
+(18) line 1	Bruce Oliver	note	Context: You are cooking rice for the first time, and you ask your friend if it’s important to wash rice before you cook it. The friend’s response:	page 7, the context
+(18) line 2	Secwepemctsín	segmentation	Xwent yeri7 k s-ts’éw-en[-t]-c re ta7-wes.	page 7, a word to a line in the text layer, each over its gloss
+(18) line 3	Secwepemctsín	gloss	circ dem cd nmlz-wash-ctrl[-tr]-2sg.erg cd neg-3.sbjv	page 7
+(18) line 4	Bruce Oliver	translation	‘You can wash it or not.’	page 7
+(18) line 5	Bruce Oliver	citation	(RI)	page 7, the consultant Ron Ignace
+§3.3	Secwepemctsín	cited form	qwelmimentsems	page 7, ‘they want me to’
+§3.3	Bruce Oliver	note	I have not formally tested whether xwent is felicitous in strong deontic contexts. In free transla- tion tasks involving strong deontic contexts, consultants have volunteered me7 (the strong circum- stantial modal) or various paraphrases, such as qwelmimentsems ‘they want me to’ or the imperative. Whether this is an issue of scalar implicature or an actual restriction on the strength of xwent in de- ontic contexts requires further investigation.	page 7
+§3.4	Bruce Oliver	heading	3.4 Ability	page 7
+§3.4	Bruce Oliver	note	Finally, xwent can be used as an ability modal, as we have already seen in (7). Another example is below.	page 7
+(19) line 1	Bruce Oliver	note	Context: A race is coming up, and you ask your friend whether John is a fast enough runner to win the race.	page 8, the context
+(19) line 2	Secwepemctsín	segmentation	Xexe7 yi7 re= John te= cwiselc-s. Xwent yi7 k s-q’uw-úm-s re= stogwéy’e-s	page 8, a word to a line in the text layer, each over its gloss
+(19) line 3	Secwepemctsín	gloss	strong emph det John det.obl run-3sg circ emph cd nmlz-win-mid-3.poss det foot.race-3.poss	page 8
+(19) line 4	Bruce Oliver	translation	‘John is a strong runner. He could definitely win the foot-race.’	page 8
+(19) line 5	Bruce Oliver	citation	(RI)	page 8, the consultant Ron Ignace
+§3.4	Bruce Oliver	note	As in the pure circumstantial case seen previously, xwent can combine with past lu7 to express a past ability. Whether this carries an actuality entailment like French perfective a pu (Bhatt 2008) requires further investigation.	page 8
+(20) line 1	Bruce Oliver	note	Context: An old man who used to compete in the rock-lifting competition. He was a top competitor in his youth, and he could lift the heaviest rocks, but now in his old age he is too weak to lift them.	page 8, the context
+(20) line 2	Secwepemctsín	segmentation	L-twí<w>t-wen xwent lu7 k s-cwenté<t>-en, k’émell tá7a pyin.	page 8, a word to a line in the text layer, each over its gloss
+(20) line 3	Secwepemctsín	gloss	pst-grow.up<dim>-1sg.sbjv circ pst det.irr nmlz-lift<dim>-1sg.erg but neg now	page 8
+(20) line 4	Bruce Oliver	translation	‘I could lift it before, but now I can’t.’	page 8
+(20) line 5	Bruce Oliver	citation	(RI)	page 8, the consultant Ron Ignace
+§3.4	Secwepemctsín	cited form	Secwepemctsín	page 8
+§3.4	Bruce Oliver	note	In testing how to express a lack of ability, I noticed that xwent seemed to resist embedding in subordinate clauses (which negation in Secwepemctsín requires), with speakers preferring a differ- ent predicate using limited control marking in free translation tasks and translating an attempted embedding of modal xwent as meaning ‘fast’. Whether xwent broadly resists embedding or this is unique to negation requires further investigation.	page 8
+(21) line 1	Bruce Oliver	note	Context: Watching a rock-lifting competition, expressing disbelief that the current competitor will be able to life that rock.	page 8, the context
+(21a) line 1	Secwepemctsín	segmentation	#Ta7 k s-xwent-s e s-cwent-és.	page 8, a word to a line in the text layer, each over its gloss, judged #
+(21a) line 2	Secwepemctsín	gloss	neg cd nmlz-fast-3.poss cond nmlz-lift-3.sbjv	page 8
+(21a) line 3	Bruce Oliver	translation	Intended: ‘He can’t lift it.’	page 8, the meaning intended
+(21a) line 4	Bruce Oliver	translation	Actual meaning: ‘He could not lift it very fast.’	page 8, the meaning the consultant gave
+(21a) line 5	Bruce Oliver	citation	(RI)	page 8, the consultant Ron Ignace
+(21b) line 1	Secwepemctsín	segmentation	Ta7 k s-xe-nwéllen’-s e s-cwent-és.	page 8, a word to a line in the text layer, each over its gloss
+(21b) line 2	Secwepemctsín	gloss	neg cd nmlz-do-lc.mid-3.poss cond nmlz-lift-3.sbjv	page 8
+(21b) line 3	Bruce Oliver	translation	‘He is incapable of lifting it.’	page 8
+(21b) line 4	Bruce Oliver	citation	(RI)	page 8, the consultant Ron Ignace
+(21b) line 5	Bruce Oliver	speaker comment	Consultant comment: “Maybe he’s a 50-pound weakling, totally incapable of lifting it.”	page 8, a consultant's comment
+§3.4	Secwepemctsín	cited form	Sk̲wx̲wú7mesh	page 8
+§3.4	Bruce Oliver	note	It is worth noting that using limited control marking to express ability is a feature of Sk̲wx̲wú7mesh (Squamish) (Jacobs 2007) and occasionally occurs in Secwepemctsín outside of a subordinate clause environment, as in the example below.	page 8
+(22) line 1	Bruce Oliver	note	Context: You hear a noise in the middle of the night, so you go out of the house to investigate with Marianne. It is pitch black outside, and you can’t see anything at all, so you ask Marianne if she can see.	page 9, the context
+(22) line 2	Secwepemctsín	segmentation	Xe-nwélln’-en-k te s-wík-em?	page 9, a word to a line in the text layer, each over its gloss
+(22) line 3	Secwepemctsín	gloss	do-lc.mid-q-2sg cd nmlz-see-mid	page 9
+(22) line 4	Bruce Oliver	translation	‘Are you able to see?’	page 9
+(22) line 5	Bruce Oliver	citation	(RI)	page 9, the consultant Ron Ignace
+§3.4	Bruce Oliver	note	The Secwepemctsín data in this section provide support for the claim that xwent is a circumstan- tial modal which supports stereotypical, deontic, and teleological ordering sources, and has variable strength, being compatible with circumstantial necessity and possibility, at least in pure circumstan- tial contexts. The next section will provide a preliminary semantic analysis of xwent accounting for the variable strength.	page 9
+§4	Bruce Oliver	heading	4 Semantics of modal xwent	page 9
+§4	Bruce Oliver	note	As data is still being collected, I can only offer a preliminary analysis of the semantics of xwent. That being said, I propose that xwent is an underlyingly existential circumstantial modal which supports deontic, teleological, and stereotypical ordering sources. In the same vein as von Fintel and Iatridou’s (2008) analysis of the weak necessity modal should and ought to, I propose a secondary ordering source which weakens the strength of xwent from universal to existential by restricting the domain of the universal quantification, i.e., placing further restrictions on the worlds selected by the base and ranked highly by the primary ordering source. This secondary ordering source can be empty: if so, then no further restrictions are placed on the set of best-ranked worlds and the default universal quantification gives rise to a strong modal interpretation.	page 9
+§4	Bruce Oliver	note	For example, taking (12), repeated below in (23), the strong interpretation has an empty sec- ondary ordering source, and so the modal claim is simply that in all worlds in which a normal series of events occur (adding the conditional to the modal base, so the wind is very strong), the tree will fall. The weak interpretation, on the other hand, has a non-empty secondary ordering source — for example, a doxastic ordering source, which contains statements that the speaker believes, but are not necessarily actual: “this tree is weaker than it seems, the wind is abnormally strong, the soil the tree is rooted in is unstable.” The restriction that these propositions be true in the highest-ranked worlds therefore reduce the highly-ranked stereotypical worlds to a smaller subset of (in this case, more outlandish) worlds. Although the quantification over worlds is still universal, the smaller subset of worlds in the domain of quantification yields an existential interpretation.	page 9
+(23) line 1	Bruce Oliver	note	Context 1: There is an old, rotting tree near someone’s house. It will surely fall as soon as a strong wind comes along, so you are arguing that it needs to be chopped down, as it could fall on the house and hurt someone.	page 10, the context
+(23) line 2	Bruce Oliver	note	Context 2: You are a very paranoid person who never puts things on high shelves in case of an earthquake, doesn’t walk by cliffs when it’s raining in case there is a mudslide… You’re so paranoid that you won’t ever pitch your tent below a tree on the off-chance that it falls, even if the tree looks perfectly sturdy and healthy.	page 10, the context
+(23) line 3	Secwepemctsín	segmentation	Yiréy te= tsrep xwent k s-yikt-s e xexe7-es re= s-newt.	page 10, a word to a line in the text layer, each over its gloss
+(23) line 4	Secwepemctsín	gloss	dem det.obl tree circ cd nmlz-tree.fall-3.poss cond strong-3.sbjv det nmlz-wind	page 10
+(23) line 5	Bruce Oliver	translation	‘That tree would/could fall if the wind got strong.’	page 10
+(23) line 6	Bruce Oliver	citation	(RI)	page 10, the consultant Ron Ignace
+§4	Bruce Oliver	note	The secondary ordering source over universal quantification also captures the ability reading, which can be paraphrased as “in all worlds in which the agent attempts to enact the prejacent, and in which events proceed as expected (stereotypical ordering source), the prejacent is true.” The secondary ordering source provides the additional restriction on the stereotypically likely worlds that the agent is attempting to enact the prejacent in that world. Of course, the exact nature of ability modals is a subject of great debate (Bhatt 2008; Nouwen 2018), so more research is required to determine all the features of ability xwent (e.g., distribution over disjunction, free choice permission, actuality entailments) and accurately characterize its semantics.	page 10
+§4	Bruce Oliver	note	The formal denotation of a modal with two ordering sources is not yet clear to me, as von Fintel and Iatridou (2008) themselves lay out some difficulties with the implementation: namely, “promoting” the secondary ordering source so that it restricts the set of worlds ranked by the primary ordering source, without making it count at the same level as the primary ordering source. Simple set union does not quite achieve the desired result; see von Fintel and Iatridou (2008) for more discussion.	page 10
+§4	Bruce Oliver	note	The analysis of an underlyingly universal modal with optional weakening stands in contrast with the opposite analysis, that of an underlyingly existential modal with optional strengthening, as in Peterson’s (2010) analysis of the Gitksan epistemic =ima. More data will be needed to determine which is the best strategy — for example, a consistent test of the “out-of-the-blue” interpretation of xwent may give a better idea of its default strength. However, even this test is complicated by the presence of an invariably strong circumstantial modal, me7, meaning a default weak reading may be the result of scalar implicature as opposed to an underlying existential quantification.	page 10
+§5	Bruce Oliver	heading	5 Conclusion	page 10
+§5	Bruce Oliver	note	Although my research is still in its initial stages, I have collected enough data to provide an initial account of the distribution and characteristics of xwent. I have shown that xwent can be used in a variety of circumstantial contexts with a wide range of ordering sources and supports weak and strong readings at least in pure circumstantial contexts. The largest remaining semantic mystery is whether xwent is underlyingly universal or existential — although it may not be possible to come to a definite answer, more rigorous testing will at least get us closer. Xwent’s yet-unattested felicity (or lack thereof) in strong deontic environments may be convincing evidence, but the specter of scalar implicature with strong circumstantial me7 is a constant issue.	page 10
+§5	Secwepemctsín	cited form	Secwepemctsín	page 11
+§5	Bruce Oliver	note	Another subject of inquiry is the embeddability of xwent. Although not directly related to the semantics of xwent, if it is completely unembeddable, it becomes quite difficult to test how it interacts with scope. I suspect that if xwent is ever in a subordinate clause that requires nominalization, which is true of many subordinate structures in Secwepemctsín, it will lose its modal meaning and simply mean ‘fast’, but I have yet to collect sufficient evidence for this hypothesis.	page 10
+§5	Bruce Oliver	note	Finally, as I have hinted at many times, an analysis of xwent is not complete without an analysis of me7. I have not collected enough data on me7 to include an analysis in this paper, but from very preliminary data, it seems to be an invariably strong circumstantial modal and, as such, may form a scale with xwent to create scalar implicatures and cause xwent to pragmatically favor weak readings.	page 11
+§5	Bruce Oliver	note	Continuing work on circumstantial modality in Secwepemctsín will provide greater insight into the nature of variable-strength modals in Salish languages, especially concerning their interaction with fixed-strength modals expressing the same modal base.	page 11
+references	Bruce Oliver	heading	References	page 11
+references	Bruce Oliver	reference	Bhatt, Rajesh. 2008. Ability modals and their actuality entailments. Covert Modality in Non-finite Contexts 159–176.	
+references	Bruce Oliver	reference	Davis, Henry, Lisa Matthewson, and Hotze Rullmann. 2007. A unified modal semantics for ‘out- of-control’ marking in St’át’imcets. Proceedings from the Annual Meeting of the Chicago Lin- guistic Society 43:19–38.	
+references	Bruce Oliver	reference	von Fintel, Kai, and Sabine Iatridou. 2008. How to say ought in foreign: The composition of weak necessity modals. Time and modality 115–141.	
+references	Bruce Oliver	reference	Jacobs, Peter. 2007. Txw as an out of control marker in Sk̲wx̲wú7mesh. International Conference on Salish and Neighboring Languages 42:256–284.	
+references	Bruce Oliver	reference	Kratzer, Angelika. 1977. What “must” and “can” must and can mean. Linguistics and Philosophy 337–355.	
+references	Bruce Oliver	reference	Kuipers, Aert Hendrik. 1976. The Shuswap language. Moulton.	
+references	Bruce Oliver	reference	Kuipers, Aert Hendrik. 1983. Shuswap-English dictionary. Peeters.	
+references	Bruce Oliver	reference	Menzies, Stacey. 2013. Nsyilxcen modality: Semantic analysis of epistemic modality. Doctoral Dissertation, University of British Columbia.	
+references	Bruce Oliver	reference	Nouwen, Rick. 2018. Free choice and distribution over disjunction: the case of free choice ability. Semantics and Pragmatics 11.	
+references	Bruce Oliver	reference	Peterson, Tyler Roy Gösta. 2010. Epistemic modality and evidentiality in Gitksan at the semantics- pragmatic interface. Doctoral Dissertation, University of British Columbia.	
+references	Bruce Oliver	reference	Rullmann, Hotze, Lisa Matthewson, and Henry Davis. 2008. Modals as distributive indefinites. Natural Language Semantics 16:317–357.	

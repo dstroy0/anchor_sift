@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Does this prose sound like a person wrote it? Answered as a rate against a drawn bar.
@@ -27,7 +27,7 @@
 #
 # WHAT THIS DOES NOT REPLACE
 #
-# anchor_sift/maint/prose/machine_distance.py is the better instrument for the register question and
+# orior/maint/prose/machine_distance.py is the better instrument for the register question and
 # it existed before this file did. It has two poles, a human corpus and a page written deliberately
 # in the machine register, and it places a file by which it sits nearer, with the margin reported
 # against a band measured at that file's own word count. That is a positive control, and this file

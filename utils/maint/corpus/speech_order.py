@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Put the languages in SPEECH.tsv in an order nobody chose, and keep the draw that did it.
@@ -137,7 +137,7 @@ YEAR = re.compile(r"(1[6-9][0-9]{2}|20[0-9]{2})")
 
 def private_root():
     """The closed corpus, resolved the way private_sync.py resolves it."""
-    named = os.environ.get("ANCHOR_SIFT_PRIVATE")
+    named = os.environ.get("ORIOR_PRIVATE")
     if named:
         return os.path.abspath(named)
     for candidate in (
@@ -266,7 +266,7 @@ def write_register(path, notes, header, drawn, seed, out):
         )
         handle.write("# date first. Recompute any key from the seed and check it.\n")
         handle.write(
-            "# utils/maint/corpus/speech_order.py in anchor_sift does all of them.\n"
+            "# utils/maint/corpus/speech_order.py in orior does all of them.\n"
         )
         handle.write("#\n")
         handle.write(

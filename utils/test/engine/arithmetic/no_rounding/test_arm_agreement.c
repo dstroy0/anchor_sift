@@ -1,4 +1,4 @@
-/* anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
  * SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
  *
  * Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a
@@ -25,7 +25,7 @@
  *          run may crash and not print a row, and a crash here is the finding.
  */
 
-#include "anchor_sift.h"
+#include "orior.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -109,16 +109,16 @@ int main(void)
     {
         const size_t needle_len = AGREEMENT_LENGTHS[which];
         const uint8_t *const needle = corpus + AGREEMENT_NEEDLE_AT;
-        const size_t expected = anchor_sift_naive(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len);
+        const size_t expected = orior_naive(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len);
         char label[64];
 
         printf("needle_len %zu\n", needle_len);
 
-        snprintf(label, sizeof label, "anchor_sift_inorder");
-        grade(label, anchor_sift_inorder(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
+        snprintf(label, sizeof label, "orior_inorder");
+        grade(label, orior_inorder(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
 
-        snprintf(label, sizeof label, "anchor_sift_free");
-        grade(label, anchor_sift_free(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
+        snprintf(label, sizeof label, "orior_free");
+        grade(label, orior_free(corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
 
         // A plan carrying no period and the corpus's own census. The dispatcher has a real
         // decision to make instead of being steered by a degenerate one. The census replaced the
@@ -126,22 +126,22 @@ int main(void)
         // the engine holds no floating point value anywhere.
         AnchorFieldCensus census;
         anchor_field_census(corpus, AGREEMENT_CORPUS_BYTES, &census);
-        const AnchorSiftPlan plan = {.census = &census, .period = 0u};
+        const OriorPlan plan = {.census = &census, .period = 0u};
 
-        snprintf(label, sizeof label, "anchor_sift_run");
-        grade(label, anchor_sift_run(&plan, corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
+        snprintf(label, sizeof label, "orior_run");
+        grade(label, orior_run(&plan, corpus, AGREEMENT_CORPUS_BYTES, needle, needle_len), expected);
     }
 
     printf("\nA null plan, which the header states no precondition against.\n");
 
-    grade("anchor_sift_choose is naive", (size_t)(anchor_sift_choose(NULL) == anchor_sift_naive), 1u);
-    grade("anchor_sift_anchors_for", anchor_sift_anchors_for(NULL), (size_t)ANCHOR_SIFT_ANCHORS);
+    grade("orior_choose is naive", (size_t)(orior_choose(NULL) == orior_naive), 1u);
+    grade("orior_anchors_for", orior_anchors_for(NULL), (size_t)ORIOR_ANCHORS);
 
     {
         const uint8_t *const needle = corpus + AGREEMENT_NEEDLE_AT;
-        const size_t expected = anchor_sift_naive(corpus, AGREEMENT_CORPUS_BYTES, needle, 16u);
+        const size_t expected = orior_naive(corpus, AGREEMENT_CORPUS_BYTES, needle, 16u);
 
-        grade("anchor_sift_run on a null plan", anchor_sift_run(NULL, corpus, AGREEMENT_CORPUS_BYTES, needle, 16u),
+        grade("orior_run on a null plan", orior_run(NULL, corpus, AGREEMENT_CORPUS_BYTES, needle, 16u),
               expected);
     }
 

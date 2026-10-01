@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # The engine's period reader in Python: period_read and period_draw.
 #
 #   Usage:  from measure.period import read, draw
 #
-# The Python route to src/engine/analysis/period/period_*.cu at anchor_sift 1789287. That file reads a
+# The Python route to src/engine/analysis/period/period_*.cu at orior 1789287. That file reads a
 # volume of 16 bit lanes on the device and returns, for each axis, the period the volume carries
 # along it, and this reads the same volume on the host in exact integers and returns the same
 # reading field for field. The two share no code, and utils/test/python/period_test.py grades them

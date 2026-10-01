@@ -4,7 +4,7 @@
 
 \textbf{This chapter specifies work and does not report it.} Everything below is a design: the observables are built, the driver is not, and no curve has been measured. It is transcribed with the rest because a specification written down before the run is the only kind that can be checked against the run afterwards.
 
-\textbf{Note, 26 September.} The observables were built as the benches in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench}. Commit \texttt{bdaed61} deleted that directory on 24 September, 54 files, and none of them is in a file at anchor\_sift \texttt{1948ae1}. At the pin the observables are not built, and the driver is not built.
+\textbf{Note, 26 September.} The observables were built as the benches in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench}. Commit \texttt{bdaed61} deleted that directory on 24 September, 54 files, and none of them is in a file at orior \texttt{1948ae1}. At the pin the observables are not built, and the driver is not built.
 
 \section{The idea in one line}
 
@@ -62,6 +62,6 @@ It does not claim a break, a bias at full rounds, or a shortcut to a preimage. I
 
 The benches are in \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/\allowbreak{}bench}. This experiment is a driver calling them with a round-count parameter and collecting the curve, plus a plot through \texttt{build\_chart\_view.py} with the floor drawn as a second series. The one piece of new engine work is truncating the compression function at an arbitrary round, which the early-exit path in \texttt{sha256\_core.c} already does for the anchor and would be extended to stop at any \(k\).
 
-\textbf{Note, 26 September.} The Scope and this section contradict the note under the design statement. At anchor\_sift \texttt{d09b489}, as at \texttt{1948ae1}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/} holds no file and no \texttt{sha256\_core.c} is in the tree. The benches, the early-exit path and the truncation this section names are not built.
+\textbf{Note, 26 September.} The Scope and this section contradict the note under the design statement. At orior \texttt{d09b489}, as at \texttt{1948ae1}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}sha256/} holds no file and no \texttt{sha256\_core.c} is in the tree. The benches, the early-exit path and the truncation this section names are not built.
 
 \nocite{src:FIPS-180-4,src:Biryukov-Lamberger-Mendel-and-Nikolic-2011}

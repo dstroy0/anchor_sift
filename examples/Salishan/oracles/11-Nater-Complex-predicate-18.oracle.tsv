@@ -1,0 +1,495 @@
+where	who	kind	form	gloss
+front	Hank Nater	title	Complex predicate-argument relations in Bella Coola1	page 1
+front	Hank Nater	name	Hank Nater	author
+front	Hank Nater	note	Abstract: Bella Coola, a head-marking and polysynthetic PSO language, has a few predicate-internal suffixes that are linked with two syntactic arguments; vice versa, such arguments can relate to two or three predicate components. Although these suffixes are paralleled by similar suffixes in other Salish, they (with the exception of CAUS -(s)tu-) differ from those in function and/or origin.	page 1, the abstract
+front	Hank Nater	note	Keywords: Salish, Bella Coola, morpho-syntax, divalency, redirection	page 1, the keywords
+front	Hank Nater	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Hank Nater	language	Bella Coola	Nuxalk, Salish
+footnote 1	Hank Nater	note	Abbreviations used in this paper are: ADJ adjunct, ART article, CAUS causative, DEM demonstrative, DEPR deprivative, DIM diminutive, DIR direct, GEN genitive, IMP imperative, INC inclusive, ITR intransitive, NC non-control, OBJ object, OBL oblique, PART participial, PASS passive, PL plural, POSS possessive, PREP preposition, PROG progressive, RDR redirective, REFL reflexive, SG singular, SUB(J) subject, TR transitive. Bella Coola examples are copied from my field notes, and Dutch analogues are provided by myself.	page 1, footnote 1, on the title
+front	Hank Nater	note	Contact info: hanknater@gmail.com	page 1, the note at the foot of the page with no mark
+footnote 1	Hank Nater	language	Dutch	the author's analogues, Germanic
+§1	Hank Nater	heading	1 Introduction	page 1
+§1	Hank Nater	note	In this brief report on valency-related phenomena in Bella Coola, I consider the morpho-semantics of the predicate base, different types of divalent suffix, relations between the predicate and syntactic arguments, and areal-etymological aspects of the divalent suffixes.	page 1
+§1	Hank Nater	note	As concerns predicate base properties, note that morpho-semantic traits of Bella Coola verbo-nominals warrant a four-way partition of this class: TR stative / ITR stative / TR active / ITR active (cf. Nater 1984, p. 34). Of these, ITR stative verbs are generally unaccusative, while most ITR active verbs are unergative. (But certain ITR verbs – e.g. those that convey perception or a bodily function, where the degree of subjective control/purpose may vary – can be ambiguous.) This division also holds – but on a distributional, rather than morpho-semantic, basis – where verbo-nominals accept a divalent suffix. For instance, benefactive -tu- is compatible only with ITR active (antipassive) bases, CAUS -tu- with ITR active/stative and detransitive bases, NC CAUS -nix with ITR stative (including adjectival) bases. (In addition, there are ambitransitive verbs and transitivizible nouns and adjectives, for which see Nater 1984, pp. 59–60.)	page 1
+§1	Bella Coola	cited form	-tu-	page 1, in italics
+§1	Bella Coola	cited form	-nix	page 1, in italics
+§1	Hank Nater	note	On the other hand, and regardless of TR-ITR and active-stative distinctions, divalent -alst DEPR combines specifically with bases associated with removal or displacement, and applicative suffixes are often found with bases conveying a ritual, artistic expression, mood, or need.	page 1
+§1	Bella Coola	cited form	-alst	page 1, in italics
+§1	Hank Nater	note	Divalent suffix types and valency structures are outlined in Section 2 below, and BASE–ARGUMENT and SUFFIX–ARGUMENT linking details as such are described in Sections 2.1–2.3. The status of Bella Coola divalent suffixes within Salish is examined in Section 3.	page 1
+§1	Hank Nater	language	Salish	the family
+§1	Hank Nater	note	A Bella Coola verbo-nominal (noun, verb, adjective) can be combined with one or more suffixes to form a clausal predicate:	page 2
+(a) line 1	Bella Coola	segmentation	staltmx-c	page 2
+(a) line 2	Bella Coola	gloss	chief-1SG.SUBJ	page 2
+(a) line 3	Hank Nater	translation	‘I am a chief’	page 2
+(b) line 1	Bella Coola	segmentation	sta:taltmx-uuɬla-liwa-naw-tχʷ	page 2
+(b) line 2	Bella Coola	gloss	chief.PL-appearance-…like-3PL.SUBJ-optative	page 2
+(b) line 3	Hank Nater	translation	‘let them look like chiefs!’	page 2
+§1	Hank Nater	note	Within the predicate, which has a (((([BASE] suffix) suffix) suffix) …) structure (prefixes being disregarded), suffixes occupy the positions shown below:	page 2
+Figure 1 line 1	Hank Nater	note	BASE	page 2, a row of the table as the page prints it
+Figure 1 line 2	Hank Nater	note	1 -alst(n) deprivative ← lexical	page 2, a row of the table as the page prints it
+Figure 1 line 2	Bella Coola	cited form	-alst(n)	page 2, in italics
+Figure 1 line 3	Hank Nater	note	2 aspect transition – development stative – completive	page 2, a row of the table as the page prints it
+Figure 1 line 4	Hank Nater	note	3 RDR TR -m, -amk applicative causative -nix NC causative ITR causative – communal	page 2, a row of the table as the page prints it
+Figure 1 line 4	Bella Coola	cited form	-m	page 2, in italics
+Figure 1 line 4	Bella Coola	cited form	-amk	page 2, in italics
+Figure 1 line 4	Bella Coola	cited form	-nix	page 2, in italics
+Figure 1 line 5	Hank Nater	note	4 voice transitive, medium, antipassive reflexive, reciprocal	page 2, a row of the table as the page prints it
+Figure 1 line 6	Hank Nater	note	5 desiderative	page 2, a row of the table as the page prints it
+Figure 1 line 7	Hank Nater	note	6 inchoative, modifying	page 2, a row of the table as the page prints it
+Figure 1 line 8	Hank Nater	note	7 -ɬ past	page 2, a row of the table as the page prints it
+Figure 1 line 8	Bella Coola	cited form	-ɬ	page 2, in italics
+Figure 1 line 9	Hank Nater	note	8 -(s)tu- causative	page 2, a row of the table as the page prints it
+Figure 1 line 9	Bella Coola	cited form	-(s)tu-	page 2, in italics
+Figure 1 line 10	Hank Nater	note	9 object	page 2, a row of the table as the page prints it
+Figure 1 line 11	Hank Nater	note	10 subject	page 2, a row of the table as the page prints it
+Figure 1 line 12	Hank Nater	note	11 -tχʷ optative	page 2, a row of the table as the page prints it
+Figure 1 line 12	Bella Coola	cited form	-tχʷ	page 2, in italics
+Figure 1	Hank Nater	note	Figure 1 Predicative suffixation	page 2, the caption
+§1	Hank Nater	note	A verb base can itself consist of a root or stem followed by one or more suffixes (subscript numbers are the position indicators used in Figure 1):	page 2
+(c) line 1	Bella Coola	segmentation	cak’ʷ-liwa-nix-i-c	page 3
+(c) line 2	Hank Nater	note	((([(cak’ʷ)liwa6]nix3)i9)c10)	page 3, the predicate's bracketing, each suffix with the slot it fills
+(c) line 3	Bella Coola	gloss	straight-…like-consider-3SG.OBJ-1SG.SUBJ	page 3
+(c) line 4	Hank Nater	translation	‘I understand him correctly’	page 3
+§1	Hank Nater	note	Of the suffixes listed above, the divalent ones (printed in boldface in slots 1, 3, 8) have been selected here for further examination.	page 3
+§1	Hank Nater	note	Note that -(s)tu- ‘causative, benefactive’ (slot 8) originally belonged (along with -(s)txʷ and shorter -(s)t-) in slot 3, but has moved forward and merged with pronominal suffixes (Nater 2014, p. 85). The optative suffix -tχʷ is originally causative -tχʷ ‘make/let it be …!’ ← *-txʷ-χ (Nater 1984, pp. 39–40).	page 3
+§1	Bella Coola	cited form	-(s)tu-	page 3, in italics, ‘causative, benefactive’
+§1	Bella Coola	cited form	-(s)txʷ	page 3, in italics
+§1	Bella Coola	cited form	-(s)t-	page 3, in italics
+§1	Bella Coola	cited form	-tχʷ	page 3, in italics
+§1	Bella Coola	cited form	-txʷ-χ	page 3, in italics
+§2	Hank Nater	heading	2 Divalent and trivalent linking: types and structures	page 3
+§2	Hank Nater	note	Below, I categorize, and briefly examine, several types of divalent suffix: Section 2.1 benefactive and deprivative suffixes, Section 2.3 applicative and causative suffixes. In Section 2.2, I mention two lexical suffixes, which are, however, monovalent.	page 3
+§2	Hank Nater	note	The structure of a Bella Coola clause consisting of a predicate and several arguments is such that the order in which the arguments appear mirrors that of the corresponding morphemes contained in the predicate, except where the base is connected with the SUBJ and/or DIR OBJ, or where a causative or applicative suffix is linked with the TR SUBJ. Thus, in benefactive/deprivative constructions, divalency-marking links connecting the ITR SUBJ/DIR OBJ and OBL OBJ with the predicate form a distinct oscillatory pattern. The figures in Sections 2.1–3 reflect these properties (with “lopsided” links appearing above the constituent level), and show that some predicate components and arguments are connected on more than one level due to the doubly or triply referential role of a suffix, base, or argument. A link conveys one of a number of functions: act or state; gain or loss; include, cause, observe; close, connected, asset; included, caused, observed; being …ed, having …ed; affected, experiencing; actant, includer, causer, observer.	page 3
+§2.1	Hank Nater	heading	2.1 Benefactive and deprivative suffixes	page 3
+§2.1	Hank Nater	note	In Bella Coola clauses with a benefactive/deprivative-marked TR predicate, predicate constituents and arguments are interlinked as follows:	page 3
+Figure 2 line 1	Hank Nater	note	act of X-ing	page 4, a line of the figure
+Figure 2 line 2	Hank Nater	note	divalent OBJ SUBJ TR DIR OBL	page 4, a line of the figure
+Figure 2 line 3	Hank Nater	note	base	page 4, a line of the figure
+Figure 2 line 4	Hank Nater	note	suffix suffix suffix SUBJ OBJ OBJ	page 4, a line of the figure
+Figure 2 line 5	Hank Nater	note	actant	page 4, a line of the figure
+Figure 2 line 6	Hank Nater	note	beneficiary/victim	page 4, a line of the figure
+Figure 2 line 7	Hank Nater	note	experiencing gain/loss	page 4, a line of the figure
+Figure 2 line 8	Hank Nater	note	object gained/lost	page 4, a line of the figure
+Figure 2 line 9	Hank Nater	note	object being X-ed	page 4, a line of the figure
+Figure 2	Hank Nater	note	Figure 2 Morpho-syntactic relations in re benefit and TR loss	page 4, the caption
+§2.1.1	Hank Nater	heading	2.1.1 The benefactive suffix	page 4
+§2.1.1	Hank Nater	note	X-(s)tu-B-A ‘A causes B to X’, where X is an ITR active (antipassive) base describing a result-oriented/creative act, can translate into English as benefactive (cf. Nater 1984, pp. 40, 67). The core meaning is here ‘A enables B to get something X-ed’, from which one can derive (i) ‘A gets B to X something’ and (ii) ‘A X-s something for/to B, A benefits B with one’s X-ing’. For the structure of (i) see Figure 9 in Section 2.3.2.1 below, while that of (ii) is presented in Figure 3. Examples are provided in (1)–(3).	page 4
+§2.1.1	Hank Nater	language	English	the language of the translations
+Figure 3 line 1	Hank Nater	note	act of X-ing	page 4, a line of the figure
+Figure 3 line 2	Hank Nater	note	OBJ SUBJ TR DIR OBL	page 4, a line of the figure
+Figure 3 line 3	Hank Nater	note	base -tu-	page 4, a line of the figure
+Figure 3 line 4	Hank Nater	note	suffix suffix SUBJ OBJ OBJ	page 4, a line of the figure
+Figure 3 line 5	Hank Nater	note	actant	page 4, a line of the figure
+Figure 3 line 6	Hank Nater	note	beneficiary	page 4, a line of the figure
+Figure 3 line 7	Hank Nater	note	experiencing gain	page 4, a line of the figure
+Figure 3 line 8	Hank Nater	note	object gained or partaken	page 4, a line of the figure
+Figure 3 line 9	Hank Nater	note	object being X-ed	page 4, a line of the figure
+Figure 3	Hank Nater	note	Figure 3 Morpho-syntactic relations in re benefit	page 4, the caption
+(1) line 1	Bella Coola	segmentation	tamsuɬ-tu-Ø-t ʔac John	page 4
+(1) line 2	Hank Nater	note	PREDICATE SUBJ DIR OBJ	page 4, the constituent each stretch of the sentence over it is
+(1) line 3	Bella Coola	gloss	construct.house-CAUS-3SG.OBJ-3PL.SUBJ DEM John	page 4
+(1) line 4	Hank Nater	translation	‘these people get John to build a house’	page 4, reading (i)
+(1) line 5	Hank Nater	translation	‘these people build a house for John’	page 4, reading (ii)
+(2) line 1	Bella Coola	segmentation	kstxʷ-a-ɬ-tu-Ø-c ta˽mna-c˽tχ	page 5
+(2) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 5, the constituent each stretch of the sentence over it is
+(2) line 3	Bella Coola	gloss	make-antipassive-past-CAUS-3SG.OBJ-1SG.SUBJ ART˽son-1SG.POSS˽ART	page 5
+(2) line 4	Bella Coola	segmentation	x˽tu˽t’ksnimta˽t’aχʷ	page 5
+(2) line 5	Hank Nater	note	OBL OBJ	page 5, the constituent each stretch of the sentence over it is
+(2) line 6	Bella Coola	gloss	PREP˽ART˽arrow˽DEM	page 5
+(2) line 7	Hank Nater	translation	‘I got my son to make those arrows’	page 5, reading (i)
+(2) line 8	Hank Nater	translation	‘I made those arrows for my son’	page 5, reading (ii)
+(3) line 1	Bella Coola	segmentation	ʔalac’i-tu-ti-c wa˽qiqipii˽c ʔala˽c’kta˽ck	page 5
+(3) line 2	Hank Nater	note	PREDICATE DIR OBJ OBL OBJ	page 5, the constituent each stretch of the sentence over it is
+(3) line 3	Bella Coola	gloss	narrate-caus-3pl.obj-1sg.subj art˽kids˽art prep.art˽doings˽supposedly	page 5
+(3) line 4	Hank Nater	translation	‘I get the kids to tell about the things that supposedly happened’	page 5, reading (i)
+(3) line 5	Hank Nater	translation	‘I tell the kids about the things that supposedly happened’	page 5, reading (ii)
+§2.1.1	Hank Nater	note	But where the base does not imply a desired result or creation, benefactive interpretations are not acceptable:	page 5
+(4) line 1	Bella Coola	segmentation	ʔustxʷ-tu-ti-c˽ma wa˽ɬlk’ʷlx˽c	page 5
+(4) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 5, the constituent each stretch of the sentence over it is
+(4) line 3	Bella Coola	gloss	enter-CAUS-3PL.OBJ-1SG.SUBJ˽maybe ART˽elders˽ART	page 5
+(4) line 4	Hank Nater	translation	‘I may let the elders in’	page 5
+(4) line 5	Hank Nater	note	(NOT *‘I may go in for the elders’)	page 5, at the right of the translation, a reading the sentence does not have
+(5) line 1	Bella Coola	segmentation	ʔaɬps-ɬ-tu-Ø-xʷ˽a ɬa˽stan-s˽ʔiɬ	page 5
+(5) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 5, the constituent each stretch of the sentence over it is
+(5) line 3	Bella Coola	gloss	eat-past-CAUS-3SG.OBJ-2SG.SUBJ˽? ART˽mother-3SG.POSS˽ART	page 5
+(5) line 4	Hank Nater	translation	‘did you give his mother something to eat?’	page 5
+(5) line 5	Hank Nater	note	(NOT *‘did you eat something on behalf of his mother?’)	page 5, at the right of the translation, a reading the sentence does not have
+§2.1.2	Hank Nater	heading	2.1.2 The deprivative suffix	page 5
+§2.1.2	Hank Nater	note	The suffix -alst(n) ‘deprivative’ (Nater 1984, p. 71) is associated with a sense of loss implicated by the base (denoting removal or displacement) it combines with. When -alst(n) is deleted from such constructions, the OBL OBJ becomes the ITR SUBJ or TR DIR OBJ, and the possessor appears as a GEN ADJ, as shown in examples (7) and (9) below. Such redirection also characterizes constructions involving a classifying suffix (see Section 2.2), and is similar to applicative- related redirection considered in Section 2.3 below. The allomorph -alstn occurs in TR forms (Figure 4), while -alst goes with ITR ones (Figure 5).	page 5
+§2.1.2	Bella Coola	cited form	-alst(n)	page 5, in italics, ‘deprivative’
+§2.1.2	Bella Coola	cited form	-alstn	page 5, in italics
+Figure 4 line 1	Hank Nater	note	act of X-ing	page 6, a line of the figure
+Figure 4 line 2	Hank Nater	note	OBJ SUBJ TR DIR OBL	page 6, a line of the figure
+Figure 4 line 3	Hank Nater	note	base -alstn	page 6, a line of the figure
+Figure 4 line 4	Hank Nater	note	suffix suffix SUBJ OBJ OBJ	page 6, a line of the figure
+Figure 4 line 5	Hank Nater	note	actant	page 6, a line of the figure
+Figure 4 line 6	Hank Nater	note	owner-victim	page 6, a line of the figure
+Figure 4 line 7	Hank Nater	note	experiencing loss	page 6, a line of the figure
+Figure 4 line 8	Hank Nater	note	object lost	page 6, a line of the figure
+Figure 4 line 9	Hank Nater	note	object being X-ed	page 6, a line of the figure
+Figure 4	Hank Nater	note	Figure 4 Morpho-syntactic relations in re TR loss	page 6, the caption
+§2.1.2	Hank Nater	note	Compare (6) with (7):	page 6
+(6) line 1	Bella Coola	segmentation	knix-alstn-i-xʷ˽mas ti˽man-c˽tx	page 6
+(6) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 6, the constituent each stretch of the sentence over it is
+(6) line 3	Bella Coola	gloss	eat-DEPR-3SG.OBJ-2SG.SUBJ˽forever! ART˽father-1SG.POSS˽ART	page 6
+(6) line 4	Bella Coola	segmentation	x˽a˽sqaluc-s˽c	page 6
+(6) line 5	Hank Nater	note	OBL OBJ	page 6, the constituent each stretch of the sentence over it is
+(6) line 6	Bella Coola	gloss	PREP˽ART˽berries-3SG.POSS˽ART	page 6
+(6) line 7	Hank Nater	translation	‘you are forever eating my father1 out of [his1] berries!’	page 6
+(7) line 1	Bella Coola	segmentation	knix-i-xʷ˽mas wa˽sqaluc-s˽c	page 6
+(7) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 6, the constituent each stretch of the sentence over it is
+(7) line 3	Bella Coola	gloss	eat-3SG.OBJ-2SG.SUBJ˽forever! ART˽berries-3SG.POSS˽ART	page 6
+(7) line 4	Bella Coola	segmentation	ti˽man-c˽tx	page 6
+(7) line 5	Hank Nater	note	GEN ADJ	page 6, the constituent each stretch of the sentence over it is
+(7) line 6	Bella Coola	gloss	ART˽father-1SG.POSS˽ART	page 6
+(7) line 7	Hank Nater	translation	‘you are forever eating my father’s berries!’	page 6
+§2.1.2	Hank Nater	note	As indicated above, argument role switching also pertains where the base is ITR stative (unaccusative), as in (8) versus (9):	page 6
+(8) line 1	Bella Coola	segmentation	ʔatm̩n-alst-s ta˽staltmx˽tχ x˽ta˽mna-s˽tχ	page 6
+(8) line 2	Hank Nater	note	PREDICATE SUBJ OBL OBJ	page 6, the constituent each stretch of the sentence over it is
+(8) line 3	Bella Coola	gloss	die-DEPR-3SG.SUBJ ART˽chief˽ART PREP˽ART˽son-3SG.POSS˽ART	page 6
+(8) line 4	Hank Nater	translation	‘the chief1 had his1 son die on him’	page 6
+(9) line 1	Bella Coola	segmentation	ʔatma-s˽c’ ta˽mna-s˽tχ ta˽staltmx˽tχ	page 6
+(9) line 2	Hank Nater	note	PREDICATE SUBJ GEN ADJ	page 6, the constituent each stretch of the sentence over it is
+(9) line 3	Bella Coola	gloss	die-3SG.SUBJ˽now ART˽son-3SG.POSS˽ART ART˽chief˽ART	page 6
+(9) line 4	Hank Nater	translation	‘now the chief’s son died’	page 6
+§2.1.2	Hank Nater	note	In example (8), divalency patterns are as shown below:	page 7
+Figure 5 line 1	Hank Nater	note	SUBJ ITR OBL	page 7, a line of the figure
+Figure 5 line 2	Hank Nater	note	base -alst	page 7, a line of the figure
+Figure 5 line 3	Hank Nater	note	suffix SUBJ OBJ	page 7, a line of the figure
+Figure 5 line 4	Hank Nater	note	victim	page 7, a line of the figure
+Figure 5 line 5	Hank Nater	note	experiencing loss	page 7, a line of the figure
+Figure 5 line 6	Hank Nater	note	person lost	page 7, a line of the figure
+Figure 5 line 7	Hank Nater	note	person having X-ed	page 7, a line of the figure
+Figure 5	Hank Nater	note	Figure 5 Morpho-syntactic relations in re ITR loss	page 7, the caption
+§2.1.2	Hank Nater	note	-alst continues proto-Salish *-als(t) ‘rock, round object’ (Kuipers 2002, p. 205, where Squamish -uyʔs ‘large object, piece, chunk’ is also mentioned) → ‘bulk, importance’. Hence, knixalstn ‘to eat someone else’s food’ derives from ‘to eat from A what is important for A to have’, ʔatm̩nalst ‘to have someone die on oneself’ from ‘to lose someone important to death’. (Compare Dutch be-storven ‘having become orphaned or widowed’ ← *be-sterven ‘to become orphaned or widowed’ ← sterven ‘to die’.)	page 7
+§2.1.2	Bella Coola	cited form	-alst	page 7, in italics
+§2.1.2	proto-Salish	cited form	*-als(t)	page 7, in italics, ‘rock, round object’
+§2.1.2	Squamish	cited form	-uyʔs	page 7, in italics, ‘large object, piece, chunk’
+§2.1.2	Bella Coola	cited form	knixalstn	page 7, in italics, ‘to eat someone else’s food’
+§2.1.2	Bella Coola	cited form	ʔatm̩nalst	page 7, in italics, ‘to have someone die on oneself’
+§2.1.2	Dutch	cited form	be-storven	page 7, in italics, ‘having become orphaned or widowed’
+§2.1.2	Dutch	cited form	*be-sterven	page 7, in italics, ‘to become orphaned or widowed’
+§2.1.2	Dutch	cited form	sterven	page 7, in italics, ‘to die’
+§2.1.2	Hank Nater	name	Kuipers	Aert H. Kuipers, the Squamish language (1967) and the Salish etymological dictionary (2002)
+§2.1.2	Hank Nater	language	proto-Salish	the parent of the Salish languages
+§2.1.2	Hank Nater	language	Squamish	Central Salish
+§2.2	Hank Nater	heading	2.2 Lexical suffixes	page 7
+§2.2	Hank Nater	note	Like -alst(n), lexical suffixes (specifically metaphoric suffixes and classifiers) can bring about argument redirection after TR bases (Nater 1984, pp. 85–87). But unlike -alst(n), they define the type (use, texture) of property (and are mono-valent rather than divalent), whereas the “loss” or “benefit” connotation is here conveyed by the base alone (which is di- or trivalent). Compare (10) with (11):	page 7
+(10) line 1	Bella Coola	segmentation	ʔulχ-iiχʷ-ɬ-im˽ma ta˽man-c˽tχ	page 7
+(10) line 2	Hank Nater	note	PREDICATE SUBJ	page 7, the constituent each stretch of the sentence over it is
+(10) line 3	Bella Coola	gloss	steal-hat-past-3SG.PASS˽maybe ART˽father-1SG.POSS˽ART	page 7
+(10) line 4	Bella Coola	segmentation	x˽ta˽qayt-ɬ-s˽tχ	page 7
+(10) line 5	Hank Nater	note	OBL OBJ	page 7, the constituent each stretch of the sentence over it is
+(10) line 6	Bella Coola	gloss	PREP˽ART˽hat-past-3SG.POSS˽ART	page 7
+(10) line 7	Hank Nater	translation	‘somebody may have stolen my father1’s hat from him1’	page 7
+(11) line 1	Bella Coola	segmentation	ʔulχ-ɬ-im˽ma ta˽qayt-ɬ-s˽tχ	page 7
+(11) line 2	Hank Nater	note	PREDICATE SUBJ	page 7, the constituent each stretch of the sentence over it is
+(11) line 3	Bella Coola	gloss	steal-past-3SG.PASS˽maybe ART˽hat-past-3SG.POSS˽ART	page 7
+(11) line 4	Bella Coola	segmentation	ta˽man-c˽tχ	page 7
+(11) line 5	Hank Nater	note	GEN ADJ	page 7, the constituent each stretch of the sentence over it is
+(11) line 6	Bella Coola	gloss	ART˽father-1SG.POSS˽ART	page 7
+(11) line 7	Hank Nater	translation	‘my father’s hat may have been stolen’	page 7
+§2.2	Hank Nater	note	The structure of example (10) is:	page 8
+Figure 6 line 1	Hank Nater	note	experiencing loss	page 8, a line of the figure
+Figure 6 line 2	Hank Nater	note	lexical PASS ITR OBL	page 8, a line of the figure
+Figure 6 line 3	Hank Nater	note	base	page 8, a line of the figure
+Figure 6 line 4	Hank Nater	note	suffix suffix SUBJ OBJ	page 8, a line of the figure
+Figure 6 line 5	Hank Nater	note	owner-victim	page 8, a line of the figure
+Figure 6 line 6	Hank Nater	note	property	page 8, a line of the figure
+Figure 6 line 7	Hank Nater	note	object being X-ed	page 8, a line of the figure
+Figure 6	Hank Nater	note	Figure 6 Morpho-syntactic relations in re lexical suffix PASS	page 8, the caption
+§2.2	Hank Nater	note	Next, compare (12) with (13):	page 8
+(12) line 1	Bella Coola	segmentation	kic’-anɬ-i-s ɬa˽kikya-c˽ʔiɬ	page 8
+(12) line 2	Hank Nater	note	PREDICATE SUBJ	page 8, the constituent each stretch of the sentence over it is
+(12) line 3	Bella Coola	gloss	wash-cloth-3SG.OBJ-3SG.SUBJ ART˽grandmother-1SG.POSS˽ART	page 8
+(12) line 4	Bella Coola	segmentation	ɬa˽stan-c˽ʔiɬ x˽tu˽nup-s˽tχʷ	page 8
+(12) line 5	Hank Nater	note	DIR OBJ OBL OBJ	page 8, the constituent each stretch of the sentence over it is
+(12) line 6	Bella Coola	gloss	ART˽mother-1SG.POSS˽ART PREP˽ART˽shirts-3SG.POSS˽ART	page 8
+(12) line 7	Hank Nater	translation	‘my grandmother washed my mother1’s shirts for her1’	page 8
+(13) line 1	Bella Coola	segmentation	kic’-i-s ɬa˽kikya-c˽ʔiɬ	page 8
+(13) line 2	Hank Nater	note	PREDICATE SUBJ	page 8, the constituent each stretch of the sentence over it is
+(13) line 3	Bella Coola	gloss	wash-3SG.OBJ-3SG. SUBJ art˽grandmother-1SG.POSS˽ART	page 8
+(13) line 4	Bella Coola	segmentation	tu˽nup-s˽tχʷ ɬa˽stan-c˽ʔiɬ	page 8
+(13) line 5	Hank Nater	note	DIR OBJ GEN ADJ	page 8, the constituent each stretch of the sentence over it is
+(13) line 6	Bella Coola	gloss	ART˽shirts-3SG.POSS˽ART ART˽mother-1SG.POSS˽ART	page 8
+(13) line 7	Hank Nater	translation	‘my grandmother washed my mother’s shirts’	page 8
+§2.2	Hank Nater	note	The structure of example (12) is presented in Figure 7:	page 8
+Figure 7 line 1	Hank Nater	note	experiencing benefit	page 8, a line of the figure
+Figure 7 line 2	Hank Nater	note	act of X-ing	page 8, a line of the figure
+Figure 7 line 3	Hank Nater	note	lexical OBJ SUBJ TR DIR OBL	page 8, a line of the figure
+Figure 7 line 4	Hank Nater	note	base	page 8, a line of the figure
+Figure 7 line 5	Hank Nater	note	suffix suffix suffix SUBJ OBJ OBJ	page 8, a line of the figure
+Figure 7 line 6	Hank Nater	note	actant	page 8, a line of the figure
+Figure 7 line 7	Hank Nater	note	owner-beneficiary	page 8, a line of the figure
+Figure 7 line 8	Hank Nater	note	property	page 8, a line of the figure
+Figure 7 line 9	Hank Nater	note	object being X-ed	page 8, a line of the figure
+Figure 7	Hank Nater	note	Figure 7 Morpho-syntactic relations in re lexical suffix TR	page 8, the caption
+§2.3	Hank Nater	heading	2.3 Applicative and causative suffixes	page 9
+§2.3	Hank Nater	note	Like benefactive -tu-, but unlike -alst(n) and the classifiers considered in Section 2.2, applicative and causative suffixes are strictly transitivizing.	page 9
+§2.3.1	Hank Nater	heading	2.3.1 Applicative suffixes	page 9
+§2.3.1	Hank Nater	note	The two Bella Coola applicative suffixes occur in the following environment:	page 9
+Figure 8 line 1	Hank Nater	note	act of X-ing, state of being X	page 9, a line of the figure
+Figure 8 line 2	Hank Nater	note	include in one’s (being) X(-ing)	page 9, a line of the figure
+Figure 8 line 3	Hank Nater	note	ITR -m, OBJ SUBJ TR DIR	page 9, a line of the figure
+Figure 8 line 4	Hank Nater	note	base -amk suffix suffix SUBJ OBJ	page 9, a line of the figure
+Figure 8 line 5	Hank Nater	note	includer	page 9, a line of the figure
+Figure 8 line 6	Hank Nater	note	the one included	page 9, a line of the figure
+Figure 8 line 7	Hank Nater	note	being included	page 9, a line of the figure
+Figure 8	Hank Nater	note	Figure 8 Morpho-syntactic relations in re applicative	page 9, the caption
+§2.3.1.1	Hank Nater	heading	2.3.1.1 Applicative -m	page 9
+§2.3.1.1	Hank Nater	note	The most versatile among all valency-affecting suffixes is -m ‘medium’ (Nater 1984, pp. 61–63). Broadly, ITR verbs with -m are denominal active (unergative), detransitive active (unergative, valency reducing), detransitive stative (unaccusative (mainly anticausative), valency reducing), or detransitive reflexive (valency reducing). Here, we consider transitivizing -m ‘make or find … the object or goal of one’s …ing’, which increases valency (and is not related to ITR -m, see Section 3.1). This is a truly applicative suffix insofar as the OBL OBJ following a predicate without this suffix becomes the DIR OBJ after addition of transitivizing -m to the base, as in (14)–(16).	page 9
+§2.3.1.1	Hank Nater	note	with -m without -m	page 9, the heads of the two columns of the examples under it
+(14) line 1	Bella Coola	segmentation	talaws-m-i-c c’ayx	page 9, the column with -m
+(14) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 9, the column with -m, the constituent each stretch of the sentence over it is
+(14) line 3	Bella Coola	gloss	marry-INC-3SG.OBJ-1SG.SUBJ DEM	page 9, the column with -m
+(14) line 4	Hank Nater	translation	‘I’m marrying her’	page 9, the column with -m
+(14) line 5	Bella Coola	segmentation	talaws-c ʔaɬ˽c’ayx	page 9, the column without -m
+(14) line 6	Hank Nater	note	PREDICATE OBL OBJ	page 9, the column without -m, the constituent each stretch of the sentence over it is
+(14) line 7	Bella Coola	gloss	marry-1SG.SUBJ PREP˽DEM	page 9, the column without -m
+(14) line 8	Hank Nater	translation	‘id.’	page 9, the column without -m
+(15) line 1	Bella Coola	segmentation	ʔanayk-m-i-c t’ayx	page 10, the column with -m
+(15) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 10, the column with -m, the constituent each stretch of the sentence over it is
+(15) line 3	Bella Coola	gloss	want-INC-3SG.OBJ-1SG.SUBJ DEM	page 10, the column with -m
+(15) line 4	Hank Nater	translation	‘I want this’	page 10, the column with -m
+(15) line 5	Bella Coola	segmentation	ʔanayk-c x˽t’ayx	page 10, the column without -m
+(15) line 6	Hank Nater	note	PREDICATE OBL OBJ	page 10, the column without -m, the constituent each stretch of the sentence over it is
+(15) line 7	Bella Coola	gloss	want-1SG.SUBJ PREP˽DEM	page 10, the column without -m
+(15) line 8	Hank Nater	translation	‘id.’	page 10, the column without -m
+(16) line 1	Bella Coola	segmentation	qaaχla-m-i-c wa˽qla	page 10, the column with -m
+(16) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 10, the column with -m, the constituent each stretch of the sentence over it is
+(16) line 3	Bella Coola	gloss	drink-INC-3SG.OBJ-1SG.SUBJ ART˽water	page 10, the column with -m
+(16) line 4	Hank Nater	translation	‘I’m drinking water’	page 10, the column with -m
+(16) line 5	Bella Coola	segmentation	qaaχla-c x˽a˽qla	page 10, the column without -m
+(16) line 6	Hank Nater	note	PREDICATE OBL OBJ	page 10, the column without -m, the constituent each stretch of the sentence over it is
+(16) line 7	Bella Coola	gloss	drink-1SG.SUBJ PREP˽ART˽water	page 10, the column without -m
+(16) line 8	Hank Nater	translation	‘id.’	page 10, the column without -m
+§2.3.1.2	Hank Nater	heading	2.3.1.2 Applicative -amk	page 10
+§2.3.1.2	Hank Nater	note	Transitivizing -amk ‘be caused/urged/inspired to (be) … about/with …’ (Nater 1984, pp. 63–64) is, like transitivizing -m, an applicative suffix. (Both suffixes are like Dutch be- ‘to X regarding Y in particular/detail’, as in: ze bespreken de zaak ‘they discuss the matter’ vs. ze spreken over de zaak ‘they talk about the matter’, hij bekeek het huis ‘he viewed the house’ vs. hij keek naar het huis ‘he looked at the house’.) Examples are presented in (17)–(19):	page 10
+§2.3.1.2	Bella Coola	cited form	-m	page 10, in italics
+§2.3.1.2	Dutch	cited form	be-	page 10, in italics, ‘to X regarding Y in particular/detail’
+§2.3.1.2	Dutch	cited form	ze bespreken de zaak	page 10, in italics, ‘they discuss the matter’
+§2.3.1.2	Dutch	cited form	ze spreken over de zaak	page 10, in italics, ‘they talk about the matter’
+§2.3.1.2	Dutch	cited form	hij bekeek het huis	page 10, in italics, ‘he viewed the house’
+§2.3.1.2	Dutch	cited form	hij keek naar het huis	page 10, in italics, ‘he looked at the house’
+§2.3.1.2	Hank Nater	note	with -amk without -amk	page 10, the heads of the two columns of the examples under it
+(17) line 1	Bella Coola	segmentation	yayaatw-amk-ii-ti-c t’ayx	page 10, the column with -amk
+(17) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 10, the column with -amk, the constituent each stretch of the sentence over it is
+(17) line 3	Bella Coola	gloss	happy-INC-DIM-3SG.OBJ-1SG.SUBJ DEM	page 10, the column with -amk
+(17) line 4	Hank Nater	translation	‘I am happy about this’	page 10, the column with -amk
+(17) line 5	Bella Coola	segmentation	yayaatw-ii-c ʔaɬ˽t’ayx	page 10, the column without -amk
+(17) line 6	Hank Nater	note	PREDICATE OBL OBJ	page 10, the column without -amk, the constituent each stretch of the sentence over it is
+(17) line 7	Bella Coola	gloss	happy-DIM-1SG.SUBJ PREP˽DEM	page 10, the column without -amk
+(17) line 8	Hank Nater	translation	‘id.’	page 10, the column without -amk
+(18) line 1	Bella Coola	segmentation	nuyamɬ-amk-i-c tx	page 10, the column with -amk
+(18) line 2	Hank Nater	note	PREDICATE DIR OB	page 10, the column with -amk, the constituent each stretch of the sentence over it is
+(18) line 3	Bella Coola	gloss	sing-INC-3SG.OBJ-1SG.SUBJ DEM	page 10, the column with -amk
+(18) line 4	Hank Nater	translation	‘I am singing a song about him’	page 10, the column with -amk
+(18) line 5	Bella Coola	segmentation	nuyamɬ-c ʔaɬ˽tx	page 10, the column without -amk
+(18) line 6	Hank Nater	note	PREDICATE OBL OBJ	page 10, the column without -amk, the constituent each stretch of the sentence over it is
+(18) line 7	Bella Coola	gloss	Sing-1SG.SUBJ PREP˽DEM	page 10, the column without -amk
+(18) line 8	Hank Nater	translation	‘id.’	page 10, the column without -amk
+(19) line 1	Bella Coola	segmentation	ʔalac’-amk-ii-ti-c ti˽qʷaχʷ˽tx	page 10, the column with -amk
+(19) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 10, the column with -amk, the constituent each stretch of the sentence over it is
+(19) line 3	Bella Coola	gloss	tell story-INC-DIM-3SG.OBJ-1SG.SUBJ	page 10, the column with -amk
+(19) line 4	Bella Coola	gloss	ART˽Raven˽ART	page 10, the column with -amk
+(19) line 5	Hank Nater	translation	‘I am telling a story about Raven’	page 10, the column with -amk
+(19) line 6	Bella Coola	segmentation	ʔalac’-ii-c ʔaɬ˽ti˽qʷaχʷ˽tx	page 10, the column without -amk
+(19) line 7	Hank Nater	note	PREDICATE OBL OBJ	page 10, the column without -amk, the constituent each stretch of the sentence over it is
+(19) line 8	Bella Coola	gloss	tell story-DIM-1SG.SUBJ	page 10, the column without -amk
+(19) line 9	Bella Coola	gloss	PREP˽ART˽Raven˽ART	page 10, the column without -amk
+(19) line 10	Hank Nater	translation	‘id.’	page 10, the column without -amk
+§2.3.2	Hank Nater	heading	2.3.2 Causative suffixes	page 10
+§2.3.2	Hank Nater	note	Bella Coola has two causative suffixes: -(s)tu- and -nix. These differ from one another in degree of control/purpose and affiliated pronominal suffix paradigm.	page 10
+§2.3.2.1	Hank Nater	heading	2.3.2.1 Causative -(s)tu-	page 11
+§2.3.2.1	Hank Nater	note	I mentioned -(s)tu- ‘CAUS TR’ in Section 2.1.1 above. This suffix is compatible with ITR bases, and the associated CAUS template differs from the non-CAUS TR one (Nater 1984, pp. 37–40). It increases valency by adding an argument (causer) to the act described by the base, and ITR SUBJ → DIR OBJ, as in Figure 9. Two examples are given in (20) and (21).	page 11
+§2.3.2.1	Bella Coola	cited form	-(s)tu-	page 11, in italics, ‘CAUS TR’
+Figure 9 line 1	Hank Nater	note	act of X-ing, state of being X	page 11, a line of the figure
+Figure 9 line 2	Hank Nater	note	causing to (be) X	page 11, a line of the figure
+Figure 9 line 3	Hank Nater	note	OBJ SUBJ TR DIR OBL	page 11, a line of the figure
+Figure 9 line 4	Hank Nater	note	base -(s)tu-	page 11, a line of the figure
+Figure 9 line 5	Hank Nater	note	suffix suffix SUBJ OBJ OBJ	page 11, a line of the figure
+Figure 9 line 6	Hank Nater	note	causer	page 11, a line of the figure
+Figure 9 line 7	Hank Nater	note	the one caused to (be) …	page 11, a line of the figure
+Figure 9 line 8	Hank Nater	note	being caused to (be) X	page 11, a line of the figure
+Figure 9 line 9	Hank Nater	note	object being X-ed	page 11, a line of the figure
+Figure 9	Hank Nater	note	Figure 9 Morpho-syntactic relations in re -(s)tu-	page 11, the caption
+(20) line 1	Bella Coola	segmentation	ʔaɬps-tu-Ø-s ɬa˽stan˽ʔiɬ	page 11
+(20) line 2	Hank Nater	note	PREDICATE SUBJ	page 11, the constituent each stretch of the sentence over it is
+(20) line 3	Bella Coola	gloss	eat-CAUS-3SG.OBJ-3SG.SUBJ ART˽mother˽ART	page 11
+(20) line 4	Bella Coola	segmentation	ta˽mna-s x˽tu˽sputx˽tχʷ	page 11
+(20) line 5	Hank Nater	note	DIR OBJ OBL OBJ	page 11, the constituent each stretch of the sentence over it is
+(20) line 6	Bella Coola	gloss	ART˽son-3SG.POSS PREP˽ART˽eulachon˽ART	page 11
+(20) line 7	Hank Nater	translation	‘the mother1 gave her1 son the eulachons to eat’	page 11
+(21) line 1	Bella Coola	segmentation	ka˽paxpaaqʷuu-stu-ti-c˽ma wa˽wac’-uks-nu˽c	page 11
+(21) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 11, the constituent each stretch of the sentence over it is
+(21) line 3	Bella Coola	gloss	future˽afraid-CAUS-3PL.OBJ-1SG.SUBJ˽maybe ART˽dog- PL-2SG.POSS˽ART	page 11
+(21) line 4	Bella Coola	segmentation	x˽ti˽ʔac’ta˽t’ayx	page 11
+(21) line 5	Hank Nater	note	OBL OBJ	page 11, the constituent each stretch of the sentence over it is
+(21) line 6	Bella Coola	gloss	PREP˽ART˽paddle˽DEM	page 11
+(21) line 7	Hank Nater	translation	‘maybe I will scare your dogs with this paddle’	page 11
+§2.3.2.2	Hank Nater	heading	2.3.2.2 Causative –nix	page 11
+§2.3.2.2	Hank Nater	note	-nix (and -nxʷ, -nuxʷ) ‘NC CAUS’ (Nater 1984, pp. 68–69) combines with ITR stative (unaccusative-adjectival) bases, and accepts the non-CAUS TR paradigm. It differs from -(s)tu- in that it implies lack of control or purpose: ‘accidentally or unwittingly cause X to …’, ‘find that X has …ed’, ‘find (that) X (is) …’. Like -(s)tu-, -nix is valency-increasing (and ITR SUBJ → DIR OBJ), as in Figure 10. Examples are presented in (22)–(24).	page 11
+§2.3.2.2	Bella Coola	cited form	-nxʷ	page 11, in italics
+§2.3.2.2	Bella Coola	cited form	-nuxʷ	page 11, in italics
+Figure 10 line 1	Hank Nater	note	state of being X	page 12, a line of the figure
+Figure 10 line 2	Hank Nater	note	causing/observing to be X	page 12, a line of the figure
+Figure 10 line 3	Hank Nater	note	OBJ SUBJ TR DIR	page 12, a line of the figure
+Figure 10 line 4	Hank Nater	note	base -nix	page 12, a line of the figure
+Figure 10 line 5	Hank Nater	note	suffix suffix SUBJ OBJ	page 12, a line of the figure
+Figure 10 line 6	Hank Nater	note	causer/observer	page 12, a line of the figure
+Figure 10 line 7	Hank Nater	note	the one caused/observed to (be) …	page 12, a line of the figure
+Figure 10 line 8	Hank Nater	note	being caused/observed to be X	page 12, a line of the figure
+Figure 10	Hank Nater	note	Figure 10 Morpho-syntactic relations in re –nix	page 12, the caption
+(22) line 1	Bella Coola	segmentation	t’kʷ-lχs-nix-i-c tχ	page 12
+(22) line 2	Hank Nater	note	PREDICATE DIR OBJ	page 12, the constituent each stretch of the sentence over it is
+(22) line 3	Bella Coola	gloss	bleeding-nose-CAUS.NC-3SG.OBJ-1SG.SUBJ DEM	page 12
+(22) line 4	Hank Nater	translation	‘I accidentally gave him a nosebleed’	page 12
+(23) line 1	Bella Coola	segmentation	ʔaxʷs-nix-i-s˽kʷ t’aχ ta˽q’ʷχʷmtimut	page 12
+(23) line 2	Hank Nater	note	PREDICATE SUBJ DIR OBJ	page 12, the constituent each stretch of the sentence over it is
+(23) line 3	Bella Coola	gloss	audible-CAUS.NC-3SG.OBJ-3SG.SUBJ˽quote DEM ART˽car	page 12
+(23) line 4	Hank Nater	translation	‘I was told he heard a car’	page 12
+(24) line 1	Bella Coola	segmentation	ya-nix-i-s ʔiɬaʔiɬ ta˽mna-s˽tχ	page 12
+(24) line 2	Hank Nater	note	PREDICATE SUBJ DIR OBJ	page 12, the constituent each stretch of the sentence over it is
+(24) line 3	Bella Coola	gloss	good-CAUS.NC-3SG.OBJ-3SG.SUBJ DEM ART˽son-3SG.POSS˽ART	page 12
+(24) line 4	Bella Coola	segmentation	ta˽staltmx˽t’aχ	page 12
+(24) line 5	Hank Nater	note	GEN ADJ	page 12, the constituent each stretch of the sentence over it is
+(24) line 6	Bella Coola	gloss	ART˽chief˽DEM	page 12
+(24) line 7	Hank Nater	translation	‘she liked that chief’s son’	page 12
+§3	Hank Nater	heading	3 Diachrony and areal typology	page 12
+§3	Hank Nater	note	Here, I treat both archaic and innovative aspects of Bella Coola divalent suffixes.	page 12
+§3.1	Hank Nater	heading	3.1 Etymologies	page 12
+§3.1	Hank Nater	note	The Salish origin of the divalent suffixes discussed in this report is as tabulated in Figure 11 below:	page 12
+Figure 11 line 1	Hank Nater	note	Bella Coola Other Salish	page 13, a line of the table
+Figure 11 line 2	Hank Nater	note	-nix, -n(u)xʷ ‘NC CAUS’ -nǝxʷ ‘TR (CAUS) NC’	page 13, a line of the table
+Figure 11 line 2	Bella Coola	cited form	-nix	page 13, Figure 11, ‘NC CAUS’
+Figure 11 line 2	Bella Coola	cited form	-n(u)xʷ	page 13, Figure 11, ‘NC CAUS’
+Figure 11 line 2	Salish	cited form	-nǝxʷ	page 13, Figure 11, ‘TR (CAUS) NC’
+Figure 11 line 3	Hank Nater	note	-(s)tu-, -(s)txʷ ‘control CAUS (benefactive)’ -(s)t(-ǝw-/-ǝxʷ) ‘CAUS’	page 13, a line of the table
+Figure 11 line 3	Bella Coola	cited form	-(s)tu-	page 13, Figure 11, ‘control CAUS (benefactive)’
+Figure 11 line 3	Bella Coola	cited form	-(s)txʷ	page 13, Figure 11, ‘control CAUS (benefactive)’
+Figure 11 line 3	Salish	cited form	-(s)t(-ǝw-/-ǝxʷ)	page 13, Figure 11, ‘CAUS’
+Figure 11 line 4	Hank Nater	note	-alst ‘deprivative’ -als(t) ‘rock’	page 13, a line of the table
+Figure 11 line 4	Bella Coola	cited form	-alst	page 13, Figure 11, ‘deprivative’
+Figure 11 line 4	Salish	cited form	-als(t)	page 13, Figure 11, ‘rock’
+Figure 11 line 5	Hank Nater	note	-m(i-), -amk ‘applicative’ -mi(n) ‘relational applicative’ -(a)min ‘OBL OBJ, means’	page 13, a line of the table
+Figure 11 line 5	Bella Coola	cited form	-m(i-)	page 13, Figure 11, ‘applicative’
+Figure 11 line 5	Bella Coola	cited form	-amk	page 13, Figure 11, ‘applicative’
+Figure 11 line 5	Salish	cited form	-mi(n)	page 13, Figure 11, ‘relational applicative’
+Figure 11 line 5	Salish	cited form	-(a)min	page 13, Figure 11, ‘OBL OBJ, means’
+Figure 11	Hank Nater	note	Figure 11 Salish cognates of Bella Coola divalent suffixes	page 13, the caption
+§3.1	Hank Nater	note	For CAUS *-nǝxʷ, see Section 4. Note that -mi- replaces applicative -m before the reflexive suffix -cut (Nater 1984, p. 65). Unlike myself, Kiyosawa & Gerdts (p. 46) do not equate Bella Coola -m(i-) with other Salish -mi(n) (but in fn. 19, they do connect -mi(n) with -(a)min, for which see -amk further below). However, the primary meaning (‘use, contact, involvement’) of TR -m is evinced by TR active verb + somatic suffix + TR -m ‘to … something with one’s …’:	page 13
+§3.1	Bella Coola	cited form	-mi-	page 13, in italics
+§3.1	Bella Coola	cited form	-cut	page 13, in italics
+§3.1	Hank Nater	name	Kiyosawa & Gerdts	Kaoru Kiyosawa and Donna B. Gerdts, Salish applicatives as benefactives and malefactives (2010)
+§3.1	Hank Nater	name	Kiyosawa	Kaoru Kiyosawa, applicatives in Salish languages (2006)
+(25) line 1	Bella Coola	segmentation	cp-ak-m-i-c	page 13
+(25) line 2	Bella Coola	gloss	wipe-hand-contact-3SG.OBJ-1SG.SUBJ	page 13
+(25) line 3	Hank Nater	translation	‘I wipe it with my hand’	page 13
+(26) line 1	Bella Coola	segmentation	ʔaɬ-tmp-aaχalic-m-i-c	page 13
+(26) line 2	Bella Coola	gloss	PROG-insert-teeth-contact-3SG.OBJ-1SG.SUBJ	page 13
+(26) line 3	Hank Nater	translation	‘I’m holding it between my teeth’	page 13
+(27) line 1	Bella Coola	segmentation	ʔiƛ’-aaɬ-m-t-χ	page 13
+(27) line 2	Bella Coola	gloss	move-foot-contact-3SG.OBJ.PART-IMP.SG	page 13
+(27) line 3	Hank Nater	translation	‘move it with your foot!’	page 13
+§3.1	Hank Nater	note	-amk is originally complex. I gather that -amk continues *-amǝ(n)-k ‘means- back, middle’ in view of the following points:	page 13
+§3.1	Bella Coola	cited form	-amǝ(n)-k	page 13, in italics, ‘means- back, middle’
+§3.1	Hank Nater	note	its formal, semantic, and functional resemblance to TR -m (which suggests that …k is suffixal in origin);	page 13, a point of the list
+§3.1	Bella Coola	cited form	…k	page 13, in italics
+§3.1	Hank Nater	note	the flexible use/meaning of Salish -(a)min (‘implement, means, oblique- applicative’, see Kuipers, pp. 79 & 132; Van Eijk, p. 417; Speck, pp. 70–71);	page 13, a point of the list
+§3.1	Hank Nater	name	Van Eijk	Jan van Eijk, the Lillooet-English dictionary (2013)
+§3.1	Hank Nater	name	Speck	Brenda J. Speck, Father Post's Kalispel grammar (1980)
+§3.1	Hank Nater	note	the lack of clear cognates (*-amǝk, *-amik, or the like) in other Salish.	page 13, a point of the list
+§3.1	Bella Coola	cited form	-amǝk	page 13, in italics
+§3.1	Bella Coola	cited form	-amik	page 13, in italics
+§3.1	Hank Nater	note	As regards *-amǝn-k → *-amǝ-k, elision of a morpheme-left-adjacent consonant is not uncommon in Bella Coola: qluq’s ‘eye’ ← *qlum-aq’-us, sqma ‘chest’ ← *s-qǝp-mǝn ‘breast’, su:q’ʷuuχin ‘tadpole’ ← *s-q’ʷum-qin ‘large-headed’, q’ʷwaaχ ‘old mountain goat’ ← *q’ʷuy-aʔq ‘wilted-crotch’, -amxʷ ‘by oneself, autonomously’ ← *-al-mǝxʷ ‘individual’, -ams ‘jaw’ ← *-ap-mǝs ← *-ap-nǝs (‘base-teeth’) (Nater 2013 and 2014). *-amǝn also underlies Bella Coola -(a)ma, -(a)mn- ‘tool, implement’.	page 13
+§3.1	Bella Coola	cited form	*-amǝn-k	page 13, in italics
+§3.1	Bella Coola	cited form	*-amǝ-k	page 13, in italics
+§3.1	Bella Coola	cited form	qluq’s	page 13, in italics, ‘eye’
+§3.1	Bella Coola	cited form	*qlum-aq’-us	page 13, in italics
+§3.1	Bella Coola	cited form	sqma	page 13, in italics, ‘chest’
+§3.1	Bella Coola	cited form	*s-qǝp-mǝn	page 13, in italics, ‘breast’
+§3.1	Bella Coola	cited form	su:q’ʷuuχin	page 13, in italics, ‘tadpole’
+§3.1	Bella Coola	cited form	*s-q’ʷum-qin	page 13, in italics, ‘large-headed’
+§3.1	Bella Coola	cited form	q’ʷwaaχ	page 13, in italics, ‘old mountain goat’
+§3.1	Bella Coola	cited form	*q’ʷuy-aʔq	page 13, in italics, ‘wilted-crotch’
+§3.1	Bella Coola	cited form	-amxʷ	page 13, in italics, ‘by oneself, autonomously’
+§3.1	Bella Coola	cited form	*-al-mǝxʷ	page 13, in italics, ‘individual’
+§3.1	Bella Coola	cited form	-ams	page 13, in italics, ‘jaw’
+§3.1	Bella Coola	cited form	*-ap-mǝs	page 13, in italics
+§3.1	Bella Coola	cited form	*-ap-nǝs	page 13, in italics
+§3.1	Bella Coola	cited form	*-amǝn	page 14, in italics
+§3.1	Bella Coola	cited form	-(a)ma	page 14, in italics
+§3.1	Bella Coola	cited form	-(a)mn-	page 14, in italics, ‘tool, implement’
+§3.2	Hank Nater	heading	3.2 Innovations and retentions	page 14
+§3.2	Hank Nater	note	Bella Coola applicatives are functionally unlike those in other Salish: they are not used as benefactives or deprivatives (malefactives). On the other hand, where Bella Coola benefactive formations involve a causative suffix with a range of glosses including ‘… something for somebody’, and where deprivative verbs contain a suffix whose function is derived from another morphological category, other Salish as a rule uses applicatives. Although in Halkomelem, the causative suffix can also be used benefactively, -stǝxʷ is here added to a TR base, which is not necessarily creation-oriented:	page 14
+§3.2	Halkomelem	cited form	-stǝxʷ	page 14, in italics
+§3.2	Hank Nater	language	Halkomelem	Central Salish
+(28) line 1	Hank Nater	citation	Halkomelem (Kiyosawa & Gerdts, sample 103b)	page 14, over the example, its language and source
+(28) line 2	Halkomelem	segmentation	nem̓ č ceʔ qǝn̓-stǝxʷ tᶿǝn̓ sǝl̓sil̓ǝ	page 14
+(28) line 3	Halkomelem	gloss	go 2SG.SUB FUT steal-CS DET:2POSS grandparent(PL)	page 14
+(28) line 4	Halkomelem	segmentation	ʔǝ kʷθǝ sciy̓ǝ.	page 14
+(28) line 5	Halkomelem	gloss	OBL DET strawberry	page 14
+(28) line 6	Hank Nater	translation	‘You’re going to steal some strawberries for your grandparents.’	page 14
+(29) line 1	Hank Nater	citation	Halkomelem (Kiyosawa & Gerdts, sample 104b)	page 14, over the example, its language and source
+(29) line 2	Halkomelem	segmentation	niʔ ʔǝ č calaʔɬ-stǝxʷ kʷθǝ John ʔǝ k̓ʷ telǝ?	page 14
+(29) line 3	Halkomelem	gloss	AUX Q 2SG.SUB borrow/lend-CSDET John OBL DET money	page 14
+(29) line 4	Hank Nater	translation	‘Did you borrow some money for John?’	page 14
+§3.2	Hank Nater	note	The morpho-semantic and distributional mechanisms underlying Bella Coola divalent constructions, too, deviate from other Salish, where:	page 14
+§3.2	Hank Nater	note	“Redirective applicatives are formed on transitive bases, and their precise interpretation—as benefactive, delegative, or malefactive—depends upon the context of the situation and the semantics of the verb. Most transitive verbs form redirectives with benefactive meanings, but redirectives formed on transfer verbs often express malefactive meanings, especially when a source or possessor is the applied object. Relational applicatives are formed on intransitive bases. They frequently have malefactive or adversative meanings, especially with natural or psychological events, and only rarely express benefactive meanings.” (Kiyosawa & Gerdts, p. 27)	page 14, the quotation
+§3.2	Hank Nater	note	The Bella Coola morpho-syntactic details discussed in this paper may also differ from those in other Salish. Nevertheless, the PREDICATE (+ SUBJ) + DIR OBJ + OBL OBJ clause type associated with benefactive/malefactive is found across Salish (note: in Interior Salish, the subject often precedes the predicate, and the OBL OBJ may precede the DIR OBJ), which is shown in (30)–(34).	page 14
+§3.2	Hank Nater	language	Interior Salish	Salish
+(30) line 1	Hank Nater	citation	Halkomelem (Kiyosawa & Gerdts, sample 1)	page 15, over the example, its language and source
+(30) line 2	Halkomelem	segmentation	niʔ q̓ʷǝ́l-ǝɬc-t-ǝs ɬǝ sɬéniʔ ʔǝ kʷθǝ sǝplíl.	page 15
+(30) line 3	Halkomelem	gloss	AUX bake-RDR-TR-3ERG DET woman OBL DET bread	page 15
+(30) line 4	Hank Nater	translation	‘He baked the bread for the woman.’	page 15
+(31) line 1	Hank Nater	citation	Shuswap (Kiyosawa & Gerdts, sample 4)	page 15, over the example, its language and source
+(31) line 2	Shuswap	segmentation	m-k̓úl-x-t-s ɣ núx̌ʷnx̌ʷ tǝ mim̓x.	page 15
+(31) line 3	Shuswap	gloss	PERF-make-RDR-TR-3SUB DET woman OBL basket	page 15
+(31) line 4	Hank Nater	translation	‘She made a basket for the woman.’	page 15
+(32) line 1	Hank Nater	citation	Comox (Kiyosawa & Gerdts, sample 28)	page 15, over the example, its language and source
+(32) line 2	Comox	segmentation	qʷuqʷu-ʔǝm-θ-as ʔǝ tǝ tᶿ tiy.	page 15
+(32) line 3	Comox	gloss	drink-RDR-TR:1SG.OBJ-3SUB OBL DET 1SG.POSS tea	page 15
+(32) line 4	Hank Nater	translation	‘He drank my tea for me [when I could not finish it].’	page 15
+(32) line 5	Hank Nater	translation	‘He drank up my tea [on me].’	page 15
+(33) line 1	Hank Nater	citation	Thompson (Kiyosawa & Gerdts, sample 25)	page 15, over the example, its language and source
+(33) line 2	Thompson	segmentation	máʕ̓xtimes tǝ s-zélt-ep.	page 15
+(33) line 3	Thompson	underlying	//máʕ̓-xi-t-uym-es//	page 15
+(33) line 4	Thompson	gloss	break-RDR-TR-2PL.OBJ-3SUB OBL NM-dish-2PL.POSS	page 15
+(33) line 5	Hank Nater	translation	‘He broke you people’s dish.’	page 15
+(34) line 1	Hank Nater	citation	Okanagan (Kiyosawa & Gerdts, sample 52)	page 15, over the example, its language and source
+(34) line 2	Okanagan	segmentation	Mary ʕac-xí-t-s iʔ t snkɬc̓aʔsqáx̌aʔ iʔ ttw̓it.	page 15
+(34) line 3	Okanagan	gloss	Mary tie-RDR-TR-3SUB ART OBL horse ART boy	page 15
+(34) line 4	Hank Nater	translation	‘Mary tied the horse for the boy.’	page 15
+§4	Hank Nater	heading	4 Conclusions	page 15
+§4	Hank Nater	note	As concerns the status of Bella Coola divalent suffixes within Salish, it is clear that the only all-Salish applicative suffix that has survived in Bella Coola (as the transitivizing applicative -m(i-)) is *-mi(n) ‘relational applicative’. *-mi(n) itself is derived from *-(a)min ‘OBL OBJ, means, tool’, which also underlies the other applicative suffix (-amk).	page 15
+§4	Hank Nater	note	Of the three remaining divalent suffixes, the one malefactive (deprivative) suffix -alst(n) is originally lexical, and as such causes ITR SUBJ / TR DIR OBJ → OBL OBJ and GEN ADJ → DIR OBJ redirection. The latter of these is very similar to the OBL OBJ → DIR OBJ shift triggered by applicative suffixes: the role of the GEN ADJ (“victim”, see examples 7 and 9, and cf. example 11) is like that of the OBL OBJ in examples (14)–(19) (right column). Syntactically, however, the GEN ADJ is an adjunct rather than an argument: it is linked – via a POSS pronominal suffix – with the ITR SUBJ or DIR OBJ, not – via an OBL marker – with the predicate. Both causative suffixes are valency-increasing insofar as an argument (causer/considerer) is added (and ITR SUBJ → DIR OBJ). Unlike -m(i-) and (to some extent) -alst, neither -tu- nor -nix have applicative properties. -tu-, though patently Salish, differs from Salish counterparts in that it has changed its position within the predicate and merged with pronominal suffixes (which now differ from non-CAUS TR suffixes).	page 15
+§4	Hank Nater	note	The suffix -nix/-nxʷ/-nuxʷ ‘NC CAUS’ continues *-nǝxʷ ‘NC TR’. But -nǝxʷ (and -n … in general) also has a causative connotation in some other Salish: Squamish -nǝxʷ ‘have …ed (non-volitional (CAUS))’ (Kuipers 1967, p. 77), Lillooet -Vn/-Vn’ ‘causativizer’ (et alia), -nun/-nun’ ‘to nourish a certain thought on …’ (i.e. ‘consider …’) (Van Eijk, pp. 425–426). It would thus appear that there was already a tendency in proto-Salish for *-n- (and *-nǝxʷ) to have, or acquire, the feature CAUS. In Bella Coola, then, -nix/-nxʷ/-nuxʷ became the standard NC CAUS suffix under the influence of -tu- and the (innovative?) -t- CONTROL vs. -n- NON-CONTROL distinction (for which see Nater 1984, p. 60).	page 16
+§4	Bella Coola	cited form	-nxʷ	page 16, in italics
+§4	Bella Coola	cited form	-n	page 16, in italics
+§4	Lillooet	cited form	-Vn	page 16, in italics
+§4	Bella Coola	cited form	-nun	page 16, in italics
+§4	Bella Coola	cited form	-t-	page 16, in italics
+§4	Hank Nater	language	Lillooet	Northern Interior Salish
+§4	Hank Nater	note	Within Salish, benefactive use of causative -tu-, strict PSOdirOobl syntax, and OBL-marking prepositions are attributes that Bella Coola has in common only with Coastal Salish. These traits lend further support to my thesis that Bella Coola evolved after, rather than – as is too often assumed – before, the Coastal Salish ↔ Interior Salish divide, i.e. it has descended from early Coastal (“pre- Coastal”) Salish (see Nater 2013 and 2014 for phonemic, lexical and morphological similarities). The model that reflects this view (Figure 12) differs therefore from e.g. Kiyosawa 2006 (p. 9, after Hinkson, p. 44), who places Bella Coola as having branched off from proto-Salish (and is not led to posit a pre- Coastal node). Note: Nater “Coastal” = Kiyosawa “Proto-Central-Tsamosan”, Nater “Central” = Kiyosawa “Proto-Central”, Nater “Tsamosan” = Kiyosawa “Proto-Tsamosan”, Nater “Interior” = Kiyosawa “Proto-Interior”.	page 16
+§4	Hank Nater	name	Hinkson	Mercedes Quesney Hinkson, Salishan lexical suffixes (1999)
+§4	Hank Nater	language	Coastal Salish	the author's name for the coast division of Salish
+Figure 12 line 1	Hank Nater	note	proto-Salish	page 16, a line of the figure
+Figure 12 line 2	Hank Nater	note	pre-Coastal Interior	page 16, a line of the figure
+Figure 12 line 3	Hank Nater	note	Coastal Bella Coola northern southern	page 16, a line of the figure
+Figure 12 line 4	Hank Nater	note	Oregon-Central Tsamosan k/k’/x (west) č/č’/š (east)	page 16, a line of the figure
+Figure 12 line 5	Hank Nater	note	branch branch	page 16, a line of the figure
+Figure 12 line 6	Hank Nater	note	Oregon Central maritime inland	page 16, a line of the figure
+Figure 12 line 7	Hank Nater	note	northern central southern	page 16, a line of the figure
+Figure 12	Hank Nater	note	Figure 12 Bella Coola within Salish	page 16, the caption
+§4	Hank Nater	note	In re PREDICATE–ARGUMENT interaction, it remains to be determined to what extent the morpho-syntax, semantic roles of the links, and combinatorial traits described in Sections 2 and 2.1–3 are matched in other Salish. In the meantime, I suspect, in view of the similarities shown in examples (28)–(29) and (30)–(34) (and conclusions drawn in Nater 2013 and 2014), that further research will reveal more morpho-syntactic resemblances between Bella Coola and Coastal Salish than we have seen to date.	page 17
+references	Hank Nater	heading	References	page 17
+references	Hank Nater	reference	Hinkson, Mercedes Quesney. (1999). Salishan Lexical Suffixes: A Study in the Conceptualization of Space. Ph.D. dissertation, Simon Fraser University.	page 17
+references	Hank Nater	reference	Kiyosawa, Kaoru. (2006). Applicatives in Salish Languages. Ph.D. dissertation. Simon Fraser University.	page 17
+references	Hank Nater	reference	Kiyosawa, Kaoru and Donna B. Gerdts. (2010). Benefactive and Malefactive Uses of Salish Applicatives. Benefactives and Malefactives, Typological Perspectives and Case Studies. Typological Studies in Language 92. Amsterdam: John Benjamins Publishing Company.	page 17
+references	Hank Nater	reference	Kuipers, Aert. (1967). The Squamish Language. The Hague/Paris: Mouton & Co.	page 17
+references	Hank Nater	reference	Kuipers, Aert H. (2002). Salish Etymological Dictionary. UMOPL 16.	page 17
+references	Hank Nater	reference	Nater, Hank. (1984). The Bella Coola Language. Canadian Ethnology Service Paper 92. Canadian Museum of Civilization Mercury Series.	page 17
+references	Hank Nater	reference	Nater, Hank. (2013). How Salish is Bella Coola? Papers for the International Conference on Salish and Neighbouring Languages 48. UBCWPL 35.	page 17
+references	Hank Nater	reference	Nater, Hank. (2014). The Position of Bella Coola within Salish: Bound Morphemes. Papers for the International Conference on Salish and Neighbouring Languages 49. UBCWPL 37.	page 17
+references	Hank Nater	reference	Speck, Brenda J. (1980). An Edition of Father Post’s Kalispel Grammar. UMOPL No. 1.	page 17
+references	Hank Nater	reference	Van Eijk, Jan. (2013). Lillooet-English Dictionary. UBCOPL 2.	page 17

@@ -1,0 +1,1536 @@
+where	who	kind	form	gloss
+front	Henry Zenk	title	New light on pidgin Chinookan: with due credit to Horatio Hale’s “esteemed friend” J. K. Townsend	page 1
+front	Henry Zenk	name	Henry Zenk	author
+front	Henry Zenk	note	Confederated Tribes of Grand Ronde, Oregon	page 1, under Henry Zenk
+front	Henry Zenk	note	Abstract: A draft version of the first systematic description of Chinuk Wawa (Chinook Jargon, CW), Horatio Hale’s The “Jargon,” or trade-language of Oregon, shows many credits to the American naturalist John K. Townsend, all however dropped in publication. Townsend is also the source of independent CW and Chinookan word-lists. In contrast to Hale’s and later records, the Townsend word-lists show few CW words of ultimate Nootkan, English, or French origin, instead consisting mostly of locally contributed (primarily Chinookan) words and phrases. A number of the CW and Chinookan phrases provide interesting case-studies in Chinookan morphological simplification: the word-forms are Chinookan, but they are missing supposedly obligatory Chinookan inflections. Townsend’s lists may point to a CW variety much closer to Chinookan than the CW described by Hale, a finding which has implications for assessing the role of Chinookan speakers in co-creating the hybrid CW of Hale and later authorities.	page 1, the abstract
+front	Henry Zenk	note	In Papers for the International Conference on Salish and Neighbouring Languages 50, University of British Columbia Working Papers in Linguistics 40, Natalie Weber, Erin Guntly, Zoe Lam, and Sihwei Chen (eds.), 2015.	page 1, the volume's header
+front	Henry Zenk	language	Chinuk Wawa	Chinook Jargon, CW, the pidgin of the lower Columbia
+§1	Henry Zenk	heading	1 Introduction1	page 1
+footnote 1	Henry Zenk	note	This contribution grew out of a presentation by George Lang and myself to a session of the Society for Pidgin and Creole Linguistics, held at the 86th Linguistic Society of America Annual Meeting (Zenk and Lang 2012). The present paper revisits my own take on Townsend’s contribution to the historical record of lower Columbia Chinuk Wawa.	page 1, footnote 1
+footnote 1	Henry Zenk	name	George Lang	the presentation of note 1 (Zenk and Lang 2012); Lang 2008
+§1	Henry Zenk	note	A draft version of Horatio Hale's The “Jargon,” or trade-language of Oregon (Hale 1846:635–50, Hale ca. 1841) reveals that this source, the very first comprehensive description of Chinuk Wawa (CW) as a linguistic variety in its own right, drew significantly on contributions from the American naturalist John Kirk Townsend (1809–1851). While those contributions were left wholly unacknowledged in publication, Townsend himself left an independent manuscript word-list identified as follows: “Vocabulary of the language spoken by the Indians in the Columbia & used as the means of communication between them & the Whites. The language as used is much mixed; being composed of Chenook [sic], English, French &c." This word-list is among a group of word-lists collected by Townsend, including another identified as a “vocabulary of the Chenook [sic] tribe— inhabiting the Columbia River near the sea” (Townsend 1835). Both Hale and Townsend collected their materials in and around Fort Vancouver on the lower Columbia River. Hale’s “Jargon” and Townsend’s “mixed” language are identifiable with the CW of later record; both also collected vocabularies in CW’s principal lexifier language, Chinookan (in Townsend’s terminology: the language of the “Chenook tribe”). While Hale was far and away the more accomplished linguist of the two, Townsend’s record is of special interest because it suggests that a more strongly Chinookan-influenced variety of CW co-existed with the more English-friendly variety recorded by Hale. Indeed, Townsend’s record may shed important light on the role of Chinookan speakers in the pidginization of Chinookan—or in other words, on their key role as co-creators of the hybrid medium that is the CW of later nineteenth-century and twentieth-century record.	page 1
+§1	Henry Zenk	name	Horatio Hale	the Jargon sketch of 1846 and its draft of ca. 1841
+§1	Henry Zenk	name	John Kirk Townsend	the American naturalist, 1809 to 1851, and his 1835 word-lists
+§1	Henry Zenk	language	Chinookan	CW's principal lexifier
+§1	Henry Zenk	language	English	a CW lexifier
+§1	Henry Zenk	language	French	a CW lexifier
+§2	Henry Zenk	heading	2 Hale and Townsend	page 2
+§2	Henry Zenk	note	I am not aware of any independent notice of Hale and Townsend’s collaboration, beyond the following passage in Hale’s draft (omitted, along with all other references to Townsend, from the published version):	page 2
+§2	Henry Zenk	note	As a evidence that this Jargon is in reality a regular & permanent language, I may mention that, after my return, I requested of my esteemed friend Mr. J. K. Townsend whose travels in the Oregon Territory have made his character & attainments well known to the public a list of such words as he retained in his memory & the translation of some phrases to compare with those which I had taken down on the spot. The words & phrases with which he furnished me (the former comprising nearly the whole stock of the idiom) were found to agree very closely with those in my vocabulary. The differences of orthography were only such as must necessarily occur in the attempt to reduce foreign language to writing: the words & constructions were precisely the same	page 2, a quotation set off from the text
+§2	Henry Zenk	citation	(Hale ca. 1841:n.p.).	page 2, the source of the quotation
+§2	Henry Zenk	note	In Hale’s draft version, almost half of his “Jargon” vocabulary items are accompanied by the letter “T” (some letters placed before the item so marked, some placed following in parentheses); and 27 full sentences are explicitly identified as being “from Mr. Townsend.” These “T”-marked and “Townsend”- identified entries moreover include many tokens that Hale did not publish. Of the 27 sentences attributed to Townsend in draft, three appear in identical form in the published sketch, two exhibit near identity to published examples, while two more represent common everyday expressions that could easily have been obtained independently; the remainder are missing. Also left out were many words of Chinookan origin, most of which in turn find matches in Townsend’s 1835 “mixed” language list. The Appendix to this paper lists all the “T”-tagged “Jargon” items in Hale’s ca. 1841 draft, cross-tabulated with matches (where available) from Townsend’s 1835 “mixed” language list.	page 2
+§2	Henry Zenk	note	Most items on Townsend’s latter list appear to be from local languages, especially Chinookan. Although Townsend’s preface points out that the language is “mixed” with English and French, those languages are conspicuous by their near absence in the list itself. And only five items there (Appendix: come, far, many/much, see, understand) can be attributed to Nootka Jargon—items of ultimate Nootkan origin, but known to have been introduced to the lower Columbia by predominantly English-speaking seafaring traders beginning in 1792 (five additional such items marked “T” appear in Hale’s draft: Appendix: bad, fight [also kill], slave, trade, woman). Not only do Chinookan-identifiable items appear alongside of or in place of English, French, and Nootka-Jargon origin items known from later sources (see Appendix: arm, bone, child, father, fire, God, good, gun, head, house, lake, man, moon, morning, name, nose, salmon, sheep, shoes, star, stone, sun, to-day, wind, wolf, woman, wood); but a number of meanings not met with in later sources show Chinookan terms as well (Appendix: back, breast, cheek, creek, fingers, fox, heaven, knee, many/much, (finger-)nail; plus some meanings showing evidently redundant Chinookan synonyms: bad, bird, dog, like/love, sea).	page 2
+§2	Henry Zenk	language	Nootka Jargon	the seafarers' pidgin
+§2	Henry Zenk	language	Nootkan	the source of the Nootka Jargon items
+§2	Henry Zenk	note	A plausible explanation for the observed differences between Hale’s and Townsend’s versions of CW is that Hale’s record reflects a variety of the language more associated with the foreign presence at Fort Vancouver; while Townsend’s record reflects a variety of the language more associated with indigenous (primarily Chinookan-speaking) people of the lower Columbia. There is actually some supporting internal evidence for this surmise in the two versions of Hale’s sketch.	page 3
+§2	Henry Zenk	note	Sentences (1) and (2) are from the draft list of sentences labeled “from Mr. Townsend.” Like most of the 27 examples listed, Hale did not publish them. I supply interlinear glosses based on my own familiarity with later sources.2	page 3
+footnote 2	Henry Zenk	note	Where source transcriptions are sufficiently accurate, I provide italicized simplified respellings of Chinuk Wawa and Chinookan forms, following (for Chinuk Wawa) Chinuk Wawa Dictionary Project (2012) and (for Chinookan) the Chinookan phonemic alphabet in volume 7 of the Handbook of North American Indians (The Northwest), except that I use χ instead of x̣ for the uvular fricative.	page 3, footnote 2
+(1) line 1	Chinuk Wawa	transcription	Kanséct t’kwahli mihtlait kwāpa maika ilēhi	page 3
+(1) line 2	Chinuk Wawa	gloss	extent? house be-there PREP thy place	page 3
+(1) line 3	Henry Zenk	translation	How many houses are in your town?	page 3, the source's translation, after its label source translation:
+(2) line 1	Chinuk Wawa	transcription	naika mamuk kikwili naika kɞ̆nawi íkata	page 3
+(2) line 2	Chinuk Wawa	gloss	I CAUS-down my every-thing	page 3
+(2) line 3	Chinuk Wawa	transcription	kwāpa naika tílkʊmmama;	page 3
+(2) line 4	Chinuk Wawa	gloss	PREP my father	page 3
+(2) line 5	Chinuk Wawa	transcription	iáhka mímalust ɞ̆nakati klōn ōtlā	page 3
+(2) line 6	Chinuk Wawa	gloss	he die ago three day	page 3
+(2) line 7	Henry Zenk	translation	I have buried all my property with my father who died three days ago.	page 3, the source's translation, after its label source translation:
+§2	Henry Zenk	note	Both of these examples appear to presuppose a Native context. Example (1) would probably only be queried of a Native. And the words given for ‘house’ and for ‘day’ are from Chinookan, where Hale’s published list shows “haus” for the first and “sŭn” for the second (Appendix: house, day: also, note that while Hale’s draft glosses both ‘day’ and ‘sun’ as “sʊn, (T otlah)”, his published sketch drops “otlah” for ‘day’ but keeps it as a synonym for ‘sun’). Example (2) appears to show Native cultural content, albeit it may have been supplied by Townsend himself, not directly by a lower Columbia Native.	page 3
+§2	Henry Zenk	note	The following two examples show the same sentence from Hale: (3) as published; (4) as appearing in draft. Conventions as for (1) and (2) above.	page 4
+(3) line 1	Chinuk Wawa	transcription	nŭsaika sáleks masátsi-tilikŭm / Klon nŭsaika kākshatl	page 4
+(3) line 2	Chinuk Wawa	gloss	we fight bad-people three we destroy	page 4
+(3) line 3	Henry Zenk	translation	We fought the enemy (bad people). We killed three.	page 4, the source's translation, after its label source translation:
+(4) line 1	Chinuk Wawa	transcription	nsaika sáleks Masátsi tilíkam, klon nsaika kakcat	page 4
+(4) line 2	Chinuk Wawa	gloss	we fight bad-people three we destroy	page 4
+(4) line 3	Henry Zenk	translation	We fought the Blackfeet & killed three.	page 4, the source's translation, after its label source translation:
+§2	Henry Zenk	note	Note Hale’s normalized respellings and edited translation in (3). Note also that at the time of Hale’s visit to Fort Vancouver, the Hudson Bay Company was engaged in protracted conflict with the Blackfeet in Montana and Alberta, very far removed from Fort Vancouver on the lower Columbia River. This conflict is far more likely to have involved company employees than local Indians. Hence, the sentence (which may very well represent a local source, since Hale says his examples were written down “as heard from the natives and others”) is much more likely to have been from a fur-company employee than from a local Native.	page 4
+§2	Henry Zenk	note	The following further two examples juxtapose one of the sentences attributed to Townsend in Hale’s draft (5); against a near-match in his published sketch (6):	page 4
+(5) line 1	Chinuk Wawa	transcription	íkata pʊs wēk maika klátawa kɞ̆kcutl mauitc	page 4
+(5) line 2	Chinuk Wawa	gloss	what? for not thou go destroy deer	page 4
+(5) line 3	Chinuk Wawa	transcription	pi mákuk sʊ́kwalal.	page 4
+(5) line 4	Chinuk Wawa	gloss	and buy gun	page 4
+(5) line 5	Henry Zenk	translation	Why don’t you go & kill deer & buy a gun?	page 4, the source's translation, after its label source translation:
+(6) line 1	Chinuk Wawa	transcription	Ikăta maika wek klátawa kăkshatl ina,	page 4
+(6) line 2	Chinuk Wawa	gloss	*qata thou not go destroy beaver	page 4
+(6) line 3	Chinuk Wawa	gloss	*how?	page 4
+(6) line 4	Chinuk Wawa	transcription	alke maika makok mǔskit?	page 4
+(6) line 5	Chinuk Wawa	gloss	later thou buy gun	page 4
+(6) line 6	Henry Zenk	translation	Why dost thou not go and kill beaver, and buy a gun?	page 4, the source's translation, after its label source translation:
+(6) line 7	Henry Zenk	citation	(Hale 1846:645)	page 4, under the translation
+§2	Henry Zenk	note	It seems unlikely that (5) and (6) were obtained wholly independently; however, they both appear in the draft (in different sections), leaving it uncertain how they are related. The word for ‘gun’ in sentence (5) is from Chinookan, that in sentence (6) is from English (Appendix: gun). Although ‘deer’ in (5) is from Nootka Jargon (vs Chinookan-derived ‘beaver’ in (6)), Townsend (1835) shows the same word not only as “mixed” language, but as “Chenook” language as well. The placement of the negative adverb wek in between subject pronoun and verb in (6) is more characteristic of English-speaking users of the language, versus the more typical indigenous word-order in (5). But what is really telling about these two examples is Hale’s evident misconstrual of “Ikăta” as qata ‘how?, why?’ in (6). It is clear elsewhere from his grammar sketch that Hale confuses ikta ‘what?’ and qata ‘how?, why?’, which are clearly different words in local Native varieties, conflating them to create a single word “Ikăta” translated ‘what?, why?’ (see Appendix: what). It is very unlikely that any local indigenous-language speaker would conflate two such obviously different-sounding words (section 3 below); but an English speaker easily could. Townsend’s “Ikata pus” is a much more plausible interrogative in this context: cf. Grand Ronde CW ikta-pus ‘whatever for?’ (variant of pus-ikta ‘for what?, why?’; Chinuk Wawa Dictionary Project 2012).	page 4
+§2	Henry Zenk	note	Lacking an account of Townsend’s Native sources, and most crucially, how he managed the potentially difficult task of communicating his intentions and working with them, it is by no means clear to what extent his “mixed”-language word-list can be taken as an accurate reflection of register and dialect variation in 1830s-period lower Columbia CW. That there indeed was a contemporaneous “Jargon” variety showing a stronger Chinookan impress than the one described by Hale, is hinted at by Hale himself—in another passage left out of the published sketch.	page 5
+§2	Henry Zenk	note	It should also be noted that the Methodist missionaries established among the Chinooks,—finding the language of that people very difficult of acquisition are accustomed to preach in the Jargon, & have composed hymns in this dialect, which are sung to our common church melodies. As these compositions, however, contain many Chinook words which do not properly belong to the trade-language, they would not be good specimens of its powers	page 5, a quotation set off from the text
+§2	Henry Zenk	citation	(Hale ca. 1841:n. p.).	page 5, the source of the quotation
+§2	Henry Zenk	note	And is it not unlikely that upon examining his examples from Townsend in detail, Hale revised his initial impression that “the words & phrases with which he furnished me (the former comprising nearly the whole stock of the idiom) were found to agree very closely with those in my vocabulary”? From his point of view, much of Townsend’s “mixed” language would appear, rather, to consist of “Chinook words which do not properly belong to the trade-language.” There may remain yet more to be learned about Townsend’s “mixed” language and Hale’s evident dismissal of it. According to Ives Goddard (personal communication 2011), there are papers from both men at the Library of Congress; while Townsend also has papers at the American Philosophical Society. These all remain to be thoroughly sorted out and evaluated.	page 5
+§2	Henry Zenk	name	Ives Goddard	personal communication 2011
+§3	Henry Zenk	heading	3 Chinuk Wawa versus Chinookan	page 5
+§3	Henry Zenk	note	One of the striking features of the CW in historical use between speakers of English and French, on the one hand, and speakers of lower Columbia indigenous languages, on the other, is the prevalence of phonetic distortions in original source-language word-forms, induced by each side’s tendency to bend the opposite side’s phonologies closer to norms more familiar to itself. Hale was the first linguist to comment on this phenomenon. According to him, the phonology of “Jargon” is really a compromise:	page 5
+§3	Henry Zenk	note	As the Jargon is to be spoken by Chinooks, Englishmen, and Frenchmen, so as to be alike easy and intelligible to all, it must admit no sound which cannot be readily pronounced by all three. The gutturals of the Tshinuk (χ and q) are softened to h and k; tχl becomes kl at the beginning of a word, and tl at the end; … thus we have tŭkéh for tʊ̆qéχ …, klosh for tχlōŏsh . . .	page 6, a quotation set off from the text
+§3	Henry Zenk	citation	(Hale 1846:640).	page 6, the source of the quotation
+§3	Chinookan	cited form	χ	page 6, in italics
+§3	Chinookan	cited form	tχl	page 6, in italics
+§3	Chinuk Wawa	cited form	tŭkéh	page 6, in italics
+§3	Chinookan	cited form	tʊ̆qéχ	page 6, in italics
+§3	Chinuk Wawa	cited form	tχlōŏsh	page 6, in italics
+§3	Henry Zenk	note	Hale (ca. 1841) and Townsend (1835) reveal a more nuanced picture of Fort Vancouver-era CW. Not only does Townsend (1835) show more Chinookan content than Hale; he also alludes to (“guttural”, “squeaking” etc.) Chinookan phonetic features. Hale’s “guttural” “χ” and “q” both occasionally appear in his ca. 1841 spellings of CW words, where he uses the same phonetic alphabet for CW that he uses for indigenous languages. For example, the phrase spelled “wēkt ikt sŭn” (glossed ‘one more day, again one day’) in Hale (1846:642) appears in the draft as “wéχt íχt sʊn”. He evidently normalized his 1846 spellings to reflect the rule stated above. In lower Columbia Indian CW, words of local indigenous origin retain original “χ” (corresponding to modern Americanist x, χ), “q” (q, kʼ, qʼ), and “tχl” (ɬ, ƛ, ƛʼ), as the comparisons collated in the Appendix show.	page 6
+§3	Chinuk Wawa	cited form	x, χ	page 6, in italics
+§3	Chinuk Wawa	cited form	q, kʼ, qʼ	page 6, in italics
+§3	Chinuk Wawa	cited form	ɬ, ƛ, ƛʼ	page 6, in italics
+§3	Henry Zenk	note	Very odd indeed is Hale’s choice of the item “klōsh ~ tχlōŏsh” (Appendix: good) to illustrate his rule. This could not be a case of Chinooks, Englishmen, and Frenchmen compromising to eliminate Chinookan “gutterals”: the item is from the Nootkan-contributed part of the CW lexicon, known to have been introduced by predominantly English-speaking seafarers. Hale has inadvertently provided evidence that “Chinooks” assimilated an originally indigenous word (cf. Nootka Nootkan ƛuɬ ‘pretty, handsome’), introduced to the lower Columbia in distorted form by English-speaking seafarers (cf. Nootka Jargon klush ‘good, pretty’), thereby yielding the “nativized” lower Columbia pronunciation recorded by Hale and preserved (in the usual form ɬuš ‘good’) down to the present day (Chinuk Wawa Dictionary Project 2012:148).	page 6
+§3	Nootkan	cited form	ƛuɬ	page 6, in italics, ‘pretty, handsome’
+§3	Chinuk Wawa	cited form	ɬuš	page 6, in italics, ‘good’
+§3	Henry Zenk	note	One of the most interesting features of Townsend’s two 1835 lists (including the “Chenook tribe” vocabulary along with the “mixed”-language list: the two are not neatly divisible into distinct linguistic varieties) is its paucity of vocabulary items assignable to Nootka Jargon, English, and French, all well represented in later records of CW. That paucity is also apparent in phrasal constructions appearing in the two lists, because these show no verbal compounds formed using the Nootka-derived auxiliary elements mamuk- ‘cause to be’ and chaku- ‘get to be’ (although the sentences attributed to Townsend by Hale do show some such sentences: e.g. example (2) above). These happen to be two of the most frequently occurring grammatical elements in later records of the language. In a number of the examples discussed in section 5 below, Townsend appears rather to depend on Chinookan models, either attempted complete or reproduced in simplified form—as expanded upon in the next section.	page 6
+§3	Chinuk Wawa	cited form	mamuk-	page 6, in italics, ‘cause to be’
+§3	Chinuk Wawa	cited form	chaku-	page 6, in italics, ‘get to be’
+§4	Henry Zenk	heading	4 Morphologically simplified Chinookan	page 6
+§4	Henry Zenk	note	According to the grammars, there are two basic sentence types in Chinookan:	page 6
+§4	Henry Zenk	note	The verbal sentence, consisting minimally of a verbal stem inflected for tense/aspect and person. This minimum core may be expanded through the addition of apposed nouns, particles, and independent pronouns.	page 7, an item of a bulleted list
+§4	Henry Zenk	note	The nominal sentence, consisting minimally of a nominal stem inflected for gender and number. An inflected noun may also be used to explicate a subject or object appearing in a verbal sentence. The number-gender (N/G) and/or possessive (POSS) markers of a noun so used agree with any relevant person markers appearing in the verb.	page 7, an item of a bulleted list
+§4	Henry Zenk	note	While a Chinookan verbal sentence is supposed to have an inflected verb, and while Chinookan nouns are supposed to appear invariably inflected, occasional exceptions can be spotted in the Chinookan text corpus, e.g. (pcl: particle; n: noun; v: verb):	page 7
+(7) line 1	Lower Chinook	segmentation	mɑ́niχ ɬ‑ʔɑ́gil tqʼiχ ɬɑ́‑kikɑl	page 7
+(7) line 2	Henry Zenk	note	(pcl) (n) (pcl) (n)	page 7, the word class of each word over it
+(7) line 3	Lower Chinook	gloss	when a woman loves her husband	page 7
+(7) line 4	Lower Chinook	segmentation	qʷɑp ɑ‑ɬ‑ú‑mǝqt‑χ	page 7
+(7) line 5	Henry Zenk	note	(pcl) (v)	page 7, the word class of each word over it
+(7) line 6	Lower Chinook	gloss	nearly she dies	page 7
+(7) line 7	Henry Zenk	translation	‘When a woman loves her husband and she is near death’	page 7
+(7) line 8	Henry Zenk	citation	(respelled from Boas 1894:253.17).	page 7, the source at the right of the translation
+§4	Henry Zenk	note	The nouns ɬ‑ʔɑ́gil and ɬɑ́‑kikɑl show the neuter/collective N/G and poss prefixes ɬ‑, ɬɑ‑, used here to refer to an indefinite subject; these agree with the person prefix ɬ‑ (third person neuter/collective) on the main-clause verb ‑mǝqt. The clause segregated on the first line contains a verbal particle (tqʼiχ ‘love’), but not an inflected verb. Compare:	page 7
+§4	Lower Chinook	cited form	ɬ‑ʔɑ́gil	page 7, in italics
+§4	Lower Chinook	cited form	ɬɑ́‑kikɑl	page 7, in italics
+§4	Lower Chinook	cited form	ɬ‑	page 7, in italics
+§4	Lower Chinook	cited form	ɬɑ‑	page 7, in italics
+§4	Lower Chinook	cited form	‑mǝqt	page 7, in italics
+§4	Lower Chinook	cited form	tqʼiχ	page 7, in italics, ‘love’
+(8) line 1	Lower Chinook	segmentation	tqʼix ɑ‑gǝ́‑ɬ‑ɑ‑χ ɬ‑gɑ́‑xiwisx	page 7
+(8) line 2	Henry Zenk	note	(pcl) (v) (n)	page 7, the word class of each word over it
+(8) line 3	Lower Chinook	gloss	like she does (to) it her dog	page 7
+(8) line 4	Henry Zenk	translation	‘She likes her dog’	page 7
+(8) line 5	Henry Zenk	citation	(respelled from Boas 1894:43.19).	page 7, the source at the right of the translation
+§4	Henry Zenk	note	Here, the auxiliary verb ‑χ ‘to do, make, be, act, become’ (the usual accompaniment of a verbal particle in all Chinookan dialects) shows the person markers g- (feminine singular subject) and ɬ- (neuter object), the former agreeing with POSS gɑ‑ and the latter with N/G ɬ- on the noun ‑kiwisx (the remaining prefix positions are occupied by a tense-aspect marker in the first position, and a directive prefix immediately preceding the verb stem). For all I know (not being a Chinookan expert), the fact that tqʼiχ occurs in a subordinate clause in (7) may constitute an exception to the rule that a verbal particle must be paired with an inflected verb. But this is beside the point: the subject-object and tense/aspect relations of the clause must still be gathered from the context and the clause’s four content words.	page 7
+§4	Lower Chinook	cited form	‑χ	page 7, in italics, ‘to do, make, be, act, become’
+§4	Lower Chinook	cited form	g-	page 7, in italics
+§4	Lower Chinook	cited form	ɬ-	page 7, in italics
+§4	Lower Chinook	cited form	gɑ‑	page 7, in italics
+§4	Lower Chinook	cited form	‑kiwisx	page 7, in italics
+§4	Henry Zenk	note	Example (9) shows a noun missing its proper N/G prefix: ‑kúsɑit ‘mink’ should have a masculine singular N/G prefix, agreeing with the third-person masculine singular person prefix i‑ on the verb; χ‑ is a reflexive prefix.	page 8
+§4	Kathlamet	cited form	‑kúsɑit	page 8, in italics, ‘mink’
+§4	Kathlamet	cited form	i‑	page 8, in italics
+§4	Kathlamet	cited form	χ‑	page 8, in italics
+(9) line 1	Kathlamet	segmentation	ig‑i‑χ‑gúɬi‑čk kúsɑit	page 8
+(9) line 2	Kathlamet	gloss	he said Mink	page 8
+(9) line 3	Henry Zenk	translation	‘Mink said, . . .’	page 8
+(9) line 4	Henry Zenk	citation	(respelled from Boas 1901:23.13).	page 8, the source at the right of the translation
+§4	Henry Zenk	note	Compare:	page 8
+(10) line 1	Kathlamet	segmentation	š‑χ‑i‑lɑ́it‑ix i‑kúsɑit kʼɑ í‑iɑ‑lxt	page 8
+(10) line 2	Kathlamet	gloss	they-two be with him Mink and his older brother	page 8
+(10) line 3	Henry Zenk	translation	‘There was Mink and his older brother’	page 8
+(10) line 4	Henry Zenk	citation	(respelled from Boas 1901:103.1).	page 8, the source at the right of the translation
+§4	Henry Zenk	note	Here, the person marker š‑ (dual) is followed by a relational prefix (χ‑) and the person marker i‑ (third person masculine singular, indirect object). i‑ in turn agrees with the N/G prefix i‑ on the noun ‑kusɑit, and the POSS prefix iɑ‑ on the noun ‑lxt. ‑lxt is also a masculine noun, hence shows the i‑ N/G prefix.	page 8
+§4	Kathlamet	cited form	š‑	page 8, in italics
+§4	Kathlamet	cited form	‑kusɑit	page 8, in italics
+§4	Kathlamet	cited form	iɑ‑	page 8, in italics
+§4	Henry Zenk	note	The two kinds of simplification illustrated by examples (7) and (9) are both characteristic of the Chinookan-derived portion of the CW lexicon:	page 8
+§4	Henry Zenk	note	The basic CW lexicon as known from the mid-nineteenth century on includes many Chinookan verbal particles (including the particle tqʼiχ, tqʼix ‘like, love, want’; frequently heard as tiki). In CW, these function either as full verbs; or as constituents of verbal compounds formed with the Nootka-Jargon derived auxiliaries mɑmuk- ‘cause to be’ and čaku- ‘get to be’ (some can function as both).	page 8, an item of a bulleted list
+§4	Chinuk Wawa	cited form	tqʼiχ, tqʼix	page 8, in italics, ‘like, love, want’
+§4	Chinuk Wawa	cited form	mɑmuk-	page 8, in italics, ‘cause to be’
+§4	Chinuk Wawa	cited form	čaku-	page 8, in italics, ‘get to be’
+§4	Henry Zenk	note	Chinookan N/G and POSS prefixes are usually dropped in CW when the prefixes occur unstressed in Chinookan; but are usually retained when the prefixes occur stressed in Chinookan.	page 8, an item of a bulleted list
+§4	Henry Zenk	note	Examples (11) and (12) show two CW sentences from the Catholic missionary corpus, both with CW words derived from Chinookan particles. Example (13) illustrates the rule for retaining or dropping Chinookan N/G and POSS prefixes in CW.	page 8
+(11) line 1	Chinuk Wawa	transcription	Tlush nsaïka tiĸeǀ˞ iaka	page 8
+(11) line 2	Chinuk Wawa	gloss	should we love him	page 8
+(11) line 3	Henry Zenk	translation	‘We should love Him’	page 8
+(11) line 4	Henry Zenk	citation	(Demers et al. 1871:45; cf. tqʼiχ/tqʼix above).	page 8, the source at the right of the translation
+(12) line 1	Chinuk Wawa	transcription	Sesu Kli iaka mamuk Maliash pus mamuk ĸao	page 8
+(12) line 2	Chinuk Wawa	gloss	Jesus Ch he make marriage to make-tied	page 8
+(12) line 3	Chinuk Wawa	transcription	iǀ˞t man pi iǀ˞t tluchmen	page 8
+(12) line 4	Chinuk Wawa	gloss	one man and one woman	page 8
+(12) line 5	Henry Zenk	translation	‘Jesus Christ instituted Marriage to join one man and one woman’	page 8
+(12) line 6	Henry Zenk	citation	(Demers et al. 1871ː65; kʼɑu ‘tied’ is from a Chinookan verbal particle).	page 8, the source at the right of the translation
+(13) line 1	Henry Zenk	note	Chinuk Wawa Chinookan	page 9, heads the columns
+(13) line 2	Chinuk Wawa	transcription	kʼɑ́inuɬ	page 9, the Chinuk Wawa column
+(13) line 3	Chinookan	segmentation	i‑kʼɑ́inuɬ	page 9, the Chinookan column
+(13) line 4	Henry Zenk	translation	tobacco	page 9
+(13) line 5	Chinuk Wawa	transcription	ícχut	page 9, the Chinuk Wawa column
+(13) line 6	Chinookan	segmentation	i‑ʔíčχut	page 9, the Chinookan column
+(13) line 7	Henry Zenk	translation	black bear	page 9
+(13) line 8	Chinuk Wawa	transcription	cúq	page 9, the Chinuk Wawa column
+(13) line 9	Chinookan	segmentation	ɬ‑čúq	page 9, the Chinookan column
+(13) line 10	Henry Zenk	translation	water	page 9
+(13) line 11	Chinuk Wawa	transcription	tílixɑm	page 9, the Chinuk Wawa column
+(13) line 12	Chinookan	segmentation	tí‑lxɑm	page 9, the Chinookan column
+(13) line 13	Henry Zenk	translation	people	page 9
+(13) line 14	Chinuk Wawa	transcription	siyɑ́xus(t)	page 9, the Chinuk Wawa column
+(13) line 15	Chinookan	segmentation	š‑iɑ́‑χušt	page 9, the Chinookan column
+(13) line 16	Henry Zenk	note	(his...)	page 9, beside the Chinookan word
+(13) line 17	Henry Zenk	translation	eyes	page 9
+§5	Henry Zenk	heading	5 Evidence of simplified Chinookan in Townsend’s “mixed” language and “Chenook tribe” word-lists	page 9
+§5	Henry Zenk	note	I was able to make varying degrees of sense of about half of the phrases appearing in Townsend’s two lists (the mixed language list and the Chenook list). No doubt, more could be done with the remainder, although it is difficult to imagine all of these examples yielding up their secrets—Townsend’s handwriting is not easy to make out; and as a glance at his spellings reproduced below will show, he was no systematic linguist.	page 9
+§5	Henry Zenk	note	Examples (14)–(17) show word forms and sentence patterns identical to those of the CW of later record, as shown by the accompanying CW comparisons (spellings and glosses adapted from Chinuk Wawa Dictionary Project 2012). All of these are from the “mixed” language list. In addition, the 27 phrases and sentences attributed to Townsend in Hale (ca. 1841) fall into this category: see examples (1), (2), (5) above.	page 9
+(14) line 1	Chinuk Wawa	transcription	nika cumatax mica	page 9, Townsend's phrase, from the mixed language list
+(14) line 2	Henry Zenk	translation	I understand you.	page 9, Townsend's English
+(14) line 3	Henry Zenk	note	(cf. CW:)	page 9, heads the comparison under it
+(14) line 4	Chinuk Wawa	transcription	nayka kəmtəks mayka	page 9
+(14) line 5	Chinuk Wawa	gloss	I understand thee	page 9
+(15) line 1	Chinuk Wawa	transcription	Icita mica nonnaneech	page 9, Townsend's phrase, from the mixed language list
+(15) line 2	Henry Zenk	translation	what do you see?	page 9, Townsend's English
+(15) line 3	Henry Zenk	note	(cf. CW:)	page 9, heads the comparison under it
+(15) line 4	Chinuk Wawa	transcription	iktɑ mɑikɑ (nɑ)nɑnič	page 9
+(15) line 5	Chinuk Wawa	gloss	what? thou see	page 9
+(16) line 1	Chinuk Wawa	transcription	nika hiass tekay	page 9, Townsend's phrase, from the mixed language list
+(16) line 2	Henry Zenk	translation	I desire it very much	page 9, Townsend's English
+(16) line 3	Henry Zenk	note	(cf. CW:)	page 9, heads the comparison under it
+(16) line 4	Chinuk Wawa	transcription	nɑikɑ hɑyɑš tiki	page 9
+(16) line 5	Henry Zenk	note	(var. of tqʼiχ)	page 9, beside the form
+(16) line 6	Chinuk Wawa	gloss	I greatly want	page 9
+(17) line 1	Chinuk Wawa	transcription	nika tekay nonnaneech yaka	page 9, Townsend's phrase, from the mixed language list
+(17) line 2	Henry Zenk	translation	I want to see it	page 9, Townsend's English
+(17) line 3	Henry Zenk	note	(cf. CW:)	page 9, heads the comparison under it
+(17) line 4	Chinuk Wawa	transcription	nɑikɑ tiki (nɑ)nɑnič yɑkɑ	page 9
+(17) line 5	Chinuk Wawa	gloss	I want see him/her/it	page 9
+§5	Henry Zenk	note	Examples (18)–(20), although they too are from the “mixed”-language list, suggest models with Chinookan inflected verbs, albeit less than clearly reproduced. The surmise that Chinookan inflected verbs are present is supported with reference to accompanying examples from the Chinookan text corpus, parsed following Boas (1911), Dyk (1933), Hymes (1955). I make no claim to being a Chinookan expert, hence, refrain from trying to provide correct Chinookan glosses corresponding to Townsend’s spellings.	page 10
+§5	Henry Zenk	name	Boas	Franz Boas, Chinook texts (1894), Kathlamet texts (1901) and Chinook (1911)
+§5	Henry Zenk	name	Dyk	Walter Dyk, a grammar of Wishram (1933)
+§5	Henry Zenk	name	Hymes	Dell Hymes, the language of the Kathlamet Chinook (1955)
+(18) line 1	Chinuk Wawa	transcription	Kagh egh tenneagho	page 10, Townsend's phrase, from the mixed language list
+(18) line 2	Henry Zenk	translation	love	page 10, Townsend's English
+(18) line 3	Henry Zenk	note	(cf. Chinookan:)	page 10, heads the comparison under it
+(18) line 4	Kathlamet	segmentation	tqʼiχ n‑t‑u‑χ	page 10
+(18) line 5	Kathlamet	gloss	love I do them	page 10
+(18) line 6	Henry Zenk	translation	‘I love them’	page 10
+(18) line 7	Henry Zenk	citation	(respelled from Boas 1901:33.14-14)	page 10, the source at the right of the translation
+(18) line 8	Henry Zenk	note	(literally, ‘love I-them-DIR-do’; “Kagh egh”, which Townsend notes is “very guttural,” is apparently from another Chinookan verbal particle: cf. Wishram kʼaxš ‘to desire’).	page 10
+(19) line 1	Chinuk Wawa	transcription	ʼanacooskaiwal	page 10, Townsend's phrase, from the mixed language list
+(19) line 2	Henry Zenk	translation	to walk	page 10, Townsend's English
+(19) line 3	Henry Zenk	note	(cf. Chinookan:)	page 10, heads the comparison under it
+(19) line 4	Wishram	segmentation	n‑g‑u‑šgíwɑ-l	page 10
+(19) line 5	Henry Zenk	translation	‘I am walking about’	page 10
+(19) line 6	Henry Zenk	citation	(respelled from Sapir 1909:18.13-14).	page 10, the source at the right of the translation
+(20) line 1	Chinuk Wawa	transcription	anācatte you’bukti	page 10, Townsend's phrase, from the mixed language list
+(20) line 2	Henry Zenk	translation	he is killed	page 10, Townsend's English
+(20) line 3	Henry Zenk	note	(cf. Chinookan:)	page 10, heads the comparison under it
+(20) line 4	Wishram	transcription	ɑnqadi(x)	page 10
+(20) line 5	Henry Zenk	translation	‘long ago’	page 10
+(20) line 6	Wishram	segmentation	i‑u‑(w)ɑ́q‑ux	page 10
+(20) line 7	Henry Zenk	translation	‘He is killed’	page 10
+(20) line 8	Henry Zenk	citation	(Dyk 1933ː14).	page 10, the source at the right of the translation
+§5	Henry Zenk	note	The “Chenook” list shows more such examples. Of about 20 such examples that probably represent attempted Chinookan (or Townsend’s attempt to transcribe Chinookan), I find two suggesting ready comparison with examples from the Chinookan corpus. Again, a more thorough examination should yield better results.	page 10
+(21) line 1	Chinookan	transcription	anyouqualle	page 10, Townsend's phrase, from the Chenook list
+(21) line 2	Henry Zenk	translation	I know	page 10, Townsend's English
+(21) line 3	Chinookan	transcription	takanyouqualle	page 10, Townsend's phrase, from the Chenook list
+(21) line 4	Henry Zenk	translation	I know that	page 10, Townsend's English
+(21) line 5	Henry Zenk	note	(cf. Chinookan:)	page 10, heads the comparison under it
+(21) line 6	Kathlamet	segmentation	i‑n‑í‑qəl-kəl	page 10
+(21) line 7	Henry Zenk	translation	‘I saw (became aware of) it’	page 10
+(21) line 8	Henry Zenk	note	(stem ‑kǝl)	page 10, at the right of the translation
+(21) line 9	Henry Zenk	citation	(respelled from Boas 1901:13.9).	page 10, the source at the right of the translation
+(21) line 10	Kathlamet	segmentation	š‑gǝ́‑n‑u‑kǝl	page 10
+(21) line 11	Henry Zenk	translation	‘They know me’	page 10
+(21) line 12	Henry Zenk	citation	(respelled from Boas 1901:117.6).	page 10, the source at the right of the translation
+(22) line 1	Chinookan	transcription	unchala[m]ach	page 11, Townsend's phrase, from the Chenook list
+(22) line 2	Henry Zenk	translation	to eat	page 11, Townsend's English
+(22) line 3	Henry Zenk	note	(cf. Chinookan:)	page 11, heads the comparison under it
+(22) line 4	Kathlamet	segmentation	i‑m‑χə́ləm‑u‑χ	page 11
+(22) line 5	Henry Zenk	translation	‘You eat (this)ǃ’	page 11
+(22) line 6	Henry Zenk	citation	(respelled from Boas 1901:249.4).	page 11, the source at the right of the translation
+(22) line 7	Kathlamet	segmentation	ɑ‑n‑ɑ‑n‑χələm‑ú‑χu‑m‑a	page 11
+(22) line 8	Henry Zenk	translation	‘I will eat it’	page 11
+(22) line 9	Henry Zenk	citation	(respelled from Boas 1901:99.5).	page 11, the source at the right of the translation
+§5	Henry Zenk	note	And of particular interest (as suggesting a simplified or “pidgin” Chinookan), both lists show phrases with Chinookan word-forms, but minus inflections supposed to be obligatory in Chinookan. Examples (23)–(26) are from the “mixed”-language list; examples (27)–(30) are from the “Chenook”-language list. In order not to prejudge these either as incorrect Chinookan or as correct CW, I refrain from citing phrasal comparisons from either language; rather, I simply list matching or near matching word-forms from each.	page 11
+(23) line 1	Chinuk Wawa	transcription	anācatte naicatlcup	page 11, Townsend's phrase, from the mixed language list
+(23) line 2	Henry Zenk	translation	I have killed him	page 11, Townsend's English
+(23) line 3	Henry Zenk	note	(cf. Chinookan:)	page 11, heads the column under it
+(23) line 4	Henry Zenk	note	(cf. CW:)	page 11, heads the column under it
+(23) line 5	Chinookan	transcription	ɑnqadi(x)	page 11, the Chinookan column
+(23) line 6	Henry Zenk	translation	‘long ago’	page 11, the Chinookan column
+(23) line 7	Chinuk Wawa	transcription	anqati	page 11, the CW column
+(23) line 8	Henry Zenk	translation	‘long ago; past’	page 11, the CW column
+(23) line 9	Chinookan	transcription	nɑikɑ	page 11, the Chinookan column
+(23) line 10	Henry Zenk	translation	‘1 SG’	page 11, the Chinookan column
+(23) line 11	Henry Zenk	note	(indep prn)	page 11, the Chinookan column
+(23) line 12	Chinuk Wawa	transcription	naika	page 11, the CW column
+(23) line 13	Henry Zenk	translation	‘1 SG’	page 11, the CW column
+(23) line 14	Chinookan	transcription	ƛqʼup	page 11, the Chinookan column
+(23) line 15	Henry Zenk	translation	‘cut’	page 11, the Chinookan column
+(23) line 16	Henry Zenk	note	(verbal pcl)	page 11, the Chinookan column
+(23) line 17	Chinuk Wawa	transcription	ɬqʼup	page 11, the CW column
+(23) line 18	Henry Zenk	translation	‘cut’	page 11, the CW column
+(23) line 19	Chinookan	transcription	ɬkʼup	page 11, the Chinookan column
+(23) line 20	Henry Zenk	translation	‘burst’	page 11, the Chinookan column
+(23) line 21	Henry Zenk	note	(verbal pcl)	page 11, the Chinookan column
+(23) line 22	Chinuk Wawa	transcription	ɬkʼup	page 11, the CW column
+(23) line 23	Henry Zenk	translation	‘burst’	page 11, the CW column
+(23) line 24	Chinookan	transcription	ƛgup	page 11, the Chinookan column
+(23) line 25	Henry Zenk	translation	‘shoot’	page 11, the Chinookan column
+(23) line 26	Henry Zenk	note	(verbal pcl)	page 11, the Chinookan column
+(24) line 1	Chinuk Wawa	transcription	maica Kagh egh	page 11, Townsend's phrase, from the mixed language list
+(24) line 2	Henry Zenk	translation	You love	page 11, Townsend's English
+(24) line 3	Henry Zenk	note	(cf. Chinookan:)	page 11, heads the column under it
+(24) line 4	Henry Zenk	note	(cf. CW:)	page 11, heads the column under it
+(24) line 5	Chinookan	transcription	mɑikɑ	page 11, the Chinookan column
+(24) line 6	Henry Zenk	translation	‘2 SG’	page 11, the Chinookan column
+(24) line 7	Henry Zenk	note	(indep prn)	page 11, the Chinookan column
+(24) line 8	Chinuk Wawa	transcription	maika	page 11, the CW column
+(24) line 9	Henry Zenk	translation	‘2 SG’	page 11, the CW column
+(24) line 10	Chinookan	transcription	kʼɑxš	page 11, the Chinookan column
+(24) line 11	Henry Zenk	translation	‘desire’	page 11, the Chinookan column
+(24) line 12	Henry Zenk	note	(verbal pcl)	page 11, the Chinookan column
+(25) line 1	Chinuk Wawa	transcription	anācatta Kagh egh	page 11, Townsend's phrase, from the mixed language list
+(25) line 2	Henry Zenk	translation	I have loved	page 11, Townsend's English
+(25) line 3	Henry Zenk	note	(cf. Chinookan:)	page 11, heads the column under it
+(25) line 4	Henry Zenk	note	(cf. CW:)	page 11, heads the column under it
+(25) line 5	Chinookan	transcription	ɑnqadi(x)	page 11, the Chinookan column
+(25) line 6	Henry Zenk	translation	‘long ago’	page 11, the Chinookan column
+(25) line 7	Chinuk Wawa	transcription	anqati	page 11, the CW column
+(25) line 8	Henry Zenk	translation	‘long ago; past’	page 11, the CW column
+(25) line 9	Chinookan	transcription	kʼɑxš	page 11, the Chinookan column
+(25) line 10	Henry Zenk	translation	‘desire’	page 11, the Chinookan column
+(25) line 11	Henry Zenk	note	(verbal pcl)	page 11, the Chinookan column
+(26) line 1	Chinuk Wawa	transcription	alta nika kipallaolal	page 11, Townsend's phrase, from the mixed language list
+(26) line 2	Henry Zenk	translation	I now talk	page 11, Townsend's English
+(26) line 3	Henry Zenk	note	(cf. Chinookan:)	page 11, heads the column under it
+(26) line 4	Henry Zenk	note	(cf. CW:)	page 11, heads the column under it
+(26) line 5	Chinookan	transcription	alta	page 11, the Chinookan column
+(26) line 6	Henry Zenk	translation	‘now’	page 11, the Chinookan column
+(26) line 7	Henry Zenk	note	(adverbial pcl)	page 11, the Chinookan column
+(26) line 8	Chinuk Wawa	transcription	alta	page 11, the CW column
+(26) line 9	Henry Zenk	translation	‘now, then’	page 11, the CW column
+(26) line 10	Chinookan	transcription	nɑikɑ	page 11, the Chinookan column
+(26) line 11	Henry Zenk	translation	‘1 SG’	page 11, the Chinookan column
+(26) line 12	Henry Zenk	note	(indep prn)	page 11, the Chinookan column
+(26) line 13	Chinuk Wawa	transcription	naika	page 11, the CW column
+(26) line 14	Henry Zenk	translation	‘1 SG’	page 11, the CW column
+(26) line 15	Chinookan	segmentation	i-xə́-l-pʼalawəla	page 11, the Chinookan column
+(26) line 16	Henry Zenk	translation	‘he is talking’	page 11, the Chinookan column
+(27) line 1	Chinookan	transcription	Kat eyahale misika okook	page 12, Townsend's phrase, from the Chenook list
+(27) line 2	Henry Zenk	translation	what does your nation call this?	page 12, Townsend's English
+(27) line 3	Henry Zenk	note	(cf. Chinookan:)	page 12, heads the column under it
+(27) line 4	Henry Zenk	note	(cf. CW:)	page 12, heads the column under it
+(27) line 5	Chinookan	transcription	qɑdɑ	page 12, the Chinookan column
+(27) line 6	Henry Zenk	translation	‘how?, what?’	page 12, the Chinookan column
+(27) line 7	Chinuk Wawa	transcription	qata	page 12, the CW column
+(27) line 8	Henry Zenk	translation	‘how?, what?’	page 12, the CW column
+(27) line 9	Chinookan	segmentation	i‑iá‑χɑl	page 12, the Chinookan column
+(27) line 10	Henry Zenk	translation	‘his name’	page 12, the Chinookan column
+(27) line 11	Chinuk Wawa	transcription	yáχɑl(i)	page 12, the CW column
+(27) line 12	Henry Zenk	translation	‘name’	page 12, the CW column
+(27) line 13	Chinookan	transcription	mšɑikɑ	page 12, the Chinookan column
+(27) line 14	Henry Zenk	translation	‘2 PL’	page 12, the Chinookan column
+(27) line 15	Henry Zenk	note	(indep prn)	page 12, the Chinookan column
+(27) line 16	Chinuk Wawa	transcription	m(ə)saika	page 12, the CW column
+(27) line 17	Henry Zenk	translation	‘2 PL’	page 12, the CW column
+(27) line 18	Chinookan	transcription	ukuk	page 12, the Chinookan column
+(27) line 19	Henry Zenk	translation	‘DEM	page 12, the Chinookan column
+(27) line 20	Chinuk Wawa	transcription	’ukuk	page 12, the CW column
+(27) line 21	Henry Zenk	translation	‘this, that’	page 12, the CW column
+(28) line 1	Chinookan	transcription	masatche mika eken ujamala mik[a]	page 12, Townsend's phrase, from the Chenook list
+(28) line 2	Henry Zenk	translation	you are a rascal	page 12, Townsend's English
+(28) line 3	Henry Zenk	note	(cf. Chinookan:)	page 12, heads the column under it
+(28) line 4	Henry Zenk	note	(cf. CW:)	page 12, heads the column under it
+(28) line 5	Henry Zenk	note	cf.?	page 12, the Chinookan column, set before the form
+(28) line 6	Chinookan	transcription	masáčiɬ	page 12, the Chinookan column
+(28) line 7	Henry Zenk	translation	‘pretty’	page 12, the Chinookan column
+(28) line 8	Henry Zenk	note	(pcl)	page 12, the Chinookan column
+(28) line 9	Chinuk Wawa	transcription	masači	page 12, the CW column
+(28) line 10	Henry Zenk	translation	‘bad, mean’	page 12, the CW column
+(28) line 11	Chinookan	transcription	mɑikɑ	page 12, the Chinookan column
+(28) line 12	Henry Zenk	translation	‘2 SG’	page 12, the Chinookan column
+(28) line 13	Henry Zenk	note	(indep prn)	page 12, the Chinookan column
+(28) line 14	Chinuk Wawa	transcription	maika	page 12, the CW column
+(28) line 15	Henry Zenk	translation	‘2 SG’	page 12, the CW column
+(28) line 16	Chinookan	transcription	ikun	page 12, the Chinookan column
+(28) line 17	Henry Zenk	translation	‘CONJ’	page 12, the Chinookan column
+(28) line 18	Chinookan	segmentation	i‑iɑ́‑məlɑ	page 12, the Chinookan column
+(28) line 19	Henry Zenk	translation	‘his badness’	page 12, the Chinookan column
+(29) line 1	Chinookan	transcription	ulke tokte mika	page 12, Townsend's phrase, from the Chenook list
+(29) line 2	Henry Zenk	translation	you will soon be well	page 12, Townsend's English
+(29) line 3	Henry Zenk	note	(cf. Chinookan:)	page 12, heads the column under it
+(29) line 4	Henry Zenk	note	(cf. CW:)	page 12, heads the column under it
+(29) line 5	Chinookan	transcription	ɑɬqi	page 12, the Chinookan column
+(29) line 6	Henry Zenk	translation	‘later’	page 12, the Chinookan column
+(29) line 7	Henry Zenk	note	(pcl)	page 12, the Chinookan column
+(29) line 8	Chinuk Wawa	transcription	aɬqi	page 12, the CW column
+(29) line 9	Henry Zenk	translation	‘later, in the future’	page 12, the CW column
+(29) line 10	Chinookan	transcription	tʼukdi	page 12, the Chinookan column
+(29) line 11	Henry Zenk	translation	‘good’	page 12, the Chinookan column
+(29) line 12	Henry Zenk	note	(n, pcl)	page 12, the Chinookan column
+(29) line 13	Chinuk Wawa	transcription	tʼukti	page 12, the CW column
+(29) line 14	Henry Zenk	translation	‘good’3	page 12, the CW column, carries footnote 3
+footnote 3	Henry Zenk	note	Appearing only in some early word-lists; not part of CW as spoken from the mid- nineteenth century on.	page 12, footnote 3
+(29) line 15	Chinookan	transcription	mɑikɑ	page 12, the Chinookan column
+(29) line 16	Henry Zenk	translation	‘2 SG’	page 12, the Chinookan column
+(29) line 17	Henry Zenk	note	(indep prn)	page 12, the Chinookan column
+(29) line 18	Chinuk Wawa	transcription	maika	page 12, the CW column
+(29) line 19	Henry Zenk	translation	‘2 SG’	page 12, the CW column
+(30) line 1	Chinookan	transcription	taktayacha	page 12, Townsend's phrase, from the Chenook list
+(30) line 2	Henry Zenk	translation	he got better	page 12, Townsend's English
+(30) line 3	Henry Zenk	note	(cf. Chinookan:)	page 12, heads the column under it
+(30) line 4	Henry Zenk	note	(cf. CW:)	page 12, heads the column under it
+(30) line 5	Chinookan	transcription	tʼukdi	page 12, the Chinookan column
+(30) line 6	Henry Zenk	translation	‘good’	page 12, the Chinookan column
+(30) line 7	Henry Zenk	note	(n, pcl)	page 12, the Chinookan column
+(30) line 8	Chinuk Wawa	transcription	tʼukti	page 12, the CW column
+(30) line 9	Henry Zenk	translation	‘good’	page 12, the CW column
+(30) line 10	Henry Zenk	note	?	page 12, the Chinookan column, set before the form
+(30) line 11	Chinookan	transcription	iɑχkɑ	page 12, the Chinookan column
+(30) line 12	Henry Zenk	translation	3 SG MASC	page 12, the Chinookan column
+(30) line 13	Henry Zenk	note	(indep prn)	page 12, the Chinookan column
+(30) line 14	Chinuk Wawa	transcription	yɑ(χ)kɑ	page 12, the CW column
+(30) line 15	Henry Zenk	translation	‘3 SG’	page 12, the CW column
+(30) line 16	Henry Zenk	note	?	page 12, the Chinookan column, set before the form
+(30) line 17	Chinookan	segmentation	i-χ-a	page 12, the Chinookan column
+(30) line 18	Henry Zenk	translation	‘make it’	page 12, the Chinookan column
+§5	Henry Zenk	note	Going by the criteria set forth in the Chinookan grammars: (23)–(25) (and probably, (27)) should have inflected verbs; what may be a Chinookan gerund in (26) (-ki- is an intransitivizing prefix used to form gerunds) appears to lack a subject prefix, and what appears to be an inflected noun in (28) does not agree with the subject pronoun to which it is paired; ‘good’ in (29–(30) could be a noun, in which case it should be inflected, or a verbal particle, in which case it needs an accompanying inflected verb (doubtfully, it may have one in (30)).	page 12
+§6	Henry Zenk	heading	6 Concluding note	page 12
+§6	Henry Zenk	note	Some of Townsend’s “mixed”-language sentences are clearly identifiable as CW, while some of his “Chenook” sentences at least suggest (without necessarily exemplifying) “good” Chinookan. At the same time, the “Chenook” list also shows examples of CW-looking constructions lacking obligatory Chinookan inflections; while the “mixed”-language list shows examples of Chinookan- looking inflections not later met with in CW. In any case, Chinookan inflections are either badly garbled by Townsend, who appears not to have had a clue to their grammatical functions; or they are dropped altogether. Assuming that Townsend was a reasonably apt transcriber, the dropping of Chinookan inflections in most if not all of his examples is most likely to be attributed to his Native source or sources. Presumably, their motivation in doing so was to produce a simplified Chinookan, one that they thought could be more easily understood by a foreigner than “straight” Chinookan would be. What is especially interesting is that their strategies for doing so, insofar as revealed by these examples (which, notwithstanding their fragmentary nature, do add significantly to the very slight previous historical record of early cross-language communication on the lower Columbia) result in word-orders suggestive of the CW of late-nineteenth and twentieth-century record—pronoun-subject preceding an active verb: (23), (24), (26); pronoun subject following a predicate-adjective (or predicate- noun): (28) and (29), and probably, (30); adverbial elements usually coming clause-first: (23), (26), (27), (29) (CW Dictionary Project 2012:30–51).	page 12
+§6	Henry Zenk	note	No doubt, the CW word-orders evident in Townsend’s examples could also reflect, at least to some extent, his Native source(s)’ familiarity with the CW of the period. But as I have noted, expected Chinookan inflections are occasionally dropped even in Chinookan, judging by examples in the Chinookan text corpus. While CW and Chinookan are clearly very different orders of language, the “line” between them is not necessarily always sharply etched. This is especially so in the earliest sources documenting both varieties—among which Townsend's vocabulary receives attention for the first time here.	page 13
+§6	Henry Zenk	note	It is this fuzzy line between Chinookan and CW revealed by this and other early sources, taken in conjunction with the largely intact Chinookan word-forms characterizing the CW of later record, that has led me to my own perspective on the much disputed genesis of CW (see Thomason 1983, Samarin 1986, 1996, Grant 1996, Lang 2008:55–121 for other perspectives). This perspective is summed up in the following passage from a contribution by Tony Johnson and myself to a recent collection of essays on Chinookan culture and history.	page 13
+§6	Henry Zenk	name	Thomason	Sarah Thomason (1983)
+§6	Henry Zenk	name	Samarin	William Samarin (1986, 1996)
+§6	Henry Zenk	name	Grant	Anthony Grant (1996)
+§6	Henry Zenk	name	Tony Johnson	Zenk and Johnson 2013
+§6	Henry Zenk	note	One striking feature of Chinuk Wawa is that the part of its basic lexicon derived from lower Columbia languages, comprising at least half of the 500–700 simple (that is, noncompounded) words in most frequent use on the lower river, includes many words derived from Chinookan pronouns, nouns, and particles, but comparatively speaking hardly any derived from Chinookan inflected verbs. . . . Any hypothesis concerning Chinuk Wawa’s origin and early development must account for these facts of linguistic form, which taken together point to a systematic avoidance of Chinookan morphological complexity. Note that while the Chinookan morphology of Chinuk Wawa’s large Chinookan contribution is unmistakably simplified, it is by no means mangled—as we might expect had it originated with foreigners’ reproductions of Chinookan words whose internal constituencies they did not comprehend. . . . [At the same time,] lower Columbia Chinuk Wawa in its fully crystallized historical form . . . owes much to the early American and British seafarers. It was they who contributed the Nootkan- derived auxiliaries mamuk- (‘make, do, cause to be’) and chagu- (‘become, get to be’), which Chinookans learned to use in place of the Chinookan inflected auxiliary verb -x̣ [-χ] (‘make, do, become’ . . .). Substituting Nootka Jargon mamuk- and chagu- for Chinookan -x̣̣would have removed much of the necessity for using Chinookan verbs and associated nominal prefixes, setting the stage for a Chinookan-derived lexicon in which verbs and nominal agreement prefixes were simply avoided. Chinookans could have drawn upon a pre-existing lower Columbia pidgin, or upon Chinookan foreigner-talk, or upon both, to constitute such a lexicon. For all their reputed difficulty, Chinookan languages also feature a lexicon distinguished by an exceptionally large number of words of simple morphological form—in particular, its plethora of uninflected (or minimally inflected . . .) particles, many of which in turn convey onomatopoeic or semi- onomatopoeic sound-associations . . . . While Chinookan clearly deserves its historical reputation for difficulty, it also comes with a considerable repertoire of built-in means for its own simplification. It is indeed not impossible that both of these aspects of Chinookan are rooted in the historical position of Chinookans as regional trade middlemen. Further linguistic, socio-historical, and even archeological investigation (insofar as it helps to document the extent and intensity of aboriginal trade) may yet further clarify the disputed genesis and early development of Chinuk Wawa	page 13, a quotation set off from the text
+§6	Henry Zenk	citation	(Zenk and Johnson 2013:279–82).	page 14, the source of the quotation
+§6	Chinuk Wawa	cited form	chagu-	page 14, in italics
+§6	Chinookan	cited form	-x̣	page 14, in italics
+references	Henry Zenk	heading	References	page 14
+references	Henry Zenk	reference	Boas, Franz. 1894. Chinook texts. Bureau of American Ethnology Bulletin 20.	page 14
+references	Henry Zenk	reference	Washington, DC.	page 14
+references	Henry Zenk	reference	Boas, Franz. 1901. Kathlamet texts. Bureau of American Ethnology Bulletin 26.	page 14
+references	Henry Zenk	reference	Boas, Franz. 1911. Chinook. In Handbook of American Indian languages, ed. Franz Boas. Bureau of American Ethnology Bulletin 40(1):1–79, 563–677.	page 14
+references	Henry Zenk	reference	Chinuk Wawa Dictionary Project. 2012. Chinuk Wawa kakwa nsayka ulman- tilixam łaska munk-kəmtəks nsayka / Chinuk Wawa as our elders teach us to speak it. Grand Ronde, OR: Confederated Tribes of the Grand Ronde Community of Oregon (distributed by University of Washington Press, www.washington.edu/uwpress).	page 14
+references	Henry Zenk	reference	Demers, Modeste, Francis Blanchet, and L.-N. St.Onge. 1871. Chinook dictionary, catechism, prayers and hymns. Montreal.	page 14
+references	Henry Zenk	reference	Dyk, Walter. 1933. A grammar of Wishram. PhD dissertation in Linguistics, Yale University.	page 14
+references	Henry Zenk	reference	Grant, Anthony. 1996. Chinook Jargon and its distribution in the Pacific Northwest and beyond. In Atlas of Intercultural Communication in the Pacific, Asia, and the Americas, ed. Stephen A. Wurm, Peter Mülhäusler, and Darrel T. Tryon, 1185–1208. Berlin: Mouton DeGruyter.	page 14
+references	Henry Zenk	reference	Hale, Horatio. ca. 1841. [Mss., drafts of Hale (1846).] (CHS Vault Ms 26/1, Library of the California Historical Society, San Francisco.)	page 14
+references	Henry Zenk	reference	Hale, Horatio. 1846. Ethnography and philology, vol. 6: Narrative of the US exploring expedition during the years 1838–42, ed. Charles Wilkes. Philadelphia: Lea and Blanchard.	page 15
+references	Henry Zenk	reference	Hymes, Dell. 1955. The language of the Kathlamet Chinook. PhD dissertation in Linguistics, Indiana University.	page 15
+references	Henry Zenk	reference	Lang, George. 2008. Making Wawa: The founding of Chinook Jargon. Vancouver: University of British Columbia Press.	page 15
+references	Henry Zenk	reference	Samarin, William. 1986. Chinook Jargon and pidgin historiography. Canadian Journal of Anthropology 5(1):23–34.	page 15
+references	Henry Zenk	reference	Samarin, William. 1996. Arctic origin and domestic development of Chinook Jargon. In Language contact in the Arctic: Northern pidgins and contact languages, ed. Ernst Jahr and Ingvild Broch, 321–39. Berlin: Mouton de Gruyter.	page 15
+references	Henry Zenk	reference	Sapir, Edward 1909. Wishram texts. Leyden: E.J. Brill.	page 15
+references	Henry Zenk	reference	Thomason, Sarah. 1983. Chinook Jargon in areal and historical context. Language 59(4):820–70.	page 15
+references	Henry Zenk	reference	Townsend, John Kirk. 1835. Vocabularies of some of the Indian tribes of N. Western America - To Peter J. Duponceau Esq–with J. K. Townsend’s respects–Fort Vancouver Columbia River September 1835. (Mss. in Library of Congress Miscellaneous Manuscripts Collection.)	page 15
+references	Henry Zenk	reference	Zenk, Henry B., and Tony A. Johnson. 2013. Chinuk Wawa and its roots in Chinookan. In Chinookan peoples of the lower Columbia, ed. Robert T. Boyd, Kenneth M. Ames, Tony A. Johnson, 272–287. Seattle and London: University of Washington Press.	page 15
+references	Henry Zenk	reference	Zenk, Henry B., and George Lang. 2012. New light on the historical coalescence of Chinuk Wawa / Chinook Jargon: Horatio Hale and his “Esteemed Friend” John Kirk Townsend. Paper read at Linguistic Society of America 86th Annual Meeting, Portland, Oregon, January 2012.	page 15
+appendix	Henry Zenk	heading	Appendix “Jargon” items in Hale (ca. 1841) attributed to “T” (Townsend); with matches (where available) from Townsend’s (1835) “mixed” language list	page 16
+appendix	Henry Zenk	note	gloss/spelling in Hale 1846	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	Hale ca. 1841	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	Townsend’s (1835)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	CW (<English, Eng)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	<Chinookan (Chn):	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	(*only in Hale ca. 1841)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	“mixed” language	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	(<French, Fr)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	LC:Lower Ch)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	(<Nookta Jarg, NJ)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	KC:Kathlamet Ch	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	(<Salish, S)	page 16, heads the columns, and every page of the appendix repeats it
+appendix	Henry Zenk	note	UC:Upper Ch	page 16, heads the columns, and every page of the appendix repeats it
+appendix #1	Henry Zenk	translation	about, concerning	page 16, the appendix, the gloss in Hale 1846
+appendix #1	Hale (1846)	transcription	kwapa	page 16, the appendix, Hale 1846
+appendix #1	Hale (ca. 1841)	transcription	kuapá	page 16, the appendix, Hale ca. 1841
+appendix #1	Hale (ca. 1841)	transcription	kopá	page 16, the appendix, Hale ca. 1841
+appendix #1	Hale (ca. 1841)	transcription	kwāpa	page 16, the appendix, Hale ca. 1841, marked T
+appendix #1	Chinuk Wawa	transcription	kɑp̬ɑ	page 16, the appendix, CW
+appendix #1	Chinuk Wawa	transcription	kɑp̬ɑ́	page 16, the appendix, CW
+appendix #1	Chinuk Wawa	transcription	kup̬ɑ	page 16, the appendix, CW
+appendix #1	Chinuk Wawa	transcription	kup̬ɑ́	page 16, the appendix, CW
+appendix #1	Chinookan	transcription	kupɑ́	page 16, the appendix, Chinookan, after KC, UC
+appendix #1	Chinookan	transcription	kʷɑ́bɑ́	page 16, the appendix, Chinookan
+appendix #1	Henry Zenk	note	(there)	page 16, the appendix, Chinookan, after the form
+appendix #2	Henry Zenk	translation	arm	page 16, the appendix, the gloss in Hale 1846
+appendix #2	Hale (1846)	transcription	limán	page 16, the appendix, Hale 1846
+appendix #2	Hale (ca. 1841)	transcription	itcalikt	page 16, the appendix, Hale ca. 1841, marked T
+appendix #2	Townsend (1835)	transcription	itch a li_cht	page 16, the appendix, Townsend's 1835 list
+appendix #2	Chinuk Wawa	transcription	limɑ́	page 16, the appendix, CW
+appendix #2	Henry Zenk	note	(<Fr)	page 16, the appendix, CW, after the form
+appendix #2	Kathlamet	transcription	i-čɑ́-χu	page 16, the appendix, Chinookan, after KC
+appendix #2	Henry Zenk	note	(my ...)	page 16, the appendix, Chinookan, after KC, after the form
+appendix #2	Lower Chinook	transcription	i-čɑ́-putitk	page 16, the appendix, Chinookan, after LC
+appendix #2	Henry Zenk	note	(her) forearms	page 16, the appendix, Chinookan, after LC, after the form
+appendix #3	Henry Zenk	translation	back	page 16, the appendix, the gloss in Hale 1846
+appendix #3	Henry Zenk	note	back / *	page 16, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #3	Hale (ca. 1841)	transcription	ítcakūst	page 16, the appendix, Hale ca. 1841, marked T
+appendix #3	Townsend (1835)	transcription	itch a coosh	page 16, the appendix, Townsend's 1835 list
+appendix #3	Townsend (1835)	transcription	Kiǎcow	page 16, the appendix, Townsend's 1835 list
+appendix #3	Kathlamet	transcription	i-iɑ́-kučx	page 16, the appendix, Chinookan, after KC
+appendix #3	Henry Zenk	note	(his ...;? i-čɑ-... my...)	page 16, the appendix, Chinookan, after KC, after the form
+appendix #3	Kathlamet	transcription	i-čí-gɑl	page 16, the appendix, Chinookan
+appendix #3	Henry Zenk	note	(my backbone)	page 16, the appendix, Chinookan, after the form
+appendix #4	Henry Zenk	translation	bad	page 16, the appendix, the gloss in Hale 1846
+appendix #4	Hale (1846)	transcription	masátsi	page 16, the appendix, Hale 1846
+appendix #4	Hale (1846)	transcription	mashátshi	page 16, the appendix, Hale 1846
+appendix #4	Hale (1846)	transcription	pīshak	page 16, the appendix, Hale 1846
+appendix #4	Hale (1846)	transcription	pēshak	page 16, the appendix, Hale 1846
+appendix #4	Hale (ca. 1841)	transcription	msatsi	page 16, the appendix, Hale ca. 1841
+appendix #4	Hale (ca. 1841)	transcription	masátci	page 16, the appendix, Hale ca. 1841
+appendix #4	Hale (ca. 1841)	transcription	masátsi	page 16, the appendix, Hale ca. 1841, marked T
+appendix #4	Hale (ca. 1841)	transcription	pīˊcak	page 16, the appendix, Hale ca. 1841, marked T
+appendix #4	Townsend (1835)	transcription	maʃatsee	page 16, the appendix, Townsend's 1835 list
+appendix #4	Townsend (1835)	transcription	etàrmalee	page 16, the appendix, Townsend's 1835 list
+appendix #4	Chinuk Wawa	transcription	mɑšɑ́či	page 16, the appendix, CW
+appendix #4	Henry Zenk	note	(bad, mean)	page 16, the appendix, CW, after the form
+appendix #4	Chinuk Wawa	transcription	pišɑ́k	page 16, the appendix, CW
+appendix #4	Henry Zenk	note	(bad, rough)	page 16, the appendix, CW, after the form
+appendix #4	Henry Zenk	note	(<NJ)	page 16, the appendix, CW
+appendix #4	Kathlamet	transcription	i-iɑ́-məlɑ	page 16, the appendix, Chinookan, after KC
+appendix #4	Henry Zenk	note	(he is...)	page 16, the appendix, Chinookan, after KC, after the form
+appendix #4	Upper Chinook	transcription	idɑ́mlɑ	page 16, the appendix, Chinookan, after UC
+appendix #4	Henry Zenk	note	(they are...)	page 16, the appendix, Chinookan
+appendix #5	Henry Zenk	translation	beads	page 16, the appendix, the gloss in Hale 1846
+appendix #5	Hale (1846)	transcription	kamōsǔk	page 16, the appendix, Hale 1846
+appendix #5	Hale (ca. 1841)	transcription	kamósʊk	page 16, the appendix, Hale ca. 1841
+appendix #5	Hale (ca. 1841)	transcription	kamūsak	page 16, the appendix, Hale ca. 1841, marked T
+appendix #5	Chinuk Wawa	transcription	kʌmúsʌk	page 16, the appendix, CW
+appendix #5	Lower Chinook	transcription	t-kɑmúsɑk	page 16, the appendix, Chinookan, after LC
+appendix #6	Henry Zenk	translation	big-belly	page 16, the appendix, the gloss in Hale 1846
+appendix #6	Henry Zenk	note	big-belly / *	page 16, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #6	Hale (ca. 1841)	transcription	iákwatin	page 16, the appendix, Hale ca. 1841
+appendix #6	Townsend (1835)	transcription	quaˊttin	page 16, the appendix, Townsend's 1835 list
+appendix #6	Henry Zenk	note	(belly)	page 16, the appendix, Townsend's 1835 list, after the form
+appendix #6	Chinuk Wawa	transcription	kʼwətín	page 16, the appendix, CW
+appendix #7	Henry Zenk	translation	bird	page 16, the appendix, the gloss in Hale 1846
+appendix #7	Hale (1846)	transcription	kalákala	page 16, the appendix, Hale 1846
+appendix #7	Hale (ca. 1841)	transcription	kalákala	page 16, the appendix, Hale ca. 1841
+appendix #7	Henry Zenk	note	(T)	page 16, the appendix, Hale ca. 1841
+appendix #7	Townsend (1835)	transcription	Callackala	page 16, the appendix, Townsend's 1835 list
+appendix #7	Townsend (1835)	transcription	Skillalocose	page 16, the appendix, Townsend's 1835 list
+appendix #7	Henry Zenk	note	(pl)	page 16, the appendix, Townsend's 1835 list, after the form
+appendix #7	Chinuk Wawa	transcription	k̬əlɑ́k̬əlɑ	page 16, the appendix, CW
+appendix #7	Henry Zenk	note	cf	page 16, the appendix, Chinookan, a comparison set before the form
+appendix #7	Chinookan	transcription	-gɑ	page 16, the appendix, Chinookan, after Chn
+appendix #7	Henry Zenk	note	(to fly)	page 16, the appendix, Chinookan, after Chn, after the form
+appendix #7	Chinookan	transcription	-gɑlɑl	page 16, the appendix, Chinookan
+appendix #7	Henry Zenk	note	(flying)	page 16, the appendix, Chinookan
+appendix #7	Lower Chinook	transcription	ɬ-lɑ́lɑx-uks	page 16, the appendix, Chinookan, after LC
+appendix #7	Henry Zenk	note	(birds)	page 16, the appendix, Chinookan, after LC, after the form
+appendix #8	Henry Zenk	translation	black	page 16, the appendix, the gloss in Hale 1846
+appendix #8	Hale (1846)	transcription	klāï	page 16, the appendix, Hale 1846
+appendix #8	Hale (ca. 1841)	transcription	kláïl	page 16, the appendix, Hale ca. 1841, marked T
+appendix #8	Townsend (1835)	transcription	ʼKʼlai-ail	page 16, the appendix, Townsend's 1835 list
+appendix #8	Chinuk Wawa	transcription	ɬíʔil	page 16, the appendix, CW
+appendix #8	Lower Chinook	transcription	ɬí.il	page 16, the appendix, Chinookan, after LC
+appendix #8	Chinookan	transcription	ɬəl	page 16, the appendix, Chinookan, after KC, UC
+appendix #9	Henry Zenk	translation	blue	page 16, the appendix, the gloss in Hale 1846
+appendix #9	Henry Zenk	note	blue / *	page 16, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #9	Hale (ca. 1841)	transcription	klïˊil	page 16, the appendix, Hale ca. 1841
+appendix #9	Hale (ca. 1841)	transcription	spok	page 16, the appendix, Hale ca. 1841, marked T
+appendix #9	Townsend (1835)	transcription	spok	page 16, the appendix, Townsend's 1835 list
+appendix #9	Henry Zenk	note	(blue)	page 16, the appendix, Townsend's 1835 list, after the form
+appendix #9	Chinuk Wawa	transcription	ɬíʔil	page 16, the appendix, CW
+appendix #9	Henry Zenk	translation	‘black’	page 16, the appendix, CW, after the form
+appendix #9	Chinuk Wawa	transcription	spúʔuq	page 16, the appendix, CW
+appendix #9	Henry Zenk	translation	‘ash, grey, faded’	page 16, the appendix, CW, the gloss of the form above it
+appendix #9	Lower Chinook	transcription	ɬí.il	page 16, the appendix, Chinookan, after LC
+appendix #9	Chinookan	transcription	špuk	page 16, the appendix, Chinookan, after Chn
+appendix #9	Chinookan	transcription	špək	page 16, the appendix, Chinookan
+appendix #10	Henry Zenk	translation	bone	page 17, the appendix, the gloss in Hale 1846
+appendix #10	Hale (1846)	transcription	stōn	page 17, the appendix, Hale 1846
+appendix #10	Hale (ca. 1841)	transcription	stóne [sic]	page 17, the appendix, Hale ca. 1841
+appendix #10	Hale (ca. 1841)	transcription	iōtso	page 17, the appendix, Hale ca. 1841, marked T
+appendix #10	Townsend (1835)	transcription	Eotso	page 17, the appendix, Townsend's 1835 list
+appendix #10	Chinuk Wawa	transcription	st̬on	page 17, the appendix, CW
+appendix #10	Henry Zenk	note	(<Eng)	page 17, the appendix, CW, after the form
+appendix #10	Kathlamet	transcription	i-iɑ́-qʼuču	page 17, the appendix, Chinookan, after KC
+appendix #10	Henry Zenk	note	(his ...s)	page 17, the appendix, Chinookan, after KC, after the form
+appendix #10	Lower Chinook	transcription	ú-uču	page 17, the appendix, Chinookan, after LC
+appendix #10	Henry Zenk	note	(shell)	page 17, the appendix, Chinookan, carries note 1 of the appendix
+appendix footnote 1	Henry Zenk	note	The KC and LC stems appear to be related: KC -qʼuču; LC –(ʔ)uču. LC –(ʔ)uču is ‘shell’ with feminine u-; quite likely, it was ‘bone’ with masculine i-, hence paralleling the KC.	page 17, footnote 1 of the appendix
+appendix footnote 1	Kathlamet	cited form	-qʼuču	page 17, in italics
+appendix footnote 1	Lower Chinook	cited form	–(ʔ)uču	page 17, in italics
+appendix footnote 1	Lower Chinook	cited form	u-	page 17, in italics
+appendix footnote 1	Lower Chinook	cited form	i-	page 17, in italics
+appendix #11	Henry Zenk	translation	both	page 17, the appendix, the gloss in Hale 1846
+appendix #11	Hale (1846)	transcription	kanamākst	page 17, the appendix, Hale 1846
+appendix #11	Hale (ca. 1841)	transcription	kanimákst	page 17, the appendix, Hale ca. 1841
+appendix #11	Hale (ca. 1841)	transcription	kánamākst	page 17, the appendix, Hale ca. 1841, marked T
+appendix #11	Chinuk Wawa	transcription	kɑnumɑ́kwst	page 17, the appendix, CW
+appendix #11	Chinookan	transcription	kɑnɑmɑ́kwšt	page 17, the appendix, Chinookan, after Chn
+appendix #12	Henry Zenk	translation	bow	page 17, the appendix, the gloss in Hale 1846
+appendix #12	Hale (1846)	transcription	ūpitlki	page 17, the appendix, Hale 1846
+appendix #12	Hale (1846)	transcription	ōpilki	page 17, the appendix, Hale 1846
+appendix #12	Hale (ca. 1841)	transcription	úpitlki	page 17, the appendix, Hale ca. 1841
+appendix #12	Hale (ca. 1841)	transcription	ōpitlki	page 17, the appendix, Hale ca. 1841, marked T
+appendix #12	Townsend (1835)	transcription	Opitlkai	page 17, the appendix, Townsend's 1835 list
+appendix #12	Chinuk Wawa	transcription	úpƛʼiki	page 17, the appendix, CW
+appendix #12	Lower Chinook	transcription	ú-pƛʼiki	page 17, the appendix, Chinookan, after LC
+appendix #13	Henry Zenk	translation	brandy	page 17, the appendix, the gloss in Hale 1846
+appendix #13	Hale (1846)	transcription	ōlapitski-tsōk	page 17, the appendix, Hale 1846
+appendix #13	Hale (ca. 1841)	transcription	ōlapitski tsok	page 17, the appendix, Hale ca. 1841, marked T
+appendix #13	Henry Zenk	note	(see fire, water)	page 17, the appendix, CW
+appendix #13	Henry Zenk	note	(see fire, water)	page 17, the appendix, Chinookan
+appendix #14	Henry Zenk	translation	bread	page 17, the appendix, the gloss in Hale 1846
+appendix #14	Hale (1846)	transcription	sāpelil	page 17, the appendix, Hale 1846
+appendix #14	Hale (ca. 1841)	transcription	sápelil	page 17, the appendix, Hale ca. 1841
+appendix #14	Hale (ca. 1841)	transcription	caplīˊl	page 17, the appendix, Hale ca. 1841, marked T
+appendix #14	Townsend (1835)	transcription	Shappleel	page 17, the appendix, Townsend's 1835 list
+appendix #14	Chinuk Wawa	transcription	sɑplíl	page 17, the appendix, CW
+appendix #14	Upper Chinook	transcription	ɑ-sɑ́blɑl	page 17, the appendix, Chinookan, after UC
+appendix #15	Henry Zenk	translation	breast	page 17, the appendix, the gloss in Hale 1846
+appendix #15	Henry Zenk	note	breast / *	page 17, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #15	Hale (ca. 1841)	transcription	skʚ̌lʊm	page 17, the appendix, Hale ca. 1841, marked T
+appendix #15	Townsend (1835)	transcription	quinˊnm	page 17, the appendix, Townsend's 1835 list
+appendix #15	Henry Zenk	note	cf?	page 17, the appendix, Chinookan, a comparison set before the form
+appendix #15	Kathlamet	transcription	č-íɑ-čkʼun-pɑ	page 17, the appendix, Chinookan, after KC
+appendix #15	Henry Zenk	note	(on his clavicles)	page 17, the appendix, Chinookan, after KC, after the form
+appendix #16	Henry Zenk	translation	broken, thrown down	page 17, the appendix, the gloss in Hale 1846
+appendix #16	Henry Zenk	note	broken, thrown down / *	page 17, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #16	Hale (ca. 1841)	transcription	mac	page 17, the appendix, Hale ca. 1841
+appendix #16	Townsend (1835)	transcription	Maush	page 17, the appendix, Townsend's 1835 list
+appendix #16	Henry Zenk	note	(to cast away)	page 17, the appendix, Townsend's 1835 list, after the form
+appendix #16	Chinuk Wawa	transcription	maš	page 17, the appendix, CW
+appendix #17	Henry Zenk	translation	brother (older)	page 17, the appendix, the gloss in Hale 1846
+appendix #17	Hale (1846)	transcription	kāpo	page 17, the appendix, Hale 1846
+appendix #17	Hale (1846)	transcription	kāpǔhu	page 17, the appendix, Hale 1846
+appendix #17	Hale (ca. 1841)	transcription	kapo	page 17, the appendix, Hale ca. 1841
+appendix #17	Hale (ca. 1841)	transcription	kapχu	page 17, the appendix, Hale ca. 1841
+appendix #17	Hale (ca. 1841)	transcription	kaffo	page 17, the appendix, Hale ca. 1841, marked T
+appendix #17	Townsend (1835)	transcription	Capho	page 17, the appendix, Townsend's 1835 list
+appendix #17	Henry Zenk	note	(brother)	page 17, the appendix, Townsend's 1835 list, after the form
+appendix #17	Chinuk Wawa	transcription	k̬ɑ́pxu	page 17, the appendix, CW
+appendix #17	Henry Zenk	note	(o. sibling)	page 17, the appendix, CW, after the form
+appendix #17	Lower Chinook	transcription	kɑ́pxu	page 17, the appendix, Chinookan, after LC
+appendix #17	Henry Zenk	note	(o. sibling!)	page 17, the appendix, Chinookan, after LC, after the form
+appendix #18	Henry Zenk	translation	brother (younger)	page 17, the appendix, the gloss in Hale 1846
+appendix #18	Hale (1846)	transcription	au	page 17, the appendix, Hale 1846
+appendix #18	Hale (ca. 1841)	transcription	au	page 17, the appendix, Hale ca. 1841
+appendix #18	Henry Zenk	note	(T)	page 17, the appendix, Hale ca. 1841
+appendix #18	Townsend (1835)	transcription	Aw	page 17, the appendix, Townsend's 1835 list
+appendix #18	Chinuk Wawa	transcription	ɑu	page 17, the appendix, CW
+appendix #18	Lower Chinook	transcription	ɑu	page 17, the appendix, Chinookan, after LC
+appendix #18	Henry Zenk	note	(y bro!)	page 17, the appendix, Chinookan, after LC, after the form
+appendix #19	Henry Zenk	translation	canoe	page 17, the appendix, the gloss in Hale 1846
+appendix #19	Hale (1846)	transcription	kanēm	page 17, the appendix, Hale 1846
+appendix #19	Hale (ca. 1841)	transcription	kaném	page 17, the appendix, Hale ca. 1841
+appendix #19	Hale (ca. 1841)	transcription	kaním	page 17, the appendix, Hale ca. 1841, marked T
+appendix #19	Townsend (1835)	transcription	Kʼnnimm	page 17, the appendix, Townsend's 1835 list
+appendix #19	Chinuk Wawa	transcription	kəním	page 17, the appendix, CW
+appendix #19	Lower Chinook	transcription	i-kɑním	page 17, the appendix, Chinookan, after LC
+appendix #20	Henry Zenk	translation	cattle	page 17, the appendix, the gloss in Hale 1846
+appendix #20	Hale (1846)	transcription	músmus	page 17, the appendix, Hale 1846
+appendix #20	Hale (ca. 1841)	transcription	músmus	page 17, the appendix, Hale ca. 1841
+appendix #20	Henry Zenk	note	(T)	page 17, the appendix, Hale ca. 1841
+appendix #20	Townsend (1835)	transcription	Moos-moos	page 17, the appendix, Townsend's 1835 list
+appendix #20	Chinuk Wawa	transcription	músmus	page 17, the appendix, CW
+appendix #21	Henry Zenk	translation	cheek	page 18, the appendix, the gloss in Hale 1846
+appendix #21	Henry Zenk	note	cheek / *	page 18, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #21	Hale (ca. 1841)	transcription	melóqtan	page 18, the appendix, Hale ca. 1841, marked T
+appendix #21	Townsend (1835)	transcription	Melʼloghʼtan	page 18, the appendix, Townsend's 1835 list
+appendix #21	Upper Chinook	transcription	ɑ-iɑ-mlqʷtɑn	page 18, the appendix, Chinookan, after UC
+appendix #21	Henry Zenk	note	(his...)	page 18, the appendix, Chinookan, after UC, after the form
+appendix #22	Henry Zenk	translation	child	page 18, the appendix, the gloss in Hale 1846
+appendix #22	Hale (1846)	transcription	tánas	page 18, the appendix, Hale 1846
+appendix #22	Hale (ca. 1841)	transcription	atlkáskas	page 18, the appendix, Hale ca. 1841, marked T
+appendix #22	Townsend (1835)	transcription	ʼAtlcascas	page 18, the appendix, Townsend's 1835 list
+appendix #22	Henry Zenk	note	(Child)	page 18, the appendix, Townsend's 1835 list, after the form
+appendix #22	Townsend (1835)	transcription	Kas Kas	page 18, the appendix, Townsend's 1835 list
+appendix #22	Henry Zenk	note	(small boy)	page 18, the appendix, Townsend's 1835 list, after the form
+appendix #22	Chinuk Wawa	transcription	t̬ənɑ́s	page 18, the appendix, CW
+appendix #22	Henry Zenk	note	(<NJ)	page 18, the appendix, CW, after the form
+appendix #22	Upper Chinook	transcription	iɬ-kʼɑ́škʼɑš	page 18, the appendix, Chinookan, after UC
+appendix #22	Henry Zenk	note	(baby)	page 18, the appendix, Chinookan, after UC, after the form
+appendix #22	Upper Chinook	transcription	i-kʼɑ́škʼɑš	page 18, the appendix, Chinookan
+appendix #22	Henry Zenk	note	(boy)	page 18, the appendix, Chinookan, after the form
+appendix #23	Henry Zenk	translation	chin	page 18, the appendix, the gloss in Hale 1846
+appendix #23	Henry Zenk	note	chin / *	page 18, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #23	Hale (ca. 1841)	transcription	skánakwāst	page 18, the appendix, Hale ca. 1841, marked T
+appendix #23	Townsend (1835)	transcription	Scowaqwast	page 18, the appendix, Townsend's 1835 list
+appendix #24	Henry Zenk	translation	cloth	page 18, the appendix, the gloss in Hale 1846
+appendix #24	Hale (1846)	transcription	pasēse	page 18, the appendix, Hale 1846
+appendix #24	Hale (ca. 1841)	transcription	pacíci	page 18, the appendix, Hale ca. 1841
+appendix #24	Hale (ca. 1841)	transcription	pasése	page 18, the appendix, Hale ca. 1841
+appendix #24	Hale (ca. 1841)	transcription	pasīsi	page 18, the appendix, Hale ca. 1841, marked T
+appendix #24	Chinuk Wawa	transcription	pɑsísi	page 18, the appendix, CW
+appendix #24	Lower Chinook	transcription	ɬ-pɑšíši	page 18, the appendix, Chinookan, after LC
+appendix #25	Henry Zenk	translation	come	page 18, the appendix, the gloss in Hale 1846
+appendix #25	Hale (1846)	transcription	tshako	page 18, the appendix, Hale 1846
+appendix #25	Hale (ca. 1841)	transcription	tcako	page 18, the appendix, Hale ca. 1841
+appendix #25	Henry Zenk	note	(T)	page 18, the appendix, Hale ca. 1841
+appendix #25	Townsend (1835)	transcription	chako	page 18, the appendix, Townsend's 1835 list
+appendix #25	Chinuk Wawa	transcription	čɑ́k̬u	page 18, the appendix, CW
+appendix #25	Henry Zenk	note	(<NJ)	page 18, the appendix, CW, after the form
+appendix #26	Henry Zenk	translation	creek	page 18, the appendix, the gloss in Hale 1846
+appendix #26	Henry Zenk	note	creek / *	page 18, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #26	Hale (ca. 1841)	transcription	éqel	page 18, the appendix, Hale ca. 1841, marked T
+appendix #26	Townsend (1835)	transcription	ekhʼel	page 18, the appendix, Townsend's 1835 list
+appendix #26	Lower Chinook	transcription	í-qχiɬ	page 18, the appendix, Chinookan, after LC
+appendix #26	Upper Chinook	transcription	wɑ́-qɑɬ	page 18, the appendix, Chinookan, after UC
+appendix #27	Henry Zenk	translation	dark	page 18, the appendix, the gloss in Hale 1846
+appendix #27	Hale (1846)	transcription	pōlakli	page 18, the appendix, Hale 1846
+appendix #27	Hale (1846)	transcription	klāïl	page 18, the appendix, Hale 1846
+appendix #27	Hale (ca. 1841)	transcription	kláïl	page 18, the appendix, Hale ca. 1841
+appendix #27	Hale (ca. 1841)	transcription	pūlakli	page 18, the appendix, Hale ca. 1841, marked T
+appendix #27	Henry Zenk	note	(see black, night)	page 18, the appendix, Townsend's 1835 list
+appendix #27	Henry Zenk	note	(see black, night)	page 18, the appendix, CW
+appendix #27	Henry Zenk	note	(see black, night)	page 18, the appendix, Chinookan
+appendix #28	Henry Zenk	translation	day	page 18, the appendix, the gloss in Hale 1846
+appendix #28	Hale (1846)	transcription	sǔn	page 18, the appendix, Hale 1846
+appendix #28	Hale (ca. 1841)	transcription	sʊn	page 18, the appendix, Hale ca. 1841
+appendix #28	Hale (ca. 1841)	transcription	otlah	page 18, the appendix, Hale ca. 1841, marked T
+appendix #28	Henry Zenk	note	(see sun)	page 18, the appendix, CW
+appendix #28	Henry Zenk	note	(see sun)	page 18, the appendix, Chinookan
+appendix #29	Henry Zenk	translation	dog	page 18, the appendix, the gloss in Hale 1846
+appendix #29	Hale (1846)	transcription	kāmǔks	page 18, the appendix, Hale 1846
+appendix #29	Hale (ca. 1841)	transcription	kāmʊks	page 18, the appendix, Hale ca. 1841, marked T
+appendix #29	Townsend (1835)	transcription	Kahmux	page 18, the appendix, Townsend's 1835 list
+appendix #29	Townsend (1835)	transcription	ʼehcutcut	page 18, the appendix, Townsend's 1835 list
+appendix #29	Townsend (1835)	transcription	ʼKaiwis	page 18, the appendix, Townsend's 1835 list
+appendix #29	Chinuk Wawa	transcription	kɑ́mukš	page 18, the appendix, CW
+appendix #29	Lower Chinook	transcription	u-gu-xɑ́mukš	page 18, the appendix, Chinookan, after LC
+appendix #29	Henry Zenk	note	(my...)	page 18, the appendix, Chinookan, after LC, after the form
+appendix #29	Lower Chinook	transcription	ɬ-kíwušx	page 18, the appendix, Chinookan
+appendix #29	Kathlamet	transcription	i‑kʼútkʼut	page 18, the appendix, Chinookan, after KC
+appendix #30	Henry Zenk	translation	earth	page 18, the appendix, the gloss in Hale 1846
+appendix #30	Hale (1846)	transcription	ilēhi	page 18, the appendix, Hale 1846
+appendix #30	Hale (1846)	transcription	ílahi	page 18, the appendix, Hale 1846
+appendix #30	Hale (ca. 1841)	transcription	ílahi	page 18, the appendix, Hale ca. 1841
+appendix #30	Hale (ca. 1841)	transcription	ilēhi	page 18, the appendix, Hale ca. 1841
+appendix #30	Henry Zenk	note	(T)	page 18, the appendix, Hale ca. 1841
+appendix #30	Townsend (1835)	transcription	Ailaigh hè	page 18, the appendix, Townsend's 1835 list
+appendix #30	Chinuk Wawa	transcription	íliʔi	page 18, the appendix, CW
+appendix #30	Chinuk Wawa	transcription	ilíʔi	page 18, the appendix, CW
+appendix #30	Lower Chinook	transcription	i-lí.i	page 18, the appendix, Chinookan, after LC
+appendix #30	Kathlamet	transcription	i-lx	page 18, the appendix, Chinookan, after KC
+appendix #30	Kathlamet	transcription	í-lix	page 18, the appendix, Chinookan
+appendix #30	Upper Chinook	transcription	wi-lx	page 18, the appendix, Chinookan, after UC
+appendix #31	Henry Zenk	translation	eat	page 18, the appendix, the gloss in Hale 1846
+appendix #31	Hale (1846)	transcription	mākamak	page 18, the appendix, Hale 1846
+appendix #31	Hale (ca. 1841)	transcription	mákamak	page 18, the appendix, Hale ca. 1841
+appendix #31	Hale (ca. 1841)	transcription	mʊ́kamʊk	page 18, the appendix, Hale ca. 1841, marked T
+appendix #31	Chinuk Wawa	transcription	mə́kmək	page 18, the appendix, CW
+appendix #31	Upper Chinook	transcription	mɑ́ġmɑq	page 18, the appendix, Chinookan, after UC
+appendix #31	Henry Zenk	translation	‘gulping down’	page 18, the appendix, Chinookan, after UC, after the form
+appendix #32	Henry Zenk	translation	elk	page 18, the appendix, the gloss in Hale 1846
+appendix #32	Hale (1846)	transcription	mōlak	page 18, the appendix, Hale 1846
+appendix #32	Hale (ca. 1841)	transcription	mólʊk	page 18, the appendix, Hale ca. 1841
+appendix #32	Hale (ca. 1841)	transcription	molak	page 18, the appendix, Hale ca. 1841, marked T
+appendix #32	Chinuk Wawa	transcription	múlɑk	page 18, the appendix, CW
+appendix #32	Chinookan	transcription	i-múlɑk	page 18, the appendix, Chinookan, after Chn
+appendix #33	Henry Zenk	translation	eye	page 18, the appendix, the gloss in Hale 1846
+appendix #33	Hale (1846)	transcription	siáhos	page 18, the appendix, Hale 1846
+appendix #33	Hale (ca. 1841)	transcription	siáhust	page 18, the appendix, Hale ca. 1841
+appendix #33	Hale (ca. 1841)	transcription	siáhos	page 18, the appendix, Hale ca. 1841
+appendix #33	Hale (ca. 1841)	transcription	siáhost	page 18, the appendix, Hale ca. 1841, marked T?
+appendix #33	Townsend (1835)	transcription	Ceāghhoost	page 18, the appendix, Townsend's 1835 list
+appendix #33	Chinuk Wawa	transcription	siyɑ́xus(t)	page 18, the appendix, CW
+appendix #33	Chinookan	transcription	s-iɑ́-χust	page 18, the appendix, Chinookan, after LC, KC
+appendix #33	Upper Chinook	transcription	is-iɑ́-xus	page 18, the appendix, Chinookan, after UC
+appendix #33	Henry Zenk	note	(his...)	page 18, the appendix, Chinookan, after UC, after the form
+appendix #34	Henry Zenk	translation	far	page 19, the appendix, the gloss in Hale 1846
+appendix #34	Hale (1846)	transcription	saiā	page 19, the appendix, Hale 1846
+appendix #34	Hale (ca. 1841)	transcription	saia	page 19, the appendix, Hale ca. 1841
+appendix #34	Hale (ca. 1841)	transcription	saiá	page 19, the appendix, Hale ca. 1841
+appendix #34	Henry Zenk	note	(T)	page 19, the appendix, Hale ca. 1841
+appendix #34	Townsend (1835)	transcription	Sia	page 19, the appendix, Townsend's 1835 list
+appendix #34	Chinuk Wawa	transcription	sɑyɑ́	page 19, the appendix, CW
+appendix #34	Henry Zenk	note	(<NJ)	page 19, the appendix, CW, after the form
+appendix #35	Henry Zenk	translation	father	page 19, the appendix, the gloss in Hale 1846
+appendix #35	Hale (1846)	transcription	pāpa	page 19, the appendix, Hale 1846
+appendix #35	Hale (1846)	transcription	ōluman	page 19, the appendix, Hale 1846
+appendix #35	Hale (1846)	transcription	tílikǔm-máma	page 19, the appendix, Hale 1846
+appendix #35	Hale (ca. 1841)	transcription	pápa	page 19, the appendix, Hale ca. 1841
+appendix #35	Hale (ca. 1841)	transcription	óluman	page 19, the appendix, Hale ca. 1841
+appendix #35	Hale (ca. 1841)	transcription	tilkʊm-mama	page 19, the appendix, Hale ca. 1841, marked T
+appendix #35	Townsend (1835)	transcription	tlʼcummama	page 19, the appendix, Townsend's 1835 list
+appendix #35	Townsend (1835)	transcription	stlʼbmama	page 19, the appendix, Townsend's 1835 list
+appendix #35	Chinuk Wawa	transcription	pɑpɑ́	page 19, the appendix, CW
+appendix #35	Henry Zenk	note	(<Fr)	page 19, the appendix, CW, after the form
+appendix #35	Chinuk Wawa	transcription	úlmɑn	page 19, the appendix, CW
+appendix #35	Henry Zenk	note	(<Eng)	page 19, the appendix, CW, after the form
+appendix #35	Lower Chinook	transcription	ɬə-mí-mɑmɑ	page 19, the appendix, Chinookan, after LC
+appendix #35	Henry Zenk	note	(your...; tilxɑmː see people)	page 19, the appendix, Chinookan, after LC, after the form
+appendix #36	Henry Zenk	translation	fearful, strong	page 19, the appendix, the gloss in Hale 1846
+appendix #36	Henry Zenk	note	fearful, strong / *	page 19, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #36	Hale (ca. 1841)	transcription	skokóm	page 19, the appendix, Hale ca. 1841
+appendix #36	Hale (ca. 1841)	transcription	skukūm	page 19, the appendix, Hale ca. 1841, marked T
+appendix #36	Chinuk Wawa	transcription	sk̬úk̬um	page 19, the appendix, CW
+appendix #36	Henry Zenk	note	(strong)	page 19, the appendix, CW, after the form
+appendix #36	Chinuk Wawa	transcription	sk̬uk̬úm	page 19, the appendix, CW
+appendix #36	Henry Zenk	note	(fearful)	page 19, the appendix, CW, after the form
+appendix #36	Henry Zenk	note	(? <S)	page 19, the appendix, CW
+appendix #37	Henry Zenk	translation	fight	page 19, the appendix, the gloss in Hale 1846
+appendix #37	Hale (1846)	transcription	saleks	page 19, the appendix, Hale 1846
+appendix #37	Hale (1846)	transcription	kākshatl	page 19, the appendix, Hale 1846
+appendix #37	Hale (ca. 1841)	transcription	kákcatl	page 19, the appendix, Hale ca. 1841
+appendix #37	Hale (ca. 1841)	transcription	kakcʊtl	page 19, the appendix, Hale ca. 1841, marked T
+appendix #37	Chinuk Wawa	transcription	sɑ́liks	page 19, the appendix, CW
+appendix #37	Henry Zenk	note	(angry)	page 19, the appendix, CW, after the form
+appendix #37	Chinuk Wawa	transcription	k̬ɑ́kšət	page 19, the appendix, CW
+appendix #37	Henry Zenk	note	(whip) (<NJ)	page 19, the appendix, CW, after the form
+appendix #38	Henry Zenk	translation	fingers	page 19, the appendix, the gloss in Hale 1846
+appendix #38	Henry Zenk	note	fingers / *	page 19, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #38	Hale (ca. 1841)	transcription	klʊkcin	page 19, the appendix, Hale ca. 1841, marked T
+appendix #38	Townsend (1835)	transcription	Klukshin	page 19, the appendix, Townsend's 1835 list
+appendix #38	Lower Chinook	transcription	u-kši	page 19, the appendix, Chinookan, after LC
+appendix #38	Henry Zenk	note	(a ...)	page 19, the appendix, Chinookan, after LC, after the form
+appendix #38	Upper Chinook	transcription	iɬə́-mi-kši	page 19, the appendix, Chinookan, after UC
+appendix #38	Henry Zenk	note	(your hand)	page 19, the appendix, Chinookan, after UC, after the form
+appendix #39	Henry Zenk	translation	fire	page 19, the appendix, the gloss in Hale 1846
+appendix #39	Hale (1846)	transcription	paia	page 19, the appendix, Hale 1846
+appendix #39	Hale (ca. 1841)	transcription	paía	page 19, the appendix, Hale ca. 1841
+appendix #39	Hale (ca. 1841)	transcription	ōlapitski	page 19, the appendix, Hale ca. 1841, marked T
+appendix #39	Townsend (1835)	transcription	Oolˊpitskee	page 19, the appendix, Townsend's 1835 list
+appendix #39	Chinuk Wawa	transcription	pɑ́yɑ	page 19, the appendix, CW
+appendix #39	Henry Zenk	note	(<Eng)	page 19, the appendix, CW, after the form
+appendix #39	Chinuk Wawa	transcription	úlipcki	page 19, the appendix, CW
+appendix #39	Lower Chinook	transcription	u-ʔúləpčkix	page 19, the appendix, Chinookan, after LC
+appendix #40	Henry Zenk	translation	food	page 19, the appendix, the gloss in Hale 1846
+appendix #40	Hale (1846)	transcription	mākamak	page 19, the appendix, Hale 1846
+appendix #40	Hale (ca. 1841)	transcription	mákamak	page 19, the appendix, Hale ca. 1841
+appendix #40	Hale (ca. 1841)	transcription	mʊ́kamʊk	page 19, the appendix, Hale ca. 1841, marked T
+appendix #40	Henry Zenk	note	(see eat)	page 19, the appendix, CW
+appendix #40	Henry Zenk	note	(see eat)	page 19, the appendix, Chinookan
+appendix #41	Henry Zenk	translation	foolish	page 19, the appendix, the gloss in Hale 1846
+appendix #41	Hale (1846)	transcription	pílton	page 19, the appendix, Hale 1846
+appendix #41	Hale (ca. 1841)	transcription	pìlton	page 19, the appendix, Hale ca. 1841
+appendix #41	Henry Zenk	note	(T)	page 19, the appendix, Hale ca. 1841
+appendix #41	Chinuk Wawa	transcription	píldən	page 19, the appendix, CW, carries note 2 of the appendix
+appendix #41	Henry Zenk	note	(<Eng)	page 19, the appendix, CW, after the form, carries note 2 of the appendix
+appendix footnote 2	Henry Zenk	note	Supposed to be derived from the name of one of the American sea captains who traded at the mouth of the Columbia River. Apparently original to Chinuk Wawa.	page 19, footnote 2 of the appendix
+appendix #42	Henry Zenk	translation	fox	page 19, the appendix, the gloss in Hale 1846
+appendix #42	Henry Zenk	note	fox / *	page 19, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #42	Hale (ca. 1841)	transcription	tiskáukau	page 19, the appendix, Hale ca. 1841, marked T
+appendix #42	Upper Chinook	transcription	(i-)tʼisqɑuqɑu	page 19, the appendix, Chinookan, after UC
+appendix #43	Henry Zenk	translation	friends	page 19, the appendix, the gloss in Hale 1846
+appendix #43	Hale (1846)	transcription	siks	page 19, the appendix, Hale 1846
+appendix #43	Hale (ca. 1841)	transcription	siks	page 19, the appendix, Hale ca. 1841
+appendix #43	Hale (ca. 1841)	transcription	ciks	page 19, the appendix, Hale ca. 1841, marked T
+appendix #43	Chinuk Wawa	transcription	šikš	page 19, the appendix, CW
+appendix #43	Lower Chinook	transcription	i-šíkš	page 19, the appendix, Chinookan, after LC
+appendix #43	Lower Chinook	transcription	šikšǃ	page 19, the appendix, Chinookan
+appendix #44	Henry Zenk	translation	God	page 20, the appendix, the gloss in Hale 1846
+appendix #44	Hale (1846)	transcription	sákali-taie	page 20, the appendix, Hale 1846
+appendix #44	Hale (ca. 1841)	transcription	tʊmánuas	page 20, the appendix, Hale ca. 1841
+appendix #44	Hale (ca. 1841)	transcription	sakale~	page 20, the appendix, Hale ca. 1841
+appendix #44	Hale (ca. 1841)	transcription	sahale-taíe	page 20, the appendix, Hale ca. 1841
+appendix #44	Hale (ca. 1841)	transcription	kánʊm	page 20, the appendix, Hale ca. 1841, marked T
+appendix #44	Townsend (1835)	transcription	Kannǔm	page 20, the appendix, Townsend's 1835 list
+appendix #44	Chinuk Wawa	transcription	tʼəmɑ́nəwɑs	page 20, the appendix, CW
+appendix #44	Henry Zenk	note	(spirit-power)	page 20, the appendix, CW
+appendix #44	Chinuk Wawa	transcription	sɑχɑli-tɑyí	page 20, the appendix, CW
+appendix #44	Henry Zenk	note	(God)	page 20, the appendix, CW, after the form
+appendix #44	Chinuk Wawa	transcription	ikɑ́nam	page 20, the appendix, CW
+appendix #44	Henry Zenk	note	(myth)	page 20, the appendix, CW, after the form
+appendix #44	Lower Chinook	transcription	i-tʼɑmɑ́nwɑš	page 20, the appendix, Chinookan, after LC
+appendix #44	Lower Chinook	transcription	sɑ́χɑli	page 20, the appendix, Chinookan
+appendix #44	Henry Zenk	note	(high; tayi ‘chief ‘< NJ),	page 20, the appendix, Chinookan, after the form
+appendix #44	Lower Chinook	transcription	ikɑ́nɑm	page 20, the appendix, Chinookan
+appendix #44	Henry Zenk	note	(myth)	page 20, the appendix, Chinookan, after the form
+appendix #45	Henry Zenk	translation	good	page 20, the appendix, the gloss in Hale 1846
+appendix #45	Hale (1846)	transcription	klōsh	page 20, the appendix, Hale 1846
+appendix #45	Hale (ca. 1841)	transcription	klós	page 20, the appendix, Hale ca. 1841
+appendix #45	Hale (ca. 1841)	transcription	kloc	page 20, the appendix, Hale ca. 1841
+appendix #45	Hale (ca. 1841)	transcription	itōkta	page 20, the appendix, Hale ca. 1841, marked T
+appendix #45	Townsend (1835)	transcription	Etōkteh	page 20, the appendix, Townsend's 1835 list
+appendix #45	Chinuk Wawa	transcription	ɬuš	page 20, the appendix, CW
+appendix #45	Henry Zenk	note	(<NJ)	page 20, the appendix, CW, after the form
+appendix #45	Chinuk Wawa	transcription	tʼukti	page 20, the appendix, CW
+appendix #45	Chinookan	transcription	i-tʼúkdi	page 20, the appendix, Chinookan, after Chn
+appendix #46	Henry Zenk	translation	grand-mother	page 20, the appendix, the gloss in Hale 1846
+appendix #46	Henry Zenk	note	grand-mother / *	page 20, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #46	Hale (ca. 1841)	transcription	tcits	page 20, the appendix, Hale ca. 1841
+appendix #46	Hale (ca. 1841)	transcription	bāäkāka	page 20, the appendix, Hale ca. 1841, marked T
+appendix #46	Chinuk Wawa	transcription	čič	page 20, the appendix, CW
+appendix #46	Henry Zenk	note	(<S)	page 20, the appendix, CW, after the form
+appendix #46	Lower Chinook	transcription	gɑ́kʼi	page 20, the appendix, Chinookan, after LC
+appendix #46	Henry Zenk	note	(grmotherǃ)	page 20, the appendix, Chinookan, after LC, after the form
+appendix #46	Lower Chinook	transcription	u-mí-kʼikʼi	page 20, the appendix, Chinookan
+appendix #46	Henry Zenk	note	(your...)	page 20, the appendix, Chinookan
+appendix #47	Henry Zenk	translation	green	page 20, the appendix, the gloss in Hale 1846
+appendix #47	Hale (1846)	transcription	pitshish	page 20, the appendix, Hale 1846
+appendix #47	Hale (ca. 1841)	transcription	pitcíχ	page 20, the appendix, Hale ca. 1841
+appendix #47	Hale (ca. 1841)	transcription	pitcíc	page 20, the appendix, Hale ca. 1841, marked T
+appendix #47	Townsend (1835)	transcription	pitchish	page 20, the appendix, Townsend's 1835 list
+appendix #47	Chinuk Wawa	transcription	pčiχ	page 20, the appendix, CW
+appendix #47	Chinookan	transcription	pčiχ	page 20, the appendix, Chinookan, after Chn
+appendix #48	Henry Zenk	translation	gun	page 20, the appendix, the gloss in Hale 1846
+appendix #48	Hale (1846)	transcription	mǔskit	page 20, the appendix, Hale 1846
+appendix #48	Hale (ca. 1841)	transcription	mʊ́skit	page 20, the appendix, Hale ca. 1841
+appendix #48	Hale (ca. 1841)	transcription	sʊ́kwalal	page 20, the appendix, Hale ca. 1841, marked T
+appendix #48	Townsend (1835)	transcription	Sukwallal	page 20, the appendix, Townsend's 1835 list
+appendix #48	Chinuk Wawa	transcription	mə́skit	page 20, the appendix, CW
+appendix #48	Henry Zenk	note	(<Eng)	page 20, the appendix, CW, after the form
+appendix #48	Chinuk Wawa	transcription	sə́qwɑlɑlɑ	page 20, the appendix, CW
+appendix #48	Lower Chinook	transcription	šə́-qʷɑlɑlɑ	page 20, the appendix, Chinookan, after LC
+appendix #49	Henry Zenk	translation	head	page 20, the appendix, the gloss in Hale 1846
+appendix #49	Hale (1846)	transcription	latēt	page 20, the appendix, Hale 1846
+appendix #49	Hale (ca. 1841)	transcription	latét	page 20, the appendix, Hale ca. 1841
+appendix #49	Hale (ca. 1841)	transcription	itsʊ́ktʊk	page 20, the appendix, Hale ca. 1841, marked T
+appendix #49	Chinuk Wawa	transcription	lɑtét	page 20, the appendix, CW
+appendix #49	Henry Zenk	note	(<Fr)	page 20, the appendix, CW, after the form
+appendix #49	Lower Chinook	transcription	i-qtq	page 20, the appendix, Chinookan, after LC
+appendix #49	Henry Zenk	note	(a ...)	page 20, the appendix, Chinookan, after LC, after the form
+appendix #49	Lower Chinook	transcription	í-čɑ-qtq	page 20, the appendix, Chinookan
+appendix #49	Henry Zenk	note	(her..., my...)	page 20, the appendix, Chinookan, after the form
+appendix #50	Henry Zenk	translation	heaven	page 20, the appendix, the gloss in Hale 1846
+appendix #50	Henry Zenk	note	heaven / *	page 20, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #50	Hale (ca. 1841)	transcription	kūsah	page 20, the appendix, Hale ca. 1841, marked T
+appendix #50	Townsend (1835)	transcription	Koosah	page 20, the appendix, Townsend's 1835 list
+appendix #50	Chinuk Wawa	transcription	k̬úsɑχ	page 20, the appendix, CW
+appendix #50	Henry Zenk	note	(sky)	page 20, the appendix, CW, after the form
+appendix #50	Lower Chinook	transcription	i-gúšɑχ	page 20, the appendix, Chinookan, after LC
+appendix #50	Henry Zenk	note	(sky)	page 20, the appendix, Chinookan, after LC, after the form
+appendix #51	Henry Zenk	translation	here (this)	page 20, the appendix, the gloss in Hale 1846
+appendix #51	Hale (ca. 1841)	transcription	ókok	page 20, the appendix, Hale ca. 1841
+appendix #51	Hale (ca. 1841)	transcription	ūkuk	page 20, the appendix, Hale ca. 1841, marked T
+appendix #51	Townsend (1835)	transcription	Oocook	page 20, the appendix, Townsend's 1835 list
+appendix #51	Henry Zenk	note	(here)	page 20, the appendix, Townsend's 1835 list, after the form
+appendix #51	Henry Zenk	note	(see that, this)	page 20, the appendix, CW
+appendix #51	Henry Zenk	note	(see that, this)	page 20, the appendix, Chinookan
+appendix #52	Henry Zenk	translation	house	page 20, the appendix, the gloss in Hale 1846
+appendix #52	Hale (1846)	transcription	haus	page 20, the appendix, Hale 1846
+appendix #52	Hale (ca. 1841)	transcription	haus	page 20, the appendix, Hale ca. 1841
+appendix #52	Hale (ca. 1841)	transcription	tkwāˊhli	page 20, the appendix, Hale ca. 1841, marked T
+appendix #52	Townsend (1835)	transcription	Tʼqaghle	page 20, the appendix, Townsend's 1835 list
+appendix #52	Chinuk Wawa	transcription	hɑus	page 20, the appendix, CW
+appendix #52	Kathlamet	transcription	t-qúɬi	page 20, the appendix, Chinookan, after KC
+appendix #52	Upper Chinook	transcription	it-ġʷə́ɬi	page 20, the appendix, Chinookan, after UC
+appendix #53	Henry Zenk	translation	how much, how many	page 20, the appendix, the gloss in Hale 1846
+appendix #53	Hale (1846)	transcription	kántshǐak	page 20, the appendix, Hale 1846
+appendix #53	Hale (1846)	transcription	kántsek	page 20, the appendix, Hale 1846
+appendix #53	Hale (ca. 1841)	transcription	kántciak	page 20, the appendix, Hale ca. 1841
+appendix #53	Hale (ca. 1841)	transcription	kántci	page 20, the appendix, Hale ca. 1841
+appendix #53	Hale (ca. 1841)	transcription	kʚ̌nsec[t]	page 20, the appendix, Hale ca. 1841, marked T
+appendix #53	Chinuk Wawa	transcription	qə́nči(χ)	page 20, the appendix, CW
+appendix #53	Lower Chinook	transcription	qɑ́nciχ	page 20, the appendix, Chinookan, after LC
+appendix #53	Upper Chinook	transcription	qɑ́nčiχ	page 20, the appendix, Chinookan, after UC
+appendix #54	Henry Zenk	translation	hungry	page 20, the appendix, the gloss in Hale 1846
+appendix #54	Hale (1846)	transcription	olo	page 20, the appendix, Hale 1846
+appendix #54	Hale (ca. 1841)	transcription	ólo	page 20, the appendix, Hale ca. 1841
+appendix #54	Hale (ca. 1841)	transcription	ōlu	page 20, the appendix, Hale ca. 1841, marked T
+appendix #54	Townsend (1835)	transcription	Olo	page 20, the appendix, Townsend's 1835 list
+appendix #54	Chinuk Wawa	transcription	úlu	page 20, the appendix, CW
+appendix #54	Lower Chinook	transcription	ú-lu	page 20, the appendix, Chinookan, after LC
+appendix #55	Henry Zenk	translation	ice (“heavy water”)	page 20, the appendix, the gloss in Hale 1846
+appendix #55	Hale (1846)	transcription	tǔl-tsok	page 20, the appendix, Hale 1846
+appendix #55	Hale (ca. 1841)	transcription	tiltsok	page 20, the appendix, Hale ca. 1841, marked T
+appendix #55	Henry Zenk	note	(see tired, water)	page 20, the appendix, CW
+appendix #55	Henry Zenk	note	(see tired, water)	page 20, the appendix, Chinookan
+appendix #56	Henry Zenk	translation	kill	page 21, the appendix, the gloss in Hale 1846
+appendix #56	Hale (1846)	transcription	kākshatl	page 21, the appendix, Hale 1846
+appendix #56	Hale (1846)	transcription	mámuk	page 21, the appendix, Hale 1846
+appendix #56	Hale (1846)	transcription	mēmelust	page 21, the appendix, Hale 1846
+appendix #56	Hale (ca. 1841)	transcription	kákcatl	page 21, the appendix, Hale ca. 1841
+appendix #56	Hale (ca. 1841)	transcription	kǎkcʊtl	page 21, the appendix, Hale ca. 1841, marked T
+appendix #56	Hale (ca. 1841)	transcription	mámuk mémelust	page 21, the appendix, Hale ca. 1841, marked T
+appendix #56	Chinuk Wawa	transcription	k̬ɑ́kšət	page 21, the appendix, CW
+appendix #56	Henry Zenk	note	(whip) (NJ)	page 21, the appendix, CW, after the form
+appendix #56	Chinuk Wawa	transcription	mɑmuk- míməlust	page 21, the appendix, CW
+appendix #56	Henry Zenk	note	(make-dead = ‘kill’: see make)	page 21, the appendix, CW
+appendix #56	Lower Chinook	transcription	ɬ-míməlušt	page 21, the appendix, Chinookan, after LC
+appendix #56	Henry Zenk	note	(dead)	page 21, the appendix, Chinookan, after LC, after the form
+appendix #57	Henry Zenk	translation	knee	page 21, the appendix, the gloss in Hale 1846
+appendix #57	Henry Zenk	note	knee / *	page 21, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #57	Hale (ca. 1841)	transcription	kʚqʰʊl	page 21, the appendix, Hale ca. 1841, marked T
+appendix #57	Townsend (1835)	transcription	Koghˊul	page 21, the appendix, Townsend's 1835 list
+appendix #57	Lower Chinook	transcription	u-iɑ́-qʼuχɬ	page 21, the appendix, Chinookan, after LC
+appendix #57	Henry Zenk	note	(his...)	page 21, the appendix, Chinookan, after LC, after the form
+appendix #58	Henry Zenk	translation	knife	page 21, the appendix, the gloss in Hale 1846
+appendix #58	Hale (1846)	transcription	ōpŭtsah	page 21, the appendix, Hale 1846
+appendix #58	Hale (ca. 1841)	transcription	ópitsa	page 21, the appendix, Hale ca. 1841
+appendix #58	Townsend (1835)	transcription	opitsǎgh	page 21, the appendix, Townsend's 1835 list
+appendix #58	Townsend (1835)	transcription	okewekkah	page 21, the appendix, Townsend's 1835 list
+appendix #58	Chinuk Wawa	transcription	úpcɑχ	page 21, the appendix, CW
+appendix #58	Lower Chinook	transcription	úpcɑχ	page 21, the appendix, Chinookan, after LC
+appendix #58	Lower Chinook	transcription	u-qiwíqi	page 21, the appendix, Chinookan
+appendix #59	Henry Zenk	translation	lake	page 21, the appendix, the gloss in Hale 1846
+appendix #59	Hale (1846)	transcription	lēk	page 21, the appendix, Hale 1846
+appendix #59	Hale (ca. 1841)	transcription	lēk	page 21, the appendix, Hale ca. 1841
+appendix #59	Hale (ca. 1841)	transcription	ikakōtli	page 21, the appendix, Hale ca. 1841, marked T
+appendix #59	Townsend (1835)	transcription	ekacōtlee	page 21, the appendix, Townsend's 1835 list
+appendix #59	Chinuk Wawa	transcription	leyk	page 21, the appendix, CW
+appendix #59	Henry Zenk	note	(<Eng)	page 21, the appendix, CW, after the form
+appendix #59	Lower Chinook	transcription	i-kɑkʼúɬitx	page 21, the appendix, Chinookan, after LC
+appendix #60	Henry Zenk	translation	land	page 21, the appendix, the gloss in Hale 1846
+appendix #60	Hale (1846)	transcription	ilēhi	page 21, the appendix, Hale 1846
+appendix #60	Hale (ca. 1841)	transcription	ilēhi	page 21, the appendix, Hale ca. 1841, marked T
+appendix #60	Henry Zenk	note	(see earth)	page 21, the appendix, CW
+appendix #60	Henry Zenk	note	(see earth)	page 21, the appendix, Chinookan
+appendix #61	Henry Zenk	translation	lie (deceive)	page 21, the appendix, the gloss in Hale 1846
+appendix #61	Hale (1846)	transcription	kliminékwit	page 21, the appendix, Hale 1846
+appendix #61	Hale (ca. 1841)	transcription	kliminēkwit	page 21, the appendix, Hale ca. 1841
+appendix #61	Hale (ca. 1841)	transcription	kapcuála	page 21, the appendix, Hale ca. 1841, marked T
+appendix #61	Townsend (1835)	transcription	Klaminihoot	page 21, the appendix, Townsend's 1835 list
+appendix #61	Henry Zenk	note	(a lie)	page 21, the appendix, Townsend's 1835 list, after the form
+appendix #61	Townsend (1835)	transcription	Capsu-allah	page 21, the appendix, Townsend's 1835 list
+appendix #61	Henry Zenk	note	(to steal)	page 21, the appendix, Townsend's 1835 list, after the form
+appendix #61	Chinuk Wawa	transcription	ƛʼəmínxwət	page 21, the appendix, CW
+appendix #61	Henry Zenk	note	(lie)	page 21, the appendix, CW, after the form
+appendix #61	Chinuk Wawa	transcription	k̬ɑ́pšwɑlɑ	page 21, the appendix, CW
+appendix #61	Henry Zenk	note	(steal)	page 21, the appendix, CW, after the form
+appendix #61	Chinookan	transcription	i-ƛʼmínxut	page 21, the appendix, Chinookan, after LC, KC
+appendix #61	Henry Zenk	note	(a lie)	page 21, the appendix, Chinookan, after LC, KC, after the form
+appendix #62	Henry Zenk	translation	lightning (“fire above”)	page 21, the appendix, the gloss in Hale 1846
+appendix #62	Hale (1846)	transcription	sáhali-olapitski	page 21, the appendix, Hale 1846
+appendix #62	Hale (ca. 1841)	transcription	sāhali ōlapitski	page 21, the appendix, Hale ca. 1841, marked T
+appendix #62	Henry Zenk	note	(see fire, God)	page 21, the appendix, CW
+appendix #62	Henry Zenk	note	(see fire, God)	page 21, the appendix, Chinookan
+appendix #63	Henry Zenk	translation	like, love	page 21, the appendix, the gloss in Hale 1846
+appendix #63	Hale (1846)	transcription	tǔkéh	page 21, the appendix, Hale 1846
+appendix #63	Hale (ca. 1841)	transcription	tʊkéh	page 21, the appendix, Hale ca. 1841
+appendix #63	Hale (ca. 1841)	transcription	káqaq	page 21, the appendix, Hale ca. 1841, marked T
+appendix #63	Townsend (1835)	transcription	tekay	page 21, the appendix, Townsend's 1835 list
+appendix #63	Henry Zenk	note	(want)	page 21, the appendix, Townsend's 1835 list, after the form
+appendix #63	Townsend (1835)	transcription	ʼKagh egh	page 21, the appendix, Townsend's 1835 list
+appendix #63	Henry Zenk	note	(love; “very guttural”)	page 21, the appendix, Townsend's 1835 list, after the form
+appendix #63	Chinuk Wawa	transcription	tqʼiχ	page 21, the appendix, CW
+appendix #63	Chinuk Wawa	transcription	tíki	page 21, the appendix, CW
+appendix #63	Chinookan	transcription	tqʼiχ	page 21, the appendix, Chinookan, after Chn
+appendix #63	Henry Zenk	note	(like)	page 21, the appendix, Chinookan, after Chn, after the form
+appendix #63	Upper Chinook	transcription	kʼɑxš	page 21, the appendix, Chinookan, after UC
+appendix #63	Henry Zenk	note	(desire)	page 21, the appendix, Chinookan, after UC, after the form
+appendix #63	Henry Zenk	note	(cf? S χɑʔɑ́- (love [stem])	page 21, the appendix, Chinookan
+appendix #64	Henry Zenk	translation	long ago	page 21, the appendix, the gloss in Hale 1846
+appendix #64	Henry Zenk	note	long ago / *	page 21, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #64	Hale (ca. 1841)	transcription	ánkati	page 21, the appendix, Hale ca. 1841
+appendix #64	Hale (ca. 1841)	transcription	ǎˊnakǔti	page 21, the appendix, Hale ca. 1841, marked T
+appendix #64	Chinuk Wawa	transcription	ɑ́nqɑti	page 21, the appendix, CW
+appendix #64	Lower Chinook	transcription	ɑ́nqɑti	page 21, the appendix, Chinookan, after LC
+appendix #65	Henry Zenk	translation	make	page 21, the appendix, the gloss in Hale 1846
+appendix #65	Hale (1846)	transcription	mámuk	page 21, the appendix, Hale 1846
+appendix #65	Hale (1846)	transcription	mámok	page 21, the appendix, Hale 1846
+appendix #65	Hale (ca. 1841)	transcription	mamok	page 21, the appendix, Hale ca. 1841
+appendix #65	Hale (ca. 1841)	transcription	mamuk	page 21, the appendix, Hale ca. 1841, marked T
+appendix #65	Chinuk Wawa	transcription	mɑ́muk	page 21, the appendix, CW
+appendix #65	Henry Zenk	note	(<NJ)	page 21, the appendix, CW, after the form
+appendix #66	Henry Zenk	translation	man	page 21, the appendix, the gloss in Hale 1846
+appendix #66	Hale (1846)	transcription	man	page 21, the appendix, Hale 1846
+appendix #66	Hale (ca. 1841)	transcription	man	page 21, the appendix, Hale ca. 1841
+appendix #66	Hale (ca. 1841)	transcription	skotlēlekʊm	page 21, the appendix, Hale ca. 1841, marked T
+appendix #66	Townsend (1835)	transcription	ʼScōtlailecum	page 21, the appendix, Townsend's 1835 list
+appendix #66	Chinuk Wawa	transcription	mɑn	page 21, the appendix, CW
+appendix #66	Henry Zenk	note	(<Eng)	page 21, the appendix, CW, after the form
+appendix #66	Lower Chinook	transcription	ɬ-guɬílxəmk	page 21, the appendix, Chinookan, after LC
+appendix #66	Henry Zenk	note	(person)	page 21, the appendix, Chinookan, after LC, after the form
+appendix #67	Henry Zenk	translation	many, much	page 22, the appendix, the gloss in Hale 1846
+appendix #67	Hale (1846)	transcription	haiu	page 22, the appendix, Hale 1846
+appendix #67	Hale (ca. 1841)	transcription	haíu	page 22, the appendix, Hale ca. 1841
+appendix #67	Hale (ca. 1841)	transcription	haiō	page 22, the appendix, Hale ca. 1841
+appendix #67	Henry Zenk	note	(T)	page 22, the appendix, Hale ca. 1841
+appendix #67	Townsend (1835)	transcription	Oghooway	page 22, the appendix, Townsend's 1835 list
+appendix #67	Henry Zenk	note	(much)	page 22, the appendix, Townsend's 1835 list, after the form
+appendix #67	Townsend (1835)	transcription	hyo	page 22, the appendix, Townsend's 1835 list
+appendix #67	Henry Zenk	note	(many)	page 22, the appendix, Townsend's 1835 list
+appendix #67	Chinuk Wawa	transcription	hɑyú	page 22, the appendix, CW
+appendix #67	Henry Zenk	note	(<NJ)	page 22, the appendix, CW, after the form
+appendix #67	Lower Chinook	transcription	úxuit	page 22, the appendix, Chinookan, after LC
+appendix #67	Henry Zenk	note	(much)	page 22, the appendix, Chinookan, after LC, after the form
+appendix #68	Henry Zenk	translation	moon	page 22, the appendix, the gloss in Hale 1846
+appendix #68	Hale (1846)	transcription	mūn	page 22, the appendix, Hale 1846
+appendix #68	Hale (ca. 1841)	transcription	mún	page 22, the appendix, Hale ca. 1841
+appendix #68	Hale (ca. 1841)	transcription	uktlémn	page 22, the appendix, Hale ca. 1841, marked T
+appendix #68	Townsend (1835)	transcription	Ooktlemin	page 22, the appendix, Townsend's 1835 list
+appendix #68	Chinuk Wawa	transcription	mun	page 22, the appendix, CW
+appendix #68	Henry Zenk	note	(< Eng)	page 22, the appendix, CW, after the form
+appendix #68	Lower Chinook	transcription	u-kƛəmín	page 22, the appendix, Chinookan, after LC
+appendix #69	Henry Zenk	translation	morning	page 22, the appendix, the gloss in Hale 1846
+appendix #69	Hale (1846)	transcription	tánas-sǔn	page 22, the appendix, Hale 1846
+appendix #69	Hale (ca. 1841)	transcription	tànas-sʊn	page 22, the appendix, Hale ca. 1841
+appendix #69	Hale (ca. 1841)	transcription	etcʊ́kti	page 22, the appendix, Hale ca. 1841, marked T
+appendix #69	Chinuk Wawa	transcription	tənəs-sɑ́n	page 22, the appendix, CW
+appendix #69	Henry Zenk	note	(little-sun = ‘AM’; < NJ + Eng)	page 22, the appendix, CW, after the form
+appendix #69	Kathlamet	transcription	i-gɑ-čúktix	page 22, the appendix, Chinookan, after KC
+appendix #69	Henry Zenk	note	(early AM)	page 22, the appendix, Chinookan, after KC, after the form
+appendix #70	Henry Zenk	translation	mother	page 22, the appendix, the gloss in Hale 1846
+appendix #70	Hale (1846)	transcription	nāa	page 22, the appendix, Hale 1846
+appendix #70	Hale (ca. 1841)	transcription	náa	page 22, the appendix, Hale ca. 1841
+appendix #70	Hale (ca. 1841)	transcription	náhka	page 22, the appendix, Hale ca. 1841
+appendix #70	Hale (ca. 1841)	transcription	nā	page 22, the appendix, Hale ca. 1841, marked T
+appendix #70	Lower Chinook	transcription	ɬ-gɑ́-nɑ.ɑ	page 22, the appendix, Chinookan, after LC
+appendix #70	Henry Zenk	note	(her...)	page 22, the appendix, Chinookan, after LC, after the form
+appendix #70	Lower Chinook	transcription	ɬ-iɑ́-nɑ.ɑ	page 22, the appendix, Chinookan
+appendix #70	Henry Zenk	note	(his...)	page 22, the appendix, Chinookan, after the form
+appendix #71	Henry Zenk	translation	nail (finger)	page 22, the appendix, the gloss in Hale 1846
+appendix #71	Henry Zenk	note	nail (finger) / *	page 22, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #71	Hale (ca. 1841)	transcription	klaqwārte	page 22, the appendix, Hale ca. 1841, marked T
+appendix #71	Townsend (1835)	transcription	ʼKlghwartee	page 22, the appendix, Townsend's 1835 list
+appendix #71	Henry Zenk	note	(nails)	page 22, the appendix, Townsend's 1835 list, after the form
+appendix #71	Upper Chinook	transcription	ɑ-ɬxwɑ́di	page 22, the appendix, Chinookan, after UC
+appendix #72	Henry Zenk	translation	name	page 22, the appendix, the gloss in Hale 1846
+appendix #72	Hale (1846)	transcription	iáhǎle	page 22, the appendix, Hale 1846
+appendix #72	Hale (1846)	transcription	nēm	page 22, the appendix, Hale 1846
+appendix #72	Hale (ca. 1841)	transcription	iáhale	page 22, the appendix, Hale ca. 1841
+appendix #72	Henry Zenk	note	(T)	page 22, the appendix, Hale ca. 1841
+appendix #72	Chinuk Wawa	transcription	nim	page 22, the appendix, CW
+appendix #72	Henry Zenk	note	(< Eng)	page 22, the appendix, CW, after the form
+appendix #72	Chinuk Wawa	transcription	yɑ́χɑl(i)	page 22, the appendix, CW
+appendix #72	Lower Chinook	transcription	i-iɑ́-χɑl	page 22, the appendix, Chinookan, after LC
+appendix #72	Chinookan	transcription	i-iɑ́-χliw	page 22, the appendix, Chinookan, after KC, UC
+appendix #72	Henry Zenk	note	(his...)	page 22, the appendix, Chinookan, after KC, UC, after the form
+appendix #73	Henry Zenk	translation	night	page 22, the appendix, the gloss in Hale 1846
+appendix #73	Hale (1846)	transcription	pōlakli	page 22, the appendix, Hale 1846
+appendix #73	Hale (1846)	transcription	pūlakli	page 22, the appendix, Hale 1846
+appendix #73	Hale (ca. 1841)	transcription	pólakle	page 22, the appendix, Hale ca. 1841
+appendix #73	Hale (ca. 1841)	transcription	pūlakli	page 22, the appendix, Hale ca. 1841, marked T
+appendix #73	Townsend (1835)	transcription	Pōlaklee	page 22, the appendix, Townsend's 1835 list
+appendix #73	Chinuk Wawa	transcription	p̬úlɑkli	page 22, the appendix, CW
+appendix #73	Kathlamet	transcription	púlɑkli	page 22, the appendix, Chinookan, after KC
+appendix #73	Henry Zenk	note	(at ...)	page 22, the appendix, Chinookan, after KC, after the form
+appendix #74	Henry Zenk	translation	none	page 22, the appendix, the gloss in Hale 1846
+appendix #74	Hale (1846)	transcription	hēlo	page 22, the appendix, Hale 1846
+appendix #74	Hale (1846)	transcription	hīlu	page 22, the appendix, Hale 1846
+appendix #74	Hale (ca. 1841)	transcription	hílu	page 22, the appendix, Hale ca. 1841
+appendix #74	Hale (ca. 1841)	transcription	helo	page 22, the appendix, Hale ca. 1841
+appendix #74	Hale (ca. 1841)	transcription	helu	page 22, the appendix, Hale ca. 1841, marked T
+appendix #74	Townsend (1835)	transcription	haloo	page 22, the appendix, Townsend's 1835 list
+appendix #74	Chinuk Wawa	transcription	hílu	page 22, the appendix, CW, carries note 3 of the appendix
+appendix footnote 3	Henry Zenk	note	Ross Clark (personal communication 2010) has presented evidence for an NJ origin, ultimately from Hajda hiˑluˑ ‘be finished’.	page 22, footnote 3 of the appendix
+appendix footnote 3	Haida	cited form	hiˑluˑ	page 22, in italics, ‘be finished’
+appendix footnote 3	Henry Zenk	name	Ross Clark	personal communication 2010, note 3 of the appendix
+appendix footnote 3	Henry Zenk	language	Hajda	note 3 of the appendix, as printed
+appendix #75	Henry Zenk	translation	nose	page 22, the appendix, the gloss in Hale 1846
+appendix #75	Hale (1846)	transcription	nōs	page 22, the appendix, Hale 1846
+appendix #75	Hale (ca. 1841)	transcription	nōs	page 22, the appendix, Hale ca. 1841
+appendix #75	Hale (ca. 1841)	transcription	itsʊ́kʊtc	page 22, the appendix, Hale ca. 1841, marked T
+appendix #75	Chinuk Wawa	transcription	nus	page 22, the appendix, CW
+appendix #75	Henry Zenk	note	(<Eng)	page 22, the appendix, CW, after the form
+appendix #75	Kathlamet	transcription	i-č-kti	page 22, the appendix, Chinookan, after KC
+appendix #75	Henry Zenk	note	(my...)	page 22, the appendix, Chinookan, after KC, after the form
+appendix #75	Upper Chinook	transcription	í-iɑ-kč	page 22, the appendix, Chinookan, after UC
+appendix #75	Henry Zenk	note	(his...)	page 22, the appendix, Chinookan, after UC, after the form
+appendix #76	Henry Zenk	translation	people	page 22, the appendix, the gloss in Hale 1846
+appendix #76	Hale (1846)	transcription	tilikǔm	page 22, the appendix, Hale 1846
+appendix #76	Hale (ca. 1841)	transcription	tilikǔm	page 22, the appendix, Hale ca. 1841, marked T
+appendix #76	Townsend (1835)	transcription	Tʼhlicum	page 22, the appendix, Townsend's 1835 list
+appendix #76	Chinuk Wawa	transcription	tílixɑm	page 22, the appendix, CW
+appendix #76	Henry Zenk	note	(person, people)	page 22, the appendix, CW, after the form
+appendix #76	Lower Chinook	transcription	tí-lxəm	page 22, the appendix, Chinookan, after LC
+appendix #76	Lower Chinook	transcription	tí-ləχɑm	page 22, the appendix, Chinookan
+appendix #76	Henry Zenk	note	(people)	page 22, the appendix, Chinookan, after the form
+appendix #77	Henry Zenk	translation	perhaps	page 22, the appendix, the gloss in Hale 1846
+appendix #77	Hale (1846)	transcription	klunás	page 22, the appendix, Hale 1846
+appendix #77	Hale (ca. 1841)	transcription	klonās	page 22, the appendix, Hale ca. 1841
+appendix #77	Hale (ca. 1841)	transcription	klūnās	page 22, the appendix, Hale ca. 1841, marked T
+appendix #77	Townsend (1835)	transcription	Kluˊnass	page 22, the appendix, Townsend's 1835 list
+appendix #77	Chinuk Wawa	transcription	ƛʼúnɑs	page 22, the appendix, CW
+appendix #77	Lower Chinook	transcription	ƛúnɑs	page 22, the appendix, Chinookan, after LC
+appendix #78	Henry Zenk	translation	potatoes	page 23, the appendix, the gloss in Hale 1846
+appendix #78	Henry Zenk	note	potatoes / *	page 23, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #78	Hale (ca. 1841)	transcription	pasaíuks wápatus	page 23, the appendix, Hale ca. 1841, marked T
+appendix #78	Chinuk Wawa	transcription	pɑsɑ́yuks	page 23, the appendix, CW
+appendix #78	Henry Zenk	note	(French, White)	page 23, the appendix, CW, after the form
+appendix #78	Chinuk Wawa	transcription	wɑ́ptu	page 23, the appendix, CW
+appendix #78	Henry Zenk	note	(potatoes)	page 23, the appendix, CW, carries note 4 of the appendix
+appendix footnote 4	Henry Zenk	note	Of uncertain origin; perhaps from Kalapuyan -pdu, -pduʔ ‘Sagittaria latifolia’ (also known as “Indian potato”), with the Upper Chinook nominal prefix wɑ-. pasaíuks is for CW pɑsɑ́yuks ‘French’ (also sometimes used for ‘White’).	page 23, footnote 4 of the appendix
+appendix footnote 4	Chinuk Wawa	cited form	pɑsɑ́yuks	page 23, in italics, ‘French’
+appendix footnote 4	Kalapuyan	cited form	-pdu	page 23, in italics
+appendix footnote 4	Kalapuyan	cited form	-pduʔ	page 23, in italics, ‘Sagittaria latifolia’
+appendix footnote 4	Upper Chinook	cited form	wɑ-	page 23, in italics
+appendix footnote 4	Henry Zenk	language	Upper Chinook	UC, the appendix
+appendix footnote 4	Henry Zenk	language	Kalapuyan	note 4 of the appendix
+appendix #79	Henry Zenk	translation	powder, gun	page 23, the appendix, the gloss in Hale 1846
+appendix #79	Hale (1846)	transcription	pōlali	page 23, the appendix, Hale 1846
+appendix #79	Hale (1846)	transcription	pūlali	page 23, the appendix, Hale 1846
+appendix #79	Hale (ca. 1841)	transcription	pólali	page 23, the appendix, Hale ca. 1841
+appendix #79	Hale (ca. 1841)	transcription	pūlali	page 23, the appendix, Hale ca. 1841, marked T
+appendix #79	Chinuk Wawa	transcription	pólɑli	page 23, the appendix, CW
+appendix #79	Henry Zenk	note	(?<Fr)	page 23, the appendix, CW, after the form
+appendix #80	Henry Zenk	translation	property, goods	page 23, the appendix, the gloss in Hale 1846
+appendix #80	Hale (1846)	transcription	íkǎta	page 23, the appendix, Hale 1846
+appendix #80	Hale (1846)	transcription	ikta	page 23, the appendix, Hale 1846
+appendix #80	Hale (ca. 1841)	transcription	íkta	page 23, the appendix, Hale ca. 1841
+appendix #80	Hale (ca. 1841)	transcription	íkata	page 23, the appendix, Hale ca. 1841, marked T
+appendix #80	Chinuk Wawa	transcription	íkt̬ɑ	page 23, the appendix, CW
+appendix #80	Henry Zenk	note	(thing)	page 23, the appendix, CW, after the form
+appendix #80	Lower Chinook	transcription	í-ktɑ	page 23, the appendix, Chinookan, after LC
+appendix #80	Henry Zenk	note	(thing)	page 23, the appendix, Chinookan, after LC, after the form
+appendix #81	Henry Zenk	translation	quick	page 23, the appendix, the gloss in Hale 1846
+appendix #81	Henry Zenk	note	quick / *	page 23, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #81	Hale (ca. 1841)	transcription	haíak	page 23, the appendix, Hale ca. 1841
+appendix #81	Hale (ca. 1841)	transcription	haiʊ́k	page 23, the appendix, Hale ca. 1841, marked T
+appendix #81	Chinuk Wawa	transcription	ɑ́yɑq	page 23, the appendix, CW
+appendix #81	Chinuk Wawa	transcription	ɑyɑ́q	page 23, the appendix, CW
+appendix #81	Chinookan	transcription	ɑ́yɑq	page 23, the appendix, Chinookan, after Chn
+appendix #81	Chinookan	transcription	ɑyɑ́q	page 23, the appendix, Chinookan
+appendix #82	Henry Zenk	translation	river	page 23, the appendix, the gloss in Hale 1846
+appendix #82	Hale (1846)	transcription	ēmatl	page 23, the appendix, Hale 1846
+appendix #82	Hale (1846)	transcription	aibalt	page 23, the appendix, Hale 1846
+appendix #82	Hale (ca. 1841)	transcription	ībalt	page 23, the appendix, Hale ca. 1841, marked T
+appendix #82	Townsend (1835)	transcription	aibalt	page 23, the appendix, Townsend's 1835 list
+appendix #82	Chinookan	transcription	í-mɑɬ	page 23, the appendix, Chinookan, after LC, KC
+appendix #82	Henry Zenk	note	(river, bay, ocean)	page 23, the appendix, Chinookan, after LC, KC, after the form
+appendix #83	Henry Zenk	translation	salmon	page 23, the appendix, the gloss in Hale 1846
+appendix #83	Hale (1846)	transcription	sámǔn	page 23, the appendix, Hale 1846
+appendix #83	Hale (ca. 1841)	transcription	sàmʊn	page 23, the appendix, Hale ca. 1841
+appendix #83	Hale (ca. 1841)	transcription	kwánaq	page 23, the appendix, Hale ca. 1841, marked T
+appendix #83	Townsend (1835)	transcription	ʼquanagh	page 23, the appendix, Townsend's 1835 list
+appendix #83	Chinuk Wawa	transcription	sɑ́mən	page 23, the appendix, CW
+appendix #83	Henry Zenk	note	(<Eng)	page 23, the appendix, CW, after the form
+appendix #83	Lower Chinook	transcription	i-gwɑ́nɑt	page 23, the appendix, Chinookan, after LC
+appendix #84	Henry Zenk	translation	sea	page 23, the appendix, the gloss in Hale 1846
+appendix #84	Hale (1846)	transcription	wikōma	page 23, the appendix, Hale 1846
+appendix #84	Hale (1846)	transcription	haias tsok	page 23, the appendix, Hale 1846
+appendix #84	Hale (ca. 1841)	transcription	wikōma	page 23, the appendix, Hale ca. 1841, marked T
+appendix #84	Townsend (1835)	transcription	Wecōma	page 23, the appendix, Townsend's 1835 list
+appendix #84	Chinuk Wawa	transcription	sɑ́lcəqʷ	page 23, the appendix, CW
+appendix #84	Henry Zenk	note	(<Eng + Chn cəqʷ: water)	page 23, the appendix, CW, after the form
+appendix #84	Henry Zenk	note	cf	page 23, the appendix, Chinookan, a comparison set before the form
+appendix #84	Lower Chinook	transcription	wíkwɑ	page 23, the appendix, Chinookan, after LC
+appendix #84	Lower Chinook	transcription	wígwɑ	page 23, the appendix, Chinookan
+appendix #84	Henry Zenk	note	(ocean; ‑mɑ suffix?)	page 23, the appendix, Chinookan, after the form
+appendix #85	Henry Zenk	translation	see	page 23, the appendix, the gloss in Hale 1846
+appendix #85	Hale (1846)	transcription	nánǎnitsh	page 23, the appendix, Hale 1846
+appendix #85	Hale (1846)	transcription	nānitsh	page 23, the appendix, Hale 1846
+appendix #85	Hale (ca. 1841)	transcription	nánitc	page 23, the appendix, Hale ca. 1841
+appendix #85	Hale (ca. 1841)	transcription	nánanitc	page 23, the appendix, Hale ca. 1841, marked T
+appendix #85	Townsend (1835)	transcription	nonnaneech	page 23, the appendix, Townsend's 1835 list
+appendix #85	Chinuk Wawa	transcription	(nɑ)nɑ́nič	page 23, the appendix, CW
+appendix #85	Henry Zenk	note	(<NJ)	page 23, the appendix, CW, after the form
+appendix #86	Henry Zenk	translation	sheep	page 23, the appendix, the gloss in Hale 1846
+appendix #86	Hale (1846)	transcription	lemutón	page 23, the appendix, Hale 1846
+appendix #86	Hale (ca. 1841)	transcription	mutan	page 23, the appendix, Hale ca. 1841
+appendix #86	Hale (ca. 1841)	transcription	lemutón	page 23, the appendix, Hale ca. 1841
+appendix #86	Hale (ca. 1841)	transcription	āsínkwa	page 23, the appendix, Hale ca. 1841, marked T
+appendix #86	Chinuk Wawa	transcription	límot̬o	page 23, the appendix, CW
+appendix #86	Henry Zenk	note	(< Fr)	page 23, the appendix, CW, after the form
+appendix #86	Henry Zenk	note	cf?	page 23, the appendix, Chinookan, a comparison set before the form
+appendix #86	Kathlamet	transcription	í-šixq	page 23, the appendix, Chinookan, after KC
+appendix #86	Henry Zenk	note	(mt. goat)	page 23, the appendix, Chinookan, after KC, after the form
+appendix #87	Henry Zenk	translation	shoes	page 23, the appendix, the gloss in Hale 1846
+appendix #87	Hale (1846)	transcription	shūs	page 23, the appendix, Hale 1846
+appendix #87	Hale (ca. 1841)	transcription	cúz	page 23, the appendix, Hale ca. 1841
+appendix #87	Hale (ca. 1841)	transcription	stíkcuz	page 23, the appendix, Hale ca. 1841
+appendix #87	Hale (ca. 1841)	transcription	kittélpʊ	page 23, the appendix, Hale ca. 1841, marked T
+appendix #87	Townsend (1835)	transcription	ʼKʼtlʼph	page 23, the appendix, Townsend's 1835 list
+appendix #87	Chinuk Wawa	transcription	šus	page 23, the appendix, CW
+appendix #87	Henry Zenk	note	(<Eng)	page 23, the appendix, CW, after the form
+appendix #87	Chinuk Wawa	transcription	tqíɬpɑ	page 23, the appendix, CW
+appendix #87	Lower Chinook	transcription	də́-ġiƛpɑ	page 23, the appendix, Chinookan, after LC
+appendix #87	Henry Zenk	note	(moccasins)	page 23, the appendix, Chinookan, after LC, after the form
+appendix #87	Upper Chinook	transcription	id-iɑ́-ġiƛbɑ	page 23, the appendix, Chinookan, after UC
+appendix #87	Henry Zenk	note	(his...)	page 23, the appendix, Chinookan, after UC, after the form
+appendix #88	Henry Zenk	translation	sister (older)	page 24, the appendix, the gloss in Hale 1846
+appendix #88	Hale (1846)	transcription	likpō	page 24, the appendix, Hale 1846
+appendix #88	Hale (1846)	transcription	likpǔhǔ	page 24, the appendix, Hale 1846, carries note 5 of the appendix
+appendix #88	Hale (ca. 1841)	transcription	kápo	page 24, the appendix, Hale ca. 1841
+appendix #88	Hale (ca. 1841)	transcription	āts	page 24, the appendix, Hale ca. 1841, marked T
+appendix #88	Townsend (1835)	transcription	lKʼpʼho	page 24, the appendix, Townsend's 1835 list
+appendix #88	Henry Zenk	note	(girl)	page 24, the appendix, Townsend's 1835 list, after the form
+appendix #88	Chinuk Wawa	transcription	k̬ɑ́pxu	page 24, the appendix, CW
+appendix #88	Henry Zenk	note	(o. sibling)	page 24, the appendix, CW, after the form
+appendix #88	Chinuk Wawa	transcription	ɑc	page 24, the appendix, CW
+appendix #88	Henry Zenk	note	(y. sister; sister)	page 24, the appendix, CW, after the form
+appendix #88	Henry Zenk	note	(see brother—older)	page 24, the appendix, Chinookan
+appendix footnote 5	Henry Zenk	note	I was unable to find local indigenous-language matches for the spellings likpō, likpǔhǔ, (and likpho, attributed to T: see sister (older)). Gibbs (1863:15) explains them as “probably a corruption of KUP-HO [CW/Chn kápxu: see brother (older)].”	page 24, footnote 5 of the appendix
+appendix footnote 5	Chinuk Wawa	cited form	kápxu	page 24, in italics
+appendix footnote 5	Henry Zenk	name	Gibbs	George Gibbs (1863), note 5 of the appendix
+appendix #89	Henry Zenk	translation	sister (younger)	page 24, the appendix, the gloss in Hale 1846
+appendix #89	Hale (1846)	transcription	ats	page 24, the appendix, Hale 1846
+appendix #89	Hale (ca. 1841)	transcription	ao	page 24, the appendix, Hale ca. 1841
+appendix #89	Hale (ca. 1841)	transcription	likpho	page 24, the appendix, Hale ca. 1841, marked T
+appendix #89	Townsend (1835)	transcription	lKʼpʼho	page 24, the appendix, Townsend's 1835 list
+appendix #89	Henry Zenk	note	(girl)	page 24, the appendix, Townsend's 1835 list, after the form
+appendix #89	Chinuk Wawa	transcription	ɑc	page 24, the appendix, CW
+appendix #89	Henry Zenk	note	(y. sister; sister)	page 24, the appendix, CW, after the form
+appendix #89	Chinuk Wawa	transcription	ɑu	page 24, the appendix, CW
+appendix #89	Henry Zenk	note	(y. bro.; bro.)	page 24, the appendix, CW, after the form
+appendix #89	Henry Zenk	note	(see brother—younger)	page 24, the appendix, Chinookan
+appendix #90	Henry Zenk	translation	sibling (older)	page 24, the appendix, the gloss in Hale 1846
+appendix #90	Henry Zenk	note	sibling (older) / *	page 24, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #90	Hale (ca. 1841)	transcription	kapo	page 24, the appendix, Hale ca. 1841
+appendix #90	Hale (ca. 1841)	transcription	kapho	page 24, the appendix, Hale ca. 1841
+appendix #90	Townsend (1835)	transcription	Capho	page 24, the appendix, Townsend's 1835 list
+appendix #90	Henry Zenk	note	(brother)	page 24, the appendix, Townsend's 1835 list, after the form
+appendix #90	Chinuk Wawa	transcription	k̬ɑ́pxu	page 24, the appendix, CW
+appendix #90	Henry Zenk	note	(o. sibling)	page 24, the appendix, CW, after the form
+appendix #90	Lower Chinook	transcription	kɑ́pxu	page 24, the appendix, Chinookan, after LC
+appendix #90	Henry Zenk	note	(o. siblingǃ)	page 24, the appendix, Chinookan, after LC, after the form
+appendix #91	Henry Zenk	translation	slave	page 24, the appendix, the gloss in Hale 1846
+appendix #91	Hale (1846)	transcription	mítcimʊs	page 24, the appendix, Hale 1846
+appendix #91	Hale (ca. 1841)	transcription	mítcimʊs	page 24, the appendix, Hale ca. 1841
+appendix #91	Henry Zenk	note	“(?)”	page 24, the appendix, Hale ca. 1841, after the form
+appendix #91	Hale (ca. 1841)	transcription	ilaíeti	page 24, the appendix, Hale ca. 1841
+appendix #91	Hale (ca. 1841)	transcription	místcemis	page 24, the appendix, Hale ca. 1841, marked T
+appendix #91	Chinuk Wawa	transcription	misčimis	page 24, the appendix, CW
+appendix #91	Henry Zenk	note	(<NJ)	page 24, the appendix, CW, after the form
+appendix #91	Chinuk Wawa	transcription	ilɑ́ɪtix	page 24, the appendix, CW
+appendix #91	Chinookan	transcription	i-lɑ́itix	page 24, the appendix, Chinookan, after Chn
+appendix #91	Henry Zenk	note	(male slave)	page 24, the appendix, Chinookan, after Chn, after the form
+appendix #92	Henry Zenk	translation	sleep	page 24, the appendix, the gloss in Hale 1846
+appendix #92	Hale (1846)	transcription	mōsǔm	page 24, the appendix, Hale 1846
+appendix #92	Hale (1846)	transcription	mūsʊm	page 24, the appendix, Hale 1846
+appendix #92	Hale (ca. 1841)	transcription	mosʊm	page 24, the appendix, Hale ca. 1841
+appendix #92	Hale (ca. 1841)	transcription	musʊm	page 24, the appendix, Hale ca. 1841
+appendix #92	Henry Zenk	note	(T)	page 24, the appendix, Hale ca. 1841
+appendix #92	Townsend (1835)	transcription	moosum	page 24, the appendix, Townsend's 1835 list
+appendix #92	Chinuk Wawa	transcription	músum	page 24, the appendix, CW
+appendix #92	Henry Zenk	note	(<S)	page 24, the appendix, CW, after the form
+appendix #93	Henry Zenk	translation	so, thus	page 24, the appendix, the gloss in Hale 1846
+appendix #93	Hale (1846)	transcription	kākwa	page 24, the appendix, Hale 1846
+appendix #93	Hale (ca. 1841)	transcription	kákwa	page 24, the appendix, Hale ca. 1841
+appendix #93	Hale (ca. 1841)	transcription	kwákwa	page 24, the appendix, Hale ca. 1841
+appendix #93	Hale (ca. 1841)	transcription	kʚ̌kwa	page 24, the appendix, Hale ca. 1841, marked T
+appendix #93	Chinuk Wawa	transcription	k̬ɑ́k̬ʷɑ	page 24, the appendix, CW
+appendix #93	Henry Zenk	note	(<NJ)	page 24, the appendix, CW, after the form
+appendix #94	Henry Zenk	translation	star	page 24, the appendix, the gloss in Hale 1846
+appendix #94	Hale (1846)	transcription	tiltil	page 24, the appendix, Hale 1846
+appendix #94	Hale (1846)	transcription	tshiltshil	page 24, the appendix, Hale 1846
+appendix #94	Hale (ca. 1841)	transcription	tíltil	page 24, the appendix, Hale ca. 1841
+appendix #94	Hale (ca. 1841)	transcription	tcíltcil	page 24, the appendix, Hale ca. 1841
+appendix #94	Hale (ca. 1841)	transcription	kʊqkāqnap	page 24, the appendix, Hale ca. 1841, marked T
+appendix #94	Townsend (1835)	transcription	Kʼghkaghnap	page 24, the appendix, Townsend's 1835 list
+appendix #94	Chinuk Wawa	transcription	čílčil	page 24, the appendix, CW
+appendix #94	Kathlamet	transcription	t-qʼixɑ́nɑp	page 24, the appendix, Chinookan, after KC
+appendix #94	Upper Chinook	transcription	i-kʼɑ́xɑnɑpx	page 24, the appendix, Chinookan, after UC
+appendix #95	Henry Zenk	translation	stone	page 24, the appendix, the gloss in Hale 1846
+appendix #95	Hale (1846)	transcription	stōn	page 24, the appendix, Hale 1846
+appendix #95	Hale (ca. 1841)	transcription	stón	page 24, the appendix, Hale ca. 1841
+appendix #95	Hale (ca. 1841)	transcription	kʼnāks	page 24, the appendix, Hale ca. 1841, marked T
+appendix #95	Townsend (1835)	transcription	Kʼnnaks	page 24, the appendix, Townsend's 1835 list
+appendix #95	Chinuk Wawa	transcription	st̬ón	page 24, the appendix, CW
+appendix #95	Henry Zenk	note	(<Eng)	page 24, the appendix, CW, after the form
+appendix #95	Lower Chinook	transcription	ɬ-qɑ́nɑkš	page 24, the appendix, Chinookan, after LC
+appendix #95	Upper Chinook	transcription	i‑qɑ́nɑkš	page 24, the appendix, Chinookan, after UC
+appendix #96	Henry Zenk	translation	stopǃ	page 24, the appendix, the gloss in Hale 1846
+appendix #96	Henry Zenk	note	stopǃ / *	page 24, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #96	Hale (ca. 1841)	transcription	alkeǃ	page 24, the appendix, Hale ca. 1841
+appendix #96	Henry Zenk	note	“(?)”	page 24, the appendix, Hale ca. 1841, after the form
+appendix #96	Hale (ca. 1841)	transcription	kwāpʊt	page 24, the appendix, Hale ca. 1841, marked T
+appendix #96	Chinuk Wawa	transcription	ɑ́ɬq̬i	page 24, the appendix, CW
+appendix #96	Henry Zenk	note	(later)	page 24, the appendix, CW, after the form
+appendix #96	Chinuk Wawa	transcription	kə́p̬it	page 24, the appendix, CW
+appendix #96	Henry Zenk	note	(stop)	page 24, the appendix, CW, after the form
+appendix #96	Chinookan	transcription	ɑ́ɬqi	page 24, the appendix, Chinookan, after Chn
+appendix #96	Henry Zenk	note	(later)	page 24, the appendix, Chinookan, after Chn, after the form
+appendix #96	Lower Chinook	transcription	kɑpít	page 24, the appendix, Chinookan, after LC
+appendix #96	Lower Chinook	transcription	kupít	page 24, the appendix, Chinookan
+appendix #96	Henry Zenk	note	(enough)	page 24, the appendix, Chinookan, after the form
+appendix #97	Henry Zenk	translation	strong	page 24, the appendix, the gloss in Hale 1846
+appendix #97	Hale (1846)	transcription	skokóm	page 24, the appendix, Hale 1846
+appendix #97	Hale (1846)	transcription	skukúm	page 24, the appendix, Hale 1846
+appendix #97	Hale (ca. 1841)	transcription	skokóm	page 24, the appendix, Hale ca. 1841
+appendix #97	Hale (ca. 1841)	transcription	skukūm	page 24, the appendix, Hale ca. 1841, marked T
+appendix #97	Chinuk Wawa	transcription	sk̬úk̬um	page 24, the appendix, CW
+appendix #97	Henry Zenk	note	(strong) (?<S)	page 24, the appendix, CW, after the form
+appendix #98	Henry Zenk	translation	sun	page 25, the appendix, the gloss in Hale 1846
+appendix #98	Hale (1846)	transcription	sǔn	page 25, the appendix, Hale 1846
+appendix #98	Hale (1846)	transcription	ōtlah	page 25, the appendix, Hale 1846
+appendix #98	Hale (ca. 1841)	transcription	sʊn	page 25, the appendix, Hale ca. 1841
+appendix #98	Hale (ca. 1841)	transcription	ōtlah	page 25, the appendix, Hale ca. 1841, marked T
+appendix #98	Townsend (1835)	transcription	ōtlagh	page 25, the appendix, Townsend's 1835 list
+appendix #98	Henry Zenk	note	“(tl very gutteral & squeaking)”	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #98	Chinuk Wawa	transcription	sɑn	page 25, the appendix, CW
+appendix #98	Lower Chinook	transcription	u-ʔúɬɑχ	page 25, the appendix, Chinookan, after LC
+appendix #99	Henry Zenk	translation	surely	page 25, the appendix, the gloss in Hale 1846
+appendix #99	Hale (1846)	transcription	nawítka	page 25, the appendix, Hale 1846
+appendix #99	Hale (ca. 1841)	transcription	nawítka	page 25, the appendix, Hale ca. 1841
+appendix #99	Hale (ca. 1841)	transcription	nawitika	page 25, the appendix, Hale ca. 1841
+appendix #99	Henry Zenk	note	(T)	page 25, the appendix, Hale ca. 1841
+appendix #99	Chinuk Wawa	transcription	nɑwítk̬ɑ	page 25, the appendix, CW
+appendix #99	Lower Chinook	transcription	nɑ́witkɑ	page 25, the appendix, Chinookan, after LC
+appendix #100	Henry Zenk	translation	talk	page 25, the appendix, the gloss in Hale 1846
+appendix #100	Hale (1846)	transcription	wāwa	page 25, the appendix, Hale 1846
+appendix #100	Hale (ca. 1841)	transcription	wāwa	page 25, the appendix, Hale ca. 1841, marked T
+appendix #100	Townsend (1835)	transcription	Kipallaolal	page 25, the appendix, Townsend's 1835 list
+appendix #100	Chinuk Wawa	transcription	wɑ́wɑ	page 25, the appendix, CW
+appendix #100	Chinookan	transcription	wɑ́wɑ	page 25, the appendix, Chinookan, after KC, UC
+appendix #100	Henry Zenk	note	(talking—PCL)	page 25, the appendix, Chinookan, after KC, UC, after the form
+appendix #100	Chinookan	transcription	ɑ-wɑ́wɑ	page 25, the appendix, Chinookan, carries note 6 of the appendix
+appendix #100	Henry Zenk	note	(speech—N)	page 25, the appendix, Chinookan, after the form, carries note 6 of the appendix
+appendix #100	Upper Chinook	transcription	uxʷipʼɑlɑ́wəlɑ	page 25, the appendix, Chinookan, after UC
+appendix #100	Henry Zenk	note	(tɑlking)	page 25, the appendix, Chinookan, after UC, after the form
+appendix footnote 6	Henry Zenk	note	Cf. also: Nootka Jargon wɑwɑ ‘talk’.	page 25, footnote 6 of the appendix
+appendix footnote 6	Nootka Jargon	cited form	wɑwɑ	page 25, in italics, ‘talk’
+appendix #101	Henry Zenk	translation	teeth	page 25, the appendix, the gloss in Hale 1846
+appendix #101	Hale (1846)	transcription	litān	page 25, the appendix, Hale 1846
+appendix #101	Hale (ca. 1841)	transcription	lidáŋ	page 25, the appendix, Hale ca. 1841
+appendix #101	Hale (ca. 1841)	transcription	yīnis	page 25, the appendix, Hale ca. 1841, marked T
+appendix #101	Townsend (1835)	transcription	Yeeˊnis	page 25, the appendix, Townsend's 1835 list
+appendix #101	Chinuk Wawa	transcription	lit̬ɑ́	page 25, the appendix, CW
+appendix #101	Henry Zenk	note	(<Fr)	page 25, the appendix, CW, after the form
+appendix #101	Chinuk Wawa	transcription	yə́nəs	page 25, the appendix, CW
+appendix #101	Henry Zenk	note	(<S)	page 25, the appendix, CW, after the form
+appendix #102	Henry Zenk	translation	terrible	page 25, the appendix, the gloss in Hale 1846
+appendix #102	Henry Zenk	note	terrible / *	page 25, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #102	Hale (ca. 1841)	transcription	skukúm	page 25, the appendix, Hale ca. 1841
+appendix #102	Townsend (1835)	transcription	Skookǔm	page 25, the appendix, Townsend's 1835 list
+appendix #102	Henry Zenk	note	(devil, spirit)	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #102	Townsend (1835)	transcription	Skookʼm	page 25, the appendix, Townsend's 1835 list
+appendix #102	Henry Zenk	note	(hell)	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #102	Chinuk Wawa	transcription	sk̬uk̬úm	page 25, the appendix, CW
+appendix #102	Henry Zenk	note	(something dangerous) (?<S)	page 25, the appendix, CW, after the form
+appendix #103	Henry Zenk	translation	that way	page 25, the appendix, the gloss in Hale 1846
+appendix #103	Hale (1846)	transcription	iáwa	page 25, the appendix, Hale 1846
+appendix #103	Hale (ca. 1841)	transcription	iáwa	page 25, the appendix, Hale ca. 1841
+appendix #103	Hale (ca. 1841)	transcription	yʊ́wa	page 25, the appendix, Hale ca. 1841, marked T
+appendix #103	Chinuk Wawa	transcription	yɑwɑ́	page 25, the appendix, CW
+appendix #103	Lower Chinook	transcription	yɑ́wɑ	page 25, the appendix, Chinookan, after LC
+appendix #104	Henry Zenk	translation	that, this, there, & c.	page 25, the appendix, the gloss in Hale 1846
+appendix #104	Hale (1846)	transcription	ōkok	page 25, the appendix, Hale 1846
+appendix #104	Hale (1846)	transcription	ūkuk	page 25, the appendix, Hale 1846
+appendix #104	Hale (ca. 1841)	transcription	ókok	page 25, the appendix, Hale ca. 1841
+appendix #104	Hale (ca. 1841)	transcription	ūkuk	page 25, the appendix, Hale ca. 1841, marked T
+appendix #104	Townsend (1835)	transcription	Oocook	page 25, the appendix, Townsend's 1835 list
+appendix #104	Henry Zenk	note	(here)	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #104	Chinuk Wawa	transcription	úk̬uk	page 25, the appendix, CW
+appendix #104	Henry Zenk	note	(that, this)	page 25, the appendix, CW, after the form
+appendix #104	Lower Chinook	transcription	úkuk	page 25, the appendix, Chinookan, after LC
+appendix #104	Henry Zenk	note	(there, that)	page 25, the appendix, Chinookan, after LC, after the form
+appendix #105	Henry Zenk	translation	they	page 25, the appendix, the gloss in Hale 1846
+appendix #105	Hale (1846)	transcription	klaska	page 25, the appendix, Hale 1846
+appendix #105	Hale (ca. 1841)	transcription	klaska	page 25, the appendix, Hale ca. 1841
+appendix #105	Henry Zenk	note	(T)	page 25, the appendix, Hale ca. 1841
+appendix #105	Townsend (1835)	transcription	Klaska	page 25, the appendix, Townsend's 1835 list
+appendix #105	Henry Zenk	note	(it)	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #105	Chinuk Wawa	transcription	ɬɑ́skɑ	page 25, the appendix, CW
+appendix #105	Lower Chinook	transcription	ɬɑ́skɑ	page 25, the appendix, Chinookan, after LC
+appendix #105	Henry Zenk	note	(it, they)	page 25, the appendix, Chinookan, after LC, after the form
+appendix #106	Henry Zenk	translation	this	page 25, the appendix, the gloss in Hale 1846
+appendix #106	Hale (1846)	transcription	ókok	page 25, the appendix, Hale 1846
+appendix #106	Hale (1846)	transcription	ūkuk	page 25, the appendix, Hale 1846
+appendix #106	Hale (ca. 1841)	transcription	ókok	page 25, the appendix, Hale ca. 1841
+appendix #106	Hale (ca. 1841)	transcription	ūkuk	page 25, the appendix, Hale ca. 1841, marked T
+appendix #106	Townsend (1835)	transcription	Oocook	page 25, the appendix, Townsend's 1835 list
+appendix #106	Henry Zenk	note	(here)	page 25, the appendix, Townsend's 1835 list, after the form
+appendix #106	Henry Zenk	note	(see: that)	page 25, the appendix, CW
+appendix #106	Henry Zenk	note	(see: that)	page 25, the appendix, Chinookan
+appendix #107	Henry Zenk	translation	tired	page 25, the appendix, the gloss in Hale 1846
+appendix #107	Hale (1846)	transcription	tǔl	page 25, the appendix, Hale 1846
+appendix #107	Hale (1846)	transcription	tǐl	page 25, the appendix, Hale 1846
+appendix #107	Hale (ca. 1841)	transcription	tʊl	page 25, the appendix, Hale ca. 1841
+appendix #107	Hale (ca. 1841)	transcription	til	page 25, the appendix, Hale ca. 1841
+appendix #107	Henry Zenk	note	(T)	page 25, the appendix, Hale ca. 1841
+appendix #107	Townsend (1835)	transcription	till	page 25, the appendix, Townsend's 1835 list
+appendix #107	Chinuk Wawa	transcription	til	page 25, the appendix, CW
+appendix #107	Chinookan	transcription	təl	page 25, the appendix, Chinookan, after LC, KC
+appendix #107	Chinookan	transcription	til	page 25, the appendix, Chinookan
+appendix #108	Henry Zenk	translation	to-day	page 26, the appendix, the gloss in Hale 1846
+appendix #108	Hale (1846)	transcription	ōkuk-sǔn	page 26, the appendix, Hale 1846
+appendix #108	Hale (ca. 1841)	transcription	óksǎn	page 26, the appendix, Hale ca. 1841
+appendix #108	Hale (ca. 1841)	transcription	ókok~úkuk	page 26, the appendix, Hale ca. 1841
+appendix #108	Hale (ca. 1841)	transcription	sʊn	page 26, the appendix, Hale ca. 1841
+appendix #108	Hale (ca. 1841)	transcription	ūkuk ūtlah	page 26, the appendix, Hale ca. 1841, marked T
+appendix #108	Chinuk Wawa	transcription	uk-sɑ́n	page 26, the appendix, CW
+appendix #108	Henry Zenk	note	(uk + san; see: this, day)	page 26, the appendix, CW, after the form
+appendix #108	Henry Zenk	note	(see: this)	page 26, the appendix, Chinookan
+appendix #109	Henry Zenk	translation	toe	page 26, the appendix, the gloss in Hale 1846
+appendix #109	Henry Zenk	note	toe / *	page 26, the appendix, Hale 1846, the gloss and a star, an item only in Hale ca. 1841
+appendix #109	Hale (ca. 1841)	transcription	tlpíc	page 26, the appendix, Hale ca. 1841, marked T
+appendix #109	Townsend (1835)	transcription	ʼtlpish	page 26, the appendix, Townsend's 1835 list
+appendix #109	Upper Chinook	transcription	iɬ-pə́š	page 26, the appendix, Chinookan, after UC
+appendix #109	Henry Zenk	note	(foot)	page 26, the appendix, Chinookan, after UC, after the form
+appendix #110	Henry Zenk	translation	trade	page 26, the appendix, the gloss in Hale 1846
+appendix #110	Hale (1846)	transcription	mákuk	page 26, the appendix, Hale 1846
+appendix #110	Hale (1846)	transcription	mákok	page 26, the appendix, Hale 1846
+appendix #110	Hale (ca. 1841)	transcription	makok	page 26, the appendix, Hale ca. 1841
+appendix #110	Hale (ca. 1841)	transcription	makuk	page 26, the appendix, Hale ca. 1841, marked T
+appendix #110	Chinuk Wawa	transcription	mɑ́k̬uk	page 26, the appendix, CW
+appendix #110	Henry Zenk	note	(buy; <NJ)	page 26, the appendix, CW, after the form
+appendix #111	Henry Zenk	translation	understand	page 26, the appendix, the gloss in Hale 1846
+appendix #111	Hale (1846)	transcription	kǔmataks	page 26, the appendix, Hale 1846
+appendix #111	Hale (ca. 1841)	transcription	kʊ́mtaks	page 26, the appendix, Hale ca. 1841
+appendix #111	Hale (ca. 1841)	transcription	kʊmataks	page 26, the appendix, Hale ca. 1841, marked T
+appendix #111	Townsend (1835)	transcription	Cum a tax	page 26, the appendix, Townsend's 1835 list
+appendix #111	Chinuk Wawa	transcription	k̬ə́mt̬əks	page 26, the appendix, CW
+appendix #111	Henry Zenk	note	(<NJ)	page 26, the appendix, CW, after the form
+appendix #112	Henry Zenk	translation	water	page 26, the appendix, the gloss in Hale 1846
+appendix #112	Hale (1846)	transcription	wāta	page 26, the appendix, Hale 1846
+appendix #112	Hale (1846)	transcription	tsok	page 26, the appendix, Hale 1846
+appendix #112	Hale (1846)	transcription	tsūk	page 26, the appendix, Hale 1846
+appendix #112	Hale (1846)	transcription	tshōk	page 26, the appendix, Hale 1846
+appendix #112	Hale (ca. 1841)	transcription	wáta	page 26, the appendix, Hale ca. 1841
+appendix #112	Hale (ca. 1841)	transcription	tsuk~tsok	page 26, the appendix, Hale ca. 1841
+appendix #112	Hale (ca. 1841)	transcription	tcok	page 26, the appendix, Hale ca. 1841
+appendix #112	Hale (ca. 1841)	transcription	tsʊk	page 26, the appendix, Hale ca. 1841, marked T
+appendix #112	Townsend (1835)	transcription	Tshuk	page 26, the appendix, Townsend's 1835 list
+appendix #112	Henry Zenk	note	“(gutteral)”	page 26, the appendix, Townsend's 1835 list, after the form
+appendix #112	Chinuk Wawa	transcription	cuq(ʷ)	page 26, the appendix, CW
+appendix #112	Lower Chinook	transcription	ɬ-čuq(ʷ)	page 26, the appendix, Chinookan, after LC
+appendix #113	Henry Zenk	translation	what (also ‘why’)	page 26, the appendix, the gloss in Hale 1846
+appendix #113	Hale (1846)	transcription	káta	page 26, the appendix, Hale 1846
+appendix #113	Hale (1846)	transcription	íkǎta	page 26, the appendix, Hale 1846, carries note 7 of the appendix
+appendix #113	Hale (ca. 1841)	transcription	káta	page 26, the appendix, Hale ca. 1841
+appendix #113	Hale (ca. 1841)	transcription	ikʼta	page 26, the appendix, Hale ca. 1841
+appendix #113	Hale (ca. 1841)	transcription	íkǎta	page 26, the appendix, Hale ca. 1841, marked T
+appendix #113	Townsend (1835)	transcription	Icita	page 26, the appendix, Townsend's 1835 list
+appendix #113	Townsend (1835)	transcription	Aksǒhah	page 26, the appendix, Townsend's 1835 list
+appendix #113	Chinuk Wawa	transcription	íkdɑ	page 26, the appendix, CW
+appendix #113	Henry Zenk	note	(what?)	page 26, the appendix, CW, after the form
+appendix #113	Chinuk Wawa	transcription	qɑ́t̬ɑ	page 26, the appendix, CW
+appendix #113	Henry Zenk	note	(how?)	page 26, the appendix, CW
+appendix #113	Chinookan	transcription	í-ktɑ	page 26, the appendix, Chinookan, after Chn
+appendix #113	Henry Zenk	note	(what)	page 26, the appendix, Chinookan, after Chn, after the form
+appendix #113	Chinookan	transcription	qɑ́dɑ	page 26, the appendix, Chinookan
+appendix #113	Henry Zenk	note	(how, what)	page 26, the appendix, Chinookan, after the form
+appendix #113	Henry Zenk	note	(cf? S ʔɑkʷu INTER)	page 26, the appendix, Chinookan
+appendix footnote 7	Henry Zenk	note	Hale confuses two words which from an indigenous point of view are phonetically quite distinct—hence very unlikely to have confused local Indians.	page 26, footnote 7 of the appendix
+appendix #114	Henry Zenk	translation	white	page 26, the appendix, the gloss in Hale 1846
+appendix #114	Hale (1846)	transcription	tǔkōp	page 26, the appendix, Hale 1846
+appendix #114	Hale (ca. 1841)	transcription	tkōp	page 26, the appendix, Hale ca. 1841
+appendix #114	Hale (ca. 1841)	transcription	tkūp	page 26, the appendix, Hale ca. 1841, marked T
+appendix #114	Townsend (1835)	transcription	ʼTkoop	page 26, the appendix, Townsend's 1835 list
+appendix #114	Chinuk Wawa	transcription	tkʼup	page 26, the appendix, CW
+appendix #114	Chinookan	transcription	tkʼup	page 26, the appendix, Chinookan, after Chn
+appendix #115	Henry Zenk	translation	who	page 26, the appendix, the gloss in Hale 1846
+appendix #115	Hale (1846)	transcription	klaksta	page 26, the appendix, Hale 1846
+appendix #115	Hale (ca. 1841)	transcription	tláksta	page 26, the appendix, Hale ca. 1841
+appendix #115	Hale (ca. 1841)	transcription	klaksta	page 26, the appendix, Hale ca. 1841
+appendix #115	Henry Zenk	note	(T)	page 26, the appendix, Hale ca. 1841
+appendix #115	Townsend (1835)	transcription	tlāksta	page 26, the appendix, Townsend's 1835 list
+appendix #115	Chinuk Wawa	transcription	ɬɑ́kstɑ	page 26, the appendix, CW
+appendix #115	Lower Chinook	transcription	ɬɑ́kstɑ	page 26, the appendix, Chinookan, after LC
+appendix #116	Henry Zenk	translation	wind	page 26, the appendix, the gloss in Hale 1846
+appendix #116	Hale (1846)	transcription	win	page 26, the appendix, Hale 1846
+appendix #116	Hale (1846)	transcription	itsōt	page 26, the appendix, Hale 1846
+appendix #116	Hale (ca. 1841)	transcription	win	page 26, the appendix, Hale ca. 1841
+appendix #116	Hale (ca. 1841)	transcription	itsót	page 26, the appendix, Hale ca. 1841
+appendix #116	Hale (ca. 1841)	transcription	kʊ́mahūts	page 26, the appendix, Hale ca. 1841, marked T
+appendix #116	Townsend (1835)	transcription	Kʼmmáhatʒ	page 26, the appendix, Townsend's 1835 list
+appendix #116	Henry Zenk	note	(air)	page 26, the appendix, Townsend's 1835 list, after the form
+appendix #116	Chinuk Wawa	transcription	win	page 26, the appendix, CW
+appendix #116	Henry Zenk	note	cf?	page 26, the appendix, Chinookan, a comparison set before the form
+appendix #116	Lower Chinook	transcription	i-čχɑ́χ	page 26, the appendix, Chinookan, after LC
+appendix #116	Lower Chinook	transcription	í-kxɑt	page 26, the appendix, Chinookan
+appendix #116	Henry Zenk	note	(wind)	page 26, the appendix, Chinookan, after the form
+appendix #116	Lower Chinook	transcription	i‑kɑ́.ɑmtq	page 26, the appendix, Chinookan
+appendix #116	Henry Zenk	note	(SW wind)	page 26, the appendix, Chinookan, after the form
+appendix #117	Henry Zenk	translation	wish	page 26, the appendix, the gloss in Hale 1846
+appendix #117	Hale (1846)	transcription	tǔkéh	page 26, the appendix, Hale 1846
+appendix #117	Hale (1846)	transcription	takēh	page 26, the appendix, Hale 1846
+appendix #117	Hale (ca. 1841)	transcription	takéh	page 26, the appendix, Hale ca. 1841
+appendix #117	Hale (ca. 1841)	transcription	tʊké	page 26, the appendix, Hale ca. 1841
+appendix #117	Hale (ca. 1841)	transcription	tʊkéh	page 26, the appendix, Hale ca. 1841
+appendix #117	Hale (ca. 1841)	transcription	těkéh	page 26, the appendix, Hale ca. 1841, marked T
+appendix #117	Henry Zenk	note	(see like, love)	page 26, the appendix, CW
+appendix #117	Henry Zenk	note	(see like, love)	page 26, the appendix, Chinookan
+appendix #118	Henry Zenk	translation	wolf	page 27, the appendix, the gloss in Hale 1846
+appendix #118	Hale (1846)	transcription	lilū	page 27, the appendix, Hale 1846
+appendix #118	Hale (1846)	transcription	tálapas	page 27, the appendix, Hale 1846
+appendix #118	Hale (ca. 1841)	transcription	lilú	page 27, the appendix, Hale ca. 1841
+appendix #118	Hale (ca. 1841)	transcription	klékǎho [large]	page 27, the appendix, Hale ca. 1841, marked T
+appendix #118	Hale (ca. 1841)	transcription	tálapas [small]	page 27, the appendix, Hale ca. 1841, marked T
+appendix #118	Chinuk Wawa	transcription	lílu	page 27, the appendix, CW
+appendix #118	Henry Zenk	note	(wolf; <Fr)	page 27, the appendix, CW, after the form
+appendix #118	Chinuk Wawa	transcription	tʼɑ́lɑpɑs	page 27, the appendix, CW
+appendix #118	Henry Zenk	note	(coyote)	page 27, the appendix, CW
+appendix #118	Chinookan	transcription	i‑tʼɑ́lɑpɑs	page 27, the appendix, Chinookan, after Chn
+appendix #118	Henry Zenk	note	(coyote)	page 27, the appendix, Chinookan, after Chn, after the form
+appendix #118	Kathlamet	transcription	ɬ-líqʼɑmu	page 27, the appendix, Chinookan, after KC
+appendix #118	Henry Zenk	note	(wolf)	page 27, the appendix, Chinookan, after KC, after the form
+appendix #119	Henry Zenk	translation	woman	page 27, the appendix, the gloss in Hale 1846
+appendix #119	Hale (1846)	transcription	klōtshman	page 27, the appendix, Hale 1846
+appendix #119	Hale (1846)	transcription	klūtshman	page 27, the appendix, Hale 1846
+appendix #119	Hale (ca. 1841)	transcription	klótcman	page 27, the appendix, Hale ca. 1841
+appendix #119	Hale (ca. 1841)	transcription	klūtcimin	page 27, the appendix, Hale ca. 1841, marked T
+appendix #119	Townsend (1835)	transcription	Aghʼkeil	page 27, the appendix, Townsend's 1835 list
+appendix #119	Chinuk Wawa	transcription	ɬúčmən	page 27, the appendix, CW
+appendix #119	Henry Zenk	note	(<NJ)	page 27, the appendix, CW, after the form
+appendix #119	Lower Chinook	transcription	u-ʔúkʷil	page 27, the appendix, Chinookan, after LC
+appendix #120	Henry Zenk	translation	wood	page 27, the appendix, the gloss in Hale 1846
+appendix #120	Hale (1846)	transcription	stik	page 27, the appendix, Hale 1846
+appendix #120	Hale (ca. 1841)	transcription	stik	page 27, the appendix, Hale ca. 1841
+appendix #120	Hale (ca. 1841)	transcription	kʚ̌mʚ̌ˊnʚ̌k	page 27, the appendix, Hale ca. 1841, marked T
+appendix #120	Townsend (1835)	transcription	Komʼmonok	page 27, the appendix, Townsend's 1835 list
+appendix #120	Chinuk Wawa	transcription	stik	page 27, the appendix, CW
+appendix #120	Henry Zenk	note	(<Engl)	page 27, the appendix, CW, after the form
+appendix #120	Henry Zenk	note	cf?	page 27, the appendix, Chinookan, a comparison set before the form
+appendix #120	Kathlamet	transcription	tə́-məqu	page 27, the appendix, Chinookan, after KC
+appendix #121	Henry Zenk	translation	yellow	page 27, the appendix, the gloss in Hale 1846
+appendix #121	Hale (1846)	transcription	kaukauwak	page 27, the appendix, Hale 1846
+appendix #121	Hale (ca. 1841)	transcription	kaukauwʊk	page 27, the appendix, Hale ca. 1841, marked T
+appendix #121	Townsend (1835)	transcription	Kow-kow-wuk	page 27, the appendix, Townsend's 1835 list
+appendix #121	Chinuk Wawa	transcription	kʼɑukʼɑ́uwiq	page 27, the appendix, CW
+appendix #121	Lower Chinook	transcription	i-kʼɑukʼɑ́uwiq	page 27, the appendix, Chinookan, after LC, carries note 8 of the appendix
+appendix #121	Henry Zenk	note	(Oregon grape)	page 27, the appendix, Chinookan, after LC, after the form, carries note 8 of the appendix
+appendix footnote 8	Henry Zenk	note	Oregon grape (Berberis spp) is the source of a yellow dye used in local Native basketry.	page 27, footnote 8 of the appendix
