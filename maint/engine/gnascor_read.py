@@ -21,6 +21,9 @@ came in past the bound. A cycle's state follows from the two sides and from how 
 
     BLOK  a side ended its asker: a hard refusal
     GRAY  a side was not asked: every state at once, until an ask is put. Into it is FUZZ, out FIZZ
+
+A transition the tables mark SYNC passes through the SYNC superstate: FUZZ+in into it, FIZZ+out of it,
+the state it left and the state it reaches locked into the two labels.
     WAIT  one side held and the other answered past the bound: it lags
     BUSY  both held, each costing more than any held ask of the baseline cycles
     DUAL  both held
@@ -158,10 +161,37 @@ def atomic(labels):
     return True
 
 
+def steps(states, labels):
+    """The trace as (label, state) steps after its first state. A transition the tables mark SYNC passes through
+    the SYNC superstate: it enters by FUZZ carrying the state it left and leaves by FIZZ carrying the state it
+    reaches, and the pair is locked into the two labels."""
+    out = []
+    for past, state, label in zip(states, states[1:], labels):
+        if label == "SYNC":
+            out.append(("FUZZ+" + past, "SYNC"))
+            out.append(("FIZZ+" + state, state))
+        else:
+            out.append((label, state))
+    return out
+
+
+def pairs_from_labels(walked):
+    """Every SYNC passage's pair, read back from its two labels alone, as [(past, now)]."""
+    found = []
+    entered = None
+    for label, _state in walked:
+        if label and label.startswith("FUZZ+"):
+            entered = label[len("FUZZ+"):]
+        elif label and label.startswith("FIZZ+") and entered is not None:
+            found.append((entered, label[len("FIZZ+"):]))
+            entered = None
+    return found
+
+
 def stream(states, labels):
     """The trace as the coherence clock prints it."""
     out = ["[%s]" % states[0]]
-    for state, label in zip(states[1:], labels):
+    for label, state in steps(states, labels):
         out.append("-(%s)-> [%s]" % (label or "----", state))
     return " ".join(out)
 
@@ -237,6 +267,8 @@ def check():
     # atomicity, over drawn traces: a FUZZ never opens while one is open, and every FIZZ closes the one open FUZZ
     drawn = 0x2545f491
     broken = 0
+    sync_total = 0
+    sync_lost = 0
     sides = [("HELD", 100), ("HELD", 900), ("NOT_HELD", 0), ("PAST_BOUND", 1050), ("ENDED", 0), unasked]
     for _trace in range(500):
         rows = []
@@ -245,11 +277,20 @@ def check():
             left = sides[(drawn >> 8) % len(sides)]
             right = sides[(drawn >> 16) % len(sides)]
             rows.append((left, right, 1000))
-        _states, labels = run(rows)
+        states, labels = run(rows)
         broken += 0 if atomic(labels) else 1
+        # every SYNC passage gives back, from its labels alone, the exact pair it stood for
+        sync_pairs = [(past, now) for past, now, label in zip(states, states[1:], labels) if label == "SYNC"]
+        sync_total += len(sync_pairs)
+        sync_lost += 0 if pairs_from_labels(steps(states, labels)) == sync_pairs else 1
     if broken:
         failed += 1
         print("  FAILED: %d of 500 drawn traces open a FUZZ inside one or close a FIZZ with none open" % broken)
+    if sync_lost or not sync_total:
+        failed += 1
+        print("  FAILED: %d of 500 drawn traces lose a SYNC passage's pair, over %d passages" % (sync_lost, sync_total))
+    print("  %d SYNC passages over 500 drawn traces, every pair read back from its FUZZ+ and FIZZ+ labels"
+          % sync_total)
 
     # every pair the tables name is decided in every situation a side can be in
     situations = [(kind, cost) for kind in KINDS for cost in (0, 100, 1050, 5000)]

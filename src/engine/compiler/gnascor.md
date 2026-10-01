@@ -237,7 +237,14 @@ The physics of coherence from cycle N-1 to cycle N. Plotting the base binary pai
 - **The diagonal, self-preservation.** NEXUS, CORE, SURV, ZERO, DRAG, HOLD and DEAD are the static steady states. A system that does not change hums at its baseline energy.
 - **The horizontal shift, PASS and BACK.** Moving between LEAD and RITE creates an instant directional handoff.
 - **The collapses, DROP and JAMM.** Shifting from any active or friction state down to VOID or BLOK catches resource leaks, timeouts and gridlocks at once.
-- **The intermediates, SYNC.** The default balancing transition where a system moves between heavy environmental friction and a pure binary state.
+- **The intermediates, SYNC.** The default balancing transition where a system moves between heavy environmental friction and a pure binary state. SYNC is a superstate, as GRAY is. A transition the table marks SYNC passes through it, entering by FUZZ carrying the state it left and leaving by FIZZ carrying the state it reaches, and that locks the identity SYNC needs into the passage:
+
+```
+FUZZ+in -> SYNC -> FIZZ+out
+[DUAL] -(FUZZ+DUAL)-> [SYNC] -(FIZZ+BUSY)-> [BUSY]
+```
+
+  A SYNC cell names no one transition and loses none: each of the transitions it covers is read back exactly from its two labels.
 
 ## The high-energy transition matrix
 
@@ -296,5 +303,7 @@ A heavy data operation then reads as a lifecycle:
    Which of these are meant and which are not is Doug's.
 
    GRAY is every state at once: a side not asked, and a pair with no reading. It keeps the mnemonic layer from collapsing a possibility nobody has observed, and only an ask collapses it. The reader reads a side written as - as unasked and the pair as GRAY, whatever the other side read, and a refusal still reads BLOK, since a refusal is an answer. Into GRAY from any other state is FUZZ, and out of GRAY to any other state is FIZZ. A FIZZ never lands on GRAY and GRAY never FUZZes: GRAY to GRAY is neither and carries no label: the pair is still unasked. Those two exclusions make a trip through GRAY atomic. A FUZZ opens it, one FIZZ closes it, and no FUZZ opens inside another. The reader checks that over 500 drawn traces of 40 cycles, every side drawn from held, heavy, not held, late, ended and unasked. Whether a slice whose per-link difference sits inside the floor reads DUAL, as Slicing a chain has it, or GRAY, since it says neither branch is cheaper, is open beside them.
+
+   SYNC passes the same way: FUZZ+in into the SYNC superstate and FIZZ+out of it, the pair locked into the two labels. The reader prints every SYNC transition as that passage, and `--check` reads back the exact pair of all 3,035 SYNC passages in its 500 drawn traces from the labels alone.
 
    The syntax for writing a query loop is not started.
