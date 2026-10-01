@@ -221,37 +221,8 @@ by hand: the engine emits it for that container's part and holds it 1:1 against 
 the same answers. A function that calls the operating system reaches every container through tessera. The part of
 it that computes is emitted, and the call crosses at tessera.
 
-**A loop is learned by asking, like any other operator.** A loop is an address added to until it comes back where
-it began. Every ruleset writes it with the same two forms on our side, `loop_label loop` and `loop_back loop
-where`: a label to come back to, and the flag that takes the way back. Only the right side, the part's instructions,
-differs per target, and in every `.krs` it is written by hand. It is derived by asking:
-
-- The candidates are every form the part's machine file holds, each put in `loop_back`'s place with its operands
-  filled by their kinds. Nothing decides beforehand which forms jump.
-- The question is a body that counts N down with `add_alone` and sets the flag with `test_nonzero`. A form in
-  `loop_back`'s place that comes back to the label on the flag answers N, and a form that falls through answers 1.
-  N = 2 is asked first, since it prunes the most, and the forms that answer it are asked every other N.
-- The forms that answer every N are timed, and the cheapest is that part's `loop_back`.
-
-`cell_sass_probe` puts this ask alone, given `loop` and the machine file, against the cubins of an earlier run
-(`SASS_PATTERN` in `cell_sass_test.sh`). On sm_86, 2533 of the 2927 forms assemble, 1715 fall through, and 8 come
-back on every N, every one a `BRA`. The walk agrees with all 8, and none is cheaper than the next above the spread
-of its own runs, which leaves the part no `loop_back` cheaper than the `BRA` that `sass.krs` writes.
-
-**A check between emitting and running, on or off.** The transpiler reads an emitted instruction back through the
-machine file's own forms, with no disassembler (`sass_encoding_read`, `compiler/cubin/sass_assemble.h`), and walks
-it (`sass_loop_walk`): its guard is the flag alone, one of its label or number operands added to the
-address after it lands on the label, and its first operand writes nothing the loop keeps. A caller turns the check
-on or off and can stop at any step of it. It never changes an emitted instruction and nothing is optimized: with
-the check off, what was emitted is what runs, as code written to run in constant time needs.
-
-**Every step is checked by hand against what is known to be true of the device.** Of the 2927 forms in sm_86's
-machine file, 2383 read back as they were listed. The rest are known limits: two names the disassembler prints for
-one encoding (`IMAD.MOV`), addresses with a uniform register, absolute 64-bit `CALL.ABS` and `JMP` targets, and 380
-forms whose operands the assembler cannot place either. The walk gives the expected step on ten known cases out of
-ten. The check found that a branch's distance starts at bit 34 in four-byte steps, not at bit 32: bits 32 and 33 are
-the operation's own, as `BRA`, `BRA.U` and `BRA.DIV` show the same distance with 0, 1 and 2 there. Written from bit
-32, a `BRA.U` assembled as a `BRA`.
+The parts of this that are built, the loop asked of the part, the read-back with no disassembler and the
+branch distance, are filed in the engine table (M24, item 14).
 
 **When an ask fails, the ask is the problem.** The ruleset defines itself, and an ask that cannot find the answer
 bounded the question somewhere. The same small problem is asked again with that bound found and taken out.
@@ -310,13 +281,8 @@ works there.
 8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
    stale.
 
-9. **The ladder's cases do not decide a relation, and the descent finds the cases that do.** 507 arrangements fit
-   the ladder's cases and are not the relation: 287 of up, 151 of down, 36 of take, 25 of add, and all 8 of same.
-   Run as the gate's descent over the ladder's cases and the 512 words of the chain builder's sweep, one
-   full-width word decides add, take and same, and up and down need a second whose count reads zero. Every one of
-   the 507 dies at the first or second case placed, and no case the ladder holds is among them
-   (`utils/maint/engine/chain_check.sh`, Q4 in the query protocol table). Nothing is added to the ladder by hand: the
-   descent picks the cases from the sweep on the host, and the open part is the loop that puts them to a target.
+9. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the
+   sweep on the host (M24 in the engine table, Q4). The open part is the loop that puts them to a target.
 
 10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
     member and the paths read off them, in that order: every probe and what came back, with costs, refusals
@@ -328,27 +294,11 @@ works there.
     cache of it. A refused or censored probe appears nowhere in a table of chain costs, and it separates two
     parts that cost the same.
 
-11. **The order of asks is built on the host and nothing emits it to a target.**
-    `src/engine/compiler/bootstrap/ask_order.{h,c}` holds the known order, its solve and the contention read, with
-    no floating point value anywhere: the order follows from the link count, the solve is
-    `(n + 1)·x = 4·Sᵀb - 2·(Σb)·1`, and the read is exact integers. `ask_order_check.c` proves the order and the
-    solve at every size a known order covers and measures the read (Q5 and Q7 in the query protocol table). Two
-    things the measuring settled. A known order exists only for a link count one short of a power of two, and the
-    engine composes chains to those lengths. The sweep asks sit at one link, half plus one and every link, and the
-    read takes out a constant and the count before the square, because every ask pays an overhead the solve
-    spreads over every link. The order is put to the host through the protocol: `query_order_put`
-    (`compiler/bootstrap/query_order.{h,c}`) puts every link an ask covers between two reads of a clock found by
-    asking. The clock turns over now and then and is read finely by counting reads of it between turns: a
-    run's cost is an exact rational, and every pass is solved on its own in exact integers: nothing is rounded,
-    summed across passes or cut to a least. Neither the run size nor the count of passes is set: both are
-    steered the way the engine's descent steers its probes (`utils/test/engine/compiler/bootstrap/query_descent.h`).
-    Passes are put until every neighbor pair's count leans past twice its spread, and every size is read and
-    the one leaving the fewest pairs standing for the fewest puts is kept, since short runs drown in the
-    counting's spread and long ones gather interference. `query_order_check.c` solves seven links whose reads
-    differ by 64 each, and every neighbor pair leans dearer on one same pass at the size the part names. The contention read takes integer costs and is not yet put
-    over exact rationals. The device half is open: a container that runs a chain's covered links and
-    reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
-    reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
+11. **The order of asks is built on the host and nothing emits it to a target.** The order, its solve and the
+    contention read are proved on the host (M24 in the engine table, Q5, Q7). The device half is open: a container
+    that runs a chain's covered links and reads the part's clock around them, put through the channel in Open 1,
+    with the censored-sample mark and the reference ask alongside. Its answer carries one bit a check, 128 an ask,
+    and never one bit over a set (Q15).
 
 12. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
     of a set, and pairwise agreement inside a floor cannot decide it. `compiler/bootstrap/stem_group.{h,c}` holds
