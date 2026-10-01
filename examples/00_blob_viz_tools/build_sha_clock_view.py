@@ -1,40 +1,54 @@
-"""SHA-256 running, one operation at a time, drawn as the engine's own render of its bytes.
+"""SHA-256 running, inside the room, on its own operation clock with time as the radius.
 
-    python examples/00_blob_viz_tools/build_sha_clock_view.py
-    python examples/00_blob_viz_tools/build_sha_clock_view.py --message "abc" --rounds 16
+    python tools/view/build_sha_clock_view.py
+    python tools/view/build_sha_clock_view.py --message "abc" --rounds 16
+    python tools/view/build_sha_clock_view.py --glow random --shell dodecahedron
 
   --message   the block to compress. Default the empty message, padded.
   --rounds    how many of the 64 rounds are traced. Default 64.
+  --glow      luminosity: value, random, or flat. Default value.
+  --seed      the draw behind --glow random. Default 4.
+  --degrees   highest harmonic degree the boundary is expanded to. Default 10.
+  --tau       conduction time the surface is left to smooth for. Default 0.0008.
+  --sources   how many neutrino points are carried, 1 to 12. Default 2.
+  --shell     the room wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
+  --core      the nested boundaries: sphere, cube, octahedron, cone. Default sphere.
   --out       where to write. Default sha_clock_view.html beside this script.
 
 WHAT IS BEING WATCHED
 
-The operation, and not a summary of it. The other SHA pages here read a finished measurement. This
-one runs the compression function and draws the state while it is still moving, one operation at a
-time, at whatever rate the reader sets on the clock.
+The operation, and not a summary of it. The other SHA pages here read a finished measurement: a
+dependency field, a leak per output bit, a spectrum. This one runs the compression function and
+draws the state while it is still moving, one operation at a time, at whatever rate the reader sets.
 
-The working state is eight words of thirty-two bits, which is thirty-two bytes. Each distinct state
-the run passes through is handed to the engine's own volume renderer on the byte channel: one voxel
-per byte, the byte's value, no search and no needle that means anything. The page draws those bytes
-and nothing it computed itself. It is what the engine sees of the state, not a second drawing of it.
+The working state is eight words of thirty-two bits. Each word is drawn as a ring of thirty-two
+bodies and the eight rings are stacked as eight latitudes. The whole live state is two hundred
+and fifty-six bodies on one globe. A body is a bit. It is lit when the bit is set.
 
-TIME IS THE CLOCK
+TIME IS THE RADIUS
 
-The clock scrubs the operations. Six of the eight operations in a round only form temporaries and
-leave the eight words alone. The run repeats states, and the distinct ones are rendered once and
-replayed by a tick-to-state index. Standing on a tick, the reader sees the state the engine rendered
-at that operation.
+The globe is not a fixed size. Its radius is the clock. The state starts small near the middle
+and inflates outward as the computation runs, reaching the shell at the last operation traced. The
+reader standing still therefore has the computation arrive at them and pass, and where they are
+standing decides which part of the run they are inside of. Depth in this room has meant distance
+from a boundary on every other page; here it is time, and it is the same axis the round-depth
+experiment puts the leak against.
 
-THE ARM THAT DREW IT
+THE SPIN
 
-The render prefers the device and falls back to the host, and the two produce the same bytes; the
-choice is speed alone. The page names the arm that drew the bytes it carries, taken from the render
-call's own answer. The reader then knows whether a device was present when the page was built.
+SHA-256's mixing is rotations. Sigma1 reads e as three rotations by 6, 11 and 25 and exclusive-ors
+them; Sigma0 reads a by 2, 13 and 22. Drawn as rings those are literal spins, and a rotation
+operation turns the ring it reads through each of its three amounts before the result settles. That
+is the operation itself and not an illustration of it: the bit that ends up in position j came from
+position j plus the rotate, and the ring turning is that sentence.
+
+Once a round, at the last operation, the register shifts: b takes a, c takes b, d takes c, f takes
+e, g takes f, h takes g. Eight rings turning through each other, once per round, sixty-four times.
 
 THE SERIALIZATION
 
 The reference round assigns its eight words at once. Watching it that way there is nothing to watch.
-The round is written out in the order the arithmetic forces:
+The round is written out in the order the arithmetic actually forces:
 
     0  Sigma1(e)                       reads e, spins it by 6, 11, 25
     1  Ch(e, f, g)                     reads e, f, g
@@ -45,43 +59,44 @@ The round is written out in the order the arithmetic forces:
     6  e = d + T1                      writes e
     7  a = T1 + T2, and the register shifts
 
-Nothing is reordered and nothing is skipped. Operation 6 writes exactly d + T1, the new e, and
-operation 7 writes T1 + T2 and moves the six carried words, using the values they held before the
-write. The digest that falls out at the end is the digest, and the run prints it so it can be
+Nothing is reordered and nothing is skipped. Operation 6 writes exactly d + T1, the new e,
+and operation 7 writes T1 + T2 and moves the six carried words, using the values they held before
+the write. The digest that falls out at the end is the digest, and the run prints it so that can be
 checked against any other implementation and not taken on trust.
+
+WHAT LUMINOSITY IS NOT
+
+Brightness is a free channel and carries no reading. What stops the carried beam is the bit being
+set, what casts the shadow is the stopping, and the pattern on the wall is the state. So --glow
+random is offered next to the measured one: turn the brightness over to a draw, watch the shadows
+stay exactly where they were, and the pattern on the wall is not something the shading put there.
 """
 
 import io
 import json
+import math
 import os
 import re
 import sys
 
 import settings
 import out_path
+import sphere_field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(HERE))
-TEMPLATE = os.path.join(HERE, "clock_view_template.html")
+TEMPLATE = os.path.join(HERE, "room_view_template.html")
 BAR_SOURCE = os.path.join(HERE, "control_bar.js")
-
-# The render package lives in the engine tree, not beside this tool. It is reached by path and not
-# copied. The page draws what the shipped renderer produces and never a transcription of it.
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
-import render
 
 MASK = 0xFFFFFFFF
 WORDS = 8
 WIDTH = 32
-BYTES = WORDS * 4
+BITS = WORDS * WIDTH
+
+SHELLS = ("sphere", "cube", "hexagon", "octahedron", "dodecahedron")
+CORES = ("sphere", "cube", "octahedron", "cone")
+GLOWS = ("value", "random", "flat")
 
 NAMES = ("a", "b", "c", "d", "e", "f", "g", "h")
-
-# The render extent: one slab per word, each slab the word's four bytes in a row. Thirty-two voxels
-# for the thirty-two state bytes, the byte channel carrying each byte's value. SLABS places voxel
-# z*4 + x at word z, byte x, matching the order the state is packed in.
-EXTENT = render.VolumeConfig(width=4, height=1, depth=WORDS, layout=render.VOLUME_SLABS,
-                             channel=render.CHANNEL_BYTE, reduce=render.REDUCE_MAX, gain=1)
 
 # The round written out in the order the arithmetic forces. Each entry is the label the page shows,
 # the words the operation reads, the words it writes, and the rotation it turns a ring through.
@@ -110,13 +125,34 @@ K = [
 
 H0 = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]
 
+# The range of depths the room splits into bands, and the depth the state is held at inside it.
+#
+# HOLD is a single number. The state is eight words of thirty-two bits at every operation. Its
+# size carries no information and must not move. Depth stays a setting because the boundary reading
+# is taken against it, but the reader sets it and the clock never touches it.
+INNER = 0.12
+OUTER = 0.82
+
+# Inside the first boundary. The room splits the shell into three. The innermost surface sits at
+# a third of it, and the state and the envelope drawn around the state both have to fit within that
+# surface.
+HOLD = 0.22
+
+
+def draw(seed):
+    """The same small generator the other tools here use. One seed means one room."""
+    state = (seed ^ 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
+    while True:
+        state = (state * 6364136223846793005 + 1442695040888963407) & 0xFFFFFFFFFFFFFFFF
+        yield ((state >> 11) & 0x1FFFFFFFFFFFFF) / float(1 << 53)
+
 
 def rotate(value, by):
     return ((value >> by) | (value << (WIDTH - by))) & MASK
 
 
 def padded(message):
-    """The one-block padding, errored and not truncated when the message will not fit.
+    """The one-block padding, refused and not truncated when the message will not fit.
 
     A block is 512 bits and the padding costs a one bit, the length as 64 bits, and the zeroes
     between. 55 bytes is the most that fits in one block. Longer messages need the chaining of a
@@ -146,22 +182,22 @@ def schedule(block):
     return words
 
 
-def as_corpus(state):
-    """The eight words as thirty-two bytes, word by word, most significant byte first.
-
-    This is the corpus the engine renders. A word is four bytes big-endian, and the eight words run
-    a through h, matching the order the extent's slabs are read in.
-    """
-    return b"".join(word.to_bytes(4, "big") for word in state)
+def as_bits(state):
+    """The eight words as one string of 256 characters, word by word, most significant bit first."""
+    out = []
+    for word in state:
+        for shift in range(WIDTH - 1, -1, -1):
+            out.append("1" if (word >> shift) & 1 else "0")
+    return "".join(out)
 
 
 def trace(block, rounds):
     """Runs the compression function and records the state after every single operation.
 
     The round is serialized exactly as STEPS describes it and no value is invented along the way:
-    operation six writes d + T1, the new e, and operation seven writes T1 + T2 and moves the six
-    carried words using the values they held before that write. Running the whole thing and reading
-    the digest off the end is what checks that, and main prints it.
+    operation six writes d + T1, the new e, and operation seven writes T1 + T2 and moves
+    the six carried words using the values they held before that write. Running the whole thing and
+    reading the digest off the end is what checks that, and main prints it.
     """
     words = schedule(block)
     state = list(H0)
@@ -182,19 +218,19 @@ def trace(block, rounds):
                 state = [a, b, c, d, (d + temp1) & MASK, f, g, h]
             elif op == 7:
                 state = [(temp1 + temp2) & MASK, a, b, c, state[4], e, f, g]
-            frames.append(as_corpus(state))
+            frames.append(as_bits(state))
 
     digest = [(H0[at] + state[at]) & MASK for at in range(WORDS)]
     return frames, digest
 
 
 def distinct(frames):
-    """The states the run actually passes through, and the tick-to-state map.
+    """The states the run actually passes through, and the tick to state map.
 
     Six of the eight operations in a round form temporaries and leave the eight words alone, and a
     trace of five hundred and twelve operations holds about a hundred and thirty different states
-    and four hundred repeats of them. Rendering the repeats would render the same state four times
-    over. The distinct ones are rendered once and the index replays them.
+    and four hundred repeats of them. Shipping the repeats would be shipping the same string four
+    times over, and the harmonic expansion below would be computed four times for the same input.
     """
     order = []
     seen = {}
@@ -207,25 +243,57 @@ def distinct(frames):
     return order, index
 
 
-def render_states(states):
-    """Each distinct state rendered by the engine's volume arm, as a list of voxel byte lists.
+def harmonic_basis(top):
+    """The real harmonics at each of the 256 bit directions, evaluated once.
 
-    The byte channel reads neither the needle nor the probes. The renderer requires a needle of at
-    least one byte, and a needle of one byte makes every state byte an alignment. One zero byte is
-    passed and no probe. Returns the voxels and the arm that drew them, or None where the render
-    errored.
+    A direction belongs to a bit and never to a state. This is computed here and reused for
+    every state and not recomputed inside the sum. It is the difference between evaluating the
+    basis a hundred and thirty times over and evaluating it once.
     """
-    needle = b"\x00"
-    probes = []
+    rows = []
+    for word in range(WORDS):
+        for bit in range(WIDTH):
+            down = math.pi * (word + 0.5) / float(WORDS)
+            around = 2.0 * math.pi * bit / float(WIDTH)
+            table = sphere_field.harmonics_at(top, down, around)
+            rows.append([value for degree in table for value in degree])
+    return rows
+
+
+def expand(states, basis, top):
+    """The depth-free harmonic coefficients of each state, as one flat list per state.
+
+    Every bit sits at the same radius at a given operation, because the radius is the clock. The
+    kernel is diagonal in degree. The whole depth dependence is one factor per degree that
+    multiplies every coefficient of that degree. Leaving it out here and applying it in the page is
+    not an approximation: it is the same product, formed where the radius is known. The page can
+    then move the depth and the degree ceiling while the reader watches, and it is the reading.
+    """
+    width = (top + 1) * (top + 1)
     out = []
-    arm = None
-    for corpus in states:
-        rendered = render.render_volume(EXTENT, corpus, needle, probes)
-        if rendered.bytes is None:
-            return None, None
-        out.append(list(rendered.bytes))
-        arm = rendered.arm
-    return out, arm
+    for frame in states:
+        total = [0.0] * width
+        for at in range(BITS):
+            if frame[at] != "1":
+                continue
+            row = basis[at]
+            for slot in range(width):
+                total[slot] += row[slot]
+        out.append([round(one, 6) for one in total])
+    return out
+
+
+def ring(word, bit):
+    """A direction for this bit: its word chooses a latitude, its position chooses the angle.
+
+    Eight rings of thirty-two on one globe. The latitudes are the interiors of the eight equal
+    bands. No ring lands on a pole where thirty-two bodies would pile into one place, and the
+    rings stay evenly spaced in angle and not in height.
+    """
+    down = math.pi * (word + 0.5) / float(WORDS)
+    around = 2.0 * math.pi * bit / float(WIDTH)
+    across = math.sin(down)
+    return (across * math.cos(around), math.cos(down), across * math.sin(around))
 
 
 def main():
@@ -244,9 +312,39 @@ def main():
 
     message = option("--message", "")
     rounds = option("--rounds", 64, int)
+    glow = option("--glow", "value")
+    seed = option("--seed", 4, int)
+    shell = option("--shell", "sphere")
+    core = option("--core", "sphere")
+    points = option("--sources", 2, int)
+    top = option("--degrees", 10, int)
+    tau = option("--tau", 0.0008, float)
 
+    # Checked here and never left to the page. An unknown word reaches the page as a word it does
+    # not recognize, the page falls through to its own default, and the caller gets a sphere while
+    # having asked for something else with no message anywhere saying so.
+    if glow not in GLOWS:
+        sys.stderr.write("--glow takes one of: %s\n" % ", ".join(GLOWS))
+        return 2
+    if shell not in SHELLS:
+        sys.stderr.write("--shell takes one of: %s\n" % ", ".join(SHELLS))
+        return 2
+    if core not in CORES:
+        sys.stderr.write("--core takes one of: %s\n" % ", ".join(CORES))
+        return 2
     if rounds < 1 or rounds > 64:
         sys.stderr.write("--rounds sits between 1 and 64\n")
+        return 2
+    # One source cannot give depth and twelve share the light budget twelve ways. Both ends are
+    # allowed and the reader is told what they cost instead of being kept from the choice.
+    if points < 1 or points > 12:
+        sys.stderr.write("--sources sits between 1 and 12\n")
+        return 2
+    # The rings are eight latitudes of thirty-two. Degree 16 is the finest structure the
+    # placement can carry in longitude and degree 8 the finest in latitude. Past that the expansion
+    # is fitting the layout and not the state, and the page would show detail nothing put there.
+    if top < 1 or top > 16:
+        sys.stderr.write("--degrees sits between 1 and 16 for this layout\n")
         return 2
 
     block = padded(message.encode("utf-8"))
@@ -257,48 +355,83 @@ def main():
     frames, digest = trace(block, rounds)
     ticks = len(frames)
     states, index = distinct(frames)
-    voxels, arm = render_states(states)
-    if voxels is None:
-        sys.stderr.write("the renderer errored on a state\n")
-        return 1
+    coefficients = expand(states, harmonic_basis(top), top)
+
+    stream = draw(seed)
+    things = []
+    for word in range(WORDS):
+        for bit in range(WIDTH):
+            unit = ring(word, bit)
+            where = word * WIDTH + bit
+            if glow == "random":
+                lit = round(next(stream), 4)
+            elif glow == "flat":
+                lit = 0.5
+            else:
+                lit = 0.0
+            things.append({
+                "index": where,
+                "word": NAMES[word],
+                "bit": bit,
+                # The place the page starts it at. The clock rewrites the radius every tick and the
+                # ring angle every spin. This is an opening position and not the body's home.
+                "at": [round(unit[0] * INNER, 5),
+                       round(unit[1] * INNER, 5),
+                       round(unit[2] * INNER, 5)],
+                # Still. A bit goes where the operation puts it and never anywhere on its own.
+                # The drift the drawn room gives its population would be a lie about this one.
+                "vel": [0.0, 0.0, 0.0],
+                # Small enough that the winding stays visible. At twice this the halos of adjacent
+                # bits overlap, the turns merge into a band of blobs, and the helix the placement
+                # exists to show is the first thing lost.
+                "size": 0.007,
+                "stops": 0.5,
+                "glow": lit,
+            })
 
     steps = [{"label": one[0], "reads": list(one[1]), "writes": list(one[2]),
               "spins": one[3], "by": list(one[4])} for one in STEPS]
 
     payload = {
+        "shell": shell,
+        "core": core,
+        "sources": points,
+        "source": "sha-256 compressing %s, %d rounds"
+                  % ("the empty message" if not message else repr(message), rounds),
+        "things": things,
         "clock": {
             "ticks": ticks,
             "rounds": rounds,
             "ops": OPS,
             "words": WORDS,
+            "width": WIDTH,
+            "inner": INNER,
+            "outer": OUTER,
+            "hold": HOLD,
             "names": list(NAMES),
             "steps": steps,
+            "glow": glow,
+            "message": message,
+            "seed": seed,
+            "states": states,
             "index": index,
-            "extent": {"width": EXTENT.width, "height": EXTENT.height, "depth": EXTENT.depth},
-            "layout": "slabs",
-            "channel": "byte",
-            "arm": arm,
-            "source": "sha-256 compressing %s, %d rounds"
-                      % ("the empty message" if not message else repr(message), rounds),
-            "states": voxels,
+            "degrees": top,
+            "tau": tau,
+            "harmonics": coefficients,
             "digest": "".join("%08x" % one for one in digest),
         },
         "settings": opening,
-        # The bar's schema, read from the one settings source. The page draws its appearance controls
-        # from these and never a copy written into the template.
-        "schema": settings.schema(["background", "opacity"]),
+        "schema": settings.schema(["theme", "opacity"], narrow="room"),
     }
 
     with io.open(TEMPLATE, encoding="utf-8") as handle:
         page = handle.read()
-    place = re.search(r"/\*CLOCK_DATA\*/\s*null", page)
+    place = re.search(r"/\*ROOM_DATA\*/\s*null", page)
     if place is None:
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
-    # The shared control bar is injected whole, keeping the page one self-contained file with one
-    # source for the bar across every unit that carries it.
     with io.open(BAR_SOURCE, encoding="utf-8") as handle:
         bar = handle.read()
     slot = re.search(r"/\*CONTROL_BAR\*/", page)
@@ -306,7 +439,6 @@ def main():
         sys.stderr.write("the template has no place for the control bar\n")
         return 1
     page = page[:slot.start()] + bar + page[slot.end():]
-
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
@@ -315,13 +447,15 @@ def main():
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(page)
 
-    # The digest, printed so the trace can be checked against any other implementation and not taken
-    # on trust. At the full sixty-four rounds on the empty message this is the published one.
+    # The digest, printed so the trace can be checked against any other implementation and not
+    # taken on trust. At the full sixty-four rounds on the empty message this is the published one.
     print("%s (%.1f KB)" % (out, os.path.getsize(out) / 1024.0))
-    print("  %d bytes on %d words, %d operations over %d rounds, drawn by the %s arm"
-          % (BYTES, WORDS, ticks, rounds, arm))
-    print("  %d distinct states of %d operations, rendered once and replayed by the index"
-          % (len(states), ticks))
+    print("  %d bits on %d rings, %d operations over %d rounds"
+          % (BITS, WORDS, ticks, rounds))
+    print("  luminosity %s, %d neutrino points, time runs %.2f to %.2f of the shell"
+          % (glow, points, INNER, OUTER))
+    print("  %d distinct states of %d operations, expanded to degree %d, tau %g"
+          % (len(states), ticks, top, tau))
     print("  digest after %d rounds: %s" % (rounds, payload["clock"]["digest"]))
     return 0
 

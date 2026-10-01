@@ -79,7 +79,7 @@ KNOWN = {
 # KNOWN's. The schema then states the default the control rests at, not a shared one it never uses.
 # The fallback has to sit inside the narrowed range, checked below beside the bounds.
 NARROW = {
-    "room": {"opacity": {"fallback": 90}},
+    "room": {"opacity": {"low": 20, "fallback": 90}},
     "sphere": {
         "distance": {"low": 105, "high": 600, "fallback": 340},
         "opacity": {"fallback": 94},

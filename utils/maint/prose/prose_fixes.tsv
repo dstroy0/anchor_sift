@@ -117,3 +117,82 @@ examples/00_blob_viz_tools/build_sha_pairs_view.py	its exact negative is what do
 examples/00_blob_viz_tools/build_orrery_view.py	the other tools use. That a seed means one scene everywhere.	the other tools use. A seed gives the same stream in every tool.
 utils/maint/data/salishan/corpus_script_extraction/space_repair.py	    Written to work from the raw lines, not from a reader's parse. That a reader and the coverage\n    check build the same list. Two lists drift, and the check then reports as a hole every word one\n    of them put back together and the other did not.	    Written to work from the raw lines, not from a reader's parse, letting a reader and the\n    coverage check build the same list. Two lists drift, and the check then reports as a hole every\n    word one of them put back together and the other did not.
 utils/maint/data/salishan/corpus_script_extraction/space_repair.py	back with it. Sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.	back with it. The pair sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.
+examples/00_blob_viz_tools/room_view_template.html	e panel rather than crushin	e panel instead of crushin
+examples/00_blob_viz_tools/room_view_template.html	p it is rather than describ	p it is and not describ
+examples/00_blob_viz_tools/room_view_template.html	ometric rather than linear:	ometric and not linear:
+examples/00_blob_viz_tools/room_view_template.html	d number, which is the shape o	d number, the shape o
+examples/00_blob_viz_tools/room_view_template.html	an carry, which is why the cou	an carry, and so the cou
+examples/00_blob_viz_tools/room_view_template.html	boundary, which is what a devic	boundary, as a devic
+examples/00_blob_viz_tools/room_view_template.html	  // which is the worst c	  // the worst c
+examples/00_blob_viz_tools/room_view_template.html	tor case, which is what a Voron	tor case, as a Voron
+examples/00_blob_viz_tools/room_view_template.html	es light, which is the	es light, the
+examples/00_blob_viz_tools/room_view_template.html	rawn in rather than by a ru	rawn in and not by a ru
+examples/00_blob_viz_tools/room_view_template.html	ll time rather than a decor	ll time and not a decor
+examples/00_blob_viz_tools/room_view_template.html	/ record, which is the differe	/ record, the differe
+examples/00_blob_viz_tools/room_view_template.html	ng read rather than the thi	ng read and not the thi
+examples/00_blob_viz_tools/room_view_template.html	  // rather than adding 	  // instead of adding 
+examples/00_blob_viz_tools/room_view_template.html	movement, which is what makes depth f	movement, and that leaves depth f
+examples/00_blob_viz_tools/room_view_template.html	 spare, rather than running	 spare, instead of running
+examples/00_blob_viz_tools/room_view_template.html	 motion rather than a speck	 motion and not a speck
+examples/00_blob_viz_tools/room_view_template.html	he mouth, which is the neutrin	he mouth, the neutrin
+examples/00_blob_viz_tools/room_view_template.html	 a lens rather than being t	 a lens instead of being t
+examples/00_blob_viz_tools/room_view_template.html	/ index rather than a live 	/ index and not a live 
+examples/00_blob_viz_tools/room_view_template.html	ct alone, which is the control	ct alone, the control
+examples/00_blob_viz_tools/room_view_template.html	going in, which is the outermo	going in, the outermo
+examples/00_blob_viz_tools/room_view_template.html	ch piece, which is the lensing	ch piece, the lensing
+examples/00_blob_viz_tools/room_view_template.html	 radius rather than at the 	 radius and not at the 
+examples/00_blob_viz_tools/room_view_template.html	s large on purpose.	s large deliberately.
+examples/00_blob_viz_tools/room_view_template.html	urement rather than part of	urement and not part of
+examples/00_blob_viz_tools/room_view_template.html	picture rather than hidden 	picture and not hidden 
+examples/00_blob_viz_tools/room_view_template.html	 Spread rather than placed 	 Spread and not placed 
+examples/00_blob_viz_tools/room_view_template.html	 // way rather than a mode 	 // way and not a mode 
+examples/00_blob_viz_tools/room_view_template.html	recorded, which is the surface	recorded, the surface
+examples/00_blob_viz_tools/room_view_template.html	eported rather than asserte	eported and not asserte
+examples/00_blob_viz_tools/room_view_template.html	e trace rather than off the	e trace and not off the
+examples/00_blob_viz_tools/room_view_template.html	 a trace, which is what a page 	 a trace, as a page 
+examples/00_blob_viz_tools/room_view_template.html	 radius rather than being f	 radius instead of being f
+examples/00_blob_viz_tools/room_view_template.html	 change rather than move.	 change and not move.
+examples/00_blob_viz_tools/room_view_template.html	ur times, which is what the shi	ur times, as the shi
+examples/00_blob_viz_tools/room_view_template.html	 surface, which is the same ki	 surface, the same ki
+examples/00_blob_viz_tools/room_view_template.html	pansion rather than needing	pansion instead of needing
+examples/00_blob_viz_tools/room_view_template.html	e terms above it, which is what a boundary that	e terms above it, as a boundary that
+examples/00_blob_viz_tools/room_view_template.html	y bands on purpose, becaus	y bands deliberately, becaus
+examples/00_blob_viz_tools/room_view_template.html	end clip, which is what a physi	end clip, as a physi
+examples/00_blob_viz_tools/room_view_template.html	dentity rather than to a sp	dentity and not to a sp
+examples/00_blob_viz_tools/room_view_template.html	    // rather than carryin	    // instead of carryin
+examples/00_blob_viz_tools/room_view_template.html	easured rather than guessed	easured and not guessed
+examples/00_blob_viz_tools/room_view_template.html	ructure rather than blowing	ructure instead of blowing
+examples/00_blob_viz_tools/room_view_template.html	a point rather than stoppin	a point instead of stoppin
+examples/00_blob_viz_tools/room_view_template.html	 number rather than the sam	 number and not the sam
+examples/00_blob_viz_tools/room_view_template.html	irectly rather than parsed 	irectly and not parsed 
+examples/00_blob_viz_tools/room_view_template.html	    // rather than recompu	    // instead of recompu
+examples/00_blob_viz_tools/room_view_template.html	n floor rather than this on	n floor and not this on
+examples/00_blob_viz_tools/room_view_template.html	ression rather than flash i	ression and not flash i
+examples/00_blob_viz_tools/room_view_template.html	ed here rather than	ed here and not
+examples/00_blob_viz_tools/room_view_template.html	 nothing, which is the failure	 nothing, the failure
+examples/00_blob_viz_tools/room_view_template.html	buttons rather than an inpu	buttons and not an inpu
+examples/00_blob_viz_tools/room_view_template.html	ht table, which is the product	ht table, the product
+examples/00_blob_viz_tools/room_view_template.html	ng now, rather than waiting	ng now, instead of waiting
+examples/00_blob_viz_tools/room_view_template.html	lations rather than two val	lations and not two val
+examples/00_blob_viz_tools/room_view_template.html	stopped rather than from wh	stopped and not from wh
+examples/00_blob_viz_tools/room_view_template.html	  // above it, which is what a boundary too 	  // above it, as a boundary too 
+examples/00_blob_viz_tools/room_view_template.html	ed down rather than switche	ed down and not switche
+examples/00_blob_viz_tools/room_view_template.html	 shells rather than written	 shells and not written
+examples/00_blob_viz_tools/room_view_template.html	ing read, which is the claim.	ing read, the claim.
+examples/00_blob_viz_tools/room_view_template.html	rrying, rather than three r	rrying, and not three r
+examples/00_blob_viz_tools/room_view_template.html	ent wall, which is the only	ent wall, the only
+examples/00_blob_viz_tools/room_view_template.html	s closed, which is the part th	s closed, the part th
+examples/00_blob_viz_tools/room_view_template.html	of room rather than reachin	of room instead of reachin
+examples/00_blob_viz_tools/room_view_template.html	ettling rather than as a le	ettling and not as a le
+examples/00_blob_viz_tools/room_view_template.html	the box rather than crossin	the box instead of crossin
+examples/00_blob_viz_tools/room_view_template.html	 offset rather than a posit	 offset and not a posit
+examples/00_blob_viz_tools/room_view_template.html	ng stays, which is the honest 	ng stays, the honest 
+examples/00_blob_viz_tools/room_view_template.html	r frame rather than spinnin	r frame and not spinnin
+examples/00_blob_viz_tools/room_view_template.html	 undone rather than left as	 undone and not left as
+examples/00_blob_viz_tools/room_view_template.html	e thing rather than	e thing and not
+examples/00_blob_viz_tools/room_view_template.html	easured rather than asserte	easured and not asserte
+examples/00_blob_viz_tools/room_view_template.html	ardware rather than of the 	ardware and not of the 
+examples/00_blob_viz_tools/room_view_template.html	rs on it, which is the same re	rs on it, the same re
+examples/00_blob_viz_tools/room_view_template.html	The one place	The single place
+examples/00_blob_viz_tools/room_view_template.html	ng moves, which is the differe	ng moves, the differe
+examples/00_blob_viz_tools/room_view_template.html	t value rather than from it	t value and not from it
