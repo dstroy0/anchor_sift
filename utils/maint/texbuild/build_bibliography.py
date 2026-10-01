@@ -1,4 +1,4 @@
-"""Generates every research paper's bibliography from the citations registry, pinned to a commit.
+r"""Generates every research paper's bibliography from the citations registry, pinned to a commit.
 
 A surname in a chapter tells a reader which idea is being used and gives them nothing to go and
 read. This turns the registry next door into a bibliography, and pins it: every entry carries the
@@ -12,11 +12,12 @@ copy of a citation is a second thing to keep true and the two would drift.
     python utils/maint/texbuild/build_bibliography.py
 
 A research paper is every directory under theory/ holding a main.tex, at the two depths
-build_theory.sh walks. Its entries are the registry rows whose key its own TeX spells as a whole
-word, matched the way utils/maint/citations/citations.py matches a use. The result is bibliography.tex
+build_theory.sh walks. Its entries are the registry rows whose key its own TeX spells or cites as
+\cite{src:<label>} or \nocite{src:<label>}, matched by key_pattern in
+utils/maint/citations/citations.py, the match a use is counted by. The result is bibliography.tex
 beside main.tex, which main.tex brings in last. It sits beside main.tex and not in chapters/,
 because theory_tex.py owns chapters/ in the research papers it writes and removes what it did not
-write there. A research paper whose TeX spells no key gets no file.
+write there. A research paper whose TeX neither spells nor cites a key gets no file.
 
 Finds the registry through ANCHOR_SIFT_CITATIONS, else beside the checkouts. Errors instead of
 generating from a dirty or unpushed registry, because a pin to a commit nobody else can fetch is not
@@ -85,22 +86,38 @@ def research_papers():
     return sorted(os.path.dirname(one) for one in found)
 
 
+BROUGHT_IN = re.compile(r"\\(?:input|include)\{([^}]+)\}")
+
+
 def research_paper_text(research_paper):
-    """Every .tex the research paper is built from, this file's own output excluded."""
-    text = []
+    """Every .tex the research paper is built from, this file's own output excluded.
+
+    That is every .tex under its directory, and every file an \\input or \\include in one of them
+    names, resolved against the directory main.tex is built in, wherever it sits.
+    """
+    files = []
     for base, dirs, names in os.walk(research_paper):
         for name in sorted(names):
             if not name.endswith(".tex"):
                 continue
             if base == research_paper and name == TARGET:
                 continue
-            with io.open(os.path.join(base, name), encoding="utf-8", errors="replace") as handle:
-                text.append(handle.read())
+            files.append(os.path.normpath(os.path.join(base, name)))
+    seen = set(files)
+    text = []
+    while files:
+        path = files.pop(0)
+        with io.open(path, encoding="utf-8", errors="replace") as handle:
+            body = handle.read()
+        text.append(body)
+        for named in BROUGHT_IN.findall(body):
+            found = os.path.normpath(os.path.join(research_paper, named.strip()))
+            if not found.endswith(".tex"):
+                found += ".tex"
+            if found not in seen and os.path.isfile(found):
+                seen.add(found)
+                files.append(found)
     return "\n".join(text)
-
-
-def label(key):
-    return "src:" + re.sub(r"[^A-Za-z0-9]+", "-", key).strip("-")
 
 
 def entry(s, held):
@@ -120,7 +137,7 @@ def entry(s, held):
         if digest:
             text += ", SHA-256 \\texttt{%s}" % escape(digest)
         text += ".}"
-    return "\\bibitem{%s}\n%s" % (label(s["key"]), text)
+    return "\\bibitem{%s}\n%s" % (citations.label(s["key"]), text)
 
 
 def render(sources, held, commit, when):
@@ -199,7 +216,7 @@ def main():
 
     for research_paper in research_papers():
         text = research_paper_text(research_paper)
-        used = [s for s in sources if re.search(r"\b%s\b" % re.escape(s["key"]), text)]
+        used = [s for s in sources if citations.key_pattern(s["key"]).search(text)]
         target = os.path.join(research_paper, TARGET)
         shown = os.path.relpath(target, ROOT).replace("\\", "/")
         if not used:

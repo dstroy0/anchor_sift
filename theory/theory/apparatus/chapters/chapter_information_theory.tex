@@ -8,17 +8,17 @@ The short version: thirty-one hypotheses were graded on collision entropy, which
 
 \subsection{Guessing is governed by order one half, not order two}
 
-Arikan's inequality bounds the expected number of guesses for a user with the optimal guessing sequence:
+Arikan's inequality~\cite{src:Arikan-1996} bounds the expected number of guesses for a user with the optimal guessing sequence:
 \[
 E[G] \le \tfrac{1}{2}\Big[\sum_k \sqrt{p_k}\Big]^2 + \tfrac{1}{2} = \frac{2^{H_{1/2}(X)} + 1}{2}
 \]
 with the Renyi entropy of order \(\alpha\) written \(H_\alpha(X) = \frac{1}{1-\alpha}\log \sum_x P(x)^\alpha\), and with the property that carries the argument: \(H_\alpha\) is strictly decreasing in \(\alpha\) unless the distribution is uniform on its support.
 
-Massey's earlier bound is in Shannon entropy and is the reason the field talks about Shannon at all here. Arikan's is sharper and names a \emph{different order}: the quantity governing the cost of searching is \(H_{1/2}\), whose defining sum is \(\sum \sqrt{p}\). That sum is dominated by the many small probabilities and not by the few large ones. \textbf{Search cost is a tail statistic.}
+Massey's earlier bound~\cite{src:Massey-1994} is in Shannon entropy and is the reason the field talks about Shannon at all here. Arikan's is sharper and names a \emph{different order}: the quantity governing the cost of searching is \(H_{1/2}\), whose defining sum is \(\sum \sqrt{p}\). That sum is dominated by the many small probabilities and not by the few large ones. \textbf{Search cost is a tail statistic.}
 
 \subsection{Collisions are governed by order two, and balance is that}
 
-Bellare and Kohno define the balance of a hash \(h\) with pre-image sizes \(d_i\) as
+Bellare and Kohno~\cite{src:Bellare-and-Kohno-2004} define the balance of a hash \(h\) with pre-image sizes \(d_i\) as
 \[
 \mu(h) = \log_r\Big[\frac{d^2}{d_1^2 + \cdots + d_r^2}\Big]
 \]
@@ -28,13 +28,13 @@ Balance is collision entropy rescaled: \(\mu(h) = H_2 / \log_2 r\). It is this t
 
 \subsection{Distinguishing cost is a divergence}
 
-Baignères, Junod and Vaudenay put the shape of an optimal distinguisher on a hypothesis-testing footing: the optimal statistic is the log likelihood ratio, and the number of samples needed to separate \(P\) from uniform scales as the reciprocal of a divergence between them, with Kullback-Leibler and Chernoff information as the exact exponent and squared Euclidean distance as the usable approximation. The chi-squared method gives the crisp form, advantage over \(n\) samples bounded by \(\sqrt{n\chi^2/2}\).
+Baignères, Junod and Vaudenay~\cite{src:Baigneres-Junod-and-Vaudenay-2004,src:Baigneres-and-Vaudenay-2008} put the shape of an optimal distinguisher on a hypothesis-testing footing: the optimal statistic is the log likelihood ratio, and the number of samples needed to separate \(P\) from uniform scales as the reciprocal of a divergence between them, with Kullback-Leibler and Chernoff information as the exact exponent and squared Euclidean distance as the usable approximation. The chi-squared method~\cite{src:Dai-Hoang-and-Tessaro-2017} gives the crisp form, advantage over \(n\) samples bounded by \(\sqrt{n\chi^2/2}\).
 
 This is the principled replacement for the sigma counts this work has been reporting. A sigma count says how surprising one statistic is. A divergence says how many samples any distinguisher whatsoever would need, the number deciding whether a structure is worth anything.
 
 \subsection{Iterated functions lose entropy in a known amount}
 
-Flajolet and Odlyzko work through about twenty parameters of a uniformly random map on \(n\) points. The ones that bite here: the image is \((1 - 1/e)n\), leaving \(1/e = 36.79\%\) of the range unreachable in one step; the giant component is \(0.75788n\); rho and tail lengths go as \(\sqrt{\pi n / 8}\).
+Flajolet and Odlyzko~\cite{src:Flajolet-and-Odlyzko-1989} work through about twenty parameters of a uniformly random map on \(n\) points. The ones that bite here: the image is \((1 - 1/e)n\), leaving \(1/e = 36.79\%\) of the range unreachable in one step; the giant component is \(0.75788n\); rho and tail lengths go as \(\sqrt{\pi n / 8}\).
 
 The holes are not a defect. \textbf{A random function is supposed to have them, and supposed to have exactly \(1/e\) of them.}
 
@@ -225,15 +225,4 @@ Going from every two-byte mask to every mask was \(10{,}900\) times the work and
 
 \textbf{Whether the deficit line stays straight at reduced rounds.} Round eight is where closeness dies; the order axis has never been swept at a partial round, and a curvature that appears and then flattens would locate the mixing in a coordinate nothing here uses.
 
-\section{Sources}
-
-\begin{enumerate}
-  \item E. Arikan, \emph{An Inequality on Guessing and Its Application to Sequential Decoding}, IEEE Trans. Inf. Theory 42(1):99--105, 1996. Restated with the constants in IACR ePrint 2018/455.
-  \item J. Massey, \emph{Guessing and Entropy}, ISIT 1994.
-  \item M. Bellare and T. Kohno, \emph{Hash Function Balance and its Impact on Birthday Attacks}, EUROCRYPT 2004. IACR ePrint 2003/065.
-  \item T. Baignères and S. Vaudenay, \emph{The Complexity of Distinguishing Distributions}, ICITS 2008.
-  \item W. Dai, V. T. Hoang and S. Tessaro, \emph{Information-theoretic Indistinguishability via the Chi-squared Method}. IACR ePrint 2017/537.
-  \item P. Flajolet and A. Odlyzko, \emph{Random Mapping Statistics}, EUROCRYPT 1989.
-  \item \emph{Iteration Entropy}, arXiv 1712.01407.
-  \item D. Malone and W. Sullivan, \emph{Guesswork is not a Substitute for Entropy}, ITT 2005.
-\end{enumerate}
+\nocite{src:arXiv-1712-01407,src:Malone-and-Sullivan-2005}

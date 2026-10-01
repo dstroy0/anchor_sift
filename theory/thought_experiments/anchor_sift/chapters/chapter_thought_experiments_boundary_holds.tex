@@ -16,7 +16,7 @@ Reading the depth back out of a spectrum is a slope: dividing out the shape term
 
 Degrees up to $l$ carry $(l+1)^2$ modes on an ordinary sphere, and the general count in $n$ dimensions is a sum of two binomial coefficients. That count is a whole number with a formula. It needs no sampling and no rounding.
 
-Weyl's law predicts the same count from the surface measure alone: the volume of the unit ball in the boundary's own dimension, times the boundary's measure, times the eigenvalue to half that dimension, over two pi to that dimension. The two sides share no term. Compared at 2, 3, 5, 8, 12, 19, 24 and 40 dimensions, they agree to within 0.0122 percent, and at forty dimensions the exact count is a 157 digit integer.
+Weyl's law~\cite{src:Weyl-1911} predicts the same count from the surface measure alone: the volume of the unit ball in the boundary's own dimension, times the boundary's measure, times the eigenvalue to half that dimension, over two pi to that dimension. The two sides share no term. Compared at 2, 3, 5, 8, 12, 19, 24 and 40 dimensions, they agree to within 0.0122 percent, and at forty dimensions the exact count is a 157 digit integer.
 
 The residual is a remainder, never a disagreement. At nineteen dimensions it runs 0.1131, 0.0282, 0.0070 and 0.0018 percent as the degree quadruples each time. An error term of order one over the degree falls by four for every quadrupling.
 
@@ -30,7 +30,7 @@ This is worth having because a flat torus is not a sphere in any respect that co
 
 It also puts the remainder into known company. The difference between the exact lattice count and the volume of the ball is the lattice point problem, the Gauss circle problem in two dimensions and open in general. The leading term of the area law is settled here and the remainder is somebody else's open question.
 
-\textbf{Note, 26 September.} ``Open in general'' overstates what is open. For balls in dimension $d \ge 5$ the remainder is settled at order $R^{d-2}$ (Walfisz 1957), and dimension four is settled up to a logarithm. Only dimensions two and three remain open. Cited from knowledge.
+\textbf{Note, 26 September.} ``Open in general'' overstates what is open. For balls in dimension $d \ge 5$ the remainder is settled at order $R^{d-2}$ (Walfisz 1957~\cite{src:Walfisz-1957}), and dimension four is settled up to a logarithm. Only dimensions two and three remain open. Cited from knowledge.
 
 \section{Why shape cannot enter}
 
@@ -64,13 +64,13 @@ The account needs four things and fails without any of them.
 
 \textbf{A gradient.} No gradient, no flux. No flux, and the boundary records a uniform nothing however long it is watched.
 
-\textbf{Coherence.} A hologram works by interfering a coherent field with a reference, which records phase as intensity on a two dimensional plate. Without coherence only intensity survives, and recovering the interior from intensity alone is the phase retrieval problem: non-unique in one dimension, generically unique and badly conditioned above it. Coherence is the difference between an inversion that is linear and a guess that is not.
+\textbf{Coherence.} A hologram works by interfering a coherent field with a reference, which records phase as intensity on a two dimensional plate. Without coherence only intensity survives, and recovering the interior from intensity alone is the phase retrieval problem~\cite{src:Bruck-and-Sodin-1979,src:Hayes-1982}: non-unique in one dimension, generically unique and badly conditioned above it. Coherence is the difference between an inversion that is linear and a guess that is not.
 
 Coherence also supplies the length the count was missing. The number of readings is unbounded as the resolution improves and finite at any resolution. The bound only becomes a number once something fixes a shortest length. In an optical setting the coherence length is that length, and the capacity is the area over the coherence area.
 
 \section{What is not established}
 
-\textbf{Anisotropy.} The boundary map on an anisotropic medium is invariant under any diffeomorphism fixing the boundary, and a family of interiors then gives identical boundary data. Motion alone does not rescue this, since transforming the medium and its contents together leaves the boundary untouched. Motion under a law does: a diffeomorphism relabels space, straight lines curve, Keplerian orbits stop obeying Kepler, and only the untransformed world satisfies the law it was supposed to obey. Recovering orbital radii from a boundary light curve rests on exactly this, and the work is being done by Kepler and not by geometry.
+\textbf{Anisotropy.} The boundary map on an anisotropic medium is invariant under any diffeomorphism fixing the boundary~\cite{src:Lee-and-Uhlmann-1989}, and a family of interiors then gives identical boundary data. Motion alone does not rescue this, since transforming the medium and its contents together leaves the boundary untouched. Motion under a law does: a diffeomorphism relabels space, straight lines curve, Keplerian orbits stop obeying Kepler, and only the untransformed world satisfies the law it was supposed to obey. Recovering orbital radii from a boundary light curve rests on exactly this, and the work is being done by Kepler and not by geometry.
 
 \textbf{Stability.} Uniqueness is not stability. Recovering detail at scale $x$ needs precision growing exponentially in $1/x$. Everything is recoverable in principle and buried under noise in practice. The spectrum of a real measurement dies by degree 46, and past there the inversion divides by a gain already below one part in a million.
 
@@ -80,7 +80,7 @@ Coherence also supplies the length the count was missing. The number of readings
 
 \textbf{The constant out front.} The scaling is provable and shape independent. The constant depends on packing density, which is known to be optimal in dimensions one, two, three, eight and twenty-four and open everywhere else. Dimension nineteen is open. The measurements here use a greedy packing, which reaches roughly half of the optimum and reaches it identically on every shape. It measures shape dependence and never packing efficiency.
 
-\textbf{Note, 26 September.} The paragraph says the optimum at nineteen dimensions is open and also that the greedy packing reaches roughly half of the optimum. Where the optimum is open that fraction has no denominator, and at nineteen it cannot be measured. The optimum in three, eight and twenty-four dimensions was proved by Hales (2005), Viazovska (2017) and Cohn, Kumar, Miller, Radchenko and Viazovska (2017), cited from knowledge.
+\textbf{Note, 26 September.} The paragraph says the optimum at nineteen dimensions is open and also that the greedy packing reaches roughly half of the optimum. Where the optimum is open that fraction has no denominator, and at nineteen it cannot be measured. The optimum in three, eight and twenty-four dimensions was proved by Hales (2005)~\cite{src:Hales-2005}, Viazovska (2017)~\cite{src:Viazovska-2017} and Cohn, Kumar, Miller, Radchenko and Viazovska (2017)~\cite{src:Cohn-Kumar-Miller-Radchenko-and-Viazovska-2017}, cited from knowledge.
 
 \section{Three defects, and how each was caught}
 
@@ -111,7 +111,7 @@ It meets a bill.
 The distinction that matters cuts against the reading this work invites. Verifying the area law
 establishes that the channel is that wide. It does not establish that the interior holds only that
 much. Counted the ordinary way, a volume carries $(R/x)^n$ degrees of freedom while its boundary
-carries $(R/x)^{n-1}$, leaving the boundary short by a factor of $R/x$. The holographic principle says
+carries $(R/x)^{n-1}$, leaving the boundary short by a factor of $R/x$. The holographic principle~\cite{src:t-Hooft-1993,src:Susskind-1995} says
 the interior really is only boundary-sized and nothing is lost. That is a physical conjecture and
 nothing here tests it. The pipe was measured. What has to fit through it was not.
 
@@ -119,7 +119,7 @@ The fork is sharp. If the holographic principle holds, a demon at the boundary h
 and its only difficulty is precision. If it does not, the demon is short by $R/x$ however precise it
 becomes, and a counting deficit is not a rounding one. No arithmetic buys it back.
 
-A third pressure applies either way. The demon sits inside the region it computes. Its own state
+A third pressure applies either way. The demon sits inside the region it computes~\cite{src:Wolpert-2008}. Its own state
 is written on the same boundary and counted against the same budget. A demon storing a description
 of the interior has to store it somewhere the interior can already see.
 
@@ -130,7 +130,7 @@ out quasiperiodic: never one period, but several with irrational ratios between 
 tilings are a five dimensional lattice seen in two. The correspondence runs both ways. Any
 quasiperiodic pattern lifts to a periodic lattice in high enough dimension.
 
-\textbf{Note, 26 September.} The lift holds when the pattern has finitely many rationally independent frequencies. It is not a property of aperiodic order in general. The Penrose case is de Bruijn's (1981), cited from knowledge.
+\textbf{Note, 26 September.} The lift holds when the pattern has finitely many rationally independent frequencies. It is not a property of aperiodic order in general. The Penrose case is de Bruijn's (1981)~\cite{src:de-Bruijn-1981}, cited from knowledge.
 
 That turns into a measurement. The count of rationally independent periods in a one dimensional
 reading equals the dimension of the lattice it was cut from. Cutting a square lattice at the golden
@@ -196,23 +196,4 @@ arrangement repeats at every scale is a structural claim about the shape of the 
 result taken from it. It follows if the same physics holds at every scale, and that premise was
 assumed and never measured.
 
-\section{References}
-
-\textbf{Added 26 September.} Prior art for the area law, the lattice remainder, phase retrieval, the boundary inverse problem, packing, the cut and project method, the demon and the holographic bound. Cited from knowledge; volumes and pages are not yet checked against the originals.
-
-\begin{enumerate}
-  \item Weyl, H. (1911). \emph{\"Uber die asymptotische Verteilung der Eigenwerte}. Nachrichten von der Gesellschaft der Wissenschaften zu G\"ottingen, Mathematisch-Physikalische Klasse, 110--117. For Weyl's law.
-  \item Walfisz, A. (1957). \emph{Gitterpunkte in mehrdimensionalen Kugeln}. Monografie Matematyczne 33, Pa\'nstwowe Wydawnictwo Naukowe, Warsaw. For the lattice point remainder in balls.
-  \item Bruck, Yu. M. and Sodin, L. G. (1979). \emph{On the ambiguity of the image reconstruction problem}. Optics Communications 30, 304--308. For phase retrieval, unique in two dimensions and above.
-  \item Hayes, M. H. (1982). \emph{The reconstruction of a multidimensional sequence from the phase or magnitude of its Fourier transform}. IEEE Transactions on Acoustics, Speech, and Signal Processing 30, 140--154. For phase retrieval in several dimensions.
-  \item Lee, J. M. and Uhlmann, G. (1989). \emph{Determining anisotropic real-analytic conductivities by boundary measurements}. Communications on Pure and Applied Mathematics 42, 1097--1112. For the boundary map determined up to a diffeomorphism fixing the boundary.
-  \item Mandache, N. (2001). \emph{Exponential instability in an inverse problem for the Schr\"odinger equation}. Inverse Problems 17, 1435--1444. For stability no better than logarithmic.
-  \item Hales, T. C. (2005). \emph{A proof of the Kepler conjecture}. Annals of Mathematics 162, 1065--1185. For the optimal packing in three dimensions.
-  \item Viazovska, M. S. (2017). \emph{The sphere packing problem in dimension 8}. Annals of Mathematics 185, 991--1015. For the optimal packing in eight dimensions.
-  \item Cohn, H., Kumar, A., Miller, S. D., Radchenko, D. and Viazovska, M. (2017). \emph{The sphere packing problem in dimension 24}. Annals of Mathematics 185, 1017--1033. For the optimal packing in twenty-four dimensions.
-  \item de Bruijn, N. G. (1981). \emph{Algebraic theory of Penrose's non-periodic tilings of the plane}, I and II. Indagationes Mathematicae 43, 39--52 and 53--66. For Penrose tilings cut from a five dimensional lattice.
-  \item Wolpert, D. H. (2008). \emph{Physical limits of inference}. Physica D 237, 1257--1281. For a device inferring the universe it sits inside.
-  \item 't Hooft, G. (1993). \emph{Dimensional reduction in quantum gravity}. arXiv gr-qc/9310026. For the holographic principle.
-  \item Susskind, L. (1995). \emph{The world as a hologram}. Journal of Mathematical Physics 36, 6377--6396. For the holographic principle.
-  \item Bekenstein, J. D. (1981). \emph{Universal upper bound on the entropy-to-energy ratio for bounded systems}. Physical Review D 23, 287--298. For an entropy bound on a bounded region.
-\end{enumerate}
+\nocite{src:Mandache-2001,src:Bekenstein-1981}
