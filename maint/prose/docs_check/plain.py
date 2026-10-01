@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# BTC - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Pull the readable prose out of a document and leave the mathematics behind.
 #
-#   Usage:  python maint/prose/plain_text.py [--out FILE] [--min-words N] path [path ...]
+#   Usage:  python maint/prose/docs_check --plain [--out FILE] [--min-words N] path [path ...]
 #
 # WHY THE MATHEMATICS HAS TO COME OUT
 #
@@ -42,9 +42,8 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
 
-import docs_check
+from .prose import prose_only
 
 # Display mathematics, in both dialects, taken out whole before anything is read line by line.
 DISPLAY = (
@@ -164,7 +163,7 @@ def readable(text, min_words):
     return kept
 
 
-def main():
+def show_plain():
     parser = argparse.ArgumentParser(description="Prose with the mathematics taken out.")
     parser.add_argument("--out", default=None)
     parser.add_argument("--min-words", type=int, default=12,
@@ -179,7 +178,7 @@ def main():
         with io.open(path, encoding="utf-8", errors="replace") as handle:
             lines = handle.read().splitlines()
         if given.headers or path.endswith((".py", ".c", ".h", ".cu", ".cpp")):
-            lines = docs_check.prose_only(path, lines)
+            lines = prose_only(path, lines)
         found = readable("\n".join(lines), given.min_words)
         print("  %-58s %3d paragraphs" % (path, len(found)), file=sys.stderr)
         chunks.extend(found)
@@ -195,7 +194,3 @@ def main():
     else:
         print(body)
     return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

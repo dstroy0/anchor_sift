@@ -4,8 +4,8 @@
 #
 # Assemble one continuous sample of this project's prose, for a detector that takes pasted text.
 #
-#   python maint/prose/gate_sample.py --words 10000 theory
-#   python maint/prose/gate_sample.py --words 4000 theory/theory/millennium
+#   python maint/prose/docs_check --sample --words 10000 theory
+#   python maint/prose/docs_check --sample --words 4000 theory/theory/millennium
 #
 # Writes build/gate/sample.txt and prints the word count, the character count, and every file that
 # went into it with its share. The manifest is the point: a detector returns one number over the
@@ -24,10 +24,12 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import docs_check
+from .files import walk_markdown
+from .prose import prose_only
+from .repository import REPOSITORY
+from .scan import runs
 
-OUT = os.path.join(docs_check.REPOSITORY, "build", "gate", "sample.txt")
+OUT = os.path.join(REPOSITORY, "build", "gate", "sample.txt")
 
 CLOSED = (
     "/private_repos/",
@@ -47,16 +49,16 @@ def paragraphs(path):
     """One file's prose as a list of paragraphs, each carrying the line it starts on."""
     with open(path, encoding="utf-8", errors="replace") as handle:
         lines = handle.read().splitlines()
-    said = docs_check.prose_only(path, lines)
+    said = prose_only(path, lines)
     held = []
-    for text, where in docs_check.runs(said):
+    for text, where in runs(said):
         text = " ".join(text.split())
         if len(text.split()) >= 12:
             held.append((where[0], text))
     return held
 
 
-def main():
+def show_sample():
     argv = sys.argv[1:]
     budget = 10000
     if "--words" in argv:
@@ -71,7 +73,7 @@ def main():
         raise SystemExit("  gate_sample: name a file or a directory")
 
     roots = [
-        one if os.path.exists(one) else os.path.join(docs_check.REPOSITORY, one)
+        one if os.path.exists(one) else os.path.join(REPOSITORY, one)
         for one in named
     ]
 
@@ -81,7 +83,7 @@ def main():
     error = 0
     # Not sorted. The order given is the order taken, because the caller put the prose they most
     # want read at the front and a sort would spend the budget alphabetically instead.
-    for path in docs_check.walk_markdown(roots):
+    for path in walk_markdown(roots):
         if closed(path):
             error += 1
             continue
@@ -97,7 +99,7 @@ def main():
             took += count
         if took:
             manifest.append(
-                (os.path.relpath(path, docs_check.REPOSITORY).replace("\\", "/"), took)
+                (os.path.relpath(path, REPOSITORY).replace("\\", "/"), took)
             )
 
     body = "\n\n".join(held)
@@ -110,9 +112,5 @@ def main():
     if error:
         print("  %d file(s) held back, closed corpus" % error)
     print("\n  %d words, %d characters, %d file(s)" % (words, len(body), len(manifest)))
-    print("  %s" % os.path.relpath(OUT, docs_check.REPOSITORY).replace("\\", "/"))
+    print("  %s" % os.path.relpath(OUT, REPOSITORY).replace("\\", "/"))
     return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

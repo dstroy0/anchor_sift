@@ -16,6 +16,11 @@
 # oracle does not approve, --show prints the lines the findings sit on, --slack says which ratchet
 # ceilings nothing reaches, and --holes reads a diff for sentences a repair broke.
 #
+# Four instruments answer the same way: --rate (rate.py), --plain (plain.py), --sample (sample.py)
+# and --harmonics (harmonics.py). None of the four is imported here. harmonics.py pulls numpy in and
+# resolves the repository with git when it loads, and a scan that asked for none of them would pay
+# for that on every run. readings.py imports each one at the moment it is asked for.
+#
 # EXIT STATUS. 0 when nothing breaking was found, 1 when something breaking was, 2 when no file was
 # read at all, 3 when a file rose above its ratchet ceiling, 4 when the run was asked for something
 # it cannot do. Never a count: counts wrap at 256, and 256 findings would report success.

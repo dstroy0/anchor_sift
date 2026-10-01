@@ -28,6 +28,10 @@ USAGE = (
     "  docs_check --holes=<unified diff>       added lines a repair may have left ungrammatical",
     "  docs_check --show=<regex> [<root> ...]  the lines the matching findings sit on",
     "  docs_check --slack                      ratchet ceilings nothing reaches",
+    "  docs_check --rate [<root> ...]          banned shapes as a rate, against the drawn bars",
+    "  docs_check --harmonics                  the voice as a rhythm spectrum, and writes its band",
+    "  docs_check --sample --words N <root>    one continuous sample, and writes it with a manifest",
+    "  docs_check --plain <path> ...           the prose with the mathematics taken out",
 )
 
 
@@ -111,6 +115,25 @@ def show_lines(path, lines, wording, want, trail):
                 print("     %d| %s" % (at + step, lines[at + step - 1]))
 
 
+def without(argv, flag):
+    """The command line with the reading's own flag taken out."""
+    return [one for one in argv if one != flag]
+
+
+def as_argv(entry, flag):
+    """Run a reading that parses the command line itself, with its own flag taken out first.
+
+    Two of the instruments read sys.argv through argparse. Handed the flag that selected them they
+    stop on an unrecognised option, so it comes out before they look and goes back afterward.
+    """
+    held = sys.argv
+    sys.argv = without(held, flag)
+    try:
+        return entry() or 0
+    finally:
+        sys.argv = held
+
+
 def reading(argv, option_value):
     """One standalone reading, or None where the command line asks for the scan instead."""
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -131,5 +154,26 @@ def reading(argv, option_value):
     if "--holes" in argv:
         print("  --holes takes the diff to read: --holes=<path>")
         return 4
+
+    # The four instruments. Each is imported where it is asked for and never at the package root:
+    # two of them pull numpy in and one resolves the repository with git, and a scan that wanted
+    # none of that would pay for all three.
+    if "--rate" in argv:
+        from .rate import show_rate
+        return show_rate(words_given(argv))
+
+    if "--harmonics" in argv:
+        from .harmonics import show_harmonics
+        # A reading that returns nothing would read as None here, and None is this function's way
+        # of saying run the scan instead. Every reading answers with a status.
+        return show_harmonics() or 0
+
+    if "--sample" in argv:
+        from .sample import show_sample
+        return as_argv(show_sample, "--sample")
+
+    if "--plain" in argv:
+        from .plain import show_plain
+        return as_argv(show_plain, "--plain")
 
     return None

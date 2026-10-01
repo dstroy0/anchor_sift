@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# BTC - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
 # Does this prose sound like a person wrote it? Answered as a rate against a drawn bar.
 #
-#   Usage:  python maint/prose/prosody_rate.py PATH [PATH ...]
+#   Usage:  python maint/prose/docs_check --rate PATH [PATH ...]
 #
 # docs_check answers a different question. It reports every banned token it finds. A file with
 # no findings passes, and passing a ban list is not the same as reading human: a writer who avoids
@@ -43,9 +43,9 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
 
-import docs_check  # noqa: E402
+from .bans import BANNED
+from . import human_rate
 
 ASSISTANT_RATE = 643.4
 HUMAN_RATE = 387.9
@@ -68,7 +68,7 @@ def words_and_hits(text):
     words = len(re.findall(r"[A-Za-z][A-Za-z'-]*", text))
 
     hits = []
-    for pattern in docs_check.BANNED:
+    for pattern in BANNED:
         found = re.findall(pattern, text, flags=re.I)
         if found:
             hits.append((pattern, len(found)))
@@ -124,8 +124,8 @@ def collect(paths):
     return sorted(found)
 
 
-def main(argv):
-    paths = collect(argv[1:] or ["docs", "theory"])
+def show_rate(roots):
+    paths = collect(roots or ["docs", "theory"])
     if not paths:
         print("  no files were read. Nothing was checked, so nothing passed.")
         return 2
@@ -186,13 +186,9 @@ def main(argv):
         if tally:
             print("  the shapes carrying it:")
             for pattern, n in sorted(tally.items(), key=lambda kv: -kv[1])[:8]:
-                human = docs_check.HUMAN_RATE.get(pattern, 0.0)
+                human = human_rate.HUMAN_RATE.get(pattern, 0.0)
                 mine = (n * 100000.0) / total_words
                 times = ("%.0fx human" % (mine / human)) if human else "absent from human prose"
                 print("    %-52s %3d  %6.1f  %s" % (pattern[:52], n, mine, times))
 
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main(sys.argv))

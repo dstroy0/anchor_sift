@@ -5,7 +5,7 @@
 # The voice as a rhythm spectrum, and the band a text is graded inside.
 #
 #   src/build/tessera_host/tessera_run --processors 1 --name voice_harmonics -- \
-#       python maint/prose/voice_harmonics.py
+#       python maint/prose/docs_check --harmonics
 #   from voice_harmonics import Voice
 #
 # A voice is read here as four signals taken off prose in the order it was written, each one
@@ -42,7 +42,11 @@ import sys
 
 import numpy
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# voice_count is a sibling tool and not a member of this package: machine_distance.py, voice_web.py
+# and voice_pdftotext.sh read it too, and one copy is the point. Reached by path for that reason.
+# It resolves the repository with git at import, so this module is imported where a reading asks
+# for it and never from the package root.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import voice_count  # noqa: E402
 
 ROOT = voice_count.ROOT
@@ -186,7 +190,7 @@ def grade(voice, text):
     return words, rows
 
 
-def build():
+def show_harmonics():
     voice = Voice()
     sources = sorted(glob.glob(os.path.join(voice_count.TEXT, "*.txt")))
     if not sources:
@@ -238,7 +242,3 @@ def build():
                 handle.write("%s\t%d\t%d\t%.6f\t%.6f\t%.6f\n" % ((signal, size, len(found)) + row))
                 print("  %-10s %6d words  %4d blocks  median %.4f  edge %.4f  worst %.4f"
                       % ((signal, size, len(found)) + row))
-
-
-if __name__ == "__main__":
-    build()

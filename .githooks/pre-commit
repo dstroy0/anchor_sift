@@ -28,7 +28,8 @@
 # To commit past it once:                   git commit --no-verify
 #
 # WHAT TO ASK IT WHILE REPAIRING. The checker answers more than pass or fail, and these are the
-# readings a repair wants. No hook calls these and nothing on disk is written.
+# readings a repair wants. No hook calls these. The first seven write nothing on disk; --sample
+# writes build/gate/sample.txt and --harmonics rewrites the voice band tables beside voice.tsv.
 #
 #   python maint/prose/docs_check --pick=after <word>        what this writing puts after a word
 #   python maint/prose/docs_check --pick=between <one> <two> what it puts between two
@@ -37,6 +38,10 @@
 #   python maint/prose/docs_check --show=<regex>             the lines those findings sit on
 #   python maint/prose/docs_check --slack                    ratchet ceilings nothing reaches
 #   python maint/prose/docs_check --holes=<diff>             sentences a repair may have broken
+#   python maint/prose/docs_check --rate [<root> ...]        banned shapes as a rate per 100k words
+#   python maint/prose/docs_check --plain <path> ...         the prose with the mathematics taken out
+#   python maint/prose/docs_check --sample --words N <root>  one continuous sample, with a manifest
+#   python maint/prose/docs_check --harmonics                the voice as a rhythm spectrum
 #
 # WHY THIS RESOLVES ITS OWN PATHS
 #
@@ -77,7 +82,7 @@ fi
 
 CHECK="$REPO/$TOOLS/prose/docs_check"
 
-if [ ! -f "$CHECK" ]; then
+if [ ! -f "$CHECK/__main__.py" ]; then
     echo "  commit stopped: no docs check at $CHECK"
     echo "  the hook has the wrong path, or the checkout is incomplete."
     exit 1
