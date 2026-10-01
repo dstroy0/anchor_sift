@@ -230,6 +230,23 @@
     <span class="val" id="sharpOut">soft</span>
   </div>
   <div class="row">
+    <label>surface</label>
+    <select id="beacon">
+      <option value="1">torsion, gated</option>
+      <option value="0">magnitude ramp</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>noise floor</label>
+    <input type="range" id="floor" min="1" max="90" value="34" />
+    <span class="val" id="floorOut">0.34</span>
+  </div>
+  <div class="row">
+    <label>beacon</label>
+    <input type="range" id="boost" min="5" max="80" value="26" />
+    <span class="val" id="boostOut">2.6</span>
+  </div>
+  <div class="row">
     <label>conduction</label>
     <input type="range" id="tau" min="0" max="100" value="0" />
     <span class="val" id="tauOut">as built</span>
@@ -348,6 +365,52 @@
     return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
   }
 
+  // Torsion is a PHASE, and a phase is cyclic: it has no top and no bottom, a ramp with two ends
+  // misrepresents it - the two extremes of a linear ramp are the same torsion and get opposite
+  // colors. Hue is the channel that closes on itself, which makes it the correct one here and also
+  // the loudest, since fully saturated hues are as far apart as color gets.
+  //
+  // The magnitude does NOT go into the hue. It gates the brightness against the floor, anything
+  // the field cannot distinguish from noise goes black and only what clears it carries color. The
+  // surface then reads as a beacon instead of a gradient: the quiet parts stop competing
+  // for attention entirely instead of merely being dimmer.
+  function hueToRgb(hue) {
+    var h = ((hue % 1) + 1) % 1;
+    var sector = h * 6.0;
+    var slice = Math.floor(sector);
+    var f = sector - slice;
+    var q = 1 - f;
+    switch (slice % 6) {
+      case 0:
+        return [1, f, 0];
+      case 1:
+        return [q, 1, 0];
+      case 2:
+        return [0, 1, f];
+      case 3:
+        return [0, q, 1];
+      case 4:
+        return [f, 0, 1];
+      default:
+        return [1, 0, q];
+    }
+  }
+
+  // phase in radians, strength as a fraction of the floor: at or below one it is noise.
+  function torsionRamp(phase, strength, boost) {
+    var base = hueToRgb(phase / (2 * Math.PI));
+    if (strength <= 1.0) {
+      // Under the floor. Not dimmed - extinguished. It cannot be mistaken for weak signal.
+      var floorGrey = 0.045 + 0.035 * Math.min(1, strength);
+      return [floorGrey, floorGrey * 1.05, floorGrey * 1.25];
+    }
+    // Above the floor the color saturates fast. Clearing the bar is visible immediately and
+    // does not need another factor of two to become obvious.
+    var lift = Math.min(1, Math.pow((strength - 1.0) * boost, 0.55));
+    var glow = 0.25 + 0.75 * lift;
+    return [base[0] * glow, base[1] * glow, base[2] * glow];
+  }
+
   function readEdge(value, level, sharpness) {
     // sharpness 0 leaves the field as it is, and 1 cuts it to a circle with no gradient at all.
     var span = grid.high - grid.low || 1;
@@ -383,7 +446,24 @@
       var r = Math.sqrt(px * px + py * py + pz * pz) || 1;
       var v = Math.acos(Math.max(-1, Math.min(1, py / r))) / Math.PI;
       var u = (Math.atan2(pz, px) + Math.PI) / TWO_PI;
-      var shade = ramp(readEdge(sampleGrid(u, v), level, sharpness));
+      var raw = sampleGrid(u, v);
+      var shade;
+      if (state.beacon) {
+        // Torsion as hue, magnitude as a gate against the floor. The phase is taken from the field's
+        // own local turning and not from a separate table: the direction the surface is climbing
+        // at this point. Torsion is a reading of it.
+        var east = sampleGrid((u + 0.004) % 1, v) - sampleGrid((u - 0.004 + 1) % 1, v);
+        var north = sampleGrid(u, Math.min(0.999, v + 0.004)) - sampleGrid(u, Math.max(0.001, v - 0.004));
+        var phase = Math.atan2(north, east) + Math.PI;
+        var span = grid.high - grid.low || 1;
+        var over = (raw - grid.low) / span;
+        // Strength as a multiple of the floor. The floor is where the surface stops being
+        // distinguishable from its own noise, the same bar the detector draws.
+        var strength = over / Math.max(0.0001, state.floor);
+        shade = torsionRamp(phase, strength, state.boost);
+      } else {
+        shade = ramp(readEdge(raw, level, sharpness));
+      }
       colors.setXYZ(i, shade[0], shade[1], shade[2]);
     }
     colors.needsUpdate = true;
@@ -738,7 +818,15 @@
   // State and wiring.
   // ---------------------------------------------------------------------------------------------
 
-  var state = { level: 0.12, sharp: 0.26, rings: "over", fade: 0.94 };
+  var state = {
+    level: 0.12,
+    sharp: 0.26,
+    rings: "over",
+    fade: 0.94,
+    beacon: true,
+    floor: 0.34,
+    boost: 2.6,
+  };
 
   function refresh(full) {
     if (full) {
@@ -788,6 +876,46 @@
       return v < 0.05 ? "off" : v > 0.8 ? "hard" : v > 0.4 ? "cut" : "soft";
     },
   );
+
+  bind(
+    "floor",
+    "floorOut",
+    function (raw) {
+      // Where the surface stops being distinguishable from its own noise. Everything under it is
+      // painted out entirely and not dimmed. Quiet ground cannot be mistaken for weak signal.
+      state.floor = raw / 100;
+      refresh(true);
+      return state.floor;
+    },
+    function (v) {
+      return v.toFixed(2);
+    },
+  );
+
+  bind(
+    "boost",
+    "boostOut",
+    function (raw) {
+      // How hard color comes up once the floor is cleared. High values make clearing the bar visible
+      // at once instead of needing another factor of two to become obvious.
+      state.boost = raw / 10;
+      refresh(true);
+      return state.boost;
+    },
+    function (v) {
+      return v.toFixed(1);
+    },
+  );
+
+  (function () {
+    var pick = document.getElementById("beacon");
+    if (pick) {
+      pick.addEventListener("change", function () {
+        state.beacon = pick.value === "1";
+        refresh(true);
+      });
+    }
+  })();
 
   bind(
     "tau",

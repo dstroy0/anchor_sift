@@ -42,6 +42,24 @@ def bodies(text):
     return [one for one in BLOCK.findall(text) if one.strip()]
 
 
+PLACEHOLDER = re.compile(r"/\*[A-Z][A-Z0-9_]*\*/(?!\s*null\b)")
+
+
+def filled(source):
+    """The template with its data placeholders replaced by a literal. It can be parsed.
+
+    A builder writes `const DATA = /*DATA*/;` and substitutes JSON at build time. Until then the
+    template is not valid JavaScript, and node refuses it with "Unexpected token ';'". A template
+    reported as failing for that reason hides any real syntax error elsewhere in it.
+
+    Substituting `null` gives the parser the shape the built page has. A marker that already carries
+    its own `null`, as `/*ROOM_DATA*/ null` does, parses as it stands and is left alone. A
+    placeholder inside a string or a comment is substituted too. That can only turn a passing
+    template into a failing one, which shows up loudly, and never hides a failure.
+    """
+    return PLACEHOLDER.sub("null", source)
+
+
 def parses(source):
     """(ok, message) from node --check on this source, written to a temporary file it then removes.
 
@@ -146,6 +164,63 @@ def loop_guard(source):
     return [name for name, token in LOOP_PARTS if token not in source]
 
 
+BUILT = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "view")
+
+
+def check_built(path):
+    """Parse a BUILT page, where the placeholder has been replaced by real data.
+
+    THE GAP THIS CLOSES. The template pass fills every placeholder with `null`, which proves the
+    surrounding JavaScript is well formed and says nothing about what the builder substitutes. A
+    builder that emits malformed JSON, or JSON containing a stray backslash or an unescaped newline,
+    produces a page broken in a way the template pass cannot see. So the built pages
+    are parsed too, with their real data in place.
+
+    A LIVE FILE IS HANDLED AND NOT IGNORED. build_pool_view.py runs with --watch and rewrites
+    its page every thirty seconds, a read can land mid-write and a truncated page is a syntax
+    error that is not a defect. The file is therefore sized, read, and sized again: if it changed
+    under us the result is reported as a torn read instead of a failure, and a real error survives
+    a reread while a torn one does not.
+    """
+    lines = ["  %s" % os.path.basename(path)]
+    try:
+        before = os.path.getsize(path)
+        body = io.open(path, encoding="utf-8", errors="replace").read()
+        after = os.path.getsize(path)
+    except OSError as why:
+        lines.append("    could not be read: %s" % why)
+        sys.stdout.write("\n".join(lines) + "\n")
+        return 0
+
+    found = bodies(body)
+    if not found:
+        lines.append("    no inline script, nothing to parse")
+        sys.stdout.write("\n".join(lines) + "\n")
+        return 0
+
+    failed = 0
+    for at, source in enumerate(found):
+        ok, why = parses(source)
+        if ok is True:
+            lines.append("    block %d parses with its real data, %d lines"
+                         % (at + 1, source.count("\n") + 1))
+        elif ok is None:
+            lines.append("    block %d NOT PARSED: %s" % (at + 1, why))
+            failed += 1
+        elif before != after:
+            lines.append("    block %d changed while being read, %d bytes to %d, so this is a torn"
+                         % (at + 1, before, after))
+            lines.append("    read and not a finding. It is a live page under --watch.")
+        else:
+            lines.append("    block %d FAILS to parse with its real data" % (at + 1))
+            for row in why.split("\n")[:6]:
+                lines.append("      %s" % row)
+            lines.append("      the template parses, so this is what the builder SUBSTITUTED")
+            failed += 1
+    sys.stdout.write("\n".join(lines) + "\n")
+    return failed
+
+
 def check(path):
     with io.open(path, encoding="utf-8", newline="") as handle:
         text = handle.read()
@@ -160,7 +235,7 @@ def check(path):
     failed = 0
     for at, source in enumerate(found):
         held = source.count("\n") + 1
-        ok, why = parses(source)
+        ok, why = parses(filled(source))
         if ok is True:
             lines.append("  block %d parses, %d lines" % (at + 1, held))
         elif ok is None:
@@ -234,12 +309,40 @@ def _check():
     else:
         lines.append("    an indented shadow is a scope and a similar name is not a collision")
 
+    # THE PLACEHOLDER SUBSTITUTION NEEDS ITS OWN PAIR OF CONTROLS, because it could hide a genuine
+    # error. A template that is unparseable only because of the placeholder must pass, and one that
+    # carries a placeholder AND a real syntax error must still fail.
+    benign = "const DATA = /*DATA*/;\nfunction go() { return DATA; }\n"
+    ok, why = parses(filled(benign))
+    lines.append("  a placeholder-only template parses once filled: %s" % (ok is True))
+    if ok is not True:
+        lines.append("    FAIL filling the placeholder did not make a valid template parse: %s"
+                     % why)
+        failed += 1
+
+    broken = "const DATA = /*DATA*/;\nfunction go() { return DATA; ;;) }\n"
+    ok, why = parses(filled(broken))
+    lines.append("  a real syntax error survives the filling and still fails: %s" % (ok is False))
+    if ok is not False:
+        lines.append("    FAIL the substitution masked a genuine syntax error, so it traded one")
+        lines.append("         blind spot for another")
+        failed += 1
+
     lines.append("")
     sys.stdout.write("\n".join(lines) + "\n")
 
     for name in sorted(os.listdir(HERE)):
         if name.endswith("_template.html"):
             failed += check(os.path.join(HERE, name))
+
+    # AND THE BUILT PAGES, WITH THEIR REAL DATA IN PLACE. The pass above proves the template's
+    # JavaScript is well formed around a `null`; only this one sees what the builder actually
+    # substituted. A page present on disk is graded; a page never built is not invented.
+    if os.path.isdir(BUILT):
+        sys.stdout.write("\n  the built pages, with real data substituted\n")
+        for name in sorted(os.listdir(BUILT)):
+            if name.endswith(".html"):
+                failed += check_built(os.path.join(BUILT, name))
     return failed
 
 

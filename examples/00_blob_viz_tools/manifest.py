@@ -59,6 +59,8 @@ RECORD = os.path.join(HERE, "viewers.json")
 # beside it, because a declaration next to the code is a second place for the truth to live.
 TEMPLATE = re.compile(r'"([a-z_]+_template\.html)"')
 OUTPUT = re.compile(r'out_path\.resolve\(\s*"([^"]+)"')
+# A builder that holds its whole page as a string in its own source, and opens no template file.
+INLINE = re.compile(r'^TEMPLATE = """', re.M)
 
 
 def digest(path):
@@ -111,6 +113,7 @@ def survey():
             "builder": name,
             "builder_digest": digest(path),
             "template": template,
+            "inline": template is None and INLINE.search(source) is not None,
             "template_digest": None,
             "writes": made.group(1) if made else None,
             "requires": [],
@@ -198,7 +201,9 @@ def check():
 
     # A builder pointing at a template that is not there. Nothing else about that row can be trusted.
     for row in live["viewers"]:
-        if not row["template"]:
+        if not row["template"] and row["inline"]:
+            lines.append("  %s holds its page in its own source" % row["builder"])
+        elif not row["template"]:
             lines.append("  %s NAMES NO TEMPLATE" % row["builder"])
             failed += 1
         elif row["template_digest"] is None:
@@ -277,7 +282,7 @@ def _check():
             lines.append("    FAIL clock is guarded everywhere and must not be required")
             failed += 1
     else:
-        lines.append("  the room template is not here, so the split was not graded")
+        lines.append("  the room template is not here. The split was not graded")
         failed += 1
 
     lines.append("")

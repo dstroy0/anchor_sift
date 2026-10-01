@@ -1,11 +1,58 @@
 {
   "viewers": [
     {
+      "builder": "build_beam_view.py",
+      "builder_digest": "29740c509758da34e6bb4324b129962ba2f8996d0c96d913f22449a271b9e0a6",
+      "inline": true,
+      "optional": [],
+      "requires": [],
+      "template": null,
+      "template_digest": null,
+      "writes": "beam_read.html"
+    },
+    {
+      "builder": "build_bend_view.py",
+      "builder_digest": "ac20cc2908242064f258e8e4cf14c9f113a97ae064ebcdb696d0ecc12373da81",
+      "inline": false,
+      "optional": [
+        "fields_second",
+        "settings"
+      ],
+      "requires": [
+        "band",
+        "carry",
+        "cross",
+        "degrees",
+        "energy",
+        "fields",
+        "reference",
+        "repeat",
+        "rounds",
+        "same",
+        "samples"
+      ],
+      "template": "bend_view_template.html",
+      "template_digest": "588da0a3d266d5defb0ba7f718113016ca87560c31b824c30552111cd3561dec",
+      "writes": "bend_view.html"
+    },
+    {
+      "builder": "build_blind_view.py",
+      "builder_digest": "0f218dc74448232a8d4e91cf5db501f95af47ba2fb92e74501629c109fefe6eb",
+      "inline": false,
+      "optional": [],
+      "requires": [],
+      "template": "blind_view_template.html",
+      "template_digest": null,
+      "writes": null
+    },
+    {
       "builder": "build_blob_view.py",
-      "builder_digest": "5092d43bb06edc594760aa4aa38150cadb62212bc4fa7990b27b2f6ee06a8181",
+      "builder_digest": "8889ab84ba0d68415e4a25b53d9015e578b2f01c5cfa6d86c2212d1dfe4c18f4",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -17,12 +64,30 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "writes": null
+    },
+    {
+      "builder": "build_block_view.py",
+      "builder_digest": "b1defac7e870322ad1a562e6c89590a25c2e5a33dd948b6f1401208165c6eb1a",
+      "inline": false,
+      "optional": [],
+      "requires": [
+        "bytes",
+        "constants",
+        "fields",
+        "height",
+        "values",
+        "windowShares"
+      ],
+      "template": "block_view_template.html",
+      "template_digest": "1f5c8d3f5dc37976c5fe272573092fdd87417d3f971bdf2cf68ffcead660604d",
       "writes": null
     },
     {
       "builder": "build_chart_view.py",
-      "builder_digest": "1436354435d4ecd14dec66d4b843871bb6e9c3dd59d8c8e90b8262a9a7e625dd",
+      "builder_digest": "349c42018d8d8c5771f6bf3181074163046585940dd52976cfc332098501a0ef",
+      "inline": false,
       "optional": [
         "blurb",
         "kind",
@@ -33,15 +98,36 @@
         "xLabel"
       ],
       "template": "chart_view_template.html",
-      "template_digest": "b66dc71ec045ce19f0f6c13b465075b2c39d9fe9c1ee78712bc1635c4864dbee",
+      "template_digest": "eafbdea57b2eae4e203352aeea22d1475adab8ff3e19045f8dd992402a33b72d",
+      "writes": null
+    },
+    {
+      "builder": "build_earth_view.py",
+      "builder_digest": "b3bdb19afba8ff600754b0ae6b3a2460240b4aca8fe0ede1eabc091e6808c4ce",
+      "inline": false,
+      "optional": [],
+      "requires": [
+        "chi",
+        "days",
+        "hours",
+        "intervals",
+        "null95",
+        "p",
+        "regions",
+        "total"
+      ],
+      "template": "earth_view_template.html",
+      "template_digest": "c1c92ead587c4193f508d203e30fe78a1ac73a8cf8253cf838c7f123dc4a0886",
       "writes": null
     },
     {
       "builder": "build_field_view.py",
-      "builder_digest": "0fe536467a46b44e2e023bd343dcd8a0414e704d17ee1c4183f37e680b39e6b1",
+      "builder_digest": "0db8635e6939e3269ec2e7fd379653890e87d1dc4d93c865243fe9a64d3ad326",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -53,12 +139,23 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
       "writes": null
     },
     {
+      "builder": "build_illuminate_view.py",
+      "builder_digest": "e77faf600acc024a46fd69eb2a7d4b3bb09db2eb3611bb5348c3bef2064ce990",
+      "inline": true,
+      "optional": [],
+      "requires": [],
+      "template": null,
+      "template_digest": null,
+      "writes": "illuminate_view.html"
+    },
+    {
       "builder": "build_orrery_view.py",
-      "builder_digest": "bee8a977134b24e019d425c0cf6bb5460eed6eac1470e4adc4e528916add1ca2",
+      "builder_digest": "75a2d5864d2d880a0466ca14ac8ac2aa2e832e6f93ac2b1c8c757ad2aa35407f",
+      "inline": false,
       "optional": [
         "settings"
       ],
@@ -72,15 +169,17 @@
         "span"
       ],
       "template": "orrery_view_template.html",
-      "template_digest": "b4d30452020fa747620a92f8363aa7e8a6fa49700560cd2c896bb0dec84f2701",
-      "writes": "orrery_view.html"
+      "template_digest": "03620395ce981dfeedab006a401e67c1be0bc51eee42337cd2a3fc8b8702e58f",
+      "writes": null
     },
     {
       "builder": "build_plot_view.py",
-      "builder_digest": "c906f79ca4d0f1df86396194873acb163a6581edf6803616af1db90897902945",
+      "builder_digest": "78c5149b95df3263470dd2e91837c86c4f20e86b7113541505602b211dbea7a1",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -92,12 +191,23 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
-      "writes": "plot_view.html"
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "writes": null
+    },
+    {
+      "builder": "build_pool_view.py",
+      "builder_digest": "4ba5ae3e6202d32feb759c474da4386462cbc5f6509eea28655661c8311a19ac",
+      "inline": true,
+      "optional": [],
+      "requires": [],
+      "template": null,
+      "template_digest": null,
+      "writes": "pool_view.html"
     },
     {
       "builder": "build_room_view.py",
       "builder_digest": "c2eb410f01494f76d3dc44751243a643b2939cf533255f4e6d4cfb5969416a65",
+      "inline": false,
       "optional": [
         "clock",
         "core",
@@ -115,8 +225,29 @@
       "writes": "room_view.html"
     },
     {
+      "builder": "build_scope_view.py",
+      "builder_digest": "3675ce3a429667d54a78507da9cf946c36ac928b30b46aecf1825b39697ebc1a",
+      "inline": false,
+      "optional": [],
+      "requires": [
+        "height",
+        "id",
+        "nonce",
+        "rounds",
+        "sigma0",
+        "sigma1",
+        "spectrum",
+        "spikes",
+        "waveform"
+      ],
+      "template": "scope_view_template.html",
+      "template_digest": "be4246cda49ee4371d474452fa26064d37131167a6fb8cfa3a3a0f2a88a96c70",
+      "writes": null
+    },
+    {
       "builder": "build_sha_clock_view.py",
       "builder_digest": "9c6515d31aff0610710fc548b2d873f41c441d880835d7c229eb29095235147a",
+      "inline": false,
       "optional": [
         "clock",
         "core",
@@ -135,7 +266,8 @@
     },
     {
       "builder": "build_sha_pairs_view.py",
-      "builder_digest": "92b2ae3472a01bfd159bfbe13fea779d23ca290ad232c8b5e4ba45fe702cabe0",
+      "builder_digest": "d4e4197ada70059d082116a7506d62c08a3ecfcd4567171ba267d7c14dd25426",
+      "inline": false,
       "optional": [],
       "requires": [
         "digest",
@@ -143,12 +275,13 @@
         "pairs"
       ],
       "template": "pairs_view_template.html",
-      "template_digest": "0387ee7364d7d59977b43ed706d20b943ddfc3f824ddad0a249a9a23b70fb570",
+      "template_digest": "4ccfd40a35c83a28dbeb0443fdc328d553afa55bcacfcba90f3e5c1fed5c0525",
       "writes": "sha_pairs_view.html"
     },
     {
       "builder": "build_sha_room_view.py",
       "builder_digest": "1e6b5b0e7de5bc466c2ba48a1fb3186fed9d8e5feff367f68d9acdd51029833c",
+      "inline": false,
       "optional": [
         "clock",
         "core",
@@ -167,8 +300,10 @@
     },
     {
       "builder": "build_sha_sphere_view.py",
-      "builder_digest": "740c70f9e6a93183a3262e49a35dc8b71910652dd6639bfef23bb5313a3807fc",
+      "builder_digest": "d96f46378380d728b9b354798b8f03ada7da20929c7544350672824ae7585a88",
+      "inline": false,
       "optional": [
+        "schema",
         "settings"
       ],
       "requires": [
@@ -184,27 +319,30 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "7693bd2dff78d62c420006f62fa0d0e623862b06abc51b54d16936270fa44f92",
-      "writes": "sha_sphere.html"
+      "template_digest": "bd87ab9eac93d38c25d3d990f7a30f0f557419e3fb9e92bd70c2006c38383d16",
+      "writes": null
     },
     {
       "builder": "build_shadow_view.py",
-      "builder_digest": "78c33dd61cc261354342e243c40a768eadcf9aca2e53da8596ecd92a29061449",
+      "builder_digest": "41fabd390353fe8dc3743c239fee85fe5aabb38bd4aadbf235728049510afc22",
+      "inline": false,
       "optional": [],
       "requires": [
         "rounds",
         "word"
       ],
       "template": "shadow_view_template.html",
-      "template_digest": "b2300f2cf91677504bbd553165312031717ed1be10b4d523b814998cc0e09a51",
-      "writes": "shadow_view.html"
+      "template_digest": "27937a3a6b76b82e1e4af97a54e7d47af97600ed4f0b4e4b625347913f4467a5",
+      "writes": null
     },
     {
       "builder": "build_sound_view.py",
-      "builder_digest": "67584c4cb3f8f8da898c72d6fb2ab0b66d6a89e57af84111a6e64a5e7528f655",
+      "builder_digest": "102d3345ada6cfb20242cb7aa34597f3433e5b86335a9613605345bc9321b206",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -216,12 +354,13 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
-      "writes": "sound_view.html"
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "writes": null
     },
     {
       "builder": "build_sources_view.py",
-      "builder_digest": "458bcd2bd1e4a90da3fa9984865d74a90cbf39df8649d65464b3fe8a0548bfd1",
+      "builder_digest": "887c6a560435a71a3d6201a6ece387b54f8e7c89416e1ea2d57b73e67f549f41",
+      "inline": false,
       "optional": [
         "order"
       ],
@@ -230,13 +369,15 @@
         "sources"
       ],
       "template": "sources_view_template.html",
-      "template_digest": "317aeedb05fa475d779fe41d0ac74ac13cf597ea495e2470f2f3814f8bf2c253",
-      "writes": "sources_view.html"
+      "template_digest": "07f1949c03d59497e5c58acf6bc172a9eecf7f9c97b1b01bdb557f42e2cd2e94",
+      "writes": null
     },
     {
       "builder": "build_sphere_view.py",
-      "builder_digest": "a114344050bfc002ccb026c8fbce5a43579221fdfaa06134ea1e277f05e63fe4",
+      "builder_digest": "dc3a7db5cb07670239c07d9a91d97d492aca55ad1a558488749f59e2cb5b78dc",
+      "inline": false,
       "optional": [
+        "schema",
         "settings"
       ],
       "requires": [
@@ -252,12 +393,30 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "7693bd2dff78d62c420006f62fa0d0e623862b06abc51b54d16936270fa44f92",
+      "template_digest": "bd87ab9eac93d38c25d3d990f7a30f0f557419e3fb9e92bd70c2006c38383d16",
+      "writes": null
+    },
+    {
+      "builder": "build_spiral_view.py",
+      "builder_digest": "f236f1875d9f662d3e7b67def70829e89913c62fb26a2e4c8900e946f6887922",
+      "inline": false,
+      "optional": [
+        "arms"
+      ],
+      "requires": [
+        "agreement",
+        "points",
+        "total",
+        "unanimousByChance"
+      ],
+      "template": "spiral_view_template.html",
+      "template_digest": "871b8fc5a66bbc27747e8891f5b27ab7a2a014728b1cdf71a2e0601ac14eb668",
       "writes": null
     },
     {
       "builder": "build_step_view.py",
-      "builder_digest": "2eb2c23eb24cdc072265a59add9b1e651bb0e5136cb4077bcb8e8d6d6e473d5b",
+      "builder_digest": "71be9655d38a0a1ae45f7aa70758d5801ec062eec0ca9d29653ab0a8bd097f4e",
+      "inline": false,
       "optional": [
         "keys"
       ],
@@ -265,15 +424,37 @@
         "rounds"
       ],
       "template": "step_view_template.html",
-      "template_digest": "28e70b33a5dfeb2a4732a8f03fcbdf8e63cf3c6283cdb29bcd182dca8c1ab047",
-      "writes": "step_view.html"
+      "template_digest": "ffffd2194643d246d2554a294e27ef74f0af07a8bf6a6fff56818d27931e4f16",
+      "writes": null
+    },
+    {
+      "builder": "build_survey_view.py",
+      "builder_digest": "cc6da9db59759e725346dde5842941fc7626d2e3cb555a1f7850d0ab481d9997",
+      "inline": false,
+      "optional": [
+        "histogram"
+      ],
+      "requires": [
+        "positions",
+        "samples",
+        "sensitivity",
+        "sumZMillionths",
+        "words",
+        "worstAt",
+        "worstReach"
+      ],
+      "template": "survey_view_template.html",
+      "template_digest": "7515a7d1727be7ac071b2a7e84b09e7e0bf907105a79b60169dcc51a1657271e",
+      "writes": null
     },
     {
       "builder": "build_sweep_view.py",
-      "builder_digest": "f36e5ddaefe9e601253a1458185825f9c303745873195bcff1759f0948990b42",
+      "builder_digest": "c2879971a89589a90d413bee5e458ee22b504799d7c6e7613f5b508c5e189b4f",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -285,15 +466,17 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
-      "writes": "sweep_view.html"
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "writes": null
     },
     {
       "builder": "build_voxel_view.py",
-      "builder_digest": "b018844e643fa34fe6bb951d655ab03c7543da43b27e8b704708a9ada6369156",
+      "builder_digest": "603f0477a3d6121a6ae5a0cbfe4c9b0dd89fe02b8d2d554ed65ac18f76344be0",
+      "inline": false,
       "optional": [
         "depthLabel",
         "noteTitle",
+        "schema",
         "settings",
         "title",
         "valueLabel"
@@ -305,8 +488,8 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "f3fd848c05a8727f4f0b1d6215861eb43055da3db345a8991452d44f2ef6b058",
-      "writes": "voxel_view.html"
+      "template_digest": "33ba2bcea1c238cd4fef75f00e2490c0a305cc5c6dba39eff09b740b71dae840",
+      "writes": null
     }
   ]
 }

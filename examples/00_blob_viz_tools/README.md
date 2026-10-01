@@ -136,3 +136,257 @@ A packing count means something only while the gap stays well under the typical 
 points on the surface. Past that the count stops being what the geometry allows and becomes how many
 unusually distant pairs the draw happened to hold. The tool enforces that limit and errors instead of reporting
 a row outside it, which is worth more than the row.
+
+## The mathematics
+
+The pages are drawings of what these modules compute. A page shows what a reading
+carries; the module decides what a reading can carry at all, and `reading_rank.py` puts a ceiling on
+that which no amount of drawing moves.
+
+### sphere_field.py -- the boundary field
+
+A source of strength `q` at radius `r` and direction `n` contributes to the boundary coefficients
+
+```
+a_lm += q K_l(r) Y*_lm(n),      K_l(r) = (r/R)^l exp(-l(l+1) tau)
+```
+
+so the map from sources to coefficients is **linear** and a field of many sources is a sum that
+never needs solving. Both factors of the kernel are diagonal in the degree: depth reweights degree
+by degree, conduction does the same, and neither moves power between degrees. That diagonality is
+Laplace's, and it reduces all of the physics between a source and the boundary to one number per
+degree. `theory/workbooks/anchor_sift/reading-transforms.md` tabulates every transform with this property and the one that
+lacks it.
+
+Power per degree is `P_l = sum over m of a_lm^2`, invariant under all of `SO(3)` because the
+degree-`l` subspace carries a unitary irreducible representation of the rotation group.
+
+**Synthesis is separable and the saving is large.** The sum splits into a Legendre part depending
+only on the colatitude and a trigonometric part depending only on the longitude. A grid therefore costs
+`rows x 121 + points x 21` instead of `points x 121`: under a million multiplications where the
+direct form takes twenty million.
+
+`legendre_column` climbs the diagonal and then recurs in degree, which holds every intermediate at
+unit scale. Built from factorials instead it overflows above degree 150 and loses digits long before
+that, and it loses them quietly, with the low degrees staying right while the fine structure goes
+wrong.
+
+Also here: Gauss-Legendre quadrature, the zonal profile and cap radius of a single source, whether
+two sources overlap at a level, and `live_modes` against a floor that a caller supplies.
+
+### boundary_read.py -- lit points on a boundary
+
+The golden placement puts index `k` of `N` at height `1 - 2(k + 1/2)/N` and longitude `k gamma`, with
+`gamma = pi (3 - sqrt 5)`.
+
+**An index shift is one rigid screw.** Shifting every index by `n` advances longitude by `n gamma`
+and height by `-2n/N`, a rotation about the polar axis composed with a slide along it, of pitch
+
+```
+slide / turn = (-2n/N) / (n gamma) = -2 / (N gamma)
+```
+
+**independent of `n`**. One axis and one pitch therefore describe every shift amount, and the
+amounts differ only in how far along the one helix they travel. Measured at `N = 256` over six
+amounts: worst turn error `9.948e-14` radians, worst slide error exactly zero, pitch spread
+`4.337e-19`.
+
+**Deflection and torsion are an exact split.** Turning the lit set by `alpha` about the polar axis
+sends `a_lm` to `a_lm exp(-i m alpha)`. The magnitude `P_l` does not move. Deflection is
+intrinsic and cannot see how the object is turned. The phase `arg a_lm` moves by exactly
+`-m alpha`, sign included. Torsion recovers the angle and its sign is the handedness. Measured:
+deflection moved `2.539e-14`, torsion recovered the angle to `1.803e-13` radians.
+
+**A face is not measure zero on this placement.** A face is measure zero for a placement drawn at
+random, and the golden spiral is not drawn at random: index 0 has longitude `0 * gamma`, exactly zero. Its third coordinate is exactly zero
+and it sits on the `z` face at every size checked from 64 through 4096. The shares sum to one because
+the convention assigns every point to exactly one octant.
+
+### reading_rank.py -- what a reading cannot carry
+
+**A reading to degree `L` carries exactly `(L+1)^2` real numbers about its source, whatever the
+source is.** The lit set here has 256 degrees of freedom. Where `(L+1)^2 < 256` the reading is a
+linear map of rank at most `(L+1)^2` from a 256-dimensional space and its null space has dimension
+at least the shortfall. Every direction in that null space is a change to the object that moves no
+coefficient at all.
+
+| degree | coefficients | rank | blind   | least kept |
+| ------ | ------------ | ---- | ------- | ---------- |
+| 8      | 81           | 81   | **175** | 4.365      |
+| 12     | 169          | 169  | 87      | 3.818      |
+| 15     | 256          | 256  | **0**   | 3.474e-3   |
+| 16     | 289          | 256  | 0       | 1.524e-1   |
+
+**Completeness of count and health of conditioning are separate properties.** Degree 15 is where
+`(L+1)^2` first reaches 256, and its least kept singular value collapses three decades below the
+values beside it; one degree of headroom buys a factor of 44 in conditioning.
+
+`depth_rank` therefore reports **absent** and **present but badly conditioned** as different
+outcomes, since one is a wall and the other is a bill. `gram_residual` establishes that precision is
+not the limit: the basis is orthonormal to `2.2e-14` at degree 15 under exact quadrature. The
+reading degree is a choice.
+
+### boundary_count.py -- the area law, by two routes
+
+The claim: a boundary holds a number of separable readings set by its own measure divided by the
+finest detail reaching it, raised to the dimension of the boundary, and **shape does not enter**.
+
+The test is real because the two routes share no step. One counts by packing, dropping points on the
+surface and keeping those further than one resolution from everything already kept, a direct measure
+of how many distinguishable places the surface has. The other takes the measure in closed form from
+the shape's own geometry. Neither reads the other. A packing count that tracked the volume, or a
+shape whose corners held more readings than its faces, would show up as a constant that moves.
+Checked on a sphere, a cube and an octahedron, and in dimensions two through six.
+
+### torus_count.py -- the same law, exactly, on a shape that shares nothing with a sphere
+
+Glue the opposite edges of a square. The Laplacian's eigenvalues on the result are `(2 pi / L)^2`
+times the squared length of an integer vector. Counting modes below a cutoff is counting integer
+points inside a ball. The number of integer vectors of squared length exactly `m` in `d` dimensions
+is the coefficient of `q^m` in the `d`-th power of the series carrying a term for every square.
+The count is whole numbers throughout with no transcendental in it, at any dimension.
+
+A flat torus is not a sphere in any respect that could smuggle the answer in: flat where the sphere
+is curved, holed where the sphere is not, and its symmetry group is a lattice where the sphere's is a
+rotation group. The same constant off both is shape and topology failing to matter, arrived at
+exactly instead of sampled.
+
+### cut_project.py -- reading a dimension off a line
+
+A periodic structure in `n` dimensions, sliced at an irrational angle and projected into fewer, comes
+out quasiperiodic: never one period, but several with irrational ratios between them. Penrose tilings
+are a five-dimensional lattice seen in two, icosahedral quasicrystals six seen in three, and the
+correspondence runs both ways, any quasiperiodic pattern lifts to a periodic lattice in high
+enough dimension. That gives a measurement:
+
+```
+the count of rationally independent periods in a one dimensional reading
+  equals the dimension of the lattice it was cut from
+```
+
+Two independent periods means a two-dimensional lattice at minimum. One means the thing was already
+periodic and nothing was hidden. A boundary reading can therefore report the dimension of a structure it
+never had access to, by counting how many of its periods refuse to be multiples of one another. A
+square lattice cut at the golden slope gives the Fibonacci chain, checked against exact values.
+
+### octant_lex.py -- the eight-letter alphabet
+
+Split space by the sign of each coordinate. The eight regions tile with no gap and no overlap, and on
+the boundary they cut eight spherical triangles with **three** right angles each. By Girard's
+theorem the area of a spherical triangle is its angle excess,
+
+```
+A = 3 pi / 2 - pi = pi / 2,      8 x pi/2 = 4 pi
+```
+
+the area of the sphere. The tiling is exact and the pieces congruent. No letter is larger than
+another by construction; the measured shares total `1.000000000000000`.
+
+The alphabet is the fraction of the lit set in each octant, one word of eight numbers per state. It
+is **rank 8, blind in 248 of 256 directions**, and at fixed weight the shares carry one constraint
+and leave seven free numbers. Seven real numbers will separate sixty-four arbitrary states whether or
+not the seven mean anything. Distinctness at that sample size is not evidence.
+
+### quotient_coherence.py -- how much of a change the alphabet could see
+
+A difference `d` between two states is visible only in the row space of the reading map. With `P` the
+projection onto that row space, the visible fraction is
+
+```
+||P d||^2 / ||d||^2
+```
+
+and coherence has to be defined on the quotient by the null space, or it counts invisible differences
+as differences.
+
+**The baseline depends on the constraint and the two answers differ.** For unconstrained differences
+it is `8/256`. For weight-preserving differences it is `7/255`, because the eight octant indicators
+sum to the all-ones vector, all-ones lies in the row space and one dimension of the difference
+space is spent. Verified over 20,000 draws: `0.03132` unconstrained against a predicted `8/256 =
+0.03125`, and `0.02751` weight-preserving against a predicted `7/255 = 0.02745`.
+
+### arm_draw.py -- does a reading depend on how the arm was drawn
+
+One arm drawn several ways, read against the same lit set. A reading that changes when only the
+drawing changes is reporting the drawing.
+
+**Compared at three levels, and the aggregate alone is one level too few.** A letter is a sum, and a
+sum hides a pair of moves that cancel inside it: two points swapping arms leaves both letters exactly
+where they were while the arms are no longer the arms. So the per-point weight, the count of points
+reassigned, and the letter are all reported.
+
+| redraw                         | weight    | points reassigned | letter    |
+| ------------------------------ | --------- | ----------------- | --------- |
+| point cloud, record round trip | 0         | 0 of 256          | 0         |
+| dwell on a line                | 0         | 0 of 256          | 0         |
+| rotated frame, frame carried   | 2.220e-16 | 0 of 256          | 2.168e-18 |
+| algebraic recombination        | no arm    | no arm            | 2.776e-17 |
+
+**A clearance pre-check decides the rotated case before it is run.** Min over placement points of the
+distance to the nearest arm face is `0.000e+00` at index 0, structurally, at every size from 64 to 4096. A crossing is therefore available and a clean result is not established by clearance; under the
+carried rotation index 0 held its arm by a dot product of `+3.123e-17`, three parts in `1e17` from
+going the other way. The claim the module makes is therefore the narrow one: independent of its
+drawing for 255 points by measurement and for one by convention, printed as that split.
+
+**The frame fault is smaller in the letters than it has any right to be.** Stating the arms in a
+rotated frame while reading the object in the original one sends **199 of 256** points to a different
+arm, and the eight letters move **3.92 percent**. Four fifths of the points relocate and the reading
+barely registers it, because the move lives mostly in the 248 directions the alphabet is blind in.
+That is the rank bound arriving as a hazard somebody could ship, and it is why the point count is
+reported beside the letter.
+
+### dsp.py and exact.py -- two transforms, and why there are two
+
+`dsp.py` is the fast path: FFT, windows and signal sources, standard library only, shared by
+`build_sound_view.py` and `build_sweep_view.py`.
+
+`exact.py` is for when float64 is the thing being measured. A double carries 53 bits of mantissa,
+putting the arithmetic's own noise floor around 300 dB down, far below anything in a recording and
+far above nothing. When the question is what the analysis invents instead of what the signal
+contains, the transform has to be quieter than the effect being looked for. Everything in it is
+`decimal.Decimal` at a precision the caller chooses, and pi, sine and cosine are computed there
+instead of looked up, because `math` has no more precision to give than the double it returns.
+
+Cost grows steeply: a 256-point transform at 1024 bits is seconds and a 4096-point transform at the
+same precision is minutes. That is the price of the floor, and it is why the fast path stays the
+default.
+
+`examples/proofing/precision_floor.py` is this module's argument applied to the boundary reading, and it
+reaches the same conclusion by measurement: the residual of a rotation null falls 0.9861 decades per
+digit of precision against a prediction of exactly 1.0000. A reported floor of `4.005e-16`
+belongs to float64 and not to the reading.
+
+## The gates
+
+| tool                    | what it refuses                                                                                                                                                |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `null_harness.py`       | A threshold picked by judgment. Runs a move that changes nothing and reads the residual, after proving itself against a deliberately broken null. Six floors. |
+| `grid_error.py`         | The drawn picture standing in for the field. Measures the mesh against exact evaluation.                                                                       |
+| `script_check.py`       | A page whose script does not parse, and a page with a frame loop and no watch on it.                                                                           |
+| `data_check.py`         | A page whose script reads a key its own data does not carry, with no guard on the read.                                                                        |
+| `inert_report.py`       | Refuses nothing. Prints which of a page's optional features came out inert, telling a reader before they open it.                                              |
+| `frame_audit.py`        | An allocation on the per-frame path, and a disposal of something built once.                                                                                   |
+| `gpu_pack.py`           | The device packer's answers, graded across shapes and dimensions.                                                                                              |
+| `out_path.py`           | A tool writing its page beside itself.                                                                                                                         |
+| `settings.py`           | An unknown `--set` key, which is otherwise silent.                                                                                                             |
+| `make_shadow_figure.py` | Renders the residue shadow as a character map for the research paper.                                                                                                    |
+
+**`grid_error.py` in one line.** Interpolating a wave of length `lambda` over a step `h` is wrong by
+about `(pi h / lambda)^2 / 2`, and a degree-`l` harmonic has length `360/l` degrees. At degree 10 on
+the 36 by 72 grid the value error is 5.9 percent of the picture's contrast at worst and 1.1 percent
+typical, while the **surface normal** is 7.47 degrees off at the median and 47.15 degrees off at the
+95th percentile. Shading reads the gradient and a linear interpolant's gradient is constant inside a
+triangle. The normal is the column that shows. Halving the step divides the error by 3.95 against
+a predicted 4.
+
+**`null_harness.py` and what its floors are.** The power-under-rotation floor reads `4.005e-16`.
+That is the correct threshold to hand a caller running in float64, and it is not a property of the
+boundary: the law puts that residual at exactly zero. See `precision_floor.py`.
+
+**`inert_report.py` prints a receipt, and it fails nothing. That distinction is the design.** A room
+page built without a `clock` key is not defective. Every read of that key in the template is
+guarded, a clock-less room is a supported mode, and `data_check` is right to pass it. What a
+reader needs is to be told which half of the page is asleep. This prints `this page has no
+clock, no sources` and returns nothing anybody can fail on. It reports guarded absences only,
+because an unguarded one is `data_check`'s finding and reporting it twice would grade one page by
+two rules. The guard analysis is imported from `data_check` for the same reason.

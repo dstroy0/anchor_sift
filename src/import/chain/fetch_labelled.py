@@ -1,8 +1,8 @@
-"""Fetch block headers WITH the pool that mined them, as a labelled KAT corpus.
+"""Fetch block headers WITH the pool that mined them, as a labeled KAT corpus.
 
 `fetch_blocks.py` keeps the header fields and drops everything else, which is right for verifying
 hashes and wrong for asking who produced them. Pool attribution is not in the header at all: it
-lives in the coinbase transaction's tag, in plaintext, and the explorer resolves that tag against a
+sits in the coinbase transaction's tag, in plaintext, and the explorer resolves that tag against a
 public list of known pool signatures. This keeps the resolved name alongside the header.
 
 The distinction matters for what the corpus can answer. Without labels, an emitter has to be
@@ -16,7 +16,7 @@ hashed against its recorded id without trusting the explorer.
 
 Note that the label is the explorer's attribution, not a fact carried by the chain. A pool that
 does not tag its coinbase, or tags it in a way the list does not know, is reported as unknown. That
-is a property of the labelling and the analysis has to allow for it.
+is a property of the labeling and the analysis has to allow for it.
 
     python tools/chain/fetch_labelled.py
     python tools/chain/fetch_labelled.py --blocks 4000
@@ -34,7 +34,7 @@ import urllib.request
 
 API = "https://mempool.space/api"
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "blocks_labelled.json")
+OUT = os.path.normpath(os.path.join(HERE, "..", "..", "..", "utils", "maint", "chain", "blocks_labeled.json"))
 
 
 def get(path, attempts=4):
@@ -73,7 +73,7 @@ def main():
     height = tip
     unlabelled = 0
 
-    # /v1/blocks/:height returns that block and the fourteen below it, so this walks down in strides.
+    # /v1/blocks/:height returns that block and the fourteen below it. This walks down in strides.
     while len(collected) < given.blocks and height > 0:
         try:
             batch = get("/v1/blocks/%d" % height)

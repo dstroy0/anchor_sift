@@ -6,7 +6,7 @@ were artifacts.
 
 Peak minus trough is a maximum minus a minimum over twenty-four bins, and that spans three and a
 half to four and a half standard deviations for pure noise, by construction. A bar set at two, or
-even at four, is at or below what chance produces, so every pool clears it. And eight trough hours
+even at four, is at or below what chance produces, and every pool clears it. And eight trough hours
 drawn uniformly from twenty-four span about nineteen hours on average, a twenty hour spread is
 the expected result of no signal at all, not evidence against it.
 
@@ -18,8 +18,7 @@ sample size:
   do the phases differ        for the pools that clear, whether their trough hours are further
                               apart than the same number of uniform draws would be
 
-The second stage is only meaningful on pools that pass the first, which is the step the earlier
-version skipped.
+The second stage is only meaningful on pools that pass the first.
 """
 
 import argparse
@@ -30,7 +29,7 @@ import os
 import random
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT = os.path.join(HERE, "blocks_labelled.json")
+DEFAULT = os.path.normpath(os.path.join(HERE, "..", "..", "..", "utils", "maint", "chain", "blocks_labeled.json"))
 
 
 def chi_square(counts):
@@ -104,9 +103,9 @@ def main():
     print("=" * 78)
     print()
     if len(passed) < 3:
-        print("    Fewer than three pools carry a phase at all, so there is nothing to compare.")
+        print("    Fewer than three pools carry a phase at all. There is nothing to compare.")
         print("    The geography claim is not supported and is not refuted; this corpus cannot")
-        print("    address it. A deeper labelled corpus is what the question needs.")
+        print("    address it. A deeper labeled corpus is what the question needs.")
         return 0
 
     troughs = [t for _, t, _ in passed]

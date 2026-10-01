@@ -1,12 +1,12 @@
 """The collision-entropy leak as a time series: its mean, its fluctuation, and its trend.
 
 A single number for the leak hides the thing worth knowing. Conventions are set by software, and
-software is deployed, updated and retired, so the leak has no reason to hold still. Measured in
+software is deployed, updated and retired. The leak has no reason to hold still. Measured in
 sliding windows it has three separable parts, and they answer different questions:
 
-  mean          what the network's conventions cost on average, which is the number that belongs
+  mean          what the network's conventions cost on average, the number that belongs
                 in a summary
-  fluctuation   how much a window-sized sample wanders. The floor on this is known rather than
+  fluctuation   how much a window-sized sample wanders. The floor on this is known and not
                 estimated: a window of W blocks manufactures a deficit near log2(1 + (n-1)/W)
                 on its own, anything beyond that is real movement
   trend         whether the mean is going anywhere. A convention spreading or dying shows here and
@@ -14,7 +14,7 @@ sliding windows it has three separable parts, and they answer different question
 
 PER HASH
 
-A block is the expected outcome of difficulty times 2^32 hashes, so the leak per block divided by
+A block is the expected outcome of difficulty times 2^32 hashes. The leak per block divided by
 that is the leak per hash. It is a very small number and it is the honest intensive quantity: the
 network pays this much collision entropy for every hash it computes, and it is paid whether or not
 anybody is reading.
@@ -26,7 +26,7 @@ import math
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CORPUS = os.path.join(HERE, "blocks_deep.json")
+CORPUS = os.path.normpath(os.path.join(HERE, "..", "..", "..", "utils", "maint", "chain", "blocks_deep.json"))
 
 SHIFT, WIDTH = 13, 16
 SPAN = 1 << WIDTH
@@ -87,7 +87,7 @@ print()
 # The floor here is drawn, not derived. An earlier version of this file computed it analytically -
 # chi-square's variance carried through the logarithm - and that expression gave 0.0582 where the
 # true floor is 0.1022, understating it by nearly half. Shuffling the values holds the pooled
-# distribution exactly fixed and destroys only the time ordering, so every window it produces is a
+# distribution exactly fixed and destroys only the time ordering. Every window it produces is a
 # sample from one unchanging distribution by construction, and whatever scatter that yields is
 # sampling with nothing assumed about its shape.
 import random as _random
@@ -165,7 +165,7 @@ print("=" * 78)
 print()
 usable = [d for d in diffs if d]
 if usable:
-    # Stated as hashes PER BIT rather than bits per hash. The reciprocal is a number near
+    # Stated as hashes PER BIT and not bits per hash. The reciprocal is a number near
     # 3e-24, which is a float64 approaching its own floor and carries almost no significant
     # figures; its inverse is a large exact integer that says the same thing and can be checked.
     # Everything here is integer arithmetic at full width - no float appears in the result.
@@ -189,6 +189,6 @@ if usable:
     print("    is given away every %s seconds, which is about %d minutes."
           % (format(seconds_per_bit, ","), seconds_per_bit // 60))
     print()
-    print("    That is the intensive quantity stated so it can be read: the cost is enormous")
-    print("    per bit because a block is enormous, and the leak is paid whether or not")
+    print("    That is the intensive quantity stated so it can be read: the cost is large")
+    print("    per bit because a block is large, and the leak is paid whether or not")
     print("    anybody is reading it.")
