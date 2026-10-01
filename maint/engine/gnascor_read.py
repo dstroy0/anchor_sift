@@ -314,11 +314,47 @@ def held_name(held, past, now):
     return held[(past, now)][0]
 
 
+# The states a scenario's pair of side specs can read as. Both held reads DUAL, or BUSY where both runs came in heavy,
+# which a scenario does not choose
+IMPLIED = {
+    ("held", "held"): ("DUAL", "BUSY"),
+    ("held", "not"): ("LEAD",),
+    ("not", "held"): ("RITE",),
+    ("not", "not"): ("VOID",),
+    ("held", "late"): ("WAIT",),
+    ("late", "held"): ("WAIT",),
+}
+
+
+def check_scenario(scenario_path, trace_path):
+    """Whether every state read off a trace of real asks is one its scenario implies. The count that are not."""
+    with open(scenario_path, encoding="utf-8") as handle:
+        specs = [tuple(line.split()) for line in handle if line.strip()]
+    with open(trace_path, encoding="utf-8") as handle:
+        cycles = [read_cycle(line) for line in handle if line.strip() and not line.startswith("#")]
+    states, labels = read_trace(cycles)
+    traced = states[BASELINE_CYCLES:]
+    wrong = 0
+    for spec, state in zip(specs, traced):
+        wanted = ("GRAY",) if "unasked" in spec else IMPLIED.get(spec, ())
+        if state not in wanted:
+            wrong += 1
+            print("  FAILED: %s %s read %s, wanted %s" % (spec[0], spec[1], state, " or ".join(wanted)))
+    if len(traced) != len(specs):
+        wrong += 1
+        print("  FAILED: %d cycles traced for %d in the scenario" % (len(traced), len(specs)))
+    print("  " + stream(states, labels))
+    print("  %d cycles of real asks, %d read as other than the scenario implies" % (len(specs), wrong))
+    return wrong
+
+
 def main():
     out = sys.stdout
     out.reconfigure(encoding="utf-8", errors="replace")
     if len(sys.argv) == 2 and sys.argv[1] == "--check":
         return 1 if check() else 0
+    if len(sys.argv) == 4 and sys.argv[1] == "--scenario":
+        return 1 if check_scenario(sys.argv[2], sys.argv[3]) else 0
     if len(sys.argv) != 2:
         out.write(__doc__)
         return 2

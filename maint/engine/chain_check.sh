@@ -12,6 +12,7 @@
 #   query_order_check puts the known order of asks to the host on a clock found by asking, and solves every link
 #   stem_group_check holds the stem membership rule: groups on anchors, the same in every order
 #   branch_side_check asks the host whether the side a branch is read from leaves a mark
+#   gnascor_trace    puts gnascor_scenario.txt's sides to the host as real asks, and gnascor_read.py reads the states
 #
 #     maint/engine/chain_check.sh
 #     maint/engine/chain_check.sh sm_86 src/engine/compiler/cubin/machines/sm_86.kdm
@@ -57,6 +58,7 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/stem_group_check" "$TOP/test/engine/compi
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/branch_side_check" "$TOP/test/engine/compiler/bootstrap/branch_side_check.c" \
     "$BOOT/query_order.c" "$BOOT/query_ask.c" "$BOOT/ask_order.c" \
     "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
+cc -std=c11 -O2 -Wall -Wextra -o "$OUT/gnascor_trace" "$TOP/maint/engine/gnascor_trace.c" "$BOOT/query_ask.c" || exit 1
 WALK="$OUT/query_walk"
 if [ -f "$WALK.exe" ]; then
     WALK="$WALK.exe"
@@ -74,4 +76,7 @@ fi
 "$OUT/query_cell_check" "$WALK" "$OUT/query_walk.out" || exit 1
 "$OUT/query_order_check" || exit 1
 "$OUT/stem_group_check" || exit 1
-"$OUT/branch_side_check"
+"$OUT/branch_side_check" || exit 1
+"$OUT/gnascor_trace" "$TOP/maint/engine/gnascor_scenario.txt" "$OUT/gnascor_trace.txt" || exit 1
+python "$TOP/maint/engine/gnascor_read.py" --check || exit 1
+python "$TOP/maint/engine/gnascor_read.py" --scenario "$TOP/maint/engine/gnascor_scenario.txt" "$OUT/gnascor_trace.txt"
