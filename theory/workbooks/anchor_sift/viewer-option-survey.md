@@ -7,30 +7,22 @@ from this. The survey comes before the bar.
 Read from `examples/00_blob_viz_tools/`: the 23 `build_*_view.py`, the 15 `*_view_template.html`,
 and the engine viewer under `view/engine_view/`. No unit is changed here; this only records what is.
 
-## The lead finding: most builders never reach their template
+## The lead finding: every builder with a template reaches it
 
 A template holds its data in a marker, `var DATA = /*ROOM_DATA*/ null;`, with a space before `null`.
-Every builder searches for the unspaced `/*ROOM_DATA*/null`. The space is the whole defect: the
-`replace` finds nothing, and the marker check some builders run finds nothing either. The builders
-split four ways on it.
+Each builder matches the marker its template carries, tolerant of the whitespace around `null`, and
+writes its data in place of it. A builder handed a template whose marker is absent writes no page and
+says so. One builder has no template to write into at all.
 
 | outcome | what happens | builders |
 |---|---|---|
-| injects | the marker matches, the page carries its data | earth, block, scope, spiral, survey, sha_pairs |
-| fails loud | the builder checks the marker, misses, writes no page | room, sha_room, sha_clock, orrery, sha_sphere, sphere |
-| fails silent | the builder does not check, `replace` matches nothing, `DATA` stays `null` | blob, chart, plot, field, sound, sweep, voxel, sources, step, shadow |
+| injects | the builder matches its template's marker and writes the page carrying its data | every builder with a template |
 | no template | `build_blind_view.py` targets `blind_view_template.html`, which is not in the tree | blind |
 
-Six inject. Six write nothing. Ten write a page whose `DATA` is `null`. Every control reads its
-fallback and draws empty with nothing said. One has no template to write into.
-
-The marker tells which bucket a builder lands in. `/*DATA*/` (block, earth, scope, spiral, survey)
-matches its builder. `/*PAIRS_DATA*/null` (pairs) matches. The spaced `/*XXX_DATA*/ null` (chart,
-orrery, room, shadow, sources, sphere, step, voxel) does not, and whether the miss is loud or silent
-is only whether the builder checks the marker before it writes.
-
-Checked by running them: `build_sha_clock_view.py --message abc` prints `the template has no place to
-put the data` and writes no file. `build_earth_view.py` writes a page that carries its data.
+Twenty-two builders inject. One has no template. The marker forms vary across the templates, from
+`/*DATA*/` through `/*PAIRS_DATA*/` to the spaced `/*XXX_DATA*/ null`, and each builder matches the
+marker its own template carries. No template in the tree is missing its marker. None of the
+twenty-two fails loud here; the loud failure guards against a template that drops its marker.
 
 ## The clock view draws the engine's bytes on a clock
 
