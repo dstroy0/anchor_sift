@@ -5,7 +5,6 @@ one checkable by a stranger with no secret and no cooperation from the author. S
 instrument answers which claim, and say which proposed mechanisms do not work.
 **Scope:** `maint/signing/`, `MANIFEST.tsv` and its signature, the public key, the timestamp proofs.
 **Owner:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-10
 
 ## 1. Three Claims, Routinely Conflated
 

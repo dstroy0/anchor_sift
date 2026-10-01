@@ -324,4 +324,3 @@ Sources: [arXiv:1106.4412](https://arxiv.org/abs/1106.4412) for the lower bounds
 Transcribe the holds and the retractions into the workbooks, verified and not copied. The three most worth attacking are F5, because the domain and range argument is short enough to be wrong quickly; F8, because F7's bound depends on the enumeration being complete and completeness is asserted from reading the loops and not from a test; and O1, which two arguments split before F15 settled it.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

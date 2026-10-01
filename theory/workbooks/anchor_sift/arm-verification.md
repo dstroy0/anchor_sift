@@ -68,4 +68,3 @@ bash maint/engine/verify_arm_asm.sh
 ```
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

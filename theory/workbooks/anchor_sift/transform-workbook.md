@@ -8,7 +8,6 @@ re-derived, and a projection not yet tried is visible.
 **Scope:** `src/bench_corpus.cpp`, `src/bench_transform.cpp`, `src/sha256_core.c`,
 `src/sha256_core.h`
 **Owner:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08
 
 ## 1. The Problem As Stated
 

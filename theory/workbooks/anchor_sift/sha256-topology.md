@@ -8,7 +8,6 @@ ground.
 `src/bench_basis.cpp`, `src/bench_invert.cpp`, `src/bench_walk.cpp`, `src/bench_corpus.cpp`,
 `src/bench_cosalt.cpp`, `src/bench_keyhole.cpp`, `src/cuda_miner.cu`
 **Owner:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08
 
 ## 1. What We Want, Stated So It Can Be Tested
 

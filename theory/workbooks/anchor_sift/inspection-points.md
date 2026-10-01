@@ -203,4 +203,3 @@ count at each level, the number the destroy rule actually compares. A caller wan
 today runs the descent twice and subtracts.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16
