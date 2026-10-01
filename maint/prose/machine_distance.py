@@ -58,7 +58,7 @@ from english_gate import english_only, english_words  # noqa: E402
 #
 # session_prose.txt is the machine's own messages, taken out of a transcript by session_prose.py.
 # Nobody has to trust a label for it: the turns were written by the model that wrote them. It is
-# also the largest assistant sample available here.
+# also the largest machine sample available here.
 SESSION = os.path.join(ROOT, "build", "corpora", "session_prose.txt")
 
 # The published fallback, whose label nobody outside can verify.
@@ -556,7 +556,7 @@ def main():
                 "  what pulls it toward the machine pole, per thousand words in each\n"
             )
             out.write(
-                "    %-18s %8s %8s %8s\n" % ("word", "file", "assistant", "human")
+                "    %-18s %8s %8s %8s\n" % ("word", "file", "machine", "human")
             )
             for value, word, here, there, theirs in toward:
                 if value <= 0:

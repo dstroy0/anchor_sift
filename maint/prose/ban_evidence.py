@@ -22,7 +22,7 @@
 #
 # An earlier arrangement split the repository by whether this session had opened a file, and called
 # the untouched half a person's prose. That split is void: the text of this repository is almost all
-# assistant-written, across many sessions. Both halves had the same author. It explains the null
+# machine-written, across many sessions. Both halves had the same author. It explains the null
 # prose_distance.py returned, where the gap between those halves was the same sign at four symbol
 # widths and cleared no floor at any of them. There was no contrast in it to find.
 #
@@ -83,7 +83,7 @@ def repository_text():
     """Every comment, docstring and page in this tree, joined.
 
     One arm, not two. Splitting it by author is not available: the text here is almost all
-    assistant-written across many sessions, and the session-boundary split that looked like an
+    machine-written across many sessions, and the session-boundary split that looked like an
     author split was measuring nothing.
     """
     held = []

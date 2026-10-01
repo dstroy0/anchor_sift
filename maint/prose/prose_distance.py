@@ -23,7 +23,7 @@
 #
 # The second split this tree by whether the current session had opened a file, and called the
 # untouched half a person's prose. That split is void: the text of this repository is almost all
-# assistant-written, over many sessions. Both halves had one author. It explains the null the
+# machine-written, over many sessions. Both halves had one author. It explains the null the
 # distributional form of this script returned, where the gap between those halves carried the same
 # sign at four symbol widths and cleared no floor at any of them. There was no contrast in it to
 # find, and a measurement that cannot fail is not a measurement.

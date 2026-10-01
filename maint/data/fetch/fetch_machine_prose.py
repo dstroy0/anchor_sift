@@ -132,8 +132,9 @@ BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 # register from an answer, and mixing them would build a pole out of two things.
 SOURCES = ()
 
-# Which speaker in a ShareGPT record is the machine. The human turns are somebody else's prose.
-ASSISTANT = ("gpt", "assistant", "model")
+# Which role in a record is the machine. gpt, assistant and model are the labels datasets use
+# for it, matched as the record stores them. The human turns are somebody else's prose.
+MACHINE = ("gpt", "assistant", "model")
 
 FENCED = re.compile(r"```.*?```", re.DOTALL)
 INLINE = re.compile(r"`[^`\n]*`")
@@ -151,7 +152,7 @@ def fetched(dataset, name):
 
 
 def turns_of(record):
-    """Every assistant turn in one record, whatever key the dataset used for its conversation."""
+    """Every machine turn in one record, whatever key the dataset used for its conversation."""
     for key in ("conversations", "conversation", "messages", "turns"):
         held = record.get(key)
         if isinstance(held, list):
@@ -160,7 +161,7 @@ def turns_of(record):
                     continue
                 who = str(turn.get("from") or turn.get("role") or "").lower()
                 said = turn.get("value") or turn.get("content") or ""
-                if who in ASSISTANT and isinstance(said, str):
+                if who in MACHINE and isinstance(said, str):
                     yield said
             return
     # A flat record with one response field.
@@ -172,7 +173,7 @@ def turns_of(record):
 
 
 def prose_of(said):
-    """One assistant turn with its code removed, leaving what it wrote in English."""
+    """One machine turn with its code removed, leaving what it wrote in English."""
     text = FENCED.sub(" ", said)
     text = INLINE.sub(" ", text)
     return " ".join(text.split())
@@ -246,7 +247,7 @@ def main():
                 handle.write(one)
                 handle.write("\n")
         used.append((dataset, name, turns, counted - before))
-        out.write("    %d assistant turns, %d words\n" % (turns, counted - before))
+        out.write("    %d machine turns, %d words\n" % (turns, counted - before))
         out.flush()
 
     if not held:

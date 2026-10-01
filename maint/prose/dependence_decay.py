@@ -88,10 +88,10 @@ inside it.
 
 WHAT A NULL ON THE SHAPE MEANS
 
-A wider assistant spread is itself evidence against the mechanism, not a failure to detect it. The
+A wider machine spread is itself evidence against the mechanism, not a failure to detect it. The
 hypothesis says generated text is closer to memoryless: its decay should be tighter and steeper, and
 a spread wider than the human band argues against the mechanism directly. Every word of the
-assistant pole is written under this tree's ban list, which suppresses its register in the direction
+machine pole is written under this tree's ban list, which suppresses its register in the direction
 that works against a separation. A null on the shape is therefore ambiguous about unsuppressed
 prose, though the spread argument does not depend on the suppression.
 
@@ -364,7 +364,7 @@ def main():
         #
         # A point cannot say whether it is a typical value for its own population or a draw from a
         # wide one, and one number for a pole cannot distinguish "the machine decays faster" from "the
-        # assistant sample happened to". With both bands measured the question becomes the one worth
+        # machine sample happened to". With both bands measured the question becomes the one worth
         # asking, and it can also come back saying the machine spread is as wide as the human one,
         # which would sink the hypothesis whatever the means do.
         #
@@ -373,15 +373,15 @@ def main():
         # there are too few DISJOINT chunks and the spread cannot be measured at all - which prints a
         # large separation against an unmeasurable band and looks like the best result. The default
         # sits where both are adequate.
-        assistant_path = os.path.join(os.path.dirname(os.path.dirname(HERE)),
-                                      "build", "corpora", "assistant_suppressed.txt")
-        if not os.path.exists(assistant_path):
-            print("  no assistant corpus at %s" % assistant_path)
+        machine_path = os.path.join(os.path.dirname(os.path.dirname(HERE)),
+                                      "build", "corpora", "machine_suppressed.txt")
+        if not os.path.exists(machine_path):
+            print("  no machine corpus at %s" % machine_path)
             return 1
 
         length = given.length
         human, size = tokens_of(load_papers(limit_words=7000000), given.vocabulary)
-        assistant, size = tokens_of(io.open(assistant_path, encoding="utf-8",
+        machine, size = tokens_of(io.open(machine_path, encoding="utf-8",
                                             errors="replace").read(), given.vocabulary)
 
         def bands(symbols, label, cap):
@@ -403,10 +403,10 @@ def main():
         print()
         print("  cutting both poles into disjoint chunks")
         human_rows2 = bands(human, "human", 40)
-        assistant_rows2 = bands(assistant, "assistant", 40)
+        machine_rows2 = bands(machine, "machine", 40)
         print()
 
-        if len(human_rows2) < 4 or len(assistant_rows2) < 3:
+        if len(human_rows2) < 4 or len(machine_rows2) < 3:
             print("  NOT ENOUGH DISJOINT CHUNKS at this length to measure a spread. Lower --length.")
             return 1
 
@@ -418,18 +418,18 @@ def main():
             return mean, sd, len(values), sum(shares) / len(shares)
 
         hm, hs, hn, hshare = summarise(human_rows2)
-        am, asd, an, ashare = summarise(assistant_rows2)
+        mm, msd, mn, mshare = summarise(machine_rows2)
 
         print("    %-10s slope %+.4f  sd %.4f  n %2d   top-%d mass share %.4f"
               % ("human", hm, hs, hn, size, hshare))
         print("    %-10s slope %+.4f  sd %.4f  n %2d   top-%d mass share %.4f"
-              % ("assistant", am, asd, an, size, ashare))
+              % ("machine", mm, msd, mn, size, mshare))
         print()
 
         # DOES THE NUISANCE ACTUALLY DRIVE THE SLOPE? Measured across every chunk of both poles
         # pooled, because if mass share and slope are uncorrelated then the difference in share
         # between the poles cannot be what produces a difference in slope, and no matching is needed.
-        pooled = human_rows2 + assistant_rows2
+        pooled = human_rows2 + machine_rows2
         xs = [s for _, s in pooled]
         ys = [v for v, _ in pooled]
         mx = sum(xs) / len(xs)
@@ -473,7 +473,7 @@ def main():
         elif gap < 0 and se > 0 and abs(gap) / se >= 2.0:
             print("    Suggestive in the predicted direction at %.1f sd, which is not enough to"
                   % (abs(gap) / se))
-            print("    call on a statistic with this much machinery under it. More assistant text")
+            print("    call on a statistic with this much machinery under it. More machine text")
             print("    or a larger --length is the move, subject to the chunk-count tradeoff.")
         else:
             print("    NO SEPARATION. The two bands overlap: the decay shape does not")
@@ -483,10 +483,10 @@ def main():
     if given.band:
         # THE SLOPE COMPARISON NEEDED A NULL AND THIS DRAWS IT.
         #
-        # One human slope against one assistant slope is two numbers, and the gap between them
+        # One human slope against one machine slope is two numbers, and the gap between them
         # (-0.576 against -0.619) means nothing without knowing how much a human slope varies from
         # one sample to the next. So the human corpus is cut into DISJOINT chunks of exactly the
-        # assistant corpus's length and a slope is taken from each. That is the band a human text of
+        # machine corpus's length and a slope is taken from each. That is the band a human text of
         # this size produces, drawn and not argued, and the machine's slope either sits inside
         # it or it does not.
         session_text = io.open(SESSION, encoding="utf-8", errors="replace").read()
@@ -517,7 +517,7 @@ def main():
         print()
         print("    human slopes    %.3f to %.3f, mean %.3f, sd %.3f"
               % (slopes[0], slopes[-1], middle, spread))
-        print("    assistant slope %.3f" % session_slope)
+        print("    machine slope   %.3f" % session_slope)
         print()
         z = (session_slope - middle) / spread if spread > 0 else 0.0
         print("    the machine sits %.2f sd from the human mean, and %d of %d human chunks"
@@ -526,7 +526,7 @@ def main():
         print()
         if below == 0:
             print("    OUTSIDE THE BAND. No human chunk of this size decays as fast as the")
-            print("    assistant corpus does. That is a real separation on a drawn null.")
+            print("    machine corpus does. That is a real separation on a drawn null.")
         elif below <= max(1, len(slopes) // 20):
             print("    AT THE EDGE. Only %d of %d human chunks reach it: this is suggestive"
                   % (below, len(slopes)))
@@ -534,7 +534,7 @@ def main():
         else:
             print("    INSIDE THE BAND. %d of %d human chunks decay at least as fast: the"
                   % (below, len(slopes)))
-            print("    assistant slope is an ordinary value for a human text of this length and")
+            print("    machine slope is an ordinary value for a human text of this length and")
             print("    the shape does NOT separate the poles. The -0.619 against -0.576 seen")
             print("    earlier was within the ordinary spread and is not a finding.")
         return 0
@@ -549,12 +549,12 @@ def main():
         show("HUMAN POLE, research papers", human_rows, human.size)
 
         if not os.path.exists(SESSION):
-            print("  no assistant corpus at %s" % SESSION)
+            print("  no machine corpus at %s" % SESSION)
             return 1
         session_text = io.open(SESSION, encoding="utf-8", errors="replace").read()
         session, size = tokens_of(session_text, given.vocabulary)
         session_rows = curve(session, size)
-        show("ASSISTANT POLE, own transcript", session_rows, session.size)
+        show("MACHINE POLE, own transcript", session_rows, session.size)
 
         # SIZE IS THE NUISANCE PARAMETER AND IT HAS TO BE HELD FIXED.
         #
@@ -581,7 +581,7 @@ def main():
         human_floor = matched_rows[0][2]
         session_floor = session_rows[0][2]
         apart = abs(human_floor - session_floor) / max(human_floor, session_floor)
-        print("    human floor %.4f, assistant floor %.4f, %.0f%% apart"
+        print("    human floor %.4f, machine floor %.4f, %.0f%% apart"
               % (human_floor, session_floor, apart * 100.0))
         print()
 
@@ -603,7 +603,7 @@ def main():
         print("    decay shape, log-log slope of the excess normalised to its own lag one:")
         print("      human      %s  over %d lags"
               % (("%+.3f" % human_slope) if human_slope is not None else "  n/a", human_points))
-        print("      assistant  %s  over %d lags"
+        print("      machine    %s  over %d lags"
               % (("%+.3f" % session_slope) if session_slope is not None else "  n/a", session_points))
         print()
 
@@ -616,7 +616,7 @@ def main():
             if human_slope is not None and session_slope is not None:
                 if session_slope < human_slope:
                     print("    THE SHAPE STILL SEPARATES THEM, and it is the statistic the hypothesis")
-                    print("    was about. The assistant curve falls away faster, %+.3f against %+.3f,"
+                    print("    was about. The machine curve falls away faster, %+.3f against %+.3f,"
                           % (session_slope, human_slope))
                     print("    the direction predicted: bounded context forgets sooner. The")
                     print("    normalisation divides each curve by its own lag one: the bias scale")
@@ -645,7 +645,7 @@ def main():
             return 1
         print()
         print("    human dependence stands clear of its floor out to lag      %d" % human_reach)
-        print("    assistant dependence stands clear of its floor out to lag  %d" % session_reach)
+        print("    machine dependence stands clear of its floor out to lag    %d" % session_reach)
         print()
         if human_reach > session_reach:
             print("    The human corpus carries dependence further AT THE SAME LENGTH: the")
