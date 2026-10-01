@@ -138,7 +138,7 @@ D1 and D2 are the engine's (the engine workbook's build plan).
    - Finding, not changed (A11 is Doug's rule): a job is reserved at its declaration even when its kept peak is larger. Reserving max(declared, kept peak) is the fix.
 
 37. **The score, 24 September.** Tessera and portability stop here ("stop getting bogged down in portability").
-   - The real metric is `maint/score_submission.py` (edge Jaccard × node count factor). The tracker's own tally (83.1%) is leaf-to-leaf and is not the score.
+   - The real metric is `cell_tracking/maint/score_submission.py` (edge Jaccard × node count factor). The tracker's own tally (83.1%) is leaf-to-leaf and is not the score.
    - The current engine reads only `.kcr`. The 25 were re-ingested into `D:/kaggle_project_data/biohub_cell_tracking_set_kcr/train` (25 of 25 held, 10,207,190,124 bytes, 48.6% of raw, set root ad40e1d0…f53a39, 757 s); the `.iapx` set is untouched.
    - **Baseline on the current engine: SCORE 0.209** (object, largest 400; Jaccard 0.210, 961,081 nodes against 880,906). The 22 September engine scored **0.661** (basin, largest 400; Jaccard 0.670). The tally is identical to 23 September's. The regression came with the v2 split, and today's work left it unchanged.
    - Cause: the 22 September nodes were peak basins (`binomial_basins`/`peak_basins`, steepest ascent over 26 neighbors, membership where the residual is positive), about 300,000 leaves a sample grouped into objects. The v2 engine's nodes are max-tree components at the most-components level, one object a leaf, cells merged into blobs. The basin modules were removed in the split and nothing in the engine does steepest ascent.

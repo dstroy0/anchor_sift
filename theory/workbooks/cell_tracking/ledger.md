@@ -21,7 +21,7 @@
 
 ### The competition metric
 
-The metric (`maint/score_submission.py`): nodes matched to key nodes within 7 µm, an edge a hit only where both ends match nodes the key joins, the edge Jaccard micro averaged over the split, times 1 − 0.1 × the node count's excess over the organizers' estimate, plus 0.1 × the division Jaccard. It is not the internal count the tracker prints under POOLED, which takes a key node as the object that holds its voxel.
+The metric (`cell_tracking/maint/score_submission.py`): nodes matched to key nodes within 7 µm, an edge a hit only where both ends match nodes the key joins, the edge Jaccard micro averaged over the split, times 1 − 0.1 × the node count's excess over the organizers' estimate, plus 0.1 × the division Jaccard. It is not the internal count the tracker prints under POOLED, which takes a key node as the object that holds its voxel.
 
 | what | samples | result | settles |
 |---|---|---|---|

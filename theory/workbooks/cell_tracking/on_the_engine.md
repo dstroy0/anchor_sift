@@ -57,7 +57,7 @@ The two findings these runs gave are the scheduler's, in [tessera_scheduler.md](
 
 ### §6. The demon's arms: the node policies
 
-- **Truthy/falsy probes** (fluidic draft §5) are the node policies in `maint/score_submission.py`. `stands` asks per node whether it is the size a cell is here, and `above_null` asks whether it stands above its own null draws.
+- **Truthy/falsy probes** (fluidic draft §5) are the node policies in `cell_tracking/maint/score_submission.py`. `stands` asks per node whether it is the size a cell is here, and `above_null` asks whether it stands above its own null draws.
 
 | claim | status |
 |---|---|
