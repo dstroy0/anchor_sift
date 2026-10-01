@@ -54,6 +54,7 @@ import settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "room_view_template.html")
+BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 SHELLS = ("sphere", "cube", "hexagon", "octahedron", "dodecahedron")
 CORES = ("sphere", "cube", "octahedron", "cone")
@@ -206,6 +207,7 @@ def main():
         "source": source,
         "things": things,
         "settings": opening,
+        "schema": settings.schema(["theme", "opacity"]),
     }
 
     with io.open(TEMPLATE, encoding="utf-8") as handle:
@@ -215,6 +217,15 @@ def main():
         sys.stderr.write("the template has no place to put the data\n")
         return 1
     page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
+
+    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
+        bar = handle.read()
+    slot = re.search(r"/\*CONTROL_BAR\*/", page)
+    if slot is None:
+        sys.stderr.write("the template has no place for the control bar\n")
+        return 1
+    page = page[:slot.start()] + bar + page[slot.end():]
+
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
