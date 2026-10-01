@@ -284,6 +284,9 @@ def main():
             "digest": "".join("%08x" % one for one in digest),
         },
         "settings": opening,
+        # The bar's schema, read from the one settings source. The page draws its appearance controls
+        # from these and never a copy written into the template.
+        "schema": settings.schema(["background", "opacity"]),
     }
 
     with io.open(TEMPLATE, encoding="utf-8") as handle:

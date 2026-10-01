@@ -14,51 +14,98 @@ for it instead of publishing a page and telling the reader which controls to mov
 
 Unknown keys error and never ignored. A typo in a setting is silent otherwise, and a page
 that opens in the wrong state looks like a bug in the viewer.
+
+One definition per setting serves both the --set command and the shared control bar. A unit names
+the settings its bar carries and hands `schema` the names; the bar draws a control per entry from
+the kind, the range and the fallback held here. The command and the bar read one source, and a
+setting cannot mean one thing on the command line and another in the bar.
 """
 
 import sys
 
-# name, kind, default, and what it does. The page applies these; nothing here draws anything.
+# One entry per setting: its kind, the value it opens at when nothing sets it, a human line, and the
+# range the bar bounds a control to. The bar kind and the command kind are the same word. int and
+# float cast on the command line; color, word and text are strings there and draw their own control
+# in the bar. A bounded number carries low and high; a word carries its words. The page applies
+# these; nothing here draws anything.
 KNOWN = {
     # what is shown
-    "step": ("int", 0, "which step is selected, counting from zero"),
-    "shape": ("str", "", "representation key, such as plane, sphere, hilbert, torus"),
-    "transform": ("str", "", "transform key, such as none, invert, shadow, wall"),
-    "overlay": ("str", "", "step key whose values drive color, or empty for off"),
-    "order": ("int", 0, "sides, petals or winding, 3 to 4096"),
-    "wrap": ("int", 0, "how many times the data is laid around the shape"),
+    "step": {"kind": "int", "fallback": 0, "what": "which step is selected, counting from zero"},
+    "shape": {"kind": "str", "fallback": "", "what": "representation key, such as plane, sphere, hilbert, torus"},
+    "transform": {"kind": "str", "fallback": "", "what": "transform key, such as none, invert, shadow, wall"},
+    "overlay": {"kind": "str", "fallback": "", "what": "step key whose values drive color, or empty for off"},
+    "order": {"kind": "int", "fallback": 0, "what": "sides, petals or winding, 3 to 4096"},
+    "wrap": {"kind": "int", "fallback": 0, "what": "how many times the data is laid around the shape"},
 
     # how it is drawn
-    "height": ("int", 0, "relief, 1 to 60"),
-    "floor": ("int", 0, "hides cells quieter than this, 0 to 90"),
-    "contrast": ("float", 0.0, "exponent the value is raised to before the ramp"),
-    "theme": ("str", "", "light or dark, or empty to follow the reader's system"),
-    "background": ("str", "", "ground color as #rrggbb"),
-    "low": ("str", "", "ramp color for the low end"),
-    "mid": ("str", "", "ramp color at zero"),
-    "high": ("str", "", "ramp color for the high end"),
-    "opacity": ("int", 0, "how present the control boxes are, 15 to 100"),
+    "height": {"kind": "int", "fallback": 0, "what": "relief, 1 to 60"},
+    "floor": {"kind": "int", "fallback": 0, "what": "hides cells quieter than this, 0 to 90"},
+    "contrast": {"kind": "float", "fallback": 0.0, "what": "exponent the value is raised to before the ramp"},
+    "theme": {"kind": "str", "fallback": "", "what": "light or dark, or empty to follow the reader's system"},
+    "background": {"kind": "color", "fallback": "#0b0d12", "what": "ground color behind the page"},
+    "low": {"kind": "color", "fallback": "#000000", "what": "ramp color for the low end"},
+    "mid": {"kind": "color", "fallback": "#000000", "what": "ramp color at zero"},
+    "high": {"kind": "color", "fallback": "#000000", "what": "ramp color for the high end"},
+    "opacity": {"kind": "int", "low": 15, "high": 100, "fallback": 100,
+                "what": "how present the control boxes are"},
 
     # where the observer is, and whether anything moves
-    "yaw": ("float", 0.0, "observer angle around the object, in radians"),
-    "pitch": ("float", 0.0, "observer angle above the object, in radians"),
-    "distance": ("float", 0.0, "observer distance, 60 to 1400"),
-    "spin": ("float", 0.0, "turns per minute the object rotates on its own, 0 for still"),
-    "spinaxis": ("str", "", "up or right, the axis the spin turns about"),
+    "yaw": {"kind": "float", "fallback": 0.0, "what": "observer angle around the object, in radians"},
+    "pitch": {"kind": "float", "fallback": 0.0, "what": "observer angle above the object, in radians"},
+    "distance": {"kind": "float", "fallback": 0.0, "what": "observer distance, 60 to 1400"},
+    "spin": {"kind": "float", "fallback": 0.0, "what": "turns per minute the object rotates on its own, 0 for still"},
+    "spinaxis": {"kind": "str", "fallback": "", "what": "up or right, the axis the spin turns about"},
 
     # what is already selected
-    "select_from": ("float", 0.0, "low end of a value range selected on opening"),
-    "select_to": ("float", 0.0, "high end of that range"),
+    "select_from": {"kind": "float", "fallback": 0.0, "what": "low end of a value range selected on opening"},
+    "select_to": {"kind": "float", "fallback": 0.0, "what": "high end of that range"},
 }
+
+
+def _range(rule):
+    """The range line for one rule: its words, its bounds, or empty when it is open."""
+    if "words" in rule:
+        return ", ".join(rule["words"])
+    low = rule.get("low")
+    high = rule.get("high")
+    if low is not None and high is not None:
+        return "%s to %s" % (low, high)
+    if low is not None:
+        return "at least %s" % low
+    if high is not None:
+        return "at most %s" % high
+    return ""
 
 
 def usage():
     """The settings table, for a generator's own help text."""
     lines = ["  --set key=value, repeatable. Known keys:"]
     for name in sorted(KNOWN):
-        kind, _, what = KNOWN[name]
-        lines.append("    %-12s %-6s %s" % (name, kind, what))
+        rule = KNOWN[name]
+        lines.append("    %-12s %-6s %-14s %s" % (name, rule["kind"], _range(rule), rule["what"]))
     return "\n".join(lines)
+
+
+def schema(names):
+    """The bar schema for the named settings: kind, range and fallback, read from KNOWN.
+
+    A unit lists the settings its bar carries and hands the result to the page. The bar draws a
+    control per entry from exactly this. The definition the --set command reads and the definition
+    the bar reads are one and the same. An unknown name exits before the page ships a bar with a
+    control the command cannot set.
+    """
+    out = {}
+    for name in names:
+        if name not in KNOWN:
+            sys.stderr.write("no setting named %s to put in the bar. Known:\n%s\n" % (name, usage()))
+            raise SystemExit(1)
+        rule = KNOWN[name]
+        entry = {"kind": rule["kind"], "fallback": rule["fallback"]}
+        for key in ("low", "high", "words"):
+            if key in rule:
+                entry[key] = rule[key]
+        out[name] = entry
+    return out
 
 
 def collect(argv):
@@ -87,7 +134,7 @@ def collect(argv):
         if name not in KNOWN:
             sys.stderr.write("unknown setting %s. Known:\n%s\n" % (name, usage()))
             raise SystemExit(1)
-        kind = KNOWN[name][0]
+        kind = KNOWN[name]["kind"]
         try:
             if kind == "int":
                 out[name] = int(text)

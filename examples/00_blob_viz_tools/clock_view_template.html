@@ -184,22 +184,22 @@
     slider.addEventListener("input", function () { draw(parseInt(slider.value, 10)); });
     draw(0);
 
-    // The shared control bar over this page's appearance. It carries only what the clock view honors
-    // without re-deriving the engine's bytes: the backdrop behind the page and how present the panels
-    // are. Every byte cell keeps the gray value the engine rendered; the bar never touches the canvas.
+    // The shared control bar over this page's appearance. The schema comes from the build's one
+    // settings source, not a copy written here. The clock view carries only what it honors without
+    // re-deriving the engine's bytes: the backdrop behind the page and how present the panels are.
+    // Every byte cell keeps the gray value the engine rendered; the bar never touches the canvas.
     var barHost = document.getElementById("bar");
-    var SCHEMA = {
-      background: { kind: "color", fallback: "#0b0d12" },
-      opacity: { kind: "int", low: 15, high: 100, fallback: 100 }
-    };
+    var SCHEMA = DATA && DATA.schema ? DATA.schema : {};
     var opening = DATA && DATA.settings ? DATA.settings : {};
     function appearance(appView) {
       document.body.style.background = appView.background;
       var chrome = document.querySelectorAll(".panel, .clock, .digest, .readout");
       for (var i = 0; i < chrome.length; i++) { chrome[i].style.opacity = appView.opacity / 100; }
     }
-    barHost.hidden = false;
-    BAR.mount(barHost, SCHEMA, opening, appearance);
+    if (Object.keys(SCHEMA).length) {
+      barHost.hidden = false;
+      BAR.mount(barHost, SCHEMA, opening, appearance);
+    }
   })();
 </script>
 </body>
