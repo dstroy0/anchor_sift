@@ -51,17 +51,17 @@ examples/00_blob_viz_tools/build_orrery_view.py	never sees, so a recovery	never 
 examples/00_blob_viz_tools/build_orrery_view.py	makes neighbouring bins copies of one another, so a window	makes neighboring bins copies of one another, and a window
 examples/00_blob_viz_tools/build_orrery_view.py	was tried and is worse than not filtering	was tried and made the answer worse
 examples/00_blob_viz_tools/build_orrery_view.py	close to the centre has	close to the center has
-maint/build_fixes.py	impossible rather than unlikely.	impossible instead of unlikely.
-maint/build_fixes.py	is reported rather than replaced at the wrong site.	is reported instead of replaced at the wrong site.
-maint/grade_unread.py	rather than graded twice.	instead of graded twice.
-maint/plan_fixes.py	it reports `rather` where the text says `rather than`. A swap	it reports the bare contrast word where the text carries its two-word form. A swap
-maint/plan_fixes.py	Swap a connective for one that carries the same relation. `rather than` and `and not` both mark a	Swap a connective for one that carries the same relation. The two forms in the table below mark a
-maint/plan_fixes.py	and that is why every proposal goes through the	and for that reason every proposal goes through the
-maint/plan_fixes.py	Replacing a bare `which is the` with `, the` where the	Replacing a bare explainer with its comma-led form where the
-maint/plan_fixes.py	# `rather than` takes two shapes. Before a noun or a participle the contrast survives as	# The contrast phrase takes two shapes. Before a noun or a participle it survives as
-maint/plan_fixes.py	# `and not`: "exact rather than fitted" becomes "exact and not fitted". Before a gerund it	# the paired form, where a null described one way becomes one described the other. Before a gerund
-maint/plan_fixes.py	# does not, because the verb needs a preposition to hang from: "defers rather than	# it does not, because the verb needs a preposition to hang from. A deferral standing before
-maint/plan_fixes.py	# inventing" becomes "defers instead of inventing", never "defers and not inventing".	# a gerund takes the preposition form, and the paired form reads wrong in that position.
+maint/prose/build_fixes.py	impossible rather than unlikely.	impossible instead of unlikely.
+maint/prose/build_fixes.py	is reported rather than replaced at the wrong site.	is reported instead of replaced at the wrong site.
+maint/prose/grade_unread.py	rather than graded twice.	instead of graded twice.
+maint/prose/plan_fixes.py	it reports `rather` where the text says `rather than`. A swap	it reports the bare contrast word where the text carries its two-word form. A swap
+maint/prose/plan_fixes.py	Swap a connective for one that carries the same relation. `rather than` and `and not` both mark a	Swap a connective for one that carries the same relation. The two forms in the table below mark a
+maint/prose/plan_fixes.py	and that is why every proposal goes through the	and for that reason every proposal goes through the
+maint/prose/plan_fixes.py	Replacing a bare `which is the` with `, the` where the	Replacing a bare explainer with its comma-led form where the
+maint/prose/plan_fixes.py	# `rather than` takes two shapes. Before a noun or a participle the contrast survives as	# The contrast phrase takes two shapes. Before a noun or a participle it survives as
+maint/prose/plan_fixes.py	# `and not`: "exact rather than fitted" becomes "exact and not fitted". Before a gerund it	# the paired form, where a null described one way becomes one described the other. Before a gerund
+maint/prose/plan_fixes.py	# does not, because the verb needs a preposition to hang from: "defers rather than	# it does not, because the verb needs a preposition to hang from. A deferral standing before
+maint/prose/plan_fixes.py	# inventing" becomes "defers instead of inventing", never "defers and not inventing".	# a gerund takes the preposition form, and the paired form reads wrong in that position.
 examples/00_blob_viz_tools/build_room_view.py	falling with energy rather than a wall becoming a window.	falling with energy and not a wall becoming a window.
 examples/00_blob_viz_tools/build_room_view.py	WHY THE SHELL SHAPE IS A CONTROL AND NOT A SETTING	WHY THE SHELL SHAPE IS A CONTROL
 examples/00_blob_viz_tools/build_room_view.py	drawn evenly over the directions rather than evenly over the angles.	drawn evenly over the directions and not evenly over the angles.

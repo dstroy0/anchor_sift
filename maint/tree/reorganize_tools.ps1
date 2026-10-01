@@ -24,7 +24,7 @@ param([switch]$DryRun)
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent $PSScriptRoot
+$root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $tools = Join-Path $root "tools"
 
 # What each file is. That is the only thing that decides where it goes.

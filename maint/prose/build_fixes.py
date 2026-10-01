@@ -23,7 +23,7 @@ import io
 import os
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TABLE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prose_fixes.tsv")
 
 

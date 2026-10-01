@@ -36,7 +36,7 @@ import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 THEORY = os.path.join(HERE, "theory")
 

@@ -18,7 +18,7 @@ import re
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 UNREAD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grade_unread.py")
 

@@ -26,7 +26,7 @@ import re
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SHOW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "show_findings.py")
 
 # Widen a reported token to the construction it belongs to, longest first.

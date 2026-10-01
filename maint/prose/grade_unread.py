@@ -27,7 +27,7 @@ import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CHECK = os.path.join(HERE, "maint", "prose", "docs_check")
 
 # Kinds the gate does not read, and the checked kind each is staged as. C++ and CUDA are staged as

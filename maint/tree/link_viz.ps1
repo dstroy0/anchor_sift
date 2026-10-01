@@ -34,7 +34,7 @@
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent $PSScriptRoot
+$root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $tools = Join-Path $root "tools"
 $anchor = Join-Path (Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $root))) "anchor_sift"
 
