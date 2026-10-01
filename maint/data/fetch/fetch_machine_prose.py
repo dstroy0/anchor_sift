@@ -2,42 +2,20 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Fetch published Opus 5 prose, for the positive pole of machine_distance.
+# Fetch published machine prose, for the positive pole of machine_distance.
 #
 #   Usage:  python maint/data/fetch/fetch_machine_prose.py [--words N]
 #
-# WHY THIS EXISTS, AND HOW MUCH IT ACTUALLY GETS
+# WHY THIS EXISTS, AND WHAT IT FETCHES NOW
 #
-# machine_distance.py needs two poles. The human pole is 154 research papers, 759,815 words after
-# gating. The machine pole was one page written by hand, 996 gated words, and a pole that small
-# cannot carry a distribution: its own halves sat 0.3647 apart where the human pole's sat 0.0834.
-#
-# This does not fix that, and the number is worth stating plainly. A search of every Opus 5 dataset
-# published finds ten, and most are image captions, token ledgers, or a single example wrapped in
-# metadata. Two carry usable machine prose and one of those answers 401. What lands is about
-# fifteen thousand words, not the million this file was first written to fetch.
-#
-# The reason is visible in the schema and not in the prose. The largest of them is four megabytes
-# and 84 percent of that is system prompts: 3,340,667 characters of system against 124,727 of
-# assistant. The coding set is mostly code, which is stripped. A public corpus of this model writing
-# English at length does not appear to exist yet, and a pole of this size resolves an extreme and
-# nothing finer. Say so wherever a number from it is quoted.
-#
-# AND THE FIFTEEN THOUSAND IS RAW. THE GATED COUNT IS SMALLER AND UNEVEN
-#
-# The gated count is a fraction of the raw one and the fraction is uneven across uploads. A coding
-# upload gates at around nine tenths. An agent-trace upload gates at under one tenth, because the
-# trace is tool, call, function, get, parameter written out, and the English gate throws the rest
-# away for not being English writing. The larger upload by raw count is the smaller by nearly five
-# to one once the gate has run.
-#
-# So the merged pole is mostly one upload. The three carry the same label and are not the same kind
-# of text, which is a defect in the pole and not in the gate. maint/prose/oracle_agreement.py is
-# the check for it, and at this size it errors instead of placing them at all.
+# machine_distance.py needs a machine pole, and this builds it from published datasets of generated
+# output. SOURCES below is empty: the datasets that were there carried a model name and are gone.
+# Until it names one from the generation under test, this fetches nothing, and the machine pole comes
+# from session_prose.py, which takes the machine's own prose out of a session transcript.
 #
 # WHAT IS FETCHED, AND WHAT THAT IS NOT
 #
-# Three published datasets of generated output, all ungated, all plain JSON or JSONL. Only the
+# Published datasets of generated output, all ungated, all plain JSON or JSONL. Only the
 # generated turns are kept: the human turns in them were written by people and belong to the other
 # pole. Fenced code blocks come out, because the thing being measured is prose and a file full of
 # Python would otherwise match on its Python.
@@ -135,7 +113,7 @@ APART = os.path.join(CORPORA, "machine_prose_by_source")
 
 BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 
-# Dataset, file, and the shape its records take. Ordered so the largest lands first.
+# Each entry is a dataset, a file in it, and the shape its records take. Order them largest first.
 #
 # ONE GENERATION ONLY, and it has to be the generation under test. A corpus from an older one
 # answers a different question. The trap in mixing them: phrases this tree takes for the machine
@@ -144,30 +122,18 @@ BLOB = "https://huggingface.co/datasets/%s/resolve/main/%s"
 #
 # THE LABEL IS A CLAIM AND NOT EVIDENCE
 #
-# Nobody can verify from the outside that a community upload holds what it claims to. Three
-# uploaders are used instead of one for that reason: if three independently published corpora that
-# all claim Opus 5 agree with each other more closely than any agrees with a corpus from another
-# model, the label is carrying information. If they disagree, one or more of them is mislabeled
-# and the pole is not usable. maint/prose/oracle_agreement.py runs that check.
+# Nobody can verify from the outside that a community upload holds what it claims to. More than one
+# uploader is used for that reason: if independently published corpora that all claim one generation
+# agree with each other more closely than any agrees with a corpus from another model, the label is
+# carrying information. If they disagree, one or more of them is mislabeled and the pole is not
+# usable. maint/prose/oracle_agreement.py runs that check.
 #
 # The no_reasoning variants are taken where a dataset offers both. A reasoning trace is a different
 # register from an answer, and mixing them would build a pole out of two things.
-SOURCES = (
-    (
-        "beyoru/Claude-opus-5-xhigh-workload-agent-preview",
-        "full_train_no_reasoning.jsonl",
-        "sharegpt-lines",
-    ),
-    ("beyoru/Claude-Opus-5-safety", "full_train_no_reasoning.jsonl", "sharegpt-lines"),
-    (
-        "Ironwood-LLM-Team/Claude-Opus-5-Coding",
-        "Claude Opus Training.jsonl",
-        "sharegpt-lines",
-    ),
-)
+SOURCES = ()
 
 # Which speaker in a ShareGPT record is the machine. The human turns are somebody else's prose.
-ASSISTANT = ("gpt", "assistant", "claude", "model")
+ASSISTANT = ("gpt", "assistant", "model")
 
 FENCED = re.compile(r"```.*?```", re.DOTALL)
 INLINE = re.compile(r"`[^`\n]*`")

@@ -9,23 +9,23 @@
 #
 # WHAT THE QUESTION IS
 #
-# fetch_machine_prose.py takes three community uploads that all claim one model generation. Nobody
+# fetch_machine_prose.py takes community uploads that all claim one model generation. Nobody
 # can verify that from the outside: a label on a public dataset is a claim by whoever uploaded it,
 # and a corpus of some other model's output under that name would look the same from here.
 #
-# Three independent uploads make the claim checkable without trusting any of them. If corpora that
+# Independent uploads make the claim checkable without trusting any of them. If corpora that
 # all claim one model resemble each other more than any of them resembles a corpus known to be
 # something else, the label is carrying information. If one sits as far from its own siblings as it
 # does from the control, it is either mislabeled or a different register, and a pole built out of
-# all three is a pole built out of two things.
+# all of them is a pole built out of two things.
 #
 # This is the oracle pattern the rest of this work uses, over labels instead of over measurements.
 # The agreement is the evidence, and no single corpus is trusted to speak for itself.
 #
 # WHAT IT DOES NOT ANSWER
 #
-# It cannot say the label is right. Three uploads of the same mislabeled corpus agree perfectly,
-# and so do three corpora of three different models that happen to share a register. What it
+# It cannot say the label is right. Uploads of the same mislabeled corpus agree perfectly,
+# and so do corpora of different models that happen to share a register. What it
 # catches is the ordinary failure: one upload among several that is not what the others are.
 #
 # The control matters for the same reason. Against a control too close to the subject the

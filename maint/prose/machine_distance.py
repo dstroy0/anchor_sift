@@ -58,8 +58,7 @@ from english_gate import english_only, english_words  # noqa: E402
 #
 # session_prose.txt is the machine's own messages, taken out of a transcript by session_prose.py.
 # Nobody has to trust a label for it: the turns were written by the model that wrote them. It is
-# also the largest assistant sample available here, 38,702 gated English words against the 5,188 a
-# search of every published Opus 5 dataset could supply.
+# also the largest assistant sample available here.
 SESSION = os.path.join(ROOT, "build", "corpora", "session_prose.txt")
 
 # The published fallback, whose label nobody outside can verify.
