@@ -125,8 +125,8 @@ void omega_closed_mass(const std::vector<unsigned long long> &all_up, std::vecto
     }
 }
 
-// the mass of the n-bit closed terms already in normal form, rounded down: such a term halts without a step, so
-// every one past L adds to the halted mass uncounted by any run. A normal form is a lambda over a normal form or a
+// the mass of the n-bit closed terms already in normal form, rounded down: such a term halts without a step.
+// Every one past L adds to the halted mass uncounted by any run. A normal form is a lambda over a normal form or a
 // neutral term; a neutral term is a variable or a neutral term applied to a normal form.
 void omega_normal_mass(std::vector<unsigned long long> &normal_closed)
 {

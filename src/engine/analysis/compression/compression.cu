@@ -13,7 +13,7 @@
 
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
 
-// cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
+// cudaError_t enumerates non-negative codes below INT_MAX: the status converts to int exactly
 #define COMPRESSION_STATUS_CHECK(call_, evacaddr_, error_)                                                             \
     engine_status_check((int)(call_), ENGINE_MODULE_COMPRESSION, (unsigned int)__LINE__, (const void *)(evacaddr_),    \
                         (error_))
@@ -268,7 +268,7 @@ static int compression_reserve_chunks(size_t chunks, EngineError *error)
     resident->scan_bytes = 0u;
     size_t scan_bytes = 0u;
     // cub sizes the scan's scratch when asked with none, and allocates nothing; compression_chunks holds the count
-    // below 2^31 - 1, so it narrows to cub's int exactly
+    // below 2^31 - 1: it narrows to cub's int exactly
     int ok = COMPRESSION_STATUS_CHECK(
         cub::DeviceScan::ExclusiveSum(NULL, scan_bytes, resident->chunk_bits, resident->chunk_offsets, (int)chunks),
         &scan_bytes, error);
@@ -317,14 +317,14 @@ extern "C" unsigned long long compression_reserve_bytes(unsigned long long count
     const unsigned long long chunks = compression_chunks(count);
     size_t scan_bytes = 0u;
     // cub sizes the scan's scratch when asked with none, and allocates nothing; compression_chunks holds the count
-    // below 2^31 - 1, so it narrows to cub's int exactly
+    // below 2^31 - 1: it narrows to cub's int exactly
     if ((chunks == 0ull) || (cub::DeviceScan::ExclusiveSum(NULL, scan_bytes, (const unsigned long long *)NULL,
                                                            (unsigned long long *)NULL, (int)chunks) != cudaSuccess))
     {
         return 0ull;
     }
     DevicePoolTakeRequest takes[COMPRESSION_CHUNK_SLICES];
-    // a size_t holds 64 bits, which device_pool asserts, so the chunk count converts exactly
+    // a size_t holds 64 bits, which device_pool asserts: the chunk count converts exactly
     const DevicePoolPlan plan = compression_chunk_plan((size_t)chunks, scan_bytes, NULL, takes);
     return device_pool_plan_bytes(&plan);
 }

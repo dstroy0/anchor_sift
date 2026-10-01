@@ -15,7 +15,7 @@ static_assert((DEVICE_POOL_PAGE_BYTES & (DEVICE_POOL_PAGE_BYTES - 1ull)) == 0ull
 
 static_assert(sizeof(size_t) >= sizeof(unsigned long long), "cudaMalloc's size_t holds a pool's 64-bit byte count");
 
-// cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
+// cudaError_t enumerates non-negative codes below INT_MAX: the status converts to int exactly
 #define DEVICE_POOL_STATUS_CHECK(call_, evacaddr_, error_)                                                             \
     engine_status_check((int)(call_), ENGINE_MODULE_DEVICE_POOL, (unsigned int)__LINE__, (const void *)(evacaddr_),    \
                         (error_))
@@ -98,7 +98,7 @@ extern "C" long device_pool_take(const DevicePoolTakeRequest *request)
         return DEVICE_POOL_ERROR;
     }
     DevicePool *const pool = request->pool;
-    // what is taken never passes the pool, which is at most 2^62 bytes, so the rounding never wraps
+    // what is taken never passes the pool, which is at most 2^62 bytes: the rounding never wraps
     const unsigned long long offset = device_pool_round(pool->used, DEVICE_POOL_SLICE_ALIGN);
     if (!DEVICE_POOL_CHECK((offset <= pool->bytes) && (request->bytes <= (pool->bytes - offset)), pool, error,
                            ENGINE_ERROR_REQUEST))

@@ -76,8 +76,8 @@ void track_floor_host(const unsigned short *lanes, long long *work, long long *b
     }
 }
 
-// the engine's floor 2 of one frame: the tower lifts the frame, and the levels past floor 2 lift only its corner, so
-// the crystal's corner lowered as a tower of its own side is floor 2, every value held inside the lane
+// the engine's floor 2 of one frame: the tower lifts the frame, and the levels past floor 2 lift only its corner.
+// The crystal's corner lowered as a tower of its own side is floor 2, every value held inside the lane
 int track_floor_engine(const unsigned short *device_lanes, int *crystal, int *corner, unsigned short *floor_values)
 {
     EngineError error;

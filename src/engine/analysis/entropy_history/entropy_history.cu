@@ -11,7 +11,7 @@
 
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
 
-// cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
+// cudaError_t enumerates non-negative codes below INT_MAX: the status converts to int exactly
 #define ENTROPY_HISTORY_STATUS_CHECK(call_, evacaddr_, error_)                                                         \
     engine_status_check((int)(call_), ENGINE_MODULE_ENTROPY_HISTORY, (unsigned int)__LINE__,                           \
                         (const void *)(evacaddr_), (error_))

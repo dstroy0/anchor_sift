@@ -16,7 +16,7 @@ static long noise_moments_sample(const unsigned short *volume, const unsigned lo
     const unsigned long long square = NOISE_MOMENT_RANGE * NOISE_MOMENT_RANGE;
     const unsigned long long fourth = square * square;
     const unsigned long long spread = ((voxels != 0ull) && (frames <= (~0ull / voxels))) ? (frames * voxels) : ~0ull;
-    // a block's |S1| is at most half its frames and each power at most its frames times the range to that power, so
+    // a block's |S1| is at most half its frames and each power at most its frames times the range to that power:
     // S4 bounds every product the cells sum but S2^2, which they sum wide; sumS4 is at most the sample's voxel-frames
     // times the range to the fourth, and the values at most the voxel-frames times the lane's top; the quiet mask holds
     // to 65536 frames

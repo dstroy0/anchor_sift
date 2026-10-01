@@ -84,7 +84,7 @@ static std::string code_generator_argument(const Ruleset *rules, const RegisterF
 
 // how many registers of the file one register of a bank takes: two for a bank of 64-bit registers, which the file
 // holds as a pair, and one for the rest. The bank of immediates is a word's value written into a form and none of the
-// file, so it is never moved
+// file: it is never moved
 static unsigned int code_generator_takes(unsigned int bank)
 {
     return ((bank == REGCLASS_WIDE) || (bank == REGCLASS_MEMBER)) ? 2u : 1u;
