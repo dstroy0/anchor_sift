@@ -4,8 +4,8 @@
 #
 # Runs the docs check before a commit is written.
 #
-# It lives in the repository instead of .git/hooks so it is version controlled and everyone gets the
-# same one. Turn it on once per clone:
+# This hook sits in the repository instead of .git/hooks. It is version controlled and everyone gets
+# the same one. Turn it on once per clone:
 #
 #     git config core.hooksPath .githooks
 #
@@ -14,8 +14,8 @@
 #
 # Prose findings are a ratchet. maint/prose/prose_ratchet.tsv holds the most prose findings each file
 # may carry. A commit that raises a staged file above its number is stopped. A commit that lowers one
-# writes the lower number into the ratchet and stages it with the commit, so the backlog only
-# shrinks. Only staged files are held to it: the rest of the working tree is somebody else's work in
+# writes the lower number into the ratchet and stages it with the commit. The backlog only shrinks.
+# Only staged files are held to it: the rest of the working tree is somebody else's work in
 # progress.
 #
 # The markdown case is read off the rendered page and not off the source. A --- typesets as an em
@@ -45,20 +45,19 @@
 #
 # WHY THIS RESOLVES ITS OWN PATHS
 #
-# Every path here is built from the hook's own location. Testing for a docs directory in the working
-# directory and exiting 0 where there is none, or naming the checker by a literal path, are the two
-# faults this avoids, and both pass silently: a hook that cannot find the tool and a hook that
-# cannot find the files both let the commit through while looking like they ran.
+# Every path here is built from the tree git names as the toplevel, not from where this script sits.
+# Testing for a docs directory in the working directory and exiting 0 where there is none, or naming
+# the checker by a literal path, are the two faults this avoids, and both pass silently: a hook that
+# cannot find the tool and a hook that cannot find the files both let the commit through while
+# looking like they ran.
 
 set -u
 
 # The tree being committed, and not the tree this script happens to sit in. core.hooksPath is an
-# absolute path into the main checkout. "$0" is always main's copy of this file however many
-# linked worktrees exist. Resolving from it gated every worktree commit on main's WORKING TREE
-# instead of on what was being committed, and main's working tree holds whatever is half written
-# there at that moment. Two commits were stopped that way inside a few minutes, by two different
-# files, neither belonging to the commit being stopped. --show-toplevel is correct for
-# the main worktree and for a linked one alike.
+# absolute path into the main checkout. "$0" is always main's copy of this file, however many
+# linked worktrees exist. Resolving from "$0" gates a linked worktree's commit on main's WORKING
+# TREE, which holds whatever is half written there at that moment, instead of on what is being
+# committed. --show-toplevel is correct for the main worktree and for a linked one alike.
 REPO=$(git rev-parse --show-toplevel 2>/dev/null)
 
 if [ -z "$REPO" ]; then
@@ -67,10 +66,10 @@ if [ -z "$REPO" ]; then
 fi
 
 # The tools directory is named once, in repotools.toml, and asked for by kind and not by
-# directory. Hardcoding maint/ here makes the tools move under objective 5 a hook edit
-# instead of a config line, and a hook that is edited by hand during a move is a hook that gets it
-# wrong. A missing key stops the commit instead of falling back to a guess. A guessed path can
-# name a directory that no longer holds the tools, and every check below would then be skipped.
+# directory. Hardcoding maint/ here makes a tools move a hook edit instead of a config line, and a
+# hook that is edited by hand during a move is a hook that gets it wrong. A missing key stops the
+# commit instead of falling back to a guess. A guessed path can name a directory that no longer
+# holds the tools, and every check below would then be skipped.
 TOOLS=$(sed -n 's/^[[:space:]]*tools[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' \
     "$REPO/repotools.toml" 2>/dev/null | head -1)
 
@@ -89,10 +88,9 @@ if [ ! -f "$CHECK/__main__.py" ]; then
 fi
 
 # No root argument. The checker uses its own roots, all inside this repository: docs, src, examples,
-# maint and theory. Naming only docs here once left twelve READMEs beside the code
-# unchecked, and one of them was carrying a paragraph inside a table. The checker now raises on a
-# root that does not exist, the other half of the same fault: it once read 188 files instead of 317
-# and exited 0.
+# maint and theory. Naming only docs here leaves the READMEs beside the code unchecked, and a README
+# can carry a paragraph inside a table. The checker raises on a root that does not exist, the other
+# half of the same fault: the checker reads only part of the tree and exits 0.
 RATCHET="$REPO/$TOOLS/prose/prose_ratchet.tsv"
 python "$CHECK" --staged --ratchet="$RATCHET"
 status=$?
@@ -113,10 +111,9 @@ fi
 # carries the tool's own --bypass in and the commit goes through with the bypass printed.
 CITATIONS="$REPO/$TOOLS/citations/citations.py"
 
-# A missing tool stops the commit and is never skipped. This block used to guard with -f and do
-# nothing when the file was absent. When maint/ was sorted into categories and citations.py moved
-# one directory down, the gate turned itself off and every commit passed without it. Nothing said
-# so. That is the fault this hook's own header was written about, reintroduced by a move.
+# A missing tool stops the commit and is never skipped. A guard that does nothing when the file is
+# absent turns the gate off and says nothing, and every commit then passes without it: the fault
+# this hook's own header is written about.
 if [ ! -f "$CITATIONS" ]; then
     echo "  commit stopped: no citation gate at $CITATIONS"
     echo "  the hook has the wrong path, or the checkout is incomplete."

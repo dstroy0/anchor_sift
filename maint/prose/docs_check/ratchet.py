@@ -74,3 +74,21 @@ def staged_paths():
     """Repository-relative paths the commit being written adds, copies, modifies or renames."""
     said = git_say(REPOSITORY, ("diff", "--cached", "--name-only", "--diff-filter=ACMR"))
     return set(one.strip() for one in (said or "").splitlines() if one.strip())
+
+
+def staged_under(roots):
+    """The absolute path of every staged file that sits under one of the given roots.
+
+    A pre-commit hook holds what the commit carries, and the read is scoped to the staged files and
+    not the whole tree. A staged file outside every root has no ceiling here and is not this gate's
+    to hold. It is left out. A root is a directory or a single file, and the test answers both.
+    """
+    here = []
+    bounds = [os.path.abspath(root) for root in roots]
+    for name in staged_paths():
+        path = os.path.abspath(os.path.join(REPOSITORY, name))
+        for root in bounds:
+            if path == root or path.startswith(root + os.sep):
+                here.append(path)
+                break
+    return here
