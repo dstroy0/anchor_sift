@@ -30,7 +30,7 @@ typedef enum
     QUERY_HOLDS,
     // the word read at the address is the word the ask carries
     QUERY_EQUALS,
-    // a second read of the address gives a word past the first, read as unsigned: it counts
+    // a later read of the address, inside `turns` reads, gives a word past the first, read as unsigned: it counts
     QUERY_ADVANCES
 } QueryQualifier;
 
@@ -42,7 +42,9 @@ typedef enum
     // the qualifier did not hold
     QUERY_NOT_HELD,
     // the qualifier held, and the cost came in past the bound
-    QUERY_PAST_BOUND
+    QUERY_PAST_BOUND,
+    // the process the ask was put from ended before it answered, and the ending is the answer: `fault` says how
+    QUERY_ENDED
 } QueryKind;
 
 // one ask, and what came back
@@ -54,6 +56,9 @@ typedef struct
     unsigned int qualifier;
     // the word QUERY_EQUALS compares against; unread by the other qualifiers
     unsigned int word;
+    // the most reads QUERY_ADVANCES puts after its first before the address reads as not advancing, 0 or 1 for one;
+    // unread by the other qualifiers
+    unsigned long long turns;
     // the address of a counter found by QUERY_ADVANCES, or 0 for none: the cost is then unread
     unsigned long long clock;
     // 0 puts the ask unbound and returns its cost; any other value is the most the answer may cost
@@ -67,6 +72,8 @@ typedef struct
     unsigned long long cost;
     // 1 where a clock was given and read
     unsigned int cost_read;
+    // the rule the ending named where the kind is QUERY_ENDED, a CellFault; 0 otherwise
+    unsigned int fault;
 } QueryAsk;
 
 // `asked` put to its address. The bit, which is also written into `asked`

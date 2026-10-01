@@ -219,9 +219,15 @@ works there.
    unbound and a bit bound, the cost read off a clock that is itself an address. `query_ask_check.c` holds it to
    memory the test owns and to the host's interrupt time at a fixed address, found advancing by the ask itself.
    That counter steps once a clock interrupt, half a millisecond to a millisecond, and an ask is far shorter: a
-   cost read from it is a step or nothing. A bound set from it judges a run of asks and never one. The next
-   piece is the run channel made of asks of that form, with the known order, its solve and the gate's descent
-   running over them.
+   cost read from it is a step or nothing. A bound set from it judges a run of asks and never one. Asks at
+   addresses nothing has said are safe go through `query_cell_walk` (`compiler/bootstrap/query_cell.{h,c}`):
+   the cell runs `query_walk` in a child, one address after another, and an address that ends the child is
+   answered by the ending, the walk going on from the next address in a fresh child. `query_cell_check.c` holds
+   it to address 0, which ends the asker on an address fault, and to the page every Windows process shares,
+   which answers reads and ends the asker on a put. Of that page's first sixteen words the walk finds two that
+   advance, at 0x8 and 0x14, the interrupt time and the system time of the page's own layout. The next piece is
+   the run channel: the part's addresses found by walks of that form, with the known order, its solve and the
+   gate's descent running over them.
 
 2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.

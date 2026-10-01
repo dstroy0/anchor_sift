@@ -14,10 +14,17 @@ static unsigned int query_held(const QueryAsk *asked)
     case QUERY_EQUALS:
         return (host_read(asked->address) == asked->word) ? 1u : 0u;
     case QUERY_ADVANCES: {
-        // a counter that wraps between the two reads still reads forward: the difference taken in the word's own
-        // width is a forward step where it sits in the lower half of the word
+        // The first read is held and the address read again until a word differs from it or the reads run out: a
+        // counter that steps once in a while is caught at its step and not only where a step falls between two
+        // reads in a row. A counter that wraps between the reads still reads forward: the difference taken in the
+        // word's own width is a forward step where it sits in the lower half of the word
         const unsigned int first = host_read(asked->address);
-        const unsigned int then = host_read(asked->address);
+        const unsigned long long reads = (asked->turns > 1ull) ? asked->turns : 1ull;
+        unsigned int then = first;
+        for (unsigned long long turn = 0ull; (turn < reads) && (then == first); turn += 1ull)
+        {
+            then = host_read(asked->address);
+        }
         const unsigned int step = then - first;
         return ((step != 0u) && (step < 0x80000000u)) ? 1u : 0u;
     }
@@ -36,6 +43,7 @@ unsigned int query_ask(QueryAsk *asked)
     // the clock's advance in its own width, which holds one wrap of the counter
     asked->cost = (clocked != 0u) ? (unsigned long long)(end - start) : 0ull;
     asked->cost_read = clocked;
+    asked->fault = 0u;
 
     if (held == 0u)
     {
