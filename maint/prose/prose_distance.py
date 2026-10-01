@@ -106,7 +106,7 @@ def prose_of(path):
 # The roots read where the caller names none. Every name here has to be a directory that exists: a
 # name no directory answers is skipped in silence, and the walk then reads fewer files than it
 # reports.
-DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory")
+DEFAULT_ROOTS = ("docs", "src", "examples", "maint", "theory", "test")
 
 
 def repository_files(where=None, roots=None):
