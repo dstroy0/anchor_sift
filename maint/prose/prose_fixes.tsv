@@ -1,4 +1,4 @@
-# Prose rewrites for maint/fix_prose.py. Three tab separated fields: file, exact text to find,
+# Prose rewrites for maint/prose/fix_prose.py. Three tab separated fields: file, exact text to find,
 # replacement. Use \n for a line break inside a field.
 #
 # This file quotes banned phrases by necessity, since that is what it matches on. The gate does not
