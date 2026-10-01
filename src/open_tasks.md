@@ -5,9 +5,21 @@ picks it up.
 **Scope:** The items beside `engine_plan.md`. The plan says what the engine is and why; this file says what is left
 to do and how. An item that is done comes out of this file.
 
+## First
+
+1. **Ask the part how it loops (plan, Open 14).** This is the next piece of work. The probe ask that puts each candidate in `loop_back`'s place to
+   the part is not written. The plan gives the design. What the existing pieces need from it:
+   - `sass_cubin_answer` in `utils/test/engine/compiler/cell/cell_sass_probe_ask.c` passes fixed input words; the
+     loop ask needs N as word 0.
+   - The pattern kernel `form_0` loads word 0 into R0 and word 1 into R7, and stores R7 as the first answer word.
+   - Candidates fill register operands with a register the loop does not keep (it keeps R0, R2 to R5, R7, R9 and
+     P0).
+   - A mode of `cell_sass_probe_main.c` that reads the machine file already learned (`sass_machine_read`) and an
+     existing pattern folder runs the ask alone, without the 50-minute relearn.
+
 ## Branches waiting to land
 
-1. **`cu-tree-loops`: paths the cu move left behind.** It repoints:
+2. **`cu-tree-loops`: paths the cu move left behind.** It repoints:
    - `.cu` paths built from a loop variable, `"$OBSIGNATIO/$name.cu"`, in `src/engine/quantum/qasm/build.sh`,
      `src/sims/run.sh` and `utils/test/engine/runtime/daemon/run.sh`, to their `_CU` directory;
    - `"$QASM/qasm_bitstring.cu"` in both qasm `run.sh`, where `QASM` comes from the `build.sh` they source;
@@ -21,7 +33,7 @@ to do and how. An item that is done comes out of this file.
    checkout's paths) and the three suites that run under WSL. Run a suite's script with Git Bash: `bash` on the
    Windows path is WSL's, which has no nvcc.
 
-2. **`cu-ports-2`: reading SASS back, the loop check, and the branch distance.** In
+3. **`cu-ports-2`: reading SASS back, the loop check, and the branch distance.** In
    `src/engine/compiler/cubin/sass_assemble.{c,h}`:
    - `sass_encoding_read` reads an encoding back into its instruction through the machine file's forms, with no
      disassembler;
@@ -34,16 +46,6 @@ to do and how. An item that is done comes out of this file.
    unchanged. Ordinary branches encode the same bits as before; only a form with bits set at 32 or 33 changes.
 
 ## Engine work
-
-3. **Ask the part how it loops (plan, Open 14).** The probe ask that puts each candidate in `loop_back`'s place to
-   the part is not written. The plan gives the design. What the existing pieces need from it:
-   - `sass_cubin_answer` in `utils/test/engine/compiler/cell/cell_sass_probe_ask.c` passes fixed input words; the
-     loop ask needs N as word 0.
-   - The pattern kernel `form_0` loads word 0 into R0 and word 1 into R7, and stores R7 as the first answer word.
-   - Candidates fill register operands with a register the loop does not keep (it keeps R0, R2 to R5, R7, R9 and
-     P0).
-   - A mode of `cell_sass_probe_main.c` that reads the machine file already learned (`sass_machine_read`) and an
-     existing pattern folder runs the ask alone, without the 50-minute relearn.
 
 4. **Every computing function in `cu/` (plan, Open 13).** One of 132 is done (`double_fields`). The rest are rows
    in `TREE_LAYOUT_PLAN.tsv`, listed by `python utils/maint/engine/tree_layout_check.py --write`. A function with
