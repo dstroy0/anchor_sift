@@ -20,7 +20,7 @@ A side reads 1 where its ask held inside the bound, and 0 where it did not hold,
 came in past the bound. A cycle's state follows from the two sides and from how they read:
 
     BLOK  a side ended its asker: a hard refusal
-    GRAY  a side was not asked: every state at once, until an ask is put
+    GRAY  a side was not asked: every state at once, until an ask is put. Into it is FUZZ, out FIZZ
     WAIT  one side held and the other answered past the bound: it lags
     BUSY  both held, each costing more than any held ask of the baseline cycles
     DUAL  both held
@@ -143,6 +143,21 @@ def read_trace(cycles, held=None):
     return states, labels
 
 
+def atomic(labels):
+    """Whether every trip through GRAY is one unit: a FUZZ opens it, one FIZZ closes it, and none nests."""
+    open_span = False
+    for label in labels:
+        if label == "FUZZ":
+            if open_span:
+                return False
+            open_span = True
+        elif label == "FIZZ":
+            if not open_span:
+                return False
+            open_span = False
+    return True
+
+
 def stream(states, labels):
     """The trace as the coherence clock prints it."""
     out = ["[%s]" % states[0]]
@@ -207,17 +222,34 @@ def check():
             print("  FAILED: %s: wanted %s, read %s" % (what, want, got))
 
     # GRAY: a side not asked leaves the pair every state at once, whatever the other side read, and a refusal is
-    # an answer and still reads BLOK. Nothing names a transition into or out of GRAY yet, and none is labeled
+    # an answer and still reads BLOK. Into GRAY is FUZZ, out of it FIZZ, and GRAY to GRAY is neither
     unasked = (UNASKED, 0)
     gray_held = all(state_of(unasked, other, 120) == "GRAY" for other in
                     (("HELD", 100), ("NOT_HELD", 0), ("PAST_BOUND", 1050), unasked))
     gray_held = gray_held and state_of(("HELD", 100), unasked, 120) == "GRAY"
     gray_held = gray_held and state_of(unasked, ("ENDED", 0), 120) == "BLOK"
-    states, labels = run([(unasked, unasked, 1000), dual, (("HELD", 100), unasked, 1000)])
-    gray_held = gray_held and states[-3:] == ["GRAY", "DUAL", "GRAY"] and labels[-2:] == [None, None]
+    states, labels = run([(unasked, unasked, 1000), (unasked, unasked, 1000), dual])
+    gray_held = gray_held and states[-3:] == ["GRAY", "GRAY", "DUAL"] and labels[-3:] == ["FUZZ", None, "FIZZ"]
     if not gray_held:
         failed += 1
-        print("  FAILED: an unasked side reads GRAY, a refusal BLOK, and GRAY's transitions carry no label")
+        print("  FAILED: an unasked side reads GRAY, a refusal BLOK, into GRAY is FUZZ and out of it FIZZ")
+
+    # atomicity, over drawn traces: a FUZZ never opens while one is open, and every FIZZ closes the one open FUZZ
+    drawn = 0x2545f491
+    broken = 0
+    sides = [("HELD", 100), ("HELD", 900), ("NOT_HELD", 0), ("PAST_BOUND", 1050), ("ENDED", 0), unasked]
+    for _trace in range(500):
+        rows = []
+        for _cycle in range(40):
+            drawn = (drawn * 1103515245 + 12345) & 0x7fffffff
+            left = sides[(drawn >> 8) % len(sides)]
+            right = sides[(drawn >> 16) % len(sides)]
+            rows.append((left, right, 1000))
+        _states, labels = run(rows)
+        broken += 0 if atomic(labels) else 1
+    if broken:
+        failed += 1
+        print("  FAILED: %d of 500 drawn traces open a FUZZ inside one or close a FIZZ with none open" % broken)
 
     # every pair the tables name is decided in every situation a side can be in
     situations = [(kind, cost) for kind in KINDS for cost in (0, 100, 1050, 5000)]

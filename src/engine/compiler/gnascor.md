@@ -190,7 +190,11 @@ Where states are evaluated by address validation and resource cost, busy and err
 - **BUSY, friction or high mass.** Both systems respond and both sit on the edge of the allowed cost threshold. The states are valid and heavy, and they are dragging the cycle time down.
 - **WAIT, potential or latency.** One system is responsive and the other lags just enough to stall the branch evaluation without failing. It is stored potential waiting on synchronization.
 - **BLOK, resistance or wall.** An address is valid and returning a hard structural refusal or maximum friction, which stops any semantic evaluation crossing the branch.
-- **GRAY, every state at once.** A side has not been asked, and the pair holds no reading. It is any of the states above until an ask is put, and it is not VOID: VOID is an answer of no, and GRAY is no answer. Leaving GRAY is a first observation. Entering it is the loss of the ability to ask.
+- **GRAY, every state at once.** A side has not been asked, and the pair holds no reading. It is any of the states above until an ask is put, and it is not VOID: VOID is an answer of no, and GRAY is no answer. Leaving GRAY is a first observation, FIZZ. Entering it is the loss of the ability to ask, FUZZ.
+
+```
+FUZZ -> GRAY -> FIZZ <-> FUZZ | FIZZ x> GRAY x> FUZZ <-> FIZZ preserves atomicity
+```
 
 ### High-order physics and error mnemonics
 
@@ -219,14 +223,14 @@ The physics of coherence from cycle N-1 to cycle N. Plotting the base binary pai
 
 | past (N-1) | DUAL (1,1) | LEAD (1,0) | RITE (0,1) | VOID (0,0) | BUSY (heavy) | WAIT (delayed) | BLOK (refusal) | GRAY (unasked) |
 |---|---|---|---|---|---|---|---|---|
-| DUAL | NEXUS | DROP | SYNC | DROP | SYNC | SYNC | HALT | - |
-| LEAD | JOIN | CORE | PASS | DROP | SYNC | SYNC | HALT | - |
-| RITE | JOIN | BACK | SURV | DROP | SYNC | SYNC | HALT | - |
-| VOID | SPRK | WAKE | WAKE | ZERO | SYNC | SYNC | HALT | - |
-| BUSY | SYNC | SYNC | SYNC | DROP | DRAG | SYNC | JAMM | - |
-| WAIT | SYNC | SYNC | SYNC | LOSS | SYNC | HOLD | HALT | - |
-| BLOK | SYNC | SYNC | SYNC | DROP | SYNC | SYNC | DEAD | - |
-| GRAY | - | - | - | - | - | - | - | - |
+| DUAL | NEXUS | DROP | SYNC | DROP | SYNC | SYNC | HALT | FUZZ |
+| LEAD | JOIN | CORE | PASS | DROP | SYNC | SYNC | HALT | FUZZ |
+| RITE | JOIN | BACK | SURV | DROP | SYNC | SYNC | HALT | FUZZ |
+| VOID | SPRK | WAKE | WAKE | ZERO | SYNC | SYNC | HALT | FUZZ |
+| BUSY | SYNC | SYNC | SYNC | DROP | DRAG | SYNC | JAMM | FUZZ |
+| WAIT | SYNC | SYNC | SYNC | LOSS | SYNC | HOLD | HALT | FUZZ |
+| BLOK | SYNC | SYNC | SYNC | DROP | SYNC | SYNC | DEAD | FUZZ |
+| GRAY | FIZZ | FIZZ | FIZZ | FIZZ | FIZZ | FIZZ | FIZZ | - |
 
 ### How the physics resolves
 
@@ -291,6 +295,6 @@ A heavy data operation then reads as a lifecycle:
 
    Which of these are meant and which are not is Doug's.
 
-   GRAY is every state at once: a side not asked, and a pair with no reading. It keeps the mnemonic layer from collapsing a possibility nobody has observed, and only an ask collapses it. The reader reads a side written as - as unasked and the pair as GRAY, whatever the other side read, and a refusal still reads BLOK, since a refusal is an answer. Fifteen transitions touch GRAY, into it from each of the seven other states, out of it to each of them, and GRAY to GRAY, and none is named yet: the reader prints them unlabeled. Whether a slice whose per-link difference sits inside the floor reads DUAL, as Slicing a chain has it, or GRAY, since it says neither branch is cheaper, is open beside them.
+   GRAY is every state at once: a side not asked, and a pair with no reading. It keeps the mnemonic layer from collapsing a possibility nobody has observed, and only an ask collapses it. The reader reads a side written as - as unasked and the pair as GRAY, whatever the other side read, and a refusal still reads BLOK, since a refusal is an answer. Into GRAY from any other state is FUZZ, and out of GRAY to any other state is FIZZ. A FIZZ never lands on GRAY and GRAY never FUZZes: GRAY to GRAY is neither and carries no label: the pair is still unasked. Those two exclusions make a trip through GRAY atomic. A FUZZ opens it, one FIZZ closes it, and no FUZZ opens inside another. The reader checks that over 500 drawn traces of 40 cycles, every side drawn from held, heavy, not held, late, ended and unasked. Whether a slice whose per-link difference sits inside the floor reads DUAL, as Slicing a chain has it, or GRAY, since it says neither branch is cheaper, is open beside them.
 
    The syntax for writing a query loop is not started.
