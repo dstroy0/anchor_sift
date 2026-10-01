@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Builds utils/test/python/periodic_energy_probe.cu, a job on the device's tessera daemon, and runs
+# Builds utils/test/src/cu/engine/analysis/periodic_energy_probe.cu, a job on the device's tessera daemon, and runs
 # utils/test/python/periodic_energy_test.py against it: measure.periodic_energy graded against
-# src/engine/sims/art/periodic_energy.h, line for line.
+# src/sims/cu/engine/analysis/art/periodic_energy.h, line for line.
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../.." && pwd)"
-ART="$TOP/src/engine/sims/art"
+ART="$TOP/src/sims/cu/engine/analysis/art"
 DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
@@ -48,7 +48,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$ART" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/cu/engine" -I "$ART" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
@@ -71,7 +71,7 @@ done
 tessera_build python_periodic_energy "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/periodic_energy_probe.cu" "$TOP/src/engine/sims/sim_job.cu" \
+    "$TEST/../src/cu/engine/analysis/periodic_energy_probe.cu" "$TOP/src/sims/cu/sim_job.cu" \
     "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the probe"; exit 1; }
 if [ "${BUILD_ONLY:-0}" = "1" ]; then

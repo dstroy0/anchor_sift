@@ -32,7 +32,7 @@
  *       ANCHOR_EXACT_KARATSUBA_LIMBS, then the Schonhage-Strassen transform from
  *       ANCHOR_EXACT_TRANSFORM_LIMBS. Division is Knuth's long division, then Newton's reciprocal on
  *       that ladder from ANCHOR_EXACT_NEWTON_LIMBS. Every rung is measured by
- *       utils/test/engine/arithmetic/no_rounding/exact_transform_test.sh and gives the product or
+ *       utils/test/src/cu/types/integers/exact_transform_test.sh and gives the product or
  *       quotient the rung below it gives.
  * @note A width-sized working copy sits on the stack up to ANCHOR_EXACT_STACK_LIMBS and is held
  *       from the heap past it. No width is bounded by a stack. Where the heap cannot hold a

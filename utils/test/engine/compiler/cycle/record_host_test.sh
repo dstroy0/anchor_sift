@@ -8,14 +8,17 @@ set -u
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../.." && pwd)"
 CYCLE="$TOP/src/engine/compiler/cycle"
+CYCLE_CU="$TOP/src/cu/engine/analysis/cycle"
 KEYMATH="$TOP/src/engine/compiler/keymath"
+KEYMATH_CU="$TOP/src/cu/engine/analysis/keymath"
 KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
+KEY_SCHEDULE_CU="$TOP/src/cu/engine/analysis/key_schedule"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp record_host_test
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$KEYMATH" -I "$KEY_SCHEDULE" -I "$NO_ROUNDING" -I "$SCRIPTURA")
+INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$CYCLE_CU" -I "$KEYMATH" -I "$KEYMATH_CU" -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$NO_ROUNDING" -I "$SCRIPTURA")
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
         BINARY="$OUT/record_host_test.exe"
@@ -66,7 +69,7 @@ for source in "$SCRIPTURA"/*.c "$NO_ROUNDING"/exact_integer_{add,limbs,multiply,
     [ -f "$object" ] || { echo "  build failed: $(basename "$source") did not compile"; exit 1; }
     OBJECTS+=("$object")
 done
-for source in "$KEYMATH/keymath.cu" "$KEY_SCHEDULE/key_schedule.cu"; do
+for source in "$KEYMATH_CU/keymath.cu" "$KEY_SCHEDULE_CU/key_schedule.cu"; do
     object="$OUT/$(basename "$source" .cu)_host.$EXTENSION"
     rm -f "$object"
     build_cpp "$source" "$object"

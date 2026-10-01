@@ -66,7 +66,7 @@ for row in $ARCHES; do
         -gencode "arch=compute_${num},code=${arch}" \
         -I "$ROOT/src/engine/arithmetic/no_rounding" \
         -DANCHOR_EXACT_HAVE_CUDA=1 \
-        -o "$cubin" "$ROOT/src/engine/arithmetic/no_rounding/arm_cuda.cu" >"$WORK/$arch.log" 2>&1; then
+        -o "$cubin" "$ROOT/src/cu/types/integers/arm.cu" >"$WORK/$arch.log" 2>&1; then
         echo "FAILED to compile"
         grep -iE "error" "$WORK/$arch.log" | head -3 | sed 's/^/      /'
         FAIL=$((FAIL + 1))

@@ -10,7 +10,7 @@
 # volume of 16 bit lanes on the device and returns, for each axis, the period the volume carries
 # along it, and this reads the same volume on the host in exact integers and returns the same
 # reading field for field. The two share no code, and utils/test/python/period_test.py grades them
-# against each other through utils/test/python/period_probe.cu, which calls the engine's entry points.
+# against each other through utils/test/src/cu/engine/analysis/period/period_probe.cu, which calls the engine's entry points.
 #
 # WHAT IS READ
 #

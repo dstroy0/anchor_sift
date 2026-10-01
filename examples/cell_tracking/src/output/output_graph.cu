@@ -360,7 +360,7 @@ static int output_graph_read(const char *sample, FILE *points, FILE *links, Outp
     return ended;
 }
 
-// the CRC-64 of the whole file (engine/codecs/crc/crc.h's key), read through `words`, which holds OUTPUT_CHUNK gate
+// the CRC-64 of the whole file (cu/includes/codecs/crc/crc.h's key), read through `words`, which holds OUTPUT_CHUNK gate
 // records
 static int output_file_crc(const char *path, unsigned int *words, unsigned long long *crc)
 {

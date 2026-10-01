@@ -25,7 +25,7 @@
 # it means. No fractions, no math, no importlib: the greatest common divisor is computed here.
 #
 # ONE PRINTER. `ratio_text` writes a ratio to a stated number of decimal places in integers alone,
-# truncated toward zero, the convention of sim_ratio_print in src/engine/sims/sim.h, whose port it is.
+# truncated toward zero, the convention of sim_ratio_print in src/sims/cu/sim.h, whose port it is.
 # A Python reading and the sim beside it therefore print the same digits for the same ratio.
 
 # The widest scaled value sim_ratio_print holds, its 64 bit word.

@@ -15,6 +15,7 @@ build_path()
 {
     case "$1" in
         engine/*) printf '%s\n' "$ENGINE/${1#engine/}" ;;
+        cu/* | sims/*) printf '%s\n' "$ENGINE/../$1" ;;
         *) printf '%s\n' "$TOP/$1" ;;
     esac
 }

@@ -157,7 +157,7 @@ static int faces_words_reserve(FacesWalk *walk, size_t words)
     return grown != NULL;
 }
 
-// the CRC-64 of the whole file (engine/codecs/crc/crc.h's key), read through `chunk`, which holds FACES_CHUNK * 4 bytes
+// the CRC-64 of the whole file (cu/includes/codecs/crc/crc.h's key), read through `chunk`, which holds FACES_CHUNK * 4 bytes
 static int faces_file_crc(const char *path, unsigned int *chunk, unsigned long long *crc)
 {
     FILE *const file = fopen(path, "rb");

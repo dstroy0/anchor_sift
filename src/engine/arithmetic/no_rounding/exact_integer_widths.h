@@ -30,7 +30,7 @@ extern "C"
  *       errors on a width that is not a power of two.
  * @note A build selects any power of two from 1 limb up, 32 bits up, with no ceiling. Every arm is
  *       graded from 1 limb to 32768 by utils/maint/engine/check_exact_widths.sh, and the portable
- *       reference to 4194304 bits by utils/test/engine/arithmetic/no_rounding/exact_transform_test.sh.
+ *       reference to 4194304 bits by utils/test/src/cu/types/integers/exact_transform_test.sh.
  * @note A width below 4096 bits cannot hold the 1024 digit floor. A build selecting one declares
  *       its own ANCHOR_EXACT_DIGITS, and the floor assert below errors on it by name where it does not.
  * @note Defined on both arms so #if always has a value and an unset build is never a silent false.

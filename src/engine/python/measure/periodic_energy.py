@@ -52,11 +52,11 @@
 #
 # WHICH OF THESE THE ENGINE HOLDS IN C
 #
-# The engine's form is src/engine/sims/art/periodic_energy.h, which the fixed_pattern and
+# The engine's form is src/sims/cu/engine/analysis/art/periodic_energy.h, which the fixed_pattern and
 # classify_reject_recover sims call, and the functions named for it below are its Python route:
 # energy_ratio, energy_recover, energy_shuffle, energy_band_top, energy_above,
 # energy_welford, energy_reduction and energy_print. utils/test/python/periodic_energy_test.py grades them
-# against the header through utils/test/python/periodic_energy_probe.cu, and the two share no code.
+# against the header through utils/test/src/cu/engine/analysis/periodic_energy_probe.cu, and the two share no code.
 #
 # The header's ratio is the value dispersion_ratio returns, held unreduced as the header holds it:
 # both energies scaled by the length times the two member counts. Its recover returns no reading at
@@ -222,7 +222,7 @@ def null_band(values, reach, draws=8, seed=SEED):
     return sorted(ratios, key=cmp_to_key(compare))
 
 
-# The engine's form, src/engine/sims/art/periodic_energy.h.
+# The engine's form, src/sims/cu/engine/analysis/art/periodic_energy.h.
 
 _MASK64 = 0xFFFFFFFFFFFFFFFF
 
@@ -238,7 +238,7 @@ def _mix(word):
 
 
 def _draw(key, counter):
-    """sim_draw in src/engine/sims/sim.h."""
+    """sim_draw in src/sims/cu/sim.h."""
     return _mix((key & _MASK64) ^ _mix(counter & _MASK64))
 
 

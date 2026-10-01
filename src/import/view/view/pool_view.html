@@ -1,0 +1,450 @@
+<title>Worker Pool</title>
+<style>
+  :root {
+    --ink: #10151c;
+    --dim: #5c6a7a;
+    --face: #f4f6f8;
+    --panel: #ffffff;
+    --edge: #dfe5ec;
+    --hot: #c2410c;
+    --good: #0f766e;
+    --bad: #b91c1c;
+    --trace: #0f766e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e8edf2;
+      --dim: #8c9aab;
+      --face: #0d1117;
+      --panel: #161b22;
+      --edge: #283039;
+      --hot: #fb923c;
+      --good: #2dd4bf;
+      --bad: #f87171;
+      --trace: #2dd4bf;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8edf2;
+    --dim: #8c9aab;
+    --face: #0d1117;
+    --panel: #161b22;
+    --edge: #283039;
+    --hot: #fb923c;
+    --good: #2dd4bf;
+    --bad: #f87171;
+    --trace: #2dd4bf;
+  }
+  body {
+    background: var(--face);
+    color: var(--ink);
+    margin: 0;
+    font:
+      14px/1.55 "SF Mono",
+      "Cascadia Mono",
+      Consolas,
+      monospace;
+    padding-block: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .sheet {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 19px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+  .sub {
+    color: var(--dim);
+    margin: 0 0 26px;
+    font-size: 12.5px;
+  }
+  h2 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 30px 0 10px;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .cell {
+    background: var(--panel);
+    border: 1px solid var(--edge);
+    border-radius: 3px;
+    padding: 11px 13px;
+  }
+  .cell.gone {
+    border-style: dashed;
+  }
+  .cell.gone .value {
+    color: var(--dim);
+  }
+  .label {
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 5px;
+  }
+  .value {
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+  }
+  .note {
+    font-size: 11px;
+    color: var(--dim);
+    margin-top: 5px;
+  }
+  .note.wide {
+    margin-top: 10px;
+    max-width: 68ch;
+  }
+  .warn {
+    color: var(--hot);
+    font-size: 12px;
+    margin: 12px 0 0;
+    max-width: 68ch;
+  }
+  table {
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+  }
+  th,
+  td {
+    text-align: right;
+    padding: 5px 15px 5px 0;
+  }
+  th {
+    color: var(--dim);
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--edge);
+  }
+  tr.best td {
+    color: var(--good);
+    font-weight: 600;
+  }
+  .trace {
+    width: 100%;
+    height: 110px;
+    display: block;
+    margin-top: 6px;
+  }
+  .trace polyline {
+    fill: none;
+    stroke: var(--trace);
+    stroke-width: 1.6;
+  }
+  .scroll {
+    overflow-x: auto;
+  }
+  footer {
+    color: var(--dim);
+    font-size: 11px;
+    margin-top: 34px;
+    border-top: 1px solid var(--edge);
+    padding-top: 14px;
+    max-width: 72ch;
+  }
+  .live {
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 11px 14px;
+    border-radius: 3px;
+    margin: 0 0 20px 0;
+    border-left: 3px solid;
+    max-width: 74ch;
+  }
+  .live b {
+    font-weight: 650;
+  }
+  .live.ok {
+    color: var(--good);
+    border-left-color: var(--good);
+    background: color-mix(in srgb, var(--good) 8%, transparent);
+  }
+  .live.stale {
+    color: var(--bad);
+    border-left-color: var(--bad);
+    background: color-mix(in srgb, var(--bad) 10%, transparent);
+  }
+</style>
+<div class="sheet">
+  <h1>Worker Pool</h1>
+  <p class="sub">
+    NVIDIA GeForce RTX 3070 &middot; local telemetry, the client's own counters,
+    and the chain read from a verified corpus. Braiins reports the pool side;
+    this is everything the pool cannot see.
+  </p>
+
+  <div class="live stale">
+    NOT MINING. The log has not been written for <b>8.6 hours</b>, so every
+    figure below is a HISTORICAL TOTAL and none of it is current. The miner's
+    last word was: <b>leading zeros 19 (consistent with a real chain tip)</b>
+  </div>
+
+  <h2>Cooking</h2>
+  <div class="grid">
+    <div class="cell">
+      <div class="label">temperature</div>
+      <div class="value">49 &deg;C</div>
+    </div>
+    <div class="cell">
+      <div class="label">power draw</div>
+      <div class="value">13.82 W</div>
+    </div>
+    <div class="cell">
+      <div class="label">utilisation</div>
+      <div class="value">1 %</div>
+    </div>
+    <div class="cell">
+      <div class="label">SM clock</div>
+      <div class="value">210 MHz</div>
+    </div>
+    <div class="cell">
+      <div class="label">fan</div>
+      <div class="value">0 %</div>
+    </div>
+    <div class="cell">
+      <div class="label">memory</div>
+      <div class="value">2571 MiB of 8192 MiB</div>
+    </div>
+  </div>
+  <p class="warn">
+    Utilisation is under five percent, so the card is idle and these readings
+    are its resting state rather than its load. Nothing is mining.
+  </p>
+
+  <h2>Hitting</h2>
+  <div class="grid">
+    <div class="cell">
+      <div class="label">accepted</div>
+      <div class="value">25</div>
+      <div class="note">of 25 submitted</div>
+    </div>
+    <div class="cell">
+      <div class="label">rejected</div>
+      <div class="value">0</div>
+      <div class="note">acceptance 100.0%</div>
+    </div>
+    <div class="cell">
+      <div class="label">total hashed</div>
+      <div class="value">108.28 TH</div>
+    </div>
+    <div class="cell">
+      <div class="label">mean rate</div>
+      <div class="value">2321 MH/s</div>
+    </div>
+    <div class="cell">
+      <div class="label">runs</div>
+      <div class="value">19</div>
+      <div class="note">12.96 hours lifetime</div>
+    </div>
+    <div class="cell">
+      <div class="label">implied difficulty</div>
+      <div class="value">1008</div>
+      <div class="note">from the share spacing, not from the pool</div>
+    </div>
+  </div>
+  <p class="note wide">
+    Share spacing is exponentially distributed, a mean drawn from 25 shares
+    carries a spread of about 20 percent. That is enough to say the client works
+    and not enough to state its rate; roughly nineteen shares would bring it
+    near twenty three percent.
+  </p>
+
+  <h2>Rate trace</h2>
+  <svg viewBox="0 0 720 160" preserveAspectRatio="none" class="trace">
+    <polyline
+      points="0.0,35.7 6.6,34.4 13.2,33.1 19.8,32.1 26.4,31.1 33.0,34.4 39.6,34.9 46.2,35.4 52.8,38.0 59.4,41.1 66.1,42.9 72.7,44.7 79.3,46.5 85.9,46.2 92.5,47.2 99.1,49.8 105.7,50.1 112.3,50.1 118.9,50.8 125.5,51.8 132.1,52.6 138.7,52.1 145.3,52.6 151.9,53.1 158.5,53.9 165.1,53.9 171.7,54.2 178.3,54.4 185.0,54.7 191.6,55.2 198.2,55.7 204.8,56.5 211.4,56.2 218.0,55.9 224.6,56.5 231.2,57.5 237.8,57.5 244.4,57.5 251.0,57.5 257.6,57.2 264.2,57.5 270.8,57.7 277.4,57.7 284.0,57.5 290.6,57.7 297.2,59.0 303.9,59.5 310.5,59.0 317.1,59.5 323.7,60.6 330.3,61.3 336.9,62.1 343.5,62.6 350.1,62.6 356.7,62.4 363.3,63.9 369.9,66.2 376.5,34.2 383.1,31.1 389.7,30.6 396.3,30.3 402.9,29.8 409.5,31.8 416.1,32.9 422.8,33.1 429.4,34.2 436.0,33.6 442.6,33.4 449.2,32.9 455.8,32.1 462.4,31.6 469.0,31.3 475.6,31.1 482.2,30.8 488.8,30.8 495.4,30.8 502.0,30.6 508.6,30.6 515.2,30.3 521.8,30.3 528.4,30.3 535.0,30.1 541.7,29.8 548.3,29.5 554.9,29.3 561.5,29.3 568.1,29.0 574.7,28.8 581.3,28.5 587.9,28.5 594.5,28.3 601.1,28.3 607.7,28.3 614.3,28.3 620.9,28.3 627.5,28.3 634.1,28.0 640.7,28.3 647.3,28.3 653.9,28.3 660.6,28.3 667.2,28.3 673.8,28.3 680.4,28.3 687.0,28.3 693.6,28.5 700.2,28.3 706.8,28.3 713.4,28.5 720.0,28.3"
+    />
+  </svg>
+  <div class="note wide">
+    1127 samples, 1998 to 2388 MH/s. The trace is the steady state, not a growth
+    curve: no log in this tree reaches back to the engine's early rates.
+  </div>
+
+  <h2>Chain</h2>
+  <div class="grid">
+    <div class="cell">
+      <div class="label">newest block read</div>
+      <div class="value">966463</div>
+      <div class="note">6980 blocks in the corpus</div>
+    </div>
+    <div class="cell">
+      <div class="label">difficulty</div>
+      <div class="value">1.275e+14</div>
+    </div>
+    <div class="cell">
+      <div class="label">leading zero bits</div>
+      <div class="value">78</div>
+      <div class="note">required by the target</div>
+    </div>
+    <div class="cell">
+      <div class="label">nonces per block</div>
+      <div class="value">5.474e+23</div>
+    </div>
+  </div>
+
+  <h2>Win rate &mdash; a share</h2>
+  <div class="grid">
+    <div class="cell">
+      <div class="label">shares won</div>
+      <div class="value">1.93 / hour</div>
+      <div class="note">25 over 12.96 hours, measured</div>
+    </div>
+    <div class="cell">
+      <div class="label">hashes per share</div>
+      <div class="value">4.331e+12</div>
+    </div>
+    <div class="cell">
+      <div class="label">first try rate, achieved</div>
+      <div class="value">1 in 4.331e+12</div>
+      <div class="note">p = 2.309e-13, measured from our own spacing</div>
+    </div>
+    <div class="cell">
+      <div class="label">pool share difficulty</div>
+      <div class="value">1024</div>
+      <div class="note">stated by the pool, not inferred</div>
+    </div>
+    <div class="cell">
+      <div class="label">first try rate, current</div>
+      <div class="value">1 in 4.398e+12</div>
+      <div class="note">p = 2.274e-13, exact from the stated target</div>
+    </div>
+    <div class="cell">
+      <div class="label">shares expected</div>
+      <div class="value">1.90 / hour</div>
+      <div class="note">at the stated target and the measured rate</div>
+    </div>
+    <div class="cell">
+      <div class="label">worker</div>
+      <div class="value">dstroy0.gpu0</div>
+      <div class="note">15 threads</div>
+    </div>
+  </div>
+
+  <h2>Win rate &mdash; a block</h2>
+  <div class="grid">
+    <div class="cell">
+      <div class="label">first try rate</div>
+      <div class="value">1 in 5.474e+23</div>
+      <div class="note">p = 1.827e-24, exact from the target</div>
+    </div>
+    <div class="cell">
+      <div class="label">first tries a second</div>
+      <div class="value">2.321e+09</div>
+      <div class="note">each hash is an independent first try</div>
+    </div>
+    <div class="cell">
+      <div class="label">median nonces to a block</div>
+      <div class="value">3.794e+23</div>
+      <div class="note">half the time it lands sooner than this</div>
+    </div>
+    <div class="cell">
+      <div class="label">network hash rate</div>
+      <div class="value">9.123e+20 H/s</div>
+      <div class="note">derived from the chain's own difficulty</div>
+    </div>
+    <div class="cell">
+      <div class="label">win rate per block</div>
+      <div class="value">2.544e-12</div>
+      <div class="note">
+        our share of the network's hashes, which is the same number
+      </div>
+    </div>
+    <div class="cell">
+      <div class="label">expected per block</div>
+      <div class="value">7.949e-12 BTC</div>
+      <div class="note">at a 3.125 BTC subsidy</div>
+    </div>
+    <div class="cell">
+      <div class="label">expected per day</div>
+      <div class="value">1.145e-09 BTC</div>
+    </div>
+    <div class="cell">
+      <div class="label">one block, expected wait</div>
+      <div class="value">7.47e+06 years</div>
+      <div class="note">3.931e+11 blocks, and the bits route agrees</div>
+    </div>
+  </div>
+  <p class="note wide">
+    The network rate is not quoted from anywhere: difficulty is defined a block
+    arrives every ten minutes, so rate = difficulty times 2^32 over 600 comes
+    straight out of a figure the chain publishes. Everything in this block
+    follows from that and from the measured local rate, and the subsidy and the
+    ten minutes are protocol constants.
+  </p>
+  <p class="note wide">
+    The first try rate is the probability that one nonce is the answer, and it
+    is the same for the first nonce as for any other: SHA-256d gives no reason
+    for one to be luckier, so being first buys nothing. The probe in
+    tools/view/nonce_period.py went looking for structure across nonces that
+    would break that and found none down to 1.83e-02. A better machine wins by
+    running more trials, not by picking a better first one.
+  </p>
+  <p class="warn">
+    The two groups above are not the same event and are 11.1 orders of magnitude
+    apart: the share target implied by our own spacing is difficulty 1008, the
+    chain is at 1.275e+14. A share is pool bookkeeping and arrives in hours; a
+    block is the chain and does not arrive. Reading one as the other is the
+    easiest mistake this page invites.
+  </p>
+
+  <h2>Pool size, measured</h2>
+  <div class="scroll">
+    <table>
+      <tr>
+        <th>instances</th>
+        <th>aggregate MH/s</th>
+        <th>vs one</th>
+      </tr>
+      <tr class="best">
+        <td>1</td>
+        <td>2124.70</td>
+        <td>1.000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>1414.73</td>
+        <td>0.666</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>1478.99</td>
+        <td>0.696</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>1750.24</td>
+        <td>0.824</td>
+      </tr>
+    </table>
+  </div>
+  <p class="note wide">
+    Concurrent miner processes on one card are time-sliced, and worse than
+    time-sliced: two lose a third of the aggregate and it never recovers past
+    one. So the pool is one device process, and parallelism belongs in streams
+    inside it. Measured by tools/hardware/device_scaling.sh, not assumed.
+  </p>
+
+  <footer>
+    Every figure above is read from nvidia-smi, miner_totals.txt, miner.log or
+    blocks_deep.json at build time. Anything unreadable is shown as absent
+    rather than filled in. Rebuild to refresh: this page is one self-contained
+    file with no network and no interpreter, so it is a snapshot by design.
+  </footer>
+</div>

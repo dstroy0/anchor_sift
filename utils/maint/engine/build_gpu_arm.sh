@@ -92,7 +92,7 @@ nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
     -I "$ROOT/src/engine/arithmetic/no_rounding" \
     -DANCHOR_EXACT_HAVE_CUDA=1 $WIDTH_DEFINES \
     -o "$OUT/bench_exact_gpu.exe" \
-    "$ROOT/src/engine/arithmetic/no_rounding/arm_cuda.cu" \
+    "$ROOT/src/cu/types/integers/arm.cu" \
     "$ROOT/src/engine/arithmetic/no_rounding"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
     "$ROOT/src/engine/arithmetic/no_rounding/arm_portable.c" \
     "$ROOT/utils/bench/bench_exact_arms.c" \

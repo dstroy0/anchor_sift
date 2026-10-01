@@ -23,7 +23,7 @@ case "$(uname -s)" in
         fi
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor -Xcompiler -Z7)
         LINK_FLAGS=(-Xlinker -DEBUG -Xlinker -OPT:REF -Xlinker -OPT:ICF
-                    -Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/long_paths.manifest")")
+                    -Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$ENGINE/../cu/long_paths.manifest")")
         ;;
     *)
         BINARY="$OUT/$NAME"
@@ -63,32 +63,40 @@ fi
 EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_EXACT_DIGITS=${EXACT_DIGITS}u")
 echo "  exact integer: $((EXACT_LIMBS * 32)) bits, $EXACT_DIGITS digits, for a question of $QUESTION_LIMBS limbs, from $EXACT_ROOT"
 
-FUNCTIONALS=(cell_tracking/src/run_cfg engine/formats/cfg_json cell_tracking/src/run_log engine/formats/stack
-             engine/formats/apxrep engine/analysis/compression engine/analysis/tower engine/runtime/device_pool
-             engine/analysis/entropy_history
-             engine/analysis/noise_detector
-             engine/runtime/schedule
-             engine/compiler/keymath engine/compiler/key_schedule engine/compiler/cycle engine/compiler/codegen
-             engine/runtime/radix_keys engine/analysis/unit_sweep engine/runtime/obsignatio engine/analysis/residual
-             engine/nbody/max_tree engine/nbody/flatten cell_tracking/src/track engine/analysis/golden_bands
-             cell_tracking/src/answer_key engine/analysis/residual_survey engine/nbody/grow
-             engine/analysis/shift_agreement engine/nbody/climb_machine engine/nbody/body_overlap
-             engine/nbody/fingerprint engine/nbody/print_pair engine/nbody/velocity engine/nbody/division
-             engine/nbody/marginal engine/nbody/contact_side engine/nbody/box_history engine/nbody/heaviest_matching
-             engine/arithmetic/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
-             cell_tracking/src/relate_frames cell_tracking/src/group_objects cell_tracking/src/link_objects
-             cell_tracking/src/bodies cell_tracking/src/score_sample cell_tracking/src/coherence cell_tracking/src/peaks
-             cell_tracking/src/scan cell_tracking/src/sort cell_tracking/src/divide
-             cell_tracking/src/faces
-             cell_tracking/src/output
-             anchor_sift/examples/00_blob_viz_tools/view/vis_png
+FUNCTIONALS=(cell_tracking/src/run_cfg engine/formats/cfg_json cell_tracking/src/run_log
+             engine/formats/stack cu/includes/formats/stack engine/formats/apxrep cu/kcmplx
+             engine/analysis/compression cu/engine/analysis/compression engine/analysis/tower
+             cu/engine/analysis/tower engine/runtime/device_pool cu/engine/runtime/device_pool
+             engine/analysis/entropy_history cu/engine/analysis/entropy_history
+             engine/analysis/noise_detector cu/engine/analysis/noise_detector engine/runtime/schedule
+             cu/engine/runtime/schedule engine/compiler/keymath cu/engine/analysis/keymath
+             engine/compiler/key_schedule cu/engine/analysis/key_schedule engine/compiler/cycle
+             cu/engine/analysis/cycle engine/compiler/codegen cu/transpiler/codegen cu/types/file_defs/krs
+             engine/runtime/radix_keys engine/analysis/unit_sweep cu/engine/analysis/unit_sweep
+             engine/runtime/obsignatio cu/engine/runtime/obsignatio engine/analysis/residual
+             cu/engine/analysis/residual engine/nbody/max_tree cu/engine/nbody/max_tree engine/nbody/flatten
+             cu/engine/nbody/flatten cell_tracking/src/track engine/analysis/golden_bands
+             cu/engine/analysis/golden_bands cell_tracking/src/answer_key engine/analysis/residual_survey
+             cu/engine/analysis/residual_survey engine/nbody/grow cu/engine/nbody/grow
+             engine/analysis/shift_agreement cu/engine/analysis/shift_agreement engine/nbody/climb_machine
+             cu/engine/nbody/climb_machine engine/nbody/body_overlap cu/engine/nbody/body_overlap
+             engine/nbody/fingerprint cu/engine/nbody/fingerprint engine/nbody/print_pair
+             cu/engine/nbody/print_pair engine/nbody/velocity cu/engine/nbody/velocity engine/nbody/division
+             cu/engine/nbody/division engine/nbody/marginal cu/engine/nbody/marginal
+             engine/nbody/contact_side cu/engine/nbody/contact_side engine/nbody/box_history
+             cu/engine/nbody/box_history engine/nbody/heaviest_matching engine/arithmetic/double_fields
+             engine/arithmetic/decimal_double engine/runtime/scriptura cell_tracking/src/relate_frames
+             cell_tracking/src/group_objects cell_tracking/src/link_objects cell_tracking/src/bodies
+             cell_tracking/src/score_sample cell_tracking/src/coherence cell_tracking/src/peaks
+             cell_tracking/src/scan cell_tracking/src/sort cell_tracking/src/divide cell_tracking/src/faces
+             cell_tracking/src/output anchor_sift/examples/00_blob_viz_tools/view/vis_png
              cell_tracking/src/track_driver)
 INGEST=(engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate engine/codecs/lz4
         engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5 engine/codecs/zip
         engine/formats/dicom engine/formats/npy engine/formats/nrrd engine/formats/nifti)
 FUNCTIONALS+=("${INGEST[@]}")
-FUNCTIONAL_INCLUDES=(-I "$ENGINE" -I "$ENGINE/codecs/crc" -I "$ENGINE/runtime/daemon")
-FUNCTIONAL_SOURCES=("$ENGINE"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
+FUNCTIONAL_INCLUDES=(-I "$ENGINE" -I "$ENGINE/../cu/engine" -I "$ENGINE/codecs/crc" -I "$ENGINE/../cu/includes/codecs/crc" -I "$ENGINE/runtime/daemon")
+FUNCTIONAL_SOURCES=("$ENGINE/../cu/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
 for functional in "${FUNCTIONALS[@]}"; do
     folder="$(build_path "$functional")"
     [ -d "$folder" ] || { echo "  build failed: no $functional"; exit 1; }
@@ -176,7 +184,7 @@ SEAL_OBJECTS=()
 for name in obsignatio_{hash,seal}; do
     SEAL_OBJECT="$OUT/${name}_daemon.$OBJECT_SUFFIX"
     rm -f "$SEAL_OBJECT"
-    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${FUNCTIONAL_INCLUDES[@]}" -c "$ENGINE/runtime/obsignatio/$name.cu" \
+    nvcc "${HOST_FLAGS[@]}" -O2 "${GENCODE[@]}" "${FUNCTIONAL_INCLUDES[@]}" -c "$ENGINE/../cu/engine/runtime/obsignatio/$name.cu" \
         -o "$SEAL_OBJECT"
     SEAL_OBJECTS+=("$SEAL_OBJECT")
 done

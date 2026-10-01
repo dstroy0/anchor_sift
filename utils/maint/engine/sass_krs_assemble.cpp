@@ -235,7 +235,7 @@ static unsigned int krs_form_assembles(const Ruleset *rules, const SassMachine *
 
 int main(int count, char **arguments)
 {
-    const char *const ruleset = (count > 1) ? arguments[1] : "src/engine/compiler/codegen/rulesets/sass.krs";
+    const char *const ruleset = (count > 1) ? arguments[1] : "src/cu/transpiler/codegen/rulesets/sass.krs";
     const char *const path = (count > 2) ? arguments[2] : "src/engine/compiler/cubin/machines/sm_86";
     static SassMachine machine;
     if (!sass_machine_read(&machine, path))
