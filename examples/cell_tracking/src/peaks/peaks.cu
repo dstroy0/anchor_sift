@@ -53,14 +53,14 @@ __global__ static void peaks_flag_kernel(const unsigned int *residual, unsigned 
         any |= here[limb];
     }
     unsigned int peak = (unsigned int)(((here[limbs - 1u] >> 31u) == 0u) && (any != 0u));
-    // each coordinate is below its extent, and every extent is below 2^32, so each widens to long long exactly
+    // each coordinate is below its extent, and every extent is below 2^32. Each widens to long long exactly
     const long long place[3] = {(long long)(voxel / plane), (long long)((voxel % plane) / width),
                                 (long long)(voxel % width)};
-    // the extents are below 2^32, so each widens to long long exactly
+    // the extents are below 2^32. Each widens to long long exactly
     const long long extent[3] = {(long long)depth, (long long)height, (long long)width};
     for (unsigned int step = 0u; (peak != 0u) && (step < 27u); step += 1u)
     {
-        // each digit of step is 0, 1 or 2, so each offset is -1, 0 or 1 once taken signed
+        // each digit of step is 0, 1 or 2. Each offset is -1, 0 or 1 once taken signed
         const long long offset[3] = {(long long)(step / 9u) - 1ll, (long long)((step / 3u) % 3u) - 1ll,
                                      (long long)(step % 3u) - 1ll};
         const long long beside[3] = {place[0] + offset[0], place[1] + offset[1], place[2] + offset[2]};
@@ -114,7 +114,7 @@ static int peaks_reserve(size_t voxels)
     }
     peaks_release_resident();
     size_t scratch_bytes = 0u;
-    // the voxel count is below 2^31, as the caller checks, so it narrows to int exactly
+    // the voxel count is below 2^31, as the caller checks. It narrows to int exactly
     const int items = (int)voxels;
     int ok = (cub::DeviceScan::ExclusiveSum(NULL, scratch_bytes, (const unsigned int *)NULL, (unsigned int *)NULL,
                                             items) == cudaSuccess) &&
@@ -169,7 +169,7 @@ extern "C" long peaks_find(const PeaksRequest *request)
     {
         return PEAKS_ERROR;
     }
-    // the voxel count is below 2^31, checked above, so it narrows to unsigned int and to int exactly
+    // the voxel count is below 2^31, checked above. It narrows to unsigned int and to int exactly
     const unsigned int count = (unsigned int)voxels;
     const unsigned int blocks = (count + PEAKS_THREADS - 1u) / PEAKS_THREADS;
     peaks_flag_kernel<<<blocks, PEAKS_THREADS>>>(request->device_residual, request->depth, request->height,

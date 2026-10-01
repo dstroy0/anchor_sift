@@ -4,7 +4,7 @@
 // .links runs through output_graph_set: a chain of four frames in a 4 x 5 x 6 view whose points carry two limbs of
 // levels, with a link at a cost past 32 bits, a gate pair left unchosen, an end whose prediction lies outside the view,
 // a start, an empty frame and two starts after it; a sample of no frames; and a second sample of two frames whose links
-// cross, so its node ids count from 1 again while the submission's row ids run on. Every row of the nodes and of the
+// cross. Its node ids count from 1 again while the submission's row ids run on. Every row of the nodes and of the
 // submission, and every line of the counts, is checked against text worked by hand. Then S7's divisions (src/divide): a
 // .divide beside the chain, where A divides taking D, which started, and one beside second, where P divides taking R
 // from Q, which ends; every row and count is checked against the hand's again, daughter two's state split. A .divide of
@@ -36,7 +36,7 @@
 // way, every count the same; each errors with nothing of second's written. And, with no seam, a nodes file and a
 // submission opened for reading, which no row can be written to: the set errors, and output_close, which the driver
 // closes both with, fails on the file. What the C library returns on such a file is printed. The test is host work
-// and touches no device, so it is no job.
+// and touches no device. It is no job.
 //
 // The test links no engine_*.cu. Engine_sample_path below restates engine/engine_*.cu's, and output_graph.cu's paths
 // are built by the restatement here: a change to either format must be made in both. The CRC-64 the .divide and the
@@ -352,7 +352,7 @@ static int output_test_second(const char *set, OutputSecond form)
 }
 
 // a fork, written as `sample`: two frames in the 1 x 2 x 3 view, no levels: P (voxel 0) and Q (5), then R (5), S (0)
-// and T (3). P links to S at cost 0 and Q to R at cost 3; P to T is in the gate and not chosen, so T starts
+// and T (3). P links to S at cost 0 and Q to R at cost 3; P to T is in the gate and not chosen. T starts
 static int output_test_fork(const char *set, const char *sample)
 {
     const unsigned int head[6] = {2u, 1u, 2u, 3u, 0u, 34u};
@@ -620,7 +620,7 @@ static const char *const OUTPUT_FACES_NAMES[OUTPUT_FACES_FLAWS] = {
 // a copy of the chain as `sample` and its .faces, as worked by hand or broken one way. Frame 0's points are first and
 // carry their places back: A (0, 1, 1), B (1, 3, 2), which ends with its prediction past the high x face and leaves,
 // and C (3, 1, 4), whose own neighborhood the high x face cuts. At frame 1 A, which A links into, is carried back
-// below the low x face and is no start, so enters nothing; D, which starts, is carried back past the high z face and
+// below the low x face, is no start, and enters nothing; D, which starts, is carried back past the high z face and
 // enters, and ends with its prediction past the high y face and leaves. At frame 3, the last, E is carried back below
 // the low z face and enters, and F, inside, does not. No point is carried by a link out: A and D end at frame 1 and
 // frame 3 has none
@@ -690,7 +690,7 @@ static int output_test_empty_faces(const char *set)
 
 // second's .faces, beside second as it stands: P and Q, at frame 0, carry their places back; at frame 1, the last, R
 // is carried back to (0, 1, 2), or with `moved` past the high x face, and S below the low x face. R and S have their
-// links in, so neither is a start and neither enters, and no count moves with R
+// links in. Neither is a start and neither enters, and no count moves with R
 static int output_test_second_faces(const char *set, int moved)
 {
     const unsigned int view[4] = {2u, 1u, 2u, 3u};
@@ -910,7 +910,7 @@ static const char OUTPUT_TEST_DIVIDED_SUBMISSION[] = OUTPUT_SUBMISSION_HEADER "0
                                                                               "13,second,edge,-1,-1,-1,-1,-1,1,4\n"
                                                                               "14,second,edge,-1,-1,-1,-1,-1,1,3\n";
 
-// the divided set's counts, worked by hand. The chain's A divides at frame 0, taking D, which started, so D no longer
+// the divided set's counts, worked by hand. The chain's A divides at frame 0, taking D, which started. D no longer
 // starts; second's P divides, taking R from Q, which now ends. Each .divide's division and its move are counted
 static int output_test_divided_report(char *expected, size_t capacity)
 {
@@ -972,7 +972,7 @@ static int output_test_faced_report(char *expected, size_t capacity)
 }
 
 // the faced set with chain's .divide and second's: the divided rows, and the states the .faces give on the output's
-// links. D, daughter two, has its link in, so it split (0x008) and left (0x020) but entered nothing: 0x028. The
+// links. D, daughter two, has its link in. It split (0x008) and left (0x020) but entered nothing: 0x028. The
 // .faces is the sort's links' and was checked against them before the .divide
 static const char OUTPUT_TEST_FACED_DIVIDED_NODES[] = OUTPUT_TEST_NODES_HEADER
     "chain\t0\t0\t0\t1\t1\t0\t0\t1\t0\t4294967301\t0\t0\t2\t0\t0\t0\t-1\t0\t-1\t1\t0\t-1\t0\t-1\n"
@@ -1449,7 +1449,7 @@ static void output_test_faces_changed(OutputTestResults *results, const char *se
 }
 
 // "second" crossed reads every count the first pass reads as worked: the counts of the set with it, nothing named, are
-// the hand's for the worked set, so only its links tell it apart
+// the hand's for the worked set. Only its links tell it apart
 static void output_test_crossed_counts(OutputTestResults *results, const char *set)
 {
     char *const samples[3] = {(char *)"chain", (char *)"empty", (char *)"second"};

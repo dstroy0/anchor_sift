@@ -4,21 +4,6 @@
 # file moves, since a moved file starts again at zero under its new name.
 docs/ENGINE_DIRECTIONS.md	1
 examples/0_experimental/invariant_consensus_rejects_outliers.py	1
-examples/cell_tracking/maint/score_metric.py	1
-examples/cell_tracking/src/faces/faces_find.cu	1
-examples/cell_tracking/src/output/output_graph.cu	6
-examples/cell_tracking/src/peaks/peaks.cu	5
-examples/cell_tracking/src/run_cfg/run_cfg.cu	4
-examples/cell_tracking/src/scan/drift.cu	2
-examples/cell_tracking/src/scan/scan.cu	4
-examples/cell_tracking/src/score_sample/score_sample.cu	3
-examples/cell_tracking/src/slide/slide_score.cu	5
-examples/cell_tracking/src/sort/sort_link.cu	14
-examples/cell_tracking/src/track/track_common.cu	2
-examples/cell_tracking/src/track_driver/track_driver.cu	2
-examples/cell_tracking/test/output_test.cu	8
-examples/cell_tracking/test/peaks_test.cu	3
-examples/cell_tracking/test/sort_test.cu	5
 examples/chemistry/4_measure/a_histogram_cannot_see_structure.py	1
 examples/crystallography/4_measure/doping_from_shared_sites.py	1
 examples/game_theory/1_represent/four_games_one_protocol.py	1

@@ -737,7 +737,7 @@ static int output_graph_results(const char *sample, const OutputGraph *graph, Ou
 #ifdef OUTPUT_TEST_FAULTS
         ends += output_test_skew;
 #endif
-        // the counts are below 2^63, so each difference is a long long exactly
+        // the counts are below 2^63. Each difference is a long long exactly
         const long long change = (long long)(frame_end - next) - (long long)(next - now);
         const long long divided = (long long)parents;
         const int balanced = (change == (divided - (long long)ends + (long long)starts));
@@ -773,7 +773,7 @@ static unsigned long long output_crc_word(unsigned long long crc, unsigned long 
 
 // a CRC-64 of everything a sample's rows are written from: the view, each frame's count, and each point's voxel, its
 // links out, the first link's cost and its .faces flags, from which its state is made; the links in are the links out
-// read backward. The second pass holds each sample to its first pass's, so a sample that changed between the passes
+// read backward. The second pass holds each sample to its first pass's. A sample that changed between the passes
 // is found even where every count is the same
 static unsigned long long output_graph_fingerprint(const OutputGraph *graph)
 {
@@ -849,7 +849,7 @@ static void output_sample_write(const OutputRequest *request, const char *sample
     {
         for (unsigned long long point = graph->first[frame]; point < graph->first[frame + 1u]; point += 1u)
         {
-            // a point lies in a view of at least one voxel, so the plane and the width are not 0
+            // a point lies in a view of at least one voxel. The plane and the width are not 0
             const unsigned int voxel = graph->voxels[point];
             const unsigned long long z = voxel / plane;
             const unsigned long long y = (voxel % plane) / graph->view[2];
@@ -874,7 +874,7 @@ static void output_sample_write(const OutputRequest *request, const char *sample
                 ((split_from >= 0ll) ? OUTPUT_STATE_SPLIT : 0u) |
                 ((start && (((faces >> FACES_BACK_SHIFT) & FACES_SIX) != 0u)) ? OUTPUT_STATE_ENTERED : 0u) |
                 ((end && (((faces >> FACES_AHEAD_SHIFT) & FACES_SIX) != 0u)) ? OUTPUT_STATE_LEFT : 0u);
-            // the sort forms no region, so a point is its own object of 0 voxels; its body is its node id
+            // the sort forms no region. A point is its own object of 0 voxels; its body is its node id
             if (request->nodes != NULL)
             {
                 fprintf(request->nodes,

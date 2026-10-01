@@ -110,12 +110,12 @@ static void peaks_test_exact(const unsigned int *residual, unsigned int limbs, A
 static unsigned int peaks_test_expected(const PeaksTestField *field, unsigned int *voxels)
 {
     const unsigned int plane = field->height * field->width;
-    // each extent is below 2^31 in this test, so each widens to long long exactly
+    // each extent is below 2^31 in this test. Each widens to long long exactly
     const long long extent[3] = {(long long)field->depth, (long long)field->height, (long long)field->width};
     unsigned int count = 0u;
     for (unsigned int voxel = 0u; voxel < field->voxels; voxel += 1u)
     {
-        // each coordinate is below its extent, so each widens to long long exactly
+        // each coordinate is below its extent. Each widens to long long exactly
         const long long place[3] = {(long long)(voxel / plane), (long long)((voxel % plane) / field->width),
                                     (long long)(voxel % field->width)};
         int peak = (field->values[voxel].sign > 0);
@@ -148,7 +148,7 @@ static unsigned int peaks_test_expected(const PeaksTestField *field, unsigned in
 
 static int peaks_test_counted(long found, unsigned int expected)
 {
-    // a count that is not an error is not negative, so it re-signs to unsigned long long exactly
+    // a count that is not an error is not negative. It re-signs to unsigned long long exactly
     return (found >= 0L) && ((unsigned long long)found == expected);
 }
 

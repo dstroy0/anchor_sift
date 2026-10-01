@@ -73,7 +73,7 @@ extern "C" long drift_positive(const DriftPositiveRequest *request)
     {
         return DRIFT_ERROR;
     }
-    // the voxels are below 2^31, checked above, so they narrow to unsigned int exactly
+    // the voxels are below 2^31, checked above. They narrow to unsigned int exactly
     const unsigned int voxels = (unsigned int)((unsigned long long)request->depth * plane);
     const size_t words = (size_t)DRIFT_WORDS(voxels);
     DriftResident *const resident = &s_drift_resident;
@@ -91,7 +91,7 @@ extern "C" long drift_positive(const DriftPositiveRequest *request)
                          cudaMemcpyDeviceToHost) == cudaSuccess) &&
              (cudaMemcpy(&positives, resident->positives, sizeof(positives), cudaMemcpyDeviceToHost) == cudaSuccess);
     }
-    // the positives are at most the voxels, below 2^31, so they narrow to long exactly
+    // the positives are at most the voxels, below 2^31. They narrow to long exactly
     return (ok != 0) ? (long)positives : DRIFT_ERROR;
 }
 

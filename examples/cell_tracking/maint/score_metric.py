@@ -634,7 +634,7 @@ def main():
               % (summary["division_tp"], summary["division_fp"], summary["division_fn"],
                  summary["division_jaccard"]))
     else:
-        print("  divisions: TP 0, FP 0, FN 0, so the division term is dropped")
+        print("  divisions: TP 0, FP 0, FN 0. The division term is dropped")
     print("  SCORE             %.6f" % summary["score"])
     return 1 if skipped else 0
 

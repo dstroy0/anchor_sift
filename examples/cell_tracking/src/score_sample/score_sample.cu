@@ -348,7 +348,7 @@ static unsigned long long score_division_capacity(const TreeFrame *frames, unsig
 
 static unsigned int *score_key_successors(const AnswerKey *key)
 {
-    // node_count widens from unsigned int to size_t, so node_count + 1 cannot wrap before calloc sees it
+    // node_count widens from unsigned int to size_t; node_count + 1 cannot wrap before calloc sees it
     unsigned int *const successors = (unsigned int *)calloc((size_t)key->node_count + 1u, 3u * sizeof(unsigned int));
     for (unsigned int edge = 0u; (successors != NULL) && (edge < key->edge_count); edge += 1u)
     {
@@ -357,7 +357,7 @@ static unsigned int *score_key_successors(const AnswerKey *key)
         if ((source >= 0L) && (target >= 0L))
         {
             unsigned int *const node_successors = &successors[3L * source];
-            // target is a node slot, non-negative and below node_count, so it narrows from long to unsigned int exactly
+            // target is a node slot, non-negative and below node_count. It narrows from long to unsigned int exactly
             node_successors[(node_successors[0] < 2u) ? (node_successors[0] + 1u) : 0u] =
                 (node_successors[0] < 2u) ? (unsigned int)target : node_successors[0];
             node_successors[0] += 1u;
@@ -888,7 +888,7 @@ static_assert(CLIMB_MACHINE_EXTENT_FIELDS == BOX_HISTORY_EXTENT_FIELDS,
 static void score_box_history_series(const char *role, const TreeFrame *tree, unsigned int leaf,
                                      const unsigned int *counts, unsigned int windows)
 {
-    // leaf widens from unsigned int to size_t before the multiply, so leaf * 6 cannot wrap in 32 bits
+    // leaf widens from unsigned int to size_t before the multiply; leaf * 6 cannot wrap in 32 bits
     const unsigned int *const extent = &tree->extents[(size_t)leaf * BOX_HISTORY_EXTENT_FIELDS];
     printf(" %s leaf %u (%u voxels, box %u..%u %u..%u %u..%u):", role, leaf, tree->sizes[leaf], extent[0], extent[3],
            extent[1], extent[4], extent[2], extent[5]);
