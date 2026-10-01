@@ -1,4 +1,4 @@
-"""Generates the research paper's bibliography from the citations registry, pinned to a commit.
+"""Generates every research paper's bibliography from the citations registry, pinned to a commit.
 
 A surname in a chapter tells a reader which idea is being used and gives them nothing to go and
 read. This turns the registry next door into a bibliography, and pins it: every entry carries the
@@ -11,37 +11,32 @@ copy of a citation is a second thing to keep true and the two would drift.
 
     python utils/maint/texbuild/build_bibliography.py
 
-Finds the registry through ANCHOR_SIFT_CITATIONS, else beside the checkouts. Errors instead of generating
-from a dirty or unpushed registry, because a pin to a commit nobody else can fetch is not a pin.
+A research paper is every directory under theory/ holding a main.tex, at the two depths
+build_theory.sh walks. Its entries are the registry rows whose key its own TeX spells as a whole
+word, matched the way utils/maint/citations/citations.py matches a use. The result is bibliography.tex
+beside main.tex, which main.tex brings in last. It sits beside main.tex and not in chapters/,
+because theory_tex.py owns chapters/ in the research papers it writes and removes what it did not
+write there. A research paper whose TeX spells no key gets no file.
+
+Finds the registry through ANCHOR_SIFT_CITATIONS, else beside the checkouts. Errors instead of
+generating from a dirty or unpushed registry, because a pin to a commit nobody else can fetch is not
+a pin.
 """
 
+import glob
 import io
 import os
+import re
 import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-TARGET = os.path.join(ROOT, "theory", "theory", "cryptography", "sha256", "chapters", "chapter_sources.tex")
+sys.path.insert(0, os.path.join(ROOT, "utils", "maint", "citations"))
 
-# Only rows the SHA-256 work actually cites. The registry also serves anchor sift, and a
-# bibliography listing sources this research paper never mentions would be padding.
-# A selector matched against the rows of the shared registry, and never a path to open. It has
-# to read the same as whatever the rows were tagged with. Derived from the directory this tree
-# actually sits in instead of spelled out, which keeps it correct if the tree is renamed and keeps
-# the name itself out of the source.
-MINE = "repos/" + os.path.basename(ROOT)
+import citations  # noqa: E402
 
-
-def find_registry():
-    named = os.environ.get("ANCHOR_SIFT_CITATIONS")
-    if named and os.path.isdir(named):
-        return named
-    guess = os.path.abspath(os.path.join(ROOT, "..", "..", "..",
-                                         "private_repos", "anchor_sift_citations"))
-    if os.path.isdir(guess):
-        return guess
-    return None
+TARGET = "bibliography.tex"
 
 
 def git(repo, *args):
@@ -55,6 +50,18 @@ def escape(text):
                       ("^", "\\textasciicircum{}")):
         text = text.replace(bad, good)
     return text
+
+
+def breakable(text):
+    """Escaped, in typewriter, with a break allowed after every slash and underscore."""
+    text = escape(text).replace("/", "/\\allowbreak{}").replace("\\_", "\\_\\allowbreak{}")
+    return "\\texttt{%s}" % text
+
+
+def identifier(text):
+    """An address is set breakable; anything else, a venue or a page, is set as text."""
+    return " ".join(breakable(part) if "/" in part and " " not in part else escape(part)
+                    for part in text.split(" "))
 
 
 def read_table(path):
@@ -71,9 +78,94 @@ def read_table(path):
     return rows
 
 
+def research_papers():
+    """Every directory holding a main.tex, at the two depths build_theory.sh walks."""
+    found = glob.glob(os.path.join(ROOT, "theory", "*", "*", "main.tex"))
+    found += glob.glob(os.path.join(ROOT, "theory", "*", "*", "*", "main.tex"))
+    return sorted(os.path.dirname(one) for one in found)
+
+
+def research_paper_text(research_paper):
+    """Every .tex the research paper is built from, this file's own output excluded."""
+    text = []
+    for base, dirs, names in os.walk(research_paper):
+        for name in sorted(names):
+            if not name.endswith(".tex"):
+                continue
+            if base == research_paper and name == TARGET:
+                continue
+            with io.open(os.path.join(base, name), encoding="utf-8", errors="replace") as handle:
+                text.append(handle.read())
+    return "\n".join(text)
+
+
+def label(key):
+    return "src:" + re.sub(r"[^A-Za-z0-9]+", "-", key).strip("-")
+
+
+def entry(s, held):
+    parts = [escape(s["author"] or s["key"])]
+    if s["title"]:
+        parts.append("\\emph{%s}" % escape(s["title"]))
+    if s["identifier"]:
+        parts.append(identifier(s["identifier"]))
+    if s["year"] and s["year"] not in s["title"] + s["identifier"]:
+        parts.append(escape(s["year"]))
+    if not (s["author"] or s["identifier"]):
+        parts = ["%s. Owed a full citation" % escape(s["key"])]
+    text = ". ".join(part.rstrip(".") for part in parts) + "."
+    digest = held.get(s["file"], "") if s["file"] else ""
+    if s["file"]:
+        text += "\\newline\n{\\footnotesize Copy held %s" % breakable(s["file"])
+        if digest:
+            text += ", SHA-256 \\texttt{%s}" % escape(digest)
+        text += ".}"
+    return "\\bibitem{%s}\n%s" % (label(s["key"]), text)
+
+
+def render(sources, held, commit, when):
+    owed = [s for s in sources if not (s["author"] or s["identifier"])]
+    out = []
+    out.append("\\backmatter")
+    out.append("\\AfterBibliographyPreamble{%")
+    out.append("Every measurement in this work is built on somebody's published result, and the")
+    out.append("first purpose of this chapter is that those people are credited by name. A surname")
+    out.append("in a footnote is not a citation. The second purpose is that the credit is checkable:")
+    out.append("each source is registered in \\texttt{anchor\\_sift\\_citations}, where the copy sits")
+    out.append("itself, and this bibliography is generated from that registry and pinned to one")
+    out.append("commit of it. A reference therefore resolves not to a title but to exact bytes.")
+    out.append("")
+    out.append("Credit here does not depend on agreement. Where this work reproduces a published")
+    out.append("result it says so, and where it fails to reproduce one it says that too, under the")
+    out.append("same names, because a refutation rests on the original as much as a confirmation does.")
+    out.append("")
+    out.append("\\begin{description}")
+    out.append("\\item[Registry commit] \\texttt{%s}" % commit)
+    out.append("\\item[Dated] %s" % escape(when))
+    out.append("\\item[Inventory] \\texttt{MANIFEST.tsv}, signed; the hashes below are its rows")
+    out.append("\\end{description}")
+    out.append("")
+    out.append("A reader who disagrees with a number in this research paper can ask which copy it was checked")
+    out.append("against, and the hash answers exactly. Two copies of a paper are rarely the same")
+    out.append("bytes.")
+    if owed:
+        out.append("")
+        out.append("These results are used in the work and their authors are not yet properly")
+        out.append("credited: the registry holds a key and no bibliographic fields.")
+    out.append("\\par\\medskip\\raggedright}")
+    out.append("\\KOMAoptions{bibliography=totoc}")
+    out.append("\\begin{thebibliography}{%d}" % len(sources))
+    out.append("")
+    for s in sources:
+        out.append(entry(s, held))
+        out.append("")
+    out.append("\\end{thebibliography}")
+    return "\n".join(out) + "\n"
+
+
 def main():
-    registry = find_registry()
-    if registry is None:
+    registry = citations.private_root()
+    if not os.path.isdir(registry):
         sys.stderr.write("no citations registry; set ANCHOR_SIFT_CITATIONS\n")
         return 1
 
@@ -98,95 +190,29 @@ def main():
             row.append("")
         held[row[3]] = row[0]
 
+    columns = citations.FIELDS
     sources = []
-    for row in read_table(os.path.join(registry, "SOURCES.tsv")):
-        while len(row) < 9:
-            row.append("")
-        if MINE not in row[8]:
-            continue
-        sources.append({
-            "key": row[0], "author": row[2], "year": row[3],
-            "title": row[4], "identifier": row[5], "file": row[6],
-        })
+    for row in read_table(os.path.join(registry, citations.NAME)):
+        row += [""] * (len(columns) - len(row))
+        sources.append(dict(zip(columns, row)))
     sources.sort(key=lambda s: s["key"].lower())
 
-    looked_up = [s for s in sources if s["author"] or s["identifier"]]
-    unlooked = [s for s in sources if not (s["author"] or s["identifier"])]
+    for research_paper in research_papers():
+        text = research_paper_text(research_paper)
+        used = [s for s in sources if re.search(r"\b%s\b" % re.escape(s["key"]), text)]
+        target = os.path.join(research_paper, TARGET)
+        shown = os.path.relpath(target, ROOT).replace("\\", "/")
+        if not used:
+            if os.path.isfile(target):
+                os.remove(target)
+                print("removed %s, no key used" % shown)
+            continue
+        with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(render(used, held, commit, when))
+        owed = sum(1 for s in used if not (s["author"] or s["identifier"]))
+        print("wrote %-60s %3d entries, %d owed a full citation" % (shown, len(used), owed))
 
-    out = []
-    out.append("\\chapter{Sources}")
-    out.append("")
-    out.append("Every measurement in this work is built on somebody's published result, and the")
-    out.append("first purpose of this chapter is that those people are credited by name. A surname")
-    out.append("in a footnote is not a citation. The second purpose is that the credit is checkable:")
-    out.append("each source is registered in \\texttt{anchor\\_sift\\_citations}, which holds the copy")
-    out.append("itself, and this bibliography is generated from that registry and pinned to one")
-    out.append("commit of it, so a reference resolves not to a title but to exact bytes.")
-    out.append("")
-    out.append("Credit here does not depend on agreement. Where this work reproduces a published")
-    out.append("result it says so, and where it fails to reproduce one it says that too, under the")
-    out.append("same names --- a refutation rests on the original as much as a confirmation does.")
-    out.append("")
-    out.append("\\begin{description}")
-    out.append("\\item[Registry commit] \\texttt{%s}" % escape(commit))
-    out.append("\\item[Dated] %s" % escape(when))
-    out.append("\\item[Inventory] \\texttt{MANIFEST.tsv}, signed; the hashes below are its rows")
-    out.append("\\end{description}")
-    out.append("")
-    out.append("A reader who disagrees with a number in this research paper can ask which copy it was checked")
-    out.append("against, and the hash answers exactly. Two copies of a paper are rarely the same")
-    out.append("bytes.")
-    out.append("")
-
-    if looked_up:
-        out.append("\\section{Read, and held}")
-        out.append("")
-        for s in looked_up:
-            out.append("\\subsection*{%s}" % escape(s["key"]))
-            out.append("\\begin{description}")
-            if s["author"]:
-                out.append("\\item[Authors] %s" % escape(s["author"]))
-            if s["year"]:
-                out.append("\\item[Year] %s" % escape(s["year"]))
-            if s["title"]:
-                out.append("\\item[Title] \\emph{%s}" % escape(s["title"]))
-            if s["identifier"]:
-                out.append("\\item[Identifier] \\texttt{%s}" % escape(s["identifier"]))
-            if s["file"]:
-                digest = held.get(s["file"], "")
-                out.append("\\item[Copy held] \\texttt{%s}" % escape(s["file"]))
-                if digest:
-                    out.append("\\item[SHA-256] {\\footnotesize\\texttt{%s}}" % escape(digest))
-            else:
-                out.append("\\item[Copy held] none. The publisher declines automated retrieval and "
-                           "was not pressed.")
-            out.append("\\end{description}")
-            out.append("")
-
-    if unlooked:
-        out.append("\\section{Owed a full citation}")
-        out.append("")
-        out.append("These results are used in the work and their authors are not yet properly")
-        out.append("credited: the registry holds a key and no bibliographic fields. That is a debt")
-        out.append("rather than a category, and it is listed here so it stays visible.")
-        out.append("")
-        out.append("The fields are filled in by hand from the source itself, because a surname cannot")
-        out.append("be turned into a reference by a heuristic and \\textbf{a guessed citation is worse")
-        out.append("than an empty one} --- it credits the wrong person, or the right person for the")
-        out.append("wrong thing, and reads as though somebody checked.")
-        out.append("")
-        out.append("\\begin{itemize}")
-        for s in unlooked:
-            out.append("\\item %s" % escape(s["key"]))
-        out.append("\\end{itemize}")
-        out.append("")
-
-    with io.open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write("\n".join(out) + "\n")
-
-    print("wrote %s" % os.path.relpath(TARGET, ROOT))
-    print("  pinned to %s (%s)" % (commit[:12], when))
-    print("  %d read and held, %d cited but not yet read" % (len(looked_up), len(unlooked)))
+    print("pinned to %s (%s)" % (commit[:12], when))
     return 0
 
 
