@@ -16,7 +16,7 @@
 | `bitfield.py`     | `pack`, `whole_range`, `present`, `count`, `only_in`, `shared`, `same`                                                                 |
 | `atom.py`         | `position_vector`, `radial_magnitude_squared`, `bands`, `occupancy`, `occupied_bands`, `full_bands`, `valence`                         |
 
-`unselected.py` is the control this work went longest without, and it refuted the strong claim when it arrived. Every corpus departing from the null had been made by a person. The measure detecting arrangement and the measure detecting human production were not separated by anything measured. The gaps between primes return 0.93, outside the band every memoryless arm occupies, and nothing authored the primes.
+`unselected.py` is the control that separates detecting arrangement from detecting human production. The gaps between primes return 0.93, outside the band every memoryless arm occupies, and nothing authored the primes.
 
 ## Why a background built from the data cannot be wrong
 

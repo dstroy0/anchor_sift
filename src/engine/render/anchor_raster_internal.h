@@ -13,7 +13,6 @@
  * @file anchor_raster_internal.h
  * @brief The host rasterizer and the P5 writer. Integer arithmetic throughout.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * WHY THIS IS FAST, AND IT IS THE SAME REASON THE SEARCH IS. A pixel costs what the alignment under
  * it costs, and a steered probe set rejects most alignments on the first read. The renderer gets the

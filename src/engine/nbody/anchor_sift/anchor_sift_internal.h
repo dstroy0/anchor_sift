@@ -13,7 +13,6 @@
  * @file anchor_sift_internal.h
  * @brief The engine: search, steering and scan, with no clock and no output in any of them.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-04
  *
  * @note Every engine is sound: a subset of a pattern's points is a necessary condition. None of them
  *       can lose a true occurrence. What differs between them is how much they read and how much of

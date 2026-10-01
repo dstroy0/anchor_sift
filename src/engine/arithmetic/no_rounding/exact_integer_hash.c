@@ -28,8 +28,7 @@ uint64_t anchor_exact_hash(const AnchorExactInteger *value)
  * @return              The count anchor_exact_agreement_using returns with a table.
  * @note Quadratic in `count` and needs no memory. A position is counted at its last entry only, and
  *       a displaced position is matched to the last entry equal to it, which keeps the last value
- *       at a repeated position. An earlier version ran a binary search here, which needed the
- *       positions sorted when the table path did not.
+ *       at a repeated position.
  */
 static size_t agreement_without_table(int (*equal)(const AnchorExactInteger *left, const AnchorExactInteger *right),
                                       const AnchorExactInteger *positions, const uint64_t *values, size_t count,

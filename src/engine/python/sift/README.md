@@ -37,7 +37,7 @@ Neither of the first two dominates, and which is right depends on a term not yet
 
 ## The kernel's form
 
-`src/engine/nbody/anchor_sift/anchor_sift_*.c` places one anchor in each of four evenly sized cells at `(slot * 7)` mod the cell, orders the anchors rarest first by the corpus census, and dispatches between a short circuiting engine and a free order engine by one exact integer comparison. The functions under the kernel's names in `anchors.py` are its Python route at anchor_sift 1789287. The two share no code. `test/python/sift_test.py` grades them against the kernel built alone as a shared library with `ANCHOR_SIFT_COUNT_READS=1` (on Windows with `test/python/anchor_sift_probe.def`), comparing the census, the dispatch, every engine's count with its probe reads and exact compares, the steered and unsteered counts with their reads, the rarity order, caller probes and whether probes fit:
+`src/engine/nbody/anchor_sift/anchor_sift_*.c` places one anchor in each of four evenly sized cells at `(slot * 7)` mod the cell, orders the anchors rarest first by the corpus census, and dispatches between a short circuiting engine and a free order engine by one exact integer comparison. The functions under the kernel's names in `anchors.py` are its Python route. The two share no code. `test/python/sift_test.py` grades them against the kernel built alone as a shared library with `ANCHOR_SIFT_COUNT_READS=1` (on Windows with `test/python/anchor_sift_probe.def`), comparing the census, the dispatch, every engine's count with its probe reads and exact compares, the steered and unsteered counts with their reads, the rarity order, caller probes and whether probes fit:
 
     ANCHOR_SIFT_LIB=<path to anchor_sift_host.dll or .so> python test/python/sift_test.py
 

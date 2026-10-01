@@ -207,13 +207,11 @@ extern "C"
      * an alphabet of 2^8 and 1 from 2^16 up, because a larger alphabet lets the first probe cut far
      * enough that a second buys nothing.
      *
-     * An earlier form of this block said "nothing in the descent lets corpus content change the DEPTH".
-     * That is true only under `force_full_depth`, it was written as though it were unconditional, and it
-     * contradicted the comment at the break site in the same tree. Depth is a truthy and falsy steer
-     * like everything else here, bounded above by a constant and free to come in under it.
+     * Depth is a truthy and falsy steer like everything else here, bounded above by a constant and
+     * free to come in under it.
      *
      * The return value is there for a caller to read the depth actually reached instead of assuming
-     * `wanted`, which matters more now that the two can differ.
+     * `wanted`, which matters where the two can differ.
      *
      * @note FAILS CLOSED ON THE SURVIVOR BUFFER. Returns 0 without writing `offsets` where
      *       `survivors_length` does not reach the alignment count. The kernel allocates nothing. The
@@ -327,8 +325,7 @@ extern "C"
      * @warning The sweep is `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte
      *          comparisons at worst. One factor of max_length counts the lengths enumerated. The second
      *          comes from scoring: a candidate of length L costs up to L comparisons, and summing L
-     *          from 1 to max_length averages about max_length/2. An earlier form of this note charged
-     *          one comparison per candidate and understated the bound in the unsafe direction.
+     *          from 1 to max_length averages about max_length/2.
      *          anchor_steer_probe_fits rejects shapes that do not fit. The real count sits below
      *          this figure. It is still far more than the scan it plans on any but a tiny needle, and
      *          it is a planner for a search run many times against one needle and not for a

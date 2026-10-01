@@ -175,7 +175,7 @@ int anchor_volume_render_host(uint8_t *voxels, const AnchorVolumeConfig *config,
     // The channel, the gain and the reduce rule are the raster's and are read through a raster
     // configuration built here. Re-implementing them for three dimensions would be a second copy of
     // a decision that has one place, and the two copies would answer differently the first time a
-    // channel was added to one of them.
+    // channel is added to one of them.
     const AnchorRasterConfig flat = {config->width,   config->height, ANCHOR_LAYOUT_ROWS,
                                      config->channel, config->reduce, config->gain};
 

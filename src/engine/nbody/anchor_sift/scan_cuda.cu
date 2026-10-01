@@ -8,7 +8,6 @@
  * @file scan_cuda.cu
  * @brief The steering scan on a CUDA device, one alignment per thread over the whole object.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * THE SAME QUESTION EVERY SCAN ARM ANSWERS, MAPPED OVER THE DEVICE. Held at one needle offset, count
  * the alignments still standing whose corpus byte equals the needle byte. The vector arms widen one

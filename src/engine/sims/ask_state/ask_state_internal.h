@@ -6,7 +6,7 @@
 // The ask and the state: a qubit's state carried exactly as the answer distribution of a complete ask.
 // Two asks, E_i = (I + v_i . sigma) / 4 over four outcomes: a rational tetrahedral ask, v_i = (+-1, +-1, +-1) / 2,
 // all in Q; and the true SIC, v_i = (+-1, +-1, +-1) / sqrt 3, in Q(sqrt 3), where the square root is carried by its
-// defining relation (sqrt 3)^2 = 3 (Doug, 23 September). Every value stays exact. Proved for each ask: it is an
+// defining relation (sqrt 3)^2 = 3. Every value stays exact. Proved for each ask: it is an
 // ask; state -> answers -> state returns the state; the phase falls out of the ask; the valid set accepts every
 // state and puts the pure ones on its boundary; the crossing rule reproduces the other asks' answers and carries
 // a negative weight; a distribution outside the valid set crosses to a non-probability; the two asks cross into

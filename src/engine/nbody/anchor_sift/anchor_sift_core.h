@@ -14,7 +14,7 @@ extern "C"
 
 /* The dispatch rule reads the field's census directly. The plan carries one. Reading it directly
  * makes the rule exact: the census holds integer counts and the comparison clears its denominators into
- * integers, where the old form took a logarithm and approximated a power of two in double. */
+ * integers. */
 
 /** @brief Anchors a sift engine places. The cascade depth log2(N)/H2 sits near five on these corpora. */
 #define ANCHOR_SIFT_ANCHORS 4u
@@ -62,11 +62,8 @@ extern "C"
  *       declared in the header because it is part of the contract: a
  *       caller sizing a probe array needs it, and a reader asking whether a recursion
  *       terminates should find its bound in the header instead of having to open the source.
- * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. An earlier form wrote `4u` here and a comment
- *       claiming it matched ANCHOR_SIFT_ANCHORS. Nothing held that: the two were independent
- *       literals, and changing ANCHOR_SIFT_ANCHORS would have left the comment false while every
- *       file still compiled. Defining one from the other makes the compiler hold the invariant the
- *       termination argument rests on.
+ * @note DEFINED FROM ANCHOR_SIFT_ANCHORS, NOT COPIED. Defining one from the other makes the compiler
+ *       hold the invariant the termination argument rests on.
  */
 #define ANCHOR_STEER_ANCHORS ANCHOR_SIFT_ANCHORS
 
@@ -146,14 +143,13 @@ extern "C"
      * one pass over the corpus. Carrying the census means the rule reads them exactly, in integers, and
      * the engine holds no floating point value anywhere.
      *
-     * @note `distinct_symbols` USED TO SIT HERE and was removed and not left unread. The census
-     *       computes the same number authoritatively, and a public structure carrying a second copy
-     *       lets a caller hand over two values that disagree with nothing to catch it. An unread field
-     *       is untidy; a field that can contradict the truth beside it is a defect waiting for someone
-     *       to fill in both.
-     * @note `needle_len` is carried and not read, and that is a different case. A ceiling on it was
-     *       swept over every value the bench measures and no ceiling beat having none. The rule does
-     *       not consult it. It duplicates nothing. It stays.
+     * @note `distinct_symbols` IS NOT A FIELD HERE. The census computes that number authoritatively,
+     *       and a public structure carrying a second copy lets a caller hand over two values that
+     *       disagree with nothing to catch it. An unread field is untidy; a field that can contradict
+     *       the truth beside it is a defect waiting for someone to fill in both.
+     * @note `needle_len` is carried and not read, and that is a different case. No ceiling on it beats
+     *       having none over the values the bench measures. The rule does not consult it. It
+     *       duplicates nothing. It stays.
      * @warning `census` is BORROWED for the duration of every call taking this plan. A plan holds a
      *          pointer to it because AnchorFieldCensus is about two kilobytes
      *          and a plan is passed by pointer on a hot path.
@@ -216,8 +212,7 @@ extern "C"
      *       Scored against the clock over 42 rows by bench_dispatch: 39 of 42 giving up 9131790 cycles
      *       at a share of 0.035 on x64 MSVC 19.44 Release, and 41 of 42 giving up 86511 at 0.000 under
      *       gcc. A hundredfold gap in cycles between two real runs. The figure belongs to the
-     *       toolchain that produced it. Re-run the bench before quoting either. An earlier form of this
-     *       note said "around one percent", which no recorded run produced.
+     *       toolchain that produced it. Re-run the bench before quoting either.
      * @note THE NEEDLE LENGTH TERM CHANGES NO ANSWER ON THIS DATA. Scoring flatness alone ties this rule
      *       exactly, same rows and same cycles, across all 42. It is kept because a
      *       tunable with no reader is an integration point, and it is named here so nobody concludes

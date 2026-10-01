@@ -8,7 +8,6 @@
  * @file scan_avx2.c
  * @brief The steering scan under AVX2, thirty-two alignments per compare.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * WHY THIS SHAPE VECTORIZES AT ALL. Every hot loop in the steering engine asks the same question:
  * held at one needle offset, does `corpus[at + offset]` equal `needle[offset]`, for consecutive

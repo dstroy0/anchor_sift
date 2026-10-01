@@ -2,7 +2,7 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Structured domains that nobody produced. This work went longest without a control of this kind.
+# Structured domains that nobody produced.
 #
 #   Usage:  from reference.unselected import sqrt_two_digits, prime_gaps
 #
@@ -14,11 +14,11 @@
 # biological sequence dependent on the hypothesis, and all biology shares one machinery in any case.
 # The control needs a domain under no selection, and mathematics supplies two.
 #
-# What they settled, and it refuted the strong claim. The digits of the square root of two return
+# They refute the strong claim. The digits of the square root of two return
 # 1.00, sitting at the null as a number conjectured normal should. The gaps between primes return
 # 0.93, outside the 0.99 to 1.01 band every one of ten memoryless arms occupies. Nothing authored
-# the primes and the measure sees them. So the measure reads arrangement, and human production was
-# never intrinsic to it.
+# the primes and the measure sees them. So the measure reads arrangement, and human production is
+# not intrinsic to it.
 #
 # The claim that holds is weaker and quantitative: the primes depart by 0.07 where human corpora depart
 # by 0.22 to 0.68, three to ten times further, and the square root digits confirm that determinism

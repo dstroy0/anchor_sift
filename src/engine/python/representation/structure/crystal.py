@@ -151,8 +151,8 @@ def site_table(text, dummies=False):
     empty place without inventing a chemistry for it.
 
     `occupancy` is None where the deposit carries no occupancy column at all, and that is not the
-    same as an occupancy of 1. 184 of the 650 entries cached at the time of writing publish no such
-    column, and reading their absence as full occupancy would invent a measurement nobody made. A
+    same as an occupancy of 1. Reading that absence as full occupancy would invent a measurement
+    nobody made. A
     caller that needs the distinction gets it; one that does not can ignore the field.
 
     Sites the deposit marked `dum` in CALC_FLAG are dropped, because their coordinates are a

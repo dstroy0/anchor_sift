@@ -6,7 +6,7 @@
 // Kolmogorov's inner function, exactly (Braun and Griebel, Constructive Approximation 30(3) (2009) 653-675, the
 // preprint's section 2). Every value is exact: on the grids by exact integers over a common denominator, and at
 // depth by a sparse sum of c . gamma^-e whose exponent e = beta(L) = (n^L - 1)/(n - 1) is carried as an integer and
-// never expanded (Doug, 23 September: "the exp is symbolic").
+// never expanded.
 // 1. Sprecher's psi (2.4) reproduces the paper's counterexample exactly and its descents are counted.
 // 2. Koppen's psi, in two readings the paper gives: (2.9)/(2.10), which its proofs use, where the carried midpoint
 //    adds (gamma - 2)/2 units; and (2.7) as printed, which adds (gamma - 1)/2. On every point of D_1 to D_5 the

@@ -2,8 +2,7 @@
 // pi_tower_golden.cu: residues, golden and the record program
 #include "pi_tower_internal.h"
 
-// 12. The golden helix (Doug, 24 September: "their period is a contraction of the golden spiral, pi is riding its
-// inverse in the negative space"; "pi DOES ride it, and it rides it exactly because thats a helix"). The residues flip
+// 12. The golden helix. The residues flip
 // sign each floor, a half turn, and shrink by 1 / [a_(j+1); a_(j+2), ...]: on the cylinder of angle and log size they
 // step down a helix. The golden ratio [1; 1, 1, ...] shrinks by exactly 1 / phi every half turn, and every tower is at
 // least as tall as its, q_j >= F_(j+1). Each residue is bracketed from the turn, (qA - pM, qA - pM + q), and every

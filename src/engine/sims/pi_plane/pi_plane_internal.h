@@ -4,9 +4,7 @@
 #define PI_PLANE_INTERNAL_H
 
 //
-// pi in the plane (Doug, 24 September: "write it bitwise in 2d and look for a line or spiral", "let's do 2kb, 16k
-// bits", then "write it out horizontally as a tower of n widths and heights, then try circle shapes of bits written
-// as horizontal lines first then write the bits in a circular fill"). pi's bits after the point, certified by
+// pi in the plane. pi's bits after the point, certified by
 // Machin's bracket on the exact integer, are laid out as shapes; each shape is drawn as a PNG and read for its longest
 // straight line of equal bits, against keyed shuffles of the same bits laid out the same way.
 //
@@ -219,7 +217,7 @@ void plane_ring_spiral_read(SimResults *results, const std::vector<unsigned long
 
 #define PLANE_BLIND_MAX 16u
 
-// the first round of blind pairs, which the eye scored 6 of 6 (Doug, 25 September)
+// the first round of blind pairs, which the eye scores 6 of 6
 #define PLANE_BLIND_SCORED 6u
 
 int plane_blind(SimResults *results, const std::vector<unsigned long long> &sizes, unsigned long long seen,

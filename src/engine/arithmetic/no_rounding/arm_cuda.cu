@@ -8,7 +8,6 @@
  * @file arm_cuda.cu
  * @brief The exact agreement count on a CUDA device, one position per thread.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note There is no arbitrary precision integer here and there does not need to be. A fixed width
  *       limb array is a representation of the same value, and a device register file holds one as

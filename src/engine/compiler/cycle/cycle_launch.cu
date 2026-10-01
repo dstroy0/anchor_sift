@@ -66,9 +66,7 @@ static CycleResident s_cycle_resident;
 
 // The stack a launch grew past `before`, given back once its work is done. The runtime raises the stack limit to the
 // widest frame a kernel launches with, reserves that frame for every thread the device keeps resident, and holds it
-// until the limit is set back (measured on the RTX 3070, 25 September: a 7,600-byte frame held 467,668,992 bytes past
-// the 1 KiB default, setting the limit back returned them in 5.0 ms, and the next launch of that kernel took 21.6 ms
-// against 1.6 ms warm). A `before` of 0 is a limit never read, and nothing is set.
+// until the limit is set back. A `before` of 0 is a limit never read, and nothing is set.
 int cycle_stack_return(size_t before, const void *evacaddr, EngineError *error)
 {
     if (before == 0u)

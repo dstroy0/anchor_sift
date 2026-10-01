@@ -13,7 +13,6 @@
  * @file raster_cuda_internal.h
  * @brief The device arm of the direct renderer. Same configuration, same bytes as the host arm.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * ONE THREAD PER ALIGNMENT. Rendering is the search. The parallel decomposition is the search's:
  * every alignment is independent until it reduces into a pixel. Nothing is tiled and nothing is

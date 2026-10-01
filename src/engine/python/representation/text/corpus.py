@@ -6,10 +6,8 @@
 #
 #   Usage:  from representation.text.corpus import load_language_texts, load_by_source
 #
-# Four separate scripts carried their own copy of this loading loop, character for character, and a
-# copy is a place for two of them to disagree. One of them already did: the exclusion below was
-# applied in three of the four and missing from the fourth. A Greek to English lexicon therefore
-# stood in one reading of Greek after it had been removed from the others.
+# This holds the loading loop for every text corpus. A copy of it in each script, character for
+# character, is a place for two of them to disagree.
 #
 # Nothing here computes where the repository is. A caller passes the directory in, which keeps the
 # engine from knowing anything about the tree it happens to be checked out into.

@@ -13,7 +13,6 @@
  * @file exact_integer_internal.h
  * @brief The portable C11 reference for the limb transform, which every other arm is checked on.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note Nothing here uses an intrinsic, a compiler extension or a 128 bit type. A target with a
  *       C11 compiler builds this and gets the right answer, and the vectorized arms exist only to

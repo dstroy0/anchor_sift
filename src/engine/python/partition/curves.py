@@ -7,9 +7,8 @@
 #   Usage:  from partition.curves import interleaved, hilbert_order, spread_bits
 #
 # A reader handed a picture row by row cannot see the second dimension, because a pixel and the one
-# below it sit a whole width apart in the file. Every measurement here was handed a width to work
-# around that, and being handed a width means choosing a geometry and then measuring the choice. The
-# picture reader returned heights instead of widths until the assignment was removed.
+# below it sit a whole width apart in the file. Being handed a width means choosing a geometry and
+# then measuring the choice.
 #
 # Interleaving removes the need to supply one. Taking one bit from the column, then one from the row,
 # then the next from each, gives an index where positions close in the set are close in the index.

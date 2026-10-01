@@ -3,8 +3,8 @@
 #ifndef FLOOR_MATCH_INTERNAL_H
 #define FLOOR_MATCH_INTERNAL_H
 
-// Finding x on a's floor 2 for less than half of a (Doug, 25 September: "say we want to find x and x is on floor 2, we
-// have the knf, we only need to &&"). a is one camera-law frame of n samples. The engine's tower lifts it, and floor 2
+// Finding x on a's floor 2 for less than half of a. a is one camera-law frame of n samples. The engine's tower lifts it,
+// and floor 2
 // is the approximation after two levels: the 16^3 corner, m = n / 64 values, read from the engine by lowering that
 // corner as its own tower and checked against the host's own two-level lifting. Floor 2's values are laid out once as
 // 16 bit planes. A query x then reads no value at all: the positions holding x are the and, over the planes, of each

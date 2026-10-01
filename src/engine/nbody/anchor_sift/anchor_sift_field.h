@@ -119,10 +119,6 @@ extern "C"
      *       that is an equivalence is the transitive closure. Classes are therefore connected
      *       components: a position joins every class it matches and merges them.
      *
-     *       An earlier form stopped at the first matching representative, which is neither the relation
-     *       nor its closure, and under a non-transitive predicate it put agreeing positions in different
-     *       classes, broke the necessary condition, and would have rejected alignments holding true
-     *       occurrences silently. That is fixed and not documented as a precondition.
      * @warning THE COST OF TAKING THE CLOSURE IS CHAINING. A loose tolerance can walk the whole field
      *          into one component through a path of near neighbors, none of which agree with the ends.
      *          One class ranks everything alike, every rank probe then refutes nothing, and the search
@@ -167,10 +163,10 @@ extern "C"
      *          correct shortcut. The only saving taken is skipping a pair already in one component,
      *          which is real on a chained field and nothing on a field of singletons.
      *
-     *          An earlier form compared each position against one representative per class, which is
-     *          `length` times `distinct` and is correct ONLY for a transitive predicate. It is not
-     *          offered as a fast path, because selecting it would be asserting transitivity and the
-     *          cost of being wrong is a silently wrong answer.
+     *          Comparing each position against one representative per class is `length` times
+     *          `distinct` and is correct ONLY for a transitive predicate. It is not offered as a fast
+     *          path, because selecting it would be asserting transitivity and the cost of being wrong
+     *          is a silently wrong answer.
      *
      *          A field of a few thousand positions projects in a moment; one of a hundred thousand does
      *          not. Project a representative slice, or do not project at all and pass the oracle

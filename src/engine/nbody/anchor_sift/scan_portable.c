@@ -8,7 +8,6 @@
  * @file scan_portable.c
  * @brief The steering scan in portable C11, the reference every other scan arm is graded against.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
  * ONE PRIMITIVE. Held at one needle offset, count the alignments still standing whose corpus byte at
  * that offset equals the needle byte the level is testing. That is the operation a planner asks

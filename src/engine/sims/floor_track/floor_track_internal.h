@@ -3,7 +3,7 @@
 #ifndef FLOOR_TRACK_INTERNAL_H
 #define FLOOR_TRACK_INTERNAL_H
 
-// Floor 2 matched across frames (Doug, 25 September: "build the cross frame match"). Every frame's floor 2 is the
+// Floor 2 matched across frames. Every frame's floor 2 is the
 // engine's, the crystal's 16^3 corner lowered as its own tower, checked against the host's two-level lifting, and laid
 // out once as 16 bit planes. A body's signature is its patch of floor-2 values in frame t: its own cell alone, or the
 // 27 cells around it. The later frame is searched whole with no value read: each patch cell's range [v - d, v + d] is

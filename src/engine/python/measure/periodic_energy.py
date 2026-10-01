@@ -53,14 +53,14 @@
 # WHICH OF THESE THE ENGINE HOLDS IN C
 #
 # The engine's form is src/engine/sims/art/periodic_energy.h, which the fixed_pattern and
-# classify_reject_recover sims call, and the functions named for it below are its Python route at
-# anchor_sift 1789287: energy_ratio, energy_recover, energy_shuffle, energy_band_top, energy_above,
+# classify_reject_recover sims call, and the functions named for it below are its Python route:
+# energy_ratio, energy_recover, energy_shuffle, energy_band_top, energy_above,
 # energy_welford, energy_reduction and energy_print. test/python/periodic_energy_test.py grades them
 # against the header through test/python/periodic_energy_probe.cu, and the two share no code.
 #
 # The header's ratio is the value dispersion_ratio returns, held unreduced as the header holds it:
 # both energies scaled by the length times the two member counts. Its recover returns no reading at
-# a reach below 2 (at 1789287 through a failed device call) where recover_period raises the reach
+# a reach below 2 where recover_period raises the reach
 # to 2, it draws its shuffles from sim_draw where these draw from
 # reference.shuffles, and its null keeps the band's top and the count of shuffles that reached a
 # period, where null_band keeps every ratio. between_classes, total_energy, dispersion_ratio,

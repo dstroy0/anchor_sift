@@ -21,12 +21,11 @@
 # Romanian and Finnish to Lithuanian. The square loses Afrikaans to Finnish and Dutch to Turkish.
 # Partly complementary and neither better.
 #
-# The prediction that went with this was wrong and the correction is worth carrying. Word length was
-# expected to rescue the families the square lost, since Uralic and Dravidian are agglutinative and
-# should have long words throughout. Estonian reads 4.08 and Finnish 6.30, a wide gap inside one
-# family, and it is not noise: Estonian lost its final vowels. Dravidian splits the same way,
-# Malayalam at 8.84 and Telugu at 6.96. What failed the square fails the lengths, for its own
-# reasons.
+# Word length is expected to rescue the families the square lost, since Uralic and Dravidian are
+# agglutinative and should have long words throughout. Estonian reads 4.08 and Finnish 6.30, a wide
+# gap inside one family, and it is not noise: Estonian lost its final vowels. Dravidian splits the
+# same way, Malayalam at 8.84 and Telugu at 6.96. What failed the square fails the lengths, for its
+# own reasons.
 #
 # What this measure cannot do at all is more useful than what it does. Chinese, Japanese and Thai
 # mark no word boundaries. The descriptor does not exist for them. That is the plainest case of

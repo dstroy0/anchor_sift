@@ -30,7 +30,6 @@ maint/repotools/lib/repotools/shape.py	1
 src/engine/arithmetic/no_rounding/arm_cuda.cu	1
 src/engine/engine_seal.cu	1
 src/engine/sims/chaitin_omega/chaitin_omega_main.cu	2
-src/engine/sims/pi_plane/pi_plane_internal.h	1
 test/engine/compiler/cell/cell_ptx_probe_main.cu	1
 test/engine/compiler/cell/cell_sass_probe_ask.c	1
 test/engine/runtime/daemon/run.sh	1

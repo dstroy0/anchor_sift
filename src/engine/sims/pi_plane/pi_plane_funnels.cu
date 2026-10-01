@@ -2,7 +2,7 @@
 // pi_plane_funnels.cu: the blind reading and funnels
 #include "pi_plane_internal.h"
 
-// blind pairs (Doug, 24 September, the roots drawn over the unrolled rings): pi's unseen blocks, from block first past
+// blind pairs: pi's unseen blocks, from block first past
 // the seen bits, each laid out in the rings unrolled beside a shuffle of the same block, which is which decided by a
 // keyed coin, or where balanced by a keyed deal of pi to A in exactly half the pairs, and written only to
 // blind_answer.txt. The coin is keyed by the block and the deal by the first block. A round from --blind-from deals its
@@ -75,10 +75,7 @@ int plane_blind(SimResults *results, const std::vector<unsigned long long> &size
     return ok;
 }
 
-// the funnels (Doug, 25 September, after picking pi in all six blind pairs: "it's the distribution of bits and there
-// are extremely telltale natural funnel shapes not steep Vs", then "look for shadow traces in the denser packed bits"
-// and "a low res log curve can be 3 bars that look stepped to you but the ratio between the bar heights fits your
-// curve"). A funnel's mouth is a run of two equal bits or more on rings 1 to PLANE_FUNNEL_MOUTH_LAST; each bar below
+// the funnels. A funnel's mouth is a run of two equal bits or more on rings 1 to PLANE_FUNNEL_MOUTH_LAST; each bar below
 // it is the widest run of the same bit among the cells whose parent lies under the bar above, and the funnel ends on
 // the ring where no such cell holds the bit. Its depth is how many bars it has below the mouth, the dense rings, two
 // bits or more to a pixel, included; three bars w0, w1, w2, each in turns, fit one ratio as w1^2 comes near w0 w2.

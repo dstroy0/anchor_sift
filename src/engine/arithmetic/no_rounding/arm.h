@@ -8,7 +8,6 @@
  * @file arm.h
  * @brief One interface every implementation of the exact measure presents, letting a driver call any.
  * @author dstroy0 (Douglas Quigg (dstroy0) <dquigg123@gmail.com>
- * @date 2026-09-09
  *
  * @note Every engine returns the same counts. Where two disagree one of them has a defect, and
  *       nothing about the difference is a tradeoff. This is the same contract AnchorSiftEngine

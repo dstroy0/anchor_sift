@@ -8,13 +8,10 @@
  * @file arm_avx2.c
  * @brief The AVX2 arm of the exact arithmetic, comparing eight 32 bit limbs per instruction.
  * @author dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
- * @date 2026-09-16
  *
- * @note ONE FILE FOR EVERY x86 BUILD. This arm was two files, one per operating system, sharing a
- *       header of loops. The loops are a property of the instruction set and were already shared.
- *       The two files differed only in how they asked the processor about AVX2, and the Windows
- *       copy already carried both ways of asking. So the loops and both detection paths live here
- *       together, and a second copy that could disagree with this one no longer exists.
+ * @note ONE FILE FOR EVERY x86 BUILD. The loops are a property of the instruction set and are
+ *       shared across every operating system. Both ways of asking the processor about AVX2 live
+ *       here together with them, and no second copy that could disagree with this one exists.
  * @note Two detection paths, both arms of the gate defined. MSVC has no __builtin_cpu_supports and
  *       takes __cpuidex directly. GCC and Clang have the builtin and use it on any host. A compiler
  *       carrying neither reports the arm absent instead of guessing.
