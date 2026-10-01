@@ -34,7 +34,3 @@ test/engine/compiler/cell/cell_ptx_probe_main.cu	1
 test/engine/compiler/cell/cell_sass_probe_ask.c	1
 test/engine/runtime/daemon/run.sh	1
 test/harness.py	1
-theory/theory/Salishan/chapters/chapter_Salishan_refs.tex	1
-theory/theory/boundary/chapters/chapter_boundary_reading.tex	1
-theory/theory/boundary/chapters/chapter_octant_lexicon.tex	1
-theory/workbooks/anchor_sift/chapters/chapter_anchor_sift_workbook.tex	2
