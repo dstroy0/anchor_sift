@@ -681,4 +681,3 @@ Per corpus, for a caller who holds one:
 Horspool was also the wrong comparison. It needs an ordered index set and a shift table the size of the alphabet; the sift needs neither. Timing the two side by side on a byte line runs the sift in the one domain where discarding order gains nothing.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-24

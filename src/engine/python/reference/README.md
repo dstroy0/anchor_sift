@@ -39,4 +39,3 @@ The three shuffles are graded, and each grade answers a different question. A fu
 The ciphers are graded the same way, and the measured answer is that a cipher cannot remove what this reads unless its key is as long as the message. A substitution reproduces the reading to four decimals. A repeating key of length 8 splits the gaps eight ways, and averaging the eight cosets returns the plaintext value exactly. Only a full length pad erases anything.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

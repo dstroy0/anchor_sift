@@ -32,4 +32,3 @@ The two curves do not have one winner. Hilbert is the better reading of the expo
 Every bound put on a quantity in this work has had to be taken back off, and the reading improved each time. A dimension assigned per domain returned heights instead of widths. A sum stopped at 24 bits was still climbing at 64. A band fixed at eight levels read a picture spread over 160 of them as having no structure. What works is a sweep of the quantity, letting the data say where it stops mattering.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

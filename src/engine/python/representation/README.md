@@ -59,4 +59,3 @@ Three of these four exist because a representation choice was made silently and 
 Anything that chooses a scale is `partition`. Anything that scores is `measure`. The line is not always obvious: `bit_volume` supplies windows and does not choose their width, and `envelope` supplies a block size the caller states.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

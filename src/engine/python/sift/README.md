@@ -48,4 +48,3 @@ The kernel's descents, its probe sweep and its field projections have no Python 
 Spacing the offsets evenly shares a period with whatever the domain carries. On a corpus of period sixteen every anchor lands congruent modulo sixteen. Four probes ask one question four times and the survival rate misses the histogram bound by a factor of 4096. Drawing one offset inside each cell keeps the spread and gives the anchor set no period of its own.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08

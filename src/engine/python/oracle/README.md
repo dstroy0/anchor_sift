@@ -42,4 +42,3 @@ A family holding one language in a run cannot have a neighbor inside it. Its nea
 Reporting that something expected is missing needs no new object, because a hole is a departure from an occupancy the constraint already states. The oracle check's second direction is that reading: it asks which tokens a paper prints that no row holds, and finds what a person skipped by knowing what should have been there. Without the regularity there is no hole to see.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08
