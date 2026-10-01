@@ -13,7 +13,7 @@ A multiply that chooses its own arm by operand size is convenient and it destroy
 matters: a tool built on it is half host and half device, the halves move with the input, and no run
 can be described without knowing every operand that passed through it. Worse, a tool written against
 the dispatch runs ENTIRELY on the host at small widths while reading as a device tool. The crossover
-sits at 1,024 limbs - 32,768 bits, so a run below it is all host while reading as the device.
+sits at 1,024 limbs - 32,768 bits. A run below it is all host and still reads as the device.
 
 WHY NEITHER HALF CARRIES ITS OWN RECURRENCES
 

@@ -63,7 +63,7 @@ def root_of(length, prime, generator, inverse=False):
     """A primitive `length`-th root of unity modulo `prime`, or its inverse.
 
     Every argument is explicit. Defaulting `prime` and `generator` to module globals binds them at
-    definition time, so rebinding the globals to test a second modulus changes nothing and the fold
+    definition time. Rebinding the globals to test a second modulus changes nothing and the fold
     runs on the wrong generator.
     """
     root = pow(generator, (prime - 1) // length, prime)
