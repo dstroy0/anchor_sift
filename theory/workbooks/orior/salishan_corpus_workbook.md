@@ -17,8 +17,8 @@ This is a workbook, and it claims no result. It follows the rail the other workb
 - Withdrawn entries stay on the page with what killed them. Five are recorded below.
 
 These words belong to the people who speak them. The conditions their speakers set are recorded per
-table in the Salishan research paper, under "Whose words these are", and they hold here. The tables stay closed
-(`salishan_corpus/README.md`); the scripts read them where they sit and print counts. The few forms
+table in the Salishan research paper, under "Whose words these are", and they hold here. The tables stay closed,
+and the scripts read them where they sit and print counts. The few forms
 quoted below are quoted from the published papers named beside them, as a reader of those papers would.
 
 ## The problem table

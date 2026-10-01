@@ -35,7 +35,7 @@ while (REPOSITORY != os.path.dirname(REPOSITORY)) and not os.path.isdir(
 # foot of the report is the only thing that shows that, so watch the count after anything moves.
 DEFAULT_ROOTS = tuple(
     os.path.join(REPOSITORY, one)
-    for one in ("docs", "src", "examples", os.path.join("utils", "maint"), "theory", os.path.join("utils", "test"))
+    for one in ("docs", "src", "examples", os.path.join("utils", "maint"), "theory", os.path.join("utils", "test"), ".githooks")
 )
 
 for one in DEFAULT_ROOTS:
@@ -93,7 +93,7 @@ def git_say(where, args):
 
 
 def main_checkout():
-    """The main working tree, the one the closed repositories sit beside.
+    """The main working tree.
 
     A linked worktree can live inside the main checkout, and a sibling path computed from
     REPOSITORY lands inside that checkout and finds nothing. --git-common-dir names the shared .git for

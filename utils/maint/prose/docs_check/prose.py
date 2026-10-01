@@ -167,8 +167,8 @@ def comment_prose(lines):
     A shebang is dropped. It is the only line of a shell script that is an instruction to the kernel
     and not a sentence, and `#!/usr/bin/env python3` reported nothing but was read every time.
 
-    THE CMake STRING IS DELIBERATELY NOT READ. idemIP's CMakeLists.txt:122 puts a banned phrase
-    inside a `set(... CACHE BOOL "...")` description, which is a string and reaches a person through
+    THE CMake STRING IS DELIBERATELY NOT READ. A CMakeLists.txt can put a banned phrase inside a
+    `set(... CACHE BOOL "...")` description, which is a string and reaches a person through
     `ccmake`. Reading it wants a CMake parser, and guessing at one
     would report every quoted path in every add_custom_command. Named here because it is a known
     gap and not an oversight.

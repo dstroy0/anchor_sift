@@ -71,6 +71,6 @@ python examples/any_corpus/4_measure/collision_entropy.py
 python examples/crystallography/6_oracle/proof_positive_control.py
 ```
 
-Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `utils/maint/data/fetch/` fetches them. `python utils/maint/deps/get_deps.py` clones what the C side needs.
+Most need corpora under `build/`, which comes to about 1.9 GB and is not in git. `utils/maint/data/fetch/` fetches them.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

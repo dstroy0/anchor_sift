@@ -27,15 +27,9 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 **`catalog/`.** `catalog.py` issues a number to every example and never reissues one. `catalog.tsv` is the registry it writes. `catalog_verify.py` points at examples whose header and code have drifted apart. A number survives a file moving and a path does not. The registry exists for that reason alone.
 
-**`citations/`.** `citations.py` is the register of the mathematics this work rests on, and it fails while a name is used and unregistered. `corpus_crossref.py` finds corpus material used without the paper it came from named beside it, and `--speakers` reports who the corpus rests on and who is unnamed.
-
-**`corpus/`.** `corpus_manifest.py` reconciles the private tree against its signed inventory. `speech_gate.py` errors recorded speech the community has not permitted. `speech_order.py` holds the drawn order nobody chose. `verify_private_sync.py` checks that what `build/` reaches is the corpus the signature covers. Each takes `--bypass`.
-
 **`source/`.** `codemask.py` says which bytes of a C file are code. `strip_comments.py` and `readclean.py` remove comments so code can be read or rewritten without prose in the way. `dedup.py` finds the same code written twice under different names. `src2png.py` renders source to pages for surveying at image density. `readclean_mmgr.py` is the preserved C only original and `readclean_mmgr_test.py` is its test.
 
 **`engine/`.** `check_exact_limbs.py` checks the C limb arithmetic against python integers, which are arbitrary precision and share no code with it. A library cannot be its own oracle. Every arm of the engine is checked against a different implementation and never against a second routine in its own file. The vectorized and GPU arms are checked here as they land.
-
-**`deps/`.** `get_deps.py` clones what this repository depends on instead of carrying copies. `vendor_test_vectors.py` vendors the published SHA-256 test vectors with a manifest recording where each came from.
 
 **`tree/`.** `write_survey.py` reads every script for the files it opens and reports where each one lands. The list of what this tree writes is checked instead of remembered.
 

@@ -157,8 +157,7 @@ def header_of(text):
 def theory_sections():
     """Every section number the theory research papers actually carry."""
     held = set()
-    # Every research paper sits under theory/. The seven that stood under theory_bucket/ moved there on
-    # 2026-09-25.
+    # Every research paper sits under theory/.
     roots = (os.path.join(ROOT, "theory"),)
     for base, dirs, names in itertools.chain.from_iterable(
         os.walk(one) for one in roots

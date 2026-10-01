@@ -33,7 +33,7 @@ from .verbatim import verbatim_root
 # IT HAS HAPPENED. Three times in one day, three different people, all caught before shipping:
 # `seamless` proposed as `fast`, where both are named in one praise-adjective ban; "in the header,
 # not in the .c" nearly written to replace a `rather than`; and eleven X-not-Y substitutions across
-# one ProtoCore file, rejected on review.
+# one file, rejected on review.
 #
 # THE TWO LEGAL TREATMENTS, from :110 and :146 read together. Give the second half its own plain
 # declarative sentence, or drop the weaker half. Dropping is the default, and :146's test is whether

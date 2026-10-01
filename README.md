@@ -33,7 +33,7 @@ python examples/crystallography/6_oracle/proof_positive_control.py  # the positi
 sh utils/maint/texbuild/build_theory.sh                                 # the fifteen research papers
 ```
 
-On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `utils/maint/data/fetch/` fetches them, and `python utils/maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
+On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `utils/maint/data/fetch/` fetches them. `docs/setup.md` and `docs/usage.md` cover the rest.
 
 ## The algorithm
 
@@ -305,7 +305,7 @@ To read the code instead of the argument, start with `src/engine/python/README.m
 The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `utils/maint/data/salishan/get_papers.py` fetches the papers from the public archive, `utils/maint/data/fetch/` fetches the other corpora, and the tools rebuild the rest.
 
 The hand extractions are forms transcribed out of published papers. The tables are those papers' text and not this work's to redistribute.
-They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `utils/maint/corpus/verify_private_sync.py`.
+They are not carried here.
 Everything that does not read a paper or a table runs without them.
 
 ## Licensing

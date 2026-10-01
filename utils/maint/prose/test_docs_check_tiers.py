@@ -61,19 +61,6 @@ def findings(path):
     )
 
 
-def sibling_repository(name):
-    """A repository checked out beside this one, or None.
-
-    Resolved through main_checkout() and not __file__. A linked worktree computing sibling paths
-    from __file__ lands inside the worktree directory and finds nothing.
-    """
-    named = os.environ.get(name.upper() + "_TREE")
-    if named:
-        return named if os.path.isdir(named) else None
-    beside = os.path.join(os.path.dirname(docs_check.main_checkout()), name)
-    return beside if os.path.isdir(beside) else None
-
-
 def describe_ref(tree):
     """The revision a measurement was taken at, and whether it is reachable anywhere but here."""
     try:
@@ -552,16 +539,15 @@ class NamedSpansAreNamesAndNotUses(unittest.TestCase):
         self.assertEqual(list(docs_check.banned_hits(said, quotations=True)), [])
 
     def test_italic_does_not_straddle_a_table_cell(self):
-        # ProtoCore TUNING.md:154. Two unrelated asterisks in different cells paired across the row
-        # and swallowed a real `so a`. A citation of a form does not cross a cell boundary.
+        # Two unrelated asterisks in different cells must not pair across the row and swallow a
+        # real `so a`. A citation of a form does not cross a cell boundary.
         said = ["| *a* | tracks `MAX_CONNS` so a raised pool never trips it | *b* |"]
         hits = [token for _, _, token in docs_check.banned_hits(said, quotations=True)]
         self.assertIn("so a", [one.lower() for one in hits])
 
     def test_bold_is_not_exempt(self):
-        # Bold marks a heading far more often than a citation here. It exempted one site on the
-        # standards and five in ProtoCore/docs, three of which were real TIER A findings inside a
-        # heading label. The arm came out and this holds it out.
+        # Bold marks a heading far more often than a citation here, and exempting it hides real
+        # TIER A findings inside heading labels. This holds the exemption out.
         said = ["- **Why it is deferred rather than fixed:** the finding is in a tree we do not own."]
         hits = [
             token.lower()
@@ -641,44 +627,6 @@ class ProseNeverFailsABuild(unittest.TestCase):
         )
         return done.returncode, done.stdout.decode("utf-8", "replace")
 
-    def test_a_tier_a_finding_alone_does_not_fail(self):
-        for name, path in STANDARDS.items():
-            if not os.path.isfile(path):
-                self.skipTest("the standards are not installed")
-        # The standards carry em dashes, which are structural. They are the wrong fixture for
-        # this. idemIP/src is the right one: thousands of prose findings and no structural finding.
-        tree = sibling_repository("idemIP")
-        if not tree or not os.path.isdir(os.path.join(tree, "src")):
-            self.skipTest("idemIP is not checked out beside this tree")
-        where = os.path.join(tree, "src")
-        status, said = self.run_tool(where)
-        breaking = [
-            one for one in said.splitlines() if one.strip().startswith("BREAK ")
-        ]
-        prose = [one for one in said.splitlines() if one.strip().startswith("prose ")]
-        print(
-            "\n  idemIP/src at %s: %d breaking, %d prose, exit %d"
-            % (describe_ref(tree), len(breaking), len(prose), status)
-        )
-        self.assertEqual(breaking, [], "the fixture stopped being prose-only")
-        self.assertTrue(
-            len(prose) > 100, "the fixture stopped producing prose findings"
-        )
-        self.assertEqual(
-            status,
-            0,
-            "%d prose findings and no structural finding exited %d. Both standards "
-            "say a prose hit never fails a build." % (len(prose), status),
-        )
-
-    def test_strict_is_the_cleanup_pass_and_does_fail(self):
-        tree = sibling_repository("idemIP")
-        if not tree or not os.path.isdir(os.path.join(tree, "src")):
-            self.skipTest("idemIP is not checked out beside this tree")
-        status, _ = self.run_tool(os.path.join(tree, "src"), "--strict")
-        self.assertEqual(
-            status, 1, "--strict is the mode a cleanup pass wants and it did not fail"
-        )
 
     def test_orior_itself_is_held_to_the_same_contract(self):
         # Named because the brief for this tool has been read the other way before. orior owns

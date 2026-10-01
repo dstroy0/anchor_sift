@@ -118,8 +118,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def _trees(start):
     """Walk up until a directory holding orior is found, in place of counting parents.
 
-    A fixed number of dirname calls encodes how deep this file happens to sit. Searching upward for
-    the sibling is the same move link_shared.ps1 makes for the same reason.
+    A fixed number of dirname calls encodes how deep this file happens to sit. Searching upward
+    finds it wherever this file sits.
     """
     at = start
     while at != os.path.dirname(at):

@@ -19,25 +19,14 @@
 # banned_hits applies the run-level context rules beside QUOTED; main() applies the file-level and
 # region-level rules and prints what fired.
 #
-# NOTHING IS SKIPPED QUIETLY. A silent skip is how everything in this file got here. The canonical
-# case came from the closed-repository scan this tool once ran: it covered zero closed repositories
-# for the whole of a directory migration and nobody could see it, because "scanned none" and "there
-# are none" printed the same nothing. So every exclusion below records what it dropped and why, into
-# a Ledger, and main() prints that ledger under the counts. A file this tool declines to read is
+# NOTHING IS SKIPPED QUIETLY. "Scanned none" and "there are none" must never print the same
+# nothing. So every exclusion below records what it dropped and why, into a Ledger, and main()
+# prints that ledger under the counts. A file this tool declines to read is
 # named by the run that declined to read it.
 #
 # EVERY EXCLUSION STATES ITS REASON IN THE SOURCE AND NOT ONLY ITS RULE. A bare list of paths is the
 # kind of thing a later maintainer deletes as overcautious, and they are right to: a rule nobody can
-# check is a rule nobody can keep. A list saying why survives. The prior art is idemIP's
-# repotools.toml:40-43, followed here instead of reinvented:
-#
-#     # The two files in this tree that are prose. docs/ is deliberately not a root: everything
-#     # under docs/learn is the RFC corpus as the RFC Editor published it, which is not ours to
-#     # check and not ours to rewrite.
-#
-# Three parties reached that rule independently on one day: that config file, the custodian of the
-# closed corpus about oracles/, and a prose pass about docs/learn/RFC/. Three arrivals at one rule
-# make it a discovered rule and not three preferences, and a discovered rule gets written once.
+# check is a rule nobody can keep. A list saying why survives.
 #
 # EVERY RULE HERE IS A FIRST-CLASS RULE AND NOT A SPECIAL CASE. Each one has a name, a reason, a
 # measured cost and a test. A special case is a rule with none of those, and it is the thing the

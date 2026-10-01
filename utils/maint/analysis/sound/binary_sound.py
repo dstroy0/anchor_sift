@@ -13,9 +13,8 @@
 # A GENERIC TOOL, AND THE CORPUS IS WHAT IS WITHHELD
 #
 # This reads any recording. Nothing in it knows a language, and the method is the same for a field
-# recording, a podcast or a bird. It was moved into the closed corpus for a while on the reasoning
-# that a faithful representation deserves the terms the recordings have, and that was the wrong
-# lever. Withholding a generic tool protects nothing, because whoever has audio can write one.
+# recording, a podcast or a bird. Withholding a generic tool protects nothing, because whoever has
+# audio can write one.
 #
 # The corpus not being shipped is what prevents casual misuse. Writing this file is the easy half.
 # Gathering the recordings and cleaning them into something measurable is the hard half: the hand
@@ -187,9 +186,8 @@ def main():
         return 1
     os.makedirs(SOUND, exist_ok=True)
     done = 0
-    # speech/<source>/<recording>, one directory per source. speech_gate ties a file
-    # to the permission it is held under. Listing speech/ flat found the source directories and no
-    # recordings at all.
+    # speech/<source>/<recording>, one directory per source. Listing speech/ flat finds the source
+    # directories and no recordings at all.
     for name, full in sorted(recordings()):
         stem = os.path.splitext(name)[0]
         if wanted and (stem not in wanted):

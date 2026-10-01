@@ -1,12 +1,7 @@
 # orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #
-# Joins orior to repo_tools. Everything not stated here takes the default in
-# lib/repotools/defaults.toml.
-#
-#   repotools config     what this file resolves to
-#   repotools fetch      copy the named sets in, and write repotools.lock
-#   repotools check      report a fetched tool edited here, or one the toolkit moved past
+# What orior calls itself, where its trees are, and which gates its commits pass.
 
 [project]
 name = "orior"
@@ -36,43 +31,15 @@ skip_files = []
 # pointer pages. utils/maint/ carries file headers that make the same kind of claim a page does, and
 # docs_check reads .tex as well. The research papers are in scope.
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "utils/maint"]
-# Left empty on purpose. private_roots used to guess the two closed repositories as siblings of
-# whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
-# Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
-# into a commit message. It is opt in now. orior is the public repository and the corpus is
-# checked from inside the corpus. This stays empty.
+# Empty, and it stays empty: nothing outside this tree is read.
 extra_roots = []
 
 [hooks]
-# docs_check is the prose gate. fetch_check is repotools check, which reports a fetched tool edited
-# in place. A gate named here that cannot be found stops the commit; absent is never a pass.
-gates = ["docs_check", "fetch_check"]
+# docs_check is the prose gate. A gate named here that cannot be found stops the commit; absent is
+# never a pass.
+gates = ["docs_check"]
 
 [hooks.docs_check]
-# Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
-# never fetched. Every repository asking for this gate has to point at its own copy or the gate
-# errors, and erroring is correct: it is a check nothing can supply for you.
+# Named, so the gate errors where the checker is not at this path.
 tool = "utils/maint/prose/docs_check"
 roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "utils/maint"]
-
-[fetch]
-# What orior pulls, and why each one.
-#
-#   lib/repotools            comes with every fetch regardless; named, a reader sees what lands
-#   media_tools/source_render  src2png.py, which renders a file to PNG pages. This is the tool the
-#                            hand extraction reads pages with, and it was adopted out of this tree
-#   docs/docs_maint          math_hazards.py and quotes.py, both already used here by path
-#   repo/repo_maint          gates.py, corpus_manifest.py, write_survey.py, inventory.py
-#
-# code/code_maint is NOT fetched. It holds a readclean.py that is a different tool sharing a name
-# with the one in utils/maint/source, and dedup.py and strip_comments.py were adopted out of this tree.
-# Fetching the set back would land three files over three this repository already has. Named files
-# from it can be fetched later one at a time.
-sets = [
-    "lib/repotools",
-    "media_tools/source_render",
-    "docs/docs_maint",
-    "repo/repo_maint",
-]
-# Relative to [layout] tools. This resolves to utils/maint/repotools and not utils/maint/utils/maint/repotools.
-into = "repotools"

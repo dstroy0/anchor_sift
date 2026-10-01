@@ -1,5 +1,5 @@
 {
-  "note": "Published SHA-256 vectors, vendored. Refresh with maint/vendor_test_vectors.py.",
+  "note": "Published SHA-256 vectors, vendored.",
   "consumed_by": "utils/test/harness.py vectors",
   "files": [
     {
@@ -56,7 +56,7 @@
       "commit": "b61843a9a5115bb758134b6a1f5d5e502d445342",
       "member": "testvectors_v1\\hmac_sha256_test.json",
       "sha256": "3286208d54542e4992902da358bb24f338125e3338555aea929025d9cbbe7b0d",
-      "what": "Wycheproof HMAC-SHA-256, adversarial subset curated by ProtoCore"
+      "what": "Wycheproof HMAC-SHA-256, adversarial subset"
     }
   ]
 }

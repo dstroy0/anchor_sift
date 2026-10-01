@@ -1,4 +1,4 @@
-# Extracted from HMAC.rsp, the [L=32] section only, by tools/dev_env/vendor_test_vectors.py
+# Extracted from HMAC.rsp, the [L=32] section only
 # Source https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Algorithm-Validation-Program/documents/mac/hmactestvectors.zip
 # Archive sha256 418c3837d38f249d6668146bd0090db24dd3c02d2e6797e3de33860a387ae4bd
 

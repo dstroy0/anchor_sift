@@ -9,9 +9,8 @@
 # Run on its own it prints how many form rows each language holds and which "who" values it could
 # not place. The experiments import it.
 #
-# The oracles are closed (salishan_corpus/README.md). This file reads them where they sit, at
-# build/oracles when that exists and at the private checkout beside this repository otherwise, and
-# nothing it returns is written back into this tree. The experiments print counts and rates.
+# The oracles are closed. This file reads them where they sit, at a directory passed to it or at
+# build/oracles, and nothing it returns is written back into this tree. The experiments print counts and rates.
 #
 # An oracle row is where, who, kind, form, gloss. For a form row, who names the language, but the
 # papers spell one language several ways (nɬeʔkepmxcín, Nɬeʔkepmxcín, Nłeʔkepmxcín), a few give an
@@ -33,12 +32,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = HERE
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
     ROOT = os.path.dirname(ROOT)
-PRIVATE = os.path.normpath(os.path.join(ROOT, "..", "..", "private", "salishan_corpus"))
 
 
 def oracle_dir(given=None):
-    """The oracle tables: an explicit path, build/oracles, or the private checkout beside this tree."""
-    for candidate in (given, os.path.join(ROOT, "build", "oracles"), os.path.join(PRIVATE, "oracles")):
+    """The oracle tables: an explicit path, or build/oracles."""
+    for candidate in (given, os.path.join(ROOT, "build", "oracles")):
         if candidate and os.path.isdir(candidate):
             return candidate
     raise SystemExit("no oracle tables found; pass their directory")

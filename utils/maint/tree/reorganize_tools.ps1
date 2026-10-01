@@ -51,8 +51,7 @@ $sorting = @{
     )
     "hardware" = @("batch_invariant.py", "compressor_test.py")
     "chain" = @("fetch_blocks.py", "blocks.json")
-    "research_paper" = @("build_bibliography.py")
-    "maint" = @("link_shared.ps1", "link_viz.ps1", "reorganize_src.ps1")
+    "maint" = @("reorganize_src.ps1")
 }
 
 Push-Location $root

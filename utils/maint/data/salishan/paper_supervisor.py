@@ -369,7 +369,7 @@ def main():
                 "  it is written by get_papers.py when it reads the archive page, and it is\n"
             )
             out.write(
-                "  carried in the closed corpus. Run private_sync.py, or fetch the index.\n\n"
+                "  read under build/. Fetch the index.\n\n"
             )
             out.flush()
             return 2

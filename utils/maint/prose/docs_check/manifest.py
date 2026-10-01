@@ -15,11 +15,10 @@ import os
 #
 # The most dangerous exclusion in this file, and the only one whose cost is not a question of taste.
 #
-# salishan_corpus/MANIFEST.tsv records the SHA-256, the byte count and the row count of 2028 files.
-# AUDIO_MANIFEST.tsv records another 3. Both carry a detached signature beside them,
-# MANIFEST.tsv.asc and AUDIO_MANIFEST.tsv.asc. Changing one byte of a listed file makes its hash
-# wrong, fails the reconcile that repository runs before every commit, and invalidates a signature
-# whose whole purpose is to attest what a published measurement was taken over.
+# A tree may carry a MANIFEST.tsv recording the SHA-256, the byte count and the row count of its
+# files, with a detached signature beside it. Changing one byte of a listed file makes its hash
+# wrong, fails the reconcile, and invalidates a signature whose whole purpose is to attest what a
+# published measurement was taken over.
 #
 # A LISTED PATH IS THEREFORE ERROR FOR REWRITING AND NEVER QUIETLY PASSED OVER, and a run that
 # offered to rewrite anything in a tree carrying a manifest prints that manifest's own reconcile
@@ -119,8 +118,8 @@ def manifest_listed(path):
 def reconcile_command(manifest):
     """The manifest's own instruction for reconciling a tree against it.
 
-    Lifted from the manifest header instead of written out here. corpus_manifest.py maintains both
-    the file and the sentence. Quoting the sentence keeps this from drifting away from the tool
+    Lifted from the manifest header instead of written out here. The tool that writes the manifest
+    maintains both the file and the sentence. Quoting the sentence keeps this from drifting away from the tool
     that would have to be run.
     """
     try:

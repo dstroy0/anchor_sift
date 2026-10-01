@@ -1,5 +1,4 @@
-# repotools-stamp: media_tools/source_render/src2png.py f0458b7d5b16cda4
-# repo_tools - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """Render source files to numbered PNG pages, for surveying at image density.
 

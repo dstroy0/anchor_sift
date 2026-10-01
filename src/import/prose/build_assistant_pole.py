@@ -22,9 +22,8 @@
 # the register, not an estimate of it.
 #
 # Most transcripts on this machine were not written under that constraint. docs_check.py runs in
-# orior, BTC and the MMgr tree; it does not run in ProtoCore, embedded_types, idemIP,
-# repo_tools or the rest. Prose written in those sessions is the unconstrained register, and it is
-# the pole the original could not be.
+# orior and nowhere else. Prose written in sessions elsewhere is the unconstrained register, and it
+# is the pole the original could not be.
 #
 # So the two corpora are kept apart and never merged. Merging them would average a suppressed
 # register with an unsuppressed one and report a number belonging to neither, which is the same
@@ -50,7 +49,7 @@ PROJECTS = os.path.join(os.path.expanduser("~"), ".claude", "projects")
 
 # The trees where docs_check.py runs, so prose written about them was written under the ban list.
 # Matched against the project directory name, which encodes the working directory path.
-SUPPRESSED = ("orior", "BTC", "mmgrwork", "making-money")
+SUPPRESSED = ("orior",)
 
 # A message shorter than this is an acknowledgement and not prose. session_prose uses the same bar.
 FLOOR = 40

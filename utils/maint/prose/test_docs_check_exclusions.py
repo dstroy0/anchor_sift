@@ -31,44 +31,6 @@ sys.path.insert(0, HERE)
 import docs_check as dc  # noqa: E402
 
 
-def sibling_repository(name):
-    """A repository beside this one, or None.
-
-    Resolved through docs_check.main_checkout() and not through __file__. From a linked worktree a
-    sibling computed from this file's path lands inside the worktree directory and finds nothing.
-    """
-    named = os.environ.get("%s_TREE" % name.upper())
-    if named:
-        return named if os.path.isdir(named) else None
-    base = dc.main_checkout()
-    owned = os.path.dirname(os.path.dirname(base))
-    for where in (
-        os.path.join(owned, "public", name),
-        os.path.join(owned, "private", name),
-        os.path.join(os.path.dirname(base), name),
-    ):
-        if os.path.isdir(where):
-            return where
-    return None
-
-
-def ref_of(where):
-    """`<revision> (<reachability>)` for a checkout, for printing beside a measurement.
-
-    Section 5's first rule. A count without its revision is a count about an unspecified tree, and
-    a revision that no remote contains is a tree of one.
-    """
-    answer = dc.tree_ref(where)
-    if not answer:
-        return "no revision"
-    return "%s (%s)" % (answer[1], answer[2])
-
-
-PROTOCORE = sibling_repository("ProtoCore")
-IDEMIP = sibling_repository("idemIP")
-CORPUS = sibling_repository("salishan_corpus")
-
-
 def findings_in(path, regions=None):
     """Every prose finding in one file, through the same path main() takes."""
     with open(path, encoding="utf-8", errors="replace") as handle:
@@ -95,32 +57,6 @@ class EveryExclusionErrorsAndSaysSo(unittest.TestCase):
     run that read less than it should have passed for a clean one.
     """
 
-    def test_a_declined_file_is_named_by_the_run_that_declined_it(self):
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        corpus = os.path.join(IDEMIP, "docs", "learn", "RFC")
-        if not os.path.isdir(corpus):
-            self.skipTest("the RFC corpus is not in this checkout")
-        ledger = dc.Ledger()
-        kept = dc.walk_markdown([corpus], ledger)
-        self.assertEqual(kept, [], "no file under a verbatim root is read")
-        self.assertGreater(ledger.total(), 0, "and every one of them is named")
-        printed = "\n".join(ledger.report())
-        self.assertIn("verbatim third-party", printed)
-        self.assertIn("RFC Editor", printed, "the reason travels with the count")
-
-    def test_the_exclusion_applies_with_no_ledger_to_record_it(self):
-        """Recording is optional. The rule never is.
-
-        A caller that has not been taught about the ledger must not be able to turn an exclusion off
-        by forgetting to pass one, which is how an optional argument becomes an optional rule.
-        """
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        corpus = os.path.join(IDEMIP, "docs", "learn", "RFC")
-        if not os.path.isdir(corpus):
-            self.skipTest("the RFC corpus is not in this checkout")
-        self.assertEqual(dc.walk_markdown([corpus]), [])
 
     def test_the_ledger_keeps_the_sites_and_not_only_a_count(self):
         ledger = dc.Ledger()
@@ -208,178 +144,10 @@ class VerbatimThirdPartyIsANamedConcept(unittest.TestCase):
     def test_a_path_outside_every_root_is_read(self):
         self.assertIsNone(dc.verbatim_root(os.path.join(HERE, "docs_check")))
 
-    def test_the_ietf_corpus_is_declined(self):
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        corpus = os.path.join(IDEMIP, "docs", "learn", "RFC")
-        if not os.path.isdir(corpus):
-            self.skipTest("the RFC corpus is not in this checkout")
-        held = os.listdir(corpus)
-        print(
-            "\n  idemIP docs/learn/RFC at %s: %d file(s), all declined"
-            % (ref_of(IDEMIP), len(held))
-        )
-        self.assertEqual(dc.walk_markdown([corpus]), [])
-
-    def test_the_transcribed_tables_are_declined(self):
-        if not CORPUS:
-            self.skipTest("the closed corpus is not in this checkout")
-        oracles = os.path.join(CORPUS, "oracles")
-        if not os.path.isdir(oracles):
-            self.skipTest("oracles/ is not in this checkout")
-        readable = [one for one in os.listdir(oracles) if dc.checked_file(one)]
-        print(
-            "  salishan_corpus/oracles: %d file(s) this tool could otherwise open, all declined"
-            % len(readable)
-        )
-        self.assertGreater(len(readable), 0, "and there is something to decline")
-        self.assertEqual(dc.walk_markdown([oracles]), [])
-
-    def test_the_cost_is_named_and_it_is_two_files_of_our_own(self):
-        """The rule takes two of this project's own index pages with the corpora they index.
-
-        Named here and not discovered later by somebody wondering where a file went. The
-        alternative is an allowlist inside each verbatim root, which is a second list to maintain
-        for two files.
-        """
-        ours = []
-        if IDEMIP:
-            ours.append(os.path.join(IDEMIP, "docs", "learn", "RFC", "README.md"))
-        if PROTOCORE:
-            ours.append(
-                os.path.join(PROTOCORE, "docs", "learn", "datasheets", "README.md")
-            )
-        held = [one for one in ours if os.path.isfile(one)]
-        if not held:
-            self.skipTest("neither index page is in this checkout")
-        for one in held:
-            self.assertIsNotNone(
-                dc.verbatim_root(one), "%s goes quiet with the corpus it indexes" % one
-            )
-        print("  cost of the verbatim rule: %d index page(s) of our own" % len(held))
-
 
 # ============================================================================
 # 3. SIGNED MANIFESTS
 # ============================================================================
-
-
-class SignedManifestsErrorAndAreNeverSkipped(unittest.TestCase):
-    """The most dangerous exclusion here, and the only one whose cost is not a question of taste.
-
-    Changing one byte of a hashed file makes its hash wrong, fails the reconcile the corpus runs
-    before every commit, and invalidates a signature whose purpose is to attest what a published
-    measurement was taken over.
-    """
-
-    def setUp(self):
-        if not CORPUS:
-            self.skipTest("the closed corpus is not in this checkout")
-        self.manifest = os.path.join(CORPUS, "MANIFEST.tsv")
-        if not os.path.isfile(self.manifest):
-            self.skipTest("MANIFEST.tsv is not in this checkout")
-
-    def test_the_manifests_are_found_and_the_row_count_is_derived_not_written_down(
-        self,
-    ):
-        home = dc.manifest_home(os.path.join(CORPUS, "oracles"))
-        self.assertEqual(os.path.abspath(home), os.path.abspath(CORPUS))
-        index = dc.manifest_index(home)
-        by_manifest = {}
-        for held in index.values():
-            by_manifest[os.path.basename(held[0])] = (
-                by_manifest.get(os.path.basename(held[0]), 0) + 1
-            )
-        print("\n  salishan_corpus at %s attests: %s" % (ref_of(CORPUS), by_manifest))
-        self.assertGreater(
-            len(index), 100, "a manifest this small means it did not parse"
-        )
-        # Counted against the file, independently of the parser being tested.
-        with open(self.manifest, encoding="utf-8", errors="replace") as handle:
-            rows = [
-                one
-                for one in handle
-                if one.strip() and not one.startswith("#") and "\t" in one
-            ]
-        self.assertEqual(
-            by_manifest["MANIFEST.tsv"],
-            len(rows) - 1,
-            "every row but the column header names an attested path",
-        )
-
-    def test_both_manifests_carry_a_detached_signature(self):
-        signed = []
-        for name in dc.MANIFEST_NAMES:
-            where = os.path.join(CORPUS, name)
-            if not os.path.isfile(where):
-                continue
-            signature = where + dc.SIGNATURE_SUFFIX
-            self.assertTrue(
-                os.path.isfile(signature),
-                "%s is attested by nothing. The error has no force" % name,
-            )
-            signed.append(name)
-        print("  signed manifests present: %s" % ", ".join(signed))
-        self.assertGreater(len(signed), 1)
-
-    def test_a_listed_path_is_error_for_rewriting_and_the_manifest_is_named(self):
-        listed = sorted(dc.manifest_index(CORPUS))
-        readable = [one for one in listed if dc.checked_file(one)]
-        if not readable:
-            self.skipTest("nothing attested carries an extension this tool reads")
-        where = os.path.join(CORPUS, readable[0].replace("/", os.sep))
-        why = dc.fix_error(where, "alphabet")
-        self.assertIsNotNone(why, "an attested path is never rewritten")
-        self.assertIn("MANIFEST", why, "and the error names the manifest")
-        self.assertIn(".asc", why, "and the signature that would be invalidated")
-
-    def test_the_error_carries_the_reconcile_command_from_the_manifest_itself(self):
-        """Lifted from the manifest header. It cannot drift from the tool that maintains it."""
-        said = dc.reconcile_command(self.manifest)
-        print("  reconcile command, as the manifest states it: %s" % said)
-        self.assertIn(".py", said, "it names the tool that reconciles the tree")
-        with open(self.manifest, encoding="utf-8", errors="replace") as handle:
-            header = "".join(one for one in handle if one.startswith("#"))
-        self.assertIn(
-            said, header, "and it is quoted from the file and not written out here"
-        )
-
-    def test_reading_is_not_writing(self):
-        """A listed file is read and reported like any other. Only the rewrite errors.
-
-        Reporting changes no bytes. There is nothing for the hashes to disagree with, and a
-        corpus that goes unread is a corpus nobody can check.
-        """
-        home = dc.manifest_home(os.path.join(CORPUS, "README.md"))
-        self.assertIsNotNone(home)
-        self.assertIsNone(
-            dc.manifest_listed(os.path.join(CORPUS, "README.md")),
-            "the README is not attested. This test is about the others",
-        )
-        listed = [one for one in dc.manifest_index(home) if dc.checked_file(one)]
-        if not listed:
-            self.skipTest("nothing attested carries an extension this tool reads")
-        where = os.path.join(home, listed[0].replace("/", os.sep))
-        self.assertIsNotNone(dc.manifest_listed(where))
-        with open(where, encoding="utf-8", errors="replace") as handle:
-            lines = handle.read().splitlines()
-        # prose_only answers for an attested file exactly as it answers for any other.
-        self.assertEqual(len(dc.prose_only(where, lines)), len(lines))
-
-    def test_an_unlisted_path_in_the_same_tree_is_not_error_on_that_ground(self):
-        where = os.path.join(CORPUS, "README.md")
-        if not os.path.isfile(where):
-            self.skipTest("the corpus README is not in this checkout")
-        why = dc.fix_error(where, "alphabet")
-        if why:
-            self.assertNotIn("attested", why)
-
-    def test_the_manifest_walk_stops_at_a_repository_boundary(self):
-        """A manifest attests one repository. A parent holding several is not that repository."""
-        self.assertIsNone(
-            dc.manifest_home(HERE),
-            "this tree carries no manifest and must not inherit the corpus one",
-        )
 
 
 # ============================================================================
@@ -394,51 +162,6 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
     was measured before this landed.
     """
 
-    def test_the_two_tier_fixture_keeps_both_of_its_licence_sites(self):
-        """idemIP strip_comments.py, the sharpest fixture available, with both halves in one file.
-
-        :2-3 is a real copyright and SPDX pair and is not ours to edit. :4 and :12 say `licence` in
-        prose ABOUT a license block, four lines and eleven lines below it, and :4 sits directly
-        under the header with no blank line between them. A block rule reaching one line too far
-        takes :4 with the header.
-        """
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        where = os.path.join(IDEMIP, "tools", "dev_env", "strip_comments.py")
-        if not os.path.isfile(where):
-            self.skipTest("strip_comments.py is not in this checkout")
-        at = sorted(one for one, what in findings_in(where) if "licence" in what)
-        print(
-            "\n  idemIP strip_comments.py at %s: licence reported at %s"
-            % (ref_of(IDEMIP), at)
-        )
-        self.assertEqual(at, [4, 12])
-
-    def test_the_second_half_of_the_fixture_keeps_both_of_its_sites(self):
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        where = os.path.join(IDEMIP, "tools", "dev_env", "readclean.py")
-        if not os.path.isfile(where):
-            self.skipTest("readclean.py is not in this checkout")
-        at = sorted(one for one, what in findings_in(where) if "licence" in what)
-        self.assertEqual(at, [12, 36])
-
-    def test_the_legal_block_itself_is_blanked_and_named(self):
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        where = os.path.join(IDEMIP, "tools", "dev_env", "strip_comments.py")
-        if not os.path.isfile(where):
-            self.skipTest("strip_comments.py is not in this checkout")
-        with open(where, encoding="utf-8", errors="replace") as handle:
-            lines = handle.read().splitlines()
-        ledger = dc.Ledger()
-        said = dc.prose_only(where, lines, ledger)
-        self.assertEqual(said[1], "", "the copyright line is blanked")
-        self.assertEqual(said[2], "", "and so is the SPDX line beside it")
-        self.assertNotEqual(said[3].strip(), "", "and the docstring under them is not")
-        printed = "\n".join(ledger.report())
-        self.assertIn("legal block", printed)
-        self.assertIn(":1-3", printed, "the span is named, not only the count")
 
     def test_a_bare_comment_marker_separates_two_blocks(self):
         """The regression this rule was rewritten for, guarded by name.
@@ -490,8 +213,6 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
         findings on the tree, and for that reason the two boundary tests above are asserted by shape.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
-        if IDEMIP:
-            roots.append(os.path.join(IDEMIP, "tools"))
         roots = [one for one in roots if os.path.isdir(one)]
         silenced = 0
         read = 0
@@ -526,10 +247,8 @@ class LegalBlocksAreBlankedPerBlockAndNotPerLine(unittest.TestCase):
 class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
     """The one decision here a reader is likely to want to reverse. It is tested hardest.
 
-    The structural pass that landed before this one wrote its instruction into the assertion a
-    suppressing rule would break: the single genuine structural finding in the whole of
-    ProtoCore/docs sits inside a generated region. Skipping marked regions deletes the finding
-    this objective asks to be asserted and reports that tree clean.
+    A genuine structural finding can sit inside a generated region. Skipping marked regions
+    deletes that finding and reports the tree clean.
     """
 
     def test_both_marker_shapes_are_read(self):
@@ -578,77 +297,6 @@ class GeneratedRegionsAreAttributedAndNeverSuppressed(unittest.TestCase):
             dc.attributed("a finding", 9, {4: "gen_sections.py"}), "a finding"
         )
 
-    def test_the_protocore_empty_table_is_still_reported_and_is_still_inside_a_region(
-        self,
-    ):
-        """Asserted BY SITE and not by count.
-
-        A count falling to the right number for the wrong reason reads exactly like a repair. This
-        one names the file, the line, the finding and the generator.
-        """
-        if not PROTOCORE:
-            self.skipTest("ProtoCore is not checked out beside this one")
-        where = os.path.join(PROTOCORE, "docs", "README.md")
-        if not os.path.isfile(where):
-            self.skipTest("ProtoCore docs/README.md is not in this checkout")
-        with open(where, encoding="utf-8", errors="replace") as handle:
-            lines = handle.read().splitlines()
-        inside, complaints = dc.generated_regions(lines)
-        self.assertEqual(complaints, [], "every marker in this file is closed")
-        empty = dc.empty_tables(lines)
-        print(
-            "\n  ProtoCore docs/README.md at %s: %d header-only table(s), %d line(s) generated"
-            % (ref_of(PROTOCORE), len(empty), len(inside))
-        )
-        self.assertGreater(
-            len(empty),
-            0,
-            "the genuine structural finding this rule must not delete is gone. If "
-            "it was fixed in ProtoCore, say and retire this assertion; do not "
-            "make a suppressing rule pass by deleting the finding it suppressed.",
-        )
-        for at, what in empty:
-            self.assertIn(
-                at,
-                inside,
-                "docs/README.md:%d is the finding this objective asks to be asserted "
-                "and it sits inside a generated region. A rule that SKIPS a marked "
-                "region deletes it and reports this tree clean. Report it and name the "
-                "generator from the marker." % at,
-            )
-            note = dc.attributed(what, at, inside)
-            self.assertIn("gen_readme_sections.py", note)
-
-    def test_the_generated_rule_removed_no_breaking_finding_from_protocore(self):
-        """The whole-tree arm of the same guard, run as a subprocess the way a hook runs it."""
-        if not PROTOCORE:
-            self.skipTest("ProtoCore is not checked out beside this one")
-        docs = os.path.join(PROTOCORE, "docs")
-        if not os.path.isdir(docs):
-            self.skipTest("ProtoCore docs/ is not in this checkout")
-        answer = subprocess.run(
-            [sys.executable, os.path.join(HERE, "docs_check"), docs],
-            capture_output=True,
-            text=True,
-            env=dc.git_env(),
-        )
-        breaking = [
-            one for one in answer.stdout.splitlines() if one.strip().startswith("BREAK")
-        ]
-        print(
-            "  ProtoCore/docs at %s: %d breaking finding(s)"
-            % (ref_of(PROTOCORE), len(breaking))
-        )
-        self.assertGreater(
-            len(breaking),
-            0,
-            "a generated-region rule that takes the breaking count to zero has "
-            "suppressed the finding it was supposed to attribute",
-        )
-        named = [one for one in breaking if "generated by" in one]
-        self.assertGreater(
-            len(named), 0, "and at least one of them names its generator"
-        )
 
     def test_a_site_inside_a_region_is_error_for_rewriting(self):
         why = dc.fix_error("a/page.md", "alphabet", 4, {4: "gen_sections.py"})
@@ -731,8 +379,6 @@ class TheSubjectIsTheConvention(unittest.TestCase):
         opposite of the usual order and is why the number is asserted and not described.
         """
         roots = [os.path.join(dc.REPOSITORY, "maint")]
-        if PROTOCORE:
-            roots.append(os.path.join(PROTOCORE, "docs"))
         roots = [one for one in roots if os.path.isdir(one)]
         silenced = 0
         read = 0
@@ -809,39 +455,6 @@ class NothingIsRewrittenThatIsNotTokenForToken(unittest.TestCase):
             dc.fix_error(os.path.join(HERE, "nothing_special.md"), "alphabet")
         )
 
-    def test_the_two_tier_line_splits(self):
-        """idemIP strip_comments.py:12 carries a `licence` and a `rather` on one line.
-
-        That single line is the sharpest available statement of where a rewrite may go and where it
-        may not: the convention half is token for token, and the construction half is report-only
-        forever.
-        """
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        where = os.path.join(IDEMIP, "tools", "dev_env", "strip_comments.py")
-        if not os.path.isfile(where):
-            self.skipTest("strip_comments.py is not in this checkout")
-        with open(where, encoding="utf-8", errors="replace") as handle:
-            lines = handle.read().splitlines()
-        said = dc.prose_only(where, lines)
-        verdicts = {}
-        for at, pattern, token in dc.banned_hits(said, comments=True, path=where):
-            if at != 12:
-                continue
-            tier = dc.tier_of(pattern)
-            verdicts[token.lower()] = dc.fix_error(where, tier, at, {}, lines[at - 1])
-        print(
-            "\n  idemIP strip_comments.py:12 at %s: %s"
-            % (ref_of(IDEMIP), sorted(verdicts))
-        )
-        self.assertIn("licence", verdicts)
-        self.assertIn("rather", verdicts)
-        self.assertIsNone(
-            verdicts["licence"], "token for token, and the shape cannot change"
-        )
-        self.assertIsNotNone(
-            verdicts["rather"], "a hinge is dissolved and never replaced"
-        )
 
     def test_a_line_carrying_a_normative_keyword_is_never_rewritten(self):
         why = dc.fix_error(
@@ -934,32 +547,6 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
         self.assertIn("installed nowhere", said)
         self.assertIn("root(s) and nothing outside them", said)
 
-    def test_the_fix_plan_writes_nothing_and_says_so(self):
-        if not IDEMIP:
-            self.skipTest("idemIP is not checked out beside this one")
-        where = os.path.join(IDEMIP, "tools", "dev_env", "strip_comments.py")
-        if not os.path.isfile(where):
-            self.skipTest("strip_comments.py is not in this checkout")
-        before = open(where, "rb").read()
-        said = self.run_on("--fix", where)
-        self.assertEqual(open(where, "rb").read(), before, "--fix wrote to the tree")
-        self.assertIn("plan only", said)
-        self.assertIn("ERROR", said)
-        self.assertIn("would rewrite", said)
-
-    def test_the_fix_plan_prints_the_reconcile_command_in_a_tree_carrying_a_manifest(
-        self,
-    ):
-        if not CORPUS:
-            self.skipTest("the closed corpus is not in this checkout")
-        where = os.path.join(CORPUS, "README.md")
-        if not os.path.isfile(where):
-            self.skipTest("the corpus README is not in this checkout")
-        said = self.run_on("--fix", where)
-        self.assertIn("signed manifest", said)
-        self.assertIn(
-            ".py", said, "and the instruction names the tool that reconciles the tree"
-        )
 
     def test_prose_still_never_fails_a_build(self):
         """Verbatim in both standards, in the sentence that names this tool, and unchanged here.

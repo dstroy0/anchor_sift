@@ -134,9 +134,7 @@ def main():
             "it.\n"
         )
         handle.write(
-            "**Scope:** every `.oracle.tsv` in the closed corpus, which reaches this "
-            "tree under `build/oracles` through "
-            "`maint/corpus/verify_private_sync.py`\n\n"
+            "**Scope:** every `.oracle.tsv` under `build/oracles`\n\n"
         )
         handle.write(
             "These languages belong to the people who speak them. None of this work "

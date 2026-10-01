@@ -85,7 +85,6 @@ three proofs into here and being refused by the ignore rule.
 | `prose/docs_check.py`          | The prose standard, applied to the text these files carry                |
 | `prose/printed_check.py`       | The same standard, applied to the text these tools print                 |
 | `prose/gate.py`                | Both of the above in one command, over `.cu`, `.cpp` and `.html` as well |
-| `book/build_bibliography.py`   | The book's bibliography, from the citations registry, pinned to a commit |
 | `book/build_theory.sh`         | Every theory book, two passes of LuaLaTeX, into `build/theory/`          |
 | `chain/fetch_blocks.py`        | Recent block headers from a public explorer, as a corpus                 |
 

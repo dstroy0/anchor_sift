@@ -11,7 +11,7 @@ The membership rule stops there. A script that fetches, converts, transcribes or
 
 Network acquisition, one script per source. Each names the archive it reads, identifies itself in its user agent, and writes under `build/corpora/`.
 
-They range from a single work to a whole archive: Project Gutenberg, OPUS, Deutsches Textarchiv, Aozora Bunko, Universal Dependencies, Tatoeba, eBible, and the Estonian and Austrian national collections. `maint/citations/citations.py` carries the registry of what each one is, bucketed by the domain it feeds.
+They range from a single work to a whole archive: Project Gutenberg, OPUS, Deutsches Textarchiv, Aozora Bunko, Universal Dependencies, Tatoeba, eBible, and the Estonian and Austrian national collections.
 
 ## salishan
 
@@ -26,6 +26,6 @@ One subject's pipeline, from the archive to a checked corpus. This is the larges
 | `orior_algorithmic_extraction/` | the sift applied to the same papers |
 | `corpus_derivation.py` | how wrong the corpus could be, from what the checks have seen |
 
-The papers and the hand extractions are not here. They are somebody else's copyright and somebody else's language, they live in a closed repository, and `build/papers` and `build/oracles` reach them. `maint/corpus/verify_private_sync.py` checks that what `build/` reaches is what the signature covers.
+The papers and the hand extractions are not here. They are somebody else's copyright and somebody else's language, and the tools read them under `build/papers` and `build/oracles`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

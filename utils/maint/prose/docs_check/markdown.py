@@ -108,29 +108,17 @@ def path_candidate(target):
 
     dead_links is a structural check and a structural finding fails a commit. A target this
     returns True about has to be something the filesystem can actually answer for. Two shapes wear
-    markdown link syntax without being paths. Both were measured against a Doxygen C repository.
+    markdown link syntax without being paths. This test sits in front of os.path.exists instead of
+    in an exemption list somewhere.
 
-    Measured at ProtoCore f3e96f68, `python utils/maint/prose/docs_check <protocore>/docs` reported 251
-    breaking findings where 4 were real. 244 were Doxygen references and 3 were C declarators. The
-    gate is correct in orior, a tree of Python and markdown that uses no Doxygen. Pointed at a
-    repository that does use it, the gate would have errored on every commit ProtoCore could make. That
-    is why this test sits in front of os.path.exists instead of in an exemption list somewhere.
+    Doxygen references. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols, and a finding
+    on one reports a working cross-reference as a broken link.
 
-    Doxygen references, 244 of them. [`HTTP_10`](@ref HTTP_10) resolves against documented symbols.
-    HTTP_10, HttpVersion, HttpReq::version, send_chunked, WS_FRAME_SIZE, MAX_HEADERS and
-    PROTOCORE_ENABLE_KEEPALIVE were each confirmed as live symbols in ProtoCore's source. Every
-    one of those findings reported a working cross-reference as a broken link.
+    C declarators. A lambda in a fenced example writes `[](const char *user, const char *pass)`, and
+    a parenthesized group following a bracketed one is the shape LINK looks for.
 
-    C declarators, 3 of them, at SECURITY.md:903, SSH.md:91 and SSH.md:94. A lambda in a fenced
-    example writes `[](const char *user, const char *pass)`, and a parenthesized group following a
-    bracketed one is the shape LINK looks for.
-
-    Which signal earns its place. Across orior, ProtoCore, idemIP, MMgr and embedded_types,
-    646 targets are skipped here and not one of them names a path that is on disk. Nothing that
-    was a real finding has been silenced. 496 of the 646 are Doxygen commands and the other 150 hold
-    a pointer star. Of the three declarator signals only the star fired. The type-keyword head and
-    the comma-separated list caught nothing in those five trees and are kept for the parameter list
-    that has neither star nor keyword, as in `(uint8_t slot, size_t len)`. The comma rule is the
+    No target skipped here names a path that is on disk. The type-keyword head and the
+    comma-separated list are kept for the parameter list that has neither star nor keyword, as in `(uint8_t slot, size_t len)`. The comma rule is the
     loosest of the three and is bounded to items of two words each. `docs/a.md, docs/b.md` stays
     a pair of paths.
     """

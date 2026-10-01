@@ -22,6 +22,6 @@ Questions asked across the whole tree at once, feeding sections of `theory/workb
 
 `binary_sound.py` writes the binary sound representation of every recording in `build/audio`, one row per 10 ms frame. The method is in `src/engine/python/representation/sound/perceived_sound.py`.
 
-It reads any recording and knows no language. It sat in the closed corpus for a while on the reasoning that a faithful representation deserves the terms the recordings have, and that was the wrong lever: withholding a generic tool protects nothing, because whoever has audio can write one. What prevents casual misuse is that the corpus is not shipped, which leaves the hard part hard.
+It reads any recording and knows no language. Withholding a generic tool protects nothing, because whoever has audio can write one. What prevents casual misuse is that the corpus is not shipped, which leaves the hard part hard.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
