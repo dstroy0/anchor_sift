@@ -76,10 +76,9 @@ def _check():
             failed += 1
     lines.append("")
 
-    # Larger cases whose verdicts were DERIVED, not remembered: a deterministic Miller-Rabin found
-    # each smallest odd k giving a prime and giving a composite at that power. A first version of
-    # this gate invented "known primes" from memory and two of them were composite. The engine
-    # was right and the test was wrong; the answers here come from a computation instead.
+    # Larger cases whose verdicts are derived, not remembered: a deterministic Miller-Rabin finds
+    # each smallest odd k giving a prime and giving a composite at that power. The answers come from
+    # that computation, not from memory.
     lines.append("  LARGER CASES, verdicts derived rather than remembered")
     known = ((27, 40, True), (1, 40, False), (7, 50, True), (1, 50, False),
              (31, 60, True), (1, 60, False))

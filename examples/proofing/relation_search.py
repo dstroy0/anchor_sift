@@ -84,10 +84,8 @@ def gram_schmidt_integer(product, basis):
     d[0] = 1
     for index in range(count):
         for other in range(index + 1):
-            # THIS USED TO COMPUTE `total` TWICE. A first version accumulated one recurrence, then
-            # overwrote it with the second before the first was ever read - dead work whose only
-            # effect was to make the loop look like it was doing something it was not. The second
-            # form is the correct one and is now the only one.
+            # `total` is computed once. Accumulating one recurrence then overwriting it with the
+            # second before the first is read is dead work.
             total = inner(product, basis[index], basis[other])
             for step in range(other):
                 total = (product(total, d[step + 1])

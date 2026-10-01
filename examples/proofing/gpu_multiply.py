@@ -188,11 +188,11 @@ def multiply(left, right):
 def _made(bits, seed):
     """A value of about `bits` bits, made from a cheap recurrence that repeats exactly on a re-run.
 
-    BUILT AS BYTES AND CONVERTED ONCE. An earlier version accumulated with `out = (out << 64) | x`,
-    which shifts a value that is already most of the answer on every one of a million iterations and
-    is therefore quadratic in the bit count. At the sizes this file exists to measure, that helper
-    took longer than every multiply it was written to time, and the run looked like a slow device
-    and not a slow test. Assembling the bytes first and converting once is linear.
+    BUILT AS BYTES AND CONVERTED ONCE. Accumulating with `out = (out << 64) | x` shifts a value that
+    is already most of the answer on every one of a million iterations and is therefore quadratic in
+    the bit count: at the sizes this file exists to measure, that helper takes longer than every
+    multiply it is written to time, and the run looks like a slow device and not a slow test.
+    Assembling the bytes first and converting once is linear.
     """
     state = seed
     raw = bytearray()
