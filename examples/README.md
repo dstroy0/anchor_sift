@@ -11,7 +11,7 @@ examples/<subject>/<stage>/<file>.py
 
 The subject says what kind of corpus it reads. The stage says which step of the reading it does. So `language/4_measure/cross_corpus.py` performs a measurement on text.
 
-Every script sits at that depth, and not one counts parent directories to locate the repository. They start at their own directory and walk up until they find `src/engine`. The previous layout counted. Moving a file changed its distance from the root and broke its imports. The breakage did not show up until somebody ran the script.
+Every script sits at that depth, and not one counts parent directories to locate the repository. They start at their own directory and walk up until they find `src/engine`. Counting parent directories breaks when a file moves: its distance from the root changes, its imports fail, and the breakage does not show up until somebody runs the script.
 
 ## Stages
 
@@ -44,7 +44,7 @@ Where a subject has no script for a stage, the directory is absent. That means n
 
 Start with `any_corpus`. Those scripts do not know what they are reading, and the rest of the work rests on that claim. Each other subject runs the same steps with domain knowledge added at stage one, and some of them can check the answer at stage six.
 
-`0_experimental` holds work that does not yet fit a subject or a stage. It is empty at the moment.
+`0_experimental` holds work that does not yet fit a subject or a stage.
 
 ## Failures are kept
 
@@ -52,11 +52,11 @@ A reading that was tried and did not work stays in its subject, next to whatever
 
 ## Fetchers are not examples
 
-Thirty three scripts that download or generate corpora used to sit in here, leaving one directory holding fifty three files. They are in `maint/data/fetch/` now. Getting a corpus is a separate job from reading one.
+Scripts that download or generate corpora do not sit here. They are in `maint/data/fetch/`. Getting a corpus is a separate job from reading one.
 
 ## Nothing in the engine imports from here
 
-`src/engine/` does not import anything under `examples/`. This was broken for a while: `web_alphabet.py` had thirty two importers and lived under `examples/` while the tools reached into it.
+`src/engine/` does not import anything under `examples/`.
 
 Two scripts import a sibling from the same directory. `cluster_branch.py` uses `report` from `cluster_profiles.py`, which uses a corpus reading from `positional_ambiguity.py`. All three sit in `language/4_measure` for that reason.
 
