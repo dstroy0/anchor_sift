@@ -15,6 +15,7 @@ matrix that is pseudorandom by construction, and two ablations - through identic
 import csv
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -72,7 +73,11 @@ def main():
 
     with open(TEMPLATE) as handle:
         page = handle.read()
-    page = page.replace("/*SOURCES_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    place = re.search(r"/\*SOURCES_DATA\*/\s*null", page)
+    if place is None:
+        sys.stderr.write("the template has no place to put the data\n")
+        return 1
+    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     with open(TARGET, "w", encoding="utf-8") as handle:
         handle.write(page)

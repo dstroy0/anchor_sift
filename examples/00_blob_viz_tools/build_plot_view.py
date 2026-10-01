@@ -35,6 +35,7 @@ import io
 import json
 import math
 import os
+import re
 import sys
 
 import settings
@@ -182,9 +183,11 @@ def main():
         page = handle.read()
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
-    page = page.replace(
-        "/*VOXEL_DATA*/null", json.dumps(payload, separators=(",", ":"))
-    )
+    place = re.search(r"/\*VOXEL_DATA\*/\s*null", page)
+    if place is None:
+        sys.stderr.write("the template has no place to put the data\n")
+        return 1
+    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     target = text("--out") or os.path.join(HERE, "plot_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:

@@ -28,6 +28,7 @@ Writes examples/00_blob_viz_tools/step_view.html, which is self-contained.
 import io
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -139,7 +140,11 @@ def main():
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
 
-    page = page.replace("/*STEP_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    place = re.search(r"/\*STEP_DATA\*/\s*null", page)
+    if place is None:
+        sys.stderr.write("the template has no place to put the data\n")
+        return 1
+    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     with io.open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(page)

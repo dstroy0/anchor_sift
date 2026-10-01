@@ -20,6 +20,7 @@ src/engine/c/sha256/bench/bench_sac.cu into build/bench and running it there wit
 import csv
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -81,7 +82,11 @@ def main():
         page = handle.read()
 
     packed = json.dumps(payload, separators=(",", ":"))
-    page = page.replace("/*SHADOW_DATA*/null", packed)
+    place = re.search(r"/\*SHADOW_DATA\*/\s*null", page)
+    if place is None:
+        sys.stderr.write("the template has no place to put the data\n")
+        return 1
+    page = page[:place.start()] + packed + page[place.end():]
 
     with open(TARGET, "w", encoding="utf-8") as handle:
         handle.write(page)

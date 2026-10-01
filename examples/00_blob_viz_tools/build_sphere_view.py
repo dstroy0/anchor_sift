@@ -44,6 +44,7 @@ import io
 import json
 import math
 import os
+import re
 import sys
 
 import settings
@@ -262,10 +263,11 @@ def main():
     with io.open(TEMPLATE, encoding="utf-8") as handle:
         page = handle.read()
     body = json.dumps(payload, separators=(",", ":"))
-    if "/*SPHERE_DATA*/null" not in page:
+    place = re.search(r"/\*SPHERE_DATA\*/\s*null", page)
+    if place is None:
         sys.stderr.write("the template has no place to put the data\n")
         return 1
-    page = page.replace("/*SPHERE_DATA*/null", body)
+    page = page[:place.start()] + body + page[place.end():]
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1

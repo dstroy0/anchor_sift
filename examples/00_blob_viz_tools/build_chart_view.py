@@ -34,6 +34,7 @@ import csv
 import io
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -183,7 +184,11 @@ def main():
         page = handle.read()
     if "</script>" not in page:
         raise SystemExit("template is truncated: the script tag is never closed")
-    page = page.replace("/*CHART_DATA*/null", json.dumps(payload, separators=(",", ":")))
+    place = re.search(r"/\*CHART_DATA\*/\s*null", page)
+    if place is None:
+        sys.stderr.write("the template has no place to put the data\n")
+        return 1
+    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     target = one("--out")
     if target is None:
