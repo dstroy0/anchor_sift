@@ -217,12 +217,13 @@ def render_states(states):
     needle = b"\x00"
     probes = []
     out = []
+    arm = None
     for corpus in states:
-        voxels = render.render_volume(EXTENT, corpus, needle, probes)
-        if voxels is None:
+        rendered = render.render_volume(EXTENT, corpus, needle, probes)
+        if rendered.bytes is None:
             return None, None
-        out.append(list(voxels))
-    arm = "device" if render.device_available() else "host"
+        out.append(list(rendered.bytes))
+        arm = rendered.arm
     return out, arm
 
 
