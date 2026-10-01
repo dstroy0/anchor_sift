@@ -38,9 +38,9 @@ Only `representation` knows a domain exists. It has `atom`, `constants`, `game`,
 | `evidence/` | the claims. The proofs, and the R and MATLAB ports |
 | `examples/` | a corpus, through `src/`. Numbered demonstrations |
 | `theory/` | the research papers, and the ledger they cite |
-| `maint/` | the repository itself. Records, gates, prose checks, fetchers, the research paper build |
+| `utils/maint/` | the repository itself. Records, gates, prose checks, fetchers, the research paper build |
 
-`maint/` is sorted into categories and holds no loose scripts. `maint/README.md` states what belongs in each, including `maint/data/` for external material and `maint/analysis/` for the surveys the research papers ask for.
+`utils/maint/` is sorted into categories and holds no loose scripts. `utils/maint/README.md` states what belongs in each, including `utils/maint/data/` for external material and `utils/maint/analysis/` for the surveys the research papers ask for.
 
 ## Reading the result
 
@@ -69,7 +69,7 @@ The floor moves with sample size. One computed on a large corpus bounds nothing 
 | `sound` | 3 | recordings as bit fields |
 | `molecules` | 3 | molecular formulae, legal from illegal by valence |
 
-Every example carries a catalog number in its header, `LNG-4-012` and so on. A citation to that number survives the file moving. `maint/catalog/catalog.py` is the registry.
+Every example carries a catalog number in its header, `LNG-4-012` and so on. A citation to that number survives the file moving. `utils/maint/catalog/catalog.py` is the registry.
 
 ## The search kernel
 

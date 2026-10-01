@@ -154,7 +154,7 @@ extern "C"
      *       later takes rank 255, alignments whose symbols differ can agree on every rank, and the byte
      *       engine's full compare cannot remove them, because on rank fields it compares ranks. The
      *       count is then an upper bound. It never falls below the symbol count, and case 13 in
-     *       test/engine/nbody/anchor_sift/test_adversarial_*.c measures it above: 44 against 1 on a 300-class field.
+     *       utils/test/engine/nbody/anchor_sift/test_adversarial_*.c measures it above: 44 against 1 on a 300-class field.
      * For an exact count past 256 classes, check the rank survivors against the symbols through the oracle, or give the
      * oracle to a descent directly.
      * @warning COSTS UP TO `length` SQUARED ORACLE CALLS AND THAT IS NOT A LOOSE BOUND. Computing the

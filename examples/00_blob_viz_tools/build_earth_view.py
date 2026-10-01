@@ -26,7 +26,7 @@ chi-square of 36.62 against a multinomial null whose ninety-fifth percentile is 
 p = 0.036 and it is drawn on the page. It cannot be read as more than it is.
 
     python examples/00_blob_viz_tools/build_earth_view.py
-    python examples/00_blob_viz_tools/build_earth_view.py --corpus maint/chain/blocks_deep.json
+    python examples/00_blob_viz_tools/build_earth_view.py --corpus utils/maint/chain/blocks_deep.json
 """
 
 import argparse
@@ -39,7 +39,7 @@ import random
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "earth_view_template.html")
-DEFAULT = os.path.join(ROOT, "maint", "chain", "blocks_deep.json")
+DEFAULT = os.path.join(ROOT, "utils", "maint", "chain", "blocks_deep.json")
 
 # Longitudes where mining is known to concentrate, for reference marks only. These are drawn as
 # labels on the dial and are never fitted to anything.

@@ -55,6 +55,6 @@ The filters here are the ones whose identifying invariant can be drawn from the 
 
 The stage three script above is a null for a **byte-valued signal at sample scale**. The filters need that. It is **not** the null a vocalization reading needs, and that one is still unwritten. The unit of a vocalization is a call, not a byte. Permuting bytes destroys the calls themselves instead of their order. What that reading needs is a null that keeps each call intact and permutes the sequence of calls. Until it exists, a departure measure over segmented calls has no background to stand against.
 
-The recordings are fetched by `maint/data/fetch/vocalization_domain.py` and `maint/data/fetch/infrasound_domain.py`.
+The recordings are fetched by `utils/maint/data/fetch/vocalization_domain.py` and `utils/maint/data/fetch/infrasound_domain.py`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

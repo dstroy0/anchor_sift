@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(SIFT_WARNINGS $<$<C_COMPILER_ID:GNU,Clang>:-O2 -Wall -Wextra>)
 
-# the repository's root, two above this file: bench/, test/engine/ and LICENSES/ lie there
+# the repository's root, two above this file: utils/bench/, utils/test/engine/ and LICENSES/ lie there
 if(NOT DEFINED ANCHOR_SIFT_ROOT)
     get_filename_component(ANCHOR_SIFT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../.." ABSOLUTE)
 endif()
@@ -55,7 +55,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|i[3-6]86)$")
 
     # AVX-512 on the GCC and Clang builds that accept the flags. MSVC's AVX-512 handling differs and
     # no machine here runs the arm. It is gated to the same compilers the exact avx512 arm gates
-    # to and confirmed by maint/engine/verify_arm_asm.sh.
+    # to and confirmed by utils/maint/engine/verify_arm_asm.sh.
     if(NOT MSVC)
         check_c_compiler_flag("-mavx512f -mavx512bw" ANCHOR_STEER_CC_TAKES_AVX512)
         if(ANCHOR_STEER_CC_TAKES_AVX512)
@@ -101,9 +101,9 @@ target_compile_definitions(anchor_sift_kernel_counted PUBLIC ${ANCHOR_SIFT_DEFIN
 target_link_libraries(anchor_sift_kernel_counted PUBLIC anchor_exact_portable)
 target_compile_options(anchor_sift_kernel_counted PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 
-# The shared libraries test/python's graders load through ctypes. anchor_sift_host is the kernel's host arms with the
+# The shared libraries utils/test/python's graders load through ctypes. anchor_sift_host is the kernel's host arms with the
 # read counters, and the exact integer sources compiled into it. No static library has to be position independent;
-# on Windows test/python/anchor_sift_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
+# on Windows utils/test/python/anchor_sift_probe.def names its exports. shift_agreement_host is shift_agreement.c alone.
 add_library(anchor_sift_host SHARED ${ANCHOR_SIFT_SOURCES} ${ANCHOR_EXACT_PORTABLE_SOURCES})
 target_include_directories(anchor_sift_host PRIVATE nbody/anchor_sift arithmetic/no_rounding)
 target_compile_definitions(anchor_sift_host PRIVATE ${ANCHOR_SIFT_DEFINES} ANCHOR_SIFT_COUNT_READS=1)
@@ -115,7 +115,7 @@ if(ANCHOR_EXACT_DIGITS)
 endif()
 target_compile_options(anchor_sift_host PRIVATE $<$<COMPILE_LANGUAGE:C>:${SIFT_WARNINGS}>)
 if(WIN32)
-    target_sources(anchor_sift_host PRIVATE ${ANCHOR_SIFT_ROOT}/test/python/anchor_sift_probe.def)
+    target_sources(anchor_sift_host PRIVATE ${ANCHOR_SIFT_ROOT}/utils/test/python/anchor_sift_probe.def)
 endif()
 
 add_library(shift_agreement_host SHARED analysis/shift_agreement/shift_agreement.c)
@@ -250,34 +250,34 @@ else()
     target_link_libraries(anchor_exact_arms INTERFACE anchor_exact_portable)
 endif()
 
-add_executable(bench_exact_arms ${ANCHOR_SIFT_ROOT}/bench/bench_exact_arms.c)
+add_executable(bench_exact_arms ${ANCHOR_SIFT_ROOT}/utils/bench/bench_exact_arms.c)
 target_link_libraries(bench_exact_arms PRIVATE anchor_exact_arms anchor_exact_portable)
 target_compile_options(bench_exact_arms PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_exact ${ANCHOR_SIFT_ROOT}/bench/bench_exact.c)
+add_executable(bench_exact ${ANCHOR_SIFT_ROOT}/utils/bench/bench_exact.c)
 target_link_libraries(bench_exact PRIVATE anchor_exact_portable)
 target_compile_options(bench_exact PRIVATE ${SIFT_WARNINGS})
 
-add_library(bench_corpora STATIC ${ANCHOR_SIFT_ROOT}/bench/bench_corpora.c)
+add_library(bench_corpora STATIC ${ANCHOR_SIFT_ROOT}/utils/bench/bench_corpora.c)
 target_include_directories(bench_corpora PUBLIC ${ANCHOR_SIFT_ROOT}/bench)
 target_compile_options(bench_corpora PRIVATE ${SIFT_WARNINGS})
 
 # Reads, which travel between machines and are what an asymptotic claim is made of.
-add_executable(bench_scaling_reads ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
+add_executable(bench_scaling_reads ${ANCHOR_SIFT_ROOT}/utils/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_reads PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_scaling_reads PRIVATE ${SIFT_WARNINGS})
 
 # Cycles, which belong to the machine that produced them and are for the dispatch decision alone.
-add_executable(bench_scaling_cycles ${ANCHOR_SIFT_ROOT}/bench/bench_scaling.c)
+add_executable(bench_scaling_cycles ${ANCHOR_SIFT_ROOT}/utils/bench/bench_scaling.c)
 target_link_libraries(bench_scaling_cycles PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_scaling_cycles PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_dispatch ${ANCHOR_SIFT_ROOT}/bench/bench_dispatch.c)
+add_executable(bench_dispatch ${ANCHOR_SIFT_ROOT}/utils/bench/bench_dispatch.c)
 target_link_libraries(bench_dispatch PRIVATE anchor_sift_kernel bench_corpora)
 target_compile_options(bench_dispatch PRIVATE ${SIFT_WARNINGS})
 
 # The engine's tests live in the anchor_sift tree this was forked from; a fork without them builds without them.
-set(ANCHOR_SIFT_TESTS "${ANCHOR_SIFT_ROOT}/test/engine/nbody/anchor_sift")
+set(ANCHOR_SIFT_TESTS "${ANCHOR_SIFT_ROOT}/utils/test/engine/nbody/anchor_sift")
 if(EXISTS "${ANCHOR_SIFT_TESTS}/test_steer_checks.c")
     add_executable(test_steer ${ANCHOR_SIFT_TESTS}/test_steer_checks.c ${ANCHOR_SIFT_TESTS}/test_steer_grading.c
         ${ANCHOR_SIFT_TESTS}/test_steer_projection.c)
@@ -289,28 +289,28 @@ if(EXISTS "${ANCHOR_SIFT_TESTS}/test_steer_checks.c")
     target_link_libraries(test_adversarial PRIVATE anchor_sift_kernel)
 endif()
 
-add_executable(bench_raster ${ANCHOR_SIFT_ROOT}/bench/bench_raster.c)
+add_executable(bench_raster ${ANCHOR_SIFT_ROOT}/utils/bench/bench_raster.c)
 target_link_libraries(bench_raster PRIVATE anchor_raster anchor_sift_kernel)
 target_compile_options(bench_raster PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_steer_arms ${ANCHOR_SIFT_ROOT}/bench/bench_steer_arms.c)
+add_executable(bench_steer_arms ${ANCHOR_SIFT_ROOT}/utils/bench/bench_steer_arms.c)
 target_link_libraries(bench_steer_arms PRIVATE anchor_sift_kernel)
 target_compile_options(bench_steer_arms PRIVATE ${SIFT_WARNINGS})
 
 
-add_executable(bench_sigma ${ANCHOR_SIFT_ROOT}/bench/bench_sigma.c)
+add_executable(bench_sigma ${ANCHOR_SIFT_ROOT}/utils/bench/bench_sigma.c)
 target_link_libraries(bench_sigma PRIVATE anchor_sift_kernel)
 target_compile_options(bench_sigma PRIVATE ${SIFT_WARNINGS})
 
-add_executable(bench_coherence ${ANCHOR_SIFT_ROOT}/bench/bench_coherence.c)
+add_executable(bench_coherence ${ANCHOR_SIFT_ROOT}/utils/bench/bench_coherence.c)
 target_link_libraries(bench_coherence PRIVATE anchor_sift_kernel_counted bench_corpora)
 target_compile_options(bench_coherence PRIVATE ${SIFT_WARNINGS})
 
-if(EXISTS "${ANCHOR_SIFT_ROOT}/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
-    add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
+if(EXISTS "${ANCHOR_SIFT_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
+    add_executable(test_arm_agreement "${ANCHOR_SIFT_ROOT}/utils/test/engine/arithmetic/no_rounding/test_arm_agreement.c")
     target_link_libraries(test_arm_agreement PRIVATE anchor_sift_kernel)
     target_compile_options(test_arm_agreement PRIVATE ${SIFT_WARNINGS})
-    add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/test/engine/nbody/anchor_sift/test_o2_spawn.c")
+    add_executable(test_o2_spawn "${ANCHOR_SIFT_ROOT}/utils/test/engine/nbody/anchor_sift/test_o2_spawn.c")
     target_link_libraries(test_o2_spawn PRIVATE anchor_sift_kernel)
     target_compile_options(test_o2_spawn PRIVATE ${SIFT_WARNINGS})
 endif()
@@ -322,7 +322,7 @@ int main(void) { double _Complex held = 1.0 + (2.0 * I); return (int)creal(held 
     ANCHOR_CC_HAS_COMPLEX)
 set(ANCHOR_UNTIMED_BENCHES bench_scaling_reads bench_scaling_cycles)
 if(ANCHOR_CC_HAS_COMPLEX)
-    add_executable(bench_lattice ${ANCHOR_SIFT_ROOT}/bench/bench_lattice.c)
+    add_executable(bench_lattice ${ANCHOR_SIFT_ROOT}/utils/bench/bench_lattice.c)
     target_compile_options(bench_lattice PRIVATE ${SIFT_WARNINGS})
     if(NOT WIN32)
         target_link_libraries(bench_lattice PRIVATE m)

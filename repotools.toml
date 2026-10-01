@@ -16,13 +16,13 @@ copyright = "Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>"
 prefix = "ANCHOR_SIFT"
 
 [layout]
-# This repository keeps its tools under maint/ and not tools/, the only line that
+# This repository keeps its tools under utils/maint/ and not tools/, the only line that
 # differs from the template. Every tool asks for the kind and never for the directory.
 source = ["src"]
 docs = ["docs", "theory"]
 examples = ["examples"]
-tests = ["test"]
-tools = "maint"
+tests = ["utils/test"]
+tools = "utils/maint"
 scratch = "build"
 
 [code]
@@ -33,9 +33,9 @@ skip_files = []
 
 [prose]
 # theory/ is where the research lives and it is the longest continuous prose here. docs/ is four
-# pointer pages. maint/ carries file headers that make the same kind of claim a page does, and
+# pointer pages. utils/maint/ carries file headers that make the same kind of claim a page does, and
 # docs_check reads .tex as well. The research papers are in scope.
-roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "utils/maint"]
 # Left empty on purpose. private_roots used to guess the two closed repositories as siblings of
 # whatever tree was under check, and a public AGPL library that adopted the toolkit then emitted
 # Salishan researcher surnames and paper identifiers into output whose whole purpose is to be pasted
@@ -52,8 +52,8 @@ gates = ["docs_check", "fetch_check"]
 # Named, because the prose checker lives in the toolkit's no_replicate_ set, which is local only and
 # never fetched. Every repository asking for this gate has to point at its own copy or the gate
 # errors, and erroring is correct: it is a check nothing can supply for you.
-tool = "maint/prose/docs_check"
-roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "maint"]
+tool = "utils/maint/prose/docs_check"
+roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "utils/maint"]
 
 [fetch]
 # What anchor_sift pulls, and why each one.
@@ -65,7 +65,7 @@ roots = ["README.md", "CONTRIBUTING.md", "docs", "theory", "src", "examples", "m
 #   repo/repo_maint          gates.py, corpus_manifest.py, write_survey.py, inventory.py
 #
 # code/code_maint is NOT fetched. It holds a readclean.py that is a different tool sharing a name
-# with the one in maint/source, and dedup.py and strip_comments.py were adopted out of this tree.
+# with the one in utils/maint/source, and dedup.py and strip_comments.py were adopted out of this tree.
 # Fetching the set back would land three files over three this repository already has. Named files
 # from it can be fetched later one at a time.
 sets = [
@@ -74,5 +74,5 @@ sets = [
     "docs/docs_maint",
     "repo/repo_maint",
 ]
-# Relative to [layout] tools. This resolves to maint/repotools and not maint/maint/repotools.
+# Relative to [layout] tools. This resolves to utils/maint/repotools and not utils/maint/utils/maint/repotools.
 into = "repotools"

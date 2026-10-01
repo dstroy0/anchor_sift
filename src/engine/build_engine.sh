@@ -4,7 +4,7 @@ set -u
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$ROOT/../.." && pwd)"
-source "$TOP/maint/engine/build_stamp.sh"
+source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp engine
 
 HOST_FLAGS=()

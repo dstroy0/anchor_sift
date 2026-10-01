@@ -29,7 +29,7 @@ extern "C"
  *       doubling, 4096 to 8192 to 16384 bits, with the position fixed at each. The guard below
  *       errors on a width that is not a power of two.
  * @note A build selects any power of two from 1 limb up, 32 bits up, with no ceiling. Every arm is
- *       graded from 1 limb to 32768 by maint/engine/check_exact_widths.sh, and the portable
+ *       graded from 1 limb to 32768 by utils/maint/engine/check_exact_widths.sh, and the portable
  *       reference to 4194304 bits by test/exact_transform_test.
  * @note A width below 4096 bits cannot hold the 1024 digit floor. A build selecting one declares
  *       its own ANCHOR_EXACT_DIGITS, and the floor assert below errors on it by name where it does not.

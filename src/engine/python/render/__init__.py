@@ -17,7 +17,7 @@
 # The library is found the way render.native describes: an explicit path, the ANCHOR_RENDER_LIB
 # environment variable, or a platform search. Nothing here walks the checkout. Where none is found
 # the pure Python arm runs, which is correct and slow, and the grader in
-# test/python/render_test.py checks the two arms agree byte for byte.
+# utils/test/python/render_test.py checks the two arms agree byte for byte.
 
 import collections
 

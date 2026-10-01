@@ -33,7 +33,7 @@ The build carries the verification itself, the way the crystallography oracle ch
 
 `legal_against_a_wide_set.py` asks whether a molecular formula can carry a valence structure at all. Read the valence of each atom, the bonds it makes, and three integer conditions decide it: the sum of the valences is even, because a bond spends two, one at each end; no atom carries more valence than all the others together; and the sum is at least twice the atom count less one, or there are too few bonds to join the atoms into one piece. Each is an equality or a comparison on integers, with no tolerance.
 
-The conditions are necessary, not sufficient. This is a sift, and it is measured as one against a wide set: the molecular formulae of the first ten thousand PubChem compounds, fetched by `maint/data/fetch/fetch_pubchem_formulae.py`, a range of identifiers and not a curated pick. Of 10050 formulae, 530 are ions and 292 carry an element the table does not, and both are set aside and counted. Of the 9228 that are neutral and covered, 9183 pass, 99.5 percent, and 45 error, 44 for too few bonds and one for an over-connected atom. Inspected, the 44 are net-neutral salts, an organic cation and a separate counter-ion written as one formula, not one covalent molecule and right to error. The crafted illegal formulae are the negative control: CH5 for an odd valence sum, CH2 for an over-connected carbon, a lone C for a single atom, each errored for its own reason.
+The conditions are necessary, not sufficient. This is a sift, and it is measured as one against a wide set: the molecular formulae of the first ten thousand PubChem compounds, fetched by `utils/maint/data/fetch/fetch_pubchem_formulae.py`, a range of identifiers and not a curated pick. Of 10050 formulae, 530 are ions and 292 carry an element the table does not, and both are set aside and counted. Of the 9228 that are neutral and covered, 9183 pass, 99.5 percent, and 45 error, 44 for too few bonds and one for an over-connected atom. Inspected, the 44 are net-neutral salts, an organic cation and a separate counter-ion written as one formula, not one covalent molecule and right to error. The crafted illegal formulae are the negative control: CH5 for an odd valence sum, CH2 for an over-connected carbon, a lone C for a single atom, each errored for its own reason.
 
 This detects the formula that could be a molecule. It does not check a particular structure: whether a given arrangement satisfies the octet at every atom at once, degree equal to capacity everywhere, is a whole-molecule proposition, and it is the chemistry subject's sift, not this one.
 
@@ -48,7 +48,7 @@ The two meet at one integer as a cross-check. The capacity here, `min(valence, c
 ```
 python examples/molecules/1_represent/assembly_from_atomic_properties.py
 python examples/molecules/1_represent/build_legal_molecules.py
-python maint/data/fetch/fetch_pubchem_formulae.py
+python utils/maint/data/fetch/fetch_pubchem_formulae.py
 python examples/molecules/6_oracle/legal_against_a_wide_set.py
 ```
 

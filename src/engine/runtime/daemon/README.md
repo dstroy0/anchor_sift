@@ -3,7 +3,7 @@
 **Purpose:** how to start tessera's daemon, submit a device job to it, and read what it tells you back.
 
 **Scope:** `engine/runtime/daemon`: the daemon (`tessera_daemon_*.c`), the client calls (`tessera.h`,
-`tessera_client_*.c`), and the suite in `test/engine/runtime/daemon/`. The theory (the accounting, backfill, the deadline heap) is in
+`tessera_client_*.c`), and the suite in `utils/test/engine/runtime/daemon/`. The theory (the accounting, backfill, the deadline heap) is in
 [tessera_scheduler.md](../../../../theory/workbooks/engine/tessera_scheduler.md).
 
 ## What it does
@@ -18,7 +18,7 @@ peak and run time are kept under its **signum**, and the next job with that sign
 ## Building
 
 ```bash
-bash test/engine/runtime/daemon/run.sh
+bash utils/test/engine/runtime/daemon/run.sh
 ```
 
 This builds and runs the whole suite, and builds the daemon into the run's build directory as
@@ -43,7 +43,7 @@ and `pdh` on Windows. On Linux both link `-ldl -lpthread`. It uses obsignatio's 
 context of its own.
 
 Tessera builds on a part with no CUDA toolchain too, the Raspberry Pi first: a run there is a tessera job as it is
-here. Where `nvcc` is not on the path, `test/engine/runtime/daemon/run.sh` compiles obsignatio_*.cu as C++ (its kernels and the calls that
+here. Where `nvcc` is not on the path, `utils/test/engine/runtime/daemon/run.sh` compiles obsignatio_*.cu as C++ (its kernels and the calls that
 launch them are left out, and a request for device memory errors) and links with `c++`. It builds and tests the
 ledger, the frame, the daemon and tessera_run, and does not build the measure and job tests, which take device
 memory. On a Raspberry Pi 5 (Linux aarch64, 4 cores, two kept for the desktop and 2 given to jobs):
@@ -59,7 +59,7 @@ daemon stays as it is: it builds with no CUDA toolchain and makes no CUDA contex
 (`TesseraCall`) in order, each answered (`TesseraAnswer`). A call that could add more than the ledger's rooms hold errors before it changes anything; the host grows the rooms on the device, and the run goes on from that call.
 The device's tessera builds only where `nvcc` is.
 
-`test/engine/runtime/daemon/tessera_device_test.sh` holds the two to each other. It makes one seeded stream of calls of each
+`utils/test/engine/runtime/daemon/tessera_device_test.sh` holds the two to each other. It makes one seeded stream of calls of each
 tessera, round by round: every answer must be the host's field for field, and the ledger each is left with must be
 the host's. The device's ledger starts with rooms of one, which makes it grow. The test is a job on the device's
 tessera daemon. It is written and has not been built or run.
@@ -174,7 +174,7 @@ and a pid reused by a new process is never taken for the old one.
 
 ## What the job test shows
 
-`test/engine/runtime/daemon/tessera_job_test.cu` runs every path above against the real daemon, starting it through `daemon_path`:
+`utils/test/engine/runtime/daemon/tessera_job_test.cu` runs every path above against the real daemon, starting it through `daemon_path`:
 
 1. A new signum declaring 64 MiB is admitted with 64 MiB granted over its standing, which was 24,576 bytes: the test
    makes no context before it asks. It then takes 256 MiB of device memory, and its release reports that it grew to
@@ -451,7 +451,7 @@ docker run --gpus all -v "$XDG_RUNTIME_DIR/tessera-<uuid>.sock:/run/tessera/tess
 The daemon reads a client's pid with `SO_PEERCRED`, which the kernel gives in the daemon's pid namespace, the
 host's, and that is the pid NVML reports.
 
-Run with Docker Engine 29.1.3 in WSL 2. `test/engine/runtime/daemon/tessera_socket_probe.c` is a client with no device of
+Run with Docker Engine 29.1.3 in WSL 2. `utils/test/engine/runtime/daemon/tessera_socket_probe.c` is a client with no device of
 its own. It submits one 1-byte job for a named device, with no daemon path. Only a listening socket can answer.
 Built static and run in a container with the socket mounted and `TESSERA_RUNTIME=/run/tessera`:
 

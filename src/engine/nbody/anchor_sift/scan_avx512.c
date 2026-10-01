@@ -19,7 +19,7 @@
  * the contract AnchorSteerEngine carries, the same one the exact arms carry in no_rounding.
  *
  * @note No machine in this project has AVX-512. This arm has never been run. It is compiled for
- *       the target and its emitted instructions are read by maint/engine/verify_arm_asm.sh, which
+ *       the target and its emitted instructions are read by utils/maint/engine/verify_arm_asm.sh, which
  *       confirms zmm registers and vpcmpeqb against a mask. That rules out a silent fallback to
  *       scalar code. It says nothing about behavior, and the name reads avx512-unrun for that reason.
  * @note AVX-512 comparison writes a mask register, one bit per lane. The count is a population

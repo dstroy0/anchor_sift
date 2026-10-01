@@ -1,7 +1,7 @@
 # Setup
 
 **Purpose:** Get the engine building and the examples running, and know what each dependency is actually for.
-**Scope:** `src/engine/`, `examples/`, `maint/`.
+**Scope:** `src/engine/`, `examples/`, `utils/maint/`.
 
 Nothing here needs a GPU, a service, or a network connection except the fetchers, and those are named below.
 
@@ -18,8 +18,8 @@ The measure, the reference and every example that reads a corpus you already hav
 | package      | what needs it                                                     |
 | ------------ | ----------------------------------------------------------------- |
 | `numpy`      | the engine, and 75 call sites across the tree                     |
-| `pypdf`      | reading papers, `maint/data/salishan/get_papers.py --convert`     |
-| `requests`   | the corpus fetchers under `maint/data/fetch/` and `get_papers.py` |
+| `pypdf`      | reading papers, `utils/maint/data/salishan/get_papers.py --convert`     |
+| `requests`   | the corpus fetchers under `utils/maint/data/fetch/` and `get_papers.py` |
 | `matplotlib` | the corpus derivation figure                                      |
 | `soundfile`  | the sound representation, which reads recordings                  |
 | `Pillow`     | reading an image as a byte sequence                               |
@@ -31,11 +31,11 @@ Install what a tool asks for when it asks. A missing package is reported by name
 A C11 compiler and CMake, with Ninja as the generator; a bare `cmake` picks NMake on Windows and fails. One command from a fresh clone configures, builds and runs the graders:
 
 ```sh
-maint/engine/build_engine.sh               # configure, build, run the graders
-maint/engine/build_engine.sh --build-only  # configure and build, run nothing
+utils/maint/engine/build_engine.sh               # configure, build, run the graders
+utils/maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
 
-On Windows use `maint/engine/build_engine.ps1`, the same two forms. It imports the MSVC environment and compiles the device rasterizer; the shell script run from Git Bash has no MSVC environment and pins the build to gcc or clang. Output lands in `build/engine_c/`; nothing reads it back and you can delete it freely.
+On Windows use `utils/maint/engine/build_engine.ps1`, the same two forms. It imports the MSVC environment and compiles the device rasterizer; the shell script run from Git Bash has no MSVC environment and pins the build to gcc or clang. Output lands in `build/engine_c/`; nothing reads it back and you can delete it freely.
 
 Drive the configure yourself with CMake directly for the lower-level path:
 
@@ -61,19 +61,19 @@ XeLaTeX, from TeX Live or MiKTeX. The build runs it twice per research paper, be
 To package a research paper for arXiv:
 
 ```sh
-python maint/texbuild/submission_package.py --arxiv <research_paper>
+python utils/maint/texbuild/submission_package.py --arxiv <research_paper>
 ```
 
 The tarball lands in `build/arxiv/<research_paper>.tar` with a `00README.json` that selects XeLaTeX and TeX Live 2025.
 
 ```sh
-sh maint/texbuild/build_theory.sh
+sh utils/maint/texbuild/build_theory.sh
 ```
 
 PDFs land in `build/theory/<research_paper>/main.pdf`. One research paper on its own:
 
 ```sh
-sh maint/texbuild/build_theory.sh workbook
+sh utils/maint/texbuild/build_theory.sh workbook
 ```
 
 The build fails if a research paper drops a glyph. That is deliberate: these research papers set Salishan orthography, and a missing character is a silently wrong page.
@@ -82,11 +82,11 @@ The build fails if a research paper drops a glyph. That is deliberate: these res
 
 None are in git. `examples/` takes a corpus path as an argument. Anything you already have works.
 
-To build the language corpora this work measured, the fetchers under `maint/data/fetch/` pull from public archives:
+To build the language corpora this work measured, the fetchers under `utils/maint/data/fetch/` pull from public archives:
 
 ```sh
-python maint/data/fetch/fetch_parallel_corpus.py
-python maint/data/fetch/fetch_treebanks.py
+python utils/maint/data/fetch/fetch_parallel_corpus.py
+python utils/maint/data/fetch/fetch_treebanks.py
 ```
 
 Each one names its source and writes under `build/corpora/`.
@@ -94,7 +94,7 @@ Each one names its source and writes under `build/corpora/`.
 The Salishan papers come from the ICSNL archive:
 
 ```sh
-python maint/data/salishan/get_papers.py
+python utils/maint/data/salishan/get_papers.py
 ```
 
 The hand extractions are not fetchable. They are transcribed out of published papers and live in a closed repository, described in the README under [What is not here](https://github.com/dstroy0/anchor_sift#what-is-not-here). Everything that does not read a paper or a table runs without them.
@@ -102,13 +102,13 @@ The hand extractions are not fetchable. They are transcribed out of published pa
 ## Checks
 
 ```sh
-python maint/prose/docs_check      the register check over every document and comment
-python maint/catalog/catalog.py --check       every example carries its catalog number
-python maint/catalog/catalog_verify.py        where an example's description and its code disagree
-python maint/tree/write_survey.py          every file write in the tree, and where it lands
+python utils/maint/prose/docs_check      the register check over every document and comment
+python utils/maint/catalog/catalog.py --check       every example carries its catalog number
+python utils/maint/catalog/catalog_verify.py        where an example's description and its code disagree
+python utils/maint/tree/write_survey.py          every file write in the tree, and where it lands
 ```
 
-Four more gates run against the two closed repositories and say and stop without them: `maint/corpus/corpus_manifest.py`, `maint/corpus/verify_private_sync.py`, `maint/corpus/speech_gate.py` and `maint/citations/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
+Four more gates run against the two closed repositories and say and stop without them: `utils/maint/corpus/corpus_manifest.py`, `utils/maint/corpus/verify_private_sync.py`, `utils/maint/corpus/speech_gate.py` and `utils/maint/citations/citations.py`. Each takes `--bypass`, and `ANCHOR_SIFT_BYPASS=1` carries that into a commit hook.
 
 `.githooks/pre-commit` runs the first of these. Turn it on once per clone:
 

@@ -53,7 +53,7 @@ The one boundary that does not bend is `oracle`. Supervision is the only one of 
 
 ## The output arm
 
-`render/` is not one of the six. The six parts are the search; `render/` turns what the search saw into an image, as a sheet or a volume, and mirrors `src/engine/render/`. Its host arm is pure Python and shares no code with the C renderer. The two agreeing byte for byte is a check, run by `test/python/render_test.py`. `render_raster` and `render_volume` prefer the device: where the C shared library is reachable they pass through the C dispatch, which renders on the CUDA arm when one is present, and where it is not they fall back to the pure Python host. Python owns no device path because the library ban forbids it one. The device is reached only through C.
+`render/` is not one of the six. The six parts are the search; `render/` turns what the search saw into an image, as a sheet or a volume, and mirrors `src/engine/render/`. Its host arm is pure Python and shares no code with the C renderer. The two agreeing byte for byte is a check, run by `utils/test/python/render_test.py`. `render_raster` and `render_volume` prefer the device: where the C shared library is reachable they pass through the C dispatch, which renders on the CUDA arm when one is present, and where it is not they fall back to the pure Python host. Python owns no device path because the library ban forbids it one. The device is reached only through C.
 
 ## The instrument
 
@@ -61,7 +61,7 @@ The one boundary that does not bend is `oracle`. Supervision is the only one of 
 
 ## Routes to the engine in C and CUDA
 
-Six routes here mirror the engine at anchor_sift 1789287. Each shares no code with the engine and is not a binding for it. A grader under `test/python/` runs both sides on the same inputs and prints each side's numbers, and where they disagree one of them has a defect. A grader that needs the device builds a probe under `test/python/` that calls the engine's own entry points.
+Six routes here mirror the engine at anchor_sift 1789287. Each shares no code with the engine and is not a binding for it. A grader under `utils/test/python/` runs both sides on the same inputs and prints each side's numbers, and where they disagree one of them has a defect. A grader that needs the device builds a probe under `utils/test/python/` that calls the engine's own entry points.
 
 | Python route                                              | the engine it mirrors                                                                                      | grader                                                                         |
 | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -70,7 +70,7 @@ Six routes here mirror the engine at anchor_sift 1789287. Each shares no code wi
 | `measure/shift_agreement.py`, `frame_shift`               | `shift_agreement_host` in `src/engine/analysis/shift_agreement/shift_agreement.c`                              | `shift_agreement_test.py`, count for count                                     |
 | `measure/period.py`                                       | `period_read` and `period_draw` in `src/engine/analysis/period/period_select.cu`                                      | `period_test.py` with `period_probe.cu`, line for line                         |
 | `measure/periodic_energy.py`, the `energy_` functions     | `src/engine/sims/art/periodic_energy.h`                                                                    | `periodic_energy_test.py` with `periodic_energy_probe.cu`, line for line       |
-| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift_*.c`, with its bench under `bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
+| `sift/anchors.py`, the functions under the kernel's names | `src/engine/nbody/anchor_sift/anchor_sift_*.c`, with its bench under `utils/bench/`                                | `sift_test.py` with `anchor_sift_probe.def`, count for count and read for read |
 
 The rest of this tree is not graded against the engine.
 

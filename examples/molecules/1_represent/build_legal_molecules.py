@@ -117,7 +117,7 @@ def verify_against_existing(built_keys, degree, out):
     """
     if not os.path.isfile(WIDE_SET):
         out.write("\n  no wide set at %s to verify against\n"
-                  "  run maint/data/fetch/fetch_pubchem_formulae.py\n" % WIDE_SET.replace(os.sep, "/"))
+                  "  run utils/maint/data/fetch/fetch_pubchem_formulae.py\n" % WIDE_SET.replace(os.sep, "/"))
         return
     in_space = 0
     covered = 0

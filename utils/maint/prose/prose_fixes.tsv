@@ -1,0 +1,119 @@
+# Prose rewrites for utils/maint/prose/fix_prose.py. Three tab separated fields: file, exact text to find,
+# replacement. Use \n for a line break inside a field.
+#
+# This file quotes banned phrases by necessity, since that is what it matches on. The gate does not
+# read .tsv, which is why the table lives here and not inside the tool.
+#
+# Every row below is already applied, and re-running reports each as already applied.
+#
+# Some rows name files under examples/00_blob_viz_tools, which is where this tree keeps them. Rows
+# for files that exist only in the private tree do not belong here.
+examples/00_blob_viz_tools/README.md	candidates. The rest hardcode a path into this repository and are examples of the pattern rather\nthan tools:	candidates. The rest hardcode a path into this repository and are examples of the pattern,\nnot tools:
+examples/00_blob_viz_tools/README.md	Every general generator takes `--set key=value`, repeatable, so a caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.	Every general generator takes `--set key=value`, repeatable. A caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.
+examples/00_blob_viz_tools/README.md	series toggle off, y switches to log. It prints which columns it chose so a wrong guess is visible.	series toggle off, y switches to log. It prints which columns it chose, making a wrong guess visible.
+examples/00_blob_viz_tools/build_step_view.py	between them, which is the difference itself.	between them: the difference itself.
+examples/00_blob_viz_tools/build_step_view.py	"""Every intermediate of every round, kept rather than discarded."""	"""Every intermediate of every round, kept and never discarded."""
+examples/00_blob_viz_tools/build_voxel_view.py	    # Word pairs arrive as 16 planes of 8 and are flattened here rather than in the page, because\n    # the template now takes one shape for every field: a list of series over the depth axis. That\n    # is the whole reason it renders any parametric table and not only this one.	    # Word pairs arrive as 16 planes of 8 and are flattened here and not in the page, because\n    # the template now takes one shape for every field: a list of series over the depth axis.\n    # For that reason it renders any parametric table and not only this one.
+examples/00_blob_viz_tools/make_shadow_figure.py	# With the class mean removed at each depth, which is the only reading that means anythi	# With the class mean removed at each depth, the only reading that means anythi
+examples/00_blob_viz_tools/sphere_field.py	(r/R)^l, so a	(r/R)^l, and a
+examples/00_blob_viz_tools/sphere_field.py	near the centre reaches	near the center reaches
+examples/00_blob_viz_tools/sphere_field.py	volume, which is the statement worth measuring rather	volume, a statement worth measuring instead
+examples/00_blob_viz_tools/sphere_field.py	than asserting	of asserting
+examples/00_blob_viz_tools/sphere_field.py	and nothing else needs computing.	and no further computation is needed.
+examples/00_blob_viz_tools/sphere_field.py	degree zero alone, so a boundary	degree zero alone, and a boundary
+examples/00_blob_viz_tools/sphere_field.py	goes wrong, so a picture	goes wrong, and a picture
+examples/00_blob_viz_tools/sphere_field.py	the whole of the physics	all of the physics
+examples/00_blob_viz_tools/sphere_field.py	this basis, so a source costs	this basis, and a source costs
+examples/00_blob_viz_tools/sphere_field.py	the whole field rather than per source.	the whole field and not per source.
+examples/00_blob_viz_tools/sphere_field.py	which is a summary and not a decomposition.	summarizing them without separating them.
+examples/00_blob_viz_tools/sphere_field.py	a definition rather than a	a definition instead of a
+examples/00_blob_viz_tools/sphere_field.py	at the centre returns pi	at the center returns pi
+examples/00_blob_viz_tools/sphere_field.py	and this is where the claim	and there the claim
+examples/00_blob_viz_tools/sphere_field.py	from its centre to the far side. It falls away from the centre	from its center to the far side. It falls away from the center
+examples/00_blob_viz_tools/sphere_field.py	again, so a level cuts it	again, and a level cuts it
+examples/00_blob_viz_tools/sphere_field.py	enters, which is the reason this is the quantity worth reporting:	enters, and that makes it the quantity worth reporting:
+examples/00_blob_viz_tools/sphere_field.py	The level is a reading and not a measurement.	The level is a reading, never a measurement.
+examples/00_blob_viz_tools/build_sphere_view.py	in bits, so a byte that fills	in bits, and a byte that fills
+examples/00_blob_viz_tools/build_sphere_view.py	leaves degree zero, which	leaves degree zero, the shape
+examples/00_blob_viz_tools/build_sphere_view.py	is what a reading with nothing injected looks like.	of a reading with nothing injected.
+examples/00_blob_viz_tools/build_sphere_view.py	by averaging rather than by a value here	by averaging and not by a value here
+examples/00_blob_viz_tools/build_sphere_view.py	sees the data, which is the null	sees the data, the null
+examples/00_blob_viz_tools/build_sphere_view.py	value, so a bare word	value, and a bare word
+examples/00_blob_viz_tools/build_orrery_view.py	can print, so a body	can print, and a body
+examples/00_blob_viz_tools/build_orrery_view.py	near the centre is a broad warmth	near the center is a broad warmth
+examples/00_blob_viz_tools/build_orrery_view.py	That is the reason the run has to be long	The run has to be long for that reason
+examples/00_blob_viz_tools/build_orrery_view.py	pass dead centre.	pass dead center.
+examples/00_blob_viz_tools/build_orrery_view.py	than it is, which is the failure this construction exists to avoid.	than it is. That failure is what this construction exists to avoid.
+examples/00_blob_viz_tools/build_orrery_view.py	from the centre to the patch	from the center to the patch
+examples/00_blob_viz_tools/build_orrery_view.py	fundamental first, which is the period the body actually has.	fundamental first: the period the body actually has.
+examples/00_blob_viz_tools/build_orrery_view.py	and nothing else went into it	and no other quantity went into it
+examples/00_blob_viz_tools/build_orrery_view.py	never sees, so a recovery	never sees, and a recovery
+examples/00_blob_viz_tools/build_orrery_view.py	makes neighbouring bins copies of one another, so a window	makes neighboring bins copies of one another, and a window
+examples/00_blob_viz_tools/build_orrery_view.py	was tried and is worse than not filtering	was tried and made the answer worse
+examples/00_blob_viz_tools/build_orrery_view.py	close to the centre has	close to the center has
+utils/maint/prose/build_fixes.py	impossible rather than unlikely.	impossible instead of unlikely.
+utils/maint/prose/build_fixes.py	is reported rather than replaced at the wrong site.	is reported instead of replaced at the wrong site.
+utils/maint/prose/grade_unread.py	rather than graded twice.	instead of graded twice.
+utils/maint/prose/plan_fixes.py	it reports `rather` where the text says `rather than`. A swap	it reports the bare contrast word where the text carries its two-word form. A swap
+utils/maint/prose/plan_fixes.py	Swap a connective for one that carries the same relation. `rather than` and `and not` both mark a	Swap a connective for one that carries the same relation. The two forms in the table below mark a
+utils/maint/prose/plan_fixes.py	and that is why every proposal goes through the	and for that reason every proposal goes through the
+utils/maint/prose/plan_fixes.py	Replacing a bare `which is the` with `, the` where the	Replacing a bare explainer with its comma-led form where the
+utils/maint/prose/plan_fixes.py	# `rather than` takes two shapes. Before a noun or a participle the contrast survives as	# The contrast phrase takes two shapes. Before a noun or a participle it survives as
+utils/maint/prose/plan_fixes.py	# `and not`: "exact rather than fitted" becomes "exact and not fitted". Before a gerund it	# the paired form, where a null described one way becomes one described the other. Before a gerund
+utils/maint/prose/plan_fixes.py	# does not, because the verb needs a preposition to hang from: "defers rather than	# it does not, because the verb needs a preposition to hang from. A deferral standing before
+utils/maint/prose/plan_fixes.py	# inventing" becomes "defers instead of inventing", never "defers and not inventing".	# a gerund takes the preposition form, and the paired form reads wrong in that position.
+examples/00_blob_viz_tools/build_room_view.py	falling with energy rather than a wall becoming a window.	falling with energy and not a wall becoming a window.
+examples/00_blob_viz_tools/build_room_view.py	WHY THE SHELL SHAPE IS A CONTROL AND NOT A SETTING	WHY THE SHELL SHAPE IS A CONTROL
+examples/00_blob_viz_tools/build_room_view.py	drawn evenly over the directions rather than evenly over the angles.	drawn evenly over the directions and not evenly over the angles.
+examples/00_blob_viz_tools/build_room_view.py	survive averaging, which is the worst size for	survive averaging, the worst size for
+examples/00_blob_viz_tools/boundary_count.py	the account is wrong and nothing else in	the account is wrong and no other part of
+examples/00_blob_viz_tools/boundary_count.py	which is the mistake that makes a cube look like	the mistake that makes a cube look like
+examples/00_blob_viz_tools/boundary_count.py	This is what says whether a packing count means anything.	This decides whether a packing count means anything.
+docs/boundary-counting.md	on nothing else here, so a cube has to be packed	on no other shape here, and a cube has to be packed
+docs/boundary-counting.md	a sum, and that is the work that would settle it.	a sum. That is the work that would settle it.
+docs/boundary-counting.md	fixes the boundary, so a whole family of interiors	fixes the boundary, and a whole family of interiors
+docs/boundary-counting.md	periods through Kepler, so a dynamical	periods through Kepler, and a dynamical
+docs/boundary-counting.md	visible in the tools rather than only in the literature	visible in the tools and not only in the literature
+docs/boundary-counting.md	tested for the wrong behaviour	tested for the wrong behavior
+docs/boundary-counting.md	the lattice point problem, which is the Gauss circle problem	the lattice point problem, the Gauss circle problem
+docs/boundary-counting.md	open problem rather than a defect in the measurement.	open problem and not a defect in the measurement.
+docs/boundary-counting.md	was measured rather than argued	was measured and not argued
+examples/00_blob_viz_tools/gpu_pack.py	The device counts and nothing else.	The device counts, and does nothing further.
+examples/00_blob_viz_tools/torus_count.py	which is the Gauss circle problem when d is two	the Gauss circle problem when d is two
+examples/00_blob_viz_tools/torus_count.py	a known-hard quantity rather than a defect	a known-hard quantity and not a defect
+examples/00_blob_viz_tools/torus_count.py	over a band of radii rather than at a point.	over a band of radii and not at a point.
+examples/00_blob_viz_tools/build_sha_clock_view.py	exactly d + T1, which is the new e,	exactly d + T1, the new e,
+examples/00_blob_viz_tools/build_sha_clock_view.py	rather than taken	and not taken
+examples/00_blob_viz_tools/build_sha_clock_view.py	rather than truncated	and not truncated
+examples/00_blob_viz_tools/build_sha_clock_view.py	d + T1, which is the new e, and op	d + T1, the new e, and op
+examples/00_blob_viz_tools/build_sha_clock_view.py	alone, so a	alone, and a
+examples/00_blob_viz_tools/build_sha_clock_view.py	state rather than recomputed	state and not recomputed
+examples/00_blob_viz_tools/build_sha_clock_view.py	which is the reading	and it is the reading
+examples/00_blob_viz_tools/build_sha_clock_view.py	angle rather than in height	angle and not in height
+examples/00_blob_viz_tools/build_sha_clock_view.py	cost rather than being kept	cost instead of being kept
+examples/00_blob_viz_tools/build_sha_clock_view.py	layout rather than the state	layout and not the state
+examples/00_blob_viz_tools/build_sha_clock_view.py	an be checked against any other implementation rather than	an be checked against any other implementation and not
+examples/00_blob_viz_tools/build_sha_room_view.py	from the centre	from the center
+examples/00_blob_viz_tools/build_sha_room_view.py	golden angle, which is	golden angle, and it is
+examples/00_blob_viz_tools/build_sha_room_view.py	uses, so a bit	uses, and a bit
+examples/00_blob_viz_tools/build_sha_room_view.py	radius is what makes the shape	radius makes the shape
+examples/00_blob_viz_tools/build_sha_room_view.py	set so a cell	set so that a cell
+examples/00_blob_viz_tools/build_sha_room_view.py	the colour it is drawn in and nothing else	the color it is drawn in, alone
+examples/00_blob_viz_tools/build_sha_room_view.py	check rather than assert, which is why the flag exists	check and not assert, and the flag is there
+examples/00_blob_viz_tools/build_sha_room_view.py	exactly rather than landing	exactly instead of landing
+examples/00_blob_viz_tools/build_sha_room_view.py	field rather than as the	field and not as the
+examples/00_blob_viz_tools/build_sha_room_view.py	which is the one thing	the single thing
+examples/00_blob_viz_tools/build_sha_room_view.py	it rather than being a colour change	it instead of being a color change
+examples/00_blob_viz_tools/build_sha_room_view.py	refusing rather than shipping	refusing instead of shipping
+examples/00_blob_viz_tools/build_sha_room_view.py	so the run says what it drew	so what it drew is printed
+examples/00_blob_viz_tools/build_sha_pairs_view.py	a line through the centre.	a line through the center.
+examples/00_blob_viz_tools/build_sha_pairs_view.py	centre exactly	center exactly
+examples/00_blob_viz_tools/build_sha_pairs_view.py	built to have it rather than hoped into it	built to have it instead of hoped into it
+examples/00_blob_viz_tools/build_sha_pairs_view.py	two bits, which is what a pair superposed comes to	two bits, as a pair superposed comes to
+examples/00_blob_viz_tools/build_sha_pairs_view.py	So a line is not an edge	A line is not an edge
+examples/00_blob_viz_tools/build_sha_pairs_view.py	the mix rather than as a colour chosen	the mix and not as a color chosen
+examples/00_blob_viz_tools/build_sha_pairs_view.py	implementation rather than taken on trust	implementation and not taken on trust
+examples/00_blob_viz_tools/build_sha_pairs_view.py	its exact negative is what does	its exact negative does
+examples/00_blob_viz_tools/build_orrery_view.py	the other tools use. That a seed means one scene everywhere.	the other tools use. A seed gives the same stream in every tool.
+utils/maint/data/salishan/corpus_script_extraction/space_repair.py	    Written to work from the raw lines, not from a reader's parse. That a reader and the coverage\n    check build the same list. Two lists drift, and the check then reports as a hole every word one\n    of them put back together and the other did not.	    Written to work from the raw lines, not from a reader's parse, letting a reader and the\n    coverage check build the same list. Two lists drift, and the check then reports as a hole every\n    word one of them put back together and the other did not.
+utils/maint/data/salishan/corpus_script_extraction/space_repair.py	back with it. Sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.	back with it. The pair sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.

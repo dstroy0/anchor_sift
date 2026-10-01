@@ -10,13 +10,13 @@ site/
 
 # Cloned dependencies. MMgr used to sit here as four separate partial copies of itself, each one
 # byte identical to the original and none of them recording which commit it came from. A stale
-# copy and a current one looked the same. `python maint/deps/get_deps.py` clones it instead, and
+# copy and a current one looked the same. `python utils/maint/deps/get_deps.py` clones it instead, and
 # git in the clone answers what is checked out. Same rule as build/ and site/: what a tool can
 # fetch is not carried here.
 #
 # ANCHORED, and the slash is the whole of the repair. Written as `deps/` with no leading slash this
 # matched a directory named deps at ANY depth, besides the clone directory it was written for it
-# also swallowed maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
+# also swallowed utils/maint/deps/, where get_deps.py and vendor_test_vectors.py live. Both tools were
 # therefore in no commit that has ever existed, while sitting on one machine's disk, and five
 # documents instructed a reader to run a file their clone could not contain. Being ignored AND
 # untracked, `git clean -xfd` would have deleted them with nothing to restore from.
@@ -40,7 +40,7 @@ __pycache__/
 
 # What a LaTeX run leaves beside the source when it is not given an output directory.
 #
-# maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
+# utils/maint/texbuild/build_theory.sh compiles with -output-directory and leaves none of this. TeXworks
 # and TeXShop compile IN PLACE. A research paper opened in one of those to look at it comes back with a
 # .pdf, a .log, a .toc, a .aux per included chapter and a synctex index. theory/workbooks/anchor_sift picked
 # up twelve such files that way, 705,688 bytes of it one synctex, and the arXiv packager copied
@@ -67,7 +67,7 @@ theory/*/*/*/main.pdf
 # three. These ignore generated output and no other file.
 #
 # These are extensions and are deliberately unanchored, unlike `deps/`, which had to become
-# `/deps/` after the bare form matched `maint/deps/` at depth and hid two files that were then in
+# `/deps/` after the bare form matched `utils/maint/deps/` at depth and hid two files that were then in
 # no commit in this repository's history.
 *.pgm
 *.raw

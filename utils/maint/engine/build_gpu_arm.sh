@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Build the CUDA arm and grade it against the portable one.
+#
+#   bash utils/maint/engine/build_gpu_arm.sh [--limbs N] [--digits N] [--positions N] [sm_XX ...]
+#
+#   --limbs N       exact width in 32 bit limbs, a power of two from 1 to 32768 (default: the
+#                   header's 128). exact_integer.h errors on any other value at compile time.
+#   --digits N      decimal digit floor, needed where the width is below 4096 bits
+#   --positions N   positions in the planted run (default: the bench's 4096). At 32768 limbs one
+#                   position is 128 KiB on the host and twice that on the device.
+#
+# nvcc needs a host compiler and on Windows that host compiler is MSVC, never MinGW. The rest of
+# this tree builds with MinGW, and MinGW objects do not link against MSVC objects. The GPU arm
+# gets its own build and does not join the CMake one. Everything it needs is compiled here by the
+# same host compiler nvcc is driving. That keeps the ABI consistent inside this binary.
+#
+# Architectures default to the one this machine carries. Naming others compiles for them as well.
+# That is how an architecture nobody here owns is checked: the code has to compile and the assembler
+# has to accept it for that target, and only running it is left unverified.
+set -u
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+OUT="$ROOT/build/engine_gpu"
+mkdir -p "$OUT"
+
+MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
+if [ -z "$MSVC_BIN" ]; then
+    MSVC_BIN="$(ls -d "/c/Program Files/Microsoft Visual Studio"/*/*/VC/Tools/MSVC/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
+fi
+if [ -z "$MSVC_BIN" ]; then
+    echo "  no MSVC host compiler found. nvcc cannot build on Windows without one."
+    exit 1
+fi
+echo "  host compiler: $MSVC_BIN"
+
+WIDTH_DEFINES=""
+POSITIONS=""
+ARCHES=""
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --limbs)
+            [ "$#" -ge 2 ] || { echo "  --limbs needs a value"; exit 1; }
+            WIDTH_DEFINES="$WIDTH_DEFINES -DANCHOR_EXACT_LIMBS=${2}u"
+            shift 2
+            ;;
+        --digits)
+            [ "$#" -ge 2 ] || { echo "  --digits needs a value"; exit 1; }
+            WIDTH_DEFINES="$WIDTH_DEFINES -DANCHOR_EXACT_DIGITS=${2}u"
+            shift 2
+            ;;
+        --positions)
+            [ "$#" -ge 2 ] || { echo "  --positions needs a value"; exit 1; }
+            POSITIONS="$2"
+            shift 2
+            ;;
+        *)
+            ARCHES="$ARCHES $1"
+            shift
+            ;;
+    esac
+done
+
+if [ -z "$ARCHES" ]; then
+    CAP="$(nvidia-smi --query-gpu=compute_cap --format=csv,noheader 2>/dev/null | head -1 | tr -d ' .')"
+    ARCHES="sm_${CAP:-86}"
+fi
+echo "  architectures: $ARCHES"
+
+GENCODE=""
+for one in $ARCHES; do
+    NUM="${one#sm_}"
+    GENCODE="$GENCODE -gencode arch=compute_${NUM},code=${one}"
+done
+
+# Removed before the build. A previous binary cannot survive a failed compile and be run as
+# though it were this one. This script did exactly that for a week: nvcc failed on a header, a
+# binary from Sep 9 was still sitting here, the file existence test below passed, and the bench ran
+# the stale one and reported a device engine that "agreed" with the portable engine at 1.01x. It
+# agreed because it WAS the portable engine, carrying no CUDA at all, and the ratio wandering
+# between 1.01x and 1.14x across runs was two runs of identical code.
+rm -f "$OUT/bench_exact_gpu.exe"
+
+# PIPESTATUS and not $?, because the pipe into grep would otherwise report grep's status and grep
+# succeeds whatever nvcc did. A filter on the output must never decide whether the build passed.
+# Unquoted. An empty WIDTH_DEFINES has to expand to no argument at all, and quoted it would pass an
+# empty one to nvcc.
+# shellcheck disable=SC2086
+nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
+    -I "$ROOT/src/engine/arithmetic/no_rounding" \
+    -DANCHOR_EXACT_HAVE_CUDA=1 $WIDTH_DEFINES \
+    -o "$OUT/bench_exact_gpu.exe" \
+    "$ROOT/src/engine/arithmetic/no_rounding/arm_cuda.cu" \
+    "$ROOT/src/engine/arithmetic/no_rounding"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
+    "$ROOT/src/engine/arithmetic/no_rounding/arm_portable.c" \
+    "$ROOT/utils/bench/bench_exact_arms.c" \
+    2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_integer\.c$|arm_portable\.c$|bench_exact_arms\.c$|arm_cuda\.cu$" | head -20
+NVCC_STATUS=${PIPESTATUS[0]}
+
+# Both conditions, because each one alone has been wrong here. A status of zero with no file is a
+# linker that wrote nothing; a file with a nonzero status is the stale binary this script used to
+# run. Neither is a build.
+if [ "$NVCC_STATUS" -ne 0 ] || [ ! -f "$OUT/bench_exact_gpu.exe" ]; then
+    echo "  build failed: nvcc exited $NVCC_STATUS"
+    exit 1
+fi
+
+echo "  built $OUT/bench_exact_gpu.exe"
+# shellcheck disable=SC2086
+"$OUT/bench_exact_gpu.exe" $POSITIONS

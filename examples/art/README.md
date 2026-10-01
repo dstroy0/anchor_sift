@@ -43,7 +43,7 @@ It also carries a **negative control**, because a bit-exact 100% proves only tha
 
 **Real CTC frames carry the floor.** Real 16-bit fluorescence tiles from Fluo-N2DH-SIM+, read straight from the local zip under `repos/external/datasets`, give two readings. The tile as it is declines: the detector sits at 2.235 below a band topping 3.427, a real-world negative control that shows the 100% is not handed out for free. The tile with a known fixed pattern added removes it and reaches 96.83%, not 100%, because real content does not sum to zero at each pixel across the frames. The shortfall is the floor the fixed-pattern section named, now shown on real data: a static background is a per-pixel offset across the stack, the exact shape of the pattern, and it leaves with it. This is the measured reduction on real content that the bit-exact control stood in for.
 
-**Running it.** This script needs numpy and Pillow, which `fixed_pattern_removed_to_the_bit.py` did not. The CTC arm also needs the dataset present; fetch it with `python maint/data/fetch/fetch_ctc.py --fetch Fluo-N2DH-SIM+`, and where the zip is absent that arm prints that it did not run and every other arm still reports.
+**Running it.** This script needs numpy and Pillow, which `fixed_pattern_removed_to_the_bit.py` did not. The CTC arm also needs the dataset present; fetch it with `python utils/maint/data/fetch/fetch_ctc.py --fetch Fluo-N2DH-SIM+`, and where the zip is absent that arm prints that it did not run and every other arm still reports.
 
 ```
 python examples/art/4_measure/noise_across_formats_and_qualities.py

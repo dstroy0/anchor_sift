@@ -60,7 +60,7 @@ together, each one measured in the same conditions as the rest. A chain is then 
 the expensive link is named instead of inferred.
 
 How the asks are ordered decides whether that works at all, and the arithmetic is measured in
-`maint/engine/measure_check.py`. Subtracting neighboring cuts puts the noise of two measurements on a quantity
+`utils/maint/engine/measure_check.py`. Subtracting neighboring cuts puts the noise of two measurements on a quantity
 the size of one link, and one link is the quantity sitting under the floor: the recovered cost carries
 1 + 12543/12800 floors squared of noise against a signal of 1, which orders 56 + 9692/41993% of link pairs
 correctly where a coin orders 50%. Repetition, descended level by level, still orders more pairs at 6400
@@ -141,7 +141,7 @@ correct for fingerprinting one member and is the thing to check before a number 
 
 What follows from that is a rule about membership. Asked from one member's own floor, agreement is not even
 symmetric: a fine-floored member reads a neighbor as different while the neighbor reads it as the same. Taken
-at the coarser of the two floors it is symmetric and still not transitive, and `maint/engine/order_check.py`
+at the coarser of the two floors it is symmetric and still not transitive, and `utils/maint/engine/order_check.py`
 shows three members where the first agrees with the second, the second with the third, and the first with
 neither. Pairwise agreement therefore names no set, and which members share a stem has no answer that does not
 depend on which was asked first. A group needs one of two things written: a representative every member is
@@ -160,7 +160,7 @@ with no map yet.
 `[ADDRESS] -> (QUALIFIER) -> [COST] -> BIT`, put with `host_put` and read with `host_read`
 (`compiler/bootstrap/host_entry.h`), with nothing between them and the part. No outside tool is in the loop: no
 compiler, assembler, disassembler, object reader, vendor runtime or driver library. A word that went through one is
-that tool's answer and not the part's. The SASS probe under `test/engine/compiler/cell/` and everything it calls
+that tool's answer and not the part's. The SASS probe under `utils/test/engine/compiler/cell/` and everything it calls
 (`nvcc`, `nvdisasm`, `cuobjdump`, `cell_ptx_probe`, the vendor runtime) is scaffolding. It is an answer key in the
 sense `precepts.h` is one: it may be read to form a question, and to check a derivation after it has run. It is
 never a channel a derivation runs through, never where the work resumes, and never a place to find again what the
@@ -191,7 +191,7 @@ A count of precepts held is not a score either, and the reason is separate from 
 to the ladder's candidate set and one of them decides it on its own; the other four are surplus, and every one
 of the five is then implied by the rest. A count over a set like that weights one fact several times, at
 weights nobody set. Check the set down to its deciding subset before any count is taken off it.
-`maint/engine/order_check.py` does that mechanically and wants running whenever a case is added.
+`utils/maint/engine/order_check.py` does that mechanically and wants running whenever a case is added.
 
 **An answer holds only under what it was asked at.** A reading is an answer for the part it was taken on and
 the size it was taken at, and for nothing else by default. A foundation that carried three stories is no
@@ -231,7 +231,7 @@ works there.
    the run channel: the part's addresses found by walks of that form, with the known order, its solve and the
    gate's descent running over them.
 
-2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
+2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
    instead of kept against a row here.
@@ -261,7 +261,7 @@ works there.
    Run as the gate's descent over the ladder's cases and the 512 words of the chain builder's sweep, one
    full-width word decides add, take and same, and up and down need a second whose count reads zero. Every one of
    the 507 dies at the first or second case placed, and no case the ladder holds is among them
-   (`maint/engine/chain_check.sh`, Q4 in the query protocol table). Nothing is added to the ladder by hand: the
+   (`utils/maint/engine/chain_check.sh`, Q4 in the query protocol table). Nothing is added to the ladder by hand: the
    descent picks the cases from the sweep on the host, and the open part is the loop that puts them to a target.
 
 10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
@@ -287,7 +287,7 @@ works there.
     asking. The clock turns over now and then and is read finely by counting reads of it between turns: a
     run's cost is an exact rational, and every pass is solved on its own in exact integers: nothing is rounded,
     summed across passes or cut to a least. Neither the run size nor the count of passes is set: both are
-    steered the way the engine's descent steers its probes (`test/engine/compiler/bootstrap/query_descent.h`).
+    steered the way the engine's descent steers its probes (`utils/test/engine/compiler/bootstrap/query_descent.h`).
     Passes are put until every neighbor pair's count leans past twice its spread, and every size is read and
     the one leaving the fewest pairs standing for the fewest puts is kept, since short runs drown in the
     counting's spread and long ones gather interference. `query_order_check.c` solves seven links whose reads
@@ -301,7 +301,7 @@ works there.
     an anchored group rule: the members in an order fixed by what they are, the finest floor first, the first
     member with no group anchoring one, and every member with no group that agrees with that anchor joining it.
     Agreement is a conjunction over rows at the coarser floor, and a row one member refused and the other
-    measured separates them. `stem_group_check.c` (run by `maint/engine/chain_check.sh`) holds it: the three
+    measured separates them. `stem_group_check.c` (run by `utils/maint/engine/chain_check.sh`) holds it: the three
     members `order_check.py` breaks pairwise agreement with group the same way in all six orders, and over 400
     drawn sets every member agrees with its anchor, no two anchors agree, and every set groups alike under 24
     shuffles. A group is a function of the whole set, and a block written for one is written again when the set

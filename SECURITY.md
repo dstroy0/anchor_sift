@@ -1,7 +1,7 @@
 # Security
 
 **Purpose:** Know what this repository is responsible for, what it is not, and where to report something.
-**Scope:** `src/engine/c/`, `src/engine/python/`, `maint/`, and the ports under `src/engine/`
+**Scope:** `src/engine/c/`, `src/engine/python/`, `utils/maint/`, and the ports under `src/engine/`
 
 ## What is here
 
@@ -19,15 +19,15 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 
 ## The Python tools
 
-**They reach the network.** `maint/data/salishan/get_papers.py` fetches from a public archive and is the only thing here that opens a socket. It identifies itself by name and purpose in its user agent. Nothing else in the tree fetches anything.
+**They reach the network.** `utils/maint/data/salishan/get_papers.py` fetches from a public archive and is the only thing here that opens a socket. It identifies itself by name and purpose in its user agent. Nothing else in the tree fetches anything.
 
 **They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
 
-**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/theory/Salishan/chapters/`, `maint/deps/vendor_test_vectors.py` writes `test/vectors/`, and `maint/deps/get_deps.py` clones into `deps/`. `python maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
+**They write only under `build/`.** Three exceptions, all of them fixed paths: the two generators that emit documentation write chapters under `theory/theory/Salishan/chapters/`, `utils/maint/deps/vendor_test_vectors.py` writes `utils/test/vectors/`, and `utils/maint/deps/get_deps.py` clones into `deps/`. `python utils/maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
 
 ## The vendored library
 
-`deps/mmgr` is [MMgr](https://github.com/dstroy0/MMgr), cloned by `python maint/deps/get_deps.py` so the benches build against its SHA-256, and it keeps its own attribution. Nothing under `deps/` is carried in git and nothing here writes into the clone. Its security properties are its own and are documented in that repository. Nothing here extends or restates them.
+`deps/mmgr` is [MMgr](https://github.com/dstroy0/MMgr), cloned by `python utils/maint/deps/get_deps.py` so the benches build against its SHA-256, and it keeps its own attribution. Nothing under `deps/` is carried in git and nothing here writes into the clone. Its security properties are its own and are documented in that repository. Nothing here extends or restates them.
 
 ## The concern that is not a vulnerability
 

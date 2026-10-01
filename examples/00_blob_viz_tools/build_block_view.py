@@ -31,7 +31,7 @@ import struct
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "block_view_template.html")
-CORPUS = os.path.join(ROOT, "maint", "chain", "blocks.json")
+CORPUS = os.path.join(ROOT, "utils", "maint", "chain", "blocks.json")
 
 # Offset and width of every field of the eighty byte header, in the order it is serialized.
 FIELDS = [

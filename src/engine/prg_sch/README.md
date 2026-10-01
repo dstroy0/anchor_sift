@@ -183,7 +183,7 @@ A ruleset is a text file whose first line is `krs 1`, and every other line is on
   argument, `{bank:n}` for scratch register n of one of the ruleset's banks, and any other word for itself. Each time
   the form is written, its construct's lines are written in its place, and each scratch register is a fresh one: in
   PTX, one of the step's own temporaries, 64-bit temporaries or predicates, declared with them. A ruleset may give a
-  form as a form or as a construct, not both. `test/engine/compiler/codegen/rulesets/flagless/ptx.krs` gives the carry chains and the
+  form as a form or as a construct, not both. `utils/test/engine/compiler/codegen/rulesets/flagless/ptx.krs` gives the carry chains and the
   product this way, with no instruction that sets or reads the condition code.
 
 A line that begins with `#` is a comment. The code generator lists every form, bank and register it needs, with the

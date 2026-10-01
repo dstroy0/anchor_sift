@@ -1,0 +1,663 @@
+#!/usr/bin/env python3
+# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#
+# Assemble one self-contained submission per research paper, in whatever shape the venue asks for.
+#
+#   python utils/maint/texbuild/submission_package.py                  every research paper, gzipped tar
+#   python utils/maint/texbuild/submission_package.py --archive zip    every research paper, zip
+#   python utils/maint/texbuild/submission_package.py --archive none   directories only
+#   python utils/maint/texbuild/submission_package.py <research_paper> ...       named research papers
+#   python utils/maint/texbuild/submission_package.py --arxiv [<research_paper>] arXiv's shape, under build/arxiv/
+#
+# Writes build/submission/<research_paper>/ and, unless --archive none, an archive beside it. Nothing under
+# theory/ is modified: the rewrite happens on the copy, and the source keeps the shared preamble it
+# has always had.
+#
+# THE REQUIREMENT IS NOT ANY ONE VENUE'S
+#
+# A submission is a directory that compiles in place. Every venue enforces that and they
+# differ only in what they want it wrapped in. arXiv extracts a tarball into one root and runs LaTeX
+# there. Most journals ask for a zip. A repository deposit takes the directory as it stands. A venue
+# that wants only the built PDF still needs the build to have worked somewhere.
+#
+# So the assembly and the checks below are the whole job and they are the same every time. The
+# archive format is the only part that changes, and it is a flag.
+# This started life as arxiv_package.py and that was the wrong shape: it made one venue's
+# packaging look like a property of the work.
+#
+# WHY ANY OF IT IS NEEDED
+#
+# Every research paper reaches outside its own directory for the two files it shares with the others.
+# theory/theory/Salishan/main.tex says \input{../preamble.tex} and theory/theory/cryptography/sha256/main.tex
+# says \input{../../preamble.tex}, and preamble.tex then says \input{../macros.tex}. That resolves
+# here because theory/ is the directory above them all, and it resolves nowhere else.
+#
+# The fix is not to restructure theory/, because one shared preamble across every research paper keeps
+# a layout change reaching all of them. The fix is to copy the shared files into the research paper at
+# packaging time and rewrite the lines that point at them.
+#
+# RESEARCH PAPERS ARE DISCOVERED, NOT LISTED
+#
+# build_theory.sh:26 records what happens otherwise. The four names were written into it once, and a
+# research paper added after that line would not have built. Two research papers were missing from the tree's own
+# documentation for the same reason, and a seventh was missing from README.md and from
+# docs/research/index.md on the day it was created. This walks for main.tex at both depths so the
+# packager cannot go stale the way a hand-written list does.
+#
+# WHAT IT ERRORS TO SHIP
+#
+# A submission still holding a climbing path is broken and fails on upload with a LaTeX error nobody
+# can read. Every .tex in the assembled copy is re-read AFTER the rewrite, and a remaining ../ in an
+# \input or \include fails that research paper and names the file and the line. A rule that was supposed to
+# catch a path is not evidence that it did.
+#
+# It also errors instead of carrying what a LaTeX run leaves behind. See LEAVINGS.
+#
+# WHAT --arxiv ADDS, AND WHY EACH STEP IS THERE
+#
+# arXiv extracts a tarball into one directory and runs LaTeX there, and everything extracted becomes
+# public whether or not the document reads it. That second half is the part that costs somebody
+# later. The extra steps are mostly deletions:
+#
+#   flattened      Every subdirectory is emptied into the root and the \input and \include lines
+#                  that named it are rewritten. Checked first for two files sharing a basename,
+#                  because flattening those would destroy one of them silently.
+#   comments gone  A full-line comment is deleted. A comment at the end of a line has its text
+#                  deleted and its percent sign kept, because in LaTeX that percent sign eats the
+#                  newline and dropping it inserts a space into the typeset page. Stripping it
+#                  wholesale is the standard way this step goes wrong.
+#   nothing hidden A dotfile or dot-directory is not copied. None is ever read by the document and
+#                  each one is somebody's local state.
+#   nothing unread A .tex no \input or \include chain reaches from main.tex is dropped. An old
+#                  draft nobody compiles still publishes.
+#   no notes       A Markdown file is dropped. The ones beside a research paper are working notes and logs,
+#                  and LaTeX reads none of them. Any other file that is not source or a figure is
+#                  named and kept.
+#   four passes    \typeout just before \end{document} makes arXiv run LaTeX until the labels
+#                  settle. It was once placed after \end{document}, where LaTeX has already stopped
+#                  reading and the line never reached the log.
+#   00README.json  The engine, the top-level file and the TeX Live release, in the JSON form arXiv
+#                  reads (https://info.arxiv.org/help/00README.html, read 2026-09-23). Without it
+#                  arXiv guesses the engine from the source, and these research papers need xelatex.
+#   flat tarball   No wrapping directory. `tar -cvvf ax.tar *` produces that from inside
+#                  the assembled copy.
+#   metadata.txt   The title, the authors and the abstract with the LaTeX taken out and the line
+#                  breaks collapsed, ready to paste into the web form. arXiv shows the whitespace
+#                  that LaTeX ignores. The collapsing is not cosmetic.
+#
+# It does not submit anything and holds no credential. The tarball and the metadata are the whole
+# output, and a person uploads them.
+
+import io
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tarfile
+import zipfile
+
+def _repository_root():
+    """This repository, asked of git and not inferred from a marker directory.
+
+    The marker climbed to before was build/, which the repository PRODUCES and not CONTAINS. A
+    linked worktree and a never-built clone both lack it. The climb then walked past the root it
+    was looking for into another checkout entirely, and every path derived from it pointed at a
+    different tree than the tool was run from. That lands on a real repository with real files,
+    which is indistinguishable from working.
+
+    A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
+    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    contains is present in every checkout of it, and a marker the repository produces is present in
+    none of them until something has already run.
+
+    Git's own variables are cleared first. Inside a hook GIT_DIR is exported, and a rev-parse that
+    inherits it answers about that repository and not about the directory it was asked from,
+    returning the current directory instead of the root.
+    """
+    start = os.path.dirname(os.path.abspath(__file__))
+    environment = dict(os.environ)
+    for key in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_PREFIX", "GIT_COMMON_DIR"):
+        environment.pop(key, None)
+
+    try:
+        said = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=start,
+                                       stderr=subprocess.PIPE, env=environment)
+    except (OSError, subprocess.CalledProcessError):
+        said = b""
+
+    top = said.decode("utf-8", "replace").strip()
+    if top and os.path.isdir(top):
+        return os.path.abspath(top)
+
+    climbed = start
+    while (climbed != os.path.dirname(climbed)) \
+            and not os.path.isdir(os.path.join(climbed, "src", "engine")):
+        climbed = os.path.dirname(climbed)
+    return climbed
+
+
+ROOT = _repository_root()
+THEORY = os.path.join(ROOT, "theory")
+# Every research paper sits under theory/, a directory of this repository, on one of its three shelves:
+# theory/theory/, theory/workbooks/ and theory/thought_experiments/. A research paper is named by its path
+# below theory/.
+TREES = (THEORY,)
+OUT = os.path.join(ROOT, "build", "submission")
+OUT_ARXIV = os.path.join(ROOT, "build", "arxiv")
+
+# The files every research paper shares, which sat in theory/ and not in any research paper. These are copied into the
+# submission root and the lines that reach up for them are rewritten to name them plainly.
+#
+# dedication.tex is here for the same reason preamble.tex is. One wording reaches every research paper, held
+# in one place so it cannot drift between them.
+#
+# Every research paper now carries its own preamble.tex, and theory/ holds none of the three. A shared file
+# is copied only where theory/ still has it and the research paper does not. Copying unconditionally stopped
+# the packager on the first research paper with a missing-file error.
+SHARED = ("preamble.tex", "macros.tex", "dedication.tex")
+
+# What arXiv reads before it compiles anything. spec_version 1 is the only version the format has.
+README = {
+    "spec_version": 1,
+    "process": {"compiler": "xelatex"},
+    "sources": [{"filename": "main.tex", "usage": "toplevel"}],
+    "texlive_version": 2025,
+}
+
+# An \input or \include whose argument climbs out of the directory it is read from. The name is
+# captured so only the shared files are rewritten: another climbing path is a different problem and
+# gets reported instead of quietly repointed.
+CLIMBING = re.compile(r"(\\(?:input|include)\{)((?:\.\./)+)([^}]+)(\})")
+
+# What a source file is. Everything else in a research paper directory is copied as it stands, and on those
+# terms the matplotlib figure beside the corpus derivation chapter travels with its chapter.
+TEX = ".tex"
+
+# What the archive flag accepts, against what it writes.
+ARCHIVES = ("tar.gz", "zip", "none")
+
+# What a LaTeX run leaves beside the source, and what never belongs in a submission.
+#
+# build_theory.sh compiles with -output-directory so it leaves none of this. TeXworks and TeXShop
+# compile IN PLACE, and a research paper opened in one of those to look at it comes back with main.pdf,
+# main.log, main.aux, main.toc, a .aux per included chapter, and a synctex index larger than the
+# whole rest of the research paper. Copying a research paper directory wholesale ships all of it.
+#
+# Measured once: theory/workbooks/anchor_sift packaged at 1,269,699 bytes against 73,201 for the same research paper
+# clean, and 705,688 of that was one synctex file. It would have been accepted.
+LEAVINGS = (".aux", ".log", ".toc", ".lof", ".lot", ".out", ".bbl", ".blg", ".idx", ".ilg",
+            ".ind", ".nav", ".snm", ".vrb", ".fls", ".fdb_latexmk", ".synctex", ".synctex.gz")
+
+
+def is_leaving(name):
+    """Whether a filename is something a LaTeX run dropped beside the source.
+
+    main.pdf is excluded by name and not by extension. A PDF is otherwise a figure, and the corpus
+    derivation chapter's matplotlib figure has to travel with its chapter.
+    """
+    lowered = name.lower()
+    if lowered == "main.pdf":
+        return True
+    return any(lowered.endswith(one) for one in LEAVINGS)
+
+
+# The line arXiv reads as an instruction to run LaTeX again. Placed just before \end{document}: it
+# typesets nothing and only reaches the log the rerun logic watches.
+TYPEOUT = "\\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}"
+END_DOCUMENT = "\\end{document}"
+
+# An \input or \include naming a file inside the research paper. Rewritten when the tree is flattened.
+NAMED = re.compile(r"(\\(?:input|include)\{)([^}]+)(\})")
+
+
+def uncomment(text):
+    """One file's text with the comment text removed, and how many comments that was.
+
+    A percent sign starts a comment when the run of backslashes before it is even, because an odd
+    run ends in an escaped percent that typesets as a character.
+
+    A full line comment is deleted outright. A comment after content keeps its percent sign and
+    loses everything after it. That percent sign is doing work: LaTeX drops the newline following
+    it. Removing it joins two words with a space that was not there before. This is the step
+    that quietly changes a typeset page, and keeping the sign stops it.
+    """
+    held = []
+    found = 0
+    for line in text.splitlines():
+        at = -1
+        run = 0
+        for index, letter in enumerate(line):
+            if letter == "\\":
+                run += 1
+                continue
+            if (letter == "%") and (run % 2 == 0):
+                at = index
+                break
+            run = 0
+        if at < 0:
+            held.append(line)
+            continue
+        found += 1
+        if not line[:at].strip():
+            continue
+        held.append(line[:at + 1])
+    return "\n".join(held) + ("\n" if text.endswith("\n") else ""), found
+
+
+def reachable(out):
+    """Every .tex under out that main.tex reaches, by name without its extension.
+
+    Walked from main.tex through \\input and \\include. A file reached only by a file that is
+    itself reached still counts. A .tex outside this set is an old draft, and uploading one
+    publishes it.
+    """
+    seen = set()
+    pending = ["main"]
+    while pending:
+        stem = pending.pop()
+        if stem in seen:
+            continue
+        seen.add(stem)
+        for where, _dirs, names in os.walk(out):
+            for name in names:
+                if name != (stem + TEX) and name != stem:
+                    continue
+                with open(os.path.join(where, name), encoding="utf-8") as handle:
+                    text = handle.read()
+                for found in NAMED.finditer(text):
+                    target = os.path.basename(found.group(2))
+                    pending.append(target[:-len(TEX)] if target.endswith(TEX) else target)
+    return seen
+
+
+def flatten(out):
+    """Every file moved into the root of out, with the naming lines rewritten.
+
+    Returns (moved, collisions). A collision is two files sharing a basename, and nothing is moved
+    when there is one: flattening past it would overwrite a file the document reads.
+    """
+    holding = {}
+    for where, _dirs, names in os.walk(out):
+        if os.path.abspath(where) == os.path.abspath(out):
+            continue
+        for name in names:
+            holding.setdefault(name, []).append(os.path.join(where, name))
+    collisions = {name: paths for name, paths in holding.items()
+                  if (len(paths) > 1) or os.path.isfile(os.path.join(out, name))}
+    if collisions:
+        return [], collisions
+
+    moved = []
+    for name, paths in sorted(holding.items()):
+        shutil.move(paths[0], os.path.join(out, name))
+        moved.append(os.path.relpath(paths[0], out).replace("\\", "/"))
+    for where, dirs, _names in os.walk(out, topdown=False):
+        for one in dirs:
+            folder = os.path.join(where, one)
+            if not os.listdir(folder):
+                os.rmdir(folder)
+
+    for name in sorted(os.listdir(out)):
+        if not name.endswith(TEX):
+            continue
+        path = os.path.join(out, name)
+        with open(path, encoding="utf-8") as handle:
+            text = handle.read()
+        changed = NAMED.sub(lambda found: "%s%s%s" % (found.group(1),
+                                                      os.path.basename(found.group(2)),
+                                                      found.group(3)), text)
+        if changed != text:
+            with open(path, "w", encoding="utf-8", newline="\n") as handle:
+                handle.write(changed)
+    return moved, {}
+
+
+def strip_latex(text):
+    """One run of LaTeX source as the plain text arXiv's web form wants.
+
+    Control sequences and their braces come out, the accented forms LaTeX spells in ASCII are left
+    as their letter, and every run of whitespace becomes one space. The last part matters most:
+    LaTeX ignores the line breaks in an abstract and arXiv prints them.
+    """
+    text = re.sub(r"\\(?:emph|textbf|textit|texttt|text|mbox|spacedallcaps|spacedlowsmallcaps)"
+                  r"\{([^{}]*)\}", r"\1", text)
+    text = re.sub(r"\\[A-Za-z@]+\*?", " ", text)
+    text = text.replace("\\\\", " ").replace("~", " ")
+    text = re.sub(r"[{}$]", "", text)
+    text = text.replace("--", "-")
+    return " ".join(text.split())
+
+
+def metadata(out, research_paper):
+    """The title, authors and abstract of an assembled research paper, as text to paste into the form.
+
+    Read off the assembled copy, because that copy ships. The titlepage carries the title and
+    the author and the abstract sits in its own file, and both are found by name and not by
+    position. A research paper that orders its frontmatter differently still reports.
+    """
+    lines = []
+    title = ""
+    authors = ""
+    titlepage = os.path.join(out, "titlepage.tex")
+    if os.path.isfile(titlepage):
+        with open(titlepage, encoding="utf-8") as handle:
+            held = [strip_latex(one) for one in handle.read().splitlines()]
+        held = [one for one in held if one]
+        if held:
+            title = held[0]
+        for index, one in enumerate(held):
+            if one.lower() == "by" and (index + 1) < len(held):
+                authors = held[index + 1]
+                break
+
+    abstract = ""
+    where = os.path.join(out, "abstract.tex")
+    if os.path.isfile(where):
+        with open(where, encoding="utf-8") as handle:
+            body = handle.read()
+        body = re.sub(r"\\(?:pdfbookmark|chapter)\*?(?:\[[^\]]*\])?\{[^}]*\}\{?[^}]*\}?", " ", body)
+        abstract = strip_latex(body)
+
+    lines.append("title")
+    lines.append("  " + (title.title() if title.isupper() else title))
+    lines.append("")
+    lines.append("authors")
+    lines.append("  " + authors.replace(" and ", ", "))
+    lines.append("")
+    lines.append("abstract")
+    lines.append("  " + abstract)
+    lines.append("")
+    lines.append("subject area is not filled in here. It is a judgement about where the work")
+    lines.append("belongs and nobody but the author can make it.")
+    lines.append("")
+    path = os.path.join(os.path.dirname(out), "%s_metadata.txt" % os.path.basename(out))
+    with open(path, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(lines))
+    return path, title, authors, abstract
+
+
+def flat_tar(out):
+    """The assembled directory as a tarball with no wrapping directory.
+
+    arXiv extracts into one root it chose. A wrapping directory puts every file one level below
+    where main.tex says they are. This is `tar -cvvf ax.tar *` run from inside the copy.
+    """
+    archive = "%s.tar" % out
+    if os.path.isfile(archive):
+        os.remove(archive)
+    with tarfile.open(archive, "w") as handle:
+        for name in sorted(os.listdir(out)):
+            handle.add(os.path.join(out, name), arcname=name)
+    return os.path.basename(archive), os.path.getsize(archive)
+
+
+def research_paper_tree(research_paper):
+    """Which tree holds this research paper, or None where no tree does."""
+    for tree in TREES:
+        if os.path.isfile(os.path.join(tree, research_paper, "main.tex")):
+            return tree
+    return None
+
+
+def research_papers():
+    """Every research paper, as its path below theory/.
+
+    Two depths, matching build_theory.sh. <shelf>/<research_paper>/ is where most of them sit, and
+    theory/<subject>/<research_paper>/ is where the cryptography one does.
+    """
+    import glob
+    found = []
+    for tree in TREES:
+        for pattern in (("*", "*", "main.tex"), ("*", "*", "*", "main.tex")):
+            for one in sorted(glob.glob(os.path.join(tree, *pattern))):
+                found.append(os.path.relpath(os.path.dirname(one), tree).replace("\\", "/"))
+    return sorted(set(found))
+
+
+def rewrite(text):
+    """One file's text with the shared inputs brought in, and what was left climbing.
+
+    Returns (text, rewritten, errored). rewritten names the shared files repointed. errored holds
+    any other climbing path, which is not this function's to decide about.
+    """
+    rewritten = []
+    error = []
+
+    def one(found):
+        opener, climb, name, closer = found.groups()
+        target = os.path.basename(name)
+        if target in SHARED:
+            rewritten.append(target)
+            return "%s%s%s" % (opener, target, closer)
+        error.append("%s%s" % (climb, name))
+        return found.group(0)
+
+    return CLIMBING.sub(one, text), rewritten, error
+
+
+def assemble(research_paper, out):
+    """One research paper copied into out, with the shared files inside it. Returns what was rewritten."""
+    source = os.path.join(research_paper_tree(research_paper) or THEORY, research_paper)
+    if os.path.isdir(out):
+        shutil.rmtree(out)
+    shutil.copytree(source, out, ignore=lambda where, names: [one for one in names
+                                                             if is_leaving(one)])
+    for name in SHARED:
+        shared = os.path.join(THEORY, name)
+        if os.path.isfile(shared) and not os.path.isfile(os.path.join(out, name)):
+            shutil.copy2(shared, os.path.join(out, name))
+
+    rewritten = []
+    error = []
+    for where, _dirs, names in os.walk(out):
+        for name in sorted(names):
+            if not name.endswith(TEX):
+                continue
+            path = os.path.join(where, name)
+            with open(path, encoding="utf-8") as handle:
+                text = handle.read()
+            changed, did, would_not = rewrite(text)
+            if changed != text:
+                with open(path, "w", encoding="utf-8", newline="\n") as handle:
+                    handle.write(changed)
+            rewritten.extend((os.path.relpath(path, out), one) for one in did)
+            error.extend((os.path.relpath(path, out), one) for one in would_not)
+    return rewritten, error
+
+
+def still_climbing(out):
+    """Any \\input or \\include left pointing above the submission root, with its line number.
+
+    Read back off the assembled copy and not predicted from the rewrite, because what ships is the
+    copy.
+    """
+    held = []
+    for where, _dirs, names in os.walk(out):
+        for name in sorted(names):
+            if not name.endswith(TEX):
+                continue
+            path = os.path.join(where, name)
+            with open(path, encoding="utf-8") as handle:
+                for number, line in enumerate(handle, 1):
+                    if CLIMBING.search(line):
+                        held.append((os.path.relpath(path, out), number, line.strip()))
+    return held
+
+
+def bundle(out, kind):
+    """The assembled directory wrapped as the venue asked. Returns (name, bytes), or None.
+
+    Every path inside the archive sits under one top-level directory named for the research paper.
+    An extract-into-one-root venue needs that, and a person unpacking it locally wants it anyway.
+    """
+    base = os.path.basename(out)
+    if kind == "none":
+        return None
+    if kind == "tar.gz":
+        archive = "%s.tar.gz" % out
+        if os.path.isfile(archive):
+            os.remove(archive)
+        with tarfile.open(archive, "w:gz") as handle:
+            handle.add(out, arcname=base)
+    else:
+        archive = "%s.zip" % out
+        if os.path.isfile(archive):
+            os.remove(archive)
+        with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as handle:
+            for where, _dirs, names in os.walk(out):
+                for name in sorted(names):
+                    full = os.path.join(where, name)
+                    handle.write(full, os.path.join(base, os.path.relpath(full, out)))
+    return os.path.basename(archive), os.path.getsize(archive)
+
+
+def for_arxiv(out, research_paper):
+    """The --arxiv steps, in the order the header lists them, on an assembled copy.
+
+    Returns (said, stopped). said is one line per thing done. stopped is a reason the copy cannot
+    ship, or empty.
+    """
+    said = []
+
+    for where, dirs, names in os.walk(out):
+        for one in [name for name in dirs if name.startswith(".")]:
+            shutil.rmtree(os.path.join(where, one))
+            dirs.remove(one)
+            said.append("hidden       %s/ removed" % one)
+        for one in [name for name in names if name.startswith(".")]:
+            os.remove(os.path.join(where, one))
+            said.append("hidden       %s removed" % one)
+
+    read = reachable(out)
+    for where, _dirs, names in os.walk(out):
+        for name in names:
+            if name.endswith(TEX) and (name[:-len(TEX)] not in read):
+                os.remove(os.path.join(where, name))
+                said.append("unread       %s dropped" % os.path.relpath(os.path.join(where, name), out))
+
+    moved, collisions = flatten(out)
+    if collisions:
+        for name, paths in sorted(collisions.items()):
+            said.append("COLLISION    %s at %s" % (name, ", ".join(os.path.relpath(one, out) for one in paths)))
+        return said, "two files share a basename and flattening would destroy one"
+    said.append("flattened    %d file(s) into the root" % len(moved))
+
+    stripped = 0
+    for name in sorted(os.listdir(out)):
+        if not name.endswith(TEX):
+            continue
+        path = os.path.join(out, name)
+        with open(path, encoding="utf-8") as handle:
+            text, found = uncomment(handle.read())
+        with open(path, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(text)
+        stripped += found
+    said.append("comments     %d removed" % stripped)
+
+    main_tex = os.path.join(out, "main.tex")
+    with open(main_tex, encoding="utf-8") as handle:
+        text = handle.read()
+    if text.count(END_DOCUMENT) != 1:
+        return said, "main.tex holds %d \\end{document}, not one" % text.count(END_DOCUMENT)
+    with open(main_tex, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text.replace(END_DOCUMENT, TYPEOUT + "\n" + END_DOCUMENT))
+    said.append("four passes  requested before \\end{document}")
+
+    with open(os.path.join(out, "00README.json"), "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(README, indent=2) + "\n")
+    said.append("00README.json  %s, TeX Live %d" % (README["process"]["compiler"], README["texlive_version"]))
+
+    # Markdown beside a research paper is working notes and logs. LaTeX never reads it, and arXiv would publish
+    # it with the paper. The workbook carried seven such files into its first package.
+    for name in sorted(os.listdir(out)):
+        if name.lower().endswith(".md"):
+            os.remove(os.path.join(out, name))
+            said.append("notes        %s dropped, LaTeX does not read it" % name)
+
+    # Anything else left that is neither source nor a figure publishes with the paper. It is named
+    # here and not deleted, because an unknown file may be one the research paper needs.
+    for name in sorted(os.listdir(out)):
+        if not name.lower().endswith((TEX, ".pdf", ".png", ".jpg", ".jpeg", ".json")):
+            said.append("SHIPS        %s is not source or a figure and will be public" % name)
+
+    path, _title, _authors, _abstract = metadata(out, research_paper)
+    said.append("metadata     %s" % os.path.basename(path))
+    return said, ""
+
+
+def wanted_archive(argv):
+    """The archive kind named on the command line, defaulting to a gzipped tar."""
+    if "--archive" not in argv:
+        return "tar.gz"
+    at = argv.index("--archive")
+    if (at + 1) >= len(argv):
+        raise SystemExit("submission_package: --archive wants one of %s" % ", ".join(ARCHIVES))
+    kind = argv[at + 1]
+    if kind not in ARCHIVES:
+        raise SystemExit("submission_package: unknown archive %r, wants one of %s"
+                         % (kind, ", ".join(ARCHIVES)))
+    return kind
+
+
+def main():
+    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
+    argv = sys.argv[1:]
+    kind = wanted_archive(argv)
+    arxiv = "--arxiv" in argv
+    skip = {"--archive", kind}
+    named = [one for one in argv if (one not in skip) and not one.startswith("-")]
+    status = 0
+
+    for research_paper in (named or research_papers()):
+        if research_paper_tree(research_paper) is None:
+            out.write("  no such research paper: %s\n" % research_paper)
+            status = 1
+            continue
+
+        flat = research_paper.replace("/", "_")
+        target = os.path.join(OUT_ARXIV if arxiv else OUT, flat)
+        rewritten, error = assemble(research_paper, target)
+        left = still_climbing(target)
+
+        out.write("  %s\n" % research_paper)
+        for path, name in rewritten:
+            out.write("    brought in   %-34s in %s\n" % (name, path))
+        for path, name in error:
+            out.write("    NOT MINE     %-34s in %s\n" % (name, path))
+            status = 1
+        if left:
+            for path, number, line in left:
+                out.write("    STILL CLIMBS %s:%d  %s\n" % (path, number, line))
+            out.write("    %s is not shippable and no archive was written\n" % research_paper)
+            status = 1
+            continue
+
+        if arxiv:
+            said, stopped = for_arxiv(target, research_paper)
+            for line in said:
+                out.write("    %s\n" % line)
+            if stopped:
+                out.write("    %s is not shippable: %s\n" % (research_paper, stopped))
+                status = 1
+                continue
+            out.write("    %s  %d bytes\n" % flat_tar(target))
+            continue
+
+        made = bundle(target, kind)
+        if made is None:
+            out.write("    %s/  directory only\n" % flat)
+        else:
+            out.write("    %s  %d bytes\n" % made)
+
+    out.write("\n  Assembled under %s\n" % os.path.relpath(OUT_ARXIV if arxiv else OUT, ROOT))
+    out.write("  A package is not a submission until it has compiled from inside its own\n")
+    out.write("  directory. Nothing here has compiled anything.\n")
+    out.flush()
+    return status
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
