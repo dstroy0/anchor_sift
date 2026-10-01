@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Builds and runs the two things that work off the ladder's relations, neither of which needs a device, a toolchain
+# Builds and runs the three things that work off the ladder's relations, none of which needs a device, a toolchain
 # or a machine file:
 #
-#   kdm_write    writes a part's .kdm: every arrangement of primitives that produces each operator
-#   chain_check  reads how much of a relation the ladder's own cases decide
+#   kdm_write     writes a part's .kdm: every arrangement of primitives that produces each operator
+#   chain_check   reads how much of a relation the ladder's own cases decide
+#   gate_descent  runs the gate as anchor_sift's descent and checks it against every arrangement asked every case
 #
 #     maint/engine/chain_check.sh
 #     maint/engine/chain_check.sh sm_86 src/engine/compiler/cubin/machines/sm_86.kdm
 #
-# With arguments it writes that part's .kdm to that path; with none it runs the check and stops.
+# With arguments it writes that part's .kdm to that path; with none it runs both checks and stops.
 set -u
 
 TOP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -22,9 +23,19 @@ for one in "$TOP/maint/engine/kdm_write.c" "$TOP/test/engine/compiler/bootstrap/
         "$TOP/src/engine/compiler/bootstrap/chain_build.c" || exit 1
 done
 
+# the descent is anchor_sift's own, and anchor_sift reads exact integers
+SIFT="$TOP/src/engine/nbody/anchor_sift"
+EXACT="$TOP/src/engine/arithmetic/no_rounding"
+cc -std=c11 -O2 -Wall -Wextra -I"$SIFT" -I"$EXACT" -o "$OUT/gate_descent" \
+    "$TOP/test/engine/compiler/bootstrap/gate_descent.c" "$TOP/src/engine/compiler/bootstrap/chain_build.c" \
+    "$SIFT/anchor_sift_core.c" "$SIFT/anchor_sift_field.c" "$SIFT/anchor_sift_steer.c" \
+    "$SIFT/anchor_sift_steer_count.c" "$SIFT/anchor_sift_steer_plan.c" "$SIFT/scan_portable.c" \
+    "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
+
 cd "$TOP" || exit 1
 if [ "$#" -gt 0 ]; then
     "$OUT/kdm_write" "$@"
     exit "$?"
 fi
-"$OUT/chain_check"
+"$OUT/chain_check" || exit 1
+"$OUT/gate_descent"

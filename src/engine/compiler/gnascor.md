@@ -95,9 +95,15 @@ The unbound pass also says where to go. A cheap address is worth expanding, an e
 
 ### Slicing a chain
 
-A chain carries one cost and one number names no part of it. Putting the unbound ask at every cut of the chain gives the differences between neighboring cuts, and those differences are the per-link costs, each measured in the same conditions as the rest. A chain read this way gives a profile where a total was, and the expensive link gets named instead of inferred.
+A chain carries one cost and one number names no part of it. The unbound ask is put over covering sets of the chain's links in a known order: each ask covers half the links, any two overlap on a quarter, and the per-link costs come out of all the answers together, in exact integers. A chain read this way gives a profile where a total was, and the expensive link gets named instead of inferred. The difference between two neighboring cuts does not do this: it lands two measurements' noise on one link, and one link sits under the floor.
 
-Cross-branch comparison follows from slicing. Every arrangement that produces an operator is a branch, every branch slices into the same relation, and comparing them link by link gives the winning path for a given problem. A branch reading worse as a total can hold the cheapest link for the job, and only a sliced reading sees it.
+Cross-branch comparison follows from slicing. Every arrangement that produces an operator is a branch, every branch slices into the same relation, and comparing them link by link gives the winning path for a given problem. The comparison is the signed difference at each link and never the totals. A total does not change when the two branches trade places, and which branch holds a link does. A total is blind to the question. The sign at a link is LEAD or RITE, inside the floor is DUAL, and PASS marks where the sign changes. A branch reading worse as a total can hold the cheapest link for the job, and only a sliced reading sees it.
+
+### The gate
+
+Before any cost is read, the gate decides which arrangements hold the relation at all. It is anchor_sift's own descent: each candidate arrangement is an alignment, the relation's cases are the needle, and the descent places the case that prunes the most, stops where the best case prunes nothing, and leaves the survivors as its answer. It is planned on the host against arithmetic every system that computes agrees about, and the target is asked only the cases it placed. A plan that steers badly costs speed and never a wrong survivor, because survival is a conjunction.
+
+Every step above, its status and the run behind it is in the query protocol's own table, [query_protocol_table.md](../../../theory/workbooks/engine/query_protocol_table.md).
 
 The method does not get more complicated than this at any layer. Ask, and remember the answer. The baseline is remembered asks, the profile is remembered asks at every cut, and the winning path is the comparison of two sets of remembered asks. Nothing is modeled and nothing is predicted.
 

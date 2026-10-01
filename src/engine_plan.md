@@ -95,7 +95,17 @@ particular. A chain reading worse as a total can hold the cheapest link for the 
 can see it.
 
 The rest of the protocol, the pair states and the mnemonics the bits resolve to, is in
-[engine/compiler/gnascor.md](engine/compiler/gnascor.md).
+[engine/compiler/gnascor.md](engine/compiler/gnascor.md). Every step of it, what backs it and the run behind its
+status is in the query protocol's own table,
+[theory/workbooks/engine/query_protocol_table.md](../theory/workbooks/engine/query_protocol_table.md). A step
+changes status there and nowhere else.
+
+**The gate is the engine's own descent.** Each candidate arrangement is an alignment and a relation's cases are
+the needle, and anchor_sift's descent places the case that prunes the most, stops where the best case prunes
+nothing, and leaves the survivors as its answer. The descent is planned on the host against arithmetic every
+system that computes agrees about, and a target is asked only the cases it placed. That is steering on what is
+known to be true. Survival is a conjunction, and order cannot change a conjunction. A plan that steers badly
+costs speed and never a wrong survivor: gate then rank, in the engine's own words.
 
 Cost is measured by chaining, never alone: one operation sits under the noise floor and a chain clears it by
 fifteen times. Chaining is also what takes the bias out. A primitive that reads worse by itself and is right for a
@@ -218,10 +228,13 @@ works there.
 8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
    stale.
 
-9. **The ladder's cases do not decide a relation.** 507 arrangements fit them and are not the relation: 287 of up,
-   151 of down, 36 of take, 25 of add, and all 8 of same. The chain builder gets past it by putting 512 more words
-   of its own, which a target cannot be asked in the same breath. Until the cases decide, a target's answer to the
-   ladder as written does not say it holds the relation.
+9. **The ladder's cases do not decide a relation, and the descent finds the cases that do.** 507 arrangements fit
+   the ladder's cases and are not the relation: 287 of up, 151 of down, 36 of take, 25 of add, and all 8 of same.
+   Run as the gate's descent over the ladder's cases and the 512 words of the chain builder's sweep, one
+   full-width word decides add, take and same, and up and down need a second whose count reads zero. Every one of
+   the 507 dies at the first or second case placed, and no case the ladder holds is among them
+   (`maint/engine/chain_check.sh`, Q4 in the query protocol table). Nothing is added to the ladder by hand: the
+   descent picks the cases from the sweep on the host, and the open part is the loop that puts them to a target.
 
 10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
     member and the paths read off them, in that order: every probe and what came back, with costs, refusals
@@ -237,9 +250,11 @@ works there.
     prices every part of it. Three things go in together: each ask covers half the links and any two overlap
     on a quarter, the count covered sweeps so contention has somewhere to show, and the solve carries a term
     for contention. The order is kept in the record, and that record is the whole difference between a
-    carrier and a shuffle. The
-    censored-sample mark and the reference ask alongside the real one are part of this and not additions to
-    it.
+    carrier and a shuffle. The censored-sample mark and the reference ask alongside the real one are part of
+    this and not additions to it. The per-link solve stays inside the engine's rule that no floating point value
+    is held anywhere: for the half-covering order, `(n + 1)·x = 4·Sᵀb - 2·(Σb)·1`, a division by a power of two.
+    The solve lands in C with a test of that closed form at every supported size (Q5 in the query protocol
+    table).
 
 12. **Stem membership has no written rule.** Two members sharing a stem is the whole basis of a set, and
     pairwise agreement inside a floor cannot decide it. Either a representative per group or an anchored group
