@@ -247,7 +247,7 @@ static void cycle_host_library_close(void *library)
 // text byte for byte; each is written beside its name and renamed to it, and no reader finds half a file. 0 where
 // there is no cache folder, or the compile or the load failed
 int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *record, const std::string &source,
-                            unsigned int places, double written, int report)
+                            unsigned int places, unsigned long long written, int report)
 {
     // one thread's places: a word each, then a sign byte each
     std::string text = s_cycle_host_prelude + source;
@@ -287,7 +287,7 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
     snprintf(name, sizeof(name), "%016llx.host", cycle_source_hash(text));
     const std::string stem = folder + separator + name;
     const int found = cycle_host_file_read(stem + ".cpp") == text;
-    double compile_milliseconds = 0.0;
+    unsigned long long compile_nanoseconds = 0ull;
     std::string log;
     if (!found)
     {
@@ -298,8 +298,9 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
         const auto began = std::chrono::steady_clock::now();
         const int built = cycle_host_file_write(partial + ".cpp", text) &&
                           cycle_host_compiler_run(partial + ".cpp", partial + CYCLE_HOST_LIBRARY, log);
-        compile_milliseconds =
-            std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
+        // a steady clock's span is never negative
+        compile_nanoseconds =
+            (unsigned long long)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now() - began).count();
         // a name another process took first is left as it is, and its library is loaded
         if (built)
         {
@@ -356,9 +357,9 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
     else if (report != 0)
     {
         fprintf(stderr,
-                "  cycle: a program of %u steps as C source on the host: written in %.1f ms to %zu bytes, compiled "
-                "in %.1f ms\n",
-                layout->steps, written, text.size(), compile_milliseconds);
+                "  cycle: a program of %u steps as C source on the host: written in %llu ns to %zu bytes, compiled "
+                "in %llu ns\n",
+                layout->steps, written, text.size(), compile_nanoseconds);
     }
     return 1;
 }

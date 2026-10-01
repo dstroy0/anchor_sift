@@ -240,28 +240,28 @@ static unsigned int nifti_header(const unsigned char *bytes, unsigned long long 
     {
         if (nifti_types[entry].code == datatype)
         {
-            built.sizes.element_bytes = nifti_types[entry].element_bytes;
-            built.sizes.element_kind = nifti_types[entry].element_kind;
+            built.extent.element_bytes = nifti_types[entry].element_bytes;
+            built.extent.element_kind = nifti_types[entry].element_kind;
             typed = 1u;
         }
     }
-    if ((typed == 0u) || (bitpix != (8ull * built.sizes.element_bytes)))
+    if ((typed == 0u) || (bitpix != (8ull * built.extent.element_bytes)))
     {
         fprintf(stderr, "nifti: datatype %llu with bitpix %llu errors\n", datatype, bitpix);
         return 0u;
     }
-    unsigned long long data_bytes = built.sizes.element_bytes;
-    built.sizes.rank = (unsigned int)rank;
-    for (unsigned int axis = 0u; axis < built.sizes.rank; axis += 1u)
+    unsigned long long data_bytes = built.extent.element_bytes;
+    built.extent.rank = (unsigned int)rank;
+    for (unsigned int axis = 0u; axis < built.extent.rank; axis += 1u)
     {
-        const unsigned int slot = built.sizes.rank - axis;
+        const unsigned int slot = built.extent.rank - axis;
         const unsigned long long extent = dimensions[slot];
         if ((extent == 0ull) || (extent >= negative) || !nifti_multiply(data_bytes, extent, &data_bytes))
         {
             return 0u;
         }
-        built.sizes.sizes[axis] = extent;
-        built.sizes.axes[axis] = (slot == 1u)   ? 'x'
+        built.extent.sizes[axis] = extent;
+        built.extent.axes[axis] = (slot == 1u)   ? 'x'
                                  : (slot == 2u) ? 'y'
                                  : (slot == 3u) ? 'z'
                                  : (slot == 4u) ? 't'
@@ -280,7 +280,7 @@ static unsigned int nifti_header(const unsigned char *bytes, unsigned long long 
     const unsigned long long magnitude = slope & (second ? 0x7FFFFFFFFFFFFFFFull : 0x7FFFFFFFull);
     const unsigned long long one = second ? 0x3FF0000000000000ull : 0x3F800000ull;
     built.scaled = ((magnitude != 0ull) && (slope != one)) ? 1u : 0u;
-    built.big_endian = ((big_endian != 0u) && (built.sizes.element_bytes > 1u)) ? 1u : 0u;
+    built.big_endian = ((big_endian != 0u) && (built.extent.element_bytes > 1u)) ? 1u : 0u;
     built.paired = paired ? 1u : 0u;
     built.header_bytes = header_bytes;
     built.data_offset = data_offset;

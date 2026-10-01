@@ -135,7 +135,7 @@ void cycle_program_release(cudaKernel_t kernel);
 // a program's C source built by the host's compiler and loaded for `record`, 0 where it did not build; a kept host
 // program given back; and a host program run resident on the host (cycle_compile_host.cu)
 int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *record, const std::string &source,
-                            unsigned int places, double written, int report);
+                            unsigned int places, unsigned long long written, int report);
 
 void cycle_host_program_release(CycleHostEntry entry);
 
