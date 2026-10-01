@@ -1,17 +1,17 @@
 # Steering the engine with its own reading of the field
 
 **Purpose:** Place, order and shape the engine's probes from a census of the corpus being searched, and know why doing so cannot change the count.
-**Scope:** `src/engine/c/engine/anchor_sift.h`, `src/engine/c/engine/anchor_sift.c`, `test/engine/test_steer.c`
+**Scope:** `src/engine/nbody/anchor_sift/`, `test/engine/nbody/anchor_sift/`
 
 The engine searches by placing anchors on the needle and testing them at every alignment. An alignment that disagrees at any anchor cannot hold the needle. It is rejected without a full compare. Which anchors it places, the order it tests them in, and the shape each one takes were all fixed before the corpus was looked at. This document covers the code that decides those three from the corpus instead.
 
 ## Every probe is a necessary condition
 
-Each probe tests whether the corpus at some offset carries the needle's own byte at that offset (`src/engine/c/engine/anchor_sift.c:554`). A true occurrence agrees at every offset. It agrees at every probe. Each probe is therefore a necessary condition of an occurrence, a conjunction of necessary conditions is itself one, and no true occurrence is lost by any probe set. Survivors are then filtered by a full compare (`src/engine/c/engine/anchor_sift.c:1399`), which removes the false ones. The count is exact for any probe set whatever.
+Each probe tests whether the corpus at some offset carries the needle's own byte at that offset (`src/engine/nbody/anchor_sift/anchor_sift_core.c`). A true occurrence agrees at every offset. It agrees at every probe. Each probe is therefore a necessary condition of an occurrence, a conjunction of necessary conditions is itself one, and no true occurrence is lost by any probe set. Survivors are then filtered by a full compare (`src/engine/nbody/anchor_sift/anchor_sift_core.c`), which removes the false ones. The count is exact for any probe set whatever.
 
 Two different invariants follow, and keeping them apart matters. Reordering a probe set leaves the surviving set itself identical, because conjunction commutes. Moving a probe or changing its shape gives a different probe set, which is a different conjunction and a different surviving set: the survivors of one probe strictly contain the survivors of that probe and a second. What stays identical across every probe set is the COUNT, because every surviving set contains all the true occurrences and the full compare removes the rest.
 
-The survivor count depending on which probe is placed is the steering signal itself, measured in `steer_truthy_after_probe` (`src/engine/c/engine/anchor_sift.c:1143`). A reading that held the surviving set fixed across different probe sets would leave the planner with nothing to rank.
+The survivor count depending on which probe is placed is the steering signal itself, measured in `steer_truthy_after_probe` (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). A reading that held the surviving set fixed across different probe sets would leave the planner with nothing to rank.
 
 This tree calls a move that cannot change the answer a null. Reordering is a null on the surviving set, and every probe set whatever is a null on the count.
 
@@ -19,7 +19,7 @@ One consequence shapes the whole design. A planner that samples badly, ranks wro
 
 ## What keeps a probe inside the family
 
-The guarantee above covers necessary conditions and nothing wider. The value of the guarantee depends on every probe staying inside that family. Three things in the code hold the boundary. `anchor_steer_probe_fits` keeps the origin below `needle_len` and requires every position the probe reads to stay inside the needle (`src/engine/c/engine/anchor_sift.c:1099`). Candidate generation rejects any shape failing that test before it is scored (`src/engine/c/engine/anchor_sift.c:1246`). The comparison reads `needle[offset]`, the needle's own byte at the offset being tested (`src/engine/c/engine/anchor_sift.c:554`).
+The guarantee above covers necessary conditions and nothing wider. The value of the guarantee depends on every probe staying inside that family. Three things in the code hold the boundary. `anchor_steer_probe_fits` keeps the origin below `needle_len` and requires every position the probe reads to stay inside the needle (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). Candidate generation rejects any shape failing that test before it is scored (`src/engine/nbody/anchor_sift/anchor_sift_steer_count.c`). The comparison reads `needle[offset]`, the needle's own byte at the offset being tested (`src/engine/nbody/anchor_sift/anchor_sift_core.c`).
 
 Three shapes would leave the family, and a probe type added later can leave it silently with a missing occurrence as the only symptom.
 
@@ -29,23 +29,23 @@ A fourth case is latent. An eye here is a conjunction of byte equalities. The ru
 
 ## The census is the engine reading its own field
 
-`anchor_field_census` counts what the corpus is made of in one pass, recording the occurrences of each byte value, the total, and how many values appear at all (`src/engine/c/engine/anchor_sift.c:331`). Nothing outside the corpus contributes to it. The census then decides where the engine probes that same corpus. The instrument is turned on the field it is about to measure.
+`anchor_field_census` counts what the corpus is made of in one pass, recording the occurrences of each byte value, the total, and how many values appear at all (`src/engine/nbody/anchor_sift/anchor_sift_steer.c`). Nothing outside the corpus contributes to it. The census then decides where the engine probes that same corpus. The instrument is turned on the field it is about to measure.
 
 ## Rarity ordering needs no logarithm
 
 The theory states the ordering term as rarity, the negative log probability of the symbol an anchor tests. Ordering by that quantity does not require evaluating it. The negative logarithm decreases monotonically in the probability, and every probability over one corpus shares the denominator. Ordering by rarity descending is ordering by raw occurrence count ascending. Both orderings agree on every input.
 
-`anchor_steer_magnitude` returns the total minus the symbol's own count (`src/engine/c/engine/anchor_sift.c:359`). The value is an integer, it orders identically to rarity, and it is not an entropy in bits. A symbol absent from the corpus returns the largest magnitude available, which is correct: an anchor testing a symbol the field never produces rejects every alignment at once.
+`anchor_steer_magnitude` returns the total minus the symbol's own count (`src/engine/nbody/anchor_sift/anchor_sift_steer.c`). The value is an integer, it orders identically to rarity, and it is not an entropy in bits. A symbol absent from the corpus returns the largest magnitude available, which is correct: an anchor testing a symbol the field never produces rejects every alignment at once.
 
 ## Truthy and falsy steering
 
-The steering signal is the survivor vector and not the symbol histogram. Each alignment is truthy while it is still standing and falsy once some probe has rejected it. `steer_truthy_after` counts how many currently truthy alignments would remain truthy if a given probe were placed (`src/engine/c/engine/anchor_sift.c:526`), and the descent spawns the probe leaving fewest.
+The steering signal is the survivor vector and not the symbol histogram. Each alignment is truthy while it is still standing and falsy once some probe has rejected it. `steer_truthy_after` counts how many currently truthy alignments would remain truthy if a given probe were placed (`src/engine/nbody/anchor_sift/anchor_sift_steer.c`), and the descent spawns the probe leaving fewest.
 
 Measuring survivors directly accounts for correlation between positions. A histogram says how often a symbol appears; it does not say whether the alignments that agreed at one position tend to agree at another. The survivor count answers the second question, because it is taken over the population that actually survived.
 
 ## Recursion over levels, one probe each
 
-`anchor_steer_plan_recursive` reorders offsets a caller has already placed, and `anchor_steer_spawn_coarms` chooses the positions itself (`src/engine/c/engine/anchor_sift.h:749`, `src/engine/c/engine/anchor_sift.h:826`). Both descend through the same core.
+`anchor_steer_plan_recursive` reorders offsets a caller has already placed, and `anchor_steer_spawn_coarms` chooses the positions itself (`src/engine/nbody/anchor_sift/anchor_sift_descent.h`). Both descend through the same core.
 
 A single pass ranks every anchor against the whole field. That is the correct question to ask first and the wrong one to ask second. Once the first probe has rejected most alignments, the ones still standing are the subset that agreed with one particular symbol. Within that subset the remaining probes have different pruning power than they had over the field. Each level here ranks against the alignments that survived the levels above it, taking the conditional distribution in place of the marginal one.
 
@@ -55,7 +55,7 @@ A single pass ranks every anchor against the whole field. That is the correct qu
 size_t anchor_steer_spawn_coarms(const AnchorSteerDescent *args);
 ```
 
-Its one argument is a pointer to a const argument structure. Build the structure at the call site with `ANCHOR_STEER_CALL`, which gives it automatic storage and zeroes every member the caller does not name. The members this entry reads (`src/engine/c/engine/anchor_sift.h:654-671`):
+Its one argument is a pointer to a const argument structure. Build the structure at the call site with `ANCHOR_STEER_CALL`, which gives it automatic storage and zeroes every member the caller does not name. The members this entry reads (`src/engine/nbody/anchor_sift/anchor_sift_descent.h`):
 
 - `offsets` [BORROWS] out. Chosen offsets, written in evaluation order. Owned by the caller.
 - `count` in. How many coarms to spawn, at most `ANCHOR_STEER_ANCHORS`.
@@ -68,17 +68,17 @@ Its one argument is a pointer to a const argument structure. Build the structure
 
 `survivors` is the descent's output and not a working buffer. It records, per alignment, whether the probes left that alignment standing, and it is the only place that information appears: the return value gives the depth reached and says nothing about which alignments survived. A caller wanting only the depth may ignore it, and a caller wanting the surviving set has no other route to it. This is also why the descent is not a streaming algorithm and why bounds stated for streaming matchers do not describe it.
 
-Returns the number of coarms placed, at most `count`. Returns 0 without writing `offsets` when a pointer is null, when `count` exceeds `ANCHOR_STEER_ANCHORS`, or when `survivors_length` does not reach the alignment count (`src/engine/c/engine/anchor_sift.c:938-964`). The kernel allocates nothing. A buffer too small is refused instead of being worked around.
+Returns the number of coarms placed, at most `count`. Returns 0 without writing `offsets` when a pointer is null, when `count` exceeds `ANCHOR_STEER_ANCHORS`, or when `survivors_length` does not reach the alignment count (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). The kernel allocates nothing. A buffer too small is refused instead of being worked around.
 
 ## Why halting is the wrong question
 
 Two separate properties hold, and the second one carries the argument.
 
-The descent is bounded from above. One probe is placed per level, a placed probe is never reconsidered, and the depth is AT MOST `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/c/engine/anchor_sift.c:953`). That constant is 4 (`src/engine/c/engine/anchor_sift.h:86`). The loop cannot run longer than that whatever the corpus holds, and it therefore terminates.
+The descent is bounded from above. One probe is placed per level, a placed probe is never reconsidered, and the depth is AT MOST `wanted`, which the guard holds at or under `ANCHOR_STEER_ANCHORS` (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). That constant is 4 (`src/engine/nbody/anchor_sift/anchor_sift_core.h`). The loop cannot run longer than that whatever the corpus holds, and it therefore terminates.
 
 It can run shorter, and the corpus decides when. The destroy test compares the best candidate's surviving population against the current one, and that count is read off the corpus. Where nothing prunes the descent breaks early. `force_full_depth` exists to override exactly that, and an omitted member is zero. On the default path the field ends the descent. `bench_sigma` measures it: `wanted` fixed at 4 on every row while `placed` returns 2 at an alphabet of 2^8 and 1 from 2^16 up.
 
-An earlier version of this paragraph said no branch lets corpus content change how many levels run and that the depth is fixed before the program starts. That holds only under `force_full_depth` and was written as though it held always.
+The depth is fixed before the program starts only under `force_full_depth`. On the default path corpus content changes how many levels run.
 
 The stronger property is that correctness never depends on termination. Every intermediate state of the descent is a complete valid probe set, and every probe set yields the same count. The refinement can be stopped at any instant and the measurement taken with the plan it had reached is correct. Running longer buys speed and cannot buy or lose an answer.
 
@@ -86,23 +86,23 @@ The stronger property is that correctness never depends on termination. Every in
 
 The bound in the first paragraph is still doing work once the anytime property is stated, and it is doing different work. The anytime property gives safety, since every reachable plan is correct. The bound gives liveness, since the planner emits a plan and the sweep begins. In a design that plans and then sweeps, an anytime planner that never returns produces no measurement at all.
 
-The halting problem asks whether termination can be decided for an arbitrary program. Here the question does not arise, because no answer depends on it. That is a stronger position than a decidable halt. The loop therefore carries no iteration cap and no watchdog. A bound enforced at compile time does not need one, and a runtime check would imply the bound were in doubt. `anchor_steer_spawn_coarms` returns the depth it reached, and `test/engine/test_steer.c` asserts that depth instead of trusting this section.
+The halting problem asks whether termination can be decided for an arbitrary program. Here the question does not arise, because no answer depends on it. That is a stronger position than a decidable halt. The loop therefore carries no iteration cap and no watchdog. A bound enforced at compile time does not need one, and a runtime check would imply the bound were in doubt. `anchor_steer_spawn_coarms` returns the depth it reached, and `test/engine/nbody/anchor_sift/test_steer_grading.c` asserts that depth instead of trusting this section.
 
 ## Spawning and destroying
 
-A level that finds no candidate leaving fewer survivors than it started with has found a probe that rejects nothing an earlier probe had not already rejected. Placing it would read a byte per alignment and buy none. The descent stops there and every level below it is destroyed with it, and the returned count tells the caller how many probes survived (`src/engine/c/engine/anchor_sift.c:1051`).
+A level that finds no candidate leaving fewer survivors than it started with has found a probe that rejects nothing an earlier probe had not already rejected. Placing it would read a byte per alignment and buy none. The descent stops there and every level below it is destroyed with it, and the returned count tells the caller how many probes survived (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`).
 
-`anchor_sift_anchors_for` already does this for one case, returning a single anchor on a periodic corpus because at a period the offsets cancel and every anchor tests the same congruence (`src/engine/c/engine/anchor_sift.h:191`). The rule here reaches further. The header warns that a period found is not a period the whole corpus keeps, that a partially coherent corpus wants a count between one and the full set, and that nothing there measures that case (`src/engine/c/engine/anchor_sift.h:201`). This rule measures it, along with redundancy from constant runs, local low entropy and correlated positions, none of which a period argument sees.
+`anchor_sift_anchors_for` already does this for one case, returning a single anchor on a periodic corpus because at a period the offsets cancel and every anchor tests the same congruence (`src/engine/nbody/anchor_sift/anchor_sift_core.h`). The rule here reaches further. The header warns that a period found is not a period the whole corpus keeps, that a partially coherent corpus wants a count between one and the full set, and that nothing there measures that case (`src/engine/nbody/anchor_sift/anchor_sift_core.h`). This rule measures it, along with redundancy from constant runs, local low entropy and correlated positions, none of which a period argument sees.
 
 The two are different kinds of statement and the guide keeps them apart. The period argument is a theorem over every corpus of that period. This rule is an observation about one field, taken on a sample of it when `sample_stride` is above one. "pruned nothing on this sample" does not establish "can prune nothing". Being wrong costs speed and cannot cost the count.
 
 Destroying the levels below a destroyed probe costs nothing, and the reason is inductive, not a matter of budget.
 
-The destroy test compares the minimum over every candidate against the current population (`src/engine/c/engine/anchor_sift.c:1051`). When it fires, the minimum leaves the population unchanged. Every candidate leaves it unchanged. Placing one would prune nothing, and the next level would inherit the identical population. Its candidate set is the same set or a subset of it, since the enumeration bounds are arguments and constants that do not vary by level (`src/engine/c/engine/anchor_sift.c:1202`) and the coarm descent only ever removes a placed position from consideration. Every candidate in a subset of a set that all left the population unchanged also leaves it unchanged. The next level's minimum is the whole population and its test fires too. By induction every level below prunes nothing.
+The destroy test compares the minimum over every candidate against the current population (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). When it fires, the minimum leaves the population unchanged. Every candidate leaves it unchanged. Placing one would prune nothing, and the next level would inherit the identical population. Its candidate set is the same set or a subset of it, since the enumeration bounds are arguments and constants that do not vary by level (`src/engine/nbody/anchor_sift/anchor_sift_steer_count.c`) and the coarm descent only ever removes a placed position from consideration. Every candidate in a subset of a set that all left the population unchanged also leaves it unchanged. The next level's minimum is the whole population and its test fires too. By induction every level below prunes nothing.
 
 Stopping is therefore equivalent to continuing, and the probe set is not smaller than the field would have supported.
 
-The induction needs one property of the enumeration: the candidate set is non-increasing along the descent. Both planners have it. The sweep enumerates the same set at every level, and the coarm descent removes each placed position from consideration (`src/engine/c/engine/anchor_sift.c:1012`), which is a strict subset. A set that grows at a deeper level voids the theorem, because a candidate absent from the level that fired has never been shown to prune nothing. A set that varies for any other reason voids it as well, since the two cases become indistinguishable from inside.
+The induction needs one property of the enumeration: the candidate set is non-increasing along the descent. Both planners have it. The sweep enumerates the same set at every level, and the coarm descent removes each placed position from consideration (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`), which is a strict subset. A set that grows at a deeper level voids the theorem, because a candidate absent from the level that fired has never been shown to prune nothing. A set that varies for any other reason voids it as well, since the two cases become indistinguishable from inside.
 
 The argument is exact over the population the planner sees: the sampled one when `sample_stride` is above one. Against the full field it carries the same sample caveat as the destroy rule itself.
 
@@ -127,39 +127,39 @@ Let `A` be the alignments, `N = |A|`, and `T` the alignments where the needle oc
 
 **Theorem, and the units are part of it.** An engine that decides each alignment using only reads taken at that alignment performs at least one READ EVENT per alignment. Total read events are at least `N`.
 
-**It does not bound distinct bytes, and an earlier version of this section implied it did.** A read at corpus position `p` lies inside the span of `m` alignments. One fetched byte is a read event for each of them. Going from "every alignment needs a read in its span" to "total bytes read is at least `N`" needs those reads partitioned one per alignment, and nothing establishes that partition. Sample one position every `m` so each span holds exactly one: a mismatch refutes that alignment on a single byte and the same byte refutes up to `m - 1` neighbors. A measurement decided every alignment and asserted the answer against the naive scan on every row. Distinct bytes per alignment came out at 0.9948 for an alphabet of 4, 0.7573 at 16, 0.3545 at 64 and 0.1276 at 256. Well under one, and the construction is inside the premise.
+**It does not bound distinct bytes.** A read at corpus position `p` lies inside the span of `m` alignments. One fetched byte is a read event for each of them. Going from "every alignment needs a read in its span" to "total bytes read is at least `N`" needs those reads partitioned one per alignment, and nothing establishes that partition. Sample one position every `m` so each span holds exactly one: a mismatch refutes that alignment on a single byte and the same byte refutes up to `m - 1` neighbors. A measurement decided every alignment and asserted the answer against the naive scan on every row. Distinct bytes per alignment came out at 0.9948 for an alphabet of 4, 0.7573 at 16, 0.3545 at 64 and 0.1276 at 256. Well under one, and the construction is inside the premise.
 
-The correction above that moved this claim from "reads" to "bytes read at an alignment" moved it in the direction that makes it false, while the test kept asserting the event version. Both are now stated: the bound is on read events, the test counts read events, and nothing here bounds memory traffic, because a byte read twenty four times is one cache line.
+The bound is on read events, the test counts read events, and nothing here bounds memory traffic, because a byte read twenty four times is one cache line.
 
 **Proof.** Suppose the engine decides alignment `a` having read nothing at `a`. Its decision is then a function whose domain is the empty tuple. Its range holds exactly one value and it answers identically whatever the corpus holds at `a`. An adversary edits the corpus at `a` to flip whether `a` belongs to `T`. The engine reads nothing different and returns the same answer, which is wrong for one of the two corpora. at least one read happens at every alignment the engine classifies.
 
 The bound is attained. The empty probe set takes no probe reads and sends every alignment to the compare, which reads at least one byte each, giving exactly `N`. The configuration that steers least sits exactly on the floor. The floor therefore belongs to the problem; no steering lowers it.
 
-`test_steer` asserts this on all five fields. It checks that every route's probe reads plus compares reaches `N`, and that the empty probe set takes exactly zero probe reads and exactly `N` compares (`test/engine/test_steer.c`). The floor is kept out of the route table for a reason: the table counts probe reads and the floor counts total reads, and one column carrying two units invites a reader to compare a bound against a cost. In real bytes the empty probe set is the most expensive route there is, since every alignment takes a full compare.
+`test_steer` asserts this on all five fields. It checks that every route's probe reads plus compares reaches `N`, and that the empty probe set takes exactly zero probe reads and exactly `N` compares (`test/engine/nbody/anchor_sift/test_steer_grading.c`). The floor is kept out of the route table for a reason: the table counts probe reads and the floor counts total reads, and one column carrying two units invites a reader to compare a bound against a cost. In real bytes the empty probe set is the most expensive route there is, since every alignment takes a full compare.
 
 **What the theorem does not cover.** It binds engines that decide an alignment from reads at that alignment. A skipping search breaks that premise deliberately: it uses a read at one alignment to decide a range of others, and never visits most of them. Its reads per alignment are taken over a sparse subset of `A` and fall below one for that reason. That is a different quantity wearing the same name, and no ratio between the two measures anything.
 
 ## One invocation is total. The system is not, and that is deliberate
 
-An earlier version of this section claimed the engine is not Turing complete and gave the bounded loops as the reason. That claim was wrong, and the error is worth keeping because it is easy to repeat: it analyzed a single invocation and drew a conclusion about the system.
+Bounding the loops does not establish that the engine is not Turing complete: it analyzes a single invocation and draws a conclusion about the system. The error is worth keeping because it is easy to repeat.
 
 **What is true of one invocation.** Every loop inside one call is bounded by a quantity fixed before that call runs. The sweep over alignments runs to `N`, the descent runs to `ANCHOR_STEER_ANCHORS`, and the shape enumeration runs to `needle_len` and to a caller's `max_length`. No continuation depends on a predicate computed from corpus content. One call is total and its running time is a function of the input sizes.
 
 **Why that decides nothing.** A system that halts on every input decides its own halting. Establishing Turing completeness comes down to whether the outer loop is bounded, and the outer loop here is self examination. Nothing bounds the number of rounds. The engine spawns, destroys, re-reads and turns on itself again.
 
-This section has now been written three ways and two of them were wrong. What follows separates what is settled from what is open, and the open part is marked as open.
+What follows separates what is settled from what is open, and the open part is marked as open.
 
 ### What is settled
 
-**The trichotomy.** A descent stops, recurses, or refuses to run. It stops when the destroy test fires. It recurses when a level prunes. It refuses, returning zero and writing nothing, when a pointer is null, when the count exceeds `ANCHOR_STEER_ANCHORS`, when the needle length is zero or exceeds the corpus, or when the survivor buffer does not reach the alignment count (`src/engine/c/engine/anchor_sift.c:938-964`). A malformed question does not run. There is no fourth branch in which it revisits a state it has already held.
+**The trichotomy.** A descent stops, recurses, or refuses to run. It stops when the destroy test fires. It recurses when a level prunes. It refuses, returning zero and writing nothing, when a pointer is null, when the count exceeds `ANCHOR_STEER_ANCHORS`, when the needle length is zero or exceeds the corpus, or when the survivor buffer does not reach the alignment count (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). A malformed question does not run. There is no fourth branch in which it revisits a state it has already held.
 
 **Soundness does not depend on which branch is taken.** `T` is contained in `S(P)` for the probe set placed right now, and that statement never mentions how `P` was reached or whether the process reaching it will stop. The answer is exact at every instant of a process that need not terminate. The anytime property is not a convenience attached to a terminating computation; it makes a non-terminating one useful.
 
-**Failing to halt is not Turing completeness.** A process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution together with the ability to compute arbitrary functions of it. The second version of this section conflated the two and claimed the engine is Turing complete because its outer loop is unbounded. That does not follow.
+**Failing to halt is not Turing completeness.** A process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution together with the ability to compute arbitrary functions of it. Concluding the engine is Turing complete because its outer loop is unbounded conflates the two, and that does not follow.
 
-**What is implemented today is finite.** `ANCHOR_STEER_ANCHORS` is 4. The descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 128 by default, which is 4096 bits. A build may select any power of two from 1 to 32768 limbs, and the engine refuses fewer than 8 (`src/engine/c/engine/anchor_sift.c:23-39`). A fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
+**What is implemented today is finite.** `ANCHOR_STEER_ANCHORS` is 4. The descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 128 by default, which is 4096 bits. A build may select any power of two from 1 to 32768 limbs, and the engine refuses fewer than 8 (`src/engine/arithmetic/no_rounding/exact_integer.h`). A fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
 
-**The methodological error is the durable finding and it survives either answer.** The first version concluded the system is total by observing that every loop inside one invocation is bounded. That is a property of one invocation. A system halting on every input decides its own halting. The claim needed the outer loop and never looked at it.
+**The methodological error is the durable finding and it survives either answer.** Concluding the system is total by observing that every loop inside one invocation is bounded uses only a property of one invocation. A system halting on every input decides its own halting. The claim needs the outer loop and never looks at it.
 
 ### What one descent is
 
@@ -169,9 +169,9 @@ The question was whether the construction admits unbounded storage, and it was f
 
 One descent is therefore a finite automaton WITH data dependent control flow, bounded above by a constant. It is not a fixed depth decision procedure, because the destroy test is a genuine conditional branch on data that decides whether to recurse.
 
-**The cap is load bearing and this paragraph used to say the opposite.** An earlier version claimed the depth is data independent and that the constant is incidental. At four billion the classification would not shift. Both halves are wrong. Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out; the size of the constant was never the argument. Data independence is not available as an argument.
+**The cap is load bearing.** Depth IS data dependent, downward only: the destroy test can cut the descent short and nothing can extend it. The constant bounding it from above is the only thing ruling out unbounded depth, and at four billion it would still rule it out; the size of the constant is not the argument. Data independence is not available as an argument.
 
-One argument this section used to give is retired outright. It said the trichotomy shows no cycling. An unbounded run must be a deepening recursion. That is self defeating, because non-cycling on a finite state space forces termination instead of permitting unbounded depth.
+The trichotomy's non-cycling does not establish a deepening recursion or an unbounded run. Taken as an argument for an unbounded run it is self defeating, because non-cycling on a finite state space forces termination instead of permitting unbounded depth.
 
 **Why removing the cap would still not reach universality, over a fixed corpus.** With the corpus nailed down the probe family is fixed, and a placed position is never reconsidered. The placed set grows strictly through a finite family and the descent must halt with or without the bound. What breaks that is a corpus that grows, because a growing corpus grows the family, the case the section below takes up.
 
@@ -193,15 +193,15 @@ None of this settles the question above. It names what would move the answer and
 
 ## The interior: the sweep runs the whole legal set
 
-The boundary function is `anchor_steer_probe_fits`, whose domain is probes paired with a needle length and whose range is `{0, 1}` (`src/engine/c/engine/anchor_sift.c:1099`). It is the characteristic function of the legal probe set: origin inside the needle, and every position the probe reads inside it too, with a step of zero at length above one refused as an arm wearing an eye's shape.
+The boundary function is `anchor_steer_probe_fits`, whose domain is probes paired with a needle length and whose range is `{0, 1}` (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`). It is the characteristic function of the legal probe set: origin inside the needle, and every position the probe reads inside it too, with a step of zero at length above one refused as an arm wearing an eye's shape.
 
-`anchor_steer_sweep_probes` enumerates one representative of each equivalence class, which is not the same as enumerating the interior whole, and an earlier version of this section claimed the latter.
+`anchor_steer_sweep_probes` enumerates one representative of each equivalence class, which is not the same as enumerating the interior whole.
 
 The gap is at length one. `anchor_steer_probe_fits` returns 1 for a length one probe at ANY step, zero included, because the length test returns before the step test. The sweep sets its step limit to 2 at length one and generates step 1 alone. So legal probes exist that the sweep never produces: origin 3 length 1 at steps 0, 2, 7, 13, 64 and 100000 all fit, and all return the same count through `anchor_steer_count_with_probes`, because a probe of length one reads one position and its step is unread. The header says exactly that already.
 
-Quotient the legal set by "reads the same needle positions" and the sweep enumerates one member of every class. The guarantee needs no more, since two probes reading the same positions refute the same alignments and have the same marginal gain. A maximum over the representatives is a maximum over the set. Nothing was unsound; the claim was wider than the code and wider than it needed to be.
+Quotient the legal set by "reads the same needle positions" and the sweep enumerates one member of every class. The guarantee needs no more, since two probes reading the same positions refute the same alignments and have the same marginal gain. A maximum over the representatives is a maximum over the set. Nothing is unsound.
 
-Two smaller corrections from the same audit. At length two with a needle of twelve, the highest fitting step at origin zero is eleven while the sweep tries to twelve. One iteration per origin and length is always refused. And `max_length` is an argument. The next section's ratio is exact over probes of length at most `max_length` and not over probes of any length, which the earlier wording did not say.
+At length two with a needle of twelve, the highest fitting step at origin zero is eleven while the sweep tries to twelve. One iteration per origin and length is always refused. `max_length` is an argument. The next section's ratio is exact over probes of length at most `max_length` and not over probes of any length.
 
 ## The descent is greedy coverage, and that is a named result
 
@@ -213,11 +213,11 @@ Fix the corpus and the needle. Each candidate probe `p` rejects a definite set o
 
 `f` is a coverage function. It is monotone, because adding a probe never un-rejects an alignment, and it is submodular, because an alignment already rejected by some probe in `P` contributes nothing when a later probe rejects it again. Coverage functions are the textbook example of monotone submodularity, and this one needs no assumption about the corpus to be one.
 
-The descent maximizes `f` greedily. At each level it scores every candidate by the survivors it would leave and keeps the smallest count (`src/engine/c/engine/anchor_sift.c:1027`), and fewest survivors left is most alignments newly rejected is the largest marginal gain in `f` given what is already placed. Nemhauser, Wolsey and Fisher proved in 1978 that greedy maximization of a monotone submodular function under a cardinality constraint returns at least `1 - 1/e` of what the best set of that size achieves. The probe set the descent places rejects at least about 63 percent of the alignments the optimal probe set of the same size rejects. Nothing in the engine has to be changed for that to hold. It holds because of what the objective is.
+The descent maximizes `f` greedily. At each level it scores every candidate by the survivors it would leave and keeps the smallest count (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`), and fewest survivors left is most alignments newly rejected is the largest marginal gain in `f` given what is already placed. Nemhauser, Wolsey and Fisher proved in 1978 that greedy maximization of a monotone submodular function under a cardinality constraint returns at least `1 - 1/e` of what the best set of that size achieves. The probe set the descent places rejects at least about 63 percent of the alignments the optimal probe set of the same size rejects. Nothing in the engine has to be changed for that to hold. It holds because of what the objective is.
 
 Two things follow that the hand induction had to work for.
 
-**The destroy rule is greedy's zero marginal gain stop. Submodularity does NOT supply its premise, and an earlier version of this section claimed it did.** Diminishing returns bounds the gain of a FIXED candidate as the placed set grows. It says nothing about a candidate that was not in the earlier candidate set, because there is no earlier gain to bound it by.
+**The destroy rule is greedy's zero marginal gain stop. Submodularity does NOT supply its premise.** Diminishing returns bounds the gain of a FIXED candidate as the placed set grows. It says nothing about a candidate that was not in the earlier candidate set, because there is no earlier gain to bound it by.
 
 The counterexample is three alignments. Let `R_p` be empty and let the candidate set at level 0 be `{p}`. The best marginal gain is zero and the destroy rule fires. Let the candidate set at level 1 be `{p, q}` with `R_q = {1,2,3}`. Nothing was placed at level 0. The surviving population is unchanged, and `q` has a gain of three over it. Stopping rejects none of the three alignments and continuing rejects all of them. `f` is monotone and submodular throughout and the destroy theorem fails anyway.
 
@@ -235,13 +235,13 @@ Nothing here has been measured against the optimal probe set, because computing 
 
 ## Arms and eyes are one shape
 
-An arm reads one position and an eye reads a line of them. `AnchorProbe` records an origin, a step and a length, and an arm is a probe of length one (`src/engine/c/engine/anchor_sift.h:843`). One test walks both. The difference between a region integral and a line integral lives in the support and not in the arithmetic applied to it.
+An arm reads one position and an eye reads a line of them. `AnchorProbe` records an origin, a step and a length, and an arm is a probe of length one (`src/engine/nbody/anchor_sift/anchor_sift_descent.h`). One test walks both. The difference between a region integral and a line integral lives in the support and not in the arithmetic applied to it.
 
-`anchor_steer_sweep_probes` considers every origin in the needle, every step that keeps the probe inside it, and every length up to a caller's maximum, scoring each shape by survivors (`src/engine/c/engine/anchor_sift.c:1202`). A step of zero at a length above one reads one position repeatedly, and `anchor_steer_probe_fits` refuses it (`src/engine/c/engine/anchor_sift.c:1099`).
+`anchor_steer_sweep_probes` considers every origin in the needle, every step that keeps the probe inside it, and every length up to a caller's maximum, scoring each shape by survivors (`src/engine/nbody/anchor_sift/anchor_sift_steer_count.c`). A step of zero at a length above one reads one position repeatedly, and `anchor_steer_probe_fits` refuses it (`src/engine/nbody/anchor_sift/anchor_sift_steer_plan.c`).
 
 ## An eye does not reduce reads
 
-The table below runs on five fields. An earlier version of this section reported one, the license text, and every conclusion drawn from it was a conclusion about that file. The three synthetic kinds are generated by `bench_corpora`, which the grader links instead of carrying its own copy. Skewed means one thing across this tree (`test/engine/test_steer.c:734`). Needle length 24, built with MSVC 14.44 at the default CMake configuration, every route graded against `anchor_sift_naive`. Cells are reads per alignment:
+The table below runs on five fields. The three synthetic kinds are generated by `bench_corpora`, which the grader links instead of carrying its own copy. Skewed means one thing across this tree (`test/engine/nbody/anchor_sift/test_steer_internal.h`). Needle length 24, built with MSVC 14.44 at the default CMake configuration, every route graded against `anchor_sift_naive`. Cells are reads per alignment:
 
 | field                      | alignments | spatial, unsteered | recursive reorder | coarms spawned | eyes and arms swept |
 | -------------------------- | ---------- | ------------------ | ----------------- | -------------- | ------------------- |
@@ -255,9 +255,9 @@ Every route on every field returned the reference count.
 
 The family shows three things one field could not. Steering pays nothing on a uniform field, where no symbol is rarer than another and the ordering has nothing to order by. It pays most where the field repeats or its rarity spreads, taking 1.877 to 1.067 on the skewed field and 1.187 to an exact 1.000 on the period 16 field, which the planner reaches with one probe where the unsteered route places four. And the two mechanisms separate: on the skewed field the recursive reorder moves 1.877 to 1.875 while spawning coarms moves it to 1.067. There the spawning pays and the ordering does not. On the license text both routes move together and the distinction is invisible.
 
-**The weakest field is uniform, and an earlier version of this paragraph said it was the license text.** Read the best steered route and not the reorder column: the license text goes 1.072 to an exact 1.000 on coarms, the floor. Uniform goes 1.003 to 1.003 and does not move at all, on any route, because a uniform field has no rarity for the steering to spend and there is nothing for an ordering to order by. That is the honest worst case and the one to quote against.
+**The weakest field is uniform.** Read the best steered route and not the reorder column: the license text goes 1.072 to an exact 1.000 on coarms, the floor. Uniform goes 1.003 to 1.003 and does not move at all, on any route, because a uniform field has no rarity for the steering to spend and there is nothing for an ordering to order by. That is the honest worst case and the one to quote against.
 
-The earlier error was reading 1.066 out of the recursive reorder column and calling it the field's result. Every field's result is its best route, and on the license text the reorder does almost nothing while the coarms reach the floor, the spawn against reorder distinction the rest of this section is about.
+Every field's result is its best route, and on the license text the reorder does almost nothing while the coarms reach the floor, the spawn against reorder distinction the rest of this section is about.
 
 The eye is the negative result and it holds on all five. An eye never read fewer bytes than the coarms on any field, and on the license text it read 26168 against their 24635. An eye of length L reads up to L bytes per alignment where an arm reads one. It moves the bytes the equivalent arms move and removes only the branch decisions between them. Reach for an eye where branches cost more than reads, and measure before assuming that holds.
 
@@ -277,7 +277,7 @@ maint/engine/build_engine.sh
 
 The script configures, builds named targets and runs the graders. `test_steer` grades the ordering against `anchor_sift_naive` at seven needle lengths, measures the probe reduction, carries a negative control that orders the commonest symbol first and must read more, checks the exact dispatch against four fields whose answers are derived by hand, asserts that the widest scan engine the machine carries actually ran, and grades arms, eyes and coarms on five fields: the synthetic skewed field, the three `bench_corpora` kinds, and the license text.
 
-Two drivers in `src/engine/c/bench/` do not compile with MSVC and the script does not build them. `bench_dispatch.c:105` uses `CLOCK_MONOTONIC`, which is POSIX. `bench_lattice.c:500` onward does not parse. Both predate this work and neither is on the path the engine needs.
+Two drivers in `bench/` do not compile with MSVC and the script does not build them. `bench_dispatch.c:105` uses `CLOCK_MONOTONIC`, which is POSIX. `bench_lattice.c:500` onward does not parse. Neither is on the path the engine needs.
 
 ## What is not checked here
 
@@ -285,10 +285,10 @@ The planner costs are stated in the header as worst cases and are not measured. 
 
 `sample_stride` is the control and no default is recommended, because the crossover was not measured.
 
-Reads are the wrong statistic for a contiguous eye and the table above carries that fault. A step-1 eye of length L is one wide load that the machine may satisfy in a single memory transaction, and counting L reads charges it for work done once. Short-circuiting also makes the trip count vary, and a varying trip count costs a mispredicted branch per alignment. The branchless free-order arm exists for that reason (`src/engine/c/engine/anchor_sift.h:157`). An eye evaluated branchlessly trades L reads for one predictable branch. Deciding whether eyes ever pay needs a cycle measurement, and none was taken.
+Reads are the wrong statistic for a contiguous eye and the table above carries that fault. A step-1 eye of length L is one wide load that the machine may satisfy in a single memory transaction, and counting L reads charges it for work done once. Short-circuiting also makes the trip count vary, and a varying trip count costs a mispredicted branch per alignment. The branchless free-order arm exists for that reason (`src/engine/nbody/anchor_sift/anchor_sift_core.h`). An eye evaluated branchlessly trades L reads for one predictable branch. Deciding whether eyes ever pay needs a cycle measurement, and none was taken.
 
 The exact dispatch was graded against eleven fields swept from flat to concentrated, agreeing with the double form of the same rule on all eleven. That shows the change is harmless. It does not show it was needed, because no field was constructed whose double-form verdict falls inside the old series error of the threshold. Until one is, the improvement is argued from the algebra and not demonstrated.
 
-The dispatch comparison needs headroom above `total^2`. Its right side reaches `85 * distinct * sum(count^2)`, about 2^14.4 times `total^2` at 256 distinct symbols, putting a four gigabyte corpus near 2^79. The largest right side any 64 bit census can produce is below 2^143, and the engine refuses an exact width below 256 bits, 8 limbs (`src/engine/c/engine/anchor_sift.c:23-39`). The default is 128 limbs, 4096 bits (`src/engine/c/no_rounding/exact_integer.h:67`). No bench exercises a corpus near that size. The headroom is read off the declarations and has not been measured.
+The dispatch comparison needs headroom above `total^2`. Its right side reaches `85 * distinct * sum(count^2)`, about 2^14.4 times `total^2` at 256 distinct symbols, putting a four gigabyte corpus near 2^79. The largest right side any 64 bit census can produce is below 2^143, and the engine refuses an exact width below 256 bits, 8 limbs (`src/engine/arithmetic/no_rounding/exact_integer.h`). The default is 128 limbs, 4096 bits (`src/engine/arithmetic/no_rounding/exact_integer.h`). No bench exercises a corpus near that size. The headroom is read off the declarations and has not been measured.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
