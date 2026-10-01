@@ -8,12 +8,8 @@
 #
 # WHY A TRANSCRIPT BEATS A PUBLISHED CORPUS HERE
 #
-# Every dataset on a public host carries a model name that nobody outside can verify, and the one
-# time that was tested here it failed: a corpus labeled as an earlier model generation, two years
-# older, fired the eight phrases this repository had confirmed as the machine signature at 1.3
-# per hundred thousand words against this tree at 26.4, and that reading said the phrases were
-# local to the tree. It was wrong.
-# A transcript needs no label. The machine turns in it were written by the model that wrote them.
+# Every dataset on a public host carries a model name that nobody outside can verify. A transcript
+# needs no label: the machine turns in it were written by the model that wrote them.
 #
 # WHAT IS TAKEN
 #
@@ -28,7 +24,7 @@
 # avoiding those phrases in its own messages the whole time. A rate measured here is a rate under
 # suppression, and it understates whatever the unconstrained rate would be. It is a floor on the
 # register and not an estimate of it. The same fault, in the same direction, as measuring this
-# repository after a day of scrubbing it.
+# repository right after its banned phrases are scrubbed out.
 #
 # One session, one task, one reader. Register is technical and agentic throughout. Nothing here
 # speaks for how the model writes about anything else.
