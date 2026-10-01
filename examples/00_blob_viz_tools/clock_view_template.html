@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHA-256 on its clock, as the engine renders it</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0b0d12; color: #d7dce5;
+         font: 15px/1.5 ui-monospace, "Cascadia Code", "SFMono-Regular", Menlo, Consolas, monospace; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 20px 56px; }
+  h1 { font-size: 19px; font-weight: 600; margin: 0 0 4px; }
+  .lede { color: #8b93a3; margin: 0 0 20px; }
+  .frame { display: grid; grid-template-columns: 1fr 260px; gap: 24px; align-items: start; }
+  canvas { width: 100%; height: auto; background: #070910; border: 1px solid #1d2230; border-radius: 8px; }
+  .panel { border: 1px solid #1d2230; border-radius: 8px; padding: 14px 16px; }
+  .panel h2 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+              color: #7f8798; margin: 0 0 10px; }
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .steps li { padding: 3px 6px; border-radius: 4px; color: #9aa2b2; }
+  .steps li.on { background: #16233b; color: #e8edf6; }
+  .readout div { display: flex; justify-content: space-between; gap: 12px; }
+  .readout .k { color: #7f8798; }
+  .readout .v { color: #e8edf6; text-align: right; word-break: break-all; }
+  .clock { margin: 20px 0 0; }
+  .clock input[type=range] { width: 100%; }
+  .clock .line { display: flex; justify-content: space-between; color: #8b93a3; margin-top: 6px; }
+  .absent { border: 1px solid #3a2330; background: #180f14; color: #e7b0b8;
+            border-radius: 8px; padding: 16px; }
+  .digest { color: #7f8798; font-size: 13px; margin-top: 18px; word-break: break-all; }
+  .arm { color: #86c08a; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SHA-256 on its clock</h1>
+  <p class="lede">The state after every operation, rendered by the engine's own volume arm on the
+    byte channel. The page draws the engine's bytes; it computes none of them.</p>
+
+  <div id="clockUI"></div>
+</main>
+
+<script>
+  var DATA = /*CLOCK_DATA*/ null;
+
+  (function () {
+    var root = document.getElementById("clockUI");
+    var clock = DATA && DATA.clock ? DATA.clock : null;
+
+    // A control whose data is absent stays and says so. The page never hides the clock because a
+    // build left it out; it reports that the build has no clock and stops there.
+    if (!clock) {
+      var note = document.createElement("div");
+      note.className = "absent";
+      note.textContent = "this build has no clock";
+      root.appendChild(note);
+      return;
+    }
+
+    var ticks = clock.ticks;
+    var ops = clock.ops;
+    var names = clock.names;
+    var steps = clock.steps;
+    var index = clock.index;
+    var states = clock.states;
+    var ex = clock.extent;
+    var bytesPerState = ex.width * ex.height * ex.depth;
+
+    // The frame: a canvas and a side panel of the round's operations.
+    var frame = document.createElement("div");
+    frame.className = "frame";
+    var canvas = document.createElement("canvas");
+    canvas.width = 560;
+    canvas.height = 8 * 56 + 16;
+    var side = document.createElement("div");
+    side.className = "panel";
+    side.innerHTML = "<h2>this round</h2>";
+    var list = document.createElement("ul");
+    list.className = "steps";
+    var stepItems = [];
+    for (var s = 0; s < steps.length; s++) {
+      var li = document.createElement("li");
+      li.textContent = s + "  " + steps[s].label;
+      list.appendChild(li);
+      stepItems.push(li);
+    }
+    side.appendChild(list);
+    var readout = document.createElement("div");
+    readout.className = "readout";
+    readout.style.marginTop = "14px";
+    side.appendChild(readout);
+    frame.appendChild(canvas);
+    frame.appendChild(side);
+    root.appendChild(frame);
+
+    // The clock itself: a slider over the operations, and a line reading the tick and round.
+    var clockBox = document.createElement("div");
+    clockBox.className = "clock";
+    var slider = document.createElement("input");
+    slider.type = "range";
+    slider.min = 0;
+    slider.max = ticks - 1;
+    slider.value = 0;
+    clockBox.appendChild(slider);
+    var line = document.createElement("div");
+    line.className = "line";
+    clockBox.appendChild(line);
+    root.appendChild(clockBox);
+
+    var digestEl = document.createElement("div");
+    digestEl.className = "digest";
+    digestEl.innerHTML = "rendered by the <span class=\"arm\">" + clock.arm + "</span> arm, " +
+      clock.layout + " layout, " + clock.channel + " channel &middot; " + clock.source +
+      "<br>digest: " + clock.digest;
+    root.appendChild(digestEl);
+
+    var ctx = canvas.getContext("2d");
+
+    // One voxel byte becomes one cell. Voxel z*4 + x is word z, byte x, straight from the extent's
+    // layout. Nothing here reconstructs the state; it reads the bytes the engine wrote.
+    function byteAt(voxels, word, pos) {
+      return voxels[word * ex.width + pos];
+    }
+
+    function draw(tick) {
+      var slab = index[tick];
+      var voxels = states[slab];
+      var round = Math.floor(tick / ops);
+      var op = tick % ops;
+      var step = steps[op];
+      var reads = {}, writes = {};
+      for (var r = 0; r < step.reads.length; r++) { reads[step.reads[r]] = true; }
+      for (var w = 0; w < step.writes.length; w++) { writes[step.writes[w]] = true; }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var labelW = 92;
+      var cellW = (canvas.width - labelW - 12) / ex.width;
+      var cellH = 48;
+      for (var word = 0; word < names.length; word++) {
+        var y = 8 + word * 56;
+        ctx.fillStyle = reads[word] ? "#7fd0ff" : (writes[word] ? "#ffd27f" : "#9aa2b2");
+        ctx.font = "600 15px ui-monospace, monospace";
+        ctx.textBaseline = "middle";
+        var hex = "";
+        for (var p = 0; p < ex.width; p++) {
+          var b = byteAt(voxels, word, p);
+          hex += (b < 16 ? "0" : "") + b.toString(16);
+        }
+        ctx.fillText(names[word] + "  " + hex, 8, y + cellH / 2);
+        for (var pos = 0; pos < ex.width; pos++) {
+          var v = byteAt(voxels, word, pos);
+          var x = labelW + pos * cellW;
+          ctx.fillStyle = "rgb(" + v + "," + v + "," + v + ")";
+          ctx.fillRect(x, y, cellW - 4, cellH);
+          ctx.strokeStyle = reads[word] ? "#3a6ea5" : (writes[word] ? "#a5803a" : "#1d2230");
+          ctx.strokeRect(x + 0.5, y + 0.5, cellW - 4, cellH);
+          ctx.fillStyle = v > 140 ? "#07090f" : "#c7cedb";
+          ctx.font = "13px ui-monospace, monospace";
+          ctx.fillText((v < 16 ? "0" : "") + v.toString(16), x + 8, y + cellH / 2);
+        }
+      }
+
+      for (var i = 0; i < stepItems.length; i++) {
+        stepItems[i].className = (i === op) ? "on" : "";
+      }
+      readout.innerHTML =
+        "<div><span class=\"k\">tick</span><span class=\"v\">" + tick + " / " + (ticks - 1) + "</span></div>" +
+        "<div><span class=\"k\">round</span><span class=\"v\">" + round + "</span></div>" +
+        "<div><span class=\"k\">operation</span><span class=\"v\">" + op + "</span></div>" +
+        "<div><span class=\"k\">state</span><span class=\"v\">" + slab + " of " + states.length + "</span></div>" +
+        "<div><span class=\"k\">bytes</span><span class=\"v\">" + bytesPerState + "</span></div>";
+      line.innerHTML = "<span>" + step.label + "</span><span>round " + round + ", op " + op + "</span>";
+    }
+
+    slider.addEventListener("input", function () { draw(parseInt(slider.value, 10)); });
+    draw(0);
+  })();
+</script>
+</body>
+</html>
