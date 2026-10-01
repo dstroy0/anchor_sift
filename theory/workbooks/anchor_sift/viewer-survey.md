@@ -39,23 +39,25 @@ counting at column zero gives the room viewer's 355 declarations and no duplicat
 sections is likelier to drop a value than to stop the loop. A checker answering *did it die* passes
 a page whose loop turns over data it no longer has.
 
-**The first one manufactured the failure it reported, and that sharpens the argument instead of
-weakening it.** The watchdog advanced its turn counter from `requestAnimationFrame` and ran its
+**A watchdog can manufacture the failure it reports, and that sharpens the argument instead of
+weakening it.** Such a watchdog advances its turn counter from `requestAnimationFrame` and runs its
 check on `setTimeout`. A background tab stops the first and not the second, and a page opened in a
-tab that was not visible therefore completed one turn and was declared dead on schedule. The report then
-latched: the failure set a flag and the guarded turn opened by returning on that flag, and the loop
-never ran again even once the tab came forward. What Douglas saw was a frozen viewer with a red
+tab that is not visible therefore completes one turn and is declared dead on schedule. The report
+then latches: the failure sets a flag and the guarded turn opens by returning on that flag, and the
+loop never runs again even once the tab comes forward. The failure is a frozen viewer with a red
 banner, frozen by its own watchdog.
 
-It was repaired in the room template and the compact copies: a thrown error is fatal, slowness
-reports once and stops nothing, a hidden document is not judged at all and re-arms on
-`visibilitychange`, and a loop reaching two turns withdraws a warning raised while it was hidden.
+The runtime watchdog, in `pairs_view_template.html` and the engine view (not the room template),
+holds the opposite: a thrown turn is fatal and stops scheduling, slowness is reported once and stops
+nothing, a hidden document is not judged at all and the check re-arms on `visibilitychange`, and a
+loop that reaches two turns marks itself healthy, which supersedes a slowness warning raised while
+it was visible.
 
-So the precondition is not *a* frame-loop checker. It is one that has been run against a page it
-should pass, in the conditions a reader will actually open it in, because a split inheriting this
-watchdog would have inherited a checker that reports a failure it caused. That is the same shape as
-the letter and the topology in `docs/arm-records.md`: the quantity reported was not the quantity
-intended, and a cheap counting check settles which is in hand.
+So the precondition is not *a* frame-loop checker. It is one that is run against a page it should
+pass, in the conditions a reader will actually open it in, because a split inheriting this watchdog
+inherits a checker that reports a failure it causes. That is the same shape as the letter and the
+topology in `docs/arm-records.md`: the quantity reported is not the quantity intended, and a cheap
+counting check settles which is in hand.
 
 The engine proved that at cost: `build_sha_room_view.py` supplies no `clock` key, the page parsed
 cleanly, the loop was watched and running, the server returned 200, and the viewer's clock controls
