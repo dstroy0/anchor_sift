@@ -48,7 +48,7 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_ask_check" "$TOP/utils/test/engine/
 BOOT="$TOP/src/engine/compiler/bootstrap"
 CELL="$TOP/src/engine/compiler/cell"
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_walk" "$BOOT/query_walk.c" "$BOOT/query_ask.c" || exit 1
-cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/engine" -o "$OUT/query_cell_check" \
+cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/engine" -I "$TOP/src/cu/engine" -o "$OUT/query_cell_check" \
     "$TOP/utils/test/engine/compiler/bootstrap/query_cell_check.c" "$BOOT/query_cell.c" "$CELL/cell.c" \
     "$CELL/cell_names.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_order_check" "$TOP/utils/test/engine/compiler/bootstrap/query_order_check.c" \

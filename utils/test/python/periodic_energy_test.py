@@ -2,14 +2,14 @@
 # anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Grades measure.periodic_energy's engine form against src/engine/sims/art/periodic_energy.h, line for line.
+# Grades measure.periodic_energy's engine form against src/sims/cu/engine/analysis/art/periodic_energy.h, line for line.
 #
 #   python utils/test/harness.py run python_periodic_energy
 #
 # periodic_energy.h reads the period a coherent addend keeps from the dispersion ratio of its phase classes, draws its
 # null from shuffles, and removes each phase's mean; the fixed_pattern and classify_reject_recover sims call it.
 # measure/periodic_energy.py holds its Python route. The two share no code. This writes every case to one requests
-# file, runs utils/test/python/periodic_energy_probe.cu on it (the header's functions, printing every exact integer in
+# file, runs utils/test/src/cu/engine/analysis/periodic_energy_probe.cu on it (the header's functions, printing every exact integer in
 # full), writes the Python results in the probe's lines, and counts the lines that differ. It prints for each case, for
 # each side, the recovered period and its ratio to three places, the band's reach and top, whether the live
 # measurement stands above it, the reduction, and the CRC-32 of the full block. The "results" lines, where a device
@@ -210,7 +210,7 @@ def main():
         os.rmdir(folder)
     blocks = engine_blocks(ran.stdout)
 
-    print("\n  measure.periodic_energy AGAINST sims/art/periodic_energy.h, line for line. probe: %s\n" % probe)
+    print("\n  measure.periodic_energy AGAINST src/sims/cu/engine/analysis/art/periodic_energy.h, line for line. probe: %s\n" % probe)
     print("  %-19s %-4s %-12s %-14s %-5s %-9s %-8s %s" % (
         "case", "side", "period@ratio", "band reach:top", "above", "reduction", "crc", "verdict"))
     failed = 0

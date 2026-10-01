@@ -33,7 +33,7 @@ case "$(uname -s)" in
         ;;
 esac
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CELL")
+INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/cu/engine" -I "$CELL")
 rm -f "$BINARY" "$PROBE"
 OBJECTS=()
 for source in "$CELL/cell.c" "$CELL/cell_names.c" "$TEST/cell_test.c"; do

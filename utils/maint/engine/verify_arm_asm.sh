@@ -79,6 +79,7 @@ echo
 
 ARMS="$ROOT/src/engine/arithmetic/no_rounding"
 
+
 # The two arms that also have hardware here. Checked the same way so the grade is comparable, and
 # separately run against portable by bench_exact_arms.
 check "avx2 x86-64" gcc \
@@ -115,6 +116,7 @@ echo "  The steering scan arms, nbody/anchor_sift/. Same grade and the same two 
 echo
 
 ENGINE="$ROOT/src/engine/nbody/anchor_sift"
+
 # A scan arm includes anchor_sift.h, which includes exact_integer.h. Both directories are on the
 # include path even though a scan arm reads no exact arithmetic.
 SCAN_INC="-I$ENGINE -I$ARMS"

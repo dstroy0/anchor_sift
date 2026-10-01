@@ -1810,6 +1810,7 @@ test	utils/test/engine/nbody/anchor_sift/test_adversarial_projection.c	utils/tes
 test	utils/test/engine/nbody/anchor_sift/test_o2_spawn.c	utils/test/src/c/engine/nbody/anchor_sift/test_o2_spawn.c	moves	language
 test	utils/test/engine/nbody/anchor_sift/test_steer_checks.c	utils/test/src/c/engine/nbody/anchor_sift/test_steer_checks.c	moves	language
 test	utils/test/engine/nbody/anchor_sift/test_steer_grading.c	utils/test/src/c/engine/nbody/anchor_sift/test_steer_grading.c	moves	language
+test	utils/test/engine/nbody/anchor_sift/test_steer_internal.h	utils/test/src/c/engine/nbody/anchor_sift/test_steer_internal.h	moves	language
 test	utils/test/engine/nbody/anchor_sift/test_steer_projection.c	utils/test/src/c/engine/nbody/anchor_sift/test_steer_projection.c	moves	language
 test	-	utils/test/src/c/engine/nbody/body_overlap/body_overlap_test.c	to write	a test for each module
 test	-	utils/test/src/c/engine/nbody/box_history/box_history_test.c	to write	a test for each module
@@ -1985,6 +1986,7 @@ test	-	utils/test/src/cu/engine/analysis/noise_detector/noise_detector_test.cu	t
 test	-	utils/test/src/cu/engine/analysis/partition/partition_test.cu	to write	a test for each module
 test	utils/test/python/period_probe.cu	utils/test/src/cu/engine/analysis/period/period_probe.cu	moves	language
 test	-	utils/test/src/cu/engine/analysis/period/period_test.cu	to write	three trees
+test	utils/test/engine/analysis/period/period_test.sh	utils/test/src/cu/engine/analysis/period/period_test.sh	moves	beside the code that reads it
 test	utils/test/engine/analysis/period/period_test_internal.h	utils/test/src/cu/engine/analysis/period/period_test_internal.h	moves	language
 test	utils/test/engine/analysis/period/period_test_main.cu	utils/test/src/cu/engine/analysis/period/period_test_main.cu	moves	language
 test	utils/test/engine/analysis/period/period_test_reference.cu	utils/test/src/cu/engine/analysis/period/period_test_reference.cu	moves	language
@@ -2012,7 +2014,6 @@ test	-	utils/test/src/cu/engine/nbody/anchor_sift/test_adversarial_projection.cu
 test	-	utils/test/src/cu/engine/nbody/anchor_sift/test_o2_spawn.cu	to write	three trees
 test	-	utils/test/src/cu/engine/nbody/anchor_sift/test_steer_checks.cu	to write	three trees
 test	-	utils/test/src/cu/engine/nbody/anchor_sift/test_steer_grading.cu	to write	three trees
-test	utils/test/engine/nbody/anchor_sift/test_steer_internal.h	utils/test/src/cu/engine/nbody/anchor_sift/test_steer_internal.h	moves	language
 test	-	utils/test/src/cu/engine/nbody/anchor_sift/test_steer_projection.cu	to write	three trees
 test	-	utils/test/src/cu/engine/nbody/body_overlap/body_overlap_test.cu	to write	a test for each module
 test	-	utils/test/src/cu/engine/nbody/box_history/box_history_test.cu	to write	a test for each module
@@ -2173,7 +2174,6 @@ test	-	utils/test/src/python/engine/analysis/noise_detector/noise_detector_test.
 test	-	utils/test/src/python/engine/analysis/partition/partition_test.py	to write	a test for each module
 test	-	utils/test/src/python/engine/analysis/period/period_probe.py	to write	three trees
 test	utils/test/python/period_test.py	utils/test/src/python/engine/analysis/period/period_test.py	moves	language
-test	utils/test/engine/analysis/period/period_test.sh	utils/test/src/python/engine/analysis/period/period_test.sh	moves	beside the code it runs
 test	utils/test/python/period_test.sh	utils/test/src/python/engine/analysis/period/period_test.sh	moves	beside the code it runs
 test	-	utils/test/src/python/engine/analysis/period/period_test_main.py	to write	three trees
 test	-	utils/test/src/python/engine/analysis/period/period_test_reference.py	to write	three trees

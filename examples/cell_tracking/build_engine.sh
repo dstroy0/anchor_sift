@@ -63,19 +63,25 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 
 DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
-MODULES=(engine/formats/stack engine/formats/apxrep engine/analysis/compression engine/analysis/tower
-         engine/runtime/device_pool engine/analysis/entropy_history
-         engine/compiler/keymath engine/compiler/key_schedule engine/compiler/cycle engine/runtime/radix_keys
-         engine/analysis/unit_sweep engine/runtime/obsignatio engine/analysis/residual engine/nbody/max_tree
-         engine/nbody/flatten engine/nbody/grow engine/arithmetic/double_fields engine/arithmetic/decimal_double
-         engine/runtime/scriptura engine/nbody/body_overlap engine/nbody/heaviest_matching
-         engine/analysis/shift_agreement engine/analysis/period)
+MODULES=(engine/formats/stack cu/includes/formats/stack engine/formats/apxrep cu/kcmplx
+         engine/analysis/compression cu/engine/analysis/compression engine/analysis/tower
+         cu/engine/analysis/tower engine/runtime/device_pool cu/engine/runtime/device_pool
+         engine/analysis/entropy_history cu/engine/analysis/entropy_history engine/compiler/keymath
+         cu/engine/analysis/keymath engine/compiler/key_schedule cu/engine/analysis/key_schedule
+         engine/compiler/cycle cu/engine/analysis/cycle engine/runtime/radix_keys engine/analysis/unit_sweep
+         cu/engine/analysis/unit_sweep engine/runtime/obsignatio cu/engine/runtime/obsignatio
+         engine/analysis/residual cu/engine/analysis/residual engine/nbody/max_tree cu/engine/nbody/max_tree
+         engine/nbody/flatten cu/engine/nbody/flatten engine/nbody/grow cu/engine/nbody/grow
+         engine/arithmetic/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
+         engine/nbody/body_overlap cu/engine/nbody/body_overlap engine/nbody/heaviest_matching
+         engine/analysis/shift_agreement cu/engine/analysis/shift_agreement engine/analysis/period
+         cu/engine/analysis/period)
 INGEST=(engine/formats/cfg_json engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate
         engine/codecs/lz4 engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5
         engine/codecs/zip engine/formats/dicom engine/formats/npy engine/formats/nrrd engine/formats/nifti)
 MODULES+=("${INGEST[@]}")
-MODULE_INCLUDES=(-I "$ENGINE" -I "$ENGINE/codecs/crc")
-MODULE_SOURCES=("$ENGINE"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
+MODULE_INCLUDES=(-I "$ENGINE" -I "$ENGINE/../cu/engine" -I "$ENGINE/codecs/crc" -I "$ENGINE/../cu/includes/codecs/crc")
+MODULE_SOURCES=("$ENGINE/../cu/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
 for module in "${MODULES[@]}"; do
     folder="$(build_path "$module")"
     MODULE_INCLUDES+=(-I "$folder")

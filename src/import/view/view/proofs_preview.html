@@ -1,0 +1,277 @@
+<title>Certified Twiddle Constants</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#f2f4f7; --card:#fff; --ink:#161d29; --mute:#5b6779; --rule:#d5dae2;
+    --hot:#a8442a; --cool:#2b5d8a; --good:#2f6b4f;
+    --serif:"Spectral",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --paper:#11151c; --card:#181e27; --ink:#e5e9ef; --mute:#94a0b1; --rule:#2b323d;
+    --hot:#e08b6d; --cool:#79aede; --good:#6fc79b;}}
+  :root[data-theme="dark"]{
+    --paper:#11151c; --card:#181e27; --ink:#e5e9ef; --mute:#94a0b1; --rule:#2b323d;
+    --hot:#e08b6d; --cool:#79aede; --good:#6fc79b;}
+
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15.5px;
+       line-height:1.5;padding-block:36px;padding-left:20px;padding-right:20px;}
+  .sheet{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:26px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:16px;}
+  h1{font-size:clamp(28px,5vw,44px);font-weight:600;margin:0 0 6px;letter-spacing:-.015em;
+     line-height:1.08;text-wrap:balance;}
+  .sub{font-size:16px;color:var(--mute);margin:0 0 14px;text-align:justify;hyphens:auto;}
+  .by{font-family:var(--mono);font-size:11.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:5px 18px;}
+  .by b{color:var(--ink);font-weight:500;}
+
+  h2{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+     text-transform:uppercase;color:var(--mute);margin:0 0 12px;padding-bottom:6px;
+     border-bottom:1px solid var(--rule);}
+  p{margin:0 0 10px;text-align:justify;hyphens:auto;}
+  p:last-child{margin-bottom:0;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .card{background:var(--card);border:1px solid var(--rule);padding:16px 17px;
+        display:flex;flex-direction:column;gap:7px;}
+  .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);}
+  .fig{font-family:var(--mono);font-weight:600;font-size:clamp(20px,3vw,26px);line-height:1.05;
+       color:var(--hot);font-variant-numeric:tabular-nums;}
+  .fig.b{color:var(--cool);}
+  .card p{font-size:13.5px;margin:0;text-align:left;hyphens:manual;}
+  .how{font-family:var(--mono);font-size:10.5px;color:var(--mute);margin-top:auto;padding-top:7px;
+       border-top:1px dotted var(--rule);}
+
+  .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+  figure{margin:0;background:var(--card);border:1px solid var(--rule);padding:14px;}
+  figcaption{font-family:var(--mono);font-size:10.5px;color:var(--mute);margin-top:8px;line-height:1.45;}
+  svg{display:block;width:100%;height:auto;}
+  .ax{stroke:var(--rule);stroke-width:1;}
+  .gl{stroke:var(--rule);stroke-width:.5;stroke-dasharray:2 3;}
+  .tx{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--mute);}
+  .tk{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;}
+
+  .scroll{overflow-x:auto;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th,td{text-align:left;padding:7px 11px 7px 0;border-bottom:1px solid var(--rule);}
+  th{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+     color:var(--mute);font-weight:600;}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.y{font-family:var(--mono);font-size:11.5px;color:var(--good);}
+  td.x{font-family:var(--mono);font-size:11.5px;color:var(--hot);}
+  .note{border-left:3px solid var(--hot);padding:1px 0 1px 14px;}
+  ol.r{margin:0;padding-left:20px;font-size:13px;}
+  ol.r li{margin-bottom:7px;}
+  code{font-family:var(--mono);font-size:.88em;}
+  footer{border-top:1px solid var(--rule);padding-top:14px;font-size:12px;color:var(--mute);}
+</style>
+
+<div class="sheet">
+
+<header>
+  <h1>Certified Twiddle Constants</h1>
+  <p class="sub">The twiddle constants of a number-theoretic transform are deployed as unverified
+  literals. A Proth certificate makes each one checkable, deterministically, in two exponentiations,
+  and a composite modulus reproduces a known fault attack with no attacker present.</p>
+  <div class="by">
+    <span><b>Douglas Quigg</b></span><span>dquigg123@gmail.com</span>
+    <span>github.com/dstroy0</span><span>September 2026</span>
+  </div>
+</header>
+
+<section>
+  <h2>The contribution</h2>
+  <p>Ravi, Yang, Bhasin, Zhang and Chattopadhyay gave the first fault-injection analysis of the NTT:
+  a single electromagnetic fault zeroizes the twiddle constants, sharply reducing output entropy,
+  enabling key and message recovery against Kyber and existential forgery against Dilithium
+  (ePrint 2022/824). The attack succeeds because no downstream computation distinguishes a valid
+  root of unity from a faulted one &mdash; same type, size and range, no error raised.</p>
+  <p class="note"><b>The contribution here is the provenance argument.</b> Every deployed NTT
+  inherits its modulus and twiddle table as copied literals. Correctness is transmitted, never
+  established, and transmitted correctness cannot report a fault. Proth's criterion turns the
+  check into a certificate that costs microseconds against a transform costing seconds, and the
+  order test that separates a valid root from a same-shape impostor is two exponentiations with no
+  factorisation. The performance figures below are supporting engineering; the argument is the
+  point.</p>
+</section>
+
+<section>
+  <h2>Results</h2>
+  <p style="margin-bottom:16px">Every figure below was measured on <b>one consumer desktop</b>, using the differencing engine:
+  a single NVIDIA GeForce RTX 3070 (8&nbsp;GB, 5888 CUDA cores, ~448&nbsp;GB/s) with an Intel Core i7-5960X (8-core) host and 64&nbsp;GB RAM, Python 3.14 driving CUDA 13.3. GPU work is the exact number-theoretic transform in 32-bit
+  integer arithmetic; CPU work is Python's arbitrary-precision integers, unbounded in width. The
+  largest operand demonstrated here is the billion-digit product: about 4.3 billion bits, 1.29
+  billion decimal digits, from factors of ~2.1 billion bits each. No cluster, no cloud, no floating
+  point in the arithmetic path.</p>
+  <div class="grid">
+    <div class="card">
+      <span class="lab">Deterministic primality</span>
+      <span class="fig">1,233 digits<br>0.29 s</span>
+      <p>A 4096-bit Proth prime certified on a desktop CPU. A witness <code>a</code> with
+      <code>a^((N&minus;1)/2) &equiv; &minus;1</code> is a proof, not a probabilistic test; Fermat
+      supplies the certificate in the composite direction.</p>
+      <span class="how">Proth's criterion, unbounded integers</span>
+    </div>
+    <div class="card">
+      <span class="lab">Composite modulus in NTT form</span>
+      <span class="fig">1610612737</span>
+      <p><code>3&middot;2&sup2;&#8313;+1</code>. Correct shape for an order-2&sup2;&#8313; transform,
+      and composite: Fermat witness 2. Its derived root has no defined order, reproducing the
+      published fault condition with no attacker present.</p>
+      <span class="how">Found by disagreement across three moduli</span>
+    </div>
+    <div class="card">
+      <span class="lab">Runtime table integrity</span>
+      <span class="fig">residue = 0</span>
+      <p>A clean twiddle table sums to exactly zero in the field. The float64 analogue floors at
+      7.5&times;10&#8315;&sup1;&sup2; and <em>grows</em> with transform length. A threshold is
+      needed there; none is needed here.</p>
+      <span class="how">6 of 6 fault models detected</span>
+    </div>
+    <div class="card">
+      <span class="lab">Certification reach today</span>
+      <span class="fig">3,011 digits<br>9.8 s</span>
+      <p>One Proth certificate on a candidate of this size, end to end on the CPU; it crosses two
+      minutes near 9,000 digits. Modest and multiply-limited: each product still marshals through the
+      host between device calls. The reach is the honest current number, not a projection.</p>
+      <span class="how">Record hunts reach millions of digits on native GPU exponentiation</span>
+    </div>
+    <div class="card">
+      <span class="lab">Large-integer multiplication</span>
+      <span class="fig b">1.7 s</span>
+      <p>Two 646-million-digit factors, three-prime NTT with Garner reconstruction; 6.8 s end to end.
+      Verified bit-identical against the host's own multiply at every size the host can still
+      reach.</p>
+      <span class="how">Engineering, not new mathematics; every modulus certified</span>
+    </div>
+    <div class="card">
+      <span class="lab">&pi;, as a pipeline check</span>
+      <span class="fig b">10&#8311; places<br>116 s</span>
+      <p>Chudnovsky with binary splitting, the quotient and root by division-free Newton. Two
+      independent configurations produced the same final ten digits. A correctness demonstration,
+      not a digit record.</p>
+      <span class="how">Agrees with Machin, Euler and the published prefix</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Measured</h2>
+  <div class="charts">
+    <figure>
+      <svg viewBox="0 0 480 225" role="img" aria-label="Multiplication time against operand size">
+        <line class="ax" x1="60" y1="200" x2="455" y2="200"/>
+        <line class="ax" x1="60" y1="20" x2="60" y2="200"/>
+        <line class="gl" x1="60" y1="145" x2="455" y2="145"/>
+        <line class="gl" x1="60" y1="90" x2="455" y2="90"/>
+        <polyline fill="none" stroke="var(--hot)" stroke-width="2" points="73,109 151,75 230,41"/>
+        <circle cx="73" cy="109" r="3" fill="var(--hot)"/><circle cx="151" cy="75" r="3" fill="var(--hot)"/>
+        <circle cx="230" cy="41" r="3" fill="var(--hot)"/>
+        <polyline fill="none" stroke="var(--cool)" stroke-width="2" points="73,184 151,161 230,139 308,117 386,93 425,81"/>
+        <circle cx="73" cy="184" r="3" fill="var(--cool)"/><circle cx="151" cy="161" r="3" fill="var(--cool)"/>
+        <circle cx="230" cy="139" r="3" fill="var(--cool)"/><circle cx="308" cy="117" r="3" fill="var(--cool)"/>
+        <circle cx="386" cy="93" r="3" fill="var(--cool)"/><circle cx="425" cy="81" r="3" fill="var(--cool)"/>
+        <text class="tk" x="240" y="33" fill="var(--hot)">host, slope 1.64</text>
+        <text class="tk" x="300" y="140" fill="var(--cool)">device, slope 1.02</text>
+        <text class="tx" x="60" y="215">10&#8310;</text>
+        <text class="tx" x="225" y="215">10&#8311;</text>
+        <text class="tx" x="380" y="215">10&#8312;</text>
+        <text class="tx" x="10" y="204">0.01 s</text>
+        <text class="tx" x="18" y="94">1 s</text>
+        <text class="tx" x="10" y="24">100 s</text>
+      </svg>
+      <figcaption>Multiply time against digits per operand, log&ndash;log. Host is Karatsuba at
+      exponent 1.635. Device is the three-prime NTT. Both axes measured, no extrapolation.</figcaption>
+    </figure>
+
+    <figure>
+      <svg viewBox="0 0 480 225" role="img" aria-label="Counting law departure against dimension">
+        <line class="ax" x1="60" y1="200" x2="455" y2="200"/>
+        <line class="ax" x1="60" y1="20" x2="60" y2="200"/>
+        <line class="gl" x1="60" y1="110" x2="455" y2="110"/>
+        <polyline fill="none" stroke="var(--cool)" stroke-width="2"
+                  points="110,106 203,106 273,106 310,106 341,106 363,106 394,106 416,106"/>
+        <circle cx="110" cy="106" r="3" fill="var(--cool)"/><circle cx="203" cy="106" r="3" fill="var(--cool)"/>
+        <circle cx="273" cy="106" r="3" fill="var(--cool)"/><circle cx="310" cy="106" r="3" fill="var(--cool)"/>
+        <circle cx="341" cy="106" r="3" fill="var(--cool)"/><circle cx="363" cy="106" r="3" fill="var(--cool)"/>
+        <circle cx="394" cy="106" r="3" fill="var(--cool)"/><circle cx="416" cy="106" r="3" fill="var(--cool)"/>
+        <text class="tk" x="150" y="92" fill="var(--cool)">2.098%, flat across 5 octaves</text>
+        <text class="tx" x="100" y="215">19</text><text class="tx" x="196" y="215">64</text>
+        <text class="tx" x="300" y="215">256</text><text class="tx" x="404" y="215">1024</text>
+        <text class="tx" x="22" y="204">0%</text>
+        <text class="tx" x="22" y="114">2%</text>
+        <text class="tx" x="22" y="24">4%</text>
+      </svg>
+      <figcaption>The Gauss circle problem in d dimensions: departure of the exact integer lattice
+      count from the ball volume, at radius&sup2; = 12d. Classical; shown only as an exact
+      big-integer computation carried to d = 1024 (a 1,182-digit count), flat to six figures from
+      d = 64 with the leading correction d/(4r&sup2;) measured at 0.2506 against 1/4.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <h2>Which invariant detects which fault</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Fault applied to the twiddle table</th><th>&Sigma; w<sub>j</sub></th>
+      <th>Group law</th><th>Order test</th></tr></thead>
+      <tbody>
+        <tr><td>All constants zeroized <em>(published attack)</em></td><td class="y">detects</td><td class="y">detects</td><td class="y">detects</td></tr>
+        <tr><td>Zeroized except w<sub>0</sub></td><td class="y">detects</td><td class="x">passes</td><td class="y">detects</td></tr>
+        <tr><td>Single constant zeroized</td><td class="y">detects</td><td class="x">passes</td><td class="x">passes</td></tr>
+        <tr><td>Single bit flipped</td><td class="y">detects</td><td class="x">passes</td><td class="x">passes</td></tr>
+        <tr><td>Table rotated by one position</td><td class="x">passes</td><td class="y">detects</td><td class="y">detects</td></tr>
+        <tr><td>Root of half the required order</td><td class="x">passes</td><td class="x">passes</td><td class="y">detects</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px">The final row is the substantive case. A root whose order merely
+  <em>divides</em> the transform length satisfies the group law <em>exactly</em> &mdash; a genuine
+  homomorphism of the wrong group &mdash; and every table-level invariant with it. Only the
+  two-exponentiation order test separates them, and no O(n) checksum over the table can.</p>
+</section>
+
+<section>
+  <h2>Method</h2>
+  <p>For <code>N = k&middot;2&#8319;+1</code> with <code>k</code> odd and <code>k &lt; 2&#8319;</code>,
+  the form every NTT modulus has, Proth's criterion is an equivalence, making a witness a primality
+  certificate. Separately, an element whose order divides <code>2&#7504;</code> has order exactly
+  <code>2&#7504;</code> if and only if <code>&omega;^(2&#7504;) = 1</code> and
+  <code>&omega;^(2&#7504;&#8315;&sup1;) &ne; 1</code>, settling the order in two exponentiations with
+  no factorisation. Both run in microseconds against transform costs measured in seconds.</p>
+</section>
+
+<section>
+  <h2>References</h2>
+  <ol class="r">
+    <li>P. Ravi, B. Yang, S. Bhasin, F. Zhang, A. Chattopadhyay. <em>Fiddling the Twiddle Constants:
+    Fault Injection Analysis of the Number Theoretic Transform.</em> IACR ePrint 2022/824, 2022.</li>
+    <li>F. Proth. Th&eacute;or&egrave;mes sur les nombres premiers. <em>C. R. Acad. Sci. Paris</em> 87, 1878.</li>
+    <li>D. V. Chudnovsky, G. V. Chudnovsky. Approximations and complex multiplication according to
+    Ramanujan. In <em>Ramanujan Revisited</em>, Academic Press, 1988.</li>
+    <li>J. W. Cooley, J. W. Tukey. An algorithm for the machine calculation of complex Fourier series.
+    <em>Math. Comp.</em> 19(90), 1965.</li>
+    <li>H. L. Garner. The residue number system. <em>IRE Trans. Electronic Computers</em> EC-8(2), 1959.</li>
+    <li>A. Karatsuba, Y. Ofman. Multiplication of many-digital numbers by automatic computers.
+    <em>Doklady Akad. Nauk SSSR</em> 145, 1962.</li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>Compute.</b> One NVIDIA GeForce RTX 3070 (8&nbsp;GB, 5888 CUDA cores, ~448&nbsp;GB/s) with an
+  Intel Core i7-5960X (8-core) host and 64&nbsp;GB RAM, Python 3.14 over CUDA 13.3. The GPU runs the number-theoretic transform in 32-bit
+  integer arithmetic over three certified primes; the CPU runs Python's arbitrary-precision
+  integers. There is no floating point anywhere in the arithmetic path, and no machine larger than
+  this desktop was used.</p>
+  <p><b>Scope.</b> Every figure is measured and reproducible from source. Multiply and &pi; are
+  verified bit-identical against an independent host implementation at every size the host can reach;
+  above that only the published &pi; prefix is checked, and it agrees. &pi; is computed to
+  10&#8311; places, not beyond. Nothing here claims a record or a new theorem outside the twiddle
+  provenance argument; the counting-law figure is the classical Gauss circle problem shown as an
+  exact computation. No claim is made about quantum computation or about factoring.</p>
+  <p>&copy; 2026 Douglas Quigg (dstroy0), dquigg123@gmail.com. Licensed AGPL-3.0-or-later, or under a
+  negotiated commercial licence, or under an educator's licence issued personally.</p>
+</footer>
+
+</div>

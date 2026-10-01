@@ -27,10 +27,10 @@ utils/maint/prose/dependence_decay.py	2
 utils/maint/prose/submission_check.py	2
 utils/maint/repotools/lib/repotools/findings.py	1
 utils/maint/repotools/lib/repotools/shape.py	1
-src/engine/arithmetic/no_rounding/arm_cuda.cu	1
-src/engine/engine_seal.cu	1
-src/engine/sims/chaitin_omega/chaitin_omega_main.cu	2
-utils/test/engine/compiler/cell/cell_ptx_probe_main.cu	1
+src/cu/types/integers/arm.cu	1
+src/cu/engine/engine_seal.cu	1
+src/sims/cu/types/integers/chaitin_omega/chaitin_omega_main.cu	2
+utils/test/src/cu/transpiler/cell/cell_ptx_probe_main.cu	1
 utils/test/engine/compiler/cell/cell_sass_probe_ask.c	1
 utils/test/engine/runtime/daemon/run.sh	1
 utils/test/harness.py	1

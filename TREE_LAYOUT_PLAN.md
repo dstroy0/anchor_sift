@@ -21,7 +21,7 @@ and names every file the map does not hold, every row whose file is not there, a
   where the word is part of its module's own name, as in `device_pool`. Where dropping it would give two files
   in one directory the same name, both keep theirs.
 - A `.c` file is `c`, a `.cu`, `.cuh` or `.cpp` file is `cu`, a `.py` file is `python`. A `.h` file is `c`
-  where C reads it alone, and `cu` where only C++ or CUDA does. A header in `c/` serves `cu/` as well.
+  where C reads it alone or a `.c` file includes it, and `cu` where only C++ or CUDA does. A header in `c/` serves `cu/` as well.
 - A file of no language sits beside the code that runs it or reads it: with its runner where one shares its
   name, and otherwise in the container holding the most code at its path, nearest first. The files at a
   root serve every container under it.
@@ -411,7 +411,7 @@ src/sims/                                                        now   write
 
 ```text
 utils/test/src/                                                  now   write
-├── c/                                                            54    +123
+├── c/                                                            55    +123
 │   ├── types/                                                     1     +10
 │   │   ├── file_defs/                                             0      +4
 │   │   │   ├── kdm/                                               0      +1
@@ -453,7 +453,7 @@ utils/test/src/                                                  now   write
 │   │   └── oracle/                                                0      +1
 │   │       └── language/                                          0      +1
 │   ├── kcmplx/                                                    0      +1
-│   ├── engine/                                                   27     +75
+│   ├── engine/                                                   28     +75
 │   │   ├── analysis/                                              3     +49
 │   │   │   ├── compression/                                       0      +1
 │   │   │   ├── cycle/                                             3     +28
@@ -471,8 +471,8 @@ utils/test/src/                                                  now   write
 │   │   │   ├── shift_agreement/                                   0      +2
 │   │   │   ├── tower/                                             0      +1
 │   │   │   └── unit_sweep/                                        0      +1
-│   │   ├── nbody/                                                14     +15
-│   │   │   ├── anchor_sift/                                      10      +3
+│   │   ├── nbody/                                                15     +15
+│   │   │   ├── anchor_sift/                                      11      +3
 │   │   │   │   ├── instrument/                                    0      +1
 │   │   │   │   └── sift/                                          0      +1
 │   │   │   ├── body_overlap/                                      0      +1
@@ -545,7 +545,7 @@ utils/test/src/                                                  now   write
 │   │       └── language/                                          0      +1
 │   ├── kcmplx/                                                    0      +1
 │   ├── engine/                                                   78     +48
-│   │   ├── analysis/                                             65     +14
+│   │   ├── analysis/                                             66     +14
 │   │   │   ├── compression/                                       0      +1
 │   │   │   ├── cycle/                                            52      +1
 │   │   │   ├── entropy_history/                                   0      +1
@@ -555,15 +555,15 @@ utils/test/src/                                                  now   write
 │   │   │   ├── measure/                                           0      +1
 │   │   │   ├── noise_detector/                                    0      +1
 │   │   │   ├── partition/                                         0      +1
-│   │   │   ├── period/                                            4      +1
+│   │   │   ├── period/                                            5      +1
 │   │   │   ├── reference/                                         0      +1
 │   │   │   ├── residual/                                          2        
 │   │   │   ├── residual_survey/                                   0      +1
 │   │   │   ├── shift_agreement/                                   2      +1
 │   │   │   ├── tower/                                             2        
 │   │   │   └── unit_sweep/                                        2        
-│   │   ├── nbody/                                                 1     +25
-│   │   │   ├── anchor_sift/                                       1     +11
+│   │   ├── nbody/                                                 0     +25
+│   │   │   ├── anchor_sift/                                       0     +11
 │   │   │   │   ├── instrument/                                    0      +1
 │   │   │   │   └── sift/                                          0      +1
 │   │   │   ├── body_overlap/                                      0      +1
@@ -596,7 +596,7 @@ utils/test/src/                                                  now   write
 │       ├── emit/                                                  1        
 │       └── qasm/                                                 16        
 │           └── vectors/                                           8        
-└── python/                                                        9    +153
+└── python/                                                        8    +153
     ├── types/                                                     1     +10
     │   ├── file_defs/                                             0      +4
     │   │   ├── kdm/                                               0      +1
@@ -638,8 +638,8 @@ utils/test/src/                                                  now   write
     │   └── oracle/                                                0      +1
     │       └── language/                                          0      +1
     ├── kcmplx/                                                    0      +1
-    ├── engine/                                                    8     +87
-    │   ├── analysis/                                              6     +47
+    ├── engine/                                                    7     +87
+    │   ├── analysis/                                              5     +47
     │   │   ├── compression/                                       0      +1
     │   │   ├── cycle/                                             0     +29
     │   │   ├── entropy_history/                                   0      +1
@@ -649,7 +649,7 @@ utils/test/src/                                                  now   write
     │   │   ├── measure/                                           0      +1
     │   │   ├── noise_detector/                                    0      +1
     │   │   ├── partition/                                         0      +1
-    │   │   ├── period/                                            3      +3
+    │   │   ├── period/                                            2      +3
     │   │   ├── reference/                                         0      +1
     │   │   ├── residual/                                          0      +1
     │   │   ├── residual_survey/                                   0      +1

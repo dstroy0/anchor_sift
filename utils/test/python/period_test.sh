@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Builds utils/test/python/period_probe.cu, a job on the device's tessera daemon, and runs utils/test/python/period_test.py
+# Builds utils/test/src/cu/engine/analysis/period/period_probe.cu, a job on the device's tessera daemon, and runs utils/test/python/period_test.py
 # against it: measure.period graded against period_read and period_draw, line for line.
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../.." && pwd)"
 MODULE="$TOP/src/engine/analysis/period"
+MODULE_CU="$TOP/src/cu/engine/analysis/period"
 DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
+DEVICE_POOL_CU="$TOP/src/cu/engine/runtime/device_pool"
 NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
 SCRIPTURA="$TOP/src/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
@@ -47,7 +49,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/engine" -I "$MODULE" -I "$MODULE_CU" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
@@ -70,8 +72,8 @@ done
 tessera_build python_period "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/period_probe.cu" "$TOP/src/engine/sims/sim_job.cu" "$MODULE"/period_{measure,select}.cu \
-    "$DEVICE_POOL/device_pool.cu" \
+    "$TEST/../src/cu/engine/analysis/period/period_probe.cu" "$TOP/src/sims/cu/sim_job.cu" "$MODULE_CU"/period_{measure,select}.cu \
+    "$DEVICE_POOL_CU/device_pool.cu" \
     "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the probe"; exit 1; }
 if [ "${BUILD_ONLY:-0}" = "1" ]; then

@@ -1,0 +1,75 @@
+  flipped bit in any of the 512 input bits
+  4000 samples per seed, degrees to 12, grid 48 by 96, 200 fair pairs per null
+  null peak spacing KS  0.0385 to 0.1044, median 0.0575
+  null alignment rad    0.2344 to 0.3095, median 0.2720
+  null delta            1.1226 to 1.5206, median 1.3607
+
+  round   peaks A/B   spacing    verdict     align     verdict     delta  verdict  pits A/B
+      1       25/24    0.0296     closer    0.0431      closer    0.0755   closer     31/29
+      2       15/14    0.0388         in    0.0804      closer    0.0685   closer     16/15
+      3       12/13    0.0758         in    0.0683      closer    0.0510   closer     13/13
+      4       11/11    0.0909         in    0.0470      closer    0.0387   closer     11/10
+      5       11/10    0.0828         in    0.0721      closer    0.0511   closer     10/10
+      6       11/11    0.0545         in    0.0589      closer    0.0463   closer      9/10
+      7       11/11    0.0545         in    0.0551      closer    0.0623   closer     10/10
+      8       11/11    0.0727         in    0.0580      closer    0.0602   closer       9/8
+      9       10/10    0.0889         in    0.2240      closer    0.1300   closer      11/9
+     10       11/11    0.0727         in    0.1500      closer    0.1210   closer     10/10
+     11        9/11    0.1126    farther    0.2124      closer    0.1194   closer      10/8
+     12        11/7    0.1602    farther    0.1971      closer    0.1170   closer      11/9
+     13       11/10    0.0747         in    0.1231      closer    0.0898   closer     10/10
+     14         9/9    0.1111    farther    0.1191      closer    0.1123   closer       7/8
+     15        9/11    0.1126    farther    0.1782      closer    0.2081   closer       9/9
+     16        10/9    0.1500    farther    0.1187      closer    0.1117   closer       8/9
+     17        10/8    0.1230    farther    0.1616      closer    0.1411   closer       8/8
+     18        10/9    0.0722         in    0.1931      closer    0.1465   closer       7/8
+     19       11/14    0.1109    farther    0.2815          in    0.2382   closer      8/10
+     20       14/15    0.0784         in    0.2920          in    1.4901       in     11/18
+     21       18/18    0.0850         in    0.2841          in    1.1648       in     19/19
+     22       21/20    0.0466         in    0.2674          in    1.2898       in     21/14
+     23       15/26    0.0668         in    0.2672          in    1.5588  farther     19/21
+     24       19/22    0.0489         in    0.2624          in    1.4806       in     18/22
+     25       20/18    0.0509         in    0.2614          in    1.4882       in     21/18
+     26       17/17    0.0588         in    0.2669          in    1.1509       in     22/18
+     27       19/21    0.0420         in    0.2926          in    1.3131       in     16/21
+     28       15/17    0.0694         in    0.2874          in    1.3658       in     15/14
+     29       20/21    0.0411         in    0.2575          in    1.5671  farther     17/18
+     30       21/16    0.0583         in    0.2960          in    1.4052       in     16/18
+     31       19/18    0.0444         in    0.2774          in    1.6055  farther     16/22
+     32       20/18    0.0546         in    0.2744          in    1.3824       in     20/17
+     33       18/20    0.0443         in    0.2882          in    1.2365       in     22/20
+     34       20/22    0.0738         in    0.2490          in    1.3492       in     20/18
+     35       17/15    0.0796         in    0.2785          in    1.3154       in     13/19
+     36       17/15    0.0590         in    0.2997          in    1.3108       in     17/16
+     37       21/21    0.0476         in    0.2325      closer    1.3731       in     21/21
+     38       20/18    0.0549         in    0.2755          in    1.4572       in     20/17
+     39       18/19    0.0540         in    0.2745          in    1.3827       in     19/17
+     40       27/19    0.0607         in    0.2686          in    1.3620       in     21/20
+     41       22/17    0.0434         in    0.2803          in    1.4569       in     21/15
+     42       14/20    0.0689         in    0.2643          in    1.4730       in     17/20
+     43       15/20    0.0862         in    0.2650          in    1.3212       in     18/22
+     44       21/18    0.0691         in    0.2595          in    1.4334       in     17/16
+     45       22/20    0.0438         in    0.2485          in    1.1340       in     21/21
+     46       18/18    0.0654         in    0.2830          in    1.3263       in     17/20
+     47       20/18    0.0434         in    0.2740          in    1.3305       in     17/18
+     48       22/20    0.0512         in    0.2813          in    1.3808       in     18/20
+     49       24/19    0.0479         in    0.2610          in    1.3196       in     23/17
+     50       16/18    0.0639         in    0.2898          in    1.2913       in     21/18
+     51       18/18    0.0980         in    0.2891          in    1.1595       in     20/20
+     52       23/20    0.0693         in    0.2737          in    1.2803       in     19/20
+     53       14/17    0.0754         in    0.2814          in    1.2734       in     12/15
+     54       23/17    0.0815         in    0.2840          in    1.3566       in     16/20
+     55       16/17    0.0466         in    0.2778          in    1.2458       in     22/14
+     56       20/18    0.0779         in    0.2791          in    1.4388       in     21/20
+     57       18/20    0.0544         in    0.2511          in    1.2019       in     17/20
+     58       19/20    0.0667         in    0.2623          in    1.4857       in     15/18
+     59       16/20    0.0645         in    0.2648          in    1.2950       in     18/18
+     60       19/22    0.0655         in    0.2605          in    1.3779       in     18/20
+     61       20/17    0.0366     closer    0.2797          in    1.2872       in     22/18
+     62       18/19    0.0595         in    0.2941          in    1.4435       in     14/17
+     63       15/19    0.0805         in    0.3005          in    1.3392       in     14/20
+     64       19/20    0.0497         in    0.2401          in    1.3661       in     18/24
+
+  peak spacing  seeds agree beyond chance through round 1   after that 1 closer / 7 farther of 63, chance 1.6 each
+  alignment     seeds agree beyond chance through round 18  after that 1 closer / 0 farther of 46, chance 1.2 each
+  delta         seeds agree beyond chance through round 19  after that 0 closer / 3 farther of 45, chance 1.1 each

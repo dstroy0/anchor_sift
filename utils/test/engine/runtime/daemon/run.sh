@@ -11,7 +11,8 @@ build_stamp tessera_test
 
 SCRIPTURA="$TOP/engine/runtime/scriptura"
 OBSIGNATIO="$TOP/engine/runtime/obsignatio"
-INCLUDES=(-I "$TOP/engine" -I "$MODULE" -I "$SCRIPTURA" -I "$OBSIGNATIO")
+OBSIGNATIO_CU="$TOP/cu/engine/runtime/obsignatio"
+INCLUDES=(-I "$TOP/engine" -I "$MODULE" -I "$SCRIPTURA" -I "$OBSIGNATIO" -I "$OBSIGNATIO_CU")
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
@@ -34,7 +35,7 @@ case "$(uname -s)" in
             build_device -c "$@"
         }
         DEVICE_TOOLCHAIN=1
-        LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/engine/long_paths.manifest")")
+        LONG_PATHS=(-Xlinker /MANIFEST:EMBED -Xlinker "/MANIFESTINPUT:$(cygpath -m "$TOP/cu/long_paths.manifest")")
         ;;
     *)
         SUFFIX=
@@ -95,7 +96,7 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
         rm -f "$MEASURE_OBJECT" "$SELF_OBJECT"
         build_host -c "$MODULE/tessera_measure.c" -o "$MEASURE_OBJECT"
         build_host -c "$MODULE/tessera_self.c" -o "$SELF_OBJECT"
-        build_device "$TEST/tessera_measure_test.cu" "$MEASURE_OBJECT" "$SELF_OBJECT" "${LONG_PATHS[@]}" \
+        build_device "$TEST/../../../src/cu/engine/runtime/daemon/tessera_measure_test.cu" "$MEASURE_OBJECT" "$SELF_OBJECT" "${LONG_PATHS[@]}" \
             -o "$OUT/tessera_measure_test$SUFFIX"
         run_one tessera_measure_test
     else
@@ -140,7 +141,7 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     build_device "${DAEMON_OBJECTS[@]}" "${SEAL_OBJECTS[@]}" "${LONG_PATHS[@]}" -o "$OUT/tessera_daemon$SUFFIX"
     [ -f "$OUT/tessera_daemon$SUFFIX" ] || { echo "  build failed: the daemon did not link"; FAILED=1; }
     if [ "$DEVICE_TOOLCHAIN" = "1" ]; then
-        build_device "$TEST/tessera_job_test.cu" "${CLIENT_OBJECTS[@]}" "${SEAL_OBJECTS[@]}" "${LONG_PATHS[@]}" \
+        build_device "$TEST/../../../src/cu/engine/runtime/daemon/tessera_job_test.cu" "${CLIENT_OBJECTS[@]}" "${SEAL_OBJECTS[@]}" "${LONG_PATHS[@]}" \
             -o "$OUT/tessera_job_test$SUFFIX"
     fi
     if [ "$DEVICE_TOOLCHAIN" != "1" ]; then

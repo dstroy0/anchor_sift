@@ -5,7 +5,7 @@
 // S7's divisions, beside each sample's .links as <sample>.divide. Every word is little-endian.
 //
 // .divide opens with frames, depth, height and width, which are the .points' and the .links', and then the CRC-64 of
-// the whole .links it was made from, its low word first. engine/codecs/crc/crc.h computes that CRC (CRC-64/XZ:
+// the whole .links it was made from, its low word first. cu/includes/codecs/crc/crc.h computes that CRC (CRC-64/XZ:
 // the reflected polynomial 0xC96C5795D7870F42, starting from all ones and ending complemented), taken over every byte
 // of the file. Each frame pair (t, t + 1) follows, in order: its count of divisions, and then each division's four
 // words:
