@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // cell_sass_probe_main.c: each form's operations, each operation's fields, and main. The first argument is
 // cell_ptx_probe's path, the second a folder for the cubins, listings and decodings. Exit 0 where every cubin was
-// listed and every operation decoded, 1 where one was not, 2 where the probe could not ask at all
+// listed and every operation decoded, 1 where one was not, 2 where the probe could not ask at all. Given `loop` and a
+// machine file after those two, the folder is one an earlier run left its cubins in and only the loop ask is put:
+// exit 0 where a form came back on every count, 1 where none did, 2 where the machine file was not read
 #include "cell_sass_probe.h"
 
 #include <stdlib.h>
@@ -333,16 +335,34 @@ static int sass_questions_read(SassProbe *probe, const char *output)
     return probe->questions != 0u;
 }
 
+// The loop ask alone, against the machine file at `path` and the cubins already in the probe's folder: the part is
+// asked how it loops without the machine being learned again. The system's classification is written beside them
+static int sass_loop_main(SassProbe *probe, const char *path)
+{
+    if (!sass_machine_read(&s_sass_machine, path))
+    {
+        return 2;
+    }
+    unsigned int asked = 0u;
+    const unsigned int kept = sass_cubin_loops(probe, &s_sass_machine, &asked);
+    const int written = sass_class_write(probe->folder, s_sass_machine.part);
+    return ((kept != 0u) && written) ? 0 : 1;
+}
+
 int main(int count, char **arguments)
 {
     if (count < 3)
     {
-        fprintf(stderr, "  cell_sass_probe: <cell_ptx_probe> <output folder>\n");
+        fprintf(stderr, "  cell_sass_probe: <cell_ptx_probe> <output folder> [<machines> | loop <machine file>]\n");
         return 2;
     }
     SassProbe *const probe = &s_sass_probe;
     probe->folder = arguments[2];
     probe->prober = arguments[1];
+    if ((count > 4) && (strcmp(arguments[3], "loop") == 0))
+    {
+        return sass_loop_main(probe, arguments[4]);
+    }
     char output[1024];
     snprintf(output, sizeof(output), "%s/cubins.out", probe->folder);
     char *const command[] = {arguments[1], "cubins", arguments[2], NULL};

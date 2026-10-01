@@ -87,6 +87,16 @@ nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/engine" -I "
     "${CODEGEN_SOURCES[@]}" -lnvrtc -lnvJitLink
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
+# SASS_PATTERN names the sass folder of an earlier run: the part is asked how it loops against those cubins and the
+# machine file the tree holds for the first architecture, and nothing is learned again
+if [ -n "${SASS_PATTERN:-}" ]; then
+    [ -f "$SASS_PATTERN/form_0.cubin" ] || { echo "  no form_0.cubin in $SASS_PATTERN"; exit 1; }
+    FIRST="${ARCHES%% *}"
+    "$BINARY" "$PROBE" "$SASS_PATTERN" loop "$CUBIN/machines/$FIRST"
+    STATUS=$?
+    echo "  cell sass loop exit $STATUS"
+    exit "$STATUS"
+fi
 mkdir -p "$OUT/sass"
 "$BINARY" "$PROBE" "$OUT/sass" "$CUBIN/machines"
 STATUS=$?

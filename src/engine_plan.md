@@ -233,6 +233,11 @@ differs per target, and in every `.krs` it is written by hand. It is derived by 
   N = 2 is asked first, since it prunes the most, and the forms that answer it are asked every other N.
 - The forms that answer every N are timed, and the cheapest is that part's `loop_back`.
 
+`cell_sass_probe` puts this ask alone, given `loop` and the machine file, against the cubins of an earlier run
+(`SASS_PATTERN` in `cell_sass_test.sh`). On sm_86, 2533 of the 2927 forms assemble, 1715 fall through, and 8 come
+back on every N, every one a `BRA`. The walk agrees with all 8, and none is cheaper than the next above the spread
+of its own runs, which leaves the part no `loop_back` cheaper than the `BRA` that `sass.krs` writes.
+
 **A check between emitting and running, on or off.** The transpiler reads an emitted instruction back through the
 machine file's own forms, with no disassembler (`sass_encoding_read`, `compiler/cubin/sass_assemble.h`), and walks
 it (`sass_loop_walk`): its guard is the flag alone, one of its label or number operands added to the
@@ -366,10 +371,6 @@ works there.
     scaffolding until the channel in Open 1 carries it. The other 131 functions that compute and the 47 that call
     the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
-
-14. **The part has not been asked how it loops.** `sass_encoding_read` and `sass_loop_walk` are built and checked
-    (Functions on every part, above). The ask that puts each candidate in `loop_back`'s place to the part and reads
-    back the count is not written, and until it is, `loop_back` in every `.krs` is written by hand.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.

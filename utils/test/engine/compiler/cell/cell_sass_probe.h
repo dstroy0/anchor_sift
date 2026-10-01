@@ -154,6 +154,14 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
 // gave a reading that stands above the noise
 unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
 
+// How the part loops, asked of the part (engine_plan.md, "A loop is learned by asking"). Every form `machine` holds is
+// put in loop_back's place with its operands filled by their kinds, at the end of a body that counts the case's first
+// word down with add_alone and sets the flag with test_nonzero. A form that comes back to the label on the flag
+// answers that word and one that falls through answers 1; 2 is asked first and the forms that answer it are asked
+// every other count. Those that answer every count are timed and walked (sass_loop_walk), and the cheapest is printed
+// as the part's loop_back. `asked` counts the forms put: how many came back on every count
+unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
+
 // the output of the last process sass_run ran
 const char *sass_output(void);
 
