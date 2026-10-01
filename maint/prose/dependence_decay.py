@@ -1,6 +1,6 @@
 """Does the text remember? Mutual information against lag, and the shape of its decay.
 
-THE QUESTION, AND WHY THE AFTERNOON'S INSTRUMENTS COULD NOT ANSWER IT
+THE QUESTION, AND WHY A FILE-LEVEL DISTANCE CANNOT ANSWER IT
 
 `machine_distance` places a file between a human pole and an machine pole and prints its own
 limit at the foot: every file-level distance is a bag of words, and so it reads COMPOSITION and
@@ -35,8 +35,8 @@ THE NULL IS FREE AND IT IS DRAWN, NOT DERIVED
 
 Estimated MI is biased UPWARD at finite sample: with V*V cells and limited counts, independent data
 still produces a positive number, and the bias grows as the table gets sparse. Deriving that bias is
-possible and this tree has a rule about deriving things - seven derived bars in one night, every
-one too low, always the same direction.
+possible, and this tree has a rule against it: a derived bar comes out too low, always in the same
+direction.
 
 So it is measured. Shuffling the tokens destroys arrangement and keeps every count identical, which
 makes a shuffle EXACTLY the memoryless surrogate for this statistic. The floor at each lag is what
@@ -51,113 +51,49 @@ not show a heavier tail than the machine corpus, the instrument is not measuring
 and no reading from it means anything. That check runs first and its verdict gates the rest, the
 same way pi in the compressor gates a compression claim.
 
-WHAT IT MEASURED, 2026-09-11, AND THE ANSWER IS NO
+WHAT BOUNDS A READING
 
-Run as built, on the two poles this tree already holds, it does NOT separate them. Recorded here
-and not in a note, because the intermediate readings all looked like findings and each one would
-have been quoted if the next check had not been run.
+The decay law is the right discriminator and long-range dependence is real in natural language: a
+null from this instrument is a statement about its power at a given corpus size, not about the
+effect. Three nuisance parameters bound that power, and each one has a control.
 
-    reading                                               what it turned out to be
-    human clear to lag 1024, assistant dead by lag 3      the corpora differ ELEVEN TIMES in
-                                                          length and MI bias grows as a corpus
-                                                          shrinks. At equal length: 4 against 2.
-    at equal length, floors 0.3707 against 0.5194         29 per cent apart, and an excess over
-                                                          them compares two ESTIMATORS. Length was
-                                                          not the whole nuisance parameter; the
-                                                          unigram distribution sets the bias too.
-    decay shape, -0.619 against -0.576                    the right direction, and inside the noise
+LENGTH. MI bias grows as a corpus shrinks: every comparison is made at the shorter pole's length. At
+that length the human decay slopes form a band, and only a separation wider than that band is
+reportable. The band narrows as the root of the length: more text is the way forward, not a better
+statistic. `--band` draws the human band at a chosen `--length`.
 
-The last of them needed the null, and drawing it settled the question. Twenty-four
-DISJOINT human chunks cut to the machine corpus's exact length give slopes from -0.857 to -0.234,
-mean -0.483, sd 0.129. The assistant sits at -0.587, which is 0.80 sd from the human mean, with FOUR
-OF TWENTY-FOUR human chunks decaying at least as fast. That is an ordinary value for a human text of
-this size.
+THE UNIGRAM DISTRIBUTION. The excess at any one lag carries the estimator's bias: a bare LEVEL
+compares two estimators wherever the unigram distributions differ. The hypothesis is about SHAPE,
+not level: dividing each curve by its own value at lag one removes the scale the bias sets, and a
+power law and an exponential differ in how they fall whatever that scale is. `--twoband` gives both
+poles a band at a common length and measures the confound alongside.
 
-So the -0.619 against -0.576 was within the ordinary spread and was never a finding.
+ASSEMBLY. `load_papers` concatenates about 120 separate documents, and different papers use different
+words at different rates: composition drifts across the joins, and drift raises MI at every lag.
+Knowing where you are in the corpus tells you which document you are in, and therefore which words
+are likely. That is a fact about how the corpus is built, not about the writing. Document count and
+join rate set a corpus's large-lag excess on their own.
 
-WHAT THAT DOES AND DOES NOT SETTLE
+SEPARATING DRIFT FROM DEPENDENCE
 
-It does not refute the hypothesis. Long-range dependence is real in natural language and the decay
-law is the right discriminator. What it settles is that THIS test at THIS size has no power to see
-it, and the binding constraint is named: the machine corpus is 39,516 words, and so every
-comparison has to be made at that length, and the human band at that length is 0.129 wide - far
-wider than any separation on offer.
+Drift and real dependence come apart exactly. `--scramble` shuffles the tokens inside every window of
+100, which destroys all arrangement shorter than 100 words while leaving composition above that
+scale untouched: real dependence at lag 256 cannot survive it, and drift is unaffected by it. Where
+the large-lag excess survives the scramble, the tail is drift, not a long-range signal.
 
-The way forward is more assistant text, not a better statistic. At ten times the length the human
-band narrows by about root ten and the same gap would be worth testing again.
+The inversion is worth stating plainly, because it reverses the premise the line starts from. A
+continuous single-author work is the arm with the LEAST large-lag excess; concatenated corpora have
+the most. Large-k excess tracks how a corpus is assembled and is close to silent about the writing
+inside it.
 
-THE RE-RUN WITH THIRTY-FOUR TIMES THE ASSISTANT TEXT. STILL NO.
+WHAT A NULL ON THE SHAPE MEANS
 
-1,313,144 words of machine prose later, both poles cut into disjoint 200,000-token chunks so each
-side carries a measured spread instead of the machine being a single point:
-
-    human       slope -0.4595   sd 0.1286   n 36   top-256 mass share 0.5279
-    assistant   slope -0.4834   sd 0.1761   n  6   top-256 mass share 0.6122
-    gap -0.0239, standard error 0.0750, 0.32 sd apart
-    17 of 36 human chunks decay at least as fast as the machine mean
-
-Three things make this a stronger null than a small p-value usually is.
-
-THE GAP SHRANK AS THE DATA GREW. At 39,516 words it was 0.104; at 200,000 it is 0.024. An effect that
-is real tightens around a stable value as n rises. One that is noise walks toward zero. That is
-the walk this took.
-
-THE ASSISTANT SPREAD IS WIDER THAN THE HUMAN ONE, 0.1761 against 0.1286. The hypothesis says
-generated text is closer to memoryless, and so its decay should be tighter and steeper. It is
-neither. A wider spread is evidence against the proposed mechanism and not a failure to detect it.
-
-THE NUISANCE WAS MEASURED AND IS NOT HIDING ANYTHING. Slope against top-256 mass share across all 42
-chunks gives r = +0.269, and so the share difference between the poles cannot be producing a
-difference in slope, and matching on it would change nothing. That was checked and not assumed,
-because the earlier floor mismatch proved the nuisance was real at the LEVEL and it had to be ruled
-out at the SHAPE separately.
-
-WHAT IS STILL OPEN. Every word of that assistant corpus was written under this tree's ban list, and
-so the register is suppressed in the direction that works against a separation. A positive result
-there would have been conservative; a null is genuinely ambiguous about unsuppressed prose. But the
-wider-spread finding does not depend on the suppression and argues against the mechanism directly,
-and an unsuppressed pole is less promising than it looked before this run.
-
-AND THE HUMAN TAIL WAS THE CORPUS BEING ASSEMBLED. RETRACTED.
-
-Alongside the null above this file reported a human tail: excess over the shuffle at every lag out to
-1024, decaying smoothly, 0.0304 against a floor of 0.0984. It was offered as support for the claim
-that long-range structure lives in content-word recurrence. It is not dependence and the claim loses
-that support.
-
-`load_papers` concatenates about 120 separate documents. Different papers use different words at
-different rates, and composition DRIFTS across the joins, and drift raises MI at every lag - knowing
-where you are in the corpus tells you which document you are in, and therefore which words are
-likely. That is a fact about how the corpus was built and not about anything in the writing.
-
-The two are separable exactly. Scramble the tokens inside every window of 100 and all arrangement
-shorter than 100 words is destroyed while composition above that scale is untouched. Real dependence
-at lag 256 cannot survive it. Drift is unaffected by it. Measured, --scramble:
-
-    lag        as-is     scrambled
-     256    0.040025      0.035006     survived
-     384    0.036914      0.031646     survived
-     512    0.035449      0.030720     survived
-     768    0.033085      0.027101     survived
-    1024    0.030351      0.023921     survived
-
-Every large lag survives, and the tail was drift the whole way.
-
-WHAT THIS DOES AND DOES NOT TOUCH. The two-band null stands unchanged: the decay SHAPE does not
-distinguish the poles at 200,000 tokens, and the machine spread is the wider of the two. Those were
-computed on chunks and never rested on the tail. What falls is the tail itself and the support it
-was lending.
-
-A THIRD NUISANCE PARAMETER, AND NOBODY CONTROLLED IT. Length was the first, the unigram
-distribution the second, and ASSEMBLY is the third: how many source documents went into a corpus
-sets its large-lag excess. Cutting both poles to 200,000 tokens controls chunk size and controls
-neither the document count nor the join rate. Any two corpora built from different numbers of
-sources separate at the large-lag end for free, and the separation says nothing about who wrote them.
-
-The inversion is worth stating plainly, because it reverses the premise the whole line started from.
-A continuous single-author work is the arm with the LEAST large-lag excess. Concatenated corpora
-have the most. Large-k excess tracks how a corpus was assembled and is close to silent about the
-writing inside it.
+A wider assistant spread is itself evidence against the mechanism, not a failure to detect it. The
+hypothesis says generated text is closer to memoryless: its decay should be tighter and steeper, and
+a spread wider than the human band argues against the mechanism directly. Every word of the
+assistant pole is written under this tree's ban list, which suppresses its register in the direction
+that works against a separation. A null on the shape is therefore ambiguous about unsuppressed
+prose, though the spread argument does not depend on the suppression.
 
     python maint/prose/dependence_decay.py --control
     python maint/prose/dependence_decay.py --band
@@ -182,9 +118,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def _trees(start):
     """Walk up until a directory holding anchor_sift is found, in place of counting parents.
 
-    A fixed number of dirname calls encodes how deep this file happens to sit, and this tree has
-    already lost a day to a path that was written down and then moved. Searching upward for the
-    sibling is the same move link_shared.ps1 makes for the same reason.
+    A fixed number of dirname calls encodes how deep this file happens to sit. Searching upward for
+    the sibling is the same move link_shared.ps1 makes for the same reason.
     """
     at = start
     while at != os.path.dirname(at):
@@ -425,20 +360,19 @@ def main():
         return 0
 
     if given.twoband:
-        # BOTH POLES GET A BAND, WHICH IS A DIFFERENT TEST FROM THE ONE BEFORE.
+        # BOTH POLES GET A BAND.
         #
-        # At 39,516 words the machine side was ONE number against a human distribution. A point
-        # cannot say whether it is a typical value for its own population or a draw from a wide one,
-        # so that test could never have distinguished "the machine decays faster" from "the
+        # A point cannot say whether it is a typical value for its own population or a draw from a
+        # wide one, and one number for a pole cannot distinguish "the machine decays faster" from "the
         # assistant sample happened to". With both bands measured the question becomes the one worth
         # asking, and it can also come back saying the machine spread is as wide as the human one,
         # which would sink the hypothesis whatever the means do.
         #
         # WHY NOT SIMPLY USE EVERY WORD. The band narrows as 1/sqrt(L) and the number of DISJOINT
-        # chunks available to estimate it falls as 1/L, and those fight. At the full 1.3M there are
-        # three human chunks and the spread cannot be measured at all - which would print a large
-        # separation against an unmeasurable band and look like the best result of the night. The
-        # default sits where both are adequate.
+        # chunks available to estimate it falls as 1/L, and those fight. At a large enough length
+        # there are too few DISJOINT chunks and the spread cannot be measured at all - which prints a
+        # large separation against an unmeasurable band and looks like the best result. The default
+        # sits where both are adequate.
         assistant_path = os.path.join(os.path.dirname(os.path.dirname(HERE)),
                                       "build", "corpora", "assistant_suppressed.txt")
         if not os.path.exists(assistant_path):
