@@ -158,7 +158,7 @@ Let f map the lane's alphabet A = {0, …, 2^b − 1} to w-bit values. Its table
 
 ## The floor on 44b6_0113de3b (23 September)
 
-All from the frames themselves, read through `maint/zarr_frames.py`. The scripts are scratch (`linear_complexity.py`, `conditional_floor.py`, `photon_transfer.py`, `coherence.py`), not in the tree.
+All from the frames themselves, read through `cell_tracking/maint/zarr_frames.py`. The scripts are scratch (`linear_complexity.py`, `conditional_floor.py`, `photon_transfer.py`, `coherence.py`), not in the tree.
 
 **No linear generator in the low planes (C12).** Berlekamp–Massey gives the exact shortest linear feedback shift register over GF(2) that produces a bit sequence: its linear complexity L. Random bits give L near n/2. Any linear generator (xorshift, an LFSR, any linear congruential low bit) gives L at its state size, whatever n is. "Low" below means L ≤ n/2 − 8, which random bits reach with probability about 2⁻¹⁶.
 
@@ -332,7 +332,7 @@ All on 44b6_0113de3b, against the 340,189,016-byte stream, each variant decoded 
 | the same along y | +6.4, +11.3, +12.1 MB | refuted |
 | the same along t | +1.35, +2.10, +0.18 MB | refuted: real temporal structure, but the pivot shear costs more than it takes |
 | each floor's rectangles row by row | −1,157,533 bytes | measured: grouping by floor helps; not built into the coder |
-| shells of squared radius, each swept by angle | +658,073 bytes | refuted for the angle sweep only; the golden order (k(φ − 1) mod 1, `maint/emit_spiral_table.py`) is untested |
+| shells of squared radius, each swept by angle | +658,073 bytes | refuted for the angle sweep only; the golden order (k(φ − 1) mod 1, `cell_tracking/maint/emit_spiral_table.py`) is untested |
 | 2 along t, each floor apart | −1,987,962 bytes | measured on this sample; hurts on most others (the e − 1 rows below) |
 | 2, 4, 8 along t, rotated onto each floor's line | −1.88, −1.63, −1.47 MB | refuted: worse than no rotation at every n |
 | pairs along t over rectangles, the savings ratio | 1.7174 here, then −8.29, 0.44, −73.2, −1.60 on four more samples | refuted: a coincidence |

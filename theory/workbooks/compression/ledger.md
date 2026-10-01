@@ -21,7 +21,7 @@ Stream sizes against the residue as the .kcr writes it, sample 44b6_0113de3b, 34
 | along y | +6.4, +11.3, +12.1 MB | refuted |
 | along t | +1.35, +2.10, +0.18 MB | refuted: real temporal structure, but the pivot shear costs more than it takes |
 | each floor's rectangles row by row | −1,157,533 bytes | grouping by floor helps |
-| each floor's rectangles in shells of squared radius, each shell swept by angle | +658,073 bytes | this was NOT the golden spiral: it swept each shell in angle order, neighbor after neighbor, where the golden order (maint/emit_spiral_table.py) ranks a shell by k(φ − 1) mod 1 so no direction repeats at any prefix. It refutes the angle sweep only; the golden order is untested here |
+| each floor's rectangles in shells of squared radius, each shell swept by angle | +658,073 bytes | this was NOT the golden spiral: it swept each shell in angle order, neighbor after neighbor, where the golden order (cell_tracking/maint/emit_spiral_table.py) ranks a shell by k(φ − 1) mod 1 so no direction repeats at any prefix. It refutes the angle sweep only; the golden order is untested here |
 | 2 along t, each floor apart | −1,987,962 bytes | helps on this sample |
 | 2, 4, 8 along t rotated onto each floor's line | −1.88, −1.63, −1.47 MB | refuted: rotation is worse than no rotation at every n |
 
@@ -57,7 +57,7 @@ A synthetic set with a known generator, against which every code length can be c
 
 ### The floor on 44b6_0113de3b
 
-Read from the frames through `maint/zarr_frames.py`, about 78 s a read. The scripts are scratch (`linear_complexity.py`, `conditional_floor.py`, `photon_transfer.py`, `coherence.py`), not in the tree. The tables in full, and the algebra behind each reading, are in [compression_table.md](compression_table.md).
+Read from the frames through `cell_tracking/maint/zarr_frames.py`, about 78 s a read. The scripts are scratch (`linear_complexity.py`, `conditional_floor.py`, `photon_transfer.py`, `coherence.py`), not in the tree. The tables in full, and the algebra behind each reading, are in [compression_table.md](compression_table.md).
 
 | what | samples | result | settles |
 |---|---|---|---|

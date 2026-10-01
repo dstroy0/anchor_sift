@@ -11,7 +11,7 @@ import urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_NAME = re.compile(r"^[A-Za-z0-9_]+$")
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(HERE))), "maint"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(HERE)), "cell_tracking", "maint"))
 import zarr_frames
 
 
