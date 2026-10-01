@@ -372,6 +372,11 @@ works there.
     the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
 
+14. **SHA-256 is not the tree's own.** `utils/bench/bench_ab.c`, `bench_cycles.c`, `bench_entropy.c` and
+    `bench_sift.c` include `mmgr_sha256.h`, a header no file in this tree holds, and nothing builds them.
+    `mmgr_sha256` becomes a generic SHA-256 held in this tree, checked against the published vectors in
+    `utils/test/src/cu/transpiler/qasm/vectors/`, and the four drivers include it.
+
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into orior. Don't start without direction.
 
