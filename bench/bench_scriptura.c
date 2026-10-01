@@ -80,7 +80,7 @@ static unsigned long long bench_crt_find(const void *from, unsigned char value, 
 {
     // the byte count is at most the bench buffer, which a size_t holds
     const unsigned char *const found = (const unsigned char *)memchr(from, value, (size_t)bytes);
-    // the match lies inside the region, so its offset from the start is non-negative
+    // the match lies inside the region: its offset from the start is non-negative
     return (found == NULL) ? bytes : (unsigned long long)(found - (const unsigned char *)from);
 }
 
