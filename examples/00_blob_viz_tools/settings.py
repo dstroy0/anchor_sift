@@ -19,6 +19,10 @@ One definition per setting serves both the --set command and the shared control 
 the settings its bar carries and hands `schema` the names; the bar draws a control per entry from
 the kind, the range and the fallback held here. The command and the bar read one source, and a
 setting cannot mean one thing on the command line and another in the bar.
+
+A unit whose control covers less than a setting's full range narrows it to a sub-range here, never
+wider, and the bar it injects carries that sub-range. A camera distance means a different span in a
+scene built around a fixed ball than in one without, and one global range cannot carry both.
 """
 
 import sys
@@ -65,6 +69,38 @@ KNOWN = {
 }
 
 
+# A unit may narrow a bounded setting to a sub-range of KNOWN. schema() reads the narrowing for a
+# named unit, and the bar it injects bounds that control to the sub-range. The control then
+# represents the range the command enforces, and no value valid on one is refused by the other. A
+# narrowing only tightens: the containment below stops a widening, a control admitting a value the
+# command refuses.
+NARROW = {
+    "sphere": {"distance": {"low": 105, "high": 600}},
+}
+
+
+def _check_narrowings():
+    """Every narrowing names a bounded KNOWN setting and sits inside its range, checked at load."""
+    for unit, narrowing in NARROW.items():
+        for name, bound in narrowing.items():
+            if name not in KNOWN:
+                raise ValueError("narrowing for %s names unknown setting %s" % (unit, name))
+            rule = KNOWN[name]
+            if rule.get("low") is None and rule.get("high") is None:
+                raise ValueError("%s has no range to narrow for %s" % (name, unit))
+            low = bound.get("low")
+            high = bound.get("high")
+            if low is not None and rule.get("low") is not None and low < rule["low"]:
+                raise ValueError("%s narrows below KNOWN for %s: %s under %s"
+                                 % (name, unit, low, rule["low"]))
+            if high is not None and rule.get("high") is not None and high > rule["high"]:
+                raise ValueError("%s narrows above KNOWN for %s: %s over %s"
+                                 % (name, unit, high, rule["high"]))
+
+
+_check_narrowings()
+
+
 def _range(rule):
     """The range line for one rule: its words, its bounds, or empty when it is open."""
     if "words" in rule:
@@ -89,14 +125,23 @@ def usage():
     return "\n".join(lines)
 
 
-def schema(names):
+def schema(names, narrow=None):
     """The bar schema for the named settings: kind, range and fallback, read from KNOWN.
 
     A unit lists the settings its bar carries and hands the result to the page. The bar draws a
     control per entry from exactly this. The definition the --set command reads and the definition
     the bar reads are one and the same. An unknown name exits before the page ships a bar with a
     control the command cannot set.
+
+    A unit whose control is narrower than a setting's full range names its narrowing, and the entry
+    carries the sub-range NARROW holds for it instead of the KNOWN range.
     """
+    bounds = {}
+    if narrow is not None:
+        if narrow not in NARROW:
+            sys.stderr.write("no narrowing named %s\n" % narrow)
+            raise SystemExit(1)
+        bounds = NARROW[narrow]
     out = {}
     for name in names:
         if name not in KNOWN:
@@ -107,6 +152,10 @@ def schema(names):
         for key in ("low", "high", "words"):
             if key in rule:
                 entry[key] = rule[key]
+        if name in bounds:
+            for key in ("low", "high"):
+                if key in bounds[name]:
+                    entry[key] = bounds[name][key]
         out[name] = entry
     return out
 

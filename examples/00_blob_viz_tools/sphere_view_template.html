@@ -201,6 +201,16 @@
   .warn {
     color: var(--hot);
   }
+  .open-report {
+    margin: 8px 0 0;
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: var(--dim);
+    min-height: 1.5em;
+  }
+  .open-report.refused {
+    color: var(--hot);
+  }
 </style>
 
 <div id="stage"></div>
@@ -239,9 +249,10 @@
   </div>
   <div class="row">
     <label>opacity</label>
-    <input type="range" id="fade" min="25" max="100" value="94" />
+    <input type="range" id="fade" min="15" max="100" value="94" />
     <span class="val" id="fadeOut">94</span>
   </div>
+  <p id="open-report" class="open-report"></p>
 </div>
 
 <div class="box" id="counts" style="right: 14px; top: 70px; width: 268px">
@@ -263,6 +274,7 @@
   <div class="scroll"><table id="pairTable"></table></div>
 </div>
 
+<script>/*CONTROL_BAR*/</script>
 <script>
   var DATA = /*SPHERE_DATA*/ null;
 
@@ -946,20 +958,52 @@
   window.addEventListener("resize", fit);
   fit();
 
-  // Opening state, where the caller asked for one.
-  var opening = DATA.settings || {};
-  if (opening.theme) {
-    document.documentElement.setAttribute("data-theme", opening.theme);
+  // Opening appearance through the shared control bar's model. The schema is the build's one settings
+  // source: a value of the wrong kind or out of range is named in the report below and never applied,
+  // and a key the build leaves out keeps the page default. The sphere's own reading controls are
+  // untouched. The bar governs the chrome the page can honor: the theme, the backdrop the transparent
+  // canvas lets through, the opening observer distance, and how present the boxes are. The observer
+  // distance opens on a range narrowed to this scene, a span a ball-centered view needs and an open
+  // one does not, and a value past it comes back named and refused under the range the slider carries.
+  var SCHEMA = DATA.schema || {};
+  var SET = DATA.settings || {};
+  var wanted = BAR.defaultView(SCHEMA);
+  var report = BAR.applyView(wanted, SET, SCHEMA);
+
+  function given(key) {
+    return report.applied.indexOf(key) >= 0;
   }
-  if (opening.distance) {
+
+  if (given("theme")) {
+    document.documentElement.setAttribute("data-theme", wanted.theme);
+  }
+  if (given("background")) {
+    document.body.style.background = wanted.background;
+  }
+  if (given("distance")) {
     var slider = document.getElementById("dist");
-    slider.value = String(Math.max(105, Math.min(600, opening.distance)));
+    slider.value = String(wanted.distance);
     slider.dispatchEvent(new Event("input"));
   }
-  if (typeof opening.opacity === "number" && opening.opacity > 0) {
+  if (given("opacity")) {
     var fader = document.getElementById("fade");
-    fader.value = String(opening.opacity);
+    fader.value = String(wanted.opacity);
     fader.dispatchEvent(new Event("input"));
+  }
+
+  // The report line. A refusal is named; otherwise the keys the build set are listed, and an empty
+  // settings object opens at the page defaults and says so.
+  var reportEl = document.getElementById("open-report");
+  if (reportEl) {
+    reportEl.classList.remove("refused");
+    if (report.error.length) {
+      reportEl.textContent = "refused " + report.error.join("; ");
+      reportEl.classList.add("refused");
+    } else if (report.applied.length) {
+      reportEl.textContent = "opened with " + report.applied.join(", ");
+    } else {
+      reportEl.textContent = "opened at the page defaults";
+    }
   }
 
   refresh(true);
@@ -972,5 +1016,82 @@
     renderer.render(scene, camera);
     requestAnimationFrame(turn);
   }
-  turn();
+
+  // ---------------------------------------------------------------------------------------------
+  // Does the loop turn twice?
+  // ---------------------------------------------------------------------------------------------
+  //
+  // A page whose loop throws on its first turn has already had one frame drawn by setup. It renders a
+  // complete, correct, still picture. The build succeeds, the parse check passes, and every feature
+  // past the throw does nothing, every feature sitting past it. Nothing outside the page catches that
+  // cheaply, a runtime fault in a file that parses, and the page reports on itself.
+  //
+  // Two turns and not one, a dead loop producing exactly one.
+  var LOOP_WATCH_MS = 1500;
+  var loopTurns = 0;
+  //
+  // Two ways the loop stops, and they are not the same event. A throw is fatal, the next turn throwing
+  // the same way. Slowness is a report and stops nothing.
+  //
+  // One flag for both does not work: the guard errors under it and does not run. setTimeout runs in a
+  // background tab and requestAnimationFrame does not. A page opened in a tab that is not visible
+  // completes one turn, is declared dead on schedule, and never runs again even once brought to the
+  // front. One shared flag lets the watchdog kill the loop.
+  var loopThrew = null;
+  var loopWarned = false;
+  window.__loopHealth = { ok: null, turns: 0, why: "not checked yet" };
+
+  function loopOutOfSight() {
+    return typeof document !== "undefined" && document.visibilityState === "hidden";
+  }
+
+  function loopSay(why, detail) {
+    window.__loopHealth = { ok: false, turns: loopTurns, why: why, detail: detail || "" };
+    if (window.console && console.error) { console.error("FRAME LOOP: " + why, detail || ""); }
+  }
+
+  function loopFailed(why, detail) {
+    loopThrew = why;
+    loopSay(why, detail);
+  }
+
+  function guardedTurn() {
+    if (loopThrew) { return; }
+    try {
+      turn();
+    } catch (thrown) {
+      loopFailed("threw on turn " + (loopTurns + 1) + ", " + String(thrown),
+                 String(thrown && thrown.stack ? thrown.stack : ""));
+      return;
+    }
+    loopTurns += 1;
+    if (loopTurns >= 2 && window.__loopHealth.ok !== true) {
+      window.__loopHealth = { ok: true, turns: loopTurns, why: "the loop turned twice" };
+    }
+  }
+
+  var loopScheduled = requestAnimationFrame;
+  requestAnimationFrame = function (fn) { return loopScheduled(fn === turn ? guardedTurn : fn); };
+
+  function loopWatch() {
+    if (loopThrew || loopWarned) { return; }
+    // Hidden is not slow. The frame clock is stopped by the browser, nothing to judge, and the
+    // question is asked again later instead of answered wrongly now.
+    if (loopOutOfSight()) { setTimeout(loopWatch, LOOP_WATCH_MS); return; }
+    if (loopTurns < 2) {
+      loopWarned = true;
+      loopSay("only " + loopTurns + " turn(s) in " + LOOP_WATCH_MS + " ms",
+              "a page that renders one frame and stops looks correct and is not");
+    }
+  }
+
+  setTimeout(loopWatch, LOOP_WATCH_MS);
+
+  if (typeof document !== "undefined" && document.addEventListener) {
+    document.addEventListener("visibilitychange", function () {
+      if (!loopOutOfSight() && !loopThrew && loopTurns < 2) { setTimeout(loopWatch, LOOP_WATCH_MS); }
+    });
+  }
+
+  guardedTurn();
 </script>
