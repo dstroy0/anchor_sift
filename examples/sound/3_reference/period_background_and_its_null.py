@@ -102,7 +102,7 @@ def main():
 
     out.write("\n  the true period stands far above its shuffle; the others sit near it. the reference\n")
     out.write("  invents nothing a shuffle does not also reach. The part that clears the null is\n")
-    out.write("  the whole of the reading. this is the null a sound measurement had been missing.\n")
+    out.write("  the whole reading. This is the null a sound measurement had been missing.\n")
     out.flush()
     return 0
 

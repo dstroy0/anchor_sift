@@ -93,7 +93,7 @@ def main():
     out.write("correlation between the departure and the win share: %.3f\n"
               % correlation(ratios, wins))
     out.write("\nThe rules are in every row and the play is in none of them. The flip rule turns over\n"
-              "a bracketed run whoever picked the move, so a strong player and a weak one leave the\n"
+              "a bracketed run whoever picked the move. A strong player and a weak one leave the\n"
               "same kind of trace and differ in where they put it. This measure reads what was done\n"
               "to the board and not who chose it.\n")
 

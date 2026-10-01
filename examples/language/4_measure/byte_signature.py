@@ -159,7 +159,7 @@ def main():
     out.write(
         "\n  those distances carry the writing as well as the language. nɬeʔkepmxcín is\n"
     )
-    out.write("  written in NAPA and shares almost no bytes with Cyrillic. That is why\n")
+    out.write("  written in NAPA and shares almost no bytes with Cyrillic:\n")
     out.write(
         "  Russian sits at 1.0000. Cutting a language in half compares it with itself\n"
     )

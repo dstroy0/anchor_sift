@@ -106,7 +106,7 @@ def main():
             random.Random(width).shuffle(grid)
             if sequence_period(grid, longest=2 * width)[0] == width:
                 hits += 1
-    out.write("  the same grids shuffled return the width on %d of %d, which is the chance rate\n"
+    out.write("  the same grids shuffled return the width on %d of %d, the chance rate\n"
               % (hits, 20 * len(WIDTHS)))
 
     out.flush()

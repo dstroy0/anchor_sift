@@ -207,7 +207,7 @@ def main():
     out.write("\n")
 
     if not positive_control(out):
-        out.write("\n  the positive control did not recover its planted split. Erroring rather than write a\n")
+        out.write("\n  the positive control did not recover its planted split. It errors and writes no\n")
         out.write("  ruleset: a grouping found by a method that cannot find a known one means nothing.\n")
         out.flush()
         return 1

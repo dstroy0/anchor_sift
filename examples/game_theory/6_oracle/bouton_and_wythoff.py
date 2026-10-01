@@ -71,7 +71,7 @@ def main():
         out.write("  %d heaps of %-3d  %6d lines  counts seen %s  loss density %.5f\n"
                   % (heaps, side, len(counts), sorted(set(counts)), density))
     out.write("  a set of the same density scattered over the same cells puts exactly one in a line\n"
-              "  of %d with probability %.3f, so all-ones over %d lines is not what a scatter gives\n"
+              "  of %d with probability %.3f. All-ones over %d lines is not what a scatter gives\n"
               % (heap, ((1.0 - (1.0 / heap)) ** (heap - 1)), heap ** 2))
 
     out.write("\nWythoff, losing positions (Wythoff 1907)\n")

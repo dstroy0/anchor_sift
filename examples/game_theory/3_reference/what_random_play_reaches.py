@@ -119,8 +119,8 @@ def main():
     print(
         "Two arms agreeing is a positive control for the estimator, not a result about the games.\n"
         "It is here because stage four reports a number for chess, where no enumerated arm exists\n"
-        "and nothing else can catch the estimator being wrong. An estimator that cannot reproduce\n"
-        "blackjack has nothing to say about chess, and this is where that is checked."
+        "and nothing can catch the estimator being wrong. An estimator that cannot reproduce\n"
+        "blackjack has nothing to say about chess, and that is checked here."
     )
 
 

@@ -259,7 +259,7 @@ def main():
     for how_many, count in sorted(order.items()):
         out.write("     %-3d elements   %d positions\n" % (how_many, count))
     out.write(
-        "     two is the ordinary case. The tail is not noise: a rare earth site takes\n"
+        "     two is ordinary. The tail is not noise: a rare earth site takes\n"
     )
     out.write(
         "     whichever lanthanides were available when the crystal grew, and a spinel\n"
