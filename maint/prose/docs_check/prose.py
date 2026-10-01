@@ -86,11 +86,7 @@ def tex_prose(lines):
     rest, the same trade prose_only already makes about string literals in source.
     """
     kept = []
-    # The quoting markers are themselves TeX comments, so a quieted region is blanked on the raw
-    # lines here, before the percent strip below carries the markers off with the rest of the
-    # comments. Because quieted preserves line numbers, the markup pass reads a blanked line as it
-    # reads any other.
-    for line in quieted(lines):
+    for line in lines:
         held = line
 
         # Comment to end of line, on an unescaped percent. A note to a co-author is prose and would
@@ -104,6 +100,11 @@ def tex_prose(lines):
         held = re.sub(r"(?<!\\)\$.*?(?<!\\)\$", " ", held)
         held = re.sub(r"\\\[.*?\\\]", " ", held)
         held = re.sub(r"\\\(.*?\\\)", " ", held)
+
+        # A quotation in TeX's own markup, ``like this'', is a sentence somebody else wrote, and it
+        # goes the way a string literal goes in source. TeX marks the quotation itself, and no
+        # comment in the file has to.
+        held = re.sub(r"``.*?''", " ", held)
 
         # Commands whose braces hold an identifier and never a sentence. The argument goes with the
         # command. \allowbreak{} appears mid-path in this tree's citations and would otherwise leave
@@ -131,7 +132,7 @@ def tex_prose(lines):
         held = held.replace("&", " ").replace("\\\\", " ")
 
         kept.append(held)
-    return kept
+    return quieted(kept)
 
 
 # A quoted or apostrophized span, blanked before a `#` is looked for. A hash inside a string is
