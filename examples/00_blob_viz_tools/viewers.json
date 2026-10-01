@@ -97,10 +97,11 @@
     },
     {
       "builder": "build_room_view.py",
-      "builder_digest": "5d3d91189baa4cd017d8a4854ad14d36e24f857c43cb25b1a6e80215fce4794b",
+      "builder_digest": "c2eb410f01494f76d3dc44751243a643b2939cf533255f4e6d4cfb5969416a65",
       "optional": [
         "clock",
         "core",
+        "schema",
         "settings",
         "sources"
       ],
@@ -110,15 +111,16 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
       "writes": "room_view.html"
     },
     {
       "builder": "build_sha_clock_view.py",
-      "builder_digest": "3b987fe87003d74c149d0e4542fcafa89aec5dfd3cec1f8dbaef890eeaf061b1",
+      "builder_digest": "9c6515d31aff0610710fc548b2d873f41c441d880835d7c229eb29095235147a",
       "optional": [
         "clock",
         "core",
+        "schema",
         "settings",
         "sources"
       ],
@@ -128,7 +130,7 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
       "writes": "sha_clock_view.html"
     },
     {
@@ -146,10 +148,11 @@
     },
     {
       "builder": "build_sha_room_view.py",
-      "builder_digest": "6449cd917e86975354abc33df97887db67c7ced9770197db800a9b7292142810",
+      "builder_digest": "1e6b5b0e7de5bc466c2ba48a1fb3186fed9d8e5feff367f68d9acdd51029833c",
       "optional": [
         "clock",
         "core",
+        "schema",
         "settings",
         "sources"
       ],
@@ -159,7 +162,7 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "8043eec9fbf62f96acef6c95d10c6ae57e21dc2c9a9145da578de137419929ed",
+      "template_digest": "d3a4da4916aa04ec33dc750e524e10a48b374ff7d1c3738dee9c71f32c5ccf5a",
       "writes": "sha_room_view.html"
     },
     {

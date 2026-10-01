@@ -1,13 +1,8 @@
-#!/usr/bin/env python3
-# anchor_sift - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Catalog: VIZ-x-007
-#
 """A dark room you stand inside, with a beam you carry and things that stop it.
 
-    python examples/00_blob_viz_tools/build_room_view.py
-    python examples/00_blob_viz_tools/build_room_view.py --shell cube --things 9 --seed 4
-    python examples/00_blob_viz_tools/build_room_view.py --blob firmware.bin
+    python tools/view/build_room_view.py
+    python tools/view/build_room_view.py --shell cube --things 9 --seed 4
+    python tools/view/build_room_view.py --blob firmware.bin
 
   --shell     the enclosing wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
   --core      the shell holding the lights: sphere, cube, octahedron, cone. Default cube.
@@ -50,6 +45,7 @@ import os
 import re
 import sys
 
+import out_path
 import settings
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -225,12 +221,11 @@ def main():
         sys.stderr.write("the template has no place for the control bar\n")
         return 1
     page = page[:slot.start()] + bar + page[slot.end():]
-
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
-    out = option("--out", os.path.join(HERE, "room_view.html"))
+    out = out_path.resolve("room_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(page)
 

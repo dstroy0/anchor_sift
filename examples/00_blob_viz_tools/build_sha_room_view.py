@@ -1,8 +1,8 @@
 """Puts the measured SHA-256 dependency field inside the room, as a solid you stand within.
 
-    python examples/00_blob_viz_tools/build_sha_room_view.py
-    python examples/00_blob_viz_tools/build_sha_room_view.py --field inbit --every 16
-    python examples/00_blob_viz_tools/build_sha_room_view.py --glow random --shell dodecahedron
+    python tools/view/build_sha_room_view.py
+    python tools/view/build_sha_room_view.py --field inbit --every 16
+    python tools/view/build_sha_room_view.py --glow random --shell dodecahedron
 
   --field     which cut of the field: outbit, inbit, residue, word. Default outbit.
   --every     keep one direction in this many, to hold the body count down. Default 8.
@@ -281,7 +281,7 @@ def main():
         "every": every, "rounds": carried, "glow": glow, "seed": seed,
     })
 
-    # A body count large enough to stall the page is worth erroring instead of shipping. The room
+    # A body count large enough to stall the page is worth refusing instead of shipping. The room
     # walks every body once a frame and renders the casters again for each face of each source's
     # shadow cube. The cost is real and it lands on the reader and not here.
     if len(things) > 6000:
@@ -312,7 +312,6 @@ def main():
         sys.stderr.write("the template has no place for the control bar\n")
         return 1
     page = page[:slot.start()] + bar + page[slot.end():]
-
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
