@@ -3,10 +3,10 @@
 #ifndef PERIOD_TEST_INTERNAL_H
 #define PERIOD_TEST_INTERNAL_H
 
-#include "period.h"
+#include "../../../../../../../src/c/engine/analysis/period/period.h"
 
-#include "device_pool.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/runtime/device_pool/device_pool.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

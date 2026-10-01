@@ -1,7 +1,7 @@
 # Keys, explained from the ground up
 
 **Purpose:** Explain, from first principles and with this engine's own numbers, the ideas a programmer's defaults push against hardest: that a whole program becomes one small exact object, that applying it is AND and add, that any number of operations can fit in a key of fixed size, that a check costs no pass of its own, and that exact arithmetic has no floor. Each was resisted in this project before it was built, and each held once built. They are explained here thoroughly so the next reader does not have to be argued into them.
-**Scope:** orior's `src/engine/compiler/keymath/`, `src/engine/compiler/key_schedule/`, `src/engine/compiler/cycle/`, `src/engine/codecs/crc/`, every place a key is folded into a pass, and the hand-offs between modules: the plain structs in `src/engine/engine_config.h` and their composition in the entry, `src/engine/engine_*.cu`. The ledger's statuses ([README.md](README.md)) apply to every claim.
+**Scope:** orior's `src/c/engine/analysis/keymath/`, `src/c/engine/analysis/key_schedule/`, `src/c/engine/analysis/cycle/`, `src/c/includes/codecs/crc/`, every place a key is folded into a pass, and the hand-offs between modules: the plain structs in `src/c/engine/engine_config.h` and their composition in the entry, `src/engine/engine_*.cu`. The ledger's statuses ([README.md](README.md)) apply to every claim.
 
 ## 0. Why these ideas get resisted
 

@@ -8,13 +8,13 @@
 // core decides is counted. A form the lane never decides is not a blocker whatever the ruleset says about it, and a
 // form it decides that the ruleset leaves empty is exactly what stands between here and a lane. No device, no
 // toolchain, and nothing is written: decide() only says which forms a lane is made of.
-#include "record_programs.h"
+#include "../../test/src/c/engine/analysis/cycle/record_programs.h"
 
 // the cubin writer is C and its headers carry no guard of their own: the linkage is named here
 extern "C"
 {
-#include "sass_assemble.h"
-#include "sass_machine.h"
+#include "../../../src/c/transpiler/cubin/sass_assemble.h"
+#include "../../../src/c/types/file_defs/krs/sass_machine.h"
 }
 
 #include "machine_ir_types.h"
@@ -154,7 +154,7 @@ int main(void)
     {
         return 1;
     }
-    s_machine_read = sass_machine_read(&s_machine, "src/engine/compiler/cubin/machines/sm_86");
+    s_machine_read = sass_machine_read(&s_machine, "src/c/transpiler/cubin/machines/sm_86");
     printf("machine %s: %u forms\n", s_machine.part, s_machine.forms);
     static unsigned int asked[OPCODE_COUNT];
     unsigned int laid = 0u;

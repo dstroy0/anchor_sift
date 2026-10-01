@@ -7,7 +7,7 @@
 // capacity too small writes nothing and returns the count), a flat positive field gives the one first voxel, a field
 // with no positive voxel gives none, and a malformed request, a width of no limbs among them, errors. The test is one
 // job on the device's tessera daemon, submitted before its first device work.
-#include "exact_integer.h"
+#include "../../../../../src/c/types/integers/exact_integer.h"
 #include "peaks.h"
 #include "sim.h"
 

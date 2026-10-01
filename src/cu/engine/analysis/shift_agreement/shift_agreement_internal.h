@@ -3,9 +3,9 @@
 #ifndef SHIFT_AGREEMENT_INTERNAL_H
 #define SHIFT_AGREEMENT_INTERNAL_H
 
-#include "../../../../engine/analysis/shift_agreement/shift_agreement.h"
+#include "../../../../c/engine/analysis/shift_agreement/shift_agreement.h"
 
-#include "device_pool.h"
+#include "../../../../c/engine/runtime/device_pool/device_pool.h"
 
 #include <cuda_runtime.h>
 

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "relate_frames.h"
 
-#include "body_overlap.h"
-#include "climb_machine.h"
-#include "golden_bands.h"
-#include "shift_agreement.h"
+#include "../../../../src/c/engine/nbody/body_overlap/body_overlap.h"
+#include "../../../../src/c/engine/nbody/climb_machine/climb_machine.h"
+#include "../../../../src/c/engine/analysis/golden_bands/golden_bands.h"
+#include "../../../../src/c/engine/analysis/shift_agreement/shift_agreement.h"
 #include "track.h"
 
 #include <stdio.h>

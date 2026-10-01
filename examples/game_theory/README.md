@@ -2,8 +2,8 @@
 
 **Purpose:** Measure how much of a game's result is still open after a move is chosen, on four games
 that carry their own answer key, and show what pruning the opponent's replies does to that number.
-**Scope:** `examples/game_theory/`, over `src/engine/python/representation/game/`,
-`src/engine/python/measure/outcome_entropy.py` and `src/engine/python/measure/periodicity.py`
+**Scope:** `examples/game_theory/`, over `src/python/includes/formats/representation/game/`,
+`src/python/engine/analysis/measure/outcome_entropy.py` and `src/python/engine/analysis/measure/periodicity.py`
 
 | stage         | script                                     | what it answers                                                            |
 | ------------- | ------------------------------------------ | -------------------------------------------------------------------------- |

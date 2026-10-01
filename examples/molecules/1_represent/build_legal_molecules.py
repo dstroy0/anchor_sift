@@ -28,11 +28,12 @@ import sys
 # A directory that is its own parent would otherwise loop the walk forever. Counting is what broke
 # every path in this tree the last time anything moved.
 ROOT = os.path.dirname(os.path.abspath(__file__))
-while ROOT != os.path.dirname(ROOT) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while ROOT != os.path.dirname(ROOT) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-if not os.path.isdir(os.path.join(ROOT, "src", "engine")):
-    raise SystemExit("could not find src/engine above %s" % os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+if not os.path.isdir(os.path.join(ROOT, "src", "python")):
+    raise SystemExit("could not find src/python above %s" % os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 from measure.graph_realizable import connected_multigraph  # noqa: E402
 from representation.atom import element  # noqa: E402

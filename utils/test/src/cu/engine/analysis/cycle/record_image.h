@@ -3,11 +3,11 @@
 #define RECORD_IMAGE_H
 
 // The tests that run a language's lane off the device and hold it to the host oracle (record_vhdl_test.cpp,
-// record_c_test.cpp): the programs drawn as record_host_test draws them, in its order, each handed to the test's own
+// record_c_test.cpp): the programs drawn as record_test draws them, in its order, each handed to the test's own
 // run; the memory image a lane runs over, laid out as the device lays out its launch; and the files a lane's bench
 // reads the image from and writes its records to. It compiles as C++
 
-#include "../../../../../engine/compiler/cycle/record_programs.h"
+#include "../../../../c/engine/analysis/cycle/record_programs.h"
 #include "target.h"
 
 #include <stddef.h>
@@ -143,7 +143,7 @@ static int record_image_read(const std::string &path, const RecordImage *image, 
 typedef void (*RecordImageRun)(void *context, const HostProgram *program, int reuse, unsigned int *const *atoms,
                                const unsigned long long *bodies, const unsigned int *index, int errors);
 
-// every program record_host_test runs, drawn as it draws them, in its order, each handed to `run`
+// every program record_test runs, drawn as it draws them, in its order, each handed to `run`
 static void record_image_programs(void *context, RecordImageRun run)
 {
     HostProgram program;

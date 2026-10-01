@@ -3,7 +3,7 @@
 #
 # The permutation null measure, in R.
 #
-# This is a port of the rare half in src/engine/python/measure/dispersion.py, the tail that
+# This is a port of the rare half in src/python/engine/analysis/measure/dispersion.py, the tail that
 # evidence/proofs/posits/proof_conservation.py computes too. It computes the same measure and not the same
 # number: the null is a shuffle, R draws it from its own generator, and a value agrees with the Python's
 # only as far as the reseeding floor allows. Where the two disagree past that the Python is the

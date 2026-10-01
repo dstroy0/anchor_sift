@@ -35,9 +35,9 @@ for WIDTH in ${EXACT_TEST_WIDTHS:-"-DANCHOR_EXACT_LIMBS=128u" "-DANCHOR_EXACT_LI
     NAME="$(echo "$WIDTH" | tr -cd '0-9')"
     BINARY="$OUT/exact_transform_test_$NAME$SUFFIX"
     rm -f "$BINARY"
-    nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "$WIDTH" "$@" -I "$TOP/src/engine/arithmetic" -o "$BINARY" \
+    nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "$WIDTH" "$@" -I "$TOP/src/c/types/integers" -o "$BINARY" \
         "$TEST/exact_transform_test.cu" \
-        "$TOP/src/engine/arithmetic/no_rounding"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
+        "$TOP/src/c/types/integers"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
         > "$OUT/build_$NAME.log" 2>&1
     [ -f "$BINARY" ] || { echo "  build failed at $WIDTH:"; cat "$OUT/build_$NAME.log"; exit 1; }
     "$BINARY"

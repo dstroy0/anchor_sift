@@ -37,9 +37,10 @@ import numpy
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 ROOT = HERE
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 from measure.clustering import correlation
 from measure.shift_agreement import lattice_agreement

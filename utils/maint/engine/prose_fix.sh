@@ -31,23 +31,23 @@ edit() {
 
 mkdir -p "$TOP/build"
 
-edit src/engine/compiler/cubin/sass_assemble.c 129 \
+edit src/c/transpiler/cubin/sass_assemble.c 129 \
     "the number's high word. strtoull stops at the dot," "the number's high word. strtoull stops at the dot:"
-edit src/engine/compiler/cubin/sass_assemble.c 179 \
+edit src/c/transpiler/cubin/sass_assemble.c 179 \
     "change one operand, which is the field and whatever" "change one operand: the field and whatever"
-edit src/engine/compiler/cubin/sass_assemble.c 204 \
+edit src/c/transpiler/cubin/sass_assemble.c 204 \
     "a label that names a symbol rather than a label of the text" "a label that names a symbol and not a label of the text"
-edit src/engine/compiler/cubin/sass_assemble.c 205 \
+edit src/c/transpiler/cubin/sass_assemble.c 205 \
     "the loader fills it, so the instruction is checked" "the loader fills it. The instruction is then checked"
-edit src/engine/compiler/cubin/sass_assemble.c 264 \
+edit src/c/transpiler/cubin/sass_assemble.c 264 \
     "A barrier no instruction set is already at rest, so waiting on all" "A barrier no instruction set is already at rest, and waiting on all"
-edit src/engine/compiler/cubin/sass_assemble.h 7 \
+edit src/c/transpiler/cubin/sass_assemble.h 7 \
     "the base carries its own operands, so" "the base carries its own operands, and"
-edit src/engine/compiler/cubin/sass_machine.c 57 \
+edit src/c/types/file_defs/krs/sass_machine.c 57 \
     "register by its number alone, so the pair beginning at R14" "register by its number alone, and the pair beginning at R14"
-edit src/engine/compiler/cubin/sass_machine.c 190 \
+edit src/c/types/file_defs/krs/sass_machine.c 190 \
     "a system register is named, not counted, so two instructions that" "a system register is named, not counted, and two instructions that"
-edit src/engine/compiler/cubin/sass_machine.h 8 \
+edit src/c/types/file_defs/krs/sass_machine.h 8 \
     "operand fields hold, so the encoding a form was first seen with" "operand fields hold, and the encoding a form was first seen with"
 
 rm -f "$TOP/build/prose_fix.line"

@@ -7,11 +7,11 @@
 // and drawn words; a merge's request carries words past every mask: the masking is asked as well. The test is
 // one job on the device's tessera daemon.
 #include "codegen_device.h"
-#include "cycle.h"
-#include "double_fields.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/types/integerfloats/double_fields/double_fields.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 #include <cuda_runtime.h>
 #include <stdlib.h>

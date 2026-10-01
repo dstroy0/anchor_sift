@@ -48,7 +48,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 PAPERS = os.path.join(ROOT, "build", "papers")
 
 sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python", "engine", "nbody", "orior", "instrument"))
 
 import docs_check  # noqa: E402
 from english_sift import english_reference, looks_like_writing, surprise  # noqa: E402

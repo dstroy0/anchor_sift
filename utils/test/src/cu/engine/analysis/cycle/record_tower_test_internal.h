@@ -19,11 +19,11 @@
 // that is not earlier, a capacity too small, an empty extent and a malformed step, leaving the program as it was.
 // Every sweep gives back the stack its frame grew. The limit after the blocks is the limit before them.
 // The test is one job on the device's tessera daemon, submitted before its first device work.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
 #include "sim.h"
-#include "tower.h"
+#include "../../../../../../../src/c/engine/analysis/tower/tower.h"
 
 #include <algorithm>
 #include <vector>

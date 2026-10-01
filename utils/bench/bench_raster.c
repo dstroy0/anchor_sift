@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "anchor_raster.h"
-#include "orior.h"
+#include "../../src/c/engine/render/anchor_raster.h"
+#include "../../src/c/engine/nbody/orior/orior.h"
 
 #include <stdio.h>
 #include <stdlib.h>

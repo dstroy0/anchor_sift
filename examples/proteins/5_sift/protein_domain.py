@@ -32,7 +32,7 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
 BASE = "https://files.rcsb.org/download/%s.pdb"
 AGENT = {"User-Agent": "orior-research/1.0 (https://github.com/dstroy0/orior; dquigg123@gmail.com)"}

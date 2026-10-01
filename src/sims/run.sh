@@ -20,28 +20,28 @@ if [ "${1:-}" = "--" ]; then
     SIM_ARGUMENTS=("$@")
 fi
 
-SCRIPTURA="$TOP/engine/runtime/scriptura"
-NO_ROUNDING="$TOP/engine/arithmetic/no_rounding"
-PERIOD="$TOP/engine/analysis/period"
+SCRIPTURA="$TOP/c/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/c/types/integers"
+PERIOD="$TOP/c/engine/analysis/period"
 PERIOD_CU="$TOP/cu/engine/analysis/period"
-TOWER="$TOP/engine/analysis/tower"
+TOWER="$TOP/c/engine/analysis/tower"
 TOWER_CU="$TOP/cu/engine/analysis/tower"
-DEVICE_POOL="$TOP/engine/runtime/device_pool"
+DEVICE_POOL="$TOP/c/engine/runtime/device_pool"
 DEVICE_POOL_CU="$TOP/cu/engine/runtime/device_pool"
-COMPRESSION="$TOP/engine/analysis/compression"
+COMPRESSION="$TOP/c/engine/analysis/compression"
 COMPRESSION_CU="$TOP/cu/engine/analysis/compression"
-CYCLE="$TOP/engine/compiler/cycle"
+CYCLE="$TOP/c/engine/analysis/cycle"
 CYCLE_CU="$TOP/cu/engine/analysis/cycle"
-CODEGEN="$TOP/engine/compiler/codegen"
+CODEGEN="$TOP/c/transpiler/codegen"
 CODEGEN_CU="$TOP/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/cu/types/file_defs/krs"
-KEYMATH="$TOP/engine/compiler/keymath"
+KEYMATH="$TOP/c/engine/analysis/keymath"
 KEYMATH_CU="$TOP/cu/engine/analysis/keymath"
-KEY_SCHEDULE="$TOP/engine/compiler/key_schedule"
+KEY_SCHEDULE="$TOP/c/engine/analysis/key_schedule"
 KEY_SCHEDULE_CU="$TOP/cu/engine/analysis/key_schedule"
-ENTROPY_HISTORY="$TOP/engine/analysis/entropy_history"
+ENTROPY_HISTORY="$TOP/c/engine/analysis/entropy_history"
 ENTROPY_HISTORY_CU="$TOP/cu/engine/analysis/entropy_history"
-NOISE_DETECTOR="$TOP/engine/analysis/noise_detector"
+NOISE_DETECTOR="$TOP/c/engine/analysis/noise_detector"
 NOISE_DETECTOR_CU="$TOP/cu/engine/analysis/noise_detector"
 # utils/maint/ is at the repository's root, one above src/
 source "$(cd "$TOP/.." && pwd)/utils/maint/engine/build_stamp.sh"
@@ -117,13 +117,13 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-DAEMON_DIRECTORY="$TOP/engine/runtime/daemon"
-OBSIGNATIO="$TOP/engine/runtime/obsignatio"
+DAEMON_DIRECTORY="$TOP/c/engine/runtime/daemon"
+OBSIGNATIO="$TOP/c/engine/runtime/obsignatio"
 OBSIGNATIO_CU="$TOP/cu/engine/runtime/obsignatio"
-INCLUDES=(-I "$TOP/engine" -I "$SIMS" -I "$SIMS_CU" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$PERIOD" -I "$PERIOD_CU" -I "$TOWER" -I "$TOWER_CU" -I "$DEVICE_POOL"
+INCLUDES=(-I "$TOP/c/engine" -I "$SIMS" -I "$SIMS_CU" -I "$SCRIPTURA" -I "$NO_ROUNDING" -I "$PERIOD" -I "$PERIOD_CU" -I "$TOWER" -I "$TOWER_CU" -I "$DEVICE_POOL"
           -I "$COMPRESSION" -I "$CYCLE" -I "$CYCLE_CU" -I "$KEYMATH" -I "$KEYMATH_CU" -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$DAEMON_DIRECTORY" -I "$OBSIGNATIO" -I "$OBSIGNATIO_CU")
 if [ "$SIM" = "knf_identity" ]; then
-    INCLUDES+=(-I "$TOP/engine/codecs/crc" -I "$TOP/cu/includes/codecs/crc" -I "$ENTROPY_HISTORY")
+    INCLUDES+=(-I "$TOP/c/includes/codecs/crc" -I "$TOP/cu/includes/codecs/crc" -I "$ENTROPY_HISTORY")
 fi
 if [ "$SIM" = "noise_terms" ] || [ "$SIM" = "noise_root" ] || [ "$SIM" = "noise_floor" ]; then
     INCLUDES+=(-I "$NOISE_DETECTOR" -I "$NOISE_DETECTOR_CU")

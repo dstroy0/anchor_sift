@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "../../../../engine/analysis/entropy_history/entropy_history.h"
+#include "../../../../c/engine/analysis/entropy_history/entropy_history.h"
 
 #include "crc.h"
 

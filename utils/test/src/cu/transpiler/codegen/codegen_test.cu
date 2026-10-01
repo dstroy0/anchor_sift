@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The compiler on the device checked against the compiler on the host (engine_table.md item 11(f)(a)).
-// record_host_test's programs, drawn from the same stream in the same order (record_image.h), are laid out on the host
+// record_test's programs, drawn from the same stream in the same order (record_image.h), are laid out on the host
 // by keymath and key_schedule and on the device by the same cores (keymath_core.h, key_schedule_core.h, layout_device):
 // the two layouts must agree word for word. In each language of the register lane, PTX, C and VHDL, the forms the
 // device decides (codegen_device_instrs) must be the host's (CodeGenerator::decided) item for item, as the lane runs

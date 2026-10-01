@@ -42,7 +42,7 @@ echo "  architectures: $ARCHES"
 
 rm -f "$LIBRARY"
 
-EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$ENGINE/arithmetic/no_rounding}"
+EXACT_ROOT="${ANCHOR_EXACT_ROOT:-$ENGINE/../types/integers}"
 RESIDUAL_LIMBS="$(sed -n 's/^#define ENGINE_RESIDUAL_LIMBS \([0-9]*\)u.*/\1/p' "$ENGINE"/engine_config_*.h)"
 [ -n "$RESIDUAL_LIMBS" ] || { echo "  build failed: no ENGINE_RESIDUAL_LIMBS in engine_config_*.h"; exit 1; }
 QUESTION_LIMBS=$((RESIDUAL_LIMBS + 1))
@@ -63,25 +63,25 @@ EXACT_FLAGS=(-I "$EXACT_ROOT" "-DANCHOR_EXACT_LIMBS=${EXACT_LIMBS}u" "-DANCHOR_E
 
 DEFINES=(-DBODY_OVERLAP_BUILD_DLL=1 -DHEAVIEST_MATCHING_BUILD_DLL=1
          -DSHIFT_AGREEMENT_BUILD_DLL=1)
-MODULES=(engine/formats/stack cu/includes/formats/stack engine/formats/apxrep cu/kcmplx
-         engine/analysis/compression cu/engine/analysis/compression engine/analysis/tower
-         cu/engine/analysis/tower engine/runtime/device_pool cu/engine/runtime/device_pool
-         engine/analysis/entropy_history cu/engine/analysis/entropy_history engine/compiler/keymath
-         cu/engine/analysis/keymath engine/compiler/key_schedule cu/engine/analysis/key_schedule
-         engine/compiler/cycle cu/engine/analysis/cycle engine/runtime/radix_keys engine/analysis/unit_sweep
-         cu/engine/analysis/unit_sweep engine/runtime/obsignatio cu/engine/runtime/obsignatio
-         engine/analysis/residual cu/engine/analysis/residual engine/nbody/max_tree cu/engine/nbody/max_tree
-         engine/nbody/flatten cu/engine/nbody/flatten engine/nbody/grow cu/engine/nbody/grow
-         engine/arithmetic/double_fields cu/types/integerfloats/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
-         engine/nbody/body_overlap cu/engine/nbody/body_overlap engine/nbody/heaviest_matching
-         engine/analysis/shift_agreement cu/engine/analysis/shift_agreement engine/analysis/period
+MODULES=(c/includes/formats/stack cu/includes/formats/stack c/kcmplx cu/kcmplx
+         c/engine/analysis/compression cu/engine/analysis/compression c/engine/analysis/tower
+         cu/engine/analysis/tower c/engine/runtime/device_pool cu/engine/runtime/device_pool
+         c/engine/analysis/entropy_history cu/engine/analysis/entropy_history c/engine/analysis/keymath
+         cu/engine/analysis/keymath c/engine/analysis/key_schedule cu/engine/analysis/key_schedule
+         c/engine/analysis/cycle cu/engine/analysis/cycle c/engine/runtime/radix_keys c/engine/analysis/unit_sweep
+         cu/engine/analysis/unit_sweep c/engine/runtime/obsignatio cu/engine/runtime/obsignatio
+         c/engine/analysis/residual cu/engine/analysis/residual c/engine/nbody/max_tree cu/engine/nbody/max_tree
+         c/engine/nbody/flatten cu/engine/nbody/flatten c/engine/nbody/grow cu/engine/nbody/grow
+         c/types/integerfloats/double_fields cu/types/integerfloats/double_fields c/types/integerfloats/decimal_double c/engine/runtime/scriptura
+         c/engine/nbody/body_overlap cu/engine/nbody/body_overlap c/engine/nbody/heaviest_matching
+         c/engine/analysis/shift_agreement cu/engine/analysis/shift_agreement c/engine/analysis/period
          cu/engine/analysis/period)
-INGEST=(engine/formats/cfg_json engine/formats/zarr engine/codecs/zstd engine/codecs/inflate engine/codecs/deflate
-        engine/codecs/lz4 engine/codecs/snappy engine/codecs/blosc engine/formats/tiff engine/formats/hdf5
-        engine/codecs/zip engine/formats/dicom engine/formats/npy engine/formats/nrrd engine/formats/nifti)
+INGEST=(c/includes/formats/cfg_json c/includes/formats/zarr c/includes/codecs/zstd c/includes/codecs/inflate c/includes/codecs/deflate
+        c/includes/codecs/lz4 c/includes/codecs/snappy c/includes/codecs/blosc c/includes/formats/tiff c/includes/formats/hdf5
+        c/includes/codecs/zip c/includes/formats/dicom c/includes/formats/npy c/includes/formats/nrrd c/includes/formats/nifti)
 MODULES+=("${INGEST[@]}")
-MODULE_INCLUDES=(-I "$ENGINE" -I "$ENGINE/../cu/engine" -I "$ENGINE/codecs/crc" -I "$ENGINE/../cu/includes/codecs/crc")
-MODULE_SOURCES=("$ENGINE/../cu/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
+MODULE_INCLUDES=(-I "$ENGINE" -I "$ENGINE/../../cu/engine" -I "$ENGINE/../includes/codecs/crc" -I "$ENGINE/../../cu/includes/codecs/crc")
+MODULE_SOURCES=("$ENGINE/../../cu/engine"/engine_{record,residual,files,zarr,source,listing,seal,report,history}.cu)
 for module in "${MODULES[@]}"; do
     folder="$(build_path "$module")"
     MODULE_INCLUDES+=(-I "$folder")
@@ -90,9 +90,9 @@ for module in "${MODULES[@]}"; do
     done
 done
 PORTABLE_OBJECTS=()
-for portable in engine/nbody/body_overlap engine/nbody/heaviest_matching engine/analysis/shift_agreement \
-                engine/nbody/max_tree engine/compiler/cycle engine/arithmetic/double_fields \
-                engine/arithmetic/decimal_double engine/runtime/scriptura "${INGEST[@]}"; do
+for portable in c/engine/nbody/body_overlap c/engine/nbody/heaviest_matching c/engine/analysis/shift_agreement \
+                c/engine/nbody/max_tree c/engine/analysis/cycle c/types/integerfloats/double_fields \
+                c/types/integerfloats/decimal_double c/engine/runtime/scriptura "${INGEST[@]}"; do
     for source in "$(build_path "$portable")"/*.c; do
         name="$(basename "$source" .c)"
         OBJECT="$OUT/${name}_portable.o"

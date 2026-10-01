@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // qasm_exact_test_symbols.cu: MPS qubits, symbols, the lens and main
-#include "../../../../engine/quantum/qasm/qasm_exact_test_internal.h"
+#include "../../../c/transpiler/qasm/qasm_exact_test_internal.h"
 
 static void qasm_test_mps_qubits(QasmResults *results)
 {

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // obsignatio_test_main.cu: device errors, staging, the report and main
-#include "../../../../../engine/runtime/obsignatio/obsignatio_test_internal.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio_test_internal.h"
 
 #if !(defined(__CUDACC__))
 // with no device, a request for device memory errors as a resource the part lacks, and one with no error errors

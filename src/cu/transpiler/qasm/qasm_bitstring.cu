@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "../../../engine/quantum/qasm/qasm.h"
+#include "../../../c/transpiler/qasm/qasm.h"
 
 #include <stdio.h>
 #include <stdlib.h>

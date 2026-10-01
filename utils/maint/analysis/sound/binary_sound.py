@@ -7,7 +7,7 @@
 #   Usage:  python utils/maint/analysis/sound/binary_sound.py [<stem> ...]
 #
 # Reads build/audio/ and writes build/sound/<stem>.bits.tsv, one row per 10 ms frame: the time, the
-# segment field, and the prosody field. src/engine/python/representation/sound/perceived_sound.py
+# segment field, and the prosody field. src/python/includes/formats/representation/sound/perceived_sound.py
 # carries the method and says why it has the shape it has.
 #
 # A GENERIC TOOL, AND THE CORPUS IS WHAT IS WITHHELD
@@ -68,7 +68,7 @@ def _repository_root():
     which is indistinguishable from working.
 
     A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
-    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    no git directory, and it looks for src/python, which is TRACKED: a marker the repository
     contains is present in every checkout of it, and a marker the repository produces is present in
     none of them until something has already run.
 
@@ -103,7 +103,7 @@ def _repository_root():
 
     climbed = start
     while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
-        os.path.join(climbed, "src", "engine")
+        os.path.join(climbed, "src", "python")
     ):
         climbed = os.path.dirname(climbed)
     return climbed
@@ -116,9 +116,9 @@ AUDIO = os.path.join(ROOT, "build", "audio")
 SOUND = os.path.join(ROOT, "build", "sound")
 
 sys.path.insert(
-    0, os.path.join(ROOT, "src", "engine", "python", "representation", "sound")
+    0, os.path.join(ROOT, "src", "python", "includes", "formats", "representation", "sound")
 )
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python", "engine", "nbody", "orior", "instrument"))
 
 from orior import entropy, support  # noqa: E402
 

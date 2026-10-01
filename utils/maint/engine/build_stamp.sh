@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
-# The engine is orior's src/engine, found from this file's own place. A build in orior and a project
+# The engine is orior's src/c/engine, found from this file's own place. A build in orior and a project
 # that takes orior as a submodule and sources this file read the same engine; without it the build fails here,
 # before anything compiles
-ENGINE="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/src/engine"
+ENGINE="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/src/c/engine"
 if [ ! -f "$ENGINE/engine_config.h" ]; then
     echo "  build failed: no engine at $ENGINE (git submodule update --init orior)"
     exit 1
 fi
 
-# a build's path: engine/... is the engine's, and anything else the project's
+# a build's path: c/..., cu/... and sims/... are the engine's, and anything else the project's
 build_path()
 {
     case "$1" in
         engine/*) printf '%s\n' "$ENGINE/${1#engine/}" ;;
-        cu/* | sims/*) printf '%s\n' "$ENGINE/../$1" ;;
+        c/* | cu/* | sims/*) printf '%s\n' "$ENGINE/../../$1" ;;
         *) printf '%s\n' "$TOP/$1" ;;
     esac
 }
@@ -29,10 +29,10 @@ case "$(uname -s)" in
     *) COMPILE_CACHE_PYTHON="$(type -P python3 2> /dev/null)" ;;
 esac
 if [ "${COMPILE_CACHE:-1}" != 0 ] && [ -n "$COMPILE_CACHE_NVCC" ] && [ -n "$COMPILE_CACHE_PYTHON" ]; then
-    COMPILE_CACHE_SCRIPT="$ENGINE/../../utils/maint/engine/compile_cache.py"
+    COMPILE_CACHE_SCRIPT="$ENGINE/../../../utils/maint/engine/compile_cache.py"
     export COMPILE_CACHE_DIR="${COMPILE_CACHE_DIR:-$TOP/build/compile_cache}"
     export COMPILE_CACHE_KEY
-    COMPILE_CACHE_KEY="$("$COMPILE_CACHE_PYTHON" "$COMPILE_CACHE_SCRIPT" key "$TOP" "$ENGINE/../..")" || COMPILE_CACHE_KEY=""
+    COMPILE_CACHE_KEY="$("$COMPILE_CACHE_PYTHON" "$COMPILE_CACHE_SCRIPT" key "$TOP" "$ENGINE/../../..")" || COMPILE_CACHE_KEY=""
     nvcc()
     {
         "$COMPILE_CACHE_PYTHON" "$COMPILE_CACHE_SCRIPT" nvcc "$COMPILE_CACHE_NVCC" "$@"

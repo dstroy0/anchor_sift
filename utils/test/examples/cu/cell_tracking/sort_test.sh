@@ -10,8 +10,8 @@ SORT="$TOP/cell_tracking/src/sort"
 SCAN="$TOP/cell_tracking/src/scan"
 HEAVIEST="$ENGINE/nbody/heaviest_matching"
 DEVICE_POOL="$ENGINE/runtime/device_pool"
-DEVICE_POOL_CU="$ENGINE/../cu/engine/runtime/device_pool"
-NO_ROUNDING="$ENGINE/arithmetic/no_rounding"
+DEVICE_POOL_CU="$ENGINE/../../cu/engine/runtime/device_pool"
+NO_ROUNDING="$ENGINE/../types/integers"
 SCRIPTURA="$ENGINE/runtime/scriptura"
 build_stamp sort_test
 
@@ -72,7 +72,7 @@ done
 tessera_build sort "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/sort_test.cu" "$ENGINE/sims/sim_job.cu" "$SORT/sort_link.cu" "$SCAN/drift.cu" \
+    "$TEST/sort_test.cu" "$ENGINE/../../engine/sims/sim_job.cu" "$SORT/sort_link.cu" "$SCAN/drift.cu" \
     "$DEVICE_POOL_CU/device_pool.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 # BUILD_ONLY=1 builds and stops. The device run can be its own launch

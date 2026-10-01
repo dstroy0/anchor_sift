@@ -1,0 +1,14 @@
+# The Python container's import names. One row a name: the name a program imports, and the path under src/python
+# that answers it. manifest.py reads this file and nothing else, and an import name with no row is not found here.
+#
+# name	path
+representation	includes/formats/representation
+representation.exact	types/integers/exact.py
+representation.constants	types/integers/constants
+measure	engine/analysis/measure
+reference	engine/analysis/reference
+partition	engine/analysis/partition
+oracle	includes/oracle
+render	engine/render
+instrument	engine/nbody/orior/instrument
+sift	engine/nbody/orior/sift

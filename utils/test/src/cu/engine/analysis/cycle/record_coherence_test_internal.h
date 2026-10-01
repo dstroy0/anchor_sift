@@ -17,11 +17,11 @@
 // under the wrap; indexed by the two's complement residue x mod 2^b, the and with 2^b - 1 before it, it factors
 // through the wrap to every w >= b and breaks narrower. The test is one job on the device's tessera daemon, submitted
 // before its first device work.
-#include "cycle.h"
-#include "exact_integer.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/types/integers/exact_integer.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

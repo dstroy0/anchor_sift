@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "scriptura_arm.h"
+#include "../../src/c/engine/runtime/scriptura/scriptura_arm.h"
 
 #if defined(__x86_64__) || defined(__i386__)
 #include <x86intrin.h>

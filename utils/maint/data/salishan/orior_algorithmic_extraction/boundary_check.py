@@ -42,9 +42,9 @@ for _category in os.scandir(HERE):
 # counting parents. Counting put this at maint/data/instrument, which has never existed, and
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
-while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "engine")):
+while (_at != os.path.dirname(_at)) and not os.path.isdir(os.path.join(_at, "src", "python")):
     _at = os.path.dirname(_at)
-sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(_at, "src", "python", "engine", "nbody", "orior", "instrument"))
 
 from orior import distance, squash  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402

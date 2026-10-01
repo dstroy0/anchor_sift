@@ -8,7 +8,7 @@ Navier-Stokes statement names, one poke at a time, claiming nothing. **Scope:**
 **Note, 26 September.** All three examples this workbook runs
 (`exact_navier_stokes_on_torus.py`, `exact_navier_stokes_cascade.py`,
 `proof_boundary_inheritance.py`) import `from representation import exact`, which lived in
-`src/engine/python/` and was deleted with it by `74601c1` on 26 September; it is in no file at
+`src/python/` and was deleted with it by `74601c1` on 26 September; it is in no file at
 orior `1948ae1`. Every run recorded below was made before the deletion.
 
 **Later, 26 September.** Commit `d09b489` (orior PR 12) put back the 126 files `74601c1`

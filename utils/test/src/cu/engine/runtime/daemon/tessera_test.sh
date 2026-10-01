@@ -7,10 +7,10 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-DAEMON="$TOP/src/engine/runtime/daemon"
+DAEMON="$TOP/src/c/engine/runtime/daemon"
 DAEMON_CU="$TOP/src/cu/engine/runtime/daemon"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 source "$TOP/utils/maint/engine/tessera_build.sh"
 build_stamp tessera_device_test
@@ -47,7 +47,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()

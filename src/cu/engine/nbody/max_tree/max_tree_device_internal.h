@@ -3,7 +3,7 @@
 #ifndef MAX_TREE_DEVICE_INTERNAL_H
 #define MAX_TREE_DEVICE_INTERNAL_H
 
-#include "../../../../engine/nbody/max_tree/max_tree.h"
+#include "../../../../c/engine/nbody/max_tree/max_tree.h"
 
 #include <cub/cub.cuh>
 #include <cuda_runtime.h>

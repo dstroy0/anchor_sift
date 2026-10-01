@@ -14,9 +14,9 @@
 // magnitudes sum to 2^ceil(k/2). The widths are 24 + ceil(k/2): they grow half a bit a floor, as the values do, and
 // some lane fills each one.
 // The test is one job on the device's tessera daemon, submitted before the program is loaded onto the device.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
 #include "sim.h"
 
 #define GAUSSIAN_TEST_LANES 4096u

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // qasm_exact_test_gates.cu: numbers, functions, gates, GHZ, scramblers, bonds, amplitudes
-#include "../../../../engine/quantum/qasm/qasm_exact_test_internal.h"
+#include "../../../c/transpiler/qasm/qasm_exact_test_internal.h"
 
 void qasm_test_check(QasmResults *results, int passed, const char *claim)
 {

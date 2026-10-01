@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "orior.h"
+#include "../../src/c/engine/nbody/orior/orior.h"
 
 #include <stdio.h>
 #include <stdlib.h>

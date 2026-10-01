@@ -1,7 +1,7 @@
 # Security
 
 **Purpose:** Know what this repository is responsible for, what it is not, and where to report something.
-**Scope:** `src/engine/c/`, `src/engine/python/`, `utils/maint/`, and the ports under `src/engine/`
+**Scope:** `src/engine/c/`, `src/python/`, `utils/maint/`, and the ports under `src/engine/`
 
 ## What is here
 

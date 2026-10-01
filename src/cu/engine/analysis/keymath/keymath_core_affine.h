@@ -10,7 +10,7 @@
 // terms are held in an arena the caller gives, each form a run of it; an arena too small for the forms is reported, and
 // the caller gives a larger one and runs the encoding again, which decides the same
 
-#include "engine_config.h"
+#include "../../../../c/engine/engine_config.h"
 
 #include <stddef.h>
 

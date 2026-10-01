@@ -13,10 +13,11 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-QASM = os.path.join(ROOT, "src", "engine", "quantum", "qasm")
+QASM = os.path.join(ROOT, "src", "c", "transpiler", "qasm")
 INTERNAL = os.path.join(QASM, "qasm_internal.h")
 HEADER = os.path.join(QASM, "qasm_pi.h")
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 from representation.constants.naturals import pi  # noqa: E402
 

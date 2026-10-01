@@ -7,27 +7,27 @@
 set -u
 
 TOP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-CYCLE="$TOP/src/engine/compiler/cycle"
+CYCLE="$TOP/src/c/engine/analysis/cycle"
 CYCLE_CU="$TOP/src/cu/engine/analysis/cycle"
-CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN="$TOP/src/c/transpiler/codegen"
 CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
-KEYMATH="$TOP/src/engine/compiler/keymath"
+KEYMATH="$TOP/src/c/engine/analysis/keymath"
 KEYMATH_CU="$TOP/src/cu/engine/analysis/keymath"
-KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
+KEY_SCHEDULE="$TOP/src/c/engine/analysis/key_schedule"
 KEY_SCHEDULE_CU="$TOP/src/cu/engine/analysis/key_schedule"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
-CUBIN="$TOP/src/engine/compiler/cubin"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
+CUBIN="$TOP/src/c/transpiler/cubin"
 OUT="$TOP/build/sass_lane_needs"
 mkdir -p "$OUT"
 
-INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/engine/codecs/crc" -I "$TOP/src/cu/includes/codecs/crc" -I "$CYCLE" -I "$CYCLE_CU" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$KEYMATH" -I "$KEYMATH_CU"
-    -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$NO_ROUNDING" -I "$SCRIPTURA" -I "$CUBIN" -I "$TOP/utils/test/engine/compiler/cycle")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/c/includes/codecs/crc" -I "$TOP/src/cu/includes/codecs/crc" -I "$CYCLE" -I "$CYCLE_CU" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$KEYMATH" -I "$KEYMATH_CU"
+    -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$NO_ROUNDING" -I "$SCRIPTURA" -I "$CUBIN" -I "$TOP/utils/test/src/c/engine/analysis/cycle")
 OBJECTS=()
 for source in "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c"; do
     object="$OUT/$(basename "$source").o"
-    cc -std=c11 -O2 -Wall -Wextra -I "$TOP/src/engine" -I "$CUBIN" -c "$source" -o "$object" || exit 1
+    cc -std=c11 -O2 -Wall -Wextra -I "$TOP/src/c/engine" -I "$CUBIN" -c "$source" -o "$object" || exit 1
     OBJECTS+=("$object")
 done
 # cycle.c is the host oracle that runs a lane, which nothing here does: only the encoder and the layout are wanted,

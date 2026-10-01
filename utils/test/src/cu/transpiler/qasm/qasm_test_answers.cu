@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // qasm_test_answers.cu: text, runs, known answers, errors, ties and bounds
-#include "../../../../engine/quantum/qasm/qasm_test_internal.h"
+#include "../../../c/transpiler/qasm/qasm_test_internal.h"
 
 unsigned int g_passed = 0u;
 unsigned int g_failed = 0u;

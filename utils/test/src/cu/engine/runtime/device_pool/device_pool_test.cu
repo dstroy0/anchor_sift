@@ -9,9 +9,9 @@
 // between slices, a take past the pool errors and leaves the pool as it was, and a return gives every slice back.
 // The pool's cost is read through the counter tessera's daemon reads, for the tower's four buffers as one pool and as
 // four allocations. The test is one job on the device's tessera daemon, submitted before its first device work.
-#include "device_pool.h"
+#include "../../../../../../../src/c/engine/runtime/device_pool/device_pool.h"
 #include "sim.h"
-#include "tessera_measure.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera_measure.h"
 
 #include <cuda_runtime.h>
 

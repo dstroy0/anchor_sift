@@ -1,7 +1,7 @@
 # Rendering the object under examination
 
 **Purpose:** Render a corpus and what the engine saw of it, as a sheet or as a volume, on whichever arm the machine has and preferring the device, and know which parts are graded and which are not.
-**Scope:** `src/engine/render/anchor_raster.h`, `src/engine/render/anchor_raster_host.c`, `src/engine/render/anchor_raster_output.c`, `src/cu/engine/render/raster_entry.cu`, `src/cu/engine/render/raster.cu`, `utils/bench/bench_raster.c`, `utils/maint/engine/build_gpu_raster.ps1`
+**Scope:** `src/c/engine/render/anchor_raster.h`, `src/c/engine/render/anchor_raster.c`, `src/c/engine/render/anchor_raster_output.c`, `src/cu/engine/render/raster_entry.cu`, `src/cu/engine/render/raster.cu`, `utils/bench/bench_raster.c`, `utils/maint/engine/build_gpu_raster.ps1`
 
 A search produces one outcome per alignment: some probe rejected it, or every probe agreed and a full compare decided it. That sequence is already an image. This renders it, with no export step between the engine state and the pixels, in two and in three dimensions.
 
@@ -9,8 +9,8 @@ A search produces one outcome per alignment: some probe rejected it, or every pr
 
 There are two arms behind each renderer, a host arm in C and a device arm in CUDA, and they produce the same bytes. The choice between them affects speed alone, and a caller does not make it. Call the dispatch, and it takes the device where one is present and falls back to the host where none is:
 
-- `anchor_raster_render` for a sheet (`src/engine/render/anchor_raster_host.c:260`).
-- `anchor_volume_render` for a volume (`src/engine/render/anchor_raster_output.c:219`).
+- `anchor_raster_render` for a sheet (`src/c/engine/render/anchor_raster.c:260`).
+- `anchor_volume_render` for a volume (`src/c/engine/render/anchor_raster_output.c:219`).
 
 Both ask `anchor_raster_device_available` or `anchor_volume_device_available` first, call the device arm, and fall back to the host arm if the device refuses. A render then happens whenever either arm can do it. The single-arm entries stay public because a grader has to call one specific arm and compare it against the other. A caller that does not care should use the dispatch.
 
@@ -81,7 +81,7 @@ A layout decides where an alignment lands on the page. It changes what a reader 
 | `ANCHOR_LAYOUT_COLUMNS`    | transposed through the height              | a period near the width, as a vertical stripe      |
 | `ANCHOR_LAYOUT_DIAGONAL`   | each row shifted by its index              | structure aligned to either axis, by breaking both |
 
-Every layout is a permutation of the linear cell index computed in integer arithmetic (`src/engine/render/anchor_raster_host.c:85`). A permutation cannot drop or duplicate an alignment, and `bench_raster` checks that by counting filled cells, which come out equal across all four layouts.
+Every layout is a permutation of the linear cell index computed in integer arithmetic (`src/c/engine/render/anchor_raster.c:85`). A permutation cannot drop or duplicate an alignment, and `bench_raster` checks that by counting filled cells, which come out equal across all four layouts.
 
 ## Channel, the quantity a pixel carries
 
@@ -99,13 +99,13 @@ It reduces as a conjunction, a cell staying proven only while every alignment un
 
 Brightness is not presence anywhere in this renderer and least of all here. `ANCHOR_RASTER_PROVEN` is brighter than `ANCHOR_RASTER_UNDETERMINED` and means the opposite of an occurrence. `ANCHOR_RASTER_MATCH` is the only value entitled to assert one.
 
-Every channel is an integer read off engine state (`src/engine/render/anchor_raster_host.c:123`). None is computed in floating point and none is normalized against the image. A pixel then means the same thing in two rasters taken at different sizes.
+Every channel is an integer read off engine state (`src/c/engine/render/anchor_raster.c:123`). None is computed in floating point and none is normalized against the image. A pixel then means the same thing in two rasters taken at different sizes.
 
 ## Reduction, and the constraint on adding one
 
 Several alignments reach one cell whenever the object is larger than the raster. `ANCHOR_REDUCE_MIN` keeps the darkest and `ANCHOR_REDUCE_MAX` keeps the brightest.
 
-Both are associative and commutative. That lets the device reduce with `atomicMin` or `atomicMax` in scheduler order and still reach the host's answer. A rule selecting by arrival, such as first or last writer, would make the device result depend on scheduling and could not be graded against the host at all. The header states that as a `@warning` on the enum (`src/engine/render/anchor_raster.h:102`), and it governs anything added to it.
+Both are associative and commutative. That lets the device reduce with `atomicMin` or `atomicMax` in scheduler order and still reach the host's answer. A rule selecting by arrival, such as first or last writer, would make the device result depend on scheduling and could not be graded against the host at all. The header states that as a `@warning` on the enum (`src/c/engine/render/anchor_raster.h:102`), and it governs anything added to it.
 
 ## The volume, the same render in three dimensions
 
@@ -180,7 +180,7 @@ Both rows are the host renderer. The timing loop calls `anchor_raster_host` (`be
 
 The device arms are graded for agreement only. A render that uploads the corpus every frame pays a transfer the host does not, and nothing here measures whether the device wins once that is counted.
 
-The sweep runs one object size against one raster size, both powers of two, with alignments larger than the cell count. Rectangles, sizes no raster divides, and alignments below the cell count are unexercised, and the column layout carries a fallback for an index that leaves the raster (`src/engine/render/anchor_raster_host.c:100-102`) which no test reaches.
+The sweep runs one object size against one raster size, both powers of two, with alignments larger than the cell count. Rectangles, sizes no raster divides, and alignments below the cell count are unexercised, and the column layout carries a fallback for an index that leaves the raster (`src/c/engine/render/anchor_raster.c:100-102`) which no test reaches.
 
 Gain applies to the death level channel alone and the sweep runs it at one.
 

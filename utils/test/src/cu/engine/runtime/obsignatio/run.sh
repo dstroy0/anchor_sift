@@ -3,10 +3,10 @@
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MODULE="$(cd "$TEST/../../../../../../../src/engine/runtime/obsignatio" && pwd)"
+MODULE="$(cd "$TEST/../../../../../../../src/c/engine/runtime/obsignatio" && pwd)"
 MODULE_CU="$(cd "$TEST/../../../../../../../src/cu/engine/runtime/obsignatio" && pwd)"
-TOP="$(cd "$MODULE/../../.." && pwd)"
-SCRIPTURA="$TOP/engine/runtime/scriptura"
+TOP="$(cd "$MODULE/../../../.." && pwd)"
+SCRIPTURA="$TOP/c/engine/runtime/scriptura"
 # utils/maint/ is at the repository's root, one above src/
 source "$(cd "$TOP/.." && pwd)/utils/maint/engine/build_stamp.sh"
 build_stamp obsignatio_test
@@ -33,7 +33,7 @@ case "$(uname -s)" in
         ;;
 esac
 
-INCLUDES=(-I "$TOP/engine" -I "$TOP/cu/engine" -I "$MODULE" -I "$MODULE_CU" -I "$SCRIPTURA")
+INCLUDES=(-I "$TOP/c/engine" -I "$TOP/cu/engine" -I "$MODULE" -I "$MODULE_CU" -I "$SCRIPTURA")
 
 # a part with no CUDA toolchain (the Pi) builds the seal and the test as C++, and the test asks the host's questions
 if ! command -v nvcc > /dev/null 2>&1; then

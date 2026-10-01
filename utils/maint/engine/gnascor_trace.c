@@ -4,7 +4,7 @@
 //     gnascor_trace <scenario> <trace>
 //
 // A scenario holds one line a cycle, a spec for each side: held, not, late or unasked. Each side is a run of asks
-// put through query_ask (src/engine/compiler/bootstrap/query_ask.h) between two reads of the clock, and the trace
+// put through query_ask (src/c/transpiler/bootstrap/query_ask.h) between two reads of the clock, and the trace
 // line written for it is the kind its asks came back as and the clock's advance across the run:
 //
 //     held     QUERY_EQUALS at a word the program owns, carrying the word it holds
@@ -35,7 +35,7 @@
 //
 // A run that holds and costs past the bound is written PAST_BOUND. The four baseline cycles gnascor_read.py reads its
 // edge from are written at the head of the trace, from the first eight runs.
-#include "../../../src/engine/compiler/bootstrap/query_ask.h"
+#include "../../../src/c/transpiler/bootstrap/query_ask.h"
 
 #include <stdio.h>
 #include <string.h>

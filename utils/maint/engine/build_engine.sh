@@ -14,7 +14,7 @@ set -eu
 
 here=$(dirname "$0")
 root=$(cd "$here/../../.." && pwd)
-src="$root/src/engine"
+src="$root/src/c"
 build="$root/build/engine_c"
 
 run_graders=1
@@ -206,7 +206,7 @@ for grader in test_steer test_adversarial test_arm_agreement bench_steer_arms be
     fi
 done
 
-# The Python graders in utils/test/python that grade a host build. Each is handed, in its environment variable, the program
+# The Python graders under utils/test/src/python that grade a host build, each named by its path under utils/test. Each is handed, in its environment variable, the program
 # or library this build made. Not one finds an older one elsewhere under build/. The first name found in $bin
 # is given.
 python_grader()
@@ -222,7 +222,7 @@ python_grader()
         fi
     done
     echo ""
-    echo "[*] utils/test/python/$script"
+    echo "[*] utils/test/$script"
     if [ -z "$path" ]; then
         echo "[!] $script: none of $* was built" >&2
         failed=$((failed + 1))
@@ -232,18 +232,18 @@ python_grader()
     if command -v cygpath >/dev/null 2>&1; then
         path=$(cygpath -m "$path")
     fi
-    if ! env "$variable=$path" python "$root/utils/test/python/$script"; then
+    if ! env "$variable=$path" python "$root/utils/test/$script"; then
         echo "[!] $script reported a failure" >&2
         failed=$((failed + 1))
     fi
 }
 
-python_grader exact_test.py ANCHOR_BENCH_EXACT bench_exact.exe bench_exact
-python_grader render_test.py ANCHOR_RENDER_LIB anchor_render.dll libanchor_render.dll libanchor_render.so \
+python_grader src/python/types/integers/exact_test.py ANCHOR_BENCH_EXACT bench_exact.exe bench_exact
+python_grader src/python/engine/render/render_test.py ANCHOR_RENDER_LIB anchor_render.dll libanchor_render.dll libanchor_render.so \
     libanchor_render.dylib
-python_grader sift_test.py ORIOR_LIB orior_host.dll liborior_host.dll liborior_host.so \
+python_grader src/python/engine/nbody/orior/sift_test.py ORIOR_LIB orior_host.dll liborior_host.dll liborior_host.so \
     liborior_host.dylib
-python_grader shift_agreement_test.py ANCHOR_SHIFT_LIB shift_agreement_host.dll libshift_agreement_host.dll \
+python_grader src/python/engine/analysis/shift_agreement/shift_agreement_test.py ANCHOR_SHIFT_LIB shift_agreement_host.dll libshift_agreement_host.dll \
     libshift_agreement_host.so libshift_agreement_host.dylib
 
 echo ""

@@ -16,11 +16,11 @@
 // two's complement at every tapped floor. And one level of the tower's 5/3 lifting with its inverse, the floor
 // divisions made from an and and an exact quotient, must equal tower_*.cu's formulas and return every sample exactly.
 // The test is one job on the device's tessera daemon, submitted before its first device work.
-#include "cycle.h"
-#include "exact_integer.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/types/integers/exact_integer.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

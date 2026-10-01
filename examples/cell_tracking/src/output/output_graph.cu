@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "codecs/crc/crc.h"
+#include "crc.h"
 #include "divide.h"
 #include "faces.h"
 #include "output.h"

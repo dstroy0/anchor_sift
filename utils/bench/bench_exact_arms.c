@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "arm.h"
+#include "../../src/c/types/integers/arm.h"
 #if defined(ANCHOR_EXACT_HAVE_CUDA) && ANCHOR_EXACT_HAVE_CUDA
-#include "arm_cuda.h"
+#include "../../src/c/types/integers/arm_cuda.h"
 #endif
 
 #include <stdio.h>

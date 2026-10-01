@@ -8,7 +8,7 @@
 // launches what the code generator writes. This header is the base every language inherits; each language's class is in
 // its own header
 
-#include "engine_config.h"
+#include "../../../c/engine/engine_config.h"
 
 #include <functional>
 #include <string>

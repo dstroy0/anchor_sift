@@ -28,7 +28,8 @@ import os
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 from representation.constants import naturals  # noqa: E402
 
 # The floors to name pi's digit at. The last is deep enough to make the point and quick to reach.

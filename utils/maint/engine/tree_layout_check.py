@@ -21,8 +21,9 @@ OUTSIDE = ("src/import/",)
 
 
 def tracked():
-    out = subprocess.run(["git", "ls-files", *ROOTS], cwd=ROOT, capture_output=True, text=True, check=True).stdout
-    return {p for p in out.split("\n") if p and not p.startswith(OUTSIDE)}
+    # -z: a path git would otherwise quote, one holding a byte past ASCII, comes back as its own bytes
+    out = subprocess.run(["git", "ls-files", "-z", *ROOTS], cwd=ROOT, capture_output=True, check=True).stdout
+    return {p for p in out.decode("utf-8").split("\0") if p and not p.startswith(OUTSIDE)}
 
 
 def main():

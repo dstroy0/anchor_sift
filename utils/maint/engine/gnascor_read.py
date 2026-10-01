@@ -8,13 +8,13 @@
 
 A trace holds one line a cycle: the kind and cost of the left side's ask, the kind and cost of the
 right side's, and the bound both were put under, the kinds as QueryKind in
-src/engine/compiler/bootstrap/query_ask.h names them.
+src/c/transpiler/bootstrap/query_ask.h names them.
 
     HELD 412 NOT_HELD 380 900
 
 A side that was not asked is written as - for its kind and - for its cost.
 
-The tables are read out of src/engine/compiler/gnascor.md each run and are never copied here.
+The tables are read out of src/c/transpiler/gnascor.md each run and are never copied here.
 
 A side reads 1 where its ask held inside the bound, and 0 where it did not hold, ended its asker or
 came in past the bound. A cycle's state follows from the two sides and from how they read:

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "../../../../engine/nbody/flatten/flatten.h"
+#include "../../../../c/engine/nbody/flatten/flatten.h"
 
-#include "apxrep.h"
-#include "cycle.h"
-#include "engine.h"
-#include "max_tree.h"
+#include "../../../../c/kcmplx/apxrep.h"
+#include "../../../../c/engine/analysis/cycle/cycle.h"
+#include "../../../../c/engine/engine.h"
+#include "../../../../c/engine/nbody/max_tree/max_tree.h"
 
 #include <cuda_runtime.h>
 

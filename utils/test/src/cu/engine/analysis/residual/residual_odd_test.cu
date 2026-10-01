@@ -9,12 +9,12 @@
 // extents that include a single voxel and an axis one voxel long, and an odd background order errors at each of the
 // three sites as a request error from its own module. The test is one job on the device's tessera daemon, submitted
 // before its first device work.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "residual.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/analysis/residual/residual.h"
 #include "sim.h"
-#include "unit_sweep.h"
+#include "../../../../../../../src/c/engine/analysis/unit_sweep/unit_sweep.h"
 
 #include <cuda_runtime.h>
 

@@ -3,7 +3,7 @@
 #ifndef KREP_INTERNAL_H
 #define KREP_INTERNAL_H
 
-#include "../../../../engine/formats/krep/krep.h"
+#include "../../../../c/types/file_defs/krep/krep.h"
 
 #include "crc.h"
 

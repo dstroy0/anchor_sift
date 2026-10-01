@@ -49,9 +49,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 # path in this tree the last time anything moved. The dirname guard keeps a missing sentinel
 # from climbing off the top of the drive and resolving every root to the filesystem root. That is
 # the failure recorded against the prose checker.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 from representation.structure import crystal  # noqa: E402
 

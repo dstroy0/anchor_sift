@@ -8,7 +8,7 @@
 // in one thread, since each place is taken from what the steps before it freed. The lists it works in are the caller's,
 // each as long as the program has steps
 
-#include "engine_config.h"
+#include "../../../../c/engine/engine_config.h"
 
 #include <stddef.h>
 

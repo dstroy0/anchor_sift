@@ -1,8 +1,8 @@
 # Directions the engine's own proofs already license
 
 **Purpose:** Collect the capabilities that follow from what the engine has already proved, and the Laplacian construction that replaces its planning cost with a determinant.
-**Scope:** `src/engine/nbody/orior/orior.h`, `src/engine/nbody/orior/orior_*.c`
-**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/orior.h`. Commit `510577b` (16 September) folded the steer files into `orior.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/engine/nbody/orior/`, where they are at orior `1948ae1`. The file splits of 27 September cut `orior.c` into `orior_*.c` beside `orior.h`.
+**Scope:** `src/c/engine/nbody/orior/orior.h`, `src/engine/nbody/orior/orior_*.c`
+**Note, 26 September:** this scope first named `src/engine/c/portable/anchor_steer.{h,c}` and `src/engine/c/portable/orior.h`. Commit `510577b` (16 September) folded the steer files into `orior.{h,c}`, `0954259` (16 September) renamed `src/engine/c/portable/` to `src/engine/c/engine/`, and `bdaed61` (24 September) moved those to `src/c/engine/nbody/orior/`, where they are at orior `1948ae1`. The file splits of 27 September cut `orior.c` into `orior_*.c` beside `orior.h`.
 
 ## Contents
 
@@ -192,7 +192,7 @@ destroy rule catches what the prediction missed, and the gap between them is mea
 The header states planning cost as a worst case and does not measure it. `anchor_steer_sweep_probes`
 performs about `wanted * needle_len^2 * max_length^2 * alignments / sample_stride` byte comparisons
 at worst, which exceeds the scan it plans for on any but a short needle
-(`src/engine/nbody/orior/orior.h:934-942`). That is the engine's
+(`src/c/engine/nbody/orior/orior.h:934-942`). That is the engine's
 sharpest open cost problem, and the determinant removes its dominant factor.
 
 Scoring a candidate today walks the alignments. Scoring a candidate by determinant walks a `k` by `k`

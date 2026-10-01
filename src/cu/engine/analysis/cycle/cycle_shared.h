@@ -8,11 +8,11 @@
 // nvJitLink, the cache and a program compiled. A kernel stays in the file that launches it; a compiled program's
 // kernel is its own text's (program_unit)
 
-#include "../../../../engine/compiler/cycle/cycle.h"
+#include "../../../../c/engine/analysis/cycle/cycle.h"
 
 // the CRC that seals a program's block, and the signum that names its program
 #include "../../../includes/codecs/crc/crc.h"
-#include "obsignatio.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio.h"
 
 // the code generator, which writes a program's lane as PTX or C source for the target named here, and the launch it
 // reads; and its assembly printer, which the device runs to write the lane's text again

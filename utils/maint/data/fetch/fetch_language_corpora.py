@@ -25,7 +25,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
-    os.path.join(ROOT, "src", "engine")
+    os.path.join(ROOT, "src", "python")
 ):
     ROOT = os.path.dirname(ROOT)
 OUT = os.path.join(ROOT, "build", "corpora")
@@ -43,7 +43,7 @@ WANTED = [
     # English or to the translation. This is the control that separates them.
     (100, "english_1623_shakespeare.txt", "English, Indo-European Germanic, 1623"),
     # Not a Latin script. The byte is the wrong symbol width for it. Section 4.13.05 measures it
-    # after src/engine/python/representation/text/symbols.py re-slices it, which is where the
+    # after src/python/includes/formats/representation/text/symbols.py re-slices it, which is where the
     # re-seating this used to name separately ended up.
     (36248, "greek_iliad.txt", "Greek, Indo-European Hellenic, Greek script"),
     # Section 4.13.07 failed to find an epic register in the Greek Iliad, where an epithet declines

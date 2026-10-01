@@ -4,9 +4,9 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-SHIFT="$TOP/src/engine/analysis/shift_agreement"
+SHIFT="$TOP/src/c/engine/analysis/shift_agreement"
 SHIFT_CU="$TOP/src/cu/engine/analysis/shift_agreement"
-DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
+DEVICE_POOL="$TOP/src/c/engine/runtime/device_pool"
 DEVICE_POOL_CU="$TOP/src/cu/engine/runtime/device_pool"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp shift_agreement_hold_test
@@ -41,7 +41,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$SHIFT" -I "$SHIFT_CU" -I "$DEVICE_POOL")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$SHIFT" -I "$SHIFT_CU" -I "$DEVICE_POOL")
 rm -f "$BINARY"
 # the test is host arithmetic: it links the module's device code but asks nothing of the device, and is no job
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \

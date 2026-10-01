@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "tessera.h"
-#include "tessera_measure.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera_measure.h"
 
 #include <cuda_runtime.h>
 #include <stdio.h>

@@ -7,7 +7,7 @@ TOP="$(cd "$TEST/../../../../../examples" && pwd)"
 source "$TOP/cell_tracking/maint/build_stamp.sh"
 source "$TOP/cell_tracking/maint/tessera_build.sh"
 PEAKS="$TOP/cell_tracking/src/peaks"
-NO_ROUNDING="$ENGINE/arithmetic/no_rounding"
+NO_ROUNDING="$ENGINE/../types/integers"
 SCRIPTURA="$ENGINE/runtime/scriptura"
 build_stamp peaks_test
 
@@ -43,7 +43,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$ENGINE" -I "$ENGINE/../cu/engine" -I "$PEAKS" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$ENGINE" -I "$ENGINE/../../cu/engine" -I "$PEAKS" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()
@@ -66,7 +66,7 @@ done
 tessera_build peaks "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/peaks_test.cu" "$ENGINE/sims/sim_job.cu" "$PEAKS/peaks.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" \
+    "$TEST/peaks_test.cu" "$ENGINE/../../engine/sims/sim_job.cu" "$PEAKS/peaks.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" \
     "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }
 

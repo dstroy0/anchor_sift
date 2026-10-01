@@ -73,7 +73,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. The dirname guard stops a
 # missing sentinel from climbing off the top of the drive.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
 
 MIRROR = os.path.join(ROOT, "build", "cod_mirror")

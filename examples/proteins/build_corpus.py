@@ -27,9 +27,10 @@ import time
 import urllib.error
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 sys.path.insert(0, os.path.join(ROOT, "examples", "proteins"))
 
 from representation.structure.protein import fetch  # noqa: E402

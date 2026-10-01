@@ -3,9 +3,9 @@
 #ifndef ASM_PRINTER_INTERNAL_H
 #define ASM_PRINTER_INTERNAL_H
 
-#include "../../../engine/compiler/cycle/cycle.h"
-#include "../../../engine/compiler/key_schedule/key_schedule.h"
-#include "../../../engine/compiler/keymath/keymath.h"
+#include "../../../c/engine/analysis/cycle/cycle.h"
+#include "../../../c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../c/engine/analysis/keymath/keymath.h"
 #include "asm_printer.h"
 #include "asm_printer_core.h"
 #include "ruleset_reader.h"

@@ -27,8 +27,8 @@
  *       repeated position and counts it once.
  */
 
-#include "../../../engine/arithmetic/no_rounding/arm.h"
-#include "../../../engine/arithmetic/no_rounding/arm_cuda.h"
+#include "../../../c/types/integers/arm.h"
+#include "../../../c/types/integers/arm_cuda.h"
 
 #include <cuda_runtime.h>
 

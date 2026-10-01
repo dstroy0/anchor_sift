@@ -42,7 +42,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # every path in this tree the last time anything moved.
 ROOT = HERE
 while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(
-    os.path.join(ROOT, "src", "engine")
+    os.path.join(ROOT, "src", "python")
 ):
     ROOT = os.path.dirname(ROOT)
 

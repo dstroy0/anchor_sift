@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "group_objects.h"
 
-#include "golden_bands.h"
-#include "radix_keys.h"
+#include "../../../../src/c/engine/analysis/golden_bands/golden_bands.h"
+#include "../../../../src/c/engine/runtime/radix_keys/radix_keys.h"
 #include "track.h"
 
 #include <stdio.h>

@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "../../../../engine/analysis/residual_survey/residual_survey.h"
+#include "../../../../c/engine/analysis/residual_survey/residual_survey.h"
 
-#include "engine_config.h"
-#include "golden_bands.h"
-#include "radix_keys.h"
+#include "../../../../c/engine/engine_config.h"
+#include "../../../../c/engine/analysis/golden_bands/golden_bands.h"
+#include "../../../../c/engine/runtime/radix_keys/radix_keys.h"
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -122,9 +122,9 @@ The basic construction, Identity:Null Permutation, runs through all six parts. R
 | `sift`           | the sound filter, a necessary condition over any index set                                         |
 | `oracle`         | agreement with ground truth that somebody else published                                           |
 
-Each part is a directory under `src/engine/python/`, beside `instrument/` and `render/`. Everything downstream of `representation` sees points and values and is blind to what an object is. One instrument reads both. Seven subjects have their own directories under `representation`, the only part that knows a domain exists: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`. `representation/constants/` sits beside them.
+Each part is a directory under `src/python/`, beside `instrument/` and `render/`. Everything downstream of `representation` sees points and values and is blind to what an object is. One instrument reads both. Seven subjects have their own directories under `representation`, the only part that knows a domain exists: `atom`, `game`, `particle`, `picture`, `sound`, `structure` and `text`. `representation/constants/` sits beside them.
 
-`src/engine/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora, one stage directory per part.
+`src/python/README.md` is the map. `examples/` runs the same six names end to end on real corpora, one stage directory per part.
 
 ## No bounding, no tuning
 
@@ -154,7 +154,7 @@ Each directory serves one purpose.
 
 |                             | what it operates on          |                                                                                                   |
 | --------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/` with its benches in `utils/bench/` |
+| `src/`                      | points and values, no domain | the engine: the Python in `src/python/`, the C in `src/engine/` with its benches in `utils/bench/` |
 | `utils/test/`                     | the engine                   | the C correctness checks in `utils/test/engine/`, the maintenance tests, and the published test vectors |
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
@@ -166,7 +166,7 @@ Each directory serves one purpose.
 
 ## The detector and the measure are not the same reading
 
-The engine carries many readers, one per file under `src/engine/python/measure/` and `src/engine/python/reference/`, and the examples run each on a corpus. Two of them are mistaken for each other more than any others, and reporting one as the other is the error this work has spent the most effort correcting.
+The engine carries many readers, one per file under `src/python/engine/analysis/measure/` and `src/python/engine/analysis/reference/`, and the examples run each on a corpus. Two of them are mistaken for each other more than any others, and reporting one as the other is the error this work has spent the most effort correcting.
 
 The shift agreement detector reads a period or an offset, from how often a shift agrees with itself. The permutation null measure reads how far an object sits from a shuffle of its own parts, and its bit form reads the exact invariances that survive the shuffle. A number from one is not a number from the other.
 
@@ -188,11 +188,11 @@ The engine carries a large set of transforms, maps that put the object into anot
 
 **The image transform program.** `theory/theory/image_transforms` is a research paper of exact image transforms: translation, rotation with scale and perspective, observed motion, and waves on a surface. Translation is built, and it is the number-theoretic transform above. The rest are stated in the research paper and not yet implemented in the tree, and the research paper says which is which.
 
-The full set lives one per file under `src/engine/python/` and in the C renderer, and the workbook records what each has been shown to do. A defensible count is eleven invertible transform families, or seventeen if every render layout is counted on its own, beside several one-way maps.
+The full set lives one per file under `src/python/` and in the C renderer, and the workbook records what each has been shown to do. A defensible count is eleven invertible transform families, or seventeen if every render layout is counted on its own, beside several one-way maps.
 
 ## The sift
 
-`src/engine/nbody/orior/orior_*.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/engine/arithmetic/no_rounding/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/engine/python/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
+`src/engine/nbody/orior/orior_*.c` holds the search and the steering that places its probes. With the portable scan beside it and the exact integer arithmetic under `src/c/types/integers/`, it builds and runs with a C11 compiler alone, four sources and no build system (`docs/setup.md`). The Python in `src/python/engine/nbody/orior/sift/` implements the same construction, shares no code with it, and the two are checked against each other by agreeing on counts.
 
 **It is a sound filter.** A subset of a pattern's points is a necessary condition. No arrangement of anchors can lose a true occurrence. That is a proof, using no order, no dimension and no alphabet. The measurement beside it: across 35 rows of corpora, needle lengths and strides, no search ever reported fewer occurrences than exist. Errors are one directional. A discrepancy is always an over-count and is detectable without knowing the answer.
 
@@ -272,7 +272,7 @@ The permutation null measure on its own is the part a statistician or corpus lin
 
 | language          | file                                           | status                                                                       |
 | ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------- |
-| Python            | `src/engine/python/`                           | the reference every figure came out of                                       |
+| Python            | `src/python/`                           | the reference every figure came out of                                       |
 | R                 | `evidence/sims/r/departure.R`                  | runs, checked against the reference                                          |
 | MATLAB and Octave | `evidence/sims/matlab/orior_departure.m` | run on Octave 11.3.0, inside the reference floor; MATLAB proper not run here |
 
@@ -357,7 +357,7 @@ sh utils/maint/texbuild/build_theory.sh
 | the cell tracking engine's ledger: each claim with the status that backs it       | `theory/workbooks/cell_tracking`                   |
 | the cell tracking thought experiments, kept as they were written                  | `theory/thought_experiments/cell_tracking` |
 
-To read the code instead of the argument, start with `src/engine/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
+To read the code instead of the argument, start with `src/python/README.md`, then `examples/README.md`, then `examples/any_corpus/`.
 
 ## What is not here
 

@@ -15,10 +15,10 @@
 // stage: each bit's or over the cycle, and the halt flag set exactly when the cycle meets the halt set. The device
 // decides every lane whose cycle fits its run; past the run a set flag is a halt seen, and a clear one is open. The
 // test is one job on the device's tessera daemon, submitted before its first device work.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

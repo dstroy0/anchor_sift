@@ -2,7 +2,7 @@
 #ifndef FACES_H
 #define FACES_H
 
-#include "engine.h"
+#include "../../../../src/c/engine/engine.h"
 
 #include <stdio.h>
 

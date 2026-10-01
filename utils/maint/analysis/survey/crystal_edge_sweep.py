@@ -54,10 +54,11 @@ import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # The dirname guard stops a missing sentinel from climbing off the top of the drive.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
 sys.path.insert(0, os.path.join(ROOT, "examples", "crystallography", "6_oracle"))
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 import proof_positive_control as control  # noqa: E402
 from representation import exact  # noqa: E402

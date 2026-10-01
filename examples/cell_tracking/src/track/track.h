@@ -2,8 +2,8 @@
 #ifndef TRACK_H
 #define TRACK_H
 
-#include "climb_machine.h"
-#include "engine.h"
+#include "../../../../src/c/engine/nbody/climb_machine/climb_machine.h"
+#include "../../../../src/c/engine/engine.h"
 
 #include <stdio.h>
 

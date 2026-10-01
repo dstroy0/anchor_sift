@@ -2,7 +2,7 @@
 // shift_agreement_reserve_bytes against sums worked by hand from the layout: the pool's six slices, each on 256 bytes,
 // rounded up to the 2 MiB page once, and the negation and root tables rounded up to the page together. The test is
 // host arithmetic and touches no device.
-#include "shift_agreement.h"
+#include "../../../../../../../src/c/engine/analysis/shift_agreement/shift_agreement.h"
 
 #include <stdio.h>
 

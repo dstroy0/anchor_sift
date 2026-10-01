@@ -28,10 +28,10 @@
 // primes where two cover its range, decoded in the machine, catches two corrupted residues and corrects one, and T^-1
 // of the corrected crystal returns the samples. Every program runs on the device and the host, word for word. The test
 // is one job on the device's tessera daemon, submitted before its first device work.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

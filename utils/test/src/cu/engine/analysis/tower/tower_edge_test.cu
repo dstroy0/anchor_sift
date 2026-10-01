@@ -3,7 +3,7 @@
 // edges between its floors and a lower that replays their inverses in reverse rebuilds the lanes
 // exactly, the edges actually change the crystal, and a table that is not a permutation errors.
 
-#include "tower.h"
+#include "../../../../../../../src/c/engine/analysis/tower/tower.h"
 
 #include <cuda_runtime.h>
 

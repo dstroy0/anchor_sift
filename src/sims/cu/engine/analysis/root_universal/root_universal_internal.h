@@ -11,8 +11,8 @@
 
 #include "sim_camera.h"
 
-#include "compression.h"
-#include "tower.h"
+#include "../../../../../c/engine/analysis/compression/compression.h"
+#include "../../../../../c/engine/analysis/tower/tower.h"
 
 #define ROOT_KEY 0x524F4F54ull
 

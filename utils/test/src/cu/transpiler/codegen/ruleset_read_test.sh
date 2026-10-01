@@ -7,13 +7,13 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../.." && pwd)"
-CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN="$TOP/src/c/transpiler/codegen"
 CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp ruleset_read_test
 
-INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/cu/engine" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2")
 BINARY="$OUT/ruleset_read_test"
 rm -f "$BINARY"
 OBJECTS=()

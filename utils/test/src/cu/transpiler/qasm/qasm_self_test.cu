@@ -2,7 +2,7 @@
 // The self run against the dense port: every circuit's lanes on the host, from each basis state and from general
 // states, each lane equal to the dense port's run from the same start amplitude for amplitude; then the same programs
 // on the device inside one tessera job, their records equal to the host's word for word; then the errors.
-#include "qasm.h"
+#include "../../../../../../src/c/transpiler/qasm/qasm.h"
 
 #include <stdio.h>
 #include <stdlib.h>
