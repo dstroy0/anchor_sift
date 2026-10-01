@@ -9,6 +9,7 @@
 #   ask_order_check  holds the known order of asks to its exact claims and measures the contention read
 #   query_ask_check  holds the ask to what it answers at addresses whose state is known, and finds a clock
 #   query_cell_check walks asks from inside the cell, every ending kept as the answer of the address that caused it
+#   query_order_check puts the known order of asks to the host on a clock found by asking, and solves every link
 #
 #     maint/engine/chain_check.sh
 #     maint/engine/chain_check.sh sm_86 src/engine/compiler/cubin/machines/sm_86.kdm
@@ -46,6 +47,9 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_walk" "$BOOT/query_walk.c" "$BOOT/q
 cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/engine" -o "$OUT/query_cell_check" \
     "$TOP/test/engine/compiler/bootstrap/query_cell_check.c" "$BOOT/query_cell.c" "$CELL/cell.c" \
     "$CELL/cell_names.c" || exit 1
+cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_order_check" "$TOP/test/engine/compiler/bootstrap/query_order_check.c" \
+    "$BOOT/query_order.c" "$BOOT/query_ask.c" "$BOOT/ask_order.c" \
+    "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
 WALK="$OUT/query_walk"
 if [ -f "$WALK.exe" ]; then
     WALK="$WALK.exe"
@@ -60,4 +64,5 @@ fi
 "$OUT/gate_descent" || exit 1
 "$OUT/ask_order_check" || exit 1
 "$OUT/query_ask_check" || exit 1
-"$OUT/query_cell_check" "$WALK" "$OUT/query_walk.out"
+"$OUT/query_cell_check" "$WALK" "$OUT/query_walk.out" || exit 1
+"$OUT/query_order_check"

@@ -280,7 +280,10 @@ works there.
     things the measuring settled. A known order exists only for a link count one short of a power of two, and the
     engine composes chains to those lengths. The sweep asks sit at one link, half plus one and every link, and the
     read takes out a constant and the count before the square, because every ask pays an overhead the solve
-    spreads over every link. The device half is open: a container that runs a chain's covered links and
+    spreads over every link. The order is put to the host through the protocol: `query_order_put`
+    (`compiler/bootstrap/query_order.{h,c}`) puts every link an ask covers between two reads of a clock found by
+    asking, and `query_order_check.c` solves seven links whose reads differ by 64 each and gets them back in order,
+    the sweep reading that they add. The device half is open: a container that runs a chain's covered links and
     reads the part's clock around them, put through the channel in Open 1, with the censored-sample mark and the
     reference ask alongside. Its answer carries one bit a check, 128 an ask, and never one bit over a set (Q15).
 
