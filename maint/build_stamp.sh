@@ -19,7 +19,7 @@ build_path()
     esac
 }
 
-# the compile cache (maint/compile_cache.py): nvcc below compiles each source once a tree, into COMPILE_CACHE_DIR, and
+# the compile cache (maint/engine/compile_cache.py): nvcc below compiles each source once a tree, into COMPILE_CACHE_DIR, and
 # links what an earlier build of the same tree and flags compiled. The key is this project's tree and the engine's,
 # taken once here; COMPILE_CACHE=0 turns it off
 COMPILE_CACHE_NVCC="$(type -P nvcc 2> /dev/null)"
@@ -28,7 +28,7 @@ case "$(uname -s)" in
     *) COMPILE_CACHE_PYTHON="$(type -P python3 2> /dev/null)" ;;
 esac
 if [ "${COMPILE_CACHE:-1}" != 0 ] && [ -n "$COMPILE_CACHE_NVCC" ] && [ -n "$COMPILE_CACHE_PYTHON" ]; then
-    COMPILE_CACHE_SCRIPT="$ENGINE/../../maint/compile_cache.py"
+    COMPILE_CACHE_SCRIPT="$ENGINE/../../maint/engine/compile_cache.py"
     export COMPILE_CACHE_DIR="${COMPILE_CACHE_DIR:-$TOP/build/compile_cache}"
     export COMPILE_CACHE_KEY
     COMPILE_CACHE_KEY="$("$COMPILE_CACHE_PYTHON" "$COMPILE_CACHE_SCRIPT" key "$TOP" "$ENGINE/../..")" || COMPILE_CACHE_KEY=""
