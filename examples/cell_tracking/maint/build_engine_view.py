@@ -3,11 +3,11 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-PARTS = os.path.join(ROOT, "view", "engine_view")
+VIEW = os.path.join(os.path.dirname(os.path.dirname(HERE)), "00_blob_viz_tools", "view")
+PARTS = os.path.join(VIEW, "engine_view")
 ORDER = ["turn_table.js", "shaders.js", "shaders_render.js", "shaders_slice.js", "shaders_soft.js", "object.js", "gpu.js", "cfg.js",
          "app.js", "panels.js", "input.js"]
-OUTPUTS = [os.path.join(ROOT, "view", "engine_view.html"), "D:/kaggle/biohub_cell_tracking/SUBMISSION/engine_view.html"]
+OUTPUTS = [os.path.join(VIEW, "engine_view.html"), "D:/kaggle/biohub_cell_tracking/SUBMISSION/engine_view.html"]
 MARK = "/*ENGINE_VIEW_SCRIPT*/"
 
 
@@ -26,6 +26,10 @@ def main():
         script.append(io.open(path, encoding="utf-8").read())
     built = page.replace(MARK, "\n".join(script))
     for out in OUTPUTS:
+        out_dir = os.path.dirname(out)
+        if not os.path.isdir(out_dir):
+            print("  skipped %s, no %s" % (out, out_dir))
+            continue
         with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
             handle.write(built)
         print("  %s (%d bytes)" % (out, len(built.encode("utf-8"))))

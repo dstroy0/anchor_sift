@@ -126,7 +126,7 @@ EV.indexObject = (header, mapped) => {
       object.motion[at + axis] = children ? children[axis] - own[axis] : 0;
       object.motion[at + 3 + axis] = parents ? own[axis] - parents[axis] : 0;
     }
-    // Cells come in frame order and every link steps one frame on, so a parent's root is already known.
+    // Cells come in frame order and every link steps one frame on. A parent's root is already known.
     const firstParent = object.backward.start[cell] < object.backward.start[cell + 1]
       ? object.backward.other[object.backward.start[cell]] : cell;
     object.root[cell] = firstParent === cell ? cell : object.root[firstParent];
@@ -153,7 +153,7 @@ EV.indexObject = (header, mapped) => {
 // Each cell's second moments about its centroid, from its runs, exact: six per cell, zz yy xx zy zx yx, in voxels
 // squared (z in layers) times 256, floored, with each voxel's own spread of 1/12 added on the diagonal. A run of length
 // n from x0 at row y, layer z adds n, n x0 + n(n-1)/2, and n x0^2 + x0 n(n-1) + (n-1)n(2n-1)/6 to its sums. The sums
-// of a view of 2^22 voxels stay below 2^53, so they are held exactly; the covariance products are taken in BigInt.
+// of a view of 2^22 voxels stay below 2^53. They are held exactly; the covariance products are taken in BigInt.
 EV.cellShapes = (header, all, cells) => {
   const total = header.cell_total;
   const sums = new Float64Array(total * 9);

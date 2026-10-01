@@ -3,8 +3,6 @@
 # lowers one writes the lower number here. Regenerate by hand with --ratchet-write only when a
 # file moves, since a moved file starts again at zero under its new name.
 docs/ENGINE_DIRECTIONS.md	1
-examples/00_blob_viz_tools/view/engine_view.html	38
-examples/00_blob_viz_tools/view/track_room.html	1
 examples/0_experimental/invariant_consensus_rejects_outliers.py	1
 examples/cell_tracking/maint/score_metric.py	1
 examples/cell_tracking/src/faces/faces_find.cu	1

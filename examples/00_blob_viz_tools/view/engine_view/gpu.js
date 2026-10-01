@@ -171,7 +171,7 @@ EV.setRaw = (gpu, voxels, width, height, depth) => {
   }
   gpu.rawOn = voxels ? 1 : 0;
   gpu.compositeGroup = null;
-  // The composite of the view reads these voxels too, for the slide under the cells, so its group is made again
+  // The composite of the view reads these voxels too, for the slide under the cells. Its group is made again
   // against the texture that stands now and never against the one just let go.
   if (gpu.composeGroup) {
     gpu.composeGroup = gpu.device.createBindGroup({
@@ -393,7 +393,7 @@ EV.render = (gpu, plan) => {
     ids.setBindGroup(0, held.groups.mapIds);
     ids.draw(6, plan.cellCount, 0, plan.cellFirst);
     ids.end();
-    // The same cells again with no depth between them, adding their colors into the plane, so the plane holds
+    // The same cells again with no depth between them, adding their colors into the plane. The plane holds
     // the whole volume and not the face of it nearest the camera.
     const painted = encoder.beginRenderPass({
       colorAttachments: [{ view: held.painted.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 },
@@ -449,7 +449,7 @@ EV.render = (gpu, plan) => {
     pass.setBindGroup(0, held.groups.box);
     pass.drawIndirect(gpu.drawn, 0);
   } else if (plan.body === 1) {
-    // The boxes still fill the pick target and the depth, unseen, so a smooth cell is picked where its voxels are.
+    // The boxes still fill the pick target and the depth, unseen. A smooth cell is picked where its voxels are.
     pass.setPipeline(p.boxPick);
     pass.setBindGroup(0, held.groups.boxPick);
     pass.drawIndirect(gpu.drawn, 0);
@@ -476,7 +476,7 @@ EV.render = (gpu, plan) => {
       gpu.compositeGroup = device.createBindGroup({
         layout: p.sliceComposite.getBindGroupLayout(0),
         entries: [
-          // The plane's colors come from the painted texture now, so the composite reads no cell of the object
+          // The plane's colors come from the painted texture now. The composite reads no cell of the object
           // and no motion of one: the bindings it takes are the ones its own code still names.
           { binding: 1, resource: { buffer: gpu.layoutBuffer } },
           { binding: 2, resource: { buffer: held.chosen } },

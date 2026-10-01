@@ -10,8 +10,8 @@
 
 EV.MAP_SIZE = 512;
 
-// Steps a map pixel's ray takes across the reach. The reach is the volume's half diagonal in doubled units, so
-// this many steps lands within a voxel or two of every layer without reading the whole diagonal.
+// Steps a map pixel's ray takes across the reach. The reach is the volume's half diagonal in doubled units.
+// This many steps lands within a voxel or two of every layer without reading the whole diagonal.
 EV.MAP_STEPS = 256;
 
 EV.SLICE_COMPOSITE = EV.PRELUDE + EV.RENDER_BINDINGS + `
@@ -39,7 +39,7 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   // doubled and centered units the cells are turned in, and the ray behind it is walked back through the volume by
   // the camera's own turn read the other way round: what the cells' turn scatters out, this gathers in. The
   // brightest voxel along the ray stands. So the whole volume is on the plane, and none of it is a box held still.
-  // The plane is overhead and holds still, so the pixel is the column straight under it, the image centered in
+  // The plane is overhead and holds still. The pixel is the column straight under it, the image centered in
   // the square with row zero at the top. Nothing here turns; only what falls on the plane does.
   let column = vec2<i32>(i32(lay.width) / 2 + ((right - lay.slice_w / 2) * 256) / max(lay.slice_scale, 1),
                          i32(lay.height) / 2 + ((down - lay.slice_h / 2) * 256) / max(lay.slice_scale, 1));
@@ -66,12 +66,12 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   let filled = id != 0u;
   let cell = select(0u, id - 1u, filled);
   let picked = chosen_bit(cell) * u32(filled);
-  // The plane's color is every cell that reaches this place, divided by how much of them reached it, so a cell
-  // behind another still shows through: what is drawn is the whole volume flattened and not its nearest face.
+  // The plane's color is every cell that reaches this place, divided by how much of them reached it. A cell
+  // behind another still shows through: the whole volume flattened and not its nearest face.
   let gathered = textureLoad(painted, clamp(texel, vec2<i32>(0), vec2<i32>(size - 1)), 0);
   let reached = gathered.a;
   let flattened = vec3<u32>(clamp(gathered.rgb / max(reached, 0.0001), vec3<f32>(0.0), vec3<f32>(1.0)) * 255.0);
-  // How much of the plane this place holds, one cell's worth of cover being the whole of it.
+  // How much of the plane this place holds, one cell's worth of cover being the whole.
   let covered = u32(clamp(reached, 0.0, 1.0) * 255.0);
   let alpha = select((covered * 88u) / 255u, 255u, outline && filled);
   let tone = select(flattened, vec3<u32>(255u), outline && filled && (picked == 1u));

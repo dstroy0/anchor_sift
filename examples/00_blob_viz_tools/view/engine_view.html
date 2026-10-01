@@ -643,8 +643,8 @@ fn paint_fragment(input: Out) -> Drawn {
 
 EV.MAP_SIZE = 512;
 
-// Steps a map pixel's ray takes across the reach. The reach is the volume's half diagonal in doubled units, so
-// this many steps lands within a voxel or two of every layer without reading the whole diagonal.
+// Steps a map pixel's ray takes across the reach. The reach is the volume's half diagonal in doubled units.
+// This many steps lands within a voxel or two of every layer without reading the whole diagonal.
 EV.MAP_STEPS = 256;
 
 EV.SLICE_COMPOSITE = EV.PRELUDE + EV.RENDER_BINDINGS + `
@@ -672,7 +672,7 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   // doubled and centered units the cells are turned in, and the ray behind it is walked back through the volume by
   // the camera's own turn read the other way round: what the cells' turn scatters out, this gathers in. The
   // brightest voxel along the ray stands. So the whole volume is on the plane, and none of it is a box held still.
-  // The plane is overhead and holds still, so the pixel is the column straight under it, the image centered in
+  // The plane is overhead and holds still. The pixel is the column straight under it, the image centered in
   // the square with row zero at the top. Nothing here turns; only what falls on the plane does.
   let column = vec2<i32>(i32(lay.width) / 2 + ((right - lay.slice_w / 2) * 256) / max(lay.slice_scale, 1),
                          i32(lay.height) / 2 + ((down - lay.slice_h / 2) * 256) / max(lay.slice_scale, 1));
@@ -699,12 +699,12 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
   let filled = id != 0u;
   let cell = select(0u, id - 1u, filled);
   let picked = chosen_bit(cell) * u32(filled);
-  // The plane's color is every cell that reaches this place, divided by how much of them reached it, so a cell
-  // behind another still shows through: what is drawn is the whole volume flattened and not its nearest face.
+  // The plane's color is every cell that reaches this place, divided by how much of them reached it. A cell
+  // behind another still shows through: the whole volume flattened and not its nearest face.
   let gathered = textureLoad(painted, clamp(texel, vec2<i32>(0), vec2<i32>(size - 1)), 0);
   let reached = gathered.a;
   let flattened = vec3<u32>(clamp(gathered.rgb / max(reached, 0.0001), vec3<f32>(0.0), vec3<f32>(1.0)) * 255.0);
-  // How much of the plane this place holds, one cell's worth of cover being the whole of it.
+  // How much of the plane this place holds, one cell's worth of cover being the whole.
   let covered = u32(clamp(reached, 0.0, 1.0) * 255.0);
   let alpha = select((covered * 88u) / 255u, 255u, outline && filled);
   let tone = select(flattened, vec3<u32>(255u), outline && filled && (picked == 1u));
@@ -720,16 +720,16 @@ fn slice_paint(@builtin(position) at: vec4<f32>) -> Drawn {
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // Smooth cells. The blur: each run is an ellipsoid drawn as the ellipse it projects to, bright at its center and
-// falling smoothly to nothing, so the runs of one cell merge into one translucent blob from every angle. The wall: each
+// falling smoothly to nothing. The runs of one cell merge into one translucent blob from every angle. The wall: each
 // cell's solid ellipsoid of equal second moments, less the membrane, drawn into a texture of cell numbers; the
 // composite traces a line wherever that number changes, in a lighter tone of the cell's color, over the blur. The
-// wall is one smooth surface per cell, so no layer of the volume shows in it.
+// wall is one smooth surface per cell. No layer of the volume shows in it.
 //
 // Positions are integers up to the clip boundary, as everywhere; past it the ellipses and the blend are display
 // arithmetic in f32 and feed no count. The blend is weighted, blended order-independent transparency (McGuire and
 // Bavoil, 2013): every splat adds its weighted color to one target and multiplies its transparency into another, and
 // the composite divides the first by its weight and lays the result over the page by the second. No sort is needed.
-// Splats and walls take the same palette, the same step and a dissolve grain like the run's box, so the smooth cells
+// Splats and walls take the same palette, the same step and a dissolve grain like the run's box. The smooth cells
 // move and shimmer as the voxel cells do.
 
 EV.SOFT = EV.PRELUDE + EV.RENDER_BINDINGS + `
@@ -765,8 +765,8 @@ fn farness(clip_z: f32) -> f32 {
 
 // One run as an ellipsoid in the volume, drawn as the exact ellipse it projects to. Its three semi-axes lie along x, y
 // and z: along x half the run's length plus a reach of soft_radius halves of a voxel, along y that reach, and along z
-// that reach in layers plus half a layer, so neighboring rows and layers overlap from every angle and the density does
-// not band by layer. The reach grows with distance, by 35% at the far side, so far cells soften a little while near
+// that reach in layers plus half a layer. Neighboring rows and layers overlap from every angle and the density does
+// not band by layer. The reach grows with distance, by 35% at the far side. Far cells soften a little while near
 // ones keep their shape.
 //
 // An ellipsoid with semi-axis vectors a, b, c projects orthographically to the ellipse of points p with
@@ -791,7 +791,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   let across_x = (project(x + 64, y, z, frame).xy * half - center) / 32.0;
   let across_y = (project(x, y + 64, z, frame).xy * half - center) / 32.0;
   let across_z = (project(x, y, z + 32 * lay.z_scale, frame).xy * half - center) / 32.0;
-  // The distance is the cell's, taken at its centroid: every run of a cell carries one weight, so where two cells
+  // The distance is the cell's, taken at its centroid: every run of a cell carries one weight. Where two cells
   // overlap on the screen the nearer one wins throughout, never row by row.
   let own_center = centroid(cell) + step;
   let far = farness(project(own_center.x, own_center.y, own_center.z, frame).z);
@@ -817,7 +817,7 @@ fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u
   out.inverse = vec3<f32>(m11, -m01, m00) / determinant;
   out.cell = cell + 1u;
   out.far = far;
-  // The cell's own lift or dim, as its body and wall take it, so the blur of neighbors of one lineage differs too.
+  // The cell's own lift or dim, as its body and wall take it. The blur of neighbors of one lineage differs too.
   let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
   let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
   out.color = vec4<f32>(tone, f32(lay.soft_alpha) / 255.0);
@@ -830,10 +830,10 @@ fn falloff_of(input: SoftOut) -> f32 {
   return clamp(1.0 - q, 0.0, 1.0);
 }
 
-// A Gaussian: the ellipse's edge lies at two and a half standard deviations, so with the reach of one and a half rows
+// A Gaussian: the ellipse's edge lies at two and a half standard deviations. With the reach of one and a half rows
 // and two layers the deviation is 0.6 of a row and 0.8 of a layer, and Gaussians laid at that spacing sum to a density
 // that ripples by under 1%: no row or layer shows as a band from any angle. The blend's weight falls as the fourth
-// power of the distance into the volume, a thousand to one from the near side to the far, so a near cell holds its own
+// power of the distance into the volume, a thousand to one from the near side to the far. A near cell holds its own
 // pixels against everything behind it; a far splat is also drawn at 70% of its opacity.
 @fragment
 fn soft_fragment(input: SoftOut) -> SoftDrawn {
@@ -848,7 +848,7 @@ fn soft_fragment(input: SoftOut) -> SoftDrawn {
 @group(0) @binding(6) var<storage, read> shape: array<i32>;
 
 // A cell's ellipsoid: the solid ellipsoid with the cell's own second moments, drawn as the ellipse it projects to. A
-// solid ellipsoid's second moment along a semi-axis of length r is r^2 / 5, so with the moments C in voxels squared the
+// solid ellipsoid's second moment along a semi-axis of length r is r^2 / 5. With the moments C in voxels squared the
 // projected ellipse is M = 5 P C P', P taking a voxel along x and y and a layer along z to the screen. The wall is
 // shrunk by the membrane; the body is not. Both ride the cell's step and dissolve by the cell's grain across a
 // transition.
@@ -913,7 +913,7 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
   // lineage still read as separate cells.
   let own = 0.84 + 0.32 * f32((cell * 2246822519u) >> 24u) / 255.0;
   let tone = min(lit(cell, frame, 256u).rgb * own, vec3<f32>(1.0));
-  // A wall's tone is lifted toward white and its alpha carries its nearness and solidity, so the composite fades walls
+  // A wall's tone is lifted toward white and its alpha carries its nearness and solidity. The composite fades walls
   // with distance and sprawl; a body's tone is the cell's own at the body's opacity times its solidity.
   let typical = f32(max(lay.typical_voxels, 1u));
   let solid = smoothstep(0.1, 0.4, compact) * (1.0 - smoothstep(8.0 * typical, 32.0 * typical, f32(size)));
@@ -927,13 +927,13 @@ fn cell_ellipse(vertex: u32, cell: u32, wall: bool) -> SoftOut {
 // units, fills the square texture of cell numbers. Nothing of zoom, pan or spread applies. The composite fills each
 // cell's ellipse with its color and outlines it; the nearest cell is in front.
 // The plane stays overhead and never turns: a place on it is where the cell stands seen from straight above, laid
-// on the same still image the map draws under it, so the map holds while the view moves. Row zero is at the top,
+// on the same still image the map draws under it. The map holds while the view moves. Row zero is at the top,
 // as the image has it, and the clip space counts the other way.
 fn map_place(x: i32, y: i32, z: i32) -> vec3<f32> {
   let across = f32(x * lay.slice_scale) / f32(256 * max(lay.slice_w, 1));
   let down = f32(y * lay.slice_scale) / f32(256 * max(lay.slice_h, 1));
   let reach = f32(lay.map_reach);
-  // Overhead, the nearest cell is the highest one, so its own height is the depth it is written at.
+  // Overhead, the nearest cell is the highest one. Its own height is the depth it is written at.
   return vec3<f32>(across, -down, (f32(z) + reach) / (2.0 * reach));
 }
 
@@ -1014,8 +1014,7 @@ fn map_cell_fragment(input: SoftOut) -> MapDrawn {
 
 // The plane holds the whole volume and not its near face: every cell adds its own color where its ellipse
 // covers, nothing tested against depth and nothing hidden behind anything else. The weight added beside the
-// color is what the composite divides by, so a place many cells reach reads as all of their colors together
-// rather than as whichever of them happened to lie nearest the camera.
+// color is what the composite divides by. A place many cells reach reads as all of their colors together.
 @fragment
 fn map_paint_fragment(input: SoftOut) -> @location(0) vec4<f32> {
   let falloff = falloff_of(input);
@@ -1070,8 +1069,8 @@ fn body_fragment(input: SoftOut) -> SoftDrawn {
 
 // The wall's cell at a pixel is the nearest cell there, and between cells at one depth the one whose ellipse is most
 // central: the depth written is the view depth plus the distance from the ellipse's center, scaled to about two voxels
-// of depth, so the depth test keeps cells in front and settles touching cells by their rounded shapes. Outside an
-// ellipse the depth is 1, which never passes the cleared depth, so the region outside every cell keeps cell 0 and the
+// of depth. The depth test keeps cells in front and settles touching cells by their rounded shapes. Outside an
+// ellipse the depth is 1, which never passes the cleared depth. The region outside every cell keeps cell 0 and the
 // wall between a cell and the outside follows the ellipses' rounded union.
 @fragment
 fn wall_soft_fragment(input: SoftOut) -> WallDrawn {
@@ -1087,8 +1086,8 @@ EV.SOFT_COMPOSITE = EV.PRELUDE + `
 @group(0) @binding(4) var<uniform> lay: Layout;
 @group(0) @binding(5) var raw: texture_3d<u32>;
 
-// The slide under the cells: the microscope's own voxels, gathered along the very ray the view is looking down,
-// so the image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
+// The slide under the cells: the microscope's own voxels, gathered along the very ray the view is looking down.
+// The image and what the engine made of it stand in the same place at the same turn. The pixel is carried back
 // through the turn, the brightest voxel along it stands, and the slider says how much of it is seen against the
 // representation. Nothing of the two is drawn twice: one fades in as the other fades out.
 fn slide_gray(pixel: vec2<i32>) -> vec2<f32> {
@@ -1135,7 +1134,7 @@ fn wall_at(pixel: vec2<i32>) -> u32 {
 fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
   let pixel = vec2<i32>(at.xy);
   // Alpha smoothing: both blend targets are read through a 3 by 3 tent, weights 1 2 1 by 1 2 1 over 16, before the
-  // color is resolved, so the edges of blobs and the grain of the dissolve soften by a pixel.
+  // color is resolved. The edges of blobs and the grain of the dissolve soften by a pixel.
   let limit = vec2<i32>(textureDimensions(accumulated)) - vec2<i32>(1);
   var sum = vec4<f32>(0.0);
   var clear = 0.0;
@@ -1305,7 +1304,7 @@ EV.indexObject = (header, mapped) => {
       object.motion[at + axis] = children ? children[axis] - own[axis] : 0;
       object.motion[at + 3 + axis] = parents ? own[axis] - parents[axis] : 0;
     }
-    // Cells come in frame order and every link steps one frame on, so a parent's root is already known.
+    // Cells come in frame order and every link steps one frame on. A parent's root is already known.
     const firstParent = object.backward.start[cell] < object.backward.start[cell + 1]
       ? object.backward.other[object.backward.start[cell]] : cell;
     object.root[cell] = firstParent === cell ? cell : object.root[firstParent];
@@ -1332,7 +1331,7 @@ EV.indexObject = (header, mapped) => {
 // Each cell's second moments about its centroid, from its runs, exact: six per cell, zz yy xx zy zx yx, in voxels
 // squared (z in layers) times 256, floored, with each voxel's own spread of 1/12 added on the diagonal. A run of length
 // n from x0 at row y, layer z adds n, n x0 + n(n-1)/2, and n x0^2 + x0 n(n-1) + (n-1)n(2n-1)/6 to its sums. The sums
-// of a view of 2^22 voxels stay below 2^53, so they are held exactly; the covariance products are taken in BigInt.
+// of a view of 2^22 voxels stay below 2^53. They are held exactly; the covariance products are taken in BigInt.
 EV.cellShapes = (header, all, cells) => {
   const total = header.cell_total;
   const sums = new Float64Array(total * 9);
@@ -1628,7 +1627,7 @@ EV.setRaw = (gpu, voxels, width, height, depth) => {
   }
   gpu.rawOn = voxels ? 1 : 0;
   gpu.compositeGroup = null;
-  // The composite of the view reads these voxels too, for the slide under the cells, so its group is made again
+  // The composite of the view reads these voxels too, for the slide under the cells. Its group is made again
   // against the texture that stands now and never against the one just let go.
   if (gpu.composeGroup) {
     gpu.composeGroup = gpu.device.createBindGroup({
@@ -1850,7 +1849,7 @@ EV.render = (gpu, plan) => {
     ids.setBindGroup(0, held.groups.mapIds);
     ids.draw(6, plan.cellCount, 0, plan.cellFirst);
     ids.end();
-    // The same cells again with no depth between them, adding their colors into the plane, so the plane holds
+    // The same cells again with no depth between them, adding their colors into the plane. The plane holds
     // the whole volume and not the face of it nearest the camera.
     const painted = encoder.beginRenderPass({
       colorAttachments: [{ view: held.painted.createView(), clearValue: { r: 0, g: 0, b: 0, a: 0 },
@@ -1906,7 +1905,7 @@ EV.render = (gpu, plan) => {
     pass.setBindGroup(0, held.groups.box);
     pass.drawIndirect(gpu.drawn, 0);
   } else if (plan.body === 1) {
-    // The boxes still fill the pick target and the depth, unseen, so a smooth cell is picked where its voxels are.
+    // The boxes still fill the pick target and the depth, unseen. A smooth cell is picked where its voxels are.
     pass.setPipeline(p.boxPick);
     pass.setBindGroup(0, held.groups.boxPick);
     pass.drawIndirect(gpu.drawn, 0);
@@ -1933,7 +1932,7 @@ EV.render = (gpu, plan) => {
       gpu.compositeGroup = device.createBindGroup({
         layout: p.sliceComposite.getBindGroupLayout(0),
         entries: [
-          // The plane's colors come from the painted texture now, so the composite reads no cell of the object
+          // The plane's colors come from the painted texture now. The composite reads no cell of the object
           // and no motion of one: the bindings it takes are the ones its own code still names.
           { binding: 1, resource: { buffer: gpu.layoutBuffer } },
           { binding: 2, resource: { buffer: held.chosen } },
@@ -2064,25 +2063,25 @@ EV.errorValue = (rule, value) => {
 // Applies a view section over a view. Returns what was applied and what errored, by name.
 EV.applyView = (view, section) => {
   const applied = [];
-  const errored = [];
+  const error = [];
   if (!section || typeof section !== "object" || Array.isArray(section)) {
-    return { applied, errored: ["view: an object of name to value"] };
+    return { applied, error: ["view: an object of name to value"] };
   }
   for (const [name, value] of Object.entries(section)) {
     const rule = EV.VIEW_SCHEME[name];
     if (!rule) {
-      errored.push(`${name}: the view has no such setting`);
+      error.push(`${name}: the view has no such setting`);
       continue;
     }
     const reason = EV.errorValue(rule, value);
     if (reason) {
-      errored.push(`${name}: ${reason}`);
+      error.push(`${name}: ${reason}`);
       continue;
     }
     view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
     applied.push(name);
   }
-  return { applied, errored };
+  return { applied, error };
 };
 
 // The whole .cfg: the object's own sections as the tracker wrote them, with the page's view in place of its view.
@@ -2121,32 +2120,32 @@ EV.parseCfg = (text) => {
   try {
     cfg = JSON.parse(text);
   } catch (error) {
-    return { errored: [`that is not JSON: ${error.message}`] };
+    return { error: [`that is not JSON: ${error.message}`] };
   }
   if (!cfg || typeof cfg !== "object" || Array.isArray(cfg)) {
-    return { errored: ["a .cfg is one object"] };
+    return { error: ["a .cfg is one object"] };
   }
-  const errored = [];
+  const error = [];
   if (cfg.scheme !== undefined && cfg.scheme !== "cell_tracking.cfg") {
-    errored.push("scheme: always cell_tracking.cfg");
+    error.push("scheme: always cell_tracking.cfg");
   }
   if (cfg.version !== undefined && cfg.version !== 1) {
-    errored.push("version: this page reads version 1");
+    error.push("version: this page reads version 1");
   }
   for (const name of Object.keys(cfg)) {
     if (!["scheme", "version", "track", "input", "output", "view"].includes(name)) {
-      errored.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
+      error.push(`${name}: a .cfg has scheme, version, track, input, output and view`);
     }
   }
-  return { errored, view: cfg.view };
+  return { error, view: cfg.view };
 };
 
 // ---- app.js ----
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// The page's state and its clock. The .cfg view holds the targets; the live values ease toward them every frame, so
-// a turn, a zoom, a spread, a choice and a frame change all move instead of jumping. Angles are held in sixteenths of
+// The page's state and its clock. The .cfg view holds the targets; the live values ease toward them every frame.
+// A turn, a zoom, a spread, a choice and a frame change all move instead of jumping. Angles are held in sixteenths of
 // a degree and turned through the integer sine table.
 
 EV.$ = (id) => document.getElementById(id);
@@ -2251,7 +2250,7 @@ EV.layoutValues = (app, range, regions) => {
 };
 
 // Each light as a direction toward it, times 256: in the volume's own frame for the voxel faces, and turned by the camera
-// into view space, x right, y up, z toward the eye, for the lit bodies. A light is fixed to the volume, so turning the
+// into view space, x right, y up, z toward the eye, for the lit bodies. A light is fixed to the volume. Turning the
 // camera turns its light with the cells. Integers throughout.
 EV.lightVectors = (app) => {
   const live = app.live;
@@ -2961,8 +2960,8 @@ EV.readControl = (app, id, name, kind) => {
       : kind === "palette" ? EV.PALETTE_WORDS[element.value]
         : kind === "power" ? (Number(element.value) ? 2 ** (Number(element.value) - 1) : 0)
           : kind === "word" ? element.value : Math.trunc(Number(element.value));
-  const errored = EV.errorValue(EV.VIEW_SCHEME[name], value);
-  if (!errored) {
+  const error = EV.errorValue(EV.VIEW_SCHEME[name], value);
+  if (!error) {
     app.view[name] = value;
   }
   if (name === "slice_z" || name === "window_low" || name === "window_high" || name === "slice") {
@@ -3181,7 +3180,7 @@ EV.openSource = async (app, sources, sample, fromFile) => {
   app.progress = 0;
   app.heading = 0;
   app.playing = false;
-  // The resolve reads the sections' offsets from the layout, so the layout is written for this object first.
+  // The resolve reads the sections' offsets from the layout. The layout is written for this object first.
   EV.fit(gpu);
   EV.writeLayout(gpu, EV.layoutValues(app, EV.frameRange(app), EV.regions(app)));
   app.resolveMs = await EV.resolveRuns(gpu);
@@ -3273,8 +3272,8 @@ EV.bindControls = (app) => {
   EV.$("configRead").addEventListener("click", readPage);
   EV.$("configApply").addEventListener("click", () => {
     const report = EV.apply(app, EV.$("configText").value);
-    said.textContent = `${report.applied.length} applied.` + (report.errored.length ? ` Errored: ${report.errored.join("; ")}` : "");
-    said.className = report.errored.length ? "note bad" : "note";
+    said.textContent = `${report.applied.length} applied.` + (report.error.length ? ` Error: ${report.error.join("; ")}` : "");
+    said.className = report.error.length ? "note bad" : "note";
   });
   EV.$("configCopy").addEventListener("click", async () => {
     try {
@@ -3478,9 +3477,9 @@ EV.bindKeys = (app) => {
 
 // Applies a view section, or a whole .cfg's text, and reports by name what took and what did not.
 EV.apply = (app, input) => {
-  const parsed = typeof input === "string" ? EV.parseCfg(input) : { errored: [], view: input };
-  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], errored: [] };
-  report.errored = [...parsed.errored, ...report.errored];
+  const parsed = typeof input === "string" ? EV.parseCfg(input) : { error: [], view: input };
+  const report = parsed.view ? EV.applyView(app.view, parsed.view) : { applied: [], error: [] };
+  report.error = [...parsed.error, ...report.error];
   if (report.applied.includes("chosen") && app.object) {
     EV.choose(app, app.view.chosen.filter((cell) => cell < app.object.header.cell_total), "set");
   }

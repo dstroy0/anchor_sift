@@ -1,8 +1,8 @@
 // cell_tracking - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// The page's state and its clock. The .cfg view holds the targets; the live values ease toward them every frame, so
-// a turn, a zoom, a spread, a choice and a frame change all move instead of jumping. Angles are held in sixteenths of
+// The page's state and its clock. The .cfg view holds the targets; the live values ease toward them every frame.
+// A turn, a zoom, a spread, a choice and a frame change all move instead of jumping. Angles are held in sixteenths of
 // a degree and turned through the integer sine table.
 
 EV.$ = (id) => document.getElementById(id);
@@ -107,7 +107,7 @@ EV.layoutValues = (app, range, regions) => {
 };
 
 // Each light as a direction toward it, times 256: in the volume's own frame for the voxel faces, and turned by the camera
-// into view space, x right, y up, z toward the eye, for the lit bodies. A light is fixed to the volume, so turning the
+// into view space, x right, y up, z toward the eye, for the lit bodies. A light is fixed to the volume. Turning the
 // camera turns its light with the cells. Integers throughout.
 EV.lightVectors = (app) => {
   const live = app.live;
