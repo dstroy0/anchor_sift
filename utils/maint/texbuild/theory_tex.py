@@ -114,6 +114,10 @@ def inline(value, chapter):
         # [a, a](0) in a table is an interval, not a link. A target names a file or a page.
         if not re.search(r"[A-Za-z]", match.group(2)):
             return match.group(0)
+        # [Chang 1959](#src:Chang-1959) cites a registry key: its words stay, and the label is
+        # cited after them. The generated bibliography numbers it.
+        if match.group(2).startswith("#src:"):
+            return match.group(1) + protect(r"~\cite{" + match.group(2)[1:] + "}")
         opening, closing = link_target(match.group(2), chapter)
         return protect(opening) + match.group(1) + protect(closing)
 

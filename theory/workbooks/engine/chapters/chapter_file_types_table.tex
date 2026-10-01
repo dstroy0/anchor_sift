@@ -1,0 +1,52 @@
+\chapter{\texorpdfstring{Engine file types}{Engine file types}}
+\label{chap:file-types-table}
+
+Every file extension the engine and its projects write or read. A new extension is Doug's to name. Before one is proposed, it is checked against this table and against the whole biohub tree, anchor\_\allowbreak{}sift\_\allowbreak{}python included.
+
+\section{\texorpdfstring{In use}{In use}}
+
+{\small
+\setlength{\tabcolsep}{6pt}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2180\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5674\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2146\linewidth-2\tabcolsep\relax}}
+\toprule
+Extension & What it is & Named by \\
+\midrule
+\endhead
+\texttt{.\allowbreak{}kcr} & The information crystal (Kolmogorov crystal): its own compression format. It reads every source format, takes each format's own compression out, and can rebuild the data into any format (Doug, 27 September). krep kind “KCR\textbackslash{}0”, version 1. The only crystal format. & Doug, 23 September \\
+\texttt{.\allowbreak{}krs} & A ruleset: how the emitter spells the forms in one language (\texttt{ptx.\allowbreak{}krs}, \texttt{c.\allowbreak{}krs}, \texttt{vhdl.\allowbreak{}krs}). &  \\
+\texttt{.\allowbreak{}kcs} & A construction set, part of the crystal flattener. & Doug \\
+\texttt{.\allowbreak{}knf} & A sample's noise floor. &  \\
+\texttt{.\allowbreak{}ksh} & The flattened set: every body of every sample as one number each (\texttt{train.\allowbreak{}ksh}). &  \\
+\texttt{.\allowbreak{}ans} & The answer file. &  \\
+\bottomrule
+\end{longtable}
+}
+
+\section{\texorpdfstring{Retired}{Retired}}
+
+{\small
+\setlength{\tabcolsep}{6pt}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3382\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6618\linewidth-2\tabcolsep\relax}}
+\toprule
+Extension & What it was \\
+\midrule
+\endhead
+\texttt{.\allowbreak{}iapx} & The crystal before \texttt{.\allowbreak{}kcr}. Not read; sets are re-ingested. \\
+\bottomrule
+\end{longtable}
+}
+
+\section{\texorpdfstring{Offered, not adopted}{Offered, not adopted}}
+
+{\small
+\setlength{\tabcolsep}{6pt}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2988\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.7012\linewidth-2\tabcolsep\relax}}
+\toprule
+Extension & Offered for \\
+\midrule
+\endhead
+\texttt{.\allowbreak{}kfc} \texttt{.\allowbreak{}kst} \texttt{.\allowbreak{}kgr} \texttt{.\allowbreak{}ksd} & The other apx files (flattened, OAPX history, BAPX bodies, IMP key); still open with Doug (build\_\allowbreak{}plan.md). \\
+\texttt{.\allowbreak{}khw} & A separate hardware constraints file. Withdrawn (Doug, 27 September: file creep); the constraints are entries of the language's \texttt{.\allowbreak{}krs}. \\
+\bottomrule
+\end{longtable}
+}

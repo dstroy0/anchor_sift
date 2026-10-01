@@ -16,13 +16,13 @@
 
 Derived.
 
-- **The 2-adic integers ℤ₂.** An element is a sequence of bits x_0, x_1, … without end, read as Σ x_k 2^k. Sums and products carry upward, as in binary, and never stop. Equivalently, ℤ₂ = lim← ℤ/2^w: an element is a sequence of residues r_w ∈ ℤ/2^w with r_{w+1} ≡ r_w mod 2^w (Koblitz, ch. 1; Gouvêa, ch. 3).
+- **The 2-adic integers ℤ₂.** An element is a sequence of bits x_0, x_1, … without end, read as Σ x_k 2^k. Sums and products carry upward, as in binary, and never stop. Equivalently, ℤ₂ = lim← ℤ/2^w: an element is a sequence of residues r_w ∈ ℤ/2^w with r_{w+1} ≡ r_w mod 2^w ([Koblitz, ch. 1](#src:Koblitz-1984); [Gouvêa, ch. 3](#src:Gouv-a-1997)).
 - **A register is a 2-adic integer.** The file holds a magnitude and a sign. XOR and AND read a register as its two's complement sign-extended without end (`engine_config.h`): zeros past the top bit for a value that is not negative, ones for a negative one. That bit sequence is the value in ℤ₂. For example −1 = …1111, since 1 + …1111 carries to 0. The inclusion ℤ ⊂ ℤ₂ is a ring embedding.
 - **The wrap is a projection.** WRAP(v, w) takes v modulo 2^w and reads it back signed, in [−2^{w−1}, 2^{w−1}); the machine takes w ≥ 4. It is π_w: ℤ₂ → ℤ/2^w, each residue class written by its signed representative.
   - The projections cohere: π_w ∘ π_{w+1} = π_w, and WRAP(WRAP(v, w + 1), w) = WRAP(v, w).
 - **A window.** W_w = [−2^{w−1}, 2^{w−1}) ∩ ℤ, the values a wrap to w returns. π_w restricted to W_w is a bijection onto ℤ/2^w, and a wrap to w leaves every value of W_w as it is.
 - **An odd c is a unit of ℤ₂.** For example 1/3 = …10101011: 3 · 1011₂ = 33 ≡ 1 mod 16, and the digits 10 repeat above the lowest two. A wrap to 8 bits gives −85, and 3 · (−85) = −255 ≡ 1 mod 256.
-  - ℤ₂ ∩ ℚ is the rationals with odd denominators. Their expansions are exactly the eventually periodic ones (Gouvêa).
+  - ℤ₂ ∩ ℚ is the rationals with odd denominators. Their expansions are exactly the eventually periodic ones ([Gouvêa](#src:Gouv-a-1997)).
 
 ## Coherence: five operations commute with every projection
 
@@ -121,13 +121,13 @@ Doug's (24 September): two crystals, the finite towers and their limit, with an 
   - A window is not closed under +: 2^{w−2} + 2^{w−2} = 2^{w−1} leaves W_w. Nor under ×.
   - No ring map ℤ/2^w → ℤ/2^{w+1} sends 1 to 1: 2^w · 1 = 0 would have to go to 2^w ≠ 0.
 - **The direct crystal, as groups.** Derived. Under the injections x ↦ 2x, ℤ/2^w → ℤ/2^{w+1}, the direct limit is the Prüfer group ℤ[1/2]/ℤ, not ℤ; ℤ/2^w sits in it as the multiples of 2^{−w}.
-  - The Prüfer group is the Pontryagin dual of ℤ₂ (Hewitt and Ross). The two systems are dual map for map: the dual of a projection ℤ/2^{w+1} → ℤ/2^w is an injection x ↦ 2x.
+  - The Prüfer group is the Pontryagin dual of ℤ₂ ([Hewitt and Ross](#src:Hewitt-and-Ross-1963)). The two systems are dual map for map: the dual of a projection ℤ/2^{w+1} → ℤ/2^w is an injection x ↦ 2x.
 - **They agree on every finite projection.** Derived. π_w(ℤ) = π_w(ℤ₂) = ℤ/2^w for every w. Every x ∈ ℤ₂ shares its w low bits with an integer, the signed representative of π_w(x) in W_w: ℤ is dense in ℤ₂. No finite floor tells the two crystals apart.
 - **The delta is infinite.** Derived.
   - ℤ is countable. ℤ₂ is in bijection with the bit sequences {0,1}^ℕ and uncountable, by Cantor's diagonal. ℤ₂ \ ℤ is uncountable.
   - Its part in ℚ, the rationals with odd denominators outside ℤ, is countable: the eventually periodic expansions. The machine reaches their windows through the exact quotient's inverse (1/3, above).
   - The computable elements of ℤ₂ are countable, and a program can produce any window of one. All but countably many elements are not computable: each has a window at every w, as every element does, yet no program produces its windows for every w.
-- **The solenoid.** Derived. The envelope joining the two crystals is the dyadic solenoid (Vietoris 1927; van Dantzig 1930):
+- **The solenoid.** Derived. The envelope joining the two crystals is the dyadic solenoid ([Vietoris 1927](#src:Vietoris-1927); [van Dantzig 1930](#src:van-Dantzig-1930)):
 
   Σ₂ = lim←(S¹, z ↦ z²) = (ℝ × ℤ₂) / ℤ, with ℤ embedded diagonally, n ↦ (n, n)
 
@@ -140,7 +140,7 @@ Doug's (24 September): two crystals, the finite towers and their limit, with an 
 
 Derived.
 
-- **Unions of chains.** For a chain of structures A_0 ⊂ A_1 ⊂ … under embeddings, the union satisfies every ∀∃ sentence that holds in every A_i (Chang 1959; Łoś and Suszko 1957; Hodges, where the Fraïssé limit is built as such a union).
+- **Unions of chains.** For a chain of structures A_0 ⊂ A_1 ⊂ … under embeddings, the union satisfies every ∀∃ sentence that holds in every A_i ([Chang 1959](#src:Chang-1959); [Łoś and Suszko 1957](#src:o-and-Suszko-1957); [Hodges](#src:Hodges-1993), where the Fraïssé limit is built as such a union).
   - A ∀∃ sentence says: for every x there is a y with a quantifier-free relation. A witness y found in A_i stays a witness in the union, since the embeddings keep quantifier-free relations.
   - On the machine: the groups ℤ/2^w under x ↦ 2x satisfy "every x has a −x", and their union, the Prüfer group, does too.
   - The converse fails. The Prüfer group is divisible by 2, and no ℤ/2^w is: 1 has no half.
@@ -224,14 +224,14 @@ Derived.
 
 Derived.
 
-- **Ostrowski** (1916): every nontrivial absolute value on ℚ is equivalent to the real one or to a p-adic one. The completions of ℚ are ℝ and the ℚ_p, one for each prime. The machine's two limits are two of them: ℝ by the τ tower and ℤ₂ ⊂ ℚ₂ by the π tower.
+- **Ostrowski** ([1916](#src:Ostrowski-1916)): every nontrivial absolute value on ℚ is equivalent to the real one or to a p-adic one. The completions of ℚ are ℝ and the ℚ_p, one for each prime. The machine's two limits are two of them: ℝ by the τ tower and ℤ₂ ⊂ ℚ₂ by the π tower.
 - **T at each place.**
   - On ℤ^n, a bijection (proved, the written boundary).
   - On ℤ₂^n, a homeomorphism that keeps Haar measure (derived; proved counted).
   - On ℝ^n, reached by the τ tower: T(x) − Mx is bounded on ℤ^n, since each floor drops less than 1 and passes through a fixed number of fixed linear steps. For x ∈ ℝ^n, 2^{−k}·T(trunc(2^k x)) → Mx as k → ∞: the real limit of T is its linear part M, and det M = 1 keeps Lebesgue measure.
   - On ℤ_p^n for odd p, T with floors does not extend. Parity is not p-adically continuous: x and x + p^N are p-adically close, |p^N|_p = p^{−N}, and have opposite parities. For x even, ⌊(x + p^N)/2⌋ − ⌊x/2⌋ = (p^N − 1)/2 ≡ −1/2 mod p, a p-adic unit however large N is.
   - M does extend. Its entries lie in ℤ[1/2] ⊂ ℤ_p and det M = 1: M ∈ SL_n(ℤ_p), an automorphism of every odd crystal ℤ_p^n that keeps its Haar measure. |det M|_v = 1 at every place v.
-- **The adeles.** 𝔸 = ℝ × ∏′ ℚ_p, the restricted product, with almost every component in ℤ_p. ℚ sits in 𝔸 diagonally and discretely. 𝔸 = ℚ + (ℝ × Ẑ) and ℚ ∩ (ℝ × Ẑ) = ℤ, giving 𝔸/ℚ ≅ (ℝ × Ẑ)/ℤ, compact: the full solenoid, lim←(S¹, z ↦ z^N) over every N (Tate 1950). The dyadic solenoid Σ₂ = (ℝ × ℤ₂)/ℤ is its quotient by the odd factors ∏_{p odd} ℤ_p.
+- **The adeles.** 𝔸 = ℝ × ∏′ ℚ_p, the restricted product, with almost every component in ℤ_p. ℚ sits in 𝔸 diagonally and discretely. 𝔸 = ℚ + (ℝ × Ẑ) and ℚ ∩ (ℝ × Ẑ) = ℤ, giving 𝔸/ℚ ≅ (ℝ × Ẑ)/ℤ, compact: the full solenoid, lim←(S¹, z ↦ z^N) over every N ([Tate 1950](#src:Tate-1950)). The dyadic solenoid Σ₂ = (ℝ × ℤ₂)/ℤ is its quotient by the odd factors ∏_{p odd} ℤ_p.
 - **The product formula.** For x ∈ ℚ^×, |x|_∞ · ∏_p |x|_p = 1: with x = ±∏ p^{v_p}, |x|_∞ = ∏ p^{v_p} and |x|_p = p^{−v_p}. For 12: 12 · 1/4 · 1/3 = 1. Read as a conservation law, a rational large at some places is small at others in exact balance. The name is a reading; the theorem is the formula.
 
 ## Counting quanta
@@ -249,10 +249,10 @@ Derived.
 
 Derived.
 
-- **Limits with and without a modulus.** Chaitin's Ω (1975) is limit computable: the halting programs, enumerated, give an increasing computable sequence of rationals converging to it, and its digits are Δ⁰₂ by Shoenfield's limit lemma (1959). It has no computable modulus of convergence: one would compute Ω's digits, and Ω is not computable.
+- **Limits with and without a modulus.** [Chaitin's Ω (1975)](#src:Chaitin-1975) is limit computable: the halting programs, enumerated, give an increasing computable sequence of rationals converging to it, and its digits are Δ⁰₂ by Shoenfield's [limit lemma (1959)](#src:Shoenfield-1959). It has no computable modulus of convergence: one would compute Ω's digits, and Ω is not computable.
 - T on ℤ₂ has the computable modulus w ↦ w + 3L. The machine produces w bits of T(x) from w + 3L bits of x in a fixed number of steps, at every w.
 - Quotient and compare have no 2-adic limit: neither extends continuously to ℤ₂ ("What does not factor through the projection").
-- **Past ω.** A machine that runs through ω steps and goes on from a limit configuration is an infinite time Turing machine (Hamkins and Lewis 2000): at a limit stage each cell takes the lim sup of its values. Koepke's ordinal Turing machines (2005) run over ordinal time on a tape of ordinal length. The device runs finite stages only: every program is a finite record with a fixed step count, and every lane's run halts. A machine that loops a stack of floors until a halt register is set, with orders in ℤ and ±ω, is "The ordered machine".
+- **Past ω.** A machine that runs through ω steps and goes on from a limit configuration is an infinite time Turing machine ([Hamkins and Lewis 2000](#src:Hamkins-and-Lewis-2000)): at a limit stage each cell takes the lim sup of its values. Koepke's [ordinal Turing machines (2005)](#src:Koepke-2005) run over ordinal time on a tape of ordinal length. The device runs finite stages only: every program is a finite record with a fixed step count, and every lane's run halts. A machine that loops a stack of floors until a halt register is set, with orders in ℤ and ±ω, is "The ordered machine".
 
 ## The ordered machine
 
@@ -271,14 +271,14 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 **Derived.**
 
 - A shear's inverse is (a, b) ↦ (a, b − g(a)): the a it reads comes through unchanged, and g(a) is taken back. The counter (x, n) ↦ (x, n + 1) is the shear with g constant 1, and its inverse steps n ↦ n − 1. (F⁻¹)^k undoes F^k one step at a time.
-- **Negative orders need reversibility.** Doubling on the circle S¹ = ℝ/ℤ is 2-to-1: x and x + 1/2 have one image, and it has no inverse. On the solenoid Σ₂ ("The two crystals") it is an automorphism: Σ₂ is the dual of ℤ[1/2], ×2 is an automorphism of ℤ[1/2] with inverse ×1/2, and its dual is an automorphism of Σ₂. A point of Σ₂ = lim←(ℝ/ℤ, t ↦ 2t) is a sequence (t_0, t_1, …) with 2t_{i+1} = t_i, a backward orbit: Σ₂ is the natural extension of the doubling map, its two-sided orbit. On an irreversible floor only positive orders exist. Every Turing machine has a reversible simulation (Bennett 1973), and the Bennett embedding is the engine's form of it (A14, proved by `tower_edge_test`).
+- **Negative orders need reversibility.** Doubling on the circle S¹ = ℝ/ℤ is 2-to-1: x and x + 1/2 have one image, and it has no inverse. On the solenoid Σ₂ ("The two crystals") it is an automorphism: Σ₂ is the dual of ℤ[1/2], ×2 is an automorphism of ℤ[1/2] with inverse ×1/2, and its dual is an automorphism of Σ₂. A point of Σ₂ = lim←(ℝ/ℤ, t ↦ 2t) is a sequence (t_0, t_1, …) with 2t_{i+1} = t_i, a backward orbit: Σ₂ is the natural extension of the doubling map, its two-sided orbit. On an irreversible floor only positive orders exist. Every Turing machine has a reversible simulation ([Bennett 1973](#src:Bennett-1973)), and the Bennett embedding is the engine's form of it (A14, proved by `tower_edge_test`).
 
 **Theorems** (cited).
 
 - **Hamkins and Lewis (2000).** An infinite time Turing machine decides the halting problem for ordinary Turing machines. A flag cell is set on halt, and at stage ω it reads 1 exactly when the machine halted. Doug's point 2 holds in this sense: with the completed tower, the forever loop is answered.
 - **Hamkins and Lewis (2000).** The halting problem for infinite time Turing machines is not decidable by an infinite time Turing machine: the diagonal moves up a level. Read in Doug's terms, the question about the tower as a whole, asked from inside it, is a question that does not construct.
 - **Every halt is seen at a finite stage.** The halting set is computably enumerable. Running every program side by side, as `chaitin_omega` does, sees each halt. Only "never" needs the ω stage.
-- **Chaitin (1987).** A formal system, a checker, of description length K determines at most K + c bits of an Ω, with c a constant of the universal machine.
+- **[Chaitin (1987)](#src:Chaitin-1987).** A formal system, a checker, of description length K determines at most K + c bits of an Ω, with c a constant of the universal machine.
 
 **Derived**, mine. The three were checked against how `record_order_test` is built.
 
@@ -320,7 +320,7 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 **Higher-order interference.** The words spoken while `record_order_test` ran (24 September) are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
 
-- "Higher-order interference" has a standard meaning, Sorkin's hierarchy (Sorkin 1994). Quantum theory has second-order interference and none of third order.
+- "Higher-order interference" has a standard meaning, Sorkin's hierarchy ([Sorkin 1994](#src:Sorkin-1994)). Quantum theory has second-order interference and none of third order.
 - The ask_state crossing rule's negative weights are second-order interference (A15 in [engine_table.md](engine_table.md)).
 
 ## Goodstein: ω-towers held as finite objects
@@ -333,7 +333,7 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
   - A value is held as its hereditary tree and never expanded. b^L − 1 at a large L is held as one run of coefficient b − 1 over the exponents 0 … L − 1, each exponent written in the base the run was made at.
   - With b read as ω, the tree is an ordinal in Cantor normal form, below ε₀ = sup{ω, ω^ω, ω^ω^ω, …}. 2↑↑k reads as ω↑↑k: 4 is ω^ω, 16 is ω^ω^ω, 65536 is ω↑↑4.
 
-**Derived** (the standard proof, Goodstein 1944).
+**Derived** (the standard proof, [Goodstein 1944](#src:Goodstein-1944)).
 
 - The bump leaves the tree unchanged, and with it the ordinal.
 - Subtracting 1 lowers the ordinal strictly. A lowest term c·b^0 loses 1. A lowest term c·b^E with E > 0 becomes (c − 1)·b^E plus b^E − 1, whose terms all stand below b^E.
@@ -342,8 +342,8 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 **Theorems** (cited).
 
 - **Goodstein (1944).** Every Goodstein sequence reaches 0.
-- **Kirby and Paris (1982).** The statement is true and not provable in Peano arithmetic.
-- **Gentzen (1936).** Induction up to ε₀ proves Peano arithmetic consistent. ε₀ is the height the proof above needs.
+- **[Kirby and Paris (1982)](#src:Kirby-and-Paris-1982).** The statement is true and not provable in Peano arithmetic.
+- **[Gentzen (1936)](#src:Gentzen-1936).** Induction up to ε₀ proves Peano arithmetic consistent. ε₀ is the height the proof above needs.
 
 **Proved** (the checks).
 
@@ -373,20 +373,20 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 **Derived.**
 
-- **It never closes.** π is irrational (Lambert 1761): nα is not an integer for n ≥ 1, and no two points of the orbit coincide.
-- **It is dense, and equidistributed** (Weyl 1916).
+- **It never closes.** π is irrational ([Lambert 1761](#src:Lambert-1761)): nα is not an integer for n ≥ 1, and no two points of the orbit coincide.
+- **It is dense, and equidistributed** ([Weyl 1916](#src:Weyl-1916)).
 - **The orbit is countable.** It is indexed by ℕ, or by ℤ with the negative orders ("The ordered machine"). The circle is not countable. A countable set has measure 0: the orbit never covers 100% of the circle. Cut into N cells, the circle is filled at a finite step. Doug's "infinite … is countable" holds for the orbit.
-- **The floors.** α = [0; 7, 15, 1, 292, …], with convergent denominators q_j, q_{j+1} = a_{j+1}·q_j + q_{j−1}. The best approximations are the convergents (Khinchin): the turn's record close returns are the steps q_j.
+- **The floors.** α = [0; 7, 15, 1, 292, …], with convergent denominators q_j, q_{j+1} = a_{j+1}·q_j + q_{j−1}. The best approximations are the convergents ([Khinchin](#src:Khinchin-1964)): the turn's record close returns are the steps q_j.
 - **The drift.** Between q_j and q_{j+1} the intermediate returns are q_{j−1} + c·q_j for c = 1 to a_{j+1}, and each shifts by ‖q_jα‖ from the one before. A large partial quotient is a long drift: a_{j+1} small shifts before the next close return. Doug's "travel for a really long … time".
 - **The descent.** A first hit, the least n with nα in a window, recurses on (m mod a, a) with the window reflected, and unwinds x = ⌈(l + m·y)/a⌉: one Euclid step a level. Its levels are the floors.
 
-**Theory** (cited, not checked by the sim). The first return map of the rotation to the arc under a close return is again a rotation, by the Gauss-map angle {1/α}, rescaled: one Euclid step, one floor, one partial quotient (Rauzy 1979; Khinchin).
+**Theory** (cited, not checked by the sim). The first return map of the rotation to the arc under a close return is again a rotation, by the Gauss-map angle {1/α}, rescaled: one Euclid step, one floor, one partial quotient ([Rauzy 1979](#src:Rauzy-1979); [Khinchin](#src:Khinchin-1964)).
 
 **The method** (exact, integers only).
 
-- π is bracketed by Machin's formula at 416 bits, 116 terms. floor(π·2^384) is one integer at both ends.
+- π is bracketed by [Machin's formula](#src:Jones-1706) at 416 bits, 116 terms. floor(π·2^384) is one integer at both ends.
 - The turn is held as y_n = nA mod 2^384, with A = floor(α·2^384). A first hit is the descent above.
-- The fill test at count n uses the three-gap theorem (Sós 1958; van Ravenstein 1988). Point i is followed by i + u, i − v or i + u − v, where u and v are the lowest and highest record steps below n. A gap from p holds a whole empty cell of size s exactly when (p mod s) + g ≥ 2s. p mod s is the turn by A mod s on s, and each gap kind is one first-hit query over an index range.
+- The fill test at count n uses the three-gap theorem ([Sós 1958](#src:S-s-1958); [van Ravenstein 1988](#src:van-Ravenstein-1988)). Point i is followed by i + u, i − v or i + u − v, where u and v are the lowest and highest record steps below n. A gap from p holds a whole empty cell of size s exactly when (p mod s) + g ≥ 2s. p mod s is the turn by A mod s on s, and each gap kind is one first-hit query over an index range.
 - The least covering count is found by doubling, then halving.
 - The integer turn against the real one: α·2^384 lies in (A, A + 1), and step n's real place lies in (nA, nA + n). It changes cell only where (nA mod s) > s − n: one first-hit query per resolution.
 
@@ -430,10 +430,10 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 **Proved** (`pi_tower`, 13 checks, 0 failed, cell_tracking main 7abe65d, run 20260924_193716).
 
-- **In ℚ(π)**, with π a free variable because it is transcendental (Lindemann 1882), from the derivatives at the four quarter turns, where every trig derivative is 0 or ±1:
+- **In ℚ(π)**, with π a free variable because it is transcendental ([Lindemann 1882](#src:Lindemann-1882)), from the derivatives at the four quarter turns, where every trig derivative is 0 or ±1:
   - the curvature κ = 2π³/(π² + 1), checked as κ² = |γ′ × γ″|²/|γ′|⁶, with no square root formed;
   - the torsion τ = 2π²/(π² + 1), from det(γ′, γ″, γ‴)/|γ′ × γ″|²;
-  - τ/κ = 1/π = tan φ, checked as τ²/κ² = 1/π² and equal to the tangent's squared rise over run: φ is the tilt of the tangent against our disk (Lancret 1806);
+  - τ/κ = 1/π = tan φ, checked as τ²/κ² = 1/π² and equal to the tangent's squared rise over run: φ is the tilt of the tangent against our disk ([Lancret 1806](#src:Lancret-1806));
   - the Darboux vector τT + κB, checked scaled by |γ′|³, along our disk's axis.
 - **From the bracket**, where both ends agree to 12 places: κ = 5.705134342735, τ = 1.816000663299, φ = 17.656787151412°, and 72.343212848587° against the axis. κ and τ rise with π and arctan(1/π) falls: each end brackets the value. arctan(1/π) is taken on the bracket with a bounded fixed-point error.
 
@@ -466,9 +466,9 @@ What the model shows that bears on them (bounds, checked). Derived unless marked
 - **(3) Deflection.**
   - In the square billiard there is no force between walls, and L about the center, (x − ½)p_y − (y − ½)p_x, is constant there. A hit on a vertical wall at height y changes it by 2(y − ½)p_x: 0 at mid-wall, largest at the corners. All of the change, not most, is at deflection.
   - On the helix there is no deflection. The force is centripetal, L about the axis is constant, and κ is constant: the turning is spread evenly.
-- **(4) Infinite length, finite information.** A program prints any window of π: K(the first n bits of π) ≤ K(n) + c = O(log n) (Kolmogorov 1965). A Machin program fits in "1kb", and "infinite information" does not hold. An infinite expansion is not infinite complexity ("The anchors" under Doug's posits). A Martin-Löf random real is the opposite: incompressible. "Hyperobject" has no definition here.
+- **(4) Infinite length, finite information.** A program prints any window of π: K(the first n bits of π) ≤ K(n) + c = O(log n) ([Kolmogorov 1965](#src:Kolmogorov-1965)). A Machin program fits in "1kb", and "infinite information" does not hold. An infinite expansion is not infinite complexity ("The anchors" under Doug's posits). A Martin-Löf random real is the opposite: incompressible. "Hyperobject" has no definition here.
 - **(5, 6) Two perturbations.**
-  - A shifted start slides the whole etch rigidly: an isometry, Lyapunov exponent 0, ε stays ε, and the three gaps are the same. The rotation is uniquely ergodic (Weyl; Walters): every start has the same long-run statistics. "The field starting conditions do not matter" holds, and "perturb it differently every time" is the shift.
+  - A shifted start slides the whole etch rigidly: an isometry, Lyapunov exponent 0, ε stays ε, and the three gaps are the same. The rotation is uniquely ergodic ([Weyl](#src:Weyl-1916); [Walters](#src:Walters-1982)): every start has the same long-run statistics. "The field starting conditions do not matter" holds, and "perturb it differently every time" is the shift.
   - A changed magnitude, with the direction constant, is Doug's wave (6). The rotations by α and by α + ε separate by nε after n encounters with the period 1: linearly, without end, and after about 1/ε encounters the two etches are unrelated. It is not chaos: the growth is linear, not exponential.
   - Every irrational magnitude etches its own never-repeating pattern. A rational one closes.
 - **(7) Present but balanced.**
@@ -481,7 +481,7 @@ What the model shows that bears on them (bounds, checked). Derived unless marked
   - The hit heights are the folded marks, and no two kicks are equal.
   - |L| ≤ |p|·√2/2 always. The running sum of the kicks is L now less L at the start, which stays within |p|·√2, and the mean kick goes to 0.
   - On the helix nothing unbalances: there is no wall.
-- **(9) One must win.** Doug, clarifying, verbatim: "by one must win I mean one force must win because we cannot divide by zero and the boundary is "real" in our information space". A tie is where the rule has no value, and π never ties. There are three instances, each ruled out by π's irrationality (Lambert).
+- **(9) One must win.** Doug, clarifying, verbatim: "by one must win I mean one force must win because we cannot divide by zero and the boundary is "real" in our information space". A tie is where the rule has no value, and π never ties. There are three instances, each ruled out by π's irrationality ([Lambert](#src:Lambert-1761)).
   - **(i) The corner.** At a corner the normal has no value, and the reflection v − 2(v·n)n has none: the geometric division by zero. After its start the unfolded line (t, πt) never meets a lattice point (k, m), since πk = m would make π rational. Every wall hit strikes exactly one wall.
   - **(ii) The cell edge.** {nπ} is never a dyadic j/2^k, since nπ − j/2^k an integer would make π rational. Every mark's cell is decided. `pi_tower` proves the exact integer turn decides the same cell as the real π at every resolution from 2^1 to 2^100 ("The integer turn is the real turn", above).
   - **(iii) The lead.** L is never exactly 0. That would need the unfolded line to pass through an image (k + ½, m + ½) of the center, π = (2m + 1)/(2k + 1), which is rational. At every instant one side strictly leads. The billiard orbit is minimal in each of its four directions (irrational slope). It passes arbitrarily close to the center on both sides with one direction, and L changes sign infinitely often. There is always a winner, and never a final one.
@@ -530,8 +530,8 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 
 **Theory** (cited).
 
-- **Slater (1950, 1967).** The return times to an interval under an irrational rotation take at most three values, and the largest is the sum of the other two. Derived: T sits inside one gap between consecutive visits to [0, 1/N), and H − T is at most the largest of the three.
-- **Kac (1947).** For an ergodic measure-preserving map, the mean return time to a set of measure μ is 1/μ. The mean return to cell 0 is N steps.
+- **Slater ([1950](#src:Slater-1950), [1967](#src:Slater-1967)).** The return times to an interval under an irrational rotation take at most three values, and the largest is the sum of the other two. Derived: T sits inside one gap between consecutive visits to [0, 1/N), and H − T is at most the largest of the three.
+- **[Kac (1947)](#src:Kac).** For an ergodic measure-preserving map, the mean return time to a set of measure μ is 1/μ. The mean return to cell 0 is N steps.
 
 **Measured** (100 resolutions). The classification was made by a scratch script over the run's integer output, not by the sim.
 
@@ -582,7 +582,7 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 - **The shrink.** r_j = 1/ξ_{j+1}, and by Euclid r_j lies in (1/(a_{j+1} + 1), 1/a_{j+1}). It stands between 1/2 and 1 exactly on the floors of 1, and below 1/2 (below 1/φ) on every floor of 2 or more. For a_{j+1} = 1, r_j = 1/(1 + r_{j+1}), and r_j > 1/φ exactly when r_{j+1} < 1/φ. The golden ratio's shrink is 1/φ on every floor.
 - **The helix** (a reading of Doug's word). Put floor j at (jπ, ln|δ_j|) on the cylinder S¹ × ℝ, with the angle taken mod 2π. The points lie on a discrete helix, the log spiral (θ, ln r) lifted to the cylinder. The turning is exact: a half turn on every floor, for every irrational. The pitch is the drop ln ξ_{j+1}. It is constant only for the golden ratio, at ln φ ≈ 0.481, and it varies for π. Doug's "exactly" holds for the turning and does not hold for the pitch.
 
-**Theory** (cited). **Hurwitz (1891).** Every irrational x has infinitely many p/q with |x − p/q| < 1/(√5·q²). √5 is the largest constant that works for the golden ratio, the worst approximable number.
+**Theory** (cited). **[Hurwitz (1891)](#src:Hurwitz-1891).** Every irrational x has infinitely many p/q with |x − p/q| < 1/(√5·q²). √5 is the largest constant that works for the golden ratio, the worst approximable number.
 
 **Proved** (check 12, three checks, `pi_tower`, c26b6a7). Every residue is bracketed from the full turn as (qA − pM, qA − pM + q), on floors j = 0 to 65 (q_j ≤ 2^112). Verbatim:
 
@@ -598,13 +598,13 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 - π follows the golden pitch on its runs of 1s (floors 4 to 6: 0.6345, 0.5758, 0.7366) and leaves it on every floor of 2 or more. It leaves farthest at 292, 99, 84, 15, 14, 13 and 12: the shrinks 0.0034, 0.0100, 0.0118, 0.0625 (j = 1) and 0.0652 (j = 24), 0.0695, 0.0723 and 0.0791.
 - Growth per floor: q_65^(1/65) = 3.210576 (an integer root, 6 places), against φ = 1.618033 (from ⌊√(5·10^12)⌋). The mean pitch over the 65 certified floors is ln q_65 / 65 ≈ 1.166, against ln φ ≈ 0.481. The sum of the pitches, ln(|δ_0|/|δ_65|), differs from ln q_65 only by end terms.
 
-**Theory** (cited). **Lévy (1936).** For almost every real, q_j^(1/j) tends to e^(π²/(12 ln 2)) ≈ 3.2758, a mean pitch of π²/(12 ln 2) ≈ 1.187. Whether π obeys it is Open. The 1.166 above is π's measured mean over 65 floors, not a limit.
+**Theory** (cited). **[Lévy (1936)](#src:L-vy-1936).** For almost every real, q_j^(1/j) tends to e^(π²/(12 ln 2)) ≈ 3.2758, a mean pitch of π²/(12 ln 2) ≈ 1.187. Whether π obeys it is Open. The 1.166 above is π's measured mean over 65 floors, not a limit.
 
 ## Subtractive coalescence
 
 Doug's name for T. Derived.
 
-- The 5/3 lifting's steps are predict and update, the lifting scheme of Sweldens (1996). An odd sample less its prediction from the evens is a high; an even plus a correction from the highs is a low. Each step is undone by the opposite step.
+- The 5/3 lifting's steps are predict and update, the lifting scheme of [Sweldens (1996)](#src:Sweldens-1996). An odd sample less its prediction from the evens is a high; an even plus a correction from the highs is a low. Each step is undone by the opposite step.
 - T is not a projection. It is a bijection (proved both ways), and T⁻¹ returns every sample.
 - The pinch is the predictable part moved, not information lost. A ramp's highs are near 0 and its content sits in the few level-L lows. The heap at the crystal is 1/9.61 of the samples' heap for the ramp and 1/1.00 for noise (measured, above). The heap shrinks while the ring grows by n + 2n(1 − 2^{−L}) (6n(1 − 2^{−L}) under the widths before 25 September), and the count is kept exactly (det M = 1, Haar counted).
 
@@ -612,9 +612,9 @@ Doug's name for T. Derived.
 
 Cited; both pages read, and only what they state is given.
 
-- **Borsten and Kim**, "Limits to Computational Acceleration Imposed by Quantum Field Theory and Quantum Gravity", arXiv:2604.00182, 31 March 2026. Their abstract: schemes that use curved spacetimes and exotic fields, for instance time dilation, to accelerate computation are "consistently thwarted by physical effects from quantum gravity (including swampland conjectures) and quantum field theory in curved space". An observer and a computer able to withstand energy scales up to order E accelerate computation by at most O(1)E e-folds per unit time, (ln α)/τ ≲ E. The Bekenstein bound is the memory analog: a computer of length scale D at energies up to order E with N memory states has (ln N)/D ≲ E.
+- **[Borsten and Kim](#src:Borsten-and-Kim-2026)**, "Limits to Computational Acceleration Imposed by Quantum Field Theory and Quantum Gravity", arXiv:2604.00182, 31 March 2026. Their abstract: schemes that use curved spacetimes and exotic fields, for instance time dilation, to accelerate computation are "consistently thwarted by physical effects from quantum gravity (including swampland conjectures) and quantum field theory in curved space". An observer and a computer able to withstand energy scales up to order E accelerate computation by at most O(1)E e-folds per unit time, (ln α)/τ ≲ E. The Bekenstein bound is the memory analog: a computer of length scale D at energies up to order E with N memory states has (ln N)/D ≲ E.
   - The reading, derived from their bounds: a device of bounded energy and size runs finitely many stages in finite time and holds finitely many states. The limits ℤ₂ and ℝ are reached one finite window at a time, and the walls bound how many.
-- **Aaronson**, "On black holes, holography, the Quantum Extended Church-Turing Thesis, fully homomorphic encryption, and brain uploading", Shtetl-Optimized, 27 July 2022. AdS/CFT predicts that the boundary state |ψ⟩ "encodes everything there is to know about the AdS bulk, including whatever is inside the black hole", and that "the information about what's inside the black hole will be pseudorandomly scrambled". He cites Bouland, Fefferman and Vazirani (arXiv:1910.14646).
+- **[Aaronson](#src:Aaronson-2022)**, "On black holes, holography, the Quantum Extended Church-Turing Thesis, fully homomorphic encryption, and brain uploading", Shtetl-Optimized, 27 July 2022. AdS/CFT predicts that the boundary state |ψ⟩ "encodes everything there is to know about the AdS bulk, including whatever is inside the black hole", and that "the information about what's inside the black hole will be pseudorandomly scrambled". He cites Bouland, Fefferman and Vazirani (arXiv:1910.14646).
   - The contrast, derived: T's boundary is information-complete too (every crystal is the crystal of some samples, proved) and is not scrambled. Each coefficient reads a cone of reach 3L, and T⁻¹ reads the crystal back in a number of steps linear in n.
 
 ## The knf's identity by spatial null permutation
@@ -671,7 +671,7 @@ Cited; both pages read, and only what they state is given.
 - **"The anchors are infinitely complex, bending the information field to warp into them."** Open. What the math states:
   - An infinite expansion is not infinite complexity. 1/3 = …10101011 never ends, and a program a few bits long prints any window of it: K(π_w(1/3)) ≤ K(w) + c = O(log w).
   - For a computable x ∈ ℤ₂, K(π_w(x)) ≤ K(x) + O(log w): run x's program to w digits, given w.
-  - Haar-almost every element of ℤ₂ is Martin-Löf random (Martin-Löf 1966). The Haar measure on ℤ₂ is the fair coin on its digits, and the random sequences have measure 1. A random element is not computable.
+  - Haar-almost every element of ℤ₂ is Martin-Löf random ([Martin-Löf 1966](#src:Martin-L-f-1966)). The Haar measure on ℤ₂ is the fair coin on its digits, and the random sequences have measure 1. A random element is not computable.
   - The machine reaches finite windows only. Every register is π_w of something, and any w-bit window has K ≤ w + O(log w). Every constant in a program is a finite description, and the machine's reach is the windows of computable elements.
   - "Infinitely complex" can name only a limit object the machine never holds whole. Which object the anchors are, and whether they are random elements of ℤ₂, is open. "Bending the information field" has no definition here to derive from.
 - **The inverted boundary** (24 September; the posit is in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md), and A13 in [engine_table.md](engine_table.md)). Its derived form is the τ tower: the finite windows extended a bit above at each stage, π_w's tower, have the limit ℤ₂, and extended a bit below, τ_k's tower, the limit ℝ ("The top projection and its limit ℝ").
@@ -681,7 +681,7 @@ Cited; both pages read, and only what they state is given.
 - **"We can take an identity of T using T:null permutation of T"** (24 September, restating "T, if T is identity:null permutation identity, we have the perfect universal root id for the structure"). Posit. The identity is an ID, a fingerprint of the data's structure. It is not the identity map, nor the identity edge of A14.
   - The procedure. Run T on the samples x and on d null draws σ_1 x, …, σ_d x, each σ_i a uniform random shuffle of the samples: A12's drawn null in [engine_table.md](engine_table.md). A lane is identified when its crystal's heap stands strictly below every draw's.
   - Derived. A shuffle keeps every value, the histogram and the count, and changes the arrangement only. x and its draws share one multiset of values, and any gap between T(x)'s heap and the draws' heaps reads arrangement alone. T keeps the count exactly (det M = 1, Haar counted): the gap is not T gaining or losing volume.
-  - Derived. Under the null that x's arrangement is itself a uniform shuffle, x and the d draws are exchangeable, and the chance that x's heap stands strictly below all d draws is at most 1/(d + 1) (Hope 1968). This is A12's false-period rate, carried over.
+  - Derived. Under the null that x's arrangement is itself a uniform shuffle, x and the d draws are exchangeable, and the chance that x's heap stands strictly below all d draws is at most 1/(d + 1) ([Hope 1968](#src:Hope-1968)). This is A12's false-period rate, carried over.
   - **Proved** (`test/engine/record_boundary_test`, 48 checks, 0 failed, cell_tracking main 24b2785). d = 8 Fisher–Yates shuffles a lane from the test's seeded generator, 256 lanes a class, the ID the crystal's total heap, the four classes of "The boundary". A shuffle keeps the samples' heap exactly, on every draw. Noise is identified no more often than 256/9 plus 5 standard deviations of the binomial count, and each structured class is identified past that bound.
   - **Measured:** lanes identified, with the lane's crystal heap over the draws' mean in brackets: ramp 256 of 256 (0.13), ramp ±8 256 of 256 (0.33), ramp ±1,024 254 of 256 (0.73), noise 21 of 256 (1.00).
   - The claim is the rate, not every lane. The null bounds how often noise is identified; it promises nothing for any one structured lane. Two shallow ramps under ±1,024 were not identified: their noise swamps the slope, and their shuffles have little arrangement to destroy. A first form of the check asserted every structured lane and failed on those two.
@@ -707,7 +707,7 @@ Cited; both pages read, and only what they state is given.
   - The gap 1 − (inside + between) is 0.41 at b = 4. A reading, not proved: an inside-shuffled pair in a small tile still shares a body, and neither null removes that co-membership. The gap is then the share both nulls keep, shared membership at scale b, the mutual part of the quote.
 - **The bulk and the boundary** (24 September; his words are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md)).
   - Derived: T is a bijection from the samples (the bulk) to the crystal (the boundary). Each coefficient reads a cone of reach 3L, and each sample is rebuilt from a cone of reach L + 2 (proved along one line, "The boundary").
-  - The holographic codes are isometries with redundancy: a bulk operator can be rebuilt on more than one boundary region (Almheiri, Dong and Harlow 2015; Pastawski, Yoshida, Harlow and Preskill 2015).
+  - The holographic codes are isometries with redundancy: a bulk operator can be rebuilt on more than one boundary region ([Almheiri, Dong and Harlow 2015](#src:Almheiri-Dong-and-Harlow-2015); [Pastawski, Yoshida, Harlow and Preskill 2015](#src:Pastawski-Yoshida-Harlow-and-Preskill-2015)).
   - T has no redundancy ("Redundancy" in Open): each sample has one region. T is a bulk-to-boundary map with no error correction, the contrast drawn under "Physical walls".
 
 ## Open
@@ -729,54 +729,5 @@ Cited; both pages read, and only what they state is given.
 - **Any 2^n as a request argument** ("The arc", posit 13). **Proved** since: `pi_tower`, 23 checks, 0 failed, c26b6a7.
 - **Whether π obeys Lévy's constant** ("The golden helix"). π's mean pitch over 65 certified floors is 1.166, against Lévy's 1.187 for almost every real.
 - **Redundancy.** T is n-to-n and every crystal is legal (the written boundary, proved). A corrupted crystal is another crystal, and T⁻¹ returns other samples with no sign of it: T holds no error correction. **Built and proved** since: `test/engine/record_boundary_test` at b8a6a65 (in ab67a23), 59 checks, 0 failed (26 September). Each coefficient c in [−2^21, 2^21) is carried as y = c + 2^21 in [0, 2^22), modulo 2053, 2063, 2069 and 2081, and two of the moduli cover the range (Derived: 2053·2063 = 4,235,339 ≥ 2^22 = 4,194,304). The decoder in the machine is Garner's mixed radix over all four, and a value past the range is the syndrome. It then reconstructs from each three, and the correction is the mean of the reconstructions inside the range. Over 16384 coefficients on 256 crystals: clean, 0 false alarms; one residue corrupted in 8115, every one corrected, and T⁻¹ returns the samples on 256 of 256 crystals; two corrupted in 8244, every one detected, and the one-error correction misses all 8244. Without the code, the two information residues read 4098 coefficients as another's, and T⁻¹ runs on all 256 crystals and returns other samples on 256. With two redundant moduli the code's distance is 3: it corrects one residue or flags two, and it does not guarantee both on one coefficient. How many of the 8244 double errors returned a wrong value in the range is not printed. The code is the classical analog, on this boundary, of the error-correcting codes of holography, a reading.
-  - Prior art, cited from knowledge. The mixed-radix conversion is Garner's (1959). A residue system with redundant moduli as a code that checks itself is Watson and Hastings (1966), and its correcting power in the number of redundant moduli is Barsi and Maestrini (1973). Szabo and Tanaka (1967) is the standard text.
+  - Prior art, cited from knowledge. The mixed-radix conversion is [Garner's (1959)](#src:Garner-1959). A residue system with redundant moduli as a code that checks itself is [Watson and Hastings (1966)](#src:Watson-and-Hastings-1966), and its correcting power in the number of redundant moduli is [Barsi and Maestrini (1973)](#src:Barsi-and-Maestrini-1973). [Szabo and Tanaka (1967)](#src:Szabo-and-Tanaka-1967) is the standard text.
 
-## References
-
-- C. C. Chang, "On unions of chains of models", Proc. AMS 10, 1959.
-- J. Łoś and R. Suszko, "On the extending of models (IV)", Fund. Math. 44, 1957.
-- W. Hodges, "Model Theory", Cambridge, 1993 (unions of chains; Fraïssé limits).
-- N. Koblitz, "p-adic Numbers, p-adic Analysis, and Zeta-Functions", 2nd ed., Springer, 1984.
-- F. Q. Gouvêa, "p-adic Numbers: An Introduction", 2nd ed., Springer, 1997.
-- E. Hewitt and K. A. Ross, "Abstract Harmonic Analysis I", Springer, 1963 (the duals of ℤ₂, the Prüfer group and the solenoid).
-- L. Vietoris, "Über den höheren Zusammenhang kompakter Räume und eine Klasse von zusammenhangstreuen Abbildungen", Math. Ann. 97, 1927.
-- D. van Dantzig, "Über topologisch homogene Kontinua", Fund. Math. 15, 1930.
-- P. Martin-Löf, "The definition of random sequences", Information and Control 9, 1966.
-- A. Ostrowski, "Über einige Lösungen der Funktionalgleichung φ(x)·φ(y) = φ(xy)", Acta Math. 41, 1916.
-- J. Tate, "Fourier analysis in number fields and Hecke's zeta-functions", thesis, Princeton, 1950; in J. W. S. Cassels and A. Fröhlich (eds.), "Algebraic Number Theory", Academic Press, 1967.
-- W. Sweldens, "The lifting scheme: a custom-design construction of biorthogonal wavelets", Appl. Comput. Harmon. Anal. 3, 1996.
-- G. J. Chaitin, "A theory of program size formally identical to information theory", J. ACM 22, 1975.
-- J. R. Shoenfield, "On degrees of unsolvability", Annals of Math. 69, 1959.
-- J. D. Hamkins and A. Lewis, "Infinite time Turing machines", J. Symbolic Logic 65, 2000.
-- P. Koepke, "Turing computations on ordinals", Bull. Symbolic Logic 11, 2005.
-- C. H. Bennett, "Logical reversibility of computation", IBM J. Res. Dev. 17, 1973.
-- G. J. Chaitin, "Algorithmic Information Theory", Cambridge, 1987 (the incompleteness theorem for Ω's bits).
-- J. H. Lambert, "Mémoire sur quelques propriétés remarquables des quantités transcendantes circulaires et logarithmiques", Mém. Acad. Sci. Berlin 17, 1761 (published 1768).
-- H. Weyl, "Über die Gleichverteilung von Zahlen mod. Eins", Math. Ann. 77, 1916.
-- V. T. Sós, "On the distribution mod 1 of the sequence nα", Ann. Univ. Sci. Budapest. Eötvös Sect. Math. 1, 1958.
-- T. van Ravenstein, "The three gap theorem (Steinhaus conjecture)", J. Austral. Math. Soc. A 45, 1988.
-- J. Machin's formula, in W. Jones, "Synopsis Palmariorum Matheseos", London, 1706.
-- A. Ya. Khinchin, "Continued Fractions", University of Chicago Press, 1964 (best approximations are convergents).
-- G. Rauzy, "Échanges d'intervalles et transformations induites", Acta Arith. 34, 1979.
-- N. B. Slater, "The distribution of the integers N for which {θN} < φ", Proc. Cambridge Philos. Soc. 46, 1950.
-- N. B. Slater, "Gaps and steps for the sequence nθ mod 1", Proc. Cambridge Philos. Soc. 63, 1967, 1115–1123.
-- M. Kac, "On the notion of recurrence in discrete stochastic processes", Bull. Amer. Math. Soc. 53, 1947.
-- F. Lindemann, "Über die Zahl π", Math. Ann. 20, 1882.
-- A. Hurwitz, "Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche", Math. Ann. 39, 1891.
-- P. Lévy, "Sur le développement en fraction continue d'un nombre choisi au hasard", Compositio Math. 3, 1936.
-- M. A. Lancret, "Mémoire sur les courbes à double courbure", Mémoires présentés à l'Institut 1, 1806.
-- A. N. Kolmogorov, "Three approaches to the quantitative definition of information", Problems Inform. Transmission 1, 1965.
-- P. Walters, "An Introduction to Ergodic Theory", Springer, 1982 (the unique ergodicity of an irrational rotation).
-- R. L. Goodstein, "On the restricted ordinal theorem", J. Symbolic Logic 9, 1944.
-- L. Kirby and J. Paris, "Accessible independence results for Peano arithmetic", Bull. London Math. Soc. 14, 1982.
-- G. Gentzen, "Die Widerspruchsfreiheit der reinen Zahlentheorie", Math. Ann. 112, 1936.
-- A. Almheiri, X. Dong and D. Harlow, "Bulk locality and quantum error correction in AdS/CFT", JHEP 04, 2015, 163.
-- F. Pastawski, B. Yoshida, D. Harlow and J. Preskill, "Holographic quantum error-correcting codes: toy models for the bulk/boundary correspondence", JHEP 06, 2015, 149.
-- R. D. Sorkin, "Quantum mechanics as quantum measure theory", Mod. Phys. Lett. A 9, 1994.
-- A. C. A. Hope, "A simplified Monte Carlo significance test procedure", J. Royal Stat. Soc. B 30, 1968.
-- L. Borsten and H. Kim, "Limits to Computational Acceleration Imposed by Quantum Field Theory and Quantum Gravity", arXiv:2604.00182, 2026 (the abstract page read, 24 September 2026).
-- S. Aaronson, "On black holes, holography, the Quantum Extended Church-Turing Thesis, fully homomorphic encryption, and brain uploading", Shtetl-Optimized, 27 July 2022, scottaaronson.blog/?p=6599 (the post read, 24 September 2026).
-- H. L. Garner, "The residue number system", IRE Trans. Electronic Computers EC-8, 1959, 140–147.
-- R. W. Watson and C. W. Hastings, "Self-checked computation using residue arithmetic", Proc. IEEE 54(12), 1966, 1920–1931.
-- F. Barsi and P. Maestrini, "Error correcting properties of redundant residue number systems", IEEE Trans. Computers C-22(3), 1973, 307–315.
-- N. S. Szabo and R. I. Tanaka, "Residue Arithmetic and Its Applications to Computer Technology", McGraw-Hill, 1967.

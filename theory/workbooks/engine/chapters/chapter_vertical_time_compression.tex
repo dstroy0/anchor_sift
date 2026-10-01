@@ -446,7 +446,9 @@ T⁻¹ 0 & 857 & 851 & 856 & 960 & 5,059 \\
 \item The constant-divisor narrowing (built and proved, above).
 \item The wrap at the mirror (derived, built). The inverse floor k holds the forward floor k's values, each within its forward register's width b. WRAP(v, b + 1) on each rebuilt register passes its value through unchanged, and WRAP(v, 16) on the rebuilt samples is exact on 16-bit input. The bound comes from the mirror and holds whatever the values are. It needs T⁻¹ ∘ T = id: with an operation between the towers the mirror breaks, and a wrap placed by it is silently wrong.
 
-\textbf{Note, 26 September.} Built at anchor\_sift \texttt{d45794d}, inside the pin \texttt{ddeccb3}. \texttt{boundary\_mirror} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_boundary\_test.cu:232-240}) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (\texttt{BOUNDARY\_TEST\_FIELD\_BITS}, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
+\begin{itemize}
+\item \textbf{Note, 26 September.} Built at anchor\_\allowbreak{}sift d45794d, inside the pin ddeccb3. \texttt{boundary\_\allowbreak{}mirror} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test.\allowbreak{}cu:232-\allowbreak{}240}) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (\texttt{BOUNDARY\_\allowbreak{}TEST\_\allowbreak{}FIELD\_\allowbreak{}BITS}, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
+\end{itemize}
 \end{itemize}
 \item \textbf{The ring under the three rules.} Derived (replica). The first column reproduces the scratch run's ring exactly.
 
@@ -550,8 +552,8 @@ Derived.
 \section{\texorpdfstring{The lane index and the latch}{The lane index and the latch}}
 
 \begin{itemize}
-\item \textbf{The lane index.} Derived from \texttt{cycle.\allowbreak{}cu}: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open.
-\item \textbf{The latch.} Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built.
+\item \textbf{The lane index.} Derived from \texttt{cycle.\allowbreak{}cu}: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 at anchor\_\allowbreak{}sift \texttt{1fbc0c5} (\texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LANE}).
+\item \textbf{The latch.} Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15 at anchor\_\allowbreak{}sift \texttt{1fbc0c5}.
 \end{itemize}
 
 \section{\texorpdfstring{Tables}{Tables}}
