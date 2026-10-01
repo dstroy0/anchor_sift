@@ -209,7 +209,7 @@ static std::vector<std::string> s_cycle_codegen_written;
 // file read on the device and its written forms laid out once for the target and the header, the forms decided on the
 // device a thread a step, laid out as the assembly printer's records there, written by the record machine a lane a byte
 // and gathered. The host code generator's text is the check: the device's ruleset, its written forms and its text are
-// held to the host's word for word and byte for byte. Returns 1 where the device's text is the one built, and 0, with
+// held to the host's word for word and byte for byte. Returns 1 where the device's text is built, and 0, with
 // the step that differed on stderr, where the device did not write it or any of the three is apart from the host's.
 // The device splits the lane where `generator`'s program() splits it. A text the device wrote before in this process
 // is not written again

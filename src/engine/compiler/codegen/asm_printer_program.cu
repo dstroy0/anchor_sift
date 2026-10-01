@@ -80,7 +80,7 @@ void asm_printer_capacities(const AsmPrinterFlat *flat, unsigned int step_capaci
     build->part_capacity = form_parts + 1u;
     build->slot_capacity = flat->rules.form_slot_first[OPCODE_COUNT];
     build->step_capacity = step_capacity;
-    // past ASM_PRINTER_TABLE_BITS_MAX the build ends before its tables, so no table is wider
+    // past ASM_PRINTER_TABLE_BITS_MAX the build ends before its tables: no table is wider
     for (unsigned int table = 0u; table < ASM_PRINTER_TABLE_POWER; table += 1u)
     {
         build->table_capacity[table] = 1u << ASM_PRINTER_TABLE_BITS_MAX;

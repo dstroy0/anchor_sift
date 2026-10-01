@@ -227,11 +227,11 @@ static void lattice_moments(SimResults *results, const SimScene *scene, const Si
                                    (long long)sim_pattern(camera, voxel) -
                                    ((long long)camera->gain * (long long)signal[index]);
         first += residual;
-        // a residual's magnitude is far below 2^31, so its square fits 64 bits
+        // a residual's magnitude is far below 2^31: its square fits 64 bits
         second += (unsigned long long)(residual * residual);
         expected += (camera->gain * camera->gain * signal[index]) + camera->read_square;
     }
-    // the first moment's magnitude is below 2^31 in this scene, so its square fits 64 bits
+    // the first moment's magnitude is below 2^31 in this scene: its square fits 64 bits
     const unsigned long long first_square = (unsigned long long)(first * first);
     const unsigned long long apart = (second > expected) ? (second - expected) : (expected - second);
     ScripturaLine *const line = &results->line;

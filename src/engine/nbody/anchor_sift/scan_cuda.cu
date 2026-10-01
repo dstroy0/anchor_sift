@@ -13,7 +13,7 @@
  * THE SAME QUESTION EVERY SCAN ARM ANSWERS, MAPPED OVER THE DEVICE. Held at one needle offset, count
  * the alignments still standing whose corpus byte equals the needle byte. The vector arms widen one
  * compare; this one gives one alignment to each thread and adds a one where that alignment agrees and
- * stands. The reduction is a single atomic increment per agreeing thread, which is what the exact
+ * stands. The reduction is a single atomic increment per agreeing thread, what the exact
  * device arm does and needs no tuning at this size.
  *
  * WHAT THIS ARM IS NOT ALLOWED TO DO. It returns the portable arm's count or it has a defect. The
@@ -23,7 +23,7 @@
  * @note NOT SHARED SOURCE WITH THE HOST ARMS. A device function carries __global__ or __device__ on
  *       every declaration. The kernel cannot be the portable loop compiled twice, and the two can
  *       drift. The GPU build grades every count this arm returns against the portable host arm on
- *       the same data, which is what catches a drift.
+ *       the same data, what catches a drift.
  * @note THE WHOLE OBJECT CROSSES THE BUS PER CALL. The corpus and the survivor vector are copied to
  *       the device. This arm pays a transfer a host arm does not. It wins only where the object is
  *       large enough to amortize that. It is graded and timed and not placed in

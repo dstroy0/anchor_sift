@@ -100,7 +100,7 @@ static int track_scene(SimResults *results, const char *name, const SimScene *sc
                     query->frame = (unsigned int)(frame + stride);
                     for (unsigned int cell = 0u; cell < TRACK_PATCH_MAX; cell += 1u)
                     {
-                        // the center first, then the other 26 in order; each digit of the order is 0, 1 or 2, so
+                        // the center first, then the other 26 in order; each digit of the order is 0, 1 or 2:
                         // every step is -1, 0 or 1 once the digit is taken signed
                         const unsigned int order = (cell == 0u) ? 13u : ((cell <= 13u) ? (cell - 1u) : cell);
                         const int step[SIM_AXES] = {(int)(order / 9u) - 1, (int)((order / 3u) % 3u) - 1,

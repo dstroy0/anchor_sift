@@ -248,7 +248,7 @@ static void classify_fixed_pattern(SimResults *results, ClassifyWork *work, cons
     {
         sim_ratio_print(line, &percent, &share_denominator, 4u);
     }
-    // both routes are exact means of the same values, so they agree on any input: the count checks the arithmetic
+    // both routes are exact means of the same values. They agree on any input: the count checks the arithmetic
     scriptura_text(line, "%\n                              the batch and incremental routes disagree on ");
     scriptura_decimal(line, flagged, 1u);
     scriptura_text(line, " of 64 pixels\n\n");
@@ -327,7 +327,7 @@ int main(void)
 
     for (unsigned long long at = 0ull; at < CLASSIFY_LENGTH; at += 1ull)
     {
-        // the amplitude is 40, so its square is 1,600
+        // the amplitude is 40: its square is 1,600
         work->stack[at] =
             work->scene[at] + classify_noise(CLASSIFY_KEY ^ 0x47415553ull, at,
                                              (unsigned long long)(CLASSIFY_AMPLITUDE * CLASSIFY_AMPLITUDE));

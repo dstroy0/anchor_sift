@@ -82,7 +82,7 @@ static void ask_frame_run(SimResults *results, AskFrame *frame, const AskState *
     unsigned int mixed = 0u;
     unsigned int inside = 0u;
     unsigned int crossings = 0u;
-    // an exact number is four exact integers. The table is held statically rather than on the stack
+    // an exact number is four exact integers. The table is held statically. It is not on the stack
     static AskNumber equator_answer[ASK_STATES_MAX][ASK_OUTCOMES];
     unsigned int equators = 0u;
     unsigned int same_magnitudes = 0u;

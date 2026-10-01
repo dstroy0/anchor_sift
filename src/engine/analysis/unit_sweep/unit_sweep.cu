@@ -16,7 +16,7 @@ static_assert((sizeof(unsigned short) * 8u) == UNIT_SWEEP_INPUT_BITS,
 
 static_assert(cudaSuccess == 0, "the engine reads a CUDA status of 0 as success");
 
-// cudaError_t enumerates non-negative codes below INT_MAX, so the status converts to int exactly
+// cudaError_t enumerates non-negative codes below INT_MAX: the status converts to int exactly
 #define UNIT_SWEEP_STATUS_CHECK(call_, evacaddr_, error_)                                                              \
     engine_status_check((int)(call_), ENGINE_MODULE_UNIT_SWEEP, (unsigned int)__LINE__, (const void *)(evacaddr_),     \
                         (error_))
@@ -281,7 +281,7 @@ static int unit_sweep_axes(unsigned int *planes, const UnitSweepExtent *extent, 
                               ENGINE_ERROR_REQUEST);
         if (ok != 0)
         {
-            // lines was held at or below 2^31 - 1 above, so it narrows to the unsigned int grid size exactly
+            // lines was held at or below 2^31 - 1 above: it narrows to the unsigned int grid size exactly
             unit_sweep_axis_kernel<<<(unsigned int)lines, UNIT_SWEEP_THREADS, shared_bytes>>>(
                 planes, *extent, axis, limbs, steps, half, input_bits);
             ok = UNIT_SWEEP_STATUS_CHECK(cudaGetLastError(), planes, error);
@@ -360,7 +360,7 @@ extern "C" long unit_sweep_residual(const UnitSweepRequest *request)
     const UnitSweepExtent extent = {{request->depth, request->height, request->width},
                                     (unsigned long long)request->depth * request->height * request->width};
     UnitSweepResident *const buffers = &s_unit_sweep_resident;
-    // the caller holds the voxel count below 2^32, so the block count fits unsigned int
+    // the caller holds the voxel count below 2^32: the block count fits unsigned int
     const unsigned int blocks = (unsigned int)((extent.voxels + UNIT_SWEEP_THREADS - 1u) / UNIT_SWEEP_THREADS);
     int ok =
         unit_sweep_grow(&buffers->narrow_planes, &buffers->narrow_words, (size_t)extent.voxels * narrow_limbs, error) &&
@@ -419,7 +419,7 @@ extern "C" long unit_sweep_lanes_compare(const UnitSweepComparison *comparison)
                                        buffers->disagreements, error);
     if ((ok != 0) && (comparison->lanes != 0ull))
     {
-        // the lanes are voxels, held below 2^32 by the caller, so the block count fits unsigned int
+        // the lanes are voxels, held below 2^32 by the caller: the block count fits unsigned int
         unit_sweep_compare_kernel<<<(unsigned int)((comparison->lanes + UNIT_SWEEP_THREADS - 1u) / UNIT_SWEEP_THREADS),
                                     UNIT_SWEEP_THREADS>>>(comparison->device_left, comparison->device_right,
                                                           comparison->lanes, comparison->limbs, buffers->disagreements);

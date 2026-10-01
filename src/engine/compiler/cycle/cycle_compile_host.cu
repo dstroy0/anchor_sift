@@ -6,7 +6,7 @@
 // with each host thread a thread block of one thread. The text is compiled to a shared library in the cache folder,
 // kept there by its text, and loaded; its resident, cycle_program, runs the lanes on the host's threads, as many as
 // $CYCLE_HOST_THREADS names, else the host's hardware threads. The run copies the lane's
-// inputs from the device and its records and errors back, so the check (CYCLE_RECORD_CHECK=1) holds it to the
+// inputs from the device and its records and errors back: the check (CYCLE_RECORD_CHECK=1) holds it to the
 // interpreter as it holds the device's. On Windows the compiler is nvcc handing the source to the host compiler
 // alone, with -ccbin $CYCLE_HOST_CCBIN where it is set; elsewhere it is $CXX, else c++
 #include "cycle_compile_internal.h"
@@ -300,7 +300,7 @@ int cycle_host_program_load(const EngineRecordLayout *layout, CycleRecord *recor
                           cycle_host_compiler_run(partial + ".cpp", partial + CYCLE_HOST_LIBRARY, log);
         compile_milliseconds =
             std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - began).count();
-        // a name another process took first is left as it is, and its library is the one loaded
+        // a name another process took first is left as it is, and its library is loaded
         if (built)
         {
             rename((partial + CYCLE_HOST_LIBRARY).c_str(), (stem + CYCLE_HOST_LIBRARY).c_str());
@@ -412,7 +412,7 @@ static unsigned int cycle_host_threads(unsigned long long lanes)
 // the program started on the host's threads, each a thread block of one thread (cycle_host_threads), again from
 // where its block says it stands until every lane is done. The threads take lanes from the one counter, and the last
 // one out writes the host's copy of the block. The lanes' members, index and tables are read from the device first,
-// and the records and the error count are written back to it last. The host has no clock the program reads, so its
+// and the records and the error count are written back to it last. The host has no clock the program reads: its
 // launch time is taken around each start
 int cycle_host_resident(const CycleRecord *record, CycleCompiledLaunch program, EngineError *error)
 {

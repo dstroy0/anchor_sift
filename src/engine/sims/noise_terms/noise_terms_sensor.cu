@@ -200,8 +200,8 @@ void terms_crosstalk_mix(unsigned short *lanes, const unsigned short *drawn)
 // C20 read back (build plan item 38): along x, a draw shared by alpha with each neighbor gives alpha = C1 / (2 V),
 // alpha^2 = C2 / V and C3 / V = 0; along y nothing is shared. All three read 0. Over M products of frame
 // differences, each difference sharing a frame with the next, the null's C1 / (2 V) has a standard error of
-// sqrt(3/2) / (2 sqrt(M)) and C2 / V and C3 / V twice that: at M = 95 x 32 x 128 x 125, about 1/11000 and 1/5700, so
-// each tolerance is about 11 of them, room for the mix's larger ones.
+// sqrt(3/2) / (2 sqrt(M)) and C2 / V and C3 / V twice that: at M = 95 x 32 x 128 x 125, about 1/11000 and 1/5700.
+// Each tolerance is about 11 of them, room for the mix's larger ones.
 void terms_crosstalk(SimResults *results, const unsigned short *lanes, unsigned long long along_x_eighths)
 {
     EngineError error;

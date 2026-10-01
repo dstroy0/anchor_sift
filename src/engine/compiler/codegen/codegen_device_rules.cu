@@ -42,7 +42,7 @@ int asm_printer_ruleset_same(const AsmPrinterRuleset *left, const AsmPrinterRule
 
 // the build in one thread (asm_printer_core_ruleset_build), since each word's number depends on every word before it;
 // the build held in device memory and left there as it ended, its pointers the device's; its per-form arrays pass a
-// kernel's parameters by far, so it is not passed by value
+// kernel's parameters by far: it is not passed by value
 __global__ void codegen_rules_build(AsmPrinterCoreBuild *build)
 {
     if (codegen_device_thread() != 0ull)

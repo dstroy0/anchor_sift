@@ -307,7 +307,7 @@ int main(void)
         }
         scriptura_text(line, "  ");
         scriptura_text_columns(line, ROOT_NAMES[measurement.root], 7u);
-        // a root saves more than 0 and less than the box's bits, which are a few million here, so the box's bits
+        // a root saves more than 0 and less than the box's bits, which are a few million here: the box's bits
         // convert to long long exactly and 1000 times the saving is far below 2^63
         const long long per_mille =
             (measurement.root < NOISE_ROOT_TERMS)
@@ -329,7 +329,7 @@ int main(void)
         {
             sim_check(&results, measurement.root == planted, "at the strongest, the root is the planted term");
         }
-        // the residual is the box less the pattern in ints, so the sum is the box by construction; what this checks
+        // the residual is the box less the pattern in ints: the sum is the box by construction; what this checks
         // is that noise_root_return spreads the pattern over the places the yank took it from
         sim_check(&results, exact != 0, "the root's residual and pattern return the box exactly");
     }

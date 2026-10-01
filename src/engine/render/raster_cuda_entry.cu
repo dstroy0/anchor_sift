@@ -16,7 +16,7 @@ extern "C" int anchor_volume_device(uint8_t *voxels, const AnchorVolumeConfig *c
                                     size_t corpus_len, const uint8_t *needle, size_t needle_len,
                                     const AnchorRasterProbe *probes, size_t probe_count, const void *census)
 {
-    // RESERVED, NOT READ. Built from the corpus below exactly as the host arm does. The two
+    // RESERVED. Built from the corpus below exactly as the host arm does. The two
     // agree on rarity, and a caller supplied census is discarded on both.
     (void)census;
 

@@ -10,7 +10,7 @@ SassTarget::SassTarget(void) : CodeGenerator("sass.krs", "cubin", "probe_nvdisas
 // R240 up are its fixed registers, and R238 and R239 are the launch the lane was called with, which open_launch moves
 // there and launch_load reads every parameter through. A lane whose banks reach R238 is refused, in place of writing
 // over the address its own parameters come from. This is the file's count and not what a lane can take and stay
-// fast: an SM holds 65536 registers and runs 1536 threads, so 42 a thread is full occupancy and every one past that
+// fast: an SM holds 65536 registers and runs 1536 threads. 42 a thread is full occupancy and every one past that
 // costs residency
 unsigned int SassTarget::register_file_holds(void) const
 {

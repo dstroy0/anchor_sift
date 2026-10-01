@@ -66,7 +66,7 @@ int sim_job_submit(SimResults *results, const char *name, int count, char *const
         bytes += strlen(arguments[at]) + 1ull;
     }
     unsigned char *const request = (unsigned char *)malloc((size_t)bytes);
-    // the context is made before the job asks, so the daemon measures it with the process and counts it beside the
+    // the context is made before the job asks: the daemon measures it with the process and counts it beside the
     // declaration
     int ok = (request != NULL) && (declared != 0ull) && sim_job_daemon(daemon, sizeof(daemon)) &&
              (cudaGetDevice(&device) == cudaSuccess) && (cudaGetDeviceProperties(&properties, device) == cudaSuccess) &&
