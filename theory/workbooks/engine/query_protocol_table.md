@@ -28,3 +28,96 @@
 | **Q13. Membership by agreement inside a floor** | Two members share a stem where their readings agree inside a floor. | Nothing uses it. | Nothing: it is kept with the reason it fails. | **Not so** (`order_check.py`, check 10): asked from one member's floor, agreement is not symmetric, and taken at the coarser floor it is not transitive. sm_86 agrees with sm_87 and sm_87 with sm_89, and sm_86 does not agree with sm_89. | **not so** | A representative per group, or a rule that builds the group and names its anchor (Open 12 in the plan). |
 | **Q14. The readout** | The bits a branch consumes resolve to a four-letter mnemonic per transition. | `gnascor.md` holds the two transition tables. | Each name covering more than one transition says where its distinctions are kept, as the bound pass keeps them in the baseline. | **Measured** (`order_check.py`, check 12, read from `gnascor.md`): of 49 transitions in the state table, 12 resolve to a name nothing else uses, and SYNC covers 22. | **measured** | SYNC split, or its distinctions kept in the baseline (gnascor Open 4). |
 | **Q15. One ask, many answers** | An ask can carry many checks and its answer one bit for each. The channel answers in `RUN_OUT_WORDS` words of 32 bits, 128 bits an ask. A single bit over a set, 1 where every check in it holds and the set halved on a 0, carries less: it pays only where checks seldom fail, and past a failing share of (3 - √5)/2, about 38%, asking one at a time costs fewer asks. | Nothing emits a pooled ask. | A container that runs many checks in one launch and writes one bit each into its answer words. | **Measured** (`gate_descent.c`, every arrangement against the cases Q4 placed): add, 1,227 checks with 25 failing: 1,227 asks at one a check, 10 at one bit a check, 129 at one bit a set halved on a 0 and 299 with the checks in a drawn order; take, 1,083 checks with 36 failing: 1,083, 9, 145 and 367; up, 1,396 checks with 538 failing: 1,396, 11, 1,593 and 2,141; down, 1,118 checks with 263 failing: 1,118, 9, 927 and 1,389. One bit a check takes the fewest on every relation. One bit a set takes more than one a check on up, where 38.5% fail, and its count turns on how the failing checks sit together. | **measured** | The answer carries a bit a check, and Q1's container is built to write one. |
+| **Q16. A form asked of the part** | A slot of a ruleset is asked the way an operator is (P7). Every form the part's machine file holds is put in the slot with its operands filled by their kinds, the cases of the slot are put, and the forms that answer every case are timed and walked. The ruleset's form for the slot is the part's answer. | `loop_back` is asked so: `cell_sass_probe` given `loop` and a machine file (`utils/test/engine/compiler/cell/cell_sass_probe_ask.c`), run alone against the cubins of an earlier run through `SASS_PATTERN` in `cell_sass_test.sh`. **Measured** on the RTX 3070, sm_86, in two runs: 2533 of the 2927 forms assemble, 1715 fall through and 8 come back on every count, every one a `BRA`. No form answers 2 without answering every count. `sass_loop_walk` agrees with all 8. The 8 cost 33.7 to 34.7 ns a turn, and the next costs 0.0525 ns a turn more than the least against a spread of 0.9260: no form costs less (P6), and `sass.krs` keeps its `BRA`. | Every other slot a `.krs` writes by hand asked the same way, each with its own relation's cases, on every part with a machine file. | The least cost read alone from one run: `BRA.CONV` in one run and `BRA` with a number in the next. Inside the spread the order is noise, and P6 reads it. | **proved** (the 8 forms, the walk), **measured** (their cost on sm_86) | Q17 says which slots to ask next. |
+| **Q17. Held against NVIDIA's compiler** | A program written as C source and as the part's own code answers the same on every lane and costs no more than what NVIDIA's compiler writes for the C (P8). Where it costs more, the forms NVIDIA's compiler wrote over that run are the next slots Q16 asks. Its listing is a reading of what the part can do and never a rule: a form enters a ruleset once the part answers for it. | `utils/maint/engine/sass_lane_needs.sh` decides the 8 record programs the host oracle runs for SASS, each laid with every register fresh and again reused: 16 lane programs written, 84 of the schema's 99 forms asked, and every instruction assembles against sm_86's machine file (936 for arithmetic, 1110 for division, 0 refused). No lane has run on the part. The same programs run as C source on the record tests ([engine_table.md](engine_table.md), item 11). | Each lane assembled into a cubin and run where its C route runs; both read word for word against the host; both timed (P6) and their instructions counted; every program where ours costs more read form by form against NVIDIA's listing. | Nothing has run. | **built** (the 16 lanes, written and assembled), **theory** (the comparison) | Run each of the 16 beside the cubin of its C route. |
+
+## The algebra of the protocol
+
+Every line is exact. A cost is a reading and carries a spread; a relation is arithmetic and carries none.
+
+### P1. The ask and its bound (Q1, Q2, Q3)
+
+An ask a = (address, qualifier) returns, unbound, its cost t(a). Bound by β it returns one bit:
+
+  bit(a) = [qualifier holds] · [t(a) ≤ β]
+
+A missing address, a false qualifier, a timeout, an error and too many cycles all read 0. What tells them apart is the baseline, the spread of unbound costs, and the bound is read off it (Q2) and never written by hand.
+
+### P2. The gate (Q4)
+
+A relation r is held on cases K = {k_1, …, k_m}. A candidate c survives when
+
+  c(k) = r(k) for every k ∈ K
+
+- **The survivors are a conjunction.** S = {c : c(k) = r(k) for every k ∈ K} does not depend on the order of K, and no order of the cases changes which candidates survive.
+- **The order is the price.** Putting K in order π costs Σ_c f_π(c) evaluations, f_π(c) the place of the first case c fails (m for a survivor). The descent puts first the case the most remaining candidates fail.
+- **No cost enters S.** A candidate that fails a case is wrong on every part, and no part is asked about it.
+- **Proved** (Q4): the descent's survivors equal `chain_build`'s on every relation the ladder holds.
+
+### P3. The order of asks (Q5)
+
+For a chain of n links, n + 1 a power of two, ask r covers link c where (r + 1) & (c + 1) has an odd count of ones: the rows of a Hadamard matrix of order n + 1 with its first row and column dropped, read as 0 and 1. With b_r the cost ask r returns and x the per-link costs:
+
+  (n + 1)·x = 4·Sᵀb − 2·(Σb)·1
+
+- Every link is covered by (n + 1)/2 asks and any two links share (n + 1)/4, and that is the identity 4·SᵀS − (n + 1)·J = (n + 1)·I, with Σb = ((n + 1)/2)·Σx (**proved** here for n = 3, 7, 15, 31 and 63). The solve is integer adds and one division by a power of two (**proved**, Q5).
+- Against one ask a link, the gain is √(n + 1)/2 (derived; **measured** 1.09, 2.07 and 8.16 at 3, 15 and 255 links against 1.00, 2.00 and 8.00, Q5).
+
+### P4. Contention (Q7)
+
+Each of N sweep asks covers a count u of links, and y is what is left of its cost once the known order's links are taken out. The model is y = α + γ·u + δ·u² + noise, and contention is δ > 0. With every sum centered and scaled by N,
+
+  C_pq = N·Σpq − Σp·Σq
+
+and the count taken out of the square s = u² and of the leftover y,
+
+  P_ss = C_uu·C_ss − C_us²,  P_sy = C_uu·C_sy − C_us·C_uy,  P_yy = C_uu·C_yy − C_uy²
+
+the square's slope P_sy/P_ss has squared spread (P_yy − P_sy²/P_ss)/((N − 3)·P_ss), with N − 3 left over past the three unknowns. The slope stands above twice its spread exactly when
+
+  P_sy²·(N + 1) > 4·P_yy·P_ss
+
+which is every term an exact integer and no division (`ask_links_read`, `src/engine/compiler/bootstrap/ask_order.c`). Fewer than three counts covered leaves P_ss = 0 and nothing to read; P_sy ≤ 0 reads as adding.
+
+### P5. One ask, many answers (Q15)
+
+A set of checks each failing with share p is asked as one bit, 1 where every check holds and the set halved on a 0. Past p = (3 − √5)/2, about 0.382, asking one check at a time costs no more than any scheme that asks a set as one bit (cited from knowledge: P. Ungar, "The cutoff point for group testing", Comm. Pure Appl. Math. 13 (1960) 49–54). The channel's answer of 128 bits carries one bit a check, which pays on every relation (**measured**, Q15).
+
+### P6. The rank, read against its own spread (Q16, Q17)
+
+Each survivor c is run T times and its runs t_c,1, …, t_c,T taken. A run is lengthened by whatever else the host does and never shortened by it:
+
+  m_c = min_j t_c,j,  s_c = max_j t_c,j − m_c,  s = max_c s_c
+
+With the survivors ordered by m, c_1 the least and c_2 the next, c_1 is the part's choice where
+
+  m_c2 − m_c1 > s
+
+and otherwise the survivors are one cost and the ruleset keeps its form. The gate (P2) decides which candidates hold and this rule orders the survivors, and the two are never added together.
+
+- **Measured** (Q16): 8 survivors in `loop_back`'s place on sm_86, m_c2 − m_c1 = 0.0525 ns a turn against s = 0.9260. The least of one run, `BRA.CONV`, is not the least of the next, `BRA` with a number, as a difference inside the spread gives.
+
+### P7. A form asked of the part (Q16)
+
+The slot is `loop_back loop where`. The question is a body the slot closes:
+
+  R7 ← 0, R0 ← N;  turn: R7 ← R7 + 1, R0 ← R0 − 1, P0 ← [R0 ≠ 0];  then the candidate, guarded by P0
+
+- A candidate that takes the way back on P0 runs N turns and answers R7 = N.
+- A candidate that falls through runs one turn and answers 1.
+- N = 2 separates the two, 2 against 1. The counts after it, 1, 3, 5 and 64, hold the answer to N: a form that came back a fixed number of times answers that number and not N.
+- The candidates are every form in the part's machine file, with every register made R8 and every uniform one UR8, which the body does not keep, a predicate made P0 (PT, RZ and URZ kept), a label the body's and a number the distance back to it, 0x40 bytes over four instructions. Nothing decides beforehand which forms jump.
+- A survivor is walked: `sass_loop_walk` reads its encoding back through the forms of the machine file and checks it as a loop's way back, the flag, the distance, and every register the body keeps left as it was.
+- **Proved** (Q16): 8 of the 2927 forms answer every count, every one a `BRA`, and the walk agrees with all 8. No form answers N = 2 without answering every count.
+
+### P8. Held against NVIDIA's compiler (Q17)
+
+For a program p, C(p) is its text through `c.krs` and E(p) its lane through `sass.krs`. V(p) is what NVIDIA's compiler writes for C(p) and h(p) what the host oracle answers.
+
+  E(p)(k) = V(p)(k) = h(p)(k) on every lane k
+
+is the gate, and the rank is P6 between E(p) and V(p), with |E(p)| and |V(p)| their instruction counts as a second reading. E(p) holds NVIDIA's line where m_E(p) − m_V(p) ≤ s.
+
+- Where E(p) costs more, V(p)'s instructions over that part name forms, each in a slot. Each slot is a question for Q16: the forms of the machine file in that slot, the cases of the slot, and the survivors ranked by P6. NVIDIA's listing names the question and the part answers it.
+- The loop closes when E(p) holds NVIDIA's line on every program p, and every form in every ruleset was answered by the part.
+- **Built:** E(p) for the 8 record programs the host oracle runs, 16 lane programs, every instruction assembled against sm_86's machine file (Q17). **Theory:** the rest.
