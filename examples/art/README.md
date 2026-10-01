@@ -66,4 +66,3 @@ python examples/art/4_measure/classify_reject_recover.py
 ```
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

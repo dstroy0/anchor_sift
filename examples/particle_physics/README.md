@@ -156,4 +156,3 @@ python examples/particle_physics/6_oracle/measured_configuration_vs_ideal.py
 The fetcher pulls the NIST ground-state table once, about half a megabyte, and caches it under `build/nist`. The oracle reads that cache.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

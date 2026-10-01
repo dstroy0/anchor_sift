@@ -377,4 +377,3 @@ The oracle fills `build/cod` from the archive and everything else reads that cac
 Stage three is the slow one. Its grid arm compares a full 320 cubed volume at every lag, three times per entry. The exact arm does not have that cost.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-09

@@ -55,4 +55,3 @@ python examples/molecules/6_oracle/legal_against_a_wide_set.py
 The assembly stage is generated from the element ledger, with no corpus and no fetch, and its output does not drift between runs. The detector reads a wide set the fetcher gathers from PubChem once, in polite chunks, cached under `build/pubchem`; run without it, the detector still runs its controls.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-17

@@ -100,4 +100,3 @@ bonding map that is chemistry's own layer and not the element ledger, and the pe
 sequence is a synthetic sawtooth with arbitrary segment lengths, not the shell counts.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-17

@@ -61,4 +61,3 @@ A script that answers a question nobody has assigned to a subject. A first attem
 **A fetcher does not belong here.** Acquiring a corpus is not a stage of reading one. Those are in `maint/data/fetch/`.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

@@ -30,4 +30,3 @@ The Octave port has been run, under Octave 11.3.0. It reads a departure of 0.722
 MATLAB's `std` divides by `n-1` by default and the reference uses a population standard deviation. The second argument switches it, and `std(gaps, 1)` is what appears here. Getting that wrong scales each symbol's spread by `sqrt(m/(m-1))` for its m gaps, and the departure would not show it: the live sequence and its shuffle hold the same count of each symbol and the same number of gaps, and the factor cancels in every ratio. The spreads themselves are what would differ from the reference's.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-08
