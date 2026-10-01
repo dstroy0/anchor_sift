@@ -4,13 +4,10 @@
 # This file quotes banned phrases by necessity, since that is what it matches on. The gate does not
 # read .tsv, which is why the table lives here and not inside the tool.
 #
-# Every row below has been applied. They are kept as the record of what was changed and why the
-# wording is what it is, and re-running reports them as already applied.
+# Every row below is already applied, and re-running reports each as already applied.
 #
-# The table arrived from the private tree in 5daed7d (2026-09-22) with 184 rows. On 2026-09-26 the
-# tools/view rows were repointed to examples/00_blob_viz_tools, where this tree keeps those files,
-# and 78 rows were removed: 74 naming files that exist only in the private tree, and 4 whose site a
-# later edit rewrote again. `git show 5daed7d:maint/prose_fixes.tsv` holds the table as it arrived.
+# Some rows name files under examples/00_blob_viz_tools, which is where this tree keeps them. Rows
+# for files that exist only in the private tree do not belong here.
 examples/00_blob_viz_tools/README.md	candidates. The rest hardcode a path into this repository and are examples of the pattern rather\nthan tools:	candidates. The rest hardcode a path into this repository and are examples of the pattern,\nnot tools:
 examples/00_blob_viz_tools/README.md	Every general generator takes `--set key=value`, repeatable, so a caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.	Every general generator takes `--set key=value`, repeatable. A caller asks for a view instead of\npublishing one and describing which controls to move. An unknown key exits with the list of known\nones, because a typo is otherwise silent and the page just opens looking wrong.
 examples/00_blob_viz_tools/README.md	series toggle off, y switches to log. It prints which columns it chose so a wrong guess is visible.	series toggle off, y switches to log. It prints which columns it chose, making a wrong guess visible.
