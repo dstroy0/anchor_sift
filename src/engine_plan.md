@@ -154,6 +154,17 @@ with no map yet.
 
 ## The method
 
+**Everything is learned through the query protocol, and through nothing else.** An ask is
+`[ADDRESS] -> (QUALIFIER) -> [COST] -> BIT`, put with `host_put` and read with `host_read`
+(`compiler/bootstrap/host_entry.h`), with nothing between them and the part. No outside tool is in the loop: no
+compiler, assembler, disassembler, object reader, vendor runtime or driver library. A word that went through one is
+that tool's answer and not the part's. The SASS probe under `test/engine/compiler/cell/` and everything it calls
+(`nvcc`, `nvdisasm`, `cuobjdump`, `cell_ptx_probe`, the vendor runtime) is scaffolding. It is an answer key in the
+sense `precepts.h` is one: it may be read to form a question, and to check a derivation after it has run. It is
+never a channel a derivation runs through, never where the work resumes, and never a place to find again what the
+protocol answers. When how to reach a part is unclear, the answer is the protocol put at the part's addresses, and
+never a tool that already knows.
+
 Ask, and remember the answer. It does not get more complicated than that at any layer. The baseline is
 remembered asks. A chain profile is remembered asks at every cut. The winning path is a comparison of two sets
 of remembered asks. Nothing is modeled, nothing is predicted, and a known entry is never thrown away.
@@ -201,7 +212,11 @@ works there.
    writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
-   clock already reads a cost in the part's own time, and that reading is what a bound would be set from.
+   clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
+   clock runs inside the SASS probe, through the toolkit, and is scaffolding (the method, above): the loop's
+   clock is read by an ask put through `host_entry.h` like every other answer. The next piece is that ask
+   itself, an address and a qualifier returning a cost unbound and a bit bound, with the run channel made of
+   asks of that form and the known order, its solve and the gate's descent running over them.
 
 2. **`.kdm` holds no cost.** `maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
