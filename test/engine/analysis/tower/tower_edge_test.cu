@@ -324,7 +324,7 @@ int main(void)
         exact_trips +=
             ((plain_trip == 0L) && (edged_trip == 0L) && (mismatches == 0ull) && (rebuilt_ok != 0)) ? 1u : 0u;
         readouts += tower_test_readout(plain_crystal[0], edged_crystal[0], function) ? 1u : 0u;
-        // the collapsed floor is one coefficient, so every other coefficient is the plain crystal's
+        // the collapsed floor is one coefficient: every other coefficient is the plain crystal's
         untouched +=
             (memcmp(&plain_crystal[1], &edged_crystal[1], (size_t)(rig.lanes - 1ull) * sizeof(int)) == 0) ? 1u : 0u;
     }

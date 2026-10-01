@@ -6,7 +6,7 @@
 // The two are given the same pattern, the same code and the same part, and their bytes are compared. Where they
 // agree, every offset, width, tag and name the old one held is in the layout file and none of it is lost. This is
 // the check that lets the compiled-in one go.
-// both emitters are C and their headers carry no linkage of their own, so it is named here
+// both emitters are C and their headers carry no linkage of their own: it is named here
 extern "C"
 {
 #include "container_write.h"

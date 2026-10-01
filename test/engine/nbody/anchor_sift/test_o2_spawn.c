@@ -20,7 +20,7 @@
  *   POSITIVE CONTROL. A field with one planted occurrence over N alignments. A probe asks every
  *   survivor one yes-or-no question, whether its byte at one offset is the needle's, and keeps the
  *   target's side. Sides that halved the survivors would take log2(N) probes, eleven with N past
- *   2000. The descent places the probe that prunes most and a side can be under half, so a given
+ *   2000. The descent places the probe that prunes most and a side can be under half: a given
  *   target can take fewer; the run prints how many. Isolating the target composes past one
  *   descent's cap of four, which the case checks. The lone survivor is then verified against the
  *   whole needle with a full compare before it is called found, which is this tree's rule that a
@@ -168,7 +168,7 @@ static int o2_case_found_past_cap(void)
     }
 
     // A binary field, where a probe keeps the survivors whose byte at one offset is the needle's,
-    // about half of them, so isolating one of N alignments takes more probes than one descent holds.
+    // about half of them: isolating one of N alignments takes more probes than one descent holds.
     uint64_t state = 0x0123456789ABCDEFULL;
     o2_fill(corpus, 2u, &state);
 

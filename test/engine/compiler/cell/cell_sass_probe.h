@@ -35,7 +35,7 @@
 // constant between them (sass_machine_widen)
 #define SASS_WIDEN_ROUNDS 2u
 // the bits of the low word that name an operation and its operands' kinds. Every value of these is a question the
-// sweep puts to the disassembler, which is what makes that search unbounded by any compiler's output
+// sweep puts to the disassembler, and the search is unbounded by any compiler's output
 #define SASS_OPERATION_MASK 0xfffull
 
 // one instruction as the disassembler printed it: its address, its text without the ending ';', and its encoding, the
@@ -76,8 +76,8 @@ typedef struct
     channel_(COMPILE, "compile", "the system's compiler is handed a source and emits instructions for it")             \
     channel_(CLOCK, "clock", "two codings of one thing are run against each other and timed")
 
-// What came back. These three are the whole of it: a question is taken and answered, taken and answers nothing a
-// reader can see, or refused. The third is the one that prunes - an encoding the decoder names but that no run will
+// What came back is one of three: a question is taken and answered, taken and answers nothing a
+// reader can see, or refused. The third prunes - an encoding the decoder names but that no run will
 // take is illegal on its own, however well it decoded
 #define SASS_CLASSES(class_)                                                                                           \
     class_(ANSWERS, "answers", "the question was put and the answer came back as the question says")                   \
@@ -193,16 +193,16 @@ void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 // Two things a widened form is not. It is decodable, not run: only a question that assembles one and runs it says
 // the part executes it. And its operand bits are the ones the form it came from held, which the new operation may
 // read as something else - PLOP3.LUT is one bit from SHF.L.U32, and it decodes with a register standing where a
-// predicate belongs, so its form carries that kind and no predicate operation can be written from it. An operation
+// predicate belongs: its form carries that kind and no predicate operation can be written from it. An operation
 // reached this way is the part saying the encoding is legal, not a form ready to assemble from. The count taken
 unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, const char *folder);
 
 // Every operation the part has a coding for, asked of its disassembler without starting from anything a compiler
-// wrote (Doug, 29 Sep: "we can unbound the search entirely to find new words we didn't know existed").
+// wrote (Doug: "we can unbound the search entirely to find new words we didn't know existed").
 //
 // Widening asks what lies one bit from a form some compiler emitted, which bounds the search by what a compiler
 // happens to write. The encoding's own structure lifts that bound. The low 12 bits of the low word key the
-// operation and its operands' kinds, and the probe already found that much, so 4096 questions reach every operation
+// operation and its operands' kinds, and the probe already found that much: 4096 questions reach every operation
 // the disassembler will name. The carrier for all of them is a form the part ran, with its key cut out and each key
 // in turn put back, which leaves every bit that is not the key holding what a real instruction held.
 //
@@ -225,7 +225,7 @@ int sass_machine_same(const SassMachine *machine, const char *machines);
 // how a check of the assembler came out: how many instructions were written back, how many of them the assembler
 // refused, how many came out as the very bytes the listing gave, and how many read back as the text they were
 // written from. The bytes are the stronger reading and the text is the true one: the probes found bits an
-// instruction carries that no listing prints (LDG's 32 to 39), so two instructions that print the same can differ
+// instruction carries that no listing prints (LDG's 32 to 39): two instructions that print the same can differ
 typedef struct
 {
     unsigned int checked;
@@ -250,8 +250,8 @@ unsigned int sass_text_read(const char *output, const char *kernel, char *text, 
 unsigned int sass_cubin_text(const char *folder, const char *name, char *text, unsigned int room);
 
 // `text` assembled into the section `kernel` of a cubin made from `pattern`.cubin, written as `into`.cubin in the
-// folder: 1, or 0 with the reason printed. Every other section of the pattern is carried over untouched, which is
-// what lets one function of a cubin be replaced where another is left as the part's own compiler wrote it
+// folder: 1, or 0 with the reason printed. Every other section of the pattern is carried over untouched: one
+// function of a cubin is replaced where another is left as the part's own compiler wrote it
 int sass_cubin_kernel(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
                       const char *into, const char *kernel);
 

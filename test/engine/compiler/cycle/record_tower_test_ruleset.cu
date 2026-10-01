@@ -442,7 +442,7 @@ int main(int count, char **arguments)
     ok = ok && sim_status_check(&results, cudaMalloc((void **)&device_volume, (size_t)maximum * sizeof(unsigned short)),
                                 "the kernels' volume");
     // a sweep whose frame passes the stack limit grows it, and the local memory that reserves is held until the limit
-    // is set back; cycle sets it back once each sweep ends. The limit after every block is the one before them
+    // is set back; cycle sets it back once each sweep ends. The limit after every block is the limit before them
     size_t stack_before = 0u;
     ok = ok &&
          sim_status_check(&results, cudaDeviceGetLimit(&stack_before, cudaLimitStackSize), "the stack limit, before");

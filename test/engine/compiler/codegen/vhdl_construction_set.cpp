@@ -196,7 +196,7 @@ static int construction_measure(const Ruleset *rules, const std::string &package
         (void)bank;
         return std::string();
     };
-    // a form's registers are few, so the words and wide words they can be bound as are few
+    // a form's registers are few: the words and wide words they can be bound as are few
     const unsigned int bindings = 1u << (unsigned int)form.parameters.size();
     for (unsigned int binding = 0u; binding < bindings; binding += 1u)
     {
@@ -207,7 +207,7 @@ static int construction_measure(const Ruleset *rules, const std::string &package
         {
             const ConstructionKind kind = construction_kind(form.parameters[at]);
             const int wide = ((binding >> at) & 1u) != 0u;
-            // a binding that makes a predicate or an integer wide is the one before it
+            // a binding that makes a predicate or an integer wide is the binding before it
             skipped = skipped || (wide && (kind != CONSTRUCTION_REGISTER));
             arguments.push_back((kind == CONSTRUCTION_INTEGER) ? std::string("7") : ("x" + std::to_string(at)));
             types.push_back((kind == CONSTRUCTION_INTEGER)   ? std::string()

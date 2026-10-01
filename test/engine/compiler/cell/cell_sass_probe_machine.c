@@ -233,7 +233,7 @@ int sass_machine_fields(SassMachine *machine, const char *architecture, const ch
            "forms it had no room for\n",
            machine->forms, (unsigned int)SASS_MACHINE_FORMS, failed, written ? "written" : "not written", differed,
            machine->refused);
-    // a machine that filled up is a machine missing forms nobody named, which is a truncation and not a reading
+    // a machine that filled up is a machine missing forms nobody named: a truncation, not a reading
     return (written != 0) && (failed == 0u) && (differed == 0u) && (machine->refused == 0u);
 }
 
@@ -243,7 +243,7 @@ int sass_machine_fields(SassMachine *machine, const char *architecture, const ch
 #define SASS_CARRIERS 8u
 
 // The carriers picked out of the forms already held: the first form, then each later one whose operands are shaped
-// unlike every carrier taken so far. A shape is the count of operands and the kind of each, which is what decides
+// unlike every carrier taken so far. A shape is the count of operands and the kind of each, and it decides
 // where the bits outside the key sit. How many were taken
 static unsigned int sass_sweep_carriers(const SassMachine *machine, unsigned int *carrier)
 {

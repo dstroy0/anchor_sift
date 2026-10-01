@@ -20,7 +20,7 @@ static const unsigned char s_precept_arity[] = {
 #undef PRECEPT_ARITY
 };
 
-// every child of every node read once: a node number must lie below its own node, so the root is reachable and no
+// every child of every node read once: a node number must lie below its own node. The root is reachable and no
 // tree loops, and a leaf must be an operand the word actually reads
 static int checked(const char *what, const char *name, unsigned int reads, const PreceptNode *node, unsigned int nodes)
 {
@@ -94,7 +94,7 @@ static void tree_number_write(const PreceptNode *node, unsigned int at, unsigned
 }
 
 // the same number read back into a node list, and the node it built returned. `place` walks the number's symbols and
-// `made` counts the nodes put down, so the list comes out in the same order the writer walked
+// `made` counts the nodes put down: the list comes out in the same order the writer walked
 static unsigned char tree_number_read(unsigned long long number, unsigned int arity_of[], PreceptNode *node,
                                       unsigned int *place, unsigned int *made)
 {
@@ -203,7 +203,7 @@ int main(void)
         broken += checked("word", one->name, one->reads, one->node, one->nodes) ? 1u : 0u;
     }
     // and every one of them out through a number and back. A tree that survives this is a tree the node list is
-    // carrying no more of than the number does, which is what says the lists can go
+    // carrying no more of than the number does, and the lists can go
     unsigned int numbers = 0u;
     unsigned int listed = 0u;
     for (unsigned int at = 0u; at < PRECEPT_WEB_COUNT; at += 1u)

@@ -4,7 +4,7 @@
 #define _POSIX_C_SOURCE 200809L
 #endif
 // A probe for the cell test: one question a process, named by its first word, asked of the host part and its system.
-// Built with no optimization, so each question reaches the part as written. The operands are volatile, so no compiler
+// Built with no optimization: each question reaches the part as written. The operands are volatile: no compiler
 // folds a division it can see is undefined, and the part itself answers
 #include <limits.h>
 #include <stdint.h>

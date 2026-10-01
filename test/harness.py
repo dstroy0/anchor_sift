@@ -4,7 +4,7 @@
 """
 harness.py - the one entry point for anchor_sift's test suites.
 
-test/test_matrix.json is the one source of truth: one env per suite, each naming the script that
+test/test_matrix.json is the source of truth: one env per suite, each naming the script that
 builds and runs it. Every build and run is a tessera job: `run` hands each suite's script to
 tessera_run, which admits it on the device's daemon, and the daemon decides what runs beside what.
 
@@ -38,7 +38,7 @@ An env holds:
     wsl       true where the script runs under WSL, which takes its settings on the command line
 
 Every change to the matrix goes through `harness.py env`, which splices the one env it changes
-into the file as text, so a change is a minimal diff and nothing else in the file moves. A script
+into the file as text: a change is a minimal diff; nothing else in the file moves. A script
 that must touch the table imports this module and calls splice_after, splice_replace or
 splice_remove, then write_verified.
 """
@@ -106,7 +106,7 @@ def lock_release(lock):
 
 
 # ---------------------------------------------------------------------------
-# text splicing: the table is edited as text so a write is a minimal diff
+# text splicing: the table is edited as text and a write is a minimal diff
 # ---------------------------------------------------------------------------
 
 
@@ -154,7 +154,7 @@ def splice_after(text, anchor, name, entry):
 def splice_replace(text, name, entry):
     """Replace an env's whole `"name": {...}` in place, rendered at the indent it already sits at.
 
-    The same render as splice_after, so an updated env and a new one are indented identically. The
+    The same render as splice_after: an updated env and a new one are indented identically. The
     leading pad is dropped because the text kept ahead of key_start already carries it.
     """
     pad, key_start, close = env_span(text, name)
@@ -178,7 +178,7 @@ def splice_remove(text, name):
             end += 1
         if text[end : end + 1] == "\n":
             end += 1
-        # and its line from the start, so its indent does not stay behind ahead of the next env's
+        # and its line from the start: its indent does not stay behind ahead of the next env's
         return text[: key_start - len(pad)] + text[end:]
     head = text[:key_start]
     cut = len(head.rstrip(" \t\r\n"))
@@ -354,7 +354,7 @@ def cmd_env_remove(a):
             print("env not found:", " ".join(missing))
             return 1
         if len(envs) - len(set(a.name)) < 1:
-            print("erroring rather than empty the table")
+            print("erroring, not emptying the table")
             return 1
         kept = {n: e for n, e in envs.items() if n not in set(a.name)}
         still_run = set()
@@ -455,7 +455,7 @@ def wsl_path(path):
 
 def pinned_root(commit):
     """anchor_sift as it was at a commit, exported once to build/trees/<commit> (fetched from origin where this clone
-    does not hold it), with a .pinned file naming the commit, which is the compile cache's key for it. None where git
+    does not hold it), with a .pinned file naming the commit, the compile cache's key for it. None where git
     cannot name the commit."""
     found = subprocess.run(["git", "-C", ROOT, "rev-parse", "--verify", "--quiet", commit + "^{commit}"],
                            capture_output=True, text=True)

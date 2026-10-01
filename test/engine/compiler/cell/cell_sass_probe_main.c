@@ -373,13 +373,13 @@ int main(int count, char **arguments)
         sass_machine_listing(&s_sass_machine, &s_sass_form);
     }
     // The resident, the kernel the host launches, which no question covers. Its PTX already runs and the part's own
-    // compiler turned it into SASS that already runs, so what is read here is that SASS: the floor a rearrangement
+    // compiler turned it into SASS that already runs. What is read here is that SASS: the floor a rearrangement
     // has to beat, and the operations a whole coherent program needs that no single question reaches.
     //
     // It is listed after the questions, and the order carries weight. A form is keyed by its operation and the kinds
-    // of its operands, so the resident's CALL.ABS.NOINC `(cycle_lane) and the division question's
+    // of its operands: the resident's CALL.ABS.NOINC `(cycle_lane) and the division question's
     // CALL.ABS.NOINC `(__cuda_sm20_div_u64) are one form, and the first listing seen keeps it. The assembler holds
-    // a symbol operand by the text the form was learned with, having no way to write a relocation for another, so
+    // a symbol operand by the text the form was learned with, having no way to write a relocation for another:
     // whichever call is listed first is the only call that assembles. Listing the resident first took that form and
     // the division question stopped being writable. That limit on symbol operands is real and stands either way;
     // the order keeps it from costing a question that used to pass
@@ -436,8 +436,8 @@ int main(int count, char **arguments)
     // an instruction of one that stops assembling is this assembler breaking. The resident is a whole program the
     // part's compiler wrote, and it reaches operands no question ever produced - a convergence barrier B0, the
     // predicate file PR, a uniform predicate UP0, a constant bank past 0, a call to a symbol the form was not
-    // learned with. Those are refused and never guessed at, which is the reader working. Counting them beside the
-    // questions would read as a break where it is a frontier, so they are counted and named on their own
+    // learned with. Those are refused and never guessed at: the reader working. Counting them beside the
+    // questions would read as a break where it is a frontier: they are counted and named on their own
     SassCheck reached;
     memset(&reached, 0, sizeof(reached));
     unsigned int resident_differed = 0u;
@@ -450,8 +450,8 @@ int main(int count, char **arguments)
            "same to their bytes alone, %u the assembler does not reach yet\n",
            reached.checked, reached.refused, reached.same_bits, reached.same_text, reached.by_bytes,
            resident_differed);
-    // A lane of our own put into the resident's cubin, which is how a SASS program is built. The resident keeps the
-    // code the part's own compiler gave it and only cycle_lane is replaced, so what is checked here is that
+    // A lane of our own put into the resident's cubin: how a SASS program is built. The resident keeps the
+    // code the part's own compiler gave it and only cycle_lane is replaced: what is checked here is that
     // replacing one function of a cubin leaves the other as it was, byte for byte
     probe->failed += sass_lane_written(probe) ? 0u : 1u;
     // each kernel written again into a cubin of its own, loaded and run, and its answer same to the toolchain's
@@ -474,7 +474,7 @@ int main(int count, char **arguments)
     printf("cell sass ask: %u questions asked in the part's own code, %u answered as the question says\n", asked,
            answered);
     probe->failed += (answered == asked) ? 0u : 1u;
-    // and the questions of preference: which of two codings of one thing the part would rather be given. A reading
+    // and the questions of preference: which of two codings of one thing the part prefers. A reading
     // that does not come back is not a failure, since nothing yet depends on one
     unsigned int weighed = 0u;
     const unsigned int read = sass_cubin_prefers(probe, &s_sass_machine, &weighed);

@@ -146,7 +146,7 @@ if [ "${TESSERA_DEVICE:-1}" = "1" ]; then
     if [ "$DEVICE_TOOLCHAIN" != "1" ]; then
         echo "  tessera_job_test not built: no CUDA toolchain"
     elif [ -f "$OUT/tessera_job_test$SUFFIX" ]; then
-        # the test damages the history on purpose, so it runs in a state of its own; the daemon it starts inherits it
+        # the test damages the history on purpose: it runs in a state of its own; the daemon it starts inherits it
         STATE="$OUT/tessera_state"
         rm -rf "$STATE"
         mkdir -p "$STATE"

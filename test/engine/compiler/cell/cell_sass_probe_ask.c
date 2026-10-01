@@ -50,10 +50,10 @@ static double sass_cubin_nanoseconds(void)
     return (taken != NULL) ? strtod(taken + 2, NULL) : 0.0;
 }
 
-// A question of preference rather than of membership. Every question above asks whether the part CAN do a thing;
-// this asks which of two codings of one thing it would rather be given. Both must answer the same, or they are not
+// A question of preference, not of membership. Every question above asks whether the part CAN do a thing;
+// this asks which of two codings of one thing the part prefers. Both must answer the same, or they are not
 // two codings of one thing and the reading is void. What the part prefers is not what a listing says and not what
-// the encoding says: it is the part's own answer, in its own clock, and nothing else gives it
+// the encoding says: it is the part's own answer, in its own clock.
 typedef struct
 {
     const char *what;
@@ -114,12 +114,10 @@ static void sass_ask_named(const char *instruction, char *named, size_t room)
     }
 }
 
-// The count a coding is turned over, which is what lifts its cost out of the harness. A run costs about 497 us of
-// launch and copy whatever the kernel holds, and one instruction costs under a nanosecond, so a coding is asked for
+// The count a coding is turned over to lift its cost out of the harness. A run costs about 497 us of
+// launch and copy whatever the kernel holds, and one instruction costs under a nanosecond. A coding is asked for
 // once and turned this many times: the difference between two codings is then the difference between two costs,
-// multiplied, and the harness is the same under both
-// Measured 29 Sep: at 20000 turns the two codings of a move came out 7.3 ns a turn apart one run and 3.7 ns the
-// other way the next, so the reading was the harness and not the part. The turns are raised until the loop is the
+// multiplied, and the harness is the same under both. The turns are raised until the loop is the
 // run, and each coding is timed SASS_PREFER_TAKES times and read at its least, since a run can only be lengthened
 // by what else the host is doing. A difference under the spread of a coding's own takes is no reading
 #define SASS_PREFER_TURNS 400000u
@@ -151,7 +149,7 @@ static double sass_prefer_time(SassProbe *probe, const SassMachine *machine, con
     static char s_looped[8192];
     static char s_asking[65536];
     char path[1024];
-    // the answer emptied first, so a coding the assembler refuses is read as refused and not as the last one's word
+    // the answer emptied first: a coding the assembler refuses is read as refused and not as the last one's word
     snprintf(answered, room, "refused");
     if (!sass_prefer_loop(coding, s_looped, sizeof(s_looped)) ||
         !sass_ask_text(was, s_looped, s_asking, sizeof(s_asking)) ||
@@ -169,7 +167,7 @@ static double sass_prefer_time(SassProbe *probe, const SassMachine *machine, con
     return nanoseconds;
 }
 
-// Which of two codings of one thing the part would rather be given, asked of the part in its own clock. Both are
+// Which of two codings of one thing the part prefers, asked of the part in its own clock. Both are
 // run and both must answer what the question says, or they are not two codings of one thing; then both are timed,
 // and the part's preference is the difference. How many were asked, and how many gave a reading
 unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, unsigned int *asked)
@@ -181,15 +179,15 @@ unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, un
         // A long operation, which is where this is going: the high word of a 64-bit add, the pair being the case's
         // two words (0x7 and 0xb) added to itself. sass.krs writes wide_add as IADD3 then IADD3.X; the other coding
         // takes the carry with IMAD.X and adds the high word after. Two instructions against three, and 11 + 11
-        // carries nothing, so both answer 7 + 7
+        // carries nothing: both answer 7 + 7
         // A long operation, which is where this is going: the high word of a 64-bit add. sass.krs writes wide_add
         // as IADD3 then IADD3.X; the other coding takes the carry with IMAD.X and adds the high word after, three
-        // instructions against two. Both read R0, which the loop never writes, so a turn leaves the next one what
+        // instructions against two. Both read R0, which the loop never writes. A turn leaves the next one what
         // it found: a body that carries its own answer forward measures a chain 400000 long and not the coding
         {"a wide add's high word", "IADD3 R8, P6, R0, R0, RZ\nIADD3.X R9, R0, R0, RZ, P6, !PT\nMOV R7, R9",
          "IADD3 R8, P6, R0, R0, RZ\nIMAD.X R9, RZ, RZ, R0, P6\nIADD3 R9, R9, R0, RZ\nMOV R7, R9", 0x00000016u},
         // a word doubled, added to itself against shifted left by one. SHF.L.U32 takes its count in a register on
-        // this part and no listing gave it an immediate, so the shift pays a move for the 1 it shifts by
+        // this part and no listing gave it an immediate: the shift pays a move for the 1 it shifts by
         {"doubled", "IADD3 R7, R0, R0, RZ", "IMAD.MOV.U32 R8, RZ, RZ, 0x1\nSHF.L.U32 R7, R0, R8, RZ", 0x00000016u},
     };
     static char s_was[65536];
@@ -232,7 +230,7 @@ unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, un
         }
         if (held == 0)
         {
-            // one of the two codings would not run, or answered something the question does not say, so there is
+            // one of the two codings would not run, or answered something the question does not say: there is
             // no pair left to weigh
             sass_class_take(SASS_CHANNEL_CLOCK, SASS_CLASS_ILLEGAL, prefer->what, 0u);
             continue;
@@ -279,7 +277,7 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
         {"IADD3 R7, -R0, RZ, RZ", 0xfffffff5u},
         {"SEL R7, R0, R7, PT", 0x0000000bu},
         // The three comparisons no listing ever held, which the widening round found one bit from ones that were
-        // (sass_machine_widen): the compiler read zero and below off the negations of NE and GE, so nothing had run
+        // (sass_machine_widen): the compiler read zero and below off the negations of NE and GE: nothing had run
         // these until here. Each is asked once where it should fire and once where it should not, and the answer is
         // the case's first word where the predicate held and zero where it did not
         {"ISETP.EQ.U32.AND P0, PT, R7, R7, PT\nSEL R7, R0, RZ, P0", 0x0000000bu},
@@ -292,19 +290,19 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
          0x0000000bu},
         {"ISETP.EQ.U32.AND P6, PT, R0, R0, PT\nISETP.EQ.U32.AND.EX P0, PT, R7, R0, PT, P6\nSEL R7, R0, RZ, P0",
          0x00000000u},
-        // .hi on a number, which is the high half of it as .hi on a register is the pair's second register. No
-        // listing prints this: nvdisasm writes a pair's second register out, so every instruction ever assembled
+        // .hi on a number is the high half of it as .hi on a register is the pair's second register. No
+        // listing prints this: nvdisasm writes a pair's second register out: every instruction ever assembled
         // carried .hi on a register alone, and a ruleset writing a 64-bit form against a literal is the first thing
         // to ask for the other half. 0x7_0000000b answers 7 where the half is taken and 11 where the whole number
         // is written and the field truncates it; 0x1_00000000 answers 1 against 0
         {"IMAD.MOV.U32 R7, RZ, RZ, 30064771083.hi", 0x00000007u},
         {"IMAD.MOV.U32 R7, RZ, RZ, 4294967296.hi", 0x00000001u},
         // A 64-bit load, which launch_load wants: a ruleset cannot write [R2.64+{offset}] and [R2.64+{offset}+4],
-        // since adding 4 to a parameter is arithmetic and a .krs does none, so the pair must come in one
+        // since adding 4 to a parameter is arithmetic and a .krs does none: the pair must come in one
         // instruction. R2 still holds the case's address here, whose two words are 0xb and 0x7
         {"LDG.E.64.CONSTANT R8, [R2.64]\nIMAD.MOV.U32 R7, RZ, RZ, R8", 0x0000000bu},
         {"LDG.E.64.CONSTANT R8, [R2.64]\nIMAD.MOV.U32 R7, RZ, RZ, R9", 0x00000007u},
-        // The other widths, which are names until the part is asked. .128 should write four registers from R8, so
+        // The other widths, which are names until the part is asked. .128 should write four registers from R8:
         // R9 still reads the case's second word; .U8 should write one byte zero extended, which 0xffffffff stored
         // and read back as 0xff tells apart from a word. The store is to the answer's third slot, which nothing
         // reads, and the safe control the assembler writes waits on it before the load
@@ -313,7 +311,7 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
          "IMAD.MOV.U32 R7, RZ, RZ, R9",
          0x000000ffu},
         // product_low and product_high, which the compiler fused into one IMAD.WIDE.U32 writing an aligned pair
-        // (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6). The core names the two halves apart, so a pair
+        // (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6). The core names the two halves apart: a pair
         // cannot be promised, and each half is asked here on its own: the low is the product's low word plus the
         // addend with its carry kept, and the high is the product's high word plus that carry. 0xffffffff squared
         // is 0xfffffffe00000001, and with 0xffffffff added the low is 0 carrying 1 and the high is 0xffffffff
@@ -372,7 +370,7 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
         {"LOP3.LUT R7, R0, RZ, RZ, 0x0f, !PT", 0xfffffff4u},
         {"LOP3.LUT R7, R0, R7, RZ, 0x3f, !PT", 0xfffffffcu},
         {"LOP3.LUT R7, R0, R7, RZ, 0x03, !PT", 0xfffffff0u},
-        // ASR, which differs from SHR only where the sign is set, so the case's first word is negated first: -11 is
+        // ASR, which differs from SHR only where the sign is set. The case's first word is negated first: -11 is
         // 0xfffffff5 and carrying its sign right 7 places leaves every bit set
         {"IADD3 R6, -R0, RZ, RZ\nSHF.R.S32.HI R7, RZ, R7, R6", 0xffffffffu},
         // ROR and ROL, on the two spellings that carry a funnel. The .U32 spellings were asked first and the part

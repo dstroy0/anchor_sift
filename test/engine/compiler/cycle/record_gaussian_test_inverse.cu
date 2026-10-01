@@ -30,7 +30,7 @@ long long gaussian_value(unsigned int kind)
 // a field's word: the value's low 24 bits of two's complement
 unsigned int gaussian_word(long long value)
 {
-    // the mask keeps the low 24 bits, which is the field's whole content
+    // the mask keeps the low 24 bits, the field's whole content
     return (unsigned int)((unsigned long long)value & ((1ull << GAUSSIAN_TEST_FIELD_BITS) - 1ull));
 }
 
