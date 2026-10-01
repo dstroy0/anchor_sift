@@ -3,8 +3,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """Where anchor_sift's root is, for the scripts under test/ and tools/.
 
-Searches upward from this file for `maint` and `src`. This file sits one folder below the root, so
-the answer does not depend on the caller's depth, its working directory, or how it was launched.
+Searches upward from this file for `maint` and `src`. This file sits one folder below the root: the
+answer does not depend on the caller's depth, its working directory, or how it was launched.
 
     from tools import findroot
 
