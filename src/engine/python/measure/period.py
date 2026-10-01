@@ -9,8 +9,8 @@
 # The Python route to src/engine/analysis/period/period_*.cu at anchor_sift 1789287. That file reads a
 # volume of 16 bit lanes on the device and returns, for each axis, the period the volume carries
 # along it, and this reads the same volume on the host in exact integers and returns the same
-# reading field for field. The two share no code, and test/python/period_test.py grades them
-# against each other through test/python/period_probe.cu, which calls the engine's entry points.
+# reading field for field. The two share no code, and utils/test/python/period_test.py grades them
+# against each other through utils/test/python/period_probe.cu, which calls the engine's entry points.
 #
 # WHAT IS READ
 #

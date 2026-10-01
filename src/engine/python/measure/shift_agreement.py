@@ -43,11 +43,11 @@
 # One. frame_shift is the Python route to shift_agreement_host in
 # src/engine/analysis/shift_agreement/shift_agreement.c: the lag carrying one frame's occupied voxels
 # onto the next, over up to eight axes, graded against it count for count by
-# test/python/shift_agreement_test.py. The C is a transform over a prime and this counts pairs, and
+# utils/test/python/shift_agreement_test.py. The C is a transform over a prime and this counts pairs, and
 # the two share no code. The engine form of recover_lattice_period, a candidate scored with its
 # double against the lags outside its family, is period_read in src/engine/analysis/period/period_select.cu.
 # It reads a device volume, holds its margin as an exact ratio, and adds a band drawn from
-# shuffles, and its Python route is measure/period.py, graded against it by test/python/period_test.py.
+# shuffles, and its Python route is measure/period.py, graded against it by utils/test/python/period_test.py.
 # agreement, strongest_lags, recover_period, lattice_agreement, exact_agreement,
 # recover_exact_period and against_a_shuffle have no C counterpart.
 

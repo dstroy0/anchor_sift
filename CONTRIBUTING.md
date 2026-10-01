@@ -25,15 +25,15 @@ The 20 hand extraction tables under `theory/theory/Salishan/` are not carried in
 
 The derivations built on them are here in full: the ledger, the bound, the checks and the code.
 
-The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `maint/data/salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
+The corpora, page renders and audio under `build/` are also absent and run to about 1.9 GB. `utils/maint/data/salishan/get_papers.py` fetches the papers and the tools rebuild the rest.
 
 ## Checks
 
 **Prose.** The writing standard is checked instead of remembered:
 
 ```sh
-python maint/prose/docs_check docs
-python maint/prose/docs_check docs --strict
+python utils/maint/prose/docs_check docs
+python utils/maint/prose/docs_check docs --strict
 ```
 
 Breaking findings are an empty table, an em dash, and a link to a file that is not there. Those stop a commit. Prose findings are printed and let through, because the prose backlog predates the check.
@@ -47,7 +47,7 @@ git config core.hooksPath .githooks
 **A contribution's own prose.** The condition at the top of this file had no check attached to it. This is that check:
 
 ```sh
-python maint/prose/submission_check.py <path to the contribution>
+python utils/maint/prose/submission_check.py <path to the contribution>
 ```
 
 It reads the prose of a submission and reports two things. Any model vendor named in it, which catches only the careless case. And how often it reaches for the 285 phrases `docs_check` bans, as a rate per hundred thousand words, against the rate a human research writer carries for the same list. That baseline is 387.9, counted over 759,815 words of the papers under `build/papers`, and it is summed from the same table the findings come from so the two cannot disagree.

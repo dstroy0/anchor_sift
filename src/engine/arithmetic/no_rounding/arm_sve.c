@@ -12,7 +12,7 @@
  * @note Written for server class ARM: Graviton, Ampere Altra, Grace, the Neoverse cores. No part in
  *       this project has SVE. The Raspberry Pi 5 is a Cortex-A76, which is NEON only. This arm has
  *       never been run. It is compiled for armv8.2-a+sve and its emitted instructions are read by
- *       maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That says the intrinsics
+ *       utils/maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That says the intrinsics
  *       became SVE instructions and not a scalar fallback. It says nothing about behavior, and the
  *       arm's name carries that.
  * @note SVE has no fixed vector length. A part may be 128, 256, 512 bits or more, and the same

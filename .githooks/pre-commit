@@ -12,7 +12,7 @@
 # Breaking findings stop the commit: an empty table, an em dash, a link to a file that is not there,
 # and markdown left in a .tex. Those render as a broken page and a reader sees them.
 #
-# Prose findings are a ratchet. maint/prose/prose_ratchet.tsv holds the most prose findings each file
+# Prose findings are a ratchet. utils/maint/prose/prose_ratchet.tsv holds the most prose findings each file
 # may carry. A commit that raises a staged file above its number is stopped. A commit that lowers one
 # writes the lower number into the ratchet and stages it with the commit. The backlog only shrinks.
 # Only staged files are held to it: the rest of the working tree is somebody else's work in
@@ -23,25 +23,25 @@
 # asterisks and escaped underscores reach the page as themselves. None of them is a LaTeX error:
 # the research paper builds clean and carries them to the archive.
 #
-# To see everything and fail on all of it:  python maint/prose/docs_check --strict
-# To rewrite the ratchet after a file moves: python maint/prose/docs_check --ratchet-write=maint/prose/prose_ratchet.tsv
+# To see everything and fail on all of it:  python utils/maint/prose/docs_check --strict
+# To rewrite the ratchet after a file moves: python utils/maint/prose/docs_check --ratchet-write=utils/maint/prose/prose_ratchet.tsv
 # To commit past it once:                   git commit --no-verify
 #
 # WHAT TO ASK IT WHILE REPAIRING. The checker answers more than pass or fail, and these are the
 # readings a repair wants. No hook calls these. The first seven write nothing on disk; --sample
 # writes build/gate/sample.txt and --harmonics rewrites the voice band tables beside voice.tsv.
 #
-#   python maint/prose/docs_check --pick=after <word>        what this writing puts after a word
-#   python maint/prose/docs_check --pick=between <one> <two> what it puts between two
-#   python maint/prose/docs_check --pick=rank <word> ...     each word's count, 0 where unused
-#   python maint/prose/docs_check --offlist                  words voice.tsv does not approve
-#   python maint/prose/docs_check --show=<regex>             the lines those findings sit on
-#   python maint/prose/docs_check --slack                    ratchet ceilings nothing reaches
-#   python maint/prose/docs_check --holes=<diff>             sentences a repair may have broken
-#   python maint/prose/docs_check --rate [<root> ...]        banned shapes as a rate per 100k words
-#   python maint/prose/docs_check --plain <path> ...         the prose with the mathematics taken out
-#   python maint/prose/docs_check --sample --words N <root>  one continuous sample, with a manifest
-#   python maint/prose/docs_check --harmonics                the voice as a rhythm spectrum
+#   python utils/maint/prose/docs_check --pick=after <word>        what this writing puts after a word
+#   python utils/maint/prose/docs_check --pick=between <one> <two> what it puts between two
+#   python utils/maint/prose/docs_check --pick=rank <word> ...     each word's count, 0 where unused
+#   python utils/maint/prose/docs_check --offlist                  words voice.tsv does not approve
+#   python utils/maint/prose/docs_check --show=<regex>             the lines those findings sit on
+#   python utils/maint/prose/docs_check --slack                    ratchet ceilings nothing reaches
+#   python utils/maint/prose/docs_check --holes=<diff>             sentences a repair may have broken
+#   python utils/maint/prose/docs_check --rate [<root> ...]        banned shapes as a rate per 100k words
+#   python utils/maint/prose/docs_check --plain <path> ...         the prose with the mathematics taken out
+#   python utils/maint/prose/docs_check --sample --words N <root>  one continuous sample, with a manifest
+#   python utils/maint/prose/docs_check --harmonics                the voice as a rhythm spectrum
 #
 # WHY THIS RESOLVES ITS OWN PATHS
 #
@@ -66,7 +66,7 @@ if [ -z "$REPO" ]; then
 fi
 
 # The tools directory is named once, in repotools.toml, and asked for by kind and not by
-# directory. Hardcoding maint/ here makes a tools move a hook edit instead of a config line, and a
+# directory. Hardcoding utils/maint/ here makes a tools move a hook edit instead of a config line, and a
 # hook that is edited by hand during a move is a hook that gets it wrong. A missing key stops the
 # commit instead of falling back to a guess. A guessed path can name a directory that no longer
 # holds the tools, and every check below would then be skipped.

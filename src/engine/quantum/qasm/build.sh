@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Sourced by run.sh and test/engine/quantum/qasm/run.sh with TOP set. qasm_build <label> builds the qasm objects, the
+# Sourced by run.sh and utils/test/engine/quantum/qasm/run.sh with TOP set. qasm_build <label> builds the qasm objects, the
 # record machine's modules and the tessera daemon into $OUT; qasm_link <name> <source>... then links one program there
 # as $BINARY.
 
@@ -80,7 +80,7 @@ qasm_cu_object()
 
 qasm_build()
 {
-    source "$TOP/maint/engine/build_stamp.sh"
+    source "$TOP/utils/maint/engine/build_stamp.sh"
     build_stamp "$1"
     qasm_host_setup || return 1
     OBJECTS=()

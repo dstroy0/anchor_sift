@@ -1,4 +1,4 @@
-# clangd reads the compilation database maint/engine/clangd_database.py writes to build/; run it once after a clone and again
+# clangd reads the compilation database utils/maint/engine/clangd_database.py writes to build/; run it once after a clone and again
 # after a source or header is added or moved
 CompileFlags:
   CompilationDatabase: build

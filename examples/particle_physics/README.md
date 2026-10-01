@@ -97,7 +97,7 @@ A second sift reads the same necessary condition on particle decays. `decays_pas
 
 ## The exceptions, read off the ground states
 
-`measured_configuration_vs_ideal.py` holds the ideal filling against the published ground states and reports where they disagree. The measured configurations come from the NIST Atomic Spectra Database, fetched by `maint/data/fetch/fetch_nist_ground_states.py`, which carries neutral atoms through element 108. For 109 to 118 no neutral atom has been measured. Those ten take the predicted relativistic configurations, marked predicted and kept apart from the measured ones. Every configuration is checked to account for exactly Z electrons before it is compared.
+`measured_configuration_vs_ideal.py` holds the ideal filling against the published ground states and reports where they disagree. The measured configurations come from the NIST Atomic Spectra Database, fetched by `utils/maint/data/fetch/fetch_nist_ground_states.py`, which carries neutral atoms through element 108. For 109 to 118 no neutral atom has been measured. Those ten take the predicted relativistic configurations, marked predicted and kept apart from the measured ones. Every configuration is checked to account for exactly Z electrons before it is compared.
 
 All 118 elements are covered: 108 measured, 10 predicted. Of the measured, 88 agree with the ideal filling and 20 differ; the 10 predicted all agree. The 20 disagreements are read off, not listed by hand:
 
@@ -149,7 +149,7 @@ python examples/particle_physics/2_partition/what_a_quantum_number_costs.py
 The atom stages, the trajectory and the particle ledger generate from the exact numbers, with no corpus and no fetch. Their outputs do not drift between runs. The oracle alone reads outside data:
 
 ```
-python maint/data/fetch/fetch_nist_ground_states.py
+python utils/maint/data/fetch/fetch_nist_ground_states.py
 python examples/particle_physics/6_oracle/measured_configuration_vs_ideal.py
 ```
 

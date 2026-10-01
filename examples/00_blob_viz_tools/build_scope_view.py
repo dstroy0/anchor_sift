@@ -48,7 +48,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 TEMPLATE = os.path.join(HERE, "scope_view_template.html")
-CORPUS = os.path.join(ROOT, "maint", "chain", "blocks.json")
+CORPUS = os.path.join(ROOT, "utils", "maint", "chain", "blocks.json")
 SHADOWS = os.path.join(ROOT, "build", "bench", "shadows.csv")
 
 sys.path.insert(0, os.path.join(ROOT, "examples", "proofing"))

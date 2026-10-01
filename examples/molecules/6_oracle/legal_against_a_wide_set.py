@@ -23,7 +23,7 @@
 # crafted illegal formulae, the negative control.
 #
 # The wide set is the molecular formulae of the first several thousand PubChem compounds, fetched by
-# maint/data/fetch/fetch_pubchem_formulae.py. A charged formula is an ion, whose valence count carries
+# utils/maint/data/fetch/fetch_pubchem_formulae.py. A charged formula is an ion, whose valence count carries
 # an extra electron this neutral reading does not model, and those are set aside and counted. A formula
 # with an element the valence table does not carry is set aside too, named, not guessed.
 #
@@ -129,7 +129,7 @@ def controls(out):
 def wide_set(out):
     """Run the sift over the fetched formulae, report the pass rate and decompose what it sets aside."""
     if not os.path.isfile(WIDE_SET):
-        out.write("\n  no wide set at %s\n  run maint/data/fetch/fetch_pubchem_formulae.py\n"
+        out.write("\n  no wide set at %s\n  run utils/maint/data/fetch/fetch_pubchem_formulae.py\n"
                   % WIDE_SET.replace(os.sep, "/"))
         return
     legal_count = 0

@@ -234,7 +234,7 @@ the section above describes. An errored entry returns `(None, None)` and the loo
 the closing line then reports a median over whatever survived with nothing on the page naming the
 denominator.
 
-`maint/analysis/survey/crystal_gate_census.py` counts what that costs. **Measured over `build/cod`
+`utils/maint/analysis/survey/crystal_gate_census.py` counts what that costs. **Measured over `build/cod`
 2026-09-16 after the fetch finished, 8885 entries:**
 
 | verdict                               | entries | share |
@@ -280,7 +280,7 @@ more right angled than the sample already held.
 
 Carbonate is the exception, and its admitted share shows what the family column means. Carbonate
 went from 154 entries at 5.2% admitted to 403 at 30.3%. 114 of the 249 that arrived were
-admitted, against 8 of the original 154. `maint/data/fetch/fetch_cod_doped.py` states in its header
+admitted, against 8 of the original 154. `utils/maint/data/fetch/fetch_cod_doped.py` states in its header
 that the family is provenance and records the search term that returned the entry. The family
 carries no mineral classification. Rhombohedral calcite and orthorhombic aragonite are both
 carbonates and only one of them has right angles. A family whose admitted share moves that far
@@ -309,7 +309,7 @@ are not failures of the cascade and they are not successes either. They are entr
 question of.
 
 The median did not drift. It is reporting a mixture of two populations that fail the product rule in
-opposite directions, and `maint/analysis/survey/sift_ratio_by_elements.py` separates them:
+opposite directions, and `utils/maint/analysis/survey/sift_ratio_by_elements.py` separates them:
 
 | population            | structures | median of per-structure medians | share above 1 |
 | --------------------- | ---------- | ------------------------------- | ------------- |

@@ -37,7 +37,7 @@
 # choose_offsets, field_census, steer_magnitude, steer_probe_order, steer_prefers_free,
 # sift_anchors_for, sift_choose, sift_count (the naive, in order and free order engines, with the
 # reads a counted build tallies), sift_run, steer_count, steer_probe_fits and
-# steer_count_with_probes. test/python/sift_test.py grades them against the kernel built alone,
+# steer_count_with_probes. utils/test/python/sift_test.py grades them against the kernel built alone,
 # count for count and read for read, and the two share no code. The kernel's descents, its probe
 # sweep and its field projections have no Python route here. rarest, spread, jittered,
 # cell_rarest, survivors and positions_by_symbol have no C counterpart.

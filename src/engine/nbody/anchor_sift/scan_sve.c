@@ -21,7 +21,7 @@
  *
  * @note No part in this project has SVE. The Raspberry Pi 5 is a Cortex-A76, NEON only. This arm
  *       has never been run. It is compiled for armv8.2-a+sve and its emitted instructions are read by
- *       maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That rules out a scalar
+ *       utils/maint/engine/verify_arm_asm.sh, which confirms the predicated forms. That rules out a scalar
  *       fallback. It says nothing about behavior, and the name reads sve-unrun for that reason.
  * @note SVE has no fixed vector length. svcntb() answers how many byte lanes this part carries and
  *       the loop is written around a predicate. No lane count appears here and the tail needs no

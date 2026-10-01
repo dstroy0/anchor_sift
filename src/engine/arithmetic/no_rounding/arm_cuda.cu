@@ -15,7 +15,7 @@
  *       that will not fit errors on the host before anything is copied.
  * @note The device arithmetic is the host arithmetic transcribed. It is not shared source, because
  *       __device__ qualification has to sit on every function, and that means the two can drift.
- *       maint/engine/build_gpu_arm.sh builds bench_exact_arms.c with this arm as
+ *       utils/maint/engine/build_gpu_arm.sh builds bench_exact_arms.c with this arm as
  *       bench_exact_gpu.exe to catch it: every count the device returns is compared against the
  *       count the portable host arm returns on the same data.
  * @note Positions arrive already sorted, and each thread runs a binary search with no coordination.

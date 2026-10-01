@@ -10,7 +10,7 @@
 #
 # The represent stage carries the ideal filling, Madelung order under Hund's rule, and says it is the
 # model. This is the measurement it is held against: the ground-state configurations from the NIST
-# Atomic Spectra Database, fetched by maint/data/fetch/fetch_nist_ground_states.py. Where a real atom
+# Atomic Spectra Database, fetched by utils/maint/data/fetch/fetch_nist_ground_states.py. Where a real atom
 # fills against the order, the two disagree, and that disagreement is an aufbau exception the oracle
 # reports and not a list this file carries.
 #
@@ -171,7 +171,7 @@ def neutral_states(rows):
 def main(argv):
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", newline="")
     if not os.path.isfile(GROUND_STATES):
-        out.write("\n  no measured table at %s\n  run maint/data/fetch/fetch_nist_ground_states.py\n\n"
+        out.write("\n  no measured table at %s\n  run utils/maint/data/fetch/fetch_nist_ground_states.py\n\n"
                   % GROUND_STATES.replace(os.sep, "/"))
         out.flush()
         return 1

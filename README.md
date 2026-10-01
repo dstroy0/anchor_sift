@@ -1,7 +1,7 @@
 # Anchor sift: an algorithm for precision measurement
 
 **Purpose:** Find an object's information entropy.
-**Scope:** `src/`, `test/`, `maint/`, `examples/`, `evidence/`, `docs/`, `theory/`
+**Scope:** `src/`, `utils/test/`, `utils/maint/`, `examples/`, `evidence/`, `docs/`, `theory/`
 
 ## Contents
 
@@ -27,13 +27,13 @@
 From a fresh clone, at the repository root:
 
 ```sh
-maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
+utils/maint/engine/build_engine.sh                                      # the C engine: configure, build, run the graders
 python examples/any_corpus/4_measure/collision_entropy.py         # a reading that knows nothing about its corpus
 python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
-sh maint/texbuild/build_theory.sh                                 # the fifteen research papers
+sh utils/maint/texbuild/build_theory.sh                                 # the fifteen research papers
 ```
 
-On Windows PowerShell the engine builds with `maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `maint/data/fetch/` fetches them, and `python maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
+On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps1`. Most examples read corpora under `build/`, which are not in git: `utils/maint/data/fetch/` fetches them, and `python utils/maint/deps/get_deps.py` clones what the C side needs. `docs/setup.md` and `docs/usage.md` cover the rest.
 
 ## The algorithm
 
@@ -95,15 +95,15 @@ Each directory serves one purpose.
 
 |                             | what it operates on          |                                                                                                   |
 | --------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/` with its benches in `bench/` |
-| `test/`                     | the engine                   | the C correctness checks in `test/engine/`, the maintenance tests, and the published test vectors |
+| `src/`                      | points and values, no domain | the engine: the Python in `src/engine/python/`, the C in `src/engine/` with its benches in `utils/bench/` |
+| `utils/test/`                     | the engine                   | the C correctness checks in `utils/test/engine/`, the maintenance tests, and the published test vectors |
 | `evidence/`                 | the claims                   | the proofs, and the R and MATLAB ports                                                            |
 | `examples/`                 | a corpus, through `src/`     | 159 scripts over twelve subjects, each at `examples/<subject>/<stage>/<file>.py`                  |
-| `maint/`                    | the repository itself        | records, gates, prose checks, the research paper build, the data fetchers and the Salishan pipeline         |
+| `utils/maint/`                    | the repository itself        | records, gates, prose checks, the research paper build, the data fetchers and the Salishan pipeline         |
 | `theory/`                   | the argument                 | seventeen research papers                                                                                   |
 | `docs/`                     | the reader                   | setup, usage, and the proofs the search kernel's count rests on                                   |
 
-`examples/README.md` explains the stages and how to run a script. `maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
+`examples/README.md` explains the stages and how to run a script. `utils/maint/README.md` maps the maintenance tools. `build/` is generated and disposable, and nothing irreplaceable is reachable through it.
 
 ## The detector and the measure are not the same reading
 
@@ -154,17 +154,17 @@ The dispatcher is still blind in one direction, and the blindness is a property 
 One command from a fresh clone. It needs `cmake` and a C11 compiler on `PATH`. There is no network step, no submodule to fetch, no generator to run first, and no library outside the C standard headers.
 
 ```sh
-maint/engine/build_engine.sh               # configure, build, run the graders
-maint/engine/build_engine.sh --build-only  # configure and build, run nothing
+utils/maint/engine/build_engine.sh               # configure, build, run the graders
+utils/maint/engine/build_engine.sh --build-only  # configure and build, run nothing
 ```
 
-Windows PowerShell uses `maint/engine/build_engine.ps1`, and `-BuildOnly` in place of `--build-only`. It imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
+Windows PowerShell uses `utils/maint/engine/build_engine.ps1`, and `-BuildOnly` in place of `--build-only`. It imports the MSVC environment and compiles the device rasterizer. The shell script run from Git Bash has no MSVC environment. It pins the build to gcc or clang and says so. Output lands in `build/engine_c/` and nothing reads it back. Delete it freely.
 
 Both scripts share that directory, and a CMake cache outranks anything a script prints. Each one now passes the decisive settings on every configure and wipes a cache naming a different toolchain, because the alternative was observed: after a Git Bash run, the PowerShell script announced the MSVC environment and the device arm and then produced a gcc build with no CUDA in it, and every render row read `host only` while the script reported success. The PowerShell script now checks the configure for a CUDA compiler before it builds and fails if the announcement does not hold.
 
 A machine with a card should render on it without being asked, and `bench_raster` prints `device rasterizer: present` and grades all twenty configurations `host/device identical` when it does.
 
-Two questions, two directories, and they are not the same question. `test/engine/` answers whether the engine is right. `src/engine/c/bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
+Two questions, two directories, and they are not the same question. `utils/test/engine/` answers whether the engine is right. `src/engine/c/bench/` answers how fast it is. A failing test is a defect; a slow bench is a cost.
 
 The graders the scripts run after a build are `test_steer`, `test_adversarial`, `test_arm_agreement`, `bench_steer_arms`, `bench_raster` and `bench_exact_arms`; the PowerShell script also builds and runs `test_o2_spawn`. The rest are built and left for you to run. `bench_lattice` and `bench_sigma` are built by neither script. Build one on its own with `cmake --build build/engine_c --target <name>`.
 
@@ -275,7 +275,7 @@ For a language with few remaining speakers, publishing a form drawn from outside
 The research is seventeen research papers under `theory/`, built with XeLaTeX. One command builds all of them:
 
 ```sh
-sh maint/texbuild/build_theory.sh
+sh utils/maint/texbuild/build_theory.sh
 ```
 
 | you want                                                                          | research paper                           |
@@ -302,10 +302,10 @@ To read the code instead of the argument, start with `src/engine/python/README.m
 
 ## What is not here
 
-The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `maint/data/salishan/get_papers.py` fetches the papers from the public archive, `maint/data/fetch/` fetches the other corpora, and the tools rebuild the rest.
+The corpora, papers, audio and rendered pages run to about 1.9 GB and none of it is in git. `utils/maint/data/salishan/get_papers.py` fetches the papers from the public archive, `utils/maint/data/fetch/` fetches the other corpora, and the tools rebuild the rest.
 
 The hand extractions are forms transcribed out of published papers. The tables are those papers' text and not this work's to redistribute.
-They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `maint/corpus/verify_private_sync.py`.
+They live in a closed repository with the papers, inventoried and signed, and reach a checkout through `utils/maint/corpus/verify_private_sync.py`.
 Everything that does not read a paper or a table runs without them.
 
 ## Licensing

@@ -193,7 +193,7 @@ def cached(name, url, out):
             #
             # HTTPException is named although it is not an OSError subclass: an IncompleteRead
             # arrives from there and from nowhere else, and it can end a sweep through a handler
-            # that looks complete. The sibling client in maint/data/fetch/fetch_cod_doped.py:156
+            # that looks complete. The sibling client in utils/maint/data/fetch/fetch_cod_doped.py:156
             # carries the same tuple, one decision written in two places because neither file may
             # depend on the other.
             if attempt == (TRIES - 1):

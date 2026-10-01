@@ -28,7 +28,7 @@
  *
  * @note The transform and the channel are reimplemented here, because the host arm is built by
  *       MinGW through CMake and this is built by nvcc driving MSVC. The two cannot link, the same
- *       split maint/engine/build_gpu_arm.sh already documents for the exact arm. Where a device is
+ *       split utils/maint/engine/build_gpu_arm.sh already documents for the exact arm. Where a device is
  *       present, bench_raster grades the two rasters byte for byte, and a divergence fails a row.
  * @warning A copy is a defect waiting to happen, and this one is only safe because a grader compares
  *          the outputs on every configuration. Delete that grader and this file becomes a second

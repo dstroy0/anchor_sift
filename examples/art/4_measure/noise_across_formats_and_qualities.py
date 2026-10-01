@@ -76,7 +76,7 @@ def _external_datasets():
     """repos/external/datasets, resolved by walking up to the `repos` ancestor, not by counting.
 
     external/ is a sibling of owned/ under repos/, outside this repository, and this resolves it the
-    same way maint/data/fetch/fetch_ctc.py does so it holds from the shared checkout and from a linked
+    same way utils/maint/data/fetch/fetch_ctc.py does so it holds from the shared checkout and from a linked
     worktree alike, whose depth below repos/ differs.
     """
     node = ROOT
