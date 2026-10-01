@@ -9,7 +9,7 @@ The noisy half of the query protocol. Six checks, each one isolating a claim cha
 on. Every number below is produced by the run and none is quoted from anywhere.
 
     1  slicing a chain by adjacent cuts, against the noise floor
-    2  what repetition costs to make check 1 usable
+    2  how far repetition carries check 1, steered: a level that orders no more pairs ends it
     3  permuted subsets against the prefix ladder at one measurement budget
     4  one ask per link against a known order of covering asks
     5  a known order against a drawn one, where a bad draw has nowhere to hide
@@ -19,149 +19,408 @@ Everything here is about speed and nothing here reaches a correctness result.
 `maint/engine/order_check.py` holds the noiseless half as checks 7 through 12, and the separation
 between the two files is the separation the two stages buy.
 
-THE UNIT HERE IS THE FLOOR. Every cost is quoted in floors. Sigma is therefore 1.0 by
-construction and no absolute figure is written in. The plan's own ratio sets the rest: one operation sits under the
-floor, and a chain of fifteen clears it.
+EVERY VALUE IS THREE INTEGERS: a quotient, a remainder and a divisor, the value q + r/d with
+0 <= r < d. Integer adds and integer division move them, and every operation carries its remainder
+forward. Nothing is rounded at any width. No floating point value is formed anywhere here. The
+noise is a sum of fair coins, every solve is fraction-free integer elimination, and a spread is held
+as its square. No root is taken. Each figure prints its quotient and its remainder over its
+divisor, and every figure is written in full to build/engine/measure_check.tsv.
 
-NUMPY IS FINE HERE AND IS BANNED IN `src/`. Under `maint/` and `test/` any library is fair, and
-standing one up as an oracle against the library is a good use of one. Nothing under `src/` takes a
-dependency on anything: the engine and the compiler need none.
+THE UNIT HERE IS THE FLOOR. Every cost is quoted in floors, and the noise's square is one floor
+squared by construction. No absolute figure is written in. The plan's own ratio sets the rest:
+one operation sits under the floor, and a chain of fifteen clears it.
 """
 
-import itertools
+import math
+import os
+import random
 import sys
-
-import numpy as np
 
 # A chain long enough to clear the floor, as the plan measures it.
 LINKS = 15
 
-# The measurement noise, in floors. One by construction: the floor is the unit.
-SIGMA = 1.0
+# Every cost is an integer count of this part of a floor.
+UNIT = 6400
 
-# Per-link costs are drawn across this band, in floors. Centred on the floor, because a single
+# One measurement's noise is this many fair coins, each worth COIN units. Their square sums to
+# COIN * COIN * COINS, which is UNIT * UNIT: the noise's square is one floor squared.
+COINS = 256
+COIN = 400
+
+# Per-link costs are drawn across this band, in units. Centred on the floor, because a single
 # operation sitting under it is the case that makes slicing hard.
-BAND = (0.5, 1.5)
+BAND = (UNIT // 2, (3 * UNIT) // 2)
+
+# The contention a pair adds, in hundredths of a floor.
+CONTENTION = (0, 1, 3, 8, 20)
+
+# The levels check 2 descends through, as repeats of every cut.
+LEVELS = (1, 10, 100, 400, 1600, 6400)
 
 TRIALS = 400
 SEED = 20260930
 
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+FIGURES = []
 
-def kendall(a, b):
-    """Fraction of pairs the two orderings agree on, from 0 disagreeing to 1 identical."""
-    n = len(a)
+
+class Exact:
+    """A value held as three integers: quotient, remainder and divisor, q + r/d with 0 <= r < d."""
+
+    __slots__ = ("q", "r", "d")
+
+    def __init__(self, numerator, divisor=1):
+        if divisor < 0:
+            numerator = -numerator
+            divisor = -divisor
+        self.q, remainder = divmod(numerator, divisor)
+        self.keep(remainder, divisor)
+
+    def keep(self, remainder, divisor):
+        common = math.gcd(remainder, divisor)
+        self.r = remainder // common
+        self.d = divisor // common
+
+    @classmethod
+    def triple(cls, quotient, remainder, divisor):
+        """The value quotient + remainder/divisor, the remainder's overflow carried into the quotient."""
+        carried, remainder = divmod(remainder, divisor)
+        value = cls.__new__(cls)
+        value.q = quotient + carried
+        value.keep(remainder, divisor)
+        return value
+
+    def whole(self):
+        """The numerator over d."""
+        return (self.q * self.d) + self.r
+
+    def __add__(self, other):
+        other = exact(other)
+        return Exact.triple(self.q + other.q, (self.r * other.d) + (other.r * self.d), self.d * other.d)
+
+    __radd__ = __add__
+
+    def __neg__(self):
+        return Exact.triple(-self.q, -self.r, self.d)
+
+    def __sub__(self, other):
+        return self + (-exact(other))
+
+    def __rsub__(self, other):
+        return exact(other) - self
+
+    def __mul__(self, other):
+        other = exact(other)
+        crossed = (self.q * other.r * self.d) + (other.q * self.r * other.d) + (self.r * other.r)
+        return Exact.triple(self.q * other.q, crossed, self.d * other.d)
+
+    __rmul__ = __mul__
+
+    def __truediv__(self, other):
+        other = exact(other)
+        return Exact(self.whole() * other.d, self.d * other.whole())
+
+    def __rtruediv__(self, other):
+        return exact(other) / self
+
+    def __abs__(self):
+        return -self if self.q < 0 else self
+
+    def against(self, other):
+        other = exact(other)
+        lean = (self.whole() * other.d) - (other.whole() * self.d)
+        return (lean > 0) - (lean < 0)
+
+    def __lt__(self, other):
+        return self.against(other) < 0
+
+    def __gt__(self, other):
+        return self.against(other) > 0
+
+    def __le__(self, other):
+        return self.against(other) <= 0
+
+    def __ge__(self, other):
+        return self.against(other) >= 0
+
+    def __eq__(self, other):
+        return self.against(other) == 0
+
+    __hash__ = None
+
+
+def exact(value):
+    return value if isinstance(value, Exact) else Exact(value)
+
+
+def show(value, places=4):
+    """The quotient, and the remainder over the divisor beside it.
+
+    A divisor too long to print is carried on by long division for `places` more digits of the
+    quotient, each one an integer division whose remainder carries to the next, and the remainder
+    still standing is named by the length of its divisor.
+    """
+    if value.r == 0:
+        return str(value.q)
+    if value.q < 0:
+        # q + r/d below zero reads as its magnitude with a sign: the quotient of -value is -q - 1
+        return "-" + show(-value, places)
+    digits = len(str(value.d))
+    if digits <= 6:
+        return "%d + %d/%d" % (value.q, value.r, value.d)
+    remainder = value.r
+    shown = ""
+    for _ in range(places):
+        digit, remainder = divmod(remainder * 10, value.d)
+        shown += str(digit)
+    if remainder == 0:
+        return "%d.%s" % (value.q, shown)
+    return "%d.%s + r/d, d of %d digits" % (value.q, shown, digits)
+
+
+def figure(label, value):
+    """Keeps `value` for the written record and returns it shown."""
+    FIGURES.append((label, value))
+    return show(value)
+
+
+def write_figures():
+    folder = os.path.join(ROOT, "build", "engine")
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, "measure_check.tsv")
+    with open(path, "w", encoding="utf-8", newline="\n") as out:
+        out.write("figure\tquotient\tremainder\tdivisor\n")
+        for label, value in FIGURES:
+            out.write("%s\t%d\t%d\t%d\n" % (label, value.q, value.r, value.d))
+    return os.path.relpath(path, ROOT).replace(os.sep, "/")
+
+
+def noise(rng, measurements):
+    """The noise of `measurements` measurements summed, in units: COINS fair coins each."""
+    flips = COINS * measurements
+    return COIN * ((2 * rng.getrandbits(flips).bit_count()) - flips)
+
+
+def truth_of(rng, links=LINKS):
+    """One chain's true per-link costs, in units."""
+    return [rng.randint(BAND[0], BAND[1]) for _ in range(links)]
+
+
+def kendall(truth, got):
+    """Of the pairs the truth orders, how many the reading orders the same way, and how many there are."""
     agree = 0
     total = 0
-    for i in range(n):
-        for j in range(i + 1, n):
+    for first in range(len(truth)):
+        for second in range(first + 1, len(truth)):
+            apart = truth[first] - truth[second]
+            if apart == 0:
+                continue
             total += 1
-            if (a[i] - a[j]) * (b[i] - b[j]) > 0:
+            if apart * (got[first] - got[second]) > 0:
                 agree += 1
-    return agree / total if total else 1.0
+    return agree, total
 
 
-def truth_of(rng):
-    """One chain's true per-link costs, in floors."""
-    return rng.uniform(BAND[0], BAND[1], LINKS)
+def first_most(values):
+    return max(range(len(values)), key=lambda at: values[at])
+
+
+def first_least(values):
+    return min(range(len(values)), key=lambda at: values[at])
 
 
 def ladder_read(truth, rng, repeats=1):
     """Per-link costs recovered from prefix cuts, the way the plan writes slicing today.
 
-    Cut k measures the first k links and carries one measurement's noise. The per-link cost is the
-    difference between neighboring cuts, and that difference carries the noise of both.
+    Cut k measures the first k links `repeats` times over, summed. The per-link cost is the
+    difference between neighboring cuts, and that difference carries the noise of both. Each
+    reading comes back as a count of units over `repeats`.
     """
-    cuts = np.array([truth[:k].sum() for k in range(LINKS + 1)])
-    seen = np.zeros(LINKS + 1)
-    for _ in range(repeats):
-        seen += cuts + rng.normal(0, SIGMA, LINKS + 1)
-    return np.diff(seen / repeats)
+    seen = []
+    cut = 0
+    for at in range(LINKS + 1):
+        seen.append((repeats * cut) + noise(rng, repeats))
+        if at < LINKS:
+            cut += truth[at]
+    return [seen[at + 1] - seen[at] for at in range(LINKS)]
 
 
-def subset_read(truth, rng, runs):
-    """Per-link costs recovered from permuted subsets, solved as one system.
+def ladder_squares(truth, got, repeats):
+    """The ladder's squared error over a chain, in floors squared."""
+    return Exact(sum((seen - (repeats * cost)) ** 2 for seen, cost in zip(got, truth)), repeats * repeats * UNIT * UNIT)
+
+
+def solve(matrix, rhs):
+    """Fraction-free integer elimination. Each unknown is held[i] / divisor; a divisor of 0 is a singular system."""
+    size = len(matrix)
+    rows = [list(matrix[at]) + [rhs[at]] for at in range(size)]
+    previous = 1
+    for step in range(size):
+        pivot_at = next((at for at in range(step, size) if rows[at][step] != 0), None)
+        if pivot_at is None:
+            return 0, None
+        if pivot_at != step:
+            rows[step], rows[pivot_at] = rows[pivot_at], rows[step]
+        pivot = rows[step][step]
+        for at in range(step + 1, size):
+            factor = rows[at][step]
+            rows[at] = [((pivot * rows[at][col]) - (factor * rows[step][col])) // previous for col in range(size + 1)]
+        previous = pivot
+    divisor = rows[size - 1][size - 1]
+    held = [0] * size
+    for at in range(size - 1, -1, -1):
+        rest = (divisor * rows[at][size]) - sum(rows[at][col] * held[col] for col in range(at + 1, size))
+        quotient, remainder = divmod(rest, rows[at][at])
+        if remainder != 0:
+            raise ArithmeticError("elimination left a remainder at row %d" % at)
+        held[at] = quotient
+    return divisor, held
+
+
+def columns_of(masks, links):
+    """For each link, the runs that cover it, as a bit set over the runs."""
+    columns = [0] * links
+    for run, mask in enumerate(masks):
+        for link in range(links):
+            if (mask >> link) & 1:
+                columns[link] |= 1 << run
+    return columns
+
+
+def normal_system(masks, seen, links, square=False):
+    """The normal equations of a covering design, and with `square` a column for the count covered, squared."""
+    columns = columns_of(masks, links)
+    matrix = [[(columns[row] & columns[col]).bit_count() for col in range(links)] for row in range(links)]
+    rhs = [sum(seen[run] for run in range(len(masks)) if (columns[link] >> run) & 1) for link in range(links)]
+    if square:
+        counted = [mask.bit_count() ** 2 for mask in masks]
+        for link in range(links):
+            matrix[link].append(sum(counted[run] for run in range(len(masks)) if (columns[link] >> run) & 1))
+        matrix.append([matrix[link][links] for link in range(links)] + [sum(value * value for value in counted)])
+        rhs.append(sum(value * read for value, read in zip(counted, seen)))
+    return matrix, rhs
+
+
+def covered_sum(mask, costs):
+    return sum(costs[link] for link in range(len(costs)) if (mask >> link) & 1)
+
+
+def subset_squares(truth, rng, runs):
+    """Per-link costs recovered from permuted subsets, solved as one system, and the squared error in floors squared.
 
     Each run measures the sum over a random half of the links and carries one measurement's noise.
     Nothing is differenced. The noise spreads across the whole design in place of landing twice on
     every link.
     """
-    design = (rng.random((runs, LINKS)) < 0.5).astype(float)
-    # A run measuring nothing constrains nothing. Give it one link so the system stays solvable.
-    empty = design.sum(axis=1) == 0
-    if empty.any():
-        design[empty, rng.integers(0, LINKS, int(empty.sum()))] = 1.0
-    seen = design @ truth + rng.normal(0, SIGMA, runs)
-    answer, _, _, _ = np.linalg.lstsq(design, seen, rcond=None)
-    return answer
+    masks = []
+    for _ in range(runs):
+        mask = rng.getrandbits(LINKS)
+        # A run measuring nothing constrains nothing. Give it one link so the system stays solvable.
+        masks.append(mask if mask != 0 else 1 << rng.randrange(LINKS))
+    seen = [covered_sum(mask, truth) + noise(rng, 1) for mask in masks]
+    matrix, rhs = normal_system(masks, seen, LINKS)
+    divisor, held = solve(matrix, rhs)
+    squares = sum((value - (divisor * cost)) ** 2 for value, cost in zip(held, truth))
+    return Exact(squares, divisor * divisor * UNIT * UNIT)
+
+
+def percent(part, whole):
+    return Exact(100 * part, whole)
 
 
 def check_adjacent(say, rng, trials):
     """1. Adjacent differencing puts the noise above the signal it is trying to read."""
     say("1. SLICING BY ADJACENT CUTS")
-    say("   A chain of %d links, each drawn in [%.1f, %.1f] floors." % (LINKS, *BAND))
+    say("   A chain of %d links, each drawn in [1/2, 3/2] floors." % LINKS)
     say("")
 
-    error = []
-    taus = []
+    squares = Exact(0)
+    agree = 0
+    pairs = 0
     best = 0
     worst = 0
     for _ in range(trials):
         truth = truth_of(rng)
         got = ladder_read(truth, rng)
-        error.append(got - truth)
-        taus.append(kendall(truth, got))
-        best += int(np.argmax(got) == np.argmax(truth))
-        worst += int(np.argmin(got) == np.argmin(truth))
+        squares = squares + ladder_squares(truth, got, 1)
+        held, total = kendall(truth, got)
+        agree += held
+        pairs += total
+        best += int(first_most(got) == first_most(truth))
+        worst += int(first_least(got) == first_least(truth))
 
-    error = np.concatenate(error)
-    say("   noise on one measurement        %6.3f floors" % SIGMA)
-    say("   noise on a recovered link       %6.3f floors   (predicted %.3f, sigma * sqrt 2)"
-        % (error.std(), SIGMA * np.sqrt(2)))
-    say("   typical link cost               %6.3f floors" % np.mean(BAND))
-    say("   signal to noise per link        %6.3f" % (np.mean(BAND) / error.std()))
+    error = squares / (trials * LINKS)
+    say("   noise on one measurement, squared         1 floor squared")
+    say("   noise on a recovered link, squared        %s   (predicted 2, the noise's square twice)"
+        % figure("1 recovered link noise squared", error))
+    say("   typical link cost                         1 floor")
+    say("   signal squared over noise squared         %s" % figure("1 signal squared over noise squared", 1 / error))
     say("")
     say("   Subtraction adds variance. The cuts are long and well above the floor; the difference")
     say("   between two of them is one link, and one link is the quantity sitting under it.")
     say("")
-    say("   pairs ordered correctly         %6.1f%%   (50%% is a coin)" % (100 * np.mean(taus)))
-    say("   most expensive link found       %6.1f%%   (%.1f%% is a guess)"
-        % (100 * best / trials, 100 / LINKS))
-    say("   cheapest link found             %6.1f%%" % (100 * worst / trials))
+    say("   pairs ordered correctly         %s%%   (50%% is a coin)" % figure("1 pairs ordered percent", percent(agree, pairs)))
+    say("   most expensive link found       %s%%   (%s%% is a guess)"
+        % (figure("1 most expensive found percent", percent(best, trials)), show(percent(1, LINKS))))
+    say("   cheapest link found             %s%%" % figure("1 cheapest found percent", percent(worst, trials)))
     say("")
     say("   A branch comparison built on this ranks links by coin toss.")
-    return error.std()
+    return error, percent(agree, pairs)
 
 
 def check_repetition(say, rng, trials):
-    """2. Repetition fixes check 1, and the count needed is the finding."""
-    say("2. WHAT REPETITION COSTS")
+    """2. Repetition fixes check 1, and the descent through repeat counts says how far it carries.
+
+    The steering the engine does, put to repetition. One population of chains is held, and each
+    level reads every chain again at more repeats. The pairs a level orders wrongly are the ones
+    still standing, and a level counts only when it leaves strictly fewer standing than the level
+    above it. The first level that does not prune ends the descent, and every level below it is
+    destroyed with it.
+    """
+    say("2. HOW FAR REPETITION CARRIES")
     say("")
-    say("   repeats    noise/link    pairs ordered    most expensive found")
-    needed = None
-    for repeats in (1, 10, 100, 400, 1600, 6400):
-        error = []
-        taus = []
+    population = [truth_of(rng) for _ in range(max(40, trials // 8))]
+    say("   %d chains held, read again at every level." % len(population))
+    say("")
+    say("   repeats    noise/link squared    pairs ordered    most expensive found    misordered")
+    standing = None
+    kept = None
+    kept_ordered = None
+    for repeats in LEVELS:
+        squares = Exact(0)
+        agree = 0
+        pairs = 0
         best = 0
-        for _ in range(max(40, trials // 8)):
-            truth = truth_of(rng)
+        for truth in population:
             got = ladder_read(truth, rng, repeats)
-            error.append(got - truth)
-            taus.append(kendall(truth, got))
-            best += int(np.argmax(got) == np.argmax(truth))
-        shown = 100 * np.mean(taus)
-        hits = 100 * best / max(40, trials // 8)
-        say("   %7d    %10.4f    %12.1f%%    %18.1f%%"
-            % (repeats, np.concatenate(error).std(), shown, hits))
-        if needed is None and shown >= 95.0:
-            needed = repeats
-    say("")
-    if needed:
-        say("   %d repeats of every cut to order 95%% of pairs correctly." % needed)
+            squares = squares + ladder_squares(truth, got, repeats)
+            held, total = kendall(truth, got)
+            agree += held
+            pairs += total
+            best += int(first_most(got) == first_most(truth))
+        error = squares / (len(population) * LINKS)
+        misordered = pairs - agree
+        say("   %7d    %18s    %12s%%    %19s%%    %10d"
+            % (repeats, figure("2 noise squared at %d" % repeats, error),
+               figure("2 pairs ordered percent at %d" % repeats, percent(agree, pairs)),
+               figure("2 most expensive found percent at %d" % repeats, percent(best, len(population))), misordered))
+        if (standing is not None) and (misordered >= standing):
+            say("")
+            say("   %d repeats left %d pairs misordered against %d at %d: the level prunes nothing, and"
+                % (repeats, misordered, standing, kept))
+            say("   the descent ends there.")
+            break
+        standing = misordered
+        kept = repeats
+        kept_ordered = percent(agree, pairs)
     else:
-        say("   95%% of pairs correctly ordered is past the largest count tried.")
-    say("   Noise falls as one over the square root of the count, and the gap between two")
-    say("   neighboring links falls as one over the link count. Both have to be paid.")
-    return needed
+        say("")
+        say("   Every level pruned, down to the deepest one tried.")
+    say("")
+    say("   %d repeats of every cut is the last level that ordered more pairs, at %s%%." % (kept, show(kept_ordered)))
+    say("   The noise's square falls as one over the count, and the gap between two neighboring")
+    say("   links falls as one over the link count. Both have to be paid.")
+    return kept, kept_ordered
 
 
 def check_subsets(say, rng, trials):
@@ -169,54 +428,57 @@ def check_subsets(say, rng, trials):
     say("3. PERMUTED SUBSETS AGAINST THE PREFIX LADDER")
     say("")
     say("   One budget is one count of measurements. The ladder spends it on %d cuts repeated;" % (LINKS + 1))
-    say("   the subset design spends it on that many separate runs.")
+    say("   the subset design spends it on that many separate runs. Errors are squared, in floors squared.")
     say("")
-    say("   budget    ladder noise    subset noise    subset is better by")
-    gains = []
-    for repeats in (4, 16, 64, 256):
+    say("   budget    ladder noise squared    subset noise squared    subset is better by, squared")
+    gains = Exact(0)
+    levels = (4, 16, 64, 256)
+    for repeats in levels:
         budget = repeats * (LINKS + 1)
-        ladder = []
-        subset = []
-        for _ in range(max(30, trials // 10)):
+        count = max(30, trials // 10)
+        ladder = Exact(0)
+        subset = Exact(0)
+        for _ in range(count):
             truth = truth_of(rng)
-            ladder.append(ladder_read(truth, rng, repeats) - truth)
-            subset.append(subset_read(truth, rng, budget) - truth)
-        one = np.concatenate(ladder).std()
-        two = np.concatenate(subset).std()
-        gains.append(one / two)
-        say("   %6d    %12.4f    %12.4f    %16.2fx" % (budget, one, two, one / two))
+            ladder = ladder + ladder_squares(truth, ladder_read(truth, rng, repeats), repeats)
+            subset = subset + subset_squares(truth, rng, budget)
+        one = ladder / (count * LINKS)
+        two = subset / (count * LINKS)
+        gain = one / two
+        gains = gains + gain
+        say("   %6d    %20s    %20s    %28s" % (budget, figure("3 ladder noise squared at %d" % budget, one),
+                                                figure("3 subset noise squared at %d" % budget, two),
+                                                figure("3 squared gain at %d" % budget, gain)))
+    mean = gains / len(levels)
     say("")
     say("   The ladder inverts a triangle of ones, and every row of that inverse has two")
-    say("   non-zero entries, which fixes its error at sigma times the square root of two")
+    say("   non-zero entries, which fixes its squared error at twice the noise's square")
     say("   whatever the budget. A subset design has no such floor: its error falls with the")
     say("   whole budget because every run constrains many links at once.")
     say("")
-    say("   Predicted gain is the square root of (link count + 1) over the square root of two,")
-    say("   %.2fx here. Measured %.2fx." % (np.sqrt(LINKS + 1) / np.sqrt(2), np.mean(gains)))
+    say("   Predicted squared gain is (link count + 1) over two, %d here. Measured %s."
+        % ((LINKS + 1) // 2, figure("3 squared gain over the budgets", mean)))
     say("")
     say("   The permutation this needs is already in the emission.")
-    return float(np.mean(gains))
+    return mean
 
 
-
-def hadamard(order):
-    """A Hadamard matrix of an order that is a power of two, by doubling."""
-    held = np.array([[1.0]])
-    while held.shape[0] < order:
-        held = np.block([[held, held], [held, -held]])
-    return held
-
-
-def carrier_design(links):
+def known_order(links):
     """The known order of asks for a chain of `links`, where links + 1 is a power of two.
 
-    One row is one ask: the 1s name the links it covers. Built from a Hadamard matrix one larger
-    with its first row and column dropped, which leaves every row covering half the links and every
-    two rows overlapping on a quarter. Nothing is drawn. The order is fixed, reproducible from the
-    link count alone, and carries no record beyond that count.
+    Ask r covers link c where (r + 1) & (c + 1) has an odd count of ones: a Hadamard matrix one
+    larger with its first row and column dropped, which leaves every ask covering half the links
+    and every two asks overlapping on a quarter. Nothing is drawn. The order is fixed, reproducible
+    from the link count alone, and carries no record beyond that count. Each ask is a bit set over
+    the links.
     """
-    full = hadamard(links + 1)
-    return (1.0 - full[1:, 1:]) / 2.0
+    return [sum(1 << link for link in range(links) if (((ask + 1) & (link + 1)).bit_count() & 1)) for ask in range(links)]
+
+
+def known_solve(order, seen, links):
+    """Every link's cost times (links + 1), exactly: 4 times what the asks covering it read, less twice them all."""
+    every = sum(seen)
+    return [(4 * sum(seen[ask] for ask in range(links) if (order[ask] >> link) & 1)) - (2 * every) for link in range(links)]
 
 
 def check_carrier_gain(say, rng, trials):
@@ -225,36 +487,49 @@ def check_carrier_gain(say, rng, trials):
     say("")
     say("   Both spend one ask per link. One asks about a single link each time. The other asks")
     say("   about half the links each time, in an order chosen so the answers come apart.")
+    say("   Errors are squared, in floors squared, and so is the gain.")
     say("")
-    say("   links    one at a time    known order    gain    predicted")
+    say("   links    one at a time    known order    squared gain    predicted")
     gains = []
     for links in (3, 7, 15, 31, 63, 127, 255):
-        design = carrier_design(links)
+        order = known_order(links)
         reps = max(8, trials // (2 * links))
-        lone = []
-        rode = []
+        lone = 0
+        rode = 0
         for _ in range(reps):
-            truth = rng.uniform(BAND[0], BAND[1], links)
-            lone.append(rng.normal(0, SIGMA, links))
-            seen = design @ truth + rng.normal(0, SIGMA, links)
-            rode.append(np.linalg.solve(design, seen) - truth)
-        one = np.concatenate(lone).std()
-        two = np.concatenate(rode).std()
-        gains.append((links, one / two))
-        say("   %5d    %13.4f    %11.4f  %6.2fx    %6.2fx"
-            % (links, one, two, one / two, np.sqrt(links + 1) / 2))
+            truth = truth_of(rng, links)
+            lone += sum(noise(rng, 1) ** 2 for _ in range(links))
+            seen = [covered_sum(mask, truth) + noise(rng, 1) for mask in order]
+            held = known_solve(order, seen, links)
+            rode += sum((value - ((links + 1) * cost)) ** 2 for value, cost in zip(held, truth))
+        one = Exact(lone, reps * links * UNIT * UNIT)
+        two = Exact(rode, reps * links * (links + 1) * (links + 1) * UNIT * UNIT)
+        gain = one / two
+        gains.append((links, gain))
+        say("   %5d    %13s    %11s    %12s    %9s" % (links, figure("4 one at a time squared at %d" % links, one),
+                                                  figure("4 known order squared at %d" % links, two),
+                                                  figure("4 squared gain at %d" % links, gain),
+                                                  show(Exact(links + 1, 4))))
     say("")
     say("   The known order carries the cost of several links in every answer, and the orders are")
-    say("   chosen to come apart cleanly. One ask therefore informs every link at once, and the gain is")
-    say("   square root of (links + 1) over two and it grows with the chain.")
+    say("   chosen to come apart cleanly. One ask therefore informs every link at once, and the")
+    say("   squared gain is (links + 1) over four and it grows with the chain.")
     say("")
-    say("   At %d links there is no gain at all and at %d links it is %.1f times. A short chain is"
-        % (gains[0][0], gains[-1][0], gains[-1][1]))
+    say("   At %d links the squared gain is %s and at %d links it is %s. A short chain is"
+        % (gains[0][0], show(gains[0][1]), gains[-1][0], show(gains[-1][1])))
     say("   not worth a known order and a long one is worth a great deal.")
     say("")
     say("   Nothing here beats the bound on what one ask can carry. The known order reaches that")
     say("   bound and one ask per link does not, and the whole gain is that difference.")
-    return gains[-1][1]
+    return gains
+
+
+def quantile(ordered, numerator, denominator):
+    """The value at numerator/denominator of the way through `ordered`, between its two neighbors exactly."""
+    at, part = divmod(numerator * (len(ordered) - 1), denominator)
+    if part == 0:
+        return ordered[at]
+    return ordered[at] + ((ordered[at + 1] - ordered[at]) * Exact(part, denominator))
 
 
 def check_known_against_drawn(say, rng, trials):
@@ -264,85 +539,90 @@ def check_known_against_drawn(say, rng, trials):
     say("   %d links and %d asks: exactly enough, with nothing spare. A drawn order is a drawn" % (LINKS, LINKS))
     say("   order and some draws do not come apart at all.")
     say("")
-    design = carrier_design(LINKS)
-    held = []
-    drawn = []
+    order = known_order(LINKS)
+    held_worst = []
+    drawn_worst = []
     lost = 0
     for _ in range(trials):
-        truth = rng.uniform(BAND[0], BAND[1], LINKS)
-        seen = design @ truth + rng.normal(0, SIGMA, LINKS)
-        held.append(np.abs(np.linalg.solve(design, seen) - truth).max())
-        pick = (rng.random((LINKS, LINKS)) < 0.5).astype(float)
-        noisy = pick @ truth + rng.normal(0, SIGMA, LINKS)
-        try:
-            if abs(np.linalg.det(pick)) < 1e-9:
-                raise np.linalg.LinAlgError
-            drawn.append(np.abs(np.linalg.solve(pick, noisy) - truth).max())
-        except np.linalg.LinAlgError:
+        truth = truth_of(rng)
+        seen = [covered_sum(mask, truth) + noise(rng, 1) for mask in order]
+        held = known_solve(order, seen, LINKS)
+        held_worst.append(Exact(max(abs(value - ((LINKS + 1) * cost)) for value, cost in zip(held, truth)),
+                                (LINKS + 1) * UNIT))
+        pick = [rng.getrandbits(LINKS) for _ in range(LINKS)]
+        noisy = [covered_sum(mask, truth) + noise(rng, 1) for mask in pick]
+        matrix = [[(mask >> link) & 1 for link in range(LINKS)] for mask in pick]
+        divisor, got = solve(matrix, noisy)
+        if divisor == 0:
             lost += 1
-            drawn.append(np.inf)
+            continue
+        drawn_worst.append(Exact(max(abs(value - (divisor * cost)) for value, cost in zip(got, truth)),
+                                 abs(divisor) * UNIT))
 
-    held = np.array(held)
-    drawn = np.array(drawn)
-    usable = drawn[np.isfinite(drawn)]
-    say("   worst link error      known order    drawn order")
-    say("   median              %13.3f  %13.3f" % (np.median(held), np.median(usable)))
-    say("   95th percentile     %13.3f  %13.3f"
-        % (np.percentile(held, 95), np.percentile(usable, 95)))
-    say("   worst of %4d        %13.3f  %13.3f" % (trials, held.max(), usable.max()))
+    held_worst.sort()
+    drawn_worst.sort()
+    rows = (("median", 1, 2), ("95th percentile", 95, 100), ("worst", 1, 1))
+    say("   worst link error, in floors")
+    ratios = []
+    for name, numerator, denominator in rows:
+        known = quantile(held_worst, numerator, denominator)
+        drawn = quantile(drawn_worst, numerator, denominator)
+        ratio = drawn / known
+        ratios.append(ratio)
+        say("   %-16s known %s" % (name, figure("5 known %s" % name, known)))
+        say("   %-16s drawn %s" % ("", figure("5 drawn %s" % name, drawn)))
+        say("   %-16s drawn over known %s" % ("", figure("5 drawn over known %s" % name, ratio)))
     say("")
-    say("   orders that came apart at all    %4d of %d known, %d of %d drawn"
-        % (trials, trials, trials - lost, trials))
+    say("   orders that came apart at all    %d of %d known, %d of %d drawn" % (trials, trials, trials - lost, trials))
     say("")
-    say("   The known order wins on every row and wins by more the further out the row is: by")
-    say("   %.1f times at the median, %.1f times at the 95th, %.1f times at the worst."
-        % (np.median(usable) / np.median(held),
-           np.percentile(usable, 95) / np.percentile(held, 95),
-           usable.max() / held.max()))
+    say("   The known order wins on every row and wins by more the further out the row is.")
     say("   %d of %d draws came apart not at all and cost the whole pass." % (lost, trials))
     say("")
     say("   An engine answering every time is held to its worst case. A drawn order has no worst")
     say("   case to be held to, and a known one is the same every pass by construction.")
-    return lost
+    return ratios, lost
 
 
 def half_and_half(links, runs, rng):
     """Asks each covering about half the links."""
-    held = (rng.random((runs, links)) < 0.5).astype(float)
-    bare = held.sum(axis=1) == 0
-    if bare.any():
-        held[bare, 0] = 1.0
-    return held
+    masks = []
+    for _ in range(runs):
+        mask = rng.getrandbits(links)
+        masks.append(mask if mask != 0 else 1)
+    return masks
 
 
 def size_swept(links, runs, rng):
     """Asks sweeping the count of links covered, from two up to nearly all of them."""
-    held = np.zeros((runs, links))
-    for at in range(runs):
-        held[at, rng.permutation(links)[:2 + (at % (links - 2))]] = 1.0
-    return held
+    return [sum(1 << link for link in rng.sample(range(links), 2 + (at % (links - 2)))) for at in range(runs)]
 
 
-def contended(kappa, builder, runs, rng, with_term):
+def contended(hundredths, builder, runs, rng, with_term):
     """One pass where the links contend, solved with and without a term for the contention.
 
     Contention over a set grows as the square of how many links the set covers. The links
     themselves grow as the count. A solve carrying a squared-count column can tell the two apart
-    and a solve without one cannot.
+    and a solve without one cannot. A pair contends by a draw of 0 to 16 sixteenths of
+    `hundredths` hundredths of a floor, which is 4 * hundredths * draw units.
     """
-    truth = rng.uniform(BAND[0], BAND[1], LINKS)
-    cross = np.triu(rng.uniform(0, kappa, (LINKS, LINKS)), 1)
-    cross = cross + cross.T
-    design = builder(LINKS, runs, rng)
-    extra = 0.5 * np.einsum("ri,ij,rj->r", design, cross, design)
-    seen = design @ truth + extra + rng.normal(0, SIGMA, runs)
+    truth = truth_of(rng)
+    cross = [[0] * LINKS for _ in range(LINKS)]
+    for first in range(LINKS):
+        for second in range(first + 1, LINKS):
+            cross[first][second] = 4 * hundredths * rng.randint(0, 16)
+    masks = builder(LINKS, runs, rng)
+    seen = []
+    for mask in masks:
+        inside = [link for link in range(LINKS) if (mask >> link) & 1]
+        extra = sum(cross[first][second] for at, first in enumerate(inside) for second in inside[at + 1:])
+        seen.append(covered_sum(mask, truth) + extra + noise(rng, 1))
+    matrix, rhs = normal_system(masks, seen, LINKS, square=with_term)
+    divisor, held = solve(matrix, rhs)
+    damage = Exact(sum(abs(held[link] - (divisor * truth[link])) for link in range(LINKS)), LINKS * abs(divisor) * UNIT)
     if not with_term:
-        got, _, _, _ = np.linalg.lstsq(design, seen, rcond=None)
-        left = seen - design @ got
-        return np.abs(got - truth).mean(), 0.0, np.sqrt((left ** 2).sum() / (runs - LINKS))
-    wide = np.column_stack([design, design.sum(axis=1) ** 2])
-    got, _, _, _ = np.linalg.lstsq(wide, seen, rcond=None)
-    return np.abs(got[:LINKS] - truth).mean(), got[LINKS], 0.0
+        left = sum(((divisor * read) - covered_sum(mask, held)) ** 2 for mask, read in zip(masks, seen))
+        return damage, None, Exact(left, divisor * divisor * (runs - LINKS) * UNIT * UNIT)
+    return damage, Exact(held[LINKS], divisor * UNIT), None
 
 
 def check_additive(say, rng, trials):
@@ -355,32 +635,45 @@ def check_additive(say, rng, trials):
     say("")
     runs = 4 * LINKS
     count = max(40, trials // 6)
-    say("   %d links, %d asks, a floor of %.2f, over two orders of asking." % (LINKS, runs, SIGMA))
-    say("   Contention is the cost added per contending pair, in floors.")
+    say("   %d links, %d asks, a floor of 1, over two orders of asking." % (LINKS, runs))
+    say("   Contention is the cost added per contending pair, in hundredths of a floor.")
     say("")
+    swept = []
     for name, builder in (("asks covering half the links", half_and_half),
                           ("asks sweeping the count covered", size_swept)):
         say("   %s:" % name)
-        say("     contention   damage   leftover   term read   term/spread   fires   damage left")
+        say("     contention   damage   leftover squared   term read   fires   damage left")
         spread = None
-        for kappa in (0.0, 0.01, 0.03, 0.08, 0.20):
-            plain = [contended(kappa, builder, runs, rng, False) for _ in range(count)]
-            fixed = [contended(kappa, builder, runs, rng, True) for _ in range(count)]
-            hurt = np.mean([one for one, _, _ in plain])
-            left = np.mean([three for _, _, three in plain])
-            term = np.array([two for _, two, _ in fixed])
-            after = np.mean([one for one, _, _ in fixed])
+        base = None
+        base_after = None
+        for hundredths in CONTENTION:
+            plain = [contended(hundredths, builder, runs, rng, False) for _ in range(count)]
+            fixed = [contended(hundredths, builder, runs, rng, True) for _ in range(count)]
+            hurt = sum((one for one, _, _ in plain), Exact(0)) / count
+            left = sum((three for _, _, three in plain), Exact(0)) / count
+            terms = [two for _, two, _ in fixed]
+            term = sum(terms, Exact(0)) / count
+            after = sum((one for one, _, _ in fixed), Exact(0)) / count
             if spread is None:
-                spread = term.std()
+                # the term's spread at no contention, held as its square: the mean square less the square of the mean
+                spread = (sum((value * value for value in terms), Exact(0)) / count) - (term * term)
                 base = hurt
                 base_after = after
-            say("     %10.2f   %5.2fx   %8.2f   %9.4f   %11.2f   %4.0f%%   %10.2fx"
-                % (kappa, hurt / base, left / SIGMA, term.mean(), term.mean() / spread,
-                   100 * np.mean(term > 2 * spread), after / base_after))
+            # the term fires where it is positive and its square clears four times the spread's square
+            fires = sum(1 for value in terms if (value > 0) and ((value * value) > (4 * spread)))
+            shown = (figure("6 %s damage at %d" % (name, hundredths), hurt / base),
+                     figure("6 %s leftover squared at %d" % (name, hundredths), left),
+                     figure("6 %s term at %d" % (name, hundredths), term),
+                     figure("6 %s fires percent at %d" % (name, hundredths), percent(fires, count)),
+                     figure("6 %s damage left at %d" % (name, hundredths), after / base_after))
+            say("     %10d   %s" % (hundredths, "   ".join(shown)))
+            if builder is size_swept:
+                swept.append((hundredths, hurt / base, percent(fires, count), after / base_after))
         say("")
     say("   Three readings, left to right. DAMAGE is how far the per-link answers have gone")
-    say("   wrong. LEFTOVER is what the fit could not account for. FIRES is how often the term")
-    say("   clears twice its own spread at no contention, the test this check puts.")
+    say("   wrong, against no contention. LEFTOVER is what the fit could not account for, squared.")
+    say("   FIRES is how often the term clears twice its own spread at no contention, the test")
+    say("   this check puts, compared in squares.")
     say("")
     say("   The leftover barely moves while the damage arrives, because contention lands inside")
     say("   the additive answer: it comes back as plausible per-link numbers and leaves nothing")
@@ -391,10 +684,11 @@ def check_additive(say, rng, trials):
     say("")
     say("   The last column is the same solve carrying the term. Reading for contention and")
     say("   taking it out are one operation, and it costs one more unknown and not one more ask.")
-    return 0
+    return swept
 
 
 def main():
+    sys.set_int_max_str_digits(0)
     trials = TRIALS
     if "--trials" in sys.argv:
         trials = int(sys.argv[sys.argv.index("--trials") + 1])
@@ -404,47 +698,52 @@ def main():
     def say(line=""):
         out.write("  " + line + "\n" if line else "\n")
 
-    rng = np.random.default_rng(SEED)
+    rng = random.Random(SEED)
     say("=" * 76)
     say("WHAT A COST READING RESOLVES")
     say("=" * 76)
-    say("%d trials, seed %d, every cost in floors." % (trials, SEED))
+    say("%d trials, seed %d, every cost in floors, every figure exact." % (trials, SEED))
     say()
 
-    noise = check_adjacent(say, rng, trials)
+    noise_squared, ordered = check_adjacent(say, rng, trials)
     say()
-    needed = check_repetition(say, rng, trials)
+    kept, kept_ordered = check_repetition(say, rng, trials)
     say()
     gain = check_subsets(say, rng, trials)
     say()
     rode = check_carrier_gain(say, rng, trials)
     say()
-    lost = check_known_against_drawn(say, rng, trials)
+    ratios, lost = check_known_against_drawn(say, rng, trials)
     say()
-    check_additive(say, rng, trials)
+    swept = check_additive(say, rng, trials)
     say()
 
     say("=" * 76)
     say("WHAT THIS RUN SAYS")
     say("=" * 76)
-    say("1  a link recovered by adjacent cuts carries %.2f floors of noise against a signal of"
-        % noise)
-    say("   about %.2f. Written as it stands, slicing does not measure a link." % np.mean(BAND))
-    say("2  %s repeats of every cut make it usable."
-        % (str(needed) if needed else "more than the largest count tried"))
-    say("3  one budget spent on covering asks beats the ladder by %.2fx, and the order it wants"
-        % gain)
-    say("   is one the emission already does.")
-    say("4  a known order of asks beats one ask per link by %.1fx at 255 links. The gain is the"
-        % rode)
-    say("   square root of (links + 1) over two: nothing at three links, growing with the chain.")
-    say("5  on the worst case the known order wins, and %d drawn orders came apart not at all."
-        % lost)
-    say("   An engine answering every time is held to its worst case.")
-    say("6  where links contend the costs do not add, and the leftover from the solve does not")
-    say("   notice until the answers are badly wrong. A term for the contention's own shape")
-    say("   notices at 88%, and the same solve then takes the damage back out. The order of")
-    say("   asks decides whether it can be read at all: sweep the count of links covered.")
+    say("1  a link recovered by adjacent cuts carries %s floors squared of noise against a"
+        % show(noise_squared))
+    say("   signal of 1, and orders %s%% of pairs. Written as it stands, slicing does not measure a link."
+        % show(ordered))
+    say("2  repetition prunes misordered pairs down to %d repeats of every cut, which order %s%%."
+        % (kept, show(kept_ordered)))
+    say("3  one budget spent on covering asks beats the ladder by %s, squared, and the order it"
+        % show(gain))
+    say("   wants is one the emission already does.")
+    say("4  a known order of asks beats one ask per link by %s, squared, at %d links. The squared"
+        % (show(rode[-1][1]), rode[-1][0]))
+    say("   gain is (links + 1) over four: one at three links, growing with the chain.")
+    say("5  the known order wins by %s at the median worst-link error, %s at the 95th and %s"
+        % tuple(show(ratio) for ratio in ratios))
+    say("   at the worst, and %d drawn orders came apart not at all. An engine answering every" % lost)
+    say("   time is held to its worst case.")
+    say("6  where links contend the costs do not add. Over the asks sweeping the count covered:")
+    for hundredths, damage, fires, after in swept:
+        say("   at %d hundredths a pair the answers are %s as far off, the term fires on %s%%, and"
+            % (hundredths, show(damage), show(fires)))
+        say("   carried in the solve it leaves them %s as far off." % show(after))
+    say()
+    say("every figure in full: %s" % write_figures())
     say()
     say("Nothing above reaches a correctness result, and nothing above can. The noiseless half")
     say("is maint/engine/order_check.py.")
