@@ -45,7 +45,6 @@ from repotools import shape  # noqa: E402
 # this work's, and a survey that reads them reports somebody else's duplication.
 SKIP = {
     ".git",
-    ".claude",
     "__pycache__",
     "node_modules",
     "build",

@@ -76,15 +76,12 @@ def checked_file(path):
 
 # Fetched or generated, and none of it authored here. fixtures holds the positive control for
 # machine_distance.py, written deliberately in the register being detected. Repairing it deletes
-# the only sample of the thing. The worktree directory is here because a linked worktree lives
-# under `.claude/worktrees/<name>/` and holds a full checkout. Without the skip, a repository with N
-# worktrees reports every finding N+1 times: measured at 50 echo lines of 1039, 34 distinct
-# findings, several repeated three times. The ratio is a property of how many worktrees happened to
-# exist that day. Nobody can correct a total by it.
+# the only sample of the thing.
 #
-# It hides the real site as well as inflating the count. Grepping the same tree, the first ten hits
-# were all worktree copies, because `.claude` sorts before every source directory, and a reader
-# stopping at the first page concludes a finding exists only in scratch.
+# A directory holding its own `.git` is the root of another checkout: a linked worktree, which is a
+# full copy of this tree, or a repository nested in it. Neither is read. A repository with N linked
+# worktrees inside it would report every finding N+1 times, at a ratio set by how many worktrees
+# exist, and the copies would bury the real site of each finding among them.
 
 SKIP_DIRS = (
     ".git",
@@ -94,8 +91,14 @@ SKIP_DIRS = (
     "__pycache__",
     ".vscode",
     "fixtures",
-    ".claude",
 )
+
+
+def kept_dirs(here, dirs):
+    """The directories under `here` a walk goes into: none in SKIP_DIRS and none that is another checkout."""
+    return [
+        one for one in dirs if one not in SKIP_DIRS and not os.path.exists(os.path.join(here, one, ".git"))
+    ]
 
 
 # The gate checks the markdown and skips the chapters built from it. The exemptions a verbatim text
@@ -171,7 +174,7 @@ def walk_markdown(roots, ledger=None):
                 found.append(root)
             continue
         for here, dirs, names in os.walk(root):
-            dirs[:] = [one for one in dirs if one not in SKIP_DIRS]
+            dirs[:] = kept_dirs(here, dirs)
             found.extend(
                 os.path.join(here, name)
                 for name in names

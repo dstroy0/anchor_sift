@@ -128,7 +128,7 @@ def repository_files(where=None, roots=None):
         if not os.path.isdir(base):
             continue
         for folder, dirs, names in os.walk(base):
-            dirs[:] = [one for one in dirs if one not in docs_check.SKIP_DIRS]
+            dirs[:] = docs_check.kept_dirs(folder, dirs)
             for name in sorted(names):
                 if not name.endswith(docs_check.CHECKED):
                     continue

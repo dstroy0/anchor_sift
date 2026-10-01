@@ -57,8 +57,8 @@ HMAC_URL = NIST + "/mac/hmactestvectors.zip"
 def _sibling_base():
     """The directory the sibling repositories sit in, which is beside the MAIN checkout.
 
-     Deliberately not derived from ROOT. A linked worktree lives under <repo>/.claude/worktrees/<name>.
-     A sibling path computed from it lands inside .claude/, and git answers the question directly:
+     Deliberately not derived from ROOT. A linked worktree can live inside the main checkout, and a
+     sibling path computed from it lands inside that checkout. Git answers the question directly:
      --git-common-dir names the shared git directory for the main tree and every linked worktree
      alike, and its parent is the main checkout. Its own parent is where the repositories sit.
 

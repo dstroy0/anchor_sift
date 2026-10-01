@@ -90,12 +90,11 @@ BYPASS_ENV = "ANCHOR_SIFT_BYPASS"
 # papers/. The PDF's hash below pins it, and a clone that has not rendered a paper yet would
 # read every one of its pages as a file the inventory lists and the tree does not have.
 #
-# .claude is the same case again and it arrived the way the others did, by something new appearing
-# beside the corpus and not inside it. A linked git worktree is created under .claude/worktrees/
-# and is a full checkout. Every file of the corpus shows up a second time at a path the inventory
-# does not list. The gate then reads an entire second corpus as unrecorded and errors on every commit,
-# including the commit that would have recorded anything. It is not corpus content: it is a working
-# copy of content already inventoried at its real path.
+# A directory holding its own .git is another checkout, a linked worktree or a nested repository,
+# and is the same case again. A linked worktree is a full checkout: every file of the corpus shows up
+# a second time at a path the inventory does not list, and the gate would read an entire second
+# corpus as unrecorded and error on every commit, including the commit that would record anything. It
+# is not corpus content: it is a working copy of content already inventoried at its real path.
 IGNORED = (
     NAME,
     NAME + ".asc",
@@ -108,7 +107,6 @@ IGNORED = (
     "__pycache__",
     "build",
     "pages",
-    ".claude",
 )
 
 
@@ -152,7 +150,7 @@ def walk(root, speech):
     """
     held = []
     for base, dirs, names in os.walk(root):
-        dirs[:] = [one for one in dirs if one not in IGNORED]
+        dirs[:] = [one for one in dirs if one not in IGNORED and not os.path.exists(os.path.join(base, one, ".git"))]
         for name in sorted(names):
             if name in IGNORED:
                 continue
@@ -257,9 +255,8 @@ def write_manifest(root, rows, out, name=NAME):
 def _main_checkout():
     """The main working tree, the one the closed repositories sit beside.
 
-    Deliberately NOT the tree this tool was run from. A linked worktree lives under
-    <repo>/.claude/worktrees/<name>. A sibling path computed from it lands inside .claude/ and
-    finds nothing. --git-common-dir names the shared git directory for the main tree and for every
+    Deliberately NOT the tree this tool was run from. A linked worktree can live inside the main
+    checkout, and a sibling path computed from it lands inside that checkout and finds nothing. --git-common-dir names the shared git directory for the main tree and for every
     linked worktree alike, and its parent is the main checkout.
 
     Git's own variables are cleared because a rev-parse inheriting a hook's GIT_DIR answers about
