@@ -72,7 +72,7 @@ MODULES=(engine/formats/stack cu/includes/formats/stack engine/formats/apxrep cu
          cu/engine/analysis/unit_sweep engine/runtime/obsignatio cu/engine/runtime/obsignatio
          engine/analysis/residual cu/engine/analysis/residual engine/nbody/max_tree cu/engine/nbody/max_tree
          engine/nbody/flatten cu/engine/nbody/flatten engine/nbody/grow cu/engine/nbody/grow
-         engine/arithmetic/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
+         engine/arithmetic/double_fields cu/types/integerfloats/double_fields engine/arithmetic/decimal_double engine/runtime/scriptura
          engine/nbody/body_overlap cu/engine/nbody/body_overlap engine/nbody/heaviest_matching
          engine/analysis/shift_agreement cu/engine/analysis/shift_agreement engine/analysis/period
          cu/engine/analysis/period)

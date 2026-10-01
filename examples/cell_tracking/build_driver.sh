@@ -84,7 +84,7 @@ FUNCTIONALS=(cell_tracking/src/run_cfg engine/formats/cfg_json cell_tracking/src
              cu/engine/nbody/print_pair engine/nbody/velocity cu/engine/nbody/velocity engine/nbody/division
              cu/engine/nbody/division engine/nbody/marginal cu/engine/nbody/marginal
              engine/nbody/contact_side cu/engine/nbody/contact_side engine/nbody/box_history
-             cu/engine/nbody/box_history engine/nbody/heaviest_matching engine/arithmetic/double_fields
+             cu/engine/nbody/box_history engine/nbody/heaviest_matching engine/arithmetic/double_fields cu/types/integerfloats/double_fields
              engine/arithmetic/decimal_double engine/runtime/scriptura cell_tracking/src/relate_frames
              cell_tracking/src/group_objects cell_tracking/src/link_objects cell_tracking/src/bodies
              cell_tracking/src/score_sample cell_tracking/src/coherence cell_tracking/src/peaks

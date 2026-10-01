@@ -202,6 +202,27 @@ parts agree and some do not, and no reading taken on one part says which. So eve
 the size beside it, and a reader outside either has nothing and has to ask. The general block in `.kdm` is the
 fallback for a member with nothing measured, and never a result borrowed from a member that has.
 
+## The cell
+
+**The engine is a native accessor at the boundary of information space.** It asks the part and builds its own
+ribosomes to answer what is asked. No `.g`, no `.gsm` and no gnascor stands between a function and the part
+that runs it.
+
+**Tessera is the membrane.** Host to device is native across it, membrane protein to protein membrane. Every
+process that crosses is identified at the membrane by its Merkle DAG ID, the seal over its contents: the
+membrane knows all processes. Device code never calls the operating system: a file, a socket, a process or a
+clock is asked for across the membrane and answered on its host side.
+
+**The transpiler is the nucleus, and it pumps out ribosomes.** A ribosome is built from any form `L*` has learned
+for a part: it supports every function that part is capable of, branches and loops included wherever the part
+has the forms. The record machine's straight-line program is one kind of ribosome and not the bound on them.
+
+**Mitosis is the nucleus copying itself into a new cell.** The tree is that cell: `c/`, `cu/` and `python/`, one
+container per host entry point, every function in all three under one name (`TREE_LAYOUT_PLAN.md`). A function
+a container lacks is not ported by hand. It is a ribosome the engine builds for that container's part, held 1:1
+against the original: the same inputs, the same answers. A function that calls the operating system is in every
+container through the membrane. Its computing part is the ribosome, and the call crosses at tessera.
+
 ## How this is worked
 
 Build the compiler and run it live. A test that takes forty minutes is not a development cycle and is not to be
@@ -306,6 +327,17 @@ works there.
     drawn sets every member agrees with its anchor, no two anchors agree, and every set groups alike under 24
     shuffles. A group is a function of the whole set, and a block written for one is written again when the set
     changes. The open part is the general block in `.kdm` keyed to a group, which nothing writes yet.
+
+13. **The cell has one ribosome of 132.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
+    `double_fields.c`'s four functions as one record program, encoded, laid out and loaded by the calls
+    `engine_record_encode` makes, swept on the device and run on the host. `double_fields_test.cu` holds it 1:1
+    against the C on 4110 lanes, the edges of a double and 4096 drawn words, with merges past every mask: the
+    device equals the host word for word, both equal the C on every lane, and a mask one short fails 2049 lanes
+    of the exponent and 2056 of the merge. The program is written from the C by hand; reading a function into
+    its program is the nucleus's part and is not built. The record program reaches the part through NVRTC and
+    nvJitLink, scaffolding until the channel in Open 1 carries it. The other 131 functions that compute and the
+    47 that cross the membrane are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
+    `utils/maint/engine/tree_layout_check.py --write`.
 
 ## Pending Doug
 - Move cell_tracking into `examples/` and theory into anchor_sift. Don't start without direction.
