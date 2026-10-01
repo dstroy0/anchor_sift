@@ -39,23 +39,23 @@ from .locale import LOCALE
 # the papers are linguistics and a phrase can be missing because the domain is.
 # Re-run ban_evidence.py after changing this table.
 #
-# MEASURED AGAINST THE ASSISTANT'S OWN PROSE, WHICH SETTLED IT
+# MEASURED AGAINST THE MACHINE'S OWN PROSE, WHICH SETTLED IT
 #
 # maint/prose/session_prose.py takes the machine's messages out of a session transcript. That
 # corpus needs no label to be trusted, and it is the only one here whose author is not in question.
 # 38,702 gated English words of it, against 759,815 of the papers, per hundred thousand words:
 #
-#   the whole list            643.4 assistant   387.9 human   112.8 this tree after a day of repair
-#   the eight phrase shapes    56.8 assistant     0.0 human    26.4 this tree
+#   the whole list            643.4 machine     387.9 human   112.8 this tree
+#   the eight phrase shapes    56.8 machine       0.0 human    26.4 this tree
 #
-#   rather                    240.3 assistant    57.6 human      4.2 times the human rate
-#   which is why/what/the     131.8 assistant     3.2 human     41 times
-#   so a                       46.5 assistant     1.3 human     36 times
-#   is the one                 43.9 assistant     2.5 human     18 times
-#   is exactly what/why/the    25.8 assistant     0.4 human     65 times
-#   and nothing else           12.9 assistant     0.1 human    129 times
-#   is what makes              10.3 assistant     0.0 human     absent from 759,815 human words
-#   the one that matters        7.8 assistant     0.0 human     absent, and banned here by name
+#   rather                    240.3 machine      57.6 human      4.2 times the human rate
+#   which is why/what/the     131.8 machine       3.2 human     41 times
+#   so a                       46.5 machine       1.3 human     36 times
+#   is the one                 43.9 machine       2.5 human     18 times
+#   is exactly what/why/the    25.8 machine       0.4 human     65 times
+#   and nothing else           12.9 machine       0.1 human    129 times
+#   is what makes              10.3 machine       0.0 human     absent from 759,815 human words
+#   the one that matters        7.8 machine       0.0 human     absent, and banned here by name
 #
 # Two things follow. The list was built by noticing and the noticing is accurate: the phrases
 # called out by hand are the ones carrying the largest ratios. And every rate above is a floor,

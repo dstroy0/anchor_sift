@@ -47,7 +47,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 from .bans import BANNED
 from . import human_rate
 
-ASSISTANT_RATE = 643.4
+MACHINE_RATE = 643.4
 HUMAN_RATE = 387.9
 TREE_RATE = 112.8
 
@@ -107,9 +107,9 @@ def verdict(rate):
     """Which of the three drawn rates this sits nearest."""
     if rate <= (TREE_RATE + HUMAN_RATE) / 2:
         return "reads like this tree"
-    if rate <= (HUMAN_RATE + ASSISTANT_RATE) / 2:
+    if rate <= (HUMAN_RATE + MACHINE_RATE) / 2:
         return "reads human"
-    return "READS LIKE AN ASSISTANT"
+    return "READS LIKE A MACHINE"
 
 
 def collect(paths):
@@ -130,8 +130,8 @@ def show_rate(roots):
         print("  no files were read. Nothing was checked, so nothing passed.")
         return 2
 
-    print("  drawn bars, from docs_check: assistant %.1f   human %.1f   this tree %.1f"
-          % (ASSISTANT_RATE, HUMAN_RATE, TREE_RATE))
+    print("  drawn bars, from docs_check: machine %.1f   human %.1f   this tree %.1f"
+          % (MACHINE_RATE, HUMAN_RATE, TREE_RATE))
     print("  %-58s %7s %8s  %s" % ("file", "words", "per100k", "verdict"))
 
     total_words = 0

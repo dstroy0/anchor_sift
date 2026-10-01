@@ -13,18 +13,18 @@
 # older, fired the eight phrases this repository had confirmed as the machine signature at 1.3
 # per hundred thousand words against this tree at 26.4, and that reading said the phrases were
 # local to the tree. It was wrong.
-# A transcript needs no label. The assistant turns in it were written by the model that wrote them.
+# A transcript needs no label. The machine turns in it were written by the model that wrote them.
 #
 # WHAT IS TAKEN
 #
-# Only the text blocks of assistant messages. Not the user's turns, which are the other party's
+# Only the text blocks of machine messages. Not the user's turns, which are the other party's
 # words. Not tool calls or tool results, which are file contents and command output and would put
 # this repository's own text into a pole meant to be independent of it. Not thinking blocks, which
 # are a different register from prose written to be read.
 #
 # THE CONFOUND, AND IT IS A LARGE ONE
 #
-# The assistant wrote this transcript while enforcing a banned phrase list across the tree, and was
+# The machine wrote this transcript while enforcing a banned phrase list across the tree, and was
 # avoiding those phrases in its own messages the whole time. A rate measured here is a rate under
 # suppression, and it understates whatever the unconstrained rate would be. It is a floor on the
 # register and not an estimate of it. The same fault, in the same direction, as measuring this
@@ -52,8 +52,8 @@ def prose_of(said):
     return " ".join(text.split())
 
 
-def assistant_text(path):
-    """Every text block of every assistant message, in order."""
+def machine_text(path):
+    """Every text block of every machine message, in order."""
     held = []
     with io.open(path, encoding="utf-8", errors="replace") as handle:
         for line in handle:
@@ -67,6 +67,7 @@ def assistant_text(path):
             message = record.get("message")
             if not isinstance(message, dict):
                 continue
+            # "assistant" is the transcript's own role label, matched as the record stores it.
             if message.get("role") != "assistant":
                 continue
             content = message.get("content")
@@ -94,13 +95,13 @@ def main():
     if "--out" in sys.argv:
         target = sys.argv[sys.argv.index("--out") + 1]
 
-    blocks = assistant_text(path)
+    blocks = machine_text(path)
     cleaned = [prose_of(one) for one in blocks]
     cleaned = [one for one in cleaned if len(one) > 40]
     words = sum(len(one.split()) for one in cleaned)
 
     out.write("\n  %s\n" % os.path.basename(path))
-    out.write("    %d assistant messages, %d after code and tables come out\n"
+    out.write("    %d machine messages, %d after code and tables come out\n"
               % (len(blocks), len(cleaned)))
     out.write("    %d words of prose\n" % words)
 
