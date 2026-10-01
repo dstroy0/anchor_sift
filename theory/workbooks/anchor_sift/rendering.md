@@ -185,4 +185,3 @@ The sweep runs one object size against one raster size, both powers of two, with
 Gain applies to the death level channel alone and the sweep runs it at one.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-16

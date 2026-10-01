@@ -292,4 +292,3 @@ The exact dispatch was graded against eleven fields swept from flat to concentra
 The dispatch comparison needs headroom above `total^2`. Its right side reaches `85 * distinct * sum(count^2)`, about 2^14.4 times `total^2` at 256 distinct symbols, putting a four gigabyte corpus near 2^79. The largest right side any 64 bit census can produce is below 2^143, and the engine refuses an exact width below 256 bits, 8 limbs (`src/engine/c/engine/anchor_sift.c:23-39`). The default is 128 limbs, 4096 bits (`src/engine/c/no_rounding/exact_integer.h:67`). No bench exercises a corpus near that size. The headroom is read off the declarations and has not been measured.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-17

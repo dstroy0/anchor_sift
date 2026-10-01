@@ -45,4 +45,3 @@ Citations sit beside them as separate `.tsv` files, because there are many.
 Each research paper's subtitle is the line from its title page.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
-**Date:** 2026-09-26
