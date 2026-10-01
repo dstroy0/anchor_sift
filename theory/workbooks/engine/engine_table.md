@@ -903,16 +903,16 @@ From the build plan ([build_plan.md](build_plan.md)):
      - 20 jobs: round 4096 with 5 live, 18 of 20 jobs done, 194,378,537 records swept, the largest term 57,330 tokens, 25,283 ms, with 5 live from round 16 on and no final line;
      - the default L of 28 with the cross check raised to 28 (a tessera job): 88 live from round 64 on, 18 of 24 jobs done from round 8 on, and the largest term 33,787 tokens at round 64, 1,081,339 at 128 and 138,412,027 at 256. Round 256 took 1,427,203 ms and swept 6,038,215,855 records. It is stopped there with 1,398 CPU s spent and no check reached, and the cross check returns to 24.
    - No run at the default L of 28 has finished.
-13. **The engine reorganized.** The engine files are recategorized and reorganized, 300 to 500 lines each, with no leftover tokens or mangled names and no British spelling in the file names.
-   - **Where things moved.** `src/engine` is in category folders, and the test tree mirrors it under `test/engine`. A citation above pinned to a commit names that commit's tree; the same file today is at:
-     - arithmetic: `base/no_rounding`, `base/decimal_double`, `base/double_fields`;
-     - analysis: `base/compression`, `base/entropy_history`, `base/golden_bands`, `base/residual`, `base/residual_survey`, `base/shift_agreement`, `base/unit_sweep`, and the tower, the period reading and the noise detector;
-     - codecs: `base/blosc`, `base/deflate`, `base/inflate`, `base/lz4`, `base/snappy`, `base/zstd`, the CRC and zip;
-     - compiler: `base/cycle` as `compiler/cycle`, `base/emit` (its rulesets included) as `compiler/codegen`, `base/keymath`, `base/key_schedule`, `base/cell`;
-     - formats: `base/cfg_json`, `base/hdf5`, `base/nifti`, `base/npy`, `base/nrrd`, `base/stack`, `base/tiff`, and krep, apxrep, dicom and zarr;
-     - quantum: `base/qasm`;
-     - runtime: `daemon` (its `service` included), `base/device_pool`, `base/schedule`, `base/scriptura`, obsignatio and radix_keys;
-     - `nbody`, `prg_sch`, `render` and `sims` keep their names.
+13. **The engine in categories.** The engine files sit in category folders, 300 to 500 lines each, with no leftover tokens or mangled names and no British spelling in the file names.
+   - **The categories.** `src/engine` is in category folders, and the test tree mirrors it under `test/engine`:
+     - arithmetic: `no_rounding`, `decimal_double`, `double_fields`;
+     - analysis: `compression`, `entropy_history`, `golden_bands`, `residual`, `residual_survey`, `shift_agreement`, `unit_sweep`, `tower`, `period` and `noise_detector`;
+     - codecs: `blosc`, `deflate`, `inflate`, `lz4`, `snappy`, `zstd`, `crc` and `zip`;
+     - compiler: `cycle`, `codegen`, `emit`, `keymath`, `key_schedule`, `cell`, `bootstrap`, `cubin` and `gnascor`;
+     - formats: `cfg_json`, `hdf5`, `nifti`, `npy`, `nrrd`, `stack`, `tiff`, `krep`, `apxrep`, `dicom` and `zarr`;
+     - quantum: `qasm`;
+     - runtime: `daemon` (its `service` included), `device_pool`, `schedule`, `scriptura`, `obsignatio` and `radix_keys`;
+     - `nbody`, `prg_sch`, `render` and `sims` are categories of their own.
    - **Splits.** No C, C++ or CUDA file under `src/engine` or `test/engine` is over 500 lines. The pieces of a file share an `*_internal.h`. The cycle module is sixteen files in `compiler/cycle/` (the compile's cache, route and toolchain, the launch, the prelude, the record kernel and launch, the sweep, the host's `cycle.c`, and their headers).
    - **Names.** The emitter is the code generator (`codegen/`: `Target`, `CodeGenerator`, `MachineInstr`, `Opcode`, `RegisterClass`, `Schedule`, `AsmPrinter`). The text program is the assembly printer (`asm_printer`), and `EMIT_DEVICE` is `CODEGEN_DEVICE`. `ENGINE_RECORD_LIMBS_MOST` is `ENGINE_RECORD_LIMBS_MAX`, most is max, tally is results, reading is measurement, good is ok, `X_REFUSED` is `X_ERROR`, and `X_TOOK` is `X_STATUS_CHECK`. Kept: tessera, scriptura, obsignatio, signum, crystal, steer, climb, lane, ruleset, the `.krs` keywords, and tessera's admit, held and hold_until.
    - **Spelling.** American throughout, file names and outputs included: `noise_detector_neighbors.cu`, `maint/chain/fetch_labeled.py` and `blocks_labeled.json` carry American spelling, and the engine writes `noise_neighbors.tsv`, `pi_rings_center.png` and `shuffled_rings_center.png`, and the flicker table's columns `neighbor_pairs` and `neighbor_squares`. The signed `maint/signing/manifest.tsv` still names the two chain files by their British spellings under `tools/chain/`, and re-signing it is Doug's.
