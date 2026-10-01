@@ -74,28 +74,46 @@ KNOWN = {
 # represents the range the command enforces, and no value valid on one is refused by the other. A
 # narrowing only tightens: the containment below stops a widening, a control admitting a value the
 # command refuses.
+#
+# A narrowing also names the unit's own fallback where its control opens at a value other than
+# KNOWN's. The schema then states the default the control rests at, not a shared one it never uses.
+# The fallback has to sit inside the narrowed range, checked below beside the bounds.
 NARROW = {
-    "sphere": {"distance": {"low": 105, "high": 600}},
+    "room": {"opacity": {"fallback": 90}},
+    "sphere": {
+        "distance": {"low": 105, "high": 600, "fallback": 340},
+        "opacity": {"fallback": 94},
+    },
 }
 
 
 def _check_narrowings():
-    """Every narrowing names a bounded KNOWN setting and sits inside its range, checked at load."""
+    """Each narrowing names a KNOWN setting, keeps any bound inside its range, and rests its fallback there."""
     for unit, narrowing in NARROW.items():
         for name, bound in narrowing.items():
             if name not in KNOWN:
                 raise ValueError("narrowing for %s names unknown setting %s" % (unit, name))
             rule = KNOWN[name]
-            if rule.get("low") is None and rule.get("high") is None:
-                raise ValueError("%s has no range to narrow for %s" % (name, unit))
             low = bound.get("low")
             high = bound.get("high")
+            if (low is not None or high is not None) and rule.get("low") is None and rule.get("high") is None:
+                raise ValueError("%s has no range to narrow for %s" % (name, unit))
             if low is not None and rule.get("low") is not None and low < rule["low"]:
                 raise ValueError("%s narrows below KNOWN for %s: %s under %s"
                                  % (name, unit, low, rule["low"]))
             if high is not None and rule.get("high") is not None and high > rule["high"]:
                 raise ValueError("%s narrows above KNOWN for %s: %s over %s"
                                  % (name, unit, high, rule["high"]))
+            fallback = bound.get("fallback")
+            if fallback is not None:
+                floor = low if low is not None else rule.get("low")
+                ceiling = high if high is not None else rule.get("high")
+                if floor is not None and fallback < floor:
+                    raise ValueError("%s fallback for %s sits below its range: %s under %s"
+                                     % (name, unit, fallback, floor))
+                if ceiling is not None and fallback > ceiling:
+                    raise ValueError("%s fallback for %s sits above its range: %s over %s"
+                                     % (name, unit, fallback, ceiling))
 
 
 _check_narrowings()
@@ -153,7 +171,7 @@ def schema(names, narrow=None):
             if key in rule:
                 entry[key] = rule[key]
         if name in bounds:
-            for key in ("low", "high"):
+            for key in ("low", "high", "fallback"):
                 if key in bounds[name]:
                     entry[key] = bounds[name][key]
         out[name] = entry

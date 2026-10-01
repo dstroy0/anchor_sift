@@ -294,7 +294,7 @@ def main():
         "source": "sha-256 %s field, %d rounds, %s luminosity" % (field, carried, glow),
         "things": things,
         "settings": opening,
-        "schema": settings.schema(["theme", "opacity"]),
+        "schema": settings.schema(["theme", "opacity"], narrow="room"),
     }
 
     with io.open(TEMPLATE, encoding="utf-8") as handle:

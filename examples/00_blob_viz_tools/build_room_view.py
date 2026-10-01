@@ -207,7 +207,7 @@ def main():
         "source": source,
         "things": things,
         "settings": opening,
-        "schema": settings.schema(["theme", "opacity"]),
+        "schema": settings.schema(["theme", "opacity"], narrow="room"),
     }
 
     with io.open(TEMPLATE, encoding="utf-8") as handle:
