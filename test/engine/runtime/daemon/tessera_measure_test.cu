@@ -112,7 +112,7 @@ int main(void)
     const int read_device = tessera_measure_device(measure, &capacity, &in_use_before);
     failed += (read_device && (capacity >= properties.totalGlobalMem) && (in_use_before <= capacity)) ? 0ull : 1ull;
     cases += 1ull;
-    // under WSL no pid is read from outside, so this process reads itself, as a job's client does there
+    // under WSL no pid is read from outside: this process reads itself, as a job's client does there
     const int reported = tessera_measure_reported(measure) && tessera_self_paravirtual();
     failed += (tessera_measure_reported(measure) == tessera_self_paravirtual()) ? 0ull : 1ull;
     cases += 1ull;

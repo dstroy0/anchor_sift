@@ -74,7 +74,7 @@ int boundary_run(BoundaryLoaded *loaded, const unsigned int *atoms, unsigned int
 // a field's word: the value's low 24 bits of two's complement
 unsigned int boundary_word(long long value)
 {
-    // the mask keeps the low 24 bits, which is the field's whole content
+    // the mask keeps the low 24 bits, the field's whole content
     return (unsigned int)((unsigned long long)value & ((1ull << BOUNDARY_TEST_FIELD_BITS) - 1ull));
 }
 

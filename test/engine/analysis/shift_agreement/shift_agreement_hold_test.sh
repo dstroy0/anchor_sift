@@ -41,7 +41,7 @@ done
 
 INCLUDES=(-I "$TOP/src/engine" -I "$SHIFT" -I "$DEVICE_POOL")
 rm -f "$BINARY"
-# the test is host arithmetic: it links the module's device code but asks nothing of the device, so it is no job
+# the test is host arithmetic: it links the module's device code but asks nothing of the device, and is no job
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
     "$TEST/shift_agreement_hold_test.cu" "$SHIFT"/shift_agreement_{kernels,run}.cu "$DEVICE_POOL/device_pool.cu"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }

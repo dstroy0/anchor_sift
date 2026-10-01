@@ -2,7 +2,7 @@
 //
 // The record machine's host oracle on any part (engine_table.md item 11(f) 6, a second target). Programs over every
 // record operation are encoded (keymath), laid out (key_schedule) and run by cycle_record_run_host, the exact integer
-// library's own steps, with no device and no CUDA toolchain. Each program's inputs come from one xorshift stream, so
+// library's own steps, with no device and no CUDA toolchain. Each program's inputs come from one xorshift stream:
 // every host draws the same atoms, and the test prints a digest of the inputs and of every output word: two parts
 // whose lines match run the record machine word for word alike. The device's record tests hold the device to this
 // same oracle on the x86 host. A part that matches x86 here matches the device too. It also holds that a laid-out
@@ -172,7 +172,7 @@ int main(void)
     free(atoms[0]);
     free(atoms[1]);
 
-    // drawn last and from no stream, so every digest above stays as it was
+    // drawn last and from no stream: every digest above stays as it was
     host_affine_limit(&program);
     HostLoaded limit;
     const int load_ok = host_load(&program, 0, &limit);

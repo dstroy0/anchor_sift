@@ -139,7 +139,7 @@ static void qasm_test_mps_qubits(QasmResults *results)
     qasm_test_check(results,
                     qasm_test_error_here(qasm_chain_apply_two(&bell, qasm_test_cnot, 1u, &engine_error), &engine_error),
                     "mps: a two-site gate on the last site errors, a request error from qasm");
-    // the builder session's review found site + 1 wrapping here and reading past the tensors
+    // site + 1 wraps here and reads past the tensors
     qasm_test_check(results, (qasm_chain_bond(&bell, 1u) == 0u) && (qasm_chain_bond(&bell, 0xFFFFFFFFu) == 0u),
                     "mps: the bond past the last cut is 0, the widest site index included");
     qasm_test_check(results, qasm_test_clean(&error), "mps: no error was raised on the paths that held");
@@ -355,7 +355,7 @@ static void qasm_test_symbolic_qubits(QasmResults *results)
     qasm_test_check(results, crossed && qasm_number_equal(&symbolic_norm, &qasm_number_one),
                     "symbolic: the norm at w = e^{i pi/4} is exactly 1");
 
-    // The builder session's review found the evaluation forming one power past the highest. w^(bits - 1) at w = 2 is
+    // The evaluation forms one power past the highest. w^(bits - 1) at w = 2 is
     // 2^(bits - 1), which the width holds; the power past it, 2^bits, does not.
     QasmRationalFunction widest;
     memset(&widest, 0, sizeof(widest));

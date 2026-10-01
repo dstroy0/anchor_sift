@@ -381,7 +381,7 @@ std::vector<ProbeQuestion> probe_questions(ProbeWriter *writer)
     // count_add, the one form the resident counts with and no other question reaches. What it leaves cannot be read
     // here: the only load the ruleset gives is ld.global.nc, which promises the location is not written while the
     // kernel runs, and a read-back of a word this just added to breaks that promise (ptxas takes it at its word and
-    // folds the two loads into one, which is the .CONSTANT in the listing). So the case asked is the one a question
+    // folds the two loads into one, the .CONSTANT in the listing). So the case asked is one a question
     // here can ask - that the part assembles it, runs it, and goes on past it - and the word it adds to is this
     // thread's own case in the input buffer, which the host never reads back. What the add leaves is read on the part
     // instead, in the SASS probe's own code, where the instructions are ours and the read-back is a plain load

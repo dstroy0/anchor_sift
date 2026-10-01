@@ -84,7 +84,7 @@ void boundary_forward(BoundaryProgram *program, BoundaryTower *tower, unsigned i
         const unsigned int *const band = tower->low[level - 1u];
         const unsigned int highs = count / 2u;
         const unsigned int lows = (count + 1u) / 2u;
-        // this level's highs begin at n / 2^level, which is the band's half
+        // this level's highs begin at n / 2^level, the band's half
         unsigned int *const high = &tower->crystal[highs];
         for (unsigned int j = 0u; j < highs; j += 1u)
         {
@@ -112,8 +112,8 @@ void boundary_forward(BoundaryProgram *program, BoundaryTower *tower, unsigned i
     }
 }
 
-// with a twin, a rebuilt register wrapped to its forward twin's width and one bit more: the value is the twin's, so
-// the wrap holds it exactly and the inverse stays as narrow as the forward
+// with a twin, a rebuilt register wrapped to its forward twin's width and one bit more: the value is the twin's. The
+// wrap holds it exactly and the inverse stays as narrow as the forward
 static unsigned int boundary_mirror(BoundaryProgram *program, unsigned int value, const BoundaryTower *twin,
                                     const EngineRecordKey *twin_key, unsigned int level, unsigned int at)
 {
@@ -138,7 +138,7 @@ void boundary_inverse(BoundaryProgram *program, const unsigned int *crystal, con
     for (unsigned int level = levels; level >= 1u; level -= 1u)
     {
         const unsigned int *const band = back->low[level];
-        // this level's highs begin at n / 2^level, which is the band's count
+        // this level's highs begin at n / 2^level, the band's count
         const unsigned int *const high = &crystal[count];
         const unsigned int two = boundary_append(program, ENGINE_RECORD_CONSTANT, 2u, 0u);
         unsigned int even[BOUNDARY_TEST_SAMPLES];

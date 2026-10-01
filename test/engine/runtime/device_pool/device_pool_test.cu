@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The device pool (engine/runtime/device_pool): a job's device buffers as slices of one allocation. A plan lays out
-// each slice at the running sum rounded up to 256 bytes, and the pool is the sum rounded up to the 2 MiB page once, so
+// each slice at the running sum rounded up to 256 bytes, and the pool is the sum rounded up to the 2 MiB page once:
 // a job knows the bytes it declares before any device work. Eight slices of none to 1,000 bytes are laid out at offsets
 // worked by hand; single slices on either side of a page round as worked by hand; a plan that would pass 2^62 bytes
 // is spoiled and names no pool, and its hold errors. The pool is held as one allocation: each take in the plan's

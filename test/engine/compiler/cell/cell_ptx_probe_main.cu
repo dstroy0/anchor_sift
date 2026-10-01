@@ -149,7 +149,7 @@ static int probe_write(const std::string &text, int major, int minor, const std:
 // assembled into `folder`/frame.cubin and each question's kernel into `folder`/form_<number>.cubin, a line
 // "cubin <number> <name>" printed for each. Exit 0 where every cubin was written, 2 where one was not
 // The program resident as its own module: an empty lane for the resident's call to reach, then program_unit with
-// the launch's own layout in its 25 parameters. This is the one part of a program no question covers and no hand
+// the launch's own layout in its 25 parameters. No question covers this part of a program, and no hand
 // should write twice - the resident is 110 instructions of PTX that already runs, and the part's own compiler turns
 // it into SASS that already runs. Asking for that is what the SASS probe does with every other form, and what comes
 // back is the floor a rearrangement has to beat
@@ -350,8 +350,8 @@ static int probe_single(ProbeWriter *writer, const std::string &header, const st
 
 // the cubin at `path` loaded and its kernel cell_ask run over one case, whose input words are `arguments`: the four
 // output words printed. Exit 0 where the device answers, 3 where it errors on the run, 4 where it will not load
-// Every clock the part will name, asked of it rather than assumed. A part is a clocked thing and everything it does
-// is transitions at some rate, so what rates it has is a question it can answer, and the answer is the unit every
+// Every clock the part will name, asked of it, not assumed. A part is a clocked thing and everything it does
+// is transitions at some rate: what rates it has is a question it can answer, and the answer is the unit every
 // cost is read in. The part's own clock register is not needed for that, and is not in the machine: the host's clock
 // times a run from outside (probe_cubin_run), and these say what one tick is worth
 static int probe_clocks(int device)

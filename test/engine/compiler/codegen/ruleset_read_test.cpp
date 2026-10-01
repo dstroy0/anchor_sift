@@ -52,8 +52,8 @@ static void check_form(const Ruleset *rules, const char *name, const std::vector
     }
 }
 
-// form `name` refused, which is what a ruleset's `err <name> <parameter>...` means: the operation is an error on
-// that language, and writing it breaks what it was written into rather than leaving a hole nothing reports
+// form `name` refused, what a ruleset's `err <name> <parameter>...` means: the operation is an error on
+// that language, and writing it breaks what it was written into, not leaving a hole nothing reports
 static void check_refused(const Ruleset *rules, const char *name, const std::vector<std::string> &arguments)
 {
     s_checks += 1u;
@@ -200,7 +200,7 @@ static void check_sass_lane(const Ruleset *rules)
                "\tMOV \tR241, R7;\n");
     check_form(rules, "launch_load", {"R2", "16"}, "\tLDG.E.64.CONSTANT \tR2, [R238.64+16];\n");
     // the resident's counter. The part's reduction reads what it adds from a register and never out of the
-    // instruction, so the 1 is moved into R254, this file's scratch word, first
+    // instruction: the 1 is moved into R254, this file's scratch word, first
     check_form(rules, "count_add", {"R6"},
                "\tMOV \tR254, 1;\n"
                "\tRED.E.ADD.STRONG.GPU \t[R6.64], R254;\n");

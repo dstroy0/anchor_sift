@@ -181,7 +181,7 @@ static void planes_test_parts(const PlanesTestCase *test_case, const PlanesTestW
             const unsigned int kind = (unsigned int)(draw % PLANES_TEST_KINDS);
             // the draw's bits past the kind, masked to the part's bits, fit unsigned int
             const unsigned int value = (kind == 0u) ? 0u : ((kind == 1u) ? mask : ((unsigned int)(draw >> 8u) & mask));
-            // a part is masked to 16 bits or fewer, so it narrows to unsigned short exactly
+            // a part is masked to 16 bits or fewer: it narrows to unsigned short exactly
             host->parts[((size_t)part * voxels) + voxel] = (unsigned short)value;
             host->planes[((size_t)limb * voxels) + voxel] |= value << place;
             if ((place + PLANES_TEST_PART_BITS) > 32u)

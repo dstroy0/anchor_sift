@@ -2,7 +2,7 @@
 //
 // tessera end to end: the client against the built daemon on this device. The client starts the daemon when no
 // daemon answers. Every job is reserved its declaration over the bytes its process already held as it asked, which
-// the daemon measures and tells on admission; the test keeps its first job's memory, so every later job's process
+// the daemon measures and tells on admission; the test keeps its first job's memory: every later job's process
 // stands on it. A job declaring less than it then holds is admitted on its declaration and told it grew; its peak
 // is kept under its signum. The same signum declaring four times that peak is asked, and admitted on the override.
 // Declaring within the peak it is admitted at once. Declaring over it again with no answer, it is held past its
@@ -75,7 +75,7 @@ static int job_daemon_gone(const unsigned char *device)
         return 0;
     }
 #else
-    // the daemon holds its state's lock while it lives; a socket systemd holds outlives it, so the lock is asked
+    // the daemon holds its state's lock while it lives; a socket systemd holds outlives it: the lock is asked
     char state[ENGINE_PATH_CAPACITY];
     const int named = tessera_path_state(device, state, ENGINE_PATH_CAPACITY) &&
                       (snprintf(endpoint, sizeof(endpoint), "%s/daemon.lock", state) < (int)sizeof(endpoint));
@@ -203,7 +203,7 @@ int main(int count, char **arguments)
     memcpy(&luid, properties.luid, sizeof(luid));
 #endif
     ask.luid = luid;
-    // a signum of this run alone, so the history holds nothing for it before its first job
+    // a signum of this run alone: the history holds nothing for it before its first job
     const unsigned long long made = job_wall();
     for (unsigned int at = 0u; at < ENGINE_SIGNUM_BYTES; at += 1u)
     {

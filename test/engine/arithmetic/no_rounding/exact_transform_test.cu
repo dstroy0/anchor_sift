@@ -194,7 +194,7 @@ static AnchorExactStatus ladder_long(const AnchorExactInteger *left, const Ancho
 
 int main(void)
 {
-    // unbuffered, so a long run shows where it is
+    // unbuffered: a long run shows where it is
     setvbuf(stdout, NULL, _IONBF, 0);
     printf("  exact integer multiplication ladder at %llu bits (%llu limbs; Karatsuba from %u, transform from %u)\n",
            (unsigned long long)ANCHOR_EXACT_BITS, (unsigned long long)ANCHOR_EXACT_LIMBS,

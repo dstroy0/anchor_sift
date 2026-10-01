@@ -4,7 +4,7 @@
 
 // The record programs the host oracle's test runs (record_host_test.c) and the tests that hold another
 // language to it (record_vhdl_test.cpp): each program, encoded and laid out, and the one xorshift stream its
-// inputs are drawn from, so every test that draws them in the same order draws the same atoms, and the
+// inputs are drawn from: every test that draws them in the same order draws the same atoms, and the
 // digest that two parts' lines compare. It compiles as C and as C++
 
 #include "cycle.h"
@@ -66,7 +66,7 @@ static unsigned int host_random(void)
     return (unsigned int)(s_host_state >> 16u);
 }
 
-// FNV-1a over each word's four bytes from the lowest, so the digest reads the words and not the part's byte order
+// FNV-1a over each word's four bytes from the lowest: the digest reads the words and not the part's byte order
 static unsigned long long host_digest(const unsigned int *words, unsigned long long count)
 {
     unsigned long long hash = HOST_TEST_FNV_BASIS;
@@ -271,7 +271,7 @@ static void host_members(HostProgram *program)
 }
 
 // the linear forms' limit (keymath, KEYMATH_COEFFICIENT_MAX, 2^62): 2^62 added to itself, the sum added to itself,
-// and the first sum times 3. The sums pass the limit, so each is an atom of its own width, 64 and 65 bits, and the
+// and the first sum times 3. The sums pass the limit: each is an atom of its own width, 64 and 65 bits, and the
 // product 66; a sum formed past a signed word would give 2^64 a width of 1 bit
 static void host_affine_limit(HostProgram *program)
 {

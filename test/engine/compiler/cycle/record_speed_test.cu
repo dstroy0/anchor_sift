@@ -96,7 +96,7 @@ static void speed_powers(SpeedProgram *program)
 }
 
 // a and b in fields 0 and 1, the golden ratio's word a constant; a round is x = a xor b, then the wrap of x times the
-// constant plus b to 32 bits, which is the next a, and x is the next b. The last pair is read out, then the ladder of
+// constant plus b to 32 bits, the next a, and x is the next b. The last pair is read out, then the ladder of
 // |a| over |b| + 1, whose denominator is never 0
 static void speed_mix(SpeedProgram *program)
 {

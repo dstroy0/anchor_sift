@@ -51,7 +51,7 @@ int main(void)
         const unsigned int let_through = fitted.chains - held;
         printf("  %-8s %2u cases  %5u are the relation  %5u more fit the cases and are not it\n", s_anchor_text[anchor],
                found, held, let_through);
-        // the shortest arrangement the cases alone would have taken for the relation, which is the one a ladder
+        // the shortest arrangement the cases alone would have taken for the relation, the one a ladder
         // that stopped at its own cases would have written down
         for (unsigned int at = 0u; (at < fitted.chains) && (let_through != 0u); at += 1u)
         {

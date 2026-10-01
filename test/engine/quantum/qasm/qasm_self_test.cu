@@ -272,7 +272,7 @@ static void qasm_test_agree(QasmResults *results, const QasmTestCircuit *circuit
                             unsigned long long lanes, const char *which)
 {
     const unsigned int amplitudes = 1u << circuit->qubits;
-    // the lanes are at most 2^5, so the numbers are at most 2^10, held by a size_t
+    // the lanes are at most 2^5: the numbers are at most 2^10, held by a size_t
     const size_t numbers = (size_t)(lanes * amplitudes);
     QasmNumber *const host_outputs = (QasmNumber *)calloc(numbers, sizeof(QasmNumber));
     QasmNumber *const device_outputs = (QasmNumber *)calloc(numbers, sizeof(QasmNumber));
