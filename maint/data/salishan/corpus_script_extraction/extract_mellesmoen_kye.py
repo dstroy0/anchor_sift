@@ -927,7 +927,7 @@ def main():
             "# Appendix B is there to say the language does not have it. All three carry\n"
         )
         handle.write(
-            "# the same characters as a real word and none of them reaches the pure\n"
+            "# the same characters as a real word and none reaches the pure\n"
         )
         handle.write("# stream.\n")
         handle.write("#\n")

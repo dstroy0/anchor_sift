@@ -131,7 +131,7 @@ def main():
     print()
     print("=" * 78)
     print("  COMPRESSION: an upper bound on complexity. Compressing proves structure;")
-    print("  failing to compress proves nothing, which is what the pi arm is here to show.")
+    print("  failing to compress proves nothing — what the pi arm is here to show.")
     print("=" * 78)
     print()
 
@@ -144,7 +144,7 @@ def main():
     if pi_data:
         results["pi"] = measure("pi", pi_data)
     else:
-        print("  pi        unavailable, so the positive control did not run")
+        print("  pi        unavailable: the positive control did not run")
     print()
 
     print("=" * 78)
@@ -171,9 +171,9 @@ def main():
             print("    it, because Kolmogorov complexity is uncomputable and every practical")
             print("    compressor looks for repetition, which a generating program is not.")
         else:
-            print("    The instrument separates them by %.4f, so its verdict on SHA carries that"
+            print("    The instrument separates them by %.4f: its verdict on SHA carries that"
                   % gap)
-            print("    much weight and no more.")
+            print("    much weight, no more.")
     return 0
 
 

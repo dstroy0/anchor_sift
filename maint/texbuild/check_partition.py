@@ -202,7 +202,7 @@ def main(argv):
     manifest = read_manifest(root)
     if manifest is None:
         print("  partition: no manifest at %s" % os.path.join(root, MANIFEST))
-        print("  the partition cannot be checked, so nothing is published from this run.")
+        print("  the partition cannot be checked: nothing is published from this run.")
         return 2
     MANIFEST_CACHE = manifest
 
@@ -250,10 +250,9 @@ def main(argv):
             print("          %s" % path)
         findings += len(unlisted)
 
-    # A check that reads nothing has not passed. docs_check learned this the expensive way, and
-    # the lesson transfers without modification.
+    # A check that reads nothing has not passed.
     if checked == 0:
-        print("  no research paper was read. Nothing was checked, so nothing passed.")
+        print("  no research paper was read. Nothing was checked: nothing passed.")
         return 2
 
     print("")

@@ -167,7 +167,7 @@ def main():
 
     print("\n  GONE confirms the class was that sub-function's channel. STANDS would mean the")
     print("  spectral reading attributes a residue to an operation that is not producing it,")
-    print("  which refutes the interpretation rather than merely weakening it.")
+    print("  which refutes the interpretation, not merely weakening it.")
     return 0
 
 

@@ -880,8 +880,8 @@ def main():
             % (on_zero, len(papers) - on_zero)
         )
         handle.write(
-            "**Why the right panel is here.** The extraction has a lifetime and the "
-            "question is what carries it. A person reads a paper at a fixed accuracy "
+            "**Why the right panel is here.** The extraction has a lifetime. What "
+            "carries it? A person reads a paper at a fixed accuracy "
             "however large the corpus gets. That arm is flat. The algorithm's accuracy "
             "is a function of corpus size. That arm climbs. Whether and where they "
             "cross decides whether the corpus is worth growing for its own sake, and the "

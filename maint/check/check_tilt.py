@@ -96,7 +96,7 @@ def main():
     error = 1.0 / math.sqrt(float(len(profile)))
     print("\n  strongest lag %d at %.4f, against a white-noise error of %.4f (%.2f sigmas)"
           % (best_lag, best_value, error, best_value / error))
-    print("  Sixty-four lags were scanned, so the peak to clear is %.2f, not 2."
+    print("  Sixty-four lags were scanned: the peak to clear is %.2f, not 2."
           % math.sqrt(2.0 * math.log(64.0)))
     return 0
 

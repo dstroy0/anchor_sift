@@ -81,8 +81,8 @@ def main():
     if steps_floor > 0:
         print("\n  At the floor, past round %d: %d rises in %d steps, against the %.1f that chance"
               % (FLOOR_FROM, rises_floor, steps_floor, steps_floor / 2.0))
-        print("  predicts. Each round is an independent seed, so these are draws wandering around")
-        print("  a floor rather than structure being built.")
+        print("  predicts. Each round is an independent seed: these are draws wandering around")
+        print("  a floor, not structure being built.")
 
     if decrements:
         mean = sum(decrements) / len(decrements)

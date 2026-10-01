@@ -136,7 +136,7 @@ def main():
             out.write("      %s\n" % snippet)
             total += 1
 
-    out.write("\n  %d hazard(s). A hit is a hazard and not a proven failure: which of these\n"
+    out.write("\n  %d hazard(s). A hit is a hazard, not a proven failure: which of these\n"
               % total)
     out.write("  break depends on the renderer the reader happens to use\n")
     out.flush()

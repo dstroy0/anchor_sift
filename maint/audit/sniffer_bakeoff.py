@@ -180,7 +180,7 @@ def main():
     print()
     print("    A scan that led every row would settle the question. One that leads only its own")
     print("    kind means 'best sniffer' is not a property a single transform has, and the right")
-    print("    move is to run more than one rather than to pick.")
+    print("    move is to run more than one, not to pick.")
     return 0
 
 

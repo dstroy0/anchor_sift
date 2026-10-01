@@ -161,7 +161,7 @@ def report(path):
     if last["submitted"] > 0 and last["accepted"] < last["submitted"]:
         print()
         print("    REJECTS PRESENT. Rejected shares are stale work or a bad ntime, and both are")
-        print("    connection faults rather than hashing faults.")
+        print("    connection faults, not hashing faults.")
 
     print()
     print("=" * 74)
@@ -180,14 +180,14 @@ def report(path):
             print()
             print("    Alarm at the 95th percentile of the observed gaps, which is %d seconds"
                   % forward[int(0.95 * len(forward))])
-            print("    here, rather than at a guessed number of seconds.")
+            print("    here, not at a guessed number of seconds.")
         backward = [s for s in steps if s < 0]
         if backward:
             print()
             print("    %d jobs carried an ntime EARLIER than the job before them, deepest %d s."
                   % (len(backward), -min(backward)))
-            print("    The chain itself does this on 2.98%% of blocks, so a pool doing it is")
-            print("    normal rather than alarming. It is only a fault if our OWN clock is what")
+            print("    The chain itself does this on 2.98%% of blocks: a pool doing it is")
+            print("    normal, not alarming. It is only a fault if our OWN clock is what")
             print("    disagrees, which shows as rejects and not here.")
     else:
         print()
@@ -272,7 +272,7 @@ def pooled_anchor_test():
         print("    RESOLVED, AND IT IS A DEFICIT. Two causes fit and they need different fixes:")
         print()
         print("      accounting   the hash counter counts more nonces than the kernel scans. The")
-        print("                   tail of each chunk returns early on index >= nonce_count, so if")
+        print("                   tail of each chunk returns early on index >= nonce_count: if")
         print("                   the counter adds the full chunk the expectation is inflated and")
         print("                   the ratio sits below one while the hashing is perfectly correct.")
         print("      correctness  the kernel genuinely misses survivors, which means the device is")

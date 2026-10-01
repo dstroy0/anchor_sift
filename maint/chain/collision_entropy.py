@@ -77,7 +77,7 @@ for name, bins, samples, chi, source in READINGS:
 print()
 print("  'leaked' is bits of collision entropy the field gives away by not being flat.")
 print("  'floor' is what chance manufactures at that width and depth: log2(1 + (n-1)/N).")
-print("  'ratio' is leaked over floor, which is the only fair comparison across bin counts.")
+print("  'ratio' is leaked over floor, the only fair comparison across bin counts.")
 
 print()
 print("=" * 88)
@@ -95,8 +95,8 @@ print("  Read as collision probability: two blocks drawn at random share a bucke
 print("  probability %.4f, against %.4f for a flat field. That is %.2f times more often."
       % ((1.0 + chi / samples) / bins, 1.0 / bins, 1.0 + chi / samples))
 print()
-print("  Across the full 65536-value window rather than 16 buckets, the top twenty values hold")
-print("  26.7%% of blocks where flat would give 0.03%%, so the collision excess is larger still.")
+print("  Across the full 65536-value window, not 16 buckets, the top twenty values hold")
+print("  26.7%% of blocks where flat would give 0.03%%: the collision excess is larger still.")
 
 print()
 print("=" * 88)
@@ -117,11 +117,11 @@ for bits in (0.5, 0.1, 0.05, 0.01, 0.005, 0.001):
 print()
 print("  So for the daily cycle at 24 bins: the leak measured is %.4f bits, and the depth at"
       % deficit(24, 6980, 36.62))
-print("  which that stops being noise is N = %.0f. The corpus holds 6980, which is why the"
+print("  which that stops being noise is N = %.0f. The corpus holds 6980: the"
       % depth_for(24, deficit(24, 6980, 36.62)))
-print("  reading is marginal rather than settled - it sits close to its own floor.")
+print("  reading is marginal, not settled - it sits close to its own floor.")
 print()
 print("  And the version window at 16 bins leaks %.3f bits, which clears its floor at N = %.0f."
       % (deficit(16, 6980, 17723.1), depth_for(16, deficit(16, 6980, 17723.1))))
-print("  Two blocks would have settled it. That is the difference between the two findings,")
+print("  Two blocks would have settled it — the difference between the two findings,")
 print("  stated in one number instead of two incomparable chi-squares.")

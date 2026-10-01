@@ -10,7 +10,7 @@
 // toolchain, and nothing is written: decide() only says which forms a lane is made of.
 #include "record_programs.h"
 
-// the cubin writer is C and its headers carry no guard of their own, so the linkage is named here
+// the cubin writer is C and its headers carry no guard of their own: the linkage is named here
 extern "C"
 {
 #include "sass_assemble.h"
@@ -43,7 +43,7 @@ static const struct
     unsigned int parameters;
 } s_forms[OPCODE_COUNT] = {OPCODES(LANE_FORM_TEXT)};
 
-// 1 where the ruleset gives the form at `place` as an error, which is what blocks a lane: a nop writes nothing and
+// 1 where the ruleset gives the form at `place` as an error, and that blocks a lane: a nop writes nothing and
 // the lane goes on without it, and only an err refuses. The two read the same from the outside, both writing an
 // empty text, and the ruleset says which it means
 static int lane_form_errors(const Ruleset *rules, unsigned int place)
@@ -56,7 +56,7 @@ static SassMachine s_machine;
 static int s_machine_read;
 
 // Each line of `lane` assembled, and the first that the assembler refuses printed. A lane the generator writes is
-// not a lane the part runs: a form the ruleset leaves empty writes nothing and breaks nothing, so the text comes
+// not a lane the part runs: a form the ruleset leaves empty writes nothing and breaks nothing. The text comes
 // back whole with its holes in it, and only the assembler says whether what is left is machine code
 static unsigned int lane_assembles(const std::string &lane, unsigned int *refused, std::string *first)
 {
@@ -132,7 +132,7 @@ static void lane_decide(const HostProgram *program, int reuse, unsigned int *ask
     printf("  %-16s %4u steps, %5zu items, lane %s, %u lines, %u instructions, %u the assembler refuses%s%s\n",
            program->name, loaded.layout.steps, items.size(), lane.empty() ? "REFUSED" : "written", lines,
            instructions, refused, first.empty() ? "" : ", first: ", first.c_str());
-    // the first lane written out whole, so what a form that writes nothing leaves behind can be read
+    // the first lane written out whole: what a form that writes nothing leaves behind can be read
     static int dumped;
     if ((dumped == 0) && !lane.empty())
     {

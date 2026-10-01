@@ -170,15 +170,15 @@ def main():
     elif gen_power < 1e-9:
         print("    The coefficients mixed - per-order magnitudes moved by %.1e - and the summed" % gen_order)
         print("    power did not, to %.1e. That cancellation is the Wigner structure, and it is" % gen_power)
-        print("    a real invariance rather than a quantity that had nowhere to go.")
+        print("    a real invariance, not a quantity that had nowhere to go.")
         print()
-        print("    Which is the point: P_l is invariant BECAUSE the mixing cancels, not because")
+        print("    The point: P_l is invariant BECAUSE the mixing cancels, not because")
         print("    nothing moved. Reporting P_l alone shows a flat band either way and cannot")
         print("    tell those two apart.")
     else:
         print("    P_l moved by %.3e under general rotation. Either the placement is uneven at" % gen_power)
         print("    this rank or the reading does not realize the Wigner structure, and both are")
-        print("    faults in the instrument rather than facts about the state.")
+        print("    faults in the instrument, not facts about the state.")
     return 0
 
 

@@ -483,7 +483,7 @@ def main():
         handle.write(
             "# inserted space is a word boundary. The hand extraction beside this paper\n"
         )
-        handle.write("# was read off the pages and is what says so.\n")
+        handle.write("# was read off the pages and says so.\n")
         handle.write("#\n")
         handle.write(
             "# Mark is language.layer.kind. T is Nsyilxcən, N is anything else.\n"

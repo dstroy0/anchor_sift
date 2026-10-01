@@ -156,7 +156,7 @@ def _check():
     print()
     if ok:
         print("    VALIDATED. It fires on anisotropy, stays quiet without it, and NAMES the")
-        print("    angular scale correctly, which is what makes it a detector and not an alarm.")
+        print("    angular scale correctly: that makes it a detector and not an alarm.")
         return 0
     print("    NOT VALIDATED. A null from it means nothing yet.")
     return 1

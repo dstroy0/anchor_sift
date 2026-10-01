@@ -413,14 +413,14 @@ def main():
         print()
         if survived >= len(big) - 1:
             print("    The large-lag excess survives having every arrangement below %d words" % span)
-            print("    destroyed, so it is not dependence at a distance. It is composition drift")
+            print("    destroyed: it is not dependence at a distance. It is composition drift")
             print("    across the documents this corpus was concatenated from.")
             print()
             print("    So the human tail reported earlier is an artifact of corpus ASSEMBLY, and")
             print("    the claim it supported - that long-range structure lives in content-word")
-            print("    recurrence - loses that support. Retracted here rather than elsewhere.")
+            print("    recurrence - loses that support. Retracted here, not elsewhere.")
         else:
-            print("    The large-lag excess is destroyed by scrambling, so it was dependence at a")
+            print("    The large-lag excess is destroyed by scrambling: it was dependence at a")
             print("    distance after all and survives this check.")
         return 0
 
@@ -506,10 +506,10 @@ def main():
         r = sxy / ((sxx * syy) ** 0.5) if sxx > 0 and syy > 0 else 0.0
         print("    slope against mass share, across all %d chunks:  r = %+.3f" % (len(pooled), r))
         if abs(r) < 0.3:
-            print("      weak, so the share difference between the poles is not what moves the")
+            print("      weak: the share difference between the poles is not what moves the")
             print("      slope and matching on it would change nothing")
         else:
-            print("      STRONG. The nuisance tracks the statistic, so any separation below may be")
+            print("      STRONG. The nuisance tracks the statistic: any separation below may be")
             print("      the mass share talking. Match on it before believing the comparison.")
         print()
 
@@ -521,7 +521,7 @@ def main():
         print("  RESULT")
         print("=" * 78)
         print()
-        print("    gap %+.4f, standard error %.4f, so %.2f sd apart"
+        print("    gap %+.4f, standard error %.4f: %.2f sd apart"
               % (gap, se, abs(gap) / se if se > 0 else 0.0))
         print()
         overlap = sum(1 for v, _ in human_rows2 if v <= am)
@@ -534,7 +534,7 @@ def main():
             print("    bands, and the nuisance does not track the statistic. That is a result.")
             print()
             print("    And it is CONSERVATIVE: every word of the machine corpus was written under")
-            print("    the ban list, so the register is suppressed in the direction that works")
+            print("    the ban list: the register is suppressed in the direction that works")
             print("    against this separation. The unsuppressed pole would only widen it.")
         elif gap < 0 and se > 0 and abs(gap) / se >= 2.0:
             print("    Suggestive in the predicted direction at %.1f sd, which is not enough to"
@@ -542,7 +542,7 @@ def main():
             print("    call on a statistic with this much machinery under it. More assistant text")
             print("    or a larger --length is the move, subject to the chunk-count tradeoff.")
         else:
-            print("    NO SEPARATION. The two bands overlap, so the decay shape does not")
+            print("    NO SEPARATION. The two bands overlap: the decay shape does not")
             print("    distinguish these corpora at this length and this is a null.")
         return 0
 
@@ -594,11 +594,11 @@ def main():
             print("    OUTSIDE THE BAND. No human chunk of this size decays as fast as the")
             print("    assistant corpus does. That is a real separation on a drawn null.")
         elif below <= max(1, len(slopes) // 20):
-            print("    AT THE EDGE. Only %d of %d human chunks reach it, so this is suggestive"
+            print("    AT THE EDGE. Only %d of %d human chunks reach it: this is suggestive"
                   % (below, len(slopes)))
             print("    and would want a larger human sample before it is called.")
         else:
-            print("    INSIDE THE BAND. %d of %d human chunks decay at least as fast, so the"
+            print("    INSIDE THE BAND. %d of %d human chunks decay at least as fast: the"
                   % (below, len(slopes)))
             print("    assistant slope is an ordinary value for a human text of this length and")
             print("    the shape does NOT separate the poles. The -0.619 against -0.576 seen")
@@ -674,7 +674,7 @@ def main():
         print()
 
         if apart > 0.10:
-            print("    THE LEVELS ARE NOT COMPARABLE. The floors sit %.0f%% apart, so an excess"
+            print("    THE LEVELS ARE NOT COMPARABLE. The floors sit %.0f%% apart: an excess"
                   % (apart * 100.0))
             print("    over them measures the two estimators and not the two corpora, and no")
             print("    verdict is returned from the lag-reach numbers.")
@@ -684,8 +684,8 @@ def main():
                     print("    THE SHAPE STILL SEPARATES THEM, and it is the statistic the hypothesis")
                     print("    was about. The assistant curve falls away faster, %+.3f against %+.3f,"
                           % (session_slope, human_slope))
-                    print("    which is the direction predicted: bounded context forgets sooner. The")
-                    print("    normalisation divides each curve by its own lag one, so the bias scale")
+                    print("    the direction predicted: bounded context forgets sooner. The")
+                    print("    normalisation divides each curve by its own lag one: the bias scale")
                     print("    cancels to first order and this survives the mismatch above.")
                     print()
                     print("    Treat it as SUGGESTIVE and not settled. The cancellation is first")
@@ -697,7 +697,7 @@ def main():
                           % (session_slope, human_slope))
                     print("    The instrument has nothing to say about these two corpora yet.")
             print()
-            print("    Length is matched and this persists, so length was not the whole nuisance")
+            print("    Length is matched and this persists: length was not the whole nuisance")
             print("    parameter. The remaining one is the unigram distribution: the machine")
             print("    corpus concentrates more mass in its commonest words, which fills the joint")
             print("    table differently and moves the bias. Matching that - by sampling both to a")
@@ -714,7 +714,7 @@ def main():
         print("    assistant dependence stands clear of its floor out to lag  %d" % session_reach)
         print()
         if human_reach > session_reach:
-            print("    The human corpus carries dependence further AT THE SAME LENGTH, so the")
+            print("    The human corpus carries dependence further AT THE SAME LENGTH: the")
             print("    separation is a property of the writing and not of how much of it there is.")
             print("    The instrument separates the poles in the direction the hypothesis")
             print("    predicts, and a reading from it means something.")
@@ -723,7 +723,7 @@ def main():
             print("    until that is fixed. Do not interpret any file with it.")
             print()
             print("    The corpora differ enormously in size, and MI bias grows as a corpus")
-            print("    shrinks, so the likeliest cause is the comparison and not the text.")
+            print("    shrinks: the likeliest cause is the comparison, not the text.")
             return 1
         return 0
 

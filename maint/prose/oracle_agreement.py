@@ -168,7 +168,7 @@ def main():
     control = words_of(human_text())
     if len(control) < LEAST:
         out.write(
-            "  no human pole under build/papers. The control is what makes a distance\n"
+            "  no human pole under build/papers. The control makes a distance\n"
         )
         out.write("  mean anything. This stops instead of reporting a bare number.\n\n")
         out.flush()

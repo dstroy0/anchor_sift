@@ -626,7 +626,7 @@ def main():
         if stem in ORTHOGRAPHY_ABSENT:
             out.write(
                 "    not counted. This paper's text holds none of its orthography and it has "
-                "no page text,\n    so the two sides above are not comparable. See "
+                "no page text:\n    the two sides above are not comparable. See "
                 "ORTHOGRAPHY_ABSENT in papers.py.\n"
             )
             continue

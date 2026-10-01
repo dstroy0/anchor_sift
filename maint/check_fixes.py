@@ -113,7 +113,7 @@ def main():
     print("-" * 78)
     print()
     print("  %d rule(s) drop at least one word. Each one can leave a sentence ungrammatical," % len(deletions))
-    print("  and no gate in this tree can see that, so each has to be read by a human:")
+    print("  and no gate in this tree can see that, and each has to be read by a human:")
     print()
     for number, target, find, replace in deletions[:40]:
         short_find = find if len(find) <= 40 else find[:37] + "..."

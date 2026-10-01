@@ -725,7 +725,7 @@ def main():
     out.write(
         "    every distance printed above this line was taken on that bag. Every one of\n"
     )
-    out.write("    them reads composition and none of them reads arrangement.\n")
+    out.write("    them reads composition, not arrangement.\n")
 
     if ("machine" in webs) and ("human" in webs):
         out.write(
