@@ -4,7 +4,7 @@ One row per option across every blob viz unit: what it controls, which data key 
 does when that key is absent, and whether that absence is silent. The shared control bar is designed
 from this. The survey comes before the bar.
 
-Read from `examples/00_blob_viz_tools/`: the 23 `build_*_view.py`, the 14 `*_view_template.html`,
+Read from `examples/00_blob_viz_tools/`: the 23 `build_*_view.py`, the 15 `*_view_template.html`,
 and the engine viewer under `view/engine_view/`. No unit is changed here; this only records what is.
 
 ## The lead finding: most builders never reach their template
@@ -32,13 +32,15 @@ is only whether the builder checks the marker before it writes.
 Checked by running them: `build_sha_clock_view.py --message abc` prints `the template has no place to
 put the data` and writes no file. `build_earth_view.py` writes a page that carries its data.
 
-## The clock view has no clock control
+## The clock view draws the engine's bytes on a clock
 
-`build_sha_clock_view.py` writes into `room_view_template.html`, and its payload carries `clock` and
-`sources`. The template reads neither. Its only `clock` is a `THREE.Clock` frame timer, and no
-`DATA.clock` or `DATA.sources` read is in the file. The clock view's two naming keys are produced and
-dropped, and the template holds no control for them to drive. The marker fix alone would not give the
-clock view a clock; that waits on the rebuild that draws from the engine rasterizer.
+`build_sha_clock_view.py` writes into `clock_view_template.html`. It walks the SHA-256 schedule and
+renders each per-operation state through the engine's volume arm on the byte channel, by way of
+`render_volume`, and the page draws those bytes with no reconstruction of its own. The payload
+carries `clock`, which the template reads under a guard, and `settings`. The clock control is a
+slider over the ticks: it scrubs the operations, and each tick shows the state the engine rendered
+for it alongside the arm that drew the bytes. Where a build carries no clock the page says so and
+draws nothing else.
 
 ## The committed pages carry data no builder now writes
 
@@ -129,7 +131,7 @@ its returned dict.
 | build_plot_view | voxel | none | depth, depthLabel, valueLabel, eyebrow, title, blurb, noteTitle, note, settings, fields |
 | build_room_view | room | --shell --core --things --seed --blob --out | shell, core, source, things, settings |
 | build_scope_view | scope | --block --out | height, nonce, id, spikes, rounds, spectrum, waveform, sigma0, sigma1 |
-| build_sha_clock_view | room | --message --rounds --glow --seed --shell --core --sources --degrees --tau --out | shell, core, sources, source, things, clock, settings |
+| build_sha_clock_view | clock | --message --rounds --set --out | clock, settings |
 | build_sha_pairs_view | pairs | --message --out | pairs, frames, digest, source |
 | build_sha_room_view | room | --field --every --rounds --glow --seed --shell --core --source --out | shell, core, source, things, settings |
 | build_sha_sphere_view | sphere | --samples --rounds --place --tau --degrees --out | title, place, tau, bytes_read, symbols, grid, spectrum, null_spectrum, profiles, sources, read, settings, floor |
@@ -154,6 +156,7 @@ to fail. The analysis is `data_check`'s own, and a key reads the same here and a
 |---|---|---|
 | block | none | bytes, constants, fields, height, values, windowShares |
 | chart | blurb, kind, title | series, xLabel |
+| clock | clock | none |
 | earth | none | chi, days, hours, intervals, null95, p, regions, total |
 | orrery | found, settings | attenuation, bodies, curve, mode, profiles, span |
 | pairs | none | digest, frames, pairs |
@@ -183,5 +186,5 @@ both supply the sphere template's `settings`, and `build_sources_view` supplies 
 
 ## Next
 
-The marker fix, the clock view rebuilt on `anchor_raster_render` and `anchor_volume_render`, and the
-shared control bar follow, in that order.
+The shared control bar follows, designed from this survey. The WGSL raster arm is M16's unbuilt leg,
+held to the same byte-for-byte contract as the device and host arms once it is built.
