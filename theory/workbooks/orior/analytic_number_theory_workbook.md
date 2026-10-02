@@ -3,7 +3,7 @@
 **Purpose:** Record what the engine's exact arithmetic shows when it is pointed at analytic number
 theory, one poke at a time, claiming nothing. **Scope:** `examples/0_experimental/exact_zeta_values.py`,
 `examples/0_experimental/exact_zeta_zeros.py`, `examples/0_experimental/exact_zeta_gram.py`,
-`evidence/proofs/posits/proof_set_theory.py`, and this
+`examples/0_experimental/exact_zeta_riemann_siegel.py`, `evidence/proofs/posits/proof_set_theory.py`, and this
 file.
 
 This is a workbook, and it claims no result. It follows the rail the
@@ -193,6 +193,189 @@ points by it, and reads the sign of `Z` at each from the values entry 4 computes
   walk of entry 4 steers only by its own verdicts. Reading it to `t = 285` is a computation at a
   height and bears on nothing past it.
 
+## Entry 6, 2026-10-02: the Riemann-Siegel formula, with time held as a real
+
+`examples/0_experimental/exact_zeta_riemann_siegel.py`, run to `t = 285` and exit 0. It computes
+`Z(t)` by the Riemann-Siegel formula as the Riemann-Siegel Formula page on MathWorld prints it, read
+by a web fetch: `Z(t) = 2 sum over n <= N of n^(-1/2) cos(theta(t) - t ln n) + R(t)`, with
+`R(t) = (-1)^(N-1) (t / 2pi)^(-1/4) sum c_k(p) (t / 2pi)^(-k/2)` and `c_0` to `c_5` from the printed
+table, each a sum of derivatives of `Psi(p) = cos 2pi(p^2 - p - 1/16) / cos 2pi p` over powers of pi.
+The walk, the placing and the signs of entry 5 take seven seconds on the host this way.
+
+Where the formula binds, and what is released in its place:
+
+| where it is bound | as the formula states it | released here | status |
+| --- | --- | --- | --- |
+| time | `t` a decimal, `N = floor(sqrt(t / 2pi))`, `p = sqrt(t / 2pi) - N`, and powers of `t / 2pi` | the steer is `u`, with `t = 2pi u^4` held as its real and its operator: pi's floor at the places asked, and `naturals.pi` asked again for more. `N = floor(u^2)`, `p = u^2 - N` exactly, and `(t / 2pi)^(-1/4 - k/2) = u^-(2k+1)`, an exact rational. No square root is taken and nothing is divided by `2pi`. The delta `p` runs between 0 and 1 and is never fixed | built |
+| `Psi` | a quotient, whose denominator vanishes at `p = 1/4` and `p = 3/4`, where the numerator vanishes too | the pair of the numerator and the denominator, each a power series about `p`, never divided. With `d` the denominator's first coefficient, `Psi^(j)(p) / j! = r_j / d^(j+1)`, `r_j` by products alone, and every `c_k` carried times `d^16 pi^10`, which is never negative. Where `d` reads zero at the working places, both series start one coefficient later | built. `u = 1.5` sits at `p = 1/4` exactly, and its gap against Euler-Maclaurin is 0, 0 and 5 units at 2, 4 and 8 places |
+| the powers of pi | `1 / pi^(2m)` in each `c_k` | multiplied through by `pi^10` | built |
+| the count of terms | `R` cut at a fixed `K`, with Gabcke's bounds on the error (his thesis, Satz 3.2.2, read for entry 7) | the last printed term, `c_5 u^-11`, read against `Z` at each point at the places `Z` is read: a reading, recorded per point, and no bound | the reading is built. Every `C_n` is built exactly by Gabcke's generator (entry 7). `R` here still stops at `c_5`: summed to the series' own least term, as a verdict, it is wanted, not built |
+| the two sums | `M = N`, about `(t / 2pi)^(1/2)`, with `R(s)` an exact contour integral in the approximate functional equation | not released: `R` is taken as its asymptotic series | wanted, not built |
+
+- The verdicts at a point. `theta` by entry 5's two routes. `Z d^16 pi^10` read toward zero at the
+  places asked, and a reading of zero doubles the places. The work runs two guards deep and one is
+  dropped.
+- The walk. Entry 5's walk and placing, stepping in `u` from `1.2` with `theta` read at `2pi u^4`.
+  It finds 128 Gram points below `t = 285`, indices 0 to 127, each alone in its bracket, and places
+  each by sixteen bits in `u`, asking 5,108 values of `theta`. A bracket is settled where `Z` has one
+  nonzero sign at both ends, and every bracket settles on its first reading: 470 values of `Z`, the
+  deepest at 64 places, the main sum at most six terms.
+- Positive control, with answers from outside. `g_0` to `g_15` from the table the Riemann-Siegel theta
+  article on Wikipedia prints, each within `[2pi lo^4, 2pi hi^4]` by multiplication: `2 U^4` times
+  pi's floor, and times the floor plus one, against the published value. `(-1)^n Z(g_n)` is positive
+  for `n` from 0 to 125, negative at 126, with `g_126` in `u` in `[2.5893588321, 2.5893588792]`, and
+  positive at 127, as the same article reports and as entry 5 reads by Euler-Maclaurin.
+- `Z` against Euler-Maclaurin. `Re e^(i theta) zeta(1/2 + it)` by entry 4's two routes at the same
+  real `t`, the gap in units of the last place at 2, 4 and 8 places:
+
+  | `u` | `t` | with `R` | `R` left out |
+  | --- | --- | --- | --- |
+  | 1.2 | 13.02 | 0, 0, -281 | -33, -3,282, -32,823,842 |
+  | 1.5 | 31.79 | 0, 0, 5 | 33, 3,371, 33,704,797 |
+  | 1.8 | 65.92 | 0, 0, -1 | -29, -2,855, -28,550,818 |
+  | 2.1 | 122.13 | 0, 0, 0 | 19, 1,897, 18,968,282 |
+  | 2.4 | 208.35 | 0, 0, 0 | -21, -2,119, -21,190,339 |
+  | 2.6 | 286.98 | 0, 0, 0 | 19, 1,957, 19,569,222 |
+
+  The last term `c_5 u^-11` at 8 places reads -187, 71 and -10 units at `u` = 1.2, 1.5 and 1.8,
+  and 0, 0 and -1 from `u = 2.1`: below `u = 2.1` the gap at 8 places is the series' own reach at
+  that `t`. At every one of the 256 settled bracket ends, `Z` reads past `c_5 u^-11`.
+- Drawn null. With `R` left out, the gap is 0.19 to 0.33 at every `u` shown, and the sign of
+  `(-1)^n Z(g_n)` differs from the one with `R` at `n` = 33, 62, 70, 90, 105, 113 and 126.
+- The cost. One value of `Z` takes 5 to 80 milliseconds on the host at 2 to 32 places. At
+  `u = 2.1` and 8 places it takes 8 milliseconds against 2.6 seconds by Euler-Maclaurin, and at
+  `u = 2.6`, 6 milliseconds against 18.4 seconds.
+- What it is not. An asymptotic series read at the places it is read, below a height. Agreement
+  with Euler-Maclaurin at eight places is two computations meeting, and the sign of `Z` at a Gram
+  point is a reading there. It bears on nothing past `t = 285`.
+
+## Entry 7, 2026-10-02: every C_n, where each vanishes, and the seam between the cells
+
+`examples/0_experimental/exact_zeta_riemann_siegel.py`, the same run as entry 6, exit 0. Three papers
+were read for it, page by page, from copies here:
+- Siegel, "Über Riemanns Nachlaß zur analytischen Zahlentheorie" (1932), in the Barkan and Sklar
+  translation;
+- Berry, "The Riemann-Siegel expansion for the zeta function: high orders and remainders", Proc. R. Soc.
+  Lond. A 450 (1995), 439-462;
+- Gabcke, "Neue Herleitung und explizite Restabschätzung der Riemann-Siegel-Formel", dissertation,
+  Göttingen 1979, in the re-set copy whose footnotes and references run to 2011.
+
+What they say that bears on this entry:
+
+- Siegel replaces the saddle `xi = (s - 1) / (2 pi i m)` by `eta` because `m` must be an integer
+  (p. 279), and that integer makes the terms depend on `t` discontinuously (p. 285).
+- Gabcke, p. 54: where `t_M = 2pi M^2` and `N` steps from `M - 1` to `M`, `R_K(t)` is not continuous,
+  and its jump is at most `2 c(K) t_M^(-(2K+3)/4)`.
+- Gabcke, p. 55, Satz 3.2.2: for `t >= 200`, `|R_0| < 0.127 t^(-3/4)` up to `|R_9| < 1837 t^(-21/4)`,
+  and the bounds are optimal for `K <= 4`. On p. 58, numerical study suggests `|R_10|` is
+  overestimated by a factor of about `10^6`.
+- Gabcke, foreword, p. v: whether `C_0` with `|R_0| < 0.127 t^(-3/4)` always decides the sign of `Z`
+  "liegt aber wohl außerhalb der heutigen mathematischen Möglichkeiten". Footnote 3 there says the
+  error can change sign inside a cell, and it is averaged over `[2pi N^2, 2pi (N + 1)^2]`.
+- Gabcke, introduction, footnote 9: the main sum alone has two complex conjugate zeros near
+  `t = 221.08`, where `Z` has two real zeros.
+- Gabcke, pp. 58-59, section 3.3. Siegel writes (p. 285) that it is not trivial that `|R_K(t)|` does
+  not go to zero as `K` grows with `t` fixed. Lower bounds `|C_2n(z)| >= w_2n` would prove it, and they
+  fail: `C_2n` for `2n` = 4, 8 and 10 each has one simple zero in `0 < z < 1`, and only `|C_2n| >= 0`
+  holds there. At `t = 2pi M^2` the series splits into two power series of radius 0, and the
+  divergence holds at those `t`. Footnote 7 adds that a proof has since appeared, Berry 1995.
+- Gabcke, p. 53: the bound of Satz 3.1.3 comes only from expanding `g(tau, z)` in powers of `tau`. In
+  powers of `z` the coefficients would be polynomials in `tau`, with "fast unüberwindlichen
+  Schwierigkeiten".
+- Berry: `C_r` has its least term near `r* = 2pi t`, with a remainder of order `exp(-pi t)` across a
+  Stokes line. His Appendix B gives `C_4l(1)` and `C_(4l+2)(1)` in closed form, from Gabcke's
+  argument by continuity.
+
+Every `C_n`, held as its real and its operator:
+
+- **The generator.** With `z = 1 - 2p` and `F(z) = Psi(p)`, Gabcke's generator (his Table III) gives
+  `C_n(z) = 2^(-2n) sum over k of d_k^(n) F^(3n-4k)(z) / ((3n - 4k)! pi^(2n-2k))`.
+  - The `d` follow `d_k^(n+1) = (3n + 1 - 4k)(3n + 2 - 4k) d_k^(n) + d_(k-1)^(n)`, except
+    `d_3l^(4l) = lambda_l`.
+  - The `lambda` follow `(l + 1) lambda_(l+1) = sum 2^(4k+1) |E_(2k+2)| lambda_(l-k)` on the Euler
+    numbers.
+  - Every `d` is an integer.
+- **F's coefficients.** `F` is entire and even. Its coefficient of `z^(2j)` comes from the product of the
+  series of `cos(pi z^2 / 2 + 3pi/8)` and of `sec(pi z)`. It is a sum of rationals times
+  `pi^(2j - m)`, times `sin(pi/8)` or `cos(pi/8)`, which are `sqrt(2 -+ sqrt 2) / 2`.
+- **Held exactly.** Each `C_n` is held exactly, and only reading it at a point asks for digits.
+- **A reading at a point.** It sums the Taylor series on `count` and `2 count` terms, the second at
+  twice the extra digits, and the two must agree. The terms of the `sec` series grow as `4^j` and cancel
+  to `F`'s: the extra digits grow with `count`.
+- **Controls.**
+  - `C_0` to `C_5` match MathWorld's `c_0` to `c_5` rational for rational.
+  - `d_k^(8)` matches Gabcke's Table II, and `lambda_1` to `lambda_4` = 2, 82, 10,572 and 2,860,662,
+    as his p. 77 prints them in primes.
+  - `C_0(1)` to `C_10(1)` against the sum row of his Table IV at 50 places are apart by -2, 3, -3,
+    -3, -1, 0, -2, 2, 1, 4 and -4 units of the 50th place. His Table IV and Table V sum rows, two
+    routes to the same `C_n(1)`, differ by up to 5 units there, and that is the bar.
+  - The controls, the zeros below, the fine sweep and the seam take 11.5 seconds on the host
+    together.
+
+Where each vanishes. The zeros of `C_n` on `0 < z < 1`:
+- **How they are read.** They are the sign changes read on `2^m` and `2^(m+1)` parts, `m` from 6 and
+  growing until the two counts agree, and each is halved to `2^-128`.
+- **Odd `C_n`.** An odd `C_n` is zero at `z = 0` by parity, and its sign just past 0 is the sign of
+  its `z` coefficient.
+- **Where in a cell.** A zero `z` gives `p = (1 - z) / 2` and `(1 + z) / 2`. The term `C_n u^-(2n+1)`
+  vanishes at `t = 2pi (N + p)^2` in every cell `N`.
+
+| `C_n` | zeros | `z` | `p` in a cell |
+| --- | --- | --- | --- |
+| 0, 2, 5, 6, 7, 9, 11, 13, 15, 16, 17, 19, 20, 21, 24 | 0 | | |
+| 1 | 1 | 0.803175201847263648200143847748 | 0.098412399076, 0.901587600923 |
+| 3 | 1 | 0.710803418901810534756142447745 | 0.144598290549, 0.855401709450 |
+| 4 | 1 | 0.980281968817316802120874647142 | 0.009859015591, 0.990140984408 |
+| 8 | 1 | 0.997036830589145376737869912457 | 0.001481584705, 0.998518415294 |
+| 10 | 1 | 0.299816770654618333121409389802 | 0.350091614672, 0.649908385327 |
+| 12 | 2 | 0.616207504929399468039218038437 and 0.998443905470315328716740114168 | 0.191896247535, 0.808103752464 and 0.000778047264, 0.999221952735 |
+| 14 | 1 | 0.993917155860395878889175207422 | 0.003041422069, 0.996958577930 |
+| 18 | 1 | 0.999641199400873460953351005305 | 0.000179400299, 0.999820599700 |
+| 22 | 1 | 0.999921721380642164402814225180 | 0.000039139309, 0.999960860690 |
+| 23 | 1 | 0.588456350810734142509251472159 | 0.205771824594, 0.794228175405 |
+
+- **Against Gabcke.** One simple zero each in `C_4`, `C_8` and `C_10`, as he reports on p. 59.
+- **The other zeros.** `C_12` has two, and the zeros of `C_4`, `C_8`, `C_12`, `C_14`, `C_18` and
+  `C_22` sit within `0.01` of `z = 1`, the integer `x` where the cells meet.
+- **The fine sweep.** Two zeros between neighbors of the coarse grid would not show on it. On
+  `[63/64, 1]` at `2^14` and `2^15` parts the counts agree for every `C_n` to `C_24`. They read one
+  for `C_8`, `C_12`, `C_14`, `C_18` and `C_22`, and none for the rest.
+- **What the table is.** A reading on the grids named, at the places read. It is not a count proven
+  complete.
+
+The seam:
+- **What it is.** Where `x` crosses `nu + 1`, `S` gains a term and `R` changes cell (entry 6's
+  header). The rest is the jump of the terms `R` leaves out, `-2 (-1)^nu` times the sum over even
+  `k >= 6` of `C_k(1) u^-(2k+1)`.
+- **Against the exact `C_k(1)`.** Read at 20 places against that sum for even `k` from 6 to 16, the
+  ratio is 1.00000000 at `x` = 2, 3, 4, 6 and 8, and 0.99999999 at 5, 7 and 9. The seam is the left-out
+  terms to eight places.
+- **Fewer terms.** With `k` only to 12, through Berry's Appendix B, the ratio at `x = 2` read
+  1.0000006.
+
+The triangle between the two pairs (entry 6's header):
+- **The sides.** Over each cell, `D = Z_RS - Z_EM` and `E = S - R` give three sides: `a = int |D|`,
+  `b = int |E|` and `c = int |(D, E)| = b + delta`.
+- **What it is read by.** The excess `kappa = (c^2 - a^2 - b^2) / a^2` and the angle
+  `cos gamma = -kappa a / 2b`.
+- **How it is run.** Euler-Maclaurin's `C` comes from the device (Z3), with `triangle first last`.
+
+| cell | `a` | `b` | `c - b` | `kappa` | `a / b` | `cos gamma` | parts | seconds |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1.8493 e-6 | 1.7409 | 2.157 e-12 | 1.1 | 1.062 e-6 | -6.3 e-7 | `2^4` | 98 |
+| 2 | 4.3209 e-8 | 1.7380 | 6.385 e-15 | 10.8 | 2.486 e-8 | -1.3 e-7 | `2^13` | 1,020 |
+| 3 | 4.7627 e-9 | 1.6936 | 2.250 e-17 | 2.3 | 2.812 e-9 | -3.318 e-9 | `2^6` | 268 |
+
+- **The angle.** In every cell the triangle is a needle, `a` against `b`, and its angle is past right
+  by an amount that reads nonzero at the places shown.
+- **The device.** The device equals the host on every sweep.
+- **Cells 4 and 5.** These ran into `d^16 pi^10` reading zero near `p = 1/4`. `rs_at` now grows its
+  work by the digits that multiplier lost, and the two cells are running again.
+
+What it is not. Each `C_n` is exact, and each zero is a bracket read at the places named, a reading
+on a grid, never a count proven complete. The seam and the triangle are readings below `x = 9` and in
+three cells. None of it bears on the zeros of `Z` or on the hypothesis.
+
 ## The problem, stated fully
 
 Written here so it sits in one place a later entry can find, and not adopted as a target. The Riemann zeta function is
@@ -299,31 +482,41 @@ want, and the status says what has been run. No row bears on the hypothesis.
 
 ## The device program, and what it wants
 
-Entry 4 runs one value at a time on the host. Every point in a pass is independent of every other,
+Entries 4 to 6 run on the host, in Python, one value at a time, apart from Z3's coefficient `C`,
+which entry 6's triangle sweeps on the device. Every point in a pass is independent of every other,
 and a pass is one sweep: each part below is a sweep over lanes, each reads the records the last
-pass wrote, and each writes verdict fields the next one reads. The program runs on the device as
-tessera jobs, as the sims do. The rows use the engine table's columns, and the M numbers are its
+pass wrote, and each writes verdict fields the next one reads. A program is a list of record steps;
+keymath imprints it, the scheduler lays it out, the record compiler emits it for the device, and it
+runs as a tessera job ([prg_sch/README.md](../../../src/c/engine/prg_sch/README.md)). The same
+program on the host, from the exact integer library, is its port check. The rows use the engine table's columns, and the M numbers are its
 parts ([engine_table.md](../engine/engine_table.md)). No scale is written into the program: the
 places, `N` and the widths come from the records.
 
 | part | the algebra it holds to | does today | wants | tried, and what it gave | status | next |
 |---|---|---|---|---|---|---|
 | **Z1. The constants** | `ln n = k ln 2 + 2 artanh((n - 2^k) / (n + 2^k))` and `ln n = j ln 3 + 2 artanh((n - 3^j) / (n + 3^j))`, each a floor at its scale, and the two agreeing through `naturals._agree`. pi by Machin and Euler the same way. Each constant is held as its real and its operator: the floor at its places and the series that gives the next place. | On the host, in `representation.constants.naturals`, each `(n, digits)` asked once. | `ln n` and pi as record programs (M10) at the places the record carries, each with its second route and their agreement written as a field. The device has pi as `pi_tower` (M19), bracketed by Machin, and has no `ln`. A deeper pass extends a constant's series from the terms it holds. | The run to `t = 123` asks `ln n` for every `n` up to 128 at up to 36 digits, and both routes agree on every one: exit 0. | host only | the artanh series as a record program, checked lane for lane against `naturals` |
-| **Z2. The powers** | `n^-s = exp(-sigma ln n) (cos(t ln n) - i sin(t ln n))`, and its derivative `-ln n n^-s`. exp by `x = r - k ln 2` with `0 < r <= ln 2`, a Taylor series in `r`, then a shift by `k` either way. cos and sin by taking whole turns of `2 pi` off, then one series. Every term is a floor at places plus `GUARD`, twenty digits. | On the host, one `(point, n)` at a time. | One lane per `(point, n)`, `n` from 1 to `2N`, the point and its places read from its record. A series runs while its term is nonzero: a lane whose term reads zero adds zero, and the sweep ends where the sum of every lane's term field is zero. The record machine's operations carry it (M10: product, sum, difference, absolute, compare, and the divisions). | On the host every power at sixteen places plus the guard is 120 bits, inside the record machine's 160-bit lanes, where it divides 4,096 lanes at once. | not built | exp, cos and sin as record programs over one sweep of lanes |
-| **Z3. The sum and its tail** | Euler-Maclaurin cut at `N`: the head, the sum of `n^-s` for `n < N`, then `C N^-s`, with `C = N / (s - 1) + 1/2 + sum over k from 1 to N of B_2k / (2k)! s(s+1)...(s+2k-2) N^(1-2k)`, an exact complex rational. `C'` is carried beside it through the derivative of the rising product. Two routes, at `N` and `2N`, share the powers. Each of the eight values, `zeta` and `zeta'` from each route, real and imaginary, is read toward zero: its sign times the floor of its size, the guard dropped. | On the host. | `B_2k / (2k)!` built once on the host and read by every lane as a table (M10's table). The head as an exact sum over a point's lanes. `C` and `C'` per point at the width the record names: a lane too narrow refuses as a request error (M12) and never rounds. | `C` and `C'` measured on the host: about 340 bits at `N = 8`, about 2,160 at `N = 32`, and 6,733 to 6,871 at `N = 64` with `t` at sixteen places. At `N = 64` that is past the 2,048-bit lanes and past `ANCHOR_EXACT_LIMBS` at its 4,096-bit default. | not built | `C` per point on M1's ladder, multiply and Newton division, at the width read from `N` and the point's places |
+| **Z2. The powers** | `n^-s = exp(-sigma ln n) (cos(t ln n) - i sin(t ln n))`, and its derivative `-ln n n^-s`. exp by `x = r - k ln 2` with `0 < r <= ln 2`, a Taylor series in `r`, then a shift by `k` either way. cos and sin by taking whole turns of `2 pi` off, then one series. Every term is a floor at places plus `GUARD`, twenty digits. | On the host, one `(point, n)` at a time. | One lane per `(point, n)`, `n` from 1 to `2N`, the point and its places read from its record. A series runs while its term is nonzero: a lane whose term reads zero adds zero, and the sweep ends where the sum of every lane's term field is zero. The record machine's operations carry it (M10: product, sum, difference, absolute, compare, and the divisions). | On the host every power at sixteen places plus the guard is 120 bits, which four 32-bit limbs hold, 128 bits. The exact limb arithmetic is a power-of-two count of 32-bit limbs, and its width doubles with no ceiling (`exact_integer_widths.h`). | not built | exp, cos and sin as record programs over one sweep of lanes |
+| **Z3. The sum and its tail** | Euler-Maclaurin cut at `N`: the head, the sum of `n^-s` for `n < N`, then `C N^-s`, with `C = N / (s - 1) + 1/2 + sum over k from 1 to N of B_2k / (2k)! s(s+1)...(s+2k-2) N^(1-2k)`, an exact complex rational. `C'` is carried beside it through the derivative of the rising product. Two routes, at `N` and `2N`, share the powers. Each of the eight values, `zeta` and `zeta'` from each route, real and imaginary, is read toward zero: its sign times the floor of its size, the guard dropped. On the device `C` is carried at a fixed scale `S` as `tau_1 = s / 12N` and `tau_k = tau_(k-1) (s + 2k - 3)(s + 2k - 2) rho_k`, `rho_k = B_2k (2k - 2)! / (B_(2k-2) (2k)! N^2)`. Every term sits near the scale, each `tau` wrapped to a width from a bound on it. | `C` on the device for entry 6's triangle: `exact_zeta_tail.cu`, one lane a point, 35 steps a term, the shared record holding `S`, `S / 2` and every `rho_k S`. The head, `C'` and entry 4's walk stay on the host. | `B_2k / (2k)!` built once on the host and read by every lane as a table (M10's table). The head as an exact sum over a point's lanes. `C` and `C'` per point at the power-of-two width the record names, doubled where the value needs more: a lane too narrow refuses as a request error (M12) and never rounds. | `C` and `C'` measured on the host: about 340 bits at `N = 8`, about 2,160 at `N = 32`, and 6,733 to 6,871 at `N = 64` with `t` at sixteen places. Each takes the power-of-two width that holds it: 16 limbs, 512 bits, at `N = 8`; 128 limbs, 4,096 bits, at `N = 32`; and 256 limbs, 8,192 bits, at `N = 64`. The exact rational spends 98 percent of a value's time in gcd reductions, 3.5 of 3.57 seconds at `t = 190` and 21 places. On the device, at `N` from 1 to 64 over 128 points, the records equal the host's run of the same program word for word at every `N`, and `C` meets the exact rational at its own relative precision, 3 parts in `10^37` at `N = 64`. At `N = 64` the program is 2,224 steps in a file of 92 limbs, and 128 lanes sweep in 5.5 milliseconds once it is compiled; a launch costs about 0.4 seconds of its own. Fed by it, Euler-Maclaurin meets the host's to one unit at 21 places. | `C` built and run | the head's powers (Z2) in the same job, and both routes in one launch |
 | **Z4. The point verdicts** | Four fields per point: `agree = NOT(Re one - Re two) NOT(Im one - Im two)`, and `COMPARE` of `Re zeta` with 0, of `Im zeta` with 0, and of `|Re zeta|` with `|Im zeta|`. A point is decided where the product of `agree` and the three absolute signs is nonzero. Its eighth of a turn is `2q + ((1 - sign_size) / 2 + q) % 2`, with `q = (1 - sign_im) + (1 - sign_re sign_im) / 2`. An undecided point is asked again at `places (1 + agree)` and `N (2 - agree)`. | On the host, in `Steering.sweep`. | A record per point, holding the point's two pairs, its places, `N`, the four values and the four verdicts, written by the sweep and read by the next. `COMPARE`, product and absolute are record operations (M10). The points asked again are compacted from the field `NOT(decided)` by a sum over it. | The run to `t = 123` writes 56,570 values, the deepest at sixteen places and the widest at `N = 64`. | host only | the record's layout, and the compaction as one sweep |
 | **Z5. The edge verdicts** | Per half of an edge: `NOT(places_a - places_c)`, the chord `COMPARE(min(|zeta_a|^2, |zeta_c|^2), |zeta_c - zeta_a|^2)`, and at each end `COMPARE(|zeta|^2 10^(2q), |zeta'|^2 |c - a|^2)`. The turn from `a` to `c` is `(d_c - d_a + 4) % 8 - 4`, and the edge's turns read end to end and through the midpoint agree or not. A settled edge is the product of the positive verdicts. A negative verdict puts the midpoint into the path, a zero doubles the places, and unequal places ask both ends at the deeper. | On the host, in `Steering.count`. | One lane per half edge, reading the two point records at its ends. The places each point is asked at next, and the midpoints put into the path, written as fields and compacted by a sum over them. The turns summed per box, an exact sum over the box's lanes. | The quadrant alone counts `[24, 32]` and `[32, 40]` empty, and the chord alone counts `[98, 102]` empty (entry 4). With the step verdict every box below `t = 123` counts as the published table has it. | host only | the half edge as a record program reading two records |
 | **Z6. The walk and the placing** | An empty box doubles the step, a box counting one is a zero, a crowded box splits into halves. Each zero is placed one bit per pass by the lower square centred on the line counting one. | On the host, in `Steering.walk` and `Steering.place`. | Nothing on the device past Z1 to Z5. The host reads the counts per box from the device and writes the next pass's boxes; each pass is one sweep of Z2 to Z5. | Forty zeros below `t = 123`, each placed by sixteen bits, each bracket holding the published ordinate: exit 0, five minutes on the host. | host only | the host loop over device passes |
 | **Z7. The job** | One device, one daemon; a job declares its bytes, is admitted on its standing, and its peak is kept under its signum (M14). | The program runs on the host and asks the device nothing. | The program as a tessera job, beside the sims: `sim_job_submit` before its first device allocation and `sim_job_release` at its end. The signum is the host BLAKE3 of the program's name and arguments, the height and the bits. The declaration is the bytes of a pass, read from the records the last pass wrote: the points asked, times `2N` lanes, times the width at places plus the guard, and the records. Growth past it is told back, and the next run with the same signum is asked against the kept peak. | none | not built | the job's submit and release around the host loop, with the declaration read from the records |
 | **Z8. The phase** | `theta(t)` by Stirling's series after a shift of `M`, two routes at `M = K = N` and `2N` (entry 5). Each `arg(1/4 + k + it/2)` is an arctangent of a rational by Euler's series and by the Taylor series about `1/2`, agreeing. The Gram index at a point is `theta` over pi, decided where `theta` reads strictly between `i pi` and `(i + 1) pi`. | On the host, in `exact_zeta_gram.py`, each `(p, q, digits)` arctangent asked once. | One lane per `(point, k)`, `k` below the shift, each an arctangent series run while its term is nonzero, as Z2's series run. The Stirling terms per point as Z3's tail is, from the same table of `B_2k / (2k)!`. The index and its two verdicts written to the point's record, and the midpoint's index read by the next pass to cut a bracket. | To `t = 285`, 5,198 values of `theta`, none deeper than eight places, none wider than `N = 4`. | host only | the arctangent series as a record program beside Z1's |
+| **Z9. Riemann-Siegel** | `Z = 2 sum over n <= N of n^(-1/2) cos(theta - t ln n) + R`, with `t = 2pi u^4`, `N = floor(u^2)`, `p = u^2 - N`, and `R` from `c_0` to `c_5` (entry 6). `Psi` as two power series about `p`, its derivatives `r_j / d^(j+1)` by products, every term carried times `d^16 pi^10`. | On the host, in `exact_zeta_riemann_siegel.py`. | One lane per `(point, n)`, `n` up to `N`, each a Z2 power. The two series of `Psi` per point, sixteen coefficients each, as one record, and the `r_j` recurrence over it. The table of `c_k` read by every lane as Z3's Bernoulli table is. | To `t = 285`, 470 values of `Z`, the deepest at 64 places, the main sum at most six terms, the walk and the signs in seven seconds. Measured on the host at `u` = 1.2 and 2.6: the values take 138 to 195 bits at 1 to 8 places, 8 limbs, and 348 to 381 at 64 places, 16 limbs; their products take 391 to 517 bits, 16 or 32 limbs, and 1,019 to 1,075 at 64 places, 32 or 64 limbs. | host only | the `Psi` record and its recurrence as a record program |
 
 ## Open, not done
 
 - Entry 4 counts below `t = 123`, one value at a time on the host, in five minutes. The device
   program and its wants are the table above, and none of it is built.
 - Entry 5 reads `theta` and the Gram points on the host, and Z8 above is its device part, not built.
+- Entry 6 reads `Z` on the host, and Z9 above is its device part, not built. Every `C_n` is built
+  (entry 7), and `R` still stops at `c_5`: `R` to the series' own least term, and the exact remainder
+  in place of the series, are wanted, not built.
+- Entry 7's zeros of `C_n` are read on grids, and a count proven complete on `0 < z < 1` is wanted,
+  not built. Triangle cells 4 and 5 are running.
 - Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
-  Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin, and Riemann-Siegel is not built.
+  Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin across the strip, and entry 6
+  Riemann-Siegel on the line. Riemann-Siegel off the line, for entry 4's boxes, is not built.
   A computation there is a numerical observation at the places it reads, never a statement about all
   zeros.
 - Whether a non-trivial zero has a closed form in the constructors is a separate question from where
