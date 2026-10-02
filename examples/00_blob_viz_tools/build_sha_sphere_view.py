@@ -15,7 +15,7 @@
   --tau       conduction time the surface is left to smooth for. Default 0.0008.
   --degrees   highest harmonic degree carried. Default 48.
   --sweep     print the reading at several round counts and write no page.
-  --out       where to write. Default sha_sphere.html beside this script.
+  --out       where to write. Default: sha_sphere.html in build/view, through out_path.
 
 WHAT IS ON THE SPHERE
 

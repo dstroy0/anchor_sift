@@ -54,7 +54,7 @@ def trimmed(rows, places):
 
 def main():
     if not os.path.exists(SOURCE):
-        sys.stderr.write("no build/bench/sources.csv - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 sources\n")
+        sys.stderr.write("no build/bench/sources.csv - run bench_sac in build/bench with 18 45 64 sources\n")
         return 1
 
     packed = read()

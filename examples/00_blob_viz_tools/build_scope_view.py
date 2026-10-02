@@ -33,7 +33,7 @@ filter carries no multiple-comparison penalty. The number means anything for tha
     python examples/00_blob_viz_tools/build_scope_view.py --block 4 --out somewhere.html
 
   --block   which block of the corpus supplies the header. Default: 0, the newest.
-  --out     where to write. Default: scope_view.html beside this script.
+  --out     where to write. Default: scope_view.html in build/view, through out_path.
 """
 
 import argparse

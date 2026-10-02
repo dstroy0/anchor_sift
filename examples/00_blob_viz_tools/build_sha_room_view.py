@@ -12,7 +12,7 @@
   --shell     the room wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
   --core      the nested boundaries: sphere, cube, octahedron, cone. Default sphere.
   --source    the bench dump to read. Default build/bench/shadows.csv.
-  --out       where to write. Default sha_room_view.html beside this script.
+  --out       where to write. Default: sha_room_view.html in build/view, through out_path.
 
 WHAT THE OBJECT IS
 
@@ -267,7 +267,7 @@ def main():
         return 2
 
     if not os.path.exists(source):
-        sys.stderr.write("no %s yet - build src/engine/c/sha256/bench/bench_sac.cu into build/bench and run it there with 18 45 64 shadow\n" % source)
+        sys.stderr.write("no %s yet - run bench_sac in build/bench with 18 45 64 shadow\n" % source)
         return 1
 
     rows, seen = read_field(source, field)

@@ -167,7 +167,7 @@
     },
     {
       "builder": "build_orrery_view.py",
-      "builder_digest": "0f9b4ea3aef084244af89f730d42cdab1cc7f43d719532ecda2152e35506db57",
+      "builder_digest": "3c9e6b9839e8ac999df3168bca822b24369b9627cd0614259c0ce030fe60816e",
       "inline": false,
       "optional": [
         "settings"
@@ -187,7 +187,7 @@
     },
     {
       "builder": "build_plot_view.py",
-      "builder_digest": "e69da0e9652f2279e95522195c7d859875e36b97d988b35d667e44eec2a92d7b",
+      "builder_digest": "5983017ce6abce83342e874df7bc312afb0bc74e87f1b26afec11a0f99387fc1",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -219,7 +219,7 @@
     },
     {
       "builder": "build_room_view.py",
-      "builder_digest": "4127b0145006a21ab977676cdd21aa20716d4028c1477203656e53c4c604fba2",
+      "builder_digest": "c970ef03d1022ce4ff378bfc844b5b006e2ca06fa5319c1685c6468cb3157d6f",
       "inline": false,
       "optional": [
         "clock",
@@ -239,7 +239,7 @@
     },
     {
       "builder": "build_scope_view.py",
-      "builder_digest": "e2ddd46585dbc34467926800c35a4b38b0a6b36d4e246b8169cac1e1b1aad687",
+      "builder_digest": "9f0e9338f08141068faf606a2198f3aa8492a0d8c2391476aa6003cc2633c40c",
       "inline": false,
       "optional": [],
       "requires": [
@@ -259,7 +259,7 @@
     },
     {
       "builder": "build_sha_clock_view.py",
-      "builder_digest": "4189b9699371772245a0e6c7e83aa5cbdf120851c5fef958196fab60fbae636f",
+      "builder_digest": "8440feee09341ebe874ab39f520c662703efc8a62c5260e17671ff7954f48c2d",
       "inline": false,
       "optional": [
         "clock",
@@ -279,7 +279,7 @@
     },
     {
       "builder": "build_sha_pairs_view.py",
-      "builder_digest": "7a9ea7e7f38407f34b1f6e91bbd2b765e5cda232e1279b718bd92b2874542e51",
+      "builder_digest": "c69cbd3fb587ba4aa400a5938d1e3d85851b60eeadf14aa461bf4bb28cdb14ad",
       "inline": false,
       "optional": [],
       "requires": [
@@ -293,7 +293,7 @@
     },
     {
       "builder": "build_sha_room_view.py",
-      "builder_digest": "5b248c9d90374d6b940860d161e059110b0f6b3a7721dbb22b5329c8d68709ae",
+      "builder_digest": "ec591d95106fdc243edc7399ca7b2b404286908252fa29688841945b80f8189e",
       "inline": false,
       "optional": [
         "clock",
@@ -313,7 +313,7 @@
     },
     {
       "builder": "build_sha_sphere_view.py",
-      "builder_digest": "adb9ec1e3ab4175885391a299ac8cad6d0027e24b41dd1355a88a1002444370d",
+      "builder_digest": "465042a532d8081e3556a34a2c4eeeaf1ffac75f9b9ba1a6d7220ed5de4f07f7",
       "inline": false,
       "optional": [
         "schema",
@@ -337,7 +337,7 @@
     },
     {
       "builder": "build_shadow_view.py",
-      "builder_digest": "ffe3dd0dd8d07f309ef7e280927fef06f10325b762868765d784dcf104c7b0bb",
+      "builder_digest": "434f97192929534584d293ef15c1c9e0f587be3e74773ea25beaaf3aac28043e",
       "inline": false,
       "optional": [],
       "requires": [
@@ -382,7 +382,7 @@
     },
     {
       "builder": "build_sources_view.py",
-      "builder_digest": "6742a81ab1c22c8e42f45cbcf702ee15e225c07593f0aa52a2e33e63a5dec5aa",
+      "builder_digest": "f5ed94ba5a71752d3475b782e7445adaa54949fd4d33ed1809dba325e8763289",
       "inline": false,
       "optional": [
         "order"
@@ -494,7 +494,7 @@
     },
     {
       "builder": "build_voxel_view.py",
-      "builder_digest": "91c881826df5c7236d6212d385b9002009db043c9a03d171ef703138b11f4e06",
+      "builder_digest": "10616586c4cb2d5e122be919f6f4ee9630a267facdeac1573b7dc3383facd50b",
       "inline": false,
       "optional": [
         "depthLabel",

@@ -5,7 +5,7 @@
     python examples/00_blob_viz_tools/build_sha_pairs_view.py --out somewhere.html
 
   --message   the block to compress. Default the empty message, padded.
-  --out       where to write. Default sha_pairs_view.html beside this script.
+  --out       where to write. Default: sha_pairs_view.html in build/view, through out_path.
 
 WHAT IS DRAWN
 
