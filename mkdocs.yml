@@ -15,28 +15,53 @@ site_description: Measuring how far something sits from the most disordered arra
 site_url: https://dstroy0.github.io/orior/
 repo_url: https://github.com/dstroy0/orior
 repo_name: dstroy0/orior
+edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Douglas Quigg (dstroy0). AGPL-3.0-or-later, commercial, or educator license.
 
 theme:
   name: material
+  icon:
+    logo: material/sigma
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
+    - content.action.view
     - toc.follow
   palette:
     # The ledger is long and gets read at length. Both schemes are offered and neither is forced.
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Dark
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Light
+
+plugins:
+  - search
 
 markdown_extensions:
   # The ledger is full of inline and display math. Without arithmatex it renders as literal dollars.
@@ -44,19 +69,46 @@ markdown_extensions:
       generic: true
   - admonition
   - attr_list
+  - md_in_html
   - tables
   - toc:
       permalink: true
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
   - javascript/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
+extra_css:
+  - stylesheets/orior.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dstroy0/orior
+
 nav:
   - Home: index.md
-  - Setup: setup.md
-  - Using it: usage.md
-  - Why the count is exact: ENGINE_PROOF.md
-  - What those proofs license: ENGINE_DIRECTIONS.md
+  - Start:
+      - Setup: setup.md
+      - Using it: usage.md
+      - The algorithm: method.md
+  - Engine:
+      - The engine: engine.md
+      - "The language: gnascor": gnascor.md
+      - The sift: sift.md
+  - Proofs:
+      - Why the count is exact: ENGINE_PROOF.md
+      - What those proofs license: ENGINE_DIRECTIONS.md
+  - Research:
+      - Areas of research: research.md
+      - Where to start reading: research_papers.md
+      - The condition of use: condition_of_use.md
+  - Licensing: licensing.md
