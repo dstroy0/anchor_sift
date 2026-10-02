@@ -19,3 +19,5 @@ shapes/curve	shapes/curve.js	-	js
 shapes/surface	shapes/surface.js	shapes/curve	js
 shapes/field	shapes/field.js	-	js
 shapes/mesh	shapes/mesh.js	core/gpu	js
+core/watch	core/watch.js	core/clock	js
+ui/bar	ui/bar.js	-	js

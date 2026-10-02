@@ -819,12 +819,15 @@
   </div>
 </div>
 
-<script>/*CONTROL_BAR*/</script>
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<!--TOOL ui/bar-->
+<script>/*SCRIPT*/</script>
 <script>
   (function () {
     "use strict";
 
-    var DATA = /*VOXEL_DATA*/ null;
+    var DATA = /*DATA*/ null;
     if (!DATA || typeof THREE === "undefined") {
       return;
     }
@@ -1636,34 +1639,24 @@
       mesh.instanceColor.needsUpdate = true;
     }
 
-    // The loop runs only while something is actually moving. A still page costs nothing.
-    var animating = false;
-    function tick(now) {
-      if (
-        !marks.some(function (one) {
-          return one.effect !== "solid";
-        })
-      ) {
-        animating = false;
-        return;
+    // The loop runs only while something is actually moving. A still page costs nothing, and its
+    // loop sleeps until a mark that moves wakes it.
+    function moving() {
+      return marks.some(function (one) {
+        return one.effect !== "solid";
+      });
+    }
+    var colorLoop = EV.watchLoop("voxel view, marks", function (now) {
+      if (!moving()) {
+        return false;
       }
       paintColors(now);
       renderer.render(scene, camera);
-      requestAnimationFrame(tick);
-    }
+    });
     function startAnimating() {
-      if (animating) {
-        return;
+      if (moving()) {
+        colorLoop.wake();
       }
-      if (
-        !marks.some(function (one) {
-          return one.effect !== "solid";
-        })
-      ) {
-        return;
-      }
-      animating = true;
-      requestAnimationFrame(tick);
     }
 
     function build() {
@@ -2941,7 +2934,7 @@
     if (given("spin")) {
       var perFrame = (wanted.spin * TAU) / (60 * 60);
       var about = given("spinaxis") && wanted.spinaxis === "right" ? "right" : "up";
-      var turning = function () {
+      EV.watchLoop("voxel view, spin", function () {
         if (!dragging) {
           offset.applyAxisAngle(about === "up" ? upVec : screenRight(), perFrame);
           if (about === "right") {
@@ -2950,9 +2943,7 @@
           place();
           renderer.render(scene, camera);
         }
-        requestAnimationFrame(turning);
-      };
-      requestAnimationFrame(turning);
+      }).wake();
     }
 
     // The report line. A refusal is named; otherwise the keys the build set are listed, and an empty

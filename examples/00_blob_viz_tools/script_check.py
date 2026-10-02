@@ -1,27 +1,24 @@
-"""Does the page's own script parse? Asked of the template before a build, and of the build after.
+"""Does the page's own script parse, and is its frame loop watched? Asked of a template and of a built page.
 
     python examples/00_blob_viz_tools/script_check.py examples/00_blob_viz_tools/room_view_template.html
     python examples/00_blob_viz_tools/script_check.py --check
 
 THE DEFECT THIS EXISTS FOR
 
-The builders check one thing about the script: that the template did not leave a script tag
-open. A page whose tags balance and whose JavaScript does not parse builds
-without complaint, writes its file, prints its summary and reports its digest -- and then renders a
-blank canvas, because the whole script died on the first token that did not fit.
-
-Nothing in the tree caught that, and the only reader who would was a person opening the page. Every
-edit to a four thousand line template was therefore one typo away from a silent blank page, found
-only by looking, and nobody looks once the builder has said it succeeded.
+A builder checks one thing about the script: that the template did not leave a script tag open. A
+page whose tags balance and whose JavaScript does not parse builds without complaint, writes its
+file, prints its summary and reports its digest, and then renders a blank canvas, because the whole
+script dies on the first token that does not fit. Without this check the only reader who catches
+that is a person opening the page, and nobody looks once the builder has said it succeeded.
 
 WHAT IT DOES
 
 Pulls the inline script bodies out of the page and hands each to node --check, which parses without
 executing. Nothing runs, nothing is fetched, and the browser globals the script wants are never
-touched -- a parse does not need them.
+touched; a parse does not need them.
 
-A page with no inline script passes and says so. A missing node is reported and not silently
-treated as a pass, because a check that cannot run is not a check that succeeded.
+A page with no inline script passes and says so. A missing node is reported and never treated as a
+pass, because a check that cannot run is not a check that succeeded.
 """
 
 import io
@@ -30,6 +27,8 @@ import re
 import subprocess
 import sys
 import tempfile
+
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -46,16 +45,16 @@ PLACEHOLDER = re.compile(r"/\*[A-Z][A-Z0-9_]*\*/(?!\s*null\b)")
 
 
 def filled(source):
-    """The template with its data placeholders replaced by a literal. It can be parsed.
+    """The template with its placeholders replaced by a literal. It can be parsed.
 
-    A builder writes `const DATA = /*DATA*/;` and substitutes JSON at build time. Until then the
-    template is not valid JavaScript, and node refuses it with "Unexpected token ';'". A template
-    reported as failing for that reason hides any real syntax error elsewhere in it.
+    A template's script slot, `/*SCRIPT*/`, and a data marker written without its null are not
+    valid JavaScript until a build fills them, and node refuses them with "Unexpected token". A
+    template reported as failing for that reason hides any real syntax error elsewhere in it.
 
     Substituting `null` gives the parser the shape the built page has. A marker that already carries
-    its own `null`, as `/*ROOM_DATA*/ null` does, parses as it stands and is left alone. A
-    placeholder inside a string or a comment is substituted too. That can only turn a passing
-    template into a failing one, which shows up loudly, and never hides a failure.
+    its own `null`, as `/*DATA*/ null` does, parses as it stands and is left alone. A placeholder
+    inside a string or a comment is substituted too. That can only turn a passing template into a
+    failing one, which shows up loudly, and never hides a failure.
     """
     return PLACEHOLDER.sub("null", source)
 
@@ -94,18 +93,18 @@ def parses(source):
 #
 # Both declarations hoist. The function is bound first, then the var's assignment runs at load and
 # leaves its value sitting where the function was. The first call throws. The script parses, the
-# page builds, the builder prints its digest, and the frame loop dies on its first turn -- after
+# page builds, the builder prints its digest, and the frame loop dies on its first turn, after
 # setup has already drawn one frame. The result is a page that renders once and looks like a working
 # page with a feature that does nothing, when what does nothing is every feature after the throw.
 #
-# It happened here with a name as ordinary as `side`: a Vector3 near the top and an orientation test
-# two thousand lines below it, in one scope, with nothing between them to make the collision visible.
+# A name as ordinary as `side` does it: a Vector3 near the top and an orientation test two thousand
+# lines below it, in one scope, with nothing between them to make the collision visible.
 TOP_VAR = re.compile(r"^var\s+(\w+)\s*=")
 TOP_FUNC = re.compile(r"^function\s+(\w+)\s*\(")
 
 
 def collisions(source):
-    """Names declared at the top level as both a var and a function, and duplicate functions.
+    """Names declared at the top level as both a var and a function.
 
     Only column-zero declarations count. Anything indented is inside something, and a shadowed name
     there is a scope.
@@ -119,11 +118,7 @@ def collisions(source):
             continue
         found = TOP_FUNC.match(line)
         if found:
-            name = found.group(1)
-            if name in seen_func:
-                seen_func[name] = seen_func[name]
-            else:
-                seen_func[name] = at + 1
+            seen_func.setdefault(found.group(1), at + 1)
     out = []
     for name, at in sorted(seen_func.items(), key=lambda pair: pair[1]):
         if name in seen_var:
@@ -131,37 +126,79 @@ def collisions(source):
     return out
 
 
-# Is the frame loop watched?
+# Is every frame loop watched?
 #
 # WHAT THIS CANNOT DO, said first so the check is not mistaken for more than it is. A page is only
-# proved to run by running it, and this tool does not have a browser. So it cannot tell you the loop
-# turns. What it can tell you is that the machinery which WOULD report a dead loop is still present
-# and still wired, and that wiring is the part a refactor silently drops.
+# proved to run by running it, and this tool does not have a browser. It cannot tell you the loop
+# turns. It can tell you that the machinery which reports a dead loop is present and wired, and that
+# wiring is the part a refactor drops without a sound.
 #
-# The runtime half lives in the page: a counter per completed turn, a guard that catches and names a
-# throw instead of letting it kill the scheduler, a watchdog that fails if fewer than two turns
-# complete, and window.__loopHealth for a harness to read in one call. Two turns and not one,
-# because one turn is what a dead loop produces -- setup draws a frame, the first turn throws,
-# and the result is a complete correct still picture that passes every other check in this file.
+# The runtime half is the toolbox's core/watch: it counts turns, catches and names a throw instead of
+# letting it kill the scheduler, fails a loop that turns fewer than twice, and keeps
+# window.__loopHealth for a harness to read in one call. Two turns and not one, because one turn is
+# what a dead loop produces: setup draws a frame, the first turn throws, and the result is a
+# complete, correct still picture that passes every other check in this file.
 #
-# Verified against a page with a deliberate throw injected after the first turn: it reports
-# ok false, turns 1, and shows the error on screen. A guard nobody has seen fire is a guard nobody
-# has tested.
-LOOP_PARTS = (
-    ("a frame loop", "function turn()"),
-    ("a turn counter", "loopTurns"),
-    ("a guard around the loop", "guardedTurn"),
-    ("a watchdog timer", "LOOP_WATCH_MS"),
-    ("a reported failure", "loopFailed"),
-    ("a machine-readable result", "__loopHealth"),
-)
+# A loop is found by what it does and never by its name. The page's own code schedules a frame with
+# requestAnimationFrame or EV.nextTurn, or hands a step to EV.watchLoop. A page's loops are watched
+# when its own code never schedules a frame itself, hands each loop to EV.watchLoop, and the page
+# carries core/watch: through a TOOL line in a template, or under its toolbox label in a built page.
+# The toolbox's own pieces are not the page's code. The watch schedules frames, and frames are
+# scheduled there and nowhere else.
+SCHEDULES = re.compile(r"\b(?:requestAnimationFrame|nextTurn)\s*\(")
+WATCHES = re.compile(r"\bwatchLoop\s*\(")
+WATCH = "core/watch"
+PIECE = re.compile(r"^// ---- (.+?) ----$", re.MULTILINE)
 
 
-def loop_guard(source):
-    """Which parts of the loop watch are missing, for a page that has a frame loop at all."""
-    if "function turn()" not in source:
-        return None
-    return [name for name, token in LOOP_PARTS if token not in source]
+def own_code(source):
+    """The script with every toolbox piece a build inlined taken out: the page's own code."""
+    kept = []
+    at = 0
+    label = None
+    for found in PIECE.finditer(source):
+        if label is None or not label.startswith("toolbox/"):
+            kept.append(source[at:found.start()])
+        label = found.group(1)
+        at = found.end()
+    if label is None or not label.startswith("toolbox/"):
+        kept.append(source[at:])
+    return "".join(kept)
+
+
+def page_tools(text):
+    """The toolbox tools a page carries: named in a template's TOOL lines with everything they
+    require, or found under their labels in a built page."""
+    named = set()
+    tools = generate_template.load_manifest()
+    by_file = {"toolbox/" + tool["file"]: name for name, tool in tools.items()}
+    for found in generate_template.DIRECTIVE.finditer(text):
+        if found.group(1) == "TOOL" and found.group(2) in tools:
+            named.update(generate_template.expand(found.group(2), tools, [], set()))
+    for found in generate_template.TOOL_LABEL.finditer(text):
+        if found.group(1) in by_file:
+            named.add(by_file[found.group(1)])
+    return named
+
+
+def line_of(text, at):
+    return text.count("\n", 0, at) + 1
+
+
+def loop_watch(text):
+    """(state, findings) for a whole page: state is "none", "watched" or "unwatched"."""
+    code = "\n".join(own_code(body) for body in bodies(text))
+    scheduled = [line_of(code, found.start()) for found in SCHEDULES.finditer(code)]
+    watched = WATCHES.search(code) is not None
+    if not scheduled and not watched:
+        return "none", []
+    findings = []
+    if scheduled:
+        findings.append("the page's own code schedules frames itself, outside the watch, at script line(s) %s"
+                        % ", ".join(str(one) for one in scheduled[:6]))
+    if watched and WATCH not in page_tools(text):
+        findings.append("EV.watchLoop is called and the page does not carry %s" % WATCH)
+    return ("unwatched" if findings else "watched"), findings
 
 
 BUILT = os.path.join(os.path.dirname(os.path.dirname(HERE)), "build", "view")
@@ -217,20 +254,33 @@ def check_built(path):
                 lines.append("      %s" % row)
             lines.append("      the template parses, so this is what the builder SUBSTITUTED")
             failed += 1
+    failed += report_loop(body, lines, "    ")
     sys.stdout.write("\n".join(lines) + "\n")
     return failed
 
 
-def check(path):
-    with io.open(path, encoding="utf-8", newline="") as handle:
-        text = handle.read()
+def report_loop(text, lines, indent):
+    state, findings = loop_watch(text)
+    if state == "none":
+        lines.append("%sno frame loop, so none to watch" % indent)
+        return 0
+    if state == "watched":
+        lines.append("%severy frame loop runs under the watch, and a dead loop reports itself" % indent)
+        return 0
+    lines.append("%sLOOP UNWATCHED:" % indent)
+    for finding in findings:
+        lines.append("%s  %s" % (indent, finding))
+    lines.append("%s  a loop that dies here renders one correct frame and passes every other check" % indent)
+    return 1
 
+
+def check_text(text, name):
+    """(lines, failed) for one template's text."""
     found = bodies(text)
-    lines = ["  %s" % os.path.basename(path)]
+    lines = ["  %s" % name]
     if not found:
         lines.append("  no inline script, nothing to parse")
-        sys.stdout.write("\n".join(lines) + "\n\n0 check(s) failed\n")
-        return 0
+        return lines, 0
 
     failed = 0
     for at, source in enumerate(found):
@@ -247,31 +297,26 @@ def check(path):
                 lines.append("    %s" % row)
             failed += 1
 
-        missing = loop_guard(source)
-        if missing is None:
-            lines.append("  block %d has no frame loop, so none to watch" % (at + 1))
-        elif missing:
-            lines.append("  block %d LOOP UNWATCHED, missing: %s" % (at + 1, ", ".join(missing)))
-            lines.append("    a loop that dies here renders one correct frame and passes every")
-            lines.append("    other check in this file")
-            failed += 1
-        else:
-            lines.append("  block %d loop is watched, and a dead loop reports itself" % (at + 1))
-
-        for name, var_at, func_at in collisions(source):
+        for clash, var_at, func_at in collisions(source):
             lines.append("  block %d COLLISION on '%s': var at line %d, function at line %d"
-                         % (at + 1, name, var_at, func_at))
+                         % (at + 1, clash, var_at, func_at))
             lines.append("    both hoist, the assignment wins, and the first call throws")
             failed += 1
+    failed += report_loop(text, lines, "  ")
+    return lines, failed
 
+
+def check(path):
+    with io.open(path, encoding="utf-8", newline="") as handle:
+        text = handle.read()
+    lines, failed = check_text(text, os.path.basename(path))
     sys.stdout.write("\n".join(lines) + "\n\n")
     sys.stdout.write("%d check(s) failed\n" % failed)
     return failed
 
 
-# The fault this tool exists for, written out. The tool is asked to find it before it is trusted
-# on anything else. A checker that has never caught its own defect is a checker nobody has tested,
-# and the whole point of the collision above is that it is invisible without one.
+# The faults this tool exists for, written out. The tool is asked to find each before it is trusted
+# on anything else. A checker that has never caught its own defect is a checker nobody has tested.
 KNOWN_CLASH = "\n".join((
     "var side = 1;",
     "function elsewhere() { return 2; }",
@@ -284,49 +329,55 @@ KNOWN_CLEAN = "\n".join((
     "function holder() { var side = 3; return side; }",
 ))
 
+# A loop under a name that is not turn, scheduling itself: unwatched, and found by what it does.
+LOOSE_LOOP = ("<script>\nfunction spinOnce(now) { draw(now); requestAnimationFrame(spinOnce); }\n"
+              "requestAnimationFrame(spinOnce);\n</script>\n")
+# The same step under the watch, in a template that names the tool.
+WATCHED_LOOP = ("<!--NAMESPACE EV-->\n<!--TOOL core/watch-->\n<script>/*SCRIPT*/</script>\n"
+                "<script>\nfunction spinOnce(now) { draw(now); }\nEV.watchLoop(\"sample\", spinOnce).wake();\n</script>\n")
+# The watch called with the tool left out.
+UNTOOLED_LOOP = "<script>\nEV.watchLoop(\"sample\", function () {}).wake();\n</script>\n"
+# A built page: the watch's own scheduling sits inside its toolbox piece and is not the page's code.
+BUILT_LOOP = ("<script>const EV = {};\n// ---- toolbox/core/clock.js ----\n"
+              "EV.nextTurn = (vsync, turn) => requestAnimationFrame(turn);\n"
+              "// ---- toolbox/core/watch.js ----\nEV.watchLoop = (label, step) => ({ wake: () => EV.nextTurn(true, step) });\n"
+              "// ---- end ----\nEV.watchLoop(\"sample\", () => {}).wake();\n</script>\n")
+
 
 def _check():
     lines = []
     failed = 0
 
-    # The known positive, first. Nothing below is worth reading if this comes back empty.
+    def expect(label, ok):
+        nonlocal failed
+        lines.append("  %s%s" % ("" if ok else "FAIL ", label))
+        if not ok:
+            failed += 1
+
     clash = collisions(KNOWN_CLASH)
-    lines.append("  the known collision: %d found" % len(clash))
-    if len(clash) != 1 or clash[0][0] != "side":
-        lines.append("    FAIL the tool did not find the fault it was written for")
-        failed += 1
-    else:
-        lines.append("    'side' as a var at line %d and a function at line %d, which is the shape"
-                     % (clash[0][1], clash[0][2]))
+    expect("the known collision is found: %s" % [one[0] for one in clash], len(clash) == 1 and clash[0][0] == "side")
+    expect("a scoped shadow and a near miss stay quiet", collisions(KNOWN_CLEAN) == [])
 
-    # The known negative. A near miss and a properly scoped shadow must both stay quiet, or every
-    # real finding arrives buried in ones that are not.
-    quiet = collisions(KNOWN_CLEAN)
-    lines.append("  the known clean sample: %d found" % len(quiet))
-    if quiet:
-        lines.append("    FAIL a scoped shadow or a near miss was reported as a collision")
-        failed += 1
-    else:
-        lines.append("    an indented shadow is a scope and a similar name is not a collision")
-
-    # THE PLACEHOLDER SUBSTITUTION NEEDS ITS OWN PAIR OF CONTROLS, because it could hide a genuine
-    # error. A template that is unparseable only because of the placeholder must pass, and one that
-    # carries a placeholder AND a real syntax error must still fail.
-    benign = "const DATA = /*DATA*/;\nfunction go() { return DATA; }\n"
+    # The placeholder substitution could hide a genuine error. A template unparseable only because of
+    # its placeholders must pass, and one carrying a placeholder and a real syntax error must fail.
+    benign = "/*SCRIPT*/\nconst DATA = /*DATA*/;\nfunction go() { return DATA; }\n"
     ok, why = parses(filled(benign))
-    lines.append("  a placeholder-only template parses once filled: %s" % (ok is True))
-    if ok is not True:
-        lines.append("    FAIL filling the placeholder did not make a valid template parse: %s"
-                     % why)
-        failed += 1
-
-    broken = "const DATA = /*DATA*/;\nfunction go() { return DATA; ;;) }\n"
+    expect("a template with only its slots unfilled parses once filled", ok is True)
+    broken = "/*SCRIPT*/\nconst DATA = /*DATA*/;\nfunction go() { return DATA; ;;) }\n"
     ok, why = parses(filled(broken))
-    lines.append("  a real syntax error survives the filling and still fails: %s" % (ok is False))
-    if ok is not False:
-        lines.append("    FAIL the substitution masked a genuine syntax error, so it traded one")
-        lines.append("         blind spot for another")
-        failed += 1
+    expect("a real syntax error survives the filling and still fails", ok is False)
+
+    state, found = loop_watch(LOOSE_LOOP)
+    expect("a loop named spinOnce that schedules itself is unwatched: %s" % state, state == "unwatched")
+    state, found = loop_watch(WATCHED_LOOP)
+    expect("the same step under EV.watchLoop, the tool named, is watched: %s" % state, state == "watched")
+    state, found = loop_watch(UNTOOLED_LOOP)
+    expect("EV.watchLoop without core/watch on the page is unwatched: %s" % state, state == "unwatched")
+    state, found = loop_watch(BUILT_LOOP)
+    expect("frames scheduled inside the toolbox's own pieces are the watch's, not the page's: %s" % state,
+           state == "watched")
+    state, found = loop_watch("<script>\nvar x = 1;\n</script>\n")
+    expect("a page with no loop has none to watch: %s" % state, state == "none")
 
     lines.append("")
     sys.stdout.write("\n".join(lines) + "\n")

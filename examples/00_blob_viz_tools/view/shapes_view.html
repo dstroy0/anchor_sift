@@ -1,0 +1,2192 @@
+<!doctype html>
+<!--
+orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+The shapes gallery: every shape the toolbox makes, drawn on the shared core under the shared controls. Every
+surface under every transform, the Hilbert and Morton curves as the paths they trace, and a harmonic field painted
+on any of them or raised from it. generate_template.py builds it through build_shapes_view.py.
+-->
+<html lang="en" data-theme="dark" data-face="human">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Shapes</title>
+<style>
+/* ---- toolbox/theme.css ---- */
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The look every page shares, and the one set of controls: buttons, number fields, selects, sliders, switches,
+   rows, sections, tables and notes. A page sets data-theme and data-face on its root and adds rules for its own
+   elements after these. Color is soft electric light on a cold dark ground: a blue that runs into violet and fades
+   to nothing marks an edge, a filled slider and a chosen button. The status colors are the Okabe-Ito set and stay
+   apart from it, because they carry data. Every size sits on a 4 px grid. */
+  :root {
+    --void: #04060c;
+    --page: var(--void);
+    --ink: #e4eaff;
+    --ink-hi: #f6f8ff;
+    --thumb: #8eaee0;
+    --thumb-hi: #d6e4ff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 16%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 35%, transparent);
+    --dim: #8c96b6;
+    --faint: #59627e;
+    --blue: #5ccbff;
+    --mint: #5effb4;
+    --violet: #a68cff;
+    --good: #009e73; --warn: #e69f00; --bad: #d55e00;
+    --accent: var(--blue); --on-accent: var(--ink-hi);
+    --hair: rgba(150, 175, 255, 0.13);
+    --hair-hi: rgba(150, 175, 255, 0.24);
+    --control: rgba(70, 140, 255, 0.045);
+    --control-hi: rgba(80, 160, 255, 0.085);
+    --control-edge: rgba(92, 170, 255, 0.16);
+    --control-ink: #bccbef;
+    --track: rgba(150, 175, 255, 0.14);
+    --glass-top: rgba(18, 23, 40, var(--sheer, 0.9));
+    --glass-low: rgba(9, 12, 22, var(--sheer, 0.9));
+    --panel: var(--glass-low);
+    --edge: var(--hair-hi);
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.035) inset, 0 20px 44px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.35);
+    --glow: 0 0 14px -3px color-mix(in oklab, var(--blue) 60%, transparent);
+    --seam: linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 75%, transparent) 18%, color-mix(in oklab, var(--violet) 55%, transparent) 52%, transparent 100%);
+    --text: 12px; --panel-w: 296px; --side-w: 300px;
+    --font: ui-sans-serif, system-ui, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+    --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+    color-scheme: dark;
+    accent-color: var(--blue);
+  }
+  :root[data-theme="light"] {
+    --void: #eef2fa;
+    --ink: #121a30; --ink-hi: #060a18; --dim: #56607c; --faint: #8a93ad;
+    --thumb: #ffffff;
+    --thumb-hi: #ffffff;
+    --thumb-ring: color-mix(in oklab, var(--blue) 30%, transparent);
+    --thumb-glow: color-mix(in oklab, var(--blue) 22%, transparent);
+    --blue: #0a86d8; --mint: #0aa66a; --violet: #6a4ee6;
+    --hair: rgba(40, 60, 120, 0.12); --hair-hi: rgba(40, 60, 120, 0.22);
+    --control: rgba(20, 110, 220, 0.05); --control-hi: rgba(20, 110, 220, 0.09); --track: rgba(40, 60, 120, 0.14);
+    --control-edge: rgba(20, 110, 220, 0.2); --control-ink: #24345a;
+    --glass-top: rgba(255, 255, 255, var(--sheer, 0.92)); --glass-low: rgba(244, 247, 253, var(--sheer, 0.92));
+    --shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 18px 40px -22px rgba(20, 30, 70, 0.35), 0 0 0 1px rgba(20, 30, 70, 0.06);
+    --glow: 0 0 12px -4px color-mix(in oklab, var(--blue) 45%, transparent);
+    color-scheme: light;
+  }
+  :root[data-face="machine"] { --font: var(--mono); }
+
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--page); color: var(--ink); font: var(--text)/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+  ::selection { background: color-mix(in oklab, var(--blue) 35%, transparent); }
+
+  /* The glass every floating surface is made of, with the fading seam along its top edge. */
+  .box, .glass {
+    position: fixed; box-sizing: border-box; padding: 10px 12px; border-radius: 12px;
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border: 1px solid var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+    max-height: calc(100vh - 120px); overflow: auto;
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .box:not(:hover):not(:focus-within), .glass:not(:hover):not(:focus-within) { scrollbar-color: transparent transparent; }
+  .box h4 { margin: 0 0 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); cursor: move; user-select: none; }
+
+  /* A row: its label, its control, and the value the control holds, on the same three columns everywhere. */
+  .row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 48px; align-items: center; column-gap: 8px; min-height: 24px; }
+  .row > label, .row > .label { color: var(--dim); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row > :nth-child(2):last-child { grid-column: 2 / 4; }
+  .row .val, .row output { text-align: right; font-size: 11.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .row .inline { display: flex; align-items: center; gap: 4px; min-width: 0; }
+  .row .inline > select { flex: 1; min-width: 0; }
+  .switches { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; row-gap: 2px; padding: 2px 0; }
+  .switches > :only-child { grid-column: 1 / -1; }
+  .check { display: inline-flex; align-items: center; gap: 8px; min-height: 24px; color: var(--ink); font-size: 11.5px; cursor: pointer; user-select: none; }
+
+  /* Buttons. */
+  button {
+    height: 26px; padding: 0 10px; border-radius: 7px; border: 1px solid var(--control-edge); background: var(--control);
+    color: var(--control-ink); font: 500 11.5px/1 var(--font); letter-spacing: 0.005em; cursor: pointer;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease), box-shadow 160ms var(--ease), color 120ms var(--ease);
+  }
+  button:hover { border-color: color-mix(in oklab, var(--blue) 38%, transparent); background: var(--control-hi); color: var(--ink); }
+  button:active { transform: translateY(0.5px); }
+  button:disabled { opacity: 0.4; cursor: default; border-color: var(--hair); background: var(--control); }
+  button.on {
+    color: var(--ink); border-color: color-mix(in oklab, var(--blue) 42%, transparent);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--blue) 16%, transparent), color-mix(in oklab, var(--violet) 8%, transparent));
+    box-shadow: 0 0 12px -5px color-mix(in oklab, var(--blue) 55%, transparent), 0 0 0 1px color-mix(in oklab, var(--blue) 10%, transparent) inset;
+  }
+  button.icon { width: 26px; padding: 0; display: inline-grid; place-items: center; font-size: 12px; }
+
+  /* Fields and selects. */
+  select, input[type=number], input[type=text], textarea {
+    box-sizing: border-box; height: 26px; padding: 0 8px; border-radius: 7px; border: 1px solid var(--hair);
+    background-color: var(--control); color: var(--ink); font: 11.5px/1 var(--font); font-variant-numeric: tabular-nums;
+    transition: border-color 120ms var(--ease), background-color 120ms var(--ease);
+  }
+  textarea { height: auto; padding: 8px; line-height: 1.45; font-family: var(--mono); }
+  select {
+    appearance: none; -webkit-appearance: none; padding-right: 24px; min-width: 0; cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%);
+    background-position: right 12px center, right 8px center; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat;
+  }
+  select option { background: var(--void); color: var(--ink); }
+  select:hover, input[type=number]:hover, input[type=text]:hover, textarea:hover { border-color: color-mix(in oklab, var(--blue) 40%, transparent); background-color: var(--control-hi); }
+
+  /* Sliders: the track is a stroke that fades to nothing at both ends, the fill rises out of nothing and is
+     brightest under the thumb, and the thumb carries its own light. */
+  input[type=range] {
+    --fill: 0%; appearance: none; -webkit-appearance: none; width: 100%; min-width: 0; height: 20px; margin: 0;
+    background: transparent; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 4px; border-radius: 2px;
+    background:
+      linear-gradient(90deg, transparent 0, color-mix(in oklab, var(--blue) 45%, transparent) calc(var(--fill) * 0.55), var(--blue) var(--fill), transparent var(--fill)),
+      radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%);
+  }
+  input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: radial-gradient(ellipse 50% 100% at 50% 50%, var(--track) 0, var(--track) 55%, transparent 100%); }
+  input[type=range]::-moz-range-progress { height: 4px; border-radius: 2px; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--blue) 45%, transparent) 55%, var(--blue)); }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 12px; height: 12px; margin-top: -4px; border-radius: 50%; border: 0;
+    background: var(--thumb); box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+    transition: box-shadow 140ms var(--ease), transform 140ms var(--ease), background-color 140ms var(--ease);
+  }
+  input[type=range]:hover::-moz-range-thumb, input[type=range]:active::-moz-range-thumb { background: var(--thumb-hi); }
+  input[type=range]::-moz-range-thumb {
+    width: 12px; height: 12px; border-radius: 50%; border: 0; background: var(--thumb);
+    box-shadow: 0 0 0 2px var(--thumb-ring), 0 0 8px var(--thumb-glow);
+  }
+  input[type=range]:hover::-webkit-slider-thumb, input[type=range]:active::-webkit-slider-thumb { transform: scale(1.12); background: var(--thumb-hi); box-shadow: 0 0 0 3px var(--thumb-ring), 0 0 12px color-mix(in oklab, var(--blue) 55%, transparent); }
+  input[type=range]:disabled { opacity: 0.35; cursor: default; }
+
+  /* Switches: a checkbox drawn as a track and a knob. A checked switch lights from blue into mint. */
+  input[type=checkbox] {
+    appearance: none; -webkit-appearance: none; flex: 0 0 auto; position: relative; width: 26px; height: 14px; margin: 0;
+    border-radius: 7px; border: 1px solid var(--hair-hi); background: var(--track); cursor: pointer;
+    transition: background-color 160ms var(--ease), border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+  }
+  input[type=checkbox]::before {
+    content: ""; position: absolute; top: 1px; left: 1px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--dim); transition: transform 180ms var(--ease), background-color 160ms var(--ease);
+  }
+  input[type=checkbox]:checked {
+    border-color: color-mix(in oklab, var(--mint) 50%, transparent);
+    background: linear-gradient(90deg, color-mix(in oklab, var(--blue) 45%, transparent), color-mix(in oklab, var(--mint) 55%, transparent));
+    box-shadow: 0 0 10px -3px color-mix(in oklab, var(--mint) 70%, transparent);
+  }
+  input[type=checkbox]:checked::before { transform: translateX(12px); background: var(--thumb); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+  input[type=checkbox][data-tone]:checked { background: color-mix(in oklab, var(--tone) 55%, transparent); border-color: color-mix(in oklab, var(--tone) 70%, transparent); box-shadow: 0 0 10px -3px var(--tone); }
+  input[data-tone="good"] { --tone: var(--good); } input[data-tone="warn"] { --tone: var(--warn); } input[data-tone="bad"] { --tone: var(--bad); }
+  input[data-tone="none"] { --tone: var(--dim); }
+
+  :focus-visible { outline: 2px solid color-mix(in oklab, var(--blue) 80%, transparent); outline-offset: 2px; }
+  input[type=range]:focus-visible { outline-offset: 0; border-radius: 4px; }
+
+  /* Sections that fold, each under its own title. */
+  details.section { border-top: 1px solid var(--hair); }
+  details.section:first-of-type { border-top: 0; }
+  details.section > summary {
+    list-style: none; display: flex; align-items: center; gap: 8px; height: 30px; cursor: pointer; user-select: none;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink);
+  }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::after {
+    content: ""; margin-left: auto; width: 5px; height: 5px; border-right: 1.5px solid var(--dim); border-bottom: 1.5px solid var(--dim);
+    transform: rotate(-45deg); transition: transform 180ms var(--ease);
+  }
+  details.section[open] > summary::after { transform: translateY(-2px) rotate(45deg); }
+  details.section > summary:hover { color: var(--ink-hi); }
+  details.section > .rows { display: grid; row-gap: 4px; padding: 0 0 10px; }
+
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+  td { padding: 3px 4px; vertical-align: top; border-top: 1px solid color-mix(in oklab, var(--hair) 60%, transparent); }
+  tr:first-child td { border-top: 0; }
+  td:first-child { color: var(--dim); white-space: nowrap; padding-left: 0; }
+  td:last-child { padding-right: 0; }
+  td.num { text-align: right; }
+  .note { color: var(--dim); margin: 4px 0; font-size: 11px; line-height: 1.5; }
+  .bad { color: var(--bad); }
+  .good { color: var(--good); }
+  .warn { color: var(--warn); }
+  :root[data-face="human"] .machine-only { display: none !important; }
+  :root[data-face="machine"] .human-only { display: none !important; }
+  [hidden] { display: none !important; }
+
+  @media (pointer: coarse) {
+    button, select, input[type=number] { height: 32px; }
+    button.icon { width: 32px; }
+    .row { min-height: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+  }
+  @media (forced-colors: active) {
+    .box, .glass { border-color: CanvasText; }
+    button.on { outline: 2px solid Highlight; }
+    input[type=checkbox] { appearance: auto; }
+  }
+
+/* ---- toolbox/ui/toolbar.css ---- */
+/* orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+   SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+   The floating toolbar EV.toolbar emits. Closed, it is its menu button alone. Open, its glass grows out of that
+   button, across and down, to the toolbar's full size; closing runs the same way back. Nothing inside it scrolls
+   or shows a scrollbar while it is closed. */
+  .toolbar {
+    --button: 34px;
+    position: fixed; top: 12px; z-index: 6; box-sizing: border-box; width: var(--panel-w);
+    max-height: calc(100vh - 24px); display: flex; flex-direction: column; border-radius: 12px;
+    border: 1px solid transparent; background: transparent; box-shadow: none;
+    clip-path: inset(0 calc(100% - var(--button)) calc(100% - var(--button)) 0 round 10px);
+    transition: clip-path 300ms var(--ease), background-color 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+  }
+  .toolbar[data-corner="top-left"] { left: 12px; }
+  .toolbar[data-corner="top-right"] { right: 12px; clip-path: inset(0 0 calc(100% - var(--button)) calc(100% - var(--button)) round 10px); }
+  .toolbar[data-corner="top-right"] .toolbar-head { flex-direction: row-reverse; }
+  .toolbar.open {
+    clip-path: inset(0 0 0 0 round 12px);
+    background: var(--seam) top / 100% 1px no-repeat, linear-gradient(180deg, var(--glass-top), var(--glass-low));
+    border-color: var(--hair); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  .toolbar-head { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; height: var(--button); }
+  .toolbar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.01em; color: var(--ink); opacity: 0; transition: opacity 160ms var(--ease); }
+  .toolbar.open .toolbar-title { opacity: 1; transition-delay: 120ms; }
+
+  /* The menu button keeps its own glass: closed, it reads as a whole button. Its three lines turn into a cross. */
+  .toolbar-button {
+    position: relative; flex: 0 0 auto; width: var(--button); height: var(--button); margin: -1px; padding: 0; border-radius: 10px;
+    border: 1px solid var(--hair); background: linear-gradient(180deg, var(--glass-top), var(--glass-low)); box-shadow: var(--shadow);
+    backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+  .toolbar.open .toolbar-button { background: transparent; box-shadow: none; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .toolbar-button:hover { border-color: color-mix(in oklab, var(--blue) 45%, transparent); box-shadow: var(--shadow), var(--glow); }
+  .toolbar-button span {
+    position: absolute; left: 10px; right: 10px; height: 1.5px; border-radius: 1px; background: var(--ink);
+    transition: transform 260ms var(--ease), opacity 160ms var(--ease), background-color 160ms var(--ease);
+  }
+  .toolbar-button span:nth-child(1) { top: 11px; }
+  .toolbar-button span:nth-child(2) { top: 16px; background: linear-gradient(90deg, var(--blue), var(--violet)); }
+  .toolbar-button span:nth-child(3) { top: 21px; }
+  .toolbar.open .toolbar-button span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .toolbar.open .toolbar-button span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
+  .toolbar.open .toolbar-button span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  .toolbar-body {
+    flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 4px 12px 2px; opacity: 0;
+    transition: opacity 180ms var(--ease);
+    scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--blue) 28%, transparent) transparent;
+  }
+  .toolbar.open .toolbar-body { overflow-y: auto; opacity: 1; transition-delay: 90ms; scrollbar-color: transparent transparent; }
+  .toolbar.open:hover .toolbar-body, .toolbar.open:focus-within .toolbar-body { scrollbar-color: color-mix(in oklab, var(--blue) 30%, transparent) transparent; }
+  .toolbar:not(.open) .toolbar-body { visibility: hidden; transition: opacity 120ms var(--ease), visibility 0s linear 300ms; }
+
+  @media (max-width: 760px) {
+    .toolbar { width: calc(100vw - 24px); }
+  }
+
+/* ---- end ---- */
+  canvas#view { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: none; cursor: grab; }
+  canvas#view:active { cursor: grabbing; }
+  #readout { left: 12px; bottom: 12px; width: min(420px, calc(100vw - 24px)); max-height: none; overflow: visible; z-index: 4; }
+  #readout h4 { cursor: default; margin-bottom: 2px; font-size: 13px; }
+  #readout .note { margin: 0 0 6px; }
+  #readout .stats { display: flex; gap: 14px; color: var(--dim); font-size: 11px; font-variant-numeric: tabular-nums; }
+  #loopAlarm { position: fixed; left: 50%; top: 24px; transform: translateX(-50%); background: var(--bad); color: #fff; padding: 6px 12px; border-radius: 6px; z-index: 9; }
+  #refused { color: var(--bad); }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div class="glass" id="readout">
+  <h4 id="shapeLabel"></h4>
+  <p class="note" id="shapeNote"></p>
+  <p class="note" id="refused" hidden></p>
+  <div class="stats"><span id="samples"></span><span id="rate"></span></div>
+</div>
+<div id="loopAlarm" hidden></div>
+<script type="module">
+const EV = {};
+// ---- toolbox/ui/toolbar.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The floating toolbar emitter. A page hands EV.toolbar a spec and gets back one toolbar in a corner: a menu button
+// that opens it, and folding sections of rows. Every control is emitted with the id the spec gives it, and the page
+// binds its controls by id as it would hand-written markup. A slider's value shows in an output whose id is the
+// slider's id followed by "Out".
+//
+//   EV.toolbar({ id, title, corner: "top-left" | "top-right", open, onToggle(open), sections: [
+//     { title, open, rows: [
+//       { range: id, label, min, max, step, value, title },
+//       { select: id, label, options: [[value, text], { group, options: [[value, text], ...] }, ...], value, title },
+//       { number: id, label, min, max, step, value },
+//       { switches: [{ id, label, checked, tone, title }, ...] },
+//       { buttons: [{ id, text, title, icon }, ...], label },
+//       { note: id, text },
+//       { node: element, label },
+//     ] },
+//   ] })
+//
+// The toolbar returned carries root, isOpen() and setOpen(open). Escape inside it closes it and gives the focus back
+// to its button.
+
+EV.element = (tag, properties, children) => {
+  const made = Object.assign(document.createElement(tag), properties || {});
+  for (const child of children || []) {
+    made.append(child);
+  }
+  return made;
+};
+
+// A slider's fill follows its value, however the value is set: by the pointer, by the keys, or by a program.
+EV.fillSlider = (slider) => {
+  const own = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
+  const paint = () => {
+    const low = Number(slider.min || 0);
+    const high = Number(slider.max || 100);
+    const at = high > low ? ((Number(own.get.call(slider)) - low) * 100) / (high - low) : 0;
+    slider.style.setProperty("--fill", `${Math.max(0, Math.min(100, at))}%`);
+  };
+  Object.defineProperty(slider, "value", {
+    configurable: true,
+    get: () => own.get.call(slider),
+    set: (value) => { own.set.call(slider, value); paint(); },
+  });
+  for (const name of ["min", "max"]) {
+    const bound = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, name);
+    Object.defineProperty(slider, name, {
+      configurable: true,
+      get: () => bound.get.call(slider),
+      set: (value) => { bound.set.call(slider, value); paint(); },
+    });
+  }
+  slider.addEventListener("input", paint);
+  paint();
+  return slider;
+};
+
+EV.toolbarRow = (row) => {
+  const label = (text, target) => EV.element("label", { textContent: text, htmlFor: target || "" });
+  if (row.range) {
+    const slider = EV.element("input", { type: "range", id: row.range, min: String(row.min), max: String(row.max),
+                                         step: String(row.step || 1), value: String(row.value), title: row.title || "" });
+    return EV.element("div", { className: "row", title: row.title || "" },
+                      [label(row.label, row.range), EV.fillSlider(slider), EV.element("output", { id: `${row.range}Out`, htmlFor: row.range })]);
+  }
+  if (row.select) {
+    const option = ([value, text]) => EV.element("option", { value: String(value), textContent: text });
+    const select = EV.element("select", { id: row.select, title: row.title || "" },
+                              (row.options || []).map((one) => (Array.isArray(one) ? option(one)
+                                : EV.element("optgroup", { label: one.group }, one.options.map(option)))));
+    if (row.value !== undefined) {
+      select.value = String(row.value);
+    }
+    return EV.element("div", { className: "row" }, [label(row.label, row.select), select]);
+  }
+  if (row.number) {
+    const field = EV.element("input", { type: "number", id: row.number, min: String(row.min), max: String(row.max),
+                                        step: String(row.step || 1), value: String(row.value) });
+    return EV.element("div", { className: "row" }, [label(row.label, row.number), field]);
+  }
+  if (row.switches) {
+    return EV.element("div", { className: "switches" }, row.switches.map((one) => {
+      const box = EV.element("input", { type: "checkbox", id: one.id, checked: !!one.checked });
+      if (one.tone) {
+        box.dataset.tone = one.tone;
+      }
+      return EV.element("label", { className: "check", title: one.title || "" }, [box, one.label]);
+    }));
+  }
+  if (row.buttons) {
+    const strip = EV.element("div", { className: "inline" }, row.buttons.map((one) => EV.element("button", {
+      type: "button", id: one.id, textContent: one.text, title: one.title || "", className: one.icon ? "icon" : "",
+    })));
+    return row.label === undefined ? strip : EV.element("div", { className: "row" }, [EV.element("span", { className: "label", textContent: row.label }), strip]);
+  }
+  if (row.note !== undefined) {
+    return EV.element("div", { className: "note", id: row.note || "", textContent: row.text || "" });
+  }
+  if (row.node) {
+    return row.label === undefined ? row.node : EV.element("div", { className: "row" }, [EV.element("span", { className: "label", textContent: row.label }), row.node]);
+  }
+  throw new Error("a toolbar row is a range, select, number, switches, buttons, note or node");
+};
+
+EV.toolbar = (spec) => {
+  const button = EV.element("button", { type: "button", className: "toolbar-button", title: spec.title || "" },
+                            [EV.element("span"), EV.element("span"), EV.element("span")]);
+  const body = EV.element("div", { className: "toolbar-body", id: `${spec.id}Body` },
+                          spec.sections.map((section) => EV.element("details", { className: "section", open: section.open !== false },
+                            [EV.element("summary", { textContent: section.title }),
+                             EV.element("div", { className: "rows" }, section.rows.map(EV.toolbarRow))])));
+  const root = EV.element("nav", { id: spec.id, className: "toolbar" },
+                          [EV.element("div", { className: "toolbar-head" }, [button, EV.element("span", { className: "toolbar-title", textContent: spec.title || "" })]), body]);
+  root.dataset.corner = spec.corner || "top-left";
+  root.setAttribute("aria-label", spec.title || spec.id);
+  button.setAttribute("aria-controls", body.id);
+  const setOpen = (open) => {
+    root.classList.toggle("open", !!open);
+    button.setAttribute("aria-expanded", open ? "true" : "false");
+    body.inert = !open;
+    if (spec.onToggle) {
+      spec.onToggle(!!open);
+    }
+  };
+  button.addEventListener("click", () => setOpen(!root.classList.contains("open")));
+  root.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && root.classList.contains("open")) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+  document.body.appendChild(root);
+  setOpen(!!spec.open);
+  return { root, button, body, isOpen: () => root.classList.contains("open"), setOpen };
+};
+
+// ---- toolbox/core/clock.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// When the next turn of a frame loop runs. With vsync, once per display refresh. Without it, as soon as the turn
+// before has left the main thread, through a message port that the browser does not hold to the refresh. A hidden
+// page always waits for the refresh: an uncapped loop never runs in a tab no one sees. The meter counts the turns
+// that actually ran, per second, over half-second windows.
+
+EV.uncapped = (() => {
+  const channel = new MessageChannel();
+  let queued = null;
+  channel.port1.onmessage = () => {
+    const turn = queued;
+    queued = null;
+    if (turn) {
+      turn(performance.now());
+    }
+  };
+  return (turn) => {
+    queued = turn;
+    channel.port2.postMessage(0);
+  };
+})();
+
+EV.nextTurn = (vsync, turn) => (vsync || document.hidden ? requestAnimationFrame(turn) : EV.uncapped(turn));
+
+EV.rateMeter = () => {
+  let count = 0;
+  let since = performance.now();
+  let rate = 0;
+  return {
+    tick: (now) => {
+      count += 1;
+      if (now - since >= 500) {
+        rate = Math.round((count * 1000) / (now - since));
+        count = 0;
+        since = now;
+      }
+      return rate;
+    },
+    rate: () => rate,
+  };
+};
+
+// ---- toolbox/core/watch.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// A frame loop that reports on itself. EV.watchLoop runs a page's step once per turn inside a guard and asks
+// EV.nextTurn for the next one. No page schedules its own frames. A throw stops the loop. A loop awake for
+// its patience that has turned fewer than twice is reported: one turn is what a dead loop gives, because setup
+// has already drawn a correct still frame and the first turn throws. A hidden page is not
+// judged; the browser holds its frames, and the count starts again when the page is seen.
+//
+// A loop runs for the life of the page or on demand. A step that returns false has nothing left to draw, and
+// the loop sleeps until the page wakes it. Every loop starts asleep, and a sleeping loop is healthy.
+//
+//   const loop = EV.watchLoop("scope view", (now) => { draw(now); }, { vsync: () => view.vsync, settle });
+//   loop.wake();
+//
+// vsync, when given, is asked before every turn; without it every turn waits for the refresh. settle, when
+// given, returns a promise the next uncapped turn waits on. A turn never queues behind unfinished work.
+//
+// window.__loopHealth is read fresh on every access and covers every loop on the page: ok is true, false, or
+// null before the first verdict; turns counts them all; why and detail come from the loop that settled the
+// verdict; loops holds each loop's own record. A failure also shows on the page in a line at the top. A page
+// whose loop cannot start at all, with no device to draw on, says so through EV.noLoop and shows its own reason.
+
+EV.loops = [];
+
+EV.noLoop = (label, why, detail) => {
+  EV.loops.push({ label, ok: false, turns: 0, why, detail: detail || "", awake: false });
+};
+
+EV.loopHealth = () => {
+  const loops = EV.loops.map((one) => ({ ...one }));
+  const failed = loops.find((one) => one.ok === false);
+  const waiting = loops.find((one) => one.ok === null);
+  const deciding = failed || waiting || loops[0];
+  return {
+    ok: loops.length === 0 ? null : failed ? false : waiting ? null : true,
+    turns: loops.reduce((sum, one) => sum + one.turns, 0),
+    why: deciding ? `${deciding.label}: ${deciding.why}` : "no frame loop on this page",
+    detail: failed ? failed.detail : "",
+    loops,
+  };
+};
+
+Object.defineProperty(window, "__loopHealth", { configurable: true, enumerable: true, get: EV.loopHealth });
+
+EV.loopAlarm = (text) => {
+  let line = document.getElementById("loopAlarm");
+  if (!line) {
+    line = document.createElement("div");
+    line.id = "loopAlarm";
+    line.setAttribute("role", "alert");
+    line.style.cssText = "position: fixed; left: 50%; top: 24px; transform: translateX(-50%); z-index: 30; "
+      + "padding: 6px 12px; border-radius: 6px; background: #d55e00; color: #ffffff; font: 12px/1.4 system-ui, sans-serif;";
+    document.body.appendChild(line);
+  }
+  line.textContent = text;
+  line.hidden = false;
+};
+
+EV.watchLoop = (label, step, options = {}) => {
+  const patience = options.patience || 1500;
+  const record = { label, ok: true, turns: 0, why: "asleep, nothing to draw", detail: "", awake: false };
+  EV.loops.push(record);
+  let stopped = false;
+  let from = 0;
+  let timer = 0;
+  let unseen = false;
+
+  const fail = (why, detail) => {
+    record.ok = false;
+    record.why = why;
+    record.detail = detail || "";
+    console.error(`[${label}] frame loop ${why}`, record.detail);
+    EV.loopAlarm(`${label}: frame loop ${why}`);
+  };
+
+  const judge = () => {
+    timer = 0;
+    if (stopped || !record.awake || record.ok === false) {
+      return;
+    }
+    if (document.visibilityState === "hidden") {
+      unseen = true;
+      return;
+    }
+    if (record.turns - from < 2) {
+      fail(`turned ${record.turns - from} time(s) in ${patience} ms`, "a page that draws one frame and stops looks correct and is not");
+    }
+  };
+
+  const arm = () => {
+    from = record.turns;
+    clearTimeout(timer);
+    timer = setTimeout(judge, patience);
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (unseen && document.visibilityState !== "hidden") {
+      unseen = false;
+      arm();
+    }
+  });
+
+  const schedule = () => {
+    const vsync = options.vsync ? options.vsync() : true;
+    const waiting = !vsync && options.settle ? options.settle() : null;
+    if (waiting) {
+      waiting.then(() => EV.nextTurn(options.vsync ? options.vsync() : true, turn));
+    } else {
+      EV.nextTurn(vsync, turn);
+    }
+  };
+
+  const turn = (now) => {
+    if (stopped) {
+      return;
+    }
+    let more;
+    try {
+      more = step(now);
+    } catch (thrown) {
+      stopped = true;
+      record.awake = false;
+      fail(`threw on turn ${record.turns + 1}: ${thrown && thrown.message ? thrown.message : thrown}`,
+           String(thrown && thrown.stack ? thrown.stack : thrown));
+      return;
+    }
+    record.turns += 1;
+    if (record.ok === null && record.turns - from >= 2) {
+      record.ok = true;
+      record.why = "turned twice";
+    }
+    if (more === false) {
+      record.awake = false;
+      if (record.ok === null) {
+        record.ok = true;
+        record.why = "asleep, nothing to draw";
+      }
+      return;
+    }
+    schedule();
+  };
+
+  return {
+    record,
+    // Asks for turns. A loop already awake keeps running, and a stopped loop stays stopped.
+    wake: () => {
+      if (stopped || record.awake) {
+        return;
+      }
+      record.awake = true;
+      if (record.ok !== false) {
+        record.ok = null;
+        record.why = "not judged yet";
+      }
+      arm();
+      schedule();
+    },
+  };
+};
+
+// ---- toolbox/core/scheme.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Every setting has a kind and a range, held in EV.VIEW_SCHEME by name. Applying a view is partial: names
+// it does not carry keep their values. A name the scheme does not have, a fraction, a value of the wrong kind
+// or one outside its range is reported by name and not applied.
+
+EV.defaultView = () => {
+  const view = {};
+  for (const [name, rule] of Object.entries(EV.VIEW_SCHEME)) {
+    view[name] = Array.isArray(rule.fallback) ? rule.fallback.map((one) => (one && typeof one === "object" ? { ...one } : one)) : rule.fallback;
+  }
+  return view;
+};
+
+// Checks one value against its rule; returns the reason it errors, or null.
+EV.errorValue = (rule, value) => {
+  const integer = (one) => Number.isInteger(one) && one >= rule.low && one <= rule.high;
+  if (rule.kind === "integer") {
+    return integer(value) ? null : `an integer from ${rule.low} to ${rule.high}`;
+  }
+  if (rule.kind === "switch") {
+    return typeof value === "boolean" ? null : "true or false";
+  }
+  if (rule.kind === "word") {
+    return rule.words.includes(value) ? null : `one of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "words") {
+    return Array.isArray(value) && value.every((one) => rule.words.includes(one)) ? null : `a list of ${rule.words.join(", ")}`;
+  }
+  if (rule.kind === "lights") {
+    const light = (one) => one && typeof one === "object" && Object.keys(one).every((key) => ["turn", "tilt", "strength"].includes(key))
+      && Number.isInteger(one.turn) && one.turn >= 0 && one.turn <= 359
+      && Number.isInteger(one.tilt) && one.tilt >= -89 && one.tilt <= 89
+      && Number.isInteger(one.strength) && one.strength >= 0 && one.strength <= 255;
+    return Array.isArray(value) && value.length <= 4 && value.every(light)
+      ? null : "up to four lights, each turn 0 to 359, tilt -89 to 89 and strength 0 to 255, in degrees and 255ths";
+  }
+  return Array.isArray(value) && value.every(integer) ? null : "a list of cell numbers";
+};
+
+// Applies a view section over a view. Returns what was applied and what errored, by name.
+EV.applyView = (view, section) => {
+  const applied = [];
+  const error = [];
+  if (!section || typeof section !== "object" || Array.isArray(section)) {
+    return { applied, error: ["view: an object of name to value"] };
+  }
+  for (const [name, value] of Object.entries(section)) {
+    const rule = EV.VIEW_SCHEME[name];
+    if (!rule) {
+      error.push(`${name}: the view has no such setting`);
+      continue;
+    }
+    const reason = EV.errorValue(rule, value);
+    if (reason) {
+      error.push(`${name}: ${reason}`);
+      continue;
+    }
+    view[name] = Array.isArray(value) ? value.map((one) => (one && typeof one === "object" ? { ...one } : one)) : value;
+    applied.push(name);
+  }
+  return { applied, error };
+};
+
+// ---- toolbox/core/gpu.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// The device, bind groups, a stream read straight into one mapped storage buffer, and the one-pixel pick.
+
+EV.words = (count) => Math.max(4, (count + 1) * 4);
+
+EV.workgroups = (count) => {
+  const groups = Math.max(1, Math.ceil(count / 256));
+  return [Math.min(groups, 65535), Math.ceil(groups / 65535)];
+};
+
+EV.nextPower = (count) => {
+  let power = 1;
+  while (power < count) {
+    power *= 2;
+  }
+  return power;
+};
+
+// The adapter, the device and the canvas context, or a throw that says which is missing. Device errors go to the
+// console under the label.
+EV.openDevice = async (canvas, label) => {
+  if (!navigator.gpu) {
+    throw new Error("this browser has no WebGPU; Chrome 113 or later has it");
+  }
+  const adapter = await navigator.gpu.requestAdapter({ powerPreference: "high-performance" });
+  if (!adapter) {
+    throw new Error("WebGPU found no adapter");
+  }
+  const device = await adapter.requestDevice({
+    requiredLimits: {
+      maxStorageBufferBindingSize: adapter.limits.maxStorageBufferBindingSize,
+      maxBufferSize: adapter.limits.maxBufferSize,
+      maxStorageBuffersPerShaderStage: Math.min(8, adapter.limits.maxStorageBuffersPerShaderStage),
+    },
+  });
+  device.addEventListener("uncapturederror", (event) => console.error(label, event.error.message));
+  const context = canvas.getContext("webgpu");
+  const format = navigator.gpu.getPreferredCanvasFormat();
+  context.configure({ device, format, alphaMode: "opaque" });
+  return { adapter, device, context, format };
+};
+
+// A bind group from resources in binding order: a buffer is bound whole, a view or sampler as it is.
+EV.bindGroup = (device, pipeline, entries) => device.createBindGroup({
+  layout: pipeline.getBindGroupLayout(0),
+  entries: entries.map((resource, binding) => ({ binding, resource: resource instanceof GPUBuffer ? { buffer: resource } : resource })),
+});
+
+// A bind group by binding number, for a pipeline whose shader reads only some of the module's bindings.
+EV.bindNumbered = (device, pipeline, pairs) => device.createBindGroup({
+  layout: pipeline.getBindGroupLayout(0),
+  entries: pairs.map(([binding, resource]) => ({ binding, resource: { buffer: resource } })),
+});
+
+// The first bytes of a stream, at least the count asked for unless the stream ends first.
+EV.readHead = async (reader, count) => {
+  let pending = new Uint8Array(0);
+  while (pending.length < count) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    const joined = new Uint8Array(pending.length + value.length);
+    joined.set(pending, 0);
+    joined.set(value, pending.length);
+    pending = joined;
+  }
+  return pending;
+};
+
+// The rest of a stream, its head already read, laid into the landing from a byte place; nothing lands past the limit.
+// Returns the stream's whole length.
+EV.streamInto = async (reader, landing, at, limit, head) => {
+  let written = 0;
+  let value = head;
+  for (let done = false; !done;) {
+    const place = at + written;
+    if (place < limit) {
+      landing.set(value.subarray(0, Math.min(value.length, limit - place)), place);
+    }
+    written += value.length;
+    ({ value, done } = await reader.read());
+  }
+  return written;
+};
+
+// The cell under one device pixel, plus one, or 0 for none.
+EV.pickAt = async (gpu, x, y) => {
+  const encoder = gpu.device.createCommandEncoder();
+  const clampedX = Math.max(0, Math.min(gpu.canvas.width - 1, x));
+  const clampedY = Math.max(0, Math.min(gpu.canvas.height - 1, y));
+  encoder.copyTextureToBuffer({ texture: gpu.pick, origin: { x: clampedX, y: clampedY } }, { buffer: gpu.pickRead, bytesPerRow: 256 }, { width: 1, height: 1 });
+  gpu.device.queue.submit([encoder.finish()]);
+  await gpu.pickRead.mapAsync(GPUMapMode.READ);
+  const picked = new Uint32Array(gpu.pickRead.getMappedRange().slice(0, 4))[0];
+  gpu.pickRead.unmap();
+  return picked;
+};
+
+// ---- toolbox/core/mat4.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// 4 by 4 matrices for a float camera, column-major as WGSL reads them: a perspective whose depth runs 0 to 1, a
+// look-at, and the product of two.
+
+EV.perspective = (fieldRadians, aspect, near, far) => {
+  const f = 1 / Math.tan(fieldRadians / 2);
+  const out = new Float32Array(16);
+  out[0] = f / aspect;
+  out[5] = f;
+  out[10] = far / (near - far);
+  out[11] = -1;
+  out[14] = (far * near) / (near - far);
+  return out;
+};
+
+EV.lookAt = (eye, target, up) => {
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+  const norm = (a) => {
+    const len = Math.hypot(a[0], a[1], a[2]) || 1;
+    return [a[0] / len, a[1] / len, a[2] / len];
+  };
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  const z = norm(sub(eye, target));
+  const x = norm(cross(up, z));
+  const y = cross(z, x);
+  return new Float32Array([x[0], y[0], z[0], 0, x[1], y[1], z[1], 0, x[2], y[2], z[2], 0, -dot(x, eye), -dot(y, eye), -dot(z, eye), 1]);
+};
+
+EV.multiply = (a, b) => {
+  const out = new Float32Array(16);
+  for (let column = 0; column < 4; column++) {
+    for (let row = 0; row < 4; row++) {
+      let sum = 0;
+      for (let k = 0; k < 4; k++) {
+        sum += a[k * 4 + row] * b[column * 4 + k];
+      }
+      out[column * 4 + row] = sum;
+    }
+  }
+  return out;
+};
+
+// ---- toolbox/shapes/curve.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Two orders that lay a line of cells into a square, each cell's index to its (x, y): Hilbert's, which keeps
+// neighbors in the line neighbors in the square, and Morton's, which interleaves the index's bits.
+
+/** Hilbert's curve, index to point. Its locality is the reason binary files are read this way:
+  bytes near each other in the file stay near each other on the surface. Cortesi 2011. */
+EV.hilbertAt = (side, index) => {
+  let x = 0,
+    y = 0,
+    rx,
+    ry,
+    t = index,
+    s;
+  for (s = 1; s < side; s *= 2) {
+    rx = 1 & Math.floor(t / 2);
+    ry = 1 & (t ^ rx);
+    if (ry === 0) {
+      if (rx === 1) {
+        x = s - 1 - x;
+        y = s - 1 - y;
+      }
+      let swap = x;
+      x = y;
+      y = swap;
+    }
+    x += s * rx;
+    y += s * ry;
+    t = Math.floor(t / 4);
+  }
+  return [x, y];
+};
+
+/** Morton's order, the cheap alternative: interleave the bits. Kept beside Hilbert because the
+  difference between them on the same data is the value of locality. */
+EV.mortonAt = (index) => {
+  let x = 0,
+    y = 0,
+    bit = 0,
+    t = index;
+  while (t > 0) {
+    x |= (t & 1) << bit;
+    t = Math.floor(t / 2);
+    y |= (t & 1) << bit;
+    t = Math.floor(t / 2);
+    bit += 1;
+  }
+  return [x, y];
+};
+
+// ---- toolbox/shapes/surface.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// Every parametric surface as data: each entry has a key, a label, a note and at(u, v, ctx), which gives a point and
+// its normal for u and v from 0 to 1. Each transform has go(p, n, ctx), applied after the surface and before any
+// value is raised on it: it changes where a cell sits without changing what the cell says.
+
+EV.TAU = 6.283185307179586;
+
+// What a shape reads besides (u, v): the order, the winding the order allows, and the grid the surface is sampled
+// on, from which the space-filling layouts recover a cell's integer index. Shapes whose extent grows with the
+// count, and not only their detail, are capped by the winding: a helicoid at 4096 turns leaves the camera behind,
+// while a prism at 4096 sides is still a prism the same size.
+EV.shapeContext = (order, span, depth) => ({ order, winding: Math.max(1, Math.min(48, order / 6)), span, depth });
+
+EV.cellIndex = (ctx, u, v) => Math.round(v * Math.max(1, ctx.span - 1)) * ctx.depth + Math.round(u * Math.max(1, ctx.depth - 1));
+
+EV.curveSide = (ctx) => {
+  let side = 1;
+  while (side * side < ctx.span * ctx.depth) {
+    side *= 2;
+  }
+  return side;
+};
+
+// Wraps a position-only shape into the { p, n } a renderer wants, taking the normal from the surface itself by
+// difference, and no shape can disagree with its own normal. At the far edge there is nothing ahead to difference
+// against: the step is taken backward and the result negated, or the last row of every field would be lit and
+// extruded upside down. The normal points away from the middle, and a closed shape grows outward along it.
+EV.surface = (f) => (u, v, ctx) => {
+  const step = 0.0015;
+  const here = f(u, v, ctx);
+  const backU = u + step > 1;
+  const backV = v + step > 1;
+  const alongU = f(backU ? u - step : u + step, v, ctx);
+  const alongV = f(u, backV ? v - step : v + step, ctx);
+  const signU = backU ? -1 : 1;
+  const signV = backV ? -1 : 1;
+  const du = [(alongU[0] - here[0]) * signU, (alongU[1] - here[1]) * signU, (alongU[2] - here[2]) * signU];
+  const dv = [(alongV[0] - here[0]) * signV, (alongV[1] - here[1]) * signV, (alongV[2] - here[2]) * signV];
+  let n = [du[1] * dv[2] - du[2] * dv[1], du[2] * dv[0] - du[0] * dv[2], du[0] * dv[1] - du[1] * dv[0]];
+  const len = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+  if (!len || !isFinite(len)) {
+    return { p: here, n: [0, 1, 0] };
+  }
+  n = [n[0] / len, n[1] / len, n[2] / len];
+  if (n[0] * here[0] + n[1] * here[1] + n[2] * here[2] < 0) {
+    n = [-n[0], -n[1], -n[2]];
+  }
+  return { p: here, n };
+};
+
+/** Gielis's superformula: one equation whose parameters give circles, polygons, stars and
+  flowers, and whose spherical product with itself gives the solids. Gielis 2003. */
+EV.superRadius = (angle, m, n1, n2, n3) => {
+  let t = (m * angle) / 4;
+  let one = Math.pow(Math.abs(Math.cos(t)), n2);
+  let two = Math.pow(Math.abs(Math.sin(t)), n3);
+  let r = Math.pow(one + two, -1 / n1);
+  return isFinite(r) ? r : 0;
+};
+
+EV.superAt = (u, v, m1, a1, b1, c1, m2, a2, b2, c2, scale) => {
+  let theta = (v - 0.5) * EV.TAU;
+  let phi = (u - 0.5) * Math.PI;
+  let r1 = EV.superRadius(theta, m1, a1, b1, c1);
+  let r2 = EV.superRadius(phi, m2, a2, b2, c2);
+  return [
+    scale * r1 * Math.cos(theta) * r2 * Math.cos(phi),
+    scale * r2 * Math.sin(phi),
+    scale * r1 * Math.sin(theta) * r2 * Math.cos(phi),
+  ];
+};
+
+EV.SURFACES = [
+  {
+    key: "plane",
+    label: "Plane",
+    note: "nothing joined to anything: position is index and no period is implied",
+    at: EV.surface((u, v, ctx) => {
+      return [(u - 0.5) * 150, 0, (v - 0.5) * 150];
+    }),
+  },
+
+  {
+    key: "bend",
+    label: "Bent plane",
+    note: "the plane rolled by Order, with the ends left apart",
+    at: EV.surface((u, v, ctx) => {
+      let k = ctx.order / 400;
+      let a = (v - 0.5) * 150 * k;
+      let r = k > 0.0001 ? 1 / k : 100000;
+      return [(u - 0.5) * 150, r * (1 - Math.cos(a)) - 20, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "wave",
+    label: "Corrugated",
+    note: "a plane folded Order times, which puts a period of your choosing into the picture",
+    at: EV.surface((u, v, ctx) => {
+      return [(u - 0.5) * 150, 13 * Math.sin(v * EV.TAU * Math.max(1, ctx.order / 6)), (v - 0.5) * 150];
+    }),
+  },
+
+  {
+    key: "saddle",
+    label: "Saddle",
+    note: "hyperbolic paraboloid: curvature of both signs at once",
+    at: EV.surface((u, v, ctx) => {
+      let x = (u - 0.5) * 2,
+        z = (v - 0.5) * 2;
+      return [x * 75, (x * x - z * z) * 40, z * 75];
+    }),
+  },
+
+  {
+    key: "disk",
+    label: "Disk",
+    note: "polar: depth is radius, the cut is angle",
+    at: EV.surface((u, v, ctx) => {
+      let a = v * EV.TAU,
+        r = 14 + u * 74;
+      return [r * Math.cos(a), 0, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "spiral",
+    label: "Spiral",
+    note: "Archimedean, flat: one continuous track, no seam",
+    at: EV.surface((u, v, ctx) => {
+      let turns = Math.max(1, ctx.order / 2);
+      let a = v * EV.TAU * turns,
+        r = 12 + v * 76;
+      return [r * Math.cos(a), (u - 0.5) * 28, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "cylinder",
+    label: "Tube",
+    note: "joins the ends of the cut, asserting one period along it",
+    at: EV.surface((u, v, ctx) => {
+      let a = v * EV.TAU;
+      return [(u - 0.5) * 170, 46 * Math.cos(a), 46 * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "prism",
+    label: "Prism",
+    note: "a tube with Order flat sides, which quantizes the cut and joins its ends",
+    at: EV.surface((u, v, ctx) => {
+      let sides = Math.max(3, Math.round(ctx.order));
+      let a = v * EV.TAU;
+      let wedge = EV.TAU / sides;
+      let r = 46 / Math.cos((((a % wedge) + wedge) % wedge) - wedge / 2);
+      return [(u - 0.5) * 170, r * Math.cos(a), r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "cone",
+    label: "Cone",
+    note: "radius falls with depth. Late values crowd together",
+    at: EV.surface((u, v, ctx) => {
+      let r = 74 * (1.02 - u),
+        a = v * EV.TAU;
+      return [r * Math.cos(a), (u - 0.5) * 150, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "pyramid",
+    label: "Pyramid",
+    note: "the cone with Order sides: edges the cone hides",
+    at: EV.surface((u, v, ctx) => {
+      let sides = Math.max(3, Math.round(ctx.order));
+      let a = v * EV.TAU;
+      let wedge = EV.TAU / sides;
+      let flat = 1 / Math.cos((((a % wedge) + wedge) % wedge) - wedge / 2);
+      let r = 74 * (1.02 - u) * flat;
+      return [r * Math.cos(a), (u - 0.5) * 150, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "paraboloid",
+    label: "Paraboloid",
+    note: "a dish: depth is radius, height is its square",
+    at: EV.surface((u, v, ctx) => {
+      let a = v * EV.TAU,
+        r = u * 78;
+      return [r * Math.cos(a), (r * r) / 90 - 40, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "hyperboloid",
+    label: "Hyperboloid",
+    note: "the waisted tube: one sheet, ruled twice over",
+    at: EV.surface((u, v, ctx) => {
+      let a = v * EV.TAU,
+        t = (u - 0.5) * 2.1;
+      let r = 34 * Math.sqrt(1 + t * t);
+      return [r * Math.cos(a), t * 62, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "catenoid",
+    label: "Catenoid",
+    note: "the soap film between two rings: minimal, zero mean curvature",
+    at: EV.surface((u, v, ctx) => {
+      let a = v * EV.TAU,
+        t = (u - 0.5) * 3.0;
+      let r = 26 * Math.cosh(t);
+      return [r * Math.cos(a), t * 30, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "helicoid",
+    label: "Helicoid",
+    note: "the catenoid's twin: a ramp that is also minimal",
+    at: EV.surface((u, v, ctx) => {
+      let a = (v - 0.5) * EV.TAU * ctx.winding;
+      let r = (u - 0.5) * 150;
+      return [r * Math.cos(a), a * 11, r * Math.sin(a)];
+    }),
+  },
+
+  {
+    key: "sphere",
+    label: "Sphere",
+    note: "depth as latitude, the cut as longitude, whose ends are joined",
+    at: EV.surface((u, v, ctx) => {
+      let ph = (0.06 + 0.88 * u) * Math.PI,
+        th = v * EV.TAU;
+      let sp = Math.sin(ph);
+      return [sp * Math.cos(th) * 68, Math.cos(ph) * 68, sp * Math.sin(th) * 68];
+    }),
+  },
+
+  {
+    key: "spheroid",
+    label: "Spheroid",
+    note: "the sphere squashed: same topology, different sampling density",
+    at: EV.surface((u, v, ctx) => {
+      let ph = (0.06 + 0.88 * u) * Math.PI,
+        th = v * EV.TAU;
+      let sp = Math.sin(ph);
+      return [sp * Math.cos(th) * 86, Math.cos(ph) * 44, sp * Math.sin(th) * 86];
+    }),
+  },
+
+  {
+    key: "cube",
+    label: "Cube",
+    note: "the superformula at high exponent: flat faces, sharp edges",
+    at: EV.surface((u, v, ctx) => {
+      return EV.superAt(u, v, 4, 12, 12, 12, 4, 12, 12, 12, 62);
+    }),
+  },
+
+  {
+    key: "hedron",
+    label: "Hedron",
+    note: "Order sides, up to 4096, where a polygon is a circle to within a pixel",
+    at: EV.surface((u, v, ctx) => {
+      let sides = Math.max(3, Math.round(ctx.order));
+      return EV.superAt(u, v, sides, 34, 34, 34, sides, 34, 34, 34, 62);
+    }),
+  },
+
+  {
+    key: "superellipsoid",
+    label: "Superellipsoid",
+    note: "the squircle solid: corners rounded by a single exponent",
+    at: EV.surface((u, v, ctx) => {
+      return EV.superAt(u, v, 4, 2.6, 2.6, 2.6, 4, 2.6, 2.6, 2.6, 66);
+    }),
+  },
+
+  {
+    key: "star",
+    label: "Star",
+    note: "superformula with Order points: sampling density is deliberately uneven",
+    at: EV.surface((u, v, ctx) => {
+      let m = Math.max(3, Math.round(ctx.order));
+      return EV.superAt(u, v, m, 0.3, 0.3, 0.3, 4, 6, 6, 6, 54);
+    }),
+  },
+
+  {
+    key: "flower",
+    label: "Flower",
+    note: "Order petals: lobes that fold the cut back over itself",
+    at: EV.surface((u, v, ctx) => {
+      let m = Math.max(3, Math.round(ctx.order));
+      return EV.superAt(u, v, m, 1.2, 1.6, 1.6, 6, 1.4, 1.2, 1.2, 58);
+    }),
+  },
+
+  {
+    key: "splat",
+    label: "Splat",
+    note: "low exponents, high symmetry: the shape thrown at a wall",
+    at: EV.surface((u, v, ctx) => {
+      let m = Math.max(3, Math.round(ctx.order));
+      return EV.superAt(u, v, m, 0.18, 1.7, 1.7, m, 0.4, 1.2, 1.2, 46);
+    }),
+  },
+
+  {
+    key: "balloon",
+    label: "Balloon",
+    note: "radius is the value. The silhouette is the field itself",
+    at: EV.surface((u, v, ctx) => {
+      let ph = (0.06 + 0.88 * u) * Math.PI,
+        th = v * EV.TAU;
+      let sp = Math.sin(ph);
+      return [sp * Math.cos(th) * 40, Math.cos(ph) * 40, sp * Math.sin(th) * 40];
+    }),
+  },
+
+  {
+    key: "torus",
+    label: "Toroid",
+    note: "joins both axes, asserting a period along each",
+    at: EV.surface((u, v, ctx) => {
+      let th = u * EV.TAU,
+        ph = v * EV.TAU;
+      let big = 74 + 26 * Math.cos(ph);
+      return [big * Math.cos(th), 26 * Math.sin(ph), big * Math.sin(th)];
+    }),
+  },
+
+  {
+    key: "knot",
+    label: "Torus knot",
+    note: "a tube wound Order times, which brings distant depths alongside each other",
+    at: EV.surface((u, v, ctx) => {
+      let p = Math.max(2, Math.round(ctx.order / 2)),
+        q = 3;
+      let th = u * EV.TAU;
+      let r = 52 + 18 * Math.cos(q * th);
+      let cx = r * Math.cos(p * th);
+      let cy = 18 * Math.sin(q * th);
+      let cz = r * Math.sin(p * th);
+      let a = v * EV.TAU;
+      return [
+        cx + 9 * Math.cos(a) * Math.cos(p * th),
+        cy + 9 * Math.sin(a),
+        cz + 9 * Math.cos(a) * Math.sin(p * th),
+      ];
+    }),
+  },
+
+  {
+    key: "mobius",
+    label: "Mobius band",
+    note: "one side and one edge: the cut comes back inverted",
+    at: EV.surface((u, v, ctx) => {
+      let th = u * EV.TAU;
+      let w = (v - 0.5) * 46;
+      let r = 62 + w * Math.cos(th / 2);
+      return [r * Math.cos(th), w * Math.sin(th / 2), r * Math.sin(th)];
+    }),
+  },
+
+  {
+    key: "klein",
+    label: "Klein bottle",
+    note: "the figure-eight immersion: no inside to be on",
+    at: EV.surface((u, v, ctx) => {
+      let th = u * EV.TAU,
+        ph = v * EV.TAU;
+      let w = 26 * Math.cos(th / 2) * Math.sin(ph) - 26 * Math.sin(th / 2) * Math.sin(2 * ph);
+      let r = 62 + w;
+      return [
+        r * Math.cos(th),
+        26 * Math.sin(th / 2) * Math.sin(ph) + 26 * Math.cos(th / 2) * Math.sin(2 * ph),
+        r * Math.sin(th),
+      ];
+    }),
+  },
+
+  {
+    key: "dini",
+    label: "Dini surface",
+    note: "a twisted pseudosphere: constant negative curvature",
+    at: EV.surface((u, v, ctx) => {
+      let a = u * EV.TAU * ctx.winding;
+      let t = 0.05 + v * 1.5;
+      return [
+        30 * Math.cos(a) * Math.sin(t),
+        30 * (Math.cos(t) + Math.log(Math.tan(t / 2))) + a * 4 - 40,
+        30 * Math.sin(a) * Math.sin(t),
+      ];
+    }),
+  },
+
+  {
+    key: "shell",
+    label: "Seashell",
+    note: "a tube on a logarithmic spiral: growth that keeps its shape",
+    at: EV.surface((u, v, ctx) => {
+      let th = u * EV.TAU * 2.2;
+      let grow = Math.pow(1.19, th);
+      let a = v * EV.TAU;
+      let r = 4.2 * grow;
+      return [
+        1.2 * grow * Math.cos(th) + r * Math.cos(a) * Math.cos(th) - 40,
+        r * Math.sin(a) + th * 3 - 30,
+        1.2 * grow * Math.sin(th) + r * Math.cos(a) * Math.sin(th),
+      ];
+    }),
+  },
+
+  {
+    key: "enneper",
+    label: "Enneper",
+    note: "minimal and self-intersecting: the map is not injective",
+    at: EV.surface((u, v, ctx) => {
+      let x = (u - 0.5) * 3.4,
+        y = (v - 0.5) * 3.4;
+      return [
+        12 * (x - (x * x * x) / 3 + x * y * y),
+        12 * (x * x - y * y) * 0.5,
+        12 * (y - (y * y * y) / 3 + y * x * x),
+      ];
+    }),
+  },
+
+  {
+    key: "hilbert",
+    label: "Hilbert curve",
+    note: "locality preserving: values adjacent in the sequence stay adjacent here",
+    at: EV.surface((u, v, ctx) => {
+      let side = EV.curveSide(ctx);
+      let xy = EV.hilbertAt(side, EV.cellIndex(ctx, u, v));
+      let step = 150 / side;
+      return [xy[0] * step - 75, 0, xy[1] * step - 75];
+    }),
+  },
+
+  {
+    key: "morton",
+    label: "Morton order",
+    note: "interleaved bits: cheaper than Hilbert, and the seams are visible",
+    at: EV.surface((u, v, ctx) => {
+      let side = EV.curveSide(ctx);
+      let xy = EV.mortonAt(EV.cellIndex(ctx, u, v));
+      let step = 150 / side;
+      return [xy[0] * step - 75, 0, xy[1] * step - 75];
+    }),
+  },
+];
+
+// A transform is applied to the surface after the embedding and before the value is raised.
+// It changes where a cell sits without changing what the cell says. Same discipline as the
+// shapes: anything that survives a transform is in the data, anything that appears under one is
+// in the map.
+EV.unit = (n) => {
+  let len = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+  return len ? [n[0] / len, n[1] / len, n[2] / len] : [0, 1, 0];
+};
+
+EV.SURFACE_TRANSFORMS = [
+  {
+    key: "none",
+    label: "None",
+    note: "the embedding as written",
+    go: (p, n, ctx) => {
+      return { p: p, n: n };
+    },
+  },
+
+  {
+    key: "invert",
+    label: "Inversion",
+    note: "through a sphere: near and far trade places, angles survive",
+    go: (p, n, ctx) => {
+      let d2 = p[0] * p[0] + p[1] * p[1] + p[2] * p[2];
+      if (d2 < 1) {
+        d2 = 1;
+      }
+      let k = (70 * 70) / d2;
+      return { p: [p[0] * k, p[1] * k, p[2] * k], n: n };
+    },
+  },
+
+  {
+    key: "shadow",
+    label: "Shadow",
+    note: "dropped flat to the ground: the silhouette from above",
+    go: (p, n, ctx) => {
+      return { p: [p[0], 0, p[2]], n: [0, 1, 0] };
+    },
+  },
+
+  {
+    key: "wall",
+    label: "Projection",
+    note: "cast sideways onto a wall: one axis discarded",
+    go: (p, n, ctx) => {
+      return { p: [p[0], p[1], -70], n: [0, 0, 1] };
+    },
+  },
+
+  {
+    key: "spherize",
+    label: "Spherize",
+    note: "every point pushed to one radius: shape gone, sampling kept",
+    go: (p, n, ctx) => {
+      let u = EV.unit(p);
+      return { p: [u[0] * 66, u[1] * 66, u[2] * 66], n: u };
+    },
+  },
+
+  {
+    key: "logradius",
+    label: "Log radius",
+    note: "radius compressed: six decades of extent on one axis",
+    go: (p, n, ctx) => {
+      let d = Math.sqrt(p[0] * p[0] + p[1] * p[1] + p[2] * p[2]);
+      if (d < 0.0001) {
+        return { p: p, n: n };
+      }
+      let k = (Math.log(1 + d) * 26) / d;
+      return { p: [p[0] * k, p[1] * k, p[2] * k], n: n };
+    },
+  },
+
+  {
+    key: "twist",
+    label: "Twist",
+    note: "rotated about the upright by height, at Order turns",
+    go: (p, n, ctx) => {
+      let a = (p[1] / 150) * EV.TAU * Math.max(1, ctx.order / 6);
+      let cs = Math.cos(a),
+        sn = Math.sin(a);
+      return {
+        p: [p[0] * cs - p[2] * sn, p[1], p[0] * sn + p[2] * cs],
+        n: [n[0] * cs - n[2] * sn, n[1], n[0] * sn + n[2] * cs],
+      };
+    },
+  },
+
+  {
+    key: "mirror",
+    label: "Point reflection",
+    note: "inversion through the origin: every coordinate negated, chirality reversed",
+    go: (p, n, ctx) => {
+      return { p: [-p[0], -p[1], -p[2]], n: [-n[0], -n[1], -n[2]] };
+    },
+  },
+
+  {
+    key: "fold",
+    label: "Fold",
+    note: "reflected at the middle. The two halves land on each other",
+    go: (p, n, ctx) => {
+      return { p: [Math.abs(p[0]) - 40, p[1], p[2]], n: n };
+    },
+  },
+];
+
+// ---- toolbox/shapes/field.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// A field on the sphere, as real spherical harmonics. The basis is orthonormal over the sphere, in the storage order
+// sphere_field uses: degree d starts at d*d, order zero sits at d*d + d, cosine orders above it and sine orders below.
+// A seed gives the same coefficients every time, each degree's power falling as one over (d + 1).
+
+EV.FOUR_PI = 4 * Math.PI;
+
+// The normalized associated Legendre values of one order at x = cos(colatitude), every degree from the order to top.
+EV.legendreColumn = (top, order, x) => {
+  const out = new Float64Array(top + 1);
+  const sine = Math.sqrt(Math.max(0, 1 - x * x));
+  let value = Math.sqrt(1 / EV.FOUR_PI);
+  for (let step = 1; step <= order; step++) {
+    value *= Math.sqrt((2 * step + 1) / (2 * step)) * sine;
+  }
+  if (order <= top) {
+    out[order] = value;
+  }
+  if (order + 1 <= top) {
+    out[order + 1] = Math.sqrt(2 * order + 3) * x * value;
+  }
+  for (let degree = order + 2; degree <= top; degree++) {
+    const lead = Math.sqrt((4 * degree * degree - 1) / (degree * degree - order * order));
+    const trail = Math.sqrt(((degree - 1) * (degree - 1) - order * order) / (4 * (degree - 1) * (degree - 1) - 1));
+    out[degree] = lead * (x * out[degree - 1] - trail * out[degree - 2]);
+  }
+  return out;
+};
+
+// Every real harmonic at one direction, flat, in the storage order above.
+EV.harmonicsAt = (top, colatitude, longitude) => {
+  const out = new Float64Array((top + 1) * (top + 1));
+  const x = Math.cos(colatitude);
+  for (let order = 0; order <= top; order++) {
+    const column = EV.legendreColumn(top, order, x);
+    if (order === 0) {
+      for (let degree = 0; degree <= top; degree++) {
+        out[degree * degree + degree] = column[degree];
+      }
+      continue;
+    }
+    const cosine = Math.cos(order * longitude) * Math.SQRT2;
+    const sine = Math.sin(order * longitude) * Math.SQRT2;
+    for (let degree = order; degree <= top; degree++) {
+      out[degree * degree + degree + order] = column[degree] * cosine;
+      out[degree * degree + degree - order] = column[degree] * sine;
+    }
+  }
+  return out;
+};
+
+// Coefficients from a seed: a 32-bit xorshift, each coefficient uniform in -1 to 1 and scaled by 1 / (d + 1).
+// Degree zero carries nothing, and the field sums to zero over the sphere.
+EV.fieldCoefficients = (top, seed) => {
+  let state = (seed >>> 0) || 1;
+  const next = () => {
+    state ^= state << 13;
+    state >>>= 0;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    state >>>= 0;
+    return state / 4294967296;
+  };
+  const out = new Float64Array((top + 1) * (top + 1));
+  for (let degree = 1; degree <= top; degree++) {
+    for (let at = degree * degree; at < (degree + 1) * (degree + 1); at++) {
+      out[at] = (next() * 2 - 1) / (degree + 1);
+    }
+  }
+  return out;
+};
+
+// The field's value in one direction.
+EV.fieldAt = (coefficients, top, colatitude, longitude) => {
+  const basis = EV.harmonicsAt(top, colatitude, longitude);
+  let sum = 0;
+  for (let at = 0; at < basis.length; at++) {
+    sum += coefficients[at] * basis[at];
+  }
+  return sum;
+};
+
+// ---- toolbox/shapes/mesh.js ----
+// orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+//
+// A float mesh and a line, drawn four times multisampled. A mesh is a grid of (u, v) samples, each with a position,
+// a normal and a value, spread to 0 to 1; a line is a run of points, each with a value. The value picks a color
+// along mint, blue and violet. A surface is lit from both sides, with a rim that brightens where it turns away from
+// the eye, and can carry its own parameter lines, faint and antialiased, fading where they crowd closer than a
+// pixel. Every color comes from the page's theme.
+
+EV.MESH_WGSL = `
+struct Frame {
+  view_projection: mat4x4<f32>,
+  eye: vec4<f32>,
+  light: vec4<f32>,
+  low: vec4<f32>,
+  middle: vec4<f32>,
+  high: vec4<f32>,
+  rim: vec4<f32>,
+  settings: vec4<f32>,
+};
+@group(0) @binding(0) var<uniform> frame: Frame;
+
+struct Sample {
+  @location(0) position: vec3<f32>,
+  @location(1) normal: vec3<f32>,
+  @location(2) value: f32,
+  @location(3) uv: vec2<f32>,
+};
+
+struct Shaded {
+  @builtin(position) clip: vec4<f32>,
+  @location(0) world: vec3<f32>,
+  @location(1) normal: vec3<f32>,
+  @location(2) value: f32,
+  @location(3) uv: vec2<f32>,
+};
+
+fn ramp(value: f32) -> vec3<f32> {
+  let t = clamp(value, 0.0, 1.0);
+  let lower = mix(frame.low.rgb, frame.middle.rgb, smoothstep(0.0, 0.5, t));
+  return mix(lower, frame.high.rgb, smoothstep(0.5, 1.0, t));
+}
+
+@vertex
+fn surface_vertex(sample: Sample) -> Shaded {
+  var out: Shaded;
+  out.clip = frame.view_projection * vec4<f32>(sample.position, 1.0);
+  out.world = sample.position;
+  out.normal = sample.normal;
+  out.value = sample.value;
+  out.uv = sample.uv;
+  return out;
+}
+
+@fragment
+fn surface_fragment(shaded: Shaded) -> @location(0) vec4<f32> {
+  let toward = normalize(frame.eye.xyz - shaded.world);
+  // The face under this pixel, from the change in position across it, turned toward the eye. The smooth normal is
+  // flipped only where it disagrees with that face, which keeps a silhouette seen edge-on lit.
+  var face = normalize(cross(dpdx(shaded.world), dpdy(shaded.world)));
+  face = select(-face, face, dot(face, toward) >= 0.0);
+  var normal = normalize(shaded.normal);
+  normal = select(-normal, normal, dot(normal, face) >= 0.0);
+  let light = normalize(frame.light.xyz);
+  let diffuse = max(dot(normal, light), 0.0);
+  let half_way = normalize(light + toward);
+  let shine = pow(max(dot(normal, half_way), 0.0), 48.0) * 0.35;
+  let facing = 1.0 - max(dot(normal, toward), 0.0);
+  let rim = pow(facing, 2.6) * frame.rim.a;
+  let base = ramp(shaded.value);
+  var color = base * (0.22 + 0.78 * diffuse) + vec3<f32>(shine) + frame.rim.rgb * rim;
+  let count = frame.settings.x;
+  if (frame.settings.y > 0.5) {
+    let cells = shaded.uv * count;
+    let width = fwidth(cells) * 1.1;
+    let near_line = abs(fract(cells - 0.5) - 0.5) / max(width, vec2<f32>(1e-4));
+    let line = 1.0 - min(min(near_line.x, near_line.y), 1.0);
+    let crowded = 1.0 - smoothstep(0.25, 0.6, max(width.x, width.y));
+    color = mix(color, frame.rim.rgb, line * crowded * 0.28);
+  }
+  return vec4<f32>(color, 1.0);
+}
+
+struct Point {
+  @location(0) position: vec3<f32>,
+  @location(1) value: f32,
+};
+
+struct Traced {
+  @builtin(position) clip: vec4<f32>,
+  @location(0) value: f32,
+};
+
+@vertex
+fn line_vertex(point: Point) -> Traced {
+  var out: Traced;
+  out.clip = frame.view_projection * vec4<f32>(point.position, 1.0);
+  out.value = point.value;
+  return out;
+}
+
+@fragment
+fn line_fragment(traced: Traced) -> @location(0) vec4<f32> {
+  return vec4<f32>(ramp(traced.value), 1.0);
+}
+`;
+
+EV.FRAME_FLOATS = 16 + 4 * 7;
+
+EV.startMesh = async (canvas, label) => {
+  const { device, context, format } = await EV.openDevice(canvas, label);
+  const module = device.createShaderModule({ code: EV.MESH_WGSL });
+  const depth = { format: "depth24plus", depthWriteEnabled: true, depthCompare: "less" };
+  const multisample = { count: 4 };
+  const [surface, line] = await Promise.all([
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module, entryPoint: "surface_vertex", buffers: [{ arrayStride: 36, attributes: [
+        { shaderLocation: 0, offset: 0, format: "float32x3" }, { shaderLocation: 1, offset: 12, format: "float32x3" },
+        { shaderLocation: 2, offset: 24, format: "float32" }, { shaderLocation: 3, offset: 28, format: "float32x2" },
+      ] }] },
+      fragment: { module, entryPoint: "surface_fragment", targets: [{ format }] },
+      primitive: { topology: "triangle-list", cullMode: "none" },
+      depthStencil: depth, multisample,
+    }),
+    device.createRenderPipelineAsync({
+      layout: "auto",
+      vertex: { module, entryPoint: "line_vertex", buffers: [{ arrayStride: 16, attributes: [
+        { shaderLocation: 0, offset: 0, format: "float32x3" }, { shaderLocation: 1, offset: 12, format: "float32" },
+      ] }] },
+      fragment: { module, entryPoint: "line_fragment", targets: [{ format }] },
+      primitive: { topology: "line-strip" },
+      depthStencil: depth, multisample,
+    }),
+  ]);
+  const frame = device.createBuffer({ size: EV.FRAME_FLOATS * 4, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
+  return {
+    device, context, format, canvas, pipelines: { surface, line }, frame, frameData: new Float32Array(EV.FRAME_FLOATS),
+    groups: { surface: EV.bindGroup(device, surface, [frame]), line: EV.bindGroup(device, line, [frame]) },
+    mesh: null, curve: null,
+  };
+};
+
+// The color and depth targets follow the canvas's size in device pixels.
+EV.fitMesh = (renderer) => {
+  const canvas = renderer.canvas;
+  const ratio = window.devicePixelRatio || 1;
+  const width = Math.max(1, Math.floor(canvas.clientWidth * ratio));
+  const height = Math.max(1, Math.floor(canvas.clientHeight * ratio));
+  if (renderer.color && canvas.width === width && canvas.height === height) {
+    return;
+  }
+  canvas.width = width;
+  canvas.height = height;
+  renderer.color?.destroy();
+  renderer.depth?.destroy();
+  renderer.color = renderer.device.createTexture({ size: [width, height], sampleCount: 4, format: renderer.format, usage: GPUTextureUsage.RENDER_ATTACHMENT });
+  renderer.depth = renderer.device.createTexture({ size: [width, height], sampleCount: 4, format: "depth24plus", usage: GPUTextureUsage.RENDER_ATTACHMENT });
+};
+
+// The samples of one surface on an n by n grid, after its transform, each with a value from valueOf.
+EV.sampleSurface = (shape, transform, ctx, n, valueOf) => {
+  const side = n + 1;
+  const vertices = new Float32Array(side * side * 9);
+  let sum = 0;
+  let squares = 0;
+  for (let row = 0; row < side; row++) {
+    for (let column = 0; column < side; column++) {
+      const u = column / n;
+      const v = row / n;
+      const raw = shape.at(u, v, ctx);
+      const moved = transform.go(raw.p, raw.n, ctx);
+      const at = (row * side + column) * 9;
+      vertices.set(moved.p, at);
+      vertices.set(moved.n, at + 3);
+      vertices[at + 6] = valueOf(u, v, moved.p, moved.n);
+      vertices[at + 7] = u;
+      vertices[at + 8] = v;
+      sum += vertices[at + 6];
+      squares += vertices[at + 6] * vertices[at + 6];
+    }
+  }
+  // Values spread over two standard deviations each side of their mean. A field whose values crowd the
+  // middle still reaches both ends of the ramp.
+  const count = side * side;
+  const mean = sum / count;
+  const spread = Math.sqrt(Math.max(0, squares / count - mean * mean)) * 4 || 1;
+  for (let at = 6; at < vertices.length; at += 9) {
+    vertices[at] = Math.max(0, Math.min(1, 0.5 + (vertices[at] - mean) / spread));
+  }
+  const indices = new Uint32Array(n * n * 6);
+  let write = 0;
+  for (let row = 0; row < n; row++) {
+    for (let column = 0; column < n; column++) {
+      const corner = row * side + column;
+      indices.set([corner, corner + 1, corner + side, corner + 1, corner + side + 1, corner + side], write);
+      write += 6;
+    }
+  }
+  return { vertices, indices };
+};
+
+EV.uploadMesh = (renderer, mesh, curve) => {
+  const device = renderer.device;
+  for (const old of [renderer.mesh?.vertices, renderer.mesh?.indices, renderer.curve?.points]) {
+    old?.destroy();
+  }
+  renderer.mesh = null;
+  renderer.curve = null;
+  if (mesh) {
+    const vertices = device.createBuffer({ size: mesh.vertices.byteLength, usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST });
+    const indices = device.createBuffer({ size: mesh.indices.byteLength, usage: GPUBufferUsage.INDEX | GPUBufferUsage.COPY_DST });
+    device.queue.writeBuffer(vertices, 0, mesh.vertices);
+    device.queue.writeBuffer(indices, 0, mesh.indices);
+    renderer.mesh = { vertices, indices, count: mesh.indices.length };
+  }
+  if (curve) {
+    const points = device.createBuffer({ size: curve.byteLength, usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST });
+    device.queue.writeBuffer(points, 0, curve);
+    renderer.curve = { points, count: curve.length / 4 };
+  }
+};
+
+// One frame. `look` holds the view-projection matrix, the eye, the light, the theme's colors and the grid settings.
+EV.drawMesh = (renderer, look) => {
+  EV.fitMesh(renderer);
+  const data = renderer.frameData;
+  data.set(look.viewProjection, 0);
+  data.set([...look.eye, 1], 16);
+  data.set([...look.light, 0], 20);
+  data.set([...look.low, 1], 24);
+  data.set([...look.middle, 1], 28);
+  data.set([...look.high, 1], 32);
+  data.set([...look.rim, look.rimStrength], 36);
+  data.set([look.gridCount, look.grid ? 1 : 0, 0, 0], 40);
+  const device = renderer.device;
+  device.queue.writeBuffer(renderer.frame, 0, data);
+  const encoder = device.createCommandEncoder();
+  const pass = encoder.beginRenderPass({
+    colorAttachments: [{ view: renderer.color.createView(), resolveTarget: renderer.context.getCurrentTexture().createView(),
+                         clearValue: look.background, loadOp: "clear", storeOp: "discard" }],
+    depthStencilAttachment: { view: renderer.depth.createView(), depthClearValue: 1, depthLoadOp: "clear", depthStoreOp: "discard" },
+  });
+  if (renderer.mesh) {
+    pass.setPipeline(renderer.pipelines.surface);
+    pass.setBindGroup(0, renderer.groups.surface);
+    pass.setVertexBuffer(0, renderer.mesh.vertices);
+    pass.setIndexBuffer(renderer.mesh.indices, "uint32");
+    pass.drawIndexed(renderer.mesh.count);
+  }
+  if (renderer.curve) {
+    pass.setPipeline(renderer.pipelines.line);
+    pass.setBindGroup(0, renderer.groups.line);
+    pass.setVertexBuffer(0, renderer.curve.points);
+    pass.draw(renderer.curve.count);
+  }
+  pass.end();
+  device.queue.submit([encoder.finish()]);
+};
+
+// ---- end ----
+const OPENING = {"view":{}};
+
+// Every shape the gallery offers: the surfaces, the curves as paths, and the field on the sphere.
+EV.CURVES = [
+  { key: "hilbert_path", label: "Hilbert curve", note: "the path itself, index running from mint to violet: neighbors in the line stay neighbors in the square", at: EV.hilbertAt },
+  { key: "morton_path", label: "Morton order", note: "the path itself, index running from mint to violet: the jumps across each quadrant are the seams", at: (side, index) => EV.mortonAt(index) },
+];
+EV.FIELD = { key: "field", label: "Harmonic field", note: "a sum of real spherical harmonics on the sphere, each degree's power falling as one over its degree plus one" };
+EV.SHAPE_KEYS = [...EV.SURFACES.map((one) => one.key), ...EV.CURVES.map((one) => one.key), EV.FIELD.key];
+
+EV.VIEW_SCHEME = {
+  shape: { kind: "word", words: EV.SHAPE_KEYS, fallback: "torus" },
+  transform: { kind: "word", words: EV.SURFACE_TRANSFORMS.map((one) => one.key), fallback: "none" },
+  order: { kind: "integer", low: 3, high: 256, fallback: 12 },
+  detail: { kind: "integer", low: 16, high: 400, fallback: 160 },
+  color: { kind: "word", words: ["field", "height", "normal", "index"], fallback: "field" },
+  degree: { kind: "integer", low: 1, high: 12, fallback: 6 },
+  seed: { kind: "integer", low: 1, high: 65535, fallback: 7 },
+  lift: { kind: "integer", low: 0, high: 60, fallback: 0 },
+  turn: { kind: "integer", low: 0, high: 359, fallback: 30 },
+  tilt: { kind: "integer", low: -89, high: 89, fallback: 24 },
+  zoom: { kind: "integer", low: 40, high: 400, fallback: 100 },
+  spin: { kind: "switch", fallback: true },
+  grid: { kind: "switch", fallback: true },
+  theme: { kind: "word", words: ["dark", "light"], fallback: "dark" },
+  vsync: { kind: "switch", fallback: true },
+};
+
+// Each control by element id: the setting it writes, and how its value reads.
+EV.CONTROLS = [
+  ["shape", "shape", "word"], ["transform", "transform", "word"], ["order", "order", "integer"], ["detail", "detail", "integer"],
+  ["color", "color", "word"], ["degree", "degree", "integer"], ["seed", "seed", "integer"], ["lift", "lift", "integer"],
+  ["turn", "turn", "integer"], ["tilt", "tilt", "integer"], ["zoom", "zoom", "integer"], ["spin", "spin", "switch"],
+  ["grid", "grid", "switch"], ["theme", "theme", "word"], ["vsync", "vsync", "switch"],
+];
+
+EV.controlBar = EV.toolbar({
+  id: "panel",
+  title: "controls",
+  corner: "top-left",
+  open: true,
+  sections: [
+    { title: "shape", rows: [
+      { select: "shape", label: "represent as", options: [
+        { group: "surfaces", options: EV.SURFACES.map((one) => [one.key, one.label]) },
+        { group: "curves", options: EV.CURVES.map((one) => [one.key, one.label]) },
+        { group: "field", options: [[EV.FIELD.key, EV.FIELD.label]] },
+      ] },
+      { select: "transform", label: "transform", options: EV.SURFACE_TRANSFORMS.map((one) => [one.key, one.label]) },
+      { range: "order", label: "order", min: 3, max: 256, value: 12 },
+      { range: "detail", label: "detail", min: 16, max: 400, step: 4, value: 160 },
+    ] },
+    { title: "field", rows: [
+      { select: "color", label: "color", options: [["field", "field"], ["height", "height"], ["normal", "normal"], ["index", "index"]] },
+      { range: "degree", label: "degree", min: 1, max: 12, value: 6 },
+      { number: "seed", label: "seed", min: 1, max: 65535, value: 7 },
+      { range: "lift", label: "lift", min: 0, max: 60, value: 0 },
+    ] },
+    { title: "view", rows: [
+      { range: "turn", label: "turn", min: 0, max: 359, value: 30 },
+      { range: "tilt", label: "tilt", min: -89, max: 89, value: 24 },
+      { range: "zoom", label: "zoom", min: 40, max: 400, value: 100 },
+      { switches: [{ id: "spin", label: "spin", checked: true }, { id: "grid", label: "grid", checked: true }] },
+    ] },
+    { title: "page", open: false, rows: [
+      { select: "theme", label: "theme", options: [["dark", "dark"], ["light", "light"]] },
+      { switches: [{ id: "vsync", label: "vsync", checked: true, title: "draw once per display refresh; off, draw as fast as the card finishes" }] },
+    ] },
+  ],
+});
+
+EV.$ = (id) => document.getElementById(id);
+
+EV.app = { view: EV.defaultView(), renderer: null, built: "", spun: 0, lastTick: 0, dirty: true, turns: 0, fps: 0,
+           fit: { center: [0, 0, 0], radius: 100 }, samples: 0 };
+
+EV.shapeOf = (key) => EV.SURFACES.find((one) => one.key === key) || EV.CURVES.find((one) => one.key === key) || EV.FIELD;
+
+// The theme's colors as the renderer reads them, 0 to 1.
+EV.themeColors = () => {
+  const style = getComputedStyle(document.documentElement);
+  const rgb = (name) => {
+    const probe = document.createElement("i");
+    probe.style.color = style.getPropertyValue(name).trim();
+    document.body.appendChild(probe);
+    const parts = getComputedStyle(probe).color.match(/[\d.]+/g).map(Number);
+    probe.remove();
+    return [parts[0] / 255, parts[1] / 255, parts[2] / 255];
+  };
+  const ground = rgb("--void");
+  return { low: rgb("--mint"), middle: rgb("--blue"), high: rgb("--violet"), rim: rgb("--blue"),
+           background: { r: ground[0], g: ground[1], b: ground[2], a: 1 }, light: document.documentElement.dataset.theme === "light" };
+};
+
+// The samples for the current settings: a surface mesh, or a curve's points.
+EV.build = (app) => {
+  const view = app.view;
+  const shape = EV.shapeOf(view.shape);
+  const ctx = EV.shapeContext(view.order, view.detail + 1, view.detail + 1);
+  const coefficients = EV.fieldCoefficients(view.degree, view.seed);
+  const field = (p) => {
+    const r = Math.hypot(p[0], p[1], p[2]) || 1;
+    return EV.fieldAt(coefficients, view.degree, Math.acos(Math.max(-1, Math.min(1, p[1] / r))), Math.atan2(p[2], p[0]));
+  };
+  if (EV.CURVES.includes(shape)) {
+    let side = 2;
+    while (side < view.order && side < 256) {
+      side *= 2;
+    }
+    const count = side * side;
+    const points = new Float32Array(count * 4);
+    const step = 150 / side;
+    for (let index = 0; index < count; index++) {
+      const [x, z] = shape.at(side, index);
+      const p = [x * step - 75 + step / 2, 0, z * step - 75 + step / 2];
+      p[1] = view.lift ? field([p[0], 40, p[2]]) * view.lift * 2 : 0;
+      points.set([p[0], p[1], p[2], index / (count - 1)], index * 4);
+    }
+    return { curve: points, samples: count, bounds: EV.boundsOf(points, 4) };
+  }
+  const base = shape === EV.FIELD ? EV.SURFACES.find((one) => one.key === "sphere") : shape;
+  const transform = shape === EV.FIELD ? EV.SURFACE_TRANSFORMS[0] : EV.SURFACE_TRANSFORMS.find((one) => one.key === view.transform);
+  // A lift raises every point along its normal by the field there, and the normal is taken again from the raised
+  // surface.
+  const raised = view.lift ? { at: EV.surface((u, v, c) => {
+    const s = base.at(u, v, c);
+    const t = transform.go(s.p, s.n, c);
+    const by = field(t.p) * view.lift * 2;
+    return [t.p[0] + t.n[0] * by, t.p[1] + t.n[1] * by, t.p[2] + t.n[2] * by];
+  }) } : base;
+  const after = view.lift ? EV.SURFACE_TRANSFORMS[0] : transform;
+  const color = shape === EV.FIELD ? "field" : view.color;
+  const valueOf = (u, v, p, n) => (color === "field" ? field(p) : color === "height" ? p[1] : color === "normal" ? n[1] : v * view.detail + u);
+  const mesh = EV.sampleSurface(raised, after, ctx, view.detail, valueOf);
+  return { mesh, samples: (view.detail + 1) * (view.detail + 1), bounds: EV.boundsOf(mesh.vertices, 9) };
+};
+
+EV.boundsOf = (data, stride) => {
+  const low = [Infinity, Infinity, Infinity];
+  const high = [-Infinity, -Infinity, -Infinity];
+  for (let at = 0; at < data.length; at += stride) {
+    for (let axis = 0; axis < 3; axis++) {
+      if (Number.isFinite(data[at + axis])) {
+        low[axis] = Math.min(low[axis], data[at + axis]);
+        high[axis] = Math.max(high[axis], data[at + axis]);
+      }
+    }
+  }
+  const center = [0, 1, 2].map((axis) => (low[axis] + high[axis]) / 2);
+  const radius = Math.max(1, Math.hypot(high[0] - low[0], high[1] - low[1], high[2] - low[2]) / 2);
+  return { center, radius };
+};
+
+EV.buildKey = (view) => [view.shape, view.transform, view.order, view.detail, view.color, view.degree, view.seed, view.lift].join("|");
+
+EV.rebuild = (app) => {
+  const key = EV.buildKey(app.view);
+  if (key === app.built) {
+    return;
+  }
+  const began = performance.now();
+  const made = EV.build(app);
+  EV.uploadMesh(app.renderer, made.mesh || null, made.curve || null);
+  app.fit = made.bounds;
+  app.samples = made.samples;
+  app.buildMs = Math.round(performance.now() - began);
+  app.built = key;
+  app.dirty = true;
+};
+
+EV.showView = (app) => {
+  const view = app.view;
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    if (kind === "switch") {
+      element.checked = !!view[name];
+    } else {
+      element.value = String(view[name]);
+    }
+    const out = EV.$(`${id}Out`);
+    if (out) {
+      out.textContent = String(view[name]);
+    }
+  }
+  const shape = EV.shapeOf(view.shape);
+  const surface = EV.SURFACES.includes(shape);
+  EV.$("transform").disabled = !surface;
+  EV.$("color").disabled = !surface;
+  EV.$("shapeLabel").textContent = shape.label;
+  const transform = EV.SURFACE_TRANSFORMS.find((one) => one.key === view.transform);
+  EV.$("shapeNote").textContent = shape.note + (surface && transform.key !== "none" ? `. ${transform.label}: ${transform.note}` : "");
+  document.documentElement.dataset.theme = view.theme;
+  app.colors = EV.themeColors();
+  app.dirty = true;
+};
+
+EV.apply = (app, section) => {
+  const report = EV.applyView(app.view, section);
+  EV.showView(app);
+  return report;
+};
+
+EV.bindControls = (app) => {
+  for (const [id, name, kind] of EV.CONTROLS) {
+    const element = EV.$(id);
+    element.addEventListener(element.type === "range" ? "input" : "change", () => {
+      const value = kind === "switch" ? element.checked : kind === "integer" ? Math.trunc(Number(element.value)) : element.value;
+      if (!EV.errorValue(EV.VIEW_SCHEME[name], value)) {
+        app.view[name] = value;
+        if (name === "turn") {
+          app.spun = 0;
+        }
+      }
+      EV.showView(app);
+    });
+  }
+  const canvas = app.renderer.canvas;
+  canvas.addEventListener("pointerdown", (event) => {
+    canvas.setPointerCapture(event.pointerId);
+    let last = [event.clientX, event.clientY];
+    canvas.onpointermove = (move) => {
+      const view = app.view;
+      view.turn = ((Math.round(view.turn + app.spun - (move.clientX - last[0]) / 2) % 360) + 360) % 360;
+      app.spun = 0;
+      view.tilt = Math.max(-89, Math.min(89, Math.round(view.tilt + (move.clientY - last[1]) / 2)));
+      last = [move.clientX, move.clientY];
+      EV.showView(app);
+    };
+    canvas.onpointerup = () => { canvas.onpointermove = null; };
+  });
+  canvas.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    app.view.zoom = Math.max(40, Math.min(400, Math.round(app.view.zoom * (event.deltaY < 0 ? 1.1 : 1 / 1.1))));
+    EV.showView(app);
+  }, { passive: false });
+  window.addEventListener("resize", () => { app.dirty = true; });
+};
+
+EV.frameLoop = (app, now) => {
+  const gap = Math.min(100, Math.max(0, now - (app.lastTick || now)));
+  app.lastTick = now;
+  EV.rebuild(app);
+  const view = app.view;
+  if (view.spin) {
+    app.spun = (app.spun + gap * 0.012) % 360;
+    app.dirty = true;
+  }
+  if (!app.dirty) {
+    return false;
+  }
+  const canvas = app.renderer.canvas;
+  const turn = ((view.turn + app.spun) * Math.PI) / 180;
+  const tilt = (view.tilt * Math.PI) / 180;
+  const fit = app.fit;
+  const distance = (fit.radius * 2.6 * 100) / view.zoom;
+  const eye = [fit.center[0] + distance * Math.cos(tilt) * Math.sin(turn), fit.center[1] + distance * Math.sin(tilt),
+               fit.center[2] + distance * Math.cos(tilt) * Math.cos(turn)];
+  const aspect = Math.max(1, canvas.clientWidth) / Math.max(1, canvas.clientHeight);
+  const projection = EV.perspective(Math.PI / 4, aspect, distance / 50, distance + fit.radius * 4);
+  const look = EV.lookAt(eye, fit.center, [0, 1, 0]);
+  const toward = [eye[0] - fit.center[0], eye[1] - fit.center[1], eye[2] - fit.center[2]];
+  const colors = app.colors;
+  EV.drawMesh(app.renderer, {
+    viewProjection: EV.multiply(projection, look), eye,
+    light: [toward[0] - toward[2] * 0.6, toward[1] + distance * 0.8, toward[2] + toward[0] * 0.6],
+    low: colors.low, middle: colors.middle, high: colors.high, rim: colors.rim, rimStrength: colors.light ? 0.25 : 0.45,
+    grid: view.grid && !!app.renderer.mesh, gridCount: Math.min(48, Math.max(8, Math.round(view.detail / 8))),
+    background: colors.background,
+  });
+  app.dirty = false;
+  return true;
+};
+
+EV.paintReadout = (app) => {
+  EV.$("samples").textContent = `${app.samples.toLocaleString("en-US")} samples · built in ${app.buildMs} ms`;
+  EV.$("rate").textContent = `${app.fps} frames/s, vsync ${app.view.vsync ? "on" : "off"}`;
+};
+
+// The frame loop runs under the toolbox's watch, which reports a throw or a loop that stops turning. Without vsync
+// every turn draws, and the next turn waits for the card to finish the last one.
+EV.startLoop = (app) => {
+  const meter = EV.rateMeter();
+  let paintedAt = 0;
+  EV.watchLoop("shapes view", (now) => {
+    if (!app.view.vsync) {
+      app.dirty = true;
+    }
+    if (EV.frameLoop(app, now)) {
+      app.fps = meter.tick(now);
+    }
+    app.turns += 1;
+    if (now - paintedAt > 250) {
+      paintedAt = now;
+      EV.paintReadout(app);
+    }
+  }, { vsync: () => app.view.vsync, settle: () => app.renderer.device.queue.onSubmittedWorkDone() }).wake();
+};
+
+EV.start = async () => {
+  const app = EV.app;
+  try {
+    app.renderer = await EV.startMesh(EV.$("view"), "[shapes view]");
+  } catch (error) {
+    EV.$("shapeLabel").textContent = "This page draws with WebGPU.";
+    EV.$("shapeNote").textContent = `${error.message}.`;
+    EV.noLoop("shapes view", "no device", error.message);
+    return;
+  }
+  if (OPENING && OPENING.view) {
+    const report = EV.applyView(app.view, OPENING.view);
+    if (report.error.length) {
+      EV.$("refused").textContent = `Not applied: ${report.error.join("; ")}`;
+      EV.$("refused").hidden = false;
+    }
+  }
+  EV.showView(app);
+  EV.bindControls(app);
+  EV.startLoop(app);
+  window.shapesView = {
+    apply: (section) => EV.apply(app, section),
+    view: () => JSON.parse(JSON.stringify(app.view)),
+    internals: EV,
+  };
+};
+
+EV.start();
+</script>
+<div id="copyright">Copyright &copy; 2026 Douglas Quigg (dstroy0) &lt;dquigg123@gmail.com&gt; <a href="https://github.com/dstroy0" target="_blank" rel="noopener noreferrer">github.com/dstroy0</a></div>
+<style>
+  #copyright { position: fixed; top: 2px; left: 50%; transform: translateX(-50%); z-index: 50; font: 10px/1.3 system-ui, "Segoe UI", Roboto, sans-serif; color: rgba(128, 128, 128, 0.72); white-space: nowrap; pointer-events: none; }
+  #copyright a { color: inherit; text-decoration: none; pointer-events: auto; }
+  #copyright a:hover, #copyright a:focus-visible { text-decoration: underline; }
+  @media print { #copyright { position: static; transform: none; text-align: center; } }
+</style>
+<script>
+  (function () {
+    var line = document.getElementById("copyright");
+    var place = function () {
+      var bar = document.querySelector("#menu, #controls, #bar, [data-bar]");
+      var box = bar && bar.getBoundingClientRect();
+      line.style.top = box && box.height && box.top < 80 ? Math.round(box.bottom + 3) + "px" : "2px";
+    };
+    window.addEventListener("resize", place);
+    window.addEventListener("load", place);
+    place();
+  })();
+</script>
+</body>
+</html>

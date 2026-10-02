@@ -263,8 +263,11 @@
   </footer>
 </div>
 
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<script>/*SCRIPT*/</script>
 <script>
-const DATA = /*DATA*/;
+const DATA = /*DATA*/ null;
 const WAVE = DATA.waveform, S0 = DATA.sigma0, S1 = DATA.sigma1;
 const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -705,9 +708,8 @@ function tick(t) {
       render();
     }
   }
-  requestAnimationFrame(tick);
 }
 render();
-requestAnimationFrame(tick);
+EV.watchLoop("scope view", tick).wake();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
 </script>

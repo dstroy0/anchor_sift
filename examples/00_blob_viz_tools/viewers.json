@@ -12,7 +12,7 @@
     },
     {
       "builder": "build_bend_view.py",
-      "builder_digest": "952d5a3686b7cc2727fecca836f1f858008f2b853a757a01a0d5346f11648ba8",
+      "builder_digest": "a049dce14cb64be6bdc2dc74a27ea5c4f5cbd45cc528fd9da5204abee37405ca",
       "inline": false,
       "optional": [
         "fields_second",
@@ -32,22 +32,35 @@
         "samples"
       ],
       "template": "bend_view_template.html",
-      "template_digest": "88160c446b7dffaae003e414f9b2c7088f196d6fea1c96cf13288c2e412cd668",
+      "template_digest": "1e9ee87a5c8a8f4ad0d8142cc7221cf26af37ffd8faf259247fe1752c4a5900b",
       "writes": "bend_view.html"
     },
     {
       "builder": "build_blind_view.py",
-      "builder_digest": "f6d35e4d10f5d196cf0c77efaf1ab27d7065da0bfd0ee22df9d17650903762ad",
+      "builder_digest": "cca05ee932a564dbe9bfed0877d51c7612ba3fb2b615fa0b3fd1e765f874de1a",
       "inline": false,
-      "optional": [],
-      "requires": [],
+      "optional": [
+        "arrows",
+        "rank"
+      ],
+      "requires": [
+        "blind",
+        "columns",
+        "count",
+        "degree",
+        "floor",
+        "rows",
+        "seats",
+        "spectrum",
+        "width"
+      ],
       "template": "blind_view_template.html",
-      "template_digest": null,
+      "template_digest": "05fa4c79760608979ed90496e6c3aa1e815fcf929e35e168de637cc698b64c39",
       "writes": null
     },
     {
       "builder": "build_blob_view.py",
-      "builder_digest": "9acec0971d343bf5af5a75b16626933f11e3af5c8435e292d83adae7ec64f949",
+      "builder_digest": "af317c45541925630d85368280551c6bc4cc2187c3c752e7c7cd49180bcc91b1",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -64,12 +77,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
       "writes": null
     },
     {
       "builder": "build_block_view.py",
-      "builder_digest": "56fc74f1607166ba7e2b66c2ed83bafdc734796fa7afc63fceac11084891e741",
+      "builder_digest": "f61dc12153db136502414adab42e41bbf69df3f9ef099fee5d5c573c815c42f7",
       "inline": false,
       "optional": [],
       "requires": [
@@ -81,12 +94,12 @@
         "windowShares"
       ],
       "template": "block_view_template.html",
-      "template_digest": "1f5c8d3f5dc37976c5fe272573092fdd87417d3f971bdf2cf68ffcead660604d",
-      "writes": null
+      "template_digest": "4ca4b5f0cf70a76f308844a18d7f0cc0c8fb24509da7a1dfebaf8cd903f01574",
+      "writes": "block_view.html"
     },
     {
       "builder": "build_chart_view.py",
-      "builder_digest": "67e32ba929a2b17f90ed27b29ec472a35052187c2d0960adfd4680dfb5bdd145",
+      "builder_digest": "82c4567eae13fa299da72a14241c0160f6ebca24f018dba4b7a8af2960886612",
       "inline": false,
       "optional": [
         "blurb",
@@ -98,12 +111,12 @@
         "xLabel"
       ],
       "template": "chart_view_template.html",
-      "template_digest": "2550b5f54f27ee0d1d3907136bc2d05e95e8b42284069d3620393444e52d831d",
+      "template_digest": "a01722132f4b9c3db578f920e771904339d057451f657478efac501ea7e41a59",
       "writes": null
     },
     {
       "builder": "build_earth_view.py",
-      "builder_digest": "418cc2753e0915ee98e544944fb9eee62a9f0af4db0b1b6692ca53bb50575c53",
+      "builder_digest": "efce132fde4582637b0b5d197491f3e4d14e1f3893260ec3370e7b5b56798b1a",
       "inline": false,
       "optional": [],
       "requires": [
@@ -117,12 +130,12 @@
         "total"
       ],
       "template": "earth_view_template.html",
-      "template_digest": "c1c92ead587c4193f508d203e30fe78a1ac73a8cf8253cf838c7f123dc4a0886",
-      "writes": null
+      "template_digest": "a1b3a802e706582aee62f47ec64128c0bb6109ccdf54eded2a29fb9a1ab08563",
+      "writes": "earth_view.html"
     },
     {
       "builder": "build_field_view.py",
-      "builder_digest": "73b96ebbe4c2876a04d8c5fbdeea9f7160f9c4a93aa0c6a8a41a12107ae3ef96",
+      "builder_digest": "623eff8d7d9f4d9e98c4c328d2fa5bbcbc5da4c0007e5ab536c783fb6087c97e",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -139,7 +152,7 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
       "writes": null
     },
     {
@@ -154,7 +167,7 @@
     },
     {
       "builder": "build_orrery_view.py",
-      "builder_digest": "ab9eb90a516afb2a6afc59d5f187372512b6d39d78d7064074ac1fb801f79d7e",
+      "builder_digest": "0f9b4ea3aef084244af89f730d42cdab1cc7f43d719532ecda2152e35506db57",
       "inline": false,
       "optional": [
         "settings"
@@ -169,12 +182,12 @@
         "span"
       ],
       "template": "orrery_view_template.html",
-      "template_digest": "03620395ce981dfeedab006a401e67c1be0bc51eee42337cd2a3fc8b8702e58f",
-      "writes": null
+      "template_digest": "8bc7552a418b7ff7281d45fae78bd6006f90d2731b124c4593e6722d214d1902",
+      "writes": "orrery_view.html"
     },
     {
       "builder": "build_plot_view.py",
-      "builder_digest": "ee54e9280e5586b145501400e70a62c4ae4cbe9c24bc94b3c1ba6684bddef358",
+      "builder_digest": "e69da0e9652f2279e95522195c7d859875e36b97d988b35d667e44eec2a92d7b",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -191,8 +204,8 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
-      "writes": null
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
+      "writes": "plot_view.html"
     },
     {
       "builder": "build_pool_view.py",
@@ -206,7 +219,7 @@
     },
     {
       "builder": "build_room_view.py",
-      "builder_digest": "db71c72eccb70b9d60a715dfa8fe48e25b10e32e3bf287ae0cea8d86647c1548",
+      "builder_digest": "4127b0145006a21ab977676cdd21aa20716d4028c1477203656e53c4c604fba2",
       "inline": false,
       "optional": [
         "clock",
@@ -221,12 +234,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
+      "template_digest": "f05e17640758182ecbba67d70e95a87923a8665c908adb76892ea7e91da51eaa",
       "writes": "room_view.html"
     },
     {
       "builder": "build_scope_view.py",
-      "builder_digest": "471c5f395d0f7a1f53a698df383ce0bec58b63f95f85fbc867ee4d077357e3eb",
+      "builder_digest": "e2ddd46585dbc34467926800c35a4b38b0a6b36d4e246b8169cac1e1b1aad687",
       "inline": false,
       "optional": [],
       "requires": [
@@ -241,12 +254,12 @@
         "waveform"
       ],
       "template": "scope_view_template.html",
-      "template_digest": "be4246cda49ee4371d474452fa26064d37131167a6fb8cfa3a3a0f2a88a96c70",
-      "writes": null
+      "template_digest": "7f7919b444c21eec829856724ebe422f8f54fb9aa9591d46f75f45f48459684a",
+      "writes": "scope_view.html"
     },
     {
       "builder": "build_sha_clock_view.py",
-      "builder_digest": "aee2d27fe0624fe6e24f310452918ac3c20742b58eded9e8c7f4754429684bf7",
+      "builder_digest": "4189b9699371772245a0e6c7e83aa5cbdf120851c5fef958196fab60fbae636f",
       "inline": false,
       "optional": [
         "clock",
@@ -261,12 +274,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
+      "template_digest": "f05e17640758182ecbba67d70e95a87923a8665c908adb76892ea7e91da51eaa",
       "writes": "sha_clock_view.html"
     },
     {
       "builder": "build_sha_pairs_view.py",
-      "builder_digest": "53dd2520513e6edda6c85a077f17da429445ec4725fa31aa925bb4de6ba953e3",
+      "builder_digest": "7a9ea7e7f38407f34b1f6e91bbd2b765e5cda232e1279b718bd92b2874542e51",
       "inline": false,
       "optional": [],
       "requires": [
@@ -275,12 +288,12 @@
         "pairs"
       ],
       "template": "pairs_view_template.html",
-      "template_digest": "4ccfd40a35c83a28dbeb0443fdc328d553afa55bcacfcba90f3e5c1fed5c0525",
+      "template_digest": "6a9e79c343073577e12c2e39e9c37fd413b0599ceadb36b13e5bb3b0d262fca3",
       "writes": "sha_pairs_view.html"
     },
     {
       "builder": "build_sha_room_view.py",
-      "builder_digest": "6e183a0e782ca47878e55fa03bb0df582491814aa3113946498a24388063c3e4",
+      "builder_digest": "5b248c9d90374d6b940860d161e059110b0f6b3a7721dbb22b5329c8d68709ae",
       "inline": false,
       "optional": [
         "clock",
@@ -295,12 +308,12 @@
         "things"
       ],
       "template": "room_view_template.html",
-      "template_digest": "58aed4cfd22557a1c810d9ec99bcc7f0c8e643b73549cf78e60cde336eb9a834",
+      "template_digest": "f05e17640758182ecbba67d70e95a87923a8665c908adb76892ea7e91da51eaa",
       "writes": "sha_room_view.html"
     },
     {
       "builder": "build_sha_sphere_view.py",
-      "builder_digest": "5324261af814df7b935f717b4f97a9d79d781555e47d8ded1b52b8a6e17d85fa",
+      "builder_digest": "adb9ec1e3ab4175885391a299ac8cad6d0027e24b41dd1355a88a1002444370d",
       "inline": false,
       "optional": [
         "schema",
@@ -319,12 +332,12 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "09a6719dc964349db106d3723ff96ae9ebeacda0b052e654fe41a61af5845881",
-      "writes": null
+      "template_digest": "5ff445b952e00b104e6fbc4a7503edcf56eaab63c12d2576e176c500e839e03e",
+      "writes": "sha_sphere.html"
     },
     {
       "builder": "build_shadow_view.py",
-      "builder_digest": "76aba181b71ffdbbdc1b195bb9de2d78425bd2a17fbb4c6b641c9b2cb71110ef",
+      "builder_digest": "ffe3dd0dd8d07f309ef7e280927fef06f10325b762868765d784dcf104c7b0bb",
       "inline": false,
       "optional": [],
       "requires": [
@@ -332,8 +345,8 @@
         "word"
       ],
       "template": "shadow_view_template.html",
-      "template_digest": "27937a3a6b76b82e1e4af97a54e7d47af97600ed4f0b4e4b625347913f4467a5",
-      "writes": null
+      "template_digest": "fd8a3bdba4b23154df3110a5ad34fb21e0d1532eb27bd9ab6bcf8edf02833632",
+      "writes": "shadow_view.html"
     },
     {
       "builder": "build_shapes_view.py",
@@ -342,12 +355,12 @@
       "optional": [],
       "requires": [],
       "template": "shapes_view_template.html",
-      "template_digest": "0ef15a55ce4ea16ef22f340eba4af34f2bd9e79a924ec7d151383608c607644e",
+      "template_digest": "d86f81f2e80a6edce66679e4fae1bd72e7ea27fbd028d65724e29bb94bbb8bc3",
       "writes": null
     },
     {
       "builder": "build_sound_view.py",
-      "builder_digest": "ee3f0f50ddf7c3557ee1bc8a3ea926253b232b9441294088abdf940c74a7df69",
+      "builder_digest": "1dd11148a0630314600278479f63724da617424dc4ee4798eb449944fe16237b",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -364,12 +377,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
-      "writes": null
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
+      "writes": "sound_view.html"
     },
     {
       "builder": "build_sources_view.py",
-      "builder_digest": "35121aea8b7b861b5b7000bd5c20b96d08f598736816255c1da1b245855c758e",
+      "builder_digest": "6742a81ab1c22c8e42f45cbcf702ee15e225c07593f0aa52a2e33e63a5dec5aa",
       "inline": false,
       "optional": [
         "order"
@@ -379,12 +392,12 @@
         "sources"
       ],
       "template": "sources_view_template.html",
-      "template_digest": "07f1949c03d59497e5c58acf6bc172a9eecf7f9c97b1b01bdb557f42e2cd2e94",
-      "writes": null
+      "template_digest": "1838dbbe17b3a0f608adf83c2576c2ae6e3dd9273b5a873e2488f90963df766d",
+      "writes": "sources_view.html"
     },
     {
       "builder": "build_sphere_view.py",
-      "builder_digest": "6d061f6e561c58aa700bda6d1e5f54f935275501d74b840ecc46683b8b5dac18",
+      "builder_digest": "f25fc290f8b6a9c5a4e5da87a4da89c82d57fdad40a01f234097a88537fac41c",
       "inline": false,
       "optional": [
         "schema",
@@ -403,12 +416,12 @@
         "title"
       ],
       "template": "sphere_view_template.html",
-      "template_digest": "09a6719dc964349db106d3723ff96ae9ebeacda0b052e654fe41a61af5845881",
+      "template_digest": "5ff445b952e00b104e6fbc4a7503edcf56eaab63c12d2576e176c500e839e03e",
       "writes": null
     },
     {
       "builder": "build_spiral_view.py",
-      "builder_digest": "af257b568409a75211f5d3cf5afb0ca4c79c25c1527d9bdd8971bcb0d8cdddd9",
+      "builder_digest": "79b241c5a9c497367eade84c58bfe6c12230fae62fb273f64cd35a0d75846387",
       "inline": false,
       "optional": [
         "arms"
@@ -420,12 +433,12 @@
         "unanimousByChance"
       ],
       "template": "spiral_view_template.html",
-      "template_digest": "871b8fc5a66bbc27747e8891f5b27ab7a2a014728b1cdf71a2e0601ac14eb668",
-      "writes": null
+      "template_digest": "c5008a633568b8b3eda443364cb1f002310a4b449e01ccffb0a5b408b0971979",
+      "writes": "spiral_view.html"
     },
     {
       "builder": "build_step_view.py",
-      "builder_digest": "4cdec5e70b92a797c6c4ba449d199a927d944e60d7d3332859eba31c17287305",
+      "builder_digest": "ca00dbcbb3b41fe3ab5282ee52a52575e6b05f77e77615c7d96055dea61210f0",
       "inline": false,
       "optional": [
         "keys"
@@ -434,12 +447,12 @@
         "rounds"
       ],
       "template": "step_view_template.html",
-      "template_digest": "ffffd2194643d246d2554a294e27ef74f0af07a8bf6a6fff56818d27931e4f16",
-      "writes": null
+      "template_digest": "9fa1f121887beba6d069f109b7775f65a0472522ec2283fc3c69c94db8ea9be1",
+      "writes": "step_view.html"
     },
     {
       "builder": "build_survey_view.py",
-      "builder_digest": "d9bad760e091e16bab3cbd77c03d2a82308511d5f572203555a028ed03161c95",
+      "builder_digest": "963536ebcb6716212ea86bf28c7067fc3fbb5098fbbc2f03300e09d165327769",
       "inline": false,
       "optional": [
         "histogram"
@@ -454,12 +467,12 @@
         "worstReach"
       ],
       "template": "survey_view_template.html",
-      "template_digest": "7515a7d1727be7ac071b2a7e84b09e7e0bf907105a79b60169dcc51a1657271e",
-      "writes": null
+      "template_digest": "7ec7cd4498c17783044041b8833504a43bf1185865b2edeb23aadfd1d803f793",
+      "writes": "survey_view.html"
     },
     {
       "builder": "build_sweep_view.py",
-      "builder_digest": "9b30f09aef05e2ec8324c455736a2bb46efdaa4ad1771340f97b14d994d02ff2",
+      "builder_digest": "58d89d636aa095a3418c5810f6869eeb01484c06c43afc9cbeb87b32215d2f4f",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -476,12 +489,12 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
-      "writes": null
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
+      "writes": "sweep_view.html"
     },
     {
       "builder": "build_voxel_view.py",
-      "builder_digest": "d3e4fdbfb22b2d7e851c3ad81ecd7ade69fcd95dbbc5d1cd991e05f891502937",
+      "builder_digest": "91c881826df5c7236d6212d385b9002009db043c9a03d171ef703138b11f4e06",
       "inline": false,
       "optional": [
         "depthLabel",
@@ -498,8 +511,8 @@
         "note"
       ],
       "template": "voxel_view_template.html",
-      "template_digest": "e8b6f29122c13862723ab40b04a4b6a3b99e62fedc9656e45a32487558525dac",
-      "writes": null
+      "template_digest": "42664b8bf5e5da68dc116c21b5e7e656d0672594a82e6e2aaafda1cf96bc38d5",
+      "writes": "voxel_view.html"
     }
   ]
 }

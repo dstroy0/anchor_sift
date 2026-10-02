@@ -1,8 +1,9 @@
 # Viewers
 
-Each is a Python generator plus an HTML template. The generator writes the numbers into the
-template as one JSON literal and emits a single self-contained file: no server, no install, no
-fetch at run time. Standard library only.
+Each is a Python builder plus an HTML template. The builder computes its numbers and hands them to
+`generate_template.py`, which writes them into the template's one data slot as a JSON literal, inlines
+the shared tools the template names, and emits a single self-contained file: no server, no install,
+no fetch at run time. Standard library only.
 
 ## What is general and what belongs to this tree
 
@@ -96,22 +97,31 @@ byte. The generator and the toolbox import nothing else from this tree.
 | ---------------- | -------------------------------------------------------------------------------------- |
 | `theme.css`      | the dark and light themes and the one set of controls: buttons, fields, sliders, switches, folding sections |
 | `ui/toolbar`     | the floating toolbar: a menu button that grows into folding sections of controls       |
+| `ui/bar`         | the bar the blob viz units mount: one control per setting, from the schema `settings.py` writes |
+| `core/watch`     | the frame watch every looping page runs under, read in one call as `window.__loopHealth` |
 | `core/`          | the device, bind groups and streaming, the sine table and angles, the settings scheme, the clock with vsync, 4 by 4 matrices |
 | `volume/`        | the `.vbo`/`.ibo` object, its compaction kernels and the shared drawing code           |
 | `shapes/`        | run boxes, lines, the 2D map, smooth blobs, every parametric surface and transform, the Hilbert and Morton curves, a harmonic field, a float mesh |
 | `copyright.html` | the line every built page carries, stamped by `generate_template.stamp`                |
 
-The engine view and the shapes gallery are built this way:
+Every template here builds this way, and every page that draws frame by frame hands its loop to `core/watch`.
+The engine view, the shapes gallery and the blind directions take their look and their controls from the toolbox
+as well:
 
 ```
 python ../cell_tracking/maint/build_engine_view.py
 python build_shapes_view.py --set shape=klein --set transform=twist
+python build_blind_view.py --degree 8 --count 256
 ```
 
 The gallery draws every shape the toolbox makes on the shared core: every surface under every transform, the
-curves as the paths they trace, and the field painted on any of them or raised from it. Both pages need WebGPU,
-Chrome 113 or later. Each has a vsync switch, on by default; off, it draws as fast as the card finishes and reports
-the frames it drew per second.
+curves as the paths they trace, and the field painted on any of them or raised from it. The engine view and the
+gallery need WebGPU, Chrome 113 or later. Each has a vsync switch, on by default; off, it draws as fast as the card
+finishes and reports the frames it drew per second. The blind page sets the source weights of each singular
+direction beside the boundary field they produce, on equal-area maps with one scale across every direction.
+
+The tissue room, `view/track_room.html`, is built from `track_room_template.html` with no data and served by
+`view/serve_room.py`, which hands it its samples and slices.
 
 ## On representations
 
@@ -399,6 +409,8 @@ belongs to float64 and not to the reading.
 | `null_harness.py`       | A threshold picked by judgment. Runs a move that changes nothing and reads the residual, after proving itself against a deliberately broken null. Six floors. |
 | `grid_error.py`         | The drawn picture standing in for the field. Measures the mesh against exact evaluation.                                                                       |
 | `script_check.py`       | A page whose script does not parse, and a page with a frame loop and no watch on it.                                                                           |
+| `parity_check.py`       | The bar and the scheme judging one setting two ways, and a frame watch that does not report a throw or a loop that stops.                                      |
+| `generate_template.py`  | A built page whose toolbox pieces differ from the toolbox, and a template with two data slots or a script left open.                                           |
 | `data_check.py`         | A page whose script reads a key its own data does not carry, with no guard on the read.                                                                        |
 | `inert_report.py`       | Refuses nothing. Prints which of a page's optional features came out inert, telling a reader before they open it.                                              |
 | `frame_audit.py`        | An allocation on the per-frame path, and a disposal of something built once.                                                                                   |

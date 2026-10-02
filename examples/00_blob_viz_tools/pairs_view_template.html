@@ -69,8 +69,11 @@ button:hover { border-color: #ffe14d; }
 
 <div id="digest"></div>
 
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<script>/*SCRIPT*/</script>
 <script>
-var DATA = /*PAIRS_DATA*/null;
+var DATA = /*DATA*/ null;
 
 var stage = document.getElementById("stage");
 var scene = new THREE.Scene();
@@ -334,84 +337,7 @@ function turn() {
   camera.up.copy(upVec);
   camera.lookAt(target);
   renderer.render(scene, camera);
-  requestAnimationFrame(turn);
-}
-// ---------------------------------------------------------------------------------------------
-// Does the loop turn twice?
-// ---------------------------------------------------------------------------------------------
-//
-// A page whose loop throws on its first turn has already had one frame drawn by setup. It
-// renders a complete, correct, still picture. The build succeeds, the parse check passes, and every
-// feature after the throw does nothing -- which is every feature. Nothing outside the page can catch
-// that failure cheaply, since it is a runtime fault in a file that parses. So the page reports on
-// itself.
-//
-// Two turns and not one, because a dead loop produces exactly one.
-var LOOP_WATCH_MS = 1500;
-var loopTurns = 0;
-//
-// TWO WAYS THE LOOP CAN STOP, AND THEY ARE NOT THE SAME EVENT. A throw is fatal, because the next
-// turn throws the same way. Slowness is a report and stops nothing.
-//
-// One flag for both does not work: the guard errors under it and does not run. `setTimeout` runs
-// in a background tab and `requestAnimationFrame` does not. A page opened in a tab that is not visible
-// completes one turn, is declared dead on schedule, and never runs again even once brought to the
-// front. One shared flag makes the watchdog kill the loop.
-var loopThrew = null;    // fatal, and the only thing that stops scheduling
-var loopWarned = false;  // reported once, stops nothing
-window.__loopHealth = { ok: null, turns: 0, why: "not checked yet" };
-
-function loopOutOfSight() {
-  return typeof document !== "undefined" && document.visibilityState === "hidden";
 }
 
-function loopSay(why, detail) {
-  window.__loopHealth = { ok: false, turns: loopTurns, why: why, detail: detail || "" };
-  if (window.console && console.error) { console.error("FRAME LOOP: " + why, detail || ""); }
-}
-
-function loopFailed(why, detail) {
-  loopThrew = why;
-  loopSay(why, detail);
-}
-
-function guardedTurn() {
-  if (loopThrew) { return; }
-  try {
-    turn();
-  } catch (thrown) {
-    loopFailed("threw on turn " + (loopTurns + 1) + ", " + String(thrown),
-               String(thrown && thrown.stack ? thrown.stack : ""));
-    return;
-  }
-  loopTurns += 1;
-  if (loopTurns >= 2 && window.__loopHealth.ok !== true) {
-    window.__loopHealth = { ok: true, turns: loopTurns, why: "the loop turned twice" };
-  }
-}
-
-var loopScheduled = requestAnimationFrame;
-requestAnimationFrame = function (fn) { return loopScheduled(fn === turn ? guardedTurn : fn); };
-
-function loopWatch() {
-  if (loopThrew || loopWarned) { return; }
-  // Hidden is not slow. The frame clock is stopped by the browser. There is nothing to judge and
-  // the question is asked again later instead of answered wrongly now.
-  if (loopOutOfSight()) { setTimeout(loopWatch, LOOP_WATCH_MS); return; }
-  if (loopTurns < 2) {
-    loopWarned = true;
-    loopSay("only " + loopTurns + " turn(s) in " + LOOP_WATCH_MS + " ms",
-            "a page that renders one frame and stops looks correct and is not");
-  }
-}
-
-setTimeout(loopWatch, LOOP_WATCH_MS);
-
-if (typeof document !== "undefined" && document.addEventListener) {
-  document.addEventListener("visibilitychange", function () {
-    if (!loopOutOfSight() && !loopThrew && loopTurns < 2) { setTimeout(loopWatch, LOOP_WATCH_MS); }
-  });
-}
-
-guardedTurn();
+EV.watchLoop("pairs view", turn).wake();
 </script>

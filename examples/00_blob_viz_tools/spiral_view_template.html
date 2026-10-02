@@ -144,8 +144,11 @@
   </footer>
 </div>
 
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<script>/*SCRIPT*/</script>
 <script>
-const DATA = /*DATA*/;
+const DATA = /*DATA*/ null;
 const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const state = { color:"agree", thread:true, spin:!reduce, scale:100, yaw:0.5, pitch:-0.3 };
@@ -257,8 +260,7 @@ ball.addEventListener("pointercancel",()=>{drag=null;});
 
 let last=0;
 function tick(t){ const dt=last?t-last:16; last=t;
-  if(state.spin && !drag){ state.yaw += dt*0.00014; draw(); }
-  requestAnimationFrame(tick); }
-draw(); requestAnimationFrame(tick);
+  if(state.spin && !drag){ state.yaw += dt*0.00014; draw(); } }
+draw(); EV.watchLoop("spiral view", tick).wake();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
 </script>

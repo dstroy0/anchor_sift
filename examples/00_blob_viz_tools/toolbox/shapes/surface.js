@@ -26,7 +26,7 @@ EV.curveSide = (ctx) => {
 // Wraps a position-only shape into the { p, n } a renderer wants, taking the normal from the surface itself by
 // difference, and no shape can disagree with its own normal. At the far edge there is nothing ahead to difference
 // against: the step is taken backward and the result negated, or the last row of every field would be lit and
-// extruded upside down. The normal points away from the middle, so a closed shape grows outward.
+// extruded upside down. The normal points away from the middle, and a closed shape grows outward along it.
 EV.surface = (f) => (u, v, ctx) => {
   const step = 0.0015;
   const here = f(u, v, ctx);

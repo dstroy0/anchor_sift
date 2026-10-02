@@ -2,15 +2,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The shared control bar: one option model for every blob viz unit, carrying the discipline the
-// engine viewer's cfg.js holds. A unit hands the bar a schema, one entry per setting with its kind,
+// toolbox's core/scheme.js holds. A unit hands the bar a schema, one entry per setting with its kind,
 // its range and its fallback, and the opening values a build wrote. The bar draws one control per
 // entry, and on every change it reports what it took and what it refused, each by name. An absent
 // value takes its fallback. A value of the wrong kind or outside its range is named in the status
 // line and not applied, and the control that holds it stays. Nothing goes silently inert.
 //
-// A builder injects this file whole at its marker, keeping each page a self-contained single file
-// with one source for the bar. The unit calls BAR.mount with a container, its schema, the build's
-// settings, and a draw callback the bar hands a view on every applied change.
+// A template names it with <!--TOOL ui/bar-->. The unit calls BAR.mount with a container, its schema,
+// the build's settings, and a draw callback the bar hands a view on every applied change.
 
 window.BAR = (function () {
   // Checks one value against its rule; returns the reason it errors, or null. The reasons read as a

@@ -35,7 +35,6 @@ it can be checked against any other implementation and not taken on trust.
 """
 
 import io
-import json
 import math
 import os
 import sys
@@ -44,7 +43,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import out_path
-from generate_template import stamp
+import generate_template
 
 TEMPLATE = os.path.join(HERE, "pairs_view_template.html")
 
@@ -164,19 +163,18 @@ def main():
         "source": "sha-256 compressing %s" % ("the empty message" if not message else repr(message)),
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*PAIRS_DATA*/null" not in page:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page.replace("/*PAIRS_DATA*/null", json.dumps(payload, separators=(",", ":")))
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = out_path.resolve("sha_pairs_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     print("%s (%.1f KB)" % (out, os.path.getsize(out) / 1024.0))
     print("  256 bits as 128 antipodal pairs, each a diameter through the center")

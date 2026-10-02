@@ -38,18 +38,15 @@ Writes a self-contained page: no server, no fetch at run time, nothing to instal
 """
 
 import io
-import json
 import math
 import os
-import re
 import sys
 
 import settings
-from generate_template import stamp
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "voxel_view_template.html")
-BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 
 def window_readings(data, window):
@@ -203,30 +200,18 @@ def main():
         ],
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "</script>" not in page:
-        raise SystemExit("template is truncated: the script tag is never closed")
-    place = re.search(r"/\*VOXEL_DATA\*/\s*null", page)
-    if place is None:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
-
-    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
-        bar = handle.read()
-    slot = re.search(r"/\*CONTROL_BAR\*/", page)
-    if slot is None:
-        sys.stderr.write("the template has no place for the control bar\n")
-        return 1
-    page = page[:slot.start()] + bar + page[slot.end():]
 
     target = text("--out")
     if target is None:
         target = os.path.join(os.path.dirname(os.path.abspath(source)),
                               os.path.splitext(os.path.basename(source))[0] + "_view.html")
     with io.open(target, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     written = os.path.getsize(target)
     print("wrote %s (%.1f KB)" % (target, written / 1024.0))

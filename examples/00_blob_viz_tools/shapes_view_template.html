@@ -11,6 +11,7 @@ on any of them or raised from it. generate_template.py builds it through build_s
 <!--TOOL theme-->
 <!--TOOL ui/toolbar-->
 <!--TOOL core/clock-->
+<!--TOOL core/watch-->
 <!--TOOL core/scheme-->
 <!--TOOL core/gpu-->
 <!--TOOL core/mat4-->
@@ -324,49 +325,24 @@ EV.paintReadout = (app) => {
   EV.$("rate").textContent = `${app.fps} frames/s, vsync ${app.view.vsync ? "on" : "off"}`;
 };
 
-// The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
-// window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
-// Without vsync every turn draws, and the next turn waits for the card to finish the last one.
+// The frame loop runs under the toolbox's watch, which reports a throw or a loop that stops turning. Without vsync
+// every turn draws, and the next turn waits for the card to finish the last one.
 EV.startLoop = (app) => {
-  window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
-  const alarm = EV.$("loopAlarm");
   const meter = EV.rateMeter();
   let paintedAt = 0;
-  const turn = (now) => {
-    try {
-      const vsync = app.view.vsync;
-      if (!vsync) {
-        app.dirty = true;
-      }
-      if (EV.frameLoop(app, now)) {
-        app.fps = meter.tick(now);
-      }
-      app.turns += 1;
-      window.__loopHealth.turns = app.turns;
-      if (now - paintedAt > 250) {
-        paintedAt = now;
-        EV.paintReadout(app);
-      }
-      if (vsync) {
-        EV.nextTurn(true, turn);
-      } else {
-        app.renderer.device.queue.onSubmittedWorkDone().then(() => EV.nextTurn(app.view.vsync, turn));
-      }
-    } catch (error) {
-      window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
-      alarm.textContent = `frame loop stopped: ${error.message}`;
-      alarm.hidden = false;
-      console.error("[shapes view] frame loop stopped", error);
+  EV.watchLoop("shapes view", (now) => {
+    if (!app.view.vsync) {
+      app.dirty = true;
     }
-  };
-  EV.nextTurn(true, turn);
-  setTimeout(() => {
-    if (window.__loopHealth.ok && app.turns < 2 && document.visibilityState === "visible") {
-      window.__loopHealth.why = "slow start";
-      alarm.textContent = `the frame loop turned ${app.turns} times in its first 1.5 s`;
-      alarm.hidden = false;
+    if (EV.frameLoop(app, now)) {
+      app.fps = meter.tick(now);
     }
-  }, 1500);
+    app.turns += 1;
+    if (now - paintedAt > 250) {
+      paintedAt = now;
+      EV.paintReadout(app);
+    }
+  }, { vsync: () => app.view.vsync, settle: () => app.renderer.device.queue.onSubmittedWorkDone() }).wake();
 };
 
 EV.start = async () => {
@@ -376,7 +352,7 @@ EV.start = async () => {
   } catch (error) {
     EV.$("shapeLabel").textContent = "This page draws with WebGPU.";
     EV.$("shapeNote").textContent = `${error.message}.`;
-    window.__loopHealth = { ok: false, turns: 0, why: "no device", detail: error.message };
+    EV.noLoop("shapes view", "no device", error.message);
     return;
   }
   if (OPENING && OPENING.view) {

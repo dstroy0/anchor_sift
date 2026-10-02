@@ -55,7 +55,8 @@ sys.path.insert(0, os.path.join(ROOT, "examples", "proofing"))
 
 import boundary_read
 import state_deflection
-from generate_template import stamp
+import out_path
+import generate_template
 
 RINGS = 8
 WIDTH = 32
@@ -137,7 +138,7 @@ def main():
     parser = argparse.ArgumentParser(description="Build the residue A-scope.")
     parser.add_argument("--block", type=int, default=0,
                         help="index into the block corpus, newest first. Default 0.")
-    parser.add_argument("--out", default=os.path.join(HERE, "scope_view.html"))
+    parser.add_argument("--out", default=None)
     given = parser.parse_args()
 
     with io.open(CORPUS, encoding="utf-8") as handle:
@@ -158,16 +159,16 @@ def main():
         "sigma1": list(SIGMA1),
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*DATA*/" not in page:
-        raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
-    page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
 
-    with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(stamp(page))
+    with io.open(out_path.resolve("scope_view.html", given.out), "w", encoding="utf-8") as handle:
+        handle.write(page)
 
-    print("wrote %s" % given.out)
+    print("wrote %s" % out_path.resolve("scope_view.html", given.out))
     print("  block  %d, nonce %d" % (block["height"], int(block["nonce"])))
     print("  spikes %d, rounds %d, depths %d..%d"
           % (len(payload["spikes"]), len(payload["rounds"]),
