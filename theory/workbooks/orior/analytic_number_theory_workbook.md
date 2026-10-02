@@ -166,15 +166,17 @@ hypothesis up to that height, and it was possible only by leaving floating point
 
 Where exact arithmetic sits in that tradition is worth stating exactly, because it is easy to overstate.
 Exact arithmetic is the limit of the interval: a zero-width interval, the value carried with no rounding
-at all, when the value is exactly nameable. The zeta VALUES at the integers are exactly nameable. A non-trivial ZERO is not: it is a transcendental point in
-the critical strip, one of the uncountable reals with no finite description from entry 2. No
-arithmetic, exact included, names it. The most any computation does with a zero is bracket it, and
+at all, when the value is exactly nameable. The zeta VALUES at the even integers are built by the constructors. A non-trivial ZERO is not: no
+closed form in them is known. It does have a finite description, the `n`-th zero above the real
+axis, and a bracket around it narrows as far as asked. It is a computable real, in the countable
+set of entry 2. Whether its imaginary part is irrational, algebraic or transcendental is not known.
+No arithmetic, exact included, carries it at zero width. The most any computation does with a zero is bracket it, and
 Platt's `2^-102` interval is that bracket done rigorously. Exact arithmetic does not supersede that
 work; it sharpens the value side to zero width and leaves the zero side to the same verified enclosure
 the field already uses. Reported from a web search, the papers unread here.
 
-This is the honest reason the earlier entries touch the values and not the zeros: the values are in the
-countable set exact arithmetic was built for, and the zeros are not.
+This is the honest reason the earlier entries touch the values and not the zeros: the values are built by
+the constructors exact arithmetic carries, and the zeros are reached only through a bracket.
 
 ## Where they are bound, and what is wanted in their place
 
@@ -187,7 +189,7 @@ want, and the status says what has been run. No row bears on the hypothesis.
 | the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
 | the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
 | the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
-| a zero | a point where `zeta(s) = 0`, a transcendental point in the strip | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the real-valued function on the critical line Turing's method reads: a sign change brackets a zero | wanted, not built (open item 1). A zero is not exactly nameable, and the most any computation does with one is bracket it (the precision tradition section) |
+| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the real-valued function on the critical line Turing's method reads: a sign change brackets a zero | wanted, not built (open item 1). A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
 | the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
 | the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found, and the count checked against `N(T)` by Turing's method | wanted, not built. A count reaches a horizon and never all of them (the bounding function section) |
 | the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
@@ -200,8 +202,8 @@ want, and the status says what has been run. No row bears on the hypothesis.
   complex arithmetic and an accelerated method (Riemann-Siegel, or Euler-Maclaurin). That is a larger
   poke than this entry, and it is not attempted here. When it is, it will be a numerical observation at
   a stated precision, never a statement about all zeros.
-- Whether every non-trivial zero is an exactly nameable number is a separate question from where it
-  sits, and it is not addressed here.
+- Whether a non-trivial zero has a closed form in the constructors is a separate question from where
+  it sits, and it is not addressed here.
 
 ## Withdrawn
 
