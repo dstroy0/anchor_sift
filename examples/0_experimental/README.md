@@ -3,13 +3,13 @@
 **Purpose:** Hold work that has no walk through a corpus yet, keeping it visible without being mistaken for a stage.
 **Scope:** `examples/0_experimental/`
 
-Twenty one. Six take a filter from another field and run it on this engine's terms. Fourteen carry
+Twenty two. Six take a filter from another field and run it on this engine's terms. Fifteen carry
 the exact arithmetic behind the precision work: the number theoretic transform's precision constants, a
 translation recovered by it, the identity spread that multiplies precision across the constants, a
 redundant residue code that detects uncertainty on exact integers, a ladder of checks each catching what
 the one below it misses, the last digit of pi at any floor, the transform's wave inversion at its
 boundary, the zeta values at the even integers, the symmetry group of the zeta zeros, the zeta zeros
-counted and placed by sign bits, the
+counted and placed by sign bits, the Gram points and the sign of Z at each, the
 Navier-Stokes equations on the unit torus with their sets run against the boundary function, the
 Navier-Stokes energy cascade and coefficient growth of one datum, the congruent number problem on
 Birch and Swinnerton-Dyer, and a descent bounding the rank of those curves. One carries a payload machine
@@ -34,6 +34,7 @@ sits at a subject stage.
 | `exact_zeta_values.py` | analytic number theory | the Riemann zeta function at the even integers, exact from the Bernoulli numbers, cross-checked by Euler's pi-free convolution identity, touching the values and never the zeros |
 | `zeta_zero_symmetry.py` | analytic number theory | the Klein four-group symmetry of the zeta zeros verified exactly on Gaussian rationals, with the critical line as its fixed set; records structure, computes no zero, claims nothing about the hypothesis |
 | `exact_zeta_zeros.py` | analytic number theory | the zeta zeros counted by the winding of zeta around boxes symmetric about the critical line and placed one bit per pass, every decision a truthy or falsy verdict the next pass reads: three signs per point give its eighth of a turn, and chord and step verdicts on each edge decide where a midpoint goes in. Nothing rounds and nothing is assigned in advance. The forty below t = 123 each hold their published ordinate, and without the integral of the rest the two routes never agree; claims nothing about the hypothesis |
+| `exact_zeta_gram.py` | analytic number theory | the Riemann-Siegel theta function by Stirling's series in exact integers, every arctangent two series that agree, and the Gram points placed by its index one bit per pass. The sign of Z at each is read from zeta where a phase verdict ties theta to zeta's own phase. Below t = 285 the sixteen published Gram points each hold, Gram's law first fails at n = 126 as reported, and the signs agree at lag 2 past every drawn order; claims nothing about the hypothesis |
 | `exact_navier_stokes_on_torus.py` | fluid dynamics | the Navier-Stokes equations on the unit torus in the engine's exact integer arithmetic, Gaussian integers times powers of pi over one integer denominator per field: the Arnold-Beltrami-Childress solution reproduced by a velocity route and a vorticity route to the integer, a generic datum's Taylor coefficients outrunning any fixed mode horizon, the viscosity moved by an exact scaling, the two removals shown on instances, and the countable island of nameable fields in the data class; claims nothing about any of Fefferman's four alternatives |
 | `exact_navier_stokes_cascade.py` | fluid dynamics | the same solution map made visible: a generic datum's energy front advancing one mode shell per order while the Arnold-Beltrami-Childress datum stays in one shell, the shell energies summing to the total by Parseval and agreeing across the velocity and vorticity routes, and the coefficient growth whose limit is the reciprocal of the analyticity time, an exact constant for ABC and a completeness horizon for the generic datum; claims nothing about any of Fefferman's four alternatives |
 | `exact_congruent_number.py` | number theory | the congruent number problem on Birch and Swinnerton-Dyer, in exact integers and rationals: Tunnell's theta count reproducing Fermat's non-congruent 1 unconditionally and erroring 3, the elliptic-curve group law over Q exact, and the n=5 witness where Fibonacci's triangle (3/2, 20/3, 41/6) and the infinite-order point on y^2=x^3-25x are one certificate; the analytic side (the L-value, period, regulator) left as the stated floor, and the Tunnell converse flagged as conditional on the conjecture; claims nothing about BSD |

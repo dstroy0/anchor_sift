@@ -2,7 +2,8 @@
 
 **Purpose:** Record what the engine's exact arithmetic shows when it is pointed at analytic number
 theory, one poke at a time, claiming nothing. **Scope:** `examples/0_experimental/exact_zeta_values.py`,
-`examples/0_experimental/exact_zeta_zeros.py`, `evidence/proofs/posits/proof_set_theory.py`, and this
+`examples/0_experimental/exact_zeta_zeros.py`, `examples/0_experimental/exact_zeta_gram.py`,
+`evidence/proofs/posits/proof_set_theory.py`, and this
 file.
 
 This is a workbook, and it claims no result. It follows the rail the
@@ -139,6 +140,47 @@ unit of its last place, and a value asked past the scale raises `WillNotFit`. No
   verified far past it. It bears on the Riemann hypothesis exactly as far as every verification below a
   height does, and not at all past that height.
 
+## Entry 5, 2026-10-02: the Gram points, and Gram's law as agreement at lag 2
+
+`examples/0_experimental/exact_zeta_gram.py`, run to `t = 285` and exit 0, in a minute and a half on
+the host. It computes the Riemann-Siegel theta function by truthy and falsy verdicts, places the Gram
+points by it, and reads the sign of `Z` at each from the values entry 4 computes.
+
+- The phase. `theta(t) = Im ln Gamma(1/4 + it/2) - (t/2) ln pi`, by Stirling's series after a shift
+  of `M`, with `K` Bernoulli terms, every coefficient an exact rational. Two routes run, at
+  `M = K = N` and at `2N`, and routes that disagree double `N`. Each arctangent is two series that
+  must agree: Euler's, with pi from Euler's identity, and the Taylor series about `1/2`, with pi from
+  Machin's. pi is held as its real and its operator, the floor at the places asked and
+  `naturals.pi`, which is asked again for more.
+- The Gram index. At a point it is `theta` over pi, decided where `theta` reads strictly between `i pi`
+  and `(i + 1) pi`, each read toward zero at the same places. A reading of equal doubles the places.
+  Up from `t = 10`, where `theta` increases, a cell holds as many Gram points as its ends' indices
+  differ by. The walk finds 128 below `t = 285`, indices 0 to 127, each alone in its bracket, and
+  places each by sixteen bits. It asks 5,198 values of `theta`, none deeper than eight places, none
+  wider than `N = 4`.
+- The sign of `Z`. `zeta(1/2 + it) = e^(-i theta) Z(t)`. Just below `g_n`, `Im zeta` has the sign of
+  `Re zeta`, and just above it the opposite sign. This phase verdict ties `theta`, from Stirling, to
+  the phase of `zeta`, from Euler-Maclaurin. A bracket is settled where the phase verdict holds at
+  both ends, `Re zeta` has one nonzero sign at both, and entry 4's step verdict holds at both. Every
+  sixteen-bit bracket settles on its first reading. The run asks 2,402 values of `zeta`, the widest at
+  `N = 64`. The cut that a bracket not settled would take is written and has not run.
+- Positive control, with an answer from outside. `g_0` to `g_15` against the table the Riemann-Siegel
+  theta article on Wikipedia prints, read by a web fetch: each bracket holds its ten-place value,
+  `17.8455995405` in `[17.8455810546, 17.8456420898]`. The same article reports Gram's law failing
+  first at index 126. Here `(-1)^n Z(g_n)` is positive for `n` from 0 to 125, negative at 126, with
+  `g_126` in `[282.4547119140, 282.4547424316]`, and positive at 127.
+- Gram's law as agreement. The signs of `Z(g_n)` read as a sequence, 63 positive and 65 negative:
+  agreement at lag 1 is 2 of 127, and at lag 2 is 125 of 126, by
+  `measure.shift_agreement.exact_agreement`. Of 1,000 drawn orders of the same signs
+  (`reference.shuffles.permuted`), none reaches 125 at lag 2, and the most any reaches is 80. The
+  one failure costs one agreement at lag 2 and adds two at lag 1.
+- Drawn null. With the Bernoulli terms left out of both routes, the gap between them at `t = 20` and
+  eight places runs 27,385, 87,464, 210,132, 266,927, 155,769, 53,381 as `N` doubles from 1, and no
+  index is decided. With them it runs 253, 1, 0.
+- What it is not. Gram's law is a pattern known to fail: the same article reports it failing, in the
+  long run, for about a quarter of Gram intervals. Reading it to `t = 285` is a computation at a
+  height and bears on nothing past it.
+
 ## The problem, stated fully
 
 Written here so it sits in one place a later entry can find, and not adopted as a target. The Riemann zeta function is
@@ -261,15 +303,13 @@ places, `N` and the widths come from the records.
 | **Z5. The edge verdicts** | Per half of an edge: `NOT(places_a - places_c)`, the chord `COMPARE(min(|zeta_a|^2, |zeta_c|^2), |zeta_c - zeta_a|^2)`, and at each end `COMPARE(|zeta|^2 10^(2q), |zeta'|^2 |c - a|^2)`. The turn from `a` to `c` is `(d_c - d_a + 4) % 8 - 4`, and the edge's turns read end to end and through the midpoint agree or not. A settled edge is the product of the positive verdicts. A negative verdict puts the midpoint into the path, a zero doubles the places, and unequal places ask both ends at the deeper. | On the host, in `Steering.count`. | One lane per half edge, reading the two point records at its ends. The places each point is asked at next, and the midpoints put into the path, written as fields and compacted by a sum over them. The turns summed per box, an exact sum over the box's lanes. | The quadrant alone counts `[24, 32]` and `[32, 40]` empty, and the chord alone counts `[98, 102]` empty (entry 4). With the step verdict every box below `t = 123` counts as the published table has it. | host only | the half edge as a record program reading two records |
 | **Z6. The walk and the placing** | An empty box doubles the step, a box counting one is a zero, a crowded box splits into halves. Each zero is placed one bit per pass by the lower square centred on the line counting one. | On the host, in `Steering.walk` and `Steering.place`. | Nothing on the device past Z1 to Z5. The host reads the counts per box from the device and writes the next pass's boxes; each pass is one sweep of Z2 to Z5. | Forty zeros below `t = 123`, each placed by sixteen bits, each bracket holding the published ordinate: exit 0, five minutes on the host. | host only | the host loop over device passes |
 | **Z7. The job** | One device, one daemon; a job declares its bytes, is admitted on its standing, and its peak is kept under its signum (M14). | The program runs on the host and asks the device nothing. | The program as a tessera job, beside the sims: `sim_job_submit` before its first device allocation and `sim_job_release` at its end. The signum is the host BLAKE3 of the program's name and arguments, the height and the bits. The declaration is the bytes of a pass, read from the records the last pass wrote: the points asked, times `2N` lanes, times the width at places plus the guard, and the records. Growth past it is told back, and the next run with the same signum is asked against the kept peak. | none | not built | the job's submit and release around the host loop, with the declaration read from the records |
+| **Z8. The phase** | `theta(t)` by Stirling's series after a shift of `M`, two routes at `M = K = N` and `2N` (entry 5). Each `arg(1/4 + k + it/2)` is an arctangent of a rational by Euler's series and by the Taylor series about `1/2`, agreeing. The Gram index at a point is `theta` over pi, decided where `theta` reads strictly between `i pi` and `(i + 1) pi`. | On the host, in `exact_zeta_gram.py`, each `(p, q, digits)` arctangent asked once. | One lane per `(point, k)`, `k` below the shift, each an arctangent series run while its term is nonzero, as Z2's series run. The Stirling terms per point as Z3's tail is, from the same table of `B_2k / (2k)!`. The index and its two verdicts written to the point's record, and the midpoint's index read by the next pass to cut a bracket. | To `t = 285`, 5,198 values of `theta`, none deeper than eight places, none wider than `N = 4`. | host only | the arctangent series as a record program beside Z1's |
 
 ## Open, not done
 
 - Entry 4 counts below `t = 123`, one value at a time on the host, in five minutes. The device
   program and its wants are the table above, and none of it is built.
-- The sign of `Z(t)` at the Gram points is the reading the shift agreement detector and the null
-  permutation identity are built for. Gram's law shows as agreement at lag 2. The null permutation
-  needs 32 occurrences of each sign, about 64 Gram intervals. Both need the Riemann-Siegel theta
-  function by truthy and falsy verdicts, and that is not built.
+- Entry 5 reads `theta` and the Gram points on the host, and Z8 above is its device part, not built.
 - Whether a non-trivial zero has a closed form in the constructors is a separate question from where
   it sits, and it is not addressed here.
 
