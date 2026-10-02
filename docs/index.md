@@ -15,7 +15,7 @@ A unified computational foundation.
 
 </div>
 
-Measure how far an object sits from the most disordered arrangement of its own parts. The reference is the maximum entropy arrangement of those parts, and the measure is the exact departure from it. Under the method sits a machine that does arithmetic with no floor, and the reading runs on it at any scale its words can hold.
+Orior finds the pattern in anything, from a crystal to a language to a file. It compares the thing with a shuffled copy of itself, and the pattern is what the copy lost. Every number is exact, with nothing rounded, guessed or trained.
 
 [Setup](setup.md){ .md-button .md-button--primary }
 [The algorithm](method.md){ .md-button }
@@ -167,7 +167,3 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 <div><strong>13 to 22 times</strong><span>faster for seven hundred floors laid as one stack, every record equal</span></div>
 <div><strong>792</strong><span>exact numbers that hold a state of 100 quantum bits</span></div>
 </div>
-
-[Licensing](licensing.md) says which license governs a use.
-
-**Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
