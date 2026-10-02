@@ -2,7 +2,8 @@
 
 **Purpose:** Record what the engine's exact arithmetic shows when it is pointed at analytic number
 theory, one poke at a time, claiming nothing. **Scope:** `examples/0_experimental/exact_zeta_values.py`,
-`evidence/proofs/posits/proof_set_theory.py`, and this file.
+`examples/0_experimental/exact_zeta_zeros.py`, `evidence/proofs/posits/proof_set_theory.py`, and this
+file.
 
 This is a workbook, and it claims no result. It follows the rail the
 millennium research paper set down (`theory/theory/millennium/chapters/chapter_what_this_is.tex`), because that
@@ -91,6 +92,52 @@ form, and that every zero is a fixed point of `s -> 1 - conj(s)`, the Riemann hy
 conjecture with strong numerical support and no proof. It is fun to dream that a single fingerprint
 forces it. The dream is not a proof, and it stays in this column labeled a dream. Proof is proof. Prior
 art: Montgomery 1973, Dyson, Odlyzko; reported from a web search, papers unread.
+
+## Entry 4, 2026-10-02: the zeros, counted and placed by truthy and falsy verdicts
+
+`examples/0_experimental/exact_zeta_zeros.py`, run and exit 0. It computes zeta in the critical strip
+as exact integers at a count of decimal places, the form `representation.exact` holds. pi comes from
+`representation.constants.naturals`, where Machin's and Euler's identities agree, and `ln n` from two
+series that agree the same way. A value is the floor at its places, every reading of it carries the
+unit of its last place, and a value asked past the scale raises `WillNotFit`. Nothing rounds.
+
+- The verdicts. Every verdict is a field, zero false and nonzero true, and a pass writes its verdicts
+  for the next pass to read. Each point carries four: whether two Euler-Maclaurin routes, at `N` and
+  `2N`, agree at its places, and the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|`. Routes
+  that disagree double `N`. A sign of zero doubles the places. The three signs give the eighth of a
+  turn zeta sits in. No precision, region, step or term count is assigned.
+- The count. Around a closed path the eighth turns sum to eight times the zeros inside it, by the
+  argument principle. Each edge is read end to end and through its midpoint, and each half carries
+  `COMPARE` of the smaller `|zeta|^2` at its ends against its chord `|zeta(c) - zeta(a)|^2`, at one
+  count of places, and at each end `COMPARE` of `|zeta|^2` against `|zeta'|^2` times the step squared.
+  Ends at different places are asked again at the deeper one, and a verdict of zero doubles the
+  places. Readings that disagree, or a negative verdict, put the midpoint into the path. An edge is
+  decided where the readings agree and every verdict is positive. Each value is read toward zero, its
+  sign times the floor of its size. A floor is monotone, and a nonzero `COMPARE` of two sizes read
+  this way is their order.
+- The line. Every box is symmetric about `Re(s) = 1/2`. By the group entry 3 verifies, a zero off the
+  line brings its mirror into the same box, and a symmetric box counting one holds a zero on the line.
+- The walk. Up the strip from `t = 1`, between its own edges `Re(s) = 0` and `Re(s) = 1`: an empty box
+  doubles the step, a crowded box splits into halves, and a box counting one is a zero. Each zero is
+  then placed by sixteen bits, one pass per bit, in squares centred on the line.
+- Positive control, with an answer from outside. `zeta(2)` equals `pi^2/6` at thirty places. Below
+  `t = 123` the walk finds forty zeros, as Odlyzko's table `zeros1` has them, and each placed bracket
+  holds the ordinate the table prints for it at nine places, read through
+  `representation.exact.units`: `14.134725142` lies in `[14.13464355, 14.13476562]`, and
+  `122.946829294` in `[122.94682312, 122.94683837]`. The run asks 56,570 values, the deepest point at
+  sixteen places and the widest at `N = 64`, in five minutes on the host.
+- Drawn null. With the integral of the rest, `N^(1-s)/(s-1)`, left out of both routes, the gap between
+  them at `s = 1/2 + 20i` grows as `N` doubles, and no point is decided. With it, the routes agree at
+  `N = 8`.
+- The quadrant alone. Read by the signs of `Re` and `Im` only, without the magnitude sign and the
+  chord, the walk counts the boxes `[24, 32]` and `[32, 40]` empty, where each holds two zeros. On
+  `Re(s) = 0` zeta turns nearly once between two samples, and the shorter way round reads it backwards.
+- The chord alone. Without the step verdict the box `[98, 102]` counts empty, where it holds two. Its
+  edge on `Re(s) = 0` settles on three points while zeta turns nearly once between each pair, and the
+  chords between values that land almost where they began are short. The derivative sees the turning.
+- What it is not. Ten zeros on the line below `t = 50` is a computation at a height, and the field has
+  verified far past it. It bears on the Riemann hypothesis exactly as far as every verification below a
+  height does, and not at all past that height.
 
 ## The problem, stated fully
 
@@ -189,19 +236,40 @@ want, and the status says what has been run. No row bears on the hypothesis.
 | the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
 | the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
 | the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
-| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the real-valued function on the critical line Turing's method reads: a sign change brackets a zero | wanted, not built (open item 1). A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
+| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the winding of zeta around a box symmetric about the line, read from the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|` | run (entry 4): forty zeros, each placed by sixteen bits. A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
 | the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
-| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found, and the count checked against `N(T)` by Turing's method | wanted, not built. A count reaches a horizon and never all of them (the bounding function section) |
+| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found by the winding count, and the count checked against `N(T)` | run below `t = 123` (entry 4): forty, as the published table has them. A count reaches a horizon and never all of them (the bounding function section) |
 | the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
 | L* on zeta | not in the problem | "treat the zeta function like an unknown piece of hardware"; "probe the field's clock-cycle-like preferences" | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
 | every zero on the line | the hypothesis | "the zeroes are structurally forced to exist only along that identity membrane" | a proof | open. Nothing here bears on it |
 
+## The device program, and what it wants
+
+Entry 4 runs one value at a time on the host. Every point in a pass is independent of every other,
+and a pass is one sweep: each part below is a sweep over lanes, each reads the records the last
+pass wrote, and each writes verdict fields the next one reads. The program runs on the device as
+tessera jobs, as the sims do. The rows use the engine table's columns, and the M numbers are its
+parts ([engine_table.md](../engine/engine_table.md)). No scale is written into the program: the
+places, `N` and the widths come from the records.
+
+| part | the algebra it holds to | does today | wants | tried, and what it gave | status | next |
+|---|---|---|---|---|---|---|
+| **Z1. The constants** | `ln n = k ln 2 + 2 artanh((n - 2^k) / (n + 2^k))` and `ln n = j ln 3 + 2 artanh((n - 3^j) / (n + 3^j))`, each a floor at its scale, and the two agreeing through `naturals._agree`. pi by Machin and Euler the same way. Each constant is held as its real and its operator: the floor at its places and the series that gives the next place. | On the host, in `representation.constants.naturals`, each `(n, digits)` asked once. | `ln n` and pi as record programs (M10) at the places the record carries, each with its second route and their agreement written as a field. The device has pi as `pi_tower` (M19), bracketed by Machin, and has no `ln`. A deeper pass extends a constant's series from the terms it holds. | The run to `t = 123` asks `ln n` for every `n` up to 128 at up to 36 digits, and both routes agree on every one: exit 0. | host only | the artanh series as a record program, checked lane for lane against `naturals` |
+| **Z2. The powers** | `n^-s = exp(-sigma ln n) (cos(t ln n) - i sin(t ln n))`, and its derivative `-ln n n^-s`. exp by `x = r - k ln 2` with `0 < r <= ln 2`, a Taylor series in `r`, then a shift by `k` either way. cos and sin by taking whole turns of `2 pi` off, then one series. Every term is a floor at places plus `GUARD`, twenty digits. | On the host, one `(point, n)` at a time. | One lane per `(point, n)`, `n` from 1 to `2N`, the point and its places read from its record. A series runs while its term is nonzero: a lane whose term reads zero adds zero, and the sweep ends where the sum of every lane's term field is zero. The record machine's operations carry it (M10: product, sum, difference, absolute, compare, and the divisions). | On the host every power at sixteen places plus the guard is 120 bits, inside the record machine's 160-bit lanes, where it divides 4,096 lanes at once. | not built | exp, cos and sin as record programs over one sweep of lanes |
+| **Z3. The sum and its tail** | Euler-Maclaurin cut at `N`: the head, the sum of `n^-s` for `n < N`, then `C N^-s`, with `C = N / (s - 1) + 1/2 + sum over k from 1 to N of B_2k / (2k)! s(s+1)...(s+2k-2) N^(1-2k)`, an exact complex rational. `C'` is carried beside it through the derivative of the rising product. Two routes, at `N` and `2N`, share the powers. Each of the eight values, `zeta` and `zeta'` from each route, real and imaginary, is read toward zero: its sign times the floor of its size, the guard dropped. | On the host. | `B_2k / (2k)!` built once on the host and read by every lane as a table (M10's table). The head as an exact sum over a point's lanes. `C` and `C'` per point at the width the record names: a lane too narrow refuses as a request error (M12) and never rounds. | `C` and `C'` measured on the host: about 340 bits at `N = 8`, about 2,160 at `N = 32`, and 6,733 to 6,871 at `N = 64` with `t` at sixteen places. At `N = 64` that is past the 2,048-bit lanes and past `ANCHOR_EXACT_LIMBS` at its 4,096-bit default. | not built | `C` per point on M1's ladder, multiply and Newton division, at the width read from `N` and the point's places |
+| **Z4. The point verdicts** | Four fields per point: `agree = NOT(Re one - Re two) NOT(Im one - Im two)`, and `COMPARE` of `Re zeta` with 0, of `Im zeta` with 0, and of `|Re zeta|` with `|Im zeta|`. A point is decided where the product of `agree` and the three absolute signs is nonzero. Its eighth of a turn is `2q + ((1 - sign_size) / 2 + q) % 2`, with `q = (1 - sign_im) + (1 - sign_re sign_im) / 2`. An undecided point is asked again at `places (1 + agree)` and `N (2 - agree)`. | On the host, in `Steering.sweep`. | A record per point, holding the point's two pairs, its places, `N`, the four values and the four verdicts, written by the sweep and read by the next. `COMPARE`, product and absolute are record operations (M10). The points asked again are compacted from the field `NOT(decided)` by a sum over it. | The run to `t = 123` writes 56,570 values, the deepest at sixteen places and the widest at `N = 64`. | host only | the record's layout, and the compaction as one sweep |
+| **Z5. The edge verdicts** | Per half of an edge: `NOT(places_a - places_c)`, the chord `COMPARE(min(|zeta_a|^2, |zeta_c|^2), |zeta_c - zeta_a|^2)`, and at each end `COMPARE(|zeta|^2 10^(2q), |zeta'|^2 |c - a|^2)`. The turn from `a` to `c` is `(d_c - d_a + 4) % 8 - 4`, and the edge's turns read end to end and through the midpoint agree or not. A settled edge is the product of the positive verdicts. A negative verdict puts the midpoint into the path, a zero doubles the places, and unequal places ask both ends at the deeper. | On the host, in `Steering.count`. | One lane per half edge, reading the two point records at its ends. The places each point is asked at next, and the midpoints put into the path, written as fields and compacted by a sum over them. The turns summed per box, an exact sum over the box's lanes. | The quadrant alone counts `[24, 32]` and `[32, 40]` empty, and the chord alone counts `[98, 102]` empty (entry 4). With the step verdict every box below `t = 123` counts as the published table has it. | host only | the half edge as a record program reading two records |
+| **Z6. The walk and the placing** | An empty box doubles the step, a box counting one is a zero, a crowded box splits into halves. Each zero is placed one bit per pass by the lower square centred on the line counting one. | On the host, in `Steering.walk` and `Steering.place`. | Nothing on the device past Z1 to Z5. The host reads the counts per box from the device and writes the next pass's boxes; each pass is one sweep of Z2 to Z5. | Forty zeros below `t = 123`, each placed by sixteen bits, each bracket holding the published ordinate: exit 0, five minutes on the host. | host only | the host loop over device passes |
+| **Z7. The job** | One device, one daemon; a job declares its bytes, is admitted on its standing, and its peak is kept under its signum (M14). | The program runs on the host and asks the device nothing. | The program as a tessera job, beside the sims: `sim_job_submit` before its first device allocation and `sim_job_release` at its end. The signum is the host BLAKE3 of the program's name and arguments, the height and the bits. The declaration is the bytes of a pass, read from the records the last pass wrote: the points asked, times `2N` lanes, times the width at places plus the guard, and the records. Growth past it is told back, and the next run with the same signum is asked against the kept peak. | none | not built | the job's submit and release around the host loop, with the declaration read from the records |
+
 ## Open, not done
 
-- Computing `zeta(s)` in the critical strip, and a first non-trivial zero to high precision, needs
-  complex arithmetic and an accelerated method (Riemann-Siegel, or Euler-Maclaurin). That is a larger
-  poke than this entry, and it is not attempted here. When it is, it will be a numerical observation at
-  a stated precision, never a statement about all zeros.
+- Entry 4 counts below `t = 123`, one value at a time on the host, in five minutes. The device
+  program and its wants are the table above, and none of it is built.
+- The sign of `Z(t)` at the Gram points is the reading the shift agreement detector and the null
+  permutation identity are built for. Gram's law shows as agreement at lag 2. The null permutation
+  needs 32 occurrences of each sign, about 64 Gram intervals. Both need the Riemann-Siegel theta
+  function by truthy and falsy verdicts, and that is not built.
 - Whether a non-trivial zero has a closed form in the constructors is a separate question from where
   it sits, and it is not addressed here.
 
