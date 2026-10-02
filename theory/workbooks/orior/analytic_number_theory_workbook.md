@@ -437,8 +437,15 @@ digits, `S` too, at five points that include `p = 1/4`. Through `C_6`, the expon
 
 **The omitted curves.** `a` is predicted from the exact curves alone, with no Euler-Maclaurin and no
 device: `|sum C_k(1 - 2p) x^(-k - 1/2)|` over the cell for `k` from `K + 1` to `K + 3`, the terms `R`
-leaves out (`omitted first last K`). It runs in a second where the triangle takes hours. Between
-cells, the exponent it gives against the one measured:
+leaves out (`omitted first last K`). It needs no grid. With `z = 1 - 2p` and `X = nu + 1/2`, each
+weight is `x^(-k - 1/2) = X^(-1/2) (2 / (2 nu + 1))^k (1 - z / (2X))^(-k - 1/2)`, a series in `z`
+with rational coefficients. The integrand is then one power series in `z` times `X^(-1/2)`. Its zeros
+are halved to `2^-(4 (digits + GUARD))`, and between them the integral is the antiderivative's
+difference, term by term. The series at `n` and `2n` terms agree at 24 places, and the run at 60
+places agrees with it at all 24. The trapezoid on the same integrand closes on it four times a
+halving, `2.8 e-6`, `7.0 e-7` and `1.7 e-7` on `2^9` to `2^11` parts over cell 4 through `C_6`.
+Each cell takes a quarter of a second where the triangle takes hours. Between cells, the exponent
+it gives against the one measured:
 
 | `R` through | exponent from the omitted curves | measured |
 |---|---|---|
@@ -448,9 +455,13 @@ cells, the exponent it gives against the one measured:
 | `C_10` | 13.089, 12.451, 12.132, 11.950 | 13.106, 12.455, 12.134, 11.951 |
 
 Past the measured cells it gives, between cells 5 to 9, 6.491, 6.494, 6.496 and 6.497 through
-`C_5`; 7.627, 7.597 and 7.576 between cells 6 to 9 through `C_6`; and 11.836, 11.760 and 11.707
-between cells 6 to 9 through `C_10`. Only between cells 1 and 2 do the curves fall short, by
-0.07, where `x` is 2 and the series is at its weakest.
+`C_5`; and between cells 6 to 9, 7.627, 7.597 and 7.576 through `C_6`, 9.711, 9.662 and 9.628
+through `C_8`, and 11.836, 11.760 and 11.707 through `C_10`. Only between cells 1 and 2 do the
+curves fall short, by 0.07, where `x` is 2 and the series is at its weakest.
+
+Through `C_6`, `C_8` and `C_10` the omitted curves have one zero in every cell from 1 to 9. Through
+`C_5` they have one in cells 1 to 5 and none from cell 6 on. `C_6`, the curve leading them, has
+none of its own.
 
 **Hypotheses, quoted, with what tests them.**
 - "it scrapes its boundary and that pops its dimensionality up". The excess over `(2K + 3) / 2` is
@@ -690,8 +701,7 @@ places, `N` and the widths come from the records.
   over them is wanted, not built.
 - Entry 8's spread of the arrival angles is read in four windows of 1,024 boundaries. More windows,
   and whole stretches of boundaries, are wanted. The triangle measured past cell 6, against what the
-  omitted curves give there, is wanted. The omitted curves integrated between their zeros term by
-  term, with no grid, are wanted.
+  omitted curves give there, is wanted.
 - Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
   Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin across the strip, and entry 6
   Riemann-Siegel on the line. Riemann-Siegel off the line, for entry 4's boxes, is not built.
