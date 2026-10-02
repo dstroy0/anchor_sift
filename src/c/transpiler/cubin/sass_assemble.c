@@ -222,11 +222,14 @@ static int sass_places_find(const SassForm *form, SassPlace *places, unsigned in
             places[place].value.scale = SASS_BRANCH_STEP;
             continue;
         }
-        // a number in the bits a branch's distance sits in is that distance: the probe found its run beginning there
+        // A number in the bits a branch's distance sits in is that distance: the probe found its run beginning there and
+        // reaching into the high word. A run that begins there and ends inside the low word is a field of its own, as
+        // BPT.TRAP's code is, three bits from bit 34
         int distance = 0;
         for (unsigned int number = 0u; (kind == SASS_OPERAND_IMMEDIATE) && (number < form->runs); number += 1u)
         {
-            distance = distance || ((form->run[number].operand == place) && (form->run[number].first == SASS_BRANCH_FIRST));
+            distance = distance || ((form->run[number].operand == place) &&
+                                    (form->run[number].first == SASS_BRANCH_FIRST) && (form->run[number].last >= 63u));
         }
         if (distance)
         {
@@ -257,6 +260,25 @@ static int sass_places_find(const SassForm *form, SassPlace *places, unsigned in
                 places[place].offset = s_offset_fields[0];
                 places[place].has_offset = 1;
             }
+        }
+        // Where no field of the operand's kind begins inside a run of its own, the widest run the probe saw change the
+        // operand is its field, from the run's first bit and as long as the run: BPT.TRAP's code begins at bit 34,
+        // where no immediate field of the list above begins. An operand a field above places is placed there as it was
+        const int counted = (kind == SASS_OPERAND_IMMEDIATE) || (kind == SASS_OPERAND_REGISTER) ||
+                            (kind == SASS_OPERAND_PREDICATE) || (kind == SASS_OPERAND_UNIFORM);
+        const SassRun *widest = NULL;
+        for (unsigned int number = 0u; (found == 0) && counted && (number < form->runs); number += 1u)
+        {
+            const SassRun *const run = &form->run[number];
+            const int wider = (widest == NULL) || ((run->last - run->first) > (widest->last - widest->first));
+            widest = ((run->operand == place) && wider) ? run : widest;
+        }
+        if ((found == 0) && (widest != NULL))
+        {
+            places[place].value.first = widest->first;
+            places[place].value.bits = (widest->last - widest->first) + 1u;
+            places[place].value.scale = 1u;
+            found = 1;
         }
         if (found == 0)
         {
