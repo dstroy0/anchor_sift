@@ -271,6 +271,31 @@ works there.
    known order, its solve and the descent running over them, and NVRTC, nvJitLink and the CUDA runtime leave
    the loop once a writing is put to a record and its bit read back.
 
+   The monolith (`src/cu/transpiler/bootstrap/monolith.cu`) is what our compiler is held against: one program,
+   built once by NVIDIA's compiler, holding every base precept between tags, its listing the answer key and its
+   costs read on the part by `monolith_run`. `utils/test/src/cu/transpiler/bootstrap/monolith_emit.sh` holds
+   every block against our reader, our assembler and the word our compiler writes it with, and writes
+   `monolith_differences.md` whole on every run. Wherever the machine file holds a form, our reader and
+   assembler give NVIDIA's operation bits exactly. What stands between our compiler and NVIDIA's writing is a
+   state error that compounds layer on layer, and it is fixed from the root up, each fix read off the record:
+   - Machine file. No form for the `.STRONG.SYS` load and store (bit 37 and bit 69), for `BPT.TRAP`, or for
+     `IMAD.IADD`.
+   - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
+     instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
+   - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
+     where the precept wraps it; `word_funnel_right` carries no `.W` and has no left form; there is no
+     arithmetic shift form; NOT, NAND and NOR have no form, each one `LOP3` (0x33, 0x3f, 0x03); add and
+     subtract write `IADD3` alone.
+   - Word web and alphabet web. On this part every gate is one `LOP3` node and ASR, ROL and ROR are each one
+     `SHF` node, where the webs hold gates as separate precepts, NOT and NAND written from each other, and the
+     rotates and the sign spread as trees the width counts. `word_shift_*` is the precept by the word web and
+     not by its form.
+   - Candidates the part's clock chooses between: ERR as a trap in place or a branch to a handler; MOV as the
+     passage or `word_copy`; ADD and SUB as `IADD3` or `IMAD.IADD`.
+   - Past the monolith: NAND and NOR in one `LOP3` where NVIDIA writes two, and ROL and ROR in one `SHF` without
+     the guard NVIDIA keeps from the source.
+   - The harness walks the alphabet tree one level where a precept has no word.
+
 2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
