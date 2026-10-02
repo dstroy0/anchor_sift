@@ -53,6 +53,10 @@
 # 1, read by measure.shift_agreement.exact_agreement. The null is reference.shuffles.permuted: the
 # same signs in drawn orders, and the count of draws that reach the live agreement at lag 2.
 #
+# Gram's law is a reading here and never a steer. It fails for about a quarter of Gram intervals in
+# the long run, as the same article reports, and the zero walk in exact_zeta_zeros.py steers only by
+# its own verdicts.
+#
 # Positive control: the Gram points g_0 to g_15 against the table the Riemann-Siegel theta article
 # on Wikipedia prints, and the first failure of Gram's law at n = 126, as the same article reports
 # it, both read by a web fetch. Drawn null: the Bernoulli terms left out of both routes of theta,

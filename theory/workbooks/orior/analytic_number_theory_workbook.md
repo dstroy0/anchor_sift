@@ -178,7 +178,8 @@ points by it, and reads the sign of `Z` at each from the values entry 4 computes
   eight places runs 27,385, 87,464, 210,132, 266,927, 155,769, 53,381 as `N` doubles from 1, and no
   index is decided. With them it runs 253, 1, 0.
 - What it is not. Gram's law is a pattern known to fail: the same article reports it failing, in the
-  long run, for about a quarter of Gram intervals. Reading it to `t = 285` is a computation at a
+  long run, for about a quarter of Gram intervals. It is a reading here and never a steer: the zero
+  walk of entry 4 steers only by its own verdicts. Reading it to `t = 285` is a computation at a
   height and bears on nothing past it.
 
 ## The problem, stated fully
