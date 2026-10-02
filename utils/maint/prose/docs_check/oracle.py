@@ -11,6 +11,12 @@
 # is evidence about the corpus and changing one to suit a repair falsifies the only instrument that
 # can judge the repair.
 #
+# project_words.tsv is the second word list: the names and the mnemonics of this project, which the
+# research papers do not hold. It carries no counts. Its words are the author's, one row each with
+# what kind of word it is, and like voice.tsv it is read here and never written here. counted() joins
+# the two into one dict, and a project word carries the count 0, which is its true count in the
+# corpus.
+#
 # The readings are deliberately narrow. `pick` answers what goes in a place and `offlist` answers
 # which words in the tree have no warrant, and between them they cover the whole of what the tables
 # can say. Anything wider would be this file having an opinion.
@@ -26,6 +32,7 @@ from .repository import DEFAULT_ROOTS, REPOSITORY
 # utils/maint/prose rather than to the checker.
 TABLES = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORD_TABLE = os.path.join(TABLES, "voice.tsv")
+PROJECT_TABLE = os.path.join(TABLES, "project_words.tsv")
 WEB_TABLE = os.path.join(TABLES, "voice_word_web.tsv")
 
 # A word as the tables spell one: lower case, and an apostrophe or a hyphen inside it counts as part
@@ -42,15 +49,21 @@ SHORTEST = 3
 
 
 def counted():
-    """Every word voice.tsv approves, with the count it carries in the corpus."""
+    """Every word voice.tsv or project_words.tsv approves, as one dict of word to corpus count."""
     held = {}
-    if not os.path.isfile(WORD_TABLE):
-        return held
-    with open(WORD_TABLE, encoding="utf-8", errors="replace") as handle:
-        for line in handle:
-            part = line.rstrip("\r\n").split("\t")
-            if len(part) > 1 and part[1].isdigit():
-                held[part[0]] = int(part[1])
+    if os.path.isfile(WORD_TABLE):
+        with open(WORD_TABLE, encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                part = line.rstrip("\r\n").split("\t")
+                if len(part) > 1 and part[1].isdigit():
+                    held[part[0]] = int(part[1])
+    if os.path.isfile(PROJECT_TABLE):
+        with open(PROJECT_TABLE, encoding="utf-8", errors="replace") as handle:
+            next(handle, None)
+            for line in handle:
+                word = line.rstrip("\r\n").split("\t")[0].strip().lower()
+                if word:
+                    held.setdefault(word, 0)
     return held
 
 
