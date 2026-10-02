@@ -233,7 +233,9 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
     }
     printf("  s alone, the largest spread of the singles: %.4f\n", spread_alone);
 
-    // the singles ranked by their least, each delta to the next standing where it is past s
+    // The singles ranked by their least, each delta to the next read as a state of gnascor's branch pair. Inside s the
+    // two are one cost, a slice inside the floor, DUAL or GRAY (which of the two is gnascor's Open 4). Past s the row's
+    // precept is the cheaper side and holds: LEAD
     unsigned int order[MONOLITH_COSTED_COUNT];
     for (unsigned int place = 0u; place < MONOLITH_COSTED_COUNT; place += 1u)
     {
@@ -245,7 +247,7 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
         }
         order[at] = place;
     }
-    printf("  alone, ranked by least m, each delta to the next read against s:\n");
+    printf("  alone, ranked by least m, each delta to the next read against s: DUAL/GRAY inside it, LEAD past it\n");
     for (unsigned int rank = 0u; rank < MONOLITH_COSTED_COUNT; rank += 1u)
     {
         const unsigned int place = order[rank];
@@ -257,7 +259,7 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
         const unsigned int next = order[rank + 1u];
         const double delta = s_m[next] - s_m[place];
         printf("    %-5s %8.4f  +%.4f to %-5s %s\n", s_names[MONOLITH_COSTED(place)], s_m[place], delta,
-               s_names[MONOLITH_COSTED(next)], (delta > spread_alone) ? "stands" : "within s");
+               s_names[MONOLITH_COSTED(next)], (delta > spread_alone) ? "LEAD" : "DUAL/GRAY");
     }
 
     // the pairs by their least, against the singles' least
