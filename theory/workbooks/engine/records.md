@@ -343,7 +343,7 @@ From cell_tracking main 24b2785 (test), e4eae72 (sim) and ad5d085 (theory), plac
 
 #### Build and docs
 
-`run.sh` builds `knf_identity` with `entropy_history`, and `src/README.md` lists it.
+`run.sh` builds `knf_identity` with `entropy_history`, and `src/engine/README.md` lists it.
 
 #### Theory
 
