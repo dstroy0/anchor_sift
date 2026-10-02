@@ -146,6 +146,10 @@ unit of its last place, and a value asked past the scale raises `WillNotFit`. No
 the host. It computes the Riemann-Siegel theta function by truthy and falsy verdicts, places the Gram
 points by it, and reads the sign of `Z` at each from the values entry 4 computes.
 
+- The reading it is for. The sign of `Z(t)` at the Gram points is the reading the shift agreement
+  detector and the null permutation identity are built for. Gram's law shows as agreement at lag 2.
+  The null permutation needs 32 occurrences of each sign, about 64 Gram intervals, and both need the
+  Riemann-Siegel theta function by truthy and falsy verdicts.
 - The phase. `theta(t) = Im ln Gamma(1/4 + it/2) - (t/2) ln pi`, by Stirling's series after a shift
   of `M`, with `K` Bernoulli terms, every coefficient an exact rational. Two routes run, at
   `M = K = N` and at `2N`, and routes that disagree double `N`. Each arctangent is two series that
@@ -177,6 +181,13 @@ points by it, and reads the sign of `Z` at each from the values entry 4 computes
 - Drawn null. With the Bernoulli terms left out of both routes, the gap between them at `t = 20` and
   eight places runs 27,385, 87,464, 210,132, 266,927, 155,769, 53,381 as `N` doubles from 1, and no
   index is decided. With them it runs 253, 1, 0.
+- Failed hypothesis: Gram's law as a steer. The hypothesis is that the zero walk could step by Gram
+  intervals, one zero in each, in place of its own halving. The zeros do not keep that pattern:
+  `g_126` here has `(-1)^n Z(g_n)` negative, and the article reports Gram's law failing for about a
+  quarter of Gram intervals in the long run. A walk steered to it is forced toward a pattern the
+  zeros break and has to repair every interval that breaks it, which slows the walk it was meant to
+  speed. That steer is not built and its cost is not measured here. The walk of entry 4 steers by
+  its own verdicts, the halving that follows the zeros at every scale.
 - What it is not. Gram's law is a pattern known to fail: the same article reports it failing, in the
   long run, for about a quarter of Gram intervals. It is a reading here and never a steer: the zero
   walk of entry 4 steers only by its own verdicts. Reading it to `t = 285` is a computation at a
@@ -279,9 +290,9 @@ want, and the status says what has been run. No row bears on the hypothesis.
 | the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
 | the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
 | the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
-| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the winding of zeta around a box symmetric about the line, read from the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|` | run (entry 4): forty zeros, each placed by sixteen bits. A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
+| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the winding of zeta around a box symmetric about the line, read from the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|`; and the real-valued function on the critical line Turing's method reads, where a sign change brackets a zero | the winding: run (entry 4), forty zeros, each placed by sixteen bits. The sign of `Z(t)` is read at the Gram points (entry 5); a sign change of `Z` as a bracket for a zero is wanted, not built. A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
 | the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
-| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found by the winding count, and the count checked against `N(T)` | run below `t = 123` (entry 4): forty, as the published table has them. A count reaches a horizon and never all of them (the bounding function section) |
+| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found by the winding count, and the count checked against `N(T)`; and the same count checked against `N(T)` by Turing's method | the winding count: run below `t = 123` (entry 4), forty, as the published table has them. Turing's method: wanted, not built. A count reaches a horizon and never all of them (the bounding function section) |
 | the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
 | L* on zeta | not in the problem | "treat the zeta function like an unknown piece of hardware"; "probe the field's clock-cycle-like preferences" | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
 | every zero on the line | the hypothesis | "the zeroes are structurally forced to exist only along that identity membrane" | a proof | open. Nothing here bears on it |
@@ -311,6 +322,10 @@ places, `N` and the widths come from the records.
 - Entry 4 counts below `t = 123`, one value at a time on the host, in five minutes. The device
   program and its wants are the table above, and none of it is built.
 - Entry 5 reads `theta` and the Gram points on the host, and Z8 above is its device part, not built.
+- Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
+  Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin, and Riemann-Siegel is not built.
+  A computation there is a numerical observation at the places it reads, never a statement about all
+  zeros.
 - Whether a non-trivial zero has a closed form in the constructors is a separate question from where
   it sits, and it is not addressed here.
 
