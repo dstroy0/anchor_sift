@@ -99,7 +99,6 @@ Doug's rule for everything: truthy and falsy vector magnitudes, by which the mac
   3. EngineSideBytes on EngineArrayRead;
   4. .kcr v2;
   5. one series end to end, then ping RSNA (rsna-knee-abnormality-7d).
-  The data: \\server\S\kaggle_project_data\rsna_knee\rsna-knee-abnormality-detection.zip (265 GB, 819,640 deflate members, train_series|test_series/<Study>/<Series>/<SOP>.dcm).
 - Done 23 September: the zip module (14), dicom (16) and the engine wiring. Detection is PK + the member folder's first file carrying DICM. A file source maps sample to member, and zip_held_release runs at the end of ingest. Test series 1.2.826…903947 (34×960×960 u16) was ingested and proved from the file, CRC-64 45aea19b28ddd8b9, 38.1% of raw. An independent Python read agreed on the shape, the one prefix and 34 distinct keys. The key runs opposite to InstanceNumber. The set dir needed the 8.3 short path because set + two UIDs exceeds MAX_PATH 260; the engine's opens need a long-path form (to do).
 - The RSNA census: all 819,635 members are Explicit VR LE, 16-bit allocated, one sample per pixel, native. 201,276 slices are signed.
 - Ruled:

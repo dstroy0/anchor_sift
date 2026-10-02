@@ -235,21 +235,26 @@ extern "C" long engine_source_read(const EngineSourceRequest *request, unsigned 
     char axes[ENGINE_ARRAY_RANK];
     const size_t stated = (request->axes != NULL) ? strlen(request->axes) : 0u;
     int ok = (rank != 0u) && ((request->axes == NULL) || (stated == rank));
+    // a c axis, at most one, gives its lanes at the channel asked; every other axis is one of t z y x
+    int channel_axis = -1;
     for (unsigned int axis = 0u; ok && (axis < rank); axis += 1u)
     {
         axes[axis] = (request->axes != NULL) ? request->axes[axis] : array_extent->axes[axis];
-        ok = (axes[axis] == 't') || (axes[axis] == 'z') || (axes[axis] == 'y') || (axes[axis] == 'x') ||
-             ((axes[axis] == 'c') && (array_extent->sizes[axis] == 1ull));
+        const int channel = (axes[axis] == 'c') && (channel_axis < 0) &&
+                            (request->channel < array_extent->sizes[axis]);
+        channel_axis = channel ? (int)axis : channel_axis;
+        ok = (axes[axis] == 't') || (axes[axis] == 'z') || (axes[axis] == 'y') || (axes[axis] == 'x') || channel;
     }
     if (ok == 0)
     {
         fprintf(stderr,
-                "  %s: the source's %u axes are not all named t z y x (a c of size one may stand); name them in "
-                "the .cfg's input axes\n",
-                request->path, rank);
+                "  %s: the source's %u axes are not all named t z y x and one c holding channel %u; name them in "
+                "the .cfg's input axes and the channel in its input channel\n",
+                request->path, rank, request->channel);
         free(source);
         return ENGINE_ERROR;
     }
+    const int one_channel = (channel_axis < 0) || (array_extent->sizes[channel_axis] == 1ull);
     if ((array_extent->element_kind == ENGINE_ELEMENT_FLOAT) ||
         ((array_extent->element_bytes != 1u) && (array_extent->element_bytes != 2u)))
     {
@@ -301,7 +306,7 @@ extern "C" long engine_source_read(const EngineSourceRequest *request, unsigned 
     {
         *request->lane_offset = lane_offset;
     }
-    if (ordered && (array_extent->element_bytes == 2u))
+    if (ordered && one_channel && (array_extent->element_bytes == 2u))
     {
         unsigned short *const words = (unsigned short *)raw;
         for (unsigned long long word = 0ull; signed_lanes && (word < elements); word += 1ull)
@@ -330,7 +335,8 @@ extern "C" long engine_source_read(const EngineSourceRequest *request, unsigned 
                 for (unsigned long long column = 0ull; column < extent[3]; column += 1ull)
                 {
                     const unsigned long long where[4] = {time, depth, row, column};
-                    unsigned long long from = 0ull;
+                    unsigned long long from =
+                        (channel_axis >= 0) ? ((unsigned long long)request->channel * stride[channel_axis]) : 0ull;
                     for (unsigned int target = 0u; target < 4u; target += 1u)
                     {
                         from += (placed[target] >= 0) ? (where[target] * stride[placed[target]]) : 0ull;

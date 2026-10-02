@@ -9,18 +9,33 @@ import sys
 import urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 SAMPLE_NAME = re.compile(r"^[A-Za-z0-9_]+$")
+DATA_FILE = re.compile(r"^/data/([A-Za-z0-9_]+\.(?:vbo|ibo|smp))$")
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(HERE)), "cell_tracking", "maint"))
 import zarr_frames
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Serve the room view and raw slices from the source on localhost.")
+    parser = argparse.ArgumentParser(description="Serve the room view, the engine view's objects and raw slices from the source on localhost.")
     parser.add_argument("--port", type=int, default=8733)
-    parser.add_argument("--source", default="D:/kaggle_project_data/biohub_cell_tracking_data/train")
+    parser.add_argument("--source", default=os.path.join(REPO, "build", "data", "source"),
+                        help="the samples the slices are read from, as fetch_open_sample.py lays them out. "
+                             "Default: build/data/source")
+    parser.add_argument("--channel", type=int, default=1,
+                        help="the channel a sample with a c axis is read at. Default: 1, the open sample's nuclei")
+    parser.add_argument("--data", default=os.path.join(REPO, "build", "view", "data"),
+                        help="the tracker's .vbo and .ibo objects and the .smp samples, served at data/. "
+                             "Default: build/view/data")
     args = parser.parse_args()
     source = os.path.abspath(args.source)
+    data = os.path.abspath(args.data)
+
+    def listed(suffix):
+        if not os.path.isdir(data):
+            return []
+        return sorted(entry[:-len(suffix)] for entry in os.listdir(data) if entry.endswith(suffix))
     readers = {}
 
     class Handler(http.server.SimpleHTTPRequestHandler):
@@ -41,12 +56,19 @@ def main():
         def do_GET(self):
             parsed = urllib.parse.urlparse(self.path)
             if parsed.path == "/samples":
-                names = sorted(entry[:-4] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".smp"))
-                self.reply(200, json.dumps(names).encode("utf-8"), "application/json")
+                self.reply(200, json.dumps(listed(".smp")).encode("utf-8"), "application/json")
                 return
             if parsed.path == "/objects":
-                names = sorted(entry[:-4] for entry in os.listdir(os.path.join(HERE, "data")) if entry.endswith(".vbo"))
-                self.reply(200, json.dumps(names).encode("utf-8"), "application/json")
+                self.reply(200, json.dumps(listed(".vbo")).encode("utf-8"), "application/json")
+                return
+            named = DATA_FILE.match(parsed.path)
+            if named:
+                path = os.path.join(data, named.group(1))
+                if not os.path.isfile(path):
+                    self.reply(404, b"no such file in the data folder", "text/plain")
+                    return
+                with open(path, "rb") as handle:
+                    self.reply(200, handle.read(), "application/octet-stream")
                 return
             if parsed.path not in ("/slice", "/frame"):
                 super().do_GET()
@@ -63,11 +85,12 @@ def main():
             if not SAMPLE_NAME.match(sample):
                 self.reply(400, b"bad sample name", "text/plain")
                 return
-            if not os.path.isdir(os.path.join(source, sample + ".zarr")):
+            if zarr_frames.sample_root(source, sample) is None:
                 self.reply(404, b"no such sample in the source", "text/plain")
                 return
             try:
-                reader = readers.setdefault(sample, zarr_frames.Frames(source, sample))
+                reader = readers.get(sample) or readers.setdefault(sample, zarr_frames.Frames(source, sample,
+                                                                                               args.channel))
             except (OSError, ValueError) as error:
                 self.reply(415, str(error).encode("utf-8"), "text/plain")
                 return
@@ -89,7 +112,8 @@ def main():
             self.wfile.write(body)
 
     server = http.server.ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
-    print("  room view at http://127.0.0.1:%d/track_room.html, slices from %s" % (args.port, source), flush=True)
+    print("  room view at http://127.0.0.1:%d/track_room.html, engine view at /engine_view.html, objects from %s, "
+          "slices from %s" % (args.port, data, source), flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

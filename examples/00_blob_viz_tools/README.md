@@ -123,6 +123,28 @@ direction beside the boundary field they produce, on equal-area maps with one sc
 The tissue room, `view/track_room.html`, is built from `track_room_template.html` with no data and served by
 `view/serve_room.py`, which hands it its samples and slices.
 
+The engine view draws what the tracker writes. The sample is open: a mouse intestinal organoid imaged by light-sheet
+over time, from "Reference OME-Zarr for 3D time-lapse light-sheet microscopy with nuclei tracking",
+doi:10.5281/zenodo.22078388, under CC BY 4.0. `fetch_open_sample.py` fetches it, checks it against the record's MD5
+and lays its raw OME-Zarr out as `build/data/source/organoid_001.ome.zarr`, with the record's nucleus tracks beside it
+in voxels as the answer key, `organoid_001.geff`. Ingest turns the image into a crystal,
+`build/data/set/organoid_001/organoid_001.kcr`, reading the nuclei on channel 1 (`input.channel` in the `.cfg`).
+A tracker run with an object output, `--object <directory>` or `"object"` in the `.cfg`, writes the sample's `.vbo`
+(header, frames, leaves, cells, runs and the run's `.cfg`) and `.ibo` (links and edges). `base.cfg` writes them to
+`build/view/data`, and `view/serve_room.py` serves that folder at `data/`, lists it at `/objects` and serves the raw
+slices from the source beside it:
+
+```
+cd ../cell_tracking
+python maint/fetch_open_sample.py
+bash build_driver.sh
+../build/track_driver.exe --cfg base.cfg --ingest
+../build/track_driver.exe --cfg base.cfg
+python ../00_blob_viz_tools/view/serve_room.py
+```
+
+Then open `http://127.0.0.1:8733/engine_view.html`.
+
 ## On representations
 
 A representation decides where a cell sits. Joining the ends of an axis says the last value is next

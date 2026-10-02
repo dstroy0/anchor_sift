@@ -10,12 +10,11 @@ EV.RENDER = EV.PRELUDE + EV.RENDER_BINDINGS + `
 @vertex
 fn box(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
   let run = compact[instance + 1u];
-  let word = obj[lay.runs_at + run];
+  let voxel = obj[lay.runs_at + 2u * run];
+  let span = i32(obj[lay.runs_at + 2u * run + 1u]);
   let leaf = run_leaf[run];
   let cell = obj[lay.leaves_at + 4u * leaf];
   let frame = obj[lay.leaves_at + 4u * leaf + 1u];
-  let voxel = word >> 8u;
-  let span = i32(word & 255u) + 1;
   let x0 = 2 * i32(voxel % lay.width) - i32(lay.width);
   let y0 = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height);
   let z0 = (lay.z_scale * (2 * i32(voxel / lay.plane) - i32(lay.depth))) / 2;

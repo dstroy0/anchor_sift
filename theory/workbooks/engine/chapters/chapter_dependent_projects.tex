@@ -8,7 +8,6 @@
 Ruled by 23 September: the chemistry engine does not take precedence over the engine's own work, and a project built on the engine takes it as a git dependency.
 
 \begin{itemize}
-\item The RSNA fork at D:\textbackslash{}kaggle\textbackslash{}rsna\_\allowbreak{}knee\_\allowbreak{}abnormality\textbackslash{}engine and the CASMI chemistry project at D:\textbackslash{}kaggle\textbackslash{}casmi\_\allowbreak{}2026 build the engine from a git dependency pinned at a commit, never from this working tree in place.
 \item Engine source edits are never paused or held while one of them is building. A build that needs the tree to hold still uses a pinned checkout.
 \item A record-API shape change is announced before it lands in a commit, and GPU runs are scheduled by hand until tessera (the device-job scheduler) exists.
 \item Commits happen only when Doug decides, and the projects move their pins then.

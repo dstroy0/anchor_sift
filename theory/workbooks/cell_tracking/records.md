@@ -26,4 +26,3 @@ the contrast 34 bits, the residual 10 limbs, 6,518,615 points. Every
 .points holds the set's C and passes a separate reader.
 ```
 
-Note, 26 September: the separate reader was not kept. `points_check` (`cell_tracking/src/check/points_check.c`) is kept in its place. Run on the 25 samples of `scan.set`, as `points_check D:/kaggle_project_data/biohub_cell_tracking_set_kcr/train 44b6_0113de3b ... 44b6_668e0cc7`, it rebuilt 10,485,760,000 readings and 34 bits from the summed `.readings`, the same as `scan.set`, and printed "checked 25 samples, 25 with no fault, 6518615 points" and "0 faults". `cell_tracking/test/check_test.sh` fires each of its 16 faults: 39 checks, 0 failed.

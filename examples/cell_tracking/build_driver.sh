@@ -89,7 +89,7 @@ FUNCTIONALS=(cell_tracking/src/run_cfg c/includes/formats/cfg_json cell_tracking
              cell_tracking/src/group_objects cell_tracking/src/link_objects cell_tracking/src/bodies
              cell_tracking/src/score_sample cell_tracking/src/coherence cell_tracking/src/peaks
              cell_tracking/src/scan cell_tracking/src/sort cell_tracking/src/divide cell_tracking/src/faces
-             cell_tracking/src/output orior/examples/00_blob_viz_tools/view/vis_png
+             cell_tracking/src/output 00_blob_viz_tools/view/vis_png
              cell_tracking/src/track_driver)
 INGEST=(c/includes/formats/zarr c/includes/codecs/zstd c/includes/codecs/inflate c/includes/codecs/deflate c/includes/codecs/lz4
         c/includes/codecs/snappy c/includes/codecs/blosc c/includes/formats/tiff c/includes/formats/hdf5 c/includes/codecs/zip

@@ -56,12 +56,11 @@ fn farness(clip_z: f32) -> f32 {
 @vertex
 fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
   let run = compact[instance + 1u];
-  let word = obj[lay.runs_at + run];
+  let voxel = obj[lay.runs_at + 2u * run];
+  let span = i32(obj[lay.runs_at + 2u * run + 1u]);
   let leaf = run_leaf[run];
   let cell = obj[lay.leaves_at + 4u * leaf];
   let frame = obj[lay.leaves_at + 4u * leaf + 1u];
-  let voxel = word >> 8u;
-  let span = i32(word & 255u) + 1;
   let step = step_of(cell, frame);
   let x = 2 * i32(voxel % lay.width) - i32(lay.width) + span + step.x;
   let y = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height) + 1 + step.y;

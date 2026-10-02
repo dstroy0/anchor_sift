@@ -1207,12 +1207,11 @@ EV.RENDER = EV.PRELUDE + EV.RENDER_BINDINGS + `
 @vertex
 fn box(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> Out {
   let run = compact[instance + 1u];
-  let word = obj[lay.runs_at + run];
+  let voxel = obj[lay.runs_at + 2u * run];
+  let span = i32(obj[lay.runs_at + 2u * run + 1u]);
   let leaf = run_leaf[run];
   let cell = obj[lay.leaves_at + 4u * leaf];
   let frame = obj[lay.leaves_at + 4u * leaf + 1u];
-  let voxel = word >> 8u;
-  let span = i32(word & 255u) + 1;
   let x0 = 2 * i32(voxel % lay.width) - i32(lay.width);
   let y0 = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height);
   let z0 = (lay.z_scale * (2 * i32(voxel / lay.plane) - i32(lay.depth))) / 2;
@@ -1475,12 +1474,11 @@ fn farness(clip_z: f32) -> f32 {
 @vertex
 fn soft(@builtin(vertex_index) vertex: u32, @builtin(instance_index) instance: u32) -> SoftOut {
   let run = compact[instance + 1u];
-  let word = obj[lay.runs_at + run];
+  let voxel = obj[lay.runs_at + 2u * run];
+  let span = i32(obj[lay.runs_at + 2u * run + 1u]);
   let leaf = run_leaf[run];
   let cell = obj[lay.leaves_at + 4u * leaf];
   let frame = obj[lay.leaves_at + 4u * leaf + 1u];
-  let voxel = word >> 8u;
-  let span = i32(word & 255u) + 1;
   let step = step_of(cell, frame);
   let x = 2 * i32(voxel % lay.width) - i32(lay.width) + span + step.x;
   let y = 2 * i32((voxel / lay.width) % lay.height) - i32(lay.height) + 1 + step.y;
@@ -1883,9 +1881,11 @@ fn compose(@builtin(position) at: vec4<f32>) -> @location(0) vec4<f32> {
 // The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
 // panels read from them. The runs stay on the card. Every number here is an integer; a fraction is shown by
 // integer division to the places asked for. The object is two files, laid end to end in one buffer: the .vbo (the
-// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges).
+// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges). A
+// run is two words, its first voxel in the frame and its length; the header's version is 2.
 
 EV.MAGIC = 0x314F4256;
+EV.VERSION = 2;
 EV.INDEX_MAGIC = 0x314F4249;
 EV.STATUS_NAMES = ["correct", "branched", "wrong", "no link", "missed"];
 EV.NONE = 0xFFFFFFFF;
@@ -1914,7 +1914,7 @@ EV.readHeader = (bytes) => {
   header.leaves_at = header.frames_at + 10 * header.frames;
   header.cells_at = header.leaves_at + 4 * header.leaf_total;
   header.runs_at = header.cells_at + 4 * header.cell_total;
-  header.cfg_at = header.runs_at + header.run_total;
+  header.cfg_at = header.runs_at + 2 * header.run_total;
   header.index_at = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
   header.links_at = header.index_at + 4;
   header.edges_at = header.links_at + 2 * header.link_total;
@@ -2045,9 +2045,8 @@ EV.cellShapes = (header, all, cells) => {
     const past = first + all[leaves + 4 * leaf + 3];
     const at = 9 * cell;
     for (let run = first; run < past; run += 1) {
-      const word = all[header.runs_at + run];
-      const voxel = word >>> 8;
-      const n = (word & 255) + 1;
+      const voxel = all[header.runs_at + 2 * run];
+      const n = all[header.runs_at + 2 * run + 1];
       const z = Math.floor(voxel / plane);
       const y = Math.floor(voxel / width) % header.height;
       const x = voxel % width;
@@ -2337,6 +2336,9 @@ EV.loadObject = async (gpu, sources) => {
   if ((header.magic !== EV.MAGIC) || (indexWords[0] !== EV.INDEX_MAGIC) || (indexWords[2] !== header.link_total)
       || (indexWords[3] !== header.edge_total)) {
     throw new Error("not a .vbo and its .ibo");
+  }
+  if (header.version !== EV.VERSION) {
+    throw new Error(`a version ${header.version} .vbo; this page reads version ${EV.VERSION}, two words a run`);
   }
   const bytes = header.total_words * 4;
   const buffer = device.createBuffer({ size: bytes, usage: GPUBufferUsage.STORAGE, mappedAtCreation: true });

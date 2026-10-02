@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "drift.h"
 #include "../../../../src/c/types/integers/exact_integer.h"
+#include "hessian.h"
 #include "peaks.h"
 #include "scan.h"
 #include "../../../../src/c/engine/analysis/shift_agreement/shift_agreement.h"

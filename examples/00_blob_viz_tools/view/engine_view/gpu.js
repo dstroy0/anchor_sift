@@ -181,6 +181,9 @@ EV.loadObject = async (gpu, sources) => {
       || (indexWords[3] !== header.edge_total)) {
     throw new Error("not a .vbo and its .ibo");
   }
+  if (header.version !== EV.VERSION) {
+    throw new Error(`a version ${header.version} .vbo; this page reads version ${EV.VERSION}, two words a run`);
+  }
   const bytes = header.total_words * 4;
   const buffer = device.createBuffer({ size: bytes, usage: GPUBufferUsage.STORAGE, mappedAtCreation: true });
   const mapped = buffer.getMappedRange();

@@ -1,4 +1,3 @@
-  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_172609_sim_knf_identity
 scriptura.c
 scriptura_arm_avx2.c
 scriptura_arm_avx512.c

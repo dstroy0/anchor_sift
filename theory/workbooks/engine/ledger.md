@@ -50,7 +50,6 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 
 ### The entropy history
 
-Per voxel and per bit, the flips in each window of 11 transitions (9 windows over 100 frames), read from each sample's .kcr; one .knf a sample, 288 MiB, each read back whole against its CRC-64. Tables in `cell_tracking/logs/entropy/44b6_25.txt`, summarized by `cell_tracking/maint/entropy_summary.py`.
 
 | what | samples | result | settles |
 |---|---|---|---|

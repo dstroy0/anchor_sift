@@ -124,8 +124,9 @@ are `formats/zarr`, `zip`, `tiff`, `hdf5`, `npy`, `nrrd`, `nifti`, `dicom` and `
 `engine_source_read` reads one source whole into 16-bit lanes in t z y x order:
 
 - **Axes.** The source's axes are named by its metadata, or by the request's `axes` string (the `.cfg`'s `input.axes`),
-  one letter per axis. The letters are `t`, `z`, `y` and `x`, each used at most once. A `c` may stand only where its size
-  is 1. A missing axis has extent 1.
+  one letter per axis. The letters are `t`, `z`, `y` and `x`, each used at most once. One `c` may stand, and the lanes
+  are read at the request's `channel` on it (the `.cfg`'s `input.channel`, 0 when unnamed), which must lie inside it. A
+  missing axis has extent 1.
 - **Elements.** 8-bit and 16-bit integers are read. A float errors. A signed element is offset by 2^15 exactly, and
   `lane_offset` returns 0x8000.
 - **Side bytes.** Everything the source holds besides the voxels comes back in `EngineSideBytes`: each member's name,
@@ -143,7 +144,7 @@ A set is a directory with one folder per sample. The crystal of a sample is at `
 EngineError error = {0};
 EngineSampleRecord records[count];
 EngineSetReport report = {records};
-const EngineIngestRequest ingest = {source, set, samples, count, axes, &error, &report};
+const EngineIngestRequest ingest = {source, set, samples, count, axes, channel, &error, &report};
 if (engine_ingest_set(&ingest) == ENGINE_ERROR) { /* error names the first failure */ }
 engine_ingest_print(&ingest, stdout);
 ```

@@ -12,8 +12,8 @@ shift
 for driver in "${DRIVERS[@]}"; do
     echo "== $driver $FLAGS"
     start=$(date +%s%N)
-    "./build/$driver.exe" $FLAGS --source /d/kaggle_project_data/biohub_cell_tracking_data/train \
-        /d/kaggle_project_data/biohub_cell_tracking_set/train "$@"
+    "./build/$driver.exe" $FLAGS --source ../../build/data/source \
+        ../../build/data/set "$@"
     stop=$(date +%s%N)
     echo "   wall $(((stop - start) / 1000000)) ms"
 done

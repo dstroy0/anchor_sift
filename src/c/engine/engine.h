@@ -176,6 +176,7 @@ extern "C"
         const char *path;
         const char *member;
         const char *axes;
+        unsigned int channel;
         EngineSideBytes *side;
         unsigned long long *lane_offset;
         EngineError *error;
@@ -198,6 +199,7 @@ extern "C"
         char *const *samples;
         unsigned int count;
         const char *axes;
+        unsigned int channel;
         EngineError *error;
         EngineSetReport *report;
     } EngineIngestRequest;

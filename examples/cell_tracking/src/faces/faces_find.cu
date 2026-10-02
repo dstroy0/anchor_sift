@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+#include "crc.h"
 #include "faces.h"
 #include "hessian.h"
 #include "scan.h"

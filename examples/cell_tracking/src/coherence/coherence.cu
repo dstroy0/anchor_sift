@@ -264,7 +264,7 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
                   const unsigned int *first_run, const unsigned int *leaf_runs, const TreeRules *rules)
 {
     char path[ENGINE_PATH_CAPACITY];
-    const int written = snprintf(path, sizeof(path), "%s/%s.object", rules->object_directory, inputs->sample);
+    const int written = snprintf(path, sizeof(path), "%s/%s.vbo", rules->object_directory, inputs->sample);
     const unsigned int frame_count = inputs->frame_count;
     const unsigned int cell_count = inputs->unified_first[frame_count];
     const unsigned int link_count = inputs->unified_start[cell_count];
@@ -317,7 +317,7 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
             unsigned int length = 0u;
             for (unsigned int run = range[0]; run < range[0] + range[1]; run += 1u)
             {
-                length += (runs[run] & 0xFFu) + 1u;
+                length += runs[(2u * (size_t)run) + 1u];
             }
             const unsigned int over = (unsigned int)(length > tree->sizes[leaf]);
             aberrant_leaves += (unsigned int)(length != tree->sizes[leaf]);
@@ -353,6 +353,10 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
         scored += (unsigned int)(inputs->edge_status[edge] >= 0);
     }
 
+    // The object is the pair the engine view draws: the .vbo holds the header, frames, leaves, cells, runs and the
+    // .cfg padded to a word, and the .ibo holds its own four-word header, the links and the edges. A run is two
+    // words, its first voxel in the frame and its length. The view lays the .ibo straight after the .vbo in one
+    // buffer; every offset it reads into the .ibo starts at the .vbo's word count.
     FILE *const out = ok ? fopen(path, "wb") : NULL;
     ok = ok && out;
     if (ok)
@@ -360,19 +364,29 @@ int export_object(const EngineBuffers *buffers, const CoherenceInputs *inputs, c
         const unsigned int cfg_bytes = (unsigned int)rules->cfg_length;
         const unsigned char padding[4] = {0u, 0u, 0u, 0u};
         const unsigned int header[16] = {
-            0x314A424Fu, 1u,         frame_count, buffers->depth, buffers->height, buffers->width,  leaf_count,
+            0x314F4256u, 2u,         frame_count, buffers->depth, buffers->height, buffers->width,  leaf_count,
             run_count,   cell_count, link_count,  edge_count,     aberrant_leaves, aberrant_voxels, wide_sums,
             cfg_bytes,   0u};
         ok = (fwrite(header, sizeof(unsigned int), 16u, out) == 16u) &&
              (fwrite(frame_table, sizeof(unsigned int), (size_t)frame_count * 10u, out) == (size_t)frame_count * 10u) &&
              (fwrite(leaves, sizeof(unsigned int), (size_t)leaf_count * 4u, out) == (size_t)leaf_count * 4u) &&
              (fwrite(cells, sizeof(unsigned int), (size_t)cell_count * 4u, out) == (size_t)cell_count * 4u) &&
-             (fwrite(runs, sizeof(unsigned int), run_count, out) == run_count) &&
-             (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, out) == (size_t)link_count * 2u) &&
-             (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, out) == (size_t)edge_count * 3u) &&
+             (fwrite(runs, sizeof(unsigned int), (size_t)run_count * 2u, out) == (size_t)run_count * 2u) &&
              (fwrite(rules->cfg_text, 1u, cfg_bytes, out) == cfg_bytes) &&
              (fwrite(padding, 1u, (4u - (cfg_bytes & 3u)) & 3u, out) == ((4u - (cfg_bytes & 3u)) & 3u));
         ok = (fclose(out) == 0) && ok;
+    }
+    const int index_written = snprintf(path, sizeof(path), "%s/%s.ibo", rules->object_directory, inputs->sample);
+    ok = ok && (index_written > 0) && ((size_t)index_written < sizeof(path));
+    FILE *const index = ok ? fopen(path, "wb") : NULL;
+    ok = ok && index;
+    if (ok)
+    {
+        const unsigned int index_header[4] = {0x314F4249u, 1u, link_count, edge_count};
+        ok = (fwrite(index_header, sizeof(unsigned int), 4u, index) == 4u) &&
+             (fwrite(links, sizeof(unsigned int), (size_t)link_count * 2u, index) == (size_t)link_count * 2u) &&
+             (fwrite(edges, sizeof(unsigned int), (size_t)edge_count * 3u, index) == (size_t)edge_count * 3u);
+        ok = (fclose(index) == 0) && ok;
     }
     free(frame_table);
     free(leaves);

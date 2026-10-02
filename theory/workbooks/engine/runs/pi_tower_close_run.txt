@@ -1,4 +1,3 @@
-  build directory: /d/kaggle/biohub_cell_tracking/build/20260924_195118_sim_pi_tower
 scriptura.c
 scriptura_arm_avx2.c
 scriptura_arm_avx512.c
