@@ -7,8 +7,19 @@
 # whose sass/ holds form_0.cubin and form_0.text, and the PTX probe that run built beside it. Nothing is compiled
 # for the device and no disassembler is run.
 #
-#     utils/test/src/c/transpiler/interface/interface_sass_unprinted.sh [<earlier run folder>]
+#     utils/test/src/c/transpiler/interface/interface_sass_unprinted.sh [--forms] [<earlier run folder>]
+#
+# With --forms, every form holding an operand it does not print is asked instead, and interface_sass_unprinted_forms.md
+# is written.
 set -u
+
+FORMS=""
+RECORD="utils/test/src/c/transpiler/interface/interface_sass_unprinted.md"
+if [ "${1:-}" = "--forms" ]; then
+    FORMS="forms"
+    RECORD="utils/test/src/c/transpiler/interface/interface_sass_unprinted_forms.md"
+    shift
+fi
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$HERE/../../../../../.." && pwd)"
@@ -39,4 +50,4 @@ cc -o "$OUT/interface_sass_probe_unprinted" "${OBJECTS[@]}" || exit 1
 
 cd "$TOP" || exit 1
 "$OUT/interface_sass_probe_unprinted" "$RUNNER" "$RUN/sass/form_0.cubin" "$RUN/sass/form_0.text" \
-    "$CUBIN/machines/sm_86" "$OUT" "utils/test/src/c/transpiler/interface/interface_sass_unprinted.md"
+    "$CUBIN/machines/sm_86" "$OUT" "$RECORD" $FORMS
