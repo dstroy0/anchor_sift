@@ -294,8 +294,10 @@ works there.
      10, answers alike at every bit under 255. BAR.SYNC's and NANOSLEEP's runs are refused at every turned bit. A
      form that takes an address is asked through the word it writes, and none of the 40 atomics holding an
      unprinted register at 64 to 71 runs at its own bits: 22 are refused as illegal instructions, and 18 take a
-     32-bit or shared address that nothing the question holds backs. The forms with no result to read are not
-     asked.
+     32-bit or shared address that nothing the question holds backs. All 40 were reached by turning bits. NVIDIA's
+     compiler writes an atomic for an atomic on `.global` through a 64-bit pointer, and its 64-bit add holds the
+     descriptor register at 64 to 69 and two bits it refuses otherwise at 70 and 71, no register. The forms with no
+     result to read are not asked.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0

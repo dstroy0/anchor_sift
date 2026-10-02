@@ -72,6 +72,9 @@ typedef struct
 // register the frame loaded
 #define UNPRINTED_LOAD "LDG.E.CONSTANT R7, term[UR4][R2.64]"
 #define UNPRINTED_STORE "STG.E term[UR4][R4.64+0x8], R0"
+#define UNPRINTED_ATOMIC "ATOMG.E.ADD.64.STRONG.GPU PT, R8, term[UR4][R4.64+0x8], R0"
+// the word an atomic found stored as the answer's second word, and the third word it wrote loaded into R7
+#define UNPRINTED_ATOMIC_READ "\nSTG.E term[UR4][R4.64+0x4], R8\nLDG.E.CONSTANT R7, term[UR4][R4.64+0x8]"
 
 // every predicate from P0 to P6 set false, and every one set true
 #define UNPRINTED_FALSE                                                                                                \
@@ -112,6 +115,19 @@ static const UnprintedQuestion s_questions[] = {
     {UNPRINTED_LOAD, UNPRINTED_LOAD, 32u, 6u, {{101u, 1u, 1ull}}, 0x0000000bu},
     // the two bits past the load's descriptor register
     {UNPRINTED_LOAD, UNPRINTED_LOAD, 38u, 2u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    // NVIDIA's 64-bit atomic add, which the resident runs, at every value of bits 64 to 71, where its compare and swap
+    // holds the second register it reads and its descriptor register sits: R0 and R1 added to the answer's third and
+    // fourth words, the word it found stored as the second, and the third read back
+    {UNPRINTED_ATOMIC UNPRINTED_ATOMIC_READ, UNPRINTED_ATOMIC, 64u, 8u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    // the same with 64 to 71 held at 100, R100 and R101 given known words first: 0 and 0, 4 and 0, 0 and 1. Where the
+    // pair were read into the address, 4 would move the add to the fourth word and 1 in the high word past every
+    // word the question holds
+    {"IMAD.MOV.U32 R100, RZ, RZ, 0x0\nIMAD.MOV.U32 R101, RZ, RZ, 0x0\n" UNPRINTED_ATOMIC UNPRINTED_ATOMIC_READ,
+     UNPRINTED_ATOMIC, 64u, 0u, {{64u, 8u, 100ull}}, 0x0000000bu},
+    {"IMAD.MOV.U32 R100, RZ, RZ, 0x4\nIMAD.MOV.U32 R101, RZ, RZ, 0x0\n" UNPRINTED_ATOMIC UNPRINTED_ATOMIC_READ,
+     UNPRINTED_ATOMIC, 64u, 0u, {{64u, 8u, 100ull}}, 0x0000000bu},
+    {"IMAD.MOV.U32 R100, RZ, RZ, 0x0\nIMAD.MOV.U32 R101, RZ, RZ, 0x1\n" UNPRINTED_ATOMIC UNPRINTED_ATOMIC_READ,
+     UNPRINTED_ATOMIC, 64u, 0u, {{64u, 8u, 100ull}}, 0x0000000bu},
     // the store's descriptor register with bit 101 clear, and the two bits past it, read back through a load
     {UNPRINTED_STORE "\nLDG.E.CONSTANT R7, term[UR4][R4.64+0x8]", UNPRINTED_STORE, 64u, 6u, {{101u, 1u, 0ull}},
      0x0000000bu},
@@ -377,7 +393,7 @@ static int unprinted_ask(const UnprintedQuestion *question, unsigned int number,
         printf("  %s reads back as %s\n", question->turned, read);
     }
     const unsigned long long code_size = 16ull * count;
-    char held[UNPRINTED_FIELD_MOST + 1u];
+    char held[64];
     unprinted_binary(unprinted_bits_read(low, high, question->first, question->bits), question->bits, held);
     char fixed[64] = "";
     for (unsigned int at = 0u; at < UNPRINTED_FIXED; at += 1u)
@@ -401,7 +417,7 @@ static int unprinted_ask(const UnprintedQuestion *question, unsigned int number,
         unsigned int answered[UNPRINTED_COPIES] = {0u, 0u, 0u, 0u};
         char ended[96] = "";
         const int ran = unprinted_run(s_turned, code_size, answered, ended, sizeof(ended));
-        char digits[UNPRINTED_FIELD_MOST + 1u];
+        char digits[64];
         unprinted_binary(value, question->bits, digits);
         const int same = ran && (answered[0] == question->answer);
         printed += same;
