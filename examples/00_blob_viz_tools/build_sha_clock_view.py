@@ -13,7 +13,7 @@
   --sources   how many neutrino points are carried, 1 to 12. Default 2.
   --shell     the room wall: sphere, cube, hexagon, octahedron, dodecahedron. Default sphere.
   --core      the nested boundaries: sphere, cube, octahedron, cone. Default sphere.
-  --out       where to write. Default sha_clock_view.html beside this script.
+  --out       where to write. Default: sha_clock_view.html in build/view, through out_path.
 
 WHAT IS BEING WATCHED
 

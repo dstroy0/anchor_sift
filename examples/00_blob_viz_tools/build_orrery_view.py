@@ -14,7 +14,7 @@
   --degrees   highest harmonic degree carried. Default 48.
   --tau       conduction time the surface is left to smooth for. Default 0.0006.
   --seed      draw for the sizes and phases. Default 11.
-  --out       where to write. Default orrery_view.html beside this script.
+  --out       where to write. Default: orrery_view.html in build/view, through out_path.
 
 WHY A SYSTEM AND NOT A FILE
 

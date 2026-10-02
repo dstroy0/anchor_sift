@@ -21,7 +21,7 @@ page: a function and its derivative, or the same function at rising frequency.
   --y LOW HIGH   range of y, taken as the series axis. Default -pi to pi.
   --n COUNT      samples on each axis. Default 96. 9216 cells per expression.
   --title TEXT   heading for the page. Default: the first expression.
-  --out FILE     where to write. Default: plot_view.html beside this script.
+  --out FILE     where to write. Default: plot_view.html in build/view, through out_path.
 
 What may appear in an expression: x, y, pi, e, tau, and the functions sin cos tan asin acos atan
 atan2 sinh cosh tanh exp log log2 log10 sqrt abs floor ceil hypot copysign fmod pow degrees radians

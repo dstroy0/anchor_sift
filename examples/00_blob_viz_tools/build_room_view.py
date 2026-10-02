@@ -9,7 +9,7 @@
   --things    how many lights hang inside. Default 160.
   --seed      draw for their places, sizes and stopping power. Default 4.
   --blob      take the objects from a file instead of the draw, one per common byte value.
-  --out       where to write. Default room_view.html beside this script.
+  --out       where to write. Default: room_view.html in build/view, through out_path.
 
 WHAT THIS IS FOR
 
