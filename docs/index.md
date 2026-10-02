@@ -81,45 +81,55 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 
 ## What is here
 
+Some of this will read as too much. Nothing here asks to be believed: every result names the file that holds it and the run that checks it, every one was measured against a null that could have said no, and every claim the work took back is kept beside the measurement that took it back. Most of the parts are old, and they are named as old.
+
 <div class="grid cards" markdown>
 
--   :material-infinity:{ .lg .middle } __Arithmetic with no floor__
+-   :material-infinity:{ .lg .middle } __Exact integers, from end to end__
 
     ---
 
-    Every number is an exact integer, any power of two wide. Nothing is rounded, and where a word is too narrow the machine says so. The floor in published work belongs to the format.
+    Every number is an integer of whatever width it needs. Nothing is rounded, and a value too wide for its word is refused instead of cut. A big number library holds the same integers; this engine never leaves them.
 
     [:octicons-arrow-right-24: The engine](engine.md)
 
--   :material-chart-bell-curve:{ .lg .middle } __The exact departure from entropy__
+-   :material-chart-bell-curve:{ .lg .middle } __The pattern is what a shuffle destroys__
 
     ---
 
-    Keep the counts, shuffle the arrangement, and the shuffle is the background. A filter built from any part of a pattern never loses a true occurrence.
+    Keep the counts, shuffle the arrangement, and the shuffle is the background. A filter built from any part of a pattern never loses a true occurrence, and the exact compare stays.
 
     [:octicons-arrow-right-24: The algorithm](method.md)
 
--   :material-layers-triple:{ .lg .middle } __Vertical time compression__
+-   :material-cube-outline:{ .lg .middle } __The number of dimensions is not in the state__
 
     ---
 
-    When every step is exact, a chain composes into one program before any input exists. It runs the same steps and removes the time between them.
+    The filter holds one bit for each alignment. Neither the alphabet nor the number of dimensions appears in it, and the same expression gives the cost from a line to an eight dimensional cube.
+
+    [:octicons-arrow-right-24: The sift](sift.md)
+
+-   :material-layers-triple:{ .lg .middle } __Exact steps join before any input exists__
+
+    ---
+
+    A chain of exact steps composes into one program and runs on the device as one. It runs the same steps, and what it removes is the time between them.
 
     [:octicons-arrow-right-24: The stack](https://github.com/dstroy0/orior/blob/main/theory/workbooks/engine/vertical_time_compression.md)
 
--   :material-package-down:{ .lg .middle } __Compression near the floor__
+-   :material-package-down:{ .lg .middle } __Compression held to the noise of the camera__
 
     ---
 
-    The floor is bounded by a ladder of exact bit counts, and the noise is read as exact functions of the data, never as a model. On 25 volumes of cell tracking the floor is 38.9 percent of raw and the engine writes 42.0.
+    No program computes Kolmogorov complexity, and nothing here claims to. On 25 volumes of cell tracking the noise of the camera puts a floor at 38.9 percent of raw, and the engine writes 42.0.
 
     [:octicons-arrow-right-24: Compression](https://github.com/dstroy0/orior/tree/main/theory/workbooks/compression)
 
--   :material-chip:{ .lg .middle } __A register with no last digit__
+-   :material-chip:{ .lg .middle } __One program at every width__
 
     ---
 
-    A program gives the same answer at every width. The emitter compiles itself to the same bytes, derives an unknown target by asking the part, and holds Chaitin's Omega between two exact numbers.
+    A program of sums, products, exclusive or and AND gives the same answer at every width. The emitter writes it to PTX, C or SASS, and where a rule of a target is not known it asks the part.
 
     [:octicons-arrow-right-24: Two crystals](https://github.com/dstroy0/orior/blob/main/theory/workbooks/engine/two_crystals.md)
 
@@ -127,7 +137,7 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 
     ---
 
-    Measured, the demon can refuse and cannot predict. An exclusion is permanent and free. There is no wall of principle in the way, only a bill in precision.
+    Measured, a boundary can refuse and cannot predict. An exclusion is permanent and free, and finer detail costs precision that grows exponentially. There is no wall of principle, only that bill.
 
     [:octicons-arrow-right-24: Thought experiments](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/orior)
 
@@ -147,14 +157,6 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 
     [:octicons-arrow-right-24: Precision](https://github.com/dstroy0/orior/tree/main/theory/theory/precision)
 
--   :material-scale-balance:{ .lg .middle } __Measure the null under the same conditions__
-
-    ---
-
-    An instrument that cannot be made to say no is not reporting anything when it says yes. Every bar is drawn, and every claim is kept with what killed it.
-
-    [:octicons-arrow-right-24: Areas of research](research.md)
-
 </div>
 
 ## What came back
@@ -164,6 +166,15 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 <div><strong>0 refused</strong><span>of 9,396,207 true occurrences on byte strings, and of 213,840 across one to eight dimensions</span></div>
 <div><strong>1 of 200</strong><span>random borders as good as the dialect border it found, never given the labels</span></div>
 <div><strong>383 of 383</strong><span>subtraction games that return their Grundy period</span></div>
-<div><strong>13 to 22 times</strong><span>faster for seven hundred floors laid as one stack, every record equal</span></div>
-<div><strong>792</strong><span>exact numbers that hold a state of 100 quantum bits</span></div>
+<div><strong>13 to 22 times</strong><span>faster for seven hundred steps laid as one stack, every record equal</span></div>
+<div><strong>792</strong><span>exact numbers that hold 100 quantum bits all 0 or all 1 together</span></div>
 </div>
+
+## What it does not claim
+
+- It does not compute Kolmogorov complexity. It bounds a file from above, by writing it.
+- It claims no weakness in SHA-256.
+- It does not hold every quantum state in a few numbers. A general state of 100 quantum bits still needs 2^100.
+- It is not a model and nothing in it is trained.
+- Several results were found first by others, and where that is known the published work is named.
+- The thought experiments hold ideas whose experiment cannot be built as written. They are kept apart from the results, and none of them is one.

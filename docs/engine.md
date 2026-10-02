@@ -57,7 +57,7 @@ The k-files are the faces the compiler reads and writes.
 | ------ | --------------------------------------- | ---------------------------------------------------- |
 | `.ksc` | Kolmogorov system classification        | the language map                                     |
 | `.krs` | Kolmogorov information ruleset          | the coherence rules: one language's forms            |
-| `.kcr` | Kolmogorov information crystal          | information at or near its Kolmogorov complexity     |
+| `.kcr` | Kolmogorov information crystal          | a set written close to the floor its own noise sets  |
 | `.knf` | Kolmogorov noise floor                  | a measured noise floor                               |
 | `.kcs` | Kolmogorov information construction set | what reconstructs information                        |
 | `.kdm` | Kolmogorov device map                   | the hardware map                                     |

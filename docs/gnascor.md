@@ -7,7 +7,7 @@ The objective is to compile a program written in gnascor to any language, includ
 
 **gnascor** is the internal language, `.g` high order and `.gsm` its assembly. It is designed and it is what a program is written in. It is not derived and its vocabulary does not move. **`L*`** is the map from gnascor to a target's spellings, and it is the derived part.
 
-**Information is coherence.** A description at its Kolmogorov complexity holds no redundancy, every bit of it carries, and no part predicts another. A system at coherence has that property from the other side: its parts agree and the friction between them is at its floor. Compression and coherence are one measurement from two directions.
+**The language is built on one idea: information is coherence.** A description at its Kolmogorov complexity holds no redundancy, every bit of it carries, and no part predicts another. A system at coherence has that property from the other side: its parts agree and the friction between them is at its floor. The idea is that compression and coherence are one measurement from two directions. It is the ground the design stands on and not a result. Each part built on it is checked on its own.
 
 What is known before meeting anything is relations. `1,1 -> 2` is a relation and is not an addition, because addition is a spelling. Every system that computes agrees about the relation and each spells it its own way.
 
