@@ -1,0 +1,66 @@
+krs 1
+# PCI Express configuration space, the bus that enumerates itself. The parts on it are doing work constantly. The root
+# learns where they are mostly by listening: it reads a slot and a working part answers with its own identifier,
+# and the line reads all ones where no part answered. A part that sits silent can still be probed, by writing a word
+# and reading what comes back, but a part doing work does not need it. The one write the common run makes is a found
+# part's own base register, sized once. The format is the comment at the head of ptx.krs: a line's first word names
+# its kind, {p} is parameter p's argument, \t is a tab, \n a line's end and \\ a backslash, and a line that begins
+# with # is a comment.
+ruleset pcie
+# the root reads and writes config space through its own window (ECAM, or the address and data ports); no part's
+# vendor driver is reached and nothing of a vendor's toolchain is asked
+toolchain config
+header pcie_open
+
+# a slot is a bus, a device and a function, and a byte offset into that function's config space
+bank bus = {n}
+bank device = {n}
+bank function = {n}
+bank offset = {n}
+
+# the words a read gives back that name no part, and the offsets a part answers at
+fixed absent = ffffffff
+fixed initialising = 0001ffff
+fixed all_ones = ffffffff
+fixed identity_at = 00
+fixed command_at = 04
+fixed header_at = 0e
+fixed base_first = 10
+fixed primary_at = 18
+fixed secondary_at = 19
+fixed subordinate_at = 1a
+
+# the opening of a run: nothing is put, the root listens
+form pcie_open =
+
+# listen, the common run: read a slot's identity at offset 00. A part doing work answers with its own vendor and
+# device word; a slot that reads ffffffff had no part answer; a part still starting answers 0001ffff and is read again
+form listen bus device function = read bus {bus} device {device} function {function} offset 00
+form answered identity = a part is here where the identity {identity} read at offset 00 is not ffffffff
+form initialising identity = a part is here but still starting where {identity} reads 0001ffff
+form silent identity = no part answered where {identity} reads ffffffff
+
+# probe, the fallback for a silent slot: write a word to it and read what comes back. A part that is there answers the
+# write where it did not answer a read; a part doing work never needs this
+form probe_write bus device function = write a5a5a5a5 to bus {bus} device {device} function {function} offset 00
+form probed present read = a part is here, found by probe, where {read} is a word the part decided and not ffffffff
+
+# what a part is: the header type at offset 0e. Bit 7 set means more than one function; the low seven bits name an
+# endpoint (0) or a bridge (1)
+form multifunction header = more than one function where bit 7 of {header} is set
+form endpoint header = an endpoint where the low seven bits of {header} are 0
+form bridge header = a bridge where the low seven bits of {header} are 1
+
+# a found part's base register sizes itself: all ones are written to it, and the word it gives back holds the high
+# bits it owns and forces the low bits it decodes to zero. The region is two to the power of the lowest set bit
+form size_write base = write ffffffff to base register {base}
+form size_read mask = the region the base register decodes is two to the power of the lowest set bit of {mask}
+
+# a bridge forwards a run of buses: it sits on bus {primary}, opens bus {secondary}, and its subordinate is written all
+# ones first so the run descends, then set to the highest bus found under it once that run is read
+form bridge_open primary secondary = the bridge on bus {primary} opens bus {secondary} and forwards every bus found below it
+form bridge_close subordinate = the bridge forwards down to bus {subordinate} once its run is read
+
+# a part answers memory once bit 1 of its command register at offset 04 is set, and drives the bus once bit 2 is set
+form enable_memory = set bit 1 of the command register at offset 04
+form enable_master = set bit 2 of the command register at offset 04
