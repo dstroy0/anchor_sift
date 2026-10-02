@@ -118,6 +118,7 @@ import shutil
 import subprocess
 import sys
 import time
+from fractions import Fraction
 from functools import cache
 from itertools import compress
 from math import comb, factorial, gcd
@@ -131,6 +132,8 @@ import exact_zeta_zeros as zz  # noqa: E402
 from exact_zeta_zeros import COS_SIGN, NOT, SIN_SIGN, compare, decimal  # noqa: E402
 from representation.constants import naturals  # noqa: E402
 from representation.exact import units  # noqa: E402
+from measure.shift_agreement import exact_agreement  # noqa: E402
+from reference.shuffles import SEED, permuted  # noqa: E402
 
 GUARD = naturals.GUARD
 LINE = (5, 1)
@@ -921,10 +924,19 @@ def rs_cut_at(key, cut):
     cos_theta, sin_theta = zz.cos_sin(theta, work)
     terms = [zz.power_minus_s(n, LINE, t, work)[:2] for n in range(1, nu + 1)]
     main_sum = 2 * (cos_theta * sum(a for a, _ in terms) - sin_theta * sum(b for _, b in terms)) // scale
+    return toward_zero(main_sum), toward_zero(remainder_at(nu, p, cut, digits))
+
+
+def remainder_at(nu, p, cut, digits):
+    """R through C_cut at x = nu + p, at digits + GUARD."""
+    work = digits + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
     inv_root = naturals._integer_sqrt(scale * scale * unit // big_x)
-    remainder = sum(c_at(n, unit - 2 * big_p, unit, digits) * inv_root * unit ** n // (scale * big_x ** n)
-                    for n in range(cut + 1)) * (1 - 2 * ((nu - 1) % 2))
-    return toward_zero(main_sum), toward_zero(remainder)
+    return sum(c_at(n, unit - 2 * big_p, unit, digits) * inv_root * unit ** n // (scale * big_x ** n)
+               for n in range(cut + 1)) * (1 - 2 * ((nu - 1) % 2))
 
 
 def c_read(v, digits, places):
@@ -1314,6 +1326,120 @@ def theta_prime_at(t, digits):
     return two
 
 
+def inv_powers(a, b, d, size, scale, top):
+    """Re and Im of 1 / W^m for m = 1 to top at `scale`, W = (a + i b) / d: 1 / W^m = d^m (a - i b)^m / size^m,
+    size = a^2 + b^2. (a - i b)^m is carried by multiplying the running power by (a - i b)."""
+    out = []
+    pr, pi = 1, 0
+    d_power, size_power = 1, 1
+    for _ in range(top):
+        pr, pi = pr * a + pi * b, pi * a - pr * b
+        d_power *= d
+        size_power *= size
+        out.append((scale * d_power * pr // size_power, scale * d_power * pi // size_power))
+    return out
+
+
+def theta_derivs_route(t, digits, shift, terms):
+    """theta''(t) and theta'''(t) at `digits` by Stirling for psi' and psi'' at w = 1/4 + it/2 + shift, shifted
+    back by `shift` reflections. theta'' = -Im psi'(w) / 4 and theta''' = -Re psi''(w) / 8, from
+    psi'(W) = 1/W + 1/(2 W^2) + sum_k B_2k / W^(2k+1) and psi''(W) = -1/W^2 - 1/W^3 - sum_k B_2k (2k+1) / W^(2k+2)."""
+    scale = 10 ** digits
+    big_t, q = t
+    unit = 10 ** q
+    a, b, d = (1 + 4 * shift) * unit, 2 * big_t, 4 * unit
+    size = a * a + b * b
+    inv = inv_powers(a, b, d, size, scale, 2 * terms + 2)
+    im_psi1 = inv[0][1] + inv[1][1] // 2
+    re_psi2 = -inv[1][0] - inv[2][0]
+    for k in range(1, terms + 1):
+        num, den = zz.bernoulli_over_factorial(k)
+        bern = num * factorial(2 * k)
+        im_psi1 += inv[2 * k][1] * bern // (den)
+        re_psi2 -= inv[2 * k + 1][0] * (2 * k + 1) * bern // (den)
+    for k in range(shift):
+        a_k = (1 + 4 * k) * unit
+        low = inv_powers(a_k, b, d, a_k * a_k + b * b, scale, 3)
+        im_psi1 += low[1][1]
+        re_psi2 -= 2 * low[2][0]
+    return -im_psi1 // 4, -re_psi2 // 8
+
+
+def theta_derivs_at(t, digits):
+    """theta'' and theta''' at `digits` by the routes at N and 2N, N doubling until both agree."""
+    n_sum = 1
+    one, two = (theta_derivs_route(t, digits, n, n) for n in (1, 2))
+    while toward_zero(one[0]) - toward_zero(two[0]) or toward_zero(one[1]) - toward_zero(two[1]):
+        n_sum *= 2
+        one, two = (theta_derivs_route(t, digits, n, n) for n in (n_sum, 2 * n_sum))
+    return two
+
+
+def state_at(nu, p, cut, digits):
+    """The fix: the exact state of Z at x = nu + p, for dead reckoning. Returns t; theta and its first three
+    derivatives; the wave-sum part of Z, Z', Z'' and Z''' exactly, each the sum of its waves' vectors; R's
+    value; the per-wave (w, w') for reading which wave carries the momentum; and magnitude bounds on R', R''
+    and R''' from the C_k bounds.
+
+    Wave n is 2 n^(-1/2) cos(phi_n), phi_n = theta - t ln n, so phi_n' = theta' - ln n, phi_n'' = theta'',
+    phi_n''' = theta'''. Z's momentum Z' is the sum over n of -2 n^(-1/2) sin(phi_n) phi_n', a vector sum."""
+    work = digits + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, _ = theta_at(t, work)
+    tp = theta_prime_at(t, work)
+    t2, t3 = theta_derivs_at(t, work)
+    big_pi = zz.pi(work)
+    waves = [0, 0, 0, 0]
+    # the vector S = sum n^(-1/2) e^(i phi_n) and its rate S', the content the shadow 2 Re S + R projects
+    s_re = s_im = sd_re = sd_im = 0
+    members = []
+    for n in range(1, nu + 1):
+        amp = naturals._integer_sqrt(scale * scale // n)
+        phi = (theta - t[0] * zz.ln(n, work) // scale) % (2 * big_pi)
+        c, s = zz.cos_sin(phi, work)
+        pd = tp - zz.ln(n, work)
+        w0 = 2 * amp * c // scale
+        w1 = -2 * amp * (s * pd // scale) // scale
+        w2 = -2 * amp * ((c * (pd * pd // scale) // scale) + (s * t2 // scale)) // scale
+        w3 = -2 * amp * ((-s * (pd * (pd * pd // scale) // scale) // scale)
+                         + 3 * (c * (pd * t2 // scale) // scale) + (s * t3 // scale)) // scale
+        for i, w in enumerate((w0, w1, w2, w3)):
+            waves[i] += w
+        s_re += amp * c // scale
+        s_im += amp * s // scale
+        sd_re += -amp * (s * pd // scale) // scale
+        sd_im += amp * (c * pd // scale) // scale
+        members.append((n, w0 // 10 ** GUARD, w1 // 10 ** GUARD))
+    magnitude = naturals._integer_sqrt(s_re * s_re + s_im * s_im)
+    # the phase's rate, (arg S)' = Im(S' / S) = (Re S Im S' - Im S Re S') / |S|^2, the twist of the vector
+    twist = (s_re * sd_im - s_im * sd_re) * scale // (magnitude * magnitude + NOT(magnitude))
+    r = remainder_at(nu, p, cut, digits)
+    # |dx/dt| = 1 / (4 pi x) and |d^2x/dt^2| = 1 / (16 pi^2 x^3), pi = big_pi / scale and x = big_x / unit
+    speed = Fraction(scale * unit, 4 * big_pi * big_x)
+    pull = Fraction(scale * scale * unit ** 3, 16 * big_pi * big_pi * big_x ** 3)
+    root = Fraction(1, math.isqrt(nu))
+    dr_dx = dr2 = Fraction(0)
+    for k in range(cut + 1):
+        level, slope, bend = magnitudes(k, work)
+        half = Fraction(2 * k + 1, 2)
+        fall = root * unit ** k / big_x ** k
+        dr_dx += (2 * slope + half * level / nu) * fall
+        dr2 += (4 * bend + 4 * half * slope / nu + half * (half + 1) * level / nu ** 2) * fall
+    r1_bound = ceiling(dr_dx * speed, 10 ** digits)
+    r2_bound = ceiling(dr2 * speed * speed + dr_dx * pull, 10 ** digits)
+    drop = 10 ** GUARD
+    return {"t": t[0], "theta": theta, "tp": tp, "t2": t2, "t3": t3,
+            "z": [(v + (r if i == 0 else 0)) // drop for i, v in enumerate(waves)],
+            "wave_z": [v // drop for v in waves], "r": r // drop,
+            "s": (s_re // drop, s_im // drop), "sd": (sd_re // drop, sd_im // drop),
+            "magnitude": magnitude // drop, "twist": twist // drop,
+            "members": members, "r1": r1_bound, "r2": r2_bound}
+
+
 def ball_at(nu, p, cut, digits):
     """The ball at x = nu + p, at `digits` + GUARD: |z|^2, the shadows D, E and Z, and the angular
     momentum L = sum (theta' - ln n) / n and energy sum (theta' - ln n)^2 / 2n of its waves.
@@ -1378,6 +1504,465 @@ def sphere_main(first, last, cut=10, m=8, digits=24):
     return 0
 
 
+# ---- the ball's motion against its own permutations ----
+#
+# The identity is the ball as it is: wave n carries e^(-it ln n), and n's direction is its primes'
+# directions added, at every t. Two nulls keep every mass 1/n, every spin theta' - ln n, the sphere
+# H_nu, the frame theta and R, and differ only in the directions the waves start the cell at. The
+# locked null permutes the primes' directions among the primes and carries them to every n by its
+# factors. The unlocked null permutes the directions of 2 to nu among themselves, factors ignored.
+# Each draw is reference.shuffles.permuted at its own seed.
+
+
+def factored(n):
+    """n's prime factors and their exponents, by trial division."""
+    out, d = {}, 2
+    while d * d <= n:
+        while n % d == 0:
+            out[d] = out.get(d, 0) + 1
+            n //= d
+        d += 1
+    out.update({n: out.get(n, 0) + 1} if n > 1 else {})
+    return out
+
+
+def turned(a, b, scale):
+    """The product of two complex numbers held as pairs at `scale`."""
+    return (a[0] * b[0] - a[1] * b[1]) // scale, (a[0] * b[1] + a[1] * b[0]) // scale
+
+
+def waves_at(nu, p, digits):
+    """t, theta and every wave z_n = e^(i theta) n^-s, n to nu, at x = nu + p, at digits + GUARD."""
+    work = digits + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, _ = theta_at(t, work)
+    cos_theta, sin_theta = zz.cos_sin(theta, work)
+    waves = [zz.power_minus_s(n, LINE, t, work)[:2] for n in range(1, nu + 1)]
+    return t, theta, [((cos_theta * a - sin_theta * b) // scale, (sin_theta * a + cos_theta * b) // scale) for a, b in waves]
+
+
+def theta_x(nu, j, depth, work):
+    """theta at x = nu + j / 2^depth, t = 2pi x^2, at `work`."""
+    unit = 10 ** depth
+    big_x = nu * unit + j * 5 ** depth
+    return theta_at((2 * big_x * big_x * zz.pi(work) // (unit * unit), work), work)[0]
+
+
+def null_turns(heads, locked, seed, scale):
+    """Each wave's constant turn under one null, as unit pairs at `scale`, wave 1 unturned.
+
+    heads[n - 1] is wave n's direction at the cell's start. A wave sent to another's direction turns
+    by that direction times the conjugate of its own. A draw that moves no seat is the identity and
+    is drawn again at the next seed."""
+    nu = len(heads)
+
+    def onto(n, m):
+        return turned(heads[m - 1], (heads[n - 1][0], -heads[n - 1][1]), scale)
+
+    seats = [n for n in range(2, nu + 1) if factored(n) == {n: 1}] if locked else list(range(2, nu + 1))
+    order = permuted(bytes(range(len(seats))), seed)
+    while (len(seats) > 1) * (list(order) == list(range(len(seats)))):
+        seed += 1 << 16
+        order = permuted(bytes(range(len(seats))), seed)
+    sent = {n: onto(n, seats[k]) for n, k in zip(seats, order)}
+    turns = [(scale, 0)]
+    for n in range(2, nu + 1):
+        turn = (scale, 0)
+        for prime, power in (factored(n).items() if locked else [(n, 1)]):
+            for _ in range(power):
+                turn = turned(turn, sent[prime], scale)
+        turns.append(turn)
+    return turns
+
+
+def magnitudes(k, work, count=96):
+    """Upper bounds on |C_k|, |C_k'| and |C_k''| over -1 <= z <= 1, as Fractions: the sum of the Taylor
+    coefficients' sizes times 1, i and i (i - 1), each read at `work`, raised by the terms' count in units."""
+    scale = 10 ** work
+    g = CURVES.setdefault(work, Curve(work)).gamma(k, count)
+    return [Fraction(sum(abs(v) * comb(i, m) * factorial(m) for i, v in enumerate(g)) + count + 1, scale)
+            for m in range(3)]
+
+
+def ceiling(value, scale):
+    """A Fraction raised to a whole number of units at `scale`."""
+    return -(-value.numerator * scale // value.denominator)
+
+
+def budgets(nu, work):
+    """The cell's bounds, whole units at `work`, shared by every ball: B1 on |M'| and B2 on |M''| over the
+    cell, R1 on the derivative of R's two terms, and rho, Gabcke's bound on what R through C_1 leaves out,
+    |R| <= 0.053 t^(-5/4) for t >= 200 (Gabcke; Hiary, (1.4)), at the cell's least t.
+
+    M = 2 Re sum z_n + R, R = (-1)^(nu-1) sum over k <= 1 of C_k(z) x^(-k-1/2), z = 1 - 2(x - nu) and
+    x = sqrt(t / 2pi). Each wave is a vector of length n^(-1/2) turning at theta' - ln n, at most
+    ln((nu + 1) / n) + 1 / t^2 in size over the cell, and theta'' is at most 1 / t. |dx/dt| = 1 / (4pi x)
+    and |d^2x/dt^2| = 1 / (16pi^2 x^3). Each bound is a sum of magnitudes, every factor raised where read."""
+    scale = 10 ** work
+    pi_low = Fraction(314159, 100000)
+    t_low = 2 * pi_low * nu * nu
+    root = Fraction(1, math.isqrt(nu))
+    spin = [Fraction(zz.ln(nu + 1, work) - zz.ln(n, work) + 2, scale) + 1 / (t_low * t_low) for n in range(1, nu + 1)]
+    size = [Fraction(naturals._integer_sqrt(scale * scale // n) + 2, scale) for n in range(1, nu + 1)]
+    speed, pull = 1 / (4 * pi_low * nu), 1 / (16 * pi_low * pi_low * nu ** 3)
+    first = second = Fraction(0)
+    for k in (0, 1):
+        level, slope, bend = magnitudes(k, work)
+        fall = root / nu ** k
+        half = Fraction(2 * k + 1, 2)
+        first += (2 * slope + half * level / nu) * fall
+        second += (4 * bend + 4 * half * slope / nu + half * (half + 1) * level / nu ** 2) * fall
+    r_one = first * speed
+    r_two = second * speed * speed + first * pull
+    b_one = 2 * sum(s * w for s, w in zip(size, spin)) + r_one
+    b_two = 2 * sum(s * (w * w + 1 / t_low) for s, w in zip(size, spin)) + r_two
+    quarter = math.isqrt(math.isqrt(int(t_low)))
+    rho = Fraction(53, 1000) / (int(t_low) * quarter)
+    return ceiling(b_one, scale), ceiling(b_two, scale), ceiling(r_one, scale), ceiling(rho, scale)
+
+
+def theta_floor(t, n_sum, work):
+    """What theta's second route leaves out, whole units at `work`: Stirling's series at w = 1/4 + it/2 + 2N
+    with 2N terms stops short by at most |B_(2K+2)| / ((2K+2)(2K+1) |w|^(2K+1)) sec^(2K+2)(arg w / 2), K = 2N,
+    and arg w < pi/2 makes the secant's power at most 2^(K+1); |w| >= t / 2. Its roundings add 20K + 100."""
+    big_t, q = t
+    k = 2 * n_sum
+    num, den = zz.bernoulli_over_factorial(k + 1)
+    top = abs(num) * factorial(2 * k + 2) * 2 ** (k + 1) * (2 * 10 ** q) ** (2 * k + 1) * 10 ** work
+    bottom = den * (2 * k + 2) * (2 * k + 1) * big_t ** (2 * k + 1)
+    return -(-top // bottom) + 20 * k + 100
+
+
+def point(nu, j, depth, digits, balls, logs):
+    """Every ball at x = nu + j / 2^depth, at digits + GUARD: t, theta, M = 2 Re W + R through C_1 and the
+    waves' part of M', -2 Im sum (theta' - ln n) z_n, with the point's budgets E on M and E' on M'.
+
+    E sums magnitudes: each wave's floors over its logarithm, power, cosine and sine and the turn, at most
+    20 t + 1000 units a wave, twice over for 2 Re; the frame's rotation, at most theta's floor times |W| <= nu,
+    twice; and R's two terms read at digits, 4 10^GUARD units."""
+    work = digits + GUARD
+    scale = 10 ** work
+    p = zz.pair(j * 5 ** depth, depth)
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, n_sum = theta_at(t, work)
+    cos_theta, sin_theta = zz.cos_sin(theta, work)
+    waves = [zz.power_minus_s(n, LINE, t, work)[:2] for n in range(1, nu + 1)]
+    waves = [((cos_theta * a - sin_theta * b) // scale, (sin_theta * a + cos_theta * b) // scale) for a, b in waves]
+    rates = [theta_prime_at(t, work) - log for log in logs]
+    r = remainder_at(nu, p, 1, digits)
+    values, slopes = [], []
+    for turns in balls:
+        seen = [turned(u, z, scale) for u, z in zip(turns, waves)]
+        values.append(2 * sum(re for re, _ in seen) + r)
+        slopes.append(-2 * sum(w * im for w, (_, im) in zip(rates, seen)) // scale)
+    drift = theta_floor(t, n_sum, work)
+    error = 2 * nu * (20 * (t[0] // scale + 1) + 1000) + 2 * nu * drift + 4 * 10 ** GUARD + 1
+    return {"t": t[0], "theta": theta, "m": values, "d": slopes, "e": error,
+            "e_d": error * (nu.bit_length() + 2) + 2 * nu * drift, "rates": rates}
+
+
+def settle(left, right, k, bounds, scale, rho=0):
+    """0 where ball k's M has no zero between two points, 1 where it has exactly one, None where the budgets
+    decide neither. With rho, the same for Z itself, |Z - M| <= rho, and 1 then means at least one."""
+    b_one, b_two, r_one = bounds
+    a, b = left["m"][k], right["m"][k]
+    e = max(left["e"], right["e"]) + rho
+    reach = (right["t"] - left["t"])
+    if (abs(a) <= e) + (abs(b) <= e):
+        return None
+    if (a > 0) == (b > 0):
+        return [None, 0][int(abs(a) + abs(b) - b_one * reach // scale > 2 * e)]
+    if rho:
+        return 1
+    da, db = left["d"][k], right["d"][k]
+    ed = max(left["e_d"], right["e_d"]) + r_one
+    held = ((da > 0) == (db > 0)) * (abs(da) > ed) * (abs(db) > ed) * (abs(da) + abs(db) - b_two * reach // scale > 2 * ed)
+    return [None, 1][held]
+
+
+def certified_cell(nu, bits, digits, draws, deepest=12):
+    """The cell [nu, nu + 1] on 2^bits parts, every interval settled by its budgets or halved until it is,
+    for the identity and `draws` nulls of each kind.
+
+    Returns the frame's flips; for each ball its zeros of M and the intervals left unsettled; for the
+    identity the intervals where Z itself has at least one zero and those Gabcke's rho leaves open; the
+    sign of M at each Gram point where it clears its budget; Rice's count; and the points evaluated."""
+    work = digits + GUARD
+    scale = 10 ** work
+    big_pi = zz.pi(work)
+    logs = [zz.ln(n, work) for n in range(1, nu + 1)]
+    heads = [(re * root // scale, im * root // scale)
+             for (re, im), root in zip(waves_at(nu, zz.pair(0, 0), digits)[2],
+                                       (naturals._integer_sqrt(n * scale * scale) for n in range(1, nu + 1)))]
+    balls = [[(scale, 0)] * nu] + [null_turns(heads, locked, SEED + k, scale)
+                                   for locked in (1, 0) for k in range(draws)]
+    b_one, b_two, r_one, rho = budgets(nu, work)
+    bounds = (b_one, b_two, r_one)
+    asked = [0]
+
+    def at(j, depth):
+        asked[0] += 1
+        return point(nu, j, depth, digits, balls, logs)
+
+    zeros = [0] * len(balls)
+    open_ = [0] * len(balls)
+    truth = [0, 0]
+
+    def walk(j, depth, left, right, pending):
+        unsure = []
+        for k in pending:
+            found = settle(left, right, k, bounds, scale)
+            zeros[k] += found or 0
+            unsure += [k] * int(found is None)
+            if (k == 0) * (found is not None):
+                sure = settle(left, right, 0, bounds, scale, rho)
+                truth[0] += int(sure == 1)
+                truth[1] += int(sure is None)
+        if unsure and depth < bits + deepest:
+            middle_point = at(2 * j + 1, depth + 1)
+            walk(2 * j, depth + 1, left, middle_point, unsure)
+            walk(2 * j + 1, depth + 1, middle_point, right, unsure)
+        for k in unsure * int(depth >= bits + deepest):
+            open_[k] += 1
+
+    grid = [at(j, bits) for j in range(1 << bits | 1)]
+    for j in range(1 << bits):
+        walk(j, bits, grid[j], grid[j + 1], range(len(balls)))
+    index = [g["theta"] // big_pi for g in grid]
+    flips = index[-1] - index[0]
+    gram = {}
+    for j in range(1 << bits):
+        for k in range(index[j] + 1, index[j + 1] + 1):
+            lo, depth = j, bits
+            while depth < bits + 16:
+                lo, depth = 2 * lo, depth + 1
+                lo += int(theta_x(nu, lo + 1, depth, work) < k * big_pi)
+            here = at(lo, depth)
+            gram[k] = [[None, m > 0][int(abs(m) > here["e"])] for m in here["m"]]
+    harmonic = sum(scale // n for n in range(1, nu + 1))
+    weight = [2 - NOT(j) - NOT(j - (1 << bits)) for j in range(len(grid))]
+    rice = [4 * ((nu << bits) + j) * naturals._integer_sqrt(sum(w * w // n for n, w in enumerate(g["rates"], 1))
+                                                              * scale // harmonic) >> bits for j, g in enumerate(grid)]
+    expected = sum(w * v for w, v in zip(weight, rice)) // (2 << bits)
+    return flips, zeros, open_, truth, gram, expected, asked[0], (b_one, b_two, rho)
+
+
+def middle(values):
+    ordered = sorted(values)
+    return ordered[len(ordered) // 2]
+
+
+def motion_main(first, last, bits=9, draws=16, digits=20):
+    """The ball's motion over cells first to last against its locked and unlocked permutations, every count
+    certified.
+
+    Per cell: the frame's flips; the identity's zeros of M and their excess over the flips, and the
+    zeros of Z itself the budgets certify with Gabcke's rho; the nulls' excess, median and largest; the
+    intervals left unsettled. At the end: the excess summed over the cells, and the share of Gram points
+    where M's certified sign agrees with the sign two Gram points on (exact_agreement at lag 2), Gram's
+    law. Cells start at 6, where t >= 200 and Gabcke's bound holds."""
+    out = sys.stdout
+    work = digits + GUARD
+    totals = None
+    gram = None
+    first = max(first, 6)
+    for nu in range(first, last + 1):
+        begun = time.perf_counter_ns()
+        flips, zeros, open_, truth, signs, expected, asked, (b_one, b_two, rho) = certified_cell(nu, bits, digits, draws)
+        excess = [z - flips for z in zeros]
+        totals = [a + b for a, b in zip(totals or [0] * len(excess), excess)]
+        gram = [{**(gram or [{}] * len(zeros))[k], **{g: s[k] for g, s in signs.items() if s[k] is not None}}
+                for k in range(len(zeros))]
+        locked, free = excess[1:1 + draws], excess[1 + draws:]
+        out.write("  cell %d  flips %d  identity zeros of M %d, excess %d, Z itself at least %d (%d left open by rho)"
+                  "  locked excess median %d largest %d  unlocked excess median %d largest %d"
+                  "  unsettled intervals: identity %d, nulls %d  Rice %s  B1 %s B2 %s rho %s  points %d  %d ms\n"
+                  % (nu, flips, zeros[0], excess[0], truth[0], truth[1], middle(locked), max(locked, key=abs),
+                     middle(free), max(free, key=abs), open_[0], sum(open_[1:]),
+                     signed(expected // 10 ** (work - 1), 1), signed(b_one // 10 ** (work - 3), 3),
+                     signed(b_two // 10 ** (work - 3), 3), signed(rho // 10 ** (work - 9), 9), asked,
+                     (time.perf_counter_ns() - begun) // 1000000))
+        out.flush()
+    agree = [exact_agreement({g: int(s) for g, s in signs.items()}, 2) for signs in gram]
+    pairs = [sum(1 for g in signs if g + 2 in signs) for signs in gram]
+    out.write("  over cells %d to %d: excess of zeros over flips, identity %d, locked median %d largest %d,"
+              " unlocked median %d largest %d\n"
+              % (first, last, totals[0], middle(totals[1:1 + draws]), max(totals[1:1 + draws], key=abs),
+                 middle(totals[1 + draws:]), max(totals[1 + draws:], key=abs)))
+    out.write("  Gram's law as agreement at lag 2 over the certified signs: identity %d of %d, locked median %d of"
+              " %d, unlocked median %d of %d\n"
+              % (agree[0], pairs[0], middle(agree[1:1 + draws]), middle(pairs[1:1 + draws]),
+                 middle(agree[1 + draws:]), middle(pairs[1 + draws:])))
+    return 0
+
+
+# ---- the curve as a set, C_all, and what remains after its relations cancel ----
+#
+# At x = nu + p, z = 1 - 2p, Z is the sum over C_all = {w_1, ..., w_nu, c_0, ..., c_K, r_K}: the waves
+# w_n = 2 n^(-1/2) cos(theta - t ln n), the correction curves c_k = (-1)^(nu-1) C_k(z) x^(-k-1/2), and the
+# rest r_K, what the cut leaves out. Each member is held as its real and its operator: its floor at the
+# places asked with the budget the floor carries, and the routine asked again for more. The rest has no
+# operator here and is held as Gabcke's bound, |r_1| <= 0.053 t^(-5/4) for t >= 200.
+#
+# Two relations cancel members. Wave n's phase is theta - sum a_p t ln p over n = prod p^a_p. Each
+# composite wave is then the product of prime waves and only theta and the primes' phases remain. Every
+# c_k is Gabcke's generator over the one curve F(z) = Psi(p), each correction curve a weighting by the d
+# rows of F's Taylor coefficients. What remains is the functional
+# Z = Phi(theta, {t ln p : p <= nu}, z, x), read from those generators alone.
+
+
+class Held:
+    """A member held as its real and its operator. operator(places) returns the floor at 10^-places and the
+    budget it carries in units of 10^-places; real(places) asks once and keeps the reading."""
+
+    def __init__(self, name, operator):
+        self.name, self.operator, self.readings = name, operator, {}
+
+    def real(self, places):
+        self.readings[places] = self.readings.get(places) or self.operator(places)
+        return self.readings[places]
+
+
+def curve_set(nu, p, cut):
+    """C_all at x = nu + p: the frame theta held once for every wave, the waves, the correction curves
+    through C_cut, and the rest."""
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    sign = 1 - 2 * ((nu - 1) % 2)
+
+    def frame(places):
+        work = places + GUARD
+        t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+        theta, n_sum = theta_at(t, work)
+        return t, theta, zz.cos_sin(theta, work), theta_floor(t, n_sum, work)
+
+    held_frame = Held("theta", frame)
+
+    def wave(n):
+        def operator(places):
+            work = places + GUARD
+            scale = 10 ** work
+            t, _, (c, s), drift = held_frame.real(places)
+            a, b = zz.power_minus_s(n, LINE, t, work)[:2]
+            budget = 2 * (20 * (t[0] // scale + 1) + 1000) + 2 * drift
+            return 2 * ((c * a - s * b) // scale) // 10 ** GUARD, budget // 10 ** GUARD + 2
+        return Held("w_%d" % n, operator)
+
+    def curve(k):
+        def operator(places):
+            scale = 10 ** (places + GUARD)
+            inv_root = naturals._integer_sqrt(scale * scale * unit // big_x)
+            v = sign * c_at(k, unit - 2 * big_p, unit, places) * inv_root * unit ** k // (scale * big_x ** k)
+            return v // 10 ** GUARD, 6
+        return Held("c_%d" % k, operator)
+
+    def rest(places):
+        t_low = 2 * big_x * big_x * 314159 // (100000 * unit * unit)
+        held = (cut == 1) * (t_low >= 200)
+        bound = ceiling(Fraction(53, 1000) / (max(t_low, 1) * max(math.isqrt(math.isqrt(t_low)), 1)), 10 ** places)
+        return 0, [None, bound][held]
+
+    return held_frame, [wave(n) for n in range(1, nu + 1)], [curve(k) for k in range(cut + 1)], Held("r_%d" % cut, rest)
+
+
+def generators(nu, p, cut, places):
+    """What remains of C_all once its relations cancel, at `places` + GUARD: theta, each prime's unit wave
+    e^(-i t ln p) and the budget it carries, and F's Taylor coefficients through what C_cut asks, with z
+    and x^(-1/2)."""
+    work = places + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, n_sum = theta_at(t, work)
+    primes = [n for n in range(2, nu + 1) if factored(n) == {n: 1}]
+    phases = {}
+    for prime in primes:
+        c, s = zz.cos_sin(t[0] * zz.ln(prime, work) // scale, work)
+        phases[prime] = (c, -s)
+    budget = 20 * (t[0] // scale + 1) + 1000
+    return {"t": t, "theta": theta, "drift": theta_floor(t, n_sum, work), "primes": phases, "budget": budget,
+            "z": (unit - 2 * big_p, unit), "inv_root": naturals._integer_sqrt(scale * scale * unit // big_x),
+            "x": (big_x, unit)}
+
+
+def functional(nu, cut, held, places):
+    """Z = Phi(theta, {t ln p}, z, x) from the generators alone, at `places`, and its budget: every wave the
+    product of its primes' unit waves times n^(-1/2), turned by theta and doubled for 2 Re; every c_k from
+    F's Taylor coefficients through Gabcke's d rows (Curve.gamma); Gabcke's bound on the rest at cut 1.
+
+    The budget sums magnitudes: each prime wave's floors, once for each prime factor counted with its
+    power, and 2 units for each product, times n^(-1/2) <= 1; the frame's rotation; F's series read at
+    count and 2 count terms (c_at's verdict)."""
+    work = places + GUARD
+    scale = 10 ** work
+    cos_theta, sin_theta = zz.cos_sin(held["theta"], work)
+    total = error = 0
+    for n in range(1, nu + 1):
+        unit_wave = (scale, 0)
+        powers = factored(n)
+        for prime, power in powers.items():
+            for _ in range(power):
+                unit_wave = turned(unit_wave, held["primes"][prime], scale)
+        size = naturals._integer_sqrt(scale * scale // n)
+        re, im = unit_wave[0] * size // scale, unit_wave[1] * size // scale
+        total += 2 * ((cos_theta * re - sin_theta * im) // scale)
+        error += 2 * (sum(powers.values()) * (held["budget"] + 2) + held["drift"] + 4)
+    big_x, unit = held["x"]
+    num, den = held["z"]
+    sign = 1 - 2 * ((nu - 1) % 2)
+    for k in range(cut + 1):
+        total += sign * c_at(k, num, den, places) * held["inv_root"] * unit ** k // (scale * big_x ** k)
+        error += 6 * 10 ** GUARD
+    return total // 10 ** GUARD, error // 10 ** GUARD + 2 * (nu + cut + 2)
+
+
+def set_main(first, last, cut=1, places=24, points=4):
+    """C_all over cells first to last at `points` points in each cell, p = (2j + 1) / 2^d with 2^d at least
+    twice `points`: its members, the rest that holds every member not yet defined, what remains after
+    the relations cancel, and three routes to Z that must meet within their budgets: the members summed,
+    the functional from the generators, and rs_cut_at."""
+    out = sys.stdout
+    every = 1
+    for nu in range(first, last + 1):
+        begun = time.perf_counter_ns()
+        primes = [n for n in range(2, nu + 1) if factored(n) == {n: 1}]
+        worst = []
+        depth = (2 * points - 1).bit_length()
+        for j in range(points):
+            p = zz.pair((2 * j + 1) * 5 ** depth, depth)
+            frame, waves, curves, rest = curve_set(nu, p, cut)
+            members = [w.real(places) for w in waves] + [c.real(places) for c in curves]
+            summed = sum(v for v, _ in members)
+            budget = sum(b for _, b in members)
+            phi, phi_budget = functional(nu, cut, generators(nu, p, cut, places), places)
+            s, r = rs_cut_at((nu, p, places), cut)
+            gaps = (abs(summed - phi), abs(summed - (s + r)), abs(phi - (s + r)))
+            allowed = (budget + phi_budget, budget + 2, phi_budget + 2)
+            every *= int(all(g <= a for g, a in zip(gaps, allowed)))
+            worst.append((gaps, allowed, rest.real(places)[1]))
+        gaps = [max(w[0][i] for w in worst) for i in range(3)]
+        allowed = [min(w[1][i] for w in worst) for i in range(3)]
+        out.write("  cell %d  members %d (%d waves, %d correction curves, the rest)  what remains %d (theta, %d primes,"
+                  " F, z, x, the rest)  members against Phi %d of %d allowed, against rs_cut_at %d of %d, Phi against"
+                  " rs_cut_at %d of %d, units of 10^-%d  the rest, every member not yet defined, held as %s  %d ms\n"
+                  % (nu, nu + cut + 2, nu, cut + 1, len(primes) + 5, len(primes), gaps[0], allowed[0], gaps[1],
+                     allowed[1], gaps[2], allowed[2], places,
+                     ("Gabcke's bound %s" % signed(worst[0][2], places)) if worst[0][2] is not None else "open",
+                     (time.perf_counter_ns() - begun) // 1000000))
+        out.flush()
+    return 1 - every
+
+
 def triangle_main(first, last, cuts):
     """The triangle over cells first to last, with C from the device, one line a cell for each cut.
     A cut of -1 is MathWorld's c_0 to c_5; any other is R through C_cut from the exact curves.
@@ -1407,6 +1992,10 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["triangle"]:
         raise SystemExit(triangle_main(int(sys.argv[2]), int(sys.argv[3]),
                                        [int(c) for c in sys.argv[4:]] or [-1]))
+    if sys.argv[1:2] == ["set"]:
+        raise SystemExit(set_main(*(int(v) for v in sys.argv[2:])))
+    if sys.argv[1:2] == ["motion"]:
+        raise SystemExit(motion_main(*(int(v) for v in sys.argv[2:])))
     if sys.argv[1:2] == ["sphere"]:
         raise SystemExit(sphere_main(*(int(v) for v in sys.argv[2:])))
     if sys.argv[1:2] == ["omitted"]:
