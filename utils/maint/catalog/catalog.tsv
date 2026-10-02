@@ -74,6 +74,7 @@ EXP-x-020	live	examples/0_experimental/magnitude_vector_transfer.py
 EXP-x-021	live	examples/0_experimental/exact_zeta_zeros.py
 EXP-x-022	live	examples/0_experimental/exact_zeta_gram.py
 EXP-x-023	live	examples/0_experimental/exact_zeta_riemann_siegel.py
+EXP-x-024	live	examples/0_experimental/exact_zeta_arrival.py
 GAM-1-001	live	examples/game_theory/1_represent/four_games_one_protocol.py
 GAM-1-002	live	examples/game_theory/1_represent/reversi_positions.py
 GAM-2-001	live	examples/game_theory/2_partition/what_the_branching_costs.py

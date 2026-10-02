@@ -3,8 +3,8 @@
 **Purpose:** Record what the engine's exact arithmetic shows when it is pointed at analytic number
 theory, one poke at a time, claiming nothing. **Scope:** `examples/0_experimental/exact_zeta_values.py`,
 `examples/0_experimental/exact_zeta_zeros.py`, `examples/0_experimental/exact_zeta_gram.py`,
-`examples/0_experimental/exact_zeta_riemann_siegel.py`, `evidence/proofs/posits/proof_set_theory.py`, and this
-file.
+`examples/0_experimental/exact_zeta_riemann_siegel.py`, `examples/0_experimental/exact_zeta_arrival.py`,
+`evidence/proofs/posits/proof_set_theory.py`, and this file.
 
 This is a workbook, and it claims no result. It follows the rail the
 millennium research paper set down (`theory/theory/millennium/chapters/chapter_what_this_is.tex`), because that
@@ -405,6 +405,91 @@ What it is not. Each `C_n` is exact, and each zero is a bracket read at the plac
 on a grid, never a count proven complete. The seam and the triangle are readings below `x = 9` and in
 five cells. None of it bears on the zeros of `Z` or on the hypothesis.
 
+## Entry 8, 2026-10-02: the triangle's dimension, and what each wave lands in at its boundary
+
+`examples/0_experimental/exact_zeta_riemann_siegel.py` for the dimension, and
+`examples/0_experimental/exact_zeta_arrival.py` with its device program `exact_zeta_arrival.cu` for
+the boundaries.
+
+**The terms, as asked.** "it's a coordinate system, dimension, and time." Read here, without a
+claim that it is the reading meant:
+- the coordinates are the triangle's three sides;
+- the dimension is each side's scaling exponent between neighboring cells,
+  `ln(side_nu / side_(nu+1)) / ln(x_(nu+1) / x_nu)` with `x` at each cell's midpoint;
+- the time is `t`, walked cell by cell.
+
+**The dimension.** With `R` through MathWorld's `c_5`, the exponent of `a` reads 7.33, 6.54, 6.49 and
+6.49 between cells 1 to 5. That is `x^-6.5 = u^-13`, the size of the first term `R` leaves out,
+`c_6 u^-13`. The exponent of `b` reads 0.01, 0.09, 0.10 and -0.13. The exponent of `delta` reads
+12.3, 12.4, 13.3 and 13.8.
+
+**The cut test.** If `a`'s dimension is the cut, then `R` through `C_K` moves it to `(2K + 3) / 2`. `R`
+through `C_K` from the exact curves of entry 7 equals MathWorld's `R` at `K = 5` to 0 units at 30
+digits, `S` too, at five points that include `p = 1/4`. Through `C_6`, the exponent of `a` reads 8.22,
+7.90, 7.75 and 7.67 between cells 2 to 6, against 7.5. The runs at `C_8` and `C_10` are not yet read.
+
+**Hypotheses, quoted, with what would test them.**
+- "it scrapes its boundary and that pops its dimensionality up". The test: the excess over
+  `(2K + 3) / 2` sits at the cells nearest where the series stops improving, and decays away from
+  them. At `c_5` the excess is in cells 1 to 2, and at `C_6` it decays across cells 2 to 6. At `C_8`
+  and `C_10` it should reach later cells.
+- "It's like a cyclical spring". The test: the exponent swings past its settled value and back. At
+  `c_5` it goes below 6.5, to 6.493 and 6.489. Swinging back above needs cells 6 to 9.
+
+**The boundaries.** The main sum is the waves `m^(-1/2) e^(i(theta - t ln m))`.
+- **Where each wave joins.** In the frame `e^(i theta)` turns, wave `m` spins at `ln(x / m)`, still at
+  `x = m`, where it joins the sum, at `t = 2pi n^2` for `n = m`.
+- **Its angle there.** The arriving wave's phase there is `-pi n^2 - pi / 8` to `theta`'s first terms:
+  `-pi / 8` for even `n` and `pi - pi / 8` for odd. Read at every boundary to `n = 1600`, it matches
+  that to a sine of `8.3 e-4` at most, at the smallest `n`.
+- **What it lands in.** The waves already there stand at `2pi n^2 ln m` modulo a turn, and the
+  logarithms of the primes are linearly independent over the rationals.
+- **The reading.** At each boundary, the angle between the arriving wave and the sum of the waves
+  already there.
+
+**The relation, on the device.** Along `n`, wave `m`'s phase `n^2 ln m` has the constant second
+difference `2 ln m`.
+- **One lane a wave.** Each lane steps from one boundary to the next by `u <- u r` and `r <- r q`, at
+  the scale `2^62`.
+- **The seeds.** At a window's first boundary every seed is completely multiplicative in `m`. Only
+  the primes ask for a cosine and a sine, and each composite is a product over its least prime factor.
+- **The sum.** Each boundary is summed across its lanes by `cycle_record_sum`, the exact sum across
+  lanes built for this. It accumulates every limb into its own column, and merges and rounds nothing.
+- **The mean.** Each boundary's unit reading goes into a tally, and the mean at every boundary is
+  tally over run, an exact rational.
+- **The spread.** It is read as `|tally|^2 / (run S^2)`: `run` where every reading points one way,
+  near 1 for independent angles.
+
+**Controls.**
+- **The control window.** In a window from `n0 = 0`, the device's sum at every 17th boundary meets
+  the direct exact sum on the host within 16,654 units of `2^-62`, inside the drawn bar of `2^-40`.
+- **Each window's own check.** At the first and last boundary of each window, the device's sum
+  meets the direct exact sum on the host within the bar. The gaps, in units of `2^-62`, are 491 and
+  772,737 at 1000; 4,988 and 1,483,898 at 10,000; 49,994 and 1,101,445 at 100,000; and 498,988 and
+  734,973 at 1,000,000. The last boundary carries a window's stepped floors, about `3 e-13` at most.
+- **The port check.** The host's records of every window's first sweep equal the device's word for
+  word.
+- **The spread, by a second route.** Over the window at 1000, the spread at runs 16, 64, 256 and
+  1024 reads 4.2482, 2.9868, 0.5102 and 0.1521. The angles read from direct host sums in floating
+  point give 4.2482, 2.9868, 0.5102 and 0.1522.
+
+| window | waves | spread at run 16 | 64 | 256 | 1024 | device seconds |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1000 to 2023 | 2,024 | 4.2482 | 2.9868 | 0.5102 | 0.1521 | 1.0 |
+| 10000 to 11023 | 11,024 | 0.8661 | 0.1571 | 0.4037 | 1.2314 | 1.5 |
+| 100000 to 101023 | 101,024 | 0.3049 | 3.1449 | 0.6269 | 0.4733 | 4.4 |
+| 1000000 to 1001023 | 1,001,024 | 3.6411 | 4.5746 | 0.9102 | 0.0953 | 31.9 |
+
+**What the table shows.**
+- **Spread around the circle.** The readings go all the way around, and by run 1024 no window holds
+  one direction.
+- **The spread at run 1024.** Three windows read below 1, more even than independent angles, and one
+  above. Four windows do not make a trend.
+
+**What it is not.** These are readings of angles at boundaries, in four windows, at the places read.
+Whether the angles are equidistributed, and how evenly, is a question about all `n`, and none of it
+bears on the zeros of `Z` or on the hypothesis.
+
 ## The problem, stated fully
 
 Written here so it sits in one place a later entry can find, and not adopted as a target. The Riemann zeta function is
@@ -545,9 +630,12 @@ places, `N` and the widths come from the records.
   not built. What grows in triangle cell 5, six times cell 4's time, is not yet read.
 - Asked of the triangle, quoted: "The fractal feels like maybe five terms it's definitely 3. Maybe it
   is all xyzdt terms"; "So it turns into a probability wave function"; "Then we use that to vector
-  walk the fractal for proofing". The triangle holds three sides over one coordinate, `p`, with `t`
-  through `x`. Which terms the five are, and what the wave function is over, are not yet stated, and
-  nothing is built.
+  walk the fractal for proofing". Then: "it's a coordinate system, dimension, and time". Entry 8
+  reads them as the three sides, each side's scaling exponent between cells, and `t`. The vector walk
+  over them is wanted, not built.
+- Entry 8's spread of the arrival angles is read in four windows of 1,024 boundaries. More windows,
+  and whole stretches of boundaries, are wanted. The `C_8` and `C_10` cut runs and the cells 6 to 9
+  for the spring are wanted.
 - Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
   Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin across the strip, and entry 6
   Riemann-Siegel on the line. Riemann-Siegel off the line, for entry 4's boxes, is not built.
