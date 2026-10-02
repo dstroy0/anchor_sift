@@ -42,17 +42,15 @@ static int sass_operation_root_same(const char *one, const char *other)
 
 // the immediate or predicate of `base` whose leaving the text gives `parts`, every other operand as it was, or the
 // operand count where no one of them does. A load's predicate leaves the text at PT under the same name, as
-// BPT.TRAP's code does at 0. A predicate that leaves with the name, as IMAD.X's carry-in leaves with its .X, is the
-// operation's bit and not the operand's
+// BPT.TRAP's code does at 0. An operand that leaves with the name, as IMAD.X's carry-in leaves with its .X and
+// BAR.SYNC's barrier with BAR.SYNCALL, is the operation's bit and not the operand's
 static unsigned int sass_operand_dropped(const SassInstructionParts *base, const SassInstructionParts *parts)
 {
     const int named = (strcmp(parts->operation, base->operation) == 0);
     for (unsigned int dropped = 0u; dropped < base->operands; dropped += 1u)
     {
-        int rest = ((base->kind[dropped] == SASS_OPERAND_IMMEDIATE) ||
-                    ((base->kind[dropped] == SASS_OPERAND_PREDICATE) && named))
-                       ? 1
-                       : 0;
+        const int kind = (base->kind[dropped] == SASS_OPERAND_IMMEDIATE) || (base->kind[dropped] == SASS_OPERAND_PREDICATE);
+        int rest = (kind && named) ? 1 : 0;
         for (unsigned int place = 0u; rest && (place < parts->operands); place += 1u)
         {
             const unsigned int was = (place < dropped) ? place : (place + 1u);
@@ -91,20 +89,45 @@ static unsigned int sass_operand_changed(const SassInstructionParts *base, const
     const int renamed = (strcmp(parts.operation, base->operation) != 0);
     unsigned int changed = base->operands;
     unsigned int count = 0u;
+    // operands that print one field twice, as BAR.SYNC R0, R0 prints its one register: each that moved held the
+    // text the first did and moved to the text the first did
+    int twins = 1;
     for (unsigned int place = 0u; place < base->operands; place += 1u)
     {
         if ((strcmp(parts.operand[place], base->operand[place]) != 0) || (parts.mark[place] != base->mark[place]))
         {
-            changed = place;
+            changed = (count == 0u) ? place : changed;
             count += 1u;
+            twins = twins && (strcmp(base->operand[place], base->operand[changed]) == 0) &&
+                    (strcmp(parts.operand[place], parts.operand[changed]) == 0) &&
+                    (base->kind[place] == base->kind[changed]);
         }
     }
     // a renamed operation holds the field only where the operand that moved is still the kind it was
-    if ((count == 1u) && renamed && (parts.kind[changed] != base->kind[changed]))
+    if ((count != 0u) && renamed && (parts.kind[changed] != base->kind[changed]))
     {
         return base->operands;
     }
-    return (count == 1u) ? changed : base->operands;
+    return ((count == 1u) || ((count > 1u) && twins)) ? changed : base->operands;
+}
+
+// the operand of `base` past `operand` that `text` moves as it moves `operand`, holding the same text before and
+// after, or the operand count where none does
+static unsigned int sass_operand_twin(const SassInstructionParts *base, const char *text, unsigned int operand)
+{
+    SassInstructionParts parts;
+    sass_instruction_read(text, &parts);
+    for (unsigned int place = operand + 1u; (parts.operands == base->operands) && (place < base->operands);
+         place += 1u)
+    {
+        if ((strcmp(base->operand[place], base->operand[operand]) == 0) &&
+            (strcmp(parts.operand[place], parts.operand[operand]) == 0) &&
+            (strcmp(parts.operand[place], base->operand[place]) != 0))
+        {
+            return place;
+        }
+    }
+    return base->operands;
 }
 
 // a form's encoding and the 128 that are one bit from it, laid into s_low and s_high
@@ -218,6 +241,14 @@ static int sass_form_fields(SassForm *form, const char *architecture, const char
             form->run[form->runs].first = first;
             form->run[form->runs].last = bit - 1u;
             form->runs += 1u;
+            // an operand that prints the same field is given the same run
+            const unsigned int twin = sass_operand_twin(&base, s_texts[1u + first], running);
+            if ((twin != base.operands) && (form->runs < SASS_MACHINE_RUNS))
+            {
+                form->run[form->runs] = form->run[form->runs - 1u];
+                form->run[form->runs].operand = twin;
+                form->runs += 1u;
+            }
         }
         if (!joined)
         {
