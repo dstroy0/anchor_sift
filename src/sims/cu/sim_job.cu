@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "sim.h"
 
-#include "obsignatio.h"
-#include "tessera.h"
+#include "../../c/engine/runtime/obsignatio/obsignatio.h"
+#include "../../c/engine/runtime/daemon/tessera.h"
 
 #if defined(_WIN32)
 #define NOMINMAX

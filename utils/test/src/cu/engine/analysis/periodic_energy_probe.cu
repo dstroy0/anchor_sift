@@ -2,7 +2,7 @@
 //
 // Calls the functions of src/sims/cu/engine/analysis/art/periodic_energy.h on the sequences a file holds and prints each result
 // in full, every exact integer in hexadecimal with its sign. It is the engine's side of
-// utils/test/python/periodic_energy_test.py, which writes the file and reads these lines against measure/periodic_energy.py.
+// utils/test/src/python/engine/analysis/periodic_energy_test.py, which writes the file and reads these lines against measure/periodic_energy.py.
 //
 //   periodic_energy_probe <requests file>
 //
@@ -15,7 +15,7 @@
 // period, energy_shuffle keyed by the record's key, energy_band_top over the draws, and energy_above for the recover's
 // measurement against the band's top. Each measurement is also printed by energy_print, at `places` decimals where
 // the probe calls sim_ratio_print itself. The results' own lines, where a device call failed, start with "results",
-// and utils/test/python/periodic_energy_test.py leaves them out of the comparison.
+// and utils/test/src/python/engine/analysis/periodic_energy_test.py leaves them out of the comparison.
 //
 // The runtime's last error is cleared before each call that launches. At 1789287 the header checks a launch with
 // cudaGetLastError(), which also returns an error an earlier failed call left and sim_status_check already
@@ -26,7 +26,7 @@
 // declaration, submits the job, and then runs the records. Its exit status is the file's and the job's: a device call
 // that fails is a "results" line the test grades, as before the probe was a job.
 
-#include "device_pool.h"
+#include "../../../../../../src/c/engine/runtime/device_pool/device_pool.h"
 #include "periodic_energy.h"
 
 #include <stdio.h>

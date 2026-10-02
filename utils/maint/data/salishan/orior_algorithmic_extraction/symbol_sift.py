@@ -51,10 +51,10 @@ for _category in os.scandir(HERE):
 # the import failed with a missing module instead of a wrong path.
 _at = os.path.dirname(os.path.abspath(__file__))
 while (_at != os.path.dirname(_at)) and not os.path.isdir(
-    os.path.join(_at, "src", "engine")
+    os.path.join(_at, "src", "python")
 ):
     _at = os.path.dirname(_at)
-sys.path.insert(0, os.path.join(_at, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(_at, "src", "python", "engine", "nbody", "orior", "instrument"))
 
 from paper_config import by_stem  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
@@ -70,7 +70,7 @@ def _repository_root():
     which is indistinguishable from working.
 
     A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
-    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    no git directory, and it looks for src/python, which is TRACKED: a marker the repository
     contains is present in every checkout of it, and a marker the repository produces is present in
     none of them until something has already run.
 
@@ -105,7 +105,7 @@ def _repository_root():
 
     climbed = start
     while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
-        os.path.join(climbed, "src", "engine")
+        os.path.join(climbed, "src", "python")
     ):
         climbed = os.path.dirname(climbed)
     return climbed

@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 
-# The engine is orior's, a git submodule at orior/: every build reads it at src/engine there, and a clone
+# The engine is orior's, a git submodule at orior/: every build reads it at src/c/engine there, and a clone
 # without it fails here, before anything compiles
-ENGINE="$TOP/orior/src/engine"
+ENGINE="$TOP/orior/src/c/engine"
 if [ ! -f "$ENGINE/engine_config.h" ]; then
     echo "  build failed: no engine at $ENGINE (git submodule update --init orior)"
     exit 1
 fi
 
-# a build's path: engine/... is the engine's, in orior, and anything else the project's
+# a build's path: c/..., cu/... and sims/... are the engine's, in orior, and anything else the project's
 build_path()
 {
     case "$1" in
         engine/*) printf '%s\n' "$ENGINE/${1#engine/}" ;;
-        cu/* | sims/*) printf '%s\n' "$ENGINE/../$1" ;;
+        c/* | cu/* | sims/*) printf '%s\n' "$ENGINE/../../$1" ;;
         *) printf '%s\n' "$TOP/$1" ;;
     esac
 }

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "exact_integer.h"
+#include "../../src/c/types/integers/exact_integer.h"
 
 #include <stdio.h>
 #include <string.h>

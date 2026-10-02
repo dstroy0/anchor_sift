@@ -34,9 +34,10 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from icsnl_probe import extract  # noqa: E402

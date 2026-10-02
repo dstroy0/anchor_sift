@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
-// Calls period_read and period_draw (src/engine/analysis/period/) on the requests a file holds and prints
+// Calls period_read and period_draw (src/c/engine/analysis/period/) on the requests a file holds and prints
 // each measurement in full, every count and every ratio as its exact numerator and denominator. It is the engine's side
-// of utils/test/python/period_test.py, which writes the file and reads these lines against measure/period.py.
+// of utils/test/src/python/engine/analysis/period/period_test.py, which writes the file and reads these lines against measure/period.py.
 //
 //   period_probe <requests file>
 //
@@ -17,8 +17,8 @@
 //
 // Each record prints "case <n> mode <read|draw> status <s>", the measurement's lines when the status is 0, and "end".
 
-#include "device_pool.h"
-#include "period.h"
+#include "../../../../../../../src/c/engine/runtime/device_pool/device_pool.h"
+#include "../../../../../../../src/c/engine/analysis/period/period.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

@@ -3,7 +3,7 @@
 #ifndef APXREP_INTERNAL_H
 #define APXREP_INTERNAL_H
 
-#include "../../engine/formats/apxrep/apxrep.h"
+#include "../../c/kcmplx/apxrep.h"
 
 #include "crc.h"
 

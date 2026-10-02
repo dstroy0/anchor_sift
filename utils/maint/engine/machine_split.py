@@ -12,7 +12,7 @@ import os
 import sys
 
 TOP = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-CELL = os.path.join(TOP, "utils", "test", "engine", "compiler", "cell")
+CELL = os.path.join(TOP, "utils", "test", "src", "c", "transpiler", "cell")
 MACHINE = os.path.join(CELL, "cell_sass_probe_machine.c")
 CUBIN = os.path.join(CELL, "cell_sass_probe_cubin.c")
 

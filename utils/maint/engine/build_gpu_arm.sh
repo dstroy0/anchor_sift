@@ -89,14 +89,14 @@ rm -f "$OUT/bench_exact_gpu.exe"
 # empty one to nvcc.
 # shellcheck disable=SC2086
 nvcc -ccbin "$MSVC_BIN" -O2 $GENCODE \
-    -I "$ROOT/src/engine/arithmetic/no_rounding" \
+    -I "$ROOT/src/c/types/integers" \
     -DANCHOR_EXACT_HAVE_CUDA=1 $WIDTH_DEFINES \
     -o "$OUT/bench_exact_gpu.exe" \
     "$ROOT/src/cu/types/integers/arm.cu" \
-    "$ROOT/src/engine/arithmetic/no_rounding"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
-    "$ROOT/src/engine/arithmetic/no_rounding/arm_portable.c" \
+    "$ROOT/src/c/types/integers"/exact_integer_{add,limbs,multiply,divide,gcd,decimal,hash}.c \
+    "$ROOT/src/c/types/integers/arm.c" \
     "$ROOT/utils/bench/bench_exact_arms.c" \
-    2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_integer\.c$|arm_portable\.c$|bench_exact_arms\.c$|arm_cuda\.cu$" | head -20
+    2>&1 | grep -viE "^\s*$|Copyright|Microsoft \(R\)|exact_integer\.c$|arm\.c$|bench_exact_arms\.c$|arm_cuda\.cu$" | head -20
 NVCC_STATUS=${PIPESTATUS[0]}
 
 # Both conditions, because each one alone has been wrong here. A status of zero with no file is a

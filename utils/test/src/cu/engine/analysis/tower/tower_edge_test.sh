@@ -4,9 +4,9 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-TOWER="$TOP/src/engine/analysis/tower"
+TOWER="$TOP/src/c/engine/analysis/tower"
 TOWER_CU="$TOP/src/cu/engine/analysis/tower"
-DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
+DEVICE_POOL="$TOP/src/c/engine/runtime/device_pool"
 DEVICE_POOL_CU="$TOP/src/cu/engine/runtime/device_pool"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp tower_edge_test
@@ -41,7 +41,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$TOWER" -I "$TOWER_CU" -I "$DEVICE_POOL")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$TOWER" -I "$TOWER_CU" -I "$DEVICE_POOL")
 rm -f "$BINARY"
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
     "$TEST/tower_edge_test.cu" "$TOWER_CU/tower.cu" "$TOWER_CU/tower_record.cu" "$TOWER_CU/tower_run.cu" "$DEVICE_POOL_CU/device_pool.cu"

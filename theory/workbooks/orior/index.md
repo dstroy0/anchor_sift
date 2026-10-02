@@ -26,7 +26,7 @@ A linguist wrote the paper. A person read the paper into a table. Neither of tho
 
 ## The detector and the measure are not the same reading
 
-The engine carries many readers, one per file under `src/engine/python/measure/` and `src/engine/python/reference/`. Two are mistaken for each other more than any others:
+The engine carries many readers, one per file under `src/python/engine/analysis/measure/` and `src/python/engine/analysis/reference/`. Two are mistaken for each other more than any others:
 
 |                          | reads                                                                 | external ground truth                                                                   |
 | ------------------------ | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |

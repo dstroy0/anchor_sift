@@ -4,21 +4,21 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-CYCLE="$TOP/src/engine/compiler/cycle"
+CYCLE="$TOP/src/c/engine/analysis/cycle"
 CYCLE_CU="$TOP/src/cu/engine/analysis/cycle"
-CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN="$TOP/src/c/transpiler/codegen"
 CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
-KEYMATH="$TOP/src/engine/compiler/keymath"
+KEYMATH="$TOP/src/c/engine/analysis/keymath"
 KEYMATH_CU="$TOP/src/cu/engine/analysis/keymath"
-KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
+KEY_SCHEDULE="$TOP/src/c/engine/analysis/key_schedule"
 KEY_SCHEDULE_CU="$TOP/src/cu/engine/analysis/key_schedule"
-RESIDUAL="$TOP/src/engine/analysis/residual"
+RESIDUAL="$TOP/src/c/engine/analysis/residual"
 RESIDUAL_CU="$TOP/src/cu/engine/analysis/residual"
-UNIT_SWEEP="$TOP/src/engine/analysis/unit_sweep"
+UNIT_SWEEP="$TOP/src/c/engine/analysis/unit_sweep"
 UNIT_SWEEP_CU="$TOP/src/cu/engine/analysis/unit_sweep"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 source "$TOP/utils/maint/engine/tessera_build.sh"
 build_stamp residual_odd_test
@@ -55,7 +55,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$CYCLE" -I "$CYCLE_CU" -I "$KEYMATH" -I "$KEYMATH_CU" -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$RESIDUAL" -I "$UNIT_SWEEP"
+INCLUDES=(-I "$TOP/src/c/engine" -I "$CYCLE" -I "$CYCLE_CU" -I "$KEYMATH" -I "$KEYMATH_CU" -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$RESIDUAL" -I "$UNIT_SWEEP"
           -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()

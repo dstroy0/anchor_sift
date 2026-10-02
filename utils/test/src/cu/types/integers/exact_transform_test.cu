@@ -5,7 +5,7 @@
 // and gcd hold at the same width; and each rung is timed, so the crossovers are measured, not assumed. Every value
 // is allocated from the heap. The test runs at any width the header accepts.
 
-#include "no_rounding/exact_integer.h"
+#include "../../../../../../src/c/types/integers/exact_integer.h"
 
 #include <chrono>
 #include <cstdio>

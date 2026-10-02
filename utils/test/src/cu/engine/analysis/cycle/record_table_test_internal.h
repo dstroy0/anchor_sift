@@ -10,10 +10,10 @@
 // steps must compose the way reading one table through another does. The register reuse the scheduler
 // grew for long programs is proved to leave the output unchanged while shrinking the file. The test is one job on the
 // device's tessera daemon, submitted before its first device work.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

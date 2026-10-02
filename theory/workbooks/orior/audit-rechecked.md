@@ -80,7 +80,7 @@ checkout.
 
 ## The shift_agreement citation
 
-**Repaired.** The warning in `src/engine/python/measure/shift_agreement.py` reads that it is not the
+**Repaired.** The warning in `src/python/engine/analysis/measure/shift_agreement.py` reads that it is not the
 null permutation identity and the two are not interchangeable as evidence, and that it tests one
 hypothesis, whether the sequence agrees with itself at a fixed offset.
 

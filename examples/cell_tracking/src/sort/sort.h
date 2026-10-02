@@ -2,7 +2,7 @@
 #ifndef SORT_H
 #define SORT_H
 
-#include "engine.h"
+#include "../../../../src/c/engine/engine.h"
 
 #ifdef __cplusplus
 extern "C"

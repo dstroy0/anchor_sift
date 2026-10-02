@@ -9,8 +9,8 @@
 // both emitters are C and their headers carry no linkage of their own: it is named here
 extern "C"
 {
-#include "container_write.h"
-#include "cubin_write.h"
+#include "../../../../../../src/c/transpiler/emit/container_write.h"
+#include "../../../../../../src/c/transpiler/cubin/cubin_write.h"
 }
 
 #include <cstdio>

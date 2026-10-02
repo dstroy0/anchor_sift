@@ -33,9 +33,10 @@ import numpy
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # Walks up to the repository instead of counting directories to it. Counting is what broke
 # every path in this tree the last time anything moved.
-while not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 
 from measure.web import leave_one_out, web, web_of_codes  # noqa: E402
 from oracle.language.families import FAMILY, PARALLEL as MORE  # noqa: E402

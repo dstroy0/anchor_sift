@@ -2,7 +2,7 @@
 #ifndef HESSIAN_H
 #define HESSIAN_H
 
-#include "engine_config.h"
+#include "../../../../src/c/engine/engine_config.h"
 
 #ifdef __cplusplus
 extern "C"

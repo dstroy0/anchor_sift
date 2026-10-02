@@ -11,7 +11,7 @@ function value = orior_departure(seats, seed, min_occurrences)
 %   language 0.48 to 0.76; no run of this port prints them. Below 1 means the live sequence is more
 %   dispersed than its own shuffle, which is clustering.
 %
-%   This is a port of the rare half in src/engine/python/measure/dispersion.py, the tail that
+%   This is a port of the rare half in src/python/engine/analysis/measure/dispersion.py, the tail that
 %   evidence/proofs/posits/proof_conservation.py computes too. It computes the same measure and not the
 %   same number: the null is a shuffle, drawn here from this language's own generator, and a value agrees
 %   with the Python's only as far as the reseeding floor allows. Where the two disagree past that the

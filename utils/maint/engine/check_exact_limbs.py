@@ -65,7 +65,7 @@ def _repository_root():
     which is indistinguishable from working.
 
     A marker infers the root. Git answers it. The climb below is kept only for an exported tree with
-    no git directory, and it looks for src/engine, which is TRACKED: a marker the repository
+    no git directory, and it looks for src/python, which is TRACKED: a marker the repository
     contains is present in every checkout of it, and a marker the repository produces is present in
     none of them until something has already run.
 
@@ -100,7 +100,7 @@ def _repository_root():
 
     climbed = start
     while (climbed != os.path.dirname(climbed)) and not os.path.isdir(
-        os.path.join(climbed, "src", "engine")
+        os.path.join(climbed, "src", "python")
     ):
         climbed = os.path.dirname(climbed)
     return climbed
@@ -176,15 +176,15 @@ def version_lock(out):
     Returns 1 where they agree, 0 where they do not.
     """
     limbs = constant(
-        "src/engine/arithmetic/no_rounding/exact_integer.h",
+        "src/c/types/integers/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_LIMBS\s+(\d+)",
     )
     floor = constant(
-        "src/engine/arithmetic/no_rounding/exact_integer.h",
+        "src/c/types/integers/exact_integer.h",
         r"#define\s+ANCHOR_EXACT_DIGITS\s+(\d+)",
     )
     scale = constant(
-        "src/engine/python/representation/exact.py", r"^SCALE_DIGITS\s*=\s*(\d+)"
+        "src/python/types/integers/exact.py", r"^SCALE_DIGITS\s*=\s*(\d+)"
     )
 
     if (limbs is None) or (floor is None) or (scale is None):
@@ -323,7 +323,7 @@ def main():
         if not os.path.isfile(DRIVER):
             out.write("\n  no bench_exact at %s\n" % DRIVER)
             out.write(
-                "  cmake -S src/engine -B build/engine_c -G Ninja"
+                "  cmake -S src/c -B build/engine_c -G Ninja"
                 " -DCMAKE_BUILD_TYPE=Release && cmake --build build/engine_c\n\n"
             )
             out.flush()

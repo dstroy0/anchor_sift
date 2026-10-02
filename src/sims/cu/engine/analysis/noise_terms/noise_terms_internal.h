@@ -5,7 +5,7 @@
 
 #include "sim_camera.h"
 
-#include "noise_detector.h"
+#include "../../../../../c/engine/analysis/noise_detector/noise_detector.h"
 
 #define TERMS_KEY 0x5445524D53ull
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 //
 // The record machine's lane as VHDL checked against the host oracle word for word (engine_table.md item 11(f), VHDL a
-// language of the register lane). record_host_test's programs, drawn from the same stream in the same order, are
+// language of the register lane). record_test's programs, drawn from the same stream in the same order, are
 // encoded, laid out and run by cycle_record_run_host; each is written as VHDL by VhdlTarget
 // (codegen/rulesets/vhdl.krs), analyzed and run by GHDL under record_vhdl_bench.vhd over a memory image laid out as the
 // device lays out its launch (record_image.h), its lanes run by the emitted cycle_program_unit as the device's resident
@@ -10,7 +10,7 @@
 // counted as not supported, not as held or failed. Where a construction set is given, each program's lane is refined by
 // it (engine_table M23): split at the budgets the loop proposes, each schedule checked against the host, and the least
 // cost among those that pass kept.
-#include "krep.h"
+#include "../../../../../../../src/c/types/file_defs/krep/krep.h"
 #include "record_image.h"
 #include "vhdl_target.h"
 #include "yosys_script.h"

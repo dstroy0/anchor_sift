@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "bodies.h"
 
-#include "golden_bands.h"
+#include "../../../../src/c/engine/analysis/golden_bands/golden_bands.h"
 #include "track.h"
 
 #include <stdio.h>

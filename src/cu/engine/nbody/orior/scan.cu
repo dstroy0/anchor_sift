@@ -32,7 +32,7 @@
  *       disagreement and blame the scan for what was an allocation failure.
  */
 
-#include "../../../../engine/nbody/orior/orior.h"
+#include "../../../../c/engine/nbody/orior/orior.h"
 
 #include <cuda_runtime.h>
 

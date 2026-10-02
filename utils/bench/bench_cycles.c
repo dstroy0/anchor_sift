@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "orior.h"
+#include "../../src/c/engine/nbody/orior/orior.h"
 #include "mmgr_sha256.h"
 
 #if defined(__x86_64__) || defined(__i386__)

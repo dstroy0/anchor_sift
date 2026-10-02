@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "engine")):
+while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
 TREES = ("src", os.path.join("utils", "test"), os.path.join("utils", "bench"), "examples")
 SKIPPED = {"python", "build", "node_modules", ".git"}

@@ -77,7 +77,7 @@ echo
 echo "  Instruction selection, read off the object file. This grades emission, never behavior."
 echo
 
-ARMS="$ROOT/src/engine/arithmetic/no_rounding"
+ARMS="$ROOT/src/c/types/integers"
 
 
 # The two arms that also have hardware here. Checked the same way so the grade is comparable, and
@@ -115,7 +115,7 @@ echo
 echo "  The steering scan arms, nbody/orior/. Same grade and the same two words: emits, never agrees."
 echo
 
-ENGINE="$ROOT/src/engine/nbody/orior"
+ENGINE="$ROOT/src/c/engine/nbody/orior"
 
 # A scan arm includes orior.h, which includes exact_integer.h. Both directories are on the
 # include path even though a scan arm reads no exact arithmetic.

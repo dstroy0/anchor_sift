@@ -3,9 +3,9 @@
 #ifndef NOISE_DETECTOR_INTERNAL_H
 #define NOISE_DETECTOR_INTERNAL_H
 
-#include "../../../../engine/analysis/noise_detector/noise_detector.h"
+#include "../../../../c/engine/analysis/noise_detector/noise_detector.h"
 
-#include "exact_integer.h"
+#include "../../../../c/types/integers/exact_integer.h"
 
 #include <cuda_runtime.h>
 

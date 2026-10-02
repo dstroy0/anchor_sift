@@ -20,8 +20,8 @@
 // the cubin writer is C and its headers carry no guard of their own: the linkage is named here
 extern "C"
 {
-#include "sass_assemble.h"
-#include "sass_machine.h"
+#include "../../../src/c/transpiler/cubin/sass_assemble.h"
+#include "../../../src/c/types/file_defs/krs/sass_machine.h"
 }
 
 #include "sass_target.h"
@@ -236,7 +236,7 @@ static unsigned int krs_form_assembles(const Ruleset *rules, const SassMachine *
 int main(int count, char **arguments)
 {
     const char *const ruleset = (count > 1) ? arguments[1] : "src/cu/transpiler/codegen/rulesets/sass.krs";
-    const char *const path = (count > 2) ? arguments[2] : "src/engine/compiler/cubin/machines/sm_86";
+    const char *const path = (count > 2) ? arguments[2] : "src/c/transpiler/cubin/machines/sm_86";
     static SassMachine machine;
     if (!sass_machine_read(&machine, path))
     {

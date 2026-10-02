@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "arm.h"
-#include "exact_integer.h"
+#include "../../../src/c/types/integers/arm.h"
+#include "../../../src/c/types/integers/exact_integer.h"
 
 #define SHIFT_TEXT 64u
 

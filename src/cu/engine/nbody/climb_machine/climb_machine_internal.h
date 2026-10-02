@@ -3,9 +3,9 @@
 #ifndef CLIMB_MACHINE_INTERNAL_H
 #define CLIMB_MACHINE_INTERNAL_H
 
-#include "../../../../engine/nbody/climb_machine/climb_machine.h"
-#include "engine_config.h"
-#include "../../../../engine/nbody/climb_machine/spiral_table.h"
+#include "../../../../c/engine/nbody/climb_machine/climb_machine.h"
+#include "../../../../c/engine/engine_config.h"
+#include "../../../../c/engine/nbody/climb_machine/spiral_table.h"
 
 #include <cuda_runtime.h>
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "../../../../engine/runtime/schedule/schedule.h"
+#include "../../../../c/engine/runtime/schedule/schedule.h"
 
-#include "engine.h"
+#include "../../../../c/engine/engine.h"
 
 #include <cuda_runtime.h>
 

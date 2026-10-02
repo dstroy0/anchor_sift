@@ -44,7 +44,7 @@ TEXT = os.path.join(ROOT, "build", "voice", "text")
 OUT = os.path.join(ROOT, "utils", "maint", "prose", "voice.tsv")
 REVIEW = os.path.join(ROOT, "utils", "maint", "prose", "voice_review.tsv")
 
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python", "engine", "nbody", "orior", "instrument"))
 import english_sift  # noqa: E402
 
 BROKEN = re.compile(r"([A-Za-z])-\n\s*([a-z])")

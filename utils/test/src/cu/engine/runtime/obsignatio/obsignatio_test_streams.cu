@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // obsignatio_test_streams.cu: lanes and bit streams
-#include "../../../../../engine/runtime/obsignatio/obsignatio_test_internal.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio_test_internal.h"
 
 #if (defined(__CUDACC__))
 static int test_lanes_host(const unsigned char *lane_bytes, const unsigned long long *extent, unsigned char *nodes)

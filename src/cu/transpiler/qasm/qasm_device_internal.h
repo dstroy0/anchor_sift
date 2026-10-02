@@ -3,14 +3,14 @@
 #ifndef QASM_DEVICE_INTERNAL_H
 #define QASM_DEVICE_INTERNAL_H
 
-#include "../../../engine/quantum/qasm/qasm.h"
+#include "../../../c/transpiler/qasm/qasm.h"
 
-#include "cycle.h"
-#include "exact_integer.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "obsignatio.h"
-#include "tessera.h"
+#include "../../../c/engine/analysis/cycle/cycle.h"
+#include "../../../c/types/integers/exact_integer.h"
+#include "../../../c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../c/engine/analysis/keymath/keymath.h"
+#include "../../../c/engine/runtime/obsignatio/obsignatio.h"
+#include "../../../c/engine/runtime/daemon/tessera.h"
 
 #include <cuda_runtime.h>
 

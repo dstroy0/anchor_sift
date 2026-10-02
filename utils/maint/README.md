@@ -35,7 +35,7 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 ## Paths are walked to, never counted
 
-Every script here finds the repository by walking up until it sees `src/engine`, with a guard so it stops at the filesystem root:
+Every script here finds the repository by walking up until it sees `src/python`, with a guard so it stops at the filesystem root:
 
 ```python
 ROOT = os.path.dirname(os.path.abspath(__file__))

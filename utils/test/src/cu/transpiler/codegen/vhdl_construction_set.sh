@@ -8,25 +8,25 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../.." && pwd)"
-CYCLE="$TOP/src/engine/compiler/cycle"
+CYCLE="$TOP/src/c/engine/analysis/cycle"
 CYCLE_CU="$TOP/src/cu/engine/analysis/cycle"
-CODEGEN="$TOP/src/engine/compiler/codegen"
+CODEGEN="$TOP/src/c/transpiler/codegen"
 CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
-KEYMATH="$TOP/src/engine/compiler/keymath"
+KEYMATH="$TOP/src/c/engine/analysis/keymath"
 KEYMATH_CU="$TOP/src/cu/engine/analysis/keymath"
-KEY_SCHEDULE="$TOP/src/engine/compiler/key_schedule"
+KEY_SCHEDULE="$TOP/src/c/engine/analysis/key_schedule"
 KEY_SCHEDULE_CU="$TOP/src/cu/engine/analysis/key_schedule"
-KREP="$TOP/src/engine/formats/krep"
+KREP="$TOP/src/c/types/file_defs/krep"
 KREP_CU="$TOP/src/cu/types/file_defs/krep"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 build_stamp vhdl_construction_set
 
 command -v ghdl > /dev/null 2>&1 || { echo "  not run: GHDL is not on the path"; exit 0; }
 command -v yosys > /dev/null 2>&1 || { echo "  not run: Yosys is not on the path"; exit 0; }
-INCLUDES=(-I "$TOP/src/engine" -I "$TOP/src/engine/codecs/crc" -I "$TOP/src/cu/includes/codecs/crc" -I "$CYCLE" -I "$CYCLE_CU" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$KEYMATH" -I "$KEYMATH_CU"
+INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/c/includes/codecs/crc" -I "$TOP/src/cu/includes/codecs/crc" -I "$CYCLE" -I "$CYCLE_CU" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$KEYMATH" -I "$KEYMATH_CU"
           -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$KREP" -I "$KREP_CU" -I "$NO_ROUNDING" -I "$SCRIPTURA")
 BINARY="$OUT/vhdl_construction_set"
 rm -f "$BINARY"

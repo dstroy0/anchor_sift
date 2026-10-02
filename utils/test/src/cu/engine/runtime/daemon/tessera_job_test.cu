@@ -10,8 +10,8 @@
 // is sealed with the precalc note in it. Once the daemon has gone, the history it sealed is damaged by one byte, cut
 // short, and stripped of its seal, and each time no daemon will start on it; restored, it starts and the kept peak
 // is still there. The damage is done in $TESSERA_STATE, which run.sh points at a scratch directory.
-#include "obsignatio.h"
-#include "tessera.h"
+#include "../../../../../../../src/c/engine/runtime/obsignatio/obsignatio.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera.h"
 
 #include <cuda_runtime.h>
 #include <stdio.h>

@@ -5,7 +5,7 @@
 
 #include "sim_camera.h"
 
-#include "entropy_history.h"
+#include "../../../../../c/engine/analysis/entropy_history/entropy_history.h"
 
 #define KNF_KEY 0x4E424F4459ull
 

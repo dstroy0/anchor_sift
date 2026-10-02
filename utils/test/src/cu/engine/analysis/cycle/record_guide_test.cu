@@ -7,11 +7,11 @@
 // decoded and checked against the arithmetic done directly. The test is one job on the device's tessera daemon,
 // submitted before the program is loaded onto the device.
 #include "codegen_device.h"
-#include "cycle.h"
-#include "exact_integer.h"
-#include "key_schedule.h"
-#include "keymath.h"
-#include "scriptura.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/types/integers/exact_integer.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
+#include "../../../../../../../src/c/engine/runtime/scriptura/scriptura.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // obsignatio_test_properties.cu: every length, bit flips, determinism, errors and the seal
-#include "../../../../../engine/runtime/obsignatio/obsignatio_test_internal.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio_test_internal.h"
 
 #if (defined(__CUDACC__))
 

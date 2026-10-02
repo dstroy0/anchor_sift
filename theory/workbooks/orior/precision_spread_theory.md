@@ -7,7 +7,7 @@ the identities among them, and `examples/0_experimental/exact_identities_spread_
 runs the mathematical case.
 
 Names are chosen to avoid meanings already in use in this tree: `closure` is taken for the transitive closure of the equality oracle
-(`src/engine/nbody/orior/orior.h:443-453` at orior `1948ae1`, moved from
+(`src/c/engine/nbody/orior/orior.h:443-453` at orior `1948ae1`, moved from
 `src/engine/c/engine/` by `bdaed61` on 24 September), `coherence` for lag-agreement structure
 (`theory/workbooks/orior/chapters/chapter_orior_workbook.tex:294` and `bench_coherence.c`), `topology`
 for the induced `tau_Sigma` on the symbol carrier (`theory/theory/delta_null`, chapter terms), `span`
@@ -122,8 +122,8 @@ physics has one hub, the Rydberg energy `R_inf`, from which every hydrogen-like 
 `E(n,Z) = -R_inf Z^2/n^2` and radius `r(n,Z) = a0 n^2/Z` follows by an exact rational identity in the
 hub. Game theory decides minimum Shannon entropy with no logs by `prod p_i^{p_i} = 2^{-H}`,
 cleared to integers through the least common multiple of the share denominators, and an entropy order
-becomes an exact rational comparison (`src/engine/python/representation/game/rules.py`, `measure/outcome_entropy.py`;
-note, 26 September: both were deleted with `src/engine/python/` by `74601c1` on 26
+becomes an exact rational comparison (`src/python/includes/formats/representation/game/rules.py`, `measure/outcome_entropy.py`;
+note, 26 September: both were deleted with `src/python/` by `74601c1` on 26
 September and are in no file at orior `1948ae1`; later, 26 September: `d09b489`, orior
 PR 12, put both back byte-identical, and biohub pins `d09b489`). Removable uncertainty in this regime is zero.
 
@@ -147,7 +147,7 @@ completeness floor of its own, separate from the deposit: a right-angle gate, `R
 at `crystal.py:112`, admits a cell to the exact path only where every angle is within `0.01` of 90, and
 a census over 8885 COD entries refused 4411 of them, family-dependent (garnet 97.5 percent admitted,
 feldspar 2.9 percent), measured by `maint/analysis/survey/crystal_gate_census.py` (note, 26 September: `crystal.py` was
-`src/engine/python/representation/structure/crystal.py`, deleted by `74601c1` on 26 September, and
+`src/python/includes/formats/representation/structure/crystal.py`, deleted by `74601c1` on 26 September, and
 the census script imports from that tree; later, 26 September: `d09b489`, orior PR 12, put it
 back byte-identical, and biohub pins `d09b489`). Two further
 judgment-picked parameters, `EXACT_TILES = 4` and a harmonic-family cap of 2, sit in the period reader

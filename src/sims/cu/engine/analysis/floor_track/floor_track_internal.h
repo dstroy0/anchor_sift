@@ -19,7 +19,7 @@
 // host's scan.
 #include "sim_camera.h"
 
-#include "tower.h"
+#include "../../../../../c/engine/analysis/tower/tower.h"
 
 #define TRACK_KEY 0x545241434Bull
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "device_pool.h"
+#include "../../../../src/c/engine/runtime/device_pool/device_pool.h"
 #include "drift.h"
-#include "heaviest_matching.h"
+#include "../../../../src/c/engine/nbody/heaviest_matching/heaviest_matching.h"
 #include "scan.h"
 #include "sort.h"
 

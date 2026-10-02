@@ -46,7 +46,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python", "instrument"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python", "engine", "nbody", "orior", "instrument"))
 
 from english_sift import english_reference, looks_like_writing, surprise  # noqa: E402
 

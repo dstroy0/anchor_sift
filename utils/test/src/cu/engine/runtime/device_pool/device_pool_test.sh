@@ -4,10 +4,10 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-DEVICE_POOL="$TOP/src/engine/runtime/device_pool"
+DEVICE_POOL="$TOP/src/c/engine/runtime/device_pool"
 DEVICE_POOL_CU="$TOP/src/cu/engine/runtime/device_pool"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 source "$TOP/utils/maint/engine/tessera_build.sh"
 build_stamp device_pool_test
@@ -46,7 +46,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$DEVICE_POOL" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()

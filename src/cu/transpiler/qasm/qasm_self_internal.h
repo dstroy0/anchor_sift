@@ -3,11 +3,11 @@
 #ifndef QASM_SELF_INTERNAL_H
 #define QASM_SELF_INTERNAL_H
 
-#include "../../../engine/quantum/qasm/qasm.h"
+#include "../../../c/transpiler/qasm/qasm.h"
 
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
+#include "../../../c/engine/analysis/cycle/cycle.h"
+#include "../../../c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../c/engine/analysis/keymath/keymath.h"
 
 #include <cuda_runtime.h>
 

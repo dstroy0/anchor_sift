@@ -15,7 +15,7 @@
 #           The rendered figure is written to build/figures/twiddle_group_in_field.png, regenerated on
 #           every run and not tracked. The generator is the tracked artifact; the image reproduces from it.
 #
-# The renderer is the reference host arm in src/engine/python/render/host.py. Every value is an integer
+# The renderer is the reference host arm in src/python/engine/render/host.py. Every value is an integer
 # read off the corpus, placed by a bijective integer layout. No float, no trigonometry, no angle. This
 # does not and cannot draw the roots on a geometric circle. That circle lives in the complex plane, at
 # exp(2*pi*i*j/n), and reaching it needs floating point the engine refuses. The residues are what the
@@ -39,7 +39,7 @@
 # Floor: the figure renders one prime and one transform length. It verifies the honesty of this case, that
 # the residues spread across the field and the order is invisible to the eye, and it does not prove
 # equidistribution of a primitive root's powers in general. The render's own two arms, host and device,
-# are graded byte-identical elsewhere (utils/test/python/render_test.py, utils/bench/bench_raster.c),
+# are graded byte-identical elsewhere (utils/test/src/python/engine/render/render_test.py, utils/bench/bench_raster.c),
 # and this posit uses the reference host arm so it runs from a fresh clone with no build.
 #
 # Prior art, named with respect: the roots of unity and their cyclic group are classical; the near-uniform
@@ -53,7 +53,8 @@ import struct
 import zlib
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 from render.host import raster, RasterConfig, LAYOUT_ROWS, CHANNEL_BYTE, REDUCE_MAX  # noqa: E402
 
 PRIME = 12289          # 3 * 2^12 + 1, a Proth prime. P - 1 = 2^12 * 3

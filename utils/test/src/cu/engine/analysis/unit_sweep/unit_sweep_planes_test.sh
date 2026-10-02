@@ -4,10 +4,10 @@ set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOP="$(cd "$TEST/../../../../../../.." && pwd)"
-UNIT_SWEEP="$TOP/src/engine/analysis/unit_sweep"
+UNIT_SWEEP="$TOP/src/c/engine/analysis/unit_sweep"
 UNIT_SWEEP_CU="$TOP/src/cu/engine/analysis/unit_sweep"
-NO_ROUNDING="$TOP/src/engine/arithmetic/no_rounding"
-SCRIPTURA="$TOP/src/engine/runtime/scriptura"
+NO_ROUNDING="$TOP/src/c/types/integers"
+SCRIPTURA="$TOP/src/c/engine/runtime/scriptura"
 source "$TOP/utils/maint/engine/build_stamp.sh"
 source "$TOP/utils/maint/engine/tessera_build.sh"
 build_stamp unit_sweep_planes_test
@@ -44,7 +44,7 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/engine" -I "$UNIT_SWEEP" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$UNIT_SWEEP" -I "$NO_ROUNDING" -I "$SCRIPTURA" "${TESSERA_INCLUDES[@]}")
 rm -f "$BINARY"
 OBJECTS=()
 SCRIPTURA_OBJECTS=()

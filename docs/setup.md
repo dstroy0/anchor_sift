@@ -40,7 +40,7 @@ On Windows use `utils/maint/engine/build_engine.ps1`, the same two forms. It imp
 Drive the configure yourself with CMake directly for the lower-level path:
 
 ```sh
-cmake -S src/engine -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake -S src/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build/engine_c
 ```
 
@@ -50,8 +50,8 @@ The search kernel builds with no build system at all, if that is all you want. I
 
 ```sh
 gcc -std=c11 -Isrc/engine/nbody/orior -Isrc/engine/arithmetic/no_rounding your_program.c \
-    src/engine/nbody/orior/orior_*.c src/engine/nbody/orior/scan_portable.c \
-    src/engine/arithmetic/no_rounding/exact_integer_*.c src/engine/arithmetic/no_rounding/arm_portable.c
+    src/engine/nbody/orior/orior_*.c src/c/engine/nbody/orior/scan.c \
+    src/engine/arithmetic/no_rounding/exact_integer_*.c src/c/types/integers/arm.c
 ```
 
 ## The research papers

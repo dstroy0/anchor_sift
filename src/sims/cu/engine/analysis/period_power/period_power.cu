@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "sim_camera.h"
 
-#include "period.h"
+#include "../../../../../c/engine/analysis/period/period.h"
 
 #define POWER_KEY 0x504F574552ull
 

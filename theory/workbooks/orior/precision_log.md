@@ -22,7 +22,7 @@ The constants come from the engine's `no_rounding` module and from the private p
   is 3456 bits and holds 1040 decimal digits. 16 are headroom the constant does not promise (lines
   55 to 60). Schoolbook is correct at this width because Karatsuba crosses over in the thousands of
   limbs and this is a hundred (line 179).
-- Bignum, Python side: `src/engine/python/representation/exact.py`. `SCALE_DIGITS = 1024` (line 74),
+- Bignum, Python side: `src/python/types/integers/exact.py`. `SCALE_DIGITS = 1024` (line 74),
   arbitrary precision, the scale the C form is cross-checked against. The two forms must agree on the
   same values or a cross check between them means nothing (`exact_integer.h` line 45).
 - NTT precision constants: pinned in `theory/`, not in `src/`. The proof is
@@ -262,7 +262,7 @@ Sound, exact, unconditional; claims only the rank upper bound and the exhibited 
   372) and `anchor_exact_divide_exact` (line 392), with `test/exact_divide_test` passing 9/0
   (`workbooks/engine/build_plan.md:216`). `ANCHOR_EXACT_LIMBS` is 128 by default (line 81), and the
   multiply is long multiplication, then Karatsuba from 32 limbs, then the Schönhage-Strassen
-  transform from 8,192 limbs (lines 31 to 35). The Python side, `src/engine/python/representation/exact.py`,
+  transform from 8,192 limbs (lines 31 to 35). The Python side, `src/python/types/integers/exact.py`,
   was deleted by `74601c1` on 26 September. Entry one's figures (108 limbs, line 49, schoolbook) are
   the header as read on 16 September. The three examples above,
   `exact_navier_stokes_on_torus.py`, `exact_navier_stokes_cascade.py` and
@@ -270,7 +270,7 @@ Sound, exact, unconditional; claims only the rank upper bound and the exhibited 
   `1948ae1`.
   **Later, 26 September.** Commit `d09b489` (orior PR 12) put back the 126 files `74601c1`
   deleted, each byte-identical to its state before the deletion, and biohub pins orior at
-  `d09b489`. `src/engine/python/representation/exact.py` is at the pin again. Between `1948ae1` and
+  `d09b489`. `src/python/types/integers/exact.py` is at the pin again. Between `1948ae1` and
   `d09b489`, `src/engine/` gains those 126 files and loses four Python files under
   `src/engine/base/qasm/`, and no other file in it changes: the header lines cited above hold at
   `d09b489`.

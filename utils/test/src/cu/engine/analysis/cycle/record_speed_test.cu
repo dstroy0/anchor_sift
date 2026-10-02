@@ -9,9 +9,9 @@
 // - mix: six rounds of a xor, a product by a constant, a sum and a 32-bit wrap over two 32-bit fields, then the golden
 //   ladder of the last pair
 // The test is one job on the device's tessera daemon, submitted before the first program is loaded onto the device.
-#include "cycle.h"
-#include "key_schedule.h"
-#include "keymath.h"
+#include "../../../../../../../src/c/engine/analysis/cycle/cycle.h"
+#include "../../../../../../../src/c/engine/analysis/key_schedule/key_schedule.h"
+#include "../../../../../../../src/c/engine/analysis/keymath/keymath.h"
 #include "sim.h"
 
 #include <chrono>

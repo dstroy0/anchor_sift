@@ -3,9 +3,9 @@
 #ifndef TOWER_INTERNAL_H
 #define TOWER_INTERNAL_H
 
-#include "../../../../engine/analysis/tower/tower.h"
+#include "../../../../c/engine/analysis/tower/tower.h"
 
-#include "device_pool.h"
+#include "../../../../c/engine/runtime/device_pool/device_pool.h"
 
 #include <cuda_runtime.h>
 

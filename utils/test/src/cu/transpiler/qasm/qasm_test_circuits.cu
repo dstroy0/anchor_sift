@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // qasm_test_circuits.cu: RXX, the inverse Fourier transform, measurement, fixtures and main
-#include "../../../../engine/quantum/qasm/qasm_test_internal.h"
+#include "../../../c/transpiler/qasm/qasm_test_internal.h"
 
 // exact gates alone: E = 0 and the peak's probability is 1 exactly
 static void exact_only(void)

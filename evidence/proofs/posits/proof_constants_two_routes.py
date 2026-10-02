@@ -34,7 +34,8 @@ import os
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
-sys.path.insert(0, os.path.join(ROOT, "src", "engine", "python"))
+sys.path.insert(0, os.path.join(ROOT, "src", "python"))
+import manifest  # noqa: E402,F401
 from representation.constants import naturals  # noqa: E402
 
 DIGITS = 2000

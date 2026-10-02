@@ -9,10 +9,10 @@ source "$TOP/cell_tracking/maint/tessera_build.sh"
 PEAKS="$TOP/cell_tracking/src/peaks"
 SCAN="$TOP/cell_tracking/src/scan"
 SHIFT="$ENGINE/analysis/shift_agreement"
-SHIFT_CU="$ENGINE/../cu/engine/analysis/shift_agreement"
+SHIFT_CU="$ENGINE/../../cu/engine/analysis/shift_agreement"
 DEVICE_POOL="$ENGINE/runtime/device_pool"
-DEVICE_POOL_CU="$ENGINE/../cu/engine/runtime/device_pool"
-NO_ROUNDING="$ENGINE/arithmetic/no_rounding"
+DEVICE_POOL_CU="$ENGINE/../../cu/engine/runtime/device_pool"
+NO_ROUNDING="$ENGINE/../types/integers"
 SCRIPTURA="$ENGINE/runtime/scriptura"
 build_stamp hessian_test
 
@@ -73,7 +73,7 @@ done
 tessera_build hessian "${SCRIPTURA_OBJECTS[@]}" || exit 1
 
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" "${INCLUDES[@]}" -o "$BINARY" \
-    "$TEST/hessian_test.cu" "$ENGINE/sims/sim_job.cu" "$PEAKS/hessian.cu" "$SCAN/drift.cu" \
+    "$TEST/hessian_test.cu" "$ENGINE/../../engine/sims/sim_job.cu" "$PEAKS/hessian.cu" "$SCAN/drift.cu" \
     "$SHIFT_CU/shift_agreement.cu" "$SHIFT_CU/shift_agreement_run.cu" \
     "$DEVICE_POOL_CU/device_pool.cu" "${OBJECTS[@]}" "${TESSERA_OBJECTS[@]}" "${TESSERA_SEAL[@]}"
 [ -f "$BINARY" ] || { echo "  build failed: nvcc could not build the test"; exit 1; }

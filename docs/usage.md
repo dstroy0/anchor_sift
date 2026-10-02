@@ -1,7 +1,7 @@
 # Using it
 
 **Purpose:** Run the measure on something of your own, and know which of the six parts you are calling.
-**Scope:** `src/engine/python/`, `src/engine/nbody/orior/orior.h`, `examples/`.
+**Scope:** `src/python/`, `src/c/engine/nbody/orior/orior.h`, `examples/`.
 
 ## The shortest thing that works
 
@@ -28,7 +28,7 @@ Run an example with no argument and it prints the usage line and stops.
 
 Only `representation` knows a domain exists. It has `atom`, `constants`, `game`, `particle`, `picture`, `sound`, `structure` and `text` under it. Everything downstream sees points and values.
 
-`src/engine/python/README.md` is the map.
+`src/python/README.md` is the map.
 
 ## Where the rest of it is
 
@@ -73,7 +73,7 @@ Every example carries a catalog number in its header, `LNG-4-012` and so on. A c
 
 ## The search kernel
 
-`anchor_steer_count` counts the occurrences of a needle in a corpus. Its last argument is 1 to order the probes by rarity and 0 to leave them in spatial order, and the count is the same either way (`src/engine/nbody/orior/orior.h:952-978`). Both buffers are [BORROWS] for the call.
+`anchor_steer_count` counts the occurrences of a needle in a corpus. Its last argument is 1 to order the probes by rarity and 0 to leave them in spatial order, and the count is the same either way (`src/c/engine/nbody/orior/orior.h:952-978`). Both buffers are [BORROWS] for the call.
 
 ```c
 #include <stdint.h>
@@ -101,7 +101,7 @@ Built with the four-source line in [Setup](setup.md#the-c-engine) under gcc on x
 
 The sift is a sound filter: no arrangement of anchors can lose a true occurrence. Errors are one directional and any discrepancy is an over-count. It carries `m` bits of state for a pattern of length `m`, with no table over the alphabet. A real-valued or unenumerable alphabet costs it nothing.
 
-The Python in `src/engine/python/sift/` implements the same construction and shares no code with the C. The two are checked against each other by agreeing on counts.
+The Python in `src/python/engine/nbody/orior/sift/` implements the same construction and shares no code with the C. The two are checked against each other by agreeing on counts.
 
 ## Other languages
 

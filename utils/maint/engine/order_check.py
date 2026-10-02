@@ -346,9 +346,7 @@ def check_transplant(say):
 
 # The matrices live in the document and are read from it. Nothing here can drift from what the
 # document says, because nothing is copied here.
-MATRIX_DOC = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))),
-    "src", "engine", "compiler", "gnascor.md")
+MATRIX_DOC = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "src", "c", "transpiler", "gnascor.md")
 MATRIX_HEAD = re.compile(r"^\|\s*past \(N-1\)")
 
 
@@ -478,7 +476,7 @@ def check_tables_agree(say):
     say("   A pair named apart in the two tables is two candidates, and the asks that read the")
     say("   transition decide between them in that situation: a bit excludes, a magnitude ranks.")
     say("   A transition and its mirror named apart is a direction, which the part is asked for:")
-    say("   utils/test/engine/compiler/bootstrap/branch_side_check.c reads whether a side leaves a mark.")
+    say("   utils/test/src/c/transpiler/bootstrap/branch_side_check.c reads whether a side leaves a mark.")
     return len(contradicted), len(mirrored)
 
 def main():

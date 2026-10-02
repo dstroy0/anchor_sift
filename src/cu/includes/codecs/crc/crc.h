@@ -2,7 +2,7 @@
 #ifndef CRC_H
 #define CRC_H
 
-#include "../../../../engine/codecs/crc/crc_key.h"
+#include "../../../../c/includes/codecs/crc/crc_key.h"
 
 #ifdef __CUDACC__
 #define CRC_FUNCTION __host__ __device__ static inline

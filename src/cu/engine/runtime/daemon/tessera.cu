@@ -2,8 +2,8 @@
 //
 // The device's tessera (tessera_device.h): the ledger's decisions made on the device by one thread, from the source
 // the host daemon's ledger makes them by (tessera_ledger_core.h).
-#include "../../../../engine/runtime/daemon/tessera_device.h"
-#include "../../../../engine/runtime/daemon/tessera_ledger_core.h"
+#include "../../../../c/engine/runtime/daemon/tessera_device.h"
+#include "../../../../c/engine/runtime/daemon/tessera_ledger_core.h"
 
 #include <cuda_runtime.h>
 

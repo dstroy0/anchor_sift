@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // obsignatio_test_vectors.cu: files, hex and the test vectors
-#include "../../../../../engine/runtime/obsignatio/obsignatio_test_internal.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio_test_internal.h"
 
 void test_count(TestResults *results, int passed)
 {

@@ -96,7 +96,7 @@ particular. A chain reading worse as a total can hold the cheapest link for the 
 can see it.
 
 The rest of the protocol, the pair states and the mnemonics the bits resolve to, is in
-[engine/compiler/gnascor.md](engine/compiler/gnascor.md). Every step of it, what backs it and the run behind its
+[engine/compiler/gnascor.md](c/transpiler/gnascor.md). Every step of it, what backs it and the run behind its
 status is in the query protocol's own table,
 [theory/workbooks/engine/query_protocol_table.md](../theory/workbooks/engine/query_protocol_table.md). A step
 changes status there and nowhere else.
@@ -160,7 +160,7 @@ with no map yet.
 `[ADDRESS] -> (QUALIFIER) -> [COST] -> BIT`, put with `host_put` and read with `host_read`
 (`compiler/bootstrap/host_entry.h`), with nothing between them and the part. No outside tool is in the loop: no
 compiler, assembler, disassembler, object reader, vendor runtime or driver library. A word that went through one is
-that tool's answer and not the part's. The SASS probe under `utils/test/engine/compiler/cell/` and everything it calls
+that tool's answer and not the part's. The SASS probe under `utils/test/src/c/transpiler/cell/` and everything it calls
 (`nvcc`, `nvdisasm`, `cuobjdump`, `cell_ptx_probe`, the vendor runtime) is scaffolding. It is an answer key in the
 sense `precepts.h` is one: it may be read to form a question, and to check a derivation after it has run. It is
 never a channel a derivation runs through, never where the work resumes, and never a place to find again what the

@@ -3,7 +3,7 @@
 #ifndef OBSIGNATIO_INTERNAL_H
 #define OBSIGNATIO_INTERNAL_H
 
-#include "../../../../engine/runtime/obsignatio/obsignatio.h"
+#include "../../../../c/engine/runtime/obsignatio/obsignatio.h"
 
 // a part with no CUDA toolchain (the Pi, tessera on every target) compiles the seal as C++: the functions the host and
 // the device share are the host's alone, and the kernels and the calls that launch them are left out

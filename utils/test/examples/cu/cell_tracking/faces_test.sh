@@ -31,7 +31,7 @@ case "$(uname -s)" in
         ;;
 esac
 
-INCLUDES=(-I "$ENGINE" -I "$ENGINE/../cu/engine" -I "$FACES" -I "$SORT" -I "$SCAN" -I "$PEAKS")
+INCLUDES=(-I "$ENGINE" -I "$ENGINE/../../cu/engine" -I "$FACES" -I "$SORT" -I "$SCAN" -I "$PEAKS")
 rm -f "$BINARY"
 # the test is host work: the part reads and writes files and asks nothing of the device. It is no job
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${INCLUDES[@]}" -o "$BINARY" "$TEST/faces_test.cu" "$FACES/faces_find.cu"

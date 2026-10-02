@@ -11,7 +11,7 @@ examples/<subject>/<stage>/<file>.py
 
 The subject says what kind of corpus it reads. The stage says which step of the reading it does. So `language/4_measure/cross_corpus.py` performs a measurement on text.
 
-Every script sits at that depth, and not one counts parent directories to locate the repository. They start at their own directory and walk up until they find `src/engine`. Counting parent directories breaks when a file moves: its distance from the root changes, its imports fail, and the breakage does not show up until somebody runs the script.
+Every script sits at that depth, and not one counts parent directories to locate the repository. They start at their own directory and walk up until they find `src/python`. Counting parent directories breaks when a file moves: its distance from the root changes, its imports fail, and the breakage does not show up until somebody runs the script.
 
 ## Stages
 

@@ -22,7 +22,7 @@
 // The test links no engine_*.cu. Engine_sample_path below restates engine/engine_*.cu's, and sort_link.cu's paths
 // are built by the restatement here: a change to either format must be made in both. The test prints one path it
 // builds.
-#include "device_pool.h"
+#include "../../../../../src/c/engine/runtime/device_pool/device_pool.h"
 #include "scan.h"
 #include "sim.h"
 #include "sort.h"

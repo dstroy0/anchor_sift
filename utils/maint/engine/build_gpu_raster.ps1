@@ -21,11 +21,10 @@ param(
 $ErrorActionPreference = "Stop"
 
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
-$src = Join-Path $root "src\engine"
-$render = Join-Path $src "render"
+$render = Join-Path $root "src\c\engine\render"
 $render_cu = Join-Path $root "src\cu\engine\render"
-$exact = Join-Path $src "arithmetic\no_rounding"
-$sift = Join-Path $src "nbody\orior"
+$exact = Join-Path $root "src\c\types\integers"
+$sift = Join-Path $root "src\c\engine\nbody\orior"
 $bench = Join-Path $root "utils\bench"
 $out = Join-Path $root "build\engine_gpu"
 
@@ -91,7 +90,7 @@ try
 {
     Write-Host "[*] cl /std:c11 -> objects"
     $units = @(
-        (Join-Path $render "anchor_raster_host.c"),
+        (Join-Path $render "anchor_raster.c"),
         (Join-Path $render "anchor_raster_output.c"),
         (Join-Path $exact "exact_integer_add.c"),
         (Join-Path $exact "exact_integer_limbs.c"),
@@ -105,7 +104,7 @@ try
         (Join-Path $sift "orior_field.c"),
         (Join-Path $sift "orior_steer_plan.c"),
         (Join-Path $sift "orior_steer_count.c"),
-        (Join-Path $sift "scan_portable.c"),
+        (Join-Path $sift "scan.c"),
         (Join-Path $bench "bench_raster.c")
     )
     $objects = $units | ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_) + ".obj" }

@@ -7,8 +7,8 @@
 // field, and the ledger each is left with the host's job for job, kept peak for kept peak and deadline for deadline.
 // The test is one job on the device's tessera daemon, submitted before its first device work.
 #include "sim.h"
-#include "tessera_device.h"
-#include "tessera_ledger.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera_device.h"
+#include "../../../../../../../src/c/engine/runtime/daemon/tessera_ledger.h"
 
 #include <cuda_runtime.h>
 

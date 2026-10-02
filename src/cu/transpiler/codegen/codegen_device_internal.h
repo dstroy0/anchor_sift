@@ -3,8 +3,8 @@
 #ifndef CODEGEN_DEVICE_INTERNAL_H
 #define CODEGEN_DEVICE_INTERNAL_H
 
-#include "../../../engine/compiler/cycle/cycle.h"
-#include "../../../engine/compiler/key_schedule/key_schedule.h"
+#include "../../../c/engine/analysis/cycle/cycle.h"
+#include "../../../c/engine/analysis/key_schedule/key_schedule.h"
 #include "../../engine/analysis/key_schedule/key_schedule_core.h"
 #include "../../engine/analysis/keymath/keymath_core.h"
 #include "codegen_device.h"

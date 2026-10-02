@@ -11,9 +11,9 @@
 // after frame as the scan calls it, and both find a drawn set's known shift. Malformed requests error. The test is one
 // job on the device's tessera daemon, submitted before its first device work.
 #include "drift.h"
-#include "exact_integer.h"
+#include "../../../../../src/c/types/integers/exact_integer.h"
 #include "hessian.h"
-#include "shift_agreement.h"
+#include "../../../../../src/c/engine/analysis/shift_agreement/shift_agreement.h"
 #include "sim.h"
 
 #include <cuda_runtime.h>

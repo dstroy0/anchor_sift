@@ -4,7 +4,7 @@
 `evidence/` and of `examples/` has a row in `TREE_LAYOUT_PLAN.tsv`: where it is, where it goes, and why. Every
 function the three host entry points share has a row in each of them, and a row with nothing at it yet says
 what is to be written there.
-**Scope:** 2298 rows: 1233 files `git ls-files` lists under `src/`, `utils/test/`, `evidence/` and `examples/`, the
+**Scope:** 2725 rows: 1660 files `git ls-files` lists under `src/`, `utils/test/`, `evidence/` and `examples/`, the
 2 definitions that come in from `utils/`, and 1063 files to write. `src/import/` is outside this plan.
 
 Nothing is moved by this file. `python utils/maint/engine/tree_layout_check.py` reads the map against the tree
@@ -36,7 +36,10 @@ and names every file the map does not hold, every row whose file is not there, a
 - `types/file_defs/` defines the file types, one directory per suffix `gnascor.md` names, and holds the code
   that defines its type and never the files of that type.
 - The tracker's modules, its configurations and its program are `examples/cell_tracking/`'s, where its build
-  reads them.
+  reads them. Its own copies are the ones kept, and no copy of one sits in `src/`.
+- A Python program puts `src/python/` on `sys.path` and imports `manifest`. `src/python/manifest.tsv` names
+  the path of every import name the container answers, `representation.exact` and
+  `representation.constants` among them, and `src/python/manifest.py` reads it and nothing else.
 - The test tree mirrors `src/` under `utils/test/src/`. Every module has a test, and every test is in all
   three containers. A module with none has one to write, named for the module with `_test`.
   `examples/`'s tests sit in `utils/test/examples/` in the same containers. `examples/` and `evidence/`
@@ -710,44 +713,6 @@ utils/test/examples/                                             now   write
 - `src/engine/r/hypotheses/language_variance.R` goes to `evidence/sims/r/hypotheses/language_variance.R`.
 - `src/engine/r/hypotheses/ratio_normality.R` goes to `evidence/sims/r/hypotheses/ratio_normality.R`.
 
-## The tracker's files in `src/engine/`
-
-Nothing builds these. `examples/cell_tracking/build_driver.sh` builds the tracker from its own copies.
-
-| file | the tracker's | |
-|---|---|---|
-| `src/engine/nbody/bodies/bodies.cu` | `examples/cell_tracking/src/bodies/bodies.cu` | the same file |
-| `src/engine/nbody/bodies/bodies.h` | `examples/cell_tracking/src/bodies/bodies.h` | the same file |
-| `src/engine/nbody/group_objects/group_objects.cu` | `examples/cell_tracking/src/group_objects/group_objects.cu` | the same file |
-| `src/engine/nbody/group_objects/group_objects.h` | `examples/cell_tracking/src/group_objects/group_objects.h` | the same file |
-| `src/engine/nbody/link_objects/link_objects.h` | `examples/cell_tracking/src/link_objects/link_objects.h` | the same file |
-| `src/engine/nbody/link_objects/link_objects_internal.h` | `examples/cell_tracking/src/link_objects/link_objects_internal.h` | the tracker has no file of this name |
-| `src/engine/nbody/link_objects/link_objects_run.cu` | `examples/cell_tracking/src/link_objects/link_objects_run.cu` | the tracker has no file of this name |
-| `src/engine/nbody/link_objects/link_objects_unbound.cu` | `examples/cell_tracking/src/link_objects/link_objects_unbound.cu` | the tracker has no file of this name |
-| `src/engine/nbody/link_objects/link_objects_web.cu` | `examples/cell_tracking/src/link_objects/link_objects_web.cu` | the tracker has no file of this name |
-| `src/engine/nbody/relate_frames/relate_frames.h` | `examples/cell_tracking/src/relate_frames/relate_frames.h` | the same file |
-| `src/engine/nbody/relate_frames/relate_frames_contacts.cu` | `examples/cell_tracking/src/relate_frames/relate_frames_contacts.cu` | the tracker has no file of this name |
-| `src/engine/nbody/relate_frames/relate_frames_internal.h` | `examples/cell_tracking/src/relate_frames/relate_frames_internal.h` | the tracker has no file of this name |
-| `src/engine/nbody/relate_frames/relate_frames_triples.cu` | `examples/cell_tracking/src/relate_frames/relate_frames_triples.cu` | the tracker has no file of this name |
-| `src/engine/prg_sch/answer_key/answer_key.cu` | `examples/cell_tracking/src/answer_key/answer_key.cu` | the same file |
-| `src/engine/prg_sch/answer_key/answer_key.h` | `examples/cell_tracking/src/answer_key/answer_key.h` | the same file |
-| `src/engine/prg_sch/cfg/allframes.cfg` | `examples/cell_tracking/cfg/allframes.cfg` | the same file |
-| `src/engine/prg_sch/cfg/check.cfg` | `examples/cell_tracking/cfg/check.cfg` | the same file |
-| `src/engine/prg_sch/cfg/full25.cfg` | `examples/cell_tracking/cfg/full25.cfg` | the same file |
-| `src/engine/prg_sch/cfg/graded25.cfg` | `examples/cell_tracking/cfg/graded25.cfg` | the same file |
-| `src/engine/prg_sch/cfg/null25.cfg` | `examples/cell_tracking/cfg/null25.cfg` | the same file |
-| `src/engine/prg_sch/cfg/one.cfg` | `examples/cell_tracking/cfg/one.cfg` | the same file |
-| `src/engine/prg_sch/cfg/ran.cfg` | `examples/cell_tracking/cfg/ran.cfg` | the same file |
-| `src/engine/prg_sch/cfg/three.cfg` | `examples/cell_tracking/cfg/three.cfg` | the same file |
-| `src/engine/prg_sch/cfg/two.cfg` | `examples/cell_tracking/cfg/two.cfg` | the same file |
-| `src/engine/prg_sch/cfg/two_full.cfg` | `examples/cell_tracking/cfg/two_full.cfg` | the same file |
-| `src/engine/prg_sch/nbody_program/program.json` | `examples/cell_tracking/nbody_program/program.json` | the tracker has no file of this name |
-| `src/engine/prg_sch/run_cfg/run_cfg.cu` | `examples/cell_tracking/src/run_cfg/run_cfg.cu` | 142 lines differ |
-| `src/engine/prg_sch/run_cfg/run_cfg.h` | `examples/cell_tracking/src/run_cfg/run_cfg.h` | 12 lines differ |
-| `src/engine/prg_sch/run_cfg/run_cfg_samples.cu` | `examples/cell_tracking/src/run_cfg/run_cfg_samples.cu` | the tracker has no file of this name |
-| `src/engine/prg_sch/run_log/run_log.cu` | `examples/cell_tracking/src/run_log/run_log.cu` | the same file |
-| `src/engine/prg_sch/run_log/run_log.h` | `examples/cell_tracking/src/run_log/run_log.h` | the same file |
-
 ## One name
 
 | file | goes to |
@@ -817,10 +782,3 @@ names are one.
 | `utils/test/src/*/transpiler/cell` | c: `cell_probe`, `cell_ptx_test`, `cell_sass_probe_ask`, `cell_sass_probe_check`, `cell_sass_probe_cubin`, `cell_sass_probe_machine`, `cell_sass_probe_main`, `cell_sass_probe_read`, `cell_test`; cu: `cell_ptx_probe_main`, `cell_ptx_probe_questions` |
 | `utils/test/src/*/transpiler/codegen` | c: `web_check`; cu: `codegen_test`, `ruleset_read_test`, `vhdl_construction_set` |
 | `utils/test/src/*/types/integers` | c: `test_arm_agreement`; cu: `exact_divide_test`, `exact_transform_test`; python: `exact_test` |
-
-## Open
-
-| what | why |
-|---|---|
-| the Python import root | 155 files put `src/engine/python` on `sys.path` and import its parts by name: `representation`, `measure`, `reference`, `oracle`, `partition`, `render`, `sift`. Under `src/python/` the parts sit at several paths, and 29 import `exact` or `constants` from `representation`, which leave it for `types/integers/`. Either each part's directory goes on the path or every import names its full path from `src/python/`. |
-| the tracker's files that differ | where a copy in `src/engine/` differs from the tracker's, the move keeps one of the two |

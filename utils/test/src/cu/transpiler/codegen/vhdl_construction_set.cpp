@@ -9,7 +9,7 @@
 // what the lane's schedule model gives a form it does not name. The set is written as a krep KCS file and read back
 // whole, and the file is removed where the two differ.
 #include "crc.h"
-#include "krep.h"
+#include "../../../../../../src/c/types/file_defs/krep/krep.h"
 #include "vhdl_target.h"
 #include "yosys_script.h"
 

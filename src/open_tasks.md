@@ -23,16 +23,8 @@ to do and how. An item that is done comes out of this file.
 6. **Python's copy of `double_fields`.** No Python ruleset exists, and `L*` has not learned Python. Until it has,
    the Python copy is written by hand from the same record program, or waits.
 
-7. **From `TREE_LAYOUT_PLAN.md`:**
-   - the Python import root: 155 files put `src/engine/python` on `sys.path` and import its parts by name, and 29
-     import `exact` or `constants` from `representation`, which move to `types/integers`;
-   - the tracker's copies in `src/engine` that differ from `examples/cell_tracking`'s: `run_cfg.cu` by 142 lines,
-     `run_cfg.h` by 12, and six split files in `link_objects` and `relate_frames` with no file of their name in the
-     tracker;
-   - one name for each function held under two names in 16 modules (render, the daemon, qasm, `types/integers`
-     and others, listed in the plan's "Functions under two names").
-
-   The c stage and the python stage of the move follow the same steps as the cu stage.
+7. **One name for each function held under two names** in 16 modules (render, the daemon, qasm, `types/integers`
+   and others), listed in `TREE_LAYOUT_PLAN.md` under "Functions under two names".
 
 ## Upkeep
 
@@ -43,5 +35,5 @@ to do and how. An item that is done comes out of this file.
 12. **Words for `utils/maint/prose/voice.tsv`:** coins, contends, descends, overflow, prints, prune, sixteenths,
     steered, wrongly, and the possessives ladder's, link's, noise's, spread's, term's and remainder's. Doug adds
     the terms of art; the prose passes then run again with `--offlist`.
-13. **Re-read the comment, README and date edits in `src/engine` against the tree.**
+13. **Re-read the comment, README and date edits in `src/` against the tree.**
 14. **Peer pull requests:** review each as it opens and merge it once it holds.

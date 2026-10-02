@@ -9,7 +9,7 @@
 // and leaves the sweep usable, and a malformed request errors. The test is one job on the device's tessera daemon,
 // submitted before its first device work.
 #include "sim.h"
-#include "unit_sweep.h"
+#include "../../../../../../../src/c/engine/analysis/unit_sweep/unit_sweep.h"
 
 #include <cuda_runtime.h>
 

@@ -2,7 +2,7 @@
 import os
 import sys
 
-ORIOR = "D:/git_project/repos/owned/public/orior/src/engine/python"
+ORIOR = "D:/git_project/repos/owned/public/orior/src/python"
 sys.path.insert(0, ORIOR)
 from representation.constants.naturals import golden_ratio
 
