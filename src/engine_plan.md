@@ -248,13 +248,28 @@ works there.
    That counter steps once a clock interrupt, half a millisecond to a millisecond, and an ask is far shorter: a
    cost read from it is a step or nothing. A bound set from it judges a run of asks and never one. Asks at
    addresses nothing has said are safe go through `query_interface_walk` (`compiler/bootstrap/query_interface.{h,c}`):
-   the cell runs `query_walk` in a child, one address after another, and an address that ends the child is
-   answered by the ending, the walk going on from the next address in a fresh child. `query_interface_check.c` holds
+   the interface runs `query_walk` in a probe, one address after another, and an address that ends the probe is answered by the ending, the walk going on from the next address in a fresh probe. `query_interface_check.c` holds
    it to address 0, which ends the asker on an address fault, and to the page every Windows process shares,
    which answers reads and ends the asker on a put. Of that page's first sixteen words the walk finds two that
-   advance, at 0x8 and 0x14, the interrupt time and the system time of the page's own layout. The next piece is
-   the run channel: the part's addresses found by walks of that form, with the known order, its solve and the
-   gate's descent running over them.
+   advance, at 0x8 and 0x14, the interrupt time and the system time of the page's own layout. The run channel finds the part's bus the way firmware enumerates one, and never the way firmware is told
+   to. Firmware is handed its enumeration space, the configuration address and the register offsets read from
+   a bus standard by hand, and that is a scale written into the machine and forbidden here. The channel is
+   given no address and no offset, and finds the enumeration space by how it answers. `host_address_ask`
+   (`host_entry.h`) writes two words that share no bits and reads each back, sorting an address into four
+   kinds: HOLDS gave back what it was written, plain memory; FIXED gave back one word whatever it was written,
+   a constant such as an identifier; LIVE gave back a word the part decided, a register the part drives;
+   NOTHING gave back all ones, nothing drove the line. A sizing register answers LIVE, since written all ones
+   it gives back the mask of the bits it decodes, which is neither the memory that would hold all ones nor the
+   empty line that reads all ones. An enumeration space is a region where a FIXED identifier and a LIVE sizing
+   register repeat at one stride, and both halves are already measured with nothing told: the kind from
+   `host_address_ask`, the stride from `period_read` (M18) or shift agreement over the sequence of kinds. The
+   channel samples the range coarse with the classifying ask, the gate's descent steers toward where the kinds
+   stop being flat HOLDS or flat NOTHING and start repeating a FIXED then a LIVE, one struck record gives the
+   stride, and the rest is read one record at a time and not one address at a time. The width of a decoded
+   region is read last, from the mask a LIVE register gives back when it is written all ones: the part sets
+   the width and no hand writes it. On that the part's run channel stands, the records found this way with the
+   known order, its solve and the descent running over them, and NVRTC, nvJitLink and the CUDA runtime leave
+   the loop once a writing is put to a record and its bit read back.
 
 2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
