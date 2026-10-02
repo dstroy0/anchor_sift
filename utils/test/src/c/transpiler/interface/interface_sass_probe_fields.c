@@ -173,12 +173,162 @@ static int fields_cubin(const unsigned char *code, unsigned int count, unsigned 
 #define FIELDS_LINES_HEAD "IMAD.MOV.U32 R6, RZ, RZ, R7\n"
 #define FIELDS_LINES_TAIL "\nIMAD.MOV.U32 R7, RZ, RZ, R8\nSTG.E term[UR4][R4.64], R7"
 
+// the first instruction of the file at `path` that is a form to probe, into `instruction`: 1, or 0 where the file
+// holds none. The frame's own IADD3 and blank lines are passed over, as the write pass passes them
+static int fields_first(const char *path, char *instruction, size_t room)
+{
+    FILE *const file = fopen(path, "rb");
+    if (file == NULL)
+    {
+        return 0;
+    }
+    char line[512];
+    int found = 0;
+    while (!found && (fgets(line, sizeof(line), file) != NULL))
+    {
+        line[strcspn(line, "\r\n")] = '\0';
+        const char *const walk = line + strspn(line, " \t");
+        if ((*walk != '\0') && (strncmp(walk, "IADD3 R8", 8u) != 0))
+        {
+            found = snprintf(instruction, room, "%s", walk) < (int)room;
+        }
+    }
+    fclose(file);
+    return found;
+}
+
+// the operand whose run covers operation bit `bit` in `form`, or the operand count where none does
+static unsigned int fields_operand_at(const SassForm *form, unsigned int bit)
+{
+    for (unsigned int at = 0u; at < form->runs; at += 1u)
+    {
+        if ((bit >= form->run[at].first) && (bit <= form->run[at].last))
+        {
+            return form->run[at].operand;
+        }
+    }
+    return form->operands;
+}
+
+// the answers interface_sass_run wrote for the write pass's cubins, read against the form the first instruction holds
+// and labeled a bit a row to `record`. A bit the part refused, one it read inside a run the machine file records for
+// an operand, one it read outside every recorded run, and one it left the answer unchanged are told apart
+static int fields_read(const char *machine_path, const char *instructions, const char *answers, const char *record)
+{
+    if (!sass_machine_read(&s_machine, machine_path))
+    {
+        fprintf(stderr, "the machine file %s did not read\n", machine_path);
+        return 2;
+    }
+    char instruction[512];
+    if (!fields_first(instructions, instruction, sizeof(instruction)))
+    {
+        fprintf(stderr, "the instructions %s hold no form\n", instructions);
+        return 2;
+    }
+    SassInstructionParts parts;
+    sass_instruction_read(instruction, &parts);
+    const SassForm *const form = sass_machine_form(&s_machine, &parts);
+    if (form == NULL)
+    {
+        fprintf(stderr, "the machine file holds no form for %s\n", instruction);
+        return 2;
+    }
+    FILE *const in = fopen(answers, "rb");
+    FILE *const out = fopen(record, "wb");
+    if ((in == NULL) || (out == NULL))
+    {
+        fprintf(stderr, "the answers %s or the record %s was not reached\n", answers, record);
+        return 2;
+    }
+    fprintf(out, "# A form's fields, found on the part\n\n");
+    fprintf(out, "Written by `interface_sass_probe_fields read`. The form is `%s`. Each row is one of its operation "
+                 "bits turned over and run on the part, against the answer the form gives untouched. A bit the part "
+                 "refuses, one it reads inside a run the machine file records for an operand, one it reads outside "
+                 "every recorded run, and one that leaves the answer unchanged are told apart.\n\n",
+            instruction);
+    fprintf(out, "| bit | operand | part |\n|---|---|---|\n");
+    char line[256];
+    unsigned long long baseline = 0ull;
+    int have_baseline = 0;
+    unsigned int refused = 0u;
+    unsigned int inside = 0u;
+    unsigned int hidden = 0u;
+    unsigned int unread = 0u;
+    while (fgets(line, sizeof(line), in) != NULL)
+    {
+        unsigned int number = 0u;
+        char kind[64];
+        char word[64];
+        if (sscanf(line, "%u %63s %63s", &number, kind, word) < 2)
+        {
+            continue;
+        }
+        if (number == 0u)
+        {
+            have_baseline = (strcmp(kind, "answered") == 0) && (sscanf(word, "%llx", &baseline) == 1);
+            continue;
+        }
+        const unsigned int bit = number - 1u;
+        const unsigned int operand = fields_operand_at(form, bit);
+        const int in_run = (operand < form->operands);
+        char place[32];
+        if (in_run)
+        {
+            snprintf(place, sizeof(place), "%u", operand);
+        }
+        else
+        {
+            snprintf(place, sizeof(place), "-");
+        }
+        const char *part = NULL;
+        if (strcmp(kind, "refused") == 0)
+        {
+            refused += 1u;
+            part = "refused";
+        }
+        else
+        {
+            unsigned long long answered = 0ull;
+            const int read = have_baseline && (sscanf(word, "%llx", &answered) == 1) && (answered != baseline);
+            if (!read)
+            {
+                unread += 1u;
+                part = "unread";
+            }
+            else if (in_run)
+            {
+                inside += 1u;
+                part = "read";
+            }
+            else
+            {
+                hidden += 1u;
+                part = "read, no recorded run";
+            }
+        }
+        fprintf(out, "| %u | %s | %s |\n", bit, place, part);
+    }
+    fprintf(out, "\n%u refused, %u read inside a recorded run, %u read outside every recorded run, %u unread.\n",
+            refused, inside, hidden, unread);
+    fclose(in);
+    fclose(out);
+    printf("fields read %s: %u refused, %u inside, %u hidden, %u unread\n", instruction, refused, inside, hidden,
+           unread);
+    return 0;
+}
+
 int main(int count, char **words)
 {
+    if ((count == 6) && (strcmp(words[1], "read") == 0))
+    {
+        return fields_read(words[2], words[3], words[4], words[5]);
+    }
     if (count != 6)
     {
         fprintf(stderr,
-                "interface_sass_probe_fields <pattern cubin> <frame text> <machine file> <folder> <instructions>\n");
+                "interface_sass_probe_fields <pattern cubin> <frame text> <machine file> <folder> <instructions>\n"
+                "interface_sass_probe_fields read <machine file> <instructions> <answers> <record>\n");
         return 2;
     }
     const char *const folder = words[4];
