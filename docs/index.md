@@ -19,19 +19,11 @@ Measure how far an object sits from the most disordered arrangement of its own p
 
 [Setup](setup.md){ .md-button .md-button--primary }
 [The algorithm](method.md){ .md-button }
+[The engine](engine.md){ .md-button }
+[The transpiler](gnascor.md#the-transpiler){ .md-button }
+[Kolmogorov Complexity filetypes](engine.md#the-files){ .md-button }
 [Areas of research](research.md){ .md-button }
 
-</div>
-
-## What came back
-
-<div class="orior-stats">
-<div><strong>453 of 453</strong><span>crystal axes equal to the published edge as an integer, with no tolerance</span></div>
-<div><strong>0 refused</strong><span>of 9,396,207 true occurrences on byte strings, and of 213,840 across one to eight dimensions</span></div>
-<div><strong>1 of 200</strong><span>random borders as good as the dialect border it found, never given the labels</span></div>
-<div><strong>383 of 383</strong><span>subtraction games that return their Grundy period</span></div>
-<div><strong>13 to 22 times</strong><span>faster for seven hundred floors laid as one stack, every record equal</span></div>
-<div><strong>792</strong><span>exact numbers that hold a state of 100 quantum bits</span></div>
 </div>
 
 ## What is here
@@ -165,9 +157,16 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 
 </div>
 
-!!! note "This work does not exist without the speakers."
+## What came back
 
-    Every tool for language that comes out of this work requires a human to review its output. That is a condition of use, not a recommendation.
+<div class="orior-stats">
+<div><strong>453 of 453</strong><span>crystal axes equal to the published edge as an integer, with no tolerance</span></div>
+<div><strong>0 refused</strong><span>of 9,396,207 true occurrences on byte strings, and of 213,840 across one to eight dimensions</span></div>
+<div><strong>1 of 200</strong><span>random borders as good as the dialect border it found, never given the labels</span></div>
+<div><strong>383 of 383</strong><span>subtraction games that return their Grundy period</span></div>
+<div><strong>13 to 22 times</strong><span>faster for seven hundred floors laid as one stack, every record equal</span></div>
+<div><strong>792</strong><span>exact numbers that hold a state of 100 quantum bits</span></div>
+</div>
 
 [Licensing](licensing.md) says which license governs a use.
 
