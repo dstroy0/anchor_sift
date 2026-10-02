@@ -346,6 +346,99 @@ static std::string emit_lacking(const std::string &one, const std::string &other
 // the uniform register the kernel loads its memory descriptor into, ULDC.64 URn, c[0x0][0x118]; empty where none
 static std::string s_descriptor;
 
+// the part's answers on the bits the disassembler does not print, written by interface_sass_unprinted.sh
+#define EMIT_UNREAD_PATH "utils/test/src/c/transpiler/interface/interface_sass_unprinted.md"
+
+// A field of a form the part does not read: every value of it written into a question's instruction answered as that
+// instruction's text says, with no other bit held beside it. A bit apart there is apart in the encoding and not in
+// what the part does. The answer holds for the question it was asked over, and the record names where it was read
+struct EmitUnread
+{
+    const SassForm *form;
+    unsigned int first;
+    unsigned int last;
+};
+
+static std::vector<EmitUnread> s_unread;
+
+// the fields the part does not read, from the answers at `path`, each keyed by the form its question's instruction is
+// held by. A row is `| question | instruction | bits | the form holds | value | answer |`; a question whose bits name
+// one held beside its field, or one of whose values answered otherwise, gives none
+static void emit_unread_read(const char *path, const SassMachine *machine)
+{
+    struct Question
+    {
+        std::string instruction;
+        unsigned int first;
+        unsigned int last;
+        int printed;
+    };
+    std::vector<Question> questions;
+    std::ifstream file(path);
+    std::string line;
+    while (std::getline(file, line))
+    {
+        if ((line.size() < 3u) || (line.compare(0u, 2u, "| ") != 0) || (line[2] < '0') || (line[2] > '9'))
+        {
+            continue;
+        }
+        std::vector<std::string> cells;
+        for (size_t at = 2u; at < line.size();)
+        {
+            const size_t end = line.find(" |", at);
+            if (end == std::string::npos)
+            {
+                break;
+            }
+            cells.push_back(line.substr(at, end - at));
+            at = end + 3u;
+        }
+        if (cells.size() != 6u)
+        {
+            continue;
+        }
+        const unsigned int number = (unsigned int)strtoul(cells[0].c_str(), nullptr, 10);
+        if (number > questions.size())
+        {
+            questions.resize(number, Question{std::string(), 0u, 0u, 1});
+        }
+        Question &question = questions[number - 1u];
+        const std::string &bits = cells[2];
+        const size_t dash = bits.find('-');
+        question.instruction = cells[1].substr(1u, cells[1].size() - 2u);
+        question.first = (unsigned int)strtoul(bits.c_str(), nullptr, 10);
+        question.last = (dash == std::string::npos) ? 0u : (unsigned int)strtoul(bits.c_str() + dash + 1u, nullptr, 10);
+        const std::string printed = ", as printed";
+        const int as_printed = (cells[5].size() > printed.size()) &&
+                               (cells[5].compare(cells[5].size() - printed.size(), printed.size(), printed) == 0);
+        question.printed = question.printed && as_printed && (bits.find(',') == std::string::npos) &&
+                           (dash != std::string::npos);
+    }
+    for (const Question &question : questions)
+    {
+        SassInstructionParts parts;
+        sass_instruction_read(question.instruction.c_str(), &parts);
+        const SassForm *const form = question.instruction.empty() ? nullptr : sass_machine_form(machine, &parts);
+        if (question.printed && (form != nullptr))
+        {
+            s_unread.push_back(EmitUnread{form, question.first, question.last});
+        }
+    }
+}
+
+// 1 where `bit` lies in a field of `form` the part does not read
+static int emit_unread(const SassForm *form, unsigned int bit)
+{
+    for (const EmitUnread &unread : s_unread)
+    {
+        if ((unread.form == form) && (bit >= unread.first) && (bit <= unread.last))
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 // NVIDIA's text written in ours. The listing prints no descriptor on a memory operand whose bit 101 is clear, and the
 // field holds the kernel's descriptor register all the same: each such operand of a form that reads one is written
 // term[URn], the register the kernel loaded
@@ -450,19 +543,25 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         }
         const int operation = (low == line.low) && ((high & EMIT_OPERATION_HIGH) == (line.high & EMIT_OPERATION_HIGH));
         const int control = ((high & ~EMIT_OPERATION_HIGH) == (line.high & ~EMIT_OPERATION_HIGH));
-        assembled_same += operation ? 1u : 0u;
-        control_same += control ? 1u : 0u;
-        printf("         our assembler: operation bits %s, scheduler bits %s\n", operation ? "the same" : "apart",
-               control ? "the same" : "apart");
-        // the bits the operation is apart at, the high word's counted from 64
+        // the bits the operation is apart at, the high word's counted from 64, and whether every one lies in a field
+        // of the form holding NVIDIA's text that the part does not read
+        const SassForm *const form = sass_machine_form(machine, &parts);
         std::string apart;
+        int unread_only = (operation == 0) && (form != nullptr);
         for (unsigned int bit = 0u; (operation == 0) && (bit < 105u); bit += 1u)
         {
             const unsigned long long theirs = (bit < 64u) ? ((line.low >> bit) & 1ull) : ((line.high >> (bit - 64u)) & 1ull);
             const unsigned long long mine = (bit < 64u) ? ((low >> bit) & 1ull) : ((high >> (bit - 64u)) & 1ull);
             apart += (theirs != mine) ? ((apart.empty() ? "" : " ") + std::to_string(bit)) : "";
+            unread_only = unread_only && ((theirs == mine) || emit_unread(form, bit));
         }
-        const std::string bits = operation ? std::string() : emit_bits_apart(line.low, line.high, low, high);
+        assembled_same += (operation || unread_only) ? 1u : 0u;
+        control_same += control ? 1u : 0u;
+        printf("         our assembler: operation bits %s, scheduler bits %s\n",
+               operation ? "the same" : (unread_only ? "apart only at bits the part does not read" : "apart"),
+               control ? "the same" : "apart");
+        const std::string bits =
+            (operation || unread_only) ? std::string() : emit_bits_apart(line.low, line.high, low, high);
         if (!operation)
         {
             printf("           apart at bit %s\n%s", apart.c_str(), bits.c_str());
@@ -475,11 +574,14 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
                                                           emit_hex(high >> 41u, 6));
         const std::string difference = (!read && !operation && text_held) ? "a form holds its text, not these bits"
                                        : (!read && !operation)            ? "no form in the machine file"
-                                       : !operation                       ? "operation bits apart"
+                                       : (!operation && !unread_only)     ? "operation bits apart"
                                        : !control                         ? "scheduler bits"
                                                                           : "none";
-        emit_row(block, precept, address, line.text, reader, operation ? "same" : ("apart at bit " + apart), scheduler,
-                 "", difference, bits);
+        const std::string assembled = operation     ? "same"
+                                      : unread_only ? ("same where the part reads; apart at bit " + apart +
+                                                       ", which the part does not read")
+                                                    : ("apart at bit " + apart);
+        emit_row(block, precept, address, line.text, reader, assembled, scheduler, "", difference, bits);
     }
     printf("  of %zu: our reader gave NVIDIA's text for %u, our assembler NVIDIA's operation bits for %u and its "
            "scheduler bits for %u\n",
@@ -787,13 +889,16 @@ static int emit_record(const char *path, const char *listing)
     fprintf(file, "a row with a compiler column is our compiler's writing of the block's precept. ");
     fprintf(file, "Scheduler bits are 105 to 127, apart from the operation's. ");
     fprintf(file, "NVIDIA's text is written in ours: a memory operand whose descriptor the listing does not print is "
-                  "written term[%s], the uniform register the kernel loads c[0x0][0x118] into.\n\n",
+                  "written term[%s], the uniform register the kernel loads c[0x0][0x118] into. ",
             s_descriptor.empty() ? "URn" : s_descriptor.c_str());
+    fprintf(file, "Operation bits apart only in a field the part does not read, every value of it answering as printed "
+                  "in `" EMIT_UNREAD_PATH "`, are read as the same.\n\n");
     unsigned int instructions = 0u;
     unsigned int formless = 0u;
     unsigned int unheld = 0u;
     unsigned int unplaced = 0u;
     unsigned int operation_apart = 0u;
+    unsigned int unread_apart = 0u;
     unsigned int scheduler_apart = 0u;
     for (const EmitRow &row : s_rows)
     {
@@ -802,12 +907,14 @@ static int emit_record(const char *path, const char *listing)
         unheld += (row.difference == "a form holds its text, not these bits") ? 1u : 0u;
         unplaced += (row.difference == "a form holds its text and places none of an operand") ? 1u : 0u;
         operation_apart += (row.difference == "operation bits apart") ? 1u : 0u;
+        unread_apart += (row.operation.find("the part does not read") != std::string::npos) ? 1u : 0u;
         scheduler_apart += (!row.scheduler.empty() && (row.scheduler != "same") && (row.scheduler != "-")) ? 1u : 0u;
     }
     fprintf(file, "%u of NVIDIA's instructions read: %u with no form in the machine file, %u whose text a form holds "
                   "and whose bits it does not, %u whose text a form holds with an operand it places none of, %u with "
-                  "operation bits apart, %u with scheduler bits apart.\n\n",
-            instructions, formless, unheld, unplaced, operation_apart, scheduler_apart);
+                  "operation bits apart, %u apart only at bits the part does not read, %u with scheduler bits "
+                  "apart.\n\n",
+            instructions, formless, unheld, unplaced, operation_apart, unread_apart, scheduler_apart);
     fprintf(file, "| block | precept | address | NVIDIA | our reader | our assembler | scheduler | our compiler | difference |\n");
     fprintf(file, "|---|---|---|---|---|---|---|---|---|\n");
     for (const EmitRow &row : s_rows)
@@ -861,6 +968,7 @@ int main(int count, char **arguments)
     {
         return 1;
     }
+    emit_unread_read(EMIT_UNREAD_PATH, &machine);
     const std::vector<EmitLine> lines = emit_listing(arguments[1]);
     // the kernel's descriptor register, from the line that loads c[0x0][0x118] into a uniform register pair
     for (const EmitLine &line : lines)

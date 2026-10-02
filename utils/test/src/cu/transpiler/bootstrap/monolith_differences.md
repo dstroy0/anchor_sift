@@ -1,8 +1,8 @@
 # The monolith held against our compiler
 
-Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this file>` and written again on every run. Each block of the monolith's tagged build is NVIDIA's writing of one precept. A row with an address is one of NVIDIA's instructions held against our reader and our assembler; a row with a compiler column is our compiler's writing of the block's precept. Scheduler bits are 105 to 127, apart from the operation's. NVIDIA's text is written in ours: a memory operand whose descriptor the listing does not print is written term[UR4], the uniform register the kernel loads c[0x0][0x118] into.
+Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this file>` and written again on every run. Each block of the monolith's tagged build is NVIDIA's writing of one precept. A row with an address is one of NVIDIA's instructions held against our reader and our assembler; a row with a compiler column is our compiler's writing of the block's precept. Scheduler bits are 105 to 127, apart from the operation's. NVIDIA's text is written in ours: a memory operand whose descriptor the listing does not print is written term[UR4], the uniform register the kernel loads c[0x0][0x118] into. Operation bits apart only in a field the part does not read, every value of it answering as printed in `utils/test/src/c/transpiler/interface/interface_sass_unprinted.md`, are read as the same.
 
-98 of NVIDIA's instructions read: 0 with no form in the machine file, 0 whose text a form holds and whose bits it does not, 0 whose text a form holds with an operand it places none of, 1 with operation bits apart, 85 with scheduler bits apart.
+98 of NVIDIA's instructions read: 0 with no form in the machine file, 0 whose text a form holds and whose bits it does not, 0 whose text a form holds with an operand it places none of, 0 with operation bits apart, 1 apart only at bits the part does not read, 85 with scheduler bits apart.
 
 | block | precept | address | NVIDIA | our reader | our assembler | scheduler | our compiler | difference |
 |---|---|---|---|---|---|---|---|---|
@@ -89,7 +89,7 @@ Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this 
 | 15 | add | 00500 | `IMAD.IADD R9, R0, 0x1, R9` |  |  |  | `add_alone: IADD3 R9, R0, R9, RZ` | operation bits apart; NVIDIA's carries .IADD and ours does not; apart at 20 bits |
 | 16 | sub | 00530 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |
 | 16 | sub | 00540 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
-| 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` | same | apart at bit 87 89 90 | NVIDIA 0027e5, ours 0007f1 |  | operation bits apart |
+| 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` | same | same where the part reads; apart at bit 87 89 90, which the part does not read | NVIDIA 0027e5, ours 0007f1 |  | scheduler bits |
 | 16 | sub | 00560 | `STG.E.STRONG.SYS term[UR4][R4.64+0x3c], R9` | same | same | NVIDIA 0000f1, ours 0000f4 |  | scheduler bits |
 | 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` |  |  |  | `subtract_alone: IADD3 R9, R9, -R0, RZ` | operation bits apart; NVIDIA's carries .IADD and ours does not; apart at 24 bits |
 | 17 | bra | 00580 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x8]` | same | same | NVIDIA 000752, ours 000751 |  | scheduler bits |
@@ -154,15 +154,6 @@ Block 15, add, `IMAD.IADD R9, R0, 0x1, R9`, add_alone: IADD3 R9, R0, R9, RZ
 NVIDIA   00000000 01001111 11001010 00000000 00000111 10001110 00000010 00001001 00000000 00000000 00000000 00000001 00000000 00001001 01111000 00100100
 ours     00000000 01001111 11001010 00000000 00000111 11111111 11100000 11111111 00000000 00000000 00000000 00001001 00000000 00001001 01110010 00010000
                                                        ^^^   ^ ^^^   ^  ^^^^ ^^                                 ^                          ^ ^    ^^ ^  
-```
-
-Block 16, sub, `IMAD.IADD R9, R9, 0x1, -R0`, our assembler
-
-```
-         127      119      111      103      95       87       79       71       63       55       47       39       31       23       15       7        
-NVIDIA   00000000 01001111 11001010 00000000 00000111 10001110 00001010 00000000 00000000 00000000 00000000 00000001 00001001 00001001 01111000 00100100
-ours     00000000 00001111 11100010 00000000 00000001 00001110 00001010 00000000 00000000 00000000 00000000 00000001 00001001 00001001 01111000 00100100
-                   .         . .                  ^^  ^                                                                                                 
 ```
 
 Block 16, sub, `IMAD.IADD R9, R9, 0x1, -R0`, subtract_alone: IADD3 R9, R9, -R0, RZ
