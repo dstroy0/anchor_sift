@@ -7,7 +7,7 @@
 # free, by truthy and falsy verdicts on exact integers.
 #
 #   Usage:  python examples/0_experimental/exact_zeta_riemann_siegel.py [height] [bits]
-#           python examples/0_experimental/exact_zeta_riemann_siegel.py triangle first last
+#           python examples/0_experimental/exact_zeta_riemann_siegel.py triangle first last [cut ...]
 #
 # This reads no corpus. It sits in 0_experimental and is an entry in the analytic number theory
 # workbook, on its rail: it claims nothing about the Riemann hypothesis.
@@ -616,25 +616,29 @@ def spike_integral(d0, k, ell, scale):
 class Triangle:
     """The three sides over a cell, from values each asked once, the Euler-Maclaurin ones with C from the device."""
 
-    def __init__(self, tail):
+    def __init__(self, tail, cut=None, em=None):
+        """R through MathWorld's c_5 where `cut` is None, and through C_cut from the exact curves
+        otherwise. `em` may be shared between triangles: Euler-Maclaurin does not depend on the cut."""
         self.tail = tail
-        self.em = {}
+        self.at = [lambda key: rs_cut_at(key, cut), rs_at][int(cut is None)]
+        self.em = em if em is not None else {}
         self.rs = {}
         self.same = 1
         self.crossed = {}
 
     def fill(self, keys):
-        fresh = [k for k in dict.fromkeys(keys) if k not in self.em]
+        keys = list(dict.fromkeys(keys))
+        fresh = [k for k in keys if k not in self.em]
         if fresh:
             values, same = em_on_device(self.tail, fresh)
             self.em.update(values)
             self.same *= same
-        self.rs.update((k, self.rs.get(k) or rs_at(k)) for k in fresh)
+        self.rs.update((k, self.at(k)) for k in keys if k not in self.rs)
 
     def e_at(self, nu, j, bits, digits):
         """E = S - R at p = j / 2^bits, from Riemann-Siegel alone."""
         key = (nu, zz.pair(j * 5 ** bits, bits), digits)
-        self.rs[key] = self.rs.get(key) or rs_at(key)
+        self.rs[key] = self.rs.get(key) or self.at(key)
         s, r = self.rs[key]
         return s - r
 
@@ -864,6 +868,48 @@ def c_value(n, count, digits, a, bits):
     return acc
 
 
+def c_at(n, num, den, digits):
+    """C_n(num / den), |num / den| <= 1, at digits + GUARD: count and 2 count Taylor terms, the second at
+    twice the extra digits, agreeing with the guard dropped; disagreement doubles count. An odd C_n
+    turns sign with z, and the series is read at |z|."""
+    sign = 1 - 2 * (n % 2) * int(num < 0)
+    num = abs(num)
+    count, decided = 64, 0
+    while NOT(decided):
+        reads = []
+        for terms in (count, 2 * count):
+            work = digits + GUARD + terms + 3 * n
+            key = (n, terms, work)
+            GAMMAS[key] = GAMMAS.get(key) or CURVES.setdefault(work, Curve(work)).gamma(n, terms)
+            acc = 0
+            for g in reversed(GAMMAS[key]):
+                acc = acc * num // den + g
+            reads.append(c_read(acc, work, digits + GUARD))
+        decided = NOT(toward_zero(reads[0]) - toward_zero(reads[1]))
+        count *= 2 - decided
+    return sign * reads[1]
+
+
+def rs_cut_at(key, cut):
+    """S and R at x = nu + p, each at `digits`, with R through C_cut from the exact curves:
+    R = (-1)^(nu-1) sum over n <= cut of C_n(1 - 2p) u^-(2n+1), u^-(2n+1) = x^(-1/2) x^-n."""
+    nu, p, digits = key
+    work = digits + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, _ = theta_at(t, work)
+    cos_theta, sin_theta = zz.cos_sin(theta, work)
+    terms = [zz.power_minus_s(n, LINE, t, work)[:2] for n in range(1, nu + 1)]
+    main_sum = 2 * (cos_theta * sum(a for a, _ in terms) - sin_theta * sum(b for _, b in terms)) // scale
+    inv_root = naturals._integer_sqrt(scale * scale * unit // big_x)
+    remainder = sum(c_at(n, unit - 2 * big_p, unit, digits) * inv_root * unit ** n // (scale * big_x ** n)
+                    for n in range(cut + 1)) * (1 - 2 * ((nu - 1) % 2))
+    return toward_zero(main_sum), toward_zero(remainder)
+
+
 def c_read(v, digits, places):
     return compare(v, 0) * (abs(v) // 10 ** (digits - places))
 
@@ -1085,26 +1131,33 @@ def signed(v, places):
     return "-" * int(v < 0) + decimal(zz.pair(abs(v), places), places)
 
 
-def triangle_main(first, last):
-    """The triangle over cells first to last, with C from the device, one line a cell."""
+def triangle_main(first, last, cuts):
+    """The triangle over cells first to last, with C from the device, one line a cell for each cut.
+    A cut of -1 is MathWorld's c_0 to c_5; any other is R through C_cut from the exact curves.
+    Euler-Maclaurin is shared between the cuts."""
     out = sys.stdout
     tail = DeviceTail(os.path.join(ROOT, "build"))
     out.write("  the triangle between the two pairs, C on the device from %s\n" % tail.build())
-    triangle = Triangle(tail)
-    for nu in range(first, last + 1):
-        begun = time.perf_counter_ns()
-        (a, b, delta), kappa, places, digits, parts = triangle.cell(nu)
-        read, at = triangle.angle(a, b, delta)
-        out.write("  cell %d  a %s  b %s  c - b %s  kappa %s  a/b %s  cos gamma %s  parts 2^%d  points %d"
-                  "  device equals host %s  %d ms\n"
-                  % (nu, signed(a, digits), signed(b, digits), signed(delta, digits), signed(kappa, places),
-                     signed(a * 10 ** 12 // b, 12), signed(read, at), parts,
-                     len(triangle.em), bool(triangle.same), (time.perf_counter_ns() - begun) // 1000000))
-        out.flush()
-    return 1 - triangle.same
+    em, same = {}, 1
+    for cut in cuts:
+        triangle = Triangle(tail, cut=[cut, None][int(cut < 0)], em=em)
+        for nu in range(first, last + 1):
+            begun = time.perf_counter_ns()
+            (a, b, delta), kappa, places, digits, parts = triangle.cell(nu)
+            read, at = triangle.angle(a, b, delta)
+            out.write("  cut %d  cell %d  a %s  b %s  c - b %s  kappa %s  a/b %s  cos gamma %s  parts 2^%d"
+                      "  points %d  crossings %d  device equals host %s  %d ms\n"
+                      % (cut, nu, signed(a, digits), signed(b, digits), signed(delta, digits),
+                         signed(kappa, places), signed(a * 10 ** 12 // b, 12), signed(read, at), parts,
+                         len(triangle.em), len(triangle.crossed.get((nu, digits), [])), bool(triangle.same),
+                         (time.perf_counter_ns() - begun) // 1000000))
+            out.flush()
+        same *= triangle.same
+    return 1 - same
 
 
 if __name__ == "__main__":
     if sys.argv[1:2] == ["triangle"]:
-        raise SystemExit(triangle_main(int(sys.argv[2]), int(sys.argv[3])))
+        raise SystemExit(triangle_main(int(sys.argv[2]), int(sys.argv[3]),
+                                       [int(c) for c in sys.argv[4:]] or [-1]))
     raise SystemExit(main())
