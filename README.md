@@ -7,16 +7,27 @@
 
 Measure how far an object sits from the most disordered arrangement of its own parts.
 
-That is the entire method. Every discipline in this theory is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is the maximum entropy arrangement of those parts, and the measure is the exact departure from it.
+That is the entire method. Every discipline in this theory is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is the maximum entropy arrangement of those parts, and the measure is the exact departure from it. Under the method sits a machine that does arithmetic with no floor, and the reading runs on it at any scale its words can hold.
 
 ## What is here
 
-- **There is no prior estimate, no training set, no model or neural net.** An exact reading never merges two states that differ. [The algorithm](docs/method.md)
-- **A filter built from a subset never loses a true occurrence,** whatever picked the subset, whatever the alphabet is, and whether or not positions are ordered. Soundness is free; the reading is not. [The sift](docs/sift.md) · [Why the count is exact](docs/ENGINE_PROOF.md)
-- **The engine is optimized for no scale.** A size, a spacing, an order, a window, a width, a cell or a voxel count is never written into the machine. The machine is exact at every scale its words can hold, and where a word is too narrow it says so and never rounds. [The engine](docs/engine.md)
-- **The objective is to compile a program written in gnascor to any language,** including one nobody has met, and prove it is the same program everywhere. Where the language is unknown, the engine derives it by asking. [The language: gnascor](docs/gnascor.md)
-- **Measure the null under the same conditions as the effect.** An instrument that cannot be made to say no is not reporting anything when it says yes. [Areas of research](docs/research.md)
-- **Every claim, what killed it, and what still stands.** Hypotheses and refutations are kept. [Workbook](theory/workbooks/orior)
+1. **Arithmetic with no floor.** Every number in the engine is an exact integer, any power of two wide, with no ceiling. Nothing is rounded, a tie is broken by name and never by noise, and where a word is too narrow the machine says so. Pi runs to ten million digits in under two minutes, checked against a second series that shares no arithmetic with the first. The floor in published work belongs to the format, and the format is a choice. [The engine](docs/engine.md) · [Precision](theory/theory/precision)
+
+2. **The exact departure from entropy.** The reference is built out of the object itself: keep its counts, shuffle its arrangement, and the shuffle is the maximum entropy background, unique and with nothing chosen. Any part of a pattern is a necessary condition for it. A filter built from any subset therefore never loses a true occurrence: 9,396,207 on byte strings and 213,840 across one to eight dimensions, none refused. The part cannot rebuild the whole, and the exact compare stays. [The algorithm](docs/method.md) · [The sift](docs/sift.md) · [Delta Null](theory/theory/delta_null)
+
+3. **Vertical time compression.** When every step is exact, a chain of steps composes into one program before any input exists, and a thousand steps cost an input what one step costs. Seven hundred floors laid as one stack run 13 to 22 times faster than the same floors run one after another, and every record comes out equal. It does not evaluate fewer steps. It removes the time between them. [Vertical time compression](theory/workbooks/engine/vertical_time_compression.md)
+
+4. **Compression near the floor.** The floor of a file is its Kolmogorov complexity, which no program computes. The engine bounds it with a ladder of exact bit counts and reads the noise as exact functions of the data, never as a model. On 25 volumes of cell tracking the floor is 38.9 percent of raw, the engine writes 42.0, and every volume rebuilds voxel for voxel. [Compression](theory/workbooks/compression)
+
+5. **A register with no last digit.** A register is an integer read upward from its lowest bit without end, and a word of any width holds its lowest bits. A program of sums, differences, products, exclusive or and AND therefore gives the same answer at every width. The emitter writes a program straight to PTX, C or SASS with each target's rules held as data, and compiles itself to the same bytes. Where a target's rules are unknown, the engine derives them by asking the part. By the invariance theorem, the cost of carrying a program to another language is a constant. Above it sits an ordered machine with orders over the integers and a limit stage, and on it a program holds Chaitin's Omega between two exact numbers, with its first two bits proved. [Two crystals](theory/workbooks/engine/two_crystals.md) · [The engine, part by part](theory/workbooks/engine/engine_table.md)
+
+6. **Laplace's demon, and its bill.** Its eyes read agreement at every lag at once, and its arms are null draws. Measured, the demon can refuse and cannot predict: an exclusion is permanent and free, and building the inside back from the boundary is not. There is no wall of principle in the way, only a bill in precision. [Thought experiments](theory/thought_experiments/orior)
+
+7. **What an input stops reaching is a clock.** A value that stops depending on an input is a hard fact the machine gets for free. In SHA-256, no input reaches 214 of 256 positions at round seven, the support grows by about nine a round, and it closes near round 30 of 64. Nothing here claims a weakness in SHA-256. [Instruments](theory/theory/instruments) · [Cryptography](theory/theory/cryptography)
+
+8. **Precision spread.** Given seeds to enough places, every quantity an exact identity reaches comes out to the same places. Two seeds, the square roots of 2 and 3, give 2,230,148 exact square roots up to 10^800. [Precision](theory/theory/precision)
+
+9. **Measure the null under the same conditions as the effect.** An instrument that cannot be made to say no is not reporting anything when it says yes. Every bar is drawn and never derived, and every claim is kept with what killed it. [Areas of research](docs/research.md) · [Workbook](theory/workbooks/orior)
 
 ## Quick start
 
@@ -37,6 +48,7 @@ On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps
 - **A dialect border.** Given Lushootseed forms and never the labels, the border comes back as the stressed schwa, southern, beaten by 1 of 200 random borders. [Salishan](theory/theory/Salishan)
 - **A game.** Subtraction games return their Grundy period on 383 of 383 rows the detector can score. [Game Theory](theory/theory/game_theory)
 - **The periodic table.** The row lengths, 8, 8, 18, 18, 32, 32, are read off the shell closures as the differences between them. [Particle Physics](theory/theory/particle_physics)
+- **A quantum state.** Every amplitude is an exact number and never a float, and a state of 100 quantum bits is held in 792 of them, the squares of its amplitudes summing to exactly 1. [Exact quantum states](theory/theory/exact_simulation)
 - **Nothing told.** An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length.
 - **A negative.** Collision entropy is invariant under permutation. No bound built from a histogram can separate a structured domain from a rearrangement of the same symbols. [Delta Null](theory/theory/delta_null)
 
@@ -68,6 +80,6 @@ The method reads people as well as languages: it can name a writer, it reads med
 
 ## Licensing
 
-It will always be free to use under the AGPL. A negotiated commercial contract and an educator's license are the other two; [Licensing](docs/licensing.md) says which governs a use. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+It will always be free to use under the AGPL. A negotiated commercial contract and an educator's license are the other two, and each binds whoever signs it to every condition of use; [Licensing](docs/licensing.md) says which governs a use. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
