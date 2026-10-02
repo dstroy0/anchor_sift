@@ -4,10 +4,13 @@
 # (interface_sass_probe_take.c). nvdisasm turns each taken form's bits over, the probe's own reading.
 #
 #     utils/test/src/c/transpiler/interface/interface_sass_take.sh <listing> [machine file] [architecture]
+#     utils/test/src/c/transpiler/interface/interface_sass_take.sh --fields [machine file] [architecture]
+#
+# The second form gives every form the machine file holds its fields again and writes the file.
 set -u
 
 TOP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../../../.." && pwd)"
-LISTING="${1:?a listing, as cuobjdump -sass or nvdisasm prints it}"
+LISTING="${1:?a listing, as cuobjdump -sass or nvdisasm prints it, or --fields}"
 MACHINE="${2:-$TOP/src/c/transpiler/cubin/machines/sm_86}"
 ARCH="${3:-SM86}"
 TEST="$TOP/utils/test/src/c/transpiler/interface"
@@ -28,4 +31,8 @@ for source in "$INTERFACE/interface.c" "$INTERFACE/interface_names.c" "$TOP/src/
     OBJECTS+=("$object")
 done
 cc -o "$OUT/interface_sass_probe_take" "${OBJECTS[@]}" || exit 1
-"$OUT/interface_sass_probe_take" "$LISTING" "$MACHINE" "$ARCH" "$OUT/decode"
+if [ "$LISTING" = "--fields" ]; then
+    "$OUT/interface_sass_probe_take" --fields "$MACHINE" "$ARCH" "$OUT/decode"
+else
+    "$OUT/interface_sass_probe_take" "$LISTING" "$MACHINE" "$ARCH" "$OUT/decode"
+fi

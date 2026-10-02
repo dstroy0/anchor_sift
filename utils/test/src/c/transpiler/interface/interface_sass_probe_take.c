@@ -8,6 +8,10 @@
 // the machine file already holds is left as it stands, its fields and its encoding untouched.
 //
 //     interface_sass_probe_take <listing> <machine file> <architecture> <folder>
+//     interface_sass_probe_take --fields <machine file> <architecture> <folder>
+//
+// The second form gives every form the machine file holds its fields again by the probe's reading, prints each form
+// whose fields that changes, and writes the file.
 //
 // The listing is what cuobjdump -sass or nvdisasm prints; the architecture is named as the disassembler names it,
 // SM86; the folder holds the encodings the disassembler is given.
@@ -47,11 +51,75 @@ static char *take_file(const char *path)
     return text;
 }
 
+// 1 where two forms' runs of bits are the same
+static int take_runs_same(const SassForm *one, const SassForm *other)
+{
+    int same = (one->runs == other->runs) ? 1 : 0;
+    for (unsigned int at = 0u; same && (at < one->runs); at += 1u)
+    {
+        same = (one->run[at].operand == other->run[at].operand) && (one->run[at].first == other->run[at].first) &&
+               (one->run[at].last == other->run[at].last);
+    }
+    return same;
+}
+
+// a form's runs written as the machine file writes them
+static void take_runs_print(const SassForm *form)
+{
+    for (unsigned int at = 0u; at < form->runs; at += 1u)
+    {
+        printf("%s%u:%u-%u", (at == 0u) ? "" : ";", form->run[at].operand, form->run[at].first, form->run[at].last);
+    }
+}
+
+// every form of the machine file at `path` given its fields again by the probe's reading, and the file written: the
+// forms whose fields the reading changed counted and printed
+static int take_fields(const char *path, const char *architecture, const char *folder)
+{
+    static SassMachine s_was;
+    if (!sass_machine_read(&s_machine, path) || !sass_machine_read(&s_was, path))
+    {
+        fprintf(stderr, "the machine file %s did not read\n", path);
+        return 1;
+    }
+    if (!sass_machine_fields(&s_machine, architecture, folder))
+    {
+        fprintf(stderr, "a form's fields were not found\n");
+        return 1;
+    }
+    unsigned int changed = 0u;
+    for (unsigned int number = 0u; number < s_machine.forms; number += 1u)
+    {
+        if (take_runs_same(&s_machine.form[number], &s_was.form[number]))
+        {
+            continue;
+        }
+        changed += 1u;
+        printf("  %s\n    was ", s_machine.form[number].text);
+        take_runs_print(&s_was.form[number]);
+        printf("\n    now ");
+        take_runs_print(&s_machine.form[number]);
+        printf("\n");
+    }
+    printf("interface sass take: %u of %u forms given other fields\n", changed, s_machine.forms);
+    if (!sass_machine_write(&s_machine, path))
+    {
+        fprintf(stderr, "the machine file %s was not written\n", path);
+        return 1;
+    }
+    return 0;
+}
+
 int main(int count, char **words)
 {
+    if ((count == 5) && (strcmp(words[1], "--fields") == 0))
+    {
+        return take_fields(words[2], words[3], words[4]);
+    }
     if (count != 5)
     {
-        fprintf(stderr, "interface_sass_probe_take <listing> <machine file> <architecture> <folder>\n");
+        fprintf(stderr, "interface_sass_probe_take <listing> <machine file> <architecture> <folder>\n"
+                        "interface_sass_probe_take --fields <machine file> <architecture> <folder>\n");
         return 2;
     }
     char *const output = take_file(words[1]);
