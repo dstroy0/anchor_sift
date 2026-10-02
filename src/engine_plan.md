@@ -288,10 +288,14 @@ works there.
      multiplier of 0 or RZ reads IMAD.MOV, of 1 IMAD.IADD and of any other IMAD, and 2909 of the 2928 forms read
      back under their own operation from their own encoding. With `--forms` the
      script asks every form holding an unprinted operand, its operands filled by their kinds, and writes
-     `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 367 of their 379 runs answer alike
-     at every value asked. F2FP's run at 64 to 72 is refused as an illegal instruction at bits 68 to 71, and
-     BAR.SYNC's and NANOSLEEP's at every turned bit. The forms with an address, a label or no result to read are
-     not asked, and need a question of their own kind.
+     `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 375 of their 379 runs answer alike
+     at every value asked. Every cubin it writes declares 255 registers a thread: a kernel refuses a register
+     number past the count it declares, and F2FP's run at 64 to 72, refused at bits 68 to 71 under the pattern's
+     10, answers alike at every bit under 255. BAR.SYNC's and NANOSLEEP's runs are refused at every turned bit. A
+     form that takes an address is asked through the word it writes, and none of the 40 atomics holding an
+     unprinted register at 64 to 71 runs at its own bits: 22 are refused as illegal instructions, and 18 take a
+     32-bit or shared address that nothing the question holds backs. The forms with no result to read are not
+     asked.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
