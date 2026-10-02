@@ -85,7 +85,7 @@ def read_manifest(root):
                 continue
             # AN UNKNOWN CLASS IS REPORTED, NOT SKIPPED. Skipping it silently is fail-closed, since
             # the row then falls through to unlisted-is-HELD - but it is also invisible, and a
-            # misspelled class holds a file while its author believes it was classified. That bit
+            # class defined under a wrong name holds a file while its author believes it was classified. That bit
             # for real: the fifteen EXTERNAL rows added on 2026-09-11 were dropped by this line
             # until RANK learned the class, and nothing said so.
             #

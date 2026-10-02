@@ -20,7 +20,7 @@ import re
 #
 # THIS EXTENDS THE COMPILED CONTEXT EXEMPTION QUOTED ALREADY IS. That tuple exists for exactly this
 # question one instance at a time: the International Conference on Salish and Neighbouring Languages
-# spells its own name that way and thirteen extraction headers cite it. Pointing this at the same
+# defines its own name that way and thirteen extraction headers cite it. Pointing this at the same
 # shape is why it is two tuples of compiled patterns and not a new stage.
 #
 # BOUNDED TO THE ALPHABET TIER AND TO THE RUN, and that keeps it from being a bypass. A
@@ -29,7 +29,7 @@ import re
 #
 # THE SUBJECT IS THE CONVENTION AND NOT THE COUNTRY, and the pattern says so. A bare \bbritish\b
 # would exempt "British Telecom's optimisation", where the subject is a company and the convention
-# is a live finding. Each arm names a word about writing: `english`, `spelling`, `convention`,
+# is a live finding. Each arm names a word about writing: `english`, `convention`,
 # `usage`, `variant`, `orthography`.
 #
 # THE COST OF THIS ARM IS ZERO FINDINGS SILENCED across every tree here, because nothing in them
@@ -39,7 +39,7 @@ import re
 BRITISH_SUBJECT = (
     re.compile(
         r"\b(?:british|american|canadian|commonwealth|oxford)\s+"
-        r"(?:english|definition|spellings|convention|conventions|usage|variant|variants"
+        r"(?:english|definition|convention|conventions|usage|variant|variants"
         r"|orthograph\w*|dictionar\w*)",
         re.IGNORECASE,
     ),
@@ -47,7 +47,7 @@ BRITISH_SUBJECT = (
 )
 
 # A standard named by number. The terms around it are that standard's own field names: a published
-# field spelled the way its document spells it, quoted in a Doxygen brief with its default.
+# field defined the way its document defines it, quoted in a Doxygen brief with its default.
 # Rewriting a field name makes a comment cite something that is not in the document it names.
 #
 # THIS IS A REWRITE ERROR AND NOT A SCAN EXEMPTION. Written as a scan exemption it silences the

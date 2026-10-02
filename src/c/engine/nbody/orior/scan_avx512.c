@@ -54,7 +54,7 @@
  *
  * @param[in] bits Mask returned by a byte compare.
  * @return         How many lanes agreed.
- * @note Both arms defined. MSVC spells the intrinsic __popcnt64 and GCC and Clang spell it
+ * @note Both arms defined. MSVC defines the intrinsic __popcnt64 and GCC and Clang define it
  *       __builtin_popcountll, and neither name exists on the other compiler.
  */
 static size_t steer_popcount64(uint64_t bits)

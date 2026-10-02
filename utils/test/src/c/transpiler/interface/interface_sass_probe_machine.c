@@ -231,7 +231,7 @@ static int sass_form_fields(SassForm *form, const char *architecture, const char
 // 1 where the disassembler named every modifier of `operation`. It has three ways of saying it could not: it prints
 // INVALID<n>, it prints ???<n>, or it leaves the trailing dot with nothing after it. An encoding whose meaning the
 // disassembler will not state is not a form, because assembling from it would write bits nothing can say the part
-// reads. The three are one refusal wearing three spellings, and a form kept under any of them is a false branch
+// reads. The three are one refusal wearing three definitions, and a form kept under any of them is a false branch
 static int sass_operation_named(const char *operation)
 {
     const size_t length = strlen(operation);
@@ -240,7 +240,7 @@ static int sass_operation_named(const char *operation)
 }
 
 // 1 where `text` is an instruction a form can be kept from: the disassembler took it, it names an operation it could
-// spell whole, and every operand it prints is a kind the assembler knows where to put.
+// define whole, and every operand it prints is a kind the assembler knows where to put.
 //
 // The operation's name alone does not say which form this is. A form is keyed by its operation and the kind of each
 // operand together, because those are what decide where the assembler puts a number: SHF.L.U32 with a register in
@@ -338,7 +338,7 @@ int sass_machine_fields(SassMachine *machine, const char *architecture, const ch
     }
     char path[1024];
     snprintf(path, sizeof(path), "%s/machine", folder);
-    // the disassembler spells the part SM86 and everything else here spells it sm_86
+    // the disassembler defines the part SM86 and everything else here defines it sm_86
     snprintf(machine->part, sizeof(machine->part), "sm_%s", architecture + 2);
     const int written = sass_machine_write(machine, path);
     // the file read back, so that the assembler reading it elsewhere is reading what this wrote

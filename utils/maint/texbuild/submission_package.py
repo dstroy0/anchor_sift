@@ -318,7 +318,7 @@ def flatten(out):
 def strip_latex(text):
     """One run of LaTeX source as the plain text arXiv's web form wants.
 
-    Control sequences and their braces come out, the accented forms LaTeX spells in ASCII are left
+    Control sequences and their braces come out, the accented forms LaTeX defines in ASCII are left
     as their letter, and every run of whitespace becomes one space. The last part matters most:
     LaTeX ignores the line breaks in an abstract and arXiv prints them.
     """

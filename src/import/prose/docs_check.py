@@ -17,7 +17,7 @@ import os
 import re
 import sys
 
-# The tokens the writing standard bans outright, and the British spellings it bans by pattern.
+# The tokens the writing standard bans outright, and the British definitions it bans by pattern.
 BANNED = (
     r"\brather\b",
     r"\badd up\b",
@@ -39,7 +39,7 @@ BANNED = (
     # standard permits the contrast where a reader would otherwise land on the wrong one, and
     # reaching for every comma costs more true sentences than the tic is worth.
     r"(?m)(?:\A|(?<=[.!?] ))(?:(?:An?|The) )?[\w-]+, not (?:(?:an?|the) )?[\w-]+\.(?:\s|\Z)",
-    # Nothing inanimate speaks. The standard names the subjects it bans: a name, a spelling, a token
+    # Nothing inanimate speaks. The standard names the subjects it bans: a name, a definition, a token
     # or a type. A paper, a table and an entry are texts and legitimately say things, and an earlier
     # version of this pattern included them and reported nine sites that were all correct.
     #
@@ -47,16 +47,18 @@ BANNED = (
     # say, signal, encode, convey, advertise and announce -- code-documentation section 147 and
     # code-comments section 156 -- and six of the seven were transcribed. "The header makes clear
     # that the payload follows" was not caught until this line took the seventh.
-    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
+    r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b",
     # code-comments section 200 names three tokens and bounds them in the same sentence: "none has a
-    # legitimate use in a comment here". Two are enforced here: rather (above) and spelling (below).
+    # legitimate use in a comment here". Two are enforced here: rather (above) and the third token
+    # (below).
     # The third, the bare article, is not, and was removed: a \ba\b pattern matches the article in
     # nearly every sentence of ordinary prose, so it fired on the great majority of findings on a
     # normal page and buried the real ones. If the section means a single-letter identifier named a
     # and not the article, that is a different pattern than this and belongs written as one.
-    # A page explaining a character encoding writes spelling legitimately; a Doxygen block does not.
-    r"\bspelling\b",
+    # The third token is banned in every form, in a comment and on every page alike, and the define
+    # family stands in for it.
+    r"\b(?:mis)?spell(?:s|ed|ing|ings)?\b",
     r"load-bearing",
     r"\blabelled\b",
     r"\bmodelled\b",
@@ -792,10 +794,10 @@ WITHDRAWN = {
 # and against the 403,111 words of prose in this tree. That run split the table into three stages
 # that filter at different widths, and the stages behave nothing alike.
 #
-# ALPHABET. Spelling, and it recovers the locale before it says anything about a writer. The
+# ALPHABET. Definition, and it recovers the locale before it says anything about a writer. The
 # papers are Canadian and British convention linguistics, so neighbour fires at 17.3 per hundred
 # thousand words in them and analyse at 8.9, behaviour at 4.8, labelled at 2.9, centre at 2.3.
-# None of that is machine prose. It is where the author is, and the American spellings this tree
+# None of that is machine prose. It is where the author is, and the American definitions this tree
 # uses are a house rule and not a defect in anybody's English.
 #
 # WORD. Vocabulary, and the measurement mostly refutes it. Humans write crucial at 5.5, vital at
@@ -841,7 +843,7 @@ WITHDRAWN = {
 # it was wrong. Humans do use them. The assistant uses the list at 1.66 times the human rate.
 # docs-check: end quoting
 
-# The spelling stage. British convention against American, which is a locale and a house rule.
+# The definition stage. British convention against American, which is a locale and a house rule.
 LOCALE = (
     r"\blabelled\b",
     r"\bmodelled\b",
@@ -948,7 +950,7 @@ HUMAN_RATE = {
     r"\bendeavor\b": 0.4,
     r"\baforementioned\b": 0.4,
     r"\badd up\b": 0.4,
-    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|conveys|convey|announces|announce|advertises|advertise)\b": 0.4,
+    r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|conveys|convey|announces|announce|advertises|advertise)\b": 0.4,
     r"\buser.friendly\b": 0.3,
     r"\bunlock(s|ing)? the\b": 0.3,
     r"\bunderpin": 0.3,
@@ -992,7 +994,7 @@ HUMAN_RATE = {
 def stage_of(pattern):
     """Which of the three filters a pattern belongs to: alphabet, word or phrase.
 
-    A pattern is alphabet when it is a spelling. It is phrase when it matches across a space, and that
+    A pattern is alphabet when it is a definition. It is phrase when it matches across a space, and that
     makes it a shape instead of a vocabulary item. Everything else is word.
 
     This answers what a pattern LOOKS like. tier_of answers what authority it carries, and the two
@@ -1043,15 +1045,15 @@ def stage_of(pattern):
 # half its own plain sentence, or to drop the weaker half, and section 146's test decides which. A
 # machine cannot run that test. Section 143 says the same thing from the other side: bans name
 # CONSTRUCTIONS, so detection AND repair operate on constructions and never on words. TIER A is
-# report-only, permanently. A token-for-token spelling swap is the only class an autofix could ever
+# report-only, permanently. A token-for-token definition swap is the only class an autofix could ever
 # own here, and that is the alphabet stage and not this table.
 AUTHORITY = {
-    # code-comments:200: "Three Tokens Are Banned Outright: `spelling`, `a`, and `rather`." rather and
-    # spelling are enforced; the bare article a is not (a \ba\b pattern matches the article in nearly
-    # every sentence of prose -- see BANNED above). rather also carries a documentation ban of its own
-    # at code-documentation:110, and `spelling` is scoped to comments by its own sentence.
+    # code-comments:200 bans three tokens outright. rather and the third token are enforced; the bare
+    # article a is not (a \ba\b pattern matches the article in nearly every sentence of prose -- see
+    # BANNED above). rather also carries a documentation ban of its own at code-documentation:110,
+    # and the third token is banned in every form and on every page.
     r"\brather\b": "code-documentation:110, code-comments:200",
-    r"\bspelling\b": "code-comments:200, comments only",
+    r"\b(?:mis)?spell(?:s|ed|ing|ings)?\b": "code-comments:200, every page",
     r"\badd up\b": "code-documentation:110",
     # The measured tics. code-documentation:116 through :121 gives each one its rise.
     r"\bthe one that matters\b": "code-documentation:116",
@@ -1083,7 +1085,7 @@ AUTHORITY = {
         "code-documentation:146",
     r"\bhas no call and no text:": "code-documentation:146",
     # Nothing inanimate speaks. code-documentation:147, code-comments:156.
-    r"\b(name|spelling|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
+    r"\b(name|definition|token|type|structure|constraint)s?\s+(says|say|signals|signal|encodes|encode|"
     r"conveys|convey|announces|announce|advertises|advertise|makes clear|make clear)\b":
         "code-documentation:147, code-comments:156",
     # No conversational filler. Four forms are named by name in both files.
@@ -1114,18 +1116,15 @@ if _ORPHANS:
                      % (len(_ORPHANS), "\n  ".join(_ORPHANS)))
 
 
-# The tokens whose ban the standard scopes to comments in the sentence that states it.
-# code-comments:200 bans three outright and bounds them in the same breath: "none has a legitimate
-# use in a comment here". `rather` carries a documentation ban of its own at code-documentation:110
-# and is enforced everywhere; the bare article `a` is not enforced at all (a \ba\b pattern matches
-# the article in nearly every sentence); so `spelling` is the only one left to scope. A page about a
-# character encoding writes the word for what it means; a Doxygen block reaching for it is standing
-# in for the thing it will not name, which is what :201 says.
-COMMENT_ONLY = frozenset((r"\bspelling\b",))
+# The tokens whose ban holds in comments only. None is: of the three code-comments:200 bans
+# outright, `rather` carries a documentation ban of its own at code-documentation:110, the bare
+# article `a` is not enforced at all, and the third is banned on every page. The set stays for a
+# ban a standard scopes to comments.
+COMMENT_ONLY = frozenset()
 
 
 def tier_of(pattern):
-    """A for a named-construction ban, B for frequency-scored vocabulary, alphabet for a spelling.
+    """A for a named-construction ban, B for frequency-scored vocabulary, alphabet for a definition.
 
     Read AUTHORITY above for why this is not stage_of with different words.
     """
@@ -1136,8 +1135,8 @@ def tier_of(pattern):
 
 EM_DASH = "—"
 
-# Spellings that are somebody's name and never this project's prose. The International Conference on
-# Salish and Neighbouring Languages spells its own name that way, and thirteen extraction scripts
+# Definitions that are somebody's name and never this project's prose. The International Conference on
+# Salish and Neighbouring Languages defines its own name that way, and thirteen extraction scripts
 # cite it in their headers. Americanizing a title misquotes it. A hit inside one of these is
 # dropped before it is reported.
 QUOTED = (
@@ -1238,7 +1237,7 @@ LINK = re.compile(r"\[[^\]]*\]\(([^)#][^)]*)\)")
 # is an identifier. The filesystem has no answer to give about it, and producing one means reading
 # Doxygen's tag file, which this tool does not do.
 #
-# Both spellings of every command are accepted, since Doxygen takes @ref and \ref alike.
+# Both definitions of every command are accepted, since Doxygen takes @ref and \ref alike.
 DOXYGEN_TARGET = re.compile(r"^[@\\](ref|subpage|page|link|anchor|cite|see|copydoc)\b")
 
 # C declarator syntax that LINK matches by accident. A lambda in a fenced example writes its capture
@@ -1359,8 +1358,8 @@ def em_dashes(lines):
 # compiles with no error, no warning and no dropped glyph, and carries the artifact to the archive.
 #
 # The em dash rule above could not see any of it. A --- is an em dash after typesetting and the
-# check was looking for the character, so the one spelling a converter actually produces was the one
-# spelling it missed.
+# check was looking for the character, so the one definition a converter actually produces was the one
+# definition it missed.
 #
 # All three were found by reading rendered pages, which is what this exists to stop. In delta_null a
 # --- set as a stray dash above the attribution on printed page 53, two claims wrapped in asterisks

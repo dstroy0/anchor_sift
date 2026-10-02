@@ -1,6 +1,6 @@
 # The octant lexicon
 
-Eight regions, one letter each, and a word that a computation spells as it runs. The alphabet is
+Eight regions, one letter each, and a word that a computation defines as it runs. The alphabet is
 general. It reads a lit set on a boundary and knows nothing about what lit it, and the same eight
 letters serve any object that can be placed on a sphere. The instance it was tested on is SHA-256,
 and `examples/00_blob_viz_tools/octant_lex.py` lexes that hash round by round and prints the word.
@@ -16,7 +16,7 @@ counted.
 
 Choose some regions. A state writes one letter per region, the letter being the share of the lit set
 sitting inside it. A step of the computation rewrites every letter at once, and the numbers tracked
-across the steps are the word it spells.
+across the steps are the word it defines.
 
 **The regions are free.** They may sit at any origin, inside the object or outside it, they may
 overlap each other and anything else, and they may take any shape. The same topology rules govern

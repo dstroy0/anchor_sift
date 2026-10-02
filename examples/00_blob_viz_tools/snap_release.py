@@ -566,7 +566,7 @@ def _entropy(qubits=8):
         print("")
         if by_rank == by_family == by_moment:
             print("  The three orderings are identical. On these shapes the three measures are")
-            print("  one quantity spelled three ways and two of them are redundant here.")
+            print("  one quantity defined three ways and two of them are redundant here.")
         else:
             print("  The three orderings differ. Each measure carries something the other two do")
             print("  not: held correlation, description freedom, and resistance to being twisted are")

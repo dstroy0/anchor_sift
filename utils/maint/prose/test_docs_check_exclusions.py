@@ -499,7 +499,7 @@ class TheReportSaysWhatItMeasured(unittest.TestCase):
     """Three lines, and each one prevented a real confusion.
 
     A run reporting "0 findings" over two configured roots reads exactly like a clean tree, and that
-    is how a repository carrying dozens of British spellings reads as green.
+    is how a repository carrying dozens of British definitions reads as green.
     """
 
     def run_on(self, *args):

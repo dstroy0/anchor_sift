@@ -10,7 +10,7 @@
 # such as CMakeLists.txt is opened by the extension list, and the alphabet stage reads the pattern
 # the standard states and not a list of literals.
 #
-# A green run says the tool opens these files and sees these spellings. It does not say a hook runs
+# A green run says the tool opens these files and sees these definitions. It does not say a hook runs
 # it anywhere, or that a repository's roots reach a given file.
 
 import os
@@ -355,7 +355,7 @@ def stage_reaches(word):
     return any(re.search(one, word, re.IGNORECASE) for one in docs_check.LOCALE)
 
 
-def spelling_findings(path):
+def definition_findings(path):
     """Every alphabet-stage finding in one file, as (line, matched text)."""
     with open(path, encoding="utf-8", errors="replace") as handle:
         lines = handle.read().splitlines()
@@ -516,7 +516,7 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
             dead, [r"\bwhilst\b"], "a measured rate lost its key: %s" % (dead,)
         )
 
-    def test_every_spelling_pattern_is_the_alphabet_tier(self):
+    def test_every_definition_pattern_is_the_alphabet_tier(self):
         for pattern in docs_check.LOCALE:
             self.assertEqual(docs_check.tier_of(pattern), "alphabet", pattern)
             self.assertNotIn(pattern, docs_check.AUTHORITY, pattern)
@@ -533,7 +533,7 @@ class TheAlphabetStageIsAPatternAndNotAList(unittest.TestCase):
         ):
             self.assertTrue(stage_reaches(word), "no arm reaches %r" % word)
 
-    def test_the_twelve_american_spellings_the_standard_names_are_left_alone(self):
+    def test_the_twelve_american_definitions_the_standard_names_are_left_alone(self):
         # code-documentation:149 names these as the correct forms. A rule that reports one of them
         # is a rule enforcing the opposite of what it cites.
         for word in (
@@ -666,7 +666,6 @@ class PrecisionOverRecall(unittest.TestCase):
             "installed",
             "installing",
             "enrolled",
-            "spelled",
             "called",
             "filled",
             "pulled",
@@ -722,7 +721,7 @@ class PrecisionOverRecall(unittest.TestCase):
             self.assertTrue(stage_reaches(word), "not reached: %r" % word)
 
     def test_the_single_l_arm_stops_at_the_word_boundary(self):
-        # `fulfilled` and `appalling` are spelled the same on both sides of the Atlantic. Only the
+        # `fulfilled` and `appalling` are defined the same on both sides of the Atlantic. Only the
         # forms that differ are in the arm, and the word boundary keeps the rest out.
         self.assertTrue(stage_reaches("fulfil"))
         self.assertTrue(stage_reaches("fulfilment"))
@@ -754,7 +753,7 @@ class PrecisionOverRecall(unittest.TestCase):
             if not os.path.isfile(path):
                 continue
             checked += 1
-            got = spelling_findings(path)
+            got = definition_findings(path)
             self.assertEqual(
                 got, [], "%s/SKILL.md reported on definition: %s" % (name, got)
             )

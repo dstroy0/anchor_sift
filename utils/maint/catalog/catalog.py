@@ -215,7 +215,7 @@ def write_registry(rows):
 def standard_header():
     """The license header this tree puts at the top of every file, read from repotools.toml.
 
-    Read and not spelled here, because a second copy of the SPDX string is a second place to
+    Read and not defined here, because a second copy of the SPDX string is a second place to
     change it and nothing compares the two. repotools.toml already holds the project name, the
     copyright line and the SPDX expression.
 

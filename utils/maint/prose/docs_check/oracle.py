@@ -35,7 +35,7 @@ WORD_TABLE = os.path.join(TABLES, "voice.tsv")
 PROJECT_TABLE = os.path.join(TABLES, "project_words.tsv")
 WEB_TABLE = os.path.join(TABLES, "voice_word_web.tsv")
 
-# A word as the tables spell one: lower case, and an apostrophe or a hyphen inside it counts as part
+# A word as the tables define one: lower case, and an apostrophe or a hyphen inside it counts as part
 # of the word. Splitting on those would turn `doesn't` into `doesn` and `t`, and neither is a word
 # the corpus holds.
 WORD = re.compile(r"[a-z][a-z'-]*")

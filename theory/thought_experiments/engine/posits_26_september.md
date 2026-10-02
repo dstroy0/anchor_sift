@@ -1,6 +1,6 @@
 # The posits of 26 September
 
-**Purpose:** Doug's posits of 26 September, kept verbatim with only the spelling corrected, each with its check under it. The checks say what is derived, what is measured, what is a reading, and what no run has tested.
+**Purpose:** Doug's posits of 26 September, kept verbatim with only the definition corrected, each with its check under it. The checks say what is derived, what is measured, what is a reading, and what no run has tested.
 **Scope:** the three truths, the tower, the projection, dwell as the bulk, dwell and entropy, the dwell bench, and the compiled program. Everything here has the status theory, as the engine workbook's README defines it, unless a line says otherwise. Code is cited at orior `d09b489`, and in the section on the compiled program at `ddeccb3`.
 
 ## The three truths and the tower

@@ -20,7 +20,7 @@ from .locale import LOCALE
 # ALPHABET. Orthography, and it recovers the locale before it says anything about a writer. The
 # papers are Canadian and British convention linguistics. Neighbour fires at 17.3 per hundred
 # thousand words in them and analyse at 8.9, behaviour at 4.8, labelled at 2.9, centre at 2.3.
-# None of that is machine prose. It is where the author is, and the American spellings this tree
+# None of that is machine prose. It is where the author is, and the American definitions this tree
 # uses are a house rule and not a defect in anybody's English.
 #
 # WORD. Vocabulary, and the measurement mostly refutes it. Humans write crucial at 5.5, vital at
@@ -211,7 +211,7 @@ HUMAN_RATE = {
 def stage_of(pattern):
     """Which of the three filters a pattern belongs to: alphabet, word or phrase.
 
-    A pattern is alphabet when it matches one spelled form. It is phrase when it matches across a
+    A pattern is alphabet when it matches one defined form. It is phrase when it matches across a
     space, and that makes it a shape instead of a vocabulary item. Everything else is word.
 
     This answers what a pattern LOOKS like. tier_of answers what authority it carries, and the two

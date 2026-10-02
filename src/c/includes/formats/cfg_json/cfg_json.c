@@ -41,10 +41,10 @@ static unsigned int cfg_json_token(CfgJsonWalk *walk, CfgJsonKind kind, size_t s
     return slot + 1u;
 }
 
-static int cfg_json_literal(CfgJsonWalk *walk, const char *spelled, CfgJsonKind kind)
+static int cfg_json_literal(CfgJsonWalk *walk, const char *defined, CfgJsonKind kind)
 {
-    const size_t size = strlen(spelled);
-    const int matches = ((walk->length - walk->at) >= size) && (memcmp(&walk->text[walk->at], spelled, size) == 0);
+    const size_t size = strlen(defined);
+    const int matches = ((walk->length - walk->at) >= size) && (memcmp(&walk->text[walk->at], defined, size) == 0);
     walk->reason = matches ? walk->reason : "a value the scheme does not know";
     const unsigned int made = matches ? cfg_json_token(walk, kind, walk->at, walk->at + size) : 0u;
     walk->at += matches ? size : 0u;

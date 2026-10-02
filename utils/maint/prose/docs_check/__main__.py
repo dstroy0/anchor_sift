@@ -15,7 +15,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # That same form also puts THIS directory at the front of the path, where every module beside this
-# one is importable as a top level name and shadows any standard library module spelled the same.
+# one is importable as a top level name and shadows any standard library module defined the same.
 # locale.py shadows the real locale, which argparse reaches through gettext, and argparse then
 # raises on a missing attribute instead of parsing. Take this directory back off: the line above
 # already put the directory holding the package on, and that is the one an import needs.

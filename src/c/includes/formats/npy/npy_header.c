@@ -140,21 +140,21 @@ static unsigned int npy_word(NpyText *text, const char *word)
     return 1u;
 }
 
-static unsigned int npy_named(const unsigned char *spelled, unsigned long long length, const char *name)
+static unsigned int npy_named(const unsigned char *defined, unsigned long long length, const char *name)
 {
     const size_t size = strlen(name);
-    return ((length == size) && (memcmp(spelled, name, size) == 0)) ? 1u : 0u;
+    return ((length == size) && (memcmp(defined, name, size) == 0)) ? 1u : 0u;
 }
 
-static unsigned int npy_description(const unsigned char *spelled, unsigned long long length, NpyLayout *layout)
+static unsigned int npy_description(const unsigned char *defined, unsigned long long length, NpyLayout *layout)
 {
     if (length != 3ull)
     {
         return 0u;
     }
-    const unsigned char order = spelled[0u];
-    const unsigned char kind = spelled[1u];
-    const unsigned char digit = spelled[2u];
+    const unsigned char order = defined[0u];
+    const unsigned char kind = defined[1u];
+    const unsigned char digit = defined[2u];
     if ((digit < '1') || (digit > '8'))
     {
         return 0u;

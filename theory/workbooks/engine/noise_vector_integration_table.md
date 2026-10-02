@@ -94,7 +94,7 @@ The root noise of a box (E16 in [engine_table.md](engine_table.md)) reads rows 8
 
 ## What was asked for, verbatim
 
-25 September, spelling corrected ("q4 verbatim text, corrected for spelling only"):
+25 September, definition corrected ("q4 verbatim text, corrected for definition only"):
 
 <!-- docs-check: quoting -->
 > "to our noise detector we want to add dark current shot noise, reset noise, 1/f noise flicker, row and col noise (banding patterns), clock induced charge/spurious charge noise. multiplicative excess noise (sensor dependent scalar), partition noise, crosstalk noise (optical or electrical), this will work for compression and filtering"

@@ -11,8 +11,8 @@ import re
 
 EM_DASH = "—"
 
-# Spellings that are somebody's name and never this project's prose. The International Conference on
-# Salish and Neighbouring Languages spells its own name that way, and thirteen extraction scripts
+# Definitions that are somebody's name and never this project's prose. The International Conference on
+# Salish and Neighbouring Languages defines its own name that way, and thirteen extraction scripts
 # cite it in their headers. Americanizing a title misquotes it. A hit inside one of these is
 # dropped before it is reported.
 QUOTED = (

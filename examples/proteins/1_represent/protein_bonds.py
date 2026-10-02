@@ -81,7 +81,7 @@ def main():
             continue
         joined = numpy.concatenate([piece for piece, _ in pieces], axis=0)
         lengths = numpy.sqrt((joined ** 2).sum(axis=1))
-        spelled = ", ".join("%.2f" % float(phase.mean()) for phase in phases)
+        defined = ", ".join("%.2f" % float(phase.mean()) for phase in phases)
 
         seen = sorted(float(phase.mean()) for phase in phases)
         agrees = all(abs(value - target) < 0.06
@@ -95,7 +95,7 @@ def main():
         total += 1
         hits += 1 if direct == 3 else 0
         out.write("  %-8s %-8d %-30s %-9s %-11s %s\n"
-                  % (code, len(joined), spelled,
+                  % (code, len(joined), defined,
                      "%d at %.2f" % (found, score) if found is not None else "none",
                      "%d at %.2f" % (direct, direct_score) if direct is not None else "none",
                      "yes" if agrees else "no"))

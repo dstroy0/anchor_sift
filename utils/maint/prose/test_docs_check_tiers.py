@@ -136,7 +136,7 @@ class StandardsPassTheCheckerTheyAuthorize(unittest.TestCase):
                 ),
             )
 
-    def test_no_spelling_finding_on_either_standard(self):
+    def test_no_definition_finding_on_either_standard(self):
         # code-documentation:149 is the sentence that defines the house convention. A British hit
         # on it would mean the alphabet stage disagrees with the rule that wrote it.
         for name, path in STANDARDS.items():
@@ -237,9 +237,9 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
     """Each phrase the standards ban BY NAME, in a carrier sentence, run through the checker.
 
     This is the test that found the transcription failures, and it found four that nobody had
-    pointed at: `make clear` missing from a verb list both files spell out, both of section 146's
+    pointed at: `make clear` missing from a verb list both files define, both of section 146's
     own X-not-Y examples falling outside all three X-not-Y patterns because each wanted a copula and
-    an article, and the `spelling` token ban demoted to a construction ban.
+    an article, and the third token code-comments:200 bans outright demoted to a construction ban.
 
     A transcription failure is never isolated to the instances somebody noticed. This is a table
     and not three assertions.
@@ -338,6 +338,7 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
         ("The pool is drained, so an entry is dropped.", "so an", "code-comments:200"),
         ("The bound is read here rather than at the call.", "rather", "code-comments:200"),
         ("The spelling is wrong in three places.", "spelling", "code-comments:200"),
+        ("The rule spells it two ways.", "spells", "code-comments:200"),
         (
             "The pool is sized here, which is the bound the caller sees.",
             "which is the",
@@ -389,19 +390,25 @@ class EveryRuleAgainstTheSentenceThatStatesIt(unittest.TestCase):
             % "\n  ".join("%s (%s) fired only as %s" % one for one in wrong),
         )
 
-    def test_spelling_is_scoped_to_comments_by_its_own_sentence(self):
-        # code-comments:200: "none has a legitimate use in a comment here". The scope is in the
-        # sentence. The code carries it. A page about a character encoding writes the word.
-        said = ["The spelling of the identifier is what the linker sees."]
-        self.assertTrue(list(docs_check.banned_hits(said, comments=True)))
-        self.assertEqual(
-            [
-                one
-                for one in docs_check.banned_hits(said, comments=False)
-                if one[1] == r"\bspelling\b"
-            ],
-            [],
-        )
+    def test_the_third_token_is_banned_in_every_form_on_every_page(self):
+        # code-comments:200 bans it outright, and the ban holds on a page as it does in a comment.
+        # The define family stands in for it and is never reported.
+        pattern = r"\b(?:mis)?spell(?:s|ed|ing|ings)?\b"
+        for said in (
+            "The spelling of the identifier is what the linker sees.",
+            "Two spellings of one module.",
+            "The target spells it its own way.",
+            "The intrinsic is spelled here.",
+            "A misspelled class holds a file.",
+        ):
+            for comments in (True, False):
+                hits = [one for one in docs_check.banned_hits([said], comments=comments) if one[1] == pattern]
+                self.assertTrue(hits, "%r not reported, comments=%s" % (said, comments))
+        said = ["The definition of the identifier is what the linker sees, and the target defines it."]
+        for comments in (True, False):
+            self.assertEqual(
+                [one for one in docs_check.banned_hits(said, comments=comments) if one[1] == pattern], []
+            )
 
     def test_the_mid_sentence_appositive_is_left_alone(self):
         # Section 146 permits the contrast where a reader would otherwise land on the wrong one.

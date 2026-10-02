@@ -50,7 +50,7 @@ def shuffled_table():
     Morse had regional variants that gave different codes to the same letters. A code table is
     therefore a choice and never part of the message. Permuting it keeps every code length Morse has and
     destroys which letter each one was given to, which separates the two regularities: how often a
-    word recurs cannot depend on how its letters are spelled, and how long a code is was somebody's
+    word recurs cannot depend on how its letters are defined, and how long a code is was somebody's
     decision. The permutation is fixed, and a run reproduces.
     """
     letters = sorted(CODE.keys())

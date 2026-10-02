@@ -1,6 +1,6 @@
 # The untested posits
 
-**Purpose:** Doug's posits that no run has tested yet, kept verbatim with only the spelling corrected, and the drafts' claims that reach past anything the engine measures. Each one sits beside the question it leaves open. What the engine already shows about them stays in the engine workbook, which links here.
+**Purpose:** Doug's posits that no run has tested yet, kept verbatim with only the definition corrected, and the drafts' claims that reach past anything the engine measures. Each one sits beside the question it leaves open. What the engine already shows about them stays in the engine workbook, which links here.
 **Scope:** the passages moved out of `workbooks/engine/` on 24 and 25 September. Everything here has the status theory, as the engine workbook's README defines it, unless a line says otherwise.
 
 ## The wire and the witness

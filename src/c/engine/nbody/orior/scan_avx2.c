@@ -56,7 +56,7 @@
  *
  * @param[in] bits Mask returned by a movemask.
  * @return         How many lanes agreed.
- * @note Both arms defined. MSVC spells the intrinsic __popcnt and GCC and Clang spell it
+ * @note Both arms defined. MSVC defines the intrinsic __popcnt and GCC and Clang define it
  *       __builtin_popcount, and neither name exists on the other compiler.
  */
 static size_t steer_popcount(unsigned int bits)

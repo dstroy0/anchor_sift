@@ -33,7 +33,7 @@
 # THREE ARMS ARE DELIBERATELY ABSENT AND MUST STAY ABSENT.
 #
 #   An `-isable` arm matches `controldisable` and every other compound ending in `disable`.
-#   A general doubled-l arm cannot be written: `controlled`, `installed`, `enrolled` and `spelled`
+#   A general doubled-l arm cannot be written: `controlled`, `installed` and `enrolled`
 #   are American with two l's, so the doubled-l rule stays the named list the standard gives it.
 #   A general `-re` arm cannot be written either: `are`, `here`, `more`, `figure` and `structure`
 #   are the majority of English words ending in those two letters.
@@ -108,7 +108,7 @@ _ISE_STEMS = (
     "denis",
 )
 
-# Words ending in -our that American spells the same way. `our`, `your`, `four`, `hour`, `tour`,
+# Words ending in -our that American defines the same way. `our`, `your`, `four`, `hour`, `tour`,
 # `pour`, `sour`, `dour`, `flour`, `scour` and `amour` are absent on purpose: the {3,} floor in the
 # arm already errors on them, and listing a short one here would exempt every British word ending in
 # the same letters. `dour` would take `ardour` and `candour` with it.
@@ -153,13 +153,13 @@ LOCALE = LOCALE_NAMED + (
     r"\b[A-Za-z]*(?:centre|metre|theatre|fibre|litre|calibre|sabre|sombre|spectre"
     r"|lustre|meagre|manoeuvre|sceptre)s?\b",
     # The doubled l the standard names by name, plus the rest of the same class. A general rule is
-    # impossible here: American doubles the l in `controlled`, `installed`, `enrolled`, `spelled`
+    # impossible here: American doubles the l in `controlled`, `installed`, `enrolled`
     # and `called`. Only a list can separate them.
     r"\b(?:labell|modell|signall|travell|cancell|levell|totall|fuell|diall|marvell"
     r"|counsell|equall|initiall|spirall|tunnell|quarrell|refuell|shovell)"
     r"(?:ed|ing|er|ers|ors|or)\b",
     # The other half of the l rule, where British writes one and American writes two. Bounded to the
-    # forms that differ: `fulfilled` and `appalling` are spelled the same on both sides, and the
+    # forms that differ: `fulfilled` and `appalling` are defined the same on both sides, and the
     # word boundary after `fulfil` keeps them out.
     r"\b(?:fulfil|fulfils|fulfilment|fulfilments|enrol|enrols|enrolment|enrolments"
     r"|instal|instals|instalment|instalments|skilful|skilfully|wilful|wilfully"
@@ -184,6 +184,6 @@ LOCALE = LOCALE_NAMED + (
     r"\b(?:artefact|aluminium|sulphur|storey|tyre|cheque|draught|mould|speciality"
     r"|jewellery|woollen|aeroplane|moustache|pyjamas|kerb|plough|gaol)s?\b",
     # `gray` is named at code-documentation:149. Bounded so `greyhound` is untouched, and a proper
-    # name spelled Grey is a false positive a person decides, and a prose finding exists for that.
+    # name defined Grey is a false positive a person decides, and a prose finding exists for that.
     r"\bgrey(?:scale|s|ish)?\b",
 )

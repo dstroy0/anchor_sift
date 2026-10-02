@@ -192,7 +192,7 @@ STDLIB = {
     "EOF",
 }
 # This library's own grammar: the fixed words the shape is written in. `ok` is where an entry states
-# its outcome, the width typedefs are what every signature is spelled in, and the DECLS macros
+# its outcome, the width typedefs are what every signature is defined in, and the DECLS macros
 # bracket every header. These say nothing about which module is being read. Blinding them costs
 # the reader the shape and buys no independence.
 SHAPE = {
@@ -262,7 +262,7 @@ IDENT = re.compile(r"\b[A-Za-z_]\w*\b")
 # The shape suffixes, longest first so `Vars` is tested before the bare object name.
 ROLE_SUFFIX = ("Vars", "Args", "Ctx", "Ns", "V")
 # The member whose type IS the shape: a function pointer inside a dispatch table. The signature is
-# not fixed here - entries take spans, caps and flags, and every table spells them differently - so
+# not fixed here - entries take spans, caps and flags, and every table defines them differently - so
 # what identifies an entry is the pointer-to-function member itself, not its argument list.
 ENTRY_MEMBER = re.compile(r"\(\s*\*\s*(?:const\s+)?(\w+)\s*\)\s*\(")
 # A function-like macro and its body: the cast that reads a region off the borrow.
@@ -338,7 +338,7 @@ class Blinder(object):
     def _object(self, stem):
         """The generic identity for a module's object stem, shared by all of its role types.
 
-        Sha256Ns, Sha256Vars, Sha256V and Sha256Ctx are four spellings of ONE module, and giving
+        Sha256Ns, Sha256Vars, Sha256V and Sha256Ctx are four definitions of ONE module, and giving
         them four unrelated generic names would hide the very relationship the shape is built on.
         """
         key = ("obj", stem)

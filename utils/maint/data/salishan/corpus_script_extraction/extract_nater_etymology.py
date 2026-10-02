@@ -28,7 +28,7 @@
 # this language. The who column says which, and only the Bella Coola column reaches the pure stream.
 #
 # The cognate column is found by its opening token, which is one of the abbreviations the paper
-# defines for itself in section 1.1, a spelled-out language name, or a reconstruction opening with an
+# defines for itself in section 1.1, a defined language name, or a reconstruction opening with an
 # asterisk. All three are the paper's own notation. No rule here was invented for the purpose.
 #
 # THE PRACTICAL ORTHOGRAPHY IS THE SAME WORDS IN DIFFERENT LETTERS
@@ -147,7 +147,7 @@ NUMBERED = re.compile(r"^(\d{1,4})\s+(\S.*)$")
 # year or a page range in the references, and the references sit under the last row of the table.
 LAST_ENTRY = 1407
 
-# The abbreviations section 1.1 defines, plus the languages the body spells out. A token from this
+# The abbreviations section 1.1 defines, plus the languages the body defines. A token from this
 # set opens the cognate column, and everything from there to the end of the line is somebody else's
 # language. Kw is the paper's Kwakiutl, which is Kwak̓wala.
 TAGS = frozenset(

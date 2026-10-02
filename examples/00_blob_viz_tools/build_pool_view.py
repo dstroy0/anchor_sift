@@ -114,7 +114,7 @@ def _escape(text):
     return (str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
-def _spell_age(seconds):
+def _define_age(seconds):
     """An age a reader can judge at a glance, and not a raw second count."""
     seconds = float(seconds)
     if seconds < 90.0:
@@ -254,12 +254,12 @@ def render(telemetry, totals, rates, chain, pool=None, liveness=None):
             banner = ('<div class="live ok">MINING. The log was written %.0f s ago, so the '
                       'figures below are current.</div>' % (age or 0.0))
         else:
-            spell = "unknown" if age is None else _spell_age(age)
+            define = "unknown" if age is None else _define_age(age)
             why = liveness.get("why") or "the log simply stopped being written"
             banner = ('<div class="live stale">NOT MINING. The log has not been written for '
                       '<b>%s</b>, so every figure below is a HISTORICAL TOTAL and none of it is '
                       'current. The miner\'s last word was: <b>%s</b></div>'
-                      % (spell, _escape(why)))
+                      % (define, _escape(why)))
 
     def cell(label, value, note=""):
         extra = ('<div class="note">%s</div>' % note) if note else ""

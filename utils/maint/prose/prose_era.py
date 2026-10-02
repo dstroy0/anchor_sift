@@ -70,7 +70,7 @@ data speaker speakers dialect dialects verb verbs noun nouns phrase clause sente
 def year_of(name):
     """The year a paper belongs to, from its filename.
 
-    Two spellings. Most open with the year. The rest carry an ICSNL volume number, and volume n is
+    Two definitions. Most open with the year. The rest carry an ICSNL volume number, and volume n is
     the year 1965 + n, which the extraction headers confirm at both ends: volume 50 states 2015 and
     volume 60 states 2025.
     """

@@ -14,7 +14,7 @@ from .locale import LOCALE
 
 
 
-# The tokens the writing standard bans outright, and the British spellings it bans by pattern.
+# The tokens the writing standard bans outright, and the British definitions it bans by pattern.
 #
 # LOCALE is spliced in and is the single copy of the British patterns. The order of the groups is
 # the order a hit is reported through: where two patterns overlap a site, whichever group BANNED

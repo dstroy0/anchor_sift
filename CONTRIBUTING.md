@@ -72,7 +72,7 @@ Every arm has to agree with `orior_naive` on every row. A row printing `DIFFER` 
 
 ## Writing
 
-Prose here is plain. One fact per sentence, subject and verb and object, no em dashes, American spellings. `theory/workbooks/orior` says which words are the field's and which this work minted, and the field's word wins wherever one exists.
+Prose here is plain. One fact per sentence, subject and verb and object, no em dashes, American definitions. `theory/workbooks/orior` says which words are the field's and which this work minted, and the field's word wins wherever one exists.
 
 `theory/theory/Salishan` is generated from `paper_config.py` by `pure_corpus_index.py`, which keeps a speaker's name typed in exactly one place. Do not edit it by hand.
 

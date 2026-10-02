@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// precepts.h: the alphabet every operation is spelled in
+// precepts.h: the alphabet every operation is defined in
 #ifndef PRECEPTS_H
 #define PRECEPTS_H
 
