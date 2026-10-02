@@ -285,8 +285,12 @@ works there.
      predicate the same operation leaves out of its text at PT, as a load's at bits 64 to 67, is that operand's
      run and its form's own bits where the text drops it; the load's holds its number inverted, and the part
      answers each printed predicate as written. Our reader names IMAD.MOV and IMAD.IADD by the form whose mark
-     matches and not by the multiplier, and reads `IMAD.IADD R7, R0, 0x1, R7` as IMAD.MOV. The other unprinted
-     operands are not yet asked.
+     matches and not by the multiplier, and reads `IMAD.IADD R7, R0, 0x1, R7` as IMAD.MOV. With `--forms` the
+     script asks every form holding an unprinted operand, its operands filled by their kinds, and writes
+     `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 367 of their 379 runs answer alike
+     at every value asked. F2FP's run at 64 to 72 is refused as an illegal instruction at bits 68 to 71, and
+     BAR.SYNC's and NANOSLEEP's at every turned bit. The forms with an address, a label or no result to read are
+     not asked, and need a question of their own kind.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
