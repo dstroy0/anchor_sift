@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_ask.c: the questions the cell puts to the part in code no toolchain wrote. Every other piece here
+// interface_sass_probe_ask.c: the questions the interface puts to the part in code no toolchain wrote. Every other piece here
 // reads what the part's own tools say about it; this one runs the part and reads back what it answers. Nothing else
 // tells an encoding the part executes from one its disassembler merely named
-#include "cell_sass_probe.h"
+#include "interface_sass_probe.h"
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
-// the cubin at `path` run on the device through cell_ptx_probe over one case whose first word is `first`, its answer
+// the cubin at `path` run on the device through interface_ptx_probe over one case whose first word is `first`, its answer
 // into `answered`: 1, or 0 with the reason printed
 static int sass_cubin_answer_first(SassProbe *probe, const char *path, unsigned int first, char *answered, size_t room)
 {
@@ -33,7 +33,7 @@ static int sass_cubin_answer_first(SassProbe *probe, const char *path, unsigned 
     return 1;
 }
 
-// the cubin at `path` run on the device through cell_ptx_probe over one case, its answer into `answered`: 1, or 0
+// the cubin at `path` run on the device through interface_ptx_probe over one case, its answer into `answered`: 1, or 0
 // with the reason printed
 int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room)
 {
@@ -74,7 +74,7 @@ typedef struct
     unsigned int answer;
 } SassPrefer;
 
-// a question of the cell's own, asked in the part's code: the instruction to put in place of form_0's own, and the
+// a question of the interface's own, asked in the part's code: the instruction to put in place of form_0's own, and the
 // word the device should answer for the case sass_cubin_answer gives it
 typedef struct
 {
@@ -136,7 +136,7 @@ static void sass_ask_named(const char *instruction, char *named, size_t room)
 #define SASS_PREFER_RUNS 20u
 #define SASS_PREFER_TAKES 3u
 
-// one tick of the part's clock in nanoseconds, which it named itself: 1770000 kHz (cell_ptx_probe clocks)
+// one tick of the part's clock in nanoseconds, which it named itself: 1770000 kHz (interface_ptx_probe clocks)
 #define SASS_PREFER_TICK (1000.0 / 1770000.0 * 1000.0)
 
 // `coding` wrapped in a loop of SASS_PREFER_TURNS turns, the count in R9, which the frame leaves free. The loop's
@@ -267,7 +267,7 @@ unsigned int sass_cubin_prefers(SassProbe *probe, const SassMachine *machine, un
     return read;
 }
 
-// each question of the cell's own written into a cubin of its own, run, and its answer same to what the question
+// each question of the interface's own written into a cubin of its own, run, and its answer same to what the question
 // says the part should say: how many answered so. form_0's kernel is the frame, which loads the case's first two
 // words into R0 and R7, and stores R7 as the first word of the answer
 unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsigned int *asked)
@@ -644,7 +644,7 @@ unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsi
             kept += 1u;
         }
     }
-    printf("cell sass loop: %u forms asked, %u written, %u fell through, %u came back on every count\n", *asked,
+    printf("interface sass loop: %u forms asked, %u written, %u fell through, %u came back on every count\n", *asked,
            written, through, kept);
     // The forms that came back, each timed over a long count and read at its least, since a run can only be lengthened
     // by what else the host is doing; and each walked as the instruction that takes a loop back, which the part's
@@ -699,16 +699,16 @@ unsigned int sass_cubin_loops(SassProbe *probe, const SassMachine *machine, unsi
     // apart from each other. A difference under that spread is no reading, and the forms are then one cost
     if ((chosen != SASS_LOOP_KEPT) && ((second == 0.0) || ((second - cheapest) > spread)))
     {
-        printf("cell sass loop back: %s, %.4f ns a turn\n", s_kept[chosen], cheapest / (double)SASS_LOOP_TIMED);
+        printf("interface sass loop back: %s, %.4f ns a turn\n", s_kept[chosen], cheapest / (double)SASS_LOOP_TIMED);
     }
     if ((chosen != SASS_LOOP_KEPT) && (second != 0.0) && ((second - cheapest) <= spread))
     {
-        printf("cell sass loop back: no form cheaper above the floor, the next %.4f ns a turn above %s against a "
+        printf("interface sass loop back: no form cheaper above the floor, the next %.4f ns a turn above %s against a "
                "spread of %.4f\n",
                (second - cheapest) / (double)SASS_LOOP_TIMED, s_kept[chosen], spread / (double)SASS_LOOP_TIMED);
     }
     return kept;
 }
 
-// the questions cell_ptx_probe assembled, read from its lines "cubin <number> <name>", and the architecture from its
+// the questions interface_ptx_probe assembled, read from its lines "cubin <number> <name>", and the architecture from its
 // first line, "sm_86, ...": 1, or 0 where it printed none

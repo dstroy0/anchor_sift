@@ -1,18 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// What the cell_sass_probe*.c pieces share
-#ifndef CELL_SASS_PROBE_H
-#define CELL_SASS_PROBE_H
+// What the interface_sass_probe*.c pieces share
+#ifndef INTERFACE_SASS_PROBE_H
+#define INTERFACE_SASS_PROBE_H
 
 // The SASS probe (engine_table.md item 11(f)(a)): the device's machine code found by asking its disassembler, so that
-// a ruleset of SASS can be written from what the probes saw. cell_ptx_probe assembles each membership question's
+// a ruleset of SASS can be written from what the probes saw. interface_ptx_probe assembles each membership question's
 // kernel, the forms of ptx.krs, into a cubin, and the frame with no body into another; nvdisasm lists each, and the
 // operations a question's listing holds past the frame's are its forms' machine code. Then each operation seen, keyed
 // by the low 12 bits of its encoding, is decoded with each of its 128 bits turned over, one nvdisasm --binary for all
 // 129 encodings: a bit that changes a register operand is that operand's field, one that changes the operation's name
 // is the operation's, one the disassembler refuses is an encoding the part lacks, and one that changes nothing in the
 // text is either control (the stall, yield and barriers the scheduler sets) or unused. Every process is run through the
-// cell, whose runner loses nothing when the disassembler fails
-#include "../../../../../../src/c/transpiler/cell/cell.h"
+// interface, whose runner loses nothing when the disassembler fails
+#include "../../../../../../src/c/transpiler/interface/interface.h"
 #include "../../../../../../src/c/types/file_defs/krs/sass_machine.h"
 
 #include <stdio.h>
@@ -107,7 +107,7 @@ typedef struct
     char question[SASS_TEXT];
 } SassClassed;
 
-// one question and its answer kept for the .ksc (cell_sass_probe_class.c)
+// one question and its answer kept for the .ksc (interface_sass_probe_class.c)
 void sass_class_take(unsigned int channel, unsigned int answered, const char *question, unsigned int word);
 
 // one more question counted on a channel, its text not kept: the decode channel puts tens of thousands of these and
@@ -138,15 +138,15 @@ typedef struct
     unsigned int failed;
 } SassProbe;
 
-// one process run through the cell with its output written to `output_path`, and read into the shared buffer
+// one process run through the interface with its output written to `output_path`, and read into the shared buffer
 // (sass_output): its exit status, or -1 where it did not exit, with how it ended printed
 int sass_run(char *const *command, const char *output_path);
 
-// the cubin at `path` run on the device through cell_ptx_probe over one case, its answer into `answered`: 1, or 0
-// with the reason printed (cell_sass_probe_ask.c)
+// the cubin at `path` run on the device through interface_ptx_probe over one case, its answer into `answered`: 1, or 0
+// with the reason printed (interface_sass_probe_ask.c)
 int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room);
 
-// every question of the cell's own put to the part in code no toolchain wrote, `asked` counting them: how many the
+// every question of the interface's own put to the part in code no toolchain wrote, `asked` counting them: how many the
 // part answered as the question says
 unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
 
@@ -179,7 +179,7 @@ int sass_decode(const char *architecture, const char *path, const unsigned long 
                 const unsigned long long *high, unsigned int count, char (*texts)[SASS_TEXT]);
 
 // every instruction of `listing` that the listing gave an encoding for taken into `machine` as a form
-// (cell_sass_probe_machine.c)
+// (interface_sass_probe_machine.c)
 void sass_machine_listing(SassMachine *machine, const SassListing *listing);
 
 // Every form reachable from the listings a bit at a time, taken into `machine` as a form of its own: a form's 128

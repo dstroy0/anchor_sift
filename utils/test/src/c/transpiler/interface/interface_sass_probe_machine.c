@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_machine.c: every instruction of the listings taken as a form, each form's operand fields found by
+// interface_sass_probe_machine.c: every instruction of the listings taken as a form, each form's operand fields found by
 // turning its bits over, and the two searches that find the forms no listing held -- widening, which walks out from
 // a form a bit at a time, and the sweep, which puts every operation key to the disassembler (sass_machine.h)
-#include "cell_sass_probe.h"
+#include "interface_sass_probe.h"
 
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 #include "../../../../../../src/c/types/file_defs/krs/sass_machine.h"
@@ -198,7 +198,7 @@ unsigned int sass_machine_widen(SassMachine *machine, const char *architecture, 
         done = reach;
         rounds += 1u;
     }
-    printf("cell sass widen: %u forms listed, %u a bit at a time from them over %u rounds, %u forms the "
+    printf("interface sass widen: %u forms listed, %u a bit at a time from them over %u rounds, %u forms the "
            "disassembler failed\n",
            listed, machine->forms - listed, rounds, failed);
     return machine->forms - listed;
@@ -229,7 +229,7 @@ int sass_machine_fields(SassMachine *machine, const char *architecture, const ch
                         ? 1u
                         : 0u;
     }
-    printf("cell sass machine: %u forms of the %u it holds, %u without fields, %s, %u differing when read back, %u "
+    printf("interface sass machine: %u forms of the %u it holds, %u without fields, %s, %u differing when read back, %u "
            "forms it had no room for\n",
            machine->forms, (unsigned int)SASS_MACHINE_FORMS, failed, written ? "written" : "not written", differed,
            machine->refused);
@@ -323,7 +323,7 @@ unsigned int sass_machine_sweep(SassMachine *machine, const char *architecture, 
             }
         }
     }
-    printf("cell sass sweep: %u keys put to the disassembler from each of %u carriers, %u named, %u forms it had "
+    printf("interface sass sweep: %u keys put to the disassembler from each of %u carriers, %u named, %u forms it had "
            "not already, %u batches the disassembler failed, %u forms past what the machine holds\n",
            (unsigned int)(SASS_OPERATION_MASK + 1ull), carriers, named, machine->forms - held, failed,
            machine->refused);
@@ -337,7 +337,7 @@ int sass_machine_same(const SassMachine *machine, const char *machines)
     static SassMachine s_tree;
     if (!sass_machine_read(&s_tree, path))
     {
-        printf("cell sass machine: the tree holds no %s, so this part's is the probe's alone\n", machine->part);
+        printf("interface sass machine: the tree holds no %s, so this part's is the probe's alone\n", machine->part);
         return 1;
     }
     unsigned int differed = (s_tree.forms == machine->forms) ? 0u : 1u;
@@ -350,7 +350,7 @@ int sass_machine_same(const SassMachine *machine, const char *machines)
                         ? 1u
                         : 0u;
     }
-    printf("cell sass machine: the tree's %s holds %u forms, %u of them differing from this run's\n",
+    printf("interface sass machine: the tree's %s holds %u forms, %u of them differing from this run's\n",
            machine->part, s_tree.forms, differed);
     if (differed != 0u)
     {

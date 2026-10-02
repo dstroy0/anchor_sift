@@ -37,7 +37,7 @@ utils/maint/engine/sass_lane_needs.cpp	2
 utils/maint/prose/check_fixes.py	3
 utils/maint/prose/dependence_decay.py	2
 utils/maint/prose/submission_check.py	2
-utils/test/src/c/transpiler/cell/cell_sass_probe_ask.c	1
+utils/test/src/c/transpiler/interface/interface_sass_probe_ask.c	1
 utils/test/src/c/engine/runtime/daemon/run.sh	1
 utils/test/harness.py	1
-utils/test/src/cu/transpiler/cell/cell_ptx_probe_main.cu	1
+utils/test/src/cu/transpiler/interface/interface_ptx_probe_main.cu	1

@@ -72,7 +72,7 @@ typedef struct
     unsigned long long cost;
     // 1 where a clock was given and read
     unsigned int cost_read;
-    // the rule the ending named where the kind is QUERY_ENDED, a CellFault; 0 otherwise
+    // the rule the ending named where the kind is QUERY_ENDED, a InterfaceFault; 0 otherwise
     unsigned int fault;
 } QueryAsk;
 

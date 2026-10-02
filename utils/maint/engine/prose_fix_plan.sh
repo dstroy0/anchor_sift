@@ -38,8 +38,8 @@ edit "refused
    in place of being written over the fixed registers"
 edit "no lane here asks for one, so none is a blocker" "no lane here asks for one, and none is a blocker"
 edit "alone but not an and, so an and pays one MOV" "alone but not an and, and an and pays one MOV"
-edit "\`cell_ptx_probe run\`), so nothing in the machine file is needed" \
-    "\`cell_ptx_probe run\`), and nothing in the machine file is needed"
+edit "\`interface_ptx_probe run\`), so nothing in the machine file is needed" \
+    "\`interface_ptx_probe run\`), and nothing in the machine file is needed"
 edit "which is a bench and not an ask." "which is a bench, no longer an ask."
 edit "answers 240, which is what the file holds and not what a lane can take and stay fast, and" \
     "answers 240, the count the file holds and not what a lane can take and stay fast, and"

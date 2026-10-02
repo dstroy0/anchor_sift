@@ -160,8 +160,8 @@ with no map yet.
 `[ADDRESS] -> (QUALIFIER) -> [COST] -> BIT`, put with `host_put` and read with `host_read`
 (`compiler/bootstrap/host_entry.h`), with nothing between them and the part. No outside tool is in the loop: no
 compiler, assembler, disassembler, object reader, vendor runtime or driver library. A word that went through one is
-that tool's answer and not the part's. The SASS probe under `utils/test/src/c/transpiler/cell/` and everything it calls
-(`nvcc`, `nvdisasm`, `cuobjdump`, `cell_ptx_probe`, the vendor runtime) is scaffolding. It is an answer key in the
+that tool's answer and not the part's. The SASS probe under `utils/test/src/c/transpiler/interface/` and everything it calls
+(`nvcc`, `nvdisasm`, `cuobjdump`, `interface_ptx_probe`, the vendor runtime) is scaffolding. It is an answer key in the
 sense `precepts.h` is one: it may be read to form a question, and to check a derivation after it has run. It is
 never a channel a derivation runs through, never where the work resumes, and never a place to find again what the
 protocol answers. When how to reach a part is unclear, the answer is the protocol put at the part's addresses, and
@@ -247,9 +247,9 @@ works there.
    memory the test owns and to the host's interrupt time at a fixed address, found advancing by the ask itself.
    That counter steps once a clock interrupt, half a millisecond to a millisecond, and an ask is far shorter: a
    cost read from it is a step or nothing. A bound set from it judges a run of asks and never one. Asks at
-   addresses nothing has said are safe go through `query_cell_walk` (`compiler/bootstrap/query_cell.{h,c}`):
+   addresses nothing has said are safe go through `query_interface_walk` (`compiler/bootstrap/query_interface.{h,c}`):
    the cell runs `query_walk` in a child, one address after another, and an address that ends the child is
-   answered by the ending, the walk going on from the next address in a fresh child. `query_cell_check.c` holds
+   answered by the ending, the walk going on from the next address in a fresh child. `query_interface_check.c` holds
    it to address 0, which ends the asker on an address fault, and to the page every Windows process shares,
    which answers reads and ends the asker on a put. Of that page's first sixteen words the walk finds two that
    advance, at 0x8 and 0x14, the interrupt time and the system time of the page's own layout. The next piece is

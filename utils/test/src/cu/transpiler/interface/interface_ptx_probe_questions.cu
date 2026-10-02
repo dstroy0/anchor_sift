@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_ptx_probe_questions.cu: registers, forms and the questions
-#include "cell_ptx_probe_internal.h"
+// interface_ptx_probe_questions.cu: registers, forms and the questions
+#include "interface_ptx_probe_internal.h"
 
 static const unsigned int s_probe_edges[PROBE_EDGES] = {
     0u, 1u, 2u, 3u, 31u, 32u, 33u, 64u, 0x7FFFFFFFu, 0x80000000u, 0x80000001u, 0xFFFFFFFEu, 0xFFFFFFFFu, 0x10000u};
@@ -48,7 +48,7 @@ void probe_form(ProbeWriter *writer, std::string &text, const char *name, const 
     const auto scratch = [writer](const std::string &bank) { return probe_scratch(writer, bank); };
     if (!ruleset_opcode(writer->rules, name, arguments, scratch, text))
     {
-        fprintf(stderr, "  cell_ptx_probe: the ruleset does not write the form %s with %zu arguments\n", name,
+        fprintf(stderr, "  interface_ptx_probe: the ruleset does not write the form %s with %zu arguments\n", name,
                 arguments.size());
         writer->broken = 1;
     }
@@ -385,7 +385,7 @@ std::vector<ProbeQuestion> probe_questions(ProbeWriter *writer)
     // here can ask - that the part assembles it, runs it, and goes on past it - and the word it adds to is this
     // thread's own case in the input buffer, which the host never reads back. What the add leaves is read on the part
     // instead, in the SASS probe's own code, where the instructions are ours and the read-back is a plain load
-    form("count_add", {"%cell_wide2"});
+    form("count_add", {"%interface_wide2"});
     form("word_copy", {t[8], t[0]});
     ask("count_add", 1u, [](const unsigned int *in, unsigned int *out) {
         out[0] = in[0];
