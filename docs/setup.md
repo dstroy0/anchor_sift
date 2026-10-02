@@ -1,7 +1,7 @@
 # Setup
 
 **Purpose:** Get the engine building and the examples running, and know what each dependency is actually for.
-**Scope:** `src/engine/`, `examples/`, `utils/maint/`.
+**Scope:** `src/c/`, `examples/`, `utils/maint/`.
 
 Nothing here needs a GPU, a service, or a network connection except the fetchers, and those are named below.
 
@@ -49,9 +49,9 @@ That produces the benches and the tests. `bench_lattice` needs C99 `_Complex` an
 The search kernel builds with no build system at all, if that is all you want. It is four portable sources and two include paths:
 
 ```sh
-gcc -std=c11 -Isrc/engine/nbody/orior -Isrc/engine/arithmetic/no_rounding your_program.c \
-    src/engine/nbody/orior/orior_*.c src/c/engine/nbody/orior/scan.c \
-    src/engine/arithmetic/no_rounding/exact_integer_*.c src/c/types/integers/arm.c
+gcc -std=c11 -Isrc/c/engine/nbody/orior -Isrc/c/types/integers your_program.c \
+    src/c/engine/nbody/orior/orior_*.c src/c/engine/nbody/orior/scan.c \
+    src/c/types/integers/exact_integer_*.c src/c/types/integers/arm.c
 ```
 
 ## The research papers
@@ -97,7 +97,7 @@ The Salishan papers come from the ICSNL archive:
 python utils/maint/data/salishan/get_papers.py
 ```
 
-The hand extractions are not fetchable. They are transcribed out of published papers and are not carried here, as the README says under [What is not here](https://github.com/dstroy0/orior#what-is-not-here). Everything that does not read a paper or a table runs without them.
+The hand extractions are not fetchable. They are transcribed out of published papers and are not carried here, as [What is not here](research.md#what-is-not-here) says. Everything that does not read a paper or a table runs without them.
 
 ## Checks
 
