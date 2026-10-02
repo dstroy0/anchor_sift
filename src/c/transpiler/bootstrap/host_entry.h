@@ -107,6 +107,17 @@ static inline unsigned int host_width(unsigned int readback)
     return width;
 }
 
+// the width the sizing register at `at` names: all ones put to it, the word it gives back read, what was there put
+// back. Memory reads 0 here, since memory gives back the ones it was put; a sizing register reads the region's width
+static inline unsigned int host_width_ask(unsigned long long at)
+{
+    const unsigned int held = host_read(at);
+    host_put(at, HOST_NO_ANSWER);
+    const unsigned int readback = host_read(at);
+    host_put(at, held);
+    return host_width(readback);
+}
+
 // whether a part answers at `at`: a word comes back that is not the word a line gives when nothing drove it
 static inline int host_answers(unsigned long long at)
 {
