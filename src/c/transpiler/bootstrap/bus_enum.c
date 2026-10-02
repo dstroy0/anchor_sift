@@ -57,3 +57,28 @@ int bus_enum_find(const unsigned int *kinds, unsigned long long count, unsigned 
     *records = heads;
     return 1;
 }
+
+unsigned long long bus_enum_list(const unsigned int *kinds, const unsigned int *values, unsigned long long count,
+                                 BusRecord *out, unsigned long long most)
+{
+    unsigned long long base = 0ull;
+    unsigned long long stride = 0ull;
+    unsigned long long records = 0ull;
+    if (bus_enum_find(kinds, count, &base, &stride, &records) == 0)
+    {
+        return 0ull;
+    }
+    unsigned long long written = 0ull;
+    for (unsigned long long at = base; (at < count) && (written < most); at += stride)
+    {
+        if (bus_enum_record(kinds, count, at) == 0)
+        {
+            continue;
+        }
+        out[written].sample = at;
+        out[written].identifier = values[at];
+        out[written].width = host_width(values[at + 1ull]);
+        written += 1ull;
+    }
+    return written;
+}

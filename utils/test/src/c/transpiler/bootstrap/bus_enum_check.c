@@ -85,6 +85,43 @@ int main(int count_of_words, char **words)
     const unsigned int alone[4] = {HOST_HOLDS, HOST_FIXED, HOST_LIVE, HOST_HOLDS};
     check_that(find(alone, 4ull, &base, &stride, &records) == 0, "one record alone is no region");
 
+    // the records read out of a region: each FIXED identifier, and each LIVE sizing register's width from its mask
+    const unsigned int list_values[14] = {
+        0u, 0u,
+        0x0000aa01u, 0xfffff000u, 0u, 0u,
+        0x0000aa02u, 0xffff0000u, 0u, 0u,
+        0x0000aa03u, 0xffffff00u, 0u, 0u};
+    BusRecord out[4] = {{0}, {0}, {0}, {0}};
+    const unsigned long long listed = bus_enum_list(clean, list_values, 14ull, out, 4ull);
+    check_that(listed == 3ull, "three records are read out of the region");
+    check_that((out[0].sample == 2ull) && (out[0].identifier == 0x0000aa01u) && (out[0].width == 12u),
+               "the first record's identifier and its sizing register's width of 12 are read");
+    check_that((out[1].identifier == 0x0000aa02u) && (out[1].width == 16u),
+               "the second record names width 16");
+    check_that((out[2].identifier == 0x0000aa03u) && (out[2].width == 8u),
+               "the third record names width 8");
+
+    // an empty slot is passed over: records at 2, 6, 14 read out as three, the slot at 10 left out
+    const unsigned int gap_values[18] = {
+        0u, 0u,
+        0x0000bb01u, 0xfffff000u, 0u, 0u,
+        0x0000bb02u, 0xffff0000u, 0u, 0u,
+        0u, 0u, 0u, 0u,
+        0x0000bb03u, 0xfff00000u, 0u, 0u};
+    BusRecord gap_out[4] = {{0}, {0}, {0}, {0}};
+    const unsigned long long gap_listed = bus_enum_list(gapped, gap_values, 18ull, gap_out, 4ull);
+    check_that(gap_listed == 3ull, "a region with an empty slot reads out its three present records");
+    check_that((gap_out[2].sample == 14ull) && (gap_out[2].identifier == 0x0000bb03u) && (gap_out[2].width == 20u),
+               "the third present record sits at sample 14 with width 20");
+
+    // room for fewer records than the region holds caps what is read out
+    BusRecord two_out[2] = {{0}, {0}};
+    check_that(bus_enum_list(clean, list_values, 14ull, two_out, 2ull) == 2ull, "room for two caps the read at two");
+
+    // flat memory reads out no records
+    BusRecord none_out[1] = {{0}};
+    check_that(bus_enum_list(flat, flat, 6ull, none_out, 1ull) == 0ull, "flat memory reads out no records");
+
     // the classify walk driven over low addresses nothing maps: each ends its probe and reads as nothing
     if (count_of_words == 3)
     {
