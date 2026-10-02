@@ -420,21 +420,76 @@ claim that it is the reading meant:
 
 **The dimension.** With `R` through MathWorld's `c_5`, the exponent of `a` reads 7.33, 6.54, 6.49 and
 6.49 between cells 1 to 5. That is `x^-6.5 = u^-13`, the size of the first term `R` leaves out,
-`c_6 u^-13`. The exponent of `b` reads 0.01, 0.09, 0.10 and -0.13. The exponent of `delta` reads
-12.3, 12.4, 13.3 and 13.8.
+`c_6 u^-13`. The exponent of `b` reads 0.01, 0.09, 0.10, -0.13 and 0.20 between cells 1 to 6, from
+`b`'s limit on `2^11` and `2^12` parts, each within `8 e-7` of the limit on `2^10` and `2^11`. The
+exponent of `delta` reads 12.3, 12.4, 13.3 and 13.8.
+
+`|E|` has a corner at each crossing of `S` and `R`, 25 of them in cell 4, and `|D|` one. The trapezoid
+takes each corner by the line through its two points. With that, `a` and `b` settle as the grid halves, the
+gap shrinking four times a halving. Without it, `b` over cell 4 reads 1.64704 on `2^8` parts and
+1.64615 on `2^10`, a step of `9 e-4` from the grid alone, where the cut moves it `4 e-11`.
 
 **The cut test.** If `a`'s dimension is the cut, then `R` through `C_K` moves it to `(2K + 3) / 2`. `R`
 through `C_K` from the exact curves of entry 7 equals MathWorld's `R` at `K = 5` to 0 units at 30
 digits, `S` too, at five points that include `p = 1/4`. Through `C_6`, the exponent of `a` reads 8.22,
-7.90, 7.75 and 7.67 between cells 2 to 6, against 7.5. The runs at `C_8` and `C_10` are not yet read.
+7.90, 7.75 and 7.67 between cells 2 to 6, against 7.5. Through `C_8` it reads 10.62, 10.13, 9.91 and
+9.79, against 9.5. Through `C_10` it reads 13.11, 12.46, 12.13 and 11.95, against 11.5. All three come down onto the cut from above and none goes below it in these cells.
 
-**Hypotheses, quoted, with what would test them.**
-- "it scrapes its boundary and that pops its dimensionality up". The test: the excess over
-  `(2K + 3) / 2` sits at the cells nearest where the series stops improving, and decays away from
-  them. At `c_5` the excess is in cells 1 to 2, and at `C_6` it decays across cells 2 to 6. At `C_8`
-  and `C_10` it should reach later cells.
-- "It's like a cyclical spring". The test: the exponent swings past its settled value and back. At
-  `c_5` it goes below 6.5, to 6.493 and 6.489. Swinging back above needs cells 6 to 9.
+**The omitted curves.** `a` is predicted from the exact curves alone, with no Euler-Maclaurin and no
+device: `|sum C_k(1 - 2p) x^(-k - 1/2)|` over the cell for `k` from `K + 1` to `K + 3`, the terms `R`
+leaves out (`omitted first last K`). It runs in a second where the triangle takes hours. Between
+cells, the exponent it gives against the one measured:
+
+| `R` through | exponent from the omitted curves | measured |
+|---|---|---|
+| `C_5`, five curves | 7.265, 6.536, 6.493, 6.490 | 7.33, 6.54, 6.493, 6.489 |
+| `C_6` | 8.218, 7.895, 7.750, 7.673 | 8.222, 7.896, 7.751, 7.673 |
+| `C_8` | 10.607, 10.133, 9.909, 9.786 | 10.617, 10.134, 9.910, 9.786 |
+| `C_10` | 13.089, 12.451, 12.132, 11.950 | 13.106, 12.455, 12.134, 11.951 |
+
+Past the measured cells it gives, between cells 5 to 9, 6.491, 6.494, 6.496 and 6.497 through
+`C_5`; 7.627, 7.597 and 7.576 between cells 6 to 9 through `C_6`; and 11.836, 11.760 and 11.707
+between cells 6 to 9 through `C_10`. Only between cells 1 and 2 do the curves fall short, by
+0.07, where `x` is 2 and the series is at its weakest.
+
+**Hypotheses, quoted, with what tests them.**
+- "it scrapes its boundary and that pops its dimensionality up". The excess over `(2K + 3) / 2` is
+  0.72, 0.40, 0.25 and 0.17 between cells 2 to 6 through `C_6`, and 1.12, 0.63, 0.41 and 0.29 through
+  `C_8`, larger at every cell, and 1.61, 0.96, 0.63 and 0.45 through `C_10`. The omitted curves give each
+  of them: the shape of `|C_(K+1)|` with its next two curves, weighted by `x^(-k - 1/2)` across a cell
+  of width 1.
+- "It's like a cyclical spring". Through `C_5` the exponent goes below 6.5 at cell 3 and comes back
+  toward it from below across cells 5 to 9, as the omitted curves give it. It does not go back above
+  6.5 in those cells. Through `C_6`, `C_8` and `C_10` it stays above the cut.
+- "for C8 it looks like that is the pressure that escaped the other dimension reducing its
+  potentiality to field mean". From `C_6` to `C_8` on the same grid, `b` falls with `a` in every
+  cell, by 0.68, 0.54, 0.29, 0.28 and 0.18 of `a`'s fall over cells 2 to 6.
+- "we can put the triangle in pi and trace its origin points to derive angular momentum". Each
+  triangle's angle opposite `c` is a right angle less than `1 e-7` off, which puts `c` on the
+  diameter of its circle. By the law of cosines the amount off is `kappa / 4` times `2a / c`, the
+  angle `a` takes from the center: what the circle holds is `kappa`, which the three sides already give.
+
+**The ball.** "the ball sticks to the triangle, and the triangle plane is spatially unconstrained so
+it can be upside down, we are looking at an object on a plane in a sphere"; "that gives smooth
+natural movement for the complex integral that is the curve, for all degrees of freedom n". Read with
+`sphere first last K m`, over cells 2 to 6 through `C_10` on `2^8` parts:
+- **The sphere.** Each wave `z_n = e^(i theta) n^-s` is one complex coordinate of radius `n^(-1/2)`,
+  and the point `(z_1, ..., z_nu)` keeps `|z|^2 = H_nu`, the harmonic number. It holds within 68
+  units of `10^-44` at every point.
+- **The turning.** Wave `n` turns at `theta'(t) - ln n`, with mass `1 / n`. `theta'` is
+  `Re psi(1/4 + it/2) / 2 - ln(pi) / 2`, `psi` by Stirling's series in two routes that agree, and it
+  meets `theta`'s central difference to 28 places at `t` = 25, 100 and 1000.
+- **The boundaries.** Wave `n` joins at `t = 2pi n^2` turning at `-1 / (48 t^2)` to its first
+  term: `-3.299 e-5`, `-6.515 e-6`, `-2.061 e-6`, `-8.443 e-7` and `-4.072 e-7` for `n` = 2 to 6. The
+  angular momentum `L = sum (theta' - ln n) / n` steps there by that over `n`, `2.2 e-6` at `n = 3`,
+  and the energy `sum (theta' - ln n)^2 / 2n` by its square over `2n`, `7 e-12`.
+- **The shadows.** `Z = 2 Re W + R`, with `W` the sum of the waves. `Z` changes sign 9, 17, 27, 38 and
+  49 times in cells 2 to 6, the same on `2^9` parts. With the three zeros below `8 pi` that is 143 to
+  `t = 98 pi`, as the zero count `N(T)` gives at 307.9. `E` changes sign 8, 13, 25, 28 and 49 times,
+  the triangle's crossings, and `D` once a cell.
+- **The sideways shadow.** `D x^11.5` is one curve across the cells, changing sign with each and of
+  size 6.78, 6.52, 6.43, 6.39, 6.37 and 6.35 `e-7` at `x` = 2 to 7, the same on either side of each
+  boundary to three figures.
 
 **The boundaries.** The main sum is the waves `m^(-1/2) e^(i(theta - t ln m))`.
 - **Where each wave joins.** In the frame `e^(i theta)` turns, wave `m` spins at `ln(x / m)`, still at
@@ -634,8 +689,9 @@ places, `N` and the widths come from the records.
   reads them as the three sides, each side's scaling exponent between cells, and `t`. The vector walk
   over them is wanted, not built.
 - Entry 8's spread of the arrival angles is read in four windows of 1,024 boundaries. More windows,
-  and whole stretches of boundaries, are wanted. The `C_8` and `C_10` cut runs and the cells 6 to 9
-  for the spring are wanted.
+  and whole stretches of boundaries, are wanted. The triangle measured past cell 6, against what the
+  omitted curves give there, is wanted. The omitted curves integrated between their zeros term by
+  term, with no grid, are wanted.
 - Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
   Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin across the strip, and entry 6
   Riemann-Siegel on the line. Riemann-Siegel off the line, for entry 4's boxes, is not built.
