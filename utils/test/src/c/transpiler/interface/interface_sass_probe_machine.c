@@ -29,17 +29,60 @@ void sass_machine_listing(SassMachine *machine, const SassListing *listing)
     }
 }
 
-// the operand `text` changed against `base`, or the operand count where it changed none of them, more than one of
-// them, the operation, or the guard
+// 1 where two operations share their name up to its first dot: IMAD.IADD, IMAD.MOV and IMAD share IMAD
+static int sass_operation_root_same(const char *one, const char *other)
+{
+    size_t length = 0u;
+    while ((one[length] != '\0') && (one[length] != '.') && (one[length] == other[length]))
+    {
+        length += 1u;
+    }
+    return ((one[length] == '\0') || (one[length] == '.')) && ((other[length] == '\0') || (other[length] == '.'));
+}
+
+// the immediate of `base` whose leaving the text gives `parts`, every other operand as it was, or the operand count
+// where no one immediate does
+static unsigned int sass_operand_dropped(const SassInstructionParts *base, const SassInstructionParts *parts)
+{
+    for (unsigned int dropped = 0u; dropped < base->operands; dropped += 1u)
+    {
+        int rest = (base->kind[dropped] == SASS_OPERAND_IMMEDIATE) ? 1 : 0;
+        for (unsigned int place = 0u; rest && (place < parts->operands); place += 1u)
+        {
+            const unsigned int was = (place < dropped) ? place : (place + 1u);
+            rest = (strcmp(parts->operand[place], base->operand[was]) == 0) && (parts->mark[place] == base->mark[was]);
+        }
+        if (rest != 0)
+        {
+            return dropped;
+        }
+    }
+    return base->operands;
+}
+
+// The operand `text` changed against `base`, or the operand count where it changed none of them, more than one of
+// them, the guard, or the operation past its name's first part. The disassembler hides a field two ways, and both are
+// read as the operand's: a value that renames the operation, as IMAD's multiplier prints IMAD.MOV at 0, IMAD.IADD at 1
+// and IMAD past them, where the name up to its first dot, the count of operands and each one's kind stay and one
+// operand's value moves; and a value of 0 that leaves an immediate out of the text, as BPT.TRAP's code does, where
+// every other operand stays as it was
 static unsigned int sass_operand_changed(const SassInstructionParts *base, const char *text)
 {
     SassInstructionParts parts;
     sass_instruction_read(text, &parts);
-    if ((strcmp(parts.operation, base->operation) != 0) || (parts.operands != base->operands) ||
-        (strcmp(parts.guard, base->guard) != 0))
+    if ((strcmp(parts.guard, base->guard) != 0) || !sass_operation_root_same(parts.operation, base->operation))
     {
         return base->operands;
     }
+    if ((parts.operands + 1u) == base->operands)
+    {
+        return sass_operand_dropped(base, &parts);
+    }
+    if (parts.operands != base->operands)
+    {
+        return base->operands;
+    }
+    const int renamed = (strcmp(parts.operation, base->operation) != 0);
     unsigned int changed = base->operands;
     unsigned int count = 0u;
     for (unsigned int place = 0u; place < base->operands; place += 1u)
@@ -49,6 +92,11 @@ static unsigned int sass_operand_changed(const SassInstructionParts *base, const
             changed = place;
             count += 1u;
         }
+    }
+    // a renamed operation holds the field only where the operand that moved is still the kind it was
+    if ((count == 1u) && renamed && (parts.kind[changed] != base->kind[changed]))
+    {
+        return base->operands;
     }
     return (count == 1u) ? changed : base->operands;
 }
