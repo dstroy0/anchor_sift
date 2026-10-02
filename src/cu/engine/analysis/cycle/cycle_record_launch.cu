@@ -371,3 +371,141 @@ extern "C" long cycle_record_latch(const CycleRecordLatchRequest *request)
     *request->first = first;
     return (long)request->count;
 }
+
+// limb `limb` of a record's field at `offset`, `bits` wide: the field's bits 32 limb to 32 limb + 31, zero past the
+// field. The limb after the first is read only where the field runs into it
+__device__ static unsigned int cycle_sum_limb(const unsigned int *record, unsigned int offset, unsigned int bits,
+                                              unsigned int limb)
+{
+    const unsigned int start = offset + (32u * limb);
+    const unsigned int left = offset + bits - start;
+    const unsigned int shift = start % 32u;
+    unsigned long long window = record[start / 32u];
+    if ((shift != 0u) && (left > (32u - shift)))
+    {
+        window |= (unsigned long long)record[(start / 32u) + 1u] << 32u;
+    }
+    const unsigned int value = (unsigned int)(window >> shift);
+    return (left < 32u) ? (value & ((1u << left) - 1u)) : value;
+}
+
+// the sum over the records: each thread takes `chunk` consecutive records and, limb by limb, adds the field's limb
+// into 64 bits for as long as its records stay in one run, then adds that total to the run's by one atomic add. The
+// pass past the last limb counts the fields whose sign bit is set. A run holds at most 2^32 records, and 2^32 limbs
+// fit 64 bits
+__global__ static void cycle_sum_kernel(const unsigned int *records, unsigned long long count,
+                                        unsigned long long group, unsigned int out_limbs, unsigned int offset,
+                                        unsigned int bits, unsigned int field_limbs, unsigned long long chunk,
+                                        unsigned long long *totals, unsigned long long *negatives)
+{
+    const unsigned long long thread = ((unsigned long long)blockIdx.x * blockDim.x) + threadIdx.x;
+    const unsigned long long begin = thread * chunk;
+    const unsigned long long end = ((begin + chunk) < count) ? (begin + chunk) : count;
+    const unsigned int top = offset + bits - 1u;
+    for (unsigned int limb = 0u; (begin < end) && (limb <= field_limbs); limb += 1u)
+    {
+        unsigned long long run = begin / group;
+        unsigned long long total = 0ull;
+        for (unsigned long long lane = begin; lane < end; lane += 1ull)
+        {
+            const unsigned long long here = lane / group;
+            if (here != run)
+            {
+                atomicAdd((limb < field_limbs) ? &totals[(run * field_limbs) + limb] : &negatives[run], total);
+                run = here;
+                total = 0ull;
+            }
+            const unsigned int *const record = &records[lane * out_limbs];
+            total += (limb < field_limbs) ? cycle_sum_limb(record, offset, bits, limb)
+                                          : ((record[top / 32u] >> (top % 32u)) & 1u);
+        }
+        atomicAdd((limb < field_limbs) ? &totals[(run * field_limbs) + limb] : &negatives[run], total);
+    }
+}
+
+// `value` added into `sum` at limb `at`, modulo 2^(32 limbs)
+static void cycle_sum_add(unsigned int *sum, unsigned int limbs, unsigned int at, unsigned long long value)
+{
+    unsigned long long carry = value;
+    for (unsigned int limb = at; (limb < limbs) && (carry != 0ull); limb += 1u)
+    {
+        const unsigned long long total = (unsigned long long)sum[limb] + (carry & 0xFFFFFFFFull);
+        sum[limb] = (unsigned int)total;
+        carry = (carry >> 32u) + (total >> 32u);
+    }
+}
+
+// `value` times 2^bits taken from `sum`, modulo 2^(32 limbs)
+static void cycle_sum_subtract(unsigned int *sum, unsigned int limbs, unsigned int bits, unsigned long long value)
+{
+    const unsigned int at = bits / 32u;
+    const unsigned int shift = bits % 32u;
+    const unsigned int pieces[3] = {(unsigned int)(value << shift),
+                                    (unsigned int)((shift == 0u) ? (value >> 32u) : (value >> (32u - shift))),
+                                    (unsigned int)((shift == 0u) ? 0ull : (value >> (64u - shift)))};
+    unsigned long long borrow = 0ull;
+    for (unsigned int limb = at; limb < limbs; limb += 1u)
+    {
+        const unsigned long long piece = ((limb - at) < 3u) ? pieces[limb - at] : 0u;
+        const unsigned long long taken = piece + borrow;
+        borrow = ((unsigned long long)sum[limb] < taken) ? 1ull : 0ull;
+        sum[limb] = (unsigned int)((unsigned long long)sum[limb] + (borrow << 32u) - taken);
+    }
+}
+
+extern "C" long cycle_record_sum(const CycleRecordSumRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return CYCLE_ERROR;
+    }
+    EngineError *const error = request->error;
+    if (!CYCLE_CHECK(cycle_record_sum_valid(request) != 0, request, error, ENGINE_ERROR_REQUEST))
+    {
+        return CYCLE_ERROR;
+    }
+    const unsigned long long runs = request->count / request->group;
+    const unsigned int field_limbs = (request->bits + 31u) / 32u;
+    const unsigned long long most = CYCLE_RECORD_BLOCKS_MAX * CYCLE_BLOCK;
+    const unsigned long long chunk = (request->count + most - 1ull) / most;
+    const unsigned long long threads = (request->count + chunk - 1ull) / chunk;
+    const unsigned int blocks = (unsigned int)((threads + CYCLE_BLOCK - 1ull) / CYCLE_BLOCK);
+    const size_t total_bytes = (size_t)(runs * field_limbs) * sizeof(unsigned long long);
+    const size_t negative_bytes = (size_t)runs * sizeof(unsigned long long);
+    unsigned long long *device_totals = NULL;
+    unsigned long long *device_negatives = NULL;
+    unsigned long long *totals = (unsigned long long *)malloc(total_bytes);
+    unsigned long long *negatives = (unsigned long long *)malloc(negative_bytes);
+    int ok = CYCLE_CHECK((totals != NULL) && (negatives != NULL), request, error, ENGINE_ERROR_REQUEST) &&
+             CYCLE_STATUS_CHECK(cudaMalloc((void **)&device_totals, total_bytes), &device_totals, error) &&
+             CYCLE_STATUS_CHECK(cudaMalloc((void **)&device_negatives, negative_bytes), &device_negatives, error) &&
+             CYCLE_STATUS_CHECK(cudaMemset(device_totals, 0, total_bytes), device_totals, error) &&
+             CYCLE_STATUS_CHECK(cudaMemset(device_negatives, 0, negative_bytes), device_negatives, error);
+    if (ok != 0)
+    {
+        cycle_sum_kernel<<<blocks, CYCLE_BLOCK>>>(request->records, request->count, request->group, request->out_limbs,
+                                                  request->offset, request->bits, field_limbs, chunk, device_totals,
+                                                  device_negatives);
+    }
+    ok = ok && CYCLE_STATUS_CHECK(cudaGetLastError(), device_totals, error) &&
+         CYCLE_STATUS_CHECK(cudaDeviceSynchronize(), device_totals, error) &&
+         CYCLE_STATUS_CHECK(cudaMemcpy(totals, device_totals, total_bytes, cudaMemcpyDeviceToHost), device_totals,
+                            error) &&
+         CYCLE_STATUS_CHECK(cudaMemcpy(negatives, device_negatives, negative_bytes, cudaMemcpyDeviceToHost),
+                            device_negatives, error);
+    for (unsigned long long run = 0ull; (ok != 0) && (run < runs); run += 1ull)
+    {
+        unsigned int *const sum = &request->sums[run * request->sum_limbs];
+        memset(sum, 0, request->sum_limbs * sizeof(unsigned int));
+        for (unsigned int limb = 0u; limb < field_limbs; limb += 1u)
+        {
+            cycle_sum_add(sum, request->sum_limbs, limb, totals[(run * field_limbs) + limb]);
+        }
+        cycle_sum_subtract(sum, request->sum_limbs, request->bits, negatives[run]);
+    }
+    cudaFree(device_totals);
+    cudaFree(device_negatives);
+    free(totals);
+    free(negatives);
+    return (ok != 0) ? (long)request->count : CYCLE_ERROR;
+}

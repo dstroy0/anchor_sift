@@ -425,3 +425,84 @@ long cycle_record_latch_host(const CycleRecordLatchRequest *request)
     *request->first = first;
     return (long)request->count;
 }
+
+// the bits a count needs: 0 for 0
+static unsigned int cycle_host_bit_length(unsigned long long value)
+{
+    unsigned int length = 0u;
+    while (value != 0ull)
+    {
+        length += 1u;
+        value >>= 1u;
+    }
+    return length;
+}
+
+// 1 where a sum request is whole: records and sums named, a whole number of runs of at most 2^32 records, the field
+// inside its record, and the sums wide enough for the field and the run's count beside it. Shared by both routes
+int cycle_record_sum_valid(const CycleRecordSumRequest *request)
+{
+    return (request->records != NULL) && (request->sums != NULL) && (request->count != 0ull) &&
+           (request->group != 0ull) && (request->group <= (1ull << 32u)) &&
+           ((request->count % request->group) == 0ull) && (request->out_limbs != 0u) && (request->bits != 0u) &&
+           (((unsigned long long)request->offset + request->bits) <= (32ull * (unsigned long long)request->out_limbs)) &&
+           ((32ull * (unsigned long long)request->sum_limbs) >=
+            ((unsigned long long)request->bits + cycle_host_bit_length(request->group)));
+}
+
+// a record's field at `offset`, `bits` wide, as two's complement sign-extended into `limbs` limbs
+static void cycle_host_sum_field(const unsigned int *record, unsigned int offset, unsigned int bits,
+                                 unsigned int *value, unsigned int limbs)
+{
+    memset(value, 0, limbs * sizeof(unsigned int));
+    for (unsigned int bit = 0u; bit < bits; bit += 1u)
+    {
+        const unsigned int from = offset + bit;
+        value[bit / 32u] |= ((record[from / 32u] >> (from % 32u)) & 1u) << (bit % 32u);
+    }
+    const unsigned int top = offset + bits - 1u;
+    const unsigned int negative = (record[top / 32u] >> (top % 32u)) & 1u;
+    for (unsigned int bit = bits; (negative != 0u) && (bit < (32u * limbs)); bit += 1u)
+    {
+        value[bit / 32u] |= 1u << (bit % 32u);
+    }
+}
+
+long cycle_record_sum_host(const CycleRecordSumRequest *request)
+{
+    if ((request == NULL) || (request->error == NULL))
+    {
+        return CYCLE_ERROR;
+    }
+    EngineError *const error = request->error;
+    if (!CYCLE_CHECK(cycle_record_sum_valid(request), request, error, ENGINE_ERROR_REQUEST))
+    {
+        return CYCLE_ERROR;
+    }
+    const unsigned int limbs = request->sum_limbs;
+    unsigned int *const value = (unsigned int *)malloc(limbs * sizeof(unsigned int));
+    if (!CYCLE_CHECK(value != NULL, request, error, ENGINE_ERROR_REQUEST))
+    {
+        return CYCLE_ERROR;
+    }
+    const unsigned long long runs = request->count / request->group;
+    for (unsigned long long run = 0ull; run < runs; run += 1ull)
+    {
+        unsigned int *const sum = &request->sums[run * limbs];
+        memset(sum, 0, limbs * sizeof(unsigned int));
+        for (unsigned long long lane = run * request->group; lane < ((run + 1ull) * request->group); lane += 1ull)
+        {
+            cycle_host_sum_field(&request->records[lane * request->out_limbs], request->offset, request->bits, value,
+                                 limbs);
+            unsigned long long carry = 0ull;
+            for (unsigned int limb = 0u; limb < limbs; limb += 1u)
+            {
+                carry += (unsigned long long)sum[limb] + value[limb];
+                sum[limb] = (unsigned int)carry;
+                carry >>= 32u;
+            }
+        }
+    }
+    free(value);
+    return (long)request->count;
+}

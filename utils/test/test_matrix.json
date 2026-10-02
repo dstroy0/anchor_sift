@@ -683,6 +683,32 @@
         "CYCLE_RECORD_HOST_C": "1"
       }
     },
+    "record_sum": {
+      "desc": "The record sum test: a field summed exactly across lanes on the device, word for word against the host's serial sum and against closed forms; every compiled launch held to the interpreter.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_sum_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1"
+      }
+    },
     "record_order": {
       "desc": "The record order test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
       "script": "utils/test/src/cu/engine/analysis/cycle/record_order_test.sh",

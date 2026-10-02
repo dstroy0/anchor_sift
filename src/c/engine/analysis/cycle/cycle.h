@@ -98,6 +98,35 @@ extern "C"
 
     long cycle_record_latch_host(const CycleRecordLatchRequest *request);
 
+    // The sum: over each run of `group` consecutive records of `count`, the output at bit `offset`, `bits` wide, read
+    // as two's complement, summed exactly into `sum_limbs` limbs of two's complement at `sums`, in host memory, one sum
+    // a run. `count` is a whole number of runs, a run holds at most 2^32 records, and sum_limbs * 32 holds `bits` and
+    // the bits of `group` beside them, and no sum wraps: a request that cannot hold its sums errors before a record is
+    // read. The sum is associative and commutative, and any grouping of the records returns the serial sum.
+    // cycle_record_sum reads records in device memory: each 32-bit limb of the field is summed over a run into 64 bits,
+    // which hold 2^32 of them, the negative fields are counted beside, and the host takes the carries and subtracts
+    // 2^bits a negative field once a run; only those totals come back. cycle_record_sum_host reads records in host
+    // memory and adds them in order, each sign-extended to `sum_limbs` limbs.
+    typedef struct
+    {
+        const unsigned int *records;
+        unsigned long long count;
+        unsigned long long group;
+        unsigned int out_limbs;
+        unsigned int offset;
+        unsigned int bits;
+        unsigned int sum_limbs;
+        unsigned int *sums;
+        EngineError *error;
+    } CycleRecordSumRequest;
+
+    long cycle_record_sum(const CycleRecordSumRequest *request);
+
+    // 1 where a sum request is whole, the check both routes make before a record is read
+    int cycle_record_sum_valid(const CycleRecordSumRequest *request);
+
+    long cycle_record_sum_host(const CycleRecordSumRequest *request);
+
 #ifdef __cplusplus
 }
 #endif

@@ -261,6 +261,30 @@ latch over the interpreter's records and over the compiled program's, the host's
 return the same lane. The host, the interpreter and the compiled program agree word for word. Over 2^24 lanes on the
 device alone, the latch returns lane 428,243, which the host's arithmetic finds first. 17 checks, 0 failed.
 
+## The sum
+
+The sum takes one output of every record and adds it, exactly, over each run of consecutive lanes:
+Σ_{ℓ in run} out(ℓ), as two's complement. `cycle_record_sum` (`compiler/cycle/cycle.h`) reads a sweep's records where
+they lie on the device and returns one sum a run to the host:
+- each thread takes a chunk of consecutive lanes and, limb by limb, adds the field's 32-bit limb into 64 bits while its
+  lanes stay in one run, then adds that to the run's column by one atomic add. A run holds at most 2^32 lanes, and 2^32
+  limbs fit 64 bits;
+- the pass past the last limb counts the fields whose sign bit is set;
+- the host takes the carries through the columns and subtracts 2^bits for each negative field, once a run.
+
+The sum merges nothing. Each limb is its own exact column and the whole sum is kept; no lane is averaged, rounded or
+dropped, and each lane's record stays where it lies: a run's parts are there beside its total. A mean is that sum held
+over the run's length, an exact rational. The caller names the
+runs, and a run of one lane returns the lane itself. A request whose sums cannot hold `bits` and the bits of the run's
+length beside them, whose count is not a whole number of runs, or whose run passes 2^32 lanes errors before a record is
+read: nothing wraps. `cycle_record_sum_host` adds the same records in order, each sign-extended, and is the port check.
+
+`utils/test/src/cu/engine/analysis/cycle/record_sum_test.sh` sums a record program's ℓ, -ℓ, ℓ² and -ℓ² over 2^22 lanes,
+whole and in runs of 2^16, and each equals its closed form, L(L - 1) / 2 and (L - 1) L (2L - 1) / 6 over each run, the
+squares past 2^64. Random records of nine limbs, at fields one bit wide, across two limbs, a whole limb, two hundred bits
+and the whole record, at their most negative and most positive, over runs of 1, 3, 1024 and every record, sum on the
+device to the host's serial sum word for word. 98 checks, 0 failed.
+
 ## Tables
 
 `ENGINE_RECORD_TABLE` is a one-variable function stored as values. It is how a nonlinear step with no closed form
