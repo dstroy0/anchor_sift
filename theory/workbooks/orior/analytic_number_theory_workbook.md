@@ -176,6 +176,24 @@ the field already uses. Reported from a web search, the papers unread here.
 This is the honest reason the earlier entries touch the values and not the zeros: the values are in the
 countable set exact arithmetic was built for, and the zeros are not.
 
+## Where they are bound, and what is wanted in their place
+
+The same table the Navier-Stokes workbook keeps, for the zeros. The wants are quoted from a
+sounding board that read the point-cloud approach onto zeta. The test is what would answer each
+want, and the status says what has been run. No row bears on the hypothesis.
+
+| where it is bound | as the problem states it | wanted | what would test it | status |
+| --- | --- | --- | --- | --- |
+| the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
+| the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
+| the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
+| a zero | a point where `zeta(s) = 0`, a transcendental point in the strip | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the real-valued function on the critical line Turing's method reads: a sign change brackets a zero | wanted, not built (open item 1). A zero is not exactly nameable, and the most any computation does with one is bracket it (the precision tradition section) |
+| the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
+| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found, and the count checked against `N(T)` by Turing's method | wanted, not built. A count reaches a horizon and never all of them (the bounding function section) |
+| the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
+| L* on zeta | not in the problem | "treat the zeta function like an unknown piece of hardware"; "probe the field's clock-cycle-like preferences" | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
+| every zero on the line | the hypothesis | "the zeroes are structurally forced to exist only along that identity membrane" | a proof | open. Nothing here bears on it |
+
 ## Open, not done
 
 - Computing `zeta(s)` in the critical strip, and a first non-trivial zero to high precision, needs
