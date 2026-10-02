@@ -40,7 +40,7 @@ int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t
     return sass_cubin_answer_first(probe, path, 0x0000000bu, answered, room);
 }
 
-// `name` set to `value` in this process's environment, which the runner it starts inherits. MSVC spells putenv with
+// `name` set to `value` in this process's environment, which the runner it starts inherits. MSVC defines putenv with
 // an underscore and warns on the other; POSIX has setenv and takes the two apart
 static void sass_environment(const char *name, const char *value)
 {
@@ -370,7 +370,7 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
         {"MOV R255, 0x5a3c69a5\nIMAD.MOV.U32 R7, RZ, RZ, R255", 0x00000000u},
         // The precepts of the alphabet (precepts.h) the part has never been asked for. Everything above this point
         // was asked because a ruleset wanted it; these are asked because the alphabet has them, and a part that has
-        // no word for one is a part the web has to spell it for.
+        // no word for one is a part the web has to define it for.
         //
         // NOT, NAND and NOR cost nothing to ask: LOP3's immediate is the truth table of its three inputs, indexed by
         // a<<2|b<<1|c, and the part already answered for AND at 0xc0, OR at 0xfc and XOR at 0x3c. Their complements
@@ -381,10 +381,10 @@ unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsig
         // ASR, which differs from SHR only where the sign is set. The case's first word is negated first: -11 is
         // 0xfffffff5 and carrying its sign right 7 places leaves every bit set
         {"IADD3 R6, -R0, RZ, RZ\nSHF.R.S32.HI R7, RZ, R7, R6", 0xffffffffu},
-        // ROR and ROL, on the two spellings that carry a funnel. The .U32 spellings were asked first and the part
+        // ROR and ROL, on the two definitions that carry a funnel. The .U32 definitions were asked first and the part
         // said no to both: SHF.R.U32.HI R7, R0, R7, R0 answered 0 and SHF.L.U32 R7, R6, R7, R6 answered 0xfffffa80,
         // each the plain shift with the bits that left dropped. Giving a 32-bit shift the same register twice does
-        // not rotate it, because there is no second half of the funnel for it to read. The .U64 spellings have one,
+        // not rotate it, because there is no second half of the funnel for it to read. The .U64 definitions have one,
         // and neither reached a listing: the compiler never wrote either, and both came here from turning a listed
         // form's bits one at a time. 0xb carried right 7 places brings its low 7 bits back at the top, and
         // 0xfffffff5 carried left 7 brings its top 7 back at the bottom

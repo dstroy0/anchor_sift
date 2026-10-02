@@ -110,7 +110,7 @@ def walk(root, label, exclude=()):
 def label_for(root):
     """What to call a tree in the manifest, TAKEN FROM ITS CONFIG AND NOT FROM ITS DIRECTORY NAME.
 
-    This used to be os.path.basename(root), which spelled the directory the tree happens to sit in.
+    This used to be os.path.basename(root), which defined the directory the tree happens to sit in.
     One of those directory names is the product name the commit guard errors. Every rebuild wrote
     it into 372 rows and the next commit was blocked by a file this script had just generated.
 

@@ -84,8 +84,8 @@ def array_of(packed, root):
         raise SystemExit("  %s: one chunk under bytes or bytes and zstd is read here, not %s" % (root, codecs))
     chunk = packed.read(root + "/c/" + "/".join("0" * len(meta["shape"])))
     data = zstd.decompress(chunk) if codecs[-1] == "zstd" else chunk
-    spelled = {"uint64": "Q", "int64": "q", "float64": "d"}[meta["data_type"]]
-    return list(struct.unpack("<%d%s" % (len(data) // 8, spelled), data)), meta["shape"]
+    defined = {"uint64": "Q", "int64": "q", "float64": "d"}[meta["data_type"]]
+    return list(struct.unpack("<%d%s" % (len(data) // 8, defined), data)), meta["shape"]
 
 
 def array_write(root, shape, values, kind):

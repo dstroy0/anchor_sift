@@ -12,7 +12,7 @@ Space splits into eight octants sharing one trilateral right-angle corner at the
 boundary that split cuts eight congruent spherical triangles of area pi/2 each. A state of the
 object writes one letter in each octant, the letter being what share of the lit set sits there, and
 a round rewrites all eight at once. The eight numbers tracked across the rounds are the word the
-computation spells, and this prints it.
+computation defines, and this prints it.
 
 Three things come out of the reading, and all three are the same table read differently:
 

@@ -4661,7 +4661,7 @@ window.BAR = (function () {
     }
     var whole = Math.max(0, Math.min(CLOCK.ticks - 1, Math.floor(state.tick)));
     var step = CLOCK.steps[opAt(whole)];
-    // Short enough for the value column. Spelled out as "round 8, op 5" it broke across two lines and
+    // Short enough for the value column. Defined as "round 8, op 5" it broke across two lines and
     // left the operation number sitting alone under its own label; the counts panel carries the long
     // form, where there is width for it.
     document.getElementById("clockOut").textContent =

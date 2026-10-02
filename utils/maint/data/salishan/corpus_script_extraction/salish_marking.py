@@ -82,7 +82,7 @@ PRACTICAL = "7"
 # What the three above do not carry: ̓ ̔ ̕ are the glottalization marks a paper stacks on a
 # consonant, ʷ is labialization, and ˽ is the raised space Nater sets a clitic boundary with.
 #
-# Two files had their own copy of this union spelled out, salish_unsorted and hand_extraction's
+# Two files had their own copy of this union defined, salish_unsorted and hand_extraction's
 # papers, and MARKED was the default wherever a caller passed nothing. Both are read from here now.
 # A per-paper set is written as this plus what that paper adds, never as its own alphabet.
 #

@@ -97,7 +97,7 @@ def joined_words(text, vocabulary, longest=LONGEST):
     """One line with the spaces the extraction put inside its words taken back out.
 
     Walks the line and, at a token that is not already a word, takes the longest run of tokens
-    whose pieces spell one. Punctuation rides along: the run is looked up without it and written
+    whose pieces define one. Punctuation rides along: the run is looked up without it and written
     back with it. The pair sta ʔx̌íl. joins to staʔx̌íl. and keeps the stop.
     """
     tokens = text.split()

@@ -1198,7 +1198,7 @@ def _check():
     # and at no earlier round, and addition is injective, a flip of word w leaves every output of
     # rounds 1 to w untouched and changes the round w + 1 output in every single sample. That is an
     # exact count and no bound is needed. It is the check that would have caught a loop variable
-    # spelled `word` overwriting the parameter and flipping word 7 in every sample after the first.
+    # defined `word` overwriting the parameter and flipping word 7 in every sample after the first.
     for chosen in (3, 15):
         per_sample = 64
         rows = departures(SEED_FIRST, per_sample, chosen)

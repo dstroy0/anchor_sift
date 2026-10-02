@@ -7,7 +7,7 @@
 #   Usage:  python tools/prose/check_punctuation.py [root ...]
 #
 # docs_check.py refuses U+2014 and stops there. The quote characters below are the substitutions a
-# word processor, a web paste or a well-meaning editor makes, and each has an ASCII spelling that
+# word processor, a web paste or a well-meaning editor makes, and each has an ASCII definition that
 # means the same thing. Those are worth reporting.
 #
 # This reports and does not refuse, for two reasons. docs_check.py owns the commit gate, and
@@ -26,7 +26,7 @@ import sys
 #
 # The corpus settles the wider question too. docs/ carries 74 U+2212 minus signs and a working set of
 # arrows, inequalities and set operators. It is a mathematics corpus using mathematical characters
-# deliberately, so "unicode punctuation is suspect" would be a rule imported from somewhere else.
+# deliberately. "unicode punctuation is suspect" would therefore be a rule imported from somewhere else.
 #
 # The em dash is banned because it is a stylistic tell carrying no information. The en dash carries
 # information. docs_check.py is right to refuse one and ignore the other, and this table follows it.
@@ -46,8 +46,7 @@ SKIP = {".git", "build", "__pycache__", "node_modules", "logs", "audit", "figure
 def scan(path):
     findings = []
     # A dangling symlink appears in a directory listing and cannot be opened. os.walk reports the
-    # name, so the first run of this crashed on tools/book/build_theory.sh, which is a broken link
-    # that README.md and REPRODUCE.md both tell a reader to run. Reporting it beats dying on it.
+    # name, and a link a README tells a reader to run can be one. Reporting it beats dying on it.
     if not os.path.isfile(path):
         findings.append((0, "unreadable, a dangling link or a vanished file", "n/a", 0))
         return findings
@@ -80,9 +79,9 @@ def main(argv):
                 print("  %s:%d: %s (%d), write %s" % (
                     path.replace("\\", "/"), number, name, count, ascii_form))
 
-    # Checking nothing is not passing, the same lesson docs_check.py records against itself.
+    # A run that checks nothing has not passed, the same rule docs_check.py holds itself to.
     if checked == 0:
-        print("  no files were read. Nothing was checked, so nothing passed.")
+        print("  no files were read. Nothing was checked and nothing passed.")
         return 2
 
     print("  %d file(s) checked, %d substitution(s)" % (checked, total))

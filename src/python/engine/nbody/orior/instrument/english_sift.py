@@ -167,7 +167,7 @@ def self_distance(texts):
 
 
 def looks_like_writing(text, floor=0.5):
-    """Whether a line is written in letters at all, whatever language they spell.
+    """Whether a line is written in letters at all, whatever language they define.
 
     The surprise measure answers one question, whether English accounts for a line, and two very
     different things fail it. One is another language. The other is a PDF whose font carried a

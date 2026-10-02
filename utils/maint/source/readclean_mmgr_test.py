@@ -36,7 +36,7 @@ b = blind(
     "static const Sha256Ns Sha256 __attribute__((unused)) = {.update = mmgr_sha256_update};\n"
 )
 check("the name sha256 is gone entirely", "Sha256" not in b and "sha256" not in b)
-# Sha256Ns, Sha256Vars, Sha256V and Sha256 are four spellings of ONE module. Four unrelated
+# Sha256Ns, Sha256Vars, Sha256V and Sha256 are four definitions of ONE module. Four unrelated
 # generic names would hide the relationship the whole shape is built on.
 stem = b.split("Vars")[0].split()[-1]
 check("Ns, Vars, V and the table share one stem", all("%s%s" % (stem, s) in b for s in ("Vars", "Ns", "V")))

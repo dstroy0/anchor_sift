@@ -16,7 +16,7 @@
 # Those settings are a fact about the language whether or not anyone treated them as one. An
 # agglutinative language with long words needs longer runs to reach a morpheme than an isolating one
 # does. A logographic script needs shorter ones because a single character already carries what an
-# alphabet spells out. If the settings across many papers line up with what kind of language each is
+# alphabet defines. If the settings across many papers line up with what kind of language each is
 # about, that is a constant nobody set out to publish.
 #
 # This asks only what the archives serve and how they may be queried. Nothing is downloaded and no claim

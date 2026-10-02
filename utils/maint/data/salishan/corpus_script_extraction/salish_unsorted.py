@@ -34,7 +34,7 @@ PAGE = re.compile(r"^===== page (\d+) =====$")
 EDGES = ".,!?;:“”‘’\"'()[]…«»"
 
 # The space these papers are represented in, kept under the name this module's callers already use.
-# It was spelled out here as its own union until the copies were noticed; salish_marking holds the
+# It was defined here as its own union until the copies were noticed; salish_marking holds the
 # one definition and names what is in it.
 MARKS = TEXT_SPACE
 

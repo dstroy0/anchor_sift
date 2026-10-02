@@ -157,10 +157,10 @@ def formula(molecule):
         order.extend(sorted(element for element in counts if element not in ("C", "H")))
     else:
         order.extend(sorted(counts))
-    spelled = ""
+    defined = ""
     for element in order:
-        spelled += element + ("" if counts[element] == 1 else str(counts[element]))
-    return spelled
+        defined += element + ("" if counts[element] == 1 else str(counts[element]))
+    return defined
 
 
 def main():
@@ -203,14 +203,14 @@ def main():
     )
 
     isomers = {
-        spelled: names for spelled, names in by_formula.items() if len(names) > 1
+        defined: names for defined, names in by_formula.items() if len(names) > 1
     }
     out.write(
         "  a formula does not fix a molecule. %d formula(s) hold more than one structure:\n"
         % len(isomers)
     )
-    for spelled, names in sorted(isomers.items()):
-        out.write("    %-9s %s\n" % (spelled, ", ".join(sorted(names))))
+    for defined, names in sorted(isomers.items()):
+        out.write("    %-9s %s\n" % (defined, ", ".join(sorted(names))))
     out.write(
         "  each of those closes every atom. The octet admits them all and the choice among\n"
     )

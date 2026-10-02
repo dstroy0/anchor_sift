@@ -46,7 +46,7 @@ class LinkTargetsThatAreNotPaths(unittest.TestCase):
         ):
             self.assertFalse(docs_check.path_candidate(target), target)
 
-    def test_both_doxygen_spellings_are_error(self):
+    def test_both_doxygen_definitions_are_error(self):
         # Doxygen accepts the backslash form everywhere it accepts the at sign.
         self.assertFalse(docs_check.path_candidate("\\ref MAX_CONNS"))
         self.assertFalse(docs_check.path_candidate("@subpage porting"))
@@ -70,7 +70,7 @@ class LinkTargetsThatAreNotPaths(unittest.TestCase):
         self.assertFalse(docs_check.path_candidate("struct HttpReq request"))
 
     def test_a_directory_named_const_is_still_a_path(self):
-        # The keyword rule wants the space after the keyword. A path segment spelled the same way
+        # The keyword rule wants the space after the keyword. A path segment defined the same way
         # is untouched.
         self.assertTrue(docs_check.path_candidate("const/README.md"))
 

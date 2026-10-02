@@ -10,15 +10,15 @@ costs and carries nothing. Compression and coherence are one measurement from tw
 the direction a foreign host will hold still to be measured on.
 
 **what is known before meeting anything**: relations. `1,1 -> 2` is a relation and is not an addition, because
-addition is a spelling. Every system that computes agrees about the relation and each spells it its own way.
-Arithmetic is the shared ground and the spelling is what differs.
+addition is a definition. Every system that computes agrees about the relation and each defines it its own way.
+Arithmetic is the shared ground and the definition is what differs.
 
 **gnascor** is the internal language, `.g` high order and `.gsm` its assembly. It is designed and it is what a
 program is written in. It is not derived and its vocabulary does not move.
 
-**`L*`** is the map from gnascor to a target's spellings, and it is the derived part. The compiler emits whole
+**`L*`** is the map from gnascor to a target's definitions, and it is the derived part. The compiler emits whole
 files of relations in a shuffled order, which leaves a part nothing to tell measurement from work by, runs them,
-and keeps whichever spelling produced the relation.
+and keeps whichever definition produced the relation.
 
     .ksc   the relations put and what came back                       derived
     .kdm   the part keyed to operators: every chain, each costed      derived
@@ -182,7 +182,7 @@ How many arrangements survive the gate is itself a reading and is kept. One surv
 that operator. Many means they do not, and the answer to that is another relation, never more measurement.
 
 **A precept is a question to put, never an answer to write.** Asking a target whether `1,1 -> 2` holds in its
-spelling is the loop working. Reading what the answer should be and writing it into the `.krs` is the loop
+definition is the loop working. Reading what the answer should be and writing it into the `.krs` is the loop
 lying to itself, and both look like using the precepts. `precepts.h` and `word_web.h` are answer keys. They
 may be read to form a question, and to check a derivation after it has run. Nothing that derives may read them
 to fill a form in.

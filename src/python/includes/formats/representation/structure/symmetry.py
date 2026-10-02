@@ -58,7 +58,7 @@ UNITS = 24
 # a symmetry copy one cell over is the same place in the arrangement.
 SYM_SCALE = UNITS * (10**exact.SCALE_DIGITS)
 
-# The tag a CIF gives its operations under. Both spellings occur: the first is the current one and
+# The tag a CIF gives its operations under. Both definitions occur: the first is the current one and
 # the second is what older deposits wrote, and the corpus holds plenty of both.
 TAGS = ("_space_group_symop_operation_xyz", "_symmetry_equiv_pos_as_xyz")
 
@@ -133,7 +133,7 @@ def operations(text):
     found = []
     for tag in TAGS:
         # The operations sit in a loop, one per line, usually quoted. Both the quoted and bare
-        # spellings occur and the corpus holds both.
+        # definitions occur and the corpus holds both.
         block = re.search(
             r"%s\s*\n(.*?)(?=\n\s*(?:loop_|_|$))" % re.escape(tag), text, re.DOTALL
         )

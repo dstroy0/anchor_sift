@@ -75,7 +75,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 # never a silent pass on a page whose data this tool could not find.
 OPENER = "var DATA = "
 
-# A read of the data, with as many dotted segments as the source spells. The walk below decides how
+# A read of the data, with as many dotted segments as the source defines. The walk below decides how
 # many of them are data and how many are the language's.
 READ = re.compile(r"\bDATA((?:\.[A-Za-z_][A-Za-z0-9_]*)+)")
 
@@ -273,13 +273,13 @@ def check(path):
             missing.append((path_bits, depth, near, protected(path_bits, found)))
 
     for path_bits, depth, near, covered in missing:
-        spelled = "DATA." + ".".join(path_bits)
+        defined = "DATA." + ".".join(path_bits)
         absent = ".".join(path_bits[:depth + 1])
         if covered:
-            lines.append("  optional %s: absent, and the page asks before reading it" % spelled)
+            lines.append("  optional %s: absent, and the page asks before reading it" % defined)
         else:
             lines.append("  MISSING %s: no '%s' in the data, and nothing guards the read"
-                         % (spelled, absent))
+                         % (defined, absent))
             lines.append("    whatever depends on it renders empty, and nothing throws")
             if near:
                 lines.append("    the data has: %s" % ", ".join(near[:12]))

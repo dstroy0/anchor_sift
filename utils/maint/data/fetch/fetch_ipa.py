@@ -2,7 +2,7 @@
 # orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Get how the sound words are said, not how they are spelled, for Section 4.13 of
+# Get how the sound words are said, not how they are defined, for Section 4.13 of
 # theory/workbooks/orior.
 #
 #   Usage:  python maint/data/fetch/fetch_ipa.py
@@ -18,7 +18,7 @@
 #
 # The dictionary carries transcriptions beside the words. Fetching those replaces the letters with the
 # sounds and removes the confound. Saying these words resemble each other is a different claim from
-# saying these spellings do.
+# saying these definitions do.
 #
 # Pages are asked for fifty at a time, since asking one at a time would be twelve hundred requests, and
 # the pace is kept slow because this interface has errored on this work several times tonight for asking too
@@ -80,7 +80,7 @@ def ask(titles):
 def transcription(wikitext, heading, code):
     """The transcription a page gives for one language, where it gives one.
 
-    A page holds every language that spells a word that way. The section has to be found first or a
+    A page holds every language that defines a word that way. The section has to be found first or a
     Polish word can come back with its Czech pronunciation.
     """
     if not wikitext:

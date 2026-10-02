@@ -217,7 +217,7 @@ def write_verified(path, text, before, changed, expect):
 
 
 def src_filter(p):
-    """A path in the matrix's own src spelling, whichever form it arrived in.
+    """A path in the matrix's own src definition, whichever form it arrived in.
 
     The matrix writes a source as `+<path>`, and a caller reading the matrix passes it back already
     written that way. Wrapping a second time gives `+<+<path>>`, which names nothing.

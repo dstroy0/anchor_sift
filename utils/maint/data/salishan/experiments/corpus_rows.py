@@ -13,9 +13,9 @@
 # build/oracles, and nothing it returns is written back into this tree. The experiments print counts and rates.
 #
 # An oracle row is where, who, kind, form, gloss. For a form row, who names the language, but the
-# papers spell one language several ways (nɬeʔkepmxcín, Nɬeʔkepmxcín, Nłeʔkepmxcín), a few give an
+# papers define one language several ways (nɬeʔkepmxcín, Nɬeʔkepmxcín, Nłeʔkepmxcín), a few give an
 # older name (Bella Coola for Nuxalk, Thompson), and some give a speaker or a historical source in
-# place of a language. SPELLINGS folds the spellings to one name and BRANCHES gives its branch in the
+# place of a language. DEFINITIONS folds the definitions to one name and BRANCHES gives its branch in the
 # classification the survey literature uses (Thompson's overview, Kinkade's 1998 abbreviations):
 # Nuxalk alone, Central Salish, Tsamosan, Tillamook, Interior Salish split north and south. A who
 # that is not a language takes the language the paper states in its ops header, and is counted as
@@ -61,8 +61,8 @@ BRANCHES = {
     "Proto-Athabascan": "PROTO",
 }
 
-# Spellings seen in the who column, folded (casefold, straight apostrophes, ł to ɬ) to one name.
-SPELLINGS = {
+# Definitions seen in the who column, folded (casefold, straight apostrophes, ł to ɬ) to one name.
+DEFINITIONS = {
     "nuxalk": "Nuxalk", "bella coola": "Nuxalk",
     "ʔayʔaǰuθəm": "ʔayʔaǰuθəm", "ʔayʔajuθəm": "ʔayʔaǰuθəm", "mainland comox": "ʔayʔaǰuθəm",
     "comox": "ʔayʔaǰuθəm", "mainland comox (ayajuthem)": "ʔayʔaǰuθəm", "sliammon": "ʔayʔaǰuθəm", "ayajuthem": "ʔayʔaǰuθəm",
@@ -106,7 +106,7 @@ SPELLINGS = {
     "st̓át̓imcets": "St’át’imcets", "nsyílxcən": "Nsyilxcən", "st'át'imcets (lillooet)": "St’át’imcets",
     # Robertson (ICSNL 61) compares Nicola Athabaskan with Nɬeʔkepmxcín; the Nicola forms are Dene.
     "nicola": "Nicola Athabaskan", "carrier": "Dakelh", "dakelh": "Dakelh", "clackamas kiksht": "Kiksht",
-    # Spellings the later papers use, their dialect names among them, from the audit of every who and
+    # Definitions the later papers use, their dialect names among them, from the audit of every who and
     # every language row against this map.
     "n̓syilxčn̓": "Nsyilxcən", "n̓ syilxčn̓": "Nsyilxcən", "n̓qilxʷčn̓": "Nsyilxcən", "n̓səl̓xčin̓": "Nsyilxcən",
     "okanagan-colville": "Nsyilxcən", "colville okanagan": "Nsyilxcən", "colville": "Nsyilxcən",
@@ -204,7 +204,7 @@ def fold(name):
     return unicodedata.normalize("NFC", text)
 
 
-FOLDED = {fold(key): value for key, value in SPELLINGS.items()}
+FOLDED = {fold(key): value for key, value in DEFINITIONS.items()}
 
 
 def language_of(who):

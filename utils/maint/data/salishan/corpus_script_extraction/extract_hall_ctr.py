@@ -158,7 +158,7 @@ ELSEWHERE = {
 }
 
 # The syllable boundary, which is notation and not a letter. The paper prints [kícne] in one place
-# and [kíc.ne] in another for the same word. Leaving the dots in would put two spellings of it in
+# and [kíc.ne] in another for the same word. Leaving the dots in would put two definitions of it in
 # the corpus. They come out on the way to the pure file and stay in the record.
 SYLLABLE = "."
 

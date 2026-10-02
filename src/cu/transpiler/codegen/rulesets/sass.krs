@@ -205,7 +205,7 @@ form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
 # last operand into the answer, and .U32 reads them unsigned; a wide comparison is the low words compared, then the
 # high words compared with .EX, which takes the low answer as its last operand. The listings gave ISETP.NE.U32.AND,
 # ISETP.NE.AND, ISETP.GT.AND, ISETP.GE.AND, ISETP.GE.U32.AND, ISETP.LT.U32.AND and the .EX of NE, GE and LT, because
-# the compiler read zero and below off the negations of NE and GE. Three spellings below no listing holds:
+# the compiler read zero and below off the negations of NE and GE. Three definitions below no listing holds:
 # ISETP.EQ.U32.AND, ISETP.EQ.U32.AND.EX and ISETP.LT.AND. They are not guessed from the others. The comparison sits
 # in bits 76 to 78, unsigned in 73 and .EX in 72, and the probe's widening round turns each bit of a comparison the
 # listings did hold and asks the disassembler what comes back: EQ.U32.AND is bit 78 of GE.U32.AND, EQ.U32.AND.EX is

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 # Catalog: LNG-1-006
 #
-# Put five spellings into one set of sounds, for Section 4.13 of theory/workbooks/orior.
+# Put five definitions into one set of sounds, for Section 4.13 of theory/workbooks/orior.
 #
 #   Usage:  python examples/language/1_represent/to_phonemes.py
 #
@@ -39,7 +39,7 @@ while not os.path.isdir(os.path.join(ROOT, "src", "python")):
     ROOT = os.path.dirname(ROOT)
 CORPORA = os.path.join(ROOT, "build", "corpora")
 
-# Longest spellings first within each language, since dz must be read before d and z
+# Longest definitions first within each language, since dz must be read before d and z
 SOUNDS = {
     "hungarian": (
         ("dzs", "ʤ"),
@@ -165,7 +165,7 @@ def spoken(word, language):
                 break
         else:
             symbol = lowered[index]
-            # Anything not spelled specially keeps its letter, with length marks dropped
+            # Anything not defined specially keeps its letter, with length marks dropped
             flat = "".join(
                 one
                 for one in unicodedata.normalize("NFD", symbol)

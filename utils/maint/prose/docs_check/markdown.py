@@ -24,7 +24,7 @@ CODE_SPAN = re.compile(r"`[^`\n]*`")
 # is an identifier. The filesystem has no answer to give about it, and producing one means reading
 # Doxygen's tag file, which this tool does not do.
 #
-# Both spellings of every command are accepted, since Doxygen takes @ref and \ref alike.
+# Both definitions of every command are accepted, since Doxygen takes @ref and \ref alike.
 DOXYGEN_TARGET = re.compile(r"^[@\\](ref|subpage|page|link|anchor|cite|see|copydoc)\b")
 
 # C declarator syntax that LINK matches by accident. A lambda in a fenced example writes its capture

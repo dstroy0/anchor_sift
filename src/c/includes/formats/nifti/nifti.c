@@ -289,9 +289,9 @@ static unsigned int nifti_header(const unsigned char *bytes, unsigned long long 
     return 1u;
 }
 
-static unsigned int nifti_letter_is(char spelled, char lower)
+static unsigned int nifti_letter_is(char defined, char lower)
 {
-    return ((spelled == lower) || (spelled == (char)(lower - 'a' + 'A'))) ? 1u : 0u;
+    return ((defined == lower) || (defined == (char)(lower - 'a' + 'A'))) ? 1u : 0u;
 }
 
 static char *nifti_sibling(const char *path, const char *from, const char *to, unsigned int toggle_gzip)

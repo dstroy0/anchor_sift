@@ -55,10 +55,8 @@ OUTRIGHT = (
     r",\s+so\s+(?!that\b|far\b)",
     # Banned outright by code-comments section 200, which names three tokens and bounds them in
     # the same sentence: "none has a legitimate use in a comment here". `so a` and `rather` are
-    # banned for documentation as well by code-documentation section 110. `spelling` alone of
-    # the three has a scoped ban, and COMMENT_ONLY below is where that scope is applied. A
-    # page explaining a character encoding writes the word legitimately; a Doxygen block does
-    # not.
-    r"\bspelling\b",
+    # banned for documentation as well by code-documentation section 110. The third is banned
+    # in every form, in a comment and on every page alike, and the define family stands in for it.
+    r"\b(?:mis)?spell(?:s|ed|ing|ings)?\b",
     r"load-bearing",
 )

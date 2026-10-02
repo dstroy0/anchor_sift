@@ -42,7 +42,7 @@
 /** @brief Set where this translation unit can ask the kernel about SVE. */
 #define ANCHOR_STEER_SVE_CAN_DETECT 1
 #ifndef HWCAP_SVE
-/** @brief The SVE bit in AT_HWCAP, spelled here where the running headers predate it. */
+/** @brief The SVE bit in AT_HWCAP, defined here where the running headers predate it. */
 #define HWCAP_SVE (1 << 22)
 #endif
 #else

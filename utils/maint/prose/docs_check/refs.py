@@ -34,7 +34,7 @@ from .repository import git_say
 # declares roots = ["README.md", "test"] for both its prose gate and its commit hook. Its sixty
 # translation units and its CMakeLists.txt are outside that declared scope, and they stay outside it
 # after every repair this tool has had. A run reporting "0 findings" over two configured roots reads
-# exactly like a clean tree, and that is how a repository carrying dozens of British spellings reads
+# exactly like a clean tree, and that is how a repository carrying dozens of British definitions reads
 # as green. The roots go at the top of the report, and a reader meets the scope before the count.
 #
 # AND SAY WHAT THIS TOOL DOES NOT ANSWER FOR. There are four independent reasons a finding survives

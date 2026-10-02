@@ -51,16 +51,16 @@ from .locale import LOCALE
 # report-only, permanently. A token-for-token orthographic swap is the only class an autofix could
 # ever own here, and that is the alphabet stage and not this table.
 AUTHORITY = {
-    # Three tokens banned outright. code-comments:200: "Three Tokens Are Banned Outright:
-    # `spelling`, `so a`, and `rather`." Two of the three also carry a documentation ban at
-    # code-documentation:110, and `spelling` is scoped to comments by its own sentence.
+    # Three tokens banned outright by code-comments:200. Two of them, `so a` and `rather`, also
+    # carry a documentation ban at code-documentation:110. The third is banned in every form and
+    # on every page, and the define family stands in for it.
     r"\brather\b": "code-documentation:110, code-comments:200",
     r"\bso an?\b": "code-documentation:110, code-comments:200",
     # The comma-so consequence clause code-documentation:112 describes, which the so-a token above
     # only partly reaches. The ban is on every comma-so clause whatever word follows. It is a named
     # construction and belongs in Tier A.
     r",\s+so\s+(?!that\b|far\b)": "code-documentation:112",
-    r"\bspelling\b": "code-comments:200, comments only",
+    r"\b(?:mis)?spell(?:s|ed|ing|ings)?\b": "code-comments:200, every page",
     r"\badd up\b": "code-documentation:110",
     # The measured tics. code-documentation:116 through :121 gives each one its rise.
     r"\bthe one that matters\b": "code-documentation:116",
@@ -139,13 +139,10 @@ if _ORPHANS:
     )
 
 
-# The tokens whose ban the standard scopes to comments in the sentence that states it.
-# code-comments:200 bans three outright and bounds them in the same breath: "none has a legitimate
-# use in a comment here". `so a` and `rather` carry a documentation ban of their own at
-# code-documentation:110. Only `spelling` is left scoped. A page about a character encoding
-# writes the word for what it means; a Doxygen block reaching for it is standing in for the thing
-# it will not name, as :201 says.
-COMMENT_ONLY = frozenset((r"\bspelling\b",))
+# The tokens whose ban holds in comments only. None is: of the three code-comments:200 bans
+# outright, `so a` and `rather` carry a documentation ban of their own at code-documentation:110,
+# and the third is banned on every page. The set stays for a ban a standard scopes to comments.
+COMMENT_ONLY = frozenset()
 
 
 def tier_of(pattern):

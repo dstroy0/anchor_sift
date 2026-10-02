@@ -118,7 +118,7 @@ PAIRED = (("‘", "’"), ("'", "'"), ("“", "”"))
 # piece of it reported as a word no row covers.
 #
 # Six is where these two papers stop. Reading it higher costs a longer join list and a larger
-# chance that some run of tokens accidentally spells a form the table wrote down wrongly, the only
+# chance that some run of tokens accidentally defines a form the table wrote down wrongly, the only
 # thing direction one exists to catch.
 PIECES = 6
 
@@ -144,7 +144,7 @@ def surface_parse_join(token):
 # translations carry ﬁnish, ﬁll and ﬁrst, and a table typed at a keyboard holds none of them.
 LIGATURES = (("ﬁ", "fi"), ("ﬂ", "fl"), ("ﬀ", "ff"), ("ﬃ", "ffi"), ("ﬄ", "ffl"))
 
-# The three spellings of one apostrophe, folded to the plain one. A typesetter sets ’ where a
+# The three definitions of one apostrophe, folded to the plain one. A typesetter sets ’ where a
 # person at a keyboard types ', and NFC does not unify them because they are separate characters
 # and not normalization variants. ICSNL58_Givens_Hall_final holds 39 plain apostrophes in its form
 # column against 62 typographic ones in the paper, and the checker could never match those rows.
@@ -210,7 +210,7 @@ def leading_marker(plain):
 
 # A footnote marker set against a word that ends in a plain letter, as Lyon's zuxʷt5, ʕant7 and
 # ks-cúy-iʔ-səlx11 are. trailing_marker leaves those alone, and it has to: a run of digits at the end
-# of a word is the word's own last letter in the van Eijk orthography, where skúza7 and Cw7aoz spell
+# of a word is the word's own last letter in the van Eijk orthography, where skúza7 and Cw7aoz define
 # the glottal stop as 7.
 #
 # So this is never applied. It is offered as a second string to look for, the way a slashed cell and
@@ -269,7 +269,7 @@ def bare(token, marks=None):
     # Last, after every strip has run. Folding earlier turns ’form’ into 'form', which PAIRED then
     # takes the quotes off both ends of, and one of those ends was the glottalization mark. The
     # strips have to see the characters the page actually printed; only the comparison needs the
-    # two spellings settled.
+    # two definitions settled.
     for typographic, plain_quote in QUOTES:
         plain = plain.replace(typographic, plain_quote)
     return plain

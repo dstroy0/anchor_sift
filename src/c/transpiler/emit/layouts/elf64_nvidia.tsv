@@ -7,7 +7,7 @@
 # field	<name>	<offset>	<width>     a place in a header, in bytes
 # size	<name>	<bytes>                 how long a thing is
 # tag	<name>	<value>                 a number the format gives a meaning
-# name	<name>	<text>                  a name the format spells, with {part} standing for the part's own
+# name	<name>	<text>                  a name the format defines, with {part} standing for the part's own
 #
 # this one is the ELF64 a CUDA toolchain writes, read off cubins it built
 #

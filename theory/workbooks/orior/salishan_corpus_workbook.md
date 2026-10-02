@@ -35,7 +35,7 @@ quoted below are quoted from the published papers named beside them, as a reader
 
 ## What the tables hold
 
-`python maint/data/salishan/experiments/corpus_rows.py`. The loader folds the papers' spellings of one
+`python maint/data/salishan/experiments/corpus_rows.py`. The loader folds the papers' definitions of one
 language to one name (nɬeʔkepmxcín, Nɬeʔkepmxcín and Nłeʔkepmxcín are one language; Bella Coola is
 Nuxalk) and gives each its branch. A form row whose "who" is a speaker or an author takes the language
 the paper states in its ops header, or the one recorded in `paper_config.PAPERS` for the 23 papers
