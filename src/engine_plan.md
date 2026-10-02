@@ -278,8 +278,11 @@ works there.
    `monolith_differences.md` whole on every run. Wherever the machine file holds a form, our reader and
    assembler give NVIDIA's operation bits exactly. What stands between our compiler and NVIDIA's writing is a
    state error that compounds layer on layer, and it is fixed from the root up, each fix read off the record:
-   - Machine file. No form for the `.STRONG.SYS` load and store (bit 37 and bit 69), for `BPT.TRAP`, or for
-     `IMAD.IADD`.
+   - Machine file. The probe's fields miss three kinds of bit, each found by asking the disassembler a bit at a
+     time: a byte that prints nothing, the uniform register holding the memory descriptor in the `.STRONG.SYS`
+     load (bits 32 to 39) and store (64 to 71); a field whose value renames the operation, `IMAD`'s multiplier
+     at bits 32 to 63 spelled `IMAD.MOV` at 0 and `IMAD.IADD` at 1; and a field whose 0 drops the operand from
+     the text, `BPT.TRAP`'s code from bit 34.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
