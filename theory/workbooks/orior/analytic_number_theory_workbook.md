@@ -2,7 +2,8 @@
 
 **Purpose:** Record what the engine's exact arithmetic shows when it is pointed at analytic number
 theory, one poke at a time, claiming nothing. **Scope:** `examples/0_experimental/exact_zeta_values.py`,
-`evidence/proofs/posits/proof_set_theory.py`, and this file.
+`examples/0_experimental/exact_zeta_zeros.py`, `evidence/proofs/posits/proof_set_theory.py`, and this
+file.
 
 This is a workbook, and it claims no result. It follows the rail the
 millennium research paper set down (`theory/theory/millennium/chapters/chapter_what_this_is.tex`), because that
@@ -91,6 +92,32 @@ form, and that every zero is a fixed point of `s -> 1 - conj(s)`, the Riemann hy
 conjecture with strong numerical support and no proof. It is fun to dream that a single fingerprint
 forces it. The dream is not a proof, and it stays in this column labeled a dream. Proof is proof. Prior
 art: Montgomery 1973, Dyson, Odlyzko; reported from a web search, papers unread.
+
+## Entry 4, 2026-10-01: the zeros, counted and placed by sign bits
+
+`examples/0_experimental/exact_zeta_zeros.py`, run and exit 0, in 70 seconds. It computes zeta in the
+critical strip, in brackets: integers at a scale `2^-b`, with Euler-Maclaurin's proven remainder bound
+carried in the bracket. Every rounding is carried.
+
+- The bits. Each point is asked two bits, `Re zeta > 0` and `Im zeta > 0`. A bracket holding zero
+  leaves a bit undecided, and that point alone asks again at twice the scale. Each edge between two
+  points is asked one bit: does zeta over the whole edge stay on one side of a line through zero? An
+  undecided edge splits at its midpoint. The quarter turns around a box sum to four times the zeros
+  inside it, by the argument principle. No precision, region or step is assigned. Every point starts at
+  `2^-24`, and the deepest point the run needed sat at `2^-96`.
+- The line. Every box is symmetric about `Re(s) = 1/2`. By the group entry 3 verifies, a zero off the
+  line brings its mirror into the same box, and a symmetric box counting one holds a zero on the line.
+- The walk. Up the strip from `t = 1`, between its own edges `Re(s) = 0` and `Re(s) = 1`: an empty box
+  doubles the step and a crowded box halves it. It found ten zeros, each alone in its box. Each was
+  then placed by sixteen bits, one count per bit, in squares centred on the line.
+- Positive control, with an answer from outside. Each of the ten placed brackets holds the ordinate
+  Odlyzko's table prints for it, read from the table at nine places: `14.134725142` lies in
+  `[14.13464355, 14.13476562]`, and the other nine likewise.
+- Drawn null. Zeta without the integral of the rest, `N^(1-s)/(s-1)`, counts one zero between `t = 1`
+  and `t = 10`, where there is none, and eleven below `t = 50`, where there are ten.
+- What it is not. Ten zeros on the line below `t = 50` is a computation at a height, and the field has
+  verified far past it. It bears on the Riemann hypothesis exactly as far as every verification below a
+  height does, and not at all past that height.
 
 ## The problem, stated fully
 
@@ -189,19 +216,21 @@ want, and the status says what has been run. No row bears on the hypothesis.
 | the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
 | the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
 | the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
-| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the real-valued function on the critical line Turing's method reads: a sign change brackets a zero | wanted, not built (open item 1). A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
+| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the winding of zeta around a box symmetric about the line, read from the sign bits of `Re zeta` and `Im zeta` | run (entry 4): ten zeros, each placed by sixteen bits. A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
 | the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
-| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found, and the count checked against `N(T)` by Turing's method | wanted, not built. A count reaches a horizon and never all of them (the bounding function section) |
+| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found by the winding count, and the count checked against `N(T)` | run below `t = 50` (entry 4): ten, as the published table has them. A count reaches a horizon and never all of them (the bounding function section) |
 | the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
 | L* on zeta | not in the problem | "treat the zeta function like an unknown piece of hardware"; "probe the field's clock-cycle-like preferences" | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
 | every zero on the line | the hypothesis | "the zeroes are structurally forced to exist only along that identity membrane" | a proof | open. Nothing here bears on it |
 
 ## Open, not done
 
-- Computing `zeta(s)` in the critical strip, and a first non-trivial zero to high precision, needs
-  complex arithmetic and an accelerated method (Riemann-Siegel, or Euler-Maclaurin). That is a larger
-  poke than this entry, and it is not attempted here. When it is, it will be a numerical observation at
-  a stated precision, never a statement about all zeros.
+- Entry 4 counts below `t = 50`. Euler-Maclaurin sums about `t / 2pi` terms per value. Far up the
+  strip that cost wants the Riemann-Siegel formula, whose remainder bound is not carried here.
+- The sign of `Z(t)` at the Gram points is the reading the shift agreement detector and the null
+  permutation identity are built for. Gram's law shows as agreement at lag 2. The null permutation
+  needs 32 occurrences of each sign, about 64 Gram intervals. Both need the Riemann-Siegel theta
+  function in brackets, and that is not built.
 - Whether a non-trivial zero has a closed form in the constructors is a separate question from where
   it sits, and it is not addressed here.
 
