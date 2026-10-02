@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // Every form sass.krs writes, assembled against the part's machine file, with no device and no toolchain.
 //
-//     sass_krs_assemble [ruleset] [machine file]
+//     sass_krs_assemble [ruleset] [machine file] [writings]
+//
+// Given a third argument, the text of every form that assembled is written to that file, a form after another.
 //
 // This is the check that was missing when sass.krs came to name three comparisons no listing ever held. The ruleset
 // was read against its schema, and each form's text was checked against the listing it came from, and neither of
@@ -237,6 +239,8 @@ int main(int count, char **arguments)
 {
     const char *const ruleset = (count > 1) ? arguments[1] : "src/cu/transpiler/codegen/rulesets/sass.krs";
     const char *const path = (count > 2) ? arguments[2] : "src/c/transpiler/cubin/machines/sm_86";
+    // the writing of every form that assembled, kept where a third argument names a file for it
+    FILE *const kept = (count > 3) ? fopen(arguments[3], "w") : NULL;
     static SassMachine machine;
     if (!sass_machine_read(&machine, path))
     {
@@ -268,6 +272,10 @@ int main(int count, char **arguments)
         if (outcome == KRS_ASSEMBLED)
         {
             assembled += 1u;
+            if (kept != NULL)
+            {
+                fprintf(kept, "%s%s", wrote.c_str(), (!wrote.empty() && (wrote.back() == '\n')) ? "" : "\n");
+            }
         }
         else if (outcome == KRS_NO_INSTRUCTION)
         {
@@ -282,5 +290,9 @@ int main(int count, char **arguments)
     }
     printf("sass.krs: %u forms assembled, %u refused, %u carry no instruction, %u left empty\n", assembled, refused,
            quiet, empty);
+    if (kept != NULL)
+    {
+        fclose(kept);
+    }
     return (refused == 0u) ? 0 : 1;
 }
