@@ -113,8 +113,77 @@ static void sass_form_turned(const SassForm *form)
     }
 }
 
+// 1 where `text` is `base` with one operand more at its end: the guard and the operation's name before its first dot
+// kept, and every operand `base` prints still there, a mark aside, since IMAD.X prints as ~R the register IMAD.IADD
+// prints as -R
+static int sass_operand_gained(const SassInstructionParts *base, const char *text)
+{
+    SassInstructionParts parts;
+    sass_instruction_read(text, &parts);
+    int kept = (strcmp(parts.guard, base->guard) == 0) && sass_operation_root_same(parts.operation, base->operation) &&
+               (parts.operands == (base->operands + 1u));
+    for (unsigned int place = 0u; kept && (place < base->operands); place += 1u)
+    {
+        kept = (strcmp(parts.operand[place], base->operand[place]) == 0);
+    }
+    return kept;
+}
+
+// The operand a form holds and does not print, its run kept as operand `base->operands`, one past those it prints. A
+// turned bit that adds one operand at the end and keeps the rest names it, as bit 74 of IMAD.IADD does, which prints
+// IMAD.X with its carry-in predicate; that encoding's own bits turned over give the run of the operand it added. The
+// form takes the first such bit and one unprinted operand. 1, or 0 where the disassembler failed on the turned bits
+static int sass_form_unprinted(SassForm *form, const SassInstructionParts *base, const char *architecture,
+                               const char *folder, unsigned int number)
+{
+    unsigned int gained = SASS_BITS;
+    for (unsigned int bit = 0u; (gained == SASS_BITS) && (bit < SASS_BITS); bit += 1u)
+    {
+        gained = sass_operand_gained(base, s_texts[1u + bit]) ? bit : gained;
+    }
+    if (gained == SASS_BITS)
+    {
+        return 1;
+    }
+    SassForm sibling = *form;
+    sibling.low = s_low[1u + gained];
+    sibling.high = s_high[1u + gained];
+    sass_form_turned(&sibling);
+    char path[1024];
+    snprintf(path, sizeof(path), "%s/form_%03u_unprinted", folder, number);
+    if (!sass_decode(architecture, path, s_low, s_high, SASS_ENCODINGS, s_texts))
+    {
+        return 0;
+    }
+    SassInstructionParts with;
+    sass_instruction_read(s_texts[0], &with);
+    const unsigned int added = base->operands;
+    unsigned int first = 0u;
+    int running = 0;
+    for (unsigned int bit = 0u; bit <= SASS_BITS; bit += 1u)
+    {
+        const int changes = (bit < SASS_BITS) && (sass_operand_changed(&with, s_texts[1u + bit]) == added);
+        // a run ends where the operand stops changing, and the two words never share one
+        if (running && (!changes || (bit == 64u)) && (form->runs < SASS_MACHINE_RUNS))
+        {
+            form->run[form->runs].operand = added;
+            form->run[form->runs].first = first;
+            form->run[form->runs].last = bit - 1u;
+            form->runs += 1u;
+            running = 0;
+        }
+        if (changes && !running)
+        {
+            first = bit;
+            running = 1;
+        }
+    }
+    return 1;
+}
+
 // one form's fields found: each of its 128 bits turned over and decoded, and each run of bits that changes one
-// printed operand kept as that operand's. 1, or 0 where the disassembler failed
+// printed operand kept as that operand's, then the run of an operand it holds and does not print. 1, or 0 where the
+// disassembler failed
 static int sass_form_fields(SassForm *form, const char *architecture, const char *folder, unsigned int number)
 {
     sass_form_turned(form);
@@ -148,7 +217,7 @@ static int sass_form_fields(SassForm *form, const char *architecture, const char
             first = bit;
         }
     }
-    return 1;
+    return sass_form_unprinted(form, &base, architecture, folder, number);
 }
 
 // 1 where the disassembler named every modifier of `operation`. It has three ways of saying it could not: it prints

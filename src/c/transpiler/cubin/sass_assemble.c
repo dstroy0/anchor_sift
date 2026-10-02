@@ -372,6 +372,10 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
     sass_instruction_read(form->text, &base);
     *low = form->low;
     *high = form->high;
+    // An operand the form holds and does not print keeps the bits the form was seen with. What value leaves it
+    // without effect is the operation's own: NVIDIA writes !PT into the carry-in IMAD reads as IMAD.X, PT into the
+    // predicate ISETP takes beside its printed ones, and 0 into the predicate a load reads where bit 64 is clear. No
+    // one value holds for all of them, and the part says which values make no difference
     for (unsigned int place = 0u; place < parts.operands; place += 1u)
     {
         if (places[place].by_text != 0)
@@ -617,6 +621,15 @@ static unsigned int sass_open_bits(const SassForm *form, const SassPlace *places
         {
             sass_bits_write(low, high, places[place].descriptor.first, places[place].descriptor.bits, ~0ull);
             sass_bits_write(low, high, SASS_DESCRIPTOR_SHOWN, 1u, ~0ull);
+        }
+    }
+    // an operand the form holds and does not print is the operand's, whatever value an encoding gives it
+    for (unsigned int number = 0u; number < form->runs; number += 1u)
+    {
+        const SassRun *const run = &form->run[number];
+        if (run->operand >= form->operands)
+        {
+            sass_bits_write(low, high, run->first, (run->last - run->first) + 1u, ~0ull);
         }
     }
     unsigned int count = 0u;

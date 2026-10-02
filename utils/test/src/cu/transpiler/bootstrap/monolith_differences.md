@@ -89,7 +89,7 @@ Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this 
 | 15 | add | 00500 | `IMAD.IADD R9, R0, 0x1, R9` |  |  |  | `add_alone: IADD3 R9, R0, R9, RZ` | operation bits apart; NVIDIA's carries .IADD and ours does not; apart at 20 bits |
 | 16 | sub | 00530 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |
 | 16 | sub | 00540 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
-| 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` | `IMAD.MOV R9, R9, 0x1, -R0` | apart at bit 87 89 90 | NVIDIA 0027e5, ours 0007f1 |  | operation bits apart |
+| 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` | same | apart at bit 87 89 90 | NVIDIA 0027e5, ours 0007f1 |  | operation bits apart |
 | 16 | sub | 00560 | `STG.E.STRONG.SYS term[UR4][R4.64+0x3c], R9` | same | same | NVIDIA 0000f1, ours 0000f4 |  | scheduler bits |
 | 16 | sub | 00550 | `IMAD.IADD R9, R9, 0x1, -R0` |  |  |  | `subtract_alone: IADD3 R9, R9, -R0, RZ` | operation bits apart; NVIDIA's carries .IADD and ours does not; apart at 24 bits |
 | 17 | bra | 00580 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x8]` | same | same | NVIDIA 000752, ours 000751 |  | scheduler bits |
