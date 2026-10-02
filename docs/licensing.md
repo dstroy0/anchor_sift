@@ -1,6 +1,6 @@
 # Licensing
 
-**Purpose:** Say which license governs a use, and how an educator asks for an exception.
+**Purpose:** Say which license governs a use, how the conditions of use bind, and how an educator asks for an exception.
 **Scope:** `LICENSE`, `LICENSES/`
 
 Every source file carries this header:
@@ -16,6 +16,10 @@ Every use falls under AGPL-3.0-or-later unless you hold explicit permission, whi
 | `AGPL-3.0-or-later`      | [`LICENSES/AGPL-3.0-or-later.txt`](https://github.com/dstroy0/orior/blob/main/LICENSES/AGPL-3.0-or-later.txt), also [`LICENSE`](https://github.com/dstroy0/orior/blob/main/LICENSE) | the GNU Affero General Public License version 3 or any later version |
 | `LicenseRef-Commercial`  | [`LICENSES/LicenseRef-Commercial.txt`](https://github.com/dstroy0/orior/blob/main/LICENSES/LicenseRef-Commercial.txt)                                                            | a negotiated commercial contract                                     |
 | `LicenseRef-Educational` | [`LICENSES/LicenseRef-Educational.txt`](https://github.com/dstroy0/orior/blob/main/LICENSES/LicenseRef-Educational.txt)                                                          | an educator's license, issued in writing to a named person           |
+
+## The conditions of use
+
+[The conditions of use](condition_of_use.md) are a term of every commercial contract and every educator's license. Section 7A of each binds whoever signs or accepts it to each of them, for every closed product or work made under it and its output, and Section 7 binds them to the terms of the speakers for language. No order form or grant changes Section 7A, and breaking it can end the license at once.
 
 ## Educators
 

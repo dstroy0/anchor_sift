@@ -8,10 +8,10 @@ hide:
 
 # orior
 
-Measure how far something sits from the most disordered arrangement of its own parts.
+A unified computational foundation.
 { .orior-lede }
 
-No prior, no training set, no model. Exact integer arithmetic, a null drawn from the object's own parts, and a floor beside every number.
+Measure how far an object sits from the most disordered arrangement of its own parts. The reference is the maximum entropy arrangement of those parts, and the measure is the exact departure from it.
 
 [Setup](setup.md){ .md-button .md-button--primary }
 [Using it](usage.md){ .md-button }
@@ -88,11 +88,11 @@ sh utils/maint/texbuild/build_theory.sh                             # the resear
 
     What came back from crystals, a dialect border, games, the periodic table and a hash. [Where to start reading](research_papers.md) names the twenty research papers.
 
--   :material-account-voice:{ .lg .middle } __[The condition of use](condition_of_use.md)__
+-   :material-account-voice:{ .lg .middle } __[The conditions of use](condition_of_use.md)__
 
     ---
 
-    Whose language this is. A tool for language built on this work requires a human to review its output.
+    Whose language this is, what is held closed, naming a writer, the scan of a patient, systems you do not own, and how a result is reported.
 
 </div>
 
