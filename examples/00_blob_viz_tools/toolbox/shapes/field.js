@@ -52,7 +52,7 @@ EV.harmonicsAt = (top, colatitude, longitude) => {
 };
 
 // Coefficients from a seed: a 32-bit xorshift, each coefficient uniform in -1 to 1 and scaled by 1 / (d + 1).
-// Degree zero carries nothing, so the field sums to zero over the sphere.
+// Degree zero carries nothing, and the field sums to zero over the sphere.
 EV.fieldCoefficients = (top, seed) => {
   let state = (seed >>> 0) || 1;
   const next = () => {

@@ -247,8 +247,11 @@
   <table id="checks"></table>
 </div>
 
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<script>/*SCRIPT*/</script>
 <script>
-  var DATA = /*BEND_DATA*/ null;
+  var DATA = /*DATA*/ null;
 
   // -------------------------------------------------------------------------------------------------
   // Nothing here measures. The coefficients of every round came out of the generator, and so did the
@@ -943,52 +946,10 @@
     camera.up.copy(upVector);
     camera.lookAt(0, 0, 0);
     renderer.render(scene, camera);
-    requestAnimationFrame(guardedTurn);
   }
 
-  // Two turns and not one: a loop that throws on its first turn has already drawn one correct still
-  // frame, and nothing outside the page can tell that from a working one. The page reports on itself.
-  //
-  // A HIDDEN TAB IS NOT A DEAD LOOP. The browser holds animation frames for a tab nobody can see, and
-  // the first reading of this page came back "0 turns, not checked yet" from a tab whose
-  // visibilityState was hidden while the loop was healthy. The health record says hidden in that case
-  // instead of reporting a stall that is the browser's decision.
-  var loopTurns = 0,
-    loopThrew = null;
-  window.__loopHealth = {
-    ok: null,
-    turns: 0,
-    why: "not checked yet",
-    selfCheck: CHECK,
-  };
-  function loopReport() {
-    if (loopThrew) {
-      return window.__loopHealth;
-    }
-    if (loopTurns >= 2) {
-      return {
-        ok: true,
-        turns: loopTurns,
-        why: "the loop turned twice",
-        selfCheck: CHECK,
-      };
-    }
-    if (document.visibilityState === "hidden") {
-      return {
-        ok: null,
-        turns: loopTurns,
-        why: "tab hidden, frames held by the browser",
-        selfCheck: CHECK,
-      };
-    }
-    return {
-      ok: null,
-      turns: loopTurns,
-      why: "fewer than two turns while visible",
-      selfCheck: CHECK,
-    };
-  }
-  window.__loopReport = loopReport;
+  // The field arithmetic's own check, for a harness to read beside window.__loopHealth.
+  window.__selfCheck = CHECK;
 
   // One frame on demand, at a chosen instant and transition, for reading the surface from outside the
   // page without waiting on the browser's frame clock.
@@ -1019,34 +980,6 @@
       keptFade: shown.keptFade,
     };
   };
-  function guardedTurn(now) {
-    if (loopThrew) {
-      return;
-    }
-    try {
-      turn(now);
-    } catch (thrown) {
-      loopThrew = String(thrown);
-      window.__loopHealth = {
-        ok: false,
-        turns: loopTurns,
-        why: "threw: " + loopThrew,
-        selfCheck: CHECK,
-      };
-      if (window.console) {
-        console.error("FRAME LOOP", thrown);
-      }
-      return;
-    }
-    loopTurns += 1;
-    if (loopTurns >= 2 && window.__loopHealth.ok !== true) {
-      window.__loopHealth = {
-        ok: true,
-        turns: loopTurns,
-        why: "the loop turned twice",
-        selfCheck: CHECK,
-      };
-    }
-  }
-  requestAnimationFrame(guardedTurn);
+
+  EV.watchLoop("bend view", turn).wake();
 </script>

@@ -1,0 +1,325 @@
+<!doctype html>
+<!--
+orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
+
+The directions a boundary reading cannot see, beside the field each one produces. Two equal-area maps of one
+sphere: on the left the source weights of one singular direction, on the right the boundary field those weights
+produce, both on scales fixed across every direction. Stepping past the rank leaves the left map vivid and the
+right one flat. generate_template.py builds it through build_blind_view.py.
+-->
+<!--NAMESPACE EV-->
+<!--TOOL theme-->
+<!--TOOL ui/toolbar-->
+<html lang="en" data-theme="dark" data-face="human">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Blind Directions</title>
+<style>
+/*STYLE*/
+  html, body { height: auto; min-height: 100%; overflow: auto; }
+  main { box-sizing: border-box; max-width: 1280px; margin: 0 auto; padding: 72px 24px 32px; display: grid; gap: 16px; }
+  main .glass { position: relative; max-height: none; overflow: visible; padding: 14px 16px; }
+  h1 { margin: 0 0 4px; font-size: 17px; font-weight: 600; letter-spacing: 0.01em; }
+  .maps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 820px) { .maps { grid-template-columns: 1fr; } }
+  figure { margin: 0; }
+  figcaption { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 11px; font-weight: 600; color: var(--ink); }
+  figcaption span { font-weight: 400; color: var(--dim); font-variant-numeric: tabular-nums; }
+  canvas { display: block; width: 100%; }
+  canvas.map { aspect-ratio: 2 / 1; }
+  canvas#spectrum { height: 132px; cursor: pointer; }
+  .stats { display: flex; flex-wrap: wrap; gap: 4px 20px; color: var(--dim); font-variant-numeric: tabular-nums; }
+  .stats b { color: var(--ink); font-weight: 600; }
+  .live { color: var(--mint); }
+  .blind { color: var(--violet); }
+</style>
+</head>
+<body>
+<main>
+  <header class="glass">
+    <h1>Directions the boundary cannot see</h1>
+    <p class="note">A reading to degree L maps a weight per interior source to (L+1)&sup2; boundary coefficients. Its right
+      singular vectors are directions in source space, ordered by how strongly the boundary answers them, and past
+      the rank the answer is nothing at all. Both maps keep one scale across every direction, so a quiet map is
+      quiet and not rescaled.</p>
+    <div class="stats" id="totals"></div>
+  </header>
+  <div class="maps">
+    <figure class="glass"><figcaption>Source weights <span id="weightsScale"></span></figcaption><canvas class="map" id="weights" role="img" aria-label="source weights of the chosen direction, equal-area map"></canvas></figure>
+    <figure class="glass"><figcaption>Boundary field <span id="fieldScale"></span></figcaption><canvas class="map" id="field" role="img" aria-label="boundary field of the chosen direction, equal-area map"></canvas></figure>
+  </div>
+  <figure class="glass"><figcaption>Singular values, largest first <span>the line marks the floor; past it the boundary is blind</span></figcaption><canvas id="spectrum" role="img" aria-label="singular values on a log scale, with the floor marked"></canvas></figure>
+  <div class="glass stats" id="reading" aria-live="polite"></div>
+</main>
+<script>
+/*SCRIPT*/
+const DATA = /*DATA*/ null;
+
+EV.$ = (id) => document.getElementById(id);
+EV.view = { at: 0 };
+
+EV.controlBar = EV.toolbar({
+  id: "panel",
+  title: "controls",
+  corner: "top-left",
+  open: false,
+  sections: [
+    { title: "direction", rows: [
+      { select: "direction", label: "direction", options: DATA.arrows.map((one, index) => [index, `#${one.at + 1} ${one.live ? "live" : "blind"}, σ ${one.sigma.toExponential(2)}`]) },
+      { buttons: [{ id: "previous", text: "previous", title: "the direction before (←)" }, { id: "next", text: "next", title: "the direction after (→)" }] },
+    ] },
+    { title: "page", open: false, rows: [
+      { select: "theme", label: "theme", options: [["dark", "dark"], ["light", "light"]] },
+    ] },
+  ],
+});
+
+// The theme's colors, read once per draw. A theme change repaints in the new colors.
+EV.colors = () => {
+  const style = getComputedStyle(document.documentElement);
+  const take = (name) => style.getPropertyValue(name).trim();
+  return { ink: take("--ink"), dim: take("--dim"), faint: take("--faint"), hair: take("--hair-hi"), mint: take("--mint"),
+           violet: take("--violet"), blue: take("--blue") };
+};
+
+// A canvas sized to its box in device pixels, with its drawing scaled to CSS pixels.
+EV.surface = (canvas) => {
+  const ratio = window.devicePixelRatio || 1;
+  const width = Math.max(1, canvas.clientWidth);
+  const height = Math.max(1, canvas.clientHeight);
+  canvas.width = Math.round(width * ratio);
+  canvas.height = Math.round(height * ratio);
+  const pen = canvas.getContext("2d");
+  pen.setTransform(ratio, 0, 0, ratio, 0, 0);
+  pen.clearRect(0, 0, width, height);
+  return { pen, width, height };
+};
+
+// Mollweide x and y, each from -1 to 1, to the canvas: the ellipse fills the box less a margin.
+EV.place = (box) => {
+  const margin = 10;
+  const across = Math.min((box.width - 2 * margin) / 2, box.height - 2 * margin);
+  const down = across / 2;
+  return (x, y) => [box.width / 2 + x * across, box.height / 2 - y * down];
+};
+
+EV.outline = (pen, at, color) => {
+  pen.beginPath();
+  for (let step = 0; step <= 96; step++) {
+    const angle = (step / 96) * 2 * Math.PI;
+    const [x, y] = at(Math.cos(angle), Math.sin(angle));
+    if (step === 0) {
+      pen.moveTo(x, y);
+    } else {
+      pen.lineTo(x, y);
+    }
+  }
+  pen.strokeStyle = color;
+  pen.lineWidth = 1;
+  pen.stroke();
+};
+
+// A signed value on a scale from -1 to 1: mint above zero, violet below, its alpha its size. Zero is the ground.
+EV.tone = (value, colors) => ({ color: value >= 0 ? colors.mint : colors.violet, alpha: Math.min(1, Math.abs(value)) });
+
+// The largest magnitude across every direction carried: one scale for each map, held for the whole page.
+EV.scales = {
+  weights: Math.max(1e-300, ...DATA.arrows.map((one) => Math.max(...one.weights.map(Math.abs)))),
+  field: Math.max(1e-300, ...DATA.arrows.map((one) => Math.max(...one.field.map(Math.abs)))),
+};
+
+EV.drawWeights = (arrow, colors) => {
+  const box = EV.surface(EV.$("weights"));
+  const at = EV.place(box);
+  EV.outline(box.pen, at, colors.hair);
+  const size = Math.max(2, Math.min(box.width, box.height * 2) / 150);
+  DATA.seats.forEach(([x, y], index) => {
+    const tone = EV.tone(arrow.weights[index] / EV.scales.weights, colors);
+    const [px, py] = at(x, y);
+    box.pen.globalAlpha = 0.18 + 0.82 * tone.alpha;
+    box.pen.fillStyle = tone.alpha < 0.02 ? colors.faint : tone.color;
+    box.pen.beginPath();
+    box.pen.arc(px, py, size * (0.6 + 0.8 * tone.alpha), 0, 2 * Math.PI);
+    box.pen.fill();
+  });
+  box.pen.globalAlpha = 1;
+};
+
+// A CSS color as red, green and blue from 0 to 255.
+EV.rgb = (color) => {
+  const probe = document.createElement("i");
+  probe.style.color = color;
+  document.body.appendChild(probe);
+  const parts = getComputedStyle(probe).color.match(/[\d.]+/g).map(Number);
+  probe.remove();
+  return parts.slice(0, 3);
+};
+
+// The field at one point of the map, read back through the inverse projection and interpolated between the four
+// grid samples around it; null outside the ellipse. Row r sits at colatitude pi (r + 1/2) / rows from the north
+// pole, and column c at longitude 2 pi c / columns, the grid sphere_field.synthesize samples.
+EV.fieldAt = (field, x, y) => {
+  if (x * x + y * y > 1) {
+    return null;
+  }
+  const theta = Math.asin(Math.max(-1, Math.min(1, y)));
+  const across = Math.cos(theta);
+  const longitude = across > 1e-9 ? (Math.PI * x) / across : 0;
+  const latitude = Math.asin(Math.max(-1, Math.min(1, (2 * theta + Math.sin(2 * theta)) / Math.PI)));
+  const row = Math.min(DATA.rows - 1, Math.max(0, ((Math.PI / 2 - latitude) / Math.PI) * DATA.rows - 0.5));
+  const turn = ((longitude % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+  const column = ((turn / (2 * Math.PI)) * DATA.columns) % DATA.columns;
+  const r0 = Math.floor(row);
+  const r1 = Math.min(DATA.rows - 1, r0 + 1);
+  const c0 = Math.floor(column);
+  const c1 = (c0 + 1) % DATA.columns;
+  const fr = row - r0;
+  const fc = column - c0;
+  const value = (r, c) => field[r * DATA.columns + c];
+  return (value(r0, c0) * (1 - fc) + value(r0, c1) * fc) * (1 - fr) + (value(r1, c0) * (1 - fc) + value(r1, c1) * fc) * fr;
+};
+
+EV.drawField = (arrow, colors) => {
+  const canvas = EV.$("field");
+  const box = EV.surface(canvas);
+  const at = EV.place(box);
+  const ratio = canvas.width / box.width;
+  const [cx, cy] = at(0, 0);
+  const [rx] = at(1, 0);
+  const across = rx - cx;
+  const image = box.pen.createImageData(canvas.width, canvas.height);
+  const high = EV.rgb(colors.mint);
+  const low = EV.rgb(colors.violet);
+  for (let py = 0; py < canvas.height; py++) {
+    const y = (cy - py / ratio) / (across / 2);
+    for (let px = 0; px < canvas.width; px++) {
+      const x = (px / ratio - cx) / across;
+      const value = EV.fieldAt(arrow.field, x, y);
+      if (value === null) {
+        continue;
+      }
+      const tone = Math.max(-1, Math.min(1, value / EV.scales.field));
+      const color = tone >= 0 ? high : low;
+      const write = (py * canvas.width + px) * 4;
+      image.data[write] = color[0];
+      image.data[write + 1] = color[1];
+      image.data[write + 2] = color[2];
+      image.data[write + 3] = Math.round(Math.abs(tone) * 255);
+    }
+  }
+  box.pen.putImageData(image, 0, 0);
+  EV.outline(box.pen, at, colors.hair);
+};
+
+// One slot per source direction, on a log axis with the floor as a line. A direction the reading answers is a bar
+// to its singular value; a blind one, past the rank, answers nothing and is a mark at the floor. Carried directions
+// are dotted below, the chosen one brightest; a click picks the nearest carried direction.
+EV.drawSpectrum = (arrow, colors) => {
+  const canvas = EV.$("spectrum");
+  const box = EV.surface(canvas);
+  const values = DATA.spectrum;
+  const slots = DATA.count;
+  const top = Math.log10(Math.max(values[0], 1e-300)) + 0.5;
+  const bottom = Math.log10(Math.max(DATA.floor, 1e-300)) - 1;
+  const left = 8;
+  const right = box.width - 8;
+  const high = 8;
+  const low = box.height - 16;
+  const y = (value) => high + (low - high) * Math.min(1, Math.max(0, (top - Math.log10(Math.max(value, 1e-300))) / (top - bottom)));
+  const x = (index) => left + ((index + 0.5) / slots) * (right - left);
+  const width = Math.max(1, ((right - left) / slots) * 0.7);
+  for (let index = 0; index < slots; index++) {
+    const value = index < values.length ? values[index] : 0;
+    if (index < DATA.rank) {
+      box.pen.fillStyle = colors.blue;
+      box.pen.globalAlpha = 0.5;
+      box.pen.fillRect(x(index) - width / 2, y(value), width, low - y(value));
+    } else {
+      box.pen.fillStyle = colors.violet;
+      box.pen.globalAlpha = 0.45;
+      box.pen.fillRect(x(index) - width / 2, low - 3, width, 3);
+    }
+  }
+  box.pen.globalAlpha = 1;
+  box.pen.strokeStyle = colors.dim;
+  box.pen.setLineDash([3, 3]);
+  box.pen.beginPath();
+  box.pen.moveTo(left, y(DATA.floor));
+  box.pen.lineTo(right, y(DATA.floor));
+  box.pen.stroke();
+  box.pen.setLineDash([]);
+  for (const one of DATA.arrows) {
+    box.pen.fillStyle = one === arrow ? colors.ink : colors.faint;
+    box.pen.beginPath();
+    box.pen.arc(x(one.at), low + 8, one === arrow ? 3.5 : 2, 0, 2 * Math.PI);
+    box.pen.fill();
+  }
+  canvas.onclick = (event) => {
+    const place = event.offsetX;
+    let best = 0;
+    DATA.arrows.forEach((one, index) => {
+      if (Math.abs(x(one.at) - place) < Math.abs(x(DATA.arrows[best].at) - place)) {
+        best = index;
+      }
+    });
+    EV.show(best);
+  };
+};
+
+EV.number = (value) => (Math.abs(value) >= 1e-3 && Math.abs(value) < 1e4 ? value.toPrecision(4) : value.toExponential(3));
+
+EV.paint = () => {
+  const arrow = DATA.arrows[EV.view.at];
+  const colors = EV.colors();
+  EV.drawWeights(arrow, colors);
+  EV.drawField(arrow, colors);
+  EV.drawSpectrum(arrow, colors);
+  const peak = Math.max(...arrow.field.map(Math.abs));
+  EV.$("weightsScale").textContent = `scale ±${EV.number(EV.scales.weights)}`;
+  EV.$("fieldScale").textContent = `scale ±${EV.number(EV.scales.field)}, this direction's peak ${EV.number(peak)}`;
+  const state = arrow.live ? '<b class="live">live</b>' : '<b class="blind">blind</b>';
+  EV.$("reading").innerHTML = `<span>direction <b>#${arrow.at + 1}</b> of ${DATA.count}</span><span>${state}</span>`
+    + `<span>singular value <b>${EV.number(arrow.sigma)}</b></span><span>boundary answer <b>${EV.number(arrow.answer)}</b></span>`;
+};
+
+EV.show = (index) => {
+  EV.view.at = (index + DATA.arrows.length) % DATA.arrows.length;
+  EV.$("direction").value = String(EV.view.at);
+  EV.paint();
+};
+
+EV.start = () => {
+  EV.$("totals").innerHTML = [
+    ["degree", DATA.degree], ["sources", DATA.count], ["coefficients", DATA.width], ["rank", DATA.rank],
+    ["blind directions", DATA.blind], ["floor", EV.number(DATA.floor)],
+  ].map(([label, value]) => `<span>${label} <b>${value}</b></span>`).join("");
+  EV.$("direction").addEventListener("change", (event) => EV.show(Number(event.target.value)));
+  EV.$("previous").addEventListener("click", () => EV.show(EV.view.at - 1));
+  EV.$("next").addEventListener("click", () => EV.show(EV.view.at + 1));
+  EV.$("theme").addEventListener("change", (event) => {
+    document.documentElement.dataset.theme = event.target.value;
+    EV.paint();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.target.closest && event.target.closest("input, select, textarea")) {
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      EV.show(EV.view.at - 1);
+    } else if (event.key === "ArrowRight") {
+      EV.show(EV.view.at + 1);
+    }
+  });
+  window.addEventListener("resize", EV.paint);
+  const firstBlind = DATA.arrows.findIndex((one) => !one.live);
+  EV.show(0);
+  window.blindView = { show: EV.show, at: () => EV.view.at, data: DATA, firstBlind };
+};
+
+EV.start();
+</script>
+</body>
+</html>

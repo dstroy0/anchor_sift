@@ -82,7 +82,6 @@ import json
 import math
 import os
 import random
-import re
 import struct
 import sys
 
@@ -94,10 +93,9 @@ import build_sha_sphere_view  # noqa: E402
 import out_path  # noqa: E402
 import settings  # noqa: E402
 import sphere_field  # noqa: E402
-from generate_template import stamp
+import generate_template
 
 TEMPLATE = os.path.join(HERE, "bend_view_template.html")
-SLOT = re.compile(r"/\*BEND_DATA\*/\s*null")
 
 ROUNDS = 64
 MASK = 0xFFFFFFFF
@@ -1389,21 +1387,18 @@ def main(argv):
     opening = settings.collect(argv)
     payload = build(samples, top, draws, opening, word, chain)
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    # The marker and its null may sit apart, because a formatter puts a space between them.
-    if len(SLOT.findall(page)) != 1:
-        sys.stderr.write("the template has no place to put the data\n")
-        return 2
-    data = json.dumps(payload, separators=(",", ":"))
-    page = SLOT.sub(lambda _found: data, page)
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = out_path.resolve("bend_view.html", option(argv, "--out", None, str))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     band = payload["band"]
     print(out.replace("\\", "/"))

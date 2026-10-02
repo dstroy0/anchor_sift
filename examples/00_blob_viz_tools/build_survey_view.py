@@ -35,7 +35,8 @@ import argparse
 import io
 import json
 import os
-from generate_template import stamp
+import out_path
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "survey_view_template.html")
@@ -58,7 +59,7 @@ def main():
     parser = argparse.ArgumentParser(description="Build the survey view.")
     parser.add_argument("--dump", default=os.path.join(
         os.path.dirname(os.path.dirname(HERE)), "build", "audit", "survey_dump.json"))
-    parser.add_argument("--out", default=os.path.join(HERE, "survey_view.html"))
+    parser.add_argument("--out", default=None)
     given = parser.parse_args()
 
     # Prefer the combed arms where they exist. Pooling them deepens the estimate, and the
@@ -152,16 +153,16 @@ def main():
         "words": list(WORD_NAME),
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*DATA*/" not in page:
-        raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
-    page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
 
-    with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(stamp(page))
+    with io.open(out_path.resolve("survey_view.html", given.out), "w", encoding="utf-8") as handle:
+        handle.write(page)
 
-    print("wrote %s" % given.out)
+    print("wrote %s" % out_path.resolve("survey_view.html", given.out))
     print("  %s nonces surveyed" % format(samples, ","))
     print("  loudest position %d, reaching %d whole standard errors" % (worst_at, worst_reach))
     print("  sum of squared z: %d.%06d over 256 positions, expectation 256"

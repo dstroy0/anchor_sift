@@ -1029,9 +1029,12 @@
   <div class="note" id="armNote"></div>
 </div>
 
-<script>/*CONTROL_BAR*/</script>
+<!--NAMESPACE EV-->
+<!--TOOL core/watch-->
+<!--TOOL ui/bar-->
+<script>/*SCRIPT*/</script>
 <script>
-  var DATA = /*ROOM_DATA*/ null;
+  var DATA = /*DATA*/ null;
 
   var stage = document.getElementById("stage");
   var scene = new THREE.Scene();
@@ -6344,128 +6347,9 @@
         SHADOW_MAP +
         " shadow";
     }
-    requestAnimationFrame(turn);
   }
 
-  // ---------------------------------------------------------------------------------------------
-  // Does the loop turn twice?
-  // ---------------------------------------------------------------------------------------------
-  //
-  // A page whose loop throws on its first turn has already had one frame drawn by setup. It renders a
-  // complete, correct, still picture. The build succeeds, the parse check passes, and every feature
-  // past the throw does nothing, every feature sitting past it. Nothing outside the page catches that
-  // cheaply, a runtime fault in a file that parses, and the page reports on itself.
-  //
-  // Two turns and not one, a dead loop producing exactly one.
-  var LOOP_WATCH_MS = 1500;
-  var loopTurns = 0;
-  //
-  // Two ways the loop stops, and they are not the same event. A throw is fatal, the next turn throwing
-  // the same way. Slowness is a report and stops nothing.
-  //
-  // One flag for both does not work: the guard errors under it and does not run. setTimeout runs in a
-  // background tab and requestAnimationFrame does not. A page opened in a tab that is not visible
-  // completes one turn, is declared dead on schedule, and never runs again even once brought to the
-  // front. One shared flag lets the watchdog kill the loop.
-  var loopThrew = null;
-  var loopWarned = false;
-  window.__loopHealth = { ok: null, turns: 0, why: "not checked yet" };
-
-  function loopOutOfSight() {
-    return (
-      typeof document !== "undefined" && document.visibilityState === "hidden"
-    );
-  }
-
-  function loopSay(why, detail) {
-    window.__loopHealth = {
-      ok: false,
-      turns: loopTurns,
-      why: why,
-      detail: detail || "",
-    };
-    // Said three ways, because each reaches a different reader: the console for a developer, the
-    // page for anyone looking at it, and the global for a harness.
-    if (window.console && console.error) {
-      console.error("FRAME LOOP: " + why, detail || "");
-    }
-    var box = document.getElementById("loopAlarm");
-    if (box) {
-      box.textContent = "frame loop stopped: " + why;
-      box.hidden = false;
-    }
-  }
-
-  function loopFailed(why, detail) {
-    loopThrew = why;
-    loopSay(why, detail);
-  }
-
-  function guardedTurn() {
-    if (loopThrew) {
-      return;
-    }
-    try {
-      turn();
-    } catch (thrown) {
-      loopFailed(
-        "threw on turn " + (loopTurns + 1) + ", " + String(thrown),
-        String(thrown && thrown.stack ? thrown.stack : ""),
-      );
-      return;
-    }
-    loopTurns += 1;
-    if (loopTurns >= 2 && window.__loopHealth.ok !== true) {
-      window.__loopHealth = {
-        ok: true,
-        turns: loopTurns,
-        why: "the loop turned twice",
-      };
-      // A warning raised while the tab was hidden is withdrawn once the loop is demonstrably turning.
-      var box = document.getElementById("loopAlarm");
-      if (box) {
-        box.hidden = true;
-      }
-    }
-  }
-
-  // The scheduler calls the guard, and the guard calls the loop. turn() still schedules the next
-  // frame itself. The chain is unchanged apart from being watched.
-  var loopScheduled = requestAnimationFrame;
-  requestAnimationFrame = function (fn) {
-    return loopScheduled(fn === turn ? guardedTurn : fn);
-  };
-
-  function loopWatch() {
-    if (loopThrew || loopWarned) {
-      return;
-    }
-    // Hidden is not slow. The frame clock is stopped by the browser. There is nothing to judge and
-    // the question is asked again later instead of answered wrongly now.
-    if (loopOutOfSight()) {
-      setTimeout(loopWatch, LOOP_WATCH_MS);
-      return;
-    }
-    if (loopTurns < 2) {
-      loopWarned = true;
-      loopSay(
-        "only " + loopTurns + " turn(s) in " + LOOP_WATCH_MS + " ms",
-        "a page that renders one frame and stops looks correct and is not",
-      );
-    }
-  }
-
-  setTimeout(loopWatch, LOOP_WATCH_MS);
-
-  if (typeof document !== "undefined" && document.addEventListener) {
-    document.addEventListener("visibilitychange", function () {
-      if (!loopOutOfSight() && !loopThrew && loopTurns < 2) {
-        setTimeout(loopWatch, LOOP_WATCH_MS);
-      }
-    });
-  }
-
-  guardedTurn();
+  EV.watchLoop("room view", turn).wake();
 
   // ---------------------------------------------------------------------------------------------
   // The menu, the transport, and tucking the controls away.

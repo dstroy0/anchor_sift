@@ -35,7 +35,6 @@ numbers printed beside them are the measurement.
 
 import argparse
 import io
-import json
 import math
 import os
 import sys
@@ -49,13 +48,9 @@ import numpy
 import boundary_read
 import reading_rank
 import sphere_field
-from generate_template import stamp
+import generate_template
 
-try:
-    import out_path
-except ImportError:
-    out_path = None
-
+TEMPLATE = os.path.join(HERE, "blind_view_template.html")
 FIELD_LON = 64          # field grid columns, in longitude
 FIELD_LAT = 32          # field grid rows, in colatitude
 SHOWN = 12              # singular directions carried into the page
@@ -99,31 +94,18 @@ def field_grid(coefficients, top, rows=FIELD_LAT, columns=FIELD_LON):
     return sphere_field.synthesize(total, top, rows, columns)
 
 
-def grid_corners(rows=FIELD_LAT, columns=FIELD_LON):
-    """Projected corners of every grid cell. The page draws quads and never guesses a shape."""
-    out = []
-    for r in range(rows):
-        for c in range(columns):
-            cell = []
-            for down, across in ((r, c), (r, c + 1), (r + 1, c + 1), (r + 1, c)):
-                colatitude = math.pi * down / rows
-                longitude = 2.0 * math.pi * across / columns - math.pi
-                x, y = mollweide(colatitude, longitude)
-                cell.append(round(x, 5))
-                cell.append(round(y, 5))
-            out.append(cell)
-    return out
-
-
-def pick(values, rank, shown=SHOWN):
+def pick(values, rank, total, shown=SHOWN):
     """Which singular directions to carry: the loud end, the quiet end, and the first blind ones.
 
     A page showing only null directions invites the reply that the whole map is flat because the
     drawing is broken. So the strongest directions ride along as the control: same code, same
     scales, and a field that is plainly not flat.
+
+    The blind directions are the source directions past the rank, `total` of them in all. They have
+    no singular value of their own: a decomposition returns one per coefficient, never one per source.
     """
     live = list(range(min(rank, len(values))))
-    null = list(range(rank, len(values)))
+    null = list(range(rank, total))
     take = []
     for one in (live[:3] + live[-3:] if len(live) > 6 else live):
         if one not in take:
@@ -147,7 +129,7 @@ def build(top=8, count=256, into=None):
         x, y = mollweide(colatitude, longitude)
         seats.append([round(x, 5), round(y, 5)])
 
-    taken = pick(values, rank)
+    taken = pick(values, rank, right.shape[0])
     arrows = []
     for which in taken:
         direction = right[which]
@@ -175,24 +157,13 @@ def build(top=8, count=256, into=None):
         "rows": FIELD_LAT,
         "columns": FIELD_LON,
         "seats": seats,
-        "cells": grid_corners(),
         "arrows": arrows,
         "spectrum": [round(float(one), 6) for one in values]
     }
 
-    with io.open(os.path.join(HERE, "blind_view_template.html"), encoding="utf-8") as handle:
+    into = generate_template.render(TEMPLATE, data, out=into, name="blind_view.html")
+    with io.open(into, encoding="utf-8") as handle:
         page = handle.read()
-    page = page.replace("__DATA__", json.dumps(data, separators=(",", ":")))
-
-    if into is None:
-        if out_path is not None and hasattr(out_path, "beside"):
-            into = out_path.beside("blind_view.html")
-        else:
-            into = os.path.join(os.path.dirname(os.path.dirname(HERE)),
-                                "build", "view", "blind_view.html")
-    os.makedirs(os.path.dirname(into), exist_ok=True)
-    with io.open(into, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
 
     print("%s (%.1f KB)" % (into, len(page) / 1024.0))
     print("  degree %d, %d coefficients, %d sources" % (top, data["width"], count))

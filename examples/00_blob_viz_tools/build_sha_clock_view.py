@@ -73,20 +73,17 @@ stay exactly where they were, and the pattern on the wall is not something the s
 """
 
 import io
-import json
 import math
 import os
-import re
 import sys
 
 import settings
 import out_path
 import sphere_field
-from generate_template import stamp
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "room_view_template.html")
-BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 MASK = 0xFFFFFFFF
 WORDS = 8
@@ -425,28 +422,18 @@ def main():
         "schema": settings.schema(["theme", "opacity"], narrow="room"),
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    place = re.search(r"/\*ROOM_DATA\*/\s*null", page)
-    if place is None:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
-
-    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
-        bar = handle.read()
-    slot = re.search(r"/\*CONTROL_BAR\*/", page)
-    if slot is None:
-        sys.stderr.write("the template has no place for the control bar\n")
-        return 1
-    page = page[:slot.start()] + bar + page[slot.end():]
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
         return 1
 
     out = out_path.resolve("sha_clock_view.html", option("--out", None))
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     # The digest, printed so the trace can be checked against any other implementation and not
     # taken on trust. At the full sixty-four rounds on the empty message this is the published one.

@@ -18,17 +18,16 @@ src/engine/c/sha256/bench/bench_sac.cu into build/bench and running it there wit
 """
 
 import csv
-import json
 import os
-import re
 import sys
-from generate_template import stamp
+import out_path
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 SOURCE = os.path.join(ROOT, "build", "bench", "shadows.csv")
 TEMPLATE = os.path.join(HERE, "shadow_view_template.html")
-TARGET = os.path.join(HERE, "shadow_view.html")
+TARGET = out_path.resolve("shadow_view.html")
 
 ROUNDS = 64
 
@@ -79,18 +78,14 @@ def main():
         "word": [trimmed(plane, 1) for plane in word],
     }
 
-    with open(TEMPLATE) as handle:
-        page = handle.read()
-
-    packed = json.dumps(payload, separators=(",", ":"))
-    place = re.search(r"/\*SHADOW_DATA\*/\s*null", page)
-    if place is None:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page[:place.start()] + packed + page[place.end():]
 
     with open(TARGET, "w", encoding="utf-8") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     print("wrote %s (%.1f KB)" % (TARGET, os.path.getsize(TARGET) / 1024.0))
     return 0

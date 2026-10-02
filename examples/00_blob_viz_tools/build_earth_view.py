@@ -35,6 +35,7 @@ import json
 import math
 import os
 import random
+import out_path
 import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -74,7 +75,7 @@ def multinomial_null(total, bins, draws, rng):
 def main():
     parser = argparse.ArgumentParser(description="Build the longitude view.")
     parser.add_argument("--corpus", default=DEFAULT)
-    parser.add_argument("--out", default=os.path.join(HERE, "earth_view.html"))
+    parser.add_argument("--out", default=None)
     given = parser.parse_args()
 
     with io.open(given.corpus, encoding="utf-8") as handle:
@@ -117,16 +118,16 @@ def main():
         "regions": [{"name": name, "lon": lon} for name, lon in REGIONS],
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*DATA*/" not in page:
-        raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
-    page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
 
-    with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(generate_template.stamp(page))
+    with io.open(out_path.resolve("earth_view.html", given.out), "w", encoding="utf-8") as handle:
+        handle.write(page)
 
-    print("wrote %s" % given.out)
+    print("wrote %s" % out_path.resolve("earth_view.html", given.out))
     print("  %d blocks over %.1f days" % (total, payload["days"]))
     print("  chi-square %.2f, null 95th %.2f, p = %.4f"
           % (payload["chi"], payload["null95"], payload["p"]))

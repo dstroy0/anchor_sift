@@ -30,19 +30,21 @@ in once, ahead of its first use. Three slots receive the result:
                              closed by `// ---- end ----`
     /*STYLE*/                every CSS tool, each under `/* ---- label ---- */`, closed by
                              `/* ---- end ---- */`
+    /*DATA*/ null            the builder's data as JSON; the null keeps an unbuilt template parsing
 
 The closing label ends the last piece. A template's own code after a slot is never read as part of
 a tool.
+
+A data slot may hold any whitespace between the marker and its null. A template carries at most one
+data slot, and data handed to a template with none is refused instead of dropped. A template that
+leaves a script element open is refused: published, the closing tags after it land inside the script
+as a syntax error and the whole page is dead, while the file opened on its own still runs.
 
 THE COPYRIGHT LINE
 
 Every page carries toolbox/copyright.html once, at the end of its body: a small gray line fixed at
 the top, under the page's control bar where it has one. `assemble` stamps it, and a builder that
 writes its own page passes the page through `stamp` before writing.
-    /*DATA*/null             the builder's data as JSON; the null keeps an unbuilt template parsing
-
-A slot may hold any whitespace between the marker and its null. A template carries at most one data
-slot, and data handed to a template with none is refused instead of dropped.
 
 THE CHECK ON A BUILT PAGE
 
@@ -65,6 +67,7 @@ DIRECTIVE = re.compile(r"^[ \t]*<!--(NAMESPACE|TOOL|PART) ([^ >]+)-->[ \t]*\r?\n
 SCRIPT_SLOT = "/*SCRIPT*/"
 STYLE_SLOT = "/*STYLE*/"
 DATA_SLOT = re.compile(r"/\*DATA\*/\s*null")
+SCRIPT_OPEN = re.compile(r"<script\b", re.IGNORECASE)
 KINDS = ("js", "css")
 COPYRIGHT = "copyright.html"
 
@@ -166,6 +169,8 @@ def fill(page, slot, text, why):
 def assemble(template, data=None, parts_dir=None, toolbox=TOOLBOX):
     """The page text a template builds to. Refuses a template it cannot build exactly."""
     text = read(template)
+    if len(SCRIPT_OPEN.findall(text)) > text.count("</script>"):
+        raise Refused("the template leaves a script element open, and the published page would not run")
     tools = load_manifest(toolbox)
     namespace, pieces = pieces_of(text, parts_dir or os.path.dirname(os.path.abspath(template)), tools, toolbox)
     page = DIRECTIVE.sub("", text)
@@ -355,6 +360,8 @@ def _check():
         ("a part missing beside the template", {"unit_template.html": SAMPLE_TEMPLATE}, None),
         ("script pieces with no script slot", {"unit_template.html": SAMPLE_TEMPLATE.replace("/*SCRIPT*/", ""),
                                                "unit.js": ""}, None),
+        ("a script element left open", {"unit_template.html": SAMPLE_TEMPLATE.replace("</script>\n", ""),
+                                        "unit.js": ""}, None),
         ("a manifest that requires in a circle", {"unit_template.html": SAMPLE_TEMPLATE, "unit.js": "",
                                                   "box/manifest.tsv": SAMPLE_TOOLBOX["box/manifest.tsv"].replace(
                                                       "base\tbase.js\t-", "base\tbase.js\tdraw")}, None),

@@ -4,33 +4,29 @@ One row per option across every blob viz unit: what it controls, which data key 
 does when that key is absent, and whether that absence is silent. The shared control bar is designed
 from this. The survey comes before the bar.
 
-Read from `examples/00_blob_viz_tools/`: the 23 `build_*_view.py`, the 14 `*_view_template.html`,
-and the engine viewer under `view/engine_view/`. No unit is changed here; this only records what is.
+Read from `examples/00_blob_viz_tools/`: the 28 `build_*_view.py`, the 17 `*_view_template.html` and
+`track_room_template.html`, and the engine viewer under `view/engine_view/`. No unit is changed here; this
+only records what is.
 
-## The lead finding: every builder with a template reaches it
+## The lead finding: every builder writes through one generator
 
-A template holds its data in a marker, `var DATA = /*ROOM_DATA*/ null;`, with a space before `null`.
-Each builder matches the marker its template carries, tolerant of the whitespace around `null`, and
-writes its data in place of it. A builder handed a template whose marker is absent writes no page and
-says so. One builder has no template to write into at all.
+Every template holds its data in one slot, `var DATA = /*DATA*/ null;`, and every builder with a
+template hands its data to `generate_template.py`, which writes it into that slot as JSON. A template
+with no slot, with two, or with a script element left open is refused, and no page is written.
 
 | outcome | what happens | builders |
 |---|---|---|
-| injects | the builder matches its template's marker and writes the page carrying its data | every builder with a template |
-| no template | `build_blind_view.py` targets `blind_view_template.html`, which is not in the tree | blind |
+| builds | the builder hands its data to the generator, which writes the page | every builder with a template |
+| holds its page | the builder writes its page from its own source and has no template | `build_beam_view.py`, `build_illuminate_view.py`, `build_pool_view.py` |
 
-Twenty-two builders inject. One has no template. The marker forms vary across the templates, from
-`/*DATA*/` through `/*PAIRS_DATA*/` to the spaced `/*XXX_DATA*/ null`, and each builder matches the
-marker its own template carries. No template in the tree is missing its marker. None of the
-twenty-two fails loud here; the loud failure guards against a template that drops its marker.
+Twenty-five builders build through the generator, over seventeen templates. Three hold their page in
+their own source.
 
-## The committed pages carry data no builder now writes
+## The tracked pages are builds
 
-Four built pages sit beside the tools: `shadow_view.html`, `sources_view.html`, `step_view.html`,
-`voxel_view.html`. Each holds its data as a JavaScript object with unquoted keys, `depth: 64`, while
-every builder writes `json.dumps`, `"depth": 64`. `data_check` and `inert_report` read strict JSON
-and report all four as not JSON. They hold data no current builder writes, and no current builder
-injects into the current template. They cannot be rebuilt from the tree.
+Every page in `view/` is a build of its template, carrying the JSON its builder wrote. The spiral and
+survey pages are built through their templates from the data they carry, since the audit dump their
+builders read is not in the tree. No built page sits beside the tools.
 
 ## The engine viewer: the option model the bar generalizes
 
@@ -103,7 +99,7 @@ its returned dict.
 
 | builder | template | command options | payload top-level keys |
 |---|---|---|---|
-| build_blind_view | blind_view_template (absent) | --degree --count --check | degree, count, width, rank, blind, floor, rows, columns, seats, cells, arrows, spectrum |
+| build_blind_view | blind | --degree --count --check | degree, count, width, rank, blind, floor, rows, columns, seats, arrows, spectrum |
 | build_blob_view | voxel | none | depth, depthLabel, valueLabel, eyebrow, title, blurb, noteTitle, note, settings, schema, fields |
 | build_block_view | block | --out | height, id, bytes, fields, values, windowShares, constants |
 | build_chart_view | chart | none | title, xLabel, kind, blurb, series |
@@ -118,6 +114,7 @@ its returned dict.
 | build_sha_room_view | room | --field --every --rounds --glow --seed --shell --core --source --out | shell, core, source, things, settings, schema |
 | build_sha_sphere_view | sphere | --samples --rounds --place --tau --degrees --out | title, place, tau, bytes_read, symbols, grid, spectrum, null_spectrum, profiles, sources, read, settings, schema, floor |
 | build_shadow_view | shadow | none | rounds, residue, inbit, outbit, word |
+| build_shapes_view | shapes | --set --out | view |
 | build_sound_view | voxel | none | depth, depthLabel, valueLabel, eyebrow, title, blurb, noteTitle, note, settings, schema, fields |
 | build_sources_view | sources | none | rounds, sources, order |
 | build_sphere_view | sphere | --place --heat --depth --radius --degrees --tau --title --bytes --offset --out | title, place, heat, degrees, tau, bytes_read, symbols, grid, spectrum, null_spectrum, profiles, sources, read, settings, schema |
@@ -136,6 +133,7 @@ to fail. The analysis is `data_check`'s own, and a key reads the same here and a
 
 | template | guarded keys (inert when absent) | unguarded keys (the gate's to fail) |
 |---|---|---|
+| blind | arrows, rank | blind, columns, count, degree, floor, rows, seats, spectrum, width |
 | block | none | bytes, constants, fields, height, values, windowShares |
 | chart | blurb, kind, title | series, xLabel |
 | earth | none | chi, days, hours, intervals, null95, p, regions, total |
@@ -144,6 +142,7 @@ to fail. The analysis is `data_check`'s own, and a key reads the same here and a
 | room | clock, core, schema, settings, sources | shell, source, things |
 | scope | none | height, id, nonce, rounds, sigma0, sigma1, spectrum, spikes, waveform |
 | shadow | none | rounds, word |
+| shapes | none | none |
 | sources | order | rounds, sources |
 | sphere | settings | grid, null_spectrum, place, profiles, read, sources, spectrum, symbols, tau, title |
 | spiral | arms | agreement, points, total, unanimousByChance |
@@ -166,7 +165,15 @@ template's `order`. `build_room_view` and `build_sha_room_view` omit the room te
 `sources`, and neither omission leaves a control dead. The page hides the clock panel without `clock`,
 and `sources` drives no control. The row above is the only control left inert.
 
+## The bar built from it
+
+The bar this survey is written for is `toolbox/ui/bar.js`. The voxel, room and sphere units mount it
+from the schema `settings.py` writes; the engine view and the shapes gallery apply
+`toolbox/core/scheme.js`; and `parity_check.py` holds the two to one verdict on every setting they
+share. Every page that draws frame by frame runs its loop under `toolbox/core/watch.js`, and
+`window.__loopHealth` reports it.
+
 ## Next
 
-The shared control bar follows, designed from this survey. The WGSL raster arm is M16's unbuilt leg,
-held to the same byte-for-byte contract as the device and host arms once it is built.
+The WGSL raster arm is M16's unbuilt leg, held to the same byte-for-byte contract as the device and
+host arms once it is built.

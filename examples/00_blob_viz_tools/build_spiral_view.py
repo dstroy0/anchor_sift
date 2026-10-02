@@ -43,7 +43,8 @@ DEFAULT_DIR = os.path.join(ROOT, "build", "audit")
 
 sys.path.insert(0, HERE)
 import boundary_read
-from generate_template import stamp
+import out_path
+import generate_template
 
 WORD_NAME = ("a", "b", "c", "d", "e", "f", "g", "h")
 
@@ -60,7 +61,7 @@ def reach_of(deviation, samples):
 def main():
     parser = argparse.ArgumentParser(description="Build the combed spiral view.")
     parser.add_argument("--dir", default=DEFAULT_DIR)
-    parser.add_argument("--out", default=os.path.join(HERE, "spiral_view.html"))
+    parser.add_argument("--out", default=None)
     given = parser.parse_args()
 
     paths = sorted(glob.glob(os.path.join(given.dir, "survey_arm_*.json")),
@@ -122,16 +123,16 @@ def main():
         "unanimousByChance": 256.0 * 2.0 / float(1 << width),
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*DATA*/" not in page:
-        raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
-    page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
-    with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(stamp(page))
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
+    with io.open(out_path.resolve("spiral_view.html", given.out), "w", encoding="utf-8") as handle:
+        handle.write(page)
 
     loudest = max(points, key=lambda p: abs(p["deviation"]))
-    print("wrote %s" % given.out)
+    print("wrote %s" % out_path.resolve("spiral_view.html", given.out))
     print("  %d arms, %s nonces each, %s pooled"
           % (width, format(payload["perArm"], ","), format(total, ",")))
     print("  loudest position %d, reaching %d sd, %d of %d arms agreeing"

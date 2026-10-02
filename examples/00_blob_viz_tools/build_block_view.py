@@ -27,7 +27,8 @@ import io
 import json
 import os
 import struct
-from generate_template import stamp
+import out_path
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -133,7 +134,7 @@ CONSTANTS = [
 
 def main():
     parser = argparse.ArgumentParser(description="Build the annotated block view.")
-    parser.add_argument("--out", default=os.path.join(HERE, "block_view.html"))
+    parser.add_argument("--out", default=None)
     given = parser.parse_args()
 
     with io.open(CORPUS, encoding="utf-8") as handle:
@@ -170,19 +171,19 @@ def main():
                       for f, w, v, n, d, s in CONSTANTS],
     }
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    if "/*DATA*/" not in page:
-        raise SystemExit("template has no /*DATA*/ placeholder: %s" % TEMPLATE)
-    page = page.replace("/*DATA*/", json.dumps(payload, separators=(",", ":")))
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
+        return 1
 
-    with io.open(given.out, "w", encoding="utf-8") as handle:
-        handle.write(stamp(page))
+    with io.open(out_path.resolve("block_view.html", given.out), "w", encoding="utf-8") as handle:
+        handle.write(page)
 
     tally = {}
     for entry in payload["constants"]:
         tally[entry["verdict"]] = tally.get(entry["verdict"], 0) + 1
-    print("wrote %s" % given.out)
+    print("wrote %s" % out_path.resolve("block_view.html", given.out))
     print("  block %d, 80 byte header" % block["height"])
     print("  %d constants: %s" % (len(CONSTANTS),
                                   ", ".join("%d %s" % (v, k) for k, v in sorted(tally.items()))))

@@ -257,46 +257,21 @@ EV.frameLoop = (app, now) => {
   app.turns += 1;
 };
 
-// The frame loop runs inside a guard: a throw stops it and says so on the page, on the console and on
-// window.__loopHealth, and a loop that has not turned twice a second and a half after start is reported the same way.
-// With vsync the view is drawn at most once per display refresh, and only when something changed. Without it every
-// turn draws, and the next turn waits for the card to finish the last one. The rate is the card's own and the
-// queue never grows.
+// The frame loop runs under the toolbox's watch, which reports a throw or a loop that stops turning. With vsync
+// the view is drawn at most once per display refresh, and only when something changed. Without it every turn
+// draws, and the next turn waits for the card to finish the last one. The rate is the card's own and the queue
+// never grows.
 EV.startLoop = (app) => {
-  window.__loopHealth = { ok: true, turns: 0, why: "", detail: "" };
-  const alarm = EV.$("loopAlarm");
   app.meter = EV.rateMeter();
-  const turn = (now) => {
-    try {
-      const vsync = app.view.vsync;
-      if (!vsync) {
-        app.dirty = true;
-      }
-      const asked = app.dirty;
-      EV.frameLoop(app, now);
-      // The meter counts the turns that drew.
-      if (asked && !app.dirty) {
-        app.fps = app.meter.tick(now);
-      }
-      window.__loopHealth.turns = app.turns;
-      if (vsync || !app.gpu) {
-        EV.nextTurn(true, turn);
-      } else {
-        app.gpu.device.queue.onSubmittedWorkDone().then(() => EV.nextTurn(app.view.vsync, turn));
-      }
-    } catch (error) {
-      window.__loopHealth = { ok: false, turns: app.turns, why: "threw", detail: String(error && error.stack || error) };
-      alarm.textContent = `frame loop stopped: ${error.message}`;
-      alarm.hidden = false;
-      console.error("[engine view] frame loop stopped", error);
+  EV.watchLoop("engine view", (now) => {
+    if (!app.view.vsync) {
+      app.dirty = true;
     }
-  };
-  requestAnimationFrame(turn);
-  setTimeout(() => {
-    if (window.__loopHealth.ok && app.turns < 2 && document.visibilityState === "visible") {
-      window.__loopHealth.why = "slow start";
-      alarm.textContent = `the frame loop turned ${app.turns} times in its first 1.5 s`;
-      alarm.hidden = false;
+    const asked = app.dirty;
+    EV.frameLoop(app, now);
+    // The meter counts the turns that drew.
+    if (asked && !app.dirty) {
+      app.fps = app.meter.tick(now);
     }
-  }, 1500);
+  }, { vsync: () => app.view.vsync || !app.gpu, settle: () => app.gpu.device.queue.onSubmittedWorkDone() }).wake();
 };

@@ -26,15 +26,14 @@ Writes examples/00_blob_viz_tools/step_view.html, which is self-contained.
 """
 
 import io
-import json
 import os
-import re
 import sys
-from generate_template import stamp
+import out_path
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "step_view_template.html")
-TARGET = os.path.join(HERE, "step_view.html")
+TARGET = out_path.resolve("step_view.html")
 
 MASK = 0xFFFFFFFF
 
@@ -131,24 +130,14 @@ def main():
             "flip": [flip_rounds[at][k] for k in keys],
         })
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-
-    # A template whose script tag is never closed still runs when the file is opened directly,
-    # because nothing follows the script to get swallowed. Published, the wrapper's closing tags
-    # land inside the unterminated script, where they are a JavaScript syntax error, and the whole
-    # page is dead. That failure is invisible from here. Error instead of writing it.
-    if "</script>" not in page:
-        raise SystemExit("template is truncated: the script tag is never closed")
-
-    place = re.search(r"/\*STEP_DATA\*/\s*null", page)
-    if place is None:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page[:place.start()] + json.dumps(payload, separators=(",", ":")) + page[place.end():]
 
     with io.open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     weights = [bin(base_rounds[at]["a"] ^ flip_rounds[at]["a"]).count("1") for at in range(64)]
     first = next((at for at in range(64) if weights[at]), None)

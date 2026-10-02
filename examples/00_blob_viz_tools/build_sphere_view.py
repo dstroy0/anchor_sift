@@ -41,19 +41,16 @@ of a reading with nothing injected.
 """
 
 import io
-import json
 import math
 import os
-import re
 import sys
 
 import settings
 import sphere_field
-from generate_template import stamp
+import generate_template
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "sphere_view_template.html")
-BAR_SOURCE = os.path.join(HERE, "control_bar.js")
 
 GOLDEN = math.pi * (3.0 - math.sqrt(5.0))
 
@@ -265,22 +262,11 @@ def main():
     if payload is None:
         return 1
 
-    with io.open(TEMPLATE, encoding="utf-8") as handle:
-        page = handle.read()
-    body = json.dumps(payload, separators=(",", ":"))
-    place = re.search(r"/\*SPHERE_DATA\*/\s*null", page)
-    if place is None:
-        sys.stderr.write("the template has no place to put the data\n")
+    try:
+        page = generate_template.assemble(TEMPLATE, payload)
+    except generate_template.Refused as why:
+        sys.stderr.write("%s: %s\n" % (os.path.basename(TEMPLATE), why))
         return 1
-    page = page[:place.start()] + body + page[place.end():]
-
-    with io.open(BAR_SOURCE, encoding="utf-8") as handle:
-        bar = handle.read()
-    slot = re.search(r"/\*CONTROL_BAR\*/", page)
-    if slot is None:
-        sys.stderr.write("the template has no place for the control bar\n")
-        return 1
-    page = page[:slot.start()] + bar + page[slot.end():]
 
     if page.count("</script>") < page.count("<script"):
         sys.stderr.write("the template left a script open. The page would not run\n")
@@ -288,7 +274,7 @@ def main():
 
     out = option("--out", os.path.splitext(path)[0] + "_sphere.html")
     with io.open(out, "w", encoding="utf-8", newline="\n") as handle:
-        handle.write(stamp(page))
+        handle.write(page)
 
     print("%s" % out)
     print("  %d symbols from %d bytes, placed by %s" % (payload["symbols"],
