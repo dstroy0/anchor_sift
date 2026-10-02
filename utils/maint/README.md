@@ -34,7 +34,7 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 **`tree/`.** `write_survey.py` reads every script for the files it opens and reports where each one lands. The list of what this tree writes is checked instead of remembered.
 
-**`claims/`.** `claim_check.py` reads the numbers a reader meets first, in `README.md`, every page under `docs/` and the abstract of each research paper, and asks the theory whether it still holds each one or has taken it back. A claim the theory took back ends the run with 1. `claims_read.tsv` holds what a person has read and found sound, one row each, and a row stops matching once the answer changes.
+**`claims/`.** `claim_check.py` reads the numbers a reader meets first, in `README.md`, every page under `docs/` and the abstract of each research paper, and asks the theory whether it still holds each one or has taken it back. A claim the theory took back ends the run with 1, and `.githooks/pre-commit` runs it whenever one of those pages or the theory is in the index. `claims_read.tsv` holds what a person has read and found sound, one row each, and a row stops matching once the answer changes.
 
 ## Paths are walked to, never counted
 
