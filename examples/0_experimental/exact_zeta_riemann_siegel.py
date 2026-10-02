@@ -112,6 +112,7 @@
 # gap read again.
 
 import glob
+import math
 import os
 import shutil
 import subprocess
@@ -613,6 +614,13 @@ def spike_integral(d0, k, ell, scale):
     return (first + d0 * d0 * log // ((k + NOT(k)) * scale)) // 2
 
 
+def corner(x, y):
+    """What the trapezoid over-counts of |f| on one part where f goes from x to y with the sign changing,
+    twice over, as the sides accumulate: 2 |x y| / (|x| + |y|). Zero where the sign holds."""
+    total = abs(x) + abs(y)
+    return int((x > 0) != (y > 0)) * 2 * abs(x * y) // (total + NOT(total))
+
+
 class Triangle:
     """The three sides over a cell, from values each asked once, the Euler-Maclaurin ones with C from the device."""
 
@@ -676,16 +684,23 @@ class Triangle:
         far below any grid: the trapezoid on it grows as ln(1 / h) and stops only where h reaches that
         width. Each spike is held by its relation instead, g(p) = D0^2 / (sqrt(D0^2 + k^2 u^2) + k |u|) with
         u = p - p0, D0 = D(p0) and k = |E'(p0)|, whose integral over the cell is exact (`spike_integral`).
-        delta is the sum of those integrals and the trapezoid of what is left, f minus every g."""
+        delta is the sum of those integrals and the trapezoid of what is left, f minus every g.
+
+        Where D or E changes sign between two points x and y, |D| or |E| has a corner the trapezoid cuts:
+        it takes (|x| + |y|) / 2 a part where the line through them gives (x^2 + y^2) / (2 (|x| + |y|)).
+        Each such part gives back the difference, |x y| / (|x| + |y|), and a and b settle as the grid halves."""
         scale = 10 ** digits
         spikes = self.crossings(nu, digits)
         steps = 1 << m
         keys = [(nu, zz.pair(j * 5 ** m, m), digits) for j in range(steps + 1)]
         self.fill(keys)
         a = b = delta = 0
+        ds, es = [], []
         for j, key in enumerate(keys):
             s, r = self.rs[key]
             d, e = s + r - self.em[key], s - r
+            ds.append(d)
+            es.append(e)
             root = naturals._integer_sqrt(d * d + e * e)
             weight = 2 - NOT(j) - NOT(j - steps)
             a += weight * abs(d)
@@ -693,6 +708,8 @@ class Triangle:
             held = sum(spike_at(d0, k, ((j << (SPIKE_BITS - m)) - lo) * scale >> SPIKE_BITS, scale)
                        for lo, d0, k in spikes)
             delta += weight * (d * d // (root + abs(e) + NOT(root + abs(e))) - held)
+        a -= sum(corner(x, y) for x, y in zip(ds, ds[1:]))
+        b -= sum(corner(x, y) for x, y in zip(es, es[1:]))
         exact = sum(spike_integral(d0, k, lo * scale >> SPIKE_BITS, scale)
                     + spike_integral(d0, k, ((1 << SPIKE_BITS) - lo) * scale >> SPIKE_BITS, scale)
                     for lo, d0, k in spikes)
@@ -1131,6 +1148,139 @@ def signed(v, places):
     return "-" * int(v < 0) + decimal(zz.pair(abs(v), places), places)
 
 
+def omitted_side(nu, cut, terms, m, digits):
+    """a over [nu, nu + 1] from the exact curves alone: the terms R through C_cut leaves out,
+    C_k(1 - 2p) x^(-k - 1/2) for k = cut + 1 to cut + terms, integrated in |.| on 2^m parts with each
+    corner held. Times 2^(m+1) and at 10^(digits + GUARD): only ratios between cells are read."""
+    steps = 1 << m
+    scale = 10 ** (digits + GUARD)
+    f = []
+    for j in range(steps + 1):
+        x = nu * steps + j
+        inv_root = naturals._integer_sqrt(scale * scale * steps // x)
+        f.append(sum(c_at(k, steps - 2 * j, steps, digits) * inv_root * steps ** k // (scale * x ** k)
+                     for k in range(cut + 1, cut + 1 + terms)))
+    total = sum((2 - NOT(j) - NOT(j - steps)) * abs(v) for j, v in enumerate(f))
+    return total - sum(corner(x, y) for x, y in zip(f, f[1:]))
+
+
+def omitted_main(first, last, cut, terms=3, m=9, digits=24):
+    """The exponent of a between cells first to last, predicted from the omitted exact curves."""
+    out = sys.stdout
+    sides = {nu: omitted_side(nu, cut, terms, m, digits) for nu in range(first, last + 1)}
+    for nu in range(first, last):
+        out.write("  cut %d  cells %d-%d  exponent of a from the %d omitted curves %.3f\n"
+                  % (cut, nu, nu + 1, terms, math.log(sides[nu] / sides[nu + 1]) / math.log((nu + 1.5) / (nu + 0.5))))
+    return 0
+
+
+# ---- the ball: the main sum's waves as one point on a sphere ----
+#
+# Each wave z_n = e^(i theta) n^-s on the line is one complex coordinate of radius n^(-1/2), and turns
+# at theta'(t) - ln n. Over a cell the point (z_1, ..., z_nu) keeps |z|^2 = H_nu, the harmonic number,
+# and moves on a torus inside that sphere. Z = 2 Re sum z_n + R is its shadow on the diagonal.
+
+def theta_prime_route(t, digits, shift, terms):
+    """theta'(t) = Re psi(1/4 + it/2) / 2 - ln(pi) / 2 at `digits`: psi by Stirling's series at
+    w = 1/4 + it/2 + shift with `terms` Bernoulli terms, less 1 / (1/4 + it/2 + k) for each k below shift.
+
+    w = (a + ib) / d as in exact_zeta_gram.theta_route, and Re w^(-2j) = Re (a - ib)^(2j) d^(2j) / (a^2 + b^2)^(2j)."""
+    scale = 10 ** digits
+    big_t, q = t
+    unit = 10 ** q
+    a, b, d = (1 + 4 * shift) * unit, 2 * big_t, 4 * unit
+    size = a * a + b * b
+    psi = (zz.ln(size, digits) - 2 * zz.ln(d, digits)) // 2 - scale * d * a // (2 * size)
+    square_re, square_im = a * a - b * b, -2 * a * b
+    re, im = square_re, square_im
+    d_power, size_power, factorial = d * d, size * size, 1
+    for j in range(1, terms + 1):
+        num, den = zz.bernoulli_over_factorial(j)
+        psi -= scale * num * factorial * re * d_power // (den * size_power)
+        re, im = re * square_re - im * square_im, re * square_im + im * square_re
+        d_power *= d * d
+        size_power *= size * size
+        factorial *= (2 * j) * (2 * j + 1)
+    for k in range(shift):
+        c = (1 + 4 * k) * unit
+        psi -= scale * 4 * c * unit // (c * c + 4 * big_t * big_t)
+    return (psi - gram.ln_pi(digits)) // 2
+
+
+def theta_prime_at(t, digits):
+    """theta'(t) at `digits` by the routes at N and 2N, N doubling until they agree with the guard dropped."""
+    n_sum = 1
+    one, two = (theta_prime_route(t, digits, n, n) for n in (1, 2))
+    while toward_zero(one) - toward_zero(two):
+        n_sum *= 2
+        one, two = (theta_prime_route(t, digits, n, n) for n in (n_sum, 2 * n_sum))
+    return two
+
+
+def ball_at(nu, p, cut, digits):
+    """The ball at x = nu + p, at `digits` + GUARD: |z|^2, the shadows D, E and Z, and the angular
+    momentum L = sum (theta' - ln n) / n and energy sum (theta' - ln n)^2 / 2n of its waves.
+
+    D is the curves R through C_cut leaves out, C_k(1 - 2p) x^(-k - 1/2) for k to cut + 3, with the
+    sign D = S + R - Z takes; E = S - R and Z = S + R from Riemann-Siegel."""
+    work = digits + GUARD
+    scale = 10 ** work
+    big_p, q = p
+    unit = 10 ** q
+    big_x = nu * unit + big_p
+    t = 2 * big_x * big_x * zz.pi(work) // (unit * unit), work
+    theta, _ = theta_at(t, work)
+    cos_theta, sin_theta = zz.cos_sin(theta, work)
+    waves = [zz.power_minus_s(n, LINE, t, work)[:2] for n in range(1, nu + 1)]
+    coords = [((cos_theta * a - sin_theta * b) // scale, (sin_theta * a + cos_theta * b) // scale) for a, b in waves]
+    radius = sum(re * re + im * im for re, im in coords) // scale
+    s, r = rs_cut_at((nu, p, digits), cut)
+    inv_root = naturals._integer_sqrt(scale * scale * unit // big_x)
+    sign = 1 - 2 * ((nu - 1) % 2)
+    d = -sign * sum(c_at(k, unit - 2 * big_p, unit, digits) * inv_root * unit ** k // (scale * big_x ** k)
+                    for k in range(cut + 1, cut + 4))
+    turn = theta_prime_at(t, work)
+    spins = [turn - zz.ln(n, work) for n in range(1, nu + 1)]
+    momentum = sum(w // n for n, w in enumerate(spins, 1))
+    energy = sum(w * w // (2 * n * scale) for n, w in enumerate(spins, 1))
+    shadow = (sum(re for re, _ in coords), sum(im for _, im in coords))
+    return radius, d, (s - r) * 10 ** GUARD, (s + r) * 10 ** GUARD, momentum, energy, spins, shadow
+
+
+def sphere_main(first, last, cut=10, m=8, digits=24):
+    """The ball over cells first to last on 2^m parts, its trace written to build/sphere, one line a cell."""
+    out = sys.stdout
+    work = digits + GUARD
+    scale = 10 ** work
+    steps = 1 << m
+    folder = os.path.join(ROOT, "build", "sphere")
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, "ball_%d_%d_cut_%d.tsv" % (first, last, cut))
+    write = open(path, "w").write
+    write("x\tradius_squared_less_h\tD\tE\tZ\tL\tenergy\tW_re\tW_im\n")
+    for nu in range(first, last + 1):
+        begun = time.perf_counter_ns()
+        harmonic = sum(scale // n for n in range(1, nu + 1))
+        rows = [ball_at(nu, zz.pair(j * 5 ** m, m), cut, digits) for j in range(steps + 1)]
+        for j, (radius, d, e, z, momentum, energy, _, shadow) in enumerate(rows):
+            write("%s\t%s\n" % (decimal(zz.pair((nu * steps + j) * 5 ** m, m), m),
+                                "\t".join(signed(v, work) for v in (radius - harmonic, d, e, z, momentum, energy) + shadow)))
+        gap = max(abs(row[0] - harmonic) for row in rows)
+        flips = [len(changes([row[k] > 0 for row in rows])) for k in (1, 2, 3)]
+        finer = [rs_cut_at((nu, zz.pair(j * 5 ** (m + 1), m + 1), digits), cut) for j in range((2 << m) + 1)]
+        z_finer = len(changes([s + r > 0 for s, r in finer]))
+        arrival = rows[0][6][-1]
+        out.write("  cell %d  |z|^2 - H within %d units of 10^-%d  sign changes of D %d, E %d, Z %d (Z on 2^%d parts %d)"
+                  "  L %s to %s  energy %s to %s  wave %d arrives turning at %s  %d ms\n"
+                  % (nu, gap, work, flips[0], flips[1], flips[2], m + 1, z_finer,
+                     signed(rows[0][4] // 10 ** (work - 12), 12), signed(rows[-1][4] // 10 ** (work - 12), 12),
+                     signed(rows[0][5] // 10 ** (work - 12), 12), signed(rows[-1][5] // 10 ** (work - 12), 12),
+                     nu, signed(arrival, work), (time.perf_counter_ns() - begun) // 1000000))
+        out.flush()
+    out.write("  the trace: %s\n" % path)
+    return 0
+
+
 def triangle_main(first, last, cuts):
     """The triangle over cells first to last, with C from the device, one line a cell for each cut.
     A cut of -1 is MathWorld's c_0 to c_5; any other is R through C_cut from the exact curves.
@@ -1160,4 +1310,8 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["triangle"]:
         raise SystemExit(triangle_main(int(sys.argv[2]), int(sys.argv[3]),
                                        [int(c) for c in sys.argv[4:]] or [-1]))
+    if sys.argv[1:2] == ["sphere"]:
+        raise SystemExit(sphere_main(*(int(v) for v in sys.argv[2:])))
+    if sys.argv[1:2] == ["omitted"]:
+        raise SystemExit(omitted_main(*(int(v) for v in sys.argv[2:])))
     raise SystemExit(main())
