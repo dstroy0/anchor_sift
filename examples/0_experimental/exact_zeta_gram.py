@@ -35,8 +35,10 @@
 #
 # Up from t = 10 in cells. theta increases past t = 6.29, as the Riemann-Siegel theta article on
 # Wikipedia reports, and a cell holds as many Gram points as its ends' indices differ by. An empty
-# cell doubles the step, a cell holding one is a bracket, and a cell holding more splits into halves. Each bracket is then placed by bits, one pass per bit: the
-# index at the midpoint gates which half the next pass reads.
+# cell doubles the step, a cell holding one is a bracket, and a cell holding more splits into halves.
+# Each bracket is then placed by bits, one pass per bit: the index at the midpoint gates which half
+# the next pass reads. A point is t by default, and any steer whose phase reads theta's two routes
+# walks the same way.
 #
 # THE SIGN OF Z
 #
@@ -203,9 +205,15 @@ def pi_times(i, big_pi):
 # ---- the steering ----
 
 class Gram:
-    """The Gram index decided at each point, and what deciding it cost."""
+    """The Gram index decided at each point, and what deciding it cost.
 
-    def __init__(self):
+    A point is what the walk steps along, t by default. `phase` reads theta's two routes at a point,
+    and `start` and `step` are where the walk begins and its first step, in the point's own units."""
+
+    def __init__(self, phase=None, start=START, step=(1, 0)):
+        self.phase = phase or theta_routes
+        self.start = start
+        self.step = step
         self.index = {}
         self.theta = {}
         self.asked = 0
@@ -220,7 +228,7 @@ class Gram:
             records = []
             for point, places, n_sum in open_points:
                 self.asked += 1
-                one, two = theta_routes(point, places, n_sum)
+                one, two = self.phase(point, places, n_sum)
                 agree = NOT(one - two)
                 big_pi = zz.pi(places + GUARD)
                 i = one * 10 ** GUARD // big_pi
@@ -237,10 +245,10 @@ class Gram:
                            for point, places, n_sum, agree, *_ in compress(records, [NOT(r[6]) for r in records])]
 
     def walk(self, height):
-        """Up from START. Each pass reads the indices at the open cells' ends and gates the next cells."""
+        """Up from the start. Each pass reads the indices at the open cells' ends and gates the next cells."""
         found = []
         cells = []
-        low, step = START, (1, 0)
+        low, step = self.start, self.step
         while below(low, height) or cells:
             top = below(low, height)
             high = select(below(plus(low, step), height), plus(low, step), height)
