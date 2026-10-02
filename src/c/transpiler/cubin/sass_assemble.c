@@ -674,41 +674,135 @@ static int sass_form_lands(const SassForm *form, const SassForm *other)
 // the form whose own bits the encoding holds outside what it leaves open, and that form's places through `places`.
 // Of several: one that reads every field before one with a relocated label, whose field holds nothing; a label
 // before a number of the same operation; then the one leaving the fewest bits open. NULL where none holds it
+// the most forms one encoding is held by that the reader weighs
+#define SASS_HOLDERS 32u
+
+// one form that holds an encoding, where its operands sit, and how many bits it leaves to them
+typedef struct
+{
+    const SassForm *form;
+    SassPlace places[SASS_MACHINE_OPERANDS];
+    unsigned int open;
+} SassHolder;
+
+// 1 where `named` is `plain` with modifiers added: the two share their name up to its first dot, and every modifier
+// `plain` carries `named` carries too, as IMAD.IADD carries IMAD's and IMAD.MOV.U32 carries IMAD.U32's
+static int sass_name_within(const char *plain, const char *named)
+{
+    const size_t length = strcspn(plain, ".");
+    int within = (strcspn(named, ".") == length) && (strncmp(plain, named, length) == 0) &&
+                 (strlen(plain) < strlen(named));
+    for (const char *walk = plain + length; within && (*walk == '.'); walk += 1u + strcspn(walk + 1, "."))
+    {
+        const size_t modifier = 1u + strcspn(walk + 1, ".");
+        int carried = 0;
+        for (const char *seek = named + length; !carried && (*seek == '.'); seek += 1u + strcspn(seek + 1, "."))
+        {
+            carried = ((1u + strcspn(seek + 1, ".")) == modifier) && (strncmp(seek, walk, modifier) == 0);
+        }
+        within = carried;
+    }
+    return within;
+}
+
+// How `holder` stands against `sibling` where `holder` takes its name from one value of an operand: a sibling holding
+// the same encoding, with the same operation's name before its first dot, the same kinds and the same marks, is named
+// shorter, and the two forms' own values of an operand differ. -1 where the encoding's value there is not `holder`'s,
+// which names it away; 1 where every such value is `holder`'s, which names it; 0 where the two are no such pair.
+// IMAD.MOV and IMAD.IADD are IMAD with a multiplier of 0 and of 1, and IMAD.MOV is IMAD with RZ as the register it
+// multiplies by: an encoding with any other multiplier is IMAD's
+static int sass_holder_named(const SassHolder *holder, const SassHolder *sibling, unsigned long long low,
+                             unsigned long long high)
+{
+    const SassForm *const form = holder->form;
+    const SassForm *const other = sibling->form;
+    int same = (form != other) && sass_name_within(other->operation, form->operation) &&
+               (form->operands == other->operands);
+    for (unsigned int place = 0u; same && (place < form->operands); place += 1u)
+    {
+        same = (form->kind[place] == other->kind[place]) && (form->mark[place] == other->mark[place]);
+    }
+    int differs = 0;
+    int away = 0;
+    for (unsigned int place = 0u; same && (place < form->operands); place += 1u)
+    {
+        const SassField *const field = &holder->places[place].value;
+        const SassField *const field_other = &sibling->places[place].value;
+        if ((holder->places[place].by_text != 0) || (field->bits == 0u) || (field_other->bits == 0u))
+        {
+            continue;
+        }
+        const unsigned long long own = sass_bits_read(form->low, form->high, field->first, field->bits);
+        const unsigned long long theirs = sass_bits_read(other->low, other->high, field_other->first,
+                                                         field_other->bits);
+        const unsigned long long given = sass_bits_read(low, high, field->first, field->bits);
+        // the value a name is taken from is a multiplier of 0 or 1, a number 0 or 1 or the register RZ; a register
+        // the two forms' encodings were seen with apart from that is the encoding's own and names nothing
+        const int naming = ((form->kind[place] == SASS_OPERAND_IMMEDIATE) && (own <= 1ull)) ||
+                           ((form->kind[place] == SASS_OPERAND_REGISTER) && (own == 255ull));
+        differs = differs || (naming && (own != theirs));
+        away = away || (naming && (own != theirs) && (given != own));
+    }
+    return away ? -1 : (differs ? 1 : 0);
+}
+
 static const SassForm *sass_encoding_form(const SassMachine *machine, unsigned long long low, unsigned long long high,
                                           SassPlace *places)
 {
-    const SassForm *found = NULL;
-    unsigned int fewest = 129u;
-    int found_relocated = 1;
-    for (unsigned int number = 0u; number < machine->forms; number += 1u)
+    SassHolder holders[SASS_HOLDERS];
+    unsigned int held = 0u;
+    for (unsigned int number = 0u; (number < machine->forms) && (held < SASS_HOLDERS); number += 1u)
     {
-        const SassForm *const form = &machine->form[number];
-        SassPlace trial[SASS_MACHINE_OPERANDS];
+        SassHolder *const holder = &holders[held];
+        holder->form = &machine->form[number];
         unsigned int unplaced = 0u;
-        if (!sass_places_find(form, trial, &unplaced))
+        if (!sass_places_find(holder->form, holder->places, &unplaced))
         {
             continue;
         }
         unsigned long long open_low = 0ull;
         unsigned long long open_high = 0ull;
-        const unsigned int open = sass_open_bits(form, trial, &open_low, &open_high);
-        if ((((low ^ form->low) & ~open_low) != 0ull) || (((high ^ form->high) & ~open_high) != 0ull))
+        holder->open = sass_open_bits(holder->form, holder->places, &open_low, &open_high);
+        if ((((low ^ holder->form->low) & ~open_low) == 0ull) && (((high ^ holder->form->high) & ~open_high) == 0ull))
+        {
+            held += 1u;
+        }
+    }
+    const SassHolder *found = NULL;
+    int found_relocated = 1;
+    for (unsigned int number = 0u; number < held; number += 1u)
+    {
+        const SassHolder *const holder = &holders[number];
+        int away = 0;
+        for (unsigned int other = 0u; (away == 0) && (other < held); other += 1u)
+        {
+            away = (sass_holder_named(holder, &holders[other], low, high) < 0);
+        }
+        if (away != 0)
         {
             continue;
         }
-        const int relocated = sass_form_relocated(form, trial);
+        const SassForm *const form = holder->form;
+        const SassForm *const was = (found != NULL) ? found->form : NULL;
+        const int relocated = sass_form_relocated(form, holder->places);
+        // a form a value names takes the encoding from the sibling it is named past, and keeps it from that sibling
+        const int named = (found != NULL) && (sass_holder_named(holder, found, low, high) > 0);
+        const int kept = (found != NULL) && (sass_holder_named(found, holder, low, high) > 0);
+        const int fewer = (found == NULL) || named || (!kept && (holder->open < found->open));
         const int better = (found == NULL) || (found_relocated && !relocated) ||
                            ((relocated == found_relocated) &&
-                            (sass_form_lands(form, found) || (!sass_form_lands(found, form) && (open < fewest))));
+                            (sass_form_lands(form, was) || (!sass_form_lands(was, form) && fewer)));
         if (better)
         {
-            fewest = open;
-            found = form;
+            found = holder;
             found_relocated = relocated;
-            memcpy(places, trial, sizeof(trial));
         }
     }
-    return found;
+    if (found != NULL)
+    {
+        memcpy(places, found->places, sizeof(found->places));
+    }
+    return (found != NULL) ? found->form : NULL;
 }
 
 // the text of operand `at`, read from where the assembler writes it

@@ -84,7 +84,7 @@ Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this 
 | 14 | ror |  |  |  |  |  | `no word; the alphabet web holds no tree for it` | no word |
 | 15 | add | 004e0 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |
 | 15 | add | 004f0 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
-| 15 | add | 00500 | `IMAD.IADD R9, R0, 0x1, R9` | `IMAD.MOV R9, R0, 0x1, R9` | same | NVIDIA 0027e5, ours 000fe5 |  | scheduler bits |
+| 15 | add | 00500 | `IMAD.IADD R9, R0, 0x1, R9` | same | same | NVIDIA 0027e5, ours 000fe5 |  | scheduler bits |
 | 15 | add | 00510 | `STG.E.STRONG.SYS term[UR4][R4.64+0x38], R9` | same | same | NVIDIA 0000f1, ours 0000f4 |  | scheduler bits |
 | 15 | add | 00500 | `IMAD.IADD R9, R0, 0x1, R9` |  |  |  | `add_alone: IADD3 R9, R0, R9, RZ` | operation bits apart; NVIDIA's carries .IADD and ours does not; apart at 20 bits |
 | 16 | sub | 00530 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |

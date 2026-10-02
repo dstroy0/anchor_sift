@@ -284,8 +284,9 @@ works there.
      asks the part what each value of such a field does and writes `interface_sass_unprinted.md` whole. A
      predicate the same operation leaves out of its text at PT, as a load's at bits 64 to 67, is that operand's
      run and its form's own bits where the text drops it; the load's holds its number inverted, and the part
-     answers each printed predicate as written. Our reader names IMAD.MOV and IMAD.IADD by the form whose mark
-     matches and not by the multiplier, and reads `IMAD.IADD R7, R0, 0x1, R7` as IMAD.MOV. With `--forms` the
+     answers each printed predicate as written. Our reader names a form a value renames by that value: a
+     multiplier of 0 or RZ reads IMAD.MOV, of 1 IMAD.IADD and of any other IMAD, and 2909 of the 2928 forms read
+     back under their own operation from their own encoding. With `--forms` the
      script asks every form holding an unprinted operand, its operands filled by their kinds, and writes
      `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 367 of their 379 runs answer alike
      at every value asked. F2FP's run at 64 to 72 is refused as an illegal instruction at bits 68 to 71, and
