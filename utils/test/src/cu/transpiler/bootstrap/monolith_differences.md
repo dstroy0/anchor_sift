@@ -2,7 +2,7 @@
 
 Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this file>` and written again on every run. Each block of the monolith's tagged build is NVIDIA's writing of one precept. A row with an address is one of NVIDIA's instructions held against our reader and our assembler; a row with a compiler column is our compiler's writing of the block's precept. Scheduler bits are 105 to 127, apart from the operation's.
 
-98 of NVIDIA's instructions read: 0 with no form in the machine file, 59 whose text a form holds and whose bits it does not, 0 whose text a form holds with an operand it places none of, 2 with operation bits apart, 85 with scheduler bits apart.
+98 of NVIDIA's instructions read: 0 with no form in the machine file, 59 whose text a form holds and whose bits it does not, 0 whose text a form holds with an operand it places none of, 1 with operation bits apart, 85 with scheduler bits apart.
 
 | block | precept | address | NVIDIA | our reader | our assembler | scheduler | our compiler | difference |
 |---|---|---|---|---|---|---|---|---|
@@ -16,7 +16,7 @@ Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this 
 | 2 | err | 000b0 | `LDG.E.STRONG.SYS R0, [R6.64+0x8]` | a form holds its text and not its bits | apart at bit 37 | NVIDIA 000752, ours 000751 |  | a form holds its text, not these bits |
 | 2 | err | 000c0 | `ISETP.NE.AND P0, PT, R0, RZ, PT` | same | same | NVIDIA 0027ed, ours 0007f1 |  | scheduler bits |
 | 2 | err | 000d0 | `@!P0 BRA 0xf0` | `` @!P0 BRA `(0xf0) `` | same | NVIDIA 0007f5, ours 0007e0 |  | scheduler bits |
-| 2 | err | 000e0 | `BPT.TRAP 0x1` | `BPT.TRAP 0x4` | apart at bit 34 | same |  | operation bits apart |
+| 2 | err | 000e0 | `BPT.TRAP 0x1` | same | same | same |  | none |
 | 2 | err | 000f0 | `STG.E.STRONG.SYS [R4.64+0x4], RZ` | a form holds its text and not its bits | apart at bit 69 | NVIDIA 0001f1, ours 0000f4 |  | a form holds its text, not these bits |
 | 2 | err |  |  |  |  |  | `candidate 1, a trap in place` | the trap assembles |
 | 2 | err |  |  |  |  |  | `` candidate 2, error on P0: @P0 BRA `(0x10) `` | taken where the flag is set, to a handler; NVIDIA's passes a trap where it is clear |
@@ -154,15 +154,6 @@ Block 2, err, `LDG.E.STRONG.SYS R0, [R6.64+0x8]`, our assembler
 NVIDIA   00000000 00001110 10100100 00000000 00001100 00011111 01011001 00000000 00000000 00000000 00001000 00000100 00000110 00000000 01111001 10000001
 ours     00000000 00001110 10100010 00000000 00001100 00011111 01011001 00000000 00000000 00000000 00001000 00100100 00000110 00000000 01111001 10000001
                                 ..                                                                            ^                                         
-```
-
-Block 2, err, `BPT.TRAP 0x1`, our assembler
-
-```
-         127      119      111      103      95       87       79       71       63       55       47       39       31       23       15       7        
-NVIDIA   00000000 00011111 11101010 00000000 00000000 00110000 00000000 00000000 00000000 00000000 00000000 00000100 00000000 00000000 01111001 01011100
-ours     00000000 00011111 11101010 00000000 00000000 00110000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 01111001 01011100
-                                                                                                                 ^                                      
 ```
 
 Block 2, err, `STG.E.STRONG.SYS [R4.64+0x4], RZ`, our assembler
