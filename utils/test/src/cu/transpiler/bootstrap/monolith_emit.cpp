@@ -426,6 +426,63 @@ static void emit_unread_read(const char *path, const SassMachine *machine)
     }
 }
 
+// the part's answers on every form's unprinted operands, written by interface_sass_unprinted.sh --forms
+#define EMIT_UNREAD_FORMS_PATH "utils/test/src/c/transpiler/interface/interface_sass_unprinted_forms.md"
+// the widest run that record asks at every value
+#define EMIT_UNREAD_FORMS_WIDEST 6u
+
+// The fields the part does not read, from the answers at `path` on every form's unprinted operands. A row is
+// `| form | asked as | bits | the form holds | its own bits answer | values alike | values otherwise |`; a run of no
+// more than EMIT_UNREAD_FORMS_WIDEST bits whose every value answered alike is one, keyed by the form the row names
+static void emit_unread_forms_read(const char *path, const SassMachine *machine)
+{
+    std::ifstream file(path);
+    std::string line;
+    while (std::getline(file, line))
+    {
+        if (line.compare(0u, 3u, "| `") != 0)
+        {
+            continue;
+        }
+        std::vector<std::string> cells;
+        size_t at = 1u;
+        for (size_t bar = line.find('|', at); bar != std::string::npos; bar = line.find('|', at))
+        {
+            const std::string cell = line.substr(at, bar - at);
+            const size_t first = cell.find_first_not_of(' ');
+            const size_t last = cell.find_last_not_of(' ');
+            cells.push_back((first == std::string::npos) ? std::string() : cell.substr(first, (last - first) + 1u));
+            at = bar + 1u;
+        }
+        if ((cells.size() != 7u) || (cells[0].size() < 2u))
+        {
+            continue;
+        }
+        const size_t dash = cells[2].find('-');
+        const size_t of = cells[5].find(" of ");
+        if ((dash == std::string::npos) || (of == std::string::npos))
+        {
+            continue;
+        }
+        const unsigned int first = (unsigned int)strtoul(cells[2].c_str(), nullptr, 10);
+        const unsigned int last = (unsigned int)strtoul(cells[2].c_str() + dash + 1u, nullptr, 10);
+        const unsigned long alike = strtoul(cells[5].c_str(), nullptr, 10);
+        const unsigned long asked = strtoul(cells[5].c_str() + of + 4u, nullptr, 10);
+        if ((last < first) || (((last - first) + 1u) > EMIT_UNREAD_FORMS_WIDEST) || (alike != asked) || (asked == 0ul))
+        {
+            continue;
+        }
+        const std::string text = cells[0].substr(1u, cells[0].size() - 2u);
+        SassInstructionParts parts;
+        sass_instruction_read(text.c_str(), &parts);
+        const SassForm *const form = sass_machine_form(machine, &parts);
+        if (form != nullptr)
+        {
+            s_unread.push_back(EmitUnread{form, first, last});
+        }
+    }
+}
+
 // 1 where `bit` lies in a field of `form` the part does not read
 static int emit_unread(const SassForm *form, unsigned int bit)
 {
@@ -892,7 +949,7 @@ static int emit_record(const char *path, const char *listing)
                   "written term[%s], the uniform register the kernel loads c[0x0][0x118] into. ",
             s_descriptor.empty() ? "URn" : s_descriptor.c_str());
     fprintf(file, "Operation bits apart only in a field the part does not read, every value of it answering as printed "
-                  "in `" EMIT_UNREAD_PATH "`, are read as the same.\n\n");
+                  "in `" EMIT_UNREAD_PATH "` or alike in `" EMIT_UNREAD_FORMS_PATH "`, are read as the same.\n\n");
     unsigned int instructions = 0u;
     unsigned int formless = 0u;
     unsigned int unheld = 0u;
@@ -969,6 +1026,8 @@ int main(int count, char **arguments)
         return 1;
     }
     emit_unread_read(EMIT_UNREAD_PATH, &machine);
+    emit_unread_forms_read(EMIT_UNREAD_FORMS_PATH, &machine);
+    printf("%zu fields the part does not read\n", s_unread.size());
     const std::vector<EmitLine> lines = emit_listing(arguments[1]);
     // the kernel's descriptor register, from the line that loads c[0x0][0x118] into a uniform register pair
     for (const EmitLine &line : lines)
