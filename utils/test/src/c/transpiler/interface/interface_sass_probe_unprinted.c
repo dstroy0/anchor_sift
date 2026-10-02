@@ -61,6 +61,11 @@ typedef struct
 // known on each side
 #define UNPRINTED_PREDICATES "ISETP.NE.U32.AND P1, PT, R0, RZ, PT\nISETP.NE.U32.AND P2, PT, RZ, RZ, PT\n"
 
+// the load of the case's first word and the store of R0 into the answer's third word, each through the descriptor
+// register the frame loaded
+#define UNPRINTED_LOAD "LDG.E.CONSTANT R7, term[UR4][R2.64]"
+#define UNPRINTED_STORE "STG.E term[UR4][R4.64+0x8], R0"
+
 // every predicate from P0 to P6 set false, and every one set true
 #define UNPRINTED_FALSE                                                                                                \
     "ISETP.NE.U32.AND P0, PT, RZ, RZ, PT\nISETP.NE.U32.AND P1, PT, RZ, RZ, PT\nISETP.NE.U32.AND P2, PT, RZ, RZ, PT\n"  \
@@ -85,21 +90,25 @@ static const UnprintedQuestion s_questions[] = {
      "ISETP.GE.U32.AND P0, PT, R0, R7, PT", 68u, 4u, {{0u, 0u, 0ull}}, 0x0000000bu},
     {UNPRINTED_PREDICATES "ISETP.GE.U32.AND P0, PT, R7, R0, PT\nSEL R7, R0, RZ, P0",
      "ISETP.GE.U32.AND P0, PT, R7, R0, PT", 68u, 4u, {{0u, 0u, 0ull}}, 0x00000000u},
-    // the load's predicate at 65 to 67, with bit 64 beside it, which prints a predicate where it is set, asked with
-    // every predicate false and then with every predicate true
-    {UNPRINTED_FALSE "LDG.E.CONSTANT R7, [R2.64]", "LDG.E.CONSTANT R7, [R2.64]", 64u, 4u, {{0u, 0u, 0ull}},
-     0x0000000bu},
-    {UNPRINTED_TRUE "LDG.E.CONSTANT R7, [R2.64]", "LDG.E.CONSTANT R7, [R2.64]", 64u, 4u, {{0u, 0u, 0ull}},
-     0x0000000bu},
+    // the load's predicate at 64 to 67, its number inverted at 64 to 66 and bit 67 negating it, asked with every
+    // predicate false and then with every predicate true
+    {UNPRINTED_FALSE UNPRINTED_LOAD, UNPRINTED_LOAD, 64u, 4u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    {UNPRINTED_TRUE UNPRINTED_LOAD, UNPRINTED_LOAD, 64u, 4u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    // the load's predicate printed, each assembled into the field at 64 and run as written: P1 is true and P2 false
+    {UNPRINTED_PREDICATES UNPRINTED_LOAD ", P1", UNPRINTED_LOAD ", P1", 0u, 0u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    {UNPRINTED_PREDICATES UNPRINTED_LOAD ", P2", UNPRINTED_LOAD ", P2", 0u, 0u, {{0u, 0u, 0ull}}, 0x00000000u},
+    {UNPRINTED_PREDICATES UNPRINTED_LOAD ", !P1", UNPRINTED_LOAD ", !P1", 0u, 0u, {{0u, 0u, 0ull}}, 0x00000000u},
+    {UNPRINTED_PREDICATES UNPRINTED_LOAD ", !P2", UNPRINTED_LOAD ", !P2", 0u, 0u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    {UNPRINTED_PREDICATES UNPRINTED_LOAD ", !PT", UNPRINTED_LOAD ", !PT", 0u, 0u, {{0u, 0u, 0ull}}, 0x00000000u},
     // the load's descriptor register, with bit 101 clear and with it set
-    {"LDG.E.CONSTANT R7, [R2.64]", "LDG.E.CONSTANT R7, [R2.64]", 32u, 6u, {{101u, 1u, 0ull}}, 0x0000000bu},
-    {"LDG.E.CONSTANT R7, [R2.64]", "LDG.E.CONSTANT R7, [R2.64]", 32u, 6u, {{101u, 1u, 1ull}}, 0x0000000bu},
+    {UNPRINTED_LOAD, UNPRINTED_LOAD, 32u, 6u, {{101u, 1u, 0ull}}, 0x0000000bu},
+    {UNPRINTED_LOAD, UNPRINTED_LOAD, 32u, 6u, {{101u, 1u, 1ull}}, 0x0000000bu},
     // the two bits past the load's descriptor register
-    {"LDG.E.CONSTANT R7, [R2.64]", "LDG.E.CONSTANT R7, [R2.64]", 38u, 2u, {{0u, 0u, 0ull}}, 0x0000000bu},
+    {UNPRINTED_LOAD, UNPRINTED_LOAD, 38u, 2u, {{0u, 0u, 0ull}}, 0x0000000bu},
     // the store's descriptor register with bit 101 clear, and the two bits past it, read back through a load
-    {"STG.E [R4.64+0x8], R0\nLDG.E.CONSTANT R7, [R4.64+0x8]", "STG.E [R4.64+0x8], R0", 64u, 6u, {{101u, 1u, 0ull}},
+    {UNPRINTED_STORE "\nLDG.E.CONSTANT R7, term[UR4][R4.64+0x8]", UNPRINTED_STORE, 64u, 6u, {{101u, 1u, 0ull}},
      0x0000000bu},
-    {"STG.E [R4.64+0x8], R0\nLDG.E.CONSTANT R7, [R4.64+0x8]", "STG.E [R4.64+0x8], R0", 70u, 2u, {{0u, 0u, 0ull}},
+    {UNPRINTED_STORE "\nLDG.E.CONSTANT R7, term[UR4][R4.64+0x8]", UNPRINTED_STORE, 70u, 2u, {{0u, 0u, 0ull}},
      0x0000000bu},
 };
 
@@ -299,6 +308,17 @@ static int unprinted_run(const char *runner, const char *folder, const char *ker
 static int unprinted_ask(const UnprintedQuestion *question, unsigned int number, const char *runner,
                          const char *folder, const char *kernel, unsigned long long pattern_size, FILE *record)
 {
+    // the field's bits as the record names them, none where the question turns no bit and runs its instruction as
+    // the assembler wrote it
+    char span[32];
+    if (question->bits == 0u)
+    {
+        snprintf(span, sizeof(span), "none");
+    }
+    else
+    {
+        snprintf(span, sizeof(span), "%u-%u", question->first, (question->first + question->bits) - 1u);
+    }
     unsigned long long low = 0ull;
     unsigned long long high = 0ull;
     const unsigned int count = unprinted_text(s_frame, question->lines, s_asking, sizeof(s_asking))
@@ -312,9 +332,14 @@ static int unprinted_ask(const UnprintedQuestion *question, unsigned int number,
     {
         printf("  %s: not put, the question did not assemble or its instruction was not found once\n",
                question->turned);
-        fprintf(record, "| %u | `%s` | %u-%u | not put | | |\n", number, question->turned, question->first,
-                (question->first + question->bits) - 1u);
+        fprintf(record, "| %u | `%s` | %s | not put | | |\n", number, question->turned, span);
         return -1;
+    }
+    // the instruction read back through the machine file, which gives its text where the reader holds its field
+    char read[SASS_MACHINE_TEXT];
+    if (!sass_encoding_read(&s_machine, low, high, 0ull, read, sizeof(read)) || (strcmp(read, question->turned) != 0))
+    {
+        printf("  %s reads back as %s\n", question->turned, read);
     }
     const unsigned long long code_size = 16ull * count;
     char held[UNPRINTED_FIELD_MOST + 1u];
@@ -329,8 +354,8 @@ static int unprinted_ask(const UnprintedQuestion *question, unsigned int number,
             snprintf(&fixed[at], sizeof(fixed) - at, ", bit %u held at %llu", one->first, one->value);
         }
     }
-    printf("  %s, bits %u-%u%s, the form holds %s, as printed %08x\n", question->turned, question->first,
-           (question->first + question->bits) - 1u, fixed, held, question->answer);
+    printf("  %s, bits %s%s, the form holds %s, as printed %08x\n", question->turned, span, fixed, held,
+           question->answer);
     int printed = 0;
     const unsigned long long values = 1ull << question->bits;
     for (unsigned long long value = 0ull; value < values; value += 1ull)
@@ -364,8 +389,8 @@ static int unprinted_ask(const UnprintedQuestion *question, unsigned int number,
             snprintf(reading, sizeof(reading), "did not run: %s", ended);
         }
         printf("    %s %s\n", digits, reading);
-        fprintf(record, "| %u | `%s` | %u-%u%s | %s | %s | %s |\n", number, question->turned, question->first,
-                (question->first + question->bits) - 1u, fixed, held, digits, reading);
+        fprintf(record, "| %u | `%s` | %s%s | %s | %s | %s |\n", number, question->turned, span, fixed, held, digits,
+                reading);
     }
     printf("    %d of %llu values answer as printed\n", printed, values);
     return printed;
@@ -423,7 +448,8 @@ int main(int count, char **words)
         }
         fprintf(record, "`\n");
     }
-    fprintf(record, "\n| question | instruction | bits | the form holds | value | answer |\n|---|---|---|---|---|---|\n");
+    fprintf(record, "\n| question | instruction | bits | the form holds | value | answer |\n"
+                    "|---|---|---|---|---|---|\n");
     unsigned int put = 0u;
     for (unsigned int number = 0u; number < questions; number += 1u)
     {
