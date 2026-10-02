@@ -61,10 +61,17 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/branch_side_check" "$TOP/utils/test/src/c
     "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/gnascor_trace" "$TOP/utils/maint/engine/gnascor_trace.c" "$BOOT/query_ask.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/host_entry_check" "$TOP/utils/test/src/c/transpiler/bootstrap/host_entry_check.c" || exit 1
-cc -std=c11 -O2 -Wall -Wextra -o "$OUT/bus_enum_check" "$TOP/utils/test/src/c/transpiler/bootstrap/bus_enum_check.c" "$BOOT/bus_enum.c" || exit 1
+cc -std=c11 -O2 -Wall -Wextra -o "$OUT/classify_walk" "$BOOT/classify_walk.c" || exit 1
+cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/c/engine" -I "$TOP/src/cu/engine" -o "$OUT/bus_enum_check" \
+    "$TOP/utils/test/src/c/transpiler/bootstrap/bus_enum_check.c" "$BOOT/bus_enum.c" "$BOOT/bus_enum_walk.c" \
+    "$INTERFACE/interface.c" "$INTERFACE/interface_names.c" || exit 1
 WALK="$OUT/query_walk"
 if [ -f "$WALK.exe" ]; then
     WALK="$WALK.exe"
+fi
+CLASSIFY="$OUT/classify_walk"
+if [ -f "$CLASSIFY.exe" ]; then
+    CLASSIFY="$CLASSIFY.exe"
 fi
 
 cd "$TOP" || exit 1
@@ -78,7 +85,7 @@ python "$TOP/utils/maint/engine/emit_qasm_pi.py" --check || exit 1
 "$OUT/ask_order_check" || exit 1
 "$OUT/query_ask_check" || exit 1
 "$OUT/host_entry_check" || exit 1
-"$OUT/bus_enum_check" || exit 1
+"$OUT/bus_enum_check" "$CLASSIFY" "$OUT/classify_walk.out" || exit 1
 "$OUT/query_interface_check" "$WALK" "$OUT/query_walk.out" || exit 1
 "$OUT/query_order_check" || exit 1
 "$OUT/stem_group_check" || exit 1
