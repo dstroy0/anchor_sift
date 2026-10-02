@@ -25,7 +25,7 @@ TOP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 OUT="$TOP/build/engine"
 mkdir -p "$OUT"
 
-for one in "$TOP/utils/maint/engine/kdm_write.c" "$TOP/utils/test/src/c/transpiler/bootstrap/chain_check.c"; do
+for one in "$TOP/src/c/types/file_defs/kdm/kdm_write.c" "$TOP/utils/test/src/c/transpiler/bootstrap/chain_check.c"; do
     name="$(basename "$one" .c)"
     cc -std=c11 -O2 -Wall -Wextra -o "$OUT/$name" "$one" \
         "$TOP/src/c/transpiler/bootstrap/chain_build.c" || exit 1
