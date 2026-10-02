@@ -252,15 +252,54 @@ struct EmitRow
     std::string scheduler;
     std::string compiler;
     std::string difference;
+    // both encodings as bits and the marks under the bits apart, where the operation bits are apart
+    std::string bits;
 };
 
 static std::vector<EmitRow> s_rows;
 
+// `low` and `high` as 128 bits, bit 127 first, a space between bytes
+static std::string emit_binary(unsigned long long low, unsigned long long high)
+{
+    std::string bits;
+    for (int bit = 127; bit >= 0; bit -= 1)
+    {
+        const unsigned long long word = (bit >= 64) ? high : low;
+        bits += ((word >> (unsigned int)(bit % 64)) & 1ull) ? '1' : '0';
+        bits += ((bit % 8) == 0 && (bit != 0)) ? " " : "";
+    }
+    return bits;
+}
+
+// NVIDIA's encoding and ours bit by bit under each byte's top bit number, and a line marking each bit apart: ^ an
+// operation bit, . a scheduler bit
+static std::string emit_bits_apart(unsigned long long nvidia_low, unsigned long long nvidia_high,
+                                   unsigned long long low, unsigned long long high, const char *label = "ours     ")
+{
+    std::string numbers = "         ";
+    std::string marks = "         ";
+    for (int bit = 127; bit >= 0; bit -= 1)
+    {
+        if ((bit % 8) == 7)
+        {
+            char top[16];
+            snprintf(top, sizeof(top), "%-9d", bit);
+            numbers += top;
+        }
+        const unsigned long long theirs = (((bit >= 64) ? nvidia_high : nvidia_low) >> (unsigned int)(bit % 64)) & 1ull;
+        const unsigned long long mine = (((bit >= 64) ? high : low) >> (unsigned int)(bit % 64)) & 1ull;
+        marks += (theirs == mine) ? ' ' : ((bit >= 105) ? '.' : '^');
+        marks += ((bit % 8) == 0 && (bit != 0)) ? " " : "";
+    }
+    return numbers + "\n" + "NVIDIA   " + emit_binary(nvidia_low, nvidia_high) + "\n" + label + emit_binary(low, high) +
+           "\n" + marks + "\n";
+}
+
 static void emit_row(unsigned int block, unsigned int precept, const std::string &address, const std::string &nvidia,
                      const std::string &reader, const std::string &operation, const std::string &scheduler,
-                     const std::string &compiler, const std::string &difference)
+                     const std::string &compiler, const std::string &difference, const std::string &bits = "")
 {
-    s_rows.push_back({block, s_names[precept], address, nvidia, reader, operation, scheduler, compiler, difference});
+    s_rows.push_back({block, s_names[precept], address, nvidia, reader, operation, scheduler, compiler, difference, bits});
 }
 
 static std::string emit_hex(unsigned long long value, int width)
@@ -333,9 +372,15 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         char text[256];
         const int read = sass_encoding_read(machine, line.low, line.high, line.address, text, sizeof(text));
         const std::string ours = read ? emit_plain(text) : std::string();
-        const std::string reader = !read ? "no form holds it" : ((ours == line.text) ? "same" : ours);
+        // whether the machine file holds a form for the instruction's text, its operation and the kinds of its
+        // operands, apart from whether that form holds these bits
+        SassInstructionParts parts;
+        sass_instruction_read(line.text.c_str(), &parts);
+        const int text_held = (sass_machine_form(machine, &parts) != nullptr);
+        const std::string unread = text_held ? "a form holds its text and not its bits" : "no form holds its text";
+        const std::string reader = !read ? unread : ((ours == line.text) ? "same" : ours);
         read_same += (read && (ours == line.text)) ? 1u : 0u;
-        printf("         our reader: %s\n", !read ? "no form holds it" : ((ours == line.text) ? "the same text" : ours.c_str()));
+        printf("         our reader: %s\n", !read ? unread.c_str() : ((ours == line.text) ? "the same text" : ours.c_str()));
         // A branch's target is the address its text names. The listing prints it bare and our assembler reads a bare
         // number as the immediate itself: it is put to the assembler as a label, `(0x...), which it counts from the
         // instruction after the branch, and the address is given as the label's
@@ -350,7 +395,19 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         if (!sass_assemble(machine, put.c_str(), line.address, target, SASS_CONTROL_BASE, &low, &high))
         {
             printf("         our assembler: refused it\n");
-            emit_row(block, precept, address, line.text, reader, "refused", "-", "", "no form in the machine file");
+            // where a form holds the text, its own encoding beside NVIDIA's shows where the operand it cannot place
+            // lies against the fields it holds
+            const SassForm *const form = sass_machine_form(machine, &parts);
+            const std::string sample = (form == nullptr) ? std::string()
+                                                         : emit_bits_apart(line.low, line.high, form->low, form->high,
+                                                                           "the form ");
+            if (!sample.empty())
+            {
+                printf("           NVIDIA's against the form's own encoding:\n%s", sample.c_str());
+            }
+            emit_row(block, precept, address, line.text, reader, "refused", "-", "",
+                     text_held ? "a form holds its text and places none of an operand" : "no form in the machine file",
+                     sample);
             continue;
         }
         const int operation = (low == line.low) && ((high & EMIT_OPERATION_HIGH) == (line.high & EMIT_OPERATION_HIGH));
@@ -367,10 +424,10 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
             const unsigned long long mine = (bit < 64u) ? ((low >> bit) & 1ull) : ((high >> (bit - 64u)) & 1ull);
             apart += (theirs != mine) ? ((apart.empty() ? "" : " ") + std::to_string(bit)) : "";
         }
+        const std::string bits = operation ? std::string() : emit_bits_apart(line.low, line.high, low, high);
         if (!operation)
         {
-            printf("           NVIDIA %016llx %016llx, ours %016llx %016llx, apart at bit %s\n", line.high, line.low,
-                   high, low, apart.c_str());
+            printf("           apart at bit %s\n%s", apart.c_str(), bits.c_str());
         }
         if (!control)
         {
@@ -378,12 +435,13 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         }
         const std::string scheduler = control ? "same" : ("NVIDIA " + emit_hex(line.high >> 41u, 6) + ", ours " +
                                                           emit_hex(high >> 41u, 6));
-        const std::string difference = (!read && !operation) ? "no form in the machine file"
-                                       : !operation            ? "operation bits apart"
-                                       : !control              ? "scheduler bits"
-                                                               : "none";
+        const std::string difference = (!read && !operation && text_held) ? "a form holds its text, not these bits"
+                                       : (!read && !operation)            ? "no form in the machine file"
+                                       : !operation                       ? "operation bits apart"
+                                       : !control                         ? "scheduler bits"
+                                                                          : "none";
         emit_row(block, precept, address, line.text, reader, operation ? "same" : ("apart at bit " + apart), scheduler,
-                 "", difference);
+                 "", difference, bits);
     }
     printf("  of %zu: our reader gave NVIDIA's text for %u, our assembler NVIDIA's operation bits for %u and its "
            "scheduler bits for %u\n",
@@ -450,8 +508,15 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         unsigned long long high = 0ull;
         const int trap_written = (trap != nullptr) && sass_assemble(machine, trap->text.c_str(), trap->address, 0ull,
                                                                     SASS_CONTROL_BASE, &low, &high);
+        SassInstructionParts trap_parts;
+        if (trap != nullptr)
+        {
+            sass_instruction_read(trap->text.c_str(), &trap_parts);
+        }
+        const int trap_held = (trap != nullptr) && (sass_machine_form(machine, &trap_parts) != nullptr);
         const char *const trap_reading = (trap == nullptr) ? "NVIDIA's block holds no trap"
                                          : trap_written    ? "the trap assembles"
+                                         : trap_held       ? "a form holds the trap and places none of its operand, and it cannot be written yet"
                                                            : "the machine file holds no form for the trap, and it cannot be written yet";
         printf("  our compiler, candidate 1, a trap in place: %s\n", trap_reading);
         emit_row(block, precept, "", "", "", "", "", "candidate 1, a trap in place", trap_reading);
@@ -596,6 +661,7 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
     std::string recorded_compiler;
     std::string recorded_difference;
     unsigned int recorded_apart = ~0u;
+    std::string recorded_bits;
     for (unsigned int order = 0u; order < ((word->reads == 2u) ? 2u : 1u); order += 1u)
     {
         std::vector<std::string> given = {registers[0]};
@@ -642,13 +708,19 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
             recorded_apart = places;
             recorded_compiler = word->name + std::string(": ") + plain;
             recorded_difference = difference + (same ? "" : ("; apart at " + std::to_string(places) + " bits"));
+            recorded_bits = (same || !assembles) ? std::string() : emit_bits_apart(core->low, core->high, low, high);
         }
         if (same)
         {
             break;
         }
     }
-    emit_row(block, precept, emit_hex(core->address, 5), core->text, "", "", "", recorded_compiler, recorded_difference);
+    if (!recorded_bits.empty())
+    {
+        printf("    the closest writing against NVIDIA's, bit by bit:\n%s", recorded_bits.c_str());
+    }
+    emit_row(block, precept, emit_hex(core->address, 5), core->text, "", "", "", recorded_compiler, recorded_difference,
+             recorded_bits);
 }
 
 // `text` as a code span, doubled where it holds a backtick of its own
@@ -678,29 +750,48 @@ static int emit_record(const char *path, const char *listing)
     fprintf(file, "Scheduler bits are 105 to 127, apart from the operation's.\n\n");
     unsigned int instructions = 0u;
     unsigned int formless = 0u;
+    unsigned int unheld = 0u;
+    unsigned int unplaced = 0u;
     unsigned int operation_apart = 0u;
     unsigned int scheduler_apart = 0u;
     for (const EmitRow &row : s_rows)
     {
         instructions += row.address.empty() || row.nvidia.empty() || row.reader.empty() ? 0u : 1u;
         formless += (row.difference == "no form in the machine file") ? 1u : 0u;
+        unheld += (row.difference == "a form holds its text, not these bits") ? 1u : 0u;
+        unplaced += (row.difference == "a form holds its text and places none of an operand") ? 1u : 0u;
         operation_apart += (row.difference == "operation bits apart") ? 1u : 0u;
         scheduler_apart += (!row.scheduler.empty() && (row.scheduler != "same") && (row.scheduler != "-")) ? 1u : 0u;
     }
-    fprintf(file, "%u of NVIDIA's instructions read: %u with no form in the machine file, %u with operation bits apart, ",
-            instructions, formless, operation_apart);
-    fprintf(file, "%u with scheduler bits apart.\n\n", scheduler_apart);
+    fprintf(file, "%u of NVIDIA's instructions read: %u with no form in the machine file, %u whose text a form holds "
+                  "and whose bits it does not, %u whose text a form holds with an operand it places none of, %u with "
+                  "operation bits apart, %u with scheduler bits apart.\n\n",
+            instructions, formless, unheld, unplaced, operation_apart, scheduler_apart);
     fprintf(file, "| block | precept | address | NVIDIA | our reader | our assembler | scheduler | our compiler | difference |\n");
     fprintf(file, "|---|---|---|---|---|---|---|---|---|\n");
     for (const EmitRow &row : s_rows)
     {
         fprintf(file, "| %u | %s | %s | %s | %s | %s | %s | %s | %s |\n", row.block, row.precept.c_str(),
                 row.address.c_str(), emit_code(row.nvidia).c_str(),
-                ((row.reader == "same") || (row.reader == "no form holds it") || row.reader.empty())
+                ((row.reader == "same") || (row.reader == "no form holds its text") ||
+                 (row.reader == "a form holds its text and not its bits") || row.reader.empty())
                     ? row.reader.c_str()
                     : emit_code(row.reader).c_str(),
                 row.operation.c_str(), row.scheduler.c_str(), emit_code(row.compiler).c_str(),
                 row.difference.c_str());
+    }
+    // every row whose operation bits are apart, NVIDIA's encoding and ours bit by bit, bit 127 first
+    fprintf(file, "\n## Bits apart\n\n");
+    fprintf(file, "Each instruction whose operation bits are apart from NVIDIA's, both encodings bit by bit with bit 127 "
+                  "first under each byte's top bit; `^` marks an operation bit apart and `.` a scheduler bit apart.\n");
+    for (const EmitRow &row : s_rows)
+    {
+        if (row.bits.empty())
+        {
+            continue;
+        }
+        fprintf(file, "\nBlock %u, %s, `%s`%s\n\n```\n%s```\n", row.block, row.precept.c_str(), row.nvidia.c_str(),
+                row.compiler.empty() ? ", our assembler" : (", " + row.compiler).c_str(), row.bits.c_str());
     }
     fclose(file);
     printf("the record of %zu rows written to %s\n", s_rows.size(), path);

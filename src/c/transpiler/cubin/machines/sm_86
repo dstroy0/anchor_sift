@@ -2930,3 +2930,4 @@ form FSETP.F.AND predicate,predicate,register,constant,predicate! 0x00005a000202
 form LEA register,register,constant,immediate 0x00005a0002027a11 0x000fca00078e0003 2:9-9;2:11-11;0:16-23;1:24-31;2:40-58;2:63-63;1:72-72;3:75-79;2:91-91 LEA R2, R2, c[0x0][0x168], 0x0
 form FLO.U32 register,constant 0x00005a0002027b00 0x000fca00078e0003 1:9-9;1:11-11;0:16-23;1:40-58;1:63-63;1:91-91 FLO.U32 R2, c[0x0][0x168]
 form SULD.D.1D.EF.U8.IGN register,address,immediate,immediate 0x00005a0002027b99 0x000fca00078e0003 0:16-23;1:24-31;3:40-53;2:54-58 SULD.D.1D.EF.U8.IGN R2, [R2], 0x0, 0x5a
+form BPT.TRAP immediate 0x000000040000795c 0x001fea0000300000 0:35-36 BPT.TRAP 0x1
