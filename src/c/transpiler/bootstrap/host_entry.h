@@ -60,17 +60,10 @@ static inline unsigned int host_read(unsigned long long at)
     return *(volatile unsigned int *)(unsigned long long)at;
 }
 
-// What the address at `at` turns out to be, through `read_back` holding what came back last. What was there first is
-// put back before this returns, since an address that holds may be something the part is using
-static inline unsigned int host_address_ask(unsigned long long at, unsigned int *read_back)
+// the kind two read-backs name: `first` read after HOST_ASKED_FIRST was put, `then` after HOST_ASKED_THEN. This
+// reads no address; it takes the two words already read. A sizing register's own values can be put to it with no bus
+static inline unsigned int host_address_classify(unsigned int first, unsigned int then)
 {
-    const unsigned int held = host_read(at);
-    host_put(at, HOST_ASKED_FIRST);
-    const unsigned int first = host_read(at);
-    host_put(at, HOST_ASKED_THEN);
-    const unsigned int then = host_read(at);
-    host_put(at, held);
-    *read_back = then;
     if ((first == HOST_ASKED_FIRST) && (then == HOST_ASKED_THEN))
     {
         return HOST_HOLDS;
@@ -85,6 +78,33 @@ static inline unsigned int host_address_ask(unsigned long long at, unsigned int 
     }
     // it moved, and not to what it was given: something behind the address decided the answer
     return HOST_LIVE;
+}
+
+// What the address at `at` turns out to be, through `read_back` holding what came back last. What was there first is
+// put back before this returns, since an address that holds may be something the part is using
+static inline unsigned int host_address_ask(unsigned long long at, unsigned int *read_back)
+{
+    const unsigned int held = host_read(at);
+    host_put(at, HOST_ASKED_FIRST);
+    const unsigned int first = host_read(at);
+    host_put(at, HOST_ASKED_THEN);
+    const unsigned int then = host_read(at);
+    host_put(at, held);
+    *read_back = then;
+    return host_address_classify(first, then);
+}
+
+// the address bits a sizing register decodes, from the word it gives back when all ones are put to it: it holds the
+// high bits it owns and forces the low bits it decodes to zero. The count of those low zero bits is the region's
+// width. A readback of all ones decodes nothing and is width 0; a readback of zero decodes every bit
+static inline unsigned int host_width(unsigned int readback)
+{
+    unsigned int width = 0u;
+    while ((width < 32u) && (((readback >> width) & 1u) == 0u))
+    {
+        width += 1u;
+    }
+    return width;
 }
 
 // whether a part answers at `at`: a word comes back that is not the word a line gives when nothing drove it
