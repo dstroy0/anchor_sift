@@ -40,13 +40,19 @@ static int sass_operation_root_same(const char *one, const char *other)
     return ((one[length] == '\0') || (one[length] == '.')) && ((other[length] == '\0') || (other[length] == '.'));
 }
 
-// the immediate of `base` whose leaving the text gives `parts`, every other operand as it was, or the operand count
-// where no one immediate does
+// the immediate or predicate of `base` whose leaving the text gives `parts`, every other operand as it was, or the
+// operand count where no one of them does. A load's predicate leaves the text at PT under the same name, as
+// BPT.TRAP's code does at 0. A predicate that leaves with the name, as IMAD.X's carry-in leaves with its .X, is the
+// operation's bit and not the operand's
 static unsigned int sass_operand_dropped(const SassInstructionParts *base, const SassInstructionParts *parts)
 {
+    const int named = (strcmp(parts->operation, base->operation) == 0);
     for (unsigned int dropped = 0u; dropped < base->operands; dropped += 1u)
     {
-        int rest = (base->kind[dropped] == SASS_OPERAND_IMMEDIATE) ? 1 : 0;
+        int rest = ((base->kind[dropped] == SASS_OPERAND_IMMEDIATE) ||
+                    ((base->kind[dropped] == SASS_OPERAND_PREDICATE) && named))
+                       ? 1
+                       : 0;
         for (unsigned int place = 0u; rest && (place < parts->operands); place += 1u)
         {
             const unsigned int was = (place < dropped) ? place : (place + 1u);
@@ -64,8 +70,8 @@ static unsigned int sass_operand_dropped(const SassInstructionParts *base, const
 // them, the guard, or the operation past its name's first part. The disassembler hides a field two ways, and both are
 // read as the operand's: a value that renames the operation, as IMAD's multiplier prints IMAD.MOV at 0, IMAD.IADD at 1
 // and IMAD past them, where the name up to its first dot, the count of operands and each one's kind stay and one
-// operand's value moves; and a value of 0 that leaves an immediate out of the text, as BPT.TRAP's code does, where
-// every other operand stays as it was
+// operand's value moves; and a value that leaves an immediate or a predicate out of the text, as BPT.TRAP's code does
+// at 0 and a load's predicate at PT, where every other operand stays as it was
 static unsigned int sass_operand_changed(const SassInstructionParts *base, const char *text)
 {
     SassInstructionParts parts;
@@ -113,15 +119,17 @@ static void sass_form_turned(const SassForm *form)
     }
 }
 
-// 1 where `text` is `base` with one operand more at its end: the guard and the operation's name before its first dot
-// kept, and every operand `base` prints still there, a mark aside, since IMAD.X prints as ~R the register IMAD.IADD
-// prints as -R
+// 1 where `text` is `base` under another name with one operand more at its end: the guard and the operation's name
+// before its first dot kept, the name past it changed, and every operand `base` prints still there, a mark aside,
+// since IMAD.X prints as ~R the register IMAD.IADD prints as -R. The same operation printing one operand more is
+// that operand at a value the text leaves out, as a load prints its predicate past PT, and the form holds it as its
+// own bits
 static int sass_operand_gained(const SassInstructionParts *base, const char *text)
 {
     SassInstructionParts parts;
     sass_instruction_read(text, &parts);
     int kept = (strcmp(parts.guard, base->guard) == 0) && sass_operation_root_same(parts.operation, base->operation) &&
-               (parts.operands == (base->operands + 1u));
+               (strcmp(parts.operation, base->operation) != 0) && (parts.operands == (base->operands + 1u));
     for (unsigned int place = 0u; kept && (place < base->operands); place += 1u)
     {
         kept = (strcmp(parts.operand[place], base->operand[place]) == 0);

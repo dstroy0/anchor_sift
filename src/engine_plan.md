@@ -281,9 +281,12 @@ works there.
    - Machine file. The fields the disassembler hides are in it: the descriptor register, the field that renames
      the operation, the field whose 0 drops the operand, and the operand a form holds and does not print, which
      keeps the bits its form was seen with. `utils/test/src/c/transpiler/interface/interface_sass_unprinted.sh`
-     asks the part what each value of such a field does and writes `interface_sass_unprinted.md` whole. The
-     load's predicate is one field at bits 64 to 67, its index inverted, where the probe's runs hold 65 to 67
-     and 64 to 66. The other unprinted operands of the 685 forms are not yet asked.
+     asks the part what each value of such a field does and writes `interface_sass_unprinted.md` whole. A
+     predicate the same operation leaves out of its text at PT, as a load's at bits 64 to 67, is that operand's
+     run and its form's own bits where the text drops it; the load's holds its number inverted, and the part
+     answers each printed predicate as written. Our reader names IMAD.MOV and IMAD.IADD by the form whose mark
+     matches and not by the multiplier, and reads `IMAD.IADD R7, R0, 0x1, R7` as IMAD.MOV. The other unprinted
+     operands are not yet asked.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0

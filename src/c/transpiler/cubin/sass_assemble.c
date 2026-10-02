@@ -30,19 +30,23 @@
 #define SASS_BRANCH_BITS 48u
 #define SASS_BRANCH_STEP 4u
 
-// one place a value sits: its first bit, how many bits it holds, and what one of them counts
+// one place a value sits: its first bit, how many bits it holds, what one of them counts, and 1 where the field holds
+// the value with every bit inverted
 typedef struct
 {
     unsigned int first;
     unsigned int bits;
     unsigned int scale;
+    unsigned int inverted;
 } SassField;
 
 // the fields a kind of operand may sit in, in the order an instruction fills them
 static const SassField s_register_fields[] = {{16u, 8u, 1u}, {24u, 8u, 1u}, {32u, 8u, 1u}, {64u, 8u, 1u}};
-// a predicate operand takes three bits and the fourth negates it; the probes found five places one sits in
-static const SassField s_predicate_fields[] = {{68u, 3u, 1u}, {77u, 3u, 1u}, {81u, 3u, 1u}, {84u, 3u, 1u},
-                                               {87u, 3u, 1u}};
+// A predicate operand takes three bits and the fourth negates it; the probes found six places one sits in. A load's
+// predicate at 64 holds its number inverted, PT as 000, and a load whose predicate is false writes 0
+// (interface_sass_unprinted.md)
+static const SassField s_predicate_fields[] = {{64u, 3u, 1u, 1u}, {68u, 3u, 1u}, {77u, 3u, 1u},
+                                               {81u, 3u, 1u},     {84u, 3u, 1u}, {87u, 3u, 1u}};
 static const SassField s_immediate_fields[] = {{32u, 32u, 1u}, {72u, 8u, 1u}};
 // a constant's offset counts words, and an address's bytes; both lie above the register fields
 static const SassField s_constant_fields[] = {{40u, 16u, 4u}};
@@ -372,10 +376,9 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
     sass_instruction_read(form->text, &base);
     *low = form->low;
     *high = form->high;
-    // An operand the form holds and does not print keeps the bits the form was seen with. What value leaves it
-    // without effect is the operation's own: NVIDIA writes !PT into the carry-in IMAD reads as IMAD.X, PT into the
-    // predicate ISETP takes beside its printed ones, and 0 into the predicate a load reads where bit 64 is clear. No
-    // one value holds for all of them, and the part says which values make no difference
+    // An operand the form holds and does not print keeps the bits the form was seen with. NVIDIA writes !PT into the
+    // carry-in IMAD reads as IMAD.X and PT into the predicate ISETP reads as .EX, and the part answers alike at every
+    // value of either without its modifier (interface_sass_unprinted.md)
     for (unsigned int place = 0u; place < parts.operands; place += 1u)
     {
         if (places[place].by_text != 0)
@@ -391,8 +394,9 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
         unsigned long long value = 0ull;
         unsigned long long offset = 0ull;
         sass_operand_value(&parts, place, address, target, &value, &offset);
+        const unsigned long long counted = value / places[place].value.scale;
         sass_bits_write(low, high, places[place].value.first, places[place].value.bits,
-                        value / places[place].value.scale);
+                        (places[place].value.inverted != 0u) ? ~counted : counted);
         if (places[place].has_offset != 0)
         {
             sass_bits_write(low, high, places[place].offset.first, places[place].offset.bits, offset);
@@ -719,8 +723,9 @@ static void sass_operand_read(const SassForm *form, const SassInstructionParts *
         snprintf(operand, room, "%s%s", mark, base->operand[at]);
         return;
     }
-    const unsigned long long value =
-        sass_bits_read(low, high, place->value.first, place->value.bits) * place->value.scale;
+    const unsigned long long held = sass_bits_read(low, high, place->value.first, place->value.bits);
+    const unsigned long long mask = (place->value.bits < 64u) ? ((1ull << place->value.bits) - 1ull) : ~0ull;
+    const unsigned long long value = ((place->value.inverted != 0u) ? (~held & mask) : held) * place->value.scale;
     switch (form->kind[at])
     {
     case SASS_OPERAND_REGISTER:
