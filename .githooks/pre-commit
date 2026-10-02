@@ -2,7 +2,7 @@
 # orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Runs the docs check before a commit is written.
+# Runs the docs check and the claim check before a commit is written.
 #
 # This hook sits in the repository instead of .git/hooks. It is version controlled and everyone gets
 # the same one. Turn it on once per clone:
@@ -101,12 +101,35 @@ if ! git -C "$REPO" diff --quiet -- "$RATCHET"; then
     git -C "$REPO" add -- "$RATCHET"
 fi
 
-if [ "$status" -eq 0 ]; then
+# The claim check holds every number a reader meets first against the theory, and stops pages that
+# repeat a result the theory took back. It runs when a path in the index is README.md, a page under
+# docs/, a file under theory/ or the check itself, since no other path can change an answer. It
+# reads the working tree and not the index. The full report is shown only when it fails.
+CLAIMS="$REPO/$TOOLS/claims/claim_check.py"
+claims=0
+if git -C "$REPO" diff --cached --name-only | grep -qE "^(README\.md|docs/|theory/|$TOOLS/claims/)"; then
+    if [ ! -f "$CLAIMS" ]; then
+        echo "  commit stopped: no claim check at $CLAIMS"
+        exit 1
+    fi
+    report=$(python "$CLAIMS")
+    claims=$?
+    if [ "$claims" -eq 0 ]; then
+        echo "$report" | tail -1
+    else
+        echo "$report"
+    fi
+fi
+
+if [ "$status" -eq 0 ] && [ "$claims" -eq 0 ]; then
     exit 0
 fi
 
 echo ""
-if [ "$status" -eq 2 ]; then
+if [ "$status" -eq 0 ]; then
+    echo "  commit stopped: a page repeats a claim the theory took back. Read the places shown;"
+    echo "  a finding read and found sound goes in $TOOLS/claims/claims_read.tsv with why."
+elif [ "$status" -eq 2 ]; then
     # The checker returns this when it read no files at all. That is never a pass.
     echo "  commit stopped: the docs check read nothing. Nothing was checked."
 elif [ "$status" -eq 3 ]; then
