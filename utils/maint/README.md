@@ -22,6 +22,7 @@ A directory with no membership rule collects whatever nobody had a better place 
 | `texbuild/`  | building the theory research papers                                                                             |
 | `data/`      | fetching, converting, transcribing or repairing somebody else's material                                        |
 | `analysis/`  | a corpus read through `src/`, for a survey a research paper asked for                                           |
+| `claims/`    | every public claim held against the latest result in the theory                                                 |
 
 ## What each holds
 
@@ -32,6 +33,8 @@ A directory with no membership rule collects whatever nobody had a better place 
 **`engine/`.** `check_exact_limbs.py` checks the C limb arithmetic against python integers, which are arbitrary precision and share no code with it. A library cannot be its own oracle. Every arm of the engine is checked against a different implementation and never against a second routine in its own file. The vectorized and GPU arms are checked here as they land.
 
 **`tree/`.** `write_survey.py` reads every script for the files it opens and reports where each one lands. The list of what this tree writes is checked instead of remembered.
+
+**`claims/`.** `claim_check.py` reads the numbers a reader meets first, in `README.md`, every page under `docs/` and the abstract of each research paper, and asks the theory whether it still holds each one or has taken it back. A claim the theory took back ends the run with 1. `claims_read.tsv` holds what a person has read and found sound, one row each, and a row stops matching once the answer changes.
 
 ## Paths are walked to, never counted
 
