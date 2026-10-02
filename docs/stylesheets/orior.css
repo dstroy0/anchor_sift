@@ -123,6 +123,52 @@
   z-index: 1;
 }
 
+/* The hero reads centered: the name and the lede on one line, the text and the buttons under them. */
+.md-typeset .orior-hero {
+  text-align: center;
+}
+
+.orior-title {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  column-gap: 1rem;
+  margin: 0 0 0.8rem;
+}
+
+/* While the line beside the name comes together, each letter is its own box, and the beam is a thin
+ * rule brightest at its head. orior.js adds both and takes both away when the line is home. */
+.orior-part {
+  display: inline-block;
+  will-change: transform;
+}
+
+.orior-beam {
+  position: absolute;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 1px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, rgba(94, 234, 212, 0), #5eead4 70%, #ffffff);
+  box-shadow: 0 0 10px 1px rgba(94, 234, 212, 0.75);
+  pointer-events: none;
+}
+
+.md-typeset .orior-hero .orior-title h1,
+.md-typeset .orior-hero .orior-title .orior-lede {
+  margin: 0;
+}
+
+.md-typeset .orior-title .orior-lede::before {
+  content: "|";
+  margin-right: 1rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
 .md-typeset .orior-hero h1 {
   margin: 0 0 0.8rem;
   font-size: 3.2rem;
@@ -148,11 +194,13 @@
 
 .md-typeset .orior-hero p:not(.orior-lede) {
   max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
   color: #94a3b8;
 }
 
 .md-typeset .orior-hero .md-button {
-  margin: 0.6rem 0.4rem 0 0;
+  margin: 0.6rem calc(0.2rem + 7.5px) 0;
   border-radius: 999px;
   color: #e2e8f0;
   border-color: rgba(226, 232, 240, 0.35);
@@ -173,6 +221,39 @@
 .md-typeset .orior-hero .md-button--primary:hover {
   color: #0b1020;
   filter: brightness(1.08);
+}
+
+/* What came back: one measured number per tile, the number large and what it counts under it. */
+.orior-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin: 1.2rem 0 2rem;
+}
+
+.orior-stats > div {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-top: 3px solid var(--md-accent-fg-color);
+  border-radius: var(--orior-radius);
+  background-color: color-mix(in srgb, var(--md-accent-fg-color) 4%, transparent);
+}
+
+.md-typeset .orior-stats strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset .orior-stats span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
 }
 
 /* Cards: lift on hover, accent hairline. */
@@ -213,5 +294,9 @@
 
   .md-typeset .orior-hero h1 {
     font-size: 2.4rem;
+  }
+
+  .orior-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
