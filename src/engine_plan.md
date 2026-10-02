@@ -288,8 +288,10 @@ works there.
      multiplier of 0 or RZ reads IMAD.MOV, of 1 IMAD.IADD and of any other IMAD. The probe reads a relative
      branch target, which the disassembler prints as the address it lands on, as its distance from the instruction
      after it, and every branch form holds its distance at bits 34 to 81 and a predicate it prints at 87 to 90.
-     2922 of the 2928 forms read back under their own operation from their own encoding, and the six that do not
-     are barriers. With `--forms` the
+     A bit one value of which leaves an operand out of the text under another name, as BAR.SYNCALL is BAR.SYNC with
+     its barrier left out, is the operation's; a field printed twice, as BAR.SYNC R0, R0 prints its one register,
+     is both operands', and the assembler refuses two values for it. All 2928 forms read back under their own
+     operation from their own encoding. With `--forms` the
      script asks every form holding an unprinted operand, its operands filled by their kinds, and writes
      `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 375 of their 379 runs answer alike
      at every value asked. Every cubin it writes declares 255 registers a thread: a kernel refuses a register

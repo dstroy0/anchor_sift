@@ -372,6 +372,24 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
         printf("  sass_assemble: operand %u of %s does not place in its own encoding\n", unplaced, form->text);
         return 0;
     }
+    // two operands a form prints from one field, as BAR.SYNC R0, R0 prints its one register, name one value
+    for (unsigned int place = 0u; place < parts.operands; place += 1u)
+    {
+        for (unsigned int other = place + 1u; (places[place].by_text == 0) && (other < parts.operands); other += 1u)
+        {
+            unsigned long long one = 0ull;
+            unsigned long long two = 0ull;
+            unsigned long long offset = 0ull;
+            const int shared = (places[other].by_text == 0) && (places[other].value.first == places[place].value.first);
+            if (shared && sass_operand_value(&parts, place, address, target, &one, &offset) &&
+                sass_operand_value(&parts, other, address, target, &two, &offset) && (one != two))
+            {
+                printf("  sass_assemble: %s names two values for the one field operands %u and %u share\n", text, place,
+                       other);
+                return 0;
+            }
+        }
+    }
     SassInstructionParts base;
     sass_instruction_read(form->text, &base);
     *low = form->low;
