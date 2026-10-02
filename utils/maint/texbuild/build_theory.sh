@@ -9,7 +9,10 @@
 # lualatex because arXiv runs xelatex and does not run lualatex, and a local build on a different
 # engine from the archive's proves nothing about the archive's.
 #
-# Every output lands under build/. Nothing is written beside the source.
+# Every output lands under build/, and one file is written beside the source: a research paper that
+# builds clean has its PDF copied next to its main.tex, named after its directory. The PDF of
+# theory/theory/delta_null is theory/theory/delta_null/delta_null.pdf. A paper that fails, or that
+# drops a glyph, leaves the PDF beside its source as it was.
 #
 # A missing glyph is reported by the engine as "Missing character" and is otherwise silent: the
 # letter is dropped from the PDF and the run still succeeds. This script counts them and fails when
@@ -53,6 +56,14 @@ for research_paper in $RESEARCH_PAPERS; do
     # \include writes each chapter's .aux under the output directory at the chapter's own path,
     # and xelatex does not make the directory.
     mkdir -p "$out/chapters" "$out/frontmatter"
+    # A PDF left from an earlier run would read as the output of this run and be copied as clean.
+    # A PDF another program holds open cannot be removed, and that fails this paper and no other.
+    if ! rm -f "$out/main.pdf"; then
+        echo "  $research_paper: $out/main.pdf is held open and cannot be replaced"
+        STATUS=1
+        continue
+    fi
+    clean=1
     cd "$src"
     for pass in 1 2; do
         if ! xelatex -interaction=nonstopmode -file-line-error \
@@ -60,6 +71,7 @@ for research_paper in $RESEARCH_PAPERS; do
             echo "  $research_paper: xelatex failed on pass $pass, see $out/pass$pass.log"
             grep -m 5 -E "^[^ ]+\.tex:[0-9]+:" "$out/main.log" 2>/dev/null || true
             STATUS=1
+            clean=0
         fi
     done
 
@@ -78,6 +90,10 @@ for research_paper in $RESEARCH_PAPERS; do
     if [ "$dropped" != "0" ]; then
         grep "^Missing character" "$out/main.log" | sed "s/^/      /" | sort -u | head -n 12
         STATUS=1
+        clean=0
+    fi
+    if [ "$clean" = "1" ]; then
+        cp "$out/main.pdf" "$src/$(basename "$src").pdf"
     fi
 done
 
