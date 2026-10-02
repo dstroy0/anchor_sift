@@ -282,8 +282,10 @@ examples	examples/cell_tracking/cfg/three.cfg	examples/cell_tracking/cfg/three.c
 examples	examples/cell_tracking/cfg/two.cfg	examples/cell_tracking/cfg/two.cfg	stays	in its domain
 examples	examples/cell_tracking/cfg/two_full.cfg	examples/cell_tracking/cfg/two_full.cfg	stays	in its domain
 examples	examples/cell_tracking/maint/build_engine_view.py	examples/cell_tracking/maint/build_engine_view.py	stays	in its domain
+examples	examples/cell_tracking/maint/build_infographic.py	examples/cell_tracking/maint/build_infographic.py	stays	in its domain
 examples	examples/cell_tracking/maint/build_stamp.sh	examples/cell_tracking/maint/build_stamp.sh	stays	in its domain
 examples	examples/cell_tracking/maint/check_entropy_history.py	examples/cell_tracking/maint/check_entropy_history.py	stays	in its domain
+examples	examples/cell_tracking/maint/diagnose_metric.py	examples/cell_tracking/maint/diagnose_metric.py	stays	in its domain
 examples	examples/cell_tracking/maint/dump_frames.py	examples/cell_tracking/maint/dump_frames.py	stays	in its domain
 examples	examples/cell_tracking/maint/edge_reasons.py	examples/cell_tracking/maint/edge_reasons.py	stays	in its domain
 examples	examples/cell_tracking/maint/emit_crc_key.py	examples/cell_tracking/maint/emit_crc_key.py	stays	in its domain
@@ -294,8 +296,11 @@ examples	examples/cell_tracking/maint/fetch_open_sample.py	examples/cell_trackin
 examples	examples/cell_tracking/maint/measure_scan.cu	examples/cell_tracking/maint/measure_scan.cu	stays	in its domain
 examples	examples/cell_tracking/maint/null_curve.py	examples/cell_tracking/maint/null_curve.py	stays	in its domain
 examples	examples/cell_tracking/maint/pool_questions.py	examples/cell_tracking/maint/pool_questions.py	stays	in its domain
+examples	examples/cell_tracking/maint/score_metric.py	examples/cell_tracking/maint/score_metric.py	stays	in its domain
+examples	examples/cell_tracking/maint/score_submission.py	examples/cell_tracking/maint/score_submission.py	stays	in its domain
 examples	examples/cell_tracking/maint/tessera_build.sh	examples/cell_tracking/maint/tessera_build.sh	stays	in its domain
 examples	examples/cell_tracking/maint/time_engines.sh	examples/cell_tracking/maint/time_engines.sh	stays	in its domain
+examples	examples/cell_tracking/maint/truth_io.py	examples/cell_tracking/maint/truth_io.py	stays	in its domain
 examples	examples/cell_tracking/maint/zarr_frames.py	examples/cell_tracking/maint/zarr_frames.py	stays	in its domain
 examples	src/engine/prg_sch/nbody_program/program.json	examples/cell_tracking/nbody_program/program.json	moves	the tracker's, which builds it from examples
 examples	examples/cell_tracking/src/answer_key/answer_key.cu	examples/cell_tracking/src/answer_key/answer_key.cu	stays	in its domain
@@ -303,6 +308,7 @@ examples	examples/cell_tracking/src/answer_key/answer_key.h	examples/cell_tracki
 examples	examples/cell_tracking/src/bodies/bodies.cu	examples/cell_tracking/src/bodies/bodies.cu	stays	in its domain
 examples	examples/cell_tracking/src/bodies/bodies.h	examples/cell_tracking/src/bodies/bodies.h	stays	in its domain
 examples	examples/cell_tracking/src/cell_shift.c	examples/cell_tracking/src/cell_shift.c	stays	in its domain
+examples	examples/cell_tracking/src/check/edge_gap.py	examples/cell_tracking/src/check/edge_gap.py	stays	in its domain
 examples	examples/cell_tracking/src/check/output_check.c	examples/cell_tracking/src/check/output_check.c	stays	in its domain
 examples	examples/cell_tracking/src/check/points_check.c	examples/cell_tracking/src/check/points_check.c	stays	in its domain
 examples	examples/cell_tracking/src/coherence/coherence.cu	examples/cell_tracking/src/coherence/coherence.cu	stays	in its domain
@@ -1798,6 +1804,7 @@ test	examples/cell_tracking/test/output_test.cu	utils/test/examples/cu/cell_trac
 test	examples/cell_tracking/test/output_test.sh	utils/test/examples/cu/cell_tracking/output_test.sh	moves	beside the code it runs
 test	examples/cell_tracking/test/peaks_test.cu	utils/test/examples/cu/cell_tracking/peaks_test.cu	moves	language
 test	examples/cell_tracking/test/peaks_test.sh	utils/test/examples/cu/cell_tracking/peaks_test.sh	moves	beside the code it runs
+test	examples/cell_tracking/test/score_metric_test.py	utils/test/examples/python/cell_tracking/score_metric_test.py	moves	language
 test	examples/cell_tracking/test/sort_test.cu	utils/test/examples/cu/cell_tracking/sort_test.cu	moves	language
 test	examples/cell_tracking/test/sort_test.sh	utils/test/examples/cu/cell_tracking/sort_test.sh	moves	beside the code it runs
 test	utils/test/harness.py	utils/test/harness.py	stays	runs the test tree
