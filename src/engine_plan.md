@@ -285,8 +285,11 @@ works there.
      predicate the same operation leaves out of its text at PT, as a load's at bits 64 to 67, is that operand's
      run and its form's own bits where the text drops it; the load's holds its number inverted, and the part
      answers each printed predicate as written. Our reader names a form a value renames by that value: a
-     multiplier of 0 or RZ reads IMAD.MOV, of 1 IMAD.IADD and of any other IMAD, and 2909 of the 2928 forms read
-     back under their own operation from their own encoding. With `--forms` the
+     multiplier of 0 or RZ reads IMAD.MOV, of 1 IMAD.IADD and of any other IMAD. The probe reads a relative
+     branch target, which the disassembler prints as the address it lands on, as its distance from the instruction
+     after it, and every branch form holds its distance at bits 34 to 81 and a predicate it prints at 87 to 90.
+     2922 of the 2928 forms read back under their own operation from their own encoding, and the six that do not
+     are barriers. With `--forms` the
      script asks every form holding an unprinted operand, its operands filled by their kinds, and writes
      `interface_sass_unprinted_forms.md`: of 437 such forms 368 are asked, and 375 of their 379 runs answer alike
      at every value asked. Every cubin it writes declares 255 registers a thread: a kernel refuses a register

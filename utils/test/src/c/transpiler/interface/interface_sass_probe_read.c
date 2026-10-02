@@ -223,6 +223,46 @@ static int sass_binary_write(const char *path, const unsigned long long *low, co
 
 static SassListing s_sass_decoded;
 
+// 1 where `operation` counts its last operand as a distance from the instruction after it: BRA with any modifier,
+// CALL.REL and BSSY. JMP and CALL.ABS name an address outright
+static int sass_operation_relative(const char *operation)
+{
+    const int branch = (strncmp(operation, "BRA", 3u) == 0) && ((operation[3] == '\0') || (operation[3] == '.'));
+    const int call = (strncmp(operation, "CALL.REL", 8u) == 0) && ((operation[8] == '\0') || (operation[8] == '.'));
+    const int sync = (strncmp(operation, "BSSY", 4u) == 0) && ((operation[4] == '\0') || (operation[4] == '.'));
+    return branch || call || sync;
+}
+
+// A relative target in `text`, which the disassembler prints as the address it lands on, written as its distance from
+// the instruction after the one at `address`, where the encoding counts it from. One encoding decoded at two addresses
+// prints two targets and holds one distance: read as an address, every bit turned would move the target, since each
+// turned encoding lies at an address of its own
+static void sass_target_relative(char *text, unsigned long long address)
+{
+    const char *operation = text;
+    if (operation[0] == '@')
+    {
+        operation += strcspn(operation, " ");
+        operation += strspn(operation, " ");
+    }
+    char name[SASS_OPERAND_TEXT];
+    snprintf(name, sizeof(name), "%.*s", (int)strcspn(operation, " "), operation);
+    char *const comma = strrchr(text, ',');
+    char *target = (comma != NULL) ? (comma + 1) : (char *)(operation + strlen(name));
+    target += strspn(target, " ");
+    const int negative = (target[0] == '-');
+    if (!sass_operation_relative(name) || (strncmp(target + (negative ? 1 : 0), "0x", 2u) != 0))
+    {
+        return;
+    }
+    const unsigned long long magnitude = strtoull(target + (negative ? 1 : 0), NULL, 16);
+    // the address and the distance are both two's complement words of 64 bits, and their difference is taken as one
+    const long long distance = (long long)((negative ? (0ull - magnitude) : magnitude) - (address + 16ull));
+    const size_t room = SASS_TEXT - (size_t)(target - text);
+    snprintf(target, room, "%s0x%llx", (distance < 0) ? "-" : "",
+             (unsigned long long)((distance < 0) ? -distance : distance));
+}
+
 // the encodings at `chosen` decoded, their texts into `texts` at the same places: the disassembler's exit status, or
 // -1 where it did not exit or printed a line at an address past them
 static int sass_decode_pass(const char *architecture, const char *path, const unsigned long long *low,
@@ -263,6 +303,7 @@ static int sass_decode_pass(const char *architecture, const char *path, const un
             return -1;
         }
         memcpy(texts[chosen[decoded->address / 16ull]], decoded->text, SASS_TEXT);
+        sass_target_relative(texts[chosen[decoded->address / 16ull]], decoded->address);
     }
     return 0;
 }
