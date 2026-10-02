@@ -7,13 +7,18 @@
 // over the run and the filter comes off at the end, which leaves the name exactly as the page draws
 // it.
 //
-// The line beside the name waits as a pile of its own letters. When the name has settled, a beam
-// leaves the name and runs through the line, and each letter leaves the pile for its place as the
-// beam reaches that place. At the end the line is set back to plain text.
+// The line beside the name waits as a pile of its own letters. While the name is still settling, a
+// beam leaves the name and runs through the line, and each letter leaves the pile for its place as
+// the beam reaches that place. At the end the line is set back to plain text.
+//
+// The two runs overlap: the beam starts before the pour ends, by an amount drawn at random on each
+// load between ORIOR_OVERLAP_MIN_MS and ORIOR_OVERLAP_MAX_MS.
 //
 // Where the reader asks for reduced motion, or this file does not run, both are drawn plain.
 
 const ORIOR_FLUID_MS = 2600;
+const ORIOR_OVERLAP_MIN_MS = 450;
+const ORIOR_OVERLAP_MAX_MS = 950;
 const ORIOR_BEAM_MS = 650;
 const ORIOR_PART_MS = 520;
 const ORIOR_SVG = "http://www.w3.org/2000/svg";
@@ -58,10 +63,17 @@ function oriorPour(name, done) {
   parts.noise.setAttribute("seed", String(Math.floor(Math.random() * 1000)));
   name.style.filter = "url(#orior-fluid)";
   name.style.opacity = "0";
+  const overlap = ORIOR_OVERLAP_MIN_MS + Math.random() * (ORIOR_OVERLAP_MAX_MS - ORIOR_OVERLAP_MIN_MS);
+  const handoff = ORIOR_FLUID_MS - overlap;
+  let handed = false;
   let start = null;
   const frame = (now) => {
     if (start === null) {
       start = now;
+    }
+    if (!handed && now - start >= handoff) {
+      handed = true;
+      done();
     }
     const t = Math.min((now - start) / ORIOR_FLUID_MS, 1);
     const left = Math.pow(1 - t, 2);
@@ -77,7 +89,6 @@ function oriorPour(name, done) {
     } else {
       name.style.filter = "";
       name.style.opacity = "";
-      done();
     }
   };
   requestAnimationFrame(frame);
