@@ -16,12 +16,12 @@ $\deg \gcd(p(x),\, x^w + 1)$, agreeing with elimination at eight widths. And a $
 linear variant is pinned at $0.5$ at every round by algebra, reading $0.50000000$ at rounds $8$,
 $23$, $40$ and $64$. That control caught two errors it was not built for.
 
-Reading every cell instead of the largest finds a law the maximum cannot see. Folding the dependency
-matrix onto $(\text{input bit} - \text{output bit}) \bmod 32$ puts $4096$ cells behind each number.
-Residue twenty-six dominates for ten consecutive rounds without moving, and the ridge loses exactly
-one thirty-second of its amplitude per round, exact to four decimal places for five rounds before
-collapsing at twenty-two. The law was verified at four times the sample, where sigma doubled and the
-absolute deviation held.
+Reading every cell instead of the largest finds a pattern the maximum cannot see. Taking each cell
+of the matrix to its class $(\text{input bit} - \text{output bit}) \bmod 32$ puts $4096$ cells
+behind each number. With what every class has in common taken out, the classes that stand are $0$,
+$6$, $11$, $25$ and $31$, and each is a named operation: the diagonal, the three rotation amounts of
+$\Sigma_1$, and $-1 \bmod 32$ for the carry. The ranking is the same at every depth from round $6$
+to round $19$. What decays at $1/32$ per round is the part every class has in common.
 
 The null is the stronger half. Past round twenty-three the fold reads $2.09$, $2.07$ and $2.04$
 against a null peak of $2.63$, at three depths, with roughly sixty-four times the sensitivity the
