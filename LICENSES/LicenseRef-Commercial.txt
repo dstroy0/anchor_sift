@@ -68,6 +68,11 @@ R.3  The terms of this license protect the following interests, which together a
             continue after his death, provide for a successor bound to the Purpose, and give the
             originating communities standing of their own.
 
+       (g)  The people the work can reach. The Software reads what people write and speak, what
+            they hold closed, and scans of their bodies, and it measures systems that belong to
+            others. Section 7A exists so that commercial use of the Software does not become a
+            route for harm to any of them.
+
 R.4  The parties agree that each interest in R.3 is legitimate, and that none of them is satisfied
      by a right to recover damages alone. Each term of this license that sets a fee, requires a
      report, permits an audit, limits a transfer or allows termination exists to protect one or
@@ -227,7 +232,7 @@ R.6  Where a term of this license can be read more than one way, the reading tha
 1.34 "Successor Licensor" has the meaning given in Section 21.4. "Royalty Base" has the meaning
      given in Section 9. "Excess Use" and "Excess Use Fee" have the meanings given in Section 10.
      "Change of Control" has the meaning given in Section 13.4. "Speaker Credit" has the meaning
-     given in Section 5.3.
+     given in Section 5.3. "Closed Material" has the meaning given in Section 7A.2.
 
 1.35 "Including" means including without limitation. "Days" means calendar days. A reference to a
      statute includes it as amended and any provision that replaces it.
@@ -282,8 +287,8 @@ R.6  Where a term of this license can be read more than one way, the reading tha
 
 2.5  Protected terms. No Order Form, and no amendment, changes:
 
-       (a)  Section 3, Section 10.8, Section 18, or a definition any of them uses, including
-            Sections 1.13 and 1.15;
+       (a)  Section 3, Section 7A, Section 10.8, Section 18, or a definition any of them uses,
+            including Sections 1.13 and 1.15;
 
        (b)  Section 12.7, or any other section a Research Trustee may enforce under it; or
 
@@ -562,6 +567,60 @@ R.6  Where a term of this license can be read more than one way, the reading tha
 7.12 Change of Governing Body. Where a Governing Body ceases to exist, or its Originating Community
      designates another body, the rights and the notices of the earlier body pass to the body the
      community designates next. No right lapses in the interval.
+
+
+7A. CONDITIONS OF USE
+
+7A.1 Where this Section applies. This Section applies to every Licensed Product, to every Covered
+     Offering that is not an AGPL-Compliant Offering, and to the output of either. Section 7
+     continues to govern Community Language Material, and where both Sections apply, Licensee
+     Group meets both.
+
+7A.2 Closed material. "Closed Material" means material that a people, a community, a family or
+     another holder keeps under restriction, open to some people and closed to the rest, whatever
+     file, repository or service holds it. Before Licensee Group reads, measures, reproduces,
+     publishes or otherwise uses Closed Material with the Software or a Covered Offering, Licensee
+     Group obtains the permission in writing of each person who holds it, on that person's terms,
+     and keeps a written record of each permission for as long as Licensee Group holds the
+     material.
+     That a copy is available to Licensee Group is not permission. Where those terms refuse a use,
+     Licensee Group does not make it.
+
+7A.3 Naming a writer. Licensee Group does not use the Software or a Covered Offering to name the
+     writer, speaker or author of a work, or to narrow who that person may be, unless that person
+     has agreed in writing to be named. Licensee Group does not present a match produced with the
+     Software as proof of who made a work.
+
+7A.4 Who made a thing. Licensee Group does not offer a reading of the Software or of a Covered
+     Offering as evidence that a work was made by a person, copied, or produced by a machine.
+
+7A.5 A patient. Licensee Group uses medical images, and other medical data about a person, with the
+     Software or a Covered Offering only where Licensee Group is entitled to hold that data and
+     only on the terms under which the data was given. Licensee Group does not publish, convey or
+     make available a scan, a header, or any output of the Software from which a patient can be
+     named, and does not present output of the Software or of a Covered Offering as medical advice.
+
+7A.6 Systems of others. Licensee Group does not use the Software or a Covered Offering to test,
+     measure or attack a system, a key, a signature or a chain that does not belong to Licensee
+     Group, unless whoever it belongs to has given permission in writing. Licensee Group reports a
+     weakness it finds in a system of another person to that person first, in private. Licensee
+     Group does not present a reading of the Software as showing a weakness in SHA-256.
+
+7A.7 Reporting a result. Where Licensee Group publishes a result produced with the Software, or
+     presents one to any person as a finding, Licensee Group states with it the null it was
+     measured against, the positive control, and the bar the result had to clear.
+
+7A.8 Data about people. Licensee Group complies with the data protection law that applies to data
+     about identifiable people that Licensee Group reads, measures or holds with the Software or a
+     Covered Offering.
+
+7A.9 Who decides. Whether material is Closed Material, and whether a use is within a permission
+     under Section 7A.2, is decided by the written statement of the person who holds it.
+
+7A.10 Scope. This Section binds only Licensee Group, and only because the Licensee signed an Order
+      Form. It places no obligation on any person who uses the Software under AGPL-3.0-or-later,
+      and it places no restriction on any use of the Software that AGPL-3.0-or-later permits.
+      After a Contract ends it continues only as Section 22.1 states.
 
 
 8. FEES
@@ -943,9 +1002,14 @@ R.6  Where a term of this license can be read more than one way, the reading tha
             misrepresented the origin of the Software;
 
        (g)  refused or obstructed an audit under Section 11, or destroyed or altered records
-            Section 11.2 requires to be kept; or
+            Section 11.2 requires to be kept;
 
-       (h)  disclosed Non-Public Software in breach of Section 14.
+       (h)  disclosed Non-Public Software in breach of Section 14; or
+
+       (i)  as to the conditions of use: used Closed Material without the permission Section 7A.2
+            requires, or after the person who holds it stated in writing that the use is outside
+            that permission; named a person in breach of Section 7A.3; published data in breach of
+            Section 7A.5; or tested a system in breach of Section 7A.6.
 
      This list is closed. Each act in it defeats an interest named in R.3 in a way the Licensor, or
      an Originating Community, cannot reliably detect, measure or reverse once it has happened. For
@@ -1018,12 +1082,12 @@ R.6  Where a term of this license can be read more than one way, the reading tha
      damages measured by the fee a willing licensor would have charged for the use taken, and where
      the law allows it, an account of the profits Licensee Group made from the breach.
 
-17.5 Injunctive relief. The Licensee acknowledges that a breach of Section 5, 7, 12, 13 or 14 harms
-     interests named in R.3, that the harm is hard to measure in money, and that it continues for as
-     long as copies, Derived Artifacts or disclosed information remain in use. Either party, and an
-     Originating Community under Section 7.8, may seek injunctive relief for such a breach. This
-     acknowledgment is evidence for the court or tribunal to weigh, and it does not bind the
-     court's or tribunal's discretion.
+17.5 Injunctive relief. The Licensee acknowledges that a breach of Section 5, 7, 7A, 12, 13 or 14
+     harms interests named in R.3, that the harm is hard to measure in money, and that it continues
+     for as long as copies, Derived Artifacts, output or disclosed information remain in use. Either
+     party, and an Originating Community under Section 7.8, may seek injunctive relief for such a
+     breach. This acknowledgment is evidence for the court or tribunal to weigh, and it does not
+     bind the court's or tribunal's discretion.
 
 17.6 Fees and costs. In any action, arbitration or other proceeding arising out of or relating to a
      Contract, the prevailing party recovers its reasonable attorneys' fees, expert fees and costs
@@ -1175,6 +1239,9 @@ R.6  Where a term of this license can be read more than one way, the reading tha
                    Licensee Group holds any of them, and Section 7.4(b) for every publication,
                    dataset, product documentation and data availability statement that presents
                    or relies on that material;
+       Section 7A  (Conditions of use), for as long as any member of Licensee Group holds material,
+                   data or output obtained or made with the Software during the Term, or offers a
+                   Licensed Product made during the Term;
        Section 8   (Fees) and Section 9 (Royalty Base), for fees that accrued before the end or
                    during a Wind-Down Period;
        Section 10  (Excess Use and conversion), for use before the end;
@@ -1218,7 +1285,7 @@ INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, OR FOR LOST PROFITS, REV
 ARISING OUT OF OR RELATING TO A CONTRACT OR THE SOFTWARE, AND THE LICENSOR'S TOTAL LIABILITY FOR ALL
 CLAIMS ARISING OUT OF OR RELATING TO A CONTRACT DOES NOT EXCEED THE AMOUNT THE ORDER FORM STATES.
 THIS SECTION DOES NOT LIMIT THE LICENSEE'S LIABILITY FOR FEES, FOR EXCESS USE, UNDER SECTION 25, OR
-FOR A BREACH OF SECTION 5, 7, 12, 13 OR 14, AND IT DOES NOT LIMIT ANY LIABILITY THE LAW DOES NOT
+FOR A BREACH OF SECTION 5, 7, 7A, 12, 13 OR 14, AND IT DOES NOT LIMIT ANY LIABILITY THE LAW DOES NOT
 PERMIT TO BE LIMITED.
 
 

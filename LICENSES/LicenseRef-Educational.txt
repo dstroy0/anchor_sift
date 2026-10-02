@@ -59,6 +59,11 @@ R.2  The terms of this license protect the following interests, which together a
             terms continue after his death, provide for a successor bound to the Purpose, and
             give the originating communities standing of their own.
 
+       (f)  The people the work can reach. The Software reads what people write and speak, what
+            they hold closed, and scans of their bodies, and it measures systems that belong to
+            others. Section 7A exists so that use of the Software under a Grant does not become a
+            route for harm to any of them.
+
 R.3  The parties agree that each interest in R.2 is legitimate, and that none of them is satisfied
      by a right to recover damages alone. Each term of this license that sets a royalty, requires
      a report, permits an audit, limits a transfer or allows termination exists to protect one or
@@ -202,12 +207,12 @@ R.5  Where a term of this license can be read more than one way, the reading tha
      statute includes it as amended and any provision that replaces it.
 
 1.25 These terms are defined where they first appear: "Purpose" in R.2; "Credit Block" in 4.2;
-     "Credit Record" in 5.3; "Sharing Permission" in 6.2; "Speaker Credit" in 7.4; "Reliant
-     Activity", "Licensee Side", "Commercialization Event", "Commercialization Value",
-     "Commercialization Notice" and "Joinder" in Section 8; "Royalty", "Royalty Schedule",
-     "Royalty Period", "Royalty Report", "Research Trustee", "Trustee Share" and "Research
-     Contributors" in Section 9; "Successor Licensor" in 13.1; "Earlier Text", "Earlier License"
-     and "Supersession Notice" in 15.9.
+     "Credit Record" in 5.3; "Sharing Permission" in 6.2; "Speaker Credit" in 7.4; "Closed
+     Material" in 7A.2; "Reliant Activity", "Licensee Side", "Commercialization Event",
+     "Commercialization Value", "Commercialization Notice" and "Joinder" in Section 8; "Royalty",
+     "Royalty Schedule", "Royalty Period", "Royalty Report", "Research Trustee", "Trustee Share"
+     and "Research Contributors" in Section 9; "Successor Licensor" in 13.1; "Earlier Text",
+     "Earlier License" and "Supersession Notice" in 15.9.
 
 
 2. HOW A GRANT IS ISSUED
@@ -246,7 +251,7 @@ R.5  Where a term of this license can be read more than one way, the reading tha
      law and forum under Section 15.8. No Grant, and no later writing between the Licensor and the
      Licensee, changes:
 
-       (a)  Section 3.3, Section 8.2, Section 14, or a definition any of them uses;
+       (a)  Section 3.3, Section 7A, Section 8.2, Section 14, or a definition any of them uses;
 
        (b)  the Trustee Share, or any Section a Research Trustee may enforce under Section 12.3; or
 
@@ -330,7 +335,7 @@ meet them is outside the Grant, and any permission for that act comes from AGPL-
 
 5. OBLIGATIONS OF THE LICENSEE
 
-The obligations in this Section and in Sections 6.3, 7, 8.9, 8.10, 9.3, 9.4 and 9.7 to 9.10 are
+The obligations in this Section and in Sections 6.3, 7, 7A, 8.9, 8.10, 9.3, 9.4 and 9.7 to 9.10 are
 promises the Licensee makes by accepting a Grant. They are enforceable as terms of the agreement
 formed under Section 2.3.
 
@@ -513,6 +518,58 @@ formed under Section 2.3.
 7.13 Scope. The duties in this Section concern Community Language Material and Derived Artifacts.
      They place no restriction on any use of the Software that AGPL-3.0-or-later permits. After a
      Grant ends they continue only as Section 15.6 states.
+
+7A. CONDITIONS OF USE
+
+7A.1 Where this Section applies. This Section applies to every use the Licensee makes of the
+     Software under a Grant, to every Grant Work, and to the output of either. Section 7 continues
+     to govern Community Language Material, and where both Sections apply, the Licensee meets both.
+
+7A.2 Closed material. "Closed Material" means material that a people, a community, a family or
+     another holder keeps under restriction, open to some people and closed to the rest, whatever
+     file, repository or service holds it. Before the Licensee reads, measures, reproduces,
+     publishes or otherwise uses Closed Material with the Software or a Grant Work, the Licensee
+     obtains the permission in writing of each person who holds it, on that person's terms, and
+     keeps a written record of each permission for as long as the Licensee holds the material.
+     That a copy is available to the Licensee is not permission. Where those terms refuse a use,
+     the Licensee does not make it.
+
+7A.3 Naming a writer. The Licensee does not use the Software or a Grant Work to name the writer,
+     speaker or author of a work, or to narrow who that person may be, unless that person has
+     agreed in writing to be named. The Licensee does not present a match produced with the
+     Software as proof of who made a work.
+
+7A.4 Who made a thing. The Licensee does not offer a reading of the Software or of a Grant Work as
+     evidence that a work was made by a person, copied, or produced by a machine.
+
+7A.5 A patient. The Licensee uses medical images, and other medical data about a person, with the
+     Software or a Grant Work only where the Licensee is entitled to hold that data and only on the
+     terms under which the data was given. The Licensee does not publish, convey or make available
+     a scan, a header, or any output of the Software from which a patient can be named, and does
+     not present output of the Software or of a Grant Work as medical advice.
+
+7A.6 Systems of others. The Licensee does not use the Software or a Grant Work to test, measure or
+     attack a system, a key, a signature or a chain that does not belong to the Licensee, unless
+     whoever it belongs to has given permission in writing. The Licensee reports a weakness it
+     finds in a system of another person to that person first, in private. The Licensee does not
+     present a reading of the Software as showing a weakness in SHA-256.
+
+7A.7 Reporting a result. Where the Licensee publishes a result produced with the Software, or
+     presents one to any person as a finding, the Licensee states with it the null it was measured
+     against, the positive control, and the bar the result had to clear.
+
+7A.8 Data about people. The Licensee complies with the data protection law that applies to data
+     about identifiable people that the Licensee reads, measures or holds with the Software or a
+     Grant Work.
+
+7A.9 Who decides. Whether material is Closed Material, and whether a use is within a permission
+     under Section 7A.2, is decided by the written statement of the person who holds it.
+
+7A.10 Scope. This Section binds only the Licensee and each Authorized Participant, and only because
+      each accepted a Grant or a Sharing Permission in writing. It places no obligation on any
+      person who uses the Software under AGPL-3.0-or-later, and it places no restriction on any use
+      of the Software that AGPL-3.0-or-later permits. After a Grant ends it continues only as
+      Section 15.6 states.
 
 8. COMMERCIALIZATION AND CONVERSION
 
@@ -792,10 +849,16 @@ formed under Section 2.3.
              or a Derived Artifact made from it, or redistributes a recording in breach of Section
              7.10;
 
-        (g)  acts contrary to Section 7.6; or
+        (g)  acts contrary to Section 7.6;
 
         (h)  continues a use of Community Language Material after the Governing Body has stated in
-             writing, under Section 7.8, that the use is contrary to a Label or to Community Terms.
+             writing, under Section 7.8, that the use is contrary to a Label or to Community Terms;
+             or
+
+        (i)  as to the conditions of use: uses Closed Material without the permission Section 7A.2
+             requires, or after the person who holds it stated in writing that the use is outside
+             that permission; names a person in breach of Section 7A.3; publishes data in breach of
+             Section 7A.5; or tests a system in breach of Section 7A.6.
 
       This list is closed. The notice states the facts the Licensor relies on, and the Licensor
       decides in good faith whether conduct within this Section occurred. A Governing Body may give
@@ -808,7 +871,8 @@ formed under Section 2.3.
       and respect for the credit and the decisions of speakers and their communities. Later
       performance cannot undo harm from these events: value concealed or routed elsewhere has
       already left the Royalty terms, a copy or a confidential file passed on cannot be recalled,
-      and a payment cannot restore a withdrawn recording or a speaker's misattributed words.
+      and a payment cannot restore a withdrawn recording or a speaker's misattributed words, or
+      take back a name, a scan or a closed text once published.
 
 10.6  Cure. Where the Licensee breaches any obligation in this license that is not an event in
       Section 10.4, and does not cure the breach within 30 days after receiving written notice
@@ -867,11 +931,12 @@ formed under Section 2.3.
       bad faith comes only from the statutes named in Sections 11.1 and 11.2, and this license
       neither adds to it nor limits it.
 
-11.4  Injunctive relief. The Licensee acknowledges that a breach of Section 7 harms speakers and
-      their communities in ways money does not measure or repair. The Licensor, the Licensee and a
-      Governing Body may each seek interim or injunctive relief from a court at any time, and doing
-      so waives no agreement to arbitrate. This acknowledgment is evidence for the court or tribunal
-      to weigh, and it does not bind the court's or tribunal's discretion.
+11.4  Injunctive relief. The Licensee acknowledges that a breach of Section 7 or 7A harms speakers,
+      their communities and the people R.2(f) names in ways money does not measure or repair. The
+      Licensor, the Licensee and a Governing Body may each seek interim or injunctive relief from a
+      court at any time, and doing so waives no agreement to arbitrate. This acknowledgment is
+      evidence for the court or tribunal to weigh, and it does not bind the court's or tribunal's
+      discretion.
 
 11.5  Community Compensation. A Grant may state a sum payable to a Governing Body for an event in
       Section 10.4(e) to (h), but only where that Governing Body, advised by its own counsel, has
@@ -991,7 +1056,9 @@ formed under Section 2.3.
                             Derived Artifacts obtained or made during the Term, for as long as the
                             person holds any of them, and Section 7.4 for every Publication, Course
                             Material and dataset that presents or relies on that material;
-        Section 8           (Commercialization and conversion) and Section 9 (Royalty), for Grant
+        Section 7A          (Conditions of use), for as long as the person holds material, data
+                            or output obtained or made with the Software during the Term;
+        Section 8          (Commercialization and conversion) and Section 9 (Royalty), for Grant
                             Works, for the period Sections 9.11 and 9.13 state;
         Section 10.8        (Effect of ending);
         Section 10.9        (No new Grant after defined conduct);

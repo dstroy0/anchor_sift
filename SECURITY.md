@@ -31,6 +31,8 @@ The largest risk this work carries is not a memory bug. **The tools can regenera
 
 **A tool for language that comes out of this work requires a human to review its output.** That is a condition of use. If you find this work being run without one, that is worth reporting here even though no CVE describes it.
 
+The same holds for the rest of [the conditions of use](docs/condition_of_use.md): naming a writer who did not agree to it, publishing a scan or a header that can name a patient, and testing a system without permission. Each is worth reporting here.
+
 ## Reporting
 
 Open a private security advisory at <https://github.com/dstroy0/orior/security/advisories/new>, or email dquigg123@gmail.com.

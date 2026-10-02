@@ -116,6 +116,6 @@ A port is correct when it lands inside the reseeding floor of the Python, since 
 
 ## If you are working on a language
 
-Read [the condition of use](condition_of_use.md) first. These tools regenerate language, and output near the edge of a source distribution can be coherent and already not be the language. Nothing here marks which side of that a result fell on, and a human review of the output is a condition of use.
+Read [the conditions of use](condition_of_use.md) first. These tools regenerate language, and output near the edge of a source distribution can be coherent and already not be the language. Nothing here marks which side of that a result fell on, and a human review of the output is a condition of use.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

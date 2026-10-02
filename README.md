@@ -1,15 +1,22 @@
-# Orior: an algorithm for precision measurement
+# Orior: a unified computational foundation
 
 **Purpose:** Find an object's information entropy, and compile the program that measures it to any part.
 **Scope:** the whole repository; [the site](https://dstroy0.github.io/orior/) holds the rest
 
 [Setup](docs/setup.md) · [Using it](docs/usage.md) · [The algorithm](docs/method.md) · [The engine](docs/engine.md) · [Areas of research](docs/research.md) · [Licensing](docs/licensing.md)
 
-Measure how far something sits from the most disordered arrangement of its own parts.
+Measure how far an object sits from the most disordered arrangement of its own parts.
 
-That is the entire method. Every domain is that sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout.
+That is the entire method. Every discipline in this theory is that one sentence with a different answer to what counts as a part: atoms in a cell, symbols in a corpus, bytes in a file, coordinates in a board layout. The reference is the maximum entropy arrangement of those parts, and the measure is the exact departure from it.
 
-There is no prior to estimate, no training set and no model. Every comparison is exact integer arithmetic, the null is drawn by permuting the object's own parts, and every reading carries a floor.
+## What is here
+
+- **There is no prior estimate, no training set, no model or neural net.** An exact reading never merges two states that differ. [The algorithm](docs/method.md)
+- **A filter built from a subset never loses a true occurrence,** whatever picked the subset, whatever the alphabet is, and whether or not positions are ordered. Soundness is free; the reading is not. [The sift](docs/sift.md) · [Why the count is exact](docs/ENGINE_PROOF.md)
+- **The engine is optimized for no scale.** A size, a spacing, an order, a window, a width, a cell or a voxel count is never written into the machine. The machine is exact at every scale its words can hold, and where a word is too narrow it says so and never rounds. [The engine](docs/engine.md)
+- **The objective is to compile a program written in gnascor to any language,** including one nobody has met, and prove it is the same program everywhere. Where the language is unknown, the engine derives it by asking. [The language: gnascor](docs/gnascor.md)
+- **Measure the null under the same conditions as the effect.** An instrument that cannot be made to say no is not reporting anything when it says yes. [Areas of research](docs/research.md)
+- **Every claim, what killed it, and what still stands.** Hypotheses and refutations are kept. [Workbook](theory/workbooks/orior)
 
 ## Quick start
 
@@ -31,6 +38,7 @@ On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps
 - **A game.** Subtraction games return their Grundy period on 383 of 383 rows the detector can score. [Game Theory](theory/theory/game_theory)
 - **The periodic table.** The row lengths, 8, 8, 18, 18, 32, 32, are read off the shell closures as the differences between them. [Particle Physics](theory/theory/particle_physics)
 - **Nothing told.** An image read as a byte sequence returns its own width. A Vigenère cipher returns its key length.
+- **A negative.** Collision entropy is invariant under permutation. No bound built from a histogram can separate a structured domain from a rearrangement of the same symbols. [Delta Null](theory/theory/delta_null)
 
 [Areas of research](docs/research.md) holds the rest and every row that failed, and [Where to start reading](docs/research_papers.md) names the twenty research papers.
 
@@ -48,13 +56,15 @@ On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps
 | [What those proofs license](docs/ENGINE_DIRECTIONS.md)  | searching an encoded corpus, searching by equality pattern, and planning from the census alone |
 | [Areas of research](docs/research.md)                   | what came back from each subject, and every row that failed                       |
 | [Where to start reading](docs/research_papers.md)       | the twenty research papers, each with what it holds                               |
-| [The condition of use](docs/condition_of_use.md)        | whose language this is, and why a human reviews every output                      |
+| [The conditions of use](docs/condition_of_use.md)       | language, closed material, naming a writer, the scan of a patient, systems you do not own |
 
 ## The speakers come first
 
 **This work does not exist without the speakers.** Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file.
 
-**Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation. [The condition of use](docs/condition_of_use.md) states why.
+These tools read a language and can put one back. **Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation.
+
+The method reads people as well as languages: it can name a writer, it reads medical scans, and it measures systems that belong to someone else. [The conditions of use](docs/condition_of_use.md) cover each of those, and every one is a condition of use.
 
 ## Licensing
 
