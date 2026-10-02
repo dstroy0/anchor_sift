@@ -26,6 +26,59 @@ Measure how far an object sits from the most disordered arrangement of its own p
 
 </div>
 
+## Where to go
+
+<div class="grid cards" markdown>
+
+-   :material-play-circle-outline:{ .lg .middle } __[Using it](usage.md)__
+
+    ---
+
+    Run the measure on something of your own, and know which of the six parts you are calling.
+
+-   :material-code-braces:{ .lg .middle } __[The language: gnascor](gnascor.md)__
+
+    ---
+
+    The internal language, the query protocol every ask takes, and the transpiler.
+
+-   :material-filter-variant:{ .lg .middle } __[The sift](sift.md)__
+
+    ---
+
+    A sound filter: no arrangement of anchors can lose a true occurrence.
+
+-   :material-check-decagram:{ .lg .middle } __[Why the count is exact](ENGINE_PROOF.md)__
+
+    ---
+
+    The proofs that every probe set returns the exact count, and that the descent terminates.
+
+-   :material-book-open-variant:{ .lg .middle } __[Where to start reading](research_papers.md)__
+
+    ---
+
+    The twenty research papers, each with what it holds.
+
+-   :material-account-voice:{ .lg .middle } __[The conditions of use](condition_of_use.md)__
+
+    ---
+
+    Whose language this is, what is held closed, naming a writer, the scan of a patient, and systems you do not own.
+
+</div>
+
+## Quick start
+
+From a fresh clone, at the repository root:
+
+```sh
+utils/maint/engine/build_engine.sh                                  # the C engine: configure, build, run the graders
+python examples/any_corpus/4_measure/collision_entropy.py           # a reading that knows nothing about its corpus
+python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
+sh utils/maint/texbuild/build_theory.sh                             # the research papers
+```
+
 ## What is here
 
 <div class="grid cards" markdown>
@@ -101,59 +154,6 @@ Measure how far an object sits from the most disordered arrangement of its own p
     An instrument that cannot be made to say no is not reporting anything when it says yes. Every bar is drawn, and every claim is kept with what killed it.
 
     [:octicons-arrow-right-24: Areas of research](research.md)
-
-</div>
-
-## Quick start
-
-From a fresh clone, at the repository root:
-
-```sh
-utils/maint/engine/build_engine.sh                                  # the C engine: configure, build, run the graders
-python examples/any_corpus/4_measure/collision_entropy.py           # a reading that knows nothing about its corpus
-python examples/crystallography/6_oracle/proof_positive_control.py  # the positive control, against published cells
-sh utils/maint/texbuild/build_theory.sh                             # the research papers
-```
-
-## Where to go
-
-<div class="grid cards" markdown>
-
--   :material-play-circle-outline:{ .lg .middle } __[Using it](usage.md)__
-
-    ---
-
-    Run the measure on something of your own, and know which of the six parts you are calling.
-
--   :material-code-braces:{ .lg .middle } __[The language: gnascor](gnascor.md)__
-
-    ---
-
-    The internal language, the query protocol every ask takes, and the transpiler.
-
--   :material-filter-variant:{ .lg .middle } __[The sift](sift.md)__
-
-    ---
-
-    A sound filter: no arrangement of anchors can lose a true occurrence.
-
--   :material-check-decagram:{ .lg .middle } __[Why the count is exact](ENGINE_PROOF.md)__
-
-    ---
-
-    The proofs that every probe set returns the exact count, and that the descent terminates.
-
--   :material-book-open-variant:{ .lg .middle } __[Where to start reading](research_papers.md)__
-
-    ---
-
-    The twenty research papers, each with what it holds.
-
--   :material-account-voice:{ .lg .middle } __[The conditions of use](condition_of_use.md)__
-
-    ---
-
-    Whose language this is, what is held closed, naming a writer, the scan of a patient, and systems you do not own.
 
 </div>
 

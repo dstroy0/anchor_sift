@@ -51,6 +51,100 @@
   opacity: 1;
 }
 
+/* Where the page links show as a row, they sit in the header row itself, centered on the page, and
+ * the bar is one line. The page title in the header gives up its place to them and keeps its width,
+ * which holds the search at the right, and the repository link there is its mark alone. */
+@media screen and (min-width: 76.25em) {
+  .md-header {
+    position: sticky;
+  }
+
+  .md-tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.4rem;
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  .md-tabs__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.4rem;
+    margin: 0;
+    pointer-events: auto;
+  }
+
+  .md-tabs__item {
+    height: auto;
+    padding: 0 0.6rem;
+  }
+
+  .md-tabs__link {
+    margin-top: 0;
+  }
+
+  .md-header__title {
+    visibility: hidden;
+  }
+
+  .md-header__source {
+    width: auto;
+    margin-left: 0.4rem;
+  }
+
+  .md-header__source .md-source__repository {
+    display: none;
+  }
+}
+
+/* The foot of the page: one centered line, the copyright, the credit and the repository link. */
+.md-footer-meta__inner {
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.8rem;
+  padding: 0.15rem 0;
+}
+
+.md-footer-meta .md-copyright {
+  width: auto;
+  margin: 0;
+  padding: 0.25rem 0;
+  font-size: 0.55rem;
+  text-align: center;
+}
+
+.md-footer-meta .md-copyright__highlight {
+  display: inline;
+  margin-right: 0.4rem;
+}
+
+.md-footer-meta .md-social {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.md-footer-meta .md-social__link {
+  display: flex;
+  align-items: center;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.md-footer-meta .md-social__link svg {
+  vertical-align: baseline;
+}
+
+/* The page heading and each section heading are centered. */
+.md-typeset h1,
+.md-typeset h2 {
+  text-align: center;
+}
+
 /* Body type. */
 .md-typeset {
   font-size: 0.78rem;
