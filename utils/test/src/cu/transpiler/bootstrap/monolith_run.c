@@ -149,7 +149,14 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
         fprintf(stderr, "  monolith: the costs' words were not allocated on the part\n");
         return 0;
     }
+    // each section's counts over the runs: their sum, the least and the most
     static double s_spent[MONOLITH_SECTIONS];
+    static unsigned long long s_least[MONOLITH_SECTIONS];
+    static unsigned long long s_most[MONOLITH_SECTIONS];
+    for (unsigned int section = 0u; section < MONOLITH_SECTIONS; section += 1u)
+    {
+        s_least[section] = ~0ull;
+    }
     unsigned int last[MONOLITH_SECTIONS] = {0u};
     unsigned int left = MONOLITH_COST_LEFT;
     unsigned int right = MONOLITH_COST_RIGHT;
@@ -170,6 +177,8 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
         for (unsigned int section = 0u; section < MONOLITH_SECTIONS; section += 1u)
         {
             s_spent[section] += (double)counted[section];
+            s_least[section] = (counted[section] < s_least[section]) ? counted[section] : s_least[section];
+            s_most[section] = (counted[section] > s_most[section]) ? counted[section] : s_most[section];
         }
     }
     cuMemFree(cycles);
@@ -196,20 +205,65 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
         }
     }
 
-    // a step's mean, past what NOP's turns cost with nothing in them
-    double alone[MONOLITH_COSTED_COUNT];
-    const double each = (double)steps * (double)cost_runs;
-    const double bare = s_spent[0] / each;
-    printf("  monolith costs: %u turns of %u steps a section, %llu steps a chain, the mean of %u runs\n", turns,
-           MONOLITH_BLOCK, steps, cost_runs);
-    printf("  NOP's turns cost %.4f cycles a step with nothing in them, and every figure below is past that\n", bare);
-    printf("  alone, cycles a step:\n");
+    // every section read a step, past NOP's turns read the same way: its mean, its least m, and its spread s, the most
+    // less the least, over the runs (P6 in query_protocol_table.md)
+    const double chain = (double)steps;
+    const double bare_mean = (s_spent[0] / (double)cost_runs) / chain;
+    const double bare_least = (double)s_least[0] / chain;
+    static double s_mean[MONOLITH_SECTIONS];
+    static double s_m[MONOLITH_SECTIONS];
+    static double s_s[MONOLITH_SECTIONS];
+    for (unsigned int section = 0u; section < MONOLITH_SECTIONS; section += 1u)
+    {
+        s_mean[section] = ((s_spent[section] / (double)cost_runs) / chain) - bare_mean;
+        s_m[section] = ((double)s_least[section] / chain) - bare_least;
+        s_s[section] = (double)(s_most[section] - s_least[section]) / chain;
+    }
+    printf("  monolith costs: %u turns of %u steps a section, %llu steps a chain, %u runs\n", turns, MONOLITH_BLOCK,
+           steps, cost_runs);
+    printf("  NOP's turns cost %.4f cycles a step with nothing in them, and every figure below is past that\n",
+           bare_mean);
+    printf("  alone, cycles a step     mean   least m  spread s\n");
+    double spread_alone = 0.0;
     for (unsigned int place = 0u; place < MONOLITH_COSTED_COUNT; place += 1u)
     {
-        alone[place] = (s_spent[place] / each) - bare;
-        printf("    %-5s %8.4f\n", s_names[MONOLITH_COSTED(place)], alone[place]);
+        printf("    %-5s           %8.4f  %8.4f  %8.4f\n", s_names[MONOLITH_COSTED(place)], s_mean[place], s_m[place],
+               s_s[place]);
+        spread_alone = (s_s[place] > spread_alone) ? s_s[place] : spread_alone;
     }
-    printf("  interleaved, cycles a step of each, the row's precept with the column's:\n       ");
+    printf("  s alone, the largest spread of the singles: %.4f\n", spread_alone);
+
+    // the singles ranked by their least, each delta to the next standing where it is past s
+    unsigned int order[MONOLITH_COSTED_COUNT];
+    for (unsigned int place = 0u; place < MONOLITH_COSTED_COUNT; place += 1u)
+    {
+        unsigned int at = place;
+        while ((at > 0u) && (s_m[order[at - 1u]] > s_m[place]))
+        {
+            order[at] = order[at - 1u];
+            at -= 1u;
+        }
+        order[at] = place;
+    }
+    printf("  alone, ranked by least m, each delta to the next read against s:\n");
+    for (unsigned int rank = 0u; rank < MONOLITH_COSTED_COUNT; rank += 1u)
+    {
+        const unsigned int place = order[rank];
+        if ((rank + 1u) == MONOLITH_COSTED_COUNT)
+        {
+            printf("    %-5s %8.4f\n", s_names[MONOLITH_COSTED(place)], s_m[place]);
+            continue;
+        }
+        const unsigned int next = order[rank + 1u];
+        const double delta = s_m[next] - s_m[place];
+        printf("    %-5s %8.4f  +%.4f to %-5s %s\n", s_names[MONOLITH_COSTED(place)], s_m[place], delta,
+               s_names[MONOLITH_COSTED(next)], (delta > spread_alone) ? "stands" : "within s");
+    }
+
+    // the pairs by their least, against the singles' least
+    const double *const alone = s_m;
+    double spread_pairs = 0.0;
+    printf("  interleaved, least m a step of each, the row's precept with the column's:\n       ");
     for (unsigned int second = 0u; second < MONOLITH_COSTED_COUNT; second += 1u)
     {
         printf(" %6s", s_names[MONOLITH_COSTED(second)]);
@@ -228,7 +282,9 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
                 printf(" %6s", "");
                 continue;
             }
-            const double paired = (s_spent[MONOLITH_PAIR_SECTION(first, second)] / each) - bare;
+            const unsigned int section = MONOLITH_PAIR_SECTION(first, second);
+            const double paired = s_m[section];
+            spread_pairs = (s_s[section] > spread_pairs) ? s_s[section] : spread_pairs;
             printf(" %6.2f", paired);
             const double dearer = (alone[first] > alone[second]) ? alone[first] : alone[second];
             const double cheaper = (alone[first] > alone[second]) ? alone[second] : alone[first];
@@ -246,6 +302,7 @@ static int monolith_costs(CUfunction entry, unsigned int turns, unsigned int cos
     printf("  of the pairs whose precepts each cost a cycle a step or more: %u run side by side, %u one after the other, "
            "%u between\n",
            side_by_side, one_after, between);
+    printf("  s interleaved, the largest spread of the pairs: %.4f\n", spread_pairs);
     return 1;
 }
 
