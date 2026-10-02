@@ -343,6 +343,40 @@ static std::string emit_lacking(const std::string &one, const std::string &other
     return lacking;
 }
 
+// the uniform register the kernel loads its memory descriptor into, ULDC.64 URn, c[0x0][0x118]; empty where none
+static std::string s_descriptor;
+
+// NVIDIA's text written in ours. The listing prints no descriptor on a memory operand whose bit 101 is clear, and the
+// field holds the kernel's descriptor register all the same: each such operand of a form that reads one is written
+// term[URn], the register the kernel loaded
+static std::string emit_our_text(const std::string &text, const SassMachine *machine)
+{
+    if (s_descriptor.empty())
+    {
+        return text;
+    }
+    SassInstructionParts parts;
+    sass_instruction_read(text.c_str(), &parts);
+    const SassForm *const form = sass_machine_form(machine, &parts);
+    std::string ours = text;
+    for (unsigned int place = 0u; (form != nullptr) && (place < parts.operands); place += 1u)
+    {
+        int shown = 0;
+        for (unsigned int number = 0u; number < form->runs; number += 1u)
+        {
+            shown = shown || ((form->run[number].operand == place) && (form->run[number].first == 101u) &&
+                              (form->run[number].last == 101u));
+        }
+        const std::string operand = parts.operand[place];
+        const size_t at = ours.find(operand);
+        if ((parts.kind[place] == SASS_OPERAND_ADDRESS) && shown && (operand[0] == '[') && (at != std::string::npos))
+        {
+            ours.insert(at, "term[" + s_descriptor + "]");
+        }
+    }
+    return ours;
+}
+
 // block `block` of the listing held against our reader, our assembler and our compiler, printed and recorded
 static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, const SassMachine *machine,
                        const Ruleset *rules)
@@ -358,6 +392,10 @@ static void emit_block(const std::vector<EmitLine> &lines, unsigned int block, c
         {
             held.push_back(line);
         }
+    }
+    for (EmitLine &line : held)
+    {
+        line.text = emit_our_text(line.text, machine);
     }
     printf("block %u: precept %s, %zu instructions between tag %u and tag %u\n", block, s_names[precept], held.size(),
            block, block + 1u);
@@ -747,7 +785,10 @@ static int emit_record(const char *path, const char *listing)
     fprintf(file, "Each block of the monolith's tagged build is NVIDIA's writing of one precept. ");
     fprintf(file, "A row with an address is one of NVIDIA's instructions held against our reader and our assembler; ");
     fprintf(file, "a row with a compiler column is our compiler's writing of the block's precept. ");
-    fprintf(file, "Scheduler bits are 105 to 127, apart from the operation's.\n\n");
+    fprintf(file, "Scheduler bits are 105 to 127, apart from the operation's. ");
+    fprintf(file, "NVIDIA's text is written in ours: a memory operand whose descriptor the listing does not print is "
+                  "written term[%s], the uniform register the kernel loads c[0x0][0x118] into.\n\n",
+            s_descriptor.empty() ? "URn" : s_descriptor.c_str());
     unsigned int instructions = 0u;
     unsigned int formless = 0u;
     unsigned int unheld = 0u;
@@ -821,6 +862,16 @@ int main(int count, char **arguments)
         return 1;
     }
     const std::vector<EmitLine> lines = emit_listing(arguments[1]);
+    // the kernel's descriptor register, from the line that loads c[0x0][0x118] into a uniform register pair
+    for (const EmitLine &line : lines)
+    {
+        const size_t uniform = line.text.find("ULDC.64 UR");
+        if ((uniform != std::string::npos) && (line.text.find("c[0x0][0x118]") != std::string::npos))
+        {
+            const size_t name = uniform + 8u;
+            s_descriptor = line.text.substr(name, line.text.find(',', name) - name);
+        }
+    }
     if (all)
     {
         for (unsigned int block = 1u; block <= PRECEPT_COUNT; block += 1u)
