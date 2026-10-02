@@ -359,22 +359,51 @@ The triangle between the two pairs (entry 6's header):
 - **What it is read by.** The excess `kappa = (c^2 - a^2 - b^2) / a^2` and the angle
   `cos gamma = -kappa a / 2b`.
 - **How it is run.** Euler-Maclaurin's `C` comes from the device (Z3), with `triangle first last`.
+- **Where S and R cross.** There `E` is zero, and `delta`'s integrand is a spike of height `|D|` and
+  width `|D / E'|`. In cell 4, the crossings read from `p = 0.686` to `0.990` sit about 0.03 apart.
+  Each has `|D|` between `1.2 e-10` and `9.9 e-10`, `|E'|` between 80 and 240, and a width of about
+  `10^-12` of `p`. A grid would need `2^36` to `2^40` parts to see one.
+- **The growth.** The trapezoid on a spike grows by about `(D^2 / |E'|) ln 2` per crossing at every
+  doubling of the parts. It stops only where the step reaches the spike's width, and that doubling is
+  what made each cell take longer and longer.
+- **The relation.** Each spike is held as its relation instead. With `D0 = D(p0)` and `k = |E'(p0)|`,
+  it is `g(u) = D0^2 / (sqrt(D0^2 + k^2 u^2) + k |u|)`, `u = p - p0`. Its integral from 0 to `L` is
+  `(L D0^2 / (sqrt(D0^2 + k^2 L^2) + kL) + (D0^2 / k) asinh(kL / |D0|)) / 2`, exactly. `delta` is the
+  sum of those and the trapezoid of `f` less every `g`, which no longer grows.
+- **Finding the crossings.** They are `E`'s sign changes, from Riemann-Siegel alone, each halved to
+  `2^-64`.
+- **Controls on the relation.** On a spike wide enough to resolve, `D0 = 10^-3`, `k = 2` and
+  `L = 0.7`, the trapezoid's gap from the closed form falls by exactly 4 per doubling, from `2^16` to
+  `2^19` parts. `ln` by the two artanh routes meets the logarithm of entry 4 at every digit.
 
-| cell | `a` | `b` | `c - b` | `kappa` | `a / b` | `cos gamma` | parts | seconds |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1.8493 e-6 | 1.7409 | 2.157 e-12 | 1.1 | 1.062 e-6 | -6.3 e-7 | `2^4` | 98 |
-| 2 | 4.3209 e-8 | 1.7380 | 6.385 e-15 | 10.8 | 2.486 e-8 | -1.3 e-7 | `2^13` | 1,020 |
-| 3 | 4.7627 e-9 | 1.6936 | 2.250 e-17 | 2.3 | 2.812 e-9 | -3.318 e-9 | `2^6` | 268 |
+| cell | `a` | `b` | `c - b` | `kappa` | `a / b` | `cos gamma` | parts | points | seconds |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1.8170 e-6 | 1.7444 | 5.534 e-12 | 4.8 | 1.042 e-6 | -2.52 e-6 | `2^6` | 67 | 70 |
+| 2 | 4.2946 e-8 | 1.7378 | 1.047 e-14 | 18.7 | 2.471 e-8 | -2.3 e-7 | `2^8` | 332 | 120 |
+| 3 | 4.7616 e-9 | 1.6885 | 1.626 e-16 | 23.2 | 2.820 e-9 | -3 e-8 | `2^9` | 858 | 109 |
+| 4 | 9.3134 e-10 | 1.6461 | 5.768 e-18 | 20.8 | 5.65 e-10 | -5.910 e-9 | `2^10` | 1,908 | 147 |
+| 5 | 2.5325 e-10 | 1.6879 | 3.642 e-19 | 18.1 | 1.50 e-10 | -1.363 e-9 | `2^10` | 2,961 | 883 |
 
 - **The angle.** In every cell the triangle is a needle, `a` against `b`, and its angle is past right
   by an amount that reads nonzero at the places shown.
 - **The device.** The device equals the host on every sweep.
-- **Cells 4 and 5.** These ran into `d^16 pi^10` reading zero near `p = 1/4`. `rs_at` now grows its
-  work by the digits that multiplier lost, and the two cells are running again.
+- **The grid alone, overturned.** Before the relation, the trapezoid alone read cells 1 to 3 at
+  `kappa` = 1.1, 10.8 and 2.3. The parts were `2^4`, `2^13` and `2^6`, taking 98, 1,020 and 268
+  seconds. Those grids agreed at 2^m and 2^(m+1) parts while both missed every spike, and the
+  readings are kept here with what overturned them.
+- **A prediction, overturned.** From those readings, `kappa` was predicted high in cell 4 and low in
+  cell 5. Held exactly, `kappa` reads 4.8, 18.7, 23.2, 20.8 and 18.1 across cells 1 to 5, and the
+  prediction fails with the readings it came from.
+- **The fault that stopped cells 4 and 5.** `d^16 pi^10` reads small near `p = 1/4`. The first change
+  to `rs_at` counted the digits that multiplier lost and asked again until it lost none. That count is
+  a property of `p` and not of the work, and it never reached zero. `rs_at` now sets the work once to
+  the digits asked, the guard and the digits lost.
+- **Cell 5's time.** It takes six times cell 4's, against 1.6 times the points. What grows there is
+  not yet read.
 
 What it is not. Each `C_n` is exact, and each zero is a bracket read at the places named, a reading
 on a grid, never a count proven complete. The seam and the triangle are readings below `x = 9` and in
-three cells. None of it bears on the zeros of `Z` or on the hypothesis.
+five cells. None of it bears on the zeros of `Z` or on the hypothesis.
 
 ## The problem, stated fully
 
@@ -513,7 +542,12 @@ places, `N` and the widths come from the records.
   (entry 7), and `R` still stops at `c_5`: `R` to the series' own least term, and the exact remainder
   in place of the series, are wanted, not built.
 - Entry 7's zeros of `C_n` are read on grids, and a count proven complete on `0 < z < 1` is wanted,
-  not built. Triangle cells 4 and 5 are running.
+  not built. What grows in triangle cell 5, six times cell 4's time, is not yet read.
+- Asked of the triangle, quoted: "The fractal feels like maybe five terms it's definitely 3. Maybe it
+  is all xyzdt terms"; "So it turns into a probability wave function"; "Then we use that to vector
+  walk the fractal for proofing". The triangle holds three sides over one coordinate, `p`, with `t`
+  through `x`. Which terms the five are, and what the wave function is over, are not yet stated, and
+  nothing is built.
 - Computing `zeta(s)` in the critical strip needs complex arithmetic and an accelerated method,
   Riemann-Siegel or Euler-Maclaurin. Entry 4 uses Euler-Maclaurin across the strip, and entry 6
   Riemann-Siegel on the line. Riemann-Siegel off the line, for entry 4's boxes, is not built.

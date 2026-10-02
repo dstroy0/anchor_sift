@@ -75,6 +75,14 @@
 # angle is cos gamma = -kappa a / 2b, each read at the places where it shows. Each integral is the
 # trapezoid on 2^m and 2^(m+1) equal parts of p, two routes that must agree.
 #
+# Where S and R cross, E is zero and delta's integrand is a spike of height |D| and width |D / E'|,
+# about 10^-12 of p: no grid reaches it, and the trapezoid on it grows as ln(1 / h) with every
+# doubling. What grows is held as its relation. With D0 = D(p0) and k = |E'(p0)| at each crossing,
+# the spike is g(u) = D0^2 / (sqrt(D0^2 + k^2 u^2) + k |u|), u = p - p0, and its integral from 0 to L is
+# (L D0^2 / (sqrt(D0^2 + k^2 L^2) + kL) + (D0^2 / k) asinh(kL / |D0|)) / 2, exact. delta is the sum of
+# those and the trapezoid of what is left, which no longer grows. The crossings are E's sign changes,
+# read from Riemann-Siegel alone and each halved to 2^-64.
+#
 # EVERY C_n, HELD AS ITS REAL AND ITS OPERATOR
 #
 # With z = 1 - 2p and F(z) = Psi(p), Gabcke's generator (Table III and Satz 2.1.4 of his thesis) gives
@@ -498,18 +506,19 @@ def rs_at(key):
     """S and R at x = nu + p, each at `digits`, the work one guard deeper.
 
     R is the carried tail over d^16 pi^10, and near p = 1/4 and 3/4 d is small and that multiplier
-    carries fewer digits than the work. The work grows by the digits it lost and is asked again, until
-    the multiplier reads at least one."""
+    carries fewer digits than the work. How many it lost is a property of p and not of the work:
+    the work is set once to digits + GUARD + lost, and asked again while it is short of that."""
     nu, p, digits = key
     big_p, q = p
     unit = 10 ** q
-    work, lost = digits + GUARD, 1
-    while lost:
+    wanted, short = digits + GUARD, 1
+    while short:
+        work = wanted
         scale = 10 ** work
         inv_root = naturals._integer_sqrt(scale * scale * unit // (nu * unit + big_p))
         main_sum, tail, multiplier, _ = rs_parts(nu, p, inv_root, work)
-        lost = max(len(str(scale)) - len(str(multiplier)), 0)
-        work += lost
+        wanted = digits + GUARD + max(len(str(scale)) - len(str(multiplier)), 0)
+        short = int(work < wanted)
     drop = 10 ** (work - digits)
     remainder = sum(tail) * scale // multiplier
     return compare(main_sum, 0) * (abs(main_sum) // drop), compare(remainder, 0) * (abs(remainder) // drop)
@@ -572,6 +581,38 @@ def em_on_device(tail, keys):
     return values, same
 
 
+SPIKE_BITS = 64
+
+
+def ln_at(v, scale):
+    """ln(v / scale) for v >= scale, at `scale`: k ln 2 + 2 artanh((v - 2^k) / (v + 2^k)) against
+    j ln 3 + 2 artanh((v - 3^j) / (v + 3^j)). Returns the second and whether the two agree with the
+    guard dropped."""
+    k = (v // scale).bit_length() - 1
+    two = k * naturals._ln_two_artanh(scale) + 2 * zz._artanh(v - (scale << k), v + (scale << k), scale)
+    j, power = 0, 1
+    while power * 3 * scale <= v:
+        j, power = j + 1, power * 3
+    three = j * 2 * zz._artanh(1, 2, scale) + 2 * zz._artanh(v - power * scale, v + power * scale, scale)
+    return three, NOT(toward_zero(two) - toward_zero(three))
+
+
+def spike_at(d0, k, u, scale):
+    """g(u) = D0^2 / (sqrt(D0^2 + k^2 u^2) + k |u|) at `scale`."""
+    ku = k * abs(u) // scale
+    return d0 * d0 // (naturals._integer_sqrt(d0 * d0 + ku * ku) + ku + NOT(d0) * NOT(ku))
+
+
+def spike_integral(d0, k, ell, scale):
+    """The integral of g over u from 0 to L, exactly: (L D0^2 / (sqrt(D0^2 + k^2 L^2) + kL)
+    + (D0^2 / k) asinh(kL / |D0|)) / 2, written so that nothing cancels. asinh(y) = ln(y + sqrt(y^2 + 1))."""
+    kl = k * ell // scale
+    first = ell * d0 * d0 // ((naturals._integer_sqrt(d0 * d0 + kl * kl) + kl + NOT(d0) * NOT(kl)) * scale)
+    y = kl * scale // (abs(d0) + NOT(d0))
+    log, _ = ln_at(y + naturals._integer_sqrt(y * y + scale * scale), scale)
+    return (first + d0 * d0 * log // ((k + NOT(k)) * scale)) // 2
+
+
 class Triangle:
     """The three sides over a cell, from values each asked once, the Euler-Maclaurin ones with C from the device."""
 
@@ -580,6 +621,7 @@ class Triangle:
         self.em = {}
         self.rs = {}
         self.same = 1
+        self.crossed = {}
 
     def fill(self, keys):
         fresh = [k for k in dict.fromkeys(keys) if k not in self.em]
@@ -587,13 +629,52 @@ class Triangle:
             values, same = em_on_device(self.tail, fresh)
             self.em.update(values)
             self.same *= same
-        self.rs.update((k, rs_at(k)) for k in fresh)
+        self.rs.update((k, self.rs.get(k) or rs_at(k)) for k in fresh)
+
+    def e_at(self, nu, j, bits, digits):
+        """E = S - R at p = j / 2^bits, from Riemann-Siegel alone."""
+        key = (nu, zz.pair(j * 5 ** bits, bits), digits)
+        self.rs[key] = self.rs.get(key) or rs_at(key)
+        s, r = self.rs[key]
+        return s - r
+
+    def crossings(self, nu, digits, start=8, bits=SPIKE_BITS):
+        """Where S and R cross in the cell, each as (p0 over 2^bits, D there, |E'| there), at `digits`.
+
+        E's sign changes are read on 2^m and 2^(m+1) parts, m growing until the two counts agree, and
+        each is halved to 2^-bits. |E'| is read from the last bracket and D at p0 from both pairs."""
+        if (nu, digits) in self.crossed:
+            return self.crossed[(nu, digits)]
+        m = start
+        row, finer = ([self.e_at(nu, j, mm, digits) > 0 for j in range((1 << mm) + 1)] for mm in (m, m + 1))
+        while len(changes(row)) - len(changes(finer)):
+            m += 1
+            row, finer = finer, [self.e_at(nu, j, m + 1, digits) > 0 for j in range((1 << (m + 1)) + 1)]
+        found = []
+        for j in changes(finer):
+            lo, depth, left = j, m + 1, finer[j]
+            while depth < bits:
+                lo, depth = 2 * lo, depth + 1
+                lo += int((self.e_at(nu, lo + 1, depth, digits) > 0) == left)
+            slope = abs(self.e_at(nu, lo + 1, bits, digits) - self.e_at(nu, lo, bits, digits)) << bits
+            found.append((lo, (nu, zz.pair(lo * 5 ** bits, bits), digits), slope))
+        self.fill([key for _, key, _ in found])
+        self.crossed[(nu, digits)] = [(lo, sum(self.rs[key]) - self.em[key], slope) for lo, key, slope in found]
+        return self.crossed[(nu, digits)]
 
     def sides(self, nu, digits, m):
         """a, b and delta over p in [0, 1], by the trapezoid on 2^m equal parts, at `digits`.
 
         D = Z_RS - Z_EM and E = S - R at each point. a = int |D|, b = int |E|, and the third side
-        c = int |(D, E)| = b + delta, delta = int D^2 / (|(D, E)| + |E|). c - b never cancels."""
+        c = int |(D, E)| = b + delta, delta = int D^2 / (|(D, E)| + |E|). c - b never cancels.
+
+        Where S and R cross, E is zero and delta's integrand is a spike of height |D| and width |D / E'|,
+        far below any grid: the trapezoid on it grows as ln(1 / h) and stops only where h reaches that
+        width. Each spike is held by its relation instead, g(p) = D0^2 / (sqrt(D0^2 + k^2 u^2) + k |u|) with
+        u = p - p0, D0 = D(p0) and k = |E'(p0)|, whose integral over the cell is exact (`spike_integral`).
+        delta is the sum of those integrals and the trapezoid of what is left, f minus every g."""
+        scale = 10 ** digits
+        spikes = self.crossings(nu, digits)
         steps = 1 << m
         keys = [(nu, zz.pair(j * 5 ** m, m), digits) for j in range(steps + 1)]
         self.fill(keys)
@@ -605,8 +686,13 @@ class Triangle:
             weight = 2 - NOT(j) - NOT(j - steps)
             a += weight * abs(d)
             b += weight * abs(e)
-            delta += weight * (d * d // (root + abs(e) + NOT(root + abs(e))))
-        return a // (2 * steps), b // (2 * steps), delta // (2 * steps)
+            held = sum(spike_at(d0, k, ((j << (SPIKE_BITS - m)) - lo) * scale >> SPIKE_BITS, scale)
+                       for lo, d0, k in spikes)
+            delta += weight * (d * d // (root + abs(e) + NOT(root + abs(e))) - held)
+        exact = sum(spike_integral(d0, k, lo * scale >> SPIKE_BITS, scale)
+                    + spike_integral(d0, k, ((1 << SPIKE_BITS) - lo) * scale >> SPIKE_BITS, scale)
+                    for lo, d0, k in spikes)
+        return a // (2 * steps), b // (2 * steps), delta // (2 * steps) + exact
 
     def excess(self, a, b, delta, places):
         """kappa = (c^2 - a^2 - b^2) / a^2 = (2b delta + delta^2 - a^2) / a^2, read toward zero at `places`.
