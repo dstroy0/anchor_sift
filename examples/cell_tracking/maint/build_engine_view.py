@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LIB = os.path.join(os.path.dirname(os.path.dirname(HERE)), "00_blob_viz_tools")
 VIEW = os.path.join(LIB, "view")
 TEMPLATE = os.path.join(VIEW, "engine_view", "page.html")
-OUTPUTS = [os.path.join(VIEW, "engine_view.html"), "D:/kaggle/biohub_cell_tracking/SUBMISSION/engine_view.html"]
+OUTPUTS = [os.path.join(VIEW, "engine_view.html")]
 
 sys.path.insert(0, LIB)
 import generate_template  # noqa: E402

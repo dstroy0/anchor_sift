@@ -1,7 +1,6 @@
 # Ledger
 
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice and none is quoted without its run.
-**Scope:** runs of the tracker and its driver, and their scores. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name. Logs are under `cell_tracking/logs/`.
 
 ## 2026-09-21
 
@@ -21,7 +20,6 @@
 
 ### The competition metric
 
-The metric (`cell_tracking/maint/score_submission.py`): nodes matched to key nodes within 7 µm, an edge a hit only where both ends match nodes the key joins, the edge Jaccard micro averaged over the split, times 1 − 0.1 × the node count's excess over the organizers' estimate, plus 0.1 × the division Jaccard. It is not the internal count the tracker prints under POOLED, which takes a key node as the object that holds its voxel.
 
 | what | samples | result | settles |
 |---|---|---|---|

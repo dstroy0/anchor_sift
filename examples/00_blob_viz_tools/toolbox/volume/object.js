@@ -4,9 +4,11 @@
 // The object as the host holds it: the header, the small sections copied out of the mapped buffer, and what the
 // panels read from them. The runs stay on the card. Every number here is an integer; a fraction is shown by
 // integer division to the places asked for. The object is two files, laid end to end in one buffer: the .vbo (the
-// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges).
+// header, frames, leaves, cells, runs and the .cfg) and the .ibo (its own short header, the links and the edges). A
+// run is two words, its first voxel in the frame and its length; the header's version is 2.
 
 EV.MAGIC = 0x314F4256;
+EV.VERSION = 2;
 EV.INDEX_MAGIC = 0x314F4249;
 EV.STATUS_NAMES = ["correct", "branched", "wrong", "no link", "missed"];
 EV.NONE = 0xFFFFFFFF;
@@ -35,7 +37,7 @@ EV.readHeader = (bytes) => {
   header.leaves_at = header.frames_at + 10 * header.frames;
   header.cells_at = header.leaves_at + 4 * header.leaf_total;
   header.runs_at = header.cells_at + 4 * header.cell_total;
-  header.cfg_at = header.runs_at + header.run_total;
+  header.cfg_at = header.runs_at + 2 * header.run_total;
   header.index_at = header.cfg_at + Math.ceil(header.cfg_bytes / 4);
   header.links_at = header.index_at + 4;
   header.edges_at = header.links_at + 2 * header.link_total;
@@ -166,9 +168,8 @@ EV.cellShapes = (header, all, cells) => {
     const past = first + all[leaves + 4 * leaf + 3];
     const at = 9 * cell;
     for (let run = first; run < past; run += 1) {
-      const word = all[header.runs_at + run];
-      const voxel = word >>> 8;
-      const n = (word & 255) + 1;
+      const voxel = all[header.runs_at + 2 * run];
+      const n = all[header.runs_at + 2 * run + 1];
       const z = Math.floor(voxel / plane);
       const y = Math.floor(voxel / width) % header.height;
       const x = voxel % width;

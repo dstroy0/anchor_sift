@@ -1295,6 +1295,17 @@ int main(int argc, char **argv)
             free(*path_field);
             *path_field = cfg_copy(argv[argument]);
         }
+        else if ((strcmp(flag, "--channel") == 0) && (argument + 1 < argc))
+        {
+            argument += 1;
+            unsigned int channel = 0u;
+            for (const char *digit = argv[argument]; (*digit >= '0') && (*digit <= '9') && (channel < 65536u);
+                 digit += 1u)
+            {
+                channel = (channel * 10u) + (unsigned int)(*digit - '0');
+            }
+            inputs.channel = channel;
+        }
         else if (strcmp(flag, "--mass") == 0)
         {
             rules.mass = 1;
@@ -1558,7 +1569,7 @@ int main(int argc, char **argv)
     if (!inputs.set || !inputs.count || ((s_ingest != 0u) && !inputs.source))
     {
         fprintf(stderr,
-                "usage: track_driver --ingest --source directory [--axes tzyx] <set> [<sample> ...]\n"
+                "usage: track_driver --ingest --source directory [--axes tzyx] [--channel c] <set> [<sample> ...]\n"
                 "       track_driver [--cfg run.cfg] [--cfg-out effective.cfg] [--run part ...] [--plan path]"
                 " [--pick] [--merge-split] [--merge-target] [--forward-only] [--keep-view] [--no-resolve] [--climb]"
                 " [--edges path] [--object directory] [<set> [<sample> ...]]\n"
@@ -1652,8 +1663,8 @@ int main(int argc, char **argv)
         EngineSetReport report;
         memset(&report, 0, sizeof(report));
         report.samples = (EngineSampleRecord *)calloc((size_t)inputs.count + 1u, sizeof(EngineSampleRecord));
-        const EngineIngestRequest ingest = {inputs.source, inputs.set, inputs.samples, inputs.count,
-                                            inputs.axes,   &error,     &report};
+        const EngineIngestRequest ingest = {inputs.source, inputs.set,    inputs.samples, inputs.count,
+                                            inputs.axes,   inputs.channel, &error,        &report};
         const long ingested = engine_ingest_set(&ingest);
         run_job_release("ingest", &job);
         engine_ingest_print(&ingest, stdout);

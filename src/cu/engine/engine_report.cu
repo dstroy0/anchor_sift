@@ -178,6 +178,7 @@ extern "C" long engine_ingest_set(const EngineIngestRequest *request)
         source.path = source_path;
         source.member = archived ? request->samples[sample] : NULL;
         source.axes = request->axes;
+        source.channel = request->channel;
         source.side = &section.side;
         source.lane_offset = &lane_offset;
         source.error = error;

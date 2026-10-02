@@ -385,18 +385,26 @@ bool apply_cfg(const char *path, TreeRules *rules, RunInputs *inputs)
             const unsigned int source = cfg_json_member(text, tokens, value, "source");
             const unsigned int set = cfg_json_member(text, tokens, value, "set");
             const unsigned int axes = cfg_json_member(text, tokens, value, "axes");
+            const unsigned int channel = cfg_json_member(text, tokens, value, "channel");
             const unsigned int samples = cfg_json_member(text, tokens, value, "samples");
             const unsigned int first = cfg_json_member(text, tokens, value, "first");
             const unsigned int species = cfg_json_member(text, tokens, value, "species");
             const unsigned int voxel = cfg_json_member(text, tokens, value, "voxel_pm");
             const unsigned int membrane = cfg_json_member(text, tokens, value, "membrane_pm");
             const unsigned int named = (unsigned int)!!source + (unsigned int)!!set + (unsigned int)!!axes +
-                                       (unsigned int)!!samples + (unsigned int)!!first + (unsigned int)!!species +
-                                       (unsigned int)!!voxel + (unsigned int)!!membrane;
+                                       (unsigned int)!!channel + (unsigned int)!!samples + (unsigned int)!!first +
+                                       (unsigned int)!!species + (unsigned int)!!voxel + (unsigned int)!!membrane;
             ok = (named == token->count) ||
                  cfg_error(path, text, token->start,
-                            "input takes source, set, axes, samples, first, species, voxel_pm "
+                            "input takes source, set, axes, channel, samples, first, species, voxel_pm "
                             "and membrane_pm");
+            if (ok && channel)
+            {
+                ok = (cfg_json_unsigned(text, &tokens[channel], &number) && (number < (1ULL << 16u))) ||
+                     cfg_error(path, text, tokens[channel].start,
+                                "channel is the place on the source's c axis the lanes are read from");
+                inputs->channel = ok ? (unsigned int)number : inputs->channel;
+            }
             const unsigned int paths[3] = {source, set, axes};
             char **const fields[3] = {&inputs->source, &inputs->set, &inputs->axes};
             const char *const errors[3] = {"source is the dataset's directory, a path or null",
@@ -555,6 +563,8 @@ bool write_cfg(const TreeRules *rules, const RunInputs *inputs, CfgText *out)
     cfg_append_quoted(out, inputs->set);
     cfg_append_text(out, ",\n    \"axes\": ");
     cfg_append_quoted(out, inputs->axes);
+    snprintf(line, sizeof(line), ",\n    \"channel\": %u", inputs->channel);
+    cfg_append_text(out, line);
     cfg_append_text(out, ",\n    \"samples\": [");
     for (unsigned int slot = 0u; slot < inputs->count; slot += 1u)
     {

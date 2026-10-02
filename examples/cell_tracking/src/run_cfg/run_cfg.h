@@ -14,6 +14,7 @@ typedef struct
     char *source;
     char *set;
     char *axes;
+    unsigned int channel;
     char **samples;
     unsigned int count;
     unsigned int first;

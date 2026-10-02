@@ -1782,8 +1782,8 @@ int score_sample(const char *set, const char *source, const char *sample, const 
             {
                 positives += engine_word_population(positive[word]);
             }
-            ok = ok && engine_object_reserve(&frame_runs, &frame_runs_capacity, positives + 2u, 2u) &&
-                 engine_object_reserve(&object_runs, &object_run_capacity, object_run_count + positives, 1u) &&
+            ok = ok && engine_object_reserve(&frame_runs, &frame_runs_capacity, positives + 2u, 3u) &&
+                 engine_object_reserve(&object_runs, &object_run_capacity, object_run_count + positives, 2u) &&
                  engine_object_reserve(&object_leaf_runs, &object_leaf_capacity,
                                        object_leaf_count + frames[frame].leaf_count, 2u);
         }
@@ -1797,8 +1797,11 @@ int score_sample(const char *set, const char *source, const char *sample, const 
             {
                 object_leaf_code[tree->peaks[leaf]] = leaf + 1u;
             }
+            // three words a run while the frame is walked: its first voxel, its leaf, and its length less one. Slot
+            // 0 takes the writes of voxels outside every leaf. A run stays in its row and is at most a row long
             runs[0] = 0u;
             runs[1] = 0u;
+            runs[2] = 0u;
             size_t count = 0u;
             size_t voxel = 0u;
             for (unsigned int row = 0u; row < buffers.depth * buffers.height; row += 1u)
@@ -1810,10 +1813,11 @@ int score_sample(const char *set, const char *source, const char *sample, const 
                     const unsigned int code = live * object_leaf_code[labels[voxel] * live];
                     const unsigned int coded = !!code;
                     const unsigned int begins = coded & (unsigned int)(code != previous);
-                    runs[2u * (count + 1u)] = (unsigned int)voxel;
+                    runs[3u * (count + 1u)] = (unsigned int)voxel;
                     count += begins;
                     const size_t slot = count * coded;
-                    runs[(2u * slot) + 1u] = ((code - coded) << 8u) | ((unsigned int)voxel - runs[2u * slot]);
+                    runs[(3u * slot) + 1u] = code - coded;
+                    runs[(3u * slot) + 2u] = (unsigned int)voxel - runs[3u * slot];
                     previous = code;
                     voxel += 1u;
                 }
@@ -1827,7 +1831,7 @@ int score_sample(const char *set, const char *source, const char *sample, const 
             }
             for (size_t slot = 1u; slot <= count; slot += 1u)
             {
-                leaf_runs[(2u * (runs[(2u * slot) + 1u] >> 8u)) + 1u] += 1u;
+                leaf_runs[(2u * runs[(3u * slot) + 1u]) + 1u] += 1u;
             }
             unsigned int placed = (unsigned int)object_run_count;
             for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)
@@ -1835,11 +1839,12 @@ int score_sample(const char *set, const char *source, const char *sample, const 
                 leaf_runs[2u * leaf] = placed;
                 placed += leaf_runs[(2u * leaf) + 1u];
             }
+            // two words a run in the object: its first voxel in the frame, and its length
             for (size_t slot = 1u; slot <= count; slot += 1u)
             {
-                const unsigned int word = runs[(2u * slot) + 1u];
-                unsigned int *const cursor = &leaf_runs[2u * (word >> 8u)];
-                object_runs[*cursor] = (runs[2u * slot] << 8u) | (word & 0xFFu);
+                unsigned int *const cursor = &leaf_runs[2u * runs[(3u * slot) + 1u]];
+                object_runs[2u * (size_t)*cursor] = runs[3u * slot];
+                object_runs[(2u * (size_t)*cursor) + 1u] = runs[(3u * slot) + 2u] + 1u;
                 *cursor += 1u;
             }
             for (unsigned int leaf = 0u; leaf < tree->leaf_count; leaf += 1u)

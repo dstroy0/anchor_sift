@@ -157,7 +157,7 @@ linear \texttt{<256>} (HEAD) & 4,176 B & 295 MB \\
 \item dicom;
 \item EngineSideBytes on EngineArrayRead;
 \item .kcr v2;
-\item one series end to end, then ping RSNA (rsna-knee-abnormality-7d). The data: \textbackslash{}server\textbackslash{}S\textbackslash{}kaggle\_\allowbreak{}project\_\allowbreak{}data\textbackslash{}rsna\_\allowbreak{}knee\textbackslash{}rsna-knee-abnormality-detection.zip (265 GB, 819,640 deflate members, train\_\allowbreak{}series|test\_\allowbreak{}series/<Study>/<Series>/<SOP>.dcm).
+\item one series end to end, then ping RSNA (rsna-knee-abnormality-7d).
 \end{enumerate}
 \item Done 23 September: the zip module (14), dicom (16) and the engine wiring. Detection is PK + the member folder's first file carrying DICM. A file source maps sample to member, and zip\_\allowbreak{}held\_\allowbreak{}release runs at the end of ingest. Test series 1.2.826…903947 (34×960×960 u16) was ingested and proved from the file, CRC-64 45aea19b28ddd8b9, 38.1\% of raw. An independent Python read agreed on the shape, the one prefix and 34 distinct keys. The key runs opposite to InstanceNumber. The set dir needed the 8.3 short path because set + two UIDs exceeds MAX\_\allowbreak{}PATH 260; the engine's opens need a long-path form (to do).
 \item The RSNA census: all 819,635 members are Explicit VR LE, 16-bit allocated, one sample per pixel, native. 201,276 slices are signed.
