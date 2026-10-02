@@ -2,7 +2,8 @@
 # orior - Copyright (C) 2026 Douglas Quigg (dstroy0) <dquigg123@gmail.com>
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #
-# Runs the docs check and the claim check before a commit is written.
+# Runs the docs check and the claim check before a commit is written, and builds every research
+# paper the commit touches.
 #
 # This hook sits in the repository instead of .git/hooks. It is version controlled and everyone gets
 # the same one. Turn it on once per clone:
@@ -121,12 +122,41 @@ if git -C "$REPO" diff --cached --name-only | grep -qE "^(README\.md|docs/|theor
     fi
 fi
 
-if [ "$status" -eq 0 ] && [ "$claims" -eq 0 ]; then
+# Every research paper a path in the index belongs to is built, and its PDF, named after its
+# directory and kept beside its main.tex, goes into the same index. A paper is the nearest
+# directory above the path that holds a main.tex. The PDF of the paper itself does not count as a
+# change to the paper, and a figure that is a PDF does. Only the papers in the index are built, since a full
+# build of every paper takes minutes. A paper that fails or drops a glyph stops the commit.
+PAPERS=$(git -C "$REPO" diff --cached --name-only -- theory | while read -r path; do
+    dir=$(dirname "$path")
+    [ "$(basename "$path")" = "$(basename "$dir").pdf" ] && continue
+    while [ "$dir" != "theory" ] && [ "$dir" != "." ]; do
+        if [ -f "$REPO/$dir/main.tex" ]; then
+            echo "${dir#theory/}"
+            break
+        fi
+        dir=$(dirname "$dir")
+    done
+done | sort -u)
+pdfs=0
+if [ -n "$PAPERS" ]; then
+    if sh "$REPO/$TOOLS/texbuild/build_theory.sh" $PAPERS; then
+        for paper in $PAPERS; do
+            git -C "$REPO" add -- "theory/$paper/$(basename "$paper").pdf"
+        done
+    else
+        pdfs=1
+    fi
+fi
+
+if [ "$status" -eq 0 ] && [ "$claims" -eq 0 ] && [ "$pdfs" -eq 0 ]; then
     exit 0
 fi
 
 echo ""
-if [ "$status" -eq 0 ]; then
+if [ "$status" -eq 0 ] && [ "$claims" -eq 0 ]; then
+    echo "  commit stopped: a research paper did not build clean, see the lines above."
+elif [ "$status" -eq 0 ]; then
     echo "  commit stopped: a page repeats a claim the theory took back. Read the places shown;"
     echo "  a finding read and found sound goes in $TOOLS/claims/claims_read.tsv with why."
 elif [ "$status" -eq 2 ]; then
