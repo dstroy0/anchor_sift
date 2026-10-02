@@ -2,12 +2,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 """Render source files to numbered PNG pages, for surveying at image density.
 
-    src2png.py <file> <out_stem> [lines_per_page] [pt] [start] [end]
+    src2png.py <file> <out_stem> [rows_per_page] [pt] [start] [end]
     src2png.py <dir> <dest> [kb_per_page] [pt]
 
-The directory form walks <dir>, renders every file whose extension is in
-WALK_EXTS, and writes <dest>/<name>_<ext>_<n>.png. Pages break on whole lines
-once the page holds kb_per_page kilobytes, and a line never splits across two.
+A line wider than WRAP_COLUMNS wraps onto continuation rows that carry no line
+number, and nothing is clipped off the right. The directory form walks <dir>,
+renders every file whose extension is in WALK_EXTS, and writes
+<dest>/<name>_<ext>_<n>.png. Pages break on whole rows.
 """
 
 import os
@@ -22,6 +23,8 @@ FONT_CANDIDATES = [
 ]
 
 WALK_EXTS = (".txt", ".py", ".c", ".h", ".cpp")
+
+WRAP_COLUMNS = 120
 
 
 def load_font(size):
@@ -39,41 +42,69 @@ def char_width(font):
     return d.textlength("M" * 100, font=font) / 100.0
 
 
-def by_lines(lines, lines_per_page):
-    """Chunks of lines_per_page lines, each with its offset into lines."""
-    for p0 in range(0, len(lines), lines_per_page):
-        yield p0, lines[p0 : p0 + lines_per_page]
+def wrap_line(text, width):
+    """Segments of text no wider than width, broken on a space near the edge or hard where none is."""
+    if len(text) <= width:
+        return [text]
+    out = []
+    rest = text
+    while len(rest) > width:
+        cut = rest.rfind(" ", 0, width + 1)
+        if cut <= 0:
+            out.append(rest[:width])
+            rest = rest[width:]
+        else:
+            out.append(rest[:cut])
+            rest = rest[cut + 1 :]
+    out.append(rest)
+    return out
 
 
-def by_bytes(lines, kb_per_page):
-    """Chunks holding at most kb_per_page kilobytes, split only between lines."""
+def rows_of(lines, start):
+    """(lineno, segment) rows: a source line's first segment carries its number, its wraps carry None."""
+    rows = []
+    for i, text in enumerate(lines):
+        segments = wrap_line(text, WRAP_COLUMNS)
+        rows.append((start + i, segments[0]))
+        for seg in segments[1:]:
+            rows.append((None, seg))
+    return rows
+
+
+def by_rows(rows, rows_per_page):
+    """Chunks of rows_per_page rows."""
+    for p0 in range(0, len(rows), rows_per_page):
+        yield rows[p0 : p0 + rows_per_page]
+
+
+def by_row_bytes(rows, kb_per_page):
+    """Chunks holding at most kb_per_page kilobytes, split only between rows."""
     limit = kb_per_page * 1024
-    p0 = 0
     used = 0
     chunk = []
-    for i, text in enumerate(lines):
+    for lineno, text in rows:
         if chunk and used + len(text) + 1 > limit:
-            yield p0, chunk
-            p0 = i
+            yield chunk
             used = 0
             chunk = []
-        chunk.append(text)
+        chunk.append((lineno, text))
         used += len(text) + 1
     if chunk:
-        yield p0, chunk
+        yield chunk
 
 
-def write_page(chunk, first_lineno, name, font, cw, size):
-    """One page: the line number in gray, the line in black, clipped at 160 columns."""
+def write_page(rows, name, font, cw, size):
+    """One page: each row's line number in gray, blank on a wrap continuation, and its text in black."""
     lh = size + 5
-    widest = min(max((len(x) for x in chunk), default=1), 160)
+    widest = max((len(text) for _, text in rows), default=1)
     W = int(cw * (widest + 7)) + 24
-    H = lh * len(chunk) + 20
+    H = lh * len(rows) + 20
     img = Image.new("RGB", (W, H), (255, 255, 255))
     dr = ImageDraw.Draw(img)
-    for i, text in enumerate(chunk):
-        dr.text((10, 10 + i * lh), "{0:>5} ".format(first_lineno + i), font=font, fill=(150, 150, 150))
-        dr.text((10 + cw * 6, 10 + i * lh), text[:160], font=font, fill=(0, 0, 0))
+    for i, (lineno, text) in enumerate(rows):
+        gutter = "{0:>5} ".format(lineno) if lineno is not None else ""
+        dr.text((10, 10 + i * lh), gutter, font=font, fill=(150, 150, 150))
+        dr.text((10 + cw * 6, 10 + i * lh), text, font=font, fill=(0, 0, 0))
     img.save(name)
     return W, H
 
@@ -83,15 +114,16 @@ def read_lines(path):
         return fh.read().split("\n")
 
 
-def render_file(src, out_stem, lines_per_page, size, start, end, font, cw):
+def render_file(src, out_stem, rows_per_page, size, start, end, font, cw):
     lines = read_lines(src)
     if end <= 0 or end > len(lines):
         end = len(lines)
     lines = lines[start - 1 : end]
+    rows = rows_of(lines, start)
     out = []
-    for n, (p0, chunk) in enumerate(by_lines(lines, lines_per_page), 1):
+    for n, chunk in enumerate(by_rows(rows, rows_per_page), 1):
         name = "{0}_{1}.png".format(out_stem, n)
-        W, H = write_page(chunk, start + p0, name, font, cw, size)
+        W, H = write_page(chunk, name, font, cw, size)
         out.append((name, W, H))
     return out
 
@@ -107,10 +139,11 @@ def render_tree(root, dest, kb_per_page, size, font, cw):
                 continue
             src = os.path.join(dirpath, fn)
             lines = read_lines(src)
+            rows = rows_of(lines, 1)
             base = os.path.join(dest, "{0}_{1}".format(stem, ext.lstrip(".").lower()))
-            for n, (p0, chunk) in enumerate(by_bytes(lines, kb_per_page), 1):
+            for n, chunk in enumerate(by_row_bytes(rows, kb_per_page), 1):
                 name = "{0}_{1}.png".format(base, n)
-                W, H = write_page(chunk, 1 + p0, name, font, cw, size)
+                W, H = write_page(chunk, name, font, cw, size)
                 out.append((name, W, H))
     return out
 
@@ -125,12 +158,12 @@ def main():
         font = load_font(size)
         pages = render_tree(src, dst, kb_per_page, size, font, char_width(font))
     else:
-        lines_per_page = int(sys.argv[3]) if len(sys.argv) > 3 else 200
+        rows_per_page = int(sys.argv[3]) if len(sys.argv) > 3 else 200
         size = int(sys.argv[4]) if len(sys.argv) > 4 else 15
         start = int(sys.argv[5]) if len(sys.argv) > 5 else 1
         end = int(sys.argv[6]) if len(sys.argv) > 6 else 0
         font = load_font(size)
-        pages = render_file(src, dst, lines_per_page, size, start, end, font, char_width(font))
+        pages = render_file(src, dst, rows_per_page, size, start, end, font, char_width(font))
 
     for name, W, H in pages:
         print("{0}  {1}x{2}".format(name, W, H))
