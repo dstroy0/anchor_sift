@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-"""cell_sass_probe_main.c cut into two along the line it already divides on.
+"""interface_sass_probe_main.c cut into two along the line it already divides on.
 
     probe_split.py
 
-What the part is asked, and what the part is asked to weigh, move to cell_sass_probe_ask.c; finding each form's
+What the part is asked, and what the part is asked to weigh, move to interface_sass_probe_ask.c; finding each form's
 operations and each operation's fields stays. The cut is by line number, taken once, and the lines move whole.
 Nothing here rewrites a line.
 """
@@ -13,19 +13,19 @@ import os
 import sys
 
 TOP = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-CELL = os.path.join(TOP, "utils", "test", "src", "c", "transpiler", "cell")
-MAIN = os.path.join(CELL, "cell_sass_probe_main.c")
-ASK = os.path.join(CELL, "cell_sass_probe_ask.c")
+CELL = os.path.join(TOP, "utils", "test", "src", "c", "transpiler", "interface")
+MAIN = os.path.join(CELL, "interface_sass_probe_main.c")
+ASK = os.path.join(CELL, "interface_sass_probe_ask.c")
 
 # the two runs of lines that move, 1-based and inclusive: running a cubin and reading the clock, then every question
 # of the cell's own and every question of preference
 MOVED = ((260, 306), (344, 690))
 
 HEAD = """// SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_ask.c: the questions the cell puts to the part in code no toolchain wrote. Every other piece here
+// interface_sass_probe_ask.c: the questions the cell puts to the part in code no toolchain wrote. Every other piece here
 // reads what the part's own tools say about it; this one runs the part and reads back what it answers. Nothing else
 // tells an encoding the part executes from one its disassembler merely named
-#include "cell_sass_probe.h"
+#include "interface_sass_probe.h"
 
 #include <stdlib.h>
 #include <string.h>

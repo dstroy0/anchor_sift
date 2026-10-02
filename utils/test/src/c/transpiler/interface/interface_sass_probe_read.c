@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_read.c: running the disassembler through the cell and reading what it printed
-#include "cell_sass_probe.h"
+// interface_sass_probe_read.c: running the disassembler through the interface and reading what it printed
+#include "interface_sass_probe.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -14,16 +14,16 @@ static char s_sass_output[SASS_OUTPUT_CAPACITY];
 
 int sass_run(char *const *command, const char *output_path)
 {
-    const CellProbe probe = {command, output_path, SASS_LIMIT};
-    CellAnswer answer;
+    const InterfaceProbe probe = {command, output_path, SASS_LIMIT};
+    InterfaceAnswer answer;
     memset(&answer, 0, sizeof(answer));
     answer.output = s_sass_output;
     answer.output_capacity = sizeof(s_sass_output);
     EngineError error;
     memset(&error, 0, sizeof(error));
-    if (cell_probe_run(&probe, &answer, &error) != 0L)
+    if (interface_probe_run(&probe, &answer, &error) != 0L)
     {
-        printf("  %s: the cell failed, module %d site %u status %d\n", command[0], (int)error.module, error.site,
+        printf("  %s: the interface failed, module %d site %u status %d\n", command[0], (int)error.module, error.site,
                error.status);
         return -1;
     }
@@ -33,13 +33,13 @@ int sass_run(char *const *command, const char *output_path)
                SASS_OUTPUT_CAPACITY);
         return -1;
     }
-    if (answer.ending != CELL_ENDING_EXITED)
+    if (answer.ending != INTERFACE_ENDING_EXITED)
     {
-        printf("  %s: %s, code %llu, fault %s\n", command[0], cell_ending_name(answer.ending), answer.code,
-               cell_fault_name(answer.fault));
+        printf("  %s: %s, code %llu, fault %s\n", command[0], interface_ending_name(answer.ending), answer.code,
+               interface_fault_name(answer.fault));
         return -1;
     }
-    // an exit status the cell read as exited is a process's own, which fits an int
+    // an exit status the interface read as exited is a process's own, which fits an int
     return (int)answer.code;
 }
 

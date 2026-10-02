@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_cubin.c: a cubin written from text. The probe learns what the part holds by reading its tools;
-// this is the other direction, putting instructions of the cell's own into a cubin the part will load and run, with
+// interface_sass_probe_cubin.c: a cubin written from text. The probe learns what the part holds by reading its tools;
+// this is the other direction, putting instructions of the interface's own into a cubin the part will load and run, with
 // a cubin the toolchain built standing as the pattern for everything an ELF carries that no instruction states
-#include "cell_sass_probe.h"
+#include "interface_sass_probe.h"
 #include "../../../../../../src/c/transpiler/cubin/cubin_write.h"
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 
@@ -58,7 +58,7 @@ unsigned int sass_cubin_text(const char *folder, const char *name, char *text, u
         return 0u;
     }
     s_listing[listing_size] = '\0';
-    const unsigned int text_size = sass_text_read((const char *)s_listing, "cell_ask", text, room);
+    const unsigned int text_size = sass_text_read((const char *)s_listing, "interface_ask", text, room);
     // the text the listing was turned back into, kept beside it for a reader
     snprintf(path, sizeof(path), "%s/%s.text", folder, name);
     sass_file_write(path, (const unsigned char *)text, text_size);
@@ -104,7 +104,7 @@ int sass_cubin_kernel(const SassMachine *machine, const char *folder, const char
 int sass_cubin_from_text(const SassMachine *machine, const char *folder, const char *pattern, const char *text,
                          const char *into)
 {
-    return sass_cubin_kernel(machine, folder, pattern, text, into, "cell_ask");
+    return sass_cubin_kernel(machine, folder, pattern, text, into, "interface_ask");
 }
 
 int sass_cubin_round(const SassMachine *machine, const char *folder, const char *name)

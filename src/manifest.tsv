@@ -48,10 +48,10 @@ target	engine	src/cu/transpiler/codegen/c_target.h	C as a language.
 target	engine	src/cu/transpiler/codegen/vhdl_target.h	VHDL as a language.
 lane needs	entry	utils/maint/engine/sass_lane_needs.cpp	Every form a real program asks of a ruleset, and every line of it the assembler refuses. 0 refused.
 krs check	entry	utils/maint/engine/sass_krs_check.sh	Every form a ruleset writes, assembled. 63 forms, 0 refused.
-probe	scaffold	utils/test/src/c/transpiler/cell/cell_sass_probe_machine.c	Builds a machine by widening and sweeping, asking a disassembler for names.
-probe	scaffold	utils/test/src/c/transpiler/cell/cell_sass_probe_ask.c	36 questions put in the part's own code, each with the answer a person worked out.
-probe	scaffold	utils/test/src/c/transpiler/cell/cell_sass_probe_cubin.c	A cubin written from text, with one the toolchain built standing as the pattern.
-probe	scaffold	utils/test/src/c/transpiler/cell/cell_sass_probe_check.c	One kernel's text found in what a toolchain printed, and every form assembled again and read back.
-probe	scaffold	src/c/types/file_defs/ksc/cell_sass_probe_class.c	Writes the .ksc: which questions answer, return nothing, or are illegal alone.
-probe	scaffold	utils/test/src/c/transpiler/cell/cell_sass_probe_read.c	Runs the disassembler through the cell and reads what it printed.
+probe	scaffold	utils/test/src/c/transpiler/interface/interface_sass_probe_machine.c	Builds a machine by widening and sweeping, asking a disassembler for names.
+probe	scaffold	utils/test/src/c/transpiler/interface/interface_sass_probe_ask.c	36 questions put in the part's own code, each with the answer a person worked out.
+probe	scaffold	utils/test/src/c/transpiler/interface/interface_sass_probe_cubin.c	A cubin written from text, with one the toolchain built standing as the pattern.
+probe	scaffold	utils/test/src/c/transpiler/interface/interface_sass_probe_check.c	One kernel's text found in what a toolchain printed, and every form assembled again and read back.
+probe	scaffold	src/c/types/file_defs/ksc/interface_sass_probe_class.c	Writes the .ksc: which questions answer, return nothing, or are illegal alone.
+probe	scaffold	utils/test/src/c/transpiler/interface/interface_sass_probe_read.c	Runs the disassembler through the cell and reads what it printed.
 plan	engine	src/engine_plan.md	What is open. Finished work goes to the engine table.

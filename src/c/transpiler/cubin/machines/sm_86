@@ -69,8 +69,8 @@ form IMAD.X register,register,immediate,register~,predicate 0x00000001080d7824 0
 form SEL register,register,register,predicate 0x0000000009097207 0x000fe40000000000 2:11-11;0:16-23;1:24-31;2:32-39;3:87-90 SEL R9, R9, R0, P0
 form ISETP.NE.AND.EX predicate,predicate,register,register,predicate,predicate 0x000000ff0700720c 0x000fe40003f25310 3:11-11;2:24-31;3:32-39;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.NE.AND.EX P1, PT, R7, RZ, PT, P1
 form RET.ABS.NODEC unknown 0x0000000014007950 0x000fec0003e00000 0:24-31;0:34-63;0:64-81;0:91-91 RET.ABS.NODEC R20 0x0
-form MOV register,unknown 0x0000000000147802 0x000fe40000000f00 1:9-9;0:16-23;1:32-63 MOV R20, 32@lo((cell_ask + .L_x_0@srel))
-form MOV register,unknown 0x0000000000157802 0x000fc80000000f00 1:9-9;0:16-23;1:32-63 MOV R21, 32@hi((cell_ask + .L_x_0@srel))
+form MOV register,unknown 0x0000000000147802 0x000fe40000000f00 1:9-9;0:16-23;1:32-63 MOV R20, 32@lo((interface_ask + .L_x_0@srel))
+form MOV register,unknown 0x0000000000157802 0x000fc80000000f00 1:9-9;0:16-23;1:32-63 MOV R21, 32@hi((interface_ask + .L_x_0@srel))
 form CALL.ABS.NOINC label 0x0000000000007943 0x021fea0003c00000 0:9-9;0:34-63;0:64-80;0:91-91 CALL.ABS.NOINC `(__cuda_sm20_div_u64)
 form RED.E.ADD.STRONG.GPU address,register 0x000000090200798e 0x000fe8000c10e184 0:24-31;1:32-39;0:40-63;0:71-71;0:91-91;0:101-101 RED.E.ADD.STRONG.GPU [R2.64], R9
 form IMAD.MOV.U32 register,register,register,constant 0x00005800ff027624 0x000fe200078e00ff 3:9-9;0:16-23;1:24-31;3:40-58;3:63-63;2:64-71 IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160]

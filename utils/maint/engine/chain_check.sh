@@ -8,7 +8,7 @@
 #   gate_descent  runs the gate as orior's descent and checks it against every arrangement asked every case
 #   ask_order_check  holds the known order of asks to its exact claims and measures the contention read
 #   query_ask_check  holds the ask to what it answers at addresses whose state is known, and finds a clock
-#   query_cell_check walks asks from inside the cell, every ending kept as the answer of the address that caused it
+#   query_interface_check walks asks from inside the cell, every ending kept as the answer of the address that caused it
 #   query_order_check puts the known order of asks to the host on a clock found by asking, and solves every link
 #   stem_group_check holds the stem membership rule: groups on anchors, the same in every order
 #   branch_side_check asks the host whether the side a branch is read from leaves a mark
@@ -46,11 +46,11 @@ cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_ask_check" "$TOP/utils/test/src/c/t
     "$TOP/src/c/transpiler/bootstrap/query_ask.c" || exit 1
 # the walk runs as its own program, in a child the cell can lose
 BOOT="$TOP/src/c/transpiler/bootstrap"
-CELL="$TOP/src/c/transpiler/cell"
+INTERFACE="$TOP/src/c/transpiler/interface"
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_walk" "$BOOT/query_walk.c" "$BOOT/query_ask.c" || exit 1
-cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/c/engine" -I "$TOP/src/cu/engine" -o "$OUT/query_cell_check" \
-    "$TOP/utils/test/src/c/transpiler/bootstrap/query_cell_check.c" "$BOOT/query_cell.c" "$CELL/cell.c" \
-    "$CELL/cell_names.c" || exit 1
+cc -std=c11 -O2 -Wall -Wextra -I"$TOP/src/c/engine" -I "$TOP/src/cu/engine" -o "$OUT/query_interface_check" \
+    "$TOP/utils/test/src/c/transpiler/bootstrap/query_interface_check.c" "$BOOT/query_interface.c" "$INTERFACE/interface.c" \
+    "$INTERFACE/interface_names.c" || exit 1
 cc -std=c11 -O2 -Wall -Wextra -o "$OUT/query_order_check" "$TOP/utils/test/src/c/transpiler/bootstrap/query_order_check.c" \
     "$BOOT/query_order.c" "$BOOT/query_ask.c" "$BOOT/ask_order.c" \
     "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" "$EXACT/exact_integer_limbs.c" || exit 1
@@ -75,7 +75,7 @@ python "$TOP/utils/maint/engine/emit_qasm_pi.py" --check || exit 1
 "$OUT/gate_descent" || exit 1
 "$OUT/ask_order_check" || exit 1
 "$OUT/query_ask_check" || exit 1
-"$OUT/query_cell_check" "$WALK" "$OUT/query_walk.out" || exit 1
+"$OUT/query_interface_check" "$WALK" "$OUT/query_walk.out" || exit 1
 "$OUT/query_order_check" || exit 1
 "$OUT/stem_group_check" || exit 1
 "$OUT/branch_side_check" || exit 1

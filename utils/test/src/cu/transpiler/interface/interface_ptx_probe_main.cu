@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_ptx_probe_main.cu: the header, the kernel, building, running and main
-#include "cell_ptx_probe_internal.h"
+// interface_ptx_probe_main.cu: the header, the kernel, building, running and main
+#include "interface_ptx_probe_internal.h"
 
 // PTX's header for the device, asked of NVRTC by compiling an empty kernel to PTX: the .version, .target and
 // .address_size lines. Empty where NVRTC does not answer
 static std::string probe_header(int major, int minor)
 {
-    const char question[] = "extern \"C\" __global__ void cell_header(void)\n{\n}\n";
+    const char question[] = "extern \"C\" __global__ void interface_header(void)\n{\n}\n";
     nvrtcProgram program = NULL;
     std::string lines;
-    if (nvrtcCreateProgram(&program, question, "cell_header.cu", 0, NULL, NULL) != NVRTC_SUCCESS)
+    if (nvrtcCreateProgram(&program, question, "interface_header.cu", 0, NULL, NULL) != NVRTC_SUCCESS)
     {
         return lines;
     }
@@ -44,9 +44,9 @@ static std::string probe_header(int major, int minor)
 static std::string probe_kernel(ProbeWriter *writer, const std::string &header, const std::string &body)
 {
     std::string text = header;
-    text += "\n.visible .entry cell_ask(\n\t.param .u64 cell_ask_in,\n\t.param .u64 cell_ask_out,\n\t.param .u32 "
-            "cell_ask_count\n)\n{\n";
-    text += "\t.reg .pred \t%cell_past;\n\t.reg .b32 \t%cell_word<4>;\n\t.reg .b64 \t%cell_wide<4>;\n";
+    text += "\n.visible .entry interface_ask(\n\t.param .u64 interface_ask_in,\n\t.param .u64 interface_ask_out,\n\t.param .u32 "
+            "interface_ask_count\n)\n{\n";
+    text += "\t.reg .pred \t%interface_past;\n\t.reg .b32 \t%interface_word<4>;\n\t.reg .b64 \t%interface_wide<4>;\n";
     const std::string declared = std::to_string(PROBE_DECLARED);
     probe_form(writer, text, "declare_predicates", {declared});
     probe_form(writer, text, "declare_fixed_predicates", {});
@@ -55,30 +55,30 @@ static std::string probe_kernel(ProbeWriter *writer, const std::string &header, 
     probe_form(writer, text, "declare_fixed_words", {});
     probe_form(writer, text, "declare_fixed_wides", {});
     probe_form(writer, text, "word_set", {ruleset_physreg(writer->rules, "zero"), "0"});
-    text += "\tld.param.u64 \t%cell_wide0, [cell_ask_in];\n\tld.param.u64 \t%cell_wide1, [cell_ask_out];\n";
-    text += "\tld.param.u32 \t%cell_word0, [cell_ask_count];\n\tmov.u32 \t%cell_word1, %ctaid.x;\n";
-    text += "\tmov.u32 \t%cell_word2, %ntid.x;\n\tmov.u32 \t%cell_word3, %tid.x;\n";
-    text += "\tmad.lo.u32 \t%cell_word1, %cell_word1, %cell_word2, %cell_word3;\n";
-    text += "\tsetp.ge.u32 \t%cell_past, %cell_word1, %cell_word0;\n\t@%cell_past bra \t$Lcell_done;\n";
-    text += "\tcvta.to.global.u64 \t%cell_wide0, %cell_wide0;\n\tcvta.to.global.u64 \t%cell_wide1, %cell_wide1;\n";
-    text += "\tmul.wide.u32 \t%cell_wide2, %cell_word1, 32;\n\tadd.s64 \t%cell_wide2, %cell_wide0, %cell_wide2;\n";
-    text += "\tmul.wide.u32 \t%cell_wide3, %cell_word1, 16;\n\tadd.s64 \t%cell_wide3, %cell_wide1, %cell_wide3;\n";
+    text += "\tld.param.u64 \t%interface_wide0, [interface_ask_in];\n\tld.param.u64 \t%interface_wide1, [interface_ask_out];\n";
+    text += "\tld.param.u32 \t%interface_word0, [interface_ask_count];\n\tmov.u32 \t%interface_word1, %ctaid.x;\n";
+    text += "\tmov.u32 \t%interface_word2, %ntid.x;\n\tmov.u32 \t%interface_word3, %tid.x;\n";
+    text += "\tmad.lo.u32 \t%interface_word1, %interface_word1, %interface_word2, %interface_word3;\n";
+    text += "\tsetp.ge.u32 \t%interface_past, %interface_word1, %interface_word0;\n\t@%interface_past bra \t$Linterface_done;\n";
+    text += "\tcvta.to.global.u64 \t%interface_wide0, %interface_wide0;\n\tcvta.to.global.u64 \t%interface_wide1, %interface_wide1;\n";
+    text += "\tmul.wide.u32 \t%interface_wide2, %interface_word1, 32;\n\tadd.s64 \t%interface_wide2, %interface_wide0, %interface_wide2;\n";
+    text += "\tmul.wide.u32 \t%interface_wide3, %interface_word1, 16;\n\tadd.s64 \t%interface_wide3, %interface_wide1, %interface_wide3;\n";
     for (unsigned int word = 0u; word < PROBE_IN_WORDS; word += 1u)
     {
         probe_form(writer, text, "global_load",
-                   {probe_temporary(writer, word), "%cell_wide2", std::to_string(word * 4u)});
+                   {probe_temporary(writer, word), "%interface_wide2", std::to_string(word * 4u)});
     }
     for (unsigned int word = 0u; word < PROBE_OUT_WORDS; word += 1u)
     {
         probe_form(writer, text, "word_set", {probe_temporary(writer, 8u + word), "0"});
     }
     text += body;
-    text += "\tmov.b64 \t" + ruleset_physreg(writer->rules, "record") + ", %cell_wide3;\n";
+    text += "\tmov.b64 \t" + ruleset_physreg(writer->rules, "record") + ", %interface_wide3;\n";
     for (unsigned int word = 0u; word < PROBE_OUT_WORDS; word += 1u)
     {
         probe_form(writer, text, "record_store", {std::to_string(word * 4u), probe_temporary(writer, 8u + word)});
     }
-    text += "$Lcell_done:\n";
+    text += "$Linterface_done:\n";
     probe_form(writer, text, "return", {});
     text += "}\n";
     return text;
@@ -97,7 +97,7 @@ static int probe_assemble(const std::string &text, int major, int minor, std::ve
         return 0;
     }
     size_t size = 0u;
-    const int linked = (nvJitLinkAddData(handle, NVJITLINK_INPUT_PTX, text.c_str(), text.size() + 1u, "cell_ask") ==
+    const int linked = (nvJitLinkAddData(handle, NVJITLINK_INPUT_PTX, text.c_str(), text.size() + 1u, "interface_ask") ==
                         NVJITLINK_SUCCESS) &&
                        (nvJitLinkComplete(handle) == NVJITLINK_SUCCESS) &&
                        (nvJitLinkGetLinkedCubinSize(handle, &size) == NVJITLINK_SUCCESS) && (size != 0u);
@@ -124,7 +124,7 @@ static int probe_build(const std::string &text, int major, int minor, cudaLibrar
     std::vector<char> cubin;
     return probe_assemble(text, major, minor, cubin) &&
            (cudaLibraryLoadData(library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u) == cudaSuccess) &&
-           (cudaLibraryGetKernel(kernel, *library, "cell_ask") == cudaSuccess);
+           (cudaLibraryGetKernel(kernel, *library, "interface_ask") == cudaSuccess);
 }
 
 // the kernel's text assembled and written to `path`: 1, or 0 with the reason printed
@@ -145,7 +145,7 @@ static int probe_write(const std::string &text, int major, int minor, const std:
     return written && closed;
 }
 
-// the machine code of each membership question for the SASS probe (cell_sass_probe.c): the frame with no body
+// the machine code of each membership question for the SASS probe (interface_sass_probe.c): the frame with no body
 // assembled into `folder`/frame.cubin and each question's kernel into `folder`/form_<number>.cubin, a line
 // "cubin <number> <name>" printed for each. Exit 0 where every cubin was written, 2 where one was not
 // The program resident as its own module: an empty lane for the resident's call to reach, then program_unit with
@@ -348,7 +348,7 @@ static int probe_single(ProbeWriter *writer, const std::string &header, const st
     return 0;
 }
 
-// the cubin at `path` loaded and its kernel cell_ask run over one case, whose input words are `arguments`: the four
+// the cubin at `path` loaded and its kernel interface_ask run over one case, whose input words are `arguments`: the four
 // output words printed. Exit 0 where the device answers, 3 where it errors on the run, 4 where it will not load
 // Every clock the part will name, asked of it, not assumed. A part is a clocked thing and everything it does
 // is transitions at some rate: what rates it has is a question it can answer, and the answer is the unit every
@@ -410,7 +410,7 @@ static int probe_cubin_run(const char *path, int count, char **arguments)
         return 4;
     }
     const cudaError_t loaded = cudaLibraryLoadData(&library, cubin.data(), NULL, NULL, 0u, NULL, NULL, 0u);
-    if ((loaded != cudaSuccess) || (cudaLibraryGetKernel(&kernel, library, "cell_ask") != cudaSuccess))
+    if ((loaded != cudaSuccess) || (cudaLibraryGetKernel(&kernel, library, "interface_ask") != cudaSuccess))
     {
         printf("the cubin at %s did not load (%s)\n", path, cudaGetErrorName(loaded));
         return 4;
@@ -505,8 +505,8 @@ int main(int count, char **arguments)
     if (strcmp(question, "misaligned") == 0)
     {
         // the case's own input, one byte in: a 32-bit load from an address that is not a multiple of 4
-        std::string body = "\tadd.s64 \t%cell_wide2, %cell_wide2, 1;\n";
-        probe_form(&writer, body, "global_load", {t8, "%cell_wide2", "0"});
+        std::string body = "\tadd.s64 \t%interface_wide2, %interface_wide2, 1;\n";
+        probe_form(&writer, body, "global_load", {t8, "%interface_wide2", "0"});
         return probe_single(&writer, header, body, major, minor);
     }
     if (strcmp(question, "trap") == 0)
@@ -516,8 +516,8 @@ int main(int count, char **arguments)
     if (strcmp(question, "lacking") == 0)
     {
         return probe_single(&writer, header,
-                            "\t{\n\t.reg .pred \t%cell_elected;\n\t.reg .b32 \t%cell_leader;\n"
-                            "\telect.sync \t%cell_leader|%cell_elected, 0xffffffff;\n\t}\n",
+                            "\t{\n\t.reg .pred \t%interface_elected;\n\t.reg .b32 \t%interface_leader;\n"
+                            "\telect.sync \t%interface_leader|%interface_elected, 0xffffffff;\n\t}\n",
                             major, minor);
     }
     printf("no question \"%s\"\n", question);

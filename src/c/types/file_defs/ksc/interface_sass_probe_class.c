@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_class.c: the system's classification, written as <part>.ksc. Every other piece here learns what
+// interface_sass_probe_class.c: the system's classification, written as <part>.ksc. Every other piece here learns what
 // the system holds; this one records how that was learned - which channel each question went out on, and whether
 // what came back was an answer, nothing, or a refusal
-#include "../../../../../utils/test/src/c/transpiler/cell/cell_sass_probe.h"
+#include "../../../../../utils/test/src/c/transpiler/interface/interface_sass_probe.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -76,12 +76,12 @@ int sass_class_write(const char *machines, const char *part)
     FILE *const file = fopen(path, "wb");
     if (file == NULL)
     {
-        printf("cell sass class: %s could not be written\n", path);
+        printf("interface sass class: %s could not be written\n", path);
         return 0;
     }
     fprintf(file, "ksc %s\n", part);
     fprintf(file, "# How this system is asked, and what came back. A probe is not a thing of its own: it is a\n");
-    fprintf(file, "# question put on one of the channels below and the answer read back. Written by the cell's\n");
+    fprintf(file, "# question put on one of the channels below and the answer read back. Written by the interface's\n");
     fprintf(file, "# SASS probe; every line here is something the system said, and nothing here was assumed.\n\n");
     fprintf(file, "# the channels this system answers on\n");
     for (unsigned int channel = 0u; channel < SASS_CHANNEL_COUNT; channel += 1u)
@@ -112,6 +112,6 @@ int sass_class_write(const char *machines, const char *part)
                 one->question);
     }
     const int closed = (fclose(file) == 0);
-    printf("cell sass class: %s written, %u questions kept whole\n", path, s_classed_count);
+    printf("interface sass class: %s written, %u questions kept whole\n", path, s_classed_count);
     return closed;
 }

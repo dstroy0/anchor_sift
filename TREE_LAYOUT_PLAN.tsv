@@ -1029,17 +1029,17 @@ src	src/engine/compiler/bootstrap/host_entry.h	src/c/transpiler/bootstrap/host_e
 src	src/engine/compiler/bootstrap/ladder.h	src/c/transpiler/bootstrap/ladder.h	moves	language
 src	src/engine/compiler/bootstrap/query_ask.c	src/c/transpiler/bootstrap/query_ask.c	moves	language
 src	src/engine/compiler/bootstrap/query_ask.h	src/c/transpiler/bootstrap/query_ask.h	moves	language
-src	src/engine/compiler/bootstrap/query_cell.c	src/c/transpiler/bootstrap/query_cell.c	moves	language
-src	src/engine/compiler/bootstrap/query_cell.h	src/c/transpiler/bootstrap/query_cell.h	moves	language
+src	src/engine/compiler/bootstrap/query_interface.c	src/c/transpiler/bootstrap/query_interface.c	moves	language
+src	src/engine/compiler/bootstrap/query_interface.h	src/c/transpiler/bootstrap/query_interface.h	moves	language
 src	src/engine/compiler/bootstrap/query_order.c	src/c/transpiler/bootstrap/query_order.c	moves	language
 src	src/engine/compiler/bootstrap/query_order.h	src/c/transpiler/bootstrap/query_order.h	moves	language
 src	src/engine/compiler/bootstrap/query_walk.c	src/c/transpiler/bootstrap/query_walk.c	moves	language
 src	src/engine/compiler/bootstrap/run_channel.h	src/c/transpiler/bootstrap/run_channel.h	moves	language
 src	src/engine/compiler/bootstrap/stem_group.c	src/c/transpiler/bootstrap/stem_group.c	moves	language
 src	src/engine/compiler/bootstrap/stem_group.h	src/c/transpiler/bootstrap/stem_group.h	moves	language
-src	src/engine/compiler/cell/cell.c	src/c/transpiler/cell/cell.c	moves	language
-src	src/engine/compiler/cell/cell.h	src/c/transpiler/cell/cell.h	moves	language
-src	src/engine/compiler/cell/cell_names.c	src/c/transpiler/cell/cell_names.c	moves	language
+src	src/engine/compiler/interface/cell.c	src/c/transpiler/interface/cell.c	moves	language
+src	src/engine/compiler/interface/cell.h	src/c/transpiler/interface/cell.h	moves	language
+src	src/engine/compiler/interface/interface_names.c	src/c/transpiler/interface/interface_names.c	moves	language
 src	-	src/c/transpiler/codegen/asm_printer_layout.c	to write	three trees
 src	-	src/c/transpiler/codegen/asm_printer_program.c	to write	three trees
 src	-	src/c/transpiler/codegen/c_target.c	to write	three trees
@@ -1114,7 +1114,7 @@ src	-	src/c/types/file_defs/krep/krep_sections.c	to write	three trees
 src	-	src/c/types/file_defs/krs/ruleset_flat.c	to write	three trees
 src	src/engine/compiler/cubin/sass_machine.c	src/c/types/file_defs/krs/sass_machine.c	moves	language
 src	src/engine/compiler/cubin/sass_machine.h	src/c/types/file_defs/krs/sass_machine.h	moves	language
-src	utils/test/engine/compiler/cell/cell_sass_probe_class.c	src/c/types/file_defs/ksc/cell_sass_probe_class.c	moves	defines the file type
+src	utils/test/engine/compiler/interface/interface_sass_probe_class.c	src/c/types/file_defs/ksc/interface_sass_probe_class.c	moves	defines the file type
 src	src/engine/arithmetic/decimal_double/decimal_double.c	src/c/types/integerfloats/decimal_double/decimal_double.c	moves	language
 src	src/engine/arithmetic/decimal_double/decimal_double.h	src/c/types/integerfloats/decimal_double/decimal_double.h	moves	language
 src	src/engine/arithmetic/double_fields/double_fields.c	src/c/types/integerfloats/double_fields/double_fields.c	moves	language
@@ -1383,12 +1383,12 @@ src	src/engine/long_paths.manifest	src/cu/long_paths.manifest	moves	serves the c
 src	-	src/cu/transpiler/bootstrap/ask_order.cu	to write	three trees
 src	-	src/cu/transpiler/bootstrap/chain_build.cu	to write	three trees
 src	-	src/cu/transpiler/bootstrap/query_ask.cu	to write	three trees
-src	-	src/cu/transpiler/bootstrap/query_cell.cu	to write	three trees
+src	-	src/cu/transpiler/bootstrap/query_interface.cu	to write	three trees
 src	-	src/cu/transpiler/bootstrap/query_order.cu	to write	three trees
 src	-	src/cu/transpiler/bootstrap/query_walk.cu	to write	three trees
 src	-	src/cu/transpiler/bootstrap/stem_group.cu	to write	three trees
-src	-	src/cu/transpiler/cell/cell.cu	to write	three trees
-src	-	src/cu/transpiler/cell/cell_names.cu	to write	three trees
+src	-	src/cu/transpiler/interface/cell.cu	to write	three trees
+src	-	src/cu/transpiler/interface/interface_names.cu	to write	three trees
 src	src/engine/compiler/codegen/asm_printer.h	src/cu/transpiler/codegen/asm_printer.h	moves	language
 src	src/engine/compiler/codegen/asm_printer_core.h	src/cu/transpiler/codegen/asm_printer_core.h	moves	language
 src	src/engine/compiler/codegen/asm_printer_core_program.h	src/cu/transpiler/codegen/asm_printer_core_program.h	moves	language
@@ -1475,7 +1475,7 @@ src	src/engine/compiler/codegen/ruleset_core_words.h	src/cu/types/file_defs/krs/
 src	src/engine/compiler/codegen/ruleset_flat.cu	src/cu/types/file_defs/krs/ruleset_flat.cu	moves	language
 src	src/engine/compiler/codegen/ruleset_flat.h	src/cu/types/file_defs/krs/ruleset_flat.h	moves	language
 src	-	src/cu/types/file_defs/krs/sass_machine.cu	to write	three trees
-src	-	src/cu/types/file_defs/ksc/cell_sass_probe_class.cu	to write	three trees
+src	-	src/cu/types/file_defs/ksc/interface_sass_probe_class.cu	to write	three trees
 src	-	src/cu/types/integerfloats/decimal_double/decimal_double.cu	to write	three trees
 src	-	src/cu/types/integerfloats/double_fields/double_fields.cu	to write	three trees
 src	src/engine/arithmetic/no_rounding/arm_cuda.cu	src/cu/types/integers/arm.cu	moves	one name
@@ -1734,12 +1734,12 @@ src	-	src/python/kcmplx/apxrep_sections.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/ask_order.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/chain_build.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/query_ask.py	to write	three trees
-src	-	src/python/transpiler/bootstrap/query_cell.py	to write	three trees
+src	-	src/python/transpiler/bootstrap/query_interface.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/query_order.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/query_walk.py	to write	three trees
 src	-	src/python/transpiler/bootstrap/stem_group.py	to write	three trees
-src	-	src/python/transpiler/cell/cell.py	to write	three trees
-src	-	src/python/transpiler/cell/cell_names.py	to write	three trees
+src	-	src/python/transpiler/interface/cell.py	to write	three trees
+src	-	src/python/transpiler/interface/interface_names.py	to write	three trees
 src	-	src/python/transpiler/codegen/asm_printer_layout.py	to write	three trees
 src	-	src/python/transpiler/codegen/asm_printer_program.py	to write	three trees
 src	-	src/python/transpiler/codegen/c_target.py	to write	three trees
@@ -1787,7 +1787,7 @@ src	-	src/python/types/file_defs/krep/krep_io.py	to write	three trees
 src	-	src/python/types/file_defs/krep/krep_sections.py	to write	three trees
 src	-	src/python/types/file_defs/krs/ruleset_flat.py	to write	three trees
 src	-	src/python/types/file_defs/krs/sass_machine.py	to write	three trees
-src	-	src/python/types/file_defs/ksc/cell_sass_probe_class.py	to write	three trees
+src	-	src/python/types/file_defs/ksc/interface_sass_probe_class.py	to write	three trees
 src	-	src/python/types/integerfloats/decimal_double/decimal_double.py	to write	three trees
 src	-	src/python/types/integerfloats/double_fields/double_fields.py	to write	three trees
 src	-	src/python/types/integers/arm.py	to write	three trees
@@ -1952,25 +1952,25 @@ test	utils/test/engine/compiler/bootstrap/branch_side_check.c	utils/test/src/c/t
 test	utils/test/engine/compiler/bootstrap/chain_check.c	utils/test/src/c/transpiler/bootstrap/chain_check.c	moves	language
 test	utils/test/engine/compiler/bootstrap/gate_descent.c	utils/test/src/c/transpiler/bootstrap/gate_descent.c	moves	language
 test	utils/test/engine/compiler/bootstrap/query_ask_check.c	utils/test/src/c/transpiler/bootstrap/query_ask_check.c	moves	language
-test	utils/test/engine/compiler/bootstrap/query_cell_check.c	utils/test/src/c/transpiler/bootstrap/query_cell_check.c	moves	language
+test	utils/test/engine/compiler/bootstrap/query_interface_check.c	utils/test/src/c/transpiler/bootstrap/query_interface_check.c	moves	language
 test	utils/test/engine/compiler/bootstrap/query_descent.h	utils/test/src/c/transpiler/bootstrap/query_descent.h	moves	language
 test	utils/test/engine/compiler/bootstrap/query_order_check.c	utils/test/src/c/transpiler/bootstrap/query_order_check.c	moves	language
 test	utils/test/engine/compiler/bootstrap/stem_group_check.c	utils/test/src/c/transpiler/bootstrap/stem_group_check.c	moves	language
-test	utils/test/engine/compiler/cell/cell_probe.c	utils/test/src/c/transpiler/cell/cell_probe.c	moves	language
-test	-	utils/test/src/c/transpiler/cell/cell_ptx_probe_main.c	to write	three trees
-test	-	utils/test/src/c/transpiler/cell/cell_ptx_probe_questions.c	to write	three trees
-test	utils/test/engine/compiler/cell/cell_ptx_test.c	utils/test/src/c/transpiler/cell/cell_ptx_test.c	moves	language
-test	utils/test/engine/compiler/cell/cell_ptx_test.sh	utils/test/src/c/transpiler/cell/cell_ptx_test.sh	moves	beside the code it runs
-test	utils/test/engine/compiler/cell/cell_sass_probe.h	utils/test/src/c/transpiler/cell/cell_sass_probe.h	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_ask.c	utils/test/src/c/transpiler/cell/cell_sass_probe_ask.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_check.c	utils/test/src/c/transpiler/cell/cell_sass_probe_check.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_cubin.c	utils/test/src/c/transpiler/cell/cell_sass_probe_cubin.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_machine.c	utils/test/src/c/transpiler/cell/cell_sass_probe_machine.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_main.c	utils/test/src/c/transpiler/cell/cell_sass_probe_main.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_probe_read.c	utils/test/src/c/transpiler/cell/cell_sass_probe_read.c	moves	language
-test	utils/test/engine/compiler/cell/cell_sass_test.sh	utils/test/src/c/transpiler/cell/cell_sass_test.sh	moves	beside the code that reads it
-test	utils/test/engine/compiler/cell/cell_test.c	utils/test/src/c/transpiler/cell/cell_test.c	moves	language
-test	utils/test/engine/compiler/cell/cell_test.sh	utils/test/src/c/transpiler/cell/cell_test.sh	moves	beside the code it runs
+test	utils/test/engine/compiler/interface/interface_probe.c	utils/test/src/c/transpiler/interface/interface_probe.c	moves	language
+test	-	utils/test/src/c/transpiler/interface/interface_ptx_probe_main.c	to write	three trees
+test	-	utils/test/src/c/transpiler/interface/interface_ptx_probe_questions.c	to write	three trees
+test	utils/test/engine/compiler/interface/interface_ptx_test.c	utils/test/src/c/transpiler/interface/interface_ptx_test.c	moves	language
+test	utils/test/engine/compiler/interface/interface_ptx_test.sh	utils/test/src/c/transpiler/interface/interface_ptx_test.sh	moves	beside the code it runs
+test	utils/test/engine/compiler/interface/interface_sass_probe.h	utils/test/src/c/transpiler/interface/interface_sass_probe.h	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_ask.c	utils/test/src/c/transpiler/interface/interface_sass_probe_ask.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_check.c	utils/test/src/c/transpiler/interface/interface_sass_probe_check.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_cubin.c	utils/test/src/c/transpiler/interface/interface_sass_probe_cubin.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_machine.c	utils/test/src/c/transpiler/interface/interface_sass_probe_machine.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_main.c	utils/test/src/c/transpiler/interface/interface_sass_probe_main.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_probe_read.c	utils/test/src/c/transpiler/interface/interface_sass_probe_read.c	moves	language
+test	utils/test/engine/compiler/interface/interface_sass_test.sh	utils/test/src/c/transpiler/interface/interface_sass_test.sh	moves	beside the code that reads it
+test	utils/test/engine/compiler/interface/interface_test.c	utils/test/src/c/transpiler/interface/interface_test.c	moves	language
+test	utils/test/engine/compiler/interface/interface_test.sh	utils/test/src/c/transpiler/interface/interface_test.sh	moves	beside the code it runs
 test	-	utils/test/src/c/transpiler/codegen/codegen_test.c	to write	three trees
 test	-	utils/test/src/c/transpiler/codegen/ruleset_read_test.c	to write	three trees
 test	-	utils/test/src/c/transpiler/codegen/vhdl_construction_set.c	to write	three trees
@@ -2153,21 +2153,21 @@ test	-	utils/test/src/cu/transpiler/bootstrap/branch_side_check.cu	to write	thre
 test	-	utils/test/src/cu/transpiler/bootstrap/chain_check.cu	to write	three trees
 test	-	utils/test/src/cu/transpiler/bootstrap/gate_descent.cu	to write	three trees
 test	-	utils/test/src/cu/transpiler/bootstrap/query_ask_check.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/bootstrap/query_cell_check.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/bootstrap/query_interface_check.cu	to write	three trees
 test	-	utils/test/src/cu/transpiler/bootstrap/query_order_check.cu	to write	three trees
 test	-	utils/test/src/cu/transpiler/bootstrap/stem_group_check.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_probe.cu	to write	three trees
-test	utils/test/engine/compiler/cell/cell_ptx_probe_internal.h	utils/test/src/cu/transpiler/cell/cell_ptx_probe_internal.h	moves	language
-test	utils/test/engine/compiler/cell/cell_ptx_probe_main.cu	utils/test/src/cu/transpiler/cell/cell_ptx_probe_main.cu	moves	language
-test	utils/test/engine/compiler/cell/cell_ptx_probe_questions.cu	utils/test/src/cu/transpiler/cell/cell_ptx_probe_questions.cu	moves	language
-test	-	utils/test/src/cu/transpiler/cell/cell_ptx_test.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_ask.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_check.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_cubin.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_machine.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_main.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_sass_probe_read.cu	to write	three trees
-test	-	utils/test/src/cu/transpiler/cell/cell_test.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_probe.cu	to write	three trees
+test	utils/test/engine/compiler/interface/interface_ptx_probe_internal.h	utils/test/src/cu/transpiler/interface/interface_ptx_probe_internal.h	moves	language
+test	utils/test/engine/compiler/interface/interface_ptx_probe_main.cu	utils/test/src/cu/transpiler/interface/interface_ptx_probe_main.cu	moves	language
+test	utils/test/engine/compiler/interface/interface_ptx_probe_questions.cu	utils/test/src/cu/transpiler/interface/interface_ptx_probe_questions.cu	moves	language
+test	-	utils/test/src/cu/transpiler/interface/interface_ptx_test.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_ask.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_check.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_cubin.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_machine.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_main.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_sass_probe_read.cu	to write	three trees
+test	-	utils/test/src/cu/transpiler/interface/interface_test.cu	to write	three trees
 test	utils/test/engine/compiler/codegen/codegen_device_test.cu	utils/test/src/cu/transpiler/codegen/codegen_test.cu	moves	one name
 test	utils/test/engine/compiler/codegen/codegen_device_test.sh	utils/test/src/cu/transpiler/codegen/codegen_test.sh	moves	one name
 test	utils/test/engine/compiler/codegen/ruleset_read_test.cpp	utils/test/src/cu/transpiler/codegen/ruleset_read_test.cpp	moves	language
@@ -2333,20 +2333,20 @@ test	-	utils/test/src/python/transpiler/bootstrap/branch_side_check.py	to write	
 test	-	utils/test/src/python/transpiler/bootstrap/chain_check.py	to write	three trees
 test	-	utils/test/src/python/transpiler/bootstrap/gate_descent.py	to write	three trees
 test	-	utils/test/src/python/transpiler/bootstrap/query_ask_check.py	to write	three trees
-test	-	utils/test/src/python/transpiler/bootstrap/query_cell_check.py	to write	three trees
+test	-	utils/test/src/python/transpiler/bootstrap/query_interface_check.py	to write	three trees
 test	-	utils/test/src/python/transpiler/bootstrap/query_order_check.py	to write	three trees
 test	-	utils/test/src/python/transpiler/bootstrap/stem_group_check.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_probe.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_ptx_probe_main.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_ptx_probe_questions.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_ptx_test.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_ask.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_check.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_cubin.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_machine.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_main.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_sass_probe_read.py	to write	three trees
-test	-	utils/test/src/python/transpiler/cell/cell_test.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_probe.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_ptx_probe_main.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_ptx_probe_questions.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_ptx_test.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_ask.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_check.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_cubin.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_machine.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_main.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_sass_probe_read.py	to write	three trees
+test	-	utils/test/src/python/transpiler/interface/interface_test.py	to write	three trees
 test	-	utils/test/src/python/transpiler/codegen/codegen_test.py	to write	three trees
 test	-	utils/test/src/python/transpiler/codegen/ruleset_read_test.py	to write	three trees
 test	-	utils/test/src/python/transpiler/codegen/vhdl_construction_set.py	to write	three trees

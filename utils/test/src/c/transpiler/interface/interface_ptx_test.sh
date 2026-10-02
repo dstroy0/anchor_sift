@@ -1,29 +1,25 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Builds the cell (compiler/cell), its PTX probe and its SASS probe, then runs the SASS probe: the PTX probe assembles
-# each membership question's kernel, written from ptx.krs, into a cubin; nvdisasm lists each, which gives each form's
-# machine code; and each operation's 128 bits are turned over one at a time and decoded, which gives its fields
+# Builds the interface (compiler/interface) and its PTX probe, which writes its kernels from ptx.krs through the code generator's
+# ruleset reader (compiler/codegen), then runs the interface's PTX test: the membership queries and the illegal operations,
+# each question a process of its own
 set -u
 
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TEST_CU="$TEST/../../../cu/transpiler/cell"
+TEST_CU="$TEST/../../../cu/transpiler/interface"
 TOP="$(cd "$TEST/../../../../../.." && pwd)"
-CELL="$TOP/src/c/transpiler/cell"
+INTERFACE="$TOP/src/c/transpiler/interface"
 CODEGEN="$TOP/src/c/transpiler/codegen"
 CODEGEN_CU="$TOP/src/cu/transpiler/codegen"
 CODEGEN_CU_2="$TOP/src/cu/types/file_defs/krs"
-CUBIN="$TOP/src/c/transpiler/cubin"
 source "$TOP/utils/maint/engine/build_stamp.sh"
-build_stamp cell_sass_test
-
-type -P nvdisasm > /dev/null || { echo "  no nvdisasm on the PATH: the CUDA toolkit's disassembler is the oracle"; exit 1; }
-type -P cuobjdump > /dev/null || { echo "  no cuobjdump on the PATH: the CUDA toolkit reads the cubin's ELF"; exit 1; }
+build_stamp interface_ptx_test
 
 HOST_FLAGS=()
 case "$(uname -s)" in
     MINGW*|MSYS*|CYGWIN*)
-        BINARY="$OUT/cell_sass_probe.exe"
-        PROBE="$OUT/cell_ptx_probe.exe"
+        BINARY="$OUT/interface_ptx_test.exe"
+        PROBE="$OUT/interface_ptx_probe.exe"
         EXTENSION=obj
         MSVC_BIN="$(ls -d "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC"/*/bin/Hostx64/x64 2>/dev/null | tail -1)"
         if [ -z "$MSVC_BIN" ]; then
@@ -36,8 +32,8 @@ case "$(uname -s)" in
         HOST_FLAGS=(-ccbin "$MSVC_BIN" -Xcompiler /Zc:preprocessor)
         ;;
     *)
-        BINARY="$OUT/cell_sass_probe"
-        PROBE="$OUT/cell_ptx_probe"
+        BINARY="$OUT/interface_ptx_test"
+        PROBE="$OUT/interface_ptx_probe"
         EXTENSION=o
         HOST_FLAGS=(-Xcompiler -fPIC)
         ;;
@@ -53,13 +49,10 @@ for one in $ARCHES; do
     GENCODE+=(-gencode "arch=compute_${one#sm_},code=${one}")
 done
 
-INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CELL" -I "$CUBIN")
+INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$INTERFACE")
 rm -f "$BINARY" "$PROBE"
 OBJECTS=()
-for source in "$CELL/cell.c" "$CELL/cell_names.c" "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c" \
-              "$CUBIN/cubin_write.c" "$TEST/cell_sass_probe_main.c" "$TEST/cell_sass_probe_machine.c" \
-              "$TEST/cell_sass_probe_ask.c" "$TEST/../../../../../../src/c/types/file_defs/ksc/cell_sass_probe_class.c" "$TEST/cell_sass_probe_cubin.c" \
-              "$TEST/cell_sass_probe_read.c" "$TEST/cell_sass_probe_check.c"; do
+for source in "$INTERFACE/interface.c" "$INTERFACE/interface_names.c" "$TEST/interface_ptx_test.c"; do
     object="$OUT/$(basename "$source" .c).$EXTENSION"
     rm -f "$object"
     case "$(uname -s)" in
@@ -72,7 +65,7 @@ for source in "$CELL/cell.c" "$CELL/cell_names.c" "$CUBIN/sass_machine.c" "$CUBI
     OBJECTS+=("$object")
 done
 nvcc "${HOST_FLAGS[@]}" -o "$BINARY" "${OBJECTS[@]}"
-[ -f "$BINARY" ] || { echo "  build failed: the cell's SASS probe did not link"; exit 1; }
+[ -f "$BINARY" ] || { echo "  build failed: the interface's PTX test did not link"; exit 1; }
 # the probe reads rulesets and writes forms; the code generator's assembly printer (asm_printer_*.cu) and the code
 # generator on the device (codegen*.cu) run on the record machine, which the probe does not link
 CODEGEN_SOURCES=()
@@ -83,22 +76,23 @@ for source in "$CODEGEN_CU"/*.cu "$CODEGEN_CU_2"/*.cu; do
     esac
 done
 nvcc "${HOST_FLAGS[@]}" -std=c++17 -O2 "${GENCODE[@]}" -I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -o "$PROBE" \
-    "$TEST_CU"/cell_ptx_probe_{questions,main}.cu \
+    "$TEST_CU"/interface_ptx_probe_{questions,main}.cu \
     "${CODEGEN_SOURCES[@]}" -lnvrtc -lnvJitLink
 [ -f "$PROBE" ] || { echo "  build failed: the PTX probe did not build"; exit 1; }
 
-# SASS_PATTERN names the sass folder of an earlier run: the part is asked how it loops against those cubins and the
-# machine file the tree holds for the first architecture, and nothing is learned again
-if [ -n "${SASS_PATTERN:-}" ]; then
-    [ -f "$SASS_PATTERN/form_0.cubin" ] || { echo "  no form_0.cubin in $SASS_PATTERN"; exit 1; }
-    FIRST="${ARCHES%% *}"
-    "$BINARY" "$PROBE" "$SASS_PATTERN" loop "$CUBIN/machines/$FIRST"
-    STATUS=$?
-    echo "  cell sass loop exit $STATUS"
-    exit "$STATUS"
-fi
-mkdir -p "$OUT/sass"
-"$BINARY" "$PROBE" "$OUT/sass" "$CUBIN/machines"
+mkdir -p "$OUT/probes" "$OUT/probes_flagless"
+"$BINARY" "$PROBE" "$OUT/probes"
 STATUS=$?
-echo "  cell sass test exit $STATUS"
+echo "  interface ptx test exit $STATUS"
+
+# again in a ruleset whose carry chains and product are constructs of more basic forms, with no instruction that
+# sets or reads the condition code (utils/test/src/cu/transpiler/codegen/rulesets/flagless)
+FLAGLESS="$TEST/../../../cu/transpiler/codegen/rulesets/flagless"
+case "$(uname -s)" in
+    MINGW*|MSYS*|CYGWIN*) FLAGLESS="$(cygpath -m "$FLAGLESS")" ;;
+esac
+CYCLE_RULESETS="$FLAGLESS" "$BINARY" "$PROBE" "$OUT/probes_flagless"
+FLAGLESS_STATUS=$?
+echo "  interface ptx test in the flagless ruleset exit $FLAGLESS_STATUS"
+[ "$FLAGLESS_STATUS" -eq 0 ] || STATUS=1
 exit "$STATUS"

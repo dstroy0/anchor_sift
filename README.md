@@ -155,7 +155,7 @@ The transpiler is the record machine's programs written for a part, and the asks
 | `src/cu/transpiler/codegen/`      | the code generator's kernels, and its rulesets: `c.krs`, `ptx.krs`, `sass.krs`, `vhdl.krs` and `yosys.krs`         |
 | `src/c/transpiler/cubin/`         | one line of SASS turned into the sixteen bytes the part runs, and a cubin written from a kernel's machine code; `machines/sm_86.kdm` and `sm_86.ksc` |
 | `src/c/transpiler/emit/`          | one emitter, every container: it reads a layout file and writes what that layout describes                       |
-| `src/c/transpiler/cell/`          | the cell, a probe runner: a probe asks the target one question in a child process the cell can lose               |
+| `src/c/transpiler/interface/`          | the cell, a probe runner: a probe asks the target one question in a child process the cell can lose               |
 | `src/c/transpiler/qasm/`          | exact qubit states, read from OpenQASM                                                                            |
 
 The method is to write C source, read the SASS it compiles to, and hold it against what NVIDIA's compiler writes for the same program (Q17). Every slot a `.krs` writes by hand is asked of the part the way `loop_back` is asked of sm_86 (Q16).

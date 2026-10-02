@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-// cell_sass_probe_main.c: each form's operations, each operation's fields, and main. The first argument is
-// cell_ptx_probe's path, the second a folder for the cubins, listings and decodings. Exit 0 where every cubin was
+// interface_sass_probe_main.c: each form's operations, each operation's fields, and main. The first argument is
+// interface_ptx_probe's path, the second a folder for the cubins, listings and decodings. Exit 0 where every cubin was
 // listed and every operation decoded, 1 where one was not, 2 where the probe could not ask at all. Given `loop` and a
 // machine file after those two, the folder is one an earlier run left its cubins in and only the loop ask is put:
 // exit 0 where a form came back on every count, 1 where none did, 2 where the machine file was not read
-#include "cell_sass_probe.h"
+#include "interface_sass_probe.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -264,7 +264,7 @@ static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const c
     return 1;
 }
 
-// A lane of the cell's own written into the resident's cubin, and the resident checked for having survived it. What
+// A lane of the interface's own written into the resident's cubin, and the resident checked for having survived it. What
 // goes in is the frame's own text, which assembles and asks nothing of the launch: under test here is the cubin
 // writer, not the lane. 1 where every instruction of the resident is still in the cubin afterwards
 static int sass_lane_written(SassProbe *probe)
@@ -277,14 +277,14 @@ static int sass_lane_written(SassProbe *probe)
                                  "\tRET.ABS.NODEC R20 0x0;\n";
     if (!sass_cubin_lane_into(&s_sass_machine, probe->folder, s_lane, "program"))
     {
-        printf("cell sass lane: the lane did not go into the resident's cubin\n");
+        printf("interface sass lane: the lane did not go into the resident's cubin\n");
         return 0;
     }
     static SassListing s_before;
     static SassListing s_after;
     if (!sass_list(probe, "resident", &s_before) || !sass_list(probe, "program", &s_after))
     {
-        printf("cell sass lane: the cubin did not list\n");
+        printf("interface sass lane: the cubin did not list\n");
         return 0;
     }
     // every instruction the resident's cubin held, looked for in the one the lane went into. cycle_program is the
@@ -303,7 +303,7 @@ static int sass_lane_written(SassProbe *probe)
         }
         held += (unsigned int)found;
     }
-    printf("cell sass lane: %u instructions in the cubin the lane went into, %u of the resident's %u still in it\n",
+    printf("interface sass lane: %u instructions in the cubin the lane went into, %u of the resident's %u still in it\n",
            s_after.count, held, s_before.count);
     // the resident's own instructions all survive; what the empty lane held is what the new lane replaced
     return (s_before.count - held) <= 2u;
@@ -353,7 +353,7 @@ int main(int count, char **arguments)
 {
     if (count < 3)
     {
-        fprintf(stderr, "  cell_sass_probe: <cell_ptx_probe> <output folder> [<machines> | loop <machine file>]\n");
+        fprintf(stderr, "  interface_sass_probe: <interface_ptx_probe> <output folder> [<machines> | loop <machine file>]\n");
         return 2;
     }
     SassProbe *const probe = &s_sass_probe;
@@ -369,7 +369,7 @@ int main(int count, char **arguments)
     const int status = sass_run(command, output);
     if ((status != 0) || !sass_questions_read(probe, sass_output()))
     {
-        printf("  cell_ptx_probe cubins exited %d\n%s", status, (status >= 0) ? sass_output() : "");
+        printf("  interface_ptx_probe cubins exited %d\n%s", status, (status >= 0) ? sass_output() : "");
         return 2;
     }
     printf("%s: %u questions\n", probe->architecture, probe->questions);
@@ -417,7 +417,7 @@ int main(int count, char **arguments)
     {
         probe->failed += sass_fields(probe, &probe->operation[number]) ? 0u : 1u;
     }
-    printf("cell sass probe: %u questions, %u operations, %u failed\n", probe->questions, probe->operations,
+    printf("interface sass probe: %u questions, %u operations, %u failed\n", probe->questions, probe->operations,
            probe->failed);
     // every operation one bit from one the listings gave, asked of the disassembler before the fields are found, so
     // that the widened forms get their operand runs in the same pass
@@ -448,7 +448,7 @@ int main(int count, char **arguments)
                                            (differed < 4u) ? 4u : 0u);
         }
     }
-    printf("cell sass assemble: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
+    printf("interface sass assemble: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
            "same to their bytes alone, %u failed\n",
            tally.checked, tally.refused, tally.same_bits, tally.same_text, tally.by_bytes, differed);
     probe->failed += (differed == 0u) ? 0u : 1u;
@@ -466,7 +466,7 @@ int main(int count, char **arguments)
         resident_differed =
             sass_machine_check(&s_sass_machine, &s_sass_resident, probe->architecture, probe->folder, &reached, 8u);
     }
-    printf("cell sass resident: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
+    printf("interface sass resident: %u written back, %u refused, %u the same bytes, %u read back as the same text, %u "
            "same to their bytes alone, %u the assembler does not reach yet\n",
            reached.checked, reached.refused, reached.same_bits, reached.same_text, reached.by_bytes,
            resident_differed);
@@ -486,19 +486,19 @@ int main(int count, char **arguments)
         same += sass_cubin_same(probe, &s_sass_machine, name) ? 1u : 0u;
         cubins += 1u;
     }
-    printf("cell sass cubin: %u kernels written again, %u answering as the toolchain's did\n", cubins, same);
+    printf("interface sass cubin: %u kernels written again, %u answering as the toolchain's did\n", cubins, same);
     probe->failed += (same == cubins) ? 0u : 1u;
-    // the cell's own questions, in code no toolchain wrote
+    // the interface's own questions, in code no toolchain wrote
     unsigned int asked = 0u;
     const unsigned int answered = sass_cubin_asks(probe, &s_sass_machine, &asked);
-    printf("cell sass ask: %u questions asked in the part's own code, %u answered as the question says\n", asked,
+    printf("interface sass ask: %u questions asked in the part's own code, %u answered as the question says\n", asked,
            answered);
     probe->failed += (answered == asked) ? 0u : 1u;
     // and the questions of preference: which of two codings of one thing the part prefers. A reading
     // that does not come back is not a failure, since nothing yet depends on one
     unsigned int weighed = 0u;
     const unsigned int read = sass_cubin_prefers(probe, &s_sass_machine, &weighed);
-    printf("cell sass prefer: %u codings weighed against each other, %u read in the part's own clock\n", weighed,
+    printf("interface sass prefer: %u codings weighed against each other, %u read in the part's own clock\n", weighed,
            read);
     // How this system was asked and what came back. Written beside the machine this run learned, in the run's own
     // folder, and copied into the tree by a hand the same way the machine is: a test writes nothing into the source

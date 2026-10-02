@@ -1,7 +1,7 @@
 krs 1
 # NVIDIA SASS for sm_86, the machine code the device runs, read back by the cell's probes
-# (utils/test/engine/compiler/cell/cell_sass_probe*.c). The format is the comment at the head of ptx.krs. Every form below
-# whose text is an instruction was read out of a probe's own listing: cell_ptx_probe assembles each membership
+# (utils/test/engine/compiler/interface/interface_sass_probe*.c). The format is the comment at the head of ptx.krs. Every form below
+# whose text is an instruction was read out of a probe's own listing: interface_ptx_probe assembles each membership
 # question's kernel, written from ptx.krs, into a cubin, nvdisasm lists it, and what a question's listing holds past
 # the frame's is its forms' machine code. The comment over each group names the question it was read from; a form
 # whose instruction no question gave says so where it stands.

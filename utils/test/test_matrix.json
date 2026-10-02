@@ -1,44 +1,44 @@
 {
   "_note": "Single source of truth for orior's test suites: one env per suite, run as a tessera job by utils/test/harness.py run. NEVER rewrite this file with json.dump: mutate it with harness.py env add/update/remove, or from a script through harness.splice_replace + harness.write_verified.",
   "envs": {
-    "cell": {
-      "desc": "The cell, a probe runner.",
-      "script": "utils/test/src/c/transpiler/cell/cell_test.sh",
+    "interface": {
+      "desc": "The interface, a probe runner.",
+      "script": "utils/test/src/c/transpiler/interface/interface_test.sh",
       "src": [
-        "+<c/transpiler/cell/*>"
+        "+<c/transpiler/interface/*>"
       ],
       "tests": [
-        "src/c/transpiler/cell",
-        "src/cu/transpiler/cell"
+        "src/c/transpiler/interface",
+        "src/cu/transpiler/interface"
       ]
     },
-    "cell_ptx": {
-      "desc": "The cell's probe runner as PTX.",
-      "script": "utils/test/src/c/transpiler/cell/cell_ptx_test.sh",
+    "interface_ptx": {
+      "desc": "The interface's probe runner as PTX.",
+      "script": "utils/test/src/c/transpiler/interface/interface_ptx_test.sh",
       "src": [
-        "+<c/transpiler/cell/*>",
+        "+<c/transpiler/interface/*>",
         "+<c/transpiler/codegen/*>",
         "+<cu/transpiler/codegen/*>",
         "+<cu/types/file_defs/krs/*>"
       ],
       "tests": [
-        "src/c/transpiler/cell",
-        "src/cu/transpiler/cell"
+        "src/c/transpiler/interface",
+        "src/cu/transpiler/interface"
       ]
     },
-    "cell_sass": {
+    "interface_sass": {
       "desc": "The device's machine code probed and written back: each ptx.krs form's SASS operations, each operation's bit fields, the shapes and their fields as a machine file, every instruction assembled from its text alone, each kernel written again into a cubin of its own and run, and questions asked in code no toolchain wrote.",
-      "script": "utils/test/src/c/transpiler/cell/cell_sass_test.sh",
+      "script": "utils/test/src/c/transpiler/interface/interface_sass_test.sh",
       "src": [
-        "+<c/transpiler/cell/*>",
+        "+<c/transpiler/interface/*>",
         "+<c/transpiler/codegen/*>",
         "+<cu/transpiler/codegen/*>",
         "+<cu/types/file_defs/krs/*>",
         "+<c/transpiler/cubin/*>"
       ],
       "tests": [
-        "src/c/transpiler/cell",
-        "src/cu/transpiler/cell"
+        "src/c/transpiler/interface",
+        "src/cu/transpiler/interface"
       ]
     },
     "codegen_device": {

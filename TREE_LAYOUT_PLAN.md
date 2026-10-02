@@ -779,6 +779,6 @@ names are one.
 | `utils/test/src/*/engine/analysis/shift_agreement` | cu: `shift_agreement_hold_test`; python: `shift_agreement_test` |
 | `utils/test/src/*/engine/nbody/orior` | c: `test_adversarial_cases`, `test_adversarial_joint`, `test_adversarial_plans`, `test_adversarial_projection`, `test_o2_spawn`, `test_steer_checks`, `test_steer_grading`, `test_steer_projection`; python: `sift_test` |
 | `utils/test/src/*/engine/runtime/daemon` | c: `tessera_burn`, `tessera_frame_test`, `tessera_ledger_test_heap`, `tessera_ledger_test_scenarios`, `tessera_socket_probe`; cu: `tessera_job_test`, `tessera_measure_test`, `tessera_test` |
-| `utils/test/src/*/transpiler/cell` | c: `cell_probe`, `cell_ptx_test`, `cell_sass_probe_ask`, `cell_sass_probe_check`, `cell_sass_probe_cubin`, `cell_sass_probe_machine`, `cell_sass_probe_main`, `cell_sass_probe_read`, `cell_test`; cu: `cell_ptx_probe_main`, `cell_ptx_probe_questions` |
+| `utils/test/src/*/transpiler/interface` | c: `interface_probe`, `interface_ptx_test`, `interface_sass_probe_ask`, `interface_sass_probe_check`, `interface_sass_probe_cubin`, `interface_sass_probe_machine`, `interface_sass_probe_main`, `interface_sass_probe_read`, `interface_test`; cu: `interface_ptx_probe_main`, `interface_ptx_probe_questions` |
 | `utils/test/src/*/transpiler/codegen` | c: `web_check`; cu: `codegen_test`, `ruleset_read_test`, `vhdl_construction_set` |
 | `utils/test/src/*/types/integers` | c: `test_arm_agreement`; cu: `exact_divide_test`, `exact_transform_test`; python: `exact_test` |
