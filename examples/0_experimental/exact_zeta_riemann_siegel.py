@@ -1164,10 +1164,107 @@ def omitted_side(nu, cut, terms, m, digits):
     return total - sum(corner(x, y) for x, y in zip(f, f[1:]))
 
 
-def omitted_main(first, last, cut, terms=3, m=9, digits=24):
-    """The exponent of a between cells first to last, predicted from the omitted exact curves."""
+def weight_series(k, nu, count, scale):
+    """(1 - z / (2X))^(-k - 1/2), X = nu + 1/2, as its first `count` coefficients in z at `scale`: the one
+    at z^j is the product over i < j of (2k + 1 + 2i), over j! 2^j (2 nu + 1)^j."""
+    out, num, den = [], 1, 1
+    for j in range(count):
+        out.append(scale * num // den)
+        num *= 2 * k + 1 + 2 * j
+        den *= (j + 1) * 2 * (2 * nu + 1)
+    return out
+
+
+class Omitted:
+    """The curves R through C_cut leaves out over the cell [nu, nu + 1], as one power series in z = 1 - 2p,
+    and a, the integral of its |.| over p, in closed form between its zeros. No grid.
+
+    x = nu + p = X - z / 2 with X = nu + 1/2. Then C_k(z) x^(-k - 1/2) = X^(-1/2) (2 / (2 nu + 1))^k C_k(z)
+    (1 - z / (2X))^(-k - 1/2), every factor but X^(-1/2) a series with rational coefficients times the
+    curve's own. Between two zeros the integral is the antiderivative's difference, term by term."""
+
+    def __init__(self, nu, cut, terms, count, work):
+        self.nu, self.count, self.work = nu, count, work
+        self.scale = scale = 10 ** work
+        curve = CURVES.setdefault(work, Curve(work))
+        series = [0] * count
+        for k in range(cut + 1, cut + 1 + terms):
+            g, w = curve.gamma(k, count), weight_series(k, nu, count, scale)
+            for n in range(count):
+                series[n] += sum(g[i] * w[n - i] for i in range(n + 1)) * 2 ** k // ((2 * nu + 1) ** k * scale)
+        self.series = series
+        self.lifted = [v // (n + 1) for n, v in enumerate(series)]
+
+    def above(self, a, bits):
+        """Whether the series reads above zero at z = a / 2^bits."""
+        acc = 0
+        for v in reversed(self.series):
+            acc = (acc * a >> bits) + v
+        return acc > 0
+
+    def antiderivative(self, a, bits):
+        acc = 0
+        for v in reversed(self.lifted):
+            acc = (acc * a >> bits) + v
+        return acc * a >> bits
+
+    def zeros(self, bits, start=6):
+        """The sign changes on [-1, 1] at 2^(m+1) and 2^(m+2) parts, m growing until the two counts agree,
+        each halved to 2^-bits. Returns them as a over 2^bits."""
+        m = start
+        row, finer = ([self.above(a, d) for a in range(-(1 << d), (1 << d) + 1)] for d in (m, m + 1))
+        while len(changes(row)) - len(changes(finer)):
+            m += 1
+            row, finer = finer, [self.above(a, m + 1) for a in range(-(2 << m), (2 << m) + 1)]
+        found = []
+        for j in changes(finer):
+            lo, depth, left = j - (2 << m), m + 1, finer[j]
+            while depth < bits:
+                lo, depth = 2 * lo, depth + 1
+                lo += int(self.above(lo + 1, depth) == left)
+            found.append(lo)
+        return found
+
+    def side(self, bits):
+        """a = X^(-1/2) / 2 times the sum over the pieces between zeros of |G(right) - G(left)|, G the
+        antiderivative in z, at the work scale. Returns a and the count of zeros."""
+        ends = [-(1 << bits)] + self.zeros(bits) + [1 << bits]
+        total = sum(abs(self.antiderivative(b, bits) - self.antiderivative(a, bits)) for a, b in zip(ends, ends[1:]))
+        root = naturals._integer_sqrt(self.scale * self.scale * 2 // (2 * self.nu + 1))
+        return total * root // (2 * self.scale), len(ends) - 2
+
+
+def omitted_exact(nu, cut, terms, digits):
+    """a over the cell from the omitted curves, at digits + GUARD, by the series at count and 2 count
+    terms agreeing with the guard dropped; disagreement doubles count. The zeros are halved to the
+    bits where a misplaced end moves a by less than the last place."""
+    bits = 4 * (digits + GUARD)
+    count, decided = 32, 0
+    while NOT(decided):
+        reads = []
+        for terms_n in (count, 2 * count):
+            work = digits + GUARD + terms_n + 3 * (cut + terms)
+            a, found = Omitted(nu, cut, terms, terms_n, work).side(bits)
+            reads.append(a // 10 ** (work - digits - GUARD))
+        decided = NOT(toward_zero(reads[0]) - toward_zero(reads[1]))
+        count *= 2 - decided
+    return reads[1], found, count
+
+
+def omitted_main(first, last, cut, terms=3, digits=24, m=9):
+    """a over cells first to last from the omitted exact curves in closed form, its exponent between
+    cells, and the trapezoid on 2^m parts with corners held as the second route."""
     out = sys.stdout
-    sides = {nu: omitted_side(nu, cut, terms, m, digits) for nu in range(first, last + 1)}
+    sides = {}
+    for nu in range(first, last + 1):
+        begun = time.perf_counter_ns()
+        a, found, count = omitted_exact(nu, cut, terms, digits)
+        grid = omitted_side(nu, cut, terms, m, digits) // (2 << m)
+        sides[nu] = a
+        out.write("  cut %d  cell %d  a %s  zeros %d  series terms %d  the trapezoid on 2^%d parts within %.1e of it"
+                  "  %d ms\n" % (cut, nu, signed(toward_zero(a), digits), found, 2 * count, m, abs(grid - a) / a,
+                                 (time.perf_counter_ns() - begun) // 1000000))
+        out.flush()
     for nu in range(first, last):
         out.write("  cut %d  cells %d-%d  exponent of a from the %d omitted curves %.3f\n"
                   % (cut, nu, nu + 1, terms, math.log(sides[nu] / sides[nu + 1]) / math.log((nu + 1.5) / (nu + 0.5))))
