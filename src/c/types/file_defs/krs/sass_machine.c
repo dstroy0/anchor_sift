@@ -99,7 +99,10 @@ static unsigned int sass_operand_kind(const char *text)
     {
         return SASS_OPERAND_CONSTANT;
     }
-    if ((text[0] == '[') || (strncmp(text, "desc[", 5u) == 0))
+    // an address, and an address that names the uniform register its memory descriptor is read from: desc[URn]
+    // where the instruction's bit 101 is set, as the disassembler prints it, and term[URn] where it is clear and the
+    // field still holds the register
+    if ((text[0] == '[') || (strncmp(text, "desc[", 5u) == 0) || (strncmp(text, "term[", 5u) == 0))
     {
         return SASS_OPERAND_ADDRESS;
     }

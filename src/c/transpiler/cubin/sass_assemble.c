@@ -47,6 +47,15 @@ static const SassField s_immediate_fields[] = {{32u, 32u, 1u}, {72u, 8u, 1u}};
 // a constant's offset counts words, and an address's bytes; both lie above the register fields
 static const SassField s_constant_fields[] = {{40u, 16u, 4u}};
 static const SassField s_offset_fields[] = {{40u, 24u, 1u}};
+// The uniform register a memory operand reads its descriptor from, in the order an instruction fills them: bits 32 to
+// 37 where no other operand holds bit 32, as a load has it, else 64 to 69, as a store has it. A memory operand that
+// takes one is an address with a run of its own at bit 101, the bit that says whether the descriptor is printed:
+// set, desc[URn]; clear, term[URn]
+static const SassField s_descriptor_fields[] = {{32u, 6u, 1u}, {64u, 6u, 1u}};
+#define SASS_DESCRIPTOR_FIELDS (sizeof(s_descriptor_fields) / sizeof(s_descriptor_fields[0]))
+#define SASS_DESCRIPTOR_SHOWN 101u
+// the field's value for URZ, every bit of it set
+#define SASS_DESCRIPTOR_ZERO 63ull
 
 #define SASS_REGISTER_FIELDS (sizeof(s_register_fields) / sizeof(s_register_fields[0]))
 #define SASS_PREDICATE_FIELDS (sizeof(s_predicate_fields) / sizeof(s_predicate_fields[0]))
@@ -60,6 +69,9 @@ typedef struct
     SassField offset;
     int has_offset;
     int by_text;
+    // for a memory operand that reads a descriptor, the field its uniform register sits in
+    SassField descriptor;
+    int has_descriptor;
 } SassPlace;
 
 // `bits` of `value` written from bit `first` of the instruction, a bit at a time, since a branch's target begins in
@@ -261,6 +273,29 @@ static int sass_places_find(const SassForm *form, SassPlace *places, unsigned in
                 places[place].has_offset = 1;
             }
         }
+        // a memory operand with a run of its own at the bit that shows the descriptor reads one, and its uniform
+        // register takes the first descriptor field no run of the form holds
+        int shown = 0;
+        for (unsigned int number = 0u; (kind == SASS_OPERAND_ADDRESS) && (number < form->runs); number += 1u)
+        {
+            shown = shown || ((form->run[number].operand == place) && (form->run[number].first == SASS_DESCRIPTOR_SHOWN) &&
+                              (form->run[number].last == SASS_DESCRIPTOR_SHOWN));
+        }
+        for (unsigned int at = 0u; shown && (places[place].has_descriptor == 0) && (at < SASS_DESCRIPTOR_FIELDS); at += 1u)
+        {
+            const SassField *const field = &s_descriptor_fields[at];
+            int held = 0;
+            for (unsigned int number = 0u; number < form->runs; number += 1u)
+            {
+                held = held || ((form->run[number].first < (field->first + field->bits)) &&
+                                (form->run[number].last >= field->first));
+            }
+            if (held == 0)
+            {
+                places[place].descriptor = *field;
+                places[place].has_descriptor = 1;
+            }
+        }
         // Where no field of the operand's kind begins inside a run of its own, the widest run the probe saw change the
         // operand is its field, from the run's first bit and as long as the run: BPT.TRAP's code begins at bit 34,
         // where no immediate field of the list above begins. An operand a field above places is placed there as it was
@@ -357,6 +392,19 @@ int sass_assemble(const SassMachine *machine, const char *text, unsigned long lo
         if (places[place].has_offset != 0)
         {
             sass_bits_write(low, high, places[place].offset.first, places[place].offset.bits, offset);
+        }
+        // A memory operand that names its descriptor writes the uniform register into the descriptor field and says
+        // whether it is shown: desc[URn] sets bit 101 and term[URn] clears it. One that names none keeps both as its
+        // form holds them
+        const int named = (strncmp(parts.operand[place], "desc[", 5u) == 0) ||
+                          (strncmp(parts.operand[place], "term[", 5u) == 0);
+        if ((places[place].has_descriptor != 0) && named)
+        {
+            const char *const uniform = parts.operand[place] + 5;
+            const unsigned long long descriptor = (strncmp(uniform, "URZ", 3u) == 0) ? SASS_DESCRIPTOR_ZERO
+                                                                                    : sass_register_value(uniform);
+            sass_bits_write(low, high, places[place].descriptor.first, places[place].descriptor.bits, descriptor);
+            sass_bits_write(low, high, SASS_DESCRIPTOR_SHOWN, 1u, (parts.operand[place][0] == 'd') ? 1ull : 0ull);
         }
         // a constant's bank must be the one the form holds, since the bank's own bits were not found by probing
         if (parts.kind[place] == SASS_OPERAND_CONSTANT)
@@ -565,6 +613,11 @@ static unsigned int sass_open_bits(const SassForm *form, const SassPlace *places
         {
             sass_bits_write(low, high, places[place].offset.first, places[place].offset.bits, ~0ull);
         }
+        if (places[place].has_descriptor != 0)
+        {
+            sass_bits_write(low, high, places[place].descriptor.first, places[place].descriptor.bits, ~0ull);
+            sass_bits_write(low, high, SASS_DESCRIPTOR_SHOWN, 1u, ~0ull);
+        }
     }
     unsigned int count = 0u;
     for (unsigned int bit = 0u; bit < 64u; bit += 1u)
@@ -700,8 +753,20 @@ static void sass_operand_read(const SassForm *form, const SassInstructionParts *
         char named[16];
         (value == 255ull) ? snprintf(named, sizeof(named), "RZ%s", wide)
                           : snprintf(named, sizeof(named), "R%llu%s", value, wide);
-        (offset == 0ull) ? snprintf(operand, room, "[%s]", named)
-                         : snprintf(operand, room, "[%s+0x%llx]", named, offset);
+        // a memory operand that reads a descriptor names its uniform register, desc[] where bit 101 shows it and term[]
+        // where it does not
+        char held[24] = "";
+        if (place->has_descriptor != 0)
+        {
+            const unsigned long long descriptor =
+                sass_bits_read(low, high, place->descriptor.first, place->descriptor.bits);
+            const int shown = (int)sass_bits_read(low, high, SASS_DESCRIPTOR_SHOWN, 1u);
+            (descriptor == SASS_DESCRIPTOR_ZERO) ? snprintf(held, sizeof(held), "%s[URZ]", shown ? "desc" : "term")
+                                                 : snprintf(held, sizeof(held), "%s[UR%llu]", shown ? "desc" : "term",
+                                                            descriptor);
+        }
+        (offset == 0ull) ? snprintf(operand, room, "%s[%s]", held, named)
+                         : snprintf(operand, room, "%s[%s+0x%llx]", held, named, offset);
         return;
     }
     default:
