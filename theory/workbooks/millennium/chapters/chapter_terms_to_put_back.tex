@@ -71,7 +71,8 @@ Heat: a temperature field, its conduction, and the heat shear puts in
 & computed: $k = 0.5980$ watts per meter per kelvin at $20\,^\circ$C, IAPWS R15-11~\cite{src:IAPWS-R15-11} \\[0.5em]
 A level of pressure at which the liquid breaks
 & holds no level of pressure; Proposition 13
-& pressure fixed in level, and an equation of state that holds the phase boundary
+& pressure fixed in level, and an equation of state that holds the phase boundary as a free
+surface; the coupled system of the research paper, Propositions 14 to 17
 & read: $-168$ MPa from nucleation theory at $20\,^\circ$C, about $-140$ MPa in inclusions, a few
 to a few tens of megapascals below zero by other methods; Caupin and Herbert~\cite{src:Caupin-and-Herbert-2006} \\[0.5em]
 Molecules, and the field between them
@@ -206,3 +207,37 @@ absence of observation as open until a source on it is held.
 
 \textbf{Status: theory.} The pattern is read off this table. It is not a law, it rests on the rows
 entered so far, and a row added later can break it.
+
+\section{What a laboratory would show}
+
+Propositions 14 to 17 of the research paper put the first boundary water reaches at the cavity.
+From atmospheric pressure at $20\,^\circ$C the axis of a turning column reaches the vapor pressure
+at a swirl near $7.6$ meters per second, and shear warms a layer moving at the same speed by about
+a hundredth of a kelvin. Duraiswami~\cite{src:Duraiswami-2026} proposes the apparatus: a swirl
+chamber between porous walls driven toward collapse, with the onset of cavitation on the axis and
+the loss of the steady state as what is observed.
+
+\textbf{Uniform water.} The axis cavitates first, at the swirl where its pressure deficit reaches
+$p_\infty - p_{\mathrm{sat}} + \Delta_n$. For a core of the Lamb--Oseen form that swirl is
+$\sqrt{(p_\infty - p_{\mathrm{sat}} + \Delta_n)/(1.702\,\rho)}$. It rises with the pressure the
+chamber is held at and falls as the gas dissolved in the water rises. No heating is measurable
+before it: $0.06$ kelvin at $17$ meters per second.
+
+\textbf{Water in layers.} The author's addition to I13 is scored a hit on the chemical difference.
+Pimenova and Goldobin~\cite{src:Pimenova-and-Goldobin-2014} report water and n-heptane boiling at
+their interface at $78.56\,^\circ$C while neither bulk boils, and Pfeiffer and
+others~\cite{src:Pfeiffer-et-al-2023} report bubbles under tension nucleating mostly along the
+interface between water and a perfluorocarbon that holds more gas. A column carrying such a layer
+along its axis is expected to cavitate at a lower swirl than uniform water, and at the interface
+first. A layer of warmer water lowers the swirl through $p_{\mathrm{sat}}$ alone: on the IAPWS
+values, $7.46$ meters per second at $40\,^\circ$C, $6.97$ at $60\,^\circ$C and $5.71$ at
+$80\,^\circ$C, against $7.63$ at $20\,^\circ$C, before any change in $\Delta_n$. A difference
+of density alone has no source held, and nothing is predicted for it.
+
+\textbf{What would count against it.} Vapor appearing in the bulk of uniform water away from the
+axis before the axis cavitates; heating of a kelvin or more before the onset; or a column with such a layer
+that cavitates at the same swirl as uniform water, or in the bulk before the interface.
+
+\textbf{Status: theory.} The figures are computed from exact solutions and the IAPWS formulations,
+and the expectations for layers are read off the two sources named. No such chamber has been
+built or run for this work.
