@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "impensa_ancorae_acus/impensa_ancorae_acus.h"
-
+#include "../../src/c/engine/nbody/orior/orior.h"
 #include "../../src/c/includes/codecs/sha256/sha256.h"
 
+#include <limits.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -53,7 +53,7 @@ static uint8_t s_periodic_corpus[CORPUS_BYTES];
 static uint8_t s_flat_corpus[CORPUS_BYTES];
 
 static const char s_structured[] =
-    "static void mmgr_walk_rows(const uint8_t *bytes, size_t length, uint32_t *counts)\n"
+    "static void walk_rows(const uint8_t *bytes, size_t length, uint32_t *counts)\n"
     "{\n"
     "    for (size_t index = 0u; index < length; index++)\n"
     "    {\n"
@@ -61,7 +61,7 @@ static const char s_structured[] =
     "    }\n"
     "}\n"
     "\n"
-    "static uint32_t mmgr_pick_lowest(const uint8_t *needle, size_t length)\n"
+    "static uint32_t pick_lowest(const uint8_t *needle, size_t length)\n"
     "{\n"
     "    uint32_t best = 0u;\n"
     "    unsigned best_cost = 256u;\n"
@@ -77,21 +77,21 @@ static const char s_structured[] =
     "    return best;\n"
     "}\n"
     "\n"
-    "embed_bool mmgr_sift_span(const SiftCfg *args)\n"
+    "embed_bool sift_span(const SiftCfg *args)\n"
     "{\n"
-    "    MMGR_ASSERT(args->bytes != NULL, \"a span with no bytes\");\n"
+    "    ASSERT(args->bytes != NULL, \"a span with no bytes\");\n"
     "    if (args->length < args->needle_len)\n"
     "    {\n"
     "        return EMBED_FALSE;\n"
     "    }\n"
-    "    const size_t anchor = mmgr_pick_lowest(args->needle, args->needle_len);\n"
+    "    const size_t anchor = pick_lowest(args->needle, args->needle_len);\n"
     "    for (size_t start = 0u; (start + args->needle_len) <= args->length; start++)\n"
     "    {\n"
     "        if (args->bytes[start + anchor] != args->needle[anchor])\n"
     "        {\n"
     "            continue;\n"
     "        }\n"
-    "        if (mmgr_span_equal(&args->bytes[start], args->needle, args->needle_len))\n"
+    "        if (span_equal(&args->bytes[start], args->needle, args->needle_len))\n"
     "        {\n"
     "            return EMBED_TRUE;\n"
     "        }\n"
@@ -99,7 +99,7 @@ static const char s_structured[] =
     "    return EMBED_FALSE;\n"
     "}\n"
     "\n"
-    "static uint32_t mmgr_fold_word(uint32_t word, uint32_t mask, unsigned places)\n"
+    "static uint32_t fold_word(uint32_t word, uint32_t mask, unsigned places)\n"
     "{\n"
     "    const uint32_t high = (word >> places) & mask;\n"
     "    const uint32_t low = (word << (32u - places)) & ~mask;\n"
@@ -172,18 +172,6 @@ static void fill_uniform(uint8_t *into, size_t length)
     }
 }
 
-static uint32_t table_fingerprint(void)
-{
-    uint32_t running = 2166136261u;
-
-    for (unsigned byte = 0u; byte < 256u; byte++)
-    {
-        running ^= (uint32_t)EMBED_CALL(ancorae.impensa, AncoraeCfg, .byte = (uint8_t)byte);
-        running *= 16777619u;
-    }
-    return running;
-}
-
 static void histogram(const uint8_t *corpus, size_t length, uint32_t *counts)
 {
     for (unsigned byte = 0u; byte < 256u; byte++)
@@ -198,12 +186,15 @@ static void histogram(const uint8_t *corpus, size_t length, uint32_t *counts)
 
 typedef enum
 {
-    ANCHOR_BY_TABLE = 0,
+    ANCHOR_BY_MAGNITUDE = 0,
     ANCHOR_BY_RANDOM = 1,
     ANCHOR_BY_MAXIMUM_ENTROPY = 2
 } AnchorPolicy;
 
 static unsigned s_random_cost[256];
+
+// the census of the corpus a report is reading, which ANCHOR_BY_MAGNITUDE weighs a byte against
+static AnchorFieldCensus s_census;
 
 static void fill_random_costs(void)
 {
@@ -251,10 +242,11 @@ static unsigned anchor_cost(uint8_t byte, AnchorPolicy policy)
     {
         return 0u;
     }
-    case ANCHOR_BY_TABLE:
+    case ANCHOR_BY_MAGNITUDE:
     default:
     {
-        return (unsigned)EMBED_CALL(ancorae.impensa, AncoraeCfg, .byte = byte);
+        // the byte's own count in the corpus, at most CORPUS_BYTES, so narrowing to unsigned loses nothing
+        return (unsigned)(s_census.total - anchor_steer_magnitude(&s_census, byte));
     }
     }
 }
@@ -271,10 +263,10 @@ static const char *policy_name(AnchorPolicy policy)
     {
         return "maxent";
     }
-    case ANCHOR_BY_TABLE:
+    case ANCHOR_BY_MAGNITUDE:
     default:
     {
-        return "table";
+        return "magnitude";
     }
     }
 }
@@ -282,7 +274,7 @@ static const char *policy_name(AnchorPolicy policy)
 static size_t cheapest_offset(const uint8_t *needle, size_t length, size_t skip, AnchorPolicy policy)
 {
     size_t best = length;
-    unsigned best_cost = 256u;
+    unsigned best_cost = UINT_MAX;
 
     for (size_t index = 0u; index < length; index++)
     {
@@ -332,7 +324,7 @@ static unsigned pick_anchors(const uint8_t *needle, size_t needle_len, AnchorPol
     while (taken < count)
     {
         size_t best = needle_len;
-        unsigned best_cost = 256u;
+        unsigned best_cost = UINT_MAX;
 
         for (size_t index = 0u; index < needle_len; index++)
         {
@@ -390,7 +382,7 @@ static uint32_t candidates_n(const uint8_t *corpus, size_t length, const uint8_t
 }
 
 static void report_cascade(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len,
-                           AnchorPolicy policy, uint32_t stamp)
+                           AnchorPolicy policy)
 {
     if (needle_len >= (corpus_len / 4u))
     {
@@ -399,6 +391,7 @@ static void report_cascade(const char *name, const uint8_t *corpus, size_t corpu
 
     uint32_t counts[256];
     histogram(corpus, corpus_len, counts);
+    anchor_field_census(corpus, corpus_len, &s_census);
 
     const size_t step = (corpus_len - needle_len) / NEEDLE_SAMPLES;
 
@@ -446,7 +439,7 @@ static void report_cascade(const char *name, const uint8_t *corpus, size_t corpu
         const double variance = (total > 1.0) ? ((squares - (total * mean * mean)) / (total - 1.0)) : 0.0;
         const double error = (variance > 0.0) ? (sqrt(variance) / sqrt(total)) : 0.0;
 
-        printf("ancorae_cascade,%08x,%s,%s,%u,%u,%u,%u,%.3f,%.4f,%.2f,%.1f\n", stamp, name, policy_name(policy),
+        printf("ancorae_cascade,%s,%s,%u,%u,%u,%u,%.3f,%.4f,%.2f,%.1f\n", name, policy_name(policy),
                (unsigned)needle_len, count, (unsigned)corpus_len, samples, mean, expect,
                (expect > 0.0) ? (mean / expect) : 0.0,
                (error > 0.0) ? ((mean - expect) / error) : 0.0);
@@ -481,12 +474,13 @@ static uint32_t error_occurrences(const uint8_t *corpus, size_t length, const ui
 }
 
 static void report_invariant(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len,
-                             AnchorPolicy policy, uint32_t stamp)
+                             AnchorPolicy policy)
 {
     if ((needle_len == 0u) || (needle_len > corpus_len))
     {
         return;
     }
+    anchor_field_census(corpus, corpus_len, &s_census);
 
     const size_t positions = (corpus_len - needle_len) + 1u;
 
@@ -517,14 +511,14 @@ static void report_invariant(const char *name, const uint8_t *corpus, size_t cor
             samples++;
         }
 
-        printf("ancorae_invariant,%08x,%s,%s,%u,%u,%u,%u,%u,%u,%s\n", stamp, name, policy_name(policy),
+        printf("ancorae_invariant,%s,%s,%u,%u,%u,%u,%u,%u,%s\n", name, policy_name(policy),
                (unsigned)needle_len, count, (unsigned)corpus_len, samples, checked, error,
                (checked == 0u) ? "none" : ((error == 0u) ? "hold" : "BROKEN"));
     }
 }
 
 static void report(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len, size_t anchor_stride,
-                   AnchorPolicy policy, uint32_t stamp)
+                   AnchorPolicy policy)
 {
     if (needle_len >= (corpus_len / 4u))
     {
@@ -533,6 +527,7 @@ static void report(const char *name, const uint8_t *corpus, size_t corpus_len, s
 
     uint32_t counts[256];
     histogram(corpus, corpus_len, counts);
+    anchor_field_census(corpus, corpus_len, &s_census);
 
     double one_total = 0.0;
     double two_total = 0.0;
@@ -603,13 +598,12 @@ static void report(const char *name, const uint8_t *corpus, size_t corpus_len, s
 
     const double zscore = (stderr_two > 0.0) ? ((two_mean - predicted_mean) / stderr_two) : 0.0;
 
-    printf("ancorae_sift,%08x,%s,%s,%u,%u,%u,%u,%.2f,%.2f,%.2f,%.1f,%.2f,%.3f,%.1f\n", stamp, name,
+    printf("ancorae_sift,%s,%s,%u,%u,%u,%u,%.2f,%.2f,%.2f,%.1f,%.2f,%.3f,%.1f\n", name,
            policy_name(policy), (unsigned)needle_len, (unsigned)anchor_stride, (unsigned)corpus_len, samples,
            one_mean, two_mean, predicted_mean, skip, independence, stderr_two, zscore);
 }
 
-static void report_domain(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len,
-                          uint32_t stamp)
+static void report_domain(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len)
 {
     uint32_t counts[256];
     unsigned distinct = 0u;
@@ -669,14 +663,14 @@ static void report_domain(const char *name, const uint8_t *corpus, size_t corpus
         previous = shares[index];
     }
 
-    printf("ancorae_domain,%08x,%s,%u,%u,%u,%.4f,%.4f,%.6f,%.2f,%.3f,%.8f,%.3f\n", stamp, name,
+    printf("ancorae_domain,%s,%u,%u,%u,%.4f,%.4f,%.6f,%.2f,%.3f,%.8f,%.3f\n", name,
            (unsigned)corpus_len, (unsigned)needle_len, distinct, shannon, -log2(collision), collision,
            1.0 / collision, positions * collision, expected_min,
            (expected_min > 0.0) ? (collision / expected_min) : 0.0);
 }
 
 static void report_refutation(const char *name, const uint8_t *corpus, size_t corpus_len, size_t needle_len,
-                              AnchorPolicy policy, uint32_t stamp)
+                              AnchorPolicy policy)
 {
     if (needle_len >= (corpus_len / 4u))
     {
@@ -685,6 +679,7 @@ static void report_refutation(const char *name, const uint8_t *corpus, size_t co
 
     uint32_t counts[256];
     histogram(corpus, corpus_len, counts);
+    anchor_field_census(corpus, corpus_len, &s_census);
 
     double collision = 0.0;
 
@@ -739,7 +734,7 @@ static void report_refutation(const char *name, const uint8_t *corpus, size_t co
     const double mean = refuted / observations;
     const double predicted = (double)needle_len * (1.0 - collision);
 
-    printf("ancorae_refutation,%08x,%s,%s,%u,%u,%u,%.4f,%.4f,%.3f\n", stamp, name, policy_name(policy),
+    printf("ancorae_refutation,%s,%s,%u,%u,%u,%.4f,%.4f,%.3f\n", name, policy_name(policy),
            (unsigned)needle_len, (unsigned)corpus_len, samples, mean, predicted,
            (predicted > 0.0) ? (mean / predicted) : 0.0);
 }
@@ -748,7 +743,7 @@ static void report_refutation(const char *name, const uint8_t *corpus, size_t co
 
 static uint32_t s_width_counts[1u << WIDEST_SYMBOL];
 
-static void report_widths(const char *name, const uint8_t *corpus, size_t corpus_len, uint32_t stamp)
+static void report_widths(const char *name, const uint8_t *corpus, size_t corpus_len)
 {
     const size_t total_bits = corpus_len * 8u;
 
@@ -802,7 +797,7 @@ static void report_widths(const char *name, const uint8_t *corpus, size_t corpus
 
         const double renyi = -log2(collision);
 
-        printf("ancorae_width,%08x,%s,%u,%u,%u,%u,%.4f,%.4f\n", stamp, name, (unsigned)corpus_len, width,
+        printf("ancorae_width,%s,%u,%u,%u,%u,%.4f,%.4f\n", name, (unsigned)corpus_len, width,
                values, distinct, renyi, renyi / (double)width);
     }
 }
@@ -821,30 +816,28 @@ int main(void)
         s_flat_corpus[index] = (uint8_t)'A';
     }
 
-    const uint32_t stamp = table_fingerprint();
+    static const AnchorPolicy policies[] = {ANCHOR_BY_MAGNITUDE, ANCHOR_BY_RANDOM, ANCHOR_BY_MAXIMUM_ENTROPY};
 
-    static const AnchorPolicy policies[] = {ANCHOR_BY_TABLE, ANCHOR_BY_RANDOM, ANCHOR_BY_MAXIMUM_ENTROPY};
-
-    printf("bench,table,corpus,policy,needle_len,stride,corpus_bytes,samples,one_anchor,two_anchor,predicted,"
+    printf("bench,corpus,policy,needle_len,stride,corpus_bytes,samples,one_anchor,two_anchor,predicted,"
            "skip,independence,stderr,z\n");
-    printf("bench,table,corpus,policy,needle_len,anchors,corpus_bytes,samples,candidates,predicted,ratio,z\n");
-    printf("bench,table,corpus,policy,needle_len,anchors,corpus_bytes,samples,occurrences,errored,verdict\n");
-    printf("bench,table,corpus,corpus_bytes,needle_len,distinct,shannon,renyi2,collision,effective_alphabet,"
+    printf("bench,corpus,policy,needle_len,anchors,corpus_bytes,samples,candidates,predicted,ratio,z\n");
+    printf("bench,corpus,policy,needle_len,anchors,corpus_bytes,samples,occurrences,errored,verdict\n");
+    printf("bench,corpus,corpus_bytes,needle_len,distinct,shannon,renyi2,collision,effective_alphabet,"
            "predicted_maxent,oracle_rate,ceiling\n");
 
-    report_domain("english", s_english_corpus, english_len, 16u, stamp);
-    report_domain("structured", s_structured_corpus, structured_len, 16u, stamp);
-    report_domain("periodic16", s_periodic_corpus, periodic_len, 16u, stamp);
-    report_domain("uniform", s_uniform_corpus, CORPUS_BYTES, 16u, stamp);
-    report_domain("flat", s_flat_corpus, CORPUS_BYTES, 16u, stamp);
+    report_domain("english", s_english_corpus, english_len, 16u);
+    report_domain("structured", s_structured_corpus, structured_len, 16u);
+    report_domain("periodic16", s_periodic_corpus, periodic_len, 16u);
+    report_domain("uniform", s_uniform_corpus, CORPUS_BYTES, 16u);
+    report_domain("flat", s_flat_corpus, CORPUS_BYTES, 16u);
 
-    printf("bench,table,corpus,corpus_bytes,symbol_bits,alphabet,distinct,renyi2,renyi2_per_bit\n");
+    printf("bench,corpus,corpus_bytes,symbol_bits,alphabet,distinct,renyi2,renyi2_per_bit\n");
 
-    report_widths("english", s_english_corpus, english_len, stamp);
-    report_widths("structured", s_structured_corpus, structured_len, stamp);
-    report_widths("periodic16", s_periodic_corpus, periodic_len, stamp);
-    report_widths("uniform", s_uniform_corpus, CORPUS_BYTES, stamp);
-    report_widths("flat", s_flat_corpus, CORPUS_BYTES, stamp);
+    report_widths("english", s_english_corpus, english_len);
+    report_widths("structured", s_structured_corpus, structured_len);
+    report_widths("periodic16", s_periodic_corpus, periodic_len);
+    report_widths("uniform", s_uniform_corpus, CORPUS_BYTES);
+    report_widths("flat", s_flat_corpus, CORPUS_BYTES);
 
     static const size_t lengths[] = {4u, 8u, 16u, 32u, 64u, 128u, 256u};
 
@@ -860,34 +853,33 @@ int main(void)
         {
             for (size_t which = 0u; which < (sizeof strides / sizeof strides[0]); which++)
             {
-                report("english", s_english_corpus, english_len, lengths[index], strides[which], policy, stamp);
-                report("structured", s_structured_corpus, structured_len, lengths[index], strides[which], policy,
-                       stamp);
-                report("periodic16", s_periodic_corpus, periodic_len, lengths[index], strides[which], policy, stamp);
-                report("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], strides[which], policy, stamp);
+                report("english", s_english_corpus, english_len, lengths[index], strides[which], policy);
+                report("structured", s_structured_corpus, structured_len, lengths[index], strides[which], policy);
+                report("periodic16", s_periodic_corpus, periodic_len, lengths[index], strides[which], policy);
+                report("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], strides[which], policy);
             }
 
-            report_cascade("english", s_english_corpus, english_len, lengths[index], policy, stamp);
-            report_cascade("structured", s_structured_corpus, structured_len, lengths[index], policy, stamp);
-            report_cascade("periodic16", s_periodic_corpus, periodic_len, lengths[index], policy, stamp);
-            report_cascade("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], policy, stamp);
+            report_cascade("english", s_english_corpus, english_len, lengths[index], policy);
+            report_cascade("structured", s_structured_corpus, structured_len, lengths[index], policy);
+            report_cascade("periodic16", s_periodic_corpus, periodic_len, lengths[index], policy);
+            report_cascade("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], policy);
 
-            report_cascade("flat", s_flat_corpus, CORPUS_BYTES, lengths[index], policy, stamp);
+            report_cascade("flat", s_flat_corpus, CORPUS_BYTES, lengths[index], policy);
 
-            report_refutation("english", s_english_corpus, english_len, lengths[index], policy, stamp);
-            report_refutation("structured", s_structured_corpus, structured_len, lengths[index], policy, stamp);
-            report_refutation("periodic16", s_periodic_corpus, periodic_len, lengths[index], policy, stamp);
-            report_refutation("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], policy, stamp);
-            report_refutation("flat", s_flat_corpus, CORPUS_BYTES, lengths[index], policy, stamp);
+            report_refutation("english", s_english_corpus, english_len, lengths[index], policy);
+            report_refutation("structured", s_structured_corpus, structured_len, lengths[index], policy);
+            report_refutation("periodic16", s_periodic_corpus, periodic_len, lengths[index], policy);
+            report_refutation("uniform", s_uniform_corpus, CORPUS_BYTES, lengths[index], policy);
+            report_refutation("flat", s_flat_corpus, CORPUS_BYTES, lengths[index], policy);
         }
 
         for (size_t index = 0u; index < (sizeof limits / sizeof limits[0]); index++)
         {
-            report_invariant("english", s_english_corpus, english_len, limits[index], policy, stamp);
-            report_invariant("structured", s_structured_corpus, structured_len, limits[index], policy, stamp);
-            report_invariant("periodic16", s_periodic_corpus, periodic_len, limits[index], policy, stamp);
-            report_invariant("uniform", s_uniform_corpus, CORPUS_BYTES, limits[index], policy, stamp);
-            report_invariant("flat", s_flat_corpus, CORPUS_BYTES, limits[index], policy, stamp);
+            report_invariant("english", s_english_corpus, english_len, limits[index], policy);
+            report_invariant("structured", s_structured_corpus, structured_len, limits[index], policy);
+            report_invariant("periodic16", s_periodic_corpus, periodic_len, limits[index], policy);
+            report_invariant("uniform", s_uniform_corpus, CORPUS_BYTES, limits[index], policy);
+            report_invariant("flat", s_flat_corpus, CORPUS_BYTES, limits[index], policy);
         }
     }
     return 0;

@@ -2,7 +2,7 @@
 
 THE QUESTION, AND WHY THE AFTERNOON'S INSTRUMENTS COULD NOT ANSWER IT
 
-`claudese_distance` places a file between a human pole and an assistant pole and prints its own
+`machine_distance` places a file between a human pole and an assistant pole and prints its own
 limit at the foot: every file-level distance is a bag of words, so it reads COMPOSITION and never
 ARRANGEMENT. A bag of words is invariant under permutation - shuffle the corpus and every count is
 identical - so it cannot separate a text from its own shuffle, and it cannot say WHICH sentences

@@ -10,10 +10,8 @@
 # is readable end to end and unnavigable. This prints every entry, the section it sits in, the line
 # it is on, and the day its lead first appeared.
 #
-# The day comes from ledger_days.tsv, which was computed once from the MMgr history the ledger was
-# written in. orior cannot recompute it, because its own history begins at a single commit.
-# That file is the record and not a cache. An entry the file does not know is new and reports as the
-# date this runs.
+# The day comes from ledger_days.tsv. That file is the record and not a cache, and nothing here
+# recomputes it. An entry the file does not know is new and reports as the date this runs.
 #
 # Line numbers shift when the contents are inserted. The block is built twice: once to learn how
 # tall it is, and once with every line number moved by that height. A number here has to be exact.

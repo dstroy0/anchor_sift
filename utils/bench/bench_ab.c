@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "impensa_ancorae_acus/impensa_ancorae_acus.h"
-
+#include "../../src/c/engine/nbody/orior/orior.h"
 #include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #include <math.h>
@@ -69,7 +68,7 @@ static const char s_ab_prose[] =
     "mood more than anything either of them could have said. ";
 
 static const char s_ab_source[] =
-    "static void mmgr_walk_rows(const uint8_t *bytes, size_t length, uint32_t *counts)\n"
+    "static void walk_rows(const uint8_t *bytes, size_t length, uint32_t *counts)\n"
     "{\n"
     "    for (size_t index = 0u; index < length; index++)\n"
     "    {\n"
@@ -77,7 +76,7 @@ static const char s_ab_source[] =
     "    }\n"
     "}\n"
     "\n"
-    "static uint32_t mmgr_pick_lowest(const uint8_t *needle, size_t length)\n"
+    "static uint32_t pick_lowest(const uint8_t *needle, size_t length)\n"
     "{\n"
     "    uint32_t best = 0u;\n"
     "    unsigned best_cost = 256u;\n"
@@ -93,21 +92,21 @@ static const char s_ab_source[] =
     "    return best;\n"
     "}\n"
     "\n"
-    "embed_bool mmgr_sift_span(const SiftCfg *args)\n"
+    "embed_bool sift_span(const SiftCfg *args)\n"
     "{\n"
-    "    MMGR_ASSERT(args->bytes != NULL, \"a span with no bytes\");\n"
+    "    ASSERT(args->bytes != NULL, \"a span with no bytes\");\n"
     "    if (args->length < args->needle_len)\n"
     "    {\n"
     "        return EMBED_FALSE;\n"
     "    }\n"
-    "    const size_t anchor = mmgr_pick_lowest(args->needle, args->needle_len);\n"
+    "    const size_t anchor = pick_lowest(args->needle, args->needle_len);\n"
     "    for (size_t start = 0u; (start + args->needle_len) <= args->length; start++)\n"
     "    {\n"
     "        if (args->bytes[start + anchor] != args->needle[anchor])\n"
     "        {\n"
     "            continue;\n"
     "        }\n"
-    "        if (mmgr_span_equal(&args->bytes[start], args->needle, args->needle_len))\n"
+    "        if (span_equal(&args->bytes[start], args->needle, args->needle_len))\n"
     "        {\n"
     "            return EMBED_TRUE;\n"
     "        }\n"
@@ -1796,18 +1795,18 @@ static void ab_salience(const char *name, const uint8_t *corpus, size_t corpus_l
     }
 }
 
-static size_t ab_rarest(const uint8_t *needle, size_t length)
+static size_t ab_rarest(const uint8_t *needle, size_t length, const AnchorFieldCensus *census)
 {
     size_t best = 0u;
-    unsigned best_cost = 256u;
+    uint64_t best_magnitude = 0u;
 
     for (size_t index = 0u; index < length; index++)
     {
-        const unsigned cost = (unsigned)EMBED_CALL(ancorae.impensa, AncoraeCfg, .byte = needle[index]);
+        const uint64_t magnitude = anchor_steer_magnitude(census, needle[index]);
 
-        if (cost < best_cost)
+        if (magnitude > best_magnitude)
         {
-            best_cost = cost;
+            best_magnitude = magnitude;
             best = index;
         }
     }
@@ -1906,14 +1905,18 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
     {
         carried[byte] = 1u;
     }
-    double chosen_offset = 0.0;
+
+    AnchorFieldCensus census;
+
+    anchor_field_census(corpus, corpus_len, &census);
+
     unsigned samples = 0u;
     unsigned disagreed = 0u;
 
     for (size_t sample = 0u; sample < AB_SAMPLES; sample++)
     {
         const uint8_t *const needle = &corpus[sample * step];
-        const size_t rare = ab_rarest(needle, needle_len);
+        const size_t rare = ab_rarest(needle, needle_len, &census);
         const size_t salted = ab_salted_offset(needle_len, 0xA5A5u + (uint64_t)sample);
         const size_t ideal = ab_best_anchor(needle, needle_len, frequency);
 
@@ -1946,8 +1949,6 @@ static void ab_report(const char *name, const uint8_t *corpus, size_t corpus_len
                 unique_over++;
             }
         }
-
-        chosen_offset += (double)ideal;
 
         unsigned agreed = 1u;
 
