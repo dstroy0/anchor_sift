@@ -75,7 +75,7 @@ Read right to left, it is the engine's run order:
 
 **The idea.** Time is part of the tower: samples enter at the bottom and stack upward, and the time domain is written into the lattice. Every tower has a floor configuration and a master schedule by family of operation. Floor −4 is where the noise bits are at their smallest and become irreducible.
 
-**In the engine.** The .kcr tower lifts t, z, y and x together: time is a lifted axis, not a loop. A whole 100×64×256×256 sample reaches one coefficient in 8 floors. What the program does not generate is every floor's highs, the residue. That residue is held whole and never bounded, modeled or discarded.
+**In the engine.** The .kcr tower lifts t, z, y and x together: time is a lifted axis, not a loop. A whole 100×64×256×256 sample reaches one coefficient in 8 floors. What the program does not generate is every floor's high-pass coefficients, the residue. That residue is held whole and never bounded, modeled or discarded.
 
 **The floor, measured.** The anchor count stacks every frame of a sample and counts, per voxel and per bit, the frames that carry the bit. In every one of the 25 44b6 samples, bits 0 to 4 are set in about 46% of frames at nearly every voxel: those planes carry no anchor, and they look alike in every sample. The anchors sit in bits 6 to 11 and differ between samples. That is the measured floor, and it answers the drafts' "noise bits minimised to their smallest state". It also says why floor −4 is sample bound: no voxel is anchored in every sample.
 
@@ -126,7 +126,7 @@ The observer settling on hot bits, and the noise key fed back as the next cycle'
 | set | in the engine | status |
 |---|---|---|
 | true coherence | the residual's structure above the medium: bodies and their links | built; a program's links measured in the cell workbook |
-| the noise key | the residue: every floor's highs, held whole in the .kcr; the anchor counts per bit | proved lossless; measured |
+| the noise key | the residue: every floor's high-pass coefficients, held whole in the .kcr; the anchor counts per bit | proved lossless; measured |
 | the construct kit | the program, its key (.imp), the schedule (.sch) and the configuration (.cfg) | built |
 
 ## 9. The elevator, recursion, identity and entropy

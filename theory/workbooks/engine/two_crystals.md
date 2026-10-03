@@ -88,29 +88,29 @@ Derived.
 
 - **The 2-adic floor shift.** For x ∈ ℤ₂ and k ≥ 0, write x = r + 2^k y with 0 ≤ r < 2^k, x's residue. Then ⌊x / 2^k⌋ = y, the digits moved down k places. On ℤ it is the floor toward −∞, the record floor of [vertical_time_compression.md](vertical_time_compression.md). On ℤ₂ it is continuous: its bits 0 to w − 1 read x's bits k to w + k − 1.
 - **T is a homeomorphism of ℤ₂^n.** Every lifting step is a shear (a, b) ↦ (a, b ± P(a)), with P built from sums and floor shifts. It is defined on ℤ₂ word for word and undone by the opposite shear. T is a bijection of ℤ₂^n that extends T on ℤ^n. T and T⁻¹ are continuous, since each output's w bits read finitely many input bits.
-- **T is not a wrapped program.** Two inputs equal in their w low bits can give highs that differ in bit w − 1: adding 2^w to x_{2j} moves ⌊(x_{2j} + x_{2j+2}) / 2⌋ by 2^{w−1}. No F_w has π_w ∘ T = F_w ∘ π_w.
+- **T is not a wrapped program.** Two inputs equal in their w low bits can give high-pass coefficients that differ in bit w − 1: adding 2^w to x_{2j} moves ⌊(x_{2j} + x_{2j+2}) / 2⌋ by 2^{w−1}. No F_w has π_w ∘ T = F_w ∘ π_w.
 - **The bits one level reads.** Along one line, an interior coefficient (its neighbors inside the line), w ≥ 1. An output's w bits read each input to the count of bits given:
 
   | output | x_{2j+1} | x_{2j}, x_{2j+2} |
   |---|---|---|
-  | the high d_j | w | w + 1 |
+  | the high-pass coefficient d_j | w | w + 1 |
 
   | output | x_{2i} | x_{2i−1}, x_{2i+1} | x_{2i−2}, x_{2i+2} |
   |---|---|---|---|
-  | the low s_i | w + 2 | w + 2 | w + 3 |
+  | the low-pass coefficient s_i | w + 2 | w + 2 | w + 3 |
 
-  - Upper bound. ⌊u / 2^k⌋ mod 2^w reads u mod 2^{w+k}. The high reads the evens' sum to w + 1 bits. The low reads d_{i−1} + d_i to w + 2 bits, and a high read to w + 2 bits reads its evens to w + 3.
+  - Upper bound. ⌊u / 2^k⌋ mod 2^w reads u mod 2^{w+k}. The high-pass coefficient reads the evens' sum to w + 1 bits. The low-pass coefficient reads d_{i−1} + d_i to w + 2 bits, and a high-pass coefficient read to w + 2 bits reads its evens to w + 3.
   - Each count is exact. Adding 2^{m−1} to an input read to m bits moves the output by 2^{w−1} modulo 2^w:
-    - the high: x_{2j+1} + 2^{w−1} moves d_j by 2^{w−1}; x_{2j+2} + 2^w moves it by −2^{w−1};
-    - the low: x_{2i+2} + 2^{w+2} moves d_i by −2^{w+1} and s_i by −2^{w−1}; x_{2i+1} + 2^{w+1} moves d_i by 2^{w+1} and s_i by 2^{w−1}; x_{2i} + 2^{w+1} moves both highs by −2^w and s_i by 2^{w+1} − 2^{w−1} ≡ −2^{w−1}.
+    - the high-pass coefficient: x_{2j+1} + 2^{w−1} moves d_j by 2^{w−1}; x_{2j+2} + 2^w moves it by −2^{w−1};
+    - the low-pass coefficient: x_{2i+2} + 2^{w+2} moves d_i by −2^{w+1} and s_i by −2^{w−1}; x_{2i+1} + 2^{w+1} moves d_i by 2^{w+1} and s_i by 2^{w−1}; x_{2i} + 2^{w+1} moves both high-pass coefficients by −2^w and s_i by 2^{w+1} − 2^{w−1} ≡ −2^{w−1}.
   - An edge repeats its neighbor and reads no more bits than the interior.
-- **L levels.** A level-L low's w bits read the samples to w + 3L bits, and a level-L high's to w + 3L − 2.
-  - Upper bound: a level reads the lows below it to 3 bits more, by the table.
-  - Exact on the outermost sample of an interior cone. Of the level-(ℓ − 1) lows the cone reads, that sample reaches only the outermost, as its outer even. Adding 2^{m+2} to an outer even moves the low above by exactly −2^{m−1} for m ≥ 1. Adding 2^{w+3L−1} to the sample moves the outermost level-1 low of the cone by 2^{w+3L−4} in magnitude, the level-2 low by 2^{w+3L−7}, and the level-L low by 2^{w−1}.
+- **L levels.** A level-L low-pass coefficient's w bits read the samples to w + 3L bits, and a level-L high-pass coefficient's to w + 3L − 2.
+  - Upper bound: a level reads the low-pass coefficients below it to 3 bits more, by the table.
+  - Exact on the outermost sample of an interior cone. Of the level-(ℓ − 1) low-pass coefficients the cone reads, that sample reaches only the outermost, as its outer even. Adding 2^{m+2} to an outer even moves the low-pass coefficient above by exactly −2^{m−1} for m ≥ 1. Adding 2^{w+3L−1} to the sample moves the outermost level-1 low-pass coefficient of the cone by 2^{w+3L−4} in magnitude, the level-2 low-pass coefficient by 2^{w+3L−7}, and the level-L low-pass coefficient by 2^{w−1}.
   - As a 2-adic modulus: |T(x) − T(y)|₂ ≤ 2^{3L} |x − y|₂ along one line.
-  - **Proved** on the machine, the bound and its exactness, per band: 3ℓ at the level-ℓ lows and 3ℓ − 2 at the level-ℓ highs ("The boundary", below).
-- **The inverse reads fewer.** One inverse level: an even x_{2i} = s_i − ⌊(d_{i−1} + d_i + 2) / 4⌋ reads the low to w bits and the highs to w + 2; an odd x_{2j+1} = d_j + ⌊(x_{2j} + x_{2j+2}) / 2⌋ reads the lows to w + 1 and the highs to w + 3. By induction down the levels, the samples' w bits read the level-ℓ highs to at most w + ℓ + 2 bits and the level-L lows to w + L. T⁻¹ reads the crystal to at most w + L + 2 bits: |T⁻¹(c) − T⁻¹(c′)|₂ ≤ 2^{L+2} |c − c′|₂. **Proved** exact on the machine at L = 4 ("The boundary", below).
-- **What the counts mean.** A wrapped T at w needs its samples to w + 3L bits. The extra bits come from the floors: a SUM, DIFFERENCE or PRODUCT reads no bit above w. Precision flows down from the top bits, 3 a level along the lows forward and 1 a level back.
+  - **Proved** on the machine, the bound and its exactness, per band: 3ℓ at the level-ℓ low-pass coefficients and 3ℓ − 2 at the level-ℓ high-pass coefficients ("The boundary", below).
+- **The inverse reads fewer.** One inverse level: an even x_{2i} = s_i − ⌊(d_{i−1} + d_i + 2) / 4⌋ reads the low-pass coefficient to w bits and the high-pass coefficients to w + 2; an odd x_{2j+1} = d_j + ⌊(x_{2j} + x_{2j+2}) / 2⌋ reads the low-pass coefficients to w + 1 and the high-pass coefficients to w + 3. By induction down the levels, the samples' w bits read the level-ℓ high-pass coefficients to at most w + ℓ + 2 bits and the level-L low-pass coefficients to w + L. T⁻¹ reads the crystal to at most w + L + 2 bits: |T⁻¹(c) − T⁻¹(c′)|₂ ≤ 2^{L+2} |c − c′|₂. **Proved** exact on the machine at L = 4 ("The boundary", below).
+- **What the counts mean.** A wrapped T at w needs its samples to w + 3L bits. The extra bits come from the floors: a SUM, DIFFERENCE or PRODUCT reads no bit above w. Precision flows down from the top bits, 3 a level along the low-pass coefficients forward and 1 a level back.
 
 ## The two crystals
 
@@ -155,31 +155,31 @@ Derived.
 
 ## The boundary: the crystal measured on itself
 
-**Proved** (`test/engine/record_boundary_test`, 41 checks, 0 failed; 48 checks, 0 failed, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 lows first, then the highs of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
+**Proved** (`test/engine/record_boundary_test`, 41 checks, 0 failed; 48 checks, 0 failed, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 low-pass coefficients first, then the high-pass coefficients of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
 
 - **T's matrix.** The test builds 2^12·M, column i the image of 2^12·e_i under T, and the same for T⁻¹. On multiples of 2^12 every floor is exact and the +2 offset drops out: M is T's linear part, with entries in ℤ[1/2].
-- **The reach, per band.** A row's reach is 12 less the least 2-adic valuation of its entries. T's matrix reaches 12 bits from the level-4 lows, and 10, 7, 4 and 1 from the highs of levels 4, 3, 2 and 1: 3L at the lows and 3ℓ − 2 at the level-ℓ highs, the counts derived above. T⁻¹'s matrix reaches 6 = L + 2.
+- **The reach, per band.** A row's reach is 12 less the least 2-adic valuation of its entries. T's matrix reaches 12 bits from the level-4 low-pass coefficients, and 10, 7, 4 and 1 from the high-pass coefficients of levels 4, 3, 2 and 1: 3L at the low-pass coefficients and 3ℓ − 2 at the level-ℓ high-pass coefficients, the counts derived above. T⁻¹'s matrix reaches 6 = L + 2.
 - **Flips.** 8,192 pairs of lanes for each map. A pair is a random input and the same input with one bit b flipped, b drawn from 0 to 22, below the sign bit: the flip moves the value by exactly ±2^b.
   - No flip moves an output below bit b − 12 for T, or below bit b − 6 for T⁻¹: 8,192 of 8,192 pairs each. The furthest reach met on the device is 12 for T and 6 for T⁻¹. Both bounds are exact.
   - A flip at b ≥ 12 moves the output by exactly ±2^b times the matrix's column: 3,918 of 3,918 such pairs for T and 3,837 of 3,837 for T⁻¹ (the counts of such pairs are measured; the check holds every one).
 - **Written onto the boundary and read back.** Arbitrary 24-bit crystals run through T⁻¹ then T return exactly: 16,384 of 16,384 lanes. Every crystal is the crystal of some samples: the boundary is a whole coordinate chart of ℤ^n, and no crystal lies outside T's image.
 - **What passes through T.** 2,048 pairs of each kind, the base samples below 2^21 in magnitude.
-  - A constant c below 2^19 in magnitude, added to every sample, moves the 4 level-4 lows by c each and no other coefficient: 2,048 of 2,048.
+  - A constant c below 2^19 in magnitude, added to every sample, moves the 4 level-4 low-pass coefficients by c each and no other coefficient: 2,048 of 2,048.
   - A lattice move 2^12·z, z ∈ [−128, 127]^64, moves the crystal by exactly M·2^12·z: 2,048 of 2,048.
   - Negation and doubling: the check holds that neither passes on every pair. **Measured:** each passes on 0 of 2,048.
-  - Derived. The floor commutes with adding an integer, ⌊(u + 2c) / 2⌋ = ⌊u / 2⌋ + c: a constant leaves every high unchanged and moves every low by itself, level by level. On 2^{3L}ℤ^n every floor is exact: T(x + 2^{3L}z) = T(x) + M·2^{3L}z. Negation fails on the floor, ⌊−u / 2⌋ ≠ −⌊u / 2⌋ for odd u, and doubling on the parity, 2⌊(a + b) / 2⌋ ≠ a + b for a + b odd.
+  - Derived. The floor commutes with adding an integer, ⌊(u + 2c) / 2⌋ = ⌊u / 2⌋ + c: a constant leaves every high-pass coefficient unchanged and moves every low-pass coefficient by itself, level by level. On 2^{3L}ℤ^n every floor is exact: T(x + 2^{3L}z) = T(x) + M·2^{3L}z. Negation fails on the floor, ⌊−u / 2⌋ ≠ −⌊u / 2⌋ for odd u, and doubling on the parity, 2⌊(a + b) / 2⌋ ≠ a + b for a + b odd.
 - **Floors, heap and ring.** T then T⁻¹ in one program, every floor's registers an output. Each rebuilt register is wrapped at the mirror to its forward twin's width + 1, the samples included, to 25 bits. A value's heap is its magnitude's bits and one sign bit when it is not zero. A floor's ring is the sum of the imprint's widths of its registers. Four classes of 1,024 lanes: a ramp (start below 2^19 in magnitude, slope from −2,048 to 2,047), the ramp ±8, the ramp ±1,024, and noise over the 24-bit field.
   - The last floor returns every sample exactly, on every lane.
   - The heap mirrors: the heap at floor 2L − k equals the heap at floor k, on every lane.
   - Every floor's heap lies inside its ring and one sign bit for each nonzero value, on every lane.
-  - The ring at forward floor ℓ ≥ 1 is ring_0 + n + 2(n − n/2^ℓ), and at the mirror floor 2L − ℓ it is ring_ℓ + n/2^ℓ, one bit for each wrapped low. The ring is widest at the crystal. Floors 0 to 8: 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600 (keymath's linear forms, `build/20260925_013426_record_boundary_test`). Under the widths before, the law was ring_0 + 6(n − n/2^ℓ), with floors 1,536, 1,728, 1,824, 1,872, 1,896, 1,880, 1,840, 1,760 and 1,600.
+  - The ring at forward floor ℓ ≥ 1 is ring_0 + n + 2(n − n/2^ℓ), and at the mirror floor 2L − ℓ it is ring_ℓ + n/2^ℓ, one bit for each wrapped low-pass coefficient. The ring is widest at the crystal. Floors 0 to 8: 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600 (keymath's linear forms, `build/20260925_013426_record_boundary_test`). Under the widths before, the law was ring_0 + 6(n − n/2^ℓ), with floors 1,536, 1,728, 1,824, 1,872, 1,896, 1,880, 1,840, 1,760 and 1,600.
   - The heap's pinch, a class's heap at floor 0 over its heap at the crystal, falls from the ramp to ±8 to ±1,024 to noise (the order is checked). **Measured:** 9.61, 3.82, 1.76 and 1.00.
-- **The ring, derived.** With keymath's linear forms (A16 of [engine_table.md](engine_table.md)), every register level ℓ makes, low and high, is w + ℓ + 1 bits.
-  - The first level turns the n samples of width w into n/2 highs and n/2 lows of width w + 2: the ring grows by 2n.
-  - Each level after turns the n/2^{ℓ−1} lows of width w + ℓ into n/2^ℓ highs and n/2^ℓ lows of width w + ℓ + 1: the ring grows by n/2^{ℓ−1}.
+- **The ring, derived.** With keymath's linear forms (A16 of [engine_table.md](engine_table.md)), every register level ℓ makes, low-pass and high-pass, is w + ℓ + 1 bits.
+  - The first level turns the n samples of width w into n/2 high-pass coefficients and n/2 low-pass coefficients of width w + 2: the ring grows by 2n.
+  - Each level after turns the n/2^{ℓ−1} low-pass coefficients of width w + ℓ into n/2^ℓ high-pass coefficients and n/2^ℓ low-pass coefficients of width w + ℓ + 1: the ring grows by n/2^{ℓ−1}.
   - Summed, ring_ℓ = ring_0 + n + 2n(1 − 2^{−ℓ}) for ℓ ≥ 1.
-  - Under the widths before, the constant-divisor narrowing included ([vertical_time_compression.md](vertical_time_compression.md)), a level turned the n/2^{ℓ−1} lows of width W into n/2^ℓ highs of width W + 2 and n/2^ℓ lows of width W + 4, a growth of 6n/2^ℓ, and ring_ℓ = ring_0 + 6n(1 − 2^{−ℓ}).
-  - The mirror floor adds one bit for each of its n/2^ℓ rebuilt lows, the wrap's + 1.
+  - Under the widths before, the constant-divisor narrowing included ([vertical_time_compression.md](vertical_time_compression.md)), a level turned the n/2^{ℓ−1} low-pass coefficients of width W into n/2^ℓ high-pass coefficients of width W + 2 and n/2^ℓ low-pass coefficients of width W + 4, a growth of 6n/2^ℓ, and ring_ℓ = ring_0 + 6n(1 − 2^{−ℓ}).
+  - The mirror floor adds one bit for each of its n/2^ℓ rebuilt low-pass coefficients, the wrap's + 1.
   - Under the widths before, the formula reproduced the replica's column in vertical_time_compression.md (16-bit samples, n = 64, L = 6): 1,024, 1,216, 1,312, 1,360, 1,384, 1,396 and 1,402 going up, 1,398, 1,388, 1,368, 1,328 and 1,248 coming down. The replica's T⁻¹ 0 read 1,024, with the samples wrapped to 16 bits. The scratch run there wrapped them to 17 and read 1,088 = 1,024 + 64, as the formula gives.
   - The growth is n + 2n(1 − 2^{−L}) < 3n for every L: under 3 bits a sample, however many levels. Under the widths before it was under 6.
 - **The ring's shape.** Derived: up the arc ring_0 + n + 2n(1 − 2^{−ℓ}), each level after the first adding half the level before it, widest at the crystal, and back down the same arc plus n/2^ℓ. Which shape is the oval is Doug's call. His words were a "fuzzy oval brush stroke" and "the more oval the shape, the more complex the information base".
@@ -604,9 +604,9 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 
 Doug's name for T. Derived.
 
-- The 5/3 lifting's steps are predict and update, the lifting scheme of [Sweldens (1996)](#src:Sweldens-1996). An odd sample less its prediction from the evens is a high; an even plus a correction from the highs is a low. Each step is undone by the opposite step.
+- The 5/3 lifting's steps are predict and update, the lifting scheme of [Sweldens (1996)](#src:Sweldens-1996). An odd sample less its prediction from the evens is a high-pass coefficient; an even plus a correction from the high-pass coefficients is a low-pass coefficient. Each step is undone by the opposite step.
 - T is not a projection. It is a bijection (proved both ways), and T⁻¹ returns every sample.
-- The pinch is the predictable part moved, not information lost. A ramp's highs are near 0 and its content sits in the few level-L lows. The heap at the crystal is 1/9.61 of the samples' heap for the ramp and 1/1.00 for noise (measured, above). The heap shrinks while the ring grows by n + 2n(1 − 2^{−L}) (6n(1 − 2^{−L}) under the widths ), and the count is kept exactly (det M = 1, Haar counted).
+- The pinch is the predictable part moved, not information lost. A ramp's high-pass coefficients are near 0 and its content sits in the few level-L low-pass coefficients. The heap at the crystal is 1/9.61 of the samples' heap for the ramp and 1/1.00 for noise (measured, above). The heap shrinks while the ring grows by n + 2n(1 − 2^{−L}) (6n(1 − 2^{−L}) under the widths ), and the count is kept exactly (det M = 1, Haar counted).
 
 ## Physical walls
 
@@ -697,7 +697,7 @@ Cited; both pages read, and only what they state is given.
   - Derived: the history is many-to-one, not a bijection. A count keeps how many transitions flipped a bit and loses which: a bit that flips at transitions 1 and 2 and one that flips at 3 and 4 give one count in one window. "Unique" can hold for it only as a statistical ID, like the heap fingerprint above, not as the crystal's one-to-one ID.
   - Derived: agreement between two sections has a chance rate. A drawn null draws the rate (A12's form): a section agreeing past all d draws has chance at most 1/(d + 1) under the null. Agreement past that rate reads as shared membership, Doug's "more than one subset". The logic is the period reading's, where agreement past the null at lag p reads the lattice as belonging to its own shifted copy.
   - The null is spatial ("mutate the data over the spatial coordinate set xyz and get its entire null permutation id"). Built as `knf_identity` ("The knf's identity by spatial null permutation", above).
-  - Open: "the broken edge of the crystal". The history reads raw bits, not the crystal or the part the prediction leaves. Whether the history computed on the crystal's highs is the edge Doug means is not settled.
+  - Open: "the broken edge of the crystal". The history reads raw bits, not the crystal or the part the prediction leaves. Whether the history computed on the crystal's high-pass coefficients is the edge Doug means is not settled.
   - Open: the agreement test between sections, comparing departure curves body against body. The curves are printed; the pairwise test is not built.
 - **The departure curve**: "each piece of information no matter how massive has its own departure curve, and it is the integral of all of its constituents". Posit. His words on comparing curves, and on the mutation as a vector magnitude difference, are in [wants.md](wants.md) with the pairwise test.
   - Derived: E is a sum over edges, and a departure is linear in E and in the draws' sums. The departure of a whole is the sum of its edges' departures, exactly: the integral of its constituents, with the edge as the constituent. The whole equals its tiles plus its seams at every tile size (proved).

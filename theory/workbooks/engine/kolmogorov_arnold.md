@@ -51,7 +51,7 @@ The skeleton is shared: one-variable functions on the edges, sums at the nodes, 
 
 **In the engine** the remainder is determined, three ways and exactly:
 - **Subtracted.** The residual takes the medium out whole: R = 2^{|b|} L_s − L_{s+b}, whose kernel sums to exactly zero: a constant background leaves R unchanged and nothing of it survives as error (A1; **proved**, 0 of 10,485,760,000 lanes differ).
-- **Held.** Every floor's highs, the residue, are kept whole in the crystal: never bounded, modeled or discarded, and rebuilt voxel for voxel (**proved**, 25 of 25).
+- **Held.** Every floor's high-pass coefficients, the residue, are kept whole in the crystal: never bounded, modeled or discarded, and rebuilt voxel for voxel (**proved**, 25 of 25).
 - **Measured.** The entropy history measures the floor per voxel and per bit, as exact counts. On 44b6_0113de3b, bits 0 to 3 flip 499 to 500 times per thousand transitions in every window, at maximum entropy. Bits 5 to 10 fall from about 430 to about 20 where bodies hold them. The fixed pattern is the anchor bits, which never flip (**measured**; the counts **proved** on 2,000 voxels × 9 windows). The null draws read the field's own noise at a body's lag in frames far off in time. A body is real only where it stands above that reading (built).
 
 So where a KAN has one generic base term and an unexplained remainder, the engine names the remainder at every voxel and bit and keeps every bit of it. That is also what makes the compression floor measurable ([compression_table.md](../compression/compression_table.md), F4): the noise is a measured quantity with a place, not a loss value.
