@@ -2,8 +2,6 @@
 
 \section{Finding where a pattern occurs}
 
-\textbf{Purpose:} Measure how much a search gains from checking a few positions of a pattern before comparing all of it, and what that costs. \textbf{Test scope:} the four benches under \texttt{bench/\allowbreak{}driver/\allowbreak{}} at orior commit \texttt{d65d219}, the hash test support of Appendix A, and the engine under \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}} at commit \texttt{1044ca6} (Section 1).
-
 One read of one position settles every alignment whose pattern symbol differs from the symbol read. That is \(m(1-2^{-H_2})\) of the \(m\) alignments in expectation, and it held to within 0.7\% over 84 rows and three ways of choosing the position. The collision probability that sets how many candidates survive therefore also sets how far into a pattern the first mismatch is expected. The same quantity appears once as a rate and once as a length.
 
 The number of candidates a probe finds is an estimator of the R\'enyi entropy of order two \cite{src:Renyi}, also called the collision entropy. In expectation it equals the plug-in estimator when the probe's own match is counted, and the standard unbiased estimator when it is not. Scored against published estimators on sources whose parameters are known, it is worse in both accuracy and running time at every setting tested. It approached the unbiased estimator as the number of probes approached the length of the corpus.
@@ -30,38 +28,12 @@ Section 2 covers the method, Section 3 how the measurements were made, Section 4
 measured, Section 5 what the results mean, Section 6 the limits that were reached, and Sections 7
 and 8 earlier work and open questions.
 
-The software is orior, the repository this work comes from. Its applications are under
-\texttt{examples/\allowbreak{}}, and the engine and its benches are under
-\texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}}
-(\texttt{docs/\allowbreak{}setup.md:29-\allowbreak{}40}).
+The method is implemented in the orior search engine, and Section 2.7 states what the
+implementation guarantees. Section 9 says where the software and data are available.
 
-Paths into orior are at commit \texttt{1044ca6} unless a line names another commit.
-\texttt{orior.h:N} and \texttt{orior.c:N} are lines of
-\texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}orior.h} and
-\texttt{.c}, and paths under \texttt{docs/\allowbreak{}}, \texttt{maint/\allowbreak{}} and
-\texttt{theory/\allowbreak{}workbook/\allowbreak{}} are in the same tree. The bench rows in this
-chapter come from four benches,
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}\{sift,\allowbreak{}lattice,\allowbreak{}entropy,\allowbreak{}ab\}.\allowbreak{}c}.
-A line cited in one of them is a line of \texttt{bench/\allowbreak{}driver/\allowbreak{}} at commit
-\texttt{d65d219}. At later commits the same four benches are
-\texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}\{sift,\allowbreak{}lattice,\allowbreak{}entropy,\allowbreak{}ab\}.\allowbreak{}c},
-and no result here comes from running those copies.
-
-At orior \texttt{1948ae1} the files are in other places. The engine is
-\texttt{src/\allowbreak{}engine/\allowbreak{}nbody/\allowbreak{}orior/}, with the \texttt{scan\_*} files
-beside it; the exact integer and the \texttt{arm\_*} files are in
-\texttt{src/\allowbreak{}engine/\allowbreak{}base/\allowbreak{}no\_rounding/}; and the four benches are
-\texttt{bench/\allowbreak{}bench\_\allowbreak{}\{sift,\allowbreak{}lattice,\allowbreak{}entropy,\allowbreak{}ab\}.\allowbreak{}c}.
-A line number cited at \texttt{1044ca6} has not been checked against those files.
-\texttt{language\_\allowbreak{}variance.\allowbreak{}R} is in \texttt{src/\allowbreak{}engine/\allowbreak{}r/}.
-Section 4's \texttt{classify\_\allowbreak{}reject\_\allowbreak{}recover.\allowbreak{}py} is not in
-\texttt{1044ca6}; it is in later commits from \texttt{cde6011} on, and imports
-\texttt{src/\allowbreak{}engine/\allowbreak{}python/}.
-\texttt{evidence/\allowbreak{}proofs/\allowbreak{}posits/\allowbreak{}recover\_\allowbreak{}indoeuropean\_\allowbreak{}art.\allowbreak{}py}
-is in no orior commit. Every file named here is at orior \texttt{d09b489}, byte for byte the same
-as the files the results were measured with.
-
-The SHA-256 implementation in \texttt{test/\allowbreak{}support} is used here as an instrument. It generates the uniform control corpus and is the test oracle that results are checked against. That control is as strong as its test vectors. Appendix A covers it.
+A SHA-256 implementation is used as an instrument. It generates the uniform control corpus and
+serves as the test oracle that results are checked against. That control is only as strong as its
+test vectors, and Appendix A covers them.
 
 \subsection{2. Mathematical Framework}
 
@@ -86,16 +58,14 @@ The SHA-256 implementation in \texttt{test/\allowbreak{}support} is used here as
 \end{center}
 
 Checking \(\mathrm{Anc}_A(s)\) decides whether an alignment \(s \in G\) is kept as a candidate or
-dropped. Nothing true is lost: every true match is kept, and the full comparison removes the rest
-(\texttt{docs/\allowbreak{}steering.md:10}, \texttt{:118}). The contrapositive \(\neg\,\mathrm{Anc}_A(s) \Longrightarrow \neg\,\mathrm{Occ}(s)\) means
+dropped. Nothing true is lost: every true match is kept, and the full comparison removes the rest. The contrapositive \(\neg\,\mathrm{Anc}_A(s) \Longrightarrow \neg\,\mathrm{Occ}(s)\) means
 that failing one check rules \(s\) out of the search for good.
 
 Any choice of \(A \subseteq D\) gives a correct search, but the choice decides how fast the search
 is. How often the symbols at the positions in \(A\) occur, and their entropy, decide how many
 candidates each check drops. That holds when the probes are independent, and Section 4.6 measures
 cases where they are not. The engine instead chooses probes by how many candidates are left, which
-captures the correlation between positions that a histogram misses
-(\texttt{docs/\allowbreak{}steering.md:42-\allowbreak{}44}).
+captures the correlation between positions that a histogram misses.
 
 The filter is defined only through offsets in \(G\) and comparisons in \(\Sigma\). The search
 gives the same result under translation, permutation, or a change of coordinates. Section 2.2
@@ -105,7 +75,7 @@ same under the other changes is a conjecture.
 
 \subsubsection{2.1 The alphabet and the pattern}
 
-Let \(\Sigma\) be the alphabet. Nothing about it is assumed: no order, no metric, no finite size, and no way to list its members. The only operation available is a test of whether two positions hold equal symbols, and the test always gives an answer. The engine needs the same, and two things more: that the test depend only on the two positions it is given, and that the caller supply the number of alignments, which the engine cannot work out (\texttt{orior.h:354-357}, \texttt{:374-375}, \texttt{:384-387}).
+Let \(\Sigma\) be the alphabet. Nothing about it is assumed: no order, no metric, no finite size, and no way to list its members. The only operation available is a test of whether two positions hold equal symbols, and the test always gives an answer. The engine needs the same, and two things more: that the test depend only on the two positions it is given, and that the caller supply the number of alignments, which the engine cannot work out.
 
 Let \((G,+)\) be an additive group of offsets, and let the data be a map \(x\) from a subset of \(G\) to \(\Sigma\). A pattern is a finite set of offsets \(D \subset G\), together with the symbols found at those offsets from a chosen starting position. For a starting position \(t\) and a candidate position \(s\), define
 \[
@@ -152,11 +122,11 @@ A position that passes a probe is only a candidate. No amount of knowledge about
 
 \noindent\textbf{Any rule for choosing probes is correct.} Section 2.2 holds for every subset, whatever chose it. A frequency table, a random choice, or no table at all cannot produce a false negative when the probes compare the symbols themselves. Probes that compare rarity ranks need one more condition, given below. What a choice of probes changes is how often a probe rules a position out.
 
-\noindent\textbf{The alphabet does not have to be known.} Both conditions are equalities between positions. When the alphabet cannot be listed, there is no table indexed by symbol, but how rare each symbol is can still be counted using equality alone. That costs up to the square of the data length in equality tests (\texttt{orior.h:403}, \texttt{:497-500}). A rule that counts nothing treats every symbol as equally likely: the maximum entropy case. A table of symbol frequencies is the special case for data whose alphabet is known.
+\noindent\textbf{The alphabet does not have to be known.} Both conditions are equalities between positions. When the alphabet cannot be listed, there is no table indexed by symbol, but how rare each symbol is can still be counted using equality alone. That costs up to the square of the data length in equality tests. A rule that counts nothing treats every symbol as equally likely: the maximum entropy case. A table of symbol frequencies is the special case for data whose alphabet is known.
 
 \noindent\textbf{The offsets do not need an order.} The definitions use \(+\) and never \(<\). A grid, a volume, and a rotated set of points differ only in which offsets of \(G\) are in \(D\). A rotation rearranges \(D\), and that changes no term in either condition.
 
-\noindent\textbf{Rarity ranks are safe only within one ranking.} A probe on ranks is guaranteed to be a necessary condition only when the pattern and the data were ranked together. Which class a position is in comes from the caller's equality test, and it carries over to other data when that test is transitive. The rarity order is counted over one set of data and holds only there. Ranks counted over two different sets can rule out a true match (\texttt{orior.h:408-413}, \texttt{:419-429}; Section 2.7).
+\noindent\textbf{Rarity ranks are safe only within one ranking.} A probe on ranks is guaranteed to be a necessary condition only when the pattern and the data were ranked together. Which class a position is in comes from the caller's equality test, and it carries over to other data when that test is transitive. The rarity order is counted over one set of data and holds only there. Ranks counted over two different sets can rule out a true match (Section 2.7).
 
 \subsubsection{2.5 Expected number of symbol reads}
 
@@ -212,25 +182,25 @@ where \(H_2\) is the R\'enyi entropy of order two \cite{src:Renyi}. This predict
 \end{tikzpicture}
 \end{center}
 
-\noindent\textbf{Figure 1.} The filter as \texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:193-\allowbreak{}239} implements it. A probe settles only one outcome for certain, ruling the position out. The other two need the full comparison, and everything below the candidate box costs time.
+\noindent\textbf{Figure 1.} The filter as the benches implement it. A probe settles only one outcome for certain, ruling the position out. The other two need the full comparison, and everything below the candidate box costs time.
 
-\subsubsection{2.7 What the code guarantees}
+\subsubsection{2.7 What the implementation guarantees}
 
-The results above need no code. This section states what the engine at orior commit \texttt{1044ca6} guarantees, which lines of code provide each guarantee, and what each one needs. It also lists claims about the engine that do not hold.
+The results above need no implementation. This section states what the orior engine guarantees, what each guarantee needs, and which claims about the engine do not hold.
 
-\noindent\textbf{The count is exact for any valid set of probes on byte data.} Each probe compares the data with the pattern's own symbol at an offset inside the pattern (\texttt{orior.c:1337}). Each probe is therefore a necessary condition, a set of probes requires all of them, and every alignment the probes leave gets a full comparison (\texttt{:1349-1354}). A probe is valid when every position it reads lies inside the pattern (\texttt{orior.h:844-845}). \texttt{anchor\_steer\_count\_with\_probes} takes the caller's probes without checking that (\texttt{orior.c:1305-1358}). An invalid probe passed to it reads past the end of the pattern and nothing stops it. When the function rejects its input it returns 0, the same value as a count of zero (\texttt{:1309-1312}, \texttt{:1321-1324}). An empty pattern matches at every alignment, and \texttt{orior\_naive}, \texttt{anchor\_steer\_count} and \texttt{anchor\_steer\_count\_with\_probes} each return the data length plus one for it (\texttt{:94}, \texttt{:1372-1375}, \texttt{:1317-1320}). On ranked data the full comparison compares ranks, and the count is exact only where each rank stands for exactly one class (below).
+\noindent\textbf{The count is exact for any valid set of probes on byte data.} Each probe compares the data with the pattern's own symbol at an offset inside the pattern. Each probe is therefore a necessary condition, a set of probes requires all of them, and every alignment the probes leave gets a full comparison. A probe is valid when every position it reads lies inside the pattern. The counting routine that accepts a caller's probes does not check this, and an invalid probe reads past the end of the pattern unchecked. A rejected input returns 0, the same value as a count of zero. An empty pattern matches at every alignment, and every counting routine returns the data length plus one for it. On ranked data the full comparison compares ranks, and the count is exact only where each rank stands for exactly one class (below).
 
-\noindent\textbf{Nothing accumulates, and the engine is not a streaming algorithm.} Every comparison is an exact equality. A planning pass marks every alignment as a candidate once, when it starts, and after that only removes candidates (\texttt{orior.c:948-953}, \texttt{:621}, \texttt{:638}). Every level it reaches is a complete set of probes and gives the same count as any other (\texttt{docs/\allowbreak{}steering.md:83}). Planning can stop at any level. The pass over alignments cannot stop early, because that would lose matches (\texttt{:85}). A planning pass places probes and counts nothing. Its output is the list of candidates, one byte per alignment (\texttt{orior.h:666-670}), which grows with the length of the data (\texttt{docs/\allowbreak{}steering.md:69}). The space bounds proved for streaming pattern matching describe a different model (Section 7.5), and the engine does not sit at a space lower bound (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:294-\allowbreak{}310}).
+\noindent\textbf{Nothing accumulates, and the engine is not a streaming algorithm.} Every comparison is an exact equality. A planning pass marks every alignment as a candidate once, when it starts, and after that only removes candidates. Every level it reaches is a complete set of probes and gives the same count as any other. Planning can stop at any level. The pass over alignments cannot stop early, because that would lose matches. A planning pass places probes and counts nothing. Its output is the list of candidates, one byte per alignment, which grows with the length of the data. The space bounds proved for streaming pattern matching describe a different model (Section 7.5), and the engine does not sit at a space lower bound.
 
-\noindent\textbf{Probes are placed by greedy coverage.} Write \(R_p\) for the alignments a probe \(p\) rules out. Then \(f(P) = |\bigcup_{p \in P} R_p|\) is monotone and submodular (\texttt{docs/\allowbreak{}steering.md:210-\allowbreak{}214}). \texttt{anchor\_\allowbreak{}steer\_\allowbreak{}spawn\_\allowbreak{}coarms} keeps the probe that leaves the fewest candidates (\texttt{orior.c:991-1000}). Fewest candidates is the largest gain in \(f\). By Nemhauser, Wolsey and Fisher \cite{src:Nemhauser-Wolsey-and-Fisher} the probes it places rule out at least \(1 - 1/e\) of what the best set of the same number of single position probes rules out (\texttt{orior.h:783-790}). The bound counts alignments ruled out, and two sets of probes that rule out the same alignments can still cost different numbers of reads. It holds only at a \texttt{sample\_stride} of one, where every gain is scored exactly (\texttt{:792-796}). \texttt{anchor\_steer\_plan\_recursive} chooses among the caller's own offsets and may place all of them (\texttt{orior.c:968}). The best set of that size is then the whole set. The ratio holds trivially and guarantees nothing. Stopping when a probe gains nothing is the same as going on only where the set of candidates never grows from one level to the next, and submodularity does not guarantee that (\texttt{docs/\allowbreak{}steering.md:220-\allowbreak{}224}).
+\noindent\textbf{Probes are placed by greedy coverage.} Write \(R_p\) for the alignments a probe \(p\) rules out. Then \(f(P) = |\bigcup_{p \in P} R_p|\) is monotone and submodular. The planner keeps the probe that leaves the fewest candidates, the largest gain in \(f\). By Nemhauser, Wolsey and Fisher \cite{src:Nemhauser-Wolsey-and-Fisher} the probes it places rule out at least \(1 - 1/e\) of what the best set of the same number of single position probes rules out. The bound counts alignments ruled out, and two sets of probes that rule out the same alignments can still cost different numbers of reads. It holds only when every gain is scored exactly, at a sampling stride of one. Where the planner chooses among the caller's own offsets and places all of them, the best set of that size is the whole set, and the ratio holds trivially and guarantees nothing. Stopping when a probe gains nothing is the same as going on only where the set of candidates never grows from one level to the next, and submodularity does not guarantee that.
 
-\noindent\textbf{A planning pass stops, goes a level deeper, rejects its input or runs out of probes, and it never returns to an earlier state.} When it rejects its input it returns 0 and writes nothing (\texttt{orior.c:918-944}). An offset already placed is never scored again (\texttt{:977-989}). A pass with no unplaced offset left stops without applying the stopping rule (\texttt{:1003-1006}): asked for four probes for the pattern \texttt{ab} in the data \texttt{abxbay}, it places two, with \texttt{force\_full\_depth} off and on alike. It returns at most the number of probes asked for (\texttt{orior.h:707-710}, \texttt{:767-769}). The depth is at most \texttt{ANCHOR\_STEER\_ANCHORS}, defined as \texttt{ORIOR\_ANCHORS}, which is 4 (\texttt{:90}, \texttt{:39}). Below that limit, the number of probes asked for, the offsets available and the data decide how deep a pass goes. The stopping rule compares candidate counts read from the data, and \texttt{force\_full\_depth}, which overrides it, is zero unless the caller sets it (\texttt{orior.c:1019-1023}; \texttt{orior.h:631-634}, \texttt{:738-743}). The depth is not fixed before the program runs. The probe sequences of Section 4, which go to six probes, come from a different program.
+\noindent\textbf{A planning pass stops, goes a level deeper, rejects its input or runs out of probes, and it never returns to an earlier state.} A rejected input returns 0 and writes nothing. An offset already placed is never scored again. A pass with no unplaced offset left stops without applying the stopping rule: asked for four probes for the pattern \texttt{ab} in the data \texttt{abxbay}, it places two, whether or not full depth is forced. It returns at most the number of probes asked for, and its depth is at most 4. Below that limit, the number of probes asked for, the offsets available and the data decide how deep a pass goes. The stopping rule compares candidate counts read from the data, and it is overridden only when the caller forces full depth. The depth is not fixed before the program runs. The probe sequences of Section 4, which go to six probes, come from the benches and not from the planner.
 
-\noindent\textbf{Where the reads run.} The counting functions are written as plain loops over one symbol at a time (\texttt{orior.c:94}, \texttt{:1327}, \texttt{:1389}), and so is a planning pass over data of any symbol type (\texttt{:511-531}), because an equality test hides the representation that a vector compare would read. The only vectorized path is the planner's scan of candidates on byte data at a stride of one (\texttt{:537-562}). It uses the widest instruction set that the build includes and the processor reports: AVX-512 before AVX2 on x86, SVE before NEON on ARM, and the portable version last (\texttt{:1423-1466}). The scan kernels and the exact integer kernels each have one file per instruction set, for the same six sets: portable, AVX2, AVX-512, NEON, SVE and CUDA (\texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}scan\_*}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}no\_rounding/\allowbreak{}arm\_*}), and a check fails if the two lists differ (\texttt{maint/\allowbreak{}engine/\allowbreak{}check\_arm\_families.py:4-14}). Both kinds compute one operation, an equality at a fixed offset counted over positions. A scan kernel counts the candidates whose byte at one offset is the wanted byte (\texttt{docs/\allowbreak{}arm-\allowbreak{}verification.md:6}), and an exact integer kernel counts the positions whose value equals the value a fixed lag away (\texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}no\_rounding/\allowbreak{}exact\_integer.h:228-\allowbreak{}235}). The AVX2, NEON and CUDA scan kernels have been run against the portable kernel with no disagreement over the inputs in \texttt{docs/\allowbreak{}arm-\allowbreak{}verification.md:18-\allowbreak{}25}. The AVX-512 and SVE scan kernels have never been run, and are checked only by the instructions in their compiled objects (\texttt{:29-38}). The CUDA kernel is not selected automatically (\texttt{orior.h:1160-1162}).
+\noindent\textbf{Where the reads run.} The counting routines are plain loops over one symbol at a time, and so is a planning pass over data of any symbol type, because an equality test hides the representation that a vector compare would read. The only vectorized path is the planner's scan of candidates on byte data at a stride of one. It uses the widest instruction set that the build includes and the processor reports: AVX-512 before AVX2 on x86, SVE before NEON on ARM, and the portable version last. The scan kernels and the exact integer kernels are each implemented for the same six targets: portable, AVX2, AVX-512, NEON, SVE and CUDA. Both kinds compute one operation, an equality at a fixed offset counted over positions. A scan kernel counts the candidates whose byte at one offset is the wanted byte, and an exact integer kernel counts the positions whose value equals the value a fixed lag away. The AVX2, NEON and CUDA scan kernels agree with the portable kernel on every input they have been run on. The AVX-512 and SVE scan kernels have never been run, and are checked only by the instructions in their compiled objects. The CUDA kernel is not selected automatically.
 
-\noindent\textbf{Any symbol type through equality, and ranks only within one ranking.} The engine sees a symbol only through \texttt{AnchorSameAt}, an equality test at two positions (\texttt{orior.h:354-357}, \texttt{:377}), and a planning pass works on data of any symbol type through that alone (\texttt{orior.c:526}, \texttt{:619}). \texttt{anchor\_field\_project} turns such data into byte ranks, rarest first (\texttt{orior.h:403}, \texttt{:485-487}). A rank combines a class, taken from the caller's equality test, with a place in a rarity order counted over the data that call saw, and that place does not carry over to other data (\texttt{:408-413}). Ranks from two separate calls can rule out a true match (\texttt{:419-429}). Classes are the transitive closure of the equality test over the positions present (\texttt{:443-453}; \texttt{orior.c:684-706}), at a cost of up to the square of the data length in equality tests (\texttt{orior.h:497-500}). \texttt{anchor\_field\_pair\_project} ranks the data and the pattern together (\texttt{:586}; \texttt{orior.c:885-888}). A class gets the same rank on both sides, and no true match is lost under any equality test (\texttt{orior.h:450-451}, \texttt{:604-605}). Its count is exact with 256 classes or fewer under a transitive equality test (\texttt{:596-598}). With more than 256 classes, or under a test whose closure joins positions that do not agree, the count is an upper bound (\texttt{:450-453}, \texttt{:600-603}).
+\noindent\textbf{Any symbol type through equality, and ranks only within one ranking.} The engine sees a symbol only through an equality test at two positions, and a planning pass works on data of any symbol type through that alone. A projection turns such data into byte ranks, rarest first. A rank combines a class, taken from the caller's equality test, with a place in a rarity order counted over the data that call saw, and that place does not carry over to other data. Ranks from two separate projections can rule out a true match. Classes are the transitive closure of the equality test over the positions present, at a cost of up to the square of the data length in equality tests. A joint projection ranks the data and the pattern together. A class then gets the same rank on both sides, and no true match is lost under any equality test. The count is exact with 256 classes or fewer under a transitive equality test. With more than 256 classes, or under a test whose closure joins positions that do not agree, the count is an upper bound.
 
-\noindent\textbf{Not built, and open.} A reader that the engine could call for more data is described in prose only, with no function signature or contract, and nothing is being built toward it (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:241-\allowbreak{}257}). Whether a caller's loop over planning passes can compute anything computable is open. The model named as the target is a tag system \cite{src:Post, src:Minsky}, no translation into it is written, and the engine as built is finite (\texttt{docs/\allowbreak{}steering.md:160}, \texttt{:188-\allowbreak{}192}).
+\noindent\textbf{Not built, and open.} A reader that the engine could call for more data is described and has no interface. Whether a caller's loop over planning passes can compute anything computable is open. The model named as the target is a tag system \cite{src:Post, src:Minsky}, no translation into it is written, and the engine as built is finite.
 
 \subsection{3. How the measurements were made}
 
@@ -245,28 +215,28 @@ data that nobody here made.
 \toprule
 bench & question & reports \\
 \midrule
-\texttt{bench\_ancorae\_sift.c} &
+strings &
   how many candidates pass, and whether probes are independent, on byte strings &
   candidates, skip, \(I(d)\), \(z\), false negatives \\
 \addlinespace[0.4em]
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c} &
+geometries &
   whether Section 2.2 holds beyond a single line &
   candidates, false negatives \\
 \addlinespace[0.4em]
-\texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c} &
+entropy &
   how good the candidate count is as an entropy estimator &
   bias, root mean square error \\
 \addlinespace[0.4em]
-\texttt{bench\_ancorae\_ab.c} &
+whole search &
   how a whole search compares with one built another way &
   symbol reads of the data \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent\textbf{The benches are not the engine.} They run sequences of up to six probes, and the planning pass of Section 2.7 places at most four (\texttt{orior.h:39}, \texttt{:90}).
+\noindent\textbf{The benches are not the engine.} They run sequences of up to six probes, and the planning pass of Section 2.7 places at most four.
 
-The examples under \texttt{examples/\allowbreak{}} are 122 scripts across nine fields, each one a step of the same pipeline, and every result about real data in the other research papers comes from one of them. Appendix B lists the steps and how far each field gets.
+The examples are 122 programs across nine fields, each one a step of the same pipeline, and every result about real data in the companion research papers comes from one of them. Appendix B lists the steps and how far each field gets.
 
 Nothing is timed. No row is a claim about speed, and every number depends only on the data and
 the geometry. It is the same on every machine.
@@ -278,7 +248,7 @@ Every row of every bench reports two counts, and they are judged differently.
 \noindent\textbf{False negatives.} The number of true matches a probe ruled out. Section 2.2 allows
 one value, zero. A nonzero count is a bug in the bench and never a property of the data: no
 distribution, geometry or alphabet can break a result that holds for every subset. In the engine,
-an equality test that depends on more than its two positions (\texttt{orior.h:374-375}) and ranks
+an equality test that depends on more than its two positions and ranks
 from two separate rankings (Section 2.7) are such bugs. A row that reports a false negative shows a
 bug to fix and is never read as a result.
 
@@ -287,8 +257,7 @@ comparison. This one is expected to change with the choice rule, the number of p
 geometry, and Section 4 measures how it changes. It has no correct value.
 
 A case with nothing to check prints \texttt{none} instead of zero, so that a row with no work to do
-cannot be mistaken for a row that did the work and found nothing
-(\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:715-\allowbreak{}757}).
+cannot be mistaken for a row that did the work and found nothing.
 
 \subsubsection{3.3 The byte string corpora}
 
@@ -313,12 +282,11 @@ corpus & content & \(H_2\) (bits) \\
 Patterns are taken from the corpus. Every one of them occurs. A corpus made by repeating a unit
 looks the same at the scale of that unit, and then every pattern occurs once per repeat simply
 because of how the corpus was made. Section 6.5 shows the measurement this spoils. The fill is cut
-off at the corpus length instead of repeated
-(\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:190-\allowbreak{}193}).
+off at the corpus length instead of repeated.
 
 \subsubsection{3.4 Rules for choosing probes}
 
-There are three rules, as different as the interface allows (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:342-\allowbreak{}347}, \texttt{361-\allowbreak{}420}):
+There are three rules, as different as the interface allows:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -340,7 +308,7 @@ That is the arrangement where multiplying two probes' rates is least accurate.
 
 \subsubsection{3.5 Geometries}
 
-Six cases share one core, which takes a list of valid starting positions, a list of offsets, and a function that says whether two positions hold the same symbol (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:80}, \texttt{193-\allowbreak{}239}). The core has no dimension parameter, because the geometry is entirely in the list of starting positions, and no symbol type, because it only asks whether two symbols are equal.
+Six cases share one core, which takes a list of valid starting positions, a list of offsets, and a function that says whether two positions hold the same symbol. The core has no dimension parameter, because the geometry is entirely in the list of starting positions, and no symbol type, because it only asks whether two symbols are equal.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -348,25 +316,25 @@ Six cases share one core, which takes a list of valid starting positions, a list
 \toprule
 case & \(G\) & \(D\) \\
 \midrule
-\texttt{line1d} & \(\mathbb{Z}\) & 8 contiguous offsets \\
-\texttt{grid2d\_\allowbreak{}box} & \(\mathbb{Z}^2\) & a 2 by 4 rectangle \\
-\texttt{grid2d\_\allowbreak{}scatter} & \(\mathbb{Z}^2\) & 8 points in a 5 by 5 window, no row or column filled \\
-\texttt{grid2d\_\allowbreak{}turned} & \(\mathbb{Z}^2\) & that scatter under \((r,c) \mapsto (c, 4-r)\) \\
-\texttt{cube3d\_\allowbreak{}box} & \(\mathbb{Z}^3\) & a 2 by 2 by 2 block \\
-\texttt{field1d\_\allowbreak{}complex} & \(\mathbb{Z}\) & 8 contiguous offsets over complex symbols \\
+1D line & \(\mathbb{Z}\) & 8 contiguous offsets \\
+2D box & \(\mathbb{Z}^2\) & a 2 by 4 rectangle \\
+2D scatter & \(\mathbb{Z}^2\) & 8 points in a 5 by 5 window, no row or column filled \\
+2D scatter, turned & \(\mathbb{Z}^2\) & that scatter under \((r,c) \mapsto (c, 4-r)\) \\
+3D box & \(\mathbb{Z}^3\) & a 2 by 2 by 2 block \\
+1D complex & \(\mathbb{Z}\) & 8 contiguous offsets over complex symbols \\
 \texttt{cube1d} to \texttt{cube8d} & \(\mathbb{Z}^d\), \(d = 1 \dots 8\) & a star: the origin, then one step out along each axis in turn \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-\texttt{field1d\_\allowbreak{}complex} holds \texttt{double \_\allowbreak{}Complex} values made from square roots of primes, and compares them by their stored bytes (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:479-\allowbreak{}511}). Nothing in the file reads a value, orders values, or interprets them.
+1D complex holds \texttt{double \_\allowbreak{}Complex} values made from square roots of primes, and compares them by their stored bytes. Nothing in the file reads a value, orders values, or interprets them.
 
 
-Probes are chosen by three rules that use no information about the data: the first points, points spaced evenly across the pattern, and a permutation drawn from SHA-256 (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:291}). That file has no cost table and cannot have one, because data whose alphabet cannot be listed has no symbol frequencies to weigh.
+Probes are chosen by three rules that use no information about the data: the first points, points spaced evenly across the pattern, and a permutation drawn from SHA-256. That file has no cost table and cannot have one, because data whose alphabet cannot be listed has no symbol frequencies to weigh.
 
 \subsubsection{3.6 Estimating collision entropy}
 
-Each source is written down as a distribution before any data is drawn from it. The true collision probability is therefore known in advance, and no estimator is scored against a histogram of the same corpus it was computed from (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c:160}). There are eight sources: uniform over 2, 16 and 256 symbols; Zipf \cite{src:Zipf} with exponents 0.5, 1.0 and 1.5; and two sources that put probability 0.90 and 0.99 on one symbol. Corpora are drawn by inverse transform sampling at lengths 256, 1024, 4096 and 16384, with 64 independent trials per row.
+Each source is written down as a distribution before any data is drawn from it. The true collision probability is therefore known in advance, and no estimator is scored against a histogram of the same corpus it was computed from. There are eight sources: uniform over 2, 16 and 256 symbols; Zipf \cite{src:Zipf} with exponents 0.5, 1.0 and 1.5; and two sources that put probability 0.90 and 0.99 on one symbol. Corpora are drawn by inverse transform sampling at lengths 256, 1024, 4096 and 16384, with 64 independent trials per row.
 
 Four estimators of the same quantity are scored by bias and root mean square error in bits:
 
@@ -384,9 +352,9 @@ probe, own match left out & the same, less the probe's own match & neither \\
 \end{longtable}
 \normalsize
 
-The unbiased estimator and the plug-in estimator with its first order bias correction are the same expression. They are one estimator, not two (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c:256-\allowbreak{}344}).
+The unbiased estimator and the plug-in estimator with its first order bias correction are the same expression. They are one estimator, not two.
 
-A fifth quantity, the most common value estimate of min-entropy from NIST SP 800-90B section 6.3.1 \cite{src:NIST-SP-800-90B}, is computed for comparison and is not scored on the same scale, because min-entropy measures something different (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c:379}).
+A fifth quantity, the most common value estimate of min-entropy from NIST SP 800-90B section 6.3.1 \cite{src:NIST-SP-800-90B}, is computed for comparison and is not scored on the same scale, because min-entropy measures something different.
 
 \subsection{4. Results}
 
@@ -451,22 +419,22 @@ The candidates that pass under rule \texttt{shuffled}, against the \(N \cdot 2^{
 geometry & \(n{=}1\) & \(n{=}2\) & \(n{=}3\) & \(n{=}4\) & \(n{=}5\) & \(n{=}6\) \\
 \midrule
 predicted & 2044.5 & 1022.3 & 511.1 & 255.6 & 127.8 & 63.9 \\
-\texttt{line1d} & 2044.7 & 1025.7 & 516.7 & 259.4 & 129.2 & 65.4 \\
-\texttt{grid2d\_\allowbreak{}scatter} & 1797.8 & 901.5 & 449.5 & 223.1 & 112.6 & 56.9 \\
-\texttt{grid2d\_\allowbreak{}turned} & 1801.7 & 902.7 & 448.6 & 223.3 & 112.1 & 56.7 \\
-\texttt{cube3d\_\allowbreak{}box} & 1685.3 & 840.5 & 422.3 & 212.7 & 105.2 & 52.3 \\
-\texttt{field1d\_\allowbreak{}complex} & 2046.4 & 1023.4 & 511.9 & 256.2 & 128.9 & 64.7 \\
+1D line & 2044.7 & 1025.7 & 516.7 & 259.4 & 129.2 & 65.4 \\
+2D scatter & 1797.8 & 901.5 & 449.5 & 223.1 & 112.6 & 56.9 \\
+2D scatter, turned & 1801.7 & 902.7 & 448.6 & 223.3 & 112.1 & 56.7 \\
+3D box & 1685.3 & 840.5 & 422.3 & 212.7 & 105.2 & 52.3 \\
+1D complex & 2046.4 & 1023.4 & 511.9 & 256.2 & 128.9 & 64.7 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
 The grid and cube rows are below the prediction because those geometries have fewer starting positions, 3600 and 3375 against 4089 on the line. Within each row, every added probe halves the count, as predicted.
 
-\noindent\textbf{Rotation makes no difference.} \texttt{grid2d\_\allowbreak{}scatter} and \texttt{grid2d\_\allowbreak{}turned} are the same eight points a quarter turn apart, and they agree at every number of probes. That measures the third point of Section 2.4.
+\noindent\textbf{Rotation makes no difference.} 2D scatter and 2D scatter, turned are the same eight points a quarter turn apart, and they agree at every number of probes. That measures the third point of Section 2.4.
 
-\noindent\textbf{Complex numbers behave like bytes.} \texttt{field1d\_\allowbreak{}complex} matches \texttt{line1d} to within 0.1\% at every count, with the geometry the same and only the symbol type changed.
+\noindent\textbf{Complex numbers behave like bytes.} 1D complex matches 1D line to within 0.1\% at every count, with the geometry the same and only the symbol type changed.
 
-\noindent\textbf{The cost formula holds in every dimension tested.} The hypercube cases put one point of the pattern at the origin and each of the others one step out along the next axis. Each new point of the pattern adds a new axis. The pattern is never a lower dimensional shape sitting inside a larger space (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:686}). Measured against \(1 + (P-1)2^{-n}\) for \(P\) positions and \(n\) probes, which counts the one match the pattern always has with itself:
+\noindent\textbf{The cost formula holds in every dimension tested.} The hypercube cases put one point of the pattern at the origin and each of the others one step out along the next axis. Each new point of the pattern adds a new axis. The pattern is never a lower dimensional shape sitting inside a larger space. Measured against \(1 + (P-1)2^{-n}\) for \(P\) positions and \(n\) probes, which counts the one match the pattern always has with itself:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -484,7 +452,7 @@ ratio at \(n{=}6\) & 0.969 & 1.020 & 1.017 & 1.001 & 0.980 & 0.996 & 1.013 & 0.9
 
 Across all 48 rows the ratio stays between 0.969 and 1.028. Seven points away from the origin can reach at most seven axes. The eight dimensional pattern spans seven of its eight. That is a limit of the pattern's size, not of the method.
 
-The prediction has to include the pattern's guaranteed match with itself. Without it, the ratio drifts to 1.22 on the smallest data: the same mistake Section 6.5 describes.
+The prediction has to include the pattern's guaranteed match with itself. Without it, the ratio drifts to 1.22 on the smallest data: the first pitfall of Section 6.5.
 
 \subsubsection{4.3 How much each rule for choosing probes gains}
 
@@ -526,7 +494,7 @@ The numerator is the rate of a probe chosen with no information, from Section 2.
 
 \noindent\textbf{The ceiling is exactly 1 if and only if \(p\) is uniform on the symbols that occur.} If every nonzero \(p_\sigma\) equals \(1/k\), then \(F\) is a single step, the integral is \(1/k\), and \(\sum_\sigma p_\sigma^2\) is also \(1/k\). If two nonzero probabilities differ, then for \(m \ge 2\) the rarest of \(m\) draws is strictly below the size weighted mean and the quotient is greater than one. A source with a single symbol and a uniform source are both uniform on the symbols that occur. Both ends of Section 4.3 report a gain of one, and entropy plays no part in either.
 
-Computed for patterns of length 16 from each corpus's own frequencies (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:933}):
+Computed for patterns of length 16 from each corpus's own frequencies:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -582,7 +550,7 @@ A symbol that is not in the pattern rules out every alignment that covers the po
 
 \(\mathbb{E}[R] \;=\; m\Bigl(1 - \sum_\sigma p_\sigma^2\Bigr) \;=\; m\bigl(1 - 2^{-H_2}\bigr)\)
 
-The quantity that sets the candidate rate in Section 4.4 also sets how far into a pattern the first mismatch is expected. It appears once as a rate and once as a length. Measured at every pattern length on every corpus (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:1024}):
+The quantity that sets the candidate rate in Section 4.4 also sets how far into a pattern the first mismatch is expected. It appears once as a rate and once as a length. Measured at every pattern length on every corpus:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -645,7 +613,7 @@ The probe's error falls as one over the square root of the number of probes, and
 
 \paragraph{4.5.1 Bias correction by falling factorials}
 
-The correction stops a position from being paired with itself. Applied to \(k\)-tuples, it leaves out every tuple in which two indices are the same, which puts a falling factorial in the numerator and the denominator and gives the unbiased estimator of \(\sum_\sigma p(\sigma)^k\) (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c:463-\allowbreak{}500}). So the correction extends order by order, and each order estimates the R\'enyi entropy of that order.
+The correction stops a position from being paired with itself. Applied to \(k\)-tuples, it leaves out every tuple in which two indices are the same, which puts a falling factorial in the numerator and the denominator and gives the unbiased estimator of \(\sum_\sigma p(\sigma)^k\). So the correction extends order by order, and each order estimates the R\'enyi entropy of that order.
 
 At order two the correction has a closed form. Writing \(C = \sum_\sigma \hat p(\sigma)^2\) for the plug-in collision probability, the corrected value is \((CN-1)/(N-1)\). The two differ by
 
@@ -687,7 +655,7 @@ This correction and the ceiling of Section 4.3.1 depend on different properties 
 
 \subsubsection{4.6 Dependence between probes in a sequence}
 
-The ratio of measured candidates to the number predicted under independence, for patterns of length 16 (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:541-\allowbreak{}632}):
+The ratio of measured candidates to the number predicted under independence, for patterns of length 16:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -835,7 +803,7 @@ On the uniform corpus every table does about the same, at 277.1, 256.0, 277.7 an
 
 \subsubsection{4.9 A left to right search against probe filtering}
 
-Sections 4.3 to 4.6 measure candidate rates, which is not the same as the work a whole search does. \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} runs every method on one corpus, with one set of patterns and one counter, the number of symbols read from the data, and checks every method's matches against a brute force scan. A row where the methods disagree prints BROKEN and is not used.
+Sections 4.3 to 4.6 measure candidate rates, which is not the same as the work a whole search does. The whole-search bench runs every method on one corpus, with one set of patterns and one counter, the number of symbols read from the data, and checks every method's matches against a brute force scan. A row where the methods disagree prints BROKEN and is not used.
 
 \paragraph{4.9.1 The cost of probing the rarest symbol}
 
@@ -1022,7 +990,7 @@ corpus & \(m = 4\) & \(m = 16\) & \(m = 64\) & \(m = 128\) & \(m = 256\) \\
 \end{longtable}
 \normalsize
 
-The dependency depth is 2 on every row, as the method requires. It is the depth of \texttt{orior\_free}, where every probe is issued at once and one branch is taken on the combined result (\texttt{orior.h:155-157}), and it has nothing to do with how many levels a planning pass goes through (Section 2.7).
+The dependency depth is 2 on every row, as the method requires. It is the depth of the branch-free search, where every probe is issued at once and one branch is taken on the combined result, and it has nothing to do with how many levels a planning pass goes through (Section 2.7).
 
 \noindent\textbf{The probing step behaves exactly as modeled, and the model still fails.} The candidates left after probing at \(m = 256\) are 1, 7, 8, 11 and 2 on the five corpora, against a prediction of 1.25 to 3.84. The reads are going somewhere the model does not count.
 
@@ -1107,7 +1075,7 @@ A model can be wrong in a place no one is watching. The weakest stated assumptio
 
 Section 7.1 separates two approaches. A fixed set of probes can be made safe by working it out from the pattern in advance, as deterministic sampling does. Sections 4.9.5 and 4.9.6 measure a fixed set of probes without that step, and it fails. A third approach holds no fixed set of probes at all.
 
-The rule needs no analysis of the pattern and no distribution. The symbol about to be read is unknown. Every position rules out the same expected fraction of the alignments that cover it, and what differs between positions is how many remaining alignments cover them. So the next read goes where the remaining candidates overlap most, which depends only on the answers so far. The rule stops when a read would rule nothing out, and then confirms what is left (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:1139-\allowbreak{}1148}). It scores each read by a fraction expected before the read is made. The \(1 - 1/e\) bound that Section 2.7 states for the engine's exactly scored planning pass is not known to hold for it.
+The rule needs no analysis of the pattern and no distribution. The symbol about to be read is unknown. Every position rules out the same expected fraction of the alignments that cover it, and what differs between positions is how many remaining alignments cover them. So the next read goes where the remaining candidates overlap most, which depends only on the answers so far. The rule stops when a read would rule nothing out, and then confirms what is left. It scores each read by a fraction expected before the read is made. The \(1 - 1/e\) bound that Section 2.7 states for the engine's exactly scored planning pass is not known to hold for it.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1151,7 +1119,7 @@ Section 2.1 does not assume that the alphabet can be listed. It does not follow 
 
 Section 2.2 does not mention the width. Correctness holds at every width at once. What the width changes is cost. A read of \(w\) bits costs \(w\) bits of reading and yields \(H_2(w)\) bits of information. A search spends \(w \log_2 N / H_2(w)\). The quantity to compare across widths is \(H_2(w)/w\).
 
-Measured over windows starting at every bit offset, since a read can begin anywhere (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:1122}):
+Measured over windows starting at every bit offset, since a read can begin anywhere:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1176,7 +1144,7 @@ The ratio falls with width on every corpus. Reading English a byte at a time yie
 
 \subsubsection{4.11 Finding a period without a pattern}
 
-Every measurement before this one is given a pattern, but the method does not need one. A shift \(d\) is the hypothesis that the corpus agrees with itself \(d\) positions apart, any two positions read \(d\) apart test it, and one disagreement rules it out for good. So the pattern is not one string but every shift at once, and the reads are shared by all of them: \(k\) positions give \(k(k-1)/2\) tests. Here 512 reads test 130,816 pairs (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:1341}).
+Every measurement before this one is given a pattern, but the method does not need one. A shift \(d\) is the hypothesis that the corpus agrees with itself \(d\) positions apart, any two positions read \(d\) apart test it, and one disagreement rules it out for good. So the pattern is not one string but every shift at once, and the reads are shared by all of them: \(k\) positions give \(k(k-1)/2\) tests. Here 512 reads test 130,816 pairs.
 
 \noindent\textbf{The significance threshold cannot be trusted, and is not used alone.} Tests of one shift share positions. They are not independent, and a standard error computed as if they were is too small. With that threshold alone, the uniform corpus, which is SHA-256 output and has nothing to find, reports twelve shifts.
 
@@ -1205,7 +1173,7 @@ One corpus has structure of this kind, the one built with a period. Its stronges
 
 Section 4.11 asks whether a corpus repeats at a fixed distance, and prose does not. A different question applies to it. Whatever else a language is, it is built from units, and something in it marks where one unit ends, a separator or a rule. If nothing does, there are no units. That leaves a trace that the same reads can measure.
 
-If a symbol's positions have no structure, the gaps between its occurrences follow a geometric distribution, and the ratio of the variance of the gaps to their squared mean, the squared coefficient of variation, is close to one. A separator bounds the length of a unit. Its gaps are much more even and the ratio falls. The statistic has no units and no scale. One threshold means the same on any alphabet and any corpus (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:1502-\allowbreak{}1508}). The shuffle calibrates it as before: it keeps every symbol's count and destroys where the symbols are, which makes every symbol's gaps geometric.
+If a symbol's positions have no structure, the gaps between its occurrences follow a geometric distribution, and the ratio of the variance of the gaps to their squared mean, the squared coefficient of variation, is close to one. A separator bounds the length of a unit. Its gaps are much more even and the ratio falls. The statistic has no units and no scale. One threshold means the same on any alphabet and any corpus. The shuffle calibrates it as before: it keeps every symbol's count and destroys where the symbols are, which makes every symbol's gaps geometric.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1230,7 +1198,7 @@ Nothing here is given a pattern, a dictionary, or an idea of what a unit is. Wha
 
 \paragraph{4.12.1 Boundary spacing as a filter}
 
-A known boundary symbol turns a corpus into a sequence of gaps, and a pattern with \(k\) boundaries has \(k-1\) gaps between them that every true match must reproduce. That sequence is a filter by itself, before any other symbol is examined (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:1639-\allowbreak{}1650}).
+A known boundary symbol turns a corpus into a sequence of gaps, and a pattern with \(k\) boundaries has \(k-1\) gaps between them that every true match must reproduce. That sequence is a filter by itself, before any other symbol is examined.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1261,7 +1229,7 @@ The uniform corpus also comes down to a single candidate, with a marker that is 
 
 Section 4.12 finds a boundary and Section 4.12.1 uses it. Neither says whether what it found belongs to language or to the one English sample it was run on, which the author of this paper wrote. Two regularities are said to hold for every natural language: the frequency of a unit falls roughly as the reciprocal of its rank, and the frequent units are the short ones \cite{src:Zipf}. Both are explained as effects of communicating with limited effort. Neither should depend on which language it is or when the text was written.
 
-Six public domain texts \cite{src:Project-Gutenberg} are downloaded by \texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}fetch\_\allowbreak{}language\_\allowbreak{}corpora.\allowbreak{}py} and read by \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c} from a path. Line endings are first turned into spaces, because a plain text file wrapped at a fixed width has a line break every fifty or so bytes, and the detector would find the publisher's formatting before the language.
+Six public domain texts are taken from Project Gutenberg \cite{src:Project-Gutenberg} and read by the whole-search bench. Line endings are first turned into spaces, because a plain text file wrapped at a fixed width has a line break every fifty or so bytes, and the detector would find the publisher's formatting before the language.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1328,7 +1296,7 @@ Two conditions now apply to a candidate boundary, and both came out of these fai
 
 Every measurement above counted bytes, and nothing in this paper justified that. Section 4.10 already shows that where one symbol ends is a choice the method has to make, and the byte was chosen here out of habit.
 
-A Greek text exposes the choice. The detector returned \texttt{0x68} at a mean gap of 21.24, which is not the word boundary, and the regularities collapsed to a Zipf slope of \texttt{-\allowbreak{}0.\allowbreak{}049}. The cause is visible in the file without knowing what language it holds. UTF-8 marks its own structure, a lead byte from \texttt{0x\allowbreak{}C2} to \texttt{0x\allowbreak{}DF} opening a two byte sequence and every following byte between \texttt{0x80} and \texttt{0x\allowbreak{}BF}, and reading that structure out of the Greek text gives 71.3\% two byte sequences, against 99.4\% one byte sequences for the English text (\texttt{data/\allowbreak{}normalize\_\allowbreak{}symbols.\allowbreak{}py:29-\allowbreak{}58}). A byte level detector on the Greek text was measuring code units, and half a letter is not a symbol.
+A Greek text exposes the choice. The detector returned \texttt{0x68} at a mean gap of 21.24, which is not the word boundary, and the regularities collapsed to a Zipf slope of \texttt{-\allowbreak{}0.\allowbreak{}049}. The cause is visible in the file without knowing what language it holds. UTF-8 marks its own structure, a lead byte from \texttt{0x\allowbreak{}C2} to \texttt{0x\allowbreak{}DF} opening a two byte sequence and every following byte between \texttt{0x80} and \texttt{0x\allowbreak{}BF}, and reading that structure out of the Greek text gives 71.3\% two byte sequences, against 99.4\% one byte sequences for the English text. A byte level detector on the Greek text was measuring code units, and half a letter is not a symbol.
 
 The alphabet is finite. This is recoverable. Greek has been written with a bounded set of letters in every period it was written in, and the text holds 144 distinct symbols, each of which fits in a byte with room to spare. Re-seating them in order of first appearance, which has nothing to do with any statistic measured, and folding line endings as the byte path already does, the detector returns \texttt{U+0020} as the boundary at a mean gap of 4.42, and the text reads:
 
@@ -1338,11 +1306,11 @@ The alphabet is finite. This is recoverable. Greek has been written with a bound
 \toprule
 corpus & Zipf slope & word length against frequency & types at 25k & bits per word \\
 \midrule
-\texttt{greek\_\allowbreak{}iliad} & -0.878 & -0.352 & 7001 & 10.318 \\
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & -0.875 & -0.285 & 5690 & 9.792 \\
-\texttt{french\_\allowbreak{}1862\_\allowbreak{}hugo} & -0.950 & -0.311 & 7432 & 10.324 \\
-\texttt{german\_\allowbreak{}1808\_\allowbreak{}goethe} & -0.723 & -0.357 & 8064 & 10.891 \\
-\texttt{finnish\_\allowbreak{}1870\_\allowbreak{}kivi\_\allowbreak{}prose} & -0.828 & -0.313 & 11841 & 11.900 \\
+Homer, Iliad (Greek) & -0.878 & -0.352 & 7001 & 10.318 \\
+Austen 1813 (English) & -0.875 & -0.285 & 5690 & 9.792 \\
+Hugo 1862 (French) & -0.950 & -0.311 & 7432 & 10.324 \\
+Goethe 1808 (German) & -0.723 & -0.357 & 8064 & 10.891 \\
+Kivi 1870 (Finnish) & -0.828 & -0.313 & 11841 & 11.900 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1379,7 +1347,7 @@ There is a limit behind all three failures that no better instrument reaches. Ev
 
 \paragraph{4.13.08 Drift over time}
 
-Drift is a distance between two texts, which needs a comparison the per corpus measures do not make. Two frequency bands are compared by Jaccard overlap (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}measure\_\allowbreak{}drift.\allowbreak{}py:38-\allowbreak{}52}). The top 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are mostly content words and follow the subject.
+Drift is a distance between two texts, which needs a comparison the per corpus measures do not make. Two frequency bands are compared by Jaccard overlap. The top 100 words of an English text are almost all function words and move slowly. Ranks 500 to 2000 are mostly content words and follow the subject.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1438,14 +1406,14 @@ There is a selection effect in this that no corpus work removes. The events most
 
 A pattern can be certainly present and its meaning permanently lost. That is Section 2.2 holding while Section 2.3 does not, and the filter of Section 2, run backward on a real object, shows it.
 
-An Attic black-figure amphora signed by Exekias, Achilles and Ajax at a board game (Vatican inv.\ 16757, 540 to 530 BC; the photograph is by Daderot, released CC0), was read at 160 by 107 gray levels, copied fifteen times, and each copy had 40 percent of its pixels replaced by a value from nowhere. \texttt{examples/\allowbreak{}art/\allowbreak{}4\_measure/\allowbreak{}classify\_reject\_recover.\allowbreak{}py} (ART-4-007), told only that the subject repeats, recovered the image by taking the agreed value at each pixel. All 17{,}120 pixels came back exact, a noise reduction of 100 percent, and the filter flagged 896 of them, 5.23 percent, as a floor it would not certify because its two exact routes disagreed there. Not one flagged pixel was wrong, and not one wrong pixel went unflagged. Figure~\ref{fig:ajax-recovery} shows the clean image, one damaged copy, the recovery and the map of uncertainty.
+An Attic black-figure amphora signed by Exekias, Achilles and Ajax at a board game (Vatican inv.\ 16757, 540 to 530 BC; the photograph is by Daderot, released CC0), was read at 160 by 107 gray levels, copied fifteen times, and each copy had 40 percent of its pixels replaced by a value from nowhere. The art example's recovery, told only that the subject repeats, recovered the image by taking the agreed value at each pixel. All 17{,}120 pixels came back exact, a noise reduction of 100 percent, and the filter flagged 896 of them, 5.23 percent, as a floor it would not certify because its two exact routes disagreed there. Not one flagged pixel was wrong, and not one wrong pixel went unflagged. Figure~\ref{fig:ajax-recovery} shows the clean image, one damaged copy, the recovery and the map of uncertainty.
 
 The filter recovered the object to the bit and recovered nothing of what it meant. Ajax, Achilles, the game between them and the throw Achilles calls out are not in the pixels, and no agreement over copies returns them. The pattern is present and recoverable to the last bit, and its meaning is not the filter's to give. That is the asymmetry this section reports, on a real object instead of a ruin.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{ajax_recovery.png}
-\caption{A real Indo-European object recovered to the bit. Left to right: the Exekias amphora detail read at 160 by 107 gray levels; one of fifteen copies with 40 percent of its pixels replaced by a value from nowhere; the recovery by agreement at each pixel, exact on all 17{,}120 pixels; and the map of uncertainty, 896 pixels (5.23 percent) flagged as the floor the filter would not certify. The signal returns exactly and its meaning does not. Photograph by Daderot, CC0; recovered by \texttt{classify\_reject\_recover.py} (ART-4-007) and reproduced by \texttt{evidence/\allowbreak{}proofs/\allowbreak{}posits/\allowbreak{}recover\_indoeuropean\_art.py}.}
+\caption{A real Indo-European object recovered to the bit. Left to right: the Exekias amphora detail read at 160 by 107 gray levels; one of fifteen copies with 40 percent of its pixels replaced by a value from nowhere; the recovery by agreement at each pixel, exact on all 17{,}120 pixels; and the map of uncertainty, 896 pixels (5.23 percent) flagged as the floor the filter would not certify. The signal returns exactly and its meaning does not. Photograph by Daderot, CC0.}
 \label{fig:ajax-recovery}
 \end{figure}
 
@@ -1455,13 +1423,13 @@ So these regularities are not transmitted and do not need a surviving channel be
 
 The mechanism is that a shorter code for a more frequent symbol lowers the expected cost of sending, which is a result in coding theory and not a fact about people. Any system that pays per unit sent, over enough repetitions, arrives at it. So does a telegraph operator assigning codes by hand, and Section 4.13.1 finds most of Morse's word-length effect surviving the destruction of the table he designed. A language is solved against one set of constraints, a vocal tract of fixed bandwidth, a working memory holding a few items, a listener decoding in real time, and a finite childhood to learn in, and the best answer belongs to that set of constraints and not to any lineage. Nothing inherits the answer. Each language derives it again, because the problem is still there. Losing the content therefore does not remove the regularity: the regularity was never stored, and the conditions that regenerate it outlast every artifact.
 
-One caution belongs here, and it is now measured. Distributions of this shape also come from processes doing no optimizing at all, and Section 7.4 runs that counterexample against these same measures. Independent character draws with a separator return a Zipf slope of -0.988, inside the range every natural corpus here occupies. The Zipf slope in this section carries no evidence about production and is withdrawn as such. The correlation of word length against frequency survives, weakened, at -0.222 for the control against -0.247 to -0.364 for natural text. The boundary regularity against a permutation null survives intact, at 1.00 for the control against 1.79 and above for natural text. That counterexample does not weaken the method in this paper; it strengthens it. A structure produced by nearly any generator is a better thing to rely on than one belonging to a special class of them, and the requirement here was never that the source be a language. What the measures here need is that something regular produced the bytes. The filter of Section 2 needs less, a test of equality between two positions (Section 2.1), and it needs no alphabet, no dimension and no interpretation.
+One caution belongs here, and it is measured. Distributions of this shape also come from processes doing no optimizing at all, and Section 7.4 runs that counterexample against these same measures. Independent character draws with a separator return a Zipf slope of -0.988, inside the range every natural corpus here occupies. The Zipf slope in this section carries no evidence about production and is withdrawn as such. The correlation of word length against frequency survives, weakened, at -0.222 for the control against -0.247 to -0.364 for natural text. The boundary regularity against a permutation null survives intact, at 1.00 for the control against 1.79 and above for natural text. That counterexample does not weaken the method in this paper; it strengthens it. A structure produced by nearly any generator is a better thing to rely on than one belonging to a special class of them, and the requirement here was never that the source be a language. What the measures here need is that something regular produced the bytes. The filter of Section 2 needs less, a test of equality between two positions (Section 2.1), and it needs no alphabet, no dimension and no interpretation.
 
 The measures in Section 4.13 are also close to a question that has been asked before, since a Zipf slope and a word-length effect are used to decide whether an undeciphered corpus is a language at all \cite{src:Sproat}. That literature exists and is contested. It is not cited in full here because it has not been read in full, and Section 7 states what was read and what it cost.
 
 \paragraph{4.13.09 Structure by frequency band}
 
-Section 7.4.1 finds the two halves of the frequency distribution behaving differently, the commoner half carrying even boundaries and the rarer half carrying clustering. Neither measure reads a word. Printing the twelve most frequent words of each corpus (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}top\_\allowbreak{}words.\allowbreak{}py}) shows what fills the half that all the statistics describe without naming:
+Section 7.4.1 finds the two halves of the frequency distribution behaving differently, the commoner half carrying even boundaries and the rarer half carrying clustering. Neither measure reads a word. Printing the twelve most frequent words of each corpus shows what fills the half that all the statistics describe without naming:
 
 
 \tiny
@@ -1470,20 +1438,20 @@ Section 7.4.1 finds the two halves of the frequency distribution behaving differ
 \toprule
 corpus & twelve most frequent words \\
 \midrule
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & the to of and her i a in was she that it \\
-\texttt{english\_\allowbreak{}1611\_\allowbreak{}kjv} & the and of to that in he shall unto for i his \\
-\texttt{french\_\allowbreak{}1862\_\allowbreak{}hugo} & de il la et le l à un les que une d \\
-\texttt{german\_\allowbreak{}1808\_\allowbreak{}goethe} & und ich die der nicht das ein ist zu du in sie \\
-\texttt{spanish\_\allowbreak{}1605\_\allowbreak{}cervantes} & que de y la a en el no los se con por \\
-\texttt{finnish\_\allowbreak{}1870\_\allowbreak{}kivi\_\allowbreak{}prose} & ja mutta hän juhani on niin kuin nyt oli ei he hänen \\
-\texttt{greek\_\allowbreak{}iliad} & και κι του ο το να τον τα τους με τ η \\
+Austen 1813 (English) & the to of and her i a in was she that it \\
+King James Bible 1611 (English) & the and of to that in he shall unto for i his \\
+Hugo 1862 (French) & de il la et le l à un les que une d \\
+Goethe 1808 (German) & und ich die der nicht das ein ist zu du in sie \\
+Cervantes 1605 (Spanish) & que de y la a en el no los se con por \\
+Kivi 1870 (Finnish) & ja mutta hän juhani on niin kuin nyt oli ei he hänen \\
+Homer, Iliad (Greek) & και κι του ο το να τον τα τους με τ η \\
 \bottomrule
 \end{longtable}
 \normalsize
 
 Every commoner half carries words that refer to people. English has \texttt{her}, \texttt{i}, \texttt{she} and \texttt{it}, German has \texttt{ich}, \texttt{du} and \texttt{sie}, Finnish has \texttt{hän}, \texttt{he} and \texttt{hänen}, and Greek carries \texttt{του}, \texttt{τον} and \texttt{τους}. Each also carries a conjunction, and each carries a linking verb, a negation, or both. Finnish is the clearest case: it has no articles to fill those slots, and a proper name, \texttt{juhani}, takes one of them.
 
-The matching claim about the rarer half is that it carries the actions, and that needs counting. No part of speech tagger is available here. English verb endings stand in for one, and the stand-in is weak in one direction: a gerund used as a noun and an adjective built from a participle both carry these endings without being verbs. Every figure is an upper bound (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}head\_\allowbreak{}tail\_\allowbreak{}parts.\allowbreak{}py:31-\allowbreak{}36}).
+The matching claim about the rarer half is that it carries the actions, and that needs counting. No part of speech tagger is available here. English verb endings stand in for one, and the stand-in is weak in one direction: a gerund used as a noun and an adjective built from a participle both carry these endings without being verbs. Every figure is an upper bound.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1491,11 +1459,11 @@ The matching claim about the rarer half is that it carries the actions, and that
 \toprule
 corpus & commoner half, percent ending in \texttt{-\allowbreak{}ed} or \texttt{-\allowbreak{}ing} & rarer half \\
 \midrule
-\texttt{english\_\allowbreak{}1667\_\allowbreak{}milton\_\allowbreak{}epic} & 10.1 & 22.3 \\
-\texttt{english\_\allowbreak{}1623\_\allowbreak{}shakespeare} & 9.7 & 18.5 \\
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & 16.9 & 23.7 \\
-\texttt{english\_\allowbreak{}1611\_\allowbreak{}kjv} & 12.9 & 15.4 \\
-\texttt{monkey\_\allowbreak{}a26\_\allowbreak{}d18\_\allowbreak{}english} & 0.0 & 0.0 \\
+Milton 1667 (English) & 10.1 & 22.3 \\
+Shakespeare 1623 (English) & 9.7 & 18.5 \\
+Austen 1813 (English) & 16.9 & 23.7 \\
+King James Bible 1611 (English) & 12.9 & 15.4 \\
+random typing, English letter weights & 0.0 & 0.0 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1504,7 +1472,7 @@ The rarer half carries more of it in all four, by 1.19 to 2.21 times, and the me
 
 So the commoner half holds the machinery for referring to people and saying something about them, and the rarer half holds more of what is being done. That describes the two halves. The description reaches nothing about what any text means, and the statistics in Section 7.4 that separate a corpus from a shuffle of itself do not know that either half exists.
 
-Scoring individual words for burstiness against the same shuffle (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}word\_\allowbreak{}burstiness.\allowbreak{}py:44-\allowbreak{}72}) answers two questions, and only the second comes out.
+Scoring individual words for burstiness against the same shuffle answers two questions, and only the second comes out.
 
 The first was whether words for things people do constantly, instead of things a passage is about, spread more evenly than the rest. Section 7.4.4 predicts they should. A supplied English set of them gives 0.843 against a corpus average of 0.828 for Austen, 0.521 against 0.509 for the King James, and 0.809 against 0.796 for Milton. The direction is the predicted one every time, and the size is not worth reporting: between 7 and 20 words cleared the occurrence floor, and the prediction is not established.
 
@@ -1516,17 +1484,17 @@ The corpus averages themselves separate, which the first question was not asking
 \toprule
 corpus & word burstiness & what the corpus is \\
 \midrule
-\texttt{monkey\_\allowbreak{}a26\_\allowbreak{}d18\_\allowbreak{}geom90} & 1.010 & a memoryless process \\
-\texttt{greek\_\allowbreak{}iliad} & 0.833 & one poem \\
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & 0.828 & one novel \\
-\texttt{english\_\allowbreak{}1667\_\allowbreak{}milton\_\allowbreak{}epic} & 0.796 & one poem \\
-\texttt{spanish\_\allowbreak{}1605\_\allowbreak{}cervantes} & 0.780 & one novel \\
-\texttt{english\_\allowbreak{}1720\_\allowbreak{}pope\_\allowbreak{}iliad\_\allowbreak{}epic} & 0.780 & one poem \\
-\texttt{finnish\_\allowbreak{}1870\_\allowbreak{}kivi\_\allowbreak{}prose} & 0.770 & one novel \\
-\texttt{french\_\allowbreak{}1862\_\allowbreak{}hugo} & 0.758 & one novel \\
-\texttt{english\_\allowbreak{}1623\_\allowbreak{}shakespeare} & 0.667 & 37 plays \\
+random typing, geometric letter weights & 1.010 & a memoryless process \\
+Homer, Iliad (Greek) & 0.833 & one poem \\
+Austen 1813 (English) & 0.828 & one novel \\
+Milton 1667 (English) & 0.796 & one poem \\
+Cervantes 1605 (Spanish) & 0.780 & one novel \\
+Pope's Iliad 1720 (English) & 0.780 & one poem \\
+Kivi 1870 (Finnish) & 0.770 & one novel \\
+Hugo 1862 (French) & 0.758 & one novel \\
+Shakespeare 1623 (English) & 0.667 & 37 plays \\
 C source & 0.533 & 40 files \\
-\texttt{english\_\allowbreak{}1611\_\allowbreak{}kjv} & 0.509 & 66 books \\
+King James Bible 1611 (English) & 0.509 & 66 books \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1535,7 +1503,7 @@ Single works occupy 0.758 to 0.833 over four languages and three centuries, coll
 
 Hugo is the lowest of the single works, and that supports the reading instead of straining it. \emph{Les Misérables} runs to five volumes and turns aside into Waterloo, the sewers of Paris and the history of a convent. It is the most varied single work measured here in what it is about, and it sits nearest the collection band.
 
-Every corpus in that table arrived already being one thing or the other. The reading rests on labels applied by hand and could be tracking whatever those labels happen to go with. Two manipulations settle it (\texttt{examples/\allowbreak{}any\_\allowbreak{}corpus/\allowbreak{}3\_\allowbreak{}reference/\allowbreak{}heterogeneity\_\allowbreak{}control.\allowbreak{}py}). Joining English single works into one corpus, with the total length held near 900000 characters so the change cannot be a length effect, gives 0.828 for one work, 0.685 for two and 0.626 for three. Cutting the 66 book collection into equal pieces moves the other way:
+Every corpus in that table arrived already being one thing or the other. The reading rests on labels applied by hand and could be tracking whatever those labels happen to go with. Two manipulations settle it. Joining English single works into one corpus, with the total length held near 900000 characters so the change cannot be a length effect, gives 0.828 for one work, 0.685 for two and 0.626 for three. Cutting the 66 book collection into equal pieces moves the other way:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1562,7 +1530,7 @@ That is a property of what a text is about, recovered without reading any of it,
 
 \paragraph{4.13.1 Staying the same under re-encoding}
 
-Every row above is alphabetic, and a regularity common to all of them could belong to that way of writing and not to language. Re-encoding one of them settles it, because a re-encoding changes only the writing and holds the meaning fixed. Morse carries the same words over two marks and two silences, and \texttt{examples/\allowbreak{}language/\allowbreak{}1\_\allowbreak{}represent/\allowbreak{}encode\_\allowbreak{}percussive.\allowbreak{}py} produces it.
+Every row above is alphabetic, and a regularity common to all of them could belong to that way of writing and not to language. Re-encoding one of them settles it, because a re-encoding changes only the writing and holds the meaning fixed. Morse code carries the same words over two marks and two silences.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1610,9 +1578,9 @@ So the two are not the same kind of claim. The Zipf slope stays the same under r
 
 Every result above compares one text in one language against another text in another, and a difference could belong to the language or to the text. Separating those needs repetition inside a language, and the sections above have twelve English texts and one or two of everything else.
 
-Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them (\texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}fetch\_\allowbreak{}by\_\allowbreak{}language.\allowbreak{}py}). Everything is measured by character and not by byte (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}language\_\allowbreak{}constant.\allowbreak{}py:44-\allowbreak{}70}). That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters, which no byte seating reaches, and it is also the width at which a Chinese symbol is a whole morpheme and not part of one.
+Four texts were taken in each of seven alphabetic languages from Project Gutenberg's own index for each, which is not a hand chosen selection, and four Chinese novels beside them. Everything is measured by character and not by byte. That is required for the Chinese to be comparable at all, since one of those novels carries 3164 distinct characters, which no byte seating reaches, and it is also the width at which a Chinese symbol is a whole morpheme and not part of one.
 
-The question is then a question about variance. If a quantity belongs to a language, its spread within one language is small against its spread between languages, and an analysis of variance reports that (\texttt{src/\allowbreak{}engine/\allowbreak{}r/\allowbreak{}hypotheses/\allowbreak{}language\_\allowbreak{}variance.\allowbreak{}R}).
+The question is then a question about variance. If a quantity belongs to a language, its spread within one language is small against its spread between languages, and an analysis of variance reports that.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1647,7 +1615,7 @@ Four texts in a language is a small sample, and all of them come from one publis
 
 \subsubsection{4.14 The variety of a word's company}
 
-Frequency cannot separate two kinds of common word. In an English bible \texttt{the} and \texttt{God} are both frequent, one because it attaches to anything and the other because the book is about it. The company separates them: a word doing grammatical work has nearly as many distinct followers as occurrences, and a word belonging to a narrow subject has far fewer (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:2017-\allowbreak{}2026}).
+Frequency cannot separate two kinds of common word. In an English bible \texttt{the} and \texttt{God} are both frequent, one because it attaches to anything and the other because the book is about it. The company separates them: a word doing grammatical work has nearly as many distinct followers as occurrences, and a word belonging to a narrow subject has far fewer.
 
 The lowest variety among words seen at least 24 times, over the first 25000 words:
 
@@ -1676,7 +1644,7 @@ Nothing here knows English, knows what a name or a title is, or has a dictionary
 
 \paragraph{4.14.1 Burstiness and grammatical words}
 
-Narrow company catches grammatical words along with subject words, and a grammatical word is the wrong answer twice over: it is needed everywhere. It says nothing about what a text is about, and its form varies between languages while its job does not. Where a word falls separates the two. A word doing grammatical work is spread evenly. The gaps between its occurrences are close to geometric and their squared coefficient of variation is near one. A word belonging to a subject arrives in bursts where that subject is discussed, and its value runs far above one. That is Section 4.12's statistic read at the other end (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c:2210-\allowbreak{}2217}).
+Narrow company catches grammatical words along with subject words, and a grammatical word is the wrong answer twice over: it is needed everywhere. It says nothing about what a text is about, and its form varies between languages while its job does not. Where a word falls separates the two. A word doing grammatical work is spread evenly. The gaps between its occurrences are close to geometric and their squared coefficient of variation is near one. A word belonging to a subject arrives in bursts where that subject is discussed, and its value runs far above one. That is Section 4.12's statistic read at the other end.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1740,7 +1708,7 @@ Those are four faces of one thing. The parameter describes a single position, an
 
 \subsubsection{5.6 Results that carry over}
 
-The failure of the product rule carries over. Any structure that stacks cheap filters and sizes itself by multiplying their rates inherits it on structured data, in the same direction, and leaves too little room. That carryover is a conjecture: the failure is measured only on probe sequences, here and in the engine workbook (\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_orior\_workbook.tex:296}), and on no other filter structure.
+The failure of the product rule carries over. Any structure that stacks cheap filters and sizes itself by multiplying their rates inherits it on structured data, in the same direction, and leaves too little room. That carryover is a conjecture: the failure is measured only on probe sequences, here and in the engine workbook, and on no other filter structure.
 
 The estimator is a subsampled U-statistic and loses to a histogram estimator wherever one can be built. Its interest is that it can be computed when one cannot: no bins, no codebook, constant state, and free inside a search that was happening anyway.
 
@@ -1756,7 +1724,7 @@ Corpora are 1408 to 2048 bytes in the sift bench, 3375 to 4089 positions in the 
 
 \subsubsection{6.2 Finite alphabets}
 
-Symbols are drawn from an alphabet of at most 256 values in every bench, and the complex data uses two. The claim that the method tolerates an alphabet that cannot be listed is supported here by the core never reading a value (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c:80}, \texttt{193-\allowbreak{}239}) and by the engine's only access to a symbol being equality (\texttt{orior.h:354-357}). No measurement supports it, because a measurement on an alphabet that cannot be listed cannot be made. A growing alphabet is measured instead: from \(2^8\) to \(2^{24}\) symbols, the memory of the engine's equality route stays at 131057 bytes while a table indexed by symbol grows with the alphabet (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:263-\allowbreak{}274}). Past 256 classes the engine's rank count is an upper bound (Section 2.7).
+Symbols are drawn from an alphabet of at most 256 values in every bench, and the complex data uses two. The claim that the method tolerates an alphabet that cannot be listed is supported here by the core never reading a value and by the engine's only access to a symbol being equality. No measurement supports it, because a measurement on an alphabet that cannot be listed cannot be made. A growing alphabet is measured instead: from \(2^8\) to \(2^{24}\) symbols, the memory of the engine's equality route stays at 131057 bytes while a table indexed by symbol grows with the alphabet. Past 256 classes the engine's rank count is an upper bound (Section 2.7).
 
 \subsubsection{6.3 Finite precision}
 
@@ -1785,13 +1753,18 @@ At 16 probes the distance where the shift stops growing is known to about half i
 
 None of this reaches Sections 2.2, 2.3 or 4.1 to 4.2. No match lost, no converse, and every unchanging row are all indifferent to whether the distribution is known. That made them deductive in the first place.
 
-\subsubsection{6.5 Corrections made along the way}
+\subsubsection{6.5 Pitfalls in measuring the method}
 
-Recorded because each was invisible until something contradicted it.
+Each of the following produces a result that looks correct and is not.
 
-A predicted rate that included the pattern finding itself, inflating every ratio. A self similar corpus that produced a clean looking trend of correlation growing with pattern length, which reversed once the corpora stopped repeating. A 1.24 control read as a finding when its \(z\) said it was noise. The prediction that a table matched to the corpus wins, refuted by Section 4.8. A uniform control summarized as a ratio when its counts were too small to support one. A control generator changed from a 64 bit xorshift to SHA-256 in counter mode while its own comment still described the xorshift, which moved the uniform skip figures from 261.1, 262.7 and 261.1 to 271.9, 273.6 and 281.3 (\texttt{bench/\allowbreak{}driver/\allowbreak{}bench\_\allowbreak{}ancorae\_\allowbreak{}sift.\allowbreak{}c:252-\allowbreak{}262}). A dimension sweep whose predicted column again left out the pattern's guaranteed match with itself, drifting to a ratio of 1.22 at the smallest data until the term was restored: the first correction in this list, made a third time. An interpretation of Section 4.3 that named entropy as the quantity deciding what a probe rule is worth, which the order of the corpora contradicts and Section 4.3.1 replaces. And a claim about earlier work asserted from search engine snippets before either source had been read.
-
-The first entry recurring three times is the finding, not the anecdote. A pattern drawn from the data it is searched in always matches itself, and every model written here has had to be told so separately.
+\begin{itemize}
+\item \textbf{A pattern drawn from the data matches itself.} Every predicted candidate rate has to include that guaranteed match. Left out, it inflates every ratio of observed to predicted; in the dimension sweep it drifts the ratio to 1.22 at the smallest data. This is the most common of the pitfalls, and every model of the rate has to be told about it separately.
+\item \textbf{A self similar corpus manufactures trends.} A corpus made by repeating a unit produces a clean trend of correlation growing with pattern length, and the trend reverses once the corpus stops repeating. The corpora are therefore cut off at their length and never repeated (Section 3.3).
+\item \textbf{A control is read by its \(z\) before its ratio.} A control ratio of 1.24 is noise when its \(z\) says so, and a uniform control whose counts are small does not support a ratio at all.
+\item \textbf{A table matched to the corpus does not win.} Section 4.8 refutes it.
+\item \textbf{The uniform control depends on its generator.} Under SHA-256 in counter mode the uniform skip figures are 271.9, 273.6 and 281.3; under a 64-bit xorshift they are 261.1, 262.7 and 261.1. Every uniform figure here is from SHA-256 in counter mode.
+\item \textbf{Entropy is not what decides a probe rule's worth.} The order of the corpora contradicts it, and Section 4.3.1 gives what does.
+\end{itemize}
 
 \subsubsection{6.6 What was not measured}
 
@@ -1803,7 +1776,7 @@ The estimator against published estimators other than the two in Section 4.5. Th
 
 Two sources were read in full. Both were reached because a search suggested they were close, and a search result is not a reading.
 
-The \texttt{memchr} crate's \texttt{arch/\allowbreak{}all/\allowbreak{}packedpair} module chooses two byte positions by a frequency rank and uses the pair as a prefilter. The only condition that module places on where the two sit is that their indices differ, and nothing in it treats their distance as a variable or their rates as independent. That covers the one module read. It does not describe the crate, whose substring search, rare byte prefilter and vector backends are separate files that were not read, and no claim is made about them.
+The packed-pair prefilter of the Rust \texttt{memchr} library chooses two byte positions by a frequency rank and uses the pair as a prefilter. The only condition it places on where the two sit is that their positions differ, and nothing in it treats their distance as a variable or their rates as independent. This describes the packed-pair prefilter alone. The library's substring search, rare byte prefilter and vector backends were not examined, and no claim is made about them.
 
 The arXiv preprint at \texttt{2601.\allowbreak{}03271} chooses a single probe, \(a = \arg\min_i \mathrm{freq}(P[i])\), and reports character comparisons on the \emph{Divina Commedia}. Having one probe, it contains no treatment of distance, independence or joint probability, and uses no periodic or fixed width data.
 
@@ -1858,9 +1831,9 @@ Sproat's case is that these statistics do not separate language from anything el
 
 Rao and colleagues answer that sufficiency was never claimed. Their framework is inductive, estimating a posterior over a hypothesis that a corpus is a language from several properties at once, of which entropy is one, and they extend the measurement to block entropies up to \(N = 6\), where they report the artificial counterexamples failing to track. They also supply non-linguistic controls that are not artificial, namely DNA, protein, Fortran and music, which occupy entropy ranges away from the linguistic ones. Their own description of the Zipf-Mandelbrot property is that it is ``often considered a necessary (though not sufficient) condition for language'': the asymmetry between Section 2.2 and Section 2.3 reached from a different direction and by different people.
 
-\noindent\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's class of counterexamples was built and run through the same code that produced every other row (\texttt{maint/\allowbreak{}data/\allowbreak{}fetch/\allowbreak{}gen\_\allowbreak{}monkey\_\allowbreak{}corpus.\allowbreak{}py}). Characters are drawn independently and a separator is dropped in at a fixed rate.
+\noindent\textbf{What this costs Section 4.13, measured and not conceded in the abstract.} Sproat's class of counterexamples was built and run through the same code that produced every other row. Characters are drawn independently and a separator is dropped in at a fixed rate.
 
-A first version of that control had two arms, one uniform and one weighted by English letter frequencies, with the alphabet fixed at 26 and the separator rate at 0.18. Three of those four numbers came from English. A result that looked like English established nothing. The sweep below varies the alphabet from 8 to 64 symbols, the separator rate from 0.06 to 0.35, and the letter distribution across uniform, two geometric falls and the English weights, with only the last row carrying any value taken from a language.
+A control with an alphabet of 26 and a separator rate of 0.18 takes three of its four numbers from English, and a result from it that looks like English establishes nothing. The sweep below varies the alphabet from 8 to 64 symbols, the separator rate from 0.06 to 0.35, and the letter distribution across uniform, two geometric falls and the English weights, with only the last row carrying any value taken from a language.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1884,7 +1857,7 @@ That one separates completely, and across the whole sweep. Every memoryless arm 
 
 The surviving measure is also the one Section 7.3 can price. A corpus equal to its own shuffle carries no gradient and offers nothing to extract. The equilibrium reading holds exactly here, and the ratio above one is a distance from that equilibrium.
 
-\noindent\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. This section asks what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same range of seats. The same measurement path reads all of them (\texttt{data/\allowbreak{}transform\_\allowbreak{}corpus.\allowbreak{}py}).
+\noindent\textbf{What a cipher does to the surviving measure.} Sproat's stated limit is that a structured non-linguistic system passes this test as well. This section asks what it takes to make a text stop passing it. One English corpus was put through transforms that keep every symbol in the same range of seats. The same measurement path reads all of them.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1915,7 +1888,7 @@ One check on that was attempted and does not support anything. Taking every eigh
 
 Every result above comes from a detector that returns one symbol, the one whose gaps are most even, and that rejects any candidate occurring less often than once in 64 symbols. Two consequences follow from that, and neither was intended. The occurrence floor admits only frequent symbols. The detector can only ever report on the commoner symbols. And ranking by evenness treats variation as failure. A symbol whose occurrences cluster is scored as a poor candidate.
 
-Under a Zipf distribution the commoner symbols carry the token count and the rarer ones carry the information, because the surprise of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same permutation null, instead of only the best one (\texttt{data/\allowbreak{}measure\_\allowbreak{}spectrum.\allowbreak{}py:34-\allowbreak{}51}) gives the mean ratio over each half of the symbols by frequency:
+Under a Zipf distribution the commoner symbols carry the token count and the rarer ones carry the information, because the surprise of a symbol is \(-\log p\) and the many rare symbols each contribute more of it. Scoring every symbol against the same permutation null, instead of only the best one gives the mean ratio over each half of the symbols by frequency:
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -1923,12 +1896,12 @@ Under a Zipf distribution the commoner symbols carry the token count and the rar
 \toprule
 corpus & commoner half & rarer half \\
 \midrule
-\texttt{english\_\allowbreak{}1611\_\allowbreak{}kjv} & 0.96 & 0.59 \\
-\texttt{finnish\_\allowbreak{}1870\_\allowbreak{}kivi\_\allowbreak{}prose} & 0.97 & 0.62 \\
-\texttt{french\_\allowbreak{}1862\_\allowbreak{}hugo} & 0.96 & 0.69 \\
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & 0.95 & 0.73 \\
-\texttt{greek\_\allowbreak{}iliad} & 1.06 & 0.75 \\
-\texttt{monkey\_\allowbreak{}a26\_\allowbreak{}d18\_\allowbreak{}geom90} & 1.00 & 1.00 \\
+King James Bible 1611 (English) & 0.96 & 0.59 \\
+Kivi 1870 (Finnish) & 0.97 & 0.62 \\
+Hugo 1862 (French) & 0.96 & 0.69 \\
+Austen 1813 (English) & 0.95 & 0.73 \\
+Homer, Iliad (Greek) & 1.06 & 0.75 \\
+random typing, geometric letter weights & 1.00 & 1.00 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -1941,7 +1914,7 @@ So the measure that survived Section 7.4 is the weaker of two, and the stronger 
 
 \paragraph{7.4.2 What stays the same, and periodic disguises}
 
-The transforms in Section 7.4 leave the rarer half measure exactly where the commoner half measure was left, and running them through it describes the measure completely. Cosets are scored with \texttt{data/\allowbreak{}supersample\_\allowbreak{}cosets.\allowbreak{}py}, which splits a corpus at a spacing, scores every coset and averages, reading all of the text and spending none of the length.
+The transforms in Section 7.4 leave the rarer half measure exactly where the commoner half measure was left, and running them through it describes the measure completely. Cosets are scored by splitting a corpus at a spacing, scoring every coset and averaging, reading all of the text and spending none of the length.
 
 A relabeling of the symbols changes nothing, because the measure reads the gaps between occurrences and a permutation only moves which seat carries which gaps. The single symbol result is identical to four decimals at 0.2815, and over the whole set of symbols a substitution is likewise invisible.
 
@@ -1983,19 +1956,19 @@ Sproat's stated limit is that a system with structure and no language passes thi
 corpus & commoner half & rarer half \\
 \midrule
 C source & 0.59 & 0.50 \\
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} & 0.95 & 0.73 \\
-\texttt{monkey\_\allowbreak{}a26\_\allowbreak{}d18\_\allowbreak{}geom90} & 1.00 & 1.00 \\
+Austen 1813 (English) & 0.95 & 0.73 \\
+random typing, geometric letter weights & 1.00 & 1.00 \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-The C source departs from the shuffle further than the English does on both halves. So the measure orders these three by how much structure they carry, and a formal language carries more of it than prose does; fixed syntax, repeated identifiers and aligned indentation produce that. The measure is a structure meter. Nothing in it identifies a natural language, and the earlier statement that it shows only that a corpus is not memoryless is now measured on the instrument itself instead of taken from the literature.
+The C source departs from the shuffle further than the English does on both halves. So the measure orders these three by how much structure they carry, and a formal language carries more of it than prose does; fixed syntax, repeated identifiers and aligned indentation produce that. The measure is a structure meter. Nothing in it identifies a natural language. That it shows only that a corpus is not memoryless is measured here on the instrument itself, and not taken from the literature.
 
 One reading survives this and is not tested by it. Both corpora that score away from the shuffle were written by people, which leaves the result consistent with the measure detecting production by a person while failing to tell which kind. Separating those needs a system carrying structure that no person produced, of the sort Rao and colleagues reach for with genomes and protein sequences. No such control is measured here, and no claim of that kind is made.
 
 \paragraph{7.4.4 The scale the structure sits at}
 
-The shuffle used above moves single symbols, which destroys every arrangement at once and cannot say what span an arrangement occupied. Cutting the corpus into blocks of \(B\) symbols and shuffling the blocks keeps everything shorter than \(B\) and destroys everything longer (\texttt{data/\allowbreak{}block\_\allowbreak{}shuffle\_\allowbreak{}null.\allowbreak{}py:52-\allowbreak{}59}). Sweeping \(B\) locates the signal.
+The shuffle used above moves single symbols, which destroys every arrangement at once and cannot say what span an arrangement occupied. Cutting the corpus into blocks of \(B\) symbols and shuffling the blocks keeps everything shorter than \(B\) and destroys everything longer. Sweeping \(B\) locates the signal.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -2003,9 +1976,9 @@ The shuffle used above moves single symbols, which destroys every arrangement at
 \toprule
 block span & 1 & 8 & 32 & 128 & 512 & 2048 & 8192 \\
 \midrule
-\texttt{english\_\allowbreak{}1813\_\allowbreak{}austen} rarer half & 0.725 & 0.727 & 0.729 & 0.811 & 0.846 & 0.934 & 0.975 \\
+Austen 1813 (English) rarer half & 0.725 & 0.727 & 0.729 & 0.811 & 0.846 & 0.934 & 0.975 \\
 C source rarer half & 0.500 & 0.524 & 0.550 & 0.623 & 0.713 & 0.825 & 0.915 \\
-\texttt{monkey\_\allowbreak{}a26\_\allowbreak{}d18\_\allowbreak{}geom90} rarer half & 0.997 & 1.001 & 1.001 & 0.998 & 0.999 & 1.001 & 1.000 \\
+random typing, geometric letter weights rarer half & 0.997 & 1.001 & 1.001 & 0.998 & 0.999 & 1.001 & 1.000 \\
 \bottomrule
 \end{longtable}
 \normalsize
@@ -2016,7 +1989,7 @@ The English text is flat from a span of 1 to a span of 32 and then climbs. Block
 
 The C source returns 10\% of its departure by a span of 32, close to seven times as much, and climbs from a span of 8 upward with no flat region. So the two carry this signal at different spans: the source has arrangements at every scale, including an identifier reused a few lines later, while the prose has almost none of it below a sentence and all of it above one.
 
-That is a statement about the clustering measure and not about the text. The engine workbook measures probes inside a pattern of 24 symbols surviving above the product of the probe rates, at a median ratio of 3.55 over 60 patterns on English prose (\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_orior\_workbook.tex:296}, \texttt{:323}), which is correlation between positions closer together than 24. The 20992 once quoted here is that workbook's sizing error under the rarest symbol rule (\texttt{:331}). The workbook records that means of this heavy tailed ratio were quoted as typical values (\texttt{:600}), and it still prints 20992 at \texttt{:331}, \texttt{:1162} and \texttt{:1164}. Both hold. The block sweep says the clustering signal has no part below a span of 32, and the probe sequence says a different arrangement lives below 24 that the clustering measure cannot see.
+That is a statement about the clustering measure and not about the text. The engine workbook measures probes inside a pattern of 24 symbols surviving above the product of the probe rates, at a median ratio of 3.55 over 60 patterns on English prose, which is correlation between positions closer together than 24. The 20992 once quoted here is that workbook's sizing error under the rarest symbol rule. The workbook records that means of this heavy tailed ratio were quoted as typical values, and it still prints 20992 at \texttt{:331}, \texttt{:1162} and \texttt{:1164}. Both hold. The block sweep says the clustering signal has no part below a span of 32, and the probe sequence says a different arrangement lives below 24 that the clustering measure cannot see.
 
 This is the first measurement in this paper that orders a natural language differently from a formal one, and it does so by where the structure sits and not by how much of it there is. A reading of it is available and is not established here: a rare word recurs across a passage because the passage concerns what the word names, which is an arrangement no shorter than the subject being discussed. Nothing in this measurement reaches what a text is about, and the span is the only quantity being reported.
 
@@ -2032,11 +2005,11 @@ So the measure is unchanged under relabeling, divided but not destroyed by any p
 
 \subsubsection{7.5 Filtering, coverage and streaming bounds}
 
-Navarro \cite{src:Navarro} requires every filter to be paired with a verification of the positions it could not drop, which is Sections 2.2 and 2.3 for edit distance. The engine workbook records that reading and its quotations (\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_orior\_workbook.tex:1208-\allowbreak{}1214}).
+Navarro \cite{src:Navarro} requires every filter to be paired with a verification of the positions it could not drop, which is Sections 2.2 and 2.3 for edit distance. The engine workbook records that reading and its quotations.
 
 Nemhauser, Wolsey and Fisher \cite{src:Nemhauser-Wolsey-and-Fisher} give the \(1 - 1/e\) bound for greedy maximization of a monotone submodular function under a cardinality constraint, which Section 2.7 applies. The bibliographic record was checked and the paper was not read. The bound is used in its standard statement.
 
-Clifford, Jalsenius, Porat and Sach \cite{src:Clifford-Jalsenius-Porat-and-Sach} prove \(\Omega(m)\) bits for the \(L_1\), \(L_2\), \(L_\infty\), Hamming, edit and swap distances and for distance functions with wildcard-like properties, pattern matching with character classes among them, with each answer required correct only with constant probability. For other distance functions they give \(\Omega(\log m)\) and \(O(\log^2 m)\) bits, and exact matching is not among the \(\Omega(m)\) cases. Porat and Porat \cite{src:Porat-and-Porat} match exactly in \(O(\log m \log n)\) bits with Karp-Rabin fingerprints \cite{src:Karp-Rabin}, which are Monte Carlo. Both are cited from the engine's record (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:298-\allowbreak{}320}). Those models keep a state while a text passes and permit error. This engine's output grows with the data and its one operation is exact equality, which exposes no arithmetic to fingerprint.
+Clifford, Jalsenius, Porat and Sach \cite{src:Clifford-Jalsenius-Porat-and-Sach} prove \(\Omega(m)\) bits for the \(L_1\), \(L_2\), \(L_\infty\), Hamming, edit and swap distances and for distance functions with wildcard-like properties, pattern matching with character classes among them, with each answer required correct only with constant probability. For other distance functions they give \(\Omega(\log m)\) and \(O(\log^2 m)\) bits, and exact matching is not among the \(\Omega(m)\) cases. Porat and Porat \cite{src:Porat-and-Porat} match exactly in \(O(\log m \log n)\) bits with Karp-Rabin fingerprints \cite{src:Karp-Rabin}, which are Monte Carlo. Both are cited from the engine's record. Those models keep a state while a text passes and permit error. This engine's output grows with the data and its one operation is exact equality, which exposes no arithmetic to fingerprint.
 
 Minsky \cite{src:Minsky} is cited only as the target of an encoding that is owed (Section 2.7).
 
@@ -2070,34 +2043,17 @@ Three experimental results apply to the method:
 
 Where there is an order on positions, that order is most of the structure there is, and a shift uses it. The candidate rate this paper spends its length measuring is not what decides a search. Section 4.9 records that as a loss of 1.2 to 25 times and then recovers it, first by treating ruling out and shift as one product and then by measuring the shift directly. The arrangement that comes out ahead stores nothing. That follows from the assumptions about the alphabet \(\Sigma\) in Section 2.1.
 
-\subsection{9. Reproducibility}
+\subsection{9. Data and code availability}
 
-The bench rows in this chapter were taken on four self contained programs and one cost profile, built with the line below, which is kept as it was recorded. Its paths under \texttt{test/\allowbreak{}} and \texttt{src/\allowbreak{}impensa\_\allowbreak{}ancorae\_\allowbreak{}acus/\allowbreak{}} are not in orior's history, and the four programs are at \texttt{bench/\allowbreak{}driver/\allowbreak{}} at commit \texttt{d65d219} (Section 1):
-
-\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-gcc -O2 -std=c11 -Itest/bench -Isrc -Iinclude -Itest/support \
-    test/bench/bench_ancorae_sift.c test/support/mmgr_sha256.c \
-    src/impensa_ancorae_acus/impensa_ancorae_acus_english.c -lm -o sift
-\end{lstlisting}
-
-The same line built \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}lattice.\allowbreak{}c}, \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}entropy.\allowbreak{}c} and \texttt{bench\_\allowbreak{}ancorae\_\allowbreak{}ab.\allowbreak{}c}. Every sift row carries a fingerprint of the 256 linked costs, \texttt{69c2e2df} for the English profile, because the cost table is fixed at link time and one binary reports on one profile only. The estimator bench takes \texttt{-\allowbreak{}DPROBE\_\allowbreak{}SAMPLES=k} to reproduce the sweep over the number of probes in Section 4.5.
-
-At commit \texttt{1044ca6} the engine and the benches build from the repository root with a C11 compiler, CMake, and Ninja on \texttt{PATH} (\texttt{docs/\allowbreak{}setup.md:29-\allowbreak{}38}):
-
-\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-cmake -S src/engine/c -B build/engine_c -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/engine_c
-\end{lstlisting}
-
-\texttt{bench\_\allowbreak{}lattice.\allowbreak{}c} does not parse under MSVC from line 500 (\texttt{docs/\allowbreak{}steering.md:280}). This chapter records no run of the benches as they stand at that commit.
+The benches, the engine, the examples and the hash used as a test oracle are in the orior repository, \texttt{https://github.com/dstroy0/orior}. The benches are self-contained C11 programs, compiled with \texttt{gcc -O2}. The cost table that ranks a byte is fixed when a bench is built, and every row of the strings bench carries a fingerprint of the 256 costs it was built with, \texttt{69c2e2df} for the English profile, since one build reports on one profile only. The estimator bench takes the number of probes as a build parameter, which reproduces the sweep over the number of probes in Section 4.5. The corpora are either generated by the benches or public: the language texts are from Project Gutenberg \cite{src:Project-Gutenberg}.
 
 \subsection{Appendix A: The hash used as a test oracle}
 
-\texttt{mmgr\_\allowbreak{}sha256} is test support, and nothing in \texttt{src/\allowbreak{}} reaches it. A hash computed by the code under test agrees with that code whatever the code did, and testing rule 1 in this tree is that the library is never its own test oracle.
+The SHA-256 implementation used here belongs to the test support and is not reached by the engine. A hash computed by the code under test agrees with that code whatever the code did, and the library is never its own test oracle.
 
-\texttt{mmgr\_\allowbreak{}sha256} is held to five published vectors by \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}self\_\allowbreak{}test} (\texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}c:398}). RFC 6234 section 8.5 \cite{src:RFC-6234} supplies four that sit on the padding boundaries: \texttt{``abc''}, the 56 octet message whose padding overflows into a second block, 64 octets fed ten times so that padding forms a whole block alone, and one million \texttt{'a'} which pushes the length field past \(2^{23}\) bits over 15,625 compressions. The empty message is the fifth, which RFC 8448 section 3 prints as the TLS 1.3 \texttt{Transcript-\allowbreak{}Hash(``'')}.
+The implementation is held to five published vectors. RFC 6234 section 8.5 \cite{src:RFC-6234} supplies four that sit on the padding boundaries: \texttt{``abc''}, the 56 octet message whose padding overflows into a second block, 64 octets fed ten times so that padding forms a whole block alone, and one million \texttt{'a'} which pushes the length field past \(2^{23}\) bits over 15,625 compressions. The empty message is the fifth, which RFC 8448 section 3 prints as the TLS 1.3 transcript hash of the empty string.
 
-\texttt{harness.\allowbreak{}py vectors} runs the standard suites offline against bytes vendored under \texttt{test/\allowbreak{}vectors}, each one's source and hash recorded in \texttt{MANIFEST.\allowbreak{}json}, with every file's hash checked before a vector is read from it.
+The standard suites are run offline against stored copies of the published vectors, each copy's source and hash recorded and checked before a vector is read from it.
 
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -2111,43 +2067,36 @@ CAVP Monte & NIST & 100 × 1000 & chained state: each digest feeds the next \\
 CAVP bit ShortMsg & NIST & 513 & 448 do not end on a byte \\
 CAVP bit LongMsg & NIST & 512 & 448 do not end on a byte \\
 CAVP HMAC & NIST & 225 & 150 carry truncated tags \\
-Wycheproof HMAC \cite{src:Wycheproof} & C2SP \texttt{b61843a9} & 46 & 20 modified tags that must not reproduce \\
+Wycheproof HMAC \cite{src:Wycheproof} & C2SP & 46 & 20 modified tags that must not reproduce \\
 streaming splits & invariant & 3321 cuts & every split of one message must reach one digest \\
 differential & second implementation & 424 & padding edges plus random lengths \\
 \bottomrule
 \end{longtable}
 \normalsize
 
-1554 published vectors from two bodies, none of them written here. Monte earns its place twice over: a hash whose state carries wrongly between blocks passes every one shot table and fails on Monte's first checkpoint. Every vector in every published suite hashes its message in a single call. None reaches \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}take}, and the split and differential rows are the only thing testing the streaming path.
+That is 1554 published vectors from two bodies. Monte earns its place twice over: a hash whose state carries wrongly between blocks passes every one shot table and fails on Monte's first checkpoint. Every vector in every published suite hashes its message in a single call. None reaches the streaming path, and the split and differential rows are the only tests of it.
 
 This is two bodies and not the whole published set of cryptographic test vectors. Widening it is open work.
 
-\texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}bits} is the general entry and takes a \texttt{uint64\_\allowbreak{}t} count, because the standard's length field is 64 bits. Trailing bits sit in the high end of the final byte:
+The general entry takes a 64-bit bit count, because the standard's length field is 64 bits. Trailing bits sit in the high end of the final byte, and the padding marker is set on the first unused bit. There is one padding routine, and the byte and bit entries are that routine with its marker and length filled in differently: the byte case passes the marker \texttt{0x80} and a length of eight bits a byte. No second copy exists to drift from the first.
 
-\begin{lstlisting}[breaklines=true,breakatwhitespace=false,basicstyle=\ttfamily\small]
-const uint8_t kept   = (uint8_t)(bytes[whole] & (uint8_t)(0xFFu << (8u - spare)));
-const uint8_t marker = (uint8_t)(kept | (uint8_t)(0x80u >> spare));
-\end{lstlisting}
+The interface is streaming, begin, take and finish, with the one shot form built on top. It is streaming because a one shot form cannot run the standard's own vectors: one of them is a megabyte, and an ATSAMD51 microcontroller has 192 KB of RAM.
 
-There is one padding routine, \texttt{mmgr\_\allowbreak{}sha256\_\allowbreak{}finish\_\allowbreak{}with(running, marker, total\_\allowbreak{}bits, digest)}, and both public entries are that routine with its two arguments filled in differently. The byte case passes \texttt{0x80} and \texttt{length * 8}. No second copy exists to drift from the first.
+\subsection{Appendix B: The examples}
 
-The interface is \texttt{begin}, \texttt{take}, \texttt{finish}, with the one shot form built on top (\texttt{test/\allowbreak{}support/\allowbreak{}mmgr\_\allowbreak{}sha256.\allowbreak{}h:59-\allowbreak{}99}). It is streaming because a one shot form cannot run the standard's own vectors: TEST3 is a megabyte and an ATSAMD51 has 192 KB of RAM.
-
-\subsection{Appendix B: The examples tree}
-
-The examples under \texttt{examples/\allowbreak{}} are 122 scripts over nine fields, each one a step of the same pipeline. A field enters at step 1 and leaves at whichever step it has an answer for.
+The examples are 122 programs over nine fields, each one a step of the same pipeline. A field enters at step 1 and leaves at whichever step it has an answer for.
 
 \begin{center}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.71\textwidth}@{}}
 \toprule
 step & what it settles \\
 \midrule
-\texttt{1\_represent} & what counts as a part, and how a part is written down \\
-\texttt{2\_partition}  & how the parts are cut into the cells a distribution is taken over \\
-\texttt{3\_reference}  & the maximum entropy arrangement the object is measured against \\
-\texttt{4\_measure}    & the departure from it \\
-\texttt{5\_sift}       & what the departure keeps or rules out \\
-\texttt{6\_oracle}     & the outside answer, where a domain has one \\
+1. represent & what counts as a part, and how a part is written down \\
+2. partition & how the parts are cut into the cells a distribution is taken over \\
+3. reference & the maximum entropy arrangement the object is measured against \\
+4. measure   & the departure from it \\
+5. sift      & what the departure keeps or rules out \\
+6. oracle    & the outside answer, where a domain has one \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2155,17 +2104,17 @@ step & what it settles \\
 \begin{center}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}rl@{}}
 \toprule
-domain & scripts & reaches \\
+field & programs & reaches \\
 \midrule
-\texttt{language}        & 60 & oracle \\
-\texttt{any\_corpus}     & 18 & sift \\
-\texttt{crystallography} &  9 & oracle \\
-\texttt{proteins}        &  8 & oracle \\
-\texttt{cell\_tracking}  &  7 & oracle \\
-\texttt{art}             &  7 & measure \\
-\texttt{game\_theory}    &  6 & oracle \\
-\texttt{source}          &  4 & measure \\
-\texttt{sound}           &  3 & measure \\
+language        & 60 & oracle \\
+any corpus      & 18 & sift \\
+crystallography &  9 & oracle \\
+proteins        &  8 & oracle \\
+cell tracking   &  7 & oracle \\
+art             &  7 & measure \\
+game theory     &  6 & oracle \\
+source code     &  4 & measure \\
+sound           &  3 & measure \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2175,7 +2124,3 @@ rest on two oracle answers this work did not produce: crystallography's publishe
 language's answers extracted by hand. The protein and game theory oracles test against published
 values too, and those comparisons belong to their own papers. Everything this paper measures beyond
 the two named is taken against its own permutation null and says so.
-
-\medskip
-
-\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-01 \textbf{Copyright:} (c) 2026 Douglas Quigg (dstroy0). All rights reserved. \textbf{License:} AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational. Every use falls under AGPL-3.0-or-later unless you hold explicit permission, which is either a negotiated commercial licensing contract or an educator's license issued to you personally.

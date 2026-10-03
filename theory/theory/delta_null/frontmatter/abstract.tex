@@ -26,8 +26,8 @@ subset: passing the checks never proves a match. The full comparison cannot be s
 implementation has to verify what its filter lets through. Never losing a match costs nothing.
 Confirming one costs a full comparison.
 
-The search is implemented in orior at commit \texttt{1044ca6}, and Section 2.7 of the first chapter
-states its guarantees, each with the lines of code that carry it and the condition it needs. The
+The search is implemented in the orior engine, and Section 2.7 of the first chapter states its
+guarantees, each with the condition it needs. The
 counts are exact for any valid set of checks on byte data, and on ranked data with 256 classes or
 fewer under a transitive equality test. Placing the checks greedily drops at least \(1 - 1/e\) of
 what the best placement drops when every alignment is scored \cite{src:Nemhauser-Wolsey-and-Fisher}.
@@ -55,8 +55,6 @@ and its most disordered rearrangement have the same symbol counts, and so the sa
 No bound built from a histogram can tell structured data from a rearrangement of the same symbols.
 
 What follows is the simplest form of the algorithm. Other arrangements are in the orior engine
-workbook,
-\texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}orior\_\allowbreak{}workbook.\allowbreak{}tex}
-at commit \texttt{1044ca6}, and in \texttt{docs/\allowbreak{}steering.md} in the same tree. The
-chapters work through the method as it runs, and the last chapter defines its terms.
+workbook \cite{src:Quigg-orior-workbook}. The chapters work through the method as it runs, and the
+last chapter defines its terms.
 \cleardoublepage

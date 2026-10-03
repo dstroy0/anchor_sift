@@ -2,9 +2,7 @@
 
 \section{Comparing texts by their byte pairs}
 
-\textbf{Purpose:} Compare texts by how often each pair of adjacent bytes occurs in them: count the pairs, measure the distance between two texts, check the measurement against two halves of the same text, correct for how many pairs a text uses, group the texts, and allow for languages that share an ancestor. \textbf{Scope:} \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py}, \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}corpus\_\allowbreak{}gate.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}case\_\allowbreak{}or\_\allowbreak{}splitting.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}cluster\_\allowbreak{}profiles.\allowbreak{}py}, \texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}evidential\_\allowbreak{}pressure.\allowbreak{}py}.
-
-Every file named here is in orior at \texttt{d09b489}, byte for byte the same as the files the figures below were measured with. The line numbers refer to those files.
+This chapter compares texts by how often each pair of adjacent bytes occurs in them. It counts the pairs, measures the distance between two texts, checks the measurement against two halves of the same text, corrects for how many pairs a text uses, groups the texts, and allows for languages that share an ancestor.
 
 \subsection{1. Counting byte pairs}
 
@@ -16,13 +14,13 @@ This turns a text of any length, written in 256 possible byte values, into a fix
 
 \(P_T(k) \;=\; \frac{c_T(k)}{\sum_{j} c_T(j)}, \qquad c_T(k) = \bigl|\{\, i : k_i = k \,\}\bigr|\)
 
-\(P_T\) is a probability distribution over \(2^{16}\) outcomes, the byte-pair histogram of the text (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py:85-\allowbreak{}93}).
+\(P_T\) is a probability distribution over \(2^{16}\) outcomes, the byte-pair histogram of the text.
 
 \subsection{2. Total variation distance}
 
 \(D(P,Q) \;=\; \tfrac{1}{2} \sum_{k=0}^{65535} \bigl| P(k) - Q(k) \bigr| \;\in\; [0,1]\)
 
-This is the total variation distance. It is 0 when the two distributions agree everywhere and 1 when no outcome has nonzero probability in both (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py:96-\allowbreak{}99}).
+This is the total variation distance. It is 0 when the two distributions agree everywhere and 1 when no outcome has nonzero probability in both.
 
 \subsection{3. Split-half check}
 
@@ -34,7 +32,7 @@ A distance between corpora can be read when
 
 \(D_{\text{self}}(T) \;\ll\; D(P_T, P_{T'}) \quad \forall\, T' \neq T\)
 
-and cannot be read when \(D_{\text{self}}(T) > \max_{T'} D_{\text{self}}(T')\), because then the corpus is too small to tell apart from noise (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py:162-\allowbreak{}196}).
+and cannot be read when \(D_{\text{self}}(T) > \max_{T'} D_{\text{self}}(T')\), because then the corpus is too small to tell apart from noise.
 
 On 20 corpora cut to 6707 bytes each, \(D_{\text{self}}\) ran from \(0.1118\) to \(0.3192\), with a mean of \(0.2361\).
 
@@ -44,7 +42,7 @@ On 20 corpora cut to 6707 bytes each, \(D_{\text{self}}\) ran from \(0.1118\) to
 
 \(\mathrm{supp}(P) = \bigl|\{\,k : P(k) > 0\,\}\bigr|, \qquad H(P) = -\sum_{k} P(k)\log_2 P(k)\)
 
-Across the same 20 corpora, the number of pairs ran from \(193\) to \(970\) and rose and fell with \(D_{\text{self}}\) almost in step. A corpus in an encoding that uses few pairs looks consistent with itself for arithmetic reasons alone. Ranking writing systems by \(D_{\text{self}}\) ranks them by how many pairs they use, until shown otherwise (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}byte\_\allowbreak{}signature.\allowbreak{}py:157-\allowbreak{}175}).
+Across the same 20 corpora, the number of pairs ran from \(193\) to \(970\) and rose and fell with \(D_{\text{self}}\) almost in step. A corpus in an encoding that uses few pairs looks consistent with itself for arithmetic reasons alone. Ranking writing systems by \(D_{\text{self}}\) ranks them by how many pairs they use, until shown otherwise.
 
 \subsection{5. Text damaged by extraction}
 
@@ -52,7 +50,7 @@ Take the sets of characters \(S = \{s_1 \dots s_q\}\) that only a given writing 
 
 \(\mathrm{sets}(T) = \sum_{s \in S} \mathbf{1}\bigl[\,\exists\, c \in T,\ c \in s\,\bigr], \qquad \mu(T) = \frac{10^3}{|T_\alpha|}\bigl|\{\,c \in T : \mathrm{comb}(c)\,\}\bigr|\)
 
-Here \(T_\alpha\) is the text's letters and \(\mathrm{comb}\) marks combining characters, such as accents written as separate code points. A damaged PDF extraction loses the combining marks first. A file with \(\mu \to 0\) and \(\mathrm{sets} \ll q\) has been damaged even though the text left in it still reads normally (\texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}salish\_\allowbreak{}purity.\allowbreak{}py:57-\allowbreak{}71}).
+Here \(T_\alpha\) is the text's letters and \(\mathrm{comb}\) marks combining characters, such as accents written as separate code points. A damaged PDF extraction loses the combining marks first. A file with \(\mu \to 0\) and \(\mathrm{sets} \ll q\) has been damaged even though the text left in it still reads normally.
 
 On 60 extracted papers with \(q=7\), one file scored \(\mathrm{sets} \ge 5\) with \(\mu > 0\). Every other file had lost the marks completely.
 
@@ -62,7 +60,7 @@ To tell a real split of the data from what splitting any set of keys produces by
 
 \(\pi^{\ast} \sim \mathrm{Unif}\bigl(\mathcal{S}(\text{labels within group})\bigr), \qquad \Delta = \mathrm{E}\bigl[\,r(\pi^{\ast})\,\bigr] - r(\pi_{\text{obs}})\)
 
-\(\Delta \le 0\) means the observed split gained nothing that a random split of the same shape would not (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}case\_\allowbreak{}or\_\allowbreak{}splitting.\allowbreak{}py:110-\allowbreak{}131}). Over 19 corpora limited to 60000 tokens each, \(\Delta\) ran from \(+0.0056\) to \(+0.0901\), and the spread of the shuffled splits was at most \(0.0133\) over 5 draws.
+\(\Delta \le 0\) means the observed split gained nothing that a random split of the same shape would not. Over 19 corpora limited to 60000 tokens each, \(\Delta\) ran from \(+0.0056\) to \(+0.0901\), and the spread of the shuffled splits was at most \(0.0133\) over 5 draws.
 
 \subsection{7. Checking the tree against the distances}
 
@@ -70,7 +68,7 @@ Group the texts by average-linkage clustering on \(D\). A tree can be built from
 
 \(\rho_c \;=\; \mathrm{corr}\bigl(\,D(i,j),\; h(i,j)\,\bigr)_{i < j}\)
 
-A low \(\rho_c\) means the tree shows groups the distances do not support, and the result is only an ordering (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}cluster\_\allowbreak{}profiles.\allowbreak{}py}). On 19 languages, over \(171\) pairs, \(\rho_c = 0.8406\).
+A low \(\rho_c\) means the tree shows groups the distances do not support, and the result is only an ordering. On 19 languages, over \(171\) pairs, \(\rho_c = 0.8406\).
 
 \subsection{8. Sampling one language per family}
 
@@ -78,6 +76,4 @@ Languages are not independent samples, because related languages share a history
 
 \(\hat{\pi} \;=\; \frac{1}{d}\sum_{t=1}^{d} \frac{1}{|F|}\sum_{f \in F} \mathbf{1}\bigl[\,h(x_{f,t})\,\bigr], \qquad x_{f,t} \sim \mathrm{Unif}(f)\)
 
-over \(d\) draws from the set of families \(F\). Report \(\hat{\pi}\) with its standard deviation across the draws (\texttt{examples/\allowbreak{}language/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}evidential\_\allowbreak{}pressure.\allowbreak{}py:65-\allowbreak{}78}). On 418 languages in 121 families with \(d=300\), the rates for each area ran from \(0.089\) to \(0.716\), with a spread of \(0.029\) to \(0.069\).
-
-\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-03
+over \(d\) draws from the set of families \(F\). Report \(\hat{\pi}\) with its standard deviation across the draws. On 418 languages in 121 families with \(d=300\), the rates for each area ran from \(0.089\) to \(0.716\), with a spread of \(0.029\) to \(0.069\).
