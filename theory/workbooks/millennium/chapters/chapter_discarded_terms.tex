@@ -1,0 +1,164 @@
+\chapter{Navier--Stokes: the terms equation (1) leaves out}
+
+\textbf{Purpose:} Hold every claim of the first observation of the thought experiment beside what
+stands behind it. A reader then sees at a glance which claims are proved, which were read, which
+arrived by report, and which are still only theory. \textbf{Scope:} the thought experiment recorded
+on 2026-10-01 as a run of questions and answers, and the research paper chapter \emph{The terms
+equation (1) leaves out}, whose propositions this chapter names by number.
+
+\section{How an entry is kept}
+
+Every claim carries one status, and the status says what backs it.
+
+\begin{center}
+\begin{tabular}{@{}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.74\textwidth}@{}}
+\toprule
+Status & What it means \\
+\midrule
+proved & a proof is written out in the research paper and the number of its proposition is given \\
+read & a source was opened and the claim is in it, in the words given \\
+by report & the claim reached this work through another source, and that source was not opened \\
+theory & stated, argued from scaling or by analogy, and not proved \\
+not so & fails on its own terms; kept, with the reason \\
+open & neither proved nor shown false here \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A claim changes status only when a proof or a reading changes it, and the change is recorded
+beside it. Nothing is deleted. A claim that failed stays, with what failed it.
+
+\section{The first observation}
+
+The thought experiment opens by asking where the Navier--Stokes equations are bound: where a value
+is assigned to the fluid instead of being asked of it. Its answer is that they are bound in nearly
+every term. Density is assigned, viscosity is assigned, temperature is left out, and the fluid is
+put in a box before anything is known about its container. Each of these is known from measurement
+to be wrong for a real fluid, or is a choice made before the fluid was looked at.
+
+The program it sets is to write every term in vector form and to hold nothing fixed that the fluid
+has not been asked for. The fluid fills all of space until a container is measured, and the
+container is read from the motion, through spherical harmonics of the wave patterns the motion
+carries, and not assumed.
+
+The same shape runs through the whole set of equations: put the fluid in a box, approximate what
+it does there, and average the temperature over a volume. Each step drops information the motion
+carries. This chapter enters the dropped terms and the box. Averaging over a volume is the second
+observation and has the next chapter. Every other step of that shape goes in a later one.
+
+The record goes on to entropy, observation and arithmetic. Those parts bear on no claim in this
+observation and are not entered here.
+
+\section{Entries}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}@{}}
+\toprule
+Claim & Status & What stands behind it \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Equation (1) is bound: its constants are assigned to the fluid and not asked of it.
+& read
+& Fefferman's (1) carries one constant, $\nu$, and no density and no temperature. \\[0.6em]
+Density varies with temperature, and a constant density is assigned, not measured.
+& proved
+& Proposition 4: with $\rho'(T)\neq 0$, condition (2) forces conduction to cancel shear heating at
+every point. Silent where $\rho'$ vanishes. \\[0.6em]
+Viscosity is not a constant, and pulling $\mu$ out of the divergence drops a term.
+& proved
+& Propositions 1 and 3: the dropped term is $2\mu'(T)\,D\nabla T$, zero only where $\nabla T$ lies
+in the null space of $D$. \\[0.6em]
+The fluid defines its own state if it is let.
+& proved
+& Proposition 2: any viscous motion that decays at infinity makes its own temperature
+gradient. \\[0.6em]
+With vector calculus the dropped terms cannot be hidden.
+& proved
+& Proposition 1: the shear part is twelve terms per component and one product in vector
+form. \\[0.6em]
+Friction is not linear, anywhere.
+& open
+& The dependence measured in the research paper is on temperature, $-2.45$ percent per kelvin
+for water at $20\,^\circ$C, evaluated from IAPWS R12-08~\cite{src:IAPWS-R12-08}. A dependence of water's
+viscosity on $|D|$ was not measured. \\[0.6em]
+Put a vector magnitude where a value is not known.
+& read
+& A viscosity $\mu(|D|) = \mu_0|D|^{p-2}$ is that move. For $p > 11/5$ in three dimensions a
+solution obeying the energy equality is obtained; for $p = 2$ that is not known. Read in
+Lienstromberg, Schiffer and Schubert~\cite{src:Lienstromberg-Schiffer-Schubert-2025}. \\[0.6em]
+Never put the fluid in a box unless it is in one; a box destroys information.
+& proved
+& Proposition 6: the box keeps the transform of the field on the integer lattice and drops the
+rest, and nonzero flows with zero divergence enter it as zero. It loses nothing when the fluid
+already fits in one cell. \\[0.6em]
+The box sets directions the fluid does not have.
+& proved
+& Proposition 7: 48 rotations and reflections about a point act on the box, against an infinite
+group on all of space. \\[0.6em]
+Spherical harmonics of the wave patterns recover the container.
+& theory
+& Stated in the thought experiment. Not proved, and no computation was run. \\[0.6em]
+The forced construction breaks down under real conditions.
+& proved, in part
+& Proposition 5: the rate of shear heating has no bound at the singular time, and its total is
+finite. That the breakdown would not happen with the coupling kept is open. \\[0.6em]
+The forced construction failed to prove the theorem.
+& not so
+& The theorem is about equation (1), and its proof was not read. Nothing here bears on whether
+the proof is correct. What the propositions bound is what the theorem is about. \\[0.6em]
+A collapsing vortex in water vaporizes near 0.7 nanometers of width, found by independent work.
+& by report
+& Reached this work only through the thought experiment. No source was located or opened, and
+nothing rests on it. \\[0.6em]
+An unbounded value is a sign that an assumption has left the fluid.
+& theory
+& Proposition 5 is the proved part: the unbounded factor is a factor of the dropped term. The
+scaling entry below is the rest. \\
+\end{longtable}
+
+\section{A scaling estimate, marked as theory}
+
+Take a collapsing core of radius $r$ and speed $U$, with $|D| \sim U/r$. Suppose the shear heat in
+the core, of order $\mu U^2/r^2$ per unit volume, is carried off by conduction across the core, of
+order $k\,\Delta T/r^2$. Then the temperature excess of the core is
+\[
+\Delta T \sim \frac{\mu U^2}{k},
+\]
+independent of $r$. The ratio of the dropped term to the kept viscous term is of order
+$|2D\nabla\mu| / |\mu\Delta u| \sim 2\,|(\ln\mu)'|\,\Delta T$, since both carry one more factor of
+$1/r$ than $D$. The ratio is therefore
+\[
+2\,|(\ln\mu)'|\,\frac{\mu U^2}{k},
+\]
+and it passes one at
+\[
+U^* = \sqrt{\frac{k}{2\mu\,|(\ln\mu)'|}} .
+\]
+Any collapse in which $U$ grows without bound passes $U^*$. Below it the dropped term is a small
+error. Above it the dropped term is as large as the term kept.
+
+\textbf{Why this is theory and not proved.} It assumes one length scale for the core, a balance
+between shear heating and conduction that holds at every moment, and derivatives estimated by size
+alone. None of the three is shown.
+
+For water at $20\,^\circ$C and atmospheric pressure, IAPWS R15-11~\cite{src:IAPWS-R15-11} gives $k = 0.5980$ watts per
+meter per kelvin and IAPWS R12-08 gives $\mu = 1.0016$ mPa\,s with $(\ln\mu)' = -0.0245$ per
+kelvin, and $U^* = 110$ meters per second. At $0\,^\circ$C it is 67 meters per second, and at
+$40\,^\circ$C it is 160. The number is computed. The estimate it comes from is still theory.
+
+\section{What it wants}
+
+Every term this chapter enters is collected, with the others, in the table of terms to put back
+in the last chapter.
+
+The estimate above wants a computation: the forced construction, or any collapsing solution of
+(1), with $T$ carried beside it through the energy balance, and $2\mu'(T)\,D\nabla T$ evaluated
+along the way and compared with $\mu\Delta u$. That replaces the scaling with a number taken on an
+actual solution. It is not built.
+
+The gap in Proposition 3 wants a proof either way: whether a flow can hold its own temperature
+gradient inside the null space of its own rate of strain at every point and time.
+
+The spherical harmonic entry wants a statement precise enough to prove: what feature of a
+container, read from which harmonics of the motion on all of space, and with what loss.

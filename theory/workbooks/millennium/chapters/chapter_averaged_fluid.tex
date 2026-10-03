@@ -1,0 +1,86 @@
+\chapter{Navier--Stokes: what the average keeps}
+
+\textbf{Purpose:} Hold every claim of the second observation of the thought experiment beside what
+stands behind it, kept the same way as the first. \textbf{Scope:} the second observation, and the
+research paper chapter \emph{What the average keeps}, whose propositions this chapter names by
+number.
+
+\section{The second observation}
+
+Take a quintillion molecules of a fluid. Each one feels the field and every neighbor. Reducing
+what they do to a few numbers per point looks absurd once that is in view. The observation does not
+say the average is wrong. It says the average over enough volume and enough time gives an entropic
+equivalence that is approximate and not exact, and that the equations are built on that average.
+
+\section{Entries}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}%
+>{\raggedright\arraybackslash}p{0.12\textwidth}%
+>{\raggedright\arraybackslash}p{0.40\textwidth}@{}}
+\toprule
+Claim & Status & What stands behind it \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+The field is continuous and the molecules sit in it; the differences of potential between any two
+are uncountably many.
+& proved
+& Proposition 8: a continuous field takes every value between its values at two molecules, and an
+interval of real numbers is uncountable. \\[0.6em]
+Normalized to 0 and 1, every one of those values is kept.
+& proved
+& Proposition 8: $t \mapsto t/(1+t)$ carries $[0,\infty)$ one to one onto $[0,1)$, keeping order,
+and cuts none off. \\[0.6em]
+The continuum of the first observation and the molecules of the second pull in opposite
+directions, and the research paper must take one.
+& not so
+& Put forward while this observation was entered, and taken back. The field is defined at every
+point and the molecules are a finite number of points in it. Both hold at once. Proposition 8.
+\\[0.6em]
+Equation (1), read as a law of a real fluid, is a law of averages over many molecules.
+& proved
+& The research paper reads it so in its second chapter. Equation (1) carries no molecules and
+holds a few numbers per point. \\[0.6em]
+The average throws away what each molecule is doing.
+& proved
+& Proposition 9: a cell of $N$ molecules keeps four numbers, and every state in a set of dimension
+$6N-4$ gives the same four. \\[0.6em]
+The average is an entropic equivalence.
+& proved
+& Proposition 9: the set of states with the same cell values is the equivalence class, and its size
+is what the Boltzmann entropy measures. \\[0.6em]
+Over enough volume the equivalence is approximate and never exact.
+& proved, under independence
+& Proposition 10: the scatter of the average is $s/\sqrt N$, positive for every finite $N$. A liquid
+is not independent, and the rate is then the best case. \\[0.6em]
+Over enough time the same holds.
+& theory
+& The time form, with the time over which the motion stays correlated in the place of one
+molecule, is stated and not proved. \\[0.6em]
+A solution that breaks down leaves too little volume and too little time to average over.
+& proved
+& Proposition 11: in the class of the forced construction, the length $\ell$ of the flow and the
+time $\ell^2/\nu$ have no positive lower bound. \\[0.6em]
+In water, that happens at lengths a solution passes through.
+& computed
+& 33.4 molecules in a cube of side one nanometer at $20\,^\circ$C, with a scatter of 17 percent
+under independence, and $\ell^2/\nu$ of one picosecond there. Density from IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018},
+viscosity from IAPWS R12-08~\cite{src:IAPWS-R12-08}, both evaluated by programs that reproduce their
+verification tables. \\
+\end{longtable}
+
+The status \emph{computed} is added here: a number worked out from stated inputs, with the inputs
+named and their source given.
+
+\section{What it wants}
+
+The time form of Proposition 10 wants a proof under a stated rate at which the motion stops being
+correlated with itself.
+
+The entries on water want the collision and correlation times of liquid water, read from a source,
+set against the times of Proposition 11. Where those cross is where the average stops being
+available, and that number has not been taken.
+
+The count of Proposition 9 wants extending to the field between the molecules: what an average over
+a cell keeps of a continuous field, and what it drops.

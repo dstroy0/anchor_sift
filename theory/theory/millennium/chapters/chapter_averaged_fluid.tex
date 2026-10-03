@@ -1,0 +1,127 @@
+\chapter{What the average keeps}
+
+This chapter shows that the field is continuous and the molecules sit in it, that equation (1) is
+a statement about averages of both over cells, that an average over enough volume and enough time
+gives an entropic equivalence that is approximate and never exact, and that a solution which breaks
+down takes away both the volume and the time. It rests on the second observation of the thought
+experiment, Proposition 5 of the previous chapter, and the density and viscosity of water from
+IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018} and IAPWS R12-08~\cite{src:IAPWS-R12-08}.
+
+\section{The observation}
+
+Take a quintillion molecules of a fluid. Each one feels the field and every neighbor, and each one
+moves on its own path. Equation (1) does not hold any of those paths. It holds a density, a
+velocity and, once the temperature is put back, a temperature: a few numbers at each point,
+standing for every molecule near that point.
+
+\section{The field and the molecules}
+
+The field is defined at every point of $\R^3$. The molecules sit at a finite number of points in it.
+Nothing about the one rules out the other.
+
+\textbf{Proposition 8.} Let $\Phi$ be a continuous field on $\R^3$ and let $x \neq y$ be any two
+points, two molecules among them.
+\begin{enumerate}
+\item If $\Phi(x) \neq \Phi(y)$, then on the segment from $x$ to $y$ the field takes every value
+between $\Phi(x)$ and $\Phi(y)$, and those values are uncountably many.
+\item The map $g(t) = t/(1+t)$ carries $[0,\infty)$ one to one onto $[0,1)$ and keeps order. Every
+finite value, however large, has a place in $[0,1)$, and none reaches $1$.
+\end{enumerate}
+
+\emph{Proof.} The function $s \mapsto \Phi(x + s(y-x))$ is continuous on $[0,1]$, and the
+intermediate value theorem gives every value between its ends. An interval of real numbers with
+two distinct ends is uncountable. For the second, $g'(t) = 1/(1+t)^2 > 0$, $g(0) = 0$, $g(t) < 1$,
+$g(t) \to 1$, and $s \mapsto s/(1-s)$ is its inverse on $[0,1)$. \hfill\qedsymbol
+
+The differences of the field between two molecules are uncountably many, and every one of them is
+finite. Normalized to $[0,1)$ they are all kept and none is cut off. The previous chapter is about
+this field, which is continuous at every scale. This chapter is about what equation (1) does with
+it: it averages the field, and every molecule in it, over a cell.
+
+\section{The average keeps a class and drops its members}
+
+Take $N \ge 2$ molecules of mass $m$ in one cell, with velocities $v_1,\dots,v_N$. The cell values the
+balance laws carry are the count $N$, the momentum $P = m\sum_i v_i$, and the kinetic energy
+$K = \tfrac12 m\sum_i |v_i|^2$. The count below is for the kinetic part alone. Energy held in
+rotation, vibration and the forces between molecules adds to it.
+
+\textbf{Proposition 9.} For fixed $N$, $P$ and $K$ with $K > |P|^2/(2Nm)$, the velocities that give
+those values form a sphere of dimension $3N-4$. With the positions free in the cell, the states of
+the $N$ molecules that give the same cell values form a set of dimension $6N-4$.
+
+\emph{Proof.} Write $v_i = P/(Nm) + w_i$ with $\sum_i w_i = 0$. The cross term in $K$ is
+$\tfrac{1}{N}P\cdot\sum_i w_i = 0$, and
+\[
+K = \frac{|P|^2}{2Nm} + \frac{m}{2}\sum_i |w_i|^2 .
+\]
+The $w$ lie in a subspace of dimension $3N-3$ and on a sphere in it of positive radius, which has
+dimension $3N-4$. The $3N$ coordinates of position add to it. \hfill\qedsymbol
+
+For a quintillion molecules the cell keeps four numbers and drops a set of dimension
+$6\times 10^{18} - 4$. Every state in that set gives equation (1) the same values. The set is the
+equivalence class of the cell, and its size is what entropy measures: the Boltzmann entropy of the
+cell values is a constant times the logarithm of the size of the set. The average keeps the class.
+Which member of the class the molecules are in, which is every force on every molecule, is what it
+drops.
+
+\section{The equivalence is approximate at every finite count}
+
+\textbf{Proposition 10.} Let $X_1,\dots,X_N$ be independent, each with mean $a$ and squared spread
+$E[(X_i-a)^2] = s^2 > 0$, and let $\bar X = \tfrac1N\sum_i X_i$. Then $\bar X$ has mean $a$ and
+squared spread $s^2/N$, which is positive for every finite $N$.
+
+\emph{Proof.} The squared spread of a sum of independent terms is the sum of the squared spreads of the terms, since every
+cross term $E[(X_i-a)(X_j-a)]$ with $i\neq j$ is zero, and scaling by $1/N$ scales it by $1/N^2$.
+\hfill\qedsymbol
+
+The average equals the value it stands for only in the limit of infinitely many molecules. For a
+quintillion, its scatter is about $10^{-9}$ of the scatter of one molecule, and the continuum
+works in a glass of water for that reason. It is approximate there, and very good, and never
+exact.
+
+\textbf{What Proposition 10 assumes.} It assumes independence. Molecules in a liquid are not
+independent: each one is held by its neighbors. Correlation between them makes the scatter larger,
+and the $1/\sqrt N$ rate is then the best case, not a bound. The same shape applies to an average
+over time, with the time over which the motion stays correlated in the place of one molecule; that
+form is stated and not proved here.
+
+\section{Where there is not enough volume or time}
+
+\textbf{Proposition 11.} In the class of Proposition 5, let
+$\ell(t) = \|u(t)\|_{L^2}/\|\nabla u(t)\|_{L^2}$, a length over which the velocity changes. Then
+$\ell$ has no positive lower bound on $[0,T^*)$, and neither does $\ell^2/\nu$, the time viscosity
+takes to act across $\ell$.
+
+\emph{Proof.} $\ell(t) \le \sup_s\|u(s)\|_{L^2}/\|\nabla u(t)\|_{L^2}$. The numerator is finite by
+hypothesis, and Proposition 5 shows the denominator has no bound. \hfill\qedsymbol
+
+Equation (1) carries no molecules, and Proposition 11 is a statement about equation (1) alone.
+Read as an average of a real fluid, it asks for cells that hold enough molecules and for a time
+over which to average that is long against the motion of one molecule and short against the motion
+of the flow. Proposition 11 takes both away. The length of the flow goes to zero, and with it the
+count of molecules in a cell of that length. The time of the flow goes to zero, and with it the
+window in which an average over time can be taken.
+
+For water at $20\,^\circ$C and atmospheric pressure, IAPWS R6-95 (2018) gives a density of
+998.2072 kilograms per cubic meter, and with its specific gas constant and the Boltzmann constant
+that is $3.337\times 10^{28}$ molecules per cubic meter. A cube of side one micrometer holds
+$3.34\times 10^{10}$ of them, with a scatter under independence of $5.5\times 10^{-6}$. A cube of
+side one nanometer holds $33.4$, with a scatter of $17$ percent. IAPWS R12-08 gives
+$\nu = 1.0034\times 10^{-6}$ square meters per second, and $\ell^2/\nu$ is one picosecond at that
+length. A solution of equation (1) that breaks down passes through
+those lengths and those times on its way, and there the average it is a statement about is no
+longer a good one.
+
+\section{What this establishes and what it does not}
+
+\textbf{Established.} Equation (1), read as a law of a real fluid, is a law of cell averages. The
+average keeps an equivalence class of dimension $6N-4$ and drops which member of it the molecules
+are in. Under independence, the average is approximate at every finite count and exact only in the
+limit. In the class of the forced construction, the length and the time of the flow have no
+positive lower bound. The cells and the windows the average needs do not stay large enough.
+
+\textbf{Not established.} Nothing here says what the molecules do in a collapsing core, or that a
+description that keeps them would not break down. The scatter figures rest on independence, which
+a liquid does not have. Proposition 9 counts only the states of the molecules. The values the field
+takes between them, uncountably many by Proposition 8, are dropped by the same average and are not
+in that count.

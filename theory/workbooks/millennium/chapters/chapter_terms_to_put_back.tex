@@ -1,0 +1,208 @@
+\chapter{Navier--Stokes: terms to put back}
+
+\textbf{Purpose:} Collect every known member of $P_{\mathrm{all}}$ and $F_{\mathrm{all}}$ that
+equation (1) drops, with the term that puts it back and the source that shows it present; name what
+is not known; and look across the known members for a pattern left over. \textbf{Scope:} the
+research paper chapters on the dropped terms, the average and the two sets, whose propositions this
+chapter names by number, and the sources registered with them.
+
+\section{The method}
+
+The approach to the properties of a fluid has three steps. Examine everything known. Examine what
+is not known, and name it as not known. Then look across the parts that are known and see whether
+any pattern is left. The three sections below are those steps in order.
+
+$P_{\mathrm{all}}$ is the set of all properties of a fluid and $F_{\mathrm{all}}$ the set of all
+forces a fluid can experience, known and not yet known, and neither list is claimed complete.
+Equation (1) keeps $P_{(1)} = \{\nu\}$ and $F_{(1)} = \{-\nabla p,\ \nu\Delta u,\ f\}$.
+
+\section{What is known}
+
+Each row is a member shown present in a real fluid and dropped by equation (1). The status column
+uses the status names of the earlier chapters, and \emph{proved here} marks a proof short enough to be
+written in the row itself.
+
+\begingroup
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}%
+>{\raggedright\arraybackslash}p{0.19\textwidth}%
+>{\raggedright\arraybackslash}p{0.25\textwidth}%
+>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\toprule
+Member & What equation (1) does & Term to put back & What shows it present \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{4}{@{}l}{\textbf{In} $P_{\mathrm{all}}$} \\[0.3em]
+Viscosity that varies with temperature
+& holds $\nu$ constant
+& $2\mu'(T)\,D\nabla T$ in the momentum balance; Propositions 1 and 3
+& computed: $-2.45$ percent per kelvin at $20\,^\circ$C, IAPWS R12-08~\cite{src:IAPWS-R12-08} \\[0.5em]
+Viscosity that varies with pressure
+& holds $\nu$ constant
+& $2(\partial\mu/\partial p)\,D\nabla p$
+& computed: $-0.031$ percent per megapascal at $20\,^\circ$C, IAPWS R12-08~\cite{src:IAPWS-R12-08}; the sign turns
+positive between $25$ and $40\,^\circ$C \\[0.5em]
+Density that varies with temperature
+& sets $\rho = 1$
+& $\rho(T)$ in the inertia, and $\rho'(T)\,DT/Dt + \rho\theta = 0$; Proposition 4
+& computed: expansion of $2.07\times 10^{-4}$ per kelvin at $20\,^\circ$C, zero at
+$3.978\,^\circ$C, IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018} \\[0.5em]
+Density that varies with pressure: the weight of the fluid above, and stirring
+& sets $\rho = 1$
+& $\rho(p,T)$ in the inertia and the mass balance, with the compressibility
+$\partial\ln\rho/\partial p$
+& computed: $4.589\times 10^{-10}$ per pascal at $20\,^\circ$C, a column at rest denser at the
+bottom by $4.49\times 10^{-6}$ per meter, and a turning cup less dense at the bottom center and
+denser at the bottom wall; IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018}, intuition I6 \\[0.5em]
+A finite speed of sound
+& condition (2) makes it infinite; Proposition 12
+& $\theta \neq 0$ and an equation of state $p(\rho,T)$
+& computed: $1482.35$ meters per second at $20\,^\circ$C, IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018} \\[0.5em]
+Bulk viscosity
+& removed with $\theta$ by condition (2)
+& $(\lambda+\mu)\nabla\theta + \theta\nabla\lambda$, with $\lambda + \tfrac23\mu$ the bulk viscosity
+& read: about three times the shear viscosity from 7 to $50\,^\circ$C, $2.469\times 10^{-3}$
+Pa\,s at $25\,^\circ$C; Holmes, Parker and Povey~\cite{src:Holmes-Parker-Povey-2011} \\[0.5em]
+Heat: a temperature field, its conduction, and the heat shear puts in
+& holds no temperature
+& $\rho c\,DT/Dt = \nabla\cdot(k\nabla T) + 2\mu|D|^2$; Propositions 2 and 5
+& computed: $k = 0.5980$ watts per meter per kelvin at $20\,^\circ$C, IAPWS R15-11~\cite{src:IAPWS-R15-11} \\[0.5em]
+A level of pressure at which the liquid breaks
+& holds no level of pressure; Proposition 13
+& pressure fixed in level, and an equation of state that holds the phase boundary
+& read: $-168$ MPa from nucleation theory at $20\,^\circ$C, about $-140$ MPa in inclusions, a few
+to a few tens of megapascals below zero by other methods; Caupin and Herbert~\cite{src:Caupin-and-Herbert-2006} \\[0.5em]
+Molecules, and the field between them
+& averages both over a cell; Propositions 8 to 11
+& none written yet
+& proved, and computed: $3.337\times 10^{28}$ molecules per cubic meter at $20\,^\circ$C, IAPWS
+R6-95 (2018)~\cite{src:IAPWS-R6-95-2018} \\[0.8em]
+\multicolumn{4}{@{}l}{\textbf{In} $F_{\mathrm{all}}$} \\[0.3em]
+Thermal fluctuating stress
+& holds none
+& $\nabla\cdot\tilde\tau$, Gaussian with covariance $\tfrac{2\nu k_BT}{\rho}
+(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}-\tfrac23\delta_{ij}\delta_{kl})\,
+\delta^3(x-x')\,\delta(t-t')$
+& read: the scale at which it matters is about the Kolmogorov length; Eyink, Bandak, Goldenfeld and
+Mailybaev~\cite{src:Eyink-Bandak-Goldenfeld-Mailybaev-2022} \\[0.5em]
+Light, from energy concentrated in a collapse
+& holds no channel for it
+& a loss of energy to radiation in the balance of energy
+& read: flashes shorter than $50$ ps from collapsing bubbles, energy concentrated by twelve orders of
+magnitude, brightness up a hundredfold from $40$ to $0\,^\circ$C; Barber, Hiller, Lofstedt,
+Putterman and Weninger~\cite{src:Barber-1997}; intuition I11 \\[0.5em]
+Gravity acting on a density that varies
+& takes $f$ from outside, and $f = 0$ in statements (A) and (B)
+& $\rho(T)\,g$
+& proved here: $\nabla\times(\rho g) = \nabla\rho\times g$, nonzero wherever $\nabla T$ is not
+parallel to $g$ and $\rho'(T)\neq 0$, and a force with nonzero curl cannot be taken into
+$-\nabla p$ \\[0.5em]
+The force of statements (C) and (D)
+& admits any smooth $f$ with the decay of condition (5)
+& none: the want is to name the member of $F_{\mathrm{all}}$ that $f$ stands for
+& open \\
+\end{longtable}
+\endgroup
+
+\section{What is not known}
+
+\textbf{Members not yet measured.} By the definition of the two sets, they cannot be listed. Their
+place in this chapter is the statement that the table above is not the whole of either set.
+
+\textbf{Intuitions not yet tested.} Each is held in the author's words, with the source that would
+test it and what would count as a hit or a miss, in the log of intuitions recorded before reading
+that sits beside this workbook. An entry there is scored only after the source is read.
+
+\textbf{Candidates with no held source.} Memory in the stress, gas dissolved in the liquid, and
+forces at a free surface are candidates. None is entered until a source is held and read.
+
+\textbf{Questions the earlier chapters leave open.} Whether the viscosity of water depends on $|D|$
+at rates a solution reaches. Whether a flow can hold its own temperature gradient inside the null
+space of its own rate of strain. The time form of Proposition 10. Whether spherical harmonics of
+the motion recover the container. Whether keeping any member above changes whether solutions break
+down: that is open for every row.
+
+\textbf{An analogy, held as theory.} Microcavitation is to water what quantum foam is to space: a
+fluid under so much tension that it must move angular momentum between the bulk and a boundary,
+and it can do so only through heat. The tension is in the fluid itself and not in a surface.
+
+Two parts of this are read. Caupin and Herbert~\cite{src:Caupin-and-Herbert-2006} describe a liquid stretched below its saturated
+vapor pressure, with a pressure that can go negative, and read a negative pressure as a density
+reduced from the equilibrium one: the fluid itself is pulled apart. They describe homogeneous
+nucleation as the birth of the new phase by thermal fluctuations, at a rate proportional to
+$\exp[-E_b/(k_BT)]$, over a barrier $E_b = 16\pi\sigma^3/\bigl(3(P_\sigma - P)^2\bigr)$. The tension
+of the fluid is the factor $P_\sigma - P$, and the more of it the lower the barrier. The surface
+tension $\sigma$ enters only as the cost of the wall of the bubble once one forms, and it is a
+further member of $P_{\mathrm{all}}$ that equation (1) does not hold. The break is crossed by heat.
+
+The analogy goes further. Introducing space into the fluid sets off a chain, the energy available
+compounds for a short while and grows exponentially, and the end of the chain is the
+microcavitation. With $\Delta P = P_\sigma - P$ the tension and $A = 16\pi\sigma^3/(3k_BT)$, the
+links are these.
+
+\begin{enumerate}
+\item Space is introduced: the fluid is stretched and its density falls below the equilibrium one.
+\emph{Read}, Caupin and Herbert.
+\item The pressure falls below the saturated vapor pressure and can go negative: the fluid is under
+tension $\Delta P$. \emph{Read}, the same.
+\item The barrier to a bubble falls as the tension rises, $E_b = A\,k_BT/\Delta P^2$, as the inverse
+square of the tension. \emph{Read}, their equation (2).
+\item The rate of nucleation, proportional to $\exp(-A/\Delta P^2)$, grows exponentially:
+\[
+\frac{d}{d\,\Delta P}\,\ln(\text{rate}) = \frac{2A}{\Delta P^3} > 0 ,
+\]
+and climbs from negligible to certain over a narrow range of tension. \emph{Proved here} from
+their equation (2).
+\item Heat carries one fluctuation over the barrier: a bubble reaches the critical radius
+$R_c = 2\sigma/\Delta P$. \emph{Read}: nucleation is the birth of the new phase by thermal
+fluctuations.
+\item Past $R_c$ the work to form a bubble, $-\tfrac43\pi R^3\Delta P + 4\pi R^2\sigma$, falls as $R$
+grows, and the bubble grows by itself: the microcavitation. \emph{Proved here} from their
+equation (1).
+\end{enumerate}
+
+Every link from the stretching to the microcavitation is read or follows from the review's own
+equations.
+
+\textbf{The chain as a seiche, held as theory.} Conceptually the chain is the same as a seiche:
+energy aligned. A seiche is a standing wave in a basin, and its energy builds where the motion
+arrives in phase. One part of this is read. Caupin and Herbert report that the acoustic experiments
+reaching the most tension in water used aligned energy: Galloway a standing wave in a spherical
+resonator, reaching $-20$ MPa in water degassed to $0.02$ percent saturation; Greenspan and
+Tschiegg a standing wave focused in a steel cylinder, reaching $-16$ to $-21$ MPa at
+$30\,^\circ$C; and their own experiment a few cycles of a 1 MHz wave tightly focused at the center
+of a hemisphere, with an effective time of 45 nanoseconds. In each, the negative swing of the
+aligned wave supplies the first link of the chain. That the chain and a seiche are the same in
+concept is not in any source read, and no source on seiches is held. How long the compounding lasts in time, and what each link costs in a flow of equation
+(1), are not in any source read. The transfer of angular momentum between bulk and boundary, and
+the resemblance to quantum foam, are not in any source read either, and are not shown.
+
+\section{The pattern left over}
+
+Nine of the thirteen rows carry temperature. Viscosity, density, the speed of sound and bulk
+viscosity each vary with it in the sources read. Heat is its balance. The level at which water
+breaks moves with it in the review read, and the light of a collapsing bubble grows a hundredfold
+as the water is cooled from $40$ to $0\,^\circ$C. The fluctuating stress is proportional to $k_BT$,
+and gravity reaches the motion through $\rho(T)$. The four that do not are the two dependences on
+pressure, of viscosity and of density, the molecules, and the external force. Pressure is the
+second variable the rows share, and equation (1) holds pressure only as a gradient with no level,
+Proposition 13.
+
+Equation (1) has a place for every variable here except temperature, and Proposition 2 shows that a
+viscous flow makes its own temperature gradient. The members equation (1) drops are therefore
+mostly members the flow itself moves. That is the pattern left after the known parts are laid
+side by side.
+
+\textbf{Where the pattern leads.} The fluids of the world are transitive: every one of them carries
+the members of the table, whatever its scale and however it is stirred. Along every route to an
+unbounded value that this work has examined, one of those members acts first: the molecules,
+thermal noise, the heat of shear, or the level at which the fluid breaks. A real fluid therefore
+leaves the description of equation (1) before it could reach the value, and no singularity is
+expected in observation, though other extreme objects in fluids are observed. Intuition I9 in the
+log beside this workbook scores this: the first part as a hit for the routes examined, and the
+absence of observation as open until a source on it is held.
+
+\textbf{Status: theory.} The pattern is read off this table. It is not a law, it rests on the rows
+entered so far, and a row added later can break it.

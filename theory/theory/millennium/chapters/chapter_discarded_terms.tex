@@ -1,0 +1,299 @@
+\chapter{The terms equation (1) leaves out}
+
+This chapter shows that the equation Fefferman poses~\cite{src:Fefferman} is not a reduction of
+the balance laws of a real fluid but a different equation. It writes out every term the passage to
+it removes, proves that the removed terms are not zero, and shows what putting the fluid in a
+periodic box drops. It rests on equation (1) and condition (2) of Fefferman's statement, the
+continuum balance laws of mass, momentum and internal energy, the hypotheses of Theorem~1.1 of the
+Navier--Stokes paper~\cite{src:OpenAI-2026-Navier-Stokes} as the previous chapter quotes them, and
+the first five pages of Lienstromberg, Schiffer and
+Schubert~\cite{src:Lienstromberg-Schiffer-Schubert-2025}.
+
+\section{The question}
+
+Fefferman writes equation (1) in components,
+\[
+\frac{\partial u_i}{\partial t} + \sum_{j=1}^{n} u_j \frac{\partial u_i}{\partial x_j}
+= \nu \Delta u_i - \frac{\partial p}{\partial x_i} + f_i(x,t),
+\]
+with condition (2), $\nabla\cdot u = 0$. It carries one constant, $\nu$. It carries no density and
+no temperature. The fluid is told its viscosity and is never asked for it.
+
+A term may be dropped from an equation in two cases and only two: when it is zero, or when it is
+bounded by something small and the bound travels with the equation. This chapter writes the
+removed terms out in vector form, where each one is a single product that cannot be overlooked,
+and proves for each one that neither case holds for a fluid whose viscosity or density depends on
+its temperature. Water is such a fluid.
+
+The fluid is taken to be a continuum at every scale, however small. So is Fefferman's:
+his $u$ is smooth on $\R^3\times[0,\infty)$. Nothing below departs from that. The fluid is also
+taken to fill all of $\R^3$ unless a container has been measured. Nothing is known about a
+container before its effect on the motion is read, and the last proved section shows what putting
+the fluid in a box costs.
+
+This is the first observation of the thought experiment behind it. Every term is written in vector
+form, and nothing is held fixed that the fluid has not been asked for. The observations that follow
+from it go in later chapters. The next one, \emph{What the average keeps}, places the molecules
+in this field and bounds where an average of the two over a cell holds.
+
+\section{The balance laws, kept whole}
+
+Write $\rho$ for density, $u$ for velocity, $T$ for temperature, $\theta = \nabla\cdot u$ for the
+rate of volume change, and $D = \tfrac12(\nabla u + \nabla u^{\mathsf T})$ for the rate of strain.
+The continuum balance of mass and of momentum are
+\[
+\partial_t\rho + \nabla\cdot(\rho u) = 0,
+\qquad
+\rho\,(\partial_t u + (u\cdot\nabla)u) = \nabla\cdot\sigma + f,
+\]
+where $\sigma$ is the stress. The Newtonian stress law is the stress linear and isotropic in $D$,
+\[
+\sigma = -p\,I + \lambda\,\theta\,I + 2\mu D,
+\]
+with $\mu$ the shear viscosity and $\lambda$ the second coefficient. Neither coefficient is a
+constant of nature. Each is a measured function of the state of the fluid, and the one this
+chapter uses is $\mu = \mu(T)$.
+
+Where $\theta = 0$, the balance of internal energy is
+\[
+\rho c\,(\partial_t T + u\cdot\nabla T) = \nabla\cdot(k\nabla T) + 2\mu\,|D|^2,
+\]
+with $c$ the specific heat, $k$ the thermal conductivity, and $|D|^2 = \sum_{i,j} D_{ij}^2$. The
+last term is the heat that shear puts into the fluid, and it is never negative. These three balances
+are the standard ones and are not derived here.
+
+\section{The identity}
+
+\textbf{Proposition 1.} For smooth $u$, $p$, $\mu$ and $\lambda$,
+\[
+\nabla\cdot\sigma = -\nabla p + \mu\,\Delta u + (\lambda+\mu)\,\nabla\theta + \theta\,\nabla\lambda
++ 2D\,\nabla\mu .
+\]
+
+\emph{Proof.} In components,
+$\partial_j\sigma_{ij} = -\partial_i p + \partial_i(\lambda\theta) + \partial_j(2\mu D_{ij})$.
+The second term is $\lambda\,\partial_i\theta + \theta\,\partial_i\lambda$. The third is
+$2D_{ij}\,\partial_j\mu + 2\mu\,\partial_j D_{ij}$, and
+$2\partial_j D_{ij} = \Delta u_i + \partial_i\theta$. Collecting gives the statement.
+\hfill\qedsymbol
+
+Set the density to one, $\theta$ to zero and $\nabla\mu$ to zero, and the momentum balance with the
+Newtonian stress law becomes equation (1) with $\nu = \mu$. The three terms that leave are
+\[
+R = (\lambda+\mu)\,\nabla\theta + \theta\,\nabla\lambda + 2D\,\nabla\mu ,
+\]
+and equation (1) is exact at a point if and only if $R$ is zero there.
+
+In components the shear part alone of $\partial_j\sigma_{ij}$ expands to twelve terms for each $i$,
+and the three that carry $\partial_j\mu$ sit among nine that do not. In vector form the same three
+are one product, $2D\nabla\mu$. The notation does not make a term large. It makes a term impossible
+to drop without writing down the condition that drops it.
+
+\section{What each condition asserts}
+
+\begin{center}
+\begin{tabular}{@{}p{0.24\textwidth}p{0.30\textwidth}p{0.38\textwidth}@{}}
+\toprule
+Condition & Term it removes & What it asserts about the fluid \\
+\midrule
+$\theta = 0$, condition (2) & $(\lambda+\mu)\nabla\theta + \theta\nabla\lambda$
+& no element of the fluid changes volume \\[0.5em]
+$\nabla\mu = 0$ & $2D\nabla\mu$ & viscosity is the same at every point \\[0.5em]
+$\rho \equiv 1$ & the variation of $\rho$ in the inertia
+& density is the same at every point and time \\[0.5em]
+no energy balance & every coupling to $T$ & temperature does not enter the motion \\[0.5em]
+the stress law itself & any dependence of $\mu$ on $|D|$ & stress is linear in the rate of strain \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Condition (2) removes $\lambda$ entirely. Whether the second coefficient is zero is therefore not
+answered by equation (1). It is removed from the question.
+
+\section{A viscous flow makes its own temperature gradient}
+
+\textbf{Proposition 2.} Let $u$, $T$ be smooth on $\R^3\times I$ for an interval of time $I$,
+satisfy the energy balance above with $\theta = 0$, $\rho c > 0$ and $\mu > 0$, and let $D(x,t)\to 0$
+as $|x|\to\infty$ for each $t$. If $\nabla T = 0$ everywhere on $\R^3\times I$, then $u = 0$ on
+$\R^3\times I$.
+
+\emph{Proof.} With $\nabla T = 0$ the temperature is a function of time alone, the conduction term
+vanishes, and the balance reads $\rho c\,T'(t) = 2\mu\,|D(x,t)|^2$ for every $x$. The left side does
+not depend on $x$. Letting $|x|\to\infty$ sends the right side to zero. Then $T'(t) = 0$, and
+$|D| = 0$ at every point. A smooth field with $D = 0$ is a rigid motion, $u = a(t) + W(t)x$ with
+$W^{\mathsf T} = -W$. Decay at infinity forces $a = 0$ and $W = 0$. \hfill\qedsymbol
+
+Any motion of a viscous fluid that decays at infinity, motion with compact support among them,
+produces a temperature gradient within every interval of time it moves. The fluid writes its own
+temperature field. Equation (1) has nowhere to put it.
+
+\section{Dropping the gradient of viscosity}
+
+\textbf{Proposition 3.} Let $\mu = \mu(T)$ and $\theta = 0$. The term removed by setting
+$\nabla\mu = 0$ is $2\mu'(T)\,D\,\nabla T$. It is zero at a point if and only if $\mu'(T) = 0$ there
+or $\nabla T$ lies in the null space of $D$. At a point where $\det D \neq 0$ and $\mu'(T)\neq 0$, it
+is zero if and only if $\nabla T = 0$.
+
+\emph{Proof.} The chain rule gives $\nabla\mu = \mu'(T)\nabla T$. A matrix with nonzero determinant
+has trivial null space. \hfill\qedsymbol
+
+For water the factor $\mu'(T)$ is not small. IAPWS R12-08~\cite{src:IAPWS-R12-08}, the formulation for the viscosity of
+ordinary water, evaluated by a program that reproduces its verification table to every
+printed digit, gives $1.0016$ mPa\,s at $20\,^\circ$C and atmospheric pressure and
+$\mu'/\mu = -0.0245$ per kelvin there: about two and a half percent per degree.
+
+\textbf{A gap, stated here.} Proposition 2 puts a nonzero $\nabla T$ somewhere in every interval of
+motion. Proposition 3 needs it at a point where $D\nabla T \neq 0$. Whether a flow can keep its own
+temperature gradient inside the null space of its own rate of strain at every point and time is not
+settled in this chapter.
+
+\section{Condition (2) and thermal expansion}
+
+\textbf{Proposition 4.} Let $\rho = \rho(T)$, let the mass balance and the energy balance hold, and
+let $\theta = 0$. At every point where $\rho'(T) \neq 0$,
+\[
+\nabla\cdot(k\nabla T) = -2\mu\,|D|^2 \le 0 .
+\]
+
+\emph{Proof.} The mass balance with $\theta = 0$ is $\rho'(T)\,(\partial_t T + u\cdot\nabla T) = 0$.
+Where $\rho'(T)\neq 0$ the material rate of $T$ is zero, and the energy balance leaves
+$0 = \nabla\cdot(k\nabla T) + 2\mu|D|^2$. \hfill\qedsymbol
+
+Condition (2), held together with a density that depends on temperature, therefore requires heat
+conduction to remove exactly the heat that shear puts in, at every point and every moment. A fluid
+that expands when heated does not do that. At a temperature where $\rho'$ vanishes the proposition
+says nothing, and water has one: IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018} puts its density maximum at $3.978\,^\circ$C at
+atmospheric pressure. That is the only temperature at
+which condition (2) and thermal expansion agree without a further condition.
+
+\section{Where dropping the term is least safe}
+
+Dropping $2D\nabla\mu$ claims that it is small, and $D$ is the factor that an unbounded solution
+makes large.
+
+\textbf{Proposition 5.} Let $(u,p)$ be a smooth solution of (1) and (2) on $\R^3\times[0,T^*)$ with
+$u(\cdot,t)$ supported in one compact set for every $t$, with $f$ smooth and of compact support in
+$\R^3\times(0,T^*)$, with $\sup_t\|u(t)\|_{L^2} < \infty$, and with
+$\limsup_{t\to T^*}\|u(t)\|_{L^\infty} = \infty$. These are the hypotheses of Theorem~1.1 of
+\emph{Finite time blowup for Navier--Stokes} with $T^* = 1$. Write $Q(t) = \nu\int 2|D|^2\,dx$, the
+rate at which shear puts heat into the fluid. Then
+\begin{enumerate}
+\item $Q(t) = \nu\,\|\nabla u(t)\|_{L^2}^2$;
+\item $Q$ has no finite bound on $[0,T^*)$;
+\item $\int_0^{T^*} Q(t)\,dt < \infty$.
+\end{enumerate}
+
+\emph{Proof.} For the first,
+$\int 2|D|^2 = \int|\nabla u|^2 + \int \partial_j u_i\,\partial_i u_j$, and integration by parts with
+compact support gives $\int \partial_j u_i\,\partial_i u_j = -\int u_i\,\partial_i\theta = 0$.
+
+For the second, the classical local theory gives, for data in $H^1$ with zero divergence and a smooth
+force, a smooth solution on an interval whose length has a positive lower bound depending only on
+$\|\nabla u\|_{L^2}$ at the start and on bounds of the force. If $\|\nabla u(t)\|_{L^2} \le M$ on
+$[0,T^*)$, starting that theory at a time closer to $T^*$ than the bound for $M$ continues the
+solution smoothly past $T^*$, uniqueness makes the continuation agree with $u$, and $\|u\|_{L^\infty}$
+stays bounded near $T^*$, which contradicts the hypothesis. This step rests on the local theory,
+which is not reproduced here, and on Leray's 1934 paper, which was not read for this chapter.
+
+For the third, a smooth solution with compact support satisfies the energy equality
+\[
+\tfrac12\|u(t)\|^2 + \nu\int_0^t\|\nabla u\|^2 = \tfrac12\|u(0)\|^2 + \int_0^t\!\!\int f\cdot u ,
+\]
+and the right side is at most
+$\tfrac12\|u(0)\|^2 + \sup_s\|u(s)\|_{L^2}\int_0^{T^*}\|f(s)\|_{L^2}\,ds$. \hfill\qedsymbol
+
+In the construction that settles statement (C), the heat that shear puts into the fluid arrives at a
+rate with no bound as the singular time approaches, while its total stays finite. Equation (1) has
+no channel through which that heat reaches the viscosity, and Proposition 3 says that channel is
+$2\mu'(T)\,D\nabla T$, with $D$ the factor that has no bound. An argument that the dropped term is
+small needs a bound on each of its factors. Of the three, $D$ is the factor equation (1) itself
+determines, and it has none.
+
+\textbf{What Proposition 5 does not show.} It does not show that the temperature gradient becomes
+large in the collapsing region, that keeping the coupling stops the collapse, or that the coupled
+system is regular. The workbook carries a scaling estimate on the first of these, marked as theory.
+
+\section{What keeping a magnitude does}
+
+The stress law can keep what equation (1) drops. A viscosity that depends on the magnitude of the
+rate of strain, $\mu(|D|) = \mu_0|D|^{p-2}$ with $p > 1$, puts a vector magnitude where equation (1)
+puts a constant, and $p = 2$ returns equation (1). Lienstromberg, Schiffer and Schubert~\cite{src:Lienstromberg-Schiffer-Schubert-2025} state that
+for $p > 11/5$ in three dimensions their approximations converge strongly to a solution that obeys
+the energy equality, that existence of solutions obeying an energy equality for such exponents
+traces back to Ladyzhenskaya, and that in the Newtonian case, $p = 2$, it is still not known whether
+a solution obeying an energy equality exists even for very regular initial data. Ladyzhenskaya's
+papers were not read for this chapter.
+
+Which dependence the stress law keeps therefore changes which statements can be proved. This
+section shows that the choice decides the question. It does not show which stress law water obeys:
+the dependence of water's viscosity measured in this chapter is on temperature, not on $|D|$.
+
+\section{Putting the fluid in a box}
+
+Statements (B) and (D) pose the problem on $\R^3/\Z^3$: the fluid in a periodic box of side one.
+Statement (D) is reached in the forced construction by placing the compact supports inside one
+cube and summing integer translates. Whether the box is a container the fluid is in, or one it is
+put in, decides what it keeps.
+
+Write $\hat u(\xi) = \int_{\R^3} u(x)\,e^{-2\pi i\,\xi\cdot x}\,dx$, and for a rapidly decaying smooth
+$u$ on $\R^3$ let $(Pu)(x) = \sum_{k\in\Z^3} u(x+k)$, the field put in the box.
+
+\textbf{Proposition 6.} $Pu$ is smooth and periodic, and its Fourier coefficients are
+$\widehat{Pu}(m) = \hat u(m)$ for $m\in\Z^3$. The box therefore keeps $\hat u$ on the integer
+lattice and nothing between its points. There are nonzero smooth rapidly decaying fields $u$ with
+$\nabla\cdot u = 0$ and $Pu = 0$. If $u$ is supported inside one open unit cube, $Pu$ equals $u$
+on that cube and nothing is lost.
+
+\emph{Proof.} The coefficient is $\int_{[0,1)^3}\sum_k u(x+k)\,e^{-2\pi i\,m\cdot x}\,dx$, and since
+$e^{-2\pi i\,m\cdot k} = 1$ the sum over cells unfolds to $\int_{\R^3} u(x)\,e^{-2\pi i\,m\cdot x}\,dx
+= \hat u(m)$. A smooth periodic field is fixed by its coefficients, so $Pu = 0$ exactly when $\hat u$
+vanishes on $\Z^3$. Take $\varphi$ smooth, nonzero, supported in the two balls of radius $1/4$
+about $\pm(1/2,0,0)$, with $\varphi(-\xi) = \overline{\varphi(\xi)}$ so that the field it makes is
+real. Let $A$ be the field with $\hat A = \varphi\,e_3$, and set $u = \nabla\times A$. Then
+$\hat u(\xi) = 2\pi i\,\xi\times\hat A(\xi)$ is nonzero where $\varphi$ is and vanishes on $\Z^3$, and
+$\nabla\cdot u = 0$. For a field supported in one open cube the translates do not overlap.
+\hfill\qedsymbol
+
+Distinct flows on $\R^3$, as many as there are such $\varphi$, all enter the box as the same flow.
+The box loses nothing exactly when the fluid already fits inside one cell of it, and the forced
+construction uses that case. For a fluid larger than the box, the box keeps a lattice of samples of
+its transform and drops the rest.
+
+\textbf{Proposition 7.} The rotations and reflections of $\R^3$ that fix the origin form an infinite
+group. Those that carry $\Z^3$ to itself, and so act on the box, number 48.
+
+\emph{Proof.} An orthogonal map carrying $\Z^3$ to itself sends each $e_j$ to an integer vector of
+length one, which is $\pm e_k$. Such a map is a permutation of the three axes with a sign on each:
+$3!\cdot 2^3 = 48$. \hfill\qedsymbol
+
+On $\R^3$ the expansion of a field in spherical harmonics about a point commutes with every
+rotation about that point, and the degree of a harmonic is then a property of the field. In the box only
+48 of those rotations act. A wave pattern read in spherical harmonics on $\R^3$ is read against
+every direction; in the box it is read against three axes chosen before the fluid was looked at.
+This research paper does not show that spherical harmonics recover the container from the motion.
+That is a claim of the thought experiment, and the workbook holds it as theory.
+
+\section{What this establishes and what it does not}
+
+\textbf{Established.} The passage from the balance laws to equation (1) removes the terms of
+Proposition 1 and the whole energy balance. For a fluid whose viscosity depends on temperature,
+the removed viscous term is zero only where the temperature gradient lies in the null space of the
+rate of strain. Any viscous motion that decays at infinity makes a temperature gradient. Condition
+(2), with a density that depends on temperature, forces conduction to cancel shear heating at every
+point. In the class of the forced construction, the rate of shear heating has no bound at the
+singular time. Putting a fluid larger than the box into it keeps its transform on a lattice and
+drops the rest, and the box keeps 48 of the rotations about a point. None of the dropped terms is
+zero, and none was dropped with a bound that travels
+with the equation.
+
+\textbf{Not established.} Nothing here touches the correctness of the proof of Theorem~1.1, which
+this research paper has not read. A theorem about equation (1) is a theorem about equation (1), and
+the theorem stands as one. What this chapter bounds is what such a theorem is about: an equation
+from which the temperature has been removed, and not a fluid that has one. Questions (A) and (B)
+remain well posed questions about equation (1), and nothing here answers either.
+
+No account is given of who dropped which term, or when, or why. The papers of Navier and of Stokes
+and the first texts of vector analysis were not read for this research paper. The thought experiment
+that prompted this chapter reports a finding that a collapsing vortex in water would vaporize near
+0.7 nanometers of width. No source for that report was located or opened, and nothing here rests on
+it.
