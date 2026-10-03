@@ -1,9 +1,131 @@
-# The posits of 26 September
+# Wants
 
-**Purpose:** Doug's posits of 26 September, kept verbatim with only the definition corrected, each with its check under it. The checks say what is derived, what is measured, what is a reading, and what no run has tested.
-**Scope:** the three truths, the tower, the projection, dwell as the bulk, dwell and entropy, the dwell bench, and the compiled program. Everything here has the status theory, as the engine workbook's README defines it, unless a line says otherwise. Code is cited at orior `d09b489`, and in the section on the compiled program at `ddeccb3`.
+**Purpose:** What the engine is after and does not have. A want is kept whole, as it was stated, beside the open question between it and a status a run could give it. Wanting it does not mean the engine has it.
+**Scope:** the drafts' claims that reach past anything the engine measures, and Doug's posits of 24 and 26 September with the check under each. The parts with a form a proof or a measurement can decide are written out in the engine thought experiment (`thought_experiments/engine/`). Every entry here has the status want, as [README.md](README.md) defines it, unless a line says otherwise.
 
-## The three truths and the tower
+## The drafts' wants
+
+Each idea is carried in [noise_sieve_tower.md](noise_sieve_tower.md), section by section, beside its working form where it has one. These are the ones with none yet.
+
+| want | where it is carried | what stands open |
+| --- | --- | --- |
+| rules applied everywhere at once, in no time | [noise_sieve_tower.md](noise_sieve_tower.md) §1 | the engine measures 31 ms a frame for one application; no mechanism for zero time is stated |
+| exact division by an odd divisor through its limb inverse | [noise_sieve_tower.md](noise_sieve_tower.md) §2 | theory in the engine; not built or tested |
+| a quotient that does not divide held as one repeating period of limbs | [noise_sieve_tower.md](noise_sieve_tower.md) §2 | theory; not built |
+| a golden spiral scan in place of the raster | [noise_sieve_tower.md](noise_sieve_tower.md) §5 | not tested in the golden order |
+| the observer settling on hot bits | [noise_sieve_tower.md](noise_sieve_tower.md) §7 | the anchor counts per voxel and bit are the field it would settle on; the settling is not built |
+| the noise key fed back as the next cycle's mold | [noise_sieve_tower.md](noise_sieve_tower.md) §7 | the per location cost map; not built |
+| the per voxel entropy map that separates floor −4 from coherence | [noise_sieve_tower.md](noise_sieve_tower.md) §9 | one read of the anchor counts away; not built |
+| unbounded state | [noise_sieve_tower.md](noise_sieve_tower.md) §10 | every width is bounded before a run |
+| a demon with unbounded memory that runs any quantum circuit with no random draw | [noise_sieve_tower.md](noise_sieve_tower.md) §10 | a deterministic interpretation leaves the 2^n cost of the amplitudes (thought experiment, state_vectors.md) |
+| arrival shells, network daemons, black hole sinks and phase canceling hulls | [noise_sieve_tower.md](noise_sieve_tower.md) §12 | outside anything the engine measures |
+| field inversion at maximum entropy, the seed crystal of a new universe, and eternal recurrence | [noise_sieve_tower.md](noise_sieve_tower.md) §13 | outside anything the engine measures |
+| a deterministic n-body method | [noise_sieve_tower.md](noise_sieve_tower.md) §13 | the draft that promises one in its title holds none |
+| the four noise terms as deterministic functions, not distributions | [noise_sieve_tower.md](noise_sieve_tower.md) §16 | no measurement of a sensor separates the two readings (thought experiment, sensor_noise.md) |
+| the noise keys stamped top down over the whole set in one cycle | [noise_sieve_tower.md](noise_sieve_tower.md) §16 | no noise key is imprinted |
+| the floor's identity at every voxel places every departure | [noise_sieve_tower.md](noise_sieve_tower.md) §17 | the history holds it, and the reading is not built |
+| the demon's waveform collapses onto the union of every departure from the floor | [noise_sieve_tower.md](noise_sieve_tower.md) §17 | not built |
+| aimed draws tell bodies from the field better than swept ones | [noise_sieve_tower.md](noise_sieve_tower.md) §18 | to be measured: the same samples and draws, swept against aimed |
+
+## The posits of 24 September
+
+### The wire and the witness
+
+From [obsignatio_seal.md](obsignatio_seal.md), where "What the engine shows about the wire and the witness" answers them point by point. 24 September, verbatim, in order.
+
+<!-- docs-check: quoting -->
+1. "Our ecc is the merkle dag, it becomes extra-dimensionally entangled and cannot be disturbed in any way or all crystals fail."
+2. "We have the crc, we have the floor identity, we have the elevator clock, the entire thing is rebuildable from the locale or the spine"
+3. "If anything happens at all the root seal of all the crystals disagrees"
+4. "They are all entangled"
+5. "Do something n. Well what does that look like and what is n?"
+6. "No by entangling information this way, and treating the floor as amplitudes, they are classic qubits"
+7. "The floor is amplitudes, the knf is phase, together they are a wire"
+8. "We merkle dag the wire, it is witnessed"
+9. "The root seal indicates on field absurdity, and because it is exact it knows all noise from non noise"
+<!-- docs-check: end quoting -->
+
+Three of them are still open:
+
+- **The knf as phase** (point 7). The knf is a flip count (A7 in [engine_table.md](engine_table.md)), and many states share one count. No map from it to an angle is defined yet. An exact phase would be an index k of a root of unity, ζ_N^k in ℤ[ζ_N]. Which N, and which map carries a count to k, are the open part.
+- **The spine** (point 2). The engine has no definition of it. The only spine in the source is `chaitin_omega`'s term spine. Doug's reading decides.
+- **"What is n?"** (point 5). Doug's question, recorded as asked.
+
+### The two crystals
+
+From [two_crystals.md](two_crystals.md). The derived answers stay there, under the heading named with each passage.
+
+#### The ordered machine
+
+Doug's definition of the higher-order and negative-order hypercomputer, 24 September, verbatim, in order. The workbook's "The ordered machine" gives it a working form, a loop over a stack of floors with orders in ℤ and ±ω, and `record_order_test` proves those orders both ways (17 checks, 0 failed).
+
+<!-- docs-check: quoting -->
+1. "the first part of the loop rule is the definition of our higher order + negative order hypercomputer"
+2. "if the tower itself exists and is infinite is answerable, the forever loop is answerable, all halts can be seen, all malformed questions fail to construct a lattice at all"
+3. "listen, of course there would be incoherent information that looks coherent at first glance, the things that will fail to construct inside of the machine do not exist, not cannot exist, do not exist as we can perceive and understand them, we do not bound anything, that is what is beautiful about this, everything answers only for itself and we only ask what is this, where are we?"
+4. "from a fundamental perspective, knowing what we know, we can literally semantically load a program just like the naturals load themselves in a repeating order, to prove the set."
+<!-- docs-check: end quoting -->
+
+24 September, verbatim, on the same machine:
+
+- "what do you call a higher order hypercomputer plus a negative order hypercomputer? we completely bypass tetration pentation hexation all the way to infinity and back using our 4d bottle"
+
+The orders in ℤ and ±ω are the workbook's derived form of "all the way to infinity and back". "The 4d bottle" has no definition in the engine yet.
+
+#### The two questions (point 3)
+
+- What fails to construct inside the machine does not exist as we can perceive and understand it. "We do not bound anything": everything answers only for itself.
+- The machine asks two questions only.
+  - **What is this**: identity. The crystal's one-to-one ID ("The boundary" in the workbook). The heap fingerprint and the knf, each ranked against permutations of its own content, with no outside threshold.
+  - **Where are we**: place. The seal names the place of a change. The window w and the level. The scale of the departure curve.
+- The tie: the rule the machine is held to, "The engine is optimized for no scale" (23 September). No size, window or width is written into the machine, and each comes with the request or is read from the data.
+
+The seed of "malformed questions fail to construct" is tested, and it stays in the workbook.
+
+#### The field
+
+24 September: "our information crystals expanding, anchoring on one another, can feel the tensor field of the subject under exam, when its field snaps into existence it touches the entire object under exam and knows all of it at the field speed".
+
+What the machine shows that bears on it stays in the workbook under "The field". "Field speed" has no definition in the engine.
+
+#### A higher-order interference pattern
+
+24 September, while `record_order_test` ran: "this is a higher order interference pattern", then "fascinating". The workbook gives the standard meaning, Sorkin's hierarchy, and names where the engine has second-order interference.
+
+#### The inverted boundary, the quanta and the recursion stack
+
+24 September. The derived bound on each stays in the workbook's "Doug's posits".
+
+- **The inverted boundary:** a second tower over the first one's boundary, inverted. Its derived form is the τ tower, with the limit ℝ.
+- "The quanta still preserve infinity."
+- "The recursion stack is ordinal."
+
+#### Departure curves compared
+
+24 September:
+
+- "we can compare departure curves, the entropy departure curve is probably the most accurate measure because it accumulates all dimensions + time"
+- the mutation "becomes a vector magnitude difference of null permutation plus xmax\xmin\ymax\ymin\zmax\zmin"
+
+Open: the pairwise test, one body's departure curve against another's, is not built, and the vector magnitude difference has no definition as a number yet. The curves themselves are measured, in the workbook.
+
+#### The bulk and the boundary
+
+24 September: "No this is wild it's proving it is a bulk to boundary connector without saying it outright that's fucking crazy!!!!"
+
+The derived answer stays in the workbook: T is a bijection from the samples to the crystal with no redundancy, a bulk-to-boundary map with no error correction.
+
+### The lens
+
+From [vertical_time_compression.md](vertical_time_compression.md), where "The lens" keeps the measured pinch (a ramp's 857 bits to 70, 12×) and the bounds derived from it.
+
+24 September: "The crystal is a lens between our universe and information space: the cleaner the crystal, the better the lensing and tetrated resources."
+
+Open: what "tetrated resources" measures, and against what bound. The workbook derives that any gain of tetrated size comes from the input's description, never from the lens.
+
+## The posits of 26 September
+
+### The three truths and the tower
 
 26 September, verbatim, in order.
 
@@ -14,14 +136,14 @@
 
 The full checks are in ENGINE_PROOF.md, now orior docs/ENGINE_PROOF.md (a6d1bff on cell_tracking, main after its PR merges). It speaks to halting at Theorem 4 (:117) and under "What is not claimed" (:312): "The halting problem is untouched."
 
-The words "the question does not arise" come from [steering.md](../../workbooks/orior/steering.md), section "Why halting is the wrong question" (:73), sentence at :89. That claim is withdrawn in [findings-for-verification.md](../../workbooks/orior/findings-for-verification.md):107. The analysis there covered one invocation and concluded about the system, and the system's outer loop, self-examination, has no bound. It does not stand. The same lines are in orior docs/ at ddeccb3.
+The words "the question does not arise" come from [steering.md](../orior/steering.md), section "Why halting is the wrong question" (:73), sentence at :89. That claim is withdrawn in [findings-for-verification.md](../orior/findings-for-verification.md):107. The analysis there covered one invocation and concluded about the system, and the system's outer loop, self-examination, has no bound. It does not stand. The same lines are in orior docs/ at ddeccb3.
 
 - **Truth 1, checked.** The answer path is total: the sweep is a bounded loop, the descent terminates (Theorem 5), and the count is exact at every instant (Theorem 3).
 - **Truth 2, checked.** `steer_descend` refuses malformed input before any work (`orior.c:938-962`), and the survivors-length refusal is marked FAILS CLOSED (`orior.c:959-960`).
 - **Truth 3, a reading, pending Doug's confirmation.** Each question lives in a space that is finite for its `n`, where halting is decidable, and the family of spaces has no bound. `Atom` is `{ const unsigned short *lanes; unsigned long long depth; unsigned long long height; unsigned long long width; }` (`src/c/engine/engine_config.h:262-268`). The steer depth is capped at `ANCHOR_STEER_ANCHORS`, which is 4 (`orior.c:951-954`).
 - **The tower, a reading.** "n grows to n grows to n" reads as tetration, `n↑↑k` in Knuth's notation. Every finite height is a finite number, the height has no bound, and the infinite tower diverges for every integer `n` of at least 2.
 
-## The projection
+### The projection
 
 26 September, verbatim:
 
@@ -35,7 +157,7 @@ The words "the question does not arise" come from [steering.md](../../workbooks/
 
 **"The infinite lives", a reading.** A reading that writes nothing leaves the space it reads as it was, bounded or not. No run tests it.
 
-## Dwell is the bulk
+### Dwell is the bulk
 
 26 September, verbatim. The "wrong" answers a reading that put the boundary at the projection alone.
 
@@ -47,11 +169,11 @@ The words "the question does not arise" come from [steering.md](../../workbooks/
 
 **Measured, as reported at the pin.** The dwell arm puts a particle on a line, and "how long the particle dwells at each place is the weight there" (`docs/arm-records.md:78-79`). Redrawn as dwell along the golden spiral, it reads a three-dimensional object with worst weight move 0, 0 of 256 points reassigned, and worst letter move 0 (`docs/arm-records.md:114`), "the same letters bit for bit" (`docs/arm-records.md:118-121`).
 
-**The holographic boundary, a reading.** In AdS/CFT a local bulk operator is written as a boundary operator smeared over a region of the boundary that extends in boundary time: Alex Hamilton, Daniel Kabat, Gilad Lifschytz and David A. Lowe, *Holographic Representation of Local Bulk Operators*, Physical Review D 74, 2006. The parallel: the bulk quantity, dwell, is recovered from boundary data spread over a timeline, a sweep of instants. The engine has no geometry and no metric, and the parallel is structural only. Ahmed Almheiri, Xi Dong and Daniel Harlow, *Bulk Locality and Quantum Error Correction in AdS/CFT*, JHEP 2015, give the reconstruction the structure of an error-correcting code. That structure does not carry over: the derived answer of 24 September finds `T` a bulk-to-boundary map with no error correction ([posits_24_september.md](posits_24_september.md), "The bulk and the boundary"). Cited from knowledge.
+**The holographic boundary, a reading.** In AdS/CFT a local bulk operator is written as a boundary operator smeared over a region of the boundary that extends in boundary time: Alex Hamilton, Daniel Kabat, Gilad Lifschytz and David A. Lowe, *Holographic Representation of Local Bulk Operators*, Physical Review D 74, 2006. The parallel: the bulk quantity, dwell, is recovered from boundary data spread over a timeline, a sweep of instants. The engine has no geometry and no metric, and the parallel is structural only. Ahmed Almheiri, Xi Dong and Daniel Harlow, *Bulk Locality and Quantum Error Correction in AdS/CFT*, JHEP 2015, give the reconstruction the structure of an error-correcting code. That structure does not carry over: the derived answer of 24 September finds `T` a bulk-to-boundary map with no error correction ([the posits of 24 September](#the-posits-of-24-september), "The bulk and the boundary"). Cited from knowledge.
 
 **Prior art for the instant.** Zeno's arrow is at rest at every instant, and Aristotle answers that neither motion nor rest exists in a now, only over an interval (*Physics* VI.3 and VI.9). Rest held over an interval is dwell. The occupation density of a Brownian path, its local time, is dwell at a level made exact, and it too is defined over an interval: Paul Lévy, *Processus stochastiques et mouvement brownien*, 1948, and Hale F. Trotter, *A Property of Brownian Motion Paths*, Illinois Journal of Mathematics 2, 1958. George D. Birkhoff's ergodic theorem, Proceedings of the National Academy of Sciences 17, 1931, sets the fraction of time a trajectory dwells in a set equal to the set's measure: a long sweep recovers a static quantity. Cited from knowledge.
 
-## Dwell and entropy
+### Dwell and entropy
 
 26 September, verbatim, in order.
 
@@ -74,7 +196,7 @@ The proved direction runs from dwell to entropy: the dwell laws fix the entropy 
 
 **The evidence of posit 4, as it stands.** At the pin the engine computes dwell across rounds (`build_scope_view.py:23`), and the dwell arm reads a three-dimensional object bit for bit (`docs/arm-records.md:114`). Neither run sets dwell against entropy. The claim is proved for renewal processes, cited above, and not measured on the engine.
 
-## The dwell bench
+### The dwell bench
 
 Status: not built.
 
@@ -86,7 +208,7 @@ On one set of bits:
 
 A bit that never flips has no completed run and gives no dwell law.
 
-## The compiled program
+### The compiled program
 
 26 September, verbatim, in order, kept as typed.
 

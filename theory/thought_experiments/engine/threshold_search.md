@@ -1,0 +1,25 @@
+# Search below a hash threshold, and folding
+
+## The keyspace
+
+A string of 30 hexadecimal digits carries 4 bits a digit, and there are $16^{30} = 2^{120}$ of them, about $1.33 \times 10^{36}$.
+
+## The threshold
+
+The boundary between a miss and a hit is the indicator of a threshold $T$:
+
+$$\Phi_T(x) = \begin{cases} 1 & x < T, \\ 0 & x \ge T. \end{cases}$$
+
+If the hash outputs are uniform and independent, each trial succeeds with probability $p = T / 2^{120}$. The number of trials up to the first success is geometric with mean $1/p = 2^{120}/T$. A required prefix of $k$ zero digits is the threshold $T = 16^{30-k}$, with a mean of $16^k$ trials. A required prefix of any other $k$ digits, such as a leading 80, is a test that $x$ lies in one interval of width $16^{30-k}$, and it succeeds with the same probability $16^{-k}$. The same condition, a hash below a target, is the proof of work in [Nakamoto](#src:Nakamoto-2008).
+
+Evaluating $\Phi_T$ over $N$ candidates at once and finding the first hit is a prefix computation over the candidates: a tree of OR operations finds it in depth $\lceil \log_2 N \rceil$, by the construction of [Ladner and Fischer](#src:Ladner-Fischer-1980). Parallel evaluation divides the time a search takes and leaves its work as it was. The expected number of hashes evaluated is $1/p$ however they are arranged.
+
+## Folding
+
+A folding scheme reduces the task of checking two instances of a relation to checking one instance of the same size, as [Kothapalli et al.](#src:Nova) define it. An incremental computation of any number of steps folds into one instance whose size does not grow with the steps, and one argument at the end proves the whole trace. [SuperNova](#src:SuperNova) extends this to steps that are not all the same, and [HyperNova](#src:HyperNova) to customizable constraint systems.
+
+Folding compresses the proof that a search was done. It does not compress the search: every hash in the trace is still evaluated, and the prover does extra work for each folded step. A folded search of a $2^{120}$ keyspace with a $k$-digit prefix still costs $16^k$ hashes on average.
+
+## Status
+
+The engine has the same bound in a form with no cryptography. Its CRC accumulator is 64 bits however many segments it folds, and every voxel is still read once, as the [engine workbook](#src:Quigg-engine-workbook) records. The accumulator's constant size holds by construction, and the search's cost is the arithmetic above. Neither needs a measurement.

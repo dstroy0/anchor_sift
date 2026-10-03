@@ -1,24 +1,55 @@
-\chapter{Delta null as a topological boundary}
+\chapter{Delta null as a boundary}
 
-\noindent\textbf{The author's mapping, kept as written.} The chapter on what of delta null can be measured records which of its claims are tested: invariance of the count and permanent exclusion hold, and recovering the volume from its boundary fails. Against the engine at orior \texttt{1044ca6}, the survivors lose no true occurrence (\texttt{docs/\allowbreak{}steering.md:118}). Everything here beyond those measurements is a conjecture.
+\section{The mapping}
 
-Delta Null Theory
+The ground set \(\Sigma\) has no topology, metric or order. It supplies only distinctness: two symbols
+are equal or they are not. The measurement \(\delta_0\) is the indicator of equality, and it turns a
+comparison at a displacement \(d \in G\) into one bit, match or no match. The anchor set
+\(A \subset D\), a subset of a pattern's points, acts as a boundary between the candidate alignments
+and the rejected ones.
 
-Structural Mapping
+Checking \(\mathrm{Anc}_A(s)\) decides whether an alignment \(s \in G\) lies inside the feasible region
+or crosses the boundary into the rejected exterior. The contrapositive
+\(\neg\mathrm{Anc}_A(s) \Rightarrow \neg\mathrm{Occ}(s)\) states that hitting the boundary once excludes
+\(s\) permanently. The choice of \(A\) is free with respect to correctness, and the boundary governs
+only cost: the density and entropy of \(\Sigma\) over \(A\) set how many candidates the filter rejects
+per operation. Because the boundary is defined through displacements in \(G\) and equality in
+\(\Sigma\) alone, the search should be invariant under translation, permutation and change of
+coordinate representation.
 
-The Universe (Σ): The underlying set of distinct states or symbols. Lacking intrinsic topology, metric, or order, it provides only the bare primitive of distinctness: xsub1 eq xsub2 or xsub1 neq xsub2.
+\section{Three claims, and where each stands}
 
-The Measurement (δsub0): The indicator function of equality. It collapses ambient positional uncertainty into a binary bit of information: match or non-match at a group displacement d∈G.
+\textbf{Invariance under translation, permutation and change of coordinate representation. Measured,
+and it holds.} The lattice bench sweeps exactly this: 3{,}421 rows over alphabets of 2 to 256 symbols,
+patterns of 1 to 32 points, dimensions 1 through 8, a rotated point set, a scatter no rectangle covers,
+a complex alphabet with irrational parts compared over its storage, and an order check against a
+permuted base list. Of 465{,}546 true occurrences, none is refused. The core takes a base list, a
+displacement list and a callback answering whether two positions carry the same symbol. It has no
+dimension parameter and no symbol type, and a core that cannot see either cannot depend on either.
 
-The Topological Boundary (∂): The anchor set A⊂D acting as the boundary between candidate space and rejected space.
+\textbf{Hitting the boundary once excludes the point permanently. Proved, and checked on every row.}
+This is the first proposition of the permutation null~\cite{src:Quigg-delta-null}: any subset of a
+pattern's points is a necessary condition for an occurrence. A failure at one anchor refutes the
+alignment and no later evidence restores it. Every bench that runs an arm against the exact compare
+checks it.
 
-Dynamics of the Boundary Engine
+\textbf{The volume is recoverable from its boundary. Fails.} The second proposition answers it: the
+converse fails for every proper subset of the points~\cite{src:Quigg-delta-null}. The exact compare is
+irreducible, and every arm has to verify what its anchors admitted. A boundary that excludes is not a
+boundary that determines.
 
-Filtering as Boundary Intersection: Checking AncsubA (s) determines whether a shift state s∈G resides inside the feasible region or crosses the boundary into the rejected exterior. This is the survivorship bias in the algorithm. The contrapositive ¬AncsubA(s)⟹¬Occ(s) means that hitting the boundary once permanently excludes the point s from the search space.
+\section{The demon refuses and does not predict}
 
-Measure and Cost: While the selection of A⊆D is free with respect to correctness, the boundary geometry ∂A governs search efficiency. The density and entropy of Σ over A determine the flux of rejected candidates passing through the filter per operation.
+The strong form of the idea, a Laplace's demon that recovers the interior from the boundary, fails.
+The weak form survives, and it is the algorithm: an anchor set is a boundary, crossing it is final, and
+nothing about crossing it says what lies on the other side. A filter that refutes cheaply and
+determines nothing is the shape the whole construction has. It is the reason soundness costs nothing
+while completeness costs a full compare.
 
-Invariance: Because the boundary is defined strictly via displacement operations in G and Σ, the engine remains invariant under translation, permutation, or change of coordinate representation.
+\section{What is not testable here}
 
--Doug
-
+The holographic principle in physics concerns a bound on the information a region can
+hold~\cite{src:t-Hooft-1993,src:Susskind-1995}, in line with the entropy bound~\cite{src:Bekenstein-1981}.
+Nothing in this repository measures that, and the resemblance to an anchor boundary is an analogy. The
+analogy earns its place only in the three claims it produced, two of which hold and one of which
+fails.

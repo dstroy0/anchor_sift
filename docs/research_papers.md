@@ -85,13 +85,13 @@ _Certificates instead of tables, and the constants nobody checks._
 
 ## Thought experiments
 
-### [Thought Experiments](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/orior)
+### [A Constructed Far End](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/orior)
 
-_The weird end, kept apart from what was measured._ These are the posits whose experiment cannot be built as written. Nothing in this research paper is believed. A possibility is allowed, which is a different act, and it is allowed so it can be pushed until it stops cohering.
+_The method applied to ideas._ A reference built from an object's own parts, laid over the object; the delta null idea, of whose three claims two hold and one fails; what a closed boundary holds; and the notebook's testable hypotheses with their tests. The posits with no test are kept as wants in the workbook.
 
-### [Thought Experiments: engine](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/engine)
+### [The Engine's Ideas, Stated So They Can Be Decided](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/engine)
 
-The drafts the engine's theory was carried from.
+Sensor noise, threshold search, state vectors, dwell and entropy, self-reproduction, learned rulesets and identity, each with the test that decides it. The engine's claims with no such test yet are kept as wants in the engine workbook.
 
 ### [Cell Lineage from Shape and Whole-Sequence Evidence](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/cell_tracking)
 
