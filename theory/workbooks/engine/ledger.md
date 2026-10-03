@@ -3,6 +3,8 @@
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice, and none is quoted without its run.
 **Scope:** runs of the engine: its modules, its tests and its sims. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name.
 
+## 2026-09-21
+
 ### The cycle against the passes it replaced
 
 | what | samples | result | settles |
@@ -34,6 +36,8 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 | bits 0 to 4 | set in about 46% of frames at nearly every voxel, in every sample | the floor: these planes carry no anchor |
 | bits 6 to 11, set in every frame | from 0 voxels (5 samples) to 76,646 at bit 10 (44b6_5f15d135) | anchors are real and differ per sample |
 | any voxel anchored in every sample | none | the floor is per sample, not per set |
+
+## 2026-09-22
 
 ### The compression, keymath and key_schedule splits
 
@@ -75,6 +79,8 @@ Read from the code and the files in `cache/iapx`; the claims are in [compression
 | the CRC join | a 44b6 extent | 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2^7 to 2^29; the key's last operator, 2^47, is reached at level 40. The join takes any message below 2^48 bytes | the 24,576 byte key covers 2^48 byte steps, as keys_explained §4 states |
 | the Rice cost bound | | 24 + 32 = 56 bits a value at most; 5 + 64 × 56 = 3,589 bits a block at most | the escape bounds every value |
 | whether the 5/3 lift is linear | | the high of (0, 0, 1) is 0, of (1, 0, 0) is 0, of (1, 0, 1) is −1 | not so: the tower is exact and reversible, but it cannot be imprinted as one key by its impulse |
+
+## 2026-09-23
 
 ### The period reading
 
@@ -295,6 +301,8 @@ From L = 30 to L = 44 the bracket narrows from 0.00344919… to 0.00154938… wi
 
 The sources. The papers' titles, venues and pages were checked here against Crossref, and the table and the program at their pages; Barendregt's book was not checked there. Tait, "Intensional interpretations of functionals of finite type I", Journal of Symbolic Logic 32(2), 198–212, 1967: a simply typed term is strongly normalizing, the typed fate's basis. Wadsworth, "The relation between computational and denotational properties for Scott's D∞-models of the lambda-calculus", SIAM Journal on Computing 5(3), 488–521, 1976, and Barendregt, *The Lambda Calculus: Its Syntax and Semantics* (North-Holland, 1984): a term has a head normal form exactly when head reduction ends, the growth proof's basis. Thiemann and Sternagel, "Loops under Strategies", Rewriting Techniques and Applications 2009, 17–31: nontermination proved by a loop under a fixed reduction strategy, the kind of argument the growth proof makes for normal order. BusyBeaverWiki's BB λ table and OEIS A333479: the exact values 22 through 1812 at 21 through 33 bits, and 327,686 at 34. Tromp's `BB.lhs` (github tromp/AIT, `BB/`): it proves loops by a repeated redex in a term's history and by two self-replication shapes, `W W → H[W W]` and `W _ W → H[W _ W]`, reduces within 42,000,000 tokens, and stops at 36 bits.
 
+## 2026-09-24
+
 ### π's hex digits on the engine
 
 `pi_tower`'s BBP run on the record machine (M19 of [engine_table.md](engine_table.md)): each term a lane, a sweep one `cycle_record_run` of up to 70,656 lanes (the RTX 3070's resident threads), the sum reduced by a pair program on the same machine, and only the bits the error decides printed. Run from the source in a scratch build directory (`$TEMP/anchor_carry/build_pi`), not under `build/`. Neither tower, T or T⁻¹, is in the program (A13).
@@ -326,6 +334,8 @@ The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a 
 | the width at floor 8 | the same | values in [−2^27, 2^27), 28 bits, with −2^27 reached; keymath carries 32 | the values grow half a bit a floor and the imprint a whole bit; the per-floor widths are derived in A16 (proved on the lanes at floor 8) |
 | all of it | the above | 8 checks, 0 failed | the step runs exactly on the engine's record machine; it is in no engine module and not in `pi_tower` |
 | A16's pole algebra, in floating point | a scratch script (`gaussian_check.py` in a temporary directory, not in the tree); 1,001 points on [0, 1]; Simpson's rule at 200,000 panels | partial fractions and residues within 2.2e-15 of BBP's y-form, and the x-form within 3.6e-15 of its reduced form; the numerator below 5.4e-15 at ±i and e^{±3iπ/4}, and 16 and 22.6 at the other four roots; the integral within 3.3e-14 of the float π; the three pieces −2 ln 2, +2 ln 2 and π, each within 1.3e-14; the corners' widths at w = 24 are 25, 26, 27, 27, 28, 28, 28 and 28 bits | the hand algebra holds in floating point (measured; derived in A16, not run on the engine) |
+
+## 2026-09-25
 
 ### keymath's widths by linear forms, and the record tests on tessera
 
@@ -362,6 +372,8 @@ Finding x in a for less than half of a ("say we want to find x and x is on floor
 | values not on floor 2 | 1,024 drawn over the lane | 1,024 of 1,024 found nowhere; 806.20 plane words read on average, 1,184 at most | (proved on the queries) |
 | the reads | the 2,048 queries | at most 1,340 plane words, 5,360 bytes, against half of a, 131,072 samples, 262,144 bytes; without the early stop 2,048 words, n/128 | a query reads about 1% of half of a (measured); the lift reads all of a once to build the index |
 | all of it | the above | 11 checks, 0 failed; tessera declared 3,956,736 bytes, peak 148,013,056 | the knf is not used: the planes are the index |
+
+## 2026-09-27
 
 ### The energy detector's period lands on a divisor
 

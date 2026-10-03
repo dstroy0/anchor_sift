@@ -5,7 +5,7 @@
 
 \textbf{Scope:} \texttt{tessera}, a daemon per host and device, with its client calls. The rows are M14 and A11 in \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}. Statuses follow \hyperref[chap:readme]{README.md}.
 
-\section{\texorpdfstring{What was ruled}{What was ruled}}
+\section{\texorpdfstring{What was ruled (23 September)}{What was ruled (23 September)}}
 
 \begin{itemize}
 \item “just a normal job scheduling function, super common for stuff like this”.
@@ -96,7 +96,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item \textbf{SAN:} device memory is local to a host. Each host runs its own daemon, and nothing is shared across the SAN but the data.
 \end{itemize}
 
-\section{\texorpdfstring{Order, time and loss}{Order, time and loss}}
+\section{\texorpdfstring{Order, time and loss (23 September)}{Order, time and loss (23 September)}}
 
 \begin{itemize}
 \item \textbf{Order among waiting jobs: backfill with the head kept.} A job behind the head may go first only if it cannot delay the head's admission. The head never starves, and the room the head cannot use yet is not wasted.
@@ -126,7 +126,7 @@ That was the gap before this date: the history was raw records and the ticket pl
 
 The daemon opens its ledger and loads its history before it makes any endpoint: the pipe on Windows, the lock and the socket on Linux. A refused history ends the daemon before any client can reach it. A daemon that loses the race to be the only one has only read the history, which is safe, because a save swaps the whole file in at once. The unsealed 192-byte history from before the seal was moved aside as \texttt{history.\allowbreak{}unsealed} in the state directory, not deleted.
 
-\section{\texorpdfstring{The driver submits}{The driver submits}}
+\section{\texorpdfstring{The driver submits (24 September)}{The driver submits (24 September)}}
 
 A program's driver runs every job through tessera, one job a part. Its signum, its declaration, its parts and its runs are the program's, in the cell workbook (on\_\allowbreak{}the\_\allowbreak{}engine.md). Its times are 2 s holding, 20 ms sweep and 5 s idle.
 
@@ -167,7 +167,7 @@ Two findings, both measured:
 \end{itemize}
 \end{itemize}
 
-\section{\texorpdfstring{The sims submit}{The sims submit}}
+\section{\texorpdfstring{The sims submit (24 September)}{The sims submit (24 September)}}
 
 Every sim that uses the device is one job (\texttt{src/\allowbreak{}sims/\allowbreak{}cu/\allowbreak{}sim\_\allowbreak{}job.\allowbreak{}cu}).
 
@@ -207,7 +207,7 @@ sim & declared & peak measured & checks \\
 \item \textbf{The engine DLL:} no program in the repo loads it, and no other caller is left to submit.
 \end{itemize}
 
-\section{\texorpdfstring{Linux (not rerun here)}{Linux (not rerun here)}}
+\section{\texorpdfstring{Linux (24 September, not rerun here)}{Linux (24 September, not rerun here)}}
 
 \begin{itemize}
 \item \textbf{The build:} Linux built under WSL 2 (gcc 13.3.0, CUDA 13.3), and its suite passes with 0 warnings. The fixes it needed: \texttt{PATH\_\allowbreak{}MAX} under strict C11, the noinline helpers under gcc, \texttt{\_\allowbreak{}GNU\_\allowbreak{}SOURCE}, the timer thread's missing return, and the Windows-only strings.

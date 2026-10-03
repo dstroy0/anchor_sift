@@ -27,7 +27,7 @@ Each idea is carried in [noise_sieve_tower.md](noise_sieve_tower.md), section by
 | the demon's waveform collapses onto the union of every departure from the floor | [noise_sieve_tower.md](noise_sieve_tower.md) §17 | not built |
 | aimed draws tell bodies from the field better than swept ones | [noise_sieve_tower.md](noise_sieve_tower.md) §18 | to be measured: the same samples and draws, swept against aimed |
 
-## The first set of posits
+## The posits of 24 September
 
 ### The wire and the witness
 
@@ -121,7 +121,7 @@ From [vertical_time_compression.md](vertical_time_compression.md), where "The le
 
 Open: what "tetrated resources" measures, and against what bound. The workbook derives that any gain of tetrated size comes from the input's description, never from the lens.
 
-## The second set of posits
+## The posits of 26 September
 
 ### The three truths and the tower
 
@@ -167,7 +167,7 @@ Verbatim. The "wrong" answers a reading that put the boundary at the projection 
 
 **Measured, as reported.** The dwell arm puts a particle on a line, and "how long the particle dwells at each place is the weight there" (`docs/arm-records.md`). Redrawn as dwell along the golden spiral, it reads a three-dimensional object with worst weight move 0, 0 of 256 points reassigned, and worst letter move 0 (`docs/arm-records.md`), "the same letters bit for bit" (`docs/arm-records.md`).
 
-**The holographic boundary, a reading.** In AdS/CFT a local bulk operator is written as a boundary operator smeared over a region of the boundary that extends in boundary time: Alex Hamilton, Daniel Kabat, Gilad Lifschytz and David A. Lowe, *Holographic Representation of Local Bulk Operators*, Physical Review D 74, 2006. The parallel: the bulk quantity, dwell, is recovered from boundary data spread over a timeline, a sweep of instants. The engine has no geometry and no metric, and the parallel is structural only. Ahmed Almheiri, Xi Dong and Daniel Harlow, *Bulk Locality and Quantum Error Correction in AdS/CFT*, JHEP 2015, give the reconstruction the structure of an error-correcting code. That structure does not carry over: the derived answer finds `T` a bulk-to-boundary map with no error correction ([the first set of posits](#the-first-set-of-posits), "The bulk and the boundary"). Cited from knowledge.
+**The holographic boundary, a reading.** In AdS/CFT a local bulk operator is written as a boundary operator smeared over a region of the boundary that extends in boundary time: Alex Hamilton, Daniel Kabat, Gilad Lifschytz and David A. Lowe, *Holographic Representation of Local Bulk Operators*, Physical Review D 74, 2006. The parallel: the bulk quantity, dwell, is recovered from boundary data spread over a timeline, a sweep of instants. The engine has no geometry and no metric, and the parallel is structural only. Ahmed Almheiri, Xi Dong and Daniel Harlow, *Bulk Locality and Quantum Error Correction in AdS/CFT*, JHEP 2015, give the reconstruction the structure of an error-correcting code. That structure does not carry over: the derived answer finds `T` a bulk-to-boundary map with no error correction ([the posits of 24 September](#the-posits-of-24-september), "The bulk and the boundary"). Cited from knowledge.
 
 **Prior art for the instant.** Zeno's arrow is at rest at every instant, and Aristotle answers that neither motion nor rest exists in a now, only over an interval (*Physics* VI.3 and VI.9). Rest held over an interval is dwell. The occupation density of a Brownian path, its local time, is dwell at a level made exact, and it too is defined over an interval: Paul Lévy, *Processus stochastiques et mouvement brownien*, 1948, and Hale F. Trotter, *A Property of Brownian Motion Paths*, Illinois Journal of Mathematics 2, 1958. George D. Birkhoff's ergodic theorem, Proceedings of the National Academy of Sciences 17, 1931, sets the fraction of time a trajectory dwells in a set equal to the set's measure: a long sweep recovers a static quantity. Cited from knowledge.
 

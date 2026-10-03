@@ -95,7 +95,7 @@ The second read is the only step that catches a flip in the first read, which wo
 ## Where it stops
 
 - **The tower spans all four axes**, and no single plane decodes on its own. A check without a full decode is possible only on the stored bytes: the chunk leaves, the stream root, the side's stored leaf and the members root. A decoded row can be checked only after a whole decode, though a mismatch still names its row.
-- **An unkeyed root seals against accident, not against an author.** Whoever can rewrite a file can recompute its roots all the way up. Against a deliberate tamperer the universal root has to be anchored where they cannot write:
+- **An unkeyed root seals against accident, not against an author.** Whoever can rewrite a file can recompute its roots all the way up. Against a deliberate tamperer the universal root needs a trust anchor where they cannot write:
   - a signature over it, with the public key compiled in;
   - or a root published out of band.
   

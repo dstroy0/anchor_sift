@@ -3,7 +3,7 @@
 **Purpose:** Two rulings on what the engine may hold, with the dates they were made and what prompted them. No later build crosses either.
 **Scope:** everything under `engine/`.
 
-## The engine carries no cell tracking
+## The engine carries no cell tracking (23 September)
 
 Never put cell-specific tracking into the engine. Doug had said it at length before this ruling.
 
@@ -20,7 +20,7 @@ What prompted it: in the 9c/9d overlap work, max_tree got
 
 engine/base/oracle/score_sample also got the key-division and key-cell grading.
 
-## The engine is optimized for no scale
+## The engine is optimized for no scale (23 September)
 
 "what we want to avoid is optimizing the engine for any particular scale, which is what you have been consistently doing that I have been having you rip out over and over, it's dangerous".
 

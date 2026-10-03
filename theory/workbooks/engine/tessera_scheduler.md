@@ -3,7 +3,7 @@
 **Purpose:** The theory of the engine's device-job scheduler: how jobs from separate processes share one device by memory, what is measured and how, what the accounting guarantees, and what is still open.
 **Scope:** `tessera`, a daemon per host and device, with its client calls. The rows are M14 and A11 in [engine_table.md](engine_table.md). Statuses follow [README.md](README.md).
 
-## What was ruled
+## What was ruled (23 September)
 
 - "just a normal job scheduling function, super common for stuff like this".
 - Jobs are packed by memory: several run at once while they fit.
@@ -74,7 +74,7 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
 - **Docker:** the host's socket is bind-mounted into the container. The pid namespace translation above keeps the measure exact.
 - **SAN:** device memory is local to a host. Each host runs its own daemon, and nothing is shared across the SAN but the data.
 
-## Order, time and loss
+## Order, time and loss (23 September)
 
 - **Order among waiting jobs: backfill with the head kept.** A job behind the head may go first only if it cannot delay the head's admission. The head never starves, and the room the head cannot use yet is not wasted.
 
@@ -97,7 +97,7 @@ That was the gap before this date: the history was raw records and the ticket pl
 
 The daemon opens its ledger and loads its history before it makes any endpoint: the pipe on Windows, the lock and the socket on Linux. A refused history ends the daemon before any client can reach it. A daemon that loses the race to be the only one has only read the history, which is safe, because a save swaps the whole file in at once. The unsealed 192-byte history from before the seal was moved aside as `history.unsealed` in the state directory, not deleted.
 
-## The driver submits
+## The driver submits (24 September)
 
 A program's driver runs every job through tessera, one job a part. Its signum, its declaration, its parts and its runs are the program's, in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Its times are 2 s holding, 20 ms sweep and 5 s idle.
 
@@ -123,7 +123,7 @@ Two findings, both measured:
 - **A job reserves its declaration, not its kept peak.** The second prove declared less than its kept peak and was admitted on its declaration. Until its sweeps grew it, its reservation stood 3,119,706,112 bytes below what it went on to use. That is Doug's rule: reserve what the job asks for, grow and warn when it takes more.
   - The same day, the working tree's code was changed, uncommitted and not yet ruled on, to reserve the larger of the declaration and the kept peak (`tessera_ledger_wants`). With it, two proves each reserved 3,962,761,216 bytes.
 
-## The sims submit
+## The sims submit (24 September)
 
 Every sim that uses the device is one job (`src/sims/cu/sim_job.cu`).
 
@@ -151,7 +151,7 @@ Measured in a scratch state directory:
 - **Two peaks differ from the earlier runs by 2,097,152 bytes (2^21):** `nbody_lattice` and `fixed_pattern`. That is the same finding as the driver's.
 - **The engine DLL:** no program in the repo loads it, and no other caller is left to submit.
 
-## Linux (not rerun here)
+## Linux (24 September, not rerun here)
 
 - **The build:** Linux built under WSL 2 (gcc 13.3.0, CUDA 13.3), and its suite passes with 0 warnings. The fixes it needed: `PATH_MAX` under strict C11, the noinline helpers under gcc, `_GNU_SOURCE`, the timer thread's missing return, and the Windows-only strings.
 - **The measure refuses WSL:** WSL runs the device through the Windows driver, and its NVML read a process as 0 bytes before and after it allocated 256 MiB. So no pid can be measured there. The measure refuses to open on a paravirtual device (`tessera_measure_paravirtual`), and the daemon refuses to run. The measure test and the job test both check exactly that refusal.
