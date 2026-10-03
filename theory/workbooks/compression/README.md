@@ -23,5 +23,5 @@ A claim changes status only when a run changes it, and the run is named. Nothing
 | file | what it holds |
 |---|---|
 | [compression_table.md](compression_table.md) | the crystal's size set by set against the floor the data allows: the ladder of exact bounds from raw to the noise floor, every coder variant tried, and the order to close the gap |
-| [build_plan.md](build_plan.md) | the compression items of the build plan, dated |
-| [ledger.md](ledger.md) | every measurement of the .iapx codec, its variants and the floor it answers to, dated, in the order it was taken, with its samples and its result |
+| [build_plan.md](build_plan.md) | the compression item of the build plan |
+| [ledger.md](ledger.md) | every measurement of the .iapx codec, its variants and the floor it answers to, in the order it was taken, with its samples and its result |
