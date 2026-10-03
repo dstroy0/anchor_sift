@@ -1,48 +1,38 @@
 \chapter{What this toolkit reaches}
 
-\textbf{Purpose:} Record the recommendation made about which problem the project's apparatus could
-be pointed at, the reasoning offered for it, the trap identified alongside it, and the measured
-bound that constrains it. \textbf{Scope:}
-\texttt{PQC/\allowbreak{}examples/\allowbreak{}proofing/\allowbreak{}bbp\_\allowbreak{}scaling.\allowbreak{}py},
-\texttt{PQC/\allowbreak{}theory/\allowbreak{}PARTITION.\allowbreak{}tsv}.
-
-\textbf{Whose this is.} The recommendation in this chapter was given on 2026-09-11 in answer
-to a direct question. It is recorded here and not adopted, and no work has begun on it.
+This chapter assesses which problem an arbitrary-precision apparatus could be pointed at, the
+reasoning for it, the trap beside it, and the measured bound that constrains it. The assessment is a
+recommendation and no work on it is begun.
 
 \section{The obvious answer, and why it is the trap}
 
-An engine whose edge is arbitrary precision reaches for Riemann first, and Riemann is the wrong
+An apparatus whose edge is arbitrary precision reaches for Riemann first, and Riemann is the wrong
 choice for a reason that has nothing to do with how good the arithmetic is.
 
 The apparatus matches the \emph{subject} and not the \emph{obstruction}. A zeta function and
-unbounded precision look like a fit. But computing zeros on the critical line is long done, far past
-anything a desktop reaches, and no finite count of zeros bears on the proof at all. Adding zeros
-reproduces existing work at a worse scale. The conjecture is not precision-bound. An engine
-whose advantage is precision buys nothing against it.
+unbounded precision look like a fit. But zeros on the critical line are computed far past anything a
+desktop reaches. The first $10^{13}$ zeros are located on the line~\cite{src:Gourdon-2004}, zeros
+near the $10^{22}$nd are computed~\cite{src:Odlyzko-2001}, and the hypothesis is verified rigorously
+up to height $3\cdot10^{12}$~\cite{src:Platt-and-Trudgian-2021}. No finite count of zeros bears on
+the proof at all. Adding zeros reproduces existing work at a worse scale. The conjecture is not
+precision-bound, and an apparatus whose advantage is precision buys nothing against it.
 
-That is the superficial-match failure in its exact form, and it is worth having named because it is
-the shape of mistake this apparatus is most exposed to: the subject looks like the instrument.
+That is the superficial-match failure in its exact form, and it is worth naming because it is the
+shape of mistake this apparatus is most exposed to: the subject looks like the instrument.
 Yang--Mills wants constructive quantum field theory and lattice gauge machinery. Hodge wants
 algebraic geometry with no numerical handle this toolkit has. P versus NP is not a numerical
-question, and Douglas Quigg had already set it aside on the separate ground that the anisotropic
-boundary has not been worked out.
-
-\textbf{The specific figures on Riemann given for this argument were not independently checked.}
-The claim that zeros have been computed at height $10^{22}$ and that verification has covered the
-first $10^{13}$ of them was supplied with the recommendation. The
-argument does not depend on it, because it turns on the conjecture not being precision-bound,
-whatever height has been reached.
+question.
 
 \section{The recommendation}
 
-Birch and Swinnerton-Dyer, on the ground that its obstruction matches the instrument, where the
-other Millennium problems match only in subject.
+Birch and Swinnerton-Dyer, because its obstruction matches the instrument, where the other
+Millennium problems match only in subject.
 
-It is the only one of them found by computation: Birch and Swinnerton-Dyer fitting curves
-numerically on EDSAC. It is natively experimental, and the refined conjecture is an exact numerical
-identity. For an elliptic curve $E$ of rank $r$, writing $\mathrm{Sha}$ for the order of the
-Tate--Shafarevich group, $\Omega$ for the real period, $\mathrm{Reg}$ for the regulator and $c_p$
-for the Tamagawa numbers,
+It is the only one of them found by computation: Birch and Swinnerton-Dyer fitted curves numerically
+on EDSAC~\cite{src:Birch-and-Swinnerton-Dyer-1965}. It is natively experimental, and the refined
+conjecture is an exact numerical identity~\cite{src:Wiles}. For an elliptic curve $E$ of rank $r$,
+writing $\mathrm{Sha}$ for the order of the Tate--Shafarevich group, $\Omega$ for the real period,
+$\mathrm{Reg}$ for the regulator and $c_p$ for the Tamagawa numbers,
 \[
   \frac{L^{(r)}(E,1)}{r!} \;=\; \frac{\mathrm{Sha}\cdot\Omega\cdot\mathrm{Reg}\cdot\prod_p c_p}
                                     {|E_{\mathrm{tors}}|^2}.
@@ -50,91 +40,67 @@ for the Tamagawa numbers,
 Rearranged, the analytic order of $\mathrm{Sha}$ is a quotient of computable real numbers, and the
 conjecture asserts that this quotient is an integer, usually a perfect square. The verification is
 therefore: compute a real number to $N$ digits and ask whether it lands on an integer. That is a
-precision-bound question, and it is the check the engine already performs.
+precision-bound question, and it is the check the arithmetic already performs.
 
 \section{The first measurement, and the positive control it requires}
 
-The positive control comes first and is not optional. Curves are taken from published tables where
-the rank and the order of $\mathrm{Sha}$ are already known, at rank zero and one, small conductor,
-with $\mathrm{Sha}$ trivial or known to be 4 or 9. The quotient is computed and must land on the
-known integer. An instrument that cannot reproduce a known answer says nothing when pointed at an
-unknown one.
+The positive control comes first and is not optional. Curves are taken from published
+tables~\cite{src:Cremona-1997} where the rank and the order of $\mathrm{Sha}$ are already known, at
+rank zero and one, small conductor, with $\mathrm{Sha}$ trivial or known to be 4 or 9. The quotient
+is computed and must land on the known integer. An instrument that cannot reproduce a known answer
+says nothing when pointed at an unknown one.
 
 \textbf{The quotient is only as good as its weakest input.} The real period and the regulator come
-from their own algorithms carrying their own error. The honest report is therefore the precision of
-the quotient and not the precision of the arithmetic. An arithmetic with no floor under it does not
-give its inputs one.
+from their own algorithms carrying their own error. The report is therefore the precision of the
+quotient and not the precision of the arithmetic. An arithmetic with no floor under it does not give
+its inputs one.
 
-\section{The null: the derived version is withdrawn}
+\section{The null, drawn and not derived}
 
-A null was offered with the recommendation and then withdrawn the same day.
-The withdrawal is the substantive part.
+\textbf{The derived null does not hold.} It assumes that a real number carrying no integrality
+structure has its distance to the nearest integer distributed uniformly on $[0,\tfrac12]$, that
+landing within $10^{-N}$ of an integer by chance therefore has probability about $2\times10^{-N}$,
+and that agreement to fifty digits is a bound of $10^{-50}$.
 
-\textbf{Withdrawn.} That a real number carrying no integrality structure has its distance to the
-nearest integer distributed uniformly on $[0,\tfrac12]$. That landing within $10^{-N}$ of an
-integer by chance has probability about $2\times10^{-N}$, and agreement to fifty digits is
-therefore a bound of $10^{-50}$.
+\textbf{What refutes it.} It is derived and not drawn. A threshold reasoned out from an assumed
+distribution omits the variance sources not enumerated, and omitted variance only ever pushes one
+way.
 
-\textbf{What killed it.} It was derived and not drawn. A threshold reasoned out from an assumed
-distribution omits the variance sources its author failed to enumerate, and omitted variance only
-ever pushes one way. The rule in this project is to draw the bar and never to derive it, and this
-null was derived in the same message that stated the positive-control rule.
+One narrower objection to it is itself wrong. It holds that the integer factors in the quotient, the
+torsion order squared, the Tamagawa product and $r!$, might concentrate the quotient near integers
+and inflate the coincidence rate. They do not: scaling a structureless real by a known rational does
+not concentrate it near integers. The derived null fails for the better reason and not for that one.
 
-One narrower objection raised against it was itself wrong. The suggestion
-was that the integer factors in the quotient, the torsion order squared, the Tamagawa product and
-$r!$, might concentrate the quotient near integers and inflate the coincidence rate. They do not:
-scaling a structureless real by a known rational does not concentrate it near integers. The null was
-wrong for the better reason and not for that one.
+\textbf{The drawn null} measures the null under the same conditions as the effect, through the same
+pipeline and with the same inputs and the same precision losses, in two ways. Forming the quotient
+with the rank taken one too high or one too low gives a condition under which the identity should
+not hold, and the distribution of distance-to-nearest-integer across many curves is then the null
+itself. Computing the quotient across many curves whose $\mathrm{Sha}$ is known gives the spread of
+the residual about the true integer. That spread is the instrument's own floor, and the period and
+the regulator dominate it well before the arithmetic does. The second is the positive control and
+the floor measurement in one pass.
 
-\textbf{The drawn replacement} measures the null under the same conditions as the effect, through
-the same pipeline and with the same inputs and the same precision losses, in two ways. Forming the
-quotient with the rank taken one too high or one too low gives a condition under which the identity
-should not hold, and the distribution of distance-to-nearest-integer across many curves is then the
-null itself. Computing the quotient across many curves whose $\mathrm{Sha}$ is known gives the
-spread of the residual about the true integer. That spread is the instrument's own floor, and the
-period and the regulator will dominate it well before the arithmetic does. The second is the
-positive control and the floor measurement in one pass.
-
-The consequence changes what may be claimed. The honest bound is not $10^{-N}$ for $N$ digits of
+The consequence changes what may be claimed. The bound is not $10^{-N}$ for $N$ digits of
 arithmetic. It is however close the pipeline gets on a curve whose answer is already known. If the
 regulator runs out at $10^{-12}$, then $10^{-12}$ is the claim however many digits the multiply
 carries.
 
-\section{The measured bound that constrains this, and it was checked}
+\section{The measured bound that constrains this}
 
-\texttt{bbp\_scaling.py} in the PQC tree measures what depth costs in the integer relation
-search, and its recorded results were read in the file instead of taken on report.
+The cost of depth in the integer relation search of the same
+arithmetic~\cite{src:Quigg-instruments} is measured, and the measurement constrains the plan.
 
-Cost goes as precision to the 2.64. That is the measured exponent. Predicted was 2.585, from a
-Karatsuba host multiply near width$^{1.585}$ against a count linear in the width. Blame does not
-fall on the reduction.
+Cost goes as precision to the power 2.64. The prediction is 2.585, from a Karatsuba host multiply
+near width$^{1.585}$ against a count linear in the width, and the reduction step does not account
+for the difference.
 
-Where the card overtakes the host: 1{,}024 limbs. Call it 32{,}768 bits. Mean operand runs 0.642 of
-the precision. The mean multiply arrives at that crossover somewhere near 51{,}000 binary places.
-One cell at 51{,}036 places, by the file's own table, costs 26.2 hours.
+The device overtakes the host at 1{,}024 limbs, 32{,}768 bits. The mean operand runs at 0.642 of the
+precision, and the mean multiply reaches that crossover near 51{,}000 binary places. One cell at
+51{,}036 places costs 26.2 hours.
 
-None of that binds the recommended measurement, which wants tens to hundreds of digits. Two other
-things it does bind. Relation detection at tens of thousands of digits is off the table. So is any
-plan resting on the card to rescue it. The file carries a note that the prediction ran the other way
-before anyone measured.
-
-\section{A precondition that has to be settled first}
-
-The work spans two repositories with different governance, and this was established by checking.
-
-The arithmetic the recommendation depends on lives in the PQC tree and is classified EXTERNAL
-in \texttt{PARTITION.\allowbreak{}tsv} under a ruling quoted there from Douglas Quigg on
-2026-09-11, that advantage research is held and precision work is fair. The relation search, the
-transform multiply and the arbitrary-precision arithmetic all carry that class. So the recommended
-line of attack is not blocked by the partition.
-
-\textbf{The adjacent material is blocked, and the boundary is narrow.} The same file classifies the
-harmonic machinery as internal, under a separate ruling quoted there that anything used to derive
-anisotropic properties is internal. A line of attack that begins wanting that machinery has crossed
-into held material and stops for a ruling.
-
-The theory research papers are in a different repository from the arithmetic, with its own custodian. Anything
-that wants files from both needs that settled before it starts and not after.
+None of that binds the recommended measurement, which wants tens to hundreds of digits. It binds two
+other things: relation detection at tens of thousands of digits is out of reach, and so is any plan
+that relies on the device to rescue it.
 
 \section{What is not claimed}
 
@@ -145,9 +111,9 @@ A measurement of this kind produces evidence for particular instances of the con
 the original EDSAC work did. A verified instance at unusual rank or unusual precision is a real
 contribution and it is not a solution.
 
-The recommendation was recorded with plain caveats: that no expertise in elliptic-curve
-$L$-function computation stands behind it, that computing $L^{(r)}(E,1)$ requires modular symbols or
-Dokchitser's algorithm, that established systems already implement those and rebuilding them would
-be foolish, and that the realistic shape is established algorithms for the $L$-function with this
-engine supplying precision underneath. The first honest task is finding out whether that seam works
-at all. That assessment is recorded as theirs and is not softened here.
+The recommendation carries plain caveats. No expertise in elliptic-curve $L$-function computation
+stands behind it. Computing $L^{(r)}(E,1)$ requires modular symbols~\cite{src:Cremona-1997} or
+Dokchitser's algorithm~\cite{src:Dokchitser-2004}, established systems already implement those, and
+rebuilding them would be wasted effort. The realistic shape is established algorithms for the
+$L$-function with this arithmetic supplying precision underneath, and the first task is finding out
+whether that seam works at all.
