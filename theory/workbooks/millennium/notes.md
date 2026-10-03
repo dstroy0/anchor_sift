@@ -690,7 +690,6 @@ area above a size set by measurement and the discreteness of the liquid, which b
 Proposition 13 and the averaged-fluid chapter.
 
 ## Ladyzhenskaya, Zap. Nauchn. Sem. LOMI 7 (1968) 126--154
-## Ladyzhenskaya, Zap. Nauchn. Sem. LOMI 7 (1968) 126--154
 
 *О модификациях уравнений Навье--Стокса для больших градиентов скоростей* (On modifications of
 the Navier--Stokes equations for large gradients of the velocities), MathNet.ru `znsl2239`. Read in
@@ -1408,3 +1407,245 @@ Nothing read bears against the proof. Three things are new and bear on the workb
    one at viscosity one, and holds $\nu^{5/2} \approx 10^{-15}$ times its energy. Whether a gem
    vessel can supply it depends on the size of the one at viscosity one, which the paper fixes
    only through existential constants. This bears on I9 and leaves it open.
+
+## Gruntfest and Becker, *Mechanics of Deformation and Fracture*, NASA contract NASw-708 (1964)
+
+Final report, General Electric Re-entry Systems Department, July 1964, NTRS 19650001075. Read
+from page images of the scan for report pages 5 to 22 and the bibliography, and from the text
+layer for the abstract and introduction.
+
+- Abstract. "Instabilities due to regenerative thermal feedback are shown to severely limit the
+  range of shear rates or shear stresses for which steady flows are possible. A new instability
+  mode for the flow with constant average velocity gradient is described which may be connected
+  with the effectiveness of lubricants. Possible relationships of the heating effect to the
+  stability of laminar flows and cavitation in liquids are mentioned."
+- Introduction. "The laws of thermodynamics teach that the flow of fluids is never exactly
+  isothermal." On cavitation: "The connection with cavitation might be related to the strong
+  dependence of vapor pressures on temperature."
+- The model. Plane Couette flow of a Newtonian liquid whose viscosity falls exponentially with
+  temperature, $\eta = \eta_0 e^{-a(T - T_0)}$, with $a$ near $E_A/RT_0^2$. In the reduced
+  temperature $\varphi = a(T - T_0)$ and the reduced stress $\Psi = a\sigma_0^2\ell^2/(k\eta_0)$, the
+  energy balance with shear heating is $\Psi(\sigma/\sigma_0)^2 e^\varphi = \partial\varphi/\partial
+  \tau - \partial^2\varphi/\partial\xi^2$.
+- Constant stress, adiabatic: the temperature becomes unbounded at the reduced time $1/\Psi$.
+  Constant stress between isothermal walls: no steady flow when the reduced temperature on the
+  center plane exceeds 1.187; the largest $\Psi$ for steady flow is 3.52.
+- Constant boundary velocity between isothermal walls. The steady solution gives
+  $(a\eta_0/k)(V^2/8) = e^{\varphi_c} - 1$. With $\varphi_c \le 1.187$ this bounds the velocity for
+  steady flow, $V_m = 4.27\,(k/(a\eta_0))^{1/2}$, and the bound does not depend on the gap. For
+  organic liquids at one poise and $a = 0.08$ per kelvin they give about 600 cm/s. Near $V_m$ the
+  apparent viscosity differs from $\eta_0$ by a factor of 2.27.
+- The instability with no steady state: "the velocity gradient tends to rise in the center and
+  fall near the walls", which "could account for the low drag on lubricated bearings". The
+  center temperature rises when the walls are cooled. For gases, which become more viscous when
+  heated, the same argument puts the gradient at the boundaries.
+- Concluding remarks: "in the case of air and water, the temperature gradients necessary for the
+  onset of convection may be lower than those required for the development of discernible changes
+  in viscosity."
+- Reference 2 is Gruntfest, *Thermal feedback in liquid flow*, Trans. Soc. Rheology 7 (1963)
+  195--207.
+
+Water, evaluated with the IAPWS values at $20\,^\circ$C and atmospheric pressure ($k = 0.5980$
+W/(m K), $\mu = 1.0016$ mPa s, $a = 0.0245$ per kelvin):
+
+- $V_m = 666$ m/s. The center plane then stands at $48.5$ K above the walls, near $68\,^\circ$C,
+  where the vapor pressure is $0.029$ MPa. $V_m$ is $6.04\,U^*$, with $U^*$ the 110 m/s of the
+  scaling estimate of the first workbook chapter, since $V_m^2 = 8(e^{1.187} - 1)k/(a\mu)$ and
+  $U^{*2} = k/(2a\mu)$.
+- The steady center rise is 0.06 K at 17 m/s, 2.5 K at 110 m/s and 44 K at 618 m/s.
+- The exponential law overstates the fall in water: at $68\,^\circ$C it gives $0.31$ mPa s, and
+  IAPWS gives $0.41$. On the IAPWS values the bound for water is above 666 m/s.
+
+What changes.
+
+1. I13, first half. The runaway is in this source: a liquid whose viscosity falls with
+   temperature has no steady shear flow above a critical velocity, and the shear gathers in the
+   center. The vapor is not in this source. The critical velocity for water is 666 m/s, and the
+   center of the steady layer is near $68\,^\circ$C when steady flow ends.
+2. The scaling estimate of the first workbook chapter. $U^*$ is where the dropped term is on a par
+   with the kept one; the steady flow fails at six times $U^*$. Both are far above the 10 to 17 m/s
+   at which the forced construction in water cavitates (Duraiswami).
+3. Navier's slip. Gruntfest's lowered wall gradient is the same effect as the slip at a wall that
+   equation (1) sets to zero, reached here by heating instead of by a vapor layer.
+
+## Berry, Vakarelski, Chan and Thoroddsen, arXiv:1612.08335v2
+
+*Navier slip model of drag reduction by Leidenfrost vapor layers.* Read in full from the text
+layer, with Figure 1 read from the page image.
+
+- Abstract. "Recent experiments found that a hot solid sphere that is able to sustain a stable
+  Leidenfrost vapor layer in a liquid exhibits significant drag reduction during free fall."
+  "Measurements based on liquids of different viscosities show that onset of the drag crisis
+  depends on the viscosity ratio of the vapor to the liquid."
+- Introduction. For a no-slip sphere at Reynolds numbers $10^3$ to $4\times10^5$ the drag
+  coefficient is near 0.4, and near $5\times10^5$ it drops to near 0.1, the drag crisis. A
+  free-slip sphere follows $C_D \approx (48/\mathrm{Re})(1 - 2.2/\sqrt{\mathrm{Re}})$ and does not
+  separate; such a sphere "has yet to be realised".
+- The vapor layer is of order hundreds of micrometers on a sphere of a centimeter, "estimated to
+  be in the range of 50 - 200 µm", and $150 \pm 50$ µm in the experiments they compare with.
+- Figure 1, measured. Hot spheres above the Leidenfrost temperature in free fall, against spheres
+  at room temperature in the same liquids. In water at $95\,^\circ$C ($\mu_L = 0.3$ mPa s) the
+  drag coefficient read from the figure is near 0.25 at $\mathrm{Re} \approx 10^5$ and near 0.15
+  at $2$ to $3\times10^5$, against 0.4 to 0.5 without the vapor layer. In the fluorocarbon PP3 it
+  falls to near 0.07. The vapor viscosity is "$\sim 1.2\times10^{-2}$ mPa s for all liquids
+  presented."
+- The model is Navier's slip condition at the sphere with slip length $s$. At low Reynolds number
+  the literature gives $s \approx (\mu_L/\mu_V)\,\delta_V$, with $\delta_V$ the thickness of the
+  vapor layer.
+- Conclusion. "The presence of a finite tangential velocity on the surface of the sphere enables
+  the flow to resist the adverse pressure gradient for longer, delaying flow separation." At
+  moderate to high Reynolds number the slip length depends on $\mu_L/\mu_V$ "but does not follow
+  the form suggested by low Re flow analysis."
+
+What changes.
+
+1. I13, second half. A vapor layer between water and a moving sphere lowers the measured drag
+   coefficient to between a half and a third of its value without the layer.
+2. Navier's slip. The condition Navier wrote at a wall, a tangential velocity proportional to the
+   wall stress, is the model these authors use for the vapor layer. Equation (1) with the no-slip
+   condition sets that velocity to zero. The vapor layer is a case where it is not zero, and the
+   drag shows it.
+
+## Braeck, Podladchikov and Medvedev, arXiv:0805.3292v2
+
+*Spontaneous dissipation of elastic energy by self-localizing thermal runaway.* Read in full from
+the text layer.
+
+- Abstract. "Thermal runaway instability induced by material softening due to shear heating
+  represents a potential mechanism for mechanical failure of viscoelastic solids." Onset "is
+  controlled by only two dimensionless combinations of physical parameters." Thermal diffusion
+  "leads to continuous and extreme localization of the strain and temperature profiles in space".
+- The model is a Maxwell slab between clamped walls held at the background temperature, with an
+  Arrhenius viscosity, $\eta = A^{-1}e^{E/RT}\tau^{1-n}$, and an energy equation with the shear
+  heating. A slightly warmer central zone of width $h$ starts it.
+- Adiabatic case: runaway above a critical stress $\tau_c$, and the temperature rise is the stored
+  elastic energy spread over the central zone, $\Delta T_{\max} = \tau_0^2 L/(2GCh)$.
+- With diffusion: the critical stress grows with the ratio of relaxation time to diffusion time,
+  and for that ratio below one $\tau_c$ stands. Two kinds of runaway: adiabatic, uniform across the
+  zone; and self-localizing, where the band narrows to well below $h$ and the peak temperature
+  exceeds the adiabatic estimate. "The self-localizing failure modes occur at lower values of the
+  shear stress compared to the adiabatic modes."
+- Discussion. The model "does not include corrections due to effects of melting, although melting
+  of the material near the shear band may be possible." The introduction cites melted rock along
+  shear faults and drops on the fracture surfaces of metallic glasses as evidence of the heat.
+
+What changes. I13, first half. The runaway is reported again, here in solids, and it narrows the
+band as it goes. The phase change it reaches is melting, which the source reports as evidence and
+leaves out of the model. Nothing here is water or vapor.
+
+## Zamansky and Ham, Center for Turbulence Research Annual Research Briefs 2013, 47--60
+
+*Modelization of cavitation in shear flows.* Read in full from the text layer.
+
+- Section 1. In diesel injectors "the sudden fuel acceleration in the injector causes a dramatic
+  drop in static pressure and generation of an intense shear". Following Joseph, the liquid breaks
+  where the largest principal stress, not the pressure, passes the threshold: $T_{11} + p_c > 0$,
+  "Such a criterion can account for stress-induced cavitation." In the experiments of Mauger and
+  others, "cavitation inception occurs in the shear layers between the recirculation zones and the
+  bulk of flow, and not at the inlet corner where the average pressure is minimal."
+- Section 3. A barotropic tabulated state equation; "heat effects such as viscous heating and
+  modification of the local thermodynamic properties of the fluid are neglected, although they can
+  affect the cavitation".
+- Section 4. A stochastic model of vapor production driven by the largest principal stress, with
+  the impurities entered as disorder in a random-field Ising model.
+- Section 4.4. "The cavitation inception (S > 0), which is roughly connected to the location of
+  the maximum stress, is seen to occur in the shear layer at the channel inlet, in the vortices
+  resulting from the destabilization of the shear layer."
+
+What changes. I13 and its addition. Inception is in the shear layer between two regions of flow,
+and not where the mean pressure is least. The criterion that places it is the stress, which
+includes the shear that equation (1) carries and the pressure alone does not.
+
+## Brandao and Mahesh, CAV2021, 11th International Symposium on Cavitation
+
+*LES of cavitating shear layer.* Read in full from the text layer.
+
+- Abstract. Inception in the shear layer behind a backward-facing step, "inception occurs inside
+  the core of the streamwise stretched/contracted vortical structures along the shear layer in
+  axial positions around 67% of the reattachment point, which is in good agreement with
+  experiments."
+- Section 3. Low pressure and vapor do not coincide: "Low pressure regions need to be sustained
+  for some amount of time to allow for the growth of vapor to more visible sizes."
+- Citing O'Hern, inception is "in the stretched streamwise vortices, indicating that the lowest
+  values of pressure are likely to be in the core of these vortices".
+
+What changes. I13, the stated expectation that where the pressure is near the vapor pressure the
+steam sheet and the cavitation of the core are one event. This source places the onset in the
+cores of stretched vortices within the shear layer.
+
+## Pimenova and Goldobin, arXiv:1407.4725v2, Eur. Phys. J. E (2014) 108
+
+*Boiling of the interface between two immiscible liquids below the bulk boiling temperatures of
+both components.* Read in full from the text layer.
+
+- Abstract. "An intense vapour formation at such a direct contact is possible below the bulk
+  boiling points of both components, meaning an effective decrease of the boiling temperature of
+  the system."
+- Section 1. "Boiling occurs at the interface between two liquids, but not in their bulk." Each
+  liquid evaporates into the vapor layer between them. The vapor pressure in the layer is the
+  sum of the two; it grows when the sum passes the atmospheric pressure, and either alone does
+  not. The authors give it as the reason water "is forbidden for usage when one needs to stop fire
+  of inflammable organic liquids".
+- Section 2, demonstrations. A layer of white spirit over water, set alight: at first only surface
+  evaporation, then "rare vapour bubbles rising from the white spirit--water interface. The bulk
+  boiling of water does not occur, meaning the interface is below the bulk boiling points of both
+  liquids." n-Heptane over water: one center of vapor formation at the interface, then many
+  bubble lanes.
+- Table 1. Water boils at 373.15 K and n-heptane at 371.58 K; their interface boils at 351.71 K,
+  78.56 °C.
+- Section 5. A thin vapor layer grows between the liquids and breaks away by buoyancy as bubbles;
+  in a stratified system the breakaway is a Rayleigh--Taylor instability of an extremely thin
+  vapor layer between two liquids, which Appendix C treats. The layer at breakaway is of order
+  $10^{-5}$ to $10^{-4}$ m, and bubble diameters of about 3 mm match the demonstration.
+
+What changes. The author's addition to I13, the chemical difference. Vapor forms at the boundary
+between two liquids that differ and at a lower temperature than in either one alone, and the
+source holds a thin vapor layer between two liquids as the first stage.
+
+## Pfeiffer, Shahrooz, Tortora, Casciola, Holman, Salomir, Meloni and Ohl, arXiv:2306.01571v1
+
+*Heterogeneous cavitation from atomically smooth liquid--liquid interfaces.* Read in full from the
+text layer.
+
+- Abstract. "Here, we present the finding of a so far unreported nucleation site, namely the
+  atomically smooth interface between two immiscible liquids. The non-polar liquid of the two has
+  a higher gas solubility and acts upon pressure reduction as a gas reservoir that accumulates at
+  the interface."
+- Background. Few experiments reach the cavitation threshold of water predicted by classical
+  nucleation theory; "most experiments however suffer from a considerably lower threshold".
+- Experiment. Tension from a Lamb-type wave in a gap of 3 to 5 µm of water holding droplets of a
+  perfluorocarbon. "Bubbles are mostly nucleated along the PFC/water interface." A droplet can
+  nucleate more than once and is not used up.
+- Simulation. Water and perfluorocarbon slabs with dissolved nitrogen at $-20$ MPa: the nitrogen
+  gathers at the interface, the two liquids separate there, and "no gas bubbles are formed in the
+  PFC bulk" at 1 bar.
+- Conclusion. Nucleation at the interface needs a liquid of high gas solubility and its interface
+  with a second, immiscible liquid; "not only PFC droplets can induce cavitation, but any liquid
+  immiscible with water that has also a high gas solubility."
+
+What changes. The author's addition to I13, the chemical and dissolved-gas difference. Under
+tension the vapor or gas starts at the boundary between two liquids and not in the bulk of
+either.
+
+## Maquet, Darbois-Texier, Duchesne, Brandenbourger, Dorbolo, Sobac, Rednikov and Colinet, arXiv:1603.05821v2
+
+*Leidenfrost drops on a heated liquid pool.* Read in full from the text layer.
+
+- Abstract. "A volatile liquid drop placed at the surface of a non-volatile liquid pool warmer
+  than the boiling point of the drop can experience a Leidenfrost effect even for vanishingly
+  small superheats."
+- Section III A. Ethanol over silicone oil: the drop levitates on its vapor once the pool is above
+  78 °C, and "Observing the Leidenfrost effect for a superheat as low as ΔT = 1°C is a feat that is
+  never seen on a solid substrate". The drops are "highly mobile". On aluminum the Leidenfrost
+  point of ethanol is near 158 °C.
+- Section III B. For a 1.2 mm drop at a pool of 118 °C the vapor film is 57 µm at the center and
+  18 µm at the neck.
+- Section IV B. No Leidenfrost drop was seen on oils of viscosity above 150 mPa s, which the
+  authors relate to convection in the pool that keeps the surface warm.
+- Conclusion. "Over a pool, a Leidenfrost state is possible as soon as the liquid of the pool is
+  just hotter than the drop boiling point, with no apparent Leidenfrost threshold. This is at
+  least partly due to the fact that a liquid substrate has no roughness unlike the solid ones."
+
+What changes. I13, both halves and the addition. One liquid rides another on a cushion of vapor,
+mobile, at a step in temperature and composition between them, with a superheat near one kelvin.
+The drive here is heat and not shear.

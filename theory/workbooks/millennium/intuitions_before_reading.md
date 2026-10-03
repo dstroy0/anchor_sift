@@ -587,3 +587,53 @@ held and read.
 **Criterion, written by the recorder.** Hit if a source held reports the shear, the heating or the
 vapor onset concentrated at the boundary between layers that differ, and earlier than in a
 uniform liquid under the same drive; miss if a source held reports onset in the bulk first.
+
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `9d32f9f1` and the addition with
+`ce3b3d52`.** Read in full: Gruntfest and Becker, NASA contract NASw-708 (1964); Berry, Vakarelski,
+Chan and Thoroddsen, arXiv:1612.08335; Braeck, Podladchikov and Medvedev, arXiv:0805.3292;
+Zamansky and Ham, CTR Annual Research Briefs 2013; Brandao and Mahesh, CAV2021; Pimenova and
+Goldobin, arXiv:1407.4725; Pfeiffer and others, arXiv:2306.01571; Maquet and others,
+arXiv:1603.05821.
+
+**Second half: hit, and not blind.** Berry and others, Figure 1: a hot sphere carrying a
+Leidenfrost vapor layer, falling through water at $95\,^\circ$C, has a drag coefficient near 0.25 at
+$\mathrm{Re} \approx 10^5$ and near 0.15 at $2$ to $3\times10^5$, against 0.4 to 0.5 for the same
+sphere without the layer. They model the layer by Navier's slip condition. Maquet and others put a
+drop of ethanol on its own vapor over a pool of hot oil at one kelvin of superheat, and the drop is
+highly mobile: one liquid riding another on a cushion of its vapor.
+
+**First half: miss.** The runaway is real. Gruntfest and Becker show that a liquid whose viscosity
+falls with temperature has no steady shear flow between walls held at a fixed temperature above
+$V_m = 4.27\,(k/(a\eta_0))^{1/2}$, and that above it the shear gathers in the middle. Braeck and
+others show the band narrowing as it runs away, in solids, toward melting. For water at
+$20\,^\circ$C $V_m$ is 666 m/s. Duraiswami puts the core of the forced construction in water at
+cavitation when the swirl reaches 10 to 17 m/s, with the viscous heating near 0.01 K. At 17 m/s the
+steady rise in Gruntfest's layer is 0.06 K. The runaway does not occur in water at the speeds the
+forced construction reaches before its core cavitates: the miss as written. The bound is
+for plane shear between walls held at a fixed temperature; under a fixed stress with no heat loss
+the same law runs away at any stress, in a time that grows as the stress falls.
+
+**The stated expectation, against the sources.** The runaway was expected near $U^* = 110$ m/s; the
+bound is $6.04\,U^*$. Steam was expected below 618 m/s; at 618 m/s the steady middle of the layer
+stands 44 K above the walls, near $64\,^\circ$C, and steady flow ends at $68\,^\circ$C with the
+middle still liquid. The vapor that a source held does put in a shear layer of water comes from
+the pressure and not the heat: Zamansky and Ham, and Brandao and Mahesh, put inception in the shear
+layer, in the cores of its stretched vortices, and not where the mean pressure is least. The
+expectation that near the vapor pressure the steam sheet and the cavitation of the core are one
+event is the part the sources bear out.
+
+**The addition: hit, on the chemical difference.** Pimenova and Goldobin: water and n-heptane in
+contact boil at their interface at $78.56\,^\circ$C, below $100\,^\circ$C and $98.4\,^\circ$C, and
+in their demonstrations the bubbles rise from the interface while neither bulk boils; the first
+stage is a thin vapor layer between the two liquids. Pfeiffer and others: under the same tension,
+bubbles nucleate mostly along the interface between water and a perfluorocarbon that holds more
+dissolved gas, and in their simulation the gas gathers at the interface and forms no bubble in the
+bulk. Both report the vapor onset at the boundary between layers that differ, and earlier than in
+either liquid alone under the same drive.
+
+The temperature difference is borne out by Maquet and others, a vapor cushion at a step of one
+kelvin between two liquids, without a uniform liquid under the same drive to compare. The density
+difference is not tested: no source held reports shear or vapor at a density step. In all three
+sources that score it the drive is heat or tension, not shear.
