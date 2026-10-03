@@ -122,7 +122,7 @@ The untouched copy proved clean.
 
 \begin{itemize}
 \item \textbf{The tower spans all four axes}, and no single plane decodes on its own. A check without a full decode is possible only on the stored bytes: the chunk leaves, the stream root, the side's stored leaf and the members root. A decoded row can be checked only after a whole decode, though a mismatch still names its row.
-\item \textbf{An unkeyed root seals against accident, not against an author.} Whoever can rewrite a file can recompute its roots all the way up. Against a deliberate tamperer the universal root has to be anchored where they cannot write:
+\item \textbf{An unkeyed root seals against accident, not against an author.} Whoever can rewrite a file can recompute its roots all the way up. Against a deliberate tamperer the universal root needs a trust anchor where they cannot write:
 
 \begin{itemize}
 \item a signature over it, with the public key compiled in;

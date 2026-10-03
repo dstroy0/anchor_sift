@@ -95,7 +95,7 @@
   - Drop: a step no output depends on is removed.
   - Share: a value computed twice is computed once and read twice. The shared register lives from its first reader to its last, and the file pays for that span.
   - Table: a chain of one-register steps becomes one table step (below: tables).
-- **Sharing trades steps for file.** Derived (replica). The proved lifting program emits its four distinct constants (1, 2, 3 and 4) 33 times: two for each of its 16 floor divisions, and one 2 read by both the lows and the evens.
+- **Sharing trades steps for file.** Derived (replica). The proved lifting program emits its four distinct constants (1, 2, 3 and 4) 33 times: two for each of its 16 floor divisions, and one 2 read by both the low-pass coefficients and the evens.
   - Each constant emitted once and shared: 100 steps in place of 129, and a file of 15 limbs in place of 12.
   - The forward still equals tower.cu's formulas, and T⁻¹ ∘ T is still the identity, on 500 random lines.
 
@@ -117,8 +117,8 @@ Derived from `key_schedule.cu` and `cycle.cu`:
 Doug's: a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
 
 - **The crystal's tower T** is the 5/3 integer lifting of `engine/base/tower/tower.cu` (A14 in [engine_table.md](engine_table.md)). One level over a line of samples x:
-  - the high d_j = x_{2j+1} − ⌊(x_{2j} + x_{2j+2}) / 2⌋;
-  - the low s_i = x_{2i} + ⌊(d_{i−1} + d_i + 2) / 4⌋;
+  - the high-pass coefficient d_j = x_{2j+1} − ⌊(x_{2j} + x_{2j+2}) / 2⌋;
+  - the low-pass coefficient s_i = x_{2i} + ⌊(d_{i−1} + d_i + 2) / 4⌋;
   - an edge repeats its neighbor.
 - **Its inverse T⁻¹** runs the same two lines backward and in the other order: x_{2i} = s_i − ⌊(d_{i−1} + d_i + 2) / 4⌋, then x_{2j+1} = d_j + ⌊(x_{2j} + x_{2j+2}) / 2⌋.
 - **Floor division is a record floor.** For every integer v and k ≥ 0:
@@ -132,19 +132,19 @@ Doug's: a second tower stacked over the first one's boundary, inverted, and the 
 - **The operation tower over the crystal.** A program F that reads the crystal's lifted floors, and the inverse T⁻¹ that brings them back, compose into one stack F ∘ T⁻¹ by the regrouping law (1). No step between them leaves the lane, and T⁻¹ ∘ T is the identity on the machine exactly.
 - **Proved** (`test/engine/record_bitwise_test`): one 5/3 level over 8 signed 16-bit samples and its inverse, 129 steps as one program, register reuse on, a 12-limb file, 4,096 lanes of edge-shaped samples.
   - The device equals the host word for word.
-  - The forward floor's 4 lows and 4 highs equal tower.cu's formulas, computed on the CPU, on every lane.
+  - The forward floor's 4 low-pass coefficients and 4 high-pass coefficients equal tower.cu's formulas, computed on the CPU, on every lane.
   - The inverse floor returns all 8 samples exactly on every lane.
 
 ## The lifting as record floors
 
 - **The cone.** Derived.
-  - One level: a high reads 3 samples (x_{2j} to x_{2j+2}), a low reads 5 (x_{2i−2} to x_{2i+2}).
-  - L levels along a line: a level-L low reads 5 consecutive level-(L−1) lows, spaced 2^{L−1} samples apart. Its span w_L = w_{L−1} + 4 · 2^{L−1}, with w_1 = 5, gives w_L = 2^{L+2} − 3 samples. It reaches 2^{L+1} − 2 samples past its center on each side.
+  - One level: a high-pass coefficient reads 3 samples (x_{2j} to x_{2j+2}), a low-pass coefficient reads 5 (x_{2i−2} to x_{2i+2}).
+  - L levels along a line: a level-L low-pass coefficient reads 5 consecutive level-(L−1) low-pass coefficients, spaced 2^{L−1} samples apart. Its span w_L = w_{L−1} + 4 · 2^{L−1}, with w_1 = 5, gives w_L = 2^{L+2} − 3 samples. It reaches 2^{L+1} − 2 samples past its center on each side.
   - Separable in D axes, one level along each axis in turn: the span is the product, (2^{L+2} − 3)^D. One level in 4-D reads 5^4 = 625 samples.
   - The replica agrees for L = 1 to 6 in 1-D and for D = 1 to 4 at one level. Its forward equals tower.cu's formulas, computed on the CPU, on every line it ran.
-- **The file of one cone.** Derived (replica). Only the steps one interior low reads, in depth-first order, with each field read just before its first use:
+- **The file of one cone.** Derived (replica). Only the steps one interior low-pass coefficient reads, in depth-first order, with each field read just before its first use:
 
-  | levels L (1-D) | samples read | steps | file | the low's derived width |
+  | levels L (1-D) | samples read | steps | file | the low-pass coefficient's derived width |
   |---|---|---|---|---|
   | 1 | 5 | 28 | 6 limbs | 20 bits |
   | 2 | 13 | 119 | 11 limbs | 24 bits |
@@ -153,7 +153,7 @@ Doug's: a second tower stacked over the first one's boundary, inverted, and the 
   | 5 | 125 | 1,800 | 29 limbs | 36 bits |
   | 6 | 253 | 3,811 | 40 limbs | 40 bits |
 
-  | axes D (one level) | samples read | steps | file | the all-low coefficient's derived width |
+  | axes D (one level) | samples read | steps | file | the all-low-pass coefficient's derived width |
   |---|---|---|---|---|
   | 1 | 5 | 28 | 6 limbs | 20 bits |
   | 2 | 25 | 163 | 9 limbs | 24 bits |
@@ -164,10 +164,10 @@ Doug's: a second tower stacked over the first one's boundary, inverted, and the 
   - Depth-first is one order among many, and the order with the smallest file is not known here. Finding the smallest register file for a program without recomputation is NP-complete in general (Sethi, "Complete register allocation problems", SIAM J. Comput. 4, 1975).
 - **Widths across levels.** Derived.
   - **The constant-divisor narrowing**. keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2^{w − ⌊log2 c⌋} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. **Proved** (`test/engine/record_divide_test`, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2^32 + 7 divide back exactly, a 64-bit value over 2^32 + 7 equals the library's quotient, and the widths are exactly the rule's.
-  - With it, keymath gives a high of 16-bit samples 18 bits and a low 20. Each level adds 4 bits to a low: 16, 20, 24, 28, and 40 at level 6, two limbs. Before it, 7 bits a level: 23, 30, and 58 at level 6. The proved program's file is 12 limbs under either rule.
-  - The values grow far less. The low's linear part is (−1, 2, 6, 2, −1)/8 over x_{2i−2} to x_{2i+2}, with Σ|c| = 1.5. Its floors add less than 3/4.
-  - Over samples |x| ≤ B: |s| ≤ 1.5B + 1 and |d| ≤ 2B. The edge cases (a line of 2 or 3, either end) repeat a neighbor and keep Σ|c| ≤ 1.5 for a low and 2 for a high.
-  - The low's bound grows log2 1.5 ≈ 0.585 bits a level and the high's 1 bit, against keymath's 4.
+  - With it, keymath gives a high-pass coefficient of 16-bit samples 18 bits and a low-pass coefficient 20. Each level adds 4 bits to a low-pass coefficient: 16, 20, 24, 28, and 40 at level 6, two limbs. Before it, 7 bits a level: 23, 30, and 58 at level 6. The proved program's file is 12 limbs under either rule.
+  - The values grow far less. The low-pass coefficient's linear part is (−1, 2, 6, 2, −1)/8 over x_{2i−2} to x_{2i+2}, with Σ|c| = 1.5. Its floors add less than 3/4.
+  - Over samples |x| ≤ B: |s| ≤ 1.5B + 1 and |d| ≤ 2B. The edge cases (a line of 2 or 3, either end) repeat a neighbor and keep Σ|c| ≤ 1.5 for a low-pass coefficient and 2 for a high-pass coefficient.
+  - The low-pass coefficient's bound grows log2 1.5 ≈ 0.585 bits a level and the high-pass coefficient's 1 bit, against keymath's 4.
   - A wrap to w = bit_length(bound) + 1 bits after each level holds every value in range exactly: [−2^{w−1}, 2^{w−1}) contains [−bound, bound].
   - A wrap is silent: the machine does not check that its value is in range. A wrong wrap gives a wrong record on the device and the same wrong record on the host, and device = host still holds. Only an oracle outside the machine, such as tower.cu's formulas, catches it.
 - **A whole line, down and back.** Derived (replica). 64 samples, all 6 levels, then all 6 inverse levels, in one program, in the order they are emitted:
@@ -222,7 +222,7 @@ Doug's: the bottom boundary of the inverted tower and the bottom boundary of the
   - T⁻¹'s floor 0 is registers in the file, written by steps and put into the output record.
   - **Proved** (`test/engine/record_bitwise_test`): on 4,096 lanes the rebuilt samples equal the input fields, value for value. They are never the same register. One side lives in the record read, the other in the file and the record written.
 - **T is a bijection.** Derived.
-  - Each lifting step adds to one half of the line a function of the other half only. The highs subtract a floored prediction made from the evens, then the lows add a floored update made from the highs.
+  - Each lifting step adds to one half of the line a function of the other half only. The high-pass coefficients subtract a floored prediction made from the evens, then the low-pass coefficients add a floored update made from the high-pass coefficients.
   - A step (a, b) ↦ (a, b − P(a)) is undone by (a, c) ↦ (a, c + P(a)) for any function P, floors included: the same value comes back off.
   - Every level and every axis is a composition of such steps (Sweldens, "The lifting scheme", 1996; Calderbank, Daubechies, Sweldens and Yeo, "Wavelet transforms that map integers to integers", 1998).
   - T is a bijection of the integer vectors of each shape. T⁻¹ ∘ T = id and T ∘ T⁻¹ = id on every input, for every level count and axis order, when three things hold: the inverse repeats the forward's edge rule, it runs the steps in reverse order, and the machine refuses nothing (no register past 32 · 256 bits, every wrap in range).
@@ -236,12 +236,12 @@ Doug's: the bottom boundary of the inverted tower and the bottom boundary of the
   - Chains cancel inside: (T⁻¹G₂T) ∘ (T⁻¹G₁T) = T⁻¹(G₂G₁)T. A chain of operations on the crystal pays one T and one T⁻¹, not a pair for each operation.
   - T⁻¹GT = id exactly when G = id. The full cancellation survives only an identity in the middle.
   - T⁻¹GT is a bijection exactly when G is one, and its inverse is T⁻¹G⁻¹T.
-  - The levels above G cancel past it. Write T = T_L ∘ … ∘ T_1, level 1 first. Level j reads and writes only the all-low corner that level j − 1 left. A G that touches only coefficients outside the corner of level ℓ (the highs of level ℓ or below) acts on other coordinates than every T_j above ℓ, and commutes with them. Then T⁻¹GT = T_1⁻¹ ∘ … ∘ T_ℓ⁻¹ ∘ G ∘ T_ℓ ∘ … ∘ T_1: a G on level ℓ's highs costs ℓ levels each way, not L.
+  - The levels above G cancel past it. Write T = T_L ∘ … ∘ T_1, level 1 first. Level j reads and writes only the all-low-pass corner that level j − 1 left. A G that touches only coefficients outside the corner of level ℓ (the high-pass coefficients of level ℓ or below) acts on other coordinates than every T_j above ℓ, and commutes with them. Then T⁻¹GT = T_1⁻¹ ∘ … ∘ T_ℓ⁻¹ ∘ G ∘ T_ℓ ∘ … ∘ T_1: a G on level ℓ's high-pass coefficients costs ℓ levels each way, not L.
 - **An edge is a record floor.** Derived from `tower_edge_kernel` (A14).
   - An edge permutes the low k bits of a coefficient through a table π (k ≤ 20) and passes its high bits.
   - For every integer v: E(v) = (v − AND(v, 2^k − 1)) + TABLE_π(AND(v, 2^k − 1)).
   - The and is v's residue, never negative and k bits wide, and the table step indexes by it. v less its residue has k low zero bits, and the sum puts π's value in them. For a 32-bit word it agrees with the kernel's (word & ~mask) | π(word & mask).
-  - E is a bijection of the integers. T⁻¹ET is a bijection of the samples with inverse T⁻¹E⁻¹T. An edge on level ℓ's highs costs ℓ levels each way.
+  - E is a bijection of the integers. T⁻¹ET is a bijection of the samples with inverse T⁻¹E⁻¹T. An edge on level ℓ's high-pass coefficients costs ℓ levels each way.
   - An edge moves a coefficient by less than 2^k. A wrap placed after an edge needs its bound raised by 2^k, or it is silently wrong.
 - **Open:** which G on the lifted floors make T⁻¹GT shorter than T, G and T⁻¹ emitted apart. A G that commutes with T gives T⁻¹GT = G, run on the samples with no lifting at all. Which edges commute with T is open.
 
@@ -342,10 +342,10 @@ Derived.
 - Its distance from the linear inverse W⁻¹ (the same two lines without floors), for the same coefficients c, along one line:
   - An even sample's floor, ⌊(d_{i−1} + d_i + 2)/4⌋ against (d_{i−1} + d_i)/4, moves the even by −1/2, −1/4, 0 or 1/4.
   - An odd sample's floor, ⌊(a + b)/2⌋ against (a + b)/2, moves the odd by 0 or −1/2.
-  - The highs are read exact from c. An inverse level that receives its lows with error at most ε returns evens with error at most ε + 1/2 and odds with error at most ε + 1.
+  - The high-pass coefficients are read exact from c. An inverse level that receives its low-pass coefficients with error at most ε returns evens with error at most ε + 1/2 and odds with error at most ε + 1.
   - Over L levels, ‖T⁻¹c − W⁻¹c‖∞ ≤ L.
   - For a linear F with ‖F‖∞ its largest row sum of |entries|: |F(T⁻¹c) − F(W⁻¹c)| ≤ L · ‖F‖∞ along one line.
-- In D axes the highs of one axis carry the error of the axes inverted before them. The bound there is open.
+- In D axes the high-pass coefficients of one axis carry the error of the axes inverted before them. The bound there is open.
 - As a stack, F ∘ T⁻¹ saves the time between F and T⁻¹ (item 4), not steps: its step count is F's plus T⁻¹'s.
 
 ## The lane index and the latch
@@ -374,7 +374,7 @@ Derived.
 - **The smallest file.** An order of the lifting's steps with a smaller file than depth-first, or a proof that none exists.
 - **F ∘ T⁻¹ in D axes.** The bound on its distance from the linear F ∘ W⁻¹, and any particular F that runs through T⁻¹ in fewer steps than the two apart.
 - **Operations that commute with T.** Which operations on the lifted floors, edges included, commute with T, and run on the samples with no lifting.
-- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
+- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low-pass coefficient at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
 - **The oval.** Which shape it is, the heap's hourglass or the gap between heap and ring, is Doug's call.
 - **The lens.** Whether a ladder of lenses comes closer to K on a named class of lanes, and what "tetrated resources" measures.
 - **The whole crystal as one stack.** The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.

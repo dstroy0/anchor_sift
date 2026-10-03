@@ -96,11 +96,11 @@ The whole engine algorithm in math, from every workbook, with zero terms missed.
   - d_j = x_{2j+1} − ⌊(x_{2j} + x_{2j+2})/2⌋, j < ⌊N/2⌋;
   - s_i = x_{2i} + ⌊(d_{i−1} + d_i + 2)/4⌋, i < ⌈N/2⌉;
   - an edge repeats its neighbor: x_{2j+2} := x_{2j} at the end, d_{−1} := d_0, d_{⌊N/2⌋} := d_{i−1};
-  - lows stored on [0, ⌈N/2⌉), highs on [⌈N/2⌉, N);
+  - low-pass coefficients stored on [0, ⌈N/2⌉), high-pass coefficients on [⌈N/2⌉, N);
   - ⌊v/2^k⌋ is taken toward −∞ (`tower_floor_shift`).
-- A level runs the axes 0..3 whose extent is ≥ 2, in order. The extents then go e ↦ ⌈e/2⌉, and the next level lifts only the all-low corner. There are L levels, until every extent is 1.
+- A level runs the axes 0..3 whose extent is ≥ 2, in order. The extents then go e ↦ ⌈e/2⌉, and the next level lifts only the all-low-pass corner. There are L levels, until every extent is 1.
 - T⁻¹: x_{2i} = s_i − ⌊(d_{i−1} + d_i + 2)/4⌋, then x_{2j+1} = d_j + ⌊(x_{2j} + x_{2j+2})/2⌋. Levels and axes run in reverse.
-- The ruleset, the wave transform's math. A line splits into its lows L (the evens) and highs H (the odds), and a lifting step moves one band by a rounded sum over the other:
+- The ruleset, the wave transform's math. A line splits into its low-pass coefficients L (the evens) and high-pass coefficients H (the odds), and a lifting step moves one band by a rounded sum over the other:
   - target_a ← target_a + σ·⌊(r + Σ_k w_k·other_{a+o_k}) / 2^s⌋, σ = ±1, an index past either end of `other` taken at that end;
   - a ruleset R = (ρ_1, …, ρ_m) runs its steps in order along every line of every level. T⁻¹ runs them last first with each σ turned. A step moves only its target, reading only the other band, and every ruleset is therefore invertible exactly, whatever its weights;
   - the kernels' 5/3 is ρ_1 = (H, σ = −1, o = (0, 1), w = (1, 1), r = 0, s = 1), then ρ_2 = (L, σ = +1, o = (−1, 0), w = (1, 1), r = 2, s = 2);
@@ -120,11 +120,11 @@ The whole engine algorithm in math, from every workbook, with zero terms missed.
 - Held when T⁻¹(decode(stream)) = u lane for lane, and u equals a second read of the source.
 - Properties (proved along one line on 64 samples at L = 4 unless marked):
   - T is a bijection of ℤ^n, a homeomorphism of ℤ₂^n (derived), and keeps Haar measure.
-  - Reach: T's level-ℓ lows read 3ℓ bits down, its highs 3ℓ − 2; T⁻¹ reads L + 2. So \|T(x) − T(y)\|₂ ≤ 2^{3L}\|x − y\|₂.
-  - Linear part M, entries in ℤ[1/2]: T(x + 2^{3L}z) = T(x) + M·2^{3L}z. A constant c moves only the level-L lows, by c. Negation and doubling do not pass. det M = +1.
+  - Reach: T's level-ℓ low-pass coefficients read 3ℓ bits down, its high-pass coefficients 3ℓ − 2; T⁻¹ reads L + 2. So \|T(x) − T(y)\|₂ ≤ 2^{3L}\|x − y\|₂.
+  - Linear part M, entries in ℤ[1/2]: T(x + 2^{3L}z) = T(x) + M·2^{3L}z. A constant c moves only the level-L low-pass coefficients, by c. Negation and doubling do not pass. det M = +1.
   - Haar: every output quantum at level w holds exactly 2^{3Ln} input quanta at level w + 3L.
   - ℝ: 2^{−k}·T(trunc(2^k x)) → Mx. ℤ_p, p odd: T does not extend; M does, in SL_n(ℤ_p).
-  - Widths: keymath's linear forms (A16) give every register at level ℓ, low and high, w + ℓ + 1 bits: the first level adds 2, each after it 1 (derived by hand; the ring below matches). Values obey \|s\| ≤ 1.5B + 1 and \|d\| ≤ 2B (+0.585 and +1 bits a level).
+  - Widths: keymath's linear forms (A16) give every register at level ℓ, low-pass and high-pass, w + ℓ + 1 bits: the first level adds 2, each after it 1 (derived by hand; the ring below matches). Values obey \|s\| ≤ 1.5B + 1 and \|d\| ≤ 2B (+0.585 and +1 bits a level).
   - Ring: ring_ℓ = ring_0 + n + 2n(1 − 2^{−ℓ}) for ℓ ≥ 1 (measured: 1,536, 1,664, 1,696, 1,712 and 1,720 at n = 64, w = 24). The mirror floor still adds n/2^ℓ (1,720, 1,712, 1,696 and 1,600), and the heap mirrors exactly across the crystal.
   - Code length: Σ_r ⌈log₂(W_r + 1)⌉ + Σ_r m_r ≥ K(x \| program) − c.
   - Identity by null permutation: a lane is identified when heap(T(x)) < heap(T(σ_i x)) for every i ≤ d. Noise passes at a rate ≤ 1/(d + 1). T(σx) = T(x) ⇔ σx = x.
@@ -134,7 +134,7 @@ The whole engine algorithm in math, from every workbook, with zero terms missed.
   - ⌊v/2^k⌋ = EXACT_QUOTIENT(v − AND(v, 2^k − 1), 2^k);
   - E(v) = (v − AND(v, 2^k − 1)) + TABLE_π(AND(v, 2^k − 1));
   - F ∘ T⁻¹ is one stack, and T⁻¹ ∘ T = id;
-  - T⁻¹GT is G conjugated, (T⁻¹G₂T)(T⁻¹G₁T) = T⁻¹G₂G₁T, and a G on level-ℓ highs costs ℓ levels each way;
+  - T⁻¹GT is G conjugated, (T⁻¹G₂T)(T⁻¹G₁T) = T⁻¹G₂G₁T, and a G on level-ℓ high-pass coefficients costs ℓ levels each way;
   - a linear F: \|F(T⁻¹c) − F(W⁻¹c)\| ≤ L·‖F‖∞ along one line;
   - the wrap at the mirror: WRAP(v, b + 1) on each rebuilt register, b its forward twin's width.
 
@@ -511,7 +511,7 @@ A record program is a list of steps s_1, …, s_n over registers of limbs, each 
     - keymath folds no constant, drops no dead step and merges no duplicate step.
     - A record is addressable to 2^32 bits for each member; past that, device memory bounds it.
     - A lifting cone spans (2^{L+2} − 3)^D samples, yet one level over a 4-D cone of 625 samples runs in a 15-limb file.
-    - keymath's widths grow every register 1 bit a level, the first level 2, where the lows' values grow 0.585 bits and the highs' 1 (the linear forms of A16; E4). The constant-divisor narrowing is **proved** (`test/engine/compiler/cycle/record_divide_test`, 19 checks, 0 failed).
+    - keymath's widths grow every register 1 bit a level, the first level 2, where the low-pass coefficients' values grow 0.585 bits and the high-pass coefficients' 1 (the linear forms of A16; E4). The constant-divisor narrowing is **proved** (`test/engine/compiler/cycle/record_divide_test`, 19 checks, 0 failed).
     - T is a bijection; an operation G between the towers runs as T⁻¹GT, and the levels above G cancel past it.
     - The heap (the bits a floor's values occupy) mirrors exactly across the crystal. The ring (the imprint's widths) does not, until a wrap at the mirror makes it symmetric to one bit a register. The crystal with the ring's framing is a code length bounding K(x) from above, and by counting no lens shortens most lanes.
   - Open: the neighbor gather in D axes (the halo in the record, or one axis per sweep), F ∘ T⁻¹'s error in D axes, which operations commute with T, the heap and the wrap at the mirror as committed tests (both measured in scratch runs; **proved** by `test/engine/compiler/cycle/record_boundary_test`), the oval (Doug's call), and the whole crystal as one stack ([vertical_time_compression.md](vertical_time_compression.md)).
@@ -542,8 +542,8 @@ A record program is a list of steps s_1, …, s_n over registers of limbs, each 
 - **The two crystals** (the finite towers and their limit, with an infinite delta between them).
   - A register is a 2-adic integer, and a wrap to w is the projection ℤ₂ → ℤ/2^w. Sum, difference, product, xor and and commute with every projection. An exact quotient by an odd c is the product by c⁻¹ in ℤ₂.
   - **Proved** (`test/engine/compiler/cycle/record_coherence_test`, 14 checks, 0 failed): 393,216 of 393,216 lane-widths agree three ways over 16 random programs, 73,728 of 73,728 for the odd divisors, and a quotient and a comparison break the agreement. Mod 3^5, 3^10, 5^4 and 7^3, 262,144 of 262,144 lane-moduli agree three ways over 16 ring-only programs, the CRT join with the 8-bit window equals the exact run on all of them, and xor breaks mod 3.
-  - **Proved** (`test/engine/compiler/cycle/record_boundary_test`, 48 checks, 0 failed): the crystal of 64 samples at 4 levels as a boundary. T's reach is 3ℓ at the level-ℓ lows and 3ℓ − 2 at its highs and T⁻¹'s is L + 2, each met on the device; arbitrary crystals return through T⁻¹ then T; constants and 2^{3L}ℤ^n moves pass through T, negation and doubling do not; the heap mirrors, the ring is ring_0 + 6(n − n/2^ℓ); the quotient toward zero keeps order and a sum within one; T and T⁻¹ keep Haar measure, counted; det M = ±1 exactly, its sign +1 in the run. T against 8 null shuffles a lane identifies each structured class past the null's 1/(d + 1) bound and noise within it, and the crystal is a one-to-one ID: a draw changes it exactly when it moves a value, and every single flipped bit changes the image.
-  - Derived in [two_crystals.md](two_crystals.md): what does not factor through the projection, the lifting as a homeomorphism of ℤ₂^n whose level-L lows read the samples to w + 3L bits, the windows' union ℤ and the projections' limit ℤ₂ with the solenoid between them, what passes to a limit, the top projection's limit ℝ, the odd crystals and the places of ℚ, the count as coset counting, and the posits bounded (the anchors' complexity open; the fingerprint of T against null permutations, proved; the knf's identity by spatial null permutation, built; the pairwise agreement between sections, open).
+  - **Proved** (`test/engine/compiler/cycle/record_boundary_test`, 48 checks, 0 failed): the crystal of 64 samples at 4 levels as a boundary. T's reach is 3ℓ at the level-ℓ low-pass coefficients and 3ℓ − 2 at its high-pass coefficients and T⁻¹'s is L + 2, each met on the device; arbitrary crystals return through T⁻¹ then T; constants and 2^{3L}ℤ^n moves pass through T, negation and doubling do not; the heap mirrors, the ring is ring_0 + 6(n − n/2^ℓ); the quotient toward zero keeps order and a sum within one; T and T⁻¹ keep Haar measure, counted; det M = ±1 exactly, its sign +1 in the run. T against 8 null shuffles a lane identifies each structured class past the null's 1/(d + 1) bound and noise within it, and the crystal is a one-to-one ID: a draw changes it exactly when it moves a value, and every single flipped bit changes the image.
+  - Derived in [two_crystals.md](two_crystals.md): what does not factor through the projection, the lifting as a homeomorphism of ℤ₂^n whose level-L low-pass coefficients read the samples to w + 3L bits, the windows' union ℤ and the projections' limit ℤ₂ with the solenoid between them, what passes to a limit, the top projection's limit ℝ, the odd crystals and the places of ℚ, the count as coset counting, and the posits bounded (the anchors' complexity open; the fingerprint of T against null permutations, proved; the knf's identity by spatial null permutation, built; the pairwise agreement between sections, open).
   - **Proved** (`knf_identity`, 23 checks, 0 failed): the knf of the nbody lattice (64³, 177 frames) against spatial null permutations. The host's walk equals the engine's knf at every voxel, and a single flipped bit leaves it unchanged exactly where the window rule says (1,500 of 8,192): the knf is many-to-one. The 48 exact cube motions carry the knf and keep its entangled entropy E and its cloud. The whole is its tiles plus its seams at every tile size. Alike-voxel controls are identified within 5σ of 1/20. **Measured:** E is 44.6 times the free null's mean, the inside and between departure curves cross between tiles of 2 and 4 and sum to 0.590 at 4, and each body's box has its own curve. Written in [two_crystals.md](two_crystals.md).
 - **The full Kolmogorov–Arnold form.** With linear steps only, the machine held the theorem's skeleton with linear edges; the table gives it general one-variable edges, which is item 1 of [kolmogorov_arnold.md](kolmogorov_arnold.md) and the LUT of [noise_sieve_tower.md](noise_sieve_tower.md) §2. Which functions to tabulate, without fitting, is still open (item 3 there).
 

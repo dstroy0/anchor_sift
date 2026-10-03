@@ -13,7 +13,7 @@ Three defaults push against this codec.
 
 \begin{itemize}
 \item \textbf{Compression is supposed to lose something}, or to need a model of the data. This codec loses nothing and assumes nothing: every coefficient comes back exactly, and the only choice it makes (a block's Rice parameter) is read off that block's own values.
-\item \textbf{A recursion is supposed to cost its depth in passes.} The tower's floors are a recursion, but each floor works only on the lows the floor below it left. For a 44b6 sample, the blocks of all eight floors together hold 447,397,412 lanes, 1,066 per mille of the sample's own voxels, and a check folded into the tower costs no pass at all.
+\item \textbf{A recursion is supposed to cost its depth in passes.} The tower's floors are a recursion, but each floor works only on the low-pass coefficients the floor below it left. For a 44b6 sample, the blocks of all eight floors together hold 447,397,412 lanes, 1,066 per mille of the sample's own voxels, and a check folded into the tower costs no pass at all.
 \item \textbf{A test is supposed to cost its size.} Comparing a sample pixel for pixel is 419,430,400 comparisons. The same test, compressed in time, is one 64 bit equality.
 \end{itemize}
 
@@ -21,23 +21,23 @@ Three defaults push against this codec.
 
 \subsection{\texorpdfstring{1.1 The step: the reversible integer 5/3 lift}{1.1 The step: the reversible integer 5/3 lift}}
 
-Take one line of integers x₀, x₁, x₂, … along one axis. The step splits it into highs at the odd places and lows at the even places, in two moves, each of which adds to one half a function of the other half:
+Take one line of integers x₀, x₁, x₂, … along one axis. The step splits it into high-pass coefficients at the odd places and low-pass coefficients at the even places, in two moves, each of which adds to one half a function of the other half:
 
-high   h\_\allowbreak{}j = x\_\allowbreak{}(2j+1) − ⌊(x\_\allowbreak{}(2j) + x\_\allowbreak{}(2j+2)) / 2⌋ low    l\_\allowbreak{}i = x\_\allowbreak{}(2i)   + ⌊(h\_\allowbreak{}(i−1) + h\_\allowbreak{}i + 2) / 4⌋
+high-pass  h\_\allowbreak{}j = x\_\allowbreak{}(2j+1) − ⌊(x\_\allowbreak{}(2j) + x\_\allowbreak{}(2j+2)) / 2⌋ low-pass   l\_\allowbreak{}i = x\_\allowbreak{}(2i)   + ⌊(h\_\allowbreak{}(i−1) + h\_\allowbreak{}i + 2) / 4⌋
 
 The edges are mirrored. Undoing it runs the same two moves backwards, with the signs turned:
 
 x\_\allowbreak{}(2i)   = l\_\allowbreak{}i − ⌊(h\_\allowbreak{}(i−1) + h\_\allowbreak{}i + 2) / 4⌋ x\_\allowbreak{}(2j+1) = h\_\allowbreak{}j + ⌊(x\_\allowbreak{}(2j) + x\_\allowbreak{}(2j+2)) / 2⌋
 
-\textbf{Why the floors do not break exactness.} Each move adds to one half a function of the \emph{other} half only. The inverse has that other half in hand, computes the very same function, floor and all, and subtracts it. It does not matter that ⌊·/2⌋ throws a bit away. The bit it throws away is thrown away identically going up and coming down, and it is never part of what is stored. This is a lifting step, and any function at all could stand in the floors' place: the pair of moves is still an exact integer map with an exact integer inverse. The 5/3 functions are chosen because a smooth line leaves highs near zero.
+\textbf{Why the floors do not break exactness.} Each move adds to one half a function of the \emph{other} half only. The inverse has that other half in hand, computes the very same function, floor and all, and subtracts it. It does not matter that ⌊·/2⌋ throws a bit away. The bit it throws away is thrown away identically going up and coming down, and it is never part of what is stored. This is a lifting step, and any function at all could stand in the floors' place: the pair of moves is still an exact integer map with an exact integer inverse. The 5/3 functions are chosen because a smooth line leaves high-pass coefficients near zero.
 
-The high predicts each odd lane from its two even neighbors and keeps only the miss. The low then carries the line's local mean up to the next floor. What the prediction gets right is gone from the highs: the program generates it. What it misses stays: that is the residue.
+The high-pass coefficient predicts each odd lane from its two even neighbors and keeps only the miss. The low-pass coefficient then carries the line's local mean up to the next floor. What the prediction gets right is gone from the high-pass coefficients: the program generates it. What it misses stays: that is the residue.
 
 \subsection{\texorpdfstring{1.2 The recursion: floors until the whole sample is one coefficient}{1.2 The recursion: floors until the whole sample is one coefficient}}
 
-The sample is one object over t z y x: time is an axis like the others, not a loop around them (noise\_\allowbreak{}sieve\_\allowbreak{}3's “temporal stacking”: samples enter at the bottom and time is written into the lattice). Each floor lifts every axis still longer than one, in turn. The lows, ⌈n / 2⌉ along each lifted axis, are the sub-block the next floor works on, and the highs stay where they landed. Floors rise until every axis is one long:
+The sample is one object over t z y x: time is an axis like the others, not a loop around them (noise\_\allowbreak{}sieve\_\allowbreak{}3's “temporal stacking”: samples enter at the bottom and time is written into the lattice). Each floor lifts every axis still longer than one, in turn. The low-pass coefficients, ⌈n / 2⌉ along each lifted axis, are the sub-block the next floor works on, and the high-pass coefficients stay where they landed. Floors rise until every axis is one long:
 
-floor f + 1  =  lift( lows of floor f )
+floor f + 1  =  lift( low-pass coefficients of floor f )
 
 This is the recursion of noise\_\allowbreak{}sieve\_\allowbreak{}tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R one step and the same step at every floor. An axis of length n reaches one after ⌈log₂ n⌉ halvings, the bit length of n − 1, and the tower has as many floors as its longest axis needs. For a 100 × 64 × 256 × 256 sample:
 
@@ -65,21 +65,21 @@ z stops after floor 6, t after floor 7, and y and x reach one at floor 8. The dr
 
 \textbf{What the recursion costs.} While all four axes are still longer than one, each floor's block is about a sixteenth of the one before it: every axis halves, rounded up. The blocks in the table sum to 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample. So depth is paid in blocks that shrink, not in passes over the whole: the seven floors above the first add 27,967,012 lanes to the first floor's 419,430,400.
 
-\textbf{What the tower holds.} Every floor's highs, and the one coefficient at the top. There are exactly as many coefficients as voxels (419,430,400 for a 44b6 sample), and the tower is a one-to-one map of the sample onto them. Nothing is merged, averaged or dropped. The coefficients can be wider than sixteen bits, and they are held below ENGINE\_\allowbreak{}COEFFICIENT\_\allowbreak{}LIMIT, 2\textasciicircum{}30 in magnitude (§2.4).
+\textbf{What the tower holds.} Every floor's high-pass coefficients, and the one coefficient at the top. There are exactly as many coefficients as voxels (419,430,400 for a 44b6 sample), and the tower is a one-to-one map of the sample onto them. Nothing is merged, averaged or dropped. The coefficients can be wider than sixteen bits, and they are held below ENGINE\_\allowbreak{}COEFFICIENT\_\allowbreak{}LIMIT, 2\textasciicircum{}30 in magnitude (§2.4).
 
 \textbf{Read back down.} \texttt{tower\_\allowbreak{}lower} undoes the floors from the top, each floor's axes in the reverse of the order they were lifted. The sample comes back voxel for voxel.
 
 \subsection{\texorpdfstring{1.3 Where the tower sits in the drafts, and where it does not}{1.3 Where the tower sits in the drafts, and where it does not}}
 
 \begin{itemize}
-\item \textbf{The drafts' floor −4 is not a floor of this tower.} The tower's floors count up from the sample (floor 1) to one coefficient (floor 8). The drafts' floor −4 is where the noise bits become irreducible, and in this engine that is the residue's measured floor (noise\_\allowbreak{}sieve\_\allowbreak{}tower §5). Bits 0 to 4 are set in about 46 of every 100 frames at nearly every voxel, and bits 0 to 3 flip in 499 to 500 of every 1,000 transitions in every window of 19 of the 25 samples. The tower holds that floor whole in its highs. It does not reach below it.
-\item \textbf{The tower is not a key.} §3 of \hyperref[chap:keys-explained]{keys\_\allowbreak{}explained.md} collapses a chain of linear steps into one key by pushing the impulse through it once. The 5/3 lift is exact, but it is not linear. On the three lane line (0, 0, 1), the high is 0 − ⌊(0 + 1)/2⌋ = 0; on (1, 0, 0) it is 0 − ⌊(1 + 0)/2⌋ = 0; on their sum, (1, 0, 1), it is 0 − ⌊2/2⌋ = −1, not 0 + 0. The impulse's response therefore does not carry what the tower does to every input. The floors compose transitively as exact maps, but they do not imprint into one key.
+\item \textbf{The drafts' floor −4 is not a floor of this tower.} The tower's floors count up from the sample (floor 1) to one coefficient (floor 8). The drafts' floor −4 is where the noise bits become irreducible, and in this engine that is the residue's measured floor (noise\_\allowbreak{}sieve\_\allowbreak{}tower §5). Bits 0 to 4 are set in about 46 of every 100 frames at nearly every voxel, and bits 0 to 3 flip in 499 to 500 of every 1,000 transitions in every window of 19 of the 25 samples. The tower holds that floor whole in its high-pass coefficients. It does not reach below it.
+\item \textbf{The tower is not a key.} §3 of \hyperref[chap:keys-explained]{keys\_\allowbreak{}explained.md} collapses a chain of linear steps into one key by pushing the impulse through it once. The 5/3 lift is exact, but it is not linear. On the three lane line (0, 0, 1), the high-pass coefficient is 0 − ⌊(0 + 1)/2⌋ = 0; on (1, 0, 0) it is 0 − ⌊(1 + 0)/2⌋ = 0; on their sum, (1, 0, 1), it is 0 − ⌊2/2⌋ = −1, not 0 + 0. The impulse's response therefore does not carry what the tower does to every input. The floors compose transitively as exact maps, but they do not imprint into one key.
 \item \textbf{The melting phase.} noise\_\allowbreak{}sieve\_\allowbreak{}3 has the intermediate floors dissolve under the rule flash into one operation. The tower runs floor by floor, four axes a floor. By the line above, the floors cannot be dissolved by imprinting them. Whether another exact route collapses them is open.
 \end{itemize}
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.4287\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5713\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.4240\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5760\linewidth-2\tabcolsep\relax}}
 \toprule
 claim & status \\
 \midrule
@@ -89,8 +89,8 @@ time is a lifted axis, not a loop & proved: t is lifted with z, y and x and undo
 a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 floors & proved: the floor rule gives 8, and the driver printed 8 floors for every sample it ingested (\texttt{logs/\allowbreak{}iapx\_\allowbreak{}all.\allowbreak{}log}) \\
 the blocks of a 44b6 sample's eight floors hold 447,397,412 lanes, 1,066 per mille of its voxels & by the floor rule's arithmetic, block by block \\
 the recursion holds the residue whole, nothing merged or dropped & proved: one coefficient per voxel, and the rebuild is exact \\
-the drafts' floor −4 is a floor of this tower & not so: the tower's floors count up to one coefficient; floor −4 is the residue's measured floor, held in the highs \\
-the whole tower imprinted as one key by its impulse & not so: the lift is not linear; (0, 0, 1) and (1, 0, 0) each give high 0, their sum gives −1 \\
+the drafts' floor −4 is a floor of this tower & not so: the tower's floors count up to one coefficient; floor −4 is the residue's measured floor, held in the high-pass coefficients \\
+the whole tower imprinted as one key by its impulse & not so: the lift is not linear; (0, 0, 1) and (1, 0, 0) each give high-pass coefficient 0, their sum gives −1 \\
 the floors dissolved into one operation & theory: not by imprint, by the line above; no other route is built \\
 \bottomrule
 \end{longtable}
@@ -175,7 +175,7 @@ Raw, the sample is 838,860,800 bytes. The file is 406 per mille of raw, and the 
 
 \subsection{\texorpdfstring{2.7 What the compression does not claim}{2.7 What the compression does not claim}}
 
-It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6\_\allowbreak{}0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard (Shannon's~\cite{src:Shannon}). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
+It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6\_\allowbreak{}0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard (Shannon's~\cite{src:Shannon}). Whether the tower's high-pass coefficients inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
 
 {\small
 \setlength{\tabcolsep}{6pt}
