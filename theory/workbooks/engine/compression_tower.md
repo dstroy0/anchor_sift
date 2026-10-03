@@ -1,7 +1,7 @@
-# Compression and the recursive lifting transform
+# Compression and tower recursion
 
-**Purpose:** Explain, from first principles and with this engine's numbers, how a whole sample becomes one small exact file and comes back voxel for voxel. The lifting transform recurses one exact step until the sample is one coefficient. The compression step writes what the lifting transform leaves in as few bits as it needs. The CRC-64 is folded into the lifting transform's own passes, and the proof that nothing was lost costs no pass of its own. Each of these had to be argued for before it was accepted, and each is explained thoroughly here so the next reader does not have to be argued into it.
-**Scope:** orior's `src/c/engine/analysis/tower/`, `src/c/engine/analysis/compression/`, `src/c/includes/codecs/crc/`, the limit `ENGINE_COEFFICIENT_LIMIT` and the hand-off `EngineStream` in `src/c/engine/engine_config_requests.h`, and their composition in the entry, `src/engine/engine_*.cu`. The proof was `cell_tracking/maint/prove_codec.sh`. The ledger's statuses ([README.md](README.md)) apply to every claim. The lifting transform is integral to the engine, and it is categorized **measure / recursion**.
+**Purpose:** Explain, from first principles and with this engine's numbers, how a whole sample becomes one small exact file and comes back voxel for voxel. The tower recurses one exact step until the sample is one coefficient. The compression step writes what the tower leaves in as few bits as it needs. The CRC-64 is folded into the tower's own passes, and the proof that nothing was lost costs no pass of its own. Each of these had to be argued for before it was accepted, and each is explained thoroughly here so the next reader does not have to be argued into it.
+**Scope:** orior's `src/c/engine/analysis/tower/`, `src/c/engine/analysis/compression/`, `src/c/includes/codecs/crc/`, the limit `ENGINE_COEFFICIENT_LIMIT` and the hand-off `EngineStream` in `src/c/engine/engine_config_requests.h`, and their composition in the entry, `src/engine/engine_*.cu`. The proof was `cell_tracking/maint/prove_codec.sh`. The ledger's statuses ([README.md](README.md)) apply to every claim. The tower is integral to the engine, and it is categorized **measure / recursion**.
 
 Every number here is an exact integer. Where a share of raw is given, it is in per mille, rounded down: the driver prints it the same way, and its "40.6%" is 406 per mille rounded down, not a rounding to the nearest.
 
@@ -10,14 +10,14 @@ Every number here is an exact integer. Where a share of raw is given, it is in p
 Three defaults push against this codec.
 
 - **Compression is supposed to lose something**, or to need a model of the data. This codec loses nothing and assumes nothing: every coefficient comes back exactly, and the only choice it makes (a block's Rice parameter) is read off that block's own values.
-- **A recursion is supposed to cost its depth in passes.** The lifting transform's levels are a recursion, but each level works only on the approximation coefficients the level below it left. For a 44b6 sample, the blocks of all eight levels together hold 447,397,412 lanes, 1,066 per mille of the sample's own voxels, and a check folded into the lifting transform costs no pass at all.
+- **A recursion is supposed to cost its depth in passes.** The tower's floors are a recursion, but each floor works only on the lows the floor below it left. For a 44b6 sample, the blocks of all eight floors together hold 447,397,412 lanes, 1,066 per mille of the sample's own voxels, and a check folded into the tower costs no pass at all.
 - **A test is supposed to cost its size.** Comparing a sample pixel for pixel is 419,430,400 comparisons. The same test, compressed in time, is one 64 bit equality.
 
-## 1. The lifting transform: one exact step, recursed
+## 1. The tower: one exact step, recursed
 
-### 1.1 The step: the reversible integer 5/3 lift (the LeGall 5/3 wavelet)
+### 1.1 The step: the reversible integer 5/3 lift
 
-Take one line of integers x₀, x₁, x₂, … along one axis. The step splits it into detail coefficients at the odd places and approximation coefficients at the even places, in two moves, each of which adds to one half a function of the other half:
+Take one line of integers x₀, x₁, x₂, … along one axis. The step splits it into highs at the odd places and lows at the even places, in two moves, each of which adds to one half a function of the other half:
 
     high   h_j = x_(2j+1) − ⌊(x_(2j) + x_(2j+2)) / 2⌋
     low    l_i = x_(2i)   + ⌊(h_(i−1) + h_i + 2) / 4⌋
@@ -27,19 +27,19 @@ The edges are mirrored. Undoing it runs the same two moves backwards, with the s
     x_(2i)   = l_i − ⌊(h_(i−1) + h_i + 2) / 4⌋
     x_(2j+1) = h_j + ⌊(x_(2j) + x_(2j+2)) / 2⌋
 
-**Why the floors do not break exactness.** Each move adds to one half a function of the *other* half only. The inverse has that other half in hand, computes the very same function, floor and all, and subtracts it. It does not matter that ⌊·/2⌋ throws a bit away. The bit it throws away is thrown away identically going up and coming down, and it is never part of what is stored. This is a lifting step, and any function at all could stand in the floors' place: the pair of moves is still an exact integer map with an exact integer inverse. The 5/3 functions are chosen because a smooth line leaves detail coefficients near zero.
+**Why the floors do not break exactness.** Each move adds to one half a function of the *other* half only. The inverse has that other half in hand, computes the very same function, floor and all, and subtracts it. It does not matter that ⌊·/2⌋ throws a bit away. The bit it throws away is thrown away identically going up and coming down, and it is never part of what is stored. This is a lifting step, and any function at all could stand in the floors' place: the pair of moves is still an exact integer map with an exact integer inverse. The 5/3 functions are chosen because a smooth line leaves highs near zero.
 
-The high predicts each odd lane from its two even neighbors and keeps only the miss. The low then carries the line's local mean up to the next level. What the prediction gets right is gone from the detail coefficients: the program generates it. What it misses stays: that is the residual.
+The high predicts each odd lane from its two even neighbors and keeps only the miss. The low then carries the line's local mean up to the next floor. What the prediction gets right is gone from the highs: the program generates it. What it misses stays: that is the residue.
 
-### 1.2 The recursion: levels until the whole sample is one coefficient
+### 1.2 The recursion: floors until the whole sample is one coefficient
 
-The sample is one object over t z y x: time is an axis like the others, not a loop around them (noise_sieve_3's "temporal stacking": samples enter at the bottom and time is written into the lattice). Each level lifts every axis still longer than one, in turn. The approximation coefficients, ⌈n / 2⌉ along each lifted axis, are the sub-block the next level works on, and the detail coefficients stay where they landed. Levels rise until every axis is one long:
+The sample is one object over t z y x: time is an axis like the others, not a loop around them (noise_sieve_3's "temporal stacking": samples enter at the bottom and time is written into the lattice). Each floor lifts every axis still longer than one, in turn. The lows, ⌈n / 2⌉ along each lifted axis, are the sub-block the next floor works on, and the highs stay where they landed. Floors rise until every axis is one long:
 
-    level f + 1  =  lift( approximation coefficients of level f )
+    floor f + 1  =  lift( lows of floor f )
 
-This is the recursion of noise_sieve_tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R one step and the same step at every level. An axis of length n reaches one after ⌈log₂ n⌉ halvings, the bit length of n − 1, and the lifting transform has as many levels as its longest axis needs. For a 100 × 64 × 256 × 256 sample:
+This is the recursion of noise_sieve_tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R one step and the same step at every floor. An axis of length n reaches one after ⌈log₂ n⌉ halvings, the bit length of n − 1, and the tower has as many floors as its longest axis needs. For a 100 × 64 × 256 × 256 sample:
 
-| level | block lifted (t × z × y × x) |
+| floor | block lifted (t × z × y × x) |
 |---|---|
 | 1 | 100 × 64 × 256 × 256 |
 | 2 | 50 × 32 × 128 × 128 |
@@ -51,34 +51,34 @@ This is the recursion of noise_sieve_tower §9, Kₘ₊₁ = R(Kₘ, ξ), with R
 | 8 | 1 × 1 × 2 × 2 |
 | top | 1 × 1 × 1 × 1: one coefficient |
 
-z stops after level 6, t after level 7, and y and x reach one at level 8. The driver prints "8 floors" for every 44b6 sample it ingests.
+z stops after floor 6, t after floor 7, and y and x reach one at floor 8. The driver prints "8 floors" for every 44b6 sample it ingests.
 
-**What the recursion costs.** While all four axes are still longer than one, each level's block is about a sixteenth of the one before it: every axis halves, rounded up. The blocks in the table sum to 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample. So depth is paid in blocks that shrink, not in passes over the whole: the seven levels above the first add 27,967,012 lanes to the first level's 419,430,400.
+**What the recursion costs.** While all four axes are still longer than one, each floor's block is about a sixteenth of the one before it: every axis halves, rounded up. The blocks in the table sum to 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample. So depth is paid in blocks that shrink, not in passes over the whole: the seven floors above the first add 27,967,012 lanes to the first floor's 419,430,400.
 
-**What the lifting transform holds.** Every level's detail coefficients, and the one coefficient at the top. There are exactly as many coefficients as voxels (419,430,400 for a 44b6 sample), and the lifting transform is a one-to-one map of the sample onto them. Nothing is merged, averaged or dropped. The coefficients can be wider than sixteen bits, and they are held below ENGINE_COEFFICIENT_LIMIT, 2^30 in magnitude (§2.4).
+**What the tower holds.** Every floor's highs, and the one coefficient at the top. There are exactly as many coefficients as voxels (419,430,400 for a 44b6 sample), and the tower is a one-to-one map of the sample onto them. Nothing is merged, averaged or dropped. The coefficients can be wider than sixteen bits, and they are held below ENGINE_COEFFICIENT_LIMIT, 2^30 in magnitude (§2.4).
 
-**Read back down.** `tower_lower` undoes the levels from the top, each level's axes in the reverse of the order they were lifted. The sample comes back voxel for voxel.
+**Read back down.** `tower_lower` undoes the floors from the top, each floor's axes in the reverse of the order they were lifted. The sample comes back voxel for voxel.
 
-### 1.3 Where the lifting transform sits in the drafts, and where it does not
+### 1.3 Where the tower sits in the drafts, and where it does not
 
-- **The drafts' floor −4 is not a level of this transform.** The transform's levels count up from the sample (level 1) to one coefficient (level 8). The drafts' floor −4 is where the noise bits become irreducible, and in this engine that is the residual's measured noise floor (noise_sieve_tower §5). Bits 0 to 4 are set in about 46 of every 100 frames at nearly every voxel, and bits 0 to 3 flip in 499 to 500 of every 1,000 transitions in every window of 19 of the 25 samples. The transform holds that noise floor whole in its detail coefficients. It does not reach below it.
-- **The lifting transform is not a kernel.** §3 of [keys_explained.md](keys_explained.md) collapses a chain of linear steps into one kernel by pushing the impulse through it once. The 5/3 lift is exact, but it is not linear. On the three lane line (0, 0, 1), the high is 0 − ⌊(0 + 1)/2⌋ = 0; on (1, 0, 0) it is 0 − ⌊(1 + 0)/2⌋ = 0; on their sum, (1, 0, 1), it is 0 − ⌊2/2⌋ = −1, not 0 + 0. The impulse's response therefore does not carry what the lifting transform does to every input. The levels compose transitively as exact maps, but they have no single kernel as their impulse response.
-- **The melting phase.** noise_sieve_3 has the intermediate levels dissolve under the rule flash into one operation. The lifting transform runs level by level, four axes a level. By the line above, the levels cannot be dissolved into one kernel. Whether another exact route collapses them is open.
+- **The drafts' floor −4 is not a floor of this tower.** The tower's floors count up from the sample (floor 1) to one coefficient (floor 8). The drafts' floor −4 is where the noise bits become irreducible, and in this engine that is the residue's measured floor (noise_sieve_tower §5). Bits 0 to 4 are set in about 46 of every 100 frames at nearly every voxel, and bits 0 to 3 flip in 499 to 500 of every 1,000 transitions in every window of 19 of the 25 samples. The tower holds that floor whole in its highs. It does not reach below it.
+- **The tower is not a key.** §3 of [keys_explained.md](keys_explained.md) collapses a chain of linear steps into one key by pushing the impulse through it once. The 5/3 lift is exact, but it is not linear. On the three lane line (0, 0, 1), the high is 0 − ⌊(0 + 1)/2⌋ = 0; on (1, 0, 0) it is 0 − ⌊(1 + 0)/2⌋ = 0; on their sum, (1, 0, 1), it is 0 − ⌊2/2⌋ = −1, not 0 + 0. The impulse's response therefore does not carry what the tower does to every input. The floors compose transitively as exact maps, but they do not imprint into one key.
+- **The melting phase.** noise_sieve_3 has the intermediate floors dissolve under the rule flash into one operation. The tower runs floor by floor, four axes a floor. By the line above, the floors cannot be dissolved by imprinting them. Whether another exact route collapses them is open.
 
 | claim | status |
 |---|---|
 | the 5/3 lift is an exact integer map with an exact inverse | proved: all 25 samples rebuilt voxel for voxel on the device and pixel for pixel off it |
 | time is a lifted axis, not a loop | proved: t is lifted with z, y and x and undone exactly |
-| a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 levels | proved: the level rule gives 8, and the driver printed "8 floors" for every sample it ingested (`logs/iapx_all.log`) |
-| the blocks of a 44b6 sample's eight levels hold 447,397,412 lanes, 1,066 per mille of its voxels | by the level rule's arithmetic, block by block |
-| the recursion holds the residual whole, nothing merged or dropped | proved: one coefficient per voxel, and the rebuild is exact |
-| the drafts' floor −4 is a level of this transform | not so: the transform's levels count up to one coefficient; floor −4 is the residual's measured noise floor, held in the detail coefficients |
-| the whole transform as one kernel, its impulse response | not so: the lift is not linear; (0, 0, 1) and (1, 0, 0) each give high 0, their sum gives −1 |
-| the levels dissolved into one operation | theory: not by an impulse response, by the line above; no other route is built |
+| a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 floors | proved: the floor rule gives 8, and the driver printed 8 floors for every sample it ingested (`logs/iapx_all.log`) |
+| the blocks of a 44b6 sample's eight floors hold 447,397,412 lanes, 1,066 per mille of its voxels | by the floor rule's arithmetic, block by block |
+| the recursion holds the residue whole, nothing merged or dropped | proved: one coefficient per voxel, and the rebuild is exact |
+| the drafts' floor −4 is a floor of this tower | not so: the tower's floors count up to one coefficient; floor −4 is the residue's measured floor, held in the highs |
+| the whole tower imprinted as one key by its impulse | not so: the lift is not linear; (0, 0, 1) and (1, 0, 0) each give high 0, their sum gives −1 |
+| the floors dissolved into one operation | theory: not by imprint, by the line above; no other route is built |
 
-## 2. Compression: writing the residual down, reading it back
+## 2. Compression: writing the residue down, reading it back
 
-The lifting transform hands its coefficients on the device to whatever writes them, and it writes no stream itself. The entry hands them to the compression step. Most coefficients are small, because the prediction took what the program generates and left only the misses. The compression step writes each one in about as many bits as it needs, and every one comes back exactly.
+The tower hands its coefficients on the device to whatever writes them, and it writes no stream itself. The entry hands them to the compression step. Most coefficients are small, because the prediction took what the program generates and left only the misses. The compression step writes each one in about as many bits as it needs, and every one comes back exactly.
 
 ### 2.1 Zigzag: signed to natural, exactly
 
@@ -110,7 +110,7 @@ A single large value in a block of small ones would cost its whole quotient in u
 
 ### 2.4 The limit, 2^30
 
-ENGINE_COEFFICIENT_LIMIT is 2^30. It guarantees three things: every sum a lifting step forms stays inside a 64 bit integer's exact range; every coefficient fits a 32 bit integer; and its zigzag fits 32 bits, and the escape writes it whole. The lifting transform flags any coefficient that reaches the limit, and a flagged sample is an error, never wrapped. The width is proved before anything is written, as keys_explained §6 asks, and a sample that would break it is not written at all.
+ENGINE_COEFFICIENT_LIMIT is 2^30. It guarantees three things: every sum a lifting step forms stays inside a 64 bit integer's exact range; every coefficient fits a 32 bit integer; and its zigzag fits 32 bits, and the escape writes it whole. The tower flags any coefficient that reaches the limit, and a flagged sample is an error, never wrapped. The width is proved before anything is written, as keys_explained §6 asks, and a sample that would break it is not written at all.
 
 ### 2.5 Chunks: every part reachable, the whole decoded in parallel
 
@@ -122,7 +122,7 @@ A Rice stream is serial as written: where value i + 1 starts depends on the leng
 - **Write.** Each chunk is written from its first bit on its own thread. No chunk waits on another, because the scan has already said where each one starts.
 - **Read.** Decoding is the same: each chunk from its stored first bit, on its own thread.
 
-The stream is limbs of 32 bits, bit b at bit b mod 32 of limb b / 32. The first bit of every chunk is kept beside it, 8 bytes a chunk. So any chunk, and with it any level's coefficients at their known offsets, is reached without decoding anything before it: random access. That is the fluidic draft's elevator (fluidic_2; noise_sieve_tower §9 and §17): E(f, t) reads level f at time t directly.
+The stream is limbs of 32 bits, bit b at bit b mod 32 of limb b / 32. The first bit of every chunk is kept beside it, 8 bytes a chunk. So any chunk, and with it any floor's coefficients at their known offsets, is reached without decoding anything before it. That is the fluidic draft's elevator (fluidic_2; noise_sieve_tower §9 and §17): E(f, t) reads floor f at time t directly, and the clock takes you to any floor as fast as you can press the buttons.
 
 The reader returns an error for a stream whose chunk count is not its coefficient count's, or whose chunks do not start inside it in order: that stream is not this data's.
 
@@ -142,7 +142,7 @@ Raw, the sample is 838,860,800 bytes. The file is 406 per mille of raw, and the 
 
 ### 2.7 What the compression does not claim
 
-It is not the lower bound of the data. Grouping each level's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each level made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger). The stream as written is not the smallest one possible. What does bound it from below is the noise floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard ([Shannon's](#src:Shannon)). Whether the detail coefficients inherit the noise level's bit planes, plane for plane, has not been measured in this stream, and here the bound is theory.
+It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard ([Shannon's](#src:Shannon)). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
 
 | claim | status |
 |---|---|
@@ -152,14 +152,14 @@ It is not the lower bound of the data. Grouping each level's coefficients row by
 | chunks of 64 blocks, a scan of first bits, decoded in parallel and reached directly | built; every .kcr proof decodes every chunk from its own first bit |
 | the file of 44b6_0113de3b: 16 + 56 + 819,200 + 340,189,016 = 341,008,288 bytes, 406 per mille of raw | measured |
 | the 25: 8,809,343,524 of 20,971,520,000 bytes, 420 per mille | measured |
-| the stream is the smallest possible | not so: grouping by level took 1,157,533 bytes off 44b6_0113de3b |
-| a bit plane at the noise floor costs a bit per coefficient, whatever the coder | theory here: standard, not measured plane by plane in this stream |
+| the stream is the smallest possible | not so: grouping by floor took 1,157,533 bytes off 44b6_0113de3b |
+| a plane at the floor costs a bit per coefficient, whatever the coder | theory here: standard, not measured plane by plane in this stream |
 
 ## 3. The check folded in: the pixel-for-pixel test, compressed in time
 
 ### 3.1 Folded into the widen and the narrow
 
-The lifting transform has to widen the sample's sixteen bit voxels into 32 bit coefficients before it lifts anything, and it has to narrow the rebuilt coefficients back to sixteen bits when it is lowered. Each is a pass that touches every voxel once. The CRC-64/XZ rides both:
+The tower has to widen the sample's sixteen bit voxels into 32 bit coefficients before it lifts anything, and it has to narrow the rebuilt coefficients back to sixteen bits when it is lowered. Each is a pass that touches every voxel once. The CRC-64/XZ rides both:
 
 - **The widen** takes the CRC of the sample, each voxel its low byte and then its high byte, the way a .stack holds it.
 - **The narrow** takes the CRC of the rebuilt sample the same way, and flags any value outside sixteen bits, which no sample holds.
@@ -172,11 +172,11 @@ One register carried voxel by voxel would make the pass serial. So each thread t
 
     crc₀(L ‖ R)  =  A_|R| · crc₀(L)  ⊕  crc₀(R)
 
-where A_|R| is the 64 × 64 bit matrix that carries a register across |R| zero bytes. The table in `crc_key.h` holds A for 2^0, 2^1, …, 2^47 bytes: 48 operators of 64 columns of 8 bytes each, 24,576 bytes.
+where A_|R| is the 64 × 64 bit matrix that carries a register across |R| zero bytes. The key in `crc_key.h` holds A for 2^0, 2^1, …, 2^47 bytes: 48 operators of 64 columns of 8 bytes each, 24,576 bytes.
 
 The join takes pairs from the right. The first segment is the short one, and every other segment at every level spans the same bytes, and one operator serves a whole level: level l carries registers across 2^(7 + l) bytes. For a 44b6 sample that is 6,553,600 segments joined in 23 levels, using operators 2^7 to 2^29. Then `crc_finish` carries the all-ones start across the sample's 838,860,800 bytes, adds it, and inverts. The result is CRC-64/XZ exactly, as a byte by byte CRC would give it.
 
-The table's reach bounds the message. The last operator the table holds is 2^47, reached at join level 40, and the join takes up to 2^41 segments of 128 bytes, and `crc_finish` takes any length below 2^48 bytes. That is the "2^48 byte steps" of keys_explained §4: past it, the join returns an error at that level in place of reaching for an operator the table does not hold.
+The key's reach bounds the message. The last operator the key holds is 2^47, reached at join level 40, and the join takes up to 2^41 segments of 128 bytes, and `crc_finish` takes any length below 2^48 bytes. That is the "2^48 byte steps" of keys_explained §4: past it, the join returns an error at that level in place of reaching for an operator the key does not hold.
 
 ### 3.3 The accumulator stays one size
 
@@ -190,7 +190,7 @@ Two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^�
 | a segment join by GF(2) advance operators, one a level | proved: the fold above; and `crc.h` holds a fold of "1234" across "56789" to the message in order by `static_assert` |
 | every .kcr rebuilt and held to its CRC from the file alone | proved: 25 of 25, set CRC 091daa41e1aceb7e |
 | one sample re-ingested gives a byte identical .kcr | proved: `maint/prove_codec.sh` on 44b6_0113de3b, run by the session that split the codec (ledger) |
-| 23 join levels for a 44b6 sample; any message below 2^48 bytes in reach of the table | by the code's arithmetic: 6,553,600 segments; operators 2^7 to 2^29; the table's last operator is 2^47 |
+| 23 join levels for a 44b6 sample; any message below 2^48 bytes in reach of the key | by the code's arithmetic: 6,553,600 segments; operators 2^7 to 2^29; the key's last operator is 2^47 |
 | a fold keeps its accumulator one size | proved for the CRC-64: 64 bits over every sample and over the set |
 | folding shrinks the work itself | not so: every voxel is still read once; the fold bounds the check |
 

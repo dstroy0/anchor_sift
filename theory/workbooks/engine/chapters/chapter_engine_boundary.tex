@@ -12,7 +12,7 @@ Never put cell-specific tracking into the engine. Doug had said it at length bef
 Restated “absolutely anything to do with tracking microorganisms goes into cell tracking, not into the engine.” Basins (binomial\_\allowbreak{}basins' steepest-ascent cut, basin\_\allowbreak{}overlap) are tracking, a concept only: they live in cell\_\allowbreak{}tracking/src and drive the engine's generic calls (engine\_\allowbreak{}residual, grow\_\allowbreak{}leaves, linking). They were deleted from the engine on his order, and they are not to be put back there; the question is closed.
 
 \begin{itemize}
-\item The engine holds math only: trees, cuts, overlaps, fields, exact integers. Nothing in engine/ may name or know about cells, divisions, daughters, annotated cells, moves, merges, appear/disappear, or grading against the ground truth.
+\item The engine holds math only: trees, cuts, overlaps, fields, exact integers. Nothing in engine/ may name or know about cells, divisions, daughters, key cells, moves, merges, appear/disappear, or grading against the answer key.
 \item Cell semantics and oracle grading go in cell\_\allowbreak{}tracking/. They compose the engine's generic outputs there.
 \item Before adding any field, kernel or request member under engine/, check it names a mathematical object, not a biological one. If unsure, ask Doug first.
 \end{itemize}
@@ -22,10 +22,10 @@ What prompted it: in the 9c/9d overlap work, max\_\allowbreak{}tree got
 \begin{itemize}
 \item the division\_\allowbreak{}voxels and key\_\allowbreak{}voxels requests;
 \item the key\_\allowbreak{}parted, key\_\allowbreak{}caught, key\_\allowbreak{}present, key\_\allowbreak{}apart, key\_\allowbreak{}cells\_\allowbreak{}present and key\_\allowbreak{}cells\_\allowbreak{}alone fields, and the disappear, appear, divisions and merges fields;
-\item the division and annotated-cell kernels.
+\item the division and key-cell kernels.
 \end{itemize}
 
-engine/base/oracle/score\_\allowbreak{}sample also got the grading against ground-truth divisions and annotated cells.
+engine/base/oracle/score\_\allowbreak{}sample also got the key-division and key-cell grading.
 
 \section{\texorpdfstring{The engine is optimized for no scale (23 September)}{The engine is optimized for no scale (23 September)}}
 
@@ -34,6 +34,6 @@ engine/base/oracle/score\_\allowbreak{}sample also got the grading against groun
 \begin{itemize}
 \item The engine is optimized for no scale. Never write a size, spacing, binomial order, entropy window, jitter width, cell size, voxel size, chunk size tuned to data, or memory fraction into engine/. Each comes in the request or is read from the data.
 \item A word's width or a file format's specification is not a scale. Where a word is too narrow, raise a request error or report \texttt{needed\_\allowbreak{}bits}. Never round, clip, or cap to fit.
-\item The engine table's “scale audit” (\hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) lists every scale still in the machine, as unmeasured constants. Check it before adding any constant under engine/. A new constant is added to the audit, never hidden.
+\item The engine table's “scale audit” (\hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) lists every scale still in the machine, as debts. Check it before adding any constant under engine/. A new constant is added to the audit, never hidden.
 \item The cell table and the engine table stay separate documents. They are optimized against each other only through their interface sections, never merged.
 \end{itemize}
