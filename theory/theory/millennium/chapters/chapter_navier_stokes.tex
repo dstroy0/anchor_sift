@@ -1,11 +1,12 @@
 \chapter{Navier--Stokes, and what a formalization checks}
 
-\textbf{Purpose:} Record what the official problem asks, what was published against it on
-2026-09-08, and the result of checking the published formalization's statement against the problem
-statement point by point. \textbf{Scope:} Fefferman's Clay problem description, 6 pages;
-\emph{OpenAI 2026 Navier-Stokes}, 166 pages; \emph{OpenAI 2026 Euler}, 57 pages; the Lean~4
-repository \texttt{openai/\allowbreak{}NavierStokesAndEuler}, four source files of 2{,}669 read,
-one of them the adapted \emph{Formal Conjectures} statement.
+This chapter states what the official problem asks, what was published against it on 8 September
+2026, and the result of checking the published formalization's statement against the problem
+statement point by point. The documents are Fefferman's Clay problem
+description~\cite{src:Fefferman}, 6 pages; the Navier--Stokes paper~\cite{src:OpenAI-2026-Navier-Stokes},
+166 pages; the Euler paper~\cite{src:OpenAI-2026-Euler}, 57 pages; and the Lean~4
+repository~\cite{src:OpenAI-2026-Lean}, of which four source files are read, one of them the adapted
+Formal Conjectures statement~\cite{src:Formal-Conjectures}.
 
 \section{What the problem asks}
 
@@ -42,9 +43,10 @@ requires a periodic pressure, which the body of the statement does not say.
 
 \section{What was published against it}
 
-On 2026-09-08 OpenAI published \emph{Finite time blowup for Navier--Stokes}, 166 pages, together
-with a companion Euler paper and a Lean~4 repository. Its Theorem 1.1 is a construction, not
-directly a non-existence statement:
+On 8 September 2026 OpenAI published \emph{Finite time blowup for
+Navier--Stokes}~\cite{src:OpenAI-2026-Navier-Stokes}, 166 pages, together with a companion Euler
+paper and a Lean~4 repository. Its Theorem 1.1 is a construction, not directly a non-existence
+statement:
 
 \begin{quote}
 For every $\nu>0$ there exist a force $f \in C_c^\infty(\R^3\times(0,1);\R^3)$, a compact set
@@ -74,27 +76,26 @@ reached by a spatial rescaling that leaves the singular time at one.
 Statement (D) is Corollary 10.6, obtained by rescaling the compact supports into the interior of a
 fundamental cube and summing integer translates, whose supports stay disjoint so the nonlinear term
 survives. The corollary's proof states that the pressure is periodic as well, \emph{as required in
-the erratum to the problem statement}. The authors read the errata.
+the erratum to the problem statement}. The paper accounts for the errata.
 
 \section{What a proof assistant does not check}
 
-This project's position on machine-checked proof, stated before this chapter was written, is that
-Lean verifies the deduction and never the claim. A proof assistant confirms that a conclusion
-follows from the assumptions as written. It cannot confirm that the statement formalized is the
-statement anybody meant. A machine-checked proof of a neighboring theorem compiles exactly as
-cleanly as a machine-checked proof of the right one, and nothing in the compile distinguishes them.
-The burden therefore moves entirely onto the formalized statement, and that statement is a
-translation. No proof assistant checks a translation.
+The position taken here on machine-checked proof is that Lean verifies the deduction and never the
+claim. A proof assistant confirms that a conclusion follows from the assumptions as written. It
+cannot confirm that the statement formalized is the statement anybody meant. A machine-checked proof
+of a neighboring theorem compiles exactly as cleanly as a machine-checked proof of the right one, and
+nothing in the compile distinguishes them. The burden therefore moves entirely onto the formalized
+statement, and that statement is a translation. No proof assistant checks a translation.
 
 That makes the formalized statement a finite document a person reads word by word. The rest of this
 chapter is that reading.
 
 \section{The statement check}
 
-Six points were checked against the Lean statement in
+Six points are checked against the Lean statement in
 \texttt{ComparatorChallenges/\allowbreak{}NavierStokes.\allowbreak{}lean} and against Fefferman's
-numbered conditions. The first five were specified before the file was opened. The sixth was added
-because the file itself raised it.
+numbered conditions. The first five are specified before the file is opened. The sixth is added
+because the file itself raises it.
 
 \begin{center}
 \begin{tabular}{@{}p{0.30\textwidth}p{0.44\textwidth}c@{}}
@@ -135,32 +136,31 @@ zero at points of non-differentiability, which the source declares instead of le
 
 \section{The statement is not the authors' own}
 
-The file carrying the statement is a \emph{comparator challenge}. Its header records that it was
+The file carrying the statement is a \emph{comparator challenge}. Its header records that it is
 copied, at a named commit, from the Formal Conjectures project's Lean formalization of the
-Navier--Stokes problem statement, that the breakdown alternatives (C) and (D) are retained
-\emph{including their intentional placeholder gaps}, and that neither the proof root nor the
-submission imports it. Both theorems in that file end in a placeholder and prove nothing. It is a
-yardstick.
+Navier--Stokes problem statement~\cite{src:Formal-Conjectures}, that the breakdown alternatives (C)
+and (D) are retained \emph{including their intentional placeholder gaps}, and that neither the proof
+root nor the submission imports it. Both theorems in that file end in a placeholder and prove
+nothing. It is a yardstick.
 
 The discharge is a separate module. It restates both theorems with textually identical statements
 and closes each by applying a bridge lemma from the project's own development, declaring no axioms
 and leaving no placeholder, and it ends by printing the axiom dependencies of both theorems. The
-repository's instructions direct a checker to verify the two challenges with an external checking
-tool under a sandbox, using an independent exporter and an independent kernel instead of Lean's
-own.
+repository's instructions direct a checker to verify the two challenges with the Comparator tool
+under a sandbox, using an independent exporter and an independent kernel instead of Lean's
+own~\cite{src:OpenAI-2026-Lean}.
 
-That architecture is a direct answer to the objection this chapter opened with. The concern is that
-an author who writes both the statement and the proof can machine-check a translation of their own
-choosing. Here the statement was written by a third party, published beforehand, for the purpose of
-stating the problem and not of being proved; the authors adopted it unmodified and discharged it;
-and the axiom base is printed for a reader to check. The translation is still the thing to read, and
-this chapter read it, but the party that wrote it had no stake in what would later be proved
-against it.
+That architecture answers the objection this chapter opens with. The concern is that an author who
+writes both the statement and the proof can machine-check a translation of their own choosing. Here
+the statement is written by a third party, published beforehand, for the purpose of stating the
+problem and not of being proved; the authors adopt it unmodified and discharge it; and the axiom base
+is printed for a reader to check. The translation is still the thing to read, and this chapter reads
+it, but the party that wrote it has no stake in what is later proved against it.
 
 \section{The unforced Euler companion}
 
-A second paper was published alongside, \emph{Finite time blowup for the Euler equation}, 57 pages,
-and it matters here for one reason: it is unforced.
+A second paper is published alongside, \emph{Finite time blowup for the Euler
+equation}~\cite{src:OpenAI-2026-Euler}, 57 pages, and it matters here for one reason: it is unforced.
 
 It studies the unforced incompressible Euler equations on $\R^3$, $\partial_t u + (u\cdot\nabla)u +
 \nabla p = 0$ with $\nabla\cdot u = 0$, taking initial data in the smooth compactly supported
@@ -173,7 +173,7 @@ The second divergence is not decoration. The Beale--Kato--Majda criterion, which
 and attributes, says a smooth three-dimensional Euler solution continues past $T$ whenever that
 integral is finite. Finite-time breakdown therefore requires it to diverge, and the theorem
 delivers exactly the quantity the criterion demands. By the authors' own account the Euler result
-came first, as the easier problem, and was used to prompt the Navier--Stokes effort.
+comes first, as the easier problem, and is used to prompt the Navier--Stokes effort.
 
 \textbf{This is not a Millennium result and is not recorded as one.} Fefferman's statement says the
 problems are also open and very important for the Euler equations at $\nu = 0$, and that the Euler
@@ -182,10 +182,10 @@ here.
 
 \section{What the unforced Euler result does not settle}
 
-The reason to hold this paper is a question put to this work directly: what is left as the forcing
-goes to zero? The test behind it is whether a mechanism repairs a property of the object or a
-property of the setup, and a mechanism that needs the force to be there has taught us about forced
-systems and nothing about the unforced problem.
+The question the Euler paper raises is what is left as the forcing goes to zero. The test behind it
+is whether a mechanism repairs a property of the object or a property of the setup; a mechanism that
+needs the force to be there teaches something about forced systems and nothing about the unforced
+problem.
 
 The Euler paper looks like the answer and is not. \textbf{Removing the force and removing the
 viscosity are different removals.} Statements (A) and (B), the two alternatives that remain open on
@@ -200,35 +200,34 @@ keeps nothing to resist the amplification. The other keeps the viscosity and sup
 open cases keep the viscosity and remove the force, and neither paper is that case.
 
 \textbf{That is an argument from the shapes of the statements and not from their mechanisms.} The
-amplification mechanism was not read in either paper, and the honest version of the limit test
+amplification mechanism is not read in either paper, and the full version of the limit test
 requires reading it instead of reasoning from the abstract. What is recorded here is that the
 question is still open and that the obvious shortcut to it does not work.
 
-\section{What was not verified, stated here and not in a footnote}
+\section{What is not verified, stated here and not in a footnote}
 
-\textbf{Nothing here was machine-checked.} The Lean development was not built. No proof was
-executed, no axiom output was observed, and the claim that the discharge module compiles without
-placeholders rests on reading its source text. The check in this chapter
-is a reading of four files out of 2{,}669.
+\textbf{Nothing here is machine-checked.} The Lean development is not built. No proof is executed,
+no axiom output is observed, and the claim that the discharge module compiles without placeholders
+rests on reading its source text. The check in this chapter is a reading of four files out of
+2{,}669.
 
-\textbf{The proof was not read.} The 166-page paper was read at its abstract, its introduction, its
+\textbf{The proofs are not read.} The 166-page paper is read at its abstract, its introduction, its
 Theorem 1.1, the section 10.4 argument that bridges to the non-existence form, and Corollary 10.6.
-The mathematical content of sections 3 through 9 and the three appendices was not read. The bridge
-lemma the discharge module applies was not traced into the development. Of the Euler paper's 57
-pages, only the abstract, the introduction and Theorem 1.1 were read; its amplification
-mechanism, the part the limit test actually needs, was not. Nothing in this chapter rests
-on the correctness of either proof, and nothing in it could, because neither was read.
+The mathematical content of sections 3 through 9 and the three appendices is not read. The bridge
+lemma the discharge module applies is not traced into the development. Of the Euler paper's 57
+pages, only the abstract, the introduction and Theorem 1.1 are read; its amplification mechanism,
+the part the limit test needs, is not. Nothing in this chapter rests on the correctness of either
+proof, and nothing in it could, because neither is read.
 
-\textbf{The priority dispute was not investigated.} A dispute over credit is running in this field.
-It was not examined for this research paper, no position is taken on it, and nothing in this chapter bears on
-it either way.
+\textbf{The priority dispute is not investigated.} A dispute over credit is running in this field.
+It is not examined here, no position is taken on it, and nothing in this chapter bears on it either
+way.
 
-\textbf{One reported fact is recorded as reported.} That the authors have stated they will not claim
-the Millennium Prize appeared in a headline encountered during the search and was not confirmed
-against any statement of theirs. It is written here as an unverified report and should not be
-repeated from this research paper as anything else.
+\textbf{One fact rests on press reporting.} That OpenAI does not intend to claim the Millennium Prize
+is reported in the press~\cite{src:RITS-2026} and is not confirmed here against a statement of its
+own. It is recorded as reported.
 
 \textbf{And the status question is separate from the mathematics question.} Whether the Clay
-Mathematics Institute has accepted, awarded, or will award anything was not verified and is not
+Mathematics Institute accepts, awards, or will award anything is not verified here and is not
 asserted. What this chapter establishes is narrower and is the part that is checkable: the
 statement discharged in Lean is the statement Fefferman wrote, on all six points examined.
