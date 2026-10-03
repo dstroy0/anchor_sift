@@ -2,9 +2,9 @@
 
 \section{The words this paper uses}
 
-\textbf{Purpose:} Say what each technical word in this paper means, using the name the field already gives it. \textbf{Scope:} this paper and the Salishan paper, \texttt{PUBLIC/\allowbreak{}delta\_\allowbreak{}null/\allowbreak{}} and \texttt{PUBLIC/\allowbreak{}Salishan/\allowbreak{}} in theory\_bucket; the engine workbook, \texttt{theory/\allowbreak{}workbook/\allowbreak{}} in orior at commit \texttt{1044ca6}; and the tools under \texttt{maint/\allowbreak{}data/\allowbreak{}} in the same tree.
+This chapter says what each technical word in this research paper means, using the name the field already gives it.
 
-Most of the words here are standard and need no explanation. This chapter covers the rest: words with a narrow meaning in this paper, and ideas whose field name a reader might not expect. Where a field has a name for an idea, the paper uses that name and cites where it comes from. A file path or a function name in the code keeps its own name, because the path has to find the file.
+Most of the words here are standard and need no explanation. This chapter covers the rest: words with a narrow meaning in this paper, and ideas whose field name a reader might not expect. Where a field has a name for an idea, the paper uses that name and cites where it comes from.
 
 \subsection{Sets and arrangements}
 
@@ -32,13 +32,13 @@ the observed statistic minus its mean over the shuffled copies. It is a differen
 
 \noindent\textbf{maximum entropy reference.} The shuffled copies are the most disordered arrangements the symbol counts allow. Building a reference that way is Jaynes's maximum entropy principle \cite{src:Jaynes}. The reference uses the counts and assumes nothing else. Entropy is strictly concave and a count constraint is linear. Exactly one distribution meets the constraint, and the reference is unique.
 
-\noindent\textbf{free energy above equilibrium.} The distance from a measured state to its own maximum entropy state under a constraint. Thermodynamics gives that quantity this name. The engine workbook (orior \texttt{1044ca6}, \texttt{theory/\allowbreak{}workbook/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}orior\_\allowbreak{}workbook.\allowbreak{}tex:57}, \texttt{:1218}) records the match as exact and cites Parrondo, Horowitz and Sagawa for it \cite{src:Parrondo}.
+\noindent\textbf{free energy above equilibrium.} The distance from a measured state to its own maximum entropy state under a constraint. Thermodynamics gives that quantity this name. The engine workbook \cite{src:Quigg-orior-workbook} records the match as exact, following Parrondo, Horowitz and Sagawa \cite{src:Parrondo}.
 
-\noindent\textbf{relative entropy.} Also called Kullback-Leibler divergence and written \texttt{D(p‖q)}, a distance between two distributions \cite{src:Kullback}. The match to free energy holds for the whole reference and does not carry over to each statistic. Section 4.3.1 of the first chapter shows that what decides a probe order's worth is not a relative entropy, and the engine workbook records the same (\texttt{chapter\_\allowbreak{}orior\_\allowbreak{}workbook.\allowbreak{}tex:57}, \texttt{:1218}). The tools compute either a spread of gaps against shuffled copies, or a standardized residual against pooled counts. Both measure a difference from a maximum entropy reference, and neither is a relative entropy.
+\noindent\textbf{relative entropy.} Also called Kullback-Leibler divergence and written \texttt{D(p‖q)}, a distance between two distributions \cite{src:Kullback}. The match to free energy holds for the whole reference and does not carry over to each statistic. Section 4.3.1 of the first chapter shows that what decides a probe order's worth is not a relative entropy, and the engine workbook records the same \cite{src:Quigg-orior-workbook}. The tools compute either a spread of gaps against shuffled copies, or a standardized residual against pooled counts. Both measure a difference from a maximum entropy reference, and neither is a relative entropy.
 
-\noindent\textbf{standardized residual against a pooled null.} The test in \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}orior\_\allowbreak{}algorithmic\_\allowbreak{}extraction/\allowbreak{}boundary\_\allowbreak{}check.\allowbreak{}py} that pools the counts of every run, spreads them evenly, and scores each run as its own binomial. A standardized residual is the observed count less the expected, over the square root of the expected \cite{src:Haberman-1973}. The code calls the function \texttt{radix}. It has nothing to do with a number base.
+\noindent\textbf{standardized residual against a pooled null.} A test that pools the counts of every run, spreads them evenly, and scores each run as its own binomial. A standardized residual is the observed count less the expected, over the square root of the expected \cite{src:Haberman-1973}.
 
-\noindent\textbf{rarer half, commoner half.} The symbols split at the median of their frequencies. Every difference from the null reported in the workbook is over the rarer half unless it says otherwise.
+\noindent\textbf{rarer half, commoner half.} The symbols split at the median of their frequencies. Every difference from the null reported in the engine workbook \cite{src:Quigg-orior-workbook} is over the rarer half unless it says otherwise.
 
 \subsection{Searching}
 
@@ -46,7 +46,7 @@ the observed statistic minus its mean over the shuffled copies. It is a differen
 
 \noindent\textbf{probe.} One position of the pattern checked by the filter. A place in the text whose symbol at that offset differs from the pattern's cannot be a match. A probe is a necessary condition for a match and never a sufficient one.
 
-\noindent\textbf{probe sequence.} Probes applied one after another, each one checking only the places the previous ones kept. The depth \(\log_2 N / H_2\) appears throughout, and means the number of probes an independence model predicts before one candidate is left. The engine places at most four. How many it places depends on the number asked for, the candidates available and the text (orior \texttt{1044ca6}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}orior.h:39}, \texttt{:738-743}; \texttt{orior.c:1003-1006}, \texttt{:1019-1023}).
+\noindent\textbf{probe sequence.} Probes applied one after another, each one checking only the places the previous ones kept. The depth \(\log_2 N / H_2\) appears throughout, and means the number of probes an independence model predicts before one candidate is left. The engine places at most four. How many it places depends on the number asked for, the candidates available and the text.
 
 \noindent\textbf{candidate.} A place in the text that every probe so far has kept. It can still turn out not to match.
 
@@ -54,7 +54,7 @@ the observed statistic minus its mean over the shuffled copies. It is a differen
 
 \noindent\textbf{expected comparisons before a mismatch.} How far into a pattern a mismatch is expected to appear, \(m(1-2^{-H_2})\), for a pattern of length \(m\).
 
-\noindent\textbf{equality test.} In the engine, the function the caller supplies to say whether two positions hold the same symbol (orior \texttt{1044ca6}, \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}orior.h:354-357}). The engine never reads a symbol any other way.
+\noindent\textbf{equality test.} In the engine, the function the caller supplies to say whether two positions hold the same symbol. The engine never reads a symbol any other way.
 
 \noindent\textbf{test oracle.} In the corpus work, a hand extraction of what a paper holds, used as the answer a tool is graded against. This is the software testing term \cite{src:Howden-1978}. The hand extractions also work the other way: they define what is known. Anything a tool finds outside them belongs to what is not yet known. Written languages with long recorded rule sets, such as Chinese, put scene and subject into one unit and state the writer's meaning directly. The conjecture is that such languages are easier to sort by family and by author, and that tracing why could show a wider boundary. Nothing here measures that.
 
@@ -62,24 +62,20 @@ the observed statistic minus its mean over the shuffled copies. It is a differen
 
 \noindent\textbf{reference corpus.} The corpus a target is compared against, in the corpus linguistics sense. In classification it is the negative class, and in signal detection it is the background.
 
-\noindent\textbf{gold standard corpus.} A corpus checked by hand so that it can be trusted as correct \cite{src:Wissler-2014}. Here it is the output holding only speech in the target language, with reconstructions, rejected forms, other languages and analysis lines removed. It is checked in two directions against a hand extraction, and \texttt{PUBLIC/\allowbreak{}Salishan/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}Salishan\_\allowbreak{}pure\_\allowbreak{}corpus\_\allowbreak{}README.\allowbreak{}tex}, generated by orior's \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}hand\_\allowbreak{}extraction/\allowbreak{}pure\_\allowbreak{}corpus\_\allowbreak{}index.\allowbreak{}py} (theory\_bucket \texttt{README.md:64-\allowbreak{}68}), lists the files in it.
+\noindent\textbf{gold standard corpus.} A corpus checked by hand so that it can be trusted as correct \cite{src:Wissler-2014}. Here it is the output holding only speech in the target language, with reconstructions, rejected forms, other languages and analysis lines removed. It is checked in two directions against a hand extraction, and the Salishan research paper lists the papers in it \cite{src:Quigg-Salishan}.
 
-\noindent\textbf{extraction error classes.} The kinds of damage a PDF text extraction does, recorded for each paper to trace an error to its source. There are five: substitution, collapse, transposition, insertion and deletion. \texttt{maint/\allowbreak{}data/\allowbreak{}salishan/\allowbreak{}corpus\_\allowbreak{}script\_\allowbreak{}extraction/\allowbreak{}repairs.\allowbreak{}py} repairs the ones that can be repaired.
+\noindent\textbf{extraction error classes.} The kinds of damage a PDF text extraction does, recorded for each paper to trace an error to its source. There are five: substitution, collapse, transposition, insertion and deletion. The classes that can be repaired are repaired automatically.
 
-\noindent\textbf{split-half estimate.} The distance between two halves of one corpus, used as the smallest difference a comparison between corpora has to beat. Splitting one set of measurements in two and comparing the halves is the split-half method \cite{src:Spearman-1910, src:Brown-1910}. Cutting a corpus at its midpoint measures the order its papers are in, not the resolution, and \texttt{theory/\allowbreak{}Salishan/\allowbreak{}chapters/\allowbreak{}chapter\_\allowbreak{}Salishan\_\allowbreak{}refs.\allowbreak{}tex} shows it. The halves are therefore sampled by alternating.
+\noindent\textbf{split-half estimate.} The distance between two halves of one corpus, used as the smallest difference a comparison between corpora has to beat. Splitting one set of measurements in two and comparing the halves is the split-half method \cite{src:Spearman-1910, src:Brown-1910}. Cutting a corpus at its midpoint measures the order its papers are in, not the resolution, as the Salishan research paper shows \cite{src:Quigg-Salishan}. The halves are therefore sampled by alternating.
 
-\noindent\textbf{byte-pair histogram.} A text reduced to the counts of each pair of adjacent bytes, by the function \texttt{squash} in \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}instrument/\allowbreak{}orior.\allowbreak{}py} at orior \texttt{d09b489}. In the field this is a bigram distribution, the digram approximation of Shannon's paper \cite{src:Shannon}. A broader idea sits behind it, and nothing here measures it. An object spread over many dimensions cannot be known in full without measuring it, and nothing measures the infinite directly. What can be observed is how far the object is from its own most disordered state, because that state is fixed by what the object is made of. Flattening the object to a set of counts keeps that distance and loses the rest, and the counts are never cut off at a bound, because the object's own makeup already sets its limits.
+\noindent\textbf{byte-pair histogram.} A text reduced to the counts of each pair of adjacent bytes. In the field this is a bigram distribution, the digram approximation of Shannon's paper \cite{src:Shannon}. A broader idea sits behind it, and nothing here measures it. An object spread over many dimensions cannot be known in full without measuring it, and nothing measures the infinite directly. What can be observed is how far the object is from its own most disordered state, because that state is fixed by what the object is made of. Flattening the object to a set of counts keeps that distance and loses the rest, and the counts are never cut off at a bound, because the object's own makeup already sets its limits.
 
 \subsection{Measurements}
 
 \enlargethispage{4\baselineskip}
 
-The two measurements below are different, and a row measured with one cannot stand in for a row measured with the other. Both rest on Proposition 1.
+The two measurements below are different, and a row measured with one cannot stand in for a row measured with the other. Both rest on Section 2.2 of the first chapter.
 
-\noindent\textbf{the permutation null.} The difference between an arrangement and the shuffled copies of the same symbols. Each copy is a Fisher-Yates shuffle \cite{src:Fisher} (orior \texttt{src/\allowbreak{}python/\allowbreak{}engine/\allowbreak{}analysis/\allowbreak{}measure/\allowbreak{}period.\allowbreak{}py:23}). It carries most of the results in the workbook, and no outside source has the answer to check it against. The conjecture behind it, which nothing here measures, is that the structure in \(\Sigma\) shuffles what the null set \(\text{null}_0\) could carry, and that the shuffled order shows what happens to \(\text{null}_0\).
+\noindent\textbf{the permutation null.} The difference between an arrangement and the shuffled copies of the same symbols. Each copy is a Fisher-Yates shuffle \cite{src:Fisher}. It carries most of the results in the engine workbook \cite{src:Quigg-orior-workbook}, and no outside source has the answer to check it against. The conjecture behind it, which nothing here measures, is that the structure in \(\Sigma\) shuffles what the null set \(\text{null}_0\) could carry, and that the shuffled order shows what happens to \(\text{null}_0\).
 
 \noindent\textbf{the shift agreement detector.} Finds a period or an offset by how often the data agrees with a shifted copy of itself. Published cell edges in the Crystallography Open Database \cite{src:Crystallography-Open-Database} check it three separate ways.
-
-The engine is \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}orior.h} and \texttt{orior.c} in orior at commit \texttt{1044ca6} (\texttt{docs/\allowbreak{}steering.md:4}). The bench rows in the first chapter were measured with an earlier library whose modules have Latin names, \texttt{impensa\_\allowbreak{}ancorae\_\allowbreak{}acus} among them (Section 9 of that chapter).
-
-\textbf{Author:} dstroy0 (Douglas Quigg) <dquigg123@gmail.com> \textbf{Date:} 2026-09-04
