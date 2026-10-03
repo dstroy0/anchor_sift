@@ -3,6 +3,8 @@
 
 \textbf{Purpose:} Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice and none is quoted without its run.
 
+\section{\texorpdfstring{2026-09-21}{2026-09-21}}
+
 \subsection{\texorpdfstring{The driver split}{The driver split}}
 
 {\footnotesize
@@ -16,6 +18,8 @@ the split driver (22 functionals, now under \texttt{engine/\allowbreak{}} and \t
 \bottomrule
 \end{longtable}
 }
+
+\section{\texorpdfstring{2026-09-22}{2026-09-22}}
 
 \subsection{\texorpdfstring{The module move and the root layout}{The module move and the root layout}}
 
@@ -35,13 +39,13 @@ the driver from the new layout, run from the root, against the driver before the
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2535\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1648\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2865\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2952\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2439\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1598\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3142\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2822\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 components mode dump (an older mode), best policy (the 400 largest per frame) & 13 of the 44b6 & SCORE 0.2376; edge Jaccard 0.238; TP 713, FP 467, FN 1,815 & the internal 98\% does not carry over to the metric \\
-same dump, every node & 13 of the 44b6 & 60.4\% of key edges lost because the source key node has no predicted node within 7 µm; 1.5\% land elsewhere & that dump's loss is detection, not linking; the dump is an older mode and must be redone on the current engine \\
+same dump, every node & 13 of the 44b6 & 60.4\% of ground-truth edges lost because the source ground-truth node has no predicted node within 7 µm; 1.5\% land elsewhere & that dump's loss is detection, not linking; the dump is an older mode and must be redone on the current engine \\
 \bottomrule
 \end{longtable}
 }
@@ -52,13 +56,13 @@ The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2073\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2496\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2651\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2781\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2023\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2451\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2817\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2709\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 the current engine, internal count & 6bba\_\allowbreak{}05b6850b, 05db0fb1, 062c8d37, 07477033, 07e24132 & 3,756 of 3,873 edges correct, 97.0\%; 115 wrong; 2 endpoints undetected & the engine runs on 6bba as it is \\
-the same run under the metric's matching, every node & the same five & 78.5\% of key edges hit; 1.2\% source with no match; 19.6\% land elsewhere, a median 6.7 µm from the target's match & on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and bodies, not finer pieces, are what should be linked \\
+the same run under the metric's matching, every node & the same five & 78.5\% of ground-truth edges hit; 1.2\% source with no match; 19.6\% land elsewhere, a median 6.7 µm from the target's match & on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and segments, not finer pieces, are what should be linked \\
 \bottomrule
 \end{longtable}
 }
@@ -67,13 +71,13 @@ the same run under the metric's matching, every node & the same five & 78.5\% of
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2261\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1504\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3232\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3003\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2210\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1480\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3389\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2921\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 internal count & the 25 & 6,254 of 6,358 edges correct, 98.4\%; 104 wrong &  \\
-the metric's matching, every node & the 25 & 87.1\% of key edges hit; 1.1\% source with no match; 10.9\% land elsewhere, a median 5.75 µm off & the older components dump's 60\% with no match was that dump, not the engine \\
+the metric's matching, every node & the 25 & 87.1\% of ground-truth edges hit; 1.1\% source with no match; 10.9\% land elsewhere, a median 5.75 µm off & the older components dump's 60\% with no match was that dump, not the engine \\
 SCORE, the 400 largest nodes a frame & the 25 & 0.661: edge Jaccard 0.670, node count factor 0.986 (1,000,000 nodes against 880,906 estimated) & the node count is the lever: every node gives Jaccard 0.635 but 5.8 million nodes, and the score falls to 0.279 \\
 \bottomrule
 \end{longtable}
