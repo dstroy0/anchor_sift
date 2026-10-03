@@ -53,6 +53,37 @@ int logarithm_floor(const SimRational *x, unsigned int bits, ExponentialIntegral
 // Euler's gamma
 int euler_gamma_floor(unsigned int bits, ExponentialIntegralBracket *bracket);
 
+// The heat exterior and its pressure, each read as the functions above are (exponential_integral_heat.cu), h = p / q
+// with 0 <= h < 1 wherever it enters H:
+// - x^h = e^(h ln x), e^y read at both ends of y's bracket.
+// - Gamma(1 + h) = T^h e^(-T) (T sum over k >= 0 of T^k / (1 + h)_(k + 1) + theta), theta in [1, 1 + h / T], for a
+//   whole T near W ln 2: the sum is gamma(1 + h, T), and the rest is Gamma(1 + h, T) held between T^h e^(-T) and
+//   T^h e^(-T) (1 + h / T) by the concavity of t^h.
+// - H(Z) = Gamma(1 + h)^(-1) int_0^inf e^(-v) v^h (1 + Z v)^(-h) dv = Z^(-1 - h) U(1 + h, 2, 1 / Z), U Tricomi's. As
+//   (1 + u)^(-h) is completely monotone, H(Z) lies between any two consecutive partial sums of
+//   sum over k of binom(-h, k) (1 + h)_k Z^k, and that sum is read where 1 / Z >= z0, z0 a whole number near W ln 2,
+//   which holds its least term below one unit. Past it, w = U(1 + h, 2, z) is carried down from z0 to 1 / Z by its
+//   Taylor series under z w'' + (2 - z) w' - (1 + h) w = 0, every step at most a quarter of z, and each truncated
+//   series bounded by Cauchy's estimate with |w| <= 1 / (Gamma(1 + h) Re z) on the right half-plane.
+// - Pi_ext(X, eta) = -int_X^inf c^2 x^(-2 - 2h) H(2 d / x)^2 / 2 dx, d = 1 - eta^2. With z = x / (2 d) it is
+//   -(c^2 / 2) (2 d)^(-1 - 2h) int_(X / (2 d))^inf U(1 + h, 2, z)^2 dz: the Taylor steps integrate w^2 down to z0, and
+//   past z0 the integral is z0^(-1 - 2h) int_0^1 u^(2h) H(u / z0)^2 du, between the integrals of the two partial sums'
+//   squares. Where X / (2 d) >= z0 the integral is X^(-1 - 2h) int_0^1 u^(2h) H(2 d u / X)^2 du times (2 d)^(1 + 2h).
+
+// x^h for x > 0 and h of either sign
+int power_floor(const SimRational *x, const SimRational *h, unsigned int bits, ExponentialIntegralBracket *bracket);
+
+// Gamma(1 + h) for 0 <= h < 1
+int gamma_floor(const SimRational *h, unsigned int bits, ExponentialIntegralBracket *bracket);
+
+// H(Z) for Z >= 0 and 0 <= h < 1
+int heat_exterior_floor(const SimRational *z, const SimRational *h, unsigned int bits,
+                        ExponentialIntegralBracket *bracket);
+
+// Pi_ext(X, eta) for X > 0, -1 <= eta <= 1, any c, and 0 <= h < 1
+int exterior_pressure_floor(const SimRational *x, const SimRational *eta, const SimRational *c, const SimRational *h,
+                            unsigned int bits, ExponentialIntegralBracket *bracket);
+
 // the bits the build's exact width holds
 unsigned int exponential_integral_width(void);
 

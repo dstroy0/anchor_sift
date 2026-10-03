@@ -11,6 +11,14 @@
 // 5. On the engine, each series term a lane of the record machine: e^(-x), ln x and E1(x) by its series each floor as
 //    on the host, every lane's record on the device is the host interpreter's word for word, and every sum the device
 //    takes is the host's. The continued fraction is a chain of levels each waiting on the next and stays on the host.
+// 6. The heat exterior at h = 1/200 and c = 1/5, read at the request's bits:
+//    a. 2^(-1/2) and Gamma(3/2) agree with their published digits (OEIS A010503, A019704).
+//    b. H(0) is 1, and (1 + Z (1 + h))^(-h) < H(Z) < 1 at Z = 1/10, 1 and 2, Jensen's bound and (1 + Z v)^(-h) <= 1.
+//    c. Pi_ext(3/2, 1) is -c^2 X^(-1 - 2h) / (2 (1 + 2h)), H being 1 at d = 0.
+//    d. -c^2 X^(-1 - 2h) / (2 (1 + 2h)) < Pi_ext(X, eta) < 0 at (1, 0) and (2, 1/2), as 0 < H <= 1.
+//    e. x^h at x = 7/1000, Gamma(1 + h), H(1/150), H(2), Pi_ext(1, 0) and Pi_ext(1, 9983/10000) each floor at bits + 64
+//       to their reading at bits. z0 moves with the bits: at 128 bits H(1/150) and Pi_ext(1, 9983/10000) are read by
+//       the series alone, and at 192 by the Taylor steps.
 // The request: exponential_integral [x [bits]], x a whole number, a fraction p/q or a decimal, read exactly. With none
 // it reads x = 7 at 128 bits.
 //     src/sims/run.sh exponential_integral -- 7.0078 192
@@ -385,6 +393,250 @@ static void exponential_engine(SimResults *results, int count, char **arguments,
     sim_flush(results);
 }
 
+// the heat exterior's arguments
+#define EXPONENTIAL_HEAT_SHARE_TOP 1ll
+#define EXPONENTIAL_HEAT_SHARE_BOTTOM 200ll
+#define EXPONENTIAL_HEAT_SPEED_TOP 1ll
+#define EXPONENTIAL_HEAT_SPEED_BOTTOM 5ll
+
+// which heat reading a row of check e takes
+enum
+{
+    EXPONENTIAL_HEAT_POWER = 0,
+    EXPONENTIAL_HEAT_GAMMA = 1,
+    EXPONENTIAL_HEAT_EXTERIOR = 2,
+    EXPONENTIAL_HEAT_PRESSURE = 3
+};
+
+// a row of check e: the reading, its name, and its arguments as small fractions
+typedef struct
+{
+    unsigned int read;
+    const char *name;
+    long long first_top;
+    long long first_bottom;
+    long long second_top;
+    long long second_bottom;
+} ExponentialHeatRow;
+
+static const ExponentialHeatRow s_exponential_heat_rows[] = {
+    {EXPONENTIAL_HEAT_POWER, "(7/1000)^h", 7ll, 1000ll, 0ll, 1ll},
+    {EXPONENTIAL_HEAT_GAMMA, "Gamma(1 + h)", 0ll, 1ll, 0ll, 1ll},
+    {EXPONENTIAL_HEAT_EXTERIOR, "H(1/150)", 1ll, 150ll, 0ll, 1ll},
+    {EXPONENTIAL_HEAT_EXTERIOR, "H(2)", 2ll, 1ll, 0ll, 1ll},
+    {EXPONENTIAL_HEAT_PRESSURE, "Pi_ext(1, 0)", 1ll, 1ll, 0ll, 1ll},
+    {EXPONENTIAL_HEAT_PRESSURE, "Pi_ext(1, 9983/10000)", 1ll, 1ll, 9983ll, 10000ll},
+};
+
+#define EXPONENTIAL_HEAT_ROW_COUNT (sizeof(s_exponential_heat_rows) / sizeof(s_exponential_heat_rows[0]))
+
+static int exponential_heat_reading(const ExponentialHeatRow *row, unsigned int bits,
+                                    ExponentialIntegralBracket *bracket)
+{
+    const SimRational h = sim_rational(EXPONENTIAL_HEAT_SHARE_TOP, EXPONENTIAL_HEAT_SHARE_BOTTOM);
+    const SimRational speed = sim_rational(EXPONENTIAL_HEAT_SPEED_TOP, EXPONENTIAL_HEAT_SPEED_BOTTOM);
+    const SimRational first = sim_rational(row->first_top, row->first_bottom);
+    const SimRational second = sim_rational(row->second_top, row->second_bottom);
+    if (row->read == EXPONENTIAL_HEAT_POWER)
+    {
+        return power_floor(&first, &h, bits, bracket);
+    }
+    if (row->read == EXPONENTIAL_HEAT_GAMMA)
+    {
+        return gamma_floor(&h, bits, bracket);
+    }
+    if (row->read == EXPONENTIAL_HEAT_EXTERIOR)
+    {
+        return heat_exterior_floor(&first, &h, bits, bracket);
+    }
+    return exterior_pressure_floor(&first, &second, &speed, &h, bits, bracket);
+}
+
+// -c^2 X^(-1 - 2h) / (2 (1 + 2h)) at 2^bits, from X^(-2h)'s bracket: its ends, the low end floored and the high ceiled
+static int exponential_heat_bound(const SimRational *x, unsigned int bits, AnchorExactInteger *low,
+                                  AnchorExactInteger *high)
+{
+    const SimRational h = sim_rational(EXPONENTIAL_HEAT_SHARE_TOP, EXPONENTIAL_HEAT_SHARE_BOTTOM);
+    const SimRational speed = sim_rational(EXPONENTIAL_HEAT_SPEED_TOP, EXPONENTIAL_HEAT_SPEED_BOTTOM);
+    const SimRational two_h = sim_rational_product(sim_rational(2ll, 1ll), h);
+    ExponentialIntegralBracket lifted;
+    const SimRational negative_two_h = sim_rational_negative(two_h);
+    if (power_floor(x, &negative_two_h, bits, &lifted) != EXPONENTIAL_INTEGRAL_HELD)
+    {
+        return 0;
+    }
+    // the factor -c^2 / (2 (1 + 2h) X), negative: the high end of X^(-2h) gives the low end of the bound
+    const SimRational factor = sim_rational_negative(sim_rational_product(
+        sim_rational_product(speed, speed),
+        sim_rational_reciprocal(sim_rational_product(
+            sim_rational_product(sim_rational(2ll, 1ll), sim_rational_sum(sim_rational(1ll, 1ll), two_h)), *x))));
+    AnchorExactInteger top;
+    AnchorExactInteger quotient;
+    AnchorExactInteger remainder;
+    AnchorExactInteger one;
+    sim_exact_unsigned(&one, 1ull);
+    if ((sim_exact_product(&lifted.high, &factor.numerator, &top) == 0) ||
+        (anchor_exact_divide(&top, &factor.denominator, &quotient, &remainder) != ANCHOR_EXACT_OK))
+    {
+        return 0;
+    }
+    *low = quotient;
+    if (remainder.sign != 0)
+    {
+        anchor_exact_subtract(&quotient, &one, low);
+    }
+    if ((sim_exact_product(&lifted.low, &factor.numerator, &top) == 0) ||
+        (anchor_exact_divide(&top, &factor.denominator, high, &remainder) != ANCHOR_EXACT_OK))
+    {
+        return 0;
+    }
+    return 1;
+}
+
+// 6. the heat exterior
+static void exponential_heat(SimResults *results, unsigned int bits)
+{
+    const SimRational h = sim_rational(EXPONENTIAL_HEAT_SHARE_TOP, EXPONENTIAL_HEAT_SHARE_BOTTOM);
+    const SimRational speed = sim_rational(EXPONENTIAL_HEAT_SPEED_TOP, EXPONENTIAL_HEAT_SPEED_BOTTOM);
+    scriptura_text(&results->line, "  the heat exterior, h = 1/200 and c = 1/5\n");
+    // a. the published values
+    {
+        const SimRational two = sim_rational(2ll, 1ll);
+        const SimRational negative_half = sim_rational(-1ll, 2ll);
+        const SimRational half = sim_rational(1ll, 2ll);
+        const char *const names[2] = {"2^(-1/2)", "Gamma(3/2)"};
+        const char *const digits[2] = {"70710678118654752440084436210484903928483593768847",
+                                       "88622692545275801364908374167057259139877472806119"};
+        const char *const sources[2] = {"OEIS A010503", "OEIS A019704"};
+        for (unsigned int at = 0u; at < 2u; at += 1u)
+        {
+            const unsigned int places_bits = (((unsigned int)strlen(digits[at]) * 10u) / 3u) + 8u;
+            ExponentialIntegralBracket bracket;
+            const int status = (at == 0u) ? power_floor(&two, &negative_half, places_bits, &bracket)
+                                          : gamma_floor(&half, places_bits, &bracket);
+            const int held = exponential_held(results, status, names[at], places_bits);
+            const int agrees = held && exponential_published_agrees(&bracket, digits[at]);
+            if (held)
+            {
+                exponential_print(&results->line, names[at], &bracket);
+            }
+            scriptura_text(&results->line, agrees ? "    agrees with its " : "    does not agree with its ");
+            scriptura_decimal(&results->line, strlen(digits[at]), 1u);
+            scriptura_text(&results->line, " published digits, ");
+            scriptura_text(&results->line, sources[at]);
+            scriptura_character(&results->line, '\n');
+            sim_check(results, agrees, names[at]);
+        }
+    }
+    const AnchorExactInteger unit = exponential_two_power(bits);
+    // b. H(0) = 1, and Jensen's bound below 1
+    {
+        const SimRational zero = sim_rational(0ll, 1ll);
+        ExponentialIntegralBracket bracket;
+        const int one = exponential_held(results, heat_exterior_floor(&zero, &h, bits, &bracket), "H(0)", bits) &&
+                        anchor_exact_equal(&bracket.floor_value, &unit);
+        scriptura_text(&results->line, one ? "  H(0) is 1\n" : "  H(0) is not 1\n");
+        sim_check(results, one, "H(0) is 1");
+        const long long places[3][2] = {{1ll, 10ll}, {1ll, 1ll}, {2ll, 1ll}};
+        const char *const names[3] = {"H(1/10)", "H(1)", "H(2)"};
+        for (unsigned int at = 0u; at < 3u; at += 1u)
+        {
+            const SimRational z = sim_rational(places[at][0], places[at][1]);
+            const SimRational base =
+                sim_rational_sum(sim_rational(1ll, 1ll),
+                                 sim_rational_product(z, sim_rational_sum(sim_rational(1ll, 1ll), h)));
+            const SimRational negative_h = sim_rational_negative(h);
+            ExponentialIntegralBracket lower;
+            const int held = exponential_held(results, heat_exterior_floor(&z, &h, bits, &bracket), names[at], bits) &&
+                             exponential_held(results, power_floor(&base, &negative_h, bits, &lower),
+                                              "(1 + Z (1 + h))^(-h)", bits);
+            const int between = held && (anchor_exact_compare(&lower.high, &bracket.low) < 0) &&
+                                (anchor_exact_compare(&bracket.high, &unit) < 0);
+            if (held)
+            {
+                exponential_print(&results->line, names[at], &bracket);
+            }
+            scriptura_text(&results->line, between ? "    lies between (1 + Z (1 + h))^(-h) and 1\n"
+                                                   : "    does not lie between (1 + Z (1 + h))^(-h) and 1\n");
+            sim_check(results, between, names[at]);
+        }
+    }
+    // c and d. the pressure at d = 0, and its bounds
+    {
+        const long long cases[3][4] = {{3ll, 2ll, 1ll, 1ll}, {1ll, 1ll, 0ll, 1ll}, {2ll, 1ll, 1ll, 2ll}};
+        const char *const names[3] = {"Pi_ext(3/2, 1)", "Pi_ext(1, 0)", "Pi_ext(2, 1/2)"};
+        for (unsigned int at = 0u; at < 3u; at += 1u)
+        {
+            const SimRational x = sim_rational(cases[at][0], cases[at][1]);
+            const SimRational eta = sim_rational(cases[at][2], cases[at][3]);
+            ExponentialIntegralBracket bracket;
+            AnchorExactInteger low;
+            AnchorExactInteger high;
+            const int held =
+                exponential_held(results, exterior_pressure_floor(&x, &eta, &speed, &h, bits, &bracket), names[at],
+                                 bits) &&
+                exponential_heat_bound(&x, bits, &low, &high);
+            AnchorExactInteger zero;
+            sim_exact_unsigned(&zero, 0ull);
+            // at d = 0 the reading and the closed form overlap; elsewhere the reading lies above the bound and below 0
+            const int kept = held && ((at == 0u) ? ((anchor_exact_compare(&bracket.low, &high) <= 0) &&
+                                                    (anchor_exact_compare(&low, &bracket.high) <= 0))
+                                                 : ((anchor_exact_compare(&high, &bracket.low) < 0) &&
+                                                    (anchor_exact_compare(&bracket.high, &zero) < 0)));
+            if (held)
+            {
+                exponential_print(&results->line, names[at], &bracket);
+            }
+            if (at == 0u)
+            {
+                scriptura_text(&results->line, kept ? "    is -c^2 X^(-1 - 2h) / (2 (1 + 2h))\n"
+                                                    : "    is not -c^2 X^(-1 - 2h) / (2 (1 + 2h))\n");
+            }
+            else
+            {
+                scriptura_text(&results->line, kept ? "    lies between -c^2 X^(-1 - 2h) / (2 (1 + 2h)) and 0\n"
+                                                    : "    does not lie between -c^2 X^(-1 - 2h) / (2 (1 + 2h)) and 0\n");
+            }
+            sim_check(results, kept, names[at]);
+        }
+    }
+    sim_flush(results);
+    // e. each reading at bits + 64 floors to its reading at bits
+    const AnchorExactInteger step = exponential_two_power(EXPONENTIAL_SECOND_BITS);
+    for (unsigned int at = 0u; at < EXPONENTIAL_HEAT_ROW_COUNT; at += 1u)
+    {
+        const ExponentialHeatRow *const row = &s_exponential_heat_rows[at];
+        ExponentialIntegralBracket first;
+        ExponentialIntegralBracket second;
+        const unsigned int deeper = bits + EXPONENTIAL_SECOND_BITS;
+        int same = exponential_held(results, exponential_heat_reading(row, bits, &first), row->name, bits) &&
+                   exponential_held(results, exponential_heat_reading(row, deeper, &second), row->name, deeper);
+        if (same)
+        {
+            AnchorExactInteger quotient;
+            AnchorExactInteger remainder;
+            anchor_exact_divide(&second.floor_value, &step, &quotient, &remainder);
+            if ((second.floor_value.sign < 0) && (remainder.sign != 0))
+            {
+                AnchorExactInteger one;
+                AnchorExactInteger lowered;
+                sim_exact_unsigned(&one, 1ull);
+                anchor_exact_subtract(&quotient, &one, &lowered);
+                quotient = lowered;
+            }
+            same = anchor_exact_equal(&quotient, &first.floor_value);
+            exponential_print(&results->line, row->name, &first);
+        }
+        scriptura_text(&results->line, same ? "    at 2^" : "    does not, at 2^");
+        scriptura_decimal(&results->line, deeper, 1u);
+        scriptura_text(&results->line, same ? ", floors to its reading at 2^" : ", floor to its reading at 2^");
+        scriptura_decimal(&results->line, bits, 1u);
+        scriptura_character(&results->line, '\n');
+        sim_check(results, same, row->name);
+        sim_flush(results);
+    }
+}
+
 int main(int count, char **arguments)
 {
     char capacity[SIM_LINE_CAPACITY];
@@ -412,6 +664,8 @@ int main(int count, char **arguments)
     exponential_published(&results);
     sim_flush(&results);
     exponential_at(&results, &x, bits);
+    sim_flush(&results);
+    exponential_heat(&results, bits);
     sim_flush(&results);
     exponential_engine(&results, count, arguments, &x, bits);
     return sim_close(&results, "exponential integral");
