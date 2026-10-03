@@ -232,6 +232,40 @@ $100$ m/s, and $80$ K, the boiling point at atmospheric pressure, at $1198$ m/s.
 $0.81$ of the speed of sound in water, where condition (2) and constant properties no longer
 describe it. At $7.63$ m/s the tension route of Proposition 17 still comes first.
 
+\section{What a blowup of (1) would have to show}
+
+A solution of (1) whose velocity has no bound describes a liquid near its singular time only if the
+liquid stays liquid there, its viscosity stays the constant (1) uses, and its density stays the
+constant (1) sets. Each of these is a condition on the temperature or on the level of the pressure.
+
+\textbf{Proposition 19.} Let $(u,p)$ be a smooth solution of (1) and (2) on $\R^3\times[0,T^*)$,
+bounded with its derivatives on $\R^3\times[0,t]$ for each $t < T^*$, and let $T_b$ and $p_*$ be
+numbers. Let $T$ be the bounded solution of the energy balance carried by $u$,
+\[
+\rho c\,(\partial_t T + u\cdot\nabla T) = k\,\Delta T + 2\mu\,|D|^2, \qquad T(\cdot,0) = T_b,
+\]
+with $\rho c$, $k$ and $\mu = \rho\nu$ constant. Then $T \ge T_b$ at every point and time, and with
+$c_2$ from Proposition 14 the pressure $p + c_2$ is at most $p_*$ at every point and time.
+
+\emph{Proof.} The difference $w = T - T_b$ starts at zero and solves
+$\rho c\,(\partial_t w + u\cdot\nabla w) - k\,\Delta w = 2\mu|D|^2 \ge 0$, a linear parabolic
+equation with bounded smooth coefficients on $\R^3\times[0,t]$. By the minimum principle for
+bounded solutions of such an equation, $w \ge 0$. The statement on the pressure is
+Proposition 14. \hfill\qedsymbol
+
+Take $T_b$ to be the boiling temperature at the pressure $p_*$. The solution $(u,p)$ is then
+compatible with a fluid at or above its boiling point, at a pressure at or below $p_*$, at every
+point and every time: a liquid nowhere. Equation (1) is unchanged by the choice, because it holds no
+temperature and fixes no level of pressure. Whether the fluid stays liquid along a solution of (1)
+is therefore not a property of the solution. A theorem whose hypotheses and conclusions are
+statements about $u$ and $p$ cannot decide it.
+
+To show that a blowup of (1) describes water, a proof would have to show three things near the
+singular point: that the temperature stays below boiling at the pressure there, that
+$2\mu'(T)\,D\nabla T$ stays small beside $\mu\Delta u$ where $D$ has no bound (Propositions 3 and
+5), and that the density holds (Proposition 4). Each needs the temperature and its gradient, and
+equation (1) has neither.
+
 \section{What this establishes and what it does not}
 
 \textbf{Established.} The system equation (1) is cut from has a phase boundary, and equation (1)
@@ -241,7 +275,9 @@ by the velocity difference alone, for any viscosity and conductivity that depend
 In water at $20\,^\circ$C and atmospheric pressure, a turning column reaches the vapor pressure on
 its axis at a speed at which a shearing layer is warmed by a hundredth of a kelvin. Two sheets of
 one liquid brought together with a velocity jump $V$ heat their boundary at once, by an amount set
-by $V^2$, the heat capacity and the Prandtl number, and the same at every later instant.
+by $V^2$, the heat capacity and the Prandtl number, and the same at every later instant. Every
+solution of (1), carried with a temperature, is compatible with a fluid past its vapor point
+everywhere. Whether a blowup of (1) describes a liquid cannot be decided in (1).
 
 \textbf{Not established.} The comparison is between two exact solutions at the same speed. It does
 not show that the forced construction, or any collapsing solution, follows either profile, and a
