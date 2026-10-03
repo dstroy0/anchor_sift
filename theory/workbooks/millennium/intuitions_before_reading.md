@@ -637,3 +637,27 @@ The temperature difference is borne out by Maquet and others, a vapor cushion at
 kelvin between two liquids, without a uniform liquid under the same drive to compare. The density
 difference is not tested: no source held reports shear or vapor at a density step. In all three
 sources that score it the drive is heat or tension, not shear.
+
+---
+
+**The author's objection to the second-half score, given after it was written.** "dropping a ball
+through hot water isn't really the same thing, the force of gravity brings the balls heat close
+enough to the water that it generates a steam curtain, the reason it experiences lower drag is
+only because the water is not able to apply its tension to it"
+
+**Second half, rescored: open.** The objection holds. In Berry and others the vapor is made by the
+heat stored in the sphere, and the body that rides on it is a solid. The drag falls because the
+water cannot put its stress on the sphere through the vapor; their slip length,
+$s \approx (\mu_L/\mu_V)\,\delta_V$, states that in Navier's terms. The claim is water riding
+water on steam made by the shear between them. Maquet and others have one liquid riding another,
+with the vapor made by the heat of the pool, and the liquids are ethanol and silicone oil. No
+source held shows water riding water on steam, or steam made by shear. The criterion above
+accepted a case the claim does not make. It stays as written, and the hit under it is withdrawn.
+
+**A correction to the first-half reading.** Gruntfest and Becker reach $V_m$ by carrying the limit
+$\varphi_c \le 1.187$ over from the case of a fixed stress. With the walls moving at a fixed
+speed the steady layer has one solution at every speed, $V^2 = 8\int_{T_0}^{T_c} k/\mu\,dT$,
+independent of the gap, and 1.187 marks the peak of the wall stress. With the IAPWS $\mu(T)$ and
+$k(T)$ at atmospheric pressure the middle of the layer is at $20.06\,^\circ$C at 17 m/s and
+reaches $100\,^\circ$C near 956 m/s. "No steady shear flow above $V_m$", in the score above,
+holds for a fixed stress only. The miss stands on the speeds.

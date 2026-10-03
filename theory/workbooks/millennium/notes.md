@@ -1454,16 +1454,22 @@ W/(m K), $\mu = 1.0016$ mPa s, $a = 0.0245$ per kelvin):
   $U^{*2} = k/(2a\mu)$.
 - The steady center rise is 0.06 K at 17 m/s, 2.5 K at 110 m/s and 44 K at 618 m/s.
 - The exponential law overstates the fall in water: at $68\,^\circ$C it gives $0.31$ mPa s, and
-  IAPWS gives $0.41$. On the IAPWS values the bound for water is above 666 m/s.
+  IAPWS gives $0.41$.
+- The limit $\varphi_c \le 1.187$ is carried over from the constant-stress case. With the walls
+  moving at a fixed speed the steady problem has one solution at every speed, with
+  $V^2 = 8\int_{T_0}^{T_c} k/\mu\,dT$ for any $\mu(T)$ and $k(T)$, independent of the gap; 1.187 is
+  where the wall stress peaks, and above it the stress falls as $V$ rises. With the IAPWS $\mu(T)$
+  and $k(T)$ at atmospheric pressure the middle of the layer is at $20.06\,^\circ$C at 17 m/s,
+  $68.5\,^\circ$C at 643 m/s and $99.9\,^\circ$C at 956 m/s.
 
 What changes.
 
-1. I13, first half. The runaway is in this source: a liquid whose viscosity falls with
-   temperature has no steady shear flow above a critical velocity, and the shear gathers in the
-   center. The vapor is not in this source. The critical velocity for water is 666 m/s, and the
-   center of the steady layer is near $68\,^\circ$C when steady flow ends.
+1. I13, first half. The runaway is in this source for a fixed stress: above the peak stress
+   there is no steady flow, and the shear gathers in the center. For walls moving at a fixed speed
+   the steady layer exists at every speed, and 666 m/s is where its wall stress peaks. The vapor is
+   not in this source.
 2. The scaling estimate of the first workbook chapter. $U^*$ is where the dropped term is on a par
-   with the kept one; the steady flow fails at six times $U^*$. Both are far above the 10 to 17 m/s
+   with the kept one; the wall stress peaks at six times $U^*$. Both are far above the 10 to 17 m/s
    at which the forced construction in water cavitates (Duraiswami).
 3. Navier's slip. Gruntfest's lowered wall gradient is the same effect as the slip at a wall that
    equation (1) sets to zero, reached here by heating instead of by a vapor layer.
@@ -1500,7 +1506,9 @@ layer, with Figure 1 read from the page image.
 What changes.
 
 1. I13, second half. A vapor layer between water and a moving sphere lowers the measured drag
-   coefficient to between a half and a third of its value without the layer.
+   coefficient to between a half and a third of its value without the layer. The vapor is made by
+   the heat of the sphere, and the body on it is a solid. The author's claim is water riding water
+   on steam made by the shear between them, and this source does not test it.
 2. Navier's slip. The condition Navier wrote at a wall, a tangential velocity proportional to the
    wall stress, is the model these authors use for the vapor layer. Equation (1) with the no-slip
    condition sets that velocity to zero. The vapor layer is a case where it is not zero, and the
