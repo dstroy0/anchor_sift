@@ -77,6 +77,7 @@ EXP-x-023	live	examples/0_experimental/exact_zeta_riemann_siegel.py
 EXP-x-024	live	examples/0_experimental/exact_zeta_arrival.py
 EXP-x-025	live	examples/0_experimental/zeta_zero_certificate.py
 EXP-x-026	live	examples/0_experimental/exact_zeta_phase.py
+EXP-x-027	live	examples/0_experimental/exact_zeta_lobes.py
 EXP-x-028	live	examples/0_experimental/exact_zeta_turing.py
 EXP-x-029	live	examples/0_experimental/exact_zeta_spherical.py
 GAM-1-001	live	examples/game_theory/1_represent/four_games_one_protocol.py
