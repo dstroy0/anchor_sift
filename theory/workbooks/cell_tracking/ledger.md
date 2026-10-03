@@ -28,12 +28,12 @@
 
 ### The 6bba samples
 
-The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both. Every earlier row is on 44b6. 6bba's keys are far denser (345 to 1,183 edges a sample, against about 50 to 270 for 44b6), and under micro averaging 6bba carries most of the score.
+The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both. Every earlier row is on 44b6. 6bba's ground truth is far denser (345 to 1,183 edges a sample, against about 50 to 270 for 44b6), and under micro averaging 6bba carries most of the score.
 
 | what | samples | result | settles |
 |---|---|---|---|
 | the current engine, internal count | 6bba_05b6850b, 05db0fb1, 062c8d37, 07477033, 07e24132 | 3,756 of 3,873 edges correct, 97.0%; 115 wrong; 2 endpoints undetected | the engine runs on 6bba as it is |
-| the same run under the metric's matching, every node | the same five | 78.5% of ground-truth edges hit; 1.2% source with no match; 19.6% land elsewhere, a median 6.7 µm from the target's match | on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and segments, not finer pieces, are what should be linked |
+| the same run under the metric's matching, every node | the same five | 78.5% of ground-truth edges hit; 1.2% source with no match; 19.6% land elsewhere, a median 6.7 µm from the target's match | on 6bba the loss is a link landing on a neighboring node: the node set is far finer than the cells, and bodies, not finer pieces, are what should be linked |
 
 ### 44b6 on the current engine
 
