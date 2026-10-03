@@ -3,8 +3,6 @@
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice, and none is quoted without its run.
 **Scope:** runs of the engine: its modules, its tests and its sims. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name.
 
-## 2026-09-21
-
 ### The cycle against the passes it replaced
 
 | what | samples | result | settles |
@@ -37,8 +35,6 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 | bits 6 to 11, set in every frame | from 0 voxels (5 samples) to 76,646 at bit 10 (44b6_5f15d135) | anchors are real and differ per sample |
 | any voxel anchored in every sample | none | the floor is per sample, not per set |
 
-## 2026-09-22
-
 ### The compression, keymath and key_schedule splits
 
 | what | samples | result | settles |
@@ -63,12 +59,12 @@ Per voxel and per bit, the frames of the 100 that carry the bit; the counts were
 
 | what | samples | result | settles |
 |---|---|---|---|
-| `python maint/audit_reaching.py` at d5f6a06 | | 18 modules reach nothing, among them `keymath`, `key_schedule`, `cycle`, `tower`, `compression`, `apxrep`, `entropy_history` (`tower`, `apxrep` and `entropy_history` include only `crc` beyond their own, and `crc` is a root); 19 still reach, `score_sample` reaching 14 modules and `binomial_basins`, `flatten` and `score_sample` reaching up into `entry` | the key chain and the codec hold the rule (proved); the tracker's modules do not yet (not so yet, being split) ([keys_explained.md](keys_explained.md) §9) |
-| `bash maint/prove_codec.sh` at d5f6a06, run by the session that split the codec | the 25; 44b6_0113de3b re-ingested | every .kcr proved from the file alone, set CRC 091daa41e1aceb7e; the re-ingested .kcr byte identical to the cached one | the split changed nothing in the codec (proved) |
+| `python maint/audit_reaching.py` | | 18 modules reach nothing, among them `keymath`, `key_schedule`, `cycle`, `tower`, `compression`, `apxrep`, `entropy_history` (`tower`, `apxrep` and `entropy_history` include only `crc` beyond their own, and `crc` is a root); 19 still reach, `score_sample` reaching 14 modules and `binomial_basins`, `flatten` and `score_sample` reaching up into `entry` | the key chain and the codec hold the rule (proved); the tracker's modules do not yet (not so yet, being split) ([keys_explained.md](keys_explained.md) §9) |
+| `bash maint/prove_codec.sh`, run by the session that split the codec | the 25; 44b6_0113de3b re-ingested | every .kcr proved from the file alone, set CRC 091daa41e1aceb7e; the re-ingested .kcr byte identical to the cached one | the split changed nothing in the codec (proved) |
 
 ### The codec, to the byte
 
-Read from the code at d5f6a06 and the files in `cache/iapx`; the claims are in [compression_tower.md](compression_tower.md).
+Read from the code and the files in `cache/iapx`; the claims are in [compression_tower.md](compression_tower.md).
 
 | what | samples | result | settles |
 |---|---|---|---|
@@ -79,8 +75,6 @@ Read from the code at d5f6a06 and the files in `cache/iapx`; the claims are in [
 | the CRC join | a 44b6 extent | 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2^7 to 2^29; the key's last operator, 2^47, is reached at level 40. The join takes any message below 2^48 bytes | the 24,576 byte key covers 2^48 byte steps, as keys_explained §4 states |
 | the Rice cost bound | | 24 + 32 = 56 bits a value at most; 5 + 64 × 56 = 3,589 bits a block at most | the escape bounds every value |
 | whether the 5/3 lift is linear | | the high of (0, 0, 1) is 0, of (1, 0, 0) is 0, of (1, 0, 1) is −1 | not so: the tower is exact and reversible, but it cannot be imprinted as one key by its impulse |
-
-## 2026-09-23
 
 ### The period reading
 
@@ -154,12 +148,12 @@ Doug's "increase the scheduler steps to n" and "implement the lut", built into t
 
 ### The root universal
 
-The tower with reversible lookup edges between its floors (M20 and A14 of [engine_table.md](engine_table.md); 23 September: bijective edges in the stream, not read-only taps). Graded by `test/tower_edge_test.cu` through `test/tower_edge_test.sh`, run as `build/20260923_210432_tower_edge_test`, and by the sixth sim, `root_universal`, run as `build/20260923_211054_sim_root_universal` on camera-law volumes (signal 200 e plus a ramp of 1 e a column, 6 moving bodies of 150 to 400 e, read variance 3, fixed pattern 0 to 8). The edges are not in the crystal path: `engine.cu` passes none.
+The tower with reversible lookup edges between its floors (M20 and A14 of [engine_table.md](engine_table.md); bijective edges in the stream, not read-only taps). Graded by `test/tower_edge_test.cu` through `test/tower_edge_test.sh`, run as `build/20260923_210432_tower_edge_test`, and by the sixth sim, `root_universal`, run as `build/20260923_211054_sim_root_universal` on camera-law volumes (signal 200 e plus a ramp of 1 e a column, 6 moving bodies of 150 to 400 e, read variance 3, fixed pattern 0 to 8). The edges are not in the crystal path: `engine.cu` passes none.
 
 | what | samples | result | settles |
 |---|---|---|---|
 | the edge test | one edge; stacked edges on one floor; an edge on every floor with the collapsed one; four bad edges; a clean edge after them | 20 checks, 0 failed: every edge program rebuilds the exact lanes, an edge changes the crystal, a non-permutation, a width of 0, a width of 21 and floor 50 are each refused, and the clean edge still round-trips | an edge is a bijection the lower undoes, and a bad one is refused before any device work (proved) |
-| the Bennett edges (23 September: "a dimensional expansion"), `build/20260923_213400_tower_edge_test` | \|x\| of an 8-bit two's complement field and x ≥ 100, each a 16-bit edge (8 bits of x, 8 of carrier), (x, y) → (x, y ⊕ f(x)); 64 lattices of 1 × 8 × 8 × 8 alternating the two on the collapsed floor; the two on floors 1 and 2; \|x\| laid bare on 16 bits | 25 checks, 0 failed (the 20 above and 5 new): round-trip on 64 of 64; f(x) read out of the carrier, x kept and the high bits passed, on 64 of 64; only the one coefficient touched on 64 of 64; floors 1 and 2 round-trip; \|x\| laid bare refused, since x and −x collide | a function that is not a bijection rides the reversible stream at the price of width, with no engine change (proved) |
+| the Bennett edges ("a dimensional expansion"), `build/20260923_213400_tower_edge_test` | \|x\| of an 8-bit two's complement field and x ≥ 100, each a 16-bit edge (8 bits of x, 8 of carrier), (x, y) → (x, y ⊕ f(x)); 64 lattices of 1 × 8 × 8 × 8 alternating the two on the collapsed floor; the two on floors 1 and 2; \|x\| laid bare on 16 bits | 25 checks, 0 failed (the 20 above and 5 new): round-trip on 64 of 64; f(x) read out of the carrier, x kept and the high bits passed, on 64 of 64; only the one coefficient touched on 64 of 64; floors 1 and 2 round-trip; \|x\| laid bare refused, since x and −x collide | a function that is not a bijection rides the reversible stream at the price of width, with no engine change (proved) |
 | the root stays exact | 48 volumes, 24 of 4 × 12 × 48 × 48 (81 edges) and 24 of 3 × 13 × 37 × 41 (90 edges), 6 floors each; 1 to 6 edges a volume, widths 1 to 12 bits, one 20-bit edge per extent; lift, code, wipe, decode, lower | plain exact 48 of 48, edged exact 48 of 48, crystals changed 48 of 48 | the edges survive the whole crystal path (proved) |
 | the fold keeps order | 8 volumes of 4 × 12 × 48 × 48, 8-bit edges a and b on floor 1 | a then b lays the crystal of the single table b(a(i)) on 8 of 8; b then a differs on 8 of 8; a on floor 1 and b on floor 2 differ on 8 of 8 | edges on one floor fold into one table in their order; a floor between them blocks the fold (proved) |
 | the price of an unfitted edge | 8 volumes of 4 × 12 × 48 × 48, one keyed random permutation a floor, coded bits a voxel | below | exact is not free: the coder pays on the low floors, and on the collapsed floor the cost does not show at three decimals (measured); a fitted edge not measured |
@@ -176,7 +170,7 @@ The price, coded bits a voxel (6.802 with no edge; the coefficients each floor h
 
 ### The ask and the state
 
-The seventh sim, `ask_state` (M21 and A15 of [engine_table.md](engine_table.md); the terms are Doug's, 23 September), run as `build/20260923_213902_sim_ask_state`: a qubit carried exactly as the answers of a complete ask, E_i = (I + v_i·σ)/4, on the host with no GPU work. Rationals are on the exact integer; the SIC's numbers are in Q(√3), with (√3)² = 3.
+The seventh sim, `ask_state` (M21 and A15 of [engine_table.md](engine_table.md); the terms are Doug's), run as `build/20260923_213902_sim_ask_state`: a qubit carried exactly as the answers of a complete ask, E_i = (I + v_i·σ)/4, on the host with no GPU work. Rationals are on the exact integer; the SIC's numbers are in Q(√3), with (√3)² = 3.
 
 | what | samples | result | settles |
 |---|---|---|---|
@@ -208,11 +202,11 @@ The eighth sim, `ka_psi` (A15 of [engine_table.md](engine_table.md); the full re
 
 ### The exact integer: width, ladder and division
 
-This tree's exact integer (`engine/base/no_rounding/exact_integer.{c,h}`, M1 of [engine_table.md](engine_table.md)) grew on 23 September. It gained an open width, a multiplication ladder, division, Newton's division and a Lehmer gcd, and the key machine gained the division as four record operations (M10). Doug, in order: "You have division", "2s compliment", "Mulmask exact", "add that to the exact arithmetic", "It makes no sense to not have infinite division with infinite mul", a link to Schönhage–Strassen, "We use karstsuba", "Expand the header to accept any n bits power of 2", "Static assert". The work is orior's. The engine build now compiles the exact integer from this tree by default, and this tree is the source orior's engine is to be copied from. An earlier cut of the division (Stein's binary gcd, no Newton, `build/20260923_222632_exact_divide_test`, 8 checks, 0 failed) is replaced. Every row below was re-run here on the merged source, between 23:47 and 23:56.
+This tree's exact integer (`engine/base/no_rounding/exact_integer.{c,h}`, M1 of [engine_table.md](engine_table.md)) has an open width, a multiplication ladder, division, Newton's division and a Lehmer gcd, and the key machine has the division as four record operations (M10). Doug, in order: "You have division", "2s compliment", "Mulmask exact", "add that to the exact arithmetic", "It makes no sense to not have infinite division with infinite mul", a link to Schönhage–Strassen, "We use karstsuba", "Expand the header to accept any n bits power of 2", "Static assert". The work is orior's. The engine build compiles the exact integer from this tree by default, and this tree is the source orior's engine is to be copied from. Every row below is run here on the merged source.
 
 | what | samples | result | settles |
 |---|---|---|---|
-| the width | 1, 8 and 64 limbs compiled with declared floors of 9, 76 and 616 digits; 8 limbs with no floor; the tests at 128 limbs, 4,096 limbs and 4,194,304 bits | the three compile; the undeclared floor is refused at compile time (`exact_integer.h:151`); every test below passes at all three widths | any power of two from 32 bits up, with no ceiling, and a floor declared, never assumed (proved at those widths) |
+| the width | 1, 8 and 64 limbs compiled with declared floors of 9, 76 and 616 digits; 8 limbs with no floor; the tests at 128 limbs, 4,096 limbs and 4,194,304 bits | the three compile; the undeclared floor is refused at compile time (`exact_integer.h`); every test below passes at all three widths | any power of two from 32 bits up, with no ceiling, and a floor declared, never assumed (proved at those widths) |
 | the ladder: long multiplication, Karatsuba from 32 limbs, the Schönhage–Strassen transform from 8,192 | `test/exact_transform_test` (`build/20260923_234836_exact_transform_test`, 4 checks, 0 failed at each width, 165 s): 24, 54 and 63 products, balanced and unbalanced, keyed and all ones, across every rung boundary up to half the width | the ladder, and the transform alone, equal a long multiplication kept in the test on every product | the product is exact on every rung (proved on the trials) |
 | products divide back | the same products | each product divides back to its factors, exactly and with remainder, and the gcd holds a factor | (proved on the trials) |
 | Newton's division: the reciprocal grown at half precision, one Newton step, corrected exactly | 24, 54 and 63 divisions, divisors to half the width | numerator = quotient · divisor + remainder, the remainder below the divisor and signed as the numerator, equal to the dispatched division | Newton's rung gives what long division gives (proved on the trials) |
@@ -249,9 +243,9 @@ The shape holds on both runs. Karatsuba leads the transform at 8,192 limbs, and 
 
 ### Chaitin's Ω
 
-`engine/sims/chaitin_omega` (23 September; M19 of [engine_table.md](engine_table.md)) brackets Chaitin's halting probability for Tromp's binary lambda calculus. The machine reads a closed term, self-delimited in de Bruijn form, and halts where the term has a normal form. The codes are prefix free, and Ω, the sum of 2^−\|t\| over the halting terms, is therefore a probability. Its first n bits settle the halting of every program of n bits or fewer. For that reason no machine computes them all.
+`engine/sims/chaitin_omega` (M19 of [engine_table.md](engine_table.md)) brackets Chaitin's halting probability for Tromp's binary lambda calculus. The machine reads a closed term, self-delimited in de Bruijn form, and halts where the term has a normal form. The codes are prefix free, and Ω, the sum of 2^−\|t\| over the halting terms, is therefore a probability. Its first n bits settle the halting of every program of n bits or fewer. For that reason no machine computes them all.
 
-It runs on the device, one term a thread (`omega_kernel`, 24 September), on 16 host threads with the argument `cpu`, and, given L alone, on the engine's record machine (`omega_engine`). The runs here:
+It runs on the device, one term a thread (`omega_kernel`), on 16 host threads with the argument `cpu`, and, given L alone, on the engine's record machine (`omega_engine`). The runs here:
 
 | run | budgets | build | checks |
 |---|---|---|---|
@@ -263,13 +257,13 @@ It runs on the device, one term a thread (`omega_kernel`, 24 September), on 16 h
 | L = 16, the engine, a tessera job | 2,048 and 2,048 as printed | `build/20260924_024217_sim_chaitin_omega` | 16, 0 failed |
 | L = 16, the host | 2,048 and 2,048 | `build/20260924_024434_sim_chaitin_omega` | 13, 0 failed |
 
-The engine run at L = 16 (24 September) settles all 226 closed terms as halting, and it gives the host's L = 16 table line for line: 0.11664483… ≤ Ω ≤ 0.12600284…, with the lower bound equal to the halted mass plus the normal forms past L, and the upper to the lower less those normal forms plus the closed mass past L, both exactly (recomputed here from the printed binaries). Its checks are the host's 13, the job's admission and release, and one of its own: every term the engine settled, run again by `omega_run`, gives the same fate at the same step and the same normal form. No longer engine run is quoted here; every longer bracket is the device's or the host's.
+The engine run at L = 16 settles all 226 closed terms as halting, and it gives the host's L = 16 table line for line: 0.11664483… ≤ Ω ≤ 0.12600284…, with the lower bound equal to the halted mass plus the normal forms past L, and the upper to the lower less those normal forms plus the closed mass past L, both exactly (recomputed here from the printed binaries). Its checks are the host's 13, the job's admission and release, and one of its own: every term the engine settled, run again by `omega_run`, gives the same fate at the same step and the same normal form. No longer engine run is quoted here; every longer bracket is the device's or the host's.
 
 The host path has no device to compare against and lacks the cross-check. Budgets under 2,048 steps and tokens drop the strict busy beaver check, and both points are described below. The host runs of the day before give the same fates and bracket at L = 30 and 33. They are `build/20260924_001129_sim_chaitin_omega` (L = 30, 12 checks, 0 failed), `build/20260924_001207_sim_chaitin_omega` (L = 30 at 200,000 steps and 16,384 tokens, 12 checks, 0 failed) and `build/20260924_001712_sim_chaitin_omega` (L = 33, 12 checks, 0 failed). The device's L = 33 run gives the host's L = 33 table line for line, every fate, bound and busy beaver, record holders included. These device runs shared the device with orior's 54-bit run, and their times are not quoted. L = 44 at 256 steps and tokens was run again on the idle device (`build/20260924_005724_sim_chaitin_omega`, an RTX 3070, 17,664 threads, 13 checks, 0 failed): the same fates in 28,080 ms, 120.8 million terms a second, against orior's 28,088 ms (**measured**). A reading of the threads (384 a multiprocessor ahead of 512 and 768 at 38 bits, the kernel bound by the cache) is not run here. The runs before the typed fate (`build/20260924_000606_sim_chaitin_omega` and `build/20260924_000643_sim_chaitin_omega`, 11 checks, 0 failed) gave the same fates and the same bracket at L = 30. A run before the growth proof (`build/20260923_235507_sim_chaitin_omega`) had 587 terms open and an upper bound of 0.12599323…. The hand conversion of that bound, 0.12597, was wrong and is corrected in the README.
 
-A term is proven to grow forever (`omega_grows_forever`, 24 September) as follows. Since the watcher's last checkpoint, every step was a head step whose redex sat at spine position p or deeper. Then the checkpoint's spine part S at any position up to p was the only part reduced, and it never became a lambda eating an argument outside it. If S now stands deeper on the spine, S head-reduced to S B, and the same steps take S B to S B′ B and on without end. So S has no head normal form, neither has the term, and normal order never halts. The sim checks it on a term the earlier run left open: 01000101101010000101101010 grows forever.
+A term is proven to grow forever (`omega_grows_forever`) as follows. Since the watcher's last checkpoint, every step was a head step whose redex sat at spine position p or deeper. Then the checkpoint's spine part S at any position up to p was the only part reduced, and it never became a lambda eating an argument outside it. If S now stands deeper on the spine, S head-reduced to S B, and the same steps take S B to S B′ B and on without end. So S has no head normal form, neither has the term, and normal order never halts. The sim checks it on a term the earlier run left open: 01000101101010000101101010 grows forever.
 
-A term left open, or past the space, is also tried for a simple type (`omega_simply_typed`, `OMEGA_TYPED`, 24 September): Hindley's unification with an occurs check. A simply typed term is strongly normalizing (Tait 1967): it has a normal form and halts. A typed halt adds its mass to the lower bound. It does not write the normal form, and the busy beaver at its length stays unsettled. The same fact gives a check: no term proven to loop or to grow forever may type. At L = 30, 33 and 36, 0 terms are proven to halt by a type, and no loop or growth term types. So none of the open terms is simply typed, and the bracket is unchanged. At L = 44 one term is: the first typed halt.
+A term left open, or past the space, is also tried for a simple type (`omega_simply_typed`, `OMEGA_TYPED`): Hindley's unification with an occurs check. A simply typed term is strongly normalizing (Tait 1967): it has a normal form and halts. A typed halt adds its mass to the lower bound. It does not write the normal form, and the busy beaver at its length stays unsettled. The same fact gives a check: no term proven to loop or to grow forever may type. At L = 30, 33 and 36, 0 terms are proven to halt by a type, and no loop or growth term types. So none of the open terms is simply typed, and the bracket is unchanged. At L = 44 one term is: the first typed halt.
 
 The device takes every decision the host's run takes, in the same order, under budgets of at most 256 steps and 256 tokens, in a room of twice the token budget. A run is deterministic, and its budgets only stop it. A halt, loop or growth found inside the device's budgets is therefore found at the same step inside larger ones. A term that reaches a device budget smaller than the run's, outgrows the room, or halts in a normal form too large to key, is handed back. The host runs it under the full budgets. The fates are therefore the host's fates. A check holds it on every run: the host's own run of every term through 30 bits (or through L, when L is less) must give the device's fates and busy beavers, record holders included. At L = 36, 2,048 steps and tokens handed 24,501 terms to the host, and 256 handed 75.
 
@@ -301,11 +295,9 @@ From L = 30 to L = 44 the bracket narrows from 0.00344919… to 0.00154938… wi
 
 The sources. The papers' titles, venues and pages were checked here against Crossref, and the table and the program at their pages; Barendregt's book was not checked there. Tait, "Intensional interpretations of functionals of finite type I", Journal of Symbolic Logic 32(2), 198–212, 1967: a simply typed term is strongly normalizing, the typed fate's basis. Wadsworth, "The relation between computational and denotational properties for Scott's D∞-models of the lambda-calculus", SIAM Journal on Computing 5(3), 488–521, 1976, and Barendregt, *The Lambda Calculus: Its Syntax and Semantics* (North-Holland, 1984): a term has a head normal form exactly when head reduction ends, the growth proof's basis. Thiemann and Sternagel, "Loops under Strategies", Rewriting Techniques and Applications 2009, 17–31: nontermination proved by a loop under a fixed reduction strategy, the kind of argument the growth proof makes for normal order. BusyBeaverWiki's BB λ table and OEIS A333479: the exact values 22 through 1812 at 21 through 33 bits, and 327,686 at 34. Tromp's `BB.lhs` (github tromp/AIT, `BB/`): it proves loops by a repeated redex in a term's history and by two self-replication shapes, `W W → H[W W]` and `W _ W → H[W _ W]`, reduces within 42,000,000 tokens, and stops at 36 bits.
 
-## 2026-09-24
-
 ### π's hex digits on the engine
 
-`pi_tower`'s BBP run on the record machine (M19 of [engine_table.md](engine_table.md), e340d08): each term a lane, a sweep one `cycle_record_run` of up to 70,656 lanes (the RTX 3070's resident threads), the sum reduced by a pair program on the same machine, and only the bits the error decides printed. Run from e340d08's source in a scratch build directory (`$TEMP/anchor_carry/build_pi`), not under `build/`. Neither tower, T or T⁻¹, is in the program (A13).
+`pi_tower`'s BBP run on the record machine (M19 of [engine_table.md](engine_table.md)): each term a lane, a sweep one `cycle_record_run` of up to 70,656 lanes (the RTX 3070's resident threads), the sum reduced by a pair program on the same machine, and only the bits the error decides printed. Run from the source in a scratch build directory (`$TEMP/anchor_carry/build_pi`), not under `build/`. Neither tower, T or T⁻¹, is in the program (A13).
 
 | what | samples | result | settles |
 |---|---|---|---|
@@ -315,11 +307,11 @@ The sources. The papers' titles, venues and pages were checked here against Cros
 | 2^googol cells, the deep path | n = 10^100, hex position 2.5e99; P = 3 × 10^100 + 64 bits, and a host turn would need SIM_EXACT_LIMBS = 2^331 | 46,844,928 of 2.5e99 terms in 663 sweeps and 64.043 s, 7.31e5 terms a second; stopped, no digit printed | at the measured rate the sum takes about 1.08e86 years; the cost is linear in the position (measured) |
 | the tessera job | the default request and 2^(2^30); 2^googol | declared 3,413,540 bytes, peak 221,413,376 on both; 2^googol declared 11,542,512, its peak not read, since the run was killed | the declaration counts the sim's buffers and not the record kernel's per-thread file (measured) |
 
-**Note, 26 September.** D. H. Bailey, "The BBP Algorithm for Pi", 17 September 2006 (davidhbailey.com, `dhbpapers/bbp-alg.pdf`), read 26 September. Its Table 1 (p. 6) prints 26C65E52CB4593 at 10^6, 17AF5863EFED8D at 10^7 and ECB840E21926EC at 10^8, the digits in the first row above. Its text (p. 4) prints 6C65E52CB459350050E4BB1 from position 1,000,001 and calls it the first 24 hex digits there. The string holds 23. The decimal list printed beside it reads 12 in its nineteenth place, where the string reads E, which is 14. The engine's run gives E there with the string's other 22 digits, and its 117 to 135 certified bits cover the 92 bits of 23 hex digits (Derived). The row above keeps the string.
+**Note.** D. H. Bailey, "The BBP Algorithm for Pi", 17 September 2006 (davidhbailey.com, `dhbpapers/bbp-alg.pdf`), read. Its Table 1 (p. 6) prints 26C65E52CB4593 at 10^6, 17AF5863EFED8D at 10^7 and ECB840E21926EC at 10^8, the digits in the first row above. Its text (p. 4) prints 6C65E52CB459350050E4BB1 from position 1,000,001 and calls it the first 24 hex digits there. The string holds 23. The decimal list printed beside it reads 12 in its nineteenth place, where the string reads E, which is 14. The engine's run gives E there with the string's other 22 digits, and its 117 to 135 certified bits cover the 92 bits of 23 hex digits (Derived). The row above keeps the string.
 
 ### The Gaussian step on the record machine
 
-The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a + b), z = a + bi times 1 + i (A16 of [engine_table.md](engine_table.md); 24 September: "2 then 1").
+The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a + b), z = a + bi times 1 + i (A16 of [engine_table.md](engine_table.md); "2 then 1").
 - Graded by `test/record_gaussian_test.cu` through `test/record_gaussian_test.sh`, run from the working tree, uncommitted, as `build/20260924_222402_record_gaussian_test`.
 - The program: two signed 24-bit fields, each floor one DIFFERENCE and one SUM, 18 steps, and every floor an output.
 - The lanes: 4,096, every pair of the five edge values (0, −1, 1, −2^23 and 2^23 − 1), and keyed draws for the rest.
@@ -335,11 +327,9 @@ The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a 
 | all of it | the above | 8 checks, 0 failed | the step runs exactly on the engine's record machine; it is in no engine module and not in `pi_tower` |
 | A16's pole algebra, in floating point | a scratch script (`gaussian_check.py` in a temporary directory, not in the tree); 1,001 points on [0, 1]; Simpson's rule at 200,000 panels | partial fractions and residues within 2.2e-15 of BBP's y-form, and the x-form within 3.6e-15 of its reduced form; the numerator below 5.4e-15 at ±i and e^{±3iπ/4}, and 16 and 22.6 at the other four roots; the integral within 3.3e-14 of the float π; the three pieces −2 ln 2, +2 ln 2 and π, each within 1.3e-14; the corners' widths at w = 24 are 25, 26, 27, 27, 28, 28, 28 and 28 bits | the hand algebra holds in floating point (measured; derived in A16, not run on the engine) |
 
-## 2026-09-25
-
 ### keymath's widths by linear forms, and the record tests on tessera
 
-keymath now carries every register as a linear form over atoms and takes the fewer of the operation's own width and the form's bound (A16 of [engine_table.md](engine_table.md); 25 September: "do the keymath rule"). The eight record tests were moved onto tessera (25 September: the tests go through the scheduler).
+keymath now carries every register as a linear form over atoms and takes the fewer of the operation's own width and the form's bound (A16 of [engine_table.md](engine_table.md); "do the keymath rule"). The eight record tests were moved onto tessera (the tests go through the scheduler).
 - Each test is one job, submitted before its first device work and released at the end, its daemon built beside it by `maint/engine/tessera_build.sh`.
 - The eight were built and run one at a time at below-normal priority, from the working tree, uncommitted.
 - An earlier run the same morning, under a narrower rule for a SUM and a DIFFERENCE over the same two registers, gave the Gaussian test the same widths.
@@ -359,7 +349,7 @@ keymath now carries every register as a linear form over atoms and takes the few
 
 ### Finding x on floor 2
 
-Finding x in a for less than half of a (25 September: "say we want to find x and x is on floor 2, we have the knf, we only need to &&"; E4 of [engine_table.md](engine_table.md)).
+Finding x in a for less than half of a ("say we want to find x and x is on floor 2, we have the knf, we only need to &&"; E4 of [engine_table.md](engine_table.md)).
 - Graded by the sim `floor_match` (engine/sims), run from the working tree, uncommitted, as `build/20260925_015942_sim_floor_match`, a job on tessera.
 - a is one 64³ camera-law frame, n = 262,144 samples. Floor 2 is the engine's: the tower lifts the frame, and the crystal's 16³ corner is lowered as its own tower.
 - The index is floor 2 laid once as 16 bit planes of 128 words. A query ands the planes, lowest bit first, and a word stops once its mask is empty.
@@ -373,13 +363,11 @@ Finding x in a for less than half of a (25 September: "say we want to find x and
 | the reads | the 2,048 queries | at most 1,340 plane words, 5,360 bytes, against half of a, 131,072 samples, 262,144 bytes; without the early stop 2,048 words, n/128 | a query reads about 1% of half of a (measured); the lift reads all of a once to build the index |
 | all of it | the above | 11 checks, 0 failed; tessera declared 3,956,736 bytes, peak 148,013,056 | the knf is not used: the planes are the index |
 
-## 2026-09-27
-
 ### The energy detector's period lands on a divisor
 
 The energy detector, `sims/art/periodic_energy.h`, which `fixed_pattern` and `classify_reject_recover` call, returns the period of the highest dispersion ratio. The classes are the period's phases, and the ratio is the energy between them per degree of freedom over the energy within them per its own.
 
-Measured, 27 September. The detector's Python route (`measure/periodic_energy.py` at orior `python_engine` 6568a94) agrees with the header line for line on 12 cases, 0 failed. On one of them the highest ratio is a divisor of the addend's period.
+Measured. The detector's Python route (`measure/periodic_energy.py` on orior's `python_engine` branch) agrees with the header line for line on 12 cases, 0 failed. On one of them the highest ratio is a divisor of the addend's period.
 - The case: 3,072 values, each a scene value drawn from 0 to 199, plus a hum over 64 phases drawn from −40 to 40, plus noise drawn from −20 to 20.
 - `energy_recover` returns period 2 at 14.503. The ratios, equal on both sides, rank 2 at 14.503, 8 at 9.048, 4 at 8.243, 32 at 7.657 and 64 at 7.156. The four periods above 64 each divide 64.
 
@@ -387,7 +375,7 @@ Derived. With independent Gaussian values of one variance and no structure, the 
 
 Computed, a pure Python run from the F distribution's mean and variance over independent Gaussians at L = 3,072: the mean is 1.0007 at periods 2 and 64, and the standard deviation is 1.4158 at period 2 and 0.1802 at period 64. The 14.503 at period 2 stands 9.5 standard deviations above the mean, and the 7.156 at period 64 stands 34.2.
 
-The sims' own readings hold where the addend dominates: `fixed_pattern` reads period 64 at 179.565 against a band top of 5.241 (the sims, 23 September). The band is drawn for the highest ratio over every period, and it tests the pick without changing which period is picked.
+The sims' own readings hold where the addend dominates: `fixed_pattern` reads period 64 at 179.565 against a band top of 5.241 (the sims). The band is drawn for the highest ratio over every period, and it tests the pick without changing which period is picked.
 
 A candidate for testing (not built): a band for each period, drawn from the same shuffles, and the period whose ratio stands highest over its own band top, compared as exact ratios by cross multiplying as the period reading's margin is. It changes what the sims recover and waits on a posit and Doug's word.
 

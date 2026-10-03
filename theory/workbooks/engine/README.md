@@ -27,7 +27,7 @@ A claim changes status only when a run changes it, and the run is named. Nothing
 | [compression_tower.md](compression_tower.md) | the tower as one exact step recursed until the sample is one coefficient; zigzag and Rice coding in blocks and chunks, the file to the byte; the CRC-64 folded into the widen and the narrow, joined by GF(2) advance operators: the pixel-for-pixel test compressed in time |
 | [imprint_key_cycle.md](imprint_key_cycle.md) | the atom; imprinting a program onto the impulse; keys as AND masks; running a key over the set in one cycle |
 | [noise_sieve_tower.md](noise_sieve_tower.md) | the transfinite noise sieve and the fluidic architecture, section by section against the engine: control and data planes, the key and LUT, the tower and floor −4, the demon's eyes and arms, the construct kit, identity as coherence, entropy |
-| [wants.md](wants.md) | what the engine is after and does not have: the drafts' claims with no working form, and Doug's posits of 24 and 26 September, each kept whole beside its open question |
+| [wants.md](wants.md) | what the engine is after and does not have: the drafts' claims with no working form, and Doug's posits, each kept whole beside its open question |
 | [noise_vector_integration_table.md](noise_vector_integration_table.md) | every noise term the detector is to read, one row each: how it moves, the exact sums that read it, its form in the camera law, what the 44b6 set measured, its status, and the experiment that moves it |
 | [engine_table.md](engine_table.md) | the machine part by part, held to no scale: its exact algebra, what each part does and wants, every hypothesis tried with its result, and the audit of every number that still fixes a scale |
 | [query_protocol_table.md](query_protocol_table.md) | the query protocol step by step: what each step asks, the algebra it holds to, what it does and wants, what was tried and what it gave, and the run behind every status |
@@ -42,6 +42,5 @@ A claim changes status only when a run changes it, and the run is named. Nothing
 | [scriptura_blocks.md](scriptura_blocks.md) | the one rule on what scriptura's SWAR memory scans may be handed, and why it settles the over-read question |
 | [dependent_projects.md](dependent_projects.md) | how the projects built on the engine take it: a git dependency pinned at a commit |
 | [build_time.md](build_time.md) | what the time a build takes is spent on |
-| [records.md](records.md) | the commit and pull request texts written for the engine, dated, as they were written |
 
 The runs the ledger cites are in `runs/`, and `data/stroke_cells.txt` is the stroke cells as data.

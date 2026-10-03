@@ -7,12 +7,12 @@ Every file extension the engine and its projects write or read. A new extension 
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2180\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5675\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2145\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2263\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5977\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1760\linewidth-2\tabcolsep\relax}}
 \toprule
 Extension & What it is & Named by \\
 \midrule
 \endhead
-\texttt{.\allowbreak{}kcr} & The information crystal (Kolmogorov crystal): its own compression format. It reads every source format, takes each format's own compression out, and can rebuild the data into any format (Doug, 27 September). krep kind “KCR\textbackslash{}0”, version 1. The only crystal format. & Doug, 23 September \\
+\texttt{.\allowbreak{}kcr} & The information crystal (Kolmogorov crystal): its own compression format. It reads every source format, takes each format's own compression out, and can rebuild the data into any format (Doug). krep kind “KCR\textbackslash{}0”, version 1. The only crystal format. & Doug \\
 \texttt{.\allowbreak{}krs} & A ruleset: how the emitter defines the forms in one language (\texttt{ptx.\allowbreak{}krs}, \texttt{c.\allowbreak{}krs}, \texttt{vhdl.\allowbreak{}krs}). &  \\
 \texttt{.\allowbreak{}kcs} & A construction set, part of the crystal flattener. & Doug \\
 \texttt{.\allowbreak{}knf} & A sample's noise floor. &  \\
@@ -40,13 +40,13 @@ Extension & What it was \\
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2988\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.7012\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3031\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6969\linewidth-2\tabcolsep\relax}}
 \toprule
 Extension & Offered for \\
 \midrule
 \endhead
 \texttt{.\allowbreak{}kfc} \texttt{.\allowbreak{}kst} \texttt{.\allowbreak{}kgr} \texttt{.\allowbreak{}ksd} & The other apx files (flattened, OAPX history, BAPX bodies, IMP key); still open with Doug (build\_\allowbreak{}plan.md). \\
-\texttt{.\allowbreak{}khw} & A separate hardware constraints file. Withdrawn (Doug, 27 September: file creep); the constraints are entries of the language's \texttt{.\allowbreak{}krs}. \\
+\texttt{.\allowbreak{}khw} & A separate hardware constraints file. Withdrawn (Doug: file creep); the constraints are entries of the language's \texttt{.\allowbreak{}krs}. \\
 \bottomrule
 \end{longtable}
 }

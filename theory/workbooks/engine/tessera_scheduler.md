@@ -3,7 +3,7 @@
 **Purpose:** The theory of the engine's device-job scheduler: how jobs from separate processes share one device by memory, what is measured and how, what the accounting guarantees, and what is still open.
 **Scope:** `tessera`, a daemon per host and device, with its client calls. The rows are M14 and A11 in [engine_table.md](engine_table.md). Statuses follow [README.md](README.md).
 
-## What was ruled (23 September)
+## What was ruled
 
 - "just a normal job scheduling function, super common for stuff like this".
 - Jobs are packed by memory: several run at once while they fit.
@@ -30,7 +30,7 @@ A job reserves room it may not have allocated yet. What it blocks is therefore m
 
   H(τ) = C − O(τ) − Σ_j max(r_j, u_j(τ))
 
-**Admission.** A waiting job k is admitted when d_k ≤ H(τ). Then r_k = d_k, and the headroom falls by d_k. 24 September: "We reserve what they ask for and then if it cost less we remember that for next time".
+**Admission.** A waiting job k is admitted when d_k ≤ H(τ). Then r_k = d_k, and the headroom falls by d_k. "We reserve what they ask for and then if it cost less we remember that for next time".
 
 **Growth.** If u_j(τ) > r_j, then r_j becomes u_j(τ) and the client is warned: declared d_j, now r_j. Growth never stops a job already running, and a job can push H below zero. While H < 0, nothing new is admitted.
 
@@ -49,13 +49,13 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
 ## Measuring by pid
 
 - **Linux:** NVML's per-process list gives each compute process's used bytes. The daemon learns a client's pid from the socket (`SO_PEERCRED`), translated into the daemon's pid namespace. A client inside a container is therefore measured under its host pid, and a client cannot misstate its pid.
-- **Windows:** under the WDDM driver model, NVML always reports per-process memory as not available, because Windows manages it. There the daemon reads the counter Task Manager uses, `\GPU Process Memory(pid_<pid>_luid_*_phys_*)\Dedicated Usage`, through PDH. It learns the pid from the pipe (`GetNamedPipeClientProcessId`). Confirmed on this machine, 23 September: the counter lists each process's dedicated bytes by pid and adapter.
+- **Windows:** under the WDDM driver model, NVML always reports per-process memory as not available, because Windows manages it. There the daemon reads the counter Task Manager uses, `\GPU Process Memory(pid_<pid>_luid_*_phys_*)\Dedicated Usage`, through PDH. It learns the pid from the pipe (`GetNamedPipeClientProcessId`). Confirmed on this machine: the counter lists each process's dedicated bytes by pid and adapter.
 - **Both:** the device's total and in-use bytes come from NVML's device memory query, which works under WDDM too. The daemon never creates a CUDA context of its own and holds no device memory.
 
 ## The parts
 
 - **The ledger** (`tessera_ledger.{c,h}`) is pure: the accounting, backfill and the deadline heap, with no socket, clock or device. Every rule above is a function of its inputs, and the suite proves it without a GPU.
-  - Proved 23 September: 143,808 cases, 0 failed. The headroom identity holds on 2,000 random states. The deadlines fire in time order. Budget, hold, override and lost pass their 18 checks. Idle teardown passes its 4. Backfill never moved the head's shadow later, over 121,586 admissions in 20,000 random scenarios, every one of which ran to completion.
+  - Proved: 143,808 cases, 0 failed. The headroom identity holds on 2,000 random states. The deadlines fire in time order. Budget, hold, override and lost pass their 18 checks. Idle teardown passes its 4. Backfill never moved the head's shadow later, over 121,586 admissions in 20,000 random scenarios, every one of which ran to completion.
   - Found by the suite: a run released before its first measure had recorded a peak of 0, and every later run of that signum was held as over budget. A peak now enters the history only if the run was measured at least once.
 - **The frame** (`tessera.h`) is 128 bytes, little-endian, the same on every platform: magic, version, kind, the override, the device's UUID (16 bytes) and LUID, the request's signum, its declared bytes, its three times, and the bytes, measure and identity of a reply.
   - Asks: submit, override, release, precalc kept.
@@ -74,7 +74,7 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
 - **Docker:** the host's socket is bind-mounted into the container. The pid namespace translation above keeps the measure exact.
 - **SAN:** device memory is local to a host. Each host runs its own daemon, and nothing is shared across the SAN but the data.
 
-## Order, time and loss (23 September)
+## Order, time and loss
 
 - **Order among waiting jobs: backfill with the head kept.** A job behind the head may go first only if it cannot delay the head's admission. The head never starves, and the room the head cannot use yet is not wasted.
 
@@ -87,7 +87,7 @@ is kept under its signum σ_j, the BLAKE3 root of its request. The engine is det
 - **Time: the soonest change is the root.** "what I want is the shortest time to change of anything to be the root because that is most likely event, in order". Every deadline goes into one min-heap keyed by the time until it changes something: each live job's next sweep, each held job's holding expiry, the idle teardown. The daemon waits on its socket for at most the root's remaining time, handles the root, pushes that item's next deadline and takes the new root. Events are handled strictly in time order, and nothing is polled on a fixed tick. The shortest sweep among live jobs falls out of the heap without being chosen.
 - **Lost and found keeps the work.** When a held job stalls past its holding time, the daemon appends its ticket (identity, signum, pid, declared, peak, measured, times, reason) to `hst/lnf.log` as a sealed block and tells the client, with the log's path. The client keeps its precalc and says so; the daemon then appends a sealed note for that identity. The job can be resumed and not recomputed.
 
-**The seal (24 September).** The seal is `obsignatio_seal`, BLAKE3 keyed at the file level (`OBSIGNATIO_LEVEL_FILE`), and it runs on the host. The daemon still makes no CUDA call and holds no device context.
+**The seal.** The seal is `obsignatio_seal`, BLAKE3 keyed at the file level (`OBSIGNATIO_LEVEL_FILE`), and it runs on the host. The daemon still makes no CUDA call and holds no device context.
 
 - **The history file** is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it whole as `hst/tail.log` and renames it over `hst/head.log`. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
 - **The load** refuses a history shorter than the seal, one whose length less the seal is not a whole number of records (a short tail, or a file with no seal), and one whose seal does not hold. It names the file and the daemon exits. A missing history is a fresh start.
@@ -97,7 +97,7 @@ That was the gap before this date: the history was raw records and the ticket pl
 
 The daemon opens its ledger and loads its history before it makes any endpoint: the pipe on Windows, the lock and the socket on Linux. A refused history ends the daemon before any client can reach it. A daemon that loses the race to be the only one has only read the history, which is safe, because a save swaps the whole file in at once. The unsealed 192-byte history from before the seal was moved aside as `history.unsealed` in the state directory, not deleted.
 
-## The driver submits (24 September)
+## The driver submits
 
 A program's driver runs every job through tessera, one job a part. Its signum, its declaration, its parts and its runs are the program's, in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Its times are 2 s holding, 20 ms sweep and 5 s idle.
 
@@ -123,7 +123,7 @@ Two findings, both measured:
 - **A job reserves its declaration, not its kept peak.** The second prove declared less than its kept peak and was admitted on its declaration. Until its sweeps grew it, its reservation stood 3,119,706,112 bytes below what it went on to use. That is Doug's rule: reserve what the job asks for, grow and warn when it takes more.
   - The same day, the working tree's code was changed, uncommitted and not yet ruled on, to reserve the larger of the declaration and the kept peak (`tessera_ledger_wants`). With it, two proves each reserved 3,962,761,216 bytes.
 
-## The sims submit (24 September)
+## The sims submit
 
 Every sim that uses the device is one job (`src/sims/cu/sim_job.cu`).
 
@@ -151,7 +151,7 @@ Measured in a scratch state directory:
 - **Two peaks differ from the earlier runs by 2,097,152 bytes (2^21):** `nbody_lattice` and `fixed_pattern`. That is the same finding as the driver's.
 - **The engine DLL:** no program in the repo loads it, and no other caller is left to submit.
 
-## Linux (24 September, not rerun here)
+## Linux (not rerun here)
 
 - **The build:** Linux built under WSL 2 (gcc 13.3.0, CUDA 13.3), and its suite passes with 0 warnings. The fixes it needed: `PATH_MAX` under strict C11, the noinline helpers under gcc, `_GNU_SOURCE`, the timer thread's missing return, and the Windows-only strings.
 - **The measure refuses WSL:** WSL runs the device through the Windows driver, and its NVML read a process as 0 bytes before and after it allocated 256 MiB. So no pid can be measured there. The measure refuses to open on a paravirtual device (`tessera_measure_paravirtual`), and the daemon refuses to run. The measure test and the job test both check exactly that refusal.

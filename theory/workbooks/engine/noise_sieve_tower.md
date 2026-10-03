@@ -85,7 +85,7 @@ Read right to left, it is the engine's run order:
 | the tower reaches an irreducible floor | measured: 42.0% of raw over 25 samples; the low five bit planes show no anchor |
 | the floor is per sample, not per set | measured: no voxel anchored in every sample; anchors differ per sample |
 | one line of n dimensional embedding to radix the residue around | refuted as a size win: every radix around a line along x, y or t made the stream larger; grouping per floor helped (see the compression workbook's [ledger.md](../compression/ledger.md)) |
-| a golden spiral scan instead of the raster | not yet tested: the scan measured on 21 September swept each shell by angle, not in the golden order, and its +658,073 bytes refute only that sweep |
+| a golden spiral scan instead of the raster | not yet tested: the scan measured swept each shell by angle, not in the golden order, and its +658,073 bytes refute only that sweep |
 | the savings ratio 1.7174 near e − 1 | refuted: on four more samples the ratio was −8.29, 0.44, −73.2 and −1.60 |
 | a master schedule by family and order of operation | built for linear keys (the scheduler composes in program order) and for pointwise steps as tables (A13 of [engine_table.md](engine_table.md)); a schedule by family is theory |
 
@@ -224,7 +224,7 @@ The PDF's cosmology (field inversion, the seed crystal of a new universe, eterna
 
 the four noise vectors draft takes the residual tensor F − I and splits it into four vector magnitudes: photon shot noise, thermal and read noise, fixed pattern noise, and quantization. With the demon holding every initial condition, none of them is random: each is a deterministic function to be evaluated, not a distribution to be assumed.
 
-**The history separates them, measured.** The four differ in how they move in time, and the entropy history (`entropy_history`, ledger 22 September) is a per voxel record of exactly that.
+**The history separates them, measured.** The four differ in how they move in time, and the entropy history (`entropy_history`, the ledger) is a per voxel record of exactly that.
 
 - **Fixed pattern** is constant in time at a place: its bits never flip. It is the anchor bits, measured before the history: set in every frame at a voxel, and different in every sample.
 - **Shot, read and quantization** change every frame independently: their bits flip half the time, the maximum. On 44b6_0113de3b, bits 0 to 3 flip 499 to 500 times per thousand transitions in every window, and bit 4 flips 486 to 495 times.
@@ -239,9 +239,9 @@ the four noise vectors draft takes the residual tensor F − I and splits it int
 | the history separates the fixed pattern (no flips) from shot, read and quantization (half the transitions) | measured on 44b6_0113de3b: bits 0 to 3 at 499 to 500 per thousand in every window |
 | a sample wide rise in entropy at window 4, then a move toward order | measured on 44b6_0113de3b; on the other 24 samples, pending |
 | the history's counts are exact | proved on 44b6_0113de3b: 2,000 voxels × 9 windows counted by hand from the .stack, 0 words differ |
-| the noise keys stamped top down over the whole set in one cycle | theory; the cycle runs record programs today, not only linear keys: tables, division and the bitwise operations with the wrap (M10; `record_table_test`, `record_divide_test`, `record_bitwise_test`), and no noise key is imprinted |
+| the noise keys stamped top down over the whole set in one cycle | theory; the cycle runs record programs, not only linear keys: tables, division and the bitwise operations with the wrap (M10; `record_table_test`, `record_divide_test`, `record_bitwise_test`), and no noise key is imprinted |
 
-Every noise term, these four and the rest Doug named on 25 September, has one row in [noise_vector_integration_table.md](noise_vector_integration_table.md): how it moves, the exact sums that read it, its form in the sims' camera law, and the experiment that moves its status.
+Every noise term, these four and the rest Doug named has one row in [noise_vector_integration_table.md](noise_vector_integration_table.md): how it moves, the exact sums that read it, its form in the sims' camera law, and the experiment that moves its status.
 
 ## 17. The floor laid down first, entropy conserved, and the clock as the elevator
 
