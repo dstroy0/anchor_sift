@@ -1,0 +1,68 @@
+\chapter{Hypotheses from the notebook}
+
+A notebook of suppositions was written beside this work, in the order the thinking happened. It is kept
+whole, with the posits that have no test, as wants in the workbook~\cite{src:Quigg-orior-workbook}.
+Four of its entries, and one proposal written beside it, are concrete enough to state with the test
+that would decide them.
+
+\section{Ordering anchors by symbol rarity}
+
+The proposal orders the anchor set by the rarity of the symbol each anchor tests, rarest first, so
+that the first comparison carries the most rejection power~\cite{src:Quigg-delta-null}. Comparing a
+pattern's characters in increasing order of frequency is established in string search, in Sunday's
+optimal mismatch algorithm~\cite{src:Sunday-1990}. Here it is a change
+to a function that exists, it costs one sort when the search is planned, and it predicts the direction
+of a number the bench already prints. On the skewed corpus the first probe refutes about 67 percent of
+alignments, the figure a collision probability of 0.33 gives.
+
+\textbf{Hypothesis.} Ordering by rarity raises the first probe's refutation rate above that figure.
+\textbf{Test.} The same corpus and patterns, with and without the sort. \textbf{Status.} Not run.
+
+\section{Tail error under a periodic disturbance}
+
+Introducing a periodic disturbance on one arm lowers the joint error on an undisturbed co-arm by
+several orders of magnitude. Random distributions with no affine structure work best as the
+disturbance.
+
+\textbf{Hypothesis.} The error reduction, plotted against the percentage of the tail included, follows
+a smooth curve, and a straight line would mark a branch that could reach a tail error of \(10^{-26}\).
+\textbf{Test.} That plot, over disturbances of each kind. \textbf{Status.} The plot is not made.
+
+\section{Doping as a known distribution}
+
+A known dopant distribution plays the part a salt plays in cryptography: the hard work of measuring it
+is done once, and afterwards it is known.
+
+\textbf{Hypothesis.} From measured dopant distributions, new allowed dopant arrangements can be
+predicted. \textbf{Test.} Hold measured arrangements out of the distribution and predict them.
+\textbf{Status.} Not run. The crystallography research paper reads a published cell edge back from
+exact site coordinates~\cite{src:Quigg-crystallography}, and no dopant data is read.
+
+\section{A protein backbone as vectors and magnitudes}
+
+Ramachandran's allowed regions constrain a protein backbone's dihedral
+angles~\cite{src:Ramachandran-1963}. Representing a backbone as a sequence of vectors and magnitudes
+keeps the order of assembly.
+
+\textbf{Status.} The representation is built. Walking the backbone in assembly order, nitrogen to
+alpha carbon to carbon, it reads the bond lengths N--C\(_\alpha\), C\(_\alpha\)--C and C--N on five
+structures from 137 to 24{,}024 bonds. Every length lies within 0.025~\AA{} of the standard values,
+1.458, 1.525 and 1.329~\AA~\cite{src:Engh-Huber-1991,src:Quigg-orior-workbook}. The lengths are set by
+valence, which makes this a positive control. \textbf{Hypothesis, not tested.} The allowed constructs predict
+chirality and new allowed proteins.
+
+\section{Use on cultural material}
+
+A culture that was never recorded lives only in its people, passed from one generation to the next.
+Where they are gone, what was true of it, which statements belong to it, can no longer be determined,
+though the information need not be gone. A reconstruction presented as true where truth cannot be
+determined misrepresents the culture it claims to recover.
+
+This work therefore examines only what is present, and asks whether a reconstruction recreated it. The
+tool is not to be used to regenerate cultural material without a human representative of that
+culture.
+
+\section{Data and code availability}
+
+The benches, the instruments and the representations named here are in the orior repository, and their
+measurements are recorded in the workbook~\cite{src:Quigg-orior-workbook}.
