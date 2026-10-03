@@ -692,3 +692,42 @@ measurement, that varies how strongly the two attract each other, held and read.
 the interface between two immiscible liquids that grows as the attraction between unlike molecules
 weakens relative to like ones; miss if a source held reports no velocity jump at such an
 interface, or one that does not depend on how unlike the liquids are.
+
+### I15. Water rides on itself on steam torn out by its own shear, in a narrow window
+
+**In the author's words:** "I think for water to ride on itself and would have to have like the
+perfect viscous dissimilarity at its boundary layer like the conditions would have to be absolutely
+perfect in temperature and chemical composition for this effect to even occur" Then: "As steam".
+Then: "From the stress of viscous tearing".
+
+**Already known when written, and so not a blind prediction in part.** Propositions 15 to 17 of the
+research paper, written before this entry, put the first vapor in sheared water at tension and not
+at heat: a turning column reaches the vapor pressure at $7.6$ m/s, where a sheared layer is warmed
+by about a hundredth of a kelvin. Zamansky and Ham, read in full, place inception in a shear layer
+by the largest principal stress, after Joseph. Maquet and others, read in full, see a drop of
+ethanol ride on its vapor over hot silicone oil from one kelvin of superheat, and see none over
+oils more viscous than 150 mPa s. Pimenova and Goldobin, read in full, have the vapor layer between
+two liquids break away by buoyancy once it grows past a thickness of order $10^{-5}$ to $10^{-4}$ m.
+The recorder knows by name, and has not held or read, work on drops of a liquid kept from merging
+with a bath of the same liquid by a temperature difference, and on drops bouncing on a vibrated
+bath of the same liquid on a film of air.
+
+**What the recorder expects, stated before reading.** The steam is torn out of the liquid where
+the shear stress stretches it past the level at which it breaks, and on the propositions above
+that comes by tension long before it comes by heat. For water to ride on water, that steam has to
+form as a film along the boundary, made as fast as it condenses and drains, and no faster than it
+can stay a film. Too little difference in temperature or composition across the boundary and the
+tearing does not gather there and the two merge; too much and the film thickens, breaks into
+bubbles and rises out. The recorder expects the riding to hold only between two bounds, and the
+window to narrow as the viscosity of the liquid falls, since a thinner liquid drains the film
+faster.
+
+**Test.** A source on a liquid sheared along a boundary with the same liquid until vapor forms
+there, reporting whether the vapor makes a film the two sides slide on and under which conditions
+they merge, held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports a liquid riding on the same
+liquid on a film of its vapor made by its own shear, only within a range of temperature difference
+or composition bounded on both sides; miss if a source held reports such a film for every
+difference above one threshold, or with no difference in temperature or composition at all; open
+while no source held makes the film by shear.
