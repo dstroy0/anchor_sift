@@ -302,7 +302,13 @@ works there.
      32-bit or shared address that nothing the question holds backs. All 40 were reached by turning bits. NVIDIA's
      compiler writes an atomic for an atomic on `.global` through a 64-bit pointer, and its 64-bit add holds the
      descriptor register at 64 to 69 and two bits it refuses otherwise at 70 and 71, no register. The forms with no
-     result to read are not asked.
+     result to read are not asked. `utils/test/src/c/transpiler/interface/interface_sass_fields.sh` turns each
+     operation bit of every form `sass.krs` uses and runs it on the part, its result moved to R8, its sources to
+     registers holding distinct values and a predicate it sets read through `SEL`, and writes
+     `interface_sass_fields.md` whole. A turned bit is put to the part only where its operation key holds forms in
+     the machine file and no control transfer or wait among them; any other is marked skipped and run on nothing.
+     Of the 78 forms, 1637 bits read inside a run the machine file records and 512 outside every run. The three
+     branch forms name a label and are not asked.
    - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
      instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0

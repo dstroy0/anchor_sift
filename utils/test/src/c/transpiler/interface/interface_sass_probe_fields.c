@@ -23,6 +23,7 @@
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 #include "../../../../../../src/c/transpiler/interface/interface.h"
 #include "../../../../../../src/c/types/file_defs/krs/sass_machine.h"
+#include "interface_sass_probe.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,6 +48,10 @@ static char s_asking[FIELDS_TEXT_BYTES];
 static unsigned int s_exits[FIELDS_EXITS];
 static char s_kernel[128];
 static unsigned long long s_pattern_size;
+// each operation key, the low word's bits the sweep puts every value of: whether the machine file holds a form under
+// it, and whether any form it holds there transfers control or waits
+static unsigned char s_key_known[SASS_OPERATION_MASK + 1u];
+static unsigned char s_key_control[SASS_OPERATION_MASK + 1u];
 
 // `path` read whole into `bytes`, which holds `room`: the bytes read, 0 where it was not read
 static unsigned long long fields_file_read(const char *path, unsigned char *bytes, unsigned long long room)
@@ -168,6 +173,78 @@ static int fields_cubin(const unsigned char *code, unsigned int count, unsigned 
     return 1;
 }
 
+// 1 where the operation transfers control or waits, which run on the part can loop or stall it: a branch, a call, a
+// return, a barrier, a sleep and a trap are each held off the part, since a turned bit that writes one is run as it is
+// and not refused. A straight instruction falls through to the next and cannot loop by itself
+static int fields_control_or_wait(const char *operation)
+{
+    static const char *const unsafe[] = {"BRA",  "BRX",       "JMP", "JMX",    "CALL",   "RET",
+                                         "EXIT", "BSSY",      "BSYNC", "BREAK", "BMOV",   "WARPSYNC",
+                                         "YIELD", "BAR",      "DEPBAR", "NANOSLEEP", "BPT", "RTT",
+                                         "KILL", "RPCMOV",    "RETIRE", "PMTRIG"};
+    for (unsigned int at = 0u; at < (sizeof(unsafe) / sizeof(unsafe[0])); at += 1u)
+    {
+        if (strncmp(operation, unsafe[at], strlen(unsafe[at])) == 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// the key table filled from the machine file's forms: a key is known where any form sits under it, and control where
+// any form under it transfers control or waits. The sweep put every key to the disassembler from each of several
+// carriers, and the file holds every operation a key named there. The counts go to the standard output
+static void fields_keys(void)
+{
+    unsigned int known = 0u;
+    unsigned int control = 0u;
+    for (unsigned int at = 0u; at < s_machine.forms; at += 1u)
+    {
+        const unsigned long long key = s_machine.form[at].low & SASS_OPERATION_MASK;
+        known += (s_key_known[key] == 0u) ? 1u : 0u;
+        s_key_known[key] = 1u;
+        if (fields_control_or_wait(s_machine.form[at].operation) && (s_key_control[key] == 0u))
+        {
+            s_key_control[key] = 1u;
+            control += 1u;
+        }
+    }
+    printf("operation keys: %u known, %u holding a control or wait form\n", known, control);
+}
+
+// 1 where the instruction at `place` in s_code, turned at `bit`, is safe to run on the part. The operation key names
+// the operation, and the turned encoding is run only where the machine file holds forms under its key and no control
+// transfer or wait among them: such an instruction falls through whatever its other bits hold, and cannot loop or
+// stall the part. A turn past the key leaves the key, and the instruction's own operation, as they were. `name` takes
+// the operation the turned encoding reads back as, or the key where no form reads it back. A `bit` of 128 turns nothing
+static int fields_flip_safe(unsigned int place, unsigned int bit, char *name, size_t room)
+{
+    unsigned long long low = fields_word_read(&s_code[16u * place]);
+    unsigned long long high = fields_word_read(&s_code[(16u * place) + 8u]);
+    if (bit < 64u)
+    {
+        low ^= 1ull << bit;
+    }
+    else if (bit < 128u)
+    {
+        high ^= 1ull << (bit - 64u);
+    }
+    const unsigned long long key = low & SASS_OPERATION_MASK;
+    char text[256];
+    if (sass_encoding_read(&s_machine, low, high, 0ull, text, sizeof(text)))
+    {
+        SassInstructionParts parts;
+        sass_instruction_read(text, &parts);
+        snprintf(name, room, "%s", parts.operation);
+    }
+    else
+    {
+        snprintf(name, room, "key_0x%03llx", key);
+    }
+    return (s_key_known[key] != 0u) && (s_key_control[key] == 0u);
+}
+
 // the lines a form is run in: the instruction with its result moved to R8, the register the frame stores as the answer,
 // and its source registers moved to R10 up. Each source register is set to a distinct value with a zero beside it:
 // turning a bit of a source's field reaches a register of another value and changes the answer. R6 keeps the case's
@@ -177,6 +254,9 @@ static int fields_cubin(const unsigned char *code, unsigned int count, unsigned 
     "MOV R16, 0x5\nMOV R17, RZ\nMOV R18, 0x2\nMOV R19, RZ\nMOV R20, 0x9\nMOV R21, RZ\n"                                \
     "IMAD.MOV.U32 R6, RZ, RZ, R7\n"
 #define FIELDS_LINES_TAIL "\nIMAD.MOV.U32 R7, RZ, RZ, R8\nSTG.E term[UR4][R4.64], R7"
+// the line after a form that sets a predicate, its first operand moved to P0: R8 takes R12's 0x7 where P0 holds and
+// R10's 0xb where it does not, which carries the predicate to the answer as one of two values
+#define FIELDS_LINES_PREDICATE "\nSEL R8, R12, R10, P0"
 // the registers a form's source operands are moved onto, in order, each set in the head above
 #define FIELDS_SOURCES 6u
 
@@ -252,7 +332,9 @@ static int fields_read(const char *machine_path, const char *instructions, const
     fprintf(out, "Written by `interface_sass_probe_fields read`. The form is `%s`. Each row is one of its operation "
                  "bits turned over and run on the part, against the answer the form gives untouched. A bit the part "
                  "refuses, one it reads inside a run the machine file records for an operand, one it reads outside "
-                 "every recorded run, and one that leaves the answer unchanged are told apart.\n\n",
+                 "every recorded run, and one that leaves the answer unchanged are told apart. A bit held off the "
+                 "part, whose turned operation key holds a control transfer, a wait or no form in the machine file, "
+                 "is marked skipped and run on nothing.\n\n",
             instruction);
     fprintf(out, "| bit | operand | part |\n|---|---|---|\n");
     char line[256];
@@ -290,10 +372,12 @@ static int fields_read(const char *machine_path, const char *instructions, const
             snprintf(place, sizeof(place), "-");
         }
         const char *part = NULL;
-        if ((strcmp(kind, "refused") == 0) || (strcmp(kind, "hung") == 0))
+        if ((strcmp(kind, "refused") == 0) || (strcmp(kind, "hung") == 0) || (strcmp(kind, "skipped") == 0))
         {
+            // a bit the part refused, one it ran too long on, and one held off the part as unsafe to run are each no
+            // operand field; they share the first column and the row says which
             refused += 1u;
-            part = (kind[0] == 'h') ? "hung" : "refused";
+            part = (kind[0] == 'h') ? "hung" : ((kind[0] == 's') ? "skipped" : "refused");
         }
         else
         {
@@ -365,7 +449,8 @@ static const char *fields_mark(unsigned int mark)
 }
 
 // `operand`, which begins with a register token (R then digits, or RZ), written to `out` with that token replaced by
-// `put` and whatever follows it kept, a .hi or other suffix among it
+// `put`. A .hi names the second register of a pair and leaves the operand a register of the same form: it is dropped,
+// and `put` itself is the register read or written. Any other suffix is kept
 static void fields_swap(const char *operand, const char *put, char *out, size_t room)
 {
     size_t length = 0u;
@@ -373,21 +458,32 @@ static void fields_swap(const char *operand, const char *put, char *out, size_t 
     {
         length = (operand[1] == 'Z') ? 2u : (1u + strspn(operand + 1, "0123456789"));
     }
-    snprintf(out, room, "%s%s", put, operand + length);
+    const char *const rest = operand + length;
+    const size_t kept = strlen(rest) - (sass_high_half(operand) ? 3u : 0u);
+    snprintf(out, room, "%s%.*s", put, (int)kept, rest);
 }
 
-// `instruction` written to `redirected`, rebuilt from its parts, with its first operand moved to R8, the register the
-// frame stores as the answer, and each source register operand moved to the next of the head's set registers, where the
-// form's result and its source fields reach the answer. A form whose first operand is no register the operation writes
-// is copied as it stands, since nothing of it would be observed through R8. 1, or 0 where `redirected` will not hold it
-static int fields_redirect(const char *instruction, char *redirected, size_t room)
+// `instruction` written to `redirected`, rebuilt from its parts, with its first operand moved where the frame reads it
+// and each source register operand moved to the next of the head's set registers, where the form's result and its
+// source fields reach the answer. A first operand that is a register moves to R8, the register the frame stores as the
+// answer. A first operand that is a predicate moves to P0, and `observe` takes the line that turns P0 into a value in
+// R8; it is left empty otherwise. A form whose first operand is neither, or is one the operation reads, is copied as it
+// stands, since nothing of it would be observed through R8. 1, or 0 where `redirected` or `observe` will not hold it
+static int fields_redirect(const char *instruction, char *redirected, size_t room, char *observe, size_t observe_room)
 {
     static const char *const sources[FIELDS_SOURCES] = {"R10", "R12", "R14", "R16", "R18", "R20"};
     SassInstructionParts parts;
     sass_instruction_read(instruction, &parts);
-    if ((parts.operands == 0u) || (parts.kind[0] != SASS_OPERAND_REGISTER) || !fields_writes_first(parts.operation))
+    observe[0] = '\0';
+    const int writes_register = (parts.operands != 0u) && (parts.kind[0] == SASS_OPERAND_REGISTER);
+    const int writes_predicate = (parts.operands != 0u) && (parts.kind[0] == SASS_OPERAND_PREDICATE);
+    if ((!writes_register && !writes_predicate) || !fields_writes_first(parts.operation))
     {
         return snprintf(redirected, room, "%s", instruction) < (int)room;
+    }
+    if (writes_predicate && (snprintf(observe, observe_room, "%s", FIELDS_LINES_PREDICATE) >= (int)observe_room))
+    {
+        return 0;
     }
     size_t at = 0u;
     if (parts.guard[0] != '\0')
@@ -412,7 +508,11 @@ static int fields_redirect(const char *instruction, char *redirected, size_t roo
                 source += 1u;
             }
         }
-        if (put != NULL)
+        if ((operand == 0u) && writes_predicate)
+        {
+            snprintf(text, sizeof(text), "P0");
+        }
+        else if (put != NULL)
         {
             fields_swap(parts.operand[operand], put, text, sizeof(text));
         }
@@ -453,6 +553,7 @@ int main(int count, char **words)
         fprintf(stderr, "the machine file %s did not read\n", words[3]);
         return 2;
     }
+    fields_keys();
     FILE *const instructions = fopen(words[5], "rb");
     if (instructions == NULL)
     {
@@ -472,13 +573,14 @@ int main(int count, char **words)
         // the first operand moved to R8, the register the frame stores as the answer, which then holds what the form
         // writes
         char redirected[512];
-        if (!fields_redirect(walk, redirected, sizeof(redirected)))
+        char observe[64];
+        if (!fields_redirect(walk, redirected, sizeof(redirected), observe, sizeof(observe)))
         {
             printf("skip %s: could not be redirected\n", walk);
             continue;
         }
         char lines[1024];
-        snprintf(lines, sizeof(lines), FIELDS_LINES_HEAD "%s" FIELDS_LINES_TAIL, redirected);
+        snprintf(lines, sizeof(lines), FIELDS_LINES_HEAD "%s%s" FIELDS_LINES_TAIL, redirected, observe);
         unsigned long long low = 0ull;
         unsigned long long high = 0ull;
         const unsigned int assembled = fields_splice(s_frame, lines, s_asking, sizeof(s_asking))
@@ -496,15 +598,26 @@ int main(int count, char **words)
         char path[1024];
         snprintf(path, sizeof(path), "%s/list.txt", folder);
         FILE *const made = fopen(path, "wb");
-        // the baseline first, its bit 128 turning nothing, then one cubin an operation bit
+        // the baseline first, its bit 128 turning nothing, then one line an operation bit. A bit whose turned operation
+        // key holds a control transfer, a wait or no form is held off the part with a skip line in its place: a
+        // bit-flip never loops or stalls the part, and the line order still names the bit a row belongs to
         for (unsigned int bit = 0u; bit <= FIELDS_OPERATION_BITS; bit += 1u)
         {
             const unsigned int turned = (bit == 0u) ? 128u : (bit - 1u);
+            char name[64];
             char cubin[1024];
             snprintf(cubin, sizeof(cubin), "%s/bit_%03u.cubin", folder, bit);
-            if (fields_cubin(s_code, assembled, place, turned, cubin) && (made != NULL))
+            const int safe = fields_flip_safe(place, turned, name, sizeof(name));
+            if (safe && fields_cubin(s_code, assembled, place, turned, cubin))
             {
-                fprintf(made, "%s %s\n", cubin, s_kernel);
+                if (made != NULL)
+                {
+                    fprintf(made, "%s %s\n", cubin, s_kernel);
+                }
+            }
+            else if (made != NULL)
+            {
+                fprintf(made, "skip %s\n", name);
             }
         }
         if (made != NULL)
