@@ -1,30 +1,25 @@
 \chapter{What this is}
 
-\textbf{Purpose:} State the construction, and mark the boundary of what this work can claim about it.
-\textbf{Scope:} \texttt{examples/\allowbreak{}crystallography/\allowbreak{}6\_\allowbreak{}oracle/\allowbreak{}proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py}, \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}representation/\allowbreak{}exact.\allowbreak{}py}
-
-\textbf{Note, 26 September.} \texttt{shift\_\allowbreak{}agreement.\allowbreak{}py} and \texttt{exact.\allowbreak{}py} were deleted with \texttt{src/\allowbreak{}engine/\allowbreak{}python/} by commit \texttt{74601c1} on 26 September, and neither is in a file at orior \texttt{1948ae1}; \texttt{proof\_\allowbreak{}positive\_\allowbreak{}control.\allowbreak{}py} still imports both. \textbf{Later, 26 September.} Commit \texttt{d09b489} (orior PR 12) put back the 126 files \texttt{74601c1} deleted, each byte-identical to its state before the deletion, and biohub pins orior at \texttt{d09b489}. Every file named here that \texttt{74601c1} deleted is at the pin again; nothing here was rerun against them.
+This chapter states the construction, places it beside the crystallographic object it resembles, and marks the boundary of what the work can claim about it.
 
 \section{The construction}
 
 Tile a published unit cell, carry every site as an exact integer, and score how well the arrangement agrees with itself shifted by each candidate offset along one axis. The offset where agreement peaks is the cell edge.
 
-That is an autocorrelation. \texttt{lattice\_\allowbreak{}agreement} takes one lag, compares the grid against a copy of itself shifted by that lag along one axis, and returns the share of \emph{occupied} cells whose neighbor at that distance carries the same value. The caller sweeps the lag.
+That is an autocorrelation. For one lag along one axis, the score is the share of \emph{occupied} sites whose neighbor at that distance carries the same value. The candidate lags are swept and the score is read at each.
 
-Empty cells are left out. The measurement depends on that exclusion: a voxel grid built from atom sites is mostly empty. Counting the empty positions would report how empty the grid is, which every structure agrees on. The claim is checkable against \texttt{src/\allowbreak{}engine/\allowbreak{}python/\allowbreak{}measure/\allowbreak{}shift\_\allowbreak{}agreement.\allowbreak{}py:97}.
+Empty positions are left out, and the measurement depends on that exclusion. A structure built from atom sites is mostly empty space, and counting the empty positions would report how empty the structure is, which every structure agrees on.
 
-\section{Somebody has almost certainly been here first}
+\section{The object it resembles}
 
-An autocorrelation of density in a crystal is very unlikely to be new. A century of crystallography has worked on exactly this object, and the reasonable prior is that this construction has a name, a date and a literature behind it.
+The autocorrelation of electron density in a crystal is the Patterson function~\cite{src:Patterson-1934}, whose peaks sit at the vectors between atoms. The construction here is a one-axis, element-labeled relative of it: it is read on sites and not on a density, two sites agree only when they carry the same element, and the cell edge is the lattice vector at which every site agrees.
 
-That is the good outcome and not the bad one. This construction was reached from a general question about how far an arrangement sits from the most disordered arrangement of its own parts, with no crystal in mind. Arriving from there at something a field already uses is evidence that the general question is pointed at something real. Arriving somewhere nobody had ever needed to go would have been the weaker result.
-
-\textbf{So no priority is claimed here, and nobody wants any.} The reading is missing: somebody has to work through the crystallographic literature and write down what it says, and that has not been done. Until it is, nothing in these chapters is a claim to a new method and nothing in them is an attribution either. The reading is worth doing for its own sake, and whoever does it will find out what this actually is.
+No priority is claimed for the construction. It is reached from a general question, how far an arrangement sits from the most disordered arrangement of its own parts, with no crystal in mind. Arriving from there at an object a field already uses is evidence that the general question is pointed at something real. A full placement of this construction in the crystallographic literature is not made here.
 
 \section{Why the crystal is here as a control}
 
-The interest of this chapter is not the cell edge. Cell edges are published, refined to more decimal places than anything here reaches, and recovering one adds nothing to crystallography.
+The interest is not the cell edge. Cell edges are published, refined to more decimal places than anything here reaches, and recovering one adds nothing to crystallography.
 
-The interest is that the answer is known in advance by somebody else. Every other control in this work until the protein structures was a memoryless process, and a memoryless control shows only that an instrument does not invent structure. It cannot show that the instrument finds structure that is there. Those are different claims, and an instrument has to earn the second.
+The interest is that the answer is known in advance by somebody else. Apart from the protein structures, every other control in this work is a memoryless process, and a memoryless control shows only that an instrument does not invent structure. It cannot show that the instrument finds structure that is there. Those are different claims, and an instrument has to earn the second.
 
-A crystal earns it. The periodicity is not inferred from the measurement, it is a fact about the mineral, and the Crystallography Open Database publishes the cell for every entry it holds. The number the detector has to hit was written down before this instrument existed, by people with no interest in whether it works.
+A crystal earns it. The periodicity is not inferred from the measurement; it is a fact about the mineral, and the Crystallography Open Database~\cite{src:Crystallography-Open-Database} publishes the cell for every entry it holds. The number the detector has to hit is written down by people with no interest in whether it works.
