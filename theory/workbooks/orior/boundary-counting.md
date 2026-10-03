@@ -25,7 +25,7 @@ angular size about `d/R` however small the source is.
 | shape does not enter | 3, 4 and 5 dimensions, spread 1.03 to 1.10 | `gpu_pack.py --check` |
 | interior recovered from the boundary alone | 5 of 6 bodies, no false positives | `build_orrery_view.py` |
 | a shift on a golden placement is a rigid screw | turn 9.9e-14, slide 0, pitch spread 4.3e-19 | `boundary_read.py --check` |
-| deflection is rotation blind, torsion recovers the turn | 2.5e-14 against 1.8e-13 radians | `boundary_read.py --check` |
+| the angular power spectrum is rotation blind, torsion recovers the turn | 2.5e-14 against 1.8e-13 radians | `boundary_read.py --check` |
 | a reading to degree `L` carries `(L+1)^2` numbers about its source | rank 81 of 256 at degree 8, 256 at degree 15 | `frame_findings.md` section 4.1 |
 | the octant delta clears its redraw floor early and falls below it | 11.9% then 7.1% against a floor of 9.4% | `octant_lex.py --check` |
 | the relocation rate holds near independence | 0.5215 across 63 pairs, range 0.421 to 0.619 | counted over the round frames |
@@ -184,8 +184,8 @@ The bill above is priced in precision, and precision is not the first term. It i
 
 **The basis decides how many directions come back, before precision enters.** A reading to degree
 `L` carries exactly `(L+1)^2` real numbers about its source. Against a source with 256 degrees of
-freedom, a demon reading to degree eight recovers 81 directions and is blind in 175, and it is blind
-in them at any precision whatsoever. This is a counting shortfall of the same kind as the `R/x`
+freedom, a demon reading to degree eight recovers 81 directions and has nullity 175, and it is blind
+in those directions at any precision whatsoever. This is a counting shortfall of the same kind as the `R/x`
 deficit and not a rounding one, and no arithmetic buys it back either. The measurement is in the
 established table above: the map reaches the rank its coefficient count allows at every degree below
 the source count, leaving the shortfall in coefficients to account for the blindness on its own.
@@ -268,7 +268,7 @@ The pitch does not depend on the amount, and one axis and one helix carry every 
 shift runs off the end of return as a second rigid arm, a full axial extent away from where the
 screw alone would put them. Where a lit point lands is fixed once the amount is known.
 
-### Deflection and torsion split exactly
+### The angular power spectrum and torsion split exactly
 
 On an equal-ring placement a shift along a ring is a pure rotation, which makes it the placement to
 test a rotation on. Both harmonic readings come off one coefficient table, and under that rotation
@@ -276,10 +276,10 @@ they behave as opposites.
 
 | reading | under a rotation |
 |---|---|
-| deflection, the power per degree | moved by 2.5e-14 of itself |
+| the angular power spectrum, the power per degree | moved by 2.5e-14 of itself |
 | torsion, the phase of the same coefficients | recovered the angle to 1.8e-13 radians, sign included |
 
-Deflection is rotation blind by construction, since power per degree is a magnitude and a magnitude
+The angular power spectrum is rotation blind by construction, since power per degree is a magnitude and a magnitude
 does not record how the object was turned. Torsion carries which point sits where, and its sign
 gives the handedness. A caller reads the twist when the operations are rotations and reads the push
 when the quantity has to survive being turned.
@@ -291,7 +291,7 @@ alphabet of eight letters. How much such a reading can carry is settled before a
 reading to degree `L` carries exactly `(L+1)^2` real numbers about its source, whatever the source
 is.
 
-| degree | coefficients | rank | blind, against 256 | least singular value |
+| degree | coefficients | rank | nullity, against 256 | least singular value |
 |---|---|---|---|---|
 | 8 | 81 | 81 | 175 | 4.365 |
 | 12 | 169 | 169 | 87 | 3.818 |
@@ -300,8 +300,8 @@ is.
 
 The map reaches the rank its coefficient count allows at every degree below the source count, and the
 shortfall in coefficients accounts for the blindness on its own. No sample size and no precision
-changes it. The eight-letter alphabet is rank 8, seven free numbers once the weight is fixed, blind
-in 248 of 256 directions.
+changes it. The eight-letter alphabet is rank 8, seven free numbers once the weight is fixed, nullity
+248 of 256 directions.
 
 Degree fifteen is the floor, where `(L+1)^2` first reaches 256, and reaching the floor is not
 reaching a usable reading. The least singular value collapses to 3.5e-3 there and recovers to

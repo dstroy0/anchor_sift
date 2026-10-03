@@ -270,8 +270,8 @@ Every reading therefore splits exactly:
 * **Phase is contextual.** It is a property of the source and the reader together, and it moves by a
   known amount under a known rotation.
 
-The split is exact and needs no estimator. Deflection and torsion in `boundary_read.py` are the two
-halves.
+The split is exact and needs no estimator. The angular power spectrum (`deflection`) and torsion in `boundary_read.py` are
+the two halves.
 
 ## 7. The Constants, And Which Kind They Are
 

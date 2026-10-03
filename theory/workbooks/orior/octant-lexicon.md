@@ -48,7 +48,7 @@ A reading to degree `L` carries exactly `(L+1)^2` real numbers about its source,
 is. Set that against the number of degrees of freedom in the source and the shortfall is the
 blindness, before any measurement is taken.
 
-| degree | coefficients | rank | blind | least singular value |
+| degree | coefficients | rank | nullity | least singular value |
 |---|---|---|---|---|
 | 4 | 25 | 25 | 231 | 4.495 |
 | 8 | 81 | 81 | 175 | 4.365 |
@@ -56,13 +56,13 @@ blindness, before any measurement is taken.
 | 15 | 256 | 256 | 0 | 3.474e-3 |
 | 16 | 289 | 256 | 0 | 1.524e-1 |
 
-Against a 256-bit lit set, a reading to degree eight recovers 81 directions and is blind in 175. The
+Against a 256-bit lit set, a reading to degree eight recovers 81 directions and has nullity 175. The
 map reaches the rank its coefficient count allows at every degree below the source count, and the
 shortfall in coefficients accounts for the blindness on its own. No sample size, no precision and no
 number of beams changes it.
 
-The eight-letter alphabet on this page is rank 8, seven free numbers once the weight is fixed, blind
-in 248 of 256 directions.
+The eight-letter alphabet on this page is rank 8, seven free numbers once the weight is fixed, nullity
+248 of 256 directions.
 
 Degree fifteen is the floor, where `(L+1)^2` first reaches 256. Reaching the floor is not reaching a
 usable reading: the least singular value collapses to 3.5e-3 there and recovers to 1.5e-1 at

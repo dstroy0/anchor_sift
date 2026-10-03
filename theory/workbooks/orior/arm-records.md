@@ -253,15 +253,15 @@ Any proposed set is compared against these.
 
 **The sign octants, as they are actually placed.** Eight indicator arms over a 256-point golden
 placement. Cross products exactly zero, self products 31, 32 and 33. So the convenience is perfectly
-conditioned and small: it is orthogonal, it carries rank 8, seven free at fixed weight, and it is
-blind in 248 of 256 directions. Count is its whole limitation and conditioning is no part of it.
+conditioned and small: it is orthogonal, it carries rank 8, seven free at fixed weight, and its
+nullity is 248 of 256 directions. Count is its whole limitation and conditioning is no part of it.
 
 **Two hundred and fifty-six signed arms.** Each one the difference of two complementary point
 clouds, taken from the rows of a Sylvester matrix of order 256. Cross products exactly zero in
 integer arithmetic, self products all 256, every singular value 16.0, condition number exactly 1.
 Rank 256, complete, and perfectly conditioned.
 
-| arm set | arms | rank | blind | least singular value |
+| arm set | arms | rank | nullity | least singular value |
 |---|---|---|---|---|
 | sign octants | 8 | 8 | 248 | orthogonal, self products 31 to 33 |
 | Sylvester point clouds | 256 | 256 | 0 | 16.0, condition number 1 |
