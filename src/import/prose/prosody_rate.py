@@ -27,14 +27,13 @@
 #
 # WHAT THIS DOES NOT REPLACE
 #
-# orior/maint/prose/claudese_distance.py is the better instrument for the register question and
-# it existed before this file did. It has two poles, a human corpus and a page written deliberately
+# utils/maint/prose/machine_distance.py is the better instrument for the register question. It has two poles, a human corpus and a page written deliberately
 # in the assistant register, and it places a file by which it sits nearer, with the margin reported
 # against a band measured at that file's own word count. That is a positive control, and this file
 # has none: a rate against three quoted numbers cannot say what a file resembles, only how often it
 # uses named phrases.
 #
-# Run claudese_distance.py first. The one thing it states it does not measure is arrangement, since
+# Run machine_distance.py first. The one thing it states it does not measure is arrangement, since
 # its file-level distances are taken on a bag of words and it says at the foot of its own output.
 # The RHYTHM section below is that missing half and is the only reason to run this.
 

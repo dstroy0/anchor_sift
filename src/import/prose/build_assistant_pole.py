@@ -5,7 +5,7 @@
 # Build the assistant pole from every session transcript on this machine, split by whether the
 # writing was under suppression.
 #
-#   Usage:  python tools/prose/build_assistant_pole.py [--out-dir DIR] [--limit N]
+#   Usage:  python tools/prose/build_assistant_pole.py --transcripts DIR [--out-dir DIR] [--limit N]
 #
 # WHY THIS EXISTS
 #
@@ -45,8 +45,6 @@ sys.path.insert(0, ORIOR)
 
 import session_prose  # noqa: E402
 
-PROJECTS = os.path.join(os.path.expanduser("~"), ".claude", "projects")
-
 # The trees where docs_check.py runs, so prose written about them was written under the ban list.
 # Matched against the project directory name, which encodes the working directory path.
 SUPPRESSED = ("orior",)
@@ -75,13 +73,18 @@ def main(argv):
     elif "--everything" not in argv:
         only = SUPPRESSED
 
-    if not os.path.isdir(PROJECTS):
-        print("  no transcripts at %s" % PROJECTS)
+    # one directory a project, each holding that project's .jsonl transcripts
+    if "--transcripts" not in argv:
+        print("  --transcripts DIR names where the transcripts are")
+        return 2
+    projects = argv[argv.index("--transcripts") + 1]
+    if not os.path.isdir(projects):
+        print("  no transcripts at %s" % projects)
         return 2
 
     transcripts = []
-    for project in sorted(os.listdir(PROJECTS)):
-        full = os.path.join(PROJECTS, project)
+    for project in sorted(os.listdir(projects)):
+        full = os.path.join(projects, project)
         if not os.path.isdir(full):
             continue
         if only and not any(mark.lower() in project.lower() for mark in only):

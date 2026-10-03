@@ -5,29 +5,28 @@ the arms agree about one position, and all of them are blind to the same thing: 
 each be unbiased on their own and still move together across arms. That is co-variation, it is
 structure, and no amount of per-position testing detects it.
 
-The arms are what make it askable. With k arms each position carries a VECTOR of k deviations
-rather than a single number, so positions can be correlated with each other and the correlation
-matrix has something in it. A shared cause inside the compression would show as a cluster of
+The arms are what make it askable. With k arms each position carries a VECTOR of k deviations.
+Positions can be correlated with each other and the correlation matrix has something in it. A shared cause inside the compression would show as a cluster of
 positions whose deviations track one another arm after arm, while each stays unremarkable alone.
 
 METHOD
 
-    distance      one minus the absolute correlation of two positions' deviation vectors, so
-                  positions that track each other OR track each other inverted are near
+    distance      one minus the absolute correlation of two positions' deviation vectors.
+                  Positions that track each other OR track each other inverted are near
     linkage       average, because single linkage chains through noise and complete linkage is
                   dominated by the one worst pair in a cluster
     statistic     the tightest cluster of at least four positions, measured by its mean internal
-                  distance. That is what a real shared cause would produce.
+                  distance. A real shared cause would produce it.
 
 THE NULL IS DRAWN, NOT DERIVED
 
 Correlations of 256 vectors give 32640 pairs, and the largest of those has no usable closed form.
 So the null permutes each position's arm order INDEPENDENTLY, which destroys co-variation while
 holding every position's own distribution exactly fixed, and reclusters. Anything the real data
-does that the permuted data cannot is co-variation and nothing else.
+does that the permuted data cannot is co-variation.
 
-    python tools/audit/agglomerate.py
-    python tools/audit/agglomerate.py --draws 200
+    python tools/audit/agglomerate.py --dir path/to/arms
+    python tools/audit/agglomerate.py --dir path/to/arms --draws 200
 """
 
 import argparse
@@ -38,7 +37,6 @@ import math
 import os
 import random
 
-ARM_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
 POSITIONS = 256
 MIN_CLUSTER = 4
 
@@ -58,7 +56,7 @@ def load_arms(directory):
 
 
 def standardise(vectors):
-    """Centre and scale each position's vector so correlation is a dot product."""
+    """Center and scale each position's vector so correlation is a dot product."""
     out = []
     for row in vectors:
         count = len(row)
@@ -137,7 +135,7 @@ def tightest_cluster(unit, verbose=False):
 
 def main():
     parser = argparse.ArgumentParser(description="Cluster survey positions by co-variation.")
-    parser.add_argument("--dir", default=ARM_DIR)
+    parser.add_argument("--dir", required=True, help="the directory holding survey_arm_*.json")
     parser.add_argument("--draws", type=int, default=60)
     given = parser.parse_args()
 
@@ -145,7 +143,7 @@ def main():
     if arms < 12:
         raise SystemExit("need at least twelve arms for a correlation to mean anything, found %d"
                          % arms)
-    print("  %d arms, %d positions, so each position carries a vector of %d"
+    print("  %d arms, %d positions: each position carries a vector of %d"
           % (arms, POSITIONS, arms))
     print("  a correlation on %d points has a standard error near %.4f"
           % (arms, 1.0 / math.sqrt(arms)))
@@ -158,7 +156,7 @@ def main():
     print("  THE TIGHTEST CLUSTER IN THE REAL ARMS")
     print("=" * 76)
     print()
-    print("    mean internal distance   %.5f   (1 - |correlation|, so lower is tighter)" % observed)
+    print("    mean internal distance   %.5f   (1 - |correlation|; lower is tighter)" % observed)
     if group:
         print("    size                     %d positions" % len(group))
         print("    members                  %s%s"
@@ -198,12 +196,12 @@ def main():
           % (below, len(draws), below / float(len(draws))))
     print()
     if below <= 0.05 * len(draws):
-        print("    -> positions co-vary. A cluster this tight cannot be made by permuting, so")
-        print("       something inside the compression moves these positions together, and no")
+        print("    -> positions co-vary. A cluster this tight cannot be made by permuting.")
+        print("       Something inside the compression moves these positions together, and no")
         print("       per-position test in this tree could have seen it.")
     else:
         print("    -> no co-variation. The tightest real cluster is what independent positions")
-        print("       produce, so the output bits are not merely unbiased one at a time, they are")
+        print("       produce. The output bits are not merely unbiased one at a time, they are")
         print("       unrelated to each other. That is the stronger statement and it needed the")
         print("       arms to make it.")
     return 0
