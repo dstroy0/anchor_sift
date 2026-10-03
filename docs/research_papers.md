@@ -89,9 +89,9 @@ _Certificates instead of tables, and the constants nobody checks._
 
 _The weird end, kept apart from what was measured._ These are the posits whose experiment cannot be built as written. Nothing in this research paper is believed. A possibility is allowed, which is a different act, and it is allowed so it can be pushed until it stops cohering.
 
-### [Thought Experiments: engine](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/engine)
+### [The Engine's Ideas, Stated So They Can Be Decided](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/engine)
 
-The drafts the engine's theory was carried from.
+Sensor noise, threshold search, state vectors, dwell and entropy, self-reproduction, learned rulesets and identity, each with the test that decides it. The engine's claims with no such test yet are kept as wants in the engine workbook.
 
 ### [Cell Lineage from Shape and Whole-Sequence Evidence](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/cell_tracking)
 

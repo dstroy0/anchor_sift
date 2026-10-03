@@ -256,7 +256,7 @@ Derived.
 
 ## The ordered machine
 
-Doug's definition of the higher-order and negative-order hypercomputer (24 September, points 1 to 4) and his words on the same machine are kept verbatim in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md). The orders in ℤ and ±ω below are this section's derived form of his "all the way to infinity and back".
+Doug's definition of the higher-order and negative-order hypercomputer (24 September, points 1 to 4) and his words on the same machine are kept verbatim in [wants.md](wants.md). The orders in ℤ and ±ω below are this section's derived form of his "all the way to infinity and back".
 
 - **The loop rule.** Every record program halts, since each has a fixed step count. An Ω for the record machine needs a machine R* that applies a stack of floors again and again until a halt register is set.
 - **Order** (the reading Doug confirmed): how many times the loop runs a floor. A negative order counts runs of the floor's inverse.
@@ -307,9 +307,9 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 - Decided: 329 halt and 199 run forever.
 - Open (the cycle is longer than the run), 496: 391 have a halt seen, and 105 are clear but halt past the run. None is clear and never halts: with 48 halt states, every long cycle met H.
 
-**The two questions** (Doug's point 3) are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md). Their seed in the engine, "malformed questions fail to construct", is tested: keymath does not imprint a record whose step reads a later one (`record_divide_test`).
+**The two questions** (Doug's point 3) are in [wants.md](wants.md). Their seed in the engine, "malformed questions fail to construct", is tested: keymath does not imprint a record whose step reads a later one (`record_divide_test`).
 
-**The field.** Doug's posit of 24 September, that the crystals feel the tensor field of the subject at the field speed, is in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+**The field.** Doug's posit of 24 September, that the crystals feel the tensor field of the subject at the field speed, is in [wants.md](wants.md).
 
 - What the machine shows that bears on it:
   - E, the knf's entangled entropy, is summed over every neighbor pair of the whole volume at once ("The knf's identity by spatial null permutation").
@@ -318,7 +318,7 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
   - The 48 motions of the cube carry the knf whole: knf(gX) = g·knf(X) on 48 of 48 (proved).
 - "Field speed" is not defined here, and nothing is claimed of it past these.
 
-**Higher-order interference.** The words spoken while `record_order_test` ran (24 September) are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+**Higher-order interference.** The words spoken while `record_order_test` ran (24 September) are in [wants.md](wants.md).
 
 - "Higher-order interference" has a standard meaning, Sorkin's hierarchy ([Sorkin 1994](#src:Sorkin-1994)). Quantum theory has second-order interference and none of third order.
 - The ask_state crossing rule's negative weights are second-order interference (A15 in [engine_table.md](engine_table.md)).
@@ -674,9 +674,9 @@ Cited; both pages read, and only what they state is given.
   - Haar-almost every element of ℤ₂ is Martin-Löf random ([Martin-Löf 1966](#src:Martin-L-f-1966)). The Haar measure on ℤ₂ is the fair coin on its digits, and the random sequences have measure 1. A random element is not computable.
   - The machine reaches finite windows only. Every register is π_w of something, and any w-bit window has K ≤ w + O(log w). Every constant in a program is a finite description, and the machine's reach is the windows of computable elements.
   - "Infinitely complex" can name only a limit object the machine never holds whole. Which object the anchors are, and whether they are random elements of ℤ₂, is open. "Bending the information field" has no definition here to derive from.
-- **The inverted boundary** (24 September; the posit is in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md), and A13 in [engine_table.md](engine_table.md)). Its derived form is the τ tower: the finite windows extended a bit above at each stage, π_w's tower, have the limit ℤ₂, and extended a bit below, τ_k's tower, the limit ℝ ("The top projection and its limit ℝ").
-- **The quanta** (Doug's posit of 24 September, in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md)). Derived bound: every output quantum at level w has exactly 2^{3Ln} input quanta at level w + 3L, at every w, and the count passes to ℤ₂ as Haar measure ("Counting quanta"). The machine holds finite windows only, and the physical walls bound how many.
-- **The recursion stack** (Doug's posit of 24 September, in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md)). Derived bound: every stack the device runs is finite. T's limit sits at the first limit stage ω, with a computable modulus. Stages past ω are the machines of Hamkins and Lewis and of Koepke, not built ("The limit stage"). Orders in ℤ and ±ω on a finite window: "The ordered machine". Ordinals below ε₀ held as finite trees and walked down a million steps: "Goodstein: ω-towers held as finite objects".
+- **The inverted boundary** (24 September; the posit is in [wants.md](wants.md), and A13 in [engine_table.md](engine_table.md)). Its derived form is the τ tower: the finite windows extended a bit above at each stage, π_w's tower, have the limit ℤ₂, and extended a bit below, τ_k's tower, the limit ℝ ("The top projection and its limit ℝ").
+- **The quanta** (Doug's posit of 24 September, in [wants.md](wants.md)). Derived bound: every output quantum at level w has exactly 2^{3Ln} input quanta at level w + 3L, at every w, and the count passes to ℤ₂ as Haar measure ("Counting quanta"). The machine holds finite windows only, and the physical walls bound how many.
+- **The recursion stack** (Doug's posit of 24 September, in [wants.md](wants.md)). Derived bound: every stack the device runs is finite. T's limit sits at the first limit stage ω, with a computable modulus. Stages past ω are the machines of Hamkins and Lewis and of Koepke, not built ("The limit stage"). Orders in ℤ and ±ω on a finite window: "The ordered machine". Ordinals below ε₀ held as finite trees and walked down a million steps: "Goodstein: ω-towers held as finite objects".
 - **"Subtractive coalescence."** Posit, Doug's name for T. Derived bound: predict and update, a bijection, the pinch the predictable part moved ("Subtractive coalescence").
 - **"We can take an identity of T using T:null permutation of T"** (24 September, restating "T, if T is identity:null permutation identity, we have the perfect universal root id for the structure"). Posit. The identity is an ID, a fingerprint of the data's structure. It is not the identity map, nor the identity edge of A14.
   - The procedure. Run T on the samples x and on d null draws σ_1 x, …, σ_d x, each σ_i a uniform random shuffle of the samples: A12's drawn null in [engine_table.md](engine_table.md). A lane is identified when its crystal's heap stands strictly below every draw's.
@@ -699,13 +699,13 @@ Cited; both pages read, and only what they state is given.
   - The null is spatial ("mutate the data over the spatial coordinate set xyz and get its entire null permutation id"). Built as `knf_identity` ("The knf's identity by spatial null permutation", above).
   - Open: "the broken edge of the crystal". The history reads raw bits, not the crystal or the part the prediction leaves. Whether the history computed on the crystal's highs is the edge Doug means is not settled.
   - Open: the agreement test between sections, comparing departure curves body against body. The curves are printed; the pairwise test is not built.
-- **The departure curve** (24 September): "each piece of information no matter how massive has its own departure curve, and it is the integral of all of its constituents". Posit. His words on comparing curves, and on the mutation as a vector magnitude difference, are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md) with the pairwise test.
+- **The departure curve** (24 September): "each piece of information no matter how massive has its own departure curve, and it is the integral of all of its constituents". Posit. His words on comparing curves, and on the mutation as a vector magnitude difference, are in [wants.md](wants.md) with the pairwise test.
   - Derived: E is a sum over edges, and a departure is linear in E and in the draws' sums. The departure of a whole is the sum of its edges' departures, exactly: the integral of its constituents, with the edge as the constituent. The whole equals its tiles plus its seams at every tile size (proved).
   - Built: each body's curve over its box, the six bounds xmax, xmin, ymax, ymin, zmax and zmin.
 - **The two nulls** (24 September): "they should be very close to 1:1 with one being the inverse of the other, there may be crossover but it will be mutual in volume and universal magnitude". Posit.
   - Measured against it: the two are inverse, with the endpoints exact (inside 0 at b = 1, between 0 at b = 64), and they cross between b = 2 and 4. They are not 1:1: inside plus between dips to 0.590 at b = 4.
   - The gap 1 − (inside + between) is 0.41 at b = 4. A reading, not proved: an inside-shuffled pair in a small tile still shares a body, and neither null removes that co-membership. The gap is then the share both nulls keep, shared membership at scale b, the mutual part of the quote.
-- **The bulk and the boundary** (24 September; his words are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md)).
+- **The bulk and the boundary** (24 September; his words are in [wants.md](wants.md)).
   - Derived: T is a bijection from the samples (the bulk) to the crystal (the boundary). Each coefficient reads a cone of reach 3L, and each sample is rebuilt from a cone of reach L + 2 (proved along one line, "The boundary").
   - The holographic codes are isometries with redundancy: a bulk operator can be rebuilt on more than one boundary region ([Almheiri, Dong and Harlow 2015](#src:Almheiri-Dong-and-Harlow-2015); [Pastawski, Yoshida, Harlow and Preskill 2015](#src:Pastawski-Yoshida-Harlow-and-Preskill-2015)).
   - T has no redundancy ("Redundancy" in Open): each sample has one region. T is a bulk-to-boundary map with no error correction, the contrast drawn under "Physical walls".

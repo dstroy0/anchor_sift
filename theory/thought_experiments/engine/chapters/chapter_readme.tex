@@ -1,28 +1,22 @@
-\chapter{\texorpdfstring{Thought experiments: the engine}{Thought experiments: the engine}}
+\chapter{\texorpdfstring{The engine's ideas, stated so they can be decided}{The engine's ideas, stated so they can be decided}}
 \label{chap:readme}
 
-\textbf{Purpose:} The drafts the engine's theory was carried from.
+This research paper collects the ideas behind the engine that have a form a proof or a measurement can decide. Each chapter states one idea precisely, sets it against the literature it belongs to, says what the idea does not give, and names the test that would settle it. What the engine builds and measures is recorded in the engine workbook~\cite{src:Quigg-engine-workbook}. A chapter says so where a part is built and does not claim a part that is not. The engine's claims that have no such form yet are kept as wants in the same workbook.
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.4000\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6000\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.4208\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5792\linewidth-2\tabcolsep\relax}}
 \toprule
-file & origin \\
+file & what it holds \\
 \midrule
 \endhead
-\texttt{noise\_\allowbreak{}sieve\_\allowbreak{}1\_\allowbreak{}rule\_\allowbreak{}propagation.\allowbreak{}md} & the first draft: top-down rule propagation down the tower to floor −4 \\
-\texttt{noise\_\allowbreak{}sieve\_\allowbreak{}2\_\allowbreak{}lut\_\allowbreak{}beamformer\_\allowbreak{}collapse.\allowbreak{}md} & adds the binary LUT engine, two's complement exact division, the beamformer and the 2D collapse \\
-\texttt{noise\_\allowbreak{}sieve\_\allowbreak{}3\_\allowbreak{}tower\_\allowbreak{}scheduling\_\allowbreak{}floor\_\allowbreak{}minus\_\allowbreak{}4.\allowbreak{}md} & adds temporal stacking, the master schedule and floor −4 as the irreducible limit \\
-\texttt{noise\_\allowbreak{}sieve\_\allowbreak{}4\_\allowbreak{}laplace\_\allowbreak{}demon.\allowbreak{}md} & adds the demon: shift agreement as its eyes, the identity:null permutation as its arms \\
-\texttt{fluidic\_\allowbreak{}1\_\allowbreak{}demon\_\allowbreak{}uroboros\_\allowbreak{}construct\_\allowbreak{}kit.\allowbreak{}md} & the fluidic tower: the demon observer, the self-feeding loop, the three irreducible sets \\
-\texttt{fluidic\_\allowbreak{}2\_\allowbreak{}elevator\_\allowbreak{}identity\_\allowbreak{}entropy.\allowbreak{}md} & the elevator operator, recursive inflation, identity as the limit of coherence, binary probes, entropy \\
-\texttt{subtractive\_\allowbreak{}cosmological\_\allowbreak{}framework.\allowbreak{}md} & a conversation: rules propagating at field speed, not instantly; arrival as a wavefront; listening at the noise floor; phase cancellation; the identity:null permutation as field noise readings only \\
-\texttt{cyclic\_\allowbreak{}field\_\allowbreak{}inversion\_\allowbreak{}seed\_\allowbreak{}crystal.\allowbreak{}md} & exported as “Solving N-Body Problems Deterministically”, though it holds no n-body method: a conversation on the field inverting at maximum entropy, the seed crystal, and the needle snap just off zero radius that breaks symmetry and sets the next field's propagation speed \\
-\texttt{hash\_\allowbreak{}boundary\_\allowbreak{}functional\_\allowbreak{}folding.\allowbreak{}md} & the boundary functional of a 2\textasciicircum{}120 hash keyspace as a threshold latch, and folding schemes that keep an accumulator one size however much is folded \\
-\texttt{demon\_\allowbreak{}utm\_\allowbreak{}four\_\allowbreak{}noise\_\allowbreak{}vectors.\allowbreak{}md} & the demon and a non-halting UTM treating video noise as deterministic: the residual tensor F − I split into four vector magnitudes (shot, thermal/read, fixed pattern, quantization) integrated over n frames \\
-\texttt{utm\_\allowbreak{}demon\_\allowbreak{}openqasm.\allowbreak{}md} & a UTM paired with Laplace's demon running an OpenQASM circuit: the 2\textasciicircum{}n state vector, unitaries, and measurement without dice \\
-\texttt{posits\_\allowbreak{}24\_\allowbreak{}september.\allowbreak{}md} & the untested posits, moved out of the engine workbook: Doug's on the wire and the witness, and the drafts' claims past the engine \\
-\texttt{posits\_\allowbreak{}26\_\allowbreak{}september.\allowbreak{}md} & Doug's posits of 26 September, each with its check: the three truths and the tower, the projection, dwell as the bulk, dwell and entropy, and the dwell bench, not built \\
+\hyperref[chap:sensor-noise]{sensor\_\allowbreak{}noise.md} & the four noise sources of an image sensor, how their variances combine, and how averaging frames separates the fixed pattern from the rest \\
+\hyperref[chap:threshold-search]{threshold\_\allowbreak{}search.md} & search for a hash below a threshold in a 2\textasciicircum{}120 keyspace, its expected cost, and what folding schemes compress and what they do not \\
+\hyperref[chap:state-vectors]{state\_\allowbreak{}vectors.md} & the cost of simulating a quantum circuit classically, and why a deterministic interpretation leaves that cost where it is \\
+\hyperref[chap:dwell-and-entropy]{dwell\_\allowbreak{}and\_\allowbreak{}entropy.md} & how long a bit holds its value against the entropy rate of its sequence, derived for renewal processes, and the bench that would measure it \\
+\hyperref[chap:self-reproduction]{self\_\allowbreak{}reproduction.md} & von Neumann's self-reproducing automaton, and what a compiler that compiles itself does and does not show \\
+\hyperref[chap:learning-a-ruleset]{learning\_\allowbreak{}a\_\allowbreak{}ruleset.md} & the limits on learning a machine's rules from probes, and what compression can and cannot say about a stream's source \\
+\hyperref[chap:identity]{identity.md} & identity written into an instance at spawn, and a hash-chained record of its series, with what each proves \\
 \bottomrule
 \end{longtable}
 }
