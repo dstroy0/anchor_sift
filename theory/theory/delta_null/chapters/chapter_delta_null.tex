@@ -230,7 +230,7 @@ The results above need no code. This section states what the engine at orior com
 
 \noindent\textbf{Any symbol type through equality, and ranks only within one ranking.} The engine sees a symbol only through \texttt{AnchorSameAt}, an equality test at two positions (\texttt{orior.h:354-357}, \texttt{:377}), and a planning pass works on data of any symbol type through that alone (\texttt{orior.c:526}, \texttt{:619}). \texttt{anchor\_field\_project} turns such data into byte ranks, rarest first (\texttt{orior.h:403}, \texttt{:485-487}). A rank combines a class, taken from the caller's equality test, with a place in a rarity order counted over the data that call saw, and that place does not carry over to other data (\texttt{:408-413}). Ranks from two separate calls can rule out a true match (\texttt{:419-429}). Classes are the transitive closure of the equality test over the positions present (\texttt{:443-453}; \texttt{orior.c:684-706}), at a cost of up to the square of the data length in equality tests (\texttt{orior.h:497-500}). \texttt{anchor\_field\_pair\_project} ranks the data and the pattern together (\texttt{:586}; \texttt{orior.c:885-888}). A class gets the same rank on both sides, and no true match is lost under any equality test (\texttt{orior.h:450-451}, \texttt{:604-605}). Its count is exact with 256 classes or fewer under a transitive equality test (\texttt{:596-598}). With more than 256 classes, or under a test whose closure joins positions that do not agree, the count is an upper bound (\texttt{:450-453}, \texttt{:600-603}).
 
-\noindent\textbf{Not built, and open.} A reader that the engine could call for more data is described in prose only, with no function signature or contract, and nothing is being built toward it (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:241-\allowbreak{}257}). Whether a caller's loop over planning passes can compute anything computable is open. The model named as the target is a tag system \cite{src:Minsky}, no translation into it is written, and the engine as built is finite (\texttt{docs/\allowbreak{}steering.md:160}, \texttt{:188-\allowbreak{}192}).
+\noindent\textbf{Not built, and open.} A reader that the engine could call for more data is described in prose only, with no function signature or contract, and nothing is being built toward it (\texttt{docs/\allowbreak{}findings-\allowbreak{}for-\allowbreak{}verification.md:241-\allowbreak{}257}). Whether a caller's loop over planning passes can compute anything computable is open. The model named as the target is a tag system \cite{src:Post, src:Minsky}, no translation into it is written, and the engine as built is finite (\texttt{docs/\allowbreak{}steering.md:160}, \texttt{:188-\allowbreak{}192}).
 
 \subsection{3. How the measurements were made}
 
@@ -2111,7 +2111,7 @@ CAVP Monte & NIST & 100 × 1000 & chained state: each digest feeds the next \\
 CAVP bit ShortMsg & NIST & 513 & 448 do not end on a byte \\
 CAVP bit LongMsg & NIST & 512 & 448 do not end on a byte \\
 CAVP HMAC & NIST & 225 & 150 carry truncated tags \\
-Wycheproof HMAC & C2SP \texttt{b61843a9} & 46 & 20 modified tags that must not reproduce \\
+Wycheproof HMAC \cite{src:Wycheproof} & C2SP \texttt{b61843a9} & 46 & 20 modified tags that must not reproduce \\
 streaming splits & invariant & 3321 cuts & every split of one message must reach one digest \\
 differential & second implementation & 424 & padding edges plus random lengths \\
 \bottomrule
@@ -2171,7 +2171,7 @@ domain & scripts & reaches \\
 \end{center}
 
 Five of these fields carry an oracle step, and the rest stop short of one. This paper's results
-rest on two oracle answers this work did not produce: crystallography's published cell edges and
+rest on two oracle answers this work did not produce: crystallography's published cell edges \cite{src:Crystallography-Open-Database} and
 language's answers extracted by hand. The protein and game theory oracles test against published
 values too, and those comparisons belong to their own papers. Everything this paper measures beyond
 the two named is taken against its own permutation null and says so.

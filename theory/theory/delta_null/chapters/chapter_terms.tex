@@ -76,9 +76,9 @@ the observed statistic minus its mean over the shuffled copies. It is a differen
 
 The two measurements below are different, and a row measured with one cannot stand in for a row measured with the other. Both rest on Proposition 1.
 
-\noindent\textbf{the permutation null.} The difference between an arrangement and the shuffled copies of the same symbols. It carries most of the results in the workbook, and no outside source has the answer to check it against. The conjecture behind it, which nothing here measures, is that the structure in \(\Sigma\) shuffles what the null set \(\text{null}_0\) could carry, and that the shuffled order shows what happens to \(\text{null}_0\).
+\noindent\textbf{the permutation null.} The difference between an arrangement and the shuffled copies of the same symbols. Each copy is a Fisher-Yates shuffle \cite{src:Fisher} (orior \texttt{src/\allowbreak{}python/\allowbreak{}engine/\allowbreak{}analysis/\allowbreak{}measure/\allowbreak{}period.\allowbreak{}py:23}). It carries most of the results in the workbook, and no outside source has the answer to check it against. The conjecture behind it, which nothing here measures, is that the structure in \(\Sigma\) shuffles what the null set \(\text{null}_0\) could carry, and that the shuffled order shows what happens to \(\text{null}_0\).
 
-\noindent\textbf{the shift agreement detector.} Finds a period or an offset by how often the data agrees with a shifted copy of itself. Published cell edges in the Crystallography Open Database check it three separate ways.
+\noindent\textbf{the shift agreement detector.} Finds a period or an offset by how often the data agrees with a shifted copy of itself. Published cell edges in the Crystallography Open Database \cite{src:Crystallography-Open-Database} check it three separate ways.
 
 The engine is \texttt{src/\allowbreak{}engine/\allowbreak{}c/\allowbreak{}engine/\allowbreak{}orior.h} and \texttt{orior.c} in orior at commit \texttt{1044ca6} (\texttt{docs/\allowbreak{}steering.md:4}). The bench rows in the first chapter were measured with an earlier library whose modules have Latin names, \texttt{impensa\_\allowbreak{}ancorae\_\allowbreak{}acus} among them (Section 9 of that chapter).
 
