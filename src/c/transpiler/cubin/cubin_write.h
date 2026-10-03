@@ -44,4 +44,10 @@ unsigned int cubin_exits_find(const unsigned char *code, unsigned long long code
 // info; 0 where the pattern holds no such kernel
 unsigned int cubin_registers_read(const unsigned char *pattern, const char *kernel);
 
+// every code section of `cubin`, which is `size` bytes, each a section named .text.<function>: the offset of each
+// through `offsets` and its length through `sizes`, which hold `room`. The count found, or 0 where there is none or a
+// header, a name or a section lies past the cubin's end, or there are more than `room`
+unsigned int cubin_code_sections(const unsigned char *cubin, unsigned long long size, unsigned long long *offsets,
+                                 unsigned long long *sizes, unsigned int room);
+
 #endif

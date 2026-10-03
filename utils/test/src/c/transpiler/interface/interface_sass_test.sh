@@ -56,8 +56,8 @@ done
 INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$INTERFACE" -I "$CUBIN")
 rm -f "$BINARY" "$PROBE"
 OBJECTS=()
-for source in "$INTERFACE/interface.c" "$INTERFACE/interface_names.c" "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c" \
-              "$CUBIN/cubin_write.c" "$TEST/interface_sass_probe_main.c" "$TEST/interface_sass_probe_machine.c" \
+for source in "$INTERFACE/interface.c" "$INTERFACE/interface_names.c" "$TOP/src/c/types/file_defs/krs/sass_machine.c" \
+              "$CUBIN/sass_assemble.c" "$CUBIN/cubin_write.c" "$CUBIN/cubin_safe.c" "$TEST/interface_sass_probe_main.c" "$TEST/interface_sass_probe_machine.c" \
               "$TEST/interface_sass_probe_ask.c" "$TEST/../../../../../../src/c/types/file_defs/ksc/interface_sass_probe_class.c" "$TEST/interface_sass_probe_cubin.c" \
               "$TEST/interface_sass_probe_read.c" "$TEST/interface_sass_probe_check.c"; do
     object="$OUT/$(basename "$source" .c).$EXTENSION"
@@ -98,6 +98,15 @@ if [ -n "${SASS_PATTERN:-}" ]; then
     exit "$STATUS"
 fi
 mkdir -p "$OUT/sass"
+# SASS_LEARN set learns the machine again through the disassembler, bit by bit, which runs past half an hour; unset,
+# the asks are put against the machine file the tree holds for the first architecture
+if [ -z "${SASS_LEARN:-}" ]; then
+    FIRST="${ARCHES%% *}"
+    "$BINARY" "$PROBE" "$OUT/sass" asks "$CUBIN/machines/$FIRST"
+    STATUS=$?
+    echo "  interface sass asks exit $STATUS"
+    exit "$STATUS"
+fi
 "$BINARY" "$PROBE" "$OUT/sass" "$CUBIN/machines"
 STATUS=$?
 echo "  interface sass test exit $STATUS"

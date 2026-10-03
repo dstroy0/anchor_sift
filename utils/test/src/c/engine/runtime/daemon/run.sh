@@ -5,9 +5,10 @@ set -u
 TEST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE="$(cd "$TEST/../../../../../../../src/c/engine/runtime/daemon" && pwd)"
 TOP="$(cd "$MODULE/../../../.." && pwd)"
-# utils/maint/ is at the repository's root, one above src/
-source "$(cd "$TOP/.." && pwd)/utils/maint/engine/build_stamp.sh"
-build_stamp tessera_test
+# utils/maint/ and build/ are at the repository's root, one above src/
+REPOSITORY="$(cd "$TOP/.." && pwd)"
+source "$REPOSITORY/utils/maint/engine/build_stamp.sh"
+TOP="$REPOSITORY" build_stamp tessera_test
 
 SCRIPTURA="$TOP/c/engine/runtime/scriptura"
 OBSIGNATIO="$TOP/c/engine/runtime/obsignatio"

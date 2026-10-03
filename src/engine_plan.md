@@ -146,7 +146,7 @@ shows three members where the first agrees with the second, the second with the 
 neither. Pairwise agreement therefore names no set, and which members share a stem has no answer that does not
 depend on which was asked first. A group needs one of two things written: a representative every member is
 compared against, or a rule that builds the group and says which member it is anchored on. The rule is
-written, with its anchor as the representative (Open 12).
+written, with its anchor as the representative (Open 10).
 
 **`.kdm` grows to whatever specificity a part needs.** It holds as many answers as it has: a general answer
 block, and under it a map specific enough to be optimal on one device and nowhere else. A driver written by
@@ -235,8 +235,12 @@ works there.
 
 ## Open
 
-1. **Nothing searches for a writing.** No file of relations is emitted, run and read back, which leaves every
-   writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
+1. **The writings the part gives are read into nothing.** A writing of one instruction is searched for on the part
+   for every precept and every ladder relation, and every arrangement of the `.kdm` is written from them, run and
+   read back (the writings searched, below). `L*` and `sass.krs` are still written by hand. `sass.krs` is read
+   against the writings found and not written from them: of its forms for the word web's eight words of one
+   precept, six are writings the part gives, and `word_shift_left` and `word_shift_right` are not
+   (`interface_sass_krs.md`). It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
@@ -307,15 +311,34 @@ works there.
      registers holding distinct values and a predicate it sets read through `SEL`, and writes
      `interface_sass_fields.md` whole. A turned bit is put to the part only where its operation key holds forms in
      the machine file and no control transfer or wait among them; any other is marked skipped and run on nothing.
-     Of the 78 forms, 1637 bits read inside a run the machine file records and 512 outside every run. The three
+     Of the 75 forms, 1619 bits read inside a run the machine file records and 526 outside every run. The three
      branch forms name a label and are not asked.
    - Scheduler bits. NVIDIA sets them an instruction at a time. The krs holds each operation's schedule, read
      from what NVIDIA's compiler writes over the tree (`monolith_scheduler.md`): a late result behind a write
      barrier, a store behind a read barrier, and the soonest a fixed result is read, 4 cycles on the integer
      operations. Our safe word sets its barriers from that schedule and stalls the longest at every instruction.
      The stall is the cost layer and is decided with Doug before it is tuned.
+   - Writings searched on the part. `utils/test/src/c/transpiler/interface/interface_sass_writings.sh` puts every
+     form of the machine file that writes a register from registers, predicates and numbers alone, 745 of 2928, in
+     place of the frame's IADD3, each through the gate, and runs it on the part over 256 cases at once: the ladder's
+     two-word cases, the words a width turns on against the counts a shift turns on, and words drawn as
+     `chain_build` draws its sweep. A form is put with every assignment of the two words and RZ to its register
+     sources that gives both, and a number whose field is eight bits wide, a truth table, with each of its 256
+     values. It writes `interface_sass_writings.md` whole: 5685 cubins, 5394 run and the part refuses 291. Every
+     precept that carries a word holds under at least one form, asr, rol and ror each as a `.W` funnel given the
+     word on both halves, and every ladder relation but same. On the ladder's cases alone a dot product of bytes
+     holds product and every shift holds up or down: the drawn words take them out. Up and down hold only under
+     `.W`, since the precept wraps a count of 32 and more and the forms without `.W` answer 0 there.
+   - Arrangements run on the part. The same script writes every arrangement of `machines/sm_86.kdm` node by node,
+     each node the first writing the search found for its precept, runs all 3068 over the same cases and writes
+     `interface_sass_chains.md` whole: every one answers its relation on every case, add 1202, take 1047, up 411 and
+     down 408. Then the cases `gate_descent` places for each relation, one or two, are put to every arrangement it
+     descends over, 3575 of them, on the part alone, and `interface_sass_descent.md` holds the part's verdicts to the
+     descent's: what stands on the part stands on the host for every relation, and no verdict differs.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
-     where the precept wraps it; `word_funnel_right` carries no `.W` and has no left form; there is no
+     where the precept wraps it. The machine file holds no `.W` form with a number for the count, and the code
+     generator writes number counts of 1 to 31 alone, where both forms agree. `word_funnel_right` carries no `.W`
+     and has no left form; there is no
      arithmetic shift form; NOT, NAND and NOR have no form, each one `LOP3` (0x33, 0x3f, 0x03); add and
      subtract write `IADD3` alone.
    - Word web and alphabet web. On this part every gate is one `LOP3` node and ASR, ROL and ROR are each one
@@ -331,7 +354,10 @@ works there.
 2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
-   instead of kept against a row here.
+   instead of kept against a row here. Every row runs on the part (`interface_sass_chains.md`), which leaves each one
+   a cubin a reading can be kept against. A row timed under the safe word reads its count of nodes and nothing past
+   it: every instruction stalls the longest, and an integer result is back before the next one issues. The 1198
+   rows of add at three nodes would all read alike, and the costs wait on the scheduler bits (Pending Doug).
 
 3. **`.krs` has no derived half.** Five are written. None can be completed by asking. A partly written one is the
    normal case and not a failure.
@@ -343,20 +369,36 @@ works there.
 5. **The relations are not asked for everything.** An atomic add has no relation put for it. `count_add` waits on
    that, and not on a name a disassembler will not print.
 
-6. **The compile channel in `.ksc` reads 0.** It runs in another process, uninstrumented. Run, decode and clock
-   all read.
-
-7. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
+6. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
    writes where the host refuses.
 
-8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
-   stale.
+7. **Not proved.** Of the matrix's 51 suites, 37 hold every check on the current tree: daemon, web_check, interface,
+   interface_sass, ruleset_read, cubin_safe, record_host, record_c, codegen_device, engine_c, exact_divide, exact_transform, max_tree,
+   device_pool, period, python_period, python_periodic_energy, double_fields, obsignatio, qasm, record_sum,
+   vhdl_construction_set, record_bitwise, record_coherence, record_divide, record_gaussian, record_guide,
+   record_lane, record_speed and record_order, and the C builds of bitwise, boundary, coherence, divide, gaussian,
+   guide and lane. interface_ptx holds its ten checks in ptx.krs; its flagless ruleset is brought
+   in line with ptx.krs's `nop` forms and has not run since. 13 have no result: record_boundary, record_table,
+   record_tower, record_vhdl, the C pairs of speed, table, tower and order, residual_odd, shift_agreement_hold,
+   tessera_device, tower_edge and unit_sweep_planes. interface_sass puts its asks against the machine file the tree
+   holds, 63 checks, 0 failed: 36 questions in the part's own code answer as each says, and 26 of the 27 kernels
+   written again answer as the toolchain's did. The 27th, wide_divide, calls the toolchain's division and is held off
+   the part. The three codings weighed run in a loop and are held off the part, and the clock reads nothing. With
+   `SASS_LEARN` set it learns the machine again through the disassembler, bit by bit, and prints nothing the harness
+   sees for more than 1800 s: the harness ends it. It alone
+   puts cubins our own assembler wrote on the part, and every one is read on the host first: `cubin_safe`
+   (`src/c/transpiler/cubin/cubin_safe.{h,c}`) holds each instruction a kernel reaches to the safe scheduler word, to
+   no branch and no wait, to one instruction at most that no form holds, and to an EXIT every thread takes, and
+   both `interface_sass_run` and `interface_sass_probe` refuse a cubin that breaks a rule before the driver sees it.
+   `utils/test/src/c/transpiler/cubin/cubin_safe_check.sh` holds the gate to one case a rule, 13 checks, 0 failed,
+   and finds 105 of the 106 cubins a fields run left safe, the one refused holding no code section.
+   `interface_sass_fields.sh` puts 7360 turned-bit cubins over the 75 forms to the part through the gate in 26
+   minutes: the gate refuses none, no pass hangs, and the 590 bits whose key holds a branch or a wait are skipped
+   before a cubin is written. A loop ask
+   branches by its nature and is held off the part until a rule says when a loop ends.
 
-9. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the
-   sweep on the host (M24 in the engine table, Q4). The open part is the loop that puts them to a target.
-
-10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
+8. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
     member and the paths read off them, in that order: every probe and what came back, with costs, refusals
     and censored samples each marked, then the winning path per problem over those same asks. It takes the
     stem the rest of the set takes. That face, `.kdm` and `.knf` under one stem are a member's coherence map
@@ -366,13 +408,13 @@ works there.
     cache of it. A refused or censored probe appears nowhere in a table of chain costs, and it separates two
     parts that cost the same.
 
-11. **The order of asks is built on the host and nothing emits it to a target.** The order, its solve and the
+9. **The order of asks is built on the host and nothing emits it to a target.** The order, its solve and the
     contention read are proved on the host (M24 in the engine table, Q5, Q7). The device half is open: a container
     that runs a chain's covered links and reads the part's clock around them, put through the channel in Open 1,
     with the censored-sample mark and the reference ask alongside. Its answer carries one bit a check, 128 an ask,
     and never one bit over a set (Q15).
 
-12. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
+10. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
     of a set, and pairwise agreement inside a floor cannot decide it. `compiler/bootstrap/stem_group.{h,c}` holds
     an anchored group rule: the members in an order fixed by what they are, the finest floor first, the first
     member with no group anchoring one, and every member with no group that agrees with that anchor joining it.
@@ -383,7 +425,7 @@ works there.
     shuffles. A group is a function of the whole set, and a block written for one is written again when the set
     changes. The open part is the general block in `.kdm` keyed to a group, which nothing writes yet.
 
-13. **One function of 132 runs on the device.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
+11. **One function of 132 runs on the device.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
     `double_fields.c`'s four functions as one record program, encoded, laid out and loaded by the calls
     `engine_record_encode` makes, swept on the device and run on the host. `double_fields_test.cu` holds it 1:1
     against the C on 4110 lanes, the edges of a double and 4096 drawn words, with merges past every mask: the
@@ -395,7 +437,7 @@ works there.
     `utils/maint/engine/tree_layout_check.py --write`.
 
 ## Pending Doug
-- The suffix of the face Open 10 describes.
+- The suffix of the face Open 8 describes.
 - The scheduler bits (Open 1): whether the safe word's stall drops from 15 to the soonest read the krs measures for
   each operation (`sass_operation_schedule`).
 

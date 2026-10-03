@@ -1,6 +1,6 @@
 ksc sm_86
 # How this system is asked, and what came back. A probe is not a thing of its own: it is a
-# question put on one of the channels below and the answer read back. Written by the cell's
+# question put on one of the channels below and the answer read back. Written by the interface's
 # SASS probe; every line here is something the system said, and nothing here was assumed.
 
 # the channels this system answers on
@@ -21,7 +21,7 @@ count run      illegal  0
 count decode   answers  87298
 count decode   nothing  257
 count decode   illegal  37629
-count compile  answers  0
+count compile  answers  28
 count compile  nothing  0
 count compile  illegal  0
 count clock    answers  2

@@ -10,9 +10,6 @@
 #define SASS_GUARD_FIRST 12u
 #define SASS_GUARD_BITS 3u
 #define SASS_GUARD_NOT 15u
-// every barrier waited on: the scheduler's fields themselves, and the longest stall they hold, are the form's
-// (sass_machine.h)
-#define SASS_WAIT_EVERY 0x3fu
 // a branch counts its target from the instruction after it, in a signed field that begins at bit 32 and runs into the
 // high word: the one branch the probes read back holds -16, and every bit of it from 32 to 81 is set
 // a branch's distance in four-byte steps from bit 34 to bit 81: bits 32 and 33 below it are the operation's own,

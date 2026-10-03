@@ -226,5 +226,7 @@ int main(void)
            "long long: %u bytes of node list carry what %u bytes of number do\n",
            numbers, listed, TREE_SYMBOLS, TREE_PLACES, (unsigned int)(listed * sizeof(PreceptNode)),
            (unsigned int)(numbers * sizeof(unsigned long long)));
+    // each tree is checked once as a tree and once through a number
+    printf("web check: %u checks, %u failed\n", 2u * numbers, broken);
     return (broken == 0u) ? 0 : 1;
 }

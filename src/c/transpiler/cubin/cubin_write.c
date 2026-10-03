@@ -132,6 +132,54 @@ unsigned int cubin_registers_read(const unsigned char *pattern, const char *kern
     return found;
 }
 
+unsigned int cubin_code_sections(const unsigned char *cubin, unsigned long long size, unsigned long long *offsets,
+                                 unsigned long long *sizes, unsigned int room)
+{
+    if (size < ELF_HEADER_BYTES)
+    {
+        return 0u;
+    }
+    const unsigned long long table = cubin_read(&cubin[ELF_SHOFF], 8u);
+    const unsigned long long header_bytes = cubin_read(&cubin[ELF_SHENTSIZE], 2u);
+    const unsigned long long count = cubin_read(&cubin[ELF_SHNUM], 2u);
+    const unsigned long long names_index = cubin_read(&cubin[ELF_SHSTRNDX], 2u);
+    // every header read below lies inside the table, and the table inside the cubin
+    if ((header_bytes < (SECTION_ALIGN + 8u)) || (names_index >= count) || (table > size) ||
+        ((count * header_bytes) > (size - table)))
+    {
+        return 0u;
+    }
+    const unsigned long long names_at = cubin_read(&cubin[table + (names_index * header_bytes) + SECTION_OFFSET], 8u);
+    const unsigned long long names_size = cubin_read(&cubin[table + (names_index * header_bytes) + SECTION_SIZE], 8u);
+    if ((names_at > size) || (names_size > (size - names_at)))
+    {
+        return 0u;
+    }
+    static const char s_code[] = ".text.";
+    const unsigned long long length = sizeof(s_code) - 1u;
+    unsigned int found = 0u;
+    for (unsigned long long index = 0ull; index < count; index += 1ull)
+    {
+        const unsigned long long at = table + (index * header_bytes);
+        const unsigned long long name = cubin_read(&cubin[at + SECTION_NAME], 4u);
+        if ((name >= names_size) || (length > (names_size - name)) ||
+            (memcmp(&cubin[names_at + name], s_code, length) != 0))
+        {
+            continue;
+        }
+        const unsigned long long found_at = cubin_read(&cubin[at + SECTION_OFFSET], 8u);
+        const unsigned long long found_size = cubin_read(&cubin[at + SECTION_SIZE], 8u);
+        if ((found_at > size) || (found_size > (size - found_at)) || (found >= room))
+        {
+            return 0u;
+        }
+        offsets[found] = found_at;
+        sizes[found] = found_size;
+        found += 1u;
+    }
+    return found;
+}
+
 // the place of the section named `name`, or `count` where the pattern holds none
 static unsigned int cubin_section_named(const unsigned char *pattern, const CubinSection *sections, unsigned int count,
                                         unsigned long long strings, const char *name)

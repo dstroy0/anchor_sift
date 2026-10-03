@@ -4,7 +4,7 @@
 #
 # Count every word of the voice corpus and write utils/maint/prose/voice.tsv and voice_review.tsv.
 #
-#   src/build/tessera_host/tessera_run --processors 1 --name voice_count -- \
+#   build/tessera_host/tessera_run --processors 1 --name voice_count -- \
 #       python utils/maint/prose/voice_count.py
 #
 # Reads the text voice_pdftotext.sh wrote to build/voice/text/. Each file holds one row per distinct

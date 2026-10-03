@@ -126,8 +126,15 @@ unsigned long long sass_exit_encoding(const SassMachine *machine);
 #define SASS_WAIT_FIRST 116u
 #define SASS_REUSE_FIRST 122u
 #define SASS_BARRIER_NONE 7u
-// the longest stall the four bits of the stall field hold
+// the longest stall the four bits of the stall field hold, and the wait field set to every one of the six barriers
 #define SASS_STALL_LONGEST 15u
+#define SASS_WAIT_EVERY 0x3fu
+// the bits of the low word that name an operation and its operands' kinds, its operation key
+#define SASS_OPERATION_MASK 0xfffull
+
+// 1 where `operation` transfers control or waits, which run on the part can loop or stall it: a branch, a call, a
+// return, a barrier, a sleep and a trap. A straight instruction falls through to the next and cannot loop by itself
+int sass_operation_control_or_wait(const char *operation);
 
 // how the scheduler holds an operation's result, a property of the operation and not of one encoding of it: ready
 // after a fixed count of cycles, back late behind a write barrier its readers wait on, or a store whose operands are

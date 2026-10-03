@@ -10,12 +10,12 @@
 # The instructions default to the forms sass.krs uses, which sass_krs_assemble writes to build/unprinted with a third
 # argument. The earlier run, for its pattern cubin, frame and PTX probe, defaults to the newest under build/.
 #
-# This runs turned-over instructions on the part, and a turned bit can make a backward branch, a loop that never ends
-# and hangs the part. The display watchdog then resets the part, and under the run's load that reset can hold a kernel
-# DPC past its watchdog and stop the whole machine with a DPC_WATCHDOG_VIOLATION. The per-pass timeout cap below ends
-# the waiting process but cannot clear a part the kernel has already wedged. Run this watched, not unattended, and only
-# where losing the machine to a reset is acceptable. The contexts that reach such a loop, and the bound an ask carries
-# against them, are P9 of theory/workbooks/engine/query_protocol_table.md.
+# This runs turned-over instructions on the part. A turned bit that made a backward branch would make a loop that
+# never ends and hangs the part, and the display watchdog's reset under the run's load can hold a kernel DPC past its
+# watchdog and stop the whole machine with a DPC_WATCHDOG_VIOLATION. The runner holds every cubin to cubin_safe on the
+# host first, and a cubin holding a branch or a wait never reaches the driver. The per-pass timeout cap below ends a
+# waiting runner and cannot clear a part the kernel has wedged. The contexts that reach such a loop, and the bound an
+# ask carries against them, are P9 of theory/workbooks/engine/query_protocol_table.md.
 set -u
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -45,7 +45,9 @@ INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CUB" -I "$INT" -I 
 cc -std=c11 -O1 -Wall "${INCLUDES[@]}" -o "$OUT/interface_sass_probe_fields" \
     "$INT/interface.c" "$INT/interface_names.c" "$CUB/sass_assemble.c" "$CUB/cubin_write.c" "$KRS/sass_machine.c" \
     "$HERE/interface_sass_probe_fields.c" || exit 1
+# the runner holds every cubin to cubin_safe on the host before the driver is handed it
 cc -std=c11 -O1 -Wall -I "$CUDA/include" -o "$OUT/interface_sass_run" "$HERE/interface_sass_run.c" \
+    "$CUB/cubin_safe.c" "$CUB/cubin_write.c" "$CUB/sass_assemble.c" "$KRS/sass_machine.c" \
     -L "$CUDA/lib/x64" -lcuda 2>/dev/null || { echo "  the runner did not link against the CUDA driver"; exit 1; }
 
 WIN="$(cygpath -m "$TOP")"
@@ -80,7 +82,8 @@ while IFS= read -r line; do
     first=0
     guard=0
     while :; do
-        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$OUT")/list.txt" "$first" "$ANSWERS"
+        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$(cygpath -m "$OUT")/list.txt" "$first" \
+            "$ANSWERS"
         status=$?
         last="$(tail -1 "$ANSWERS" 2>/dev/null | cut -d' ' -f1)"
         case "$status" in
