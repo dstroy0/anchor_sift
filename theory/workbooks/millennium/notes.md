@@ -1657,3 +1657,61 @@ either.
 What changes. I13, both halves and the addition. One liquid rides another on a cushion of vapor,
 mobile, at a step in temperature and composition between them, with a superheat near one kelvin.
 The drive here is heat and not shear.
+
+## Koplik and Banavar, arXiv:cond-mat/0508612v2
+
+*Slip, immiscibility and boundary conditions at the liquid-liquid interface.* Read in full from
+the text layer.
+
+- Abstract. "When the total liquid density near the interface drops significantly compared to the
+  bulk values, the tangential velocity varies very rapidly there, and would appear discontinuous
+  at continuum resolution. The value of this apparent slip is given by a Navier boundary
+  condition."
+- Introduction. "It is difficult to imagine how two intermixed dense liquids could maintain
+  distinct molecular speeds", and that argument "might fail when interfacial mixing is poor and the
+  molecules of different species are spatially separated." For simple liquids they know of no
+  measurement or systematic computation of liquid-liquid slip; for polymer melts there is indirect
+  and direct evidence.
+- Method. Molecular dynamics of Couette and Poiseuille flow of two layers of Lennard-Jones chains.
+  The attraction between unlike atoms is set by $A_{12}$: $A_{12} = 0$ is immiscible, and the
+  Lorentz--Berthelot value $A_{12} = 0.97$ is partly miscible.
+- Results. In the miscible case the density varies monotonically across the interface and the
+  velocity is continuous. In the immiscible case the density dips at the interface, by
+  $\Delta = 0.66$ of the mean in the main example, and the velocity changes so fast there that at
+  continuum resolution it is a slip. The slip is the Navier condition $\Delta u = \kappa S$, with
+  $\kappa$ "approximately constant" for each pair of liquids, "independent of the flow
+  configuration and the value of the driving force."
+- Interaction strength. With $A_{12} = 0.2$ to $0.8$, "the apparent slip and the density dip were
+  found to decrease roughly linearly to zero from their values at $A_{12} = 0$".
+- Size. In argon units $\kappa \approx 10^{-5}$ m/(Pa s), "a value three orders of magnitude
+  larger than observed or inferred in polymer melts"; the authors suggest their interactions may
+  be too repulsive. A density dip is reported at the water/octane interface and not at the
+  water/carbon tetrachloride interface, by other simulations they cite.
+
+What changes. I14. The velocity jump at the interface between two liquids grows as the attraction
+between unlike molecules weakens, and vanishes as the liquids become miscible. The jump sits where
+the density dips: the two liquids hold apart at the interface. That gap is where I13's addition
+and I15 put a vapor film.
+
+## Komuro, Sukumaran, Sugimoto and Koyama, Rheologica Acta 53 (2014) 23--30
+
+*Slip at the interface between immiscible polymer melts I: method to measure slip.* Open access,
+doi:10.1007/s00397-013-0742-2. Read in full from the text layer.
+
+- Introduction. "Typically, two chemically different polymers are immiscible, and the distinct
+  phases are separated by interfaces. At the interface between two phases, the chemically
+  different chains are likely to be weakly entangled. If entanglements are the main source of
+  adhesion between the two components, then poor interfacial adhesion can be expected at the
+  interface." As the stress at the interface rises, "one of the phases might slip with respect to
+  the other."
+- Method. Polypropylene coated with a thin sheath of polystyrene, of nearly equal viscosity,
+  extruded through capillaries of three diameters at 230 °C; the slip velocity at the interface
+  from a modified Mooney method, checked against the deviation from no-slip.
+- Results. Slip at the interface appears above a critical interfacial stress, at stresses "that
+  are significantly lower than the shear stress necessary for the onset of wall slip" near
+  $10^5$ Pa. The slip velocity is a power of the interfacial stress, with exponent near 3 at low
+  stress and near 2 above about $2\times10^4$ Pa. Their slip velocities are two to three times
+  those measured at 200 °C by others, which they attribute to temperature.
+
+What changes. I14. Two liquids unlike enough not to mix slip on each other, measured, and at a
+lower stress than either slips on a wall. The source does not vary how unlike the two are.

@@ -693,6 +693,29 @@ the interface between two immiscible liquids that grows as the attraction betwee
 weakens relative to like ones; miss if a source held reports no velocity jump at such an
 interface, or one that does not depend on how unlike the liquids are.
 
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `60b7f717`.** Read in full:
+Koplik and Banavar, arXiv:cond-mat/0508612; Komuro, Sukumaran, Sugimoto and Koyama, Rheologica
+Acta 53 (2014) 23--30. Not held: Telari, Tinti and Giacomello, J. Fluid Mech. (2022), on slip at
+liquid-liquid interfaces enriched with gas, which the publisher's site did not serve.
+
+**Sliding on each other: hit.** Koplik and Banavar, in simulations of two layers of liquid, find a
+velocity jump at the interface wherever the liquids do not mix, given by Navier's condition with a
+coefficient set by the pair of liquids and not by the flow. Raising the attraction between unlike
+molecules from 0.2 to 0.8 of that between like ones, the slip and the dip in density at the
+interface "decrease roughly linearly to zero" from their values when the liquids do not attract at
+all. Komuro and others measure slip between two polymers that do not mix, at stresses below those
+at which either slips on a wall.
+
+**The stated size.** The recorder expected a slip length near a nanometer for small molecules and
+much larger for long chains. Koplik and Banavar give their coefficient in argon units, $10^{-5}$
+m/(Pa s), three orders of magnitude larger than in polymer melts, and doubt their interactions;
+the size is not settled by what is held.
+
+**Sliding through each other: open.** No source held follows one liquid moving through another and
+compares how unlike they are.
+
 ### I15. Water rides on itself on steam torn out by its own shear, in a narrow window
 
 **In the author's words:** "I think for water to ride on itself and would have to have like the

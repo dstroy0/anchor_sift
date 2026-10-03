@@ -182,6 +182,56 @@ agrees with Duraiswami's computation for the forced construction, which puts its
 cavitation when the swirl reaches 10 to 17 m/s, with the heat of the remaining collapse near
 0.01 K.
 
+\section{The heat route at the instant of contact}
+
+A layer between walls held at $T_0$ loses its heat through the walls. Two sheets of one liquid
+brought together with a velocity jump have no walls at the boundary between them, and the heat of
+the first instant has nowhere to go but into the liquid on either side.
+
+\textbf{Proposition 18.} Let one fluid of constant $\rho$, $\mu$, $c$ and $k$, at $T_0$, fill
+$y > 0$ moving at $V/2$ along $x$ and $y < 0$ moving at $-V/2$, from $t = 0$. Write
+$\nu = \mu/\rho$, $\Pr = \mu c/k$ and $\eta = y/(2\sqrt{\nu t})$. The velocity
+$U = (V/2)\,\mathrm{erf}(\eta)$ and the temperature
+\[
+T = T_0 + \frac{V^2}{4\pi c}\,G(\eta), \qquad
+G'(\eta) = -4\Pr\,e^{-\Pr\eta^2}\int_0^\eta e^{(\Pr-2)s^2}\,ds, \qquad G(\infty) = 0,
+\]
+solve the balances of momentum and energy. For $\Pr > 2$ the temperature on the plane $y = 0$ is
+the same at every $t > 0$:
+\[
+T(0,t) - T_0 = \frac{V^2}{2\pi c}\,\sqrt{\frac{\Pr}{\Pr - 2}}\;
+\operatorname{artanh}\sqrt{1 - \frac{2}{\Pr}} .
+\]
+
+\emph{Proof.} The velocity is the solution of Stokes's first problem, $U_t = \nu U_{yy}$, with
+$U_y = (V/2)\,e^{-\eta^2}/\sqrt{\pi\nu t}$. The energy balance is
+$\rho c\,T_t = k\,T_{yy} + \mu U_y^2$, since nothing varies along $x$. With
+$T = T_0 + (V^2/4\pi c)\,G(\eta)$ each term carries the factor $1/t$, and dividing it out leaves
+\[
+\frac{G''}{4\Pr} + \frac{\eta}{2}\,G' + e^{-2\eta^2} = 0 .
+\]
+The integrating factor $e^{\Pr\eta^2}$ and $G'(0) = 0$, from the symmetry of the two sides, give
+$G'$ as stated. Then
+$G(0) = 4\Pr\int_0^\infty e^{-\Pr\eta^2}\int_0^\eta e^{(\Pr-2)s^2}\,ds\,d\eta$, and exchanging the
+order of integration,
+\[
+G(0) = 2\sqrt{\pi\Pr}\int_0^\infty e^{(\Pr-2)s^2}\,\mathrm{erfc}\big(\sqrt{\Pr}\,s\big)\,ds
+= \frac{2\sqrt{\Pr}}{\sqrt{\Pr - 2}}\,\operatorname{artanh}\sqrt{\frac{\Pr - 2}{\Pr}} ,
+\]
+by $\int_0^\infty e^{a s^2}\mathrm{erfc}(bs)\,ds = \operatorname{artanh}(\sqrt a/b)/\sqrt{\pi a}$
+for $0 < a < b^2$. The integral converges because $\mathrm{erfc}(bs)$ falls as $e^{-b^2s^2}$.
+\hfill\qedsymbol
+
+The heat at the boundary is set by the difference in kinetic energy, $V^2/2$ per unit mass,
+divided by the heat capacity, times a number fixed by $\Pr$ alone. The viscosity sets how thick
+the heated layer is and not how hot it is, and neither the thickness of the sheets nor the time
+since contact enters. For water at $20\,^\circ$C, $\Pr = 7.008$ and $c = 4184$
+J\,kg$^{-1}$\,K$^{-1}$ by IAPWS R6-95, R12-08 and R15-11, and the boundary stands
+$5.578\times10^{-5}\,V^2$ kelvin above the sheets: $0.0032$ K at $7.63$ m/s, $0.56$ K at
+$100$ m/s, and $80$ K, the boiling point at atmospheric pressure, at $1198$ m/s. That speed is
+$0.81$ of the speed of sound in water, where condition (2) and constant properties no longer
+describe it. At $7.63$ m/s the tension route of Proposition 17 still comes first.
+
 \section{What this establishes and what it does not}
 
 \textbf{Established.} The system equation (1) is cut from has a phase boundary, and equation (1)
@@ -189,7 +239,9 @@ cannot place it, because the boundary depends on a level of pressure that equati
 In steady shear between walls at a fixed temperature, the heat of shear sets the middle temperature
 by the velocity difference alone, for any viscosity and conductivity that depend on temperature.
 In water at $20\,^\circ$C and atmospheric pressure, a turning column reaches the vapor pressure on
-its axis at a speed at which a shearing layer is warmed by a hundredth of a kelvin.
+its axis at a speed at which a shearing layer is warmed by a hundredth of a kelvin. Two sheets of
+one liquid brought together with a velocity jump $V$ heat their boundary at once, by an amount set
+by $V^2$, the heat capacity and the Prandtl number, and the same at every later instant.
 
 \textbf{Not established.} The comparison is between two exact solutions at the same speed. It does
 not show that the forced construction, or any collapsing solution, follows either profile, and a
