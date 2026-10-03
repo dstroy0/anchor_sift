@@ -8,9 +8,9 @@ TOP="$(cd "$SIMS/.." && pwd)"
 SIM="${1:-}"
 shift || true
 case "$SIM" in
-    nbody_lattice|knf_identity|noise_floor|noise_terms|noise_root|period_power|root_universal|ask_state|ka_psi|chaitin_omega|goodstein|pi_tower|pi_plane|omega_computer|floor_match|floor_track|fixed_pattern|classify_reject_recover) ;;
+    nbody_lattice|knf_identity|noise_floor|noise_terms|noise_root|period_power|root_universal|ask_state|ka_psi|chaitin_omega|goodstein|pi_tower|pi_plane|exponential_integral|omega_computer|floor_match|floor_track|fixed_pattern|classify_reject_recover) ;;
     *)
-        echo "  usage: run.sh nbody_lattice|knf_identity|noise_floor|noise_terms|noise_root|period_power|root_universal|ask_state|ka_psi|chaitin_omega|goodstein|pi_tower|pi_plane|omega_computer|floor_match|floor_track|fixed_pattern|classify_reject_recover [-- sim arguments]"
+        echo "  usage: run.sh nbody_lattice|knf_identity|noise_floor|noise_terms|noise_root|period_power|root_universal|ask_state|ka_psi|chaitin_omega|goodstein|pi_tower|pi_plane|exponential_integral|omega_computer|floor_match|floor_track|fixed_pattern|classify_reject_recover [-- sim arguments]"
         exit 2
         ;;
 esac
@@ -47,9 +47,14 @@ NOISE_DETECTOR_CU="$TOP/cu/engine/analysis/noise_detector"
 source "$(cd "$TOP/.." && pwd)/utils/maint/engine/build_stamp.sh"
 build_stamp "sim_$SIM"
 
+# every sim's folder lies under cu/, at the place in the tree its subject has, and carries the sim's name
 case "$SIM" in
     fixed_pattern|classify_reject_recover) SOURCES=("$SIMS/cu/engine/analysis/art$SIM.cu") ;;
-    *) SOURCES=("$SIMS/$SIM"/*.cu) ;;
+    *)
+        FOLDER="$(find "$SIMS_CU" -type d -name "$SIM" | head -1)"
+        [ -n "$FOLDER" ] || { echo "  no folder named $SIM under $SIMS_CU"; exit 2; }
+        SOURCES=("$FOLDER"/*.cu)
+        ;;
 esac
 NOISE_DETECTOR_SOURCES=("$NOISE_DETECTOR_CU"/noise_detector_{flicker,lines,lines_summary,neighbors,clips,pixels}.cu
                         "$NOISE_DETECTOR_CU"/noise_detector_{moments,ladder,crosstalk,structure,halves,root}.cu)
