@@ -134,7 +134,7 @@ err shared_open
 err shared_close
 # a load under a predicate (word_select, test_nonzero: @!P0 LDG.E.CONSTANT R7, [R2.64+0x4])
 form guarded_load where to address = \t@{where} LDG.E.CONSTANT \t{to}, [{address}.64];\n
-form guarded_widen where to from = \t@{where} MOV \t{to}, {from};\n\t@{where} MOV \t{to}.hi, RZ;\n
+form guarded_widen where to from = \tSEL \t{to}, {to}, {from}, !{where};\n\tSEL \t{to}.hi, {to}.hi, RZ, !{where};\n
 form open_error_unless where = \t@!{where} BRA \t`(.L_error_open);\n
 form error where at = \t@{where} BRA \t`(.L_error{at});\n
 form label_error_open = .L_error_open:\n
@@ -173,8 +173,8 @@ form borrow_read borrow where = \tIMAD.X \t{borrow}, RZ, RZ, -0x1, P6;\n\tISETP.
 form word_copy to from = \tMOV \t{to}, {from};\n
 form word_set to value = \tMOV \t{to}, {value};\n
 form word_and to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0xc0, !PT;\n
-form word_or to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0xfc, !PT;\n
-form word_xor to left right = \tLOP3.LUT \t{to}, {left}, {right}, RZ, 0x3c, !PT;\n
+form word_or to left right = \tLOP3.LUT \t{to}, {right}, {left}, RZ, 0xfc, !PT;\n
+form word_xor to left right = \tLOP3.LUT \t{to}, {right}, {left}, RZ, 0x3c, !PT;\n
 # a funnel shift of the pair (high, low) by the amount clamped to the width: a plain shift names RZ for the half it
 # does not have, and .HI takes the result's high word
 form word_shift_left to from bits = \tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
@@ -194,7 +194,7 @@ form product_low to left right added = \tIMAD \t{to}, {left}, {right}, RZ;\n\tIA
 form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD.X \t{to}, RZ, RZ, {to}, P6;\n
 
 # a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
-form sign_set to value = \tMOV \t{to}, {value};\n
+form sign_set to value = \tIMAD.MOV.U32 \t{to}, RZ, RZ, {value};\n
 # a sign's chosen word may be a number, -1 or 1, and SEL reads its first operand from a register, so it is moved
 # through R254 first
 form sign_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
@@ -212,12 +212,12 @@ form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
 # in bits 76 to 78, unsigned in 73 and .EX in 72, and the probe's widening round turns each bit of a comparison the
 # listings did hold and asks the disassembler what comes back: EQ.U32.AND is bit 78 of GE.U32.AND, EQ.U32.AND.EX is
 # bit 78 of GE.U32.AND.EX, and LT.AND is bit 73 of LT.U32.AND. The part answers for all three
-form test_nonzero where value = \tISETP.NE.U32.AND \t{where}, PT, {value}, RZ, PT;\n
+form test_nonzero where value = \tISETP.NE.AND \t{where}, PT, {value}, RZ, PT;\n
 form test_zero where value = \tISETP.EQ.U32.AND \t{where}, PT, {value}, RZ, PT;\n
 form test_negative where value = \tISETP.LT.AND \t{where}, PT, {value}, RZ, PT;\n
 form test_signed_differ where left right = \tISETP.NE.AND \t{where}, PT, {left}, {right}, PT;\n
 form test_signed_greater where left right = \tISETP.GT.AND \t{where}, PT, {left}, {right}, PT;\n
-form test_wide_nonzero where value = \tISETP.NE.U32.AND \tP6, PT, {value}, RZ, PT;\n\tISETP.NE.U32.AND.EX \t{where}, PT, {value}.hi, RZ, PT, P6;\n
+form test_wide_nonzero where value = \tISETP.NE.U32.AND \tP6, PT, {value}, RZ, PT;\n\tISETP.NE.AND.EX \t{where}, PT, {value}.hi, RZ, PT, P6;\n
 form test_wide_equal where left right = \tISETP.EQ.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.EQ.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
 form test_wide_below where left right = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, PT, P6;\n
 form test_wide_below_and where left right also = \tISETP.LT.U32.AND \tP6, PT, {left}, {right}, PT;\n\tISETP.LT.U32.AND.EX \t{where}, PT, {left}.hi, {right}.hi, {also}, P6;\n
@@ -251,11 +251,13 @@ form wide_pack to low high = \tMOV \t{to}, {low};\n\tMOV \t{to}.hi, {high};\n
 form wide_unpack low high from = \tMOV \t{low}, {from};\n\tMOV \t{high}, {from}.hi;\n
 form wide_multiply to left right = \tIMAD.WIDE.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD \t{to}.hi, {left}.hi, {right}, {to}.hi;\n\tIMAD \t{to}.hi, {left}, {right}.hi, {to}.hi;\n
 form wide_multiply_word to left right = \tIMAD.WIDE.U32 \t{to}, {left}, {right}, RZ;\n
-form wide_add to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
+form wide_add to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIMAD.X \t{to}.hi, {left}.hi, 0x1, {right}.hi, P6;\n
 form wide_add_unsigned to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
 # the high half reads both halves of the value shifted, and is written before the low half overwrites it
 form wide_shift_left to from bits = \tSHF.L.U64.HI \t{to}.hi, {from}, {bits}, {from}.hi;\n\tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
-form wide_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n\tSEL \t{to}.hi, {chosen}.hi, {otherwise}.hi, {where};\n
+# the lane's opening selects a wide 0 as the chosen word, and SEL reads its first operand from a register, so each half
+# is moved through R254 first, as sign_select moves its own
+form wide_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n\tMOV \tR254, {chosen}.hi;\n\tSEL \t{to}.hi, R254, {otherwise}.hi, {where};\n
 err wide_divide to left right
 
 # memory: the members' and the tables' words and the record's words (the frame's own loads and stores). An address is

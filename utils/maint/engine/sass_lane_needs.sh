@@ -25,9 +25,9 @@ mkdir -p "$OUT"
 INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/c/includes/codecs/crc" -I "$TOP/src/cu/includes/codecs/crc" -I "$CYCLE" -I "$CYCLE_CU" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$KEYMATH" -I "$KEYMATH_CU"
     -I "$KEY_SCHEDULE" -I "$KEY_SCHEDULE_CU" -I "$NO_ROUNDING" -I "$SCRIPTURA" -I "$CUBIN" -I "$TOP/utils/test/src/c/engine/analysis/cycle")
 OBJECTS=()
-for source in "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c"; do
+for source in "$TOP/src/c/types/file_defs/krs/sass_machine.c" "$CUBIN/sass_assemble.c"; do
     object="$OUT/$(basename "$source").o"
-    cc -std=c11 -O2 -Wall -Wextra -I "$TOP/src/c/engine" -I "$CUBIN" -c "$source" -o "$object" || exit 1
+    cc -std=c11 -O2 -Wall -Wextra -I "$TOP/src/c/engine" -I "$CUBIN" -I "$TOP/src/c/types/file_defs/krs" -c "$source" -o "$object" || exit 1
     OBJECTS+=("$object")
 done
 # cycle.c is the host oracle that runs a lane, which nothing here does: only the encoder and the layout are wanted,
