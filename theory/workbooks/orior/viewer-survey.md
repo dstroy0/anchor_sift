@@ -101,7 +101,7 @@ string literals in the builder source, and a key supplied through a variable wou
 `OCT_SIGNS` is a hardcoded two-by-two-by-two sign loop carrying the comment *the arms are fixed*.
 That comment is now false. `docs/arm-records.md` defines an arm as a weight function over the
 placement and an arm set as a matrix whose rank the reading carries, and the eight sign
-octants are one instance of that with rank 8, blind in 248 of 256 directions. The loop asserts they
+octants are one instance of that with rank 8 and nullity 248 of 256 directions. The loop asserts they
 are the only instance. That one is the engine's, tied to T12 in the transform table.
 
 ## Vectorizing

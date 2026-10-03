@@ -46,17 +46,17 @@ directions.
 
 | reading | call | what it answers |
 |---|---|---|
-| deflection | `deflection(table, top)` | how much power the lit set carries at each degree |
+| the angular power spectrum | `deflection(table, top)` | how much power the lit set carries at each degree |
 | torsion | `torsion(table, top)` | the phase of the same coefficients, by degree and order |
 | octant share | `octant_share(points, live)` | what fraction of the set sits in each of the eight octants |
 
 Moving every longitude by `alpha` multiplies the entry at order `m` by `exp(-i m alpha)`. The
-magnitude holds still and the phase moves by `m alpha`. Deflection reads the magnitudes and torsion
+magnitude holds still and the phase moves by `m alpha`. The angular power spectrum reads the magnitudes and torsion
 reads the phases, and a turn moves the phases while leaving the magnitudes alone.
 
-## Choosing between deflection and torsion
+## Choosing between the angular power spectrum and torsion
 
-Deflection is blind to a rotation by construction. Power per degree is a magnitude, and a magnitude
+The angular power spectrum is blind to a rotation by construction. Power per degree is a magnitude, and a magnitude
 does not record how the object was turned. Torsion measures the turn, and its sign gives the
 handedness.
 
@@ -64,7 +64,7 @@ The check moves a lit set along its rings by seven different amounts and reads b
 
 | reading | what it did under a rotation |
 |---|---|
-| deflection | moved by 2.5e-14 of itself, which is nothing |
+| the angular power spectrum | moved by 2.5e-14 of itself, which is nothing |
 | torsion | recovered the angle to 1.8e-13 radians, sign included |
 
 The split is exact in both directions, and the choice is therefore not a matter of taste. A caller whose
@@ -95,7 +95,7 @@ the two ends of a single move would otherwise be counted twice.
 
 Eight regions is a small alphabet, and how small is a counting fact and not a judgment. The
 reading is rank 8, seven free numbers once the weight is fixed, and against a source with 256
-degrees of freedom it moves in 8 directions and is blind in 248. A caller should know that number before
+degrees of freedom it moves in 8 directions and has nullity 248. A caller should know that number before
 building on this call, and should know that distinctness under such a reading is close to free: seven
 reals separate any few dozen arbitrary states whether or not the seven carry anything.
 
@@ -136,10 +136,10 @@ degree eight, and precision does not limit a reading at any degree a caller is l
 overflow above is a real ceiling and it sits an order of magnitude beyond that.
 
 What does bound the reading is counting. A reading to degree `L` carries exactly `(L+1)^2` real
-numbers about its source, and against a source with `N` degrees of freedom it is blind in `N -
-(L+1)^2` directions at any precision whatsoever.
+numbers about its source, and against a source with `N` degrees of freedom its nullity is `N -
+(L+1)^2` at any precision whatsoever.
 
-| degree | coefficients | rank against 256 | blind | least singular value |
+| degree | coefficients | rank against 256 | nullity | least singular value |
 |---|---|---|---|---|
 | 8 | 81 | 81 | 175 | 4.365 |
 | 12 | 169 | 169 | 87 | 3.818 |
@@ -160,7 +160,7 @@ reports the residual. A threshold is then measured and never picked.
 
 | reading | the move that cannot change it | residual |
 |---|---|---|
-| deflection | a rotation of the whole set | 2.539e-14 |
+| the angular power spectrum | a rotation of the whole set | 2.539e-14 |
 | torsion | a rotation by a whole turn | exactly 0 |
 | octant share | a lit point relabelled inside its own octant | exactly 0 |
 | octant delta | a reading against itself | exactly 0 |
@@ -193,7 +193,7 @@ python examples/00_blob_viz_tools/null_harness.py --check
 python examples/00_blob_viz_tools/arm_draw.py --check
 ```
 
-The first holds the placement to the screw it should be, holds deflection and torsion to their
+The first holds the placement to the screw it should be, holds the angular power spectrum and torsion to their
 opposite behavior under a rotation, and holds the eight octant shares to a sum of one.
 
 The second measures the floors above, and before it reports any of them it hands itself a move that

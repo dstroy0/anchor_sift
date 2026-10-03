@@ -26,7 +26,7 @@ A shape read this way has two anisotropies, and they answer to a rotation of the
 differently. This is standard representation theory of the rotation group, stated here because it is
 the null the measurement rests on, not because it is new.
 
-- **Deflection**, the power per degree `P_l = Σ_m |a_lm|²`, is invariant under every rotation in
+- **The angular power spectrum**, the power per degree `P_l = Σ_m |a_lm|²`, is invariant under every rotation in
   SO(3): the degree-`l` subspace carries a unitary irreducible representation of the group, and a
   magnitude built from it cannot record how the object was turned. Measured null under a whole-step
   rotation: **2.539 × 10⁻¹⁴**, an error of the arithmetic and not of the object.

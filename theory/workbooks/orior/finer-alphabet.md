@@ -35,7 +35,7 @@ The table above counts cells against placement points. The harmonic reading give
 from the other side, and the two agree.
 
 A reading to degree `L` carries exactly `(L+1)^2` real numbers about its source. Against 256 degrees
-of freedom, degree eight is rank 81 and blind in 175 directions, degree fifteen is where `(L+1)^2`
+of freedom, degree eight is rank 81 with nullity 175, degree fifteen is where `(L+1)^2`
 first reaches 256, and the least singular value collapses to 3.5e-3 there before recovering to
 1.5e-1 at sixteen. Refinement raises the count of numbers a reading carries; it does not raise the
 count past the source, and it makes the inversion worse on the way through the floor.
