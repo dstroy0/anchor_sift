@@ -134,7 +134,7 @@ err shared_open
 err shared_close
 # a load under a predicate (word_select, test_nonzero: @!P0 LDG.E.CONSTANT R7, [R2.64+0x4])
 form guarded_load where to address = \t@{where} LDG.E.CONSTANT \t{to}, [{address}.64];\n
-form guarded_widen where to from = \tSEL \t{to}, {to}, {from}, !{where};\n\tSEL \t{to}.hi, {to}.hi, RZ, !{where};\n
+form guarded_widen where to from = \tSEL \t{to}, {from}, {to}, {where};\n\tSEL \t{to}.hi, {to}.hi, RZ, !{where};\n
 form open_error_unless where = \t@!{where} BRA \t`(.L_error_open);\n
 form error where at = \t@{where} BRA \t`(.L_error{at});\n
 form label_error_open = .L_error_open:\n
@@ -154,18 +154,18 @@ form step_note at operation = \t// step {at}, operation {operation}\n
 form add_alone to left right = \tIADD3 \t{to}, {left}, {right}, RZ;\n
 form add_first to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n
 form add_middle to left right = \tIADD3.X \t{to}, P6, {left}, {right}, RZ, P6, !PT;\n
-form add_last to left right = \tIADD3.X \t{to}, {left}, {right}, RZ, P6, !PT;\n
+form add_last to left right = \tIMAD.X \t{to}, {left}, 0x1, {right}, P6;\n
 form subtract_alone to left right = \tIADD3 \t{to}, {left}, -{right}, RZ;\n
 form subtract_first to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
 form subtract_middle to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
-form subtract_last to left right = \tIADD3.X \t{to}, {left}, ~{right}, RZ, P6, !PT;\n
+form subtract_last to left right = \tIMAD.X \t{to}, {left}, 0x1, ~{right}, P6;\n
 # the subtract chain whose top limb leaves its borrow for borrow_read
 form borrow_alone to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
 form borrow_first to left right = \tIADD3 \t{to}, P6, {left}, -{right}, RZ;\n
 form borrow_middle to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
 form borrow_last to left right = \tIADD3.X \t{to}, P6, {left}, ~{right}, RZ, P6, !PT;\n
 # the carry is 1 where the chain did not borrow, so -1 with it added is 0 there and all ones where it did
-form borrow_read borrow where = \tIMAD.X \t{borrow}, RZ, RZ, -0x1, P6;\n\tISETP.NE.U32.AND \t{where}, PT, {borrow}, RZ, PT;\n
+form borrow_read borrow where = \tIMAD.X \t{borrow}, RZ, 0x1, ~RZ, P6;\n\tISETP.NE.U32.AND \t{where}, PT, {borrow}, RZ, PT;\n
 
 # a word's arithmetic (word_copy, word_set; word_and, word_or, word_xor; word_shift_left, word_shift_right;
 # word_funnel_right; word_multiply, word_multiply_add; word_select, test_nonzero). A bitwise operation is one LOP3
@@ -190,8 +190,8 @@ form word_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}
 # two destinations to be a pair; the core names them apart, so each is written on its own out of instructions every
 # listing gave. Asked of the part, 0xffffffff squared plus 0xffffffff: the low answers 0 and the high
 # 0xffffffff, as the question says
-form product_low to left right added = \tIMAD \t{to}, {left}, {right}, RZ;\n\tIADD3 \t{to}, P6, {to}, {added}, RZ;\n
-form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\tIMAD.X \t{to}, RZ, RZ, {to}, P6;\n
+form product_low to left right added = \tIMAD \tR254, {left}, {right}, RZ;\n\tIADD3 \t{to}, P6, R254, {added}, RZ;\n
+form product_high to left right = \tIMAD.HI.U32 \tR254, {left}, {right}, RZ;\n\tIMAD.X \t{to}, R254, 0x1, RZ, P6;\n
 
 # a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
 form sign_set to value = \tIMAD.MOV.U32 \t{to}, RZ, RZ, {value};\n
@@ -200,7 +200,7 @@ form sign_set to value = \tIMAD.MOV.U32 \t{to}, RZ, RZ, {value};\n
 form sign_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
 form sign_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form sign_absolute to from = \tIABS \t{to}, {from};\n
-form sign_negate to from = \tIADD3 \t{to}, -{from}, RZ, RZ;\n
+form sign_negate to from = \tIMAD.MOV \t{to}, RZ, RZ, -{from};\n
 
 # tests, each setting a predicate (test_nonzero, test_zero, test_negative; test_signed_differ, test_signed_greater;
 # test_wide_nonzero, test_wide_equal, test_wide_below, test_wide_below_and). One ISETP compares two words, ands its

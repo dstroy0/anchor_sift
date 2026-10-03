@@ -239,15 +239,19 @@ works there.
    for every precept and every ladder relation, and every arrangement of the `.kdm` is written from them, run and
    read back (the writings searched, below). `L*` is still written by hand. `sass.krs` and `ptx.krs` are read off
    NVIDIA's compiler: `utils/test/src/cu/transpiler/bootstrap/monolith_forms.sh` asks every form the record
-   programs' lanes decide in one program, each question the form's own text in `c.krs` between tags, a question
-   holding a number asked again with another, builds it once and reads each block of the listing and the PTX back
-   into a form. A form every question of which reads whole and alike, assembles against the machine file and is no
-   longer than the ruleset's is written into the ruleset; every other keeps its text and `monolith_forms.md` says
-   why. Nothing is run on the part. Of 55 forms over 225 questions, 7 of `sass.krs` and 9 of `ptx.krs` are written
-   from the reading. What keeps the rest: `c.krs` passes a carry as a word, where the rulesets chain it through P6;
-   it types a sign as a byte, which costs the compiler a `PRMT`; it writes an address as a plain pointer, which the
-   compiler reaches as a generic load or store; the compiler sets the negation of a predicate a test writes; and the
-   machine file holds no `SHF.R.U64` with a number count. It is the loop and it is the work.
+   programs' lanes decide in one program between tags, a question holding a number asked again with another,
+   builds it once and reads each block back into a form. `ptx.krs` is read off the PTX of questions in `c.krs`'s
+   text; `sass.krs` is read off the listing of questions in `ptx.krs`'s own text, put to `ptxas` as inline PTX, a
+   carry in through `add.cc` and out through `addc`, a predicate in through `setp` and out through `selp`. A form
+   every question of which reads whole and alike, assembles against the machine file and is no longer than the
+   ruleset's is written into the ruleset; every other keeps its text and `monolith_forms.md` says why. Nothing is
+   run on the part. Of 55 forms over 405 questions, 32 of `sass.krs` and 15 of `ptx.krs` are the reading. What
+   keeps the rest: the compiler writes no instruction for a move, which leaves `word_copy`, `word_set`, `sign_set`,
+   `sign_select` and `wide_unpack` nothing to read; it sets the negation of a predicate a test writes; `ptx.krs`
+   reaches `launch_load` through a generic `ld`; a number is folded into the instruction for `add_alone`,
+   `subtract_alone`, `word_shift_left`, `test_signed_differ` and `wide_select`; and the machine file holds no form
+   for `IMAD.SHL.U32`, which the compiler writes for `wide_shift_left` and `word_multiply` by a power of two. It is
+   the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That

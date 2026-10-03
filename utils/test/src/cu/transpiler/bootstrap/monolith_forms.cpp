@@ -2,7 +2,7 @@
 // monolith_forms.cpp: the forms a lane is written in, each asked of NVIDIA's compiler in one program, and each form of
 // sass.krs and ptx.krs read back off what the compiler wrote for it.
 //
-//     monolith_forms write <c.krs> <monolith.cu> <questions>
+//     monolith_forms write <c.krs> <ptx.krs> <monolith.cu> <questions>
 //     monolith_forms read <questions> <listing> <ptx> <sass.krs> <ptx.krs> <machine> <record> [apply]
 //
 // The first decides the lanes of the record programs the host oracle runs (record_programs.h) and gathers every form
@@ -497,20 +497,102 @@ static void gather_lane(const Krs &c, const HostProgram *program, int reuse, Gat
     host_free(&loaded);
 }
 
+static std::vector<std::string> line_split(const std::string &line, char by)
+{
+    std::vector<std::string> parts;
+    size_t at = 0u;
+    while (at <= line.size())
+    {
+        const size_t end = line.find(by, at);
+        const size_t stop = (end == std::string::npos) ? line.size() : end;
+        parts.push_back(line.substr(at, stop - at));
+        at = stop + 1u;
+    }
+    return parts;
+}
+
+// an instruction of a listing: its guard, its operation and its operands
+struct Instruction
+{
+    std::string guard;
+    std::string operation;
+    std::vector<std::string> operands;
+};
+
+static std::string trim(const std::string &text)
+{
+    const size_t first = text.find_first_not_of(" \t");
+    if (first == std::string::npos)
+    {
+        return std::string();
+    }
+    return text.substr(first, text.find_last_not_of(" \t") - first + 1u);
+}
+
+// the operands of `text` split at every comma outside brackets and braces
+static std::vector<std::string> operands_split(const std::string &text)
+{
+    std::vector<std::string> operands;
+    int depth = 0;
+    std::string one;
+    for (const char character : text)
+    {
+        depth += ((character == '[') || (character == '{')) ? 1 : 0;
+        depth -= ((character == ']') || (character == '}')) ? 1 : 0;
+        if ((character == ',') && (depth == 0))
+        {
+            operands.push_back(trim(one));
+            one.clear();
+            continue;
+        }
+        one += character;
+    }
+    if (!trim(one).empty())
+    {
+        operands.push_back(trim(one));
+    }
+    return operands;
+}
+
+static Instruction instruction_read(const std::string &text)
+{
+    Instruction instruction;
+    std::string rest = trim(text);
+    if (!rest.empty() && (rest[0] == '@'))
+    {
+        const size_t space = rest.find(' ');
+        instruction.guard = rest.substr(1u, space - 1u);
+        rest = trim(rest.substr(space));
+    }
+    const size_t space = rest.find_first_of(" \t");
+    instruction.operation = rest.substr(0u, space);
+    if (space != std::string::npos)
+    {
+        instruction.operands = operands_split(rest.substr(space));
+    }
+    return instruction;
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // the monolith written
 
 struct Writer
 {
     const Krs *c;
+    const Krs *ptx;
     std::map<std::string, std::string> declared;
+    std::map<std::string, std::string> ptx_types;
     std::string helpers;
     std::string body;
     std::vector<std::string> questions;
     unsigned int tag;
+    unsigned int ptx_tag;
     unsigned int in_words;
     unsigned int out_words;
 };
+
+// the tag a question put in ptx.krs's own text stands behind is past this; below it a question put in c.krs's
+#define MONOLITH_FORMS_PTX 0x1000u
 
 static unsigned int writer_take(unsigned int *words, const std::string &type)
 {
@@ -723,12 +805,302 @@ static void writer_question(Writer *writer, const std::vector<Asked> &question, 
     }
 }
 
-static int forms_write(const char *c_path, const char *monolith_path, const char *questions_path)
+// The PTX type each register ptx.krs declares holds, b32, b64 or pred, by its name, and each bank's by the prefix its
+// registers are named with: read off every `.reg .<type> <names>;` the ruleset's forms write
+static std::map<std::string, std::string> ptx_declared(const Krs &ptx)
+{
+    std::map<std::string, std::string> types;
+    for (const auto &entry : ptx.forms)
+    {
+        const std::string &text = entry.second.text;
+        size_t at = text.find(".reg .");
+        while (at != std::string::npos)
+        {
+            const size_t type_end = text.find_first_of(" \t", at + 6u);
+            const size_t end = text.find(';', at);
+            if ((type_end == std::string::npos) || (end == std::string::npos))
+            {
+                break;
+            }
+            const std::string type = text.substr(at + 6u, type_end - at - 6u);
+            const std::vector<std::string> names = line_split(text.substr(type_end, end - type_end), ',');
+            for (std::string name : names)
+            {
+                name.erase(0u, name.find_first_not_of(" \t"));
+                name.erase(name.find_last_not_of(" \t") + 1u);
+                const size_t angle = name.find('<');
+                types[(angle == std::string::npos) ? name : name.substr(0u, angle)] = type;
+            }
+            at = text.find(".reg .", end);
+        }
+    }
+    return types;
+}
+
+// the PTX type a register of `bank` holds, through the prefix ptx.krs names the bank's registers with
+static std::string ptx_bank_type(const Writer *writer, const std::string &bank)
+{
+    const auto text = writer->ptx->banks.find(bank);
+    if (text == writer->ptx->banks.end())
+    {
+        return std::string();
+    }
+    const auto type = writer->ptx_types.find(text->second.substr(0u, text->second.find('{')));
+    return (type == writer->ptx_types.end()) ? std::string() : type->second;
+}
+
+// `text` written as a C string's contents
+static std::string c_string(const std::string &text)
+{
+    std::string out;
+    for (const char character : text)
+    {
+        out += (character == '\n') ? std::string("\\n")
+               : (character == '\t') ? std::string("\\t")
+               : (character == '"') ? std::string("\\\"")
+               : (character == '\\') ? std::string("\\\\")
+                                     : std::string(1u, character);
+    }
+    return out;
+}
+
+// the place of `name`'s each write in a PTX form's text: 1 where it is the first operand of a line that writes one, 2
+// where that line is also under a guard, and the register is then read as well, 0 where it is only read
+static int ptx_written(const std::string &text, const std::string &name)
+{
+    int written = 0;
+    size_t at = 0u;
+    while (at < text.size())
+    {
+        const size_t end = text.find('\n', at);
+        const size_t stop = (end == std::string::npos) ? text.size() : end;
+        const Instruction instruction = instruction_read(text.substr(at, stop - at));
+        at = stop + 1u;
+        const int stores = (instruction.operation.compare(0u, 3u, "st.") == 0) ||
+                           (instruction.operation.compare(0u, 4u, "red.") == 0);
+        if (!stores && !instruction.operands.empty() && (instruction.operands[0].find(name) != std::string::npos))
+        {
+            written = instruction.guard.empty() ? ((written == 2) ? 2 : 1) : 2;
+        }
+    }
+    return written;
+}
+
+// One form asked in ptx.krs's own text, for the SASS NVIDIA's assembler writes from it: the text an inline assembly
+// statement between the form's tags, every register it names an operand of the statement loaded from `in` or stored to
+// `out`. A predicate crosses as a word: set from it before the form where read, and the word selected from it after
+// where written. The carry a form reads is the carry flag set from a word before it, and the carry it writes is read
+// into a word after it. A number is written into the text
+static void writer_ptx_question(Writer *writer, const Asked &asked, int alternate)
+{
+    const std::string name = s_form_names[asked.form];
+    const auto found = writer->ptx->forms.find(name);
+    if (found == writer->ptx->forms.end())
+    {
+        return;
+    }
+    const KrsForm &form = found->second;
+    writer->ptx_tag += 1u;
+    const unsigned int tag = MONOLITH_FORMS_PTX + writer->ptx_tag;
+    std::string row = std::to_string(tag) + "\t" + name + "\t" + asked_key(asked);
+    // every % of the text kept as one, and each register named in it then given its operand
+    std::string text;
+    for (const char character : form.text)
+    {
+        text += (character == '%') ? std::string("%%") : std::string(1u, character);
+    }
+    std::string loads;
+    std::string stores;
+    std::string before;
+    std::string after;
+    std::string predicates;
+    std::vector<std::string> outputs;
+    std::vector<std::string> inputs;
+    unsigned int predicate_count = 0u;
+    // one register of the form: its operand, loaded, stored or both, `role` its name in the questions' row
+    auto operand = [&](const std::string &role, const std::string &type, int fixed, int read, int write) -> std::string {
+        const std::string prefix = fixed ? "\t!" : "\t";
+        const std::string local = "p_" + std::to_string(inputs.size() + outputs.size() + predicate_count);
+        const int predicate = (type == "pred");
+        const std::string c_type = (type == "b64") ? "u64" : "u32";
+        const std::string row_type = predicate ? "int" : c_type;
+        if (read)
+        {
+            const unsigned int word = writer_take(&writer->in_words, c_type);
+            loads += "        " + c_type + " " + local + " = " + writer_load(c_type, word) + ";\n";
+            row += prefix + role + "=in:" + std::to_string(word) + ":" + row_type;
+        }
+        else
+        {
+            loads += "        " + c_type + " " + local + ";\n";
+        }
+        if (write)
+        {
+            const unsigned int word = writer_take(&writer->out_words, c_type);
+            stores += writer_store(c_type, word, local);
+            row += prefix + role + "=out:" + std::to_string(word) + ":" + row_type;
+        }
+        const std::string constraint = (c_type == "u64") ? "l" : "r";
+        std::string placed;
+        if (write)
+        {
+            outputs.push_back(std::string("\"") + (read ? "+" : "=") + constraint + "\"(" + local + ")");
+            placed = "%" + std::to_string(outputs.size() - 1u);
+        }
+        else
+        {
+            inputs.push_back("\"" + constraint + "\"(" + local + ")");
+            placed = "%I" + std::to_string(inputs.size() - 1u);
+        }
+        if (!predicate)
+        {
+            return placed;
+        }
+        const std::string held = "mq" + std::to_string(predicate_count);
+        predicate_count += 1u;
+        predicates += predicates.empty() ? held : (", " + held);
+        if (read)
+        {
+            before += "\tsetp.ne.u32 " + held + ", " + placed + ", 0;\n";
+        }
+        if (write)
+        {
+            after += "\tselp.u32 " + placed + ", 1, 0, " + held + ";\n";
+        }
+        return held;
+    };
+    for (size_t at = 0u; at < form.parameters.size(); at += 1u)
+    {
+        const std::string &parameter = form.parameters[at];
+        const Argument &argument = asked.arguments[at];
+        std::string type;
+        if ((argument.kind == OPERAND_REGISTER) && (argument.which != REGCLASS_IMMEDIATE))
+        {
+            type = ptx_bank_type(writer, s_bank_names[argument.which]);
+        }
+        else if (argument.kind == OPERAND_PHYSREG)
+        {
+            const auto fixed = writer->ptx->fixed.find(s_fixed_names[argument.which]);
+            const auto declared = (fixed == writer->ptx->fixed.end()) ? writer->ptx_types.end()
+                                                                       : writer->ptx_types.find(fixed->second);
+            type = (declared == writer->ptx_types.end()) ? std::string() : declared->second;
+        }
+        if (type.empty())
+        {
+            const unsigned int value = alternate ? number_alternate(argument.number) : argument.number;
+            const std::string number =
+                (argument.kind == OPERAND_SIGNED) ? std::to_string((int)value) : std::to_string(value);
+            text = text_fill(text, parameter, number);
+            row += "\t" + parameter + "=number:" + number;
+            continue;
+        }
+        const int written = ptx_written(form.text, "{" + parameter + "}");
+        const int read = (written != 1);
+        text = text_fill(text, parameter, operand(parameter, type, 0, read, written != 0));
+    }
+    // the fixed registers the text names, each loaded as an argument is: the ruleset's name for it where it has one
+    for (const auto &declared : writer->ptx_types)
+    {
+        const std::string &register_name = declared.first;
+        if ((register_name.empty()) || (register_name[0] != '%') || !text_names(text, "%" + register_name))
+        {
+            continue;
+        }
+        std::string role = register_name.substr(1u);
+        for (const auto &fixed : writer->ptx->fixed)
+        {
+            role = (fixed.second == register_name) ? fixed.first : role;
+        }
+        const int written = ptx_written(form.text, register_name);
+        const std::string placed = operand(role, declared.second, 1, written != 1, written != 0);
+        size_t at = text.find("%" + register_name);
+        while (at != std::string::npos)
+        {
+            const size_t end = at + 1u + register_name.size();
+            if ((end >= text.size()) || !identifier_character(text[end]))
+            {
+                text.replace(at, end - at, placed);
+                at = text.find("%" + register_name, at + placed.size());
+                continue;
+            }
+            at = text.find("%" + register_name, end);
+        }
+    }
+    // the carry flag: set from a word before a form that reads it, read into a word after a form that writes it
+    int carry_in = 0;
+    int carry_out = 0;
+    size_t at = 0u;
+    while (at < form.text.size())
+    {
+        const size_t end = form.text.find('\n', at);
+        const size_t stop = (end == std::string::npos) ? form.text.size() : end;
+        const std::string operation = instruction_read(form.text.substr(at, stop - at)).operation;
+        at = stop + 1u;
+        carry_in = carry_in || (operation.compare(0u, 4u, "addc") == 0) || (operation.compare(0u, 4u, "subc") == 0) ||
+                   (operation.compare(0u, 4u, "madc") == 0);
+        carry_out = carry_out || (operation.find(".cc") != std::string::npos);
+    }
+    if (carry_in)
+    {
+        const unsigned int word = writer_take(&writer->in_words, "u32");
+        const std::string local = "p_carry_in";
+        loads += "        u32 " + local + " = " + writer_load("u32", word) + ";\n";
+        row += "\t!carry=in:" + std::to_string(word) + ":int";
+        inputs.push_back("\"r\"(" + local + ")");
+        before = "\tadd.cc.u32 mw, %I" + std::to_string(inputs.size() - 1u) + ", 0xffffffff;\n" + before;
+    }
+    if (carry_out)
+    {
+        const unsigned int word = writer_take(&writer->out_words, "u32");
+        const std::string local = "p_carry_out";
+        loads += "        u32 " + local + ";\n";
+        stores += writer_store("u32", word, local);
+        row += "\t!carry=out:" + std::to_string(word) + ":int";
+        outputs.push_back("\"=r\"(" + local + ")");
+        after += "\taddc.u32 %" + std::to_string(outputs.size() - 1u) + ", 0, 0;\n";
+    }
+    std::string statement = "{\n\t.reg .b32 mw;\n" + (predicates.empty() ? std::string() : ("\t.reg .pred " + predicates + ";\n")) +
+                            before + text + after + "}\n";
+    // the inputs numbered past the outputs, as an inline assembly statement numbers them
+    for (size_t one = inputs.size(); one > 0u; one -= 1u)
+    {
+        const std::string mark = "%I" + std::to_string(one - 1u);
+        const std::string put = "%" + std::to_string(outputs.size() + one - 1u);
+        size_t place = statement.find(mark);
+        while (place != std::string::npos)
+        {
+            statement.replace(place, mark.size(), put);
+            place = statement.find(mark, place + put.size());
+        }
+    }
+    std::string joined_outputs;
+    for (const std::string &one : outputs)
+    {
+        joined_outputs += (joined_outputs.empty() ? "" : ", ") + one;
+    }
+    std::string joined_inputs;
+    for (const std::string &one : inputs)
+    {
+        joined_inputs += (joined_inputs.empty() ? "" : ", ") + one;
+    }
+    char line[96];
+    snprintf(line, sizeof(line), "\n    MONOLITH_TAG(%u);\n    {\n", MONOLITH_FORMS_LOADS + tag);
+    writer->body += line + loads;
+    snprintf(line, sizeof(line), "        MONOLITH_TAG(%u);\n", tag);
+    writer->body += line + std::string("        asm volatile(\"") + c_string(statement) + "\" : " + joined_outputs +
+                    " : " + joined_inputs + ");\n";
+    snprintf(line, sizeof(line), "        MONOLITH_TAG(%u);\n", MONOLITH_FORMS_STORES + tag);
+    writer->body += line + stores + "    }\n";
+    writer->questions.push_back(row);
+}
+
+static int forms_write(const char *c_path, const char *ptx_path, const char *monolith_path, const char *questions_path)
 {
     Krs c;
-    if ((c_target().ruleset(1) == NULL) || !krs_read(c_path, &c))
+    Krs ptx;
+    if ((c_target().ruleset(1) == NULL) || !krs_read(c_path, &c) || !krs_read(ptx_path, &ptx))
     {
-        fprintf(stderr, "the ruleset %s did not read\n", c_path);
+        fprintf(stderr, "the ruleset %s or %s did not read\n", c_path, ptx_path);
         return 2;
     }
     Gathered gathered;
@@ -760,8 +1132,11 @@ static int forms_write(const char *c_path, const char *monolith_path, const char
     }
     Writer writer;
     writer.c = &c;
+    writer.ptx = &ptx;
     writer.declared = c_declared(c);
+    writer.ptx_types = ptx_declared(ptx);
     writer.tag = 0u;
+    writer.ptx_tag = 0u;
     writer.in_words = 0u;
     writer.out_words = 0u;
     // the helpers the lane's opening defines for the carry chains, everything it holds before the lane itself
@@ -773,6 +1148,23 @@ static int forms_write(const char *c_path, const char *monolith_path, const char
         if (question_numbered(question))
         {
             writer_question(&writer, question, 1);
+        }
+    }
+    // each form again in ptx.krs's own text, for the SASS read off it: alone, since the carry crosses as a word
+    std::set<std::string> asked_ptx;
+    for (const std::vector<Asked> &question : gathered.questions)
+    {
+        for (const Asked &asked : question)
+        {
+            if (!asked_ptx.insert(asked_key(asked)).second)
+            {
+                continue;
+            }
+            writer_ptx_question(&writer, asked, 0);
+            if (question_numbered(std::vector<Asked>{asked}))
+            {
+                writer_ptx_question(&writer, asked, 1);
+            }
         }
     }
     FILE *const out = fopen(monolith_path, "wb");
@@ -794,8 +1186,8 @@ static int forms_write(const char *c_path, const char *monolith_path, const char
     }
     fclose(out);
     fclose(rows);
-    printf("monolith_forms: %zu questions, %u blocks, %u words in and %u out\n", gathered.questions.size(), writer.tag,
-           writer.in_words, writer.out_words);
+    printf("monolith_forms: %zu questions, %u blocks in c.krs's text and %u in ptx.krs's, %u words in and %u out\n",
+           gathered.questions.size(), writer.tag, writer.ptx_tag, writer.in_words, writer.out_words);
     return 0;
 }
 
@@ -828,20 +1220,6 @@ struct Question
     std::string key;
     std::vector<Role> roles;
 };
-
-static std::vector<std::string> line_split(const std::string &line, char by)
-{
-    std::vector<std::string> parts;
-    size_t at = 0u;
-    while (at <= line.size())
-    {
-        const size_t end = line.find(by, at);
-        const size_t stop = (end == std::string::npos) ? line.size() : end;
-        parts.push_back(line.substr(at, stop - at));
-        at = stop + 1u;
-    }
-    return parts;
-}
 
 static std::vector<Question> questions_read(const char *path)
 {
@@ -886,68 +1264,6 @@ static std::vector<Question> questions_read(const char *path)
     }
     fclose(file);
     return questions;
-}
-
-// an instruction of a listing: its guard, its operation and its operands
-struct Instruction
-{
-    std::string guard;
-    std::string operation;
-    std::vector<std::string> operands;
-};
-
-static std::string trim(const std::string &text)
-{
-    const size_t first = text.find_first_not_of(" \t");
-    if (first == std::string::npos)
-    {
-        return std::string();
-    }
-    return text.substr(first, text.find_last_not_of(" \t") - first + 1u);
-}
-
-// the operands of `text` split at every comma outside brackets and braces
-static std::vector<std::string> operands_split(const std::string &text)
-{
-    std::vector<std::string> operands;
-    int depth = 0;
-    std::string one;
-    for (const char character : text)
-    {
-        depth += ((character == '[') || (character == '{')) ? 1 : 0;
-        depth -= ((character == ']') || (character == '}')) ? 1 : 0;
-        if ((character == ',') && (depth == 0))
-        {
-            operands.push_back(trim(one));
-            one.clear();
-            continue;
-        }
-        one += character;
-    }
-    if (!trim(one).empty())
-    {
-        operands.push_back(trim(one));
-    }
-    return operands;
-}
-
-static Instruction instruction_read(const std::string &text)
-{
-    Instruction instruction;
-    std::string rest = trim(text);
-    if (!rest.empty() && (rest[0] == '@'))
-    {
-        const size_t space = rest.find(' ');
-        instruction.guard = rest.substr(1u, space - 1u);
-        rest = trim(rest.substr(space));
-    }
-    const size_t space = rest.find_first_of(" \t");
-    instruction.operation = rest.substr(0u, space);
-    if (space != std::string::npos)
-    {
-        instruction.operands = operands_split(rest.substr(space));
-    }
-    return instruction;
 }
 
 // the SASS listing's blocks, each tag's instructions, and the instructions before the first tag
@@ -1323,38 +1639,98 @@ static Read sass_read(const Question &question, const std::vector<std::string> &
         }
         kept.push_back(one);
     }
-    // a predicate argument read in: the predicate an ISETP.NE sets from the word loaded for it. A predicate argument
-    // stored: the word selected from it, 1 where it holds
-    auto inside = [](const std::string &name) -> std::string {
-        return ((name.size() >= 2u) && (name[0] == '\x02')) ? name.substr(1u, name.size() - 2u) : std::string();
+    // A predicate argument, and the carry, cross the block's edge as a word. Read in: an instruction whose one value
+    // read is the word loaded for it, the rest RZ, PT and numbers, and which writes only predicates and RZ, sets the
+    // predicate from the word. Stored: an instruction writing the word stored for it whose one value read is a
+    // predicate, the rest RZ, PT and numbers, writes the word from the predicate; a SEL of RZ and 1 is 1 where the
+    // predicate holds, and any other where the predicate is read as written. Each such instruction is dropped from
+    // the form, and its predicate is the argument
+    auto values_of = [](const std::string &name, std::vector<std::string> *values) -> std::string {
+        std::string rest;
+        size_t from = 0u;
+        size_t open = name.find('\x02');
+        while (open != std::string::npos)
+        {
+            const size_t close = name.find('\x02', open + 1u);
+            rest += name.substr(from, open - from);
+            values->push_back(name.substr(open + 1u, close - open - 1u));
+            from = close + 1u;
+            open = name.find('\x02', from);
+        }
+        return rest + name.substr(from);
+    };
+    auto constant = [](const std::string &rest) -> int {
+        const std::string bare = trim(rest);
+        return bare.empty() || (bare == "RZ") || (bare == "PT") || (bare == "!PT") || (bare == "!") ||
+               (bare.compare(0u, 2u, "0x") == 0) || (bare.compare(0u, 3u, "-0x") == 0);
+    };
+    auto predicate_value = [](const std::string &value) -> int {
+        const size_t colon = value.find(':');
+        return (colon != std::string::npos) && (value[colon + 1u] == 'P');
     };
     std::set<size_t> dropped;
     for (size_t at = 0u; at < kept.size(); at += 1u)
     {
-        const std::string &operation = kept[at].instruction.operation;
+        const Instruction &instruction = kept[at].instruction;
         const std::vector<std::string> &names = kept[at].names;
-        if ((operation.compare(0u, 9u, "ISETP.NE.") == 0) && (names.size() == 5u) && (names[1] == "PT") &&
-            (names[3] == "RZ") && (names[4] == "PT") && (int_role(inside(names[2])) != NULL))
+        const unsigned int written = sass_written(instruction);
+        std::vector<std::string> reads;
+        int others = 0;
+        int inverted = 0;
+        for (size_t one = written; one < names.size(); one += 1u)
         {
-            bound[inside(names[0])] = {int_role(inside(names[2]))->name, 0u, 0};
-            dropped.insert(at);
+            std::vector<std::string> values;
+            const std::string rest = values_of(names[one], &values);
+            inverted = inverted || (!values.empty() && (rest.find('!') != std::string::npos));
+            others = others || !constant(rest);
+            reads.insert(reads.end(), values.begin(), values.end());
         }
-        if ((operation == "SEL") && (names.size() == 4u) && (int_role(inside(names[0])) != NULL))
+        std::vector<std::string> writes;
+        int written_words = 0;
+        for (size_t one = 0u; one < written; one += 1u)
         {
-            const int inverted = (names[3][0] == '!');
-            const std::string predicate = inside(names[3].substr(inverted ? 1u : 0u));
-            const int straight = (names[1] == "RZ") && (names[2] == "0x1");
-            const int crossed = (names[1] == "0x1") && (names[2] == "RZ");
-            if (predicate.empty() || (!straight && !crossed))
+            std::vector<std::string> values;
+            values_of(names[one], &values);
+            for (const std::string &value : values)
             {
-                continue;
+                written_words = written_words || !predicate_value(value);
+                writes.push_back(value);
             }
-            const Role *const role = int_role(inside(names[0]));
-            const int negated = straight ? !inverted : inverted;
-            bound[predicate] = {role->name, 0u, negated};
-            bound.erase(inside(names[0]));
+        }
+        if (others || (reads.size() != 1u) || !instruction.guard.empty())
+        {
+            continue;
+        }
+        const Role *const read_role = int_role(reads[0]);
+        if ((read_role != NULL) && (reads[0][0] == 'L') && !written_words && !writes.empty())
+        {
+            const int negated = (instruction.operation.find(".EQ") != std::string::npos);
+            for (const std::string &value : writes)
+            {
+                bound[value] = {read_role->name, 0u, negated};
+            }
             dropped.insert(at);
-            read.why += negated ? ("the compiler sets the negation of " + role->name + "; ") : std::string();
+            read.why += negated ? ("the compiler reads the negation of " + read_role->name + "; ") : std::string();
+            continue;
+        }
+        const Role *const write_role = (writes.size() == 1u) ? int_role(writes[0]) : NULL;
+        if ((write_role != NULL) && predicate_value(reads[0]))
+        {
+            int negated = inverted;
+            if (instruction.operation == "SEL")
+            {
+                const int straight = (names[1] == "RZ") && (names[2] == "0x1");
+                const int crossed = (names[1] == "0x1") && (names[2] == "RZ");
+                if (!straight && !crossed)
+                {
+                    continue;
+                }
+                negated = straight ? !inverted : inverted;
+            }
+            bound[reads[0]] = {write_role->name, 0u, negated};
+            bound.erase(writes[0]);
+            dropped.insert(at);
+            read.why += negated ? ("the compiler sets the negation of " + write_role->name + "; ") : std::string();
         }
     }
     // the pair a 64-bit write gives: where one half is an argument's, the other is the argument's other half
@@ -1386,7 +1762,12 @@ static Read sass_read(const Question &question, const std::vector<std::string> &
     // every value left: an argument's, or scratch, named by the compiler's own register for it
     std::map<std::string, std::string> scratch;
     unsigned int scratch_words = 0u;
+    // a form that carries holds P6 already, and any predicate scratch beside it is one more than sass.krs keeps
     unsigned int scratch_predicates = 0u;
+    for (const Role &role : question.roles)
+    {
+        scratch_predicates = (role.name == "carry") ? 1u : scratch_predicates;
+    }
     auto resolve = [&](const std::string &with) -> std::string {
         std::string out;
         size_t from = 0u;
@@ -1405,8 +1786,10 @@ static Read sass_read(const Question &question, const std::vector<std::string> &
                 {
                     fixed = (role.name == held.argument) ? role.fixed : fixed;
                 }
-                out += (fixed ? ("<" + held.argument + ">") : ("{" + held.argument + "}")) +
-                       ((held.half != 0u) ? ".hi" : "");
+                // the carry is P6, which sass.krs keeps for a chain's carry
+                out += (held.argument == "carry") ? std::string("P6")
+                       : fixed                    ? ("<" + held.argument + ">" + ((held.half != 0u) ? ".hi" : ""))
+                                                  : ("{" + held.argument + "}" + ((held.half != 0u) ? ".hi" : ""));
             }
             else
             {
@@ -1949,20 +2332,25 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     PtxBases ptx_bases;
     const std::vector<std::string> none;
     Question nothing;
-    const auto opening = sass_lines.find(0u);
-    sass_read(nothing, (opening != sass_lines.end()) ? opening->second : none, &bases);
+    // the bases are set in whichever block the compiler opens the entry into
+    for (auto block = sass_lines.begin(); (block != sass_lines.end()) && ((bases.in_low < 0) || (bases.out_low < 0));
+         ++block)
+    {
+        sass_read(nothing, block->second, &bases);
+    }
     const auto ptx_opening = ptx_lines.find(0u);
     ptx_read(nothing, (ptx_opening != ptx_lines.end()) ? ptx_opening->second : none, &ptx_bases);
     fprintf(out, "# The forms read off NVIDIA's compiler\n\n");
     fprintf(out, "Written by `monolith_forms.sh` whole on every run. Every form the lanes of the record programs decide "
-                 "is asked of NVIDIA's compiler once for each set of banks its arguments come from, its question the "
-                 "form's own text in `c.krs`, in one program between tags (`monolith_forms.cpp`). Each block of the "
-                 "listing and of the PTX is read back into the form it is, its registers named by the arguments they "
-                 "hold, and held beside the form `sass.krs` and `ptx.krs` give. A fixed register is named in angle "
+                 "is asked of NVIDIA's compiler once for each set of banks its arguments come from, in one program "
+                 "between tags (`monolith_forms.cpp`). A question in the form's text in `c.krs` is read off the PTX "
+                 "and held beside the form `ptx.krs` gives; one in its text in `ptx.krs`, put to `ptxas` as inline "
+                 "PTX, is read off the listing and held beside the form `sass.krs` gives. Each block is read back "
+                 "into the form it is, its registers named by the arguments they hold. A fixed register is named in angle "
                  "brackets, and the ruleset names it. A form every question of which reads whole and alike is the "
                  "ruleset's form, written into it by `monolith_forms.sh apply`; any other keeps the ruleset's text, "
                  "and the reason stands beside it.\n\n");
-    fprintf(out, "| tag | form | banks | SASS read | PTX read | note |\n|---|---|---|---|---|---|\n");
+    fprintf(out, "| tag | form | banks | read off | read | note |\n|---|---|---|---|---|---|\n");
     // each form's readings: the text every question gave where all gave one whole, else empty with the reason
     struct Verdict
     {
@@ -1986,30 +2374,28 @@ static int forms_read(const char *questions_path, const char *listing, const cha
             verdict.text.clear();
         }
     };
+    // a question asked in ptx.krs's text is read for sass.krs off the listing; one asked in c.krs's for ptx.krs off the
+    // PTX
     for (const Question &question : questions)
     {
-        const Read read = sass_read(question, regions_joined(sass_lines, question.tag), &bases);
-        if ((getenv("MONOLITH_FORMS_TAG") != NULL) && (strtoul(getenv("MONOLITH_FORMS_TAG"), NULL, 10) == question.tag))
-        {
-            printf("tag %u: in R%d out R%d, %zu lines, text [%s] why [%s]\n", question.tag, bases.in_low,
-                   bases.out_low, regions_joined(sass_lines, question.tag).size(), read.text.c_str(), read.why.c_str());
-            for (const std::string &line : regions_joined(sass_lines, question.tag))
-            {
-                printf("  %s\n", line.c_str());
-            }
-        }
-        const Read ptx_one = ptx_read(question, regions_joined(ptx_lines, question.tag), &ptx_bases);
-        std::string sass_why;
-        std::string ptx_why;
-        const std::string sass_text = read_adopted(read, sass, question, 1, &sass_why);
-        const std::string ptx_text = read_adopted(ptx_one, ptx_rules, question, 0, &ptx_why);
-        settle(sass_verdicts, question.form, sass_text, sass_why);
-        settle(ptx_verdicts, question.form, ptx_text, ptx_why);
+        const int asked_in_ptx = (question.tag >= MONOLITH_FORMS_PTX);
+        const Read read = asked_in_ptx ? sass_read(question, regions_joined(sass_lines, question.tag), &bases)
+                                       : ptx_read(question, regions_joined(ptx_lines, question.tag), &ptx_bases);
+        std::string why;
+        const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
+        settle(asked_in_ptx ? sass_verdicts : ptx_verdicts, question.form, text, why);
         const size_t space = question.key.find(' ');
         const std::string banks = (space == std::string::npos) ? std::string() : question.key.substr(space + 1u);
-        fprintf(out, "| %u | %s | %s | `%s` | `%s` | %s%s%s |\n", question.tag, question.form.c_str(), banks.c_str(),
-                cell(text_flat(read.text)).c_str(), cell(text_flat(ptx_one.text)).c_str(), cell(sass_why).c_str(),
-                (!sass_why.empty() && !ptx_why.empty()) ? " / " : "", cell(ptx_why).c_str());
+        fprintf(out, "| %u | %s | %s | %s | `%s` | %s |\n", question.tag, question.form.c_str(), banks.c_str(),
+                asked_in_ptx ? "SASS" : "PTX", cell(text_flat(read.text)).c_str(),
+                cell(why).c_str());
+    }
+    for (const auto &entry : ptx_verdicts)
+    {
+        if (sass_verdicts.find(entry.first) == sass_verdicts.end())
+        {
+            sass_verdicts[entry.first] = {std::string(), "ptx.krs gives no form", 1};
+        }
     }
     std::map<std::string, std::string> sass_adopted;
     std::map<std::string, std::string> ptx_adopted;
@@ -2075,16 +2461,16 @@ static int forms_read(const char *questions_path, const char *listing, const cha
 
 int main(int count, char **words)
 {
-    if ((count == 5) && (strcmp(words[1], "write") == 0))
+    if ((count == 6) && (strcmp(words[1], "write") == 0))
     {
-        return forms_write(words[2], words[3], words[4]);
+        return forms_write(words[2], words[3], words[4], words[5]);
     }
     if (((count == 9) || (count == 10)) && (strcmp(words[1], "read") == 0))
     {
         return forms_read(words[2], words[3], words[4], words[5], words[6], words[7], words[8],
                           (count == 10) && (strcmp(words[9], "apply") == 0));
     }
-    fprintf(stderr, "monolith_forms write <c.krs> <monolith.cu> <questions>\n"
+    fprintf(stderr, "monolith_forms write <c.krs> <ptx.krs> <monolith.cu> <questions>\n"
                     "monolith_forms read <questions> <listing> <ptx> <sass.krs> <ptx.krs> <machine> <record> "
                     "[apply]\n");
     return 2;

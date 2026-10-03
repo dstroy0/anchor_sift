@@ -85,7 +85,7 @@ c++ -o "$OUT/monolith_forms" "$OUT/monolith_forms.o" "${OBJECTS[@]}" -lpthread |
 
 # the rulesets are named from the top of the tree, which is where the generator reads them from
 cd "$TOP" || exit 1
-"$OUT/monolith_forms" write "$RULESETS/c.krs" "$OUT/monolith_forms.cu" "$OUT/questions.tsv" || exit 1
+"$OUT/monolith_forms" write "$RULESETS/c.krs" "$RULESETS/ptx.krs" "$OUT/monolith_forms.cu" "$OUT/questions.tsv" || exit 1
 nvcc "${HOST_FLAGS[@]}" -cubin -arch="$ARCH" -O3 -o "$OUT/monolith_forms.cubin" "$OUT/monolith_forms.cu" || exit 1
 nvcc "${HOST_FLAGS[@]}" -ptx -arch="$ARCH" -O3 -o "$OUT/monolith_forms.ptx" "$OUT/monolith_forms.cu" || exit 1
 cuobjdump -sass "$OUT/monolith_forms.cubin" > "$OUT/monolith_forms.sass" || exit 1
