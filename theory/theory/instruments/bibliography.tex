@@ -1,28 +1,9 @@
 \backmatter
-\AfterBibliographyPreamble{%
-Every measurement in this work is built on somebody's published result, and the
-first purpose of this chapter is that those people are credited by name. A surname
-in a footnote is not a citation. The second purpose is that the credit is checkable:
-each source is registered in \texttt{orior\_citations}, where the copy sits
-itself, and this bibliography is generated from that registry and pinned to one
-commit of it. A reference therefore resolves not to a title but to exact bytes.
-
-Credit here does not depend on agreement. Where this work reproduces a published
-result it says so, and where it fails to reproduce one it says that too, under the
-same names, because a refutation rests on the original as much as a confirmation does.
-
-\begin{description}
-\item[Registry commit] \texttt{2aae1103d28d9b919eae59cc9062aeaffe1fa0b2}
-\item[Dated] 2026-10-01
-\item[Inventory] \texttt{MANIFEST.tsv}, signed; the hashes below are its rows
-\end{description}
-
-A reader who disagrees with a number in this research paper can ask which copy it was checked
-against, and the hash answers exactly. Two copies of a paper are rarely the same
-bytes.
-\par\medskip\raggedright}
 \KOMAoptions{bibliography=totoc}
-\begin{thebibliography}{12}
+\begin{thebibliography}{21}
+
+\bibitem{src:Bailey-1990}
+D. H. Bailey. \emph{FFTs in external or hierarchical memory}. The Journal of Supercomputing 4(1), 23-35. 1990.
 
 \bibitem{src:Bailey-2023}
 D. H. Bailey. \emph{A Compendium of BBP-Type Formulas for Mathematical Constants}. 2023.
@@ -31,34 +12,57 @@ D. H. Bailey. \emph{A Compendium of BBP-Type Formulas for Mathematical Constants
 D. H. Bailey, P. B. Borwein, S. Plouffe. \emph{On the Rapid Computation of Various Polylogarithmic Constants}. Mathematics of Computation 66(218), 903-913, \texttt{doi:10.1090/\allowbreak{}s0025-5718-97-00856-9}. 1997.
 
 \bibitem{src:BIP310}
-Moravec, Capek. \emph{Stratum protocol extensions}. BIP310.
+P. Moravec, J. \v{C}apek. \emph{Stratum protocol extensions}. Bitcoin Improvement Proposal 310.
 
 \bibitem{src:BIP320}
-BIP320. \emph{nVersion bits for general purpose use}. BIP320.
+BtcDrak. \emph{nVersion bits for general purpose use}. Bitcoin Improvement Proposal 320.
 
 \bibitem{src:Borwein}
-J. Borwein, W. Galway, D. Borwein. \emph{Finding and Excluding b-ary Machin-Type Individual Digit Formulae}. Canadian Journal of Mathematics 56(5) 897-925, \texttt{doi:10.4153/\allowbreak{}cjm-2004-041-2}.
+J. Borwein, W. Galway, D. Borwein. \emph{Finding and Excluding b-ary Machin-Type Individual Digit Formulae}. Canadian Journal of Mathematics 56(5), 897-925, \texttt{doi:10.4153/\allowbreak{}cjm-2004-041-2}. 2004.
+
+\bibitem{src:Dinur-and-Shamir-2009}
+I. Dinur, A. Shamir. \emph{Cube Attacks on Tweakable Black Box Polynomials}. Advances in Cryptology, EUROCRYPT 2009, Lecture Notes in Computer Science 5479, 278-299, \texttt{doi:10.1007/\allowbreak{}978-3-642-01001-9\_\allowbreak{}16}. 2009.
+
+\bibitem{src:Ferguson-Bailey-and-Arno-1999}
+H. R. P. Ferguson, D. H. Bailey, S. Arno. \emph{Analysis of PSLQ, an integer relation finding algorithm}. Mathematics of Computation 68(225), 351-369. 1999.
 
 \bibitem{src:FIPS-180-4}
 National Institute of Standards and Technology. \emph{Secure Hash Standard}. FIPS PUB 180-4, \texttt{doi:10.6028/\allowbreak{}nist.fips.180-4}. 2015.
 
-\bibitem{src:Kolmogorov}
-A. N. Kolmogorov. \emph{A new metric invariant of transitive dynamical systems and automorphisms of Lebesgue spaces}. Dokl. Akad. Nauk SSSR 119(5):861-864, Math-Net.Ru dan22922. 1958.\newline
-{\footnotesize Copy held \texttt{sources/\allowbreak{}mathematics/\allowbreak{}ergodic\_\allowbreak{}theory/\allowbreak{}dan22922\_\allowbreak{}kolmogorov\_\allowbreak{}1958.pdf}, SHA-256 \texttt{abf376fa2e2aefaf1492308a8808d79be3431dae4c821ca546719f35a1d4bf85}.}
+\bibitem{src:GCC-bug-54412}
+GCC Bugzilla. \emph{Bug 54412: minimal 32-byte stack alignment with -mavx on 64-bit Windows}. \texttt{https:/\allowbreak{}/\allowbreak{}gcc.gnu.org/\allowbreak{}bugzilla/\allowbreak{}show\_\allowbreak{}bug.cgi?id=54412}.
+
+\bibitem{src:Gonzalez-2010}
+\'A. Gonz\'alez. \emph{Measurement of areas on a sphere using Fibonacci and latitude-longitude lattices}. Mathematical Geosciences, \texttt{doi:10.1007/\allowbreak{}s11004-009-9257-x}. 2010.
+
+\bibitem{src:Good-1953}
+I. J. Good. \emph{The population frequencies of species and the estimation of population parameters}. Biometrika 40(3-4), 237-264. 1953.
+
+\bibitem{src:Kolmogorov-1965}
+A. N. Kolmogorov. \emph{Three approaches to the quantitative definition of information}. Problems of Information Transmission 1(1), 1-7. 1965.
+
+\bibitem{src:Lai-1994}
+X. Lai. \emph{Higher order derivatives and differential cryptanalysis}. Communications and Cryptography, 227-233. Springer. 1994.
 
 \bibitem{src:Matsui-1994}
 M. Matsui. \emph{Linear cryptanalysis method for DES cipher}. Advances in Cryptology, EUROCRYPT '93, Lecture Notes in Computer Science 765, 386-397, \texttt{doi:10.1007/\allowbreak{}3-540-48285-7\_\allowbreak{}33}. 1994.
+
+\bibitem{src:Quigg-delta-null}
+D. Quigg. \emph{Delta Null}. orior research papers, \texttt{https:/\allowbreak{}/\allowbreak{}github.com/\allowbreak{}dstroy0/\allowbreak{}orior}. 2026.
 
 \bibitem{src:Renyi}
 A. Rényi. \emph{On measures of entropy and information}. Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability 1, 547-561. 1961.
 
 \bibitem{src:Rohling-1983}
-H. Rohling. \emph{Radar CFAR Thresholding in Clutter and Multiple Target Situations}. IEEE Transactions on Aerospace and Electronic Systems 19, 608-621, \texttt{doi:10.1109/\allowbreak{}taes.1983.309350}.
+H. Rohling. \emph{Radar CFAR Thresholding in Clutter and Multiple Target Situations}. IEEE Transactions on Aerospace and Electronic Systems 19(4), 608-621, \texttt{doi:10.1109/\allowbreak{}taes.1983.309350}. 1983.
 
 \bibitem{src:Vaughn-and-Borowczak-2026}
-Riley Vaughn, Mike Borowczak. \emph{Relaxation of Strict Avalanche Criterion on All SHA-256 Sub-Function Combinations}. \texttt{doi:10.3390/\allowbreak{}cryptography10030032}. 2026.
+Riley Vaughn, Mike Borowczak. \emph{Relaxation of Strict Avalanche Criterion on All SHA-256 Sub-Function Combinations}. Cryptography 10(3), 32, \texttt{doi:10.3390/\allowbreak{}cryptography10030032}. 2026.
 
 \bibitem{src:Webster-and-Tavares-1986}
 A. F. Webster, S. E. Tavares. \emph{On the design of S-boxes}. Advances in Cryptology, CRYPTO '85, Lecture Notes in Computer Science 218, 523-534, \texttt{doi:10.1007/\allowbreak{}3-540-39799-x\_\allowbreak{}41}. 1986.
+
+\bibitem{src:Westfall-and-Young-1993}
+P. H. Westfall, S. S. Young. \emph{Resampling-Based Multiple Testing: Examples and Methods for p-Value Adjustment}. Wiley. 1993.
 
 \end{thebibliography}
