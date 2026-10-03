@@ -266,6 +266,109 @@ $2\mu'(T)\,D\nabla T$ stays small beside $\mu\Delta u$ where $D$ has no bound (P
 5), and that the density holds (Proposition 4). Each needs the temperature and its gradient, and
 equation (1) has neither.
 
+\section{The heat of a collapsing core}
+
+Proposition 19 holds for any solution. The construction Duraiswami
+computes~\cite{src:Duraiswami-2026} gathers its swirl into a core whose radius falls as
+$(T^*-t)^{1/2}$, and the heat of that swirl is the next question: how hot the core grows when its
+swirl is the construction's and its heat leaves by conduction alone.
+
+Let a column of fluid of constant $\rho$, $\mu$, $c$ and $k$ turn about the axis $r = 0$ with the
+swirl $v(r,t)$ and no other motion, and let the temperature depend on $r$ and $t$ alone. Then
+$u\cdot\nabla T = 0$, the one part of $D$ is $D_{r\theta} = \tfrac12\,r\,\partial_r(v/r)$, and
+the energy balance of Proposition 19 reads
+\[
+\rho c\,\partial_t T = k\,\Delta T + \mu\,\big(r\,\partial_r(v/r)\big)^2 .
+\]
+Write $\tau = T^* - t$, $X = r^2/(2\nu\tau)$, $\kappa = k/(\rho c)$ and $\Pr = \nu/\kappa$.
+
+\textbf{Proposition 20.} Let $h \ge 0$ and let the swirl be $v = r\,\tau^{-1-h}F(X)$ on
+$0 \le t < T^*$, with $F$ continuously differentiable and $g(X) = \big(2XF'(X)\big)^2$ bounded and
+not zero everywhere. Let $T$ be the bounded solution of the energy balance above with
+$T(\cdot,0) = T_0$, and write $a = 1 + 2h$ and
+\[
+\hat g(\lambda) = \int_0^\infty e^{-\lambda s}\,g(2s/\Pr)\,ds .
+\]
+Then on the axis, at every $t$ in $(0,T^*)$,
+\[
+T(0,t) - T_0 = \frac{\nu}{c}\,\tau^{-a}\int_{\tau/t}^\infty \frac{w^{a-1}}{(1+w)^a}\,
+\hat g(1+w)\,dw .
+\]
+The number $\Theta_0 = \int_0^\infty w^{a-1}(1+w)^{-a}\,\hat g(1+w)\,dw$ is positive and finite,
+and
+\[
+\frac{\nu}{c}\Big(\Theta_0\,\tau^{-a} - \frac{\hat g(1)}{a}\,t^{-a}\Big) \le T(0,t) - T_0
+\le \frac{\nu}{c}\,\Theta_0\,\tau^{-a} .
+\]
+The temperature on the axis has no bound as $t \to T^*$, and it grows as $(T^*-t)^{-1-2h}$.
+
+\emph{Proof.} Since $r\,\partial_r X = 2X$, $r\,\partial_r(v/r) = \tau^{-1-h}\,2XF'(X)$, and the
+source is $Q = (\nu/c)\,\tau^{-2-2h}g(X)$. It is bounded on the plane for each $t < T^*$. The
+difference $T - T_0$ starts at zero, and by Duhamel's formula for the heat equation in the plane
+\[
+T(0,t) - T_0 = \int_0^t \int_0^\infty \frac{e^{-r^2/(4\kappa(t-t'))}}{4\pi\kappa(t-t')}\,
+Q(r,t')\,2\pi r\,dr\,dt' .
+\]
+In the inner integral put $\tau' = T^* - t'$ and $s = \Pr\,r^2/(4\nu\tau')$. Then $X = 2s/\Pr$,
+$r\,dr = (2\nu\tau'/\Pr)\,ds$ and $r^2/(4\kappa(t-t')) = s\,\tau'/(\tau'-\tau)$, and the inner
+integral is
+\[
+\frac{\nu}{c}\,\frac{\tau'^{-1-2h}}{\tau'-\tau}\,\hat g\Big(\frac{\tau'}{\tau'-\tau}\Big) .
+\]
+Now put $\tau' = \tau(1+w)/w$. Then $\tau'/(\tau'-\tau) = 1 + w$ and $dt' = \tau\,dw/w^2$, and as
+$t'$ runs from $0$ to $t$, $w$ runs from $\tau/t$ to $\infty$. Collecting the powers of $\tau$
+and $w$ gives the formula. Every factor is positive, and the integral from $\tau/t$ is therefore
+at most $\Theta_0$. On $0 < w < \tau/t$ the factor $(1+w)^{-a}$ is at most $1$ and
+$\hat g(1+w)$ at most $\hat g(1)$, and the part of $\Theta_0$ left out is at most
+$\hat g(1)\,(\tau/t)^a/a$. Last, $\hat g(\lambda) \le \lambda^{-1}\sup g$. The integrand of
+$\Theta_0$ is then at most $w^{a-1}(1+w)^{-a-1}\sup g$, which is integrable, and $\Theta_0 > 0$
+because $g \ge 0$ is
+continuous and not zero everywhere. \hfill\qedsymbol
+
+The power $-1-2h$ is twice the power of the peak swirl, $\tau^{-1/2-h}$. The temperature on the
+axis grows as the square of the fastest speed in the core, as the temperature at the instant of
+contact grows as $V^2$ in Proposition 18. The core's heat is made at the rate $\tau^{-2-2h}$, and
+conduction moves it across the core's radius $(\nu\tau)^{1/2}$ in a time $\Pr\,\tau$, a fixed
+multiple of the time left. Conduction carries off a share of the heat that does not grow as the
+core shrinks, and the rest stays.
+
+The outer swirl alone gives a bound in closed form.
+
+\textbf{Proposition 21.} In Proposition 20 let $h = 0$ and let the swirl outside $X = X_b$ be the
+potential vortex, $v\,r = C$ for $X \ge X_b$, with $C$ constant. Write $s_b = \Pr X_b/2$ and
+$E_1(s) = \int_s^\infty e^{-u}u^{-1}\,du$. Then at every $t$ in $(0,T^*)$
+\[
+T(0,t) - T_0 \ge \frac{C^2\Pr^2}{4\nu c}\Big(\frac{K(s_b)}{\tau}
+- \frac{e^{-s_b}/s_b - E_1(s_b)}{t}\Big), \qquad
+K(s) = \Big(1 + \frac{1}{s}\Big)E_1(s) - \frac{e^{-s}}{s} ,
+\]
+and $K(s) > 0$ for every $s > 0$.
+
+\emph{Proof.} For $X \ge X_b$, $F = \tau\,C/r^2 = C/(2\nu X)$. Then $2XF' = -C/(\nu X)$ and
+$g = C^2/(\nu^2X^2)$. The formula of Proposition 20 is linear in $g$ with a positive kernel, and
+putting $g = 0$ inside $X_b$ lowers it. With $a = 1$ the outer part is
+$\hat g_b(\lambda) = (C^2\Pr^2/4\nu^2)\int_{s_b}^\infty e^{-\lambda s}s^{-2}\,ds$, and since
+$\int_0^\infty e^{-(1+w)s}(1+w)^{-1}\,dw = E_1(s)$, exchanging the order of integration gives
+\[
+\int_0^\infty \frac{\hat g_b(1+w)}{1+w}\,dw = \frac{C^2\Pr^2}{4\nu^2}\int_{s_b}^\infty
+\frac{E_1(s)}{s^2}\,ds .
+\]
+Two integrations by parts with $E_1' = -e^{-s}/s$ give $\int_{s_b}^\infty E_1(s)\,s^{-2}\,ds =
+K(s_b)$, and one gives $\int_{s_b}^\infty e^{-s}s^{-2}\,ds = e^{-s_b}/s_b - E_1(s_b)$, which is
+$\hat g_b(1)$ up to the same factor. The bound of Proposition 20 with $\hat g_b$ in place of
+$\hat g$ is the statement. For the sign, $K(s) > 0$ is $E_1(s) > e^{-s}/(1+s)$. Write
+$E_1(s) = e^{-s}s^{-1}\int_0^\infty s\,e^{-su}(1+u)^{-1}\,du$: the integral is the mean of the
+convex function $1/(1+u)$ under the density $s\,e^{-su}$, whose mean is $1/s$, and by Jensen's
+inequality it is above $1/(1 + 1/s)$, strictly because the density is not concentrated at a
+point. \hfill\qedsymbol
+
+The constant $C/\nu$ is the circulation of the outer swirl divided by $2\pi\nu$. The bound grows
+as its square and falls as $K(s_b)$, which is near $e^{-s_b}/s_b^3$ for large $s_b$: the two terms
+of $K$ agree in their leading part, and their difference is what conduction leaves on the axis.
+Duraiswami's construction takes $0 < h < 1/100$ and joins its core to its outer swirl in
+$1 < X < 2$. Its outer swirl at $h = 0$ is the potential vortex, and Proposition 21 with
+$X_b = 2$ and $s_b = \Pr$ is that case.
+
 \section{What this establishes and what it does not}
 
 \textbf{Established.} The system equation (1) is cut from has a phase boundary, and equation (1)
@@ -277,11 +380,16 @@ its axis at a speed at which a shearing layer is warmed by a hundredth of a kelv
 one liquid brought together with a velocity jump $V$ heat their boundary at once, by an amount set
 by $V^2$, the heat capacity and the Prandtl number, and the same at every later instant. Every
 solution of (1), carried with a temperature, is compatible with a fluid past its vapor point
-everywhere. Whether a blowup of (1) describes a liquid cannot be decided in (1).
+everywhere. Whether a blowup of (1) describes a liquid cannot be decided in (1). A column turning
+with a swirl that collapses like the construction's has no bound on the temperature of its axis
+before its swirl has none, and that temperature grows as the square of the peak swirl.
 
 \textbf{Not established.} The comparison is between two exact solutions at the same speed. It does
-not show that the forced construction, or any collapsing solution, follows either profile, and a
-vortex core heats at $2\mu|D|^2$ without the walls that hold the layer at $T_0$. It treats the
+not show that the forced construction, or any collapsing solution, follows either profile. The
+column of Propositions 20 and 21 has no flow along or toward its axis, its swirl is given and does
+not solve (1), and its coefficients are held at their values at $T_0$. The construction's inflow
+carries heat that the column leaves out, and nothing here says whether it carries that heat toward
+the axis or away from it. It treats the
 liquid as one substance. A boundary between two liquids that differ lowers $\Delta_n$ and the
 boiling point there, and the workbook holds what that predicts in a laboratory as theory. Nothing
 here shows that the coupled system is regular, or that its solutions break down.
