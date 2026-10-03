@@ -745,6 +745,112 @@ step's divisions take.
 It computes no Selberg transform, no Eisenstein series and no scattering, and it says nothing about
 the hypothesis.
 
+## Entry 11, 2026-10-03: a counted zero turned into a certificate a second reader checks in one pass
+
+`examples/0_experimental/zeta_zero_certificate.py`.
+
+**The two costs.** `exact_zeta_zeros.py` counts a zero by walking a path around a box and summing the
+eighth turns of zeta, splitting an edge wherever a chord or a step verdict is not yet positive. That
+walk is a search: it decides for itself how deep to read each point and how far to subdivide, and it
+is the expensive half. Checking its answer is the cheap half, and the two are separated here.
+
+**The certificate.** The settled path and, for each of its points, the places and the `N` at which the
+two routes of `exact_zeta_zeros.py` agreed. It records where to read and how deep, never what was
+found. The checker re-reads each point once at that depth, re-derives the eighth of a turn from the
+exact value, and confirms three things: the two routes agree, the turns close to a whole number of
+circles, and every chord and step verdict is positive. No point is read twice and nothing is
+subdivided; the count falls out of the turns.
+
+**Why the check is a proof.** This is the division Proth's theorem draws for a prime
+`N = k 2^n + 1`: a witness `a` is hard to find and proves nothing until `a^((N - 1) / 2) = -1` settles
+it in one exponentiation. The eighth turns are the eighth roots of unity, and the turn from point to
+point is subtraction in that group, the group the twiddle table of a number theoretic transform lives
+in. The sum of the turns is the winding, and on a box symmetric about `Re(s) = 1/2` a winding of one
+circle holds a zero on the line, because the symmetry `s -> 1 - conj(s)` brings an off-line zero's
+mirror into the same box (entry 3).
+
+**The group law is not enough.** The winding alone is the twiddle table's trap in another dress: a
+root of half the required order satisfies every relation among the table entries, and only the order
+test catches it. A path too coarse to resolve the turning can sum to a whole circle by luck while no
+chord is proved. The chord and step verdicts are that order test: a chord holds the angle across an
+edge under a sixth of a turn, a step holds the motion under the size, and together they lift the sum
+from the group of eighths to the integers. Prove the steps, then trust the count; the reverse is a
+fast wrong answer.
+
+**Controls.** The unit tiles from `t = 14` to `t = 26` meet edge to edge, three certified to hold one
+zero each against Odlyzko's published table and the rest to hold none, a tile holding two zeros halved
+until each half holds one. An understated depth is refused. Drawn null: the four corners alone, whose
+winding is already one circle and whose chords the checker refuses, the twiddle table's half-order
+floor in the plane. It claims nothing about the hypothesis.
+
+## Entry 12, 2026-10-03: the phase of zeta read finer than its reader
+
+`examples/0_experimental/exact_zeta_phase.py`.
+
+**The reader.** `exact_zeta_zeros.py` reads zeta at a point through three sign verdicts: the sign of
+the real part, the sign of the imaginary part, and the sign of `|Re| - |Im|`. Together they name the
+eighth of a turn zeta sits in. The reader never forms an angle and never divides.
+
+**The jitter.** Rotate the value by `j / J` of an eighth turn for `j = 0 .. J - 1` and read each
+rotation with the same three verdicts. With the phase `u` counted in eighths, reading `j` is
+`floor(u + j / J)`, and Hermite's identity sums them exactly, `sum over j < J of floor(u + j / J) =
+floor(J u)`. The mean of `J` coarse readings is the phase to `1 / J` of an eighth, an equality and not
+an estimate; each jitter adds its verdict and none is discarded. The jitter has to be evenly spaced
+across one whole eighth: the same offset read `J` times returns the coarse reading `J` times, and
+offsets spread across half an eighth bias the mean toward the step they never reach.
+
+**The turn between jitters.** Euler's `e^(i a)` turns the value one way at a known rate, and across all
+`J` jitters it turns less than an eighth. The lifted reading is therefore 0 up to one crossing and 1
+after it, and two jitters that read alike read alike at every jitter between them. The crossing is
+found by bisection in `log2 J + 1` readings in place of `J`, and both routes run in the control and
+must agree.
+
+**The depth.** The value is read at a count of places by the two routes, `N` doubling until they
+agree. The jittered index is read at those places and again at twice them, and the places double until
+the two indices agree. The reader cannot draw more out of a value than the value holds, and the depth
+each point needs is decided by that agreement, not assigned in advance.
+
+**The line.** On `Re(s) = 1/2`, zeta is `e^(-i theta) Z` with `Z` real, and the phase of zeta is
+`-theta` up to a half turn. `theta` comes by a second route, Stirling's series in `exact_zeta_gram.py`,
+which shares nothing with the sign reader. Where `Z` changes sign the phase jumps a half turn, and each
+published zero falls inside a step where the jittered phase jumps.
+
+**Controls.** `e^(i pi / 3)`, whose phase is `4/3` of an eighth, read as `floor(4 J / 3) / J` for every
+`J`; and the line against `-theta` at `J = 1024`. Drawn nulls: the repeated offset and the half spread,
+each blind to the third of an eighth above the step. It claims nothing about the hypothesis.
+
+## Entry 13, 2026-10-03: the Riemann-Siegel curves and the phase's logarithm, on the device
+
+`examples/0_experimental/exact_zeta_lobes.py`, with its two device stages in `exact_zeta_lobes.cu`,
+built by `exact_zeta_lobes.sh`. These are the device realizations of the wants Z1 and Z9 name, run over
+one cell and fed to the Riemann-Siegel remainder (entry 6) and the Turing machine (entry 9).
+
+**The cell.** Lane `l` stands at `x = nu + l / 2^b` over `2^b + 1` points, with `X = nu 2^b + l` and
+`z = 1 - 2 p = Zt / 2^b`, `Zt = 2^b - 2 l`, and the sign `s = (-1)^(nu - 1)`. Every value is a mantissa
+in a register and a binary exponent the program holds: a product multiplies the mantissas and adds the
+exponents, a power of two is where a mantissa is laid in the record, and nothing is divided.
+
+**The curve stage.** `C_n(z)` is the sum over `j` of `g_(n,j) z^j`, each `g` a Gabcke coefficient held
+at the binary scale `2^-256`, read by Horner's rule as `H_n = sum over j of g_(n,j) Zt^j 2^(b (J_n - 1 - j))`.
+Curve `n`'s part of `R x^(1/2)` is `s C_n(z) x^(-n)`, and over the common denominator `X^K` it is the
+integer `T_n = s H_n 2^(b n) X^(K - n)`, each output at its own binary exponent.
+
+**The log stage.** `A = ln(X / (nu 2^b)) = 2 artanh(l / D)`, `D = 2 nu 2^b + l`, one series a lane.
+With `c_k = Lambda / (2k + 1)`, `Lambda` the least common multiple of the odd numbers below `2L`, the
+first `L` terms sum to `2 l S / (Lambda D^(2L - 1))`, `S = sum over k < L of c_k l^(2k) D^(2(L - 1 - k))`.
+The stage outputs `l S`, `D^(2L - 1)`, `l^(2L + 1)` and `D^2 - l^2`: `A` lies at or above the partial
+sum and below it plus the tail `2 l^(2L + 1) / ((2L + 1) D^(2L - 1) (D^2 - l^2))`.
+
+**The run.** `nu = 2`, `b = 9`, 513 points; the curves `C_0` through `C_3` at `2^-256`; the logarithm
+by 48 terms.
+- **The host.** Its records equal the device's word for word.
+- **The curves.** Each `C_n` read back from the device meets `c_at`'s exact rational to `9.2 e-38`
+  across the cell, the residual the 160-term truncation where `z` reaches the cell's ends.
+- **The logarithm.** Every bracket holds the exact `2 artanh(l / D)`, the widest `3.4 e-70` wide.
+
+**What it is not.** Two device stages over one cell. It computes no `Z` and certifies no zero, and it
+claims nothing about the hypothesis.
+
 ## The problem, stated fully
 
 Written here so it sits in one place a later entry can find, and not adopted as a target. The Riemann zeta function is

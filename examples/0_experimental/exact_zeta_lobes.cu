@@ -530,7 +530,7 @@ int main(int count, char **arguments)
     int ok = lobes_lay(&job, &curve_stage, &error);
     ok = ok && lobes_lay(&job, &log_stage, &error);
     const unsigned long long declared =
-        lobes_declared(&curve_stage, lanes) + lobes_declared(&log_stage, lanes) + (64ull << 20u);
+        lobes_declared(&curve_stage, lanes) + lobes_declared(&log_stage, lanes) + (256ull << 20u);
     ok = ok && sim_job_submit(&job, "exact_zeta_lobes", count, arguments, declared);
     ok = ok && lobes_sweep(&job, &curve_stage, lanes, checked, &error);
     ok = ok && lobes_sweep(&job, &log_stage, lanes, checked, &error);
