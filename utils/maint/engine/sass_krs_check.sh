@@ -29,14 +29,14 @@ for source in "$CODEGEN_CU"/*.cu "$CODEGEN_CU_2"/*.cu; do
     c++ -std=c++17 -O1 -Wall -Wextra -I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -x c++ -c "$source" -o "$object" || exit 1
     OBJECTS+=("$object")
 done
-for source in "$CUBIN/sass_machine.c" "$CUBIN/sass_assemble.c"; do
+for source in "$TOP/src/c/types/file_defs/krs/sass_machine.c" "$CUBIN/sass_assemble.c"; do
     object="$OUT/$(basename "$source").o"
     cc -std=c11 -O1 -Wall -Wextra -I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CUBIN" -c "$source" -o "$object" || exit 1
     OBJECTS+=("$object")
 done
 
 for one in sass_krs_assemble ruleset_read_one; do
-    c++ -std=c++17 -O1 -Wall -I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$CUBIN" -c "$TOP/utils/maint/engine$one.cpp" \
+    c++ -std=c++17 -O1 -Wall -I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CODEGEN" -I "$CODEGEN_CU" -I "$CODEGEN_CU_2" -I "$CUBIN" -c "$TOP/utils/maint/engine/$one.cpp" \
         -o "$OUT/$one.o" || exit 1
     c++ -o "$OUT/$one" "$OUT/$one.o" "${OBJECTS[@]}" || exit 1
 done

@@ -307,7 +307,7 @@ works there.
      registers holding distinct values and a predicate it sets read through `SEL`, and writes
      `interface_sass_fields.md` whole. A turned bit is put to the part only where its operation key holds forms in
      the machine file and no control transfer or wait among them; any other is marked skipped and run on nothing.
-     Of the 78 forms, 1637 bits read inside a run the machine file records and 512 outside every run. The three
+     Of the 75 forms, 1619 bits read inside a run the machine file records and 526 outside every run. The three
      branch forms name a label and are not asked.
    - Scheduler bits. NVIDIA sets them an instruction at a time. The krs holds each operation's schedule, read
      from what NVIDIA's compiler writes over the tree (`monolith_scheduler.md`): a late result behind a write
@@ -331,7 +331,9 @@ works there.
 2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
-   instead of kept against a row here.
+   instead of kept against a row here. A row timed under the safe word reads its count of nodes and nothing past
+   it: every instruction stalls the longest, and an integer result is back before the next one issues. The 1198
+   rows of add at three nodes would all read alike, and the costs wait on the scheduler bits (Pending Doug).
 
 3. **`.krs` has no derived half.** Five are written. None can be completed by asking. A partly written one is the
    normal case and not a failure.
@@ -343,8 +345,10 @@ works there.
 5. **The relations are not asked for everything.** An atomic add has no relation put for it. `count_add` waits on
    that, and not on a name a disassembler will not print.
 
-6. **The compile channel in `.ksc` reads 0.** It runs in another process, uninstrumented. Run, decode and clock
-   all read.
+6. **The compile channel in `.ksc` reads 0.** It runs in another process. Run, decode and clock all read. The SASS
+   probe counts it from what `interface_ptx_probe cubins` prints: a line `cubin <number> <name>` is a kernel the
+   compiler emitted, the frame and the resident with the first, and a line `errored: nvJitLink` one it refused. The
+   `.ksc` is written again only by a whole interface_sass run, and none has finished since (Open 8).
 
 7. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
@@ -358,13 +362,17 @@ works there.
    guide and lane. interface_ptx holds its ten checks in ptx.krs; its flagless ruleset is brought
    in line with ptx.krs's `nop` forms and has not run since. 13 have no result: record_boundary, record_table,
    record_tower, record_vhdl, the C pairs of speed, table, tower and order, residual_odd, shift_agreement_hold,
-   tessera_device, tower_edge and unit_sweep_planes. interface_sass is not run. It alone puts cubins our own assembler
-   wrote on the part, and every one is now read on the host first: `cubin_safe`
+   tessera_device, tower_edge and unit_sweep_planes. interface_sass learns the machine again through the
+   disassembler, bit by bit, and prints nothing the harness sees for more than 1800 s: the harness ends it. It alone
+   puts cubins our own assembler wrote on the part, and every one is read on the host first: `cubin_safe`
    (`src/c/transpiler/cubin/cubin_safe.{h,c}`) holds each instruction a kernel reaches to the safe scheduler word, to
    no branch and no wait, to one instruction at most that no form holds, and to an EXIT every thread takes, and
    both `interface_sass_run` and `interface_sass_probe` refuse a cubin that breaks a rule before the driver sees it.
    `utils/test/src/c/transpiler/cubin/cubin_safe_check.sh` holds the gate to one case a rule, 13 checks, 0 failed,
-   and finds 105 of the 106 cubins a fields run left safe, the one refused holding no code section. A loop ask
+   and finds 105 of the 106 cubins a fields run left safe, the one refused holding no code section.
+   `interface_sass_fields.sh` puts 7360 turned-bit cubins over the 75 forms to the part through the gate in 26
+   minutes: the gate refuses none, no pass hangs, and the 590 bits whose key holds a branch or a wait are skipped
+   before a cubin is written. A loop ask
    branches by its nature and is held off the part until a rule says when a loop ends.
 
 9. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the

@@ -10,12 +10,12 @@
 # The instructions default to the forms sass.krs uses, which sass_krs_assemble writes to build/unprinted with a third
 # argument. The earlier run, for its pattern cubin, frame and PTX probe, defaults to the newest under build/.
 #
-# This runs turned-over instructions on the part, and a turned bit can make a backward branch, a loop that never ends
-# and hangs the part. The display watchdog then resets the part, and under the run's load that reset can hold a kernel
-# DPC past its watchdog and stop the whole machine with a DPC_WATCHDOG_VIOLATION. The per-pass timeout cap below ends
-# the waiting process but cannot clear a part the kernel has already wedged. Run this watched, not unattended, and only
-# where losing the machine to a reset is acceptable. The contexts that reach such a loop, and the bound an ask carries
-# against them, are P9 of theory/workbooks/engine/query_protocol_table.md.
+# This runs turned-over instructions on the part. A turned bit that made a backward branch would make a loop that
+# never ends and hangs the part, and the display watchdog's reset under the run's load can hold a kernel DPC past its
+# watchdog and stop the whole machine with a DPC_WATCHDOG_VIOLATION. The runner holds every cubin to cubin_safe on the
+# host first, and a cubin holding a branch or a wait never reaches the driver. The per-pass timeout cap below ends a
+# waiting runner and cannot clear a part the kernel has wedged. The contexts that reach such a loop, and the bound an
+# ask carries against them, are P9 of theory/workbooks/engine/query_protocol_table.md.
 set -u
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

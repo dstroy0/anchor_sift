@@ -309,6 +309,29 @@ static int sass_lane_written(SassProbe *probe)
     return (s_before.count - held) <= 2u;
 }
 
+// every kernel interface_ptx_probe handed the toolchain's compiler, counted on the compile channel from what it printed:
+// a line "cubin <number> <name>" is a kernel the compiler emitted, and a line "errored: nvJitLink did not assemble" is
+// one it refused. The frame and the resident are compiled before every question and print no line of their own when
+// they are emitted: both are counted with the first question's line
+static void sass_compiles_count(const char *output)
+{
+    const char *const emitted = "\ncubin 0 ";
+    if (strstr(output, emitted) != NULL)
+    {
+        sass_class_count(SASS_CHANNEL_COMPILE, SASS_CLASS_ANSWERS);
+        sass_class_count(SASS_CHANNEL_COMPILE, SASS_CLASS_ANSWERS);
+    }
+    for (const char *line = strstr(output, "\ncubin "); line != NULL; line = strstr(line + 1, "\ncubin "))
+    {
+        sass_class_count(SASS_CHANNEL_COMPILE, SASS_CLASS_ANSWERS);
+    }
+    for (const char *line = strstr(output, "errored: nvJitLink"); line != NULL;
+         line = strstr(line + 1, "errored: nvJitLink"))
+    {
+        sass_class_count(SASS_CHANNEL_COMPILE, SASS_CLASS_ILLEGAL);
+    }
+}
+
 static int sass_questions_read(SassProbe *probe, const char *output)
 {
     // the line may follow others the ruleset's reader printed
@@ -368,6 +391,7 @@ int main(int count, char **arguments)
     snprintf(output, sizeof(output), "%s/cubins.out", probe->folder);
     char *const command[] = {arguments[1], "cubins", arguments[2], NULL};
     const int status = sass_run(command, output);
+    sass_compiles_count(sass_output());
     if ((status != 0) || !sass_questions_read(probe, sass_output()))
     {
         printf("  interface_ptx_probe cubins exited %d\n%s", status, (status >= 0) ? sass_output() : "");

@@ -5,10 +5,9 @@
 //
 // Given a third argument, the text of every form that assembled is written to that file, a form after another.
 //
-// This is the check that was missing when sass.krs came to name three comparisons no listing ever held. The ruleset
-// was read against its schema, and each form's text was checked against the listing it came from, and neither of
-// those says whether the assembler can turn that text into the sixteen bytes the part runs. A form this refuses is a
-// form the lane cannot be emitted through, whatever the ruleset says.
+// The ruleset read against its schema and each form's text held to the listing it came from say nothing of whether
+// the assembler can turn that text into the sixteen bytes the part runs. A form this refuses is a form the lane cannot
+// be emitted through, whatever the ruleset says.
 //
 // A parameter's kind is not guessed from its name, because one name is two things in two forms: `left` is a register
 // in word_and and a predicate in predicate_xor, `value` a register in test_nonzero and a number in word_set. Each
