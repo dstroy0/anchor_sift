@@ -239,20 +239,20 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4104 | test_wide_nonzero | f9 f3 | SASS | `ISETP.NE.U32.AND P6, PT, {value}, RZ, PT; \| ISETP.NE.AND.EX {where}, PT, {value}.hi, RZ, PT, P6;` |  |
 | 4105 | launch_load | f5 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
 | 4106 | launch_load | f5 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
-| 4107 | test_wide_equal | f10 f5 n | SASS | `ISETP.NE.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.NE.AND.EX {where}, PT, {left}.hi, RZ, PT, P6;` | the compiler sets the negation of where;  |
-| 4108 | test_wide_equal | f10 f5 n | SASS | `ISETP.NE.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.NE.AND.EX {where}, PT, {left}.hi, RZ, PT, P6;` | the compiler sets the negation of where;  |
+| 4107 | test_wide_equal | f10 f5 n | SASS | `ISETP.EQ.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.EQ.AND.EX {where}, PT, {left}.hi, RZ, PT, P6;` | the reading does not name {right}.hi |
+| 4108 | test_wide_equal | f10 f5 n | SASS | `ISETP.EQ.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.EQ.AND.EX {where}, PT, {left}.hi, RZ, PT, P6;` | the reading does not name {right}.hi |
 | 4109 | wide_select | f4 n f1 f10 | SASS | `SEL {to}, {otherwise}, RZ, !{where}; \| SEL {to}.hi, {otherwise}.hi, RZ, !{where};` | the reading does not name chosen |
-| 4110 | wide_select | f4 n f1 f10 | SASS | `SEL {to}, {otherwise}, {chosen}, !{where}; \| SEL {to}.hi, {otherwise}.hi, RZ, !{where};` |  |
+| 4110 | wide_select | f4 n f1 f10 | SASS | `SEL {to}, {otherwise}, {chosen}, !{where}; \| SEL {to}.hi, {otherwise}.hi, RZ, !{where};` | the reading does not name {chosen}.hi |
 | 4111 | wide_add_unsigned | r5 r5 r8 | SASS | `` | the compiler writes no instruction for it |
-| 4112 | wide_add_unsigned | r5 r5 r8 | SASS | `IADD3 {to}, P6, {left}, {right}, RZ; \| IMAD.X {to}.hi, RZ, RZ, {left}.hi, P6;` |  |
-| 4113 | wide_shift_left | r5 r5 n | SASS | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| IMAD.SHL.U32 {to}, {from}, 0x4, RZ;` | the machine file holds no form for it |
-| 4114 | wide_shift_left | r5 r5 n | SASS | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| IMAD.SHL.U32 {to}, {from}, 0x8, RZ;` | the machine file holds no form for it |
+| 4112 | wide_add_unsigned | r5 r5 r8 | SASS | `IADD3 {to}, P6, {left}, {right}, RZ; \| IMAD.X {to}.hi, RZ, RZ, {left}.hi, P6;` | the reading does not name {right}.hi |
+| 4113 | wide_shift_left | r5 r5 n | SASS | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| IMAD.SHL.U32 {to}, {from}, 0x4, RZ;` |  |
+| 4114 | wide_shift_left | r5 r5 n | SASS | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| IMAD.SHL.U32 {to}, {from}, 0x8, RZ;` |  |
 | 4115 | wide_add | r5 f3 r5 | SASS | `IADD3 {to}, P6, {left}, {right}, RZ; \| IMAD.X {to}.hi, {left}.hi, 0x1, {right}.hi, P6;` |  |
 | 4116 | guarded_load | f9 r4 r5 | SASS | `@!{where} BRA 0x7a40; \| LDG.E.CONSTANT {to}, [{address}.64];` | the reading holds a branch |
 | 4117 | guarded_widen | f9 f4 r4 | SASS | `SEL {to}, {from}, {to}, {where}; \| SEL {to}.hi, {to}.hi, RZ, !{where};` |  |
-| 4118 | test_wide_below | f11 f4 f5 | SASS | `ISETP.GE.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.GE.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | the compiler sets the negation of where;  |
+| 4118 | test_wide_below | f11 f4 f5 | SASS | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` |  |
 | 4119 | wide_select | f4 f4 n f11 | SASS | `SEL {to}, {chosen}, RZ, {where}; \| SEL {to}.hi, {chosen}.hi, RZ, {where};` | the reading does not name otherwise |
-| 4120 | wide_select | f4 f4 n f11 | SASS | `SEL {to}, {chosen}, {otherwise}, {where}; \| SEL {to}.hi, {chosen}.hi, RZ, {where};` |  |
+| 4120 | wide_select | f4 f4 n f11 | SASS | `SEL {to}, {chosen}, {otherwise}, {where}; \| SEL {to}.hi, {chosen}.hi, RZ, {where};` | the reading does not name {otherwise}.hi |
 | 4121 | launch_load | r7 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
 | 4122 | launch_load | r7 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
 | 4123 | wide_multiply | r5 f4 r8 | SASS | `IMAD.WIDE.U32 R254, {left}, 0x20, RZ; \| IMAD.SHL.U32 R25, {left}.hi, 0x20, RZ; \| IMAD.IADD {to}.hi, R27, 0x1, R25; \| IMAD.MOV.U32 {to}, RZ, RZ, R254;` | the compiler writes 4 instructions where the ruleset writes 3 |
@@ -289,7 +289,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4154 | add_last | r0 r0 f0 | SASS | `IMAD.X {to}, {left}, 0x1, {right}, P6;` |  |
 | 4155 | add_alone | r0 r0 r4 | SASS | `IMAD.IADD {to}, {left}, 0x1, {right};` |  |
 | 4156 | sign_multiply | r1 r1 r1 | SASS | `IMAD {to}, {left}, {right}, RZ;` |  |
-| 4157 | test_negative | r6 r1 | SASS | `ISETP.GE.AND {where}, PT, {value}, RZ, PT;` | the compiler sets the negation of where;  |
+| 4157 | test_negative | r6 r1 | SASS | `ISETP.LT.AND {where}, PT, {value}, RZ, PT;` |  |
 | 4158 | word_select | r4 r4 r0 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4159 | word_select | r4 r4 f0 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4160 | word_and | r4 r4 r8 | SASS | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
@@ -307,7 +307,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4172 | borrow_last | r4 f0 f0 | SASS | `IADD3.X {to}, P6, {left}, ~{right}, RZ, P6, !PT;` |  |
 | 4173 | borrow_read | r4 r6 | SASS | `IMAD.X {borrow}, <zero>, 0x1, ~<zero>, P6; \| ISETP.NE.U32.AND {where}, PT, {borrow}, RZ, PT;` |  |
 | 4174 | sign_multiply | r4 r1 r1 | SASS | `IMAD {to}, {left}, {right}, RZ;` |  |
-| 4175 | test_negative | r6 r4 | SASS | `ISETP.GE.AND {where}, PT, {value}, RZ, PT;` | the compiler sets the negation of where;  |
+| 4175 | test_negative | r6 r4 | SASS | `ISETP.LT.AND {where}, PT, {value}, RZ, PT;` |  |
 | 4176 | word_select | r4 r4 r4 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4177 | sign_select | r4 r1 r1 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4178 | test_signed_differ | r6 r1 n | SASS | `ISETP.NE.AND {where}, PT, {left}, RZ, PT;` | the reading does not name right |
@@ -372,7 +372,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4237 | record_store | n f0 | SASS | `STG.E [<record>.64+{offset}], {from};` |  |
 | 4238 | borrow_alone | r4 r4 r8 | SASS | `IADD3 {to}, P6, {left}, -{right}, RZ;` |  |
 | 4239 | borrow_alone | r4 r4 r8 | SASS | `IADD3 {to}, P6, {left}, -{right}, RZ;` |  |
-| 4240 | test_zero | r6 r4 | SASS | `ISETP.NE.AND {where}, PT, {value}, RZ, PT;` | the compiler sets the negation of where;  |
+| 4240 | test_zero | r6 r4 | SASS | `ISETP.EQ.AND {where}, PT, {value}, RZ, PT;` |  |
 | 4241 | word_funnel_right | r4 r4 r4 n | SASS | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
 | 4242 | word_funnel_right | r4 r4 r4 n | SASS | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
 | 4243 | word_funnel_right | r4 f0 r4 n | SASS | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
@@ -402,7 +402,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4267 | launch_load | f6 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
 | 4268 | wide_unpack | r0 r0 f1 | SASS | `` | the compiler writes no instruction for it |
 | 4269 | test_wide_nonzero | r6 f1 | SASS | `ISETP.NE.U32.AND P6, PT, {value}, RZ, PT; \| ISETP.NE.AND.EX {where}, PT, {value}.hi, RZ, PT, P6;` |  |
-| 4270 | word_multiply | r4 r4 r8 | SASS | `IMAD.SHL.U32 {to}, {left}, {right}, RZ;` | the machine file holds no form for it |
+| 4270 | word_multiply | r4 r4 r8 | SASS | `IMAD.SHL.U32 {to}, {left}, {right}, RZ;` |  |
 | 4271 | word_multiply | r4 r4 r8 | SASS | `IMAD {to}, {left}, {right}, RZ;` |  |
 | 4272 | wide_multiply_word | r5 r4 n | SASS | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` |  |
 | 4273 | wide_multiply_word | r5 r4 n | SASS | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` |  |
@@ -442,26 +442,26 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | subtract_first | `IADD3 {to}, P6, {left}, -{right}, RZ;` | `IADD3 {to}, P6, {left}, -{right}, RZ;` | same | `sub.cc.u32 {to}, {left}, {right};` | `` | kept: the compiler writes 5 instructions where the ruleset writes 1 |
 | subtract_last | `IMAD.X {to}, {left}, 0x1, ~{right}, P6;` | `IMAD.X {to}, {left}, 0x1, ~{right}, P6;` | same | `subc.u32 {to}, {left}, {right};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
 | subtract_middle | `IADD3.X {to}, P6, {left}, ~{right}, RZ, P6, !PT;` | `IADD3.X {to}, P6, {left}, ~{right}, RZ, P6, !PT;` | same | `subc.cc.u32 {to}, {left}, {right};` | `` | kept: the compiler writes 5 instructions where the ruleset writes 1 |
-| test_negative | `ISETP.LT.AND {where}, PT, {value}, RZ, PT;` | `` | kept: the compiler sets the negation of where;  | `setp.lt.s32 {where}, {value}, 0;` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
+| test_negative | `ISETP.LT.AND {where}, PT, {value}, RZ, PT;` | `ISETP.LT.AND {where}, PT, {value}, RZ, PT;` | same | `setp.lt.s32 {where}, {value}, 0;` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
 | test_nonzero | `ISETP.NE.AND {where}, PT, {value}, RZ, PT;` | `ISETP.NE.AND {where}, PT, {value}, RZ, PT;` | same | `setp.ne.s32 {where}, {value}, 0;` | `setp.ne.s32 {where}, {value}, 0;` | same |
 | test_signed_differ | `ISETP.NE.AND {where}, PT, {left}, {right}, PT;` | `` | kept: the reading does not name right | `setp.ne.s32 {where}, {left}, {right};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
 | test_signed_greater | `ISETP.GT.AND {where}, PT, {left}, {right}, PT;` | `ISETP.GT.AND {where}, PT, {left}, {right}, PT;` | same | `setp.gt.s32 {where}, {left}, {right};` | `` | kept: the compiler writes 3 instructions where the ruleset writes 1 |
-| test_wide_below | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | `` | kept: the compiler sets the negation of where;  | `setp.lt.u64 {where}, {left}, {right};` | `setp.lt.u64 {where}, {left}, {right};` | same |
+| test_wide_below | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | same | `setp.lt.u64 {where}, {left}, {right};` | `setp.lt.u64 {where}, {left}, {right};` | same |
 | test_wide_below_and | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, {also}, P6;` | `ISETP.LT.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.LT.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, {also}, P6;` | same | `setp.lt.and.u64 {where}, {left}, {right}, {also};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
-| test_wide_equal | `ISETP.EQ.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.EQ.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | `` | kept: the compiler sets the negation of where;  | `setp.eq.s64 {where}, {left}, {right};` | `setp.eq.s64 {where}, {left}, {right};` | same |
+| test_wide_equal | `ISETP.EQ.U32.AND P6, PT, {left}, {right}, PT; \| ISETP.EQ.U32.AND.EX {where}, PT, {left}.hi, {right}.hi, PT, P6;` | `` | kept: the reading does not name {right}.hi | `setp.eq.s64 {where}, {left}, {right};` | `setp.eq.s64 {where}, {left}, {right};` | same |
 | test_wide_nonzero | `ISETP.NE.U32.AND P6, PT, {value}, RZ, PT; \| ISETP.NE.AND.EX {where}, PT, {value}.hi, RZ, PT, P6;` | `ISETP.NE.U32.AND P6, PT, {value}, RZ, PT; \| ISETP.NE.AND.EX {where}, PT, {value}.hi, RZ, PT, P6;` | same | `setp.ne.s64 {where}, {value}, 0;` | `setp.ne.s64 {where}, {value}, 0;` | same |
-| test_zero | `ISETP.EQ.U32.AND {where}, PT, {value}, RZ, PT;` | `` | kept: the compiler sets the negation of where;  | `setp.eq.s32 {where}, {value}, 0;` | `setp.eq.s32 {where}, {value}, 0;` | same |
+| test_zero | `ISETP.EQ.U32.AND {where}, PT, {value}, RZ, PT;` | `ISETP.EQ.AND {where}, PT, {value}, RZ, PT;` | read | `setp.eq.s32 {where}, {value}, 0;` | `setp.eq.s32 {where}, {value}, 0;` | same |
 | wide_add | `IADD3 {to}, P6, {left}, {right}, RZ; \| IMAD.X {to}.hi, {left}.hi, 0x1, {right}.hi, P6;` | `IADD3 {to}, P6, {left}, {right}, RZ; \| IMAD.X {to}.hi, {left}.hi, 0x1, {right}.hi, P6;` | same | `add.s64 {to}, {right}, {left};` | `add.s64 {to}, {right}, {left};` | same |
 | wide_add_unsigned | `IADD3 {to}, P6, {left}, {right}, RZ; \| IADD3.X {to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;` | `` | kept: the compiler writes no instruction for it | `add.u64 {to}, {left}, {right};` | `` | kept: the compiler writes no instruction for it |
 | wide_multiply | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ; \| IMAD {to}.hi, {left}.hi, {right}, {to}.hi; \| IMAD {to}.hi, {left}, {right}.hi, {to}.hi;` | `` | kept: the compiler writes 4 instructions where the ruleset writes 3 | `mul.lo.u64 {to}, {left}, {right};` | `` | kept: the reading does not name right |
 | wide_multiply_word | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` | same | `mul.wide.u32 {to}, {left}, {right};` | `mul.wide.u32 {to}, {left}, {right};` | same |
 | wide_select | `MOV R254, {chosen}; \| SEL {to}, R254, {otherwise}, {where}; \| MOV R254, {chosen}.hi; \| SEL {to}.hi, R254, {otherwise}.hi, {where};` | `` | kept: the reading does not name chosen | `selp.b64 {to}, {chosen}, {otherwise}, {where};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
-| wide_shift_left | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| SHF.L.U32 {to}, {from}, {bits}, RZ;` | `` | kept: the machine file holds no form for it | `shl.b64 {to}, {from}, {bits};` | `shl.b64 {to}, {from}, {bits};` | same |
+| wide_shift_left | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| SHF.L.U32 {to}, {from}, {bits}, RZ;` | `` | kept: the questions read apart | `shl.b64 {to}, {from}, {bits};` | `shl.b64 {to}, {from}, {bits};` | same |
 | wide_unpack | `MOV {low}, {from}; \| MOV {high}, {from}.hi;` | `` | kept: the compiler writes no instruction for it | `mov.b64 {{low}, {high}}, {from};` | `` | kept: the reading does not name from |
 | word_and | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | same | `and.b32 {to}, {left}, {right};` | `` | kept: the questions read apart |
 | word_copy | `MOV {to}, {from};` | `` | kept: the compiler writes no instruction for it | `mov.b32 {to}, {from};` | `` | kept: the compiler writes no instruction for it |
 | word_funnel_right | `SHF.R.U32 {to}, {low}, {bits}, {high};` | `SHF.R.U32 {to}, {low}, {bits}, {high};` | same | `shf.r.clamp.b32 {to}, {low}, {high}, {bits};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
-| word_multiply | `IMAD {to}, {left}, {right}, RZ;` | `` | kept: the machine file holds no form for it | `mul.lo.u32 {to}, {left}, {right};` | `` | kept: the reading does not name right |
+| word_multiply | `IMAD {to}, {left}, {right}, RZ;` | `` | kept: the questions read apart | `mul.lo.u32 {to}, {left}, {right};` | `` | kept: the reading does not name right |
 | word_multiply_add | `IMAD {to}, {left}, {right}, {added};` | `IMAD {to}, {left}, {right}, {added};` | same | `mad.lo.s32 {to}, {left}, {right}, {added};` | `mad.lo.s32 {to}, {left}, {right}, {added};` | same |
 | word_or | `LOP3.LUT {to}, {right}, {left}, RZ, 0xfc, !PT;` | `LOP3.LUT {to}, {right}, {left}, RZ, 0xfc, !PT;` | same | `or.b32 {to}, {right}, {left};` | `or.b32 {to}, {right}, {left};` | same |
 | word_select | `SEL {to}, {chosen}, {otherwise}, {where};` | `SEL {to}, {chosen}, {otherwise}, {where};` | same | `selp.b32 {to}, {chosen}, {otherwise}, {where};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
@@ -470,4 +470,4 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | word_shift_right | `SHF.R.U32.HI {to}, RZ, {bits}, {from};` | `SHF.R.U32.HI {to}, RZ, {bits}, {from};` | same | `shr.u32 {to}, {from}, {bits};` | `shr.u32 {to}, {from}, {bits};` | same |
 | word_xor | `LOP3.LUT {to}, {right}, {left}, RZ, 0x3c, !PT;` | `LOP3.LUT {to}, {right}, {left}, RZ, 0x3c, !PT;` | same | `xor.b32 {to}, {right}, {left};` | `xor.b32 {to}, {right}, {left};` | same |
 
-405 questions over 55 forms. Of the forms, sass.krs already gives 32 as read and 0 are read otherwise; ptx.krs gives 15 as read and 0 are read otherwise.
+405 questions over 55 forms. Of the forms, sass.krs already gives 34 as read and 1 are read otherwise; ptx.krs gives 15 as read and 0 are read otherwise.

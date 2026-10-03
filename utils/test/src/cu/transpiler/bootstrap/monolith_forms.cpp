@@ -1669,6 +1669,7 @@ static Read sass_read(const Question &question, const std::vector<std::string> &
         return (colon != std::string::npos) && (value[colon + 1u] == 'P');
     };
     std::set<size_t> dropped;
+    int set_negated = 0;
     for (size_t at = 0u; at < kept.size(); at += 1u)
     {
         const Instruction &instruction = kept[at].instruction;
@@ -1730,7 +1731,45 @@ static Read sass_read(const Question &question, const std::vector<std::string> &
             bound[reads[0]] = {write_role->name, 0u, negated};
             bound.erase(writes[0]);
             dropped.insert(at);
+            set_negated = set_negated || negated;
             read.why += negated ? ("the compiler sets the negation of " + write_role->name + "; ") : std::string();
+        }
+    }
+    // A predicate stored as its negation, where every instruction left is an ISETP anded with PT: each comparison
+    // turned over sets the predicate itself. A chain through .EX turns over whole, LT.EX under LT into GE.EX under GE
+    // and EQ.EX under EQ into NE.EX under NE, by De Morgan
+    if (set_negated)
+    {
+        static const char *const turned[6][2] = {{".EQ.", ".NE."}, {".NE.", ".EQ."}, {".LT.", ".GE."},
+                                                 {".GE.", ".LT."}, {".GT.", ".LE."}, {".LE.", ".GT."}};
+        int turnable = 1;
+        for (size_t at = 0u; at < kept.size(); at += 1u)
+        {
+            turnable = turnable && ((dropped.count(at) != 0u) ||
+                                    ((kept[at].instruction.operation.compare(0u, 6u, "ISETP.") == 0) &&
+                                     (kept[at].names.size() >= 5u) && (kept[at].names[4] == "PT")));
+        }
+        for (size_t at = 0u; turnable && (at < kept.size()); at += 1u)
+        {
+            std::string &operation = kept[at].instruction.operation;
+            for (unsigned int one = 0u; (dropped.count(at) == 0u) && (one < 6u); one += 1u)
+            {
+                const size_t found = operation.find(turned[one][0]);
+                if (found == 5u)
+                {
+                    operation.replace(found, 4u, turned[one][1]);
+                    break;
+                }
+            }
+        }
+        for (const Role &role : question.roles)
+        {
+            const std::string note = "the compiler sets the negation of " + role.name + "; ";
+            const size_t found = turnable ? read.why.find(note) : std::string::npos;
+            if (found != std::string::npos)
+            {
+                read.why.erase(found, note.size());
+            }
         }
     }
     // the pair a 64-bit write gives: where one half is an argument's, the other is the argument's other half
@@ -2195,6 +2234,13 @@ static std::string read_adopted(const Read &read, const Krs &rules, const Questi
         if (read.text.find("{" + parameter + "}") == std::string::npos)
         {
             *why = "the reading does not name " + parameter;
+            return std::string();
+        }
+        // a number's high half is 0 and the compiler folds it to RZ, where a register's is not
+        const std::string high = "{" + parameter + "}.hi";
+        if ((now.find(high) != std::string::npos) && (read.text.find(high) == std::string::npos))
+        {
+            *why = "the reading does not name " + high;
             return std::string();
         }
     }
