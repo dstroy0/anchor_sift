@@ -82,10 +82,7 @@ unsigned int cubin_safe(const SassMachine *machine, const unsigned char *code, u
         *at = place;
         const unsigned long long low = cubin_word(&code[place]);
         const unsigned long long high = cubin_word(&code[place + 8u]);
-        if (((high >> CUBIN_STALL_SHIFT) & 0xfull) != SASS_STALL_LONGEST)
-        {
-            return CUBIN_SAFE_STALL;
-        }
+        const unsigned long long stall = (high >> CUBIN_STALL_SHIFT) & 0xfull;
         if (((high >> CUBIN_WAIT_SHIFT) & 0x3full) != SASS_WAIT_EVERY)
         {
             return CUBIN_SAFE_WAIT;
@@ -93,6 +90,11 @@ unsigned int cubin_safe(const SassMachine *machine, const unsigned char *code, u
         char text[256];
         if (!sass_encoding_read(machine, low, high, place, text, sizeof(text)))
         {
+            // an instruction no form holds names no operation whose soonest read is measured, and stalls the longest
+            if (stall != SASS_STALL_LONGEST)
+            {
+                return CUBIN_SAFE_STALL;
+            }
             if (!cubin_key_straight(machine, low))
             {
                 return CUBIN_SAFE_KEY;
@@ -106,6 +108,12 @@ unsigned int cubin_safe(const SassMachine *machine, const unsigned char *code, u
         }
         SassInstructionParts parts;
         sass_instruction_read(text, &parts);
+        unsigned int soonest = SASS_STALL_LONGEST;
+        sass_operation_schedule(parts.operation, &soonest);
+        if (stall < soonest)
+        {
+            return CUBIN_SAFE_STALL;
+        }
         if (cubin_exit(&parts))
         {
             // an EXIT with no guard and no predicate of its own but PT ends every thread that reaches it, and nothing
@@ -152,7 +160,7 @@ const char *cubin_safe_name(unsigned int verdict)
 {
     static const char *const s_names[] = {"safe",
                                           "not a whole count of instructions",
-                                          "a stall short of the longest",
+                                          "a stall short of its operation's soonest read",
                                           "a wait short of all six barriers",
                                           "a control transfer or a wait",
                                           "an operation key unknown or holding a control transfer or a wait",

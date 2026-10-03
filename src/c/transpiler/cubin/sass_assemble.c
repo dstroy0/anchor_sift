@@ -323,18 +323,20 @@ static void sass_high_write(unsigned long long *high, unsigned int first, unsign
     *high = (*high & ~(mask << (first - 64u))) | ((value & mask) << (first - 64u));
 }
 
-// the scheduler's bits set so that every instruction waits for every one before it: the longest stall, no reuse, and
-// a wait on every barrier. An instruction whose result comes back late has to set a barrier for the wait to have
-// anything to wait on, and a store has to set one for whatever writes its operands next: which instructions those
-// are is the operation's schedule (sass_operation_schedule), and a barrier the form's own encoding sets is set too. A
-// barrier no instruction set is already at rest, and waiting on all six costs nothing where none was set
+// the scheduler's bits set so that every instruction waits for every one before it: a stall of the soonest its
+// operation's result is read, no reuse, and a wait on every barrier. A fixed result is back once that many cycles
+// pass, and an operation with no measured count stalls the longest. An instruction whose result comes back late has
+// to set a barrier for the wait to have anything to wait on, and a store has to set one for whatever writes its
+// operands next: which instructions those are is the operation's schedule (sass_operation_schedule), and a barrier the
+// form's own encoding sets is set too. A barrier no instruction set is already at rest, and waiting on all six costs
+// nothing where none was set
 static void sass_control_safe(const SassForm *form, unsigned long long *high)
 {
-    unsigned int soonest = 0u;
+    unsigned int soonest = SASS_STALL_LONGEST;
     const unsigned int schedule = sass_operation_schedule(form->operation, &soonest);
     const int wrote = (schedule == SASS_SCHEDULE_LATE) || sass_barrier_set(form->high, SASS_WRITE_BARRIER_FIRST);
     const int read = (schedule == SASS_SCHEDULE_STORE) || sass_barrier_set(form->high, SASS_READ_BARRIER_FIRST);
-    sass_high_write(high, SASS_STALL_FIRST, 4u, SASS_STALL_LONGEST);
+    sass_high_write(high, SASS_STALL_FIRST, 4u, soonest);
     sass_high_write(high, SASS_YIELD_FIRST, 1u, 0ull);
     sass_high_write(high, SASS_WRITE_BARRIER_FIRST, 3u, wrote ? 0ull : SASS_BARRIER_NONE);
     sass_high_write(high, SASS_READ_BARRIER_FIRST, 3u, read ? 1ull : SASS_BARRIER_NONE);

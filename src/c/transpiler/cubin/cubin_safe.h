@@ -7,8 +7,9 @@
 // of, is read here first with our own reader against the machine file, and goes to the part only where every
 // instruction it reaches holds to these, in order:
 //
-//   1. its scheduler's bits stall the longest and wait on all six barriers: no instruction reads a result that is not
-//      back;
+//   1. its scheduler's bits wait on all six barriers and stall at least the soonest its operation's result is read
+//      (sass_operation_schedule), the longest where none is measured or no form holds the instruction: no
+//      instruction reads a result that is not back;
 //   2. where a form of the machine file holds its encoding, that form neither transfers control nor waits
 //      (sass_operation_control_or_wait), EXIT alone excepted;
 //   3. where no form holds it, its operation key holds forms and no form under the key transfers control or waits.

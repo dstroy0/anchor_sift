@@ -316,8 +316,9 @@ works there.
    - Scheduler bits. NVIDIA sets them an instruction at a time. The krs holds each operation's schedule, read
      from what NVIDIA's compiler writes over the tree (`monolith_scheduler.md`): a late result behind a write
      barrier, a store behind a read barrier, and the soonest a fixed result is read, 4 cycles on the integer
-     operations. Our safe word sets its barriers from that schedule and stalls the longest at every instruction.
-     The stall is the cost layer and is decided with Doug before it is tuned.
+     operations. Our safe word sets its barriers from that schedule and stalls each instruction the soonest its
+     operation's result is read, the longest where the krs measures no count (`sass_operation_schedule`), and
+     `cubin_safe` holds every instruction it reads to that stall.
    - Writings searched on the part. `utils/test/src/c/transpiler/interface/interface_sass_writings.sh` puts every
      form of the machine file that writes a register from registers, predicates and numbers alone, 745 of 2928, in
      place of the frame's IADD3, each through the gate, and runs it on the part over 256 cases at once: the ladder's
@@ -355,9 +356,8 @@ works there.
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
    instead of kept against a row here. Every row runs on the part (`interface_sass_chains.md`), which leaves each one
-   a cubin a reading can be kept against. A row timed under the safe word reads its count of nodes and nothing past
-   it: every instruction stalls the longest, and an integer result is back before the next one issues. The 1198
-   rows of add at three nodes would all read alike, and the costs wait on the scheduler bits (Pending Doug).
+   a cubin a reading can be kept against. The safe word stalls each instruction the soonest its result is read, and
+   a reading no longer counts nodes alone.
 
 3. **`.krs` has no derived half.** Five are written. None can be completed by asking. A partly written one is the
    normal case and not a failure.
@@ -438,8 +438,6 @@ works there.
 
 ## Pending Doug
 - The suffix of the face Open 8 describes.
-- The scheduler bits (Open 1): whether the safe word's stall drops from 15 to the soonest read the krs measures for
-  each operation (`sass_operation_schedule`).
 
 ## Roles
 - Theorist writes the engine table and posits. Send it every hash and measured number.
