@@ -1,6 +1,6 @@
 surface	key	answer	why
-docs/research.md	2.63	taken back	the null peak stands: the correction at chapter_spectral.tex:42 measures against the same null
-theory/theory/cryptography/sha256/frontmatter/abstract.tex	2.63	taken back	the null peak stands: the correction at chapter_spectral.tex:42 measures against the same null
+docs/research.md	2.63	both	the null peak stands: the correction to the residue-26 ridge measures against the same null
+theory/theory/cryptography/sha256/frontmatter/abstract.tex	2.63	both	the null peak stands: the correction to the residue-26 ridge measures against the same null
 theory/theory/cryptography/sha256/frontmatter/abstract.tex	rank 32	both	rank 32 is the measurement that takes the claim about shifts back, and it stands
 theory/thought_experiments/orior/frontmatter/abstract.tex	0.401	taken back	a process with no memory reaching -0.401 is the measurement that took three of the four claims back, and it stands
-theory/theory/cryptography/sha256/frontmatter/abstract.tex	1 of 32	taken back	the correction at chapter_spectral.tex:42 holds the decay of 1/32 per round as real and as the part every class has in common, which is what the abstract says
+theory/theory/cryptography/sha256/frontmatter/abstract.tex	1 of 32	both	the correction to the residue-26 ridge holds the decay of 1/32 per round as real and as the part every class has in common, which is what the abstract says

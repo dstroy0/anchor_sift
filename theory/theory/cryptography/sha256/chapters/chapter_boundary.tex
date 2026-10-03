@@ -1,6 +1,6 @@
 \chapter{The boundary as an instrument}
 
-\textbf{Purpose:} State what a boundary reading can recover, what it provably cannot, and which of this work's boundary results are algebra instead of measurement, because the strongest claim in this chapter is a counting argument that no precision, no sample size and no number of probes can move, and the weakest was a conclusion drawn from reading the wrong object. \textbf{Scope:} \texttt{tools/\allowbreak{}view/\allowbreak{}\{boundary\_read, octant\_lex, reading\_rank, sphere\_field\}.py} and the room viewer, all in the BTC tree; literature checked 2026-09-10.
+This chapter states what a boundary reading can recover, what it provably cannot, and which of the boundary results are algebra instead of measurement. The strongest claim in it is a counting argument that no precision, no sample size and no number of probes can move.
 
 \section{The octant decomposition}
 
@@ -14,7 +14,7 @@ and eight of them come to \(4\pi\), the area of the sphere. The tiling is exact 
 
 That gives an eight-letter alphabet: the fraction of the lit set sitting in each octant, one word of eight numbers per state. It is the coarsest reading in this work, and \S\ref{sec:rank} is the reason it is presented with its limit attached.
 
-\section{Rotation by an index shift is a rigid screw}
+\section{An index shift is a screw}
 
 Place index \(k\) of \(N\) on the golden spiral: height \(1 - 2(k + \tfrac12)/N\), longitude \(k\gamma\) with \(\gamma = \pi(3 - \sqrt5)\).
 
@@ -22,7 +22,7 @@ Shift every index by \(n\). Longitude advances by \(n\gamma\) and height by \(-2
 \[
   \frac{\text{slide}}{\text{turn}} = \frac{-2n/N}{n\gamma} = \frac{-2}{N\gamma},
 \]
-\textbf{independent of \(n\)}. One axis and one pitch therefore describe every shift amount there is, and the amounts differ only in how far along the one helix they travel.
+\textbf{independent of \(n\)}. One axis and one pitch therefore describe every shift amount there is, and the amounts differ only in how far along the one helix they travel. The move is rigid in height and longitude and keeps area; it is not an isometry of the sphere, because the axial radius \(\sqrt{1 - y^2}\) changes under the slide.
 
 Measured at \(N = 256\) over six shift amounts:
 
@@ -39,9 +39,9 @@ spread of the pitch over six amounts & \(4.337 \times 10^{-19}\) \\
 
 Indices that run past \(N\) wrap and return at the other end, and they return \emph{as a rigid second arm of the same helix}. Wrapping leaves the screw intact and splits it into two arms of one screw. A rotated state therefore reads as a shifted spiral with a second arm laid beside it, never as a scramble.
 
-\textbf{This is the strongest structural statement in the chapter.} The rotation is the most-used operation in the compression function, and on this placement it is one rigid motion of one helix whose pitch does not depend on the amount. It is an identity, not a measurement: the numbers above check the arithmetic, and the pitch spread of \(4 \times 10^{-19}\) is the check passing.
+\textbf{This is the strongest structural statement in the chapter.} The rotation is the most-used operation in the compression function, and on this placement an index shift is one rigid move along one helix whose pitch does not depend on the amount. It is an identity, not a measurement: the numbers above check the arithmetic, and the pitch spread of \(4 \times 10^{-19}\) is the rounding of the division.
 
-The caution is equally exact. The placement was chosen, and the identity belongs to the golden spiral. A different placement gives a different move. The identity says that SHA-256's rotations \emph{can} be read as one rigid motion, never that the function contains one.
+The caution is equally exact. The placement is chosen, and the identity belongs to the golden spiral. A different placement gives a different move. The identity says that SHA-256's rotations \emph{can} be read as one rigid move, never that the function contains one.
 
 \section{Deflection and torsion: an exact intrinsic and contextual split}
 
@@ -59,9 +59,9 @@ Now turn the whole lit set about the polar axis by \(\alpha\). Every longitude g
 \]
 Two readings of the same coefficients then behave in opposite ways.
 
-\textbf{Deflection}, the power per degree \(P_l = \sum_m |a_{lm}|^2\), is invariant. Under a rotation about the polar axis each \(|a_{lm}|\) is individually unchanged; under a general rotation the orders mix, but the degree-\(l\) subspace carries a unitary irreducible representation of the rotation group. \(P_l\) is invariant under \emph{all} of \(\mathrm{SO}(3)\). A magnitude cannot see how the object is turned. Rotation blindness here follows from the construction, and no resolution limit enters into it.
+\textbf{Deflection}, the power per degree \(P_l = \sum_m |a_{lm}|^2\), is invariant. Under a rotation about the polar axis each \(|a_{lm}|\) is individually unchanged; under a general rotation the orders mix, but the degree-\(l\) subspace carries a unitary irreducible representation of the rotation group, and \(P_l\) is invariant under \emph{all} of \(\mathrm{SO}(3)\). A magnitude cannot see how the object is turned. Rotation blindness here follows from the construction, and no resolution limit enters into it.
 
-\textbf{Torsion}, the phase \(\arg a_{lm}\) of the same numbers, moves by exactly \(-m\alpha\), sign included. It recovers the angle, and the sign of the recovery is the handedness.
+\textbf{Torsion}, the phase \(\arg a_{lm}\) of the same numbers, moves by exactly \(-m\alpha\) under a rotation about the polar axis, sign included. It recovers the angle, and the sign of the recovery is the handedness.
 
 Measured on a rotation of a ring placement:
 
@@ -74,15 +74,15 @@ torsion recovered the angle to & \(1.803 \times 10^{-13}\) rad \\
 \end{tabular}
 \end{center}
 
-\textbf{This settles a question that was first posed the other way round}, with the caveat that it might be inverted. It is not inverted. Where the operations of interest are rotations, the bit positions are carried in the phase, and the power spectrum cannot recover them at any precision. The reading that survives being turned and the reading that measures the turn are complementary, and a caller has to know which of the two carries its signal before reading either.
+Where the operations of interest are rotations, the bit positions are carried in the phase, and the power spectrum cannot recover them at any precision. The reading that survives being turned and the reading that measures the turn are complementary, and a caller has to know which of the two carries its signal before reading either.
 
-\subsection{The same split appears in the current literature, sampled instead of solved}
+\subsection{The same split in the literature, sampled instead of solved}
 
-Varley, Mediano, Patania and Bongard (2025, \texttt{arXiv:2504.10140}) compare topological data analysis against multivariate information theory on the same data, and separate \emph{intrinsic} higher-order information, invariant to a rotation of the embedding, from \emph{contextual} information, which depends on the embedding. On fMRI data over \(36{,}300\) region triads they report normalized O-information correlating with average void persistence at \(\rho = -0.65\), \(p < 10^{-100}\), and with the number of voids at \(\rho = -0.32\); after a PCA rotation those correlations weaken substantially while remaining significant. The contextual part was carrying much of what they measured.
+Varley, Mediano, Patania and Bongard~\cite{src:Varley} compare topological data analysis against multivariate information theory on the same data, and separate \emph{intrinsic} higher-order information, invariant to a rotation of the embedding, from \emph{contextual} information, which depends on the embedding. On fMRI data over \(36{,}300\) region triads they report normalized O-information correlating with average void persistence at \(\rho = -0.65\), \(p < 10^{-100}\), and with the number of voids at \(\rho = -0.32\); after a PCA rotation those correlations weaken substantially while remaining significant. The contextual part carries much of what they measure.
 
-The split above is the same split with the group action known in closed form instead of sampled. On the sphere the rotation group acts on the coefficients by a character, \(e^{-im\alpha}\). Magnitude and phase separate the intrinsic from the contextual \emph{exactly}: the intrinsic half moves by \(10^{-14}\) and the contextual half recovers the move to \(10^{-13}\). Their caveat is repeated here instead of dropped, because it applies to this paragraph too: they state plainly that no formal proofs relate the two frameworks and that their relationships are correlational. Nothing here proves one either. What the sphere adds is one case where the separation is algebraic and can be checked to the last digit.
+The split above is the same split with the group action known in closed form instead of sampled. On the sphere the rotation group acts on the coefficients by a character, \(e^{-im\alpha}\). Magnitude and phase separate the intrinsic from the contextual \emph{exactly}: the intrinsic half moves by \(10^{-14}\) and the contextual half recovers the move to \(10^{-13}\). Their caveat applies here too: they state that no formal proofs relate the two frameworks and that their relationships are correlational. Nothing here proves one either. What the sphere adds is one case where the separation is algebraic and can be checked to the last digit.
 
-Two further points from the same paper are worth recording. Their synthetic tests find spheres and hollow toroids dominated by the higher-order term of their measure, and the object read throughout this work is a deforming two-sphere boundary. That is a reason to expect higher-order structure in a boundary reading and never a demonstration that there is any. Their intrinsic and contextual distinction also gives a name to something visible in the viewer: the shape of the envelope is the intrinsic reading and its orientation is the contextual one. The teardrop's \emph{form} is invariant content while where it points is not.
+Two further points from the same paper bear on this reading. Their synthetic tests find spheres and hollow toroids dominated by the higher-order term of their measure, and the object read throughout this work is a deforming two-sphere boundary. That is a reason to expect higher-order structure in a boundary reading and never a demonstration that there is any. Their distinction also names something visible in the viewer: the shape of the envelope is the intrinsic reading and its orientation is the contextual one.
 
 \section{What a boundary cannot say}
 \label{sec:rank}
@@ -113,41 +113,41 @@ The map has as much rank as it has rows at every degree below the source count. 
 
 \textbf{Reaching the floor is not reaching a usable reading.} At degree fifteen the rank is complete and the least singular value collapses to \(3.5 \times 10^{-3}\), three decades under the values beside it; at sixteen it recovers to \(1.5 \times 10^{-1}\). A square map is invertible and an ill-conditioned one is not invertible in any useful sense, and the count alone hides that. One degree of headroom buys a factor of \(44\) in conditioning.
 
-\textbf{The eight-letter alphabet is rank \(8\), blind in \(248\) of \(256\) directions}, and at fixed weight its shares carry one constraint and leave seven free numbers. This is the honest frame for the coherence result: sixty-four rounds wrote sixty-four distinct signatures, which reads as complete separation and comes nearly free, because seven real numbers will separate sixty-four arbitrary states whether or not the seven mean anything. Distinctness at that sample size is not evidence. Evidence would be a delta below the redraw level, or a signature that predicts the round it came from.
+\textbf{The eight-letter alphabet is rank \(8\), blind in \(248\) of \(256\) directions}, and at fixed weight its shares carry one constraint and leave seven free numbers. This frames the coherence result: sixty-four rounds write sixty-four distinct signatures, which reads as complete separation and comes nearly free, because seven numbers separate sixty-four arbitrary states whether or not the seven mean anything. Distinctness at that sample size is not evidence. Evidence would be a delta below the redraw level, or a signature that predicts the round it came from.
 
-\subsection{The bound arriving as a defect somebody could ship}
+\subsection{The bound arriving as an implementation defect}
 
-\textbf{A recorded frame that is then not carried through the query moves four fifths of the placement and a few percent of the reading.} An arm is stated in some frame, and the derivation uses that frame; dropping it between the record and the query is a plain implementation defect. Measured against the eight sign octants over the \(256\)-point golden placement, it sends \(199\) of \(256\) points to a different arm. The eight letters move by \(3.92\) percent in the units the delta is reported in, and the worst single letter moves \(1.96 \times 10^{-2}\), or three point crossings. Four fifths of the placement relocates and the reading reports a few percent, because the move lives almost entirely in the \(248\) directions the alphabet cannot see. Here that margin is still fourteen decades above the reading's floor and the defect is caught, but the margin is a property of the floor and not of the defect: the letters understate the move by construction, and the count of reassigned points does not. Measured by the redraw null in \texttt{tools/\allowbreak{}view/\allowbreak{}arm\_draw.py}.
+\textbf{A recorded frame that is not carried through the query moves four fifths of the placement and a few percent of the reading.} An arm is stated in some frame, and the derivation uses that frame; dropping it between the record and the query is a plain implementation defect. Measured against the eight sign octants over the \(256\)-point golden placement, it sends \(199\) of \(256\) points to a different arm. The eight letters move by \(3.92\) percent in the units the delta is reported in, and the worst single letter moves \(1.96 \times 10^{-2}\), or three point crossings. Four fifths of the placement relocates and the reading reports a few percent, because the move lives almost entirely in the \(248\) directions the alphabet cannot see. Here the margin is fourteen decades above the reading's floor and the defect is caught, but the margin is a property of the floor and not of the defect: the letters understate the move by construction, and the count of reassigned points does not.
 
-\textbf{A letter is a sum, and a sum hides a pair of moves that cancel inside it.} Two points exchanging arms leaves both letters where they were while the arms are no longer the arms, and a comparison made only at the letters can then report an exact match while the topology moved. The redraw null therefore compares at three levels: each arm's weight at each placement point, the count of points that changed arm, and the letter a caller reads. The first two are what the claim is about; the third is a consequence, and a reader would otherwise have checked it alone.
+\textbf{A letter is a sum, and a sum hides a pair of moves that cancel inside it.} Two points exchanging arms leave both letters where they were while the arms are no longer the arms, and a comparison made only at the letters can then report an exact match while the topology moved. The redraw null therefore compares at three levels: each arm's weight at each placement point, the count of points that changed arm, and the letter a caller reads. The first two are what the claim is about; the third is a consequence.
 
 \subsection{The null space is more than truncation}
 
-Truncation is the bound above and the one that binds here. It is worth recording that the deeper limit does not go away at unbounded degree: for the wave equation at a fixed frequency there exist sources whose exterior field vanishes identically. Surface measurements cannot uniquely determine a volume source. Bleistein and Cohen state the nonuniqueness for acoustics and electromagnetics; recent treatments give spherical-harmonic criteria for when a source fails to radiate (\texttt{arXiv:2402.10407} for Maxwell, \texttt{arXiv:2509.26304} on uniqueness, reciprocity and low-signature structures, \texttt{arXiv:2508.05401} for elastic sources). Full citations are owed in the registry; these are identifiers, not credit.
+Truncation is the bound above and the one that binds here. The deeper limit does not go away at unbounded degree: for the wave equation at a fixed frequency there exist sources whose exterior field vanishes identically, and surface measurements cannot uniquely determine a volume source~\cite{src:Bleistein-and-Cohen-1977}. Recent treatments give spherical-harmonic criteria for when a source fails to radiate, for Maxwell's equations (\texttt{arXiv:2402.10407}), on uniqueness, reciprocity and low-signature structures (\texttt{arXiv:2509.26304}), and for elastic sources (\texttt{arXiv:2508.05401}).
 
-\textbf{An earlier version of this section said the null space of the reading \emph{is} exactly that class, and that is retracted.} It folded two different things into one. A source whose exterior field vanishes identically has every exterior coefficient equal to zero, and no arithmetic reaches it. That is a genuine kernel, and the paragraph above stands for it. A source whose \emph{far} field falls below the reader's floor while its near field does not is a different case, and it is no kernel at all. The reading is taken at a finite radius, where a near field is present by definition. Such a source therefore has coefficients that are small and nonzero. Calling them invisible is a statement about the instrument's floor, and the object still carries them. The measurement below is the retraction.
+The null space of the reading is not exactly that class, and two different things must be kept apart. A source whose exterior field vanishes identically has every exterior coefficient equal to zero, and no arithmetic reaches it. That is a genuine kernel. A source whose \emph{far} field falls below the reader's floor while its near field does not is a different case, and it is no kernel at all. The reading is taken at a finite radius, where a near field is present by definition. Such a source has coefficients that are small and nonzero. Calling them invisible is a statement about the instrument's floor, and the object still carries them.
 
-\textbf{The depth kernel prices degrees in digits and does not zero them.} The gain at degree \(l\) is \((r/R)^l\), which is never zero for \(r < R\). A degree is unreadable exactly when its gain lands under the floor, and the last surviving degree is \(\text{digits} / \log_{10}(R/r)\). At \(r/R = 62/100\) the count comes back \(77\) degrees at sixteen digits, \(96\) at twenty, \(144\) at thirty and \(264\) at fifty-five, against predictions of \(77.1\), \(96.3\), \(144.5\) and \(264.9\): \(4.8168\) degrees per digit. The object is built once and never rebuilt. Every column that moves therefore belongs to the format. Over the same sweep the identity floor falls \(1.0011\) decades per digit and the smallest detectable unmodeled source follows it at \(1.0256\), against the \(0.9861\) decades per digit that orior records for a rotation null measured at eight precisions (\texttt{workbooks/\allowbreak{}orior/\allowbreak{}arm-records.md:148}).
+\textbf{The depth kernel prices degrees in digits and does not zero them.} The gain at degree \(l\) is \((r/R)^l\), which is never zero for \(r < R\). A degree is unreadable exactly when its gain lands under the floor, and the last surviving degree is \(\text{digits} / \log_{10}(R/r)\). At \(r/R = 62/100\) the count comes back \(77\) degrees at sixteen digits, \(96\) at twenty, \(144\) at thirty and \(264\) at fifty-five, against predictions of \(77.1\), \(96.3\), \(144.5\) and \(264.9\): \(4.8168\) degrees per digit. The object is built once and never rebuilt, and every column that moves belongs to the format. Over the same sweep the identity floor falls \(1.0011\) decades per digit and the smallest detectable unmodeled source follows it at \(1.0256\), against the \(0.9861\) decades per digit recorded for a rotation null measured at eight precisions~\cite{src:Quigg-orior-workbook}.
 
-\textbf{The bound that does not move is the more important half.} Rank held at \(64\) of \(64\) at every precision in that sweep. Precision buys the size of what can be read. The number of things read stays where counting puts it: \((L+1)^2\) coefficients against \(N\) sources still caps recovery at \(N\), and degrees admitted past that count improve conditioning and add no rank. That is the same statement as degree fifteen being complete at \(3.5 \times 10^{-3}\) while degree sixteen recovers to \(1.5 \times 10^{-1}\). Arbitrary precision moves this obstruction from principle to price and leaves the counting where it was. Measured by \texttt{tools/\allowbreak{}view/\allowbreak{}unmodelled.py --precision}, on the basis in \texttt{tools/dn\_precision/calc/normalised\_harmonics.py}, both in the BTC tree and neither in this repository. The figures are repeated as that run recorded them.
+\textbf{The bound that does not move is the more important half.} Rank holds at \(64\) of \(64\) at every precision in that sweep. Precision buys the size of what can be read. The number of things read stays where counting puts it: \((L+1)^2\) coefficients against \(N\) sources still caps recovery at \(N\), and degrees admitted past that count improve conditioning and add no rank. That is the same statement as degree fifteen being complete at \(3.5 \times 10^{-3}\) while degree sixteen recovers to \(1.5 \times 10^{-1}\). Arbitrary precision moves this obstruction from principle to price and leaves the counting where it was.
 
-\textbf{The instrument shows a piece of this directly.} The transport now deposits into the same coefficient field as the object's constituents, and the two sum, because the reading map is linear and a boundary has no way to report which source put a given part of the field there. Sweeping the coupling gain, the field's span reads \(6.993\) for the object alone, \(6.66\) at a low gain, and \(14.45\) at the chosen gain of six. The dip is no artifact: the beam's coefficients partly \emph{cancel} the object's. Two fields on one boundary add, and adding can subtract. A partial cancellation is a partial nonradiating combination, and it means a beam can hide part of an object as easily as reveal it.
+\textbf{The instrument shows a piece of this directly.} The transport deposits into the same coefficient field as the object's constituents, and the two sum, because the reading map is linear and a boundary has no way to report which source put a given part of the field there. Sweeping the coupling gain, the field's span reads \(6.993\) for the object alone, \(6.66\) at a low gain, and \(14.45\) at a gain of six. The dip is no artifact: the beam's coefficients partly \emph{cancel} the object's. Two fields on one boundary add, and adding can subtract. A partial cancellation is a partial nonradiating combination, and it means a beam can hide part of an object as easily as reveal it.
 
-So the honest form of ``the beams map the whole object'' is this: \textbf{beams map the radiating part, exactly, and the null space not at all, where the null space is taken at the precision of the reading, and that boundary moves.} Coherence has to be defined on the quotient by that null space, or it counts invisible differences as differences. The quotient is therefore indexed by precision. A coherence figure is a statement about a reading in a format, and two figures taken at different widths are not comparable without saying so. The part that does not move with the format is the nonradiating class above, and the quotient by that class is the same at every width. The working name for the invisible directions in this project was \emph{null permutations}, coined before the literature was checked; the literature calls them nonradiating sources and has characterized them for sixty years.
+The supported form of ``the beams map the whole object'' is this: \textbf{beams map the radiating part, exactly, and the null space not at all, where the null space is taken at the precision of the reading, and that boundary moves.} Coherence has to be defined on the quotient by that null space, or it counts invisible differences as differences. The quotient is therefore indexed by precision. A coherence figure is a statement about a reading in a format, and two figures taken at different widths are not comparable without saying so. The part that does not move with the format is the nonradiating class above, and the quotient by that class is the same at every width.
 
 \section{Deformation without motion}
 
-The claim under test is that the boundary contorts while nothing moves: the far side of the sphere stays undisturbed, the enclosed volume stays stable, no coordinate is displaced, and therefore in the topological sense there has been no motion, only deformation.
+The claim under test is that the boundary contorts while nothing moves: the far side of the sphere stays undisturbed, the enclosed volume stays stable, no coordinate is displaced, and therefore in the topological sense there is no motion, only deformation.
 
-The coefficients support a precise version of this. The reading is a section over a \emph{fixed} sphere, and a deformation is a change of the coefficient vector at fixed support. Degree zero is the monopole, the integral over the whole sphere, and it holds the conserved quantity: to the extent \(a_{00}\) holds, the reading has redistributed instead of added.
+The coefficients support a precise version of this. The reading is a section over a \emph{fixed} sphere, and a deformation is a change of the coefficient vector at fixed support. Degree zero is the monopole, the integral over the whole sphere, and it holds the conserved quantity: to the extent \(a_{00}\) holds, the reading redistributes instead of adding.
 
-The measured effect is a large amplification of a small move. Over one full run the degree-zero swing reads \(0.12\) while the degrees above it swing \(0.27\) to \(0.88\). The low degrees sit nearly fixed and the high degrees cascade, and a small move at the bottom accompanies a large move everywhere else. These are the plateau scalars.
+The measured effect is a large amplification of a small move. Over one full run the degree-zero swing reads \(0.12\) while the degrees above it swing \(0.27\) to \(0.88\). The low degrees sit nearly fixed and the high degrees cascade, and a small move at the bottom accompanies a large move everywhere else.
 
-\textbf{The attribution matters more than the measurement.} Both kernels are diagonal in degree. Depth and conduction reweight degrees and never mix them. A degree-zero plateau is therefore stable under both, and either kernel most strongly amplifies or kills high-degree structure. Conduction alone is a low-pass at degree about \(1/\sqrt{\tau}\). The amplification belongs to the kernels, and it must appear for any object read this way. That is worth more than the measurement, and it is also why the measurement is not evidence about SHA-256 by itself.
+\textbf{The attribution matters more than the measurement.} Both kernels are diagonal in degree. Depth and conduction reweight degrees and never mix them. A degree-zero plateau is therefore stable under both, and either kernel most strongly amplifies or kills high-degree structure. Conduction alone is a low-pass at degree about \(1/\sqrt{\tau}\). The amplification belongs to the kernels, and it must appear for any object read this way, which is also why the measurement is not evidence about SHA-256 by itself.
 
-Two limits belong with it. The even and odd lobe split and the exponential falloff visible in the power bars are artifacts of the ring placement and the depth control, never of the hash. And the degree-zero swing above is read off the viewer over one run: an instrument reading with no error bar, not a bench result.
+Two limits belong with it. The even and odd lobe split and the exponential falloff visible in the power bars are artifacts of the ring placement and the depth control, never of the hash. And the degree-zero swing above is read off the viewer over one run: an instrument reading with no error bar.
 
-\section{The delta, and reading the wrong object}
+\section{The delta, and the object it is read on}
 
 The eight-letter word, round by round, on the working state of the compression function, against a floor measured the same way from two unrelated states of the same weight, redrawn:
 
@@ -163,9 +163,9 @@ redraw floor, unrelated states & \(9.4\%\) & \(1.00\times\) \\
 \end{tabular}
 \end{center}
 
-The early rounds move the word \emph{further} than independence does, and the late rounds move it less; the delta crosses the floor between the two ends of the run. That is the signature of a coherent move instead of a scramble: a rigid relabeling of the indices carries mass from octant to octant without mixing it, which puts the delta above the floor, and mixing puts it below. The twist between round one and round sixty-four reads \(4.715210\) radians.
+The early rounds move the word \emph{further} than independence does, and the late rounds move it less; the delta crosses the floor between the two ends of the run. A rigid relabeling of the indices carries mass from octant to octant without mixing it, which puts the delta above the floor, and mixing puts it below. Attributing the early excess to the register shift is a reading of why, and is not measured.
 
-\textbf{Every earlier version of this measurement was made on the wrong object.} It read the finalized digest instead of the round's working state. The finalization adds the initial vector back, modulo \(2^{32}\), and that destroys exactly the structure being looked for. Counting the six words each round copies from another:
+\textbf{The finalized digest is the wrong object.} The finalization adds the chaining input back, modulo \(2^{32}\), and that destroys exactly the structure being looked for. Counting the six words each round copies from another:
 
 \begin{center}
 \begin{tabular}{lr}
@@ -176,9 +176,7 @@ carried words matching, on the finalized digest & \(0\) of \(378\) \\
 \end{tabular}
 \end{center}
 
-On the digest the register shift is not present at all, and a measurement that cannot see the shift was reported as evidence that the alphabet had saturated. It had not. The instrument chapter's rule is to measure the null under the same conditions as the effect; this failure sits one level beneath it. \textbf{Name the object being read, because reading the wrong one fails silently and in the direction that looks like a result.}
-
-Three assertions of my own about this same number were withdrawn before the fourth stood, and they failed in one way: each asserted a \emph{level} (a ramp, a stationary value, a floor) for a quantity that has a \emph{trend}. They are listed in the refutations chapter under that shape.
+On the digest the register shift is not present at all, and a measurement on the digest that cannot see the shift reads as the alphabet saturating. It does not saturate. The instrument chapter's rule is to measure the null under the same conditions as the effect; this failure sits one level beneath it. \textbf{Name the object being read, because reading the wrong one fails silently and in the direction that looks like a result.} A quantity with a trend also must not be assigned a level, whether a ramp, a stationary value or a floor; the refutations chapter lists that shape.
 
 \section{The transform table}
 \label{sec:transforms}
@@ -198,26 +196,26 @@ depth, outward carry & \((r/R)^{l}\, a_{lm}\) & yes & direction per degree \\
 conduction, smoothing & \(e^{-l(l+1)\tau}\, a_{lm}\) & yes & direction per degree \\
 pixel prefilter & \(e^{-l(l+1)\sigma^2/2}\, a_{lm}\) & yes & direction per degree \\
 band truncation & keep \(l \le L\) & yes & every kept coefficient \\
-parity & \((-1)^{l}\, a_{lm}\) & yes & \(P_l\) \\
-index screw & rotation \(n\gamma\), slide \(-2n/N\) & yes & \(P_l\) \\
+point inversion & \((-1)^{l}\, a_{lm}\) & yes & \(P_l\) \\
+index screw & rotation \(n\gamma\), slide \(-2n/N\) & no & area \\
 synthesis & \(f(\hat n) = \sum a_{lm} Y_{lm}(\hat n)\) & no & none \\
-translation of the origin & mixes every degree & \textbf{no} & nothing per degree \\
+translation of the origin & degree \(l\) draws on degrees \(0\) to \(l\) & \textbf{no} & degree \(0\) \\
 octant indicators & project onto eight indicators & \textbf{no} & total weight \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\textbf{One theorem accounts for the whole \(\mathrm{diag}\) column.} The Laplace--Beltrami operator on the sphere has the degree-\(l\) subspace as its eigenspace,
+\textbf{One theorem accounts for the \(\mathrm{diag}\) column.} The Laplace--Beltrami operator on the sphere has the degree-\(l\) subspace as its eigenspace,
 \[
   \Delta Y_{lm} = -l(l+1)\, Y_{lm},
 \]
-and any operator commuting with \(\Delta\) preserves its eigenspaces and therefore acts on each degree separately. Every diagonal row commutes with \(\Delta\), for a reason particular to it. Depth is harmonic continuation: the field satisfies \(\Delta f = 0\) in the shell, and separating variables leaves \((r/R)^l\), the exponent being the degree because the degree indexes the eigenvalue. Conduction and the pixel prefilter are both \(e^{\tau\Delta}\), the heat semigroup, and an operator built as a function of \(\Delta\) commutes with it by construction. Rotation and parity are isometries of the sphere and \(\Delta\) is built from the metric. Truncation is a spectral projection.
+and any operator commuting with \(\Delta\) preserves its eigenspaces and therefore acts on each degree separately. Every diagonal row commutes with \(\Delta\), for a reason particular to it. Depth is harmonic continuation: the field satisfies \(\Delta f = 0\) in the shell, and separating variables leaves \((r/R)^l\), the exponent being the degree because the degree indexes the eigenvalue. Conduction and the pixel prefilter are both \(e^{\tau\Delta}\), the heat semigroup, and an operator built as a function of \(\Delta\) commutes with it by construction. Rotation and point inversion are isometries of the sphere and \(\Delta\) is built from the metric; a mirror through the equatorial plane gives \((-1)^{l+m}\) instead. Truncation is a spectral projection.
 
-\textbf{The exception is instructive.} A translation is not a map of the sphere to itself. There is no \(\Delta\) on the sphere for it to commute with, and re-expanding a field about a shifted origin mixes every degree into every other. Every cheap operation in this work is diagonal and the single operation it avoids fails to be. The instrument gives each source its own depth factor instead of moving an origin, and the table shows why that choice is forced.
+\textbf{The exceptions are instructive.} The index screw is not an isometry: its slide takes \(Y_{10} \propto y\) to \(y - 2n/N\), which has a degree \(0\) part, and only its rotation is diagonal. A translation is not a map of the sphere to itself. There is no \(\Delta\) on the sphere for it to commute with, and re-expanding a field about a shifted origin is triangular in degree, degree \(l\) of the new expansion drawing on degrees \(0\) to \(l\) of the old. Every cheap operation in this work is diagonal and the operation it avoids is not. The instrument gives each source its own depth factor instead of moving an origin, and the table shows why that choice is forced.
 
 \subsection{The composition law}
 
-Diagonal operators on shared eigenspaces commute, and composing them multiplies one number per degree. The entire chain from an interior state to a drawn pixel therefore collapses to a vector of \(L+1\) gains,
+Diagonal operators on shared eigenspaces commute, and composing them multiplies one number per degree. The chain from an interior state to a drawn pixel collapses to a vector of \(L+1\) gains,
 \[
   a_{lm}(\text{drawn}) = g_l \, a_{lm}(\text{state}),
   \qquad
@@ -229,19 +227,19 @@ with the smoothing times \emph{adding}:
   \qquad
   \tau_{\mathrm{total}} = \tau_{\mathrm{conduction}} + \tau_{\mathrm{pixel}}.
 \]
-At the ceiling the instrument runs to, \(g\) is eleven numbers. All of the physics between a source and a pixel, plus the imaging, is eleven multiplications recomputed when the depth, the smoothing or the ceiling moves.
+At the ceiling the instrument runs to, \(g\) is eleven numbers, recomputed when the depth, the smoothing or the ceiling moves. Where the pixel width varies per pixel the gains are per pixel, at one exponential and \(3L - 2\) multiplications each.
 
 \subsection{A pixel asks for an average, and a band-limited field has it in closed form}
 
 A pixel does not ask for the field at a point. It asks for the field averaged over the solid angle it covers, and every antialiasing scheme is an attempt at that average. Supersampling estimates it: \(k\) samples cost \(k\) times as much and converge about as \(1/k\), reaching the answer only in the limit.
 
-Convolution on the sphere is multiplication in the degree. Averaging against a kernel \(K\) is therefore \(a_{lm} \mapsto K_l a_{lm}\), with no sampling anywhere, and choosing \(K\) to be the heat kernel of angular width \(\sigma\) gives the prefilter row of the table with \(\tau_{\mathrm{pixel}} = \sigma^2/2\). \textbf{One evaluation of the prefiltered field is the pixel's area average exactly.} The comparison with supersampling is therefore not between two approximations: supersampling approximates a quantity this field surrenders in one multiplication, and by the composition law that multiplication is an addend in a \(\tau\) already being applied.
+Convolution on the sphere is multiplication in the degree. Averaging against a zonal kernel \(K\) is therefore \(a_{lm} \mapsto K_l a_{lm}\), with no sampling anywhere, and choosing \(K\) to be the heat kernel of angular width \(\sigma\) gives the prefilter row of the table with \(\tau_{\mathrm{pixel}} = \sigma^2/2\). \textbf{One evaluation of the prefiltered field is a Gaussian-weighted average over the pixel's footprint, exactly.} The exact average over a cap is also diagonal; a square footprint is not zonal and is not diagonal. The comparison with supersampling is therefore not between two approximations: supersampling approximates a quantity this field gives in closed form, and by the composition law that factor is an addend in a \(\tau\) already being applied.
 
-The same exponential says which degrees may be skipped. \(e^{-l(l+1)\tau}\) falls under a threshold \(\varepsilon\) once \(l \gtrsim \sqrt{2\ln(1/\varepsilon)}\,/\,\sigma\), about \(3.33/\sigma\) at one level of an eight-bit channel. \textbf{Stated honestly this saving is small.} It reaches down to degree ten only when \(\sigma\) is about \(0.33\) radians, meaning an object spanning a few tens of pixels; above that size every coefficient contributes something visible. The level-of-detail behavior is derived instead of authored, and it earns nothing at working sizes.
+The same exponential says which degrees may be skipped. \(e^{-l(l+1)\tau}\) falls under a threshold \(\varepsilon\) once \(l \gtrsim \sqrt{2\ln(1/\varepsilon)}\,/\,\sigma\), about \(3.33/\sigma\) at one level of an eight-bit channel. \textbf{This saving is small.} It reaches down to degree ten only when \(\sigma\) is about \(0.33\) radians, an object about six pixels across; above that size every coefficient contributes something visible. The level-of-detail behavior is derived instead of authored, and it earns nothing at working sizes.
 
 \subsection{What the instrument draws instead, measured}
 
-The viewer samples the \(121\) coefficients at \(2{,}701\) vertices of a \(36\) by \(72\) grid, five degrees to a cell, and the rasterizer fills each cell with two planes. So the picture on screen is a straight line drawn through a curve the coefficients hold exactly. Measured against exact evaluation, as a fraction of the picture's own contrast, and as an angle between the drawn surface normal and the true one:
+The viewer samples the \(121\) coefficients at \(2{,}701\) vertices of a \(36\) by \(72\) grid, five degrees to a cell, and the rasterizer fills each cell with two planes. The picture on screen is a straight line drawn through a curve the coefficients hold exactly. Measured against exact evaluation, as a fraction of the picture's own contrast, and as an angle between the drawn surface normal and the true one:
 
 \begin{center}
 \begin{tabular}{lrrrr}
@@ -257,9 +255,9 @@ flat spectrum to \(10\) & \(0.0312\) & \(0.0050\) & \(5.85^\circ\) & \textemdash
 \end{tabular}
 \end{center}
 
-The value error climbs as the square of the degree, as a linear interpolant must: interpolating a wave of length \(\lambda\) over a step \(h\) is wrong by about \(\tfrac12(\pi h/\lambda)^2\), and a degree-\(l\) harmonic has length \(360/l\) degrees. Halving the step divides the error by \(3.95\) against a predicted \(4\), confirming that what was measured is linear interpolation and no other effect.
+The value error rises \(59\) times from degree one to degree ten, an exponent of \(1.77\) against the \(2\) a linear interpolant's estimate \(\tfrac12(\pi h/\lambda)^2\) gives for a degree-\(l\) harmonic of length \(360/l\) degrees. Halving the step divides the error by \(3.95\) against a predicted \(4\), confirming that the error comes from linear interpolation and no other effect.
 
-\textbf{The normal columns carry the finding.} The surface is shaded and shading reads the gradient, a linear interpolant has a constant gradient inside a triangle, and so the drawn normal is a staircase across a field whose gradient turns smoothly. At degree ten the median normal is off by \(7.5^\circ\) and one sample in twenty by more than \(47^\circ\). That is a far larger error than the one percent in the value column, and it is the five-degree quilt visible on the reconstruction.
+\textbf{The normal columns carry the finding.} The surface is shaded and shading reads the gradient, a linear interpolant has a constant gradient inside a triangle, and the drawn normal is a staircase across a field whose gradient turns smoothly. At degree ten the median normal is off by \(7.5^\circ\) and one sample in twenty by more than \(47^\circ\). That is a far larger error than the one percent in the value column, and it is the five-degree quilt visible on the reconstruction.
 
 \textbf{The depth kernel is visible in the last two rows.} A deeper reading carries less high-degree power, by the depth row of the table, and the same grid draws it four times more accurately. The grid is wrong in proportion to the fine structure the state happens to hold, and never by a fixed amount.
 
@@ -267,24 +265,18 @@ Two limits belong with this. The prefilter is exact for an isotropic footprint, 
 
 \subsection{Every constant here is decidable}
 
-The transforms are built from \(\pi\), \(\sqrt2\), \(\sqrt5\), the golden angle \(\pi(3-\sqrt5)\), and the harmonic unit \(1/(2\sqrt\pi)\). All are computable to any length by integer arithmetic, and \texttt{examples/proofing/natural\_constants.py} produces them with the verification carried by published bits instead of by a trusted digit string: SHA-256's sixty-four round constants are the leading thirty-two fractional bits of the cube roots of the first sixty-four primes, and its eight starting words the same for the square roots of the first eight. Recomputing them checks \(2{,}048\) independently published bits. All \(2{,}048\) agree, and all fifteen copies of the table in the tree match the definition. The one number this produced: the double the placement runs on sits \(4.441 \times 10^{-16}\) radians from the true golden angle, about \(2.8 \times 10^{-14}\) accumulated over sixty-three indices.
+The transforms are built from \(\pi\), \(\sqrt2\), \(\sqrt5\), the golden angle \(\pi(3-\sqrt5)\), and the harmonic unit \(1/(2\sqrt\pi)\). All are computable to any length by integer arithmetic, with the verification carried by published bits instead of by a trusted digit string: SHA-256's sixty-four round constants are the leading thirty-two fractional bits of the cube roots of the first sixty-four primes, and its eight starting words the same for the square roots of the first eight. Recomputing them checks \(72 \times 32 = 2{,}304\) independently published bits. All agree, and all fifteen copies of the table in the source match the definition. The one number this produces: the double the placement runs on sits \(4.441 \times 10^{-16}\) radians from the true golden angle, about \(2.8 \times 10^{-14}\) accumulated over sixty-three indices.
 
 \subsection{What a measured floor belongs to}
 \label{sec:precisionfloor}
 
-The third of those floors was quoted at \(4.005 \times 10^{-16}\) for one reading, and that number sits a bit above the epsilon of a double. So it is either a fact about the boundary reading or a fact about float64, and the two answers lead to different work. The question is settled without a statistical model, because the law supplies the answer in advance.
+The calibrated null floor for one reading is \(4.005 \times 10^{-16}\), a bit above the epsilon of a double. It is either a fact about the boundary reading or a fact about float64, and the two answers lead to different work. The question is settled without a statistical model, because the law supplies the answer in advance.
 
-\textbf{The predicted residual is exactly zero.} Take the null the figure below is built on: a ring placement turned by whole ring steps, read for \(P_l\). Each point slides along its own ring. The turned configuration is the same set of directions relabelled, each coefficient pair turns rigidly by \(m\alpha\), and the sum of their squares cannot move. Whatever a program reports above zero is its own arithmetic.
+\textbf{The predicted residual is exactly zero.} Take the null the floor is built on: a ring placement turned by whole ring steps, read for \(P_l\). Each point slides along its own ring. The turned configuration is the same set of directions relabelled, each coefficient pair turns rigidly by \(m\alpha\), and the sum of their squares cannot move. Whatever a program reports above zero is its own arithmetic.
 
 That makes the floor measurable in the one way that identifies what it belongs to. Compute the same null at rising precision and watch the residual. A residual falling one decade per decimal digit is the number format; a residual that flattens is an operation in the reading failing to commute with the rotation.
 
-\begin{center}
-\IfFileExists{../../../build/theory/figures/precision_floor.png}{%
-  \includegraphics[width=\linewidth]{../../../build/theory/figures/precision_floor.png}%
-}{\textit{Figure absent. Generate with \texttt{python examples/proofing/precision\_plot.py}.}}
-\end{center}
-
-Eight readings, spanning float32 through decimal at sixty-two places. Host and device float32 and float64 come from \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_precision\_cuda.cu} on an RTX 3070; the four decimal points come from \texttt{examples/\allowbreak{}proofing/\allowbreak{}precision\_floor.py}, with pi computed to the working precision by the integer Machin series, and never imported from a library at whatever precision that library happens to carry.
+Eight readings span float32 through decimal at sixty-two places: host and device float32 and float64 on an RTX 3070, and four decimal points with pi computed to the working precision by the integer Machin series.
 
 \begin{center}
 \begin{tabular}{lrr}
@@ -300,31 +292,31 @@ span covered & \(55\) orders of magnitude & \textemdash{} \\
 
 The prediction carries no fitted quantity: a format holding \(d\) digits rounds at \(10^{-d}\). The slope is one before any measurement is taken. Eight points land on that line across fifty-five orders of magnitude, and the largest departure is a quarter of a decade.
 
-\textbf{So the published floor is float64's and not the reading's.} It remains the correct threshold to hand a caller running in float64, since that is the arithmetic such a caller has. It is wrong as a statement about the boundary: the reading's own residual there is zero, and its floor is whatever precision is bought.
+\textbf{The floor is float64's and not the reading's.} It remains the correct threshold to hand a caller running in float64, since that is the arithmetic such a caller has. It is wrong as a statement about the boundary: the reading's own residual there is zero, and its floor is whatever precision is bought.
 
-\textbf{The two arms separate the device from the format.} Host against device gives a ratio of \(0.906\) at float32 and \(0.949\) at float64. The device's arithmetic is the host's at each width and the accelerator contributes no error of its own. One arm alone would have confounded the two causes. That confound is the failure mode this work keeps meeting in new disguises.
+\textbf{The two arms separate the device from the format.} Host against device gives a ratio of \(0.906\) at float32 and \(0.949\) at float64. The device's arithmetic is the host's at each width and the accelerator contributes no error of its own. One arm alone would confound the two causes.
 
-\textbf{One defect nearly became a result, and it is recorded because of how ordinary it was.} The first fit read \(1.3188\) decades per digit with a worst departure of \(6.839\) decades, and every segment of the line was near one except the join between the float arms and the decimal ladder, which read \(3.82\). That segment looked like an effect appearing exactly where two implementations met. It was a constant in the measuring tool: the ladder carries twelve guard digits. A run asked for twenty places therefore rounds at thirty-two, and the residuals had been plotted against the requested precision instead of the working precision. Guard digits are arithmetic too. The quantity reported was not the quantity intended, and the fit's own departure statistic refused it.
+\textbf{Guard digits are arithmetic too.} A decimal ladder carrying twelve guard digits, asked for twenty places, rounds at thirty-two. Plotting its residuals against the requested precision instead of the working precision puts a false segment at the join between the float arms and the decimal ladder, at \(3.82\) decades per digit, and moves the fit to \(1.3188\) with a worst departure of \(6.839\) decades. The fit's own departure statistic refuses that reading.
 
-\textbf{No measured constant appears anywhere in the reading path}, confirmed by search across every source file. The contrast worth drawing is with the 2022 CODATA adjustment (Mohr, Newell, Taylor and Tiesinga, 2025, \emph{Rev. Mod. Phys.} \textbf{97}, 025002), which lists each fundamental physical constant with a value and an uncertainty. About half read \emph{exact}, because the 2019 redefinition of the SI fixed the speed of light, the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro constant by definition; the rest carry an uncertainty no amount of computing will shrink. The reading engine therefore carries no experimental uncertainty at all, and its only floors are chosen: the degree ceiling, which \S\ref{sec:rank} prices; the number format; and the calibrated null, which measures this work's own arithmetic and not the world.
+\textbf{No measured constant appears anywhere in the reading path.} The contrast is with the 2022 CODATA adjustment~\cite{src:Mohr-et-al-2025}, which lists each fundamental physical constant with a value and an uncertainty. About half read \emph{exact}, because the 2019 redefinition of the SI fixed the speed of light, the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro constant by definition; the rest carry an uncertainty no amount of computing will shrink. The reading carries no experimental uncertainty at all, and its only floors are chosen: the degree ceiling, which \S\ref{sec:rank} prices; the number format; and the calibrated null, which measures this work's own arithmetic and not the world.
 
 \section{Where this sits}
 
 Offered as a placement and not as a result.
 
-The eight octant shares are a partition of the boundary, and a partition is an observable. The category of observables ordered by refinement is an \emph{information structure}, and in that setting the classical information functions appear as cocycles: Baudot and Bennequin (2015, \emph{Entropy} \textbf{17}, 3253) construct information cohomology and show Shannon entropy to be the unique measurable nontrivial solution in degree one; Vigneaux (2020, \emph{Theory and Applications of Categories} \textbf{35}(38), \texttt{arXiv:1709.07807}) extends the setting, and for continuous vector-valued observables finds the only new degree-one cocycles to be differential entropy and the dimension of the support (\texttt{arXiv:2107.04377}).
+The eight octant shares are a partition of the boundary, and a partition is an observable. The category of observables ordered by refinement is an \emph{information structure}, and in that setting the classical information functions appear as cocycles: Baudot and Bennequin~\cite{src:Baudot} construct information cohomology and show Shannon entropy~\cite{src:Shannon} to be the unique measurable nontrivial solution in degree one; Vigneaux~\cite{src:Vigneaux} extends the setting, and for continuous vector-valued observables finds the only new degree-one cocycles to be differential entropy and the dimension of the support (\texttt{arXiv:2107.04377}).
 
-Every reading in this chapter is a functional of a probability vector on \emph{one} partition. All of it lives at a single object of that category. The cohomology is in the maps \emph{between} refinements, where the mutual informations at all orders sit. Our alphabet is one coarse-graining and a finer one refines it. The well-posed next measurement is not a sharper delta on the octants but the comparison across the octant, sub-octant and pair readings. That is a published frame for a measurement this work has not made.
+Every reading in this chapter is a functional of a probability vector on \emph{one} partition. All of it lives at a single object of that category. The cohomology is in the maps \emph{between} refinements, where the mutual informations at all orders sit. The alphabet is one coarse-graining and a finer one refines it. The well-posed next measurement is not a sharper delta on the octants but the comparison across the octant, sub-octant and pair readings, a published frame for a measurement not made here.
 
-One defect is named here because it belongs to the same subject. Every reading should ship a known-null move and report its residual, which makes every threshold measured and never guessed. The current coherence figure rounds at \(10^{-6}\) where integer counts over an integer weight have a true null near \(10^{-16}\): ten decades coarse, and a null-calibration hook in each reading is the fix.
+Every reading should ship a known-null move and report its residual, which makes every threshold measured and never guessed. The coherence figure rounds at \(10^{-6}\) where integer counts over an integer weight have a true null near \(10^{-16}\): ten decades coarse.
 
 \section{Untested here}
 
-\textbf{The reading above degree eight.} The rank argument puts the floor at degree fifteen and usable conditioning at sixteen. Neither has been run on the hash.
+\textbf{The reading above degree eight.} The rank argument puts the floor at degree fifteen and usable conditioning at sixteen. Neither is run on the hash.
 
 \textbf{Whether the numbers a reading carries are the interesting ones.} Rank is a ceiling on what can be recovered and says nothing about what is worth recovering. A rank-\(81\) reading blind to every bit of consequence is arithmetically identical to one that is not.
 
-\textbf{Coherence on the quotient.} It is currently computed on the raw signature, counting invisible directions as though they were visible.
+\textbf{Coherence on the quotient.} It is computed on the raw signature, counting invisible directions as though they were visible.
 
 \textbf{The packing spread of \(1.03\) to \(1.10\)}, which carries no error bar at all.
 

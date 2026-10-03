@@ -1,6 +1,6 @@
 \chapter{The operations}
 
-\textbf{Purpose:} Separate what each sub-function does, because the category they share is defined by exclusion and hides three different jobs. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}space.\allowbreak{}cpp}, \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}sac.\allowbreak{}cu}.
+This chapter separates what each sub-function does, because the category they share is defined by exclusion and hides three different jobs.
 
 \section{The bucket is defined by exclusion}
 
@@ -8,7 +8,7 @@ Cryptography's word for the part a linear model cannot hold is \emph{nonlinear},
 
 \section{All four mixing functions are bijections}
 
-The suspicion was that the schedule pair should be lossy where the state pair is not, since \(\sigma_0\) and \(\sigma_1\) each carry a shift and a shift discards bits where a rotation cannot. All four are \(\mathrm{GF}(2)\)-linear. This needs no sampling: each is a \(32 \times 32\) matrix and its image is two to its rank.
+The schedule pair might be expected to be lossy where the state pair is not, since \(\sigma_0\) and \(\sigma_1\) each carry a shift and a shift discards bits where a rotation cannot. All four are \(\mathrm{GF}(2)\)-linear. This needs no sampling: each is a \(32 \times 32\) matrix and its image is two to its rank.
 
 \begin{center}
 \begin{tabular}{llrr}
@@ -23,7 +23,7 @@ function & terms & rank & kernel \\
 \end{tabular}
 \end{center}
 
-Every one is a bijection. Exclusive-or against two rotations restores what the shift drops. The schedule pair collides no earlier than the state pair. Handschuh and Gilbert state this for the \(\Sigma\) pair; the measurement here reproduces it for all four independently.
+Every one is a bijection. Exclusive-or against two rotations restores what the shift drops. The schedule pair collides no earlier than the state pair. Gilbert and Handschuh~\cite{src:Handschuh} state this for the \(\Sigma\) pair; the measurement here reproduces it for all four independently.
 
 \section{The narrowed rank deficit in closed form}
 
@@ -33,7 +33,7 @@ Narrowed, they do lose rank, and the deficit is exact. A rotation right by \(a\)
 \]
 exactly. Checked against the elimination at eight widths, it agrees at every one, including the two nonzero cases: \(\Sigma_0\) losing four ranks at width six and \(\Sigma_1\) losing two at width twelve.
 
-\textbf{A hazard the tree now carries.} \texttt{bench\_\allowbreak{}space} uses the raw scaled amounts, which can come out zero and make a term the identity, while \texttt{bench\_\allowbreak{}narrow} forces every amount nonzero and the three distinct. The two narrowed SHA-256s are different objects and their rows must not be read against each other. Measured on the clamped object, \(\Sigma_0\) carries no kernel at any width and the only damaged width is twelve.
+\textbf{Two narrowings are different objects.} Narrowing with the raw scaled amounts can make an amount zero and a term the identity, while clamping forces every amount nonzero and the three distinct. The two narrowed SHA-256s are different objects and their rows must not be read against each other. Measured on the clamped object, \(\Sigma_0\) carries no kernel at any width and the only damaged width is twelve.
 
 The clamping also manufactures structure the standard does not have. Where two amounts scale onto the same value the distinctness rule steps one apart by exactly one, and twenty-two pairs of amounts sit one apart across the narrowed widths against zero at width thirty-two. None of SHA-256's four functions has an adjacent pair; nearly every narrowed one does.
 
@@ -62,7 +62,7 @@ rounds & full & Maj only & Choose only & carry only & linear \\
 
 \textbf{The carry alone reproduces the whole function's degree}, and at round two exceeds it. Choice alone and majority alone reach degree five by round seven while the full function is past eighteen by round five. Integer addition is the sole source of algebraic degree in SHA-256 and the two nonlinear Boolean functions supply almost none of it.
 
-The \(\geq 18\) entries are the cube ceiling of the bench. No measurement produced them. They establish the separation and say nothing about the carry's absolute degree.
+The \(\geq 18\) entries are the cube ceiling of the measurement. No measurement produced them. They establish the separation and say nothing about the carry's absolute degree.
 
 \subsection{The whole map}
 
