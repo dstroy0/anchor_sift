@@ -11,7 +11,7 @@ The true lower bound is the Kolmogorov complexity~\cite{src:Kolmogorov} K(x) of 
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1932\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2822\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1268\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2083\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1895\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1940\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2824\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1267\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2078\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1892\linewidth-2\tabcolsep\relax}}
 \toprule
 name & the bound & identity & exact for & status \\
 \midrule
@@ -20,16 +20,16 @@ name & the bound & identity & exact for & status \\
 \textbf{F1. Values, zeroth-order empirical entropy} (n·H₀ in exact combinatorial form) & ⌈log₂(n! / Π\_\allowbreak{}v c\_\allowbreak{}v!)⌉ bits over a sample's n voxels, where c\_\allowbreak{}v counts the voxels holding value v, plus the bits needed to state the counts & C0 & any coder that treats the voxels as a multiset of values and sees no position & theory \\
 \textbf{F2. Coefficients, zeroth-order, per decomposition level} & Σ\_\allowbreak{}f ⌈log₂(n\_\allowbreak{}f! / Π\_\allowbreak{}v c\_\allowbreak{}\{f,v\}!)⌉ over the lifting transform's decomposition levels f, plus each level's counts & C0 & a coder that sees the lifting transform's coefficients level by level, each level memoryless. The Rice coder belongs to this class, and F2 is the bound it is judged against & theory \\
 \textbf{F3. Coefficients in context, k-th order empirical entropy} & the same count, taken per context: a coefficient's value given its neighbors already coded (the parent level, the same place one frame back, the row before) & C0 & context coders: a coefficient coded given its neighbors & theory \\
-\textbf{F3′. A two-part code} & the size of an exact representation of the set (its tables and sums, kolmogorov\_\allowbreak{}arnold.md) plus F2 of what that representation leaves & C2, C21 & a coder that stores a model and then the residue the model does not predict; its length is an upper bound on K(x) & theory; its tables are the lookup-table step (C21), proved in the engine (M10, A13; the section on built parts below), and the code itself is not measured \\
+\textbf{F3′. A two-part code} & the size of an exact representation of the set (its tables and sums, kolmogorov\_\allowbreak{}arnold.md) plus F2 of what that representation leaves & C2, C21 & a coder that stores a model and then the residual the model does not predict; its length is an upper bound on K(x) & theory; its tables are the lookup-table step (C21), proved in the engine (M10, A13; the section on built parts below), and the code itself is not measured \\
 \textbf{F4. The noise floor} & Σ over voxels of the entropy of that voxel's noise given everything else known: the dataset's deterministic terms, the spatial correlation, and the signal level the voxel sits at. For noise of spread σ that is about log₂(σ·√(2πe)) bits a voxel, however many low bit planes look like coin flips & C1, read through C3 to C8 and C14 to C20; bounded by C10 and C11 & every coder: what is left of one frame after all structure is taken, the dataset's model paid once and so costing nothing per frame in the limit & measured on the 25 samples: 6.229 bits a voxel, 38.9\% of raw (31.8\% to 43.6\% by sample), from the photon transfer curve with structure removed by neighbor differencing (sections below) \\
-\textbf{F5. The noise model} & Σ over voxels of the code length of each voxel's residual under the noise model there (next section): the source's own entropy once the model's terms are the real noise sources & C0, C13 & a coder driven by the noise model's exact counts: exact arithmetic coding comes within 2 bits of this length over a whole stream, and enumerative coding in exact integers hits it exactly & theory: the plan below \\
+\textbf{F5. The integrated noise functionals} & Σ over voxels of the code length of each voxel's residual under the noise the category functionals describe there (next section): the source's own entropy once the functionals are the real categories & C0, C13 & a coder driven by the functionals' exact counts: exact arithmetic coding comes within 2 bits of this length over a whole stream, and enumerative coding in exact integers hits it exactly & theory: the plan below \\
 \bottomrule
 \end{longtable}
 }
 
 Each bound is an integer count of bits, and each is a bit length of an exact integer (a multinomial coefficient). Stating it needs no logarithm or float. The cost is size: at 419,430,400 voxels a sample, the multinomial runs to billions of bits. Computing F1 to F3 exactly at that size is open: the tool is not built, and neither is its method.
 
-\textbf{What F4 says.} On all 25 44b6 samples, bits 0 to 3 flip 499 to 500 times per thousand transitions in every window of 19 samples, and 350 to 499 in the other 6. Counting those bit planes as the bound, near 25\% to 31\% of raw, undercounts: bits 4 and 5 are coin flips too (below), and counting uniform bit planes is not the bound in any case. The bound is the entropy of each voxel's noise at its own signal level, measured below on 44b6\_\allowbreak{}0113de3b.
+\textbf{What F4 says.} On all 25 44b6 samples, bits 0 to 3 flip 499 to 500 times per thousand transitions in every window of 19 samples, and 350 to 499 in the other 6. Counting those bit planes as the noise floor, near 25\% to 31\% of raw, undercounts: bits 4 and 5 are coin flips too (below), and counting uniform bit planes is not the noise floor in any case. The noise floor is the entropy of each voxel's noise at its own signal level, measured below on 44b6\_\allowbreak{}0113de3b.
 
 \section{\texorpdfstring{The table's algebra}{The table's algebra}}
 
@@ -37,7 +37,7 @@ Every bound and every accepted reading holds to one of these identities, as each
 
 \subsection{\texorpdfstring{C0. Exact counts (F1, F2, F3, F5)}{C0. Exact counts (F1, F2, F3, F5)}}
 
-n symbols with counts c\_\allowbreak{}v have exactly n! / Π\_\allowbreak{}v c\_\allowbreak{}v! arrangements. The enumerative code (the stream's index among them) spends ⌈log₂(n! / Π\_\allowbreak{}v c\_\allowbreak{}v!)⌉ bits, and no code that sees only the counts spends less. It is the bit length of an exact integer, with no logarithm formed. F1 takes it over the values, F2 per decomposition level, F3 per context, F5 per signal level under the noise model.
+n symbols with counts c\_\allowbreak{}v have exactly n! / Π\_\allowbreak{}v c\_\allowbreak{}v! arrangements. The enumerative code (the stream's index among them) spends ⌈log₂(n! / Π\_\allowbreak{}v c\_\allowbreak{}v!)⌉ bits, and no code that sees only the counts spends less. It is the bit length of an exact integer, with no logarithm formed. F1 takes it over the values, F2 per decomposition level, F3 per context, F5 per signal level under the functionals.
 
 \subsection{\texorpdfstring{C1. What one frame costs, given everything else (F4)}{C1. What one frame costs, given everything else (F4)}}
 
@@ -77,7 +77,7 @@ For Gaussian noise, the median absolute deviation × 1.4826 = σ. A cell that cr
 
 \subsection{\texorpdfstring{C9. The gap in units (every row's gap)}{C9. The gap in units (every row's gap)}}
 
-A stream of B bits a voxel sits (B − F4) / 16 of raw above the bound, and V·(B − F4) / 8 bytes above it per frame.
+A stream of B bits a voxel sits (B − F4) / 16 of raw above the noise floor, and V·(B − F4) / 8 bytes above it per frame.
 
 \subsection{\texorpdfstring{C10. No combination of frames goes below their draws (F4)}{C10. No combination of frames goes below their draws (F4)}}
 
@@ -163,7 +163,7 @@ where the raw route E[d′²] / 2 reads σ²·(1 + 2α²). A positive α lowers 
 
 \subsection{\texorpdfstring{C21. A pointwise step is its table (F3′; the table step)}{C21. A pointwise step is its table (F3′; the table step)}}
 
-Let f map the sample alphabet A = \{0, …, 2\textasciicircum{}b − 1\} to w-bit values. Its table T\_\allowbreak{}f holds f(a) at row a for every a in A. One pass of f over A fills it: 2\textasciicircum{}b evaluations, however many samples it is read on afterward. For every sample x, T\_\allowbreak{}f[x] = f(x) exactly, because the table is f's graph on A and x lies in A. One table read through another is their composition, T\_\allowbreak{}g[T\_\allowbreak{}f[x]] = g(f(x)), wherever f's values lie in g's alphabet. A chain of steps therefore folds into one table in program order. The fold regroups and does not reorder, since g∘f and f∘g differ in general. The table costs 2\textasciicircum{}b·w bits to state, once for the set. In the two-part code (C2) it sits in the model M, whose share per frame goes to 0 as the frames grow. Inside the reversible stream (C11), a table must be a bijection on its index bits. Any other f is made reversible by the embedding (x, y) ↦ (x, y ⊕ f(x)), which is its own inverse for every f.
+Let f map the lane's alphabet A = \{0, …, 2\textasciicircum{}b − 1\} to w-bit values. Its table T\_\allowbreak{}f holds f(a) at row a for every a in A. One pass of f over A fills it: 2\textasciicircum{}b evaluations, however many lanes it is read on afterward. For every lane x, T\_\allowbreak{}f[x] = f(x) exactly, because the table is f's graph on A and x lies in A. One table read through another is their composition, T\_\allowbreak{}g[T\_\allowbreak{}f[x]] = g(f(x)), wherever f's values lie in g's alphabet. A chain of steps therefore folds into one table in program order. The fold regroups and does not reorder, since g∘f and f∘g differ in general. The table costs 2\textasciicircum{}b·w bits to state, once for the set. In the two-part code (C2) it sits in the model M, whose share per frame goes to 0 as the frames grow. Inside the reversible stream (C11), a table must be a bijection on its index bits. Any other f is made reversible by the embedding (x, y) ↦ (x, y ⊕ f(x)), which is its own inverse for every f.
 
 \section{\texorpdfstring{The noise floor on 44b6\_\allowbreak{}0113de3b (23 September)}{The noise floor on 44b6\_0113de3b (23 September)}}
 
@@ -216,7 +216,7 @@ Shot noise has variance proportional to the level: variance / mean constant. Her
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.6274\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1894\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1832\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.6284\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1889\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1827\linewidth-2\tabcolsep\relax}}
 \toprule
 reading & bits a voxel & of raw \\
 \midrule
@@ -224,7 +224,7 @@ reading & bits a voxel & of raw \\
 each voxel's own σ as measured, motion left in (upper bound on the temporal-only model) & 7.403 & 46.3\% \\
 the same, empirical counts of the residual from the 100-frame mean, per σ bin & 7.687 & 48.0\% \\
 one frame alone, residual from the mean of 4 neighbors, order 0 (uses neighbors on both sides and is not a code length a coder can spend; a reference only) & 6.287 & 39.3\% \\
-shot-limited bound, first estimate: variance = 1.22 × level at every decile, the gain read from the dimmest decile & about 6.00 & about 37.5\% \\
+shot-limited noise floor, first estimate: variance = 1.22 × level at every decile, the gain read from the dimmest decile & about 6.00 & about 37.5\% \\
 the stream as the \texttt{.\allowbreak{}kcr} wrote it & 6.49 & 40.6\% \\
 \bottomrule
 \end{longtable}
@@ -248,7 +248,7 @@ variance / level & 1.15 & 1.35 & 1.26 & 1.24 & 1.25 & 1.28 & 1.55 & 1.98 & 3.17 
 \end{longtable}
 }
 
-From level 24 to 104 the ratio holds at 1.15 to 1.35 and both estimators agree: shot noise. Above 120 the change is present in most frames, not a few. The median cannot remove it, and the ratio climbs to a plateau near 170,000. A single line fitted over every bin (138.4 × level − 23,437) is not a photon transfer curve; the steep bins dominate it, and its bound (4.97 bits) is discarded.
+From level 24 to 104 the ratio holds at 1.15 to 1.35 and both estimators agree: shot noise. Above 120 the change is present in most frames, not a few. The median cannot remove it, and the ratio climbs to a plateau near 170,000. A single line fitted over every bin (138.4 × level − 23,437) is not a photon transfer curve; the steep bins dominate it, and its noise floor (4.97 bits) is discarded.
 
 \textbf{The same, motion removed by neighbor differencing (C5, C6, C7).} Whether the bright excess is noise or structure is read from space: white noise does not correlate with its neighbor, moving structure does. The frame difference d is correlated with its x, y and z neighbors, per level, over 10 frame pairs of whole frames (41,943,040 voxel-frames); subtracting the neighbor cancels the smooth structure, and var(d − d\_\allowbreak{}neighbour) / 4 is the white noise per frame that remains, an upper bound. The script is scratch (\texttt{coherence.\allowbreak{}py}).
 
@@ -287,17 +287,17 @@ the stream as the \texttt{.\allowbreak{}kcr} wrote it; its gap to F4 & C9 & 6.49
 \end{longtable}
 }
 
-\textbf{What it says.} One frame of 44b6\_\allowbreak{}0113de3b, given everything else, costs 5.90 bits a voxel: shot noise at gain 1.162 and read noise near 1.6, with every other change in the frame spatially coherent and so structure. The stream spends 6.49, 0.59 bits a voxel above it: 3.7 points of raw, about 310 KB a frame (4,194,304 voxels), 30.9 MB over the sample. A noise model can still take that much on this sample. The photon transfer line is taken as holding above level 300, where it cannot be read through the structure; a camera whose noise departs from shot there would move the bound up.
+\textbf{What it says.} One frame of 44b6\_\allowbreak{}0113de3b, given everything else, costs 5.90 bits a voxel: shot noise at gain 1.162 and read noise near 1.6, with every other change in the frame spatially coherent and so structure. The stream spends 6.49, 0.59 bits a voxel above it: 3.7 points of raw, about 310 KB a frame (4,194,304 voxels), 30.9 MB over the sample. The functionals can still take that much on this sample. The photon transfer line is taken as holding above level 300, where it cannot be read through the structure; a camera whose noise departs from shot there would move the noise floor up.
 
 \section{\texorpdfstring{The noise floor on the 25 samples (23 September)}{The noise floor on the 25 samples (23 September)}}
 
-The same coherence pass on each of the 25 (10 frame pairs of whole frames a sample, 874 s for the 24, 0 failed). The gain and intercept are fitted to var(d − d\_\allowbreak{}x) / 4 from level 40 to 200 (C5, C7); the shot-only bound is C1 on that line at every voxel-frame's level. The neighbor reading is the robust x-neighbor bound (C5, C8, C1), and “structure in” is the frame difference alone (C3, C1). The script that fits and integrates is scratch (\texttt{shot\_\allowbreak{}floor.\allowbreak{}py}).
+The same coherence pass on each of the 25 (10 frame pairs of whole frames a sample, 874 s for the 24, 0 failed). The gain and intercept are fitted to var(d − d\_\allowbreak{}x) / 4 from level 40 to 200 (C5, C7); the shot-only noise floor is C1 on that line at every voxel-frame's level. The neighbor reading is the robust x-neighbor bound (C5, C8, C1), and “structure in” is the frame difference alone (C3, C1). The script that fits and integrates is scratch (\texttt{shot\_\allowbreak{}floor.\allowbreak{}py}).
 
 {\scriptsize
 \setlength{\tabcolsep}{4pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1682\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1204\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1204\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1043\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0925\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1312\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1315\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1315\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1682\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1204\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1204\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1043\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0925\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1313\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1315\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1313\linewidth-2\tabcolsep\relax}}
 \toprule
-sample & gain & intercept & white / level, 40 to 200 & corr x of d at level 40 & shot-only F4 & less the neighbor & structure included \\
+sample & gain & intercept & white / level, 40 to 200 & corr x of d at level 40 & shot-only F4 & less the neighbor & structure in \\
 \midrule
 \endhead
 44b6\_\allowbreak{}0113de3b & 1.162 & 2.46 & 1.172 to 1.230 & 0.031 & 5.902 (36.9\%) & 5.979 (37.4\%) & 6.913 (43.2\%) \\
@@ -333,40 +333,40 @@ sample & gain & intercept & white / level, 40 to 200 & corr x of d at level 40 &
 \textbf{What it says.}
 
 \begin{itemize}
-\item \textbf{One sensor noise model across the dataset.} The gain runs 0.821 to 1.162, mean 0.986: about one count a photon, with the offset near zero on most samples. The bound varies by sample (31.8\% to 43.6\%) because the samples sit at different levels, not because the noise law changes.
-\item \textbf{The dataset's bound is 38.9\% of raw.} Each sample is the same size, and the dataset's F4 is the mean. The compressed files hold the 25 samples at 42.0\% (6.721 bits a voxel), 0.492 bits a voxel above the bound: 3.1 points of raw, about 645 MB of the 8.81 GB (C9).
-\item \textbf{Constant regions go below the photon transfer line.} On 44b6\_\allowbreak{}0db75fae, 267148e4 and 5740d24b the neighbor bound (32.9\%, 32.6\%, 36.9\%) falls under the shot-only bound (34.5\%, 35.6\%, 38.4\%). All three are samples the engine's ledger found holding a constant region: voxels that never change cost nothing, and the photon transfer line does not know them. The fixed-pattern term of the noise model takes that part, and F4 on those samples is the lower of the two.
-\item \textbf{A spatially correlated category.} On most samples the dim differences are nearly white (corr x at level 40 below 0.11 on 21 of the 25). 44b6\_\allowbreak{}267148e4 (0.761), 668e0cc7 (0.354) and 5740d24b (0.150) are not: something moves whole neighborhoods together at the dimmest levels, frame to frame. It is a noise source the model must include (the spatially correlated row of the plan), and it is not yet identified.
+\item \textbf{One sensor noise model across the dataset.} The gain runs 0.821 to 1.162, mean 0.986: about one count a photon, with the offset near zero on most samples. The noise floor varies by sample (31.8\% to 43.6\%) because the samples sit at different signal levels, not because the noise law changes.
+\item \textbf{The dataset's noise floor is 38.9\% of raw.} Each sample is the same size, and the dataset's F4 is the mean. The compressed files hold the 25 samples at 42.0\% (6.721 bits a voxel), 0.492 bits a voxel above the noise floor: 3.1 points of raw, about 645 MB of the 8.81 GB (C9).
+\item \textbf{Constant regions go below the photon transfer line.} On 44b6\_\allowbreak{}0db75fae, 267148e4 and 5740d24b the neighbor bound (32.9\%, 32.6\%, 36.9\%) falls under the shot-only noise floor (34.5\%, 35.6\%, 38.4\%). All three are samples the engine's ledger found holding a constant region: voxels that never change cost nothing, and the photon transfer line does not know them. The fixed-pattern functional takes that part, and F4 on those samples is the lower of the two.
+\item \textbf{A spatially correlated category.} On most samples the dim differences are nearly white (corr x at level 40 below 0.11 on 21 of the 25). 44b6\_\allowbreak{}267148e4 (0.761), 668e0cc7 (0.354) and 5740d24b (0.150) are not: something moves whole neighborhoods together at the dimmest levels, frame to frame. It is a category the functionals must write (the spatially correlated row of the plan), and it is not yet identified.
 \item \textbf{Two fits to check.} 44b6\_\allowbreak{}12dfb391 fits a negative intercept (−11.74), and 53f95252 an intercept of 21.08 with the lowest gain (0.821). Both lines bend inside 40 to 200. A straight line is not quite their law.
 \end{itemize}
 
-\section{\texorpdfstring{The plan: a noise model, and deviations from it (23 September)}{The plan: a noise model, and deviations from it (23 September)}}
+\section{\texorpdfstring{The plan: noise departure by functionals (23 September)}{The plan: noise departure by functionals (23 September)}}
 
-There is much more to gain by refining the spatial noise terms and the search. The algorithm can reach the theoretical bound universally if deviations from the noise model are treated carefully. Once the real noise sources are known, each gets a term in the model, and the terms are summed.
+There is much more room to claim, by refining the spatial noise terms and the search. The algorithm can reach the theoretical lower bound universally if noise departure is treated carefully, with functionals. Once the real categories of noise are known, each gets its functional, and all of them are integrated.
 
-\textbf{The claim, stated exactly.} K(x) is not computable: no algorithm reaches it on every input. What a coder can reach is the entropy of the source's true noise: Shannon's bound~\cite{src:Shannon}, the most any coder takes on average. A coder whose per-voxel counts come from a noise model that describes the real noise reaches that bound, to within a constant, on every dataset those noise sources cover. “Universal” means exactly that: universal over the datasets whose noise the model describes. When a dataset needs a noise source the model lacks, the gap to F5 names it.
+\textbf{The claim, stated exactly.} K(x) is not computable: no algorithm reaches it on every input. What a coder can reach is the entropy of the source's true noise: Shannon's bound~\cite{src:Shannon}, the most any coder takes on average. A coder whose per-voxel counts come from functionals that describe the real noise reaches that bound, to within a constant, on every dataset those categories cover. “Universal” means exactly that: universal over the datasets whose noise the category functionals describe. When a dataset needs a category the functionals lack, the gap to F5 names it.
 
-\textbf{The noise sources the model needs.} The four noise components (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §16), each a deterministic functional of the sample, read and never assumed. Each is a sum of exact integers, with no float:
+\textbf{The categories to write functionals for.} The four noise vectors (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §16), each a deterministic functional of the sample, read and never assumed. Each is a sum of exact integers, with no float:
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2362\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2034\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2308\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3296\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2358\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2035\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2310\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3297\linewidth-2\tabcolsep\relax}}
 \toprule
-noise source & how it moves & its estimator, as exact sums over the sample & what the engine already measures \\
+category & how it moves & its functional, as exact sums over the sample & what the engine already measures \\
 \midrule
 \endhead
 \textbf{fixed-pattern noise} (DSNU, the offset per pixel, and PRNU, the gain per pixel) & constant in time at a voxel & per voxel, the bits that never flip, and the per-voxel constant under the frames' mean & the anchor bits: set in every frame, different in every sample (\textbf{measured}) \\
 \textbf{shot noise} (photon counting) & independent every frame; its spread grows with the signal & the photon transfer curve: Σ (I\_\allowbreak{}t − I\_\allowbreak{}\{t−1\})² against Σ I\_\allowbreak{}t per level of the signal, both exact integers; a slope proportional to the level is shot & \textbf{measured} on 24 samples of the .kcr dataset: the slope g·F², rows 1, 12 and 15 of the noise vector integration table, from the exact sums of \texttt{noise\_\allowbreak{}detector} (\texttt{noise\_\allowbreak{}flicker\_\allowbreak{}set}); the fit is scratch (\texttt{transfer\_\allowbreak{}residual.\allowbreak{}py}) \\
 \textbf{read and thermal noise} & independent every frame; its spread does not depend on the signal & the same curve's intercept: the spread left at zero signal & \textbf{measured} as the intercept's sum (rows 4 to 6); read, thermal and reset are not split at one temperature (C14); bits 0 to 3 at 499 to 500 flips per thousand are its footprint together with shot and quantization (\textbf{measured}) \\
 \textbf{quantization noise} & uniform within one quantization step & exactly one step wide; the known part of the lowest bit & \textbf{measured} by the value histogram (row 22) \\
-\textbf{spatially correlated noise} (rows, columns, banding, dust, hot pixels) & shared along a line or fixed at a pixel & per row and per column, the sum of the noise part; per pixel, a deviation that holds across samples & rows and columns \textbf{measured} by the static line sums (rows 8 and 9, \texttt{noise\_\allowbreak{}lines\_\allowbreak{}set}); hot pixels and dust \textbf{measured}, none found (rows 20 and 21); each shared term's pattern is priced by the root noise of a box (E16, proved on the \texttt{noise\_\allowbreak{}root} sim); the per-location cost map is theory (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §7) \\
+\textbf{spatially correlated noise} (rows, columns, banding, dust, hot pixels) & shared along a line or fixed at a pixel & per row and per column, the sum of the noise part; per pixel, a departure that holds across samples & rows and columns \textbf{measured} by the static line sums (rows 8 and 9, \texttt{noise\_\allowbreak{}lines\_\allowbreak{}set}); hot pixels and dust \textbf{measured}, none found (rows 20 and 21); each shared term's pattern is priced by the root noise of a box (E16, proved on the \texttt{noise\_\allowbreak{}root} sim); the per-location cost map is theory (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §7) \\
 \bottomrule
 \end{longtable}
 }
 
-\textbf{Deviation.} Where the time series leaves the noise floor the model predicts, something is there: a cell, a division, a drive (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §17). The coder spends bits on deviations only, and the search looks only there. The same model that sets the bound also sets what the search counts as a deviation. So the null-distribution draws, the climb and the sift all read against the model's noise floor instead of against one sample-wide reading.
+\textbf{Departure.} Where the entropy history leaves the noise floor the functionals predict, something is there: a cell, a division, a drive (noise\_\allowbreak{}sieve\_\allowbreak{}tower.md §17). The coder spends bits on departure only, and the search looks only there. The same functionals that set the noise floor also set what the search counts as a departure. So the null draws, the climb and the sift all read against the integrated noise floor instead of against one sample-wide reading.
 
-\textbf{The coder that reaches F5.} The counts come from the noise model, and the coder spends Σ −log₂ p over the stream against them. How close it gets depends on its arithmetic:
+\textbf{The coder that reaches F5.} The counts come from the functionals, and the coder spends Σ −log₂ p over the stream against them. How close it gets depends on its arithmetic:
 
 \begin{itemize}
 \item \textbf{Exact arithmetic coding} (the interval held as an exact integer of whatever width it needs) ends within 2 bits of that sum over the whole stream, however long.
@@ -377,8 +377,8 @@ noise source & how it moves & its estimator, as exact sums over the sample & wha
 \textbf{Two things the 2 bits does not cover.}
 
 \begin{itemize}
-\item It is 2 bits from the \emph{model's} length. If the model misses a real noise source, the loss is the mismatch between the model and the data, and F5 sits above the true bound by that much.
-\item Stating the model costs bits of its own: its parameters and the count tables. That is the two-part code (F3′), and a model is worth its bits only where it saves more.
+\item It is 2 bits from the \emph{model's} length. If the functionals miss a real category, the loss is the mismatch between the model and the data, and F5 sits above the true lower bound by that much.
+\item Stating the model costs bits of its own: the functionals' parameters and the count tables. That is the two-part code (F3′), and a model is worth its bits only where it saves more.
 \end{itemize}
 
 It replaces the Rice coder's fixed block, k and escape (the audit's unmeasured constants) with the data's own counts.
@@ -388,9 +388,9 @@ It replaces the Rice coder's fixed block, k and escape (the audit's unmeasured c
 \begin{enumerate}
 \item Measure F2 on one sample to learn the Rice coder's own gap (the list at the end).
 \item Take the photon transfer curve per sample from the frames: shot and read separated, as exact sums. Taken on 24 samples of the .kcr dataset: \texttt{noise\_\allowbreak{}detector} takes the exact sums, and rows 1, 4 and 15 of the noise vector integration table hold the slope and the intercept. Read, thermal and reset stay one sum at one temperature (C14).
-\item Write each noise source's term, and the spatial ones per row, column and pixel. The rows, columns, planes, fixed pattern and stack term each have a pattern and a price in E16, proved on the sim. No term is written.
-\item Sum them into a per-voxel count table: F5, measured.
-\item Build the range coder on those counts and enter each dataset's compressed size against F5. Any gap left names a noise source not yet in the model.
+\item Write each category's functional, and the spatial ones per row, column and pixel. The rows, columns, planes, fixed pattern and stack term each have a pattern and a price in E16, proved on the sim. No functional is written.
+\item Integrate them into a per-voxel count table: F5, measured.
+\item Build the range coder on those counts and enter each dataset's compressed size against F5. Any gap left names a category not yet written.
 \end{enumerate}
 
 \section{\texorpdfstring{The table}{The table}}
@@ -399,7 +399,7 @@ It replaces the Rice coder's fixed block, k and escape (the audit's unmeasured c
 \setlength{\tabcolsep}{3pt}
 \begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1074\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0671\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1074\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1342\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0738\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0805\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1074\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.0805\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1342\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1074\linewidth-2\tabcolsep\relax}}
 \toprule
-dataset & samples & raw (F0) & compressed & of raw & hash tree's share & bound & gap & status & next \\
+dataset & samples & raw (F0) & compressed & of raw & hash tree's share & noise floor & gap & status & next \\
 \midrule
 \endhead
 \textbf{Cell tracking, 44b6} & the 25 (first 25 44b6 training samples by name), 100 × 64 × 256 × 256 u16 each & 20,971,520,000 bytes & 8,809,343,524 bytes as \texttt{.\allowbreak{}iapx}, with a CRC-64 and no hash tree & 42.0\% & not in these (CRC-64, 8 bytes a sample) & F4 38.9\% (6.229 bits a voxel), the mean of the 25 measured one by one (above); F1 to F3 not measured & 3.1 points of raw: 0.492 bits a voxel, about 645 MB (C9) & measured, proved lossless (25 of 25 rebuilt, set CRC \texttt{091daa41e1aceb7e}) & Measure F2 per decomposition level on 44b6\_\allowbreak{}0113de3b. The \texttt{.\allowbreak{}kcr} re-ingest is the next row. \\
@@ -408,12 +408,12 @@ dataset & samples & raw (F0) & compressed & of raw & hash tree's share & bound &
 \textbf{RSNA knee, one series, unsigned} & 1 × 34 × 960 × 960 & 62,668,800 bytes & 25,218,496 bytes, sealed \texttt{7ac2cb89…12eb2a} & 40.2\% & 5.4\% of the compressed file; 2.1\% of raw at 960 columns & not measured & none & proved (rebuilt voxel for voxel, pixel for pixel, node for node) & F2 on it. \\
 \textbf{RSNA knee, one series, signed} & 1 × 24 × 640 × 640 & 19,660,800 bytes & 11,319,416 bytes, sealed \texttt{3e70b8cb…8d9966} & 57.6\% (57.5\% in the engine table, a rounding) & in the compressed file & not measured & none & proved & Why signed runs 17 points above unsigned: the offset by 2\textasciicircum{}15 into the unsigned 16-bit range, or the data itself. Compare F1 on both. \\
 \textbf{RSNA knee, test\_\allowbreak{}series} & 15 series, 557 slices (the RSNA project) & 599,191,552 bytes & 192,020,272 bytes & 32.0\% & in the compressed files & not measured & none & measured in the RSNA project: 15 of 15 held; the prove (696 ms) held every hash tree node; set root \texttt{98b25a42…d7af979} & Their train set, 24,371 series: enter its total when its ingest completes. \\
-\textbf{DICOM headers (the side information)} & the knee series & none & deflated by our own LZ77 and Huffman coder & within about 1\% of zlib level 9 & none & zlib 9 is a reference, not a bound & about 1\% & measured, round-tripped through our inflate and zlib & none \\
+\textbf{DICOM headers (the side information)} & the knee series & none & deflated by our own LZ77 and Huffman coder & within about 1\% of zlib level 9 & none & zlib 9 is a reference, not a lower bound & about 1\% & measured, round-tripped through our inflate and zlib & none \\
 \bottomrule
 \end{longtable}
 }
 
-The hash tree is overhead above any bound: it is the price of being able to verify every node, and a lossless coder does not undo it. Measured on the knee at 5.4\% of the compressed file, it scales as 16/X of raw from the rows (X the row length), and it runs larger on narrow rows.
+The hash tree is overhead above any lower bound: it is the price of every node being locatable, and a lossless coder does not undo it. Measured on the knee at 5.4\% of the compressed file, it scales as 16/X of raw from the rows (X the row length), and it runs larger on narrow rows.
 
 \section{\texorpdfstring{What has been tried on the coefficients}{What has been tried on the coefficients}}
 
@@ -442,18 +442,18 @@ The Rice coder's own numbers are unmeasured constants in the engine table's audi
 
 \section{\texorpdfstring{Built in the engine, not yet in the compression path}{Built in the engine, not yet in the compression path}}
 
-Each part is in \texttt{orior/\allowbreak{}src/\allowbreak{}engine}, with its proof in the engine ledger or engine\_\allowbreak{}table.md. No compressed file's size owes anything to them yet.
+Each part is in \texttt{orior/\allowbreak{}src/\allowbreak{}engine}, with its proof in the engine ledger or engine\_\allowbreak{}table.md. A compressed file's size owes nothing to any of them.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2434\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2803\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2726\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2037\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2434\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2802\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2726\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2037\linewidth-2\tabcolsep\relax}}
 \toprule
-part & what it does toward the bound & proof & status \\
+part & what it does toward the lower bound & proof & status \\
 \midrule
 \endhead
-\textbf{The lookup-table step} (M10, A13; C21) & a pointwise function evaluated over the 16-bit sample alphabet once and read back as a lookup table; one table read through another is their composition. In a two-part code it is the model's part (F3′), stated once and read per sample & \texttt{record\_\allowbreak{}table\_\allowbreak{}test} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}cu}): x² and |x − 30000| + 100 over the 16-bit alphabet, 4,096 lanes, the table and the ops agreeing word for word on device and host; a table read through a table against the composed ops; 15 checks, 0 failed & proved for the lookup-table step; square root and division as tables untested; not in the compression path \\
+\textbf{The lookup-table step} (M10, A13; C21) & a pointwise function evaluated over the lane's alphabet once and read back as a lookup table; one table read through another is their composition. In a two-part code it is the model's part (F3′), stated once and read per lane & \texttt{record\_\allowbreak{}table\_\allowbreak{}test} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}cu}): x² and |x − 30000| + 100 over the 16-bit alphabet, 4,096 lanes, the table and the ops agreeing word for word on device and host; a table read through a table against the composed ops; 15 checks, 0 failed & proved for the lookup-table step; square root and division as tables untested; not in the compression path \\
 \textbf{The lifting transform's edges} (M20, A14) & a bijection on a level's low index bits inside the reversible stream; any other function is made reversible by the embedding (x, y) → (x, y ⊕ f(x)) & \texttt{tower\_\allowbreak{}edge\_\allowbreak{}test} (\texttt{test/\allowbreak{}engine/\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test.\allowbreak{}cu}), 25 checks, 0 failed, and the \texttt{root\_\allowbreak{}universal} sim, 1,268 checks, 0 failed: lift, code, decode and lower exact on 48 of 48 & proved; \texttt{engine.\allowbreak{}cu} passes no edges. A keyed random edge costs 6.810 to 12.608 coded bits a voxel on level 0 at widths 2 to 12, against 6.802 with none; a fitted edge not measured; its place in the \texttt{.\allowbreak{}kcr} is Doug's call \\
-\textbf{The root noise of a box} (E16) & for each shared term (rows 8, 9, 10, 18 and 25 of the noise vector integration table), a pattern of level means and its residual, which return the box exactly; the root is the term whose pattern and residual code smallest against the box & the \texttt{noise\_\allowbreak{}root} sim, 72 checks, 0 failed: at variance 1,024 every term is the root, saving 32 to 89 per mille of the box's bits & proved on the sim; no driver part over real boxes, and the pattern is not stored in the compressed file \\
+\textbf{The root noise of a box} (E16) & for each shared term (rows 8, 9, 10, 18 and 25 of the noise vector integration table), a pattern of floor means and its residual, which return the box exactly; the root is the term whose pattern and residual code smallest against the box & the \texttt{noise\_\allowbreak{}root} sim, 72 checks, 0 failed: at variance 1,024 every term is the root, saving 32 to 89 per mille of the box's bits & proved on the sim; no driver part over real boxes, and the pattern is not stored in the compressed file \\
 \textbf{The lattice price} (\texttt{engine\_\allowbreak{}lattice\_\allowbreak{}bits}, engine.h) & the coder's bits for a lattice of ints, lifted by \texttt{tower\_\allowbreak{}lift} and coded by \texttt{compression\_\allowbreak{}encode} & the engine build compiles it & built, not yet run: nothing calls it until a driver part does \\
 \bottomrule
 \end{longtable}
@@ -464,7 +464,7 @@ part & what it does toward the bound & proof & status \\
 \begin{enumerate}
 \item \textbf{Measure F2 on one sample} (44b6\_\allowbreak{}0113de3b). The gap between the compressed file and F2 is the Rice coder's own share: its block size, its k and its escape against the counts. That share of the gap is recoverable without changing the lifting transform.
 \item \textbf{Measure F3 with the contexts the ledger already points at.} Grouping by level (−1.16 MB) and pairs along t (−1.99 MB on this sample) are contexts. F3 says what the best such context can take, and so whether to build one.
-\item \textbf{Settle F4.} Measured on 44b6\_\allowbreak{}0113de3b at 5.902 bits a voxel (36.9\%): bits 0 to 5 carry no linear generator, and the photon transfer curve with structure removed gives gain 1.162, read noise about 1.6, and no dark offset. Measured on the 25 at 6.229 bits a voxel (38.9\%), gain 0.986 on average. Still to do: the photon transfer line above signal level 300, where it is assumed and not read; the constant regions and the spatially correlated noise source (44b6\_\allowbreak{}267148e4, 668e0cc7, 5740d24b) as model terms; the bent fits (12dfb391, 53f95252); the z correlation near 0.12 at the dimmest levels; nonlinear generator classes on the low planes. Read on 24 samples of the .kcr dataset, each measured and none yet a model term: the constant region (row 24 of the noise vector integration table), the dim z correlation (row 25) and the bending transfer curve (row 26).
-\item \textbf{The noise model} (the plan above): the photon transfer curve, each noise source's term, F5 summed, and the range coder that reaches it.
-\item \textbf{Build the coder the measurements pick}, and enter every dataset's new size in this table with its bound beside it.
+\item \textbf{Settle F4.} Measured on 44b6\_\allowbreak{}0113de3b at 5.902 bits a voxel (36.9\%): bits 0 to 5 carry no linear generator, and the photon transfer curve with structure removed gives gain 1.162, read noise about 1.6, and no dark offset. Measured on the 25 at 6.229 bits a voxel (38.9\%), gain 0.986 on average. Still to do: the photon transfer line above signal level 300, where it is assumed and not read; the constant regions and the spatially correlated category (44b6\_\allowbreak{}267148e4, 668e0cc7, 5740d24b) as functionals; the bent fits (12dfb391, 53f95252); the z correlation near 0.12 at the dimmest levels; nonlinear generator classes on the low planes. Read on 24 samples of the .kcr dataset, each measured and none yet a functional: the constant region (row 24 of the noise vector integration table), the dim z correlation (row 25) and the bending transfer curve (row 26).
+\item \textbf{The noise functionals} (the plan above): the photon transfer curve, each category's functional, F5 integrated, and the range coder that reaches it.
+\item \textbf{Build the coder the measurements pick}, and enter every dataset's new size in this table with its noise floor beside it.
 \end{enumerate}
