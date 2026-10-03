@@ -248,10 +248,15 @@ static int fields_flip_safe(unsigned int place, unsigned int bit, char *name, si
 // the lines a form is run in: the instruction with its result moved to R8, the register the frame stores as the answer,
 // and its source registers moved to R10 up. Each source register is set to a distinct value with a zero beside it:
 // turning a bit of a source's field reaches a register of another value and changes the answer. R6 keeps the case's
-// second word, which the frame leaves in R7
+// second word, which the frame leaves in R7. P0 to P6 are each set true or false by whether their number holds an odd
+// count of one bits, as PT, P7, does: turning any one bit of a predicate field reaches a predicate of the other value,
+// and a predicate source or a guard changes the answer
 #define FIELDS_LINES_HEAD                                                                                              \
     "MOV R10, 0xb\nMOV R11, RZ\nMOV R12, 0x7\nMOV R13, RZ\nMOV R14, 0x3\nMOV R15, RZ\n"                                \
     "MOV R16, 0x5\nMOV R17, RZ\nMOV R18, 0x2\nMOV R19, RZ\nMOV R20, 0x9\nMOV R21, RZ\n"                                \
+    "ISETP.EQ.AND P0, PT, R10, RZ, PT\nISETP.NE.AND P1, PT, R10, RZ, PT\nISETP.NE.AND P2, PT, R10, RZ, PT\n"           \
+    "ISETP.EQ.AND P3, PT, R10, RZ, PT\nISETP.NE.AND P4, PT, R10, RZ, PT\nISETP.EQ.AND P5, PT, R10, RZ, PT\n"           \
+    "ISETP.EQ.AND P6, PT, R10, RZ, PT\n"                                                                               \
     "IMAD.MOV.U32 R6, RZ, RZ, R7\n"
 #define FIELDS_LINES_TAIL "\nIMAD.MOV.U32 R7, RZ, RZ, R8\nSTG.E term[UR4][R4.64], R7"
 // the line after a form that sets a predicate, its first operand moved to P0: R8 takes R12's 0x7 where P0 holds and
@@ -259,6 +264,9 @@ static int fields_flip_safe(unsigned int place, unsigned int bit, char *name, si
 #define FIELDS_LINES_PREDICATE "\nSEL R8, R12, R10, P0"
 // the registers a form's source operands are moved onto, in order, each set in the head above
 #define FIELDS_SOURCES 6u
+// the register pair a global load's address is moved onto: the frame leaves R2 and R3 holding the address of the
+// thread's case, which the head does not touch, and a load from it reads the case's words
+#define FIELDS_LOAD_ADDRESS "R2"
 
 // the first instruction of the file at `path` that is a form to probe, into `instruction`: 1, or 0 where the file
 // holds none. The frame's own IADD3 and blank lines are passed over, as the write pass passes them
@@ -463,12 +471,29 @@ static void fields_swap(const char *operand, const char *put, char *out, size_t 
     snprintf(out, room, "%s%.*s", put, (int)kept, rest);
 }
 
+// `operand`, an address, written to `out` with the register its address is read from replaced by `put`: the register
+// after the last `[`. A descriptor's uniform register before it is kept, and an address whose last `[` holds no
+// register is copied as it stands. 1, or 0 where `out` will not hold it
+static int fields_address_swap(const char *operand, const char *put, char *out, size_t room)
+{
+    const char *const open = strrchr(operand, '[');
+    if ((open == NULL) || (open[1] != 'R') || ((open[2] != 'Z') && ((open[2] < '0') || (open[2] > '9'))))
+    {
+        return snprintf(out, room, "%s", operand) < (int)room;
+    }
+    char swapped[SASS_MACHINE_TOKEN];
+    fields_swap(open + 1, put, swapped, sizeof(swapped));
+    return snprintf(out, room, "%.*s%s", (int)(open + 1 - operand), operand, swapped) < (int)room;
+}
+
 // `instruction` written to `redirected`, rebuilt from its parts, with its first operand moved where the frame reads it
 // and each source register operand moved to the next of the head's set registers, where the form's result and its
-// source fields reach the answer. A first operand that is a register moves to R8, the register the frame stores as the
-// answer. A first operand that is a predicate moves to P0, and `observe` takes the line that turns P0 into a value in
-// R8; it is left empty otherwise. A form whose first operand is neither, or is one the operation reads, is copied as it
-// stands, since nothing of it would be observed through R8. 1, or 0 where `redirected` or `observe` will not hold it
+// source fields reach the answer. A global load's address is moved onto the case's, where the load reads the case's
+// words and not memory no thread holds. A first operand that is a register moves to R8, the register the frame stores
+// as the answer. A first operand that is a predicate moves to P0, and `observe` takes the line that turns P0 into a
+// value in R8; it is left empty otherwise. A form whose first operand is neither, or is one the operation reads, is
+// copied as it stands, since nothing of it would be observed through R8. 1, or 0 where `redirected` or `observe` will
+// not hold it
 static int fields_redirect(const char *instruction, char *redirected, size_t room, char *observe, size_t observe_room)
 {
     static const char *const sources[FIELDS_SOURCES] = {"R10", "R12", "R14", "R16", "R18", "R20"};
@@ -516,6 +541,13 @@ static int fields_redirect(const char *instruction, char *redirected, size_t roo
         {
             fields_swap(parts.operand[operand], put, text, sizeof(text));
         }
+        else if ((parts.kind[operand] == SASS_OPERAND_ADDRESS) && (strncmp(parts.operation, "LDG", 3u) == 0))
+        {
+            if (!fields_address_swap(parts.operand[operand], FIELDS_LOAD_ADDRESS, text, sizeof(text)))
+            {
+                return 0;
+            }
+        }
         else
         {
             snprintf(text, sizeof(text), "%s", parts.operand[operand]);
@@ -526,17 +558,76 @@ static int fields_redirect(const char *instruction, char *redirected, size_t roo
     return at < room;
 }
 
+// the first instruction of `instructions`, moved where the frame reads it and assembled alone, with each operation bit
+// turned and read back through the machine file, nothing run. The untouched encoding is printed first, under `base`,
+// with what it reads back as. Each bit is printed with what its turned encoding reads
+// back as: `no form` where no form holds it, `same text` where it reads back as the instruction itself, which no field
+// of the machine file holds, and the text it reads back as otherwise. Lines begin `NAMES`, for a script to gather. 0,
+// or 2 where nothing was read
+static int fields_names(const char *machine_path, const char *instructions)
+{
+    if (!sass_machine_read(&s_machine, machine_path))
+    {
+        fprintf(stderr, "the machine file %s did not read\n", machine_path);
+        return 2;
+    }
+    char instruction[512];
+    char redirected[512];
+    char observe[64];
+    unsigned long long low = 0ull;
+    unsigned long long high = 0ull;
+    if (!fields_first(instructions, instruction, sizeof(instruction)) ||
+        !fields_redirect(instruction, redirected, sizeof(redirected), observe, sizeof(observe)) ||
+        !sass_assemble(&s_machine, redirected, 0ull, 0ull, SASS_CONTROL_SAFE, &low, &high))
+    {
+        fprintf(stderr, "the instructions %s hold no form that assembles\n", instructions);
+        return 2;
+    }
+    char text[256];
+    char base_text[256];
+    SassInstructionParts base;
+    if (!sass_encoding_read(&s_machine, low, high, 0ull, base_text, sizeof(base_text)))
+    {
+        fprintf(stderr, "%s does not read back\n", redirected);
+        return 2;
+    }
+    sass_instruction_read(base_text, &base);
+    printf("NAMES\t%s\tbase\t%s\n", instruction, base_text);
+    for (unsigned int bit = 0u; bit < FIELDS_OPERATION_BITS; bit += 1u)
+    {
+        const unsigned long long turned_low = (bit < 64u) ? (low ^ (1ull << bit)) : low;
+        const unsigned long long turned_high = (bit < 64u) ? high : (high ^ (1ull << (bit - 64u)));
+        if (!sass_encoding_read(&s_machine, turned_low, turned_high, 0ull, text, sizeof(text)))
+        {
+            printf("NAMES\t%s\t%u\tno form\n", instruction, bit);
+            continue;
+        }
+        if (strcmp(text, base_text) == 0)
+        {
+            printf("NAMES\t%s\t%u\tsame text\n", instruction, bit);
+            continue;
+        }
+        printf("NAMES\t%s\t%u\t%s\n", instruction, bit, text);
+    }
+    return 0;
+}
+
 int main(int count, char **words)
 {
     if ((count == 6) && (strcmp(words[1], "read") == 0))
     {
         return fields_read(words[2], words[3], words[4], words[5]);
     }
+    if ((count == 4) && (strcmp(words[1], "names") == 0))
+    {
+        return fields_names(words[2], words[3]);
+    }
     if (count != 6)
     {
         fprintf(stderr,
                 "interface_sass_probe_fields <pattern cubin> <frame text> <machine file> <folder> <instructions>\n"
-                "interface_sass_probe_fields read <machine file> <instructions> <answers> <record>\n");
+                "interface_sass_probe_fields read <machine file> <instructions> <answers> <record>\n"
+                "interface_sass_probe_fields names <machine file> <instructions>\n");
         return 2;
     }
     const char *const folder = words[4];
@@ -579,7 +670,7 @@ int main(int count, char **words)
             printf("skip %s: could not be redirected\n", walk);
             continue;
         }
-        char lines[1024];
+        char lines[2048];
         snprintf(lines, sizeof(lines), FIELDS_LINES_HEAD "%s%s" FIELDS_LINES_TAIL, redirected, observe);
         unsigned long long low = 0ull;
         unsigned long long high = 0ull;
@@ -594,6 +685,23 @@ int main(int count, char **words)
         {
             printf("skip %s: did not assemble or was not found once\n", walk);
             continue;
+        }
+        // the kernel as it will run, each instruction read back through the machine file, for every register and
+        // predicate it writes to be checked before anything reaches the part. A line no form reads back is printed as
+        // its encoding
+        for (unsigned int number = 0u; number < assembled; number += 1u)
+        {
+            const unsigned long long one = fields_word_read(&s_code[16u * number]);
+            const unsigned long long two = fields_word_read(&s_code[(16u * number) + 8u]);
+            char text[256];
+            if (sass_encoding_read(&s_machine, one, two, 16ull * number, text, sizeof(text)))
+            {
+                printf("CODE\t%u\t%s%s\n", number, text, (number == place) ? "\t<- turned" : "");
+            }
+            else
+            {
+                printf("CODE\t%u\t0x%016llx 0x%016llx\n", number, one, two);
+            }
         }
         char path[1024];
         snprintf(path, sizeof(path), "%s/list.txt", folder);
