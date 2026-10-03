@@ -436,21 +436,10 @@ works there.
     the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
 
-12. **The bench drivers do not build.** SHA-256 is the tree's own (`src/c/includes/codecs/sha256/sha256.{h,c}`,
-    FIPS 180-4 over whole bytes or any count of bits), and `utils/test/src/c/includes/codecs/sha256/sha256_check.sh`
-    holds it to NIST's published vectors in `utils/test/src/cu/transpiler/qasm/vectors/`: 1254 held, 0 failed,
-    the byte and bit message files and the Monte chain. `utils/bench/bench_ab.c`, `bench_cycles.c`,
-    `bench_entropy.c` and `bench_sift.c` include it. `utils/bench/bench_cycles.sh` builds `bench_cycles.c` over
-    orior's three engines and runs it. `bench_ab.c`, `bench_entropy.c` and `bench_sift.c` also include
-    `impensa_ancorae_acus/impensa_ancorae_acus.h`, MMgr's byte cost table, which this tree does not hold, and
-    nothing builds the three (Pending Doug).
-
 ## Pending Doug
 - The suffix of the face Open 8 describes.
 - The scheduler bits (Open 1): whether the safe word's stall drops from 15 to the soonest read the krs measures for
   each operation (`sass_operation_schedule`).
-- `bench_ab.c`, `bench_entropy.c` and `bench_sift.c` (Open 12): MMgr's byte cost table taken into the tree, the
-  three moved onto orior's own rarity, or the three returned to MMgr.
 
 ## Roles
 - Theorist writes the engine table and posits. Send it every hash and measured number.

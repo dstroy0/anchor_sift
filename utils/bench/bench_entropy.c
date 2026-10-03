@@ -1,6 +1,4 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-#include "impensa_ancorae_acus/impensa_ancorae_acus.h"
-
 #include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #include <math.h>

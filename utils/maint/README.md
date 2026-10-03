@@ -28,7 +28,7 @@ A directory with no membership rule collects whatever nobody had a better place 
 
 **`catalog/`.** `catalog.py` issues a number to every example and never reissues one. `catalog.tsv` is the registry it writes. `catalog_verify.py` points at examples whose header and code have drifted apart. A number survives a file moving and a path does not. The registry exists for that reason alone.
 
-**`source/`.** `codemask.py` says which bytes of a C file are code. `strip_comments.py` and `readclean.py` remove comments so code can be read or rewritten without prose in the way. `dedup.py` finds the same code written twice under different names. `src2png.py` renders source to pages for surveying at image density. `readclean_mmgr.py` is the preserved C only original and `readclean_mmgr_test.py` is its test.
+**`source/`.** `codemask.py` says which bytes of a C file are code. `strip_comments.py` and `readclean.py` remove comments so code can be read or rewritten without prose in the way. `dedup.py` finds the same code written twice under different names. `src2png.py` renders source to pages for surveying at image density.
 
 **`engine/`.** `check_exact_limbs.py` checks the C limb arithmetic against python integers, which are arbitrary precision and share no code with it. A library cannot be its own oracle. Every arm of the engine is checked against a different implementation and never against a second routine in its own file. The vectorized and GPU arms are checked here as they land.
 

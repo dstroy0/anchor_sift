@@ -1221,7 +1221,7 @@ for one in DEFAULT_ROOTS:
 
 
 # Fetched or generated, so nothing in them was written here.
-# fixtures holds the positive control for claudese_distance.py, written deliberately in the
+# fixtures holds the positive control for machine_distance.py, written deliberately in the
 # assistant register. Repairing it would delete the only sample of the thing being detected.
 SKIP_DIRS = (".git", "build", "site", "deps", "__pycache__", ".vscode", "fixtures")
 

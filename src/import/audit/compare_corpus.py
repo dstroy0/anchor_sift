@@ -1,33 +1,32 @@
 """Differences the clean survey against the contaminated chain, position by position.
 
 The survey hashes synthetic headers on the device and counts every output bit. Nothing selects the
-results and no operator touches them, so it is the construction's own distribution measured to a
+results and no operator touches them. It is the construction's own distribution measured to a
 depth no chain could reach. The chain corpus is the same function's output contaminated twice over:
-every digest was SELECTED for sitting below a target, and every one was produced by a machine whose
-conventions we spent the night measuring.
+every digest was SELECTED for sitting below a target, and every one was produced by a machine with
+conventions of its own.
 
 Having both makes a subtraction possible that neither supports alone.
 
 THE TRAP
 
 A real block's digest carries seventy-odd leading zeros by construction. Comparing those positions
-against the survey measures the difficulty rule, not the miners, and would report an enormous and
+against the survey measures the difficulty rule, not the miners, and would report a large and
 entirely uninteresting difference. So the leading run is excluded and the question is asked only of
 the positions past it:
 
     conditioning on the top k bits being zero leaves the remaining 256 - k uniform
 
-That is what the theory says, it is not obvious, and it is exactly what a selected sample lets you
-check. If tilt reaches past the zero run it shows here and nowhere else.
+The theory says so, it is not obvious, and a selected sample lets you check it. If tilt reaches past the zero run it shows here and nowhere else.
 
 THE FLOOR
 
 The survey's precision is irrelevant to the comparison. A few thousand real digests give a standard
-error near one over twice the square root of that count, which is four parts in a thousand, so the
+error near one over twice the square root of that count, which is four parts in a thousand. The
 chain side sets the floor and the survey side is exact by comparison. The bar is the loudest of the
 positions tested, not a single position's, and it is drawn from the same binomial.
 
-    python tools/audit/compare_corpus.py
+    python tools/audit/compare_corpus.py --dir <survey arms>
 """
 
 import argparse
@@ -39,7 +38,6 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-ARM_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
 
 
 def target_of(bits):
@@ -54,11 +52,11 @@ def target_of(bits):
 def load_digests():
     """Every distinct digest with the target it had to beat.
 
-    The target matters and carrying only the digest is what went wrong twice. A digest is free in
-    its lower bits only where its own leading run EXCEEDS its target's run: at equal depth the
-    remaining bits are bounded by the target's remaining bits, so they are still selected. And the
-    corpora span difficulty epochs whose targets differ, so the free region is per block and cannot
-    be drawn once for the whole corpus.
+    The target matters and the digest alone is not enough. A digest is free in its lower bits only
+    where its own leading run EXCEEDS its target's run: at equal depth the remaining bits are
+    bounded by the target's remaining bits and are still selected. And the corpora span difficulty
+    epochs whose targets differ. The free region is per block and cannot be drawn once for the
+    whole corpus.
     """
     seen = {}
     for name in ("blocks.json", "blocks_deep.json", "blocks_2021.json", "blocks_labelled.json"):
@@ -72,11 +70,11 @@ def load_digests():
     return list(seen.values())
 
 
-def load_survey():
+def load_survey(directory):
     """Pooled arm counts: the construction's own distribution, from synthetic headers."""
     counts = [0] * 256
     total = 0
-    for path in sorted(glob.glob(os.path.join(ARM_DIR, "survey_arm_*.json"))):
+    for path in sorted(glob.glob(os.path.join(directory, "survey_arm_*.json"))):
         with io.open(path, encoding="utf-8") as handle:
             arm = json.load(handle)
         total += int(arm["nonces"])
@@ -89,10 +87,11 @@ def main():
     parser = argparse.ArgumentParser(description="Difference the survey against the chain.")
     parser.add_argument("--skip", type=int, default=0,
                         help="positions to exclude from the top. 0 means work it out from the data.")
+    parser.add_argument("--dir", required=True, help="the directory holding survey_arm_*.json")
     given = parser.parse_args()
 
     digests = load_digests()
-    survey_counts, survey_total = load_survey()
+    survey_counts, survey_total = load_survey(given.dir)
     if not digests or survey_total == 0:
         raise SystemExit("need both a chain corpus and at least one survey arm")
 
@@ -112,10 +111,10 @@ def main():
     print("    %d positions remain to be tested" % (256 - skip))
 
     # Conditioning is per digest, not per corpus. A digest whose leading run is L has bit L set by
-    # the definition of a leading run and every bit past L unconstrained, so position p may only be
-    # counted over digests with L < p. An earlier version excluded one region for the whole corpus,
-    # using the SHALLOWEST run, which left most digests still inside their own constrained region
-    # and reported position 76 at seventy-seven standard errors. That was the exclusion, not tilt.
+    # the definition of a leading run and every bit past L unconstrained. Position p may only be
+    # counted over digests with L < p. One region excluded for the whole corpus, at the SHALLOWEST
+    # run, leaves most digests inside their own constrained region and reports the exclusion as
+    # tilt.
     chain_counts = [0] * 256
     chain_at = [0] * 256
     freed = 0
@@ -132,7 +131,7 @@ def main():
             if (value >> (255 - position)) & 1:
                 chain_counts[position] += 1
 
-    print("    digests whose own run beats their target's, so their lower bits are free: %d of %d"
+    print("    digests whose own run beats their target's, their lower bits free: %d of %d"
           % (freed, len(digests)))
 
     print()
@@ -148,7 +147,7 @@ def main():
     tested = 0
     for position in range(256):
         # Only digests that reach this position contribute, and a position too thin to measure is
-        # skipped rather than reported with a floor it cannot support.
+        # skipped and not reported with a floor it cannot support.
         reaching = chain_at[position]
         if reaching < 200:
             continue
@@ -182,8 +181,8 @@ def main():
     else:
         print("    Position %d clears the loudest-of-%d bar. That would mean selection reaches"
               % (worst_at, tested))
-        print("    past the zero run, which the theory says it cannot, so the first suspect is")
-        print("    the corpus rather than the construction.")
+        print("    past the zero run, which the theory says it cannot. The first suspect is")
+        print("    the corpus and not the construction.")
     return 0
 
 

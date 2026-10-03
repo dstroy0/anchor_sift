@@ -189,7 +189,7 @@ linear \texttt{<256>} (HEAD) & 4,176 B & 295 MB \\
 \item Doug on output, answering “printf in the hot loop”:
 
 \begin{itemize}
-\item Port the needed MMgr scribo and laboro code (numeros\_\allowbreak{}scribo, verba\_\allowbreak{}scribo, cellularum\_\allowbreak{}laboro in D:/git\_\allowbreak{}project/repos/owned/public/MMgr/src) into our own simple string module. Do not link MMgr.
+\item Output goes through our own simple string module, \texttt{scriptura}.
 \item “zero print in any loop unless we raise our hand, else silently update your functionals returns, which get dumped into each print format and called on demand unless an error, so sorta like verbosity but never trap warn or error.”
 \item So: functionals fill result structs; one print format per result renders it through the string module on demand; errors and warnings always print.
 \end{itemize}
