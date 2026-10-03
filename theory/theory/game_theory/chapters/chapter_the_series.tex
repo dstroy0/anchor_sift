@@ -1,8 +1,7 @@
 \chapter{The series}
 
-\textbf{Purpose:} Report the controlled series and every number in it, including the rows the
-detector cannot be asked to read. \textbf{Scope:}
-\texttt{examples/\allowbreak{}game\_\allowbreak{}theory/\allowbreak{}4\_\allowbreak{}measure/\allowbreak{}grundy\_\allowbreak{}period.\allowbreak{}py}
+This chapter reports the controlled series and every number in it, including the rows the
+detector cannot be asked to read.
 
 \section{How a row is made}
 
@@ -12,8 +11,7 @@ carrying the least non-negative integer absent from the values it reaches.
 
 The answer is computed twice by two routines that share nothing. The exact one slides the tail of
 the sequence against itself and returns the shortest shift under which it repeats to the end. The
-measured one is \texttt{measure.\allowbreak{}periodicity.\allowbreak{}sequence\_\allowbreak{}period},
-the same function the crystallography chapter asks for a cell edge, which is handed only a list of small
+measured one is the period detector, the same one the crystallography research paper~\cite{src:Quigg-crystallography} asks for a cell edge, which is handed only a list of small
 integers.
 
 The sweep is every move set of one to four moves drawn from 1 to 10, which is three hundred and
@@ -22,9 +20,9 @@ and eighty five, and the periods present run 2 to 45.
 
 \section{The window limits which rows can be scored}
 
-The detector scores a candidate period together with its own multiples. The crystallography chapter
-made that correction when published cell edges came back at twice their value on ten of eighteen
-axes. A period beyond half the window has one multiple inside the window. Its family is then one lag,
+The detector scores a candidate period together with its own multiples. The crystallography research paper~\cite{src:Quigg-crystallography} makes that
+correction, because the tallest lag reads published cell edges at twice their value on ten of
+eighteen axes. A period beyond half the window has one multiple inside the window. Its family is then one lag,
 and the score degenerates to taking the tallest lag again.
 
 Rows whose true period exceeds half the window are therefore out of range by construction. They are
@@ -70,7 +68,7 @@ shuffle floor & 0.030 & 0.044 & 0.066 \\
 \end{tabular}
 \end{center}
 
-The worst ratio of live margin to its own floor is 16.0 and the median is 25.6. No row failed to
+The worst ratio of live margin to its own floor is 16.0 and the median is 25.6. No row fails to
 clear its floor. The bands do not touch: the smallest live margin is fifteen times the largest
 floor anywhere in the series.
 
@@ -78,11 +76,11 @@ floor anywhere in the series.
 
 It licenses a statement about this domain. Over subtraction games with move sets drawn from 1 to 10,
 the detector returns the exact Grundy period on every sequence whose period it is able to score. The
-quantifier is over an enumerated set, the answers came from a proof, and the count is large enough
+quantifier is over an enumerated set, the answers come from a proof, and the count is large enough
 that a coincidence would have to be systematic. Luck does not reach three hundred and eighty three.
 
 It does not license a statement about any other domain, and it does not upgrade the workbook's span
-table. The workbook's own deduction says why: soundness belongs to the construction and cost belongs
+table. The workbook's own deduction~\cite{src:Quigg-orior-workbook} says why: soundness belongs to the construction and cost belongs
 to the domain's distribution. A result obtained inside one distribution stays inside it. A
 subtraction game's Grundy sequence is exactly periodic after a short preperiod, with two to a few
 dozen distinct values and no noise at all. That is the easiest case a period detector can be shown. The series establishes that the detector is right where an answer exists and is checkable,

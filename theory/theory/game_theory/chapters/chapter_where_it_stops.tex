@@ -1,8 +1,7 @@
 \chapter{Where it stops}
 
-\textbf{Purpose:} State what a flattened grid cannot be asked, and what this research paper has not
-established. \textbf{Scope:}
-\texttt{examples/\allowbreak{}game\_\allowbreak{}theory/\allowbreak{}2\_\allowbreak{}partition/\allowbreak{}board\_\allowbreak{}width.\allowbreak{}py}
+This chapter states what a flattened grid cannot be asked, and what this research paper does not
+establish.
 
 \section{A flattened grid does not carry one period}
 
@@ -11,7 +10,7 @@ not a property of the reader, and a reader handed a grid with structure on both 
 know which of them it answered with.
 
 The demonstration is a two-heap subtraction game. The value of a sum of independent games is the
-exclusive or of their values. That is Sprague and Grundy's theorem and is not measured here. A square
+exclusive or of their values. That is Sprague and Grundy's theorem~\cite{src:Sprague-1935,src:Grundy-1939} and is not measured here. A square
 grid of two heaps under one move set is therefore generated for nothing. Such a grid repeats down the column at the
 width it was laid out at, and along the row at the game's own Grundy period. Three hundred and
 fifteen of them, at five widths:
@@ -19,7 +18,7 @@ fifteen of them, at five widths:
 \begin{center}
 \begin{tabular}{@{}lr@{}}
 \toprule
-the flattened answer was & rows \\
+the flattened answer & rows \\
 \midrule
 the width & 108 \\
 the game's own Grundy period & 96 \\
@@ -37,7 +36,7 @@ The off-by-one group is the clearest case. Where a grid's content is a function 
 difference of its coordinates, as a checkerboard is, the shortest repeat in the flattened sequence is
 at the width minus one and not at the width, because the lag that returns the same value steps one
 row down and one column back. The detector reports \(W-1\) and the detector is right. The ground
-truth of \(W\) was the wrong question.
+truth of \(W\) is the wrong question.
 
 The rule that comes out is short. Read the axes separately where the caller knows there are two. A
 single flattened period is ambiguous where they do not, and reporting it as the width is an
@@ -45,7 +44,7 @@ assumption about the corpus dressed as a measurement.
 
 \section{What this research paper has not established}
 
-\textbf{The series covers subtraction games only.} The workbook's own division says why: soundness
+\textbf{The series covers subtraction games only.} The workbook's own division~\cite{src:Quigg-orior-workbook} says why: soundness
 belongs to the construction and cost belongs to the domain's distribution. A result obtained inside
 one distribution stays there. A subtraction game's Grundy sequence is exactly periodic after a short
 preperiod, over a small alphabet, with no noise. It is the easiest case a period detector can be
@@ -72,19 +71,19 @@ that a competent Reversi program would sit entirely above, and a wider range cou
 relationship this one cannot see.
 
 \textbf{A game is not a natural object.} A person put its regularity there deliberately. This is a
-positive control, in the same class as a published cell edge and with less excuse, since nobody had
+positive control, in the same class as a published cell edge and with less excuse, since nobody has
 to go and measure a subtraction game. A positive control shows what a memoryless control cannot, and
 nothing larger is claimed for it here.
 
 \section{What the research paper is for, if one thing}
 
-Not the three hundred and eighty three. Those were cheap by design, and a domain that hands out its
+Not the three hundred and eighty three. They are cheap by design, and a domain that hands out its
 own answers is not hard to agree with.
 
-The chapter worth carrying forward is the chapter where the instrument was confident, cleared every
-floor by three to twenty nine times, produced a number with a clean mechanism behind it, and was
-still not reporting what its output was called. That could not have been found with a memoryless
-control, because a memoryless control has no structure to be confidently wrong about. It took an
+The chapter worth carrying forward is the chapter where the instrument is confident, clears every
+floor by three to twenty nine times, produces a number with a clean mechanism behind it, and is
+still not reporting what its output is called. A memoryless control cannot find that, because a
+memoryless control has no structure to be confidently wrong about. It takes an
 object with real structure and a published answer saying the structure is not a period.
 
-The test that catches it is free and it was not in the instrument. It is now.
+The test that catches it is free, and the instrument carries it.
