@@ -173,25 +173,6 @@ static int fields_cubin(const unsigned char *code, unsigned int count, unsigned 
     return 1;
 }
 
-// 1 where the operation transfers control or waits, which run on the part can loop or stall it: a branch, a call, a
-// return, a barrier, a sleep and a trap are each held off the part, since a turned bit that writes one is run as it is
-// and not refused. A straight instruction falls through to the next and cannot loop by itself
-static int fields_control_or_wait(const char *operation)
-{
-    static const char *const unsafe[] = {"BRA",  "BRX",       "JMP", "JMX",    "CALL",   "RET",
-                                         "EXIT", "BSSY",      "BSYNC", "BREAK", "BMOV",   "WARPSYNC",
-                                         "YIELD", "BAR",      "DEPBAR", "NANOSLEEP", "BPT", "RTT",
-                                         "KILL", "RPCMOV",    "RETIRE", "PMTRIG"};
-    for (unsigned int at = 0u; at < (sizeof(unsafe) / sizeof(unsafe[0])); at += 1u)
-    {
-        if (strncmp(operation, unsafe[at], strlen(unsafe[at])) == 0)
-        {
-            return 1;
-        }
-    }
-    return 0;
-}
-
 // the key table filled from the machine file's forms: a key is known where any form sits under it, and control where
 // any form under it transfers control or waits. The sweep put every key to the disassembler from each of several
 // carriers, and the file holds every operation a key named there. The counts go to the standard output
@@ -204,7 +185,9 @@ static void fields_keys(void)
         const unsigned long long key = s_machine.form[at].low & SASS_OPERATION_MASK;
         known += (s_key_known[key] == 0u) ? 1u : 0u;
         s_key_known[key] = 1u;
-        if (fields_control_or_wait(s_machine.form[at].operation) && (s_key_control[key] == 0u))
+        // a turned bit that writes a control transfer or a wait is run as it is and not refused: its key is held off
+        // the part
+        if (sass_operation_control_or_wait(s_machine.form[at].operation) && (s_key_control[key] == 0u))
         {
             s_key_control[key] = 1u;
             control += 1u;

@@ -247,7 +247,7 @@ static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const c
     char was[256];
     char now[256];
     snprintf(path, sizeof(path), "%s/%s.cubin", probe->folder, name);
-    if (!sass_cubin_answer(probe, path, was, sizeof(was)))
+    if (!sass_cubin_answer_toolchain(probe, path, was, sizeof(was)))
     {
         return 0;
     }
@@ -359,6 +359,7 @@ int main(int count, char **arguments)
     SassProbe *const probe = &s_sass_probe;
     probe->folder = arguments[2];
     probe->prober = arguments[1];
+    probe->machine = &s_sass_machine;
     if ((count > 4) && (strcmp(arguments[3], "loop") == 0))
     {
         return sass_loop_main(probe, arguments[4]);

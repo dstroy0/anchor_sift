@@ -45,7 +45,9 @@ INCLUDES=(-I "$TOP/src/c/engine" -I "$TOP/src/cu/engine" -I "$CUB" -I "$INT" -I 
 cc -std=c11 -O1 -Wall "${INCLUDES[@]}" -o "$OUT/interface_sass_probe_fields" \
     "$INT/interface.c" "$INT/interface_names.c" "$CUB/sass_assemble.c" "$CUB/cubin_write.c" "$KRS/sass_machine.c" \
     "$HERE/interface_sass_probe_fields.c" || exit 1
+# the runner holds every cubin to cubin_safe on the host before the driver is handed it
 cc -std=c11 -O1 -Wall -I "$CUDA/include" -o "$OUT/interface_sass_run" "$HERE/interface_sass_run.c" \
+    "$CUB/cubin_safe.c" "$CUB/cubin_write.c" "$CUB/sass_assemble.c" "$KRS/sass_machine.c" \
     -L "$CUDA/lib/x64" -lcuda 2>/dev/null || { echo "  the runner did not link against the CUDA driver"; exit 1; }
 
 WIN="$(cygpath -m "$TOP")"
@@ -80,7 +82,8 @@ while IFS= read -r line; do
     first=0
     guard=0
     while :; do
-        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$OUT")/list.txt" "$first" "$ANSWERS"
+        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$(cygpath -m "$OUT")/list.txt" "$first" \
+            "$ANSWERS"
         status=$?
         last="$(tail -1 "$ANSWERS" 2>/dev/null | cut -d' ' -f1)"
         case "$status" in

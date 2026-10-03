@@ -41,6 +41,17 @@
         "src/cu/transpiler/interface"
       ]
     },
+    "cubin_safe": {
+      "desc": "The gate every cubin our assembler wrote passes before the part runs it, held to one case a rule against the machine file, on the host.",
+      "script": "utils/test/src/c/transpiler/cubin/cubin_safe_check.sh",
+      "src": [
+        "+<c/transpiler/cubin/*>",
+        "+<c/types/file_defs/krs/*>"
+      ],
+      "tests": [
+        "src/c/transpiler/cubin"
+      ]
+    },
     "codegen_device": {
       "desc": "The compiler on the device held to the compiler on the host: layout, each language's instructions as the lane runs and scheduled into states, and the text, byte for byte; then the bootstrap in PTX, C and VHDL.",
       "script": "utils/test/src/cu/transpiler/codegen/codegen_test.sh",

@@ -2,14 +2,18 @@
 // interface_sass_run.c: a list of cubins run on the part in one process, one answer a cubin. Nothing is compiled here:
 // the driver is handed each cubin as it was written and asked for its kernel.
 //
-//     interface_sass_run <list> <first> <answers>
+//     interface_sass_run <machine file> <list> <first> <answers>
 //
-// The list holds one cubin a line, as `<path> <kernel>`. Each from line `first` on is loaded, its kernel run over the
+// The list holds one cubin a line, as `<path> <kernel>`. Each from line `first` on is read on the host first and held
+// to cubin_safe against the machine file; one that breaks a rule is never handed to the driver and adds `<number>
+// skipped cubin_safe_<verdict>`. Every other is loaded, its kernel run over the
 // probe's case, and a line `<number> answered <w0> <w1> <w2> <w3>` added to the answers file. A cubin the part refuses
 // kills the context past recovery: resetting the part's primary context in place leaves the next launch failing. A
 // refusal adds `<number> refused <error>` and ends the process with exit 3, and the caller starts it again past that
 // line. A pause after each launch keeps a run of launches from flooding the part and taking the display down with it.
 // Exit 0 where every line ran, 2 where the list or the device was not reached.
+#include "../../../../../../src/c/transpiler/cubin/cubin_safe.h"
+
 #include <cuda.h>
 #include <windows.h>
 #include <stdio.h>
@@ -28,30 +32,27 @@
 #define SASS_RUN_PAUSE_MS 25u
 
 static unsigned char s_image[SASS_RUN_CUBIN];
+static SassMachine s_machine;
 
-// `path` read whole into s_image: 1, or 0 where it was not read
-static int sass_run_image(const char *path)
+// `path` read whole into s_image: the bytes read, or 0 where it was not read or does not fit
+static size_t sass_run_image(const char *path)
 {
     FILE *const file = fopen(path, "rb");
     if (file == NULL)
     {
-        return 0;
+        return 0u;
     }
     const size_t read = fread(s_image, 1u, sizeof(s_image), file);
     fclose(file);
-    return (read != 0u) && (read < sizeof(s_image));
+    return (read < sizeof(s_image)) ? read : 0u;
 }
 
-// the cubin at `path` loaded and its kernel run over the case, its four words into `answered`: CUDA_SUCCESS, or the
-// error the driver gave
-static CUresult sass_run_one(const char *path, const char *kernel, unsigned int *answered)
+// the cubin already read into s_image loaded and its kernel run over the case, its four words into `answered`:
+// CUDA_SUCCESS, or the error the driver gave
+static CUresult sass_run_one(const char *kernel, unsigned int *answered)
 {
     // the case every question of the probe is asked over: none of its words past the first zero
     static const unsigned int s_case[SASS_RUN_IN_WORDS] = {0xbu, 0x7u, 0x3u, 0x5u, 0x2u, 0x9u, 0x1u, 0x4u};
-    if (!sass_run_image(path))
-    {
-        return CUDA_ERROR_FILE_NOT_FOUND;
-    }
     CUmodule module = NULL;
     CUfunction function = NULL;
     CUdeviceptr in = 0u;
@@ -81,23 +82,28 @@ static CUresult sass_run_one(const char *path, const char *kernel, unsigned int 
 
 int main(int count, char **words)
 {
-    if (count != 4)
+    if (count != 5)
     {
-        fprintf(stderr, "interface_sass_run <list> <first> <answers>\n");
+        fprintf(stderr, "interface_sass_run <machine file> <list> <first> <answers>\n");
         return 2;
     }
-    FILE *const list = fopen(words[1], "rb");
-    FILE *const answers = fopen(words[3], "ab");
+    if (!sass_machine_read(&s_machine, words[1]))
+    {
+        fprintf(stderr, "the machine file %s did not read, and nothing goes to the part unread\n", words[1]);
+        return 2;
+    }
+    FILE *const list = fopen(words[2], "rb");
+    FILE *const answers = fopen(words[4], "ab");
     CUdevice device = 0;
     CUcontext context = NULL;
     if ((list == NULL) || (answers == NULL) || (cuInit(0u) != CUDA_SUCCESS) ||
         (cuDeviceGet(&device, 0) != CUDA_SUCCESS) || (cuDevicePrimaryCtxRetain(&context, device) != CUDA_SUCCESS) ||
         (cuCtxSetCurrent(context) != CUDA_SUCCESS))
     {
-        fprintf(stderr, "the list %s, the answers %s or the device was not reached\n", words[1], words[3]);
+        fprintf(stderr, "the list %s, the answers %s or the device was not reached\n", words[2], words[4]);
         return 2;
     }
-    const unsigned long first = strtoul(words[2], NULL, 10);
+    const unsigned long first = strtoul(words[3], NULL, 10);
     char line[SASS_RUN_LINE];
     unsigned long number = 0ul;
     while (fgets(line, sizeof(line), list) != NULL)
@@ -117,8 +123,20 @@ int main(int count, char **words)
             number += 1ul;
             continue;
         }
+        // read on the host before the driver sees it: a cubin that does not read, or breaks a rule of cubin_safe, is
+        // answered without the device
+        const size_t size = sass_run_image(path);
+        unsigned long long at = 0ull;
+        const unsigned int verdict = (size == 0u) ? CUBIN_SAFE_SIZE : cubin_safe_image(&s_machine, s_image, size, &at);
+        if (verdict != CUBIN_SAFE)
+        {
+            fprintf(answers, "%lu skipped cubin_safe_%u\n", number, verdict);
+            printf("  %s held off the part: %s at byte %llu\n", path, cubin_safe_name(verdict), at);
+            number += 1ul;
+            continue;
+        }
         unsigned int answered[SASS_RUN_OUT_WORDS] = {0u, 0u, 0u, 0u};
-        const CUresult status = sass_run_one(path, kernel, answered);
+        const CUresult status = sass_run_one(kernel, answered);
         if (status != CUDA_SUCCESS)
         {
             const char *name = NULL;

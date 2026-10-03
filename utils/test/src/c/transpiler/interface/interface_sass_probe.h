@@ -34,9 +34,8 @@
 // lane is short of is the kind of an operand, and a register and a number in one slot are two bits apart through the
 // constant between them (sass_machine_widen)
 #define SASS_WIDEN_ROUNDS 2u
-// the bits of the low word that name an operation and its operands' kinds. Every value of these is a question the
-// sweep puts to the disassembler, and the search is unbounded by any compiler's output
-#define SASS_OPERATION_MASK 0xfffull
+// every value of SASS_OPERATION_MASK (sass_machine.h) is a question the sweep puts to the disassembler, and the
+// search is unbounded by any compiler's output
 
 // one instruction as the disassembler printed it: its address, its text without the ending ';', and its encoding, the
 // low word holding the operation and its operands, the high word more operands and the control, both 0 where the
@@ -130,6 +129,8 @@ typedef struct
 {
     const char *folder;
     const char *prober;
+    // what every cubin our assembler wrote is held to on the host before it runs (cubin_safe.h)
+    const SassMachine *machine;
     char architecture[16];
     unsigned int questions;
     char names[SASS_QUESTIONS][SASS_NAME];
@@ -142,9 +143,14 @@ typedef struct
 // (sass_output): its exit status, or -1 where it did not exit, with how it ended printed
 int sass_run(char *const *command, const char *output_path);
 
-// the cubin at `path` run on the device through interface_ptx_probe over one case, its answer into `answered`: 1, or 0
-// with the reason printed (interface_sass_probe_ask.c)
+// the cubin at `path`, which our assembler wrote, held to cubin_safe against the probe's machine and, where it holds,
+// run on the device through interface_ptx_probe over one case, its answer into `answered`: 1, or 0 with the reason
+// printed, where it was held off the part or did not run (interface_sass_probe_ask.c)
 int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room);
+
+// the cubin at `path` run as sass_cubin_answer runs one, where NVIDIA's toolchain made it and our assembler wrote none
+// of it: it is not held to cubin_safe
+int sass_cubin_answer_toolchain(SassProbe *probe, const char *path, char *answered, size_t room);
 
 // every question of the interface's own put to the part in code no toolchain wrote, `asked` counting them: how many the
 // part answered as the question says

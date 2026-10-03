@@ -3,15 +3,43 @@
 // reads what the part's own tools say about it; this one runs the part and reads back what it answers. Nothing else
 // tells an encoding the part executes from one its disassembler merely named
 #include "interface_sass_probe.h"
+#include "../../../../../../src/c/transpiler/cubin/cubin_safe.h"
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
+// the most bytes a cubin read for cubin_safe takes
+#define SASS_SAFE_CUBIN 1048576u
+
+static unsigned char s_safe_image[SASS_SAFE_CUBIN];
+
+// 1 where the cubin at `path` reads and holds to cubin_safe against the probe's machine, or 0 with the rule it broke
+// printed: nothing our assembler wrote goes to the part unread
+static int sass_cubin_safe(const SassProbe *probe, const char *path)
+{
+    FILE *const file = fopen(path, "rb");
+    const size_t size = (file != NULL) ? fread(s_safe_image, 1u, sizeof(s_safe_image), file) : 0u;
+    if (file != NULL)
+    {
+        fclose(file);
+    }
+    unsigned long long at = 0ull;
+    const unsigned int verdict = ((probe->machine == NULL) || (size == 0u) || (size == sizeof(s_safe_image)))
+                                     ? CUBIN_SAFE_SIZE
+                                     : cubin_safe_image(probe->machine, s_safe_image, size, &at);
+    if (verdict != CUBIN_SAFE)
+    {
+        printf("  cubin: %s held off the part: %s at byte %llu\n", path, cubin_safe_name(verdict), at);
+        return 0;
+    }
+    return 1;
+}
+
 // the cubin at `path` run on the device through interface_ptx_probe over one case whose first word is `first`, its answer
 // into `answered`: 1, or 0 with the reason printed
-static int sass_cubin_answer_first(SassProbe *probe, const char *path, unsigned int first, char *answered, size_t room)
+static int sass_cubin_run(SassProbe *probe, const char *path, unsigned int first, char *answered, size_t room)
 {
     char output[1024];
     snprintf(output, sizeof(output), "%s/run.out", probe->folder);
@@ -33,11 +61,20 @@ static int sass_cubin_answer_first(SassProbe *probe, const char *path, unsigned 
     return 1;
 }
 
-// the cubin at `path` run on the device through interface_ptx_probe over one case, its answer into `answered`: 1, or 0
-// with the reason printed
+// the cubin at `path`, which our assembler wrote, held to cubin_safe and run as sass_cubin_run runs one
+static int sass_cubin_answer_first(SassProbe *probe, const char *path, unsigned int first, char *answered, size_t room)
+{
+    return sass_cubin_safe(probe, path) && sass_cubin_run(probe, path, first, answered, room);
+}
+
 int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t room)
 {
     return sass_cubin_answer_first(probe, path, 0x0000000bu, answered, room);
+}
+
+int sass_cubin_answer_toolchain(SassProbe *probe, const char *path, char *answered, size_t room)
+{
+    return sass_cubin_run(probe, path, 0x0000000bu, answered, room);
 }
 
 // `name` set to `value` in this process's environment, which the runner it starts inherits. MSVC defines putenv with

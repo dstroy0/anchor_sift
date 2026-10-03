@@ -240,6 +240,21 @@ unsigned long long sass_exit_encoding(const SassMachine *machine)
     return found;
 }
 
+int sass_operation_control_or_wait(const char *operation)
+{
+    static const char *const s_unsafe[] = {"BRA",  "BRX",   "JMP",    "JMX",       "CALL", "RET",    "EXIT",   "BSSY",
+                                           "BSYNC", "BREAK", "BMOV",   "WARPSYNC",  "YIELD", "BAR",   "DEPBAR", "NANOSLEEP",
+                                           "BPT",  "RTT",   "KILL",   "RPCMOV",    "RETIRE", "PMTRIG"};
+    for (unsigned int at = 0u; at < (sizeof(s_unsafe) / sizeof(s_unsafe[0])); at += 1u)
+    {
+        if (strncmp(operation, s_unsafe[at], strlen(s_unsafe[at])) == 0)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int sass_barrier_set(unsigned long long high, unsigned int first)
 {
     return (unsigned int)((high >> (first - 64u)) & 7ull) != SASS_BARRIER_NONE;
