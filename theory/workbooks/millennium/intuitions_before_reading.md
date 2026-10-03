@@ -768,3 +768,25 @@ one kelvin.
 The vapor forms clouds of bubbles that break off, shed and collapse along the whole jet, and not a
 film the two sides slide on. No window of temperature or composition is reported for riding, and
 none for the vapor. The criterion asks for a film made by shear, and no source held has one.
+
+---
+
+**The author's addition, given after the score above, and so not blind against the jet it scores.**
+"The flows would need to be near laminar"
+
+**What the recorder expects, stated before reading further.** A film of vapor between two layers
+of liquid moving at different speeds is a sheet across which the velocity jumps, and it rolls up
+by the instability of Kelvin and Helmholtz unless gravity and surface tension hold it. For water
+under its vapor that holds while the jump stays below
+$\big(2(\rho_l+\rho_v)/(\rho_l\rho_v)\big)^{1/2}\big(g\gamma(\rho_l-\rho_v)\big)^{1/4}$: $55.5$ m/s with
+the vapor of $20\,^\circ$C, and $8.9$ m/s with the denser vapor of $100\,^\circ$C, on the IAPWS
+values. Vapor is torn out by tension from about $7.6$ m/s (Proposition 16). The riding layer sits
+on the film, heavy over light, and that interface is unstable by the instability of Rayleigh and
+Taylor at every wavelength longer than $2\pi\sqrt{\gamma/(g\Delta\rho)}$, about $1.7$ cm. The
+recorder expects a film only where the flow on both sides is laminar, between about $7.6$ and
+$55$ m/s in water at $20\,^\circ$C and in a narrower range as the water warms, and fed faster than
+it breaks away; the turbulent jet scored above, with its clouds of bubbles, is outside it.
+
+**Criterion, written by the recorder.** Hit if a source held reports a vapor film between layers of
+one liquid that holds while the flow is laminar and breaks into bubbles when it turns turbulent;
+miss if a source held reports such a film held between turbulent layers.
