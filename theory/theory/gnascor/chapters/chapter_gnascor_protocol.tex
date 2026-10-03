@@ -1,0 +1,283 @@
+\chapter{The Query Protocol}
+\label{ch:protocol}
+
+Every statement the language runs reduces to one form,
+\[
+  [\,\text{address}\,] \;\to\; (\,\text{predicate}\,) \;\to\; [\,\text{cost}\,] \;\to\; \text{bit}.
+\]
+This chapter states the protocol as definitions and propositions and gives, beside each, what has
+been measured.
+
+\section{The ask}
+
+\begin{definition}[Ask]
+An \emph{ask} \(a\) is an address and a predicate. Put with no timeout it returns its cost
+\(t(a)\). Put with a timeout \(\beta\) it returns one bit,
+\[
+  \operatorname{bit}(a) = [\text{predicate holds}] \cdot [\,t(a) \le \beta\,].
+\]
+\end{definition}
+
+A missing address, a false predicate, a timeout, an error and an answer too dear all read 0. The
+bit does not keep them apart; the record of costs does. This is the health probe of service
+monitoring, which passes when it answers correctly inside its timeout and fails on a slow answer
+as on a wrong one \cite{src:Kubernetes-probes}.
+
+The written form is \texttt{@address?predicate(\$bound)}. A pair of asks side by side is a branch
+pair:
+\begin{verbatim}
+Left_Input    = @system.auth?is_active($5ms)
+Right_Input   = @db.user_session?is_valid($12ms)
+Branch_Result = [Left_Input, Right_Input]
+\end{verbatim}
+The figures in the example stand for derived ones. No absolute figure enters a program: a bound
+written by hand fixes a scale the rest of the language never assumes.
+
+On a Windows workstation the ask is realized with no compiler, runtime or driver between the
+asker and the memory it asks. It finds memory the asker owns holding and leaves it as it was,
+reads a written word as that word, reads a word nothing writes as not advancing, and reads a
+timeout with no clock as past the timeout. The clock is itself found by asking: a word the
+operating system maps into every process, which advances in steps of half a millisecond to a
+millisecond.
+
+\section{The baseline}
+
+\begin{definition}[Baseline]
+The \emph{baseline} of an ask is the set of its costs measured with no timeout, summarized by its
+least value \(m\), its spread \(s\), the largest less the least, and its mean.
+\end{definition}
+
+An ask with no timeout returns a cost and no bit, and every timeout is expressed
+against the baseline. The language ranks on the least value. A run is lengthened by whatever
+else the host does and never shortened by it, and under noise of that kind the minimum is the
+estimator of the true cost with the smallest error \cite{src:Chen-Revels}.
+
+Two rules keep a baseline sound. First, an ask stopped by a watchdog did not report its cost; it
+reported that the cost was at least the watchdog's limit. Survival analysis calls this a
+right-censored observation, and a mean taken over censored samples as if they were costs reads
+low \cite{src:Kaplan-Meier}. Second, a baseline goes stale: the host under load now is not the
+host idle later. A reference ask is put beside each real one and measured under the same
+conditions, a concurrent control in place of a figure carried forward.
+
+On an NVIDIA RTX 3070 (Ampere, sm\_86), chains of 100 steps run 10000 turns over 16 runs read
+every single-instruction operation at \(m = 4.05\) to \(4.06\) cycles a step, a two-instruction
+operation (NAND, NOR) at \(8.05\), and an operation with no instruction at \(0\). The spread
+reaches \(2.22\) cycles a step alone and \(2.53\) interleaved, and the means, \(4.14\) to \(4.45\),
+sit inside it.
+
+\section{The derived timeout}
+
+\begin{definition}[Derived timeout]
+From \(k\) held runs with largest cost \(t_{\max}\) and least \(t_{\min}\), on a clock whose least
+resolvable step is \(g\),
+\[
+  \beta = t_{\max} + (t_{\max} - t_{\min}) + g.
+\]
+\end{definition}
+
+The count \(k\) is not fixed in advance. Runs are doubled until a whole step of them lands under
+the timeout, and before each cycle a held run is checked against it again. The timeout only grows,
+since a new run can raise the largest or lower the least and never the reverse.
+
+This has the shape of TCP's retransmission timeout \cite{src:RFC6298},
+\[
+  \mathrm{RTO} = \mathrm{SRTT} + \max(G,\; 4 \cdot \mathrm{RTTVAR}),
+\]
+a center, plus a multiple of the spread, with the clock granularity \(G\) as a floor. TCP smooths
+its center and spread over a stream of samples; gnascor takes the extremes of a sample whose size
+the host decides. Both are estimates from a finite sample, and both can be beaten by a correct
+answer that arrives late, a \emph{spurious timeout}.
+
+\begin{proposition}
+\label{prop:spurious}
+If the \(k\) runs a timeout is derived from and one further run are exchangeable and continuous,
+the further run exceeds \(\beta\) with probability less than \(1/(k+1)\).
+\end{proposition}
+
+\begin{proof}
+Under exchangeability each of the \(k+1\) runs is equally likely to be the largest, and the
+further run exceeds \(t_{\max}\) with probability \(1/(k+1)\). Since
+\(\beta \ge t_{\max} + g > t_{\max}\), exceeding \(\beta\) is a strictly smaller event.
+\end{proof}
+
+Section~\ref{sec:repeat} measures the rate on a real host and Chapter~\ref{ch:hypotheses} reads
+it against this bound.
+
+\section{Gate, then rank}
+
+The protocol holds to one rule. A predicate holds or it does not, and that answer carries no
+noise; a cost is measured and carries noise. Decide which candidates hold first, rank only the
+survivors, and never add the two into one score.
+
+\begin{definition}[Gate]
+A relation \(r\) is held on cases \(K = \{k_1, \ldots, k_m\}\). A candidate \(c\) \emph{survives}
+when \(c(k) = r(k)\) for every \(k \in K\).
+\end{definition}
+
+\begin{proposition}
+\label{prop:gate}
+The set of survivors does not depend on the order in which the cases are put, and no cost enters
+it.
+\end{proposition}
+
+\begin{proof}
+The survivors are \(\{c : \bigwedge_{k \in K} c(k) = r(k)\}\), a conjunction, and conjunction is
+commutative. No term of it is a cost.
+\end{proof}
+
+The order sets only the price. Putting first the case the most remaining candidates fail prunes
+fastest, and the gate is planned this way on the host against arithmetic every computing system
+agrees about; a target is asked only the cases the plan placed. A badly steered plan costs speed
+and never a wrong survivor.
+
+\begin{definition}[Rank]
+Each survivor \(c\) is run \(T\) times. With
+\[
+  m_c = \min_j t_{c,j}, \qquad s_c = \max_j t_{c,j} - m_c, \qquad s = \max_c s_c,
+\]
+and the survivors ordered by \(m\), the least \(c_1\) is preferred to the next \(c_2\) only where
+\(m_{c_2} - m_{c_1} > s\). Otherwise the survivors are one cost.
+\end{definition}
+
+In optimization this is a lexicographic objective, feasibility before cost. Its alternative, one
+score folding correctness and cost together at some exchange rate, was measured on modeled
+costs and ships a wrong program at 2 of 5 exchange rates.
+
+Over every relation the compiler's ladder of operations holds, the gate's survivors equal those
+of every candidate asked every case, with none lost: 1,202 of 1,227 candidates for addition,
+1,047 of 1,083 for subtraction, 411 of 698 and 408 of 559 for the two shifts, 0 of 8 for
+equality. Every impostor the ladder admits, 507 in all, fails at the first or second case placed.
+On the RTX 3070, of the 2,927 instruction forms in the part's machine description put in the
+place of a loop's backward branch, 8 answer every case, every one a branch instruction; the
+cheapest two differ by 0.0525~ns a turn against a spread of 0.9260, and the rank reads them as one
+cost.
+
+\section{Slicing a chain}
+
+A chain of links returns one cost, and one number names no link.
+
+\begin{definition}[Known order]
+For a chain of \(n\) links with \(n+1\) a power of two, ask \(r\) covers link \(c\) where
+\((r+1)\,\&\,(c+1)\) has an odd count of ones. The covering matrix \(S\) is a Hadamard matrix of
+order \(n+1\) with its first row and column dropped, read as 0 and 1.
+\end{definition}
+
+\begin{proposition}
+\label{prop:slice}
+With \(b = Sx\) the costs returned and \(x\) the per-link costs,
+\[
+  (n+1)\,x = 4\, S^{\mathsf T} b - 2\,\Bigl(\textstyle\sum b\Bigr)\,\mathbf 1.
+\]
+\end{proposition}
+
+\begin{proof}
+Each link is covered by \((n+1)/2\) asks and any two by \((n+1)/4\), hence
+\(S^{\mathsf T}S = \tfrac{n+1}{4}(I + J)\) \cite{src:Sloane-Harwit}. Then
+\(4S^{\mathsf T}b = (n+1)\,x + (n+1)\bigl(\sum x\bigr)\mathbf 1\), and
+\(\sum b = \tfrac{n+1}{2}\sum x\) gives the second term.
+\end{proof}
+
+The solve is integer additions and one division by a power of two. This is a weighing design.
+Hotelling showed that weighing objects in combinations, in place of one at a time, cuts the
+error of every weight \cite{src:Hotelling}, and the 0 and 1 form is the S-matrix design of
+Hadamard transform spectrometry, for a detector that can only add \cite{src:Sloane-Harwit}.
+Against one ask a link the error falls by about \(\sqrt{n+1}/2\).
+
+The identity holds entry by entry at 3, 7, 15, 31 and 63 links, and integer costs are recovered
+exactly. In simulation the gain is 1.09 at 3 links, 2.07 at 15 and 8.16 at 255, against 1.00,
+2.00 and 8.00 predicted; against a randomly drawn covering the known order wins by 5.5 times at
+the median worst-link error and 125.1 times at the worst of 400 draws. Put to the host, every
+neighboring pair of seven links reads in its true order in 44 to 54 of 64 passes, past twice the
+spread.
+
+The obvious alternative fails. Reading a link as the difference of two neighboring prefix costs
+lands two measurements' noise on one link: 1.43 floors of noise against a signal of 1.00, and
+56\% of link pairs ordered correctly where a coin orders 50\%.
+
+\section{Contention}
+
+Where links contend, a set costs more than the sum of its parts. Let \(N\) sweep asks cover
+\(u\) links each, with \(y\) what remains of an ask's cost once the known order's links are taken
+out, and model
+\[
+  y = \alpha + \gamma u + \delta u^2 + \varepsilon .
+\]
+Contention is \(\delta > 0\). With \(C_{pq} = N\sum pq - \sum p \sum q\), \(s = u^2\), and the
+linear term taken out,
+\[
+  P_{ss} = C_{uu}C_{ss} - C_{us}^2, \quad P_{sy} = C_{uu}C_{sy} - C_{us}C_{uy}, \quad
+  P_{yy} = C_{uu}C_{yy} - C_{uy}^2,
+\]
+the quadratic slope stands above twice its standard error exactly where
+\[
+  P_{sy}^2\,(N+1) > 4\,P_{yy}\,P_{ss},
+\]
+a test in exact integers with no division.
+
+In simulation the test finds contention in 3.0\% of trials with none, 83.6\% with up to 80 units
+a pair, and 100\% with up to 200. On the RTX 3070, two dependency chains sharing no link,
+interleaved a step at a time, cost the dearer of the two alone in all 91 pairs of operations that
+cost a cycle a step or more. Chains that share no link do not contend.
+
+\section{Comparing two branches}
+
+Two branches over one relation are compared link by link through the signed difference at each
+link. A total cannot say which branch holds a link: the total is unchanged when the branches
+trade places, and the question changes sign. The sign at a link reads LEAD or RITE, a difference
+inside the floor reads DUAL, a link neither branch passes reads VOID, and PASS marks where the
+sign changes along the chain. A path that changes branch at a PASS pays for the change as a link
+of its own. This comparison is stated and not yet measured.
+
+\section{One ask, many answers}
+
+An answer is 128 bits wide. It can carry one bit for each of 128 checks, or one bit for a set,
+1 where every check in it holds and the set halved on a 0. The second is group testing
+\cite{src:Dorfman}, and it pays only where checks seldom fail: past a failing share of
+\((3-\sqrt5)/2\), about 38\%, testing one at a time costs no more than any pooled scheme
+\cite{src:Ungar}.
+
+Against the cases the gate placed, one bit a check takes the fewest asks on every relation. For
+addition, 1,227 checks with 25 failing take 10 asks at a bit a check, 129 pooled and halved, and
+299 pooled in a drawn order. For a shift where 38.5\% fail, pooling takes 1,593 asks where one
+check an ask takes 1,396, as the cutoff predicts.
+
+\section{A reference compiler}
+
+A program written in C and in the part's own instructions must answer as the vendor compiler's
+code for the C does on every lane, and cost no more. This is differential testing
+\cite{src:McKeeman}: two implementations of one specification run on the same inputs, every
+disagreement a defect in one of them. Where the language's code costs more, the forms the vendor
+compiler wrote name the next questions to put to the part. The vendor listing is a reading of
+what the part can do and never a rule: a form enters a rule set once the part answers for it.
+
+Over 98 instructions the vendor compiler wrote in 18 blocks, the language's disassembler gives
+the vendor's text and its assembler the vendor's operation bits wherever the machine description
+holds the form. The vendor compiler writes NAND and NOR as two instructions at 8.05 cycles a step
+where one three-input logic instruction computes either.
+
+\section{An ask that does not return}
+
+A timeout counts as a reading of 0 only where the run returns. A run that never returns ends in a
+reset by the display watchdog, and a reset is not a reading. A body loops without end only where
+control reaches a line it has passed and the way back never closes. An ask that holds a waited
+read therefore carries its own bound inside the body, a turn count kept in registers the bits
+under test cannot reach. This is a loop variant, a counter that strictly falls and guarantees
+termination \cite{src:Floyd}, placed where no fault under test can disable it.
+
+\section{The record}
+
+A known order is a carrier and a shuffle is not: the same asks reach the part either way, and
+only a record of the order makes the answers decodable. The record keeps what the host cannot
+reproduce, the target's answers, their costs, refusals and censored samples, and the seeds the
+rest follows from.
+
+A reading answers for the part it was taken on and the size it was taken at, and for nothing else
+by default. On modeled costs the arrangement winning at size 3 costs 79.4 times the best at size
+300, a winner carried to another part costs 3.06 times that part's best, and the two penalties
+multiply.
+
+Two parts whose readings agree inside a floor do not form a group by that alone. Agreement asked
+from one part's floor is not symmetric, and at the coarser floor it is not transitive: sm\_86
+agrees with sm\_87 and sm\_87 with sm\_89, and sm\_86 does not agree with sm\_89. Agreement inside
+a tolerance is not an equivalence relation, and a group needs a rule that names its
+representative.

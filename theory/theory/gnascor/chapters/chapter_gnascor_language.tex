@@ -1,0 +1,120 @@
+\chapter{The Language}
+\label{ch:language}
+
+\section{Introduction}
+
+A compiler for many targets has to know what each target does. The usual answer is to write it
+down: a driver, a machine description, a cost model per part. Gnascor answers the other way. It
+asks the part, records what the part answered and what each answer cost, and derives every table
+it needs from those records.
+
+Every host is reduced to one interface, a question with a yes or no answer put to an address. A
+processor, a database, a web service and a language model all have addresses, and all of them
+spend time, compute or tokens to answer. In the terms of software testing each host is a black
+box behind a test oracle, a component that only says whether a check holds \cite{src:Howden-1978}.
+The language never models what is inside the box. It reads the answers and what they cost.
+
+This chapter states the language and its principle. Chapter~\ref{ch:protocol} states the query
+protocol as definitions and propositions, Chapter~\ref{ch:states} the state machine its keywords
+name, Chapter~\ref{ch:measured} the measurements, and Chapter~\ref{ch:hypotheses} the hypotheses
+they support and the problems left open.
+
+\section{Two faces}
+
+A program has two faces that compile to the same machine code. The high order face writes plain
+statements: \emph{a equals something; b equals something; evaluate a is identical to b}. The
+assembly face writes the same program short: \texttt{a=0;b=1; x = a==b}. Both compile to two
+reads, one target and one store.
+
+A block declares its face, and a statement mixes the two only inside an explicit escape,
+\texttt{\_\_gsm\_\_(...)}. This is inline assembly with a stricter rule: the face is checked, and
+nothing crosses between faces unmarked.
+
+\section{The data model}
+
+The language keeps what it learns in files grouped by stem. Files sharing a stem describe one
+member, a part or a set, and the suffix says which view of the member a file holds. A member
+carries only the views it has answers for. Table~\ref{tab:kfiles} gives each view beside the
+field's nearest term.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l l@{}}
+\toprule
+suffix & holds & field term \\
+\midrule
+\texttt{.ksc} & the language map & language specification \\
+\texttt{.krs} & the coherence rules & rule set; instruction selection table \\
+\texttt{.kcr} & information at or near its Kolmogorov complexity & compressed form \\
+\texttt{.knf} & a measured noise floor & baseline; noise floor \\
+\texttt{.kcs} & what rebuilds information & generator; decoder \\
+\texttt{.kdm} & the hardware map & machine description \\
+\bottomrule
+\end{tabular}
+\caption{The views of a member. The suffixes are the language's own.}
+\label{tab:kfiles}
+\end{table}
+
+A hardware map holds a general block, valid for any part of a class, and under it a block
+specific enough to be best on one part and no other. A driver written by hand is the general
+block only, since a person writes it once. Here neither block is written: both are read off the
+part, and keeping the specific one costs nothing.
+
+One further view holds every question put to a member and every answer, with costs, refusals and
+censored samples marked, and the best path per problem read from those same answers. In the
+field this is a measurement log. The language has not yet named its suffix.
+
+\section{Information is coherence}
+
+The views carry Kolmogorov's name because the language rests on one principle. A description at
+its Kolmogorov complexity has no redundancy: no part of it can be predicted from the rest
+\cite{src:Kolmogorov}. A system at coherence has the same property seen from outside. Its parts
+agree, none spends effort undoing another, and the friction between them is at its floor. Noise
+costs and carries nothing; information aligns and carries.
+
+The length of a shortest description cannot be computed. Friction can be measured, in time,
+compute and latency, on any host that answers at all, and the language takes it as its reading of
+information content. This is the minimum description length principle read from the side of the
+machine \cite{src:Rissanen}: the best model of data describes it most briefly, and the best
+arrangement of a computation runs on the host with least friction.
+Chapter~\ref{ch:hypotheses} asks what the measured friction tracks, and finds it closer to
+Bennett's logical depth \cite{src:Bennett} than to description length.
+
+The crystal, the floor and the construction set are the three sides of the principle. A crystal
+is information at its complexity, a floor is the part that carries nothing, and a construction set
+rebuilds information from its primitives.
+
+\section{Keywords}
+
+The language's keywords are four-letter mnemonics. They name the states of a branch pair and the
+transitions between them, and each maps to a concept the field already has a word for.
+Table~\ref{tab:mnemonics} gives the map; Chapter~\ref{ch:states} gives the machine, and
+Chapter~\ref{ch:terms} the sources.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l l@{}}
+\toprule
+keyword & what it names & field term \\
+\midrule
+DUAL & both sides answer inside the timeout & active-active \\
+LEAD, RITE & one side answers & active-passive \\
+VOID & neither side answers & outage \\
+BUSY & both answer, both slow & saturation \\
+WAIT & one side lags & latency \\
+BLOK & a side refuses & error \\
+GRAY & a side not yet asked & unknown; Belnap's None \\
+PASS, BACK & the answering side changes over & failover, failback \\
+VENT & a saturated pair drops one side & load shedding \\
+FUSE & both sides lost at once & circuit breaker tripped \\
+JAMM & saturation turns into refusal & gridlock \\
+SPRK & from nothing to both & recovery \\
+SYNC, GRAY & entered and left by marked labels & superstate \\
+the clock & the stream of states and labels & health status stream \\
+\bottomrule
+\end{tabular}
+\caption{The keywords beside the field's terms.}
+\label{tab:mnemonics}
+\end{table}
