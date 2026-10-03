@@ -1,6 +1,6 @@
 # Round count as depth: measuring the decay instead of hunting the hole
 
-An experiment the tree can run today, on instruments it already has. It does not try to break
+An experiment the tree can run on instruments it already has. It does not try to break
 SHA-256. It measures how fast the interior stops reaching the boundary as a function of how many
 rounds it passed through, and reports where that curve crosses below the detection floor.
 

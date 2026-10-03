@@ -22,7 +22,7 @@ What this workbook has that a pen-and-paper one lacks is exact arithmetic: every
 carried with no rounding, and checked by a second route. That buys verification to any number of
 places. It does not buy a proof, and the difference is the reason for the rail above.
 
-## Entry 1, 2026-09-16: zeta at the even integers
+## Entry 1: zeta at the even integers
 
 `examples/0_experimental/exact_zeta_values.py`, run and exit 0. It computes the Riemann zeta function
 at the even integers, `zeta(2k) = c_k * pi^(2k)`, with `c_k` an exact rational from the Bernoulli
@@ -44,7 +44,7 @@ numbers, and checks the values a second way that never touches `pi`.
 is a statement about the ZEROS of `zeta(s)` in the critical strip, and no zero is computed or touched
 here. Nothing in this entry bears on it.
 
-## Entry 2, 2026-09-16: the set the values live in
+## Entry 2: the set the values live in
 
 `evidence/proofs/posits/proof_set_theory.py`, run and exit 0. It proves, by construction, four standard
 facts and connects them to the measurement floor.
@@ -70,7 +70,7 @@ bracket to its deposit, and almost every real has no finite description. It lies
 complement. The measurement floor of the precision document is that boundary. This is an observation
 about where exact and measured quantities sit, and it makes no claim about any open problem.
 
-## Entry 3, 2026-09-16: the symmetry of the zeros, and a dream kept in its column
+## Entry 3: the symmetry of the zeros, and a dream kept in its column
 
 `examples/0_experimental/zeta_zero_symmetry.py`, run and exit 0. What is proven and what is dreamed are
 kept in separate columns here, by design.
@@ -94,7 +94,7 @@ conjecture with strong numerical support and no proof. It is fun to dream that a
 forces it. The dream is not a proof, and it stays in this column labeled a dream. Proof is proof. Prior
 art: Montgomery 1973, Dyson, Odlyzko; reported from a web search, papers unread.
 
-## Entry 4, 2026-10-02: the zeros, counted and placed by truthy and falsy verdicts
+## Entry 4: the zeros, counted and placed by truthy and falsy verdicts
 
 `examples/0_experimental/exact_zeta_zeros.py`, run and exit 0. It computes zeta in the critical strip
 as exact integers at a count of decimal places, the form `representation.exact` holds. pi comes from
@@ -140,7 +140,7 @@ unit of its last place, and a value asked past the scale raises `WillNotFit`. No
   verified far past it. It bears on the Riemann hypothesis exactly as far as every verification below a
   height does, and not at all past that height.
 
-## Entry 5, 2026-10-02: the Gram points, and Gram's law as agreement at lag 2
+## Entry 5: the Gram points, and Gram's law as agreement at lag 2
 
 `examples/0_experimental/exact_zeta_gram.py`, run to `t = 285` and exit 0, in a minute and a half on
 the host. It computes the Riemann-Siegel theta function by truthy and falsy verdicts, places the Gram
@@ -193,7 +193,7 @@ points by it, and reads the sign of `Z` at each from the values entry 4 computes
   walk of entry 4 steers only by its own verdicts. Reading it to `t = 285` is a computation at a
   height and bears on nothing past it.
 
-## Entry 6, 2026-10-02: the Riemann-Siegel formula, with time held as a real
+## Entry 6: the Riemann-Siegel formula, with time held as a real
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py`, run to `t = 285` and exit 0. It computes
 `Z(t)` by the Riemann-Siegel formula as the Riemann-Siegel Formula page on MathWorld prints it, read
@@ -249,7 +249,7 @@ Where the formula binds, and what is released in its place:
   with Euler-Maclaurin at eight places is two computations meeting, and the sign of `Z` at a Gram
   point is a reading there. It bears on nothing past `t = 285`.
 
-## Entry 7, 2026-10-02: every C_n, where each vanishes, and the seam between the cells
+## Entry 7: every C_n, where each vanishes, and the seam between the cells
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py`, the same run as entry 6, exit 0. Three papers
 were read for it, page by page, from copies here:
@@ -405,7 +405,7 @@ What it is not. Each `C_n` is exact, and each zero is a bracket read at the plac
 on a grid, never a count proven complete. The seam and the triangle are readings below `x = 9` and in
 five cells. None of it bears on the zeros of `Z` or on the hypothesis.
 
-## Entry 8, 2026-10-02: the triangle's dimension, and what each wave lands in at its boundary
+## Entry 8: the triangle's dimension, and what each wave lands in at its boundary
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py` for the dimension, and
 `examples/0_experimental/exact_zeta_arrival.py` with its device program `exact_zeta_arrival.cu` for
@@ -672,7 +672,7 @@ program on the host, from the exact integer library, is its port check. The rows
 parts ([engine_table.md](../engine/engine_table.md)). No scale is written into the program: the
 places, `N` and the widths come from the records.
 
-| part | the algebra it holds to | does today | wants | tried, and what it gave | status | next |
+| part | the algebra it holds to | does | wants | tried, and what it gave | status | next |
 |---|---|---|---|---|---|---|
 | **Z1. The constants** | `ln n = k ln 2 + 2 artanh((n - 2^k) / (n + 2^k))` and `ln n = j ln 3 + 2 artanh((n - 3^j) / (n + 3^j))`, each a floor at its scale, and the two agreeing through `naturals._agree`. pi by Machin and Euler the same way. Each constant is held as its real and its operator: the floor at its places and the series that gives the next place. | On the host, in `representation.constants.naturals`, each `(n, digits)` asked once. | `ln n` and pi as record programs (M10) at the places the record carries, each with its second route and their agreement written as a field. The device has pi as `pi_tower` (M19), bracketed by Machin, and has no `ln`. A deeper pass extends a constant's series from the terms it holds. | The run to `t = 123` asks `ln n` for every `n` up to 128 at up to 36 digits, and both routes agree on every one: exit 0. | host only | the artanh series as a record program, checked lane for lane against `naturals` |
 | **Z2. The powers** | `n^-s = exp(-sigma ln n) (cos(t ln n) - i sin(t ln n))`, and its derivative `-ln n n^-s`. exp by `x = r - k ln 2` with `0 < r <= ln 2`, a Taylor series in `r`, then a shift by `k` either way. cos and sin by taking whole turns of `2 pi` off, then one series. Every term is a floor at places plus `GUARD`, twenty digits. | On the host, one `(point, n)` at a time. | One lane per `(point, n)`, `n` from 1 to `2N`, the point and its places read from its record. A series runs while its term is nonzero: a lane whose term reads zero adds zero, and the sweep ends where the sum of every lane's term field is zero. The record machine's operations carry it (M10: product, sum, difference, absolute, compare, and the divisions). | On the host every power at sixteen places plus the guard is 120 bits, which four 32-bit limbs hold, 128 bits. The exact limb arithmetic is a power-of-two count of 32-bit limbs, and its width doubles with no ceiling (`exact_integer_widths.h`). | not built | exp, cos and sin as record programs over one sweep of lanes |

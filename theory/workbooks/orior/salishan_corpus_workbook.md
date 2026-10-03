@@ -49,7 +49,7 @@ tables are weighted toward modern syntax and semantics papers, and it matters fo
 they are rich in glossed sentences and poor in the body-part vocabulary and word lists historical
 questions need.
 
-## P0, 2026-09-24: the known answer
+## P0: the known answer
 
 `python maint/data/salishan/experiments/subgrouping_check.py 2000`.
 
@@ -77,7 +77,7 @@ Chinuk Wawa 69, Gitksan 99, Haisla 78 and Nuuchahnulth 69. Result, criteria fixe
 The measure is coarse and it sorts the family the way the field does. It is trusted below for broad
 structure and not for anything finer.
 
-## P1, 2026-09-24: lexical suffixes and the nouns of their meaning
+## P1: lexical suffixes and the nouns of their meaning
 
 `python maint/data/salishan/experiments/lexical_suffix_origins.py 5000`.
 
@@ -108,7 +108,7 @@ cannot tell a noun built with a suffix from the noun a suffix came from. The [C 
 seen once and cannot be tested at this size; the nouns inside the meaning list number 14 to 37 per
 language. The test is ready for tables with a dictionary's worth of nouns.
 
-## P2, 2026-09-24: glottalized resonants under reduplication
+## P2: glottalized resonants under reduplication
 
 `python maint/data/salishan/experiments/reduplication_glottalization.py`.
 
@@ -135,7 +135,7 @@ from these tables: the forms that would fill them are not in the 138 papers extr
 count is four roots from one paper, and whether they are the reduplication type Table 4 classifies was
 not checked. It is a question for the authors and corrects nothing.
 
-## P3, 2026-09-24: Nuxalk vowelless words and the spacing of clitics
+## P3: Nuxalk vowelless words and the spacing of clitics
 
 `python maint/data/salishan/experiments/nuxalk_obstruent_words.py`.
 
@@ -160,7 +160,7 @@ many is the spacing of clitics, by a factor of twenty. For comparison, `vowelles
 text as the other papers write it at 10% vowelless tokens for Nɬeʔkepmxcín, 15% for Nsyilxcən and 21%
 for Lushootseed (over 425 tokens; vowelless there allows a sonorant), against 5% for Nuxalk.
 
-## P4, 2026-09-24: how many Nuxalk words are made only of obstruents
+## P4: how many Nuxalk words are made only of obstruents
 
 Same script.
 
@@ -184,7 +184,7 @@ built to compare Bella Coola with Salish, and nearly every form here is in his t
 stops-only words are attested in a paper printed eight years before the exchange. The rate does not
 decide syllabicity, the substance of the exchange.
 
-## P5, 2026-09-24: Nuxalk's nearest branch
+## P5: Nuxalk's nearest branch
 
 From P0. Nuxalk shares 15 to 21 meanings with each language it can be compared with. Its excesses:
 Nɬeʔkepmxcín +0.118, ʔayʔaǰuθəm +0.080, Nsyilxcən -0.036, Secwepemctsín -0.051. Mean with Interior

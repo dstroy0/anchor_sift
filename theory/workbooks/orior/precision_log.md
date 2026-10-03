@@ -9,7 +9,7 @@ re-deriving them. **Scope:** `theory/theory/image_transforms/`, the precision ex
 This file is a journal, not a settled-results section of
 `theory/workbooks/orior/chapters/chapter_orior_workbook.tex`.
 
-## 2026-09-16 entry one: constants located, verified, cited
+## Entry one: constants located, verified, cited
 
 The constants come from the engine's `no_rounding` module and from the private precision repository
 (precision constants, bignum use). Everything below was read from the tree or re-derived here.
@@ -95,7 +95,7 @@ prime. A binary view is exact with no separate precondition. Weighting the views
 itself, silently. The remedy is a prime above the largest coefficient, or CRT over several, the
 device path with its 94-bit product. The chapter states this bound as the design's own precondition.
 
-## 2026-09-16 entry two: examples built and graded, engine decisions
+## Entry two: examples built and graded, engine decisions
 
 Placement and the bar: `examples/0_experimental/`, build both, each carrying a
 positive control, two routes able to disagree, a drawn null, and a stated floor. Both are built and
@@ -114,9 +114,9 @@ run, exit 0:
 
 Both ran against a reference and agreed. The translation transform earns the grade word `agrees`.
 The chapter header moves per transform: the translation is graded, and the integer-field and rotation
-transforms stay design only under a header that no longer claims the whole chapter is unmeasured.
+transforms stay design only under a header that does not claim the whole chapter is unmeasured.
 
-## 2026-09-16 entry three: precision spread, the residue code, the check ladder
+## Entry three: precision spread, the residue code, the check ladder
 
 Douglas set a goal to raise the accuracy the engine holds by a large factor, a million and then past a
 googol without bound, by a spread over exact identities, and surveyed how each of six measurement
@@ -148,7 +148,7 @@ crosses, reached only through a floor-free ratio. The absolute floor is never ar
 representation imposes no quantum and has infinite variability, finer than any physical scale. The floor
 is measurement and completeness, both external.
 
-## 2026-09-17 entry four: Navier-Stokes sets against the boundary function, inheritance checked
+## Entry four: Navier-Stokes sets against the boundary function, inheritance checked
 
 Douglas set the work: keep running their sets against our boundary function and check for inheritance,
 claim nothing, show the rigor, ask the boundary function to define itself, cite what is borrowed with
@@ -189,7 +189,7 @@ Fefferman's statement was fetched from the Clay site and read in full for this e
 the millennium research paper's corpus chapter records. The 2026 blowup paper was not read past what that research paper's
 Navier-Stokes chapter read, and nothing here rests on it.
 
-## 2026-09-17 entry five: Birch and Swinnerton-Dyer, the congruent number reading
+## Entry five: Birch and Swinnerton-Dyer, the congruent number reading
 
 Douglas set the goal to pick up another Millennium problem. The choice is Birch and Swinnerton-Dyer,
 which the millennium research paper's toolkit chapter already recommended, because its obstruction matches the
@@ -215,7 +215,7 @@ run, each exit 0:
   to the precision document's regimes; the sets against the boundary function; prior art; one withdrawn
   entry, the 15 label.
 
-## 2026-09-17 entry six: the descent, the rank bound, and reaching Sha
+## Entry six: the descent, the rank bound, and reaching Sha
 
 Douglas set two follow-ons: push the descent through correctly, then attempt reaching the first part of
 Sha. Both done, integer-only, validated before landing. The mechanism is local solvability as a refute-only necessary-condition probe, the engine's sound one-directional
@@ -254,23 +254,13 @@ Sound, exact, unconditional; claims only the rank upper bound and the exhibited 
   fixes landed as `src exact bugfix`.
   None of it touches the image_transforms NTT, which works on integer views modulo `p`, not on decimal
   constant ingestion.
-  **Note, 26 September.** At orior `1948ae1` the header is
-  `src/engine/base/no_rounding/exact_integer.{h,c}`; commit `bdaed61` moved it from
-  `src/engine/c/no_rounding/` on 24 September. `anchor_exact_from_measured` is on main (line 482),
-  landed by `656be3e` "src exact bugfix" on 16 September; it is called in `bench/bench_exact.c` and in
-  no test. The type now divides: `anchor_exact_divide` (line 357), `anchor_exact_divide_newton` (line
-  372) and `anchor_exact_divide_exact` (line 392), with `test/exact_divide_test` passing 9/0
-  (`workbooks/engine/build_plan.md:216`). `ANCHOR_EXACT_LIMBS` is 128 by default (line 81), and the
+  **Note.** The header is `src/engine/base/no_rounding/exact_integer.{h,c}`.
+  `anchor_exact_from_measured` is on main, landed by "src exact bugfix"; it is called in
+  `bench/bench_exact.c` and in no test. The type divides: `anchor_exact_divide`,
+  `anchor_exact_divide_newton` and `anchor_exact_divide_exact`, with `test/exact_divide_test` passing 9/0
+  (`workbooks/engine/build_plan.md`). `ANCHOR_EXACT_LIMBS` is 128 by default, and the
   multiply is long multiplication, then Karatsuba from 32 limbs, then the Schönhage-Strassen
-  transform from 8,192 limbs (lines 31 to 35). The Python side, `src/python/types/integers/exact.py`,
-  was deleted by `74601c1` on 26 September. Entry one's figures (108 limbs, line 49, schoolbook) are
-  the header as read on 16 September. The three examples above,
-  `exact_navier_stokes_on_torus.py`, `exact_navier_stokes_cascade.py` and
-  `proof_boundary_inheritance.py`, import `from representation import exact`, which is in no file at
-  `1948ae1`.
-  **Later, 26 September.** Commit `d09b489` (orior PR 12) put back the 126 files `74601c1`
-  deleted, each byte-identical to its state before the deletion, and biohub pins orior at
-  `d09b489`. `src/python/types/integers/exact.py` is at the pin again. Between `1948ae1` and
-  `d09b489`, `src/engine/` gains those 126 files and loses four Python files under
-  `src/engine/base/qasm/`, and no other file in it changes: the header lines cited above hold at
-  `d09b489`.
+  transform from 8,192 limbs. Entry one's figures (108 limbs, schoolbook) are a different header from
+  this one. The three examples above, `exact_navier_stokes_on_torus.py`,
+  `exact_navier_stokes_cascade.py` and `proof_boundary_inheritance.py`, import
+  `from representation import exact`, and the Python side is byte-identical to the file they ran against.

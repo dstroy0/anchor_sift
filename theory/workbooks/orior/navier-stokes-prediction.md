@@ -5,7 +5,7 @@ the OpenAI writeup was read. The point of the stamp is that this document's date
 
 ## What was known when this was written
 
-Only the announcement page, `openai.com/index/navier-stokes-solution/`, read on 2026-09-11. From it:
+Only the announcement page, `openai.com/index/navier-stokes-solution/`, read. From it:
 
 - A solution establishing Fefferman's statement **(C)**, and also **(D)**: finite-time breakdown with
   a smooth forcing `f`, starting from rest, energy finite throughout.
