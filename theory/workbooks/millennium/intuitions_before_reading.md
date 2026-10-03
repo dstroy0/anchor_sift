@@ -661,3 +661,34 @@ independent of the gap, and 1.187 marks the peak of the wall stress. With the IA
 $k(T)$ at atmospheric pressure the middle of the layer is at $20.06\,^\circ$C at 17 m/s and
 reaches $100\,^\circ$C near 956 m/s. "No steady shear flow above $V_m$", in the score above,
 holds for a fixed stress only. The miss stands on the speeds.
+
+### I14. Liquids unlike enough slide on and through each other
+
+**In the author's words:** "If two liquids are dissimilar enough, they will be more likely to slide
+on or through each other because they do not want to interact on a chemical level (electroweak)"
+
+**Already known when written, and so not a blind prediction in part.** Pfeiffer and others, read in
+full, show in simulation that water and a perfluorocarbon separate at their interface under
+tension and that dissolved gas gathers there. Pimenova and Goldobin, read in full, hold a thin
+vapor layer between two immiscible liquids. The recorder knows by name, and has not held or read,
+molecular dynamics work on slip at the interface between two immiscible liquids and measurements
+of slip at the interface between two immiscible polymers. Berry and others, read in full, give the
+slip length of a vapor layer as $(\mu_L/\mu_V)\,\delta_V$.
+
+**What the recorder expects, stated before reading.** The forces between the molecules of two
+liquids are electromagnetic. Where molecules of one liquid attract those of the other less than
+they attract their own kind, the interface carries fewer bonds across it, the interfacial tension
+is higher, and the tangential stress the interface can carry at a given velocity jump is lower:
+the two liquids slip past each other with a slip length that grows as the attraction across the
+interface weakens. For small molecules the recorder expects that length to be of molecular size,
+a nanometer or less, and so invisible in a flow of millimeters; for long chains, much larger. A
+gas or vapor film between the two, as in I13's addition, adds to the slip by the ratio of
+viscosities.
+
+**Test.** A source on slip at the interface between two immiscible liquids, by simulation or
+measurement, that varies how strongly the two attract each other, held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports a tangential velocity jump at
+the interface between two immiscible liquids that grows as the attraction between unlike molecules
+weakens relative to like ones; miss if a source held reports no velocity jump at such an
+interface, or one that does not depend on how unlike the liquids are.
