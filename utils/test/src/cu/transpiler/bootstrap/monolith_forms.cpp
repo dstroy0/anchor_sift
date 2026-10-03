@@ -993,8 +993,6 @@ static void writer_ptx_question(Writer *writer, const Asked &asked, int alternat
         if (type.empty())
         {
             const unsigned int value = (alternate == 1) ? number_alternate(argument.number) : argument.number;
-            const std::string number =
-                (argument.kind == OPERAND_SIGNED) ? std::to_string((int)value) : std::to_string(value);
             std::string line_of;
             const size_t named = form.text.find("{" + parameter + "}");
             if (named != std::string::npos)
@@ -1007,11 +1005,19 @@ static void writer_ptx_question(Writer *writer, const Asked &asked, int alternat
             }
             const size_t bracket = line_of.find('[');
             const int addressed = (bracket != std::string::npos) && (line_of.find("{" + parameter + "}") > bracket);
+            // a shift's count is a 32-bit word whatever the width it shifts
+            const std::string operation = line_of.empty() ? std::string() : instruction_read(line_of).operation;
+            const int wide = !addressed && (operation.find("64") != std::string::npos) &&
+                             (operation.compare(0u, 2u, "sh") != 0);
+            // a 64-bit number is asked whole, its high word the alternate of its low, which is never 0 and never the
+            // low word itself: a high word of 0 the compiler folds to RZ, and the form it writes for any other is not
+            // read
+            const unsigned long long whole =
+                wide ? (((unsigned long long)number_alternate(value) << 32u) | value) : value;
+            const std::string number = ((argument.kind == OPERAND_SIGNED) && !wide) ? std::to_string((int)value)
+                                                                                    : std::to_string(whole);
             if ((alternate == 2) && !line_of.empty() && !addressed)
             {
-                // a shift's count is a 32-bit word whatever the width it shifts
-                const std::string operation = instruction_read(line_of).operation;
-                const int wide = (operation.find("64") != std::string::npos) && (operation.compare(0u, 2u, "sh") != 0);
                 text = text_fill(text, parameter, operand(parameter, wide ? "b64" : "b32", 0, 1, 0));
                 row += ":number:" + number;
                 opaque += 1u;
@@ -1473,7 +1479,45 @@ static std::string hex_number(const std::string &decimal)
     return text;
 }
 
-// `text` with each number argument named where its number is a whole token exactly once
+// `named` with the number `number` named `name` where it is a whole token exactly once, in hex or decimal and, a word
+// past the sign bit, as the negative it reads as signed; 1 where it is named
+static int number_named(std::string *named, const std::string &number, const std::string &name, std::string *why)
+{
+    const unsigned long long word = strtoull(number.c_str(), NULL, 10);
+    const std::string negative = ((word >= 0x80000000ull) && (word <= 0xffffffffull))
+                                     ? std::to_string(-(long long)(0x100000000ull - word))
+                                     : number;
+    for (const std::string &spelled : {hex_number(number), number, hex_number(negative), negative})
+    {
+        std::vector<size_t> places;
+        size_t at = named->find(spelled);
+        while (at != std::string::npos)
+        {
+            const int before = (at == 0u) || !identifier_character((*named)[at - 1u]);
+            const int after =
+                ((at + spelled.size()) >= named->size()) || !identifier_character((*named)[at + spelled.size()]);
+            if (before && after)
+            {
+                places.push_back(at);
+            }
+            at = named->find(spelled, at + 1u);
+        }
+        if (places.size() == 1u)
+        {
+            *named = named->substr(0u, places[0]) + name + named->substr(places[0] + spelled.size());
+            return 1;
+        }
+        if (places.size() > 1u)
+        {
+            *why += "the number " + number + " stands " + std::to_string(places.size()) + " times; ";
+            return 0;
+        }
+    }
+    return 0;
+}
+
+// `text` with each number argument named where its number is a whole token exactly once. A number past 32 bits that
+// does not stand whole stands as its two words, the low named as the number and the high as its .hi
 static std::string numbers_named(const std::string &text, const Question &question, std::string *why)
 {
     std::string named = text;
@@ -1483,38 +1527,13 @@ static std::string numbers_named(const std::string &text, const Question &questi
         {
             continue;
         }
-        // a word past the sign bit is also written as the negative it reads as signed
-        const unsigned long long word = strtoull(role.number.c_str(), NULL, 10);
-        const std::string negative = ((word >= 0x80000000ull) && (word <= 0xffffffffull))
-                                         ? std::to_string(-(long long)(0x100000000ull - word))
-                                         : role.number;
-        for (const std::string &spelled : {hex_number(role.number), role.number, hex_number(negative), negative})
+        const unsigned long long word = (role.number[0] == '-') ? 0ull : strtoull(role.number.c_str(), NULL, 10);
+        if (number_named(&named, role.number, "{" + role.name + "}", why) || (word <= 0xffffffffull))
         {
-            std::vector<size_t> places;
-            size_t at = named.find(spelled);
-            while (at != std::string::npos)
-            {
-                const int before = (at == 0u) || !identifier_character(named[at - 1u]);
-                const int after =
-                    ((at + spelled.size()) >= named.size()) || !identifier_character(named[at + spelled.size()]);
-                if (before && after)
-                {
-                    places.push_back(at);
-                }
-                at = named.find(spelled, at + 1u);
-            }
-            if (places.size() == 1u)
-            {
-                named = named.substr(0u, places[0]) + "{" + role.name + "}" +
-                        named.substr(places[0] + spelled.size());
-                break;
-            }
-            if (places.size() > 1u)
-            {
-                *why += "the number " + role.number + " stands " + std::to_string(places.size()) + " times; ";
-                break;
-            }
+            continue;
         }
+        number_named(&named, std::to_string(word & 0xffffffffull), "{" + role.name + "}", why);
+        number_named(&named, std::to_string(word >> 32u), "{" + role.name + "}.hi", why);
     }
     return named;
 }
@@ -2183,9 +2202,24 @@ static int sass_assembles(const std::string &text, const Question &question)
         {
             continue;
         }
-        if ((role.kind == "number") || role.opaque)
+        // a number's .hi is its high word and the number itself its low word, each the word its field holds
+        if (((role.kind == "number") || role.opaque) && (role.number[0] == '-'))
         {
             filled = text_fill(filled, role.name, role.number);
+            continue;
+        }
+        if ((role.kind == "number") || role.opaque)
+        {
+            const unsigned long long word = strtoull(role.number.c_str(), NULL, 10);
+            const std::string high = "{" + role.name + "}.hi";
+            size_t at = filled.find(high);
+            while (at != std::string::npos)
+            {
+                filled.replace(at, high.size(), std::to_string(word >> 32u));
+                at = filled.find(high, at);
+            }
+            const std::string low = (word > 0xffffffffull) ? std::to_string(word & 0xffffffffull) : role.number;
+            filled = text_fill(filled, role.name, low);
             continue;
         }
         if (role.type == "int")
@@ -2270,12 +2304,19 @@ static std::string read_adopted(const Read &read, const Krs &rules, const Questi
     }
     for (const std::string &parameter : found->second.parameters)
     {
-        if (read.text.find("{" + parameter + "}") == std::string::npos)
+        // the parameter itself, and not only its .hi, which names the other half
+        const std::string low = "{" + parameter + "}";
+        size_t at = read.text.find(low);
+        while ((at != std::string::npos) && (read.text.compare(at + low.size(), 3u, ".hi") == 0))
+        {
+            at = read.text.find(low, at + 1u);
+        }
+        if (at == std::string::npos)
         {
             *why = "the reading does not name " + parameter;
             return std::string();
         }
-        // a number's high half is 0 and the compiler folds it to RZ, where a register's is not
+        // a half the ruleset names and the reading does not is a half the reading does not carry
         const std::string high = "{" + parameter + "}.hi";
         if ((now.find(high) != std::string::npos) && (read.text.find(high) == std::string::npos))
         {
@@ -2466,6 +2507,8 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     // the readings each form's written-in questions gave, and the questions, for a form they read apart
     std::map<std::string, std::vector<std::string>> readings;
     std::map<std::string, std::vector<const Question *>> asked_of;
+    // the forms a question asked a folded number of, and why, for a form no other question settles
+    std::map<std::string, std::string> folds;
     for (const Question &question : questions)
     {
         const int asked_in_ptx = (question.tag >= MONOLITH_FORMS_PTX);
@@ -2475,12 +2518,35 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
         int loaded = 0;
         int numbered = 0;
+        // a number whose word is 0 or 1 meets the compiler's own constants, and two numbers of one word give the form
+        // the same word twice: the compiler folds either, the question asks the fold, and its alternate asks the form
+        std::string folded;
+        std::map<unsigned long long, std::string> words;
         for (const Role &role : question.roles)
         {
             loaded = loaded || role.opaque;
             numbered = numbered || (role.kind == "number");
+            if (role.kind != "number")
+            {
+                continue;
+            }
+            const unsigned long long whole = (role.number[0] == '-')
+                                                 ? (unsigned long long)strtoll(role.number.c_str(), NULL, 10)
+                                                 : strtoull(role.number.c_str(), NULL, 10);
+            const unsigned long long word = whole & 0xffffffffull;
+            const auto same = words.find(word);
+            folded = (word < 2ull) ? ("the number " + role.number + " is one the compiler folds") : folded;
+            folded = (same != words.end()) ? ("the numbers " + same->second + " and " + role.number +
+                                              " are one word, which the compiler folds")
+                                           : folded;
+            words[word] = role.number;
         }
-        if (!loaded)
+        if (!loaded && !folded.empty())
+        {
+            why = folded + (why.empty() ? "" : "; " + why);
+            folds[std::string(asked_in_ptx ? "sass " : "ptx ") + question.form] = why;
+        }
+        if (!loaded && folded.empty())
         {
             settle(asked_in_ptx ? sass_verdicts : ptx_verdicts, question.form, text, why);
             if (asked_in_ptx)
@@ -2498,6 +2564,16 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         fprintf(out, "| %u | %s | %s | %s | `%s` | %s |\n", question.tag, question.form.c_str(), banks.c_str(),
                 !asked_in_ptx ? "PTX" : (loaded ? "SASS, numbers loaded" : "SASS"), cell(text_flat(read.text)).c_str(),
                 cell(why).c_str());
+    }
+    for (const auto &fold : folds)
+    {
+        const int of_sass = (fold.first.compare(0u, 5u, "sass ") == 0);
+        std::map<std::string, Verdict> &verdicts = of_sass ? sass_verdicts : ptx_verdicts;
+        const std::string form = fold.first.substr(of_sass ? 5u : 4u);
+        if (verdicts.find(form) == verdicts.end())
+        {
+            verdicts[form] = {std::string(), fold.second, 1};
+        }
     }
     // Where the written-in questions read apart, each whole and the two numbers of one set of banks alike, the compiler
     // chose an instruction by the banks: a register added as IMAD.IADD and a number as IADD3. A reading that assembles

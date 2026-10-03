@@ -247,15 +247,19 @@ works there.
    ruleset's is written into the ruleset; every other keeps its text and `monolith_forms.md` says why. Nothing is
    run on the part. Where the compiler stores a test's predicate as its negation and every instruction left is an
    ISETP anded with PT, each comparison is turned over, a chain through .EX whole; and a reading that drops a `.hi`
-   the ruleset names is kept, a number's high half being the 0 the compiler folds to RZ. A question holding a number
+   the ruleset names is kept. A question holding a number
    outside an address is asked a third time with the number loaded, which the compiler cannot fold; that reading,
    assembled with the number in its place, stands where the two written-in ones do not settle. Where the written-in
    questions read apart only between sets of banks, a register added as IMAD.IADD and a number as IADD3, the reading
-   that assembles for every set stands. Of 55 forms over 440 questions, 41 of `sass.krs` and 15 of `ptx.krs` are the
-   reading. What keeps the rest: no question reads a copy, as in a straight run the allocator names a copy's two words
-   one register, which leaves `word_copy`, `word_set`, `sign_set` and `wide_unpack` nothing to read; the compiler
-   writes `sign_select`, `wide_select`, `test_wide_equal` and `wide_add_unsigned` with the number in a slot the
-   machine file holds no form for with an immediate there; `ptx.krs` reaches `launch_load` through a generic `ld`;
+   that assembles for every set stands. A number in a 64-bit slot is asked whole, its high word the alternate of its
+   low, as a high word of 0 the compiler folds to RZ. A question whose number is 0 or 1, or whose two numbers are one
+   word, asks the compiler's fold and settles nothing, and its alternate asks the form. Of 55 forms over 440
+   questions, 43 of `sass.krs` and 16 of `ptx.krs` are the reading. What keeps the rest: no question reads a copy, as
+   in a straight run the allocator names a copy's two words one register, which leaves `word_copy`, `word_set`,
+   `sign_set` and `wide_unpack` nothing to read; `sign_select` and `wide_select` take a number in either of two
+   slots and `SEL` takes one only in its second: the compiler writes a number chosen there under the predicate
+   turned, a number otherwise as it stands and two numbers through a register, and no one text serves every set of
+   banks; `ptx.krs` reaches `launch_load` through a generic `ld`;
    `guarded_load` reads as a branch, `count_add` and `wide_multiply` read longer than the ruleset's, and the
    ruleset holds no `predicate_and` or `predicate_xor`. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
