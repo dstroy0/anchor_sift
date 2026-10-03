@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
 
-#include "mmgr_sha256.h"
+#include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -151,7 +151,7 @@ static size_t fill_periodic(uint8_t *into, size_t length)
 static void fill_uniform(uint8_t *into, size_t length)
 {
     uint8_t counter[8];
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     size_t written = 0u;
     uint64_t block = 0u;
 
@@ -161,9 +161,9 @@ static void fill_uniform(uint8_t *into, size_t length)
         {
             counter[index] = (uint8_t)((block >> (56u - (index * 8u))) & 0xFFu);
         }
-        mmgr_sha256(counter, sizeof counter, digest);
+        sha256(counter, sizeof counter, digest);
 
-        for (unsigned index = 0u; (index < MMGR_SHA256_BYTES) && (written < length); index++)
+        for (unsigned index = 0u; (index < SHA256_BYTES) && (written < length); index++)
         {
             into[written] = digest[index];
             written++;
@@ -207,9 +207,9 @@ static unsigned s_random_cost[256];
 
 static void fill_random_costs(void)
 {
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     uint8_t counter[8];
-    unsigned drawn = MMGR_SHA256_BYTES;
+    unsigned drawn = SHA256_BYTES;
     uint64_t block = 0u;
 
     for (unsigned slot = 0u; slot < 256u; slot++)
@@ -219,13 +219,13 @@ static void fill_random_costs(void)
 
     for (unsigned slot = 255u; slot > 0u; slot--)
     {
-        if (drawn == MMGR_SHA256_BYTES)
+        if (drawn == SHA256_BYTES)
         {
             for (unsigned index = 0u; index < 8u; index++)
             {
                 counter[index] = (uint8_t)((block >> (56u - (index * 8u))) & 0xFFu);
             }
-            mmgr_sha256(counter, sizeof counter, digest);
+            sha256(counter, sizeof counter, digest);
             drawn = 0u;
             block++;
         }

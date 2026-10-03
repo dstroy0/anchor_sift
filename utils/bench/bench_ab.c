@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
 
-#include "mmgr_sha256.h"
+#include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #include <math.h>
 #include <stddef.h>
@@ -158,7 +158,7 @@ static size_t ab_fill_periodic(uint8_t *into, size_t length)
 static void ab_fill_uniform(uint8_t *into, size_t length)
 {
     uint8_t counter[8];
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     size_t written = 0u;
     uint64_t block = 0u;
 
@@ -168,9 +168,9 @@ static void ab_fill_uniform(uint8_t *into, size_t length)
         {
             counter[index] = (uint8_t)((block >> (56u - (index * 8u))) & 0xFFu);
         }
-        mmgr_sha256(counter, sizeof counter, digest);
+        sha256(counter, sizeof counter, digest);
 
-        for (unsigned index = 0u; (index < MMGR_SHA256_BYTES) && (written < length); index++)
+        for (unsigned index = 0u; (index < SHA256_BYTES) && (written < length); index++)
         {
             into[written] = digest[index];
             written++;
@@ -947,7 +947,7 @@ static AbResult ab_adaptive(const uint8_t *corpus, size_t corpus_len, const uint
 static void ab_draw_noise(uint8_t *into, size_t length, uint64_t salt)
 {
     uint8_t seed[16];
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     size_t written = 0u;
     uint64_t block = 0u;
 
@@ -958,9 +958,9 @@ static void ab_draw_noise(uint8_t *into, size_t length, uint64_t salt)
             seed[index] = (uint8_t)((salt >> (56u - (index * 8u))) & 0xFFu);
             seed[8u + index] = (uint8_t)((block >> (56u - (index * 8u))) & 0xFFu);
         }
-        mmgr_sha256(seed, sizeof seed, digest);
+        sha256(seed, sizeof seed, digest);
 
-        for (unsigned index = 0u; (index < MMGR_SHA256_BYTES) && (written < length); index++)
+        for (unsigned index = 0u; (index < SHA256_BYTES) && (written < length); index++)
         {
             into[written] = digest[index];
             written++;
@@ -1817,13 +1817,13 @@ static size_t ab_rarest(const uint8_t *needle, size_t length)
 static size_t ab_salted_offset(size_t length, uint64_t salt)
 {
     uint8_t seed[8];
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
 
     for (unsigned index = 0u; index < 8u; index++)
     {
         seed[index] = (uint8_t)((salt >> (56u - (index * 8u))) & 0xFFu);
     }
-    mmgr_sha256(seed, sizeof seed, digest);
+    sha256(seed, sizeof seed, digest);
 
     const uint32_t drawn = ((uint32_t)digest[0] << 24) | ((uint32_t)digest[1] << 16) |
                            ((uint32_t)digest[2] << 8) | (uint32_t)digest[3];

@@ -6,7 +6,7 @@
 #include <string.h>
 
 #include "../../src/c/engine/nbody/orior/orior.h"
-#include "mmgr_sha256.h"
+#include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #if defined(__x86_64__) || defined(__i386__)
 #include <x86intrin.h>
@@ -40,7 +40,7 @@ static uint64_t cycles_now(void)
 
 static void fill_uniform(uint8_t *corpus, size_t length, uint32_t seed)
 {
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     uint8_t counter[8];
     size_t written = 0u;
     uint32_t step = 0u;
@@ -52,12 +52,12 @@ static void fill_uniform(uint8_t *corpus, size_t length, uint32_t seed)
             counter[slot] = (uint8_t)((seed >> (8u * slot)) & 0xFFu);
             counter[slot + 4u] = (uint8_t)((step >> (8u * slot)) & 0xFFu);
         }
-        mmgr_sha256(counter, sizeof counter, digest);
+        sha256(counter, sizeof counter, digest);
 
         size_t taking = length - written;
-        if (taking > MMGR_SHA256_BYTES)
+        if (taking > SHA256_BYTES)
         {
-            taking = MMGR_SHA256_BYTES;
+            taking = SHA256_BYTES;
         }
         memcpy(corpus + written, digest, taking);
         written += taking;

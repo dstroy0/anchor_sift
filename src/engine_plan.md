@@ -309,8 +309,11 @@ works there.
      the machine file and no control transfer or wait among them; any other is marked skipped and run on nothing.
      Of the 78 forms, 1637 bits read inside a run the machine file records and 512 outside every run. The three
      branch forms name a label and are not asked.
-   - Scheduler bits. Our assembler takes them from the machine file's sample of a form, and NVIDIA sets them an
-     instruction at a time. This is the cost layer and is decided with Doug before it is tuned.
+   - Scheduler bits. NVIDIA sets them an instruction at a time. The krs holds each operation's schedule, read
+     from what NVIDIA's compiler writes over the tree (`monolith_scheduler.md`): a late result behind a write
+     barrier, a store behind a read barrier, and the soonest a fixed result is read, 4 cycles on the integer
+     operations. Our safe word sets its barriers from that schedule and stalls the longest at every instruction.
+     The stall is the cost layer and is decided with Doug before it is tuned.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
      where the precept wraps it; `word_funnel_right` carries no `.W` and has no left form; there is no
      arithmetic shift form; NOT, NAND and NOR have no form, each one `LOP3` (0x33, 0x3f, 0x03); add and
@@ -391,13 +394,18 @@ works there.
     the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
 
-14. **SHA-256 is not the tree's own.** `utils/bench/bench_ab.c`, `bench_cycles.c`, `bench_entropy.c` and
-    `bench_sift.c` include `mmgr_sha256.h`, a header no file in this tree holds, and nothing builds them.
-    `mmgr_sha256` becomes a generic SHA-256 held in this tree, checked against the published vectors in
-    `utils/test/src/cu/transpiler/qasm/vectors/`, and the four drivers include it.
+14. **The bench drivers do not build.** SHA-256 is the tree's own (`src/c/includes/codecs/sha256/sha256.{h,c}`,
+    FIPS 180-4 over whole bytes or any count of bits), and `utils/test/src/c/includes/codecs/sha256/sha256_check.sh`
+    holds it to NIST's published vectors in `utils/test/src/cu/transpiler/qasm/vectors/`: 1254 held, 0 failed,
+    the byte and bit message files and the Monte chain. `utils/bench/bench_ab.c`, `bench_cycles.c`,
+    `bench_entropy.c` and `bench_sift.c` include it. `bench_ab.c`, `bench_entropy.c` and `bench_sift.c` also
+    include `impensa_ancorae_acus/impensa_ancorae_acus.h`, a header of MMgr's this tree does not hold, and
+    `bench_cycles.c` calls `orior_horspool`, which no file defines: nothing builds the four.
 
 ## Pending Doug
-- Move cell_tracking into `examples/` and theory into orior. Don't start without direction.
+- The suffix of the face Open 10 describes.
+- The scheduler bits (Open 1): whether the safe word's stall drops from 15 to the soonest read the krs measures for
+  each operation (`sass_operation_schedule`).
 
 ## Roles
 - Theorist writes the engine table and posits. Send it every hash and measured number.
