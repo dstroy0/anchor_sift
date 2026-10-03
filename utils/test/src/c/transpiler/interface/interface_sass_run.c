@@ -6,10 +6,12 @@
 //
 // The list holds one cubin a line, as `<path> <kernel>`. Each from line `first` on is loaded, its kernel run over the
 // probe's case, and a line `<number> answered <w0> <w1> <w2> <w3>` added to the answers file. A cubin the part refuses
-// leaves the process unable to run another. A refusal adds `<number> refused <error>` and ends the process with exit
-// 3, and the caller starts it again past that line. Exit 0 where every line ran, 2 where the list or the device was
-// not reached.
+// kills the context past recovery: resetting the part's primary context in place leaves the next launch failing. A
+// refusal adds `<number> refused <error>` and ends the process with exit 3, and the caller starts it again past that
+// line. A pause after each launch keeps a run of launches from flooding the part and taking the display down with it.
+// Exit 0 where every line ran, 2 where the list or the device was not reached.
 #include <cuda.h>
+#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,6 +24,8 @@
 #define SASS_RUN_IN_WORDS 8u
 #define SASS_RUN_OUT_WORDS 4u
 #define SASS_RUN_THREADS 256u
+// the wait after a launch, in milliseconds, which spaces the part's work and keeps a run of launches from flooding it
+#define SASS_RUN_PAUSE_MS 25u
 
 static unsigned char s_image[SASS_RUN_CUBIN];
 
@@ -117,6 +121,8 @@ int main(int count, char **words)
         }
         fprintf(answers, "%lu answered %08x %08x %08x %08x\n", number, answered[0], answered[1], answered[2],
                 answered[3]);
+        // the pause spaces the launches and keeps a run of them from flooding the part
+        Sleep(SASS_RUN_PAUSE_MS);
         number += 1ul;
     }
     fclose(answers);
