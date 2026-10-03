@@ -235,8 +235,10 @@ works there.
 
 ## Open
 
-1. **Nothing searches for a writing.** No file of relations is emitted, run and read back, which leaves every
-   writing unconfirmed by any target. `L*` is written by hand for want of this. It is the loop and it is the work.
+1. **Nothing searches for a writing of more than one instruction.** A writing of one instruction is run on the part
+   and read back (the writings searched, below). No arrangement of two or three nodes is emitted, run and read back,
+   which leaves those writings unconfirmed by any target. `L*` is written by hand for want of this. It is the loop
+   and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
