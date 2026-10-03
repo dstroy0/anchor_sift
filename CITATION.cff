@@ -1,15 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this work, you MUST cite the speakers whose languages the corpus holds."
-title: orior
+message: "If you use this software, please cite it as below."
+title: "Orior: a unified computational foundation"
 abstract: >-
-  A method that measures how far an object sits from the most disordered arrangement
-  of its own parts. The reference is built by maximizing entropy under constraints the
-  object itself supplies. There is no training, no prior and no model of the domain.
-  One construction, unchanged, has read a published crystal cell edge to 0.0006
-  angstroms, an image width, a Vigenere key length, and a published dialect border
-  inside Lushootseed that it was never shown. It knows nothing and it generates
-  nothing. The Salishan corpus it is measured against is the speech of named people,
-  hand extracted and verified in two directions against the papers it came from.
+  Find an object's information entropy, and compile the program that measures it to
+  any part. Orior finds the pattern in anything, from a crystal to a language to a
+  file. It compares the thing with a shuffled copy of itself, and the pattern is what
+  the copy lost. Every number is exact, with nothing rounded, guessed or trained.
+  Most of the parts are old, and they are named as old. The shuffle is a permutation
+  null. Exact integers of any width are what every big number library holds. The new
+  parts are an engine that never leaves exact integers, from the first read to the
+  last bit written, and what came back when it was pointed at a crystal, a language,
+  a digest and a camera.
 type: software
 authors:
   - given-names: Douglas
@@ -17,10 +18,10 @@ authors:
     email: dquigg123@gmail.com
     alias: dstroy0
 repository-code: "https://github.com/dstroy0/orior"
-url: "https://github.com/dstroy0/orior"
+url: "https://dstroy0.github.io/orior/"
 license: AGPL-3.0-or-later
-version: 1.5.0
-date-released: "2026-09-17"
+version: 1.8.0
+date-released: "2026-10-03"
 keywords:
   - maximum-entropy
   - permutation-null
