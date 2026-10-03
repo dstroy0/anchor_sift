@@ -1,19 +1,19 @@
 # The cell program on the engine
 
 **Purpose:** Hold what the engine's workbooks measured on the cell program's samples, and the sieve's sections that set it on the cells. The engine workbook carries the machine alone and points here for the program's numbers.
-**Scope:** text moved on 25 September out of the engine workbook: [engine_table.md](../engine/engine_table.md) (M2, M5, M9, M10, M12 and M14), [noise_sieve_tower.md](../engine/noise_sieve_tower.md) (§14 and §15, and its lines on the program's node policies, links, random numbers, edge rows and floor) and [tessera_scheduler.md](../engine/tessera_scheduler.md) (the driver's jobs). Each part names where it stood, and its words are as they stood there. Statuses follow [README.md](README.md).
+**Scope:** text from the engine workbook: [engine_table.md](../engine/engine_table.md) (M2, M5, M9, M10, M12 and M14), [noise_sieve_tower.md](../engine/noise_sieve_tower.md) (§14 and §15, and its lines on the program's node policies, links, random numbers, edge rows and floor) and [tessera_scheduler.md](../engine/tessera_scheduler.md) (the driver's jobs). Each part names where it stood, and its words are as they stood there. Statuses follow [README.md](README.md).
 
 ## From the engine table
 
 ### M2. The residual operator
 
-The unit sweeps against the key: **proved**, 0 of 419,430,400 lanes differ on 44b6_0113de3b's 100 frames and 0 on 400 more frames (6bba_48816121, 6bba_09961292, 6bba_cdcfe533, 44b6_0b24845f); 14.0 ms a frame against the key's 29.0 on 44b6_0113de3b, 14.3 against 28.1 on the four (**measured**). Held again after every error-wiring build of 23 September: proved on 100 frames, 0 lanes differ.
+The unit sweeps against the key: **proved**, 0 of 419,430,400 lanes differ on 44b6_0113de3b's 100 frames and 0 on 400 more frames (6bba_48816121, 6bba_09961292, 6bba_cdcfe533, 44b6_0b24845f); 14.0 ms a frame against the key's 29.0 on 44b6_0113de3b, 14.3 against 28.1 on the four (**measured**). Held again after every error-wiring build of proved on 100 frames, 0 lanes differ.
 
 The cell program's scan runs it on the 25 at 34 bits in and 10 limbs out, 20.1 ms a frame (**measured**; cell table, S1).
 
 ### M5. The correlation operator C
 
-The box (`--box`, 23 September) on 44b6_0113de3b: **proved**. C is read at the 27 shifts around every climbed lag and at the drift for 726,273 climbers (every forward pair and every null draw): 20,335,644 cells, 30,196,969 entries, 15.3 s. A cell meeting more labels than the kernel's table (10,507 cells) writes its raw pieces and the host merges them, with no cap. At the climbed lag, C sums to the climb's held count on all 726,273; the climbed lag is the highest of its 27 neighbors on all 726,273; at the drift, C equals `body_overlap` on all 80,697 labels.
+The box (`--box`) on 44b6_0113de3b: **proved**. C is read at the 27 shifts around every climbed lag and at the drift for 726,273 climbers (every forward pair and every null draw): 20,335,644 cells, 30,196,969 entries, 15.3 s. A cell meeting more labels than the kernel's table (10,507 cells) writes its raw pieces and the host merges them, with no cap. At the climbed lag, C sums to the climb's held count on all 726,273; the climbed lag is the highest of its 27 neighbors on all 726,273; at the drift, C equals `body_overlap` on all 80,697 labels.
 
 ### M9. The files
 
@@ -29,9 +29,9 @@ Every wiring build checked on 44b6_0113de3b: 38/0/12 edges and 0 lanes differ, b
 
 ### M14. The scheduler
 
-`track_driver` submits through it (24 September): `--ingest` is one job and each `--run` part is one; the signum is the part's name and the whole effective request; the declaration is the largest sample's lattice in 16-bit lanes, from the source's description for `--ingest` (`engine_source_lanes`, which reads no voxel) and from the `.iapx` head otherwise; the times are 2 s holding, 20 ms sweep and 5 s idle; a job that is not taken, or is held and lost, fails its part. **Measured** on 44b6_0113de3b, with the driver and the daemon built to `build/verify_driver` (exit 0) and run in a scratch `TESSERA_STATE`. The ingest was granted its declaration of 838,860,800 bytes and peaked at 5,091,037,184 (25,392 ms), sample root ad3d9846…, set root b68d522c…. Two proves in a row were each granted 838,860,800 and peaked at 3,958,566,912 and 3,962,761,216, with the same roots. The history was then 128 bytes, two records and the seal, and the daemon ended once idle. A second run on the real state gave the same declarations and ingest peak, and the two prove peaks in the other order: identical requests measured 4,194,304 bytes (2^22) apart.
+`track_driver` submits through it: `--ingest` is one job and each `--run` part is one; the signum is the part's name and the whole effective request; the declaration is the largest sample's lattice in 16-bit lanes, from the source's description for `--ingest` (`engine_source_lanes`, which reads no voxel) and from the `.iapx` head otherwise; the times are 2 s holding, 20 ms sweep and 5 s idle; a job that is not taken, or is held and lost, fails its part. **Measured** on 44b6_0113de3b, with the driver and the daemon built to `build/verify_driver` (exit 0) and run in a scratch `TESSERA_STATE`. The ingest is granted its declaration of 838,860,800 bytes and peaks at 5,091,037,184 (25,392 ms), sample root ad3d9846…, set root b68d522c…. Two proves in a row are each granted 838,860,800 and peak at 3,958,566,912 and 3,962,761,216, with the same roots. The history is then 128 bytes, two records and the seal, and the daemon ends once idle. A second run on the real state gives the same declarations and ingest peak, and the two prove peaks in the other order: identical requests measure 4,194,304 bytes (2^22) apart.
 
-## From the tessera scheduler: the driver submits (24 September)
+## From the tessera scheduler: the driver submits
 
 `track_driver` runs every job through tessera. `--ingest` is one job, and so is each `--run` part.
 
@@ -96,7 +96,7 @@ The `.cfg`'s `floor` section names where each sample's noise keys are held (`--f
 
 **One precision note.** The source speaks of a 10^−68 precision floor. The engine has no precision floor: its arithmetic is exact at every width it runs, and every width is proved before the run. The only floor is the measured one in the data (noise_sieve_tower §5).
 
-**A split is a boundary discontinuity, judged over the whole sample.** A mitosis or a lysis is not decided in the frame it happens in. Over the sample's whole history there will be a bump in entropy at about that time, and the two differ: a mitosis is a clean fork where local entropy bumps and settles, while a lysis is an uncontained dissipation into the background. Both change the fluidics far around them. The metric pays for this: the division Jaccard is 0.1 of the score, and the engine earns none of it today (0 divisions matched on the older components dump). The test is concrete. A body's fate is already written for every body (`bodies`: split, merged, vanished, absorbed). The entropy of the region around a candidate split, taken per frame from the exact residual, can say whether a real fork happened. Two linked children and a bump that settles make a division; a bump that bleeds into the floor is a lysis.
+**A split is a boundary discontinuity, judged over the whole sample.** A mitosis or a lysis is not decided in the frame it happens in. Over the sample's whole history there will be a bump in entropy at about that time, and the two differ: a mitosis is a clean fork where local entropy bumps and settles, while a lysis is an uncontained dissipation into the background. Both change the fluidics far around them. The metric pays for this: the division Jaccard is 0.1 of the score, and the engine earns none of it (0 divisions matched on the older components dump). The test is concrete. A body's fate is already written for every body (`bodies`: split, merged, vanished, absorbed). The entropy of the region around a candidate split, taken per frame from the exact residual, can say whether a real fork happened. Two linked children and a bump that settles make a division; a bump that bleeds into the floor is a lysis.
 
 **Each body's harmonics are its second moments.** The source asks for each body's spherical harmonic coefficients, with the dipole (ℓ = 1) and quadrupole (ℓ = 2) dominant for the oblate shapes cells take. Up to ℓ = 2, a body's harmonics carry exactly what its moments carry:
 
@@ -108,7 +108,7 @@ The `.cfg`'s `floor` section names where each sample's noise keys are held (`--f
 
 So every body the tree finds already carries its ℓ ≤ 2 fingerprint as exact integers, with nothing to fit. The source's "unique harmonics for each body because of intrinsic physical differences" is then a matching rule. A body in the next frame is the same body where its mass, dipole displacement and quadrupole agree, up to the motion the frame shows. The retrograde vector −∇(∂C₁ₘ/∂t) is the time derivative of the dipole: the body's centroid velocity, run backwards to where the motion started.
 
-**Where it lands on the score.** On the five 6bba samples, 19.6% of key edges are lost because a cell's link lands on a neighboring node, a median 6.7 µm from the right one (ledger, 22 September). Neighboring nodes differ in mass and quadrupole even where their centroids are close, and a body's fingerprint tells it from its neighbors. A link chosen by the ℓ ≤ 2 fingerprint instead of by overlap alone is the direct test of this section.
+**Where it lands on the score.** On the five 6bba samples, 19.6% of key edges are lost because a cell's link lands on a neighboring node, a median 6.7 µm from the right one (ledger). Neighboring nodes differ in mass and quadrupole even where their centroids are close, and a body's fingerprint tells it from its neighbors. A link chosen by the ℓ ≤ 2 fingerprint instead of by overlap alone is the direct test of this section.
 
 | claim | status |
 |---|---|
@@ -126,7 +126,7 @@ The engine's rule for what a body is, stated directly: **the jitter scrubs and o
 
 **Edges by jitter.** A single frame's cut puts a boundary voxel on one side or the other by chance: the field noise at the edge decides it. The jitter sweep already in `relate_frames` (a box a voxel wide, doubling out past the whole view, `LINK_SWEEP_STEPS`) moves the view by every small offset and asks again. Scrubbing a body's boundary under every jitter oversamples it. The voxels that stay with the body under every offset are its edge; the ones that fall in and out are the floor at its boundary, read and set aside, not averaged. This is noise_sieve_tower §5's floor applied at a body's surface.
 
-**Membership by sample coherence.** Which pieces make one body is not decided in a frame either. A piece belongs to the body its coherence carries on with across the whole sample, the same way the harmonics source judges a split over the whole sample and not the moment (§14), and the same way identity is the limit of coherence (noise_sieve_tower §9). Pieces of one body cohere through every frame; pieces of two bodies part somewhere in it. So grouping by what touches in one frame, which today runs transitively through touching cells, gives way to grouping by what coheres over all of them.
+**Membership by sample coherence.** Which pieces make one body is not decided in a frame either. A piece belongs to the body its coherence carries on with across the whole sample, the same way the harmonics source judges a split over the whole sample and not the moment (§14), and the same way identity is the limit of coherence (noise_sieve_tower §9). Pieces of one body cohere through every frame; pieces of two bodies part somewhere in it. So grouping by what touches in one frame, which runs transitively through touching cells, gives way to grouping by what coheres over all of them.
 
 | claim | status |
 |---|---|
@@ -139,7 +139,7 @@ The engine's rule for what a body is, stated directly: **the jitter scrubs and o
 
 | claim | status |
 |---|---|
-| membership is never assigned from one frame without the local entropy | a rule of the engine; today's grouping breaks it (it groups by touch in one frame) |
+| membership is never assigned from one frame without the local entropy | a rule of the engine; the current grouping breaks it (it groups by touch in one frame) |
 | a history of entropic direction separates body, floor, edge, split and lysis | theory |
 | the history is carried in the anchor pass, as windowed transition counts per voxel and bit, at no extra pass | theory; the anchor pass is built and its counts are on disk |
-| membership assigned by coherence over the whole sample, not by touch in one frame | theory; today's grouping is by touch in one frame, transitive through touching cells |
+| membership assigned by coherence over the whole sample, not by touch in one frame | theory; the current grouping is by touch in one frame, transitive through touching cells |
