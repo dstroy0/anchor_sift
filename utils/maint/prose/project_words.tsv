@@ -21,31 +21,9 @@ shift	mnemonic
 sprk	mnemonic
 void	mnemonic
 wait	mnemonic
-fizz	mnemonic
-fuzz	mnemonic
-gray	mnemonic
-surg	mnemonic
-surv	mnemonic
-sync	mnemonic
-vent	mnemonic
-timeout	field term	V. Paxson, M. Allman, J. Chu, M. Sargent, Computing TCP's Retransmission Timer, RFC 6298, 2011
-retransmission	field term	V. Paxson, M. Allman, J. Chu, M. Sargent, Computing TCP's Retransmission Timer, RFC 6298, 2011
-granularity	field term	V. Paxson, M. Allman, J. Chu, M. Sargent, Computing TCP's Retransmission Timer, RFC 6298, 2011
-latency	field term	B. Beyer, C. Jones, J. Petoff, N. R. Murphy, eds., Site Reliability Engineering, O'Reilly Media, chapter 6, Monitoring Distributed Systems, 2016
-monitoring	field term	B. Beyer, C. Jones, J. Petoff, N. R. Murphy, eds., Site Reliability Engineering, O'Reilly Media, chapter 6, Monitoring Distributed Systems, 2016
-failover	field term	B. Beyer, C. Jones, J. Petoff, N. R. Murphy, eds., Site Reliability Engineering, O'Reilly Media, chapter 6, Monitoring Distributed Systems, 2016
-failback	field term	B. Beyer, C. Jones, J. Petoff, N. R. Murphy, eds., Site Reliability Engineering, O'Reilly Media, chapter 6, Monitoring Distributed Systems, 2016
-outage	field term	B. Beyer, C. Jones, J. Petoff, N. R. Murphy, eds., Site Reliability Engineering, O'Reilly Media, chapter 6, Monitoring Distributed Systems, 2016
-superstate	field term	D. Harel, Statecharts: A Visual Formalism for Complex Systems, Science of Computer Programming 8(3) 231-274, 1987
-statechart	field term	D. Harel, Statecharts: A Visual Formalism for Complex Systems, Science of Computer Programming 8(3) 231-274, 1987
-breaker	field term	M. T. Nygard, Release It! Design and Deploy Production-Ready Software, Pragmatic Bookshelf, 2007
-half-open	field term	M. T. Nygard, Release It! Design and Deploy Production-Ready Software, Pragmatic Bookshelf, 2007
-censored	field term	E. L. Kaplan, P. Meier, Nonparametric Estimation from Incomplete Observations, Journal of the American Statistical Association 53(282) 457-481, 1958
-right-censored	field term	E. L. Kaplan, P. Meier, Nonparametric Estimation from Incomplete Observations, Journal of the American Statistical Association 53(282) 457-481, 1958
-benchmarking	field term	J. Chen, J. Revels, Robust Benchmarking in Noisy Environments, arXiv:1608.04295, 2016
-estimator	field term	J. Chen, J. Revels, Robust Benchmarking in Noisy Environments, arXiv:1608.04295, 2016
-s-matrix	field term	N. J. A. Sloane, M. Harwit, Masks for Hadamard Transform Optics, and Weighing Designs, Applied Optics 15(1) 107-114, 1976
-spectrometry	field term	N. J. A. Sloane, M. Harwit, Masks for Hadamard Transform Optics, and Weighing Designs, Applied Optics 15(1) 107-114, 1976
-critical-path	field term	J. E. Kelley, M. R. Walker, Critical-Path Planning and Scheduling, Proceedings of the Eastern Joint IRE-AIEE-ACM Computer Conference, 160-173, 1959
-liveness	field term	The Kubernetes Authors, Configure Liveness, Readiness and Startup Probes, Kubernetes documentation
-readiness	field term	The Kubernetes Authors, Configure Liveness, Readiness and Startup Probes, Kubernetes documentation
+bigram	field term	C. E. Shannon, A Mathematical Theory of Communication, Bell System Technical Journal 27, 1948
+cophenetic	field term	R. R. Sokal, F. J. Rohlf, The Comparison of Dendrograms by Objective Methods, Taxon 11(2) 33-40, 1962
+lossless	field term	G. Navarro, A Guided Tour to Approximate String Matching, ACM Computing Surveys 33(1) 31-88, 2001
+oracle	field term	W. E. Howden, Theoretical and Empirical Studies of Program Testing, IEEE Transactions on Software Engineering 4(4) 293-298, 1978
+pooled	field term	S. J. Haberman, The Analysis of Residuals in Cross-Classified Tables, Biometrics 29(1) 205-220, 1973
+split-half	field term	C. Spearman, Correlation Calculated from Faulty Data, British Journal of Psychology 3(3) 271-295, 1910
