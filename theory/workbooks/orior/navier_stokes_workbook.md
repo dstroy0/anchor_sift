@@ -202,7 +202,7 @@ not on the Clay list.
   no blowup, no weak solution, no singular set, and no solution on `R^3`. The two files reach one
   countable island inside `D_8` and read it exactly; they reach nothing past it.
 
-## Entry 1: the sets, run on the unit torus
+## Entry 1, 2026-09-17: the sets, run on the unit torus
 
 `examples/0_experimental/exact_navier_stokes_on_torus.py`, run and exit 0. The arithmetic is the
 engine's own: Python integers as the bignum, decimal inputs read by `representation.exact` as
@@ -266,7 +266,7 @@ with (2) enforced by Leray's projection. Nothing is rounded.
   and they sit in (8). The bit sequences are uncountable (Cantor, `proof_set_theory.py`) and the ring is
   countable. The exactly nameable data are a countable island in the data class.
 
-## Entry 2: the boundary function asked to define itself
+## Entry 2, 2026-09-17: the boundary function asked to define itself
 
 `evidence/proofs/posits/proof_boundary_inheritance.py`, run and exit 0. `proof_domain_boundaries.py`
 named three kinds of boundary from a survey. A survey assigns the kind by judgment. Here the kind is not
@@ -297,7 +297,7 @@ decimals, because a coefficient carrying `pi` has no last digit, and reads `none
 no scale. The measurement kind is the deposit's, and it is canceled only by the ratio in which the
 amplitude cancels, the floor-free ratio of the precision document's Regime C.
 
-## Entry 3: the cascade and the coefficient growth, made visible
+## Entry 3, 2026-09-17: the cascade and the coefficient growth, made visible
 
 `examples/0_experimental/exact_navier_stokes_cascade.py`, run and exit 0. It reads the same ring and
 recurrence, and shows the solution map as a picture instead of a table, exactly and in integers. Douglas

@@ -22,7 +22,7 @@ What this workbook has that a pen-and-paper one lacks is exact arithmetic: every
 carried with no rounding, and checked by a second route. That buys verification to any number of
 places. It does not buy a proof, and the difference is the reason for the rail above.
 
-## Entry 1: zeta at the even integers
+## Entry 1, 2026-09-16: zeta at the even integers
 
 `examples/0_experimental/exact_zeta_values.py`, run and exit 0. It computes the Riemann zeta function
 at the even integers, `zeta(2k) = c_k * pi^(2k)`, with `c_k` an exact rational from the Bernoulli
@@ -44,7 +44,7 @@ numbers, and checks the values a second way that never touches `pi`.
 is a statement about the ZEROS of `zeta(s)` in the critical strip, and no zero is computed or touched
 here. Nothing in this entry bears on it.
 
-## Entry 2: the set the values live in
+## Entry 2, 2026-09-16: the set the values live in
 
 `evidence/proofs/posits/proof_set_theory.py`, run and exit 0. It proves, by construction, four standard
 facts and connects them to the measurement floor.
@@ -70,7 +70,7 @@ bracket to its deposit, and almost every real has no finite description. It lies
 complement. The measurement floor of the precision document is that boundary. This is an observation
 about where exact and measured quantities sit, and it makes no claim about any open problem.
 
-## Entry 3: the symmetry of the zeros, and a dream kept in its column
+## Entry 3, 2026-09-16: the symmetry of the zeros, and a dream kept in its column
 
 `examples/0_experimental/zeta_zero_symmetry.py`, run and exit 0. What is proven and what is dreamed are
 kept in separate columns here, by design.
@@ -94,7 +94,7 @@ conjecture with strong numerical support and no proof. It is fun to dream that a
 forces it. The dream is not a proof, and it stays in this column labeled a dream. Proof is proof. Prior
 art: Montgomery 1973, Dyson, Odlyzko; reported from a web search, papers unread.
 
-## Entry 4: the zeros, counted and placed by truthy and falsy verdicts
+## Entry 4, 2026-10-02: the zeros, counted and placed by truthy and falsy verdicts
 
 `examples/0_experimental/exact_zeta_zeros.py`, run and exit 0. It computes zeta in the critical strip
 as exact integers at a count of decimal places, the form `representation.exact` holds. pi comes from
@@ -140,7 +140,7 @@ unit of its last place, and a value asked past the scale raises `WillNotFit`. No
   verified far past it. It bears on the Riemann hypothesis exactly as far as every verification below a
   height does, and not at all past that height.
 
-## Entry 5: the Gram points, and Gram's law as agreement at lag 2
+## Entry 5, 2026-10-02: the Gram points, and Gram's law as agreement at lag 2
 
 `examples/0_experimental/exact_zeta_gram.py`, run to `t = 285` and exit 0, in a minute and a half on
 the host. It computes the Riemann-Siegel theta function by truthy and falsy verdicts, places the Gram
@@ -193,7 +193,7 @@ points by it, and reads the sign of `Z` at each from the values entry 4 computes
   walk of entry 4 steers only by its own verdicts. Reading it to `t = 285` is a computation at a
   height and bears on nothing past it.
 
-## Entry 6: the Riemann-Siegel formula, with time held as a real
+## Entry 6, 2026-10-02: the Riemann-Siegel formula, with time held as a real
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py`, run to `t = 285` and exit 0. It computes
 `Z(t)` by the Riemann-Siegel formula as the Riemann-Siegel Formula page on MathWorld prints it, read
@@ -249,7 +249,7 @@ Where the formula binds, and what is released in its place:
   with Euler-Maclaurin at eight places is two computations meeting, and the sign of `Z` at a Gram
   point is a reading there. It bears on nothing past `t = 285`.
 
-## Entry 7: every C_n, where each vanishes, and the seam between the cells
+## Entry 7, 2026-10-02: every C_n, where each vanishes, and the seam between the cells
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py`, the same run as entry 6, exit 0. Three papers
 were read for it, page by page, from copies here:
@@ -405,7 +405,7 @@ What it is not. Each `C_n` is exact, and each zero is a bracket read at the plac
 on a grid, never a count proven complete. The seam and the triangle are readings below `x = 9` and in
 five cells. None of it bears on the zeros of `Z` or on the hypothesis.
 
-## Entry 8: the triangle's dimension, and what each wave lands in at its boundary
+## Entry 8, 2026-10-02: the triangle's dimension, and what each wave lands in at its boundary
 
 `examples/0_experimental/exact_zeta_riemann_siegel.py` for the dimension, and
 `examples/0_experimental/exact_zeta_arrival.py` with its device program `exact_zeta_arrival.cu` for
@@ -556,7 +556,7 @@ difference `2 ln m`.
 Whether the angles are equidistributed, and how evenly, is a question about all `n`, and none of it
 bears on the zeros of `Z` or on the hypothesis.
 
-## Entry 9: Turing's method, run as a machine over the record machine's automata
+## Entry 9, 2026-10-03: Turing's method, run as a machine over the record machine's automata
 
 `examples/0_experimental/exact_zeta_turing.py`, the machine, with its device programs in
 `exact_zeta_turing.cu`, built by `exact_zeta_turing.sh`.
@@ -690,7 +690,7 @@ method and the three published bounds above. Below 760.265422 it says nothing, a
 verifications reach far past `10^5`. The computation is exact. Its rigor is that of the bounds it
 cites, and of the step-by-step bound on the device's arithmetic in `arithmetic`.
 
-## Entry 10: Harish-Chandra's spherical function, on the plane the modular surface is a quotient of
+## Entry 10, 2026-10-03: Harish-Chandra's spherical function, on the plane the modular surface is a quotient of
 
 `examples/0_experimental/exact_zeta_spherical.py`, with its device program in
 `exact_zeta_spherical.cu`, built by `exact_zeta_spherical.sh`.

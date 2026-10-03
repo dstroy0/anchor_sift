@@ -152,7 +152,7 @@ reported
 the lowest failing order, which labeled every row with any failure as "degree 1" and would have
 hidden the exact-3 result at round 4 entirely.
 
-## 2b. The Depth And Direction Table
+## 2b. The Depth And Direction Table, 2026-09-08
 
 Everything below is measured on this date and each row names the bench that produced it. This
 supersedes any earlier depth figure in this document: the earlier ones read a single fixed state
