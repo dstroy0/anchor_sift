@@ -109,7 +109,7 @@ Of these operators, only the seal's is not associative: H(H(a ‖ b) ‖ c) ≠ 
 
 ## What the engine shows about the wire and the witness
 
-Doug's nine posits of 24 September on the wire and the witness are kept verbatim, numbered as he gave them, in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md). What the engine shows that bears on them follows (a to g, checked). Derived unless marked.
+Doug's nine posits of 24 September on the wire and the witness are kept verbatim, numbered as he gave them, in [wants.md](wants.md). What the engine shows that bears on them follows (a to g, checked). Derived unless marked.
 
 - **(a) The seal detects and locates a change; it does not restore the value.** Locality is proved ("What it proves"): a mismatch walks down to its row or chunk.
   - Derived: the seal can confirm a guessed repair. With t unknown flips in a segment of m bits, a search tries C(m, t) candidates. The right one proves, and a wrong one passes with probability 2^−256. One flip in a row of 960 lanes (15,360 bits) is 15,360 hashes. That is a search, and the seal holds no error-correcting code.
@@ -122,7 +122,7 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 - **(d) The set root is a joint function of every crystal's root.** It changes on any change, except with probability 2^−256 per node. This is classical binding, and it involves no quantum entanglement (points 3 and 4). Θ over a set is built. The universal root is ruled and still unbuilt (below).
 - **(e) The floor as amplitude and the knf as phase** (points 6 and 7).
   - An exact pair is an exact complex amplitude when the pair is (re, im), as Gaussian rationals. A (magnitude, phase) pair is exact only with the phase an index k of a root of unity, ζ_N^k in ℤ[ζ_N].
-  - The knf as phase is untested, and it is carried in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+  - The knf as phase is untested, and it is carried in [wants.md](wants.md).
   - An exact classical register holds a qubit's state vector exactly. `ask_state` (M21) carries a qubit exactly now. n qubits cost 2ⁿ amplitudes, and exact classical registers give no Bell violation between separated parts. "Classic qubit" fits the reading of an exact simulation with no rounding.
 - **(f) Witnessing the wire** (point 8). A hash reads the value it seals. An unknown quantum state cannot be copied ([Wootters and Zurek 1982](#src:Wootters-and-Zurek-1982)), and reading one disturbs it. A Merkle-witnessed wire is classical by construction.
 - **(g) "Knows all noise from non noise"** (point 9). Exact equality catches any departure from a sealed state. The second, independent read of "The witness" guards the value before sealing. Past that, the seal cannot say whether the sealed value was the true signal: shot noise in the source is sealed as the truth.
@@ -131,7 +131,7 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
   - The floor identity: the identity line, one null draw a floor (§18).
   - The locale: rules derived once at the top reach every locale (§1).
   - "Rebuildable", derived: from the whole crystal, yes. T⁻¹ is exact, and the seal proves the result. From a part, only the samples whose cone (reach L + 2 along a line) lies inside it.
-  - "The spine" has no definition in the engine, and it is carried in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md) with Doug's question of point 5.
+  - "The spine" has no definition in the engine, and it is carried in [wants.md](wants.md) with Doug's question of point 5.
 
 ## The universal root (ruled, not built)
 

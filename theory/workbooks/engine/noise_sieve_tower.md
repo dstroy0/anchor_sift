@@ -1,7 +1,7 @@
 # The noise sieve tower
 
 **Purpose:** Carry the transfinite noise sieve and the fluidic architecture (the drafts in `thought_experiments/engine/`) into the ledger, idea by idea, each set beside the part of the engine that is its working form and the status that backs it. The theory and the code are then read as one thing, and a reader knows which ideas already run.
-**Scope:** every idea in `noise_sieve_*.md`, `fluidic_*.md`, `utm_demon_openqasm.md`, `demon_utm_four_noise_vectors.md`, `hash_boundary_functional_folding.md`, `subtractive_cosmological_framework.md` and `cyclic_field_inversion_seed_crystal.md`. `proposal.md` sets the sieve on the cell program. It is in `thought_experiments/cell_tracking/`, and its sections are in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Where an idea has a working form, the module is named; [cell_tracking_table.md](../cell_tracking/cell_tracking_table.md) says which part of the n-body problem each module solves, and [engine_table.md](engine_table.md) what each machine part computes.
+**Scope:** every idea in the noise sieve and fluidic drafts, the drafts on the demon with a universal Turing machine, the keyspace and folding draft, the subtractive framework and the seed crystal draft; the claims among them with no working form are kept in [wants.md](wants.md). `proposal.md` sets the sieve on the cell program. It is in `thought_experiments/cell_tracking/`, and its sections are in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Where an idea has a working form, the module is named; [cell_tracking_table.md](../cell_tracking/cell_tracking_table.md) says which part of the n-body problem each module solves, and [engine_table.md](engine_table.md) what each machine part computes.
 
 The status column follows the ledger's rules ([README.md](README.md)): proved, measured, built, theory, refuted, not so.
 
@@ -115,7 +115,7 @@ Read right to left, it is the engine's run order:
 |---|---|
 | read the whole without disturbing it | proved: CRC-64 folded into the tower's widen and narrow; all 25 hold, set CRC 091daa41e1aceb7e |
 
-The observer settling on hot bits, and the noise key fed back as the next cycle's mold, are untested; they are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+The observer settling on hot bits, and the noise key fed back as the next cycle's mold, are untested; they are in [wants.md](wants.md).
 
 ## 8. The three irreducible sets
 
@@ -179,7 +179,7 @@ The 2^n barrier does not go away in a machine. The engine keeps its state exact 
 
 ## 12. The subtractive framework: field speed, cancellation, and the null as field noise
 
-The draft in `subtractive_cosmological_framework.md` is a cosmology. Its cosmological claims (arrival as a c speed update shell, monitoring daemons on structural lines, black holes as sinks) are outside anything this engine can measure, and the ledger records them as theory and leaves them there. Three of its turns correct or sharpen the sieve drafts, and those carry straight into the engine.
+The draft in the subtractive framework draft is a cosmology. Its cosmological claims (arrival as a c speed update shell, monitoring daemons on structural lines, black holes as sinks) are outside anything this engine can measure, and the ledger records them as theory and leaves them there. Three of its turns correct or sharpen the sieve drafts, and those carry straight into the engine.
 
 **Rules propagate at field speed, not instantly.** "The ruleset propagates to w at field speed": the new rules spread from where they are applied as a wavefront, bounded by the medium's clock, instead of blinking into existence everywhere. This corrects §1's "transfinite speed". In a machine the rules reach every lane in one launch, and the launch takes time; the ledger's 31 ms a frame is that front, measured.
 
@@ -196,11 +196,11 @@ The draft in `subtractive_cosmological_framework.md` is a cosmology. Its cosmolo
 | a null is the field noise reading, not an empty return | built: the null draws (`--null`) climb toward frames far off in time |
 | the signal leaves the floor | measured: the low five bit planes at ½ in every 44b6 sample; anchors in bits 6 to 11 |
 
-The draft's cosmology (arrival shells, network daemons, black hole sinks) lies outside what this engine measures; it is in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+The draft's cosmology (arrival shells, network daemons, black hole sinks) lies outside what this engine measures; it is in [wants.md](wants.md).
 
 ## 13. The seed crystal and the needle off zero
 
-`cyclic_field_inversion_seed_crystal.md` was exported under the title "Solving N-Body Problems Deterministically", but it holds no n-body method. It is a cyclic cosmology. At maximum entropy the field flattens until scale means nothing, and a uniform field is as featureless as a point. The field then inverts. The new rules propagate from a seed crystal: a needle of near-infinite magnitude, perpendicular to the field, with a radius close to zero but not zero. That hair of tilt is the symmetry break that sets the new field's propagation speed. The cosmology is theory and stays there. Two of its mechanics are exactly the engine's.
+the seed crystal draft was exported under the title "Solving N-Body Problems Deterministically", but it holds no n-body method. It is a cyclic cosmology. At maximum entropy the field flattens until scale means nothing, and a uniform field is as featureless as a point. The field then inverts. The new rules propagate from a seed crystal: a needle of near-infinite magnitude, perpendicular to the field, with a radius close to zero but not zero. That hair of tilt is the symmetry break that sets the new field's propagation speed. The cosmology is theory and stays there. Two of its mechanics are exactly the engine's.
 
 **The needle is the impulse.** The imprint pushes one unit at one point, the narrowest thing the lattice holds, through the program once. Everything the program will do to any atom propagates out from that response: the key. A field of zeros imprints nothing, and a flat field has no differential to carry. The whole next pass is seeded by one point's response.
 
@@ -214,7 +214,7 @@ The draft's cosmology (arrival shells, network daemons, black hole sinks) lies o
 | a flat field propagates nothing; a minimal fixed asymmetry gives every choice one direction | built: exact comparison, the face's name in the key's lowest limb so no two keys tie |
 | maximum entropy looks alike at every scale | measured for the low five bit planes: near ½ everywhere, no anchor |
 
-The PDF's cosmology (field inversion, the seed crystal of a new universe, eternal recurrence) and the n-body method its title promises are in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+The PDF's cosmology (field inversion, the seed crystal of a new universe, eternal recurrence) and the n-body method its title promises are in [wants.md](wants.md).
 
 ## 14 and 15. The sieve on the cell program
 
@@ -222,7 +222,7 @@ The PDF's cosmology (field inversion, the seed crystal of a new universe, eterna
 
 ## 16. The four noise vectors, and the noise keys stamped top down over w
 
-`demon_utm_four_noise_vectors.md` takes the residual tensor F − I and splits it into four vector magnitudes: photon shot noise, thermal and read noise, fixed pattern noise, and quantization. With the demon holding every initial condition, none of them is random: each is a deterministic function to be evaluated, not a distribution to be assumed.
+the four noise vectors draft takes the residual tensor F − I and splits it into four vector magnitudes: photon shot noise, thermal and read noise, fixed pattern noise, and quantization. With the demon holding every initial condition, none of them is random: each is a deterministic function to be evaluated, not a distribution to be assumed.
 
 **The history separates them, measured.** The four differ in how they move in time, and the entropy history (`entropy_history`, ledger 22 September) is a per voxel record of exactly that.
 
@@ -260,7 +260,7 @@ Every noise term, these four and the rest Doug named on 25 September, has one ro
 | the floor's identity at every voxel places every departure: where steering happened | theory; the history holds it, and the reading is not built |
 | the clock as the elevator: any floor at any time reached directly | built: the tower's floors and the stream's chunks at known offsets; the history's windows at known places |
 
-The demon's waveform collapsing onto the union U \| U of every departure from the floor is untested; it is in [posits_24_september.md](../../thought_experiments/engine/posits_24_september.md).
+The demon's waveform collapsing onto the union U \| U of every departure from the floor is untested; it is in [wants.md](wants.md).
 
 ## 18. The arm as a probability sniper: where the sweating stops and the sieving starts
 
