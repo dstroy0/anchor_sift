@@ -42,6 +42,13 @@ static unsigned long long check_safe_high(unsigned long long high)
     return high;
 }
 
+// `high`, already holding the safe word, with its stall set to `stall`
+static unsigned long long check_stalled(unsigned long long high, unsigned int stall)
+{
+    high &= ~(0xfull << (SASS_STALL_FIRST - 64u));
+    return high | ((unsigned long long)stall << (SASS_STALL_FIRST - 64u));
+}
+
 // the instruction at `place` of s_code set to `low` and `high`
 static void check_instruction(unsigned int place, unsigned long long low, unsigned long long high)
 {
@@ -161,6 +168,13 @@ static void check_cases(void)
     check_verdict("an IADD3 with no EXIT after it", 1u, CUBIN_SAFE_EXIT);
     check_instruction(1u, exit_low, exit_high);
     check_verdict("an IADD3 then an EXIT", 2u, CUBIN_SAFE);
+    // a fixed result is read no sooner than its operation's measured count, and a stall of that count is enough
+    unsigned int soonest = SASS_STALL_LONGEST;
+    sass_operation_schedule(straight->operation, &soonest);
+    check_instruction(0u, straight->low, check_stalled(check_safe_high(straight->high), soonest));
+    check_verdict("an IADD3 stalled its soonest read, then an EXIT", 2u, CUBIN_SAFE);
+    check_instruction(0u, straight->low, check_stalled(check_safe_high(straight->high), soonest - 1u));
+    check_verdict("an IADD3 stalled a cycle short of its soonest read", 2u, CUBIN_SAFE_STALL);
     // the self branch past the last exit is never reached and is not read
     check_instruction(0u, exit_low, exit_high);
     check_instruction(1u, branch->low, branch->high);

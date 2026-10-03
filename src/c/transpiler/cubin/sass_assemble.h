@@ -23,8 +23,9 @@ enum SassControl
 {
     // the base's own, for an instruction being written back as it was read
     SASS_CONTROL_BASE = 0,
-    // every instruction stalled the longest the field holds and waiting on every barrier, and one whose result comes
-    // back late setting a barrier: the slowest order that is always in order
+    // every instruction stalled the soonest its operation's result is read, the longest the field holds where none is
+    // measured, and waiting on every barrier, and one whose result comes back late setting a barrier: an order that is
+    // always in order
     SASS_CONTROL_SAFE = 1
 };
 
