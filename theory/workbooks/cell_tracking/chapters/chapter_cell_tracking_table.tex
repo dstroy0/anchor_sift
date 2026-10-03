@@ -606,11 +606,11 @@ For each body b of frame t, A\_\allowbreak{}b(v) = Σ\_\allowbreak{}\{x∈b\} P\
 
 \subsection{\texorpdfstring{E5. The null (row 8): the same climb toward a frame where no correspondence exists}{E5. The null (row 8): the same climb toward a frame where no correspondence exists}}
 
-h⁰\_\allowbreak{}k(b) = A\_\allowbreak{}b\textasciicircum{}\{(t → t\_\allowbreak{}k)\}(v*), one draw k per floor on the identity line when a floor is laid down
+h⁰\_\allowbreak{}k(b) = A\_\allowbreak{}b\textasciicircum{}\{(t → t\_\allowbreak{}k)\}(v*),  one draw k per floor on the identity line when a floor is laid down
 
 \subsection{\texorpdfstring{E6. The overlap triples (row 7): A4, \texttt{body\_\allowbreak{}overlap}}{E6. The overlap triples (row 7): A4, body\_overlap}}
 
-T(b, b′) = |\{ x : L\_\allowbreak{}t(x) = b, L\_\allowbreak{}\{t+1\}(x + d\_\allowbreak{}t) = b′ \}|, kept where T > 0
+T(b, b′) = |\{ x : L\_\allowbreak{}t(x) = b, L\_\allowbreak{}\{t+1\}(x + d\_\allowbreak{}t) = b′ \}|,  kept where T > 0
 
 \subsection{\texorpdfstring{E7. The objects (row 6): \texttt{group\_\allowbreak{}objects} (\texttt{merge\_\allowbreak{}split})}{E7. The objects (row 6): group\_objects (merge\_split)}}
 
@@ -626,7 +626,7 @@ W(O, Q) = Σ\_\allowbreak{}\{b∈O\} Σ\_\allowbreak{}\{b′∈Q\} T(b, b′)
 
 A forward that reaches Q enters the pool with weight 0.
 
-κ(b, b′) = min over the four pairings (lag or lead) of ( s ≪ 40 ) | ( Σ\_\allowbreak{}a w\_\allowbreak{}a (ℓ\_\allowbreak{}a + ℓ′\_\allowbreak{}a)² mod 2⁴⁰ )
+κ(b, b′) = min over the four pairings (lag or lead) of  ( s ≪ 40 ) | ( Σ\_\allowbreak{}a w\_\allowbreak{}a (ℓ\_\allowbreak{}a + ℓ′\_\allowbreak{}a)²  mod 2⁴⁰ )
 
 \begin{itemize}
 \item ℓ is b's forward lag and ℓ′ is b′'s backward lag. Their sum ℓ + ℓ′ is how far the round trip misses.
@@ -736,7 +736,7 @@ What it replaces today: the drift computed once (\texttt{shift\_\allowbreak{}agr
 \begin{itemize}
 \item \textbf{The null's exact transform.} The link's weight is the climb's own functional split by the target it lands on:
 
-T*(b, b′) = |\{ x ∈ b : P\_\allowbreak{}\{t+1\}(x + v*\_\allowbreak{}b) ∧ L\_\allowbreak{}\{t+1\}(x + v*\_\allowbreak{}b) = b′ \}|, and summed over b′, Σ\_\allowbreak{}\{b′\} T*(b, b′) + T*(b, ∅) = A\_\allowbreak{}b(v*\_\allowbreak{}b) = h(b)
+T*(b, b′) = |\{ x ∈ b : P\_\allowbreak{}\{t+1\}(x + v*\_\allowbreak{}b) ∧ L\_\allowbreak{}\{t+1\}(x + v*\_\allowbreak{}b) = b′ \}|,  and summed over b′, Σ\_\allowbreak{}\{b′\} T*(b, b′) + T*(b, ∅) = A\_\allowbreak{}b(v*\_\allowbreak{}b) = h(b)
 
 where ∅ is a positive voxel in no body (R > 0 below the cut). In the marginal, ω(b, b′) = T*(b, b′) and ω(b, none) = max\_\allowbreak{}k h⁰\_\allowbreak{}k(b). Both are counts of the same body's voxels under the same operator, and the masses still cancel.
 \item \textbf{Contact} (row 6). Each body has an assigned boundary. At width w, κ\_\allowbreak{}w(A, B) = |\{ x : d\_\allowbreak{}A(x) ≤ w ∧ d\_\allowbreak{}B(x) ≤ w \}|, where d\_\allowbreak{}A(x) = min\_\allowbreak{}\{y∈A\} ‖x − y‖∞. It is nonzero exactly where the two boundaries overlap at w: the truthy contact, its size the magnitude.

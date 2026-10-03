@@ -65,16 +65,16 @@ D1 and D2 are the engine's (the engine workbook's build plan).
 - **Kept frames.** max_tree keeps the last two frames' codes plus a code→residual table (9 limbs a code), built on the device from the first voxel of each run of equal residuals.
 - **Threshold.** A residual r maps to each frame's threshold code by one device lane a code: the lane whose value is ≥ r while the value one code below is < r. Unused code slots are zero, and zero is below every admitted residual.
 - **At each r:**
- - one connected-component labeling a frame;
- - each earlier voxel alive at r whose drifted place is inside the view and alive in the later frame emits the exact pair (earlier root, later root); voxels drifted outside the view emit nothing;
- - a device radix sort, then the distinct pairs, then partner counts a root;
- - "one" is the count of roots with exactly 1 partner, and "mutual" (AND = product) is the count of distinct pairs whose two ends both have exactly 1.
+  - one connected-component labeling a frame;
+  - each earlier voxel alive at r whose drifted place is inside the view and alive in the later frame emits the exact pair (earlier root, later root); voxels drifted outside the view emit nothing;
+  - a device radix sort, then the distinct pairs, then partner counts a root;
+  - "one" is the count of roots with exactly 1 partner, and "mutual" (AND = product) is the count of distinct pairs whose two ends both have exactly 1.
 - **Sampled r values:** each frame's key-partition events from the slide, plus its most-components cut, each mapped to its exact residual. This is a key-driven sample of the r values. Every r would be about 1.1M labellings a frame, and which r to sample is still Doug's.
 - **6bba_48816121**, 99 pairs, 3,615 cuts:
- - at the earlier frame's cut: 61,679 components, 15,979 overlap exactly one (26%), and **6,688 mutual (11%)**;
- - the best mutual over each pair's sampled cuts sums to **13,783** (139 a pair, against 68 at the cut);
- - frame 0→1 at level 1,045,988: 204 components, 167 one, **144 mutual**. At the cut, level 84,314: 329 components, 83 one, 29 mutual;
- - the mutual count peaks high in the tree (codes about 1.0 to 1.1M of about 1.1M), at 150 to 200 components a frame, where 70–80% of the components are mutual. The most-components cut sits low, where 10–30% are.
+  - at the earlier frame's cut: 61,679 components, 15,979 overlap exactly one (26%), and **6,688 mutual (11%)**;
+  - the best mutual over each pair's sampled cuts sums to **13,783** (139 a pair, against 68 at the cut);
+  - frame 0→1 at level 1,045,988: 204 components, 167 one, **144 mutual**. At the cut, level 84,314: 329 components, 83 one, 29 mutual;
+  - the mutual count peaks high in the tree (codes about 1.0 to 1.1M of about 1.1M), at 150 to 200 components a frame, where 70–80% of the components are mutual. The most-components cut sits low, where 10–30% are.
 - **44b6_0113de3b**, 53 pairs, 206 cuts, only two sampled levels a frame (the one key cell's appearance and the cut): at the cut 39,507 components, 14,193 one (36%), 7,962 mutual (20%); the best mutual sums to 8,166.
 - **Cost and edges.** The overlap costs about 11 ms a cut: engines went from 125.2 s to 164.3 s on 6bba. Edges are unchanged at 856/55/7 and 38/12, because nothing reads it yet.
 - **Next is Doug's:** the rule that replaces the most-components cut (for example, the r that maximizes mutual one-to-one, the product of the two verdicts), and whether r is swept over every value or over a data-driven sample.
@@ -89,51 +89,51 @@ D1 and D2 are the engine's (the engine workbook's build plan).
 - **Error probabilities.** Theirs: local marginalization, which enumerates microstates in a 3-step neighborhood and weights them with Boltzmann factors at temperature 1.5. Ours: the same enumeration with exact counts; a link's field is (valid local solutions that contain it) / (all valid local solutions), kept as an exact pair.
 - **Manual correction GUI and retraining loop.** Out of scope for the competition.
 - **I/O, added: "Ctc geff api queries etc".**
- - Theirs: `imaging/geff_io.py` (`load_data_file` and `save_data_file`, with node and edge props), and `imaging/ctc_io.py` (reads and writes CTC: the man_track lineage file plus label images).
- - Ours today: `engine_geff_read` only, used for the answer key. Ours to build: GEFF write of our tracks with node and edge props (the exact fields as props), and CTC read and write.
+  - Theirs: `imaging/geff_io.py` (`load_data_file` and `save_data_file`, with node and edge props), and `imaging/ctc_io.py` (reads and writes CTC: the man_track lineage file plus label images).
+  - Ours today: `engine_geff_read` only, used for the answer key. Ours to build: GEFF write of our tracks with node and edge props (the exact fields as props), and CTC read and write.
 - **Query API, added by Doug.**
- - Theirs: `core/links.py`.
- - Positions: `find_futures`, `find_pasts`, `find_single_future`, `find_single_past`.
- - Appear and disappear: `find_appeared_positions`, `find_disappeared_positions`.
- - Tracks: `get_track`, `find_all_descending_tracks`, `find_all_tracks_in_same_lineage`, `find_starting_tracks`, `find_ending_tracks`, `find_all_tracks_in_time_point`.
- - Data attached to links and lineages: `get_link_data`, `find_all_links_with_data`, `get_lineage_data`.
- - Ours to build: the same queries over our track graph, in one module behind one request struct, with the exact fields as link data.
+  - Theirs: `core/links.py`.
+    - Positions: `find_futures`, `find_pasts`, `find_single_future`, `find_single_past`.
+    - Appear and disappear: `find_appeared_positions`, `find_disappeared_positions`.
+    - Tracks: `get_track`, `find_all_descending_tracks`, `find_all_tracks_in_same_lineage`, `find_starting_tracks`, `find_ending_tracks`, `find_all_tracks_in_time_point`.
+    - Data attached to links and lineages: `get_link_data`, `find_all_links_with_data`, `get_lineage_data`.
+  - Ours to build: the same queries over our track graph, in one module behind one request struct, with the exact fields as link data.
 - **Order, ruled: the event census first.** `--overlap` classifies every component at each cut by its partner counts: 1→1 move, 1→2 division, 2→1 merge, 1→0 disappear, 0→1 appear, and the rest as n→m. It is measured against the key's divisions on 44b6 and 6bba.
- - **Measured.**
- - Two device passes over the distinct (earlier root, later root) pairs:
- - "backs": for each root, how many of its partners have exactly one partner in return;
- - a census a root: 0 partners; 1 partner with 1 back (move); 2 partners with 2 backs (1→2, or 2→1 on the later side).
- - Mutual counted from the later side equals the earlier side's on every cut, 0 differ on both samples. That is the census's proof.
- - **At the earlier frame's cut:**
- - 6bba_48816121: 6,688 moves, 570 1→2, 590 2→1, 42,853 disappear, 40,996 appear, out of 61,679 components. The key holds 5 divisions over these pairs.
- - 44b6_0113de3b: 7,962 moves, 819 1→2, 789 2→1, 22,545 disappear, 21,517 appear, out of 39,507. The key holds 0 divisions.
- - So at the most-components cut, about 70% of the components have no partner at the drift: specks that do not persist. Higher in the tree about 20% do.
- - The key annotates about 9 cells a frame. Census totals cannot be graded against it. Only a per-division verdict can.
- - **Per key division, measured.** Each division is graded on a chain of verdicts, each implying the one before:
- - present: the parent at t and both daughters at t+1 are above the cut;
- - apart: the daughters are in two distinct components;
- - parted: the parent's component overlaps both of them at the drift, found by a device binary search in the sorted pairs;
- - caught: parted, and the parent's component is 1→2.
- - **6bba_48816121, 5 key divisions, taking each pair's best sampled cut.** At the most-components cut, 0 are parted.
- - 5 are present, 3 apart, 2 parted, 1 caught.
- - t=5→6: caught at level 1,056,677 (214 components, 162 mutual).
- - t=11→12: parted at 3 cuts but never 1→2, because the parent's component has more partners or its partners have more backs.
- - t=57→58: apart at 4 cuts but never parted. The parent's component at the frame's single drift does not reach both daughters.
- - t=16→17 and t=60→61: the daughters are never apart at any cut where the parent is also present.
- - **What that says:**
- - A just-divided pair separates only at levels where the parent is gone, or not at all.
- - One global drift misses daughters that move apart.
- - A division is found by a per-chain level (row 1's slide), with a per-body drift or climb in place of the frame's.
- - **Next is Doug's:** the rule for the cut; then GEFF and CTC write, and the query API (9d).
+  - **Measured.**
+    - Two device passes over the distinct (earlier root, later root) pairs:
+      - "backs": for each root, how many of its partners have exactly one partner in return;
+      - a census a root: 0 partners; 1 partner with 1 back (move); 2 partners with 2 backs (1→2, or 2→1 on the later side).
+    - Mutual counted from the later side equals the earlier side's on every cut, 0 differ on both samples. That is the census's proof.
+  - **At the earlier frame's cut:**
+    - 6bba_48816121: 6,688 moves, 570 1→2, 590 2→1, 42,853 disappear, 40,996 appear, out of 61,679 components. The key holds 5 divisions over these pairs.
+    - 44b6_0113de3b: 7,962 moves, 819 1→2, 789 2→1, 22,545 disappear, 21,517 appear, out of 39,507. The key holds 0 divisions.
+    - So at the most-components cut, about 70% of the components have no partner at the drift: specks that do not persist. Higher in the tree about 20% do.
+    - The key annotates about 9 cells a frame. Census totals cannot be graded against it. Only a per-division verdict can.
+  - **Per key division, measured.** Each division is graded on a chain of verdicts, each implying the one before:
+    - present: the parent at t and both daughters at t+1 are above the cut;
+    - apart: the daughters are in two distinct components;
+    - parted: the parent's component overlaps both of them at the drift, found by a device binary search in the sorted pairs;
+    - caught: parted, and the parent's component is 1→2.
+  - **6bba_48816121, 5 key divisions, taking each pair's best sampled cut.** At the most-components cut, 0 are parted.
+    - 5 are present, 3 apart, 2 parted, 1 caught.
+    - t=5→6: caught at level 1,056,677 (214 components, 162 mutual).
+    - t=11→12: parted at 3 cuts but never 1→2, because the parent's component has more partners or its partners have more backs.
+    - t=57→58: apart at 4 cuts but never parted. The parent's component at the frame's single drift does not reach both daughters.
+    - t=16→17 and t=60→61: the daughters are never apart at any cut where the parent is also present.
+  - **What that says:**
+    - A just-divided pair separates only at levels where the parent is gone, or not at all.
+    - One global drift misses daughters that move apart.
+    - A division is found by a per-chain level (row 1's slide), with a per-body drift or climb in place of the frame's.
+  - **Next is Doug's:** the rule for the cut; then GEFF and CTC write, and the query API (9d).
 24. Ruled ("split it, go"): the slide and the overlap are in the engine as engine math (the engine workbook's build plan, item 24). Key cells, divisions and their grading (present, apart, parted, caught) are to be rebuilt in cell_tracking/src/slide/slide_score.cu from probes and links; that file holds the interface that precedes the probes. They cannot run until score_sample (engine/base/oracle) moves to cell_tracking, since score_sample's frame loop is where they hook in.
 36. The driver through tessera. "The engines own runs need to go through tessera". Done:
- - track_driver submits `--ingest` and each `--run` part as one job. The signum is BLAKE3(part name, 0, effective cfg). The declaration is the largest sample's lanes × 2: `engine_source_lanes` (new, shape only) for ingest, the iapx head otherwise.
- - `--override` added. Holding 2 s, sweep 20 ms, idle 5 s. There is no path without tessera.
- - build_driver.sh builds and publishes tessera_daemon beside the driver.
- - Run on a scratch set: ingest declared 838,860,800 with a peak of 5,091,037,184; prove had peaks of 3,962,761,216 and 3,958,566,912. The history is 128 bytes.
- - Finding, not changed (A11 is Doug's rule): a job is reserved at its declaration even when its kept peak is larger. Reserving max(declared, kept peak) is the fix.
+   - track_driver submits `--ingest` and each `--run` part as one job. The signum is BLAKE3(part name, 0, effective cfg). The declaration is the largest sample's lanes × 2: `engine_source_lanes` (new, shape only) for ingest, the iapx head otherwise.
+   - `--override` added. Holding 2 s, sweep 20 ms, idle 5 s. There is no path without tessera.
+   - build_driver.sh builds and publishes tessera_daemon beside the driver.
+   - Run on a scratch set: ingest declared 838,860,800 with a peak of 5,091,037,184; prove had peaks of 3,962,761,216 and 3,958,566,912. The history is 128 bytes.
+   - Finding, not changed (A11 is Doug's rule): a job is reserved at its declaration even when its kept peak is larger. Reserving max(declared, kept peak) is the fix.
 
 37. **The score.** Tessera and portability stop here ("stop getting bogged down in portability").
- - **Baseline on the current engine: SCORE 0.209** (object, largest 400; Jaccard 0.210, 961,081 nodes against 880,906). The engine with peak-basin nodes scores **0.661** (basin, largest 400; Jaccard 0.670). The tally is identical to 23 September's. The regression came with the v2 split, and the current work left it unchanged.
- - Cause: the peak-basin nodes are peak basins (`binomial_basins`/`peak_basins`, steepest ascent over 26 neighbors, membership where the residual is positive), about 300,000 leaves a sample grouped into objects. The v2 engine's nodes are max-tree components at the most-components level, one object a leaf, cells merged into blobs. No basin module is in the engine, and nothing in it does steepest ascent.
- - Built: `--basins` (rule → EngineBuffers → EngineBodiesRequest → MaxTreeObjectsRequest.basins). `max_tree_basin_ascent_kernel` points every voxel at the highest of itself and its 26 neighbors (key code, then ~index), and `max_tree_cc_flatten_kernel` follows each positive voxel to its peak; the peak, mark and body kernels are unchanged. The level cut stays the default until basins score.
+   - **Baseline on the current engine: SCORE 0.209** (object, largest 400; Jaccard 0.210, 961,081 nodes against 880,906). The engine with peak-basin nodes scores **0.661** (basin, largest 400; Jaccard 0.670). The tally is identical to 23 September's. The regression came with the v2 split, and the current work left it unchanged.
+   - Cause: the peak-basin nodes are peak basins (`binomial_basins`/`peak_basins`, steepest ascent over 26 neighbors, membership where the residual is positive), about 300,000 leaves a sample grouped into objects. The v2 engine's nodes are max-tree components at the most-components level, one object a leaf, cells merged into blobs. No basin module is in the engine, and nothing in it does steepest ascent.
+   - Built: `--basins` (rule → EngineBuffers → EngineBodiesRequest → MaxTreeObjectsRequest.basins). `max_tree_basin_ascent_kernel` points every voxel at the highest of itself and its 26 neighbors (key code, then ~index), and `max_tree_cc_flatten_kernel` follows each positive voxel to its peak; the peak, mark and body kernels are unchanged. The level cut stays the default until basins score.

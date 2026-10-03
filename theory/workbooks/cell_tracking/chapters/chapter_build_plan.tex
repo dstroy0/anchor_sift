@@ -175,40 +175,61 @@ D1 and D2 are the engine's (the engine workbook's build plan).
 
 \begin{itemize}
 \item Theirs: \texttt{core/\allowbreak{}links.\allowbreak{}py}.
+
+\begin{itemize}
 \item Positions: \texttt{find\_\allowbreak{}futures}, \texttt{find\_\allowbreak{}pasts}, \texttt{find\_\allowbreak{}single\_\allowbreak{}future}, \texttt{find\_\allowbreak{}single\_\allowbreak{}past}.
 \item Appear and disappear: \texttt{find\_\allowbreak{}appeared\_\allowbreak{}positions}, \texttt{find\_\allowbreak{}disappeared\_\allowbreak{}positions}.
 \item Tracks: \texttt{get\_\allowbreak{}track}, \texttt{find\_\allowbreak{}all\_\allowbreak{}descending\_\allowbreak{}tracks}, \texttt{find\_\allowbreak{}all\_\allowbreak{}tracks\_\allowbreak{}in\_\allowbreak{}same\_\allowbreak{}lineage}, \texttt{find\_\allowbreak{}starting\_\allowbreak{}tracks}, \texttt{find\_\allowbreak{}ending\_\allowbreak{}tracks}, \texttt{find\_\allowbreak{}all\_\allowbreak{}tracks\_\allowbreak{}in\_\allowbreak{}time\_\allowbreak{}point}.
 \item Data attached to links and lineages: \texttt{get\_\allowbreak{}link\_\allowbreak{}data}, \texttt{find\_\allowbreak{}all\_\allowbreak{}links\_\allowbreak{}with\_\allowbreak{}data}, \texttt{get\_\allowbreak{}lineage\_\allowbreak{}data}.
+\end{itemize}
 \item Ours to build: the same queries over our track graph, in one module behind one request struct, with the exact fields as link data.
 \end{itemize}
 \item \textbf{Order, ruled: the event census first.} \texttt{-\allowbreak{}-\allowbreak{}overlap} classifies every component at each cut by its partner counts: 1→1 move, 1→2 division, 2→1 merge, 1→0 disappear, 0→1 appear, and the rest as n→m. It is measured against the key's divisions on 44b6 and 6bba.
 
 \begin{itemize}
 \item \textbf{Measured.}
+
+\begin{itemize}
 \item Two device passes over the distinct (earlier root, later root) pairs:
+
+\begin{itemize}
 \item “backs”: for each root, how many of its partners have exactly one partner in return;
 \item a census a root: 0 partners; 1 partner with 1 back (move); 2 partners with 2 backs (1→2, or 2→1 on the later side).
+\end{itemize}
 \item Mutual counted from the later side equals the earlier side's on every cut, 0 differ on both samples. That is the census's proof.
+\end{itemize}
 \item \textbf{At the earlier frame's cut:}
+
+\begin{itemize}
 \item 6bba\_\allowbreak{}48816121: 6,688 moves, 570 1→2, 590 2→1, 42,853 disappear, 40,996 appear, out of 61,679 components. The key holds 5 divisions over these pairs.
 \item 44b6\_\allowbreak{}0113de3b: 7,962 moves, 819 1→2, 789 2→1, 22,545 disappear, 21,517 appear, out of 39,507. The key holds 0 divisions.
 \item So at the most-components cut, about 70\% of the components have no partner at the drift: specks that do not persist. Higher in the tree about 20\% do.
 \item The key annotates about 9 cells a frame. Census totals cannot be graded against it. Only a per-division verdict can.
+\end{itemize}
 \item \textbf{Per key division, measured.} Each division is graded on a chain of verdicts, each implying the one before:
+
+\begin{itemize}
 \item present: the parent at t and both daughters at t+1 are above the cut;
 \item apart: the daughters are in two distinct components;
 \item parted: the parent's component overlaps both of them at the drift, found by a device binary search in the sorted pairs;
 \item caught: parted, and the parent's component is 1→2.
+\end{itemize}
 \item \textbf{6bba\_\allowbreak{}48816121, 5 key divisions, taking each pair's best sampled cut.} At the most-components cut, 0 are parted.
+
+\begin{itemize}
 \item 5 are present, 3 apart, 2 parted, 1 caught.
 \item t=5→6: caught at level 1,056,677 (214 components, 162 mutual).
 \item t=11→12: parted at 3 cuts but never 1→2, because the parent's component has more partners or its partners have more backs.
 \item t=57→58: apart at 4 cuts but never parted. The parent's component at the frame's single drift does not reach both daughters.
 \item t=16→17 and t=60→61: the daughters are never apart at any cut where the parent is also present.
+\end{itemize}
 \item \textbf{What that says:}
+
+\begin{itemize}
 \item A just-divided pair separates only at levels where the parent is gone, or not at all.
 \item One global drift misses daughters that move apart.
 \item A division is found by a per-chain level (row 1's slide), with a per-body drift or climb in place of the frame's.
+\end{itemize}
 \item \textbf{Next is Doug's:} the rule for the cut; then GEFF and CTC write, and the query API (9d).
 \end{itemize}
 \end{itemize}

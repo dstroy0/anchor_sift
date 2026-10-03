@@ -155,7 +155,7 @@ The tracker, written out as the one function it computes, stage by stage, from t
 
 ### E1. The residual (row 3): the machine's A1
 
- R_t = 2^g · (B_s ∗ I_t) − B_b ∗ (B_s ∗ I_t), with the program's orders s and b (row 3's debt). The positive set is P_t(x) = [R_t(x) > 0].
+  R_t = 2^g · (B_s ∗ I_t) − B_b ∗ (B_s ∗ I_t), with the program's orders s and b (row 3's debt). The positive set is P_t(x) = [R_t(x) > 0].
 
 ### E2. The bodies (row 1): the machine's A2 and A3, then `grow_leaves`
 
@@ -164,7 +164,7 @@ The tracker, written out as the one function it computes, stage by stage, from t
 
 ### E3. The drift (row 4): A4, `shift_agreement`
 
- d_t = argmax_v Σ_x P_t(x) · P_{t+1}(x + v)
+  d_t = argmax_v Σ_x P_t(x) · P_{t+1}(x + v)
 
 ### E4. The climb (row 5): A4, `climb_machine`
 
@@ -176,15 +176,15 @@ For each body b of frame t, A_b(v) = Σ_{x∈b} P_{t+1}(x + v). The climb starts
 
 ### E5. The null (row 8): the same climb toward a frame where no correspondence exists
 
- h⁰_k(b) = A_b^{(t → t_k)}(v*), one draw k per floor on the identity line when a floor is laid down
+  h⁰_k(b) = A_b^{(t → t_k)}(v*),  one draw k per floor on the identity line when a floor is laid down
 
 ### E6. The overlap triples (row 7): A4, `body_overlap`
 
- T(b, b′) = |{ x : L_t(x) = b, L_{t+1}(x + d_t) = b′ }|, kept where T > 0
+  T(b, b′) = |{ x : L_t(x) = b, L_{t+1}(x + d_t) = b′ }|,  kept where T > 0
 
 ### E7. The objects (row 6): `group_objects` (`merge_split`)
 
- b ~ b′ ⇔ b, b′ touch ∧ ( O_{t−1}(back(b)) = O_{t−1}(back(b′)) ∨ f(b) = f(b′) ≠ none )
+  b ~ b′ ⇔ b, b′ touch ∧ ( O_{t−1}(back(b)) = O_{t−1}(back(b′)) ∨ f(b) = f(b′) ≠ none )
 
 The objects O_t are the transitive closure of ~, one frame after another. **On the current bodies, E7 changes nothing**: two components of one cut cannot share a face. `grow_leaves` writes no touching pairs and every object is one body ("largest 1" on every run).
 
@@ -192,17 +192,17 @@ The objects O_t are the transitive closure of ~, one frame after another. **On t
 
 For an object O of t and each object Q of t+1 that O's triples or forwards reach:
 
- W(O, Q) = Σ_{b∈O} Σ_{b′∈Q} T(b, b′)
+  W(O, Q) = Σ_{b∈O} Σ_{b′∈Q} T(b, b′)
 
 A forward that reaches Q enters the pool with weight 0.
 
- κ(b, b′) = min over the four pairings (lag or lead) of ( s ≪ 40 ) | ( Σ_a w_a (ℓ_a + ℓ′_a)² mod 2⁴⁰ )
+  κ(b, b′) = min over the four pairings (lag or lead) of  ( s ≪ 40 ) | ( Σ_a w_a (ℓ_a + ℓ′_a)²  mod 2⁴⁰ )
 
 - ℓ is b's forward lag and ℓ′ is b′'s backward lag. Their sum ℓ + ℓ′ is how far the round trip misses.
 - s = min { j ≤ 12 : 2^j ≥ max_a |ℓ_a + ℓ′_a| } is the jitter step it meets at.
 - K(O, Q) is the least κ over the member pairs that reach Q.
 
- Links(O) = { Q : W(O, Q) = max_Q′ W(O, Q′) ∧ K(O, Q) = min over those Q of K }
+  Links(O) = { Q : W(O, Q) = max_Q′ W(O, Q′) ∧ K(O, Q) = min over those Q of K }
 
 The link is the heaviest overlap. The round-trip cost only breaks ties.
 
@@ -222,25 +222,25 @@ These are written for every body, pair or triple in one sweep each, device equal
 - **The print** (row 2, `fingerprint`), per body: β(m) and the six signed golden bands of K′ / m², where K′ = s_a s_b (m M − S_a S_b) is scaled by `voxel_pm` over its common unit.
 - **The print cost** (row 7, `print_pair`), per pair: the distance between two prints. The ceiling 1,275 is a body against itself.
 - **Velocity** (row 5, `velocity`), per body and its forward, and per axis:
- - Δ_a = (S′_a m − S_a m′) / (m m′), held as the pair (numerator, m m′)
- - R_a = L_a · m m′ − (S′_a m − S_a m′)
- - c_a = COMPARE(m m′, |R_a|), and the verdict V_a = c_a (c_a + 1). It is nonzero exactly when |Δ_a − L_a| < 1, the climbed lag standing on a lattice point beside the dipole's change.
- - V = V_z V_y V_x.
+  - Δ_a = (S′_a m − S_a m′) / (m m′), held as the pair (numerator, m m′)
+  - R_a = L_a · m m′ − (S′_a m − S_a m′)
+  - c_a = COMPARE(m m′, |R_a|), and the verdict V_a = c_a (c_a + 1). It is nonzero exactly when |Δ_a − L_a| < 1, the climbed lag standing on a lattice point beside the dipole's change.
+  - V = V_z V_y V_x.
 - **Division** (row 9, `division`), per parent p and two pieces c, s whose backward climbs land on p:
- - D_mass = 1 − |COMPARE(β(m_c + m_s), β(m_p))|
- - D_axis = [3 Δᵀ K_p Δ ≥ tr(K_p) |Δ|²], where Δ = S_c m_s − S_s m_c
- - D = D_mass · D_axis
+  - D_mass = 1 − |COMPARE(β(m_c + m_s), β(m_p))|
+  - D_axis = [3 Δᵀ K_p Δ ≥ tr(K_p) |Δ|²], where Δ = S_c m_s − S_s m_c
+  - D = D_mass · D_axis
 - **Contact side** (row 6, `contact_side`, two passes), per touching pair A, B of frame t whose forwards A′, B′ both exist:
- - pass 1: N = σ ∘ (S_A m_B − S_B m_A) per pair, where σ_a = voxel_pm_a / gcd(voxel_pm);
- - pass 2 reads two pass-1 records: dot = N · N′, c = COMPARE(dot + 1, 1) = sign(dot);
- - kept = c (c + 1) and crossed = c (c − 1).
+  - pass 1: N = σ ∘ (S_A m_B − S_B m_A) per pair, where σ_a = voxel_pm_a / gcd(voxel_pm);
+  - pass 2 reads two pass-1 records: dot = N · N′, c = COMPARE(dot + 1, 1) = sign(dot);
+  - kept = c (c + 1) and crossed = c (c − 1).
 
- dot is (c_A − c_B)·(c_A′ − c_B′) in physical space times the positive m_A m_B m_A′ m_B′ / gcd², and its sign is exact. Two membranes cannot pass through one another, and a real pair keeps its side. dot = 0 includes A′ = B′, the pair landing on one body.
+  dot is (c_A − c_B)·(c_A′ − c_B′) in physical space times the positive m_A m_B m_A′ m_B′ / gcd², and its sign is exact. Two membranes cannot pass through one another, and a real pair keeps its side. dot = 0 includes A′ = B′, the pair landing on one body.
 - **The marginal** (rows 7 and 8), the machine's A5 with the program's weights: ω(b″, b′) = T(b″, b′) (or T*, below) and ω(b″, none) = max_k h⁰_k(b″). P(b → b′ | G) = Z_{b→b′} / Z. Every source's weights share its own mass as denominator. The masses cancel, and Z and every Z_{b→·} are exact integers compared by cross-multiplying, with no temperature, no energy and no calibration. OrganoidTracker 2.0's P(A | G) is the same sum over exp(−E/T) of calibrated network energies.
 
 ### The whole, in one line
 
- Tracks = Resolve( Links( W(T(B(R(I)), d)), K(v*(B, d), v*(B′, −d)) ), Objects(B, f, back) )
+  Tracks = Resolve( Links( W(T(B(R(I)), d)), K(v*(B, d), v*(B′, −d)) ), Objects(B, f, back) )
 
 This reads from the inside out:
 1. the residual R;
@@ -279,9 +279,9 @@ What it replaces today: the drift computed once (`shift_agreement`, over every v
 
 - **The null's exact transform.** The link's weight is the climb's own functional split by the target it lands on:
 
- T*(b, b′) = |{ x ∈ b : P_{t+1}(x + v*_b) ∧ L_{t+1}(x + v*_b) = b′ }|, and summed over b′, Σ_{b′} T*(b, b′) + T*(b, ∅) = A_b(v*_b) = h(b)
+  T*(b, b′) = |{ x ∈ b : P_{t+1}(x + v*_b) ∧ L_{t+1}(x + v*_b) = b′ }|,  and summed over b′, Σ_{b′} T*(b, b′) + T*(b, ∅) = A_b(v*_b) = h(b)
 
- where ∅ is a positive voxel in no body (R > 0 below the cut). In the marginal, ω(b, b′) = T*(b, b′) and ω(b, none) = max_k h⁰_k(b). Both are counts of the same body's voxels under the same operator, and the masses still cancel.
+  where ∅ is a positive voxel in no body (R > 0 below the cut). In the marginal, ω(b, b′) = T*(b, b′) and ω(b, none) = max_k h⁰_k(b). Both are counts of the same body's voxels under the same operator, and the masses still cancel.
 - **Contact** (row 6). Each body has an assigned boundary. At width w, κ_w(A, B) = |{ x : d_A(x) ≤ w ∧ d_B(x) ≤ w }|, where d_A(x) = min_{y∈A} ‖x − y‖∞. It is nonzero exactly where the two boundaries overlap at w: the truthy contact, its size the magnitude.
 - **The jitter core** (C1, rows 13 and 6). The match b′ = f(b) has D_{b′}(y) = min_{z∉b′} ‖y − z‖∞. A voxel x of b stays at width w when D_{b′}(x + v*_b) > w. Built and proved: the width-0 core is C[b, b′](v*_b), exactly, on every forward climber of 44b6_0113de3b. The widths end at 5 there; the data sets where they end, and the view bounds them at (shortest extent + 1)/2.
 - **The cut** (row 1). ℓ* slides through every level of the component tree, to the top, and each nested chain keeps the node that stays coherent between frames. One level for the whole frame is replaced by one node per chain.
