@@ -157,7 +157,7 @@ What follows separates what is settled from what is open, and the open part is m
 
 **Failing to halt is not Turing completeness.** A process can fail to halt by cycling among three states. Turing completeness needs storage that grows during execution together with the ability to compute arbitrary functions of it. Concluding the engine is Turing complete because its outer loop is unbounded conflates the two, and that does not follow.
 
-**What is implemented today is finite.** `ANCHOR_STEER_ANCHORS` is 4. The descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 128 by default, which is 4096 bits. A build may select any power of two from 1 to 32768 limbs, and the engine refuses fewer than 8 (`src/c/types/integers/exact_integer.h`). A fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
+**What the engine implements is finite.** `ANCHOR_STEER_ANCHORS` is 4. The descent places at most four probes and spawns at most four coarms. `ANCHOR_EXACT_LIMBS` is 128 by default, which is 4096 bits. A build may select any power of two from 1 to 32768 limbs, and the engine refuses fewer than 8 (`src/c/types/integers/exact_integer.h`). A fixed width counter is a finite state machine at any width. For a fixed corpus the survivor set is a subset of the alignments and the probe family is bounded by the needle length. Nothing in the engine as built grows while it runs.
 
 **The methodological error is the durable finding and it survives either answer.** Concluding the system is total by observing that every loop inside one invocation is bounded uses only a property of one invocation. A system halting on every input decides its own halting. The claim needs the outer loop and never looks at it.
 
@@ -265,7 +265,7 @@ One read per alignment is the floor for a scheme that decides each alignment fro
 
 That floor describes this engine and is not a number to hold a different search style against. Boyer-Moore, Horspool, Sunday and the factor-based methods skip alignments outright: a mismatch at one alignment proves non-occurrence across a range, and the skipped alignments are never read. Their reads per alignment is taken over the alignments they chose to visit, which is a sparse subset of the alignments counted in this table. The name is shared and the set counted underneath it is not. A ratio between the two columns measures nothing. This engine visits every alignment by construction and rejects; a skipping search advances. No figure here is a comparison against one.
 
-The engine gives that up deliberately, and what it spends is worth stating precisely because `README.md:99` makes two separate claims: that the engine carries `m` bits of state for a pattern of length `m`, and that nothing is indexed and no table is built over the alphabet, the half covering a real-valued or unenumerable alphabet.
+The engine gives that up deliberately, and what it spends is worth stating precisely because `README.md` makes two separate claims: that the engine carries `m` bits of state for a pattern of length `m`, and that nothing is indexed and no table is built over the alphabet, the half covering a real-valued or unenumerable alphabet.
 
 A classical bad character table is indexed by symbol and spends both. A structure built from the needle's own values spends only the first: for each needle position it records the next position to its left carrying the same value, which is `m` positions and therefore `m log m` bits, and it indexes nothing over the alphabet because it tests equality against the `m` values the needle holds. The good suffix rule is not available here at any price. It needs a contiguous right to left comparison to know which suffix matched, and this engine probes an arbitrary subset in an arbitrary order. Adopting it would mean giving up probe placement, the thing being steered. Nothing here implements either.
 
@@ -277,7 +277,7 @@ maint/engine/build_engine.sh
 
 The script configures, builds named targets and runs the graders. `test_steer` grades the ordering against `orior_naive` at seven needle lengths, measures the probe reduction, carries a negative control that orders the commonest symbol first and must read more, checks the exact dispatch against four fields whose answers are derived by hand, asserts that the widest scan engine the machine carries actually ran, and grades arms, eyes and coarms on five fields: the synthetic skewed field, the three `bench_corpora` kinds, and the license text.
 
-Two drivers in `bench/` do not compile with MSVC and the script does not build them. `bench_dispatch.c:105` uses `CLOCK_MONOTONIC`, which is POSIX. `bench_lattice.c:500` onward does not parse. Neither is on the path the engine needs.
+Two drivers in `bench/` do not compile with MSVC and the script does not build them. `bench_dispatch.c` uses `CLOCK_MONOTONIC`, which is POSIX. `bench_lattice.c` onward does not parse. Neither is on the path the engine needs.
 
 ## What is not checked here
 

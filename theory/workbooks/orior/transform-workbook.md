@@ -1455,7 +1455,7 @@ the anchor construction and its cost model; `orior/docs/research/terms.md` and
 `orior.md`
 §2.1 for the Sigma-delta null; `orior/docs/research/hourly_supposition.md` items 1, 4, 9, 11
 and 16 for the co-arm disturbance, known-doping-as-salt, the bounding prohibition, mutation over
-transformation, and the sampling-limit continuum. Published cryptanalysis fetched 2026-09-08:
+transformation, and the sampling-limit continuum. Published cryptanalysis:
 Khovratovich and Nikolic FSE 2010 for rotational cryptanalysis, Ashur and Liu 2016 for
 rotational-XOR, Mendel/Nad/Schlaffer EUROCRYPT 2013 for the 31-step collision, Khovratovich et al.
 for the 52-step preimage at 2^255.

@@ -256,12 +256,12 @@ the miners demonstrably moved is not measuring the miners.
     python examples/00_blob_viz_tools/build_scope_view.py
 
 `fetch_deep.py` writes `maint/chain/blocks_deep.json`, and `phase_replication.py` reads that file by
-default (`maint/chain/fetch_deep.py:35`, `maint/chain/phase_replication.py:153`). The committed copy
+default (`maint/chain/fetch_deep.py`, `maint/chain/phase_replication.py`). The committed copy
 holds 6980 blocks, heights 959484 to 966463, the corpus of the integration above. `fetch_deep.py`
 walks down from the current chain tip and overwrites that file by default
-(`maint/chain/fetch_deep.py:78`, `:83-84`). Run it only to measure a new corpus. The scope view reads `maint/chain/blocks.json`, the
+(`maint/chain/fetch_deep.py`). Run it only to measure a new corpus. The scope view reads `maint/chain/blocks.json`, the
 thousand-block corpus `fetch_blocks.py` writes, and that file is not committed
-(`examples/00_blob_viz_tools/build_scope_view.py:51`, `maint/chain/fetch_blocks.py:19-20`).
+(`examples/00_blob_viz_tools/build_scope_view.py`, `maint/chain/fetch_blocks.py`).
 
 The measurements are the field scan, the distribution rake, the two emitter tests, the three jitter
 readings, the integration against written predictions, and the daily and weekly cycles. This
@@ -286,7 +286,7 @@ meaningless to marginal.
 Pool identity is recoverable from a block, though not from the fields used here: it sits in the
 coinbase transaction's tag, in plaintext, the basis explorers use to attribute blocks.
 Neither `maint/chain/blocks.json` nor `maint/chain/blocks_deep.json` carries it
-(`maint/chain/fetch_blocks.py:56-66`). Emitters had to be inferred above, and the inference
+(`maint/chain/fetch_blocks.py`). Emitters had to be inferred above, and the inference
 failed.
 
 With attribution fetched alongside the headers the question becomes supervised. Given the pool that
@@ -309,9 +309,9 @@ The diffusion question and its statistic are Webster and Tavares', who defined t
 criterion while looking for design principles for DES-like ciphers [3]. The measurement of SHA-256
 against it round by round, including the Bonferroni-relaxed threshold and the finding that Sigma1,
 integer addition, Choose and the message scheduler carry diffusion earliest, is Vaughn and
-Borowczak's [4][5]. `src/engine/c/sha256/bench/bench_sac.cu` was written to reproduce their
-numbers and was removed in commit `bdaed61`; `git show bdaed61^:src/engine/c/sha256/bench/bench_sac.cu`
-recovers it. The asymmetry between Sigma1 and Sigma0 at `docs/sha256-topology.md:189` is consistent
+Borowczak's [4][5]. `src/engine/c/sha256/bench/bench_sac.cu` reproduces their
+numbers and is not in the tree; `git show bdaed61^:src/engine/c/sha256/bench/bench_sac.cu`
+recovers it. The asymmetry between Sigma1 and Sigma0 at `docs/sha256-topology.md` is consistent
 with what they found.
 
 The fields being read were specified by other people too, and reading them correctly means reading

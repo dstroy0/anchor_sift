@@ -7,9 +7,8 @@ the identities among them, and `examples/0_experimental/exact_identities_spread_
 runs the mathematical case.
 
 Names are chosen to avoid meanings already in use in this tree: `closure` is taken for the transitive closure of the equality oracle
-(`src/c/engine/nbody/orior/orior.h:443-453` at orior `1948ae1`, moved from
-`src/engine/c/engine/` by `bdaed61` on 24 September), `coherence` for lag-agreement structure
-(`theory/workbooks/orior/chapters/chapter_orior_workbook.tex:294` and `bench_coherence.c`), `topology`
+(`src/c/engine/nbody/orior/orior.h`), `coherence` for lag-agreement structure
+(`theory/workbooks/orior/chapters/chapter_orior_workbook.tex` and `bench_coherence.c`), `topology`
 for the induced `tau_Sigma` on the symbol carrier (`theory/theory/delta_null`, chapter terms), `span`
 for a length scale (delta null's block-span sweep and the engine workbook's span table), and the
 subscript `D` for a pattern support `D subset G`. This document uses `gen` for the generation operator
@@ -78,10 +77,7 @@ places holds the loss, and `gen(S)` is known to `N` places.
 **Argument.** Induction on derivation depth. A seed holds at `N + g` places. Each exact operation on
 scaled integers (add, subtract, multiply with a rescale, divide) floors, losing under one unit in the
 last worked place; this is the same floor `representation.exact` and `src/engine/c/no_rounding/`
-carry. (Note, 26 September: at orior `1948ae1` the C side is `src/engine/base/no_rounding/`,
-moved by `bdaed61` on 24 September, and `representation.exact` was deleted by `74601c1` on 26
-September. Later, 26 September: `d09b489`, orior PR 12, put it back byte-identical, and biohub
-pins `d09b489`.) A chain of `d` such steps loses under `d` units, and a value reached in `d` steps holds to
+carry. (Note: the C side is `src/engine/base/no_rounding/`.) A chain of `d` such steps loses under `d` units, and a value reached in `d` steps holds to
 `N + g - d` places. The guard absorbs `d` while `10^g > d`.
 
 The prototype measures this directly. Over the seven root derivations it checks, the worst gap between
@@ -122,10 +118,7 @@ physics has one hub, the Rydberg energy `R_inf`, from which every hydrogen-like 
 `E(n,Z) = -R_inf Z^2/n^2` and radius `r(n,Z) = a0 n^2/Z` follows by an exact rational identity in the
 hub. Game theory decides minimum Shannon entropy with no logs by `prod p_i^{p_i} = 2^{-H}`,
 cleared to integers through the least common multiple of the share denominators, and an entropy order
-becomes an exact rational comparison (`src/python/includes/formats/representation/game/rules.py`, `measure/outcome_entropy.py`;
-note, 26 September: both were deleted with `src/python/` by `74601c1` on 26
-September and are in no file at orior `1948ae1`; later, 26 September: `d09b489`, orior
-PR 12, put both back byte-identical, and biohub pins `d09b489`). Removable uncertainty in this regime is zero.
+becomes an exact rational comparison (`src/python/includes/formats/representation/game/rules.py`, `measure/outcome_entropy.py`). Removable uncertainty in this regime is zero.
 
 **Regime B, counting.** Quantities are exact integers or rationals by their nature, and identities
 propagate exactly with nothing to raise: the multiplier is one. Chemistry carries the
@@ -135,21 +128,20 @@ definition. Particle physics carries the integer capacities `2(2l+1)` and `2n^2`
 closure to 118. The engine carries the set-algebra identity that the alignments a probe set rejects are
 a union, and every LEGAL probe set gives the same count after the full compare, where an illegal probe
 reading outside the pattern is not covered and the survivor set before the compare is a superset
-(`docs/steering.md:118`, `T subset S_p for every legal probe p`), and the transitive closure of the equality oracle into classes.
+(`docs/steering.md`, `T subset S_p for every legal probe p`), and the transitive closure of the equality oracle into classes.
 These are exact and load-free, and they do not multiply precision because the quantities have none to
 gain.
 
 **Regime C, measured.** An irreducible upstream floor. In crystallography the recovered
 period equals the published edge to the digit and never finer, and that the metric tensor is
 deliberately left out of the exact path, because a general cell angle has a transcendental cosine that
-does not stay in exact integers or rationals (`crystal.py:240`). That domain also carries a
+does not stay in exact integers or rationals (`crystal.py`). That domain also carries a
 completeness floor of its own, separate from the deposit: a right-angle gate, `RIGHT_ANGLE_SLACK = 0.01`
-at `crystal.py:112`, admits a cell to the exact path only where every angle is within `0.01` of 90, and
+at `crystal.py`, admits a cell to the exact path only where every angle is within `0.01` of 90, and
 a census over 8885 COD entries refused 4411 of them, family-dependent (garnet 97.5 percent admitted,
-feldspar 2.9 percent), measured by `maint/analysis/survey/crystal_gate_census.py` (note, 26 September: `crystal.py` was
-`src/python/includes/formats/representation/structure/crystal.py`, deleted by `74601c1` on 26 September, and
-the census script imports from that tree; later, 26 September: `d09b489`, orior PR 12, put it
-back byte-identical, and biohub pins `d09b489`). Two further
+feldspar 2.9 percent), measured by `maint/analysis/survey/crystal_gate_census.py` (note: `crystal.py` is
+`src/python/includes/formats/representation/structure/crystal.py`, and
+the census script imports from that tree). Two further
 judgment-picked parameters, `EXACT_TILES = 4` and a harmonic-family cap of 2, sit in the period reader
 and can decide which period is reported. Their effect is unmeasured,
 and the reader is not parameter-free. Chemistry takes bond lengths,
@@ -166,7 +158,7 @@ of line ratios is physical-constant-free and exact while the absolute scale stil
 uncertainty. The spread reaches Regime C only by cancellation, predicting exact ratios, never by
 raising an absolute past its deposit. Where the absolute is needed with its uncertainty, the engine now
 carries it: `anchor_exact_from_measured` and `representation.exact.measured(text, digits)` return the
-value and its bracketed uncertainty at one scale (on `origin/main` at `656be3e`).
+value and its bracketed uncertainty at one scale (on `origin/main`).
 
 ## 6. Two floors: precision and completeness
 

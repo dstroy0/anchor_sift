@@ -28,7 +28,7 @@ stated floor.
 
 Read from Andrew Wiles's statement for the Clay Mathematics Institute, five pages, read in full. The
 corpus chapter (`theory/theory/millennium/chapters/chapter_the_corpus.tex`) records the same file at
-`Downloads/millenium/birchswin.pdf`, and its bytes match what claymath.org served on 2026-09-11.
+`Downloads/millenium/birchswin.pdf`, and its bytes match what claymath.org serves.
 
 A polynomial relation `f(x, y) = 0` with rational coefficients defines a curve, classified topologically
 by its genus. Faltings, proving Mordell's conjecture, gives that a curve of genus at least 2 has finitely
