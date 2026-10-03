@@ -314,8 +314,19 @@ works there.
      barrier, a store behind a read barrier, and the soonest a fixed result is read, 4 cycles on the integer
      operations. Our safe word sets its barriers from that schedule and stalls the longest at every instruction.
      The stall is the cost layer and is decided with Doug before it is tuned.
+   - Writings searched on the part. `utils/test/src/c/transpiler/interface/interface_sass_writings.sh` puts every
+     form of the machine file that writes a register from registers, predicates and numbers alone, 745 of 2928, in
+     place of the frame's IADD3, each through the gate, and runs it on the part over 229 cases at once: the ladder's
+     two-word cases and 32 words drawn past them for each relation, as `chain_build` draws its sweep. It writes
+     `interface_sass_writings.md` whole. 696 run, the part refuses 49, and add holds under 21 forms, take under 18,
+     product under 28, up under 3 and down under 2, and same under none. On the ladder's cases alone a dot product
+     of bytes holds product and every shift holds up or down: the drawn words take them out. Up and down hold only
+     under `SHF.L.W` and `SHF.R.W` with a register count, since the precept wraps a count of 32 and more and the
+     forms without `.W` answer 0 there.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
-     where the precept wraps it; `word_funnel_right` carries no `.W` and has no left form; there is no
+     where the precept wraps it. The machine file holds no `.W` form with a number for the count, and the code
+     generator writes number counts of 1 to 31 alone, where both forms agree. `word_funnel_right` carries no `.W`
+     and has no left form; there is no
      arithmetic shift form; NOT, NAND and NOR have no form, each one `LOP3` (0x33, 0x3f, 0x03); add and
      subtract write `IADD3` alone.
    - Word web and alphabet web. On this part every gate is one `LOP3` node and ASR, ROL and ROR are each one
