@@ -84,7 +84,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 # The hand extractions live in the research body, beside the prose that cites them. They are the
 # speakers' words written down and they are evidence, not tooling.
-ORACLES = os.path.join(ROOT, "build", "oracles")
+ORACLES = os.path.join(ROOT, "examples", "Salishan", "oracles")
 
 sys.path.insert(0, HERE)
 

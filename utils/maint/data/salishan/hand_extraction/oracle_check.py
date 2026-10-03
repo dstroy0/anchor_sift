@@ -86,7 +86,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # The hand extractions are evidence and not tooling. They live in the research body beside the
 # prose that cites them. The language in them belongs to the people who spoke it, and their names
 # open every table and the README beside them.
-ORACLES = os.path.join(ROOT, "build", "oracles")
+ORACLES = os.path.join(ROOT, "examples", "Salishan", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
 

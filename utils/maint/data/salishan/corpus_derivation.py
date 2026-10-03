@@ -4,7 +4,7 @@
 #
 # Estimate how wrong the pure corpus could be, and write the estimate as a document.
 #
-#   Usage:  python maint/data/salishan/corpus_derivation.py
+#   Usage:  python utils/maint/data/salishan/corpus_derivation.py
 #
 # Run after every change to a hand extraction. This file reads the checks, computes a bound on the
 # per-line error rate of the pure corpus, and rewrites the corpus derivation chapter in theory/.
@@ -50,7 +50,7 @@ while (_at != os.path.dirname(_at)) and not os.path.isdir(
 sys.path.insert(0, os.path.join(_at, "src", "python", "engine", "nbody", "orior", "instrument"))
 # Built from the repository and not by counting parents. Counting put this at maint/data/texbuild,
 # which has never existed, and the import failed with a missing module instead of a wrong path.
-sys.path.insert(0, os.path.join(_at, "maint", "texbuild"))
+sys.path.insert(0, os.path.join(_at, "utils", "maint", "texbuild"))
 
 import boundary_check as border  # noqa: E402
 import markdown_to_latex  # noqa: E402
@@ -58,6 +58,13 @@ import coverage_check as coverage  # noqa: E402
 import oracle_check as oracle  # noqa: E402
 import reader_check as reader  # noqa: E402
 from orior import distance, self_distance, squash  # noqa: E402
+from paper_config import by_stem  # noqa: E402
+
+
+def cited(stem):
+    """A paper as a citation marker the chapter turns into \\cite, from the key paper_config gives it."""
+    paper = by_stem(stem)
+    return ("[[cite:%s]]" % paper.cite) if (paper is not None) and paper.cite else stem
 from language_check import BY_CORPUS  # noqa: E402
 from papers import EVERY, NOT_FAITHFUL, ORTHOGRAPHY_ABSENT, PAGE_TEXT  # noqa: E402
 from salish_unsorted import is_language_token  # noqa: E402
@@ -384,7 +391,7 @@ def figure_of(papers, readers, path):
             marker="s",
             s=70,
             c="#2e7d4f",
-            label="reader against its table",
+            label="automatic extractor against its table",
             zorder=4,
             edgecolors="white",
             linewidths=0.6,
@@ -462,7 +469,7 @@ def figure_of(papers, readers, path):
         color="#2e7d4f",
         linestyle="--",
         zorder=3,
-        label="reader, median of the per-paper rates",
+        label="automatic extractor, median of the per-paper rates",
     )
     if rates:
         right.scatter(
@@ -474,7 +481,7 @@ def figure_of(papers, readers, path):
             zorder=4,
             edgecolors="white",
             linewidths=0.6,
-            label="reader, one point per paper",
+            label="automatic extractor, one point per paper",
         )
 
     if crossing:
@@ -490,7 +497,7 @@ def figure_of(papers, readers, path):
 
     right.axvspan(min(sizes), standing, color="#1f5f8b", alpha=0.07, zorder=0)
     right.annotate(
-        "corpus on disk",
+        "corpus held",
         (standing, 0.94),
         textcoords="offset points",
         xytext=(-76, 0),
@@ -500,7 +507,7 @@ def figure_of(papers, readers, path):
 
     right.set_xscale("log")
     right.set_ylim(-0.03, 1.03)
-    right.set_xlabel("pure corpus size, adjacent byte pairs")
+    right.set_xlabel("gold standard corpus size, adjacent byte pairs")
     right.set_ylabel("fraction placed correctly")
     right.set_title("Where the two ways of reading a paper are going")
     right.grid(True, which="both", linewidth=0.4, alpha=0.4, zorder=0)
@@ -826,26 +833,13 @@ def main():
     # once at the end is cheaper than restating all of them in LaTeX.
     with io.StringIO() as handle:
         handle.write("# Corpus derivation\n\n")
-        handle.write(
-            "**Purpose:** Say how wrong the pure corpus could be, from what the checks "
-            "have actually seen, and say what the number rests on.\n"
-        )
-        handle.write(
-            "**Scope:** `maint/data/salishan/corpus_derivation.py`, which writes this "
-            "file, and the three checks it reads.\n\n"
-        )
-        handle.write(
-            "Rewritten by `python maint/data/salishan/corpus_derivation.py` after "
-            "every change to a hand extraction. Nothing in it is typed by hand.\n\n"
-        )
 
         handle.write("## 1. What is being estimated\n\n")
         handle.write(
-            "For one line of the pure corpus, the probability that it is not what it "
+            "For one line of the gold standard corpus, the probability that it is not what it "
             "claims to be: not the target language, or not what the paper printed. Every "
             "number below is an upper bound on that, never a measurement of it, because "
-            "the checks that matter report zero and zero failures in a sample is not "
-            "a rate of zero.\n\n"
+            "zero failures in a sample is not a rate of zero.\n\n"
         )
         handle.write(
             "With no failures in N independent trials the true rate is under 3/N with 95 "
@@ -867,21 +861,21 @@ def main():
             "and a single number cannot show whether it came from one clean paper or from "
             "%d. The panel puts every paper on the picture so the shape of the evidence "
             "is visible: how much each one contributed, and which ones failed anything. "
-            "A reader should come away able to say which papers the number rests on.\n\n"
+            "It shows which papers the number rests on.\n\n"
             % len(sound)
         )
         handle.write(
             "**What to read off it.** Every paper is one point, trials against failures. "
             "The %d on the zero line are the evidence. The %d above it "
             "are checked against a text that is not what their page prints. "
-            "The reader squares are a separate measurement in their own color, and they "
-            "sit high: a reader is a script and it gets a great deal wrong. Section 5 "
-            "gives those per paper, the only form they mean anything in.\n\n"
+            "The squares are a separate measurement, the automatic extractors, and they "
+            "sit high: an extractor written for one paper gets a great deal wrong. "
+            "Section 5 gives those per paper, the only form they mean anything in.\n\n"
             % (on_zero, len(papers) - on_zero)
         )
         handle.write(
             "**Why the right panel is here.** The extraction has a lifetime. What "
-            "carries it? A person reads a paper at a fixed accuracy "
+            "carries it? Manual transcription reads a paper at a fixed accuracy "
             "however large the corpus gets. That arm is flat. The algorithm's accuracy "
             "is a function of corpus size. That arm climbs. Whether and where they "
             "cross decides whether the corpus is worth growing for its own sake, and the "
@@ -891,8 +885,8 @@ def main():
             "**What to read off it.** The algorithm arm is the fraction of dialects whose "
             "distance from the other corpora pooled into one reference corpus clears "
             "twice their resolution. The arm starts at zero, because a small corpus "
-            "resolves nothing, and it crosses the reader arm at %.3g byte pairs, which is "
-            "behind the corpus already on disk. Both arms are drawn: byte pairs alone, "
+            "resolves nothing, and it crosses the manual arm at %.3g byte pairs, which is "
+            "smaller than the corpus already held. Both arms are drawn: byte pairs alone, "
             "and byte pairs with the dialect's own alphabet applied first. Setting an "
             "algorithm given nothing beside a person given a page is not a fair "
             "comparison, and the alphabet is the first part of what the extraction "
@@ -904,9 +898,9 @@ def main():
         )
         for one in papers:
             handle.write(
-                "| `%s` | %d | %d | %d | %d | %d | %s |\n"
+                "| %s | %d | %d | %d | %d | %d | %s |\n"
                 % (
-                    one["stem"],
+                    cited(one["stem"]),
                     one["rows"],
                     one["forms"],
                     one["unfound"],
@@ -927,10 +921,10 @@ def main():
             "because they fail for different reasons. The first is a person writing a "
             "form the paper does not hold, the second is a person walking past a form the "
             "paper does hold, and the third is the corpus losing a token on its way out "
-            "of a reader.\n\n"
+            "of an automatic extractor.\n\n"
         )
         handle.write(
-            "The reader counts are not a channel here. A reader is written for one paper, "
+            "The extractor counts are not a channel here. An extractor is written for one paper, "
             "and what it gets wrong is a fact about that paper and not a draw from a rate "
             "the next paper shares. Pooling %d of them into one denominator would "
             "report a rate that nothing is sampling. They are in Section 5 per paper.\n\n"
@@ -963,10 +957,9 @@ def main():
             )
         else:
             handle.write(
-                "\nNo digit has settled. The bound falls with every paper because every "
-                "paper adds trials and none has yet added a failure. Quoting %.3g as "
-                "though the 85 meant something would be reporting the format. The table "
-                "shows the extraction still buying accuracy at the rate "
+                "\nNo digit has settled. The bound moves with every paper because every "
+                "paper adds trials. Quoting %.3g to three figures would be reporting the "
+                "format. The table shows the extraction still buying accuracy at the rate "
                 "of about one order of magnitude every %.1f papers, and the digit to "
                 "report will settle when that stops.\n\n"
                 % (
@@ -981,7 +974,7 @@ def main():
 
         handle.write("### Where 1e-26 lands\n\n")
         handle.write(
-            "The target this file was asked for is 1e-26 per line over the whole "
+            "The target set for the extraction is 1e-26 per line over the whole "
             "extraction. It is not reached and it is not close, and the honest form of "
             "the answer is the distance.\n\n"
         )
@@ -1008,7 +1001,7 @@ def main():
         handle.write(
             "Closing the rest by counting is not available. Each channel would have to "
             "reach about %.0g trials, which is roughly %.0g times the whole archive. "
-            "There is no reading schedule that gets there, and a file claiming 1e-26 from "
+            "There is no reading schedule that gets there, and a claim of 1e-26 from "
             "these three channels would be reporting a number nothing measured.\n\n"
             % (
                 CONFIDENCE / (1e-26 ** (1.0 / len(channels))),
@@ -1042,29 +1035,28 @@ def main():
             "source are excluded from the count instead of given a worse bound.\n"
         )
         handle.write(
-            "* **Every channel runs through one codebase.** `salish_marking.py` and "
-            "`salish_unsorted.py` decide what counts as a language token, and all three "
-            "channels ask them. A defect in either is common to all three at once, and "
-            "two such defects have already been found this way. Both are in the "
-            "references chapter.\n\n"
+            "* **Every channel runs through one implementation.** Two shared routines "
+            "decide what counts as a language token, and all three channels ask them. A "
+            "defect in either is common to all three at once. The references chapter "
+            "documents two such defects.\n\n"
         )
         handle.write(
             "What would move the number honestly is a second person reading a table that "
             "has already been read. That is the addition that fails for a reason none "
             "of the three share, and until it exists the first bullet stands above every "
-            "number in this file.\n\n"
+            "number in this chapter.\n\n"
         )
 
-        handle.write("## 5. Readers against their tables\n\n")
+        handle.write("## 5. Automatic extractors against their tables\n\n")
         handle.write(
             "| Paper | Rows asked for | Reproduced | Items written | Invented | "
             "Wrong language |\n|---|---|---|---|---|---|\n"
         )
         for one in readers:
             handle.write(
-                "| `%s` | %d | %d | %d | %d | %d |\n"
+                "| %s | %d | %d | %d | %d | %d |\n"
                 % (
-                    one["stem"],
+                    cited(one["stem"]),
                     one["wanted"],
                     one["reproduced"],
                     one["items"],
@@ -1073,24 +1065,23 @@ def main():
                 )
             )
         handle.write(
-            "\nThe readers get a great deal wrong. The median reproduces %.3f of what its "
+            "\nThe extractors get a great deal wrong. The median reproduces %.3f of what its "
             "table asks for, and the spread runs from one paper to the next with no "
-            "common rate behind it, because each reader was written to one paper's "
+            "common rate behind it, because each extractor was written to one paper's "
             "layout. These are a table in Section 3 instead of a term for that reason.\n\n"
             % rate
         )
         handle.write(
-            "A reader that does not reproduce a row is not by itself an impurity. The row "
-            "is in the hand extraction either way, and the extraction is the oracle. What "
-            "the last two columns count is what the reader added, the part that "
-            "can reach the pure stream without a person having written it.\n\n"
+            "An extractor that does not reproduce a row is not by itself an impurity. The row "
+            "is in the hand extraction either way, and the hand extraction is the test "
+            "oracle. What the last two columns count is what the extractor added, the part that "
+            "can reach the gold standard corpus without a person having written it.\n\n"
         )
 
         handle.write("## 6. The word web\n\n")
         handle.write(
-            "`maint/data/salishan/word_web/word_web.py` joins every form in the hand "
-            "extractions to the forms it is related to, and writes one file per group "
-            "under `build/corpora`. The web has three kinds of edge, each measured off "
+            "The word web joins every form in the hand extractions to the forms it is "
+            "related to, and groups them. The web has three kinds of edge, each measured off "
             "the extraction and none of them listed by hand.\n\n"
         )
         handle.write(
@@ -1109,7 +1100,7 @@ def main():
             "the same speaker.\n\n"
         )
         handle.write(
-            "The web makes an anchor a concept expressed as a distribution "
+            "The web makes a language profile a concept expressed as a distribution "
             "instead of a bag of characters. The byte pair distribution cannot see that "
             "two orthographies wrote one word, and the concept edge is where that is "
             "recorded.\n\n"
@@ -1120,13 +1111,12 @@ def main():
             "Lushootseed is not one dialect. The northern and southern varieties have "
             "known land and family borders, and Mellesmoen and Kye's stress paper labels "
             "every form it cites with which one it came from. The hand extraction copied "
-            "that into the `who` column. The border sits on disk as a fact published "
+            "that into the speaker column. The border is held as a fact published "
             "by a linguist.\n\n"
         )
         handle.write(
             "That makes it something a test of this algorithm almost never has: an "
-            "answer that did not come from the algorithm. "
-            "`maint/data/salishan/orior_algorithmic_extraction/boundary_check.py` "
+            "answer that did not come from the algorithm. The border test "
             "loads the labels, sets them aside, and only compares at the end.\n\n"
         )
         handle.write(
@@ -1134,8 +1124,8 @@ def main():
             "resolves at 6707 bytes and the two varieties hold 1469 and 2768. Neither "
             "the byte pair distribution nor the word web separates them, and a blind "
             "partition scores no better than the majority class. The check prints what "
-            "that route would need: about 2.9 times the labeled Lushootseed now on "
-            "disk.\n\n"
+            "that route would need: about 2.9 times the labeled Lushootseed now "
+            "held.\n\n"
         )
         if standing:
             handle.write(
@@ -1188,7 +1178,7 @@ def main():
                 handle.write(
                     "\nThe last column of the first table is the test that is allowed to "
                     "fail. The border is put back on the same forms at random %d times "
-                    "and the radix run again on each, and at width %d only %d of those "
+                    "and the per-run test run again on each, and at width %d only %d of those "
                     "random borders found as much as the published one. Swapping the two "
                     "sides also negates every deviate exactly, but this estimator does "
                     "that on any two sets whatever and it is evidence of "
@@ -1204,8 +1194,6 @@ def main():
                     "returned is what the paper is about.\n\n"
                 )
 
-        handle.write("**Compiled By:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>\n")
-        handle.write("**Generated by:** `maint/data/salishan/corpus_derivation.py`\n")
         written = handle.getvalue()
 
     # The chapter title comes from the manifest in markdown_to_latex. The research paper reads the same
@@ -1214,6 +1202,9 @@ def main():
     # The heading the markdown opens with is now the chapter title, and keeping both would print it
     # twice on the page.
     body = body.replace("\\section{Corpus derivation}\n\n", "", 1)
+    # A citation is written as a marker the converter leaves alone and turned into \cite after it,
+    # since the converter escapes every backslash.
+    body = re.sub(r"\[\[cite:([^\]]+)\]\]", r"\\cite{\1}", body)
     with open(TARGET, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(body)
 

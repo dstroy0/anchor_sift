@@ -106,7 +106,7 @@ def _repository_root():
 
 
 ROOT = _repository_root()
-TABLES = os.path.join(ROOT, "build", "oracles")
+TABLES = os.path.join(ROOT, "examples", "Salishan", "oracles")
 CORPORA = os.path.join(ROOT, "build", "corpora")
 
 # How long a shared leading or trailing run has to be before it counts as a shape edge. Two

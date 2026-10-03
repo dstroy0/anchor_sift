@@ -14,7 +14,6 @@ src/import/prose/docs_check.py	84
 src/import/prose/gate.py	3
 src/import/prose/prosody_rate.py	6
 src/sims/cu/types/integers/chaitin_omega/chaitin_omega_main.cu	2
-theory/theory/Salishan/chapters/chapter_Salishan_refs.tex	1
 theory/theory/boundary/bibliography.tex	2
 utils/maint/audit/comb_arms.py	1
 utils/maint/audit/grammar.py	1
