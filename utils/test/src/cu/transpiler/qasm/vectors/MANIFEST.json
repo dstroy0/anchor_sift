@@ -1,6 +1,6 @@
 {
   "note": "Published SHA-256 vectors, vendored.",
-  "consumed_by": "utils/test/harness.py vectors",
+  "consumed_by": "utils/test/src/c/includes/codecs/sha256/sha256_check.sh",
   "files": [
     {
       "file": "nist_cavp_sha256shortmsg.rsp",

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 #include "impensa_ancorae_acus/impensa_ancorae_acus.h"
 
-#include "mmgr_sha256.h"
+#include "../../src/c/includes/codecs/sha256/sha256.h"
 
 #include <math.h>
 #include <stdint.h>
@@ -81,21 +81,21 @@ static double true_collision(const Source *source)
 static void draw_from(const Source *source, uint8_t *into, size_t length, uint64_t salt)
 {
     uint8_t seed[16];
-    uint8_t digest[MMGR_SHA256_BYTES];
+    uint8_t digest[SHA256_BYTES];
     size_t written = 0u;
-    unsigned spent = MMGR_SHA256_BYTES;
+    unsigned spent = SHA256_BYTES;
     uint64_t block = 0u;
 
     while (written < length)
     {
-        if ((spent + 4u) > MMGR_SHA256_BYTES)
+        if ((spent + 4u) > SHA256_BYTES)
         {
             for (unsigned index = 0u; index < 8u; index++)
             {
                 seed[index] = (uint8_t)((salt >> (56u - (index * 8u))) & 0xFFu);
                 seed[8u + index] = (uint8_t)((block >> (56u - (index * 8u))) & 0xFFu);
             }
-            mmgr_sha256(seed, sizeof seed, digest);
+            sha256(seed, sizeof seed, digest);
             spent = 0u;
             block++;
         }
