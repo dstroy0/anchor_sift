@@ -10,17 +10,8 @@
 #define SASS_GUARD_FIRST 12u
 #define SASS_GUARD_BITS 3u
 #define SASS_GUARD_NOT 15u
-// the scheduler's bits, which no listing prints: the stall, the yield, a write and a read barrier, the wait mask and
-// the reuse flags
-#define SASS_STALL_FIRST 105u
-#define SASS_YIELD_FIRST 109u
-#define SASS_WRITE_BARRIER_FIRST 110u
-#define SASS_READ_BARRIER_FIRST 113u
-#define SASS_WAIT_FIRST 116u
-#define SASS_REUSE_FIRST 122u
-// a barrier none is waited on or set, the longest stall the field holds, and every barrier waited on
-#define SASS_BARRIER_NONE 7u
-#define SASS_STALL_LONGEST 15u
+// every barrier waited on: the scheduler's fields themselves, and the longest stall they hold, are the form's
+// (sass_machine.h)
 #define SASS_WAIT_EVERY 0x3fu
 // a branch counts its target from the instruction after it, in a signed field that begins at bit 32 and runs into the
 // high word: the one branch the probes read back holds -16, and every bit of it from 32 to 81 is set
@@ -337,19 +328,19 @@ static void sass_high_write(unsigned long long *high, unsigned int first, unsign
 
 // the scheduler's bits set so that every instruction waits for every one before it: the longest stall, no reuse, and
 // a wait on every barrier. An instruction whose result comes back late has to set a barrier for the wait to have
-// anything to wait on, and which instructions those are is read off the form's own encoding: where the toolchain
-// set a barrier for that form, this sets one too. A barrier no instruction set is already at rest, and waiting on all
-// six costs nothing where none was set
+// anything to wait on, and a store has to set one for whatever writes its operands next: which instructions those
+// are is the operation's schedule (sass_operation_schedule), and a barrier the form's own encoding sets is set too. A
+// barrier no instruction set is already at rest, and waiting on all six costs nothing where none was set
 static void sass_control_safe(const SassForm *form, unsigned long long *high)
 {
-    const unsigned long long was = form->high;
-    const unsigned int wrote =
-        (unsigned int)((was >> (SASS_WRITE_BARRIER_FIRST - 64u)) & 7ull) != SASS_BARRIER_NONE;
-    const unsigned int read = (unsigned int)((was >> (SASS_READ_BARRIER_FIRST - 64u)) & 7ull) != SASS_BARRIER_NONE;
+    unsigned int soonest = 0u;
+    const unsigned int schedule = sass_operation_schedule(form->operation, &soonest);
+    const int wrote = (schedule == SASS_SCHEDULE_LATE) || sass_barrier_set(form->high, SASS_WRITE_BARRIER_FIRST);
+    const int read = (schedule == SASS_SCHEDULE_STORE) || sass_barrier_set(form->high, SASS_READ_BARRIER_FIRST);
     sass_high_write(high, SASS_STALL_FIRST, 4u, SASS_STALL_LONGEST);
     sass_high_write(high, SASS_YIELD_FIRST, 1u, 0ull);
-    sass_high_write(high, SASS_WRITE_BARRIER_FIRST, 3u, (wrote != 0u) ? 0ull : SASS_BARRIER_NONE);
-    sass_high_write(high, SASS_READ_BARRIER_FIRST, 3u, (read != 0u) ? 1ull : SASS_BARRIER_NONE);
+    sass_high_write(high, SASS_WRITE_BARRIER_FIRST, 3u, wrote ? 0ull : SASS_BARRIER_NONE);
+    sass_high_write(high, SASS_READ_BARRIER_FIRST, 3u, read ? 1ull : SASS_BARRIER_NONE);
     sass_high_write(high, SASS_WAIT_FIRST, 6u, SASS_WAIT_EVERY);
     sass_high_write(high, SASS_REUSE_FIRST, 4u, 0ull);
 }

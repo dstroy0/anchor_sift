@@ -240,6 +240,57 @@ unsigned long long sass_exit_encoding(const SassMachine *machine)
     return found;
 }
 
+int sass_barrier_set(unsigned long long high, unsigned int first)
+{
+    return (unsigned int)((high >> (first - 64u)) & 7ull) != SASS_BARRIER_NONE;
+}
+
+// one operation's measured soonest read, by its whole name
+typedef struct
+{
+    const char *operation;
+    unsigned int soonest;
+} SassSoonest;
+
+unsigned int sass_operation_schedule(const char *operation, unsigned int *soonest)
+{
+    // the names before the first dot NVIDIA's compiler gives a write barrier at every place, or a read barrier
+    static const char *const s_late[] = {"LDG", "LDS", "S2R", "S2UR", "F2I", "I2F", "MUFU", "ATOMG"};
+    static const char *const s_store[] = {"STG", "STS", "STL", "ST", "RED"};
+    static const SassSoonest s_soonest[] = {
+        {"LOP3.LUT", 4u},      {"IADD3", 4u},         {"IADD3.X", 4u},         {"SHF.R.U32.HI", 4u},
+        {"SHF.L.U32", 4u},     {"SHF.R.S32.HI", 4u},  {"SHF.L.W.U32.HI", 4u},  {"SHF.R.W.U32", 4u},
+        {"SHF.R.W.U32.HI", 4u}, {"SHF.L.U64.HI", 4u}, {"SHF.R.U64", 4u},       {"IMAD", 4u},
+        {"IMAD.MOV.U32", 4u},  {"IMAD.MOV", 4u},      {"IMAD.X", 4u},          {"IMAD.IADD", 4u},
+        {"IMAD.WIDE.U32", 4u}, {"IMAD.HI.U32", 4u},   {"IMNMX.U32", 4u},       {"SEL", 4u},
+        {"MOV", 4u},           {"IMAD.U32", 5u},      {"IMAD.WIDE", 5u},       {"IMAD.WIDE.U32.X", 5u},
+        {"SHF.L.W.U32", 5u},   {"SHF.R.W.S32.HI", 5u}, {"CS2R", 6u}};
+    const size_t base = strcspn(operation, ".");
+    *soonest = SASS_STALL_LONGEST;
+    for (unsigned int at = 0u; at < (sizeof(s_late) / sizeof(s_late[0])); at += 1u)
+    {
+        if ((strlen(s_late[at]) == base) && (strncmp(operation, s_late[at], base) == 0))
+        {
+            return SASS_SCHEDULE_LATE;
+        }
+    }
+    for (unsigned int at = 0u; at < (sizeof(s_store) / sizeof(s_store[0])); at += 1u)
+    {
+        if ((strlen(s_store[at]) == base) && (strncmp(operation, s_store[at], base) == 0))
+        {
+            return SASS_SCHEDULE_STORE;
+        }
+    }
+    for (unsigned int at = 0u; at < (sizeof(s_soonest) / sizeof(s_soonest[0])); at += 1u)
+    {
+        if (strcmp(operation, s_soonest[at].operation) == 0)
+        {
+            *soonest = s_soonest[at].soonest;
+        }
+    }
+    return SASS_SCHEDULE_FIXED;
+}
+
 int sass_machine_take(SassMachine *machine, const char *text, unsigned long long low, unsigned long long high,
                       SassForm **kept)
 {

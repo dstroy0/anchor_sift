@@ -116,6 +116,41 @@ void sass_instruction_read(const char *text, SassInstructionParts *parts);
 // its own section, and whatever writes one finds them by this
 unsigned long long sass_exit_encoding(const SassMachine *machine);
 
+// the scheduler's bits above the operation, which no listing prints: the stall, the yield, a write barrier set where
+// the result comes back late, a read barrier set where an operand is read late, the wait over six barriers and the
+// reuse flags. A barrier field of 7 sets none
+#define SASS_STALL_FIRST 105u
+#define SASS_YIELD_FIRST 109u
+#define SASS_WRITE_BARRIER_FIRST 110u
+#define SASS_READ_BARRIER_FIRST 113u
+#define SASS_WAIT_FIRST 116u
+#define SASS_REUSE_FIRST 122u
+#define SASS_BARRIER_NONE 7u
+// the longest stall the four bits of the stall field hold
+#define SASS_STALL_LONGEST 15u
+
+// how the scheduler holds an operation's result, a property of the operation and not of one encoding of it: ready
+// after a fixed count of cycles, back late behind a write barrier its readers wait on, or a store whose operands are
+// read late behind a read barrier, which whatever writes those registers next waits on. NVIDIA's compiler gives every
+// late operation a write barrier and every store a read barrier over the tree's CUDA sources (monolith_scheduler.md)
+enum SassSchedule
+{
+    SASS_SCHEDULE_FIXED = 0,
+    SASS_SCHEDULE_LATE = 1,
+    SASS_SCHEDULE_STORE = 2
+};
+
+// 1 where the encoding whose high word is `high` sets the barrier whose field begins at `first`,
+// SASS_WRITE_BARRIER_FIRST or SASS_READ_BARRIER_FIRST: the result or an operand comes back late, and whatever waits on
+// it waits on that barrier
+int sass_barrier_set(unsigned long long high, unsigned int first);
+
+// the schedule of `operation`, its modifiers included, read from its name before the first dot, and through `soonest`
+// the fewest cycles NVIDIA's compiler leaves between a fixed result and the first instruction that reads it, as
+// measured for that operation over the tree's CUDA sources (monolith_scheduler.md). An operation with no measured
+// count, and a late result or a store, leave SASS_STALL_LONGEST there
+unsigned int sass_operation_schedule(const char *operation, unsigned int *soonest);
+
 // an instruction kept in `machine` as a form where it holds none of that form yet, `low` and `high` its encoding
 // and `text` the instruction it was seen as; the form it was kept as, or the one already there, through `kept`, whose
 // runs the caller fills. 1, or 0 where the machine is full, counted in machine->refused
