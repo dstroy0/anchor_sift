@@ -81,14 +81,6 @@ On Windows PowerShell the engine builds with `utils/maint/engine/build_engine.ps
 | [Where to start reading](docs/research_papers.md)       | the twenty research papers, each with what it holds                               |
 | [The conditions of use](docs/condition_of_use.md)       | language, closed material, naming a writer, the scan of a patient, systems you do not own |
 
-## The speakers come first
-
-**This work does not exist without the speakers.** Every table in the Salishan corpus opens with the person who spoke, before the linguist who published and before anyone who read it into a file.
-
-These tools read a language and can put one back. **Every tool for language that comes out of this work requires a human to review its output.** That is a condition of use, not a recommendation.
-
-The method reads people as well as languages: it can name a writer, it reads medical scans, and it measures systems that belong to someone else. [The conditions of use](docs/condition_of_use.md) cover each of those, and every one is a condition of use.
-
 ## Licensing
 
 It will always be free to use under the AGPL. A negotiated commercial contract and an educator's license are the other two, and each binds whoever signs it to every condition of use; [Licensing](docs/licensing.md) says which governs a use. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).

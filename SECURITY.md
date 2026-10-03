@@ -1,15 +1,15 @@
 # Security
 
 **Purpose:** Know what this repository is responsible for, what it is not, and where to report something.
-**Scope:** `src/engine/c/`, `src/python/`, `utils/maint/`, and the ports under `src/engine/`
+**Scope:** `src/c/engine/`, `src/c/transpiler/`, `src/cu/`, `src/python/`, `utils/maint/`, and the ports under `src/engine/`
 
 ## What is here
 
-A search kernel in C11, a driver that times it, Python tools that fetch and read published papers, and two ports of one statistic. There is no server, no daemon, no network listener and no persistent state. Nothing here runs unattended.
+A search kernel in C11, a driver that times it, Python tools that fetch and read published papers, and two ports of one statistic. The new parts are an engine that never leaves exact integers, from the first read to the last bit written. When every step is exact, a chain of steps composes into one program and runs on the device as one. The emitter writes such a program to PTX, C or SASS with each target's rules held as data, and where a rule is not known it asks the part and keeps the answer. There is no server, no daemon, no network listener and no persistent state. Nothing here runs unattended.
 
 ## The kernel
 
-`src/engine/c/sift/orior.c` holds four search arms and a dispatcher.
+`src/c/engine/nbody/orior/orior_core.c` holds four search arms and a dispatcher.
 
 **Every arm is sound and none is defensive.** A subset of a pattern's points is a necessary condition. No arm can lose a true occurrence. That is a proof, and nothing in the code tests for it. What no arm does is validate its arguments: `corpus`, `needle` and their lengths are used as given, with no null test and no overflow test on `corpus_len` or `needle_len`. It is bench code called from a driver that builds its own inputs.
 
@@ -24,14 +24,6 @@ A search kernel in C11, a driver that times it, Python tools that fetch and read
 **They parse PDFs.** The readers run `pypdf` and `pypdfium2` over files downloaded from the web, which is a real parser surface and it is not this work's parser. Keep those dependencies current, and treat a PDF from anywhere else the way you would treat any untrusted document.
 
 **They write only under `build/`.** One exception, at a fixed path: the two generators that emit documentation write chapters under `theory/theory/Salishan/chapters/`. `python utils/maint/tree/write_survey.py` reads every script for the files it opens and reports where each one lands. That list is checked instead of remembered.
-
-## The concern that is not a vulnerability
-
-The largest risk this work carries is not a memory bug. **The tools can regenerate language and can produce predictive speech**, and regeneration stays faithful near the subject and escapes it with distance, with nothing marking where that happens. Output taken from past that boundary and presented as somebody's language is the harm, and for a language with few remaining speakers it is not recoverable.
-
-**A tool for language that comes out of this work requires a human to review its output.** That is a condition of use. If you find this work being run without one, that is worth reporting here even though no CVE describes it.
-
-The same holds for the rest of [the conditions of use](docs/condition_of_use.md): naming a writer who did not agree to it, publishing a scan or a header that can name a patient, and testing a system without permission. Each is worth reporting here.
 
 ## Reporting
 

@@ -1,13 +1,7 @@
 # Contributing
 
-**Purpose:** Know what a contribution here looks like, what the checks are, and which rule is not negotiable.
+**Purpose:** Know what a contribution here looks like and what the checks are.
 **Scope:** the whole repository
-
-## The condition that comes before everything
-
-**A tool for language that comes out of this work requires a human to review its output.** The tools here can regenerate language and can produce predictive speech, and whether a regenerated form is still somebody's language belongs to a native speaker and not to an algorithm.
-
-A contribution that removes a person from that loop, or that makes it easier to skip them, is not accepted. This is not a style preference and there is no version of the repository where it is relaxed.
 
 ## What a contribution is
 
@@ -44,7 +38,7 @@ Turn the hook on once per clone:
 git config core.hooksPath .githooks
 ```
 
-**A contribution's own prose.** The condition at the top of this file had no check attached to it. This is that check:
+**A contribution's own prose.**
 
 ```sh
 python utils/maint/prose/submission_check.py <path to the contribution>
@@ -56,14 +50,12 @@ Two poles calibrate it. A page written deliberately in the machine register meas
 
 Read the word count before the ratio. The denominator is the prose left after code, math and markup come out, and a submission that is mostly a word list or interlinear glosses will count high and rate low.
 
-It reports and it does not decide. Nothing in it prints a verdict, and a hook that rejected a contribution on its output would automate away the person the rule at the top of this file exists to require. A low number is not evidence of anything either: the rates are a floor, and anyone who knows the list can write around it.
+It reports and it does not decide. Nothing in it prints a verdict. A low number is not evidence of anything either: the rates are a floor, and anyone who knows the list can write around it.
 
 **The kernel.** C11 and nothing else. No Python, no device toolchain:
 
 ```sh
-cmake -S bench -B build/bench -G Ninja -DCMAKE_BUILD_TYPE=Release
-cmake --build build/bench
-./build/bench/bench_ancorae_cycles
+utils/maint/engine/build_engine.sh
 ```
 
 Every arm has to agree with `orior_naive` on every row. A row printing `DIFFER` is a defect and its timing means nothing, because a measurement of an arm returning the wrong answer is a measurement of the wrong program.
@@ -78,6 +70,6 @@ Prose here is plain. One fact per sentence, subject and verb and object, no em d
 
 ## Licensing
 
-Contributions fall under the same terms the repository carries: AGPL-3.0-or-later, or a negotiated commercial license, or an educator's license issued to a person. The root `README.md` states the scheme in full.
+Contributions fall under the same terms the repository carries: AGPL-3.0-or-later, or a negotiated commercial license, or an educator's license issued to a person. [Licensing](docs/licensing.md) states the scheme in full.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
