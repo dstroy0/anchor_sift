@@ -15,21 +15,14 @@ headinclude,footinclude,BCOR=5mm]{scrbook}
 \frontmatter
 \pagestyle{plain}
 \include{frontmatter/titlepage}
-\input{dedication.tex}
-\include{frontmatter/abstract}
 
 \tableofcontents
 
 \mainmatter
 \pagestyle{scrheadings}
 
-\include{chapters/chapter_what_this_is}
-\include{chapters/chapter_the_corpus}
-\include{chapters/chapter_navier_stokes}
 \include{chapters/chapter_discarded_terms}
 \include{chapters/chapter_averaged_fluid}
-\include{chapters/chapter_fluid_sets}
-\include{chapters/chapter_the_toolkit}
-\include{chapters/chapter_sources}
+\include{chapters/chapter_terms_to_put_back}
 \InputIfFileExists{bibliography.tex}{}{}
 \end{document}

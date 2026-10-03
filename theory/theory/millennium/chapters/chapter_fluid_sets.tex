@@ -1,0 +1,79 @@
+\chapter{What the fluid has and what equation (1) keeps}
+
+This chapter defines the set of every property of a fluid and the set of every force a fluid can
+feel, names the members equation (1) keeps, and proves two more ways in which what it keeps is not
+what the fluid has. It rests on equations (1) and (2) of Fefferman's
+statement~\cite{src:Fefferman}, IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018}, the formulation
+for the thermodynamic properties of water, and Caupin and Herbert's review of cavitation in
+water~\cite{src:Caupin-and-Herbert-2006}.
+
+\section{The two sets}
+
+\textbf{Definition.} $P_{\mathrm{all}}$ is the set of all properties of a fluid, known and not yet
+known. $F_{\mathrm{all}}$ is the set of all forces a fluid can experience, known and not yet known.
+Both sets are open in the sense that no list of their members is claimed complete. A member enters
+a list when it is measured, and its absence from a list says only that it has not been measured
+yet.
+
+Equation (1), with its density set to one, keeps
+\[
+P_{(1)} = \{\nu\},
+\qquad
+F_{(1)} = \{-\nabla p,\ \nu\Delta u,\ f\},
+\]
+under the constraint $\nabla\cdot u = 0$. The term $(u\cdot\nabla)u$ is the rate of change of
+momentum carried with the flow and not a force.
+
+Every member of $P_{\mathrm{all}}\setminus P_{(1)}$ or $F_{\mathrm{all}}\setminus F_{(1)}$ that is
+shown present by a measurement shows that equation (1) is a model on part of the two sets. The two sets being
+open, no finite list can show the reverse: that equation (1) keeps everything. The previous chapters
+exhibit members of both differences, and the workbook collects every one of them with the source
+that shows it present, as terms to put back.
+
+\section{Pressure at infinite speed}
+
+\textbf{Proposition 12.} Let $(u,p)$ be smooth and solve (1) and (2) on $\R^3$. At each instant,
+\[
+\Delta p = \nabla\cdot f - \sum_{i,j}\partial_i\partial_j(u_iu_j).
+\]
+Among solutions of this equation that decay at infinity, the one $p$ is unique, and its value at
+any point depends on $u$ and $f$ at every point of $\R^3$ at the same instant.
+
+\emph{Proof.} Take the divergence of (1). By (2), $\nabla\cdot\partial_t u = \partial_t\theta = 0$ and
+$\nabla\cdot(\nu\Delta u) = \nu\Delta\theta = 0$. The remaining term is
+$\partial_i(u_j\partial_j u_i) = \partial_i\partial_j(u_iu_j) - \partial_i(u_i\,\partial_j u_j)$,
+and the second part is zero by (2). A harmonic function on $\R^3$ that decays at infinity is zero,
+which gives uniqueness, and the decaying solution is the convolution of the source with
+$-1/(4\pi|x|)$, which is nonzero at every point. \hfill\qedsymbol
+
+A change in the motion anywhere changes the pressure everywhere at the same instant. In water at
+$20\,^\circ$C and atmospheric pressure, pressure travels at the speed of sound, 1482.35 meters per
+second, evaluated from IAPWS R6-95 (2018) by a program that reproduces its
+verification table to every printed digit. The speed of sound is a member of
+$P_{\mathrm{all}}\setminus P_{(1)}$, and condition (2) sets it to infinity.
+
+\section{Pressure with no level}
+
+\textbf{Proposition 13.} If $(u,p)$ solves (1) and (2), then $(u,\,p+c)$ solves them too, for every function $c$
+of time alone.
+
+\emph{Proof.} Pressure enters (1) only through $\nabla p$, and $\nabla c = 0$. \hfill\qedsymbol
+
+Equation (1) fixes no level of pressure, and conditions (6) and (7) of Fefferman's statement fix
+none either: neither bounds $p$ at infinity. A real liquid has a level at which it breaks. Liquid
+water can be held under tension, at negative pressure, until vapor bubbles form, and Caupin and
+Herbert report that classical nucleation theory puts that point at $-168$ MPa at $20\,^\circ$C for
+the volume and time they state, that water in mineral inclusions is estimated to reach about
+$-140$ MPa, and that most other methods reach between a few and a few tens of megapascals below
+zero. Whether the liquid breaks depends on the level of the pressure. Equation (1) cannot pose the
+question, because it holds no level.
+
+\section{What this establishes and what it does not}
+
+\textbf{Established.} Equation (1) keeps one property and three forces of the two open sets. It
+carries pressure at infinite speed, where water carries it at the speed of sound, and it holds no
+level of pressure, where water breaks at a level.
+
+\textbf{Not established.} The sets are open, and nothing here bounds what they hold beyond the
+members measured. That keeping a member changes whether solutions break down is not shown for any
+member in this chapter.
