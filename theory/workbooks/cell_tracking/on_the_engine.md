@@ -90,7 +90,7 @@ The `.cfg`'s `floor` section names where each sample's noise keys are held (`--f
 
 ### 14. The sieve on this competition: splits, entropy, and each body's harmonics
 
-`noise_sieve_5_cell_tracking_harmonics.md` sets the sieve on the Biohub volumes directly. It is the source nearest the score, and each of its mechanics has a concrete form here.
+`proposal.md` sets the sieve on the Biohub volumes directly. It is the source nearest the score, and each of its mechanics has a concrete form here.
 
 **The engine holds nothing; gradients define themselves.** No gradient is tuned and no threshold is chosen: the field carves the boundaries where the data puts them. This is already the engine's rule for its cuts. It is also the rule the node policies `stands` and `above_null` were written to: a body is a node because it stands here, not because it ranks in a chosen top n.
 

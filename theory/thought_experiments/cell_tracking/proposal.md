@@ -1,0 +1,41 @@
+# Lineage from shape and whole-sequence evidence
+
+## The constraint
+
+The tracker has no tuned parameter. Every threshold a decision needs is read from the same sample. A detection is kept where it stands above what the same procedure finds in frames where no correspondence exists, and a link is costed against the distribution of link lengths in that sample. The constraint excludes a learned model and any weight chosen on held-out data, and it makes each decision traceable to the voxels it came from.
+
+## Hypothesis 1: a shape fingerprint carries identity
+
+A cell's surface, mapped onto the unit sphere as [Brechbühler et al.](#src:Brechbuhler-1995) describe, expands in spherical harmonics, $r(\theta, \varphi) = \sum_{\ell} \sum_{m} c_{\ell m} Y_{\ell m}(\theta, \varphi)$. [Medyukhina et al.](#src:Medyukhina-2020) classify migrating cells with the expansion, by their shape and by how it changes over time. The energy in each degree, $E_\ell = \sum_m |c_{\ell m}|^2$, does not change when the cell rotates. [Kazhdan et al.](#src:Kazhdan-2003) use this property to match shapes without aligning them, and it compares one cell across frames in the same way.
+
+The lowest degrees have a direct reading. Expanded about its centroid, a shape that is symmetric under inversion through that point, such as any ellipsoid, has no odd-degree terms, because $Y_{\ell m}(-u) = (-1)^\ell Y_{\ell m}(u)$. Degree 2 is then the leading anisotropy: it carries the direction of the long axis and how far the shape is flattened or elongated. Degree 1 measures asymmetry about the center, such as a protrusion to one side. Without a segmented surface, the mass, centroid and six second moments of a detected body carry the multipole expansion of its mass to degree 2, together with its radial second moment, and this is the form the workbook builds.
+
+The hypothesis is that a cell's low-degree energies change less from one frame to the next than they differ between neighboring cells, so that they can decide between link candidates that position alone leaves tied. The orthogonality of the $Y_{\ell m}$ does not supply this. It makes the coefficients of one surface unique, and it says nothing about whether the coefficients of two cells differ.
+
+**Refutation.** Over annotated tracks, take the distance between a cell's fingerprints in consecutive frames, and the distance from its fingerprint to that of its nearest neighbor in the next frame. If the two distributions are no more separated than two draws from one distribution, the fingerprint carries no identity and its cost term is dropped.
+
+## Hypothesis 2: an event shows in a whole-sequence record
+
+A cell commonly divides along its long axis, a rule [Minc and Piel](#src:Minc-Piel-2012) review. A division is then expected as two daughters parting along the degree-2 axis of the parent, with their masses summing to the parent's. The hypothesis adds evidence from the whole recording. A record of change over the whole sample, built in the workbook as the count of flips of each bit of each voxel's intensity, departs from its own background within one frame of each division. After a division the record settles; after a death it does not. A track that ends with no such departure is then a missed detection, not a death, and a fork with none is a false division.
+
+**Refutation.** If the record's departure at annotated division frames is no larger than at the same number of frames drawn at random from the same samples, the record carries no event signal.
+
+## Hypothesis 3: an event displaces its neighbors, and the displacement points back to it
+
+A dividing or dying cell moves the tissue around it. At the length and speed of cells the Reynolds number is far below one, as [Purcell](#src:Purcell-1977) sets out. If the tissue responds as a viscous fluid, the flow around an event is a Stokes flow. A body that exerts no net force on its surroundings has a far field led by a force dipole, whose velocity falls off as $1/r^2$, followed by a source dipole falling off as $1/r^3$, as [Lauga and Powers](#src:Lauga-Powers-2009) review for swimming microorganisms. About the event, the force dipole's flow has the angular structure of degree 2 and the source dipole's that of degree 1. The neighbors' departures from the common drift are therefore expanded in those degrees about each candidate origin, and the origin that best accounts for them is taken as the event's position.
+
+Embryonic tissue is packed with cells and is viscoelastic, not a Newtonian fluid. The Stokes far field is a hypothesis about it, not a property of it.
+
+**Refutation.** Take the mean magnitude of the neighbors' departures from the common drift at distance $r$ from annotated divisions, and the same mean at distance $r$ from points away from any division. If the first is no larger than the second, there is no displacement to read. If it is larger, its fall-off with $r$ tests the Stokes reading, which predicts $1/r^2$ in the far field.
+
+## The solve
+
+The three hypotheses supply costs to one solve over the whole recording: a min-cost flow over every frame, in which a division sends two units of flow, as in [Haubold et al.](#src:Haubold-2016). Every cost is an exact integer on one footing, and the draws from frames with no correspondence take the place of weights.
+
+## What is built
+
+The [cell tracking workbook](#src:Quigg-cell-tracking-workbook) records which parts are built and what has been measured on them. The second-moment fingerprint and the whole-sample record of bit flips are built. A one-to-one linker between consecutive frames, costed on position and drift alone, is built and scored. The fingerprint is not yet among the linker's costs. The event tests, the displacement reading and the solve over the whole recording are not built, and none of the three hypotheses has been tested.
+
+## Data and code availability
+
+The recordings and annotations are distributed through Kaggle under the competition's terms, and the [organizers'](#src:Biohub-competition) baseline and metric are public. The tracker's code is in the orior repository, and its measurements are recorded in the [cell tracking workbook](#src:Quigg-cell-tracking-workbook).

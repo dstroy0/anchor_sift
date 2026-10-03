@@ -93,8 +93,8 @@ _The weird end, kept apart from what was measured._ These are the posits whose e
 
 The drafts the engine's theory was carried from.
 
-### [Thought Experiments: cell tracking](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/cell_tracking)
+### [Cell Lineage from Shape and Whole-Sequence Evidence](https://github.com/dstroy0/orior/tree/main/theory/thought_experiments/cell_tracking)
 
-_The noise sieve, the fluidic tower and the demon._ Kept as they were written.
+_A proposal for the Biohub cell tracking task._ Each part is stated with the test that decides it.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

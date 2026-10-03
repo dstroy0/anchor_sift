@@ -1,7 +1,7 @@
 # The noise sieve tower
 
 **Purpose:** Carry the transfinite noise sieve and the fluidic architecture (the drafts in `thought_experiments/engine/`) into the ledger, idea by idea, each set beside the part of the engine that is its working form and the status that backs it. The theory and the code are then read as one thing, and a reader knows which ideas already run.
-**Scope:** every idea in `noise_sieve_*.md`, `fluidic_*.md`, `utm_demon_openqasm.md`, `demon_utm_four_noise_vectors.md`, `hash_boundary_functional_folding.md`, `subtractive_cosmological_framework.md` and `cyclic_field_inversion_seed_crystal.md`. `noise_sieve_5_cell_tracking_harmonics.md` sets the sieve on the cell program. It is in `thought_experiments/cell_tracking/`, and its sections are in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Where an idea has a working form, the module is named; [cell_tracking_table.md](../cell_tracking/cell_tracking_table.md) says which part of the n-body problem each module solves, and [engine_table.md](engine_table.md) what each machine part computes.
+**Scope:** every idea in `noise_sieve_*.md`, `fluidic_*.md`, `utm_demon_openqasm.md`, `demon_utm_four_noise_vectors.md`, `hash_boundary_functional_folding.md`, `subtractive_cosmological_framework.md` and `cyclic_field_inversion_seed_crystal.md`. `proposal.md` sets the sieve on the cell program. It is in `thought_experiments/cell_tracking/`, and its sections are in the cell workbook ([on_the_engine.md](../cell_tracking/on_the_engine.md)). Where an idea has a working form, the module is named; [cell_tracking_table.md](../cell_tracking/cell_tracking_table.md) says which part of the n-body problem each module solves, and [engine_table.md](engine_table.md) what each machine part computes.
 
 The status column follows the ledger's rules ([README.md](README.md)): proved, measured, built, theory, refuted, not so.
 
@@ -218,7 +218,7 @@ The PDF's cosmology (field inversion, the seed crystal of a new universe, eterna
 
 ## 14 and 15. The sieve on the cell program
 
-`noise_sieve_5_cell_tracking_harmonics.md` sets the sieve on the cell program: splits and entropy, each body's harmonics, edges by jitter and membership by sample coherence. Those two sections are in the cell workbook, [on_the_engine.md](../cell_tracking/on_the_engine.md).
+`proposal.md` sets the sieve on the cell program: splits and entropy, each body's harmonics, edges by jitter and membership by sample coherence. Those two sections are in the cell workbook, [on_the_engine.md](../cell_tracking/on_the_engine.md).
 
 ## 16. The four noise vectors, and the noise keys stamped top down over w
 

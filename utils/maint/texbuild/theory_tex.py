@@ -444,10 +444,13 @@ def readme_order(research_paper_dir):
 
 def research_paper_sources(research_paper, held):
     research_paper_dir = THEORY / research_paper
+    # <dirname>.pdf is the research paper's own build, which build_theory.sh copies beside main.tex.
+    # It is output, never a source, and a paper that included it would include itself.
+    built = research_paper_dir.name + ".pdf"
     present = {
         path.name: path
         for path in sorted(research_paper_dir.iterdir())
-        if path.suffix in (".md", ".pdf") and path.name not in held
+        if path.suffix in (".md", ".pdf") and path.name not in held and path.name != built
     }
     ordered = ["README.md"] if "README.md" in present else []
     for name in readme_order(research_paper_dir):
