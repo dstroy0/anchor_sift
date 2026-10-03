@@ -554,8 +554,9 @@ The CUDA arm generates real SASS for ten architectures, Turing through every Bla
 | `utils/test/src/cu/types/integers/exact_transform_test.cu`, `utils/test/src/cu/types/integers/exact_transform_test.sh` | the multiplication ladder, at three widths: 128 limbs, 4096 limbs (stack rooms), and 4,194,304 bits (heap rooms). The ladder, and the transform alone, both equal a long multiplication kept in the test, balanced and unbalanced, keyed and all-ones, across every rung boundary up to half the width (65,536-limb operands at 4M bits). Each product divides back to its factors, exactly and with a remainder, and the gcd holds a factor. Each rung is timed, and the crossovers are measured from those times. Extra arguments reach nvcc as defines |
 | `utils/test/src/cu/engine/analysis/tower/tower_edge_test.cu`, `utils/test/src/cu/engine/analysis/tower/tower_edge_test.sh` | the tower's reversible lookup edges: one edge, edges stacked on one floor and edges on every floor all lift and lower back to the exact lanes. The edges change the crystal. A table that is not a permutation, a width out of range and a floor past the collapsed floor are all errored, and an error leaves no state behind. A Bennett edge, (x, y) → (x, y ⊕ f(x)), carries a lossy f (|x|, a comparison) as a permutation of the widened field: it round-trips, f(x) reads out of the carrier, and the same f laid bare errors |
 | `utils/test/src/cu/engine/runtime/device_pool/device_pool_test.cu`, `utils/test/src/cu/engine/runtime/device_pool/device_pool_test.sh` | the device pool: slices laid at offsets worked by hand, page rounding on either side of a page, a plan past 2^62 bytes spoiled and its hold errored, kernels marking and reading back every slice with nothing between them, a take past the pool errored and the pool left as it was. The tower's four buffers for 1,100,000 voxels cost 10,485,760 bytes as one pool, its plan to the byte, and 14,680,064 as four allocations, read through the counter tessera's daemon reads (28 checks, 0 failed) |
-| `utils/bench/bench_sift.c`                                                | candidates, skip distance and anchor independence over byte strings. Not wired up |
-| `utils/bench/bench_entropy.c`, `bench_ab.c`, `bench_cycles.c`             | not wired up                                                                      |
+| `utils/bench/bench_sift.c`                                                | candidates, skip distance and anchor independence over byte strings. Not wired up: it includes `impensa_ancorae_acus.h`, MMgr's byte cost table, which this tree does not hold |
+| `utils/bench/bench_entropy.c`, `bench_ab.c`                               | not wired up, for the same header                                                 |
+| `utils/bench/bench_cycles.c`, `utils/bench/bench_cycles.sh`               | orior's three engines timed over three corpora and seven needle lengths, every engine's count held against the naive one's, and the engine `orior_choose` picks read against the fastest. In one run all 63 timed rows agree and the chosen engine is the fastest in all 21. It times no Horspool: Horspool needs an ordered index set and a shift table the size of the alphabet, the sift needs neither, and timing the two on a byte line runs the sift in the one domain where discarding order gains nothing |
 
 Nothing under `src/` comes from anywhere else. Nothing built here needs a corpus from outside, since `bench_corpora` fills every corpus with splitmix64.
 
@@ -670,11 +671,5 @@ Per corpus, for a caller who holds one:
 | uniform    | 0.9639   | `anchor_inorder` | no length    |
 | skewed     | 0.3320   | `anchor_free`    | every length |
 | periodic16 | 1.0000   | `anchor_inorder` | no length    |
-
-## One defect left, unfixed because it is a decision
-
-**Horspool is gone from the kernel and the older drivers still call it.** `bench_cycles.c` puts `orior_horspool` in its arms table. That driver does not compile, because no such symbol exists in the tree.
-
-Horspool was also the wrong comparison. It needs an ordered index set and a shift table the size of the alphabet; the sift needs neither. Timing the two side by side on a byte line runs the sift in the one domain where discarding order gains nothing.
 
 **Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>

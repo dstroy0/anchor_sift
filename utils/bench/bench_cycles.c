@@ -161,7 +161,6 @@ int main(void)
     static uint8_t corpus[CORPUS_BYTES];
     static const Arm ARMS[] = {
         {"naive", orior_naive},
-        {"horspool", orior_horspool},
         {"anchor_inorder", orior_inorder},
         {"anchor_free", orior_free},
     };
