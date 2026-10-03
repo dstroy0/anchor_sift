@@ -14,13 +14,15 @@
 // V_n = sum over m < n of m^(-1/2) e^(-2pi i n^2 ln m), is taken on the device by cycle_record_sum, exact. A sweep
 // covers B boundaries; its state, the last u and r, is the next sweep's first member, read where the sweep wrote it.
 //
-// The input, written by exact_zeta_arrival.py, little-endian 64-bit integers: M, n0, sweeps, B and K, then for each
-// lane m from 1 to M: u, r and q, each its real part then its imaginary part, and m^(-1/2), each times S, two's
-// complement. K lanes of the first sweep are run on the host too, from the exact integer library.
+// The input, written by exact_zeta_arrival.py, little-endian 64-bit integers: M, n0, sweeps, B, K and G, then for
+// each lane from 1 to M: u, r and q, each its real part then its imaginary part, and m^(-1/2), each times S, two's
+// complement. The lanes are M / G runs of G, summed run by run, and a lane's m is its place in its run, 1 to G. K lanes
+// of the first sweep are run on the host too, from the exact integer library.
 //
-// The output: the line "sum_limbs L", one line a boundary, "n", then V_n's real part and its imaginary part, L hex limbs
-// each, least significant first, two's complement times S; then "host 1" where the host's records of the first sweep
-// equal the device's word for word over K lanes, else "host 0", and the line "steps P out_limbs O compiled C".
+// The output: the line "sum_limbs L", one line a boundary, "n", then each run's sum, its real part and its imaginary
+// part, L hex limbs each, least significant first, two's complement times S; then "host 1" where the host's records of
+// the first sweep equal the device's word for word over K lanes, else "host 0", and the line
+// "steps P out_limbs O compiled C".
 
 #include "../../src/c/engine/analysis/cycle/cycle.h"
 #include "../../src/c/engine/analysis/key_schedule/key_schedule.h"
@@ -182,14 +184,16 @@ int main(int count, char **arguments)
         return 2;
     }
     FILE *in = fopen(arguments[1], "rb");
-    long long header[5] = {0, 0, 0, 0, 0};
-    int read = (in != NULL) && (fread(header, sizeof(long long), 5u, in) == 5u) && (header[0] > 0) &&
-               (header[2] > 0) && (header[3] > 0) && (header[4] > 0) && (header[4] <= header[0]);
+    long long header[6] = {0, 0, 0, 0, 0, 0};
+    int read = (in != NULL) && (fread(header, sizeof(long long), 6u, in) == 6u) && (header[0] > 0) &&
+               (header[2] > 0) && (header[3] > 0) && (header[4] > 0) && (header[4] <= header[0]) &&
+               (header[5] > 0) && (header[0] % header[5] == 0);
     const unsigned long long lanes = read ? (unsigned long long)header[0] : 0ull;
     const unsigned long long first = read ? (unsigned long long)header[1] : 0ull;
     const unsigned int sweeps = read ? (unsigned int)header[2] : 0u;
     const unsigned int floors = read ? (unsigned int)header[3] : 0u;
     const unsigned long long checked = read ? (unsigned long long)header[4] : 0ull;
+    const unsigned long long group = read ? (unsigned long long)header[5] : 1ull;
     std::vector<long long> seeds(read ? (size_t)(lanes * 7ull) : 0u);
     read = read && (fread(seeds.data(), sizeof(long long), seeds.size(), in) == seeds.size());
     if (in != NULL)
@@ -260,7 +264,7 @@ int main(int count, char **arguments)
         arrival_put(fixed, 0u, 64u, seed[4]);
         arrival_put(fixed, 64u, 64u, seed[5]);
         arrival_put(fixed, 128u, 64u, seed[6]);
-        arrival_put(fixed, 192u, 64u, (long long)(lane + 1ull));
+        arrival_put(fixed, 192u, 64u, (long long)(lane % group + 1ull));
     }
     unsigned int *device_state[2] = {NULL, NULL};
     unsigned int *device_constants = NULL;
@@ -282,7 +286,7 @@ int main(int count, char **arguments)
         fprintf(out, "sum_limbs %u\n", ARRIVAL_SUM_LIMBS);
     }
     int same = 0;
-    unsigned int sums[ARRIVAL_SUM_LIMBS];
+    std::vector<unsigned int> sums((size_t)((lanes / group) * ARRIVAL_SUM_LIMBS), 0u);
     for (unsigned int sweep = 0u; ok && (sweep < sweeps); sweep += 1u)
     {
         unsigned int shared[ARRIVAL_SHARED_LIMBS] = {0u, 0u};
@@ -310,15 +314,23 @@ int main(int count, char **arguments)
         for (unsigned int j = 0u; ok && (j < floors); j += 1u)
         {
             fprintf(out, "%llu", n0 + j);
+            std::vector<unsigned int> parts((size_t)(2u * sums.size()), 0u);
             for (unsigned int part = 0u; ok && (part < 2u); part += 1u)
             {
                 const DeviceRecordStep *const step = &laid.layout.step_table[outputs[2u * j + part]];
-                const CycleRecordSumRequest sum = {to,         lanes,     lanes, out_limbs, step->out_offset,
-                                                   step->out_bits, ARRIVAL_SUM_LIMBS, sums, &error};
+                const CycleRecordSumRequest sum = {to,         lanes,     group, out_limbs, step->out_offset,
+                                                   step->out_bits, ARRIVAL_SUM_LIMBS, sums.data(), &error};
                 ok = cycle_record_sum(&sum) != CYCLE_ERROR;
-                for (unsigned int limb = 0u; ok && (limb < ARRIVAL_SUM_LIMBS); limb += 1u)
+                memcpy(&parts[part * sums.size()], sums.data(), sums.size() * sizeof(unsigned int));
+            }
+            for (unsigned long long run = 0ull; ok && (run < lanes / group); run += 1ull)
+            {
+                for (unsigned int part = 0u; part < 2u; part += 1u)
                 {
-                    fprintf(out, " %x", sums[limb]);
+                    for (unsigned int limb = 0u; limb < ARRIVAL_SUM_LIMBS; limb += 1u)
+                    {
+                        fprintf(out, " %x", parts[part * sums.size() + run * ARRIVAL_SUM_LIMBS + limb]);
+                    }
                 }
             }
             fprintf(out, "\n");
