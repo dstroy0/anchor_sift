@@ -1,0 +1,120 @@
+\chapter{Terms}
+\label{ch:terms}
+
+The language's keywords are its own and are kept. Each entry below gives the field's term for
+the same concept and its source. Terms with no keyword are listed where this research paper uses
+them in a narrower sense than the field does.
+
+\section{States}
+
+\noindent\textbf{DUAL.} Both sides answer inside the timeout. Active-active operation of a
+redundant pair.
+
+\noindent\textbf{LEAD, RITE.} One side answers, the left or the right. Active-passive operation,
+the serving side named.
+
+\noindent\textbf{VOID.} Neither side answers. An outage; in a probe, both probes failed.
+
+\noindent\textbf{BUSY.} Both sides answer, each dearer than every held ask of the baseline.
+Saturation, one of the four golden signals of monitoring \cite{src:SRE}.
+
+\noindent\textbf{WAIT.} One side answers and the other answers past the timeout. Latency, the
+second golden signal \cite{src:SRE}.
+
+\noindent\textbf{BLOK.} A side refuses or ends its asker. Errors, the third golden signal
+\cite{src:SRE}.
+
+\noindent\textbf{GRAY.} A side not asked: no answer, as against VOID, an answer of no. Belnap's
+value None, told nothing, in his four-valued logic for a question-answering machine
+\cite{src:Belnap}.
+
+\noindent\textbf{SYNC.} A superstate standing for every transition between a load state and a
+binary one, entered by FUZZ carrying the state left and left by FIZZ carrying the state reached.
+Harel's superstate \cite{src:Harel}.
+
+\section{Transitions}
+
+\noindent\textbf{Mnemonic, label.} The output written on a transition of a Mealy machine, a
+function of the state left and the input that moved it \cite{src:Mealy}.
+
+\noindent\textbf{NEXUS, CORE, SURV, ZERO, DRAG, HOLD, DEAD.} Self-loops: a state held from one
+cycle to the next.
+
+\noindent\textbf{PASS, BACK.} Failover and failback, the serving side changing from left to right
+and back.
+
+\noindent\textbf{DROP.} A stable state lost to VOID.
+
+\noindent\textbf{JAMM.} Saturation turning into refusal. Gridlock.
+
+\noindent\textbf{HALT.} Any state reaching a refusal.
+
+\noindent\textbf{LOSS.} A lagging side timing out into an outage.
+
+\noindent\textbf{SPRK.} From VOID straight to DUAL. Recovery; the trial request of a half-open
+circuit breaker succeeding \cite{src:Nygard}.
+
+\noindent\textbf{WAKE, JOIN.} One side returning from VOID; a second side joining one already
+serving.
+
+\noindent\textbf{SURG, SNAP.} Saturation clearing into full service; a lagging side catching up.
+
+\noindent\textbf{VENT.} A saturated pair dropping one side. Load shedding.
+
+\noindent\textbf{TILT.} Full service decaying to one side by a fraction of a cycle's lag.
+
+\noindent\textbf{FUSE.} Both sides lost at once with no decay. A tripped circuit breaker
+\cite{src:Nygard}.
+
+\noindent\textbf{FUZZ, FIZZ.} Entry into and exit from a superstate, GRAY or SYNC.
+
+\noindent\textbf{Coherence clock.} The stream of states and labels. A health status stream.
+
+\section{The protocol}
+
+\noindent\textbf{Ask.} An address and a predicate, returning a cost unbound and a bit bound. A
+health probe with a timeout \cite{src:Kubernetes-probes}.
+
+\noindent\textbf{Unbound pass, baseline.} Costs measured with no timeout and their least, spread
+and mean. A benchmark baseline, ranked on its minimum \cite{src:Chen-Revels}.
+
+\noindent\textbf{Derived timeout.} The timeout read off the baseline. An adaptive timeout, of the
+form of TCP's retransmission timeout \cite{src:RFC6298}.
+
+\noindent\textbf{Watchdog stop.} An ask stopped at a limit before it reported its cost. A
+right-censored observation \cite{src:Kaplan-Meier}.
+
+\noindent\textbf{Spurious timeout.} A correct answer arriving past the timeout.
+
+\noindent\textbf{Gate, rank.} Feasibility decided on exact predicates, then cost ordered among the
+feasible. A lexicographic objective; filter then rank.
+
+\noindent\textbf{Known order, slicing.} Asks over covering sets of links in the order of an
+S-matrix. A Hadamard weighing design \cite{src:Hotelling, src:Sloane-Harwit}.
+
+\noindent\textbf{Contention.} A set of links costing more than the sum of its parts. A quadratic
+interaction term.
+
+\noindent\textbf{Pooled ask.} One bit for a set of checks. Group testing
+\cite{src:Dorfman, src:Ungar}.
+
+\noindent\textbf{Reference compiler.} Holding the language's code against a vendor compiler's on
+every input. Differential testing \cite{src:McKeeman}.
+
+\noindent\textbf{Turn count.} A counter kept inside a loop body that bounds it. A loop variant
+\cite{src:Floyd}.
+
+\noindent\textbf{Floor.} The noise floor of a measurement, written to the language's
+\texttt{.knf} view.
+
+\section{Information}
+
+\noindent\textbf{Information is coherence.} The language's principle that friction measures
+information content. Kolmogorov complexity \cite{src:Kolmogorov} read through the minimum
+description length principle \cite{src:Rissanen}; by H1, closer to logical depth
+\cite{src:Bennett}.
+
+\noindent\textbf{Kept bits.} \(H(\text{pair}) - H(\text{pair}\mid\text{label})\), the mutual
+information between a transition and its label \cite{src:Shannon}.
+
+\noindent\textbf{Critical path.} The longest chain of dependent steps \cite{src:Kelley-Walker}.

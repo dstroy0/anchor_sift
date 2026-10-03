@@ -1,0 +1,121 @@
+\chapter{Hypotheses and Open Problems}
+\label{ch:hypotheses}
+
+Three hypotheses follow from the measurements. Each is stated with the evidence for it, a
+prediction, and the observation that would refute it.
+
+\section{H1. Friction tracks depth}
+\label{sec:h1}
+
+\textbf{Hypothesis.} The cost the protocol measures of a computation tracks the length of its
+longest chain of dependent steps, and not the number of its steps.
+
+\textbf{Evidence.} On the RTX 3070 an operation of no instruction costs 0 cycles a step, of one
+instruction 4.05, and of two dependent instructions 8.05: cost grows by one instruction latency
+per link of the chain. Two chains that share no link, interleaved a step at a time, cost the
+dearer of the two alone in all 91 pairs measured. The interleaved cost is the larger of the two. In
+scheduling this is the critical path \cite{src:Kelley-Walker}: the duration of a set of tasks is
+the length of its longest dependent sequence, however many tasks run beside it.
+
+\textbf{Reading.} The language takes friction as its measure of information
+(Chapter~\ref{ch:language}). If H1 holds, what it measures is not the length of a shortest
+description but something closer to Bennett's logical depth, the time a near-shortest program
+takes to produce an object \cite{src:Bennett}. The two differ sharply. A random string has
+maximal Kolmogorov complexity and almost no depth, and Bennett's own examples of shallow objects
+are random sequences and perfect crystals. A computation at its Kolmogorov complexity can still
+be cheap to run, and the protocol would read it as cheap. In measurable form, the principle
+\emph{information is coherence} reads as \emph{cost is depth}.
+
+\textbf{Prediction.} A dependent chain of \(d\) one-instruction operations costs about
+\(4.05\,d\) cycles a step on this part, whatever independent work is interleaved with it, until
+the interleaved work contends for a shared unit.
+
+\textbf{Refutation.} Independent chains whose interleaved cost is the sum of their costs, or a
+dependent chain cheaper than its depth times the instruction latency.
+
+\section{H2. Bits repeat, costs vary}
+\label{sec:h2}
+
+\textbf{Hypothesis.} The states of the machine fall into two classes. States decided by which
+sides held (LEAD, RITE, VOID, WAIT, GRAY, BLOK) are reproducible exactly from run to run. States
+decided by cost (BUSY against DUAL, TILT against DROP, FUSE against DROP) vary with the host's load
+and are reproducible only as rates. The gate and rank rule of Chapter~\ref{ch:protocol} holds
+inside the state alphabet itself.
+
+\textbf{Evidence.} Over 80 runs of one scenario every bit-decided state repeated in every run,
+and every difference between runs was a both-held cycle reading BUSY in place of DUAL, at 5\% in
+one batch and 9.4\% in the other (Section~\ref{sec:repeat}). Both sides of a pair came in past the
+BUSY edge together 3.4 times as often as independence predicts. A slow moment of the host slows
+both sides at once. BUSY reads load common to the pair, the common-mode noise of a measurement
+that shares one host, and not a property of either address.
+
+\textbf{Consequence.} A program should branch on bit-decided states and treat cost-decided states
+as signals with a rate. BUSY should not be attributed to either address of a pair that shares a
+host. Production monitoring draws the same line: saturation is a property of a shared resource,
+and it is watched as a trend and not acted on per request \cite{src:SRE}.
+
+\textbf{The spurious timeout.} By Proposition~\ref{prop:spurious} a timeout derived from \(k\)
+exchangeable runs is beaten by a further run with probability below \(1/(k+1)\). In batch B the
+timeouts were derived from 64 or 128 runs, a bound of 1.5\%. The measured rate over both batches
+is 0.21\%, well inside it. Both late answers fell in runs whose timeouts were among the lowest,
+derived in a quiet moment of the host. There the runs the timeout was derived from and the run
+that beat it were not exchangeable: the host had changed between them. This is the tail latency
+of large services \cite{src:Dean-Barroso} seen on one machine, and it is why a reference ask is
+put beside each real one in place of a timeout carried forward.
+
+\textbf{Prediction.} Two asks on separate hosts pass the BUSY edge together at about the product
+of their separate rates.
+
+\textbf{Refutation.} A bit-decided state that differs between runs whose recorded sides agree;
+or, on separate hosts, joint passes far above the product.
+
+\section{H3. A label carries its pair}
+\label{sec:h3}
+
+\textbf{Hypothesis.} A transition label loses nothing a branch can use where it is decided in its
+situation and every passage through a superstate carries the state left and the state reached.
+
+\textbf{Evidence.} Table~\ref{tab:labelbits}. The labels as printed keep 3.302 of 5.977 bits of
+the transition. Deciding them in their situation keeps 3.848; writing SYNC as its passage, 4.856;
+letting GRAY trips carry their state as well, 5.480. The 0.498 bits still lost sit in labels
+that each name a rule covering many pairs, DROP and HALT the largest.
+
+\textbf{Consequence.} The superstate form already used for SYNC extends to GRAY at no cost to the
+atomicity of Proposition~\ref{prop:atomic}, since only the labels change and not where they fall.
+The rule labels, DROP, HALT, JOIN, TILT, VENT and WAKE, can either carry their pair as SYNC does or
+stay as names; that is a choice of the language's design and the measurement only prices it.
+
+\textbf{Refutation.} A pair that cannot be recovered from a label carrying it, which would mean
+two transitions share a pair and the machine is not a function of its pairs.
+
+\section{Open problems}
+
+\begin{enumerate}
+\item \textbf{What the baseline is per.} A timeout is expressed against the baseline, and the
+  baseline has no keying. Per host is coarse enough to carry signal and too coarse to remember a
+  preference part by part. Per part and operation splits the samples until each is noise.
+  Chaining clears the noise floor, and the chain length that makes a per-part baseline usable is
+  not measured.
+\item \textbf{Whether a handoff moves the channel.} Whether PASS should make the right address
+  the primary channel is undecided. In the field, failover usually does and failback is made a
+  deliberate step.
+\item \textbf{Recovery from collapse.} JAMM, HALT and FUSE are named and have no defined
+  recovery. The circuit breaker \cite{src:Nygard} gives one: stop asking for a waiting period,
+  then let one trial ask through, closing on success and opening again on failure. In this
+  language the trial succeeding is SPRK.
+\item \textbf{A loop construct.} The language has no syntax for a query loop. A loop has to
+  express: a pair put each cycle; the timeout left implicit and derived, the unbound pass first;
+  a branch on the label with its pair carried; a turn count that bounds the loop where a fault
+  cannot reach it; and the record written as it runs. The field's nearest form is the control
+  loop of a reconciling controller. The syntax is the language's to define.
+\item \textbf{A difference inside the floor.} Whether a link whose difference between two
+  branches sits inside the floor reads DUAL, both alike, or GRAY, neither known to be cheaper.
+\item \textbf{Comparing branches.} The link-by-link comparison of two branches is stated and not
+  yet measured.
+\item \textbf{The record's view.} The view holding every ask and answer has no suffix.
+\end{enumerate}
+
+\section{Data and code availability}
+
+The language and the programs that produce every figure in this research paper are in the orior
+repository, \texttt{https://github.com/dstroy0/orior}. Each program writes the traces it reads.

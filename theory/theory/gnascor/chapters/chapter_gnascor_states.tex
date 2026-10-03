@@ -1,0 +1,178 @@
+\chapter{The State Machine}
+\label{ch:states}
+
+\section{A Mealy machine over branch pairs}
+
+Two asks put side by side form a branch pair. Each cycle the pair is read as a state, and each
+change of state from cycle \(N-1\) to cycle \(N\) is given a label. A machine whose output is
+written on its transitions, a function of the state left and the input that moved it, is a Mealy
+machine \cite{src:Mealy}. The language's clock is that output: a stream of states and labels from
+which the health of a system can be read, as from a status page.
+
+\section{The states}
+
+Four states come from the two bits alone, and four from what the bits were measured with.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l p{6.4cm}@{}}
+\toprule
+state & reading & field term \\
+\midrule
+DUAL & 1, 1 & both sides healthy; active-active \\
+LEAD & 1, 0 & left serves; active-passive \\
+RITE & 0, 1 & right serves; active-passive \\
+VOID & 0, 0 & outage \\
+BUSY & both held, both dear & saturation \\
+WAIT & one held, one past the timeout & latency \\
+BLOK & a side ended its asker & error \\
+GRAY & a side not asked & unknown; Belnap's None \\
+\bottomrule
+\end{tabular}
+\caption{The base states.}
+\label{tab:states}
+\end{table}
+
+BUSY, WAIT and BLOK are three of the four golden signals of production monitoring: saturation,
+latency and errors \cite{src:SRE}. The fourth, traffic, is the rate of asks, which the protocol
+sets and does not read.
+
+GRAY is no answer, and it is not VOID, which is an answer of no. Belnap's four-valued logic for
+a machine that answers questions has a value for exactly this, None, told nothing, beside True,
+False and Both \cite{src:Belnap}. In his order of information None sits below every other value:
+it is compatible with each of them until an ask is put, the language's ``every state at
+once''. Entering GRAY is the loss of the ability to ask, labeled FUZZ, and leaving it is a
+first observation, labeled FIZZ.
+
+\begin{definition}[Reading a state off asks]
+A side reads 1 where its ask held inside the timeout. A pair reads BLOK where a side ended its
+asker, GRAY where a side was not asked, WAIT where one side held and the other held past the
+timeout, and BUSY where both held and each cost more than every held ask of the baseline. The
+edge BUSY is read against is the baseline's largest held cost, never a figure written in.
+\end{definition}
+
+The BUSY edge is the rank rule of Chapter~\ref{ch:protocol} applied to one side: a cost past the
+baseline's least by more than the baseline's spread is past its largest.
+
+\section{The transitions}
+
+Table~\ref{tab:matrix} is the language's first transition table, the label for each pair
+of past and present state.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l *{8}{c}@{}}
+\toprule
+past & DUAL & LEAD & RITE & VOID & BUSY & WAIT & BLOK & GRAY \\
+\midrule
+DUAL & NEXUS & DROP & SYNC & DROP & SYNC & SYNC & HALT & FUZZ \\
+LEAD & JOIN & CORE & PASS & DROP & SYNC & SYNC & HALT & FUZZ \\
+RITE & JOIN & BACK & SURV & DROP & SYNC & SYNC & HALT & FUZZ \\
+VOID & SPRK & WAKE & WAKE & ZERO & SYNC & SYNC & HALT & FUZZ \\
+BUSY & SYNC & SYNC & SYNC & DROP & DRAG & SYNC & JAMM & FUZZ \\
+WAIT & SYNC & SYNC & SYNC & LOSS & SYNC & HOLD & HALT & FUZZ \\
+BLOK & SYNC & SYNC & SYNC & DROP & SYNC & SYNC & DEAD & FUZZ \\
+GRAY & FIZZ & FIZZ & FIZZ & FIZZ & FIZZ & FIZZ & FIZZ & \textendash \\
+\bottomrule
+\end{tabular}
+\caption{The state transition table: rows are the state at cycle \(N-1\), columns the state at
+cycle \(N\).}
+\label{tab:matrix}
+\end{table}
+
+The diagonal, NEXUS, CORE, SURV, ZERO, DRAG, HOLD and DEAD, is the steady states. PASS and BACK
+are the handoff between the two sides, failover and failback. DROP and JAMM are collapses: a
+stable state lost, and saturation turned into refusal, which a distributed system knows as
+gridlock. HALT is any state reaching a refusal.
+
+A second table splits the transitions out of high load (Table~\ref{tab:energy}).
+
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{@{}l c c c c@{}}
+\toprule
+past & DUAL & LEAD & RITE & VOID \\
+\midrule
+BUSY & SURG & VENT & VENT & DROP \\
+WAIT & SNAP & LEAD & RITE & LOSS \\
+DUAL & NEXUS & TILT & TILT & FUSE \\
+\bottomrule
+\end{tabular}
+\caption{The high load transition table.}
+\label{tab:energy}
+\end{table}
+
+SURG is saturation clearing into a burst of throughput. VENT is a saturated pair dropping one
+side, load shedding. SNAP is a lagging side catching up. TILT is DUAL decaying to one side. FUSE
+is both sides lost at once with no decay: the breaker trips. The language leaves FUSE, JAMM and
+HALT without a recovery path; the field's answer is the circuit breaker, which opens on failure,
+stops sending, and after a wait lets one trial request through before it closes again
+\cite{src:Nygard}. SPRK, from VOID straight to DUAL, is that trial succeeding.
+
+\section{Superstates}
+
+SYNC covers 22 cells of Table~\ref{tab:matrix}. A label that covers many transitions loses them:
+a branch that reads only SYNC cannot tell DUAL to BUSY from BLOK to LEAD. The language's answer
+is to make SYNC a superstate. A transition the table marks SYNC is written as a passage through
+it, entering by FUZZ carrying the state it left and leaving by FIZZ carrying the state it reaches:
+\[
+  [\mathrm{DUAL}] \xrightarrow{\ \mathrm{FUZZ+DUAL}\ } [\mathrm{SYNC}]
+  \xrightarrow{\ \mathrm{FIZZ+BUSY}\ } [\mathrm{BUSY}].
+\]
+GRAY is entered and left the same way. This is Harel's superstate \cite{src:Harel}: one state that
+stands for a set of others, entered and left through labeled transitions. Here the labels carry
+the identity of the transition, and the pair is read back from them exactly.
+
+\begin{proposition}
+\label{prop:atomic}
+A trip through GRAY is atomic: a FUZZ opens it, one FIZZ closes it, and no FUZZ opens inside
+another.
+\end{proposition}
+
+\begin{proof}
+FIZZ labels only transitions out of GRAY to another state, FUZZ only transitions into GRAY from
+another state, and GRAY to GRAY carries no label. Between a FUZZ and the next FIZZ the pair is
+GRAY throughout, and no transition out of GRAY is a FUZZ.
+\end{proof}
+
+Over 500 random traces of 40 cycles, every side drawn from held, heavy, not held, late, ended and
+unasked, every GRAY trip is atomic, and the exact pair of all 3,035 SYNC passages is read back
+from their labels alone.
+
+\section{A label is decided in its situation}
+
+Where both tables name one transition they can disagree. DUAL to LEAD is DROP in the first table
+and TILT in the second; DUAL to VOID is DROP in the first and FUSE in the second. The language
+does not pick one for every case. Two names for one pair are two candidates, and the asks that
+read the transition choose between them the way the gate chooses an arrangement: a bit excludes
+what does not hold, and a magnitude ranks the survivors.
+
+The protocol already carries what separates them. A side reading 0 carries why: past its
+timeout, not held, or ended. DUAL to LEAD is TILT where the right side came in past its timeout
+by a fraction of a cycle, and DROP where it did not answer at all or came in late by a timeout's
+measure. DUAL to VOID is FUSE where both sides go at once with no decay, and DROP where the
+collapse ran through a timeout. Where the line between a fraction and a timeout falls is read off
+the baseline and never written in. Under this rule every pair the tables name takes a label from
+its own candidates in each of the 256 situations two sides can be in.
+
+\section{The tables read against asks}
+
+Read against real asks, the tables raise six points of definition, each left for the language's
+design to settle.
+\begin{itemize}
+\item TILT and WAIT name one event. Read off asks, a held side beside one a fraction late is
+  WAIT, and DUAL to LEAD by TILT never arrives.
+\item A name stands for a state and for a transition. The second table labels WAIT to LEAD as
+  LEAD; CORE is the pair 1, 0 in the branch pair table and LEAD to LEAD in the transition table.
+\item VOID does not separate two sides both past the timeout from two that both did not hold.
+  The kind each ask carries does, and the record keeps it.
+\item Two prose rules carry exceptions the tables hold: any state to BLOK is HALT, except BUSY to
+  BLOK (JAMM) and BLOK to BLOK (DEAD); any stable state to VOID is DROP, except DUAL to VOID where
+  both sides go at once (FUSE). The tables are taken as the definition.
+\item DUAL at maximum is called unstable, and DUAL to DUAL, NEXUS, is listed as a steady state.
+\item SHIFT, in the branch pair table, has five letters where every other keyword has four.
+\end{itemize}

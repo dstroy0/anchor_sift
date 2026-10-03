@@ -1,0 +1,33 @@
+\pdfbookmark[1]{Abstract}{Abstract}
+\thispagestyle{empty}
+\begin{center}
+  \rule{\textwidth}{0.4pt}\\[0.9em]
+  {\Large\spacedallcaps{Abstract}}\\[0.7em]
+  \rule{\textwidth}{0.4pt}
+\end{center}
+\bigskip
+
+\noindent Gnascor is the language the orior compiler is written in. It treats every host, a
+processor, a database, a web service or a language model, as a black box that answers yes or no
+questions, and it reads each answer together with what the answer cost. A question is an
+address, a predicate asked at it, and a timeout; the answer is one bit, 1 where the predicate
+holds inside the timeout. The timeout is never written by hand. It is derived from the spread
+of the host's own costs, measured first with no timeout at all.
+
+Two answers taken side by side make a branch pair, and the pair is a state of a finite state
+machine whose output on each transition is a four-letter mnemonic. The mnemonics are the
+language's keywords. Each maps to a term the field already has: failover and failback, load
+shedding, a circuit breaker, a health probe, the saturation, latency and error signals of
+production monitoring, and the superstate of a statechart.
+
+The method has one rule. A predicate holds or it does not, and that answer carries no noise; a
+cost is a measurement and always does. The language decides which candidates hold first and
+ranks only the survivors by cost, and never adds the two into one score. The ranking reads a
+difference as real only where it clears the candidates' own spread.
+
+This research paper states the language, maps each of its parts to the field's term with a
+source, collects the experiments that have run on it, and adds three new measurements: how
+many bits of a transition each kind of label keeps, how often the derived timeout is beaten on
+a real host, and which states repeat from run to run. It then states three hypotheses the
+measurements support and the work left open.
+\cleardoublepage
