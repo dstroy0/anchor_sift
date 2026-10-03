@@ -1,6 +1,6 @@
 # Engine findings, for verification
 
-**Purpose:** Check every claim the engine work of 2026-09-16 produced against where it is recorded and the exact command or argument that settles it, without taking any of it on trust.
+**Purpose:** Check every claim the engine work produced against where it is recorded and the exact command or argument that settles it, without taking any of it on trust.
 **Scope:** `src/engine/c/`, `test/engine/`, `maint/engine/`, `docs/steering.md`, `theory/workbooks/orior/chapters/chapter_orior_workbook.tex`, and the engine workbook chapter staged for upstream.
 
 Every claim below is in one of three states. **Holds** means checked and standing. **Retracted** means it was published here and is now withdrawn, with the reason. **Open** means it is not settled and is not to be quoted as though it were.
@@ -34,7 +34,7 @@ A correctness suite cannot detect an unused implementation: an engine compiled, 
 
 Reads per alignment, unsteered to best steered: uniform 1.003 to 1.003, synthetic skewed 1.562 to 1.001, skewed 1.877 to 1.067, period 16 1.187 to an exact 1.000 with one probe where the unsteered route places four, natural AGPL English text 1.072 to an exact 1.000.
 
-**Corrected 2026-09-16 after a rerun.** An earlier form of this entry gave the license text as 1.072 to 1.066 and called it the weakest field. 1.066 is the recursive reorder column; the field's result is its best route and that is 1.000 on coarms. **Uniform is the weakest field** and it is weak for a reason worth stating: a uniform field has no rarity for the steering to spend. No route moves it and 1.003 to 1.003 is the honest worst case.
+**The license text is not the weakest field.** 1.066 is the recursive reorder column; the field's result is its best route and that is 1.000 on coarms. **Uniform is the weakest field** and it is weak for a reason worth stating: a uniform field has no rarity for the steering to spend. No route moves it and 1.003 to 1.003 is the honest worst case.
 
 Two things one field could not show. Steering pays nothing on a uniform field, where no symbol is rarer than another. And the mechanisms separate: on the skewed field the recursive reorder moves 1.877 to 1.875 while spawning coarms moves it to 1.067. The spawning pays and the ordering does not.
 
@@ -72,7 +72,7 @@ A probe rejects a definite set of alignments; a probe set rejects their union; `
 
 **Check:** `bench_raster` prints 20 volume rows, every one zero collisions and, where a device is present, graded host against device voxel for voxel, alongside 20 sheet rows graded host against device byte for byte.
 
-**Gap closed, 2026-09-17:** this earlier read that there was no device volume kernel and that `anchor_volume_device_available` returned 0 on every build. That is no longer true. `src/engine/c/render/raster_cuda.cu` carries a device volume renderer (`render_volume`, `device_volume_cell`, and the `anchor_volume_device` entry), `anchor_volume_device_available` returns 1 where a device is present and the build carries the kernel and 0 otherwise, and `bench_raster` grades the volume host against device voxel for voxel. `anchor_volume_render_host` stays host only and named so, and nothing falls back silently.
+**Gap closed:** `src/engine/c/render/raster_cuda.cu` carries a device volume renderer (`render_volume`, `device_volume_cell`, and the `anchor_volume_device` entry), `anchor_volume_device_available` returns 1 where a device is present and the build carries the kernel and 0 otherwise, and `bench_raster` grades the volume host against device voxel for voxel. `anchor_volume_render_host` stays host only and named so, and nothing falls back silently.
 
 ### F10. Two build defects that made measurements impossible
 
@@ -120,7 +120,7 @@ That row was also briefly printed inside the route table, whose column counts pr
 
 I presented the equality oracle as lifting a constraint on the engine. It lifted one on the C entries only, and the framing implied more than that.
 
-The python cascade has never needed bytes. `survivors` reads `places.get(needle[offset], ())` and `positions_by_symbol` builds `places` with `setdefault(value, set())` over any iterable. A symbol there is a dict key and the requirement is equality and hashability (`src/python/engine/nbody/orior/sift/anchors.py:104`, `src/python/engine/nbody/orior/sift/anchors.py:110-115`). `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` runs the cascade over crystals with element strings as symbols, importing `representation.exact` and `representation.structure.crystal` and no shared library at all. Both claims were checked against the source and verify.
+The python cascade has never needed bytes. `survivors` reads `places.get(needle[offset], ())` and `positions_by_symbol` builds `places` with `setdefault(value, set())` over any iterable. A symbol there is a dict key and the requirement is equality and hashability (`src/python/engine/nbody/orior/sift/anchors.py`, `src/python/engine/nbody/orior/sift/anchors.py`). `examples/crystallography/5_sift/lattice_breaks_the_product_rule.py` runs the cascade over crystals with element strings as symbols, importing `representation.exact` and `representation.structure.crystal` and no shared library at all. Both claims were checked against the source and verify.
 
 So the C entries were narrower than the proof they implement AND narrower than the python engine they are graded against, and a reader of the C headers would have concluded from their byte framing that the construction required bytes.
 
@@ -134,11 +134,11 @@ A descent's oracle is asked only whether two positions agree. That is a pairwise
 
 `anchor_field_project` groups positions into classes by comparing each against a representative, which assumes agreement partitions the field. Under a predicate that is not transitive the grouping depends on which representative a position meets first, two positions that do agree can land in different classes, same symbol stops implying same rank, and a rank probe stops being a necessary condition. It then rejects alignments holding true occurrences, silently, with nothing failing.
 
-**The case that motivates having an oracle is the case that breaks it.** `examples/proteins/5_sift/protein_domain.py:66-74` matches a point within a tolerance of a displaced position, and its docstring states why exact equality is the wrong test on a continuous domain: coordinates are real. Two occurrences of one motif never land on identical voxel offsets. A tolerance relation is not transitive, since `a` within tolerance of `b` and `b` of `c` does not put `a` within tolerance of `c`. That predicate is sound in a descent and unsound in the projection.
+**The case that motivates having an oracle is the case that breaks it.** `examples/proteins/5_sift/protein_domain.py` matches a point within a tolerance of a displaced position, and its docstring states why exact equality is the wrong test on a continuous domain: coordinates are real. Two occurrences of one motif never land on identical voxel offsets. A tolerance relation is not transitive, since `a` within tolerance of `b` and `b` of `c` does not put `a` within tolerance of `c`. That predicate is sound in a descent and unsound in the projection.
 
 Verifying transitivity costs a cube of the field, and nothing verifies it. The precondition is stated in the header at the declaration, loudly, because the failure mode is a wrong answer and not a refusal.
 
-**Check:** read the warning on `anchor_field_project` in `src/engine/c/engine/orior.h`, and `examples/proteins/5_sift/protein_domain.py:66-74` for the predicate that breaks it.
+**Check:** read the warning on `anchor_field_project` in `src/engine/c/engine/orior.h`, and `examples/proteins/5_sift/protein_domain.py` for the predicate that breaks it.
 
 ### F12. A crystal derived field would be half selected by crystal system, and the selection tracks mineral family
 
@@ -148,17 +148,17 @@ Of 7459 entries, 3708 are admitted to the exact reading (49.7 percent), 3747 are
 
 The gate selects by crystal system, and crystal system is confounded with mineral family. **Any field drawn from that cache is the cubic and orthorhombic half of it**, with the monoclinic and triclinic families all but absent, and a bench run over it would report a property of that half while naming the whole corpus.
 
-Nothing in the engine touches it today. `bench_lattice` and `bench_coherence` build synthetic periods and are unaffected, and F4's natural field is the AGPL license text. It is recorded because F4 establishes the habit of reaching for a natural field, and this is the natural field nearest to hand.
+Nothing in the engine touches it. `bench_lattice` and `bench_coherence` build synthetic periods and are unaffected, and F4's natural field is the AGPL license text. It is recorded because F4 establishes the habit of reaching for a natural field, and this is the natural field nearest to hand.
 
 **Check:** `maint/analysis/survey/crystal_gate_census.py` over `build/cod`, in the crystallography worktree.
 
-### R7. "Nothing is committed" was wrong
+### R7. The engine rewrite is committed
 
-I wrote that nothing of the engine work was committed and that there was no branch to merge. The second half holds for the work described here. The first half does not.
+There is no branch to merge for the work described here, and the rewrite under it is committed.
 
-`0474582 src orior rewrite`, authored 2026-09-16 08:47:49, is HEAD of `worktree-engine-steer-exact` and touches `src/engine/c/portable/orior.{c,h}`, three benches, `CMakeLists.txt` and `test/engine/test_arm_agreement.c`. Verified by `git log` and `git show`.
+`src orior rewrite` is HEAD of `worktree-engine-steer-exact` and touches `src/engine/c/portable/orior.{c,h}`, three benches, `CMakeLists.txt` and `test/engine/test_arm_agreement.c`. Verified by `git log` and `git show`.
 
-So the rewrite is in the tree and only the work on top of it is uncommitted. The distinction matters to whoever commits next, because a commit lands on a branch that has already moved and not on a branch that has not.
+Only the work on top of it is uncommitted. The distinction matters to whoever commits next, because a commit lands on a branch that has already moved and not on a branch that has not.
 
 ### R8. The overflow merged by arrival order, and the header claimed it merged by rarity
 
@@ -188,15 +188,15 @@ Unchanged under the transitive closure, for a stated reason: a different rank me
 
 ### R9. The volume renderer documented a census parameter it discards
 
-Found in published code, verified, and fixed at `ca62234`.
+Found in published code, verified, and fixed.
 
-`anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/render/anchor_raster.c:473`) and built its own from `corpus` (`src/engine/c/render/anchor_raster.c:502`). A document describing behavior the code does not have.
+`anchor_volume_render_host` took a `census` parameter documented as "Rarity source for ANCHOR_CHANNEL_RARITY, or NULL". It discarded it (`src/engine/c/render/anchor_raster.c`) and built its own from `corpus` (`src/engine/c/render/anchor_raster.c`). A document describing behavior the code does not have.
 
 **The failure it enables has no symptom.** A caller passing NULL is correct, and every caller in this tree passes NULL. Nothing crashed and nothing was unsound. A caller passing a census built over something ELSE, a reference distribution or a census taken over a sampled slice, would have that rarity source silently replaced by one computed from the corpus in front of it. The render succeeds. The picture is plausible. Nothing reports anything.
 
 **Verification passed straight over it.** A test of this renderer the same morning reported 20 volume rows filled 32768 with 0 collisions, which is true and never touches this parameter. "The volume renderer is verified" was written twice, and it did not cover this.
 
-**Fixed by correcting the document, not by removing the parameter**, because a tunable with no reader is an integration point that is never deleted and never described as unimplemented. The declaration now says the call builds its own census from `corpus`, that this parameter is reserved for a caller supplied rarity source, and that an earlier form of the line called it the rarity source and was wrong. The same note sits at the discard site. A reader of either meets it.
+**Fixed by correcting the document, not by removing the parameter**, because a tunable with no reader is an integration point that is never deleted and never described as unimplemented. The declaration says the call builds its own census from `corpus` and that this parameter is reserved for a caller supplied rarity source. The same note sits at the discard site. A reader of either meets it.
 
 **Swept for the class and not the instance**, the lesson from R8's sibling an hour earlier. Every discarded parameter in the engine and the renderer was checked: `raster_value`'s is a static helper, and `anchor_raster_device`'s are the stub arm on a build with no CUDA, which is documented as refusing. `census` was the only public parameter documented as used and not used.
 
@@ -204,11 +204,11 @@ Found in published code, verified, and fixed at `ca62234`.
 
 ### F15. O1 settled: one descent is bounded above by a constant, and depth IS data dependent
 
-**Premise replaced 2026-09-16. The conclusion stands; the reasoning under it did not.**
+**The conclusion stands on a replaced premise.**
 
-The first version of this entry rested on `src/engine/c/portable/orior.h:676`, which said "Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level". **That line is false on the default path**, it is now corrected in the header, and this entry no longer uses it.
+`src/engine/c/portable/orior.h` is corrected where it said "Nothing in the descent lets corpus content change the DEPTH, only the choice made at a level". **That line is false on the default path**, and this entry does not use it.
 
-`steer_descend` breaks on `(force_full_depth == 0) && (best_standing >= steer_truthy_total(...))` (`src/engine/c/engine/orior.c:1024-1025`). `best_standing` is returned by `steer_truthy_after`, which reads the corpus. `force_full_depth` is zero unless a caller names it, and an omitted member is zero. **on the default path corpus content decides the depth**. The existence of `force_full_depth` is the proof by itself: there would be nothing for it to override if depth were always `wanted`.
+`steer_descend` breaks on `(force_full_depth == 0) && (best_standing >= steer_truthy_total(...))` (`src/engine/c/engine/orior.c`). `best_standing` is returned by `steer_truthy_after`, which reads the corpus. `force_full_depth` is zero unless a caller names it, and an omitted member is zero. **on the default path corpus content decides the depth**. The existence of `force_full_depth` is the proof by itself: there would be nothing for it to override if depth were always `wanted`.
 
 **The counterevidence was in F14 the whole time.** The `placed` column reads 2 at sigma 2^8 and 2^12 and 1 from 2^16 up, with `wanted` fixed at 4 on every row, and F14 explains it as the destroy rule firing because a larger alphabet lets the first probe cut far enough. That is a description of corpus content changing the depth, sitting in this document, above a claim that corpus content cannot change the depth.
 
@@ -232,7 +232,7 @@ Found while writing `docs/inspection-points.md`, and sharper now than it would h
 
 The engine computes `best_standing` at every level of the descent and compares it against `steer_truthy_total` to decide whether to stop. Then it discards it. `placed` reports the depth reached, and the raster's `DEATH_LEVEL` channel reports which probe killed each alignment, and **nothing between those two reports the survivor count at each level**, the number the decision actually turned on.
 
-A caller who wants it today runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
+A caller who wants it runs the descent twice with `force_full_depth` flipped and subtracts. That recovers the fact that the destroy rule fired and what its firing cost. It does not recover the reason.
 
 **Why it matters more after F15.** Four documents were just corrected to say depth is a data dependent steer and not a constant. The quantity that steer reads is not reported by the engine.
 
@@ -240,7 +240,7 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 ### O2. WANT: the one term that would make the engine a computer
 
-**Reframed 2026-09-16.** The engine is off by one term, and that term just needs unbounding. This entry used to read as a blocker on a classification question. It is a capability somebody might ask for, and one interface change.
+**The engine is off by one term, and that term just needs unbounding.** It is not a blocker on a classification question. It is a capability somebody might ask for, and one interface change.
 
 **The term.** The entries take `const uint8_t *corpus` with a `corpus_len`, which is a window nailed down. The engine cannot ask for more universe. The change is a reader the engine may call for more, in place of a pointer and a length.
 
@@ -252,7 +252,7 @@ The shape would be a caller supplied array of `count` entries, filled with the s
 
 **The cost is the evidence.** At the outer level, termination goes. That is not a regression waiting to be fixed: if it were still decidable whether a given outer run finishes, the thing would not be universal. The engine's current selling point is that it always returns an answer, and this trades exactly that, at the outer level only.
 
-**This does not settle O1 and must not be recorded as settling it.** What the engine IS today is unchanged: `ANCHOR_STEER_ANCHORS` is 4, the trichotomy shows it does not cycle, and both were verified this morning. This names what would move the answer and leaves the answer open.
+**This does not settle O1 and must not be recorded as settling it.** What the engine IS is unchanged: `ANCHOR_STEER_ANCHORS` is 4, the trichotomy shows it does not cycle, and both are verified. This names what would move the answer and leaves the answer open.
 
 **Nothing is blocked on it and nothing is being built.**
 

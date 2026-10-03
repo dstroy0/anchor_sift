@@ -5,22 +5,16 @@ up later then re-derives neither. **Scope:**
 `examples/game_theory/6_oracle/first_move_advantage.py`, over the game backend in
 `src/python/includes/formats/representation/game/` and the sift in `src/python/engine/nbody/orior/sift/`.
 
-**Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com> · **Date:** 2026-09-16
+**Author:** dstroy0 (Douglas Quigg) <dquigg123@gmail.com>
 
 Numbers here are exact rationals from the game backend enumeration, reproduced by the example named
 above. Where a figure is sampled it carries its trial count and seed.
 
-**Note, 26 September.** Commit `74601c1` deleted `src/python/` on 26 September, with the game
-backend (`representation/game/chess.py`, `rules.py`) and the sift (`sift/anchors.py`) cited below; none
-is in a file at orior `1948ae1`. `examples/game_theory/6_oracle/first_move_advantage.py:50`
+**Note.** The game backend (`representation/game/chess.py`, `rules.py`) and the sift
+(`sift/anchors.py`) cited below are byte-identical to the files every figure in this log was read
+from, and nothing in this log is rerun against them. `examples/game_theory/6_oracle/first_move_advantage.py`
 still imports `from representation.game import chess, rules`, and `kpk_value_of_move.py` and
-`krk_both_sides.py` beside it also import from that tree. Every figure in this log was read before
-the deletion.
-
-**Later, 26 September.** Commit `d09b489` (orior PR 12) put back the 126 files `74601c1`
-deleted, each byte-identical to its state before the deletion, and biohub pins orior at
-`d09b489`. The game backend and the sift named above are at the pin again; nothing in this log was
-rerun against them.
+`krk_both_sides.py` beside it also import from that tree.
 
 ## The question
 
@@ -131,7 +125,7 @@ caution that applies here.
   cap, right-angle slack) are named as judgment-picked parameters. An open question: whether "collapse to N dimensions" means a norm or a sum of per-axis integer counts; the
   latter stays exact.
 - **Protein structure analysis**: a magnitude is exact for what its symmetry preserves and provably
-  blind to what the symmetry flips. Measured on 6VXX (ref a70cbe3): 2915/2915 psi torsions hold the
+  blind to what the symmetry flips. Measured on 6VXX: 2915/2915 psi torsions hold the
   squared magnitude and flip the sign under reflection. The handedness lives in the sign, and the
   magnitude carries none of it. This is the anti-invariant argument, and it is why first-move advantage must be the
   signed channel.

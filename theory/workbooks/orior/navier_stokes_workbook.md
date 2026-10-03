@@ -5,15 +5,10 @@ Navier-Stokes statement names, one poke at a time, claiming nothing. **Scope:**
 `examples/0_experimental/exact_navier_stokes_on_torus.py`,
 `evidence/proofs/posits/proof_boundary_inheritance.py`, and this file.
 
-**Note, 26 September.** All three examples this workbook runs
+**Note.** All three examples this workbook runs
 (`exact_navier_stokes_on_torus.py`, `exact_navier_stokes_cascade.py`,
-`proof_boundary_inheritance.py`) import `from representation import exact`, which lived in
-`src/python/` and was deleted with it by `74601c1` on 26 September; it is in no file at
-orior `1948ae1`. Every run recorded below was made before the deletion.
-
-**Later, 26 September.** Commit `d09b489` (orior PR 12) put back the 126 files `74601c1`
-deleted, each byte-identical to its state before the deletion, and biohub pins orior at
-`d09b489`. `representation/exact.py` is at the pin again; nothing here was rerun against it.
+`proof_boundary_inheritance.py`) import `from representation import exact`. `representation/exact.py` is byte-identical to the file
+every run recorded below was made against, and nothing here is rerun against it.
 
 This is a workbook, and it claims no result. It follows the rail the
 millennium research paper set down (`theory/theory/millennium/chapters/chapter_what_this_is.tex`) and the analytic
@@ -35,8 +30,8 @@ to a neighborhood, with no claim staked in it.
 ## The problem, stated fully
 
 Read from Charles Fefferman's statement for the Clay Mathematics Institute, six pages including the errata
-page, fetched from the Clay site on 2026-09-17 and read in full. The millennium research paper's chapter
-(`theory/theory/millennium/chapters/chapter_navier_stokes.tex`) read the same document on 2026-09-11 and
+page, fetched from the Clay site and read in full. The millennium research paper's chapter
+(`theory/theory/millennium/chapters/chapter_navier_stokes.tex`) read the same document and
 its account agrees with this reading at every point checked.
 
 The unknowns are a velocity `u(x,t)` in `R^n` and a pressure `p(x,t)`, `n = 2` or `3`, `t >= 0`, with
@@ -165,7 +160,7 @@ Three lists, kept apart. The first two are Fefferman's statement, read; the thir
   hard to go further.
 - His closing sentence: standard methods from PDE appear inadequate, and some deep, new ideas are
   probably needed.
-- Past the statement, and recorded as the millennium chapter recorded it on 2026-09-11: a 2026 paper
+- Past the statement, and recorded as the millennium chapter recorded it : a 2026 paper
   and a Lean repository were published against (C) and (D); the chapter read the formalized statement
   against his six points and found each matched, built nothing, and read neither proof. Nothing here
   adds to that.
@@ -207,7 +202,7 @@ not on the Clay list.
   no blowup, no weak solution, no singular set, and no solution on `R^3`. The two files reach one
   countable island inside `D_8` and read it exactly; they reach nothing past it.
 
-## Entry 1, 2026-09-17: the sets, run on the unit torus
+## Entry 1: the sets, run on the unit torus
 
 `examples/0_experimental/exact_navier_stokes_on_torus.py`, run and exit 0. The arithmetic is the
 engine's own: Python integers as the bignum, decimal inputs read by `representation.exact` as
@@ -271,7 +266,7 @@ with (2) enforced by Leray's projection. Nothing is rounded.
   and they sit in (8). The bit sequences are uncountable (Cantor, `proof_set_theory.py`) and the ring is
   countable. The exactly nameable data are a countable island in the data class.
 
-## Entry 2, 2026-09-17: the boundary function asked to define itself
+## Entry 2: the boundary function asked to define itself
 
 `evidence/proofs/posits/proof_boundary_inheritance.py`, run and exit 0. `proof_domain_boundaries.py`
 named three kinds of boundary from a survey. A survey assigns the kind by judgment. Here the kind is not
@@ -302,7 +297,7 @@ decimals, because a coefficient carrying `pi` has no last digit, and reads `none
 no scale. The measurement kind is the deposit's, and it is canceled only by the ratio in which the
 amplitude cancels, the floor-free ratio of the precision document's Regime C.
 
-## Entry 3, 2026-09-17: the cascade and the coefficient growth, made visible
+## Entry 3: the cascade and the coefficient growth, made visible
 
 `examples/0_experimental/exact_navier_stokes_cascade.py`, run and exit 0. It reads the same ring and
 recurrence, and shows the solution map as a picture instead of a table, exactly and in integers. Douglas

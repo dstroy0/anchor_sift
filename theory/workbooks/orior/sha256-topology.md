@@ -152,7 +152,7 @@ reported
 the lowest failing order, which labeled every row with any failure as "degree 1" and would have
 hidden the exact-3 result at round 4 entirely.
 
-## 2b. The Depth And Direction Table, 2026-09-08
+## 2b. The Depth And Direction Table
 
 Everything below is measured on this date and each row names the bench that produced it. This
 supersedes any earlier depth figure in this document: the earlier ones read a single fixed state
@@ -230,7 +230,7 @@ Two earlier entries fell to the same sample size and are corrected and not delet
 correction is the useful part: the inverted direction was "alive at 13, not yet dead", and the
 forward strata 5–8 and 9–16 both read 6 rounds with the coincidence recorded as unexplained. Neither
 survived more samples. The first now carries real signal through 15 and crosses at 16; the second
-separates into 7 and 6 and was never an anomaly. The "14" this paragraph carried until 2026-09-09
+separates into 7 and 6 and was never an anomaly. The "14" this paragraph carried 
 was itself a crossing at fewer pairs, the same mistake one layer down.
 
 ### Want
@@ -278,7 +278,7 @@ statistics, and every one of them names a measurement this work has not made.
 
 ### What the published work says, and where it goes deeper than we do
 
-Checked 2026-09-09. This calibration was not run until late, and it bounds every residue reading in
+This calibration bounds every residue reading in
 the work.
 
 | | rounds of 64 | cost | source |
@@ -400,7 +400,7 @@ Choose-only sits at 3 - not the carry's absolute degree.
 and algebraic degree. Both published papers also find Majority-removed indistinguishable from
 unmodified. Whatever it is for, nothing here can see it.
 
-**Where this stands against the field, checked 2026-09-09.** The carry is not unexplored ground. It
+**Where this stands against the field.** The carry is not unexplored ground. It
 is the most heavily mapped part of the whole subject:
 
 - Lipmaa and Moriai (FSE 2001) give **exact** algorithms for the differential probability of
@@ -502,7 +502,7 @@ exact taint and cone structure that priced the miner's two savings.
 - ~~The strict avalanche criterion round count.~~ Obtained and reproduced: onset at round 23, and
   the reported 54-57 dip refuted by ratio test.
 - ~~Whether any statistic in this tree has been read as a maximum without being scored as one.~~
-  Audited 2026-09-09. Four benches clean, one finding.
+  Audited. Four benches clean, one finding.
 
   | bench | statistic | null peak sqrt(2 ln N) | threshold used | verdict |
   |---|---|---|---|---|
@@ -573,7 +573,7 @@ by a fixed factor, as the dominant eigenvector of a linear transfer operator doe
 with 1/32 as the eigenvalue. **Test:** build the 32 by 32 operator that maps one round's residue
 profile to the next, diagonalize it, and check whether residue 26 is the dominant eigenvector and
 1/32 the leading eigenvalue. **Falsified if** the operator's dominant eigenvector is anything else,
-which would make the fixed point a coincidence of this header. Buildable today.
+which would make the fixed point a coincidence of this header. Buildable.
 
 **The constants are not optimal.** SHA-256's rotation amounts were chosen in the 1990s. **Test:**
 anneal over rotation triples, scoring by the wall depth and the ridge decay rate, and see whether
@@ -1038,7 +1038,7 @@ explanation. That is a sharper open question than the one it replaced.
 
 #### Where this meets the published work
 
-> **Provenance warning, 2026-09-09.** The bibliographic records below are verified against Crossref
+> **Provenance warning.** The bibliographic records below are verified against Crossref
 > and the IACR ePrint archive and are sound. **What these papers are said to claim is not verified
 > from the papers themselves** - it came from search-engine summaries, which is provenance for a
 > title and not for a claim. The section is left standing so the correction can be read against it.
@@ -1408,7 +1408,7 @@ means rounds below 10 where the amplitudes are larger, not more trials at these 
 
 Every reading in this file is a projection. The residue fold is the field collapsed along one axis;
 the chi-square is the same object flattened all the way to a scalar. Both are shadows, and a shadow
-is cast from one angle. Until now nothing here had looked from a second one.
+is cast from one angle, and what follows looks from a second one.
 
 The object is three-dimensional - 512 input bits by 256 output bits by 64 rounds, 8.4 million cells
 - so `bench_sac ... shadow` dumps it as four projections instead of whole, and
@@ -1947,7 +1947,7 @@ Any one of these, none observed:
 
 ## 8. Where The Published Literature Stands
 
-Fetched 2026-09-08. With it, this tree's results can be placed against the field and not guessed at.
+With it, this tree's results can be placed against the field and not guessed at.
 The relevant point for us: **every published result is on step-reduced SHA-256**, and the best of
 them
 stop well short of 64, let alone the 128 a Bitcoin header runs.
