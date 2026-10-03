@@ -237,10 +237,17 @@ works there.
 
 1. **The writings the part gives are read into nothing.** A writing of one instruction is searched for on the part
    for every precept and every ladder relation, and every arrangement of the `.kdm` is written from them, run and
-   read back (the writings searched, below). `L*` and `sass.krs` are still written by hand. `sass.krs` is read
-   against the writings found and not written from them: of its forms for the word web's eight words of one
-   precept, six are writings the part gives, and `word_shift_left` and `word_shift_right` are not
-   (`interface_sass_krs.md`). It is the loop and it is the work.
+   read back (the writings searched, below). `L*` is still written by hand. `sass.krs` and `ptx.krs` are read off
+   NVIDIA's compiler: `utils/test/src/cu/transpiler/bootstrap/monolith_forms.sh` asks every form the record
+   programs' lanes decide in one program, each question the form's own text in `c.krs` between tags, a question
+   holding a number asked again with another, builds it once and reads each block of the listing and the PTX back
+   into a form. A form every question of which reads whole and alike, assembles against the machine file and is no
+   longer than the ruleset's is written into the ruleset; every other keeps its text and `monolith_forms.md` says
+   why. Nothing is run on the part. Of 55 forms over 225 questions, 7 of `sass.krs` and 9 of `ptx.krs` are written
+   from the reading. What keeps the rest: `c.krs` passes a carry as a word, where the rulesets chain it through P6;
+   it types a sign as a byte, which costs the compiler a `PRMT`; it writes an address as a plain pointer, which the
+   compiler reaches as a generic load or store; the compiler sets the negation of a predicate a test writes; and the
+   machine file holds no `SHF.R.U64` with a number count. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
