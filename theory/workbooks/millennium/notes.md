@@ -1715,3 +1715,35 @@ doi:10.1007/s00397-013-0742-2. Read in full from the text layer.
 
 What changes. I14. Two liquids unlike enough not to mix slip on each other, measured, and at a
 lower stress than either slips on a wall. The source does not vary how unlike the two are.
+
+## Hutli and Nedeljković, FME Transactions 35 (2007) 113--119
+
+*Investigation of a submerged cavitating jet ...: Part one, the phenomenon, detection
+technique and sono-luminescence.* Read in full from the text layer.
+
+- The rig. Water forced through nozzles of 0.4 to 0.6 mm into a chamber of water, at up to 450
+  bar upstream and 1 to 5 bar downstream, with the water temperature held to within 1 °C. In the
+  cases shown the jet leaves at 147 to 191 m/s, with cavitation numbers from 0.0063 to 0.025.
+- Introduction, from the work it reviews. "The inception bubbles grew intensively in the shear
+  layer and developed into cloudlike coherent structures", and "the instabilities of the shear
+  layer caused the cloud cavitation structures to break off". Soyama and others report the clouds
+  shed periodically at 0.5 to 2 kHz.
+- Section 3. The jet is seen as white clouds of small bubbles in clusters along its length, its
+  surface "like rough surface". Its width, its reach and the number of bubbles grow as the
+  downstream pressure falls. "Along the jet path hundred thousands of bubbles are collapsing." Where
+  the jet reaches the wall it spreads over it as rings of bubbles.
+- Section 4. Light from collapsing bubbles is recorded as spots all along the jet, "from its
+  starting point until its end". The density of spots falls as the temperature of the water rises.
+- Conclusion. "The collapsing of bubbles takes place everywhere in the jet path."
+
+What changes.
+
+1. I15. Water moving through water at 150 to 190 m/s tears vapor out of the liquid at the boundary
+   between them, in the shear layer. What forms is clouds of bubbles that break off and collapse,
+   not a film the two sides slide on, and the source does not report a window of temperature or
+   composition for it.
+2. Propositions 17 and 18. At 156 m/s the contact heating of Proposition 18 is about 1.4 K, and the
+   cavitation numbers of 0.006 to 0.025 put the vapor at the pressure the flow lowers. The vapor in
+   this jet is torn out by tension, as the propositions expect, and not boiled out.
+3. I11 and I12. The light of collapsing bubbles appears in water torn by water alone, with no
+   sound field, and it dims as the water warms, as Barber and others report for single bubbles.

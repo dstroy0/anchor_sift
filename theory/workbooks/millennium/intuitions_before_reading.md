@@ -754,3 +754,17 @@ liquid on a film of its vapor made by its own shear, only within a range of temp
 or composition bounded on both sides; miss if a source held reports such a film for every
 difference above one threshold, or with no difference in temperature or composition at all; open
 while no source held makes the film by shear.
+
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `2fe13e76`.** Read in full:
+Hutli and Nedeljković, *Investigation of a submerged cavitating jet ...*, FME Transactions 35
+(2007) 113--119.
+
+**Open.** A jet of water driven into still water at 150 to 190 m/s makes vapor at the boundary
+between the moving and the still water, by its own shear, as the entry expects: the vapor forms in
+the shear layer at cavitation numbers of 0.006 to 0.025, where Proposition 18 puts the heating near
+one kelvin.
+The vapor forms clouds of bubbles that break off, shed and collapse along the whole jet, and not a
+film the two sides slide on. No window of temperature or composition is reported for riding, and
+none for the vapor. The criterion asks for a film made by shear, and no source held has one.
