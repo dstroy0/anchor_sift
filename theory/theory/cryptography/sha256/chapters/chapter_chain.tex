@@ -1,6 +1,6 @@
 \chapter{The chain}
 
-\textbf{Purpose:} Give the wall an exact law and decompose it, putting a depth figure within reach of computation instead of search. \textbf{Scope:} \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}words.\allowbreak{}cu}, \texttt{src/\allowbreak{}bench/\allowbreak{}bench\_\allowbreak{}depth\_\allowbreak{}cuda.\allowbreak{}cu}.
+This chapter gives the wall an exact law and decomposes it, putting a depth figure within reach of computation instead of search.
 
 \section{The wall is the chain length}
 
@@ -22,7 +22,7 @@ words & wall & \(\text{words} + 2\) \\
 \end{tabular}
 \end{center}
 
-Eight words reproduces the wall of \(10\) measured independently by the depth bench, and the other rows are read against that agreement.
+Eight words reproduces the wall of \(10\) measured independently by a separate depth measurement, and the other rows are read against that agreement.
 
 \textbf{The offset is structure, not sample size.} The same table returns identical at \(2^{20}\), \(2^{24}\) and \(2^{28}\) pairs, a two-hundred-and-fifty-six-fold range with no drift. A cliff predicts that and a slope does not: a collapse completing inside one round cannot be pushed by adding samples.
 
@@ -48,7 +48,7 @@ The last index is \(\mathrm{count} - 1\). \(\mathrm{wall} = (\mathrm{count} - 1)
 
 \section{The two halves are different chains}
 
-The \(a\) half was read as irregular before. It is not irregular. Both halves are chains of copies below one mixed head, and both follow an exact law; the laws differ in how they depend on the chain length, and comparing a count-dependent offset against a count-independent expectation makes one of them look like noise.
+The \(a\) half is not irregular. Both halves are chains of copies below one mixed head, and both follow an exact law; the laws differ in how they depend on the chain length, and comparing a count-dependent offset against a count-independent expectation makes one of them look like noise.
 
 \begin{center}
 \begin{tabular}{rlll}
