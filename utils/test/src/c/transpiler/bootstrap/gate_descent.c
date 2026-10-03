@@ -175,6 +175,46 @@ static void gate_asks(unsigned int anchor, unsigned int alignments, const size_t
            s_anchor_text[anchor], checks, failing, checks, (checks + bits - 1u) / bits, bits, halved, drawn);
 }
 
+// the folder a target's half is written to, or NULL where none was named
+static const char *s_put_folder;
+
+// What a target is asked for `anchor`, written to s_put_folder where one was named: <anchor>.kdm, every arrangement the
+// descent ran over as a row of a .kdm with the descent's verdict last, 1 standing and 0 out, and <anchor>_cases.txt,
+// the cases it placed, a line each as the two words and the word the relation gives them. A target that runs every
+// arrangement over the placed cases alone leaves standing what the descent leaves standing
+static void gate_put(unsigned int anchor, unsigned int alignments, const size_t *chosen, unsigned int placed)
+{
+    if (s_put_folder == NULL)
+    {
+        return;
+    }
+    char path[1024];
+    snprintf(path, sizeof(path), "%s/%s.kdm", s_put_folder, s_anchor_text[anchor]);
+    FILE *const rows = fopen(path, "wb");
+    snprintf(path, sizeof(path), "%s/%s_cases.txt", s_put_folder, s_anchor_text[anchor]);
+    FILE *const cases = fopen(path, "wb");
+    if ((rows == NULL) || (cases == NULL))
+    {
+        printf("  %-8s the target's half was not written to %s\n", s_anchor_text[anchor], s_put_folder);
+        return;
+    }
+    for (unsigned int at = 0u; at < alignments; at += 1u)
+    {
+        char text[256];
+        chain_text(&s_fitted.chain[at], text, sizeof(text));
+        fprintf(rows, "%s\t%u\t%s\t-\t0\t%u\n", s_anchor_text[anchor], s_fitted.chain[at].nodes, text,
+                (s_survivors[at] != 0u) ? 1u : 0u);
+    }
+    for (unsigned int at = 0u; at < placed; at += 1u)
+    {
+        const size_t which = chosen[at];
+        fprintf(cases, "%08x %08x %08x\n", s_gate.given[which].operand[0], s_gate.given[which].operand[1],
+                s_gate.expected[which]);
+    }
+    fclose(rows);
+    fclose(cases);
+}
+
 // one relation measured; 1 where every reading agrees with its ground truth
 static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cases, unsigned int found)
 {
@@ -244,6 +284,7 @@ static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cas
 
     const unsigned int agreed = ((lost == 0u) && (verified == truth) && (truth == kept) && (stopped == continued)) ? 1u
                                                                                                                  : 0u;
+    gate_put(anchor, alignments, chosen, placed);
     printf("  %-8s %4u fit the ladder, %4u hold every case, %4u kept by the sweep; %u case(s) placed, %4u standing, "
            "%4u verified, %u lost; stopped %u and full depth %u; %llu questions planned on this host; %s\n",
            s_anchor_text[anchor], alignments, truth, kept, placed, gate_standing(s_survivors, alignments), verified,
@@ -252,8 +293,11 @@ static unsigned int gate_relation(unsigned int anchor, const LadderQuestion *cas
     return agreed;
 }
 
-int main(void)
+// Given a folder, each relation's arrangements, the descent's verdict on each and the cases it placed are written there
+// for a target to be asked (gate_put)
+int main(int count, char **words)
 {
+    s_put_folder = (count > 1) ? words[1] : NULL;
     static LadderQuestion cases[LADDER_CASE_COUNT];
     unsigned int agreed = 1u;
     for (unsigned int anchor = 0u; anchor < (unsigned int)LADDER_ANCHOR_COUNT; anchor += 1u)

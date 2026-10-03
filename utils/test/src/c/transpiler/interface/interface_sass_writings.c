@@ -768,11 +768,11 @@ static unsigned int writings_for(unsigned int precept)
     return s_form_count;
 }
 
-// Every chain of the .kdm at `kdm` written into a cubin of its own, each node the first writing the search found for
-// its precept, with <folder>/chains/list.txt and <folder>/chains/chains.txt beside them: 0, or 2 where nothing could be
-// read or written
+// Every chain of the .kdm at `kdm` written into a cubin of its own in `into`, each node the first writing the search in
+// `folder` found for its precept, with <into>/list.txt and <into>/chains.txt beside them. A row's sixth column, a
+// verdict a descent gave it, is kept in chains.txt. 0, or 2 where nothing could be read or written
 static int writings_chains_write(const char *pattern, const char *frame, const char *machine, const char *folder,
-                                 const char *kdm)
+                                 const char *kdm, const char *into)
 {
     s_pattern_size = writings_file_read(pattern, s_pattern, sizeof(s_pattern));
     const unsigned long long frame_size = writings_file_read(frame, (unsigned char *)s_frame, sizeof(s_frame) - 1u);
@@ -784,14 +784,14 @@ static int writings_chains_write(const char *pattern, const char *frame, const c
         return 2;
     }
     char path[1024];
-    snprintf(path, sizeof(path), "%s/chains/list.txt", folder);
+    snprintf(path, sizeof(path), "%s/list.txt", into);
     FILE *const list = fopen(path, "wb");
-    snprintf(path, sizeof(path), "%s/chains/chains.txt", folder);
+    snprintf(path, sizeof(path), "%s/chains.txt", into);
     FILE *const chains = fopen(path, "wb");
     FILE *const rows = fopen(kdm, "rb");
     if ((list == NULL) || (chains == NULL) || (rows == NULL))
     {
-        fprintf(stderr, "the folder %s/chains or the .kdm %s was not reached\n", folder, kdm);
+        fprintf(stderr, "the folder %s or the .kdm %s was not reached\n", into, kdm);
         return 2;
     }
     for (unsigned int precept = 0u; precept < PRECEPT_COUNT; precept += 1u)
@@ -811,8 +811,13 @@ static int writings_chains_write(const char *pattern, const char *frame, const c
         char operator_name[32];
         unsigned int nodes_said = 0u;
         char chain[512];
-        if ((line[0] == '#') || (sscanf(line, "%31[^\t]\t%u\t%511[^\t]", operator_name, &nodes_said, chain) != 3) ||
-            (nodes_said == 0u))
+        char cost[64];
+        unsigned int runs = 0u;
+        unsigned int verdict = 2u;
+        const int columns = (line[0] == '#') ? 0
+                                             : sscanf(line, "%31[^\t]\t%u\t%511[^\t]\t%63[^\t]\t%u\t%u", operator_name,
+                                                      &nodes_said, chain, cost, &runs, &verdict);
+        if ((columns < 3) || (nodes_said == 0u))
         {
             continue;
         }
@@ -841,14 +846,15 @@ static int writings_chains_write(const char *pattern, const char *frame, const c
         const unsigned int instructions =
             fits ? sass_assemble_lines(&s_machine, s_asking, SASS_CONTROL_SAFE, s_code, sizeof(s_code)) : 0u;
         char cubin[1024];
-        snprintf(cubin, sizeof(cubin), "%s/chains/chain_%05u.cubin", folder, written);
+        snprintf(cubin, sizeof(cubin), "%s/chain_%05u.cubin", into, written);
         if ((instructions == 0u) || !writings_cubin(instructions, cubin))
         {
             unwritten += 1u;
             continue;
         }
         fprintf(list, "%s %s\n", cubin, s_kernel);
-        fprintf(chains, "%u\t%s\t%s\n", written, operator_name, chain);
+        fprintf(chains, "%u\t%s\t%s\t%s\n", written, operator_name, chain,
+                (verdict == 1u) ? "standing" : ((verdict == 0u) ? "out" : "-"));
         written += 1u;
     }
     fclose(rows);
@@ -885,7 +891,7 @@ static int writings_chains_read(const char *folder, const char *record)
     {
         unsigned int number = 0u;
         char operator_name[32];
-        if (sscanf(line, "%u\t%31[^\t]\t%511[^\r\n]", &number, operator_name, s_chain[count]) != 3)
+        if (sscanf(line, "%u\t%31[^\t]\t%511[^\t\r\n]", &number, operator_name, s_chain[count]) != 3)
         {
             continue;
         }
@@ -950,11 +956,124 @@ static int writings_chains_read(const char *folder, const char *record)
     return 0;
 }
 
+// The arrangements a descent ran over, written by `chains` into each `into` with its verdict, read back against the
+// cases the descent placed for that relation, each `cases` file a case a line as the two words and the word the
+// relation gives them. An arrangement stands on the part where it gives every placed case its word, and the part's
+// verdict is held to the descent's, written to `record`: 0 where every verdict agrees, 1 where one does not, 2 where
+// nothing could be read
+static int writings_descent_read(const char *record, unsigned int pairs, char **folders)
+{
+    static char s_chain[WRITINGS_CHAINS_MOST][512];
+    static char s_verdict[WRITINGS_CHAINS_MOST][16];
+    static unsigned int s_chain_answered[WRITINGS_CHAINS_MOST][WRITINGS_CASES];
+    static unsigned char s_chain_ran[WRITINGS_CHAINS_MOST];
+    FILE *const out = fopen(record, "wb");
+    if (out == NULL)
+    {
+        fprintf(stderr, "the record %s was not written\n", record);
+        return 2;
+    }
+    fprintf(out, "# The descent's cases put to the part\n\n");
+    fprintf(out, "Written by `interface_sass_writings.sh` whole on every run. For each relation `gate_descent` writes "
+                 "every arrangement it descends over, its verdict on each and the cases it placed. Each arrangement "
+                 "is written node by node from the writings `interface_sass_writings.md` found and run on the part "
+                 "over the placed cases alone, and stands where it gives every one its word. The part's verdict is "
+                 "held to the descent's.\n\n");
+    fprintf(out, "| relation | cases placed | arrangements | run | standing on the part | standing on the host | "
+                 "verdicts that differ |\n|---|---|---|---|---|---|---|\n");
+    unsigned int differ_total = 0u;
+    for (unsigned int pair = 0u; pair < pairs; pair += 1u)
+    {
+        const char *const into = folders[2u * pair];
+        const char *const cases_path = folders[(2u * pair) + 1u];
+        char path[1024];
+        char line[WRITINGS_LINE];
+        unsigned int placed[WRITINGS_CASES][3];
+        unsigned int placed_count = 0u;
+        FILE *const cases = fopen(cases_path, "rb");
+        snprintf(path, sizeof(path), "%s/chains.txt", into);
+        FILE *const chains = fopen(path, "rb");
+        snprintf(path, sizeof(path), "%s/answers.txt", into);
+        FILE *const answers = fopen(path, "rb");
+        if ((cases == NULL) || (chains == NULL) || (answers == NULL))
+        {
+            fprintf(stderr, "the cases %s or the chains in %s did not read\n", cases_path, into);
+            fclose(out);
+            return 2;
+        }
+        while ((placed_count < WRITINGS_CASES) && (fgets(line, sizeof(line), cases) != NULL))
+        {
+            if (sscanf(line, "%x %x %x", &placed[placed_count][0], &placed[placed_count][1],
+                       &placed[placed_count][2]) == 3)
+            {
+                placed_count += 1u;
+            }
+        }
+        fclose(cases);
+        char relation[32] = "";
+        unsigned int count = 0u;
+        while ((count < WRITINGS_CHAINS_MOST) && (fgets(line, sizeof(line), chains) != NULL))
+        {
+            unsigned int number = 0u;
+            if (sscanf(line, "%u\t%31[^\t]\t%511[^\t]\t%15s", &number, relation, s_chain[count],
+                       s_verdict[count]) == 4)
+            {
+                count += 1u;
+            }
+        }
+        fclose(chains);
+        const unsigned int saved = s_cases;
+        s_cases = placed_count;
+        unsigned int ran = 0u;
+        unsigned int refused = 0u;
+        memset(s_chain_ran, 0, sizeof(s_chain_ran));
+        writings_answers_read(answers, count, s_chain_answered, s_chain_ran, &ran, &refused);
+        s_cases = saved;
+        fclose(answers);
+        unsigned int standing_part = 0u;
+        unsigned int standing_host = 0u;
+        unsigned int differ = 0u;
+        for (unsigned int number = 0u; number < count; number += 1u)
+        {
+            unsigned int agreed = 0u;
+            for (unsigned int at = 0u; at < placed_count; at += 1u)
+            {
+                agreed += (s_chain_answered[number][at] == placed[at][2]) ? 1u : 0u;
+            }
+            const int part = s_chain_ran[number] && (agreed == placed_count);
+            const int host = (strcmp(s_verdict[number], "standing") == 0);
+            standing_part += part ? 1u : 0u;
+            standing_host += host ? 1u : 0u;
+            if (part != host)
+            {
+                differ += 1u;
+                fprintf(out, "%s `%s`: %s on the host, %s on the part\n\n", relation, s_chain[number],
+                        host ? "standing" : "out", s_chain_ran[number] ? (part ? "standing" : "out") : "not run");
+            }
+        }
+        fprintf(out, "| %s | %u | %u | %u | %u | %u | %u |\n", relation, placed_count, count, ran, standing_part,
+                standing_host, differ);
+        printf("  %-8s %u cases placed, %u arrangements, %u run, %u standing on the part and %u on the host, %u "
+               "verdicts differ\n",
+               relation, placed_count, count, ran, standing_part, standing_host, differ);
+        differ_total += differ;
+    }
+    fclose(out);
+    printf("interface sass descent: %u verdicts differ, the record written to %s\n", differ_total, record);
+    return (differ_total == 0u) ? 0 : 1;
+}
+
 int main(int count, char **words)
 {
-    if ((count == 7) && (strcmp(words[1], "chains") == 0))
+    if (((count == 7) || (count == 8)) && (strcmp(words[1], "chains") == 0))
     {
-        return writings_chains_write(words[2], words[3], words[4], words[5], words[6]);
+        char into[1024];
+        snprintf(into, sizeof(into), "%s/chains", words[5]);
+        return writings_chains_write(words[2], words[3], words[4], words[5], words[6], (count == 8) ? words[7] : into);
+    }
+    if ((count >= 5) && ((count % 2) == 1) && (strcmp(words[1], "descent-read") == 0))
+    {
+        return writings_descent_read(words[2], (unsigned int)(count - 3) / 2u, &words[3]);
     }
     if ((count == 4) && (strcmp(words[1], "chains-read") == 0))
     {
@@ -968,8 +1087,10 @@ int main(int count, char **words)
     {
         fprintf(stderr, "interface_sass_writings <pattern cubin> <frame text> <machine file> <folder>\n"
                         "interface_sass_writings read <folder> <record>\n"
-                        "interface_sass_writings chains <pattern cubin> <frame text> <machine file> <folder> <kdm>\n"
-                        "interface_sass_writings chains-read <folder> <record>\n");
+                        "interface_sass_writings chains <pattern cubin> <frame text> <machine file> <folder> <kdm> "
+                        "[<into>]\n"
+                        "interface_sass_writings chains-read <folder> <record>\n"
+                        "interface_sass_writings descent-read <record> <into> <cases> [<into> <cases>...]\n");
         return 2;
     }
     return writings_write(words[1], words[2], words[3], words[4]);

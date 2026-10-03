@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
-# Searches the part for a writing of each ladder relation in one instruction (interface_sass_writings.c). Every form of
-# the machine file that writes a register from registers alone is written into a cubin of its own, held to cubin_safe,
-# run on the part through interface_sass_run over every case at once, and read back against each relation; the forms
-# that give a relation every case's word are gathered into interface_sass_writings.md.
+# Searches the part for a writing of each ladder relation and each precept in one instruction
+# (interface_sass_writings.c). Every form of the machine file that writes a register from registers, predicates and
+# numbers alone is written into cubins of its own, held to cubin_safe, run on the part through interface_sass_run
+# over every case at once, and read back against each relation into interface_sass_writings.md. Every arrangement of
+# the part's .kdm is then written node by node from the writings found, run and read back into
+# interface_sass_chains.md. Last, the cases the descent places for each relation (gate_descent) are put to the part
+# over every arrangement the descent ran over, and the part's verdicts held to the descent's in
+# interface_sass_descent.md.
 #
 #     utils/test/src/c/transpiler/interface/interface_sass_writings.sh [<earlier run folder>]
 #
-# The earlier run, for its pattern cubin and frame, defaults to the newest under build/ and the harness's build.
+# The earlier run, for its pattern cubin and frame, defaults to the newest under build/ and the harness's build. With
+# WRITINGS_SEARCHED set, the search and the chains already in build/writings are kept and only the descent's cases are
+# put.
 set -u
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -16,6 +22,8 @@ CUB="$TOP/src/c/transpiler/cubin"
 INT="$TOP/src/c/transpiler/interface"
 KRS="$TOP/src/c/types/file_defs/krs"
 BOOT="$TOP/src/c/transpiler/bootstrap"
+SIFT="$TOP/src/c/engine/nbody/orior"
+EXACT="$TOP/src/c/types/integers"
 OUT="$TOP/build/writings"
 CUDA="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3"
 # the cubins a runner pass runs at most, and the seconds a pass is given before it is cut off: a pass short enough
@@ -23,7 +31,6 @@ CUDA="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3"
 MOST=100
 CAP=60
 mkdir -p "$OUT"
-rm -f "$OUT"/form_*.cubin "$OUT/answers.txt"
 
 RUN="${1:-}"
 if [ -z "$RUN" ]; then
@@ -39,19 +46,25 @@ cc -std=c11 -O1 -Wall "${INCLUDES[@]}" -o "$OUT/interface_sass_writings" "$HERE/
 cc -std=c11 -O1 -Wall -I "$CUDA/include" -o "$OUT/interface_sass_run" "$HERE/interface_sass_run.c" \
     "$CUB/cubin_safe.c" "$CUB/cubin_write.c" "$CUB/sass_assemble.c" "$KRS/sass_machine.c" \
     -L "$CUDA/lib/x64" -lcuda 2>/dev/null || { echo "  the runner did not link against the CUDA driver"; exit 1; }
+# the descent is orior's own, and orior reads exact integers
+cc -std=c11 -O2 -Wall -I "$SIFT" -I "$EXACT" -o "$OUT/gate_descent" \
+    "$TOP/utils/test/src/c/transpiler/bootstrap/gate_descent.c" "$BOOT/chain_build.c" \
+    "$SIFT/orior_core.c" "$SIFT/orior_field.c" "$SIFT/orior_steer.c" "$SIFT/orior_steer_count.c" \
+    "$SIFT/orior_steer_plan.c" "$SIFT/scan.c" "$EXACT/exact_integer_add.c" "$EXACT/exact_integer_multiply.c" \
+    "$EXACT/exact_integer_limbs.c" || exit 1
 
 MACHINE="$CUB/machines/sm_86"
 WIN_OUT="$(cygpath -m "$OUT")"
 PATTERN="$(cygpath -m "$RUN")/sass/form_0.cubin"
 FRAME="$(cygpath -m "$RUN")/sass/form_0.text"
 
-# every cubin of the list in `$1` run over the search's cases, its answers into `$2`, the runner started again past
-# each refusal
+# every cubin of the list in `$1` run over the cases in `$3`, the search's where none is named, its answers into `$2`,
+# the runner started again past each refusal
 run_list() {
     local first=0 guard=0 status last hung
     while :; do
-        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$1" "$first" "$2" "$WIN_OUT/cases.txt" \
-            "$MOST"
+        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$1" "$first" "$2" \
+            "${3:-$WIN_OUT/cases.txt}" "$MOST"
         status=$?
         last="$(tail -1 "$2" 2>/dev/null | cut -d' ' -f1)"
         case "$status" in
@@ -65,14 +78,35 @@ run_list() {
     done
 }
 
-"$OUT/interface_sass_writings" "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" || exit 1
-run_list "$WIN_OUT/list.txt" "$WIN_OUT/answers.txt" || exit 1
-"$OUT/interface_sass_writings" read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_writings.md" || exit 1
+if [ -z "${WRITINGS_SEARCHED:-}" ]; then
+    rm -f "$OUT"/form_*.cubin "$OUT/answers.txt"
+    "$OUT/interface_sass_writings" "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" || exit 1
+    run_list "$WIN_OUT/list.txt" "$WIN_OUT/answers.txt" || exit 1
+    "$OUT/interface_sass_writings" read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_writings.md" || exit 1
 
-# every arrangement of the .kdm written from the writings found, run and read back
-mkdir -p "$OUT/chains"
-rm -f "$OUT"/chains/chain_*.cubin "$OUT/chains/answers.txt"
-"$OUT/interface_sass_writings" chains "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" \
-    "$(cygpath -m "$MACHINE").kdm" || exit 1
-run_list "$WIN_OUT/chains/list.txt" "$WIN_OUT/chains/answers.txt" || exit 1
-"$OUT/interface_sass_writings" chains-read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_chains.md"
+    # every arrangement of the .kdm written from the writings found, run and read back
+    mkdir -p "$OUT/chains"
+    rm -f "$OUT"/chains/chain_*.cubin "$OUT/chains/answers.txt"
+    "$OUT/interface_sass_writings" chains "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" \
+        "$(cygpath -m "$MACHINE").kdm" || exit 1
+    run_list "$WIN_OUT/chains/list.txt" "$WIN_OUT/chains/answers.txt" || exit 1
+    "$OUT/interface_sass_writings" chains-read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_chains.md" || exit 1
+fi
+
+# the descent's cases for each relation put to every arrangement it ran over
+DESCENT="$OUT/descent"
+rm -rf "$DESCENT"
+mkdir -p "$DESCENT"
+"$OUT/gate_descent" "$(cygpath -m "$DESCENT")" > "$DESCENT/gate_descent.out" || exit 1
+PAIRS=()
+for rows in "$DESCENT"/*.kdm; do
+    name="$(basename "$rows" .kdm)"
+    into="$DESCENT/$name"
+    mkdir -p "$into"
+    "$OUT/interface_sass_writings" chains "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" \
+        "$(cygpath -m "$rows")" "$(cygpath -m "$into")" || exit 1
+    run_list "$(cygpath -m "$into")/list.txt" "$(cygpath -m "$into")/answers.txt" \
+        "$(cygpath -m "$DESCENT")/${name}_cases.txt" || exit 1
+    PAIRS+=("$(cygpath -m "$into")" "$(cygpath -m "$DESCENT")/${name}_cases.txt")
+done
+"$OUT/interface_sass_writings" descent-read "$(cygpath -m "$HERE")/interface_sass_descent.md" "${PAIRS[@]}"
