@@ -50,7 +50,9 @@ A change in the motion anywhere changes the pressure everywhere at the same inst
 $20\,^\circ$C and atmospheric pressure, pressure travels at the speed of sound, 1482.35 meters per
 second, evaluated from IAPWS R6-95 (2018) by a program that reproduces its
 verification table to every printed digit. The speed of sound is a member of
-$P_{\mathrm{all}}\setminus P_{(1)}$, and condition (2) sets it to infinity.
+$P_{\mathrm{all}}\setminus P_{(1)}$, and condition (2) sets it to infinity. The fundamental
+solution of the linear problem shows it directly: a force switched on at one instant gives a
+pressure proportional to $\delta(t)$ at every point of space~\cite{src:Ladyzhenskaya-1969}.
 
 \section{Pressure with no level}
 
@@ -66,7 +68,11 @@ Herbert report that classical nucleation theory puts that point at $-168$ MPa at
 the volume and time they state, that water in mineral inclusions is estimated to reach about
 $-140$ MPa, and that most other methods reach between a few and a few tens of megapascals below
 zero. Whether the liquid breaks depends on the level of the pressure. Equation (1) cannot pose the
-question, because it holds no level.
+question, because it holds no level. Ladyzhenskaya~\cite{src:Ladyzhenskaya-1969} replaces the
+requirement that the pressure be non-negative by a bound on its integrals over surfaces, and writes
+that those integrals ``only have physical meaning for areas $\Sigma$ whose sizes are not less than a
+certain positive number (stipulated by the limits of accuracy of measurement and by the discreteness
+of the liquid medium).''
 
 \section{What this establishes and what it does not}
 

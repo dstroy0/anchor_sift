@@ -506,3 +506,84 @@ radiation" as the best candidate theory, and states the theory of the light-emit
 still open. Ionized gas is plasma, and the author's statement is the candidate the review prefers.
 It moves to a hit when the 2005 paper, or another measurement of the ionized gas, is held and
 read.
+
+---
+
+**Scored, 2026-10-03, after the 2005 paper was held and read.**
+
+**Hit.** Flannigan and Suslick, *Plasma formation and temperature measurement during single-bubble
+cavitation*, Nature 434 (2005) 52--55, read in full. In sulphuric acid under argon they measure
+emission from argon states about 13 eV above the ground state and from O$_2^+$, which "cannot be
+thermally populated at the measured Ar emission temperatures", and conclude that "these emitting
+species must originate from collisions with high-energy electrons, ions or particles from a hot
+plasma core." The review of I11, read in full since, names bremsstrahlung from "a dense ionized
+region" as its most complete candidate. Both meet the criterion.
+
+### I13. Shear heating turns to steam sheets, and one sheet of water rides another on the steam
+
+**In the author's words:** "shear heating turns to steam sheets we already know you can accelerate
+a sheet of water over another on a steam cushion."
+
+**Already known when written, and so not a blind prediction for the second half.** The recorder
+knows by name, and has not held or read, work on the Leidenfrost effect and on drag reduction by a
+vapor layer around a hot sphere moving through water. Duraiswami, read in full, puts the viscous
+heating of the forced construction in water at about 0.01 K before the core cavitates. Barber and
+others, section 2, report that a stirrer opens voids in the liquid. Ladyzhenskaya (1968), read in
+full, couples the viscosity to the temperature through the shear heating and, for a viscosity that
+rises with temperature, finds the coupling regularizing.
+
+**What the recorder expects, stated before reading.** In water the viscosity falls as it heats,
+$(\ln\mu)' = -0.0245$ per kelvin at $20\,^\circ$C and atmospheric pressure (IAPWS R12-08). Shear
+heating then thins the layer that is heating, the shear gathers into it, and it heats faster: a
+runaway, and the end of the runaway is the phase change the author names. Two speeds from the
+water properties, evaluated with the IAPWS formulations at $20\,^\circ$C and $0.101325$ MPa:
+
+- the speed at which the dropped term matches the kept one, the scaling estimate of the first
+  workbook chapter, $U^* = \sqrt{k/(2\mu|(\ln\mu)'|)} = 110$ m/s;
+- the velocity jump across a layer whose walls are held at $20\,^\circ$C that heats its middle to
+  $100\,^\circ$C with the viscosity held fixed, $U = \sqrt{8k\,\Delta T/\mu} = 618$ m/s.
+
+The recorder expects the runaway to start near the first speed and to reach steam below the
+second, since the viscosity falls as it heats. Where the pressure is already near the vapor
+pressure, $0.00234$ MPa at $20\,^\circ$C, as in the core of a turning column, almost no heating is
+needed, and the steam sheet and the cavitation of the core are one event.
+
+**Test.** For the second half: a source on drag reduction by a vapor layer in water, held and
+read. For the first half: a source on thermal runaway in plane shear of a liquid whose viscosity
+falls with temperature, held and read, and a source reporting vapor formed in water by shear
+heating alone.
+
+**Criterion, written by the recorder.** Second half: hit if a source held reports that a vapor
+layer between water and a moving body lowers the drag by a measured factor. First half: hit if a
+source held reports that shear heating in a liquid whose viscosity falls with temperature
+gathers into a thin layer with no steady state above a critical speed, and that in water that
+layer reaches vapor; open if only the runaway is reported and the vapor is not; miss if a source
+held shows the runaway does not occur in water at speeds the forced construction reaches before
+its core cavitates.
+
+---
+
+**The author's addition, given after the entry above was fixed with SHA-256 `9d32f9f1`.**
+"especially if theres a layer difference, chemical, density, temperature or otherwise."
+
+**What the recorder expects, stated before reading.** Where two layers differ, the shear gathers at
+the boundary between them, since that is where the velocity jumps, and each kind of difference
+lowers what the steam sheet needs there:
+
+- temperature: a layer already warmer starts nearer the boiling point and needs a smaller rise,
+  and its lower viscosity takes more of the shear;
+- chemical: a component that boils lower, or dissolved gas, starts the vapor at a smaller rise,
+  and gas lowers the barrier to nucleation (Caupin and Herbert);
+- density: a stable density step holds the boundary flat while the layers slide. The shear
+  stays at one surface instead of spreading.
+
+The recorder expects the steam sheet, where it forms, to form first at such a boundary and not in
+a uniform bulk.
+
+**Test.** A source on shear layers at a density or temperature step in a liquid, and a source on
+vapor or cavitation onset at the boundary between two liquids or at a dissolved-gas gradient,
+held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports the shear, the heating or the
+vapor onset concentrated at the boundary between layers that differ, and earlier than in a
+uniform liquid under the same drive; miss if a source held reports onset in the bulk first.

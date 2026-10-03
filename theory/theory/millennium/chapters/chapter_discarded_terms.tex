@@ -142,6 +142,14 @@ ordinary water, evaluated by a program that reproduces its verification table to
 printed digit, gives $1.0016$ mPa\,s at $20\,^\circ$C and atmospheric pressure and
 $\mu'/\mu = -0.0245$ per kelvin there: about two and a half percent per degree.
 
+The term was dropped for a stated reason. Stokes~\cite{src:Stokes-1845}, in his Article 5, holds
+$\mu$ constant as far as regards the temperature because, ``in the case of small vibrations, the
+terms introduced by supposing it to vary with the temperature would involve the square of the
+velocity, which is supposed to be neglected.'' The reason is a bound on the velocity, and it holds
+for small vibrations. Navier~\cite{src:Navier-1827} reports from the experiments he cites that the
+action of the wall on the fluid diminishes as the temperature rises, and his equations hold his
+constants fixed.
+
 \textbf{A gap, stated here.} Proposition 2 puts a nonzero $\nabla T$ somewhere in every interval of
 motion. Proposition 3 needs it at a point where $D\nabla T \neq 0$. Whether a flow can keep its own
 temperature gradient inside the null space of its own rate of strain at every point and time is not
@@ -193,7 +201,8 @@ $\|\nabla u\|_{L^2}$ at the start and on bounds of the force. If $\|\nabla u(t)\
 $[0,T^*)$, starting that theory at a time closer to $T^*$ than the bound for $M$ continues the
 solution smoothly past $T^*$, uniqueness makes the continuation agree with $u$, and $\|u\|_{L^\infty}$
 stays bounded near $T^*$, which contradicts the hypothesis. This step rests on the local theory,
-which is not reproduced here, and on Leray's 1934 paper, which was not read for this chapter.
+which is not reproduced here. Leray~\cite{src:Leray-1934} states it in his Section 19: a solution
+regular before $T$ that becomes irregular at $T$ has $\max|u(\cdot,t)| > A\sqrt{\nu/(T-t)}$.
 
 For the third, a smooth solution with compact support satisfies the energy equality
 \[
@@ -220,9 +229,9 @@ rate of strain, $\mu(|D|) = \mu_0|D|^{p-2}$ with $p > 1$, puts a vector magnitud
 puts a constant, and $p = 2$ returns equation (1). Lienstromberg, Schiffer and Schubert~\cite{src:Lienstromberg-Schiffer-Schubert-2025} state that
 for $p > 11/5$ in three dimensions their approximations converge strongly to a solution that obeys
 the energy equality, that existence of solutions obeying an energy equality for such exponents
-traces back to Ladyzhenskaya, and that in the Newtonian case, $p = 2$, it is still not known whether
-a solution obeying an energy equality exists even for very regular initial data. Ladyzhenskaya's
-papers were not read for this chapter.
+traces back to Ladyzhenskaya~\cite{src:Ladyzhenskaya-1967,src:Ladyzhenskaya-1968,src:Ladyzhenskaya-1969},
+and that in the Newtonian case, $p = 2$, it is still not known whether a solution obeying an energy
+equality exists even for very regular initial data.
 
 Which dependence the stress law keeps therefore changes which statements can be proved. This
 section shows that the choice decides the question. It does not show which stress law water obeys:
@@ -286,14 +295,27 @@ drops the rest, and the box keeps 48 of the rotations about a point. None of the
 zero, and none was dropped with a bound that travels
 with the equation.
 
-\textbf{Not established.} Nothing here touches the correctness of the proof of Theorem~1.1, which
-this research paper has not read. A theorem about equation (1) is a theorem about equation (1), and
+\textbf{Not established.} Nothing here touches the correctness of the proof of Theorem~1.1. Its
+statements, the order in which its constants are chosen and its closing estimates were read; its
+technical bounds were followed and not checked line by line, and nothing read bears against it. A
+theorem about equation (1) is a theorem about equation (1), and
 the theorem stands as one. What this chapter bounds is what such a theorem is about: an equation
 from which the temperature has been removed, and not a fluid that has one. Questions (A) and (B)
 remain well posed questions about equation (1), and nothing here answers either.
 
-No account is given of who dropped which term, or when, or why. The papers of Navier and of Stokes
-and the first texts of vector analysis were not read for this research paper. The thought experiment
-that prompted this chapter reports a finding that a collapsing vortex in water would vaporize near
-0.7 nanometers of width. No source for that report was located or opened, and nothing here rests on
-it.
+The reasons for the dropped terms are stated where the equation was first written.
+Navier~\cite{src:Navier-1827} takes for principle that the repulsion between two molecules is
+increased or diminished by a quantity proportional to the speed at which they approach or separate,
+and his fluid is incompressible from the start. Stokes~\cite{src:Stokes-1845} sets the bulk term
+to zero by assumption and writes that agreement with experiment must not be regarded as confirming
+it; he holds $\mu$ constant in temperature for small vibrations, as above, and independent of
+pressure on Du Buat's experiments in pipes. Gibbs~\cite{src:Gibbs-1884} gives the operators the
+propositions above use, and the split of a field into solenoidal and irrotational parts, unique on
+all of space.
+
+The thought experiment that prompted this chapter reports a finding that a collapsing vortex in
+water would vaporize near 0.7 nanometers of width. No source for that report was located. The
+nearest source found, Duraiswami~\cite{src:Duraiswami-2026}, puts the first failure of the
+continuum in water at cavitation near a millimeter of core radius, gives 0.3 nanometers as the
+molecular scale, and gives 0.7 micrometers only as the width at which the Knudsen number in air
+reaches $10^{-1}$. Nothing here rests on the report.
