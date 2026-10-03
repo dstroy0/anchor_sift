@@ -890,7 +890,11 @@ static int ptx_written(const std::string &text, const std::string &name)
 // statement between the form's tags, every register it names an operand of the statement loaded from `in` or stored to
 // `out`. A predicate crosses as a word: set from it before the form where read, and the word selected from it after
 // where written. The carry a form reads is the carry flag set from a word before it, and the carry it writes is read
-// into a word after it. A number is written into the text
+// into a word after it. A number is written into the text, its alternate where `alternate` is 1. Where it is 2, each
+// number outside an address is loaded from `in` as an argument is, 64 bits wide where its line's type is, a shift's
+// count excepted: the compiler cannot fold a value it cannot see, and writes the instruction that takes any word, which
+// the number then fills. No question reads a copy: in a straight run the allocator names the copy's two words one
+// register, and only a register fixed from outside, a call's, makes it write one
 static void writer_ptx_question(Writer *writer, const Asked &asked, int alternate)
 {
     const std::string name = s_form_names[asked.form];
@@ -917,6 +921,7 @@ static void writer_ptx_question(Writer *writer, const Asked &asked, int alternat
     std::vector<std::string> outputs;
     std::vector<std::string> inputs;
     unsigned int predicate_count = 0u;
+    unsigned int opaque = 0u;
     // one register of the form: its operand, loaded, stored or both, `role` its name in the questions' row
     auto operand = [&](const std::string &role, const std::string &type, int fixed, int read, int write) -> std::string {
         const std::string prefix = fixed ? "\t!" : "\t";
@@ -987,9 +992,31 @@ static void writer_ptx_question(Writer *writer, const Asked &asked, int alternat
         }
         if (type.empty())
         {
-            const unsigned int value = alternate ? number_alternate(argument.number) : argument.number;
+            const unsigned int value = (alternate == 1) ? number_alternate(argument.number) : argument.number;
             const std::string number =
                 (argument.kind == OPERAND_SIGNED) ? std::to_string((int)value) : std::to_string(value);
+            std::string line_of;
+            const size_t named = form.text.find("{" + parameter + "}");
+            if (named != std::string::npos)
+            {
+                const size_t start = form.text.rfind('\n', named);
+                const size_t stop = form.text.find('\n', named);
+                line_of = form.text.substr((start == std::string::npos) ? 0u : (start + 1u),
+                                           ((stop == std::string::npos) ? form.text.size() : stop) -
+                                               ((start == std::string::npos) ? 0u : (start + 1u)));
+            }
+            const size_t bracket = line_of.find('[');
+            const int addressed = (bracket != std::string::npos) && (line_of.find("{" + parameter + "}") > bracket);
+            if ((alternate == 2) && !line_of.empty() && !addressed)
+            {
+                // a shift's count is a 32-bit word whatever the width it shifts
+                const std::string operation = instruction_read(line_of).operation;
+                const int wide = (operation.find("64") != std::string::npos) && (operation.compare(0u, 2u, "sh") != 0);
+                text = text_fill(text, parameter, operand(parameter, wide ? "b64" : "b32", 0, 1, 0));
+                row += ":number:" + number;
+                opaque += 1u;
+                continue;
+            }
             text = text_fill(text, parameter, number);
             row += "\t" + parameter + "=number:" + number;
             continue;
@@ -997,6 +1024,12 @@ static void writer_ptx_question(Writer *writer, const Asked &asked, int alternat
         const int written = ptx_written(form.text, "{" + parameter + "}");
         const int read = (written != 1);
         text = text_fill(text, parameter, operand(parameter, type, 0, read, written != 0));
+    }
+    // a form whose every number sits in an address asks nothing the literal questions did not
+    if ((alternate == 2) && (opaque == 0u))
+    {
+        writer->ptx_tag -= 1u;
+        return;
     }
     // the fixed registers the text names, each loaded as an argument is: the ruleset's name for it where it has one
     for (const auto &declared : writer->ptx_types)
@@ -1164,6 +1197,7 @@ static int forms_write(const char *c_path, const char *ptx_path, const char *mon
             if (question_numbered(std::vector<Asked>{asked}))
             {
                 writer_ptx_question(&writer, asked, 1);
+                writer_ptx_question(&writer, asked, 2);
             }
         }
     }
@@ -1211,6 +1245,8 @@ struct Role
     std::string type;
     std::string number;
     int fixed;
+    // a number the question loaded where the lanes write it into the instruction
+    int opaque;
 };
 
 struct Question
@@ -1258,6 +1294,8 @@ static std::vector<Question> questions_read(const char *path)
             role.word = (fields.size() > 1u) ? (unsigned int)strtoul(fields[1].c_str(), NULL, 10) : 0u;
             role.type = (fields.size() > 2u) ? fields[2] : std::string();
             role.number = (role.kind == "number") ? fields[1] : std::string();
+            role.opaque = (fields.size() > 4u) && (fields[3] == "number");
+            role.number = role.opaque ? fields[4] : role.number;
             question.roles.push_back(role);
         }
         questions.push_back(question);
@@ -2128,7 +2166,8 @@ static int s_machine_read;
 
 // 1 where every line of `text`, a SASS form whose parameters are named, assembles against the machine file: each word
 // parameter given a register pair of its own from R10, whose .hi the assembler reads as the pair's second, each
-// predicate parameter a predicate from P0, and each number parameter the number its question put
+// predicate parameter a predicate from P0, and each number parameter the number its question put, loaded or not, as
+// the lanes write a number into the instruction
 static int sass_assembles(const std::string &text, const Question &question)
 {
     if (!s_machine_read)
@@ -2144,7 +2183,7 @@ static int sass_assembles(const std::string &text, const Question &question)
         {
             continue;
         }
-        if (role.kind == "number")
+        if ((role.kind == "number") || role.opaque)
         {
             filled = text_fill(filled, role.name, role.number);
             continue;
@@ -2420,8 +2459,13 @@ static int forms_read(const char *questions_path, const char *listing, const cha
             verdict.text.clear();
         }
     };
-    // a question asked in ptx.krs's text is read for sass.krs off the listing; one asked in c.krs's for ptx.krs off the
-    // PTX
+    // A question asked in ptx.krs's text is read for sass.krs off the listing; one asked in c.krs's for ptx.krs off the
+    // PTX. The questions that load their numbers settle a form of their own with the questions that hold none, and it
+    // stands where the questions that write their numbers in do not settle one
+    std::map<std::string, Verdict> loaded_verdicts;
+    // the readings each form's written-in questions gave, and the questions, for a form they read apart
+    std::map<std::string, std::vector<std::string>> readings;
+    std::map<std::string, std::vector<const Question *>> asked_of;
     for (const Question &question : questions)
     {
         const int asked_in_ptx = (question.tag >= MONOLITH_FORMS_PTX);
@@ -2429,12 +2473,82 @@ static int forms_read(const char *questions_path, const char *listing, const cha
                                        : ptx_read(question, regions_joined(ptx_lines, question.tag), &ptx_bases);
         std::string why;
         const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
-        settle(asked_in_ptx ? sass_verdicts : ptx_verdicts, question.form, text, why);
+        int loaded = 0;
+        int numbered = 0;
+        for (const Role &role : question.roles)
+        {
+            loaded = loaded || role.opaque;
+            numbered = numbered || (role.kind == "number");
+        }
+        if (!loaded)
+        {
+            settle(asked_in_ptx ? sass_verdicts : ptx_verdicts, question.form, text, why);
+            if (asked_in_ptx)
+            {
+                readings[question.form].push_back(text);
+                asked_of[question.form].push_back(&question);
+            }
+        }
+        if (asked_in_ptx && (loaded || !numbered))
+        {
+            settle(loaded_verdicts, question.form, text, why);
+        }
         const size_t space = question.key.find(' ');
         const std::string banks = (space == std::string::npos) ? std::string() : question.key.substr(space + 1u);
         fprintf(out, "| %u | %s | %s | %s | `%s` | %s |\n", question.tag, question.form.c_str(), banks.c_str(),
-                asked_in_ptx ? "SASS" : "PTX", cell(text_flat(read.text)).c_str(),
+                !asked_in_ptx ? "PTX" : (loaded ? "SASS, numbers loaded" : "SASS"), cell(text_flat(read.text)).c_str(),
                 cell(why).c_str());
+    }
+    // Where the written-in questions read apart, each whole and the two numbers of one set of banks alike, the compiler
+    // chose an instruction by the banks: a register added as IMAD.IADD and a number as IADD3. A reading that assembles
+    // for every question's banks does what each asked, and stands: the ruleset's own where it is one, else the shortest.
+    // Two numbers of one set of banks read apart are a number folded, and no reading of theirs stands
+    for (auto &entry : sass_verdicts)
+    {
+        const std::vector<std::string> &read_texts = readings[entry.first];
+        const std::vector<const Question *> &read_questions = asked_of[entry.first];
+        int whole = !read_texts.empty();
+        std::map<std::string, std::string> by_banks;
+        for (size_t at = 0u; at < read_texts.size(); at += 1u)
+        {
+            whole = whole && !read_texts[at].empty();
+            const auto seen = by_banks.find(read_questions[at]->key);
+            whole = whole && ((seen == by_banks.end()) || (seen->second == read_texts[at]));
+            by_banks[read_questions[at]->key] = read_texts[at];
+        }
+        if (!entry.second.text.empty() || !whole)
+        {
+            continue;
+        }
+        const auto current = sass.forms.find(entry.first);
+        const std::string now = (current != sass.forms.end()) ? current->second.text : std::string();
+        std::string chosen;
+        for (const std::string &one : read_texts)
+        {
+            int everywhere = 1;
+            for (const Question *question : asked_of[entry.first])
+            {
+                everywhere = everywhere && sass_assembles(one, *question);
+            }
+            if (everywhere && (chosen.empty() || (one == now) ||
+                               ((chosen != now) && (text_instructions(one) < text_instructions(chosen)))))
+            {
+                chosen = one;
+            }
+        }
+        if (!chosen.empty())
+        {
+            entry.second.text = chosen;
+            entry.second.why.clear();
+        }
+    }
+    for (auto &entry : sass_verdicts)
+    {
+        const auto loaded = loaded_verdicts.find(entry.first);
+        if (entry.second.text.empty() && (loaded != loaded_verdicts.end()) && !loaded->second.text.empty())
+        {
+            entry.second = loaded->second;
+        }
     }
     for (const auto &entry : ptx_verdicts)
     {
