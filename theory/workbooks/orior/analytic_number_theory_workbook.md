@@ -745,7 +745,7 @@ step's divisions take.
 It computes no Selberg transform, no Eisenstein series and no scattering, and it says nothing about
 the hypothesis.
 
-## Entry 11, 2026-10-03: a counted zero turned into a certificate a second reader checks in one pass
+## Entry 11: a counted zero turned into a certificate a second reader checks in one pass
 
 `examples/0_experimental/zeta_zero_certificate.py`.
 
@@ -783,7 +783,7 @@ until each half holds one. An understated depth is refused. Drawn null: the four
 winding is already one circle and whose chords the checker refuses, the twiddle table's half-order
 floor in the plane. It claims nothing about the hypothesis.
 
-## Entry 12, 2026-10-03: the phase of zeta read finer than its reader
+## Entry 12: the phase of zeta read finer than its reader
 
 `examples/0_experimental/exact_zeta_phase.py`.
 
@@ -819,7 +819,7 @@ published zero falls inside a step where the jittered phase jumps.
 `J`; and the line against `-theta` at `J = 1024`. Drawn nulls: the repeated offset and the half spread,
 each blind to the third of an eighth above the step. It claims nothing about the hypothesis.
 
-## Entry 13, 2026-10-03: the Riemann-Siegel curves and the phase's logarithm, on the device
+## Entry 13: the Riemann-Siegel curves and the phase's logarithm, on the device
 
 `examples/0_experimental/exact_zeta_lobes.py`, with its two device stages in `exact_zeta_lobes.cu`,
 built by `exact_zeta_lobes.sh`. These are the device realizations of the wants Z1 and Z9 name, run over
