@@ -73,6 +73,25 @@ ExponentialWide exponential_product(const ExponentialWide &left, const Exponenti
 
 int exponential_compare(const ExponentialWide &left, const ExponentialWide &right);
 
+// floor and ceil of numerator / divisor for a positive divisor and a numerator of either sign
+ExponentialWide exponential_floor(const ExponentialWide &numerator, const ExponentialWide &divisor);
+
+ExponentialWide exponential_ceiling(const ExponentialWide &numerator, const ExponentialWide &divisor);
+
+// top / bottom at 2^W, and 1 / v at 2^W for a span v > 0
+ExponentialSpan exponential_scaled(const ExponentialWide &top, const ExponentialWide &bottom, unsigned int scale);
+
+ExponentialSpan exponential_turned(const ExponentialSpan &value, unsigned int scale);
+
+// ln(top / bottom) at 2^W for whole top, bottom >= 1
+ExponentialSpan exponential_logarithm(const ExponentialSource *source, const ExponentialWide &top,
+                                      const ExponentialWide &bottom, unsigned int scale);
+
+// whether an operation since the last clear outgrew the build's exact width
+void exponential_short_clear(void);
+
+int exponential_short(void);
+
 // the host's own sums, and the last term each took
 ExponentialSpan exponential_rising_host(const ExponentialWide &top, const ExponentialWide &bottom, unsigned int scale,
                                         unsigned long long *last);

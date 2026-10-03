@@ -17,6 +17,16 @@ static void exponential_took(AnchorExactStatus status)
     }
 }
 
+void exponential_short_clear(void)
+{
+    s_exponential_short = 0;
+}
+
+int exponential_short(void)
+{
+    return s_exponential_short;
+}
+
 ExponentialWide exponential_unsigned(unsigned long long number)
 {
     ExponentialWide value;
@@ -70,7 +80,7 @@ static ExponentialWide exponential_negated(ExponentialWide value)
 
 // floor(numerator / divisor) for a positive divisor and a numerator of either sign: the division truncates toward
 // zero, and a negative quotient with a remainder steps down one
-static ExponentialWide exponential_floor(const ExponentialWide &numerator, const ExponentialWide &divisor)
+ExponentialWide exponential_floor(const ExponentialWide &numerator, const ExponentialWide &divisor)
 {
     ExponentialWide quotient;
     ExponentialWide remainder;
@@ -85,7 +95,7 @@ static ExponentialWide exponential_floor(const ExponentialWide &numerator, const
 }
 
 // ceil(numerator / divisor) for a positive divisor: -floor(-numerator / divisor)
-static ExponentialWide exponential_ceiling(const ExponentialWide &numerator, const ExponentialWide &divisor)
+ExponentialWide exponential_ceiling(const ExponentialWide &numerator, const ExponentialWide &divisor)
 {
     return exponential_negated(exponential_floor(exponential_negated(numerator), divisor));
 }
@@ -96,7 +106,7 @@ int exponential_compare(const ExponentialWide &left, const ExponentialWide &righ
 }
 
 // the span x is held in at 2^W, x = top / bottom
-static ExponentialSpan exponential_scaled(const ExponentialWide &top, const ExponentialWide &bottom, unsigned int scale)
+ExponentialSpan exponential_scaled(const ExponentialWide &top, const ExponentialWide &bottom, unsigned int scale)
 {
     const ExponentialWide lifted = exponential_product(top, exponential_power_two(scale));
     ExponentialSpan span;
@@ -137,7 +147,7 @@ ExponentialSpan exponential_rising_host(const ExponentialWide &top, const Expone
 }
 
 // 1 / v at 2^W for a span v > 0 at 2^W, its ends swapped
-static ExponentialSpan exponential_turned(const ExponentialSpan &value, unsigned int scale)
+ExponentialSpan exponential_turned(const ExponentialSpan &value, unsigned int scale)
 {
     const ExponentialWide square = exponential_power_two(2u * scale);
     ExponentialSpan span;
@@ -307,8 +317,8 @@ static ExponentialSpan exponential_logarithm_whole(const ExponentialSource *sour
 }
 
 // ln(top / bottom) at 2^W: ln top - ln bottom
-static ExponentialSpan exponential_logarithm(const ExponentialSource *source, const ExponentialWide &top,
-                                             const ExponentialWide &bottom, unsigned int scale)
+ExponentialSpan exponential_logarithm(const ExponentialSource *source, const ExponentialWide &top,
+                                      const ExponentialWide &bottom, unsigned int scale)
 {
     const ExponentialSpan above = exponential_logarithm_whole(source, top, scale);
     const ExponentialSpan under = exponential_logarithm_whole(source, bottom, scale);
