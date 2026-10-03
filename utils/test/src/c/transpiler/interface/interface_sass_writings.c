@@ -22,6 +22,7 @@
 // the relation each is a row of.
 #include "../../../../../../src/c/transpiler/bootstrap/ladder.h"
 #include "../../../../../../src/c/transpiler/codegen/precept_value.h"
+#include "../../../../../../src/c/transpiler/codegen/word_web.h"
 #include "../../../../../../src/c/transpiler/cubin/cubin_safe.h"
 #include "../../../../../../src/c/transpiler/cubin/cubin_write.h"
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
@@ -1063,8 +1064,174 @@ static int writings_descent_read(const char *record, unsigned int pairs, char **
     return (differ_total == 0u) ? 0 : 1;
 }
 
+// `text` with every `{name}` replaced by `put`, into `out`: 1, or 0 where `out` will not hold it
+static int writings_fill(const char *text, const char *name, const char *put, char *out, size_t room)
+{
+    char brace[300];
+    snprintf(brace, sizeof(brace), "{%s}", name);
+    size_t at = 0u;
+    const char *walk = text;
+    while ((*walk != '\0') && (at < room))
+    {
+        if (strncmp(walk, brace, strlen(brace)) == 0)
+        {
+            at += (size_t)snprintf(&out[at], room - at, "%s", put);
+            walk += strlen(brace);
+            continue;
+        }
+        out[at] = *walk;
+        at += 1u;
+        walk += 1;
+    }
+    if (at >= room)
+    {
+        return 0;
+    }
+    out[at] = '\0';
+    return 1;
+}
+
+// `text`, a form's text as a ruleset writes it, written to `out` as one instruction the way the search prints one: each
+// written tab and space run one space, the closing `;` and written newline dropped, and nothing at either end
+static void writings_flat(const char *text, char *out, size_t room)
+{
+    size_t at = 0u;
+    int space = 1;
+    for (const char *walk = text; (*walk != '\0') && ((at + 1u) < room); walk += 1)
+    {
+        if ((walk[0] == '\\') && ((walk[1] == 't') || (walk[1] == 'n')))
+        {
+            walk += 1;
+            space = space || (at != 0u);
+            continue;
+        }
+        if ((*walk == ';') || (*walk == ' ') || (*walk == '\t') || (*walk == '\r') || (*walk == '\n'))
+        {
+            space = space || ((*walk == ' ') && (at != 0u));
+            continue;
+        }
+        if (space && (at != 0u))
+        {
+            out[at] = ' ';
+            at += 1u;
+        }
+        space = 0;
+        out[at] = *walk;
+        at += 1u;
+    }
+    out[at] = '\0';
+}
+
+// The words of the word web that are one precept over their operands, each held to the writings the part gave: the
+// ruleset's form for the word, its result put in WRITINGS_RESULT and its operands by place in WRITINGS_LEFT and
+// WRITINGS_RIGHT, looked for among the forms the search ran. Where it ran, it either gives every case the precept's word
+// or does not; where the search never ran that text, the record says so. Written to `record`: 0 where every form found
+// holds, 1 where one does not, 2 where nothing could be read
+static int writings_krs_read(const char *folder, const char *ruleset, const char *record)
+{
+    FILE *const rules = writings_load(folder) ? fopen(ruleset, "rb") : NULL;
+    FILE *const out = (rules != NULL) ? fopen(record, "wb") : NULL;
+    if (out == NULL)
+    {
+        fprintf(stderr, "the search in %s, the ruleset %s or the record %s was not reached\n", folder, ruleset, record);
+        return 2;
+    }
+    static char s_rule[512][WRITINGS_LINE];
+    unsigned int rule_count = 0u;
+    while ((rule_count < 512u) && (fgets(s_rule[rule_count], sizeof(s_rule[0]), rules) != NULL))
+    {
+        rule_count += (strncmp(s_rule[rule_count], "form ", 5u) == 0) ? 1u : 0u;
+    }
+    fclose(rules);
+    fprintf(out, "# A ruleset's forms held to the part's writings\n\n");
+    fprintf(out, "Written by `interface_sass_writings.sh` whole on every run. Each word of the word web that is one "
+                 "precept over its operands is looked up in `%s`, its form written with its result and operands where "
+                 "the search puts them, and looked for among the forms `interface_sass_writings.md` ran on the part.\n\n",
+            ruleset);
+    fprintf(out, "| word | precept | form as run | on the part |\n|---|---|---|---|\n");
+    unsigned int held = 0u;
+    unsigned int differ = 0u;
+    for (unsigned int word = 0u; word < WORD_WEB_COUNT; word += 1u)
+    {
+        const Word *const one = &s_word_web[word];
+        const unsigned int precept = one->node[0].precept;
+        const unsigned int relation_none = s_relations;
+        unsigned int relation = relation_none;
+        for (unsigned int at = 0u; at < s_relations; at += 1u)
+        {
+            relation = (s_relation[at].precept && (s_relation[at].which == precept)) ? at : relation;
+        }
+        if ((one->nodes != 1u) || (relation == relation_none))
+        {
+            continue;
+        }
+        const size_t name_length = strlen(one->name);
+        const char *rule = NULL;
+        for (unsigned int at = 0u; (rule == NULL) && (at < rule_count); at += 1u)
+        {
+            rule = ((strncmp(s_rule[at] + 5, one->name, name_length) == 0) && (s_rule[at][5u + name_length] == ' '))
+                       ? s_rule[at]
+                       : NULL;
+        }
+        if (rule == NULL)
+        {
+            fprintf(out, "| `%s` | %s | no form | - |\n", one->name, s_precept_text[precept]);
+            continue;
+        }
+        const char *const equals = strstr(rule, " = ");
+        char params[8][32];
+        unsigned int param_count = 0u;
+        const char *walk = rule + 5u + name_length;
+        while ((equals != NULL) && (walk < equals) && (param_count < 8u))
+        {
+            walk += strspn(walk, " ");
+            const size_t length = strcspn(walk, " =");
+            if ((length == 0u) || (walk >= equals))
+            {
+                break;
+            }
+            snprintf(params[param_count], sizeof(params[0]), "%.*s", (int)length, walk);
+            param_count += 1u;
+            walk += length;
+        }
+        char filled[WRITINGS_LINE];
+        char next[WRITINGS_LINE];
+        snprintf(filled, sizeof(filled), "%s", (equals != NULL) ? (equals + 3) : "");
+        const char *const places[3] = {WRITINGS_RESULT, WRITINGS_LEFT, WRITINGS_RIGHT};
+        for (unsigned int at = 0u; (at < param_count) && (at < 3u); at += 1u)
+        {
+            writings_fill(filled, params[at], places[at], next, sizeof(next));
+            snprintf(filled, sizeof(filled), "%s", next);
+        }
+        char flat[512];
+        writings_flat(filled, flat, sizeof(flat));
+        unsigned int found = s_form_count;
+        for (unsigned int number = 0u; (found == s_form_count) && (number < s_form_count); number += 1u)
+        {
+            found = (s_ran[number] && (strcmp(s_forms[number], flat) == 0)) ? number : found;
+        }
+        const char *verdict = "not among the forms run";
+        if (found < s_form_count)
+        {
+            const int holds = s_holds[found][relation];
+            verdict = holds ? "gives every case its word" : "does not give every case its word";
+            held += holds ? 1u : 0u;
+            differ += holds ? 0u : 1u;
+        }
+        fprintf(out, "| `%s` | %s | `%s` | %s |\n", one->name, s_precept_text[precept], flat, verdict);
+        printf("  %-18s %-4s %-44s %s\n", one->name, s_precept_text[precept], flat, verdict);
+    }
+    fclose(out);
+    printf("interface sass krs: %u forms hold, %u do not, the record written to %s\n", held, differ, record);
+    return (differ == 0u) ? 0 : 1;
+}
+
 int main(int count, char **words)
 {
+    if ((count == 5) && (strcmp(words[1], "krs-read") == 0))
+    {
+        return writings_krs_read(words[2], words[3], words[4]);
+    }
     if (((count == 7) || (count == 8)) && (strcmp(words[1], "chains") == 0))
     {
         char into[1024];

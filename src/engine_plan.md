@@ -237,8 +237,10 @@ works there.
 
 1. **The writings the part gives are read into nothing.** A writing of one instruction is searched for on the part
    for every precept and every ladder relation, and every arrangement of the `.kdm` is written from them, run and
-   read back (the writings searched, below). `L*` and `sass.krs` are still written by hand: nothing reads a writing
-   found into either. It is the loop and it is the work.
+   read back (the writings searched, below). `L*` and `sass.krs` are still written by hand. `sass.krs` is read
+   against the writings found and not written from them: of its forms for the word web's eight words of one
+   precept, six are writings the part gives, and `word_shift_left` and `word_shift_right` are not
+   (`interface_sass_krs.md`). It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That

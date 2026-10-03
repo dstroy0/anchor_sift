@@ -7,7 +7,8 @@
 # the part's .kdm is then written node by node from the writings found, run and read back into
 # interface_sass_chains.md. Last, the cases the descent places for each relation (gate_descent) are put to the part
 # over every arrangement the descent ran over, and the part's verdicts held to the descent's in
-# interface_sass_descent.md.
+# interface_sass_descent.md. sass.krs's forms for the word web's words are held to the writings found in
+# interface_sass_krs.md.
 #
 #     utils/test/src/c/transpiler/interface/interface_sass_writings.sh [<earlier run folder>]
 #
@@ -109,4 +110,10 @@ for rows in "$DESCENT"/*.kdm; do
         "$(cygpath -m "$DESCENT")/${name}_cases.txt" || exit 1
     PAIRS+=("$(cygpath -m "$into")" "$(cygpath -m "$DESCENT")/${name}_cases.txt")
 done
-"$OUT/interface_sass_writings" descent-read "$(cygpath -m "$HERE")/interface_sass_descent.md" "${PAIRS[@]}"
+"$OUT/interface_sass_writings" descent-read "$(cygpath -m "$HERE")/interface_sass_descent.md" "${PAIRS[@]}" || exit 1
+
+# the ruleset's forms for the word web's words held to the writings found; a form that does not hold is reported and
+# ends nothing
+"$OUT/interface_sass_writings" krs-read "$WIN_OUT" "$(cygpath -m "$TOP")/src/cu/transpiler/codegen/rulesets/sass.krs" \
+    "$(cygpath -m "$HERE")/interface_sass_krs.md"
+exit 0
