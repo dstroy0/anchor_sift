@@ -2940,3 +2940,4 @@ form POPC register,uniform 0x00000006001b7d09 0x000e6a0008000000 0:16-23;1:32-37
 form ISETP.EQ.U32.AND predicate,predicate,register,uniform,predicate 0x0000000700007c0c 0x001fda000bf02070 2:24-31;3:32-37;0:81-83;1:84-86;4:87-90;5:68-71 ISETP.EQ.U32.AND P0, PT, R0, UR7, PT
 form ATOM.E.ADD.STRONG.GPU predicate,register,address,register 0x0000001b18ff098a 0x0221e200081ee1c4 1:16-23;2:24-31;3:32-39;2:40-63;2:71-71;0:81-83;2:101-101 @P0 ATOM.E.ADD.STRONG.GPU PT, RZ, [R24.64], R27
 form SHF.R.U64 register,register,immediate,register 0x0000001f06197819 0x020fe20000001219 2:9-9;0:16-23;1:24-31;2:32-63;3:64-71 SHF.R.U64 R25, R6, 0x1f, R25
+form ISETP.EQ.AND.EX predicate,predicate,register,immediate,predicate,predicate 0x000000021900780c 0x000fc80003f0a300 3:9-9;2:24-31;3:32-63;5:68-71;0:81-83;1:84-86;4:87-90 ISETP.EQ.AND.EX P0, PT, R25, 0x2, PT, P0

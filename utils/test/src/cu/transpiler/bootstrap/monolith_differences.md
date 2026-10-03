@@ -33,12 +33,12 @@ Written by `monolith_emit build/monolith/emit/monolith_tagged.listing all <this 
 | 5 | or | 001b0 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
 | 5 | or | 001c0 | `LOP3.LUT R9, R0, R9, RZ, 0xfc, !PT` | same | same | NVIDIA 0027e5, ours 0627f2 |  | scheduler bits |
 | 5 | or | 001d0 | `STG.E.STRONG.SYS term[UR4][R4.64+0x10], R9` | same | same | NVIDIA 0000f1, ours 0000f4 |  | scheduler bits |
-| 5 | or | 001c0 | `LOP3.LUT R9, R0, R9, RZ, 0xfc, !PT` |  |  |  | `word_or: LOP3.LUT R9, R0, R9, RZ, 0xfc, !PT` | none, leaves in NVIDIA's order |
+| 5 | or | 001c0 | `LOP3.LUT R9, R0, R9, RZ, 0xfc, !PT` |  |  |  | `word_or: LOP3.LUT R9, R0, R9, RZ, 0xfc, !PT` | none, leaves swapped |
 | 6 | xor | 001f0 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |
 | 6 | xor | 00200 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
 | 6 | xor | 00210 | `LOP3.LUT R9, R0, R9, RZ, 0x3c, !PT` | same | same | NVIDIA 0027e5, ours 0627f2 |  | scheduler bits |
 | 6 | xor | 00220 | `STG.E.STRONG.SYS term[UR4][R4.64+0x14], R9` | same | same | NVIDIA 0000f1, ours 0000f4 |  | scheduler bits |
-| 6 | xor | 00210 | `LOP3.LUT R9, R0, R9, RZ, 0x3c, !PT` |  |  |  | `word_xor: LOP3.LUT R9, R0, R9, RZ, 0x3c, !PT` | none, leaves in NVIDIA's order |
+| 6 | xor | 00210 | `LOP3.LUT R9, R0, R9, RZ, 0x3c, !PT` |  |  |  | `word_xor: LOP3.LUT R9, R0, R9, RZ, 0x3c, !PT` | none, leaves swapped |
 | 7 | nand | 00240 | `LDG.E.STRONG.SYS R0, term[UR4][R6.64+0x4]` | same | same | NVIDIA 000754, ours 000751 |  | scheduler bits |
 | 7 | nand | 00250 | `LDG.E.STRONG.SYS R9, term[UR4][R6.64]` | same | same | NVIDIA 000f52, ours 000751 |  | scheduler bits |
 | 7 | nand | 00260 | `LOP3.LUT R0, R0, R9, RZ, 0xc0, !PT` | same | same | NVIDIA 0027e4, ours 0627f2 |  | scheduler bits |
