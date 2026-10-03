@@ -127,6 +127,8 @@ extern long long g_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_
 
 extern long long g_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
+void boundary_seed(unsigned int part);
+
 unsigned int boundary_random(void);
 
 void boundary_check(BoundaryResults *results, int passed, const char *what);
@@ -189,7 +191,7 @@ void boundary_floors(BoundaryResults *results);
 
 void boundary_top(BoundaryResults *results);
 
-void boundary_counted(BoundaryResults *results);
+void boundary_counted(BoundaryResults *results, unsigned int inverse);
 
 unsigned long long boundary_prime_below(unsigned long long above);
 

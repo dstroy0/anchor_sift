@@ -5,23 +5,24 @@
 // Haar measure counted: a tower of 4 samples and one level, whose range each way is 3 bits. Every input quantum at
 // level w + 3 runs through the map and the output's quantum at level w is tallied. The map's low w bits read only the
 // inputs' low w + 3. The map on quanta is well defined, and a map that keeps Haar measure sends exactly 2^(4 . 3)
-// input quanta onto every output quantum, from any window of representatives.
-void boundary_counted(BoundaryResults *results)
+// input quanta onto every output quantum, from any window of representatives. T where `inverse` is 0 and T^-1 where it
+// is 1, each a part of its own.
+void boundary_counted(BoundaryResults *results, unsigned int inverse)
 {
     const unsigned int samples = BOUNDARY_TEST_COUNT_SAMPLES;
+    const char *const map = (inverse == 0u) ? "T" : "T^-1";
     unsigned int runs = 0u;
     unsigned int balanced = 0u;
     int ran_all = 1;
-    for (unsigned int inverse = 0u; inverse < 2u; inverse += 1u)
+    BoundaryProgram *const program = (BoundaryProgram *)calloc(1u, sizeof(BoundaryProgram));
+    BoundaryTower *const tower = (BoundaryTower *)calloc(1u, sizeof(BoundaryTower));
+    // a single pass, left early where a buffer or the load fails
+    do
     {
-        BoundaryProgram *const program = (BoundaryProgram *)calloc(1u, sizeof(BoundaryProgram));
-        BoundaryTower *const tower = (BoundaryTower *)calloc(1u, sizeof(BoundaryTower));
         if ((program == NULL) || (tower == NULL))
         {
             ran_all = 0;
-            free(program);
-            free(tower);
-            continue;
+            break;
         }
         unsigned int fields[BOUNDARY_TEST_COUNT_SAMPLES];
         for (unsigned int at = 0u; at < samples; at += 1u)
@@ -47,9 +48,7 @@ void boundary_counted(BoundaryResults *results)
         if (boundary_load(program, samples, &loaded) == 0)
         {
             ran_all = 0;
-            free(program);
-            free(tower);
-            continue;
+            break;
         }
         for (unsigned int width = 1u; width <= 2u; width += 1u)
         {
@@ -105,20 +104,21 @@ void boundary_counted(BoundaryResults *results)
             }
         }
         boundary_free(&loaded);
-        free(program);
-        free(tower);
-    }
+    } while (0);
+    free(program);
+    free(tower);
+    scriptura_text(&results->line, "  counted: ");
+    scriptura_text(&results->line, map);
     scriptura_text(&results->line,
-                   "  counted: T and T^-1 over 4 samples and one level, every input quantum at level w + 3 for w = 1 "
-                   "and 2, from two windows; ");
+                   " over 4 samples and one level, every input quantum at level w + 3 for w = 1 and 2, from two "
+                   "windows; ");
     scriptura_decimal(&results->line, balanced, 1u);
     scriptura_text(&results->line, " of ");
     scriptura_decimal(&results->line, runs, 1u);
     scriptura_text(&results->line, " runs send exactly 4096 input quanta onto every output quantum\n");
-    boundary_check(results, ran_all != 0, "the counted towers run on the host and the device, word for word");
-    boundary_check(
-        results, (runs == 8u) && (balanced == runs),
-        "T and T^-1 keep Haar measure: every output quantum at level w has 2^12 input quanta at level w + 3");
+    boundary_check(results, ran_all != 0, "the counted tower runs on the host and the device, word for word");
+    boundary_check(results, (runs == 4u) && (balanced == runs),
+                   "the map keeps Haar measure: every output quantum at level w has 2^12 input quanta at level w + 3");
 }
 
 static unsigned long long boundary_power_mod(unsigned long long base, unsigned long long exponent,

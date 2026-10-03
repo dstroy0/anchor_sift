@@ -333,7 +333,7 @@
       }
     },
     "record_boundary": {
-      "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter.",
+      "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter. Parts: written, read_off, top, counted_forward.",
       "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
       "src": [
         "+<c/types/integers/*>",
@@ -354,12 +354,94 @@
         "src/cu/engine/analysis/cycle"
       ],
       "env": {
+        "RECORD_BOUNDARY_PART": "written,read_off,top,counted_forward",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1"
+      }
+    },
+    "record_boundary_floors": {
+      "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter. Parts: floors.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "floors",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1"
+      }
+    },
+    "record_boundary_inverse": {
+      "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter. Parts: counted_inverse.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "counted_inverse",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1"
+      }
+    },
+    "record_boundary_redundant": {
+      "desc": "The record boundary test, its lanes compiled as PTX; every compiled launch held to the interpreter. Parts: redundant.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "redundant",
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1"
       }
     },
     "record_boundary_c": {
-      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter.",
+      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter. Parts: written, read_off, top, counted_forward.",
       "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
       "src": [
         "+<c/types/integers/*>",
@@ -380,6 +462,91 @@
         "src/cu/engine/analysis/cycle"
       ],
       "env": {
+        "RECORD_BOUNDARY_PART": "written,read_off,top,counted_forward",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1",
+        "CYCLE_RECORD_HOST_C": "1"
+      }
+    },
+    "record_boundary_c_floors": {
+      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter. Parts: floors.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "floors",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1",
+        "CYCLE_RECORD_HOST_C": "1"
+      }
+    },
+    "record_boundary_c_inverse": {
+      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter. Parts: counted_inverse.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "counted_inverse",
+        "CYCLE_RECORD_CHECK": "1",
+        "CYCLE_RECORD_REPORT": "1",
+        "CYCLE_RECORD_HOST_C": "1"
+      }
+    },
+    "record_boundary_c_redundant": {
+      "desc": "The record boundary test, its lanes compiled as C source by the host's compiler and run on the host; every compiled launch held to the interpreter. Parts: redundant.",
+      "script": "utils/test/src/cu/engine/analysis/cycle/record_boundary_test.sh",
+      "src": [
+        "+<c/types/integers/*>",
+        "+<cu/types/integers/*>",
+        "+<c/transpiler/codegen/*>",
+        "+<cu/transpiler/codegen/*>",
+        "+<cu/types/file_defs/krs/*>",
+        "+<c/engine/analysis/cycle/*>",
+        "+<cu/engine/analysis/cycle/*>",
+        "+<c/engine/analysis/key_schedule/*>",
+        "+<cu/engine/analysis/key_schedule/*>",
+        "+<c/engine/analysis/keymath/*>",
+        "+<cu/engine/analysis/keymath/*>",
+        "+<c/engine/runtime/scriptura/*>"
+      ],
+      "tests": [
+        "src/c/engine/analysis/cycle",
+        "src/cu/engine/analysis/cycle"
+      ],
+      "env": {
+        "RECORD_BOUNDARY_PART": "redundant",
         "CYCLE_RECORD_CHECK": "1",
         "CYCLE_RECORD_REPORT": "1",
         "CYCLE_RECORD_HOST_C": "1"

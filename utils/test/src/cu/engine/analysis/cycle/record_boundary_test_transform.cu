@@ -2,12 +2,20 @@
 // record_boundary_test_transform.cu: the forward and inverse transforms
 #include "record_boundary_test_internal.h"
 
-static unsigned long long s_boundary_state = 0xB0DA7C0FFEE5EEDull;
+#define BOUNDARY_TEST_SEED 0xB0DA7C0FFEE5EEDull
+
+static unsigned long long s_boundary_state = BOUNDARY_TEST_SEED;
 
 // 2^RANGE times T's matrix and T^-1's, column i the image of 2^RANGE e_i: [output][input]
 long long g_boundary_forward_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
 
 long long g_boundary_inverse_matrix[BOUNDARY_TEST_SAMPLES][BOUNDARY_TEST_SAMPLES];
+
+// the draws started again for part `part`: a part draws the same alone as among the others
+void boundary_seed(unsigned int part)
+{
+    s_boundary_state = BOUNDARY_TEST_SEED + part;
+}
 
 unsigned int boundary_random(void)
 {
