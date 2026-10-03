@@ -9,7 +9,7 @@ re-deriving them. **Scope:** `theory/theory/image_transforms/`, the precision ex
 This file is a journal, not a settled-results section of
 `theory/workbooks/orior/chapters/chapter_orior_workbook.tex`.
 
-## Entry one: constants located, verified, cited
+## 2026-09-16 entry one: constants located, verified, cited
 
 The constants come from the engine's `no_rounding` module and from the private precision repository
 (precision constants, bignum use). Everything below was read from the tree or re-derived here.
@@ -95,7 +95,7 @@ prime. A binary view is exact with no separate precondition. Weighting the views
 itself, silently. The remedy is a prime above the largest coefficient, or CRT over several, the
 device path with its 94-bit product. The chapter states this bound as the design's own precondition.
 
-## Entry two: examples built and graded, engine decisions
+## 2026-09-16 entry two: examples built and graded, engine decisions
 
 Placement and the bar: `examples/0_experimental/`, build both, each carrying a
 positive control, two routes able to disagree, a drawn null, and a stated floor. Both are built and
@@ -116,7 +116,7 @@ Both ran against a reference and agreed. The translation transform earns the gra
 The chapter header moves per transform: the translation is graded, and the integer-field and rotation
 transforms stay design only under a header that does not claim the whole chapter is unmeasured.
 
-## Entry three: precision spread, the residue code, the check ladder
+## 2026-09-16 entry three: precision spread, the residue code, the check ladder
 
 Douglas set a goal to raise the accuracy the engine holds by a large factor, a million and then past a
 googol without bound, by a spread over exact identities, and surveyed how each of six measurement
@@ -148,7 +148,7 @@ crosses, reached only through a floor-free ratio. The absolute floor is never ar
 representation imposes no quantum and has infinite variability, finer than any physical scale. The floor
 is measurement and completeness, both external.
 
-## Entry four: Navier-Stokes sets against the boundary function, inheritance checked
+## 2026-09-17 entry four: Navier-Stokes sets against the boundary function, inheritance checked
 
 Douglas set the work: keep running their sets against our boundary function and check for inheritance,
 claim nothing, show the rigor, ask the boundary function to define itself, cite what is borrowed with
@@ -189,7 +189,7 @@ Fefferman's statement was fetched from the Clay site and read in full for this e
 the millennium research paper's corpus chapter records. The 2026 blowup paper was not read past what that research paper's
 Navier-Stokes chapter read, and nothing here rests on it.
 
-## Entry five: Birch and Swinnerton-Dyer, the congruent number reading
+## 2026-09-17 entry five: Birch and Swinnerton-Dyer, the congruent number reading
 
 Douglas set the goal to pick up another Millennium problem. The choice is Birch and Swinnerton-Dyer,
 which the millennium research paper's toolkit chapter already recommended, because its obstruction matches the
@@ -215,7 +215,7 @@ run, each exit 0:
   to the precision document's regimes; the sets against the boundary function; prior art; one withdrawn
   entry, the 15 label.
 
-## Entry six: the descent, the rank bound, and reaching Sha
+## 2026-09-17 entry six: the descent, the rank bound, and reaching Sha
 
 Douglas set two follow-ons: push the descent through correctly, then attempt reaching the first part of
 Sha. Both done, integer-only, validated before landing. The mechanism is local solvability as a refute-only necessary-condition probe, the engine's sound one-directional
