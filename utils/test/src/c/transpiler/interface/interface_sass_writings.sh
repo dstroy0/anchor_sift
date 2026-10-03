@@ -18,9 +18,10 @@ KRS="$TOP/src/c/types/file_defs/krs"
 BOOT="$TOP/src/c/transpiler/bootstrap"
 OUT="$TOP/build/writings"
 CUDA="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.3"
-# the seconds a runner pass is given before it is cut off. A pass runs every cubin past the last refusal, and a cubin
-# that never ends is cut off with it
-CAP=120
+# the cubins a runner pass runs at most, and the seconds a pass is given before it is cut off: a pass short enough
+# that only a cubin that never ends reaches the cap
+MOST=100
+CAP=60
 mkdir -p "$OUT"
 rm -f "$OUT"/form_*.cubin "$OUT/answers.txt"
 
@@ -41,24 +42,37 @@ cc -std=c11 -O1 -Wall -I "$CUDA/include" -o "$OUT/interface_sass_run" "$HERE/int
 
 MACHINE="$CUB/machines/sm_86"
 WIN_OUT="$(cygpath -m "$OUT")"
-"$OUT/interface_sass_writings" "$(cygpath -m "$RUN")/sass/form_0.cubin" "$(cygpath -m "$RUN")/sass/form_0.text" \
-    "$(cygpath -m "$MACHINE")" "$WIN_OUT" || exit 1
+PATTERN="$(cygpath -m "$RUN")/sass/form_0.cubin"
+FRAME="$(cygpath -m "$RUN")/sass/form_0.text"
 
-first=0
-guard=0
-while :; do
-    timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$WIN_OUT/list.txt" "$first" \
-        "$WIN_OUT/answers.txt" "$WIN_OUT/cases.txt"
-    status=$?
-    last="$(tail -1 "$OUT/answers.txt" 2>/dev/null | cut -d' ' -f1)"
-    case "$status" in
-        0) break ;;
-        3) first=$(( last + 1 )) ;;
-        124) hung=$(( ${last:--1} + 1 )); echo "$hung hung timeout" >> "$OUT/answers.txt"; first=$(( hung + 1 )) ;;
-        *) echo "  the runner exited $status"; exit 1 ;;
-    esac
-    guard=$(( guard + 1 ))
-    [ "$guard" -gt 2000 ] && { echo "  the runner was started 2000 times"; exit 1; }
-done
+# every cubin of the list in `$1` run over the search's cases, its answers into `$2`, the runner started again past
+# each refusal
+run_list() {
+    local first=0 guard=0 status last hung
+    while :; do
+        timeout "$CAP" "$OUT/interface_sass_run" "$(cygpath -m "$MACHINE")" "$1" "$first" "$2" "$WIN_OUT/cases.txt" \
+            "$MOST"
+        status=$?
+        last="$(tail -1 "$2" 2>/dev/null | cut -d' ' -f1)"
+        case "$status" in
+            0) return 0 ;;
+            3 | 4) first=$(( last + 1 )) ;;
+            124) hung=$(( ${last:--1} + 1 )); echo "$hung hung timeout" >> "$2"; first=$(( hung + 1 )) ;;
+            *) echo "  the runner exited $status"; return 1 ;;
+        esac
+        guard=$(( guard + 1 ))
+        [ "$guard" -gt 2000 ] && { echo "  the runner was started 2000 times"; return 1; }
+    done
+}
 
-"$OUT/interface_sass_writings" read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_writings.md"
+"$OUT/interface_sass_writings" "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" || exit 1
+run_list "$WIN_OUT/list.txt" "$WIN_OUT/answers.txt" || exit 1
+"$OUT/interface_sass_writings" read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_writings.md" || exit 1
+
+# every arrangement of the .kdm written from the writings found, run and read back
+mkdir -p "$OUT/chains"
+rm -f "$OUT"/chains/chain_*.cubin "$OUT/chains/answers.txt"
+"$OUT/interface_sass_writings" chains "$PATTERN" "$FRAME" "$(cygpath -m "$MACHINE")" "$WIN_OUT" \
+    "$(cygpath -m "$MACHINE").kdm" || exit 1
+run_list "$WIN_OUT/chains/list.txt" "$WIN_OUT/chains/answers.txt" || exit 1
+"$OUT/interface_sass_writings" chains-read "$WIN_OUT" "$(cygpath -m "$HERE")/interface_sass_chains.md"

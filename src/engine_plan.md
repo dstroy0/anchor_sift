@@ -235,10 +235,10 @@ works there.
 
 ## Open
 
-1. **Nothing searches for a writing of more than one instruction.** A writing of one instruction is run on the part
-   and read back (the writings searched, below). No arrangement of two or three nodes is emitted, run and read back,
-   which leaves those writings unconfirmed by any target. `L*` is written by hand for want of this. It is the loop
-   and it is the work.
+1. **The writings the part gives are read into nothing.** A writing of one instruction is searched for on the part
+   for every precept and every ladder relation, and every arrangement of the `.kdm` is written from them, run and
+   read back (the writings searched, below). `L*` and `sass.krs` are still written by hand: nothing reads a writing
+   found into either. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
@@ -318,13 +318,19 @@ works there.
      The stall is the cost layer and is decided with Doug before it is tuned.
    - Writings searched on the part. `utils/test/src/c/transpiler/interface/interface_sass_writings.sh` puts every
      form of the machine file that writes a register from registers, predicates and numbers alone, 745 of 2928, in
-     place of the frame's IADD3, each through the gate, and runs it on the part over 229 cases at once: the ladder's
-     two-word cases and 32 words drawn past them for each relation, as `chain_build` draws its sweep. It writes
-     `interface_sass_writings.md` whole. 696 run, the part refuses 49, and add holds under 21 forms, take under 18,
-     product under 28, up under 3 and down under 2, and same under none. On the ladder's cases alone a dot product
-     of bytes holds product and every shift holds up or down: the drawn words take them out. Up and down hold only
-     under `SHF.L.W` and `SHF.R.W` with a register count, since the precept wraps a count of 32 and more and the
-     forms without `.W` answer 0 there.
+     place of the frame's IADD3, each through the gate, and runs it on the part over 256 cases at once: the ladder's
+     two-word cases, the words a width turns on against the counts a shift turns on, and words drawn as
+     `chain_build` draws its sweep. A form is put with every assignment of the two words and RZ to its register
+     sources that gives both, and a number whose field is eight bits wide, a truth table, with each of its 256
+     values. It writes `interface_sass_writings.md` whole: 5685 cubins, 5394 run and the part refuses 291. Every
+     precept that carries a word holds under at least one form, asr, rol and ror each as a `.W` funnel given the
+     word on both halves, and every ladder relation but same. On the ladder's cases alone a dot product of bytes
+     holds product and every shift holds up or down: the drawn words take them out. Up and down hold only under
+     `.W`, since the precept wraps a count of 32 and more and the forms without `.W` answer 0 there.
+   - Arrangements run on the part. The same script writes every arrangement of `machines/sm_86.kdm` node by node,
+     each node the first writing the search found for its precept, runs all 3068 over the same cases and writes
+     `interface_sass_chains.md` whole: every one answers its relation on every case, add 1202, take 1047, up 411 and
+     down 408.
    - `sass.krs`. `word_shift_left` and `word_shift_right` carry no `.W`, and a count of 32 or more answers 0
      where the precept wraps it. The machine file holds no `.W` form with a number for the count, and the code
      generator writes number counts of 1 to 31 alone, where both forms agree. `word_funnel_right` carries no `.W`
@@ -344,7 +350,8 @@ works there.
 2. **`.kdm` holds no cost.** `utils/maint/engine/chain_check.sh` writes one: 3068 arrangements over 27.6M tried, add
    1202, take 1047, up 411, down 408, and nothing for same, places or product at three nodes. Every cost reads `-`.
    The clock already reads codings against one another in the part's own time, and that reading is thrown away
-   instead of kept against a row here. A row timed under the safe word reads its count of nodes and nothing past
+   instead of kept against a row here. Every row runs on the part (`interface_sass_chains.md`), which leaves each one
+   a cubin a reading can be kept against. A row timed under the safe word reads its count of nodes and nothing past
    it: every instruction stalls the longest, and an integer result is back before the next one issues. The 1198
    rows of add at three nodes would all read alike, and the costs wait on the scheduler bits (Pending Doug).
 

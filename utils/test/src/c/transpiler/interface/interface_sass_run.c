@@ -2,14 +2,16 @@
 // interface_sass_run.c: a list of cubins run on the part in one process, one answer a cubin. Nothing is compiled here:
 // the driver is handed each cubin as it was written and asked for its kernel.
 //
-//     interface_sass_run <machine file> <list> <first> <answers> [<cases>]
+//     interface_sass_run <machine file> <list> <first> <answers> [<cases> [<most>]]
 //
 // The list holds one cubin a line, as `<path> <kernel>`. Each from line `first` on is read on the host first and held
 // to cubin_safe against the machine file; one that breaks a rule is never handed to the driver and adds `<number>
 // skipped cubin_safe_<verdict>`. Every other is loaded, its kernel run over the
 // probe's case, and a line `<number> answered <w0> <w1> <w2> <w3>` added to the answers file. Given a cases file, one
 // case a line as up to eight words in hex, the kernel is run once over every case, a thread a case, and the line holds
-// the first word of each case's answer in the file's order. A cubin the part refuses
+// the first word of each case's answer in the file's order. Given `most`, a pass runs that many lines at most and
+// ends with exit 4 where lines are left, which keeps a pass short enough for a cap on its time to bound one cubin.
+// A cubin the part refuses
 // kills the context past recovery: resetting the part's primary context in place leaves the next launch failing. A
 // refusal adds `<number> refused <error>` and ends the process with exit 3, and the caller starts it again past that
 // line. A pause after each launch keeps a run of launches from flooding the part and taking the display down with it.
@@ -120,12 +122,13 @@ static CUresult sass_run_one(const char *kernel)
 
 int main(int count, char **words)
 {
-    if ((count != 5) && (count != 6))
+    if ((count < 5) || (count > 7))
     {
-        fprintf(stderr, "interface_sass_run <machine file> <list> <first> <answers> [<cases>]\n");
+        fprintf(stderr, "interface_sass_run <machine file> <list> <first> <answers> [<cases> [<most>]]\n");
         return 2;
     }
-    if ((count == 6) && !sass_run_cases(words[5]))
+    const unsigned long most = (count == 7) ? strtoul(words[6], NULL, 10) : 0ul;
+    if ((count >= 6) && !sass_run_cases(words[5]))
     {
         fprintf(stderr, "the cases %s did not read, or hold more than %u\n", words[5], SASS_RUN_THREADS);
         return 2;
@@ -158,6 +161,12 @@ int main(int count, char **words)
             number += 1ul;
             continue;
         }
+        if ((most != 0ul) && (number >= (first + most)))
+        {
+            fclose(answers);
+            fclose(list);
+            return 4;
+        }
         // a line the writer held off the part: its turned operation key holds a control transfer, a wait or no form,
         // and running it could loop or stall the part. It is answered without the device
         if (strcmp(path, "skip") == 0)
@@ -187,7 +196,7 @@ int main(int count, char **words)
             fclose(answers);
             return 3;
         }
-        if (count == 6)
+        if (count >= 6)
         {
             fprintf(answers, "%lu answered", number);
             for (unsigned int at = 0u; at < s_case_count; at += 1u)

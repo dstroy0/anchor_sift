@@ -1,106 +1,1196 @@
 # Writings found on the part
 
-Written by `interface_sass_writings.sh` whole on every run. Every form of the machine file that writes a register from registers alone is run on the part in place of the frame's IADD3, its first two register sources given each case's two words and every other register source RZ, over every case of the ladder's relations and 32 words drawn past them for each, at once. A form is listed under a relation where it gives every case of that relation its word. 696 forms ran over 229 cases and 49 were refused by the part.
+Written by `interface_sass_writings.sh` whole on every run. Every form of the machine file that writes a register from registers, predicates and numbers alone is run on the part in place of the frame's IADD3, its first two register sources given each case's two words and every other register source RZ. The cases are the ladder's own two-word cases, the words a width turns on against the counts a shift turns on, and drawn words, put at once. A form is listed under a ladder relation or a precept where it gives every case the word that relation or precept gives it. 5394 forms ran over 256 cases and 291 were refused by the part.
 
-## same
+## relation same
 
 0 forms give every case its word.
 
 
-## add
+## relation add
 
-21 forms give every case its word.
+118 forms give every case its word.
 
+- `IADD3 R8, RZ, R12, R10`
+- `IADD3 R8, R12, RZ, R10`
+- `IADD3 R8, RZ, R10, R12`
+- `IADD3 R8, R10, RZ, R12`
+- `IADD3 R8, R12, R10, RZ`
 - `IADD3 R8, R10, R12, RZ`
+- `IADD3 R8, P0, RZ, R12, R10`
+- `IADD3 R8, P0, R12, RZ, R10`
+- `IADD3 R8, P0, RZ, R10, R12`
+- `IADD3 R8, P0, R10, RZ, R12`
+- `IADD3 R8, P0, R12, R10, RZ`
 - `IADD3 R8, P0, R10, R12, RZ`
+- `IADD3.X R8, P0, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, P0, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, P0, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, P0, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, P0, R12, R10, RZ, P0, !PT`
 - `IADD3.X R8, P0, R10, R12, RZ, P0, !PT`
+- `IADD3.X R8, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, R12, R10, RZ, P0, !PT`
 - `IADD3.X R8, R10, R12, RZ, P0, !PT`
+- `IADD3 R8, R12, -RZ, R10`
+- `IADD3 R8, R10, -RZ, R12`
+- `IADD3 R8, P0, R12, -RZ, R10`
+- `IADD3 R8, P0, R10, -RZ, R12`
+- `IADD3 R8, -RZ, R12, R10`
+- `IADD3 R8, -RZ, R10, R12`
+- `IADD3.X R8, RZ, R12, R10, P2, P1`
+- `IADD3.X R8, R12, RZ, R10, P2, P1`
+- `IADD3.X R8, RZ, R10, R12, P2, P1`
+- `IADD3.X R8, R10, RZ, R12, P2, P1`
+- `IADD3.X R8, R12, R10, RZ, P2, P1`
 - `IADD3.X R8, R10, R12, RZ, P2, P1`
+- `IADD3 R8, P1, -RZ, R12, R10`
+- `IADD3 R8, P1, -RZ, R10, R12`
+- `VABSDIFF.U32 R8, RZ, R12, R10`
+- `VABSDIFF.U32 R8, R12, RZ, R10`
+- `VABSDIFF.U32 R8, RZ, R10, R12`
+- `VABSDIFF.U32 R8, R10, RZ, R12`
+- `IADD3.X R8, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, R12, R10, RZ, !PT, !PT`
 - `IADD3.X R8, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, R12, R10, -RZ`
 - `IADD3 R8, R10, R12, -RZ`
+- `VABSDIFF.U32 R8, P0, RZ, R12, R10`
+- `VABSDIFF.U32 R8, P0, R12, RZ, R10`
+- `VABSDIFF.U32 R8, P0, RZ, R10, R12`
+- `VABSDIFF.U32 R8, P0, R10, RZ, R12`
+- `IADD3.X R8, P0, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, P0, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, P0, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, P0, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, P0, R12, R10, RZ, !PT, !PT`
 - `IADD3.X R8, P0, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, P0, R12, R10, -RZ`
 - `IADD3 R8, P0, R10, R12, -RZ`
+- `IADD3 R8, P0, P6, RZ, R12, R10`
+- `IADD3 R8, P0, P6, R12, RZ, R10`
+- `IADD3 R8, P0, P6, RZ, R10, R12`
+- `IADD3 R8, P0, P6, R10, RZ, R12`
+- `IADD3 R8, P0, P6, R12, R10, RZ`
 - `IADD3 R8, P0, P6, R10, R12, RZ`
+- `IADD3.X R8, P0, P6, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, P0, P6, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, P0, P6, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, P0, P6, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, P0, P6, R12, R10, RZ, P0, !PT`
 - `IADD3.X R8, P0, P6, R10, R12, RZ, P0, !PT`
+- `IADD3 R8, P0, P6, R12, -RZ, R10`
+- `IADD3 R8, P0, P6, R10, -RZ, R12`
+- `IADD3.X R8, P0, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, P0, R10, ~RZ, R12, P0, PT`
+- `IADD3.X R8, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, R10, ~RZ, R12, P0, PT`
+- `LEA R8, P0, R12, R10, 0x0`
 - `LEA R8, P0, R10, R12, 0x0`
+- `IADD3 R8, P1, P6, -RZ, R12, R10`
+- `IADD3 R8, P1, P6, -RZ, R10, R12`
+- `IMAD.X R8, R12, 0x1, R10, P2`
 - `IMAD.X R8, R10, 0x1, R12, P2`
+- `IMAD.IADD R8, R12, 0x1, R10`
 - `IMAD.IADD R8, R10, 0x1, R12`
+- `IADD3.X R8, P0, P6, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, P0, P6, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, P0, P6, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, P0, P6, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, P0, P6, R12, R10, RZ, !PT, !PT`
 - `IADD3.X R8, P0, P6, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, P0, P6, R12, R10, -RZ`
 - `IADD3 R8, P0, P6, R10, R12, -RZ`
+- `IADD3.X R8, P0, ~RZ, R12, R10, P0, PT`
+- `IADD3.X R8, P0, ~RZ, R10, R12, P0, PT`
+- `IADD3.X R8, P0, R12, R10, ~RZ, P0, PT`
 - `IADD3.X R8, P0, R10, R12, ~RZ, P0, PT`
+- `IADD3.X R8, R12, ~RZ, R10, !PT, PT`
+- `IADD3.X R8, R10, ~RZ, R12, !PT, PT`
+- `IADD3.X R8, P0, R12, ~RZ, R10, !PT, PT`
+- `IADD3.X R8, P0, R10, ~RZ, R12, !PT, PT`
+- `IADD3.X R8, P0, P6, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, P0, P6, R10, ~RZ, R12, P0, PT`
+- `IMAD.WIDE.U32 R8, P0, R12, 0x1, R10`
 - `IMAD.WIDE.U32 R8, P0, R10, 0x1, R12`
+- `IADD3.X R8, ~RZ, R12, R10, !PT, PT`
+- `IADD3.X R8, ~RZ, R10, R12, !PT, PT`
+- `IADD3.X R8, R12, R10, ~RZ, !P2, P1`
 - `IADD3.X R8, R10, R12, ~RZ, !P2, P1`
+- `IADD3.X R8, P1, ~RZ, R12, R10, !PT, PT`
+- `IADD3.X R8, P1, ~RZ, R10, R12, !PT, PT`
+- `IMAD.WIDE.X R8, R12, 0x1, R10, P2`
 - `IMAD.WIDE.X R8, R10, 0x1, R12, P2`
+- `IMAD.U32.X R8, R12, 0x1, R10, P2`
 - `IMAD.U32.X R8, R10, 0x1, R12, P2`
 
-## take
+## relation take
 
-18 forms give every case its word.
+59 forms give every case its word.
 
+- `IADD3 R8, RZ, -R12, R10`
 - `IADD3 R8, R10, -R12, RZ`
+- `IADD3 R8, P0, RZ, -R12, R10`
 - `IADD3 R8, P0, R10, -R12, RZ`
+- `IADD3 R8, -R12, RZ, R10`
+- `IADD3 R8, -R12, R10, RZ`
+- `IADD3 R8, P1, -R12, RZ, R10`
+- `IADD3 R8, P1, -R12, R10, RZ`
+- `IADD3 R8, RZ, R10, -R12`
+- `IADD3 R8, R10, RZ, -R12`
+- `IADD3 R8, P0, RZ, R10, -R12`
+- `IADD3 R8, P0, R10, RZ, -R12`
+- `IADD3 R8, R10, -RZ, -R12`
 - `IADD3 R8, R10, -R12, -RZ`
+- `IADD3 R8, P0, R10, -RZ, -R12`
 - `IADD3 R8, P0, R10, -R12, -RZ`
+- `IADD3 R8, P0, P6, RZ, -R12, R10`
 - `IADD3 R8, P0, P6, R10, -R12, RZ`
+- `IADD3.X R8, P0, RZ, ~R12, R10, P0, PT`
 - `IADD3.X R8, P0, R10, ~R12, RZ, P0, PT`
+- `IADD3.X R8, RZ, ~R12, R10, P0, PT`
 - `IADD3.X R8, R10, ~R12, RZ, P0, PT`
+- `IADD3 R8, -RZ, R10, -R12`
+- `IADD3 R8, -R12, R10, -RZ`
+- `IADD3 R8, P1, -RZ, R10, -R12`
+- `IADD3 R8, P1, -R12, R10, -RZ`
+- `IADD3 R8, P1, P6, -R12, RZ, R10`
+- `IADD3 R8, P1, P6, -R12, R10, RZ`
 - `IMAD.IADD R8, R10, 0x1, -R12`
 - `IMAD.X R8, R10, 0x1, ~R12, !P2`
+- `IADD3 R8, P0, P6, RZ, R10, -R12`
+- `IADD3 R8, P0, P6, R10, RZ, -R12`
+- `IADD3.X R8, P0, ~R12, RZ, R10, P0, PT`
+- `IADD3.X R8, P0, ~R12, R10, RZ, P0, PT`
+- `IADD3.X R8, P0, RZ, R10, ~R12, P0, PT`
+- `IADD3.X R8, P0, R10, RZ, ~R12, P0, PT`
+- `IADD3.X R8, RZ, ~R12, R10, !PT, PT`
 - `IADD3.X R8, R10, ~R12, RZ, !PT, PT`
+- `IADD3.X R8, P0, RZ, ~R12, R10, !PT, PT`
 - `IADD3.X R8, P0, R10, ~R12, RZ, !PT, PT`
+- `IADD3 R8, P0, P6, R10, -RZ, -R12`
 - `IADD3 R8, P0, P6, R10, -R12, -RZ`
+- `IADD3.X R8, P0, P6, RZ, ~R12, R10, P0, PT`
 - `IADD3.X R8, P0, P6, R10, ~R12, RZ, P0, PT`
+- `IADD3.X R8, ~R12, RZ, R10, !PT, PT`
+- `IADD3.X R8, ~R12, R10, RZ, !PT, PT`
+- `LEA R8, P0, -R12, R10, 0x0`
+- `IADD3.X R8, RZ, R10, ~R12, !P2, P1`
+- `IADD3.X R8, R10, RZ, ~R12, !P2, P1`
+- `IADD3.X R8, P1, ~R12, RZ, R10, !PT, PT`
+- `IADD3.X R8, P1, ~R12, R10, RZ, !PT, PT`
+- `IADD3 R8, P1, P6, -RZ, R10, -R12`
+- `IADD3 R8, P1, P6, -R12, R10, -RZ`
+- `IADD3.X R8, P1, ~R12, 0x1, R10, !PT, !PT`
 - `IADD3.X R8, P1, R10, 0x1, ~R12, !PT, !PT`
 - `IMAD.WIDE R8, R10, 0x1, -R12`
 - `IMAD.WIDE.X R8, R10, 0x1, ~R12, !P2`
 - `IMAD.IADD.U32 R8, R10, 0x1, -R12`
 - `IMAD.U32.X R8, R10, 0x1, ~R12, !P2`
 
-## up
+## relation up
 
-3 forms give every case its word.
+8 forms give every case its word.
 
+- `SHF.L.W.U32 R8, R10, R12, R10`
+- `SHF.L.W.U32 R8, R10, R12, R12`
 - `SHF.L.W.U32 R8, R10, R12, RZ`
+- `SHF.L.W.S32 R8, R10, R12, R10`
+- `SHF.L.W.S32 R8, R10, R12, R12`
 - `SHF.L.W.S32 R8, R10, R12, RZ`
+- `SHF.L.W.U32.HI R8, RZ, R12, R10`
 - `SHF.L.W.U32 R8, R10, R12, 0xa00`
 
-## down
+## relation down
 
-2 forms give every case its word.
+5 forms give every case its word.
 
+- `SHF.R.W.U32.HI R8, R10, R12, R10`
+- `SHF.R.W.U32.HI R8, R12, R12, R10`
+- `SHF.R.W.U32.HI R8, RZ, R12, R10`
 - `SHF.R.W.U32 R8, R10, R12, RZ`
 - `SHF.R.W.S32 R8, R10, R12, RZ`
 
-## product
+## relation product
 
-28 forms give every case its word.
+56 forms give every case its word.
 
+- `IMAD R8, R12, R10, RZ`
 - `IMAD R8, R10, R12, RZ`
+- `IMAD.MOV R8, R12, R10, -RZ`
 - `IMAD.MOV R8, R10, R12, -RZ`
+- `IMAD.WIDE.U32 R8, R12, R10, RZ`
 - `IMAD.WIDE.U32 R8, R10, R12, RZ`
+- `IMAD.MOV.U32 R8, R12, R10, RZ`
 - `IMAD.MOV.U32 R8, R10, R12, RZ`
+- `IMAD.WIDE.U32 R8, P0, R12, R10, RZ`
 - `IMAD.WIDE.U32 R8, P0, R10, R12, RZ`
+- `IMAD.X R8, R12, R10, RZ, P1`
 - `IMAD.X R8, R10, R12, RZ, P1`
+- `IMAD.X R8, R12, R10, -0x1, !P0`
 - `IMAD.X R8, R10, R12, -0x1, !P0`
+- `IMAD.WIDE R8, R12, R10, RZ`
 - `IMAD.WIDE R8, R10, R12, RZ`
+- `IMAD.U32 R8, R12, R10, RZ`
 - `IMAD.U32 R8, R10, R12, RZ`
+- `IMAD.X R8, R12, R10, RZ, !PT`
 - `IMAD.X R8, R10, R12, RZ, !PT`
+- `IMAD R8, R12, R10, -RZ`
 - `IMAD R8, R10, R12, -RZ`
+- `IMAD.WIDE R8, R12, R10, -RZ`
 - `IMAD.WIDE R8, R10, R12, -RZ`
+- `IMAD.MOV.U32 R8, R12, R10, -RZ`
 - `IMAD.MOV.U32 R8, R10, R12, -RZ`
+- `IMAD.MOV R8, R12, R10, RZ`
 - `IMAD.MOV R8, R10, R12, RZ`
+- `IMAD.WIDE.U32.X R8, R12, R10, RZ, !PT`
 - `IMAD.WIDE.U32.X R8, R10, R12, RZ, !PT`
+- `IMAD.WIDE.U32 R8, R12, R10, -RZ`
 - `IMAD.WIDE.U32 R8, R10, R12, -RZ`
+- `IMAD.U32.X R8, R12, R10, RZ, !PT`
 - `IMAD.U32.X R8, R10, R12, RZ, !PT`
+- `IMAD.WIDE R8, P0, R12, R10, RZ`
 - `IMAD.WIDE R8, P0, R10, R12, RZ`
+- `IMAD.WIDE.U32.X R8, P0, R12, R10, RZ, !PT`
 - `IMAD.WIDE.U32.X R8, P0, R10, R12, RZ, !PT`
+- `IMAD.WIDE.U32 R8, P0, R12, R10, -RZ`
 - `IMAD.WIDE.U32 R8, P0, R10, R12, -RZ`
+- `IMAD.WIDE.X R8, R12, R10, RZ, P1`
 - `IMAD.WIDE.X R8, R10, R12, RZ, P1`
+- `IMAD.U32.X R8, R12, R10, RZ, P1`
 - `IMAD.U32.X R8, R10, R12, RZ, P1`
+- `IMAD.WIDE.X R8, R12, R10, RZ, !PT`
 - `IMAD.WIDE.X R8, R10, R12, RZ, !PT`
+- `IMAD.U32 R8, R12, R10, -RZ`
 - `IMAD.U32 R8, R10, R12, -RZ`
+- `IMAD.WIDE R8, P6, R12, R10, -RZ`
 - `IMAD.WIDE R8, P6, R10, R12, -RZ`
+- `IMAD.WIDE.X R8, P0, R12, R10, RZ, !PT`
 - `IMAD.WIDE.X R8, P0, R10, R12, RZ, !PT`
+- `IMAD.WIDE.X R8, P6, R12, R10, RZ, P1`
 - `IMAD.WIDE.X R8, P6, R10, R12, RZ, P1`
+- `IMAD R8, R12, R10, 0x0`
 - `IMAD R8, R10, R12, 0x0`
+
+## precept not
+
+93 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x05, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x07, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x25, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x27, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x85, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x87, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa5, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa7, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xad, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xaf, !PT`
+- `IMAD.X R8, RZ, R12, ~R10, P0`
+- `IMAD.X R8, R12, RZ, ~R10, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x05, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x07, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x25, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x27, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x85, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x87, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa5, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa7, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xad, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xaf, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x05, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x07, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x25, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x27, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x85, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x87, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa5, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa7, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xad, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xaf, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x05, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x07, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x25, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x27, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x85, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x87, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa5, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa7, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xad, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xaf, PT`
+- `IMAD.X R8, RZ, R12, ~R10, !PT`
+- `IMAD.X R8, R12, RZ, ~R10, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x0f, !PT`
+- `IMAD.WIDE.X R8, RZ, R12, ~R10, P0`
+- `IMAD.WIDE.X R8, R12, RZ, ~R10, P0`
+- `IMAD.U32.X R8, RZ, R12, ~R10, P0`
+- `IMAD.U32.X R8, R12, RZ, ~R10, P0`
+- `IMAD.WIDE.X R8, P0, R12, 0x0, ~R10, P0`
+- `IADD3.X R8, P0, R12, ~R12, ~R10, P0, PT`
+- `IADD3.X R8, P0, R12, ~R10, ~R12, P0, PT`
+- `IADD3.X R8, R12, ~R12, ~R10, P0, PT`
+- `IADD3.X R8, R12, ~R10, ~R12, P0, PT`
+- `IMAD.WIDE.X R8, RZ, R12, ~R10, !PT`
+- `IMAD.WIDE.X R8, R12, RZ, ~R10, !PT`
+- `IMAD.U32.X R8, RZ, R12, ~R10, !PT`
+- `IMAD.U32.X R8, R12, RZ, ~R10, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0x0f, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x0f, PT`
+- `IMAD.WIDE.U32.X R8, RZ, R12, ~R10, !PT`
+- `IMAD.WIDE.U32.X R8, R12, RZ, ~R10, !PT`
+- `IMAD.WIDE.U32.X R8, RZ, R12, ~R10, P0`
+- `IMAD.WIDE.U32.X R8, R12, RZ, ~R10, P0`
+- `IMAD.WIDE.X R8, P6, RZ, R12, ~R10, P0`
+- `IMAD.WIDE.X R8, P6, R12, RZ, ~R10, P0`
+- `IMAD.WIDE.U32.X R8, P0, RZ, R12, ~R10, !PT`
+- `IMAD.WIDE.U32.X R8, P0, R12, RZ, ~R10, !PT`
+- `IMAD.WIDE.U32.X R8, P0, R12, 0x0, ~R10, P0`
+
+## precept and
+
+67 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x40, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x42, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x48, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x4a, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x60, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x62, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x68, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x6a, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc0, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc2, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc8, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xca, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe0, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe2, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe8, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xea, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x40, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x42, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x48, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x4a, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x60, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x62, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x68, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x6a, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc0, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc2, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc8, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xca, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe0, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe2, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe8, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xea, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x40, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x42, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x48, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x4a, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x60, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x62, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x68, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x6a, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc0, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc2, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xc8, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xca, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe0, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe2, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xe8, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xea, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x40, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x42, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x48, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x4a, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x60, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x62, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x68, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x6a, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc0, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc2, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xc8, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xca, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe0, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe2, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xe8, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xea, PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xa0, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0xa0, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xa0, PT`
+
+## precept or
+
+67 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x54, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x56, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5c, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5e, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x74, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x76, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7c, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7e, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd4, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd6, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xdc, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xde, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf4, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf6, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfc, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfe, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x54, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x56, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5c, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5e, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x74, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x76, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7c, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7e, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd4, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd6, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xdc, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xde, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf4, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf6, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfc, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfe, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x54, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x56, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5c, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5e, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x74, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x76, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7c, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7e, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd4, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd6, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xdc, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xde, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf4, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf6, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfc, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfe, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x54, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x56, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5c, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5e, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x74, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x76, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7c, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7e, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd4, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd6, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xdc, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xde, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf4, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf6, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfc, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfe, PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xfa, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0xfa, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xfa, PT`
+
+## precept xor
+
+67 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x14, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x16, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1c, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1e, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x34, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x36, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3c, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3e, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x94, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x96, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9c, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9e, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb4, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb6, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbc, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbe, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x14, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x16, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1c, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1e, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x34, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x36, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3c, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3e, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x94, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x96, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9c, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9e, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb4, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb6, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbc, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbe, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x14, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x16, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1c, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1e, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x34, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x36, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3c, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3e, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x94, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x96, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9c, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9e, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb4, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb6, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbc, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbe, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x14, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x16, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1c, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1e, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x34, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x36, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3c, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3e, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x94, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x96, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9c, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9e, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb4, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb6, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbc, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbe, PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x5a, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0x5a, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x5a, PT`
+
+## precept nand
+
+67 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x15, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x17, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x35, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x37, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x95, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x97, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9d, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9f, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb5, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb7, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbd, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbf, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x15, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x17, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x35, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x37, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x95, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x97, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9d, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9f, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb5, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb7, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbd, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbf, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x15, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x17, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x1f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x35, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x37, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x3f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x95, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x97, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9d, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x9f, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb5, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xb7, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbd, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xbf, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x15, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x17, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x1f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x35, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x37, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x3f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x95, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x97, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9d, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x9f, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb5, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xb7, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbd, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xbf, PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x5f, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0x5f, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x5f, PT`
+
+## precept nor
+
+67 forms give every case its word.
+
+- `LOP3.LUT R8, R10, R12, RZ, 0x01, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x03, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x09, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0b, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x21, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x23, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x29, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2b, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x81, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x83, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x89, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8b, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa1, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa3, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa9, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xab, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x01, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x03, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x09, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0b, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x21, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x23, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x29, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2b, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x81, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x83, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x89, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8b, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa1, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa3, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa9, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xab, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x01, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x03, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x09, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x0b, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x21, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x23, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x29, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x2b, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x81, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x83, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x89, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x8b, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa1, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa3, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xa9, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xab, P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x01, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x03, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x09, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x0b, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x21, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x23, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x29, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x2b, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x81, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x83, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x89, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x8b, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa1, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa3, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xa9, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xab, PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x05, !PT`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0x05, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0x05, PT`
+
+## precept mov
+
+222 forms give every case its word.
+
+- `IADD3 R8, R12, -R12, R10`
+- `IADD3 R8, R10, -R12, R12`
+- `IADD3 R8, P0, R12, -R12, R10`
+- `IADD3 R8, P0, R10, -R12, R12`
+- `SEL R8, R10, 0x1, !P0`
+- `LOP3.LUT R8, R10, R12, RZ, 0x50, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x52, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x58, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5a, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x70, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x72, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x78, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7a, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd0, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd2, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd8, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xda, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf0, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf2, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf8, !PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfa, !PT`
+- `SHF.L.U32 R8, R10, RZ, R12`
+- `SHF.R.U32.HI R8, R12, RZ, R10`
+- `SHF.R.U32 R8, R10, RZ, R12`
+- `IMAD R8, RZ, R12, R10`
+- `IMAD R8, R12, RZ, R10`
+- `MOV R8, R10`
+- `IADD3 R8, -R12, R12, R10`
+- `IADD3 R8, -R12, R10, R12`
+- `IMAD.WIDE.U32 R8, RZ, R12, R10`
+- `IMAD.WIDE.U32 R8, R12, RZ, R10`
+- `SHF.L.U64.HI R8, R12, RZ, R10`
+- `IMAD.MOV.U32 R8, RZ, R12, R10`
+- `IMAD.MOV.U32 R8, R12, RZ, R10`
+- `IMAD.WIDE.U32 R8, P0, RZ, R12, R10`
+- `IMAD.WIDE.U32 R8, P0, R12, RZ, R10`
+- `IMAD.X R8, RZ, R12, R10, P1`
+- `IMAD.X R8, R12, RZ, R10, P1`
+- `IADD3 R8, P1, -R12, R12, R10`
+- `IADD3 R8, P1, -R12, R10, R12`
+- `SEL R8, R12, R10, P0`
+- `SHF.L.S32 R8, R10, 0x0, R12`
+- `SHF.L.S64 R8, R10, 0x0, R12`
+- `IMAD.MOV R8, R12, 0x0, R10`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x50, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x52, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x58, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5a, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x70, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x72, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x78, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7a, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd0, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd2, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd8, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xda, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf0, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf2, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf8, !PT`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfa, !PT`
+- `VABSDIFF.U32 R8, R12, R12, R10`
+- `IADD3 R8, R12, R10, -R12`
+- `IADD3 R8, R10, R12, -R12`
+- `VABSDIFF.U32 R8, P0, R12, R12, R10`
+- `IADD3 R8, P0, R12, R10, -R12`
+- `IADD3 R8, P0, R10, R12, -R12`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x50, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x52, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x58, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x5a, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x70, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x72, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x78, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0x7a, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd0, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd2, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xd8, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xda, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf0, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf2, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xf8, P0`
+- `LOP3.LUT.PAND R8, R10, R12, RZ, 0xfa, P0`
+- `IADD3 R8, P0, P6, R12, -R12, R10`
+- `IADD3 R8, P0, P6, R10, -R12, R12`
+- `IADD3.X R8, P0, R12, ~R12, R10, P0, PT`
+- `IADD3.X R8, P0, R10, ~R12, R12, P0, PT`
+- `IADD3.X R8, R12, ~R12, R10, P0, PT`
+- `IADD3.X R8, R10, ~R12, R12, P0, PT`
+- `FSEL R8, R10, R12, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x50, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x52, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x58, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x5a, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x70, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x72, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x78, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0x7a, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd0, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd2, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xd8, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xda, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf0, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf2, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xf8, PT`
+- `LOP3.LUT R8, R10, R12, RZ, 0xfa, PT`
+- `SHF.L.S32 R8, R10, RZ, R12`
+- `SHF.L.U64 R8, R10, RZ, R12`
+- `SHF.L.W.U32 R8, R10, RZ, R12`
+- `SHF.L.U32.HI R8, R12, RZ, R10`
+- `SHF.R.S32.HI R8, R12, RZ, R10`
+- `SHF.R.U64.HI R8, R12, RZ, R10`
+- `SHF.R.W.U32.HI R8, R12, RZ, R10`
+- `SHF.R.S32 R8, R10, RZ, R12`
+- `SHF.R.U64 R8, R10, RZ, R12`
+- `SHF.R.W.U32 R8, R10, RZ, R12`
+- `IMAD.WIDE R8, RZ, R12, R10`
+- `IMAD.WIDE R8, R12, RZ, R10`
+- `IDP.4A.S8.U8 R8, RZ, R12, R10`
+- `IDP.4A.S8.U8 R8, R12, RZ, R10`
+- `IMAD.U32 R8, RZ, R12, R10`
+- `IMAD.U32 R8, R12, RZ, R10`
+- `IMAD.X R8, RZ, R12, R10, !PT`
+- `IMAD.X R8, R12, RZ, R10, !PT`
+- `IMAD.MOV R8, RZ, R12, R10`
+- `IMAD.MOV R8, R12, RZ, R10`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xf0, !PT`
+- `IDP.4A.U8.U8 R8, RZ, R12, R10`
+- `IDP.4A.U8.U8 R8, R12, RZ, R10`
+- `SEL R8, R12, R10, !PT`
+- `IMAD.WIDE.U32.X R8, RZ, R12, R10, !PT`
+- `IMAD.WIDE.U32.X R8, R12, RZ, R10, !PT`
+- `SHF.L.S64.HI R8, R12, RZ, R10`
+- `SHF.L.W.U64.HI R8, R12, RZ, R10`
+- `IMAD.U32.X R8, RZ, R12, R10, !PT`
+- `IMAD.U32.X R8, R12, RZ, R10, !PT`
+- `IMAD.WIDE R8, P0, RZ, R12, R10`
+- `IMAD.WIDE R8, P0, R12, RZ, R10`
+- `IMAD.WIDE.U32.X R8, P0, RZ, R12, R10, !PT`
+- `IMAD.WIDE.U32.X R8, P0, R12, RZ, R10, !PT`
+- `IMAD.WIDE.X R8, RZ, R12, R10, P1`
+- `IMAD.WIDE.X R8, R12, RZ, R10, P1`
+- `IDP.4A.S8.S8 R8, RZ, R12, R10`
+- `IDP.4A.S8.S8 R8, R12, RZ, R10`
+- `IMAD.U32.X R8, RZ, R12, R10, P1`
+- `IMAD.U32.X R8, R12, RZ, R10, P1`
+- `IADD3 R8, P1, P6, -R12, R12, R10`
+- `IADD3 R8, P1, P6, -R12, R10, R12`
+- `IMAD.WIDE R8, P0, R12, 0x0, R10`
+- `SHF.L.U32 R8, R10, 0x0, R12`
+- `SHF.L.W.S32 R8, R10, 0x0, R12`
+- `SHF.R.S32 R8, R10, 0x0, R12`
+- `SHF.L.S32.HI R8, R12, 0x0, R10`
+- `SHF.L.U64 R8, R10, 0x0, R12`
+- `SHF.L.W.S64 R8, R10, 0x0, R12`
+- `SHF.R.S64 R8, R10, 0x0, R12`
+- `SHF.L.S64.HI R8, R12, 0x0, R10`
+- `IMAD.WIDE R8, R12, 0x0, R10`
+- `IMAD.MOV.U32 R8, R12, 0x0, R10`
+- `IMAD.X R8, R12, 0x0, R10, !PT`
+- `VABSDIFF4.U8 R8, RZ, R10, R12`
+- `VABSDIFF4.U8 R8, R10, RZ, R12`
+- `VABSDIFF R8, R12, R12, R10`
+- `VABSDIFF4.U8 R8, P0, RZ, R10, R12`
+- `VABSDIFF4.U8 R8, P0, R10, RZ, R12`
+- `VABSDIFF R8, P0, R12, R12, R10`
+- `IADD3 R8, P0, P6, R12, R10, -R12`
+- `IADD3 R8, P0, P6, R10, R12, -R12`
+- `SHF.L.S32.HI R8, R12, RZ, R10`
+- `PRMT.ECL R8, R10, RZ, R12`
+- `IADD3.X R8, P0, ~R12, R12, R10, P0, PT`
+- `IADD3.X R8, P0, ~R12, R10, R12, P0, PT`
+- `IADD3.X R8, P0, R12, R10, ~R12, P0, PT`
+- `IADD3.X R8, P0, R10, R12, ~R12, P0, PT`
+- `IADD3.X R8, R12, ~R12, R10, !PT, PT`
+- `IADD3.X R8, R10, ~R12, R12, !PT, PT`
+- `IADD3.X R8, P0, R12, ~R12, R10, !PT, PT`
+- `IADD3.X R8, P0, R10, ~R12, R12, !PT, PT`
+- `IADD3.X R8, P0, P6, R12, ~R12, R10, P0, PT`
+- `IADD3.X R8, P0, P6, R10, ~R12, R12, P0, PT`
+- `FSEL R8, R10, -R12, PT`
+- `FSEL R8, R12, R10, !PT`
+- `PRMT.F4E R8, R10, RZ, R12`
+- `SHF.L.S64 R8, R10, RZ, R12`
+- `SHF.L.W.S32 R8, R10, RZ, R12`
+- `SHF.L.W.U64 R8, R10, RZ, R12`
+- `SHF.L.W.U32.HI R8, R12, RZ, R10`
+- `SHF.R.S64.HI R8, R12, RZ, R10`
+- `SHF.R.W.S32.HI R8, R12, RZ, R10`
+- `SHF.R.W.U64.HI R8, R12, RZ, R10`
+- `SHF.R.S64 R8, R10, RZ, R12`
+- `SHF.R.W.S32 R8, R10, RZ, R12`
+- `SHF.R.W.U64 R8, R10, RZ, R12`
+- `IMAD.WIDE.X R8, RZ, R12, R10, !PT`
+- `IMAD.WIDE.X R8, R12, RZ, R10, !PT`
+- `IDP.2A.LO.S16.U8 R8, RZ, R12, R10`
+- `IDP.2A.LO.S16.U8 R8, R12, RZ, R10`
+- `LOP3.LUT R8, R10, 0xffffffe, R12, 0xf0, !PT`
+- `LOP3.LUT.PAND R8, R10, 0xffffffe, R12, 0xf0, PT`
+- `IDP.4A.U8.S8 R8, RZ, R12, R10`
+- `IDP.4A.U8.S8 R8, R12, RZ, R10`
+- `IDP.2A.LO.U16.U8 R8, RZ, R12, R10`
+- `IDP.2A.LO.U16.U8 R8, R12, RZ, R10`
+- `IADD3.X R8, ~R12, R12, R10, !PT, PT`
+- `IADD3.X R8, ~R12, R10, R12, !PT, PT`
+- `IMAD.WIDE.U32 R8, R12, 0x0, R10`
+- `SHF.L.W.S64.HI R8, R12, RZ, R10`
+- `IMAD.WIDE.X R8, P0, RZ, R12, R10, !PT`
+- `IMAD.WIDE.X R8, P0, R12, RZ, R10, !PT`
+- `IADD3.X R8, R12, R10, ~R12, !P2, P1`
+- `IADD3.X R8, R10, R12, ~R12, !P2, P1`
+- `IMAD.WIDE.X R8, P6, RZ, R12, R10, P1`
+- `IMAD.WIDE.X R8, P6, R12, RZ, R10, P1`
+- `IDP.2A.LO.S16.S8 R8, RZ, R12, R10`
+- `IDP.2A.LO.S16.S8 R8, R12, RZ, R10`
+- `IADD3.X R8, P1, ~R12, R12, R10, !PT, PT`
+- `IADD3.X R8, P1, ~R12, R10, R12, !PT, PT`
+- `IMAD.WIDE.X R8, P0, R12, 0x0, R10, P0`
+- `VABSDIFF4.ACC R8, P0, R12, R12, R10`
+- `SHF.L.W.U32 R8, R10, 0xa00, R12`
+- `DADD R8, -R10, 0`
+- `IMAD.WIDE.U32.X R8, P0, R12, 0x0, R10, P0`
+- `SHF.L.W.U64 R8, R10, 0x4600, R12`
+
+## precept shl
+
+8 forms give every case its word.
+
+- `SHF.L.W.U32 R8, R10, R12, R10`
+- `SHF.L.W.U32 R8, R10, R12, R12`
+- `SHF.L.W.U32 R8, R10, R12, RZ`
+- `SHF.L.W.S32 R8, R10, R12, R10`
+- `SHF.L.W.S32 R8, R10, R12, R12`
+- `SHF.L.W.S32 R8, R10, R12, RZ`
+- `SHF.L.W.U32.HI R8, RZ, R12, R10`
+- `SHF.L.W.U32 R8, R10, R12, 0xa00`
+
+## precept shr
+
+5 forms give every case its word.
+
+- `SHF.R.W.U32.HI R8, R10, R12, R10`
+- `SHF.R.W.U32.HI R8, R12, R12, R10`
+- `SHF.R.W.U32.HI R8, RZ, R12, R10`
+- `SHF.R.W.U32 R8, R10, R12, RZ`
+- `SHF.R.W.S32 R8, R10, R12, RZ`
+
+## precept asr
+
+3 forms give every case its word.
+
+- `SHF.R.W.S32.HI R8, R10, R12, R10`
+- `SHF.R.W.S32.HI R8, R12, R12, R10`
+- `SHF.R.W.S32.HI R8, RZ, R12, R10`
+
+## precept rol
+
+1 forms give every case its word.
+
+- `SHF.L.W.U32.HI R8, R10, R12, R10`
+
+## precept ror
+
+2 forms give every case its word.
+
+- `SHF.R.W.U32 R8, R10, R12, R10`
+- `SHF.R.W.S32 R8, R10, R12, R10`
+
+## precept add
+
+118 forms give every case its word.
+
+- `IADD3 R8, RZ, R12, R10`
+- `IADD3 R8, R12, RZ, R10`
+- `IADD3 R8, RZ, R10, R12`
+- `IADD3 R8, R10, RZ, R12`
+- `IADD3 R8, R12, R10, RZ`
+- `IADD3 R8, R10, R12, RZ`
+- `IADD3 R8, P0, RZ, R12, R10`
+- `IADD3 R8, P0, R12, RZ, R10`
+- `IADD3 R8, P0, RZ, R10, R12`
+- `IADD3 R8, P0, R10, RZ, R12`
+- `IADD3 R8, P0, R12, R10, RZ`
+- `IADD3 R8, P0, R10, R12, RZ`
+- `IADD3.X R8, P0, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, P0, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, P0, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, P0, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, P0, R12, R10, RZ, P0, !PT`
+- `IADD3.X R8, P0, R10, R12, RZ, P0, !PT`
+- `IADD3.X R8, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, R12, R10, RZ, P0, !PT`
+- `IADD3.X R8, R10, R12, RZ, P0, !PT`
+- `IADD3 R8, R12, -RZ, R10`
+- `IADD3 R8, R10, -RZ, R12`
+- `IADD3 R8, P0, R12, -RZ, R10`
+- `IADD3 R8, P0, R10, -RZ, R12`
+- `IADD3 R8, -RZ, R12, R10`
+- `IADD3 R8, -RZ, R10, R12`
+- `IADD3.X R8, RZ, R12, R10, P2, P1`
+- `IADD3.X R8, R12, RZ, R10, P2, P1`
+- `IADD3.X R8, RZ, R10, R12, P2, P1`
+- `IADD3.X R8, R10, RZ, R12, P2, P1`
+- `IADD3.X R8, R12, R10, RZ, P2, P1`
+- `IADD3.X R8, R10, R12, RZ, P2, P1`
+- `IADD3 R8, P1, -RZ, R12, R10`
+- `IADD3 R8, P1, -RZ, R10, R12`
+- `VABSDIFF.U32 R8, RZ, R12, R10`
+- `VABSDIFF.U32 R8, R12, RZ, R10`
+- `VABSDIFF.U32 R8, RZ, R10, R12`
+- `VABSDIFF.U32 R8, R10, RZ, R12`
+- `IADD3.X R8, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, R12, R10, RZ, !PT, !PT`
+- `IADD3.X R8, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, R12, R10, -RZ`
+- `IADD3 R8, R10, R12, -RZ`
+- `VABSDIFF.U32 R8, P0, RZ, R12, R10`
+- `VABSDIFF.U32 R8, P0, R12, RZ, R10`
+- `VABSDIFF.U32 R8, P0, RZ, R10, R12`
+- `VABSDIFF.U32 R8, P0, R10, RZ, R12`
+- `IADD3.X R8, P0, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, P0, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, P0, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, P0, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, P0, R12, R10, RZ, !PT, !PT`
+- `IADD3.X R8, P0, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, P0, R12, R10, -RZ`
+- `IADD3 R8, P0, R10, R12, -RZ`
+- `IADD3 R8, P0, P6, RZ, R12, R10`
+- `IADD3 R8, P0, P6, R12, RZ, R10`
+- `IADD3 R8, P0, P6, RZ, R10, R12`
+- `IADD3 R8, P0, P6, R10, RZ, R12`
+- `IADD3 R8, P0, P6, R12, R10, RZ`
+- `IADD3 R8, P0, P6, R10, R12, RZ`
+- `IADD3.X R8, P0, P6, RZ, R12, R10, P0, !PT`
+- `IADD3.X R8, P0, P6, R12, RZ, R10, P0, !PT`
+- `IADD3.X R8, P0, P6, RZ, R10, R12, P0, !PT`
+- `IADD3.X R8, P0, P6, R10, RZ, R12, P0, !PT`
+- `IADD3.X R8, P0, P6, R12, R10, RZ, P0, !PT`
+- `IADD3.X R8, P0, P6, R10, R12, RZ, P0, !PT`
+- `IADD3 R8, P0, P6, R12, -RZ, R10`
+- `IADD3 R8, P0, P6, R10, -RZ, R12`
+- `IADD3.X R8, P0, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, P0, R10, ~RZ, R12, P0, PT`
+- `IADD3.X R8, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, R10, ~RZ, R12, P0, PT`
+- `LEA R8, P0, R12, R10, 0x0`
+- `LEA R8, P0, R10, R12, 0x0`
+- `IADD3 R8, P1, P6, -RZ, R12, R10`
+- `IADD3 R8, P1, P6, -RZ, R10, R12`
+- `IMAD.X R8, R12, 0x1, R10, P2`
+- `IMAD.X R8, R10, 0x1, R12, P2`
+- `IMAD.IADD R8, R12, 0x1, R10`
+- `IMAD.IADD R8, R10, 0x1, R12`
+- `IADD3.X R8, P0, P6, RZ, R12, R10, !PT, !PT`
+- `IADD3.X R8, P0, P6, R12, RZ, R10, !PT, !PT`
+- `IADD3.X R8, P0, P6, RZ, R10, R12, !PT, !PT`
+- `IADD3.X R8, P0, P6, R10, RZ, R12, !PT, !PT`
+- `IADD3.X R8, P0, P6, R12, R10, RZ, !PT, !PT`
+- `IADD3.X R8, P0, P6, R10, R12, RZ, !PT, !PT`
+- `IADD3 R8, P0, P6, R12, R10, -RZ`
+- `IADD3 R8, P0, P6, R10, R12, -RZ`
+- `IADD3.X R8, P0, ~RZ, R12, R10, P0, PT`
+- `IADD3.X R8, P0, ~RZ, R10, R12, P0, PT`
+- `IADD3.X R8, P0, R12, R10, ~RZ, P0, PT`
+- `IADD3.X R8, P0, R10, R12, ~RZ, P0, PT`
+- `IADD3.X R8, R12, ~RZ, R10, !PT, PT`
+- `IADD3.X R8, R10, ~RZ, R12, !PT, PT`
+- `IADD3.X R8, P0, R12, ~RZ, R10, !PT, PT`
+- `IADD3.X R8, P0, R10, ~RZ, R12, !PT, PT`
+- `IADD3.X R8, P0, P6, R12, ~RZ, R10, P0, PT`
+- `IADD3.X R8, P0, P6, R10, ~RZ, R12, P0, PT`
+- `IMAD.WIDE.U32 R8, P0, R12, 0x1, R10`
+- `IMAD.WIDE.U32 R8, P0, R10, 0x1, R12`
+- `IADD3.X R8, ~RZ, R12, R10, !PT, PT`
+- `IADD3.X R8, ~RZ, R10, R12, !PT, PT`
+- `IADD3.X R8, R12, R10, ~RZ, !P2, P1`
+- `IADD3.X R8, R10, R12, ~RZ, !P2, P1`
+- `IADD3.X R8, P1, ~RZ, R12, R10, !PT, PT`
+- `IADD3.X R8, P1, ~RZ, R10, R12, !PT, PT`
+- `IMAD.WIDE.X R8, R12, 0x1, R10, P2`
+- `IMAD.WIDE.X R8, R10, 0x1, R12, P2`
+- `IMAD.U32.X R8, R12, 0x1, R10, P2`
+- `IMAD.U32.X R8, R10, 0x1, R12, P2`
+
+## precept sub
+
+59 forms give every case its word.
+
+- `IADD3 R8, RZ, -R12, R10`
+- `IADD3 R8, R10, -R12, RZ`
+- `IADD3 R8, P0, RZ, -R12, R10`
+- `IADD3 R8, P0, R10, -R12, RZ`
+- `IADD3 R8, -R12, RZ, R10`
+- `IADD3 R8, -R12, R10, RZ`
+- `IADD3 R8, P1, -R12, RZ, R10`
+- `IADD3 R8, P1, -R12, R10, RZ`
+- `IADD3 R8, RZ, R10, -R12`
+- `IADD3 R8, R10, RZ, -R12`
+- `IADD3 R8, P0, RZ, R10, -R12`
+- `IADD3 R8, P0, R10, RZ, -R12`
+- `IADD3 R8, R10, -RZ, -R12`
+- `IADD3 R8, R10, -R12, -RZ`
+- `IADD3 R8, P0, R10, -RZ, -R12`
+- `IADD3 R8, P0, R10, -R12, -RZ`
+- `IADD3 R8, P0, P6, RZ, -R12, R10`
+- `IADD3 R8, P0, P6, R10, -R12, RZ`
+- `IADD3.X R8, P0, RZ, ~R12, R10, P0, PT`
+- `IADD3.X R8, P0, R10, ~R12, RZ, P0, PT`
+- `IADD3.X R8, RZ, ~R12, R10, P0, PT`
+- `IADD3.X R8, R10, ~R12, RZ, P0, PT`
+- `IADD3 R8, -RZ, R10, -R12`
+- `IADD3 R8, -R12, R10, -RZ`
+- `IADD3 R8, P1, -RZ, R10, -R12`
+- `IADD3 R8, P1, -R12, R10, -RZ`
+- `IADD3 R8, P1, P6, -R12, RZ, R10`
+- `IADD3 R8, P1, P6, -R12, R10, RZ`
+- `IMAD.IADD R8, R10, 0x1, -R12`
+- `IMAD.X R8, R10, 0x1, ~R12, !P2`
+- `IADD3 R8, P0, P6, RZ, R10, -R12`
+- `IADD3 R8, P0, P6, R10, RZ, -R12`
+- `IADD3.X R8, P0, ~R12, RZ, R10, P0, PT`
+- `IADD3.X R8, P0, ~R12, R10, RZ, P0, PT`
+- `IADD3.X R8, P0, RZ, R10, ~R12, P0, PT`
+- `IADD3.X R8, P0, R10, RZ, ~R12, P0, PT`
+- `IADD3.X R8, RZ, ~R12, R10, !PT, PT`
+- `IADD3.X R8, R10, ~R12, RZ, !PT, PT`
+- `IADD3.X R8, P0, RZ, ~R12, R10, !PT, PT`
+- `IADD3.X R8, P0, R10, ~R12, RZ, !PT, PT`
+- `IADD3 R8, P0, P6, R10, -RZ, -R12`
+- `IADD3 R8, P0, P6, R10, -R12, -RZ`
+- `IADD3.X R8, P0, P6, RZ, ~R12, R10, P0, PT`
+- `IADD3.X R8, P0, P6, R10, ~R12, RZ, P0, PT`
+- `IADD3.X R8, ~R12, RZ, R10, !PT, PT`
+- `IADD3.X R8, ~R12, R10, RZ, !PT, PT`
+- `LEA R8, P0, -R12, R10, 0x0`
+- `IADD3.X R8, RZ, R10, ~R12, !P2, P1`
+- `IADD3.X R8, R10, RZ, ~R12, !P2, P1`
+- `IADD3.X R8, P1, ~R12, RZ, R10, !PT, PT`
+- `IADD3.X R8, P1, ~R12, R10, RZ, !PT, PT`
+- `IADD3 R8, P1, P6, -RZ, R10, -R12`
+- `IADD3 R8, P1, P6, -R12, R10, -RZ`
+- `IADD3.X R8, P1, ~R12, 0x1, R10, !PT, !PT`
+- `IADD3.X R8, P1, R10, 0x1, ~R12, !PT, !PT`
+- `IMAD.WIDE R8, R10, 0x1, -R12`
+- `IMAD.WIDE.X R8, R10, 0x1, ~R12, !P2`
+- `IMAD.IADD.U32 R8, R10, 0x1, -R12`
+- `IMAD.U32.X R8, R10, 0x1, ~R12, !P2`
 
