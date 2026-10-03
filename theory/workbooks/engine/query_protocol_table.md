@@ -41,7 +41,7 @@ An ask a = (address, qualifier) returns, unbound, its cost t(a). Bound by β it 
 
   bit(a) = [qualifier holds] · [t(a) ≤ β]
 
-A missing address, a false qualifier, a timeout, an error and too many cycles all read 0. What tells them apart is the baseline, the spread of unbound costs, and the bound is read off it (Q2) and never written by hand.
+A missing address, a false qualifier, a timeout, an error and too many cycles all read 0. What tells them apart is the baseline, the spread of unbound costs, and the bound is read off it (Q2) and never written by hand. A run that never returns is apart from all of these, a reset and not a reading, and P9 holds it.
 
 ### P2. The gate (Q4)
 
@@ -122,3 +122,15 @@ is the gate, and the rank is P6 between E(p) and V(p), with |E(p)| and |V(p)| th
 - Where E(p) costs more, V(p)'s instructions over that part name forms, each in a slot. Each slot is a question for Q16: the forms of the machine file in that slot, the cases of the slot, and the survivors ranked by P6. NVIDIA's listing names the question and the part answers it.
 - The loop closes when E(p) holds NVIDIA's line on every program p, and every form in every ruleset was answered by the part.
 - **Built:** E(p) for the 8 record programs the host oracle runs, 16 lane programs, every instruction assembled against sm_86's machine file (Q17). **Measured:** V(p) for the monolith's 18 blocks, one base precept each, held against our reader, our assembler and E(p) instruction by instruction (`monolith_differences.md`, Q17). **Theory:** the rest.
+
+### P9. The part's own bound (Q1, Q16, Q17)
+
+P1 counts a timeout among the readings of 0, which holds only where the run returns. A run that never returns is a reading apart: the part's display watchdog ends it with a reset, and across a run of asks that reset can hold a kernel's own watchdog past its bound and stop the host with a DPC_WATCHDOG_VIOLATION.
+
+A body runs without end only where control reaches a line it has passed and the way back never closes. Three contexts reach it:
+
+- A turned bit makes the instruction a branch to itself or a line before it. An isolated instruction turned this way is most often an illegal encoding the part refuses as a clean 0; a turned branch is not refused.
+- The body holds a read it waits on, a register or a word read again until it carries a mark, and the turned bit closes the wait: the register the read names, the value it is held against, or the step that moves it. loop_back (P7) is such a body, its way back taken on P0 = [R0 ≠ 0]; a bit that stalls the step or frees the branch leaves it turning without end.
+- A barrier every lane is waited at, where a turned bit sends a lane down a path that never reaches it, and the lanes that waited do not return.
+
+The local absurdity, an isolated instruction turned illegal, the part refuses and the ask reads. The waited read is where a turned bit writes a lawful instruction that breaks the wait, and a lawful instruction runs where an illegal one refuses. An ask that holds a waited read carries its own bound in the body, a turn count past which no turned bit runs, and keeps that count in registers the turned bits do not reach: loop_back holds its candidate off the counter R0, every register in the candidate made R8. The host's patience and the display watchdog are a reset, never the bound.

@@ -168,10 +168,17 @@ static int fields_cubin(const unsigned char *code, unsigned int count, unsigned 
     return 1;
 }
 
-// the lines a form is run in: the instruction `one` with the result in R8 and its reads R0 and R6, R8 stored as the
-// answer's first word. R6 is set to the case's second word first, which the frame leaves in R7
-#define FIELDS_LINES_HEAD "IMAD.MOV.U32 R6, RZ, RZ, R7\n"
+// the lines a form is run in: the instruction with its result moved to R8, the register the frame stores as the answer,
+// and its source registers moved to R10 up. Each source register is set to a distinct value with a zero beside it:
+// turning a bit of a source's field reaches a register of another value and changes the answer. R6 keeps the case's
+// second word, which the frame leaves in R7
+#define FIELDS_LINES_HEAD                                                                                              \
+    "MOV R10, 0xb\nMOV R11, RZ\nMOV R12, 0x7\nMOV R13, RZ\nMOV R14, 0x3\nMOV R15, RZ\n"                                \
+    "MOV R16, 0x5\nMOV R17, RZ\nMOV R18, 0x2\nMOV R19, RZ\nMOV R20, 0x9\nMOV R21, RZ\n"                                \
+    "IMAD.MOV.U32 R6, RZ, RZ, R7\n"
 #define FIELDS_LINES_TAIL "\nIMAD.MOV.U32 R7, RZ, RZ, R8\nSTG.E term[UR4][R4.64], R7"
+// the registers a form's source operands are moved onto, in order, each set in the head above
+#define FIELDS_SOURCES 6u
 
 // the first instruction of the file at `path` that is a form to probe, into `instruction`: 1, or 0 where the file
 // holds none. The frame's own IADD3 and blank lines are passed over, as the write pass passes them
@@ -249,6 +256,7 @@ static int fields_read(const char *machine_path, const char *instructions, const
             instruction);
     fprintf(out, "| bit | operand | part |\n|---|---|---|\n");
     char line[256];
+    char hidden_bits[512] = "";
     unsigned long long baseline = 0ull;
     int have_baseline = 0;
     unsigned int refused = 0u;
@@ -282,10 +290,10 @@ static int fields_read(const char *machine_path, const char *instructions, const
             snprintf(place, sizeof(place), "-");
         }
         const char *part = NULL;
-        if (strcmp(kind, "refused") == 0)
+        if ((strcmp(kind, "refused") == 0) || (strcmp(kind, "hung") == 0))
         {
             refused += 1u;
-            part = "refused";
+            part = (kind[0] == 'h') ? "hung" : "refused";
         }
         else
         {
@@ -305,6 +313,8 @@ static int fields_read(const char *machine_path, const char *instructions, const
             {
                 hidden += 1u;
                 part = "read, no recorded run";
+                const size_t at = strlen(hidden_bits);
+                snprintf(&hidden_bits[at], sizeof(hidden_bits) - at, "%s%u", (at == 0u) ? "" : " ", bit);
             }
         }
         fprintf(out, "| %u | %s | %s |\n", bit, place, part);
@@ -313,9 +323,107 @@ static int fields_read(const char *machine_path, const char *instructions, const
             refused, inside, hidden, unread);
     fclose(in);
     fclose(out);
-    printf("fields read %s: %u refused, %u inside, %u hidden, %u unread\n", instruction, refused, inside, hidden,
-           unread);
+    // a tab-delimited line the gathering script turns into one row: the form, its counts, and the bits it reads that
+    // the machine file records for no operand
+    printf("FORMFIELDS\t%s\t%u\t%u\t%u\t%u\t%s\n", instruction, refused, inside, hidden, unread, hidden_bits);
     return 0;
+}
+
+// 1 where the operation writes its first register operand, which the redirect may move to the observed register. A
+// return, a register branch or a call reads its first register instead and leaves it where it stands; a store, a branch
+// to a label and a predicate setter carry no register first operand and never reach here
+static int fields_writes_first(const char *operation)
+{
+    static const char *const reads[] = {"RET", "BRX", "JMX", "CALL", "BRA", "JMP", "EXIT", "BAR", "NOP"};
+    for (unsigned int at = 0u; at < (sizeof(reads) / sizeof(reads[0])); at += 1u)
+    {
+        if (strncmp(operation, reads[at], strlen(reads[at])) == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+// the sign an operand carries back as its text, since the parts reader cuts it off: the negate, the bitwise not and the
+// predicate not, or nothing
+static const char *fields_mark(unsigned int mark)
+{
+    if (mark == SASS_MARK_NEGATE)
+    {
+        return "-";
+    }
+    if (mark == SASS_MARK_INVERT)
+    {
+        return "~";
+    }
+    if (mark == SASS_MARK_NOT)
+    {
+        return "!";
+    }
+    return "";
+}
+
+// `operand`, which begins with a register token (R then digits, or RZ), written to `out` with that token replaced by
+// `put` and whatever follows it kept, a .hi or other suffix among it
+static void fields_swap(const char *operand, const char *put, char *out, size_t room)
+{
+    size_t length = 0u;
+    if (operand[0] == 'R')
+    {
+        length = (operand[1] == 'Z') ? 2u : (1u + strspn(operand + 1, "0123456789"));
+    }
+    snprintf(out, room, "%s%s", put, operand + length);
+}
+
+// `instruction` written to `redirected`, rebuilt from its parts, with its first operand moved to R8, the register the
+// frame stores as the answer, and each source register operand moved to the next of the head's set registers, where the
+// form's result and its source fields reach the answer. A form whose first operand is no register the operation writes
+// is copied as it stands, since nothing of it would be observed through R8. 1, or 0 where `redirected` will not hold it
+static int fields_redirect(const char *instruction, char *redirected, size_t room)
+{
+    static const char *const sources[FIELDS_SOURCES] = {"R10", "R12", "R14", "R16", "R18", "R20"};
+    SassInstructionParts parts;
+    sass_instruction_read(instruction, &parts);
+    if ((parts.operands == 0u) || (parts.kind[0] != SASS_OPERAND_REGISTER) || !fields_writes_first(parts.operation))
+    {
+        return snprintf(redirected, room, "%s", instruction) < (int)room;
+    }
+    size_t at = 0u;
+    if (parts.guard[0] != '\0')
+    {
+        at += (size_t)snprintf(&redirected[at], (at < room) ? (room - at) : 0u, "%s ", parts.guard);
+    }
+    at += (size_t)snprintf(&redirected[at], (at < room) ? (room - at) : 0u, "%s", parts.operation);
+    unsigned int source = 0u;
+    for (unsigned int operand = 0u; operand < parts.operands; operand += 1u)
+    {
+        char text[SASS_MACHINE_TOKEN];
+        const char *put = NULL;
+        if (parts.kind[operand] == SASS_OPERAND_REGISTER)
+        {
+            if (operand == 0u)
+            {
+                put = "R8";
+            }
+            else if (source < FIELDS_SOURCES)
+            {
+                put = sources[source];
+                source += 1u;
+            }
+        }
+        if (put != NULL)
+        {
+            fields_swap(parts.operand[operand], put, text, sizeof(text));
+        }
+        else
+        {
+            snprintf(text, sizeof(text), "%s", parts.operand[operand]);
+        }
+        at += (size_t)snprintf(&redirected[at], (at < room) ? (room - at) : 0u, "%s%s%s", (operand == 0u) ? " " : ", ",
+                               fields_mark(parts.mark[operand]), text);
+    }
+    return at < room;
 }
 
 int main(int count, char **words)
@@ -361,8 +469,16 @@ int main(int count, char **words)
         {
             continue;
         }
-        char lines[512];
-        snprintf(lines, sizeof(lines), FIELDS_LINES_HEAD "%s" FIELDS_LINES_TAIL, walk);
+        // the first operand moved to R8, the register the frame stores as the answer, which then holds what the form
+        // writes
+        char redirected[512];
+        if (!fields_redirect(walk, redirected, sizeof(redirected)))
+        {
+            printf("skip %s: could not be redirected\n", walk);
+            continue;
+        }
+        char lines[1024];
+        snprintf(lines, sizeof(lines), FIELDS_LINES_HEAD "%s" FIELDS_LINES_TAIL, redirected);
         unsigned long long low = 0ull;
         unsigned long long high = 0ull;
         const unsigned int assembled = fields_splice(s_frame, lines, s_asking, sizeof(s_asking))
@@ -370,7 +486,7 @@ int main(int count, char **words)
                                                                  sizeof(s_code))
                                            : 0u;
         const int alone =
-            (assembled != 0u) && sass_assemble(&s_machine, walk, 0ull, 0ull, SASS_CONTROL_SAFE, &low, &high);
+            (assembled != 0u) && sass_assemble(&s_machine, redirected, 0ull, 0ull, SASS_CONTROL_SAFE, &low, &high);
         const unsigned int place = alone ? fields_find(s_code, assembled, low, high) : assembled;
         if (place == assembled)
         {
