@@ -1,0 +1,21 @@
+\pdfbookmark[1]{Abstract}{Abstract}
+\chapter*{Abstract}
+
+A number theoretic transform is correct only if its modulus is prime and its twiddle root has order
+exactly the transform length. Both facts are proved here at the point of use, by one Proth witness
+for primality and two exponentiations for the order, on unbounded integers at any width. A
+1{,}233-digit modulus is proved prime in under three tenths of a second, with the witness recorded
+beside the verdict. A root of half the required order passes every invariant computable from the
+twiddle table in \(O(n)\), and the order test is the only one that separates it. Two silent wrong
+answers fall to the same discipline: a composite modulus of the correct Proth shape, and a 32-bit
+overflow in a device butterfly.
+
+An integer relation search is measured as a function of its precision. Its cost grows with an
+exponent rising to \(2.64\) per doubling, close to the \(2.585\) a Karatsuba multiply on operands
+linear in the precision predicts, while the lattice reduction grows no faster than the multiply
+count. The precision at which a device multiply overtakes the host is one at which a single search
+cell takes about a day, and no faster device closes that gap.
+
+The record of configurations states each claim with the result that would refute it, written before
+the verdict, and the constraints every entry is bounded by.
+\cleardoublepage

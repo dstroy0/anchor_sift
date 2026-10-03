@@ -311,7 +311,7 @@ discrete Fourier transform", IEEE 1972; arXiv:0808.3214). The number theoretic t
 finite-field Fourier transform, with the length condition `n | p - 1`, is Pollard, "The fast Fourier
 transform in a finite field", Math. Comp. 1971 (survey arXiv:2211.13546). The redundant residue number
 system's error correction, matching a Reed-Solomon code, is standard coding theory. The precision
-constants rest on the twiddle proof already in this tree, `theory/theory/twiddle_constants_article.tex`,
+constants rest on the twiddle proof already in this tree, `theory/theory/cryptography/twiddle_constants/main.tex`,
 which carries its own citations. Each result above is reproduced in exact integers by the example named
 beside it. The citations record what is known, and the examples are the proof.
 

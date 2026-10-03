@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{abstract}
-A number-theoretic transform is correct only if its modulus is prime and its twiddle root has order exactly the transform length. In the formal-verification literature those two facts are hypotheses a correctness proof rests on, established once for a standardized parameter set or supplied to the checker. This note shows them proved directly instead, by a check cheap enough to run before the transform: one Proth witness for primality, two exponentiations for the order, on unbounded integers at any width. The check is deterministic, and its verdict coincides with the probabilistic primality test the field runs at every modulus of Proth shape, with a witness in place of a confidence. A root of half the required order is shown passing every invariant computable from the twiddle table in \(O(n)\), with the order test the only one that separates it. Two silent wrong answers the check caught in one implementation are shown: a composite modulus of the correct Proth shape accepted without a primality certificate, and a 32-bit overflow on a device transform. A public artifact reproduces the certificate, both rejections and the half-order case.
+A number-theoretic transform is correct only if its modulus is prime and its twiddle root has order exactly the transform length. In the formal-verification literature those two facts are hypotheses a correctness proof rests on, established once for a standardized parameter set or supplied to the checker. This note shows them proved directly instead, by a check cheap enough to run before the transform: one Proth witness for primality, two exponentiations for the order, on unbounded integers at any width. The check is deterministic, and its verdict coincides with the probabilistic primality test the field runs at every modulus of Proth shape, with a witness in place of a confidence. A root of half the required order is shown passing every invariant computable from the twiddle table in \(O(n)\), with the order test the only one that separates it. Two silent wrong answers the check catches in one implementation are shown: a composite modulus of the correct Proth shape accepted without a primality certificate, and a 32-bit overflow on a device transform. A public artifact reproduces the certificate, both rejections and the half-order case.
 \end{abstract}
 
 \section{A number-theoretic transform trusts its constants}
@@ -33,11 +33,11 @@ A number-theoretic transform of a sequence of length \(n\) over the integers mod
 \]
 where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\omega\) the butterflies evaluate are the \textbf{twiddle constants}. In the Cooley-Tukey butterfly they enter as \(c = a + b\omega\) and \(d = a - b\omega\); in the Gentleman-Sande butterfly as \(c = a + b\) and \(d = (a-b)\omega\). A transform of length \(2^k\) is \(k\) stages of \(n/2\) butterflies. The twiddles are touched more often than any other value in the computation, and they are the only inputs supposed to be constant.
 
-Everything the transform computes depends on that constant having exactly the order it is supposed to have. If the modulus is not prime, or the root has an order shorter than \(n\), the transform still runs. It returns a value of the ordinary shape carrying far less structure than it should, and nothing downstream raises an error, because a wrong twiddle is not detected, it is used. Ravi, Yang, Bhasin, Zhang and Chattopadhyay make this a fault attack: a single electromagnetic fault that sets a twiddle to zero collapses the output entropy enough to recover a Kyber key and to forge a Dilithium signature, including a bypass of Dilithium's own verification.
+Everything the transform computes depends on that constant having exactly the order it is supposed to have. If the modulus is not prime, or the root has an order shorter than \(n\), the transform still runs. It returns a value of the ordinary shape carrying far less structure than it should, and nothing downstream raises an error, because a wrong twiddle is not detected, it is used. Ravi, Yang, Bhasin, Zhang and Chattopadhyay~\cite{ravi} make this a fault attack: a single electromagnetic fault that sets a twiddle to zero collapses the output entropy enough to recover a Kyber~\cite{kyber} key and to forge a Dilithium signature, including a bypass of Dilithium's own verification. Gupta~\cite{gupta} quantifies the leak: a single twiddle fault reveals as many independent linear combinations of the secret polynomial as there are butterflies using that twiddle, and faults stacked across layers leave two unknown coefficients of an ML-KEM secret and one of an ML-DSA secret.
 
 \section{What the verification literature proves, and what it leaves open}
 
-The correctness of a transform implementation is now machine-checked work. Hwang, Liu, Seiler, Shi, Tsai, Wang and Yang verify the functional correctness of the NTT multiplications in Kyber, SABER and NTRU, range properties included, for AVX2 and Cortex-M4, using CryptoLine. Trieu specifies the transform in the Rocq proof assistant and derives verified complete and incomplete implementations for several schemes. Kamba's FoldNTT verifies, with exact-width SMT and \(k\)-induction, that a twiddle table equals its mathematical specification at every legal address, for the Proth prime \(12289\).
+The correctness of a transform implementation is now machine-checked work. Hwang, Liu, Seiler, Shi, Tsai, Wang and Yang~\cite{hwang} verify the functional correctness of the NTT multiplications in Kyber, SABER and NTRU, range properties included, for AVX2 and Cortex-M4, using CryptoLine. Trieu~\cite{trieu} specifies the transform in the Rocq proof assistant and derives verified complete and incomplete implementations for several schemes. Kamba's FoldNTT~\cite{foldntt} verifies, with exact-width SMT and \(k\)-induction, that a twiddle table equals its mathematical specification at every legal address, for the Proth prime \(12289\).
 
 Each of these proves the computation correct with respect to its constants. That the modulus is prime and that the root has order exactly \(n\) are hypotheses the proof rests on: established once for the fixed, standardized parameters, or supplied to the checker as a specification. The proofs are about the arithmetic over a given root, not about the root being the right element. A parameter set nobody has verified, a constant chosen at run time, and a constant a fault corrupts after the proof was written all sit outside what a static proof of a fixed implementation covers.
 
@@ -47,7 +47,7 @@ What follows shows that hypothesis discharged directly, by a check run at the po
 
 \subsection{Primality, deterministic, with a witness}
 
-\begin{theorem}[Proth, 1878]
+\begin{theorem}[Proth, 1878~\cite{proth}]
 Let \(N = k \cdot 2^n + 1\) with \(k\) odd and \(k < 2^n\). Then \(N\) is prime if and only if there is an integer \(a\) with \(a^{(N-1)/2} \equiv -1 \pmod N\).
 \end{theorem}
 
@@ -117,20 +117,20 @@ group law on sampled pairs & passes, 0 of 256 failures \\
 
 Every invariant computable from the table at \(O(n)\) cost is blind to a half-order root, because each such invariant is a statement the smaller group also satisfies (Figure~\ref{fig:twiddle-group}). The order is not a property any single relation among entries exposes, and every statement cheaper than the order test is one the wrong table meets too. The two exponentiations show the difference, and nothing cheaper does. The order proof is not an optional extra beside the table construction. It is the precondition for the construction being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing the two produces a fast wrong answer.
 
-The construction was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimization moves the clock and not the answer. The identical output digest at every length is the evidence that this one did.
+The construction is measured. Replacing an exponentiation per butterfly with one table read cuts the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest is identical at every length tested. A correct optimization moves the clock and not the answer. The identical output digest at every length is the evidence that this one does.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\textwidth]{twiddle_group_in_field.png}
-\caption{The 256 \(n\)-th roots of unity modulo the Proth prime \(p = 12289\), the twiddle group of an order-256 transform, lit against the other residues of \(p\). Each point sits at its residue value, placed by an integer row layout with no float, no angle and no geometric circle. The roots are a cyclic group under multiplication, but their residues spread across the field. The group and its order are not visible. A root of half the order, \(\omega^2\) of order 128, generates a proper subgroup and matches the correct root on the identity, the sum, the sum of squares and the sampled group law over the length-\(n\) table; only the order test separates them. Generated by \texttt{proof\_twiddle\_group\_in\_field.py} (PRF-x-014).}
+\caption{The 256 \(n\)-th roots of unity modulo the Proth prime \(p = 12289\), the twiddle group of an order-256 transform, lit against the other residues of \(p\). Each point sits at its residue value, placed by an integer row layout with no float, no angle and no geometric circle. The roots are a cyclic group under multiplication, but their residues spread across the field. The group and its order are not visible. A root of half the order, \(\omega^2\) of order 128, generates a proper subgroup and matches the correct root on the identity, the sum, the sum of squares and the sampled group law over the length-\(n\) table; only the order test separates them.}
 \label{fig:twiddle-group}
 \end{figure}
 
-\section{Two silent wrong answers the certificate caught}
+\section{Two silent wrong answers the certificate catches}
 
-The certificate is not hypothetical. Running it caught two failures in this project's own implementation, each of the ordinary shape, neither found by reading the code.
+The certificate is not hypothetical. Run against one implementation, it catches two failures, each of the ordinary shape and neither found by reading the code.
 
-\textbf{A composite modulus, accepted on its shape.} A transform was built on three moduli. The third, \(1610612737\), was accepted because it has the correct Proth shape, \(3 \cdot 2^{29} + 1\), and its generator was raised to \((p-1)/L\) to build a root, with the check beside it confirming only \(\omega^L = 1\), a relation a wrong root also satisfies. No primality certificate was ever produced. The modulus is composite: \(1610612737 = 79 \cdot 20387503\), and Fermat refutes it in one line, \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\), with the witness \(2\). Because the modulus is composite, \(g^{(p-1)/L}\) had no particular order, the twiddles were wrong, and the transform returned numbers of the ordinary shape that were the convolution of nothing. The two correct moduli in the same set returned zero wrong slots out of thirty-two; the composite one returned thirty-two out of thirty-two, and it was noticed only because the three were recombined against each other and disagreed. A shape is not a proof, and a relation the root satisfies is not the order.
+\textbf{A composite modulus, accepted on its shape.} A transform is built on three moduli. The third, \(1610612737\), is accepted because it has the correct Proth shape, \(3 \cdot 2^{29} + 1\), and its generator is raised to \((p-1)/L\) to build a root, with the check beside it confirming only \(\omega^L = 1\), a relation a wrong root also satisfies. No primality certificate is produced. The modulus is composite: \(1610612737 = 79 \cdot 20387503\), and Fermat refutes it in one line, \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\), with the witness \(2\). Because the modulus is composite, \(g^{(p-1)/L}\) has no particular order, the twiddles are wrong, and the transform returns numbers of the ordinary shape that are the convolution of nothing. The two correct moduli in the same set return zero wrong slots out of thirty-two; the composite one returns thirty-two out of thirty-two, and the failure shows only because the three are recombined against each other and disagree. A shape is not a proof, and a relation the root satisfies is not the order.
 
 \textbf{A width overflow, one level down.} The device transform runs over three moduli, each carrying its Proth witness in the source:
 
@@ -146,7 +146,7 @@ modulus & shape & witness & order \\
 \end{tabular}
 \end{center}
 
-The first run of that kernel agreed with the host on the first modulus and differed in every slot on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing, and the same is true of the borrow in the difference. Only the smallest modulus never reached the boundary. Widened to 64 bits, all three agree with the host at every size tested. This is the same failure as the composite modulus one level down: an unstated assumption about the arithmetic, an output of the ordinary shape, and nothing in it saying otherwise. Both were found by running cases that differ in one property, and the failure named its own cause; neither was found by reading the code.
+Run with 32-bit residues, that kernel agrees with the host on the first modulus and differs in every slot on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing, and the same is true of the borrow in the difference. Only the smallest modulus never reaches the boundary. Widened to 64 bits, all three agree with the host at every size tested. This is the same failure as the composite modulus one level down: an unstated assumption about the arithmetic, an output of the ordinary shape, and nothing in it saying otherwise. Both are found by running cases that differ in one property, and the failure names its own cause; neither is found by reading the code.
 
 \section{What it costs, and why the size is ours to choose}
 
@@ -192,7 +192,7 @@ A modulus outside Proth's range, where \(k\) is not below \(2^n\), since the con
 
 \section{Reproduction}
 
-The certificate, both rejections and the half-order floor are reproduced by \texttt{examples/0\_experimental/ntt\_twiddle\_certificate.py} in the public \texttt{orior} repository (\texttt{github.com/dstroy0/orior}). It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, and every verdict is an exact equality with the witness recorded beside it.
+The certificate, both rejections and the half-order floor are reproduced by an artifact in the public orior repository, \texttt{github.com/dstroy0/orior}. It re-derives every modulus named here from the factorization of \(p-1\), refuses a composite of Proth shape and a false primitive-root claim by the same checks that pass the real constants, and exhibits a root of half the order passing every \(O(n)\) invariant while the order test alone separates it. It reads no corpus and runs on unbounded Python integers, and every verdict is an exact equality with the witness recorded beside it.
 
 \begin{thebibliography}{9}
 
@@ -204,7 +204,7 @@ Comptes Rendus de l'Acad\'emie des Sciences, Paris, 87:926, 1878.
 \bibitem{ravi}
 P. Ravi, B. Yang, S. Bhasin, F. Zhang, A. Chattopadhyay.
 \emph{Fiddling the Twiddle Constants: Fault Injection Analysis of the Number Theoretic Transform}.
-IACR Transactions on Cryptographic Hardware and Embedded Systems 2023(3); IACR ePrint 2022/824.
+IACR Transactions on Cryptographic Hardware and Embedded Systems 2023(2), 447--481; IACR ePrint 2022/824.
 
 \bibitem{kyber}
 R. Avanzi, J. Bos, L. Ducas, E. Kiltz, T. Lepoint, V. Lyubashevsky, J. M. Schanck, P. Schwabe, G. Seiler, D. Stehl\'e.
@@ -214,6 +214,11 @@ R. Avanzi, J. Bos, L. Ducas, E. Kiltz, T. Lepoint, V. Lyubashevsky, J. M. Schanc
 V. Hwang, J. Liu, G. Seiler, X. Shi, M.-H. Tsai, B.-Y. Wang, B.-Y. Yang.
 \emph{Verified NTT Multiplications for NISTPQC KEM Lattice Finalists: Kyber, SABER, and NTRU}.
 IACR Transactions on Cryptographic Hardware and Embedded Systems 2022(4), 718--750.
+
+\bibitem{gupta}
+C. Gupta.
+\emph{Rank Ceiling for Twiddle-Perturbation Faults on the Forward NTT}.
+IACR ePrint 2026/1188, 2026.
 
 \bibitem{trieu}
 A. Trieu.

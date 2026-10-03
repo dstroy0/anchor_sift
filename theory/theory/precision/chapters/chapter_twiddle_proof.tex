@@ -1,6 +1,6 @@
 \chapter{The twiddle constants, proved and not copied}
 
-\textbf{Purpose:} State what it costs to prove a transform's constants instead of inheriting them, what that proof catches, and why every answer it gives carries the witness establishing it. \textbf{Scope:} Proth's theorem, the order of a root of unity, the group law on a twiddle table, and two silent wrong answers found by running it.
+This chapter states what it costs to prove a transform's constants instead of inheriting them, what that proof catches, and why every answer it gives carries the witness establishing it. The same result, placed against the verification literature, is the twiddle constants research paper~\cite{src:Quigg-twiddle-constants}.
 
 A number theoretic transform is a sum of powers of one constant. Everything the transform does depends on that constant having exactly the order it is supposed to have, and almost nobody checks.
 
@@ -14,25 +14,25 @@ where \(\omega\) is an \(n\)-th root of unity modulo \(q\). The powers of \(\ome
 
 \section{The attack, and why it works}
 
-Ravi, Yang, Bhasin, Zhang and Chattopadhyay inject a single electromagnetic fault setting the twiddle constants to zero. The transform does not fail. It returns a value of the ordinary shape carrying far less entropy than it should, and that is enough to recover a Kyber key and to forge a Dilithium signature, including a bypass of Dilithium's own verification.
+Ravi, Yang, Bhasin, Zhang and Chattopadhyay~\cite{src:Ravi} inject a single electromagnetic fault setting the twiddle constants to zero. The transform does not fail. It returns a value of the ordinary shape carrying far less entropy than it should, and that is enough to recover a Kyber key and to forge a Dilithium signature, including a bypass of Dilithium's own verification.
 
 The attack works because \textbf{nothing downstream can tell a real root of unity from a fiddled one}. The output of a transform with broken twiddles is the same size, the same type and the same range as the output of a correct one. There is no error to raise. A wrong twiddle is not detected, it is used.
 
 \section{The same fault, with no attacker}
 
-This work produced that fault condition by carelessness, which is worth recording because it is the cheaper way to arrive at it.
+The fault condition also arises with no attacker, and more cheaply.
 
-A transform was built on three moduli. The third, \(1610612737\), was taken on faith because it has the right shape, \(3 \cdot 2^{29} + 1\), the form such a modulus must have. Its generator was raised to \((p-1)/L\) to produce a root of unity of order \(L\), exactly as the construction requires, and a check written beside it reported the root was fine.
+A transform is built on three moduli. The third, \(1610612737\), is taken on faith because it has the right shape, \(3 \cdot 2^{29} + 1\), the form such a modulus must have. Its generator is raised to \((p-1)/L\) to produce a root of unity of order \(L\), exactly as the construction requires, and a check written beside it reports the root is fine.
 
-The check was trial division to one hundred, on a ten digit number. \(1610612737\) is \textbf{composite}, and the proof is one line: \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\). Fermat refuses it. The certificate is the witness \(2\).
+The check is trial division to one hundred, on a ten digit number. \(1610612737 = 79 \cdot 20387503\) is \textbf{composite}, and the proof is one line: \(2^{1610612736} \not\equiv 1 \pmod{1610612737}\). Fermat refuses it. The certificate is the witness \(2\).
 
-Because it is composite, \(g^{(p-1)/L}\) had no particular order, the twiddles were wrong, and the transform returned numbers of the ordinary shape that were not the convolution of anything. The two correct moduli in the same set returned zero wrong coefficients out of thirty-two. The composite one returned thirty-two out of thirty-two, and the only reason anybody noticed is that the three were recombined against each other and disagreed.
+Because it is composite, \(g^{(p-1)/L}\) has no particular order, the twiddles are wrong, and the transform returns numbers of the ordinary shape that are not the convolution of anything. The two correct moduli in the same set return zero wrong coefficients out of thirty-two. The composite one returns thirty-two out of thirty-two, and the failure shows only because the three are recombined against each other and disagree.
 
 \textbf{A copied constant is a constant nobody checked.} The moduli general purpose libraries reach for are the same values everywhere, carried between codebases as literals. The tables are correct, and that is not the point. The point is that correctness is being inherited instead of established, and inherited correctness cannot tell you when a value has been fiddled.
 
 \section{Proth's theorem, which makes the check a proof}
 
-\begin{theorem}[Proth]
+\begin{theorem}[Proth~\cite{src:Proth-1878}]
 Let \(N = k \cdot 2^n + 1\) with \(k\) odd and \(k < 2^n\). Then \(N\) is prime if and only if there is an integer \(a\) with \(a^{(N-1)/2} \equiv -1 \pmod N\).
 \end{theorem}
 
@@ -64,7 +64,7 @@ The generator is proved the same way and just as completely: \(g\) generates the
 
 \section{What it costs on one desktop}
 
-One proof is one modular exponentiation, measured on unbounded integers with nothing vectorized and nothing on the card:
+One proof is one modular exponentiation, measured on unbounded integers with nothing vectorized and nothing on the device:
 
 \begin{center}
 \begin{tabular}{@{}rrr@{}}
@@ -154,9 +154,9 @@ The transform builds its twiddles once by repeated multiplication and reads them
 
 The order proof is therefore not an optional extra beside the optimization. It is the precondition for the optimization being safe, and it has to run first. Stated as a rule: \textbf{prove the order, then generate the table.} Reversing those two produces a fast wrong answer.
 
-The change was measured. Replacing an exponentiation per butterfly with one table read cut the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest was identical at every length tested. A correct optimization moves the clock and not the answer, and that check says which one happened.
+The change is measured. Replacing an exponentiation per butterfly with one table read cuts the transform at length \(2^{27}\) from \(2006\) ms to \(680\) ms, a factor of \(2.95\), and the output digest is identical at every length tested. A correct optimization moves the clock and not the answer, and that check says which one moved.
 
-\section{On the card, where a second silent wrong answer was waiting}
+\section{On the device, a second silent wrong answer}
 
 The device transform runs over three moduli, each carrying its Proth witness beside it in the source:
 
@@ -172,13 +172,13 @@ modulus & shape & witness & order \\
 \end{tabular}
 \end{center}
 
-The first run of that kernel agreed with the host on the first modulus and differed in \emph{every coefficient} on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing. The same is true of the borrow in the difference. Only the smallest modulus never reached the boundary. One arm agreed and two did not.
+Run with 32-bit residues, that kernel agrees with the host on the first modulus and differs in \emph{every coefficient} on the other two. The property separating them is not primality, which all three have. It is that \(2013265921\) is below \(2^{31}\) and the other two are above it. In the butterfly, two residues below a modulus above \(2^{31}\) sum past \(2^{32}\) and wrap, silently, in a type that raises nothing. The same is true of the borrow in the difference. Only the smallest modulus never reaches the boundary. One arm agrees and two do not.
 
-\textbf{This is the same fault as the composite modulus, one level down.} In both cases an assumption about the arithmetic went unstated, the transform returned values of the ordinary shape, and nothing in the output said otherwise. The first was a constant nobody proved; the second was a width nobody checked. Neither was found by reading the code. Both were found because the gate ran cases differing in one property. The failure named its own cause.
+\textbf{This is the same fault as the composite modulus, one level down.} In both cases an assumption about the arithmetic goes unstated, the transform returns values of the ordinary shape, and nothing in the output says otherwise. The first is a constant nobody proves; the second is a width nobody checks. Neither is found by reading the code. Both are found because the gate runs cases differing in one property, and the failure names its own cause.
 
 Widened to 64 bits, all three moduli agree with the host, and the device multiply agrees with the reference at every size tested.
 
-\section{What it costs on the card}
+\section{What it costs on the device}
 
 One full multiply is two forward transforms, a pointwise product and one inverse, per modulus:
 
@@ -204,6 +204,6 @@ Three moduli at \(2^{27}\) is about six seconds of device time for a product of 
 
 A modulus outside Proth's range, where \(k\) is not below \(2^n\), since a witness rests on the converse, which does not hold there. A root whose order falls short of the length asked for, the fiddled twiddle exactly. And any verdict without its certificate: every answer carries the witness establishing it.
 
-\section{Source}
+\section{Availability}
 
-Prasanna Ravi, Bolin Yang, Shivam Bhasin, Fan Zhang, Anupam Chattopadhyay. \emph{Fiddling the Twiddle Constants: Fault Injection Analysis of the Number Theoretic Transform.} IACR ePrint 2022/824.
+The certificate, both rejections and the half-order case are reproduced by an artifact in the orior repository, \texttt{https://github.com/dstroy0/orior}.
