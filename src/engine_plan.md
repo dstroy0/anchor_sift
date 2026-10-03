@@ -373,15 +373,20 @@ works there.
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
    writes where the host refuses.
 
-7. **Not proved.** Of the matrix's 51 suites, 37 hold every check on the current tree: daemon, web_check, interface,
-   interface_sass, ruleset_read, cubin_safe, record_host, record_c, codegen_device, engine_c, exact_divide, exact_transform, max_tree,
-   device_pool, period, python_period, python_periodic_energy, double_fields, obsignatio, qasm, record_sum,
-   vhdl_construction_set, record_bitwise, record_coherence, record_divide, record_gaussian, record_guide,
-   record_lane, record_speed and record_order, and the C builds of bitwise, boundary, coherence, divide, gaussian,
-   guide and lane. interface_ptx holds its ten checks in ptx.krs; its flagless ruleset is brought
-   in line with ptx.krs's `nop` forms and has not run since. 13 have no result: record_boundary, record_table,
-   record_tower, record_vhdl, the C pairs of speed, table, tower and order, residual_odd, shift_agreement_hold,
-   tessera_device, tower_edge and unit_sweep_planes. interface_sass puts its asks against the machine file the tree
+7. **Not proved.** Of the matrix's 57 suites, 43 hold every check on the current tree: daemon, web_check, interface,
+   interface_sass, interface_ptx, ruleset_read, cubin_safe, record_host, record_c, codegen_device, engine_c,
+   exact_divide, exact_transform, max_tree, device_pool, period, python_period, python_periodic_energy, double_fields,
+   obsignatio, qasm, record_sum, vhdl_construction_set, record_bitwise, record_coherence, record_divide,
+   record_gaussian, record_guide, record_lane, record_speed, record_order, record_table (16 checks), record_tower (210
+   checks), the four parts of record_boundary, and the C builds of bitwise, coherence, divide, gaussian, guide and lane.
+   record_boundary is cut into parts a suite each, named by `RECORD_BOUNDARY_PART`, each part drawing from its own
+   seed and its lines written as it ends: written, read_off, top and counted_forward together (50 checks), floors,
+   counted_inverse (8) and redundant (16). floors holds the 1992-step program whose PTX frame passes the stack
+   limit, and NVRTC compiles its C source in 934 s once; the cache holds the cubin after. The C builds of
+   record_boundary's four parts have not run. 10 have no result: record_vhdl, the C pairs of speed, table, tower
+   and order, residual_odd, shift_agreement_hold, tessera_device, tower_edge and unit_sweep_planes. The C build of
+   order writes a 12293-step program as 17 MB of C source in one function, and the host's compiler does not finish
+   it inside the harness's 1800 s. interface_sass puts its asks against the machine file the tree
    holds, 63 checks, 0 failed: 36 questions in the part's own code answer as each says, and 26 of the 27 kernels
    written again answer as the toolchain's did. The 27th, wide_divide, calls the toolchain's division and is held off
    the part. The three codings weighed run in a loop and are held off the part, and the clock reads nothing. With
@@ -391,7 +396,7 @@ works there.
    (`src/c/transpiler/cubin/cubin_safe.{h,c}`) holds each instruction a kernel reaches to the safe scheduler word, to
    no branch and no wait, to one instruction at most that no form holds, and to an EXIT every thread takes, and
    both `interface_sass_run` and `interface_sass_probe` refuse a cubin that breaks a rule before the driver sees it.
-   `utils/test/src/c/transpiler/cubin/cubin_safe_check.sh` holds the gate to one case a rule, 13 checks, 0 failed,
+   `utils/test/src/c/transpiler/cubin/cubin_safe_check.sh` holds the gate to one case a rule, 15 checks, 0 failed,
    and finds 105 of the 106 cubins a fields run left safe, the one refused holding no code section.
    `interface_sass_fields.sh` puts 7360 turned-bit cubins over the 75 forms to the part through the gate in 26
    minutes: the gate refuses none, no pass hangs, and the 590 bits whose key holds a branch or a wait are skipped

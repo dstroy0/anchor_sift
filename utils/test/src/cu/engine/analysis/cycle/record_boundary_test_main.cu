@@ -405,6 +405,46 @@ static void boundary_redundant(BoundaryResults *results)
     free(back);
 }
 
+static void boundary_counted_forward(BoundaryResults *results)
+{
+    boundary_counted(results, 0u);
+}
+
+static void boundary_counted_inverse(BoundaryResults *results)
+{
+    boundary_counted(results, 1u);
+}
+
+// one part of the test, run on the device under the daemon's job
+typedef struct
+{
+    const char *name;
+    void (*run)(BoundaryResults *results);
+} BoundaryPart;
+
+static const BoundaryPart s_boundary_parts[] = {
+    {"written", boundary_written},
+    {"read_off", boundary_read_off},
+    {"floors", boundary_floors},
+    {"top", boundary_top},
+    {"counted_forward", boundary_counted_forward},
+    {"counted_inverse", boundary_counted_inverse},
+    {"redundant", boundary_redundant},
+};
+
+#define BOUNDARY_TEST_PARTS (sizeof(s_boundary_parts) / sizeof(s_boundary_parts[0]))
+
+// the lines held so far written out and the line emptied: a suite's log grows as each part ends
+static void boundary_lines_out(BoundaryResults *results)
+{
+    scriptura_write(&results->line, stdout);
+    fflush(stdout);
+    results->line.at = 0ull;
+}
+
+// RECORD_BOUNDARY_PART names the parts to run, separated by commas; every part runs in order where it is unset or
+// empty. Each part draws from its own seed and answers the same alone as among the others. A name that is no part is
+// a failed check
 int main(int count, char **arguments)
 {
     BoundaryResults results;
@@ -417,26 +457,51 @@ int main(int count, char **arguments)
     {
         return 2;
     }
+    const char *const named = getenv("RECORD_BOUNDARY_PART");
+    const int every = (named == NULL) || (named[0] == '\0');
+    unsigned int chosen = 0u;
+    for (unsigned int part = 0u; (every == 0) && (part < BOUNDARY_TEST_PARTS); part += 1u)
+    {
+        const size_t length = strlen(s_boundary_parts[part].name);
+        for (const char *at = named; at != NULL; at = strchr(at, ','))
+        {
+            at += (at[0] == ',') ? 1 : 0;
+            if ((strncmp(at, s_boundary_parts[part].name, length) == 0) && ((at[length] == ',') || (at[length] == '\0')))
+            {
+                chosen |= 1u << part;
+            }
+        }
+    }
+    if (every != 0)
+    {
+        chosen = (1u << BOUNDARY_TEST_PARTS) - 1u;
+    }
+    boundary_check(&results, chosen != 0u, "RECORD_BOUNDARY_PART names a part of the test");
+    // the matrices, their bands and their volumes are the host's alone and run beside every part
     boundary_matrices();
     boundary_bands(&results);
+    boundary_volume(&results);
+    boundary_lines_out(&results);
     char job_capacity[SIM_LINE_CAPACITY];
     SimResults job;
     sim_open(&job, job_capacity);
     const int admitted = sim_job_submit(&job, "record_boundary_test", count, arguments, BOUNDARY_TEST_DECLARED);
-    if (admitted != 0)
+    for (unsigned int part = 0u; (admitted != 0) && (part < BOUNDARY_TEST_PARTS); part += 1u)
     {
-        boundary_written(&results);
-        boundary_read_off(&results);
-        boundary_floors(&results);
-        boundary_top(&results);
-        boundary_counted(&results);
-        boundary_redundant(&results);
+        if ((chosen & (1u << part)) != 0u)
+        {
+            boundary_seed(part);
+            scriptura_text(&results.line, "  part ");
+            scriptura_text(&results.line, s_boundary_parts[part].name);
+            scriptura_character(&results.line, '\n');
+            s_boundary_parts[part].run(&results);
+            boundary_lines_out(&results);
+        }
     }
     sim_job_release(&job);
     sim_flush(&job);
     boundary_check(&results, (admitted != 0) && (job.failures == 0ull),
                    "tessera: the device's daemon admits the test's job and it releases");
-    boundary_volume(&results);
     scriptura_text(&results.line, "  record boundary test: ");
     scriptura_decimal(&results.line, results.checks, 1u);
     scriptura_text(&results.line, " checks, ");
