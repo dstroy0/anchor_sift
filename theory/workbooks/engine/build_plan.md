@@ -118,7 +118,7 @@ Doug's rule for everything: truthy and falsy vector magnitudes, by which the mac
   - The code identifiers still say iapx (engine_iapx_*, iapx_path); rename them to crystal.
 - Deflate encoder module built (engine/base/representation/deflate). It tries every LZ77 match over the 32 KiB window with one-step lazy matching, package-merge length-limited codes, and picks the smallest of dynamic, fixed and stored. It round-trips 13 inputs through our inflate and zlib, landing within about 1% of zlib-9 on DICOM (no block splitting yet).
 - Doug on output, answering "printf in the hot loop":
-  - Port the needed MMgr scribo and laboro code (numeros_scribo, verba_scribo, cellularum_laboro in D:/git_project/repos/owned/public/MMgr/src) into our own simple string module. Do not link MMgr.
+  - Output goes through our own simple string module, `scriptura`.
   - "zero print in any loop unless we raise our hand, else silently update your functionals returns, which get dumped into each print format and called on demand unless an error, so sorta like verbosity but never trap warn or error."
   - So: functionals fill result structs; one print format per result renders it through the string module on demand; errors and warnings always print.
 - "we should be able to output iapx as any valid format, we compress it we can decompress it too." The export runs .kcr → any source format (dicom zip byte-exact from the side bytes, npy, nifti, tiff, zarr...). Build it after v2.
