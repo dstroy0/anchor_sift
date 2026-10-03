@@ -5,7 +5,7 @@
 
 \textbf{Scope:} \texttt{tessera}, a daemon per host and device, with its client calls. The rows are M14 and A11 in \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}. Statuses follow \hyperref[chap:readme]{README.md}.
 
-\section{\texorpdfstring{What was ruled (23 September)}{What was ruled (23 September)}}
+\section{\texorpdfstring{What was ruled}{What was ruled}}
 
 \begin{itemize}
 \item “just a normal job scheduling function, super common for stuff like this”.
@@ -37,7 +37,7 @@ A job reserves room it may not have allocated yet. What it blocks is therefore m
 
 H(τ) = C − O(τ) − Σ\_\allowbreak{}j max(r\_\allowbreak{}j, u\_\allowbreak{}j(τ))
 
-\textbf{Admission.} A waiting job k is admitted when d\_\allowbreak{}k ≤ H(τ). Then r\_\allowbreak{}k = d\_\allowbreak{}k, and the headroom falls by d\_\allowbreak{}k. 24 September: “We reserve what they ask for and then if it cost less we remember that for next time”.
+\textbf{Admission.} A waiting job k is admitted when d\_\allowbreak{}k ≤ H(τ). Then r\_\allowbreak{}k = d\_\allowbreak{}k, and the headroom falls by d\_\allowbreak{}k. “We reserve what they ask for and then if it cost less we remember that for next time”.
 
 \textbf{Growth.} If u\_\allowbreak{}j(τ) > r\_\allowbreak{}j, then r\_\allowbreak{}j becomes u\_\allowbreak{}j(τ) and the client is warned: declared d\_\allowbreak{}j, now r\_\allowbreak{}j. Growth never stops a job already running, and a job can push H below zero. While H < 0, nothing new is admitted.
 
@@ -57,7 +57,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 
 \begin{itemize}
 \item \textbf{Linux:} NVML's per-process list gives each compute process's used bytes. The daemon learns a client's pid from the socket (\texttt{SO\_\allowbreak{}PEERCRED}), translated into the daemon's pid namespace. A client inside a container is therefore measured under its host pid, and a client cannot misstate its pid.
-\item \textbf{Windows:} under the WDDM driver model, NVML always reports per-process memory as not available, because Windows manages it. There the daemon reads the counter Task Manager uses, \texttt{\textbackslash{}GPU Process Memory(pid\_\allowbreak{}<pid>\_\allowbreak{}luid\_\allowbreak{}*\_\allowbreak{}phys\_\allowbreak{}*)\textbackslash{}Dedicated Usage}, through PDH. It learns the pid from the pipe (\texttt{Get\allowbreak{}Named\allowbreak{}Pipe\allowbreak{}Client\allowbreak{}Process\allowbreak{}Id}). Confirmed on this machine, 23 September: the counter lists each process's dedicated bytes by pid and adapter.
+\item \textbf{Windows:} under the WDDM driver model, NVML always reports per-process memory as not available, because Windows manages it. There the daemon reads the counter Task Manager uses, \texttt{\textbackslash{}GPU Process Memory(pid\_\allowbreak{}<pid>\_\allowbreak{}luid\_\allowbreak{}*\_\allowbreak{}phys\_\allowbreak{}*)\textbackslash{}Dedicated Usage}, through PDH. It learns the pid from the pipe (\texttt{Get\allowbreak{}Named\allowbreak{}Pipe\allowbreak{}Client\allowbreak{}Process\allowbreak{}Id}). Confirmed on this machine: the counter lists each process's dedicated bytes by pid and adapter.
 \item \textbf{Both:} the device's total and in-use bytes come from NVML's device memory query, which works under WDDM too. The daemon never creates a CUDA context of its own and holds no device memory.
 \end{itemize}
 
@@ -67,7 +67,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item \textbf{The ledger} (\texttt{tessera\_\allowbreak{}ledger.\allowbreak{}\{c,h\}}) is pure: the accounting, backfill and the deadline heap, with no socket, clock or device. Every rule above is a function of its inputs, and the suite proves it without a GPU.
 
 \begin{itemize}
-\item Proved 23 September: 143,808 cases, 0 failed. The headroom identity holds on 2,000 random states. The deadlines fire in time order. Budget, hold, override and lost pass their 18 checks. Idle teardown passes its 4. Backfill never moved the head's shadow later, over 121,586 admissions in 20,000 random scenarios, every one of which ran to completion.
+\item Proved: 143,808 cases, 0 failed. The headroom identity holds on 2,000 random states. The deadlines fire in time order. Budget, hold, override and lost pass their 18 checks. Idle teardown passes its 4. Backfill never moved the head's shadow later, over 121,586 admissions in 20,000 random scenarios, every one of which ran to completion.
 \item Found by the suite: a run released before its first measure had recorded a peak of 0, and every later run of that signum was held as over budget. A peak now enters the history only if the run was measured at least once.
 \end{itemize}
 \item \textbf{The frame} (\texttt{tessera.\allowbreak{}h}) is 128 bytes, little-endian, the same on every platform: magic, version, kind, the override, the device's UUID (16 bytes) and LUID, the request's signum, its declared bytes, its three times, and the bytes, measure and identity of a reply.
@@ -96,7 +96,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item \textbf{SAN:} device memory is local to a host. Each host runs its own daemon, and nothing is shared across the SAN but the data.
 \end{itemize}
 
-\section{\texorpdfstring{Order, time and loss (23 September)}{Order, time and loss (23 September)}}
+\section{\texorpdfstring{Order, time and loss}{Order, time and loss}}
 
 \begin{itemize}
 \item \textbf{Order among waiting jobs: backfill with the head kept.} A job behind the head may go first only if it cannot delay the head's admission. The head never starves, and the room the head cannot use yet is not wasted.
@@ -114,7 +114,7 @@ is kept under its signum σ\_\allowbreak{}j, the BLAKE3 root of its request. The
 \item \textbf{Lost and found keeps the work.} When a held job stalls past its holding time, the daemon appends its ticket (identity, signum, pid, declared, peak, measured, times, reason) to \texttt{hst/\allowbreak{}lnf.\allowbreak{}log} as a sealed block and tells the client, with the log's path. The client keeps its precalc and says so; the daemon then appends a sealed note for that identity. The job can be resumed and not recomputed.
 \end{itemize}
 
-\textbf{The seal (24 September).} The seal is \texttt{obsignatio\_\allowbreak{}seal}, BLAKE3 keyed at the file level (\texttt{OBSIGNATIO\_\allowbreak{}LEVEL\_\allowbreak{}FILE}), and it runs on the host. The daemon still makes no CUDA call and holds no device context.
+\textbf{The seal.} The seal is \texttt{obsignatio\_\allowbreak{}seal}, BLAKE3 keyed at the file level (\texttt{OBSIGNATIO\_\allowbreak{}LEVEL\_\allowbreak{}FILE}), and it runs on the host. The daemon still makes no CUDA call and holds no device context.
 
 \begin{itemize}
 \item \textbf{The history file} is its records, 48 bytes each (the 32-byte signum, then the peak and the duration, 8 bytes each), followed by a 32-byte seal over them. The save builds the whole file, seals it, writes it whole as \texttt{hst/\allowbreak{}tail.\allowbreak{}log} and renames it over \texttt{hst/\allowbreak{}head.\allowbreak{}log}. Each failure on the way (the allocation, the seal, the open, the write, the close, the rename) is printed on stderr. The call sites still don't branch on the save's result, but a failed save is never silent.
@@ -126,7 +126,7 @@ That was the gap before this date: the history was raw records and the ticket pl
 
 The daemon opens its ledger and loads its history before it makes any endpoint: the pipe on Windows, the lock and the socket on Linux. A refused history ends the daemon before any client can reach it. A daemon that loses the race to be the only one has only read the history, which is safe, because a save swaps the whole file in at once. The unsealed 192-byte history from before the seal was moved aside as \texttt{history.\allowbreak{}unsealed} in the state directory, not deleted.
 
-\section{\texorpdfstring{The driver submits (24 September)}{The driver submits (24 September)}}
+\section{\texorpdfstring{The driver submits}{The driver submits}}
 
 A program's driver runs every job through tessera, one job a part. Its signum, its declaration, its parts and its runs are the program's, in the cell workbook (on\_\allowbreak{}the\_\allowbreak{}engine.md). Its times are 2 s holding, 20 ms sweep and 5 s idle.
 
@@ -167,7 +167,7 @@ Two findings, both measured:
 \end{itemize}
 \end{itemize}
 
-\section{\texorpdfstring{The sims submit (24 September)}{The sims submit (24 September)}}
+\section{\texorpdfstring{The sims submit}{The sims submit}}
 
 Every sim that uses the device is one job (\texttt{src/\allowbreak{}sims/\allowbreak{}cu/\allowbreak{}sim\_\allowbreak{}job.\allowbreak{}cu}).
 
@@ -207,7 +207,7 @@ sim & declared & peak measured & checks \\
 \item \textbf{The engine DLL:} no program in the repo loads it, and no other caller is left to submit.
 \end{itemize}
 
-\section{\texorpdfstring{Linux (24 September, not rerun here)}{Linux (24 September, not rerun here)}}
+\section{\texorpdfstring{Linux (not rerun here)}{Linux (not rerun here)}}
 
 \begin{itemize}
 \item \textbf{The build:} Linux built under WSL 2 (gcc 13.3.0, CUDA 13.3), and its suite passes with 0 warnings. The fixes it needed: \texttt{PATH\_\allowbreak{}MAX} under strict C11, the noinline helpers under gcc, \texttt{\_\allowbreak{}GNU\_\allowbreak{}SOURCE}, the timer thread's missing return, and the Windows-only strings.

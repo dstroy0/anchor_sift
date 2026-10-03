@@ -1,7 +1,7 @@
 # Compression and tower recursion
 
 **Purpose:** Explain, from first principles and with this engine's numbers, how a whole sample becomes one small exact file and comes back voxel for voxel. The tower recurses one exact step until the sample is one coefficient. The compression step writes what the tower leaves in as few bits as it needs. The CRC-64 is folded into the tower's own passes, and the proof that nothing was lost costs no pass of its own. Each of these had to be argued for before it was accepted, and each is explained thoroughly here so the next reader does not have to be argued into it.
-**Scope:** orior's `src/c/engine/analysis/tower/`, `src/c/engine/analysis/compression/`, `src/c/includes/codecs/crc/`, the limit `ENGINE_COEFFICIENT_LIMIT` and the hand-off `EngineStream` in `src/c/engine/engine_config_requests.h`, and their composition in the entry, `src/engine/engine_*.cu`. The proof was `cell_tracking/maint/prove_codec.sh` at d5f6a06. The ledger's statuses ([README.md](README.md)) apply to every claim. The tower is integral to the engine, and it is categorized **measure / recursion**.
+**Scope:** orior's `src/c/engine/analysis/tower/`, `src/c/engine/analysis/compression/`, `src/c/includes/codecs/crc/`, the limit `ENGINE_COEFFICIENT_LIMIT` and the hand-off `EngineStream` in `src/c/engine/engine_config_requests.h`, and their composition in the entry, `src/engine/engine_*.cu`. The proof was `cell_tracking/maint/prove_codec.sh`. The ledger's statuses ([README.md](README.md)) apply to every claim. The tower is integral to the engine, and it is categorized **measure / recursion**.
 
 Every number here is an exact integer. Where a share of raw is given, it is in per mille, rounded down: the driver prints it the same way, and its "40.6%" is 406 per mille rounded down, not a rounding to the nearest.
 
@@ -63,7 +63,7 @@ z stops after floor 6, t after floor 7, and y and x reach one at floor 8. The dr
 
 - **The drafts' floor −4 is not a floor of this tower.** The tower's floors count up from the sample (floor 1) to one coefficient (floor 8). The drafts' floor −4 is where the noise bits become irreducible, and in this engine that is the residue's measured floor (noise_sieve_tower §5). Bits 0 to 4 are set in about 46 of every 100 frames at nearly every voxel, and bits 0 to 3 flip in 499 to 500 of every 1,000 transitions in every window of 19 of the 25 samples. The tower holds that floor whole in its highs. It does not reach below it.
 - **The tower is not a key.** §3 of [keys_explained.md](keys_explained.md) collapses a chain of linear steps into one key by pushing the impulse through it once. The 5/3 lift is exact, but it is not linear. On the three lane line (0, 0, 1), the high is 0 − ⌊(0 + 1)/2⌋ = 0; on (1, 0, 0) it is 0 − ⌊(1 + 0)/2⌋ = 0; on their sum, (1, 0, 1), it is 0 − ⌊2/2⌋ = −1, not 0 + 0. The impulse's response therefore does not carry what the tower does to every input. The floors compose transitively as exact maps, but they do not imprint into one key.
-- **The melting phase.** noise_sieve_3 has the intermediate floors dissolve under the rule flash into one operation. The tower runs floor by floor today, four axes a floor. By the line above, the floors cannot be dissolved by imprinting them. Whether another exact route collapses them is open.
+- **The melting phase.** noise_sieve_3 has the intermediate floors dissolve under the rule flash into one operation. The tower runs floor by floor, four axes a floor. By the line above, the floors cannot be dissolved by imprinting them. Whether another exact route collapses them is open.
 
 | claim | status |
 |---|---|
@@ -142,7 +142,7 @@ Raw, the sample is 838,860,800 bytes. The file is 406 per mille of raw, and the 
 
 ### 2.7 What the compression does not claim
 
-It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger, 21 September). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard (Shannon's). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
+It is not the floor of the data. Grouping each floor's coefficients row by row made the stream of 44b6_0113de3b 1,157,533 bytes smaller, and coding pairs along t apart for each floor made it 1,987,962 bytes smaller, though pairing along t hurt on most other samples (ledger). The stream as written is not the smallest one possible. What does bound it from below is the floor of §1.3. A bit plane at maximum entropy carries a full bit for every place it covers, and no exact coder writes it in fewer. That bound is standard ([Shannon's](#src:Shannon)). Whether the tower's highs inherit the floor's planes, plane for plane, has not been measured in this stream, and here the bound is theory.
 
 | claim | status |
 |---|---|
@@ -189,7 +189,7 @@ Two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^�
 | the CRC folded into the widen equals the byte by byte CRC | proved: 44b6_0113de3b, both 363bf8bdffac8f29 |
 | a segment join by GF(2) advance operators, one a level | proved: the fold above; and `crc.h` holds a fold of "1234" across "56789" to the message in order by `static_assert` |
 | every .kcr rebuilt and held to its CRC from the file alone | proved: 25 of 25, set CRC 091daa41e1aceb7e |
-| one sample re-ingested gives a byte identical .kcr | proved: `maint/prove_codec.sh` on 44b6_0113de3b, run by the session that split the codec at d5f6a06 (ledger, 22 September) |
+| one sample re-ingested gives a byte identical .kcr | proved: `maint/prove_codec.sh` on 44b6_0113de3b, run by the session that split the codec (ledger) |
 | 23 join levels for a 44b6 sample; any message below 2^48 bytes in reach of the key | by the code's arithmetic: 6,553,600 segments; operators 2^7 to 2^29; the key's last operator is 2^47 |
 | a fold keeps its accumulator one size | proved for the CRC-64: 64 bits over every sample and over the set |
 | folding shrinks the work itself | not so: every voxel is still read once; the fold bounds the check |
@@ -205,4 +205,4 @@ The CRC folded into the first pass and the last is that equation checked, at no 
 | claim | status |
 |---|---|
 | the codec is the identity on the sample | proved: 25 of 25, voxel for voxel on the device and pixel for pixel off it, set CRC 091daa41e1aceb7e |
-| the codec's stages reach nothing but `crc`, composed only in the entry | proved: `maint/audit_reaching.py` at d5f6a06 |
+| the codec's stages reach nothing but `crc`, composed only in the entry | proved: `maint/audit_reaching.py` |

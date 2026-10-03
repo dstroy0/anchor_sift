@@ -5,7 +5,7 @@
 
 \textbf{Scope:} \texttt{scriptura\_\allowbreak{}compare}, \texttt{scriptura\_\allowbreak{}length}, \texttt{scriptura\_\allowbreak{}find}, \texttt{scriptura\_\allowbreak{}copy}, \texttt{scriptura\_\allowbreak{}fill} (M17 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}).
 
-Ruled by 23 September: “never pass unaligned memory to this, ever”; “the solution is to always nul term memory blocks you hand it”.
+Ruled : “never pass unaligned memory to this, ever”; “the solution is to always nul term memory blocks you hand it”.
 
 \begin{itemize}
 \item Every block handed to the scriptura word scans is 8-byte aligned and NUL-terminated. A string literal is not guaranteed aligned: copy it into an aligned block first.

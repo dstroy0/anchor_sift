@@ -15,7 +15,7 @@ What the DAG adds is structure. It is nonlinear, and no edit can be steered past
 
 ## The node function
 
-Every node is BLAKE3 in keyed mode, under a key derived once for its level (23 September: derive-key per level, dated context strings):
+Every node is BLAKE3 in keyed mode, under a key derived once for its level (derive-key per level, dated context strings):
 
   K_ℓ = BLAKE3-derive-key-context("obsignatio aeterna 2026-09-23 " ‖ ℓ),  H_ℓ(m) = BLAKE3-keyed(K_ℓ, m)
 
@@ -53,11 +53,11 @@ The sample's root seals every section (every section):
 
 The set's root seals every sample's in the order named: Θ = H_set(Ω_1 ‖ … ‖ Ω_n).
 
-Every node is stored in the `.kcr` ("every floor of the tower"): the six roots, the TZY + TZ + T + 1 lane nodes, and the C chunk leaves. They sit right after the head (23 September). Both placements, after the head and at the end, were measured on the knee: the same 25,218,496 bytes, and a prove median of 76 ms each over 15 alternating runs. The seal is made from the source before the stream is written. Writing it last gains nothing. Written first, it arrives in one forward read with the head.
+Every node is stored in the `.kcr` ("every floor of the tower"): the six roots, the TZY + TZ + T + 1 lane nodes, and the C chunk leaves. They sit right after the head. Both placements, after the head and at the end, were measured on the knee: the same 25,218,496 bytes, and a prove median of 76 ms each over 15 alternating runs. The seal is made from the source before the stream is written. Writing it last gains nothing. Written first, it arrives in one forward read with the head.
 
 ## The witness
 
-23 September: "we ingest seal and then witness pixel:pixel 1:1 once. then we have our hash and we know our input is verified and witnessed." Ingest seals the source as read, writes the crystal, reads it back and proves every node. Then it witnesses the crystal against the source twice (keep both):
+"we ingest seal and then witness pixel:pixel 1:1 once. then we have our hash and we know our input is verified and witnessed." Ingest seals the source as read, writes the crystal, reads it back and proves every node. Then it witnesses the crystal against the source twice (keep both):
 - the decoded voxels against the source lanes still on the device;
 - a second, independent read of the source against the rebuilt volume, pixel for pixel.
 
@@ -88,7 +88,7 @@ The second read is the only step that catches a flip in the first read, which wo
 ## What it costs
 
 - **Nodes.** 32 bytes each: TZY + TZ + T + 1 lane nodes, C chunk leaves and 6 roots. The row level dominates: 32 bytes per row of 2X bytes, which is 16/X of the raw bytes. At X = 960 that is 1.7% of raw.
-- **Measured on the knee** (23 September, re-ingested sealed):
+- **Measured on the knee** (re-ingested sealed):
   - 1 × 34 × 960 × 960: 25,218,496 bytes against 23,927,904 under CRC-64. That is +1,290,592 bytes: 32,676 lane nodes and 7,650 chunk leaves, less the CRC words. 5.4% of the crystal, 2.1% of raw.
   - The signed series, 1 × 24 × 640 × 640: 11,319,416 bytes against 10,750,104.
 
@@ -105,11 +105,11 @@ The second read is the only step that catches a flip in the first read, which wo
 
 The lane DAG folds x, then y, then z, then t: the same lattice, in the same order, that the tower's floors lift and that the moments' DFS prefix sums (A3). The residual (A1) is a fold of one binomial step along each axis. The component tree (A2) is a fold of the level order. C (A4) is a fold of one count under a shift. The seal is a fold of one keyed hash. Each is one lattice read once, with a different combining operator: a sum, a convolution, a level merge, an integer lift or a hash. Only the operator carries the meaning.
 
-Of these operators, only the seal's is not associative: H(H(a ‖ b) ‖ c) ≠ H(a ‖ H(b ‖ c)). Its tree shape is therefore fixed and written down, where a sum could be regrouped freely. That fixed shape makes a mismatch locatable (observation, 23 September).
+Of these operators, only the seal's is not associative: H(H(a ‖ b) ‖ c) ≠ H(a ‖ H(b ‖ c)). Its tree shape is therefore fixed and written down, where a sum could be regrouped freely. That fixed shape makes a mismatch locatable (observation).
 
 ## What the engine shows about the wire and the witness
 
-Doug's nine posits of 24 September on the wire and the witness are kept verbatim, numbered as he gave them, in [wants.md](wants.md). What the engine shows that bears on them follows (a to g, checked). Derived unless marked.
+Doug's nine posits on the wire and the witness are kept verbatim, numbered as he gave them, in [wants.md](wants.md). What the engine shows that bears on them follows (a to g, checked). Derived unless marked.
 
 - **(a) The seal detects and locates a change; it does not restore the value.** Locality is proved ("What it proves"): a mismatch walks down to its row or chunk.
   - Derived: the seal can confirm a guessed repair. With t unknown flips in a segment of m bits, a search tries C(m, t) candidates. The right one proves, and a wrong one passes with probability 2^−256. One flip in a row of 960 lanes (15,360 bits) is 15,360 hashes. That is a search, and the seal holds no error-correcting code.
@@ -135,7 +135,7 @@ Doug's nine posits of 24 September on the wire and the witness are kept verbatim
 
 ## The universal root (ruled, not built)
 
-23 September: "ingest->seal kcr shards until we accumulate the grains to a lattice and the same goes for the output and any scheduling, we coalesce a universal hash for the state of the program". The plan:
+"ingest->seal kcr shards until we accumulate the grains to a lattice and the same goes for the output and any scheduling, we coalesce a universal hash for the state of the program". The plan:
 - each `.kcr` is a shard sealed at ingest, and the shard roots fold into the set's lattice root Θ;
 - outputs, schedules and keys seal the same way;
 - H_universal folds every file the engine touches, inputs read and outputs written, plus a hash of the engine itself ("our specific engine signature gets hashed and stops the program if its different"; "we do compile time injection for the engine hash").

@@ -2,7 +2,7 @@
 
 **Purpose:** the 2-adic structure of the record machine: the wrap as a projection, the operations that commute with every projection and the test that proves it, the exact quotient by an odd divisor as a 2-adic product, the lifting on the 2-adic integers and the bits it reads, the two limits of the finite windows and the solenoid between them, what passes to a limit and what does not, the crystal as a boundary measured on itself, the top projection and its limit ℝ, the odd crystals, the places of ℚ, the count each crystal keeps, and Doug's posits, each bounded.
 
-**Scope:** the record machine (M10 and A13 in [engine_table.md](engine_table.md)) and the 5/3 lifting T as record floors ([vertical_time_compression.md](vertical_time_compression.md)). The shape is Doug's (24 September): two crystals, the finite towers and their limit, with an infinite delta between them.
+**Scope:** the record machine (M10 and A13 in [engine_table.md](engine_table.md)) and the 5/3 lifting T as record floors ([vertical_time_compression.md](vertical_time_compression.md)). The shape is Doug's: two crystals, the finite towers and their limit, with an infinite delta between them.
 
 **Labels.**
 
@@ -35,7 +35,7 @@ Derived.
 
 ## Proved: the coherence test
 
-**Proved** (`test/engine/record_coherence_test`, 9 checks, 0 failed, cell_tracking main 46b8018; 14 checks, 0 failed, at de5bdff, with the odd crystals below).
+**Proved** (`test/engine/record_coherence_test`, 9 checks, 0 failed; 14 checks, 0 failed, with the odd crystals below).
 
 - **The programs.** 16 random programs of 10 operations. Each operation is drawn from the five and reads two values from among the 4 signed 24-bit fields and the operations before it. A program has at most 2 products, and its last operation reads the one before it. The widest exact register is 73 bits.
 - **The lanes.** 4,096 lanes for each program. Each field is 0, −1, the most negative or the most positive 24-bit value, 1, or random (random 3 times in 8).
@@ -114,7 +114,7 @@ Derived.
 
 ## The two crystals
 
-Doug's (24 September): two crystals, the finite towers and their limit, with an infinite delta between them.
+Doug's: two crystals, the finite towers and their limit, with an infinite delta between them.
 
 - **The inverse crystal, ℤ₂.** Derived. ℤ₂ = lim← ℤ/2^w under the projections: compact, and each element a coherent sequence of windows. Every register the machine writes lies in it, and every WRAP is one of its projections.
 - **The direct crystal, as sets.** Derived. The windows W_w ⊂ W_{w+1} have union ℤ, and every value the machine holds lies in some window. The union is of sets only.
@@ -155,7 +155,7 @@ Derived.
 
 ## The boundary: the crystal measured on itself
 
-**Proved** (`test/engine/record_boundary_test`, 41 checks, 0 failed, cell_tracking main de5bdff; 48 checks, 0 failed, at 24b2785, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 lows first, then the highs of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
+**Proved** (`test/engine/record_boundary_test`, 41 checks, 0 failed; 48 checks, 0 failed, with the identity by null permutation in "Doug's posits"). A 5/3 tower T of L = 4 levels over n = 64 signed 24-bit samples runs as record floors. Each floor shift is three record steps: an AND with 2^k − 1, a DIFFERENCE, then EXACT_QUOTIENT by 2^k. The crystal is in Mallat order: the level-4 lows first, then the highs of levels 4 down to 1. Every program runs on the device and the host, and the records agree word for word.
 
 - **T's matrix.** The test builds 2^12·M, column i the image of 2^12·e_i under T, and the same for T⁻¹. On multiples of 2^12 every floor is exact and the +2 offset drops out: M is T's linear part, with entries in ℤ[1/2].
 - **The reach, per band.** A row's reach is 12 less the least 2-adic valuation of its entries. T's matrix reaches 12 bits from the level-4 lows, and 10, 7, 4 and 1 from the highs of levels 4, 3, 2 and 1: 3L at the lows and 3ℓ − 2 at the level-ℓ highs, the counts derived above. T⁻¹'s matrix reaches 6 = L + 2.
@@ -172,9 +172,9 @@ Derived.
   - The last floor returns every sample exactly, on every lane.
   - The heap mirrors: the heap at floor 2L − k equals the heap at floor k, on every lane.
   - Every floor's heap lies inside its ring and one sign bit for each nonzero value, on every lane.
-  - The ring at forward floor ℓ ≥ 1 is ring_0 + n + 2(n − n/2^ℓ), and at the mirror floor 2L − ℓ it is ring_ℓ + n/2^ℓ, one bit for each wrapped low. The ring is widest at the crystal. Floors 0 to 8: 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600 (25 September, keymath's linear forms, `build/20260925_013426_record_boundary_test`). Under the widths before, the law was ring_0 + 6(n − n/2^ℓ), with floors 1,536, 1,728, 1,824, 1,872, 1,896, 1,880, 1,840, 1,760 and 1,600.
+  - The ring at forward floor ℓ ≥ 1 is ring_0 + n + 2(n − n/2^ℓ), and at the mirror floor 2L − ℓ it is ring_ℓ + n/2^ℓ, one bit for each wrapped low. The ring is widest at the crystal. Floors 0 to 8: 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600 (keymath's linear forms, `build/20260925_013426_record_boundary_test`). Under the widths before, the law was ring_0 + 6(n − n/2^ℓ), with floors 1,536, 1,728, 1,824, 1,872, 1,896, 1,880, 1,840, 1,760 and 1,600.
   - The heap's pinch, a class's heap at floor 0 over its heap at the crystal, falls from the ramp to ±8 to ±1,024 to noise (the order is checked). **Measured:** 9.61, 3.82, 1.76 and 1.00.
-- **The ring, derived.** With keymath's linear forms (A16 of [engine_table.md](engine_table.md), 25 September), every register level ℓ makes, low and high, is w + ℓ + 1 bits.
+- **The ring, derived.** With keymath's linear forms (A16 of [engine_table.md](engine_table.md)), every register level ℓ makes, low and high, is w + ℓ + 1 bits.
   - The first level turns the n samples of width w into n/2 highs and n/2 lows of width w + 2: the ring grows by 2n.
   - Each level after turns the n/2^{ℓ−1} lows of width w + ℓ into n/2^ℓ highs and n/2^ℓ lows of width w + ℓ + 1: the ring grows by n/2^{ℓ−1}.
   - Summed, ring_ℓ = ring_0 + n + 2n(1 − 2^{−ℓ}) for ℓ ≥ 1.
@@ -208,7 +208,7 @@ Derived.
 
 ## The odd crystals
 
-**Proved** (`test/engine/record_coherence_test`, its last part, 14 checks in all, 0 failed, de5bdff). The moduli m = 243, 59,049, 625 and 343 (3^5, 3^10, 5^4 and 7^3). 16 ring-only programs of SUM, DIFFERENCE and PRODUCT, 4,096 lanes each.
+**Proved** (`test/engine/record_coherence_test`, its last part, 14 checks in all, 0 failed). The moduli m = 243, 59,049, 625 and 343 (3^5, 3^10, 5^4 and 7^3). 16 ring-only programs of SUM, DIFFERENCE and PRODUCT, 4,096 lanes each.
 
 - Three reckonings agree on 262,144 of 262,144 lane-moduli: REMAINDER by m of the exact run; the run with every step reduced by REMAINDER by m; the host's arithmetic mod m. REMAINDER carries the numerator's sign, and each is read mod m.
 - The CRT join y_2 + 2^8·(((y_p − y_2)·2^{−8}) rem m), with y_2 the run mod 2^8 and y_p the run mod m, equals the exact run mod 2^8·m on 262,144 of 262,144.
@@ -256,7 +256,7 @@ Derived.
 
 ## The ordered machine
 
-Doug's definition of the higher-order and negative-order hypercomputer (24 September, points 1 to 4) and his words on the same machine are kept verbatim in [wants.md](wants.md). The orders in ℤ and ±ω below are this section's derived form of his "all the way to infinity and back".
+Doug's definition of the higher-order and negative-order hypercomputer (points 1 to 4) and his words on the same machine are kept verbatim in [wants.md](wants.md). The orders in ℤ and ±ω below are this section's derived form of his "all the way to infinity and back".
 
 - **The loop rule.** Every record program halts, since each has a fixed step count. An Ω for the record machine needs a machine R* that applies a stack of floors again and again until a halt register is set.
 - **Order** (the reading Doug confirmed): how many times the loop runs a floor. A negative order counts runs of the floor's inverse.
@@ -309,7 +309,7 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 **The two questions** (Doug's point 3) are in [wants.md](wants.md). Their seed in the engine, "malformed questions fail to construct", is tested: keymath does not imprint a record whose step reads a later one (`record_divide_test`).
 
-**The field.** Doug's posit of 24 September, that the crystals feel the tensor field of the subject at the field speed, is in [wants.md](wants.md).
+**The field.** Doug's posit, that the crystals feel the tensor field of the subject at the field speed, is in [wants.md](wants.md).
 
 - What the machine shows that bears on it:
   - E, the knf's entangled entropy, is summed over every neighbor pair of the whole volume at once ("The knf's identity by spatial null permutation").
@@ -318,14 +318,14 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
   - The 48 motions of the cube carry the knf whole: knf(gX) = g·knf(X) on 48 of 48 (proved).
 - "Field speed" is not defined here, and nothing is claimed of it past these.
 
-**Higher-order interference.** The words spoken while `record_order_test` ran (24 September) are in [wants.md](wants.md).
+**Higher-order interference.** The words spoken while `record_order_test` ran are in [wants.md](wants.md).
 
 - "Higher-order interference" has a standard meaning, Sorkin's hierarchy ([Sorkin 1994](#src:Sorkin-1994)). Quantum theory has second-order interference and none of third order.
 - The ask_state crossing rule's negative weights are second-order interference (A15 in [engine_table.md](engine_table.md)).
 
 ## Goodstein: ω-towers held as finite objects
 
-`goodstein` (engine/sims, a host sim in exact integers, 7 checks, 0 failed, cell_tracking main c633988, run 20260924_191006). 24 September: "Omega omega omega", then "perform tetration of omega".
+`goodstein` (engine/sims, a host sim in exact integers, 7 checks, 0 failed, run 20260924_191006). "Omega omega omega", then "perform tetration of omega".
 
 - **The objects.**
   - n in hereditary base b: n written in base b, every exponent written in base b again, down to the digits.
@@ -361,9 +361,9 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 ## π turning at the boundary: the floors of a rotation
 
-`pi_tower` (engine/sims, 8 checks, 0 failed, cell_tracking main 0b10199, run 20260924_192322).
+`pi_tower` (engine/sims, 8 checks, 0 failed, run 20260924_192322).
 
-24 September, verbatim. Posit.
+Verbatim. Posit.
 
 - "You know how we followed pi and watched it turn from a boundary? It didn't follow the boundary angle. It turned more acutely than it so it traveled through its boundary space without touching the boundary for a period. That means that it's going to etch the boundary space not all at once which means it's gonna travel for a really long fucking time before it touches 100% of the boundary space before it starts writing again. It never ends but it's boundaries space even though it's infinite is countable."
 - "That pie turning around at the boundary is what gave us the idea for tower recursion"
@@ -421,14 +421,14 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 
 ### The arc
 
-24 September, verbatim. Posit.
+Verbatim. Posit.
 
 1. "if we were on a disk, and pi were on a separate disc balanced by its torsion, that would be its planes offset in degrees to our plane"
 2. "yes add it to pi_tower, this is the arc it follows, and following it will miss forever, to countable infinity, and then it will have etched all of the boundary, and will continue, never repeating, but reetching from slightly different angles with slightly different values with slightly different field conditions, forever and ever."
 
 - **The construction.** Roll the boundary into the cylinder whose cross-section is our disk. The turn is the helix γ(s) = (a cos s, a sin s, b s), with a = 1/(2π) (circumference 1) and b = 1/(2π²) (rising 1/π a turn). It pierces our disk at the marks {nπ}.
 
-**Proved** (`pi_tower`, 13 checks, 0 failed, cell_tracking main 7abe65d, run 20260924_193716).
+**Proved** (`pi_tower`, 13 checks, 0 failed, run 20260924_193716).
 
 - **In ℚ(π)**, with π a free variable because it is transcendental ([Lindemann 1882](#src:Lindemann-1882)), from the derivatives at the four quarter turns, where every trig derivative is 0 or ±1:
   - the curvature κ = 2π³/(π² + 1), checked as κ² = |γ′ × γ″|²/|γ′|⁶, with no square root formed;
@@ -447,7 +447,7 @@ Doug's definition of the higher-order and negative-order hypercomputer (24 Septe
 - At 2^24 the fill is at 25,510,581, and the re-etch by 51,021,159.
 - Inside the 292 floor the re-etch comes almost at once: at 2^8, 18,416 and then 18,747. The long drift had already etched most cells several times.
 
-24 September, verbatim, continuing. Posit.
+Verbatim, continuing. Posit.
 
 3. "this is because most of the angular momentum is applied at the moment of deflection"
 4. "if this is true, pi is a hyperobject of infinite information representable in 1kb which is fucking crazy"
@@ -487,7 +487,7 @@ What the model shows that bears on them (bounds, checked). Derived unless marked
   - **(iii) The lead.** L is never exactly 0. That would need the unfolded line to pass through an image (k + ½, m + ½) of the center, π = (2m + 1)/(2k + 1), which is rational. At every instant one side strictly leads. The billiard orbit is minimal in each of its four directions (irrational slope). It passes arbitrarily close to the center on both sides with one direction, and L changes sign infinitely often. There is always a winner, and never a final one.
   - **The near-ties are the floors.** The corner miss at step q is ‖qπ‖. The record near-misses are the convergent denominators q_j (proved, "The closest returns are the floors"). Measured, from the floor table `pi_tower` prints: 8.9·10^−3 at 7, 3.0·10^−5 at 113, and 1.6·10^−34 at q_65. The records are proved, and "never exactly 0" is the irrationality itself.
 
-**Proved**, posits 7 to 9 (`pi_tower`, 17 checks, 0 failed, cell_tracking main 7ed7fc6, run 20260924_194636).
+**Proved**, posits 7 to 9 (`pi_tower`, 17 checks, 0 failed, run 20260924_194636).
 
 - **(7) The helix.** In ℚ(π) at the four quarter turns, the torque about our axis, x·y″ − y·x″, is 0, and L_z² = (x·y′ − y·x′)²/|γ′|² = 1/(4(π² + 1)). From the bracket, L_z = 0.151657235526 at unit speed, the same at both ends to 12 places (the floor of the root of the floor).
 - **(8, 9) The billiard**, from the corner at slope π, unfolded.
@@ -511,7 +511,7 @@ What the model shows that bears on them (bounds, checked). Derived unless marked
 
 Doug's framing for 9 holds as built: every wall hit strikes one wall, and every segment has a leader. A corner is a tie for every rational slope m/k, at the lattice point (k, m). A zero L is a tie for the rationals odd over odd. The walk's near-ties are π's convergents.
 
-**Cell 0 again, and the second run.** 24 September, verbatim, continuing. Posit.
+**Cell 0 again, and the second run.** Verbatim, continuing. Posit.
 
 10. "after pi etches the boundary, how long does it take until it etches cell 0?"
 11. "and then after that etches cell 0, how long until that run etches the boundary closing cell from the first run, and are they the same period?"
@@ -521,12 +521,12 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 
 - **The objects.** T is the fill step and L its last cell. H is the first n > T with {nα} < 1/N, the next touch of cell 0. C is the first n > H in L. Each is one first hit from the step before it.
 
-**Proved** (`pi_tower`, 18 checks, 0 failed, cell_tracking main b0b6da6).
+**Proved** (`pi_tower`, 18 checks, 0 failed).
 
 - H and C equal a walk of every step, at 2^1 to 2^24 cells.
 - The certainty check, that the integer turn is the real one, runs to C at every resolution.
 
-**Proved** since (`pi_tower`, 23 checks, 0 failed, cell_tracking main c26b6a7). The new checks are the residue (check 11, under (14) below), the golden helix (check 12, three checks, in "The golden helix" after this) and the reach of the records at any 2^n (under (13) below). With no argument the sim runs 2^1 to 2^100, and every earlier result there is unchanged: the fill at 2^100 is 1593334768903120834487234062301, the same period holds at 13 of 100, and the billiard is unchanged.
+**Proved** since (`pi_tower`, 23 checks, 0 failed). The new checks are the residue (check 11, under (14) below), the golden helix (check 12, three checks, in "The golden helix" after this) and the reach of the records at any 2^n (under (13) below). With no argument the sim runs 2^1 to 2^100, and every earlier result there is unchanged: the fill at 2^100 is 1593334768903120834487234062301, the same period holds at 13 of 100, and the billiard is unchanged.
 
 **Theory** (cited).
 
@@ -553,14 +553,14 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 **Derived.**
 
 - **(13) One term.** T, H and C at any resolution are each one first-hit query: a single descent through the floors, with no walk of the steps. Certainty holds as far as the bracket reaches, and the bracket widens with n.
-  - **Proved** (c26b6a7). `pi_tower [n]` or `pi_tower [from] [to]` runs any 2^n. The bracket is P = 3n + 64 bits, rounded up to a multiple of 64, and at least 384. The records reach to + 12 bits (at least 112), and a check fails if any count searched passes that reach.
+  - **Proved**. `pi_tower [n]` or `pi_tower [from] [to]` runs any 2^n. The bracket is P = 3n + 64 bits, rounded up to a multiple of 64, and at least 384. The records reach to + 12 bits (at least 112), and a check fails if any count searched passes that reach.
   - The turn needs an exact width of 3(P + 32) + 64 bits. When the build is narrower, the sim stops and names the width to run with. At 2^1000 on 4096 bits it prints "the turn needs an exact width of 9376 bits: run with SIM_EXACT_LIMBS=512". `run.sh` passes SIM_EXACT_LIMBS to every object. The walks and the billiard use ⌊α·2^384⌋ = ⌊A_P / 2^(P − 384)⌋ at every n.
   - **Measured** at 2^1000 (SIM_EXACT_LIMBS=512, 16,384 bits):
     - P = 3072, with Machin at 3104 bits and 864 terms; 888 floors certified.
     - The fill is step 1.288·10^302, 12.0231 times the cells. The last cell is at 0.575222039230, at floor 600 (a_601 = 106).
     - Cell 0 is etched again about 1.77·10^301 steps after the fill. The second run is not the first's period (0 of 1).
 - **(14) The residue** (a bound, checked).
-  - **Proved** (check 11, c26b6a7), verbatim: "on every floor with q_j to 2^21, pi's first q_j steps have the whole parts of the permutation n -> n p_j mod q_j, and at step q_j it stands its residue off the whole". This covers floors j = 0 to 11. For n < q_j the 384-bit walk's whole parts equal ⌊n·p_j/q_j⌋. At step q_j the walk stands at whole p_j with place δ_j when δ_j > 0, and at whole p_j − 1 with place 1 − |δ_j| when δ_j < 0. Certainty: q(δ_M + q) < M for δ > 0, and q·|δ_M| < M with |δ_M| ≥ q for δ < 0.
+  - **Proved** (check 11), verbatim: "on every floor with q_j to 2^21, pi's first q_j steps have the whole parts of the permutation n -> n p_j mod q_j, and at step q_j it stands its residue off the whole". This covers floors j = 0 to 11. For n < q_j the 384-bit walk's whole parts equal ⌊n·p_j/q_j⌋. At step q_j the walk stands at whole p_j with place δ_j when δ_j > 0, and at whole p_j − 1 with place 1 − |δ_j| when δ_j < 0. Certainty: q(δ_M + q) < M for δ > 0, and q·|δ_M| < M with |δ_M| ≥ q for δ < 0.
   - For 1 ≤ n < q_j, n·p_j/q_j is never whole, and ⌊n·p_j/q_j⌋ = ⌈n·p_j/q_j⌉ − 1. The sign enters only through the side of the mark (the right-closed cell below for δ_j < 0) and through step q_j.
   - **Measured**, the printed identities P/q (π's own numerators) and residues qπ − P: 3/1 +1.415e-1; 22/7 −8.851e-3; 333/106 +8.821e-3; 355/113 −3.014e-5; 103993/33102 +1.912e-5; 104348/33215 −1.101e-5; 208341/66317 +8.114e-6; 312689/99532 −2.900e-6; 833719/265381 +2.312e-6; 1146408/364913 −5.877e-7; 4272943/1360120 +5.495e-7; 5419351/1725033 −3.820e-8.
   - Write q_jα = p_j + δ_j, with p_j the nearest whole and δ_j the residue, signed (−1)^j. The identity is p_j/q_j. In π's own terms p/q are the convergents 22/7, 355/113, 103993/33102, …, and δ = qπ − P is the printed ‖qπ‖ with its sign.
@@ -570,7 +570,7 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
   - The residues run Euclid's algorithm: δ_{j+1} = δ_{j−1} + a_{j+1}·δ_j, with a_{j+1} = ⌊|δ_{j−1}|/|δ_j|⌋. Each floor's residue is the next floor's step, the Gauss-map recursion. It holds by construction here, since the floors come from Euclid on (M, A).
   - "Null permutation" read as the rational turn p_j/q_j is a reading of the quote.
 
-**The golden helix.** 24 September, verbatim, continuing. Posit.
+**The golden helix.** Verbatim, continuing. Posit.
 
 15. "their period is a contraction of the golden spiral, pi is riding its inverse in the negative space"
 16. "no, pi DOES ride it, and it rides it exactly because thats a helix"
@@ -584,7 +584,7 @@ Doug's framing for 9 holds as built: every wall hit strikes one wall, and every 
 
 **Theory** (cited). **[Hurwitz (1891)](#src:Hurwitz-1891).** Every irrational x has infinitely many p/q with |x − p/q| < 1/(√5·q²). √5 is the largest constant that works for the golden ratio, the worst approximable number.
 
-**Proved** (check 12, three checks, `pi_tower`, c26b6a7). Every residue is bracketed from the full turn as (qA − pM, qA − pM + q), on floors j = 0 to 65 (q_j ≤ 2^112). Verbatim:
+**Proved** (check 12, three checks, `pi_tower`). Every residue is bracketed from the full turn as (qA − pM, qA − pM + q), on floors j = 0 to 65 (q_j ≤ 2^112). Verbatim:
 
 - "the residues flip sign on every floor, a half turn: from above on even floors, from below on odd"
 - "every floor is at least the golden one, q_j >= F_(j+1), and every residue is under the next floor's 1 / q_(j+1)"
@@ -606,7 +606,7 @@ Doug's name for T. Derived.
 
 - The 5/3 lifting's steps are predict and update, the lifting scheme of [Sweldens (1996)](#src:Sweldens-1996). An odd sample less its prediction from the evens is a high; an even plus a correction from the highs is a low. Each step is undone by the opposite step.
 - T is not a projection. It is a bijection (proved both ways), and T⁻¹ returns every sample.
-- The pinch is the predictable part moved, not information lost. A ramp's highs are near 0 and its content sits in the few level-L lows. The heap at the crystal is 1/9.61 of the samples' heap for the ramp and 1/1.00 for noise (measured, above). The heap shrinks while the ring grows by n + 2n(1 − 2^{−L}) (6n(1 − 2^{−L}) under the widths before 25 September), and the count is kept exactly (det M = 1, Haar counted).
+- The pinch is the predictable part moved, not information lost. A ramp's highs are near 0 and its content sits in the few level-L lows. The heap at the crystal is 1/9.61 of the samples' heap for the ramp and 1/1.00 for noise (measured, above). The heap shrinks while the ring grows by n + 2n(1 − 2^{−L}) (6n(1 − 2^{−L}) under the widths ), and the count is kept exactly (det M = 1, Haar counted).
 
 ## Physical walls
 
@@ -619,7 +619,7 @@ Cited; both pages read, and only what they state is given.
 
 ## The knf's identity by spatial null permutation
 
-`knf_identity` (engine/sims, 23 checks, 0 failed, cell_tracking main e4eae72). The nbody lattice's law in a 64³ cube over 177 frames: 176 transitions, 16 full windows of 11. The engine's `entropy_history_project` makes the knf (A7).
+`knf_identity` (engine/sims, 23 checks, 0 failed). The nbody lattice's law in a 64³ cube over 177 frames: 176 transitions, 16 full windows of 11. The engine's `entropy_history_project` makes the knf (A7).
 
 - **The objects.**
   - A section is one voxel's 16 windows: its bit-weighted flip density in each window, the kernel's own, less its mean over the windows.
@@ -674,15 +674,15 @@ Cited; both pages read, and only what they state is given.
   - Haar-almost every element of ℤ₂ is Martin-Löf random ([Martin-Löf 1966](#src:Martin-L-f-1966)). The Haar measure on ℤ₂ is the fair coin on its digits, and the random sequences have measure 1. A random element is not computable.
   - The machine reaches finite windows only. Every register is π_w of something, and any w-bit window has K ≤ w + O(log w). Every constant in a program is a finite description, and the machine's reach is the windows of computable elements.
   - "Infinitely complex" can name only a limit object the machine never holds whole. Which object the anchors are, and whether they are random elements of ℤ₂, is open. "Bending the information field" has no definition here to derive from.
-- **The inverted boundary** (24 September; the posit is in [wants.md](wants.md), and A13 in [engine_table.md](engine_table.md)). Its derived form is the τ tower: the finite windows extended a bit above at each stage, π_w's tower, have the limit ℤ₂, and extended a bit below, τ_k's tower, the limit ℝ ("The top projection and its limit ℝ").
-- **The quanta** (Doug's posit of 24 September, in [wants.md](wants.md)). Derived bound: every output quantum at level w has exactly 2^{3Ln} input quanta at level w + 3L, at every w, and the count passes to ℤ₂ as Haar measure ("Counting quanta"). The machine holds finite windows only, and the physical walls bound how many.
-- **The recursion stack** (Doug's posit of 24 September, in [wants.md](wants.md)). Derived bound: every stack the device runs is finite. T's limit sits at the first limit stage ω, with a computable modulus. Stages past ω are the machines of Hamkins and Lewis and of Koepke, not built ("The limit stage"). Orders in ℤ and ±ω on a finite window: "The ordered machine". Ordinals below ε₀ held as finite trees and walked down a million steps: "Goodstein: ω-towers held as finite objects".
+- **The inverted boundary** (the posit is in [wants.md](wants.md), and A13 in [engine_table.md](engine_table.md)). Its derived form is the τ tower: the finite windows extended a bit above at each stage, π_w's tower, have the limit ℤ₂, and extended a bit below, τ_k's tower, the limit ℝ ("The top projection and its limit ℝ").
+- **The quanta** (Doug's posit, in [wants.md](wants.md)). Derived bound: every output quantum at level w has exactly 2^{3Ln} input quanta at level w + 3L, at every w, and the count passes to ℤ₂ as Haar measure ("Counting quanta"). The machine holds finite windows only, and the physical walls bound how many.
+- **The recursion stack** (Doug's posit, in [wants.md](wants.md)). Derived bound: every stack the device runs is finite. T's limit sits at the first limit stage ω, with a computable modulus. Stages past ω are the machines of Hamkins and Lewis and of Koepke, not built ("The limit stage"). Orders in ℤ and ±ω on a finite window: "The ordered machine". Ordinals below ε₀ held as finite trees and walked down a million steps: "Goodstein: ω-towers held as finite objects".
 - **"Subtractive coalescence."** Posit, Doug's name for T. Derived bound: predict and update, a bijection, the pinch the predictable part moved ("Subtractive coalescence").
-- **"We can take an identity of T using T:null permutation of T"** (24 September, restating "T, if T is identity:null permutation identity, we have the perfect universal root id for the structure"). Posit. The identity is an ID, a fingerprint of the data's structure. It is not the identity map, nor the identity edge of A14.
+- **"We can take an identity of T using T:null permutation of T"** (restating "T, if T is identity:null permutation identity, we have the perfect universal root id for the structure"). Posit. The identity is an ID, a fingerprint of the data's structure. It is not the identity map, nor the identity edge of A14.
   - The procedure. Run T on the samples x and on d null draws σ_1 x, …, σ_d x, each σ_i a uniform random shuffle of the samples: A12's drawn null in [engine_table.md](engine_table.md). A lane is identified when its crystal's heap stands strictly below every draw's.
   - Derived. A shuffle keeps every value, the histogram and the count, and changes the arrangement only. x and its draws share one multiset of values, and any gap between T(x)'s heap and the draws' heaps reads arrangement alone. T keeps the count exactly (det M = 1, Haar counted): the gap is not T gaining or losing volume.
   - Derived. Under the null that x's arrangement is itself a uniform shuffle, x and the d draws are exchangeable, and the chance that x's heap stands strictly below all d draws is at most 1/(d + 1) ([Hope 1968](#src:Hope-1968)). This is A12's false-period rate, carried over.
-  - **Proved** (`test/engine/record_boundary_test`, 48 checks, 0 failed, cell_tracking main 24b2785). d = 8 Fisher–Yates shuffles a lane from the test's seeded generator, 256 lanes a class, the ID the crystal's total heap, the four classes of "The boundary". A shuffle keeps the samples' heap exactly, on every draw. Noise is identified no more often than 256/9 plus 5 standard deviations of the binomial count, and each structured class is identified past that bound.
+  - **Proved** (`test/engine/record_boundary_test`, 48 checks, 0 failed). d = 8 Fisher–Yates shuffles a lane from the test's seeded generator, 256 lanes a class, the ID the crystal's total heap, the four classes of "The boundary". A shuffle keeps the samples' heap exactly, on every draw. Noise is identified no more often than 256/9 plus 5 standard deviations of the binomial count, and each structured class is identified past that bound.
   - **Measured:** lanes identified, with the lane's crystal heap over the draws' mean in brackets: ramp 256 of 256 (0.13), ramp ±8 256 of 256 (0.33), ramp ±1,024 254 of 256 (0.73), noise 21 of 256 (1.00).
   - The claim is the rate, not every lane. The null bounds how often noise is identified; it promises nothing for any one structured lane. Two shallow ramps under ±1,024 were not identified: their noise swamps the slope, and their shuffles have little arrangement to destroy. A first form of the check asserted every structured lane and failed on those two.
   - **One to one** ("unique", not bit to bit; "change one bit and the permutation fails"). **Proved** in the same test.
@@ -690,8 +690,8 @@ Cited; both pages read, and only what they state is given.
     - Every single flipped bit changes the image: 8,192 of 8,192 pairs through T and 8,192 of 8,192 through T⁻¹.
     - Derived: both follow from T being a bijection. The crystal is a one-to-one ID of its samples. The heap fingerprint is many-to-one: it reads the arrangement's structure, not the samples.
 
-- **"The knf will be unique, it is the broken edge of the crystal"** and **"the only time a section of a knf will agree with another is either pure chance, or the knf belongs to more than one subset"** (24 September). Posit, and the next one to test. The .knf is the entropy history (M8, A7 in [engine_table.md](engine_table.md)); the name appears nowhere in the source.
-  - The measurement, as Doug set it on 25 September: "the null permutation + identity:null permutation is the measurement for knf, put it as the next posit to test for it". The knf is ranked against its spatial null permutation (`knf_identity`, below), and its identity is taken by the identity:null permutation, the procedure that identifies the crystal ("We can take an identity of T", below). "Unique" is then read as that rank and that identity, as for the heap fingerprint.
+- **"The knf will be unique, it is the broken edge of the crystal"** and **"the only time a section of a knf will agree with another is either pure chance, or the knf belongs to more than one subset"**. Posit, and the next one to test. The .knf is the entropy history (M8, A7 in [engine_table.md](engine_table.md)); the name appears nowhere in the source.
+  - The measurement, as Doug set it : "the null permutation + identity:null permutation is the measurement for knf, put it as the next posit to test for it". The knf is ranked against its spatial null permutation (`knf_identity`, below), and its identity is taken by the identity:null permutation, the procedure that identifies the crystal ("We can take an identity of T", below). "Unique" is then read as that rank and that identity, as for the heap fingerprint.
   - What is already measured: 1,500 of 8,192 single flipped bits leave the knf unchanged (`knf_identity`). The knf is not unique bit for bit, and the test above asks whether it is unique by its rank against the two nulls.
   - What the source holds. Derived from A7 and `entropy_history`. For each voxel x, bit j and window of transitions, the history keeps f_j(x), the number of transitions where bit j flips. It reads the raw 16-bit volume, before any lifting, and its parity check f_j(x) ≡ bit j of I_0(x) ⊕ I_{F−1}(x) proves it was taken whole.
   - Derived: the history is many-to-one, not a bijection. A count keeps how many transitions flipped a bit and loses which: a bit that flips at transitions 1 and 2 and one that flips at 3 and 4 give one count in one window. "Unique" can hold for it only as a statistical ID, like the heap fingerprint above, not as the crystal's one-to-one ID.
@@ -699,13 +699,13 @@ Cited; both pages read, and only what they state is given.
   - The null is spatial ("mutate the data over the spatial coordinate set xyz and get its entire null permutation id"). Built as `knf_identity` ("The knf's identity by spatial null permutation", above).
   - Open: "the broken edge of the crystal". The history reads raw bits, not the crystal or the part the prediction leaves. Whether the history computed on the crystal's highs is the edge Doug means is not settled.
   - Open: the agreement test between sections, comparing departure curves body against body. The curves are printed; the pairwise test is not built.
-- **The departure curve** (24 September): "each piece of information no matter how massive has its own departure curve, and it is the integral of all of its constituents". Posit. His words on comparing curves, and on the mutation as a vector magnitude difference, are in [wants.md](wants.md) with the pairwise test.
+- **The departure curve**: "each piece of information no matter how massive has its own departure curve, and it is the integral of all of its constituents". Posit. His words on comparing curves, and on the mutation as a vector magnitude difference, are in [wants.md](wants.md) with the pairwise test.
   - Derived: E is a sum over edges, and a departure is linear in E and in the draws' sums. The departure of a whole is the sum of its edges' departures, exactly: the integral of its constituents, with the edge as the constituent. The whole equals its tiles plus its seams at every tile size (proved).
   - Built: each body's curve over its box, the six bounds xmax, xmin, ymax, ymin, zmax and zmin.
-- **The two nulls** (24 September): "they should be very close to 1:1 with one being the inverse of the other, there may be crossover but it will be mutual in volume and universal magnitude". Posit.
+- **The two nulls**: "they should be very close to 1:1 with one being the inverse of the other, there may be crossover but it will be mutual in volume and universal magnitude". Posit.
   - Measured against it: the two are inverse, with the endpoints exact (inside 0 at b = 1, between 0 at b = 64), and they cross between b = 2 and 4. They are not 1:1: inside plus between dips to 0.590 at b = 4.
   - The gap 1 − (inside + between) is 0.41 at b = 4. A reading, not proved: an inside-shuffled pair in a small tile still shares a body, and neither null removes that co-membership. The gap is then the share both nulls keep, shared membership at scale b, the mutual part of the quote.
-- **The bulk and the boundary** (24 September; his words are in [wants.md](wants.md)).
+- **The bulk and the boundary** (his words are in [wants.md](wants.md)).
   - Derived: T is a bijection from the samples (the bulk) to the crystal (the boundary). Each coefficient reads a cone of reach 3L, and each sample is rebuilt from a cone of reach L + 2 (proved along one line, "The boundary").
   - The holographic codes are isometries with redundancy: a bulk operator can be rebuilt on more than one boundary region ([Almheiri, Dong and Harlow 2015](#src:Almheiri-Dong-and-Harlow-2015); [Pastawski, Yoshida, Harlow and Preskill 2015](#src:Pastawski-Yoshida-Harlow-and-Preskill-2015)).
   - T has no redundancy ("Redundancy" in Open): each sample has one region. T is a bulk-to-boundary map with no error correction, the contrast drawn under "Physical walls".
@@ -715,19 +715,19 @@ Cited; both pages read, and only what they state is given.
 - **The anchors** (above).
 - **The counts in D axes.** The reaches 3ℓ and 3ℓ − 2 for T and L + 2 for T⁻¹ are proved exact along one line ("The boundary"). In D axes they are open.
 - **The precision count as a test.** Proved since: `test/engine/record_boundary_test` flips input bits and meets the reach 3L on the device ("The boundary").
-- **A table by the residue.** A table indexed by x mod 2^b in two's complement factors through π_w for w ≥ b. **Proved** since: `test/engine/record_coherence_test` at 27af1a0 (in ab67a23), 21 checks, 0 failed (26 September). At b = 8, the wraps to 8, 13, 16, 31 and 32 bits read x's row on 20480 of 20480 lane-widths (Derived: 20480 = 5 × 4096), and the wrap to 5 bits, below b, breaks it on 2247 of 4096 lanes. A table indexed by the magnitude breaks at every width from 8 bits, on at least 778 of 4096 lanes. All 53248 reads are the row the host's two's-complement word names.
+- **A table by the residue.** A table indexed by x mod 2^b in two's complement factors through π_w for w ≥ b. **Proved** since: `test/engine/record_coherence_test`, 21 checks, 0 failed. At b = 8, the wraps to 8, 13, 16, 31 and 32 bits read x's row on 20480 of 20480 lane-widths (Derived: 20480 = 5 × 4096), and the wrap to 5 bits, below b, breaks it on 2247 of 4096 lanes. A table indexed by the magnitude breaks at every width from 8 bits, on at least 778 of 4096 lanes. All 53248 reads are the row the host's two's-complement word names.
 - **Operations that commute with T** ([vertical_time_compression.md](vertical_time_compression.md)), now on ℤ₂^n as on ℤ^n. `test/engine/record_boundary_test` proves that constants and lattice moves in 2^{3L}ℤ^n pass through T, and that negation and doubling do not. The general question is open.
-- **The fingerprint's counts.** **Proved** since: `test/engine/record_boundary_test` at 24b2785 (Doug's posits, above). The fingerprint per band, not only the total heap, is open.
-- **The knf's agreement as a test** (Doug's posits, above). The knf's identity by spatial null is built and run (`knf_identity`, e4eae72). The pairwise test, one body's departure curve against another's, is not built.
-- **The knf's uniqueness by the two nulls** (Doug's posits, above). The next posit to test: the knf ranked against its spatial null permutation, and its identity taken by the identity:null permutation (25 September). Not yet run.
+- **The fingerprint's counts.** **Proved** since: `test/engine/record_boundary_test` (Doug's posits, above). The fingerprint per band, not only the total heap, is open.
+- **The knf's agreement as a test** (Doug's posits, above). The knf's identity by spatial null is built and run (`knf_identity`). The pairwise test, one body's departure curve against another's, is not built.
+- **The knf's uniqueness by the two nulls** (Doug's posits, above). The next posit to test: the knf ranked against its spatial null permutation, and its identity taken by the identity:null permutation. Not yet run.
 - **The two nulls' gap.** Whether 1 − (inside + between) measures shared membership at scale b (a reading) is not proved.
 - **`record_order_test`** ("The ordered machine"). **Proved** since: 17 checks, 0 failed.
 - **Ω for R*.** The loop machine's Ω is not built.
 - **The last cell behind the start** ("π turning at the boundary"). How many of the 100 resolutions end at −jα is not counted.
-- **The arc's momentum as checks** ("The arc", posits 7 to 9). **Proved** since: `pi_tower`, 17 checks, 0 failed, at 7ed7fc6.
-- **The residue as a check** ("The arc", posit 14). For each floor with q_j ≤ 364,913, the integer turn's carries equal the permutation's wraps at every step n < q_j (q·c_n + k_{n+1} − k_n = p), giving the in-cell offset exactly as n·δ. **Proved** since: `pi_tower`, 23 checks, 0 failed, c26b6a7 (check 11, floors to 2^21).
-- **Any 2^n as a request argument** ("The arc", posit 13). **Proved** since: `pi_tower`, 23 checks, 0 failed, c26b6a7.
+- **The arc's momentum as checks** ("The arc", posits 7 to 9). **Proved** since: `pi_tower`, 17 checks, 0 failed.
+- **The residue as a check** ("The arc", posit 14). For each floor with q_j ≤ 364,913, the integer turn's carries equal the permutation's wraps at every step n < q_j (q·c_n + k_{n+1} − k_n = p), giving the in-cell offset exactly as n·δ. **Proved** since: `pi_tower`, 23 checks, 0 failed (check 11, floors to 2^21).
+- **Any 2^n as a request argument** ("The arc", posit 13). **Proved** since: `pi_tower`, 23 checks, 0 failed.
 - **Whether π obeys Lévy's constant** ("The golden helix"). π's mean pitch over 65 certified floors is 1.166, against Lévy's 1.187 for almost every real.
-- **Redundancy.** T is n-to-n and every crystal is legal (the written boundary, proved). A corrupted crystal is another crystal, and T⁻¹ returns other samples with no sign of it: T holds no error correction. **Built and proved** since: `test/engine/record_boundary_test` at b8a6a65 (in ab67a23), 59 checks, 0 failed (26 September). Each coefficient c in [−2^21, 2^21) is carried as y = c + 2^21 in [0, 2^22), modulo 2053, 2063, 2069 and 2081, and two of the moduli cover the range (Derived: 2053·2063 = 4,235,339 ≥ 2^22 = 4,194,304). The decoder in the machine is Garner's mixed radix over all four, and a value past the range is the syndrome. It then reconstructs from each three, and the correction is the mean of the reconstructions inside the range. Over 16384 coefficients on 256 crystals: clean, 0 false alarms; one residue corrupted in 8115, every one corrected, and T⁻¹ returns the samples on 256 of 256 crystals; two corrupted in 8244, every one detected, and the one-error correction misses all 8244. Without the code, the two information residues read 4098 coefficients as another's, and T⁻¹ runs on all 256 crystals and returns other samples on 256. With two redundant moduli the code's distance is 3: it corrects one residue or flags two, and it does not guarantee both on one coefficient. How many of the 8244 double errors returned a wrong value in the range is not printed. The code is the classical analog, on this boundary, of the error-correcting codes of holography, a reading.
+- **Redundancy.** T is n-to-n and every crystal is legal (the written boundary, proved). A corrupted crystal is another crystal, and T⁻¹ returns other samples with no sign of it: T holds no error correction. **Built and proved** since: `test/engine/record_boundary_test`, 59 checks, 0 failed. Each coefficient c in [−2^21, 2^21) is carried as y = c + 2^21 in [0, 2^22), modulo 2053, 2063, 2069 and 2081, and two of the moduli cover the range (Derived: 2053·2063 = 4,235,339 ≥ 2^22 = 4,194,304). The decoder in the machine is Garner's mixed radix over all four, and a value past the range is the syndrome. It then reconstructs from each three, and the correction is the mean of the reconstructions inside the range. Over 16384 coefficients on 256 crystals: clean, 0 false alarms; one residue corrupted in 8115, every one corrected, and T⁻¹ returns the samples on 256 of 256 crystals; two corrupted in 8244, every one detected, and the one-error correction misses all 8244. Without the code, the two information residues read 4098 coefficients as another's, and T⁻¹ runs on all 256 crystals and returns other samples on 256. With two redundant moduli the code's distance is 3: it corrects one residue or flags two, and it does not guarantee both on one coefficient. How many of the 8244 double errors returned a wrong value in the range is not printed. The code is the classical analog, on this boundary, of the error-correcting codes of holography, a reading.
   - Prior art, cited from knowledge. The mixed-radix conversion is [Garner's (1959)](#src:Garner-1959). A residue system with redundant moduli as a code that checks itself is [Watson and Hastings (1966)](#src:Watson-and-Hastings-1966), and its correcting power in the number of redundant moduli is [Barsi and Maestrini (1973)](#src:Barsi-and-Maestrini-1973). [Szabo and Tanaka (1967)](#src:Szabo-and-Tanaka-1967) is the standard text.
 

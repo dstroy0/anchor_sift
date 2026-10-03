@@ -3,7 +3,7 @@
 
 \textbf{Purpose:} the algebra of the record machine's stacked floors: what a stack is, what it compresses, what it leaves as it is, what bounds its file and its record, how its values and widths fill the floors of the two towers, and what is proved, measured and derived about it.
 
-\textbf{Scope:} the record machine (M10 and A13 in \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}): \texttt{keymath} imprints a program, \texttt{key\_\allowbreak{}schedule} lays it out, \texttt{cycle} sweeps it. The shape is Doug's (24 September): a floor, the operations in order above it, the next floor, and so on up, with the top conjunction performing the whole transform.
+\textbf{Scope:} the record machine (M10 and A13 in \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}): \texttt{keymath} imprints a program, \texttt{key\_\allowbreak{}schedule} lays it out, \texttt{cycle} sweeps it. The shape is Doug's: a floor, the operations in order above it, the next floor, and so on up, with the top conjunction performing the whole transform.
 
 \textbf{Labels.}
 
@@ -42,7 +42,7 @@
 \item A register is live from the step that writes it to its last reader. With reuse on, the file needs the most limbs live at any one step, plus any gap first fit leaves between registers of different limb counts.
 \item The atom is not in the file. A field step copies its field from the record, in device memory, into a register. That register counts against the file only until its last reader. A program that reads many fields, each read late and used at once, runs in a small file: one lifting level over a 4-D cone reads 625 fields in 15 limbs (derived, below).
 \item The file's size follows the order of the steps. At a floor it holds that floor's registers. Inside a round it holds the registers of the floor below still to be read, and the round's own registers not yet read for the last time.
-\item The step count has no bound of its own. \texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}STEPS\_\allowbreak{}MAX} held one sign per step. Since 24 September each sign sits beside its register. The file (\texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LIMBS\_\allowbreak{}MOST}, 256 limbs) is now the only bound on the program.
+\item The step count has no bound of its own. Each sign sits beside its register. The file (\texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LIMBS\_\allowbreak{}MOST}, 256 limbs) is the only bound on the program.
 \item The record's own length is a separate bound (below).
 \item \textbf{Measured:} 4,204 steps in an 8-limb file (the stack test), and in a 12-limb file with its words carried as 33-bit fields (the chained measure).
 \end{itemize}
@@ -178,7 +178,7 @@ Derived from \texttt{key\_\allowbreak{}schedule.\allowbreak{}cu} and \texttt{cyc
 
 \section{\texorpdfstring{The two towers}{The two towers}}
 
-Doug's (24 September): a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
+Doug's: a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
 
 \begin{itemize}
 \item \textbf{The crystal's tower T} is the 5/3 integer lifting of \texttt{engine/\allowbreak{}base/\allowbreak{}tower/\allowbreak{}tower.\allowbreak{}cu} (A14 in \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}). One level over a line of samples x:
@@ -261,7 +261,7 @@ axes D (one level) & samples read & steps & file & the all-low coefficient's der
 \item \textbf{Widths across levels.} Derived.
 
 \begin{itemize}
-\item \textbf{The constant-divisor narrowing} (24 September). keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2\textasciicircum{}\{w − ⌊log2 c⌋\} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. \textbf{Proved} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test}, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2\textasciicircum{}32 + 7 divide back exactly, a 64-bit value over 2\textasciicircum{}32 + 7 equals the library's quotient, and the widths are exactly the rule's.
+\item \textbf{The constant-divisor narrowing}. keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2\textasciicircum{}\{w − ⌊log2 c⌋\} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. \textbf{Proved} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test}, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2\textasciicircum{}32 + 7 divide back exactly, a 64-bit value over 2\textasciicircum{}32 + 7 equals the library's quotient, and the widths are exactly the rule's.
 \item With it, keymath gives a high of 16-bit samples 18 bits and a low 20. Each level adds 4 bits to a low: 16, 20, 24, 28, and 40 at level 6, two limbs. Before it, 7 bits a level: 23, 30, and 58 at level 6. The proved program's file is 12 limbs under either rule.
 \item The values grow far less. The low's linear part is (−1, 2, 6, 2, −1)/8 over x\_\allowbreak{}\{2i−2\} to x\_\allowbreak{}\{2i+2\}, with Σ|c| = 1.5. Its floors add less than 3/4.
 \item Over samples |x| ≤ B: |s| ≤ 1.5B + 1 and |d| ≤ 2B. The edge cases (a line of 2 or 3, either end) repeat a neighbor and keep Σ|c| ≤ 1.5 for a low and 2 for a high.
@@ -339,7 +339,7 @@ D & tile & samples read & steps a sample & the whole grid, steps a sample & file
 
 \section{\texorpdfstring{The two boundaries}{The two boundaries}}
 
-Doug's (24 September): the bottom boundary of the inverted tower and the bottom boundary of the upright tower are the same boundary, right next to one another, never touching.
+Doug's: the bottom boundary of the inverted tower and the bottom boundary of the upright tower are the same boundary, right next to one another, never touching.
 
 \begin{itemize}
 \item \textbf{The floors.}
@@ -395,7 +395,7 @@ Doug's (24 September): the bottom boundary of the inverted tower and the bottom 
 
 \section{\texorpdfstring{The heap and the ring}{The heap and the ring}}
 
-Doug's framing (24 September, paraphrased): domain and range are complete and defined across the whole function. Information heaps, and stretched out it looks fuzzed, but it always stays within the domain's bound, “ever ringed”. Abstractly it is a fuzzy oval brush stroke, and the more oval the shape, the more complex the information.
+Doug's framing (paraphrased): domain and range are complete and defined across the whole function. Information heaps, and stretched out it looks fuzzed, but it always stays within the domain's bound, “ever ringed”. Abstractly it is a fuzzy oval brush stroke, and the more oval the shape, the more complex the information.
 
 \begin{itemize}
 \item \textbf{The heap} of a floor, on one lane: Σ over the floor's registers of the value's magnitude bits, plus 1 for the sign where the value is nonzero.
@@ -447,7 +447,7 @@ T⁻¹ 0 & 857 & 851 & 856 & 960 & 5,059 \\
 \item The wrap at the mirror (derived, built). The inverse floor k holds the forward floor k's values, each within its forward register's width b. WRAP(v, b + 1) on each rebuilt register passes its value through unchanged, and WRAP(v, 16) on the rebuilt samples is exact on 16-bit input. The bound comes from the mirror and holds whatever the values are. It needs T⁻¹ ∘ T = id: with an operation between the towers the mirror breaks, and a wrap placed by it is silently wrong.
 
 \begin{itemize}
-\item \textbf{Note, 26 September.} Built at orior d45794d, inside the pin ddeccb3. \texttt{boundary\_\allowbreak{}mirror} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test.\allowbreak{}cu:232-\allowbreak{}240}) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (\texttt{BOUNDARY\_\allowbreak{}TEST\_\allowbreak{}FIELD\_\allowbreak{}BITS}, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
+\item \textbf{Note.} Built. \texttt{boundary\_\allowbreak{}mirror} (\texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test.\allowbreak{}cu}) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths. The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (\texttt{BOUNDARY\_\allowbreak{}TEST\_\allowbreak{}FIELD\_\allowbreak{}BITS}, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
 \end{itemize}
 \end{itemize}
 \item \textbf{The ring under the three rules.} Derived (replica). The first column reproduces the scratch run's ring exactly.
@@ -509,7 +509,7 @@ steps; widest register; file & 1,966; 82 bits; 171 limbs & 1,966; 58 bits; 130 l
 
 \section{\texorpdfstring{The lens}{The lens}}
 
-Doug's posit of 24 September, the crystal as a lens between our universe and information space, is kept verbatim in \hyperref[chap:wants]{wants.md}. What the engine measures and derives about it follows.
+Doug's posit, the crystal as a lens between our universe and information space, is kept verbatim in \hyperref[chap:wants]{wants.md}. What the engine measures and derives about it follows.
 
 \begin{itemize}
 \item \textbf{What the measure supports.} Measured in the scratch run above: the crystal concentrates a lane's structure. The ramp's 857 bits go to 70, 12×, and the pinch ranks the four classes by their complexity. A cleaner crystal, a sparser heap, is a sharper focus, and the pinch is a per-lane reading of how much structure the lens sees.
@@ -552,8 +552,8 @@ Derived.
 \section{\texorpdfstring{The lane index and the latch}{The lane index and the latch}}
 
 \begin{itemize}
-\item \textbf{The lane index.} Derived from \texttt{cycle.\allowbreak{}cu}: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 at orior \texttt{1fbc0c5} (\texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LANE}).
-\item \textbf{The latch.} Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15 at orior \texttt{1fbc0c5}.
+\item \textbf{The lane index.} Derived from \texttt{cycle.\allowbreak{}cu}: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 (\texttt{ENGINE\_\allowbreak{}RECORD\_\allowbreak{}LANE}).
+\item \textbf{The latch.} Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15.
 \end{itemize}
 
 \section{\texorpdfstring{Tables}{Tables}}
@@ -583,7 +583,7 @@ Derived.
 \item \textbf{The smallest file.} An order of the lifting's steps with a smaller file than depth-first, or a proof that none exists.
 \item \textbf{F ∘ T⁻¹ in D axes.} The bound on its distance from the linear F ∘ W⁻¹, and any particular F that runs through T⁻¹ in fewer steps than the two apart.
 \item \textbf{Operations that commute with T.} Which operations on the lifted floors, edges included, commute with T, and run on the samples with no lifting.
-\item \textbf{The heap and the wrap at the mirror as tests.} The scratch runs committed as tests, and the heap tabled under the narrowed widths. \textbf{Proved} since: \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} (41 checks, 0 failed, cell\_\allowbreak{}tracking main de5bdff) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring\_\allowbreak{}0 + 6(n − n/2\textasciicircum{}ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in \hyperref[chap:two-crystals]{two\_\allowbreak{}crystals.md}.
+\item \textbf{The heap and the wrap at the mirror as tests.} The scratch runs committed as tests, and the heap tabled under the narrowed widths. \textbf{Proved} since: \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} (41 checks, 0 failed) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring\_\allowbreak{}0 + 6(n − n/2\textasciicircum{}ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in \hyperref[chap:two-crystals]{two\_\allowbreak{}crystals.md}.
 \item \textbf{The oval.} Which shape it is, the heap's hourglass or the gap between heap and ring, is Doug's call.
 \item \textbf{The lens.} Whether a ladder of lenses comes closer to K on a named class of lanes, and what “tetrated resources” measures.
 \item \textbf{The whole crystal as one stack.} The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.

@@ -2,7 +2,7 @@
 
 **Purpose:** the algebra of the record machine's stacked floors: what a stack is, what it compresses, what it leaves as it is, what bounds its file and its record, how its values and widths fill the floors of the two towers, and what is proved, measured and derived about it.
 
-**Scope:** the record machine (M10 and A13 in [engine_table.md](engine_table.md)): `keymath` imprints a program, `key_schedule` lays it out, `cycle` sweeps it. The shape is Doug's (24 September): a floor, the operations in order above it, the next floor, and so on up, with the top conjunction performing the whole transform.
+**Scope:** the record machine (M10 and A13 in [engine_table.md](engine_table.md)): `keymath` imprints a program, `key_schedule` lays it out, `cycle` sweeps it. The shape is Doug's: a floor, the operations in order above it, the next floor, and so on up, with the top conjunction performing the whole transform.
 
 **Labels.**
 
@@ -31,7 +31,7 @@
    - A register is live from the step that writes it to its last reader. With reuse on, the file needs the most limbs live at any one step, plus any gap first fit leaves between registers of different limb counts.
    - The atom is not in the file. A field step copies its field from the record, in device memory, into a register. That register counts against the file only until its last reader. A program that reads many fields, each read late and used at once, runs in a small file: one lifting level over a 4-D cone reads 625 fields in 15 limbs (derived, below).
    - The file's size follows the order of the steps. At a floor it holds that floor's registers. Inside a round it holds the registers of the floor below still to be read, and the round's own registers not yet read for the last time.
-   - The step count has no bound of its own. `ENGINE_RECORD_STEPS_MAX` held one sign per step. Since 24 September each sign sits beside its register. The file (`ENGINE_RECORD_LIMBS_MOST`, 256 limbs) is now the only bound on the program.
+   - The step count has no bound of its own. Each sign sits beside its register. The file (`ENGINE_RECORD_LIMBS_MOST`, 256 limbs) is the only bound on the program.
    - The record's own length is a separate bound (below).
    - **Measured:** 4,204 steps in an 8-limb file (the stack test), and in a 12-limb file with its words carried as 33-bit fields (the chained measure).
 3. **Widths are derived, never declared.**
@@ -114,7 +114,7 @@ Derived from `key_schedule.cu` and `cycle.cu`:
 
 ## The two towers
 
-Doug's (24 September): a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
+Doug's: a second tower stacked over the first one's boundary, inverted, and the two collapse together. One is the crystal, the tower of the data's lifted floors. The other is the tower of operations, the stack above.
 
 - **The crystal's tower T** is the 5/3 integer lifting of `engine/base/tower/tower.cu` (A14 in [engine_table.md](engine_table.md)). One level over a line of samples x:
   - the high d_j = x_{2j+1} − ⌊(x_{2j} + x_{2j+2}) / 2⌋;
@@ -163,7 +163,7 @@ Doug's (24 September): a second tower stacked over the first one's boundary, inv
   - The file stays far below the samples read. The count of samples read is not a bound on the file.
   - Depth-first is one order among many, and the order with the smallest file is not known here. Finding the smallest register file for a program without recomputation is NP-complete in general (Sethi, "Complete register allocation problems", SIAM J. Comput. 4, 1975).
 - **Widths across levels.** Derived.
-  - **The constant-divisor narrowing** (24 September). keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2^{w − ⌊log2 c⌋} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. **Proved** (`test/engine/record_divide_test`, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2^32 + 7 divide back exactly, a 64-bit value over 2^32 + 7 equals the library's quotient, and the widths are exactly the rule's.
+  - **The constant-divisor narrowing**. keymath gives a quotient or exact quotient whose divisor is a constant c the dividend's width less ⌊log2 c⌋ bits, never under 1. The engine's quotient rounds toward zero and the exact quotient does not round: |q| ≤ |v|/c < 2^{w − ⌊log2 c⌋} for a w-bit dividend. The floor toward −∞ belongs to the lifting's composite of an and, a difference and an exact quotient, never to one operation. The exact quotient now works at its numerator's width and checks q · c against the whole numerator. **Proved** (`test/engine/record_divide_test`, 19 checks, 0 failed): 40-bit factors times 3, 12 and 2^32 + 7 divide back exactly, a 64-bit value over 2^32 + 7 equals the library's quotient, and the widths are exactly the rule's.
   - With it, keymath gives a high of 16-bit samples 18 bits and a low 20. Each level adds 4 bits to a low: 16, 20, 24, 28, and 40 at level 6, two limbs. Before it, 7 bits a level: 23, 30, and 58 at level 6. The proved program's file is 12 limbs under either rule.
   - The values grow far less. The low's linear part is (−1, 2, 6, 2, −1)/8 over x_{2i−2} to x_{2i+2}, with Σ|c| = 1.5. Its floors add less than 3/4.
   - Over samples |x| ≤ B: |s| ≤ 1.5B + 1 and |d| ≤ 2B. The edge cases (a line of 2 or 3, either end) repeat a neighbor and keep Σ|c| ≤ 1.5 for a low and 2 for a high.
@@ -211,7 +211,7 @@ Doug's (24 September): a second tower stacked over the first one's boundary, inv
 
 ## The two boundaries
 
-Doug's (24 September): the bottom boundary of the inverted tower and the bottom boundary of the upright tower are the same boundary, right next to one another, never touching.
+Doug's: the bottom boundary of the inverted tower and the bottom boundary of the upright tower are the same boundary, right next to one another, never touching.
 
 - **The floors.**
   - T stands up from its floor 0, the samples. T⁻¹ hangs down and ends on its floor 0, the rebuilt samples.
@@ -247,7 +247,7 @@ Doug's (24 September): the bottom boundary of the inverted tower and the bottom 
 
 ## The heap and the ring
 
-Doug's framing (24 September, paraphrased): domain and range are complete and defined across the whole function. Information heaps, and stretched out it looks fuzzed, but it always stays within the domain's bound, "ever ringed". Abstractly it is a fuzzy oval brush stroke, and the more oval the shape, the more complex the information.
+Doug's framing (paraphrased): domain and range are complete and defined across the whole function. Information heaps, and stretched out it looks fuzzed, but it always stays within the domain's bound, "ever ringed". Abstractly it is a fuzzy oval brush stroke, and the more oval the shape, the more complex the information.
 
 - **The heap** of a floor, on one lane: Σ over the floor's registers of the value's magnitude bits, plus 1 for the sign where the value is nonzero.
 - **The ring** of a floor: Σ over the floor's registers of the imprint's widths. It belongs to the program and is the same on every lane.
@@ -281,7 +281,7 @@ Doug's framing (24 September, paraphrased): domain and range are complete and de
 - **Two fixes.**
   - The constant-divisor narrowing (built and proved, above).
   - The wrap at the mirror (derived, built). The inverse floor k holds the forward floor k's values, each within its forward register's width b. WRAP(v, b + 1) on each rebuilt register passes its value through unchanged, and WRAP(v, 16) on the rebuilt samples is exact on 16-bit input. The bound comes from the mirror and holds whatever the values are. It needs T⁻¹ ∘ T = id: with an operation between the towers the mirror breaks, and a wrap placed by it is silently wrong.
-    - **Note, 26 September.** Built at orior d45794d, inside the pin ddeccb3. `boundary_mirror` (`test/engine/record_boundary_test.cu:232-240`) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths (:1125-1139). The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (`BOUNDARY_TEST_FIELD_BITS`, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
+    - **Note.** Built. `boundary_mirror` (`test/engine/record_boundary_test.cu`) emits WRAP(v, b + 1) on every rebuilt register, b its forward twin's width, after the forward tower is imprinted alone for those widths. The rebuilt samples take the same wrap. Their twins are the 24-bit signed fields (`BOUNDARY_TEST_FIELD_BITS`, :43), and the wrap there is WRAP(v, 25). The checks are at :1155, :1293 and :1296. WRAP(v, 16) at the samples' own width on 16-bit input is not exercised.
 - **The ring under the three rules.** Derived (replica). The first column reproduces the scratch run's ring exactly.
 
   | floor | before the narrowing | narrowed | narrowed, wrapped at the mirror |
@@ -321,7 +321,7 @@ Doug's framing (24 September, paraphrased): domain and range are complete and de
 
 ## The lens
 
-Doug's posit of 24 September, the crystal as a lens between our universe and information space, is kept verbatim in [wants.md](wants.md). What the engine measures and derives about it follows.
+Doug's posit, the crystal as a lens between our universe and information space, is kept verbatim in [wants.md](wants.md). What the engine measures and derives about it follows.
 
 - **What the measure supports.** Measured in the scratch run above: the crystal concentrates a lane's structure. The ramp's 857 bits go to 70, 12×, and the pinch ranks the four classes by their complexity. A cleaner crystal, a sparser heap, is a sharper focus, and the pinch is a per-lane reading of how much structure the lens sees.
 - **What bounds it.** Derived.
@@ -350,8 +350,8 @@ Derived.
 
 ## The lane index and the latch
 
-- **The lane index.** Derived from `cycle.cu`: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 at orior `1fbc0c5` (`ENGINE_RECORD_LANE`).
-- **The latch.** Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15 at orior `1fbc0c5`.
+- **The lane index.** Derived from `cycle.cu`: the kernel holds each lane's number as a 64-bit loop variable, and no step reads it. A step that writes it into a register is open on main, and built off main, in PR 15 (`ENGINE_RECORD_LANE`).
+- **The latch.** Derived. The first lane that meets a condition is the minimum over lanes of ℓ where the condition holds, with ∞ where it does not. The minimum is associative, commutative and idempotent. Any grouping returns the same lane as a serial scan from lane 0: a tree of depth ⌈log2 lanes⌉, or a device-wide atomic minimum. The latch is not built on main, and built off main, in PR 15.
 
 ## Tables
 
@@ -374,7 +374,7 @@ Derived.
 - **The smallest file.** An order of the lifting's steps with a smaller file than depth-first, or a proof that none exists.
 - **F ∘ T⁻¹ in D axes.** The bound on its distance from the linear F ∘ W⁻¹, and any particular F that runs through T⁻¹ in fewer steps than the two apart.
 - **Operations that commute with T.** Which operations on the lifted floors, edges included, commute with T, and run on the samples with no lifting.
-- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed, cell_tracking main de5bdff) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
+- **The heap and the wrap at the mirror as tests.** The scratch runs committed as tests, and the heap tabled under the narrowed widths. **Proved** since: `test/engine/record_boundary_test` (41 checks, 0 failed) runs T then T⁻¹ over 64 samples at 4 levels with the mirror wraps, every floor an output. The heap mirrors on every lane, the ring is ring_0 + 6(n − n/2^ℓ) at floor ℓ and one bit wider for each wrapped low at its mirror, and the pinch orders the four classes; the ring derived in [two_crystals.md](two_crystals.md).
 - **The oval.** Which shape it is, the heap's hourglass or the gap between heap and ring, is Doug's call.
 - **The lens.** Whether a ladder of lenses comes closer to K on a named class of lanes, and what "tetrated resources" measures.
 - **The whole crystal as one stack.** The proof above is one level along one line. All levels along all four axes as record floors, against tower.cu's own crystal, is not built.

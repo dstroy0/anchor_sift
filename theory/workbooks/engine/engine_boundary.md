@@ -3,11 +3,11 @@
 **Purpose:** Two rulings on what the engine may hold, with the dates they were made and what prompted them. No later build crosses either.
 **Scope:** everything under `engine/`.
 
-## The engine carries no cell tracking (23 September)
+## The engine carries no cell tracking
 
 Never put cell-specific tracking into the engine. Doug had said it at length before this ruling.
 
-Restated 25 September: "absolutely anything to do with tracking microorganisms goes into cell tracking, not into the engine." Basins (binomial_basins' steepest-ascent cut, basin_overlap) are tracking, a concept only: they live in cell_tracking/src and drive the engine's generic calls (engine_residual, grow_leaves, linking). They were deleted from the engine on his order, and they are not to be put back there; the question is closed.
+Restated "absolutely anything to do with tracking microorganisms goes into cell tracking, not into the engine." Basins (binomial_basins' steepest-ascent cut, basin_overlap) are tracking, a concept only: they live in cell_tracking/src and drive the engine's generic calls (engine_residual, grow_leaves, linking). They were deleted from the engine on his order, and they are not to be put back there; the question is closed.
 
 - The engine holds math only: trees, cuts, overlaps, fields, exact integers. Nothing in engine/ may name or know about cells, divisions, daughters, key cells, moves, merges, appear/disappear, or grading against the answer key.
 - Cell semantics and oracle grading go in cell_tracking/. They compose the engine's generic outputs there.
@@ -20,7 +20,7 @@ What prompted it: in the 9c/9d overlap work, max_tree got
 
 engine/base/oracle/score_sample also got the key-division and key-cell grading.
 
-## The engine is optimized for no scale (23 September)
+## The engine is optimized for no scale
 
 "what we want to avoid is optimizing the engine for any particular scale, which is what you have been consistently doing that I have been having you rip out over and over, it's dangerous".
 

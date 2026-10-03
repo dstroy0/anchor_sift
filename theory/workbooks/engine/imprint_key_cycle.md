@@ -5,7 +5,7 @@
 
 ## The atom
 
-Atom is the storage class and what it holds: all of the smallest thing under inspection, at whatever scale that thing is. A frame can be an atom, a letter, a part of a cell, a literal atom, a basketball. In the residual today it is one frame. Its lanes are its sixteen bit samples in raster order, lane i at place 2^(16 i). The frame is then one exact integer, the stored stack is that integer's limbs, and nothing is converted to hold it.
+Atom is the storage class and what it holds: all of the smallest thing under inspection, at whatever scale that thing is. A frame can be an atom, a letter, a part of a cell, a literal atom, a basketball. In the residual it is one frame. Its lanes are its sixteen bit samples in raster order, lane i at place 2^(16 i). The frame is then one exact integer, the stored stack is that integer's limbs, and nothing is converted to hold it.
 
 ## 1. Imprint: transitivity makes a chain one thing
 
