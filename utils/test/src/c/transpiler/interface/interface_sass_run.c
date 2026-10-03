@@ -109,6 +109,14 @@ int main(int count, char **words)
             number += 1ul;
             continue;
         }
+        // a line the writer held off the part: its turned operation key holds a control transfer, a wait or no form,
+        // and running it could loop or stall the part. It is answered without the device
+        if (strcmp(path, "skip") == 0)
+        {
+            fprintf(answers, "%lu skipped %s\n", number, kernel);
+            number += 1ul;
+            continue;
+        }
         unsigned int answered[SASS_RUN_OUT_WORDS] = {0u, 0u, 0u, 0u};
         const CUresult status = sass_run_one(path, kernel, answered);
         if (status != CUDA_SUCCESS)
