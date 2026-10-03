@@ -27,7 +27,7 @@ The constants come from the engine's `no_rounding` module and from the private p
   same values or a cross check between them means nothing (`exact_integer.h` line 45).
 - NTT precision constants: pinned in `theory/`, not in `src/`. The proof is
   `theory/theory/precision/chapters/chapter_twiddle_proof.tex`; the standalone paper, also on the
-  Cryptology ePrint Archive, is `theory/theory/twiddle_constants_article.tex`. No NTT is implemented in
+  Cryptology ePrint Archive, is `theory/theory/cryptography/twiddle_constants/main.tex`. No NTT is implemented in
   `src/` (a grep of the five moduli hits only `theory/`). No code-level prime table exists to
   cite. A prime table in `src/` that nothing calls would be a knob with no reader.
 
@@ -35,7 +35,7 @@ The constants come from the engine's `no_rounding` module and from the private p
 
 Each modulus below was checked by factoring `p-1`, measuring the 2-adic part, confirming the generator
 is a primitive root (`g^((p-1)/q) != 1` for every prime `q | p-1`), and confirming each Proth witness
-(`a^((p-1)/2) == p-1 (mod p)`). Numbers agree with `theory/theory/twiddle_constants_article.tex` lines
+(`a^((p-1)/2) == p-1 (mod p)`). Numbers agree with `theory/theory/cryptography/twiddle_constants/main.tex` lines
 198 to 200 (device primes), line 126 (goldilocks), and line 205 (the wrap finding).
 
 | modulus              | shape           | bits | below 2^31 | p-1                   | 2-adic | generator | Proth witness |
@@ -58,7 +58,7 @@ Two notes from that check:
 
 ### The wrap finding, reproduced
 
-`theory/theory/twiddle_constants_article.tex` line 205: the first device kernel agreed with the host
+`theory/theory/cryptography/twiddle_constants/main.tex` line 205: the first device kernel agreed with the host
 on `2013265921` and differed in every slot on the other two, because two residues below a modulus
 above `2^31` sum past `2^32` and wrap silently in `uint32`, and the borrow in the difference does the
 same. Reproduced here: for two residues just under the modulus, the `uint32`-wrapped sum reduced mod
@@ -73,7 +73,7 @@ and `3892314113` (above `2^31`).
 - Device arm: NTT multiply over the three Proth primes, reassembled by CRT (Garner), used only when
   both operands are at least 1024 limbs. That crossover is a measured floor and sets no direction.
 - That repository is private, and a citation from public `orior` into one of its paths resolves
-  for nobody. All citations go to `theory/theory/twiddle_constants_article.tex`, tracked in this public
+  for nobody. All citations go to `theory/theory/cryptography/twiddle_constants/main.tex`, tracked in this public
   tree and on ePrint.
 
 ### Decision: the image_transforms translation prime
@@ -105,7 +105,7 @@ run, exit 0:
   control), refuses a composite of Proth shape (49 = 3·2^4+1), refuses a false primitive-root claim
   (9 on 998244353), and reproduces the fiddled twiddle: a root of half the order passes `w0=1`,
   `sum=0`, `sum^2=0` and the group law, and fails only the order test. That reproduces
-  `twiddle_constants_article.tex` lines 163 to 179.
+  `theory/theory/cryptography/twiddle_constants/main.tex` lines 163 to 179.
 - `examples/0_experimental/exact_translation_by_ntt.py`: the NTT correlation equals the direct O(N^2)
   count at every one of 95 lags on binary views, and its argmax recovers the planted shift. The drawn
   null sets the true-shift peak against the best spurious peak between two independent views. The
