@@ -506,3 +506,287 @@ radiation" as the best candidate theory, and states the theory of the light-emit
 still open. Ionized gas is plasma, and the author's statement is the candidate the review prefers.
 It moves to a hit when the 2005 paper, or another measurement of the ionized gas, is held and
 read.
+
+---
+
+**Scored, 2026-10-03, after the 2005 paper was held and read.**
+
+**Hit.** Flannigan and Suslick, *Plasma formation and temperature measurement during single-bubble
+cavitation*, Nature 434 (2005) 52--55, read in full. In sulphuric acid under argon they measure
+emission from argon states about 13 eV above the ground state and from O$_2^+$, which "cannot be
+thermally populated at the measured Ar emission temperatures", and conclude that "these emitting
+species must originate from collisions with high-energy electrons, ions or particles from a hot
+plasma core." The review of I11, read in full since, names bremsstrahlung from "a dense ionized
+region" as its most complete candidate. Both meet the criterion.
+
+### I13. Shear heating turns to steam sheets, and one sheet of water rides another on the steam
+
+**In the author's words:** "shear heating turns to steam sheets we already know you can accelerate
+a sheet of water over another on a steam cushion."
+
+**Already known when written, and so not a blind prediction for the second half.** The recorder
+knows by name, and has not held or read, work on the Leidenfrost effect and on drag reduction by a
+vapor layer around a hot sphere moving through water. Duraiswami, read in full, puts the viscous
+heating of the forced construction in water at about 0.01 K before the core cavitates. Barber and
+others, section 2, report that a stirrer opens voids in the liquid. Ladyzhenskaya (1968), read in
+full, couples the viscosity to the temperature through the shear heating and, for a viscosity that
+rises with temperature, finds the coupling regularizing.
+
+**What the recorder expects, stated before reading.** In water the viscosity falls as it heats,
+$(\ln\mu)' = -0.0245$ per kelvin at $20\,^\circ$C and atmospheric pressure (IAPWS R12-08). Shear
+heating then thins the layer that is heating, the shear gathers into it, and it heats faster: a
+runaway, and the end of the runaway is the phase change the author names. Two speeds from the
+water properties, evaluated with the IAPWS formulations at $20\,^\circ$C and $0.101325$ MPa:
+
+- the speed at which the dropped term matches the kept one, the scaling estimate of the first
+  workbook chapter, $U^* = \sqrt{k/(2\mu|(\ln\mu)'|)} = 110$ m/s;
+- the velocity jump across a layer whose walls are held at $20\,^\circ$C that heats its middle to
+  $100\,^\circ$C with the viscosity held fixed, $U = \sqrt{8k\,\Delta T/\mu} = 618$ m/s.
+
+The recorder expects the runaway to start near the first speed and to reach steam below the
+second, since the viscosity falls as it heats. Where the pressure is already near the vapor
+pressure, $0.00234$ MPa at $20\,^\circ$C, as in the core of a turning column, almost no heating is
+needed, and the steam sheet and the cavitation of the core are one event.
+
+**Test.** For the second half: a source on drag reduction by a vapor layer in water, held and
+read. For the first half: a source on thermal runaway in plane shear of a liquid whose viscosity
+falls with temperature, held and read, and a source reporting vapor formed in water by shear
+heating alone.
+
+**Criterion, written by the recorder.** Second half: hit if a source held reports that a vapor
+layer between water and a moving body lowers the drag by a measured factor. First half: hit if a
+source held reports that shear heating in a liquid whose viscosity falls with temperature
+gathers into a thin layer with no steady state above a critical speed, and that in water that
+layer reaches vapor; open if only the runaway is reported and the vapor is not; miss if a source
+held shows the runaway does not occur in water at speeds the forced construction reaches before
+its core cavitates.
+
+---
+
+**The author's addition, given after the entry above was fixed with SHA-256 `9d32f9f1`.**
+"especially if theres a layer difference, chemical, density, temperature or otherwise."
+
+**What the recorder expects, stated before reading.** Where two layers differ, the shear gathers at
+the boundary between them, since that is where the velocity jumps, and each kind of difference
+lowers what the steam sheet needs there:
+
+- temperature: a layer already warmer starts nearer the boiling point and needs a smaller rise,
+  and its lower viscosity takes more of the shear;
+- chemical: a component that boils lower, or dissolved gas, starts the vapor at a smaller rise,
+  and gas lowers the barrier to nucleation (Caupin and Herbert);
+- density: a stable density step holds the boundary flat while the layers slide. The shear
+  stays at one surface instead of spreading.
+
+The recorder expects the steam sheet, where it forms, to form first at such a boundary and not in
+a uniform bulk.
+
+**Test.** A source on shear layers at a density or temperature step in a liquid, and a source on
+vapor or cavitation onset at the boundary between two liquids or at a dissolved-gas gradient,
+held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports the shear, the heating or the
+vapor onset concentrated at the boundary between layers that differ, and earlier than in a
+uniform liquid under the same drive; miss if a source held reports onset in the bulk first.
+
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `9d32f9f1` and the addition with
+`ce3b3d52`.** Read in full: Gruntfest and Becker, NASA contract NASw-708 (1964); Berry, Vakarelski,
+Chan and Thoroddsen, arXiv:1612.08335; Braeck, Podladchikov and Medvedev, arXiv:0805.3292;
+Zamansky and Ham, CTR Annual Research Briefs 2013; Brandao and Mahesh, CAV2021; Pimenova and
+Goldobin, arXiv:1407.4725; Pfeiffer and others, arXiv:2306.01571; Maquet and others,
+arXiv:1603.05821.
+
+**Second half: hit, and not blind.** Berry and others, Figure 1: a hot sphere carrying a
+Leidenfrost vapor layer, falling through water at $95\,^\circ$C, has a drag coefficient near 0.25 at
+$\mathrm{Re} \approx 10^5$ and near 0.15 at $2$ to $3\times10^5$, against 0.4 to 0.5 for the same
+sphere without the layer. They model the layer by Navier's slip condition. Maquet and others put a
+drop of ethanol on its own vapor over a pool of hot oil at one kelvin of superheat, and the drop is
+highly mobile: one liquid riding another on a cushion of its vapor.
+
+**First half: miss.** The runaway is real. Gruntfest and Becker show that a liquid whose viscosity
+falls with temperature has no steady shear flow between walls held at a fixed temperature above
+$V_m = 4.27\,(k/(a\eta_0))^{1/2}$, and that above it the shear gathers in the middle. Braeck and
+others show the band narrowing as it runs away, in solids, toward melting. For water at
+$20\,^\circ$C $V_m$ is 666 m/s. Duraiswami puts the core of the forced construction in water at
+cavitation when the swirl reaches 10 to 17 m/s, with the viscous heating near 0.01 K. At 17 m/s the
+steady rise in Gruntfest's layer is 0.06 K. The runaway does not occur in water at the speeds the
+forced construction reaches before its core cavitates: the miss as written. The bound is
+for plane shear between walls held at a fixed temperature; under a fixed stress with no heat loss
+the same law runs away at any stress, in a time that grows as the stress falls.
+
+**The stated expectation, against the sources.** The runaway was expected near $U^* = 110$ m/s; the
+bound is $6.04\,U^*$. Steam was expected below 618 m/s; at 618 m/s the steady middle of the layer
+stands 44 K above the walls, near $64\,^\circ$C, and steady flow ends at $68\,^\circ$C with the
+middle still liquid. The vapor that a source held does put in a shear layer of water comes from
+the pressure and not the heat: Zamansky and Ham, and Brandao and Mahesh, put inception in the shear
+layer, in the cores of its stretched vortices, and not where the mean pressure is least. The
+expectation that near the vapor pressure the steam sheet and the cavitation of the core are one
+event is the part the sources bear out.
+
+**The addition: hit, on the chemical difference.** Pimenova and Goldobin: water and n-heptane in
+contact boil at their interface at $78.56\,^\circ$C, below $100\,^\circ$C and $98.4\,^\circ$C, and
+in their demonstrations the bubbles rise from the interface while neither bulk boils; the first
+stage is a thin vapor layer between the two liquids. Pfeiffer and others: under the same tension,
+bubbles nucleate mostly along the interface between water and a perfluorocarbon that holds more
+dissolved gas, and in their simulation the gas gathers at the interface and forms no bubble in the
+bulk. Both report the vapor onset at the boundary between layers that differ, and earlier than in
+either liquid alone under the same drive.
+
+The temperature difference is borne out by Maquet and others, a vapor cushion at a step of one
+kelvin between two liquids, without a uniform liquid under the same drive to compare. The density
+difference is not tested: no source held reports shear or vapor at a density step. In all three
+sources that score it the drive is heat or tension, not shear.
+
+---
+
+**The author's objection to the second-half score, given after it was written.** "dropping a ball
+through hot water isn't really the same thing, the force of gravity brings the balls heat close
+enough to the water that it generates a steam curtain, the reason it experiences lower drag is
+only because the water is not able to apply its tension to it"
+
+**Second half, rescored: open.** The objection holds. In Berry and others the vapor is made by the
+heat stored in the sphere, and the body that rides on it is a solid. The drag falls because the
+water cannot put its stress on the sphere through the vapor; their slip length,
+$s \approx (\mu_L/\mu_V)\,\delta_V$, states that in Navier's terms. The claim is water riding
+water on steam made by the shear between them. Maquet and others have one liquid riding another,
+with the vapor made by the heat of the pool, and the liquids are ethanol and silicone oil. No
+source held shows water riding water on steam, or steam made by shear. The criterion above
+accepted a case the claim does not make. It stays as written, and the hit under it is withdrawn.
+
+**A correction to the first-half reading.** Gruntfest and Becker reach $V_m$ by carrying the limit
+$\varphi_c \le 1.187$ over from the case of a fixed stress. With the walls moving at a fixed
+speed the steady layer has one solution at every speed, $V^2 = 8\int_{T_0}^{T_c} k/\mu\,dT$,
+independent of the gap, and 1.187 marks the peak of the wall stress. With the IAPWS $\mu(T)$ and
+$k(T)$ at atmospheric pressure the middle of the layer is at $20.06\,^\circ$C at 17 m/s and
+reaches $100\,^\circ$C near 956 m/s. "No steady shear flow above $V_m$", in the score above,
+holds for a fixed stress only. The miss stands on the speeds.
+
+### I14. Liquids unlike enough slide on and through each other
+
+**In the author's words:** "If two liquids are dissimilar enough, they will be more likely to slide
+on or through each other because they do not want to interact on a chemical level (electroweak)"
+
+**Already known when written, and so not a blind prediction in part.** Pfeiffer and others, read in
+full, show in simulation that water and a perfluorocarbon separate at their interface under
+tension and that dissolved gas gathers there. Pimenova and Goldobin, read in full, hold a thin
+vapor layer between two immiscible liquids. The recorder knows by name, and has not held or read,
+molecular dynamics work on slip at the interface between two immiscible liquids and measurements
+of slip at the interface between two immiscible polymers. Berry and others, read in full, give the
+slip length of a vapor layer as $(\mu_L/\mu_V)\,\delta_V$.
+
+**What the recorder expects, stated before reading.** The forces between the molecules of two
+liquids are electromagnetic. Where molecules of one liquid attract those of the other less than
+they attract their own kind, the interface carries fewer bonds across it, the interfacial tension
+is higher, and the tangential stress the interface can carry at a given velocity jump is lower:
+the two liquids slip past each other with a slip length that grows as the attraction across the
+interface weakens. For small molecules the recorder expects that length to be of molecular size,
+a nanometer or less, and so invisible in a flow of millimeters; for long chains, much larger. A
+gas or vapor film between the two, as in I13's addition, adds to the slip by the ratio of
+viscosities.
+
+**Test.** A source on slip at the interface between two immiscible liquids, by simulation or
+measurement, that varies how strongly the two attract each other, held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports a tangential velocity jump at
+the interface between two immiscible liquids that grows as the attraction between unlike molecules
+weakens relative to like ones; miss if a source held reports no velocity jump at such an
+interface, or one that does not depend on how unlike the liquids are.
+
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `60b7f717`.** Read in full:
+Koplik and Banavar, arXiv:cond-mat/0508612; Komuro, Sukumaran, Sugimoto and Koyama, Rheologica
+Acta 53 (2014) 23--30. Not held: Telari, Tinti and Giacomello, J. Fluid Mech. (2022), on slip at
+liquid-liquid interfaces enriched with gas, which the publisher's site did not serve.
+
+**Sliding on each other: hit.** Koplik and Banavar, in simulations of two layers of liquid, find a
+velocity jump at the interface wherever the liquids do not mix, given by Navier's condition with a
+coefficient set by the pair of liquids and not by the flow. Raising the attraction between unlike
+molecules from 0.2 to 0.8 of that between like ones, the slip and the dip in density at the
+interface "decrease roughly linearly to zero" from their values when the liquids do not attract at
+all. Komuro and others measure slip between two polymers that do not mix, at stresses below those
+at which either slips on a wall.
+
+**The stated size.** The recorder expected a slip length near a nanometer for small molecules and
+much larger for long chains. Koplik and Banavar give their coefficient in argon units, $10^{-5}$
+m/(Pa s), three orders of magnitude larger than in polymer melts, and doubt their interactions;
+the size is not settled by what is held.
+
+**Sliding through each other: open.** No source held follows one liquid moving through another and
+compares how unlike they are.
+
+### I15. Water rides on itself on steam torn out by its own shear, in a narrow window
+
+**In the author's words:** "I think for water to ride on itself and would have to have like the
+perfect viscous dissimilarity at its boundary layer like the conditions would have to be absolutely
+perfect in temperature and chemical composition for this effect to even occur" Then: "As steam".
+Then: "From the stress of viscous tearing".
+
+**Already known when written, and so not a blind prediction in part.** Propositions 15 to 17 of the
+research paper, written before this entry, put the first vapor in sheared water at tension and not
+at heat: a turning column reaches the vapor pressure at $7.6$ m/s, where a sheared layer is warmed
+by about a hundredth of a kelvin. Zamansky and Ham, read in full, place inception in a shear layer
+by the largest principal stress, after Joseph. Maquet and others, read in full, see a drop of
+ethanol ride on its vapor over hot silicone oil from one kelvin of superheat, and see none over
+oils more viscous than 150 mPa s. Pimenova and Goldobin, read in full, have the vapor layer between
+two liquids break away by buoyancy once it grows past a thickness of order $10^{-5}$ to $10^{-4}$ m.
+The recorder knows by name, and has not held or read, work on drops of a liquid kept from merging
+with a bath of the same liquid by a temperature difference, and on drops bouncing on a vibrated
+bath of the same liquid on a film of air.
+
+**What the recorder expects, stated before reading.** The steam is torn out of the liquid where
+the shear stress stretches it past the level at which it breaks, and on the propositions above
+that comes by tension long before it comes by heat. For water to ride on water, that steam has to
+form as a film along the boundary, made as fast as it condenses and drains, and no faster than it
+can stay a film. Too little difference in temperature or composition across the boundary and the
+tearing does not gather there and the two merge; too much and the film thickens, breaks into
+bubbles and rises out. The recorder expects the riding to hold only between two bounds, and the
+window to narrow as the viscosity of the liquid falls, since a thinner liquid drains the film
+faster.
+
+**Test.** A source on a liquid sheared along a boundary with the same liquid until vapor forms
+there, reporting whether the vapor makes a film the two sides slide on and under which conditions
+they merge, held and read.
+
+**Criterion, written by the recorder.** Hit if a source held reports a liquid riding on the same
+liquid on a film of its vapor made by its own shear, only within a range of temperature difference
+or composition bounded on both sides; miss if a source held reports such a film for every
+difference above one threshold, or with no difference in temperature or composition at all; open
+while no source held makes the film by shear.
+
+---
+
+**Scored, 2026-10-03, after the entry above was fixed with SHA-256 `2fe13e76`.** Read in full:
+Hutli and Nedeljković, *Investigation of a submerged cavitating jet ...*, FME Transactions 35
+(2007) 113--119.
+
+**Open.** A jet of water driven into still water at 150 to 190 m/s makes vapor at the boundary
+between the moving and the still water, by its own shear, as the entry expects: the vapor forms in
+the shear layer at cavitation numbers of 0.006 to 0.025, where Proposition 18 puts the heating near
+one kelvin.
+The vapor forms clouds of bubbles that break off, shed and collapse along the whole jet, and not a
+film the two sides slide on. No window of temperature or composition is reported for riding, and
+none for the vapor. The criterion asks for a film made by shear, and no source held has one.
+
+---
+
+**The author's addition, given after the score above, and so not blind against the jet it scores.**
+"The flows would need to be near laminar"
+
+**What the recorder expects, stated before reading further.** A film of vapor between two layers
+of liquid moving at different speeds is a sheet across which the velocity jumps, and it rolls up
+by the instability of Kelvin and Helmholtz unless gravity and surface tension hold it. For water
+under its vapor that holds while the jump stays below
+$\big(2(\rho_l+\rho_v)/(\rho_l\rho_v)\big)^{1/2}\big(g\gamma(\rho_l-\rho_v)\big)^{1/4}$: $55.5$ m/s with
+the vapor of $20\,^\circ$C, and $8.9$ m/s with the denser vapor of $100\,^\circ$C, on the IAPWS
+values. Vapor is torn out by tension from about $7.6$ m/s (Proposition 16). The riding layer sits
+on the film, heavy over light, and that interface is unstable by the instability of Rayleigh and
+Taylor at every wavelength longer than $2\pi\sqrt{\gamma/(g\Delta\rho)}$, about $1.7$ cm. The
+recorder expects a film only where the flow on both sides is laminar, between about $7.6$ and
+$55$ m/s in water at $20\,^\circ$C and in a narrower range as the water warms, and fed faster than
+it breaks away; the turbulent jet scored above, with its clouds of bubbles, is outside it.
+
+**Criterion, written by the recorder.** Hit if a source held reports a vapor film between layers of
+one liquid that holds while the flow is laminar and breaks into bubbles when it turns turbulent;
+miss if a source held reports such a film held between turbulent layers.

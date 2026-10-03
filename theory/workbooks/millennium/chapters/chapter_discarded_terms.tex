@@ -81,7 +81,10 @@ Friction is not linear, anywhere.
 & open
 & The dependence measured in the research paper is on temperature, $-2.45$ percent per kelvin
 for water at $20\,^\circ$C, evaluated from IAPWS R12-08~\cite{src:IAPWS-R12-08}. A dependence of water's
-viscosity on $|D|$ was not measured. \\[0.6em]
+viscosity on $|D|$ was not measured. Read since: Stokes reports from the pipe experiments of
+his time that the tangential force at a wall varies nearly as the square of the velocity, except at
+small speeds~\cite{src:Stokes-1845}, and Navier takes the linear law as a principle. Neither
+measures water's viscosity against $|D|$, and the status stays open. \\[0.6em]
 Put a vector magnitude where a value is not known.
 & read
 & A viscosity $\mu(|D|) = \mu_0|D|^{p-2}$ is that move. For $p > 11/5$ in three dimensions a
@@ -106,15 +109,24 @@ finite. That the breakdown would not happen with the coupling kept is open. \\[0
 The forced construction failed to prove the theorem.
 & not so
 & The theorem is about equation (1), and its proof was not read. Nothing here bears on whether
-the proof is correct. What the propositions bound is what the theorem is about. \\[0.6em]
+the proof is correct. What the propositions bound is what the theorem is about. Read since, at the
+level of its statements, its order of choices and its closing estimates; nothing read bears
+against it~\cite{src:OpenAI-2026-Navier-Stokes}. \\[0.6em]
 A collapsing vortex in water vaporizes near 0.7 nanometers of width, found by independent work.
 & by report
 & Reached this work only through the thought experiment. No source was located or opened, and
-nothing rests on it. \\[0.6em]
+nothing rests on it. Since: the nearest source found puts the first failure in water at
+cavitation near a millimeter of core radius and gives 0.3 nanometers as the molecular scale; its
+0.7 is in micrometers and for air~\cite{src:Duraiswami-2026}. It bears on the claim and does not
+support it. \\[0.6em]
 An unbounded value is a sign that an assumption has left the fluid.
 & theory
 & Proposition 5 is the proved part: the unbounded factor is a factor of the dropped term. The
-scaling entry below is the rest. \\
+scaling entry below is the rest. Read since: of a light-emitting bubble, ``since the light emission
+occurs as a (mathematical) singularity is forming, any transport process which a theorist chooses
+to incorporate in this model can affect the result''~\cite{src:Barber-1997}; and of the forced
+construction, a real fluid leaves the description of the equations long before the
+singularity~\cite{src:Duraiswami-2026}. \\
 \end{longtable}
 
 \section{A scaling estimate, marked as theory}
@@ -146,6 +158,22 @@ For water at $20\,^\circ$C and atmospheric pressure, IAPWS R15-11~\cite{src:IAPW
 meter per kelvin and IAPWS R12-08 gives $\mu = 1.0016$ mPa\,s with $(\ln\mu)' = -0.0245$ per
 kelvin, and $U^* = 110$ meters per second. At $0\,^\circ$C it is 67 meters per second, and at
 $40\,^\circ$C it is 160. The number is computed. The estimate it comes from is still theory.
+
+\textbf{Read since.} Duraiswami~\cite{src:Duraiswami-2026} puts the axis of the forced
+construction in water at cavitation when the swirl reaches 10 to 17 meters per second, at a core
+radius near a millimeter, with the viscous heating over the rest of the collapse near 0.01 kelvin.
+On those numbers water cavitates well below $U^*$, and the dropped term is not the first
+assumption to fail in water: the pressure floor is. The estimate stays theory, and it now has a
+competitor that fails first.
+
+Gruntfest and Becker~\cite{src:Gruntfest-and-Becker-1964} find that shear at a fixed stress
+between walls held at a fixed temperature, in a liquid whose viscosity falls exponentially with
+temperature, has no steady state above a peak stress. Water at $20\,^\circ$C reaches that peak
+when the walls move at 666 meters per second, $6.04\,U^*$. With the walls moving at a fixed speed
+the steady layer exists at every speed, and its middle stands at $T_c$ with
+$V^2 = 8\int_{T_0}^{T_c} k/\mu\,dT$, independent of the gap. On the IAPWS values the middle
+reaches $100\,^\circ$C only near 956 meters per second, and at the 17 meters per second of
+cavitation in the forced construction it stands 0.06 kelvin above the walls.
 
 \section{What it wants}
 

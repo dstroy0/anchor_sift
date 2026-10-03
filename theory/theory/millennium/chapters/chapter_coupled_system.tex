@@ -1,0 +1,395 @@
+\chapter{Which boundary water reaches first}
+
+This chapter writes the system that equation (1) is cut from, with the viscosity a function of
+temperature and pressure, the energy balance with the heat of shear, and the boundary between
+liquid and vapor as a free surface. It proves that equation (1) cannot place that boundary, and it
+compares the two ways a moving body of water can reach it: by heating its liquid to the vapor
+point, or by lowering its pressure to the level at which the liquid breaks. It rests on
+Proposition 1 and Proposition 13, IAPWS R6-95 (2018)~\cite{src:IAPWS-R6-95-2018},
+R12-08~\cite{src:IAPWS-R12-08} and R15-11~\cite{src:IAPWS-R15-11}, Caupin and Herbert's
+review~\cite{src:Caupin-and-Herbert-2006}, Gruntfest and
+Becker~\cite{src:Gruntfest-and-Becker-1964}, and Duraiswami~\cite{src:Duraiswami-2026}.
+
+\section{The coupled system}
+
+The fluid occupies a liquid region $\Omega_L(t)$ and a vapor region $\Omega_V(t)$, separated by a
+surface $\Gamma(t)$. In each region the balances of the chapter on the terms equation (1) leaves out hold, with the
+stress $\sigma = -p\,I + \lambda\,\theta\,I + 2\mu D$, and with every coefficient a measured
+function of the state:
+\[
+\rho = \rho(T,p), \qquad \mu = \mu(T,p), \qquad \lambda = \lambda(T,p), \qquad k = k(T,p), \qquad
+c_p = c_p(T,p).
+\]
+For water these are the IAPWS formulations. Without the condition $\theta = 0$, the balance of
+internal energy written for the temperature is
+\[
+\rho\,c_p\,(\partial_t T + u\cdot\nabla T) = \beta\,T\,(\partial_t p + u\cdot\nabla p)
++ \nabla\cdot(k\nabla T) + \lambda\,\theta^2 + 2\mu\,|D|^2 ,
+\]
+with $\beta = -\rho^{-1}\partial\rho/\partial T$ the thermal expansion coefficient. The last two
+terms are the heat of the motion, and neither is negative. These balances are the standard ones
+and are not derived here.
+
+On $\Gamma$, let $n$ be the unit normal pointing from liquid into vapor, $w$ the speed of $\Gamma$
+along $n$, $\gamma$ the surface tension and $L$ the latent heat. The surface carries the balances
+\[
+\dot m = \rho_L\,(u_L\cdot n - w) = \rho_V\,(u_V\cdot n - w),
+\]
+\[
+\dot m\,(u_V - u_L) - (\sigma_V - \sigma_L)\,n = \nabla_\Gamma\gamma - \gamma\,(\nabla_\Gamma\cdot n)\,n,
+\]
+\[
+\dot m\,L = -k_L\nabla T_L\cdot n + k_V\nabla T_V\cdot n,
+\]
+with the temperature continuous across $\Gamma$ and equal there to the saturation temperature at
+the vapor pressure. For a vapor bubble of radius $R$ at rest the second balance gives
+$p_V - p_L = 2\gamma/R$, the law of Laplace.
+
+The surface is empty until the liquid breaks somewhere. Write $p_{\mathrm{sat}}(T)$ for the vapor
+pressure and $\Delta_n \ge 0$ for the tension the liquid holds below it before a vapor bubble
+forms. A point of liquid stays liquid while
+\[
+p > p_{\mathrm{sat}}(T) - \Delta_n .
+\]
+The number $\Delta_n$ is a property of the liquid, of what is dissolved in it and of what it
+touches, and of the volume and time over which it is held. Caupin and Herbert report that
+classical nucleation theory gives $168$ MPa for water at $20\,^\circ$C, and that most methods
+reach a few to a few tens of megapascals.
+
+Set $\Gamma$ empty, the density and viscosity constant, and the energy balance aside, and the
+system is equation (1), by Proposition 1. Each of those steps drops a member of
+$P_{\mathrm{all}}$, and the first drops the phase.
+
+\section{Equation (1) cannot place the boundary}
+
+\textbf{Proposition 14.} Let $(u,p)$ solve (1) and (2) on $\R^3\times I$, with $p(\cdot,t)$
+bounded for each $t\in I$, and let $p_*$ be any number. There are functions $c_1$ and $c_2$ of time
+alone such that $(u,p+c_1)$ and $(u,p+c_2)$ solve (1) and (2), the set
+$\{x : p(x,t) + c_1(t) \le p_*\}$ is empty for every $t$, and the set
+$\{x : p(x,t) + c_2(t) \le p_*\}$ is all of $\R^3$ for every $t$.
+
+\emph{Proof.} Take $c_1(t) = p_* + 1 - \inf_x p(x,t)$ and $c_2(t) = p_* - \sup_x p(x,t)$. Both
+pairs solve (1) and (2) by Proposition 13. \hfill\qedsymbol
+
+Whether a point of the fluid lies past the level at which the liquid breaks is therefore not a
+property of a solution of (1). The same motion is liquid everywhere or past the breaking level
+everywhere, according to a constant equation (1) leaves free. The coupled system fixes that
+constant through $\rho(T,p)$ and the pressure the fluid is held at.
+
+\section{The heat route}
+
+\textbf{Proposition 15.} Let $\mu$ and $k$ be positive continuous functions of $T$, and
+$F(T) = \int_{T_0}^{T} k(s)/\mu(s)\,ds$. Let the fluid fill the layer $|y| < \ell/2$ at a uniform
+pressure, with velocity $(U(y),0,0)$, walls held at $T_0$ and moving at $\pm V/2$ with $V > 0$,
+and steady balances of momentum and energy,
+\[
+(\mu(T)\,U')' = 0, \qquad (k(T)\,T')' + \mu(T)\,U'^2 = 0,
+\]
+with $\mu U'$ and $kT'$ continuously differentiable. If $V^2/8$ lies in the range of $F$, there
+is exactly one such solution. Its temperature is largest at $y = 0$, where it is the $T_c$ with
+\[
+V^2 = 8\,F(T_c) = 8\int_{T_0}^{T_c}\frac{k(T)}{\mu(T)}\,dT ,
+\]
+which does not depend on $\ell$.
+
+\emph{Proof.} The stress $\tau = \mu U'$ is constant, and positive since $V > 0$. The energy
+balance reads $(kT')' = -\tau^2/\mu(T) < 0$. Then $kT'$ is strictly decreasing, and $T$ has one
+largest value $T_c$, at the point $y_c$ where $T' = 0$. Multiplying by $kT'$ gives
+$\tfrac12\big((kT')^2\big)' = -\tau^2\,F(T)'$, so that
+\[
+(kT')^2 = 2\tau^2\big(F(T_c) - F(T)\big).
+\]
+On each side of $y_c$, $T$ is monotone and $dy = k\,dT/\big(\tau\sqrt{2(F(T_c) - F(T))}\big)$. The
+distance from $y_c$ to each wall is the same integral from $T_0$ to $T_c$; hence $y_c = 0$. The
+velocity jump is
+\[
+V = \int U'\,dy = 2\int_{T_0}^{T_c}\frac{\tau}{\mu}\,
+\frac{k\,dT}{\tau\sqrt{2(F(T_c) - F(T))}} = 2\int_0^{F(T_c)}\frac{dF}{\sqrt{2(F(T_c) - F)}}
+= 2\sqrt{2F(T_c)} .
+\]
+Since $F$ is continuous and strictly increasing, $V$ fixes $T_c$. The width then fixes $\tau$
+through $\ell = 2\int_{T_0}^{T_c} k\,dT/\big(\tau\sqrt{2(F(T_c)-F(T))}\big)$, an integral that
+converges because $F(T_c) - F(T)$ vanishes to first order at $T_c$. The relation for $dy$ then
+gives $T(y)$, and $U' = \tau/\mu(T)$ gives $U$. \hfill\qedsymbol
+
+The heat route needs a difference of velocity, not a gradient of it: a thinner layer at the same
+$V$ shears harder and conducts its heat out over a shorter distance, and its middle is no hotter.
+For constant $\mu$ and $k$ the relation is $V^2 = 8k\,(T_c - T_0)/\mu$. For
+$\mu = \mu_0\,e^{-a(T-T_0)}$ and constant $k$ it is
+$V^2 = (8k/(a\mu_0))\,(e^{a(T_c - T_0)} - 1)$, the relation of Gruntfest and Becker. Under that law
+the stress at a fixed width is proportional to $e^{-\varphi/2}\operatorname{arccosh}(e^{\varphi/2})$
+with $\varphi = a(T_c - T_0)$. Its largest value is at $\varphi = 1.187$, the limit Gruntfest and
+Becker give for steady flow at a fixed stress. At a fixed velocity the solution continues past it,
+with the stress falling as $V$ rises.
+
+For water at atmospheric pressure, with $T_0 = 20\,^\circ$C and $\mu(T)$ and $k(T)$ from IAPWS
+R12-08 and R15-11, evaluated by programs that agree with their verification tables to six
+significant figures or more, $k/\mu$ rises
+from 597 to 2402 m$^2$\,s$^{-2}$\,K$^{-1}$ between $20$ and $99.9\,^\circ$C. The middle of the layer
+stands at $20.012\,^\circ$C at $V = 7.63$ m/s, at $20.060\,^\circ$C at $16.9$ m/s, at
+$36.7\,^\circ$C at $315$ m/s, and reaches $99.9\,^\circ$C at $956$ m/s.
+
+\section{The tension route}
+
+\textbf{Proposition 16.} Let $u = v(r,t)\,e_\theta$ be a swirl about an axis with no radial or
+axial velocity, in a fluid of constant density $\rho$, with $p \to p_\infty$ as $r\to\infty$. Then
+at each $t$
+\[
+p_\infty - p(0,t) = \rho\int_0^\infty \frac{v(r,t)^2}{r}\,dr .
+\]
+For the Lamb--Oseen vortex, $v = (\Gamma_0/2\pi r)\big(1 - e^{-r^2/r_c^2}\big)$, an exact solution
+of (1) for any core radius $r_c(t)$ with $r_c^2 = r_0^2 + 4\nu t$,
+\[
+p_\infty - p(0,t) = \rho\Big(\frac{\Gamma_0}{2\pi r_c}\Big)^2\ln 2 = 1.702\,\rho\,v_{\max}^2 ,
+\]
+with $v_{\max}$ the largest swirl.
+
+\emph{Proof.} With no radial velocity the radial component of the momentum balance is
+$\partial p/\partial r = \rho v^2/r$, and integrating from $0$ to $\infty$ gives the first
+statement. For the Lamb--Oseen profile set $s = r/r_c$ and then $x = s^2$:
+\[
+\int_0^\infty\frac{(1-e^{-s^2})^2}{s^3}\,ds = \frac12\int_0^\infty\frac{(1-e^{-x})^2}{x^2}\,dx
+= \int_0^\infty\frac{e^{-x} - e^{-2x}}{x}\,dx = \ln 2,
+\]
+by parts and then Frullani's integral. The swirl $(1 - e^{-s^2})/s$ is largest at $s = 1.1209$,
+where it is $0.63817$. Then $v_{\max} = 0.63817\,\Gamma_0/(2\pi r_c)$ and
+$\ln 2/0.63817^2 = 1.702$. \hfill\qedsymbol
+
+For water at $20\,^\circ$C, $\rho = 998.21$ kg/m$^3$ and $p_{\mathrm{sat}} = 2339$ Pa by IAPWS
+R6-95. From atmospheric pressure the axis of a Lamb--Oseen vortex reaches the vapor pressure at
+$v_{\max} = 7.63$ m/s, a tension of 1 MPa at $25.5$ m/s, of 30 MPa at $133$ m/s, and the $168$ MPa
+of classical nucleation theory at $315$ m/s.
+
+\section{Which comes first}
+
+\textbf{Proposition 17.} In water at $20\,^\circ$C and atmospheric pressure, compare a layer of
+Proposition 15 and a vortex of Proposition 16 at the same speed, $V = v_{\max}$. Between $7.63$
+m/s, where the axis reaches the vapor pressure, and $315$ m/s, where it reaches the tension of
+classical nucleation theory, the axis passes every breaking level Caupin and Herbert report, while
+the middle of the layer stays below $36.7\,^\circ$C. At $7.63$ m/s the middle of the layer is at
+most $0.0122$ K above its walls, and its vapor pressure is raised by less than $1.8$ Pa.
+
+\emph{Proof.} Since $k/\mu$ is increasing on the interval, $F(T_c) \ge (k/\mu)(T_0)\,(T_c - T_0)$,
+so that $T_c - T_0 \le \mu(T_0)\,V^2/(8k(T_0))$, which at $7.63$ m/s is $0.0122$ K. The vapor
+pressure rises by $145$ Pa per kelvin at $20\,^\circ$C, and less than $1.8$ Pa over that interval.
+The other figures are the computed values of the two previous sections. \hfill\qedsymbol
+
+At a common speed the vortex lowers its axis pressure by $1.702\,\rho V^2$, and the layer raises the
+vapor pressure at its middle by about $(dp_{\mathrm{sat}}/dT)\,\mu V^2/(8k)$. Their ratio,
+$8\cdot 1.702\,\rho k/(\mu\,dp_{\mathrm{sat}}/dT)$, is $5.6\times10^4$ for water at $20\,^\circ$C.
+The tension route wins by that factor, and the boundary water reaches first is the cavity. This
+agrees with Duraiswami's computation for the forced construction, which puts its core at
+cavitation when the swirl reaches 10 to 17 m/s, with the heat of the remaining collapse near
+0.01 K.
+
+\section{The heat route at the instant of contact}
+
+A layer between walls held at $T_0$ loses its heat through the walls. Two sheets of one liquid
+brought together with a velocity jump have no walls at the boundary between them, and the heat of
+the first instant has nowhere to go but into the liquid on either side.
+
+\textbf{Proposition 18.} Let one fluid of constant $\rho$, $\mu$, $c$ and $k$, at $T_0$, fill
+$y > 0$ moving at $V/2$ along $x$ and $y < 0$ moving at $-V/2$, from $t = 0$. Write
+$\nu = \mu/\rho$, $\Pr = \mu c/k$ and $\eta = y/(2\sqrt{\nu t})$. The velocity
+$U = (V/2)\,\mathrm{erf}(\eta)$ and the temperature
+\[
+T = T_0 + \frac{V^2}{4\pi c}\,G(\eta), \qquad
+G'(\eta) = -4\Pr\,e^{-\Pr\eta^2}\int_0^\eta e^{(\Pr-2)s^2}\,ds, \qquad G(\infty) = 0,
+\]
+solve the balances of momentum and energy. For $\Pr > 2$ the temperature on the plane $y = 0$ is
+the same at every $t > 0$:
+\[
+T(0,t) - T_0 = \frac{V^2}{2\pi c}\,\sqrt{\frac{\Pr}{\Pr - 2}}\;
+\operatorname{artanh}\sqrt{1 - \frac{2}{\Pr}} .
+\]
+
+\emph{Proof.} The velocity is the solution of Stokes's first problem, $U_t = \nu U_{yy}$, with
+$U_y = (V/2)\,e^{-\eta^2}/\sqrt{\pi\nu t}$. The energy balance is
+$\rho c\,T_t = k\,T_{yy} + \mu U_y^2$, since nothing varies along $x$. With
+$T = T_0 + (V^2/4\pi c)\,G(\eta)$ each term carries the factor $1/t$, and dividing it out leaves
+\[
+\frac{G''}{4\Pr} + \frac{\eta}{2}\,G' + e^{-2\eta^2} = 0 .
+\]
+The integrating factor $e^{\Pr\eta^2}$ and $G'(0) = 0$, from the symmetry of the two sides, give
+$G'$ as stated. Then
+$G(0) = 4\Pr\int_0^\infty e^{-\Pr\eta^2}\int_0^\eta e^{(\Pr-2)s^2}\,ds\,d\eta$, and exchanging the
+order of integration,
+\[
+G(0) = 2\sqrt{\pi\Pr}\int_0^\infty e^{(\Pr-2)s^2}\,\mathrm{erfc}\big(\sqrt{\Pr}\,s\big)\,ds
+= \frac{2\sqrt{\Pr}}{\sqrt{\Pr - 2}}\,\operatorname{artanh}\sqrt{\frac{\Pr - 2}{\Pr}} ,
+\]
+by $\int_0^\infty e^{a s^2}\mathrm{erfc}(bs)\,ds = \operatorname{artanh}(\sqrt a/b)/\sqrt{\pi a}$
+for $0 < a < b^2$. The integral converges because $\mathrm{erfc}(bs)$ falls as $e^{-b^2s^2}$.
+\hfill\qedsymbol
+
+The heat at the boundary is set by the difference in kinetic energy, $V^2/2$ per unit mass,
+divided by the heat capacity, times a number fixed by $\Pr$ alone. The viscosity sets how thick
+the heated layer is and not how hot it is, and neither the thickness of the sheets nor the time
+since contact enters. For water at $20\,^\circ$C, $\Pr = 7.008$ and $c = 4184$
+J\,kg$^{-1}$\,K$^{-1}$ by IAPWS R6-95, R12-08 and R15-11, and the boundary stands
+$5.578\times10^{-5}\,V^2$ kelvin above the sheets: $0.0032$ K at $7.63$ m/s, $0.56$ K at
+$100$ m/s, and $80$ K, the boiling point at atmospheric pressure, at $1198$ m/s. That speed is
+$0.81$ of the speed of sound in water, where condition (2) and constant properties no longer
+describe it. At $7.63$ m/s the tension route of Proposition 17 still comes first.
+
+\section{What a blowup of (1) would have to show}
+
+A solution of (1) whose velocity has no bound describes a liquid near its singular time only if the
+liquid stays liquid there, its viscosity stays the constant (1) uses, and its density stays the
+constant (1) sets. Each of these is a condition on the temperature or on the level of the pressure.
+
+\textbf{Proposition 19.} Let $(u,p)$ be a smooth solution of (1) and (2) on $\R^3\times[0,T^*)$,
+bounded with its derivatives on $\R^3\times[0,t]$ for each $t < T^*$, and let $T_b$ and $p_*$ be
+numbers. Let $T$ be the bounded solution of the energy balance carried by $u$,
+\[
+\rho c\,(\partial_t T + u\cdot\nabla T) = k\,\Delta T + 2\mu\,|D|^2, \qquad T(\cdot,0) = T_b,
+\]
+with $\rho c$, $k$ and $\mu = \rho\nu$ constant. Then $T \ge T_b$ at every point and time, and with
+$c_2$ from Proposition 14 the pressure $p + c_2$ is at most $p_*$ at every point and time.
+
+\emph{Proof.} The difference $w = T - T_b$ starts at zero and solves
+$\rho c\,(\partial_t w + u\cdot\nabla w) - k\,\Delta w = 2\mu|D|^2 \ge 0$, a linear parabolic
+equation with bounded smooth coefficients on $\R^3\times[0,t]$. By the minimum principle for
+bounded solutions of such an equation, $w \ge 0$. The statement on the pressure is
+Proposition 14. \hfill\qedsymbol
+
+Take $T_b$ to be the boiling temperature at the pressure $p_*$. The solution $(u,p)$ is then
+compatible with a fluid at or above its boiling point, at a pressure at or below $p_*$, at every
+point and every time: a liquid nowhere. Equation (1) is unchanged by the choice, because it holds no
+temperature and fixes no level of pressure. Whether the fluid stays liquid along a solution of (1)
+is therefore not a property of the solution. A theorem whose hypotheses and conclusions are
+statements about $u$ and $p$ cannot decide it.
+
+To show that a blowup of (1) describes water, a proof would have to show three things near the
+singular point: that the temperature stays below boiling at the pressure there, that
+$2\mu'(T)\,D\nabla T$ stays small beside $\mu\Delta u$ where $D$ has no bound (Propositions 3 and
+5), and that the density holds (Proposition 4). Each needs the temperature and its gradient, and
+equation (1) has neither.
+
+\section{The heat of a collapsing core}
+
+Proposition 19 holds for any solution. The construction Duraiswami
+computes~\cite{src:Duraiswami-2026} gathers its swirl into a core whose radius falls as
+$(T^*-t)^{1/2}$, and the heat of that swirl is the next question: how hot the core grows when its
+swirl is the construction's and its heat leaves by conduction alone.
+
+Let a column of fluid of constant $\rho$, $\mu$, $c$ and $k$ turn about the axis $r = 0$ with the
+swirl $v(r,t)$ and no other motion, and let the temperature depend on $r$ and $t$ alone. Then
+$u\cdot\nabla T = 0$, the one part of $D$ is $D_{r\theta} = \tfrac12\,r\,\partial_r(v/r)$, and
+the energy balance of Proposition 19 reads
+\[
+\rho c\,\partial_t T = k\,\Delta T + \mu\,\big(r\,\partial_r(v/r)\big)^2 .
+\]
+Write $\tau = T^* - t$, $X = r^2/(2\nu\tau)$, $\kappa = k/(\rho c)$ and $\Pr = \nu/\kappa$.
+
+\textbf{Proposition 20.} Let $h \ge 0$ and let the swirl be $v = r\,\tau^{-1-h}F(X)$ on
+$0 \le t < T^*$, with $F$ continuously differentiable and $g(X) = \big(2XF'(X)\big)^2$ bounded and
+not zero everywhere. Let $T$ be the bounded solution of the energy balance above with
+$T(\cdot,0) = T_0$, and write $a = 1 + 2h$ and
+\[
+\hat g(\lambda) = \int_0^\infty e^{-\lambda s}\,g(2s/\Pr)\,ds .
+\]
+Then on the axis, at every $t$ in $(0,T^*)$,
+\[
+T(0,t) - T_0 = \frac{\nu}{c}\,\tau^{-a}\int_{\tau/t}^\infty \frac{w^{a-1}}{(1+w)^a}\,
+\hat g(1+w)\,dw .
+\]
+The number $\Theta_0 = \int_0^\infty w^{a-1}(1+w)^{-a}\,\hat g(1+w)\,dw$ is positive and finite,
+and
+\[
+\frac{\nu}{c}\Big(\Theta_0\,\tau^{-a} - \frac{\hat g(1)}{a}\,t^{-a}\Big) \le T(0,t) - T_0
+\le \frac{\nu}{c}\,\Theta_0\,\tau^{-a} .
+\]
+The temperature on the axis has no bound as $t \to T^*$, and it grows as $(T^*-t)^{-1-2h}$.
+
+\emph{Proof.} Since $r\,\partial_r X = 2X$, $r\,\partial_r(v/r) = \tau^{-1-h}\,2XF'(X)$, and the
+source is $Q = (\nu/c)\,\tau^{-2-2h}g(X)$. It is bounded on the plane for each $t < T^*$. The
+difference $T - T_0$ starts at zero, and by Duhamel's formula for the heat equation in the plane
+\[
+T(0,t) - T_0 = \int_0^t \int_0^\infty \frac{e^{-r^2/(4\kappa(t-t'))}}{4\pi\kappa(t-t')}\,
+Q(r,t')\,2\pi r\,dr\,dt' .
+\]
+In the inner integral put $\tau' = T^* - t'$ and $s = \Pr\,r^2/(4\nu\tau')$. Then $X = 2s/\Pr$,
+$r\,dr = (2\nu\tau'/\Pr)\,ds$ and $r^2/(4\kappa(t-t')) = s\,\tau'/(\tau'-\tau)$, and the inner
+integral is
+\[
+\frac{\nu}{c}\,\frac{\tau'^{-1-2h}}{\tau'-\tau}\,\hat g\Big(\frac{\tau'}{\tau'-\tau}\Big) .
+\]
+Now put $\tau' = \tau(1+w)/w$. Then $\tau'/(\tau'-\tau) = 1 + w$ and $dt' = \tau\,dw/w^2$, and as
+$t'$ runs from $0$ to $t$, $w$ runs from $\tau/t$ to $\infty$. Collecting the powers of $\tau$
+and $w$ gives the formula. Every factor is positive, and the integral from $\tau/t$ is therefore
+at most $\Theta_0$. On $0 < w < \tau/t$ the factor $(1+w)^{-a}$ is at most $1$ and
+$\hat g(1+w)$ at most $\hat g(1)$, and the part of $\Theta_0$ left out is at most
+$\hat g(1)\,(\tau/t)^a/a$. Last, $\hat g(\lambda) \le \lambda^{-1}\sup g$. The integrand of
+$\Theta_0$ is then at most $w^{a-1}(1+w)^{-a-1}\sup g$, which is integrable, and $\Theta_0 > 0$
+because $g \ge 0$ is
+continuous and not zero everywhere. \hfill\qedsymbol
+
+The power $-1-2h$ is twice the power of the peak swirl, $\tau^{-1/2-h}$. The temperature on the
+axis grows as the square of the fastest speed in the core, as the temperature at the instant of
+contact grows as $V^2$ in Proposition 18. The core's heat is made at the rate $\tau^{-2-2h}$, and
+conduction moves it across the core's radius $(\nu\tau)^{1/2}$ in a time $\Pr\,\tau$, a fixed
+multiple of the time left. Conduction carries off a share of the heat that does not grow as the
+core shrinks, and the rest stays.
+
+The outer swirl alone gives a bound in closed form.
+
+\textbf{Proposition 21.} In Proposition 20 let $h = 0$ and let the swirl outside $X = X_b$ be the
+potential vortex, $v\,r = C$ for $X \ge X_b$, with $C$ constant. Write $s_b = \Pr X_b/2$ and
+$E_1(s) = \int_s^\infty e^{-u}u^{-1}\,du$. Then at every $t$ in $(0,T^*)$
+\[
+T(0,t) - T_0 \ge \frac{C^2\Pr^2}{4\nu c}\Big(\frac{K(s_b)}{\tau}
+- \frac{e^{-s_b}/s_b - E_1(s_b)}{t}\Big), \qquad
+K(s) = \Big(1 + \frac{1}{s}\Big)E_1(s) - \frac{e^{-s}}{s} ,
+\]
+and $K(s) > 0$ for every $s > 0$.
+
+\emph{Proof.} For $X \ge X_b$, $F = \tau\,C/r^2 = C/(2\nu X)$. Then $2XF' = -C/(\nu X)$ and
+$g = C^2/(\nu^2X^2)$. The formula of Proposition 20 is linear in $g$ with a positive kernel, and
+putting $g = 0$ inside $X_b$ lowers it. With $a = 1$ the outer part is
+$\hat g_b(\lambda) = (C^2\Pr^2/4\nu^2)\int_{s_b}^\infty e^{-\lambda s}s^{-2}\,ds$, and since
+$\int_0^\infty e^{-(1+w)s}(1+w)^{-1}\,dw = E_1(s)$, exchanging the order of integration gives
+\[
+\int_0^\infty \frac{\hat g_b(1+w)}{1+w}\,dw = \frac{C^2\Pr^2}{4\nu^2}\int_{s_b}^\infty
+\frac{E_1(s)}{s^2}\,ds .
+\]
+Two integrations by parts with $E_1' = -e^{-s}/s$ give $\int_{s_b}^\infty E_1(s)\,s^{-2}\,ds =
+K(s_b)$, and one gives $\int_{s_b}^\infty e^{-s}s^{-2}\,ds = e^{-s_b}/s_b - E_1(s_b)$, which is
+$\hat g_b(1)$ up to the same factor. The bound of Proposition 20 with $\hat g_b$ in place of
+$\hat g$ is the statement. For the sign, $K(s) > 0$ is $E_1(s) > e^{-s}/(1+s)$. Write
+$E_1(s) = e^{-s}s^{-1}\int_0^\infty s\,e^{-su}(1+u)^{-1}\,du$: the integral is the mean of the
+convex function $1/(1+u)$ under the density $s\,e^{-su}$, whose mean is $1/s$, and by Jensen's
+inequality it is above $1/(1 + 1/s)$, strictly because the density is not concentrated at a
+point. \hfill\qedsymbol
+
+The constant $C/\nu$ is the circulation of the outer swirl divided by $2\pi\nu$. The bound grows
+as its square and falls as $K(s_b)$, which is near $e^{-s_b}/s_b^3$ for large $s_b$: the two terms
+of $K$ agree in their leading part, and their difference is what conduction leaves on the axis.
+Duraiswami's construction takes $0 < h < 1/100$ and joins its core to its outer swirl in
+$1 < X < 2$. Its outer swirl at $h = 0$ is the potential vortex, and Proposition 21 with
+$X_b = 2$ and $s_b = \Pr$ is that case.
+
+\section{What this establishes and what it does not}
+
+\textbf{Established.} The system equation (1) is cut from has a phase boundary, and equation (1)
+cannot place it, because the boundary depends on a level of pressure that equation (1) leaves free.
+In steady shear between walls at a fixed temperature, the heat of shear sets the middle temperature
+by the velocity difference alone, for any viscosity and conductivity that depend on temperature.
+In water at $20\,^\circ$C and atmospheric pressure, a turning column reaches the vapor pressure on
+its axis at a speed at which a shearing layer is warmed by a hundredth of a kelvin. Two sheets of
+one liquid brought together with a velocity jump $V$ heat their boundary at once, by an amount set
+by $V^2$, the heat capacity and the Prandtl number, and the same at every later instant. Every
+solution of (1), carried with a temperature, is compatible with a fluid past its vapor point
+everywhere. Whether a blowup of (1) describes a liquid cannot be decided in (1). A column turning
+with a swirl that collapses like the construction's has no bound on the temperature of its axis
+before its swirl has none, and that temperature grows as the square of the peak swirl.
+
+\textbf{Not established.} The comparison is between two exact solutions at the same speed. It does
+not show that the forced construction, or any collapsing solution, follows either profile. The
+column of Propositions 20 and 21 has no flow along or toward its axis, its swirl is given and does
+not solve (1), and its coefficients are held at their values at $T_0$. The construction's inflow
+carries heat that the column leaves out, and nothing here says whether it carries that heat toward
+the axis or away from it. It treats the
+liquid as one substance. A boundary between two liquids that differ lowers $\Delta_n$ and the
+boiling point there, and the workbook holds what that predicts in a laboratory as theory. Nothing
+here shows that the coupled system is regular, or that its solutions break down.
