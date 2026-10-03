@@ -1,10 +1,10 @@
 """Render source files to numbered PNG pages, for surveying at image density.
 
-    src2png.py <file> <out_stem> [rows_per_page] [pt] [start] [end]
-    src2png.py <dir> <dest> [kb_per_page] [pt]
+    src2png.py <file> <out_stem> [rows_per_page] [pt] [start] [end] [--columns N]
+    src2png.py <dir> <dest> [kb_per_page] [pt] [--columns N]
 
-A line wider than WRAP_COLUMNS wraps onto continuation rows that carry no line
-number, and nothing is clipped off the right. The directory form walks <dir>,
+A line wider than WRAP_COLUMNS, or than N where --columns is given, wraps onto
+continuation rows that carry no line number, and nothing is clipped off the right. The directory form walks <dir>,
 renders every file whose extension is in WALK_EXTS, and writes
 <dest>/<name>_<ext>_<n>.png. Pages break on whole rows.
 """
@@ -147,6 +147,13 @@ def render_tree(root, dest, kb_per_page, size, font, cw):
 
 
 def main():
+    global WRAP_COLUMNS
+    args = sys.argv[1:]
+    if "--columns" in args:
+        at = args.index("--columns")
+        WRAP_COLUMNS = int(args[at + 1])
+        del args[at : at + 2]
+    sys.argv[1:] = args
     src = sys.argv[1]
     dst = sys.argv[2]
 

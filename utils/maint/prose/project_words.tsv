@@ -1,4 +1,4 @@
-word	what
+word	what	source
 orior	name
 gnascor	name
 shuffle	word
@@ -21,3 +21,9 @@ shift	mnemonic
 sprk	mnemonic
 void	mnemonic
 wait	mnemonic
+bigram	field term	C. E. Shannon, A Mathematical Theory of Communication, Bell System Technical Journal 27, 1948
+cophenetic	field term	R. R. Sokal, F. J. Rohlf, The Comparison of Dendrograms by Objective Methods, Taxon 11(2) 33-40, 1962
+lossless	field term	G. Navarro, A Guided Tour to Approximate String Matching, ACM Computing Surveys 33(1) 31-88, 2001
+oracle	field term	W. E. Howden, Theoretical and Empirical Studies of Program Testing, IEEE Transactions on Software Engineering 4(4) 293-298, 1978
+pooled	field term	S. J. Haberman, The Analysis of Residuals in Cross-Classified Tables, Biometrics 29(1) 205-220, 1973
+split-half	field term	C. Spearman, Correlation Calculated from Faulty Data, British Journal of Psychology 3(3) 271-295, 1910

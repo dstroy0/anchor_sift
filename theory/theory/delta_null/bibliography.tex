@@ -1,15 +1,15 @@
 \backmatter
 \AfterBibliographyPreamble{%
-Every measurement in this work is built on somebody's published result, and the
-first purpose of this chapter is that those people are credited by name. A surname
-in a footnote is not a citation. The second purpose is that the credit is checkable:
-each source is registered in \texttt{orior\_citations}, where the copy sits
-itself, and this bibliography is generated from that registry and pinned to one
-commit of it. A reference therefore resolves not to a title but to exact bytes.
+Every measurement in this paper builds on someone's published work, and this list
+names them. A surname in a footnote is not a citation. Most sources here are held
+in the registry \texttt{orior\_citations}, and for those the entry gives the file
+and its SHA-256 hash. A reference points to the exact copy that was read. An
+entry with no hash names the source by its publication details only.
 
-Credit here does not depend on agreement. Where this work reproduces a published
-result it says so, and where it fails to reproduce one it says that too, under the
-same names, because a refutation rests on the original as much as a confirmation does.
+A source is credited whether or not this paper agrees with it. Where this paper
+reproduces a published result it says so, and where it fails to reproduce one it
+says that too, under the same names. A failed reproduction depends on the original
+as much as a successful one does.
 
 \begin{description}
 \item[Registry commit] \texttt{2aae1103d28d9b919eae59cc9062aeaffe1fa0b2}
@@ -17,12 +17,15 @@ same names, because a refutation rests on the original as much as a confirmation
 \item[Inventory] \texttt{MANIFEST.tsv}, signed; the hashes below are its rows
 \end{description}
 
-A reader who disagrees with a number in this research paper can ask which copy it was checked
-against, and the hash answers exactly. Two copies of a paper are rarely the same
-bytes.
+A reader who doubts a number in this paper can ask which copy it was checked
+against, and the hash answers that exactly. Two copies of the same paper are rarely
+the same bytes.
 \par\medskip\raggedright}
 \KOMAoptions{bibliography=totoc}
 \begin{thebibliography}{25}
+
+\bibitem{src:Brown-1910}
+W. Brown. \emph{Some Experimental Results in the Correlation of Mental Abilities}. British Journal of Psychology 3(3) 296-322, 1910, \texttt{doi:10.1111/\allowbreak{}j.2044-8295.1910.tb00207.x}.
 
 \bibitem{src:Clifford-Jalsenius-Porat-and-Sach}
 R. Clifford, M. Jalsenius, E. Porat, B. Sach. \emph{Space Lower Bounds for Online Pattern Matching}. CPM 2011, arXiv:1106.4412, \texttt{doi:10.48550/\allowbreak{}arXiv.1106.4412,} submitted 22 June 2011.\newline
@@ -34,9 +37,18 @@ Crystallography Open Database. \texttt{https:/\allowbreak{}/\allowbreak{}www.cry
 \bibitem{src:Fisher}
 R. A. Fisher, F. Yates. \emph{Statistical Tables for Biological, Agricultural and Medical Research}. Oliver and Boyd, Edinburgh. 1938.
 
+\bibitem{src:Good-2005}
+P. Good. \emph{Permutation, Parametric, and Bootstrap Tests of Hypotheses}, third edition. Springer, New York, 2005, ISBN 978-0-387-20279-2, \texttt{doi:10.1007/\allowbreak{}b138696}.
+
+\bibitem{src:Haberman-1973}
+S. J. Haberman. \emph{The Analysis of Residuals in Cross-Classified Tables}. Biometrics 29(1) 205-220, 1973.
+
 \bibitem{src:Horspool}
 Horspool, R. Nigel. \emph{Practical Fast Searching in Strings}. Software-Practice and Experience 10(6) 501-506, \texttt{doi:10.1002/\allowbreak{}spe.4380100608}. 1980.\newline
 {\footnotesize Copy held \texttt{sources/\allowbreak{}physics/\allowbreak{}information\_\allowbreak{}theory/\allowbreak{}horspool\_\allowbreak{}1980\_\allowbreak{}stringsearch.pdf}, SHA-256 \texttt{0d46c041d3a84e9c7fd1962110b73b82b04b7fe2a6832c758e8cf405e578d83b}.}
+
+\bibitem{src:Howden-1978}
+W. E. Howden. \emph{Theoretical and Empirical Studies of Program Testing}. IEEE Transactions on Software Engineering 4(4) 293-298, 1978.
 
 \bibitem{src:Jaynes}
 Jaynes. \emph{Information Theory and Statistical Mechanics}. Physical Review 106(4) 620-630, 15 May 1957.
@@ -90,11 +102,23 @@ D. Eastlake, T. Hansen. \emph{US Secure Hash Algorithms (SHA and SHA-based HMAC 
 C. E. Shannon. \emph{A Mathematical Theory of Communication}. Bell System Technical Journal 27, 379-423 and 623-656, July and October 1948.\newline
 {\footnotesize Copy held \texttt{sources/\allowbreak{}physics/\allowbreak{}information\_\allowbreak{}theory/\allowbreak{}shannon\_\allowbreak{}1948\_\allowbreak{}mathematical\_\allowbreak{}theory\_\allowbreak{}of\_\allowbreak{}communication.pdf}, SHA-256 \texttt{6e4e3411984f3edf99dbfe8b941cb5e8a321379ff0cae6ae5c1f592ad8882ca8}.}
 
+\bibitem{src:Sokal-and-Rohlf-1962}
+R. R. Sokal, F. J. Rohlf. \emph{The Comparison of Dendrograms by Objective Methods}. Taxon 11(2) 33-40, 1962.
+
+\bibitem{src:Spearman-1910}
+C. Spearman. \emph{Correlation Calculated from Faulty Data}. British Journal of Psychology 3(3) 271-295, 1910, \texttt{doi:10.1111/\allowbreak{}j.2044-8295.1910.tb00206.x}.
+
 \bibitem{src:Sproat}
 R. Sproat. \emph{Ancient Symbols, Computational Linguistics, and the Reviewing Practices of the General Science Journals}. Computational Linguistics 36(3) 585. 2010.
 
+\bibitem{src:Sunday-1990}
+D. M. Sunday. \emph{A Very Fast Substring Search Algorithm}. Communications of the ACM 33(8) 132-142, 1990.
+
 \bibitem{src:Tsai}
 Y. Tsai. \emph{Average Case Analysis of the Boyer-Moore Algorithm}. Random Structures and Algorithms 28, 481 (2006).
+
+\bibitem{src:Wissler-2014}
+L. Wi\ss{}ler, M. Almashraee, D. Monett D\'iaz, A. Paschke. \emph{The Gold Standard in Corpus Annotation}. IEEE German Student Conference (IEEE GSC), 2014.
 
 \bibitem{src:Wycheproof}
 C2SP. \emph{Project Wycheproof}. \texttt{https:/\allowbreak{}/\allowbreak{}github.com/\allowbreak{}C2SP/\allowbreak{}wycheproof}.
