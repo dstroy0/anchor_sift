@@ -556,7 +556,7 @@ difference `2 ln m`.
 Whether the angles are equidistributed, and how evenly, is a question about all `n`, and none of it
 bears on the zeros of `Z` or on the hypothesis.
 
-## Entry 9, 2026-10-03: Turing's method, run as a machine over the record machine's automata
+## Entry 9: Turing's method, run as a machine over the record machine's automata
 
 `examples/0_experimental/exact_zeta_turing.py`, the machine, with its device programs in
 `exact_zeta_turing.cu`, built by `exact_zeta_turing.sh`.
@@ -690,7 +690,7 @@ method and the three published bounds above. Below 760.265422 it says nothing, a
 verifications reach far past `10^5`. The computation is exact. Its rigor is that of the bounds it
 cites, and of the step-by-step bound on the device's arithmetic in `arithmetic`.
 
-## Entry 10, 2026-10-03: Harish-Chandra's spherical function, on the plane the modular surface is a quotient of
+## Entry 10: Harish-Chandra's spherical function, on the plane the modular surface is a quotient of
 
 `examples/0_experimental/exact_zeta_spherical.py`, with its device program in
 `exact_zeta_spherical.cu`, built by `exact_zeta_spherical.sh`.
