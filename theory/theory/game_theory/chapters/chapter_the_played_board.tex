@@ -1,14 +1,13 @@
 \chapter{The played board}
 
-\textbf{Purpose:} Separate what the rules put on a board from what the players did, and report the
-negative that came out. \textbf{Scope:}
-\texttt{examples/\allowbreak{}game\_\allowbreak{}theory/\allowbreak{}\{1\_\allowbreak{}represent,3\_\allowbreak{}reference,4\_\allowbreak{}measure\}/\allowbreak{}}
+This chapter separates what the rules put on a board from what the players do, and reports the
+negative that comes out.
 
 \section{Why a board is worth reading at all}
 
 Every corpus in this work holds two things at once and cannot separate them. A text carries its
 grammar and its author together, and there is no way to obtain the same author writing under
-different grammar. The workbook's Salishan rows spend real effort on exactly this and the effort does
+different grammar. The workbook's Salishan rows~\cite{src:Quigg-orior-workbook} spend real effort on exactly this and the effort does
 not fully succeed.
 
 A board separates them for nothing. The rules are fixed and public. The play is a choice. Three
@@ -61,16 +60,16 @@ place-only, 400 boards, from an empty board & 0.4915 & 0.4923 & 0.998 \\
 
 The departure is the flip rule. A board being a board contributes nothing.
 
-\subsection{The 0.971 row, which was a mistake of ours}
+\subsection{The 0.971 row, and the opening it reads}
 
-The first version of that control kept Reversi's four fixed center pieces and read 0.971, three
-floors below the null where the argument wanted one. The gap is the opening itself. Those four
+Kept with Reversi's four fixed center pieces, the control reads 0.971, three floors below the null
+where the argument wants one. The gap is the opening itself. Those four
 squares are laid out black over white and white over black. All four neighboring pairs inside them
 therefore disagree by construction, where a draw would have half of them agree. Four guaranteed
 disagreements out of a hundred and twelve pairs is 0.018 of the reading and accounts for all of the
 gap. Starting from an empty board returns 0.998.
 
-It is kept because it points the other way as well. The same four squares sit under every Reversi row
+The row also bounds the Reversi rows. The same four squares sit under every Reversi row
 above and push them in the same direction. The ratio of 1.225 is understated by about that much and
 is never overstated.
 
@@ -116,7 +115,7 @@ the board. It does not read who chose it.
 
 \section{Reading the width back off it}
 
-The picture work claims an image read as a byte sequence returns its own width. A board is the same
+An image read as a byte sequence returns its own width. A board is the same
 shape of object with a width nobody has to look up.
 
 \begin{center}
