@@ -12,8 +12,14 @@
 // - where the operation sets no write barrier, the fewest cycles NVIDIA leaves between it and the first instruction
 //   that reads the register it writes, the stalls between them summed. That count is the soonest NVIDIA lets the result
 //   be read, and holds for the operation wherever it is written
-// - where the operation sets a write barrier, how often the first instruction that reads its register waits on that
-//   barrier, against how often it does not
+// - where the operation sets a write barrier, how often a wait on that barrier stands between it and the first
+//   instruction that reads its register, against how often none does. A barrier counts its producers, and a wait on it
+//   holds until every one of them is back: the wait may stand at the reader or at any instruction before it
+// - where the operation sets none and a later instruction of the same operation sets one, waited on before the read:
+//   the earlier result is held behind the later one's barrier, the two coming back in the order they were put
+// - where the operation sets none, no later one holds it, and an earlier instruction of the same operation sets one,
+//   waited on before the read: the result follows the earlier one's out of the same unit, and the fewest cycles NVIDIA
+//   leaves between that wait and the read
 //
 // and whether the machine file's form for the operation records the barrier NVIDIA writes.
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
@@ -61,6 +67,9 @@ typedef struct
     unsigned long long timed_reads;
     unsigned long long readers_waiting;
     unsigned long long readers_not_waiting;
+    unsigned long long readers_behind_later;
+    unsigned long long readers_behind_earlier;
+    unsigned int soonest_after_earlier;
     unsigned long long machine_barriers;
     unsigned long long machine_read_barriers;
     unsigned long long machine_formed;
@@ -110,6 +119,7 @@ static unsigned int scheduler_operation(const char *name)
     memset(made, 0, sizeof(*made));
     snprintf(made->name, sizeof(made->name), "%s", name);
     made->soonest_read = UINT_MAX;
+    made->soonest_after_earlier = UINT_MAX;
     s_operations += 1u;
     return s_operations - 1u;
 }
@@ -253,10 +263,79 @@ static void scheduler_instruction(const unsigned char *bytes, unsigned long long
     }
 }
 
-// each instruction of a section that writes a register, followed to the first instruction that reads it: the cycles
-// between them where the writer sets no write barrier, and whether the reader waits on it where the writer sets one.
-// The look stops at an instruction that leaves the straight line, one that writes the register again, and past
-// SCHEDULER_REACH instructions
+// 1 where an instruction of the section from `first` to `last` waits on barrier `barrier`
+static int scheduler_waited(unsigned int barrier, unsigned int first, unsigned int last)
+{
+    for (unsigned int at = first; at <= last; at += 1u)
+    {
+        if ((s_section[at].wait >> barrier) & 1u)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 1 where operations `one` and `two` share their names before the first dot
+static int scheduler_same_operation(unsigned int one, unsigned int two)
+{
+    const char *const left = s_operation[one].name;
+    const char *const right = s_operation[two].name;
+    const size_t length = strcspn(left, ".");
+    return (length == strcspn(right, ".")) && (strncmp(left, right, length) == 0);
+}
+
+// 1 where an instruction after `writer` and before `reader`, of the writer's operation, sets a write barrier that an
+// instruction after it and no later than the reader waits on
+static int scheduler_behind_later(unsigned int writer, unsigned int reader)
+{
+    for (unsigned int at = writer + 1u; at < reader; at += 1u)
+    {
+        const SchedulerInstruction *const later = &s_section[at];
+        if ((later->operation != SCHEDULER_OPERATIONS) && (later->write_barrier != SASS_BARRIER_NONE) &&
+            scheduler_same_operation(s_section[writer].operation, later->operation) &&
+            scheduler_waited(later->write_barrier, at + 1u, reader))
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// where an instruction before `writer`, of the writer's operation and no farther back than SCHEDULER_REACH, sets a
+// write barrier that an instruction after the writer and no later than `reader` waits on: the cycles between the first
+// such wait and the reader, or UINT_MAX where there is none
+static unsigned int scheduler_behind_earlier(unsigned int writer, unsigned int reader)
+{
+    const unsigned int reach = (writer > SCHEDULER_REACH) ? (writer - SCHEDULER_REACH) : 0u;
+    for (unsigned int back = writer; back > reach; back -= 1u)
+    {
+        const SchedulerInstruction *const earlier = &s_section[back - 1u];
+        if ((earlier->operation == SCHEDULER_OPERATIONS) || (earlier->write_barrier == SASS_BARRIER_NONE) ||
+            !scheduler_same_operation(s_section[writer].operation, earlier->operation))
+        {
+            continue;
+        }
+        for (unsigned int at = writer + 1u; at <= reader; at += 1u)
+        {
+            if ((s_section[at].wait >> earlier->write_barrier) & 1u)
+            {
+                unsigned int cycles = 0u;
+                for (unsigned int step = at; step < reader; step += 1u)
+                {
+                    cycles += s_section[step].stall;
+                }
+                return cycles;
+            }
+        }
+    }
+    return UINT_MAX;
+}
+
+// each instruction of a section that writes a register, followed to the first instruction that reads it: where the
+// writer sets a write barrier, whether a wait on it stands between them; where it sets none, whether it is held behind
+// a later one's barrier, and otherwise the cycles between them. The look stops at an instruction that leaves the
+// straight line, one that writes the register again, and past SCHEDULER_REACH instructions
 static void scheduler_follow(unsigned int count)
 {
     for (unsigned int at = 0u; at < count; at += 1u)
@@ -274,18 +353,27 @@ static void scheduler_follow(unsigned int count)
             const SchedulerInstruction *const reader = &s_section[next];
             if (scheduler_reads_register(reader, writer->writes))
             {
-                if (writer->write_barrier == SASS_BARRIER_NONE)
+                if (writer->write_barrier != SASS_BARRIER_NONE)
                 {
-                    operation->timed_reads += 1ull;
-                    operation->soonest_read = (cycles < operation->soonest_read) ? cycles : operation->soonest_read;
+                    const int waited = scheduler_waited(writer->write_barrier, at + 1u, next);
+                    operation->readers_waiting += waited ? 1ull : 0ull;
+                    operation->readers_not_waiting += waited ? 0ull : 1ull;
                 }
-                else if ((reader->wait >> writer->write_barrier) & 1u)
+                else if (scheduler_behind_later(at, next))
                 {
-                    operation->readers_waiting += 1ull;
+                    operation->readers_behind_later += 1ull;
+                }
+                else if (scheduler_behind_earlier(at, next) != UINT_MAX)
+                {
+                    const unsigned int after = scheduler_behind_earlier(at, next);
+                    operation->readers_behind_earlier += 1ull;
+                    operation->soonest_after_earlier =
+                        (after < operation->soonest_after_earlier) ? after : operation->soonest_after_earlier;
                 }
                 else
                 {
-                    operation->readers_not_waiting += 1ull;
+                    operation->timed_reads += 1ull;
+                    operation->soonest_read = (cycles < operation->soonest_read) ? cycles : operation->soonest_read;
                 }
                 break;
             }
@@ -380,12 +468,19 @@ static int scheduler_record(const char *path)
     fprintf(out, "%u cubins, %llu instructions, %llu no form reads, %u operations.\n\n", s_cubins, s_instructions,
             s_unread, s_operations);
     fprintf(out, "An operation's soonest read is the fewest cycles, its stalls summed, between it and the first "
-                 "instruction that reads the register it writes, over every place it sets no write barrier. Readers "
-                 "waiting count the first readers of a register it writes with a write barrier that wait on that "
-                 "barrier, against those that do not. The machine file columns count the places whose form records a "
-                 "write barrier, and a read barrier, against the places a form was found.\n\n");
+                 "instruction that reads the register it writes, over every place it sets no write barrier and no "
+                 "later one holds it. Readers waiting count the first readers of a register it writes with a write "
+                 "barrier where a wait on that barrier stands between the two, at the reader or before it, against "
+                 "those where none does. A barrier counts its producers, and a wait on it holds until all of them are "
+                 "back. Behind a later one counts the first readers of a register it writes with no barrier where a "
+                 "later instruction of the same operation sets one, waited on before the read. Behind an earlier one "
+                 "counts those where no later one does and an earlier instruction of the same operation sets one, "
+                 "waited on before the read, with the fewest cycles between that wait and the read. The machine file "
+                 "columns count the places whose form records a write barrier, and a read barrier, against the places "
+                 "a form was found.\n\n");
     fprintf(out, "| operation | written | stalls | write barrier | read barrier | waits | soonest read | readers "
-                 "waiting | machine file write | machine file read |\n|---|---|---|---|---|---|---|---|---|---|\n");
+                 "waiting | behind a later one | behind an earlier one | machine file write | machine file read |\n"
+                 "|---|---|---|---|---|---|---|---|---|---|---|---|\n");
     for (unsigned int at = 0u; at < s_operations; at += 1u)
     {
         const SchedulerOperation *const operation = &s_operation[at];
@@ -400,11 +495,23 @@ static int scheduler_record(const char *path)
         {
             snprintf(soonest, sizeof(soonest), "%u over %llu", operation->soonest_read, operation->timed_reads);
         }
-        fprintf(out, "| `%s` | %llu | %s | %llu | %llu | %llu | %s | %llu of %llu | %llu of %llu | %llu of %llu |\n",
+        char earlier[64];
+        if (operation->readers_behind_earlier == 0ull)
+        {
+            snprintf(earlier, sizeof(earlier), "0");
+        }
+        else
+        {
+            snprintf(earlier, sizeof(earlier), "%llu, %u after the wait", operation->readers_behind_earlier,
+                     operation->soonest_after_earlier);
+        }
+        fprintf(out,
+                "| `%s` | %llu | %s | %llu | %llu | %llu | %s | %llu of %llu | %llu | %s | %llu of %llu | %llu of %llu |\n",
                 operation->name, operation->count, stalls, operation->write_barriers, operation->read_barriers,
                 operation->waits, soonest, operation->readers_waiting,
-                operation->readers_waiting + operation->readers_not_waiting, operation->machine_barriers,
-                operation->machine_formed, operation->machine_read_barriers, operation->machine_formed);
+                operation->readers_waiting + operation->readers_not_waiting, operation->readers_behind_later, earlier,
+                operation->machine_barriers, operation->machine_formed, operation->machine_read_barriers,
+                operation->machine_formed);
     }
     fclose(out);
     return 1;

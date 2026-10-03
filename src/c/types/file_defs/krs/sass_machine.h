@@ -132,7 +132,10 @@ unsigned long long sass_exit_encoding(const SassMachine *machine);
 // how the scheduler holds an operation's result, a property of the operation and not of one encoding of it: ready
 // after a fixed count of cycles, back late behind a write barrier its readers wait on, or a store whose operands are
 // read late behind a read barrier, which whatever writes those registers next waits on. NVIDIA's compiler gives every
-// late operation a write barrier and every store a read barrier over the tree's CUDA sources (monolith_scheduler.md)
+// late operation a write barrier and every store a read barrier over the tree's CUDA sources (monolith_scheduler.md).
+// A barrier counts its producers and a wait on it holds until all of them are back, and a late result left without a
+// barrier is held behind another of the same operation out of the same unit, its results back in the order they were
+// put
 enum SassSchedule
 {
     SASS_SCHEDULE_FIXED = 0,
