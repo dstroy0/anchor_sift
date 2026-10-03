@@ -1,8 +1,8 @@
 """Combs the survey arms: pooled depth, and the agreement between them.
 
 Eight arms each survey the same nonce range under a different header. Pooling them tightens the
-estimate as the square root of the total, which is what more of anything buys. The agreement
-between them buys something else, and it is the reason to run arms rather than one longer arm:
+estimate as the square root of the total, as more of anything does. The agreement between them
+buys something else, and it is the reason to run arms and not one longer arm:
 
     a bias in the construction pushes EVERY arm the same way
     a bias in one header pushes one arm and leaves the rest alone
@@ -11,13 +11,12 @@ between them buys something else, and it is the reason to run arms rather than o
 So the sign of a position's deviation, read across arms, separates the three. Under the null each
 arm's sign is a fair coin, all eight agreeing has probability two in two hundred fifty six, and
 over 256 positions chance alone delivers about two such positions. That is the bar, and it is
-computed rather than chosen.
+computed and not chosen.
 
 Every comparison is integer. A position set c times out of N deviates by 2c - N exactly, pooling is
 addition, and testing against k standard errors is (sum of deviations) squared against k squared
 times (sum of N). Nothing divides and nothing takes a root.
 
-    python tools/audit/comb_arms.py
     python tools/audit/comb_arms.py --dir path/to/arms
 """
 
@@ -27,7 +26,6 @@ import io
 import json
 import os
 
-DEFAULT_DIR = os.path.join(os.path.expanduser("~"), ".claude", "jobs", "52b29cc3", "tmp")
 
 
 def reach_of(deviation, samples):
@@ -41,7 +39,7 @@ def reach_of(deviation, samples):
 
 def main():
     parser = argparse.ArgumentParser(description="Comb the survey arms.")
-    parser.add_argument("--dir", default=DEFAULT_DIR)
+    parser.add_argument("--dir", required=True, help="the directory holding survey_arm_*.json")
     given = parser.parse_args()
 
     paths = sorted(glob.glob(os.path.join(given.dir, "survey_arm_*.json")))
@@ -57,20 +55,18 @@ def main():
     depths = [int(a["nonces"]) for a in arms]
     total = sum(depths)
 
-    # Arms need not share a depth. Each one carries its own N and its own exact zero at 2c - N, so
-    # the deviations add and their variances add with them, and no calibration step exists to get
-    # wrong. An earlier version printed arms[0]'s depth as though it were everyone's, which was
-    # only ever a display fault because the arithmetic below never used it.
+    # Arms need not share a depth. Each one carries its own N and its own exact zero at 2c - N. The
+    # deviations add and their variances add with them, and no calibration step exists to get wrong.
     if min(depths) == max(depths):
         print("  %d arms, %s nonces each, %s in total"
               % (width, format(min(depths), ","), format(total, ",")))
     else:
         print("  %d arms of mixed depth, %s to %s nonces, %s in total"
               % (width, format(min(depths), ","), format(max(depths), ","), format(total, ",")))
-        print("  mixed depths pool exactly: every arm is referenced to 2c - N, so deviations add")
-        print("  and variances add with them. Nothing is fitted and nothing is normalised.")
-    print("  each arm is a DIFFERENT header, so the arms are independent observations of the")
-    print("  construction rather than deeper observations of one instance")
+        print("  mixed depths pool exactly: every arm is referenced to 2c - N. Deviations add")
+        print("  and variances add with them. Nothing is fitted and nothing is normalized.")
+    print("  each arm is a DIFFERENT header: the arms are independent observations of the")
+    print("  construction and not deeper observations of one instance")
     print()
 
     # Per position: each arm's deviation, the pooled deviation, and how many arms agree on sign.
@@ -122,7 +118,7 @@ def main():
     # exactly the same weight as a deep one and the binomial does not care.
     #
     # The power is not depth-independent, and that is the part worth saying. A shallow arm is less
-    # likely to show a REAL bias's sign, so mixing depths keeps the false-positive rate exact while
+    # likely to show a REAL bias's sign. Mixing depths keeps the false-positive rate exact while
     # diluting sensitivity. Short arms are free to add and never mislead; they simply carry less.
     expected_unanimous = (256 * 2) / float(1 << width)
     print()
@@ -138,11 +134,11 @@ def main():
     real = [u for u in unanimous if reach_of(u[1], total) >= 4]
     if not real:
         print("    No position is both unanimous across arms and past four standard errors pooled.")
-        print("    A structural bias would have to be both, so there is none at this depth: the")
+        print("    A structural bias would have to be both. There is none at this depth: the")
         print("    construction is flat to one part in %s." % format(int(total ** 0.5), ","))
     else:
         print("    %d position(s) are unanimous AND past four sd. Those are the only candidates" % len(real))
-        print("    for structure rather than noise, and each wants its own arm to confirm.")
+        print("    for structure and not noise, and each wants its own arm to confirm.")
 
     print()
     print("=" * 78)
@@ -167,8 +163,8 @@ def main():
     if repeated:
         print("    positions loudest in more than one arm: %s  <- worth chasing" % repeated)
     else:
-        print("    No position was loudest in more than one arm. That is what noise does, and it")
-        print("    is a stronger statement than any single arm could make however deep it ran.")
+        print("    No position was loudest in more than one arm. Noise does that, and it is a")
+        print("    stronger statement than any single arm could make however deep it ran.")
 
     print()
     print("=" * 78)
@@ -176,11 +172,11 @@ def main():
     print("=" * 78)
     print()
     print("  An arm costs nothing to keep. The counters are 256 numbers and 33 bins whatever the")
-    print("  depth, and the device buffers are allocated once, so memory is flat in the arm count.")
+    print("  depth, and the device buffers are allocated once. Memory is flat in the arm count.")
     print("  What the arms buy is not flat, and the two things they buy do not scale alike:")
     print()
-    print("    pooled depth   improves as the square root of the arm count, which is what more of")
-    print("                   anything buys and is why it saturates")
+    print("    pooled depth   improves as the square root of the arm count, as more of anything")
+    print("                   does, and saturates")
     print("    agreement      improves as two to the arm count, because every additional arm halves")
     print("                   the chance that a run of agreeing signs is coincidence")
     print()
@@ -196,7 +192,7 @@ def main():
         print("    %4d   %14.2fx      %s%s" % (k, by, shown, mark))
     print()
     print("  So depth answers how large a bias is, and arms answer whether it is a bias at all.")
-    print("  Past about thirty two arms any unanimous position is a finding rather than a")
+    print("  Past about thirty two arms any unanimous position is a finding and not a")
     print("  coincidence, and that is a threshold depth alone never reaches.")
     return 0
 
