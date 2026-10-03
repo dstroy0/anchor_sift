@@ -4,7 +4,7 @@
 #
 # The voice as a rhythm spectrum, and the band a text is graded inside.
 #
-#   src/build/tessera_host/tessera_run --processors 1 --name voice_harmonics -- \
+#   build/tessera_host/tessera_run --processors 1 --name voice_harmonics -- \
 #       python utils/maint/prose/docs_check --harmonics
 #   from voice_harmonics import Voice
 #

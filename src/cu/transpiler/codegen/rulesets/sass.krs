@@ -183,7 +183,7 @@ form word_funnel_right to low high bits = \tSHF.R.U32 \t{to}, {low}, {bits}, {hi
 form word_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form word_multiply_add to left right added = \tIMAD \t{to}, {left}, {right}, {added};\n
 err word_divide to left right
-form word_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
+form word_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n
 # The two halves of a word product, which carry between them: the low is the product's low word plus the addend,
 # keeping its carry in P6, and the high is the product's high word plus that carry. The compiler wrote the pair as
 # one IMAD.WIDE.U32 into an aligned pair (form_13: MOV R7, RZ then IMAD.WIDE.U32 R6, R9, R0, R6), which needs the
@@ -195,6 +195,8 @@ form product_high to left right = \tIMAD.HI.U32 \t{to}, {left}, {right}, RZ;\n\t
 
 # a sign's arithmetic, a signed word of -1, 0 or 1 (sign_set, sign_select; sign_multiply, sign_absolute, sign_negate)
 form sign_set to value = \tMOV \t{to}, {value};\n
+# a sign's chosen word may be a number, -1 or 1, and SEL reads its first operand from a register, so it is moved
+# through R254 first
 form sign_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n
 form sign_multiply to left right = \tIMAD \t{to}, {left}, {right}, RZ;\n
 form sign_absolute to from = \tIABS \t{to}, {from};\n
@@ -253,7 +255,7 @@ form wide_add to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.
 form wide_add_unsigned to left right = \tIADD3 \t{to}, P6, {left}, {right}, RZ;\n\tIADD3.X \t{to}.hi, {left}.hi, {right}.hi, RZ, P6, !PT;\n
 # the high half reads both halves of the value shifted, and is written before the low half overwrites it
 form wide_shift_left to from bits = \tSHF.L.U64.HI \t{to}.hi, {from}, {bits}, {from}.hi;\n\tSHF.L.U32 \t{to}, {from}, {bits}, RZ;\n
-form wide_select to chosen otherwise where = \tMOV \tR254, {chosen};\n\tSEL \t{to}, R254, {otherwise}, {where};\n\tMOV \tR254, {chosen}.hi;\n\tSEL \t{to}.hi, R254, {otherwise}.hi, {where};\n
+form wide_select to chosen otherwise where = \tSEL \t{to}, {chosen}, {otherwise}, {where};\n\tSEL \t{to}.hi, {chosen}.hi, {otherwise}.hi, {where};\n
 err wide_divide to left right
 
 # memory: the members' and the tables' words and the record's words (the frame's own loads and stores). An address is

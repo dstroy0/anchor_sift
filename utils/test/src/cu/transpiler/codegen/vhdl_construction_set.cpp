@@ -260,10 +260,24 @@ int main(int argc, char **argv)
         return std::string();
     };
     const std::string package_end = "end package body cycle_program;\n";
-    if ((rules == NULL) || forms.empty() || !ruleset_opcode(rules, "lane_open", {}, none, package) ||
-        (package.find(package_end) == std::string::npos))
+    if (rules == NULL)
     {
-        fprintf(stderr, "  vhdl construction set: the ruleset or its package could not be read\n");
+        fprintf(stderr, "  vhdl construction set: the ruleset could not be read\n");
+        return 1;
+    }
+    if (forms.empty())
+    {
+        fprintf(stderr, "  vhdl construction set: %s holds no form\n", argv[2]);
+        return 1;
+    }
+    if (!ruleset_opcode(rules, "lane_open", {}, none, package))
+    {
+        fprintf(stderr, "  vhdl construction set: the ruleset wrote no lane_open\n");
+        return 1;
+    }
+    if (package.find(package_end) == std::string::npos)
+    {
+        fprintf(stderr, "  vhdl construction set: lane_open holds no package body\n");
         return 1;
     }
     package = package.substr(0u, package.find(package_end) + package_end.size());
@@ -311,5 +325,8 @@ int main(int argc, char **argv)
     }
     printf("  vhdl construction set: %zu forms measured, %u not measured, %s %s\n", costs.size(), unmeasured,
            same ? "written and read back whole to" : "NOT written to", argv[3]);
-    return same ? 0 : 1;
+    // two checks: some form measured, and the table read back whole
+    const unsigned int failed = (costs.empty() ? 1u : 0u) + (same ? 0u : 1u);
+    printf("  vhdl construction set: 2 checks, %u failed\n", failed);
+    return (failed == 0u) ? 0 : 1;
 }

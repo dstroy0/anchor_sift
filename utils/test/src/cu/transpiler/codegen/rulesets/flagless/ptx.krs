@@ -137,25 +137,25 @@ form record_store offset from = \tst.global.u32 \t[%record+{offset}], {from};\n
 
 # the states a target that clocks the lane a state at a time cuts it into (vhdl.krs); a PTX lane runs straight
 # through, and has none
-form states_declare count =
-form state_start state =
-form state_open state =
-form state_next state error =
-form state_exit =
-form dispatch_to error state =
+nop states_declare count
+nop state_start state
+nop state_open state
+nop state_next state error
+nop state_exit
+nop dispatch_to error state
 
 # a memory read's address named a state ahead of the read, for a target that reads memory a clock after it is asked
 # (vhdl.krs); a PTX load names its address itself
-form launch_ask offset =
-form global_ask address offset =
-form guarded_ask where address =
-form count_ask address =
+nop launch_ask offset
+nop global_ask address offset
+nop guarded_ask where address
+nop count_ask address
 
 # a loop: its label, and the branch back to it where the predicate holds; a PTX lane branches, and a target that cuts
 # the lane into states goes back a state (state_loop, which PTX has none of)
 form loop_label loop = $Lloop{loop}:\n
 form loop_back loop where = \t@{where} bra \t$Lloop{loop};\n
-form state_loop back where next =
+nop state_loop back where next
 
 # the carry chains as constructs. A sum's carry out is the sum below its left operand, read as 64-bit words, since
 # this ruleset compares 32-bit words only as signed. The middle limb's two carries never both happen: a sum that

@@ -350,8 +350,16 @@ works there.
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
    writes where the host refuses.
 
-8. **Not proved.** The test matrix has not run since the machine file was replaced. `cell_ptx` test_signed_zero is
-   stale.
+8. **Not proved.** Of the matrix's 50 suites, 35 hold every check on the current tree: daemon, web_check, interface,
+   ruleset_read, record_host, record_c, codegen_device, engine_c, exact_divide, exact_transform, max_tree,
+   device_pool, period, python_period, python_periodic_energy, double_fields, obsignatio, qasm, record_sum,
+   vhdl_construction_set, record_bitwise, record_coherence, record_divide, record_gaussian, record_guide,
+   record_lane, record_speed and record_order, and the C builds of bitwise, boundary, coherence, divide, gaussian,
+   guide and lane. interface_ptx holds its ten checks in ptx.krs; its flagless ruleset is brought
+   in line with ptx.krs's `nop` forms and has not run since. 13 have no result: record_boundary, record_table,
+   record_tower, record_vhdl, the C pairs of speed, table, tower and order, residual_odd, shift_agreement_hold,
+   tessera_device, tower_edge and unit_sweep_planes. interface_sass is not run: it loads cubins our own assembler
+   writes, and none goes to the part until its kernels are checked on the host.
 
 9. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the
    sweep on the host (M24 in the engine table, Q4). The open part is the loop that puts them to a target.

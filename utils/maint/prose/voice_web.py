@@ -4,7 +4,7 @@
 #
 # Build the voice alphabet and the two voice webs from the voice corpus.
 #
-#   src/build/tessera_host/tessera_run --processors 1 --name voice_web -- \
+#   build/tessera_host/tessera_run --processors 1 --name voice_web -- \
 #       python utils/maint/prose/voice_web.py
 #
 # Reads the text voice_pdftotext.sh wrote to build/voice/text/ and the words voice_count.py kept in

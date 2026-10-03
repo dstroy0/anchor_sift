@@ -4,7 +4,7 @@
 #
 # Convert the voice corpus to text, eight PDFs at a time, as one host job.
 #
-#   src/build/tessera_host/tessera_run --processors 8 --name voice_pdftotext -- \
+#   build/tessera_host/tessera_run --processors 8 --name voice_pdftotext -- \
 #       bash utils/maint/prose/voice_pdftotext.sh D:/voice
 #
 # The text goes to build/voice/text/ and never into the tree: it is the books' text. What the tree

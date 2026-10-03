@@ -53,7 +53,7 @@ c++ -o "$BINARY" "${OBJECTS[@]}" -lpthread
 # the work folder is the system's own temporary folder, as record_vhdl_test.sh's is
 WORK="$(mktemp -d "${TMPDIR:-/tmp}/vhdl_construction_set.XXXXXX")"
 trap 'rm -rf "$WORK"' EXIT
-"$BINARY" "$WORK" "$CODEGEN/rulesets/vhdl.krs" "$OUT/vhdl.kcs"
+"$BINARY" "$WORK" "$CODEGEN_CU/rulesets/vhdl.krs" "$OUT/vhdl.kcs"
 STATUS=$?
 echo "  vhdl construction set exit $STATUS"
 exit "$STATUS"
