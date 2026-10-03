@@ -98,6 +98,15 @@ if [ -n "${SASS_PATTERN:-}" ]; then
     exit "$STATUS"
 fi
 mkdir -p "$OUT/sass"
+# SASS_LEARN set learns the machine again through the disassembler, bit by bit, which runs past half an hour; unset,
+# the asks are put against the machine file the tree holds for the first architecture
+if [ -z "${SASS_LEARN:-}" ]; then
+    FIRST="${ARCHES%% *}"
+    "$BINARY" "$PROBE" "$OUT/sass" asks "$CUBIN/machines/$FIRST"
+    STATUS=$?
+    echo "  interface sass asks exit $STATUS"
+    exit "$STATUS"
+fi
 "$BINARY" "$PROBE" "$OUT/sass" "$CUBIN/machines"
 STATUS=$?
 echo "  interface sass test exit $STATUS"

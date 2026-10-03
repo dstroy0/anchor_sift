@@ -15,9 +15,7 @@
 
 static unsigned char s_safe_image[SASS_SAFE_CUBIN];
 
-// 1 where the cubin at `path` reads and holds to cubin_safe against the probe's machine, or 0 with the rule it broke
-// printed: nothing our assembler wrote goes to the part unread
-static int sass_cubin_safe(const SassProbe *probe, const char *path)
+int sass_cubin_safe(const SassProbe *probe, const char *path)
 {
     FILE *const file = fopen(path, "rb");
     const size_t size = (file != NULL) ? fread(s_safe_image, 1u, sizeof(s_safe_image), file) : 0u;

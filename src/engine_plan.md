@@ -146,7 +146,7 @@ shows three members where the first agrees with the second, the second with the 
 neither. Pairwise agreement therefore names no set, and which members share a stem has no answer that does not
 depend on which was asked first. A group needs one of two things written: a representative every member is
 compared against, or a rule that builds the group and says which member it is anchored on. The rule is
-written, with its anchor as the representative (Open 12).
+written, with its anchor as the representative (Open 11).
 
 **`.kdm` grows to whatever specificity a part needs.** It holds as many answers as it has: a general answer
 block, and under it a map specific enough to be optimal on one device and nowhere else. A driver written by
@@ -345,25 +345,24 @@ works there.
 5. **The relations are not asked for everything.** An atomic add has no relation put for it. `count_add` waits on
    that, and not on a name a disassembler will not print.
 
-6. **The compile channel in `.ksc` reads 0.** It runs in another process. Run, decode and clock all read. The SASS
-   probe counts it from what `interface_ptx_probe cubins` prints: a line `cubin <number> <name>` is a kernel the
-   compiler emitted, the frame and the resident with the first, and a line `errored: nvJitLink` one it refused. The
-   `.ksc` is written again only by a whole interface_sass run, and none has finished since (Open 8).
-
-7. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
+6. **VHDL is a target on the Pi**, built on the `cell_tracking` branch at `bbc464b`, off main. State forms cut the
    program into clock states and `vhdl.krs` writes a clocked entity. In progress, uncommitted, and the device
    writes where the host refuses.
 
-8. **Not proved.** Of the matrix's 51 suites, 36 hold every check on the current tree: daemon, web_check, interface,
-   ruleset_read, cubin_safe, record_host, record_c, codegen_device, engine_c, exact_divide, exact_transform, max_tree,
+7. **Not proved.** Of the matrix's 51 suites, 37 hold every check on the current tree: daemon, web_check, interface,
+   interface_sass, ruleset_read, cubin_safe, record_host, record_c, codegen_device, engine_c, exact_divide, exact_transform, max_tree,
    device_pool, period, python_period, python_periodic_energy, double_fields, obsignatio, qasm, record_sum,
    vhdl_construction_set, record_bitwise, record_coherence, record_divide, record_gaussian, record_guide,
    record_lane, record_speed and record_order, and the C builds of bitwise, boundary, coherence, divide, gaussian,
    guide and lane. interface_ptx holds its ten checks in ptx.krs; its flagless ruleset is brought
    in line with ptx.krs's `nop` forms and has not run since. 13 have no result: record_boundary, record_table,
    record_tower, record_vhdl, the C pairs of speed, table, tower and order, residual_odd, shift_agreement_hold,
-   tessera_device, tower_edge and unit_sweep_planes. interface_sass learns the machine again through the
-   disassembler, bit by bit, and prints nothing the harness sees for more than 1800 s: the harness ends it. It alone
+   tessera_device, tower_edge and unit_sweep_planes. interface_sass puts its asks against the machine file the tree
+   holds, 63 checks, 0 failed: 36 questions in the part's own code answer as each says, and 26 of the 27 kernels
+   written again answer as the toolchain's did. The 27th, wide_divide, calls the toolchain's division and is held off
+   the part. The three codings weighed run in a loop and are held off the part, and the clock reads nothing. With
+   `SASS_LEARN` set it learns the machine again through the disassembler, bit by bit, and prints nothing the harness
+   sees for more than 1800 s: the harness ends it. It alone
    puts cubins our own assembler wrote on the part, and every one is read on the host first: `cubin_safe`
    (`src/c/transpiler/cubin/cubin_safe.{h,c}`) holds each instruction a kernel reaches to the safe scheduler word, to
    no branch and no wait, to one instruction at most that no form holds, and to an EXIT every thread takes, and
@@ -375,10 +374,10 @@ works there.
    before a cubin is written. A loop ask
    branches by its nature and is held off the part until a rule says when a loop ends.
 
-9. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the
+8. **The descent's cases are not put to a target.** The descent picks the cases that decide each relation from the
    sweep on the host (M24 in the engine table, Q4). The open part is the loop that puts them to a target.
 
-10. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
+9. **One face of a set has no suffix.** Its content is settled and Doug names it. It holds the asks put to a
     member and the paths read off them, in that order: every probe and what came back, with costs, refusals
     and censored samples each marked, then the winning path per problem over those same asks. It takes the
     stem the rest of the set takes. That face, `.kdm` and `.knf` under one stem are a member's coherence map
@@ -388,13 +387,13 @@ works there.
     cache of it. A refused or censored probe appears nowhere in a table of chain costs, and it separates two
     parts that cost the same.
 
-11. **The order of asks is built on the host and nothing emits it to a target.** The order, its solve and the
+10. **The order of asks is built on the host and nothing emits it to a target.** The order, its solve and the
     contention read are proved on the host (M24 in the engine table, Q5, Q7). The device half is open: a container
     that runs a chain's covered links and reads the part's clock around them, put through the channel in Open 1,
     with the censored-sample mark and the reference ask alongside. Its answer carries one bit a check, 128 an ask,
     and never one bit over a set (Q15).
 
-12. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
+11. **Stem membership has a written rule and nothing reads it.** Two members sharing a stem is the whole basis
     of a set, and pairwise agreement inside a floor cannot decide it. `compiler/bootstrap/stem_group.{h,c}` holds
     an anchored group rule: the members in an order fixed by what they are, the finest floor first, the first
     member with no group anchoring one, and every member with no group that agrees with that anchor joining it.
@@ -405,7 +404,7 @@ works there.
     shuffles. A group is a function of the whole set, and a block written for one is written again when the set
     changes. The open part is the general block in `.kdm` keyed to a group, which nothing writes yet.
 
-13. **One function of 132 runs on the device.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
+12. **One function of 132 runs on the device.** `src/cu/types/integerfloats/double_fields/double_fields.cu` holds
     `double_fields.c`'s four functions as one record program, encoded, laid out and loaded by the calls
     `engine_record_encode` makes, swept on the device and run on the host. `double_fields_test.cu` holds it 1:1
     against the C on 4110 lanes, the edges of a double and 4096 drawn words, with merges past every mask: the
@@ -416,7 +415,7 @@ works there.
     the operating system are rows in `TREE_LAYOUT_PLAN.tsv`, listed by
     `utils/maint/engine/tree_layout_check.py --write`.
 
-14. **The bench drivers do not build.** SHA-256 is the tree's own (`src/c/includes/codecs/sha256/sha256.{h,c}`,
+13. **The bench drivers do not build.** SHA-256 is the tree's own (`src/c/includes/codecs/sha256/sha256.{h,c}`,
     FIPS 180-4 over whole bytes or any count of bits), and `utils/test/src/c/includes/codecs/sha256/sha256_check.sh`
     holds it to NIST's published vectors in `utils/test/src/cu/transpiler/qasm/vectors/`: 1254 held, 0 failed,
     the byte and bit message files and the Monte chain. `utils/bench/bench_ab.c`, `bench_cycles.c`,
@@ -426,10 +425,10 @@ works there.
     nothing builds the three (Pending Doug).
 
 ## Pending Doug
-- The suffix of the face Open 10 describes.
+- The suffix of the face Open 9 describes.
 - The scheduler bits (Open 1): whether the safe word's stall drops from 15 to the soonest read the krs measures for
   each operation (`sass_operation_schedule`).
-- `bench_ab.c`, `bench_entropy.c` and `bench_sift.c` (Open 14): MMgr's byte cost table taken into the tree, the
+- `bench_ab.c`, `bench_entropy.c` and `bench_sift.c` (Open 13): MMgr's byte cost table taken into the tree, the
   three moved onto orior's own rarity, or the three returned to MMgr.
 
 ## Roles

@@ -3,7 +3,8 @@
 // interface_ptx_probe's path, the second a folder for the cubins, listings and decodings. Exit 0 where every cubin was
 // listed and every operation decoded, 1 where one was not, 2 where the probe could not ask at all. Given `loop` and a
 // machine file after those two, the folder is one an earlier run left its cubins in and only the loop ask is put:
-// exit 0 where a form came back on every count, 1 where none did, 2 where the machine file was not read
+// exit 0 where a form came back on every count, 1 where none did, 2 where the machine file was not read. Given `asks`
+// and a machine file, the questions are compiled and only the asks are put (sass_asks_main)
 #include "interface_sass_probe.h"
 
 #include <stdlib.h>
@@ -236,8 +237,8 @@ static int sass_fields(SassProbe *probe, const SassOperation *operation)
 }
 
 // the kernel `name` written again from its own listing, then both cubins run and their answers compared: 1 where the
-// two answer the same
-static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const char *name)
+// two answer the same. A written kernel cubin_safe holds off the part is run on nothing, and adds one to `held`
+static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const char *name, unsigned int *held)
 {
     if (!sass_cubin_round(machine, probe->folder, name))
     {
@@ -246,6 +247,12 @@ static int sass_cubin_same(SassProbe *probe, const SassMachine *machine, const c
     char path[1024];
     char was[256];
     char now[256];
+    snprintf(path, sizeof(path), "%s/%s_written.cubin", probe->folder, name);
+    if (!sass_cubin_safe(probe, path))
+    {
+        *held += 1u;
+        return 0;
+    }
     snprintf(path, sizeof(path), "%s/%s.cubin", probe->folder, name);
     if (!sass_cubin_answer_toolchain(probe, path, was, sizeof(was)))
     {
@@ -372,11 +379,76 @@ static int sass_loop_main(SassProbe *probe, const char *path)
     return ((kept != 0u) && written) ? 0 : 1;
 }
 
+// interface_ptx_probe asked to compile every question into the probe's folder, each compile counted on its channel: 1,
+// or 0 with what it printed
+static int sass_questions_compile(SassProbe *probe)
+{
+    char output[1024];
+    snprintf(output, sizeof(output), "%s/cubins.out", probe->folder);
+    char *const command[] = {(char *)probe->prober, "cubins", (char *)probe->folder, NULL};
+    const int status = sass_run(command, output);
+    sass_compiles_count(sass_output());
+    if ((status != 0) || !sass_questions_read(probe, sass_output()))
+    {
+        printf("  interface_ptx_probe cubins exited %d\n%s", status, (status >= 0) ? sass_output() : "");
+        return 0;
+    }
+    printf("%s: %u questions\n", probe->architecture, probe->questions);
+    return 1;
+}
+
+// The asks alone, against the machine file at `path`: every question compiled, each kernel written again by our
+// assembler and run beside the toolchain's, the interface's own questions run in code no toolchain wrote, and the
+// codings weighed, with the machine taken from the tree and not learned again. The system's classification is
+// written into the probe's folder. Exit 0 where every kernel and every question answered as it says, 1 where one did
+// not, 2 where the machine file was not read or nothing compiled
+static int sass_asks_main(SassProbe *probe, const char *path)
+{
+    if (!sass_machine_read(&s_sass_machine, path) || !sass_questions_compile(probe))
+    {
+        return 2;
+    }
+    // a kernel held off the part is no check: nothing was asked of it
+    unsigned int checks = 0u;
+    unsigned int failed = 0u;
+    unsigned int held = 0u;
+    for (unsigned int number = 0u; number <= probe->questions; number += 1u)
+    {
+        char name[32];
+        snprintf(name, sizeof(name), "form_%u", number - 1u);
+        if (number == 0u)
+        {
+            snprintf(name, sizeof(name), "frame");
+        }
+        const unsigned int was_held = held;
+        const int same = sass_list(probe, name, &s_sass_form) && sass_cubin_same(probe, &s_sass_machine, name, &held);
+        checks += (held == was_held) ? 1u : 0u;
+        failed += (same || (held != was_held)) ? 0u : 1u;
+    }
+    printf("interface sass cubin: %u kernels written again, %u answering as the toolchain's did, %u held off the part\n",
+           probe->questions + 1u, checks - failed, held);
+    unsigned int asked = 0u;
+    const unsigned int answered = sass_cubin_asks(probe, &s_sass_machine, &asked);
+    printf("interface sass ask: %u questions asked in the part's own code, %u answered as the question says\n", asked,
+           answered);
+    checks += asked;
+    failed += asked - answered;
+    unsigned int weighed = 0u;
+    const unsigned int read = sass_cubin_prefers(probe, &s_sass_machine, &weighed);
+    printf("interface sass prefer: %u codings weighed against each other, %u read in the part's own clock\n", weighed,
+           read);
+    failed += sass_class_write(probe->folder, s_sass_machine.part) ? 0u : 1u;
+    checks += 1u;
+    printf("interface sass asks: %u checks, %u failed\n", checks, failed);
+    return (failed == 0u) ? 0 : 1;
+}
+
 int main(int count, char **arguments)
 {
     if (count < 3)
     {
-        fprintf(stderr, "  interface_sass_probe: <interface_ptx_probe> <output folder> [<machines> | loop <machine file>]\n");
+        fprintf(stderr, "  interface_sass_probe: <interface_ptx_probe> <output folder> [<machines> | loop <machine file> "
+                        "| asks <machine file>]\n");
         return 2;
     }
     SassProbe *const probe = &s_sass_probe;
@@ -387,17 +459,14 @@ int main(int count, char **arguments)
     {
         return sass_loop_main(probe, arguments[4]);
     }
-    char output[1024];
-    snprintf(output, sizeof(output), "%s/cubins.out", probe->folder);
-    char *const command[] = {arguments[1], "cubins", arguments[2], NULL};
-    const int status = sass_run(command, output);
-    sass_compiles_count(sass_output());
-    if ((status != 0) || !sass_questions_read(probe, sass_output()))
+    if ((count > 4) && (strcmp(arguments[3], "asks") == 0))
     {
-        printf("  interface_ptx_probe cubins exited %d\n%s", status, (status >= 0) ? sass_output() : "");
+        return sass_asks_main(probe, arguments[4]);
+    }
+    if (!sass_questions_compile(probe))
+    {
         return 2;
     }
-    printf("%s: %u questions\n", probe->architecture, probe->questions);
     if (!sass_list(probe, "frame", &s_sass_frame))
     {
         return 2;
@@ -502,17 +571,19 @@ int main(int count, char **arguments)
     // each kernel written again into a cubin of its own, loaded and run, and its answer same to the toolchain's
     unsigned int cubins = 0u;
     unsigned int same = 0u;
-    same += sass_cubin_same(probe, &s_sass_machine, "frame") ? 1u : 0u;
+    unsigned int held = 0u;
+    same += sass_cubin_same(probe, &s_sass_machine, "frame", &held) ? 1u : 0u;
     cubins += 1u;
     for (unsigned int number = 0u; number < probe->questions; number += 1u)
     {
         char name[32];
         snprintf(name, sizeof(name), "form_%u", number);
-        same += sass_cubin_same(probe, &s_sass_machine, name) ? 1u : 0u;
+        same += sass_cubin_same(probe, &s_sass_machine, name, &held) ? 1u : 0u;
         cubins += 1u;
     }
-    printf("interface sass cubin: %u kernels written again, %u answering as the toolchain's did\n", cubins, same);
-    probe->failed += (same == cubins) ? 0u : 1u;
+    printf("interface sass cubin: %u kernels written again, %u answering as the toolchain's did, %u held off the part\n",
+           cubins, same, held);
+    probe->failed += ((same + held) == cubins) ? 0u : 1u;
     // the interface's own questions, in code no toolchain wrote
     unsigned int asked = 0u;
     const unsigned int answered = sass_cubin_asks(probe, &s_sass_machine, &asked);

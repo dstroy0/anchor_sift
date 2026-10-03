@@ -152,6 +152,10 @@ int sass_cubin_answer(SassProbe *probe, const char *path, char *answered, size_t
 // of it: it is not held to cubin_safe
 int sass_cubin_answer_toolchain(SassProbe *probe, const char *path, char *answered, size_t room);
 
+// 1 where the cubin at `path` reads and holds to cubin_safe against the probe's machine, or 0 with the rule it broke
+// printed: nothing our assembler wrote goes to the part unread
+int sass_cubin_safe(const SassProbe *probe, const char *path);
+
 // every question of the interface's own put to the part in code no toolchain wrote, `asked` counting them: how many the
 // part answered as the question says
 unsigned int sass_cubin_asks(SassProbe *probe, const SassMachine *machine, unsigned int *asked);
