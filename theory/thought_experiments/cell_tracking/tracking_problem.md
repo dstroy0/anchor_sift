@@ -1,0 +1,21 @@
+# The tracking problem
+
+## The data and the output
+
+Each sample is a light-sheet recording of a developing zebrafish embryo with fluorescently labeled nuclei. Light-sheet microscopy of this kind records the nuclei of a whole embryo over hours of development, as [Keller et al.](#src:Keller-2008) showed for the zebrafish. A sample is an OME-Zarr array of shape (T, Z, Y, X): 100 frames of 64 × 256 × 256 voxels, sampled at 1.625 µm in Z and 0.40625 µm in Y and X, as the [organizers](#src:Biohub-competition) specify.
+
+The answer is a graph in the [Graph Exchange File Format](#src:GEFF). Each node is one cell in one frame, placed at its center (t, z, y, x). An edge joins a cell to itself in the next frame, and a division is one node with edges to two nodes in the next frame.
+
+## The score
+
+Under the [organizers'](#src:Biohub-competition) metric, predicted nodes are matched to annotated nodes by centroid distance, up to 7 µm. A predicted edge is a true positive when both its ends match annotated nodes that an annotated edge joins. The edge Jaccard index is $J = TP / (TP + FP + FN)$. It is reduced when more nodes are predicted than there are cells:
+
+$$J_{\mathrm{adj}} = \max\left(0,\ J\left(1 - a\,\frac{T_{\mathrm{pred}} - T_{\mathrm{true}}}{T_{\mathrm{true}}}\right)\right), \quad a = 0.1,$$
+
+where $T_{\mathrm{pred}}$ is the number of predicted nodes and $T_{\mathrm{true}}$ the estimated number of cells. The division Jaccard index counts a predicted fork within one frame of an annotated division as a match. The score is $J_{\mathrm{adj}} + 0.1\,J_{\mathrm{div}}$, micro-averaged over the recordings.
+
+Two consequences follow. A tracker that detects pieces of cells instead of cells loses twice, once in edges that match nothing and once in the node penalty. Divisions carry a tenth of the weight of edges. The Cell Tracking Challenge scores a lineage differently, by the weighted number of graph edits that turn the predicted graph into the annotated one, as defined by [Matula et al.](#src:Matula-2015). Both score the lineage as a graph, and [Ulman et al.](#src:Ulman-2017) compare 21 trackers on the Challenge's measures.
+
+## The methods it is set against
+
+Current trackers detect cells and then join the detections by one optimization over the whole recording. One form is a min-cost flow in which a division is a node that sends two units of flow, as in [Haubold et al.](#src:Haubold-2016). Another chooses among candidate segmentations drawn from several hierarchies with an integer linear program, as [Ultrack](#src:Ultrack) does. The proposal keeps the whole-recording solve. What it changes is the evidence the solve is given: each cell's shape and a record of change over the whole recording, in place of costs with weights set by hand or learned.

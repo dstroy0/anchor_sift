@@ -1,7 +1,7 @@
 # The cell tracking table
 
 **Purpose:** The micro n-body problem cell_tracking exists to solve, part by part. For each part: the physics we hold it to, what the program does about it today, what it wants to do, every hypothesis tried there with its result, and the next move.
-**Scope:** the program: `cell_tracking/src/`, the rules in `cell_tracking/base.cfg`, the cell-specific modules still under `engine/` until they move (`bodies`, `score_sample`, `answer_key`, `measure/*`, `group_objects`, `link_objects`, `relate_frames`), the physics in the thought experiments (the harmonics source above all, `noise_sieve_5_cell_tracking_harmonics.md`, in `thought_experiments/cell_tracking/`; the rest are in `thought_experiments/engine/`), and the numbers in [ledger.md](ledger.md). The machine the program runs on is a separate concern with its own table, [engine_table.md](../engine/engine_table.md); a row here names the machine rows (M1 to M12) it reads. Statuses follow [README.md](README.md). A hypothesis with no run in the ledger says so.
+**Scope:** the program: `cell_tracking/src/`, the rules in `cell_tracking/base.cfg`, the cell-specific modules still under `engine/` until they move (`bodies`, `score_sample`, `answer_key`, `measure/*`, `group_objects`, `link_objects`, `relate_frames`), the physics in the thought experiments (the harmonics source above all, `proposal.md`, in `thought_experiments/cell_tracking/`; the rest are in `thought_experiments/engine/`), and the numbers in [ledger.md](ledger.md). The machine the program runs on is a separate concern with its own table, [engine_table.md](../engine/engine_table.md); a row here names the machine rows (M1 to M12) it reads. Statuses follow [README.md](README.md). A hypothesis with no run in the ledger says so.
 
 ## Two tables, two concerns
 
@@ -27,7 +27,7 @@ A peak here is a point: a positive voxel of the residual that no one of its 26 n
 
 Nothing is deleted. What the sort does not keep is marked, and every mark can be walked back to the readings. A map that sends two readings to one (a clip, a rounding, a bin) cannot be walked back and is not built.
 
-The organism physics each stage answers to is the thought experiments' (the harmonics source, `noise_sieve_5_cell_tracking_harmonics.md`, and the two fluidic ones), row by row in the table below:
+The organism physics each stage answers to is the thought experiments' (the harmonics source, `proposal.md`, and the two fluidic ones), row by row in the table below:
 
 - the gradients define themselves, and nothing is tuned;
 - a body's identity is the limit of its coherence over the whole sample, not a tag;

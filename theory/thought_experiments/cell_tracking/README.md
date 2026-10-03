@@ -1,8 +1,8 @@
-# Thought experiments: cell tracking
+# Cell lineage from shape and whole-sequence evidence
 
-**Purpose:** The draft that sets the noise sieve on the cell program, kept as it was written.
-**Scope:** `thought_experiments/cell_tracking/`. Its sections are set against the program in the cell workbook's on_the_engine.md and cell_tracking_table.md (`workbooks/cell_tracking/`).
+This research paper proposes a tracker for the Biohub Cell Tracking During Development task, set by its [organizers](#src:Biohub-competition), and states for each part of it the measurement that would refute it. Nothing in it is a result. Which parts are built, and what has been measured on them, is recorded in the [cell tracking workbook](#src:Quigg-cell-tracking-workbook).
 
-| file | origin |
-|---|---|
-| `noise_sieve_5_cell_tracking_harmonics.md` | the sieve applied to this competition: the engine holds nothing and gradients define themselves; a split as a boundary discontinuity; mitosis and lysis judged over the whole sample by an entropy bump; each body's spherical harmonic fingerprint, dipole and quadrupole dominant |
+| file | what it holds |
+| --- | --- |
+| [tracking_problem.md](tracking_problem.md) | the data, the output graph, the score, and the methods the proposal is set against |
+| [proposal.md](proposal.md) | the constraint the tracker is held to, its three hypotheses with the test that decides each, the solve they feed, and what is built |

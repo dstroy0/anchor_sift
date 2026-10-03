@@ -1,18 +1,17 @@
-\chapter{\texorpdfstring{Thought experiments: cell tracking}{Thought experiments: cell tracking}}
+\chapter{\texorpdfstring{Cell lineage from shape and whole-sequence evidence}{Cell lineage from shape and whole-sequence evidence}}
 \label{chap:readme}
 
-\textbf{Purpose:} The draft that sets the noise sieve on the cell program, kept as it was written.
-
-\textbf{Scope:} \texttt{thought\_\allowbreak{}experiments/\allowbreak{}cell\_\allowbreak{}tracking/\allowbreak{}}. Its sections are set against the program in the cell workbook's on\_\allowbreak{}the\_\allowbreak{}engine.md and cell\_\allowbreak{}tracking\_\allowbreak{}table.md (\texttt{workbooks/\allowbreak{}cell\_\allowbreak{}tracking/\allowbreak{}}).
+This research paper proposes a tracker for the Biohub Cell Tracking During Development task, set by its organizers~\cite{src:Biohub-competition}, and states for each part of it the measurement that would refute it. Nothing in it is a result. Which parts are built, and what has been measured on them, is recorded in the cell tracking workbook~\cite{src:Quigg-cell-tracking-workbook}.
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3816\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6184\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.4444\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5556\linewidth-2\tabcolsep\relax}}
 \toprule
-file & origin \\
+file & what it holds \\
 \midrule
 \endhead
-\texttt{noise\_\allowbreak{}sieve\_\allowbreak{}5\_\allowbreak{}cell\_\allowbreak{}tracking\_\allowbreak{}harmonics.\allowbreak{}md} & the sieve applied to this competition: the engine holds nothing and gradients define themselves; a split as a boundary discontinuity; mitosis and lysis judged over the whole sample by an entropy bump; each body's spherical harmonic fingerprint, dipole and quadrupole dominant \\
+\hyperref[chap:tracking-problem]{tracking\_\allowbreak{}problem.md} & the data, the output graph, the score, and the methods the proposal is set against \\
+\hyperref[chap:proposal]{proposal.md} & the constraint the tracker is held to, its three hypotheses with the test that decides each, the solve they feed, and what is built \\
 \bottomrule
 \end{longtable}
 }
