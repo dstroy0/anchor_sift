@@ -247,12 +247,17 @@ works there.
    ruleset's is written into the ruleset; every other keeps its text and `monolith_forms.md` says why. Nothing is
    run on the part. Where the compiler stores a test's predicate as its negation and every instruction left is an
    ISETP anded with PT, each comparison is turned over, a chain through .EX whole; and a reading that drops a `.hi`
-   the ruleset names is kept, a number's high half being the 0 the compiler folds to RZ. Of 55 forms over 405
-   questions, 35 of `sass.krs` and 15 of `ptx.krs` are the reading. What keeps the rest: the compiler writes no
-   instruction for a move, which leaves `word_copy`, `word_set`, `sign_set`, `sign_select`, `wide_unpack` and
-   `wide_add_unsigned` nothing to read; `ptx.krs` reaches `launch_load` through a generic `ld`; a number is folded
-   into the instruction for `add_alone`, `subtract_alone`, `word_shift_left`, `wide_shift_left`, `word_multiply`,
-   `test_signed_differ`, `test_wide_equal` and `wide_select`. It is the loop and it is the work.
+   the ruleset names is kept, a number's high half being the 0 the compiler folds to RZ. A question holding a number
+   outside an address is asked a third time with the number loaded, which the compiler cannot fold; that reading,
+   assembled with the number in its place, stands where the two written-in ones do not settle. Where the written-in
+   questions read apart only between sets of banks, a register added as IMAD.IADD and a number as IADD3, the reading
+   that assembles for every set stands. Of 55 forms over 440 questions, 41 of `sass.krs` and 15 of `ptx.krs` are the
+   reading. What keeps the rest: no question reads a copy, as in a straight run the allocator names a copy's two words
+   one register, which leaves `word_copy`, `word_set`, `sign_set` and `wide_unpack` nothing to read; the compiler
+   writes `sign_select`, `wide_select`, `test_wide_equal` and `wide_add_unsigned` with the number in a slot the
+   machine file holds no form for with an immediate there; `ptx.krs` reaches `launch_load` through a generic `ld`;
+   `guarded_load` reads as a branch, `count_add` and `wide_multiply` read longer than the ruleset's, and the
+   ruleset holds no `predicate_and` or `predicate_xor`. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain
    clock already reads a cost in the part's own time, and that reading is what a bound would be set from. That
