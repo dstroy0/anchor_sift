@@ -127,7 +127,7 @@ def run_device(binary, n0, top, sweeps, work):
     records of the first sweep equal the device's."""
     given = os.path.join(work, "arrival_in_%d.bin" % n0)
     taken = os.path.join(work, "arrival_out_%d.txt" % n0)
-    header = array.array("q", (top, n0, sweeps, FLOORS, min(CHECKED, top)))
+    header = array.array("q", (top, n0, sweeps, FLOORS, min(CHECKED, top), top))
     with open(given, "wb") as handle:
         header.tofile(handle)
         seeds(n0, top).tofile(handle)

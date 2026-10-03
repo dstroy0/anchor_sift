@@ -327,6 +327,7 @@ class Steering:
         self.asked = 0
         self.deepest = 0
         self.widest = 0
+        self.last_paths = []
 
     def sweep(self, points):
         """Decide every point's eighth of a turn, pass by pass, each pass reading the last one's verdicts.
@@ -424,6 +425,7 @@ class Steering:
                 verdicts.append(min(settled))
                 paths[k] = [p for (a, m, _), s in zip(edges[k], split) for p in compress((a, m), (1, s))]
             active = list(compress(active, [NOT(v) for v in verdicts]))
+        self.last_paths = paths
         return counts
 
     def walk(self, height):
