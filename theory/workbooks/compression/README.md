@@ -1,7 +1,7 @@
 # The workbook is the ledger
 
-**Purpose:** One place where every idea the compression floor rests on is written down beside what stands behind it. A reader then knows at a glance which claims are proved, which are measured, which are built but unmeasured, and which are still only theory.
-**Scope:** `workbooks/compression/`. The coder and the seal are machine parts, in the engine workbook, `workbooks/engine/` (M9 and M13 of its engine_table.md).
+**Purpose:** One place where every idea the compression lower bound rests on is written down beside what stands behind it. A reader then knows at a glance which claims are proved, which are measured, which are built but unmeasured, and which are still only theory.
+**Scope:** `workbooks/compression/`. The coder and the hash tree are machine parts, in the engine workbook, `workbooks/engine/` (M9 and M13 of its engine_table.md).
 
 ## How an entry is kept
 
@@ -22,6 +22,6 @@ A claim changes status only when a run changes it, and the run is named. Nothing
 
 | file | what it holds |
 |---|---|
-| [compression_table.md](compression_table.md) | the crystal's size set by set against the floor the data allows: the ladder of exact bounds from raw to the noise floor, every coder variant tried, and the order to close the gap |
+| [compression_table.md](compression_table.md) | the compressed file's size dataset by dataset against the lower bound the data allows: the hierarchy of exact bounds from raw to the noise floor, every coder variant tried, and the order to close the gap |
 | [build_plan.md](build_plan.md) | the compression item of the build plan |
-| [ledger.md](ledger.md) | every measurement of the .iapx codec, its variants and the floor it answers to, in the order it was taken, with its samples and its result |
+| [ledger.md](ledger.md) | every measurement of the .iapx codec, its variants and the lower bound it answers to, in the order it was taken, with its samples and its result |
