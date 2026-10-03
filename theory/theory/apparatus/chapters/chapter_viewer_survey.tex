@@ -1,6 +1,6 @@
 \chapter{The room viewer, measured before it is split}
 
-\textbf{Purpose:} Make the case for modularizing the room viewer as counts instead of impressions, state what has to exist before the split, and record the measurement that changed the author's own answer. \textbf{Scope:} \texttt{examples/\allowbreak{}00\_blob\_viz\_tools/\allowbreak{}room\_view\_template.html} and the builders sharing it.
+This chapter states the case for modularizing the room viewer, the browser page that draws the instrument's result, as counts instead of impressions, and states what has to exist before the split.
 
 \section{What the file is}
 
@@ -24,52 +24,52 @@ frame-loop sites & 3 & 4 & 3 \\
 
 No script carries \texttt{type="module"}. Every declaration at the top of the room viewer's script is therefore a property of one hoisted scope, and any of the \(355\) is reachable from any of the \(102\) functions. Nothing there is private, and nothing is known to be safe to move.
 
-Two numbers say the split is not a rewrite. The duplicate count is zero, and no name has to be renamed to make modules possible. And \(38\) banner-marked sections already name the decomposition in comments: the boundaries, the engine arms, the beam and what it scatters from, the operation clock, the boundary reconstruction, the panels, the callouts, the redraw. Whoever wrote those wrote the module list.
+Two numbers say the split is not a rewrite. The duplicate count is zero, and no name has to be renamed to make modules possible. And \(38\) banner-marked sections already name the decomposition in comments: the boundaries, the engine arms, the beam and what it scatters from, the operation clock, the boundary reconstruction, the panels, the callouts, the redraw. Those sections are the module list.
 
-\textbf{A number in an earlier version of this survey was wrong.} It read \(750\) top-level declarations and \(144\) duplicate names. The pattern allowed six spaces of indentation and was counting declarations inside functions, and the duplicates were nested scopes doing their job. Counting at column zero inside the script body gives \(355\) and zero. The corrected figures are the ones above.
+Declarations are counted at column zero inside the script body. A pattern allowing indentation counts declarations inside functions, and reads \(750\) declarations and \(144\) duplicate names, the duplicates being nested scopes doing their job.
 
 \section{What has to exist before the split}
 
 \textbf{A frame-loop checker, and it is not enough on its own.} A split of \(355\) declarations across \(38\) sections is likelier to drop a value than to stop the loop. A checker answering \emph{did it die} passes a page whose loop turns over data it no longer has.
 
-\textbf{The first one manufactured the failure it reported, and that sharpens the argument instead of weakening it.} The watchdog advanced its turn counter from \texttt{requestAnimationFrame} and ran its check on \texttt{setTimeout}. A background tab stops the first and not the second, and a page opened in a tab that was not visible therefore completed one turn and was declared dead on schedule. The report then latched: the failure set a flag and the guarded turn opened by returning on that flag. The loop never ran again, even once the tab came forward. What Douglas saw was a frozen viewer with a red banner, frozen by its own watchdog.
+\textbf{A watchdog can manufacture the failure it reports.} A watchdog that advances its turn counter from \texttt{requestAnimationFrame} and runs its check on \texttt{setTimeout} declares a page opened in a hidden tab dead on schedule: a background tab stops the first and not the second, and the page completes one turn. If the report latches, setting a flag that the guarded turn returns on, the loop never runs again, even once the tab comes forward. The result is a frozen viewer with a red banner, frozen by its own watchdog.
 
-It was repaired in the room template and the compact copies. A thrown error is fatal, slowness reports once and stops nothing, a hidden document is not judged at all and re-arms on \texttt{visibilitychange}, and a loop reaching two turns withdraws a warning raised while it was hidden.
+The checker therefore obeys four rules. A thrown error is fatal. Slowness reports once and stops nothing. A hidden document is not judged at all, and the check re-arms on \texttt{visibilitychange}. A loop reaching two turns withdraws a warning raised while it was hidden.
 
-The precondition is therefore not \emph{a} frame-loop checker. It is one that has been run against a page it should pass, in the conditions a reader will actually open it in, because a split inheriting this watchdog would have inherited a checker that reports a failure it caused. That is the same shape as the letter and the topology in the arm record: the quantity reported was not the quantity intended, and a cheap counting check settles which is in hand.
+The precondition is not \emph{a} frame-loop checker. It is one that has been run against a page it should pass, in the conditions a reader will actually open it in, because a split inheriting a faulty watchdog inherits a checker that reports a failure it caused. The quantity reported is not always the quantity intended, and a cheap counting check settles which is in hand.
 
-The engine proved that at cost. \texttt{build\_sha\_room\_view.py} supplies no \texttt{clock} key, the page parsed cleanly, the loop was watched and running, the server returned \(200\), and the viewer's clock controls did nothing. Every gate in the tree passed it.
+A live page with inert controls passes every such gate. The hash room builder supplies no \texttt{clock} key: the page parses cleanly, the loop is watched and running, the server returns \(200\), and the viewer's clock controls do nothing.
 
-\textbf{The second checker is harder than it looks, and this is the part worth reading before writing it.} The obvious form scans the template for every \texttt{DATA.<key>} read and fails a build whose payload lacks one. Run over the current tree that reports three builders, and at least one of the three is correct as written.
+\textbf{The second checker is harder than it looks.} The obvious form scans the template for every \texttt{DATA.<key>} read and fails a build whose payload lacks one. Run over the current builders it reports three, and at least one of the three is correct as written.
 
 \begin{center}
 \begin{tabular}{@{}lll@{}}
 \toprule
 builder & template & keys the payload lacks \\
 \midrule
-\texttt{build\_room\_view.py} & room & \texttt{clock}, \texttt{sources} \\
-\texttt{build\_sha\_room\_view.py} & room & \texttt{clock}, \texttt{sources} \\
-\texttt{build\_field\_view.py} & voxel & \texttt{noteTitle} \\
+room & room & \texttt{clock}, \texttt{sources} \\
+hash room & room & \texttt{clock}, \texttt{sources} \\
+field & voxel & \texttt{noteTitle} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 Every read of both room keys is guarded. \texttt{DATA.clock} appears as \texttt{if (DATA.clock \&\& ...)}, as \texttt{DATA.clock ? DATA.clock.hold : 0.62}, as \texttt{var CLOCK = DATA.clock || null}, and \texttt{DATA.sources} appears once as \texttt{Math.min(12, DATA.sources || 2)}. A room built without a clock is a supported mode and the fallbacks are deliberate.
 
-Key presence is therefore neither necessary nor sufficient. Not necessary, because a guarded optional key may be absent by design. Not sufficient, because the failure that actually happened was not a missing reference: the guards worked, the defaults applied, and what shipped was a live page with inert controls. A checker built on presence alone would have flagged \texttt{build\_room\_view.py}, which is fine, and it would still need an argument for why the same absence is a defect in the builder beside it.
+Key presence is therefore neither necessary nor sufficient. Not necessary, because a guarded optional key may be absent by design. Not sufficient, because the failure is not a missing reference: the guards work, the defaults apply, and what ships is a live page with inert controls. A checker built on presence alone flags the room builder, which is correct, and it still needs an argument for why the same absence is a defect in the builder beside it.
 
-The check catching the real failure is a different one: for each builder and template pair, report which optional features end up inert, letting a build state \emph{this page has no clock} out loud instead of shipping a dead control. It reports and does not refuse, failing only where a feature the builder's own name promises comes out inert.
+The check that catches the real failure is a different one: for each builder and template pair, report which optional features end up inert, letting a build state \emph{this page has no clock} out loud instead of shipping a dead control. It reports and does not refuse, failing only where a feature the builder's own name promises comes out inert.
 
-The three rows above are candidates and not verdicts. They were found by matching payload keys as string literals in the builder source, and a key supplied through a variable would read as missing. \texttt{build\_room\_view.py} and \texttt{build\_sha\_room\_view.py} were opened and confirmed: both pack exactly \texttt{shell}, \texttt{core}, \texttt{source}, \texttt{things} and \texttt{settings}.
+The three rows above are candidates and not verdicts. They are found by matching payload keys as string literals in the builder source, and a key supplied through a variable would read as missing. The room and hash room builders are confirmed by reading them: both pack exactly \texttt{shell}, \texttt{core}, \texttt{source}, \texttt{things} and \texttt{settings}.
 
-\section{What the split kills first}
+\section{What the split removes first}
 
-\texttt{OCT\_SIGNS} is a hardcoded two-by-two-by-two sign loop carrying the comment \emph{the arms are fixed}. That comment is now false. An arm is a weight function over the placement and an arm set is a matrix whose rank the reading carries, and the eight sign octants are one instance of that with rank \(8\), blind in \(248\) of \(256\) directions. The loop asserts they are the only instance.
+\texttt{OCT\_SIGNS} is a hardcoded two-by-two-by-two sign loop carrying the comment \emph{the arms are fixed}. That comment does not hold. An arm is a weight function over the placement and an arm set is a matrix whose rank the reading carries, and the eight sign octants are one instance of that with rank \(8\), blind in \(248\) of \(256\) directions. The loop asserts they are the only instance.
 
 \section{Vectorizing}
 
-Not surveyed here, and it should follow the split instead of leading it. The reason is the same as above: a vectorized inner loop that drops a term is a picture that still draws, and no checker in this tree reads a picture.
+Vectorizing is not surveyed here, and it follows the split instead of leading it. A vectorized inner loop that drops a term is a picture that still draws, and no checker reads a picture.
 
-\section{Ownership}
+\section{Data and code availability}
 
-The survey and the correction to its own declaration count belong to this document. The failing page, the frame-loop checker and the second checker are the engine's. The request to modularize and vectorize is Douglas's.
+The benches, the viewer templates and their builders are in the orior repository, \texttt{https://github.com/dstroy0/orior}. The benches are self-contained C programs. The SHA-1 balance values are those published by Bellare and Kohno~\cite{src:Bellare-and-Kohno-2004}; every other number here is computed by the benches from inputs they generate or enumerate.
