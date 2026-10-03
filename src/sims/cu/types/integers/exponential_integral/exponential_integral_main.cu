@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // exponential_integral_main.cu: the request, the readings and the checks
-#include "exponential_integral.h"
+#include "exponential_integral_internal.h"
 
 // E1(x), e^(-x) and ln x read at the request's x, and gamma, each as floor(f 2^bits), with these checks:
 // 1. ln 2, e^(-1), gamma and E1(1) each agree with its published digits (OEIS A002162, A068985, A001620, A099285),
@@ -8,6 +8,9 @@
 // 2. e^(-x) / (x + 1) < E1(x) < e^(-x) / x, the bounds the exponential integral keeps for every x > 0.
 // 3. E1(x) by the series -gamma - ln x + S(x) floors as the continued fraction does.
 // 4. Every reading at bits + 64 floors to the reading at bits.
+// 5. On the engine, each series term a lane of the record machine: e^(-x), ln x and E1(x) by its series each floor as
+//    on the host, every lane's record on the device is the host interpreter's word for word, and every sum the device
+//    takes is the host's. The continued fraction is a chain of levels each waiting on the next and stays on the host.
 // The request: exponential_integral [x [bits]], x a whole number, a fraction p/q or a decimal, read exactly. With none
 // it reads x = 7 at 128 bits.
 //     src/sims/run.sh exponential_integral -- 7.0078 192
@@ -320,6 +323,68 @@ static void exponential_at(SimResults *results, const SimRational *x, unsigned i
     }
 }
 
+// 5. the engine's readings at the request's x, each held to the host's
+static void exponential_engine(SimResults *results, int count, char **arguments, const SimRational *x,
+                               unsigned int bits)
+{
+    if (!sim_job_submit(results, "exponential_integral", count, arguments, exponential_engine_bytes(x, bits)))
+    {
+        return;
+    }
+    scriptura_text(&results->line, "  on the engine, each series term a lane of the record machine\n");
+    sim_flush(results);
+    const unsigned int reads[3] = {EXPONENTIAL_READ_NEGATIVE, EXPONENTIAL_READ_LOGARITHM, EXPONENTIAL_READ_SERIES};
+    const char *const names[3] = {"e^(-x)", "ln x", "E1(x) by its series"};
+    exponential_engine_reset();
+    for (unsigned int at = 0u; at < 3u; at += 1u)
+    {
+        ExponentialIntegralBracket engine;
+        ExponentialIntegralBracket host;
+        const int engine_status = exponential_read_from(&g_exponential_engine, reads[at], x, bits, &engine);
+        const int host_status = exponential_read_from(&g_exponential_host, reads[at], x, bits, &host);
+        const int same = (engine_status == EXPONENTIAL_INTEGRAL_HELD) && (host_status == EXPONENTIAL_INTEGRAL_HELD) &&
+                         anchor_exact_equal(&engine.floor_value, &host.floor_value);
+        if (engine_status == EXPONENTIAL_INTEGRAL_HELD)
+        {
+            exponential_print(&results->line, names[at], &engine);
+        }
+        else if (engine_status == EXPONENTIAL_INTEGRAL_ENGINE)
+        {
+            scriptura_text(&results->line, "  ");
+            scriptura_text(&results->line, names[at]);
+            scriptura_text(&results->line, ": a program did not build or run, or a record or sum on the device is "
+                                           "not the host's\n");
+        }
+        else
+        {
+            exponential_held(results, engine_status, names[at], bits);
+        }
+        scriptura_text(&results->line, same ? "    floors on the engine as on the host\n"
+                                            : "    does not floor on the engine as on the host\n");
+        sim_check(results, same, names[at]);
+        sim_flush(results);
+    }
+    const ExponentialEngineCount counted = exponential_engine_counted();
+    scriptura_text(&results->line, "  ");
+    scriptura_decimal(&results->line, counted.programs, 1u);
+    scriptura_text(&results->line, " programs of ");
+    scriptura_decimal(&results->line, counted.steps, 1u);
+    scriptura_text(&results->line, " steps in all, ");
+    scriptura_decimal(&results->line, counted.lanes, 1u);
+    scriptura_text(&results->line, " lanes, ");
+    scriptura_decimal(&results->line, counted.same, 1u);
+    scriptura_text(&results->line, " records on the device the host interpreter's word for word, ");
+    scriptura_decimal(&results->line, counted.sums_same, 1u);
+    scriptura_text(&results->line, " of ");
+    scriptura_decimal(&results->line, counted.sums, 1u);
+    scriptura_text(&results->line, " sums on the device the host's\n");
+    sim_check(results, (counted.lanes != 0ull) && (counted.same == counted.lanes),
+              "every lane's record on the device is the host interpreter's word for word");
+    sim_check(results, (counted.sums != 0ull) && (counted.sums_same == counted.sums),
+              "every sum the device takes is the host's");
+    sim_flush(results);
+}
+
 int main(int count, char **arguments)
 {
     char capacity[SIM_LINE_CAPACITY];
@@ -347,5 +412,7 @@ int main(int count, char **arguments)
     exponential_published(&results);
     sim_flush(&results);
     exponential_at(&results, &x, bits);
+    sim_flush(&results);
+    exponential_engine(&results, count, arguments, &x, bits);
     return sim_close(&results, "exponential integral");
 }

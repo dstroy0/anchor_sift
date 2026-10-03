@@ -81,9 +81,10 @@ fi
 if [ "$SIM" = "floor_match" ] || [ "$SIM" = "floor_track" ]; then
     MODULE_SOURCES+=("$TOWER_CU/tower.cu" "$TOWER_CU/tower_record.cu" "$TOWER_CU/tower_run.cu" "$DEVICE_POOL_CU/device_pool.cu")
 fi
-# chaitin_omega runs its reduction, and pi_tower its BBP terms, as programs on the engine's record machine
+# chaitin_omega runs its reduction, pi_tower its BBP terms and exponential_integral its series terms, as programs on
+# the engine's record machine
 HOST_SOURCES=()
-if [ "$SIM" = "chaitin_omega" ] || [ "$SIM" = "pi_tower" ]; then
+if [ "$SIM" = "chaitin_omega" ] || [ "$SIM" = "pi_tower" ] || [ "$SIM" = "exponential_integral" ]; then
     MODULE_SOURCES+=("$CYCLE_CU/cycle_compile_cache.cu" "$CYCLE_CU/cycle_compile.cu" "$CYCLE_CU/cycle_compile_route.cu" "$CYCLE_CU/cycle_compile_toolchain.cu" "$CYCLE_CU/cycle_launch.cu" "$CYCLE_CU/cycle_prelude.cu" "$CYCLE_CU/cycle_record.cu" "$CYCLE_CU/cycle_record_launch.cu" "$CYCLE_CU/cycle_sweep.cu" "$CODEGEN_CU/asm_printer_layout.cu" "$CODEGEN_CU/asm_printer_program.cu" "$CODEGEN_CU/c_target.cu" "$CODEGEN_CU/code_generator.cu" "$CODEGEN_CU/code_generator_entries.cu" "$CODEGEN_CU/codegen.cu" "$CODEGEN_CU/codegen_lowering.cu" "$CODEGEN_CU/codegen_output.cu" "$CODEGEN_CU/codegen_reader.cu" "$CODEGEN_CU/codegen_rules.cu" "$CODEGEN_CU/ptx_target.cu" "$CODEGEN_CU_2/ruleset_flat.cu" "$CODEGEN_CU/sass_target.cu" "$CODEGEN_CU/target_parse.cu" "$CODEGEN_CU/target_rulesets.cu" "$CODEGEN_CU/vhdl_target.cu" "$CODEGEN_CU/yosys_script.cu" "$KEYMATH_CU/keymath.cu" "$KEY_SCHEDULE_CU/key_schedule.cu")
     HOST_SOURCES+=("$CYCLE/cycle.c")
 fi
