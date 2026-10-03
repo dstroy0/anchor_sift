@@ -180,7 +180,7 @@ The key's reach bounds the message. The last operator the key holds is 2^47, rea
 
 ### 3.3 The accumulator stays one size
 
-However many segments are folded, the accumulator is 64 bits: over 64 voxels, over 419,430,400, or over the whole set, where each sample's CRC is carried on in the order the samples were named. That is the folding in [hash_boundary_functional_folding.md](../../thought_experiments/engine/hash_boundary_functional_folding.md): an accumulator that stays one size however much is folded, and a severe boundary condition adds no dimensions (noise_sieve_tower §11). The fold carries the *verification* of the work, never the work. Every voxel is still read once, in a pass that had to read it anyway, and the fold makes checking that read cost 64 bits.
+However many segments are folded, the accumulator is 64 bits: over 64 voxels, over 419,430,400, or over the whole set, where each sample's CRC is carried on in the order the samples were named. That is the folding in [threshold_search.md](../../thought_experiments/engine/threshold_search.md): an accumulator that stays one size however much is folded, and a severe boundary condition adds no dimensions (noise_sieve_tower §11). The fold carries the *verification* of the work, never the work. Every voxel is still read once, in a pass that had to read it anyway, and the fold makes checking that read cost 64 bits.
 
 Two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^−64. The CRC is the pixel-for-pixel test compressed in time.
 

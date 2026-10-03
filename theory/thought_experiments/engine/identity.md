@@ -1,0 +1,17 @@
+# Identity at spawn, and a chained record
+
+## Identity
+
+An instance is identified by what it carries, not by what it computes. At spawn, the instance draws a secret from a source of randomness and derives its keys from that secret, with its lineage as the derivation's context: its parent's identity and its place in the parent's series, by the extract-and-expand derivation of [RFC 5869](#src:RFC5869). It proves its identity by signing a fresh challenge with its key, for example with the stateless hash-based signature of [FIPS 205](#src:FIPS-205). A fresh challenge keeps an old answer from being replayed.
+
+Lineage, which spawn made which, is written at spawn. It is not inferred from what an instance produces.
+
+## A chained record
+
+Each entry of a series carries the hash of the entry before it, and changing or dropping any past entry changes every hash after it, the construction of [Lamport](#src:Lamport-1981) and of [Haber and Stornetta](#src:Haber-Stornetta-1991). With the chain's head signed under the spawn key, the chain shows that the holder of that key committed to that series in that order, for as long as the hash has no known collisions.
+
+The chain does not show that the series is true. It does not show that the key was never copied, since a copy of the key can extend the chain too. Two holders extending one chain from the same head fork it, and anyone who sees both branches sees the fork.
+
+## Status
+
+The engine holds no secret for each instance. Its seal derives its keys from public, dated context strings, and it guards against accident, not against an author, as the [engine workbook](#src:Quigg-engine-workbook) records. Identity at spawn and the signed chain are not built.

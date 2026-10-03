@@ -3,7 +3,7 @@
 **Purpose:** The rule that orders the driver: every frame of every sample is scanned first, and sorting happens only at the end.
 **Scope:** the driver's stages, S0 to S11 of [cell_tracking_table.md](cell_tracking_table.md).
 
-Ruled by 25 September, and said more than once: "you scan everything and then you sort stuff. You don't need to sort it before you scan in all of the samples."
+Ruled and said more than once: "you scan everything and then you sort stuff. You don't need to sort it before you scan in all of the samples."
 
 - The driver scans first: every frame of every sample gives points and fields that bound nothing (peaks as points, the drift, the entropy history).
 - Sorting (linking, keeping, divisions, any partition into regions) happens only at the end, over the whole sample, and anything set-wide over every sample.

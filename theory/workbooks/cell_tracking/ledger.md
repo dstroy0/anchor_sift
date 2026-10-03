@@ -2,15 +2,11 @@
 
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice and none is quoted without its run.
 
-## 2026-09-21
-
 ### The driver split
 
 | what | samples | result | settles |
 |---|---|---|---|
 | the split driver (22 functionals, now under `engine/` and `cell_tracking/src/`) against the driver before the split | 44b6_0113de3b, 44b6_0b24845f | edges, object files and every score line byte identical | the split changed nothing (proved) |
-
-## 2026-09-22
 
 ### The module move and the root layout
 
@@ -28,7 +24,7 @@
 
 ### The 6bba samples
 
-The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both. Every run until now was on 44b6. 6bba's keys are far denser (345 to 1,183 edges a sample, against about 50 to 270 for 44b6), and under micro averaging 6bba carries most of the score.
+The training set is 71 samples of 44b6 and 128 of 6bba; the test set holds both. Every earlier row is on 44b6. 6bba's keys are far denser (345 to 1,183 edges a sample, against about 50 to 270 for 44b6), and under micro averaging 6bba carries most of the score.
 
 | what | samples | result | settles |
 |---|---|---|---|

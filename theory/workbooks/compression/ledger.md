@@ -3,15 +3,13 @@
 **Purpose:** Every measurement, in the order it was taken, with the samples it ran on, the number, and what it settled. No result is taken twice and none is quoted without its run.
 **Scope:** runs of the .kcr codec, its variants, and the measurements of the floor it answers to. Samples are named by their id; "the 25" means the first 25 44b6 training samples by name.
 
-## 2026-09-21
-
-### The .kcr codec
+## The .kcr codec
 
 | what | samples | result | settles |
 |---|---|---|---|
 | tower codec, whole sample as one object | the 25 | 42.0% of raw; every file rebuilt voxel for voxel on the device and pixel for pixel off it | lossless compression of the frames (proved) |
 
-### The residue's floor: radix around a line, rotation, spiral
+## The residue's floor: radix around a line, rotation, spiral
 
 Stream sizes against the residue as the .kcr writes it, sample 44b6_0113de3b, 340,189,016 bytes. Every alternative was decoded back and checked.
 
@@ -21,13 +19,13 @@ Stream sizes against the residue as the .kcr writes it, sample 44b6_0113de3b, 34
 | along y | +6.4, +11.3, +12.1 MB | refuted |
 | along t | +1.35, +2.10, +0.18 MB | refuted: real temporal structure, but the pivot shear costs more than it takes |
 | each floor's rectangles row by row | −1,157,533 bytes | grouping by floor helps |
-| each floor's rectangles in shells of squared radius, each shell swept by angle | +658,073 bytes | this was NOT the golden spiral: it swept each shell in angle order, neighbor after neighbor, where the golden order (cell_tracking/maint/emit_spiral_table.py) ranks a shell by k(φ − 1) mod 1 so no direction repeats at any prefix. It refutes the angle sweep only; the golden order is untested here |
+| each floor's rectangles in shells of squared radius, each shell swept by angle | +658,073 bytes | this is NOT the golden spiral: it sweeps each shell in angle order, neighbor after neighbor, where the golden order (cell_tracking/maint/emit_spiral_table.py) ranks a shell by k(φ − 1) mod 1 so no direction repeats at any prefix. It refutes the angle sweep only; the golden order is untested here |
 | 2 along t, each floor apart | −1,987,962 bytes | helps on this sample |
 | 2, 4, 8 along t rotated onto each floor's line | −1.88, −1.63, −1.47 MB | refuted: rotation is worse than no rotation at every n |
 
-### The e − 1 ratio
+## The e − 1 ratio
 
-The ratio of the two savings (pairs along t over rectangles) was 1.717412 on 44b6_0113de3b, near e − 1 = 1.718281.
+The ratio of the two savings (pairs along t over rectangles) is 1.717412 on 44b6_0113de3b, near e − 1 = 1.718281.
 
 | sample | rectangles saved | pairs along t saved | ratio |
 |---|---|---|---|
@@ -36,11 +34,9 @@ The ratio of the two savings (pairs along t over rectangles) was 1.717412 on 44b
 | 44b6_0db75fae | 268,296 | −19,646,805 | −73.2 |
 | 44b6_12dfb391 | 469,282 | −751,835 | −1.60 |
 
-Settles: refuted. The first ratio was a coincidence, and pairing along t hurts on most samples.
+Settles: refuted. The first ratio is a coincidence, and pairing along t hurts on most samples.
 
-## 2026-09-23
-
-### A mock of the floor
+## A mock of the floor
 
 A synthetic set with a known generator, against which every code length can be checked: 32 frames of 32 × 32 (32,768 voxels); each voxel's noise is Binomial(2s + 16, ½), drawn as the popcount of xorshift64 bits, where s is a disc of signal peaking at 40; a fixed pattern in [0, 8) per place. Raw is 7 bits a voxel. Every length is the bit length of an exact integer (a product of binomial coefficients, or a multinomial), with no float. The script is scratch (`experiment.py`), not in the tree.
 
@@ -55,7 +51,7 @@ A synthetic set with a known generator, against which every code length can be c
 | 6. the noise reverse engineered: the xorshift seed solved from the parity of each voxel's noise, by one GF(2) elimination | the mock | the seed recovered exactly; 0 of 32,768 parity bits wrong when rebuilt | noise from a linear generator is 64 bits and a program, not a floor |
 | 7. the same solver on os.urandom noise | the mock | 16,346 of 32,768 wrong: half, a coin | true noise has no seed to find; what remains is the floor |
 
-### The floor on 44b6_0113de3b
+## The floor on 44b6_0113de3b
 
 Read from the frames through `cell_tracking/maint/zarr_frames.py`, about 78 s a read. The scripts are scratch (`linear_complexity.py`, `conditional_floor.py`, `photon_transfer.py`, `coherence.py`), not in the tree. The tables in full, and the algebra behind each reading, are in [compression_table.md](compression_table.md).
 
@@ -72,7 +68,7 @@ Read from the frames through `cell_tracking/maint/zarr_frames.py`, about 78 s a 
 | the same, structure removed by local coherence | 44b6_0113de3b, 10 frame pairs of whole frames, 41,943,040 voxel-frames; the frame difference against its x, y and z neighbors | corr(d, d_x) 0.007 at level 24, 0.348 at 104, 0.680 at 200, 0.985 at 1000; var(d − d_x) / 4 at 1.17 to 1.23 × level from 40 to 200; fitted variance = 1.162 × level + 2.46 | the bright excess is structure, not noise; the noise is shot at gain 1.162 with read noise about 1.6 and no dark offset; the z correlation of 0.12 at the dimmest levels is not explained |
 | F4, measured | the same | 5.902 bits a voxel (36.9%) by the shot line; 5.979 (37.4%) less the x neighbor, robust; 6.008 (37.6%) best axis, plain; 6.913 (43.2%) structure in | one frame given everything else costs 5.90 bits a voxel; the stream's 6.49 is 0.59 above it: 3.7 points of raw, about 310 KB a frame |
 
-### The floor on the 25
+## The floor on the 25
 
 The same two passes on the other 24; the per-sample table is in [compression_table.md](compression_table.md), and each reading cites its identity there.
 
@@ -80,6 +76,6 @@ The same two passes on the other 24; the per-sample table is in [compression_tab
 |---|---|---|---|
 | the photon transfer curve, motion removed in time | the other 24, 4 at a time, 714 s, 0 failed | the per-bin robust floor, structure partly in: 5.289 (44b6_341df25f) to 8.422 bits a voxel (18ced818) | the time pass alone cannot part structure from noise on bright samples; superseded by the coherence pass |
 | the same, structure removed by local coherence | the other 24, 2 at a time, 874 s, 0 failed | gain 0.821 to 1.162, mean 0.986; intercept −11.74 to 21.08, near zero on most; shot-only F4 5.085 to 6.973 bits a voxel, mean 6.229 (38.9%); the neighbor bound mean 6.243 (39.0%); structure in, mean 7.215 (45.1%) | one camera law across the set, about one count a photon; the set's floor is 38.9% of raw, 3.1 points (0.492 bits a voxel, about 645 MB) under the crystal's 42.0% |
-| the constant regions against the shot line | 44b6_0db75fae, 267148e4, 5740d24b | the neighbor bound 32.9%, 32.6%, 36.9% under the shot-only 34.5%, 35.6%, 38.4% | voxels that never change cost nothing, and the shot line does not see them; the three are the engine ledger's constant-region samples (21 September) |
+| the constant regions against the shot line | 44b6_0db75fae, 267148e4, 5740d24b | the neighbor bound 32.9%, 32.6%, 36.9% under the shot-only 34.5%, 35.6%, 38.4% | voxels that never change cost nothing, and the shot line does not see them; the three are the engine ledger's constant-region samples |
 | dim noise correlated in space | the 25, corr x of the frame difference at level 40 | below 0.11 on 21 samples; 0.761 on 44b6_267148e4, 0.354 on 668e0cc7, 0.150 on 5740d24b | a spatially correlated noise category on those three, not identified |
 | bent fits | 44b6_12dfb391, 53f95252 | intercepts −11.74 and 21.08 | a straight line is not quite their law between level 40 and 200 |
