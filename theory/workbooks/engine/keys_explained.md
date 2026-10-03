@@ -1,11 +1,11 @@
-# Keys, explained from the ground up
+# Kernels, explained from the ground up
 
-**Purpose:** Explain, from first principles and with this engine's own numbers, the ideas a programmer's defaults push against hardest: that a whole program becomes one small exact object, that applying it is AND and add, that any number of operations can fit in a key of fixed size, that a check costs no pass of its own, and that exact arithmetic has no floor. Each was resisted in this project before it was built, and each held once built. They are explained here thoroughly so the next reader does not have to be argued into them.
-**Scope:** orior's `src/c/engine/analysis/keymath/`, `src/c/engine/analysis/key_schedule/`, `src/c/engine/analysis/cycle/`, `src/c/includes/codecs/crc/`, every place a key is folded into a pass, and the hand-offs between modules: the plain structs in `src/c/engine/engine_config.h` and their composition in the entry, `src/engine/engine_*.cu`. The ledger's statuses ([README.md](README.md)) apply to every claim.
+**Purpose:** Explain, from first principles and with this engine's own numbers, the ideas a programmer's defaults push against hardest: that a whole program becomes one small exact object, that applying it is AND and add, that any number of operations can fit in a kernel of fixed size, that a check costs no pass of its own, and that exact arithmetic has no precision floor. Each was resisted in this project before it was built, and each held once built. They are explained here thoroughly so the next reader does not have to be argued into them.
+**Scope:** orior's `src/c/engine/analysis/keymath/`, `src/c/engine/analysis/key_schedule/`, `src/c/engine/analysis/cycle/`, `src/c/includes/codecs/crc/`, every place a kernel is folded into a pass, and the hand-offs between modules: the plain structs in `src/c/engine/engine_config.h` and their composition in the entry, `src/engine/engine_*.cu`. The ledger's statuses ([README.md](README.md)) apply to every claim.
 
 ## 0. Why these ideas get resisted
 
-Ordinary code is written as instructions: do this, then this, to every input, every time. The cost of a program is its steps times its inputs, and nobody questions that. A key breaks that product. The steps are paid once, on one stand-in, and every input after that costs one application, whatever the program's length. That sounds like something for nothing. It gets doubted, then hedged, then argued down to "an optimization that works for some cases". It is not an optimization. Once every step is exact, this *is* composition.
+Ordinary code is written as instructions: do this, then this, to every input, every time. The cost of a program is its steps times its inputs, and nobody questions that. A kernel breaks that product. The steps are paid once, on one stand-in, and every input after that costs one application, whatever the program's length. That sounds like something for nothing. It gets doubted, then hedged, then argued down to "an optimization that works for some cases". It is not an optimization. Once every step is exact, this *is* composition.
 
 The second default is floating point. Most code rounds at every step and treats the error as noise to be managed. Under rounding, none of what follows holds, and so it looks like it cannot hold. The engine does not round, and so it does.
 
@@ -23,89 +23,89 @@ So the whole chain can be composed first, before any input exists, into one map,
 
 **The condition, and why it is everything.** a → b and b → c give a → c only where the b one step hands over is *exactly* the b the next step takes in. If a step rounds its output, the next step receives a b′ ≠ b, and the chain is no longer one map: (T3 ∘ T2) ∘ T1 and T3 ∘ (T2 ∘ T1) give different numbers, and composing first is no longer the same as running the steps. For this reason every step in this engine is closed and exact: integers as wide as they grow, nothing rounded, truncated or wrapped at a hand off. Under that condition transitivity holds for chains of any length, and the whole chain collapses to one object.
 
-## 2. The imprint: run the program once, on the impulse
+## 2. The impulse response: run the program once, on the impulse
 
 The stand-in that composing needs is the **impulse**: the null holding one unit at one place. For a program of linear, shift invariant steps (smoothings, keeps, scaled subtractions), any input is a sum of shifted, scaled impulses, and so:
 
-    program(input) = key ∗ input,    where  key = program(impulse)
+    program(input) = kernel ∗ input,    where  kernel = program(impulse)
 
-Push the impulse through the program once and keep what comes out. That is the **key**. It is not a summary or an approximation of the program: it *is* the program, as one object.
+Push the impulse through the program once and keep what comes out. That is the **kernel**, the program's impulse response. It is not a summary or an approximation of the program: it *is* the program, as one object.
 
-In the engine (`keymath_imprint`): a binomial smoothing of order n is n unit steps [1 1]; pushed through, the impulse comes out as Pascal's row, by construction. The residual's program (smooth narrow, keep, smooth wide, subtract from 2^g times the kept) imprints to two separable terms:
+In the engine (`keymath_imprint`): a binomial smoothing of order n is n unit steps [1 1]; pushed through, the impulse comes out as Pascal's row, by construction. The residual's program (smooth narrow, keep, smooth wide, subtract from 2^g times the kept) has as its impulse response two separable terms:
 
-    key = 2^g · B_narrow − B_wide · B_narrow
+    kernel = 2^g · B_narrow − B_wide · B_narrow
 
 **Proved:** applied to all 25 samples, 0 of 10,485,760,000 lanes differ from the residual computed step by step.
 
-## 3. Applying a key is AND and add
+## 3. Applying a kernel is shift-and-add
 
-A key weight w times a value x is a pattern of masks. Every set bit b of w selects one copy of x shifted left by b, and the copies are added:
+A kernel weight w times a value x is a pattern of masks. Every set bit b of w selects one copy of x shifted left by b, and the copies are added:
 
     w · x = Σ over set bits b of w of (x << b)
 
     5 · x = (x << 2) + x         (5 = 101 in binary)
 
-So applying a key is ANDing its bit pattern against the input, to select shifted copies, and adding what was selected. Deriving the pattern is the expensive part: every serial step of the program, spent once, on the impulse. After that, every input costs one pass of masks and adds.
+So applying a kernel is ANDing its bit pattern against the input, to select shifted copies, and adding what was selected. Deriving the pattern is the expensive part: every serial step of the program, spent once, on the impulse. After that, every input costs one pass of masks and adds.
 
-Two keys applied one after the other are one key: the second applied to the first. Two imprinted operations ANDed together are therefore one key again, and a chain of any length costs every later input the same as one step. **That is the compression of time.**
+Two kernels applied one after the other are one kernel: the second applied to the first. Two operations composed this way are therefore one kernel again, and a chain of any length costs every later input the same as one step. **That is the compression of time.**
 
-**Order is kept.** Composition regroups freely (it is associative) but does not reorder freely: a keep and a later subtraction from what was kept do not commute. The imprint takes steps in program order, and the scheduler reorders two steps only where they are proved to commute.
+**Order is kept.** Composition regroups freely (it is associative) but does not reorder freely: a keep and a later subtraction from what was kept do not commute. The impulse response takes steps in program order, and the scheduler reorders two steps only where they are proved to commute.
 
-## 4. Unbounded operations in a small key
+## 4. Unbounded operations in a small kernel
 
 This is the claim that meets the most doubt on sight. Here it is exactly, with the engine's numbers.
 
-**What a key's size depends on.** A key's size depends on the program's *reach*: how far one input's influence spreads, and how wide the exact weights grow. It does not depend at all on how many times the program is applied, or on how many inputs pass through it. Apply the key to one voxel or to a trillion: the key is the same bytes.
+**What a kernel's size depends on.** A kernel's size depends on the program's *reach*: how far one input's influence spreads, and how wide the exact weights grow. It does not depend at all on how many times the program is applied, or on how many inputs pass through it. Apply the kernel to one voxel or to a trillion: the kernel is the same bytes.
 
-**The residual's key, measured.** Its weights are 1,130 words, 4,520 bytes, plus a 256 byte term table. The chain it replaces takes 268 unit steps at every voxel (2 + 34 + 34 narrow, 6 + 96 + 96 wide). Per sample that is 268 × 4,194,304 voxels × 100 frames = 112,407,347,200 unit step applications. None of them is ever run. The 4.5 KB key does all of them, and its answer is the step by step answer, lane for lane.
+**The residual's kernel, measured.** Its weights are 1,130 words, 4,520 bytes, plus a 256 byte term table. The chain it replaces takes 268 unit steps at every voxel (2 + 34 + 34 narrow, 6 + 96 + 96 wide). Per sample that is 268 × 4,194,304 voxels × 100 frames = 112,407,347,200 unit step applications. None of them is ever run. The 4.5 KB kernel does all of them, and its answer is the step by step answer, lane for lane.
 
-**The CRC key: 2^48 steps in 24 KiB.** A CRC is linear over GF(2). Its advance across 2^k zero bytes is a 64 × 64 bit matrix, and squaring the matrix doubles the distance. The key holds 48 of them: 48 × 64 columns × 8 bytes = 24,576 bytes. With them the register is carried across any run of up to 2^48 bytes (about 281 trillion byte steps) in at most 48 matrix applications. How the tower folds it, segment by segment and joined one operator a level, is in [compression_tower.md](compression_tower.md) §3. **Proved:** the folded CRC of 44b6_0113de3b equals the CRC taken byte by byte, 363bf8bdffac8f29.
+**The CRC's precomputed operators: 2^48 steps in 24 KiB.** A CRC is linear over GF(2). Its advance across 2^k zero bytes is a 64 × 64 bit matrix, and squaring the matrix doubles the distance. The kernel holds 48 of them: 48 × 64 columns × 8 bytes = 24,576 bytes. With them the register is carried across any run of up to 2^48 bytes (about 281 trillion byte steps) in at most 48 matrix applications. How the lifting transform folds it, segment by segment and joined one operator a level, is in [compression_tower.md](compression_tower.md) §3. **Proved:** the folded CRC of 44b6_0113de3b equals the CRC taken byte by byte, 363bf8bdffac8f29.
 
 **Periodic operations: infinitely many steps in one period.** Anything that repeats is known entirely from one period. Modulo is a wave. The mirror fold at a frame's edges repeats with period twice the line, and the cycle lays one period down once as a table and reads every tap from it. The two's complement expansion of 1/d, for odd d, is eventually periodic with period the order of 2 modulo d. Division by d is one period of limbs, repeated. In each case the operation applied without end is held completely in one period.
 
-**Where it does not hold, stated plainly.** A key cannot be smaller than the program's reach. Smoothing of order n has a row of n + 1 taps, and a longer smoothing has a longer row. The reach sets the size of the key. How many times the key is applied, and how many steps it stands for, have no limit.
+**Where it does not hold, stated plainly.** A kernel cannot be smaller than the program's reach. Smoothing of order n has a row of n + 1 taps, and a longer smoothing has a longer row. The reach sets the size of the kernel. How many times the kernel is applied, and how many steps it stands for, have no limit.
 
 | claim | status |
 |---|---|
-| the residual's 268 step chain is one key of 4,776 bytes, exact on every lane | proved: 0 of 10,485,760,000 lanes differ |
-| a CRC over up to 2^48 bytes from a 24 KiB key | proved against the byte by byte CRC |
+| the residual's 268 step chain is one kernel of 4,776 bytes, exact on every lane | proved: 0 of 10,485,760,000 lanes differ |
+| a CRC over up to 2^48 bytes from a 24 KiB kernel | proved against the byte by byte CRC |
 | one period of a periodic operation holds all of it | built for the mirror fold; theory for division by limb inverse |
-| a key's size does not depend on how many inputs pass through it | built: the same key runs every frame of every sample |
+| a kernel's size does not depend on how many inputs pass through it | built: the same kernel runs every frame of every sample |
 
-## 5. key : transform → product, in one cycle
+## 5. kernel : transform → product, in one cycle
 
 This is the first standing rule of the project, and the first line of the cell_tracking standing rules: **key:transform->product, 1 cycle.**
 
-A check or a filter is a key too, and it does not need a pass of its own. Fold it into the pass that already touches the data. The tower's widen reads every voxel once, and the CRC is taken there. The narrow writes every rebuilt voxel once, and the rebuilt sample's CRC is taken there. The product comes out of the same pass.
+A check or a filter is a kernel too, and it does not need a pass of its own. Fold it into the pass that already touches the data. The lifting transform's forward pass (the widen) reads every voxel once, and the CRC is taken there. The inverse pass (the narrow) writes every rebuilt voxel once, and the rebuilt sample's CRC is taken there. The product comes out of the same pass.
 
 This also keeps transitivity. The transform and the check are one product: the transform holds AND the check holds, or neither does. A check run in a separate pass checks a different moment than the transform happened in.
 
 **The check is the test, compressed in time.** Comparing a sample pixel for pixel is 419,430,400 comparisons. Its CRC is one 64 bit number, and two samples with equal CRCs are equal pixel for pixel, short of a chance of 2^−64. **Measured:** the proof at will re-proves all 25 samples from their files alone in 19 to 33 s, reading no .stack.
 
-## 6. Exact arithmetic has no floor
+## 6. Exact arithmetic has no precision floor
 
-Floating point has a floor: below some relative size, a difference is lost. Exact integers have none. Every width is proved before a run from the program's own bounds: a lane below 2^m under a row whose weights sum to S stays below 2^(m + bits of S − 1). Nothing then can round, and nothing can wrap.
+Floating point has a precision floor: below some relative size, a difference is lost. Exact integers have none. Every width is proved before a run from the program's own bounds: a lane below 2^m under a row whose weights sum to S stays below 2^(m + bits of S − 1). Nothing then can round, and nothing can wrap.
 
 Two consequences follow, and both are used.
 
-- **Ties are broken deterministically, never by noise.** In the component tree every face's key carries its own name in the lowest limb. No two keys ever tie. The smallest possible difference decides, and it decides the same way on every machine: the Windows and Linux builds give byte identical edges.
-- **The medium is subtracted exactly.** The wide term, the medium's own scattering, is subtracted whole. What the residual keeps is only what stands above it. Under rounding the subtraction would leave a residue of rounding, and that residue would read as structure.
+- **Ties are broken deterministically, never by noise.** In the component tree every face's sort key carries its own name in the lowest limb. No two sort keys ever tie. The smallest possible difference decides, and it decides the same way on every machine: the Windows and Linux builds give byte identical edges.
+- **The background is subtracted exactly.** The wide term, the medium's own scattering, is subtracted whole. What the residual keeps is only what stands above it. Under rounding the subtraction would leave a residue of rounding, and that residue would read as structure.
 
 ## 7. The noise is read, never modeled
 
-The residue left after the bodies are subtracted is the sample's own field noise. It is deterministic, constant for that sample, and unique to it. It is held whole in the .kcr, never bounded, fitted, thresholded or thrown away. Where the engine needs a background to stand a body against, it reads one. The null draws climb the same body toward frames far off in time, where only the field noise can answer. A body is real where it stands above that reading. No distribution is assumed, and no random number is drawn anywhere in the tracker.
+The residual left after the segments are subtracted is the sample's own field noise. It is deterministic, constant for that sample, and unique to it. It is held whole in the .kcr, never bounded, fitted, thresholded or thrown away. Where the engine needs a background to stand a segment against, it reads one. The null draws hill-climb the same segment toward frames far off in time, where only the field noise can answer. A segment is real where it stands above that reading. No distribution is assumed, and no random number is drawn anywhere in the tracker.
 
-**Measured:** across the 25 44b6 samples, the low five bit planes are set in about 46% of frames at nearly every voxel, with no anchor anywhere. That is the floor, read directly from the data, and it is the same test the entropy section of [noise_sieve_tower.md](noise_sieve_tower.md) states.
+**Measured:** across the 25 44b6 samples, the low five bit planes are set in about 46% of frames at nearly every voxel, with no bit constant across frames anywhere. That is the noise floor, read directly from the data, and it is the same test the entropy section of [noise_sieve_tower.md](noise_sieve_tower.md) states.
 
 ## 8. Where the chain lives
 
 | step | module | what it holds |
 |---|---|---|
-| the math | `keymath` | the program's vocabulary, the impulse, the imprint; exact integers as wide as they grow; no device |
-| the schedule | `key_schedule` | the key laid out for the machine: sweep order, every lane width proved, scratch, columns, weights |
-| the run | `cycle` | the laid out key held on the device and run over a set of atoms in one cooperative launch |
-| a key over GF(2) | `crc` | the CRC's byte table and advance operators, generated and held at compile time to the published check value |
-| a fold into a pass | `tower` | the CRC taken in the widen and the narrow, costing no pass of its own |
+| the math | `keymath` | the program's vocabulary, the impulse, the impulse response; exact integers as wide as they grow; no device |
+| the schedule | `key_schedule` | the kernel laid out for the machine: sweep order, every lane width proved, scratch, columns, weights |
+| the run | `cycle` | the laid out kernel held on the device and run over a set of atoms in one cooperative launch |
+| a kernel over GF(2) | `crc` | the CRC's byte table and advance operators, generated and held at compile time to the published check value |
+| a fold into a pass | `tower` | the CRC taken in the forward and inverse lifting passes, costing no pass of its own |
 | the composition | the entry | where stages meet: `engine_key_encode` composes the three above, and the codec is composed the same way ([compression_tower.md](compression_tower.md)); §9 says why nowhere else |
 
 ## 9. Transitivity across modules: no module reaches another
@@ -124,14 +124,14 @@ This rule was argued for before it was accepted, because the ordinary default ru
 
 **A reach up into the composer is worse.** A module that includes the entry calls the thing that is meant to call it. The chain then contains itself, and "compose first, apply after" is no longer well founded.
 
-**Composed only in the entry.** The entry, `src/engine/engine_*.cu`, is where the program is written as a chain, and so the place a chain is meant to be composed. It is the only place that includes more than one of the key's or the codec's stages, apart from the tracker's modules in the table below. Two chains are composed there.
+**Composed only in the entry.** The entry, `src/engine/engine_*.cu`, is where the program is written as a chain, and so the place a chain is meant to be composed. It is the only place that includes more than one of the kernel's or the codec's stages, apart from the tracker's modules in the table below. Two chains are composed there.
 
-*The key* (`engine_key_encode`):
+*The kernel* (`engine_key_encode`):
 
 | stage | takes | hands on |
 |---|---|---|
 | `keymath_encode`  the program, a vector of `EngineStep`  `EngineKey`: the impulse pushed through the program once, exact integers as wide as they grow |
-| `key_schedule_layout` | `EngineKey` | `EngineKeyLayout`: the key laid out for the machine, every lane width proved from its own bounds |
+| `key_schedule_layout` | `EngineKey` | `EngineKeyLayout`: the kernel laid out for the machine, every lane width proved from its own bounds |
 | `cycle_key_load` | `EngineKeyLayout` | `CycleKey`: the layout held on the device, a type only `cycle` sees inside |
 
 Each producer releases what it made (`keymath_key_release`, `key_schedule_release`) as soon as the next stage has taken it. Ownership closes at every hand-off as well as the value.
@@ -146,17 +146,17 @@ Each producer releases what it made (`keymath_key_release`, `key_schedule_releas
 | `compression_decode` | `EngineStream` | the coefficients, written into the capacity `tower_capacity` hands out |
 | `tower_lower` | the held coefficients | the rebuilt sample, its CRC-64, and the voxels that differ |
 
-None of these stages knows another exists. The tower does not know its coefficients are Rice coded, and the coder does not know they came from a tower. That let the compression step be split out of the tower with the .kcr coming out byte identical, and keymath and key_schedule be split out of the cycle with the tracker's edges identical ([ledger.md](ledger.md)). Each split was a regrouping of the chain in the entry, and every module stayed as it was.
+None of these stages knows another exists. The lifting transform does not know its coefficients are Rice coded, and the coder does not know they came from a lifting transform. That let the compression step be split out of the lifting transform with the .kcr coming out byte identical, and keymath and key_schedule be split out of the cycle with the tracker's edges identical ([ledger.md](ledger.md)). Each split was a regrouping of the chain in the entry, and every module stayed as it was.
 
-**Why `crc` is not a reach.** `crc/` is a key, not a stage. It holds a constant (the byte table and 48 advance operators, generated by `maint/engine/emit_crc_key.py` and held to CRC-64/XZ's published check value by a `static_assert` at compile time) and pure inline functions over it. It keeps no state, takes no hand-off and hands nothing on. Including it is including a constant, the way every module includes `engine_config.h`. A key that any pass may fold in is what §5 asks for, and `crc/` is where that key lives, callable by anything.
+**Why `crc` is not a reach.** `crc/` is a precomputed kernel, not a stage. It holds a constant (the byte table and 48 advance operators, generated by `maint/engine/emit_crc_key.py` and held to CRC-64/XZ's published check value by a `static_assert` at compile time) and pure inline functions over it. It keeps no state, takes no hand-off and hands nothing on. Including it is including a constant, the way every module includes `engine_config.h`. A kernel that any pass may fold in is what §5 asks for, and `crc/` is where that kernel lives, callable by anything.
 
 **How it was checked.** `python maint/audit_reaching.py`, read every module's includes and named each one that reaches.
 
 | claim | status |
 |---|---|
 | no module reaches another; hand-offs are plain structs in `engine_config.h`, composed only in the entry | the rule and the target (the cell_tracking standing rules) |
-| the key chain (`keymath`, `key_schedule`, `cycle`) reaches nothing | proved: `audit_reaching.py` |
+| the kernel chain (`keymath`, `key_schedule`, `cycle`) reaches nothing | proved: `audit_reaching.py` |
 | the codec (`tower`, `compression`, `apxrep`, `entropy_history`) reaches nothing but `crc` | proved: `audit_reaching.py`; `iapx` is gone, composed in the entry |
-| a split that regroups the chain in the entry changes no output | proved for three splits: compression from the tower (.kcr byte identical, set CRC 091daa41e1aceb7e), keymath and key_schedule from the cycle (edges identical), the driver split (edges and score rows identical) |
+| a split that regroups the chain in the entry changes no output | proved for three splits: compression from the lifting transform (.kcr byte identical, set CRC 091daa41e1aceb7e), keymath and key_schedule from the cycle (edges identical), the driver split (edges and score rows identical) |
 | `crc` is a root | by the rule; it is a compile-time constant and pure functions, held to the published check value |
 | the tracker's modules reach nothing | **not so yet**: 19 modules still reach and 18 reach nothing. `score_sample` reaches 14 modules; `binomial_basins`, `flatten` and `score_sample` reach up into `entry`; the rest reach `track` and one another. They are being split next, and each stays listed here until the audit clears it |

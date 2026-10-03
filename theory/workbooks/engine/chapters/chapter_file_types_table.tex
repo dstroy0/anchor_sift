@@ -7,16 +7,16 @@ Every file extension the engine and its projects write or read. A new extension 
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2263\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.5977\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1760\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2239\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6024\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1737\linewidth-2\tabcolsep\relax}}
 \toprule
 Extension & What it is & Named by \\
 \midrule
 \endhead
-\texttt{.\allowbreak{}kcr} & The information crystal (Kolmogorov crystal): its own compression format. It reads every source format, takes each format's own compression out, and can rebuild the data into any format (Doug). krep kind “KCR\textbackslash{}0”, version 1. The only crystal format. & Doug \\
+\texttt{.\allowbreak{}kcr} & The compressed file, named for Kolmogorov complexity: the engine's own compression format. It reads every source format, takes each format's own compression out, and can rebuild the data into any format (Doug). krep kind “KCR\textbackslash{}0”, version 1. The only compressed format. & Doug \\
 \texttt{.\allowbreak{}krs} & A ruleset: how the emitter defines the forms in one language (\texttt{ptx.\allowbreak{}krs}, \texttt{c.\allowbreak{}krs}, \texttt{vhdl.\allowbreak{}krs}). &  \\
-\texttt{.\allowbreak{}kcs} & A construction set, part of the crystal flattener. & Doug \\
+\texttt{.\allowbreak{}kcs} & A construction set, part of the compressed file's flattener. & Doug \\
 \texttt{.\allowbreak{}knf} & A sample's noise floor. &  \\
-\texttt{.\allowbreak{}ksh} & The flattened set: every body of every sample as one number each (\texttt{train.\allowbreak{}ksh}). &  \\
+\texttt{.\allowbreak{}ksh} & The flattened set: every segment of every sample as one number each (\texttt{train.\allowbreak{}ksh}). &  \\
 \texttt{.\allowbreak{}ans} & The answer file. &  \\
 \bottomrule
 \end{longtable}
@@ -26,12 +26,12 @@ Extension & What it is & Named by \\
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3382\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6618\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3266\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.6734\linewidth-2\tabcolsep\relax}}
 \toprule
 Extension & What it was \\
 \midrule
 \endhead
-\texttt{.\allowbreak{}iapx} & The crystal before \texttt{.\allowbreak{}kcr}. Not read; sets are re-ingested. \\
+\texttt{.\allowbreak{}iapx} & The compressed format before \texttt{.\allowbreak{}kcr}. Not read; sets are re-ingested. \\
 \bottomrule
 \end{longtable}
 }

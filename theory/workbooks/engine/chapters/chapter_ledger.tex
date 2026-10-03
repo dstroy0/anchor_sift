@@ -5,17 +5,19 @@
 
 \textbf{Scope:} runs of the engine: its modules, its tests and its sims. Samples are named by their id; “the 25” means the first 25 44b6 training samples by name.
 
+\section{\texorpdfstring{2026-09-21}{2026-09-21}}
+
 \subsection{\texorpdfstring{The cycle against the passes it replaced}{The cycle against the passes it replaced}}
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2760\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1747\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2947\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2546\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2755\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1737\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2931\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2577\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-the residual from the imprinted key, lane for lane against the smoothing passes and the transform & the 25, 2,500 frames & 0 of 10,485,760,000 lanes differ & the key is the program (proved) \\
-time a frame & the 25 & 31 ms, against 24.5 ms for the passes & the key is not yet faster; factor the binomial as [1 1]\textasciicircum{}n next \\
+the residual from the compiled kernel, lane for lane against the smoothing passes and the transform & the 25, 2,500 frames & 0 of 10,485,760,000 lanes differ & the kernel is the program (proved) \\
+time a frame & the 25 & 31 ms, against 24.5 ms for the passes & the kernel is not yet faster; factor the binomial as [1 1]\textasciicircum{}n next \\
 \bottomrule
 \end{longtable}
 }
@@ -24,12 +26,12 @@ time a frame & the 25 & 31 ms, against 24.5 ms for the passes & the key is not y
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3064\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3474\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3462\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.3120\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3446\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3435\linewidth-2\tabcolsep\relax}}
 \toprule
 what & result & settles \\
 \midrule
 \endhead
-the tower undone in the spiral and ratio runs & 180, then 80 voxels differ, each one bit (0x0100, 0x0400) & the code was cleared first: a rerun holding the coefficients found 0 moved \\
+the lifting transform undone in the spiral and ratio runs & 180, then 80 voxels differ, each one bit (0x0100, 0x0400) & the code was cleared first: a rerun holding the coefficients found 0 moved \\
 44b6\_\allowbreak{}0b24845f and 44b6\_\allowbreak{}341df25f, re-proved from their .kcr & one voxel each wrong in the file; the disk, read past the cache, holds the right value & the machine flips single bits in memory under load; both files had been written from a bad cached copy \\
 fix & every .stack read for ingestion and proof now bypasses the file cache; both samples re-ingested and proved & a cached copy can no longer vouch for itself \\
 \bottomrule
@@ -40,48 +42,50 @@ fix & every .stack read for ingestion and proof now bypasses the file cache; bot
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2556\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2114\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3355\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1975\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2794\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2071\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3238\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1898\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-CRC-64/XZ folded into the tower's widen, against the plain byte by byte CRC & 44b6\_\allowbreak{}0113de3b & both 363bf8bdffac8f29 & the fold is the CRC (proved) \\
+CRC-64/XZ folded into the lifting transform's forward pass (the widen), against the plain byte by byte CRC & 44b6\_\allowbreak{}0113de3b & both 363bf8bdffac8f29 & the fold is the CRC (proved) \\
 every sample ingested with its CRC, then proved from the file alone & the 25 & 25 of 25 hold; 8,809,343,524 of 20,971,520,000 bytes, 42.0\%; set CRC 091daa41e1aceb7e; the proof at will in 19 s & the per file check at will (proved) \\
 \bottomrule
 \end{longtable}
 }
 
-\subsection{\texorpdfstring{The anchor bits}{The anchor bits}}
+\subsection{\texorpdfstring{The constant bits}{The constant bits}}
 
 Per voxel and per bit, the frames of the 100 that carry the bit; the counts were written as .knf and read back equal.
 
 {\small
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2772\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.4156\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3072\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2681\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.4032\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3288\linewidth-2\tabcolsep\relax}}
 \toprule
 what & result & settles \\
 \midrule
 \endhead
-bits 0 to 4 & set in about 46\% of frames at nearly every voxel, in every sample & the floor: these planes carry no anchor \\
-bits 6 to 11, set in every frame & from 0 voxels (5 samples) to 76,646 at bit 10 (44b6\_\allowbreak{}5f15d135) & anchors are real and differ per sample \\
-any voxel anchored in every sample & none & the floor is per sample, not per set \\
+bits 0 to 4 & set in about 46\% of frames at nearly every voxel, in every sample & the noise floor: these planes carry no constant bit \\
+bits 6 to 11, set in every frame & from 0 voxels (5 samples) to 76,646 at bit 10 (44b6\_\allowbreak{}5f15d135) & constant bits are real and differ per sample \\
+any voxel constant in every sample & none & the noise floor is per sample, not per set \\
 \bottomrule
 \end{longtable}
 }
+
+\section{\texorpdfstring{2026-09-22}{2026-09-22}}
 
 \subsection{\texorpdfstring{The compression, keymath and key\_\allowbreak{}schedule splits}{The compression, keymath and key\_schedule splits}}
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2599\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2168\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3151\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2082\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2619\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2159\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3126\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2095\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-compression split out of the tower: 44b6\_\allowbreak{}0113de3b re-encoded & 44b6\_\allowbreak{}0113de3b & the .kcr byte identical to the one before the split & the coder moved unchanged (proved) \\
+compression split out of the lifting transform: 44b6\_\allowbreak{}0113de3b re-encoded & 44b6\_\allowbreak{}0113de3b & the .kcr byte identical to the one before the split & the coder moved unchanged (proved) \\
 every .kcr decoded by the split coder, from the file alone & the 25 & 25 of 25 hold; set CRC 091daa41e1aceb7e & the decoder moved unchanged (proved) \\
-keymath and key\_\allowbreak{}schedule split out of the cycle: the tracker run & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges identical; .vbo/.ibo files identical but for the embedded .cfg & the imprint and the layout moved unchanged (proved) \\
-the residual's key, sized &  & weights 1,130 words, 4,520 bytes, plus a 256 byte term table, standing for 268 unit steps a voxel: 112,407,347,200 step applications a sample & a key's size is the program's reach, not its use \\
+keymath and key\_\allowbreak{}schedule split out of the cycle: the tracker run & 44b6\_\allowbreak{}0113de3b, 44b6\_\allowbreak{}0b24845f & edges identical; .vbo/.ibo files identical but for the embedded .cfg & the compiled kernel and the layout moved unchanged (proved) \\
+the residual's kernel, sized &  & weights 1,130 words, 4,520 bytes, plus a 256 byte term table, standing for 268 unit steps a voxel: 112,407,347,200 step applications a sample & a kernel's size is the program's reach, not its use \\
 \bottomrule
 \end{longtable}
 }
@@ -90,16 +94,16 @@ the residual's key, sized &  & weights 1,130 words, 4,520 bytes, plus a 256 byte
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1894\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2347\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3140\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2619\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1905\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2341\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3133\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2621\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 the counts against the .stack, by hand in Python & 44b6\_\allowbreak{}0113de3b, 2,000 voxels × 9 windows & 0 words differ & the history is exact (proved) \\
 the projection & the 25 & 25 of 25 written and read back whole, about 3.4 s a sample &  \\
-the floor & the 25 & bits 0 to 3 at 499 to 500 flips per thousand transitions in every window of 19 samples; 350 to 499 in 6 & the floor is half the transitions, where every voxel moves \\
+the noise floor & the 25 & bits 0 to 3 at 499 to 500 flips per thousand transitions in every window of 19 samples; 350 to 499 in 6 & the noise floor is half the transitions, where every voxel moves \\
 a constant region & 44b6\_\allowbreak{}0db75fae, 1574802b, 267148e4, 5740d24b, 587a1e22, 668e0cc7 & bits 0 to 3 drop together, identically within a window (e.g. 350, 350, 350, 350): voxels whose value never changes. 5740d24b holds it from the start; 267148e4 grows it from window 3 to about 30\% of transitions & a fixed pattern term read exactly, with no flips in any bit; its cause is not established \\
-direction, bits 5 to 10 & the 25 & 12 samples move toward order (last window below the first), 13 toward the floor; peaks fall in different windows; 44b6\_\allowbreak{}0db75fae falls 1,293 to 532 per mille, 44b6\_\allowbreak{}668e0cc7 rises 684 to 1,421 & the direction is each sample's own; the window 4 bump on 44b6\_\allowbreak{}0113de3b is that sample's, not the set's \\
+direction, bits 5 to 10 & the 25 & 12 samples move toward order (last window below the first), 13 toward the noise floor; peaks fall in different windows; 44b6\_\allowbreak{}0db75fae falls 1,293 to 532 per mille, 44b6\_\allowbreak{}668e0cc7 rises 684 to 1,421 & the direction is each sample's own; the window 4 bump on 44b6\_\allowbreak{}0113de3b is that sample's, not the set's \\
 \bottomrule
 \end{longtable}
 }
@@ -108,12 +112,12 @@ direction, bits 5 to 10 & the 25 & 12 samples move toward order (last window bel
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2499\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1829\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3000\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2672\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2498\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1829\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2998\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2675\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-\texttt{python maint/\allowbreak{}audit\_\allowbreak{}reaching.\allowbreak{}py} &  & 18 modules reach nothing, among them \texttt{keymath}, \texttt{key\_\allowbreak{}schedule}, \texttt{cycle}, \texttt{tower}, \texttt{compression}, \texttt{apxrep}, \texttt{entropy\_\allowbreak{}history} (\texttt{tower}, \texttt{apxrep} and \texttt{entropy\_\allowbreak{}history} include only \texttt{crc} beyond their own, and \texttt{crc} is a root); 19 still reach, \texttt{score\_\allowbreak{}sample} reaching 14 modules and \texttt{binomial\_\allowbreak{}basins}, \texttt{flatten} and \texttt{score\_\allowbreak{}sample} reaching up into \texttt{entry} & the key chain and the codec hold the rule (proved); the tracker's modules do not yet (not so yet, being split) (\hyperref[chap:keys-explained]{keys\_\allowbreak{}explained.md} §9) \\
+\texttt{python maint/\allowbreak{}audit\_\allowbreak{}reaching.\allowbreak{}py} &  & 18 modules reach nothing, among them \texttt{keymath}, \texttt{key\_\allowbreak{}schedule}, \texttt{cycle}, \texttt{tower}, \texttt{compression}, \texttt{apxrep}, \texttt{entropy\_\allowbreak{}history} (\texttt{tower}, \texttt{apxrep} and \texttt{entropy\_\allowbreak{}history} include only \texttt{crc} beyond their own, and \texttt{crc} is a root); 19 still reach, \texttt{score\_\allowbreak{}sample} reaching 14 modules and \texttt{binomial\_\allowbreak{}basins}, \texttt{flatten} and \texttt{score\_\allowbreak{}sample} reaching up into \texttt{entry} & the kernel chain and the codec hold the rule (proved); the tracker's modules do not yet (not so yet, being split) (\hyperref[chap:keys-explained]{keys\_\allowbreak{}explained.md} §9) \\
 \texttt{bash maint/\allowbreak{}prove\_\allowbreak{}codec.\allowbreak{}sh}, run by the session that split the codec & the 25; 44b6\_\allowbreak{}0113de3b re-ingested & every .kcr proved from the file alone, set CRC 091daa41e1aceb7e; the re-ingested .kcr byte identical to the cached one & the split changed nothing in the codec (proved) \\
 \bottomrule
 \end{longtable}
@@ -125,35 +129,37 @@ Read from the code and the files in \texttt{cache/\allowbreak{}iapx}; the claims
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2242\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2461\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2586\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2711\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2240\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2459\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2581\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2720\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
 the .kcr of 44b6\_\allowbreak{}0113de3b, part by part & 44b6\_\allowbreak{}0113de3b & head 16 + seven words 56 + 102,400 chunk first bits × 8 = 819,200 + stream 340,189,016 = 341,008,288 bytes, of 838,860,800 raw & the file and the stream are separate numbers: 406 per mille of raw for the file, 405 for the stream, both rounded down \\
 the driver's share of raw &  & printed as (1000 × bytes / raw) rounded down, shown as a percent with one decimal: “40.6\%“ is 406 per mille rounded down & the 25 at “42.0\%“ are 420 per mille: 8,809,343,524 of 20,971,520,000 \\
-floors printed on ingestion & the 25 (\texttt{logs/\allowbreak{}iapx\_\allowbreak{}all.\allowbreak{}log}) & 8 floors, 25 of 25 & a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 floors (proved) \\
-the floors' blocks & a 44b6 extent & 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample & depth is paid in shrinking blocks, not in passes over the whole \\
-the CRC join & a 44b6 extent & 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2\textasciicircum{}7 to 2\textasciicircum{}29; the key's last operator, 2\textasciicircum{}47, is reached at level 40. The join takes any message below 2\textasciicircum{}48 bytes & the 24,576 byte key covers 2\textasciicircum{}48 byte steps, as keys\_\allowbreak{}explained §4 states \\
+levels printed on ingestion & the 25 (\texttt{logs/\allowbreak{}iapx\_\allowbreak{}all.\allowbreak{}log}) & 8 levels, 25 of 25 & a 100 × 64 × 256 × 256 sample reaches one coefficient in 8 levels (proved) \\
+the levels' blocks & a 44b6 extent & 419,430,400 + 26,214,400 + 1,638,400 + 106,496 + 7,168 + 512 + 32 + 4 = 447,397,412 lanes, 1,066 per mille of the sample & depth is paid in shrinking blocks, not in passes over the whole \\
+the CRC join & a 44b6 extent & 6,553,600 segments of 64 voxels, joined in 23 levels by operators 2\textasciicircum{}7 to 2\textasciicircum{}29; the table's last operator, 2\textasciicircum{}47, is reached at level 40. The join takes any message below 2\textasciicircum{}48 bytes & the 24,576 byte table covers 2\textasciicircum{}48 byte steps, as keys\_\allowbreak{}explained §4 states \\
 the Rice cost bound &  & 24 + 32 = 56 bits a value at most; 5 + 64 × 56 = 3,589 bits a block at most & the escape bounds every value \\
-whether the 5/3 lift is linear &  & the high of (0, 0, 1) is 0, of (1, 0, 0) is 0, of (1, 0, 1) is −1 & not so: the tower is exact and reversible, but it cannot be imprinted as one key by its impulse \\
+whether the 5/3 lift is linear &  & the high of (0, 0, 1) is 0, of (1, 0, 0) is 0, of (1, 0, 1) is −1 & not so: the lifting transform is exact and reversible, but it has no single kernel as its impulse response \\
 \bottomrule
 \end{longtable}
 }
 
-\subsection{\texorpdfstring{The period reading}{The period reading}}
+\section{\texorpdfstring{2026-09-23}{2026-09-23}}
+
+\subsection{\texorpdfstring{The period measurement}{The period measurement}}
 
 \texttt{period\_\allowbreak{}read} (M18 and A12 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}), graded by \texttt{test/\allowbreak{}period\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}period\_\allowbreak{}test.\allowbreak{}sh}. The random set is 64 uniform u16 volumes of 32 × 64 × 64, three axes each, 192 axes in all.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2280\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2262\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2715\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2743\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2280\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2260\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2710\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2750\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-the chance floor: P kept when its margin reaches Σc²/N² & the test's planted lattices; the random set & 431 checks, 0 failed; a period on 63 of 192 random axes (33\%) & Σc² is unchanged by a rearrangement, and the floor passes noise; superseded by the drawn null \\
-the drawn null: P kept only when its margin stands above every margin of d keyed shuffles of the same values (A12) & the same, at d = 8 & 502 checks, 0 failed; a period on 21 of 192 random axes (10.9\%), against 1/(d + 1) = 1/9 & the false-period rate is the caller's to set with d (99 draws, 1\%); the floor Doug ruled; its margin rule superseded by the local peak \\
+the chance threshold: P kept when its margin reaches Σc²/N² & the test's planted lattices; the random set & 431 checks, 0 failed; a period on 63 of 192 random axes (33\%) & Σc² is unchanged by a rearrangement, and the chance threshold passes noise; superseded by the drawn null \\
+the drawn null: P kept only when its margin stands above every margin of d keyed shuffles of the same values (A12) & the same, at d = 8 & 502 checks, 0 failed; a period on 21 of 192 random axes (10.9\%), against 1/(d + 1) = 1/9 & the false-period rate is the caller's to set with d (99 draws, 1\%); the chance threshold Doug ruled; its margin rule superseded by the local peak \\
 the local peak: P and 2P each above both neighbor lags, the height the smaller rise, judged against the drawn null or a set-wide top from \texttt{period\_\allowbreak{}draw} (A12) & the same at d = 8, the planted z grown from 20 to 24 slices; 16 smooth ramps with noise of 24 × 64 × 64 (48 axes) & 700 checks, 0 failed; a period on 6 of 192 random axes (3.1\%), below 1/(d + 1) = 1/9; on 2 of 48 smooth-ramp axes (4.2\%), where the margin rule read P = 2 or 3 on every axis of the 34 × 960 × 960 timing run & smoothness is no longer read as a period; one band serves the set, since 73,158 draws a series cost 152 ms each on 34 × 960 × 960 (RTX 3070), about 75,000 GPU-hours for the set; the rule Doug ruled, and whether one band is fair across shapes is Doug's call; its strongest-peak choice and global shuffle superseded by the fundamental and the per-axis null \\
 the fundamental above a per-axis null: P the smallest local peak whose height clears the band top, the band drawn per axis by shuffling each line along that axis alone (A12) & the same at d = 8; \texttt{period\_\allowbreak{}power} (M19) at 8 and 19 draws & 700 checks, 0 failed; the planted periods read exactly; a period on 5 of 192 random axes (2.6\%) and on 3 of 48 smooth-ramp axes (6.3\%); \texttt{period\_\allowbreak{}power} 599 checks, 0 failed: from 64 e up x reads 5 on 32 of 32 at 19 draws (at 8 draws, 31 with 1 multiple at 256 e), and with the plant at 1,024 e the unplanted z and y read a period on 5 of 64 at 8 draws and 2 of 64 at 19 & the fundamental is read, not a multiple; the per-axis null holds the false-period rate when another axis carries a strong period; the rule Doug ruled; the per-axis null's cost is timed in the next row \\
 the per-axis null's cost & 34 × 960 × 960 (31,334,400 voxels), a smooth ramp x + y + 2z plus uniform noise 0 to 63, RTX 3070; a scratch timing program, one run & \texttt{period\_\allowbreak{}draw} 455.9 ms a call (mean of 8 after a warm-up; one count of the original, then a shuffle and a count on each of 3 axes); \texttt{period\_\allowbreak{}read} 1,934.2 ms at 4 draws and 9,136.5 ms at 20: 450.1 ms a marginal draw and 133.7 ms fixed (as the run printed them from the unrounded times); 2.96 times the global shuffle's 152 ms & one band serves the set the more: about 9.1 hours a series at 73,158 draws and about 223,000 GPU-hours for the 24,386 series (3.1 and 75,000 before), arithmetic from the measured draw, not a set run; host wall-clock with the syncs, and \texttt{period\_\allowbreak{}draw} allocates on every call, and part may be allocation (not separated) \\
@@ -163,20 +169,20 @@ the per-axis null's cost & 34 × 960 × 960 (31,334,400 voxels), a smooth ramp x
 
 \subsection{\texorpdfstring{The sims}{The sims}}
 
-The first five sims of \texttt{engine/\allowbreak{}sims/\allowbreak{}} (M19 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; the sixth, \texttt{root\_\allowbreak{}universal}, is under “The root universal” below, the seventh, \texttt{ask\_\allowbreak{}state}, under “The ask and the state”, and the eighth, \texttt{ka\_\allowbreak{}psi}, under “Kolmogorov's inner function”), each an exact-integer GPU program run by \texttt{bash src/\allowbreak{}sims/\allowbreak{}run.\allowbreak{}sh <sim>}, all under the one camera law of \texttt{sim\_\allowbreak{}camera.\allowbreak{}h}. Every count below is the sim's own output; the ratios are measured, and a lane-for-lane equality is proved.
+The first five sims of \texttt{engine/\allowbreak{}sims/\allowbreak{}} (M19 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; the sixth, \texttt{root\_\allowbreak{}universal}, is under “The root universal” below, the seventh, \texttt{ask\_\allowbreak{}state}, under “The ask and the state”, and the eighth, \texttt{ka\_\allowbreak{}psi}, under “Kolmogorov's inner function”), each an exact-integer GPU program run by \texttt{bash src/\allowbreak{}sims/\allowbreak{}run.\allowbreak{}sh <sim>}, all under the one sensor noise model of \texttt{sim\_\allowbreak{}camera.\allowbreak{}h}. Every count below is the sim's own output; the ratios are measured, and a lane-for-lane equality is proved.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2498\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2019\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3112\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2370\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2498\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2019\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3110\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2373\linewidth-2\tabcolsep\relax}}
 \toprule
 sim & samples & result & settles \\
 \midrule
 \endhead
-\texttt{nbody\_\allowbreak{}lattice} & 24 frames of 20 × 96 × 96, 16 bodies (10 founders; divisions at frames 8, 12 and 16); gain 1, read variance 3, offset 100, fixed pattern 0 to 8 & 9 checks, 0 failed (11 with \texttt{-\allowbreak{}-\allowbreak{}out}); the device truth equals the host's walk of each box, and the signal equals the host's on 4,423,680 of 4,423,680 lanes; the residuals sum to 3,271 against a spread of the square root of 636,863,096; their squares sum to 635,890,703 against 636,863,096 (0.99847) & the camera law renders exactly and holds its two moments; \texttt{lattice.\allowbreak{}npy} and \texttt{truth.\allowbreak{}tsv} are written, and the engine has not been run on them \\
+\texttt{nbody\_\allowbreak{}lattice} & 24 frames of 20 × 96 × 96, 16 segments (10 founders; divisions at frames 8, 12 and 16); gain 1, read variance 3, offset 100, fixed pattern 0 to 8 & 9 checks, 0 failed (11 with \texttt{-\allowbreak{}-\allowbreak{}out}); the device truth equals the host's walk of each box, and the signal equals the host's on 4,423,680 of 4,423,680 lanes; the residuals sum to 3,271 against a spread of the square root of 636,863,096; their squares sum to 635,890,703 against 636,863,096 (0.99847) & the sensor noise model renders exactly and holds its two moments; \texttt{lattice.\allowbreak{}npy} and \texttt{truth.\allowbreak{}tsv} are written, and the engine has not been run on them \\
 \texttt{noise\_\allowbreak{}floor}, the Kolmogorov mock (C11) & 4,096 streams of 512 bits from linear generators of degree 8 to 64 & Berlekamp–Massey within the degree on 4,096 of 4,096, each stream regenerated from its first L bits on 4,096 of 4,096; 286,744 of 2,097,152 bits (13.67\%); keyed draws read 252 to 262 against 256 & a generated stream is found and described by its generator; the keyed draws read as random \\
 \texttt{noise\_\allowbreak{}floor}, the bit planes & 8,640 streams of 512 lanes a plane of the camera lattice & planes 0 to 8 random on 8,640 of 8,640 (mean L/n 0.5004); plane 9 on 850 (0.0638); plane 10 on 29 (0.0029); planes 11 to 15 on none & the camera lattice's planes 0 to 8 read as random; planes 11 to 15 have mean L/n below 0.0001 (printed 0.0000, truncated), and none of their streams reads as random; exactly zero is not shown \\
-\texttt{noise\_\allowbreak{}floor}, the photon transfer curve (C3, C7, C5) & 4,239,360 frame differences; planted g = 1, r² = 3 & truth route (4,226,574 pairs): slope 2.0046 against 2, intercept 5.643 against 6; data alone: slope 7.0460 against 1; neighbor coherence (4,195,200 pairs): slope 4.5292 against 1 & removing the motion by the truth recovers the planted gain (slope within 2\%); the read-noise intercept, 5.643 against 6, is inside the ±6 check but not pinned by it; the data-only routes do not recover the gain, since sharp-edged moving bodies bias them \\
-\texttt{noise\_\allowbreak{}floor}, the neighbor correlation (C6) & the same differences, x against x + 1 & Σdd′/Σd²: −71,727/1,161,503,631 on truth-static pairs; 403,193,327/2,288,244,270 (0.1762) on every pair & the noise is uncorrelated between neighbors; the moving bodies correlate them \\
+\texttt{noise\_\allowbreak{}floor}, the photon transfer curve (C3, C7, C5) & 4,239,360 frame differences; planted g = 1, r² = 3 & truth route (4,226,574 pairs): slope 2.0046 against 2, intercept 5.643 against 6; data alone: slope 7.0460 against 1; neighbor coherence (4,195,200 pairs): slope 4.5292 against 1 & removing the motion by the truth recovers the planted gain (slope within 2\%); the read-noise intercept, 5.643 against 6, is inside the ±6 check but not pinned by it; the data-only routes do not recover the gain, since sharp-edged moving segments bias them \\
+\texttt{noise\_\allowbreak{}floor}, the neighbor correlation (C6) & the same differences, x against x + 1 & Σdd′/Σd²: −71,727/1,161,503,631 on truth-static pairs; 403,193,327/2,288,244,270 (0.1762) on every pair & the noise is uncorrelated between neighbors; the moving segments correlate them \\
 \texttt{period\_\allowbreak{}power} (M18, A12) & a period 5 planted along x of 32 × 64 × 64, 32 volumes an amplitude, at 8 and 19 draws & under the strongest peak and the global shuffle, 599 checks, 1 failed by design; under the fundamental and the per-axis null, 599 checks, 0 failed (the tables below) & the strongest peak read a multiple and the global shuffle read periods on the unplanted axes; Doug ruled both fixed, and the fixes hold \\
 \texttt{period\_\allowbreak{}power}, an earlier check & the strongest plant then, 32 e, at 8 draws & exactly 5 on 15 of 32 volumes, and the check failed & replaced by “5 or a multiple”, which holds at 1,024 e on 32 of 32 \\
 \texttt{fixed\_\allowbreak{}pattern} (ART-4-005 ported) & frame 8 × 8, 48 frames, swing 20, pattern 40, 8 draws, key 0xF17A & 10 checks, 0 failed; period 64 at 179.565 against its shuffle's 0.972 and a band top of 5.241; the residual equals the scene on 3,072 of 3,072 (100\%); the wrong period 63 removes 0.2298\%; no pattern (1.477) and impulses (2.064) declined; a static feature at depth 0, 5, 15, 30 leaves 100.0000\%, 99.9263\%, 99.3370\%, 97.3480\% & the fixed pattern is removed to the bit and only when it is there; a static scene feature goes with it \\
@@ -185,7 +191,7 @@ sim & samples & result & settles \\
 \end{longtable}
 }
 
-The period reading's power, \texttt{period\_\allowbreak{}power}: x reading 5, a multiple (10 or 15) or another lag, of 32 volumes, and the unplanted z and y reading a period, of 64 axes. Now, the fundamental above the per-axis null (A12):
+The period measurement's power, \texttt{period\_\allowbreak{}power}: x reading 5, a multiple (10 or 15) or another lag, of 32 volumes, and the unplanted z and y reading a period, of 64 axes. Now, the fundamental above the per-axis null (A12):
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -233,11 +239,11 @@ The check that failed before is the unplanted axes' false periods within 5σ of 
 
 \subsection{\texorpdfstring{The scheduler's steps and the lookup table}{The scheduler's steps and the lookup table}}
 
-Doug's “increase the scheduler steps to n” and “implement the lut”, built into the record machine (M10 and A13 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) and graded by \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}sh}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}204007\_\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test}. The alphabet is the 16-bit one, and every case runs 4,096 random lanes.
+Doug's “increase the scheduler steps to n” and “implement the lut”, built into the register machine (M10 and A13 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) and graded by \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test.\allowbreak{}sh}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}204007\_\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test}. The alphabet is the 16-bit one, and every case runs 4,096 random lanes.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1862\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2819\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1967\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3352\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1860\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2816\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1965\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3359\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
@@ -246,39 +252,39 @@ a table filled by running the ops over the whole alphabet, against the ops & x²
 a table read through a table & f(x) = 65535 − x, g(y) = |y − 30000|, against the ops for |35535 − x| & the two tables, one table composed on the host, and the ops all agree; f read through g differs & composition keeps program order: it regroups, it does not reorder \\
 register reuse, on against off & a 21-step additive chain (a field, then ten constant-and-sum stages) & the same output, from 3 limbs reused against 21 kept & a chain needs only its live registers, and the step count n (1,024) is held apart from the 256-limb file \\
 the refusals & a 17-bit index on a 16-bit field; a table step naming a table that is not there & both refused at layout & a table cannot read past its source or outside the program's tables \\
-all of it & the above & 15 checks, 0 failed & the table step and register reuse are proved; which functions to tabulate is open (item 3 of \hyperref[chap:kolmogorov-arnold]{kolmogorov\_\allowbreak{}arnold.md}) \\
+all of it & the above & 15 checks, 0 failed & the lookup-table step and register reuse are proved; which functions to tabulate is open (item 3 of \hyperref[chap:kolmogorov-arnold]{kolmogorov\_\allowbreak{}arnold.md}) \\
 \bottomrule
 \end{longtable}
 }
 
 \subsection{\texorpdfstring{The root universal}{The root universal}}
 
-The tower with reversible lookup edges between its floors (M20 and A14 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; bijective edges in the stream, not read-only taps). Graded by \texttt{test/\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test.\allowbreak{}sh}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}210432\_\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test}, and by the sixth sim, \texttt{root\_\allowbreak{}universal}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}211054\_\allowbreak{}sim\_\allowbreak{}root\_\allowbreak{}universal} on camera-law volumes (signal 200 e plus a ramp of 1 e a column, 6 moving bodies of 150 to 400 e, read variance 3, fixed pattern 0 to 8). The edges are not in the crystal path: \texttt{engine.\allowbreak{}cu} passes none.
+The lifting transform with reversible lookup edges between its levels (M20 and A14 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; bijective edges in the stream, not read-only taps). Graded by \texttt{test/\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test.\allowbreak{}sh}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}210432\_\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test}, and by the sixth sim, \texttt{root\_\allowbreak{}universal}, run as \texttt{build/\allowbreak{}20260923\_\allowbreak{}211054\_\allowbreak{}sim\_\allowbreak{}root\_\allowbreak{}universal} on camera-law volumes (signal 200 e plus a ramp of 1 e a column, 6 moving segments of 150 to 400 e, read variance 3, fixed pattern 0 to 8). The edges are not in the compressed file path: \texttt{engine.\allowbreak{}cu} passes none.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2540\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2310\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2932\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2218\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2537\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2304\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2942\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2217\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-the edge test & one edge; stacked edges on one floor; an edge on every floor with the collapsed one; four bad edges; a clean edge after them & 20 checks, 0 failed: every edge program rebuilds the exact lanes, an edge changes the crystal, a non-permutation, a width of 0, a width of 21 and floor 50 are each refused, and the clean edge still round-trips & an edge is a bijection the lower undoes, and a bad one is refused before any device work (proved) \\
-the Bennett edges (“a dimensional expansion”), \texttt{build/\allowbreak{}20260923\_\allowbreak{}213400\_\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test} & |x| of an 8-bit two's complement field and x ≥ 100, each a 16-bit edge (8 bits of x, 8 of carrier), (x, y) → (x, y ⊕ f(x)); 64 lattices of 1 × 8 × 8 × 8 alternating the two on the collapsed floor; the two on floors 1 and 2; |x| laid bare on 16 bits & 25 checks, 0 failed (the 20 above and 5 new): round-trip on 64 of 64; f(x) read out of the carrier, x kept and the high bits passed, on 64 of 64; only the one coefficient touched on 64 of 64; floors 1 and 2 round-trip; |x| laid bare refused, since x and −x collide & a function that is not a bijection rides the reversible stream at the price of width, with no engine change (proved) \\
-the root stays exact & 48 volumes, 24 of 4 × 12 × 48 × 48 (81 edges) and 24 of 3 × 13 × 37 × 41 (90 edges), 6 floors each; 1 to 6 edges a volume, widths 1 to 12 bits, one 20-bit edge per extent; lift, code, wipe, decode, lower & plain exact 48 of 48, edged exact 48 of 48, crystals changed 48 of 48 & the edges survive the whole crystal path (proved) \\
-the fold keeps order & 8 volumes of 4 × 12 × 48 × 48, 8-bit edges a and b on floor 1 & a then b lays the crystal of the single table b(a(i)) on 8 of 8; b then a differs on 8 of 8; a on floor 1 and b on floor 2 differ on 8 of 8 & edges on one floor fold into one table in their order; a floor between them blocks the fold (proved) \\
-the price of an unfitted edge & 8 volumes of 4 × 12 × 48 × 48, one keyed random permutation a floor, coded bits a voxel & below & exact is not free: the coder pays on the low floors, and on the collapsed floor the cost does not show at three decimals (measured); a fitted edge not measured \\
+the edge test & one edge; stacked edges on one level; an edge on every level with the collapsed one; four bad edges; a clean edge after them & 20 checks, 0 failed: every edge program rebuilds the exact lanes, an edge changes the compressed file, a non-permutation, a width of 0, a width of 21 and level 50 are each refused, and the clean edge still round-trips & an edge is a bijection the lower undoes, and a bad one is refused before any device work (proved) \\
+the Bennett edges (“a dimensional expansion”), \texttt{build/\allowbreak{}20260923\_\allowbreak{}213400\_\allowbreak{}tower\_\allowbreak{}edge\_\allowbreak{}test} & |x| of an 8-bit two's complement field and x ≥ 100, each a 16-bit edge (8 bits of x, 8 of carrier), (x, y) → (x, y ⊕ f(x)); 64 lattices of 1 × 8 × 8 × 8 alternating the two on the collapsed level; the two on levels 1 and 2; |x| laid bare on 16 bits & 25 checks, 0 failed (the 20 above and 5 new): round-trip on 64 of 64; f(x) read out of the carrier, x kept and the high bits passed, on 64 of 64; only the one coefficient touched on 64 of 64; levels 1 and 2 round-trip; |x| laid bare refused, since x and −x collide & a function that is not a bijection rides the reversible stream at the price of width, with no engine change (proved) \\
+the root stays exact & 48 volumes, 24 of 4 × 12 × 48 × 48 (81 edges) and 24 of 3 × 13 × 37 × 41 (90 edges), 6 levels each; 1 to 6 edges a volume, widths 1 to 12 bits, one 20-bit edge per extent; lift, code, wipe, decode, lower & plain exact 48 of 48, edged exact 48 of 48, compressed files changed 48 of 48 & the edges survive the whole compressed file path (proved) \\
+the fold keeps order & 8 volumes of 4 × 12 × 48 × 48, 8-bit edges a and b on level 1 & a then b lays the compressed file of the single table b(a(i)) on 8 of 8; b then a differs on 8 of 8; a on level 1 and b on level 2 differ on 8 of 8 & edges on one level fold into one table in their order; a level between them blocks the fold (proved) \\
+the price of an unfitted edge & 8 volumes of 4 × 12 × 48 × 48, one keyed random permutation a level, coded bits a voxel & below & exact is not free: the coder pays on the low levels, and on the collapsed level the cost does not show at three decimals (measured); a fitted edge not measured \\
 all of it & the above & \texttt{root\_\allowbreak{}universal}: 1,268 checks, 0 failed & the root universal is built and proved in \texttt{tower}; its place in the \texttt{.\allowbreak{}kcr} is Doug's call \\
 \bottomrule
 \end{longtable}
 }
 
-The price, coded bits a voxel (6.802 with no edge; the coefficients each floor holds in brackets):
+The price, coded bits a voxel (6.802 with no edge; the coefficients each level holds in brackets):
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
 \begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1813\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2265\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1744\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2330\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1849\linewidth-2\tabcolsep\relax}}
 \toprule
-width (bits) & floor 0 (110,592) & floor 3 (72) & floor 6, collapsed (1) & every floor \\
+width (bits) & level 0 (110,592) & level 3 (72) & level 6, collapsed (1) & every level \\
 \midrule
 \endhead
 2 & 6.810 & 6.802 & 6.802 & 6.808 \\
@@ -337,34 +343,34 @@ all of it & the above & 152 checks, 0 failed & the outer functions' contraction 
 \end{longtable}
 }
 
-\subsection{\texorpdfstring{The exact integer: width, ladder and division}{The exact integer: width, ladder and division}}
+\subsection{\texorpdfstring{The exact integer: width, multiplication dispatch and division}{The exact integer: width, multiplication dispatch and division}}
 
-This tree's exact integer (\texttt{engine/\allowbreak{}base/\allowbreak{}no\_\allowbreak{}rounding/\allowbreak{}exact\_\allowbreak{}integer.\allowbreak{}\{c,h\}}, M1 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) has an open width, a multiplication ladder, division, Newton's division and a Lehmer gcd, and the key machine has the division as four record operations (M10). Doug, in order: “You have division”, “2s compliment”, “Mulmask exact”, “add that to the exact arithmetic”, “It makes no sense to not have infinite division with infinite mul”, a link to Schönhage–Strassen, “We use karstsuba”, “Expand the header to accept any n bits power of 2”, “Static assert”. The work is orior's. The engine build compiles the exact integer from this tree by default, and this tree is the source orior's engine is to be copied from. Every row below is run here on the merged source.
+This tree's exact integer (\texttt{engine/\allowbreak{}base/\allowbreak{}no\_\allowbreak{}rounding/\allowbreak{}exact\_\allowbreak{}integer.\allowbreak{}\{c,h\}}, M1 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) has an open width, a multiplication dispatch, division, Newton's division and a Lehmer gcd, and the register machine has the division as four record operations (M10). Doug, in order: “You have division”, “2s compliment”, “Mulmask exact”, “add that to the exact arithmetic”, “It makes no sense to not have infinite division with infinite mul”, a link to Schönhage–Strassen, “We use karstsuba”, “Expand the header to accept any n bits power of 2”, “Static assert”. The work is orior's. The engine build compiles the exact integer from this tree by default, and this tree is the source orior's engine is to be copied from. Every row below is run here on the merged source.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2576\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2889\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2804\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1731\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.2581\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2883\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2800\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.1735\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-the width & 1, 8 and 64 limbs compiled with declared floors of 9, 76 and 616 digits; 8 limbs with no floor; the tests at 128 limbs, 4,096 limbs and 4,194,304 bits & the three compile; the undeclared floor is refused at compile time (\texttt{exact\_\allowbreak{}integer.\allowbreak{}h}); every test below passes at all three widths & any power of two from 32 bits up, with no ceiling, and a floor declared, never assumed (proved at those widths) \\
-the ladder: long multiplication, Karatsuba from 32 limbs, the Schönhage–Strassen transform from 8,192 & \texttt{test/\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}234836\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, 4 checks, 0 failed at each width, 165 s): 24, 54 and 63 products, balanced and unbalanced, keyed and all ones, across every rung boundary up to half the width & the ladder, and the transform alone, equal a long multiplication kept in the test on every product & the product is exact on every rung (proved on the trials) \\
+the width & 1, 8 and 64 limbs compiled with declared minimums of 9, 76 and 616 digits; 8 limbs with no minimum; the tests at 128 limbs, 4,096 limbs and 4,194,304 bits & the three compile; the undeclared minimum is refused at compile time (\texttt{exact\_\allowbreak{}integer.\allowbreak{}h}); every test below passes at all three widths & any power of two from 32 bits up, with no ceiling, and a minimum declared, never assumed (proved at those widths) \\
+the multiplication dispatch: long multiplication, Karatsuba from 32 limbs, the Schönhage–Strassen transform from 8,192 & \texttt{test/\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}234836\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, 4 checks, 0 failed at each width, 165 s): 24, 54 and 63 products, balanced and unbalanced, keyed and all ones, across every threshold up to half the width & the dispatch, and the transform alone, equal a long multiplication kept in the test on every product & the product is exact under every algorithm (proved on the trials) \\
 products divide back & the same products & each product divides back to its factors, exactly and with remainder, and the gcd holds a factor & (proved on the trials) \\
-Newton's division: the reciprocal grown at half precision, one Newton step, corrected exactly & 24, 54 and 63 divisions, divisors to half the width & numerator = quotient · divisor + remainder, the remainder below the divisor and signed as the numerator, equal to the dispatched division & Newton's rung gives what long division gives (proved on the trials) \\
-the rungs held apart & the same test with the transform, and then also Newton, raised past every size (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235121\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test} and \texttt{build/\allowbreak{}20260923\_\allowbreak{}235548\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}) & 4 checks, 0 failed at each width, both builds & Karatsuba alone and long division alone are exact too (proved on the trials) \\
+Newton's division: the reciprocal grown at half precision, one Newton step, corrected exactly & 24, 54 and 63 divisions, divisors to half the width & numerator = quotient · divisor + remainder, the remainder below the divisor and signed as the numerator, equal to the dispatched division & Newton's algorithm gives what long division gives (proved on the trials) \\
+the algorithms held apart & the same test with the transform, and then also Newton, raised past every size (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235121\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test} and \texttt{build/\allowbreak{}20260923\_\allowbreak{}235548\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}) & 4 checks, 0 failed at each width, both builds & Karatsuba alone and long division alone are exact too (proved on the trials) \\
 long division, Knuth's algorithm D in base 2\textasciicircum{}32 & \texttt{test/\allowbreak{}exact\_\allowbreak{}divide\_\allowbreak{}test} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}234731\_\allowbreak{}exact\_\allowbreak{}divide\_\allowbreak{}test}, 9 checks, 0 failed, at 128 limbs, 7 s): 200,000 trials of edge-shaped limbs (0, 1, 2\textasciicircum{}31 − 1, 2\textasciicircum{}31, 2\textasciicircum{}32 − 1 and 2\textasciicircum{}32 − 2 three times in four, a keyed draw otherwise), numerators up to 8 limbs; 4,000 trials at widths drawn up to 127 limbs & numerator = quotient · divisor + remainder, |remainder| < |divisor|, the remainder signed as the numerator, on every trial & the division is exact, rounding toward zero (proved on the trials) \\
 the add-back step & a numerator and divisor built so the top-limb estimate runs one high & holds; an instrumented copy confirmed the branch runs & the rare branch is right (proved on the case) \\
 exact division: the odd part's inverse by Newton's step x(2 − dx), a multiply and a mask & 20,000 products of drawn quotients and divisors up to 64 limbs, half the divisors with at least eight twos & the quotient returned on every product; one past each product refused as \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}NOT\_\allowbreak{}EXACT} & (proved on the trials) \\
 Lehmer's gcd (Knuth's algorithm L), which replaced Stein's binary gcd after its bit-at-a-time shifts stalled the 4,194,304-bit test & 4,000 pairs with a drawn shared factor, each part up to 32 limbs; 4,000 more against Euclid's gcd run on the long division & the gcd divides both, the shared factor divides it, and the cofactors' gcd is 1; it equals Euclid's on every pair; gcd(0, x) = |x| and gcd(0, 0) = 0 & (proved on the trials) \\
 a zero divisor & both divisions & refused as \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}BY\_\allowbreak{}ZERO} & (proved) \\
-the record operations: quotient, remainder, gcd, exact quotient (ops 11 to 14) & \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}234739\_\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test}, 15 checks, 0 failed, 58 s): 4,096 lanes of signed 160-bit numerators in the 64-limb register file, 512 lanes of 2,048-bit numerators in the 256-limb file & the device equals the host word for word; the division identities, the gcd and the exact quotient hold on every lane; a zero divisor and an inexact division refuse the lane on both; 3\textasciicircum{}40 divides exactly by 3\textasciicircum{}20 to 3\textasciicircum{}20; a quotient reading a later step is refused at imprint & the key machine divides exactly, on the device (proved on the lanes) \\
+the record operations: quotient, remainder, gcd, exact quotient (ops 11 to 14) & \texttt{test/\allowbreak{}engine/\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}234739\_\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test}, 15 checks, 0 failed, 58 s): 4,096 lanes of signed 160-bit numerators in the 64-limb register file, 512 lanes of 2,048-bit numerators in the 256-limb file & the device equals the host word for word; the division identities, the gcd and the exact quotient hold on every lane; a zero divisor and an inexact division refuse the lane on both; 3\textasciicircum{}40 divides exactly by 3\textasciicircum{}20 to 3\textasciicircum{}20; a quotient reading a later step is refused at compile & the register machine divides exactly, on the device (proved on the lanes) \\
 the sims on lowest terms & \texttt{sim\_\allowbreak{}rational.\allowbreak{}h} reduced at every width by the gcd and exact division; \texttt{ka\_\allowbreak{}psi} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235412\_\allowbreak{}sim\_\allowbreak{}ka\_\allowbreak{}psi}) and \texttt{ask\_\allowbreak{}state} (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235440\_\allowbreak{}sim\_\allowbreak{}ask\_\allowbreak{}state}) & 152 of 152 and 33 of 33, unchanged; \texttt{ka\_\allowbreak{}psi} prints its values as fractions, 2207/4000 and 11/20 & the verdicts do not depend on the reduction (measured) \\
 \bottomrule
 \end{longtable}
 }
 
-The rungs' timings at 4,194,304 bits, seconds per call on balanced operands, on this host (x86-64, MSVC -O2), one reading each (\textbf{measured}). “A” is \texttt{build/\allowbreak{}20260923\_\allowbreak{}235121\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, with the transform held off the ladder so the ladder is Karatsuba alone. “B” is \texttt{build/\allowbreak{}20260923\_\allowbreak{}235548\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, with the transform and Newton both held off. At this width a call on small operands costs about 1e-4 s for a product and 4e-4 s for a division, because each call touches the whole width.
+The algorithms' timings at 4,194,304 bits, seconds per call on balanced operands, on this host (x86-64, MSVC -O2), one measurement each (\textbf{measured}). “A” is \texttt{build/\allowbreak{}20260923\_\allowbreak{}235121\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, with the transform held out of the dispatch so the dispatch is Karatsuba alone. “B” is \texttt{build/\allowbreak{}20260923\_\allowbreak{}235548\_\allowbreak{}exact\_\allowbreak{}transform\_\allowbreak{}test}, with the transform and Newton both held off. At this width a call on small operands costs about 1e-4 s for a product and 4e-4 s for a division, because each call touches the whole width.
 
 {\scriptsize
 \setlength{\tabcolsep}{4pt}
@@ -400,13 +406,13 @@ limbs, a 2n-limb numerator by an n-limb divisor, on Karatsuba alone (B) & long d
 \end{longtable}
 }
 
-The shape holds on both runs. Karatsuba leads the transform at 8,192 limbs, and the transform leads from 16,384. Long division leads Newton's from 32 to 4,096 limbs, and Newton's leads from 8,192. Below 32 limbs both sit at the width's floor. That is where the header puts \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}TRANSFORM\_\allowbreak{}LIMBS} and \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}NEWTON\_\allowbreak{}LIMBS}, both 8,192. The ratios move between readings. Karatsuba over the transform reads 1.020 and 1.315 at 16,384, 1.508 and 1.531 at 32,768, and 1.850 and 2.323 at 65,536. Long division over Newton's reads 1.092 at 8,192, 1.445 at 16,384, 1.942 at 32,768 and 2.503 at 65,536. orior's run, in the header, reads 1.44, 1.55 and 1.85 for the transform and 1.21, 1.06, 1.81 and 2.44 for Newton's. Two readings of one code path here differ by up to 1.198× (the default build's dispatched division and Newton's at 65,536, the same code), and one column read twice differs by 1.257× (Karatsuba at 32,768; the transform at 65,536, 1.253×). A ratio within about 1.3× of 1 is therefore not settled by one reading, and neither is the second decimal of any ratio here.
+The shape holds on both runs. Karatsuba leads the transform at 8,192 limbs, and the transform leads from 16,384. Long division leads Newton's from 32 to 4,096 limbs, and Newton's leads from 8,192. Below 32 limbs both sit at the width's minimum. That is where the header puts \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}TRANSFORM\_\allowbreak{}LIMBS} and \texttt{ANCHOR\_\allowbreak{}EXACT\_\allowbreak{}NEWTON\_\allowbreak{}LIMBS}, both 8,192. The ratios move between readings. Karatsuba over the transform reads 1.020 and 1.315 at 16,384, 1.508 and 1.531 at 32,768, and 1.850 and 2.323 at 65,536. Long division over Newton's reads 1.092 at 8,192, 1.445 at 16,384, 1.942 at 32,768 and 2.503 at 65,536. orior's run, in the header, reads 1.44, 1.55 and 1.85 for the transform and 1.21, 1.06, 1.81 and 2.44 for Newton's. Two readings of one code path here differ by up to 1.198× (the default build's dispatched division and Newton's at 65,536, the same code), and one column read twice differs by 1.257× (Karatsuba at 32,768; the transform at 65,536, 1.253×). A ratio within about 1.3× of 1 is therefore not settled by one measurement, and neither is the second decimal of any ratio here.
 
 \subsection{\texorpdfstring{Chaitin's Ω}{Chaitin's Ω}}
 
 \texttt{engine/\allowbreak{}sims/\allowbreak{}chaitin\_\allowbreak{}omega} (M19 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}) brackets Chaitin's halting probability for Tromp's binary lambda calculus. The machine reads a closed term, self-delimited in de Bruijn form, and halts where the term has a normal form. The codes are prefix free, and Ω, the sum of 2\textasciicircum{}−|t| over the halting terms, is therefore a probability. Its first n bits settle the halting of every program of n bits or fewer. For that reason no machine computes them all.
 
-It runs on the device, one term a thread (\texttt{omega\_\allowbreak{}kernel}), on 16 host threads with the argument \texttt{cpu}, and, given L alone, on the engine's record machine (\texttt{omega\_\allowbreak{}engine}). The runs here:
+It runs on the device, one term a thread (\texttt{omega\_\allowbreak{}kernel}), on 16 host threads with the argument \texttt{cpu}, and, given L alone, on the engine's register machine (\texttt{omega\_\allowbreak{}engine}). The runs here:
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -428,13 +434,13 @@ L = 16, the host & 2,048 and 2,048 & \texttt{build/\allowbreak{}20260924\_\allow
 
 The engine run at L = 16 settles all 226 closed terms as halting, and it gives the host's L = 16 table line for line: 0.11664483… ≤ Ω ≤ 0.12600284…, with the lower bound equal to the halted mass plus the normal forms past L, and the upper to the lower less those normal forms plus the closed mass past L, both exactly (recomputed here from the printed binaries). Its checks are the host's 13, the job's admission and release, and one of its own: every term the engine settled, run again by \texttt{omega\_\allowbreak{}run}, gives the same fate at the same step and the same normal form. No longer engine run is quoted here; every longer bracket is the device's or the host's.
 
-The host path has no device to compare against and lacks the cross-check. Budgets under 2,048 steps and tokens drop the strict busy beaver check, and both points are described below. The host runs of the day before give the same fates and bracket at L = 30 and 33. They are \texttt{build/\allowbreak{}20260924\_\allowbreak{}001129\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 30, 12 checks, 0 failed), \texttt{build/\allowbreak{}20260924\_\allowbreak{}001207\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 30 at 200,000 steps and 16,384 tokens, 12 checks, 0 failed) and \texttt{build/\allowbreak{}20260924\_\allowbreak{}001712\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 33, 12 checks, 0 failed). The device's L = 33 run gives the host's L = 33 table line for line, every fate, bound and busy beaver, record holders included. These device runs shared the device with orior's 54-bit run, and their times are not quoted. L = 44 at 256 steps and tokens was run again on the idle device (\texttt{build/\allowbreak{}20260924\_\allowbreak{}005724\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}, an RTX 3070, 17,664 threads, 13 checks, 0 failed): the same fates in 28,080 ms, 120.8 million terms a second, against orior's 28,088 ms (\textbf{measured}). A reading of the threads (384 a multiprocessor ahead of 512 and 768 at 38 bits, the kernel bound by the cache) is not run here. The runs before the typed fate (\texttt{build/\allowbreak{}20260924\_\allowbreak{}000606\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} and \texttt{build/\allowbreak{}20260924\_\allowbreak{}000643\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}, 11 checks, 0 failed) gave the same fates and the same bracket at L = 30. A run before the growth proof (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235507\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}) had 587 terms open and an upper bound of 0.12599323…. The hand conversion of that bound, 0.12597, was wrong and is corrected in the README.
+The host path has no device to compare against and lacks the cross-check. Budgets under 2,048 steps and tokens drop the strict busy beaver check, and both points are described below. The host runs of the day before give the same fates and bracket at L = 30 and 33. They are \texttt{build/\allowbreak{}20260924\_\allowbreak{}001129\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 30, 12 checks, 0 failed), \texttt{build/\allowbreak{}20260924\_\allowbreak{}001207\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 30 at 200,000 steps and 16,384 tokens, 12 checks, 0 failed) and \texttt{build/\allowbreak{}20260924\_\allowbreak{}001712\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} (L = 33, 12 checks, 0 failed). The device's L = 33 run gives the host's L = 33 table line for line, every fate, bound and busy beaver, record holders included. These device runs shared the device with orior's 54-bit run, and their times are not quoted. L = 44 at 256 steps and tokens was run again on the idle device (\texttt{build/\allowbreak{}20260924\_\allowbreak{}005724\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}, an RTX 3070, 17,664 threads, 13 checks, 0 failed): the same fates in 28,080 ms, 120.8 million terms a second, against orior's 28,088 ms (\textbf{measured}). A measurement of the threads (384 a multiprocessor ahead of 512 and 768 at 38 bits, the kernel bound by the cache) is not run here. The runs before the typed fate (\texttt{build/\allowbreak{}20260924\_\allowbreak{}000606\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega} and \texttt{build/\allowbreak{}20260924\_\allowbreak{}000643\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}, 11 checks, 0 failed) gave the same fates and the same bracket at L = 30. A run before the growth proof (\texttt{build/\allowbreak{}20260923\_\allowbreak{}235507\_\allowbreak{}sim\_\allowbreak{}chaitin\_\allowbreak{}omega}) had 587 terms open and an upper bound of 0.12599323…. The hand conversion of that bound, 0.12597, was wrong and is corrected in the README.
 
 A term is proven to grow forever (\texttt{omega\_\allowbreak{}grows\_\allowbreak{}forever}) as follows. Since the watcher's last checkpoint, every step was a head step whose redex sat at spine position p or deeper. Then the checkpoint's spine part S at any position up to p was the only part reduced, and it never became a lambda eating an argument outside it. If S now stands deeper on the spine, S head-reduced to S B, and the same steps take S B to S B′ B and on without end. So S has no head normal form, neither has the term, and normal order never halts. The sim checks it on a term the earlier run left open: 01000101101010000101101010 grows forever.
 
 A term left open, or past the space, is also tried for a simple type (\texttt{omega\_\allowbreak{}simply\_\allowbreak{}typed}, \texttt{OMEGA\_\allowbreak{}TYPED}): Hindley's unification with an occurs check. A simply typed term is strongly normalizing (Tait 1967): it has a normal form and halts. A typed halt adds its mass to the lower bound. It does not write the normal form, and the busy beaver at its length stays unsettled. The same fact gives a check: no term proven to loop or to grow forever may type. At L = 30, 33 and 36, 0 terms are proven to halt by a type, and no loop or growth term types. So none of the open terms is simply typed, and the bracket is unchanged. At L = 44 one term is: the first typed halt.
 
-The device takes every decision the host's run takes, in the same order, under budgets of at most 256 steps and 256 tokens, in a room of twice the token budget. A run is deterministic, and its budgets only stop it. A halt, loop or growth found inside the device's budgets is therefore found at the same step inside larger ones. A term that reaches a device budget smaller than the run's, outgrows the room, or halts in a normal form too large to key, is handed back. The host runs it under the full budgets. The fates are therefore the host's fates. A check holds it on every run: the host's own run of every term through 30 bits (or through L, when L is less) must give the device's fates and busy beavers, record holders included. At L = 36, 2,048 steps and tokens handed 24,501 terms to the host, and 256 handed 75.
+The device takes every decision the host's run takes, in the same order, under budgets of at most 256 steps and 256 tokens, in a room of twice the token budget. A run is deterministic, and its budgets only stop it. A halt, loop or growth found inside the device's budgets is therefore found at the same step inside larger ones. A term that reaches a device budget smaller than the run's, outgrows the room, or halts in a normal form too large to compile, is handed back. The host runs it under the full budgets. The fates are therefore the host's fates. A check holds it on every run: the host's own run of every term through 30 bits (or through L, when L is less) must give the device's fates and busy beavers, record holders included. At L = 36, 2,048 steps and tokens handed 24,501 terms to the host, and 256 handed 75.
 
 \texttt{-\allowbreak{}-\allowbreak{}ledger <path>} plans the device's run as jobs, each length cut every 2\textasciicircum{}28 terms in rank order. Each finished job's exact tally is one flushed line: the budgets, the length, the job's first rank and count, the six fates, the contradictions, and the two busy beavers with their champions' ranks. A rerun under the same budgets keeps every whole line and runs only the missing jobs. A line with no line end, or one whose fates do not sum to its count, is not kept. Before a job's line is appended, a cut last line is given its line end. A test here at L = 31 (\texttt{build/\allowbreak{}omega\_\allowbreak{}ledger\_\allowbreak{}cut\_\allowbreak{}verify\_\allowbreak{}20260924\_\allowbreak{}005246.\allowbreak{}tsv}) finds a gap in that (\textbf{measured}):
 
@@ -445,7 +451,7 @@ The device takes every decision the host's run takes, in the same order, under b
 \item A third run keeps all 27, but the cut line comes first and is taken: the busy beaver at 31 still reads 267 bits, but its record holder is the term of rank 47,825, not 478,256, and every check passes (14, 0 failed), since the cross-check stops at 30.
 \end{enumerate}
 
-A cut anywhere before the last field leaves too few fields and is not kept. The fates and the bracket are safe. Only a record holder can be wrong. This is a known defect of the ledger, not fixed: Doug has asked for Ω to be run by the engine itself, the record machine, with no step, token or width limit. The sim's ledger may then be replaced instead of patched.
+A cut anywhere before the last field leaves too few fields and is not kept. The fates and the bracket are safe. Only a record holder can be wrong. This is a known defect of the ledger, not fixed: Doug has asked for Ω to be run by the engine itself, the register machine, with no step, token or width limit. The sim's ledger may then be replaced instead of patched.
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -474,9 +480,11 @@ From L = 30 to L = 44 the bracket narrows from 0.00344919… to 0.00154938… wi
 
 The sources. The papers' titles, venues and pages were checked here against Crossref, and the table and the program at their pages; Barendregt's book was not checked there. Tait, “Intensional interpretations of functionals of finite type I”, Journal of Symbolic Logic 32(2), 198–212, 1967: a simply typed term is strongly normalizing, the typed fate's basis. Wadsworth, “The relation between computational and denotational properties for Scott's D∞-models of the lambda-calculus”, SIAM Journal on Computing 5(3), 488–521, 1976, and Barendregt, \emph{The Lambda Calculus: Its Syntax and Semantics} (North-Holland, 1984): a term has a head normal form exactly when head reduction ends, the growth proof's basis. Thiemann and Sternagel, “Loops under Strategies”, Rewriting Techniques and Applications 2009, 17–31: nontermination proved by a loop under a fixed reduction strategy, the kind of argument the growth proof makes for normal order. BusyBeaverWiki's BB λ table and OEIS A333479: the exact values 22 through 1812 at 21 through 33 bits, and 327,686 at 34. Tromp's \texttt{BB.\allowbreak{}lhs} (github tromp/AIT, \texttt{BB/\allowbreak{}}): it proves loops by a repeated redex in a term's history and by two self-replication shapes, \texttt{W W → H[W W]} and \texttt{W \_\allowbreak{} W → H[W \_\allowbreak{} W]}, reduces within 42,000,000 tokens, and stops at 36 bits.
 
+\section{\texorpdfstring{2026-09-24}{2026-09-24}}
+
 \subsection{\texorpdfstring{π's hex digits on the engine}{π's hex digits on the engine}}
 
-\texttt{pi\_\allowbreak{}tower}'s BBP run on the record machine (M19 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}): each term a lane, a sweep one \texttt{cycle\_\allowbreak{}record\_\allowbreak{}run} of up to 70,656 lanes (the RTX 3070's resident threads), the sum reduced by a pair program on the same machine, and only the bits the error decides printed. Run from the source in a scratch build directory (\texttt{\$TEMP/\allowbreak{}anchor\_\allowbreak{}carry/\allowbreak{}build\_\allowbreak{}pi}), not under \texttt{build/\allowbreak{}}. Neither tower, T or T⁻¹, is in the program (A13).
+\texttt{pi\_\allowbreak{}tower}'s BBP run on the register machine (M19 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}): each term a lane, a sweep one \texttt{cycle\_\allowbreak{}record\_\allowbreak{}run} of up to 70,656 lanes (the RTX 3070's resident threads), the sum reduced by a pair program on the same machine, and only the bits the error decides printed. Run from the source in a scratch build directory (\texttt{\$TEMP/\allowbreak{}anchor\_\allowbreak{}carry/\allowbreak{}build\_\allowbreak{}pi}), not under \texttt{build/\allowbreak{}}. Neither lifting transform, T or T⁻¹, is in the program (A13).
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -496,34 +504,36 @@ the tessera job & the default request and 2\textasciicircum{}(2\textasciicircum{
 
 \textbf{Note.} D. H. Bailey, “The BBP Algorithm for Pi”, 17 September 2006 (davidhbailey.com, \texttt{dhbpapers/\allowbreak{}bbp-\allowbreak{}alg.\allowbreak{}pdf}), read. Its Table 1 (p. 6) prints 26C65E52CB4593 at 10\textasciicircum{}6, 17AF5863EFED8D at 10\textasciicircum{}7 and ECB840E21926EC at 10\textasciicircum{}8, the digits in the first row above. Its text (p. 4) prints 6C65E52CB459350050E4BB1 from position 1,000,001 and calls it the first 24 hex digits there. The string holds 23. The decimal list printed beside it reads 12 in its nineteenth place, where the string reads E, which is 14. The engine's run gives E there with the string's other 22 digits, and its 117 to 135 certified bits cover the 92 bits of 23 hex digits (Derived). The row above keeps the string.
 
-\subsection{\texorpdfstring{The Gaussian step on the record machine}{The Gaussian step on the record machine}}
+\subsection{\texorpdfstring{The Gaussian step on the register machine}{The Gaussian step on the register machine}}
 
-The Gaussian step is BBP's ×16 taken as eight floors of (a, b) ↦ (a − b, a + b), z = a + bi times 1 + i (A16 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; “2 then 1”).
+The Gaussian step is BBP's ×16 taken as eight levels of (a, b) ↦ (a − b, a + b), z = a + bi times 1 + i (A16 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}; “2 then 1”).
 
 \begin{itemize}
 \item Graded by \texttt{test/\allowbreak{}record\_\allowbreak{}gaussian\_\allowbreak{}test.\allowbreak{}cu} through \texttt{test/\allowbreak{}record\_\allowbreak{}gaussian\_\allowbreak{}test.\allowbreak{}sh}, run from the working tree, uncommitted, as \texttt{build/\allowbreak{}20260924\_\allowbreak{}222402\_\allowbreak{}record\_\allowbreak{}gaussian\_\allowbreak{}test}.
-\item The program: two signed 24-bit fields, each floor one DIFFERENCE and one SUM, 18 steps, and every floor an output.
+\item The program: two signed 24-bit fields, each level one DIFFERENCE and one SUM, 18 steps, and every level an output.
 \item The lanes: 4,096, every pair of the five edge values (0, −1, 1, −2\textasciicircum{}23 and 2\textasciicircum{}23 − 1), and keyed draws for the rest.
 \end{itemize}
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1681\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2955\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2776\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2587\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1681\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2955\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2774\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2589\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-the program & 18 steps over 2 fields & imprinted, laid and loaded; floor k is 24 + k bits wide, 25 to 32 & keymath widens each floor by one bit (proved) \\
+the program & 18 steps over 2 fields & compiled, laid and loaded; level k is 24 + k bits wide, 25 to 32 & keymath widens each level by one bit (proved) \\
 device against host & 4,096 lanes & equal word for word & (proved on the lanes) \\
-every floor against z(1 + i)\textasciicircum{}k & 4,096 lanes × 8 floors, the powers taken from their polar form & equal on every lane and floor & the floor is the Gaussian step (proved on the lanes) \\
-four and eight floors & the same & −4z and 16z on every lane & eight steps are ×16, one hex digit (proved on the lanes) \\
-parity & every floor & the two registers share their parity on every lane & each floor's image lies in the ideal (1 + i): one bit dropped a floor (proved on the lanes) \\
-the width at floor 8 & the same & values in [−2\textasciicircum{}27, 2\textasciicircum{}27), 28 bits, with −2\textasciicircum{}27 reached; keymath carries 32 & the values grow half a bit a floor and the imprint a whole bit; the per-floor widths are derived in A16 (proved on the lanes at floor 8) \\
-all of it & the above & 8 checks, 0 failed & the step runs exactly on the engine's record machine; it is in no engine module and not in \texttt{pi\_\allowbreak{}tower} \\
+every level against z(1 + i)\textasciicircum{}k & 4,096 lanes × 8 levels, the powers taken from their polar form & equal on every lane and level & the level is the Gaussian step (proved on the lanes) \\
+four and eight levels & the same & −4z and 16z on every lane & eight steps are ×16, one hex digit (proved on the lanes) \\
+parity & every level & the two registers share their parity on every lane & each level's image lies in the ideal (1 + i): one bit dropped a level (proved on the lanes) \\
+the width at level 8 & the same & values in [−2\textasciicircum{}27, 2\textasciicircum{}27), 28 bits, with −2\textasciicircum{}27 reached; keymath carries 32 & the values grow half a bit a level and the compile a whole bit; the per-level widths are derived in A16 (proved on the lanes at level 8) \\
+all of it & the above & 8 checks, 0 failed & the step runs exactly on the engine's register machine; it is in no engine module and not in \texttt{pi\_\allowbreak{}tower} \\
 A16's pole algebra, in floating point & a scratch script (\texttt{gaussian\_\allowbreak{}check.\allowbreak{}py} in a temporary directory, not in the tree); 1,001 points on [0, 1]; Simpson's rule at 200,000 panels & partial fractions and residues within 2.2e-15 of BBP's y-form, and the x-form within 3.6e-15 of its reduced form; the numerator below 5.4e-15 at ±i and e\textasciicircum{}\{±3iπ/4\}, and 16 and 22.6 at the other four roots; the integral within 3.3e-14 of the float π; the three pieces −2 ln 2, +2 ln 2 and π, each within 1.3e-14; the corners' widths at w = 24 are 25, 26, 27, 27, 28, 28, 28 and 28 bits & the hand algebra holds in floating point (measured; derived in A16, not run on the engine) \\
 \bottomrule
 \end{longtable}
 }
+
+\section{\texorpdfstring{2026-09-25}{2026-09-25}}
 
 \subsection{\texorpdfstring{keymath's widths by linear forms, and the record tests on tessera}{keymath's widths by linear forms, and the record tests on tessera}}
 
@@ -537,18 +547,18 @@ keymath now carries every register as a linear form over atoms and takes the few
 
 {\footnotesize
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1482\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2852\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2649\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3017\linewidth-2\tabcolsep\relax}}
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{\dimexpr0.1481\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2850\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.2645\linewidth-2\tabcolsep\relax}>{\RaggedRight\arraybackslash}p{\dimexpr0.3024\linewidth-2\tabcolsep\relax}}
 \toprule
 what & samples & result & settles \\
 \midrule
 \endhead
-Gaussian & \texttt{build/\allowbreak{}20260925\_\allowbreak{}012737\_\allowbreak{}record\_\allowbreak{}gaussian\_\allowbreak{}test}; 4,096 lanes, 8 floors & 11 checks, 0 failed; widths 25, 25, 26, 26, 27, 27, 28 and 28, and some lane fills each one & the linear forms give 24 + ⌈k/2⌉, half a bit a floor, as the values grow (proved on the lanes) \\
+Gaussian & \texttt{build/\allowbreak{}20260925\_\allowbreak{}012737\_\allowbreak{}record\_\allowbreak{}gaussian\_\allowbreak{}test}; 4,096 lanes, 8 levels & 11 checks, 0 failed; widths 25, 25, 26, 26, 27, 27, 28 and 28, and some lane fills each one & the linear forms give 24 + ⌈k/2⌉, half a bit a level, as the values grow (proved on the lanes) \\
 guide & \texttt{build/\allowbreak{}20260925\_\allowbreak{}012900\_\allowbreak{}record\_\allowbreak{}guide\_\allowbreak{}test} & 12 checks, 0 failed & the worked example's widths hold \\
 table & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013022\_\allowbreak{}record\_\allowbreak{}table\_\allowbreak{}test} & 16 checks, 0 failed & (proved on the lanes) \\
 divide & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013145\_\allowbreak{}record\_\allowbreak{}divide\_\allowbreak{}test} & 20 checks, 0 failed & its pinned widths hold under the forms \\
-bitwise & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013306\_\allowbreak{}record\_\allowbreak{}bitwise\_\allowbreak{}test} & 25 checks, 0 failed & the narrowed widths 32, 20, 20, 32, 41, 41, 32 and 32 hold; the 700-floor stack and the lifting run \\
-boundary & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013426\_\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} & 49 checks, 1 failed: the ring law ring\_\allowbreak{}0 + 6n(1 − 2\textasciicircum{}\{−ℓ\}). The ring by floor is 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600. 4,096 of 4,096 lanes are rebuilt exactly, their heap mirrored at every floor and inside the ring & the ring is now ring\_\allowbreak{}0 + n + 2n(1 − 2\textasciicircum{}\{−ℓ\}) (E4); the mirror law and the widest-at-the-crystal law hold \\
-boundary, the law set & \texttt{build/\allowbreak{}20260925\_\allowbreak{}020556\_\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} & the forward ring law set to ring\_\allowbreak{}0 + n + 2(n − n/2\textasciicircum{}ℓ) for ℓ ≥ 1; the same ring by floor; 49 checks, 0 failed & every record test passes under the linear forms (proved) \\
+bitwise & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013306\_\allowbreak{}record\_\allowbreak{}bitwise\_\allowbreak{}test} & 25 checks, 0 failed & the narrowed widths 32, 20, 20, 32, 41, 41, 32 and 32 hold; the 700-level fused program and the lifting run \\
+boundary & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013426\_\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} & 49 checks, 1 failed: the ring law ring\_\allowbreak{}0 + 6n(1 − 2\textasciicircum{}\{−ℓ\}). The ring by level is 1,536, 1,664, 1,696, 1,712, 1,720, 1,720, 1,712, 1,696 and 1,600. 4,096 of 4,096 lanes are rebuilt exactly, their heap mirrored at every level and inside the ring & the ring is now ring\_\allowbreak{}0 + n + 2n(1 − 2\textasciicircum{}\{−ℓ\}) (E4); the mirror law and the widest-at-the-coefficients law hold \\
+boundary, the law set & \texttt{build/\allowbreak{}20260925\_\allowbreak{}020556\_\allowbreak{}record\_\allowbreak{}boundary\_\allowbreak{}test} & the forward ring law set to ring\_\allowbreak{}0 + n + 2(n − n/2\textasciicircum{}ℓ) for ℓ ≥ 1; the same ring by level; 49 checks, 0 failed & every record test passes under the linear forms (proved) \\
 coherence & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013651\_\allowbreak{}record\_\allowbreak{}coherence\_\allowbreak{}test} & 15 checks, 0 failed; widest exact register 73 bits; 393,216 of 393,216 lane-widths agree three ways, and 73,728 of 73,728 for the odd divisors & (proved on the lanes) \\
 order & \texttt{build/\allowbreak{}20260925\_\allowbreak{}013814\_\allowbreak{}record\_\allowbreak{}order\_\allowbreak{}test} & 18 checks, 0 failed & (proved on the lanes) \\
 tessera & the eight jobs & declared or reserved: 148,013,056 (Gaussian, its peak kept from the earlier run), 24,368, 606,208, 720,896, 1,048,576, 33,554,432, 524,288 and 8,658,944 bytes; peaks 148,013,056, 143,818,752, 148,013,056, 613,584,896, 250,773,504, 647,139,328, 219,316,224 and 158,498,816 & every job is admitted and released; each peak passes its declaration, which counts only the test's own buffers (measured) \\
@@ -556,14 +566,14 @@ tessera & the eight jobs & declared or reserved: 148,013,056 (Gaussian, its peak
 \end{longtable}
 }
 
-\subsection{\texorpdfstring{Finding x on floor 2}{Finding x on floor 2}}
+\subsection{\texorpdfstring{Finding x on level 2}{Finding x on level 2}}
 
 Finding x in a for less than half of a (“say we want to find x and x is on floor 2, we have the knf, we only need to \&\&“; E4 of \hyperref[chap:engine-table]{engine\_\allowbreak{}table.md}).
 
 \begin{itemize}
 \item Graded by the sim \texttt{floor\_\allowbreak{}match} (engine/sims), run from the working tree, uncommitted, as \texttt{build/\allowbreak{}20260925\_\allowbreak{}015942\_\allowbreak{}sim\_\allowbreak{}floor\_\allowbreak{}match}, a job on tessera.
-\item a is one 64³ camera-law frame, n = 262,144 samples. Floor 2 is the engine's: the tower lifts the frame, and the crystal's 16³ corner is lowered as its own tower.
-\item The index is floor 2 laid once as 16 bit planes of 128 words. A query ands the planes, lowest bit first, and a word stops once its mask is empty.
+\item a is one 64³ sensor-noise-model frame, n = 262,144 samples. Level 2 is the engine's: the lifting transform lifts the frame, and the coefficient vector's 16³ corner is inverted as its own lifting transform.
+\item The index is level 2 laid once as 16 bit planes of 128 words. A query ands the planes, lowest bit first, and a word stops once its mask is empty.
 \end{itemize}
 
 {\footnotesize
@@ -573,15 +583,17 @@ Finding x in a for less than half of a (“say we want to find x and x is on flo
 what & samples & result & settles \\
 \midrule
 \endhead
-floor 2 & m = 4,096 = n/64 values, 147 distinct & equal to the host's two-level lifting at 4,096 of 4,096; every value inside the 16-bit lane & the engine's floor 2 is the lifting's (proved) \\
-the planes & 16 × 128 words & every bit of every floor-2 value held & (proved) \\
-values on floor 2 & 1,024 drawn at keyed positions & 1,024 of 1,024 match sets equal the host's scan; 56.78 positions found a query on average, 83 at most; 1,173.85 plane words read on average, 1,340 at most & every occurrence found and no other (proved on the queries) \\
-values not on floor 2 & 1,024 drawn over the lane & 1,024 of 1,024 found nowhere; 806.20 plane words read on average, 1,184 at most & (proved on the queries) \\
+level 2 & m = 4,096 = n/64 values, 147 distinct & equal to the host's two-level lifting at 4,096 of 4,096; every value inside the 16-bit lane & the engine's level 2 is the lifting's (proved) \\
+the planes & 16 × 128 words & every bit of every level-2 value held & (proved) \\
+values on level 2 & 1,024 drawn at keyed positions & 1,024 of 1,024 match sets equal the host's scan; 56.78 positions found a query on average, 83 at most; 1,173.85 plane words read on average, 1,340 at most & every occurrence found and no other (proved on the queries) \\
+values not on level 2 & 1,024 drawn over the lane & 1,024 of 1,024 found nowhere; 806.20 plane words read on average, 1,184 at most & (proved on the queries) \\
 the reads & the 2,048 queries & at most 1,340 plane words, 5,360 bytes, against half of a, 131,072 samples, 262,144 bytes; without the early stop 2,048 words, n/128 & a query reads about 1\% of half of a (measured); the lift reads all of a once to build the index \\
 all of it & the above & 11 checks, 0 failed; tessera declared 3,956,736 bytes, peak 148,013,056 & the knf is not used: the planes are the index \\
 \bottomrule
 \end{longtable}
 }
+
+\section{\texorpdfstring{2026-09-27}{2026-09-27}}
 
 \subsection{\texorpdfstring{The energy detector's period lands on a divisor}{The energy detector's period lands on a divisor}}
 
@@ -600,6 +612,6 @@ Computed, a pure Python run from the F distribution's mean and variance over ind
 
 The sims' own readings hold where the addend dominates: \texttt{fixed\_\allowbreak{}pattern} reads period 64 at 179.565 against a band top of 5.241 (the sims). The band is drawn for the highest ratio over every period, and it tests the pick without changing which period is picked.
 
-A candidate for testing (not built): a band for each period, drawn from the same shuffles, and the period whose ratio stands highest over its own band top, compared as exact ratios by cross multiplying as the period reading's margin is. It changes what the sims recover and waits on a posit and Doug's word.
+A candidate for testing (not built): a band for each period, drawn from the same shuffles, and the period whose ratio stands highest over its own band top, compared as exact ratios by cross multiplying as the period measurement's margin is. It changes what the sims recover and waits on a conjecture and Doug's word.
 
 Prior art, cited from knowledge. A. Schwarzenberg-Czerny, “On the advantage of using analysis of variance for period search”, Monthly Notices of the Royal Astronomical Society 241 (1989), 153–165. It folds a series at a trial period into a fixed number r of phase bins and scores the fold by the analysis of variance statistic, which follows F with r − 1 and n − r degrees of freedom when the series holds no signal. With r fixed, the degrees of freedom stay the same across trial periods. The detector here takes r as the period itself.
