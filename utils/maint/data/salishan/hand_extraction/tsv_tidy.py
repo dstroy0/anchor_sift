@@ -80,7 +80,7 @@ ROOT = _repository_root()
 
 # The tables sit in the research body, beside the prose that cites them, because they are the
 # speakers' words written down and the evidence everything else here rests on.
-ORACLES = os.path.join(ROOT, "build", "oracles")
+ORACLES = os.path.join(ROOT, "examples", "Salishan", "oracles")
 
 
 def tidy(text):

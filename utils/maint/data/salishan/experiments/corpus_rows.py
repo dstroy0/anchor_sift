@@ -36,7 +36,7 @@ while (ROOT != os.path.dirname(ROOT)) and not os.path.isdir(os.path.join(ROOT, "
 
 def oracle_dir(given=None):
     """The oracle tables: an explicit path, or build/oracles."""
-    for candidate in (given, os.path.join(ROOT, "build", "oracles")):
+    for candidate in (given, os.path.join(ROOT, "examples", "Salishan", "oracles")):
         if candidate and os.path.isdir(candidate):
             return candidate
     raise SystemExit("no oracle tables found; pass their directory")

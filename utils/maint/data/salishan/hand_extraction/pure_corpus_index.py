@@ -4,7 +4,7 @@
 #
 # Write the README that opens the hand extractions, speaker first, from the config and the tables.
 #
-#   Usage:  python maint/data/salishan/hand_extraction/pure_corpus_index.py
+#   Usage:  python utils/maint/data/salishan/hand_extraction/pure_corpus_index.py
 #
 # The list of who is in this corpus was kept by hand in refs.md and in the tables both, and two copies
 # of a list drift. The names come from paper_config.py and the row counts from the tables. Neither
@@ -23,6 +23,7 @@
 
 import io
 import os
+import re
 import subprocess
 import sys
 
@@ -80,12 +81,11 @@ def _repository_root():
 
 ROOT = _repository_root()
 HERE = os.path.dirname(os.path.abspath(__file__))
-ORACLES = os.path.join(ROOT, "build", "oracles")
+ORACLES = os.path.join(ROOT, "examples", "Salishan", "oracles")
 
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "corpus_script_extraction"))
-# Built from the repository root and not by counting parents. Counting put this at data/texbuild,
-# which has never existed, and the import failed with a missing module instead of a wrong path.
-sys.path.insert(0, os.path.join(ROOT, "maint", "texbuild"))
+# Built from the repository root and not by counting parents.
+sys.path.insert(0, os.path.join(ROOT, "utils", "maint", "texbuild"))
 
 import markdown_to_latex  # noqa: E402
 from paper_config import PAPERS  # noqa: E402
@@ -100,6 +100,10 @@ INDEX = os.path.join(
     "chapters",
     "chapter_Salishan_pure_corpus_README.tex",
 )
+
+
+CITE = "[[cite:%s]]"
+CITED = r"\[\[cite:([^\]]+)\]\]"
 
 
 def counted(path):
@@ -130,13 +134,6 @@ def main():
     with io.StringIO() as handle:
         handle.write("# Whose words these are\n\n")
         handle.write(
-            "**Purpose:** Find whose language is in this corpus, and which table holds "
-            "it.\n"
-        )
-        handle.write(
-            "**Scope:** every `.oracle.tsv` under `build/oracles`\n\n"
-        )
-        handle.write(
             "These languages belong to the people who speak them. None of this work "
             "exists without them. Everything else in this research is measured against "
             "the tables below, and the tables are their words, written down.\n\n"
@@ -146,19 +143,12 @@ def main():
             "linguist wrote the paper and a person read the paper into a table, and "
             "neither of those is whose language it is. Where a paper cites a published "
             "dictionary and never says who spoke, the entry says so, and the linguist "
-            "does not go in the who column.\n\n"
+            "does not go in the speaker column.\n\n"
         )
         handle.write(
             "Conditions the speakers set are recorded with them below and hold "
             "wherever this corpus is used.\n\n"
         )
-        handle.write(
-            "Written by `maint/data/salishan/hand_extraction/pure_corpus_index.py` "
-            "from `maint/data/salishan/corpus_script_extraction/paper_config.py`, "
-            "the only place a speaker's name is typed. Nothing in this chapter is typed "
-            "by hand, and an edit made here is lost the next time that script runs.\n\n"
-        )
-
         for paper, rows in found:
             handle.write("## %s\n\n" % paper.language)
             if paper.speakers:
@@ -169,17 +159,20 @@ def main():
                     "* The paper names no speaker. Its forms are cited from a "
                     "published source.\n"
                 )
-            handle.write("\n%s, %d rows, `%s`\n\n" % (paper.stem, rows, paper.oracle))
+            handle.write("\n%s, %d rows.\n\n" % (CITE % paper.cite, rows))
             if paper.note:
                 handle.write("%s\n\n" % paper.note)
 
         handle.write(
-            "---\n\n%d tables, %d rows read by hand.\n"
+            "%d tables, %d rows read by hand.\n"
             % (len(found), sum(one[1] for one in found))
         )
         written = handle.getvalue()
 
     body = markdown_to_latex.convert(written, "Whose words these are")
+    # A citation is written as a marker the converter leaves alone and turned into \cite after it,
+    # since the converter escapes every backslash.
+    body = re.sub(CITED, r"\\cite{\1}", body)
     # The markdown opens with the same heading the chapter now carries, and printing both would set
     # it twice on the page.
     body = body.replace("\\section{Whose words these are}\n\n", "", 1)
