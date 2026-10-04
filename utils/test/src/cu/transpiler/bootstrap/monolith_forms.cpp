@@ -2624,10 +2624,11 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
         int loaded = 0;
         int numbered = 0;
-        // A probe classifies an operator only where the number it varies shows in the answer. A numbered probe whose
-        // number the answer does not carry is one the system folded: it answered as it would for a value of its own and
-        // told the classifier nothing of the form. It is gated, and a value the system cannot fold decides instead.
-        // Which numbers a system folds is the system's own, written to its .ksc; nothing here names one.
+        // A probe classifies an operator only where what it varies shows in the answer. A numbered probe whose number
+        // the answer does not carry is one the system folded: it answered as it would for a value of its own and told
+        // the classifier nothing of the form. A register the probe puts that the answer names nowhere is folded the same
+        // way, the system holding the value without an instruction of its own. Either is gated, and a probe the system
+        // cannot fold decides instead. What a system folds is its own, written to its .ksc; nothing here names one.
         std::string folded;
         for (const Role &role : question.roles)
         {
@@ -2636,6 +2637,14 @@ static int forms_read(const char *questions_path, const char *listing, const cha
             if ((role.kind == "number") && !number_carried(read.text, role))
             {
                 folded = "the system folds the number put for " + role.name;
+            }
+        }
+        for (const Role &role : question.roles)
+        {
+            const int put = !role.fixed && ((role.kind == "in") || (role.kind == "out"));
+            if (folded.empty() && put && (read.text.find("{" + role.name + "}") == std::string::npos))
+            {
+                folded = "the system folds the register put for " + role.name;
             }
         }
         if (!loaded && !folded.empty())
