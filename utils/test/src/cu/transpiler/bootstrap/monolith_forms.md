@@ -496,7 +496,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | word_and | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | same | `and.b32 {to}, {left}, {right};` | `` | kept: the questions read apart |
 | word_copy | `MOV {to}, {from};` | `` | kept: the compiler writes no instruction for it | `mov.b32 {to}, {from};` | `` | kept: the compiler writes no instruction for it |
 | word_funnel_right | `SHF.R.U32 {to}, {low}, {bits}, {high};` | `SHF.R.U32 {to}, {low}, {bits}, {high};` | same | `shf.r.clamp.b32 {to}, {low}, {high}, {bits};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
-| word_multiply | `IMAD {to}, {left}, {right}, RZ;` | `IMAD {to}, {left}, {right}, RZ;` | same | `mul.lo.u32 {to}, {left}, {right};` | `mul.lo.s32 {to}, {left}, {right};` | read |
+| word_multiply | `IMAD {to}, {left}, {right}, RZ;` | `IMAD {to}, {left}, {right}, RZ;` | same | `mul.lo.u32 {to}, {left}, {right};` | `mul.lo.s32 {to}, {left}, {right};` | same |
 | word_multiply_add | `IMAD {to}, {left}, {right}, {added};` | `IMAD {to}, {left}, {right}, {added};` | same | `mad.lo.s32 {to}, {left}, {right}, {added};` | `mad.lo.s32 {to}, {left}, {right}, {added};` | same |
 | word_or | `LOP3.LUT {to}, {right}, {left}, RZ, 0xfc, !PT;` | `LOP3.LUT {to}, {right}, {left}, RZ, 0xfc, !PT;` | same | `or.b32 {to}, {right}, {left};` | `or.b32 {to}, {right}, {left};` | same |
 | word_select | `SEL {to}, {chosen}, {otherwise}, {where};` | `SEL {to}, {chosen}, {otherwise}, {where};` | same | `selp.b32 {to}, {chosen}, {otherwise}, {where};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
@@ -505,4 +505,4 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | word_shift_right | `SHF.R.U32.HI {to}, RZ, {bits}, {from};` | `SHF.R.U32.HI {to}, RZ, {bits}, {from};` | same | `shr.u32 {to}, {from}, {bits};` | `shr.u32 {to}, {from}, {bits};` | same |
 | word_xor | `LOP3.LUT {to}, {right}, {left}, RZ, 0x3c, !PT;` | `LOP3.LUT {to}, {right}, {left}, RZ, 0x3c, !PT;` | same | `xor.b32 {to}, {right}, {left};` | `xor.b32 {to}, {right}, {left};` | same |
 
-440 questions over 55 forms. Of the forms, sass.krs already gives 43 as read and 0 are read otherwise; ptx.krs gives 17 as read and 2 are read otherwise.
+440 questions over 55 forms. Of the forms, sass.krs already gives 43 as read and 0 are read otherwise; ptx.krs gives 18 as read and 1 are read otherwise.
