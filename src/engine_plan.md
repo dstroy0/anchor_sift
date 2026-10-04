@@ -252,15 +252,17 @@ works there.
    assembled with the number in its place, stands where the two written-in ones do not settle. Where the written-in
    questions read apart only between sets of banks, a register added as IMAD.IADD and a number as IADD3, the reading
    that assembles for every set stands. A number in a 64-bit slot is asked whole, its high word the alternate of its
-   low, as a high word of 0 the compiler folds to RZ. A question whose number is 0 or 1, or whose two numbers are one
-   word, asks the compiler's fold and settles nothing, and its alternate asks the form. Of 55 forms over 440
-   questions, 43 of `sass.krs` and 16 of `ptx.krs` are the reading. What keeps the rest: no question reads a copy, as
-   in a straight run the allocator names a copy's two words one register, which leaves `word_copy`, `word_set`,
-   `sign_set` and `wide_unpack` nothing to read; `sign_select` and `wide_select` take a number in either of two
-   slots and `SEL` takes one only in its second: the compiler writes a number chosen there under the predicate
-   turned, a number otherwise as it stands and two numbers through a register, and no one text serves every set of
-   banks; `ptx.krs` reaches `launch_load` through a generic `ld`;
-   `guarded_load` reads as a branch, `count_add` and `wide_multiply` read longer than the ruleset's, and the
+   low. A probe classifies a form only where the number it varies shows in the answer: a numbered probe whose number
+   the answer does not carry is one the system folded, and it settles nothing, a value the system cannot fold deciding
+   instead. The test names no value; which numbers a system folds is the system's own. A settled form must still
+   assemble for every number it was asked, folded probes counted, or a reading drawn from register operands alone is no
+   form of an operator a literal is asked of in a slot it cannot encode. Of 55 forms over 440 questions, 43 of
+   `sass.krs` and 17 of `ptx.krs` are the reading. What keeps the rest: no question reads a copy, as in a straight run
+   the allocator names a copy's two words one register, which leaves `word_copy`, `word_set`, `sign_set` and
+   `wide_unpack` nothing to read; `sign_select` and `wide_select` take a number in either of two slots and `SEL` takes
+   one only in its second, and no one text assembles for every number asked; `ptx.krs` reaches `launch_load` through a
+   generic `ld`; `guarded_load` reads as a branch, `count_add` and `wide_multiply` read longer than the ruleset's,
+   `wide_multiply` and `word_multiply` read `mul.lo.s` where the ruleset holds the bit-equal `mul.lo.u`, and the
    ruleset holds no `predicate_and` or `predicate_xor`. It is the loop and it is the work.
    The query protocol above gives the loop its shape and nothing emits one yet. The cost bound is the open part
    of it: static, written into the query as `$10ms`, or dynamic, measured against a running average. The chain

@@ -1538,6 +1538,44 @@ static std::string numbers_named(const std::string &text, const Question &questi
     return named;
 }
 
+// 1 where `text`, a reading, carries `role`'s number: named where it stood once, or standing as its own token where it
+// stood more than one time. 0 where it is nowhere in the answer, the system having folded it into a form of its own
+static int number_carried(const std::string &text, const Role &role)
+{
+    // the bare name is the low word; the name followed by .hi is the high half alone, which does not carry the low word
+    // a fold left behind
+    const std::string named = "{" + role.name + "}";
+    size_t low = text.find(named);
+    while (low != std::string::npos)
+    {
+        if (text.compare(low + named.size(), 3u, ".hi") != 0)
+        {
+            return 1;
+        }
+        low = text.find(named, low + 1u);
+    }
+    const unsigned long long word = (role.number[0] == '-') ? 0ull : strtoull(role.number.c_str(), NULL, 10);
+    const std::string negative = ((word >= 0x80000000ull) && (word <= 0xffffffffull))
+                                     ? std::to_string(-(long long)(0x100000000ull - word))
+                                     : role.number;
+    for (const std::string &spelled : {hex_number(role.number), role.number, hex_number(negative), negative})
+    {
+        size_t at = text.find(spelled);
+        while (at != std::string::npos)
+        {
+            const size_t end = at + spelled.size();
+            const int before = (at == 0u) || !identifier_character(text[at - 1u]);
+            const int after = (end >= text.size()) || !identifier_character(text[end]);
+            if (before && after)
+            {
+                return 1;
+            }
+            at = text.find(spelled, at + 1u);
+        }
+    }
+    return 0;
+}
+
 static Read sass_read(const Question &question, const std::vector<std::string> &lines, Bases *bases)
 {
     Read read;
@@ -2202,24 +2240,22 @@ static int sass_assembles(const std::string &text, const Question &question)
         {
             continue;
         }
-        // a number's .hi is its high word and the number itself its low word, each the word its field holds
-        if (((role.kind == "number") || role.opaque) && (role.number[0] == '-'))
-        {
-            filled = text_fill(filled, role.name, role.number);
-            continue;
-        }
+        // a number's .hi is its high word and the number itself its low word, each the hexadecimal immediate the
+        // assembler reads: a bare decimal it would take for a register number, which tests the wrong operand kind
         if ((role.kind == "number") || role.opaque)
         {
-            const unsigned long long word = strtoull(role.number.c_str(), NULL, 10);
+            const unsigned long long word = (role.number[0] == '-') ? 0ull : strtoull(role.number.c_str(), NULL, 10);
             const std::string high = "{" + role.name + "}.hi";
             size_t at = filled.find(high);
             while (at != std::string::npos)
             {
-                filled.replace(at, high.size(), std::to_string(word >> 32u));
+                filled.replace(at, high.size(), hex_number(std::to_string(word >> 32u)));
                 at = filled.find(high, at);
             }
-            const std::string low = (word > 0xffffffffull) ? std::to_string(word & 0xffffffffull) : role.number;
-            filled = text_fill(filled, role.name, low);
+            const std::string low = ((role.number[0] != '-') && (word > 0xffffffffull))
+                                        ? std::to_string(word & 0xffffffffull)
+                                        : role.number;
+            filled = text_fill(filled, role.name, hex_number(low));
             continue;
         }
         if (role.type == "int")
@@ -2507,6 +2543,9 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     // the readings each form's written-in questions gave, and the questions, for a form they read apart
     std::map<std::string, std::vector<std::string>> readings;
     std::map<std::string, std::vector<const Question *>> asked_of;
+    // every written-in question of a form, folded or not: a fold decides no form, but the form must still assemble for
+    // the operands it was asked with, or a reading that skips that operand's slot is no form of it
+    std::map<std::string, std::vector<const Question *>> constrained;
     // the forms a question asked a folded number of, and why, for a form no other question settles
     std::map<std::string, std::string> folds;
     for (const Question &question : questions)
@@ -2518,28 +2557,19 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
         int loaded = 0;
         int numbered = 0;
-        // a number whose word is 0 or 1 meets the compiler's own constants, and two numbers of one word give the form
-        // the same word twice: the compiler folds either, the question asks the fold, and its alternate asks the form
+        // A probe classifies an operator only where the number it varies shows in the answer. A numbered probe whose
+        // number the answer does not carry is one the system folded: it answered as it would for a value of its own and
+        // told the classifier nothing of the form. It is gated, and a value the system cannot fold decides instead.
+        // Which numbers a system folds is the system's own, written to its .ksc; nothing here names one.
         std::string folded;
-        std::map<unsigned long long, std::string> words;
         for (const Role &role : question.roles)
         {
             loaded = loaded || role.opaque;
             numbered = numbered || (role.kind == "number");
-            if (role.kind != "number")
+            if ((role.kind == "number") && !number_carried(read.text, role))
             {
-                continue;
+                folded = "the system folds the number put for " + role.name;
             }
-            const unsigned long long whole = (role.number[0] == '-')
-                                                 ? (unsigned long long)strtoll(role.number.c_str(), NULL, 10)
-                                                 : strtoull(role.number.c_str(), NULL, 10);
-            const unsigned long long word = whole & 0xffffffffull;
-            const auto same = words.find(word);
-            folded = (word < 2ull) ? ("the number " + role.number + " is one the compiler folds") : folded;
-            folded = (same != words.end()) ? ("the numbers " + same->second + " and " + role.number +
-                                              " are one word, which the compiler folds")
-                                           : folded;
-            words[word] = role.number;
         }
         if (!loaded && !folded.empty())
         {
@@ -2554,6 +2584,10 @@ static int forms_read(const char *questions_path, const char *listing, const cha
                 readings[question.form].push_back(text);
                 asked_of[question.form].push_back(&question);
             }
+        }
+        if (asked_in_ptx && !loaded)
+        {
+            constrained[question.form].push_back(&question);
         }
         if (asked_in_ptx && (loaded || !numbered))
         {
@@ -2602,7 +2636,7 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         for (const std::string &one : read_texts)
         {
             int everywhere = 1;
-            for (const Question *question : asked_of[entry.first])
+            for (const Question *question : constrained[entry.first])
             {
                 everywhere = everywhere && sass_assembles(one, *question);
             }
@@ -2621,9 +2655,43 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     for (auto &entry : sass_verdicts)
     {
         const auto loaded = loaded_verdicts.find(entry.first);
-        if (entry.second.text.empty() && (loaded != loaded_verdicts.end()) && !loaded->second.text.empty())
+        if (!entry.second.text.empty() || (loaded == loaded_verdicts.end()) || loaded->second.text.empty())
+        {
+            continue;
+        }
+        // the loaded reading holds the form's numbers in registers; it stands only where it also assembles for every
+        // written-in number the form was asked, or it is a form only for operands the written-in questions never used
+        int everywhere = 1;
+        for (const Question *question : constrained[entry.first])
+        {
+            everywhere = everywhere && sass_assembles(loaded->second.text, *question);
+        }
+        if (everywhere)
         {
             entry.second = loaded->second;
+        }
+    }
+    // A verdict stands only where it assembles for every operand the form was asked with, folded probes included: a
+    // reading settled from register operands alone is no form of the operator where a literal was asked in a slot it
+    // cannot encode, however every register question agreed on it
+    for (auto &entry : sass_verdicts)
+    {
+        if (entry.second.text.empty())
+        {
+            continue;
+        }
+        for (const Question *question : constrained[entry.first])
+        {
+            if (sass_assembles(entry.second.text, *question))
+            {
+                continue;
+            }
+            const auto fold = folds.find("sass " + entry.first);
+            entry.second.why = (fold != folds.end())
+                                   ? fold->second
+                                   : "the reading does not assemble for every operand the form was asked";
+            entry.second.text.clear();
+            break;
         }
     }
     for (const auto &entry : ptx_verdicts)
