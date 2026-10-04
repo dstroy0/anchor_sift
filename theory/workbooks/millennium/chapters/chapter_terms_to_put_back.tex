@@ -229,6 +229,97 @@ temperature, and in water the tension route of Proposition 17 lets go sooner sti
 meters per second. The column has no inflow and its swirl is given. This is proved for the column
 and held as theory for the construction itself.
 
+\section{Reproducing the matched core}
+
+\textbf{Why the whole core is needed.} The column of Proposition 20 moves only by its swirl.
+The matched core of Duraiswami~\cite{src:Duraiswami-2026}, Section 7, also carries an axial
+velocity $U(X,\eta)$ and a radial inflow. In his variables $u_\theta = q^{-A}\sqrt{2X}\,F$,
+$u_z = q^{-A}U$ and $X = r^2/(2q)$, with $\nu = 1$ and $A = 1/2 + h$, the radial derivative is
+$\partial_r = (r/q)\,\partial_X$ and $r^2 = 2qX$. Then
+\[
+\bigl(r\,\partial_r(u_\theta/r)\bigr)^2 = q^{-1-2A}\,(2XF_X)^2,
+\qquad
+(\partial_r u_z)^2 = q^{-1-2A}\,2X\,U_X^2 .
+\]
+The shear of the axial velocity heats the fluid at the same power of $q$ as the shear of the
+swirl, and Proposition 20 holds only the second. The strain of the radial velocity enters at
+$q^{-2}$, smaller by the factor $q^{2h}$, which is $0.66$ at $h = 1/100$ and $q = 10^{-9}$. The
+inflow and the axial flow also carry heat along the axis, and the column has neither. The
+temperature on the axis of the construction is therefore not the integral of Proposition 20 with
+his $F$ put in it. It needs his whole core, and the core is reproduced first.
+
+\textbf{Proved here.} For the swirl, $u_\theta/r = q^{-A-1/2}F$ and $r\,\partial_r = 2X\,\partial_X$. For
+the axial velocity, $\partial_r u_z = q^{-A}U_X\,r/q$, whose square is $q^{-2A}U_X^2\,2X/q$.
+
+\textbf{The series stage.} The core is the Cauchy problem in $X$ of the leading-order system of
+OpenAI~\cite{src:OpenAI-2026-Navier-Stokes}, eq.\ (4.13), solved from analytic data on the axis by
+the recursion of Duraiswami's eqs.\ (17) and (18). The driver \texttt{axis\_series} in
+\texttt{examples/navier\_stokes} holds each Taylor coefficient as an exact polynomial in $\eta$
+over a power of $1 - 2h\eta^2$, with no grid in $\eta$ and no filter. On his test data
+$F_0 = 1$, $U_0 = \eta/2$, $\Pi_0 = 0$, $h = 1/100$:
+
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Quantity & Duraiswami & Exact, this work \\
+\midrule
+Residuals of the sum to $k = 40$ on $0 \le X \le 1.17$ & below $10^{-10}$ & $4.6\times 10^{-19}$ ($\theta$), $3.8\times 10^{-17}$ ($z$) \\
+Residuals of the sum to $k = 80$ & & $8.1\times 10^{-40}$ ($\theta$), $2.1\times 10^{-37}$ ($z$) \\
+Parity of $F_k$ and $U_k$ in $\eta$ & even and odd to $10^{-12}$ & even and odd exactly \\
+Radius of convergence in $X$ & $3.9$ to $4.0$ & from $F$ at $k = 80$: ratio $4.0173$, root $4.0059$ \\
+ & & from $U$ at $k = 80$: ratio $3.901$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The size of a coefficient here is its largest magnitude at $\eta = j/16$, $j = -16$ to $16$; his is
+the largest at his collocation nodes.
+
+\textbf{Status: computed.} The residuals and the parity reproduce his. The estimates from $F$ lie
+above his range by $0.1$ to $0.4$ percent, and the estimate from $U$ lies inside it.
+
+\textbf{The pressure datum.} His join fixes the axis value of the pressure by
+\[
+\Pi_0(\eta) = G(\Pi_0)(\eta) = -\int_0^{X_b} F_{\mathrm{blend}}[\Pi_0](X,\eta)^2\,dX
++ \Pi_{\mathrm{ext}}(X_b,\eta),
+\]
+where the core, and with it the blended swirl, depends on $\Pi_0$ through $Z_{-2A}\Pi$. Past the
+join the swirl is the heat exterior of OpenAI's eq.\ (4.29), and with
+$H(Z) = Z^{-1-h}\,U(1+h, 2, 1/Z)$, $U$ the confluent hypergeometric function of Tricomi, it is
+$F_{\mathrm{ext}} = (c/\sqrt{2})\,(2d)^{-1-h}\,U\bigl(1+h, 2, X/(2d)\bigr)$, a solution of Kummer's
+equation in $X$. The right
+side is transcendental in $\eta$, while the exact series takes $\Pi_0$ only as a polynomial. The
+datum is held as a polynomial $\bar p$ with rational coefficients together with a proved ball
+around it, by the following.
+
+\textbf{Lemma (proved here).} Let $B$ be a Banach space, $\Phi : B \to B$ continuously
+differentiable, $\bar p \in B$, and $\mathcal{A}$ a bounded injective linear map on $B$. Suppose
+$\|\mathcal{A}\Phi(\bar p)\| \le Y$ and $\|I - \mathcal{A}\,D\Phi(p)\| \le Z < 1$ for every $p$ in
+the closed ball of radius $r$ about $\bar p$, with $Y + Zr \le r$. Then $\Phi$ has exactly one
+zero in that ball.
+
+\textbf{Proof.} Put $T(p) = p - \mathcal{A}\Phi(p)$. On the ball, which is convex,
+$\|DT\| \le Z$, and $T$ has Lipschitz constant $Z$. For $p$ in the ball,
+$\|T(p) - \bar p\| \le \|T(p) - T(\bar p)\| + \|T(\bar p) - \bar p\| \le Zr + Y \le r$. The map $T$
+sends the ball into itself and contracts it, and has exactly one fixed point there. A fixed point
+of $T$ is a zero of $\mathcal{A}\Phi$, and $\mathcal{A}$ is injective. \qed
+
+Here $\Phi(p) = p - G(p)$ and $\mathcal{A}$ approximates the inverse of $I - DG(\bar p)$. The
+fixed point is repelling, as Duraiswami reports. The plain iteration therefore cannot be used,
+while the lemma does not need it.
+
+\textbf{Not established.} The space. $G$ takes $\Pi_0$ through $\partial_\eta\Pi_0$ inside
+$Z_{-2A}\Pi$, and each order of the series in $X$ takes one more derivative in $\eta$. $G$ is not
+bounded on continuous functions of $\eta$. The ball is to be taken among functions analytic on an
+ellipse about $[-1,1]$, where the loss of a derivative at order $k$ is paid by the factor
+$1/(2(k+1)^2)$. Which ellipse $G$ maps into itself, and the bounds $Y$ and $Z$ on it, are not
+computed.
+
+\textbf{Status: theory.} The lemma is proved. Its use for the datum waits on the space. The
+right side of the datum at one $\eta$ is computed as an exact form: rational coefficients times
+rational powers of $e$ and held atoms, $E_1$ and the Kummer values among them.
+
 \section{What a laboratory would show}
 
 Propositions 14 to 17 of the research paper put the first boundary water reaches at the cavity.
