@@ -1,35 +1,31 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Commercial OR LicenseRef-Educational
 // axis_heat.cu: the least temperature on the axis of a turning column, by Proposition 21 of the millennium research
-// paper
-#include "exponential_integral.h"
+// paper, every value an exact form in e^(-s_b) and E1(s_b)
+#include "run_cfg.h"
 
-#include "cfg_json.h"
+#include "report.h"
+
+#include "ode_series.h"
+#include "record.h"
 
 // The column turns with the potential vortex v r = C outside X = X_b, where X = r^2 / (2 nu tau) and tau is the time
 // left to the singular time T*. At the time t = T* - tau its axis stands above the temperature it started at by at
 // least
 //     A (K(s_b) / tau - J(s_b) / t),   A = C^2 Pr^2 / (4 nu c),   s_b = Pr X_b / 2,
 //     K(s) = (1 + 1/s) E1(s) - e^(-s) / s,   J(s) = e^(-s) / s - E1(s),
-// with Pr = mu c / k and nu = mu / rho. Every quantity is an exact rational read from the cfg's decimals, and E1(s_b)
-// and e^(-s_b) are the exponential integral's brackets at 2^bits. While tau <= T* / 2 the time t is at least T* / 2,
-// and the axis has risen by the cfg's rise once tau <= A K / (rise + 2 A J / T*), with K at its low end and J at its
-// high end.
-// Checks:
-// 1. K(s_b) > 0 at its low end, the sign Proposition 21 proves.
-// 2. K(s_b) from E1 by its series overlaps K(s_b) from E1 by its continued fraction.
-// 3. K(s_b) at 2^(bits + 64) overlaps K(s_b) at 2^bits.
+// with Pr = mu c / k and nu = mu / rho. Every quantity is an exact rational read from the cfg's decimals, and K and J
+// are each two terms: rational multiples of e^(-s_b) and of the atom E1(s_b). While tau <= T* / 2 the time t is at
+// least T* / 2, and the axis has risen by the cfg's rise once tau <= A K / (rise + 2 A J / T*), a ratio of two forms.
+// K' = -E1 / s^2 and J' = -e^(-s) / s^2 with K and J 0 at infinity: K = int_s^inf E1(t) / t^2 dt and
+// J = int_s^inf e^(-t) / t^2 dt, both above 0, the sign Proposition 21 proves.
+// Checks, every series about s_b with the cfg's terms, E1 = E1(s_b) - int_(s_b)^s e^(-t) / t dt:
+// 1. K' + E1 / s^2 is 0 in every held coefficient.
+// 2. J' + e^(-s) / s^2 is 0 in every held coefficient.
+// 3. Every exact value is held in the build's width.
+// 4. Every form is written whole to the record the cfg names.
 // The request: axis_heat <cfg>.
-//     bash examples/navier_stokes/run.sh examples/navier_stokes/cfg/water_20c.cfg
+//     bash examples/navier_stokes/run.sh axis_heat examples/navier_stokes/cfg/water_20c.cfg
 
-// the tokens a cfg may hold, and the bytes of its text
-#define AXIS_HEAT_TOKENS 64u
-#define AXIS_HEAT_TEXT 4096u
-// the bits a second reading is taken at past the first
-#define AXIS_HEAT_SECOND_BITS 64u
-// the places after the first digit a value is printed with, truncated
-#define AXIS_HEAT_PLACES 12u
-
-// what the cfg gives, each an exact rational
 typedef struct
 {
     SimRational viscosity;
@@ -40,242 +36,47 @@ typedef struct
     SimRational join;
     SimRational singular_time;
     SimRational rise;
-    unsigned int bits;
+    unsigned long long terms;
+    unsigned long long places;
 } AxisHeatRequest;
 
-// a value that lies between two exact rationals
-typedef struct
+// K(s) and J(s) as forms in e^(-s) and the atom `integral`
+static AtomForm axis_heat_kept(SimRational s, unsigned int integral)
 {
-    SimRational low;
-    SimRational high;
-} AxisHeatInterval;
-
-// `text`, `length` bytes of plain decimal, read exactly into `value`: 1, or 0 where it does not read
-static int axis_heat_decimal(const char *text, size_t length, SimRational *value)
-{
-    const void *const point = memchr(text, '.', length);
-    // the point lies inside the text. The places after it number fewer than the text's bytes
-    const unsigned int places = (point != NULL) ? (unsigned int)(length - 1u - (size_t)((const char *)point - text)) : 0u;
-    if ((anchor_exact_from_decimal(text, length, places, &value->numerator) != ANCHOR_EXACT_OK) ||
-        (sim_exact_power(10ull, places, &value->denominator) == 0))
-    {
-        return 0;
-    }
-    sim_rational_settle(value);
-    return 1;
+    const SimRational over = sim_rational_reciprocal(s);
+    const AtomForm decay = atom_form_e(sim_rational_negative(s));
+    return atom_form_difference(atom_form_scaled(atom_form_atom(integral), sim_rational_sum(sim_rational(1ll, 1ll), over)),
+                                atom_form_scaled(decay, over));
 }
 
-// the decimal string the member `name` of the object at `object` holds, read into `value`: 1, or 0 where it is missing
-// or does not read
-static int axis_heat_member(const char *text, const CfgJsonToken *tokens, unsigned int object, const char *name,
-                            SimRational *value)
+static AtomForm axis_heat_before_start(SimRational s, unsigned int integral)
 {
-    const unsigned int member = cfg_json_member(text, tokens, object, name);
-    return (member != 0u) && (tokens[member].kind == CFG_JSON_STRING) &&
-           axis_heat_decimal(&text[tokens[member].start], tokens[member].end - tokens[member].start, value);
+    const SimRational over = sim_rational_reciprocal(s);
+    return atom_form_difference(atom_form_scaled(atom_form_e(sim_rational_negative(s)), over),
+                                atom_form_atom(integral));
 }
 
-// the cfg at `path` read into `request`: 1, or 0 with the reason written to `line`
-static int axis_heat_read(const char *path, AxisHeatRequest *request, ScripturaLine *line)
+// 1 where every coefficient the series holds is 0
+static int axis_heat_zero(const TaylorSeries &series)
 {
-    char text[AXIS_HEAT_TEXT];
-    FILE *const file = fopen(path, "rb");
-    if (file == NULL)
+    for (const AtomForm &form : series.coefficient)
     {
-        scriptura_text(line, "  the cfg does not open\n");
-        return 0;
-    }
-    const size_t length = fread(text, 1u, sizeof(text), file);
-    const int whole = feof(file) != 0;
-    fclose(file);
-    CfgJsonToken tokens[AXIS_HEAT_TOKENS];
-    CfgJsonParse parse;
-    if (!whole || (cfg_json_parse(text, length, tokens, AXIS_HEAT_TOKENS, &parse) == 0))
-    {
-        scriptura_text(line, whole ? "  the cfg does not parse: " : "  the cfg is longer than the reader holds\n");
-        if (whole)
+        if (!atom_form_zero(form))
         {
-            scriptura_text(line, parse.reason);
-            scriptura_character(line, '\n');
+            return 0;
         }
-        return 0;
     }
-    const unsigned int fluid = cfg_json_member(text, tokens, 0u, "fluid");
-    const unsigned int column = cfg_json_member(text, tokens, 0u, "column");
-    const unsigned int bits = cfg_json_member(text, tokens, 0u, "bits");
-    unsigned long long asked = 0ull;
-    const int read = (fluid != 0u) && (column != 0u) && (bits != 0u) &&
-                     axis_heat_member(text, tokens, fluid, "viscosity", &request->viscosity) &&
-                     axis_heat_member(text, tokens, fluid, "density", &request->density) &&
-                     axis_heat_member(text, tokens, fluid, "conductivity", &request->conductivity) &&
-                     axis_heat_member(text, tokens, fluid, "heat_capacity", &request->heat_capacity) &&
-                     axis_heat_member(text, tokens, column, "circulation", &request->circulation) &&
-                     axis_heat_member(text, tokens, column, "join", &request->join) &&
-                     axis_heat_member(text, tokens, column, "singular_time", &request->singular_time) &&
-                     axis_heat_member(text, tokens, column, "rise", &request->rise) &&
-                     cfg_json_unsigned(text, &tokens[bits], &asked) && (asked > 0ull) && (asked < (1ull << 20u));
-    if (!read)
-    {
-        scriptura_text(line, "  the cfg lacks a value, or one does not read: fluid viscosity, density, conductivity "
-                             "and heat_capacity, column circulation, join, singular_time and rise as decimal strings, "
-                             "and bits a whole number\n");
-        return 0;
-    }
-    // below 2^20, checked above
-    request->bits = (unsigned int)asked;
     return 1;
 }
 
-// numerator / denominator as a rational in lowest terms; the denominator is positive
-static SimRational axis_heat_ratio(const AnchorExactInteger *numerator, const AnchorExactInteger *denominator)
-{
-    SimRational value;
-    value.numerator = *numerator;
-    value.denominator = *denominator;
-    sim_rational_settle(&value);
-    return value;
-}
-
-// K(s) and J(s) between the ends E1(s) and e^(-s) give at 2^bits, s = p / q:
-// K 2^bits = (E1 2^bits (p + q) - e^(-s) 2^bits q) / p and J 2^bits = (e^(-s) 2^bits q - E1 2^bits p) / p
-static void axis_heat_shares(const SimRational *s, const ExponentialIntegralBracket *integral,
-                             const ExponentialIntegralBracket *decay, AxisHeatInterval *kept,
-                             AxisHeatInterval *before_start)
-{
-    AnchorExactInteger unit;
-    AnchorExactInteger below;
-    AnchorExactInteger whole;
-    AnchorExactInteger first;
-    AnchorExactInteger second;
-    AnchorExactInteger top;
-    sim_exact_power(2ull, integral->bits, &unit);
-    sim_exact_product(&s->numerator, &unit, &below);
-    sim_exact_sum(&s->numerator, &s->denominator, &whole);
-    sim_exact_product(&integral->low, &whole, &first);
-    sim_exact_product(&decay->high, &s->denominator, &second);
-    sim_exact_less(&first, &second, &top);
-    kept->low = axis_heat_ratio(&top, &below);
-    sim_exact_product(&integral->high, &whole, &first);
-    sim_exact_product(&decay->low, &s->denominator, &second);
-    sim_exact_less(&first, &second, &top);
-    kept->high = axis_heat_ratio(&top, &below);
-    sim_exact_product(&decay->low, &s->denominator, &first);
-    sim_exact_product(&integral->high, &s->numerator, &second);
-    sim_exact_less(&first, &second, &top);
-    before_start->low = axis_heat_ratio(&top, &below);
-    sim_exact_product(&decay->high, &s->denominator, &first);
-    sim_exact_product(&integral->low, &s->numerator, &second);
-    sim_exact_less(&first, &second, &top);
-    before_start->high = axis_heat_ratio(&top, &below);
-}
-
-// 1 where the two intervals share a point
-static int axis_heat_overlap(const AxisHeatInterval *one, const AxisHeatInterval *other)
-{
-    return (sim_rational_sign(sim_rational_difference(one->low, other->high)) <= 0) &&
-           (sim_rational_sign(sim_rational_difference(other->low, one->high)) <= 0);
-}
-
-// `value` as d.ddd... e n, its first digit and AXIS_HEAT_PLACES more, truncated, every step exact
-static void axis_heat_print(ScripturaLine *line, SimRational value)
-{
-    if (sim_rational_sign(value) == 0)
-    {
-        scriptura_character(line, '0');
-        return;
-    }
-    if (sim_rational_sign(value) < 0)
-    {
-        scriptura_character(line, '-');
-        value = sim_rational_absolute(value);
-    }
-    const SimRational ten = sim_rational(10ll, 1ll);
-    const SimRational one = sim_rational(1ll, 1ll);
-    long long exponent = 0ll;
-    while (sim_rational_sign(sim_rational_difference(value, ten)) >= 0)
-    {
-        value = sim_rational_product(value, sim_rational_reciprocal(ten));
-        exponent += 1ll;
-    }
-    while (sim_rational_sign(sim_rational_difference(value, one)) < 0)
-    {
-        value = sim_rational_product(value, ten);
-        exponent -= 1ll;
-    }
-    sim_ratio_print(line, &value.numerator, &value.denominator, AXIS_HEAT_PLACES);
-    if (exponent != 0ll)
-    {
-        scriptura_character(line, 'e');
-        scriptura_signed(line, exponent);
-    }
-}
-
-// one named value and its unit on a line
-static void axis_heat_line(ScripturaLine *line, const char *name, SimRational value, const char *unit)
+static void axis_heat_form(ScripturaLine *line, const char *name, const AtomForm &form, const AtomBook *book,
+                           unsigned int places)
 {
     scriptura_text(line, "  ");
     scriptura_text(line, name);
     scriptura_text(line, " = ");
-    axis_heat_print(line, value);
-    scriptura_text(line, unit);
+    atom_form_print(line, form, book->names, places);
     scriptura_character(line, '\n');
-}
-
-// one named interval and its unit on a line
-static void axis_heat_interval(ScripturaLine *line, const char *name, const AxisHeatInterval *interval,
-                               const char *unit)
-{
-    scriptura_text(line, "  ");
-    scriptura_text(line, name);
-    scriptura_text(line, " between ");
-    axis_heat_print(line, interval->low);
-    scriptura_text(line, " and ");
-    axis_heat_print(line, interval->high);
-    scriptura_text(line, unit);
-    scriptura_character(line, '\n');
-}
-
-// a reading's verdict reported: 1 where it is held; the width named where the build's cannot hold it
-static int axis_heat_held(SimResults *results, int status, const char *name, unsigned int bits)
-{
-    if (status == EXPONENTIAL_INTEGRAL_HELD)
-    {
-        return 1;
-    }
-    scriptura_text(&results->line, "  ");
-    scriptura_text(&results->line, name);
-    scriptura_text(&results->line, " at 2^");
-    scriptura_decimal(&results->line, bits, 1u);
-    if (status == EXPONENTIAL_INTEGRAL_WIDTH)
-    {
-        scriptura_text(&results->line, " is refused: the build's exact width, ");
-        scriptura_decimal(&results->line, exponential_integral_width(), 1u);
-        scriptura_text(&results->line, " bits (SIM_EXACT_LIMBS), does not hold its bracket\n");
-    }
-    else
-    {
-        scriptura_text(&results->line, " is refused: s_b is outside its domain\n");
-    }
-    sim_check(results, 0, name);
-    return 0;
-}
-
-// K(s_b) and J(s_b) at 2^bits, E1 by its continued fraction, or by its series where `series` is set: 1 where both
-// brackets are held
-static int axis_heat_reading(SimResults *results, const SimRational *s, unsigned int bits, int series,
-                             AxisHeatInterval *kept, AxisHeatInterval *before_start)
-{
-    ExponentialIntegralBracket integral;
-    ExponentialIntegralBracket decay;
-    const int integral_status =
-        series ? exponential_integral_series_floor(s, bits, &integral) : exponential_integral_floor(s, bits, &integral);
-    const int held = axis_heat_held(results, integral_status, series ? "E1(s_b) by its series" : "E1(s_b)", bits) &&
-                     axis_heat_held(results, exponential_negative_floor(s, bits, &decay), "e^(-s_b)", bits);
-    if (held)
-    {
-        axis_heat_shares(s, &integral, &decay, kept, before_start);
-    }
-    return held;
 }
 
 int main(int count, char **arguments)
@@ -283,13 +84,36 @@ int main(int count, char **arguments)
     char capacity[SIM_LINE_CAPACITY];
     SimResults results;
     sim_open(&results, capacity);
+    static RunCfg cfg;
     AxisHeatRequest request;
-    if ((count != 2) || (axis_heat_read(arguments[1], &request, &results.line) == 0))
+    const int read =
+        (count == 2) && run_cfg_open(arguments[1], &cfg, &results.line) &&
+        run_cfg_rational(&cfg, "fluid.viscosity", &request.viscosity) &&
+        run_cfg_rational(&cfg, "fluid.density", &request.density) &&
+        run_cfg_rational(&cfg, "fluid.conductivity", &request.conductivity) &&
+        run_cfg_rational(&cfg, "fluid.heat_capacity", &request.heat_capacity) &&
+        run_cfg_rational(&cfg, "column.circulation", &request.circulation) &&
+        run_cfg_rational(&cfg, "column.join", &request.join) && (sim_rational_sign(request.join) > 0) &&
+        run_cfg_rational(&cfg, "column.singular_time", &request.singular_time) &&
+        run_cfg_rational(&cfg, "column.rise", &request.rise) && run_cfg_count(&cfg, "terms", &request.terms) &&
+        (request.terms > 2ull) && (request.terms < (1ull << 20u)) && run_cfg_count(&cfg, "places", &request.places) &&
+        (request.places <= 18ull) && (sim_rational_sign(request.viscosity) > 0) &&
+        (sim_rational_sign(request.density) > 0) && (sim_rational_sign(request.conductivity) > 0) &&
+        (sim_rational_sign(request.heat_capacity) > 0);
+    if (!read)
     {
+        if (count == 2)
+        {
+            run_cfg_missing(&results.line, "fluid viscosity, density, conductivity and heat_capacity above 0, column "
+                                           "circulation, join above 0, singular_time and rise as decimal strings, "
+                                           "terms above 2 and places as whole numbers");
+        }
         sim_flush(&results);
         fprintf(stderr, "axis_heat <cfg>\n");
         return 2;
     }
+    const unsigned int terms = (unsigned int)request.terms;
+    const unsigned int places = (unsigned int)request.places;
     const SimRational two = sim_rational(2ll, 1ll);
     const SimRational four = sim_rational(4ll, 1ll);
     const SimRational diffusion = sim_rational_product(request.viscosity, sim_rational_reciprocal(request.density));
@@ -300,54 +124,87 @@ int main(int count, char **arguments)
                                                      sim_rational_product(prandtl, prandtl));
     const SimRational scale = sim_rational_product(
         squared, sim_rational_reciprocal(sim_rational_product(four, sim_rational_product(diffusion, request.heat_capacity))));
-    scriptura_text(&results.line, "  axis heat: the potential vortex outside X_b, read at 2^");
-    scriptura_decimal(&results.line, request.bits, 1u);
-    scriptura_character(&results.line, '\n');
-    axis_heat_line(&results.line, "nu", diffusion, " m^2/s");
-    axis_heat_line(&results.line, "Pr", prandtl, "");
-    axis_heat_line(&results.line, "s_b = Pr X_b / 2", s, "");
-    axis_heat_line(&results.line, "A = C^2 Pr^2 / (4 nu c)", scale, " K s");
-    AxisHeatInterval kept;
-    AxisHeatInterval before_start;
-    AxisHeatInterval kept_series;
-    AxisHeatInterval before_start_series;
-    AxisHeatInterval kept_deeper;
-    AxisHeatInterval before_start_deeper;
-    const int held = axis_heat_reading(&results, &s, request.bits, 0, &kept, &before_start);
-    const int series_held = axis_heat_reading(&results, &s, request.bits, 1, &kept_series, &before_start_series);
-    const int deeper_held = axis_heat_reading(&results, &s, request.bits + AXIS_HEAT_SECOND_BITS, 0, &kept_deeper,
-                                              &before_start_deeper);
-    if (held)
+    scriptura_text(&results.line, "  axis heat: the potential vortex outside X_b\n");
+    report_line(&results.line, "nu", diffusion, " m^2/s", places);
+    report_line(&results.line, "Pr", prandtl, "", places);
+    report_line(&results.line, "s_b = Pr X_b / 2", s, "", places);
+    report_line(&results.line, "A = C^2 Pr^2 / (4 nu c)", scale, " K s", places);
+
+    static AtomBook book;
+    const unsigned int integral = atom_book_id(&book, "E1(" + atom_book_rational(s) + ")");
+    const AtomForm kept = axis_heat_kept(s, integral);
+    const AtomForm before_start = axis_heat_before_start(s, integral);
+    axis_heat_form(&results.line, "K(s_b)", kept, &book, places);
+    axis_heat_form(&results.line, "J(s_b)", before_start, &book, places);
+    const AtomForm lowest = atom_form_scaled(kept, scale);
+    const AtomForm start = atom_form_scaled(before_start, scale);
+    axis_heat_form(&results.line, "A K(s_b), the coefficient of 1 / tau, K s", lowest, &book, places);
+    axis_heat_form(&results.line, "A J(s_b), the coefficient of 1 / t, K s", start, &book, places);
+    // tau <= A K / (rise + 2 A J / T*), and no later than T* / 2
+    const AtomForm below = atom_form_sum(
+        atom_form_rational(request.rise),
+        atom_form_scaled(start, sim_rational_product(two, sim_rational_reciprocal(request.singular_time))));
+    scriptura_text(&results.line, "  the latest tau by which the axis has risen by the cfg's rise, the lesser of T* / 2 = ");
+    report_value(&results.line, sim_rational_product(request.singular_time, sim_rational_reciprocal(two)), places);
+    scriptura_text(&results.line, " s and (");
+    atom_form_print(&results.line, lowest, book.names, places);
+    scriptura_text(&results.line, ") / (");
+    atom_form_print(&results.line, below, book.names, places);
+    scriptura_text(&results.line, ") s\n");
+
+    // the series about s_b: e^(-s), 1/s and E1
+    const std::vector<SimRational> unit(1u, sim_rational(1ll, 1ll));
+    const std::vector<SimRational> negative_unit(1u, sim_rational(-1ll, 1ll));
+    std::vector<SimRational> line_p(2u, sim_rational(0ll, 1ll));
+    line_p[1] = sim_rational(1ll, 1ll);
+    const TaylorSeries decay = taylor_form_scaled(taylor_rational(s, ode_series_first(unit, negative_unit, s, terms)),
+                                                  atom_form_e(sim_rational_negative(s)));
+    // s f' = -f, f(s_b) = 1: f = s_b / s
+    const TaylorSeries over = taylor_scaled(taylor_rational(s, ode_series_first(line_p, negative_unit, s, terms)),
+                                            sim_rational_reciprocal(s));
+    const TaylorSeries falling = taylor_scaled(taylor_product(decay, over), sim_rational(-1ll, 1ll));
+    const TaylorSeries exponential_integral = taylor_integral_from_center(falling, atom_form_atom(integral));
+    std::vector<SimRational> one_values(terms, sim_rational(0ll, 1ll));
+    one_values[0] = sim_rational(1ll, 1ll);
+    const TaylorSeries one = taylor_rational(s, one_values);
+    const TaylorSeries kept_series = taylor_difference(taylor_product(taylor_sum(one, over), exponential_integral),
+                                                       taylor_product(over, decay));
+    const TaylorSeries start_series = taylor_difference(taylor_product(over, decay), exponential_integral);
+    const TaylorSeries square = taylor_product(over, over);
+    // 1. K' = -E1 / s^2
+    const TaylorSeries kept_residual =
+        taylor_sum(taylor_derivative(kept_series), taylor_product(exponential_integral, square));
+    const int kept_zero = axis_heat_zero(kept_residual);
+    scriptura_text(&results.line, kept_zero ? "  K' + E1 / s^2: every held coefficient is 0\n"
+                                            : "  K' + E1 / s^2: a held coefficient is not 0\n");
+    sim_check(&results, kept_zero, "K' = -E1 / s^2");
+    // 2. J' = -e^(-s) / s^2
+    const TaylorSeries start_residual = taylor_sum(taylor_derivative(start_series), taylor_product(decay, square));
+    const int start_zero = axis_heat_zero(start_residual);
+    scriptura_text(&results.line, start_zero ? "  J' + e^(-s) / s^2: every held coefficient is 0\n"
+                                             : "  J' + e^(-s) / s^2: a held coefficient is not 0\n");
+    sim_check(&results, start_zero, "J' = -e^(-s) / s^2");
+    // 3. the width
+    const int held = (s_sim_rational_wide == 0) && (run_cfg_short() == 0) && (report_short() == 0) &&
+                     (atom_form_short() == 0) && (taylor_short() == 0) && (ode_series_short() == 0);
+    scriptura_text(&results.line, held ? "  every exact value is held in the build's width\n"
+                                       : "  a value outgrew the build's width: run with a larger SIM_EXACT_LIMBS\n");
+    sim_check(&results, held, "every exact value held");
+    // 4. the record
+    FILE *const record = record_open(arguments[1], &cfg, "record");
+    int recorded = 0;
+    if (record != NULL)
     {
-        axis_heat_interval(&results.line, "K(s_b)", &kept, "");
-        axis_heat_interval(&results.line, "J(s_b)", &before_start, "");
-        const SimRational lowest = sim_rational_product(scale, kept.low);
-        const SimRational start = sim_rational_product(scale, before_start.high);
-        axis_heat_line(&results.line, "A K(s_b), the least coefficient of 1 / tau", lowest, " K s");
-        axis_heat_line(&results.line, "A J(s_b), the most coefficient of 1 / t", start, " K s");
-        // tau <= A K / (rise + 2 A J / T*), and no later than T* / 2
-        const SimRational spent =
-            sim_rational_product(sim_rational_product(two, start), sim_rational_reciprocal(request.singular_time));
-        const SimRational reached =
-            sim_rational_product(lowest, sim_rational_reciprocal(sim_rational_sum(request.rise, spent)));
-        const SimRational half = sim_rational_product(request.singular_time, sim_rational_reciprocal(two));
-        const SimRational time_left =
-            (sim_rational_sign(sim_rational_difference(reached, half)) <= 0) ? reached : half;
-        axis_heat_line(&results.line, "the latest tau by which the axis has risen by the cfg's rise", time_left, " s");
-        // 1. the sign Proposition 21 proves
-        const int positive = sim_rational_sign(kept.low) > 0;
-        scriptura_text(&results.line, positive ? "  K(s_b) > 0 at its low end\n" : "  K(s_b) is not above 0 at its low end\n");
-        sim_check(&results, positive, "K(s_b) > 0");
+        record_form(record, "K", kept, &book);
+        record_form(record, "J", before_start, &book);
+        record_form(record, "A_K", lowest, &book);
+        record_form(record, "A_J", start, &book);
+        record_form(record, "latest_tau_over", below, &book);
+        // a number wider than the decimal buffer marks atom_form short and leaves the record not whole
+        recorded = record_close(record) && (atom_form_short() == 0);
     }
-    // 2. the series and the continued fraction
-    const int routes = held && series_held && axis_heat_overlap(&kept, &kept_series);
-    scriptura_text(&results.line, routes ? "  K(s_b) by E1's series overlaps K(s_b) by its continued fraction\n"
-                                         : "  K(s_b) by E1's series does not overlap K(s_b) by its continued fraction\n");
-    sim_check(&results, routes, "K(s_b) by E1's series and by its continued fraction");
-    // 3. a deeper reading
-    const int deeper = held && deeper_held && axis_heat_overlap(&kept, &kept_deeper);
-    scriptura_text(&results.line, deeper ? "  K(s_b) at 2^(bits + 64) overlaps K(s_b) at 2^bits\n"
-                                         : "  K(s_b) at 2^(bits + 64) does not overlap K(s_b) at 2^bits\n");
-    sim_check(&results, deeper, "K(s_b) at 2^(bits + 64)");
+    scriptura_text(&results.line, recorded ? "  every form is written whole to the cfg's record\n"
+                                           : "  the record is not written: the cfg names none, or it does not open\n");
+    sim_check(&results, recorded, "record written");
     return sim_close(&results, "axis heat");
 }
