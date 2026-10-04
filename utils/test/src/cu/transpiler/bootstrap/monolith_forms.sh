@@ -71,12 +71,14 @@ for source in "$KEYMATH_CU/keymath.cu" "$KEY_SCHEDULE_CU/key_schedule.cu" "$CODE
     fi
     OBJECTS+=("$object")
 done
-# the machine file's reader and our assembler, which every SASS form read is assembled through before it is written
-for source in "$TOP/src/c/types/file_defs/krs/sass_machine.c" "$TOP/src/c/transpiler/cubin/sass_assemble.c"; do
+# the machine file's reader and our assembler, which every SASS form read is assembled through before it is written, and
+# the system classification the folds this pass finds are written into (interface_sass_probe_class.c)
+for source in "$TOP/src/c/types/file_defs/krs/sass_machine.c" "$TOP/src/c/transpiler/cubin/sass_assemble.c" \
+    "$TOP/src/c/types/file_defs/ksc/interface_sass_probe_class.c"; do
     object="$OUT/$(basename "$source").o"
     if [ ! -f "$object" ] || [ "$source" -nt "$object" ]; then
         cc -std=c11 -O2 -w -I "$TOP/src/c/engine" -I "$TOP/src/c/transpiler/cubin" -I "$TOP/src/c/types/file_defs/krs" \
-            -c "$source" -o "$object" || exit 1
+            -I "$TOP/src/c/transpiler/interface" -c "$source" -o "$object" || exit 1
     fi
     OBJECTS+=("$object")
 done

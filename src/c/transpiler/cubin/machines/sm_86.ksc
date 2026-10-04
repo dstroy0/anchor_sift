@@ -13,20 +13,25 @@ channel clock    two codings of one thing are run against each other and timed
 class answers  the question was put and the answer came back as the question says
 class nothing  the question was taken and left nothing a reader here can see
 class illegal  the question was refused: the system will not take it as it stands
+class folds    the compiler answered but folded the operand the question varied away, so the answer names a form of its own and not the operator
 
 # every question put, counted by the channel it went out on and what came back
 count run      answers  36
 count run      nothing  0
 count run      illegal  0
+count run      folds    0
 count decode   answers  87298
 count decode   nothing  257
 count decode   illegal  37629
+count decode   folds    0
 count compile  answers  28
 count compile  nothing  0
 count compile  illegal  0
+count compile  folds    9
 count clock    answers  2
 count clock    nothing  1
 count clock    illegal  0
+count clock    folds    0
 
 # every question the system was asked in its own code, one a line: the channel, what came
 # back, the word it answered, and the question. These are the ones the system answered for
@@ -70,3 +75,16 @@ run answers fffffaff IADD3 R6, -R0, RZ, RZ;SHF.L.U64.HI R7, R6, R7, R6
 clock nothing 00000000 a move
 clock answers 00000000 a wide add's high word
 clock answers 00000000 doubled
+compile folds 00000000 sign_select: the system folds the number put for otherwise
+compile folds 00000000 sign_set: the system folds the number put for value
+compile folds 00000000 test_signed_differ: the system folds the number put for right
+compile folds 00000000 wide_add_unsigned: the system folds the number put for right
+compile folds 00000000 wide_multiply: the system folds the number put for right
+compile folds 00000000 wide_select: the system folds the number put for otherwise
+compile folds 00000000 word_multiply: the system folds the number put for right
+compile folds 00000000 word_set: the system folds the number put for value
+compile folds 00000000 word_shift_left: the system folds the number put for bits
+
+# writings the system answers alike: an operation written where the ruleset holds the other, each
+# giving the same machine code. A reading in one is the ruleset's form in the other.
+equal mul.lo.u32 mul.lo.s32

@@ -5,6 +5,7 @@
 #include "../../../../../utils/test/src/c/transpiler/interface/interface_sass_probe.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // the most questions kept whole. The decode channel puts one for every bit of every form, far past this, and is
@@ -39,6 +40,51 @@ static SassClassed s_classed[SASS_CLASSED];
 static unsigned int s_classed_count;
 static unsigned int s_tally[SASS_CHANNEL_COUNT][SASS_CLASS_COUNT];
 
+// the writings the system answers alike, two operations a side
+#define SASS_EQUALS 256u
+typedef struct
+{
+    char one[SASS_TEXT];
+    char other[SASS_TEXT];
+} SassEqual;
+static SassEqual s_equal[SASS_EQUALS];
+static unsigned int s_equal_count;
+
+static void sass_text_copy(char *into, const char *from)
+{
+    unsigned int at = 0u;
+    for (; (from[at] != '\0') && (at < (SASS_TEXT - 1u)); at += 1u)
+    {
+        into[at] = from[at];
+    }
+    into[at] = '\0';
+}
+
+int sass_equal_held(const char *one, const char *other)
+{
+    for (unsigned int number = 0u; number < s_equal_count; number += 1u)
+    {
+        const int straight = (strcmp(s_equal[number].one, one) == 0) && (strcmp(s_equal[number].other, other) == 0);
+        const int crossed = (strcmp(s_equal[number].one, other) == 0) && (strcmp(s_equal[number].other, one) == 0);
+        if (straight || crossed)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void sass_equal_take(const char *one, const char *other)
+{
+    if ((s_equal_count >= SASS_EQUALS) || sass_equal_held(one, other))
+    {
+        return;
+    }
+    sass_text_copy(s_equal[s_equal_count].one, one);
+    sass_text_copy(s_equal[s_equal_count].other, other);
+    s_equal_count += 1u;
+}
+
 void sass_class_count(unsigned int channel, unsigned int answered)
 {
     if ((channel < SASS_CHANNEL_COUNT) && (answered < SASS_CLASS_COUNT))
@@ -67,6 +113,79 @@ void sass_class_take(unsigned int channel, unsigned int answered, const char *qu
     }
     one->question[at] = '\0';
     s_classed_count += 1u;
+}
+
+// the channel or class named `text`, or the count where none names it
+static unsigned int sass_channel_of(const char *text)
+{
+    for (unsigned int channel = 0u; channel < SASS_CHANNEL_COUNT; channel += 1u)
+    {
+        if (strcmp(s_channel_text[channel], text) == 0)
+        {
+            return channel;
+        }
+    }
+    return SASS_CHANNEL_COUNT;
+}
+
+static unsigned int sass_class_of(const char *text)
+{
+    for (unsigned int answered = 0u; answered < SASS_CLASS_COUNT; answered += 1u)
+    {
+        if (strcmp(s_class_text[answered], text) == 0)
+        {
+            return answered;
+        }
+    }
+    return SASS_CLASS_COUNT;
+}
+
+int sass_class_read(const char *machines, const char *part)
+{
+    char path[1024];
+    snprintf(path, sizeof(path), "%s/%s.ksc", machines, part);
+    FILE *const file = fopen(path, "rb");
+    if (file == NULL)
+    {
+        return 0;
+    }
+    char line[SASS_TEXT * 2u];
+    while (fgets(line, sizeof(line), file) != NULL)
+    {
+        char channel_text[16];
+        char class_text[16];
+        char question[SASS_TEXT];
+        unsigned int word = 0u;
+        unsigned int tally = 0u;
+        if (sscanf(line, "count %15s %15s %u", channel_text, class_text, &tally) == 3)
+        {
+            const unsigned int channel = sass_channel_of(channel_text);
+            const unsigned int answered = sass_class_of(class_text);
+            // a compile pass's folds are its own and are regenerated, never read back as a count
+            if ((channel < SASS_CHANNEL_COUNT) && (answered < SASS_CLASS_COUNT) && (answered != SASS_CLASS_FOLDS))
+            {
+                s_tally[channel][answered] = tally;
+            }
+            continue;
+        }
+        if (sscanf(line, "%15s %15s %8x %191[^\n]", channel_text, class_text, &word, question) == 4)
+        {
+            const unsigned int channel = sass_channel_of(channel_text);
+            const unsigned int answered = sass_class_of(class_text);
+            if ((channel < SASS_CHANNEL_COUNT) && (answered < SASS_CLASS_COUNT) && (answered != SASS_CLASS_FOLDS) &&
+                (s_classed_count < SASS_CLASSED))
+            {
+                SassClassed *const one = &s_classed[s_classed_count];
+                one->channel = (unsigned char)channel;
+                one->answered = (unsigned char)answered;
+                one->word = word;
+                sass_text_copy(one->question, question);
+                s_classed_count += 1u;
+            }
+        }
+    }
+    fclose(file);
+    return 1;
 }
 
 int sass_class_write(const char *machines, const char *part)
@@ -110,6 +229,12 @@ int sass_class_write(const char *machines, const char *part)
         const SassClassed *const one = &s_classed[number];
         fprintf(file, "%s %s %08x %s\n", s_channel_text[one->channel], s_class_text[one->answered], one->word,
                 one->question);
+    }
+    fprintf(file, "\n# writings the system answers alike: an operation written where the ruleset holds the other, each\n");
+    fprintf(file, "# giving the same machine code. A reading in one is the ruleset's form in the other.\n");
+    for (unsigned int number = 0u; number < s_equal_count; number += 1u)
+    {
+        fprintf(file, "equal %s %s\n", s_equal[number].one, s_equal[number].other);
     }
     const int closed = (fclose(file) == 0);
     printf("interface sass class: %s written, %u questions kept whole\n", path, s_classed_count);

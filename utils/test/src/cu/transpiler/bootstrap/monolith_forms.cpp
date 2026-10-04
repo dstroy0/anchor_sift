@@ -28,6 +28,7 @@ extern "C"
 {
 #include "../../../../../../src/c/transpiler/cubin/sass_assemble.h"
 #include "../../../../../../src/c/types/file_defs/krs/sass_machine.h"
+#include "../../../c/transpiler/interface/interface_sass_probe.h"
 }
 
 #include "c_target.h"
@@ -1538,6 +1539,107 @@ static std::string numbers_named(const std::string &text, const Question &questi
     return named;
 }
 
+// 1 where `text`, a reading, carries `role`'s number: named where it stood once, or standing as its own token where it
+// stood more than one time. 0 where it is nowhere in the answer, the system having folded it into a form of its own
+static int number_carried(const std::string &text, const Role &role)
+{
+    // the bare name is the low word; the name followed by .hi is the high half alone, which does not carry the low word
+    // a fold left behind
+    const std::string named = "{" + role.name + "}";
+    size_t low = text.find(named);
+    while (low != std::string::npos)
+    {
+        if (text.compare(low + named.size(), 3u, ".hi") != 0)
+        {
+            return 1;
+        }
+        low = text.find(named, low + 1u);
+    }
+    const unsigned long long word = (role.number[0] == '-') ? 0ull : strtoull(role.number.c_str(), NULL, 10);
+    const std::string negative = ((word >= 0x80000000ull) && (word <= 0xffffffffull))
+                                     ? std::to_string(-(long long)(0x100000000ull - word))
+                                     : role.number;
+    for (const std::string &spelled : {hex_number(role.number), role.number, hex_number(negative), negative})
+    {
+        size_t at = text.find(spelled);
+        while (at != std::string::npos)
+        {
+            const size_t end = at + spelled.size();
+            const int before = (at == 0u) || !identifier_character(text[at - 1u]);
+            const int after = (end >= text.size()) || !identifier_character(text[end]);
+            if (before && after)
+            {
+                return 1;
+            }
+            at = text.find(spelled, at + 1u);
+        }
+    }
+    return 0;
+}
+
+// a token with every signed type marker written unsigned: an `s` that sits where a type's signedness sits, after a dot
+// and before a bit width, reads as `u`. Two operations the same but for signedness write the same word through this, and
+// an operation that differs any other way does not
+static std::string unsigned_spelled(const std::string &token)
+{
+    std::string spelled = token;
+    for (size_t at = 0u; at < spelled.size(); at += 1u)
+    {
+        const int marks = (spelled[at] == 's') && (at > 0u) && (spelled[at - 1u] == '.') &&
+                          ((at + 1u) < spelled.size()) && (spelled[at + 1u] >= '0') && (spelled[at + 1u] <= '9');
+        if (marks)
+        {
+            spelled[at] = 'u';
+        }
+    }
+    return spelled;
+}
+
+// whether `read` is `now` with nothing changed but the signedness of one or more operations. Both are walked a
+// whitespace-separated word at a time: a word that matches stands, a word that matches only once its signedness is
+// written unsigned is an operation the system writes either way and is added to `alike`, and a word differing any other
+// way, or a word with no partner, says the two are not one form written two ways. The soundness is not here: that the
+// system compiles both to the same machine code is what the caller holds before it reads this, and this only names the
+// writings it may record alike
+static bool signedness_only(const std::string &now, const std::string &read,
+                            std::vector<std::pair<std::string, std::string>> *alike)
+{
+    size_t here = 0u;
+    size_t there = 0u;
+    bool any = false;
+    while (true)
+    {
+        while ((here < now.size()) && (isspace((unsigned char)now[here]) != 0))
+        {
+            here += 1u;
+        }
+        while ((there < read.size()) && (isspace((unsigned char)read[there]) != 0))
+        {
+            there += 1u;
+        }
+        if ((here >= now.size()) || (there >= read.size()))
+        {
+            return any && (here >= now.size()) && (there >= read.size());
+        }
+        const size_t now_end = now.find_first_of(" \t\n", here);
+        const size_t read_end = read.find_first_of(" \t\n", there);
+        const std::string now_word = now.substr(here, now_end - here);
+        const std::string read_word = read.substr(there, read_end - there);
+        here = (now_end == std::string::npos) ? now.size() : now_end;
+        there = (read_end == std::string::npos) ? read.size() : read_end;
+        if (now_word == read_word)
+        {
+            continue;
+        }
+        if (unsigned_spelled(now_word) != unsigned_spelled(read_word))
+        {
+            return false;
+        }
+        alike->push_back(std::make_pair(now_word, read_word));
+        any = true;
+    }
+}
+
 static Read sass_read(const Question &question, const std::vector<std::string> &lines, Bases *bases)
 {
     Read read;
@@ -2202,24 +2304,22 @@ static int sass_assembles(const std::string &text, const Question &question)
         {
             continue;
         }
-        // a number's .hi is its high word and the number itself its low word, each the word its field holds
-        if (((role.kind == "number") || role.opaque) && (role.number[0] == '-'))
-        {
-            filled = text_fill(filled, role.name, role.number);
-            continue;
-        }
+        // a number's .hi is its high word and the number itself its low word, each the hexadecimal immediate the
+        // assembler reads: a bare decimal it would take for a register number, which tests the wrong operand kind
         if ((role.kind == "number") || role.opaque)
         {
-            const unsigned long long word = strtoull(role.number.c_str(), NULL, 10);
+            const unsigned long long word = (role.number[0] == '-') ? 0ull : strtoull(role.number.c_str(), NULL, 10);
             const std::string high = "{" + role.name + "}.hi";
             size_t at = filled.find(high);
             while (at != std::string::npos)
             {
-                filled.replace(at, high.size(), std::to_string(word >> 32u));
+                filled.replace(at, high.size(), hex_number(std::to_string(word >> 32u)));
                 at = filled.find(high, at);
             }
-            const std::string low = (word > 0xffffffffull) ? std::to_string(word & 0xffffffffull) : role.number;
-            filled = text_fill(filled, role.name, low);
+            const std::string low = ((role.number[0] != '-') && (word > 0xffffffffull))
+                                        ? std::to_string(word & 0xffffffffull)
+                                        : role.number;
+            filled = text_fill(filled, role.name, hex_number(low));
             continue;
         }
         if (role.type == "int")
@@ -2507,8 +2607,14 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     // the readings each form's written-in questions gave, and the questions, for a form they read apart
     std::map<std::string, std::vector<std::string>> readings;
     std::map<std::string, std::vector<const Question *>> asked_of;
+    // every written-in question of a form, folded or not: a fold decides no form, but the form must still assemble for
+    // the operands it was asked with, or a reading that skips that operand's slot is no form of it
+    std::map<std::string, std::vector<const Question *>> constrained;
     // the forms a question asked a folded number of, and why, for a form no other question settles
     std::map<std::string, std::string> folds;
+    // the fold the system does of a form, named once for its classification: a front-end fold shows in both the PTX and
+    // the SASS reading, but it is one compile-channel fact about the form, not one a reading
+    std::map<std::string, std::string> fold_fact;
     for (const Question &question : questions)
     {
         const int asked_in_ptx = (question.tag >= MONOLITH_FORMS_PTX);
@@ -2518,31 +2624,23 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         const std::string text = read_adopted(read, asked_in_ptx ? sass : ptx_rules, question, asked_in_ptx, &why);
         int loaded = 0;
         int numbered = 0;
-        // a number whose word is 0 or 1 meets the compiler's own constants, and two numbers of one word give the form
-        // the same word twice: the compiler folds either, the question asks the fold, and its alternate asks the form
+        // A probe classifies an operator only where the number it varies shows in the answer. A numbered probe whose
+        // number the answer does not carry is one the system folded: it answered as it would for a value of its own and
+        // told the classifier nothing of the form. It is gated, and a value the system cannot fold decides instead.
+        // Which numbers a system folds is the system's own, written to its .ksc; nothing here names one.
         std::string folded;
-        std::map<unsigned long long, std::string> words;
         for (const Role &role : question.roles)
         {
             loaded = loaded || role.opaque;
             numbered = numbered || (role.kind == "number");
-            if (role.kind != "number")
+            if ((role.kind == "number") && !number_carried(read.text, role))
             {
-                continue;
+                folded = "the system folds the number put for " + role.name;
             }
-            const unsigned long long whole = (role.number[0] == '-')
-                                                 ? (unsigned long long)strtoll(role.number.c_str(), NULL, 10)
-                                                 : strtoull(role.number.c_str(), NULL, 10);
-            const unsigned long long word = whole & 0xffffffffull;
-            const auto same = words.find(word);
-            folded = (word < 2ull) ? ("the number " + role.number + " is one the compiler folds") : folded;
-            folded = (same != words.end()) ? ("the numbers " + same->second + " and " + role.number +
-                                              " are one word, which the compiler folds")
-                                           : folded;
-            words[word] = role.number;
         }
         if (!loaded && !folded.empty())
         {
+            fold_fact[question.form] = folded;
             why = folded + (why.empty() ? "" : "; " + why);
             folds[std::string(asked_in_ptx ? "sass " : "ptx ") + question.form] = why;
         }
@@ -2554,6 +2652,10 @@ static int forms_read(const char *questions_path, const char *listing, const cha
                 readings[question.form].push_back(text);
                 asked_of[question.form].push_back(&question);
             }
+        }
+        if (asked_in_ptx && !loaded)
+        {
+            constrained[question.form].push_back(&question);
         }
         if (asked_in_ptx && (loaded || !numbered))
         {
@@ -2602,7 +2704,7 @@ static int forms_read(const char *questions_path, const char *listing, const cha
         for (const std::string &one : read_texts)
         {
             int everywhere = 1;
-            for (const Question *question : asked_of[entry.first])
+            for (const Question *question : constrained[entry.first])
             {
                 everywhere = everywhere && sass_assembles(one, *question);
             }
@@ -2621,9 +2723,43 @@ static int forms_read(const char *questions_path, const char *listing, const cha
     for (auto &entry : sass_verdicts)
     {
         const auto loaded = loaded_verdicts.find(entry.first);
-        if (entry.second.text.empty() && (loaded != loaded_verdicts.end()) && !loaded->second.text.empty())
+        if (!entry.second.text.empty() || (loaded == loaded_verdicts.end()) || loaded->second.text.empty())
+        {
+            continue;
+        }
+        // the loaded reading holds the form's numbers in registers; it stands only where it also assembles for every
+        // written-in number the form was asked, or it is a form only for operands the written-in questions never used
+        int everywhere = 1;
+        for (const Question *question : constrained[entry.first])
+        {
+            everywhere = everywhere && sass_assembles(loaded->second.text, *question);
+        }
+        if (everywhere)
         {
             entry.second = loaded->second;
+        }
+    }
+    // A verdict stands only where it assembles for every operand the form was asked with, folded probes included: a
+    // reading settled from register operands alone is no form of the operator where a literal was asked in a slot it
+    // cannot encode, however every register question agreed on it
+    for (auto &entry : sass_verdicts)
+    {
+        if (entry.second.text.empty())
+        {
+            continue;
+        }
+        for (const Question *question : constrained[entry.first])
+        {
+            if (sass_assembles(entry.second.text, *question))
+            {
+                continue;
+            }
+            const auto fold = folds.find("sass " + entry.first);
+            entry.second.why = (fold != folds.end())
+                                   ? fold->second
+                                   : "the reading does not assemble for every operand the form was asked";
+            entry.second.text.clear();
+            break;
         }
     }
     for (const auto &entry : ptx_verdicts)
@@ -2660,7 +2796,23 @@ static int forms_read(const char *questions_path, const char *listing, const cha
             return "read";
         };
         const std::string sass_state = state(sass_verdict, sass_now, &sass_same);
-        const std::string ptx_state = state(ptx_verdict, ptx_now, &ptx_same);
+        std::string ptx_state = state(ptx_verdict, ptx_now, &ptx_same);
+        // A PTX reading that differs from the ruleset only in an operation's signedness is the ruleset's form where the
+        // system compiles both to the same machine code: the SASS read whole and alike is that proof. Record the
+        // writings the system answers alike and read the form as given, not otherwise.
+        if ((ptx_state == "read") && (sass_state == "same"))
+        {
+            std::vector<std::pair<std::string, std::string>> alike;
+            if (signedness_only(ptx_now, ptx_verdict.text, &alike))
+            {
+                for (const auto &pair : alike)
+                {
+                    sass_equal_take(pair.first.c_str(), pair.second.c_str());
+                }
+                ptx_same += 1u;
+                ptx_state = "same";
+            }
+        }
         if (sass_state == "read")
         {
             sass_adopted[form] = sass_verdict.text;
@@ -2681,6 +2833,19 @@ static int forms_read(const char *questions_path, const char *listing, const cha
            "read otherwise; the record written to %s\n",
            questions.size(), sass_verdicts.size(), sass_same, sass_adopted.size(), ptx_same, ptx_adopted.size(),
            record);
+    // The folds the system does are its own and belong in its classification. Read the part's .ksc, add this pass's
+    // compile-channel folds in place, and write it back: the probe's channels are kept and the folds are regenerated
+    const std::string machine_path = machine;
+    const size_t slash = machine_path.find_last_of('/');
+    const std::string machines = (slash == std::string::npos) ? std::string(".") : machine_path.substr(0u, slash);
+    const std::string part = (slash == std::string::npos) ? machine_path : machine_path.substr(slash + 1u);
+    sass_class_read(machines.c_str(), part.c_str());
+    for (const auto &fold : fold_fact)
+    {
+        const std::string question = fold.first + ": " + fold.second;
+        sass_class_take(SASS_CHANNEL_COMPILE, SASS_CLASS_FOLDS, question.c_str(), 0u);
+    }
+    sass_class_write(machines.c_str(), part.c_str());
     if (apply)
     {
         const int sass_written = krs_apply(sass_krs, sass_adopted);
