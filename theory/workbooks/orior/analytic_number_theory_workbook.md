@@ -411,7 +411,7 @@ five cells. None of it bears on the zeros of `Z` or on the hypothesis.
 `examples/0_experimental/exact_zeta_arrival.py` with its device program `exact_zeta_arrival.cu` for
 the boundaries.
 
-**The terms, as asked.** "it's a coordinate system, dimension, and time." Read here, without a
+**The terms, as asked.** The triangle is a coordinate system, a dimension and time. Read here, without a
 claim that it is the reading meant:
 - the coordinates are the triangle's three sides;
 - the dimension is each side's scaling exponent between neighboring cells,
@@ -463,19 +463,19 @@ Through `C_6`, `C_8` and `C_10` the omitted curves have one zero in every cell f
 `C_5` they have one in cells 1 to 5 and none from cell 6 on. `C_6`, the curve leading them, has
 none of its own.
 
-**Hypotheses, quoted, with what tests them.**
-- "it scrapes its boundary and that pops its dimensionality up". The excess over `(2K + 3) / 2` is
+**Hypotheses, with what tests them.**
+- Where the curve grazes its boundary, its dimension rises. The excess over `(2K + 3) / 2` is
   0.72, 0.40, 0.25 and 0.17 between cells 2 to 6 through `C_6`, and 1.12, 0.63, 0.41 and 0.29 through
   `C_8`, larger at every cell, and 1.61, 0.96, 0.63 and 0.45 through `C_10`. The omitted curves give each
   of them: the shape of `|C_(K+1)|` with its next two curves, weighted by `x^(-k - 1/2)` across a cell
   of width 1.
-- "It's like a cyclical spring". Through `C_5` the exponent goes below 6.5 at cell 3 and comes back
+- The exponent acts as a spring: pushed off its value, it returns, cyclically. Through `C_5` the exponent goes below 6.5 at cell 3 and comes back
   toward it from below across cells 5 to 9, as the omitted curves give it. It does not go back above
   6.5 in those cells. Through `C_6`, `C_8` and `C_10` it stays above the cut.
-- "for C8 it looks like that is the pressure that escaped the other dimension reducing its
-  potentiality to field mean". From `C_6` to `C_8` on the same grid, `b` falls with `a` in every
+- At `C_8`, the pressure that escaped the other dimension lowers its potential toward the field
+  mean. From `C_6` to `C_8` on the same grid, `b` falls with `a` in every
   cell, by 0.68, 0.54, 0.29, 0.28 and 0.18 of `a`'s fall over cells 2 to 6.
-- "we can put the triangle in pi and trace its origin points to derive angular momentum". Each
+- Placing the triangle in π's circle and tracing its origin points gives its angular momentum. Each
   triangle's angle opposite `c` is a right angle less than `1 e-7` off, which puts `c` on the
   diameter of its circle. By the law of cosines the amount off is `kappa / 4` times `2a / c`, the
   angle `a` takes from the center: what the circle holds is `kappa`, which the three sides already give.
@@ -1038,14 +1038,14 @@ Every quantity is read in the walker's own frame: a heading that swings carries 
 - **What moves, one way.** The misses' radius over the median falls, and their turn over the median and
   their share of the largest tenth of turns rise. Three heights do not tell a slow law from noise.
 
-**The scatter as the walk's check.** Posit, Doug's, verbatim:
-- "remember the scatter is your canary, it tells you if we are walking this smooth natural fractal
-  correctly, even when it wildly changes vectors"
-- "if you see a really far "miss" it may not be a miss at all it may be a peak curl from a fractal at a
-  distance we havent walked yet, we want 99.999% of them right underneath us if that makes sense but
-  "seeing" zeroes doesn't mean we are wrong"
-- "seeing more and more singular dots while the universes mass of zeroes converges under our feet is an
-  indicator of convergence"
+**The scatter as the walk's check.** Posit, Doug's:
+- The scatter is the walk's early warning. It shows whether the walk follows the smooth natural
+  fractal correctly, even where the fractal's direction changes sharply.
+- A far miss may not be a miss. It may be the peak of a curl of the fractal, at a distance the walk has
+  not reached. The target is 99.999% of the zeros directly under the walk, and seeing zeros off it does
+  not mean the walk is wrong.
+- More and more isolated dots, while the bulk of the zeros converges under the walk, indicate
+  convergence.
 
 What the map reads of them:
 - **Under us:** the share of misses within one step of the arc.
@@ -1056,8 +1056,8 @@ What the map reads of them:
 - **The pickle:** each miss's distance from the arc split into along-track, parallel to the heading,
   and cross-track, across it. The width is the cross-track RMS, and the aspect is the width over the
   along-track RMS. A carrier locked to the zeros' rhythm narrows the width first; the along-track then
-  contracts and the share under us rises, Doug's "make this pickle skinnier and then it will start to
-  shrink".
+  contracts and the share under us rises, as Doug posits: narrow the scatter first, and it then starts
+  to shrink.
 
 **Measured**, the convergence rows at the same three heights (`2^15` coarse against `2^18` fine), 0 host
 checks failed:
@@ -1086,28 +1086,28 @@ Every zero it places is certified by entry 15's machine. It claims nothing about
 
 ## The zeros in the engine's field
 
-Doug's, verbatim. Posit.
-1. "two crystals describes how we bring this home if this holds true, we suspend the problem inside of
-   OUR own anisotropic field we have complete control of"
-2. "putting the zeroes in our field tells us the `exist`"
-3. "we can combine two of these problems conceptually, one "saturated" and the other "desaturated""
-4. "everything lives in deltas"
-5. "we can add a third pair of crystals for time to drag the clock, the problem space is n*n^n^n do
-   not bound yourself"
-6. "lets think some more about e, e gives us a guaranteed period that we dont need to compute to know,
-   but the magnitude changes as a function of the period and its neighbors, which is not really
-   desirable here. we need something with a guaranteed period and magnitude change, like,
-   {1,1,2,1,1,2,1,1,2} which is the same spirit as e," and "as it guaranteed period and neighbors
-   absorb the peaks"; "no the important thing is that our number 1,1,2, is known to us entirely, and
-   the "mortar" is still there to qualify the peaks for us"; "it is like our carrier signal, and will
-   let us measure ... moments? better inertia, angle etc"; "look at how much coherence adding a known
-   signal gives, just like in signal theory"; "{1,1,1} and {1,1,2} I think will resonate"; "its going
-   to be a fibonacci sequence, 1+sqrt5/2"; "so {2,2,2}"; "then {2,2,3}, {3,3,3}, ..."
-7. "what if we make two crystals, such that they resonate with known harmonics, and oppose them?";
-   "we can integrate and recombine these in any arbitrary way to lock any harmonic we want"
-8. "because our taylor series are no longer infinite machines, the ones we replace e with our
-   guarantee, cantors fog doesn't apply"; "we dont hold all of infinity, we hold all of the infinite
-   variability in whatever locale we are currently examining is the sharp distinction"
+Doug's. Posit.
+1. If this holds, the two crystals describe how to finish it: the problem is suspended inside the
+   engine's own anisotropic field, which the engine controls completely.
+2. Placing the zeros in that field establishes their existence.
+3. Two such problems can be combined, one saturated and the other desaturated.
+4. Everything is held as differences.
+5. A third pair of crystals can be added for time, to drag the clock. The problem space is
+   n·n^(n^n), and it is not to be bounded.
+6. e gives a period that is known without computing it, but its magnitude changes as a function of the
+   period and its neighbors, which is not wanted here. The carrier wanted has a guaranteed
+   period and a guaranteed change of magnitude, such as the continued fraction {1,1,2,1,1,2,1,1,2}, in
+   the same spirit as e: its period is guaranteed, and its neighbors absorb the peaks. The sequence
+   1, 1, 2 is known entirely, and the mortar between its terms still qualifies the peaks. It works as a
+   carrier signal and lets the moments be measured, the inertia and the angle among them. A known
+   signal adds coherence, as in signal theory. {1,1,1} and {1,1,2} will be in resonance. {1,1,1} gives the
+   Fibonacci sequence and the golden ratio (1 + √5)/2, and the family goes on with {2,2,2}, then
+   {2,2,3}, {3,3,3} and further.
+7. Two crystals can be put in resonance with known harmonics and to oppose them. They can be
+   integrated and recombined in any way, to lock onto any harmonic chosen.
+8. Once e is replaced by the guaranteed carrier, the Taylor series are no longer infinite processes,
+   and the fog of Cantor's completed infinity does not apply. The sharp distinction: the engine does
+   not hold all of infinity. It holds all of the unbounded variability in the locale it examines.
 
 What the math bounds of each. Derived unless marked.
 - **(1) The places.** The two crystals of [two_crystals.md](../engine/two_crystals.md) are two
@@ -1183,7 +1183,7 @@ What the math bounds of each. Derived unless marked.
       not from the search).
     - Each correlates the zeros, once found, with a known reference. A known sequence placed in the
       lattice `Z` is read on is not among them.
-  - **The metallic companions** (posit 6, later quotes). `1, 1, 1, ...` is the golden ratio
+  - **The metallic companions** (posit 6, later terms). `1, 1, 1, ...` is the golden ratio
     `phi = (1 + sqrt(5)) / 2`, a root of `x^2 - x - 1`, whose convergent denominators are the Fibonacci
     numbers. `2, 2, 2, ...` is the silver ratio `1 + sqrt(2)`, a root of `x^2 - 2 x - 1`, whose
     convergents are the Pell numbers. Both are metallic means, `x^2 = n x + 1` at `n = 1` and `n = 2`,
@@ -1192,7 +1192,7 @@ What the math bounds of each. Derived unless marked.
     `1, 1, 2` is golden on each run of two 1s and departs on the 2, a period-3 kick; overlaid on `phi`
     the two agree on the 1, 1 and beat at the 2. Prior art and the Pisot and diffraction facts are in
     [zeta_prior_art.md](zeta_prior_art.md).
-  - **The family, and why every member qualifies** (posit 6, later quotes, `{2,2,3}`, `{3,3,3}`, and
+  - **The family, and why every member qualifies** (posit 6, later terms, `{2,2,3}`, `{3,3,3}`, and
     on). `3, 3, 3, ...` is the bronze ratio `(3 + sqrt(13)) / 2` (`n = 3`), and `2, 2, 3` is the
     period-3 comb with matrix `[[2,1],[1,0]]^2 [[3,1],[1,0]] = [[17,5],[7,2]]`, trace 19, growth
     `(19 + sqrt(365)) / 2`. Derived, elementary: a purely periodic continued fraction of period `k` has
@@ -1202,8 +1202,8 @@ What the math bounds of each. Derived unless marked.
     is a one-dimensional Pisot quasicrystal with pure-point diffraction. The `{n,n,n}` diagonal are the
     metallic means, sweeping from the densest and flattest (golden) to sparser as `n` grows; the kicked
     combs interleave them. Which member locks best to the zeros is measured, not chosen.
-  - **Synthesis** (posit 6, last quote: "integrate and recombine these in any arbitrary way to lock any
-    harmonic we want"). A finite sum of pure-point combs is pure point: a combination of these
+  - **Synthesis** (posit 7: integrate and recombine the carriers in any way to lock onto any
+    harmonic chosen). A finite sum of pure-point combs is pure point: a combination of these
     members is a carrier with lines at a chosen set of frequencies, a matched filter built to a target.
     The target the explicit formula names is the prime-power comb at `(log p^m) / 2 pi` (Landau and
     Gonek, [zeta_prior_art.md](zeta_prior_art.md)). The caveat: the members' lines sit at algebraic
@@ -1235,8 +1235,8 @@ What the math bounds of each. Derived unless marked.
     totality, the fog. In a locale it holds every bit of variability the locale contains, exactly: an
     output's `w` bits read the input to `w + 3L` bits, a bounded cone, and the local fiber is held
     whole ([two_crystals.md](../engine/two_crystals.md), "The bits one level reads", "Counting
-    quanta"). Doug: "we dont hold all of infinity, we hold all of the infinite variability in whatever
-    locale we are currently examining". The carrier, the widths from the input, and the certified count
+    quanta"). Posit 8: the engine holds all of the unbounded variability in the locale
+    it examines, and never all of infinity. The carrier, the widths from the input, and the certified count
     over a height range are each this shape: the locale's full variability held exactly, the global
     totality never.
   - `e = [2; 1, 2, 1, 1, 4, 1, 1, 6, ...]` has partial quotients that grow without bound: no
@@ -1349,21 +1349,21 @@ the constructors exact arithmetic carries, and the zeros are reached only throug
 
 ## Where they are bound, and what is wanted in their place
 
-The same table the Navier-Stokes workbook keeps, for the zeros. The wants are quoted from a
-sounding board that read the point-cloud approach onto zeta. The test is what would answer each
+The same table the Navier-Stokes workbook keeps, for the zeros. The wants are a
+sounding board's reading of the point-cloud approach onto zeta, stated plainly. The test is what would answer each
 want, and the status says what has been run. No row bears on the hypothesis.
 
 | where it is bound | as the problem states it | wanted | what would test it | status |
 | --- | --- | --- | --- | --- |
-| the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | "flatten and normalize between 0 and 1" | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
-| the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | "the exact identity symmetry boundary of the field"; "like the cellular membrane interface or the solid wall in your fluid model" | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
-| the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | "How your `1,1 -> 2` truth table syntax represents the complex conjugate symmetry that forces the zeroes to stay on the line" | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
-| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | "the exact intersection or topological union where the field's magnitude drops to absolute `0`" | the winding of zeta around a box symmetric about the line, read from the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|`; and the real-valued function on the critical line Turing's method reads, where a sign change brackets a zero | the winding: run (entry 4), forty zeros, each placed by sixteen bits. The sign of `Z(t)` is read at the Gram points (entry 5), and certified on the device, a certified sign change bracketing a zero (entries 9, 14 and 15). A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
-| the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | "you don't get trapped by infinite digits or fake mathematical blowups" | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
-| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | "an infinite point cloud where every branch has an answer" | every zero up to a height `T` found by the winding count, and the count checked against `N(T)`; and the same count checked against `N(T)` by Turing's method | the winding count: run below `t = 123` (entry 4), forty, as the published table has them. Turing's method: run (entries 9, 14 and 15), every zero in `(0, 6295757.960979]` a certified sign change, 12,843,158. A count reaches a horizon and never all of them (the bounding function section) |
-| the spacing law | Montgomery's pair correlation against the GUE | "which physicists have already proven mirrors the quantum energy levels of chaotic systems" | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
-| L* on zeta | not in the problem | "treat the zeta function like an unknown piece of hardware"; "probe the field's clock-cycle-like preferences" | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
-| every zero on the line | the hypothesis | "the zeroes are structurally forced to exist only along that identity membrane" | a proof | open. Nothing here bears on it |
+| the critical strip | `0 < Re(s) < 1`, the non-trivial zeros inside it | normalize to the interval [0, 1] | nothing: the strip's real part already runs from 0 to 1, and the critical line is its midpoint | holds by the definition of the strip |
+| the critical line, `Re(s) = 1/2` | the hypothesis puts every non-trivial zero on it | the field's exact symmetry boundary, acting as a membrane or a solid wall does in the fluid model | the fixed set of `s -> 1 - conj(s)` | proven, exactly (entry 3): the line is that fixed set. That the zeros sit on it is the hypothesis, open |
+| the symmetry, and the `1,1 -> 2` table | `zeta(conj s) = conj zeta(s)` from the real coefficients, and the functional equation | how the `1,1 -> 2` truth table represents the conjugate symmetry that holds the zeros on the line | the Klein four-group of entry 3: it takes a zero to an orbit of four, which collapses to a conjugate pair on the line. An orbit of four off the line is allowed by the group. The symmetry alone does not force a zero onto the line. The table is the sum of two bits, and no step from it to the group is written | the group is proven (entry 3); the forcing is the hypothesis, open; the table-to-group step is wanted, not written |
+| a zero | a point where `zeta(s) = 0` in the strip, with no known closed form | the exact point where the field's magnitude is `0` | the winding of zeta around a box symmetric about the line, read from the signs of `Re zeta`, `Im zeta` and `|Re zeta| - |Im zeta|`; and the real-valued function on the critical line Turing's method reads, where a sign change brackets a zero | the winding: run (entry 4), forty zeros, each placed by sixteen bits. The sign of `Z(t)` is read at the Gram points (entry 5), and certified on the device, a certified sign change bracketing a zero (entries 9, 14 and 15). A zero has no known closed form in the constructors, and the most any computation does with one is bracket it (the precision tradition section) |
+| the digits of a zero | Riemann-Siegel or Euler-Maclaurin, to a stated precision | exact values, with no infinite digit strings and no spurious divergences | Platt's interval computation, which isolated every zero below about `3 * 10^10` to `2^-102`, with directed rounding at each step | done by the field, rigorously, and reported from a web search (the precision tradition section). Exact arithmetic sharpens the values to zero width and leaves the zeros to the same enclosure |
+| the zeros as a set | counted by `N(T) ~ (T / 2pi) log(T / 2pi) - T / 2pi` | an infinite point cloud in which every branch has an answer | every zero up to a height `T` found by the winding count, and the count checked against `N(T)`; and the same count checked against `N(T)` by Turing's method | the winding count: run below `t = 123` (entry 4), forty, as the published table has them. Turing's method: run (entries 9, 14 and 15), every zero in `(0, 6295757.960979]` a certified sign change, 12,843,158. A count reaches a horizon and never all of them (the bounding function section) |
+| the spacing law | Montgomery's pair correlation against the GUE | the spacing matches the energy levels of quantum chaotic systems, said to be proven | a proof of Montgomery's conjecture | not proven: entry 3 records it as a conjecture with strong numerical support, in the column labeled a dream |
+| L* on zeta | not in the problem | zeta treated as unknown hardware, and the field's preferences probed the way a processor's timing is | L* learns a finite automaton from membership and equivalence queries. Zeta would need an alphabet and a membership query, and neither is named | wanted, not built. engine_table has no L* row; its M23 holds the refinement loop, not built |
+| every zero on the line | the hypothesis | the structure forces every zero onto that symmetry line | a proof | open. Nothing here bears on it |
 
 ## The device program, and what it wants
 
@@ -1403,9 +1403,9 @@ places, `N` and the widths come from the records.
   in place of the series, are wanted, not built.
 - Entry 7's zeros of `C_n` are read on grids, and a count proven complete on `0 < z < 1` is wanted,
   not built. What grows in triangle cell 5, six times cell 4's time, is not yet read.
-- Asked of the triangle, quoted: "The fractal feels like maybe five terms it's definitely 3. Maybe it
-  is all xyzdt terms"; "So it turns into a probability wave function"; "Then we use that to vector
-  walk the fractal for proofing". Then: "it's a coordinate system, dimension, and time". Entry 8
+- Asked of the triangle: the fractal has at least three terms and perhaps five, perhaps all of x, y,
+  z, d and t. It then becomes a probability wave function, and a vector walk over it proves the
+  fractal. Then: it is a coordinate system, a dimension and time. Entry 8
   reads them as the three sides, each side's scaling exponent between cells, and `t`. The vector walk
   over them is wanted, not built.
 - Entry 8's spread of the arrival angles is read in four windows of 1,024 boundaries. More windows,
