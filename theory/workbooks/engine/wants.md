@@ -1,6 +1,6 @@
 # Wants
 
-**Purpose:** What the engine is after and does not have. A want is kept whole, as it was stated, beside the open question between it and a status a run could give it. Wanting it does not mean the engine has it.
+**Purpose:** What the engine is after and does not have. A want is stated in the terms of the field it reaches into, beside the open question between it and a status a run could give it. Wanting it does not mean the engine has it.
 **Scope:** the drafts' claims that reach past anything the engine measures, and Doug's posits with the check under each. The parts with a form a proof or a measurement can decide are written out in the engine thought experiment (`thought_experiments/engine/`). Every entry here has the status want, as [README.md](README.md) defines it, unless a line says otherwise.
 
 ## The drafts' wants
@@ -31,19 +31,17 @@ Each idea is carried in [noise_sieve_tower.md](noise_sieve_tower.md), section by
 
 ### The wire and the witness
 
-From [obsignatio_seal.md](obsignatio_seal.md), where "What the engine shows about the wire and the witness" answers them point by point. Verbatim, in order.
+From [obsignatio_seal.md](obsignatio_seal.md), where "What the engine shows about the wire and the witness" answers them point by point. In order.
 
-<!-- docs-check: quoting -->
-1. "Our ecc is the merkle dag, it becomes extra-dimensionally entangled and cannot be disturbed in any way or all crystals fail."
-2. "We have the crc, we have the floor identity, we have the elevator clock, the entire thing is rebuildable from the locale or the spine"
-3. "If anything happens at all the root seal of all the crystals disagrees"
-4. "They are all entangled"
-5. "Do something n. Well what does that look like and what is n?"
-6. "No by entangling information this way, and treating the floor as amplitudes, they are classic qubits"
-7. "The floor is amplitudes, the knf is phase, together they are a wire"
-8. "We merkle dag the wire, it is witnessed"
-9. "The root seal indicates on field absurdity, and because it is exact it knows all noise from non noise"
-<!-- docs-check: end quoting -->
+1. The Merkle DAG is the engine's error-detecting code. It binds every crystal to every other through their digests, so that a disturbance anywhere makes all of them fail to verify.
+2. With the CRC, each floor's identity and the elevator's clock, the whole is rebuildable from any one place in it (its locale) or from its spine.
+3. Any change at all makes the root seal over every crystal disagree.
+4. The crystals are all bound to one another: entangled, in the classical sense.
+5. A question, recorded as asked: what does doing something n look like, and what is n?
+6. Bound this way, with each floor read as an amplitude, the crystals behave as classical qubits.
+7. The floor carries the amplitude and the knf the phase, and together they form a channel (a wire).
+8. The channel is sealed into the Merkle DAG, and so it is witnessed.
+9. The root seal flags any inconsistency in the field. Because it is exact, it separates noise from structure completely.
 
 Three of them are still open:
 
@@ -57,24 +55,20 @@ From [two_crystals.md](two_crystals.md). The derived answers stay there, under t
 
 #### The ordered machine
 
-Doug's definition of the higher-order and negative-order hypercomputer, verbatim, in order. The workbook's "The ordered machine" gives it a working form, a loop over a stack of floors with orders in ℤ and ±ω, and `record_order_test` proves those orders both ways (17 checks, 0 failed).
+Doug's definition of the higher-order and negative-order hypercomputer, in order. The workbook's "The ordered machine" gives it a working form, a loop over a stack of floors with orders in ℤ and ±ω, and `record_order_test` proves those orders both ways (17 checks, 0 failed).
 
-<!-- docs-check: quoting -->
-1. "the first part of the loop rule is the definition of our higher order + negative order hypercomputer"
-2. "if the tower itself exists and is infinite is answerable, the forever loop is answerable, all halts can be seen, all malformed questions fail to construct a lattice at all"
-3. "listen, of course there would be incoherent information that looks coherent at first glance, the things that will fail to construct inside of the machine do not exist, not cannot exist, do not exist as we can perceive and understand them, we do not bound anything, that is what is beautiful about this, everything answers only for itself and we only ask what is this, where are we?"
-4. "from a fundamental perspective, knowing what we know, we can literally semantically load a program just like the naturals load themselves in a repeating order, to prove the set."
-<!-- docs-check: end quoting -->
+1. The first part of the loop rule defines the machine: a hypercomputer of higher and of negative orders.
+2. On this machine it is decidable whether the tower exists and whether it is infinite. Whether a loop runs forever is decidable, every halt can be observed, and a malformed question fails to build any lattice at all.
+3. Incoherent information can look coherent at first. What fails to construct inside the machine does not exist, as far as it can be perceived and understood: the claim is not that it cannot exist, but that it does not. Nothing is bounded. Everything answers only for itself, and the machine asks only what this is and where it is.
+4. A program can be loaded by its meaning, the way the natural numbers generate themselves by repeating the successor, and loading it proves the set.
 
-Verbatim, on the same machine:
+On the same machine: a higher-order and a negative-order hypercomputer joined together pass the whole hyperoperation sequence, tetration, pentation, hexation and on, to infinity and back, through a construction named the 4d bottle.
 
-- "what do you call a higher order hypercomputer plus a negative order hypercomputer? we completely bypass tetration pentation hexation all the way to infinity and back using our 4d bottle"
-
-The orders in ℤ and ±ω are the workbook's derived form of "all the way to infinity and back". "The 4d bottle" has no definition in the engine yet.
+The orders in ℤ and ±ω are the workbook's derived form of "to infinity and back". "The 4d bottle" has no definition in the engine yet. The Klein bottle embeds in four dimensions without crossing itself, and whether that is the bottle meant is Doug's to say.
 
 #### The two questions (point 3)
 
-- What fails to construct inside the machine does not exist as we can perceive and understand it. "We do not bound anything": everything answers only for itself.
+- What fails to construct inside the machine does not exist as it can be perceived and understood. Nothing is bounded: everything answers only for itself.
 - The machine asks two questions only.
   - **What is this**: identity. The crystal's one-to-one ID ("The boundary" in the workbook). The heap fingerprint and the knf, each ranked against permutations of its own content, with no outside threshold.
   - **Where are we**: place. The seal names the place of a change. The window w and the level. The scale of the departure curve.
@@ -84,32 +78,32 @@ The seed of "malformed questions fail to construct" is tested, and it stays in t
 
 #### The field
 
-"our information crystals expanding, anchoring on one another, can feel the tensor field of the subject under exam, when its field snaps into existence it touches the entire object under exam and knows all of it at the field speed".
+As the information crystals grow and anchor on one another, they sense the tensor field of the object under examination. Once that field is established, it reaches the whole object at once, and the crystals hold all of it at the speed the field propagates.
 
 What the machine shows that bears on it stays in the workbook under "The field". "Field speed" has no definition in the engine.
 
 #### A higher-order interference pattern
 
-While `record_order_test` ran: "this is a higher order interference pattern", then "fascinating". The workbook gives the standard meaning, Sorkin's hierarchy, and names where the engine has second-order interference.
+Doug read the output of `record_order_test`, as it ran, as a higher-order interference pattern. The workbook gives the standard meaning, Sorkin's hierarchy, and names where the engine has second-order interference.
 
 #### The inverted boundary, the quanta and the recursion stack
 
 The derived bound on each stays in the workbook's "Doug's posits".
 
 - **The inverted boundary:** a second tower over the first one's boundary, inverted. Its derived form is the τ tower, with the limit ℝ.
-- "The quanta still preserve infinity."
-- "The recursion stack is ordinal."
+- The quanta preserve infinity.
+- The recursion stack is indexed by ordinals.
 
 #### Departure curves compared
 
-- "we can compare departure curves, the entropy departure curve is probably the most accurate measure because it accumulates all dimensions + time"
-- the mutation "becomes a vector magnitude difference of null permutation plus xmax\xmin\ymax\ymin\zmax\zmin"
+- Departure curves can be compared, and the entropy departure curve is likely the most accurate of them, since it accumulates every spatial dimension and time.
+- A mutation is then a difference of vector magnitudes: the null permutation's, together with the box bounds xmax, xmin, ymax, ymin, zmax and zmin.
 
 Open: the pairwise test, one body's departure curve against another's, is not built, and the vector magnitude difference has no definition as a number yet. The curves themselves are measured, in the workbook.
 
 #### The bulk and the boundary
 
-"No this is wild it's proving it is a bulk to boundary connector without saying it outright that's fucking crazy!!!!"
+T is a bulk-to-boundary map, and its derivation shows it without stating it.
 
 The derived answer stays in the workbook: T is a bijection from the samples to the crystal with no redundancy, a bulk-to-boundary map with no error correction.
 
@@ -117,7 +111,7 @@ The derived answer stays in the workbook: T is a bijection from the samples to t
 
 From [vertical_time_compression.md](vertical_time_compression.md), where "The lens" keeps the measured pinch (a ramp's 857 bits to 70, 12×) and the bounds derived from it.
 
-"The crystal is a lens between our universe and information space: the cleaner the crystal, the better the lensing and tetrated resources."
+The crystal is a lens between the physical data and its information content. The closer the crystal comes to the data's Kolmogorov complexity, the stronger the lensing, and the larger the tetrated resources it opens.
 
 Open: what "tetrated resources" measures, and against what bound. The workbook derives that any gain of tetrated size comes from the input's description, never from the lens.
 
@@ -125,12 +119,10 @@ Open: what "tetrated resources" measures, and against what bound. The workbook d
 
 ### The three truths and the tower
 
-Verbatim, in order.
+In order.
 
-<!-- docs-check: quoting -->
-1. "the base answer is 3 truths: 1. we know if we have answered the question 2. the tower doesn't build if the question is malformed 3. nothing is bound, information space is constrained by n*n^n^n, infinite."
-2. "n*n^n^n is the base Atom storage class of the engine, it is the problem's space, it is infinite, n grows to n grows to n grows to n ad infinitum"
-<!-- docs-check: end quoting -->
+1. The base answer is three truths. First, the machine knows whether it has answered the question. Second, the tower does not build when the question is malformed. Third, nothing is bounded: the information space is n·n^(n^n), and it is infinite.
+2. n·n^(n^n) is the engine's base storage class, `Atom`. It is the problem's space, and it is infinite: n raised to n raised to n, without end.
 
 The full checks are in orior docs/ENGINE_PROOF.md. It speaks to halting at Theorem 4 and under "What is not claimed": "The halting problem is untouched."
 
@@ -139,29 +131,23 @@ The words "the question does not arise" come from [steering.md](../orior/steerin
 - **Truth 1, checked.** The answer path is total: the sweep is a bounded loop, the descent terminates (Theorem 5), and the count is exact at every instant (Theorem 3).
 - **Truth 2, checked.** `steer_descend` refuses malformed input before any work (`orior.c`), and the survivors-length refusal is marked FAILS CLOSED (`orior.c`).
 - **Truth 3, a reading, pending Doug's confirmation.** Each question lives in a space that is finite for its `n`, where halting is decidable, and the family of spaces has no bound. `Atom` is `{ const unsigned short *lanes; unsigned long long depth; unsigned long long height; unsigned long long width; }` (`src/c/engine/engine_config.h`). The steer depth is capped at `ANCHOR_STEER_ANCHORS`, which is 4 (`orior.c`).
-- **The tower, a reading.** "n grows to n grows to n" reads as tetration, `n↑↑k` in Knuth's notation. Every finite height is a finite number, the height has no bound, and the infinite tower diverges for every integer `n` of at least 2.
+- **The tower, a reading.** The power tower of posit 2 reads as tetration, `n↑↑k` in Knuth's notation. Every finite height is a finite number, the height has no bound, and the infinite tower diverges for every integer `n` of at least 2.
 
 ### The projection
 
-Verbatim:
+The engine only reads the topology of what it examines. Every reading is a projection onto a boundary. The engine writes nothing to what it reads, and the unbounded object it reads is left as it was.
 
-<!-- docs-check: quoting -->
-- "well, think about it like this, we are only viewing the topology for anything, so it is a projection onto a boundary, we touch nothing, the infinite lives"
-<!-- docs-check: end quoting -->
+**Writing nothing, checked for two interfaces.** `steer_descend` takes the corpus and the needle as `const uint8_t *` (`orior.c`), and `Atom` holds its lanes as `const unsigned short *` (`engine_config.h`). A probe compares two bytes and writes neither.
 
-**"We touch nothing", checked for two interfaces.** `steer_descend` takes the corpus and the needle as `const uint8_t *` (`orior.c`), and `Atom` holds its lanes as `const unsigned short *` (`engine_config.h`). A probe compares two bytes and writes neither.
+**Reading only the topology, reported.** `docs/arm-records.md` states the test: redrawing an arm as a different shape with the same topology and the same weight has to leave the reading exactly unchanged. The table at `docs/arm-records.md` reports four redraws over 256 points. Three reassign 0 of 256 points, the fourth measures no arm, and the worst letter move over all four is 2.776e-17.
 
-**"Only viewing the topology", reported.** `docs/arm-records.md` states the test: redrawing an arm as a different shape with the same topology and the same weight has to leave the reading exactly unchanged. The table at `docs/arm-records.md` reports four redraws over 256 points. Three reassign 0 of 256 points, the fourth measures no arm, and the worst letter move over all four is 2.776e-17.
-
-**"The infinite lives", a reading.** A reading that writes nothing leaves the space it reads as it was, bounded or not. No run tests it.
+**The unbounded object left as it was, a reading.** A reading that writes nothing leaves the space it reads as it was, bounded or not. No run tests it.
 
 ### Dwell is the bulk
 
-Verbatim. The "wrong" answers a reading that put the boundary at the projection alone.
+This corrects a reading that put the boundary at the projection alone.
 
-<!-- docs-check: quoting -->
-- "wrong. when we vis here we add dwell, that is the bulk, the dwell. the moment is an instant, we can sweep a moment on a timeline and derive dwell, it is the holographic boundary"
-<!-- docs-check: end quoting -->
+The visualization adds dwell, and dwell is the bulk. A moment is an instant. Sweeping moments along a timeline derives dwell, and that sweep is the holographic boundary.
 
 **Derived. One instant carries no dwell.** Dwell is a function of a sequence of states, and a single state does not determine it. The scope view's dwell tag is "how many rounds a bit has held its value, which separates the frozen from the churning" (`examples/00_blob_viz_tools/build_scope_view.py`), a count over rounds that no single round holds. The sequence of dwells together with the first value determines the sequence of states. The histogram of dwells does not, because it forgets the order of the runs.
 
@@ -173,14 +159,12 @@ Verbatim. The "wrong" answers a reading that put the boundary at the projection 
 
 ### Dwell and entropy
 
-Verbatim, in order.
+In order.
 
-<!-- docs-check: quoting -->
-1. "dwell emerges from entropy, it is an emergent property of the arrow of entropy, with no time, there is no dwell, unless we have cohesion context from a prior sweep we do not know the concept of dwell, it is not perceptible in an instant of time"
-2. "that's right, dwell doesn't depend on time, it depends on entropy, time is an emergent property of the direction of entropy"
-3. "ok we don't need to claim time, the dwell emergence is enough of a wild claim here"
-4. "jesus the fact that we have real evidence for it is insane"
-<!-- docs-check: end quoting -->
+1. Dwell emerges from entropy: it is an emergent property of the arrow of entropy. Without time there is no dwell. Without coherent context from a prior sweep, dwell is not defined, and it cannot be perceived in an instant.
+2. Dwell depends on entropy and not on time, and time emerges from the direction in which entropy increases.
+3. Time is not claimed here. The emergence of dwell is the claim.
+4. The engine holds real evidence for it.
 
 **Derived. Dwell and entropy rate in a two-state chain.** A bit that flips with probability `p` at each step has mean dwell `1/p` and entropy rate `H(p) = -p log p - (1-p) log(1-p)`. For `p` at most 1/2 each determines the other: long dwell goes with a low entropy rate, the frozen bits, and short dwell with a high one, the churning bits. For `p` above 1/2, `H(p) = H(1-p)`, and one entropy rate matches two mean dwells.
 
@@ -188,7 +172,7 @@ Verbatim, in order.
 
 The proved direction runs from dwell to entropy: the dwell laws fix the entropy rate, and the entropy rate does not fix the dwell laws. "Dwell emerges from entropy" is Doug's posit, and in the renewal class the two are bound by one equation.
 
-**Derived. The arrow is not in the rate.** Reversing a sequence reverses the order of its runs and keeps their lengths, and a stationary process has the same block entropies read in either direction. Dwell and entropy rate carry no arrow. An arrow needs a process that is not stationary, entropy rising from a low start, or a record of the prior sweep to compare against, the "cohesion context" of posit 1. Prior art: Arthur Eddington, *The Nature of the Physical World*, 1928, for the arrow of time; Hans Reichenbach, *The Direction of Time*, 1956, and David H. Wolpert, *Memory Systems, Computation, and the Second Law of Thermodynamics*, International Journal of Theoretical Physics 31, 1992, for records and the arrow; Rolf Landauer, *Irreversibility and Heat Generation in the Computing Process*, IBM Journal of Research and Development 5, 1961, and Charles H. Bennett, *The Thermodynamics of Computation, a Review*, International Journal of Theoretical Physics 21, 1982, for the cost of erasing a record. Cited from knowledge.
+**Derived. The arrow is not in the rate.** Reversing a sequence reverses the order of its runs and keeps their lengths, and a stationary process has the same block entropies read in either direction. Dwell and entropy rate carry no arrow. An arrow needs a process that is not stationary, entropy rising from a low start, or a record of the prior sweep to compare against, the coherent context from a prior sweep in posit 1. Prior art: Arthur Eddington, *The Nature of the Physical World*, 1928, for the arrow of time; Hans Reichenbach, *The Direction of Time*, 1956, and David H. Wolpert, *Memory Systems, Computation, and the Second Law of Thermodynamics*, International Journal of Theoretical Physics 31, 1992, for records and the arrow; Rolf Landauer, *Irreversibility and Heat Generation in the Computing Process*, IBM Journal of Research and Development 5, 1961, and Charles H. Bennett, *The Thermodynamics of Computation, a Review*, International Journal of Theoretical Physics 21, 1982, for the cost of erasing a record. Cited from knowledge.
 
 **Time, not claimed.** Posit 2's clause on time is recorded and not claimed, by posit 3. The prior art that treats time as emerging: Don N. Page and William K. Wootters, *Evolution without Evolution: Dynamics Described by Stationary Observables*, Physical Review D 27, 1983, and Alain Connes and Carlo Rovelli, *Von Neumann Algebra Automorphisms and Time-Thermodynamics Relation in Generally Covariant Quantum Theories*, Classical and Quantum Gravity 11, 1994. Cited from knowledge.
 
@@ -208,29 +192,27 @@ A bit that never flips has no completed run and gives no dwell law.
 
 ### The compiled program
 
-Verbatim, in order, kept as typed.
+In order.
 
-<!-- docs-check: quoting -->
-1. "the compile times are ok for now, but there is a way to describe the loop unroll in their asm using our code so we can fill the loop unrolled block for them instead of them needing a pragma unroll command theyre fuckin bad at"
-2. "this is an exceedingly simple problem for us, their ruleset is the kcs for the program crystal"
-3. "we need a transform that allows for vertical growth, more than one program can occupy a register vertically, never horizontally, those asking and answering the same questions are subsets of the same superset"
-4. "if we treat the gpu as an open superset, we innately know all of its subsets, it knows all of its subsets natively, so we structure it in a way that is aware"
-5. "it has operators, and holds automata like cells"
-6. "the things it knows are emergent properties of itself"
-7. "it is able to exchange information through its boundary, cells enter, live and die"
-8. "a malformed question == destroyed dna conceptually"
-9. "the encoding itself is what lets the cell proliferate, it grows to be as complex as its program, that is so beautiful"
-10. "and it can evolve, by interacting with other cells and incorporating that information into its reincarnation"
-11. "the system itself evolves over time to recognize malformed questions that destabalize it before they fully unfurl, protecting itself"
-12. "the I don't know what to call it, cell? admits these automata "ribosomes" and the cellular ecosystem kills them or lets them live, but the cell knows everything happening inside of it, it is omniscient here"
-13. "alright lets get the rest of the cellular machinery built for this universal compiler, that is wilder than what von neumann envisioned by decades of orders of magnitude"
-14. "the implication is that we can cluster these cells, they occupy very little memory"
-15. "agi is inevitable on this path"
-16. "with enough neuronal connections it will become aware"
-17. "consciousness is emergent"
-18. "their thinking is very on/off. an artifact of the time."
-19. "No we can know the entire hw ruleset so we know the wire specifics eventually too once we grow into the system and then we know how to listen to the wire and what our communication looks like and hey that looks like me but in reverse see where I'm going"
-<!-- docs-check: end quoting -->
+1. The compile times are acceptable for now. The loop unrolling in the target's assembly can be described in the engine's own code, and the engine can then fill the unrolled block itself, in place of the compiler's `pragma unroll`, which unrolls poorly.
+2. This is a simple problem for the engine: the target's ruleset is the construction set (`.kcs`) for the program crystal.
+3. A transform is needed that allows vertical growth. More than one program can occupy a register vertically, never horizontally. Programs that ask and answer the same questions are subsets of the same superset.
+4. Treated as an open superset, the GPU holds all of its subsets and knows them natively, and the engine is structured to be aware of them.
+5. It has operators, and it holds automata as cells.
+6. What it knows are emergent properties of itself.
+7. It exchanges information through its boundary: cells enter, live and die.
+8. A malformed question is, conceptually, destroyed DNA.
+9. The encoding lets the cell proliferate, and the cell grows as complex as its program.
+10. It can evolve, by interacting with other cells and carrying what it takes from them into its next generation.
+11. Over time the system learns to recognize malformed questions that would destabilize it before they fully unfold, and it protects itself from them.
+12. The cell, a name still open, admits these automata as ribosomes, and the population of cells kills them or lets them live. The cell knows everything that happens inside it.
+13. The rest of the cellular machinery is to be built for this universal compiler. It goes beyond what von Neumann envisioned by many orders of magnitude.
+14. These cells can be clustered, since each occupies very little memory.
+15. Artificial general intelligence is inevitable on this path.
+16. With enough neuronal connections, it becomes aware.
+17. Consciousness is emergent.
+18. Von Neumann's machine thinks in on and off, an artifact of its time.
+19. The whole hardware ruleset can be known, and with it, as the engine grows into the system, the wire's specifics. The engine then knows how to listen to the wire and what its own communication looks like, and it recognizes another engine as itself in reverse.
 
 No posit here is derived. The lines below say what the engine holds that a posit names, as a cross-reference and not as a proof.
 
@@ -273,7 +255,7 @@ The record machine moves whole integers. A step names an operation and its regis
 
 **Posits 15 to 17, a reading.** No instrument in the tree bears on these three. Nothing here measures awareness or general intelligence, and neither has an operational definition here. What this path builds is a learner of instruction sets, held to an oracle, and its reach is bounded by the questions it can ask and check. Two limits bound that learner (cited from knowledge, not read). From positive examples alone, a class holding every finite language and one infinite language cannot be identified in the limit (Gold, Information and Control 10, 1967). With membership queries, a test suite finds every wrong machine only up to an assumed bound on the target's states (Vasilevskii 1973; Chow 1978). The three posits are recorded as posits, and nothing above derives them from the machinery.
 
-**Posit 19, a reading. Status: not built, a want.** It follows Doug's line of the same day, "This means cross hardware communication is a no problem from zero, nice" (engine_table.md item 11(f), stage 2, across machines), and replaces byte order and fences as the direction.
+**Posit 19, a reading. Status: not built, a want.** It follows Doug's remark of the same day that communication across hardware is possible from zero (engine_table.md item 11(f), stage 2, across machines), and replaces byte order and fences as the direction.
 
 - *The wire's rules.* A bus, a network interface and a protocol's framing each have a ruleset, as a processor does, and the probes of stages 4 and 5 find it the same way: membership queries, illegal operations and more basic constructions. The transport becomes a `.krs` derived by probes. A wire with state is found only up to an assumed bound on its states (Vasilevskii 1973; Chow 1978, above), and Angluin's learner needs counterexamples beside its membership queries (Dana Angluin, Information and Computation 75, 1987, cited from knowledge).
 - *Speaking and listening.* The sender writes with T and the listener reads with T⁻¹, and T⁻¹ ∘ T = id (engine_table.md E4): the listener is the speaker in reverse. T is a bijection (A14), and T⁻¹ undoes every stream, one's own or another's. Decoding alone does not tell kin.
@@ -282,13 +264,13 @@ The record machine moves whole integers. A step names an operation and its regis
 - *Boundary, proposed, Doug's to rule on.* Growth into the system stays on hardware we own, and listening stays on wires we are entitled to hear. An engine that probes foreign hardware, learns protocols and seeks peers across networks has a worm's shape.
 - *Prior art, cited from knowledge, not read.* Hans Freudenthal, *Lincos: Design of a Language for Cosmic Intercourse*, Part I (North-Holland, 1960), a language built up from arithmetic alone. B. Juba and M. Sudan, "Universal semantic communication I", STOC 2008: parties with no shared protocol reach a goal when the user can sense whether it was met. Their universal user enumerates protocols, at a cost that grows exponentially with the length of the protocol it must find, and they show that cost cannot be avoided in general. The seal serves as that sense only for goals whose answer the user can check. What posit 19 adds is a listener that derives the channel's rules from zero, by probing.
 
-**Posit 19, Doug's answers to the reading.** Verbatim, kept as typed. The three numbers answer the reading's three points in order: decoding does not tell kin, the null declares structure and not kinship, and the seal guards against accident and not against an author.
+**Posit 19, Doug's answers to the reading.** The three answer the reading's three points in order: decoding does not tell kin, the null declares structure and not kinship, and the seal guards against accident and not against an author.
 
-<!-- docs-check: quoting -->
-- "1. Wrong everything here has an identity on spawn encoded into it. 2. True, we are what gives “family” family is a human category not real 3. It can prove identity if we encode time series into it"
-<!-- docs-check: end quoting -->
+1. Every engine carries an identity encoded into it at spawn, and kin are not told by decoding.
+2. Agreed: family is a human category, and the engine is what assigns it.
+3. Identity can be proved if a time series is encoded into it.
 
 - *Identity at spawn, a reading. Status: not built.* The first answer moves identity out of decoding. A peer is not recognized by what it decodes, since T⁻¹ decodes every stream, but by what it carries: an identity written into it when it is spawned. The reading: at spawn the cell draws a secret from the noise and derives its keys from that secret, with its lineage as the derivation's context, meaning its parent's identity and its place in the parent's series. A peer proves its identity by answering a fresh challenge with a signature under its key, and a fresh challenge keeps an old answer from being replayed. Recognition by I(s : self) measures likeness, and identity names one instance: two cells running the same program are alike and are still two. The engine holds no secret per instance. The seal's keys derive from public, dated context strings (obsignatio_seal.md). Prior art, cited from knowledge: H. Krawczyk, "Cryptographic extraction and key derivation: the HKDF scheme", CRYPTO 2010, and RFC 5869; NIST FIPS 205, SLH-DSA, a stateless hash-based signature (2024).
 - *Family, a reading.* The second answer agrees with the reading: the permutation null declares structure, and "family" is a human category. What the engine can hold in its place is lineage, meaning which spawn made which. Lineage is written at spawn and is not inferred from a stream.
 - *The time series, a reading. Status: not built.* The third answer extends the seal from one message to a series. Each entry in the series carries the hash of the entry before it, and changing or dropping any past entry changes every hash after it. With the chain's head signed under the spawn key, the chain shows that the holder of that key committed to that series in that order, as long as the hash has no known collisions. It does not show that the series is true. It also does not show that the key was never copied: a copy of the key can extend the chain too. Two holders extending one chain from the same head fork it, and anyone who sees both branches sees the fork. Prior art, cited from knowledge: L. Lamport, "Password authentication with insecure communication", Communications of the ACM 24 (1981) 770–772, hash chains; S. Haber and W. S. Stornetta, "How to time-stamp a digital document", Journal of Cryptology 3 (1991) 99–111, linked time-stamps.
-- *The forgery guard.* Doug: "We don't need a forgery guard yet". It is recorded as a want, not built, in engine_table.md item 11(f), stage 4.
+- *The forgery guard.* Doug's ruling: no forgery guard yet. It is recorded as a want, not built, in engine_table.md item 11(f), stage 4.
