@@ -321,7 +321,7 @@ Doug's framing (paraphrased): domain and range are complete and defined across t
 
 ## The lens
 
-Doug's posit, the crystal as a lens between our universe and information space, is kept verbatim in [wants.md](wants.md). What the engine measures and derives about it follows.
+Doug's posit, the crystal as a lens between the physical data and its information content, is in [wants.md](wants.md). What the engine measures and derives about it follows.
 
 - **What the measure supports.** Measured in the scratch run above: the crystal concentrates a lane's structure. The ramp's 857 bits go to 70, 12×, and the pinch ranks the four classes by their complexity. A cleaner crystal, a sparser heap, is a sharper focus, and the pinch is a per-lane reading of how much structure the lens sees.
 - **What bounds it.** Derived.
