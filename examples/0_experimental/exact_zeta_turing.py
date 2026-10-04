@@ -8,6 +8,7 @@
 # time, joins what each cell returns to its neighbors', and halts with a count proven or a cell it could not close.
 #
 #   Usage:  python examples/0_experimental/exact_zeta_turing.py <binary> [first] [last] [rate] [pairs|transform|both]
+#           python examples/0_experimental/exact_zeta_turing.py <binary> [first] [last] [rate] em
 #
 # For each run of the device it writes the device's input to a file in a temporary directory and reads the device's
 # output back.
@@ -45,6 +46,16 @@
 # 2^-62 a division and a unit a constant, is bounded step by step in `arithmetic`, and the multiple evaluation's, its
 # truncation with it, in `transform_error`. A sign of Z is certified where |Z| exceeds the sum of the three.
 #
+# By Euler-Maclaurin, Z = sum over n < N of n^(-1/2) cos(theta - t ln n) + Re(exp(i theta) N^(-s) C), with N and the
+# Bernoulli terms M chosen for the cell, and Johansson's bound on the remainder, which holds at every t > 0
+# (Johansson, arXiv:1309.2877, Theorem 1): `em_bounds`.
+#
+# THE CELLS BELOW 168 PI
+#
+# With em, cells `first` to `last` run by Euler-Maclaurin, from cell 1 up, and N at cell `last` + 1's F, T_a, is held
+# by Riemann-Siegel over cells `last` to `last` + 2. Where the certified sign changes in (cell `first`'s F, T_a] number
+# N(T_a), every zero up to T_a is on the line and simple.
+#
 # THE COUNT
 #
 # Two certified points of opposite sign, with no certified point between, hold a zero of Z between them: a zero of
@@ -68,7 +79,8 @@
 # cell's F to the last cell's is a certified sign change: on the line, and simple.
 #
 # Positive control: the device's Z at two points of the first cell against the house's main sum and remainder,
-# exact_zeta_riemann_siegel's rs_cut_at.
+# exact_zeta_riemann_siegel's rs_cut_at; by Euler-Maclaurin, against its em_at, and at cell `last` against
+# Riemann-Siegel's Z within the two bounds.
 
 import array
 import math
@@ -76,6 +88,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import time
 from fractions import Fraction
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -102,7 +115,7 @@ ORDER = 28
 BETA = 4
 E1_TERMS = 48
 SINC_TERMS = 18
-METHODS = {"pairs": 0, "transform": 1, "both": 2}
+METHODS = {"pairs": 0, "transform": 1, "both": 2, "em": 3}
 PI_LOW = Fraction(314159265, 100000000)
 PI_HIGH = Fraction(314159266, 100000000)
 LN_TWO_HIGH = Fraction(693148, 1000000)
@@ -298,6 +311,94 @@ def transform_error(nu, p, e_theta, e_held):
     return 2 * (e_f + 2 * root_nu * (e_cos + PI_HIGH * e_theta) + 2) + e_held
 
 
+def em_ratios(terms):
+    """r_k = (B_2k / (2k)!) / (B_(2k-2) / (2k - 2)!) for k from 2 to `terms`, at 2^62, each toward zero."""
+    out = []
+    for k in range(2, terms + 1):
+        num_k, den_k = zz.bernoulli_over_factorial(k)
+        num_j, den_j = zz.bernoulli_over_factorial(k - 1)
+        num, den = num_k * den_j, den_k * num_j
+        out.append(rs.compare(num * den, 0) * ((abs(num) << SCALE_BITS) // abs(den)))
+    return out
+
+
+def em_terms(level):
+    """M, the Bernoulli terms Euler-Maclaurin takes at widening `level`."""
+    return 20 + 10 * level
+
+
+def em_heads(nu, terms):
+    """N for cell nu at M = `terms`: the least with |s + j| / (2 pi N) <= 1/2 for every j < 2M over the cell."""
+    t_high = 2 * PI_HIGH * (nu + 1) ** 2
+    return max(2, math.ceil((t_high + 2 * terms) / PI_LOW))
+
+
+def em_bounds(nu, heads, terms):
+    """The bound on Z and on theta / pi over cell nu by Euler-Maclaurin at N = `heads` and M = `terms`, whole units
+    of 2^-62.
+
+    zeta(s) = sum over n < N of n^(-s) + N^(-s) C, C = N / (s - 1) + 1/2 + sum over k <= M of B_2k / (2k)! (s)_(2k-1)
+    N^(1 - 2k), and |R| <= 4 |(s)_2M| / ((2 pi)^(2M) (sigma + 2M - 1) N^(sigma + 2M - 1)) for N >= 2 and sigma + 2M > 1:
+    Johansson, arXiv:1309.2877, Theorem 1, at a = 1 with no derivative. It holds at every t, and |(s)_2M| rises with t: the cell's top bounds it.
+
+    theta's error moves Z = sum over n < N of n^(-1/2) cos(theta - t ln n) + Re(exp(i theta) N^(-s) C) by at most
+    the sum of n^(-1/2) and |C| times it. The device's own error is carried step by step: each term of the pair
+    stage as in `arithmetic`, and through the Euler-Maclaurin stage, t = 2 pi S / 2^p, 1 / (s - 1), and each tau_k
+    from tau_(k-1) by r_k, 1 / N, s + 2k - 3, 1 / N and s + 2k - 2, each error grown by the step's factor and a unit a
+    division."""
+    unit = Fraction(1 << SCALE_BITS)
+    s_top = (nu + 1) ** 2
+    t_low = 2 * PI_LOW * nu * nu
+    t_high = 2 * PI_HIGH * s_top
+    root_heads = root_ceiling(Fraction(heads), 2)
+    sigma = Fraction(1, 2)
+    # Johansson's remainder, its square first, at the cell's top
+    square = Fraction(16)
+    for j in range(2 * terms):
+        square *= (j + sigma) ** 2 + t_high ** 2
+    square /= (2 * PI_LOW) ** (4 * terms) * (2 * terms - sigma) ** 2 * Fraction(heads) ** (4 * terms - 1)
+    remainder = Fraction(root_ceiling(square * unit * unit, 2) + 1)
+    # theta by Brent at the cell's foot, exp(-x) below 1 over exp's first 40 Taylor terms
+    x = PI_LOW * t_low
+    e_theta = (Fraction(7, 5760) + PI_HIGH / 960) / t_low ** 3 + 1 / (
+        2 * sum(x ** k / math.factorial(k) for k in range(40)))
+    # the size of C, and the device's error on it
+    e_ln, e_cos = unit_errors()
+    e_point = s_top * e_ln + 4
+    e_q = e_point + 2 * s_top * e_ln + 1
+    e_cs = e_cos + PI_HIGH * e_q
+    e_t = 2 * s_top + 2
+    e_inverse = 2 * (e_t / t_low ** 2 + 1)
+    size = Fraction(1, 2) + t_high
+    held = Fraction(heads) / t_low + Fraction(1, 2)
+    a = size / (12 * heads)
+    e_tau = 2 + e_t / (12 * heads)
+    held += a
+    e_c = heads * e_inverse + e_tau
+    ratios = em_ratios(terms)
+    for k in range(2, terms + 1):
+        r = Fraction(abs(ratios[k - 2]) + 1, 1 << SCALE_BITS)
+        w = 2 * k - 3 + size
+        e1 = e_tau * r + a + 2
+        a1 = a * r
+        e2 = e1 / heads + 2
+        a2 = a1 / heads
+        e3 = e2 * w + a2 * e_t + 4
+        a3 = a2 * w
+        e4 = e3 / heads + 2
+        a4 = a3 / heads
+        e_tau = e4 * (w + 1) + a4 * e_t + 4
+        a = a4 * (w + 1)
+        held += a
+        e_c += e_tau
+    e_rotated = 2 * e_cs * held + e_c + 2
+    e_em = Fraction(101, 100) * e_rotated + held * newton_error(heads) + 1
+    e_term = e_cos + PI_HIGH * e_q + Fraction(101, 100) * newton_error(heads) + 1
+    e_arith = (heads - 1) * e_term + e_em + 2
+    phase = e_theta * (2 * root_heads + held) * unit
+    return math.ceil(e_arith + remainder + phase), math.ceil(e_point + e_theta * unit / PI_LOW)
+
+
 def analytic(nu):
     """Gabcke's bound and theta's on Z, and theta's on theta / pi, over cell nu, in units of 2^-62."""
     t_low = 2 * PI_LOW * nu * nu
@@ -361,30 +462,120 @@ def lattice(nu, rate):
     return max(COARSEST, math.ceil(math.log2(rate * rises(nu))))
 
 
-def run_cell(binary, constants, nu, p, method):
-    """Cell nu at 2^p points from the device, its main sum by `method`."""
+class Control:
+    """Each cell's lattice from one local cost, its every term a field measured on the run.
+
+    A cell at 2^p points holds r = 2^p / Z points a zero, Z = theta / pi's rise across it. Two zeros closer than a step
+    hide between the same two points, and with the spacing of the GUE, small gaps g at density (pi^2 / 3) g^2, the zeros
+    missed number mu = c Z / r^3, c = pi^2 / 18. A cell missing one is run again, and the cost of closing it from p is
+    C(p) = T(p) + (1 - exp(-mu(p))) C(q), q the next lattice up, T(p) the time a run at 2^p points takes. The points
+    cost T, the misses cost the run they force, and p is the least C, moved at most one a cell.
+
+    c is held as the ratio of the zeros missed to the sum of Z / r^3 over the cells measured, starting from the GUE's
+    value with the weight of PRIOR cells' worth of misses; a cell's misses are the shortfall N holds it to.
+    T(p) = f + a 2^p, f and a fit by least squares to the runs timed, f from FIXED and a from the first run until two
+    lattices are timed. None of it touches the proof: the count certifies whatever lattice a cell runs on."""
+
+    PRIOR = 4.0
+    FIXED = 2.0
+
+    def __init__(self):
+        self.missed = Fraction(0)
+        self.exposure = Fraction(0)
+        self.timed = []
+        self.last_p = None
+
+    def c(self):
+        prior = Fraction(PI_LOW ** 2 / 18)
+        return (prior * self.PRIOR + self.missed) / (self.PRIOR + self.exposure)
+
+    def measure(self, nu, p, missed):
+        z = rises(nu)
+        self.missed += missed
+        self.exposure += Fraction(z ** 4) / Fraction(8 ** p)
+
+    def timing(self, p, seconds):
+        self.timed.append((1 << p, seconds))
+
+    def cost(self, p):
+        sizes = {n for n, _ in self.timed}
+        if len(sizes) >= 2:
+            n_bar = sum(n for n, _ in self.timed) / len(self.timed)
+            s_bar = sum(s for _, s in self.timed) / len(self.timed)
+            a = (sum((n - n_bar) * (s - s_bar) for n, s in self.timed) /
+                 sum((n - n_bar) ** 2 for n, _ in self.timed))
+            a = max(a, 0.0)
+            f = max(s_bar - a * n_bar, 0.0)
+        elif self.timed:
+            n, s = self.timed[-1]
+            f = min(self.FIXED, s)
+            a = (s - f) / n
+        else:
+            f, a = self.FIXED, 1e-6
+        return f + a * (1 << p)
+
+    def close_cost(self, nu, p):
+        """C(p): the time to close cell nu from 2^p points, the reruns it is expected to force included."""
+        z = rises(nu)
+        c = float(self.c())
+        total = self.cost(FINEST)
+        for q in range(FINEST - 1, p - 1, -1):
+            mu = c * z ** 4 / 8.0 ** q
+            total = self.cost(q) + (1.0 - math.exp(-mu)) * total
+        return total
+
+    def choose(self, nu, above=None):
+        """The p of least C for cell nu, past `above` where given, within one of the last cell's."""
+        low = COARSEST if above is None else above + 1
+        options = [p for p in range(max(low, math.ceil(math.log2(rises(nu)))), FINEST + 1)]
+        p = min(options, key=lambda q: self.close_cost(nu, q))
+        if above is None and self.last_p is not None:
+            p = min(max(p, self.last_p - 1), self.last_p + 1)
+            self.last_p = p
+        elif above is None:
+            self.last_p = p
+        return p
+
+
+def run_cell(binary, constants, nu, p, method, level=0, listing=0):
+    """Cell nu at 2^p points from the device, its main sum by `method`; by Euler-Maclaurin at widening `level`; with
+    `listing`, every point's sign, S, Z and w written out beside the sums, at the path the cell keeps."""
+    terms = em_terms(level) if method == "em" else 0
+    heads = em_heads(nu, terms) if method == "em" else 0
+    per_point = heads - 1 if method == "em" else nu
     piece = 1 << p
-    while piece * nu >= 1 << LANE_BITS:
+    while piece * per_point >= 1 << LANE_BITS:
         piece >>= 1
-    bound, theta_bound = bounds(nu, constants.slope, p, method)
+    if method == "em":
+        bound, theta_bound = em_bounds(nu, heads, terms)
+    else:
+        bound, theta_bound = bounds(nu, constants.slope, p, method)
     folder = tempfile.mkdtemp(prefix="turing_")
     given, taken = os.path.join(folder, "in.bin"), os.path.join(folder, "out.txt")
     with open(given, "wb") as handle:
         array.array("q", (1 << p, min(CHECKED, piece), nu, p, ARTANH_TERMS, COS_TERMS, GAMMA_TERMS, NEWTON_STEPS,
-                          piece, METHODS[method], ORDER, BETA, E1_TERMS, SINC_TERMS)).tofile(handle)
+                          piece, METHODS[method], ORDER, BETA, E1_TERMS, SINC_TERMS, heads, terms, listing)).tofile(handle)
         for v in ([constants.ln2] + constants.gamma + constants.artanh + constants.cosine +
                   [constants.c96, bound, theta_bound, constants.pi_scaled] + constants.fact +
-                  constants.sinc):
+                  constants.sinc + (em_ratios(terms) if method == "em" else [])):
             put(handle, v)
     # the multiple evaluation's longest programs hold frames past the device's stack limit, and are kept as PTX: built
     # again as C source, they go to NVRTC, which compiles a program of their length far slower than the run
-    ran = subprocess.run([binary, given, taken], capture_output=True, text=True,
-                         env=dict(os.environ, CYCLE_RECORD_KEEP_PTX="1"))
-    if ran.returncode:
+    # a run whose checks fail writes nothing the machine reads; it is run once more, and both failures are printed
+    for attempt in range(2):
+        ran = subprocess.run([binary, given, taken], capture_output=True, text=True,
+                             env=dict(os.environ, CYCLE_RECORD_KEEP_PTX="1"))
+        if not ran.returncode:
+            break
         print(ran.stdout.strip()[-2000:])
         print(ran.stderr.strip()[-2000:])
+        print("  cell %d at 2^%d points: the device run failed, attempt %d" % (nu, p, attempt + 1))
+    if ran.returncode:
         raise SystemExit("  cell %d at 2^%d points: the device run failed" % (nu, p))
-    return Cell(nu, p, open(taken).read().splitlines()), bound
+    with open(taken) as handle:
+        cell = Cell(nu, p, [line for line in handle if not line.startswith("point")])
+    cell.path = taken
+    return cell, bound
 
 
 def ln_high(t):
@@ -447,8 +638,90 @@ def control(cell):
               (cell.nu, j, cell.nu, cell.p, float(device), float(house), abs(float(device - house))))
 
 
+def control_em(cell, other=None, bounds_sum=None):
+    """Euler-Maclaurin's Z at two points of a cell against the house's exact_zeta_zeros routes, and where `other` is
+    the same cell by Riemann-Siegel, against its Z within the two bounds."""
+    print("  positive control, cell %d by Euler-Maclaurin:" % cell.nu)
+    places = 40
+    for at, (j, z) in enumerate(zip((0, cell.points // 3), cell.control)):
+        device = Fraction(z, 1 << SCALE_BITS)
+        big_s = (cell.nu ** 2 << cell.p) + j * (2 * cell.nu + 1)
+        x = naturals._integer_sqrt(big_s * 10 ** (2 * places) >> cell.p)
+        house = Fraction(rs.em_at((cell.nu, rs.zz.pair(x - cell.nu * 10 ** places, places), 30)), 10 ** 30)
+        line = "    s = %d^2 + %d (2 %d + 1) / 2^%d  device Z %.15f  house Z %.15f  apart %.3e" % (
+            cell.nu, j, cell.nu, cell.p, float(device), float(house), abs(float(device - house)))
+        if other is not None:
+            gap = abs(device - Fraction(other.control[at], 1 << SCALE_BITS))
+            line += "  from Riemann-Siegel's %.3e, within %.3e: %s" % (
+                float(gap), float(bounds_sum / 2 ** SCALE_BITS), gap <= Fraction(bounds_sum, 1 << SCALE_BITS))
+        print(line)
+
+
+def main_em(binary, first, last, rate):
+    """Every zero up to T_a, cell `last` + 1's F, by Euler-Maclaurin over cells `first` to `last`, against N(T_a)
+    held by Turing's method over cells `last`, `last` + 1 and `last` + 2 by Riemann-Siegel.
+
+    A dead reckoning walk: each point's Z is a fix, its bound the error about it, and a point clearing its bound is a
+    certified sign. Where the count falls short, a cell with a mark of two uncertified points, or every cell where
+    none has one, widens its search, four times the points and ten Bernoulli terms more with N to match, until the
+    count closes or the rounds run out. If the certified sign changes in (t at cell `first`'s F, T_a] reach N(T_a),
+    each is a zero on the line and simple, and none lies below: the count is at most N(T_a) less N at the start."""
+    sys.stdout.reconfigure(line_buffering=True)
+    constants = Constants()
+    above_cells = {}
+    for nu in (last, last + 1, last + 2):
+        above_cells[nu], _ = run_cell(binary, constants, nu, lattice(nu, rate), "pairs")
+    target = above_cells[last + 1]
+    low = math.ceil(below(target, above_cells[last]))
+    high = math.floor(above(target, above_cells[last + 2]))
+    print("  T_a = %.6f, cell %d's F by Riemann-Siegel: %d <= N(T_a) <= %d" % (t_of(target.x2("first")), last + 1, low, high))
+    cells, levels = {}, {}
+    for nu in range(first, last + 1):
+        levels[nu] = 0
+        cells[nu], bound = run_cell(binary, constants, nu, lattice(nu, rate), "em", 0)
+        print("  cell %d at 2^%d points by Euler-Maclaurin, N = %d, M = %d: bound on Z %.3e, %d zeros past F, %d loose" %
+              (nu, cells[nu].p, em_heads(nu, em_terms(0)), em_terms(0), bound / 2 ** SCALE_BITS,
+               cells[nu].sums["zeros_after"], cells[nu].sums["loose"]))
+    control_em(cells[first])
+    print("  steps of the pole, point, pair, verdict and count programs, then Euler-Maclaurin's: %s" %
+          cells[first].steps)
+    rs_bound, _ = bounds(last, constants.slope, cells[last].p, "pairs")
+    em_bound, _ = em_bounds(last, em_heads(last, em_terms(0)), em_terms(0))
+    control_em(cells[last], above_cells[last], rs_bound + em_bound)
+
+    def counted():
+        joins = [between(cells[nu], cells[nu + 1]) for nu in range(first, last)]
+        return sum(joins) + between(cells[last], target)
+
+    count = counted()
+    for round_ in range(ROUNDS + 1):
+        print("  round %d: %d sign changes certified in (%.6f, %.6f], N(T_a) %d" %
+              (round_, count, t_of(cells[first].x2("first")), t_of(target.x2("first")), low))
+        if count >= low or round_ == ROUNDS:
+            break
+        need_fix = [nu for nu in cells if cells[nu].sums["loose"] > 0] or list(cells)
+        for nu in need_fix:
+            if cells[nu].p + 2 <= FINEST:
+                levels[nu] += 1
+                cells[nu], _ = run_cell(binary, constants, nu, cells[nu].p + 2, "em", levels[nu])
+        count = counted()
+    failed = sum(cell.failed for cell in cells.values()) + sum(cell.failed for cell in above_cells.values())
+    proven = (count == high) and (failed == 0)
+    print("  %s; %d host checks failed" %
+          ("every zero in (0, %.6f] is on the line and simple: %d" % (t_of(target.x2("first")), count) if proven
+           else "the count does not close", failed))
+    return 0 if proven else 1
+
+
 def main():
     binary = sys.argv[1]
+    if len(sys.argv) > 5 and sys.argv[5] == "em":
+        first = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+        last = int(sys.argv[3]) if len(sys.argv) > 3 else 10
+        rate = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+        if first < 1 or 2 * last * last <= 168:
+            raise SystemExit("  Euler-Maclaurin runs from cell 1 up, and its last cell must start past t = 168 pi")
+        return main_em(binary, first, last, rate)
     first = int(sys.argv[2]) if len(sys.argv) > 2 else 10
     last = int(sys.argv[3]) if len(sys.argv) > 3 else 20
     rate = int(sys.argv[4]) if len(sys.argv) > 4 else 4
@@ -458,16 +731,36 @@ def main():
                          "and the method is one of %s" % ", ".join(METHODS))
     sys.stdout.reconfigure(line_buffering=True)
     constants = Constants()
+    control_ = Control() if rate == 0 else None
     cells = {}
+
+    def shortfall(nu):
+        """The zeros cell nu misses, from N held at its F and the next cell's: 0 where it closes."""
+        low = math.ceil(below(cells[nu], cells[nu - 1]))
+        high = math.floor(above(cells[nu + 1], cells[nu + 2]))
+        return max(0, high - low - between(cells[nu], cells[nu + 1]))
+
+    def timed(nu, p):
+        began = time.time()
+        cell, bound = run_cell(binary, constants, nu, p, method)
+        if control_:
+            control_.timing(p, time.time() - began)
+        return cell, bound
+
     for nu in range(first, last + 1):
-        cells[nu], bound = run_cell(binary, constants, nu, lattice(nu, rate), method)
+        p = control_.choose(nu) if control_ else lattice(nu, rate)
+        cells[nu], bound = timed(nu, p)
+        if control_ and nu - 3 >= first:
+            m = nu - 2
+            control_.measure(m, cells[m].p, shortfall(m))
         if nu == first:
             control(cells[nu])
             print("  steps of the pole, point, pair, verdict and count programs, then the multiple evaluation's: %s" %
                   cells[nu].steps)
-        print("  cell %d at 2^%d points: bound on Z %.3e, F %d, %d zeros past F, %d loose" %
+        print("  cell %d at 2^%d points: bound on Z %.3e, F %d, %d zeros past F, %d loose%s" %
               (nu, cells[nu].p, bound / 2 ** SCALE_BITS, cells[nu].first, cells[nu].sums["zeros_after"],
-               cells[nu].sums["loose"]))
+               cells[nu].sums["loose"], "; c %.3f, a run %.2f s at 2^%d" %
+               (float(control_.c()), control_.timed[-1][1], cells[nu].p) if control_ else ""))
         if cells[nu].apart:
             print("    the transform's Z and the pairs' differ by %.3e at most, at point %d" %
                   (cells[nu].apart[0] / 2 ** SCALE_BITS, cells[nu].apart[1]))
@@ -485,8 +778,10 @@ def main():
             break
         coarse = set(short) | {m for nu in loose for m in (nu - 1, nu, nu + 1) if first <= m <= last}
         for nu in sorted(coarse):
-            if cells[nu].p + 2 <= FINEST:
+            if cells[nu].p + 2 <= FINEST and not control_:
                 cells[nu], _ = run_cell(binary, constants, nu, cells[nu].p + 2, method)
+            elif control_ and cells[nu].p < FINEST:
+                cells[nu], _ = timed(nu, control_.choose(nu, cells[nu].p))
     failed = sum(cell.failed for cell in cells.values())
     (low_a, high_a), (low_z, high_z) = held[first + 1], held[last]
     print("  T_a = %.6f: %d <= N(T_a) <= %d" % (t_of(cells[first + 1].x2("first")), low_a, high_a))
