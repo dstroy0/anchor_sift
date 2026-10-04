@@ -37,7 +37,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 31 | word_multiply_add | f8 f7 r8 f8 | PTX | `mad.lo.s32 {to}, {left}, {right}, {added};` |  |
 | 32 | global_load | r3 r7 n | PTX | `ld.u32 {to}, [{address}+{offset}];` | the question names no address space |
 | 33 | global_load | r3 r7 n | PTX | `ld.u32 {to}, [{address}+{offset}];` | the question names no address space |
-| 34 | word_copy | r0 r3 | PTX | `` | the compiler writes no instruction for it |
+| 34 | word_copy | r0 r3 | PTX | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 35 | word_and | r4 r0 r8 | PTX | `and.b32 {to}, {left}, -{right};` |  |
 | 36 | word_and | r4 r0 r8 | PTX | `and.b32 {to}, {left}, {right};` |  |
 | 37 | test_nonzero | r6 r4 | PTX | `setp.ne.s32 {where}, {value}, 0;` |  |
@@ -114,9 +114,9 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 108 | sign_multiply | r4 r1 r4 | PTX | `mul.lo.s32 %r732, {left}, {right}; \| cvt.s32.s8 {to}, %r732;` | the compiler writes 2 instructions where the ruleset writes 1 |
 | 109 | sign_select | r4 r4 r1 r6 | PTX | `setp.eq.s32 %p27, {where}, 0; \| selp.b32 %r737, {otherwise}, {chosen}, %p27; \| cvt.s32.s8 {to}, %r737;` | the compiler writes 3 instructions where the ruleset writes 1 |
 | 110 | sign_select | r4 r1 r4 r6 | PTX | `setp.eq.s32 %p28, {where}, 0; \| selp.b32 %r742, {otherwise}, {chosen}, %p28; \| cvt.s32.s8 {to}, %r742;` | the compiler writes 3 instructions where the ruleset writes 1 |
-| 111 | word_copy | r0 r0 | PTX | `` | the compiler writes no instruction for it |
+| 111 | word_copy | r0 r0 | PTX | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 112 | sign_absolute | r1 r1 | PTX | `and.b32 %r746, {from}, 128; \| setp.eq.s32 %p29, %r746, 0; \| cvt.s32.s8 %r747, {from}; \| neg.s32 %r748, %r747; \| selp.b32 %r749, %r747, %r748, %p29; \| cvt.s32.s8 {to}, %r749;` | the compiler writes 6 instructions where the ruleset writes 1 |
-| 113 | word_copy | r4 r0 | PTX | `` | the compiler writes no instruction for it |
+| 113 | word_copy | r4 r0 | PTX | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 114 | word_or | r4 r4 r4 | PTX | `or.b32 {to}, {right}, {left};` |  |
 | 115 | sign_select | r4 r4 n r6 | PTX | `setp.eq.s32 %p30, {where}, 0; \| cvt.s32.s8 %r757, {chosen}; \| selp.b32 {to}, 0, %r757, %p30;` | the compiler writes 3 instructions where the ruleset writes 1 |
 | 116 | sign_select | r4 r4 n r6 | PTX | `setp.eq.s32 %p31, {where}, 0; \| cvt.s32.s8 %r761, {chosen}; \| selp.b32 {to}, {otherwise}, %r761, %p31;` | the compiler writes 3 instructions where the ruleset writes 1 |
@@ -155,7 +155,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 149 | add_alone | r4 r4 r8 | PTX | `add.s32 {to}, {left}, {right};` |  |
 | 150 | add_first | r4 r4 r4 | PTX | `add.s64 {to}, {right}, {left}; \| shr.u64 <carry>, {to}, 32;` | the compiler writes 2 instructions where the ruleset writes 1 |
 | 151 | add_last | r4 r4 r4 | PTX | `add.s32 %r845, {right}, {left}; \| add.s32 {to}, %r845, <carry>;` | the compiler writes 2 instructions where the ruleset writes 1 |
-| 152 | word_copy | r0 r4 | PTX | `` | the compiler writes no instruction for it |
+| 152 | word_copy | r0 r4 | PTX | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 153 | sign_select | r1 r1 n r6 | PTX | `setp.eq.s32 %p40, {where}, 0; \| cvt.s32.s8 %r850, {chosen}; \| selp.b32 {to}, 0, %r850, %p40;` | the compiler writes 3 instructions where the ruleset writes 1 |
 | 154 | sign_select | r1 r1 n r6 | PTX | `setp.eq.s32 %p41, {where}, 0; \| cvt.s32.s8 %r854, {chosen}; \| selp.b32 {to}, {otherwise}, %r854, %p41;` | the compiler writes 3 instructions where the ruleset writes 1 |
 | 155 | launch_load | r5 n | PTX | `ld.u64 {to}, [<launch>+{offset}];` | the ruleset names no fixed register launch |
@@ -186,7 +186,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 180 | borrow_read | r4 r6 | PTX | `neg.s32 {borrow}, <carry>; \| setp.ne.s32 {where}, <carry>, 0;` | the ruleset names no fixed register carry |
 | 181 | word_funnel_right | r4 r4 f0 n | PTX | `bfi.b64 %rd402, {high}, {low}, 32, 32; \| shr.u64 {to}, %rd402, {bits};` | the compiler writes 2 instructions where the ruleset writes 1 |
 | 182 | word_funnel_right | r4 r4 f0 n | PTX | `bfi.b64 %rd406, {high}, {low}, 32, 32; \| shr.u64 {to}, %rd406, {bits};` | the compiler writes 2 instructions where the ruleset writes 1 |
-| 183 | word_copy | r4 f0 | PTX | `` | the compiler writes no instruction for it |
+| 183 | word_copy | r4 f0 | PTX | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 184 | add_first | r0 r0 r0 | PTX | `add.s64 {to}, {right}, {left}; \| shr.u64 <carry>, {to}, 32;` | the compiler writes 2 instructions where the ruleset writes 1 |
 | 185 | add_middle | r0 r0 r0 | PTX | `add.s64 %rd415, {right}, {left}; \| add.s64 {to}, %rd415, <carry>; \| shr.u64 <carry>, {to}, 32;` | the compiler writes 3 instructions where the ruleset writes 1 |
 | 186 | add_middle | r0 r0 f0 | PTX | `add.s64 %rd421, {right}, {left}; \| add.s64 {to}, %rd421, <carry>; \| shr.u64 <carry>, {to}, 32;` | the compiler writes 3 instructions where the ruleset writes 1 |
@@ -215,7 +215,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 209 | borrow_read | r4 r6 | PTX | `neg.s32 {borrow}, <carry>; \| setp.ne.s32 {where}, <carry>, 0;` | the ruleset names no fixed register carry |
 | 210 | launch_load | f6 n | PTX | `ld.u64 {to}, [<launch>+{offset}];` | the ruleset names no fixed register launch |
 | 211 | launch_load | f6 n | PTX | `ld.u64 {to}, [<launch>+{offset}];` | the ruleset names no fixed register launch |
-| 212 | wide_unpack | r0 r0 f1 | PTX | `shr.u64 {high}, {low}, 32;` | the reading does not name from |
+| 212 | wide_unpack | r0 r0 f1 | PTX | `shr.u64 {high}, {low}, 32;` | the system folds the register put for from; the reading does not name from |
 | 213 | test_wide_nonzero | r6 f1 | PTX | `setp.ne.s64 {where}, {value}, 0;` |  |
 | 214 | word_multiply | r4 r4 r8 | PTX | `shl.b32 {to}, {left}, 1;` | the system folds the number put for right; the reading does not name right |
 | 215 | word_multiply | r4 r4 r8 | PTX | `mul.lo.s32 {to}, {left}, {right};` |  |
@@ -270,7 +270,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4135 | word_multiply_add | f8 f7 r8 f8 | SASS, numbers loaded | `IMAD {to}, {left}, {right}, {added};` |  |
 | 4136 | global_load | r3 r7 n | SASS | `LDG.E.CONSTANT {to}, [{address}.64+{offset}];` |  |
 | 4137 | global_load | r3 r7 n | SASS | `LDG.E.CONSTANT {to}, [{address}.64+{offset}];` |  |
-| 4138 | word_copy | r0 r3 | SASS | `` | the compiler writes no instruction for it |
+| 4138 | word_copy | r0 r3 | SASS | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 4139 | word_and | r4 r0 r8 | SASS | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
 | 4140 | word_and | r4 r0 r8 | SASS | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
 | 4141 | word_and | r4 r0 r8 | SASS, numbers loaded | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
@@ -346,9 +346,9 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4211 | sign_multiply | r4 r1 r4 | SASS | `IMAD {to}, {left}, {right}, RZ;` |  |
 | 4212 | sign_select | r4 r4 r1 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4213 | sign_select | r4 r1 r4 r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
-| 4214 | word_copy | r0 r0 | SASS | `` | the compiler writes no instruction for it |
+| 4214 | word_copy | r0 r0 | SASS | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 4215 | sign_absolute | r1 r1 | SASS | `IABS {to}, {from};` |  |
-| 4216 | word_copy | r4 r0 | SASS | `` | the compiler writes no instruction for it |
+| 4216 | word_copy | r4 r0 | SASS | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 4217 | word_or | r4 r4 r4 | SASS | `LOP3.LUT {to}, {right}, {left}, RZ, 0xfc, !PT;` |  |
 | 4218 | sign_select | r4 r4 n r6 | SASS | `SEL {to}, {chosen}, RZ, {where};` | the system folds the number put for otherwise; the reading does not name otherwise |
 | 4219 | sign_select | r4 r4 n r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
@@ -388,7 +388,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4253 | add_alone | r4 r4 r8 | SASS | `IADD3 {to}, {left}, {right}, RZ;` |  |
 | 4254 | add_alone | r4 r4 r8 | SASS, numbers loaded | `IMAD.IADD {to}, {left}, 0x1, {right};` | the machine file holds no form for it |
 | 4255 | add_last | r4 r4 r4 | SASS | `IMAD.X {to}, {left}, 0x1, {right}, P6;` |  |
-| 4256 | word_copy | r0 r4 | SASS | `` | the compiler writes no instruction for it |
+| 4256 | word_copy | r0 r4 | SASS | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 4257 | sign_select | r1 r1 n r6 | SASS | `SEL {to}, {chosen}, RZ, {where};` | the system folds the number put for otherwise; the reading does not name otherwise |
 | 4258 | sign_select | r1 r1 n r6 | SASS | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
 | 4259 | sign_select | r1 r1 n r6 | SASS, numbers loaded | `SEL {to}, {chosen}, {otherwise}, {where};` |  |
@@ -421,7 +421,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4286 | word_funnel_right | r4 r4 f0 n | SASS | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
 | 4287 | word_funnel_right | r4 r4 f0 n | SASS | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
 | 4288 | word_funnel_right | r4 r4 f0 n | SASS, numbers loaded | `SHF.R.U32 {to}, {low}, {bits}, {high};` |  |
-| 4289 | word_copy | r4 f0 | SASS | `` | the compiler writes no instruction for it |
+| 4289 | word_copy | r4 f0 | SASS | `` | the system folds the register put for to; the compiler writes no instruction for it |
 | 4290 | word_and | r0 r0 r8 | SASS | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
 | 4291 | word_and | r0 r0 r8 | SASS | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
 | 4292 | word_and | r0 r0 r8 | SASS, numbers loaded | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` |  |
@@ -433,7 +433,7 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | 4298 | borrow_last | r4 r0 r0 | SASS | `IADD3.X {to}, P6, {left}, ~{right}, RZ, P6, !PT;` |  |
 | 4299 | launch_load | f6 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
 | 4300 | launch_load | f6 n | SASS | `LD.E.64 {to}, [<launch>.64+{offset}];` | the question names no address space |
-| 4301 | wide_unpack | r0 r0 f1 | SASS | `` | the compiler writes no instruction for it |
+| 4301 | wide_unpack | r0 r0 f1 | SASS | `` | the system folds the register put for low; the compiler writes no instruction for it |
 | 4302 | test_wide_nonzero | r6 f1 | SASS | `ISETP.NE.U32.AND P6, PT, {value}, RZ, PT; \| ISETP.NE.AND.EX {where}, PT, {value}.hi, RZ, PT, P6;` |  |
 | 4303 | word_multiply | r4 r4 r8 | SASS | `IMAD.SHL.U32 {to}, {left}, {right}, RZ;` |  |
 | 4304 | word_multiply | r4 r4 r8 | SASS | `IMAD {to}, {left}, {right}, RZ;` |  |
@@ -492,9 +492,9 @@ Written by `monolith_forms.sh` whole on every run. Every form the lanes of the r
 | wide_multiply_word | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` | `IMAD.WIDE.U32 {to}, {left}, {right}, RZ;` | same | `mul.wide.u32 {to}, {left}, {right};` | `mul.wide.u32 {to}, {left}, {right};` | same |
 | wide_select | `MOV R254, {chosen}; \| SEL {to}, R254, {otherwise}, {where}; \| MOV R254, {chosen}.hi; \| SEL {to}.hi, R254, {otherwise}.hi, {where};` | `` | kept: the questions read apart | `selp.b64 {to}, {chosen}, {otherwise}, {where};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
 | wide_shift_left | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| SHF.L.U32 {to}, {from}, {bits}, RZ;` | `SHF.L.U64.HI {to}.hi, {from}, {bits}, {from}.hi; \| SHF.L.U32 {to}, {from}, {bits}, RZ;` | same | `shl.b64 {to}, {from}, {bits};` | `shl.b64 {to}, {from}, {bits};` | same |
-| wide_unpack | `MOV {low}, {from}; \| MOV {high}, {from}.hi;` | `` | kept: the compiler writes no instruction for it | `mov.b64 {{low}, {high}}, {from};` | `` | kept: the reading does not name from |
+| wide_unpack | `MOV {low}, {from}; \| MOV {high}, {from}.hi;` | `` | kept: the system folds the register put for low; the compiler writes no instruction for it | `mov.b64 {{low}, {high}}, {from};` | `` | kept: the system folds the register put for from; the reading does not name from |
 | word_and | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | `LOP3.LUT {to}, {left}, {right}, RZ, 0xc0, !PT;` | same | `and.b32 {to}, {left}, {right};` | `` | kept: the questions read apart |
-| word_copy | `MOV {to}, {from};` | `` | kept: the compiler writes no instruction for it | `mov.b32 {to}, {from};` | `` | kept: the compiler writes no instruction for it |
+| word_copy | `MOV {to}, {from};` | `` | kept: the system folds the register put for to; the compiler writes no instruction for it | `mov.b32 {to}, {from};` | `` | kept: the system folds the register put for to; the compiler writes no instruction for it |
 | word_funnel_right | `SHF.R.U32 {to}, {low}, {bits}, {high};` | `SHF.R.U32 {to}, {low}, {bits}, {high};` | same | `shf.r.clamp.b32 {to}, {low}, {high}, {bits};` | `` | kept: the compiler writes 2 instructions where the ruleset writes 1 |
 | word_multiply | `IMAD {to}, {left}, {right}, RZ;` | `IMAD {to}, {left}, {right}, RZ;` | same | `mul.lo.u32 {to}, {left}, {right};` | `mul.lo.s32 {to}, {left}, {right};` | same |
 | word_multiply_add | `IMAD {to}, {left}, {right}, {added};` | `IMAD {to}, {left}, {right}, {added};` | same | `mad.lo.s32 {to}, {left}, {right}, {added};` | `mad.lo.s32 {to}, {left}, {right}, {added};` | same |

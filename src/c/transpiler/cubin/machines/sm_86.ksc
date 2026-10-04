@@ -27,7 +27,7 @@ count decode   folds    0
 count compile  answers  28
 count compile  nothing  0
 count compile  illegal  0
-count compile  folds    9
+count compile  folds    11
 count clock    answers  2
 count clock    nothing  1
 count clock    illegal  0
@@ -81,6 +81,8 @@ compile folds 00000000 test_signed_differ: the system folds the number put for r
 compile folds 00000000 wide_add_unsigned: the system folds the number put for right
 compile folds 00000000 wide_multiply: the system folds the number put for right
 compile folds 00000000 wide_select: the system folds the number put for otherwise
+compile folds 00000000 wide_unpack: the system folds the register put for low
+compile folds 00000000 word_copy: the system folds the register put for to
 compile folds 00000000 word_multiply: the system folds the number put for right
 compile folds 00000000 word_set: the system folds the number put for value
 compile folds 00000000 word_shift_left: the system folds the number put for bits
